@@ -15,6 +15,6 @@
 
 module Network.AWS.OpsWorks.Waiters where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter

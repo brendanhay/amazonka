@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.GetBucketCORS
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,29 @@ module Network.AWS.S3.GetBucketCORS
     , getBucketCORSResponse
     -- ** Response lenses
     , gbcrCORSRules
-    , gbcrStatusCode
+    , gbcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketCORS' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gbcBucket'
-newtype GetBucketCORS = GetBucketCORS'{_gbcBucket :: BucketName} deriving (Eq, Read, Show)
+newtype GetBucketCORS = GetBucketCORS'
+    { _gbcBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketCORS' smart constructor.
 getBucketCORS :: BucketName -> GetBucketCORS
-getBucketCORS pBucket = GetBucketCORS'{_gbcBucket = pBucket};
+getBucketCORS pBucket =
+    GetBucketCORS'
+    { _gbcBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 gbcBucket :: Lens' GetBucketCORS BucketName
@@ -82,17 +87,24 @@ instance ToQuery GetBucketCORS where
 --
 -- * 'gbcrCORSRules'
 --
--- * 'gbcrStatusCode'
-data GetBucketCORSResponse = GetBucketCORSResponse'{_gbcrCORSRules :: Maybe [CORSRule], _gbcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gbcrStatus'
+data GetBucketCORSResponse = GetBucketCORSResponse'
+    { _gbcrCORSRules :: Maybe [CORSRule]
+    , _gbcrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketCORSResponse' smart constructor.
 getBucketCORSResponse :: Int -> GetBucketCORSResponse
-getBucketCORSResponse pStatusCode = GetBucketCORSResponse'{_gbcrCORSRules = Nothing, _gbcrStatusCode = pStatusCode};
+getBucketCORSResponse pStatus =
+    GetBucketCORSResponse'
+    { _gbcrCORSRules = Nothing
+    , _gbcrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 gbcrCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
 gbcrCORSRules = lens _gbcrCORSRules (\ s a -> s{_gbcrCORSRules = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gbcrStatusCode :: Lens' GetBucketCORSResponse Int
-gbcrStatusCode = lens _gbcrStatusCode (\ s a -> s{_gbcrStatusCode = a});
+gbcrStatus :: Lens' GetBucketCORSResponse Int
+gbcrStatus = lens _gbcrStatus (\ s a -> s{_gbcrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.GetBucketNotificationConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,21 +36,26 @@ module Network.AWS.S3.GetBucketNotificationConfiguration
     , ncLambdaFunctionConfigurations
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketNotificationConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gbncBucket'
-newtype GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'{_gbncBucket :: BucketName} deriving (Eq, Read, Show)
+newtype GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
+    { _gbncBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketNotificationConfiguration' smart constructor.
 getBucketNotificationConfiguration :: BucketName -> GetBucketNotificationConfiguration
-getBucketNotificationConfiguration pBucket = GetBucketNotificationConfiguration'{_gbncBucket = pBucket};
+getBucketNotificationConfiguration pBucket =
+    GetBucketNotificationConfiguration'
+    { _gbncBucket = pBucket
+    }
 
 -- | Name of the buket to get the notification configuration for.
 gbncBucket :: Lens' GetBucketNotificationConfiguration BucketName

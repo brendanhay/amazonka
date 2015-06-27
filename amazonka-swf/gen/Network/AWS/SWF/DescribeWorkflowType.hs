@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.DescribeWorkflowType
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -59,13 +59,13 @@ module Network.AWS.SWF.DescribeWorkflowType
     -- ** Response lenses
     , dwtrTypeInfo
     , dwtrConfiguration
-    , dwtrStatusCode
+    , dwtrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'describeWorkflowType' smart constructor.
 --
@@ -74,11 +74,18 @@ import Network.AWS.SWF.Types
 -- * 'dwtDomain'
 --
 -- * 'dwtWorkflowType'
-data DescribeWorkflowType = DescribeWorkflowType'{_dwtDomain :: Text, _dwtWorkflowType :: WorkflowType} deriving (Eq, Read, Show)
+data DescribeWorkflowType = DescribeWorkflowType'
+    { _dwtDomain       :: Text
+    , _dwtWorkflowType :: WorkflowType
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkflowType' smart constructor.
 describeWorkflowType :: Text -> WorkflowType -> DescribeWorkflowType
-describeWorkflowType pDomain pWorkflowType = DescribeWorkflowType'{_dwtDomain = pDomain, _dwtWorkflowType = pWorkflowType};
+describeWorkflowType pDomain pWorkflowType =
+    DescribeWorkflowType'
+    { _dwtDomain = pDomain
+    , _dwtWorkflowType = pWorkflowType
+    }
 
 -- | The name of the domain in which this workflow type is registered.
 dwtDomain :: Lens' DescribeWorkflowType Text
@@ -132,12 +139,21 @@ instance ToQuery DescribeWorkflowType where
 --
 -- * 'dwtrConfiguration'
 --
--- * 'dwtrStatusCode'
-data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'{_dwtrTypeInfo :: WorkflowTypeInfo, _dwtrConfiguration :: WorkflowTypeConfiguration, _dwtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dwtrStatus'
+data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
+    { _dwtrTypeInfo      :: WorkflowTypeInfo
+    , _dwtrConfiguration :: WorkflowTypeConfiguration
+    , _dwtrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkflowTypeResponse' smart constructor.
 describeWorkflowTypeResponse :: WorkflowTypeInfo -> WorkflowTypeConfiguration -> Int -> DescribeWorkflowTypeResponse
-describeWorkflowTypeResponse pTypeInfo pConfiguration pStatusCode = DescribeWorkflowTypeResponse'{_dwtrTypeInfo = pTypeInfo, _dwtrConfiguration = pConfiguration, _dwtrStatusCode = pStatusCode};
+describeWorkflowTypeResponse pTypeInfo pConfiguration pStatus =
+    DescribeWorkflowTypeResponse'
+    { _dwtrTypeInfo = pTypeInfo
+    , _dwtrConfiguration = pConfiguration
+    , _dwtrStatus = pStatus
+    }
 
 -- | General information about the workflow type.
 --
@@ -158,5 +174,5 @@ dwtrConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguratio
 dwtrConfiguration = lens _dwtrConfiguration (\ s a -> s{_dwtrConfiguration = a});
 
 -- | FIXME: Undocumented member.
-dwtrStatusCode :: Lens' DescribeWorkflowTypeResponse Int
-dwtrStatusCode = lens _dwtrStatusCode (\ s a -> s{_dwtrStatusCode = a});
+dwtrStatus :: Lens' DescribeWorkflowTypeResponse Int
+dwtrStatus = lens _dwtrStatus (\ s a -> s{_dwtrStatus = a});

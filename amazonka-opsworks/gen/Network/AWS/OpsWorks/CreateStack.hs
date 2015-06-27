@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateStack
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,13 +55,13 @@ module Network.AWS.OpsWorks.CreateStack
     , createStackResponse
     -- ** Response lenses
     , creStackId
-    , creStatusCode
+    , creStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createStack' smart constructor.
 --
@@ -102,11 +102,50 @@ import Network.AWS.Response
 -- * 'csServiceRoleARN'
 --
 -- * 'csDefaultInstanceProfileARN'
-data CreateStack = CreateStack'{_csDefaultRootDeviceType :: Maybe RootDeviceType, _csChefConfiguration :: Maybe ChefConfiguration, _csVPCId :: Maybe Text, _csDefaultSSHKeyName :: Maybe Text, _csCustomJSON :: Maybe Text, _csCustomCookbooksSource :: Maybe Source, _csDefaultAvailabilityZone :: Maybe Text, _csUseOpsworksSecurityGroups :: Maybe Bool, _csDefaultOS :: Maybe Text, _csAttributes :: Maybe (Map StackAttributesKeys Text), _csUseCustomCookbooks :: Maybe Bool, _csDefaultSubnetId :: Maybe Text, _csConfigurationManager :: Maybe StackConfigurationManager, _csHostnameTheme :: Maybe Text, _csName :: Text, _csRegion :: Text, _csServiceRoleARN :: Text, _csDefaultInstanceProfileARN :: Text} deriving (Eq, Read, Show)
+data CreateStack = CreateStack'
+    { _csDefaultRootDeviceType     :: Maybe RootDeviceType
+    , _csChefConfiguration         :: Maybe ChefConfiguration
+    , _csVPCId                     :: Maybe Text
+    , _csDefaultSSHKeyName         :: Maybe Text
+    , _csCustomJSON                :: Maybe Text
+    , _csCustomCookbooksSource     :: Maybe Source
+    , _csDefaultAvailabilityZone   :: Maybe Text
+    , _csUseOpsworksSecurityGroups :: Maybe Bool
+    , _csDefaultOS                 :: Maybe Text
+    , _csAttributes                :: Maybe (Map StackAttributesKeys Text)
+    , _csUseCustomCookbooks        :: Maybe Bool
+    , _csDefaultSubnetId           :: Maybe Text
+    , _csConfigurationManager      :: Maybe StackConfigurationManager
+    , _csHostnameTheme             :: Maybe Text
+    , _csName                      :: Text
+    , _csRegion                    :: Text
+    , _csServiceRoleARN            :: Text
+    , _csDefaultInstanceProfileARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateStack' smart constructor.
 createStack :: Text -> Text -> Text -> Text -> CreateStack
-createStack pName pRegion pServiceRoleARN pDefaultInstanceProfileARN = CreateStack'{_csDefaultRootDeviceType = Nothing, _csChefConfiguration = Nothing, _csVPCId = Nothing, _csDefaultSSHKeyName = Nothing, _csCustomJSON = Nothing, _csCustomCookbooksSource = Nothing, _csDefaultAvailabilityZone = Nothing, _csUseOpsworksSecurityGroups = Nothing, _csDefaultOS = Nothing, _csAttributes = Nothing, _csUseCustomCookbooks = Nothing, _csDefaultSubnetId = Nothing, _csConfigurationManager = Nothing, _csHostnameTheme = Nothing, _csName = pName, _csRegion = pRegion, _csServiceRoleARN = pServiceRoleARN, _csDefaultInstanceProfileARN = pDefaultInstanceProfileARN};
+createStack pName pRegion pServiceRoleARN pDefaultInstanceProfileARN =
+    CreateStack'
+    { _csDefaultRootDeviceType = Nothing
+    , _csChefConfiguration = Nothing
+    , _csVPCId = Nothing
+    , _csDefaultSSHKeyName = Nothing
+    , _csCustomJSON = Nothing
+    , _csCustomCookbooksSource = Nothing
+    , _csDefaultAvailabilityZone = Nothing
+    , _csUseOpsworksSecurityGroups = Nothing
+    , _csDefaultOS = Nothing
+    , _csAttributes = Nothing
+    , _csUseCustomCookbooks = Nothing
+    , _csDefaultSubnetId = Nothing
+    , _csConfigurationManager = Nothing
+    , _csHostnameTheme = Nothing
+    , _csName = pName
+    , _csRegion = pRegion
+    , _csServiceRoleARN = pServiceRoleARN
+    , _csDefaultInstanceProfileARN = pDefaultInstanceProfileARN
+    }
 
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
@@ -354,12 +393,19 @@ instance ToQuery CreateStack where
 --
 -- * 'creStackId'
 --
--- * 'creStatusCode'
-data CreateStackResponse = CreateStackResponse'{_creStackId :: Maybe Text, _creStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'creStatus'
+data CreateStackResponse = CreateStackResponse'
+    { _creStackId :: Maybe Text
+    , _creStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateStackResponse' smart constructor.
 createStackResponse :: Int -> CreateStackResponse
-createStackResponse pStatusCode = CreateStackResponse'{_creStackId = Nothing, _creStatusCode = pStatusCode};
+createStackResponse pStatus =
+    CreateStackResponse'
+    { _creStackId = Nothing
+    , _creStatus = pStatus
+    }
 
 -- | The stack ID, which is an opaque string that you use to identify the
 -- stack when performing actions such as @DescribeStacks@.
@@ -367,5 +413,5 @@ creStackId :: Lens' CreateStackResponse (Maybe Text)
 creStackId = lens _creStackId (\ s a -> s{_creStackId = a});
 
 -- | FIXME: Undocumented member.
-creStatusCode :: Lens' CreateStackResponse Int
-creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});
+creStatus :: Lens' CreateStackResponse Int
+creStatus = lens _creStatus (\ s a -> s{_creStatus = a});

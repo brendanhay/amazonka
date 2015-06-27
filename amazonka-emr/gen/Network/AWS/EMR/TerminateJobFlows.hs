@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.TerminateJobFlows
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,10 +41,10 @@ module Network.AWS.EMR.TerminateJobFlows
     , terminateJobFlowsResponse
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the TerminateJobFlows operation.
 --
@@ -53,11 +53,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'tjfJobFlowIds'
-newtype TerminateJobFlows = TerminateJobFlows'{_tjfJobFlowIds :: [Text]} deriving (Eq, Read, Show)
+newtype TerminateJobFlows = TerminateJobFlows'
+    { _tjfJobFlowIds :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'TerminateJobFlows' smart constructor.
 terminateJobFlows :: TerminateJobFlows
-terminateJobFlows = TerminateJobFlows'{_tjfJobFlowIds = mempty};
+terminateJobFlows =
+    TerminateJobFlows'
+    { _tjfJobFlowIds = mempty
+    }
 
 -- | A list of job flows to be shutdown.
 tjfJobFlowIds :: Lens' TerminateJobFlows [Text]
@@ -89,8 +94,10 @@ instance ToQuery TerminateJobFlows where
         toQuery = const mempty
 
 -- | /See:/ 'terminateJobFlowsResponse' smart constructor.
-data TerminateJobFlowsResponse = TerminateJobFlowsResponse' deriving (Eq, Read, Show)
+data TerminateJobFlowsResponse =
+    TerminateJobFlowsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'TerminateJobFlowsResponse' smart constructor.
 terminateJobFlowsResponse :: TerminateJobFlowsResponse
-terminateJobFlowsResponse = TerminateJobFlowsResponse';
+terminateJobFlowsResponse = TerminateJobFlowsResponse'

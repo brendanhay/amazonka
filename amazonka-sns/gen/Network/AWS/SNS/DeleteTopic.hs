@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.DeleteTopic
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,21 +35,26 @@ module Network.AWS.SNS.DeleteTopic
     , deleteTopicResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | /See:/ 'deleteTopic' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtTopicARN'
-newtype DeleteTopic = DeleteTopic'{_dtTopicARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteTopic = DeleteTopic'
+    { _dtTopicARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTopic' smart constructor.
 deleteTopic :: Text -> DeleteTopic
-deleteTopic pTopicARN = DeleteTopic'{_dtTopicARN = pTopicARN};
+deleteTopic pTopicARN =
+    DeleteTopic'
+    { _dtTopicARN = pTopicARN
+    }
 
 -- | The ARN of the topic you want to delete.
 dtTopicARN :: Lens' DeleteTopic Text
@@ -75,8 +80,10 @@ instance ToQuery DeleteTopic where
                "TopicArn" =: _dtTopicARN]
 
 -- | /See:/ 'deleteTopicResponse' smart constructor.
-data DeleteTopicResponse = DeleteTopicResponse' deriving (Eq, Read, Show)
+data DeleteTopicResponse =
+    DeleteTopicResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteTopicResponse' smart constructor.
 deleteTopicResponse :: DeleteTopicResponse
-deleteTopicResponse = DeleteTopicResponse';
+deleteTopicResponse = DeleteTopicResponse'

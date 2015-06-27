@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeSnapshotSchedule
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     , dssrRecurrenceInHours
     , dssrTimezone
     , dssrDescription
-    , dssrStatusCode
+    , dssrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the DescribeSnapshotScheduleInput$VolumeARN of
 -- the volume.
@@ -54,11 +54,16 @@ import Network.AWS.StorageGateway.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dssVolumeARN'
-newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule'{_dssVolumeARN :: Text} deriving (Eq, Read, Show)
+newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule'
+    { _dssVolumeARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshotSchedule' smart constructor.
 describeSnapshotSchedule :: Text -> DescribeSnapshotSchedule
-describeSnapshotSchedule pVolumeARN = DescribeSnapshotSchedule'{_dssVolumeARN = pVolumeARN};
+describeSnapshotSchedule pVolumeARN =
+    DescribeSnapshotSchedule'
+    { _dssVolumeARN = pVolumeARN
+    }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
@@ -114,12 +119,27 @@ instance ToQuery DescribeSnapshotSchedule where
 --
 -- * 'dssrDescription'
 --
--- * 'dssrStatusCode'
-data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'{_dssrVolumeARN :: Maybe Text, _dssrStartAt :: Maybe Nat, _dssrRecurrenceInHours :: Maybe Nat, _dssrTimezone :: Maybe Text, _dssrDescription :: Maybe Text, _dssrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dssrStatus'
+data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
+    { _dssrVolumeARN         :: Maybe Text
+    , _dssrStartAt           :: Maybe Nat
+    , _dssrRecurrenceInHours :: Maybe Nat
+    , _dssrTimezone          :: Maybe Text
+    , _dssrDescription       :: Maybe Text
+    , _dssrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshotScheduleResponse' smart constructor.
 describeSnapshotScheduleResponse :: Int -> DescribeSnapshotScheduleResponse
-describeSnapshotScheduleResponse pStatusCode = DescribeSnapshotScheduleResponse'{_dssrVolumeARN = Nothing, _dssrStartAt = Nothing, _dssrRecurrenceInHours = Nothing, _dssrTimezone = Nothing, _dssrDescription = Nothing, _dssrStatusCode = pStatusCode};
+describeSnapshotScheduleResponse pStatus =
+    DescribeSnapshotScheduleResponse'
+    { _dssrVolumeARN = Nothing
+    , _dssrStartAt = Nothing
+    , _dssrRecurrenceInHours = Nothing
+    , _dssrTimezone = Nothing
+    , _dssrDescription = Nothing
+    , _dssrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dssrVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
@@ -142,5 +162,5 @@ dssrDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrDescription = lens _dssrDescription (\ s a -> s{_dssrDescription = a});
 
 -- | FIXME: Undocumented member.
-dssrStatusCode :: Lens' DescribeSnapshotScheduleResponse Int
-dssrStatusCode = lens _dssrStatusCode (\ s a -> s{_dssrStatusCode = a});
+dssrStatus :: Lens' DescribeSnapshotScheduleResponse Int
+dssrStatus = lens _dssrStatus (\ s a -> s{_dssrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteNotificationConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     , deleteNotificationConfigurationResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteNotificationConfiguration' smart constructor.
 --
@@ -45,11 +45,18 @@ import Network.AWS.Response
 -- * 'dncAutoScalingGroupName'
 --
 -- * 'dncTopicARN'
-data DeleteNotificationConfiguration = DeleteNotificationConfiguration'{_dncAutoScalingGroupName :: Text, _dncTopicARN :: Text} deriving (Eq, Read, Show)
+data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
+    { _dncAutoScalingGroupName :: Text
+    , _dncTopicARN             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteNotificationConfiguration' smart constructor.
 deleteNotificationConfiguration :: Text -> Text -> DeleteNotificationConfiguration
-deleteNotificationConfiguration pAutoScalingGroupName pTopicARN = DeleteNotificationConfiguration'{_dncAutoScalingGroupName = pAutoScalingGroupName, _dncTopicARN = pTopicARN};
+deleteNotificationConfiguration pAutoScalingGroupName pTopicARN =
+    DeleteNotificationConfiguration'
+    { _dncAutoScalingGroupName = pAutoScalingGroupName
+    , _dncTopicARN = pTopicARN
+    }
 
 -- | The name of the Auto Scaling group.
 dncAutoScalingGroupName :: Lens' DeleteNotificationConfiguration Text
@@ -88,8 +95,11 @@ instance ToQuery DeleteNotificationConfiguration
                "TopicARN" =: _dncTopicARN]
 
 -- | /See:/ 'deleteNotificationConfigurationResponse' smart constructor.
-data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse' deriving (Eq, Read, Show)
+data DeleteNotificationConfigurationResponse =
+    DeleteNotificationConfigurationResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteNotificationConfigurationResponse' smart constructor.
 deleteNotificationConfigurationResponse :: DeleteNotificationConfigurationResponse
-deleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse';
+deleteNotificationConfigurationResponse =
+    DeleteNotificationConfigurationResponse'

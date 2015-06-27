@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.DataPipeline.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -132,65 +131,75 @@ module Network.AWS.DataPipeline.Types
     , vwId
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2012-10-29@ of the Amazon Data Pipeline SDK.
 data DataPipeline
 
 instance AWSService DataPipeline where
     type Sg DataPipeline = V4
-
     service = const svc
       where
-        svc :: Service DataPipeline
-        svc = Service
-            { _svcAbbrev   = "DataPipeline"
-            , _svcPrefix   = "datapipeline"
-            , _svcVersion  = "2012-10-29"
+        svc =
+            Service
+            { _svcAbbrev = "DataPipeline"
+            , _svcPrefix = "datapipeline"
+            , _svcVersion = "2012-10-29"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The request was not valid. Verify that your request was properly
 -- formatted, that the signature was generated with the correct
 -- credentials, and that you haven\'t exceeded any of the service limits
 -- for your account.
-_InvalidRequestException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidRequestException = _ServiceError . hasCode "InvalidRequestException";
+_InvalidRequestException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
 
 -- | An internal service error occurred.
-_InternalServiceError :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalServiceError = _ServiceError . hasCode "InternalServiceError";
+_InternalServiceError :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServiceError = _ServiceError . hasCode "InternalServiceError"
 
 -- | The specified pipeline has been deleted.
-_PipelineDeletedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PipelineDeletedException = _ServiceError . hasCode "PipelineDeletedException";
+_PipelineDeletedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PipelineDeletedException = _ServiceError . hasCode "PipelineDeletedException"
 
 -- | The specified pipeline was not found. Verify that you used the correct
 -- user and account identifiers.
-_PipelineNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PipelineNotFoundException = _ServiceError . hasCode "PipelineNotFoundException";
+_PipelineNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PipelineNotFoundException =
+    _ServiceError . hasCode "PipelineNotFoundException"
 
 -- | The specified task was not found.
-_TaskNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TaskNotFoundException = _ServiceError . hasCode "TaskNotFoundException";
+_TaskNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TaskNotFoundException = _ServiceError . hasCode "TaskNotFoundException"
 
-data OperatorType = OperatorGE | OperatorEQ' | OperatorBetween | OperatorRefEQ | OperatorLE deriving (Eq, Ord, Read, Show, Enum, Generic)
+data OperatorType
+    = OperatorGE
+    | OperatorEQ'
+    | OperatorBetween
+    | OperatorRefEQ
+    | OperatorLE
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText OperatorType where
     parser = takeLowerText >>= \case
@@ -216,7 +225,11 @@ instance ToHeader OperatorType
 instance ToJSON OperatorType where
     toJSON = toJSONText
 
-data TaskStatus = Finished | False' | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data TaskStatus
+    = Finished
+    | False'
+    | Failed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText TaskStatus where
     parser = takeLowerText >>= \case
@@ -251,11 +264,20 @@ instance ToJSON TaskStatus where
 -- * 'fieStringValue'
 --
 -- * 'fieKey'
-data Field = Field'{_fieRefValue :: Maybe Text, _fieStringValue :: Maybe Text, _fieKey :: Text} deriving (Eq, Read, Show)
+data Field = Field'
+    { _fieRefValue    :: Maybe Text
+    , _fieStringValue :: Maybe Text
+    , _fieKey         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Field' smart constructor.
 field :: Text -> Field
-field pKey = Field'{_fieRefValue = Nothing, _fieStringValue = Nothing, _fieKey = pKey};
+field pKey =
+    Field'
+    { _fieRefValue = Nothing
+    , _fieStringValue = Nothing
+    , _fieKey = pKey
+    }
 
 -- | The field value, expressed as the identifier of another object.
 fieRefValue :: Lens' Field (Maybe Text)
@@ -299,11 +321,18 @@ instance ToJSON Field where
 -- * 'iiSignature'
 --
 -- * 'iiDocument'
-data InstanceIdentity = InstanceIdentity'{_iiSignature :: Maybe Text, _iiDocument :: Maybe Text} deriving (Eq, Read, Show)
+data InstanceIdentity = InstanceIdentity'
+    { _iiSignature :: Maybe Text
+    , _iiDocument  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceIdentity' smart constructor.
 instanceIdentity :: InstanceIdentity
-instanceIdentity = InstanceIdentity'{_iiSignature = Nothing, _iiDocument = Nothing};
+instanceIdentity =
+    InstanceIdentity'
+    { _iiSignature = Nothing
+    , _iiDocument = Nothing
+    }
 
 -- | A signature which can be used to verify the accuracy and authenticity of
 -- the information provided in the instance identity document.
@@ -332,11 +361,18 @@ instance ToJSON InstanceIdentity where
 -- * 'opeValues'
 --
 -- * 'opeType'
-data Operator = Operator'{_opeValues :: Maybe [Text], _opeType :: Maybe OperatorType} deriving (Eq, Read, Show)
+data Operator = Operator'
+    { _opeValues :: Maybe [Text]
+    , _opeType   :: Maybe OperatorType
+    } deriving (Eq,Read,Show)
 
 -- | 'Operator' smart constructor.
 operator :: Operator
-operator = Operator'{_opeValues = Nothing, _opeType = Nothing};
+operator =
+    Operator'
+    { _opeValues = Nothing
+    , _opeType = Nothing
+    }
 
 -- | The value that the actual field value will be compared with.
 opeValues :: Lens' Operator [Text]
@@ -391,11 +427,18 @@ instance ToJSON Operator where
 -- * 'paKey'
 --
 -- * 'paStringValue'
-data ParameterAttribute = ParameterAttribute'{_paKey :: Text, _paStringValue :: Text} deriving (Eq, Read, Show)
+data ParameterAttribute = ParameterAttribute'
+    { _paKey         :: Text
+    , _paStringValue :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ParameterAttribute' smart constructor.
 parameterAttribute :: Text -> Text -> ParameterAttribute
-parameterAttribute pKey pStringValue = ParameterAttribute'{_paKey = pKey, _paStringValue = pStringValue};
+parameterAttribute pKey pStringValue =
+    ParameterAttribute'
+    { _paKey = pKey
+    , _paStringValue = pStringValue
+    }
 
 -- | The field identifier.
 paKey :: Lens' ParameterAttribute Text
@@ -426,11 +469,18 @@ instance ToJSON ParameterAttribute where
 -- * 'poId'
 --
 -- * 'poAttributes'
-data ParameterObject = ParameterObject'{_poId :: Text, _poAttributes :: [ParameterAttribute]} deriving (Eq, Read, Show)
+data ParameterObject = ParameterObject'
+    { _poId         :: Text
+    , _poAttributes :: [ParameterAttribute]
+    } deriving (Eq,Read,Show)
 
 -- | 'ParameterObject' smart constructor.
 parameterObject :: Text -> ParameterObject
-parameterObject pId = ParameterObject'{_poId = pId, _poAttributes = mempty};
+parameterObject pId =
+    ParameterObject'
+    { _poId = pId
+    , _poAttributes = mempty
+    }
 
 -- | The ID of the parameter object.
 poId :: Lens' ParameterObject Text
@@ -461,11 +511,18 @@ instance ToJSON ParameterObject where
 -- * 'pvId'
 --
 -- * 'pvStringValue'
-data ParameterValue = ParameterValue'{_pvId :: Text, _pvStringValue :: Text} deriving (Eq, Read, Show)
+data ParameterValue = ParameterValue'
+    { _pvId          :: Text
+    , _pvStringValue :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ParameterValue' smart constructor.
 parameterValue :: Text -> Text -> ParameterValue
-parameterValue pId pStringValue = ParameterValue'{_pvId = pId, _pvStringValue = pStringValue};
+parameterValue pId pStringValue =
+    ParameterValue'
+    { _pvId = pId
+    , _pvStringValue = pStringValue
+    }
 
 -- | The ID of the parameter value.
 pvId :: Lens' ParameterValue Text
@@ -502,11 +559,24 @@ instance ToJSON ParameterValue where
 -- * 'pdName'
 --
 -- * 'pdFields'
-data PipelineDescription = PipelineDescription'{_pdDescription :: Maybe Text, _pdTags :: Maybe [Tag], _pdPipelineId :: Text, _pdName :: Text, _pdFields :: [Field]} deriving (Eq, Read, Show)
+data PipelineDescription = PipelineDescription'
+    { _pdDescription :: Maybe Text
+    , _pdTags        :: Maybe [Tag]
+    , _pdPipelineId  :: Text
+    , _pdName        :: Text
+    , _pdFields      :: [Field]
+    } deriving (Eq,Read,Show)
 
 -- | 'PipelineDescription' smart constructor.
 pipelineDescription :: Text -> Text -> PipelineDescription
-pipelineDescription pPipelineId pName = PipelineDescription'{_pdDescription = Nothing, _pdTags = Nothing, _pdPipelineId = pPipelineId, _pdName = pName, _pdFields = mempty};
+pipelineDescription pPipelineId pName =
+    PipelineDescription'
+    { _pdDescription = Nothing
+    , _pdTags = Nothing
+    , _pdPipelineId = pPipelineId
+    , _pdName = pName
+    , _pdFields = mempty
+    }
 
 -- | Description of the pipeline.
 pdDescription :: Lens' PipelineDescription (Maybe Text)
@@ -552,11 +622,18 @@ instance FromJSON PipelineDescription where
 -- * 'pinName'
 --
 -- * 'pinId'
-data PipelineIdName = PipelineIdName'{_pinName :: Maybe Text, _pinId :: Maybe Text} deriving (Eq, Read, Show)
+data PipelineIdName = PipelineIdName'
+    { _pinName :: Maybe Text
+    , _pinId   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PipelineIdName' smart constructor.
 pipelineIdName :: PipelineIdName
-pipelineIdName = PipelineIdName'{_pinName = Nothing, _pinId = Nothing};
+pipelineIdName =
+    PipelineIdName'
+    { _pinName = Nothing
+    , _pinId = Nothing
+    }
 
 -- | The name of the pipeline.
 pinName :: Lens' PipelineIdName (Maybe Text)
@@ -586,11 +663,20 @@ instance FromJSON PipelineIdName where
 -- * 'pipName'
 --
 -- * 'pipFields'
-data PipelineObject = PipelineObject'{_pipId :: Text, _pipName :: Text, _pipFields :: [Field]} deriving (Eq, Read, Show)
+data PipelineObject = PipelineObject'
+    { _pipId     :: Text
+    , _pipName   :: Text
+    , _pipFields :: [Field]
+    } deriving (Eq,Read,Show)
 
 -- | 'PipelineObject' smart constructor.
 pipelineObject :: Text -> Text -> PipelineObject
-pipelineObject pId pName = PipelineObject'{_pipId = pId, _pipName = pName, _pipFields = mempty};
+pipelineObject pId pName =
+    PipelineObject'
+    { _pipId = pId
+    , _pipName = pName
+    , _pipFields = mempty
+    }
 
 -- | The ID of the object.
 pipId :: Lens' PipelineObject Text
@@ -625,11 +711,16 @@ instance ToJSON PipelineObject where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'queSelectors'
-newtype Query = Query'{_queSelectors :: Maybe [Selector]} deriving (Eq, Read, Show)
+newtype Query = Query'
+    { _queSelectors :: Maybe [Selector]
+    } deriving (Eq,Read,Show)
 
 -- | 'Query' smart constructor.
 query :: Query
-query = Query'{_queSelectors = Nothing};
+query =
+    Query'
+    { _queSelectors = Nothing
+    }
 
 -- | List of selectors that define the query. An object must satisfy all of
 -- the selectors to match the query.
@@ -650,11 +741,18 @@ instance ToJSON Query where
 -- * 'selOperator'
 --
 -- * 'selFieldName'
-data Selector = Selector'{_selOperator :: Maybe Operator, _selFieldName :: Maybe Text} deriving (Eq, Read, Show)
+data Selector = Selector'
+    { _selOperator  :: Maybe Operator
+    , _selFieldName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Selector' smart constructor.
 selector :: Selector
-selector = Selector'{_selOperator = Nothing, _selFieldName = Nothing};
+selector =
+    Selector'
+    { _selOperator = Nothing
+    , _selFieldName = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 selOperator :: Lens' Selector (Maybe Operator)
@@ -686,11 +784,18 @@ instance ToJSON Selector where
 -- * 'tagKey'
 --
 -- * 'tagValue'
-data Tag = Tag'{_tagKey :: Text, _tagValue :: Text} deriving (Eq, Read, Show)
+data Tag = Tag'
+    { _tagKey   :: Text
+    , _tagValue :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Text -> Tag
-tag pKey pValue = Tag'{_tagKey = pKey, _tagValue = pValue};
+tag pKey pValue =
+    Tag'
+    { _tagKey = pKey
+    , _tagValue = pValue
+    }
 
 -- | The key name of a tag defined by a user. For more information, see
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines>
@@ -728,11 +833,22 @@ instance ToJSON Tag where
 -- * 'toAttemptId'
 --
 -- * 'toObjects'
-data TaskObject = TaskObject'{_toPipelineId :: Maybe Text, _toTaskId :: Maybe Text, _toAttemptId :: Maybe Text, _toObjects :: Maybe (Map Text PipelineObject)} deriving (Eq, Read, Show)
+data TaskObject = TaskObject'
+    { _toPipelineId :: Maybe Text
+    , _toTaskId     :: Maybe Text
+    , _toAttemptId  :: Maybe Text
+    , _toObjects    :: Maybe (Map Text PipelineObject)
+    } deriving (Eq,Read,Show)
 
 -- | 'TaskObject' smart constructor.
 taskObject :: TaskObject
-taskObject = TaskObject'{_toPipelineId = Nothing, _toTaskId = Nothing, _toAttemptId = Nothing, _toObjects = Nothing};
+taskObject =
+    TaskObject'
+    { _toPipelineId = Nothing
+    , _toTaskId = Nothing
+    , _toAttemptId = Nothing
+    , _toObjects = Nothing
+    }
 
 -- | The ID of the pipeline that provided the task.
 toPipelineId :: Lens' TaskObject (Maybe Text)
@@ -773,11 +889,18 @@ instance FromJSON TaskObject where
 -- * 'veId'
 --
 -- * 'veErrors'
-data ValidationError = ValidationError'{_veId :: Maybe Text, _veErrors :: Maybe [Text]} deriving (Eq, Read, Show)
+data ValidationError = ValidationError'
+    { _veId     :: Maybe Text
+    , _veErrors :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'ValidationError' smart constructor.
 validationError :: ValidationError
-validationError = ValidationError'{_veId = Nothing, _veErrors = Nothing};
+validationError =
+    ValidationError'
+    { _veId = Nothing
+    , _veErrors = Nothing
+    }
 
 -- | The identifier of the object that contains the validation error.
 veId :: Lens' ValidationError (Maybe Text)
@@ -805,11 +928,18 @@ instance FromJSON ValidationError where
 -- * 'vwWarnings'
 --
 -- * 'vwId'
-data ValidationWarning = ValidationWarning'{_vwWarnings :: Maybe [Text], _vwId :: Maybe Text} deriving (Eq, Read, Show)
+data ValidationWarning = ValidationWarning'
+    { _vwWarnings :: Maybe [Text]
+    , _vwId       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ValidationWarning' smart constructor.
 validationWarning :: ValidationWarning
-validationWarning = ValidationWarning'{_vwWarnings = Nothing, _vwId = Nothing};
+validationWarning =
+    ValidationWarning'
+    { _vwWarnings = Nothing
+    , _vwId = Nothing
+    }
 
 -- | A description of the validation warning.
 vwWarnings :: Lens' ValidationWarning [Text]

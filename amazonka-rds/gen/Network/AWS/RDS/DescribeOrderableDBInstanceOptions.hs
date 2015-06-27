@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeOrderableDBInstanceOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,14 +41,14 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     -- ** Response lenses
     , dodiorOrderableDBInstanceOptions
     , dodiorMarker
-    , dodiorStatusCode
+    , dodiorStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -71,11 +71,30 @@ import Network.AWS.Response
 -- * 'dodioVPC'
 --
 -- * 'dodioEngine'
-data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'{_dodioEngineVersion :: Maybe Text, _dodioFilters :: Maybe [Filter], _dodioDBInstanceClass :: Maybe Text, _dodioLicenseModel :: Maybe Text, _dodioMaxRecords :: Maybe Int, _dodioMarker :: Maybe Text, _dodioVPC :: Maybe Bool, _dodioEngine :: Text} deriving (Eq, Read, Show)
+data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
+    { _dodioEngineVersion   :: Maybe Text
+    , _dodioFilters         :: Maybe [Filter]
+    , _dodioDBInstanceClass :: Maybe Text
+    , _dodioLicenseModel    :: Maybe Text
+    , _dodioMaxRecords      :: Maybe Int
+    , _dodioMarker          :: Maybe Text
+    , _dodioVPC             :: Maybe Bool
+    , _dodioEngine          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeOrderableDBInstanceOptions' smart constructor.
 describeOrderableDBInstanceOptions :: Text -> DescribeOrderableDBInstanceOptions
-describeOrderableDBInstanceOptions pEngine = DescribeOrderableDBInstanceOptions'{_dodioEngineVersion = Nothing, _dodioFilters = Nothing, _dodioDBInstanceClass = Nothing, _dodioLicenseModel = Nothing, _dodioMaxRecords = Nothing, _dodioMarker = Nothing, _dodioVPC = Nothing, _dodioEngine = pEngine};
+describeOrderableDBInstanceOptions pEngine =
+    DescribeOrderableDBInstanceOptions'
+    { _dodioEngineVersion = Nothing
+    , _dodioFilters = Nothing
+    , _dodioDBInstanceClass = Nothing
+    , _dodioLicenseModel = Nothing
+    , _dodioMaxRecords = Nothing
+    , _dodioMarker = Nothing
+    , _dodioVPC = Nothing
+    , _dodioEngine = pEngine
+    }
 
 -- | The engine version filter value. Specify this parameter to show only the
 -- available offerings matching the specified engine version.
@@ -183,12 +202,21 @@ instance ToQuery DescribeOrderableDBInstanceOptions
 --
 -- * 'dodiorMarker'
 --
--- * 'dodiorStatusCode'
-data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'{_dodiorOrderableDBInstanceOptions :: Maybe [OrderableDBInstanceOption], _dodiorMarker :: Maybe Text, _dodiorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dodiorStatus'
+data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'
+    { _dodiorOrderableDBInstanceOptions :: Maybe [OrderableDBInstanceOption]
+    , _dodiorMarker                     :: Maybe Text
+    , _dodiorStatus                     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeOrderableDBInstanceOptionsResponse' smart constructor.
 describeOrderableDBInstanceOptionsResponse :: Int -> DescribeOrderableDBInstanceOptionsResponse
-describeOrderableDBInstanceOptionsResponse pStatusCode = DescribeOrderableDBInstanceOptionsResponse'{_dodiorOrderableDBInstanceOptions = Nothing, _dodiorMarker = Nothing, _dodiorStatusCode = pStatusCode};
+describeOrderableDBInstanceOptionsResponse pStatus =
+    DescribeOrderableDBInstanceOptionsResponse'
+    { _dodiorOrderableDBInstanceOptions = Nothing
+    , _dodiorMarker = Nothing
+    , _dodiorStatus = pStatus
+    }
 
 -- | An OrderableDBInstanceOption structure containing information about
 -- orderable options for the DB instance.
@@ -203,5 +231,5 @@ dodiorMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
 dodiorMarker = lens _dodiorMarker (\ s a -> s{_dodiorMarker = a});
 
 -- | FIXME: Undocumented member.
-dodiorStatusCode :: Lens' DescribeOrderableDBInstanceOptionsResponse Int
-dodiorStatusCode = lens _dodiorStatusCode (\ s a -> s{_dodiorStatusCode = a});
+dodiorStatus :: Lens' DescribeOrderableDBInstanceOptionsResponse Int
+dodiorStatus = lens _dodiorStatus (\ s a -> s{_dodiorStatus = a});

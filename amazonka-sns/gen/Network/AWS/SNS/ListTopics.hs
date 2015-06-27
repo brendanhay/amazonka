@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.ListTopics
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,25 +36,30 @@ module Network.AWS.SNS.ListTopics
     -- ** Response lenses
     , ltrTopics
     , ltrNextToken
-    , ltrStatusCode
+    , ltrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | /See:/ 'listTopics' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ltNextToken'
-newtype ListTopics = ListTopics'{_ltNextToken :: Maybe Text} deriving (Eq, Read, Show)
+newtype ListTopics = ListTopics'
+    { _ltNextToken :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTopics' smart constructor.
 listTopics :: ListTopics
-listTopics = ListTopics'{_ltNextToken = Nothing};
+listTopics =
+    ListTopics'
+    { _ltNextToken = Nothing
+    }
 
 -- | Token returned by the previous @ListTopics@ request.
 ltNextToken :: Lens' ListTopics (Maybe Text)
@@ -103,12 +108,21 @@ instance ToQuery ListTopics where
 --
 -- * 'ltrNextToken'
 --
--- * 'ltrStatusCode'
-data ListTopicsResponse = ListTopicsResponse'{_ltrTopics :: Maybe [Topic], _ltrNextToken :: Maybe Text, _ltrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ltrStatus'
+data ListTopicsResponse = ListTopicsResponse'
+    { _ltrTopics    :: Maybe [Topic]
+    , _ltrNextToken :: Maybe Text
+    , _ltrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTopicsResponse' smart constructor.
 listTopicsResponse :: Int -> ListTopicsResponse
-listTopicsResponse pStatusCode = ListTopicsResponse'{_ltrTopics = Nothing, _ltrNextToken = Nothing, _ltrStatusCode = pStatusCode};
+listTopicsResponse pStatus =
+    ListTopicsResponse'
+    { _ltrTopics = Nothing
+    , _ltrNextToken = Nothing
+    , _ltrStatus = pStatus
+    }
 
 -- | A list of topic ARNs.
 ltrTopics :: Lens' ListTopicsResponse [Topic]
@@ -120,5 +134,5 @@ ltrNextToken :: Lens' ListTopicsResponse (Maybe Text)
 ltrNextToken = lens _ltrNextToken (\ s a -> s{_ltrNextToken = a});
 
 -- | FIXME: Undocumented member.
-ltrStatusCode :: Lens' ListTopicsResponse Int
-ltrStatusCode = lens _ltrStatusCode (\ s a -> s{_ltrStatusCode = a});
+ltrStatus :: Lens' ListTopicsResponse Int
+ltrStatus = lens _ltrStatus (\ s a -> s{_ltrStatus = a});

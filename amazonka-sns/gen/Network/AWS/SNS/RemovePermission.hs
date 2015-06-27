@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.RemovePermission
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.SNS.RemovePermission
     , removePermissionResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for RemovePermission action.
 --
@@ -47,11 +47,18 @@ import Network.AWS.SNS.Types
 -- * 'rpTopicARN'
 --
 -- * 'rpLabel'
-data RemovePermission = RemovePermission'{_rpTopicARN :: Text, _rpLabel :: Text} deriving (Eq, Read, Show)
+data RemovePermission = RemovePermission'
+    { _rpTopicARN :: Text
+    , _rpLabel    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RemovePermission' smart constructor.
 removePermission :: Text -> Text -> RemovePermission
-removePermission pTopicARN pLabel = RemovePermission'{_rpTopicARN = pTopicARN, _rpLabel = pLabel};
+removePermission pTopicARN pLabel =
+    RemovePermission'
+    { _rpTopicARN = pTopicARN
+    , _rpLabel = pLabel
+    }
 
 -- | The ARN of the topic whose access control policy you wish to modify.
 rpTopicARN :: Lens' RemovePermission Text
@@ -81,8 +88,10 @@ instance ToQuery RemovePermission where
                "TopicArn" =: _rpTopicARN, "Label" =: _rpLabel]
 
 -- | /See:/ 'removePermissionResponse' smart constructor.
-data RemovePermissionResponse = RemovePermissionResponse' deriving (Eq, Read, Show)
+data RemovePermissionResponse =
+    RemovePermissionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RemovePermissionResponse' smart constructor.
 removePermissionResponse :: RemovePermissionResponse
-removePermissionResponse = RemovePermissionResponse';
+removePermissionResponse = RemovePermissionResponse'

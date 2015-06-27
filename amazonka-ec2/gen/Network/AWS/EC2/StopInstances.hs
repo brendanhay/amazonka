@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.StopInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -66,14 +66,14 @@ module Network.AWS.EC2.StopInstances
     -- ** Response constructor
     , stopInstancesResponse
     -- ** Response lenses
-    , sirStoppingInstances
-    , sirStatusCode
+    , stoStoppingInstances
+    , stoStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'stopInstances' smart constructor.
 --
@@ -84,11 +84,20 @@ import Network.AWS.Response
 -- * 'siDryRun'
 --
 -- * 'siInstanceIds'
-data StopInstances = StopInstances'{_siForce :: Maybe Bool, _siDryRun :: Maybe Bool, _siInstanceIds :: [Text]} deriving (Eq, Read, Show)
+data StopInstances = StopInstances'
+    { _siForce       :: Maybe Bool
+    , _siDryRun      :: Maybe Bool
+    , _siInstanceIds :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'StopInstances' smart constructor.
 stopInstances :: StopInstances
-stopInstances = StopInstances'{_siForce = Nothing, _siDryRun = Nothing, _siInstanceIds = mempty};
+stopInstances =
+    StopInstances'
+    { _siForce = Nothing
+    , _siDryRun = Nothing
+    , _siInstanceIds = mempty
+    }
 
 -- | Forces the instances to stop. The instances do not have an opportunity
 -- to flush file system caches or file system metadata. If you use this
@@ -139,19 +148,26 @@ instance ToQuery StopInstances where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sirStoppingInstances'
+-- * 'stoStoppingInstances'
 --
--- * 'sirStatusCode'
-data StopInstancesResponse = StopInstancesResponse'{_sirStoppingInstances :: Maybe [InstanceStateChange], _sirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'stoStatus'
+data StopInstancesResponse = StopInstancesResponse'
+    { _stoStoppingInstances :: Maybe [InstanceStateChange]
+    , _stoStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'StopInstancesResponse' smart constructor.
 stopInstancesResponse :: Int -> StopInstancesResponse
-stopInstancesResponse pStatusCode = StopInstancesResponse'{_sirStoppingInstances = Nothing, _sirStatusCode = pStatusCode};
+stopInstancesResponse pStatus =
+    StopInstancesResponse'
+    { _stoStoppingInstances = Nothing
+    , _stoStatus = pStatus
+    }
 
 -- | Information about one or more stopped instances.
-sirStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
-sirStoppingInstances = lens _sirStoppingInstances (\ s a -> s{_sirStoppingInstances = a}) . _Default;
+stoStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
+stoStoppingInstances = lens _stoStoppingInstances (\ s a -> s{_stoStoppingInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-sirStatusCode :: Lens' StopInstancesResponse Int
-sirStatusCode = lens _sirStatusCode (\ s a -> s{_sirStatusCode = a});
+stoStatus :: Lens' StopInstancesResponse Int
+stoStatus = lens _stoStatus (\ s a -> s{_stoStatus = a});

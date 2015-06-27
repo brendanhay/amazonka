@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.RequestSpotFleet
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.EC2.RequestSpotFleet
     , requestSpotFleetResponse
     -- ** Response lenses
     , rsfrSpotFleetRequestId
-    , rsfrStatusCode
+    , rsfrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for RequestSpotFleet.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'rsfDryRun'
 --
 -- * 'rsfSpotFleetRequestConfig'
-data RequestSpotFleet = RequestSpotFleet'{_rsfDryRun :: Maybe Bool, _rsfSpotFleetRequestConfig :: SpotFleetRequestConfigData} deriving (Eq, Read, Show)
+data RequestSpotFleet = RequestSpotFleet'
+    { _rsfDryRun                 :: Maybe Bool
+    , _rsfSpotFleetRequestConfig :: SpotFleetRequestConfigData
+    } deriving (Eq,Read,Show)
 
 -- | 'RequestSpotFleet' smart constructor.
 requestSpotFleet :: SpotFleetRequestConfigData -> RequestSpotFleet
-requestSpotFleet pSpotFleetRequestConfig = RequestSpotFleet'{_rsfDryRun = Nothing, _rsfSpotFleetRequestConfig = pSpotFleetRequestConfig};
+requestSpotFleet pSpotFleetRequestConfig =
+    RequestSpotFleet'
+    { _rsfDryRun = Nothing
+    , _rsfSpotFleetRequestConfig = pSpotFleetRequestConfig
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -104,17 +111,24 @@ instance ToQuery RequestSpotFleet where
 --
 -- * 'rsfrSpotFleetRequestId'
 --
--- * 'rsfrStatusCode'
-data RequestSpotFleetResponse = RequestSpotFleetResponse'{_rsfrSpotFleetRequestId :: Text, _rsfrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rsfrStatus'
+data RequestSpotFleetResponse = RequestSpotFleetResponse'
+    { _rsfrSpotFleetRequestId :: Text
+    , _rsfrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RequestSpotFleetResponse' smart constructor.
 requestSpotFleetResponse :: Text -> Int -> RequestSpotFleetResponse
-requestSpotFleetResponse pSpotFleetRequestId pStatusCode = RequestSpotFleetResponse'{_rsfrSpotFleetRequestId = pSpotFleetRequestId, _rsfrStatusCode = pStatusCode};
+requestSpotFleetResponse pSpotFleetRequestId pStatus =
+    RequestSpotFleetResponse'
+    { _rsfrSpotFleetRequestId = pSpotFleetRequestId
+    , _rsfrStatus = pStatus
+    }
 
 -- | The ID of the Spot fleet request.
 rsfrSpotFleetRequestId :: Lens' RequestSpotFleetResponse Text
 rsfrSpotFleetRequestId = lens _rsfrSpotFleetRequestId (\ s a -> s{_rsfrSpotFleetRequestId = a});
 
 -- | FIXME: Undocumented member.
-rsfrStatusCode :: Lens' RequestSpotFleetResponse Int
-rsfrStatusCode = lens _rsfrStatusCode (\ s a -> s{_rsfrStatusCode = a});
+rsfrStatus :: Lens' RequestSpotFleetResponse Int
+rsfrStatus = lens _rsfrStatus (\ s a -> s{_rsfrStatus = a});

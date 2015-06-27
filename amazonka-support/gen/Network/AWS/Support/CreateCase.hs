@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Support.CreateCase
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -82,13 +82,13 @@ module Network.AWS.Support.CreateCase
     , createCaseResponse
     -- ** Response lenses
     , ccrCaseId
-    , ccrStatusCode
+    , ccrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Support.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
 
 -- | /See:/ 'createCase' smart constructor.
 --
@@ -111,11 +111,32 @@ import Network.AWS.Support.Types
 -- * 'ccSubject'
 --
 -- * 'ccCommunicationBody'
-data CreateCase = CreateCase'{_ccSeverityCode :: Maybe Text, _ccIssueType :: Maybe Text, _ccCcEmailAddresses :: Maybe [Text], _ccLanguage :: Maybe Text, _ccCategoryCode :: Maybe Text, _ccServiceCode :: Maybe Text, _ccAttachmentSetId :: Maybe Text, _ccSubject :: Text, _ccCommunicationBody :: Text} deriving (Eq, Read, Show)
+data CreateCase = CreateCase'
+    { _ccSeverityCode      :: Maybe Text
+    , _ccIssueType         :: Maybe Text
+    , _ccCcEmailAddresses  :: Maybe [Text]
+    , _ccLanguage          :: Maybe Text
+    , _ccCategoryCode      :: Maybe Text
+    , _ccServiceCode       :: Maybe Text
+    , _ccAttachmentSetId   :: Maybe Text
+    , _ccSubject           :: Text
+    , _ccCommunicationBody :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCase' smart constructor.
 createCase :: Text -> Text -> CreateCase
-createCase pSubject pCommunicationBody = CreateCase'{_ccSeverityCode = Nothing, _ccIssueType = Nothing, _ccCcEmailAddresses = Nothing, _ccLanguage = Nothing, _ccCategoryCode = Nothing, _ccServiceCode = Nothing, _ccAttachmentSetId = Nothing, _ccSubject = pSubject, _ccCommunicationBody = pCommunicationBody};
+createCase pSubject pCommunicationBody =
+    CreateCase'
+    { _ccSeverityCode = Nothing
+    , _ccIssueType = Nothing
+    , _ccCcEmailAddresses = Nothing
+    , _ccLanguage = Nothing
+    , _ccCategoryCode = Nothing
+    , _ccServiceCode = Nothing
+    , _ccAttachmentSetId = Nothing
+    , _ccSubject = pSubject
+    , _ccCommunicationBody = pCommunicationBody
+    }
 
 -- | The code for the severity level returned by the call to
 -- DescribeSeverityLevels.
@@ -213,12 +234,19 @@ instance ToQuery CreateCase where
 --
 -- * 'ccrCaseId'
 --
--- * 'ccrStatusCode'
-data CreateCaseResponse = CreateCaseResponse'{_ccrCaseId :: Maybe Text, _ccrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ccrStatus'
+data CreateCaseResponse = CreateCaseResponse'
+    { _ccrCaseId :: Maybe Text
+    , _ccrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCaseResponse' smart constructor.
 createCaseResponse :: Int -> CreateCaseResponse
-createCaseResponse pStatusCode = CreateCaseResponse'{_ccrCaseId = Nothing, _ccrStatusCode = pStatusCode};
+createCaseResponse pStatus =
+    CreateCaseResponse'
+    { _ccrCaseId = Nothing
+    , _ccrStatus = pStatus
+    }
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
@@ -227,5 +255,5 @@ ccrCaseId :: Lens' CreateCaseResponse (Maybe Text)
 ccrCaseId = lens _ccrCaseId (\ s a -> s{_ccrCaseId = a});
 
 -- | FIXME: Undocumented member.
-ccrStatusCode :: Lens' CreateCaseResponse Int
-ccrStatusCode = lens _ccrStatusCode (\ s a -> s{_ccrStatusCode = a});
+ccrStatus :: Lens' CreateCaseResponse Int
+ccrStatus = lens _ccrStatus (\ s a -> s{_ccrStatus = a});

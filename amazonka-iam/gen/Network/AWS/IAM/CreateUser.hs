@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.CreateUser
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.IAM.CreateUser
     , createUserResponse
     -- ** Response lenses
     , curUser
-    , curStatusCode
+    , curStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createUser' smart constructor.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'cuPath'
 --
 -- * 'cuUserName'
-data CreateUser = CreateUser'{_cuPath :: Maybe Text, _cuUserName :: Text} deriving (Eq, Read, Show)
+data CreateUser = CreateUser'
+    { _cuPath     :: Maybe Text
+    , _cuUserName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateUser' smart constructor.
 createUser :: Text -> CreateUser
-createUser pUserName = CreateUser'{_cuPath = Nothing, _cuUserName = pUserName};
+createUser pUserName =
+    CreateUser'
+    { _cuPath = Nothing
+    , _cuUserName = pUserName
+    }
 
 -- | The path for the user name. For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
@@ -103,17 +110,24 @@ instance ToQuery CreateUser where
 --
 -- * 'curUser'
 --
--- * 'curStatusCode'
-data CreateUserResponse = CreateUserResponse'{_curUser :: Maybe User, _curStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'curStatus'
+data CreateUserResponse = CreateUserResponse'
+    { _curUser   :: Maybe User
+    , _curStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateUserResponse' smart constructor.
 createUserResponse :: Int -> CreateUserResponse
-createUserResponse pStatusCode = CreateUserResponse'{_curUser = Nothing, _curStatusCode = pStatusCode};
+createUserResponse pStatus =
+    CreateUserResponse'
+    { _curUser = Nothing
+    , _curStatus = pStatus
+    }
 
 -- | Information about the user.
 curUser :: Lens' CreateUserResponse (Maybe User)
 curUser = lens _curUser (\ s a -> s{_curUser = a});
 
 -- | FIXME: Undocumented member.
-curStatusCode :: Lens' CreateUserResponse Int
-curStatusCode = lens _curStatusCode (\ s a -> s{_curStatusCode = a});
+curStatus :: Lens' CreateUserResponse Int
+curStatus = lens _curStatus (\ s a -> s{_curStatus = a});

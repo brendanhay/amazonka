@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.DeleteEndpoint
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.SNS.DeleteEndpoint
     , deleteEndpointResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for DeleteEndpoint action.
 --
@@ -46,11 +46,16 @@ import Network.AWS.SNS.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'deEndpointARN'
-newtype DeleteEndpoint = DeleteEndpoint'{_deEndpointARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteEndpoint = DeleteEndpoint'
+    { _deEndpointARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteEndpoint' smart constructor.
 deleteEndpoint :: Text -> DeleteEndpoint
-deleteEndpoint pEndpointARN = DeleteEndpoint'{_deEndpointARN = pEndpointARN};
+deleteEndpoint pEndpointARN =
+    DeleteEndpoint'
+    { _deEndpointARN = pEndpointARN
+    }
 
 -- | EndpointArn of endpoint to delete.
 deEndpointARN :: Lens' DeleteEndpoint Text
@@ -76,8 +81,10 @@ instance ToQuery DeleteEndpoint where
                "EndpointArn" =: _deEndpointARN]
 
 -- | /See:/ 'deleteEndpointResponse' smart constructor.
-data DeleteEndpointResponse = DeleteEndpointResponse' deriving (Eq, Read, Show)
+data DeleteEndpointResponse =
+    DeleteEndpointResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteEndpointResponse' smart constructor.
 deleteEndpointResponse :: DeleteEndpointResponse
-deleteEndpointResponse = DeleteEndpointResponse';
+deleteEndpointResponse = DeleteEndpointResponse'

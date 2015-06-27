@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.ResetClusterParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,10 +41,10 @@ module Network.AWS.Redshift.ResetClusterParameterGroup
     , cpgnmParameterGroupName
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'rcpgParameters'
 --
 -- * 'rcpgParameterGroupName'
-data ResetClusterParameterGroup = ResetClusterParameterGroup'{_rcpgResetAllParameters :: Maybe Bool, _rcpgParameters :: Maybe [Parameter], _rcpgParameterGroupName :: Text} deriving (Eq, Read, Show)
+data ResetClusterParameterGroup = ResetClusterParameterGroup'
+    { _rcpgResetAllParameters :: Maybe Bool
+    , _rcpgParameters         :: Maybe [Parameter]
+    , _rcpgParameterGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ResetClusterParameterGroup' smart constructor.
 resetClusterParameterGroup :: Text -> ResetClusterParameterGroup
-resetClusterParameterGroup pParameterGroupName = ResetClusterParameterGroup'{_rcpgResetAllParameters = Nothing, _rcpgParameters = Nothing, _rcpgParameterGroupName = pParameterGroupName};
+resetClusterParameterGroup pParameterGroupName =
+    ResetClusterParameterGroup'
+    { _rcpgResetAllParameters = Nothing
+    , _rcpgParameters = Nothing
+    , _rcpgParameterGroupName = pParameterGroupName
+    }
 
 -- | If @true@, all parameters in the specified parameter group will be reset
 -- to their default values.

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeImageAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.EC2.DescribeImageAttribute
     , diarProductCodes
     , diarBlockDeviceMappings
     , diarDescription
-    , diarStatusCode
+    , diarStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeImageAttribute' smart constructor.
 --
@@ -59,11 +59,20 @@ import Network.AWS.Response
 -- * 'dia1ImageId'
 --
 -- * 'dia1Attribute'
-data DescribeImageAttribute = DescribeImageAttribute'{_dia1DryRun :: Maybe Bool, _dia1ImageId :: Text, _dia1Attribute :: ImageAttributeName} deriving (Eq, Read, Show)
+data DescribeImageAttribute = DescribeImageAttribute'
+    { _dia1DryRun    :: Maybe Bool
+    , _dia1ImageId   :: Text
+    , _dia1Attribute :: ImageAttributeName
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeImageAttribute' smart constructor.
 describeImageAttribute :: Text -> ImageAttributeName -> DescribeImageAttribute
-describeImageAttribute pImageId pAttribute = DescribeImageAttribute'{_dia1DryRun = Nothing, _dia1ImageId = pImageId, _dia1Attribute = pAttribute};
+describeImageAttribute pImageId pAttribute =
+    DescribeImageAttribute'
+    { _dia1DryRun = Nothing
+    , _dia1ImageId = pImageId
+    , _dia1Attribute = pAttribute
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -140,12 +149,33 @@ instance ToQuery DescribeImageAttribute where
 --
 -- * 'diarDescription'
 --
--- * 'diarStatusCode'
-data DescribeImageAttributeResponse = DescribeImageAttributeResponse'{_diarLaunchPermissions :: Maybe [LaunchPermission], _diarRAMDiskId :: Maybe AttributeValue, _diarKernelId :: Maybe AttributeValue, _diarSRIOVNetSupport :: Maybe AttributeValue, _diarImageId :: Maybe Text, _diarProductCodes :: Maybe [ProductCode], _diarBlockDeviceMappings :: Maybe [BlockDeviceMapping], _diarDescription :: Maybe AttributeValue, _diarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'diarStatus'
+data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
+    { _diarLaunchPermissions   :: Maybe [LaunchPermission]
+    , _diarRAMDiskId           :: Maybe AttributeValue
+    , _diarKernelId            :: Maybe AttributeValue
+    , _diarSRIOVNetSupport     :: Maybe AttributeValue
+    , _diarImageId             :: Maybe Text
+    , _diarProductCodes        :: Maybe [ProductCode]
+    , _diarBlockDeviceMappings :: Maybe [BlockDeviceMapping]
+    , _diarDescription         :: Maybe AttributeValue
+    , _diarStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeImageAttributeResponse' smart constructor.
 describeImageAttributeResponse :: Int -> DescribeImageAttributeResponse
-describeImageAttributeResponse pStatusCode = DescribeImageAttributeResponse'{_diarLaunchPermissions = Nothing, _diarRAMDiskId = Nothing, _diarKernelId = Nothing, _diarSRIOVNetSupport = Nothing, _diarImageId = Nothing, _diarProductCodes = Nothing, _diarBlockDeviceMappings = Nothing, _diarDescription = Nothing, _diarStatusCode = pStatusCode};
+describeImageAttributeResponse pStatus =
+    DescribeImageAttributeResponse'
+    { _diarLaunchPermissions = Nothing
+    , _diarRAMDiskId = Nothing
+    , _diarKernelId = Nothing
+    , _diarSRIOVNetSupport = Nothing
+    , _diarImageId = Nothing
+    , _diarProductCodes = Nothing
+    , _diarBlockDeviceMappings = Nothing
+    , _diarDescription = Nothing
+    , _diarStatus = pStatus
+    }
 
 -- | One or more launch permissions.
 diarLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
@@ -180,5 +210,5 @@ diarDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarDescription = lens _diarDescription (\ s a -> s{_diarDescription = a});
 
 -- | FIXME: Undocumented member.
-diarStatusCode :: Lens' DescribeImageAttributeResponse Int
-diarStatusCode = lens _diarStatusCode (\ s a -> s{_diarStatusCode = a});
+diarStatus :: Lens' DescribeImageAttributeResponse Int
+diarStatus = lens _diarStatus (\ s a -> s{_diarStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.CreateEventSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,13 +62,13 @@ module Network.AWS.Redshift.CreateEventSubscription
     , createEventSubscriptionResponse
     -- ** Response lenses
     , cesrEventSubscription
-    , cesrStatusCode
+    , cesrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -91,11 +91,30 @@ import Network.AWS.Response
 -- * 'cesSubscriptionName'
 --
 -- * 'cesSNSTopicARN'
-data CreateEventSubscription = CreateEventSubscription'{_cesEnabled :: Maybe Bool, _cesSourceType :: Maybe Text, _cesSeverity :: Maybe Text, _cesEventCategories :: Maybe [Text], _cesSourceIds :: Maybe [Text], _cesTags :: Maybe [Tag], _cesSubscriptionName :: Text, _cesSNSTopicARN :: Text} deriving (Eq, Read, Show)
+data CreateEventSubscription = CreateEventSubscription'
+    { _cesEnabled          :: Maybe Bool
+    , _cesSourceType       :: Maybe Text
+    , _cesSeverity         :: Maybe Text
+    , _cesEventCategories  :: Maybe [Text]
+    , _cesSourceIds        :: Maybe [Text]
+    , _cesTags             :: Maybe [Tag]
+    , _cesSubscriptionName :: Text
+    , _cesSNSTopicARN      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateEventSubscription' smart constructor.
 createEventSubscription :: Text -> Text -> CreateEventSubscription
-createEventSubscription pSubscriptionName pSNSTopicARN = CreateEventSubscription'{_cesEnabled = Nothing, _cesSourceType = Nothing, _cesSeverity = Nothing, _cesEventCategories = Nothing, _cesSourceIds = Nothing, _cesTags = Nothing, _cesSubscriptionName = pSubscriptionName, _cesSNSTopicARN = pSNSTopicARN};
+createEventSubscription pSubscriptionName pSNSTopicARN =
+    CreateEventSubscription'
+    { _cesEnabled = Nothing
+    , _cesSourceType = Nothing
+    , _cesSeverity = Nothing
+    , _cesEventCategories = Nothing
+    , _cesSourceIds = Nothing
+    , _cesTags = Nothing
+    , _cesSubscriptionName = pSubscriptionName
+    , _cesSNSTopicARN = pSNSTopicARN
+    }
 
 -- | A Boolean value; set to @true@ to activate the subscription, set to
 -- @false@ to create the subscription but not active it.
@@ -202,17 +221,24 @@ instance ToQuery CreateEventSubscription where
 --
 -- * 'cesrEventSubscription'
 --
--- * 'cesrStatusCode'
-data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'{_cesrEventSubscription :: Maybe EventSubscription, _cesrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cesrStatus'
+data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'
+    { _cesrEventSubscription :: Maybe EventSubscription
+    , _cesrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateEventSubscriptionResponse' smart constructor.
 createEventSubscriptionResponse :: Int -> CreateEventSubscriptionResponse
-createEventSubscriptionResponse pStatusCode = CreateEventSubscriptionResponse'{_cesrEventSubscription = Nothing, _cesrStatusCode = pStatusCode};
+createEventSubscriptionResponse pStatus =
+    CreateEventSubscriptionResponse'
+    { _cesrEventSubscription = Nothing
+    , _cesrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 cesrEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubscription)
 cesrEventSubscription = lens _cesrEventSubscription (\ s a -> s{_cesrEventSubscription = a});
 
 -- | FIXME: Undocumented member.
-cesrStatusCode :: Lens' CreateEventSubscriptionResponse Int
-cesrStatusCode = lens _cesrStatusCode (\ s a -> s{_cesrStatusCode = a});
+cesrStatus :: Lens' CreateEventSubscriptionResponse Int
+cesrStatus = lens _cesrStatus (\ s a -> s{_cesrStatus = a});

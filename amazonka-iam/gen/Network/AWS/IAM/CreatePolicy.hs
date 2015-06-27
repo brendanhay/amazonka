@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.CreatePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.IAM.CreatePolicy
     , createPolicyResponse
     -- ** Response lenses
     , cprPolicy
-    , cprStatusCode
+    , cprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createPolicy' smart constructor.
 --
@@ -64,11 +64,22 @@ import Network.AWS.Response
 -- * 'cpPolicyName'
 --
 -- * 'cpPolicyDocument'
-data CreatePolicy = CreatePolicy'{_cpPath :: Maybe Text, _cpDescription :: Maybe Text, _cpPolicyName :: Text, _cpPolicyDocument :: Text} deriving (Eq, Read, Show)
+data CreatePolicy = CreatePolicy'
+    { _cpPath           :: Maybe Text
+    , _cpDescription    :: Maybe Text
+    , _cpPolicyName     :: Text
+    , _cpPolicyDocument :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePolicy' smart constructor.
 createPolicy :: Text -> Text -> CreatePolicy
-createPolicy pPolicyName pPolicyDocument = CreatePolicy'{_cpPath = Nothing, _cpDescription = Nothing, _cpPolicyName = pPolicyName, _cpPolicyDocument = pPolicyDocument};
+createPolicy pPolicyName pPolicyDocument =
+    CreatePolicy'
+    { _cpPath = Nothing
+    , _cpDescription = Nothing
+    , _cpPolicyName = pPolicyName
+    , _cpPolicyDocument = pPolicyDocument
+    }
 
 -- | The path for the policy.
 --
@@ -132,17 +143,24 @@ instance ToQuery CreatePolicy where
 --
 -- * 'cprPolicy'
 --
--- * 'cprStatusCode'
-data CreatePolicyResponse = CreatePolicyResponse'{_cprPolicy :: Maybe Policy, _cprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cprStatus'
+data CreatePolicyResponse = CreatePolicyResponse'
+    { _cprPolicy :: Maybe Policy
+    , _cprStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePolicyResponse' smart constructor.
 createPolicyResponse :: Int -> CreatePolicyResponse
-createPolicyResponse pStatusCode = CreatePolicyResponse'{_cprPolicy = Nothing, _cprStatusCode = pStatusCode};
+createPolicyResponse pStatus =
+    CreatePolicyResponse'
+    { _cprPolicy = Nothing
+    , _cprStatus = pStatus
+    }
 
 -- | Information about the policy.
 cprPolicy :: Lens' CreatePolicyResponse (Maybe Policy)
 cprPolicy = lens _cprPolicy (\ s a -> s{_cprPolicy = a});
 
 -- | FIXME: Undocumented member.
-cprStatusCode :: Lens' CreatePolicyResponse Int
-cprStatusCode = lens _cprStatusCode (\ s a -> s{_cprStatusCode = a});
+cprStatus :: Lens' CreatePolicyResponse Int
+cprStatus = lens _cprStatus (\ s a -> s{_cprStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.InitiateMultipartUpload
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,13 +72,13 @@ module Network.AWS.Glacier.InitiateMultipartUpload
     -- ** Response lenses
     , imurLocation
     , imurUploadId
-    , imurStatusCode
+    , imurStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for initiating a multipart upload to an Amazon Glacier
 -- vault.
@@ -94,11 +94,22 @@ import Network.AWS.Response
 -- * 'imuAccountId'
 --
 -- * 'imuVaultName'
-data InitiateMultipartUpload = InitiateMultipartUpload'{_imuPartSize :: Maybe Text, _imuArchiveDescription :: Maybe Text, _imuAccountId :: Text, _imuVaultName :: Text} deriving (Eq, Read, Show)
+data InitiateMultipartUpload = InitiateMultipartUpload'
+    { _imuPartSize           :: Maybe Text
+    , _imuArchiveDescription :: Maybe Text
+    , _imuAccountId          :: Text
+    , _imuVaultName          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InitiateMultipartUpload' smart constructor.
 initiateMultipartUpload :: Text -> Text -> InitiateMultipartUpload
-initiateMultipartUpload pAccountId pVaultName = InitiateMultipartUpload'{_imuPartSize = Nothing, _imuArchiveDescription = Nothing, _imuAccountId = pAccountId, _imuVaultName = pVaultName};
+initiateMultipartUpload pAccountId pVaultName =
+    InitiateMultipartUpload'
+    { _imuPartSize = Nothing
+    , _imuArchiveDescription = Nothing
+    , _imuAccountId = pAccountId
+    , _imuVaultName = pVaultName
+    }
 
 -- | The size of each part except the last, in bytes. The last part can be
 -- smaller than this part size.
@@ -168,12 +179,21 @@ instance ToQuery InitiateMultipartUpload where
 --
 -- * 'imurUploadId'
 --
--- * 'imurStatusCode'
-data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'{_imurLocation :: Maybe Text, _imurUploadId :: Maybe Text, _imurStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'imurStatus'
+data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
+    { _imurLocation :: Maybe Text
+    , _imurUploadId :: Maybe Text
+    , _imurStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'InitiateMultipartUploadResponse' smart constructor.
 initiateMultipartUploadResponse :: Int -> InitiateMultipartUploadResponse
-initiateMultipartUploadResponse pStatusCode = InitiateMultipartUploadResponse'{_imurLocation = Nothing, _imurUploadId = Nothing, _imurStatusCode = pStatusCode};
+initiateMultipartUploadResponse pStatus =
+    InitiateMultipartUploadResponse'
+    { _imurLocation = Nothing
+    , _imurUploadId = Nothing
+    , _imurStatus = pStatus
+    }
 
 -- | The relative URI path of the multipart upload ID Amazon Glacier created.
 imurLocation :: Lens' InitiateMultipartUploadResponse (Maybe Text)
@@ -185,5 +205,5 @@ imurUploadId :: Lens' InitiateMultipartUploadResponse (Maybe Text)
 imurUploadId = lens _imurUploadId (\ s a -> s{_imurUploadId = a});
 
 -- | FIXME: Undocumented member.
-imurStatusCode :: Lens' InitiateMultipartUploadResponse Int
-imurStatusCode = lens _imurStatusCode (\ s a -> s{_imurStatusCode = a});
+imurStatus :: Lens' InitiateMultipartUploadResponse Int
+imurStatus = lens _imurStatus (\ s a -> s{_imurStatus = a});

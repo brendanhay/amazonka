@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListRolePolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,14 +47,14 @@ module Network.AWS.IAM.ListRolePolicies
     , lrprMarker
     , lrprIsTruncated
     , lrprPolicyNames
-    , lrprStatusCode
+    , lrprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listRolePolicies' smart constructor.
 --
@@ -65,11 +65,20 @@ import Network.AWS.Response
 -- * 'lrpMarker'
 --
 -- * 'lrpRoleName'
-data ListRolePolicies = ListRolePolicies'{_lrpMaxItems :: Maybe Nat, _lrpMarker :: Maybe Text, _lrpRoleName :: Text} deriving (Eq, Read, Show)
+data ListRolePolicies = ListRolePolicies'
+    { _lrpMaxItems :: Maybe Nat
+    , _lrpMarker   :: Maybe Text
+    , _lrpRoleName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListRolePolicies' smart constructor.
 listRolePolicies :: Text -> ListRolePolicies
-listRolePolicies pRoleName = ListRolePolicies'{_lrpMaxItems = Nothing, _lrpMarker = Nothing, _lrpRoleName = pRoleName};
+listRolePolicies pRoleName =
+    ListRolePolicies'
+    { _lrpMaxItems = Nothing
+    , _lrpMarker = Nothing
+    , _lrpRoleName = pRoleName
+    }
 
 -- | Use this parameter only when paginating results to indicate the maximum
 -- number of role policies you want in the response. If there are
@@ -136,12 +145,23 @@ instance ToQuery ListRolePolicies where
 --
 -- * 'lrprPolicyNames'
 --
--- * 'lrprStatusCode'
-data ListRolePoliciesResponse = ListRolePoliciesResponse'{_lrprMarker :: Maybe Text, _lrprIsTruncated :: Maybe Bool, _lrprPolicyNames :: [Text], _lrprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lrprStatus'
+data ListRolePoliciesResponse = ListRolePoliciesResponse'
+    { _lrprMarker      :: Maybe Text
+    , _lrprIsTruncated :: Maybe Bool
+    , _lrprPolicyNames :: [Text]
+    , _lrprStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListRolePoliciesResponse' smart constructor.
 listRolePoliciesResponse :: Int -> ListRolePoliciesResponse
-listRolePoliciesResponse pStatusCode = ListRolePoliciesResponse'{_lrprMarker = Nothing, _lrprIsTruncated = Nothing, _lrprPolicyNames = mempty, _lrprStatusCode = pStatusCode};
+listRolePoliciesResponse pStatus =
+    ListRolePoliciesResponse'
+    { _lrprMarker = Nothing
+    , _lrprIsTruncated = Nothing
+    , _lrprPolicyNames = mempty
+    , _lrprStatus = pStatus
+    }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -161,5 +181,5 @@ lrprPolicyNames :: Lens' ListRolePoliciesResponse [Text]
 lrprPolicyNames = lens _lrprPolicyNames (\ s a -> s{_lrprPolicyNames = a});
 
 -- | FIXME: Undocumented member.
-lrprStatusCode :: Lens' ListRolePoliciesResponse Int
-lrprStatusCode = lens _lrprStatusCode (\ s a -> s{_lrprStatusCode = a});
+lrprStatus :: Lens' ListRolePoliciesResponse Int
+lrprStatus = lens _lrprStatus (\ s a -> s{_lrprStatus = a});

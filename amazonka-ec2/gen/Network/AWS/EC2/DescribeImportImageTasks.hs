@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeImportImageTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.EC2.DescribeImportImageTasks
     -- ** Response lenses
     , diitrImportImageTasks
     , diitrNextToken
-    , diitrStatusCode
+    , diitrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeImportImageTasks' smart constructor.
 --
@@ -59,11 +59,24 @@ import Network.AWS.Response
 -- * 'diitDryRun'
 --
 -- * 'diitMaxResults'
-data DescribeImportImageTasks = DescribeImportImageTasks'{_diitFilters :: Maybe [Filter], _diitImportTaskIds :: Maybe [Text], _diitNextToken :: Maybe Text, _diitDryRun :: Maybe Bool, _diitMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeImportImageTasks = DescribeImportImageTasks'
+    { _diitFilters       :: Maybe [Filter]
+    , _diitImportTaskIds :: Maybe [Text]
+    , _diitNextToken     :: Maybe Text
+    , _diitDryRun        :: Maybe Bool
+    , _diitMaxResults    :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeImportImageTasks' smart constructor.
 describeImportImageTasks :: DescribeImportImageTasks
-describeImportImageTasks = DescribeImportImageTasks'{_diitFilters = Nothing, _diitImportTaskIds = Nothing, _diitNextToken = Nothing, _diitDryRun = Nothing, _diitMaxResults = Nothing};
+describeImportImageTasks =
+    DescribeImportImageTasks'
+    { _diitFilters = Nothing
+    , _diitImportTaskIds = Nothing
+    , _diitNextToken = Nothing
+    , _diitDryRun = Nothing
+    , _diitMaxResults = Nothing
+    }
 
 -- | One or more filters.
 diitFilters :: Lens' DescribeImportImageTasks [Filter]
@@ -127,12 +140,21 @@ instance ToQuery DescribeImportImageTasks where
 --
 -- * 'diitrNextToken'
 --
--- * 'diitrStatusCode'
-data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'{_diitrImportImageTasks :: Maybe [ImportImageTask], _diitrNextToken :: Maybe Text, _diitrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'diitrStatus'
+data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
+    { _diitrImportImageTasks :: Maybe [ImportImageTask]
+    , _diitrNextToken        :: Maybe Text
+    , _diitrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeImportImageTasksResponse' smart constructor.
 describeImportImageTasksResponse :: Int -> DescribeImportImageTasksResponse
-describeImportImageTasksResponse pStatusCode = DescribeImportImageTasksResponse'{_diitrImportImageTasks = Nothing, _diitrNextToken = Nothing, _diitrStatusCode = pStatusCode};
+describeImportImageTasksResponse pStatus =
+    DescribeImportImageTasksResponse'
+    { _diitrImportImageTasks = Nothing
+    , _diitrNextToken = Nothing
+    , _diitrStatus = pStatus
+    }
 
 -- | A list of zero or more import image tasks that are currently active or
 -- were completed or canceled in the previous 7 days.
@@ -145,5 +167,5 @@ diitrNextToken :: Lens' DescribeImportImageTasksResponse (Maybe Text)
 diitrNextToken = lens _diitrNextToken (\ s a -> s{_diitrNextToken = a});
 
 -- | FIXME: Undocumented member.
-diitrStatusCode :: Lens' DescribeImportImageTasksResponse Int
-diitrStatusCode = lens _diitrStatusCode (\ s a -> s{_diitrStatusCode = a});
+diitrStatus :: Lens' DescribeImportImageTasksResponse Int
+diitrStatus = lens _diitrStatus (\ s a -> s{_diitrStatus = a});

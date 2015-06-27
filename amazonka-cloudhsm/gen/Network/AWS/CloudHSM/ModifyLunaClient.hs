@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.ModifyLunaClient
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.CloudHSM.ModifyLunaClient
     , modifyLunaClientResponse
     -- ** Response lenses
     , mlcrClientARN
-    , mlcrStatusCode
+    , mlcrStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyLunaClient' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'mlcClientARN'
 --
 -- * 'mlcCertificate'
-data ModifyLunaClient = ModifyLunaClient'{_mlcClientARN :: Text, _mlcCertificate :: Text} deriving (Eq, Read, Show)
+data ModifyLunaClient = ModifyLunaClient'
+    { _mlcClientARN   :: Text
+    , _mlcCertificate :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyLunaClient' smart constructor.
 modifyLunaClient :: Text -> Text -> ModifyLunaClient
-modifyLunaClient pClientARN pCertificate = ModifyLunaClient'{_mlcClientARN = pClientARN, _mlcCertificate = pCertificate};
+modifyLunaClient pClientARN pCertificate =
+    ModifyLunaClient'
+    { _mlcClientARN = pClientARN
+    , _mlcCertificate = pCertificate
+    }
 
 -- | The ARN of the client.
 mlcClientARN :: Lens' ModifyLunaClient Text
@@ -103,17 +110,24 @@ instance ToQuery ModifyLunaClient where
 --
 -- * 'mlcrClientARN'
 --
--- * 'mlcrStatusCode'
-data ModifyLunaClientResponse = ModifyLunaClientResponse'{_mlcrClientARN :: Maybe Text, _mlcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'mlcrStatus'
+data ModifyLunaClientResponse = ModifyLunaClientResponse'
+    { _mlcrClientARN :: Maybe Text
+    , _mlcrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyLunaClientResponse' smart constructor.
 modifyLunaClientResponse :: Int -> ModifyLunaClientResponse
-modifyLunaClientResponse pStatusCode = ModifyLunaClientResponse'{_mlcrClientARN = Nothing, _mlcrStatusCode = pStatusCode};
+modifyLunaClientResponse pStatus =
+    ModifyLunaClientResponse'
+    { _mlcrClientARN = Nothing
+    , _mlcrStatus = pStatus
+    }
 
 -- | The ARN of the client.
 mlcrClientARN :: Lens' ModifyLunaClientResponse (Maybe Text)
 mlcrClientARN = lens _mlcrClientARN (\ s a -> s{_mlcrClientARN = a});
 
 -- | FIXME: Undocumented member.
-mlcrStatusCode :: Lens' ModifyLunaClientResponse Int
-mlcrStatusCode = lens _mlcrStatusCode (\ s a -> s{_mlcrStatusCode = a});
+mlcrStatus :: Lens' ModifyLunaClientResponse Int
+mlcrStatus = lens _mlcrStatus (\ s a -> s{_mlcrStatus = a});

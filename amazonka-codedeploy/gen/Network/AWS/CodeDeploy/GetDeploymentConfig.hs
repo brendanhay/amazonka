@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentConfig
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.CodeDeploy.GetDeploymentConfig
     , getDeploymentConfigResponse
     -- ** Response lenses
     , gdcrDeploymentConfigInfo
-    , gdcrStatusCode
+    , gdcrStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a get deployment configuration operation.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gdcDeploymentConfigName'
-newtype GetDeploymentConfig = GetDeploymentConfig'{_gdcDeploymentConfigName :: Text} deriving (Eq, Read, Show)
+newtype GetDeploymentConfig = GetDeploymentConfig'
+    { _gdcDeploymentConfigName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDeploymentConfig' smart constructor.
 getDeploymentConfig :: Text -> GetDeploymentConfig
-getDeploymentConfig pDeploymentConfigName = GetDeploymentConfig'{_gdcDeploymentConfigName = pDeploymentConfigName};
+getDeploymentConfig pDeploymentConfigName =
+    GetDeploymentConfig'
+    { _gdcDeploymentConfigName = pDeploymentConfigName
+    }
 
 -- | The name of an existing deployment configuration associated with the
 -- applicable IAM user or AWS account.
@@ -99,17 +104,24 @@ instance ToQuery GetDeploymentConfig where
 --
 -- * 'gdcrDeploymentConfigInfo'
 --
--- * 'gdcrStatusCode'
-data GetDeploymentConfigResponse = GetDeploymentConfigResponse'{_gdcrDeploymentConfigInfo :: Maybe DeploymentConfigInfo, _gdcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gdcrStatus'
+data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
+    { _gdcrDeploymentConfigInfo :: Maybe DeploymentConfigInfo
+    , _gdcrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDeploymentConfigResponse' smart constructor.
 getDeploymentConfigResponse :: Int -> GetDeploymentConfigResponse
-getDeploymentConfigResponse pStatusCode = GetDeploymentConfigResponse'{_gdcrDeploymentConfigInfo = Nothing, _gdcrStatusCode = pStatusCode};
+getDeploymentConfigResponse pStatus =
+    GetDeploymentConfigResponse'
+    { _gdcrDeploymentConfigInfo = Nothing
+    , _gdcrStatus = pStatus
+    }
 
 -- | Information about the deployment configuration.
 gdcrDeploymentConfigInfo :: Lens' GetDeploymentConfigResponse (Maybe DeploymentConfigInfo)
 gdcrDeploymentConfigInfo = lens _gdcrDeploymentConfigInfo (\ s a -> s{_gdcrDeploymentConfigInfo = a});
 
 -- | FIXME: Undocumented member.
-gdcrStatusCode :: Lens' GetDeploymentConfigResponse Int
-gdcrStatusCode = lens _gdcrStatusCode (\ s a -> s{_gdcrStatusCode = a});
+gdcrStatus :: Lens' GetDeploymentConfigResponse Int
+gdcrStatus = lens _gdcrStatus (\ s a -> s{_gdcrStatus = a});

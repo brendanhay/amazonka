@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateSnapshotSchedule
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     , updateSnapshotScheduleResponse
     -- ** Response lenses
     , ussrVolumeARN
-    , ussrStatusCode
+    , ussrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -71,11 +71,22 @@ import Network.AWS.StorageGateway.Types
 -- * 'ussStartAt'
 --
 -- * 'ussRecurrenceInHours'
-data UpdateSnapshotSchedule = UpdateSnapshotSchedule'{_ussDescription :: Maybe Text, _ussVolumeARN :: Text, _ussStartAt :: Nat, _ussRecurrenceInHours :: Nat} deriving (Eq, Read, Show)
+data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
+    { _ussDescription       :: Maybe Text
+    , _ussVolumeARN         :: Text
+    , _ussStartAt           :: !Nat
+    , _ussRecurrenceInHours :: !Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateSnapshotSchedule' smart constructor.
 updateSnapshotSchedule :: Text -> Natural -> Natural -> UpdateSnapshotSchedule
-updateSnapshotSchedule pVolumeARN pStartAt pRecurrenceInHours = UpdateSnapshotSchedule'{_ussDescription = Nothing, _ussVolumeARN = pVolumeARN, _ussStartAt = _Nat # pStartAt, _ussRecurrenceInHours = _Nat # pRecurrenceInHours};
+updateSnapshotSchedule pVolumeARN pStartAt pRecurrenceInHours =
+    UpdateSnapshotSchedule'
+    { _ussDescription = Nothing
+    , _ussVolumeARN = pVolumeARN
+    , _ussStartAt = _Nat # pStartAt
+    , _ussRecurrenceInHours = _Nat # pRecurrenceInHours
+    }
 
 -- | Optional description of the snapshot that overwrites the existing
 -- description.
@@ -140,17 +151,24 @@ instance ToQuery UpdateSnapshotSchedule where
 --
 -- * 'ussrVolumeARN'
 --
--- * 'ussrStatusCode'
-data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'{_ussrVolumeARN :: Maybe Text, _ussrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ussrStatus'
+data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
+    { _ussrVolumeARN :: Maybe Text
+    , _ussrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateSnapshotScheduleResponse' smart constructor.
 updateSnapshotScheduleResponse :: Int -> UpdateSnapshotScheduleResponse
-updateSnapshotScheduleResponse pStatusCode = UpdateSnapshotScheduleResponse'{_ussrVolumeARN = Nothing, _ussrStatusCode = pStatusCode};
+updateSnapshotScheduleResponse pStatus =
+    UpdateSnapshotScheduleResponse'
+    { _ussrVolumeARN = Nothing
+    , _ussrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ussrVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
 ussrVolumeARN = lens _ussrVolumeARN (\ s a -> s{_ussrVolumeARN = a});
 
 -- | FIXME: Undocumented member.
-ussrStatusCode :: Lens' UpdateSnapshotScheduleResponse Int
-ussrStatusCode = lens _ussrStatusCode (\ s a -> s{_ussrStatusCode = a});
+ussrStatus :: Lens' UpdateSnapshotScheduleResponse Int
+ussrStatus = lens _ussrStatus (\ s a -> s{_ussrStatus = a});

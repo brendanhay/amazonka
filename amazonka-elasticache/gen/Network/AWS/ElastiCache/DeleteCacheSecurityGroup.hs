@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteCacheSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     , deleteCacheSecurityGroupResponse
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DeleteCacheSecurityGroup/ action.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcsgCacheSecurityGroupName'
-newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup'{_dcsgCacheSecurityGroupName :: Text} deriving (Eq, Read, Show)
+newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup'
+    { _dcsgCacheSecurityGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteCacheSecurityGroup' smart constructor.
 deleteCacheSecurityGroup :: Text -> DeleteCacheSecurityGroup
-deleteCacheSecurityGroup pCacheSecurityGroupName = DeleteCacheSecurityGroup'{_dcsgCacheSecurityGroupName = pCacheSecurityGroupName};
+deleteCacheSecurityGroup pCacheSecurityGroupName =
+    DeleteCacheSecurityGroup'
+    { _dcsgCacheSecurityGroupName = pCacheSecurityGroupName
+    }
 
 -- | The name of the cache security group to delete.
 --
@@ -83,8 +88,10 @@ instance ToQuery DeleteCacheSecurityGroup where
                  _dcsgCacheSecurityGroupName]
 
 -- | /See:/ 'deleteCacheSecurityGroupResponse' smart constructor.
-data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse' deriving (Eq, Read, Show)
+data DeleteCacheSecurityGroupResponse =
+    DeleteCacheSecurityGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteCacheSecurityGroupResponse' smart constructor.
 deleteCacheSecurityGroupResponse :: DeleteCacheSecurityGroupResponse
-deleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse';
+deleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse'

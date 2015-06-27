@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.ModifyReplicationGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,13 +48,13 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     , modifyReplicationGroupResponse
     -- ** Response lenses
     , mrgrReplicationGroup
-    , mrgrStatusCode
+    , mrgrStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /ModifyReplicationGroups/ action.
 --
@@ -93,11 +93,46 @@ import Network.AWS.Response
 -- * 'mrgCacheSecurityGroupNames'
 --
 -- * 'mrgReplicationGroupId'
-data ModifyReplicationGroup = ModifyReplicationGroup'{_mrgAutomaticFailoverEnabled :: Maybe Bool, _mrgEngineVersion :: Maybe Text, _mrgSnapshottingClusterId :: Maybe Text, _mrgSecurityGroupIds :: Maybe [Text], _mrgAutoMinorVersionUpgrade :: Maybe Bool, _mrgReplicationGroupDescription :: Maybe Text, _mrgCacheParameterGroupName :: Maybe Text, _mrgSnapshotWindow :: Maybe Text, _mrgPrimaryClusterId :: Maybe Text, _mrgPreferredMaintenanceWindow :: Maybe Text, _mrgSnapshotRetentionLimit :: Maybe Int, _mrgNotificationTopicStatus :: Maybe Text, _mrgApplyImmediately :: Maybe Bool, _mrgNotificationTopicARN :: Maybe Text, _mrgCacheSecurityGroupNames :: Maybe [Text], _mrgReplicationGroupId :: Text} deriving (Eq, Read, Show)
+data ModifyReplicationGroup = ModifyReplicationGroup'
+    { _mrgAutomaticFailoverEnabled    :: Maybe Bool
+    , _mrgEngineVersion               :: Maybe Text
+    , _mrgSnapshottingClusterId       :: Maybe Text
+    , _mrgSecurityGroupIds            :: Maybe [Text]
+    , _mrgAutoMinorVersionUpgrade     :: Maybe Bool
+    , _mrgReplicationGroupDescription :: Maybe Text
+    , _mrgCacheParameterGroupName     :: Maybe Text
+    , _mrgSnapshotWindow              :: Maybe Text
+    , _mrgPrimaryClusterId            :: Maybe Text
+    , _mrgPreferredMaintenanceWindow  :: Maybe Text
+    , _mrgSnapshotRetentionLimit      :: Maybe Int
+    , _mrgNotificationTopicStatus     :: Maybe Text
+    , _mrgApplyImmediately            :: Maybe Bool
+    , _mrgNotificationTopicARN        :: Maybe Text
+    , _mrgCacheSecurityGroupNames     :: Maybe [Text]
+    , _mrgReplicationGroupId          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyReplicationGroup' smart constructor.
 modifyReplicationGroup :: Text -> ModifyReplicationGroup
-modifyReplicationGroup pReplicationGroupId = ModifyReplicationGroup'{_mrgAutomaticFailoverEnabled = Nothing, _mrgEngineVersion = Nothing, _mrgSnapshottingClusterId = Nothing, _mrgSecurityGroupIds = Nothing, _mrgAutoMinorVersionUpgrade = Nothing, _mrgReplicationGroupDescription = Nothing, _mrgCacheParameterGroupName = Nothing, _mrgSnapshotWindow = Nothing, _mrgPrimaryClusterId = Nothing, _mrgPreferredMaintenanceWindow = Nothing, _mrgSnapshotRetentionLimit = Nothing, _mrgNotificationTopicStatus = Nothing, _mrgApplyImmediately = Nothing, _mrgNotificationTopicARN = Nothing, _mrgCacheSecurityGroupNames = Nothing, _mrgReplicationGroupId = pReplicationGroupId};
+modifyReplicationGroup pReplicationGroupId =
+    ModifyReplicationGroup'
+    { _mrgAutomaticFailoverEnabled = Nothing
+    , _mrgEngineVersion = Nothing
+    , _mrgSnapshottingClusterId = Nothing
+    , _mrgSecurityGroupIds = Nothing
+    , _mrgAutoMinorVersionUpgrade = Nothing
+    , _mrgReplicationGroupDescription = Nothing
+    , _mrgCacheParameterGroupName = Nothing
+    , _mrgSnapshotWindow = Nothing
+    , _mrgPrimaryClusterId = Nothing
+    , _mrgPreferredMaintenanceWindow = Nothing
+    , _mrgSnapshotRetentionLimit = Nothing
+    , _mrgNotificationTopicStatus = Nothing
+    , _mrgApplyImmediately = Nothing
+    , _mrgNotificationTopicARN = Nothing
+    , _mrgCacheSecurityGroupNames = Nothing
+    , _mrgReplicationGroupId = pReplicationGroupId
+    }
 
 -- | Whether a read replica will be automatically promoted to read\/write
 -- primary if the existing primary encounters a failure.
@@ -294,17 +329,24 @@ instance ToQuery ModifyReplicationGroup where
 --
 -- * 'mrgrReplicationGroup'
 --
--- * 'mrgrStatusCode'
-data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'{_mrgrReplicationGroup :: Maybe ReplicationGroup, _mrgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'mrgrStatus'
+data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
+    { _mrgrReplicationGroup :: Maybe ReplicationGroup
+    , _mrgrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyReplicationGroupResponse' smart constructor.
 modifyReplicationGroupResponse :: Int -> ModifyReplicationGroupResponse
-modifyReplicationGroupResponse pStatusCode = ModifyReplicationGroupResponse'{_mrgrReplicationGroup = Nothing, _mrgrStatusCode = pStatusCode};
+modifyReplicationGroupResponse pStatus =
+    ModifyReplicationGroupResponse'
+    { _mrgrReplicationGroup = Nothing
+    , _mrgrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 mrgrReplicationGroup :: Lens' ModifyReplicationGroupResponse (Maybe ReplicationGroup)
 mrgrReplicationGroup = lens _mrgrReplicationGroup (\ s a -> s{_mrgrReplicationGroup = a});
 
 -- | FIXME: Undocumented member.
-mrgrStatusCode :: Lens' ModifyReplicationGroupResponse Int
-mrgrStatusCode = lens _mrgrStatusCode (\ s a -> s{_mrgrStatusCode = a});
+mrgrStatus :: Lens' ModifyReplicationGroupResponse Int
+mrgrStatus = lens _mrgrStatus (\ s a -> s{_mrgrStatus = a});

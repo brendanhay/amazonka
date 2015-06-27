@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.AssignPrivateIPAddresses
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,10 +47,10 @@ module Network.AWS.EC2.AssignPrivateIPAddresses
     , assignPrivateIPAddressesResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'assignPrivateIPAddresses' smart constructor.
 --
@@ -63,11 +63,22 @@ import Network.AWS.Response
 -- * 'apiaSecondaryPrivateIPAddressCount'
 --
 -- * 'apiaNetworkInterfaceId'
-data AssignPrivateIPAddresses = AssignPrivateIPAddresses'{_apiaPrivateIPAddresses :: Maybe [Text], _apiaAllowReassignment :: Maybe Bool, _apiaSecondaryPrivateIPAddressCount :: Maybe Int, _apiaNetworkInterfaceId :: Text} deriving (Eq, Read, Show)
+data AssignPrivateIPAddresses = AssignPrivateIPAddresses'
+    { _apiaPrivateIPAddresses             :: Maybe [Text]
+    , _apiaAllowReassignment              :: Maybe Bool
+    , _apiaSecondaryPrivateIPAddressCount :: Maybe Int
+    , _apiaNetworkInterfaceId             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AssignPrivateIPAddresses' smart constructor.
 assignPrivateIPAddresses :: Text -> AssignPrivateIPAddresses
-assignPrivateIPAddresses pNetworkInterfaceId = AssignPrivateIPAddresses'{_apiaPrivateIPAddresses = Nothing, _apiaAllowReassignment = Nothing, _apiaSecondaryPrivateIPAddressCount = Nothing, _apiaNetworkInterfaceId = pNetworkInterfaceId};
+assignPrivateIPAddresses pNetworkInterfaceId =
+    AssignPrivateIPAddresses'
+    { _apiaPrivateIPAddresses = Nothing
+    , _apiaAllowReassignment = Nothing
+    , _apiaSecondaryPrivateIPAddressCount = Nothing
+    , _apiaNetworkInterfaceId = pNetworkInterfaceId
+    }
 
 -- | One or more IP addresses to be assigned as a secondary private IP
 -- address to the network interface. You can\'t specify this parameter when
@@ -123,8 +134,10 @@ instance ToQuery AssignPrivateIPAddresses where
                "NetworkInterfaceId" =: _apiaNetworkInterfaceId]
 
 -- | /See:/ 'assignPrivateIPAddressesResponse' smart constructor.
-data AssignPrivateIPAddressesResponse = AssignPrivateIPAddressesResponse' deriving (Eq, Read, Show)
+data AssignPrivateIPAddressesResponse =
+    AssignPrivateIPAddressesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AssignPrivateIPAddressesResponse' smart constructor.
 assignPrivateIPAddressesResponse :: AssignPrivateIPAddressesResponse
-assignPrivateIPAddressesResponse = AssignPrivateIPAddressesResponse';
+assignPrivateIPAddressesResponse = AssignPrivateIPAddressesResponse'

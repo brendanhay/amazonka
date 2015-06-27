@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.AddSourceIdentifierToSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
     , addSourceIdentifierToSubscriptionResponse
     -- ** Response lenses
     , asitsrEventSubscription
-    , asitsrStatusCode
+    , asitsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'asitsSubscriptionName'
 --
 -- * 'asitsSourceIdentifier'
-data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'{_asitsSubscriptionName :: Text, _asitsSourceIdentifier :: Text} deriving (Eq, Read, Show)
+data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
+    { _asitsSubscriptionName :: Text
+    , _asitsSourceIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AddSourceIdentifierToSubscription' smart constructor.
 addSourceIdentifierToSubscription :: Text -> Text -> AddSourceIdentifierToSubscription
-addSourceIdentifierToSubscription pSubscriptionName pSourceIdentifier = AddSourceIdentifierToSubscription'{_asitsSubscriptionName = pSubscriptionName, _asitsSourceIdentifier = pSourceIdentifier};
+addSourceIdentifierToSubscription pSubscriptionName pSourceIdentifier =
+    AddSourceIdentifierToSubscription'
+    { _asitsSubscriptionName = pSubscriptionName
+    , _asitsSourceIdentifier = pSourceIdentifier
+    }
 
 -- | The name of the RDS event notification subscription you want to add a
 -- source identifier to.
@@ -116,17 +123,24 @@ instance ToQuery AddSourceIdentifierToSubscription
 --
 -- * 'asitsrEventSubscription'
 --
--- * 'asitsrStatusCode'
-data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'{_asitsrEventSubscription :: Maybe EventSubscription, _asitsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'asitsrStatus'
+data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'
+    { _asitsrEventSubscription :: Maybe EventSubscription
+    , _asitsrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AddSourceIdentifierToSubscriptionResponse' smart constructor.
 addSourceIdentifierToSubscriptionResponse :: Int -> AddSourceIdentifierToSubscriptionResponse
-addSourceIdentifierToSubscriptionResponse pStatusCode = AddSourceIdentifierToSubscriptionResponse'{_asitsrEventSubscription = Nothing, _asitsrStatusCode = pStatusCode};
+addSourceIdentifierToSubscriptionResponse pStatus =
+    AddSourceIdentifierToSubscriptionResponse'
+    { _asitsrEventSubscription = Nothing
+    , _asitsrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 asitsrEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
 asitsrEventSubscription = lens _asitsrEventSubscription (\ s a -> s{_asitsrEventSubscription = a});
 
 -- | FIXME: Undocumented member.
-asitsrStatusCode :: Lens' AddSourceIdentifierToSubscriptionResponse Int
-asitsrStatusCode = lens _asitsrStatusCode (\ s a -> s{_asitsrStatusCode = a});
+asitsrStatus :: Lens' AddSourceIdentifierToSubscriptionResponse Int
+asitsrStatus = lens _asitsrStatus (\ s a -> s{_asitsrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.ModifyLoadBalancerAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,13 +48,13 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     -- ** Response lenses
     , mlbarLoadBalancerAttributes
     , mlbarLoadBalancerName
-    , mlbarStatusCode
+    , mlbarStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyLoadBalancerAttributes' smart constructor.
 --
@@ -63,11 +63,18 @@ import Network.AWS.Response
 -- * 'mlbaLoadBalancerName'
 --
 -- * 'mlbaLoadBalancerAttributes'
-data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'{_mlbaLoadBalancerName :: Text, _mlbaLoadBalancerAttributes :: LoadBalancerAttributes} deriving (Eq, Read, Show)
+data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
+    { _mlbaLoadBalancerName       :: Text
+    , _mlbaLoadBalancerAttributes :: LoadBalancerAttributes
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyLoadBalancerAttributes' smart constructor.
 modifyLoadBalancerAttributes :: Text -> LoadBalancerAttributes -> ModifyLoadBalancerAttributes
-modifyLoadBalancerAttributes pLoadBalancerName pLoadBalancerAttributes = ModifyLoadBalancerAttributes'{_mlbaLoadBalancerName = pLoadBalancerName, _mlbaLoadBalancerAttributes = pLoadBalancerAttributes};
+modifyLoadBalancerAttributes pLoadBalancerName pLoadBalancerAttributes =
+    ModifyLoadBalancerAttributes'
+    { _mlbaLoadBalancerName = pLoadBalancerName
+    , _mlbaLoadBalancerAttributes = pLoadBalancerAttributes
+    }
 
 -- | The name of the load balancer.
 mlbaLoadBalancerName :: Lens' ModifyLoadBalancerAttributes Text
@@ -116,12 +123,21 @@ instance ToQuery ModifyLoadBalancerAttributes where
 --
 -- * 'mlbarLoadBalancerName'
 --
--- * 'mlbarStatusCode'
-data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'{_mlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes, _mlbarLoadBalancerName :: Maybe Text, _mlbarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'mlbarStatus'
+data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
+    { _mlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
+    , _mlbarLoadBalancerName       :: Maybe Text
+    , _mlbarStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyLoadBalancerAttributesResponse' smart constructor.
 modifyLoadBalancerAttributesResponse :: Int -> ModifyLoadBalancerAttributesResponse
-modifyLoadBalancerAttributesResponse pStatusCode = ModifyLoadBalancerAttributesResponse'{_mlbarLoadBalancerAttributes = Nothing, _mlbarLoadBalancerName = Nothing, _mlbarStatusCode = pStatusCode};
+modifyLoadBalancerAttributesResponse pStatus =
+    ModifyLoadBalancerAttributesResponse'
+    { _mlbarLoadBalancerAttributes = Nothing
+    , _mlbarLoadBalancerName = Nothing
+    , _mlbarStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 mlbarLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
@@ -132,5 +148,5 @@ mlbarLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
 mlbarLoadBalancerName = lens _mlbarLoadBalancerName (\ s a -> s{_mlbarLoadBalancerName = a});
 
 -- | FIXME: Undocumented member.
-mlbarStatusCode :: Lens' ModifyLoadBalancerAttributesResponse Int
-mlbarStatusCode = lens _mlbarStatusCode (\ s a -> s{_mlbarStatusCode = a});
+mlbarStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
+mlbarStatus = lens _mlbarStatus (\ s a -> s{_mlbarStatus = a});

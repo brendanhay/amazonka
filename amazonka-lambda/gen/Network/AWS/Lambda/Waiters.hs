@@ -15,6 +15,6 @@
 
 module Network.AWS.Lambda.Waiters where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudTrail.CreateTrail
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,13 +47,13 @@ module Network.AWS.CloudTrail.CreateTrail
     , ctrIncludeGlobalServiceEvents
     , ctrCloudWatchLogsRoleARN
     , ctrS3BucketName
-    , ctrStatusCode
+    , ctrStatus
     ) where
 
-import Network.AWS.CloudTrail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Specifies the settings for each trail.
 --
@@ -74,11 +74,28 @@ import Network.AWS.Response
 -- * 'ctName'
 --
 -- * 'ctS3BucketName'
-data CreateTrail = CreateTrail'{_ctS3KeyPrefix :: Maybe Text, _ctSNSTopicName :: Maybe Text, _ctCloudWatchLogsLogGroupARN :: Maybe Text, _ctIncludeGlobalServiceEvents :: Maybe Bool, _ctCloudWatchLogsRoleARN :: Maybe Text, _ctName :: Text, _ctS3BucketName :: Text} deriving (Eq, Read, Show)
+data CreateTrail = CreateTrail'
+    { _ctS3KeyPrefix                :: Maybe Text
+    , _ctSNSTopicName               :: Maybe Text
+    , _ctCloudWatchLogsLogGroupARN  :: Maybe Text
+    , _ctIncludeGlobalServiceEvents :: Maybe Bool
+    , _ctCloudWatchLogsRoleARN      :: Maybe Text
+    , _ctName                       :: Text
+    , _ctS3BucketName               :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateTrail' smart constructor.
 createTrail :: Text -> Text -> CreateTrail
-createTrail pName pS3BucketName = CreateTrail'{_ctS3KeyPrefix = Nothing, _ctSNSTopicName = Nothing, _ctCloudWatchLogsLogGroupARN = Nothing, _ctIncludeGlobalServiceEvents = Nothing, _ctCloudWatchLogsRoleARN = Nothing, _ctName = pName, _ctS3BucketName = pS3BucketName};
+createTrail pName pS3BucketName =
+    CreateTrail'
+    { _ctS3KeyPrefix = Nothing
+    , _ctSNSTopicName = Nothing
+    , _ctCloudWatchLogsLogGroupARN = Nothing
+    , _ctIncludeGlobalServiceEvents = Nothing
+    , _ctCloudWatchLogsRoleARN = Nothing
+    , _ctName = pName
+    , _ctS3BucketName = pS3BucketName
+    }
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
 -- you have designated for log file delivery.
@@ -180,12 +197,31 @@ instance ToQuery CreateTrail where
 --
 -- * 'ctrS3BucketName'
 --
--- * 'ctrStatusCode'
-data CreateTrailResponse = CreateTrailResponse'{_ctrS3KeyPrefix :: Maybe Text, _ctrSNSTopicName :: Maybe Text, _ctrCloudWatchLogsLogGroupARN :: Maybe Text, _ctrName :: Maybe Text, _ctrIncludeGlobalServiceEvents :: Maybe Bool, _ctrCloudWatchLogsRoleARN :: Maybe Text, _ctrS3BucketName :: Maybe Text, _ctrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ctrStatus'
+data CreateTrailResponse = CreateTrailResponse'
+    { _ctrS3KeyPrefix                :: Maybe Text
+    , _ctrSNSTopicName               :: Maybe Text
+    , _ctrCloudWatchLogsLogGroupARN  :: Maybe Text
+    , _ctrName                       :: Maybe Text
+    , _ctrIncludeGlobalServiceEvents :: Maybe Bool
+    , _ctrCloudWatchLogsRoleARN      :: Maybe Text
+    , _ctrS3BucketName               :: Maybe Text
+    , _ctrStatus                     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateTrailResponse' smart constructor.
 createTrailResponse :: Int -> CreateTrailResponse
-createTrailResponse pStatusCode = CreateTrailResponse'{_ctrS3KeyPrefix = Nothing, _ctrSNSTopicName = Nothing, _ctrCloudWatchLogsLogGroupARN = Nothing, _ctrName = Nothing, _ctrIncludeGlobalServiceEvents = Nothing, _ctrCloudWatchLogsRoleARN = Nothing, _ctrS3BucketName = Nothing, _ctrStatusCode = pStatusCode};
+createTrailResponse pStatus =
+    CreateTrailResponse'
+    { _ctrS3KeyPrefix = Nothing
+    , _ctrSNSTopicName = Nothing
+    , _ctrCloudWatchLogsLogGroupARN = Nothing
+    , _ctrName = Nothing
+    , _ctrIncludeGlobalServiceEvents = Nothing
+    , _ctrCloudWatchLogsRoleARN = Nothing
+    , _ctrS3BucketName = Nothing
+    , _ctrStatus = pStatus
+    }
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
 -- you have designated for log file delivery.
@@ -222,5 +258,5 @@ ctrS3BucketName :: Lens' CreateTrailResponse (Maybe Text)
 ctrS3BucketName = lens _ctrS3BucketName (\ s a -> s{_ctrS3BucketName = a});
 
 -- | FIXME: Undocumented member.
-ctrStatusCode :: Lens' CreateTrailResponse Int
-ctrStatusCode = lens _ctrStatusCode (\ s a -> s{_ctrStatusCode = a});
+ctrStatus :: Lens' CreateTrailResponse Int
+ctrStatus = lens _ctrStatus (\ s a -> s{_ctrStatus = a});

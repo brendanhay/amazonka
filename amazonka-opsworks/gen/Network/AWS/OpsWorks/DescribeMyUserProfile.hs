@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeMyUserProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,20 +35,22 @@ module Network.AWS.OpsWorks.DescribeMyUserProfile
     , describeMyUserProfileResponse
     -- ** Response lenses
     , dmuprUserProfile
-    , dmuprStatusCode
+    , dmuprStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeMyUserProfile' smart constructor.
-data DescribeMyUserProfile = DescribeMyUserProfile' deriving (Eq, Read, Show)
+data DescribeMyUserProfile =
+    DescribeMyUserProfile'
+    deriving (Eq,Read,Show)
 
 -- | 'DescribeMyUserProfile' smart constructor.
 describeMyUserProfile :: DescribeMyUserProfile
-describeMyUserProfile = DescribeMyUserProfile';
+describeMyUserProfile = DescribeMyUserProfile'
 
 instance AWSRequest DescribeMyUserProfile where
         type Sv DescribeMyUserProfile = OpsWorks
@@ -88,17 +90,24 @@ instance ToQuery DescribeMyUserProfile where
 --
 -- * 'dmuprUserProfile'
 --
--- * 'dmuprStatusCode'
-data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'{_dmuprUserProfile :: Maybe SelfUserProfile, _dmuprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dmuprStatus'
+data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
+    { _dmuprUserProfile :: Maybe SelfUserProfile
+    , _dmuprStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMyUserProfileResponse' smart constructor.
 describeMyUserProfileResponse :: Int -> DescribeMyUserProfileResponse
-describeMyUserProfileResponse pStatusCode = DescribeMyUserProfileResponse'{_dmuprUserProfile = Nothing, _dmuprStatusCode = pStatusCode};
+describeMyUserProfileResponse pStatus =
+    DescribeMyUserProfileResponse'
+    { _dmuprUserProfile = Nothing
+    , _dmuprStatus = pStatus
+    }
 
 -- | A @UserProfile@ object that describes the user\'s SSH information.
 dmuprUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
 dmuprUserProfile = lens _dmuprUserProfile (\ s a -> s{_dmuprUserProfile = a});
 
 -- | FIXME: Undocumented member.
-dmuprStatusCode :: Lens' DescribeMyUserProfileResponse Int
-dmuprStatusCode = lens _dmuprStatusCode (\ s a -> s{_dmuprStatusCode = a});
+dmuprStatus :: Lens' DescribeMyUserProfileResponse Int
+dmuprStatus = lens _dmuprStatus (\ s a -> s{_dmuprStatus = a});

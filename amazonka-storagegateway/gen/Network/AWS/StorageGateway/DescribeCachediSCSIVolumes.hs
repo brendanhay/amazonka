@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,24 +38,29 @@ module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
     , describeCachediSCSIVolumesResponse
     -- ** Response lenses
     , dcscsivrCachediSCSIVolumes
-    , dcscsivrStatusCode
+    , dcscsivrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'describeCachediSCSIVolumes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcscsivVolumeARNs'
-newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes'{_dcscsivVolumeARNs :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes'
+    { _dcscsivVolumeARNs :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCachediSCSIVolumes' smart constructor.
 describeCachediSCSIVolumes :: DescribeCachediSCSIVolumes
-describeCachediSCSIVolumes = DescribeCachediSCSIVolumes'{_dcscsivVolumeARNs = mempty};
+describeCachediSCSIVolumes =
+    DescribeCachediSCSIVolumes'
+    { _dcscsivVolumeARNs = mempty
+    }
 
 -- | FIXME: Undocumented member.
 dcscsivVolumeARNs :: Lens' DescribeCachediSCSIVolumes [Text]
@@ -101,12 +106,19 @@ instance ToQuery DescribeCachediSCSIVolumes where
 --
 -- * 'dcscsivrCachediSCSIVolumes'
 --
--- * 'dcscsivrStatusCode'
-data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'{_dcscsivrCachediSCSIVolumes :: Maybe [CachediSCSIVolume], _dcscsivrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcscsivrStatus'
+data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'
+    { _dcscsivrCachediSCSIVolumes :: Maybe [CachediSCSIVolume]
+    , _dcscsivrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCachediSCSIVolumesResponse' smart constructor.
 describeCachediSCSIVolumesResponse :: Int -> DescribeCachediSCSIVolumesResponse
-describeCachediSCSIVolumesResponse pStatusCode = DescribeCachediSCSIVolumesResponse'{_dcscsivrCachediSCSIVolumes = Nothing, _dcscsivrStatusCode = pStatusCode};
+describeCachediSCSIVolumesResponse pStatus =
+    DescribeCachediSCSIVolumesResponse'
+    { _dcscsivrCachediSCSIVolumes = Nothing
+    , _dcscsivrStatus = pStatus
+    }
 
 -- | An array of objects where each object contains metadata about one cached
 -- volume.
@@ -114,5 +126,5 @@ dcscsivrCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediS
 dcscsivrCachediSCSIVolumes = lens _dcscsivrCachediSCSIVolumes (\ s a -> s{_dcscsivrCachediSCSIVolumes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcscsivrStatusCode :: Lens' DescribeCachediSCSIVolumesResponse Int
-dcscsivrStatusCode = lens _dcscsivrStatusCode (\ s a -> s{_dcscsivrStatusCode = a});
+dcscsivrStatus :: Lens' DescribeCachediSCSIVolumesResponse Int
+dcscsivrStatus = lens _dcscsivrStatus (\ s a -> s{_dcscsivrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.CreateVirtualMFADevice
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.IAM.CreateVirtualMFADevice
     , createVirtualMFADeviceResponse
     -- ** Response lenses
     , cvmdrVirtualMFADevice
-    , cvmdrStatusCode
+    , cvmdrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createVirtualMFADevice' smart constructor.
 --
@@ -64,11 +64,18 @@ import Network.AWS.Response
 -- * 'cvmdPath'
 --
 -- * 'cvmdVirtualMFADeviceName'
-data CreateVirtualMFADevice = CreateVirtualMFADevice'{_cvmdPath :: Maybe Text, _cvmdVirtualMFADeviceName :: Text} deriving (Eq, Read, Show)
+data CreateVirtualMFADevice = CreateVirtualMFADevice'
+    { _cvmdPath                 :: Maybe Text
+    , _cvmdVirtualMFADeviceName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVirtualMFADevice' smart constructor.
 createVirtualMFADevice :: Text -> CreateVirtualMFADevice
-createVirtualMFADevice pVirtualMFADeviceName = CreateVirtualMFADevice'{_cvmdPath = Nothing, _cvmdVirtualMFADeviceName = pVirtualMFADeviceName};
+createVirtualMFADevice pVirtualMFADeviceName =
+    CreateVirtualMFADevice'
+    { _cvmdPath = Nothing
+    , _cvmdVirtualMFADeviceName = pVirtualMFADeviceName
+    }
 
 -- | The path for the virtual MFA device. For more information about paths,
 -- see
@@ -119,17 +126,24 @@ instance ToQuery CreateVirtualMFADevice where
 --
 -- * 'cvmdrVirtualMFADevice'
 --
--- * 'cvmdrStatusCode'
-data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'{_cvmdrVirtualMFADevice :: VirtualMFADevice, _cvmdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cvmdrStatus'
+data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
+    { _cvmdrVirtualMFADevice :: VirtualMFADevice
+    , _cvmdrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVirtualMFADeviceResponse' smart constructor.
 createVirtualMFADeviceResponse :: VirtualMFADevice -> Int -> CreateVirtualMFADeviceResponse
-createVirtualMFADeviceResponse pVirtualMFADevice pStatusCode = CreateVirtualMFADeviceResponse'{_cvmdrVirtualMFADevice = pVirtualMFADevice, _cvmdrStatusCode = pStatusCode};
+createVirtualMFADeviceResponse pVirtualMFADevice pStatus =
+    CreateVirtualMFADeviceResponse'
+    { _cvmdrVirtualMFADevice = pVirtualMFADevice
+    , _cvmdrStatus = pStatus
+    }
 
 -- | A newly created virtual MFA device.
 cvmdrVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
 cvmdrVirtualMFADevice = lens _cvmdrVirtualMFADevice (\ s a -> s{_cvmdrVirtualMFADevice = a});
 
 -- | FIXME: Undocumented member.
-cvmdrStatusCode :: Lens' CreateVirtualMFADeviceResponse Int
-cvmdrStatusCode = lens _cvmdrStatusCode (\ s a -> s{_cvmdrStatusCode = a});
+cvmdrStatus :: Lens' CreateVirtualMFADeviceResponse Int
+cvmdrStatus = lens _cvmdrStatus (\ s a -> s{_cvmdrStatus = a});

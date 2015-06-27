@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,10 +49,10 @@ module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     , conConnectionState
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the AllocateConnectionOnInterconnect
 -- operation.
@@ -70,11 +70,24 @@ import Network.AWS.Response
 -- * 'acoiInterconnectId'
 --
 -- * 'acoiVlan'
-data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect'{_acoiBandwidth :: Text, _acoiConnectionName :: Text, _acoiOwnerAccount :: Text, _acoiInterconnectId :: Text, _acoiVlan :: Int} deriving (Eq, Read, Show)
+data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect'
+    { _acoiBandwidth      :: Text
+    , _acoiConnectionName :: Text
+    , _acoiOwnerAccount   :: Text
+    , _acoiInterconnectId :: Text
+    , _acoiVlan           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AllocateConnectionOnInterconnect' smart constructor.
 allocateConnectionOnInterconnect :: Text -> Text -> Text -> Text -> Int -> AllocateConnectionOnInterconnect
-allocateConnectionOnInterconnect pBandwidth pConnectionName pOwnerAccount pInterconnectId pVlan = AllocateConnectionOnInterconnect'{_acoiBandwidth = pBandwidth, _acoiConnectionName = pConnectionName, _acoiOwnerAccount = pOwnerAccount, _acoiInterconnectId = pInterconnectId, _acoiVlan = pVlan};
+allocateConnectionOnInterconnect pBandwidth pConnectionName pOwnerAccount pInterconnectId pVlan =
+    AllocateConnectionOnInterconnect'
+    { _acoiBandwidth = pBandwidth
+    , _acoiConnectionName = pConnectionName
+    , _acoiOwnerAccount = pOwnerAccount
+    , _acoiInterconnectId = pInterconnectId
+    , _acoiVlan = pVlan
+    }
 
 -- | Bandwidth of the connection.
 --

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeTapes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,14 +38,14 @@ module Network.AWS.StorageGateway.DescribeTapes
     -- ** Response lenses
     , desMarker
     , desTapes
-    , desStatusCode
+    , desStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | DescribeTapesInput
 --
@@ -60,11 +60,22 @@ import Network.AWS.StorageGateway.Types
 -- * 'dtTapeARNs'
 --
 -- * 'dtGatewayARN'
-data DescribeTapes = DescribeTapes'{_dtMarker :: Maybe Text, _dtLimit :: Maybe Nat, _dtTapeARNs :: Maybe [Text], _dtGatewayARN :: Text} deriving (Eq, Read, Show)
+data DescribeTapes = DescribeTapes'
+    { _dtMarker     :: Maybe Text
+    , _dtLimit      :: Maybe Nat
+    , _dtTapeARNs   :: Maybe [Text]
+    , _dtGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTapes' smart constructor.
 describeTapes :: Text -> DescribeTapes
-describeTapes pGatewayARN = DescribeTapes'{_dtMarker = Nothing, _dtLimit = Nothing, _dtTapeARNs = Nothing, _dtGatewayARN = pGatewayARN};
+describeTapes pGatewayARN =
+    DescribeTapes'
+    { _dtMarker = Nothing
+    , _dtLimit = Nothing
+    , _dtTapeARNs = Nothing
+    , _dtGatewayARN = pGatewayARN
+    }
 
 -- | A marker value, obtained in a previous call to @DescribeTapes@. This
 -- marker indicates which page of results to retrieve.
@@ -141,12 +152,21 @@ instance ToQuery DescribeTapes where
 --
 -- * 'desTapes'
 --
--- * 'desStatusCode'
-data DescribeTapesResponse = DescribeTapesResponse'{_desMarker :: Maybe Text, _desTapes :: Maybe [Tape], _desStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'desStatus'
+data DescribeTapesResponse = DescribeTapesResponse'
+    { _desMarker :: Maybe Text
+    , _desTapes  :: Maybe [Tape]
+    , _desStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTapesResponse' smart constructor.
 describeTapesResponse :: Int -> DescribeTapesResponse
-describeTapesResponse pStatusCode = DescribeTapesResponse'{_desMarker = Nothing, _desTapes = Nothing, _desStatusCode = pStatusCode};
+describeTapesResponse pStatus =
+    DescribeTapesResponse'
+    { _desMarker = Nothing
+    , _desTapes = Nothing
+    , _desStatus = pStatus
+    }
 
 -- | An opaque string which can be used as part of a subsequent DescribeTapes
 -- call to retrieve the next page of results.
@@ -161,5 +181,5 @@ desTapes :: Lens' DescribeTapesResponse [Tape]
 desTapes = lens _desTapes (\ s a -> s{_desTapes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatusCode :: Lens' DescribeTapesResponse Int
-desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});
+desStatus :: Lens' DescribeTapesResponse Int
+desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

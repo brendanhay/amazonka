@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DeregisterVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,21 +40,26 @@ module Network.AWS.OpsWorks.DeregisterVolume
     , deregisterVolumeResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deregisterVolume' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvVolumeId'
-newtype DeregisterVolume = DeregisterVolume'{_dvVolumeId :: Text} deriving (Eq, Read, Show)
+newtype DeregisterVolume = DeregisterVolume'
+    { _dvVolumeId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeregisterVolume' smart constructor.
 deregisterVolume :: Text -> DeregisterVolume
-deregisterVolume pVolumeId = DeregisterVolume'{_dvVolumeId = pVolumeId};
+deregisterVolume pVolumeId =
+    DeregisterVolume'
+    { _dvVolumeId = pVolumeId
+    }
 
 -- | The AWS OpsWorks volume ID, which is the GUID that AWS OpsWorks assigned
 -- to the instance when you registered the volume with the stack, not the
@@ -88,8 +93,10 @@ instance ToQuery DeregisterVolume where
         toQuery = const mempty
 
 -- | /See:/ 'deregisterVolumeResponse' smart constructor.
-data DeregisterVolumeResponse = DeregisterVolumeResponse' deriving (Eq, Read, Show)
+data DeregisterVolumeResponse =
+    DeregisterVolumeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeregisterVolumeResponse' smart constructor.
 deregisterVolumeResponse :: DeregisterVolumeResponse
-deregisterVolumeResponse = DeregisterVolumeResponse';
+deregisterVolumeResponse = DeregisterVolumeResponse'

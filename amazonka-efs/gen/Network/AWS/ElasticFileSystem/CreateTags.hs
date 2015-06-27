@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticFileSystem.CreateTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,10 +41,10 @@ module Network.AWS.ElasticFileSystem.CreateTags
     , createTagsResponse
     ) where
 
-import Network.AWS.ElasticFileSystem.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticFileSystem.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createTags' smart constructor.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'ctFileSystemId'
 --
 -- * 'ctTags'
-data CreateTags = CreateTags'{_ctFileSystemId :: Text, _ctTags :: [Tag]} deriving (Eq, Read, Show)
+data CreateTags = CreateTags'
+    { _ctFileSystemId :: Text
+    , _ctTags         :: [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateTags' smart constructor.
 createTags :: Text -> CreateTags
-createTags pFileSystemId = CreateTags'{_ctFileSystemId = pFileSystemId, _ctTags = mempty};
+createTags pFileSystemId =
+    CreateTags'
+    { _ctFileSystemId = pFileSystemId
+    , _ctTags = mempty
+    }
 
 -- | String. The ID of the file system whose tags you want to modify. This
 -- operation modifies only the tags and not the file system.
@@ -89,8 +96,10 @@ instance ToQuery CreateTags where
         toQuery = const mempty
 
 -- | /See:/ 'createTagsResponse' smart constructor.
-data CreateTagsResponse = CreateTagsResponse' deriving (Eq, Read, Show)
+data CreateTagsResponse =
+    CreateTagsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CreateTagsResponse' smart constructor.
 createTagsResponse :: CreateTagsResponse
-createTagsResponse = CreateTagsResponse';
+createTagsResponse = CreateTagsResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     , conConnections
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the DescribeConnectionsOnInterconnect
 -- operation.
@@ -48,11 +48,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcoiInterconnectId'
-newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect'{_dcoiInterconnectId :: Text} deriving (Eq, Read, Show)
+newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect'
+    { _dcoiInterconnectId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeConnectionsOnInterconnect' smart constructor.
 describeConnectionsOnInterconnect :: Text -> DescribeConnectionsOnInterconnect
-describeConnectionsOnInterconnect pInterconnectId = DescribeConnectionsOnInterconnect'{_dcoiInterconnectId = pInterconnectId};
+describeConnectionsOnInterconnect pInterconnectId =
+    DescribeConnectionsOnInterconnect'
+    { _dcoiInterconnectId = pInterconnectId
+    }
 
 -- | ID of the interconnect on which a list of connection is provisioned.
 --

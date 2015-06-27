@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.CreateAccessKey
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,24 +49,29 @@ module Network.AWS.IAM.CreateAccessKey
     , createAccessKeyResponse
     -- ** Response lenses
     , cakrAccessKey
-    , cakrStatusCode
+    , cakrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createAccessKey' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cakUserName'
-newtype CreateAccessKey = CreateAccessKey'{_cakUserName :: Maybe Text} deriving (Eq, Read, Show)
+newtype CreateAccessKey = CreateAccessKey'
+    { _cakUserName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAccessKey' smart constructor.
 createAccessKey :: CreateAccessKey
-createAccessKey = CreateAccessKey'{_cakUserName = Nothing};
+createAccessKey =
+    CreateAccessKey'
+    { _cakUserName = Nothing
+    }
 
 -- | The user name that the new key will belong to.
 cakUserName :: Lens' CreateAccessKey (Maybe Text)
@@ -103,17 +108,24 @@ instance ToQuery CreateAccessKey where
 --
 -- * 'cakrAccessKey'
 --
--- * 'cakrStatusCode'
-data CreateAccessKeyResponse = CreateAccessKeyResponse'{_cakrAccessKey :: AccessKey, _cakrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cakrStatus'
+data CreateAccessKeyResponse = CreateAccessKeyResponse'
+    { _cakrAccessKey :: AccessKey
+    , _cakrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAccessKeyResponse' smart constructor.
 createAccessKeyResponse :: AccessKey -> Int -> CreateAccessKeyResponse
-createAccessKeyResponse pAccessKey pStatusCode = CreateAccessKeyResponse'{_cakrAccessKey = pAccessKey, _cakrStatusCode = pStatusCode};
+createAccessKeyResponse pAccessKey pStatus =
+    CreateAccessKeyResponse'
+    { _cakrAccessKey = pAccessKey
+    , _cakrStatus = pStatus
+    }
 
 -- | Information about the access key.
 cakrAccessKey :: Lens' CreateAccessKeyResponse AccessKey
 cakrAccessKey = lens _cakrAccessKey (\ s a -> s{_cakrAccessKey = a});
 
 -- | FIXME: Undocumented member.
-cakrStatusCode :: Lens' CreateAccessKeyResponse Int
-cakrStatusCode = lens _cakrStatusCode (\ s a -> s{_cakrStatusCode = a});
+cakrStatus :: Lens' CreateAccessKeyResponse Int
+cakrStatus = lens _cakrStatus (\ s a -> s{_cakrStatus = a});

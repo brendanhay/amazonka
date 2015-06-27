@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ReplaceNetworkACLAssociation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.EC2.ReplaceNetworkACLAssociation
     , replaceNetworkACLAssociationResponse
     -- ** Response lenses
     , rnaarNewAssociationId
-    , rnaarStatusCode
+    , rnaarStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'replaceNetworkACLAssociation' smart constructor.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'rnaaAssociationId'
 --
 -- * 'rnaaNetworkACLId'
-data ReplaceNetworkACLAssociation = ReplaceNetworkACLAssociation'{_rnaaDryRun :: Maybe Bool, _rnaaAssociationId :: Text, _rnaaNetworkACLId :: Text} deriving (Eq, Read, Show)
+data ReplaceNetworkACLAssociation = ReplaceNetworkACLAssociation'
+    { _rnaaDryRun        :: Maybe Bool
+    , _rnaaAssociationId :: Text
+    , _rnaaNetworkACLId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReplaceNetworkACLAssociation' smart constructor.
 replaceNetworkACLAssociation :: Text -> Text -> ReplaceNetworkACLAssociation
-replaceNetworkACLAssociation pAssociationId pNetworkACLId = ReplaceNetworkACLAssociation'{_rnaaDryRun = Nothing, _rnaaAssociationId = pAssociationId, _rnaaNetworkACLId = pNetworkACLId};
+replaceNetworkACLAssociation pAssociationId pNetworkACLId =
+    ReplaceNetworkACLAssociation'
+    { _rnaaDryRun = Nothing
+    , _rnaaAssociationId = pAssociationId
+    , _rnaaNetworkACLId = pNetworkACLId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -111,17 +120,24 @@ instance ToQuery ReplaceNetworkACLAssociation where
 --
 -- * 'rnaarNewAssociationId'
 --
--- * 'rnaarStatusCode'
-data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'{_rnaarNewAssociationId :: Maybe Text, _rnaarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rnaarStatus'
+data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'
+    { _rnaarNewAssociationId :: Maybe Text
+    , _rnaarStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ReplaceNetworkACLAssociationResponse' smart constructor.
 replaceNetworkACLAssociationResponse :: Int -> ReplaceNetworkACLAssociationResponse
-replaceNetworkACLAssociationResponse pStatusCode = ReplaceNetworkACLAssociationResponse'{_rnaarNewAssociationId = Nothing, _rnaarStatusCode = pStatusCode};
+replaceNetworkACLAssociationResponse pStatus =
+    ReplaceNetworkACLAssociationResponse'
+    { _rnaarNewAssociationId = Nothing
+    , _rnaarStatus = pStatus
+    }
 
 -- | The ID of the new association.
 rnaarNewAssociationId :: Lens' ReplaceNetworkACLAssociationResponse (Maybe Text)
 rnaarNewAssociationId = lens _rnaarNewAssociationId (\ s a -> s{_rnaarNewAssociationId = a});
 
 -- | FIXME: Undocumented member.
-rnaarStatusCode :: Lens' ReplaceNetworkACLAssociationResponse Int
-rnaarStatusCode = lens _rnaarStatusCode (\ s a -> s{_rnaarStatusCode = a});
+rnaarStatus :: Lens' ReplaceNetworkACLAssociationResponse Int
+rnaarStatus = lens _rnaarStatus (\ s a -> s{_rnaarStatus = a});

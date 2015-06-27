@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.DescribeCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.EMR.DescribeCluster
     , describeClusterResponse
     -- ** Response lenses
     , dcrCluster
-    , dcrStatusCode
+    , dcrStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This input determines which cluster to describe.
 --
@@ -49,11 +49,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcClusterId'
-newtype DescribeCluster = DescribeCluster'{_dcClusterId :: Text} deriving (Eq, Read, Show)
+newtype DescribeCluster = DescribeCluster'
+    { _dcClusterId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCluster' smart constructor.
 describeCluster :: Text -> DescribeCluster
-describeCluster pClusterId = DescribeCluster'{_dcClusterId = pClusterId};
+describeCluster pClusterId =
+    DescribeCluster'
+    { _dcClusterId = pClusterId
+    }
 
 -- | The identifier of the cluster to describe.
 dcClusterId :: Lens' DescribeCluster Text
@@ -96,17 +101,24 @@ instance ToQuery DescribeCluster where
 --
 -- * 'dcrCluster'
 --
--- * 'dcrStatusCode'
-data DescribeClusterResponse = DescribeClusterResponse'{_dcrCluster :: Cluster, _dcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcrStatus'
+data DescribeClusterResponse = DescribeClusterResponse'
+    { _dcrCluster :: Cluster
+    , _dcrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterResponse' smart constructor.
 describeClusterResponse :: Cluster -> Int -> DescribeClusterResponse
-describeClusterResponse pCluster pStatusCode = DescribeClusterResponse'{_dcrCluster = pCluster, _dcrStatusCode = pStatusCode};
+describeClusterResponse pCluster pStatus =
+    DescribeClusterResponse'
+    { _dcrCluster = pCluster
+    , _dcrStatus = pStatus
+    }
 
 -- | This output contains the details for the requested cluster.
 dcrCluster :: Lens' DescribeClusterResponse Cluster
 dcrCluster = lens _dcrCluster (\ s a -> s{_dcrCluster = a});
 
 -- | FIXME: Undocumented member.
-dcrStatusCode :: Lens' DescribeClusterResponse Int
-dcrStatusCode = lens _dcrStatusCode (\ s a -> s{_dcrStatusCode = a});
+dcrStatus :: Lens' DescribeClusterResponse Int
+dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});

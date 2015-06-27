@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeElasticLoadBalancers
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.OpsWorks.DescribeElasticLoadBalancers
     , describeElasticLoadBalancersResponse
     -- ** Response lenses
     , delbrElasticLoadBalancers
-    , delbrStatusCode
+    , delbrStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeElasticLoadBalancers' smart constructor.
 --
@@ -56,11 +56,18 @@ import Network.AWS.Response
 -- * 'delbLayerIds'
 --
 -- * 'delbStackId'
-data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers'{_delbLayerIds :: Maybe [Text], _delbStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers'
+    { _delbLayerIds :: Maybe [Text]
+    , _delbStackId  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeElasticLoadBalancers' smart constructor.
 describeElasticLoadBalancers :: DescribeElasticLoadBalancers
-describeElasticLoadBalancers = DescribeElasticLoadBalancers'{_delbLayerIds = Nothing, _delbStackId = Nothing};
+describeElasticLoadBalancers =
+    DescribeElasticLoadBalancers'
+    { _delbLayerIds = Nothing
+    , _delbStackId = Nothing
+    }
 
 -- | A list of layer IDs. The action describes the Elastic Load Balancing
 -- instances for the specified layers.
@@ -115,12 +122,19 @@ instance ToQuery DescribeElasticLoadBalancers where
 --
 -- * 'delbrElasticLoadBalancers'
 --
--- * 'delbrStatusCode'
-data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'{_delbrElasticLoadBalancers :: Maybe [ElasticLoadBalancer], _delbrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'delbrStatus'
+data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'
+    { _delbrElasticLoadBalancers :: Maybe [ElasticLoadBalancer]
+    , _delbrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeElasticLoadBalancersResponse' smart constructor.
 describeElasticLoadBalancersResponse :: Int -> DescribeElasticLoadBalancersResponse
-describeElasticLoadBalancersResponse pStatusCode = DescribeElasticLoadBalancersResponse'{_delbrElasticLoadBalancers = Nothing, _delbrStatusCode = pStatusCode};
+describeElasticLoadBalancersResponse pStatus =
+    DescribeElasticLoadBalancersResponse'
+    { _delbrElasticLoadBalancers = Nothing
+    , _delbrStatus = pStatus
+    }
 
 -- | A list of @ElasticLoadBalancer@ objects that describe the specified
 -- Elastic Load Balancing instances.
@@ -128,5 +142,5 @@ delbrElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [Elastic
 delbrElasticLoadBalancers = lens _delbrElasticLoadBalancers (\ s a -> s{_delbrElasticLoadBalancers = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-delbrStatusCode :: Lens' DescribeElasticLoadBalancersResponse Int
-delbrStatusCode = lens _delbrStatusCode (\ s a -> s{_delbrStatusCode = a});
+delbrStatus :: Lens' DescribeElasticLoadBalancersResponse Int
+delbrStatus = lens _delbrStatus (\ s a -> s{_delbrStatus = a});

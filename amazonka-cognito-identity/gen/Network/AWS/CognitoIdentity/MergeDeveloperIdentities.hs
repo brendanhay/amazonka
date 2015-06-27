@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.MergeDeveloperIdentities
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,13 +44,13 @@ module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     , mergeDeveloperIdentitiesResponse
     -- ** Response lenses
     , mdirIdentityId
-    , mdirStatusCode
+    , mdirStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the @MergeDeveloperIdentities@ action.
 --
@@ -65,11 +65,22 @@ import Network.AWS.Response
 -- * 'mdiDeveloperProviderName'
 --
 -- * 'mdiIdentityPoolId'
-data MergeDeveloperIdentities = MergeDeveloperIdentities'{_mdiSourceUserIdentifier :: Text, _mdiDestinationUserIdentifier :: Text, _mdiDeveloperProviderName :: Text, _mdiIdentityPoolId :: Text} deriving (Eq, Read, Show)
+data MergeDeveloperIdentities = MergeDeveloperIdentities'
+    { _mdiSourceUserIdentifier      :: Text
+    , _mdiDestinationUserIdentifier :: Text
+    , _mdiDeveloperProviderName     :: Text
+    , _mdiIdentityPoolId            :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'MergeDeveloperIdentities' smart constructor.
 mergeDeveloperIdentities :: Text -> Text -> Text -> Text -> MergeDeveloperIdentities
-mergeDeveloperIdentities pSourceUserIdentifier pDestinationUserIdentifier pDeveloperProviderName pIdentityPoolId = MergeDeveloperIdentities'{_mdiSourceUserIdentifier = pSourceUserIdentifier, _mdiDestinationUserIdentifier = pDestinationUserIdentifier, _mdiDeveloperProviderName = pDeveloperProviderName, _mdiIdentityPoolId = pIdentityPoolId};
+mergeDeveloperIdentities pSourceUserIdentifier pDestinationUserIdentifier pDeveloperProviderName pIdentityPoolId =
+    MergeDeveloperIdentities'
+    { _mdiSourceUserIdentifier = pSourceUserIdentifier
+    , _mdiDestinationUserIdentifier = pDestinationUserIdentifier
+    , _mdiDeveloperProviderName = pDeveloperProviderName
+    , _mdiIdentityPoolId = pIdentityPoolId
+    }
 
 -- | User identifier for the source user. The value should be a
 -- @DeveloperUserIdentifier@.
@@ -138,17 +149,24 @@ instance ToQuery MergeDeveloperIdentities where
 --
 -- * 'mdirIdentityId'
 --
--- * 'mdirStatusCode'
-data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'{_mdirIdentityId :: Maybe Text, _mdirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'mdirStatus'
+data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'
+    { _mdirIdentityId :: Maybe Text
+    , _mdirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'MergeDeveloperIdentitiesResponse' smart constructor.
 mergeDeveloperIdentitiesResponse :: Int -> MergeDeveloperIdentitiesResponse
-mergeDeveloperIdentitiesResponse pStatusCode = MergeDeveloperIdentitiesResponse'{_mdirIdentityId = Nothing, _mdirStatusCode = pStatusCode};
+mergeDeveloperIdentitiesResponse pStatus =
+    MergeDeveloperIdentitiesResponse'
+    { _mdirIdentityId = Nothing
+    , _mdirStatus = pStatus
+    }
 
 -- | A unique identifier in the format REGION:GUID.
 mdirIdentityId :: Lens' MergeDeveloperIdentitiesResponse (Maybe Text)
 mdirIdentityId = lens _mdirIdentityId (\ s a -> s{_mdirIdentityId = a});
 
 -- | FIXME: Undocumented member.
-mdirStatusCode :: Lens' MergeDeveloperIdentitiesResponse Int
-mdirStatusCode = lens _mdirStatusCode (\ s a -> s{_mdirStatusCode = a});
+mdirStatus :: Lens' MergeDeveloperIdentitiesResponse Int
+mdirStatus = lens _mdirStatus (\ s a -> s{_mdirStatus = a});

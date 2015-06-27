@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.ShutdownGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,13 +55,13 @@ module Network.AWS.StorageGateway.ShutdownGateway
     , shutdownGatewayResponse
     -- ** Response lenses
     , sgrGatewayARN
-    , sgrStatusCode
+    , sgrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the of the gateway to shut down.
 --
@@ -70,11 +70,16 @@ import Network.AWS.StorageGateway.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'shuGatewayARN'
-newtype ShutdownGateway = ShutdownGateway'{_shuGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype ShutdownGateway = ShutdownGateway'
+    { _shuGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ShutdownGateway' smart constructor.
 shutdownGateway :: Text -> ShutdownGateway
-shutdownGateway pGatewayARN = ShutdownGateway'{_shuGatewayARN = pGatewayARN};
+shutdownGateway pGatewayARN =
+    ShutdownGateway'
+    { _shuGatewayARN = pGatewayARN
+    }
 
 -- | FIXME: Undocumented member.
 shuGatewayARN :: Lens' ShutdownGateway Text
@@ -118,17 +123,24 @@ instance ToQuery ShutdownGateway where
 --
 -- * 'sgrGatewayARN'
 --
--- * 'sgrStatusCode'
-data ShutdownGatewayResponse = ShutdownGatewayResponse'{_sgrGatewayARN :: Maybe Text, _sgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'sgrStatus'
+data ShutdownGatewayResponse = ShutdownGatewayResponse'
+    { _sgrGatewayARN :: Maybe Text
+    , _sgrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ShutdownGatewayResponse' smart constructor.
 shutdownGatewayResponse :: Int -> ShutdownGatewayResponse
-shutdownGatewayResponse pStatusCode = ShutdownGatewayResponse'{_sgrGatewayARN = Nothing, _sgrStatusCode = pStatusCode};
+shutdownGatewayResponse pStatus =
+    ShutdownGatewayResponse'
+    { _sgrGatewayARN = Nothing
+    , _sgrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 sgrGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
 sgrGatewayARN = lens _sgrGatewayARN (\ s a -> s{_sgrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-sgrStatusCode :: Lens' ShutdownGatewayResponse Int
-sgrStatusCode = lens _sgrStatusCode (\ s a -> s{_sgrStatusCode = a});
+sgrStatus :: Lens' ShutdownGatewayResponse Int
+sgrStatus = lens _sgrStatus (\ s a -> s{_sgrStatus = a});

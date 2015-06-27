@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectoryService.CreateSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.DirectoryService.CreateSnapshot
     , createSnapshotResponse
     -- ** Response lenses
     , csrSnapshotId
-    , csrStatusCode
+    , csrStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the CreateSnapshot operation.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'csName'
 --
 -- * 'csDirectoryId'
-data CreateSnapshot = CreateSnapshot'{_csName :: Maybe Text, _csDirectoryId :: Text} deriving (Eq, Read, Show)
+data CreateSnapshot = CreateSnapshot'
+    { _csName        :: Maybe Text
+    , _csDirectoryId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> CreateSnapshot
-createSnapshot pDirectoryId = CreateSnapshot'{_csName = Nothing, _csDirectoryId = pDirectoryId};
+createSnapshot pDirectoryId =
+    CreateSnapshot'
+    { _csName = Nothing
+    , _csDirectoryId = pDirectoryId
+    }
 
 -- | The descriptive name to apply to the snapshot.
 csName :: Lens' CreateSnapshot (Maybe Text)
@@ -105,17 +112,24 @@ instance ToQuery CreateSnapshot where
 --
 -- * 'csrSnapshotId'
 --
--- * 'csrStatusCode'
-data CreateSnapshotResponse = CreateSnapshotResponse'{_csrSnapshotId :: Maybe Text, _csrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'csrStatus'
+data CreateSnapshotResponse = CreateSnapshotResponse'
+    { _csrSnapshotId :: Maybe Text
+    , _csrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Int -> CreateSnapshotResponse
-createSnapshotResponse pStatusCode = CreateSnapshotResponse'{_csrSnapshotId = Nothing, _csrStatusCode = pStatusCode};
+createSnapshotResponse pStatus =
+    CreateSnapshotResponse'
+    { _csrSnapshotId = Nothing
+    , _csrStatus = pStatus
+    }
 
 -- | The identifier of the snapshot that was created.
 csrSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\ s a -> s{_csrSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-csrStatusCode :: Lens' CreateSnapshotResponse Int
-csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});
+csrStatus :: Lens' CreateSnapshotResponse Int
+csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});

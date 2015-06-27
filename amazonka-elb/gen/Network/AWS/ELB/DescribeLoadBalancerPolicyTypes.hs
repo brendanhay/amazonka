@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,24 +35,29 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     , describeLoadBalancerPolicyTypesResponse
     -- ** Response lenses
     , dlbptrPolicyTypeDescriptions
-    , dlbptrStatusCode
+    , dlbptrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancerPolicyTypes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlbptPolicyTypeNames'
-newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'{_dlbptPolicyTypeNames :: Maybe [Text]} deriving (Eq, Read, Show)
+newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'
+    { _dlbptPolicyTypeNames :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancerPolicyTypes' smart constructor.
 describeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes
-describeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'{_dlbptPolicyTypeNames = Nothing};
+describeLoadBalancerPolicyTypes =
+    DescribeLoadBalancerPolicyTypes'
+    { _dlbptPolicyTypeNames = Nothing
+    }
 
 -- | The names of the policy types. If no names are specified, describes all
 -- policy types defined by Elastic Load Balancing.
@@ -98,17 +103,24 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
 --
 -- * 'dlbptrPolicyTypeDescriptions'
 --
--- * 'dlbptrStatusCode'
-data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'{_dlbptrPolicyTypeDescriptions :: Maybe [PolicyTypeDescription], _dlbptrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dlbptrStatus'
+data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'
+    { _dlbptrPolicyTypeDescriptions :: Maybe [PolicyTypeDescription]
+    , _dlbptrStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancerPolicyTypesResponse' smart constructor.
 describeLoadBalancerPolicyTypesResponse :: Int -> DescribeLoadBalancerPolicyTypesResponse
-describeLoadBalancerPolicyTypesResponse pStatusCode = DescribeLoadBalancerPolicyTypesResponse'{_dlbptrPolicyTypeDescriptions = Nothing, _dlbptrStatusCode = pStatusCode};
+describeLoadBalancerPolicyTypesResponse pStatus =
+    DescribeLoadBalancerPolicyTypesResponse'
+    { _dlbptrPolicyTypeDescriptions = Nothing
+    , _dlbptrStatus = pStatus
+    }
 
 -- | Information about the policy types.
 dlbptrPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
 dlbptrPolicyTypeDescriptions = lens _dlbptrPolicyTypeDescriptions (\ s a -> s{_dlbptrPolicyTypeDescriptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlbptrStatusCode :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
-dlbptrStatusCode = lens _dlbptrStatusCode (\ s a -> s{_dlbptrStatusCode = a});
+dlbptrStatus :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
+dlbptrStatus = lens _dlbptrStatus (\ s a -> s{_dlbptrStatus = a});

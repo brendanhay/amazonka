@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.CreateHostedZone
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,13 +62,13 @@ module Network.AWS.Route53.CreateHostedZone
     , chzrChangeInfo
     , chzrDelegationSet
     , chzrLocation
-    , chzrStatusCode
+    , chzrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | A complex type that contains information about the request to create a
 -- hosted zone.
@@ -86,11 +86,24 @@ import Network.AWS.Route53.Types
 -- * 'chzName'
 --
 -- * 'chzCallerReference'
-data CreateHostedZone = CreateHostedZone'{_chzDelegationSetId :: Maybe Text, _chzHostedZoneConfig :: Maybe HostedZoneConfig, _chzVPC :: Maybe VPC, _chzName :: Text, _chzCallerReference :: Text} deriving (Eq, Read, Show)
+data CreateHostedZone = CreateHostedZone'
+    { _chzDelegationSetId  :: Maybe Text
+    , _chzHostedZoneConfig :: Maybe HostedZoneConfig
+    , _chzVPC              :: Maybe VPC
+    , _chzName             :: Text
+    , _chzCallerReference  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateHostedZone' smart constructor.
 createHostedZone :: Text -> Text -> CreateHostedZone
-createHostedZone pName pCallerReference = CreateHostedZone'{_chzDelegationSetId = Nothing, _chzHostedZoneConfig = Nothing, _chzVPC = Nothing, _chzName = pName, _chzCallerReference = pCallerReference};
+createHostedZone pName pCallerReference =
+    CreateHostedZone'
+    { _chzDelegationSetId = Nothing
+    , _chzHostedZoneConfig = Nothing
+    , _chzVPC = Nothing
+    , _chzName = pName
+    , _chzCallerReference = pCallerReference
+    }
 
 -- | The delegation set id of the reusable delgation set whose NS records you
 -- want to assign to the new hosted zone.
@@ -185,12 +198,27 @@ instance ToXML CreateHostedZone where
 --
 -- * 'chzrLocation'
 --
--- * 'chzrStatusCode'
-data CreateHostedZoneResponse = CreateHostedZoneResponse'{_chzrVPC :: Maybe VPC, _chzrHostedZone :: HostedZone, _chzrChangeInfo :: ChangeInfo, _chzrDelegationSet :: DelegationSet, _chzrLocation :: Text, _chzrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'chzrStatus'
+data CreateHostedZoneResponse = CreateHostedZoneResponse'
+    { _chzrVPC           :: Maybe VPC
+    , _chzrHostedZone    :: HostedZone
+    , _chzrChangeInfo    :: ChangeInfo
+    , _chzrDelegationSet :: DelegationSet
+    , _chzrLocation      :: Text
+    , _chzrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateHostedZoneResponse' smart constructor.
 createHostedZoneResponse :: HostedZone -> ChangeInfo -> DelegationSet -> Text -> Int -> CreateHostedZoneResponse
-createHostedZoneResponse pHostedZone pChangeInfo pDelegationSet pLocation pStatusCode = CreateHostedZoneResponse'{_chzrVPC = Nothing, _chzrHostedZone = pHostedZone, _chzrChangeInfo = pChangeInfo, _chzrDelegationSet = pDelegationSet, _chzrLocation = pLocation, _chzrStatusCode = pStatusCode};
+createHostedZoneResponse pHostedZone pChangeInfo pDelegationSet pLocation pStatus =
+    CreateHostedZoneResponse'
+    { _chzrVPC = Nothing
+    , _chzrHostedZone = pHostedZone
+    , _chzrChangeInfo = pChangeInfo
+    , _chzrDelegationSet = pDelegationSet
+    , _chzrLocation = pLocation
+    , _chzrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 chzrVPC :: Lens' CreateHostedZoneResponse (Maybe VPC)
@@ -216,5 +244,5 @@ chzrLocation :: Lens' CreateHostedZoneResponse Text
 chzrLocation = lens _chzrLocation (\ s a -> s{_chzrLocation = a});
 
 -- | FIXME: Undocumented member.
-chzrStatusCode :: Lens' CreateHostedZoneResponse Int
-chzrStatusCode = lens _chzrStatusCode (\ s a -> s{_chzrStatusCode = a});
+chzrStatus :: Lens' CreateHostedZoneResponse Int
+chzrStatus = lens _chzrStatus (\ s a -> s{_chzrStatus = a});

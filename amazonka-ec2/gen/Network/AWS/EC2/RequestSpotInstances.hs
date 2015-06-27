@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.RequestSpotInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,13 +47,13 @@ module Network.AWS.EC2.RequestSpotInstances
     , requestSpotInstancesResponse
     -- ** Response lenses
     , rsirSpotInstanceRequests
-    , rsirStatusCode
+    , rsirStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for RequestSpotInstances.
 --
@@ -80,11 +80,34 @@ import Network.AWS.Response
 -- * 'rsiDryRun'
 --
 -- * 'rsiSpotPrice'
-data RequestSpotInstances = RequestSpotInstances'{_rsiInstanceCount :: Maybe Int, _rsiClientToken :: Maybe Text, _rsiAvailabilityZoneGroup :: Maybe Text, _rsiLaunchSpecification :: Maybe RequestSpotLaunchSpecification, _rsiValidUntil :: Maybe ISO8601, _rsiLaunchGroup :: Maybe Text, _rsiType :: Maybe SpotInstanceType, _rsiValidFrom :: Maybe ISO8601, _rsiDryRun :: Maybe Bool, _rsiSpotPrice :: Text} deriving (Eq, Read, Show)
+data RequestSpotInstances = RequestSpotInstances'
+    { _rsiInstanceCount         :: Maybe Int
+    , _rsiClientToken           :: Maybe Text
+    , _rsiAvailabilityZoneGroup :: Maybe Text
+    , _rsiLaunchSpecification   :: Maybe RequestSpotLaunchSpecification
+    , _rsiValidUntil            :: Maybe ISO8601
+    , _rsiLaunchGroup           :: Maybe Text
+    , _rsiType                  :: Maybe SpotInstanceType
+    , _rsiValidFrom             :: Maybe ISO8601
+    , _rsiDryRun                :: Maybe Bool
+    , _rsiSpotPrice             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RequestSpotInstances' smart constructor.
 requestSpotInstances :: Text -> RequestSpotInstances
-requestSpotInstances pSpotPrice = RequestSpotInstances'{_rsiInstanceCount = Nothing, _rsiClientToken = Nothing, _rsiAvailabilityZoneGroup = Nothing, _rsiLaunchSpecification = Nothing, _rsiValidUntil = Nothing, _rsiLaunchGroup = Nothing, _rsiType = Nothing, _rsiValidFrom = Nothing, _rsiDryRun = Nothing, _rsiSpotPrice = pSpotPrice};
+requestSpotInstances pSpotPrice =
+    RequestSpotInstances'
+    { _rsiInstanceCount = Nothing
+    , _rsiClientToken = Nothing
+    , _rsiAvailabilityZoneGroup = Nothing
+    , _rsiLaunchSpecification = Nothing
+    , _rsiValidUntil = Nothing
+    , _rsiLaunchGroup = Nothing
+    , _rsiType = Nothing
+    , _rsiValidFrom = Nothing
+    , _rsiDryRun = Nothing
+    , _rsiSpotPrice = pSpotPrice
+    }
 
 -- | The maximum number of Spot Instances to launch.
 --
@@ -210,17 +233,24 @@ instance ToQuery RequestSpotInstances where
 --
 -- * 'rsirSpotInstanceRequests'
 --
--- * 'rsirStatusCode'
-data RequestSpotInstancesResponse = RequestSpotInstancesResponse'{_rsirSpotInstanceRequests :: Maybe [SpotInstanceRequest], _rsirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rsirStatus'
+data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
+    { _rsirSpotInstanceRequests :: Maybe [SpotInstanceRequest]
+    , _rsirStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RequestSpotInstancesResponse' smart constructor.
 requestSpotInstancesResponse :: Int -> RequestSpotInstancesResponse
-requestSpotInstancesResponse pStatusCode = RequestSpotInstancesResponse'{_rsirSpotInstanceRequests = Nothing, _rsirStatusCode = pStatusCode};
+requestSpotInstancesResponse pStatus =
+    RequestSpotInstancesResponse'
+    { _rsirSpotInstanceRequests = Nothing
+    , _rsirStatus = pStatus
+    }
 
 -- | One or more Spot Instance requests.
 rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
 rsirSpotInstanceRequests = lens _rsirSpotInstanceRequests (\ s a -> s{_rsirSpotInstanceRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-rsirStatusCode :: Lens' RequestSpotInstancesResponse Int
-rsirStatusCode = lens _rsirStatusCode (\ s a -> s{_rsirStatusCode = a});
+rsirStatus :: Lens' RequestSpotInstancesResponse Int
+rsirStatus = lens _rsirStatus (\ s a -> s{_rsirStatus = a});

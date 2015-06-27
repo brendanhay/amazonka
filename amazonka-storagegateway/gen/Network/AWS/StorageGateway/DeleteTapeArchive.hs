@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteTapeArchive
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.StorageGateway.DeleteTapeArchive
     , deleteTapeArchiveResponse
     -- ** Response lenses
     , dtar1TapeARN
-    , dtar1StatusCode
+    , dtar1Status
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | DeleteTapeArchiveInput
 --
@@ -47,11 +47,16 @@ import Network.AWS.StorageGateway.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtaTapeARN'
-newtype DeleteTapeArchive = DeleteTapeArchive'{_dtaTapeARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteTapeArchive = DeleteTapeArchive'
+    { _dtaTapeARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTapeArchive' smart constructor.
 deleteTapeArchive :: Text -> DeleteTapeArchive
-deleteTapeArchive pTapeARN = DeleteTapeArchive'{_dtaTapeARN = pTapeARN};
+deleteTapeArchive pTapeARN =
+    DeleteTapeArchive'
+    { _dtaTapeARN = pTapeARN
+    }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape to delete from the
 -- virtual tape shelf (VTS).
@@ -96,12 +101,19 @@ instance ToQuery DeleteTapeArchive where
 --
 -- * 'dtar1TapeARN'
 --
--- * 'dtar1StatusCode'
-data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'{_dtar1TapeARN :: Maybe Text, _dtar1StatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtar1Status'
+data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'
+    { _dtar1TapeARN :: Maybe Text
+    , _dtar1Status  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTapeArchiveResponse' smart constructor.
 deleteTapeArchiveResponse :: Int -> DeleteTapeArchiveResponse
-deleteTapeArchiveResponse pStatusCode = DeleteTapeArchiveResponse'{_dtar1TapeARN = Nothing, _dtar1StatusCode = pStatusCode};
+deleteTapeArchiveResponse pStatus =
+    DeleteTapeArchiveResponse'
+    { _dtar1TapeARN = Nothing
+    , _dtar1Status = pStatus
+    }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape that was deleted from
 -- the virtual tape shelf (VTS).
@@ -109,5 +121,5 @@ dtar1TapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
 dtar1TapeARN = lens _dtar1TapeARN (\ s a -> s{_dtar1TapeARN = a});
 
 -- | FIXME: Undocumented member.
-dtar1StatusCode :: Lens' DeleteTapeArchiveResponse Int
-dtar1StatusCode = lens _dtar1StatusCode (\ s a -> s{_dtar1StatusCode = a});
+dtar1Status :: Lens' DeleteTapeArchiveResponse Int
+dtar1Status = lens _dtar1Status (\ s a -> s{_dtar1Status = a});

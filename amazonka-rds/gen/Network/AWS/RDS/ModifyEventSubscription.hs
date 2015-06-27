@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.ModifyEventSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.RDS.ModifyEventSubscription
     , modifyEventSubscriptionResponse
     -- ** Response lenses
     , mesrEventSubscription
-    , mesrStatusCode
+    , mesrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -68,11 +68,24 @@ import Network.AWS.Response
 -- * 'mesEventCategories'
 --
 -- * 'mesSubscriptionName'
-data ModifyEventSubscription = ModifyEventSubscription'{_mesSNSTopicARN :: Maybe Text, _mesEnabled :: Maybe Bool, _mesSourceType :: Maybe Text, _mesEventCategories :: Maybe [Text], _mesSubscriptionName :: Text} deriving (Eq, Read, Show)
+data ModifyEventSubscription = ModifyEventSubscription'
+    { _mesSNSTopicARN      :: Maybe Text
+    , _mesEnabled          :: Maybe Bool
+    , _mesSourceType       :: Maybe Text
+    , _mesEventCategories  :: Maybe [Text]
+    , _mesSubscriptionName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyEventSubscription' smart constructor.
 modifyEventSubscription :: Text -> ModifyEventSubscription
-modifyEventSubscription pSubscriptionName = ModifyEventSubscription'{_mesSNSTopicARN = Nothing, _mesEnabled = Nothing, _mesSourceType = Nothing, _mesEventCategories = Nothing, _mesSubscriptionName = pSubscriptionName};
+modifyEventSubscription pSubscriptionName =
+    ModifyEventSubscription'
+    { _mesSNSTopicARN = Nothing
+    , _mesEnabled = Nothing
+    , _mesSourceType = Nothing
+    , _mesEventCategories = Nothing
+    , _mesSubscriptionName = pSubscriptionName
+    }
 
 -- | The Amazon Resource Name (ARN) of the SNS topic created for event
 -- notification. The ARN is created by Amazon SNS when you create a topic
@@ -144,17 +157,24 @@ instance ToQuery ModifyEventSubscription where
 --
 -- * 'mesrEventSubscription'
 --
--- * 'mesrStatusCode'
-data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'{_mesrEventSubscription :: Maybe EventSubscription, _mesrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'mesrStatus'
+data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'
+    { _mesrEventSubscription :: Maybe EventSubscription
+    , _mesrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyEventSubscriptionResponse' smart constructor.
 modifyEventSubscriptionResponse :: Int -> ModifyEventSubscriptionResponse
-modifyEventSubscriptionResponse pStatusCode = ModifyEventSubscriptionResponse'{_mesrEventSubscription = Nothing, _mesrStatusCode = pStatusCode};
+modifyEventSubscriptionResponse pStatus =
+    ModifyEventSubscriptionResponse'
+    { _mesrEventSubscription = Nothing
+    , _mesrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 mesrEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubscription)
 mesrEventSubscription = lens _mesrEventSubscription (\ s a -> s{_mesrEventSubscription = a});
 
 -- | FIXME: Undocumented member.
-mesrStatusCode :: Lens' ModifyEventSubscriptionResponse Int
-mesrStatusCode = lens _mesrStatusCode (\ s a -> s{_mesrStatusCode = a});
+mesrStatus :: Lens' ModifyEventSubscriptionResponse Int
+mesrStatus = lens _mesrStatus (\ s a -> s{_mesrStatus = a});

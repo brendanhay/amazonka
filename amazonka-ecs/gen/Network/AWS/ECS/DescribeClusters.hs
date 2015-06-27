@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.DescribeClusters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,24 +33,29 @@ module Network.AWS.ECS.DescribeClusters
     -- ** Response lenses
     , dcrFailures
     , dcrClusters
-    , dcrStatusCode
+    , dcrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeClusters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcClusters'
-newtype DescribeClusters = DescribeClusters'{_dcClusters :: Maybe [Text]} deriving (Eq, Read, Show)
+newtype DescribeClusters = DescribeClusters'
+    { _dcClusters :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusters' smart constructor.
 describeClusters :: DescribeClusters
-describeClusters = DescribeClusters'{_dcClusters = Nothing};
+describeClusters =
+    DescribeClusters'
+    { _dcClusters = Nothing
+    }
 
 -- | A space-separated list of cluster names or full cluster Amazon Resource
 -- Name (ARN) entries. If you do not specify a cluster, the default cluster
@@ -98,12 +103,21 @@ instance ToQuery DescribeClusters where
 --
 -- * 'dcrClusters'
 --
--- * 'dcrStatusCode'
-data DescribeClustersResponse = DescribeClustersResponse'{_dcrFailures :: Maybe [Failure], _dcrClusters :: Maybe [Cluster], _dcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcrStatus'
+data DescribeClustersResponse = DescribeClustersResponse'
+    { _dcrFailures :: Maybe [Failure]
+    , _dcrClusters :: Maybe [Cluster]
+    , _dcrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClustersResponse' smart constructor.
 describeClustersResponse :: Int -> DescribeClustersResponse
-describeClustersResponse pStatusCode = DescribeClustersResponse'{_dcrFailures = Nothing, _dcrClusters = Nothing, _dcrStatusCode = pStatusCode};
+describeClustersResponse pStatus =
+    DescribeClustersResponse'
+    { _dcrFailures = Nothing
+    , _dcrClusters = Nothing
+    , _dcrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dcrFailures :: Lens' DescribeClustersResponse [Failure]
@@ -114,5 +128,5 @@ dcrClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrClusters = lens _dcrClusters (\ s a -> s{_dcrClusters = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrStatusCode :: Lens' DescribeClustersResponse Int
-dcrStatusCode = lens _dcrStatusCode (\ s a -> s{_dcrStatusCode = a});
+dcrStatus :: Lens' DescribeClustersResponse Int
+dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});

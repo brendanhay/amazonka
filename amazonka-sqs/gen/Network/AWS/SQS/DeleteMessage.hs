@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.DeleteMessage
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,10 +54,10 @@ module Network.AWS.SQS.DeleteMessage
     , deleteMessageResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'deleteMessage' smart constructor.
 --
@@ -66,11 +66,18 @@ import Network.AWS.SQS.Types
 -- * 'dmQueueURL'
 --
 -- * 'dmReceiptHandle'
-data DeleteMessage = DeleteMessage'{_dmQueueURL :: Text, _dmReceiptHandle :: Text} deriving (Eq, Read, Show)
+data DeleteMessage = DeleteMessage'
+    { _dmQueueURL      :: Text
+    , _dmReceiptHandle :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteMessage' smart constructor.
 deleteMessage :: Text -> Text -> DeleteMessage
-deleteMessage pQueueURL pReceiptHandle = DeleteMessage'{_dmQueueURL = pQueueURL, _dmReceiptHandle = pReceiptHandle};
+deleteMessage pQueueURL pReceiptHandle =
+    DeleteMessage'
+    { _dmQueueURL = pQueueURL
+    , _dmReceiptHandle = pReceiptHandle
+    }
 
 -- | The URL of the Amazon SQS queue to take action on.
 dmQueueURL :: Lens' DeleteMessage Text
@@ -101,8 +108,10 @@ instance ToQuery DeleteMessage where
                "ReceiptHandle" =: _dmReceiptHandle]
 
 -- | /See:/ 'deleteMessageResponse' smart constructor.
-data DeleteMessageResponse = DeleteMessageResponse' deriving (Eq, Read, Show)
+data DeleteMessageResponse =
+    DeleteMessageResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteMessageResponse' smart constructor.
 deleteMessageResponse :: DeleteMessageResponse
-deleteMessageResponse = DeleteMessageResponse';
+deleteMessageResponse = DeleteMessageResponse'

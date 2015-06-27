@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteAnalysisScheme
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.CloudSearch.DeleteAnalysisScheme
     , deleteAnalysisSchemeResponse
     -- ** Response lenses
     , dAnalysisScheme
-    , dStatusCode
+    , dStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DeleteAnalysisScheme@ operation.
 -- Specifies the name of the domain you want to update and the analysis
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'dasDomainName'
 --
 -- * 'dasAnalysisSchemeName'
-data DeleteAnalysisScheme = DeleteAnalysisScheme'{_dasDomainName :: Text, _dasAnalysisSchemeName :: Text} deriving (Eq, Read, Show)
+data DeleteAnalysisScheme = DeleteAnalysisScheme'
+    { _dasDomainName         :: Text
+    , _dasAnalysisSchemeName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteAnalysisScheme' smart constructor.
 deleteAnalysisScheme :: Text -> Text -> DeleteAnalysisScheme
-deleteAnalysisScheme pDomainName pAnalysisSchemeName = DeleteAnalysisScheme'{_dasDomainName = pDomainName, _dasAnalysisSchemeName = pAnalysisSchemeName};
+deleteAnalysisScheme pDomainName pAnalysisSchemeName =
+    DeleteAnalysisScheme'
+    { _dasDomainName = pDomainName
+    , _dasAnalysisSchemeName = pAnalysisSchemeName
+    }
 
 -- | FIXME: Undocumented member.
 dasDomainName :: Lens' DeleteAnalysisScheme Text
@@ -102,17 +109,24 @@ instance ToQuery DeleteAnalysisScheme where
 --
 -- * 'dAnalysisScheme'
 --
--- * 'dStatusCode'
-data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'{_dAnalysisScheme :: AnalysisSchemeStatus, _dStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dStatus'
+data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
+    { _dAnalysisScheme :: AnalysisSchemeStatus
+    , _dStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteAnalysisSchemeResponse' smart constructor.
 deleteAnalysisSchemeResponse :: AnalysisSchemeStatus -> Int -> DeleteAnalysisSchemeResponse
-deleteAnalysisSchemeResponse pAnalysisScheme pStatusCode = DeleteAnalysisSchemeResponse'{_dAnalysisScheme = pAnalysisScheme, _dStatusCode = pStatusCode};
+deleteAnalysisSchemeResponse pAnalysisScheme pStatus =
+    DeleteAnalysisSchemeResponse'
+    { _dAnalysisScheme = pAnalysisScheme
+    , _dStatus = pStatus
+    }
 
 -- | The status of the analysis scheme being deleted.
 dAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
 dAnalysisScheme = lens _dAnalysisScheme (\ s a -> s{_dAnalysisScheme = a});
 
 -- | FIXME: Undocumented member.
-dStatusCode :: Lens' DeleteAnalysisSchemeResponse Int
-dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});
+dStatus :: Lens' DeleteAnalysisSchemeResponse Int
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

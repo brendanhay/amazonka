@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.DeleteDataset
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.CognitoSync.DeleteDataset
     , deleteDatasetResponse
     -- ** Response lenses
     , delDataset
-    , delStatusCode
+    , delStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to delete the specific dataset.
 --
@@ -59,11 +59,20 @@ import Network.AWS.Response
 -- * 'delIdentityId'
 --
 -- * 'delDatasetName'
-data DeleteDataset = DeleteDataset'{_delIdentityPoolId :: Text, _delIdentityId :: Text, _delDatasetName :: Text} deriving (Eq, Read, Show)
+data DeleteDataset = DeleteDataset'
+    { _delIdentityPoolId :: Text
+    , _delIdentityId     :: Text
+    , _delDatasetName    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDataset' smart constructor.
 deleteDataset :: Text -> Text -> Text -> DeleteDataset
-deleteDataset pIdentityPoolId pIdentityId pDatasetName = DeleteDataset'{_delIdentityPoolId = pIdentityPoolId, _delIdentityId = pIdentityId, _delDatasetName = pDatasetName};
+deleteDataset pIdentityPoolId pIdentityId pDatasetName =
+    DeleteDataset'
+    { _delIdentityPoolId = pIdentityPoolId
+    , _delIdentityId = pIdentityId
+    , _delDatasetName = pDatasetName
+    }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -117,12 +126,19 @@ instance ToQuery DeleteDataset where
 --
 -- * 'delDataset'
 --
--- * 'delStatusCode'
-data DeleteDatasetResponse = DeleteDatasetResponse'{_delDataset :: Maybe Dataset, _delStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'delStatus'
+data DeleteDatasetResponse = DeleteDatasetResponse'
+    { _delDataset :: Maybe Dataset
+    , _delStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDatasetResponse' smart constructor.
 deleteDatasetResponse :: Int -> DeleteDatasetResponse
-deleteDatasetResponse pStatusCode = DeleteDatasetResponse'{_delDataset = Nothing, _delStatusCode = pStatusCode};
+deleteDatasetResponse pStatus =
+    DeleteDatasetResponse'
+    { _delDataset = Nothing
+    , _delStatus = pStatus
+    }
 
 -- | A collection of data for an identity pool. An identity pool can have
 -- multiple datasets. A dataset is per identity and can be general or
@@ -133,5 +149,5 @@ delDataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
 delDataset = lens _delDataset (\ s a -> s{_delDataset = a});
 
 -- | FIXME: Undocumented member.
-delStatusCode :: Lens' DeleteDatasetResponse Int
-delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});
+delStatus :: Lens' DeleteDatasetResponse Int
+delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

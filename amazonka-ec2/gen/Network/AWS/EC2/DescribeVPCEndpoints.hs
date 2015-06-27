@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeVPCEndpoints
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.EC2.DescribeVPCEndpoints
     -- ** Response lenses
     , dNextToken
     , dVPCEndpoints
-    , dStatusCode
+    , dStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVPCEndpoints' smart constructor.
 --
@@ -58,11 +58,24 @@ import Network.AWS.Response
 -- * 'dvpceDryRun'
 --
 -- * 'dvpceMaxResults'
-data DescribeVPCEndpoints = DescribeVPCEndpoints'{_dvpceFilters :: Maybe [Filter], _dvpceNextToken :: Maybe Text, _dvpceVPCEndpointIds :: Maybe [Text], _dvpceDryRun :: Maybe Bool, _dvpceMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeVPCEndpoints = DescribeVPCEndpoints'
+    { _dvpceFilters        :: Maybe [Filter]
+    , _dvpceNextToken      :: Maybe Text
+    , _dvpceVPCEndpointIds :: Maybe [Text]
+    , _dvpceDryRun         :: Maybe Bool
+    , _dvpceMaxResults     :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCEndpoints' smart constructor.
 describeVPCEndpoints :: DescribeVPCEndpoints
-describeVPCEndpoints = DescribeVPCEndpoints'{_dvpceFilters = Nothing, _dvpceNextToken = Nothing, _dvpceVPCEndpointIds = Nothing, _dvpceDryRun = Nothing, _dvpceMaxResults = Nothing};
+describeVPCEndpoints =
+    DescribeVPCEndpoints'
+    { _dvpceFilters = Nothing
+    , _dvpceNextToken = Nothing
+    , _dvpceVPCEndpointIds = Nothing
+    , _dvpceDryRun = Nothing
+    , _dvpceMaxResults = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -141,12 +154,21 @@ instance ToQuery DescribeVPCEndpoints where
 --
 -- * 'dVPCEndpoints'
 --
--- * 'dStatusCode'
-data DescribeVPCEndpointsResponse = DescribeVPCEndpointsResponse'{_dNextToken :: Maybe Text, _dVPCEndpoints :: Maybe [VPCEndpoint], _dStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dStatus'
+data DescribeVPCEndpointsResponse = DescribeVPCEndpointsResponse'
+    { _dNextToken    :: Maybe Text
+    , _dVPCEndpoints :: Maybe [VPCEndpoint]
+    , _dStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCEndpointsResponse' smart constructor.
 describeVPCEndpointsResponse :: Int -> DescribeVPCEndpointsResponse
-describeVPCEndpointsResponse pStatusCode = DescribeVPCEndpointsResponse'{_dNextToken = Nothing, _dVPCEndpoints = Nothing, _dStatusCode = pStatusCode};
+describeVPCEndpointsResponse pStatus =
+    DescribeVPCEndpointsResponse'
+    { _dNextToken = Nothing
+    , _dVPCEndpoints = Nothing
+    , _dStatus = pStatus
+    }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -158,5 +180,5 @@ dVPCEndpoints :: Lens' DescribeVPCEndpointsResponse [VPCEndpoint]
 dVPCEndpoints = lens _dVPCEndpoints (\ s a -> s{_dVPCEndpoints = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dStatusCode :: Lens' DescribeVPCEndpointsResponse Int
-dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});
+dStatus :: Lens' DescribeVPCEndpointsResponse Int
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.SSM.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -115,103 +114,120 @@ module Network.AWS.SSM.Types
     , fcaMessage
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2014-11-06@ of the Amazon Simple Systems Management Service SDK.
 data SSM
 
 instance AWSService SSM where
     type Sg SSM = V4
-
     service = const svc
       where
-        svc :: Service SSM
-        svc = Service
-            { _svcAbbrev   = "SSM"
-            , _svcPrefix   = "ssm"
-            , _svcVersion  = "2014-11-06"
+        svc =
+            Service
+            { _svcAbbrev = "SSM"
+            , _svcPrefix = "ssm"
+            , _svcVersion = "2014-11-06"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | You must disassociate a configuration document from all instances before
 -- you can delete it.
-_AssociatedInstances :: AWSError a => Geting (First ServiceError) a ServiceError
-_AssociatedInstances = _ServiceError . hasStatus 400 . hasCode "AssociatedInstances";
+_AssociatedInstances :: AWSError a => Getting (First ServiceError) a ServiceError
+_AssociatedInstances =
+    _ServiceError . hasStatus 400 . hasCode "AssociatedInstances"
 
 -- | The specified token is not valid.
-_InvalidNextToken :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken";
+_InvalidNextToken :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
 -- | You must specify the ID of a running instance.
-_InvalidInstanceId :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidInstanceId = _ServiceError . hasStatus 404 . hasCode "InvalidInstanceId";
+_InvalidInstanceId :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidInstanceId =
+    _ServiceError . hasStatus 404 . hasCode "InvalidInstanceId"
 
 -- | The updated status is the same as the current status.
-_StatusUnchanged :: AWSError a => Geting (First ServiceError) a ServiceError
-_StatusUnchanged = _ServiceError . hasStatus 400 . hasCode "StatusUnchanged";
+_StatusUnchanged :: AWSError a => Getting (First ServiceError) a ServiceError
+_StatusUnchanged = _ServiceError . hasStatus 400 . hasCode "StatusUnchanged"
 
 -- | You cannot specify an instance ID in more than one association.
-_DuplicateInstanceId :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicateInstanceId = _ServiceError . hasStatus 404 . hasCode "DuplicateInstanceId";
+_DuplicateInstanceId :: AWSError a => Getting (First ServiceError) a ServiceError
+_DuplicateInstanceId =
+    _ServiceError . hasStatus 404 . hasCode "DuplicateInstanceId"
 
 -- | The configuration document is not valid.
-_InvalidDocument :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDocument = _ServiceError . hasStatus 404 . hasCode "InvalidDocument";
+_InvalidDocument :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDocument = _ServiceError . hasStatus 404 . hasCode "InvalidDocument"
 
 -- | You can have at most 2,000 active associations.
-_AssociationLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_AssociationLimitExceeded = _ServiceError . hasStatus 400 . hasCode "AssociationLimitExceeded";
+_AssociationLimitExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_AssociationLimitExceeded =
+    _ServiceError . hasStatus 400 . hasCode "AssociationLimitExceeded"
 
 -- | The content for the configuration document is not valid.
-_InvalidDocumentContent :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDocumentContent = _ServiceError . hasStatus 400 . hasCode "InvalidDocumentContent";
+_InvalidDocumentContent :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDocumentContent =
+    _ServiceError . hasStatus 400 . hasCode "InvalidDocumentContent"
 
 -- | The specified association already exists.
-_AssociationAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_AssociationAlreadyExists = _ServiceError . hasStatus 400 . hasCode "AssociationAlreadyExists";
+_AssociationAlreadyExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_AssociationAlreadyExists =
+    _ServiceError . hasStatus 400 . hasCode "AssociationAlreadyExists"
 
 -- | The specified association does not exist.
-_AssociationDoesNotExist :: AWSError a => Geting (First ServiceError) a ServiceError
-_AssociationDoesNotExist = _ServiceError . hasStatus 404 . hasCode "AssociationDoesNotExist";
+_AssociationDoesNotExist :: AWSError a => Getting (First ServiceError) a ServiceError
+_AssociationDoesNotExist =
+    _ServiceError . hasStatus 404 . hasCode "AssociationDoesNotExist"
 
 -- | An error occurred on the server side.
-_InternalServerError :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalServerError = _ServiceError . hasStatus 500 . hasCode "InternalServerError";
+_InternalServerError :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServerError =
+    _ServiceError . hasStatus 500 . hasCode "InternalServerError"
 
 -- | The size limit of a configuration document is 64 KB.
-_MaxDocumentSizeExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_MaxDocumentSizeExceeded = _ServiceError . hasStatus 400 . hasCode "MaxDocumentSizeExceeded";
+_MaxDocumentSizeExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_MaxDocumentSizeExceeded =
+    _ServiceError . hasStatus 400 . hasCode "MaxDocumentSizeExceeded"
 
 -- | There are concurrent updates for a resource that supports one update at
 -- a time.
-_TooManyUpdates :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyUpdates = _ServiceError . hasStatus 429 . hasCode "TooManyUpdates";
+_TooManyUpdates :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyUpdates = _ServiceError . hasStatus 429 . hasCode "TooManyUpdates"
 
 -- | The specified configuration document already exists.
-_DocumentAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_DocumentAlreadyExists = _ServiceError . hasStatus 400 . hasCode "DocumentAlreadyExists";
+_DocumentAlreadyExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_DocumentAlreadyExists =
+    _ServiceError . hasStatus 400 . hasCode "DocumentAlreadyExists"
 
 -- | You can have at most 100 active configuration documents.
-_DocumentLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_DocumentLimitExceeded = _ServiceError . hasStatus 400 . hasCode "DocumentLimitExceeded";
+_DocumentLimitExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_DocumentLimitExceeded =
+    _ServiceError . hasStatus 400 . hasCode "DocumentLimitExceeded"
 
-data AssociationFilterKey = AFKInstanceId | AFKName deriving (Eq, Ord, Read, Show, Enum, Generic)
+data AssociationFilterKey
+    = AFKInstanceId
+    | AFKName
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AssociationFilterKey where
     parser = takeLowerText >>= \case
@@ -231,7 +247,11 @@ instance ToHeader AssociationFilterKey
 instance ToJSON AssociationFilterKey where
     toJSON = toJSONText
 
-data AssociationStatusName = Pending | Success | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data AssociationStatusName
+    = Pending
+    | Success
+    | Failed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AssociationStatusName where
     parser = takeLowerText >>= \case
@@ -256,7 +276,9 @@ instance ToJSON AssociationStatusName where
 instance FromJSON AssociationStatusName where
     parseJSON = parseJSONText "AssociationStatusName"
 
-data DocumentFilterKey = Name deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DocumentFilterKey =
+    Name
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DocumentFilterKey where
     parser = takeLowerText >>= \case
@@ -274,7 +296,11 @@ instance ToHeader DocumentFilterKey
 instance ToJSON DocumentFilterKey where
     toJSON = toJSONText
 
-data DocumentStatus = Deleting | Creating | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DocumentStatus
+    = Deleting
+    | Creating
+    | Active
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DocumentStatus where
     parser = takeLowerText >>= \case
@@ -296,7 +322,11 @@ instance ToHeader DocumentStatus
 instance FromJSON DocumentStatus where
     parseJSON = parseJSONText "DocumentStatus"
 
-data Fault = Unknown | Server | Client deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Fault
+    = Unknown
+    | Server
+    | Client
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Fault where
     parser = takeLowerText >>= \case
@@ -327,11 +357,18 @@ instance FromJSON Fault where
 -- * 'assInstanceId'
 --
 -- * 'assName'
-data Association = Association'{_assInstanceId :: Maybe Text, _assName :: Maybe Text} deriving (Eq, Read, Show)
+data Association = Association'
+    { _assInstanceId :: Maybe Text
+    , _assName       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Association' smart constructor.
 association :: Association
-association = Association'{_assInstanceId = Nothing, _assName = Nothing};
+association =
+    Association'
+    { _assInstanceId = Nothing
+    , _assName = Nothing
+    }
 
 -- | The ID of the instance.
 assInstanceId :: Lens' Association (Maybe Text)
@@ -361,11 +398,22 @@ instance FromJSON Association where
 -- * 'adDate'
 --
 -- * 'adName'
-data AssociationDescription = AssociationDescription'{_adInstanceId :: Maybe Text, _adStatus :: Maybe AssociationStatus, _adDate :: Maybe POSIX, _adName :: Maybe Text} deriving (Eq, Read, Show)
+data AssociationDescription = AssociationDescription'
+    { _adInstanceId :: Maybe Text
+    , _adStatus     :: Maybe AssociationStatus
+    , _adDate       :: Maybe POSIX
+    , _adName       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AssociationDescription' smart constructor.
 associationDescription :: AssociationDescription
-associationDescription = AssociationDescription'{_adInstanceId = Nothing, _adStatus = Nothing, _adDate = Nothing, _adName = Nothing};
+associationDescription =
+    AssociationDescription'
+    { _adInstanceId = Nothing
+    , _adStatus = Nothing
+    , _adDate = Nothing
+    , _adName = Nothing
+    }
 
 -- | The ID of the instance.
 adInstanceId :: Lens' AssociationDescription (Maybe Text)
@@ -401,11 +449,18 @@ instance FromJSON AssociationDescription where
 -- * 'afKey'
 --
 -- * 'afValue'
-data AssociationFilter = AssociationFilter'{_afKey :: AssociationFilterKey, _afValue :: Text} deriving (Eq, Read, Show)
+data AssociationFilter = AssociationFilter'
+    { _afKey   :: AssociationFilterKey
+    , _afValue :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AssociationFilter' smart constructor.
 associationFilter :: AssociationFilterKey -> Text -> AssociationFilter
-associationFilter pKey pValue = AssociationFilter'{_afKey = pKey, _afValue = pValue};
+associationFilter pKey pValue =
+    AssociationFilter'
+    { _afKey = pKey
+    , _afValue = pValue
+    }
 
 -- | The name of the filter.
 afKey :: Lens' AssociationFilter AssociationFilterKey
@@ -432,11 +487,22 @@ instance ToJSON AssociationFilter where
 -- * 'asName'
 --
 -- * 'asMessage'
-data AssociationStatus = AssociationStatus'{_asAdditionalInfo :: Maybe Text, _asDate :: POSIX, _asName :: AssociationStatusName, _asMessage :: Text} deriving (Eq, Read, Show)
+data AssociationStatus = AssociationStatus'
+    { _asAdditionalInfo :: Maybe Text
+    , _asDate           :: POSIX
+    , _asName           :: AssociationStatusName
+    , _asMessage        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AssociationStatus' smart constructor.
 associationStatus :: UTCTime -> AssociationStatusName -> Text -> AssociationStatus
-associationStatus pDate pName pMessage = AssociationStatus'{_asAdditionalInfo = Nothing, _asDate = _Time # pDate, _asName = pName, _asMessage = pMessage};
+associationStatus pDate pName pMessage =
+    AssociationStatus'
+    { _asAdditionalInfo = Nothing
+    , _asDate = _Time # pDate
+    , _asName = pName
+    , _asMessage = pMessage
+    }
 
 -- | A user-defined string.
 asAdditionalInfo :: Lens' AssociationStatus (Maybe Text)
@@ -479,11 +545,18 @@ instance ToJSON AssociationStatus where
 -- * 'cabreInstanceId'
 --
 -- * 'cabreName'
-data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'{_cabreInstanceId :: Maybe Text, _cabreName :: Maybe Text} deriving (Eq, Read, Show)
+data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
+    { _cabreInstanceId :: Maybe Text
+    , _cabreName       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAssociationBatchRequestEntry' smart constructor.
 createAssociationBatchRequestEntry :: CreateAssociationBatchRequestEntry
-createAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'{_cabreInstanceId = Nothing, _cabreName = Nothing};
+createAssociationBatchRequestEntry =
+    CreateAssociationBatchRequestEntry'
+    { _cabreInstanceId = Nothing
+    , _cabreName = Nothing
+    }
 
 -- | The ID of the instance.
 cabreInstanceId :: Lens' CreateAssociationBatchRequestEntry (Maybe Text)
@@ -521,11 +594,22 @@ instance ToJSON CreateAssociationBatchRequestEntry
 -- * 'docCreatedDate'
 --
 -- * 'docName'
-data DocumentDescription = DocumentDescription'{_docStatus :: Maybe DocumentStatus, _docSha1 :: Maybe Text, _docCreatedDate :: Maybe POSIX, _docName :: Maybe Text} deriving (Eq, Read, Show)
+data DocumentDescription = DocumentDescription'
+    { _docStatus      :: Maybe DocumentStatus
+    , _docSha1        :: Maybe Text
+    , _docCreatedDate :: Maybe POSIX
+    , _docName        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DocumentDescription' smart constructor.
 documentDescription :: DocumentDescription
-documentDescription = DocumentDescription'{_docStatus = Nothing, _docSha1 = Nothing, _docCreatedDate = Nothing, _docName = Nothing};
+documentDescription =
+    DocumentDescription'
+    { _docStatus = Nothing
+    , _docSha1 = Nothing
+    , _docCreatedDate = Nothing
+    , _docName = Nothing
+    }
 
 -- | The status of the configuration document.
 docStatus :: Lens' DocumentDescription (Maybe DocumentStatus)
@@ -562,11 +646,18 @@ instance FromJSON DocumentDescription where
 -- * 'dfKey'
 --
 -- * 'dfValue'
-data DocumentFilter = DocumentFilter'{_dfKey :: DocumentFilterKey, _dfValue :: Text} deriving (Eq, Read, Show)
+data DocumentFilter = DocumentFilter'
+    { _dfKey   :: DocumentFilterKey
+    , _dfValue :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DocumentFilter' smart constructor.
 documentFilter :: DocumentFilterKey -> Text -> DocumentFilter
-documentFilter pKey pValue = DocumentFilter'{_dfKey = pKey, _dfValue = pValue};
+documentFilter pKey pValue =
+    DocumentFilter'
+    { _dfKey = pKey
+    , _dfValue = pValue
+    }
 
 -- | The name of the filter.
 dfKey :: Lens' DocumentFilter DocumentFilterKey
@@ -587,11 +678,16 @@ instance ToJSON DocumentFilter where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'diName'
-newtype DocumentIdentifier = DocumentIdentifier'{_diName :: Maybe Text} deriving (Eq, Read, Show)
+newtype DocumentIdentifier = DocumentIdentifier'
+    { _diName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DocumentIdentifier' smart constructor.
 documentIdentifier :: DocumentIdentifier
-documentIdentifier = DocumentIdentifier'{_diName = Nothing};
+documentIdentifier =
+    DocumentIdentifier'
+    { _diName = Nothing
+    }
 
 -- | The name of the configuration document.
 diName :: Lens' DocumentIdentifier (Maybe Text)
@@ -613,11 +709,20 @@ instance FromJSON DocumentIdentifier where
 -- * 'fcaFault'
 --
 -- * 'fcaMessage'
-data FailedCreateAssociation = FailedCreateAssociation'{_fcaEntry :: Maybe CreateAssociationBatchRequestEntry, _fcaFault :: Maybe Fault, _fcaMessage :: Maybe Text} deriving (Eq, Read, Show)
+data FailedCreateAssociation = FailedCreateAssociation'
+    { _fcaEntry   :: Maybe CreateAssociationBatchRequestEntry
+    , _fcaFault   :: Maybe Fault
+    , _fcaMessage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'FailedCreateAssociation' smart constructor.
 failedCreateAssociation :: FailedCreateAssociation
-failedCreateAssociation = FailedCreateAssociation'{_fcaEntry = Nothing, _fcaFault = Nothing, _fcaMessage = Nothing};
+failedCreateAssociation =
+    FailedCreateAssociation'
+    { _fcaEntry = Nothing
+    , _fcaFault = Nothing
+    , _fcaMessage = Nothing
+    }
 
 -- | The association.
 fcaEntry :: Lens' FailedCreateAssociation (Maybe CreateAssociationBatchRequestEntry)

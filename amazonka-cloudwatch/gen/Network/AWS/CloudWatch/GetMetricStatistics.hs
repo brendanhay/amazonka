@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatch.GetMetricStatistics
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,13 +68,13 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     -- ** Response lenses
     , gmsrDatapoints
     , gmsrLabel
-    , gmsrStatusCode
+    , gmsrStatus
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getMetricStatistics' smart constructor.
 --
@@ -95,11 +95,30 @@ import Network.AWS.Response
 -- * 'gmsPeriod'
 --
 -- * 'gmsStatistics'
-data GetMetricStatistics = GetMetricStatistics'{_gmsDimensions :: Maybe [Dimension], _gmsUnit :: Maybe StandardUnit, _gmsNamespace :: Text, _gmsMetricName :: Text, _gmsStartTime :: ISO8601, _gmsEndTime :: ISO8601, _gmsPeriod :: Nat, _gmsStatistics :: List1 Statistic} deriving (Eq, Read, Show)
+data GetMetricStatistics = GetMetricStatistics'
+    { _gmsDimensions :: Maybe [Dimension]
+    , _gmsUnit       :: Maybe StandardUnit
+    , _gmsNamespace  :: Text
+    , _gmsMetricName :: Text
+    , _gmsStartTime  :: ISO8601
+    , _gmsEndTime    :: ISO8601
+    , _gmsPeriod     :: !Nat
+    , _gmsStatistics :: List1 Statistic
+    } deriving (Eq,Read,Show)
 
 -- | 'GetMetricStatistics' smart constructor.
 getMetricStatistics :: Text -> Text -> UTCTime -> UTCTime -> Natural -> NonEmpty Statistic -> GetMetricStatistics
-getMetricStatistics pNamespace pMetricName pStartTime pEndTime pPeriod pStatistics = GetMetricStatistics'{_gmsDimensions = Nothing, _gmsUnit = Nothing, _gmsNamespace = pNamespace, _gmsMetricName = pMetricName, _gmsStartTime = _Time # pStartTime, _gmsEndTime = _Time # pEndTime, _gmsPeriod = _Nat # pPeriod, _gmsStatistics = _List1 # pStatistics};
+getMetricStatistics pNamespace pMetricName pStartTime pEndTime pPeriod pStatistics =
+    GetMetricStatistics'
+    { _gmsDimensions = Nothing
+    , _gmsUnit = Nothing
+    , _gmsNamespace = pNamespace
+    , _gmsMetricName = pMetricName
+    , _gmsStartTime = _Time # pStartTime
+    , _gmsEndTime = _Time # pEndTime
+    , _gmsPeriod = _Nat # pPeriod
+    , _gmsStatistics = _List1 # pStatistics
+    }
 
 -- | A list of dimensions describing qualities of the metric.
 gmsDimensions :: Lens' GetMetricStatistics [Dimension]
@@ -187,12 +206,21 @@ instance ToQuery GetMetricStatistics where
 --
 -- * 'gmsrLabel'
 --
--- * 'gmsrStatusCode'
-data GetMetricStatisticsResponse = GetMetricStatisticsResponse'{_gmsrDatapoints :: Maybe [Datapoint], _gmsrLabel :: Maybe Text, _gmsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gmsrStatus'
+data GetMetricStatisticsResponse = GetMetricStatisticsResponse'
+    { _gmsrDatapoints :: Maybe [Datapoint]
+    , _gmsrLabel      :: Maybe Text
+    , _gmsrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetMetricStatisticsResponse' smart constructor.
 getMetricStatisticsResponse :: Int -> GetMetricStatisticsResponse
-getMetricStatisticsResponse pStatusCode = GetMetricStatisticsResponse'{_gmsrDatapoints = Nothing, _gmsrLabel = Nothing, _gmsrStatusCode = pStatusCode};
+getMetricStatisticsResponse pStatus =
+    GetMetricStatisticsResponse'
+    { _gmsrDatapoints = Nothing
+    , _gmsrLabel = Nothing
+    , _gmsrStatus = pStatus
+    }
 
 -- | The datapoints for the specified metric.
 gmsrDatapoints :: Lens' GetMetricStatisticsResponse [Datapoint]
@@ -203,5 +231,5 @@ gmsrLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
 gmsrLabel = lens _gmsrLabel (\ s a -> s{_gmsrLabel = a});
 
 -- | FIXME: Undocumented member.
-gmsrStatusCode :: Lens' GetMetricStatisticsResponse Int
-gmsrStatusCode = lens _gmsrStatusCode (\ s a -> s{_gmsrStatusCode = a});
+gmsrStatus :: Lens' GetMetricStatisticsResponse Int
+gmsrStatus = lens _gmsrStatus (\ s a -> s{_gmsrStatus = a});

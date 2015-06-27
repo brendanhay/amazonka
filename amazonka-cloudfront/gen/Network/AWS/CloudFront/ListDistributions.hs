@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.ListDistributions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,14 +33,14 @@ module Network.AWS.CloudFront.ListDistributions
     , listDistributionsResponse
     -- ** Response lenses
     , ldrDistributionList
-    , ldrStatusCode
+    , ldrStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to list your distributions.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'ldMaxItems'
 --
 -- * 'ldMarker'
-data ListDistributions = ListDistributions'{_ldMaxItems :: Maybe Text, _ldMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListDistributions = ListDistributions'
+    { _ldMaxItems :: Maybe Text
+    , _ldMarker   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDistributions' smart constructor.
 listDistributions :: ListDistributions
-listDistributions = ListDistributions'{_ldMaxItems = Nothing, _ldMarker = Nothing};
+listDistributions =
+    ListDistributions'
+    { _ldMaxItems = Nothing
+    , _ldMarker = Nothing
+    }
 
 -- | The maximum number of distributions you want in the response body.
 ldMaxItems :: Lens' ListDistributions (Maybe Text)
@@ -110,17 +117,24 @@ instance ToQuery ListDistributions where
 --
 -- * 'ldrDistributionList'
 --
--- * 'ldrStatusCode'
-data ListDistributionsResponse = ListDistributionsResponse'{_ldrDistributionList :: DistributionList, _ldrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ldrStatus'
+data ListDistributionsResponse = ListDistributionsResponse'
+    { _ldrDistributionList :: DistributionList
+    , _ldrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDistributionsResponse' smart constructor.
 listDistributionsResponse :: DistributionList -> Int -> ListDistributionsResponse
-listDistributionsResponse pDistributionList pStatusCode = ListDistributionsResponse'{_ldrDistributionList = pDistributionList, _ldrStatusCode = pStatusCode};
+listDistributionsResponse pDistributionList pStatus =
+    ListDistributionsResponse'
+    { _ldrDistributionList = pDistributionList
+    , _ldrStatus = pStatus
+    }
 
 -- | The DistributionList type.
 ldrDistributionList :: Lens' ListDistributionsResponse DistributionList
 ldrDistributionList = lens _ldrDistributionList (\ s a -> s{_ldrDistributionList = a});
 
 -- | FIXME: Undocumented member.
-ldrStatusCode :: Lens' ListDistributionsResponse Int
-ldrStatusCode = lens _ldrStatusCode (\ s a -> s{_ldrStatusCode = a});
+ldrStatus :: Lens' ListDistributionsResponse Int
+ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.CancelJob
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.ElasticTranscoder.CancelJob
     -- ** Response constructor
     , cancelJobResponse
     -- ** Response lenses
-    , canStatusCode
+    , canStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @CancelJobRequest@ structure.
 --
@@ -50,11 +50,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cjId'
-newtype CancelJob = CancelJob'{_cjId :: Text} deriving (Eq, Read, Show)
+newtype CancelJob = CancelJob'
+    { _cjId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelJob' smart constructor.
 cancelJob :: Text -> CancelJob
-cancelJob pId = CancelJob'{_cjId = pId};
+cancelJob pId =
+    CancelJob'
+    { _cjId = pId
+    }
 
 -- | The identifier of the job that you want to cancel.
 --
@@ -89,13 +94,18 @@ instance ToQuery CancelJob where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'canStatusCode'
-newtype CancelJobResponse = CancelJobResponse'{_canStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'canStatus'
+newtype CancelJobResponse = CancelJobResponse'
+    { _canStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelJobResponse' smart constructor.
 cancelJobResponse :: Int -> CancelJobResponse
-cancelJobResponse pStatusCode = CancelJobResponse'{_canStatusCode = pStatusCode};
+cancelJobResponse pStatus =
+    CancelJobResponse'
+    { _canStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-canStatusCode :: Lens' CancelJobResponse Int
-canStatusCode = lens _canStatusCode (\ s a -> s{_canStatusCode = a});
+canStatus :: Lens' CancelJobResponse Int
+canStatus = lens _canStatus (\ s a -> s{_canStatus = a});

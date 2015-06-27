@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,21 +32,26 @@ module Network.AWS.AutoScaling.DeleteTags
     , deleteTagsResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteTags' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtTags'
-newtype DeleteTags = DeleteTags'{_dtTags :: [Tag]} deriving (Eq, Read, Show)
+newtype DeleteTags = DeleteTags'
+    { _dtTags :: [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: DeleteTags
-deleteTags = DeleteTags'{_dtTags = mempty};
+deleteTags =
+    DeleteTags'
+    { _dtTags = mempty
+    }
 
 -- | Each tag should be defined by its resource type, resource ID, key,
 -- value, and a propagate flag. Valid values are: Resource type =
@@ -75,8 +80,10 @@ instance ToQuery DeleteTags where
                "Tags" =: toQueryList "member" _dtTags]
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
-data DeleteTagsResponse = DeleteTagsResponse' deriving (Eq, Read, Show)
+data DeleteTagsResponse =
+    DeleteTagsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteTagsResponse' smart constructor.
 deleteTagsResponse :: DeleteTagsResponse
-deleteTagsResponse = DeleteTagsResponse';
+deleteTagsResponse = DeleteTagsResponse'

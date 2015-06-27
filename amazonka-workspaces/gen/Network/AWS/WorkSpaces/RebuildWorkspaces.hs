@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.WorkSpaces.RebuildWorkspaces
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,13 +52,13 @@ module Network.AWS.WorkSpaces.RebuildWorkspaces
     , rebuildWorkspacesResponse
     -- ** Response lenses
     , rwrFailedRequests
-    , rwrStatusCode
+    , rwrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.WorkSpaces.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.WorkSpaces.Types
 
 -- | Contains the inputs for the RebuildWorkspaces operation.
 --
@@ -67,11 +67,16 @@ import Network.AWS.WorkSpaces.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rwRebuildWorkspaceRequests'
-newtype RebuildWorkspaces = RebuildWorkspaces'{_rwRebuildWorkspaceRequests :: List1 RebuildRequest} deriving (Eq, Read, Show)
+newtype RebuildWorkspaces = RebuildWorkspaces'
+    { _rwRebuildWorkspaceRequests :: List1 RebuildRequest
+    } deriving (Eq,Read,Show)
 
 -- | 'RebuildWorkspaces' smart constructor.
 rebuildWorkspaces :: NonEmpty RebuildRequest -> RebuildWorkspaces
-rebuildWorkspaces pRebuildWorkspaceRequests = RebuildWorkspaces'{_rwRebuildWorkspaceRequests = _List1 # pRebuildWorkspaceRequests};
+rebuildWorkspaces pRebuildWorkspaceRequests =
+    RebuildWorkspaces'
+    { _rwRebuildWorkspaceRequests = _List1 # pRebuildWorkspaceRequests
+    }
 
 -- | An array of structures that specify the WorkSpaces to rebuild.
 rwRebuildWorkspaceRequests :: Lens' RebuildWorkspaces (NonEmpty RebuildRequest)
@@ -118,12 +123,19 @@ instance ToQuery RebuildWorkspaces where
 --
 -- * 'rwrFailedRequests'
 --
--- * 'rwrStatusCode'
-data RebuildWorkspacesResponse = RebuildWorkspacesResponse'{_rwrFailedRequests :: Maybe [FailedWorkspaceChangeRequest], _rwrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rwrStatus'
+data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
+    { _rwrFailedRequests :: Maybe [FailedWorkspaceChangeRequest]
+    , _rwrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RebuildWorkspacesResponse' smart constructor.
 rebuildWorkspacesResponse :: Int -> RebuildWorkspacesResponse
-rebuildWorkspacesResponse pStatusCode = RebuildWorkspacesResponse'{_rwrFailedRequests = Nothing, _rwrStatusCode = pStatusCode};
+rebuildWorkspacesResponse pStatus =
+    RebuildWorkspacesResponse'
+    { _rwrFailedRequests = Nothing
+    , _rwrStatus = pStatus
+    }
 
 -- | An array of structures that represent any WorkSpaces that could not be
 -- rebuilt.
@@ -131,5 +143,5 @@ rwrFailedRequests :: Lens' RebuildWorkspacesResponse [FailedWorkspaceChangeReque
 rwrFailedRequests = lens _rwrFailedRequests (\ s a -> s{_rwrFailedRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-rwrStatusCode :: Lens' RebuildWorkspacesResponse Int
-rwrStatusCode = lens _rwrStatusCode (\ s a -> s{_rwrStatusCode = a});
+rwrStatus :: Lens' RebuildWorkspacesResponse Int
+rwrStatus = lens _rwrStatus (\ s a -> s{_rwrStatus = a});

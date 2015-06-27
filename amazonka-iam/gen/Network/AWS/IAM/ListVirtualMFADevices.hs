@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListVirtualMFADevices
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,14 +42,14 @@ module Network.AWS.IAM.ListVirtualMFADevices
     , lvmdrMarker
     , lvmdrIsTruncated
     , lvmdrVirtualMFADevices
-    , lvmdrStatusCode
+    , lvmdrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listVirtualMFADevices' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'lvmdMaxItems'
 --
 -- * 'lvmdMarker'
-data ListVirtualMFADevices = ListVirtualMFADevices'{_lvmdAssignmentStatus :: Maybe AssignmentStatusType, _lvmdMaxItems :: Maybe Nat, _lvmdMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListVirtualMFADevices = ListVirtualMFADevices'
+    { _lvmdAssignmentStatus :: Maybe AssignmentStatusType
+    , _lvmdMaxItems         :: Maybe Nat
+    , _lvmdMarker           :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListVirtualMFADevices' smart constructor.
 listVirtualMFADevices :: ListVirtualMFADevices
-listVirtualMFADevices = ListVirtualMFADevices'{_lvmdAssignmentStatus = Nothing, _lvmdMaxItems = Nothing, _lvmdMarker = Nothing};
+listVirtualMFADevices =
+    ListVirtualMFADevices'
+    { _lvmdAssignmentStatus = Nothing
+    , _lvmdMaxItems = Nothing
+    , _lvmdMarker = Nothing
+    }
 
 -- | The status (unassigned or assigned) of the devices to list. If you do
 -- not specify an @AssignmentStatus@, the action defaults to @Any@ which
@@ -134,12 +143,23 @@ instance ToQuery ListVirtualMFADevices where
 --
 -- * 'lvmdrVirtualMFADevices'
 --
--- * 'lvmdrStatusCode'
-data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'{_lvmdrMarker :: Maybe Text, _lvmdrIsTruncated :: Maybe Bool, _lvmdrVirtualMFADevices :: [VirtualMFADevice], _lvmdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lvmdrStatus'
+data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
+    { _lvmdrMarker            :: Maybe Text
+    , _lvmdrIsTruncated       :: Maybe Bool
+    , _lvmdrVirtualMFADevices :: [VirtualMFADevice]
+    , _lvmdrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListVirtualMFADevicesResponse' smart constructor.
 listVirtualMFADevicesResponse :: Int -> ListVirtualMFADevicesResponse
-listVirtualMFADevicesResponse pStatusCode = ListVirtualMFADevicesResponse'{_lvmdrMarker = Nothing, _lvmdrIsTruncated = Nothing, _lvmdrVirtualMFADevices = mempty, _lvmdrStatusCode = pStatusCode};
+listVirtualMFADevicesResponse pStatus =
+    ListVirtualMFADevicesResponse'
+    { _lvmdrMarker = Nothing
+    , _lvmdrIsTruncated = Nothing
+    , _lvmdrVirtualMFADevices = mempty
+    , _lvmdrStatus = pStatus
+    }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -159,5 +179,5 @@ lvmdrVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevice]
 lvmdrVirtualMFADevices = lens _lvmdrVirtualMFADevices (\ s a -> s{_lvmdrVirtualMFADevices = a});
 
 -- | FIXME: Undocumented member.
-lvmdrStatusCode :: Lens' ListVirtualMFADevicesResponse Int
-lvmdrStatusCode = lens _lvmdrStatusCode (\ s a -> s{_lvmdrStatusCode = a});
+lvmdrStatus :: Lens' ListVirtualMFADevicesResponse Int
+lvmdrStatus = lens _lvmdrStatus (\ s a -> s{_lvmdrStatus = a});

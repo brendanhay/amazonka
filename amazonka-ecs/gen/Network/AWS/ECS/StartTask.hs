@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.StartTask
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.ECS.StartTask
     -- ** Response lenses
     , strFailures
     , strTasks
-    , strStatusCode
+    , strStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'startTask' smart constructor.
 --
@@ -62,11 +62,24 @@ import Network.AWS.Response
 -- * 'staTaskDefinition'
 --
 -- * 'staContainerInstances'
-data StartTask = StartTask'{_staOverrides :: Maybe TaskOverride, _staCluster :: Maybe Text, _staStartedBy :: Maybe Text, _staTaskDefinition :: Text, _staContainerInstances :: [Text]} deriving (Eq, Read, Show)
+data StartTask = StartTask'
+    { _staOverrides          :: Maybe TaskOverride
+    , _staCluster            :: Maybe Text
+    , _staStartedBy          :: Maybe Text
+    , _staTaskDefinition     :: Text
+    , _staContainerInstances :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'StartTask' smart constructor.
 startTask :: Text -> StartTask
-startTask pTaskDefinition = StartTask'{_staOverrides = Nothing, _staCluster = Nothing, _staStartedBy = Nothing, _staTaskDefinition = pTaskDefinition, _staContainerInstances = mempty};
+startTask pTaskDefinition =
+    StartTask'
+    { _staOverrides = Nothing
+    , _staCluster = Nothing
+    , _staStartedBy = Nothing
+    , _staTaskDefinition = pTaskDefinition
+    , _staContainerInstances = mempty
+    }
 
 -- | A list of container overrides in JSON format that specify the name of a
 -- container in the specified task definition and the overrides it should
@@ -156,12 +169,21 @@ instance ToQuery StartTask where
 --
 -- * 'strTasks'
 --
--- * 'strStatusCode'
-data StartTaskResponse = StartTaskResponse'{_strFailures :: Maybe [Failure], _strTasks :: Maybe [Task], _strStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'strStatus'
+data StartTaskResponse = StartTaskResponse'
+    { _strFailures :: Maybe [Failure]
+    , _strTasks    :: Maybe [Task]
+    , _strStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'StartTaskResponse' smart constructor.
 startTaskResponse :: Int -> StartTaskResponse
-startTaskResponse pStatusCode = StartTaskResponse'{_strFailures = Nothing, _strTasks = Nothing, _strStatusCode = pStatusCode};
+startTaskResponse pStatus =
+    StartTaskResponse'
+    { _strFailures = Nothing
+    , _strTasks = Nothing
+    , _strStatus = pStatus
+    }
 
 -- | Any failed tasks from your @StartTask@ action are listed here.
 strFailures :: Lens' StartTaskResponse [Failure]
@@ -173,5 +195,5 @@ strTasks :: Lens' StartTaskResponse [Task]
 strTasks = lens _strTasks (\ s a -> s{_strTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-strStatusCode :: Lens' StartTaskResponse Int
-strStatusCode = lens _strStatusCode (\ s a -> s{_strStatusCode = a});
+strStatus :: Lens' StartTaskResponse Int
+strStatus = lens _strStatus (\ s a -> s{_strStatus = a});

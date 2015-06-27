@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SSM.ListDocuments
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.SSM.ListDocuments
     -- ** Response lenses
     , ldrDocumentIdentifiers
     , ldrNextToken
-    , ldrStatusCode
+    , ldrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
 
 -- | /See:/ 'listDocuments' smart constructor.
 --
@@ -52,11 +52,20 @@ import Network.AWS.SSM.Types
 -- * 'ldNextToken'
 --
 -- * 'ldMaxResults'
-data ListDocuments = ListDocuments'{_ldDocumentFilterList :: Maybe (List1 DocumentFilter), _ldNextToken :: Maybe Text, _ldMaxResults :: Maybe Nat} deriving (Eq, Read, Show)
+data ListDocuments = ListDocuments'
+    { _ldDocumentFilterList :: Maybe (List1 DocumentFilter)
+    , _ldNextToken          :: Maybe Text
+    , _ldMaxResults         :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDocuments' smart constructor.
 listDocuments :: ListDocuments
-listDocuments = ListDocuments'{_ldDocumentFilterList = Nothing, _ldNextToken = Nothing, _ldMaxResults = Nothing};
+listDocuments =
+    ListDocuments'
+    { _ldDocumentFilterList = Nothing
+    , _ldNextToken = Nothing
+    , _ldMaxResults = Nothing
+    }
 
 -- | One or more filters. Use a filter to return a more specific list of
 -- results.
@@ -116,12 +125,21 @@ instance ToQuery ListDocuments where
 --
 -- * 'ldrNextToken'
 --
--- * 'ldrStatusCode'
-data ListDocumentsResponse = ListDocumentsResponse'{_ldrDocumentIdentifiers :: Maybe [DocumentIdentifier], _ldrNextToken :: Maybe Text, _ldrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ldrStatus'
+data ListDocumentsResponse = ListDocumentsResponse'
+    { _ldrDocumentIdentifiers :: Maybe [DocumentIdentifier]
+    , _ldrNextToken           :: Maybe Text
+    , _ldrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDocumentsResponse' smart constructor.
 listDocumentsResponse :: Int -> ListDocumentsResponse
-listDocumentsResponse pStatusCode = ListDocumentsResponse'{_ldrDocumentIdentifiers = Nothing, _ldrNextToken = Nothing, _ldrStatusCode = pStatusCode};
+listDocumentsResponse pStatus =
+    ListDocumentsResponse'
+    { _ldrDocumentIdentifiers = Nothing
+    , _ldrNextToken = Nothing
+    , _ldrStatus = pStatus
+    }
 
 -- | The names of the configuration documents.
 ldrDocumentIdentifiers :: Lens' ListDocumentsResponse [DocumentIdentifier]
@@ -133,5 +151,5 @@ ldrNextToken :: Lens' ListDocumentsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
 
 -- | FIXME: Undocumented member.
-ldrStatusCode :: Lens' ListDocumentsResponse Int
-ldrStatusCode = lens _ldrStatusCode (\ s a -> s{_ldrStatusCode = a});
+ldrStatus :: Lens' ListDocumentsResponse Int
+ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});

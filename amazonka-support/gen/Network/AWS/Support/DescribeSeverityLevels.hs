@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Support.DescribeSeverityLevels
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,24 +34,29 @@ module Network.AWS.Support.DescribeSeverityLevels
     , describeSeverityLevelsResponse
     -- ** Response lenses
     , dslrSeverityLevels
-    , dslrStatusCode
+    , dslrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Support.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
 
 -- | /See:/ 'describeSeverityLevels' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dslLanguage'
-newtype DescribeSeverityLevels = DescribeSeverityLevels'{_dslLanguage :: Maybe Text} deriving (Eq, Read, Show)
+newtype DescribeSeverityLevels = DescribeSeverityLevels'
+    { _dslLanguage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSeverityLevels' smart constructor.
 describeSeverityLevels :: DescribeSeverityLevels
-describeSeverityLevels = DescribeSeverityLevels'{_dslLanguage = Nothing};
+describeSeverityLevels =
+    DescribeSeverityLevels'
+    { _dslLanguage = Nothing
+    }
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
@@ -101,12 +106,19 @@ instance ToQuery DescribeSeverityLevels where
 --
 -- * 'dslrSeverityLevels'
 --
--- * 'dslrStatusCode'
-data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'{_dslrSeverityLevels :: Maybe [SeverityLevel], _dslrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dslrStatus'
+data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
+    { _dslrSeverityLevels :: Maybe [SeverityLevel]
+    , _dslrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSeverityLevelsResponse' smart constructor.
 describeSeverityLevelsResponse :: Int -> DescribeSeverityLevelsResponse
-describeSeverityLevelsResponse pStatusCode = DescribeSeverityLevelsResponse'{_dslrSeverityLevels = Nothing, _dslrStatusCode = pStatusCode};
+describeSeverityLevelsResponse pStatus =
+    DescribeSeverityLevelsResponse'
+    { _dslrSeverityLevels = Nothing
+    , _dslrStatus = pStatus
+    }
 
 -- | The available severity levels for the support case. Available severity
 -- levels are defined by your service level agreement with AWS.
@@ -114,5 +126,5 @@ dslrSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
 dslrSeverityLevels = lens _dslrSeverityLevels (\ s a -> s{_dslrSeverityLevels = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dslrStatusCode :: Lens' DescribeSeverityLevelsResponse Int
-dslrStatusCode = lens _dslrStatusCode (\ s a -> s{_dslrStatusCode = a});
+dslrStatus :: Lens' DescribeSeverityLevelsResponse Int
+dslrStatus = lens _dslrStatus (\ s a -> s{_dslrStatus = a});

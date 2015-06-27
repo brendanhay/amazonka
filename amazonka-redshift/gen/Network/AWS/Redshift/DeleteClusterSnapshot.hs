@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DeleteClusterSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.Redshift.DeleteClusterSnapshot
     , deleteClusterSnapshotResponse
     -- ** Response lenses
     , dcsrSnapshot
-    , dcsrStatusCode
+    , dcsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -59,11 +59,18 @@ import Network.AWS.Response
 -- * 'dcsSnapshotClusterIdentifier'
 --
 -- * 'dcsSnapshotIdentifier'
-data DeleteClusterSnapshot = DeleteClusterSnapshot'{_dcsSnapshotClusterIdentifier :: Maybe Text, _dcsSnapshotIdentifier :: Text} deriving (Eq, Read, Show)
+data DeleteClusterSnapshot = DeleteClusterSnapshot'
+    { _dcsSnapshotClusterIdentifier :: Maybe Text
+    , _dcsSnapshotIdentifier        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteClusterSnapshot' smart constructor.
 deleteClusterSnapshot :: Text -> DeleteClusterSnapshot
-deleteClusterSnapshot pSnapshotIdentifier = DeleteClusterSnapshot'{_dcsSnapshotClusterIdentifier = Nothing, _dcsSnapshotIdentifier = pSnapshotIdentifier};
+deleteClusterSnapshot pSnapshotIdentifier =
+    DeleteClusterSnapshot'
+    { _dcsSnapshotClusterIdentifier = Nothing
+    , _dcsSnapshotIdentifier = pSnapshotIdentifier
+    }
 
 -- | The unique identifier of the cluster the snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
@@ -113,17 +120,24 @@ instance ToQuery DeleteClusterSnapshot where
 --
 -- * 'dcsrSnapshot'
 --
--- * 'dcsrStatusCode'
-data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'{_dcsrSnapshot :: Maybe Snapshot, _dcsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcsrStatus'
+data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'
+    { _dcsrSnapshot :: Maybe Snapshot
+    , _dcsrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteClusterSnapshotResponse' smart constructor.
 deleteClusterSnapshotResponse :: Int -> DeleteClusterSnapshotResponse
-deleteClusterSnapshotResponse pStatusCode = DeleteClusterSnapshotResponse'{_dcsrSnapshot = Nothing, _dcsrStatusCode = pStatusCode};
+deleteClusterSnapshotResponse pStatus =
+    DeleteClusterSnapshotResponse'
+    { _dcsrSnapshot = Nothing
+    , _dcsrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dcsrSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
 dcsrSnapshot = lens _dcsrSnapshot (\ s a -> s{_dcsrSnapshot = a});
 
 -- | FIXME: Undocumented member.
-dcsrStatusCode :: Lens' DeleteClusterSnapshotResponse Int
-dcsrStatusCode = lens _dcsrStatusCode (\ s a -> s{_dcsrStatusCode = a});
+dcsrStatus :: Lens' DeleteClusterSnapshotResponse Int
+dcsrStatus = lens _dcsrStatus (\ s a -> s{_dcsrStatus = a});

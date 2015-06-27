@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.CreateDBSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.RDS.CreateDBSecurityGroup
     , createDBSecurityGroupResponse
     -- ** Response lenses
     , cDBSecurityGroup
-    , cStatusCode
+    , cStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'cdsgDBSecurityGroupName'
 --
 -- * 'cdsgDBSecurityGroupDescription'
-data CreateDBSecurityGroup = CreateDBSecurityGroup'{_cdsgTags :: Maybe [Tag], _cdsgDBSecurityGroupName :: Text, _cdsgDBSecurityGroupDescription :: Text} deriving (Eq, Read, Show)
+data CreateDBSecurityGroup = CreateDBSecurityGroup'
+    { _cdsgTags                       :: Maybe [Tag]
+    , _cdsgDBSecurityGroupName        :: Text
+    , _cdsgDBSecurityGroupDescription :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDBSecurityGroup' smart constructor.
 createDBSecurityGroup :: Text -> Text -> CreateDBSecurityGroup
-createDBSecurityGroup pDBSecurityGroupName pDBSecurityGroupDescription = CreateDBSecurityGroup'{_cdsgTags = Nothing, _cdsgDBSecurityGroupName = pDBSecurityGroupName, _cdsgDBSecurityGroupDescription = pDBSecurityGroupDescription};
+createDBSecurityGroup pDBSecurityGroupName pDBSecurityGroupDescription =
+    CreateDBSecurityGroup'
+    { _cdsgTags = Nothing
+    , _cdsgDBSecurityGroupName = pDBSecurityGroupName
+    , _cdsgDBSecurityGroupDescription = pDBSecurityGroupDescription
+    }
 
 -- | FIXME: Undocumented member.
 cdsgTags :: Lens' CreateDBSecurityGroup [Tag]
@@ -116,17 +125,24 @@ instance ToQuery CreateDBSecurityGroup where
 --
 -- * 'cDBSecurityGroup'
 --
--- * 'cStatusCode'
-data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'{_cDBSecurityGroup :: Maybe DBSecurityGroup, _cStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cStatus'
+data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'
+    { _cDBSecurityGroup :: Maybe DBSecurityGroup
+    , _cStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDBSecurityGroupResponse' smart constructor.
 createDBSecurityGroupResponse :: Int -> CreateDBSecurityGroupResponse
-createDBSecurityGroupResponse pStatusCode = CreateDBSecurityGroupResponse'{_cDBSecurityGroup = Nothing, _cStatusCode = pStatusCode};
+createDBSecurityGroupResponse pStatus =
+    CreateDBSecurityGroupResponse'
+    { _cDBSecurityGroup = Nothing
+    , _cStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 cDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
 cDBSecurityGroup = lens _cDBSecurityGroup (\ s a -> s{_cDBSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-cStatusCode :: Lens' CreateDBSecurityGroupResponse Int
-cStatusCode = lens _cStatusCode (\ s a -> s{_cStatusCode = a});
+cStatus :: Lens' CreateDBSecurityGroupResponse Int
+cStatus = lens _cStatus (\ s a -> s{_cStatus = a});

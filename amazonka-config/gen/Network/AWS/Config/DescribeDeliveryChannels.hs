@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Config.DescribeDeliveryChannels
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.Config.DescribeDeliveryChannels
     , describeDeliveryChannelsResponse
     -- ** Response lenses
     , ddcrDeliveryChannels
-    , ddcrStatusCode
+    , ddcrStatus
     ) where
 
-import Network.AWS.Config.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Config.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the DescribeDeliveryChannels action.
 --
@@ -51,11 +51,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddcDeliveryChannelNames'
-newtype DescribeDeliveryChannels = DescribeDeliveryChannels'{_ddcDeliveryChannelNames :: Maybe [Text]} deriving (Eq, Read, Show)
+newtype DescribeDeliveryChannels = DescribeDeliveryChannels'
+    { _ddcDeliveryChannelNames :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDeliveryChannels' smart constructor.
 describeDeliveryChannels :: DescribeDeliveryChannels
-describeDeliveryChannels = DescribeDeliveryChannels'{_ddcDeliveryChannelNames = Nothing};
+describeDeliveryChannels =
+    DescribeDeliveryChannels'
+    { _ddcDeliveryChannelNames = Nothing
+    }
 
 -- | A list of delivery channel names.
 ddcDeliveryChannelNames :: Lens' DescribeDeliveryChannels [Text]
@@ -102,17 +107,24 @@ instance ToQuery DescribeDeliveryChannels where
 --
 -- * 'ddcrDeliveryChannels'
 --
--- * 'ddcrStatusCode'
-data DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'{_ddcrDeliveryChannels :: Maybe [DeliveryChannel], _ddcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddcrStatus'
+data DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'
+    { _ddcrDeliveryChannels :: Maybe [DeliveryChannel]
+    , _ddcrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDeliveryChannelsResponse' smart constructor.
 describeDeliveryChannelsResponse :: Int -> DescribeDeliveryChannelsResponse
-describeDeliveryChannelsResponse pStatusCode = DescribeDeliveryChannelsResponse'{_ddcrDeliveryChannels = Nothing, _ddcrStatusCode = pStatusCode};
+describeDeliveryChannelsResponse pStatus =
+    DescribeDeliveryChannelsResponse'
+    { _ddcrDeliveryChannels = Nothing
+    , _ddcrStatus = pStatus
+    }
 
 -- | A list that contains the descriptions of the specified delivery channel.
 ddcrDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse [DeliveryChannel]
 ddcrDeliveryChannels = lens _ddcrDeliveryChannels (\ s a -> s{_ddcrDeliveryChannels = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddcrStatusCode :: Lens' DescribeDeliveryChannelsResponse Int
-ddcrStatusCode = lens _ddcrStatusCode (\ s a -> s{_ddcrStatusCode = a});
+ddcrStatus :: Lens' DescribeDeliveryChannelsResponse Int
+ddcrStatus = lens _ddcrStatus (\ s a -> s{_ddcrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.DeleteHealthCheck
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.Route53.DeleteHealthCheck
     -- ** Response constructor
     , deleteHealthCheckResponse
     -- ** Response lenses
-    , dhcrStatusCode
+    , dhcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | A complex type containing the request information for delete health
 -- check.
@@ -57,11 +57,16 @@ import Network.AWS.Route53.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dhcHealthCheckId'
-newtype DeleteHealthCheck = DeleteHealthCheck'{_dhcHealthCheckId :: Text} deriving (Eq, Read, Show)
+newtype DeleteHealthCheck = DeleteHealthCheck'
+    { _dhcHealthCheckId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteHealthCheck' smart constructor.
 deleteHealthCheck :: Text -> DeleteHealthCheck
-deleteHealthCheck pHealthCheckId = DeleteHealthCheck'{_dhcHealthCheckId = pHealthCheckId};
+deleteHealthCheck pHealthCheckId =
+    DeleteHealthCheck'
+    { _dhcHealthCheckId = pHealthCheckId
+    }
 
 -- | The ID of the health check to delete.
 dhcHealthCheckId :: Lens' DeleteHealthCheck Text
@@ -94,13 +99,18 @@ instance ToQuery DeleteHealthCheck where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhcrStatusCode'
-newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'{_dhcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dhcrStatus'
+newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'
+    { _dhcrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteHealthCheckResponse' smart constructor.
 deleteHealthCheckResponse :: Int -> DeleteHealthCheckResponse
-deleteHealthCheckResponse pStatusCode = DeleteHealthCheckResponse'{_dhcrStatusCode = pStatusCode};
+deleteHealthCheckResponse pStatus =
+    DeleteHealthCheckResponse'
+    { _dhcrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-dhcrStatusCode :: Lens' DeleteHealthCheckResponse Int
-dhcrStatusCode = lens _dhcrStatusCode (\ s a -> s{_dhcrStatusCode = a});
+dhcrStatus :: Lens' DeleteHealthCheckResponse Int
+dhcrStatus = lens _dhcrStatus (\ s a -> s{_dhcrStatus = a});

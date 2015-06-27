@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.DescribeTaskDefinition
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,24 +37,29 @@ module Network.AWS.ECS.DescribeTaskDefinition
     , describeTaskDefinitionResponse
     -- ** Response lenses
     , descTaskDefinition
-    , descStatusCode
+    , descStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeTaskDefinition' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtdTaskDefinition'
-newtype DescribeTaskDefinition = DescribeTaskDefinition'{_dtdTaskDefinition :: Text} deriving (Eq, Read, Show)
+newtype DescribeTaskDefinition = DescribeTaskDefinition'
+    { _dtdTaskDefinition :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTaskDefinition' smart constructor.
 describeTaskDefinition :: Text -> DescribeTaskDefinition
-describeTaskDefinition pTaskDefinition = DescribeTaskDefinition'{_dtdTaskDefinition = pTaskDefinition};
+describeTaskDefinition pTaskDefinition =
+    DescribeTaskDefinition'
+    { _dtdTaskDefinition = pTaskDefinition
+    }
 
 -- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@
 -- (@family:revision@) for a specific revision in the family, or full
@@ -100,17 +105,24 @@ instance ToQuery DescribeTaskDefinition where
 --
 -- * 'descTaskDefinition'
 --
--- * 'descStatusCode'
-data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'{_descTaskDefinition :: Maybe TaskDefinition, _descStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'descStatus'
+data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
+    { _descTaskDefinition :: Maybe TaskDefinition
+    , _descStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTaskDefinitionResponse' smart constructor.
 describeTaskDefinitionResponse :: Int -> DescribeTaskDefinitionResponse
-describeTaskDefinitionResponse pStatusCode = DescribeTaskDefinitionResponse'{_descTaskDefinition = Nothing, _descStatusCode = pStatusCode};
+describeTaskDefinitionResponse pStatus =
+    DescribeTaskDefinitionResponse'
+    { _descTaskDefinition = Nothing
+    , _descStatus = pStatus
+    }
 
 -- | The full task definition description.
 descTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition)
 descTaskDefinition = lens _descTaskDefinition (\ s a -> s{_descTaskDefinition = a});
 
 -- | FIXME: Undocumented member.
-descStatusCode :: Lens' DescribeTaskDefinitionResponse Int
-descStatusCode = lens _descStatusCode (\ s a -> s{_descStatusCode = a});
+descStatus :: Lens' DescribeTaskDefinitionResponse Int
+descStatus = lens _descStatus (\ s a -> s{_descStatus = a});

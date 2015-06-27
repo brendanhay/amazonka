@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.AbortMultipartUpload
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,10 +55,10 @@ module Network.AWS.Glacier.AbortMultipartUpload
     , abortMultipartUploadResponse
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options to abort a multipart upload identified by the upload
 -- ID.
@@ -77,11 +77,20 @@ import Network.AWS.Response
 -- * 'amuVaultName'
 --
 -- * 'amuUploadId'
-data AbortMultipartUpload = AbortMultipartUpload'{_amuAccountId :: Text, _amuVaultName :: Text, _amuUploadId :: Text} deriving (Eq, Read, Show)
+data AbortMultipartUpload = AbortMultipartUpload'
+    { _amuAccountId :: Text
+    , _amuVaultName :: Text
+    , _amuUploadId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AbortMultipartUpload' smart constructor.
 abortMultipartUpload :: Text -> Text -> Text -> AbortMultipartUpload
-abortMultipartUpload pAccountId pVaultName pUploadId = AbortMultipartUpload'{_amuAccountId = pAccountId, _amuVaultName = pVaultName, _amuUploadId = pUploadId};
+abortMultipartUpload pAccountId pVaultName pUploadId =
+    AbortMultipartUpload'
+    { _amuAccountId = pAccountId
+    , _amuVaultName = pVaultName
+    , _amuUploadId = pUploadId
+    }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
@@ -120,8 +129,10 @@ instance ToQuery AbortMultipartUpload where
         toQuery = const mempty
 
 -- | /See:/ 'abortMultipartUploadResponse' smart constructor.
-data AbortMultipartUploadResponse = AbortMultipartUploadResponse' deriving (Eq, Read, Show)
+data AbortMultipartUploadResponse =
+    AbortMultipartUploadResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AbortMultipartUploadResponse' smart constructor.
 abortMultipartUploadResponse :: AbortMultipartUploadResponse
-abortMultipartUploadResponse = AbortMultipartUploadResponse';
+abortMultipartUploadResponse = AbortMultipartUploadResponse'

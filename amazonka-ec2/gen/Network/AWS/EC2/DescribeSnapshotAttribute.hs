@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeSnapshotAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     , dsarCreateVolumePermissions
     , dsarProductCodes
     , dsarSnapshotId
-    , dsarStatusCode
+    , dsarStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeSnapshotAttribute' smart constructor.
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'dsaSnapshotId'
 --
 -- * 'dsaAttribute'
-data DescribeSnapshotAttribute = DescribeSnapshotAttribute'{_dsaDryRun :: Maybe Bool, _dsaSnapshotId :: Text, _dsaAttribute :: SnapshotAttributeName} deriving (Eq, Read, Show)
+data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
+    { _dsaDryRun     :: Maybe Bool
+    , _dsaSnapshotId :: Text
+    , _dsaAttribute  :: SnapshotAttributeName
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshotAttribute' smart constructor.
 describeSnapshotAttribute :: Text -> SnapshotAttributeName -> DescribeSnapshotAttribute
-describeSnapshotAttribute pSnapshotId pAttribute = DescribeSnapshotAttribute'{_dsaDryRun = Nothing, _dsaSnapshotId = pSnapshotId, _dsaAttribute = pAttribute};
+describeSnapshotAttribute pSnapshotId pAttribute =
+    DescribeSnapshotAttribute'
+    { _dsaDryRun = Nothing
+    , _dsaSnapshotId = pSnapshotId
+    , _dsaAttribute = pAttribute
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -119,12 +128,23 @@ instance ToQuery DescribeSnapshotAttribute where
 --
 -- * 'dsarSnapshotId'
 --
--- * 'dsarStatusCode'
-data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'{_dsarCreateVolumePermissions :: Maybe [CreateVolumePermission], _dsarProductCodes :: Maybe [ProductCode], _dsarSnapshotId :: Maybe Text, _dsarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsarStatus'
+data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
+    { _dsarCreateVolumePermissions :: Maybe [CreateVolumePermission]
+    , _dsarProductCodes            :: Maybe [ProductCode]
+    , _dsarSnapshotId              :: Maybe Text
+    , _dsarStatus                  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshotAttributeResponse' smart constructor.
 describeSnapshotAttributeResponse :: Int -> DescribeSnapshotAttributeResponse
-describeSnapshotAttributeResponse pStatusCode = DescribeSnapshotAttributeResponse'{_dsarCreateVolumePermissions = Nothing, _dsarProductCodes = Nothing, _dsarSnapshotId = Nothing, _dsarStatusCode = pStatusCode};
+describeSnapshotAttributeResponse pStatus =
+    DescribeSnapshotAttributeResponse'
+    { _dsarCreateVolumePermissions = Nothing
+    , _dsarProductCodes = Nothing
+    , _dsarSnapshotId = Nothing
+    , _dsarStatus = pStatus
+    }
 
 -- | A list of permissions for creating volumes from the snapshot.
 dsarCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
@@ -139,5 +159,5 @@ dsarSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
 dsarSnapshotId = lens _dsarSnapshotId (\ s a -> s{_dsarSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-dsarStatusCode :: Lens' DescribeSnapshotAttributeResponse Int
-dsarStatusCode = lens _dsarStatusCode (\ s a -> s{_dsarStatusCode = a});
+dsarStatus :: Lens' DescribeSnapshotAttributeResponse Int
+dsarStatus = lens _dsarStatus (\ s a -> s{_dsarStatus = a});

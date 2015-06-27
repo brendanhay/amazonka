@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.DescribeWorkflowExecution
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -59,13 +59,13 @@ module Network.AWS.SWF.DescribeWorkflowExecution
     , dwerExecutionInfo
     , dwerExecutionConfiguration
     , dwerOpenCounts
-    , dwerStatusCode
+    , dwerStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'describeWorkflowExecution' smart constructor.
 --
@@ -74,11 +74,18 @@ import Network.AWS.SWF.Types
 -- * 'dweDomain'
 --
 -- * 'dweExecution'
-data DescribeWorkflowExecution = DescribeWorkflowExecution'{_dweDomain :: Text, _dweExecution :: WorkflowExecution} deriving (Eq, Read, Show)
+data DescribeWorkflowExecution = DescribeWorkflowExecution'
+    { _dweDomain    :: Text
+    , _dweExecution :: WorkflowExecution
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkflowExecution' smart constructor.
 describeWorkflowExecution :: Text -> WorkflowExecution -> DescribeWorkflowExecution
-describeWorkflowExecution pDomain pExecution = DescribeWorkflowExecution'{_dweDomain = pDomain, _dweExecution = pExecution};
+describeWorkflowExecution pDomain pExecution =
+    DescribeWorkflowExecution'
+    { _dweDomain = pDomain
+    , _dweExecution = pExecution
+    }
 
 -- | The name of the domain containing the workflow execution.
 dweDomain :: Lens' DescribeWorkflowExecution Text
@@ -142,12 +149,27 @@ instance ToQuery DescribeWorkflowExecution where
 --
 -- * 'dwerOpenCounts'
 --
--- * 'dwerStatusCode'
-data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'{_dwerLatestActivityTaskTimestamp :: Maybe POSIX, _dwerLatestExecutionContext :: Maybe Text, _dwerExecutionInfo :: WorkflowExecutionInfo, _dwerExecutionConfiguration :: WorkflowExecutionConfiguration, _dwerOpenCounts :: WorkflowExecutionOpenCounts, _dwerStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dwerStatus'
+data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
+    { _dwerLatestActivityTaskTimestamp :: Maybe POSIX
+    , _dwerLatestExecutionContext      :: Maybe Text
+    , _dwerExecutionInfo               :: WorkflowExecutionInfo
+    , _dwerExecutionConfiguration      :: WorkflowExecutionConfiguration
+    , _dwerOpenCounts                  :: WorkflowExecutionOpenCounts
+    , _dwerStatus                      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkflowExecutionResponse' smart constructor.
 describeWorkflowExecutionResponse :: WorkflowExecutionInfo -> WorkflowExecutionConfiguration -> WorkflowExecutionOpenCounts -> Int -> DescribeWorkflowExecutionResponse
-describeWorkflowExecutionResponse pExecutionInfo pExecutionConfiguration pOpenCounts pStatusCode = DescribeWorkflowExecutionResponse'{_dwerLatestActivityTaskTimestamp = Nothing, _dwerLatestExecutionContext = Nothing, _dwerExecutionInfo = pExecutionInfo, _dwerExecutionConfiguration = pExecutionConfiguration, _dwerOpenCounts = pOpenCounts, _dwerStatusCode = pStatusCode};
+describeWorkflowExecutionResponse pExecutionInfo pExecutionConfiguration pOpenCounts pStatus =
+    DescribeWorkflowExecutionResponse'
+    { _dwerLatestActivityTaskTimestamp = Nothing
+    , _dwerLatestExecutionContext = Nothing
+    , _dwerExecutionInfo = pExecutionInfo
+    , _dwerExecutionConfiguration = pExecutionConfiguration
+    , _dwerOpenCounts = pOpenCounts
+    , _dwerStatus = pStatus
+    }
 
 -- | The time when the last activity task was scheduled for this workflow
 -- execution. You can use this information to determine if the workflow has
@@ -177,5 +199,5 @@ dwerOpenCounts :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionOpenC
 dwerOpenCounts = lens _dwerOpenCounts (\ s a -> s{_dwerOpenCounts = a});
 
 -- | FIXME: Undocumented member.
-dwerStatusCode :: Lens' DescribeWorkflowExecutionResponse Int
-dwerStatusCode = lens _dwerStatusCode (\ s a -> s{_dwerStatusCode = a});
+dwerStatus :: Lens' DescribeWorkflowExecutionResponse Int
+dwerStatus = lens _dwerStatus (\ s a -> s{_dwerStatus = a});

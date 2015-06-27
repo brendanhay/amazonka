@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.UpdateContainerAgent
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.ECS.UpdateContainerAgent
     , updateContainerAgentResponse
     -- ** Response lenses
     , ucarContainerInstance
-    , ucarStatusCode
+    , ucarStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateContainerAgent' smart constructor.
 --
@@ -49,11 +49,18 @@ import Network.AWS.Response
 -- * 'ucaCluster'
 --
 -- * 'ucaContainerInstance'
-data UpdateContainerAgent = UpdateContainerAgent'{_ucaCluster :: Maybe Text, _ucaContainerInstance :: Text} deriving (Eq, Read, Show)
+data UpdateContainerAgent = UpdateContainerAgent'
+    { _ucaCluster           :: Maybe Text
+    , _ucaContainerInstance :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateContainerAgent' smart constructor.
 updateContainerAgent :: Text -> UpdateContainerAgent
-updateContainerAgent pContainerInstance = UpdateContainerAgent'{_ucaCluster = Nothing, _ucaContainerInstance = pContainerInstance};
+updateContainerAgent pContainerInstance =
+    UpdateContainerAgent'
+    { _ucaCluster = Nothing
+    , _ucaContainerInstance = pContainerInstance
+    }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- your container instance is running on. If you do not specify a cluster,
@@ -106,17 +113,24 @@ instance ToQuery UpdateContainerAgent where
 --
 -- * 'ucarContainerInstance'
 --
--- * 'ucarStatusCode'
-data UpdateContainerAgentResponse = UpdateContainerAgentResponse'{_ucarContainerInstance :: Maybe ContainerInstance, _ucarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ucarStatus'
+data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
+    { _ucarContainerInstance :: Maybe ContainerInstance
+    , _ucarStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateContainerAgentResponse' smart constructor.
 updateContainerAgentResponse :: Int -> UpdateContainerAgentResponse
-updateContainerAgentResponse pStatusCode = UpdateContainerAgentResponse'{_ucarContainerInstance = Nothing, _ucarStatusCode = pStatusCode};
+updateContainerAgentResponse pStatus =
+    UpdateContainerAgentResponse'
+    { _ucarContainerInstance = Nothing
+    , _ucarStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ucarContainerInstance :: Lens' UpdateContainerAgentResponse (Maybe ContainerInstance)
 ucarContainerInstance = lens _ucarContainerInstance (\ s a -> s{_ucarContainerInstance = a});
 
 -- | FIXME: Undocumented member.
-ucarStatusCode :: Lens' UpdateContainerAgentResponse Int
-ucarStatusCode = lens _ucarStatusCode (\ s a -> s{_ucarStatusCode = a});
+ucarStatus :: Lens' UpdateContainerAgentResponse Int
+ucarStatus = lens _ucarStatus (\ s a -> s{_ucarStatus = a});

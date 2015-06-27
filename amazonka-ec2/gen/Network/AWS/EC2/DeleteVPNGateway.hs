@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteVPNGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,10 +37,10 @@ module Network.AWS.EC2.DeleteVPNGateway
     , deleteVPNGatewayResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteVPNGateway' smart constructor.
 --
@@ -49,11 +49,18 @@ import Network.AWS.Response
 -- * 'dvgDryRun'
 --
 -- * 'dvgVPNGatewayId'
-data DeleteVPNGateway = DeleteVPNGateway'{_dvgDryRun :: Maybe Bool, _dvgVPNGatewayId :: Text} deriving (Eq, Read, Show)
+data DeleteVPNGateway = DeleteVPNGateway'
+    { _dvgDryRun       :: Maybe Bool
+    , _dvgVPNGatewayId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVPNGateway' smart constructor.
 deleteVPNGateway :: Text -> DeleteVPNGateway
-deleteVPNGateway pVPNGatewayId = DeleteVPNGateway'{_dvgDryRun = Nothing, _dvgVPNGatewayId = pVPNGatewayId};
+deleteVPNGateway pVPNGatewayId =
+    DeleteVPNGateway'
+    { _dvgDryRun = Nothing
+    , _dvgVPNGatewayId = pVPNGatewayId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -87,8 +94,10 @@ instance ToQuery DeleteVPNGateway where
                "VpnGatewayId" =: _dvgVPNGatewayId]
 
 -- | /See:/ 'deleteVPNGatewayResponse' smart constructor.
-data DeleteVPNGatewayResponse = DeleteVPNGatewayResponse' deriving (Eq, Read, Show)
+data DeleteVPNGatewayResponse =
+    DeleteVPNGatewayResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteVPNGatewayResponse' smart constructor.
 deleteVPNGatewayResponse :: DeleteVPNGatewayResponse
-deleteVPNGatewayResponse = DeleteVPNGatewayResponse';
+deleteVPNGatewayResponse = DeleteVPNGatewayResponse'

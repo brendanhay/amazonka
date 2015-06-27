@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.DeleteConnection
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,10 +47,10 @@ module Network.AWS.DirectConnect.DeleteConnection
     , conConnectionState
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the DeleteConnection operation.
 --
@@ -59,11 +59,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcConnectionId'
-newtype DeleteConnection = DeleteConnection'{_dcConnectionId :: Text} deriving (Eq, Read, Show)
+newtype DeleteConnection = DeleteConnection'
+    { _dcConnectionId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteConnection' smart constructor.
 deleteConnection :: Text -> DeleteConnection
-deleteConnection pConnectionId = DeleteConnection'{_dcConnectionId = pConnectionId};
+deleteConnection pConnectionId =
+    DeleteConnection'
+    { _dcConnectionId = pConnectionId
+    }
 
 -- | FIXME: Undocumented member.
 dcConnectionId :: Lens' DeleteConnection Text

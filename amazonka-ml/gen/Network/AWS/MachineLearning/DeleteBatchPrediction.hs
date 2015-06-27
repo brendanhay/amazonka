@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.DeleteBatchPrediction
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,24 +41,29 @@ module Network.AWS.MachineLearning.DeleteBatchPrediction
     , deleteBatchPredictionResponse
     -- ** Response lenses
     , dbprBatchPredictionId
-    , dbprStatusCode
+    , dbprStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteBatchPrediction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dbpBatchPredictionId'
-newtype DeleteBatchPrediction = DeleteBatchPrediction'{_dbpBatchPredictionId :: Text} deriving (Eq, Read, Show)
+newtype DeleteBatchPrediction = DeleteBatchPrediction'
+    { _dbpBatchPredictionId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteBatchPrediction' smart constructor.
 deleteBatchPrediction :: Text -> DeleteBatchPrediction
-deleteBatchPrediction pBatchPredictionId = DeleteBatchPrediction'{_dbpBatchPredictionId = pBatchPredictionId};
+deleteBatchPrediction pBatchPredictionId =
+    DeleteBatchPrediction'
+    { _dbpBatchPredictionId = pBatchPredictionId
+    }
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@.
 dbpBatchPredictionId :: Lens' DeleteBatchPrediction Text
@@ -108,12 +113,19 @@ instance ToQuery DeleteBatchPrediction where
 --
 -- * 'dbprBatchPredictionId'
 --
--- * 'dbprStatusCode'
-data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'{_dbprBatchPredictionId :: Maybe Text, _dbprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dbprStatus'
+data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'
+    { _dbprBatchPredictionId :: Maybe Text
+    , _dbprStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteBatchPredictionResponse' smart constructor.
 deleteBatchPredictionResponse :: Int -> DeleteBatchPredictionResponse
-deleteBatchPredictionResponse pStatusCode = DeleteBatchPredictionResponse'{_dbprBatchPredictionId = Nothing, _dbprStatusCode = pStatusCode};
+deleteBatchPredictionResponse pStatus =
+    DeleteBatchPredictionResponse'
+    { _dbprBatchPredictionId = Nothing
+    , _dbprStatus = pStatus
+    }
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@. This
 -- value should be identical to the value of the @BatchPredictionID@ in the
@@ -122,5 +134,5 @@ dbprBatchPredictionId :: Lens' DeleteBatchPredictionResponse (Maybe Text)
 dbprBatchPredictionId = lens _dbprBatchPredictionId (\ s a -> s{_dbprBatchPredictionId = a});
 
 -- | FIXME: Undocumented member.
-dbprStatusCode :: Lens' DeleteBatchPredictionResponse Int
-dbprStatusCode = lens _dbprStatusCode (\ s a -> s{_dbprStatusCode = a});
+dbprStatus :: Lens' DeleteBatchPredictionResponse Int
+dbprStatus = lens _dbprStatus (\ s a -> s{_dbprStatus = a});

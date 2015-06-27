@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.UpdateBatchPrediction
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.MachineLearning.UpdateBatchPrediction
     , updateBatchPredictionResponse
     -- ** Response lenses
     , ubprBatchPredictionId
-    , ubprStatusCode
+    , ubprStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateBatchPrediction' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'ubpBatchPredictionId'
 --
 -- * 'ubpBatchPredictionName'
-data UpdateBatchPrediction = UpdateBatchPrediction'{_ubpBatchPredictionId :: Text, _ubpBatchPredictionName :: Text} deriving (Eq, Read, Show)
+data UpdateBatchPrediction = UpdateBatchPrediction'
+    { _ubpBatchPredictionId   :: Text
+    , _ubpBatchPredictionName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateBatchPrediction' smart constructor.
 updateBatchPrediction :: Text -> Text -> UpdateBatchPrediction
-updateBatchPrediction pBatchPredictionId pBatchPredictionName = UpdateBatchPrediction'{_ubpBatchPredictionId = pBatchPredictionId, _ubpBatchPredictionName = pBatchPredictionName};
+updateBatchPrediction pBatchPredictionId pBatchPredictionName =
+    UpdateBatchPrediction'
+    { _ubpBatchPredictionId = pBatchPredictionId
+    , _ubpBatchPredictionName = pBatchPredictionName
+    }
 
 -- | The ID assigned to the @BatchPrediction@ during creation.
 ubpBatchPredictionId :: Lens' UpdateBatchPrediction Text
@@ -109,12 +116,19 @@ instance ToQuery UpdateBatchPrediction where
 --
 -- * 'ubprBatchPredictionId'
 --
--- * 'ubprStatusCode'
-data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'{_ubprBatchPredictionId :: Maybe Text, _ubprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ubprStatus'
+data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
+    { _ubprBatchPredictionId :: Maybe Text
+    , _ubprStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateBatchPredictionResponse' smart constructor.
 updateBatchPredictionResponse :: Int -> UpdateBatchPredictionResponse
-updateBatchPredictionResponse pStatusCode = UpdateBatchPredictionResponse'{_ubprBatchPredictionId = Nothing, _ubprStatusCode = pStatusCode};
+updateBatchPredictionResponse pStatus =
+    UpdateBatchPredictionResponse'
+    { _ubprBatchPredictionId = Nothing
+    , _ubprStatus = pStatus
+    }
 
 -- | The ID assigned to the @BatchPrediction@ during creation. This value
 -- should be identical to the value of the @BatchPredictionId@ in the
@@ -123,5 +137,5 @@ ubprBatchPredictionId :: Lens' UpdateBatchPredictionResponse (Maybe Text)
 ubprBatchPredictionId = lens _ubprBatchPredictionId (\ s a -> s{_ubprBatchPredictionId = a});
 
 -- | FIXME: Undocumented member.
-ubprStatusCode :: Lens' UpdateBatchPredictionResponse Int
-ubprStatusCode = lens _ubprStatusCode (\ s a -> s{_ubprStatusCode = a});
+ubprStatus :: Lens' UpdateBatchPredictionResponse Int
+ubprStatus = lens _ubprStatus (\ s a -> s{_ubprStatus = a});

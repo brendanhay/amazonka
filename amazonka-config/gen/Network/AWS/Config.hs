@@ -43,16 +43,16 @@ module Network.AWS.Config
     ( module Export
     ) where
 
-import Network.AWS.Config.DeleteDeliveryChannel as Export
-import Network.AWS.Config.DeliverConfigSnapshot as Export
-import Network.AWS.Config.DescribeConfigurationRecorderStatus as Export
-import Network.AWS.Config.DescribeConfigurationRecorders as Export
-import Network.AWS.Config.DescribeDeliveryChannelStatus as Export
-import Network.AWS.Config.DescribeDeliveryChannels as Export
-import Network.AWS.Config.GetResourceConfigHistory as Export
-import Network.AWS.Config.PutConfigurationRecorder as Export
-import Network.AWS.Config.PutDeliveryChannel as Export
-import Network.AWS.Config.StartConfigurationRecorder as Export
-import Network.AWS.Config.StopConfigurationRecorder as Export
-import Network.AWS.Config.Types as Export
-import Network.AWS.Config.Waiters as Export
+import           Network.AWS.Config.DeleteDeliveryChannel               as Export
+import           Network.AWS.Config.DeliverConfigSnapshot               as Export
+import           Network.AWS.Config.DescribeConfigurationRecorders      as Export
+import           Network.AWS.Config.DescribeConfigurationRecorderStatus as Export
+import           Network.AWS.Config.DescribeDeliveryChannels            as Export
+import           Network.AWS.Config.DescribeDeliveryChannelStatus       as Export
+import           Network.AWS.Config.GetResourceConfigHistory            as Export
+import           Network.AWS.Config.PutConfigurationRecorder            as Export
+import           Network.AWS.Config.PutDeliveryChannel                  as Export
+import           Network.AWS.Config.StartConfigurationRecorder          as Export
+import           Network.AWS.Config.StopConfigurationRecorder           as Export
+import           Network.AWS.Config.Types                               as Export
+import           Network.AWS.Config.Waiters                             as Export

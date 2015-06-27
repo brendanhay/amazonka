@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.AssignInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,10 +45,10 @@ module Network.AWS.OpsWorks.AssignInstance
     , assignInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'assignInstance' smart constructor.
 --
@@ -57,11 +57,18 @@ import Network.AWS.Response
 -- * 'aiInstanceId'
 --
 -- * 'aiLayerIds'
-data AssignInstance = AssignInstance'{_aiInstanceId :: Text, _aiLayerIds :: [Text]} deriving (Eq, Read, Show)
+data AssignInstance = AssignInstance'
+    { _aiInstanceId :: Text
+    , _aiLayerIds   :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'AssignInstance' smart constructor.
 assignInstance :: Text -> AssignInstance
-assignInstance pInstanceId = AssignInstance'{_aiInstanceId = pInstanceId, _aiLayerIds = mempty};
+assignInstance pInstanceId =
+    AssignInstance'
+    { _aiInstanceId = pInstanceId
+    , _aiLayerIds = mempty
+    }
 
 -- | The instance ID.
 aiInstanceId :: Lens' AssignInstance Text
@@ -100,8 +107,10 @@ instance ToQuery AssignInstance where
         toQuery = const mempty
 
 -- | /See:/ 'assignInstanceResponse' smart constructor.
-data AssignInstanceResponse = AssignInstanceResponse' deriving (Eq, Read, Show)
+data AssignInstanceResponse =
+    AssignInstanceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AssignInstanceResponse' smart constructor.
 assignInstanceResponse :: AssignInstanceResponse
-assignInstanceResponse = AssignInstanceResponse';
+assignInstanceResponse = AssignInstanceResponse'

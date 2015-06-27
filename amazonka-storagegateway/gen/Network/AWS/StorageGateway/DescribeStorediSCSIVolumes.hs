@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     , describeStorediSCSIVolumesResponse
     -- ** Response lenses
     , dsscsivrStorediSCSIVolumes
-    , dsscsivrStatusCode
+    , dsscsivrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON Object containing a list of
 -- DescribeStorediSCSIVolumesInput$VolumeARNs.
@@ -51,11 +51,16 @@ import Network.AWS.StorageGateway.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsscsivVolumeARNs'
-newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes'{_dsscsivVolumeARNs :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes'
+    { _dsscsivVolumeARNs :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStorediSCSIVolumes' smart constructor.
 describeStorediSCSIVolumes :: DescribeStorediSCSIVolumes
-describeStorediSCSIVolumes = DescribeStorediSCSIVolumes'{_dsscsivVolumeARNs = mempty};
+describeStorediSCSIVolumes =
+    DescribeStorediSCSIVolumes'
+    { _dsscsivVolumeARNs = mempty
+    }
 
 -- | An array of strings where each string represents the Amazon Resource
 -- Name (ARN) of a stored volume. All of the specified stored volumes must
@@ -101,17 +106,24 @@ instance ToQuery DescribeStorediSCSIVolumes where
 --
 -- * 'dsscsivrStorediSCSIVolumes'
 --
--- * 'dsscsivrStatusCode'
-data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'{_dsscsivrStorediSCSIVolumes :: Maybe [StorediSCSIVolume], _dsscsivrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsscsivrStatus'
+data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'
+    { _dsscsivrStorediSCSIVolumes :: Maybe [StorediSCSIVolume]
+    , _dsscsivrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStorediSCSIVolumesResponse' smart constructor.
 describeStorediSCSIVolumesResponse :: Int -> DescribeStorediSCSIVolumesResponse
-describeStorediSCSIVolumesResponse pStatusCode = DescribeStorediSCSIVolumesResponse'{_dsscsivrStorediSCSIVolumes = Nothing, _dsscsivrStatusCode = pStatusCode};
+describeStorediSCSIVolumesResponse pStatus =
+    DescribeStorediSCSIVolumesResponse'
+    { _dsscsivrStorediSCSIVolumes = Nothing
+    , _dsscsivrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dsscsivrStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediSCSIVolume]
 dsscsivrStorediSCSIVolumes = lens _dsscsivrStorediSCSIVolumes (\ s a -> s{_dsscsivrStorediSCSIVolumes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsscsivrStatusCode :: Lens' DescribeStorediSCSIVolumesResponse Int
-dsscsivrStatusCode = lens _dsscsivrStatusCode (\ s a -> s{_dsscsivrStatusCode = a});
+dsscsivrStatus :: Lens' DescribeStorediSCSIVolumesResponse Int
+dsscsivrStatus = lens _dsscsivrStatus (\ s a -> s{_dsscsivrStatus = a});

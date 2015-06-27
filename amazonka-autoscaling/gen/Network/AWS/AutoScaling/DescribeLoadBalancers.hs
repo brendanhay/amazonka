@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeLoadBalancers
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.AutoScaling.DescribeLoadBalancers
     -- ** Response lenses
     , dlbrLoadBalancers
     , dlbrNextToken
-    , dlbrStatusCode
+    , dlbrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancers' smart constructor.
 --
@@ -52,11 +52,20 @@ import Network.AWS.Response
 -- * 'dlbMaxRecords'
 --
 -- * 'dlbAutoScalingGroupName'
-data DescribeLoadBalancers = DescribeLoadBalancers'{_dlbNextToken :: Maybe Text, _dlbMaxRecords :: Maybe Int, _dlbAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data DescribeLoadBalancers = DescribeLoadBalancers'
+    { _dlbNextToken            :: Maybe Text
+    , _dlbMaxRecords           :: Maybe Int
+    , _dlbAutoScalingGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancers' smart constructor.
 describeLoadBalancers :: Text -> DescribeLoadBalancers
-describeLoadBalancers pAutoScalingGroupName = DescribeLoadBalancers'{_dlbNextToken = Nothing, _dlbMaxRecords = Nothing, _dlbAutoScalingGroupName = pAutoScalingGroupName};
+describeLoadBalancers pAutoScalingGroupName =
+    DescribeLoadBalancers'
+    { _dlbNextToken = Nothing
+    , _dlbMaxRecords = Nothing
+    , _dlbAutoScalingGroupName = pAutoScalingGroupName
+    }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -108,12 +117,21 @@ instance ToQuery DescribeLoadBalancers where
 --
 -- * 'dlbrNextToken'
 --
--- * 'dlbrStatusCode'
-data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancers :: Maybe [LoadBalancerState], _dlbrNextToken :: Maybe Text, _dlbrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dlbrStatus'
+data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
+    { _dlbrLoadBalancers :: Maybe [LoadBalancerState]
+    , _dlbrNextToken     :: Maybe Text
+    , _dlbrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancersResponse' smart constructor.
 describeLoadBalancersResponse :: Int -> DescribeLoadBalancersResponse
-describeLoadBalancersResponse pStatusCode = DescribeLoadBalancersResponse'{_dlbrLoadBalancers = Nothing, _dlbrNextToken = Nothing, _dlbrStatusCode = pStatusCode};
+describeLoadBalancersResponse pStatus =
+    DescribeLoadBalancersResponse'
+    { _dlbrLoadBalancers = Nothing
+    , _dlbrNextToken = Nothing
+    , _dlbrStatus = pStatus
+    }
 
 -- | The load balancers.
 dlbrLoadBalancers :: Lens' DescribeLoadBalancersResponse [LoadBalancerState]
@@ -125,5 +143,5 @@ dlbrNextToken :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrNextToken = lens _dlbrNextToken (\ s a -> s{_dlbrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dlbrStatusCode :: Lens' DescribeLoadBalancersResponse Int
-dlbrStatusCode = lens _dlbrStatusCode (\ s a -> s{_dlbrStatusCode = a});
+dlbrStatus :: Lens' DescribeLoadBalancersResponse Int
+dlbrStatus = lens _dlbrStatus (\ s a -> s{_dlbrStatus = a});

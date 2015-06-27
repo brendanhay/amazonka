@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.PutBucketCORS
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.S3.PutBucketCORS
     , putBucketCORSResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'putBucketCORS' smart constructor.
 --
@@ -48,11 +48,20 @@ import Network.AWS.S3.Types
 -- * 'pbcCORSConfiguration'
 --
 -- * 'pbcBucket'
-data PutBucketCORS = PutBucketCORS'{_pbcContentMD5 :: Maybe Text, _pbcCORSConfiguration :: Maybe CORSConfiguration, _pbcBucket :: BucketName} deriving (Eq, Read, Show)
+data PutBucketCORS = PutBucketCORS'
+    { _pbcContentMD5        :: Maybe Text
+    , _pbcCORSConfiguration :: Maybe CORSConfiguration
+    , _pbcBucket            :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'PutBucketCORS' smart constructor.
 putBucketCORS :: BucketName -> PutBucketCORS
-putBucketCORS pBucket = PutBucketCORS'{_pbcContentMD5 = Nothing, _pbcCORSConfiguration = Nothing, _pbcBucket = pBucket};
+putBucketCORS pBucket =
+    PutBucketCORS'
+    { _pbcContentMD5 = Nothing
+    , _pbcCORSConfiguration = Nothing
+    , _pbcBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 pbcContentMD5 :: Lens' PutBucketCORS (Maybe Text)
@@ -91,8 +100,10 @@ instance ToQuery PutBucketCORS where
         toQuery = const (mconcat ["cors"])
 
 -- | /See:/ 'putBucketCORSResponse' smart constructor.
-data PutBucketCORSResponse = PutBucketCORSResponse' deriving (Eq, Read, Show)
+data PutBucketCORSResponse =
+    PutBucketCORSResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutBucketCORSResponse' smart constructor.
 putBucketCORSResponse :: PutBucketCORSResponse
-putBucketCORSResponse = PutBucketCORSResponse';
+putBucketCORSResponse = PutBucketCORSResponse'

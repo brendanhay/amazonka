@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetApplicationRevision
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.CodeDeploy.GetApplicationRevision
     , garrRevisionInfo
     , garrApplicationName
     , garrRevision
-    , garrStatusCode
+    , garrStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a get application revision operation.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'garApplicationName'
 --
 -- * 'garRevision'
-data GetApplicationRevision = GetApplicationRevision'{_garApplicationName :: Text, _garRevision :: RevisionLocation} deriving (Eq, Read, Show)
+data GetApplicationRevision = GetApplicationRevision'
+    { _garApplicationName :: Text
+    , _garRevision        :: RevisionLocation
+    } deriving (Eq,Read,Show)
 
 -- | 'GetApplicationRevision' smart constructor.
 getApplicationRevision :: Text -> RevisionLocation -> GetApplicationRevision
-getApplicationRevision pApplicationName pRevision = GetApplicationRevision'{_garApplicationName = pApplicationName, _garRevision = pRevision};
+getApplicationRevision pApplicationName pRevision =
+    GetApplicationRevision'
+    { _garApplicationName = pApplicationName
+    , _garRevision = pRevision
+    }
 
 -- | The name of the application that corresponds to the revision.
 garApplicationName :: Lens' GetApplicationRevision Text
@@ -114,12 +121,23 @@ instance ToQuery GetApplicationRevision where
 --
 -- * 'garrRevision'
 --
--- * 'garrStatusCode'
-data GetApplicationRevisionResponse = GetApplicationRevisionResponse'{_garrRevisionInfo :: Maybe GenericRevisionInfo, _garrApplicationName :: Maybe Text, _garrRevision :: Maybe RevisionLocation, _garrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'garrStatus'
+data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
+    { _garrRevisionInfo    :: Maybe GenericRevisionInfo
+    , _garrApplicationName :: Maybe Text
+    , _garrRevision        :: Maybe RevisionLocation
+    , _garrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetApplicationRevisionResponse' smart constructor.
 getApplicationRevisionResponse :: Int -> GetApplicationRevisionResponse
-getApplicationRevisionResponse pStatusCode = GetApplicationRevisionResponse'{_garrRevisionInfo = Nothing, _garrApplicationName = Nothing, _garrRevision = Nothing, _garrStatusCode = pStatusCode};
+getApplicationRevisionResponse pStatus =
+    GetApplicationRevisionResponse'
+    { _garrRevisionInfo = Nothing
+    , _garrApplicationName = Nothing
+    , _garrRevision = Nothing
+    , _garrStatus = pStatus
+    }
 
 -- | General information about the revision.
 garrRevisionInfo :: Lens' GetApplicationRevisionResponse (Maybe GenericRevisionInfo)
@@ -135,5 +153,5 @@ garrRevision :: Lens' GetApplicationRevisionResponse (Maybe RevisionLocation)
 garrRevision = lens _garrRevision (\ s a -> s{_garrRevision = a});
 
 -- | FIXME: Undocumented member.
-garrStatusCode :: Lens' GetApplicationRevisionResponse Int
-garrStatusCode = lens _garrStatusCode (\ s a -> s{_garrStatusCode = a});
+garrStatus :: Lens' GetApplicationRevisionResponse Int
+garrStatus = lens _garrStatus (\ s a -> s{_garrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ModifyImageAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,10 +45,10 @@ module Network.AWS.EC2.ModifyImageAttribute
     , modifyImageAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyImageAttribute' smart constructor.
 --
@@ -73,11 +73,34 @@ import Network.AWS.Response
 -- * 'miaDescription'
 --
 -- * 'miaImageId'
-data ModifyImageAttribute = ModifyImageAttribute'{_miaAttribute :: Maybe Text, _miaUserIds :: Maybe [Text], _miaUserGroups :: Maybe [Text], _miaValue :: Maybe Text, _miaLaunchPermission :: Maybe LaunchPermissionModifications, _miaOperationType :: Maybe Text, _miaProductCodes :: Maybe [Text], _miaDryRun :: Maybe Bool, _miaDescription :: Maybe AttributeValue, _miaImageId :: Text} deriving (Eq, Read, Show)
+data ModifyImageAttribute = ModifyImageAttribute'
+    { _miaAttribute        :: Maybe Text
+    , _miaUserIds          :: Maybe [Text]
+    , _miaUserGroups       :: Maybe [Text]
+    , _miaValue            :: Maybe Text
+    , _miaLaunchPermission :: Maybe LaunchPermissionModifications
+    , _miaOperationType    :: Maybe Text
+    , _miaProductCodes     :: Maybe [Text]
+    , _miaDryRun           :: Maybe Bool
+    , _miaDescription      :: Maybe AttributeValue
+    , _miaImageId          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyImageAttribute' smart constructor.
 modifyImageAttribute :: Text -> ModifyImageAttribute
-modifyImageAttribute pImageId = ModifyImageAttribute'{_miaAttribute = Nothing, _miaUserIds = Nothing, _miaUserGroups = Nothing, _miaValue = Nothing, _miaLaunchPermission = Nothing, _miaOperationType = Nothing, _miaProductCodes = Nothing, _miaDryRun = Nothing, _miaDescription = Nothing, _miaImageId = pImageId};
+modifyImageAttribute pImageId =
+    ModifyImageAttribute'
+    { _miaAttribute = Nothing
+    , _miaUserIds = Nothing
+    , _miaUserGroups = Nothing
+    , _miaValue = Nothing
+    , _miaLaunchPermission = Nothing
+    , _miaOperationType = Nothing
+    , _miaProductCodes = Nothing
+    , _miaDryRun = Nothing
+    , _miaDescription = Nothing
+    , _miaImageId = pImageId
+    }
 
 -- | The name of the attribute to modify.
 miaAttribute :: Lens' ModifyImageAttribute (Maybe Text)
@@ -158,8 +181,10 @@ instance ToQuery ModifyImageAttribute where
                "ImageId" =: _miaImageId]
 
 -- | /See:/ 'modifyImageAttributeResponse' smart constructor.
-data ModifyImageAttributeResponse = ModifyImageAttributeResponse' deriving (Eq, Read, Show)
+data ModifyImageAttributeResponse =
+    ModifyImageAttributeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ModifyImageAttributeResponse' smart constructor.
 modifyImageAttributeResponse :: ModifyImageAttributeResponse
-modifyImageAttributeResponse = ModifyImageAttributeResponse';
+modifyImageAttributeResponse = ModifyImageAttributeResponse'

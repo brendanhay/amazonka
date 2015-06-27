@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.SubmitContainerStateChange
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.ECS.SubmitContainerStateChange
     , submitContainerStateChangeResponse
     -- ** Response lenses
     , scscrAcknowledgment
-    , scscrStatusCode
+    , scscrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'submitContainerStateChange' smart constructor.
 --
@@ -66,11 +66,28 @@ import Network.AWS.Response
 -- * 'scscExitCode'
 --
 -- * 'scscTask'
-data SubmitContainerStateChange = SubmitContainerStateChange'{_scscNetworkBindings :: Maybe [NetworkBinding], _scscStatus :: Maybe Text, _scscCluster :: Maybe Text, _scscContainerName :: Maybe Text, _scscReason :: Maybe Text, _scscExitCode :: Maybe Int, _scscTask :: Maybe Text} deriving (Eq, Read, Show)
+data SubmitContainerStateChange = SubmitContainerStateChange'
+    { _scscNetworkBindings :: Maybe [NetworkBinding]
+    , _scscStatus          :: Maybe Text
+    , _scscCluster         :: Maybe Text
+    , _scscContainerName   :: Maybe Text
+    , _scscReason          :: Maybe Text
+    , _scscExitCode        :: Maybe Int
+    , _scscTask            :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SubmitContainerStateChange' smart constructor.
 submitContainerStateChange :: SubmitContainerStateChange
-submitContainerStateChange = SubmitContainerStateChange'{_scscNetworkBindings = Nothing, _scscStatus = Nothing, _scscCluster = Nothing, _scscContainerName = Nothing, _scscReason = Nothing, _scscExitCode = Nothing, _scscTask = Nothing};
+submitContainerStateChange =
+    SubmitContainerStateChange'
+    { _scscNetworkBindings = Nothing
+    , _scscStatus = Nothing
+    , _scscCluster = Nothing
+    , _scscContainerName = Nothing
+    , _scscReason = Nothing
+    , _scscExitCode = Nothing
+    , _scscTask = Nothing
+    }
 
 -- | The network bindings of the container.
 scscNetworkBindings :: Lens' SubmitContainerStateChange [NetworkBinding]
@@ -144,17 +161,24 @@ instance ToQuery SubmitContainerStateChange where
 --
 -- * 'scscrAcknowledgment'
 --
--- * 'scscrStatusCode'
-data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'{_scscrAcknowledgment :: Maybe Text, _scscrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'scscrStatus'
+data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
+    { _scscrAcknowledgment :: Maybe Text
+    , _scscrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SubmitContainerStateChangeResponse' smart constructor.
 submitContainerStateChangeResponse :: Int -> SubmitContainerStateChangeResponse
-submitContainerStateChangeResponse pStatusCode = SubmitContainerStateChangeResponse'{_scscrAcknowledgment = Nothing, _scscrStatusCode = pStatusCode};
+submitContainerStateChangeResponse pStatus =
+    SubmitContainerStateChangeResponse'
+    { _scscrAcknowledgment = Nothing
+    , _scscrStatus = pStatus
+    }
 
 -- | Acknowledgement of the state change.
 scscrAcknowledgment :: Lens' SubmitContainerStateChangeResponse (Maybe Text)
 scscrAcknowledgment = lens _scscrAcknowledgment (\ s a -> s{_scscrAcknowledgment = a});
 
 -- | FIXME: Undocumented member.
-scscrStatusCode :: Lens' SubmitContainerStateChangeResponse Int
-scscrStatusCode = lens _scscrStatusCode (\ s a -> s{_scscrStatusCode = a});
+scscrStatus :: Lens' SubmitContainerStateChangeResponse Int
+scscrStatus = lens _scscrStatus (\ s a -> s{_scscrStatus = a});

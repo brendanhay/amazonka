@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     , swapEnvironmentCNAMEsResponse
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Swaps the CNAMEs of two environments.
 --
@@ -53,11 +53,22 @@ import Network.AWS.Response
 -- * 'secnameSourceEnvironmentName'
 --
 -- * 'secnameSourceEnvironmentId'
-data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs'{_secnameDestinationEnvironmentName :: Maybe Text, _secnameDestinationEnvironmentId :: Maybe Text, _secnameSourceEnvironmentName :: Maybe Text, _secnameSourceEnvironmentId :: Maybe Text} deriving (Eq, Read, Show)
+data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs'
+    { _secnameDestinationEnvironmentName :: Maybe Text
+    , _secnameDestinationEnvironmentId   :: Maybe Text
+    , _secnameSourceEnvironmentName      :: Maybe Text
+    , _secnameSourceEnvironmentId        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SwapEnvironmentCNAMEs' smart constructor.
 swapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs
-swapEnvironmentCNAMEs = SwapEnvironmentCNAMEs'{_secnameDestinationEnvironmentName = Nothing, _secnameDestinationEnvironmentId = Nothing, _secnameSourceEnvironmentName = Nothing, _secnameSourceEnvironmentId = Nothing};
+swapEnvironmentCNAMEs =
+    SwapEnvironmentCNAMEs'
+    { _secnameDestinationEnvironmentName = Nothing
+    , _secnameDestinationEnvironmentId = Nothing
+    , _secnameSourceEnvironmentName = Nothing
+    , _secnameSourceEnvironmentId = Nothing
+    }
 
 -- | The name of the destination environment.
 --
@@ -120,8 +131,10 @@ instance ToQuery SwapEnvironmentCNAMEs where
                "SourceEnvironmentId" =: _secnameSourceEnvironmentId]
 
 -- | /See:/ 'swapEnvironmentCNAMEsResponse' smart constructor.
-data SwapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse' deriving (Eq, Read, Show)
+data SwapEnvironmentCNAMEsResponse =
+    SwapEnvironmentCNAMEsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SwapEnvironmentCNAMEsResponse' smart constructor.
 swapEnvironmentCNAMEsResponse :: SwapEnvironmentCNAMEsResponse
-swapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse';
+swapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse'

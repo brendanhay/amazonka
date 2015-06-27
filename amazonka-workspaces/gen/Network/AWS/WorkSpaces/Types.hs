@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.WorkSpaces.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -134,53 +133,63 @@ module Network.AWS.WorkSpaces.Types
     , wrBundleId
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2015-04-08@ of the Amazon WorkSpaces SDK.
 data WorkSpaces
 
 instance AWSService WorkSpaces where
     type Sg WorkSpaces = V4
-
     service = const svc
       where
-        svc :: Service WorkSpaces
-        svc = Service
-            { _svcAbbrev   = "WorkSpaces"
-            , _svcPrefix   = "workspaces"
-            , _svcVersion  = "2015-04-08"
+        svc =
+            Service
+            { _svcAbbrev = "WorkSpaces"
+            , _svcPrefix = "workspaces"
+            , _svcVersion = "2015-04-08"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | One or more parameter values are not valid.
-_InvalidParameterValuesException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterValuesException = _ServiceError . hasCode "InvalidParameterValuesException";
+_InvalidParameterValuesException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterValuesException =
+    _ServiceError . hasCode "InvalidParameterValuesException"
 
 -- | The specified resource is not available.
-_ResourceUnavailableException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceUnavailableException = _ServiceError . hasCode "ResourceUnavailableException";
+_ResourceUnavailableException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceUnavailableException =
+    _ServiceError . hasCode "ResourceUnavailableException"
 
 -- | Your resource limits have been exceeded.
-_ResourceLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceLimitExceededException = _ServiceError . hasCode "ResourceLimitExceededException";
+_ResourceLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceLimitExceededException =
+    _ServiceError . hasCode "ResourceLimitExceededException"
 
-data Compute = Performance | Value | Standard deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Compute
+    = Performance
+    | Value
+    | Standard
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Compute where
     parser = takeLowerText >>= \case
@@ -202,13 +211,19 @@ instance ToHeader Compute
 instance FromJSON Compute where
     parseJSON = parseJSONText "Compute"
 
-data WorkspaceDirectoryState = Deregistering | Error | Registered | Registering | Deregistered deriving (Eq, Ord, Read, Show, Enum, Generic)
+data WorkspaceDirectoryState
+    = Error'
+    | Deregistering
+    | Registered
+    | Registering
+    | Deregistered
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText WorkspaceDirectoryState where
     parser = takeLowerText >>= \case
         "DEREGISTERED" -> pure Deregistered
         "DEREGISTERING" -> pure Deregistering
-        "ERROR" -> pure Error
+        "ERROR" -> pure Error'
         "REGISTERED" -> pure Registered
         "REGISTERING" -> pure Registering
         e -> fail ("Failure parsing WorkspaceDirectoryState from " ++ show e)
@@ -217,7 +232,7 @@ instance ToText WorkspaceDirectoryState where
     toText = \case
         Deregistered -> "DEREGISTERED"
         Deregistering -> "DEREGISTERING"
-        Error -> "ERROR"
+        Error' -> "ERROR"
         Registered -> "REGISTERED"
         Registering -> "REGISTERING"
 
@@ -228,7 +243,10 @@ instance ToHeader WorkspaceDirectoryState
 instance FromJSON WorkspaceDirectoryState where
     parseJSON = parseJSONText "WorkspaceDirectoryState"
 
-data WorkspaceDirectoryType = ADConnector | SimpleAD deriving (Eq, Ord, Read, Show, Enum, Generic)
+data WorkspaceDirectoryType
+    = ADConnector
+    | SimpleAD
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText WorkspaceDirectoryType where
     parser = takeLowerText >>= \case
@@ -248,12 +266,23 @@ instance ToHeader WorkspaceDirectoryType
 instance FromJSON WorkspaceDirectoryType where
     parseJSON = parseJSONText "WorkspaceDirectoryType"
 
-data WorkspaceState = WSError | WSSuspended | WSUnhealthy | WSRebooting | WSTerminating | WSImpaired | WSPending | WSRebuilding | WSAvailable | WSTerminated deriving (Eq, Ord, Read, Show, Enum, Generic)
+data WorkspaceState
+    = WSSuspended
+    | WSUnhealthy
+    | WSRebooting
+    | WSTerminating
+    | WSImpaired
+    | WSError'
+    | WSPending
+    | WSRebuilding
+    | WSAvailable
+    | WSTerminated
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText WorkspaceState where
     parser = takeLowerText >>= \case
         "AVAILABLE" -> pure WSAvailable
-        "ERROR" -> pure WSError
+        "ERROR" -> pure WSError'
         "IMPAIRED" -> pure WSImpaired
         "PENDING" -> pure WSPending
         "REBOOTING" -> pure WSRebooting
@@ -267,7 +296,7 @@ instance FromText WorkspaceState where
 instance ToText WorkspaceState where
     toText = \case
         WSAvailable -> "AVAILABLE"
-        WSError -> "ERROR"
+        WSError' -> "ERROR"
         WSImpaired -> "IMPAIRED"
         WSPending -> "PENDING"
         WSRebooting -> "REBOOTING"
@@ -291,11 +320,16 @@ instance FromJSON WorkspaceState where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ctName'
-newtype ComputeType = ComputeType'{_ctName :: Maybe Compute} deriving (Eq, Read, Show)
+newtype ComputeType = ComputeType'
+    { _ctName :: Maybe Compute
+    } deriving (Eq,Read,Show)
 
 -- | 'ComputeType' smart constructor.
 computeType :: ComputeType
-computeType = ComputeType'{_ctName = Nothing};
+computeType =
+    ComputeType'
+    { _ctName = Nothing
+    }
 
 -- | The name of the compute type for the bundle.
 ctName :: Lens' ComputeType (Maybe Compute)
@@ -321,11 +355,24 @@ instance FromJSON ComputeType where
 -- * 'dwcpEnableInternetAccess'
 --
 -- * 'dwcpDefaultOu'
-data DefaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties'{_dwcpCustomSecurityGroupId :: Maybe Text, _dwcpUserEnabledAsLocalAdministrator :: Maybe Bool, _dwcpEnableWorkDocs :: Maybe Bool, _dwcpEnableInternetAccess :: Maybe Bool, _dwcpDefaultOu :: Maybe Text} deriving (Eq, Read, Show)
+data DefaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties'
+    { _dwcpCustomSecurityGroupId           :: Maybe Text
+    , _dwcpUserEnabledAsLocalAdministrator :: Maybe Bool
+    , _dwcpEnableWorkDocs                  :: Maybe Bool
+    , _dwcpEnableInternetAccess            :: Maybe Bool
+    , _dwcpDefaultOu                       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DefaultWorkspaceCreationProperties' smart constructor.
 defaultWorkspaceCreationProperties :: DefaultWorkspaceCreationProperties
-defaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties'{_dwcpCustomSecurityGroupId = Nothing, _dwcpUserEnabledAsLocalAdministrator = Nothing, _dwcpEnableWorkDocs = Nothing, _dwcpEnableInternetAccess = Nothing, _dwcpDefaultOu = Nothing};
+defaultWorkspaceCreationProperties =
+    DefaultWorkspaceCreationProperties'
+    { _dwcpCustomSecurityGroupId = Nothing
+    , _dwcpUserEnabledAsLocalAdministrator = Nothing
+    , _dwcpEnableWorkDocs = Nothing
+    , _dwcpEnableInternetAccess = Nothing
+    , _dwcpDefaultOu = Nothing
+    }
 
 -- | The identifier of any custom security groups that are applied to the
 -- WorkSpaces when they are created.
@@ -373,11 +420,20 @@ instance FromJSON DefaultWorkspaceCreationProperties
 -- * 'fcwrErrorCode'
 --
 -- * 'fcwrErrorMessage'
-data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'{_fcwrWorkspaceRequest :: Maybe WorkspaceRequest, _fcwrErrorCode :: Maybe Text, _fcwrErrorMessage :: Maybe Text} deriving (Eq, Read, Show)
+data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'
+    { _fcwrWorkspaceRequest :: Maybe WorkspaceRequest
+    , _fcwrErrorCode        :: Maybe Text
+    , _fcwrErrorMessage     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'FailedCreateWorkspaceRequest' smart constructor.
 failedCreateWorkspaceRequest :: FailedCreateWorkspaceRequest
-failedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'{_fcwrWorkspaceRequest = Nothing, _fcwrErrorCode = Nothing, _fcwrErrorMessage = Nothing};
+failedCreateWorkspaceRequest =
+    FailedCreateWorkspaceRequest'
+    { _fcwrWorkspaceRequest = Nothing
+    , _fcwrErrorCode = Nothing
+    , _fcwrErrorMessage = Nothing
+    }
 
 -- | A WorkspaceRequest object that contains the information about the
 -- WorkSpace that could not be created.
@@ -413,11 +469,20 @@ instance FromJSON FailedCreateWorkspaceRequest where
 -- * 'fwcrWorkspaceId'
 --
 -- * 'fwcrErrorMessage'
-data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'{_fwcrErrorCode :: Maybe Text, _fwcrWorkspaceId :: Maybe Text, _fwcrErrorMessage :: Maybe Text} deriving (Eq, Read, Show)
+data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
+    { _fwcrErrorCode    :: Maybe Text
+    , _fwcrWorkspaceId  :: Maybe Text
+    , _fwcrErrorMessage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'FailedWorkspaceChangeRequest' smart constructor.
 failedWorkspaceChangeRequest :: FailedWorkspaceChangeRequest
-failedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'{_fwcrErrorCode = Nothing, _fwcrWorkspaceId = Nothing, _fwcrErrorMessage = Nothing};
+failedWorkspaceChangeRequest =
+    FailedWorkspaceChangeRequest'
+    { _fwcrErrorCode = Nothing
+    , _fwcrWorkspaceId = Nothing
+    , _fwcrErrorMessage = Nothing
+    }
 
 -- | The error code.
 fwcrErrorCode :: Lens' FailedWorkspaceChangeRequest (Maybe Text)
@@ -447,11 +512,16 @@ instance FromJSON FailedWorkspaceChangeRequest where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rebWorkspaceId'
-newtype RebootRequest = RebootRequest'{_rebWorkspaceId :: Text} deriving (Eq, Read, Show)
+newtype RebootRequest = RebootRequest'
+    { _rebWorkspaceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RebootRequest' smart constructor.
 rebootRequest :: Text -> RebootRequest
-rebootRequest pWorkspaceId = RebootRequest'{_rebWorkspaceId = pWorkspaceId};
+rebootRequest pWorkspaceId =
+    RebootRequest'
+    { _rebWorkspaceId = pWorkspaceId
+    }
 
 -- | The identifier of the WorkSpace to reboot.
 rebWorkspaceId :: Lens' RebootRequest Text
@@ -469,11 +539,16 @@ instance ToJSON RebootRequest where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rrWorkspaceId'
-newtype RebuildRequest = RebuildRequest'{_rrWorkspaceId :: Text} deriving (Eq, Read, Show)
+newtype RebuildRequest = RebuildRequest'
+    { _rrWorkspaceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RebuildRequest' smart constructor.
 rebuildRequest :: Text -> RebuildRequest
-rebuildRequest pWorkspaceId = RebuildRequest'{_rrWorkspaceId = pWorkspaceId};
+rebuildRequest pWorkspaceId =
+    RebuildRequest'
+    { _rrWorkspaceId = pWorkspaceId
+    }
 
 -- | The identifier of the WorkSpace to rebuild.
 rrWorkspaceId :: Lens' RebuildRequest Text
@@ -491,11 +566,16 @@ instance ToJSON RebuildRequest where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'trWorkspaceId'
-newtype TerminateRequest = TerminateRequest'{_trWorkspaceId :: Text} deriving (Eq, Read, Show)
+newtype TerminateRequest = TerminateRequest'
+    { _trWorkspaceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'TerminateRequest' smart constructor.
 terminateRequest :: Text -> TerminateRequest
-terminateRequest pWorkspaceId = TerminateRequest'{_trWorkspaceId = pWorkspaceId};
+terminateRequest pWorkspaceId =
+    TerminateRequest'
+    { _trWorkspaceId = pWorkspaceId
+    }
 
 -- | The identifier of the WorkSpace to terminate.
 trWorkspaceId :: Lens' TerminateRequest Text
@@ -512,11 +592,16 @@ instance ToJSON TerminateRequest where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'usCapacity'
-newtype UserStorage = UserStorage'{_usCapacity :: Maybe Text} deriving (Eq, Read, Show)
+newtype UserStorage = UserStorage'
+    { _usCapacity :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UserStorage' smart constructor.
 userStorage :: UserStorage
-userStorage = UserStorage'{_usCapacity = Nothing};
+userStorage =
+    UserStorage'
+    { _usCapacity = Nothing
+    }
 
 -- | The amount of user storage for the bundle.
 usCapacity :: Lens' UserStorage (Maybe Text)
@@ -550,11 +635,32 @@ instance FromJSON UserStorage where
 -- * 'worWorkspaceId'
 --
 -- * 'worErrorMessage'
-data Workspace = Workspace'{_worDirectoryId :: Maybe Text, _worIPAddress :: Maybe Text, _worState :: Maybe WorkspaceState, _worUserName :: Maybe Text, _worSubnetId :: Maybe Text, _worBundleId :: Maybe Text, _worErrorCode :: Maybe Text, _worWorkspaceId :: Maybe Text, _worErrorMessage :: Maybe Text} deriving (Eq, Read, Show)
+data Workspace = Workspace'
+    { _worDirectoryId  :: Maybe Text
+    , _worIPAddress    :: Maybe Text
+    , _worState        :: Maybe WorkspaceState
+    , _worUserName     :: Maybe Text
+    , _worSubnetId     :: Maybe Text
+    , _worBundleId     :: Maybe Text
+    , _worErrorCode    :: Maybe Text
+    , _worWorkspaceId  :: Maybe Text
+    , _worErrorMessage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Workspace' smart constructor.
 workspace :: Workspace
-workspace = Workspace'{_worDirectoryId = Nothing, _worIPAddress = Nothing, _worState = Nothing, _worUserName = Nothing, _worSubnetId = Nothing, _worBundleId = Nothing, _worErrorCode = Nothing, _worWorkspaceId = Nothing, _worErrorMessage = Nothing};
+workspace =
+    Workspace'
+    { _worDirectoryId = Nothing
+    , _worIPAddress = Nothing
+    , _worState = Nothing
+    , _worUserName = Nothing
+    , _worSubnetId = Nothing
+    , _worBundleId = Nothing
+    , _worErrorCode = Nothing
+    , _worWorkspaceId = Nothing
+    , _worErrorMessage = Nothing
+    }
 
 -- | The identifier of the AWS Directory Service directory that the WorkSpace
 -- belongs to.
@@ -625,11 +731,26 @@ instance FromJSON Workspace where
 -- * 'wbUserStorage'
 --
 -- * 'wbDescription'
-data WorkspaceBundle = WorkspaceBundle'{_wbOwner :: Maybe Text, _wbBundleId :: Maybe Text, _wbName :: Maybe Text, _wbComputeType :: Maybe ComputeType, _wbUserStorage :: Maybe UserStorage, _wbDescription :: Maybe Text} deriving (Eq, Read, Show)
+data WorkspaceBundle = WorkspaceBundle'
+    { _wbOwner       :: Maybe Text
+    , _wbBundleId    :: Maybe Text
+    , _wbName        :: Maybe Text
+    , _wbComputeType :: Maybe ComputeType
+    , _wbUserStorage :: Maybe UserStorage
+    , _wbDescription :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'WorkspaceBundle' smart constructor.
 workspaceBundle :: WorkspaceBundle
-workspaceBundle = WorkspaceBundle'{_wbOwner = Nothing, _wbBundleId = Nothing, _wbName = Nothing, _wbComputeType = Nothing, _wbUserStorage = Nothing, _wbDescription = Nothing};
+workspaceBundle =
+    WorkspaceBundle'
+    { _wbOwner = Nothing
+    , _wbBundleId = Nothing
+    , _wbName = Nothing
+    , _wbComputeType = Nothing
+    , _wbUserStorage = Nothing
+    , _wbDescription = Nothing
+    }
 
 -- | The owner of the bundle. This contains the owner\'s account identifier,
 -- or @AMAZON@ if the bundle is provided by AWS.
@@ -698,11 +819,38 @@ instance FromJSON WorkspaceBundle where
 -- * 'wdDNSIPAddresses'
 --
 -- * 'wdDirectoryName'
-data WorkspaceDirectory = WorkspaceDirectory'{_wdRegistrationCode :: Maybe Text, _wdIAMRoleId :: Maybe Text, _wdDirectoryId :: Maybe Text, _wdState :: Maybe WorkspaceDirectoryState, _wdCustomerUserName :: Maybe Text, _wdSubnetIds :: Maybe [Text], _wdAlias :: Maybe Text, _wdDirectoryType :: Maybe WorkspaceDirectoryType, _wdWorkspaceSecurityGroupId :: Maybe Text, _wdWorkspaceCreationProperties :: Maybe DefaultWorkspaceCreationProperties, _wdDNSIPAddresses :: Maybe [Text], _wdDirectoryName :: Maybe Text} deriving (Eq, Read, Show)
+data WorkspaceDirectory = WorkspaceDirectory'
+    { _wdRegistrationCode            :: Maybe Text
+    , _wdIAMRoleId                   :: Maybe Text
+    , _wdDirectoryId                 :: Maybe Text
+    , _wdState                       :: Maybe WorkspaceDirectoryState
+    , _wdCustomerUserName            :: Maybe Text
+    , _wdSubnetIds                   :: Maybe [Text]
+    , _wdAlias                       :: Maybe Text
+    , _wdDirectoryType               :: Maybe WorkspaceDirectoryType
+    , _wdWorkspaceSecurityGroupId    :: Maybe Text
+    , _wdWorkspaceCreationProperties :: Maybe DefaultWorkspaceCreationProperties
+    , _wdDNSIPAddresses              :: Maybe [Text]
+    , _wdDirectoryName               :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'WorkspaceDirectory' smart constructor.
 workspaceDirectory :: WorkspaceDirectory
-workspaceDirectory = WorkspaceDirectory'{_wdRegistrationCode = Nothing, _wdIAMRoleId = Nothing, _wdDirectoryId = Nothing, _wdState = Nothing, _wdCustomerUserName = Nothing, _wdSubnetIds = Nothing, _wdAlias = Nothing, _wdDirectoryType = Nothing, _wdWorkspaceSecurityGroupId = Nothing, _wdWorkspaceCreationProperties = Nothing, _wdDNSIPAddresses = Nothing, _wdDirectoryName = Nothing};
+workspaceDirectory =
+    WorkspaceDirectory'
+    { _wdRegistrationCode = Nothing
+    , _wdIAMRoleId = Nothing
+    , _wdDirectoryId = Nothing
+    , _wdState = Nothing
+    , _wdCustomerUserName = Nothing
+    , _wdSubnetIds = Nothing
+    , _wdAlias = Nothing
+    , _wdDirectoryType = Nothing
+    , _wdWorkspaceSecurityGroupId = Nothing
+    , _wdWorkspaceCreationProperties = Nothing
+    , _wdDNSIPAddresses = Nothing
+    , _wdDirectoryName = Nothing
+    }
 
 -- | The registration code for the directory. This is the code that users
 -- enter in their Amazon WorkSpaces client application to connect to the
@@ -787,11 +935,20 @@ instance FromJSON WorkspaceDirectory where
 -- * 'wrUserName'
 --
 -- * 'wrBundleId'
-data WorkspaceRequest = WorkspaceRequest'{_wrDirectoryId :: Text, _wrUserName :: Text, _wrBundleId :: Text} deriving (Eq, Read, Show)
+data WorkspaceRequest = WorkspaceRequest'
+    { _wrDirectoryId :: Text
+    , _wrUserName    :: Text
+    , _wrBundleId    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'WorkspaceRequest' smart constructor.
 workspaceRequest :: Text -> Text -> Text -> WorkspaceRequest
-workspaceRequest pDirectoryId pUserName pBundleId = WorkspaceRequest'{_wrDirectoryId = pDirectoryId, _wrUserName = pUserName, _wrBundleId = pBundleId};
+workspaceRequest pDirectoryId pUserName pBundleId =
+    WorkspaceRequest'
+    { _wrDirectoryId = pDirectoryId
+    , _wrUserName = pUserName
+    , _wrBundleId = pBundleId
+    }
 
 -- | The identifier of the AWS Directory Service directory to create the
 -- WorkSpace in. You can use the DescribeWorkspaceDirectories operation to

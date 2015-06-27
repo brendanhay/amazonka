@@ -19,12 +19,12 @@ module Network.AWS.WorkSpaces
     ( module Export
     ) where
 
-import Network.AWS.WorkSpaces.CreateWorkspaces as Export
-import Network.AWS.WorkSpaces.DescribeWorkspaceBundles as Export
-import Network.AWS.WorkSpaces.DescribeWorkspaceDirectories as Export
-import Network.AWS.WorkSpaces.DescribeWorkspaces as Export
-import Network.AWS.WorkSpaces.RebootWorkspaces as Export
-import Network.AWS.WorkSpaces.RebuildWorkspaces as Export
-import Network.AWS.WorkSpaces.TerminateWorkspaces as Export
-import Network.AWS.WorkSpaces.Types as Export
-import Network.AWS.WorkSpaces.Waiters as Export
+import           Network.AWS.WorkSpaces.CreateWorkspaces             as Export
+import           Network.AWS.WorkSpaces.DescribeWorkspaceBundles     as Export
+import           Network.AWS.WorkSpaces.DescribeWorkspaceDirectories as Export
+import           Network.AWS.WorkSpaces.DescribeWorkspaces           as Export
+import           Network.AWS.WorkSpaces.RebootWorkspaces             as Export
+import           Network.AWS.WorkSpaces.RebuildWorkspaces            as Export
+import           Network.AWS.WorkSpaces.TerminateWorkspaces          as Export
+import           Network.AWS.WorkSpaces.Types                        as Export
+import           Network.AWS.WorkSpaces.Waiters                      as Export

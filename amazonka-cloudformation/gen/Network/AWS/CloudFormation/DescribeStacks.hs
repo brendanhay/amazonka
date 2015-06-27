@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.DescribeStacks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,14 +35,14 @@ module Network.AWS.CloudFormation.DescribeStacks
     -- ** Response lenses
     , dsrNextToken
     , dsrStacks
-    , dsrStatusCode
+    , dsrStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for DescribeStacks action.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'desNextToken'
 --
 -- * 'desStackName'
-data DescribeStacks = DescribeStacks'{_desNextToken :: Maybe Text, _desStackName :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeStacks = DescribeStacks'
+    { _desNextToken :: Maybe Text
+    , _desStackName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStacks' smart constructor.
 describeStacks :: DescribeStacks
-describeStacks = DescribeStacks'{_desNextToken = Nothing, _desStackName = Nothing};
+describeStacks =
+    DescribeStacks'
+    { _desNextToken = Nothing
+    , _desStackName = Nothing
+    }
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
@@ -119,12 +126,21 @@ instance ToQuery DescribeStacks where
 --
 -- * 'dsrStacks'
 --
--- * 'dsrStatusCode'
-data DescribeStacksResponse = DescribeStacksResponse'{_dsrNextToken :: Maybe Text, _dsrStacks :: Maybe [Stack], _dsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsrStatus'
+data DescribeStacksResponse = DescribeStacksResponse'
+    { _dsrNextToken :: Maybe Text
+    , _dsrStacks    :: Maybe [Stack]
+    , _dsrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStacksResponse' smart constructor.
 describeStacksResponse :: Int -> DescribeStacksResponse
-describeStacksResponse pStatusCode = DescribeStacksResponse'{_dsrNextToken = Nothing, _dsrStacks = Nothing, _dsrStatusCode = pStatusCode};
+describeStacksResponse pStatus =
+    DescribeStacksResponse'
+    { _dsrNextToken = Nothing
+    , _dsrStacks = Nothing
+    , _dsrStatus = pStatus
+    }
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
@@ -136,5 +152,5 @@ dsrStacks :: Lens' DescribeStacksResponse [Stack]
 dsrStacks = lens _dsrStacks (\ s a -> s{_dsrStacks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsrStatusCode :: Lens' DescribeStacksResponse Int
-dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});
+dsrStatus :: Lens' DescribeStacksResponse Int
+dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

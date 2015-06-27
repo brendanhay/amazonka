@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckResult
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     , describeTrustedAdvisorCheckResultResponse
     -- ** Response lenses
     , dtacrrResult
-    , dtacrrStatusCode
+    , dtacrrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Support.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
 
 -- | /See:/ 'describeTrustedAdvisorCheckResult' smart constructor.
 --
@@ -64,11 +64,18 @@ import Network.AWS.Support.Types
 -- * 'dtacrLanguage'
 --
 -- * 'dtacrCheckId'
-data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'{_dtacrLanguage :: Maybe Text, _dtacrCheckId :: Text} deriving (Eq, Read, Show)
+data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
+    { _dtacrLanguage :: Maybe Text
+    , _dtacrCheckId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTrustedAdvisorCheckResult' smart constructor.
 describeTrustedAdvisorCheckResult :: Text -> DescribeTrustedAdvisorCheckResult
-describeTrustedAdvisorCheckResult pCheckId = DescribeTrustedAdvisorCheckResult'{_dtacrLanguage = Nothing, _dtacrCheckId = pCheckId};
+describeTrustedAdvisorCheckResult pCheckId =
+    DescribeTrustedAdvisorCheckResult'
+    { _dtacrLanguage = Nothing
+    , _dtacrCheckId = pCheckId
+    }
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
@@ -128,17 +135,24 @@ instance ToQuery DescribeTrustedAdvisorCheckResult
 --
 -- * 'dtacrrResult'
 --
--- * 'dtacrrStatusCode'
-data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'{_dtacrrResult :: Maybe TrustedAdvisorCheckResult, _dtacrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtacrrStatus'
+data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'
+    { _dtacrrResult :: Maybe TrustedAdvisorCheckResult
+    , _dtacrrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTrustedAdvisorCheckResultResponse' smart constructor.
 describeTrustedAdvisorCheckResultResponse :: Int -> DescribeTrustedAdvisorCheckResultResponse
-describeTrustedAdvisorCheckResultResponse pStatusCode = DescribeTrustedAdvisorCheckResultResponse'{_dtacrrResult = Nothing, _dtacrrStatusCode = pStatusCode};
+describeTrustedAdvisorCheckResultResponse pStatus =
+    DescribeTrustedAdvisorCheckResultResponse'
+    { _dtacrrResult = Nothing
+    , _dtacrrStatus = pStatus
+    }
 
 -- | The detailed results of the Trusted Advisor check.
 dtacrrResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
 dtacrrResult = lens _dtacrrResult (\ s a -> s{_dtacrrResult = a});
 
 -- | FIXME: Undocumented member.
-dtacrrStatusCode :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
-dtacrrStatusCode = lens _dtacrrStatusCode (\ s a -> s{_dtacrrStatusCode = a});
+dtacrrStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
+dtacrrStatus = lens _dtacrrStatus (\ s a -> s{_dtacrrStatus = a});

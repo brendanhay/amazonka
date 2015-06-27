@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.Subscribe
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.SNS.Subscribe
     , subscribeResponse
     -- ** Response lenses
     , srSubscriptionARN
-    , srStatusCode
+    , srStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for Subscribe action.
 --
@@ -56,11 +56,20 @@ import Network.AWS.SNS.Types
 -- * 'sTopicARN'
 --
 -- * 'sProtocol'
-data Subscribe = Subscribe'{_sEndpoint :: Maybe Endpoint, _sTopicARN :: Text, _sProtocol :: Text} deriving (Eq, Read, Show)
+data Subscribe = Subscribe'
+    { _sEndpoint :: Maybe Endpoint
+    , _sTopicARN :: Text
+    , _sProtocol :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Subscribe' smart constructor.
 subscribe :: Text -> Text -> Subscribe
-subscribe pTopicARN pProtocol = Subscribe'{_sEndpoint = Nothing, _sTopicARN = pTopicARN, _sProtocol = pProtocol};
+subscribe pTopicARN pProtocol =
+    Subscribe'
+    { _sEndpoint = Nothing
+    , _sTopicARN = pTopicARN
+    , _sProtocol = pProtocol
+    }
 
 -- | The endpoint that you want to receive notifications. Endpoints vary by
 -- protocol:
@@ -129,12 +138,19 @@ instance ToQuery Subscribe where
 --
 -- * 'srSubscriptionARN'
 --
--- * 'srStatusCode'
-data SubscribeResponse = SubscribeResponse'{_srSubscriptionARN :: Maybe Text, _srStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'srStatus'
+data SubscribeResponse = SubscribeResponse'
+    { _srSubscriptionARN :: Maybe Text
+    , _srStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SubscribeResponse' smart constructor.
 subscribeResponse :: Int -> SubscribeResponse
-subscribeResponse pStatusCode = SubscribeResponse'{_srSubscriptionARN = Nothing, _srStatusCode = pStatusCode};
+subscribeResponse pStatus =
+    SubscribeResponse'
+    { _srSubscriptionARN = Nothing
+    , _srStatus = pStatus
+    }
 
 -- | The ARN of the subscription, if the service was able to create a
 -- subscription immediately (without requiring endpoint owner
@@ -143,5 +159,5 @@ srSubscriptionARN :: Lens' SubscribeResponse (Maybe Text)
 srSubscriptionARN = lens _srSubscriptionARN (\ s a -> s{_srSubscriptionARN = a});
 
 -- | FIXME: Undocumented member.
-srStatusCode :: Lens' SubscribeResponse Int
-srStatusCode = lens _srStatusCode (\ s a -> s{_srStatusCode = a});
+srStatus :: Lens' SubscribeResponse Int
+srStatus = lens _srStatus (\ s a -> s{_srStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
     -- ** Response lenses
     , dsfrSubscriptionFilters
     , dsfrNextToken
-    , dsfrStatusCode
+    , dsfrStatus
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeSubscriptionFilters' smart constructor.
 --
@@ -62,11 +62,22 @@ import Network.AWS.Response
 -- * 'dsfLimit'
 --
 -- * 'dsfLogGroupName'
-data DescribeSubscriptionFilters = DescribeSubscriptionFilters'{_dsfFilterNamePrefix :: Maybe Text, _dsfNextToken :: Maybe Text, _dsfLimit :: Maybe Nat, _dsfLogGroupName :: Text} deriving (Eq, Read, Show)
+data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
+    { _dsfFilterNamePrefix :: Maybe Text
+    , _dsfNextToken        :: Maybe Text
+    , _dsfLimit            :: Maybe Nat
+    , _dsfLogGroupName     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSubscriptionFilters' smart constructor.
 describeSubscriptionFilters :: Text -> DescribeSubscriptionFilters
-describeSubscriptionFilters pLogGroupName = DescribeSubscriptionFilters'{_dsfFilterNamePrefix = Nothing, _dsfNextToken = Nothing, _dsfLimit = Nothing, _dsfLogGroupName = pLogGroupName};
+describeSubscriptionFilters pLogGroupName =
+    DescribeSubscriptionFilters'
+    { _dsfFilterNamePrefix = Nothing
+    , _dsfNextToken = Nothing
+    , _dsfLimit = Nothing
+    , _dsfLogGroupName = pLogGroupName
+    }
 
 -- | Will only return subscription filters that match the provided
 -- filterNamePrefix. If you don\'t specify a value, no prefix filter is
@@ -130,12 +141,21 @@ instance ToQuery DescribeSubscriptionFilters where
 --
 -- * 'dsfrNextToken'
 --
--- * 'dsfrStatusCode'
-data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'{_dsfrSubscriptionFilters :: Maybe [SubscriptionFilter], _dsfrNextToken :: Maybe Text, _dsfrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsfrStatus'
+data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
+    { _dsfrSubscriptionFilters :: Maybe [SubscriptionFilter]
+    , _dsfrNextToken           :: Maybe Text
+    , _dsfrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSubscriptionFiltersResponse' smart constructor.
 describeSubscriptionFiltersResponse :: Int -> DescribeSubscriptionFiltersResponse
-describeSubscriptionFiltersResponse pStatusCode = DescribeSubscriptionFiltersResponse'{_dsfrSubscriptionFilters = Nothing, _dsfrNextToken = Nothing, _dsfrStatusCode = pStatusCode};
+describeSubscriptionFiltersResponse pStatus =
+    DescribeSubscriptionFiltersResponse'
+    { _dsfrSubscriptionFilters = Nothing
+    , _dsfrNextToken = Nothing
+    , _dsfrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dsfrSubscriptionFilters :: Lens' DescribeSubscriptionFiltersResponse [SubscriptionFilter]
@@ -146,5 +166,5 @@ dsfrNextToken :: Lens' DescribeSubscriptionFiltersResponse (Maybe Text)
 dsfrNextToken = lens _dsfrNextToken (\ s a -> s{_dsfrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dsfrStatusCode :: Lens' DescribeSubscriptionFiltersResponse Int
-dsfrStatusCode = lens _dsfrStatusCode (\ s a -> s{_dsfrStatusCode = a});
+dsfrStatus :: Lens' DescribeSubscriptionFiltersResponse Int
+dsfrStatus = lens _dsfrStatus (\ s a -> s{_dsfrStatus = a});

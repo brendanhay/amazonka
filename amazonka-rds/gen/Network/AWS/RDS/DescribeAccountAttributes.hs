@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeAccountAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,22 +35,24 @@ module Network.AWS.RDS.DescribeAccountAttributes
     , describeAccountAttributesResponse
     -- ** Response lenses
     , daarAccountQuotas
-    , daarStatusCode
+    , daarStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
 -- /See:/ 'describeAccountAttributes' smart constructor.
-data DescribeAccountAttributes = DescribeAccountAttributes' deriving (Eq, Read, Show)
+data DescribeAccountAttributes =
+    DescribeAccountAttributes'
+    deriving (Eq,Read,Show)
 
 -- | 'DescribeAccountAttributes' smart constructor.
 describeAccountAttributes :: DescribeAccountAttributes
-describeAccountAttributes = DescribeAccountAttributes';
+describeAccountAttributes = DescribeAccountAttributes'
 
 instance AWSRequest DescribeAccountAttributes where
         type Sv DescribeAccountAttributes = RDS
@@ -87,12 +89,19 @@ instance ToQuery DescribeAccountAttributes where
 --
 -- * 'daarAccountQuotas'
 --
--- * 'daarStatusCode'
-data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'{_daarAccountQuotas :: Maybe [AccountQuota], _daarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'daarStatus'
+data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
+    { _daarAccountQuotas :: Maybe [AccountQuota]
+    , _daarStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAccountAttributesResponse' smart constructor.
 describeAccountAttributesResponse :: Int -> DescribeAccountAttributesResponse
-describeAccountAttributesResponse pStatusCode = DescribeAccountAttributesResponse'{_daarAccountQuotas = Nothing, _daarStatusCode = pStatusCode};
+describeAccountAttributesResponse pStatus =
+    DescribeAccountAttributesResponse'
+    { _daarAccountQuotas = Nothing
+    , _daarStatus = pStatus
+    }
 
 -- | A list of AccountQuota objects. Within this list, each quota has a name,
 -- a count of usage toward the quota maximum, and a maximum value for the
@@ -101,5 +110,5 @@ daarAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
 daarAccountQuotas = lens _daarAccountQuotas (\ s a -> s{_daarAccountQuotas = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-daarStatusCode :: Lens' DescribeAccountAttributesResponse Int
-daarStatusCode = lens _daarStatusCode (\ s a -> s{_daarStatusCode = a});
+daarStatus :: Lens' DescribeAccountAttributesResponse Int
+daarStatus = lens _daarStatus (\ s a -> s{_daarStatus = a});

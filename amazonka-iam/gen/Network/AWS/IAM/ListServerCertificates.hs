@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListServerCertificates
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,14 +40,14 @@ module Network.AWS.IAM.ListServerCertificates
     , lscrMarker
     , lscrIsTruncated
     , lscrServerCertificateMetadataList
-    , lscrStatusCode
+    , lscrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listServerCertificates' smart constructor.
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'lscMaxItems'
 --
 -- * 'lscMarker'
-data ListServerCertificates = ListServerCertificates'{_lscPathPrefix :: Maybe Text, _lscMaxItems :: Maybe Nat, _lscMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListServerCertificates = ListServerCertificates'
+    { _lscPathPrefix :: Maybe Text
+    , _lscMaxItems   :: Maybe Nat
+    , _lscMarker     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListServerCertificates' smart constructor.
 listServerCertificates :: ListServerCertificates
-listServerCertificates = ListServerCertificates'{_lscPathPrefix = Nothing, _lscMaxItems = Nothing, _lscMarker = Nothing};
+listServerCertificates =
+    ListServerCertificates'
+    { _lscPathPrefix = Nothing
+    , _lscMaxItems = Nothing
+    , _lscMarker = Nothing
+    }
 
 -- | The path prefix for filtering the results. For example:
 -- @\/company\/servercerts@ would get all server certificates for which the
@@ -136,12 +145,23 @@ instance ToQuery ListServerCertificates where
 --
 -- * 'lscrServerCertificateMetadataList'
 --
--- * 'lscrStatusCode'
-data ListServerCertificatesResponse = ListServerCertificatesResponse'{_lscrMarker :: Maybe Text, _lscrIsTruncated :: Maybe Bool, _lscrServerCertificateMetadataList :: [ServerCertificateMetadata], _lscrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lscrStatus'
+data ListServerCertificatesResponse = ListServerCertificatesResponse'
+    { _lscrMarker                        :: Maybe Text
+    , _lscrIsTruncated                   :: Maybe Bool
+    , _lscrServerCertificateMetadataList :: [ServerCertificateMetadata]
+    , _lscrStatus                        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListServerCertificatesResponse' smart constructor.
 listServerCertificatesResponse :: Int -> ListServerCertificatesResponse
-listServerCertificatesResponse pStatusCode = ListServerCertificatesResponse'{_lscrMarker = Nothing, _lscrIsTruncated = Nothing, _lscrServerCertificateMetadataList = mempty, _lscrStatusCode = pStatusCode};
+listServerCertificatesResponse pStatus =
+    ListServerCertificatesResponse'
+    { _lscrMarker = Nothing
+    , _lscrIsTruncated = Nothing
+    , _lscrServerCertificateMetadataList = mempty
+    , _lscrStatus = pStatus
+    }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -161,5 +181,5 @@ lscrServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [Serve
 lscrServerCertificateMetadataList = lens _lscrServerCertificateMetadataList (\ s a -> s{_lscrServerCertificateMetadataList = a});
 
 -- | FIXME: Undocumented member.
-lscrStatusCode :: Lens' ListServerCertificatesResponse Int
-lscrStatusCode = lens _lscrStatusCode (\ s a -> s{_lscrStatusCode = a});
+lscrStatus :: Lens' ListServerCertificatesResponse Int
+lscrStatus = lens _lscrStatus (\ s a -> s{_lscrStatus = a});

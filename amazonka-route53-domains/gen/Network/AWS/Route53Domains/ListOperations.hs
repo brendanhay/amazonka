@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.ListOperations
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,14 +35,14 @@ module Network.AWS.Route53Domains.ListOperations
     -- ** Response lenses
     , lorNextPageMarker
     , lorOperations
-    , lorStatusCode
+    , lorStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | The ListOperations request includes the following elements.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Route53Domains.Types
 -- * 'loMaxItems'
 --
 -- * 'loMarker'
-data ListOperations = ListOperations'{_loMaxItems :: Maybe Int, _loMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListOperations = ListOperations'
+    { _loMaxItems :: Maybe Int
+    , _loMarker   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListOperations' smart constructor.
 listOperations :: ListOperations
-listOperations = ListOperations'{_loMaxItems = Nothing, _loMarker = Nothing};
+listOperations =
+    ListOperations'
+    { _loMaxItems = Nothing
+    , _loMarker = Nothing
+    }
 
 -- | Number of domains to be returned.
 --
@@ -136,12 +143,21 @@ instance ToQuery ListOperations where
 --
 -- * 'lorOperations'
 --
--- * 'lorStatusCode'
-data ListOperationsResponse = ListOperationsResponse'{_lorNextPageMarker :: Maybe Text, _lorOperations :: [OperationSummary], _lorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lorStatus'
+data ListOperationsResponse = ListOperationsResponse'
+    { _lorNextPageMarker :: Maybe Text
+    , _lorOperations     :: [OperationSummary]
+    , _lorStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListOperationsResponse' smart constructor.
 listOperationsResponse :: Int -> ListOperationsResponse
-listOperationsResponse pStatusCode = ListOperationsResponse'{_lorNextPageMarker = Nothing, _lorOperations = mempty, _lorStatusCode = pStatusCode};
+listOperationsResponse pStatus =
+    ListOperationsResponse'
+    { _lorNextPageMarker = Nothing
+    , _lorOperations = mempty
+    , _lorStatus = pStatus
+    }
 
 -- | If there are more operations than you specified for @MaxItems@ in the
 -- request, submit another request and include the value of
@@ -162,5 +178,5 @@ lorOperations :: Lens' ListOperationsResponse [OperationSummary]
 lorOperations = lens _lorOperations (\ s a -> s{_lorOperations = a});
 
 -- | FIXME: Undocumented member.
-lorStatusCode :: Lens' ListOperationsResponse Int
-lorStatusCode = lens _lorStatusCode (\ s a -> s{_lorStatusCode = a});
+lorStatus :: Lens' ListOperationsResponse Int
+lorStatus = lens _lorStatus (\ s a -> s{_lorStatus = a});

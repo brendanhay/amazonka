@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetGroupPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.IAM.GetGroupPolicy
     , ggprGroupName
     , ggprPolicyName
     , ggprPolicyDocument
-    , ggprStatusCode
+    , ggprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getGroupPolicy' smart constructor.
 --
@@ -60,11 +60,18 @@ import Network.AWS.Response
 -- * 'ggpGroupName'
 --
 -- * 'ggpPolicyName'
-data GetGroupPolicy = GetGroupPolicy'{_ggpGroupName :: Text, _ggpPolicyName :: Text} deriving (Eq, Read, Show)
+data GetGroupPolicy = GetGroupPolicy'
+    { _ggpGroupName  :: Text
+    , _ggpPolicyName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetGroupPolicy' smart constructor.
 getGroupPolicy :: Text -> Text -> GetGroupPolicy
-getGroupPolicy pGroupName pPolicyName = GetGroupPolicy'{_ggpGroupName = pGroupName, _ggpPolicyName = pPolicyName};
+getGroupPolicy pGroupName pPolicyName =
+    GetGroupPolicy'
+    { _ggpGroupName = pGroupName
+    , _ggpPolicyName = pPolicyName
+    }
 
 -- | The name of the group the policy is associated with.
 ggpGroupName :: Lens' GetGroupPolicy Text
@@ -112,12 +119,23 @@ instance ToQuery GetGroupPolicy where
 --
 -- * 'ggprPolicyDocument'
 --
--- * 'ggprStatusCode'
-data GetGroupPolicyResponse = GetGroupPolicyResponse'{_ggprGroupName :: Text, _ggprPolicyName :: Text, _ggprPolicyDocument :: Text, _ggprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ggprStatus'
+data GetGroupPolicyResponse = GetGroupPolicyResponse'
+    { _ggprGroupName      :: Text
+    , _ggprPolicyName     :: Text
+    , _ggprPolicyDocument :: Text
+    , _ggprStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetGroupPolicyResponse' smart constructor.
 getGroupPolicyResponse :: Text -> Text -> Text -> Int -> GetGroupPolicyResponse
-getGroupPolicyResponse pGroupName pPolicyName pPolicyDocument pStatusCode = GetGroupPolicyResponse'{_ggprGroupName = pGroupName, _ggprPolicyName = pPolicyName, _ggprPolicyDocument = pPolicyDocument, _ggprStatusCode = pStatusCode};
+getGroupPolicyResponse pGroupName pPolicyName pPolicyDocument pStatus =
+    GetGroupPolicyResponse'
+    { _ggprGroupName = pGroupName
+    , _ggprPolicyName = pPolicyName
+    , _ggprPolicyDocument = pPolicyDocument
+    , _ggprStatus = pStatus
+    }
 
 -- | The group the policy is associated with.
 ggprGroupName :: Lens' GetGroupPolicyResponse Text
@@ -132,5 +150,5 @@ ggprPolicyDocument :: Lens' GetGroupPolicyResponse Text
 ggprPolicyDocument = lens _ggprPolicyDocument (\ s a -> s{_ggprPolicyDocument = a});
 
 -- | FIXME: Undocumented member.
-ggprStatusCode :: Lens' GetGroupPolicyResponse Int
-ggprStatusCode = lens _ggprStatusCode (\ s a -> s{_ggprStatusCode = a});
+ggprStatus :: Lens' GetGroupPolicyResponse Int
+ggprStatus = lens _ggprStatus (\ s a -> s{_ggprStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.ChangeMessageVisibility
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -67,10 +67,10 @@ module Network.AWS.SQS.ChangeMessageVisibility
     , changeMessageVisibilityResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'changeMessageVisibility' smart constructor.
 --
@@ -81,11 +81,20 @@ import Network.AWS.SQS.Types
 -- * 'cmvReceiptHandle'
 --
 -- * 'cmvVisibilityTimeout'
-data ChangeMessageVisibility = ChangeMessageVisibility'{_cmvQueueURL :: Text, _cmvReceiptHandle :: Text, _cmvVisibilityTimeout :: Int} deriving (Eq, Read, Show)
+data ChangeMessageVisibility = ChangeMessageVisibility'
+    { _cmvQueueURL          :: Text
+    , _cmvReceiptHandle     :: Text
+    , _cmvVisibilityTimeout :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ChangeMessageVisibility' smart constructor.
 changeMessageVisibility :: Text -> Text -> Int -> ChangeMessageVisibility
-changeMessageVisibility pQueueURL pReceiptHandle pVisibilityTimeout = ChangeMessageVisibility'{_cmvQueueURL = pQueueURL, _cmvReceiptHandle = pReceiptHandle, _cmvVisibilityTimeout = pVisibilityTimeout};
+changeMessageVisibility pQueueURL pReceiptHandle pVisibilityTimeout =
+    ChangeMessageVisibility'
+    { _cmvQueueURL = pQueueURL
+    , _cmvReceiptHandle = pReceiptHandle
+    , _cmvVisibilityTimeout = pVisibilityTimeout
+    }
 
 -- | The URL of the Amazon SQS queue to take action on.
 cmvQueueURL :: Lens' ChangeMessageVisibility Text
@@ -127,8 +136,10 @@ instance ToQuery ChangeMessageVisibility where
                "VisibilityTimeout" =: _cmvVisibilityTimeout]
 
 -- | /See:/ 'changeMessageVisibilityResponse' smart constructor.
-data ChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse' deriving (Eq, Read, Show)
+data ChangeMessageVisibilityResponse =
+    ChangeMessageVisibilityResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ChangeMessageVisibilityResponse' smart constructor.
 changeMessageVisibilityResponse :: ChangeMessageVisibilityResponse
-changeMessageVisibilityResponse = ChangeMessageVisibilityResponse';
+changeMessageVisibilityResponse = ChangeMessageVisibilityResponse'

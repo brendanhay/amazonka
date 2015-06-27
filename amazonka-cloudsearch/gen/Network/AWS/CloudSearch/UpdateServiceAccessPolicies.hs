@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.UpdateServiceAccessPolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
     , updateServiceAccessPoliciesResponse
     -- ** Response lenses
     , usaprAccessPolicies
-    , usaprStatusCode
+    , usaprStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @UpdateServiceAccessPolicies@
 -- operation. Specifies the name of the domain you want to update and the
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'usapDomainName'
 --
 -- * 'usapAccessPolicies'
-data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies'{_usapDomainName :: Text, _usapAccessPolicies :: Text} deriving (Eq, Read, Show)
+data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies'
+    { _usapDomainName     :: Text
+    , _usapAccessPolicies :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateServiceAccessPolicies' smart constructor.
 updateServiceAccessPolicies :: Text -> Text -> UpdateServiceAccessPolicies
-updateServiceAccessPolicies pDomainName pAccessPolicies = UpdateServiceAccessPolicies'{_usapDomainName = pDomainName, _usapAccessPolicies = pAccessPolicies};
+updateServiceAccessPolicies pDomainName pAccessPolicies =
+    UpdateServiceAccessPolicies'
+    { _usapDomainName = pDomainName
+    , _usapAccessPolicies = pAccessPolicies
+    }
 
 -- | FIXME: Undocumented member.
 usapDomainName :: Lens' UpdateServiceAccessPolicies Text
@@ -105,17 +112,24 @@ instance ToQuery UpdateServiceAccessPolicies where
 --
 -- * 'usaprAccessPolicies'
 --
--- * 'usaprStatusCode'
-data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'{_usaprAccessPolicies :: AccessPoliciesStatus, _usaprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'usaprStatus'
+data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
+    { _usaprAccessPolicies :: AccessPoliciesStatus
+    , _usaprStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateServiceAccessPoliciesResponse' smart constructor.
 updateServiceAccessPoliciesResponse :: AccessPoliciesStatus -> Int -> UpdateServiceAccessPoliciesResponse
-updateServiceAccessPoliciesResponse pAccessPolicies pStatusCode = UpdateServiceAccessPoliciesResponse'{_usaprAccessPolicies = pAccessPolicies, _usaprStatusCode = pStatusCode};
+updateServiceAccessPoliciesResponse pAccessPolicies pStatus =
+    UpdateServiceAccessPoliciesResponse'
+    { _usaprAccessPolicies = pAccessPolicies
+    , _usaprStatus = pStatus
+    }
 
 -- | The access rules configured for the domain.
 usaprAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
 usaprAccessPolicies = lens _usaprAccessPolicies (\ s a -> s{_usaprAccessPolicies = a});
 
 -- | FIXME: Undocumented member.
-usaprStatusCode :: Lens' UpdateServiceAccessPoliciesResponse Int
-usaprStatusCode = lens _usaprStatusCode (\ s a -> s{_usaprStatusCode = a});
+usaprStatus :: Lens' UpdateServiceAccessPoliciesResponse Int
+usaprStatus = lens _usaprStatus (\ s a -> s{_usaprStatus = a});

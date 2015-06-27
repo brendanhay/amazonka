@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.RotateEncryptionKey
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.Redshift.RotateEncryptionKey
     , rotateEncryptionKeyResponse
     -- ** Response lenses
     , rekrCluster
-    , rekrStatusCode
+    , rekrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rekClusterIdentifier'
-newtype RotateEncryptionKey = RotateEncryptionKey'{_rekClusterIdentifier :: Text} deriving (Eq, Read, Show)
+newtype RotateEncryptionKey = RotateEncryptionKey'
+    { _rekClusterIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RotateEncryptionKey' smart constructor.
 rotateEncryptionKey :: Text -> RotateEncryptionKey
-rotateEncryptionKey pClusterIdentifier = RotateEncryptionKey'{_rekClusterIdentifier = pClusterIdentifier};
+rotateEncryptionKey pClusterIdentifier =
+    RotateEncryptionKey'
+    { _rekClusterIdentifier = pClusterIdentifier
+    }
 
 -- | The unique identifier of the cluster that you want to rotate the
 -- encryption keys for.
@@ -91,17 +96,24 @@ instance ToQuery RotateEncryptionKey where
 --
 -- * 'rekrCluster'
 --
--- * 'rekrStatusCode'
-data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'{_rekrCluster :: Maybe Cluster, _rekrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rekrStatus'
+data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
+    { _rekrCluster :: Maybe Cluster
+    , _rekrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RotateEncryptionKeyResponse' smart constructor.
 rotateEncryptionKeyResponse :: Int -> RotateEncryptionKeyResponse
-rotateEncryptionKeyResponse pStatusCode = RotateEncryptionKeyResponse'{_rekrCluster = Nothing, _rekrStatusCode = pStatusCode};
+rotateEncryptionKeyResponse pStatus =
+    RotateEncryptionKeyResponse'
+    { _rekrCluster = Nothing
+    , _rekrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rekrCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
 rekrCluster = lens _rekrCluster (\ s a -> s{_rekrCluster = a});
 
 -- | FIXME: Undocumented member.
-rekrStatusCode :: Lens' RotateEncryptionKeyResponse Int
-rekrStatusCode = lens _rekrStatusCode (\ s a -> s{_rekrStatusCode = a});
+rekrStatus :: Lens' RotateEncryptionKeyResponse Int
+rekrStatus = lens _rekrStatus (\ s a -> s{_rekrStatus = a});

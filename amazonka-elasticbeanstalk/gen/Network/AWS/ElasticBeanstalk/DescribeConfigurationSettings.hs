@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,13 +46,13 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     , describeConfigurationSettingsResponse
     -- ** Response lenses
     , dcsrConfigurationSettings
-    , dcsrStatusCode
+    , dcsrStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Result message containing all of the configuration settings for a
 -- specified solution stack or configuration template.
@@ -66,11 +66,20 @@ import Network.AWS.Response
 -- * 'dcsEnvironmentName'
 --
 -- * 'dcsApplicationName'
-data DescribeConfigurationSettings = DescribeConfigurationSettings'{_dcsTemplateName :: Maybe Text, _dcsEnvironmentName :: Maybe Text, _dcsApplicationName :: Text} deriving (Eq, Read, Show)
+data DescribeConfigurationSettings = DescribeConfigurationSettings'
+    { _dcsTemplateName    :: Maybe Text
+    , _dcsEnvironmentName :: Maybe Text
+    , _dcsApplicationName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeConfigurationSettings' smart constructor.
 describeConfigurationSettings :: Text -> DescribeConfigurationSettings
-describeConfigurationSettings pApplicationName = DescribeConfigurationSettings'{_dcsTemplateName = Nothing, _dcsEnvironmentName = Nothing, _dcsApplicationName = pApplicationName};
+describeConfigurationSettings pApplicationName =
+    DescribeConfigurationSettings'
+    { _dcsTemplateName = Nothing
+    , _dcsEnvironmentName = Nothing
+    , _dcsApplicationName = pApplicationName
+    }
 
 -- | The name of the configuration template to describe.
 --
@@ -137,17 +146,24 @@ instance ToQuery DescribeConfigurationSettings where
 --
 -- * 'dcsrConfigurationSettings'
 --
--- * 'dcsrStatusCode'
-data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'{_dcsrConfigurationSettings :: Maybe [ConfigurationSettingsDescription], _dcsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcsrStatus'
+data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'
+    { _dcsrConfigurationSettings :: Maybe [ConfigurationSettingsDescription]
+    , _dcsrStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeConfigurationSettingsResponse' smart constructor.
 describeConfigurationSettingsResponse :: Int -> DescribeConfigurationSettingsResponse
-describeConfigurationSettingsResponse pStatusCode = DescribeConfigurationSettingsResponse'{_dcsrConfigurationSettings = Nothing, _dcsrStatusCode = pStatusCode};
+describeConfigurationSettingsResponse pStatus =
+    DescribeConfigurationSettingsResponse'
+    { _dcsrConfigurationSettings = Nothing
+    , _dcsrStatus = pStatus
+    }
 
 -- | A list of ConfigurationSettingsDescription.
 dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
 dcsrConfigurationSettings = lens _dcsrConfigurationSettings (\ s a -> s{_dcsrConfigurationSettings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcsrStatusCode :: Lens' DescribeConfigurationSettingsResponse Int
-dcsrStatusCode = lens _dcsrStatusCode (\ s a -> s{_dcsrStatusCode = a});
+dcsrStatus :: Lens' DescribeConfigurationSettingsResponse Int
+dcsrStatus = lens _dcsrStatus (\ s a -> s{_dcsrStatus = a});

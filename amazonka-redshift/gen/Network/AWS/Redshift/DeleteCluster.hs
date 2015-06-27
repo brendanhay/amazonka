@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DeleteCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,13 +52,13 @@ module Network.AWS.Redshift.DeleteCluster
     , deleteClusterResponse
     -- ** Response lenses
     , delCluster
-    , delStatusCode
+    , delStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -71,11 +71,20 @@ import Network.AWS.Response
 -- * 'delFinalClusterSnapshotIdentifier'
 --
 -- * 'delClusterIdentifier'
-data DeleteCluster = DeleteCluster'{_delSkipFinalClusterSnapshot :: Maybe Bool, _delFinalClusterSnapshotIdentifier :: Maybe Text, _delClusterIdentifier :: Text} deriving (Eq, Read, Show)
+data DeleteCluster = DeleteCluster'
+    { _delSkipFinalClusterSnapshot       :: Maybe Bool
+    , _delFinalClusterSnapshotIdentifier :: Maybe Text
+    , _delClusterIdentifier              :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteCluster' smart constructor.
 deleteCluster :: Text -> DeleteCluster
-deleteCluster pClusterIdentifier = DeleteCluster'{_delSkipFinalClusterSnapshot = Nothing, _delFinalClusterSnapshotIdentifier = Nothing, _delClusterIdentifier = pClusterIdentifier};
+deleteCluster pClusterIdentifier =
+    DeleteCluster'
+    { _delSkipFinalClusterSnapshot = Nothing
+    , _delFinalClusterSnapshotIdentifier = Nothing
+    , _delClusterIdentifier = pClusterIdentifier
+    }
 
 -- | Determines whether a final snapshot of the cluster is created before
 -- Amazon Redshift deletes the cluster. If @true@, a final cluster snapshot
@@ -145,17 +154,24 @@ instance ToQuery DeleteCluster where
 --
 -- * 'delCluster'
 --
--- * 'delStatusCode'
-data DeleteClusterResponse = DeleteClusterResponse'{_delCluster :: Maybe Cluster, _delStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'delStatus'
+data DeleteClusterResponse = DeleteClusterResponse'
+    { _delCluster :: Maybe Cluster
+    , _delStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteClusterResponse' smart constructor.
 deleteClusterResponse :: Int -> DeleteClusterResponse
-deleteClusterResponse pStatusCode = DeleteClusterResponse'{_delCluster = Nothing, _delStatusCode = pStatusCode};
+deleteClusterResponse pStatus =
+    DeleteClusterResponse'
+    { _delCluster = Nothing
+    , _delStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 delCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 delCluster = lens _delCluster (\ s a -> s{_delCluster = a});
 
 -- | FIXME: Undocumented member.
-delStatusCode :: Lens' DeleteClusterResponse Int
-delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});
+delStatus :: Lens' DeleteClusterResponse Int
+delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

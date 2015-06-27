@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteExpression
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.CloudSearch.DeleteExpression
     , deleteExpressionResponse
     -- ** Response lenses
     , delExpression
-    , delStatusCode
+    , delStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DeleteExpression@ operation.
 -- Specifies the name of the domain you want to update and the name of the
@@ -55,11 +55,18 @@ import Network.AWS.Response
 -- * 'delDomainName'
 --
 -- * 'delExpressionName'
-data DeleteExpression = DeleteExpression'{_delDomainName :: Text, _delExpressionName :: Text} deriving (Eq, Read, Show)
+data DeleteExpression = DeleteExpression'
+    { _delDomainName     :: Text
+    , _delExpressionName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteExpression' smart constructor.
 deleteExpression :: Text -> Text -> DeleteExpression
-deleteExpression pDomainName pExpressionName = DeleteExpression'{_delDomainName = pDomainName, _delExpressionName = pExpressionName};
+deleteExpression pDomainName pExpressionName =
+    DeleteExpression'
+    { _delDomainName = pDomainName
+    , _delExpressionName = pExpressionName
+    }
 
 -- | FIXME: Undocumented member.
 delDomainName :: Lens' DeleteExpression Text
@@ -102,17 +109,24 @@ instance ToQuery DeleteExpression where
 --
 -- * 'delExpression'
 --
--- * 'delStatusCode'
-data DeleteExpressionResponse = DeleteExpressionResponse'{_delExpression :: ExpressionStatus, _delStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'delStatus'
+data DeleteExpressionResponse = DeleteExpressionResponse'
+    { _delExpression :: ExpressionStatus
+    , _delStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteExpressionResponse' smart constructor.
 deleteExpressionResponse :: ExpressionStatus -> Int -> DeleteExpressionResponse
-deleteExpressionResponse pExpression pStatusCode = DeleteExpressionResponse'{_delExpression = pExpression, _delStatusCode = pStatusCode};
+deleteExpressionResponse pExpression pStatus =
+    DeleteExpressionResponse'
+    { _delExpression = pExpression
+    , _delStatus = pStatus
+    }
 
 -- | The status of the expression being deleted.
 delExpression :: Lens' DeleteExpressionResponse ExpressionStatus
 delExpression = lens _delExpression (\ s a -> s{_delExpression = a});
 
 -- | FIXME: Undocumented member.
-delStatusCode :: Lens' DeleteExpressionResponse Int
-delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});
+delStatus :: Lens' DeleteExpressionResponse Int
+delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

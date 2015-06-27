@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Kinesis.CreateStream
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -74,10 +74,10 @@ module Network.AWS.Kinesis.CreateStream
     , createStreamResponse
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @CreateStream@.
 --
@@ -88,11 +88,18 @@ import Network.AWS.Response
 -- * 'csStreamName'
 --
 -- * 'csShardCount'
-data CreateStream = CreateStream'{_csStreamName :: Text, _csShardCount :: Nat} deriving (Eq, Read, Show)
+data CreateStream = CreateStream'
+    { _csStreamName :: Text
+    , _csShardCount :: !Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateStream' smart constructor.
 createStream :: Text -> Natural -> CreateStream
-createStream pStreamName pShardCount = CreateStream'{_csStreamName = pStreamName, _csShardCount = _Nat # pShardCount};
+createStream pStreamName pShardCount =
+    CreateStream'
+    { _csStreamName = pStreamName
+    , _csShardCount = _Nat # pShardCount
+    }
 
 -- | A name to identify the stream. The stream name is scoped to the AWS
 -- account used by the application that creates the stream. It is also
@@ -138,8 +145,10 @@ instance ToQuery CreateStream where
         toQuery = const mempty
 
 -- | /See:/ 'createStreamResponse' smart constructor.
-data CreateStreamResponse = CreateStreamResponse' deriving (Eq, Read, Show)
+data CreateStreamResponse =
+    CreateStreamResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CreateStreamResponse' smart constructor.
 createStreamResponse :: CreateStreamResponse
-createStreamResponse = CreateStreamResponse';
+createStreamResponse = CreateStreamResponse'

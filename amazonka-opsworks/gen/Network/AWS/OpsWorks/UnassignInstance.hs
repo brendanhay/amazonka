@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.UnassignInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,21 +41,26 @@ module Network.AWS.OpsWorks.UnassignInstance
     , unassignInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'unassignInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'unaInstanceId'
-newtype UnassignInstance = UnassignInstance'{_unaInstanceId :: Text} deriving (Eq, Read, Show)
+newtype UnassignInstance = UnassignInstance'
+    { _unaInstanceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UnassignInstance' smart constructor.
 unassignInstance :: Text -> UnassignInstance
-unassignInstance pInstanceId = UnassignInstance'{_unaInstanceId = pInstanceId};
+unassignInstance pInstanceId =
+    UnassignInstance'
+    { _unaInstanceId = pInstanceId
+    }
 
 -- | The instance ID.
 unaInstanceId :: Lens' UnassignInstance Text
@@ -87,8 +92,10 @@ instance ToQuery UnassignInstance where
         toQuery = const mempty
 
 -- | /See:/ 'unassignInstanceResponse' smart constructor.
-data UnassignInstanceResponse = UnassignInstanceResponse' deriving (Eq, Read, Show)
+data UnassignInstanceResponse =
+    UnassignInstanceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UnassignInstanceResponse' smart constructor.
 unassignInstanceResponse :: UnassignInstanceResponse
-unassignInstanceResponse = UnassignInstanceResponse';
+unassignInstanceResponse = UnassignInstanceResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ReadJob
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.ElasticTranscoder.ReadJob
     , readJobResponse
     -- ** Response lenses
     , rjrJob
-    , rjrStatusCode
+    , rjrStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @ReadJobRequest@ structure.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rjId'
-newtype ReadJob = ReadJob'{_rjId :: Text} deriving (Eq, Read, Show)
+newtype ReadJob = ReadJob'
+    { _rjId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReadJob' smart constructor.
 readJob :: Text -> ReadJob
-readJob pId = ReadJob'{_rjId = pId};
+readJob pId =
+    ReadJob'
+    { _rjId = pId
+    }
 
 -- | The identifier of the job for which you want to get detailed
 -- information.
@@ -86,17 +91,24 @@ instance ToQuery ReadJob where
 --
 -- * 'rjrJob'
 --
--- * 'rjrStatusCode'
-data ReadJobResponse = ReadJobResponse'{_rjrJob :: Job', _rjrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rjrStatus'
+data ReadJobResponse = ReadJobResponse'
+    { _rjrJob    :: Job'
+    , _rjrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ReadJobResponse' smart constructor.
 readJobResponse :: Job' -> Int -> ReadJobResponse
-readJobResponse pJob pStatusCode = ReadJobResponse'{_rjrJob = pJob, _rjrStatusCode = pStatusCode};
+readJobResponse pJob pStatus =
+    ReadJobResponse'
+    { _rjrJob = pJob
+    , _rjrStatus = pStatus
+    }
 
 -- | A section of the response body that provides information about the job.
 rjrJob :: Lens' ReadJobResponse Job'
 rjrJob = lens _rjrJob (\ s a -> s{_rjrJob = a});
 
 -- | FIXME: Undocumented member.
-rjrStatusCode :: Lens' ReadJobResponse Int
-rjrStatusCode = lens _rjrStatusCode (\ s a -> s{_rjrStatusCode = a});
+rjrStatus :: Lens' ReadJobResponse Int
+rjrStatus = lens _rjrStatus (\ s a -> s{_rjrStatus = a});

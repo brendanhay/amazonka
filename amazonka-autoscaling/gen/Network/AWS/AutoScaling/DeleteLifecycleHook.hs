@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteLifecycleHook
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.AutoScaling.DeleteLifecycleHook
     -- ** Response constructor
     , deleteLifecycleHookResponse
     -- ** Response lenses
-    , delStatusCode
+    , delStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteLifecycleHook' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'delLifecycleHookName'
 --
 -- * 'delAutoScalingGroupName'
-data DeleteLifecycleHook = DeleteLifecycleHook'{_delLifecycleHookName :: Text, _delAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data DeleteLifecycleHook = DeleteLifecycleHook'
+    { _delLifecycleHookName    :: Text
+    , _delAutoScalingGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLifecycleHook' smart constructor.
 deleteLifecycleHook :: Text -> Text -> DeleteLifecycleHook
-deleteLifecycleHook pLifecycleHookName pAutoScalingGroupName = DeleteLifecycleHook'{_delLifecycleHookName = pLifecycleHookName, _delAutoScalingGroupName = pAutoScalingGroupName};
+deleteLifecycleHook pLifecycleHookName pAutoScalingGroupName =
+    DeleteLifecycleHook'
+    { _delLifecycleHookName = pLifecycleHookName
+    , _delAutoScalingGroupName = pAutoScalingGroupName
+    }
 
 -- | The name of the lifecycle hook.
 delLifecycleHookName :: Lens' DeleteLifecycleHook Text
@@ -93,13 +100,18 @@ instance ToQuery DeleteLifecycleHook where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delStatusCode'
-newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'{_delStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'delStatus'
+newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
+    { _delStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLifecycleHookResponse' smart constructor.
 deleteLifecycleHookResponse :: Int -> DeleteLifecycleHookResponse
-deleteLifecycleHookResponse pStatusCode = DeleteLifecycleHookResponse'{_delStatusCode = pStatusCode};
+deleteLifecycleHookResponse pStatus =
+    DeleteLifecycleHookResponse'
+    { _delStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-delStatusCode :: Lens' DeleteLifecycleHookResponse Int
-delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});
+delStatus :: Lens' DeleteLifecycleHookResponse Int
+delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

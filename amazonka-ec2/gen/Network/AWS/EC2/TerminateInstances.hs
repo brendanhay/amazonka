@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.TerminateInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -56,13 +56,13 @@ module Network.AWS.EC2.TerminateInstances
     , terminateInstancesResponse
     -- ** Response lenses
     , tirTerminatingInstances
-    , tirStatusCode
+    , tirStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'terminateInstances' smart constructor.
 --
@@ -71,11 +71,18 @@ import Network.AWS.Response
 -- * 'tiDryRun'
 --
 -- * 'tiInstanceIds'
-data TerminateInstances = TerminateInstances'{_tiDryRun :: Maybe Bool, _tiInstanceIds :: [Text]} deriving (Eq, Read, Show)
+data TerminateInstances = TerminateInstances'
+    { _tiDryRun      :: Maybe Bool
+    , _tiInstanceIds :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'TerminateInstances' smart constructor.
 terminateInstances :: TerminateInstances
-terminateInstances = TerminateInstances'{_tiDryRun = Nothing, _tiInstanceIds = mempty};
+terminateInstances =
+    TerminateInstances'
+    { _tiDryRun = Nothing
+    , _tiInstanceIds = mempty
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -120,17 +127,24 @@ instance ToQuery TerminateInstances where
 --
 -- * 'tirTerminatingInstances'
 --
--- * 'tirStatusCode'
-data TerminateInstancesResponse = TerminateInstancesResponse'{_tirTerminatingInstances :: Maybe [InstanceStateChange], _tirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'tirStatus'
+data TerminateInstancesResponse = TerminateInstancesResponse'
+    { _tirTerminatingInstances :: Maybe [InstanceStateChange]
+    , _tirStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'TerminateInstancesResponse' smart constructor.
 terminateInstancesResponse :: Int -> TerminateInstancesResponse
-terminateInstancesResponse pStatusCode = TerminateInstancesResponse'{_tirTerminatingInstances = Nothing, _tirStatusCode = pStatusCode};
+terminateInstancesResponse pStatus =
+    TerminateInstancesResponse'
+    { _tirTerminatingInstances = Nothing
+    , _tirStatus = pStatus
+    }
 
 -- | Information about one or more terminated instances.
 tirTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
 tirTerminatingInstances = lens _tirTerminatingInstances (\ s a -> s{_tirTerminatingInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-tirStatusCode :: Lens' TerminateInstancesResponse Int
-tirStatusCode = lens _tirStatusCode (\ s a -> s{_tirStatusCode = a});
+tirStatus :: Lens' TerminateInstancesResponse Int
+tirStatus = lens _tirStatus (\ s a -> s{_tirStatus = a});

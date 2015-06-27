@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.DescribeInstanceHealth
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.ELB.DescribeInstanceHealth
     , describeInstanceHealthResponse
     -- ** Response lenses
     , dihrInstanceStates
-    , dihrStatusCode
+    , dihrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeInstanceHealth' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'dihInstances'
 --
 -- * 'dihLoadBalancerName'
-data DescribeInstanceHealth = DescribeInstanceHealth'{_dihInstances :: Maybe [Instance], _dihLoadBalancerName :: Text} deriving (Eq, Read, Show)
+data DescribeInstanceHealth = DescribeInstanceHealth'
+    { _dihInstances        :: Maybe [Instance]
+    , _dihLoadBalancerName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstanceHealth' smart constructor.
 describeInstanceHealth :: Text -> DescribeInstanceHealth
-describeInstanceHealth pLoadBalancerName = DescribeInstanceHealth'{_dihInstances = Nothing, _dihLoadBalancerName = pLoadBalancerName};
+describeInstanceHealth pLoadBalancerName =
+    DescribeInstanceHealth'
+    { _dihInstances = Nothing
+    , _dihLoadBalancerName = pLoadBalancerName
+    }
 
 -- | The IDs of the instances.
 dihInstances :: Lens' DescribeInstanceHealth [Instance]
@@ -100,17 +107,24 @@ instance ToQuery DescribeInstanceHealth where
 --
 -- * 'dihrInstanceStates'
 --
--- * 'dihrStatusCode'
-data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'{_dihrInstanceStates :: Maybe [InstanceState], _dihrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dihrStatus'
+data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
+    { _dihrInstanceStates :: Maybe [InstanceState]
+    , _dihrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstanceHealthResponse' smart constructor.
 describeInstanceHealthResponse :: Int -> DescribeInstanceHealthResponse
-describeInstanceHealthResponse pStatusCode = DescribeInstanceHealthResponse'{_dihrInstanceStates = Nothing, _dihrStatusCode = pStatusCode};
+describeInstanceHealthResponse pStatus =
+    DescribeInstanceHealthResponse'
+    { _dihrInstanceStates = Nothing
+    , _dihrStatus = pStatus
+    }
 
 -- | Information about the health of the instances.
 dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
 dihrInstanceStates = lens _dihrInstanceStates (\ s a -> s{_dihrInstanceStates = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dihrStatusCode :: Lens' DescribeInstanceHealthResponse Int
-dihrStatusCode = lens _dihrStatusCode (\ s a -> s{_dihrStatusCode = a});
+dihrStatus :: Lens' DescribeInstanceHealthResponse Int
+dihrStatus = lens _dihrStatus (\ s a -> s{_dihrStatus = a});

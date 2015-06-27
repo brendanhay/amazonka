@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.RDS.DeleteDBInstance
     , deleteDBInstanceResponse
     -- ** Response lenses
     , ddirDBInstance
-    , ddirStatusCode
+    , ddirStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -62,11 +62,20 @@ import Network.AWS.Response
 -- * 'ddiSkipFinalSnapshot'
 --
 -- * 'ddiDBInstanceIdentifier'
-data DeleteDBInstance = DeleteDBInstance'{_ddiFinalDBSnapshotIdentifier :: Maybe Text, _ddiSkipFinalSnapshot :: Maybe Bool, _ddiDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
+data DeleteDBInstance = DeleteDBInstance'
+    { _ddiFinalDBSnapshotIdentifier :: Maybe Text
+    , _ddiSkipFinalSnapshot         :: Maybe Bool
+    , _ddiDBInstanceIdentifier      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDBInstance' smart constructor.
 deleteDBInstance :: Text -> DeleteDBInstance
-deleteDBInstance pDBInstanceIdentifier = DeleteDBInstance'{_ddiFinalDBSnapshotIdentifier = Nothing, _ddiSkipFinalSnapshot = Nothing, _ddiDBInstanceIdentifier = pDBInstanceIdentifier};
+deleteDBInstance pDBInstanceIdentifier =
+    DeleteDBInstance'
+    { _ddiFinalDBSnapshotIdentifier = Nothing
+    , _ddiSkipFinalSnapshot = Nothing
+    , _ddiDBInstanceIdentifier = pDBInstanceIdentifier
+    }
 
 -- | The DBSnapshotIdentifier of the new DBSnapshot created when
 -- SkipFinalSnapshot is set to @false@.
@@ -140,17 +149,24 @@ instance ToQuery DeleteDBInstance where
 --
 -- * 'ddirDBInstance'
 --
--- * 'ddirStatusCode'
-data DeleteDBInstanceResponse = DeleteDBInstanceResponse'{_ddirDBInstance :: Maybe DBInstance, _ddirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddirStatus'
+data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
+    { _ddirDBInstance :: Maybe DBInstance
+    , _ddirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDBInstanceResponse' smart constructor.
 deleteDBInstanceResponse :: Int -> DeleteDBInstanceResponse
-deleteDBInstanceResponse pStatusCode = DeleteDBInstanceResponse'{_ddirDBInstance = Nothing, _ddirStatusCode = pStatusCode};
+deleteDBInstanceResponse pStatus =
+    DeleteDBInstanceResponse'
+    { _ddirDBInstance = Nothing
+    , _ddirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ddirDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
 ddirDBInstance = lens _ddirDBInstance (\ s a -> s{_ddirDBInstance = a});
 
 -- | FIXME: Undocumented member.
-ddirStatusCode :: Lens' DeleteDBInstanceResponse Int
-ddirStatusCode = lens _ddirStatusCode (\ s a -> s{_ddirStatusCode = a});
+ddirStatus :: Lens' DeleteDBInstanceResponse Int
+ddirStatus = lens _ddirStatus (\ s a -> s{_ddirStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,24 +46,29 @@ module Network.AWS.IAM.GetPolicy
     , getPolicyResponse
     -- ** Response lenses
     , gprPolicy
-    , gprStatusCode
+    , gprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gpPolicyARN'
-newtype GetPolicy = GetPolicy'{_gpPolicyARN :: Text} deriving (Eq, Read, Show)
+newtype GetPolicy = GetPolicy'
+    { _gpPolicyARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetPolicy' smart constructor.
 getPolicy :: Text -> GetPolicy
-getPolicy pPolicyARN = GetPolicy'{_gpPolicyARN = pPolicyARN};
+getPolicy pPolicyARN =
+    GetPolicy'
+    { _gpPolicyARN = pPolicyARN
+    }
 
 -- | FIXME: Undocumented member.
 gpPolicyARN :: Lens' GetPolicy Text
@@ -100,17 +105,24 @@ instance ToQuery GetPolicy where
 --
 -- * 'gprPolicy'
 --
--- * 'gprStatusCode'
-data GetPolicyResponse = GetPolicyResponse'{_gprPolicy :: Maybe Policy, _gprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gprStatus'
+data GetPolicyResponse = GetPolicyResponse'
+    { _gprPolicy :: Maybe Policy
+    , _gprStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetPolicyResponse' smart constructor.
 getPolicyResponse :: Int -> GetPolicyResponse
-getPolicyResponse pStatusCode = GetPolicyResponse'{_gprPolicy = Nothing, _gprStatusCode = pStatusCode};
+getPolicyResponse pStatus =
+    GetPolicyResponse'
+    { _gprPolicy = Nothing
+    , _gprStatus = pStatus
+    }
 
 -- | Information about the policy.
 gprPolicy :: Lens' GetPolicyResponse (Maybe Policy)
 gprPolicy = lens _gprPolicy (\ s a -> s{_gprPolicy = a});
 
 -- | FIXME: Undocumented member.
-gprStatusCode :: Lens' GetPolicyResponse Int
-gprStatusCode = lens _gprStatusCode (\ s a -> s{_gprStatusCode = a});
+gprStatus :: Lens' GetPolicyResponse Int
+gprStatus = lens _gprStatus (\ s a -> s{_gprStatus = a});

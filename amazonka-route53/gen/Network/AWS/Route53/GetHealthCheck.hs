@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.GetHealthCheck
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.Route53.GetHealthCheck
     , getHealthCheckResponse
     -- ** Response lenses
     , ghcrHealthCheck
-    , ghcrStatusCode
+    , ghcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | A complex type that contains information about the request to get a
 -- health check.
@@ -49,11 +49,16 @@ import Network.AWS.Route53.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ghcHealthCheckId'
-newtype GetHealthCheck = GetHealthCheck'{_ghcHealthCheckId :: Text} deriving (Eq, Read, Show)
+newtype GetHealthCheck = GetHealthCheck'
+    { _ghcHealthCheckId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetHealthCheck' smart constructor.
 getHealthCheck :: Text -> GetHealthCheck
-getHealthCheck pHealthCheckId = GetHealthCheck'{_ghcHealthCheckId = pHealthCheckId};
+getHealthCheck pHealthCheckId =
+    GetHealthCheck'
+    { _ghcHealthCheckId = pHealthCheckId
+    }
 
 -- | The ID of the health check to retrieve.
 ghcHealthCheckId :: Lens' GetHealthCheck Text
@@ -89,12 +94,19 @@ instance ToQuery GetHealthCheck where
 --
 -- * 'ghcrHealthCheck'
 --
--- * 'ghcrStatusCode'
-data GetHealthCheckResponse = GetHealthCheckResponse'{_ghcrHealthCheck :: HealthCheck, _ghcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ghcrStatus'
+data GetHealthCheckResponse = GetHealthCheckResponse'
+    { _ghcrHealthCheck :: HealthCheck
+    , _ghcrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetHealthCheckResponse' smart constructor.
 getHealthCheckResponse :: HealthCheck -> Int -> GetHealthCheckResponse
-getHealthCheckResponse pHealthCheck pStatusCode = GetHealthCheckResponse'{_ghcrHealthCheck = pHealthCheck, _ghcrStatusCode = pStatusCode};
+getHealthCheckResponse pHealthCheck pStatus =
+    GetHealthCheckResponse'
+    { _ghcrHealthCheck = pHealthCheck
+    , _ghcrStatus = pStatus
+    }
 
 -- | A complex type that contains the information about the specified health
 -- check.
@@ -102,5 +114,5 @@ ghcrHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
 ghcrHealthCheck = lens _ghcrHealthCheck (\ s a -> s{_ghcrHealthCheck = a});
 
 -- | FIXME: Undocumented member.
-ghcrStatusCode :: Lens' GetHealthCheckResponse Int
-ghcrStatusCode = lens _ghcrStatusCode (\ s a -> s{_ghcrStatusCode = a});
+ghcrStatus :: Lens' GetHealthCheckResponse Int
+ghcrStatus = lens _ghcrStatus (\ s a -> s{_ghcrStatus = a});

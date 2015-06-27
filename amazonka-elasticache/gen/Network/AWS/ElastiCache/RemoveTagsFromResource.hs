@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.RemoveTagsFromResource
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.ElastiCache.RemoveTagsFromResource
     , tlmTagList
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /RemoveTagsFromResource/ action.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'rtfrResourceName'
 --
 -- * 'rtfrTagKeys'
-data RemoveTagsFromResource = RemoveTagsFromResource'{_rtfrResourceName :: Text, _rtfrTagKeys :: [Text]} deriving (Eq, Read, Show)
+data RemoveTagsFromResource = RemoveTagsFromResource'
+    { _rtfrResourceName :: Text
+    , _rtfrTagKeys      :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveTagsFromResource' smart constructor.
 removeTagsFromResource :: Text -> RemoveTagsFromResource
-removeTagsFromResource pResourceName = RemoveTagsFromResource'{_rtfrResourceName = pResourceName, _rtfrTagKeys = mempty};
+removeTagsFromResource pResourceName =
+    RemoveTagsFromResource'
+    { _rtfrResourceName = pResourceName
+    , _rtfrTagKeys = mempty
+    }
 
 -- | The name of the ElastiCache resource from which you want the listed tags
 -- removed, for example

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudTrail.DeleteTrail
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,13 +31,13 @@ module Network.AWS.CloudTrail.DeleteTrail
     -- ** Response constructor
     , deleteTrailResponse
     -- ** Response lenses
-    , delStatusCode
+    , delStatus
     ) where
 
-import Network.AWS.CloudTrail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request that specifies the name of a trail to delete.
 --
@@ -46,11 +46,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtName'
-newtype DeleteTrail = DeleteTrail'{_dtName :: Text} deriving (Eq, Read, Show)
+newtype DeleteTrail = DeleteTrail'
+    { _dtName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTrail' smart constructor.
 deleteTrail :: Text -> DeleteTrail
-deleteTrail pName = DeleteTrail'{_dtName = pName};
+deleteTrail pName =
+    DeleteTrail'
+    { _dtName = pName
+    }
 
 -- | The name of a trail to be deleted.
 dtName :: Lens' DeleteTrail Text
@@ -91,13 +96,18 @@ instance ToQuery DeleteTrail where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delStatusCode'
-newtype DeleteTrailResponse = DeleteTrailResponse'{_delStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'delStatus'
+newtype DeleteTrailResponse = DeleteTrailResponse'
+    { _delStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTrailResponse' smart constructor.
 deleteTrailResponse :: Int -> DeleteTrailResponse
-deleteTrailResponse pStatusCode = DeleteTrailResponse'{_delStatusCode = pStatusCode};
+deleteTrailResponse pStatus =
+    DeleteTrailResponse'
+    { _delStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-delStatusCode :: Lens' DeleteTrailResponse Int
-delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});
+delStatus :: Lens' DeleteTrailResponse Int
+delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

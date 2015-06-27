@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ImportExport.ListJobs
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,14 +39,14 @@ module Network.AWS.ImportExport.ListJobs
     -- ** Response lenses
     , ljrJobs
     , ljrIsTruncated
-    , ljrStatusCode
+    , ljrStatus
     ) where
 
-import Network.AWS.ImportExport.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ImportExport.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input structure for the ListJobs operation.
 --
@@ -59,11 +59,20 @@ import Network.AWS.Response
 -- * 'ljMarker'
 --
 -- * 'ljMaxJobs'
-data ListJobs = ListJobs'{_ljAPIVersion :: Maybe Text, _ljMarker :: Maybe Text, _ljMaxJobs :: Maybe Int} deriving (Eq, Read, Show)
+data ListJobs = ListJobs'
+    { _ljAPIVersion :: Maybe Text
+    , _ljMarker     :: Maybe Text
+    , _ljMaxJobs    :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListJobs' smart constructor.
 listJobs :: ListJobs
-listJobs = ListJobs'{_ljAPIVersion = Nothing, _ljMarker = Nothing, _ljMaxJobs = Nothing};
+listJobs =
+    ListJobs'
+    { _ljAPIVersion = Nothing
+    , _ljMarker = Nothing
+    , _ljMaxJobs = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 ljAPIVersion :: Lens' ListJobs (Maybe Text)
@@ -124,12 +133,21 @@ instance ToQuery ListJobs where
 --
 -- * 'ljrIsTruncated'
 --
--- * 'ljrStatusCode'
-data ListJobsResponse = ListJobsResponse'{_ljrJobs :: Maybe [Job], _ljrIsTruncated :: Maybe Bool, _ljrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ljrStatus'
+data ListJobsResponse = ListJobsResponse'
+    { _ljrJobs        :: Maybe [Job]
+    , _ljrIsTruncated :: Maybe Bool
+    , _ljrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListJobsResponse' smart constructor.
 listJobsResponse :: Int -> ListJobsResponse
-listJobsResponse pStatusCode = ListJobsResponse'{_ljrJobs = Nothing, _ljrIsTruncated = Nothing, _ljrStatusCode = pStatusCode};
+listJobsResponse pStatus =
+    ListJobsResponse'
+    { _ljrJobs = Nothing
+    , _ljrIsTruncated = Nothing
+    , _ljrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ljrJobs :: Lens' ListJobsResponse [Job]
@@ -140,5 +158,5 @@ ljrIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
 ljrIsTruncated = lens _ljrIsTruncated (\ s a -> s{_ljrIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-ljrStatusCode :: Lens' ListJobsResponse Int
-ljrStatusCode = lens _ljrStatusCode (\ s a -> s{_ljrStatusCode = a});
+ljrStatus :: Lens' ListJobsResponse Int
+ljrStatus = lens _ljrStatus (\ s a -> s{_ljrStatus = a});

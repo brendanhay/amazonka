@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeReservedDBInstancesOfferings
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,14 +41,14 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     -- ** Response lenses
     , drdiorMarker
     , drdiorReservedDBInstancesOfferings
-    , drdiorStatusCode
+    , drdiorStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -73,11 +73,32 @@ import Network.AWS.Response
 -- * 'drdioOfferingType'
 --
 -- * 'drdioDuration'
-data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings'{_drdioProductDescription :: Maybe Text, _drdioFilters :: Maybe [Filter], _drdioDBInstanceClass :: Maybe Text, _drdioMaxRecords :: Maybe Int, _drdioMultiAZ :: Maybe Bool, _drdioMarker :: Maybe Text, _drdioReservedDBInstancesOfferingId :: Maybe Text, _drdioOfferingType :: Maybe Text, _drdioDuration :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings'
+    { _drdioProductDescription            :: Maybe Text
+    , _drdioFilters                       :: Maybe [Filter]
+    , _drdioDBInstanceClass               :: Maybe Text
+    , _drdioMaxRecords                    :: Maybe Int
+    , _drdioMultiAZ                       :: Maybe Bool
+    , _drdioMarker                        :: Maybe Text
+    , _drdioReservedDBInstancesOfferingId :: Maybe Text
+    , _drdioOfferingType                  :: Maybe Text
+    , _drdioDuration                      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedDBInstancesOfferings' smart constructor.
 describeReservedDBInstancesOfferings :: DescribeReservedDBInstancesOfferings
-describeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings'{_drdioProductDescription = Nothing, _drdioFilters = Nothing, _drdioDBInstanceClass = Nothing, _drdioMaxRecords = Nothing, _drdioMultiAZ = Nothing, _drdioMarker = Nothing, _drdioReservedDBInstancesOfferingId = Nothing, _drdioOfferingType = Nothing, _drdioDuration = Nothing};
+describeReservedDBInstancesOfferings =
+    DescribeReservedDBInstancesOfferings'
+    { _drdioProductDescription = Nothing
+    , _drdioFilters = Nothing
+    , _drdioDBInstanceClass = Nothing
+    , _drdioMaxRecords = Nothing
+    , _drdioMultiAZ = Nothing
+    , _drdioMarker = Nothing
+    , _drdioReservedDBInstancesOfferingId = Nothing
+    , _drdioOfferingType = Nothing
+    , _drdioDuration = Nothing
+    }
 
 -- | Product description filter value. Specify this parameter to show only
 -- the available offerings matching the specified product description.
@@ -201,12 +222,21 @@ instance ToQuery DescribeReservedDBInstancesOfferings
 --
 -- * 'drdiorReservedDBInstancesOfferings'
 --
--- * 'drdiorStatusCode'
-data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'{_drdiorMarker :: Maybe Text, _drdiorReservedDBInstancesOfferings :: Maybe [ReservedDBInstancesOffering], _drdiorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'drdiorStatus'
+data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'
+    { _drdiorMarker                       :: Maybe Text
+    , _drdiorReservedDBInstancesOfferings :: Maybe [ReservedDBInstancesOffering]
+    , _drdiorStatus                       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedDBInstancesOfferingsResponse' smart constructor.
 describeReservedDBInstancesOfferingsResponse :: Int -> DescribeReservedDBInstancesOfferingsResponse
-describeReservedDBInstancesOfferingsResponse pStatusCode = DescribeReservedDBInstancesOfferingsResponse'{_drdiorMarker = Nothing, _drdiorReservedDBInstancesOfferings = Nothing, _drdiorStatusCode = pStatusCode};
+describeReservedDBInstancesOfferingsResponse pStatus =
+    DescribeReservedDBInstancesOfferingsResponse'
+    { _drdiorMarker = Nothing
+    , _drdiorReservedDBInstancesOfferings = Nothing
+    , _drdiorStatus = pStatus
+    }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -219,5 +249,5 @@ drdiorReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferings
 drdiorReservedDBInstancesOfferings = lens _drdiorReservedDBInstancesOfferings (\ s a -> s{_drdiorReservedDBInstancesOfferings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drdiorStatusCode :: Lens' DescribeReservedDBInstancesOfferingsResponse Int
-drdiorStatusCode = lens _drdiorStatusCode (\ s a -> s{_drdiorStatusCode = a});
+drdiorStatus :: Lens' DescribeReservedDBInstancesOfferingsResponse Int
+drdiorStatus = lens _drdiorStatus (\ s a -> s{_drdiorStatus = a});

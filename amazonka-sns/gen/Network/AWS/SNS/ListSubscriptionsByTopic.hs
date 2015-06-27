@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.ListSubscriptionsByTopic
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,14 +38,14 @@ module Network.AWS.SNS.ListSubscriptionsByTopic
     -- ** Response lenses
     , lsbtrNextToken
     , lsbtrSubscriptions
-    , lsbtrStatusCode
+    , lsbtrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for ListSubscriptionsByTopic action.
 --
@@ -56,11 +56,18 @@ import Network.AWS.SNS.Types
 -- * 'lsbtNextToken'
 --
 -- * 'lsbtTopicARN'
-data ListSubscriptionsByTopic = ListSubscriptionsByTopic'{_lsbtNextToken :: Maybe Text, _lsbtTopicARN :: Text} deriving (Eq, Read, Show)
+data ListSubscriptionsByTopic = ListSubscriptionsByTopic'
+    { _lsbtNextToken :: Maybe Text
+    , _lsbtTopicARN  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListSubscriptionsByTopic' smart constructor.
 listSubscriptionsByTopic :: Text -> ListSubscriptionsByTopic
-listSubscriptionsByTopic pTopicARN = ListSubscriptionsByTopic'{_lsbtNextToken = Nothing, _lsbtTopicARN = pTopicARN};
+listSubscriptionsByTopic pTopicARN =
+    ListSubscriptionsByTopic'
+    { _lsbtNextToken = Nothing
+    , _lsbtTopicARN = pTopicARN
+    }
 
 -- | Token returned by the previous @ListSubscriptionsByTopic@ request.
 lsbtNextToken :: Lens' ListSubscriptionsByTopic (Maybe Text)
@@ -116,12 +123,21 @@ instance ToQuery ListSubscriptionsByTopic where
 --
 -- * 'lsbtrSubscriptions'
 --
--- * 'lsbtrStatusCode'
-data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'{_lsbtrNextToken :: Maybe Text, _lsbtrSubscriptions :: Maybe [Subscription], _lsbtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lsbtrStatus'
+data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'
+    { _lsbtrNextToken     :: Maybe Text
+    , _lsbtrSubscriptions :: Maybe [Subscription]
+    , _lsbtrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListSubscriptionsByTopicResponse' smart constructor.
 listSubscriptionsByTopicResponse :: Int -> ListSubscriptionsByTopicResponse
-listSubscriptionsByTopicResponse pStatusCode = ListSubscriptionsByTopicResponse'{_lsbtrNextToken = Nothing, _lsbtrSubscriptions = Nothing, _lsbtrStatusCode = pStatusCode};
+listSubscriptionsByTopicResponse pStatus =
+    ListSubscriptionsByTopicResponse'
+    { _lsbtrNextToken = Nothing
+    , _lsbtrSubscriptions = Nothing
+    , _lsbtrStatus = pStatus
+    }
 
 -- | Token to pass along to the next @ListSubscriptionsByTopic@ request. This
 -- element is returned if there are more subscriptions to retrieve.
@@ -133,5 +149,5 @@ lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
 lsbtrSubscriptions = lens _lsbtrSubscriptions (\ s a -> s{_lsbtrSubscriptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lsbtrStatusCode :: Lens' ListSubscriptionsByTopicResponse Int
-lsbtrStatusCode = lens _lsbtrStatusCode (\ s a -> s{_lsbtrStatusCode = a});
+lsbtrStatus :: Lens' ListSubscriptionsByTopicResponse Int
+lsbtrStatus = lens _lsbtrStatus (\ s a -> s{_lsbtrStatus = a});

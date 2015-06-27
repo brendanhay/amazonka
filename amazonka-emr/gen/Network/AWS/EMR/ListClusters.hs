@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.ListClusters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,14 +40,14 @@ module Network.AWS.EMR.ListClusters
     -- ** Response lenses
     , lcrMarker
     , lcrClusters
-    , lcrStatusCode
+    , lcrStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This input determines how the ListClusters action filters the list of
 -- clusters that it returns.
@@ -63,11 +63,22 @@ import Network.AWS.Response
 -- * 'lcClusterStates'
 --
 -- * 'lcCreatedBefore'
-data ListClusters = ListClusters'{_lcCreatedAfter :: Maybe POSIX, _lcMarker :: Maybe Text, _lcClusterStates :: Maybe [ClusterState], _lcCreatedBefore :: Maybe POSIX} deriving (Eq, Read, Show)
+data ListClusters = ListClusters'
+    { _lcCreatedAfter  :: Maybe POSIX
+    , _lcMarker        :: Maybe Text
+    , _lcClusterStates :: Maybe [ClusterState]
+    , _lcCreatedBefore :: Maybe POSIX
+    } deriving (Eq,Read,Show)
 
 -- | 'ListClusters' smart constructor.
 listClusters :: ListClusters
-listClusters = ListClusters'{_lcCreatedAfter = Nothing, _lcMarker = Nothing, _lcClusterStates = Nothing, _lcCreatedBefore = Nothing};
+listClusters =
+    ListClusters'
+    { _lcCreatedAfter = Nothing
+    , _lcMarker = Nothing
+    , _lcClusterStates = Nothing
+    , _lcCreatedBefore = Nothing
+    }
 
 -- | The creation date and time beginning value filter for listing clusters .
 lcCreatedAfter :: Lens' ListClusters (Maybe UTCTime)
@@ -136,12 +147,21 @@ instance ToQuery ListClusters where
 --
 -- * 'lcrClusters'
 --
--- * 'lcrStatusCode'
-data ListClustersResponse = ListClustersResponse'{_lcrMarker :: Maybe Text, _lcrClusters :: Maybe [ClusterSummary], _lcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lcrStatus'
+data ListClustersResponse = ListClustersResponse'
+    { _lcrMarker   :: Maybe Text
+    , _lcrClusters :: Maybe [ClusterSummary]
+    , _lcrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListClustersResponse' smart constructor.
 listClustersResponse :: Int -> ListClustersResponse
-listClustersResponse pStatusCode = ListClustersResponse'{_lcrMarker = Nothing, _lcrClusters = Nothing, _lcrStatusCode = pStatusCode};
+listClustersResponse pStatus =
+    ListClustersResponse'
+    { _lcrMarker = Nothing
+    , _lcrClusters = Nothing
+    , _lcrStatus = pStatus
+    }
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lcrMarker :: Lens' ListClustersResponse (Maybe Text)
@@ -152,5 +172,5 @@ lcrClusters :: Lens' ListClustersResponse [ClusterSummary]
 lcrClusters = lens _lcrClusters (\ s a -> s{_lcrClusters = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lcrStatusCode :: Lens' ListClustersResponse Int
-lcrStatusCode = lens _lcrStatusCode (\ s a -> s{_lcrStatusCode = a});
+lcrStatus :: Lens' ListClustersResponse Int
+lcrStatus = lens _lcrStatus (\ s a -> s{_lcrStatus = a});

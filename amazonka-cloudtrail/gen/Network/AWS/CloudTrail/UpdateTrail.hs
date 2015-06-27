@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudTrail.UpdateTrail
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,13 +50,13 @@ module Network.AWS.CloudTrail.UpdateTrail
     , utrIncludeGlobalServiceEvents
     , utrCloudWatchLogsRoleARN
     , utrS3BucketName
-    , utrStatusCode
+    , utrStatus
     ) where
 
-import Network.AWS.CloudTrail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Specifies settings to update for the trail.
 --
@@ -77,11 +77,28 @@ import Network.AWS.Response
 -- * 'utS3BucketName'
 --
 -- * 'utName'
-data UpdateTrail = UpdateTrail'{_utS3KeyPrefix :: Maybe Text, _utSNSTopicName :: Maybe Text, _utCloudWatchLogsLogGroupARN :: Maybe Text, _utIncludeGlobalServiceEvents :: Maybe Bool, _utCloudWatchLogsRoleARN :: Maybe Text, _utS3BucketName :: Maybe Text, _utName :: Text} deriving (Eq, Read, Show)
+data UpdateTrail = UpdateTrail'
+    { _utS3KeyPrefix                :: Maybe Text
+    , _utSNSTopicName               :: Maybe Text
+    , _utCloudWatchLogsLogGroupARN  :: Maybe Text
+    , _utIncludeGlobalServiceEvents :: Maybe Bool
+    , _utCloudWatchLogsRoleARN      :: Maybe Text
+    , _utS3BucketName               :: Maybe Text
+    , _utName                       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateTrail' smart constructor.
 updateTrail :: Text -> UpdateTrail
-updateTrail pName = UpdateTrail'{_utS3KeyPrefix = Nothing, _utSNSTopicName = Nothing, _utCloudWatchLogsLogGroupARN = Nothing, _utIncludeGlobalServiceEvents = Nothing, _utCloudWatchLogsRoleARN = Nothing, _utS3BucketName = Nothing, _utName = pName};
+updateTrail pName =
+    UpdateTrail'
+    { _utS3KeyPrefix = Nothing
+    , _utSNSTopicName = Nothing
+    , _utCloudWatchLogsLogGroupARN = Nothing
+    , _utIncludeGlobalServiceEvents = Nothing
+    , _utCloudWatchLogsRoleARN = Nothing
+    , _utS3BucketName = Nothing
+    , _utName = pName
+    }
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
 -- you have designated for log file delivery.
@@ -183,12 +200,31 @@ instance ToQuery UpdateTrail where
 --
 -- * 'utrS3BucketName'
 --
--- * 'utrStatusCode'
-data UpdateTrailResponse = UpdateTrailResponse'{_utrS3KeyPrefix :: Maybe Text, _utrSNSTopicName :: Maybe Text, _utrCloudWatchLogsLogGroupARN :: Maybe Text, _utrName :: Maybe Text, _utrIncludeGlobalServiceEvents :: Maybe Bool, _utrCloudWatchLogsRoleARN :: Maybe Text, _utrS3BucketName :: Maybe Text, _utrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'utrStatus'
+data UpdateTrailResponse = UpdateTrailResponse'
+    { _utrS3KeyPrefix                :: Maybe Text
+    , _utrSNSTopicName               :: Maybe Text
+    , _utrCloudWatchLogsLogGroupARN  :: Maybe Text
+    , _utrName                       :: Maybe Text
+    , _utrIncludeGlobalServiceEvents :: Maybe Bool
+    , _utrCloudWatchLogsRoleARN      :: Maybe Text
+    , _utrS3BucketName               :: Maybe Text
+    , _utrStatus                     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateTrailResponse' smart constructor.
 updateTrailResponse :: Int -> UpdateTrailResponse
-updateTrailResponse pStatusCode = UpdateTrailResponse'{_utrS3KeyPrefix = Nothing, _utrSNSTopicName = Nothing, _utrCloudWatchLogsLogGroupARN = Nothing, _utrName = Nothing, _utrIncludeGlobalServiceEvents = Nothing, _utrCloudWatchLogsRoleARN = Nothing, _utrS3BucketName = Nothing, _utrStatusCode = pStatusCode};
+updateTrailResponse pStatus =
+    UpdateTrailResponse'
+    { _utrS3KeyPrefix = Nothing
+    , _utrSNSTopicName = Nothing
+    , _utrCloudWatchLogsLogGroupARN = Nothing
+    , _utrName = Nothing
+    , _utrIncludeGlobalServiceEvents = Nothing
+    , _utrCloudWatchLogsRoleARN = Nothing
+    , _utrS3BucketName = Nothing
+    , _utrStatus = pStatus
+    }
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
 -- you have designated for log file delivery.
@@ -225,5 +261,5 @@ utrS3BucketName :: Lens' UpdateTrailResponse (Maybe Text)
 utrS3BucketName = lens _utrS3BucketName (\ s a -> s{_utrS3BucketName = a});
 
 -- | FIXME: Undocumented member.
-utrStatusCode :: Lens' UpdateTrailResponse Int
-utrStatusCode = lens _utrStatusCode (\ s a -> s{_utrStatusCode = a});
+utrStatus :: Lens' UpdateTrailResponse Int
+utrStatus = lens _utrStatus (\ s a -> s{_utrStatus = a});

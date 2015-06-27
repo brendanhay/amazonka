@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.ChangeResourceRecordSets
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,13 +63,13 @@ module Network.AWS.Route53.ChangeResourceRecordSets
     , changeResourceRecordSetsResponse
     -- ** Response lenses
     , crrsrChangeInfo
-    , crrsrStatusCode
+    , crrsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | A complex type that contains a change batch.
 --
@@ -80,11 +80,18 @@ import Network.AWS.Route53.Types
 -- * 'crrsHostedZoneId'
 --
 -- * 'crrsChangeBatch'
-data ChangeResourceRecordSets = ChangeResourceRecordSets'{_crrsHostedZoneId :: Text, _crrsChangeBatch :: ChangeBatch} deriving (Eq, Read, Show)
+data ChangeResourceRecordSets = ChangeResourceRecordSets'
+    { _crrsHostedZoneId :: Text
+    , _crrsChangeBatch  :: ChangeBatch
+    } deriving (Eq,Read,Show)
 
 -- | 'ChangeResourceRecordSets' smart constructor.
 changeResourceRecordSets :: Text -> ChangeBatch -> ChangeResourceRecordSets
-changeResourceRecordSets pHostedZoneId pChangeBatch = ChangeResourceRecordSets'{_crrsHostedZoneId = pHostedZoneId, _crrsChangeBatch = pChangeBatch};
+changeResourceRecordSets pHostedZoneId pChangeBatch =
+    ChangeResourceRecordSets'
+    { _crrsHostedZoneId = pHostedZoneId
+    , _crrsChangeBatch = pChangeBatch
+    }
 
 -- | The ID of the hosted zone that contains the resource record sets that
 -- you want to change.
@@ -136,12 +143,19 @@ instance ToXML ChangeResourceRecordSets where
 --
 -- * 'crrsrChangeInfo'
 --
--- * 'crrsrStatusCode'
-data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'{_crrsrChangeInfo :: ChangeInfo, _crrsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'crrsrStatus'
+data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
+    { _crrsrChangeInfo :: ChangeInfo
+    , _crrsrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ChangeResourceRecordSetsResponse' smart constructor.
 changeResourceRecordSetsResponse :: ChangeInfo -> Int -> ChangeResourceRecordSetsResponse
-changeResourceRecordSetsResponse pChangeInfo pStatusCode = ChangeResourceRecordSetsResponse'{_crrsrChangeInfo = pChangeInfo, _crrsrStatusCode = pStatusCode};
+changeResourceRecordSetsResponse pChangeInfo pStatus =
+    ChangeResourceRecordSetsResponse'
+    { _crrsrChangeInfo = pChangeInfo
+    , _crrsrStatus = pStatus
+    }
 
 -- | A complex type that contains information about changes made to your
 -- hosted zone.
@@ -152,5 +166,5 @@ crrsrChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrChangeInfo = lens _crrsrChangeInfo (\ s a -> s{_crrsrChangeInfo = a});
 
 -- | FIXME: Undocumented member.
-crrsrStatusCode :: Lens' ChangeResourceRecordSetsResponse Int
-crrsrStatusCode = lens _crrsrStatusCode (\ s a -> s{_crrsrStatusCode = a});
+crrsrStatus :: Lens' ChangeResourceRecordSetsResponse Int
+crrsrStatus = lens _crrsrStatus (\ s a -> s{_crrsrStatus = a});

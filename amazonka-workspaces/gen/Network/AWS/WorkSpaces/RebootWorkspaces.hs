@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.WorkSpaces.RebootWorkspaces
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.WorkSpaces.RebootWorkspaces
     , rebootWorkspacesResponse
     -- ** Response lenses
     , rebFailedRequests
-    , rebStatusCode
+    , rebStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.WorkSpaces.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.WorkSpaces.Types
 
 -- | Contains the inputs for the RebootWorkspaces operation.
 --
@@ -53,11 +53,16 @@ import Network.AWS.WorkSpaces.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rwRebootWorkspaceRequests'
-newtype RebootWorkspaces = RebootWorkspaces'{_rwRebootWorkspaceRequests :: List1 RebootRequest} deriving (Eq, Read, Show)
+newtype RebootWorkspaces = RebootWorkspaces'
+    { _rwRebootWorkspaceRequests :: List1 RebootRequest
+    } deriving (Eq,Read,Show)
 
 -- | 'RebootWorkspaces' smart constructor.
 rebootWorkspaces :: NonEmpty RebootRequest -> RebootWorkspaces
-rebootWorkspaces pRebootWorkspaceRequests = RebootWorkspaces'{_rwRebootWorkspaceRequests = _List1 # pRebootWorkspaceRequests};
+rebootWorkspaces pRebootWorkspaceRequests =
+    RebootWorkspaces'
+    { _rwRebootWorkspaceRequests = _List1 # pRebootWorkspaceRequests
+    }
 
 -- | An array of structures that specify the WorkSpaces to reboot.
 rwRebootWorkspaceRequests :: Lens' RebootWorkspaces (NonEmpty RebootRequest)
@@ -103,12 +108,19 @@ instance ToQuery RebootWorkspaces where
 --
 -- * 'rebFailedRequests'
 --
--- * 'rebStatusCode'
-data RebootWorkspacesResponse = RebootWorkspacesResponse'{_rebFailedRequests :: Maybe [FailedWorkspaceChangeRequest], _rebStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rebStatus'
+data RebootWorkspacesResponse = RebootWorkspacesResponse'
+    { _rebFailedRequests :: Maybe [FailedWorkspaceChangeRequest]
+    , _rebStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RebootWorkspacesResponse' smart constructor.
 rebootWorkspacesResponse :: Int -> RebootWorkspacesResponse
-rebootWorkspacesResponse pStatusCode = RebootWorkspacesResponse'{_rebFailedRequests = Nothing, _rebStatusCode = pStatusCode};
+rebootWorkspacesResponse pStatus =
+    RebootWorkspacesResponse'
+    { _rebFailedRequests = Nothing
+    , _rebStatus = pStatus
+    }
 
 -- | An array of structures that represent any WorkSpaces that could not be
 -- rebooted.
@@ -116,5 +128,5 @@ rebFailedRequests :: Lens' RebootWorkspacesResponse [FailedWorkspaceChangeReques
 rebFailedRequests = lens _rebFailedRequests (\ s a -> s{_rebFailedRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-rebStatusCode :: Lens' RebootWorkspacesResponse Int
-rebStatusCode = lens _rebStatusCode (\ s a -> s{_rebStatusCode = a});
+rebStatus :: Lens' RebootWorkspacesResponse Int
+rebStatus = lens _rebStatus (\ s a -> s{_rebStatus = a});

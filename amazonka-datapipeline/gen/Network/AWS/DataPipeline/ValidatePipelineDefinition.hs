@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.ValidatePipelineDefinition
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
     , vpdrValidationErrors
     , vpdrValidationWarnings
     , vpdrErrored
-    , vpdrStatusCode
+    , vpdrStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for ValidatePipelineDefinition.
 --
@@ -59,11 +59,22 @@ import Network.AWS.Response
 -- * 'vpdPipelineId'
 --
 -- * 'vpdPipelineObjects'
-data ValidatePipelineDefinition = ValidatePipelineDefinition'{_vpdParameterObjects :: Maybe [ParameterObject], _vpdParameterValues :: Maybe [ParameterValue], _vpdPipelineId :: Text, _vpdPipelineObjects :: [PipelineObject]} deriving (Eq, Read, Show)
+data ValidatePipelineDefinition = ValidatePipelineDefinition'
+    { _vpdParameterObjects :: Maybe [ParameterObject]
+    , _vpdParameterValues  :: Maybe [ParameterValue]
+    , _vpdPipelineId       :: Text
+    , _vpdPipelineObjects  :: [PipelineObject]
+    } deriving (Eq,Read,Show)
 
 -- | 'ValidatePipelineDefinition' smart constructor.
 validatePipelineDefinition :: Text -> ValidatePipelineDefinition
-validatePipelineDefinition pPipelineId = ValidatePipelineDefinition'{_vpdParameterObjects = Nothing, _vpdParameterValues = Nothing, _vpdPipelineId = pPipelineId, _vpdPipelineObjects = mempty};
+validatePipelineDefinition pPipelineId =
+    ValidatePipelineDefinition'
+    { _vpdParameterObjects = Nothing
+    , _vpdParameterValues = Nothing
+    , _vpdPipelineId = pPipelineId
+    , _vpdPipelineObjects = mempty
+    }
 
 -- | The parameter objects used with the pipeline.
 vpdParameterObjects :: Lens' ValidatePipelineDefinition [ParameterObject]
@@ -132,12 +143,23 @@ instance ToQuery ValidatePipelineDefinition where
 --
 -- * 'vpdrErrored'
 --
--- * 'vpdrStatusCode'
-data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'{_vpdrValidationErrors :: Maybe [ValidationError], _vpdrValidationWarnings :: Maybe [ValidationWarning], _vpdrErrored :: Bool, _vpdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'vpdrStatus'
+data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
+    { _vpdrValidationErrors   :: Maybe [ValidationError]
+    , _vpdrValidationWarnings :: Maybe [ValidationWarning]
+    , _vpdrErrored            :: !Bool
+    , _vpdrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ValidatePipelineDefinitionResponse' smart constructor.
 validatePipelineDefinitionResponse :: Bool -> Int -> ValidatePipelineDefinitionResponse
-validatePipelineDefinitionResponse pErrored pStatusCode = ValidatePipelineDefinitionResponse'{_vpdrValidationErrors = Nothing, _vpdrValidationWarnings = Nothing, _vpdrErrored = pErrored, _vpdrStatusCode = pStatusCode};
+validatePipelineDefinitionResponse pErrored pStatus =
+    ValidatePipelineDefinitionResponse'
+    { _vpdrValidationErrors = Nothing
+    , _vpdrValidationWarnings = Nothing
+    , _vpdrErrored = pErrored
+    , _vpdrStatus = pStatus
+    }
 
 -- | Any validation errors that were found.
 vpdrValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
@@ -152,5 +174,5 @@ vpdrErrored :: Lens' ValidatePipelineDefinitionResponse Bool
 vpdrErrored = lens _vpdrErrored (\ s a -> s{_vpdrErrored = a});
 
 -- | FIXME: Undocumented member.
-vpdrStatusCode :: Lens' ValidatePipelineDefinitionResponse Int
-vpdrStatusCode = lens _vpdrStatusCode (\ s a -> s{_vpdrStatusCode = a});
+vpdrStatus :: Lens' ValidatePipelineDefinitionResponse Int
+vpdrStatus = lens _vpdrStatus (\ s a -> s{_vpdrStatus = a});

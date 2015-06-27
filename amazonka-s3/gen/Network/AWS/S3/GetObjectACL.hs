@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.GetObjectACL
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.S3.GetObjectACL
     , goarRequestCharged
     , goarGrants
     , goarOwner
-    , goarStatusCode
+    , goarStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'getObjectACL' smart constructor.
 --
@@ -56,11 +56,22 @@ import Network.AWS.S3.Types
 -- * 'goaBucket'
 --
 -- * 'goaKey'
-data GetObjectACL = GetObjectACL'{_goaVersionId :: Maybe ObjectVersionId, _goaRequestPayer :: Maybe RequestPayer, _goaBucket :: BucketName, _goaKey :: ObjectKey} deriving (Eq, Read, Show)
+data GetObjectACL = GetObjectACL'
+    { _goaVersionId    :: Maybe ObjectVersionId
+    , _goaRequestPayer :: Maybe RequestPayer
+    , _goaBucket       :: BucketName
+    , _goaKey          :: ObjectKey
+    } deriving (Eq,Read,Show)
 
 -- | 'GetObjectACL' smart constructor.
 getObjectACL :: BucketName -> ObjectKey -> GetObjectACL
-getObjectACL pBucket pKey = GetObjectACL'{_goaVersionId = Nothing, _goaRequestPayer = Nothing, _goaBucket = pBucket, _goaKey = pKey};
+getObjectACL pBucket pKey =
+    GetObjectACL'
+    { _goaVersionId = Nothing
+    , _goaRequestPayer = Nothing
+    , _goaBucket = pBucket
+    , _goaKey = pKey
+    }
 
 -- | VersionId used to reference a specific version of the object.
 goaVersionId :: Lens' GetObjectACL (Maybe ObjectVersionId)
@@ -115,12 +126,23 @@ instance ToQuery GetObjectACL where
 --
 -- * 'goarOwner'
 --
--- * 'goarStatusCode'
-data GetObjectACLResponse = GetObjectACLResponse'{_goarRequestCharged :: Maybe RequestCharged, _goarGrants :: Maybe [Grant], _goarOwner :: Maybe Owner, _goarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'goarStatus'
+data GetObjectACLResponse = GetObjectACLResponse'
+    { _goarRequestCharged :: Maybe RequestCharged
+    , _goarGrants         :: Maybe [Grant]
+    , _goarOwner          :: Maybe Owner
+    , _goarStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetObjectACLResponse' smart constructor.
 getObjectACLResponse :: Int -> GetObjectACLResponse
-getObjectACLResponse pStatusCode = GetObjectACLResponse'{_goarRequestCharged = Nothing, _goarGrants = Nothing, _goarOwner = Nothing, _goarStatusCode = pStatusCode};
+getObjectACLResponse pStatus =
+    GetObjectACLResponse'
+    { _goarRequestCharged = Nothing
+    , _goarGrants = Nothing
+    , _goarOwner = Nothing
+    , _goarStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 goarRequestCharged :: Lens' GetObjectACLResponse (Maybe RequestCharged)
@@ -135,5 +157,5 @@ goarOwner :: Lens' GetObjectACLResponse (Maybe Owner)
 goarOwner = lens _goarOwner (\ s a -> s{_goarOwner = a});
 
 -- | FIXME: Undocumented member.
-goarStatusCode :: Lens' GetObjectACLResponse Int
-goarStatusCode = lens _goarStatusCode (\ s a -> s{_goarStatusCode = a});
+goarStatus :: Lens' GetObjectACLResponse Int
+goarStatus = lens _goarStatus (\ s a -> s{_goarStatus = a});

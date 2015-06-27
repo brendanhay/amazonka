@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribePolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,14 +36,14 @@ module Network.AWS.AutoScaling.DescribePolicies
     -- ** Response lenses
     , dprNextToken
     , dprScalingPolicies
-    , dprStatusCode
+    , dprStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describePolicies' smart constructor.
 --
@@ -56,11 +56,22 @@ import Network.AWS.Response
 -- * 'descMaxRecords'
 --
 -- * 'descAutoScalingGroupName'
-data DescribePolicies = DescribePolicies'{_descPolicyNames :: Maybe [Text], _descNextToken :: Maybe Text, _descMaxRecords :: Maybe Int, _descAutoScalingGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data DescribePolicies = DescribePolicies'
+    { _descPolicyNames          :: Maybe [Text]
+    , _descNextToken            :: Maybe Text
+    , _descMaxRecords           :: Maybe Int
+    , _descAutoScalingGroupName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribePolicies' smart constructor.
 describePolicies :: DescribePolicies
-describePolicies = DescribePolicies'{_descPolicyNames = Nothing, _descNextToken = Nothing, _descMaxRecords = Nothing, _descAutoScalingGroupName = Nothing};
+describePolicies =
+    DescribePolicies'
+    { _descPolicyNames = Nothing
+    , _descNextToken = Nothing
+    , _descMaxRecords = Nothing
+    , _descAutoScalingGroupName = Nothing
+    }
 
 -- | One or more policy names or policy ARNs to be described. If you omit
 -- this list, all policy names are described. If an group name is provided,
@@ -127,12 +138,21 @@ instance ToQuery DescribePolicies where
 --
 -- * 'dprScalingPolicies'
 --
--- * 'dprStatusCode'
-data DescribePoliciesResponse = DescribePoliciesResponse'{_dprNextToken :: Maybe Text, _dprScalingPolicies :: Maybe [ScalingPolicy], _dprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dprStatus'
+data DescribePoliciesResponse = DescribePoliciesResponse'
+    { _dprNextToken       :: Maybe Text
+    , _dprScalingPolicies :: Maybe [ScalingPolicy]
+    , _dprStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribePoliciesResponse' smart constructor.
 describePoliciesResponse :: Int -> DescribePoliciesResponse
-describePoliciesResponse pStatusCode = DescribePoliciesResponse'{_dprNextToken = Nothing, _dprScalingPolicies = Nothing, _dprStatusCode = pStatusCode};
+describePoliciesResponse pStatus =
+    DescribePoliciesResponse'
+    { _dprNextToken = Nothing
+    , _dprScalingPolicies = Nothing
+    , _dprStatus = pStatus
+    }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -144,5 +164,5 @@ dprScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
 dprScalingPolicies = lens _dprScalingPolicies (\ s a -> s{_dprScalingPolicies = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dprStatusCode :: Lens' DescribePoliciesResponse Int
-dprStatusCode = lens _dprStatusCode (\ s a -> s{_dprStatusCode = a});
+dprStatus :: Lens' DescribePoliciesResponse Int
+dprStatus = lens _dprStatus (\ s a -> s{_dprStatus = a});

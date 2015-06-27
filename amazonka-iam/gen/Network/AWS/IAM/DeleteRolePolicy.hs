@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeleteRolePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.IAM.DeleteRolePolicy
     , deleteRolePolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteRolePolicy' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'dRoleName'
 --
 -- * 'dPolicyName'
-data DeleteRolePolicy = DeleteRolePolicy'{_dRoleName :: Text, _dPolicyName :: Text} deriving (Eq, Read, Show)
+data DeleteRolePolicy = DeleteRolePolicy'
+    { _dRoleName   :: Text
+    , _dPolicyName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteRolePolicy' smart constructor.
 deleteRolePolicy :: Text -> Text -> DeleteRolePolicy
-deleteRolePolicy pRoleName pPolicyName = DeleteRolePolicy'{_dRoleName = pRoleName, _dPolicyName = pPolicyName};
+deleteRolePolicy pRoleName pPolicyName =
+    DeleteRolePolicy'
+    { _dRoleName = pRoleName
+    , _dPolicyName = pPolicyName
+    }
 
 -- | The name (friendly name, not ARN) identifying the role that the policy
 -- is embedded in.
@@ -88,8 +95,10 @@ instance ToQuery DeleteRolePolicy where
                "PolicyName" =: _dPolicyName]
 
 -- | /See:/ 'deleteRolePolicyResponse' smart constructor.
-data DeleteRolePolicyResponse = DeleteRolePolicyResponse' deriving (Eq, Read, Show)
+data DeleteRolePolicyResponse =
+    DeleteRolePolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteRolePolicyResponse' smart constructor.
 deleteRolePolicyResponse :: DeleteRolePolicyResponse
-deleteRolePolicyResponse = DeleteRolePolicyResponse';
+deleteRolePolicyResponse = DeleteRolePolicyResponse'

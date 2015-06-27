@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SES.SendEmail
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,13 +57,13 @@ module Network.AWS.SES.SendEmail
     , sendEmailResponse
     -- ** Response lenses
     , serMessageId
-    , serStatusCode
+    , serStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SES.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
 -- | Represents a request instructing the service to send a single email
 -- message.
@@ -85,11 +85,24 @@ import Network.AWS.SES.Types
 -- * 'seDestination'
 --
 -- * 'seMessage'
-data SendEmail = SendEmail'{_seReturnPath :: Maybe Text, _seReplyToAddresses :: Maybe [Text], _seSource :: Text, _seDestination :: Destination, _seMessage :: Message} deriving (Eq, Read, Show)
+data SendEmail = SendEmail'
+    { _seReturnPath       :: Maybe Text
+    , _seReplyToAddresses :: Maybe [Text]
+    , _seSource           :: Text
+    , _seDestination      :: Destination
+    , _seMessage          :: Message
+    } deriving (Eq,Read,Show)
 
 -- | 'SendEmail' smart constructor.
 sendEmail :: Text -> Destination -> Message -> SendEmail
-sendEmail pSource pDestination pMessage = SendEmail'{_seReturnPath = Nothing, _seReplyToAddresses = Nothing, _seSource = pSource, _seDestination = pDestination, _seMessage = pMessage};
+sendEmail pSource pDestination pMessage =
+    SendEmail'
+    { _seReturnPath = Nothing
+    , _seReplyToAddresses = Nothing
+    , _seSource = pSource
+    , _seDestination = pDestination
+    , _seMessage = pMessage
+    }
 
 -- | The email address to which bounces and complaints are to be forwarded
 -- when feedback forwarding is enabled. If the message cannot be delivered
@@ -163,17 +176,24 @@ instance ToQuery SendEmail where
 --
 -- * 'serMessageId'
 --
--- * 'serStatusCode'
-data SendEmailResponse = SendEmailResponse'{_serMessageId :: Text, _serStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'serStatus'
+data SendEmailResponse = SendEmailResponse'
+    { _serMessageId :: Text
+    , _serStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SendEmailResponse' smart constructor.
 sendEmailResponse :: Text -> Int -> SendEmailResponse
-sendEmailResponse pMessageId pStatusCode = SendEmailResponse'{_serMessageId = pMessageId, _serStatusCode = pStatusCode};
+sendEmailResponse pMessageId pStatus =
+    SendEmailResponse'
+    { _serMessageId = pMessageId
+    , _serStatus = pStatus
+    }
 
 -- | The unique message identifier returned from the @SendEmail@ action.
 serMessageId :: Lens' SendEmailResponse Text
 serMessageId = lens _serMessageId (\ s a -> s{_serMessageId = a});
 
 -- | FIXME: Undocumented member.
-serStatusCode :: Lens' SendEmailResponse Int
-serStatusCode = lens _serStatusCode (\ s a -> s{_serStatusCode = a});
+serStatus :: Lens' SendEmailResponse Int
+serStatus = lens _serStatus (\ s a -> s{_serStatus = a});

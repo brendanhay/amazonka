@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateNetworkACLEntry
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -58,10 +58,10 @@ module Network.AWS.EC2.CreateNetworkACLEntry
     , createNetworkACLEntryResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createNetworkACLEntry' smart constructor.
 --
@@ -84,11 +84,32 @@ import Network.AWS.Response
 -- * 'cnaeEgress'
 --
 -- * 'cnaeCIDRBlock'
-data CreateNetworkACLEntry = CreateNetworkACLEntry'{_cnaeICMPTypeCode :: Maybe ICMPTypeCode, _cnaePortRange :: Maybe PortRange, _cnaeDryRun :: Maybe Bool, _cnaeNetworkACLId :: Text, _cnaeRuleNumber :: Int, _cnaeProtocol :: Text, _cnaeRuleAction :: RuleAction, _cnaeEgress :: Bool, _cnaeCIDRBlock :: Text} deriving (Eq, Read, Show)
+data CreateNetworkACLEntry = CreateNetworkACLEntry'
+    { _cnaeICMPTypeCode :: Maybe ICMPTypeCode
+    , _cnaePortRange    :: Maybe PortRange
+    , _cnaeDryRun       :: Maybe Bool
+    , _cnaeNetworkACLId :: Text
+    , _cnaeRuleNumber   :: !Int
+    , _cnaeProtocol     :: Text
+    , _cnaeRuleAction   :: RuleAction
+    , _cnaeEgress       :: !Bool
+    , _cnaeCIDRBlock    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateNetworkACLEntry' smart constructor.
 createNetworkACLEntry :: Text -> Int -> Text -> RuleAction -> Bool -> Text -> CreateNetworkACLEntry
-createNetworkACLEntry pNetworkACLId pRuleNumber pProtocol pRuleAction pEgress pCIDRBlock = CreateNetworkACLEntry'{_cnaeICMPTypeCode = Nothing, _cnaePortRange = Nothing, _cnaeDryRun = Nothing, _cnaeNetworkACLId = pNetworkACLId, _cnaeRuleNumber = pRuleNumber, _cnaeProtocol = pProtocol, _cnaeRuleAction = pRuleAction, _cnaeEgress = pEgress, _cnaeCIDRBlock = pCIDRBlock};
+createNetworkACLEntry pNetworkACLId pRuleNumber pProtocol pRuleAction pEgress pCIDRBlock =
+    CreateNetworkACLEntry'
+    { _cnaeICMPTypeCode = Nothing
+    , _cnaePortRange = Nothing
+    , _cnaeDryRun = Nothing
+    , _cnaeNetworkACLId = pNetworkACLId
+    , _cnaeRuleNumber = pRuleNumber
+    , _cnaeProtocol = pProtocol
+    , _cnaeRuleAction = pRuleAction
+    , _cnaeEgress = pEgress
+    , _cnaeCIDRBlock = pCIDRBlock
+    }
 
 -- | ICMP protocol: The ICMP type and code. Required if specifying ICMP for
 -- the protocol.
@@ -164,8 +185,10 @@ instance ToQuery CreateNetworkACLEntry where
                "CidrBlock" =: _cnaeCIDRBlock]
 
 -- | /See:/ 'createNetworkACLEntryResponse' smart constructor.
-data CreateNetworkACLEntryResponse = CreateNetworkACLEntryResponse' deriving (Eq, Read, Show)
+data CreateNetworkACLEntryResponse =
+    CreateNetworkACLEntryResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CreateNetworkACLEntryResponse' smart constructor.
 createNetworkACLEntryResponse :: CreateNetworkACLEntryResponse
-createNetworkACLEntryResponse = CreateNetworkACLEntryResponse';
+createNetworkACLEntryResponse = CreateNetworkACLEntryResponse'

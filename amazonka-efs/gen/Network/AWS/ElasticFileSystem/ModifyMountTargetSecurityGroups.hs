@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticFileSystem.ModifyMountTargetSecurityGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,10 +48,10 @@ module Network.AWS.ElasticFileSystem.ModifyMountTargetSecurityGroups
     , modifyMountTargetSecurityGroupsResponse
     ) where
 
-import Network.AWS.ElasticFileSystem.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticFileSystem.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyMountTargetSecurityGroups' smart constructor.
 --
@@ -60,11 +60,18 @@ import Network.AWS.Response
 -- * 'mmtsgSecurityGroups'
 --
 -- * 'mmtsgMountTargetId'
-data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'{_mmtsgSecurityGroups :: Maybe [Text], _mmtsgMountTargetId :: Text} deriving (Eq, Read, Show)
+data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'
+    { _mmtsgSecurityGroups :: Maybe [Text]
+    , _mmtsgMountTargetId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyMountTargetSecurityGroups' smart constructor.
 modifyMountTargetSecurityGroups :: Text -> ModifyMountTargetSecurityGroups
-modifyMountTargetSecurityGroups pMountTargetId = ModifyMountTargetSecurityGroups'{_mmtsgSecurityGroups = Nothing, _mmtsgMountTargetId = pMountTargetId};
+modifyMountTargetSecurityGroups pMountTargetId =
+    ModifyMountTargetSecurityGroups'
+    { _mmtsgSecurityGroups = Nothing
+    , _mmtsgMountTargetId = pMountTargetId
+    }
 
 -- | An array of up to five VPC security group IDs.
 mmtsgSecurityGroups :: Lens' ModifyMountTargetSecurityGroups [Text]
@@ -104,8 +111,11 @@ instance ToQuery ModifyMountTargetSecurityGroups
         toQuery = const mempty
 
 -- | /See:/ 'modifyMountTargetSecurityGroupsResponse' smart constructor.
-data ModifyMountTargetSecurityGroupsResponse = ModifyMountTargetSecurityGroupsResponse' deriving (Eq, Read, Show)
+data ModifyMountTargetSecurityGroupsResponse =
+    ModifyMountTargetSecurityGroupsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ModifyMountTargetSecurityGroupsResponse' smart constructor.
 modifyMountTargetSecurityGroupsResponse :: ModifyMountTargetSecurityGroupsResponse
-modifyMountTargetSecurityGroupsResponse = ModifyMountTargetSecurityGroupsResponse';
+modifyMountTargetSecurityGroupsResponse =
+    ModifyMountTargetSecurityGroupsResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketCORS
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,21 +32,26 @@ module Network.AWS.S3.DeleteBucketCORS
     , deleteBucketCORSResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'deleteBucketCORS' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dbcBucket'
-newtype DeleteBucketCORS = DeleteBucketCORS'{_dbcBucket :: BucketName} deriving (Eq, Read, Show)
+newtype DeleteBucketCORS = DeleteBucketCORS'
+    { _dbcBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteBucketCORS' smart constructor.
 deleteBucketCORS :: BucketName -> DeleteBucketCORS
-deleteBucketCORS pBucket = DeleteBucketCORS'{_dbcBucket = pBucket};
+deleteBucketCORS pBucket =
+    DeleteBucketCORS'
+    { _dbcBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 dbcBucket :: Lens' DeleteBucketCORS BucketName
@@ -69,8 +74,10 @@ instance ToQuery DeleteBucketCORS where
         toQuery = const (mconcat ["cors"])
 
 -- | /See:/ 'deleteBucketCORSResponse' smart constructor.
-data DeleteBucketCORSResponse = DeleteBucketCORSResponse' deriving (Eq, Read, Show)
+data DeleteBucketCORSResponse =
+    DeleteBucketCORSResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteBucketCORSResponse' smart constructor.
 deleteBucketCORSResponse :: DeleteBucketCORSResponse
-deleteBucketCORSResponse = DeleteBucketCORSResponse';
+deleteBucketCORSResponse = DeleteBucketCORSResponse'

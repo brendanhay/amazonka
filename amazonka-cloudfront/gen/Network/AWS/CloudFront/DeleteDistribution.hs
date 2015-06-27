@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.DeleteDistribution
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.CloudFront.DeleteDistribution
     , deleteDistributionResponse
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to delete a distribution.
 --
@@ -47,11 +47,18 @@ import Network.AWS.Response
 -- * 'ddIfMatch'
 --
 -- * 'ddId'
-data DeleteDistribution = DeleteDistribution'{_ddIfMatch :: Maybe Text, _ddId :: Text} deriving (Eq, Read, Show)
+data DeleteDistribution = DeleteDistribution'
+    { _ddIfMatch :: Maybe Text
+    , _ddId      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDistribution' smart constructor.
 deleteDistribution :: Text -> DeleteDistribution
-deleteDistribution pId = DeleteDistribution'{_ddIfMatch = Nothing, _ddId = pId};
+deleteDistribution pId =
+    DeleteDistribution'
+    { _ddIfMatch = Nothing
+    , _ddId = pId
+    }
 
 -- | The value of the ETag header you received when you disabled the
 -- distribution. For example: E2QWRUHAPOMQZL.
@@ -81,8 +88,10 @@ instance ToQuery DeleteDistribution where
         toQuery = const mempty
 
 -- | /See:/ 'deleteDistributionResponse' smart constructor.
-data DeleteDistributionResponse = DeleteDistributionResponse' deriving (Eq, Read, Show)
+data DeleteDistributionResponse =
+    DeleteDistributionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteDistributionResponse' smart constructor.
 deleteDistributionResponse :: DeleteDistributionResponse
-deleteDistributionResponse = DeleteDistributionResponse';
+deleteDistributionResponse = DeleteDistributionResponse'

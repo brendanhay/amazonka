@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.UnmonitorInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.EC2.UnmonitorInstances
     , unmonitorInstancesResponse
     -- ** Response lenses
     , uirInstanceMonitorings
-    , uirStatusCode
+    , uirStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'unmonitorInstances' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'uiDryRun'
 --
 -- * 'uiInstanceIds'
-data UnmonitorInstances = UnmonitorInstances'{_uiDryRun :: Maybe Bool, _uiInstanceIds :: [Text]} deriving (Eq, Read, Show)
+data UnmonitorInstances = UnmonitorInstances'
+    { _uiDryRun      :: Maybe Bool
+    , _uiInstanceIds :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'UnmonitorInstances' smart constructor.
 unmonitorInstances :: UnmonitorInstances
-unmonitorInstances = UnmonitorInstances'{_uiDryRun = Nothing, _uiInstanceIds = mempty};
+unmonitorInstances =
+    UnmonitorInstances'
+    { _uiDryRun = Nothing
+    , _uiInstanceIds = mempty
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -100,17 +107,24 @@ instance ToQuery UnmonitorInstances where
 --
 -- * 'uirInstanceMonitorings'
 --
--- * 'uirStatusCode'
-data UnmonitorInstancesResponse = UnmonitorInstancesResponse'{_uirInstanceMonitorings :: Maybe [InstanceMonitoring], _uirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'uirStatus'
+data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
+    { _uirInstanceMonitorings :: Maybe [InstanceMonitoring]
+    , _uirStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UnmonitorInstancesResponse' smart constructor.
 unmonitorInstancesResponse :: Int -> UnmonitorInstancesResponse
-unmonitorInstancesResponse pStatusCode = UnmonitorInstancesResponse'{_uirInstanceMonitorings = Nothing, _uirStatusCode = pStatusCode};
+unmonitorInstancesResponse pStatus =
+    UnmonitorInstancesResponse'
+    { _uirInstanceMonitorings = Nothing
+    , _uirStatus = pStatus
+    }
 
 -- | Monitoring information for one or more instances.
 uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uirInstanceMonitorings = lens _uirInstanceMonitorings (\ s a -> s{_uirInstanceMonitorings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-uirStatusCode :: Lens' UnmonitorInstancesResponse Int
-uirStatusCode = lens _uirStatusCode (\ s a -> s{_uirStatusCode = a});
+uirStatus :: Lens' UnmonitorInstancesResponse Int
+uirStatus = lens _uirStatus (\ s a -> s{_uirStatus = a});

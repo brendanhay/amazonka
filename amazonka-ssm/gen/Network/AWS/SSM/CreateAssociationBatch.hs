@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SSM.CreateAssociationBatch
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,24 +42,29 @@ module Network.AWS.SSM.CreateAssociationBatch
     -- ** Response lenses
     , cabrSuccessful
     , cabrFailed
-    , cabrStatusCode
+    , cabrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
 
 -- | /See:/ 'createAssociationBatch' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cabEntries'
-newtype CreateAssociationBatch = CreateAssociationBatch'{_cabEntries :: [CreateAssociationBatchRequestEntry]} deriving (Eq, Read, Show)
+newtype CreateAssociationBatch = CreateAssociationBatch'
+    { _cabEntries :: [CreateAssociationBatchRequestEntry]
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAssociationBatch' smart constructor.
 createAssociationBatch :: CreateAssociationBatch
-createAssociationBatch = CreateAssociationBatch'{_cabEntries = mempty};
+createAssociationBatch =
+    CreateAssociationBatch'
+    { _cabEntries = mempty
+    }
 
 -- | One or more associations.
 cabEntries :: Lens' CreateAssociationBatch [CreateAssociationBatchRequestEntry]
@@ -105,12 +110,21 @@ instance ToQuery CreateAssociationBatch where
 --
 -- * 'cabrFailed'
 --
--- * 'cabrStatusCode'
-data CreateAssociationBatchResponse = CreateAssociationBatchResponse'{_cabrSuccessful :: Maybe [AssociationDescription], _cabrFailed :: Maybe [FailedCreateAssociation], _cabrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cabrStatus'
+data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
+    { _cabrSuccessful :: Maybe [AssociationDescription]
+    , _cabrFailed     :: Maybe [FailedCreateAssociation]
+    , _cabrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAssociationBatchResponse' smart constructor.
 createAssociationBatchResponse :: Int -> CreateAssociationBatchResponse
-createAssociationBatchResponse pStatusCode = CreateAssociationBatchResponse'{_cabrSuccessful = Nothing, _cabrFailed = Nothing, _cabrStatusCode = pStatusCode};
+createAssociationBatchResponse pStatus =
+    CreateAssociationBatchResponse'
+    { _cabrSuccessful = Nothing
+    , _cabrFailed = Nothing
+    , _cabrStatus = pStatus
+    }
 
 -- | Information about the associations that succeeded.
 cabrSuccessful :: Lens' CreateAssociationBatchResponse [AssociationDescription]
@@ -121,5 +135,5 @@ cabrFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
 cabrFailed = lens _cabrFailed (\ s a -> s{_cabrFailed = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-cabrStatusCode :: Lens' CreateAssociationBatchResponse Int
-cabrStatusCode = lens _cabrStatusCode (\ s a -> s{_cabrStatusCode = a});
+cabrStatus :: Lens' CreateAssociationBatchResponse Int
+cabrStatus = lens _cabrStatus (\ s a -> s{_cabrStatus = a});

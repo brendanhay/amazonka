@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.Predict
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.MachineLearning.Predict
     , predictResponse
     -- ** Response lenses
     , prPrediction
-    , prStatusCode
+    , prStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'predict' smart constructor.
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'preRecord'
 --
 -- * 'prePredictEndpoint'
-data Predict = Predict'{_preMLModelId :: Text, _preRecord :: Map Text Text, _prePredictEndpoint :: Text} deriving (Eq, Read, Show)
+data Predict = Predict'
+    { _preMLModelId       :: Text
+    , _preRecord          :: Map Text Text
+    , _prePredictEndpoint :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Predict' smart constructor.
 predict :: Text -> Text -> Predict
-predict pMLModelId pPredictEndpoint = Predict'{_preMLModelId = pMLModelId, _preRecord = mempty, _prePredictEndpoint = pPredictEndpoint};
+predict pMLModelId pPredictEndpoint =
+    Predict'
+    { _preMLModelId = pMLModelId
+    , _preRecord = mempty
+    , _prePredictEndpoint = pPredictEndpoint
+    }
 
 -- | A unique identifier of the @MLModel@.
 preMLModelId :: Lens' Predict Text
@@ -113,17 +122,24 @@ instance ToQuery Predict where
 --
 -- * 'prPrediction'
 --
--- * 'prStatusCode'
-data PredictResponse = PredictResponse'{_prPrediction :: Maybe Prediction, _prStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'prStatus'
+data PredictResponse = PredictResponse'
+    { _prPrediction :: Maybe Prediction
+    , _prStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PredictResponse' smart constructor.
 predictResponse :: Int -> PredictResponse
-predictResponse pStatusCode = PredictResponse'{_prPrediction = Nothing, _prStatusCode = pStatusCode};
+predictResponse pStatus =
+    PredictResponse'
+    { _prPrediction = Nothing
+    , _prStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 prPrediction :: Lens' PredictResponse (Maybe Prediction)
 prPrediction = lens _prPrediction (\ s a -> s{_prPrediction = a});
 
 -- | FIXME: Undocumented member.
-prStatusCode :: Lens' PredictResponse Int
-prStatusCode = lens _prStatusCode (\ s a -> s{_prStatusCode = a});
+prStatus :: Lens' PredictResponse Int
+prStatus = lens _prStatus (\ s a -> s{_prStatus = a});

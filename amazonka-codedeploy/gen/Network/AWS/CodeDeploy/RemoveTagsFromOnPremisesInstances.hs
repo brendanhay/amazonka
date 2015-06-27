@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
     , removeTagsFromOnPremisesInstancesResponse
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a remove tags from on-premises instances
 -- operation.
@@ -48,11 +48,18 @@ import Network.AWS.Response
 -- * 'rtfopiTags'
 --
 -- * 'rtfopiInstanceNames'
-data RemoveTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'{_rtfopiTags :: [Tag], _rtfopiInstanceNames :: [Text]} deriving (Eq, Read, Show)
+data RemoveTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'
+    { _rtfopiTags          :: [Tag]
+    , _rtfopiInstanceNames :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveTagsFromOnPremisesInstances' smart constructor.
 removeTagsFromOnPremisesInstances :: RemoveTagsFromOnPremisesInstances
-removeTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'{_rtfopiTags = mempty, _rtfopiInstanceNames = mempty};
+removeTagsFromOnPremisesInstances =
+    RemoveTagsFromOnPremisesInstances'
+    { _rtfopiTags = mempty
+    , _rtfopiInstanceNames = mempty
+    }
 
 -- | The tag key-value pairs to remove from the on-premises instances.
 rtfopiTags :: Lens' RemoveTagsFromOnPremisesInstances [Tag]
@@ -100,8 +107,11 @@ instance ToQuery RemoveTagsFromOnPremisesInstances
         toQuery = const mempty
 
 -- | /See:/ 'removeTagsFromOnPremisesInstancesResponse' smart constructor.
-data RemoveTagsFromOnPremisesInstancesResponse = RemoveTagsFromOnPremisesInstancesResponse' deriving (Eq, Read, Show)
+data RemoveTagsFromOnPremisesInstancesResponse =
+    RemoveTagsFromOnPremisesInstancesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RemoveTagsFromOnPremisesInstancesResponse' smart constructor.
 removeTagsFromOnPremisesInstancesResponse :: RemoveTagsFromOnPremisesInstancesResponse
-removeTagsFromOnPremisesInstancesResponse = RemoveTagsFromOnPremisesInstancesResponse';
+removeTagsFromOnPremisesInstancesResponse =
+    RemoveTagsFromOnPremisesInstancesResponse'

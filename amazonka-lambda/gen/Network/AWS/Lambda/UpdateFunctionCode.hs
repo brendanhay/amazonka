@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Lambda.UpdateFunctionCode
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,10 +52,10 @@ module Network.AWS.Lambda.UpdateFunctionCode
     , fcDescription
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateFunctionCode' smart constructor.
 --
@@ -70,11 +70,24 @@ import Network.AWS.Response
 -- * 'updS3Bucket'
 --
 -- * 'updFunctionName'
-data UpdateFunctionCode = UpdateFunctionCode'{_updS3ObjectVersion :: Maybe Text, _updS3Key :: Maybe Text, _updZipFile :: Maybe Base64, _updS3Bucket :: Maybe Text, _updFunctionName :: Text} deriving (Eq, Read, Show)
+data UpdateFunctionCode = UpdateFunctionCode'
+    { _updS3ObjectVersion :: Maybe Text
+    , _updS3Key           :: Maybe Text
+    , _updZipFile         :: Maybe Base64
+    , _updS3Bucket        :: Maybe Text
+    , _updFunctionName    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateFunctionCode' smart constructor.
 updateFunctionCode :: Text -> UpdateFunctionCode
-updateFunctionCode pFunctionName = UpdateFunctionCode'{_updS3ObjectVersion = Nothing, _updS3Key = Nothing, _updZipFile = Nothing, _updS3Bucket = Nothing, _updFunctionName = pFunctionName};
+updateFunctionCode pFunctionName =
+    UpdateFunctionCode'
+    { _updS3ObjectVersion = Nothing
+    , _updS3Key = Nothing
+    , _updZipFile = Nothing
+    , _updS3Bucket = Nothing
+    , _updFunctionName = pFunctionName
+    }
 
 -- | The Amazon S3 object (the deployment package) version you want to
 -- upload.

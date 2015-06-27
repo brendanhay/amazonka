@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreatePlacementGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.EC2.CreatePlacementGroup
     , createPlacementGroupResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createPlacementGroup' smart constructor.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'cpgGroupName'
 --
 -- * 'cpgStrategy'
-data CreatePlacementGroup = CreatePlacementGroup'{_cpgDryRun :: Maybe Bool, _cpgGroupName :: Text, _cpgStrategy :: PlacementStrategy} deriving (Eq, Read, Show)
+data CreatePlacementGroup = CreatePlacementGroup'
+    { _cpgDryRun    :: Maybe Bool
+    , _cpgGroupName :: Text
+    , _cpgStrategy  :: PlacementStrategy
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePlacementGroup' smart constructor.
 createPlacementGroup :: Text -> PlacementStrategy -> CreatePlacementGroup
-createPlacementGroup pGroupName pStrategy = CreatePlacementGroup'{_cpgDryRun = Nothing, _cpgGroupName = pGroupName, _cpgStrategy = pStrategy};
+createPlacementGroup pGroupName pStrategy =
+    CreatePlacementGroup'
+    { _cpgDryRun = Nothing
+    , _cpgGroupName = pGroupName
+    , _cpgStrategy = pStrategy
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -99,8 +108,10 @@ instance ToQuery CreatePlacementGroup where
                "Strategy" =: _cpgStrategy]
 
 -- | /See:/ 'createPlacementGroupResponse' smart constructor.
-data CreatePlacementGroupResponse = CreatePlacementGroupResponse' deriving (Eq, Read, Show)
+data CreatePlacementGroupResponse =
+    CreatePlacementGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CreatePlacementGroupResponse' smart constructor.
 createPlacementGroupResponse :: CreatePlacementGroupResponse
-createPlacementGroupResponse = CreatePlacementGroupResponse';
+createPlacementGroupResponse = CreatePlacementGroupResponse'

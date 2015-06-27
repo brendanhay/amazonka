@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.CompleteLifecycleAction
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,13 +54,13 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
     -- ** Response constructor
     , completeLifecycleActionResponse
     -- ** Response lenses
-    , clarStatusCode
+    , clarStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'completeLifecycleAction' smart constructor.
 --
@@ -73,11 +73,22 @@ import Network.AWS.Response
 -- * 'claLifecycleActionToken'
 --
 -- * 'claLifecycleActionResult'
-data CompleteLifecycleAction = CompleteLifecycleAction'{_claLifecycleHookName :: Text, _claAutoScalingGroupName :: Text, _claLifecycleActionToken :: Text, _claLifecycleActionResult :: Text} deriving (Eq, Read, Show)
+data CompleteLifecycleAction = CompleteLifecycleAction'
+    { _claLifecycleHookName     :: Text
+    , _claAutoScalingGroupName  :: Text
+    , _claLifecycleActionToken  :: Text
+    , _claLifecycleActionResult :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CompleteLifecycleAction' smart constructor.
 completeLifecycleAction :: Text -> Text -> Text -> Text -> CompleteLifecycleAction
-completeLifecycleAction pLifecycleHookName pAutoScalingGroupName pLifecycleActionToken pLifecycleActionResult = CompleteLifecycleAction'{_claLifecycleHookName = pLifecycleHookName, _claAutoScalingGroupName = pAutoScalingGroupName, _claLifecycleActionToken = pLifecycleActionToken, _claLifecycleActionResult = pLifecycleActionResult};
+completeLifecycleAction pLifecycleHookName pAutoScalingGroupName pLifecycleActionToken pLifecycleActionResult =
+    CompleteLifecycleAction'
+    { _claLifecycleHookName = pLifecycleHookName
+    , _claAutoScalingGroupName = pAutoScalingGroupName
+    , _claLifecycleActionToken = pLifecycleActionToken
+    , _claLifecycleActionResult = pLifecycleActionResult
+    }
 
 -- | The name of the lifecycle hook.
 claLifecycleHookName :: Lens' CompleteLifecycleAction Text
@@ -131,13 +142,18 @@ instance ToQuery CompleteLifecycleAction where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clarStatusCode'
-newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'{_clarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'clarStatus'
+newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
+    { _clarStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CompleteLifecycleActionResponse' smart constructor.
 completeLifecycleActionResponse :: Int -> CompleteLifecycleActionResponse
-completeLifecycleActionResponse pStatusCode = CompleteLifecycleActionResponse'{_clarStatusCode = pStatusCode};
+completeLifecycleActionResponse pStatus =
+    CompleteLifecycleActionResponse'
+    { _clarStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-clarStatusCode :: Lens' CompleteLifecycleActionResponse Int
-clarStatusCode = lens _clarStatusCode (\ s a -> s{_clarStatusCode = a});
+clarStatus :: Lens' CompleteLifecycleActionResponse Int
+clarStatus = lens _clarStatus (\ s a -> s{_clarStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.CreateHSMConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,13 +47,13 @@ module Network.AWS.Redshift.CreateHSMConfiguration
     , createHSMConfigurationResponse
     -- ** Response lenses
     , chcrHSMConfiguration
-    , chcrStatusCode
+    , chcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -74,11 +74,28 @@ import Network.AWS.Response
 -- * 'chcHSMPartitionPassword'
 --
 -- * 'chcHSMServerPublicCertificate'
-data CreateHSMConfiguration = CreateHSMConfiguration'{_chcTags :: Maybe [Tag], _chcHSMConfigurationIdentifier :: Text, _chcDescription :: Text, _chcHSMIPAddress :: Text, _chcHSMPartitionName :: Text, _chcHSMPartitionPassword :: Text, _chcHSMServerPublicCertificate :: Text} deriving (Eq, Read, Show)
+data CreateHSMConfiguration = CreateHSMConfiguration'
+    { _chcTags                       :: Maybe [Tag]
+    , _chcHSMConfigurationIdentifier :: Text
+    , _chcDescription                :: Text
+    , _chcHSMIPAddress               :: Text
+    , _chcHSMPartitionName           :: Text
+    , _chcHSMPartitionPassword       :: Text
+    , _chcHSMServerPublicCertificate :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateHSMConfiguration' smart constructor.
 createHSMConfiguration :: Text -> Text -> Text -> Text -> Text -> Text -> CreateHSMConfiguration
-createHSMConfiguration pHSMConfigurationIdentifier pDescription pHSMIPAddress pHSMPartitionName pHSMPartitionPassword pHSMServerPublicCertificate = CreateHSMConfiguration'{_chcTags = Nothing, _chcHSMConfigurationIdentifier = pHSMConfigurationIdentifier, _chcDescription = pDescription, _chcHSMIPAddress = pHSMIPAddress, _chcHSMPartitionName = pHSMPartitionName, _chcHSMPartitionPassword = pHSMPartitionPassword, _chcHSMServerPublicCertificate = pHSMServerPublicCertificate};
+createHSMConfiguration pHSMConfigurationIdentifier pDescription pHSMIPAddress pHSMPartitionName pHSMPartitionPassword pHSMServerPublicCertificate =
+    CreateHSMConfiguration'
+    { _chcTags = Nothing
+    , _chcHSMConfigurationIdentifier = pHSMConfigurationIdentifier
+    , _chcDescription = pDescription
+    , _chcHSMIPAddress = pHSMIPAddress
+    , _chcHSMPartitionName = pHSMPartitionName
+    , _chcHSMPartitionPassword = pHSMPartitionPassword
+    , _chcHSMServerPublicCertificate = pHSMServerPublicCertificate
+    }
 
 -- | A list of tag instances.
 chcTags :: Lens' CreateHSMConfiguration [Tag]
@@ -151,17 +168,24 @@ instance ToQuery CreateHSMConfiguration where
 --
 -- * 'chcrHSMConfiguration'
 --
--- * 'chcrStatusCode'
-data CreateHSMConfigurationResponse = CreateHSMConfigurationResponse'{_chcrHSMConfiguration :: Maybe HSMConfiguration, _chcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'chcrStatus'
+data CreateHSMConfigurationResponse = CreateHSMConfigurationResponse'
+    { _chcrHSMConfiguration :: Maybe HSMConfiguration
+    , _chcrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateHSMConfigurationResponse' smart constructor.
 createHSMConfigurationResponse :: Int -> CreateHSMConfigurationResponse
-createHSMConfigurationResponse pStatusCode = CreateHSMConfigurationResponse'{_chcrHSMConfiguration = Nothing, _chcrStatusCode = pStatusCode};
+createHSMConfigurationResponse pStatus =
+    CreateHSMConfigurationResponse'
+    { _chcrHSMConfiguration = Nothing
+    , _chcrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 chcrHSMConfiguration :: Lens' CreateHSMConfigurationResponse (Maybe HSMConfiguration)
 chcrHSMConfiguration = lens _chcrHSMConfiguration (\ s a -> s{_chcrHSMConfiguration = a});
 
 -- | FIXME: Undocumented member.
-chcrStatusCode :: Lens' CreateHSMConfigurationResponse Int
-chcrStatusCode = lens _chcrStatusCode (\ s a -> s{_chcrStatusCode = a});
+chcrStatus :: Lens' CreateHSMConfigurationResponse Int
+chcrStatus = lens _chcrStatus (\ s a -> s{_chcrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,21 +32,26 @@ module Network.AWS.S3.DeleteBucketPolicy
     , deleteBucketPolicyResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'deleteBucketPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dbpBucket'
-newtype DeleteBucketPolicy = DeleteBucketPolicy'{_dbpBucket :: BucketName} deriving (Eq, Read, Show)
+newtype DeleteBucketPolicy = DeleteBucketPolicy'
+    { _dbpBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteBucketPolicy' smart constructor.
 deleteBucketPolicy :: BucketName -> DeleteBucketPolicy
-deleteBucketPolicy pBucket = DeleteBucketPolicy'{_dbpBucket = pBucket};
+deleteBucketPolicy pBucket =
+    DeleteBucketPolicy'
+    { _dbpBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 dbpBucket :: Lens' DeleteBucketPolicy BucketName
@@ -70,8 +75,10 @@ instance ToQuery DeleteBucketPolicy where
         toQuery = const (mconcat ["policy"])
 
 -- | /See:/ 'deleteBucketPolicyResponse' smart constructor.
-data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse' deriving (Eq, Read, Show)
+data DeleteBucketPolicyResponse =
+    DeleteBucketPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteBucketPolicyResponse' smart constructor.
 deleteBucketPolicyResponse :: DeleteBucketPolicyResponse
-deleteBucketPolicyResponse = DeleteBucketPolicyResponse';
+deleteBucketPolicyResponse = DeleteBucketPolicyResponse'

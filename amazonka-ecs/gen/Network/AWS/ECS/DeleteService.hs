@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.DeleteService
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.ECS.DeleteService
     , deleteServiceResponse
     -- ** Response lenses
     , dsrService
-    , dsrStatusCode
+    , dsrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteService' smart constructor.
 --
@@ -48,11 +48,18 @@ import Network.AWS.Response
 -- * 'dsCluster'
 --
 -- * 'dsService'
-data DeleteService = DeleteService'{_dsCluster :: Maybe Text, _dsService :: Text} deriving (Eq, Read, Show)
+data DeleteService = DeleteService'
+    { _dsCluster :: Maybe Text
+    , _dsService :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteService' smart constructor.
 deleteService :: Text -> DeleteService
-deleteService pService = DeleteService'{_dsCluster = Nothing, _dsService = pService};
+deleteService pService =
+    DeleteService'
+    { _dsCluster = Nothing
+    , _dsService = pService
+    }
 
 -- | The name of the cluster that hosts the service you want to delete.
 dsCluster :: Lens' DeleteService (Maybe Text)
@@ -99,17 +106,24 @@ instance ToQuery DeleteService where
 --
 -- * 'dsrService'
 --
--- * 'dsrStatusCode'
-data DeleteServiceResponse = DeleteServiceResponse'{_dsrService :: Maybe ContainerService, _dsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsrStatus'
+data DeleteServiceResponse = DeleteServiceResponse'
+    { _dsrService :: Maybe ContainerService
+    , _dsrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteServiceResponse' smart constructor.
 deleteServiceResponse :: Int -> DeleteServiceResponse
-deleteServiceResponse pStatusCode = DeleteServiceResponse'{_dsrService = Nothing, _dsrStatusCode = pStatusCode};
+deleteServiceResponse pStatus =
+    DeleteServiceResponse'
+    { _dsrService = Nothing
+    , _dsrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dsrService :: Lens' DeleteServiceResponse (Maybe ContainerService)
 dsrService = lens _dsrService (\ s a -> s{_dsrService = a});
 
 -- | FIXME: Undocumented member.
-dsrStatusCode :: Lens' DeleteServiceResponse Int
-dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});
+dsrStatus :: Lens' DeleteServiceResponse Int
+dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

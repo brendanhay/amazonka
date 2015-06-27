@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeLocations
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,20 +32,22 @@ module Network.AWS.DirectConnect.DescribeLocations
     , describeLocationsResponse
     -- ** Response lenses
     , dlrLocations
-    , dlrStatusCode
+    , dlrStatus
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLocations' smart constructor.
-data DescribeLocations = DescribeLocations' deriving (Eq, Read, Show)
+data DescribeLocations =
+    DescribeLocations'
+    deriving (Eq,Read,Show)
 
 -- | 'DescribeLocations' smart constructor.
 describeLocations :: DescribeLocations
-describeLocations = DescribeLocations';
+describeLocations = DescribeLocations'
 
 instance AWSRequest DescribeLocations where
         type Sv DescribeLocations = DirectConnect
@@ -82,17 +84,24 @@ instance ToQuery DescribeLocations where
 --
 -- * 'dlrLocations'
 --
--- * 'dlrStatusCode'
-data DescribeLocationsResponse = DescribeLocationsResponse'{_dlrLocations :: Maybe [Location], _dlrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dlrStatus'
+data DescribeLocationsResponse = DescribeLocationsResponse'
+    { _dlrLocations :: Maybe [Location]
+    , _dlrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLocationsResponse' smart constructor.
 describeLocationsResponse :: Int -> DescribeLocationsResponse
-describeLocationsResponse pStatusCode = DescribeLocationsResponse'{_dlrLocations = Nothing, _dlrStatusCode = pStatusCode};
+describeLocationsResponse pStatus =
+    DescribeLocationsResponse'
+    { _dlrLocations = Nothing
+    , _dlrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dlrLocations :: Lens' DescribeLocationsResponse [Location]
 dlrLocations = lens _dlrLocations (\ s a -> s{_dlrLocations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlrStatusCode :: Lens' DescribeLocationsResponse Int
-dlrStatusCode = lens _dlrStatusCode (\ s a -> s{_dlrStatusCode = a});
+dlrStatus :: Lens' DescribeLocationsResponse Int
+dlrStatus = lens _dlrStatus (\ s a -> s{_dlrStatus = a});

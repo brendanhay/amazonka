@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.ListHAPGs
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,24 +38,29 @@ module Network.AWS.CloudHSM.ListHAPGs
     -- ** Response lenses
     , lhrNextToken
     , lhrHAPGList
-    , lhrStatusCode
+    , lhrStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listHAPGs' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lhNextToken'
-newtype ListHAPGs = ListHAPGs'{_lhNextToken :: Maybe Text} deriving (Eq, Read, Show)
+newtype ListHAPGs = ListHAPGs'
+    { _lhNextToken :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListHAPGs' smart constructor.
 listHAPGs :: ListHAPGs
-listHAPGs = ListHAPGs'{_lhNextToken = Nothing};
+listHAPGs =
+    ListHAPGs'
+    { _lhNextToken = Nothing
+    }
 
 -- | The /NextToken/ value from a previous call to ListHapgs. Pass null if
 -- this is the first call.
@@ -100,12 +105,21 @@ instance ToQuery ListHAPGs where
 --
 -- * 'lhrHAPGList'
 --
--- * 'lhrStatusCode'
-data ListHAPGsResponse = ListHAPGsResponse'{_lhrNextToken :: Maybe Text, _lhrHAPGList :: [Text], _lhrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lhrStatus'
+data ListHAPGsResponse = ListHAPGsResponse'
+    { _lhrNextToken :: Maybe Text
+    , _lhrHAPGList  :: [Text]
+    , _lhrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListHAPGsResponse' smart constructor.
 listHAPGsResponse :: Int -> ListHAPGsResponse
-listHAPGsResponse pStatusCode = ListHAPGsResponse'{_lhrNextToken = Nothing, _lhrHAPGList = mempty, _lhrStatusCode = pStatusCode};
+listHAPGsResponse pStatus =
+    ListHAPGsResponse'
+    { _lhrNextToken = Nothing
+    , _lhrHAPGList = mempty
+    , _lhrStatus = pStatus
+    }
 
 -- | If not null, more results are available. Pass this value to ListHapgs to
 -- retrieve the next set of items.
@@ -117,5 +131,5 @@ lhrHAPGList :: Lens' ListHAPGsResponse [Text]
 lhrHAPGList = lens _lhrHAPGList (\ s a -> s{_lhrHAPGList = a});
 
 -- | FIXME: Undocumented member.
-lhrStatusCode :: Lens' ListHAPGsResponse Int
-lhrStatusCode = lens _lhrStatusCode (\ s a -> s{_lhrStatusCode = a});
+lhrStatus :: Lens' ListHAPGsResponse Int
+lhrStatus = lens _lhrStatus (\ s a -> s{_lhrStatus = a});

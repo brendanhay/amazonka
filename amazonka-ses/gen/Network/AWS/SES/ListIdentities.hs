@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SES.ListIdentities
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,14 +38,14 @@ module Network.AWS.SES.ListIdentities
     -- ** Response lenses
     , lirNextToken
     , lirIdentities
-    , lirStatusCode
+    , lirStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SES.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
 -- | Represents a request instructing the service to list all identities for
 -- the AWS Account.
@@ -59,11 +59,20 @@ import Network.AWS.SES.Types
 -- * 'liNextToken'
 --
 -- * 'liMaxItems'
-data ListIdentities = ListIdentities'{_liIdentityType :: Maybe IdentityType, _liNextToken :: Maybe Text, _liMaxItems :: Maybe Int} deriving (Eq, Read, Show)
+data ListIdentities = ListIdentities'
+    { _liIdentityType :: Maybe IdentityType
+    , _liNextToken    :: Maybe Text
+    , _liMaxItems     :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListIdentities' smart constructor.
 listIdentities :: ListIdentities
-listIdentities = ListIdentities'{_liIdentityType = Nothing, _liNextToken = Nothing, _liMaxItems = Nothing};
+listIdentities =
+    ListIdentities'
+    { _liIdentityType = Nothing
+    , _liNextToken = Nothing
+    , _liMaxItems = Nothing
+    }
 
 -- | The type of the identities to list. Possible values are \"EmailAddress\"
 -- and \"Domain\". If this parameter is omitted, then all identities will
@@ -125,12 +134,21 @@ instance ToQuery ListIdentities where
 --
 -- * 'lirIdentities'
 --
--- * 'lirStatusCode'
-data ListIdentitiesResponse = ListIdentitiesResponse'{_lirNextToken :: Maybe Text, _lirIdentities :: [Text], _lirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lirStatus'
+data ListIdentitiesResponse = ListIdentitiesResponse'
+    { _lirNextToken  :: Maybe Text
+    , _lirIdentities :: [Text]
+    , _lirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListIdentitiesResponse' smart constructor.
 listIdentitiesResponse :: Int -> ListIdentitiesResponse
-listIdentitiesResponse pStatusCode = ListIdentitiesResponse'{_lirNextToken = Nothing, _lirIdentities = mempty, _lirStatusCode = pStatusCode};
+listIdentitiesResponse pStatus =
+    ListIdentitiesResponse'
+    { _lirNextToken = Nothing
+    , _lirIdentities = mempty
+    , _lirStatus = pStatus
+    }
 
 -- | The token used for pagination.
 lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
@@ -141,5 +159,5 @@ lirIdentities :: Lens' ListIdentitiesResponse [Text]
 lirIdentities = lens _lirIdentities (\ s a -> s{_lirIdentities = a});
 
 -- | FIXME: Undocumented member.
-lirStatusCode :: Lens' ListIdentitiesResponse Int
-lirStatusCode = lens _lirStatusCode (\ s a -> s{_lirStatusCode = a});
+lirStatus :: Lens' ListIdentitiesResponse Int
+lirStatus = lens _lirStatus (\ s a -> s{_lirStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.PutGroupPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,10 +53,10 @@ module Network.AWS.IAM.PutGroupPolicy
     , putGroupPolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putGroupPolicy' smart constructor.
 --
@@ -67,11 +67,20 @@ import Network.AWS.Response
 -- * 'pgpPolicyName'
 --
 -- * 'pgpPolicyDocument'
-data PutGroupPolicy = PutGroupPolicy'{_pgpGroupName :: Text, _pgpPolicyName :: Text, _pgpPolicyDocument :: Text} deriving (Eq, Read, Show)
+data PutGroupPolicy = PutGroupPolicy'
+    { _pgpGroupName      :: Text
+    , _pgpPolicyName     :: Text
+    , _pgpPolicyDocument :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PutGroupPolicy' smart constructor.
 putGroupPolicy :: Text -> Text -> Text -> PutGroupPolicy
-putGroupPolicy pGroupName pPolicyName pPolicyDocument = PutGroupPolicy'{_pgpGroupName = pGroupName, _pgpPolicyName = pPolicyName, _pgpPolicyDocument = pPolicyDocument};
+putGroupPolicy pGroupName pPolicyName pPolicyDocument =
+    PutGroupPolicy'
+    { _pgpGroupName = pGroupName
+    , _pgpPolicyName = pPolicyName
+    , _pgpPolicyDocument = pPolicyDocument
+    }
 
 -- | The name of the group to associate the policy with.
 pgpGroupName :: Lens' PutGroupPolicy Text
@@ -107,8 +116,10 @@ instance ToQuery PutGroupPolicy where
                "PolicyDocument" =: _pgpPolicyDocument]
 
 -- | /See:/ 'putGroupPolicyResponse' smart constructor.
-data PutGroupPolicyResponse = PutGroupPolicyResponse' deriving (Eq, Read, Show)
+data PutGroupPolicyResponse =
+    PutGroupPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutGroupPolicyResponse' smart constructor.
 putGroupPolicyResponse :: PutGroupPolicyResponse
-putGroupPolicyResponse = PutGroupPolicyResponse';
+putGroupPolicyResponse = PutGroupPolicyResponse'

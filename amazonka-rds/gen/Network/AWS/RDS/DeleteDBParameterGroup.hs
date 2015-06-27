@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.RDS.DeleteDBParameterGroup
     , deleteDBParameterGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -45,11 +45,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delDBParameterGroupName'
-newtype DeleteDBParameterGroup = DeleteDBParameterGroup'{_delDBParameterGroupName :: Text} deriving (Eq, Read, Show)
+newtype DeleteDBParameterGroup = DeleteDBParameterGroup'
+    { _delDBParameterGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDBParameterGroup' smart constructor.
 deleteDBParameterGroup :: Text -> DeleteDBParameterGroup
-deleteDBParameterGroup pDBParameterGroupName = DeleteDBParameterGroup'{_delDBParameterGroupName = pDBParameterGroupName};
+deleteDBParameterGroup pDBParameterGroupName =
+    DeleteDBParameterGroup'
+    { _delDBParameterGroupName = pDBParameterGroupName
+    }
 
 -- | The name of the DB parameter group.
 --
@@ -84,8 +89,10 @@ instance ToQuery DeleteDBParameterGroup where
                "DBParameterGroupName" =: _delDBParameterGroupName]
 
 -- | /See:/ 'deleteDBParameterGroupResponse' smart constructor.
-data DeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse' deriving (Eq, Read, Show)
+data DeleteDBParameterGroupResponse =
+    DeleteDBParameterGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteDBParameterGroupResponse' smart constructor.
 deleteDBParameterGroupResponse :: DeleteDBParameterGroupResponse
-deleteDBParameterGroupResponse = DeleteDBParameterGroupResponse';
+deleteDBParameterGroupResponse = DeleteDBParameterGroupResponse'

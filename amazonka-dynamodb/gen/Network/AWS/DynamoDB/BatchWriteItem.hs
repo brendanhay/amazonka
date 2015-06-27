@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DynamoDB.BatchWriteItem
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -112,14 +112,17 @@ module Network.AWS.DynamoDB.BatchWriteItem
     , bwirConsumedCapacity
     , bwirItemCollectionMetrics
     , bwirUnprocessedItems
+    , bwirStatus
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
--- | /See:/ 'batchWriteItem' smart constructor.
+-- | Represents the input of a /BatchWriteItem/ operation.
+--
+-- /See:/ 'batchWriteItem' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -128,11 +131,20 @@ import Network.AWS.DynamoDB.Types
 -- * 'bwiReturnItemCollectionMetrics'
 --
 -- * 'bwiRequestItems'
-data BatchWriteItem = BatchWriteItem'{_bwiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _bwiReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics, _bwiRequestItems :: HashMap Text (List1 WriteRequest)} deriving (Eq, Read, Show)
+data BatchWriteItem = BatchWriteItem'
+    { _bwiReturnConsumedCapacity      :: Maybe ReturnConsumedCapacity
+    , _bwiReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
+    , _bwiRequestItems                :: Map Text (List1 WriteRequest)
+    } deriving (Eq,Read,Show)
 
 -- | 'BatchWriteItem' smart constructor.
 batchWriteItem :: BatchWriteItem
-batchWriteItem = BatchWriteItem'{_bwiReturnConsumedCapacity = Nothing, _bwiReturnItemCollectionMetrics = Nothing, _bwiRequestItems = mempty};
+batchWriteItem =
+    BatchWriteItem'
+    { _bwiReturnConsumedCapacity = Nothing
+    , _bwiReturnItemCollectionMetrics = Nothing
+    , _bwiRequestItems = mempty
+    }
 
 -- | FIXME: Undocumented member.
 bwiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
@@ -175,7 +187,7 @@ bwiReturnItemCollectionMetrics = lens _bwiReturnItemCollectionMetrics (\ s a -> 
 --         schema in the table\'s attribute definition.
 --
 bwiRequestItems :: Lens' BatchWriteItem (HashMap Text (NonEmpty WriteRequest))
-bwiRequestItems = lens _bwiRequestItems (\ s a -> s{_bwiRequestItems = a}) . _Coerce;
+bwiRequestItems = lens _bwiRequestItems (\ s a -> s{_bwiRequestItems = a}) . _Map;
 
 instance AWSRequest BatchWriteItem where
         type Sv BatchWriteItem = DynamoDB
@@ -187,7 +199,8 @@ instance AWSRequest BatchWriteItem where
                  BatchWriteItemResponse' <$>
                    (x .?> "ConsumedCapacity" .!@ mempty) <*>
                      (x .?> "ItemCollectionMetrics" .!@ mempty)
-                     <*> (x .?> "UnprocessedItems" .!@ mempty))
+                     <*> (x .?> "UnprocessedItems" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders BatchWriteItem where
         toHeaders
@@ -213,7 +226,9 @@ instance ToPath BatchWriteItem where
 instance ToQuery BatchWriteItem where
         toQuery = const mempty
 
--- | /See:/ 'batchWriteItemResponse' smart constructor.
+-- | Represents the output of a /BatchWriteItem/ operation.
+--
+-- /See:/ 'batchWriteItemResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -222,11 +237,24 @@ instance ToQuery BatchWriteItem where
 -- * 'bwirItemCollectionMetrics'
 --
 -- * 'bwirUnprocessedItems'
-data BatchWriteItemResponse = BatchWriteItemResponse'{_bwirConsumedCapacity :: Maybe [ConsumedCapacity], _bwirItemCollectionMetrics :: Maybe (HashMap Text [ItemCollectionMetrics]), _bwirUnprocessedItems :: Maybe (HashMap Text (List1 WriteRequest))} deriving (Eq, Read, Show)
+--
+-- * 'bwirStatus'
+data BatchWriteItemResponse = BatchWriteItemResponse'
+    { _bwirConsumedCapacity      :: Maybe [ConsumedCapacity]
+    , _bwirItemCollectionMetrics :: Maybe (Map Text [ItemCollectionMetrics])
+    , _bwirUnprocessedItems      :: Maybe (Map Text (List1 WriteRequest))
+    , _bwirStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'BatchWriteItemResponse' smart constructor.
-batchWriteItemResponse :: BatchWriteItemResponse
-batchWriteItemResponse = BatchWriteItemResponse'{_bwirConsumedCapacity = Nothing, _bwirItemCollectionMetrics = Nothing, _bwirUnprocessedItems = Nothing};
+batchWriteItemResponse :: Int -> BatchWriteItemResponse
+batchWriteItemResponse pStatus =
+    BatchWriteItemResponse'
+    { _bwirConsumedCapacity = Nothing
+    , _bwirItemCollectionMetrics = Nothing
+    , _bwirUnprocessedItems = Nothing
+    , _bwirStatus = pStatus
+    }
 
 -- | The capacity units consumed by the operation.
 --
@@ -236,8 +264,8 @@ batchWriteItemResponse = BatchWriteItemResponse'{_bwirConsumedCapacity = Nothing
 --
 -- -   /CapacityUnits/ - The total number of capacity units consumed.
 --
-bwirConsumedCapacity :: Lens' BatchWriteItemResponse (Maybe [ConsumedCapacity])
-bwirConsumedCapacity = lens _bwirConsumedCapacity (\ s a -> s{_bwirConsumedCapacity = a});
+bwirConsumedCapacity :: Lens' BatchWriteItemResponse [ConsumedCapacity]
+bwirConsumedCapacity = lens _bwirConsumedCapacity (\ s a -> s{_bwirConsumedCapacity = a}) . _Default;
 
 -- | A list of tables that were processed by /BatchWriteItem/ and, for each
 -- table, information about any item collections that were affected by
@@ -259,8 +287,8 @@ bwirConsumedCapacity = lens _bwirConsumedCapacity (\ s a -> s{_bwirConsumedCapac
 --     The estimate is subject to change over time; therefore, do not rely
 --     on the precision or accuracy of the estimate.
 --
-bwirItemCollectionMetrics :: Lens' BatchWriteItemResponse (Maybe (HashMap Text [ItemCollectionMetrics]))
-bwirItemCollectionMetrics = lens _bwirItemCollectionMetrics (\ s a -> s{_bwirItemCollectionMetrics = a}) . mapping _Coerce;
+bwirItemCollectionMetrics :: Lens' BatchWriteItemResponse (HashMap Text [ItemCollectionMetrics])
+bwirItemCollectionMetrics = lens _bwirItemCollectionMetrics (\ s a -> s{_bwirItemCollectionMetrics = a}) . _Default . _Map;
 
 -- | A map of tables and requests against those tables that were not
 -- processed. The /UnprocessedItems/ value is in the same form as
@@ -295,5 +323,9 @@ bwirItemCollectionMetrics = lens _bwirItemCollectionMetrics (\ s a -> s{_bwirIte
 --
 -- If there are no unprocessed items remaining, the response contains an
 -- empty /UnprocessedItems/ map.
-bwirUnprocessedItems :: Lens' BatchWriteItemResponse (Maybe (HashMap Text (NonEmpty WriteRequest)))
-bwirUnprocessedItems = lens _bwirUnprocessedItems (\ s a -> s{_bwirUnprocessedItems = a}) . mapping _Coerce;
+bwirUnprocessedItems :: Lens' BatchWriteItemResponse (HashMap Text (NonEmpty WriteRequest))
+bwirUnprocessedItems = lens _bwirUnprocessedItems (\ s a -> s{_bwirUnprocessedItems = a}) . _Default . _Map;
+
+-- | FIXME: Undocumented member.
+bwirStatus :: Lens' BatchWriteItemResponse Int
+bwirStatus = lens _bwirStatus (\ s a -> s{_bwirStatus = a});

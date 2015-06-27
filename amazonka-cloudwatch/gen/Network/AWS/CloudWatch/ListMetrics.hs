@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatch.ListMetrics
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,14 +38,14 @@ module Network.AWS.CloudWatch.ListMetrics
     -- ** Response lenses
     , lmrMetrics
     , lmrNextToken
-    , lmrStatusCode
+    , lmrStatus
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listMetrics' smart constructor.
 --
@@ -58,11 +58,22 @@ import Network.AWS.Response
 -- * 'lmNextToken'
 --
 -- * 'lmDimensions'
-data ListMetrics = ListMetrics'{_lmMetricName :: Maybe Text, _lmNamespace :: Maybe Text, _lmNextToken :: Maybe Text, _lmDimensions :: Maybe [DimensionFilter]} deriving (Eq, Read, Show)
+data ListMetrics = ListMetrics'
+    { _lmMetricName :: Maybe Text
+    , _lmNamespace  :: Maybe Text
+    , _lmNextToken  :: Maybe Text
+    , _lmDimensions :: Maybe [DimensionFilter]
+    } deriving (Eq,Read,Show)
 
 -- | 'ListMetrics' smart constructor.
 listMetrics :: ListMetrics
-listMetrics = ListMetrics'{_lmMetricName = Nothing, _lmNamespace = Nothing, _lmNextToken = Nothing, _lmDimensions = Nothing};
+listMetrics =
+    ListMetrics'
+    { _lmMetricName = Nothing
+    , _lmNamespace = Nothing
+    , _lmNextToken = Nothing
+    , _lmDimensions = Nothing
+    }
 
 -- | The name of the metric to filter against.
 lmMetricName :: Lens' ListMetrics (Maybe Text)
@@ -128,12 +139,21 @@ instance ToQuery ListMetrics where
 --
 -- * 'lmrNextToken'
 --
--- * 'lmrStatusCode'
-data ListMetricsResponse = ListMetricsResponse'{_lmrMetrics :: Maybe [Metric], _lmrNextToken :: Maybe Text, _lmrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lmrStatus'
+data ListMetricsResponse = ListMetricsResponse'
+    { _lmrMetrics   :: Maybe [Metric]
+    , _lmrNextToken :: Maybe Text
+    , _lmrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListMetricsResponse' smart constructor.
 listMetricsResponse :: Int -> ListMetricsResponse
-listMetricsResponse pStatusCode = ListMetricsResponse'{_lmrMetrics = Nothing, _lmrNextToken = Nothing, _lmrStatusCode = pStatusCode};
+listMetricsResponse pStatus =
+    ListMetricsResponse'
+    { _lmrMetrics = Nothing
+    , _lmrNextToken = Nothing
+    , _lmrStatus = pStatus
+    }
 
 -- | A list of metrics used to generate statistics for an AWS account.
 lmrMetrics :: Lens' ListMetricsResponse [Metric]
@@ -144,5 +164,5 @@ lmrNextToken :: Lens' ListMetricsResponse (Maybe Text)
 lmrNextToken = lens _lmrNextToken (\ s a -> s{_lmrNextToken = a});
 
 -- | FIXME: Undocumented member.
-lmrStatusCode :: Lens' ListMetricsResponse Int
-lmrStatusCode = lens _lmrStatusCode (\ s a -> s{_lmrStatusCode = a});
+lmrStatus :: Lens' ListMetricsResponse Int
+lmrStatus = lens _lmrStatus (\ s a -> s{_lmrStatus = a});

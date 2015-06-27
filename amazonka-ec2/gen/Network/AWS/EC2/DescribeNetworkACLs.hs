@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeNetworkACLs
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.EC2.DescribeNetworkACLs
     , describeNetworkACLsResponse
     -- ** Response lenses
     , dnarNetworkACLs
-    , dnarStatusCode
+    , dnarStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeNetworkACLs' smart constructor.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'dnaclDryRun'
 --
 -- * 'dnaclNetworkACLIds'
-data DescribeNetworkACLs = DescribeNetworkACLs'{_dnaclFilters :: Maybe [Filter], _dnaclDryRun :: Maybe Bool, _dnaclNetworkACLIds :: Maybe [Text]} deriving (Eq, Read, Show)
+data DescribeNetworkACLs = DescribeNetworkACLs'
+    { _dnaclFilters       :: Maybe [Filter]
+    , _dnaclDryRun        :: Maybe Bool
+    , _dnaclNetworkACLIds :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeNetworkACLs' smart constructor.
 describeNetworkACLs :: DescribeNetworkACLs
-describeNetworkACLs = DescribeNetworkACLs'{_dnaclFilters = Nothing, _dnaclDryRun = Nothing, _dnaclNetworkACLIds = Nothing};
+describeNetworkACLs =
+    DescribeNetworkACLs'
+    { _dnaclFilters = Nothing
+    , _dnaclDryRun = Nothing
+    , _dnaclNetworkACLIds = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -166,17 +175,24 @@ instance ToQuery DescribeNetworkACLs where
 --
 -- * 'dnarNetworkACLs'
 --
--- * 'dnarStatusCode'
-data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'{_dnarNetworkACLs :: Maybe [NetworkACL], _dnarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dnarStatus'
+data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'
+    { _dnarNetworkACLs :: Maybe [NetworkACL]
+    , _dnarStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeNetworkACLsResponse' smart constructor.
 describeNetworkACLsResponse :: Int -> DescribeNetworkACLsResponse
-describeNetworkACLsResponse pStatusCode = DescribeNetworkACLsResponse'{_dnarNetworkACLs = Nothing, _dnarStatusCode = pStatusCode};
+describeNetworkACLsResponse pStatus =
+    DescribeNetworkACLsResponse'
+    { _dnarNetworkACLs = Nothing
+    , _dnarStatus = pStatus
+    }
 
 -- | Information about one or more network ACLs.
 dnarNetworkACLs :: Lens' DescribeNetworkACLsResponse [NetworkACL]
 dnarNetworkACLs = lens _dnarNetworkACLs (\ s a -> s{_dnarNetworkACLs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dnarStatusCode :: Lens' DescribeNetworkACLsResponse Int
-dnarStatusCode = lens _dnarStatusCode (\ s a -> s{_dnarStatusCode = a});
+dnarStatus :: Lens' DescribeNetworkACLsResponse Int
+dnarStatus = lens _dnarStatus (\ s a -> s{_dnarStatus = a});

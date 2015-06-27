@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.RemoveTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.DataPipeline.RemoveTags
     -- ** Response constructor
     , removeTagsResponse
     -- ** Response lenses
-    , rtrStatusCode
+    , rtrStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for RemoveTags.
 --
@@ -49,11 +49,18 @@ import Network.AWS.Response
 -- * 'rtPipelineId'
 --
 -- * 'rtTagKeys'
-data RemoveTags = RemoveTags'{_rtPipelineId :: Text, _rtTagKeys :: [Text]} deriving (Eq, Read, Show)
+data RemoveTags = RemoveTags'
+    { _rtPipelineId :: Text
+    , _rtTagKeys    :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveTags' smart constructor.
 removeTags :: Text -> RemoveTags
-removeTags pPipelineId = RemoveTags'{_rtPipelineId = pPipelineId, _rtTagKeys = mempty};
+removeTags pPipelineId =
+    RemoveTags'
+    { _rtPipelineId = pPipelineId
+    , _rtTagKeys = mempty
+    }
 
 -- | The ID of the pipeline.
 rtPipelineId :: Lens' RemoveTags Text
@@ -99,13 +106,18 @@ instance ToQuery RemoveTags where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrStatusCode'
-newtype RemoveTagsResponse = RemoveTagsResponse'{_rtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rtrStatus'
+newtype RemoveTagsResponse = RemoveTagsResponse'
+    { _rtrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveTagsResponse' smart constructor.
 removeTagsResponse :: Int -> RemoveTagsResponse
-removeTagsResponse pStatusCode = RemoveTagsResponse'{_rtrStatusCode = pStatusCode};
+removeTagsResponse pStatus =
+    RemoveTagsResponse'
+    { _rtrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-rtrStatusCode :: Lens' RemoveTagsResponse Int
-rtrStatusCode = lens _rtrStatusCode (\ s a -> s{_rtrStatusCode = a});
+rtrStatus :: Lens' RemoveTagsResponse Int
+rtrStatus = lens _rtrStatus (\ s a -> s{_rtrStatus = a});

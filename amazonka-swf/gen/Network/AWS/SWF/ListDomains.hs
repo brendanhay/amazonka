@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.ListDomains
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,14 +61,14 @@ module Network.AWS.SWF.ListDomains
     -- ** Response lenses
     , ldrNextPageToken
     , ldrDomainInfos
-    , ldrStatusCode
+    , ldrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'listDomains' smart constructor.
 --
@@ -81,11 +81,22 @@ import Network.AWS.SWF.Types
 -- * 'ldMaximumPageSize'
 --
 -- * 'ldRegistrationStatus'
-data ListDomains = ListDomains'{_ldNextPageToken :: Maybe Text, _ldReverseOrder :: Maybe Bool, _ldMaximumPageSize :: Maybe Nat, _ldRegistrationStatus :: RegistrationStatus} deriving (Eq, Read, Show)
+data ListDomains = ListDomains'
+    { _ldNextPageToken      :: Maybe Text
+    , _ldReverseOrder       :: Maybe Bool
+    , _ldMaximumPageSize    :: Maybe Nat
+    , _ldRegistrationStatus :: RegistrationStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDomains' smart constructor.
 listDomains :: RegistrationStatus -> ListDomains
-listDomains pRegistrationStatus = ListDomains'{_ldNextPageToken = Nothing, _ldReverseOrder = Nothing, _ldMaximumPageSize = Nothing, _ldRegistrationStatus = pRegistrationStatus};
+listDomains pRegistrationStatus =
+    ListDomains'
+    { _ldNextPageToken = Nothing
+    , _ldReverseOrder = Nothing
+    , _ldMaximumPageSize = Nothing
+    , _ldRegistrationStatus = pRegistrationStatus
+    }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -169,12 +180,21 @@ instance ToQuery ListDomains where
 --
 -- * 'ldrDomainInfos'
 --
--- * 'ldrStatusCode'
-data ListDomainsResponse = ListDomainsResponse'{_ldrNextPageToken :: Maybe Text, _ldrDomainInfos :: [DomainInfo], _ldrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ldrStatus'
+data ListDomainsResponse = ListDomainsResponse'
+    { _ldrNextPageToken :: Maybe Text
+    , _ldrDomainInfos   :: [DomainInfo]
+    , _ldrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: Int -> ListDomainsResponse
-listDomainsResponse pStatusCode = ListDomainsResponse'{_ldrNextPageToken = Nothing, _ldrDomainInfos = mempty, _ldrStatusCode = pStatusCode};
+listDomainsResponse pStatus =
+    ListDomainsResponse'
+    { _ldrNextPageToken = Nothing
+    , _ldrDomainInfos = mempty
+    , _ldrStatus = pStatus
+    }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -191,5 +211,5 @@ ldrDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
 ldrDomainInfos = lens _ldrDomainInfos (\ s a -> s{_ldrDomainInfos = a});
 
 -- | FIXME: Undocumented member.
-ldrStatusCode :: Lens' ListDomainsResponse Int
-ldrStatusCode = lens _ldrStatusCode (\ s a -> s{_ldrStatusCode = a});
+ldrStatus :: Lens' ListDomainsResponse Int
+ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});

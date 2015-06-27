@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.PutBucketWebsite
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.S3.PutBucketWebsite
     , putBucketWebsiteResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'putBucketWebsite' smart constructor.
 --
@@ -48,11 +48,20 @@ import Network.AWS.S3.Types
 -- * 'pbwBucket'
 --
 -- * 'pbwWebsiteConfiguration'
-data PutBucketWebsite = PutBucketWebsite'{_pbwContentMD5 :: Maybe Text, _pbwBucket :: BucketName, _pbwWebsiteConfiguration :: WebsiteConfiguration} deriving (Eq, Read, Show)
+data PutBucketWebsite = PutBucketWebsite'
+    { _pbwContentMD5           :: Maybe Text
+    , _pbwBucket               :: BucketName
+    , _pbwWebsiteConfiguration :: WebsiteConfiguration
+    } deriving (Eq,Read,Show)
 
 -- | 'PutBucketWebsite' smart constructor.
 putBucketWebsite :: BucketName -> WebsiteConfiguration -> PutBucketWebsite
-putBucketWebsite pBucket pWebsiteConfiguration = PutBucketWebsite'{_pbwContentMD5 = Nothing, _pbwBucket = pBucket, _pbwWebsiteConfiguration = pWebsiteConfiguration};
+putBucketWebsite pBucket pWebsiteConfiguration =
+    PutBucketWebsite'
+    { _pbwContentMD5 = Nothing
+    , _pbwBucket = pBucket
+    , _pbwWebsiteConfiguration = pWebsiteConfiguration
+    }
 
 -- | FIXME: Undocumented member.
 pbwContentMD5 :: Lens' PutBucketWebsite (Maybe Text)
@@ -91,8 +100,10 @@ instance ToQuery PutBucketWebsite where
         toQuery = const (mconcat ["website"])
 
 -- | /See:/ 'putBucketWebsiteResponse' smart constructor.
-data PutBucketWebsiteResponse = PutBucketWebsiteResponse' deriving (Eq, Read, Show)
+data PutBucketWebsiteResponse =
+    PutBucketWebsiteResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutBucketWebsiteResponse' smart constructor.
 putBucketWebsiteResponse :: PutBucketWebsiteResponse
-putBucketWebsiteResponse = PutBucketWebsiteResponse';
+putBucketWebsiteResponse = PutBucketWebsiteResponse'

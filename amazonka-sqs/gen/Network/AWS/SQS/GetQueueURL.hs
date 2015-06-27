@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.GetQueueURL
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.SQS.GetQueueURL
     , getQueueURLResponse
     -- ** Response lenses
     , gqurQueueURL
-    , gqurStatusCode
+    , gqurStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'getQueueURL' smart constructor.
 --
@@ -57,11 +57,18 @@ import Network.AWS.SQS.Types
 -- * 'gquQueueOwnerAWSAccountId'
 --
 -- * 'gquQueueName'
-data GetQueueURL = GetQueueURL'{_gquQueueOwnerAWSAccountId :: Maybe Text, _gquQueueName :: Text} deriving (Eq, Read, Show)
+data GetQueueURL = GetQueueURL'
+    { _gquQueueOwnerAWSAccountId :: Maybe Text
+    , _gquQueueName              :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetQueueURL' smart constructor.
 getQueueURL :: Text -> GetQueueURL
-getQueueURL pQueueName = GetQueueURL'{_gquQueueOwnerAWSAccountId = Nothing, _gquQueueName = pQueueName};
+getQueueURL pQueueName =
+    GetQueueURL'
+    { _gquQueueOwnerAWSAccountId = Nothing
+    , _gquQueueName = pQueueName
+    }
 
 -- | The AWS account ID of the account that created the queue.
 gquQueueOwnerAWSAccountId :: Lens' GetQueueURL (Maybe Text)
@@ -107,17 +114,24 @@ instance ToQuery GetQueueURL where
 --
 -- * 'gqurQueueURL'
 --
--- * 'gqurStatusCode'
-data GetQueueURLResponse = GetQueueURLResponse'{_gqurQueueURL :: Text, _gqurStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gqurStatus'
+data GetQueueURLResponse = GetQueueURLResponse'
+    { _gqurQueueURL :: Text
+    , _gqurStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetQueueURLResponse' smart constructor.
 getQueueURLResponse :: Text -> Int -> GetQueueURLResponse
-getQueueURLResponse pQueueURL pStatusCode = GetQueueURLResponse'{_gqurQueueURL = pQueueURL, _gqurStatusCode = pStatusCode};
+getQueueURLResponse pQueueURL pStatus =
+    GetQueueURLResponse'
+    { _gqurQueueURL = pQueueURL
+    , _gqurStatus = pStatus
+    }
 
 -- | The URL for the queue.
 gqurQueueURL :: Lens' GetQueueURLResponse Text
 gqurQueueURL = lens _gqurQueueURL (\ s a -> s{_gqurQueueURL = a});
 
 -- | FIXME: Undocumented member.
-gqurStatusCode :: Lens' GetQueueURLResponse Int
-gqurStatusCode = lens _gqurStatusCode (\ s a -> s{_gqurStatusCode = a});
+gqurStatus :: Lens' GetQueueURLResponse Int
+gqurStatus = lens _gqurStatus (\ s a -> s{_gqurStatus = a});

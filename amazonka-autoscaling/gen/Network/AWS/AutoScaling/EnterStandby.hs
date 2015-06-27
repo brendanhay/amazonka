@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.EnterStandby
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.AutoScaling.EnterStandby
     , enterStandbyResponse
     -- ** Response lenses
     , esrActivities
-    , esrStatusCode
+    , esrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'enterStandby' smart constructor.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'esAutoScalingGroupName'
 --
 -- * 'esShouldDecrementDesiredCapacity'
-data EnterStandby = EnterStandby'{_esInstanceIds :: Maybe [Text], _esAutoScalingGroupName :: Text, _esShouldDecrementDesiredCapacity :: Bool} deriving (Eq, Read, Show)
+data EnterStandby = EnterStandby'
+    { _esInstanceIds                    :: Maybe [Text]
+    , _esAutoScalingGroupName           :: Text
+    , _esShouldDecrementDesiredCapacity :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'EnterStandby' smart constructor.
 enterStandby :: Text -> Bool -> EnterStandby
-enterStandby pAutoScalingGroupName pShouldDecrementDesiredCapacity = EnterStandby'{_esInstanceIds = Nothing, _esAutoScalingGroupName = pAutoScalingGroupName, _esShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity};
+enterStandby pAutoScalingGroupName pShouldDecrementDesiredCapacity =
+    EnterStandby'
+    { _esInstanceIds = Nothing
+    , _esAutoScalingGroupName = pAutoScalingGroupName
+    , _esShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity
+    }
 
 -- | One or more instances to move into @Standby@ mode. You must specify at
 -- least one instance ID.
@@ -112,17 +121,24 @@ instance ToQuery EnterStandby where
 --
 -- * 'esrActivities'
 --
--- * 'esrStatusCode'
-data EnterStandbyResponse = EnterStandbyResponse'{_esrActivities :: Maybe [Activity], _esrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'esrStatus'
+data EnterStandbyResponse = EnterStandbyResponse'
+    { _esrActivities :: Maybe [Activity]
+    , _esrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'EnterStandbyResponse' smart constructor.
 enterStandbyResponse :: Int -> EnterStandbyResponse
-enterStandbyResponse pStatusCode = EnterStandbyResponse'{_esrActivities = Nothing, _esrStatusCode = pStatusCode};
+enterStandbyResponse pStatus =
+    EnterStandbyResponse'
+    { _esrActivities = Nothing
+    , _esrStatus = pStatus
+    }
 
 -- | The activities related to moving instances into @Standby@ mode.
 esrActivities :: Lens' EnterStandbyResponse [Activity]
 esrActivities = lens _esrActivities (\ s a -> s{_esrActivities = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-esrStatusCode :: Lens' EnterStandbyResponse Int
-esrStatusCode = lens _esrStatusCode (\ s a -> s{_esrStatusCode = a});
+esrStatus :: Lens' EnterStandbyResponse Int
+esrStatus = lens _esrStatus (\ s a -> s{_esrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.UnassignVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,21 +40,26 @@ module Network.AWS.OpsWorks.UnassignVolume
     , unassignVolumeResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'unassignVolume' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uvVolumeId'
-newtype UnassignVolume = UnassignVolume'{_uvVolumeId :: Text} deriving (Eq, Read, Show)
+newtype UnassignVolume = UnassignVolume'
+    { _uvVolumeId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UnassignVolume' smart constructor.
 unassignVolume :: Text -> UnassignVolume
-unassignVolume pVolumeId = UnassignVolume'{_uvVolumeId = pVolumeId};
+unassignVolume pVolumeId =
+    UnassignVolume'
+    { _uvVolumeId = pVolumeId
+    }
 
 -- | The volume ID.
 uvVolumeId :: Lens' UnassignVolume Text
@@ -86,8 +91,10 @@ instance ToQuery UnassignVolume where
         toQuery = const mempty
 
 -- | /See:/ 'unassignVolumeResponse' smart constructor.
-data UnassignVolumeResponse = UnassignVolumeResponse' deriving (Eq, Read, Show)
+data UnassignVolumeResponse =
+    UnassignVolumeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UnassignVolumeResponse' smart constructor.
 unassignVolumeResponse :: UnassignVolumeResponse
-unassignVolumeResponse = UnassignVolumeResponse';
+unassignVolumeResponse = UnassignVolumeResponse'

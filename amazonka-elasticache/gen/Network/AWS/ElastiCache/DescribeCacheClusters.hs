@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheClusters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -59,14 +59,14 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     -- ** Response lenses
     , dCacheClusters
     , dMarker
-    , dStatusCode
+    , dStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeCacheClusters/ action.
 --
@@ -81,11 +81,22 @@ import Network.AWS.Response
 -- * 'desMarker'
 --
 -- * 'desShowCacheNodeInfo'
-data DescribeCacheClusters = DescribeCacheClusters'{_desCacheClusterId :: Maybe Text, _desMaxRecords :: Maybe Int, _desMarker :: Maybe Text, _desShowCacheNodeInfo :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeCacheClusters = DescribeCacheClusters'
+    { _desCacheClusterId    :: Maybe Text
+    , _desMaxRecords        :: Maybe Int
+    , _desMarker            :: Maybe Text
+    , _desShowCacheNodeInfo :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheClusters' smart constructor.
 describeCacheClusters :: DescribeCacheClusters
-describeCacheClusters = DescribeCacheClusters'{_desCacheClusterId = Nothing, _desMaxRecords = Nothing, _desMarker = Nothing, _desShowCacheNodeInfo = Nothing};
+describeCacheClusters =
+    DescribeCacheClusters'
+    { _desCacheClusterId = Nothing
+    , _desMaxRecords = Nothing
+    , _desMarker = Nothing
+    , _desShowCacheNodeInfo = Nothing
+    }
 
 -- | The user-supplied cluster identifier. If this parameter is specified,
 -- only information about that specific cache cluster is returned. This
@@ -161,12 +172,21 @@ instance ToQuery DescribeCacheClusters where
 --
 -- * 'dMarker'
 --
--- * 'dStatusCode'
-data DescribeCacheClustersResponse = DescribeCacheClustersResponse'{_dCacheClusters :: Maybe [CacheCluster], _dMarker :: Maybe Text, _dStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dStatus'
+data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
+    { _dCacheClusters :: Maybe [CacheCluster]
+    , _dMarker        :: Maybe Text
+    , _dStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheClustersResponse' smart constructor.
 describeCacheClustersResponse :: Int -> DescribeCacheClustersResponse
-describeCacheClustersResponse pStatusCode = DescribeCacheClustersResponse'{_dCacheClusters = Nothing, _dMarker = Nothing, _dStatusCode = pStatusCode};
+describeCacheClustersResponse pStatus =
+    DescribeCacheClustersResponse'
+    { _dCacheClusters = Nothing
+    , _dMarker = Nothing
+    , _dStatus = pStatus
+    }
 
 -- | A list of cache clusters. Each item in the list contains detailed
 -- information about one cache cluster.
@@ -178,5 +198,5 @@ dMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
 dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
 -- | FIXME: Undocumented member.
-dStatusCode :: Lens' DescribeCacheClustersResponse Int
-dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});
+dStatus :: Lens' DescribeCacheClustersResponse Int
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

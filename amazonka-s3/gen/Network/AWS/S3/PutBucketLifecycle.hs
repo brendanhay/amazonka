@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.PutBucketLifecycle
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.S3.PutBucketLifecycle
     , putBucketLifecycleResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'putBucketLifecycle' smart constructor.
 --
@@ -49,11 +49,20 @@ import Network.AWS.S3.Types
 -- * 'putLifecycleConfiguration'
 --
 -- * 'putBucket'
-data PutBucketLifecycle = PutBucketLifecycle'{_putContentMD5 :: Maybe Text, _putLifecycleConfiguration :: Maybe LifecycleConfiguration, _putBucket :: BucketName} deriving (Eq, Read, Show)
+data PutBucketLifecycle = PutBucketLifecycle'
+    { _putContentMD5             :: Maybe Text
+    , _putLifecycleConfiguration :: Maybe LifecycleConfiguration
+    , _putBucket                 :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'PutBucketLifecycle' smart constructor.
 putBucketLifecycle :: BucketName -> PutBucketLifecycle
-putBucketLifecycle pBucket = PutBucketLifecycle'{_putContentMD5 = Nothing, _putLifecycleConfiguration = Nothing, _putBucket = pBucket};
+putBucketLifecycle pBucket =
+    PutBucketLifecycle'
+    { _putContentMD5 = Nothing
+    , _putLifecycleConfiguration = Nothing
+    , _putBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 putContentMD5 :: Lens' PutBucketLifecycle (Maybe Text)
@@ -93,8 +102,10 @@ instance ToQuery PutBucketLifecycle where
         toQuery = const (mconcat ["lifecycle"])
 
 -- | /See:/ 'putBucketLifecycleResponse' smart constructor.
-data PutBucketLifecycleResponse = PutBucketLifecycleResponse' deriving (Eq, Read, Show)
+data PutBucketLifecycleResponse =
+    PutBucketLifecycleResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutBucketLifecycleResponse' smart constructor.
 putBucketLifecycleResponse :: PutBucketLifecycleResponse
-putBucketLifecycleResponse = PutBucketLifecycleResponse';
+putBucketLifecycleResponse = PutBucketLifecycleResponse'

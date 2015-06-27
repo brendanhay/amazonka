@@ -23,23 +23,23 @@ module Network.AWS.SES
     ( module Export
     ) where
 
-import Network.AWS.SES.DeleteIdentity as Export
-import Network.AWS.SES.DeleteVerifiedEmailAddress as Export
-import Network.AWS.SES.GetIdentityDkimAttributes as Export
-import Network.AWS.SES.GetIdentityNotificationAttributes as Export
-import Network.AWS.SES.GetIdentityVerificationAttributes as Export
-import Network.AWS.SES.GetSendQuota as Export
-import Network.AWS.SES.GetSendStatistics as Export
-import Network.AWS.SES.ListIdentities as Export
-import Network.AWS.SES.ListVerifiedEmailAddresses as Export
-import Network.AWS.SES.SendEmail as Export
-import Network.AWS.SES.SendRawEmail as Export
-import Network.AWS.SES.SetIdentityDkimEnabled as Export
-import Network.AWS.SES.SetIdentityFeedbackForwardingEnabled as Export
-import Network.AWS.SES.SetIdentityNotificationTopic as Export
-import Network.AWS.SES.Types as Export
-import Network.AWS.SES.VerifyDomainDkim as Export
-import Network.AWS.SES.VerifyDomainIdentity as Export
-import Network.AWS.SES.VerifyEmailAddress as Export
-import Network.AWS.SES.VerifyEmailIdentity as Export
-import Network.AWS.SES.Waiters as Export
+import           Network.AWS.SES.DeleteIdentity                       as Export
+import           Network.AWS.SES.DeleteVerifiedEmailAddress           as Export
+import           Network.AWS.SES.GetIdentityDkimAttributes            as Export
+import           Network.AWS.SES.GetIdentityNotificationAttributes    as Export
+import           Network.AWS.SES.GetIdentityVerificationAttributes    as Export
+import           Network.AWS.SES.GetSendQuota                         as Export
+import           Network.AWS.SES.GetSendStatistics                    as Export
+import           Network.AWS.SES.ListIdentities                       as Export
+import           Network.AWS.SES.ListVerifiedEmailAddresses           as Export
+import           Network.AWS.SES.SendEmail                            as Export
+import           Network.AWS.SES.SendRawEmail                         as Export
+import           Network.AWS.SES.SetIdentityDkimEnabled               as Export
+import           Network.AWS.SES.SetIdentityFeedbackForwardingEnabled as Export
+import           Network.AWS.SES.SetIdentityNotificationTopic         as Export
+import           Network.AWS.SES.Types                                as Export
+import           Network.AWS.SES.VerifyDomainDkim                     as Export
+import           Network.AWS.SES.VerifyDomainIdentity                 as Export
+import           Network.AWS.SES.VerifyEmailAddress                   as Export
+import           Network.AWS.SES.VerifyEmailIdentity                  as Export
+import           Network.AWS.SES.Waiters                              as Export

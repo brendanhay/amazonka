@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,14 +52,14 @@ module Network.AWS.Redshift.DescribeClusters
     -- ** Response lenses
     , dcrMarker
     , dcrClusters
-    , dcrStatusCode
+    , dcrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -76,11 +76,24 @@ import Network.AWS.Response
 -- * 'dcMaxRecords'
 --
 -- * 'dcMarker'
-data DescribeClusters = DescribeClusters'{_dcTagValues :: Maybe [Text], _dcTagKeys :: Maybe [Text], _dcClusterIdentifier :: Maybe Text, _dcMaxRecords :: Maybe Int, _dcMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusters = DescribeClusters'
+    { _dcTagValues         :: Maybe [Text]
+    , _dcTagKeys           :: Maybe [Text]
+    , _dcClusterIdentifier :: Maybe Text
+    , _dcMaxRecords        :: Maybe Int
+    , _dcMarker            :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusters' smart constructor.
 describeClusters :: DescribeClusters
-describeClusters = DescribeClusters'{_dcTagValues = Nothing, _dcTagKeys = Nothing, _dcClusterIdentifier = Nothing, _dcMaxRecords = Nothing, _dcMarker = Nothing};
+describeClusters =
+    DescribeClusters'
+    { _dcTagValues = Nothing
+    , _dcTagKeys = Nothing
+    , _dcClusterIdentifier = Nothing
+    , _dcMaxRecords = Nothing
+    , _dcMarker = Nothing
+    }
 
 -- | A tag value or values for which you want to return all matching clusters
 -- that are associated with the specified tag value or values. For example,
@@ -178,12 +191,21 @@ instance ToQuery DescribeClusters where
 --
 -- * 'dcrClusters'
 --
--- * 'dcrStatusCode'
-data DescribeClustersResponse = DescribeClustersResponse'{_dcrMarker :: Maybe Text, _dcrClusters :: Maybe [Cluster], _dcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcrStatus'
+data DescribeClustersResponse = DescribeClustersResponse'
+    { _dcrMarker   :: Maybe Text
+    , _dcrClusters :: Maybe [Cluster]
+    , _dcrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClustersResponse' smart constructor.
 describeClustersResponse :: Int -> DescribeClustersResponse
-describeClustersResponse pStatusCode = DescribeClustersResponse'{_dcrMarker = Nothing, _dcrClusters = Nothing, _dcrStatusCode = pStatusCode};
+describeClustersResponse pStatus =
+    DescribeClustersResponse'
+    { _dcrMarker = Nothing
+    , _dcrClusters = Nothing
+    , _dcrStatus = pStatus
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -199,5 +221,5 @@ dcrClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrClusters = lens _dcrClusters (\ s a -> s{_dcrClusters = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrStatusCode :: Lens' DescribeClustersResponse Int
-dcrStatusCode = lens _dcrStatusCode (\ s a -> s{_dcrStatusCode = a});
+dcrStatus :: Lens' DescribeClustersResponse Int
+dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});

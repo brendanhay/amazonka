@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.ListStreamingDistributions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,14 +33,14 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     , listStreamingDistributionsResponse
     -- ** Response lenses
     , lsdrStreamingDistributionList
-    , lsdrStatusCode
+    , lsdrStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to list your streaming distributions.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'lsdMaxItems'
 --
 -- * 'lsdMarker'
-data ListStreamingDistributions = ListStreamingDistributions'{_lsdMaxItems :: Maybe Text, _lsdMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListStreamingDistributions = ListStreamingDistributions'
+    { _lsdMaxItems :: Maybe Text
+    , _lsdMarker   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListStreamingDistributions' smart constructor.
 listStreamingDistributions :: ListStreamingDistributions
-listStreamingDistributions = ListStreamingDistributions'{_lsdMaxItems = Nothing, _lsdMarker = Nothing};
+listStreamingDistributions =
+    ListStreamingDistributions'
+    { _lsdMaxItems = Nothing
+    , _lsdMarker = Nothing
+    }
 
 -- | The maximum number of streaming distributions you want in the response
 -- body.
@@ -118,17 +125,24 @@ instance ToQuery ListStreamingDistributions where
 --
 -- * 'lsdrStreamingDistributionList'
 --
--- * 'lsdrStatusCode'
-data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'{_lsdrStreamingDistributionList :: StreamingDistributionList, _lsdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lsdrStatus'
+data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
+    { _lsdrStreamingDistributionList :: StreamingDistributionList
+    , _lsdrStatus                    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListStreamingDistributionsResponse' smart constructor.
 listStreamingDistributionsResponse :: StreamingDistributionList -> Int -> ListStreamingDistributionsResponse
-listStreamingDistributionsResponse pStreamingDistributionList pStatusCode = ListStreamingDistributionsResponse'{_lsdrStreamingDistributionList = pStreamingDistributionList, _lsdrStatusCode = pStatusCode};
+listStreamingDistributionsResponse pStreamingDistributionList pStatus =
+    ListStreamingDistributionsResponse'
+    { _lsdrStreamingDistributionList = pStreamingDistributionList
+    , _lsdrStatus = pStatus
+    }
 
 -- | The StreamingDistributionList type.
 lsdrStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList
 lsdrStreamingDistributionList = lens _lsdrStreamingDistributionList (\ s a -> s{_lsdrStreamingDistributionList = a});
 
 -- | FIXME: Undocumented member.
-lsdrStatusCode :: Lens' ListStreamingDistributionsResponse Int
-lsdrStatusCode = lens _lsdrStatusCode (\ s a -> s{_lsdrStatusCode = a});
+lsdrStatus :: Lens' ListStreamingDistributionsResponse Int
+lsdrStatus = lens _lsdrStatus (\ s a -> s{_lsdrStatus = a});

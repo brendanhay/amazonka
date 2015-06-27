@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.RDS.DeleteDBSubnetGroup
     , deleteDBSubnetGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delDBSubnetGroupName'
-newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup'{_delDBSubnetGroupName :: Text} deriving (Eq, Read, Show)
+newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup'
+    { _delDBSubnetGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDBSubnetGroup' smart constructor.
 deleteDBSubnetGroup :: Text -> DeleteDBSubnetGroup
-deleteDBSubnetGroup pDBSubnetGroupName = DeleteDBSubnetGroup'{_delDBSubnetGroupName = pDBSubnetGroupName};
+deleteDBSubnetGroup pDBSubnetGroupName =
+    DeleteDBSubnetGroup'
+    { _delDBSubnetGroupName = pDBSubnetGroupName
+    }
 
 -- | The name of the database subnet group to delete.
 --
@@ -86,8 +91,10 @@ instance ToQuery DeleteDBSubnetGroup where
                "DBSubnetGroupName" =: _delDBSubnetGroupName]
 
 -- | /See:/ 'deleteDBSubnetGroupResponse' smart constructor.
-data DeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse' deriving (Eq, Read, Show)
+data DeleteDBSubnetGroupResponse =
+    DeleteDBSubnetGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteDBSubnetGroupResponse' smart constructor.
 deleteDBSubnetGroupResponse :: DeleteDBSubnetGroupResponse
-deleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse';
+deleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateVPNGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.EC2.CreateVPNGateway
     , createVPNGatewayResponse
     -- ** Response lenses
     , cvgrVPNGateway
-    , cvgrStatusCode
+    , cvgrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createVPNGateway' smart constructor.
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'cvgDryRun'
 --
 -- * 'cvgType'
-data CreateVPNGateway = CreateVPNGateway'{_cvgAvailabilityZone :: Maybe Text, _cvgDryRun :: Maybe Bool, _cvgType :: GatewayType} deriving (Eq, Read, Show)
+data CreateVPNGateway = CreateVPNGateway'
+    { _cvgAvailabilityZone :: Maybe Text
+    , _cvgDryRun           :: Maybe Bool
+    , _cvgType             :: GatewayType
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVPNGateway' smart constructor.
 createVPNGateway :: GatewayType -> CreateVPNGateway
-createVPNGateway pType = CreateVPNGateway'{_cvgAvailabilityZone = Nothing, _cvgDryRun = Nothing, _cvgType = pType};
+createVPNGateway pType =
+    CreateVPNGateway'
+    { _cvgAvailabilityZone = Nothing
+    , _cvgDryRun = Nothing
+    , _cvgType = pType
+    }
 
 -- | The Availability Zone for the virtual private gateway.
 cvgAvailabilityZone :: Lens' CreateVPNGateway (Maybe Text)
@@ -108,17 +117,24 @@ instance ToQuery CreateVPNGateway where
 --
 -- * 'cvgrVPNGateway'
 --
--- * 'cvgrStatusCode'
-data CreateVPNGatewayResponse = CreateVPNGatewayResponse'{_cvgrVPNGateway :: Maybe VPNGateway, _cvgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cvgrStatus'
+data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
+    { _cvgrVPNGateway :: Maybe VPNGateway
+    , _cvgrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVPNGatewayResponse' smart constructor.
 createVPNGatewayResponse :: Int -> CreateVPNGatewayResponse
-createVPNGatewayResponse pStatusCode = CreateVPNGatewayResponse'{_cvgrVPNGateway = Nothing, _cvgrStatusCode = pStatusCode};
+createVPNGatewayResponse pStatus =
+    CreateVPNGatewayResponse'
+    { _cvgrVPNGateway = Nothing
+    , _cvgrStatus = pStatus
+    }
 
 -- | Information about the virtual private gateway.
 cvgrVPNGateway :: Lens' CreateVPNGatewayResponse (Maybe VPNGateway)
 cvgrVPNGateway = lens _cvgrVPNGateway (\ s a -> s{_cvgrVPNGateway = a});
 
 -- | FIXME: Undocumented member.
-cvgrStatusCode :: Lens' CreateVPNGatewayResponse Int
-cvgrStatusCode = lens _cvgrStatusCode (\ s a -> s{_cvgrStatusCode = a});
+cvgrStatus :: Lens' CreateVPNGatewayResponse Int
+cvgrStatus = lens _cvgrStatus (\ s a -> s{_cvgrStatus = a});

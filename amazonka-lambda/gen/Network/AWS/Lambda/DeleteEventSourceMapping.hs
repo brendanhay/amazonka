@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Lambda.DeleteEventSourceMapping
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,21 +45,26 @@ module Network.AWS.Lambda.DeleteEventSourceMapping
     , esmcLastModified
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteEventSourceMapping' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'desmUUID'
-newtype DeleteEventSourceMapping = DeleteEventSourceMapping'{_desmUUID :: Text} deriving (Eq, Read, Show)
+newtype DeleteEventSourceMapping = DeleteEventSourceMapping'
+    { _desmUUID :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteEventSourceMapping' smart constructor.
 deleteEventSourceMapping :: Text -> DeleteEventSourceMapping
-deleteEventSourceMapping pUUID = DeleteEventSourceMapping'{_desmUUID = pUUID};
+deleteEventSourceMapping pUUID =
+    DeleteEventSourceMapping'
+    { _desmUUID = pUUID
+    }
 
 -- | The event source mapping ID.
 desmUUID :: Lens' DeleteEventSourceMapping Text

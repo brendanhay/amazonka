@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DisableSnapshotCopy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.Redshift.DisableSnapshotCopy
     , disableSnapshotCopyResponse
     -- ** Response lenses
     , dscrCluster
-    , dscrStatusCode
+    , dscrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -48,11 +48,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dscClusterIdentifier'
-newtype DisableSnapshotCopy = DisableSnapshotCopy'{_dscClusterIdentifier :: Text} deriving (Eq, Read, Show)
+newtype DisableSnapshotCopy = DisableSnapshotCopy'
+    { _dscClusterIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableSnapshotCopy' smart constructor.
 disableSnapshotCopy :: Text -> DisableSnapshotCopy
-disableSnapshotCopy pClusterIdentifier = DisableSnapshotCopy'{_dscClusterIdentifier = pClusterIdentifier};
+disableSnapshotCopy pClusterIdentifier =
+    DisableSnapshotCopy'
+    { _dscClusterIdentifier = pClusterIdentifier
+    }
 
 -- | The unique identifier of the source cluster that you want to disable
 -- copying of snapshots to a destination region.
@@ -92,17 +97,24 @@ instance ToQuery DisableSnapshotCopy where
 --
 -- * 'dscrCluster'
 --
--- * 'dscrStatusCode'
-data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'{_dscrCluster :: Maybe Cluster, _dscrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dscrStatus'
+data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
+    { _dscrCluster :: Maybe Cluster
+    , _dscrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableSnapshotCopyResponse' smart constructor.
 disableSnapshotCopyResponse :: Int -> DisableSnapshotCopyResponse
-disableSnapshotCopyResponse pStatusCode = DisableSnapshotCopyResponse'{_dscrCluster = Nothing, _dscrStatusCode = pStatusCode};
+disableSnapshotCopyResponse pStatus =
+    DisableSnapshotCopyResponse'
+    { _dscrCluster = Nothing
+    , _dscrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dscrCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
 dscrCluster = lens _dscrCluster (\ s a -> s{_dscrCluster = a});
 
 -- | FIXME: Undocumented member.
-dscrStatusCode :: Lens' DisableSnapshotCopyResponse Int
-dscrStatusCode = lens _dscrStatusCode (\ s a -> s{_dscrStatusCode = a});
+dscrStatus :: Lens' DisableSnapshotCopyResponse Int
+dscrStatus = lens _dscrStatus (\ s a -> s{_dscrStatus = a});

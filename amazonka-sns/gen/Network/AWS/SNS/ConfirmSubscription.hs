@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.ConfirmSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.SNS.ConfirmSubscription
     , confirmSubscriptionResponse
     -- ** Response lenses
     , csrSubscriptionARN
-    , csrStatusCode
+    , csrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for ConfirmSubscription action.
 --
@@ -57,11 +57,20 @@ import Network.AWS.SNS.Types
 -- * 'csTopicARN'
 --
 -- * 'csToken'
-data ConfirmSubscription = ConfirmSubscription'{_csAuthenticateOnUnsubscribe :: Maybe Text, _csTopicARN :: Text, _csToken :: Text} deriving (Eq, Read, Show)
+data ConfirmSubscription = ConfirmSubscription'
+    { _csAuthenticateOnUnsubscribe :: Maybe Text
+    , _csTopicARN                  :: Text
+    , _csToken                     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfirmSubscription' smart constructor.
 confirmSubscription :: Text -> Text -> ConfirmSubscription
-confirmSubscription pTopicARN pToken = ConfirmSubscription'{_csAuthenticateOnUnsubscribe = Nothing, _csTopicARN = pTopicARN, _csToken = pToken};
+confirmSubscription pTopicARN pToken =
+    ConfirmSubscription'
+    { _csAuthenticateOnUnsubscribe = Nothing
+    , _csTopicARN = pTopicARN
+    , _csToken = pToken
+    }
 
 -- | Disallows unauthenticated unsubscribes of the subscription. If the value
 -- of this parameter is @true@ and the request has an AWS signature, then
@@ -112,17 +121,24 @@ instance ToQuery ConfirmSubscription where
 --
 -- * 'csrSubscriptionARN'
 --
--- * 'csrStatusCode'
-data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'{_csrSubscriptionARN :: Maybe Text, _csrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'csrStatus'
+data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'
+    { _csrSubscriptionARN :: Maybe Text
+    , _csrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfirmSubscriptionResponse' smart constructor.
 confirmSubscriptionResponse :: Int -> ConfirmSubscriptionResponse
-confirmSubscriptionResponse pStatusCode = ConfirmSubscriptionResponse'{_csrSubscriptionARN = Nothing, _csrStatusCode = pStatusCode};
+confirmSubscriptionResponse pStatus =
+    ConfirmSubscriptionResponse'
+    { _csrSubscriptionARN = Nothing
+    , _csrStatus = pStatus
+    }
 
 -- | The ARN of the created subscription.
 csrSubscriptionARN :: Lens' ConfirmSubscriptionResponse (Maybe Text)
 csrSubscriptionARN = lens _csrSubscriptionARN (\ s a -> s{_csrSubscriptionARN = a});
 
 -- | FIXME: Undocumented member.
-csrStatusCode :: Lens' ConfirmSubscriptionResponse Int
-csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});
+csrStatus :: Lens' ConfirmSubscriptionResponse Int
+csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});

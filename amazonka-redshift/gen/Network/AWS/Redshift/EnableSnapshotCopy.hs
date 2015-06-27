@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.EnableSnapshotCopy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.Redshift.EnableSnapshotCopy
     , enableSnapshotCopyResponse
     -- ** Response lenses
     , escrCluster
-    , escrStatusCode
+    , escrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'escClusterIdentifier'
 --
 -- * 'escDestinationRegion'
-data EnableSnapshotCopy = EnableSnapshotCopy'{_escRetentionPeriod :: Maybe Int, _escClusterIdentifier :: Text, _escDestinationRegion :: Text} deriving (Eq, Read, Show)
+data EnableSnapshotCopy = EnableSnapshotCopy'
+    { _escRetentionPeriod   :: Maybe Int
+    , _escClusterIdentifier :: Text
+    , _escDestinationRegion :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableSnapshotCopy' smart constructor.
 enableSnapshotCopy :: Text -> Text -> EnableSnapshotCopy
-enableSnapshotCopy pClusterIdentifier pDestinationRegion = EnableSnapshotCopy'{_escRetentionPeriod = Nothing, _escClusterIdentifier = pClusterIdentifier, _escDestinationRegion = pDestinationRegion};
+enableSnapshotCopy pClusterIdentifier pDestinationRegion =
+    EnableSnapshotCopy'
+    { _escRetentionPeriod = Nothing
+    , _escClusterIdentifier = pClusterIdentifier
+    , _escDestinationRegion = pDestinationRegion
+    }
 
 -- | The number of days to retain automated snapshots in the destination
 -- region after they are copied from the source region.
@@ -117,17 +126,24 @@ instance ToQuery EnableSnapshotCopy where
 --
 -- * 'escrCluster'
 --
--- * 'escrStatusCode'
-data EnableSnapshotCopyResponse = EnableSnapshotCopyResponse'{_escrCluster :: Maybe Cluster, _escrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'escrStatus'
+data EnableSnapshotCopyResponse = EnableSnapshotCopyResponse'
+    { _escrCluster :: Maybe Cluster
+    , _escrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableSnapshotCopyResponse' smart constructor.
 enableSnapshotCopyResponse :: Int -> EnableSnapshotCopyResponse
-enableSnapshotCopyResponse pStatusCode = EnableSnapshotCopyResponse'{_escrCluster = Nothing, _escrStatusCode = pStatusCode};
+enableSnapshotCopyResponse pStatus =
+    EnableSnapshotCopyResponse'
+    { _escrCluster = Nothing
+    , _escrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 escrCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
 escrCluster = lens _escrCluster (\ s a -> s{_escrCluster = a});
 
 -- | FIXME: Undocumented member.
-escrStatusCode :: Lens' EnableSnapshotCopyResponse Int
-escrStatusCode = lens _escrStatusCode (\ s a -> s{_escrStatusCode = a});
+escrStatus :: Lens' EnableSnapshotCopyResponse Int
+escrStatus = lens _escrStatus (\ s a -> s{_escrStatus = a});

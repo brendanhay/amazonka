@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ReplaceNetworkACLEntry
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,10 +43,10 @@ module Network.AWS.EC2.ReplaceNetworkACLEntry
     , replaceNetworkACLEntryResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'replaceNetworkACLEntry' smart constructor.
 --
@@ -69,11 +69,32 @@ import Network.AWS.Response
 -- * 'rnaeEgress'
 --
 -- * 'rnaeCIDRBlock'
-data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'{_rnaeICMPTypeCode :: Maybe ICMPTypeCode, _rnaePortRange :: Maybe PortRange, _rnaeDryRun :: Maybe Bool, _rnaeNetworkACLId :: Text, _rnaeRuleNumber :: Int, _rnaeProtocol :: Text, _rnaeRuleAction :: RuleAction, _rnaeEgress :: Bool, _rnaeCIDRBlock :: Text} deriving (Eq, Read, Show)
+data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
+    { _rnaeICMPTypeCode :: Maybe ICMPTypeCode
+    , _rnaePortRange    :: Maybe PortRange
+    , _rnaeDryRun       :: Maybe Bool
+    , _rnaeNetworkACLId :: Text
+    , _rnaeRuleNumber   :: !Int
+    , _rnaeProtocol     :: Text
+    , _rnaeRuleAction   :: RuleAction
+    , _rnaeEgress       :: !Bool
+    , _rnaeCIDRBlock    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReplaceNetworkACLEntry' smart constructor.
 replaceNetworkACLEntry :: Text -> Int -> Text -> RuleAction -> Bool -> Text -> ReplaceNetworkACLEntry
-replaceNetworkACLEntry pNetworkACLId pRuleNumber pProtocol pRuleAction pEgress pCIDRBlock = ReplaceNetworkACLEntry'{_rnaeICMPTypeCode = Nothing, _rnaePortRange = Nothing, _rnaeDryRun = Nothing, _rnaeNetworkACLId = pNetworkACLId, _rnaeRuleNumber = pRuleNumber, _rnaeProtocol = pProtocol, _rnaeRuleAction = pRuleAction, _rnaeEgress = pEgress, _rnaeCIDRBlock = pCIDRBlock};
+replaceNetworkACLEntry pNetworkACLId pRuleNumber pProtocol pRuleAction pEgress pCIDRBlock =
+    ReplaceNetworkACLEntry'
+    { _rnaeICMPTypeCode = Nothing
+    , _rnaePortRange = Nothing
+    , _rnaeDryRun = Nothing
+    , _rnaeNetworkACLId = pNetworkACLId
+    , _rnaeRuleNumber = pRuleNumber
+    , _rnaeProtocol = pProtocol
+    , _rnaeRuleAction = pRuleAction
+    , _rnaeEgress = pEgress
+    , _rnaeCIDRBlock = pCIDRBlock
+    }
 
 -- | ICMP protocol: The ICMP type and code. Required if specifying 1 (ICMP)
 -- for the protocol.
@@ -149,8 +170,10 @@ instance ToQuery ReplaceNetworkACLEntry where
                "CidrBlock" =: _rnaeCIDRBlock]
 
 -- | /See:/ 'replaceNetworkACLEntryResponse' smart constructor.
-data ReplaceNetworkACLEntryResponse = ReplaceNetworkACLEntryResponse' deriving (Eq, Read, Show)
+data ReplaceNetworkACLEntryResponse =
+    ReplaceNetworkACLEntryResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ReplaceNetworkACLEntryResponse' smart constructor.
 replaceNetworkACLEntryResponse :: ReplaceNetworkACLEntryResponse
-replaceNetworkACLEntryResponse = ReplaceNetworkACLEntryResponse';
+replaceNetworkACLEntryResponse = ReplaceNetworkACLEntryResponse'

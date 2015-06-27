@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.PutBucketRequestPayment
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.S3.PutBucketRequestPayment
     , putBucketRequestPaymentResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'putBucketRequestPayment' smart constructor.
 --
@@ -53,11 +53,20 @@ import Network.AWS.S3.Types
 -- * 'pbrpBucket'
 --
 -- * 'pbrpRequestPaymentConfiguration'
-data PutBucketRequestPayment = PutBucketRequestPayment'{_pbrpContentMD5 :: Maybe Text, _pbrpBucket :: BucketName, _pbrpRequestPaymentConfiguration :: RequestPaymentConfiguration} deriving (Eq, Read, Show)
+data PutBucketRequestPayment = PutBucketRequestPayment'
+    { _pbrpContentMD5                  :: Maybe Text
+    , _pbrpBucket                      :: BucketName
+    , _pbrpRequestPaymentConfiguration :: RequestPaymentConfiguration
+    } deriving (Eq,Read,Show)
 
 -- | 'PutBucketRequestPayment' smart constructor.
 putBucketRequestPayment :: BucketName -> RequestPaymentConfiguration -> PutBucketRequestPayment
-putBucketRequestPayment pBucket pRequestPaymentConfiguration = PutBucketRequestPayment'{_pbrpContentMD5 = Nothing, _pbrpBucket = pBucket, _pbrpRequestPaymentConfiguration = pRequestPaymentConfiguration};
+putBucketRequestPayment pBucket pRequestPaymentConfiguration =
+    PutBucketRequestPayment'
+    { _pbrpContentMD5 = Nothing
+    , _pbrpBucket = pBucket
+    , _pbrpRequestPaymentConfiguration = pRequestPaymentConfiguration
+    }
 
 -- | FIXME: Undocumented member.
 pbrpContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
@@ -98,8 +107,10 @@ instance ToQuery PutBucketRequestPayment where
         toQuery = const (mconcat ["requestPayment"])
 
 -- | /See:/ 'putBucketRequestPaymentResponse' smart constructor.
-data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse' deriving (Eq, Read, Show)
+data PutBucketRequestPaymentResponse =
+    PutBucketRequestPaymentResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutBucketRequestPaymentResponse' smart constructor.
 putBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse
-putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse';
+putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse'

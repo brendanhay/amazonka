@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.AttachElasticLoadBalancer
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,10 +46,10 @@ module Network.AWS.OpsWorks.AttachElasticLoadBalancer
     , attachElasticLoadBalancerResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachElasticLoadBalancer' smart constructor.
 --
@@ -58,11 +58,18 @@ import Network.AWS.Response
 -- * 'aelbElasticLoadBalancerName'
 --
 -- * 'aelbLayerId'
-data AttachElasticLoadBalancer = AttachElasticLoadBalancer'{_aelbElasticLoadBalancerName :: Text, _aelbLayerId :: Text} deriving (Eq, Read, Show)
+data AttachElasticLoadBalancer = AttachElasticLoadBalancer'
+    { _aelbElasticLoadBalancerName :: Text
+    , _aelbLayerId                 :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachElasticLoadBalancer' smart constructor.
 attachElasticLoadBalancer :: Text -> Text -> AttachElasticLoadBalancer
-attachElasticLoadBalancer pElasticLoadBalancerName pLayerId = AttachElasticLoadBalancer'{_aelbElasticLoadBalancerName = pElasticLoadBalancerName, _aelbLayerId = pLayerId};
+attachElasticLoadBalancer pElasticLoadBalancerName pLayerId =
+    AttachElasticLoadBalancer'
+    { _aelbElasticLoadBalancerName = pElasticLoadBalancerName
+    , _aelbLayerId = pLayerId
+    }
 
 -- | The Elastic Load Balancing instance\'s name.
 aelbElasticLoadBalancerName :: Lens' AttachElasticLoadBalancer Text
@@ -105,8 +112,10 @@ instance ToQuery AttachElasticLoadBalancer where
         toQuery = const mempty
 
 -- | /See:/ 'attachElasticLoadBalancerResponse' smart constructor.
-data AttachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse' deriving (Eq, Read, Show)
+data AttachElasticLoadBalancerResponse =
+    AttachElasticLoadBalancerResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AttachElasticLoadBalancerResponse' smart constructor.
 attachElasticLoadBalancerResponse :: AttachElasticLoadBalancerResponse
-attachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse';
+attachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse'

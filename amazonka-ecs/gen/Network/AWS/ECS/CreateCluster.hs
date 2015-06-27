@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.CreateCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,24 +35,29 @@ module Network.AWS.ECS.CreateCluster
     , createClusterResponse
     -- ** Response lenses
     , ccrCluster
-    , ccrStatusCode
+    , ccrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createCluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccClusterName'
-newtype CreateCluster = CreateCluster'{_ccClusterName :: Maybe Text} deriving (Eq, Read, Show)
+newtype CreateCluster = CreateCluster'
+    { _ccClusterName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCluster' smart constructor.
 createCluster :: CreateCluster
-createCluster = CreateCluster'{_ccClusterName = Nothing};
+createCluster =
+    CreateCluster'
+    { _ccClusterName = Nothing
+    }
 
 -- | The name of your cluster. If you do not specify a name for your cluster,
 -- you will create a cluster named @default@. Up to 255 letters (uppercase
@@ -96,17 +101,24 @@ instance ToQuery CreateCluster where
 --
 -- * 'ccrCluster'
 --
--- * 'ccrStatusCode'
-data CreateClusterResponse = CreateClusterResponse'{_ccrCluster :: Maybe Cluster, _ccrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ccrStatus'
+data CreateClusterResponse = CreateClusterResponse'
+    { _ccrCluster :: Maybe Cluster
+    , _ccrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterResponse' smart constructor.
 createClusterResponse :: Int -> CreateClusterResponse
-createClusterResponse pStatusCode = CreateClusterResponse'{_ccrCluster = Nothing, _ccrStatusCode = pStatusCode};
+createClusterResponse pStatus =
+    CreateClusterResponse'
+    { _ccrCluster = Nothing
+    , _ccrStatus = pStatus
+    }
 
 -- | The full description of your new cluster.
 ccrCluster :: Lens' CreateClusterResponse (Maybe Cluster)
 ccrCluster = lens _ccrCluster (\ s a -> s{_ccrCluster = a});
 
 -- | FIXME: Undocumented member.
-ccrStatusCode :: Lens' CreateClusterResponse Int
-ccrStatusCode = lens _ccrStatusCode (\ s a -> s{_ccrStatusCode = a});
+ccrStatus :: Lens' CreateClusterResponse Int
+ccrStatus = lens _ccrStatus (\ s a -> s{_ccrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateUserProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.OpsWorks.CreateUserProfile
     , createUserProfileResponse
     -- ** Response lenses
     , cuprIAMUserARN
-    , cuprStatusCode
+    , cuprStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createUserProfile' smart constructor.
 --
@@ -59,11 +59,22 @@ import Network.AWS.Response
 -- * 'cupAllowSelfManagement'
 --
 -- * 'cupIAMUserARN'
-data CreateUserProfile = CreateUserProfile'{_cupSSHUsername :: Maybe Text, _cupSSHPublicKey :: Maybe Text, _cupAllowSelfManagement :: Maybe Bool, _cupIAMUserARN :: Text} deriving (Eq, Read, Show)
+data CreateUserProfile = CreateUserProfile'
+    { _cupSSHUsername         :: Maybe Text
+    , _cupSSHPublicKey        :: Maybe Text
+    , _cupAllowSelfManagement :: Maybe Bool
+    , _cupIAMUserARN          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateUserProfile' smart constructor.
 createUserProfile :: Text -> CreateUserProfile
-createUserProfile pIAMUserARN = CreateUserProfile'{_cupSSHUsername = Nothing, _cupSSHPublicKey = Nothing, _cupAllowSelfManagement = Nothing, _cupIAMUserARN = pIAMUserARN};
+createUserProfile pIAMUserARN =
+    CreateUserProfile'
+    { _cupSSHUsername = Nothing
+    , _cupSSHPublicKey = Nothing
+    , _cupAllowSelfManagement = Nothing
+    , _cupIAMUserARN = pIAMUserARN
+    }
 
 -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
 -- [0-9], \'-\', and \'_\'. If the specified name includes other
@@ -129,17 +140,24 @@ instance ToQuery CreateUserProfile where
 --
 -- * 'cuprIAMUserARN'
 --
--- * 'cuprStatusCode'
-data CreateUserProfileResponse = CreateUserProfileResponse'{_cuprIAMUserARN :: Maybe Text, _cuprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cuprStatus'
+data CreateUserProfileResponse = CreateUserProfileResponse'
+    { _cuprIAMUserARN :: Maybe Text
+    , _cuprStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateUserProfileResponse' smart constructor.
 createUserProfileResponse :: Int -> CreateUserProfileResponse
-createUserProfileResponse pStatusCode = CreateUserProfileResponse'{_cuprIAMUserARN = Nothing, _cuprStatusCode = pStatusCode};
+createUserProfileResponse pStatus =
+    CreateUserProfileResponse'
+    { _cuprIAMUserARN = Nothing
+    , _cuprStatus = pStatus
+    }
 
 -- | The user\'s IAM ARN.
 cuprIAMUserARN :: Lens' CreateUserProfileResponse (Maybe Text)
 cuprIAMUserARN = lens _cuprIAMUserARN (\ s a -> s{_cuprIAMUserARN = a});
 
 -- | FIXME: Undocumented member.
-cuprStatusCode :: Lens' CreateUserProfileResponse Int
-cuprStatusCode = lens _cuprStatusCode (\ s a -> s{_cuprStatusCode = a});
+cuprStatus :: Lens' CreateUserProfileResponse Int
+cuprStatus = lens _cuprStatus (\ s a -> s{_cuprStatus = a});

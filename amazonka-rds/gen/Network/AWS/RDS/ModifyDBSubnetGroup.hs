@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.ModifyDBSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.RDS.ModifyDBSubnetGroup
     , modifyDBSubnetGroupResponse
     -- ** Response lenses
     , mdsgrDBSubnetGroup
-    , mdsgrStatusCode
+    , mdsgrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'mdsgDBSubnetGroupName'
 --
 -- * 'mdsgSubnetIds'
-data ModifyDBSubnetGroup = ModifyDBSubnetGroup'{_mdsgDBSubnetGroupDescription :: Maybe Text, _mdsgDBSubnetGroupName :: Text, _mdsgSubnetIds :: [Text]} deriving (Eq, Read, Show)
+data ModifyDBSubnetGroup = ModifyDBSubnetGroup'
+    { _mdsgDBSubnetGroupDescription :: Maybe Text
+    , _mdsgDBSubnetGroupName        :: Text
+    , _mdsgSubnetIds                :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyDBSubnetGroup' smart constructor.
 modifyDBSubnetGroup :: Text -> ModifyDBSubnetGroup
-modifyDBSubnetGroup pDBSubnetGroupName = ModifyDBSubnetGroup'{_mdsgDBSubnetGroupDescription = Nothing, _mdsgDBSubnetGroupName = pDBSubnetGroupName, _mdsgSubnetIds = mempty};
+modifyDBSubnetGroup pDBSubnetGroupName =
+    ModifyDBSubnetGroup'
+    { _mdsgDBSubnetGroupDescription = Nothing
+    , _mdsgDBSubnetGroupName = pDBSubnetGroupName
+    , _mdsgSubnetIds = mempty
+    }
 
 -- | The description for the DB subnet group.
 mdsgDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
@@ -112,17 +121,24 @@ instance ToQuery ModifyDBSubnetGroup where
 --
 -- * 'mdsgrDBSubnetGroup'
 --
--- * 'mdsgrStatusCode'
-data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'{_mdsgrDBSubnetGroup :: Maybe DBSubnetGroup, _mdsgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'mdsgrStatus'
+data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'
+    { _mdsgrDBSubnetGroup :: Maybe DBSubnetGroup
+    , _mdsgrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyDBSubnetGroupResponse' smart constructor.
 modifyDBSubnetGroupResponse :: Int -> ModifyDBSubnetGroupResponse
-modifyDBSubnetGroupResponse pStatusCode = ModifyDBSubnetGroupResponse'{_mdsgrDBSubnetGroup = Nothing, _mdsgrStatusCode = pStatusCode};
+modifyDBSubnetGroupResponse pStatus =
+    ModifyDBSubnetGroupResponse'
+    { _mdsgrDBSubnetGroup = Nothing
+    , _mdsgrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 mdsgrDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
 mdsgrDBSubnetGroup = lens _mdsgrDBSubnetGroup (\ s a -> s{_mdsgrDBSubnetGroup = a});
 
 -- | FIXME: Undocumented member.
-mdsgrStatusCode :: Lens' ModifyDBSubnetGroupResponse Int
-mdsgrStatusCode = lens _mdsgrStatusCode (\ s a -> s{_mdsgrStatusCode = a});
+mdsgrStatus :: Lens' ModifyDBSubnetGroupResponse Int
+mdsgrStatus = lens _mdsgrStatus (\ s a -> s{_mdsgrStatus = a});

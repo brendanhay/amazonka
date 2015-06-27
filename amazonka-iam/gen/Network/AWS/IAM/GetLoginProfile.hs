@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetLoginProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,24 +34,29 @@ module Network.AWS.IAM.GetLoginProfile
     , getLoginProfileResponse
     -- ** Response lenses
     , glprLoginProfile
-    , glprStatusCode
+    , glprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getLoginProfile' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'glpUserName'
-newtype GetLoginProfile = GetLoginProfile'{_glpUserName :: Text} deriving (Eq, Read, Show)
+newtype GetLoginProfile = GetLoginProfile'
+    { _glpUserName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetLoginProfile' smart constructor.
 getLoginProfile :: Text -> GetLoginProfile
-getLoginProfile pUserName = GetLoginProfile'{_glpUserName = pUserName};
+getLoginProfile pUserName =
+    GetLoginProfile'
+    { _glpUserName = pUserName
+    }
 
 -- | The name of the user whose login profile you want to retrieve.
 glpUserName :: Lens' GetLoginProfile Text
@@ -88,17 +93,24 @@ instance ToQuery GetLoginProfile where
 --
 -- * 'glprLoginProfile'
 --
--- * 'glprStatusCode'
-data GetLoginProfileResponse = GetLoginProfileResponse'{_glprLoginProfile :: LoginProfile, _glprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'glprStatus'
+data GetLoginProfileResponse = GetLoginProfileResponse'
+    { _glprLoginProfile :: LoginProfile
+    , _glprStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetLoginProfileResponse' smart constructor.
 getLoginProfileResponse :: LoginProfile -> Int -> GetLoginProfileResponse
-getLoginProfileResponse pLoginProfile pStatusCode = GetLoginProfileResponse'{_glprLoginProfile = pLoginProfile, _glprStatusCode = pStatusCode};
+getLoginProfileResponse pLoginProfile pStatus =
+    GetLoginProfileResponse'
+    { _glprLoginProfile = pLoginProfile
+    , _glprStatus = pStatus
+    }
 
 -- | The user name and password create date for the user.
 glprLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
 glprLoginProfile = lens _glprLoginProfile (\ s a -> s{_glprLoginProfile = a});
 
 -- | FIXME: Undocumented member.
-glprStatusCode :: Lens' GetLoginProfileResponse Int
-glprStatusCode = lens _glprStatusCode (\ s a -> s{_glprStatusCode = a});
+glprStatus :: Lens' GetLoginProfileResponse Int
+glprStatus = lens _glprStatus (\ s a -> s{_glprStatus = a});

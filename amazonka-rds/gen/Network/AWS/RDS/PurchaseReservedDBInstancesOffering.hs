@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.PurchaseReservedDBInstancesOffering
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     , purchaseReservedDBInstancesOfferingResponse
     -- ** Response lenses
     , prdiorReservedDBInstance
-    , prdiorStatusCode
+    , prdiorStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -56,11 +56,22 @@ import Network.AWS.Response
 -- * 'prdioTags'
 --
 -- * 'prdioReservedDBInstancesOfferingId'
-data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'{_prdioDBInstanceCount :: Maybe Int, _prdioReservedDBInstanceId :: Maybe Text, _prdioTags :: Maybe [Tag], _prdioReservedDBInstancesOfferingId :: Text} deriving (Eq, Read, Show)
+data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
+    { _prdioDBInstanceCount               :: Maybe Int
+    , _prdioReservedDBInstanceId          :: Maybe Text
+    , _prdioTags                          :: Maybe [Tag]
+    , _prdioReservedDBInstancesOfferingId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PurchaseReservedDBInstancesOffering' smart constructor.
 purchaseReservedDBInstancesOffering :: Text -> PurchaseReservedDBInstancesOffering
-purchaseReservedDBInstancesOffering pReservedDBInstancesOfferingId = PurchaseReservedDBInstancesOffering'{_prdioDBInstanceCount = Nothing, _prdioReservedDBInstanceId = Nothing, _prdioTags = Nothing, _prdioReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId};
+purchaseReservedDBInstancesOffering pReservedDBInstancesOfferingId =
+    PurchaseReservedDBInstancesOffering'
+    { _prdioDBInstanceCount = Nothing
+    , _prdioReservedDBInstanceId = Nothing
+    , _prdioTags = Nothing
+    , _prdioReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId
+    }
 
 -- | The number of instances to reserve.
 --
@@ -125,17 +136,24 @@ instance ToQuery PurchaseReservedDBInstancesOffering
 --
 -- * 'prdiorReservedDBInstance'
 --
--- * 'prdiorStatusCode'
-data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse'{_prdiorReservedDBInstance :: Maybe ReservedDBInstance, _prdiorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'prdiorStatus'
+data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse'
+    { _prdiorReservedDBInstance :: Maybe ReservedDBInstance
+    , _prdiorStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PurchaseReservedDBInstancesOfferingResponse' smart constructor.
 purchaseReservedDBInstancesOfferingResponse :: Int -> PurchaseReservedDBInstancesOfferingResponse
-purchaseReservedDBInstancesOfferingResponse pStatusCode = PurchaseReservedDBInstancesOfferingResponse'{_prdiorReservedDBInstance = Nothing, _prdiorStatusCode = pStatusCode};
+purchaseReservedDBInstancesOfferingResponse pStatus =
+    PurchaseReservedDBInstancesOfferingResponse'
+    { _prdiorReservedDBInstance = Nothing
+    , _prdiorStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 prdiorReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
 prdiorReservedDBInstance = lens _prdiorReservedDBInstance (\ s a -> s{_prdiorReservedDBInstance = a});
 
 -- | FIXME: Undocumented member.
-prdiorStatusCode :: Lens' PurchaseReservedDBInstancesOfferingResponse Int
-prdiorStatusCode = lens _prdiorStatusCode (\ s a -> s{_prdiorStatusCode = a});
+prdiorStatus :: Lens' PurchaseReservedDBInstancesOfferingResponse Int
+prdiorStatus = lens _prdiorStatus (\ s a -> s{_prdiorStatus = a});

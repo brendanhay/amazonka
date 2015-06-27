@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticFileSystem.DescribeMountTargets
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.ElasticFileSystem.DescribeMountTargets
     , dmtrMountTargets
     , dmtrMarker
     , dmtrNextMarker
-    , dmtrStatusCode
+    , dmtrStatus
     ) where
 
-import Network.AWS.ElasticFileSystem.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticFileSystem.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeMountTargets' smart constructor.
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'dmtMarker'
 --
 -- * 'dmtFileSystemId'
-data DescribeMountTargets = DescribeMountTargets'{_dmtMaxItems :: Maybe Nat, _dmtMarker :: Maybe Text, _dmtFileSystemId :: Text} deriving (Eq, Read, Show)
+data DescribeMountTargets = DescribeMountTargets'
+    { _dmtMaxItems     :: Maybe Nat
+    , _dmtMarker       :: Maybe Text
+    , _dmtFileSystemId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMountTargets' smart constructor.
 describeMountTargets :: Text -> DescribeMountTargets
-describeMountTargets pFileSystemId = DescribeMountTargets'{_dmtMaxItems = Nothing, _dmtMarker = Nothing, _dmtFileSystemId = pFileSystemId};
+describeMountTargets pFileSystemId =
+    DescribeMountTargets'
+    { _dmtMaxItems = Nothing
+    , _dmtMarker = Nothing
+    , _dmtFileSystemId = pFileSystemId
+    }
 
 -- | Optional. Maximum number of mount targets to return in the response. It
 -- must be an integer with a value greater than zero.
@@ -115,12 +124,23 @@ instance ToQuery DescribeMountTargets where
 --
 -- * 'dmtrNextMarker'
 --
--- * 'dmtrStatusCode'
-data DescribeMountTargetsResponse = DescribeMountTargetsResponse'{_dmtrMountTargets :: Maybe [MountTargetDescription], _dmtrMarker :: Maybe Text, _dmtrNextMarker :: Maybe Text, _dmtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dmtrStatus'
+data DescribeMountTargetsResponse = DescribeMountTargetsResponse'
+    { _dmtrMountTargets :: Maybe [MountTargetDescription]
+    , _dmtrMarker       :: Maybe Text
+    , _dmtrNextMarker   :: Maybe Text
+    , _dmtrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMountTargetsResponse' smart constructor.
 describeMountTargetsResponse :: Int -> DescribeMountTargetsResponse
-describeMountTargetsResponse pStatusCode = DescribeMountTargetsResponse'{_dmtrMountTargets = Nothing, _dmtrMarker = Nothing, _dmtrNextMarker = Nothing, _dmtrStatusCode = pStatusCode};
+describeMountTargetsResponse pStatus =
+    DescribeMountTargetsResponse'
+    { _dmtrMountTargets = Nothing
+    , _dmtrMarker = Nothing
+    , _dmtrNextMarker = Nothing
+    , _dmtrStatus = pStatus
+    }
 
 -- | Returns the file system\'s mount targets as an array of
 -- @MountTargetDescription@ objects.
@@ -139,5 +159,5 @@ dmtrNextMarker :: Lens' DescribeMountTargetsResponse (Maybe Text)
 dmtrNextMarker = lens _dmtrNextMarker (\ s a -> s{_dmtrNextMarker = a});
 
 -- | FIXME: Undocumented member.
-dmtrStatusCode :: Lens' DescribeMountTargetsResponse Int
-dmtrStatusCode = lens _dmtrStatusCode (\ s a -> s{_dmtrStatusCode = a});
+dmtrStatus :: Lens' DescribeMountTargetsResponse Int
+dmtrStatus = lens _dmtrStatus (\ s a -> s{_dmtrStatus = a});

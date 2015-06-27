@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateGatewayInformation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
     , updateGatewayInformationResponse
     -- ** Response lenses
     , ugirGatewayARN
-    , ugirStatusCode
+    , ugirStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'updateGatewayInformation' smart constructor.
 --
@@ -53,11 +53,20 @@ import Network.AWS.StorageGateway.Types
 -- * 'ugiGatewayTimezone'
 --
 -- * 'ugiGatewayARN'
-data UpdateGatewayInformation = UpdateGatewayInformation'{_ugiGatewayName :: Maybe Text, _ugiGatewayTimezone :: Maybe Text, _ugiGatewayARN :: Text} deriving (Eq, Read, Show)
+data UpdateGatewayInformation = UpdateGatewayInformation'
+    { _ugiGatewayName     :: Maybe Text
+    , _ugiGatewayTimezone :: Maybe Text
+    , _ugiGatewayARN      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateGatewayInformation' smart constructor.
 updateGatewayInformation :: Text -> UpdateGatewayInformation
-updateGatewayInformation pGatewayARN = UpdateGatewayInformation'{_ugiGatewayName = Nothing, _ugiGatewayTimezone = Nothing, _ugiGatewayARN = pGatewayARN};
+updateGatewayInformation pGatewayARN =
+    UpdateGatewayInformation'
+    { _ugiGatewayName = Nothing
+    , _ugiGatewayTimezone = Nothing
+    , _ugiGatewayARN = pGatewayARN
+    }
 
 -- | FIXME: Undocumented member.
 ugiGatewayName :: Lens' UpdateGatewayInformation (Maybe Text)
@@ -113,17 +122,24 @@ instance ToQuery UpdateGatewayInformation where
 --
 -- * 'ugirGatewayARN'
 --
--- * 'ugirStatusCode'
-data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'{_ugirGatewayARN :: Maybe Text, _ugirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ugirStatus'
+data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
+    { _ugirGatewayARN :: Maybe Text
+    , _ugirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateGatewayInformationResponse' smart constructor.
 updateGatewayInformationResponse :: Int -> UpdateGatewayInformationResponse
-updateGatewayInformationResponse pStatusCode = UpdateGatewayInformationResponse'{_ugirGatewayARN = Nothing, _ugirStatusCode = pStatusCode};
+updateGatewayInformationResponse pStatus =
+    UpdateGatewayInformationResponse'
+    { _ugirGatewayARN = Nothing
+    , _ugirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ugirGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugirGatewayARN = lens _ugirGatewayARN (\ s a -> s{_ugirGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-ugirStatusCode :: Lens' UpdateGatewayInformationResponse Int
-ugirStatusCode = lens _ugirStatusCode (\ s a -> s{_ugirStatusCode = a});
+ugirStatus :: Lens' UpdateGatewayInformationResponse Int
+ugirStatus = lens _ugirStatus (\ s a -> s{_ugirStatus = a});

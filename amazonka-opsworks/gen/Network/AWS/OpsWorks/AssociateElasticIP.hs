@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.AssociateElasticIP
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,10 +42,10 @@ module Network.AWS.OpsWorks.AssociateElasticIP
     , associateElasticIPResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'associateElasticIP' smart constructor.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'aeiInstanceId'
 --
 -- * 'aeiElasticIP'
-data AssociateElasticIP = AssociateElasticIP'{_aeiInstanceId :: Maybe Text, _aeiElasticIP :: Text} deriving (Eq, Read, Show)
+data AssociateElasticIP = AssociateElasticIP'
+    { _aeiInstanceId :: Maybe Text
+    , _aeiElasticIP  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AssociateElasticIP' smart constructor.
 associateElasticIP :: Text -> AssociateElasticIP
-associateElasticIP pElasticIP = AssociateElasticIP'{_aeiInstanceId = Nothing, _aeiElasticIP = pElasticIP};
+associateElasticIP pElasticIP =
+    AssociateElasticIP'
+    { _aeiInstanceId = Nothing
+    , _aeiElasticIP = pElasticIP
+    }
 
 -- | The instance ID.
 aeiInstanceId :: Lens' AssociateElasticIP (Maybe Text)
@@ -98,8 +105,10 @@ instance ToQuery AssociateElasticIP where
         toQuery = const mempty
 
 -- | /See:/ 'associateElasticIPResponse' smart constructor.
-data AssociateElasticIPResponse = AssociateElasticIPResponse' deriving (Eq, Read, Show)
+data AssociateElasticIPResponse =
+    AssociateElasticIPResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AssociateElasticIPResponse' smart constructor.
 associateElasticIPResponse :: AssociateElasticIPResponse
-associateElasticIPResponse = AssociateElasticIPResponse';
+associateElasticIPResponse = AssociateElasticIPResponse'

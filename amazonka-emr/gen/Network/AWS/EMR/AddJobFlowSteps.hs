@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.AddJobFlowSteps
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,13 +57,13 @@ module Network.AWS.EMR.AddJobFlowSteps
     , addJobFlowStepsResponse
     -- ** Response lenses
     , ajfsrStepIds
-    , ajfsrStatusCode
+    , ajfsrStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input argument to the AddJobFlowSteps operation.
 --
@@ -74,11 +74,18 @@ import Network.AWS.Response
 -- * 'ajfsJobFlowId'
 --
 -- * 'ajfsSteps'
-data AddJobFlowSteps = AddJobFlowSteps'{_ajfsJobFlowId :: Text, _ajfsSteps :: [StepConfig]} deriving (Eq, Read, Show)
+data AddJobFlowSteps = AddJobFlowSteps'
+    { _ajfsJobFlowId :: Text
+    , _ajfsSteps     :: [StepConfig]
+    } deriving (Eq,Read,Show)
 
 -- | 'AddJobFlowSteps' smart constructor.
 addJobFlowSteps :: Text -> AddJobFlowSteps
-addJobFlowSteps pJobFlowId = AddJobFlowSteps'{_ajfsJobFlowId = pJobFlowId, _ajfsSteps = mempty};
+addJobFlowSteps pJobFlowId =
+    AddJobFlowSteps'
+    { _ajfsJobFlowId = pJobFlowId
+    , _ajfsSteps = mempty
+    }
 
 -- | A string that uniquely identifies the job flow. This identifier is
 -- returned by RunJobFlow and can also be obtained from ListClusters.
@@ -128,17 +135,24 @@ instance ToQuery AddJobFlowSteps where
 --
 -- * 'ajfsrStepIds'
 --
--- * 'ajfsrStatusCode'
-data AddJobFlowStepsResponse = AddJobFlowStepsResponse'{_ajfsrStepIds :: Maybe [Text], _ajfsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ajfsrStatus'
+data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
+    { _ajfsrStepIds :: Maybe [Text]
+    , _ajfsrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AddJobFlowStepsResponse' smart constructor.
 addJobFlowStepsResponse :: Int -> AddJobFlowStepsResponse
-addJobFlowStepsResponse pStatusCode = AddJobFlowStepsResponse'{_ajfsrStepIds = Nothing, _ajfsrStatusCode = pStatusCode};
+addJobFlowStepsResponse pStatus =
+    AddJobFlowStepsResponse'
+    { _ajfsrStepIds = Nothing
+    , _ajfsrStatus = pStatus
+    }
 
 -- | The identifiers of the list of steps added to the job flow.
 ajfsrStepIds :: Lens' AddJobFlowStepsResponse [Text]
 ajfsrStepIds = lens _ajfsrStepIds (\ s a -> s{_ajfsrStepIds = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ajfsrStatusCode :: Lens' AddJobFlowStepsResponse Int
-ajfsrStatusCode = lens _ajfsrStatusCode (\ s a -> s{_ajfsrStatusCode = a});
+ajfsrStatus :: Lens' AddJobFlowStepsResponse Int
+ajfsrStatus = lens _ajfsrStatus (\ s a -> s{_ajfsrStatus = a});

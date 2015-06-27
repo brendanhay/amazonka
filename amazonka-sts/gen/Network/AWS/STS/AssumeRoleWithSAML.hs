@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.STS.AssumeRoleWithSAML
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -96,13 +96,13 @@ module Network.AWS.STS.AssumeRoleWithSAML
     , arwsamlrNameQualifier
     , arwsamlrAssumedRoleUser
     , arwsamlrIssuer
-    , arwsamlrStatusCode
+    , arwsamlrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.STS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.STS.Types
 
 -- | /See:/ 'assumeRoleWithSAML' smart constructor.
 --
@@ -117,11 +117,24 @@ import Network.AWS.STS.Types
 -- * 'arwsamlPrincipalARN'
 --
 -- * 'arwsamlSAMLAssertion'
-data AssumeRoleWithSAML = AssumeRoleWithSAML'{_arwsamlDurationSeconds :: Maybe Nat, _arwsamlPolicy :: Maybe Text, _arwsamlRoleARN :: Text, _arwsamlPrincipalARN :: Text, _arwsamlSAMLAssertion :: Text} deriving (Eq, Read, Show)
+data AssumeRoleWithSAML = AssumeRoleWithSAML'
+    { _arwsamlDurationSeconds :: Maybe Nat
+    , _arwsamlPolicy          :: Maybe Text
+    , _arwsamlRoleARN         :: Text
+    , _arwsamlPrincipalARN    :: Text
+    , _arwsamlSAMLAssertion   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AssumeRoleWithSAML' smart constructor.
 assumeRoleWithSAML :: Text -> Text -> Text -> AssumeRoleWithSAML
-assumeRoleWithSAML pRoleARN pPrincipalARN pSAMLAssertion = AssumeRoleWithSAML'{_arwsamlDurationSeconds = Nothing, _arwsamlPolicy = Nothing, _arwsamlRoleARN = pRoleARN, _arwsamlPrincipalARN = pPrincipalARN, _arwsamlSAMLAssertion = pSAMLAssertion};
+assumeRoleWithSAML pRoleARN pPrincipalARN pSAMLAssertion =
+    AssumeRoleWithSAML'
+    { _arwsamlDurationSeconds = Nothing
+    , _arwsamlPolicy = Nothing
+    , _arwsamlRoleARN = pRoleARN
+    , _arwsamlPrincipalARN = pPrincipalARN
+    , _arwsamlSAMLAssertion = pSAMLAssertion
+    }
 
 -- | The duration, in seconds, of the role session. The value can range from
 -- 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value
@@ -228,12 +241,33 @@ instance ToQuery AssumeRoleWithSAML where
 --
 -- * 'arwsamlrIssuer'
 --
--- * 'arwsamlrStatusCode'
-data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'{_arwsamlrAudience :: Maybe Text, _arwsamlrSubject :: Maybe Text, _arwsamlrPackedPolicySize :: Maybe Nat, _arwsamlrCredentials :: Maybe Credentials, _arwsamlrSubjectType :: Maybe Text, _arwsamlrNameQualifier :: Maybe Text, _arwsamlrAssumedRoleUser :: Maybe AssumedRoleUser, _arwsamlrIssuer :: Maybe Text, _arwsamlrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'arwsamlrStatus'
+data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
+    { _arwsamlrAudience         :: Maybe Text
+    , _arwsamlrSubject          :: Maybe Text
+    , _arwsamlrPackedPolicySize :: Maybe Nat
+    , _arwsamlrCredentials      :: Maybe Credentials
+    , _arwsamlrSubjectType      :: Maybe Text
+    , _arwsamlrNameQualifier    :: Maybe Text
+    , _arwsamlrAssumedRoleUser  :: Maybe AssumedRoleUser
+    , _arwsamlrIssuer           :: Maybe Text
+    , _arwsamlrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AssumeRoleWithSAMLResponse' smart constructor.
 assumeRoleWithSAMLResponse :: Int -> AssumeRoleWithSAMLResponse
-assumeRoleWithSAMLResponse pStatusCode = AssumeRoleWithSAMLResponse'{_arwsamlrAudience = Nothing, _arwsamlrSubject = Nothing, _arwsamlrPackedPolicySize = Nothing, _arwsamlrCredentials = Nothing, _arwsamlrSubjectType = Nothing, _arwsamlrNameQualifier = Nothing, _arwsamlrAssumedRoleUser = Nothing, _arwsamlrIssuer = Nothing, _arwsamlrStatusCode = pStatusCode};
+assumeRoleWithSAMLResponse pStatus =
+    AssumeRoleWithSAMLResponse'
+    { _arwsamlrAudience = Nothing
+    , _arwsamlrSubject = Nothing
+    , _arwsamlrPackedPolicySize = Nothing
+    , _arwsamlrCredentials = Nothing
+    , _arwsamlrSubjectType = Nothing
+    , _arwsamlrNameQualifier = Nothing
+    , _arwsamlrAssumedRoleUser = Nothing
+    , _arwsamlrIssuer = Nothing
+    , _arwsamlrStatus = pStatus
+    }
 
 -- | The value of the @Recipient@ attribute of the @SubjectConfirmationData@
 -- element of the SAML assertion.
@@ -287,5 +321,5 @@ arwsamlrIssuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrIssuer = lens _arwsamlrIssuer (\ s a -> s{_arwsamlrIssuer = a});
 
 -- | FIXME: Undocumented member.
-arwsamlrStatusCode :: Lens' AssumeRoleWithSAMLResponse Int
-arwsamlrStatusCode = lens _arwsamlrStatusCode (\ s a -> s{_arwsamlrStatusCode = a});
+arwsamlrStatus :: Lens' AssumeRoleWithSAMLResponse Int
+arwsamlrStatus = lens _arwsamlrStatus (\ s a -> s{_arwsamlrStatus = a});

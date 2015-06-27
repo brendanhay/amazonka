@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteReplicationGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.ElastiCache.DeleteReplicationGroup
     , deleteReplicationGroupResponse
     -- ** Response lenses
     , delReplicationGroup
-    , delStatusCode
+    , delStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DeleteReplicationGroup/ action.
 --
@@ -61,11 +61,20 @@ import Network.AWS.Response
 -- * 'drgRetainPrimaryCluster'
 --
 -- * 'drgReplicationGroupId'
-data DeleteReplicationGroup = DeleteReplicationGroup'{_drgFinalSnapshotIdentifier :: Maybe Text, _drgRetainPrimaryCluster :: Maybe Bool, _drgReplicationGroupId :: Text} deriving (Eq, Read, Show)
+data DeleteReplicationGroup = DeleteReplicationGroup'
+    { _drgFinalSnapshotIdentifier :: Maybe Text
+    , _drgRetainPrimaryCluster    :: Maybe Bool
+    , _drgReplicationGroupId      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteReplicationGroup' smart constructor.
 deleteReplicationGroup :: Text -> DeleteReplicationGroup
-deleteReplicationGroup pReplicationGroupId = DeleteReplicationGroup'{_drgFinalSnapshotIdentifier = Nothing, _drgRetainPrimaryCluster = Nothing, _drgReplicationGroupId = pReplicationGroupId};
+deleteReplicationGroup pReplicationGroupId =
+    DeleteReplicationGroup'
+    { _drgFinalSnapshotIdentifier = Nothing
+    , _drgRetainPrimaryCluster = Nothing
+    , _drgReplicationGroupId = pReplicationGroupId
+    }
 
 -- | The name of a final node group snapshot. ElastiCache creates the
 -- snapshot from the primary node in the cluster, rather than one of the
@@ -118,17 +127,24 @@ instance ToQuery DeleteReplicationGroup where
 --
 -- * 'delReplicationGroup'
 --
--- * 'delStatusCode'
-data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'{_delReplicationGroup :: Maybe ReplicationGroup, _delStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'delStatus'
+data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
+    { _delReplicationGroup :: Maybe ReplicationGroup
+    , _delStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteReplicationGroupResponse' smart constructor.
 deleteReplicationGroupResponse :: Int -> DeleteReplicationGroupResponse
-deleteReplicationGroupResponse pStatusCode = DeleteReplicationGroupResponse'{_delReplicationGroup = Nothing, _delStatusCode = pStatusCode};
+deleteReplicationGroupResponse pStatus =
+    DeleteReplicationGroupResponse'
+    { _delReplicationGroup = Nothing
+    , _delStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 delReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
 delReplicationGroup = lens _delReplicationGroup (\ s a -> s{_delReplicationGroup = a});
 
 -- | FIXME: Undocumented member.
-delStatusCode :: Lens' DeleteReplicationGroupResponse Int
-delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});
+delStatus :: Lens' DeleteReplicationGroupResponse Int
+delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

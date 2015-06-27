@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.DeprecateActivityType
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,10 +62,10 @@ module Network.AWS.SWF.DeprecateActivityType
     , deprecateActivityTypeResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'deprecateActivityType' smart constructor.
 --
@@ -74,11 +74,18 @@ import Network.AWS.SWF.Types
 -- * 'dDomain'
 --
 -- * 'dActivityType'
-data DeprecateActivityType = DeprecateActivityType'{_dDomain :: Text, _dActivityType :: ActivityType} deriving (Eq, Read, Show)
+data DeprecateActivityType = DeprecateActivityType'
+    { _dDomain       :: Text
+    , _dActivityType :: ActivityType
+    } deriving (Eq,Read,Show)
 
 -- | 'DeprecateActivityType' smart constructor.
 deprecateActivityType :: Text -> ActivityType -> DeprecateActivityType
-deprecateActivityType pDomain pActivityType = DeprecateActivityType'{_dDomain = pDomain, _dActivityType = pActivityType};
+deprecateActivityType pDomain pActivityType =
+    DeprecateActivityType'
+    { _dDomain = pDomain
+    , _dActivityType = pActivityType
+    }
 
 -- | The name of the domain in which the activity type is registered.
 dDomain :: Lens' DeprecateActivityType Text
@@ -118,8 +125,10 @@ instance ToQuery DeprecateActivityType where
         toQuery = const mempty
 
 -- | /See:/ 'deprecateActivityTypeResponse' smart constructor.
-data DeprecateActivityTypeResponse = DeprecateActivityTypeResponse' deriving (Eq, Read, Show)
+data DeprecateActivityTypeResponse =
+    DeprecateActivityTypeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeprecateActivityTypeResponse' smart constructor.
 deprecateActivityTypeResponse :: DeprecateActivityTypeResponse
-deprecateActivityTypeResponse = DeprecateActivityTypeResponse';
+deprecateActivityTypeResponse = DeprecateActivityTypeResponse'

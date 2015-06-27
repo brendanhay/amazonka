@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteCacheParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.ElastiCache.DeleteCacheParameterGroup
     , deleteCacheParameterGroupResponse
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DeleteCacheParameterGroup/ action.
 --
@@ -46,11 +46,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delCacheParameterGroupName'
-newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup'{_delCacheParameterGroupName :: Text} deriving (Eq, Read, Show)
+newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup'
+    { _delCacheParameterGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteCacheParameterGroup' smart constructor.
 deleteCacheParameterGroup :: Text -> DeleteCacheParameterGroup
-deleteCacheParameterGroup pCacheParameterGroupName = DeleteCacheParameterGroup'{_delCacheParameterGroupName = pCacheParameterGroupName};
+deleteCacheParameterGroup pCacheParameterGroupName =
+    DeleteCacheParameterGroup'
+    { _delCacheParameterGroupName = pCacheParameterGroupName
+    }
 
 -- | The name of the cache parameter group to delete.
 --
@@ -83,8 +88,10 @@ instance ToQuery DeleteCacheParameterGroup where
                  _delCacheParameterGroupName]
 
 -- | /See:/ 'deleteCacheParameterGroupResponse' smart constructor.
-data DeleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse' deriving (Eq, Read, Show)
+data DeleteCacheParameterGroupResponse =
+    DeleteCacheParameterGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteCacheParameterGroupResponse' smart constructor.
 deleteCacheParameterGroupResponse :: DeleteCacheParameterGroupResponse
-deleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse';
+deleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse'

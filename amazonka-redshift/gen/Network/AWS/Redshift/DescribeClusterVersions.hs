@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterVersions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,14 +41,14 @@ module Network.AWS.Redshift.DescribeClusterVersions
     -- ** Response lenses
     , dcvrClusterVersions
     , dcvrMarker
-    , dcvrStatusCode
+    , dcvrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeClusterVersions' smart constructor.
 --
@@ -61,11 +61,22 @@ import Network.AWS.Response
 -- * 'dcvClusterParameterGroupFamily'
 --
 -- * 'dcvClusterVersion'
-data DescribeClusterVersions = DescribeClusterVersions'{_dcvMaxRecords :: Maybe Int, _dcvMarker :: Maybe Text, _dcvClusterParameterGroupFamily :: Maybe Text, _dcvClusterVersion :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusterVersions = DescribeClusterVersions'
+    { _dcvMaxRecords                  :: Maybe Int
+    , _dcvMarker                      :: Maybe Text
+    , _dcvClusterParameterGroupFamily :: Maybe Text
+    , _dcvClusterVersion              :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterVersions' smart constructor.
 describeClusterVersions :: DescribeClusterVersions
-describeClusterVersions = DescribeClusterVersions'{_dcvMaxRecords = Nothing, _dcvMarker = Nothing, _dcvClusterParameterGroupFamily = Nothing, _dcvClusterVersion = Nothing};
+describeClusterVersions =
+    DescribeClusterVersions'
+    { _dcvMaxRecords = Nothing
+    , _dcvMarker = Nothing
+    , _dcvClusterParameterGroupFamily = Nothing
+    , _dcvClusterVersion = Nothing
+    }
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -154,12 +165,21 @@ instance ToQuery DescribeClusterVersions where
 --
 -- * 'dcvrMarker'
 --
--- * 'dcvrStatusCode'
-data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'{_dcvrClusterVersions :: Maybe [ClusterVersion], _dcvrMarker :: Maybe Text, _dcvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcvrStatus'
+data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'
+    { _dcvrClusterVersions :: Maybe [ClusterVersion]
+    , _dcvrMarker          :: Maybe Text
+    , _dcvrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterVersionsResponse' smart constructor.
 describeClusterVersionsResponse :: Int -> DescribeClusterVersionsResponse
-describeClusterVersionsResponse pStatusCode = DescribeClusterVersionsResponse'{_dcvrClusterVersions = Nothing, _dcvrMarker = Nothing, _dcvrStatusCode = pStatusCode};
+describeClusterVersionsResponse pStatus =
+    DescribeClusterVersionsResponse'
+    { _dcvrClusterVersions = Nothing
+    , _dcvrMarker = Nothing
+    , _dcvrStatus = pStatus
+    }
 
 -- | A list of @Version@ elements.
 dcvrClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
@@ -175,5 +195,5 @@ dcvrMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
 dcvrMarker = lens _dcvrMarker (\ s a -> s{_dcvrMarker = a});
 
 -- | FIXME: Undocumented member.
-dcvrStatusCode :: Lens' DescribeClusterVersionsResponse Int
-dcvrStatusCode = lens _dcvrStatusCode (\ s a -> s{_dcvrStatusCode = a});
+dcvrStatus :: Lens' DescribeClusterVersionsResponse Int
+dcvrStatus = lens _dcvrStatus (\ s a -> s{_dcvrStatus = a});

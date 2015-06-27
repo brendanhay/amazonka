@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.ListContainerInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,14 +35,14 @@ module Network.AWS.ECS.ListContainerInstances
     -- ** Response lenses
     , lcirContainerInstanceARNs
     , lcirNextToken
-    , lcirStatusCode
+    , lcirStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listContainerInstances' smart constructor.
 --
@@ -53,11 +53,20 @@ import Network.AWS.Response
 -- * 'lciNextToken'
 --
 -- * 'lciMaxResults'
-data ListContainerInstances = ListContainerInstances'{_lciCluster :: Maybe Text, _lciNextToken :: Maybe Text, _lciMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data ListContainerInstances = ListContainerInstances'
+    { _lciCluster    :: Maybe Text
+    , _lciNextToken  :: Maybe Text
+    , _lciMaxResults :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListContainerInstances' smart constructor.
 listContainerInstances :: ListContainerInstances
-listContainerInstances = ListContainerInstances'{_lciCluster = Nothing, _lciNextToken = Nothing, _lciMaxResults = Nothing};
+listContainerInstances =
+    ListContainerInstances'
+    { _lciCluster = Nothing
+    , _lciNextToken = Nothing
+    , _lciMaxResults = Nothing
+    }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the container instances you want to list. If you do not specify a
@@ -136,12 +145,21 @@ instance ToQuery ListContainerInstances where
 --
 -- * 'lcirNextToken'
 --
--- * 'lcirStatusCode'
-data ListContainerInstancesResponse = ListContainerInstancesResponse'{_lcirContainerInstanceARNs :: Maybe [Text], _lcirNextToken :: Maybe Text, _lcirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lcirStatus'
+data ListContainerInstancesResponse = ListContainerInstancesResponse'
+    { _lcirContainerInstanceARNs :: Maybe [Text]
+    , _lcirNextToken             :: Maybe Text
+    , _lcirStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListContainerInstancesResponse' smart constructor.
 listContainerInstancesResponse :: Int -> ListContainerInstancesResponse
-listContainerInstancesResponse pStatusCode = ListContainerInstancesResponse'{_lcirContainerInstanceARNs = Nothing, _lcirNextToken = Nothing, _lcirStatusCode = pStatusCode};
+listContainerInstancesResponse pStatus =
+    ListContainerInstancesResponse'
+    { _lcirContainerInstanceARNs = Nothing
+    , _lcirNextToken = Nothing
+    , _lcirStatus = pStatus
+    }
 
 -- | The list of container instance full Amazon Resource Name (ARN) entries
 -- for each container instance associated with the specified cluster.
@@ -156,5 +174,5 @@ lcirNextToken :: Lens' ListContainerInstancesResponse (Maybe Text)
 lcirNextToken = lens _lcirNextToken (\ s a -> s{_lcirNextToken = a});
 
 -- | FIXME: Undocumented member.
-lcirStatusCode :: Lens' ListContainerInstancesResponse Int
-lcirStatusCode = lens _lcirStatusCode (\ s a -> s{_lcirStatusCode = a});
+lcirStatus :: Lens' ListContainerInstancesResponse Int
+lcirStatus = lens _lcirStatus (\ s a -> s{_lcirStatus = a});

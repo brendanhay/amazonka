@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatch.DescribeAlarmHistory
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,14 +40,14 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     -- ** Response lenses
     , dahrAlarmHistoryItems
     , dahrNextToken
-    , dahrStatusCode
+    , dahrStatus
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAlarmHistory' smart constructor.
 --
@@ -64,11 +64,26 @@ import Network.AWS.Response
 -- * 'dahNextToken'
 --
 -- * 'dahMaxRecords'
-data DescribeAlarmHistory = DescribeAlarmHistory'{_dahAlarmName :: Maybe Text, _dahHistoryItemType :: Maybe HistoryItemType, _dahEndDate :: Maybe ISO8601, _dahStartDate :: Maybe ISO8601, _dahNextToken :: Maybe Text, _dahMaxRecords :: Maybe Nat} deriving (Eq, Read, Show)
+data DescribeAlarmHistory = DescribeAlarmHistory'
+    { _dahAlarmName       :: Maybe Text
+    , _dahHistoryItemType :: Maybe HistoryItemType
+    , _dahEndDate         :: Maybe ISO8601
+    , _dahStartDate       :: Maybe ISO8601
+    , _dahNextToken       :: Maybe Text
+    , _dahMaxRecords      :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAlarmHistory' smart constructor.
 describeAlarmHistory :: DescribeAlarmHistory
-describeAlarmHistory = DescribeAlarmHistory'{_dahAlarmName = Nothing, _dahHistoryItemType = Nothing, _dahEndDate = Nothing, _dahStartDate = Nothing, _dahNextToken = Nothing, _dahMaxRecords = Nothing};
+describeAlarmHistory =
+    DescribeAlarmHistory'
+    { _dahAlarmName = Nothing
+    , _dahHistoryItemType = Nothing
+    , _dahEndDate = Nothing
+    , _dahStartDate = Nothing
+    , _dahNextToken = Nothing
+    , _dahMaxRecords = Nothing
+    }
 
 -- | The name of the alarm.
 dahAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
@@ -144,12 +159,21 @@ instance ToQuery DescribeAlarmHistory where
 --
 -- * 'dahrNextToken'
 --
--- * 'dahrStatusCode'
-data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'{_dahrAlarmHistoryItems :: Maybe [AlarmHistoryItem], _dahrNextToken :: Maybe Text, _dahrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dahrStatus'
+data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
+    { _dahrAlarmHistoryItems :: Maybe [AlarmHistoryItem]
+    , _dahrNextToken         :: Maybe Text
+    , _dahrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAlarmHistoryResponse' smart constructor.
 describeAlarmHistoryResponse :: Int -> DescribeAlarmHistoryResponse
-describeAlarmHistoryResponse pStatusCode = DescribeAlarmHistoryResponse'{_dahrAlarmHistoryItems = Nothing, _dahrNextToken = Nothing, _dahrStatusCode = pStatusCode};
+describeAlarmHistoryResponse pStatus =
+    DescribeAlarmHistoryResponse'
+    { _dahrAlarmHistoryItems = Nothing
+    , _dahrNextToken = Nothing
+    , _dahrStatus = pStatus
+    }
 
 -- | A list of alarm histories in JSON format.
 dahrAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
@@ -160,5 +184,5 @@ dahrNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
 dahrNextToken = lens _dahrNextToken (\ s a -> s{_dahrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dahrStatusCode :: Lens' DescribeAlarmHistoryResponse Int
-dahrStatusCode = lens _dahrStatusCode (\ s a -> s{_dahrStatusCode = a});
+dahrStatus :: Lens' DescribeAlarmHistoryResponse Int
+dahrStatus = lens _dahrStatus (\ s a -> s{_dahrStatus = a});

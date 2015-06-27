@@ -21,11 +21,11 @@ module Network.AWS.ImportExport
     ( module Export
     ) where
 
-import Network.AWS.ImportExport.CancelJob as Export
-import Network.AWS.ImportExport.CreateJob as Export
-import Network.AWS.ImportExport.GetShippingLabel as Export
-import Network.AWS.ImportExport.GetStatus as Export
-import Network.AWS.ImportExport.ListJobs as Export
-import Network.AWS.ImportExport.Types as Export
-import Network.AWS.ImportExport.UpdateJob as Export
-import Network.AWS.ImportExport.Waiters as Export
+import           Network.AWS.ImportExport.CancelJob        as Export
+import           Network.AWS.ImportExport.CreateJob        as Export
+import           Network.AWS.ImportExport.GetShippingLabel as Export
+import           Network.AWS.ImportExport.GetStatus        as Export
+import           Network.AWS.ImportExport.ListJobs         as Export
+import           Network.AWS.ImportExport.Types            as Export
+import           Network.AWS.ImportExport.UpdateJob        as Export
+import           Network.AWS.ImportExport.Waiters          as Export

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.ExitStandby
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.AutoScaling.ExitStandby
     , exitStandbyResponse
     -- ** Response lenses
     , exiActivities
-    , exiStatusCode
+    , exiStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'exitStandby' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'exiInstanceIds'
 --
 -- * 'exiAutoScalingGroupName'
-data ExitStandby = ExitStandby'{_exiInstanceIds :: Maybe [Text], _exiAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data ExitStandby = ExitStandby'
+    { _exiInstanceIds          :: Maybe [Text]
+    , _exiAutoScalingGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ExitStandby' smart constructor.
 exitStandby :: Text -> ExitStandby
-exitStandby pAutoScalingGroupName = ExitStandby'{_exiInstanceIds = Nothing, _exiAutoScalingGroupName = pAutoScalingGroupName};
+exitStandby pAutoScalingGroupName =
+    ExitStandby'
+    { _exiInstanceIds = Nothing
+    , _exiAutoScalingGroupName = pAutoScalingGroupName
+    }
 
 -- | One or more instance IDs. You must specify at least one instance ID.
 exiInstanceIds :: Lens' ExitStandby [Text]
@@ -99,17 +106,24 @@ instance ToQuery ExitStandby where
 --
 -- * 'exiActivities'
 --
--- * 'exiStatusCode'
-data ExitStandbyResponse = ExitStandbyResponse'{_exiActivities :: Maybe [Activity], _exiStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'exiStatus'
+data ExitStandbyResponse = ExitStandbyResponse'
+    { _exiActivities :: Maybe [Activity]
+    , _exiStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ExitStandbyResponse' smart constructor.
 exitStandbyResponse :: Int -> ExitStandbyResponse
-exitStandbyResponse pStatusCode = ExitStandbyResponse'{_exiActivities = Nothing, _exiStatusCode = pStatusCode};
+exitStandbyResponse pStatus =
+    ExitStandbyResponse'
+    { _exiActivities = Nothing
+    , _exiStatus = pStatus
+    }
 
 -- | The activities related to moving instances out of @Standby@ mode.
 exiActivities :: Lens' ExitStandbyResponse [Activity]
 exiActivities = lens _exiActivities (\ s a -> s{_exiActivities = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-exiStatusCode :: Lens' ExitStandbyResponse Int
-exiStatusCode = lens _exiStatusCode (\ s a -> s{_exiStatusCode = a});
+exiStatus :: Lens' ExitStandbyResponse Int
+exiStatus = lens _exiStatus (\ s a -> s{_exiStatus = a});

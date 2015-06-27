@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.ListHostedZonesByName
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,13 +50,13 @@ module Network.AWS.Route53.ListHostedZonesByName
     , lhzbnrHostedZones
     , lhzbnrIsTruncated
     , lhzbnrMaxItems
-    , lhzbnrStatusCode
+    , lhzbnrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | To retrieve a list of your hosted zones in lexicographic order, send a
 -- @GET@ request to the @2013-04-01\/hostedzonesbyname@ resource. The
@@ -80,11 +80,20 @@ import Network.AWS.Route53.Types
 -- * 'lhzbnMaxItems'
 --
 -- * 'lhzbnDNSName'
-data ListHostedZonesByName = ListHostedZonesByName'{_lhzbnHostedZoneId :: Maybe Text, _lhzbnMaxItems :: Maybe Text, _lhzbnDNSName :: Maybe Text} deriving (Eq, Read, Show)
+data ListHostedZonesByName = ListHostedZonesByName'
+    { _lhzbnHostedZoneId :: Maybe Text
+    , _lhzbnMaxItems     :: Maybe Text
+    , _lhzbnDNSName      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListHostedZonesByName' smart constructor.
 listHostedZonesByName :: ListHostedZonesByName
-listHostedZonesByName = ListHostedZonesByName'{_lhzbnHostedZoneId = Nothing, _lhzbnMaxItems = Nothing, _lhzbnDNSName = Nothing};
+listHostedZonesByName =
+    ListHostedZonesByName'
+    { _lhzbnHostedZoneId = Nothing
+    , _lhzbnMaxItems = Nothing
+    , _lhzbnDNSName = Nothing
+    }
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of @NextDNSName@ and @NextHostedZoneId@
@@ -160,12 +169,31 @@ instance ToQuery ListHostedZonesByName where
 --
 -- * 'lhzbnrMaxItems'
 --
--- * 'lhzbnrStatusCode'
-data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'{_lhzbnrHostedZoneId :: Maybe Text, _lhzbnrNextHostedZoneId :: Maybe Text, _lhzbnrDNSName :: Maybe Text, _lhzbnrNextDNSName :: Maybe Text, _lhzbnrHostedZones :: [HostedZone], _lhzbnrIsTruncated :: Bool, _lhzbnrMaxItems :: Text, _lhzbnrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lhzbnrStatus'
+data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
+    { _lhzbnrHostedZoneId     :: Maybe Text
+    , _lhzbnrNextHostedZoneId :: Maybe Text
+    , _lhzbnrDNSName          :: Maybe Text
+    , _lhzbnrNextDNSName      :: Maybe Text
+    , _lhzbnrHostedZones      :: [HostedZone]
+    , _lhzbnrIsTruncated      :: !Bool
+    , _lhzbnrMaxItems         :: Text
+    , _lhzbnrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListHostedZonesByNameResponse' smart constructor.
 listHostedZonesByNameResponse :: Bool -> Text -> Int -> ListHostedZonesByNameResponse
-listHostedZonesByNameResponse pIsTruncated pMaxItems pStatusCode = ListHostedZonesByNameResponse'{_lhzbnrHostedZoneId = Nothing, _lhzbnrNextHostedZoneId = Nothing, _lhzbnrDNSName = Nothing, _lhzbnrNextDNSName = Nothing, _lhzbnrHostedZones = mempty, _lhzbnrIsTruncated = pIsTruncated, _lhzbnrMaxItems = pMaxItems, _lhzbnrStatusCode = pStatusCode};
+listHostedZonesByNameResponse pIsTruncated pMaxItems pStatus =
+    ListHostedZonesByNameResponse'
+    { _lhzbnrHostedZoneId = Nothing
+    , _lhzbnrNextHostedZoneId = Nothing
+    , _lhzbnrDNSName = Nothing
+    , _lhzbnrNextDNSName = Nothing
+    , _lhzbnrHostedZones = mempty
+    , _lhzbnrIsTruncated = pIsTruncated
+    , _lhzbnrMaxItems = pMaxItems
+    , _lhzbnrStatus = pStatus
+    }
 
 -- | The @HostedZoneId@ value sent in the request.
 lhzbnrHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe Text)
@@ -220,5 +248,5 @@ lhzbnrMaxItems :: Lens' ListHostedZonesByNameResponse Text
 lhzbnrMaxItems = lens _lhzbnrMaxItems (\ s a -> s{_lhzbnrMaxItems = a});
 
 -- | FIXME: Undocumented member.
-lhzbnrStatusCode :: Lens' ListHostedZonesByNameResponse Int
-lhzbnrStatusCode = lens _lhzbnrStatusCode (\ s a -> s{_lhzbnrStatusCode = a});
+lhzbnrStatus :: Lens' ListHostedZonesByNameResponse Int
+lhzbnrStatus = lens _lhzbnrStatus (\ s a -> s{_lhzbnrStatus = a});

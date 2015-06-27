@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.ReportTaskProgress
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,13 +44,13 @@ module Network.AWS.DataPipeline.ReportTaskProgress
     , reportTaskProgressResponse
     -- ** Response lenses
     , rtprCanceled
-    , rtprStatusCode
+    , rtprStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for ReportTaskProgress.
 --
@@ -61,11 +61,18 @@ import Network.AWS.Response
 -- * 'rtpFields'
 --
 -- * 'rtpTaskId'
-data ReportTaskProgress = ReportTaskProgress'{_rtpFields :: Maybe [Field], _rtpTaskId :: Text} deriving (Eq, Read, Show)
+data ReportTaskProgress = ReportTaskProgress'
+    { _rtpFields :: Maybe [Field]
+    , _rtpTaskId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReportTaskProgress' smart constructor.
 reportTaskProgress :: Text -> ReportTaskProgress
-reportTaskProgress pTaskId = ReportTaskProgress'{_rtpFields = Nothing, _rtpTaskId = pTaskId};
+reportTaskProgress pTaskId =
+    ReportTaskProgress'
+    { _rtpFields = Nothing
+    , _rtpTaskId = pTaskId
+    }
 
 -- | Key-value pairs that define the properties of the
 -- ReportTaskProgressInput object.
@@ -116,12 +123,19 @@ instance ToQuery ReportTaskProgress where
 --
 -- * 'rtprCanceled'
 --
--- * 'rtprStatusCode'
-data ReportTaskProgressResponse = ReportTaskProgressResponse'{_rtprCanceled :: Bool, _rtprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rtprStatus'
+data ReportTaskProgressResponse = ReportTaskProgressResponse'
+    { _rtprCanceled :: !Bool
+    , _rtprStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ReportTaskProgressResponse' smart constructor.
 reportTaskProgressResponse :: Bool -> Int -> ReportTaskProgressResponse
-reportTaskProgressResponse pCanceled pStatusCode = ReportTaskProgressResponse'{_rtprCanceled = pCanceled, _rtprStatusCode = pStatusCode};
+reportTaskProgressResponse pCanceled pStatus =
+    ReportTaskProgressResponse'
+    { _rtprCanceled = pCanceled
+    , _rtprStatus = pStatus
+    }
 
 -- | If true, the calling task runner should cancel processing of the task.
 -- The task runner does not need to call SetTaskStatus for canceled tasks.
@@ -129,5 +143,5 @@ rtprCanceled :: Lens' ReportTaskProgressResponse Bool
 rtprCanceled = lens _rtprCanceled (\ s a -> s{_rtprCanceled = a});
 
 -- | FIXME: Undocumented member.
-rtprStatusCode :: Lens' ReportTaskProgressResponse Int
-rtprStatusCode = lens _rtprStatusCode (\ s a -> s{_rtprStatusCode = a});
+rtprStatus :: Lens' ReportTaskProgressResponse Int
+rtprStatus = lens _rtprStatus (\ s a -> s{_rtprStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Support.ResolveCase
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,24 +34,29 @@ module Network.AWS.Support.ResolveCase
     -- ** Response lenses
     , rcrInitialCaseStatus
     , rcrFinalCaseStatus
-    , rcrStatusCode
+    , rcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Support.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
 
 -- | /See:/ 'resolveCase' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rcCaseId'
-newtype ResolveCase = ResolveCase'{_rcCaseId :: Maybe Text} deriving (Eq, Read, Show)
+newtype ResolveCase = ResolveCase'
+    { _rcCaseId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ResolveCase' smart constructor.
 resolveCase :: ResolveCase
-resolveCase = ResolveCase'{_rcCaseId = Nothing};
+resolveCase =
+    ResolveCase'
+    { _rcCaseId = Nothing
+    }
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
@@ -100,12 +105,21 @@ instance ToQuery ResolveCase where
 --
 -- * 'rcrFinalCaseStatus'
 --
--- * 'rcrStatusCode'
-data ResolveCaseResponse = ResolveCaseResponse'{_rcrInitialCaseStatus :: Maybe Text, _rcrFinalCaseStatus :: Maybe Text, _rcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rcrStatus'
+data ResolveCaseResponse = ResolveCaseResponse'
+    { _rcrInitialCaseStatus :: Maybe Text
+    , _rcrFinalCaseStatus   :: Maybe Text
+    , _rcrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ResolveCaseResponse' smart constructor.
 resolveCaseResponse :: Int -> ResolveCaseResponse
-resolveCaseResponse pStatusCode = ResolveCaseResponse'{_rcrInitialCaseStatus = Nothing, _rcrFinalCaseStatus = Nothing, _rcrStatusCode = pStatusCode};
+resolveCaseResponse pStatus =
+    ResolveCaseResponse'
+    { _rcrInitialCaseStatus = Nothing
+    , _rcrFinalCaseStatus = Nothing
+    , _rcrStatus = pStatus
+    }
 
 -- | The status of the case when the ResolveCase request was sent.
 rcrInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
@@ -116,5 +130,5 @@ rcrFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrFinalCaseStatus = lens _rcrFinalCaseStatus (\ s a -> s{_rcrFinalCaseStatus = a});
 
 -- | FIXME: Undocumented member.
-rcrStatusCode :: Lens' ResolveCaseResponse Int
-rcrStatusCode = lens _rcrStatusCode (\ s a -> s{_rcrStatusCode = a});
+rcrStatus :: Lens' ResolveCaseResponse Int
+rcrStatus = lens _rcrStatus (\ s a -> s{_rcrStatus = a});

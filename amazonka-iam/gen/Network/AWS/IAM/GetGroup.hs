@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,14 +38,14 @@ module Network.AWS.IAM.GetGroup
     , ggrIsTruncated
     , ggrGroup
     , ggrUsers
-    , ggrStatusCode
+    , ggrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getGroup' smart constructor.
 --
@@ -56,11 +56,20 @@ import Network.AWS.Response
 -- * 'ggMarker'
 --
 -- * 'ggGroupName'
-data GetGroup = GetGroup'{_ggMaxItems :: Maybe Nat, _ggMarker :: Maybe Text, _ggGroupName :: Text} deriving (Eq, Read, Show)
+data GetGroup = GetGroup'
+    { _ggMaxItems  :: Maybe Nat
+    , _ggMarker    :: Maybe Text
+    , _ggGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetGroup' smart constructor.
 getGroup :: Text -> GetGroup
-getGroup pGroupName = GetGroup'{_ggMaxItems = Nothing, _ggMarker = Nothing, _ggGroupName = pGroupName};
+getGroup pGroupName =
+    GetGroup'
+    { _ggMaxItems = Nothing
+    , _ggMarker = Nothing
+    , _ggGroupName = pGroupName
+    }
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- groups you want in the response. If there are additional groups beyond
@@ -129,12 +138,25 @@ instance ToQuery GetGroup where
 --
 -- * 'ggrUsers'
 --
--- * 'ggrStatusCode'
-data GetGroupResponse = GetGroupResponse'{_ggrMarker :: Maybe Text, _ggrIsTruncated :: Maybe Bool, _ggrGroup :: Group, _ggrUsers :: [User], _ggrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ggrStatus'
+data GetGroupResponse = GetGroupResponse'
+    { _ggrMarker      :: Maybe Text
+    , _ggrIsTruncated :: Maybe Bool
+    , _ggrGroup       :: Group
+    , _ggrUsers       :: [User]
+    , _ggrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetGroupResponse' smart constructor.
 getGroupResponse :: Group -> Int -> GetGroupResponse
-getGroupResponse pGroup pStatusCode = GetGroupResponse'{_ggrMarker = Nothing, _ggrIsTruncated = Nothing, _ggrGroup = pGroup, _ggrUsers = mempty, _ggrStatusCode = pStatusCode};
+getGroupResponse pGroup pStatus =
+    GetGroupResponse'
+    { _ggrMarker = Nothing
+    , _ggrIsTruncated = Nothing
+    , _ggrGroup = pGroup
+    , _ggrUsers = mempty
+    , _ggrStatus = pStatus
+    }
 
 -- | If IsTruncated is @true@, then this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -158,5 +180,5 @@ ggrUsers :: Lens' GetGroupResponse [User]
 ggrUsers = lens _ggrUsers (\ s a -> s{_ggrUsers = a});
 
 -- | FIXME: Undocumented member.
-ggrStatusCode :: Lens' GetGroupResponse Int
-ggrStatusCode = lens _ggrStatusCode (\ s a -> s{_ggrStatusCode = a});
+ggrStatus :: Lens' GetGroupResponse Int
+ggrStatus = lens _ggrStatus (\ s a -> s{_ggrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.DeleteLunaClient
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,28 @@ module Network.AWS.CloudHSM.DeleteLunaClient
     , deleteLunaClientResponse
     -- ** Response lenses
     , dlcrStatus
-    , dlcrStatusCode
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteLunaClient' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delClientARN'
-newtype DeleteLunaClient = DeleteLunaClient'{_delClientARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteLunaClient = DeleteLunaClient'
+    { _delClientARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLunaClient' smart constructor.
 deleteLunaClient :: Text -> DeleteLunaClient
-deleteLunaClient pClientARN = DeleteLunaClient'{_delClientARN = pClientARN};
+deleteLunaClient pClientARN =
+    DeleteLunaClient'
+    { _delClientARN = pClientARN
+    }
 
 -- | The ARN of the client to delete.
 delClientARN :: Lens' DeleteLunaClient Text
@@ -62,8 +66,7 @@ instance AWSRequest DeleteLunaClient where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteLunaClientResponse' <$>
-                   (x .:> "Status") <*> (pure (fromEnum s)))
+                 DeleteLunaClientResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeleteLunaClient where
         toHeaders
@@ -90,18 +93,17 @@ instance ToQuery DeleteLunaClient where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlcrStatus'
---
--- * 'dlcrStatusCode'
-data DeleteLunaClientResponse = DeleteLunaClientResponse'{_dlcrStatus :: Text, _dlcrStatusCode :: Int} deriving (Eq, Read, Show)
+newtype DeleteLunaClientResponse = DeleteLunaClientResponse'
+    { _dlcrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLunaClientResponse' smart constructor.
-deleteLunaClientResponse :: Text -> Int -> DeleteLunaClientResponse
-deleteLunaClientResponse pStatus pStatusCode = DeleteLunaClientResponse'{_dlcrStatus = pStatus, _dlcrStatusCode = pStatusCode};
-
--- | The status of the action.
-dlcrStatus :: Lens' DeleteLunaClientResponse Text
-dlcrStatus = lens _dlcrStatus (\ s a -> s{_dlcrStatus = a});
+deleteLunaClientResponse :: Int -> DeleteLunaClientResponse
+deleteLunaClientResponse pStatus =
+    DeleteLunaClientResponse'
+    { _dlcrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-dlcrStatusCode :: Lens' DeleteLunaClientResponse Int
-dlcrStatusCode = lens _dlcrStatusCode (\ s a -> s{_dlcrStatusCode = a});
+dlcrStatus :: Lens' DeleteLunaClientResponse Int
+dlcrStatus = lens _dlcrStatus (\ s a -> s{_dlcrStatus = a});

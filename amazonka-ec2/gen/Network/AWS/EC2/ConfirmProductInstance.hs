@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ConfirmProductInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.EC2.ConfirmProductInstance
     , confirmProductInstanceResponse
     -- ** Response lenses
     , cpirOwnerId
-    , cpirStatusCode
+    , cpirStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'confirmProductInstance' smart constructor.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'cpiProductCode'
 --
 -- * 'cpiInstanceId'
-data ConfirmProductInstance = ConfirmProductInstance'{_cpiDryRun :: Maybe Bool, _cpiProductCode :: Text, _cpiInstanceId :: Text} deriving (Eq, Read, Show)
+data ConfirmProductInstance = ConfirmProductInstance'
+    { _cpiDryRun      :: Maybe Bool
+    , _cpiProductCode :: Text
+    , _cpiInstanceId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfirmProductInstance' smart constructor.
 confirmProductInstance :: Text -> Text -> ConfirmProductInstance
-confirmProductInstance pProductCode pInstanceId = ConfirmProductInstance'{_cpiDryRun = Nothing, _cpiProductCode = pProductCode, _cpiInstanceId = pInstanceId};
+confirmProductInstance pProductCode pInstanceId =
+    ConfirmProductInstance'
+    { _cpiDryRun = Nothing
+    , _cpiProductCode = pProductCode
+    , _cpiInstanceId = pInstanceId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -108,12 +117,19 @@ instance ToQuery ConfirmProductInstance where
 --
 -- * 'cpirOwnerId'
 --
--- * 'cpirStatusCode'
-data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'{_cpirOwnerId :: Maybe Text, _cpirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cpirStatus'
+data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
+    { _cpirOwnerId :: Maybe Text
+    , _cpirStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfirmProductInstanceResponse' smart constructor.
 confirmProductInstanceResponse :: Int -> ConfirmProductInstanceResponse
-confirmProductInstanceResponse pStatusCode = ConfirmProductInstanceResponse'{_cpirOwnerId = Nothing, _cpirStatusCode = pStatusCode};
+confirmProductInstanceResponse pStatus =
+    ConfirmProductInstanceResponse'
+    { _cpirOwnerId = Nothing
+    , _cpirStatus = pStatus
+    }
 
 -- | The AWS account ID of the instance owner. This is only present if the
 -- product code is attached to the instance.
@@ -121,5 +137,5 @@ cpirOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
 cpirOwnerId = lens _cpirOwnerId (\ s a -> s{_cpirOwnerId = a});
 
 -- | FIXME: Undocumented member.
-cpirStatusCode :: Lens' ConfirmProductInstanceResponse Int
-cpirStatusCode = lens _cpirStatusCode (\ s a -> s{_cpirStatusCode = a});
+cpirStatus :: Lens' ConfirmProductInstanceResponse Int
+cpirStatus = lens _cpirStatus (\ s a -> s{_cpirStatus = a});

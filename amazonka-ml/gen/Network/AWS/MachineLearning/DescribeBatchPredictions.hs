@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.DescribeBatchPredictions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,14 +44,14 @@ module Network.AWS.MachineLearning.DescribeBatchPredictions
     -- ** Response lenses
     , desResults
     , desNextToken
-    , desStatusCode
+    , desStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeBatchPredictions' smart constructor.
 --
@@ -78,11 +78,36 @@ import Network.AWS.Response
 -- * 'dbpFilterVariable'
 --
 -- * 'dbpLE'
-data DescribeBatchPredictions = DescribeBatchPredictions'{_dbpEQ :: Maybe Text, _dbpGE :: Maybe Text, _dbpPrefix :: Maybe Text, _dbpGT :: Maybe Text, _dbpNE :: Maybe Text, _dbpNextToken :: Maybe Text, _dbpSortOrder :: Maybe SortOrder, _dbpLimit :: Maybe Nat, _dbpLT :: Maybe Text, _dbpFilterVariable :: Maybe BatchPredictionFilterVariable, _dbpLE :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeBatchPredictions = DescribeBatchPredictions'
+    { _dbpEQ             :: Maybe Text
+    , _dbpGE             :: Maybe Text
+    , _dbpPrefix         :: Maybe Text
+    , _dbpGT             :: Maybe Text
+    , _dbpNE             :: Maybe Text
+    , _dbpNextToken      :: Maybe Text
+    , _dbpSortOrder      :: Maybe SortOrder
+    , _dbpLimit          :: Maybe Nat
+    , _dbpLT             :: Maybe Text
+    , _dbpFilterVariable :: Maybe BatchPredictionFilterVariable
+    , _dbpLE             :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeBatchPredictions' smart constructor.
 describeBatchPredictions :: DescribeBatchPredictions
-describeBatchPredictions = DescribeBatchPredictions'{_dbpEQ = Nothing, _dbpGE = Nothing, _dbpPrefix = Nothing, _dbpGT = Nothing, _dbpNE = Nothing, _dbpNextToken = Nothing, _dbpSortOrder = Nothing, _dbpLimit = Nothing, _dbpLT = Nothing, _dbpFilterVariable = Nothing, _dbpLE = Nothing};
+describeBatchPredictions =
+    DescribeBatchPredictions'
+    { _dbpEQ = Nothing
+    , _dbpGE = Nothing
+    , _dbpPrefix = Nothing
+    , _dbpGT = Nothing
+    , _dbpNE = Nothing
+    , _dbpNextToken = Nothing
+    , _dbpSortOrder = Nothing
+    , _dbpLimit = Nothing
+    , _dbpLT = Nothing
+    , _dbpFilterVariable = Nothing
+    , _dbpLE = Nothing
+    }
 
 -- | The equal to operator. The @BatchPrediction@ results will have
 -- @FilterVariable@ values that exactly match the value specified with
@@ -232,12 +257,21 @@ instance ToQuery DescribeBatchPredictions where
 --
 -- * 'desNextToken'
 --
--- * 'desStatusCode'
-data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'{_desResults :: Maybe [BatchPrediction], _desNextToken :: Maybe Text, _desStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'desStatus'
+data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
+    { _desResults   :: Maybe [BatchPrediction]
+    , _desNextToken :: Maybe Text
+    , _desStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeBatchPredictionsResponse' smart constructor.
 describeBatchPredictionsResponse :: Int -> DescribeBatchPredictionsResponse
-describeBatchPredictionsResponse pStatusCode = DescribeBatchPredictionsResponse'{_desResults = Nothing, _desNextToken = Nothing, _desStatusCode = pStatusCode};
+describeBatchPredictionsResponse pStatus =
+    DescribeBatchPredictionsResponse'
+    { _desResults = Nothing
+    , _desNextToken = Nothing
+    , _desStatus = pStatus
+    }
 
 -- | A list of BatchPrediction objects that meet the search criteria.
 desResults :: Lens' DescribeBatchPredictionsResponse [BatchPrediction]
@@ -249,5 +283,5 @@ desNextToken :: Lens' DescribeBatchPredictionsResponse (Maybe Text)
 desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 
 -- | FIXME: Undocumented member.
-desStatusCode :: Lens' DescribeBatchPredictionsResponse Int
-desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});
+desStatus :: Lens' DescribeBatchPredictionsResponse Int
+desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

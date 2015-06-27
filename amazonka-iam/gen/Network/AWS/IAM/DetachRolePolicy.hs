@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DetachRolePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.IAM.DetachRolePolicy
     , detachRolePolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachRolePolicy' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'drpRoleName'
 --
 -- * 'drpPolicyARN'
-data DetachRolePolicy = DetachRolePolicy'{_drpRoleName :: Text, _drpPolicyARN :: Text} deriving (Eq, Read, Show)
+data DetachRolePolicy = DetachRolePolicy'
+    { _drpRoleName  :: Text
+    , _drpPolicyARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachRolePolicy' smart constructor.
 detachRolePolicy :: Text -> Text -> DetachRolePolicy
-detachRolePolicy pRoleName pPolicyARN = DetachRolePolicy'{_drpRoleName = pRoleName, _drpPolicyARN = pPolicyARN};
+detachRolePolicy pRoleName pPolicyARN =
+    DetachRolePolicy'
+    { _drpRoleName = pRoleName
+    , _drpPolicyARN = pPolicyARN
+    }
 
 -- | The name (friendly name, not ARN) of the role to detach the policy from.
 drpRoleName :: Lens' DetachRolePolicy Text
@@ -86,8 +93,10 @@ instance ToQuery DetachRolePolicy where
                "PolicyArn" =: _drpPolicyARN]
 
 -- | /See:/ 'detachRolePolicyResponse' smart constructor.
-data DetachRolePolicyResponse = DetachRolePolicyResponse' deriving (Eq, Read, Show)
+data DetachRolePolicyResponse =
+    DetachRolePolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DetachRolePolicyResponse' smart constructor.
 detachRolePolicyResponse :: DetachRolePolicyResponse
-detachRolePolicyResponse = DetachRolePolicyResponse';
+detachRolePolicyResponse = DetachRolePolicyResponse'

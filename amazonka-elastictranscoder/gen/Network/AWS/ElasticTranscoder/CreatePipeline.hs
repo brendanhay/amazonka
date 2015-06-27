@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.CreatePipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.ElasticTranscoder.CreatePipeline
     -- ** Response lenses
     , creWarnings
     , crePipeline
-    , creStatusCode
+    , creStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @CreatePipelineRequest@ structure.
 --
@@ -70,11 +70,30 @@ import Network.AWS.Response
 -- * 'creInputBucket'
 --
 -- * 'creRole'
-data CreatePipeline = CreatePipeline'{_creContentConfig :: Maybe PipelineOutputConfig, _creOutputBucket :: Maybe Text, _creAWSKMSKeyARN :: Maybe Text, _creThumbnailConfig :: Maybe PipelineOutputConfig, _creNotifications :: Maybe Notifications, _creName :: Text, _creInputBucket :: Text, _creRole :: Text} deriving (Eq, Read, Show)
+data CreatePipeline = CreatePipeline'
+    { _creContentConfig   :: Maybe PipelineOutputConfig
+    , _creOutputBucket    :: Maybe Text
+    , _creAWSKMSKeyARN    :: Maybe Text
+    , _creThumbnailConfig :: Maybe PipelineOutputConfig
+    , _creNotifications   :: Maybe Notifications
+    , _creName            :: Text
+    , _creInputBucket     :: Text
+    , _creRole            :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePipeline' smart constructor.
 createPipeline :: Text -> Text -> Text -> CreatePipeline
-createPipeline pName pInputBucket pRole = CreatePipeline'{_creContentConfig = Nothing, _creOutputBucket = Nothing, _creAWSKMSKeyARN = Nothing, _creThumbnailConfig = Nothing, _creNotifications = Nothing, _creName = pName, _creInputBucket = pInputBucket, _creRole = pRole};
+createPipeline pName pInputBucket pRole =
+    CreatePipeline'
+    { _creContentConfig = Nothing
+    , _creOutputBucket = Nothing
+    , _creAWSKMSKeyARN = Nothing
+    , _creThumbnailConfig = Nothing
+    , _creNotifications = Nothing
+    , _creName = pName
+    , _creInputBucket = pInputBucket
+    , _creRole = pRole
+    }
 
 -- | The optional @ContentConfig@ object specifies information about the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
@@ -314,12 +333,21 @@ instance ToQuery CreatePipeline where
 --
 -- * 'crePipeline'
 --
--- * 'creStatusCode'
-data CreatePipelineResponse = CreatePipelineResponse'{_creWarnings :: Maybe [Warning], _crePipeline :: Maybe Pipeline, _creStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'creStatus'
+data CreatePipelineResponse = CreatePipelineResponse'
+    { _creWarnings :: Maybe [Warning]
+    , _crePipeline :: Maybe Pipeline
+    , _creStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePipelineResponse' smart constructor.
 createPipelineResponse :: Int -> CreatePipelineResponse
-createPipelineResponse pStatusCode = CreatePipelineResponse'{_creWarnings = Nothing, _crePipeline = Nothing, _creStatusCode = pStatusCode};
+createPipelineResponse pStatus =
+    CreatePipelineResponse'
+    { _creWarnings = Nothing
+    , _crePipeline = Nothing
+    , _creStatus = pStatus
+    }
 
 -- | Elastic Transcoder returns a warning if the resources used by your
 -- pipeline are not in the same region as the pipeline.
@@ -336,5 +364,5 @@ crePipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
 crePipeline = lens _crePipeline (\ s a -> s{_crePipeline = a});
 
 -- | FIXME: Undocumented member.
-creStatusCode :: Lens' CreatePipelineResponse Int
-creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});
+creStatus :: Lens' CreatePipelineResponse Int
+creStatus = lens _creStatus (\ s a -> s{_creStatus = a});

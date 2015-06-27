@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Lambda.GetFunctionConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,21 +48,26 @@ module Network.AWS.Lambda.GetFunctionConfiguration
     , fcDescription
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getFunctionConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gfcFunctionName'
-newtype GetFunctionConfiguration = GetFunctionConfiguration'{_gfcFunctionName :: Text} deriving (Eq, Read, Show)
+newtype GetFunctionConfiguration = GetFunctionConfiguration'
+    { _gfcFunctionName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetFunctionConfiguration' smart constructor.
 getFunctionConfiguration :: Text -> GetFunctionConfiguration
-getFunctionConfiguration pFunctionName = GetFunctionConfiguration'{_gfcFunctionName = pFunctionName};
+getFunctionConfiguration pFunctionName =
+    GetFunctionConfiguration'
+    { _gfcFunctionName = pFunctionName
+    }
 
 -- | The name of the Lambda function for which you want to retrieve the
 -- configuration information.

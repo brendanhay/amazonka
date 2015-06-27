@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.Decrypt
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.KMS.Decrypt
     -- ** Response lenses
     , drKeyId
     , drPlaintext
-    , drStatusCode
+    , drStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'decrypt' smart constructor.
 --
@@ -66,11 +66,20 @@ import Network.AWS.Response
 -- * 'decGrantTokens'
 --
 -- * 'decCiphertextBlob'
-data Decrypt = Decrypt'{_decEncryptionContext :: Maybe (Map Text Text), _decGrantTokens :: Maybe [Text], _decCiphertextBlob :: Base64} deriving (Eq, Read, Show)
+data Decrypt = Decrypt'
+    { _decEncryptionContext :: Maybe (Map Text Text)
+    , _decGrantTokens       :: Maybe [Text]
+    , _decCiphertextBlob    :: Base64
+    } deriving (Eq,Read,Show)
 
 -- | 'Decrypt' smart constructor.
 decrypt :: Base64 -> Decrypt
-decrypt pCiphertextBlob = Decrypt'{_decEncryptionContext = Nothing, _decGrantTokens = Nothing, _decCiphertextBlob = pCiphertextBlob};
+decrypt pCiphertextBlob =
+    Decrypt'
+    { _decEncryptionContext = Nothing
+    , _decGrantTokens = Nothing
+    , _decCiphertextBlob = pCiphertextBlob
+    }
 
 -- | The encryption context. If this was specified in the Encrypt function,
 -- it must be specified here or the decryption operation will fail. For
@@ -129,12 +138,21 @@ instance ToQuery Decrypt where
 --
 -- * 'drPlaintext'
 --
--- * 'drStatusCode'
-data DecryptResponse = DecryptResponse'{_drKeyId :: Maybe Text, _drPlaintext :: Maybe (Sensitive Base64), _drStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'drStatus'
+data DecryptResponse = DecryptResponse'
+    { _drKeyId     :: Maybe Text
+    , _drPlaintext :: Maybe (Sensitive Base64)
+    , _drStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DecryptResponse' smart constructor.
 decryptResponse :: Int -> DecryptResponse
-decryptResponse pStatusCode = DecryptResponse'{_drKeyId = Nothing, _drPlaintext = Nothing, _drStatusCode = pStatusCode};
+decryptResponse pStatus =
+    DecryptResponse'
+    { _drKeyId = Nothing
+    , _drPlaintext = Nothing
+    , _drStatus = pStatus
+    }
 
 -- | ARN of the key used to perform the decryption. This value is returned if
 -- no errors are encountered during the operation.
@@ -147,5 +165,5 @@ drPlaintext :: Lens' DecryptResponse (Maybe Base64)
 drPlaintext = lens _drPlaintext (\ s a -> s{_drPlaintext = a}) . mapping _Sensitive;
 
 -- | FIXME: Undocumented member.
-drStatusCode :: Lens' DecryptResponse Int
-drStatusCode = lens _drStatusCode (\ s a -> s{_drStatusCode = a});
+drStatus :: Lens' DecryptResponse Int
+drStatus = lens _drStatus (\ s a -> s{_drStatus = a});

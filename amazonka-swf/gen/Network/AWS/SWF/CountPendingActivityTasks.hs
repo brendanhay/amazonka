@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.CountPendingActivityTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -59,10 +59,10 @@ module Network.AWS.SWF.CountPendingActivityTasks
     , ptcCount
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'countPendingActivityTasks' smart constructor.
 --
@@ -71,11 +71,18 @@ import Network.AWS.SWF.Types
 -- * 'cpatDomain'
 --
 -- * 'cpatTaskList'
-data CountPendingActivityTasks = CountPendingActivityTasks'{_cpatDomain :: Text, _cpatTaskList :: TaskList} deriving (Eq, Read, Show)
+data CountPendingActivityTasks = CountPendingActivityTasks'
+    { _cpatDomain   :: Text
+    , _cpatTaskList :: TaskList
+    } deriving (Eq,Read,Show)
 
 -- | 'CountPendingActivityTasks' smart constructor.
 countPendingActivityTasks :: Text -> TaskList -> CountPendingActivityTasks
-countPendingActivityTasks pDomain pTaskList = CountPendingActivityTasks'{_cpatDomain = pDomain, _cpatTaskList = pTaskList};
+countPendingActivityTasks pDomain pTaskList =
+    CountPendingActivityTasks'
+    { _cpatDomain = pDomain
+    , _cpatTaskList = pTaskList
+    }
 
 -- | The name of the domain that contains the task list.
 cpatDomain :: Lens' CountPendingActivityTasks Text

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,14 +37,14 @@ module Network.AWS.RDS.DescribeDBParameters
     -- ** Response lenses
     , ddprParameters
     , ddprMarker
-    , ddprStatusCode
+    , ddprStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeDBParameters' smart constructor.
 --
@@ -59,11 +59,24 @@ import Network.AWS.Response
 -- * 'ddpSource'
 --
 -- * 'ddpDBParameterGroupName'
-data DescribeDBParameters = DescribeDBParameters'{_ddpFilters :: Maybe [Filter], _ddpMaxRecords :: Maybe Int, _ddpMarker :: Maybe Text, _ddpSource :: Maybe Text, _ddpDBParameterGroupName :: Text} deriving (Eq, Read, Show)
+data DescribeDBParameters = DescribeDBParameters'
+    { _ddpFilters              :: Maybe [Filter]
+    , _ddpMaxRecords           :: Maybe Int
+    , _ddpMarker               :: Maybe Text
+    , _ddpSource               :: Maybe Text
+    , _ddpDBParameterGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBParameters' smart constructor.
 describeDBParameters :: Text -> DescribeDBParameters
-describeDBParameters pDBParameterGroupName = DescribeDBParameters'{_ddpFilters = Nothing, _ddpMaxRecords = Nothing, _ddpMarker = Nothing, _ddpSource = Nothing, _ddpDBParameterGroupName = pDBParameterGroupName};
+describeDBParameters pDBParameterGroupName =
+    DescribeDBParameters'
+    { _ddpFilters = Nothing
+    , _ddpMaxRecords = Nothing
+    , _ddpMarker = Nothing
+    , _ddpSource = Nothing
+    , _ddpDBParameterGroupName = pDBParameterGroupName
+    }
 
 -- | This parameter is not currently supported.
 ddpFilters :: Lens' DescribeDBParameters [Filter]
@@ -154,12 +167,21 @@ instance ToQuery DescribeDBParameters where
 --
 -- * 'ddprMarker'
 --
--- * 'ddprStatusCode'
-data DescribeDBParametersResponse = DescribeDBParametersResponse'{_ddprParameters :: Maybe [Parameter], _ddprMarker :: Maybe Text, _ddprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddprStatus'
+data DescribeDBParametersResponse = DescribeDBParametersResponse'
+    { _ddprParameters :: Maybe [Parameter]
+    , _ddprMarker     :: Maybe Text
+    , _ddprStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBParametersResponse' smart constructor.
 describeDBParametersResponse :: Int -> DescribeDBParametersResponse
-describeDBParametersResponse pStatusCode = DescribeDBParametersResponse'{_ddprParameters = Nothing, _ddprMarker = Nothing, _ddprStatusCode = pStatusCode};
+describeDBParametersResponse pStatus =
+    DescribeDBParametersResponse'
+    { _ddprParameters = Nothing
+    , _ddprMarker = Nothing
+    , _ddprStatus = pStatus
+    }
 
 -- | A list of Parameter values.
 ddprParameters :: Lens' DescribeDBParametersResponse [Parameter]
@@ -172,5 +194,5 @@ ddprMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
 ddprMarker = lens _ddprMarker (\ s a -> s{_ddprMarker = a});
 
 -- | FIXME: Undocumented member.
-ddprStatusCode :: Lens' DescribeDBParametersResponse Int
-ddprStatusCode = lens _ddprStatusCode (\ s a -> s{_ddprStatusCode = a});
+ddprStatus :: Lens' DescribeDBParametersResponse Int
+ddprStatus = lens _ddprStatus (\ s a -> s{_ddprStatus = a});

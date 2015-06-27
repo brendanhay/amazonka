@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteCustomerGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.EC2.DeleteCustomerGateway
     , deleteCustomerGatewayResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteCustomerGateway' smart constructor.
 --
@@ -46,11 +46,18 @@ import Network.AWS.Response
 -- * 'dcg1DryRun'
 --
 -- * 'dcg1CustomerGatewayId'
-data DeleteCustomerGateway = DeleteCustomerGateway'{_dcg1DryRun :: Maybe Bool, _dcg1CustomerGatewayId :: Text} deriving (Eq, Read, Show)
+data DeleteCustomerGateway = DeleteCustomerGateway'
+    { _dcg1DryRun            :: Maybe Bool
+    , _dcg1CustomerGatewayId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteCustomerGateway' smart constructor.
 deleteCustomerGateway :: Text -> DeleteCustomerGateway
-deleteCustomerGateway pCustomerGatewayId = DeleteCustomerGateway'{_dcg1DryRun = Nothing, _dcg1CustomerGatewayId = pCustomerGatewayId};
+deleteCustomerGateway pCustomerGatewayId =
+    DeleteCustomerGateway'
+    { _dcg1DryRun = Nothing
+    , _dcg1CustomerGatewayId = pCustomerGatewayId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -85,8 +92,10 @@ instance ToQuery DeleteCustomerGateway where
                "CustomerGatewayId" =: _dcg1CustomerGatewayId]
 
 -- | /See:/ 'deleteCustomerGatewayResponse' smart constructor.
-data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse' deriving (Eq, Read, Show)
+data DeleteCustomerGatewayResponse =
+    DeleteCustomerGatewayResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteCustomerGatewayResponse' smart constructor.
 deleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse
-deleteCustomerGatewayResponse = DeleteCustomerGatewayResponse';
+deleteCustomerGatewayResponse = DeleteCustomerGatewayResponse'

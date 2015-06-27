@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListSAMLProviders
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,20 +33,22 @@ module Network.AWS.IAM.ListSAMLProviders
     , listSAMLProvidersResponse
     -- ** Response lenses
     , lsamlprSAMLProviderList
-    , lsamlprStatusCode
+    , lsamlprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listSAMLProviders' smart constructor.
-data ListSAMLProviders = ListSAMLProviders' deriving (Eq, Read, Show)
+data ListSAMLProviders =
+    ListSAMLProviders'
+    deriving (Eq,Read,Show)
 
 -- | 'ListSAMLProviders' smart constructor.
 listSAMLProviders :: ListSAMLProviders
-listSAMLProviders = ListSAMLProviders';
+listSAMLProviders = ListSAMLProviders'
 
 instance AWSRequest ListSAMLProviders where
         type Sv ListSAMLProviders = IAM
@@ -81,17 +83,24 @@ instance ToQuery ListSAMLProviders where
 --
 -- * 'lsamlprSAMLProviderList'
 --
--- * 'lsamlprStatusCode'
-data ListSAMLProvidersResponse = ListSAMLProvidersResponse'{_lsamlprSAMLProviderList :: Maybe [SAMLProviderListEntry], _lsamlprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lsamlprStatus'
+data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
+    { _lsamlprSAMLProviderList :: Maybe [SAMLProviderListEntry]
+    , _lsamlprStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListSAMLProvidersResponse' smart constructor.
 listSAMLProvidersResponse :: Int -> ListSAMLProvidersResponse
-listSAMLProvidersResponse pStatusCode = ListSAMLProvidersResponse'{_lsamlprSAMLProviderList = Nothing, _lsamlprStatusCode = pStatusCode};
+listSAMLProvidersResponse pStatus =
+    ListSAMLProvidersResponse'
+    { _lsamlprSAMLProviderList = Nothing
+    , _lsamlprStatus = pStatus
+    }
 
 -- | The list of SAML providers for this account.
 lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
 lsamlprSAMLProviderList = lens _lsamlprSAMLProviderList (\ s a -> s{_lsamlprSAMLProviderList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lsamlprStatusCode :: Lens' ListSAMLProvidersResponse Int
-lsamlprStatusCode = lens _lsamlprStatusCode (\ s a -> s{_lsamlprStatusCode = a});
+lsamlprStatus :: Lens' ListSAMLProvidersResponse Int
+lsamlprStatus = lens _lsamlprStatus (\ s a -> s{_lsamlprStatus = a});

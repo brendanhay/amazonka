@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterSubnetGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,14 +50,14 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     -- ** Response lenses
     , dcsgrClusterSubnetGroups
     , dcsgrMarker
-    , dcsgrStatusCode
+    , dcsgrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -74,11 +74,24 @@ import Network.AWS.Response
 -- * 'dMaxRecords'
 --
 -- * 'dMarker'
-data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'{_dTagValues :: Maybe [Text], _dTagKeys :: Maybe [Text], _dClusterSubnetGroupName :: Maybe Text, _dMaxRecords :: Maybe Int, _dMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'
+    { _dTagValues              :: Maybe [Text]
+    , _dTagKeys                :: Maybe [Text]
+    , _dClusterSubnetGroupName :: Maybe Text
+    , _dMaxRecords             :: Maybe Int
+    , _dMarker                 :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterSubnetGroups' smart constructor.
 describeClusterSubnetGroups :: DescribeClusterSubnetGroups
-describeClusterSubnetGroups = DescribeClusterSubnetGroups'{_dTagValues = Nothing, _dTagKeys = Nothing, _dClusterSubnetGroupName = Nothing, _dMaxRecords = Nothing, _dMarker = Nothing};
+describeClusterSubnetGroups =
+    DescribeClusterSubnetGroups'
+    { _dTagValues = Nothing
+    , _dTagKeys = Nothing
+    , _dClusterSubnetGroupName = Nothing
+    , _dMaxRecords = Nothing
+    , _dMarker = Nothing
+    }
 
 -- | A tag value or values for which you want to return all matching cluster
 -- subnet groups that are associated with the specified tag value or
@@ -175,12 +188,21 @@ instance ToQuery DescribeClusterSubnetGroups where
 --
 -- * 'dcsgrMarker'
 --
--- * 'dcsgrStatusCode'
-data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'{_dcsgrClusterSubnetGroups :: Maybe [ClusterSubnetGroup], _dcsgrMarker :: Maybe Text, _dcsgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcsgrStatus'
+data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'
+    { _dcsgrClusterSubnetGroups :: Maybe [ClusterSubnetGroup]
+    , _dcsgrMarker              :: Maybe Text
+    , _dcsgrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterSubnetGroupsResponse' smart constructor.
 describeClusterSubnetGroupsResponse :: Int -> DescribeClusterSubnetGroupsResponse
-describeClusterSubnetGroupsResponse pStatusCode = DescribeClusterSubnetGroupsResponse'{_dcsgrClusterSubnetGroups = Nothing, _dcsgrMarker = Nothing, _dcsgrStatusCode = pStatusCode};
+describeClusterSubnetGroupsResponse pStatus =
+    DescribeClusterSubnetGroupsResponse'
+    { _dcsgrClusterSubnetGroups = Nothing
+    , _dcsgrMarker = Nothing
+    , _dcsgrStatus = pStatus
+    }
 
 -- | A list of ClusterSubnetGroup instances.
 dcsgrClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
@@ -196,5 +218,5 @@ dcsgrMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
 dcsgrMarker = lens _dcsgrMarker (\ s a -> s{_dcsgrMarker = a});
 
 -- | FIXME: Undocumented member.
-dcsgrStatusCode :: Lens' DescribeClusterSubnetGroupsResponse Int
-dcsgrStatusCode = lens _dcsgrStatusCode (\ s a -> s{_dcsgrStatusCode = a});
+dcsgrStatus :: Lens' DescribeClusterSubnetGroupsResponse Int
+dcsgrStatus = lens _dcsgrStatus (\ s a -> s{_dcsgrStatus = a});

@@ -67,19 +67,19 @@ module Network.AWS.Support
     ( module Export
     ) where
 
-import Network.AWS.Support.AddAttachmentsToSet as Export
-import Network.AWS.Support.AddCommunicationToCase as Export
-import Network.AWS.Support.CreateCase as Export
-import Network.AWS.Support.DescribeAttachment as Export
-import Network.AWS.Support.DescribeCases as Export
-import Network.AWS.Support.DescribeCommunications as Export
-import Network.AWS.Support.DescribeServices as Export
-import Network.AWS.Support.DescribeSeverityLevels as Export
-import Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses as Export
-import Network.AWS.Support.DescribeTrustedAdvisorCheckResult as Export
-import Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries as Export
-import Network.AWS.Support.DescribeTrustedAdvisorChecks as Export
-import Network.AWS.Support.RefreshTrustedAdvisorCheck as Export
-import Network.AWS.Support.ResolveCase as Export
-import Network.AWS.Support.Types as Export
-import Network.AWS.Support.Waiters as Export
+import           Network.AWS.Support.AddAttachmentsToSet                        as Export
+import           Network.AWS.Support.AddCommunicationToCase                     as Export
+import           Network.AWS.Support.CreateCase                                 as Export
+import           Network.AWS.Support.DescribeAttachment                         as Export
+import           Network.AWS.Support.DescribeCases                              as Export
+import           Network.AWS.Support.DescribeCommunications                     as Export
+import           Network.AWS.Support.DescribeServices                           as Export
+import           Network.AWS.Support.DescribeSeverityLevels                     as Export
+import           Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses as Export
+import           Network.AWS.Support.DescribeTrustedAdvisorCheckResult          as Export
+import           Network.AWS.Support.DescribeTrustedAdvisorChecks               as Export
+import           Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries       as Export
+import           Network.AWS.Support.RefreshTrustedAdvisorCheck                 as Export
+import           Network.AWS.Support.ResolveCase                                as Export
+import           Network.AWS.Support.Types                                      as Export
+import           Network.AWS.Support.Waiters                                    as Export

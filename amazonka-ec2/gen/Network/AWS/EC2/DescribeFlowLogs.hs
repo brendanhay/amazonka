@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeFlowLogs
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.EC2.DescribeFlowLogs
     -- ** Response lenses
     , dflr1NextToken
     , dflr1FlowLogs
-    , dflr1StatusCode
+    , dflr1Status
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeFlowLogs' smart constructor.
 --
@@ -57,11 +57,22 @@ import Network.AWS.Response
 -- * 'desFlowLogIds'
 --
 -- * 'desMaxResults'
-data DescribeFlowLogs = DescribeFlowLogs'{_desNextToken :: Maybe Text, _desFilter :: Maybe [Filter], _desFlowLogIds :: Maybe [Text], _desMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeFlowLogs = DescribeFlowLogs'
+    { _desNextToken  :: Maybe Text
+    , _desFilter     :: Maybe [Filter]
+    , _desFlowLogIds :: Maybe [Text]
+    , _desMaxResults :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeFlowLogs' smart constructor.
 describeFlowLogs :: DescribeFlowLogs
-describeFlowLogs = DescribeFlowLogs'{_desNextToken = Nothing, _desFilter = Nothing, _desFlowLogIds = Nothing, _desMaxResults = Nothing};
+describeFlowLogs =
+    DescribeFlowLogs'
+    { _desNextToken = Nothing
+    , _desFilter = Nothing
+    , _desFlowLogIds = Nothing
+    , _desMaxResults = Nothing
+    }
 
 -- | The token to retrieve the next page of results.
 desNextToken :: Lens' DescribeFlowLogs (Maybe Text)
@@ -131,12 +142,21 @@ instance ToQuery DescribeFlowLogs where
 --
 -- * 'dflr1FlowLogs'
 --
--- * 'dflr1StatusCode'
-data DescribeFlowLogsResponse = DescribeFlowLogsResponse'{_dflr1NextToken :: Maybe Text, _dflr1FlowLogs :: Maybe [FlowLog], _dflr1StatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dflr1Status'
+data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
+    { _dflr1NextToken :: Maybe Text
+    , _dflr1FlowLogs  :: Maybe [FlowLog]
+    , _dflr1Status    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeFlowLogsResponse' smart constructor.
 describeFlowLogsResponse :: Int -> DescribeFlowLogsResponse
-describeFlowLogsResponse pStatusCode = DescribeFlowLogsResponse'{_dflr1NextToken = Nothing, _dflr1FlowLogs = Nothing, _dflr1StatusCode = pStatusCode};
+describeFlowLogsResponse pStatus =
+    DescribeFlowLogsResponse'
+    { _dflr1NextToken = Nothing
+    , _dflr1FlowLogs = Nothing
+    , _dflr1Status = pStatus
+    }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -148,5 +168,5 @@ dflr1FlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
 dflr1FlowLogs = lens _dflr1FlowLogs (\ s a -> s{_dflr1FlowLogs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dflr1StatusCode :: Lens' DescribeFlowLogsResponse Int
-dflr1StatusCode = lens _dflr1StatusCode (\ s a -> s{_dflr1StatusCode = a});
+dflr1Status :: Lens' DescribeFlowLogsResponse Int
+dflr1Status = lens _dflr1Status (\ s a -> s{_dflr1Status = a});

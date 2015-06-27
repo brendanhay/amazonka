@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteMetricFilter
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.CloudWatchLogs.DeleteMetricFilter
     , deleteMetricFilterResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteMetricFilter' smart constructor.
 --
@@ -45,11 +45,18 @@ import Network.AWS.Response
 -- * 'dLogGroupName'
 --
 -- * 'dFilterName'
-data DeleteMetricFilter = DeleteMetricFilter'{_dLogGroupName :: Text, _dFilterName :: Text} deriving (Eq, Read, Show)
+data DeleteMetricFilter = DeleteMetricFilter'
+    { _dLogGroupName :: Text
+    , _dFilterName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteMetricFilter' smart constructor.
 deleteMetricFilter :: Text -> Text -> DeleteMetricFilter
-deleteMetricFilter pLogGroupName pFilterName = DeleteMetricFilter'{_dLogGroupName = pLogGroupName, _dFilterName = pFilterName};
+deleteMetricFilter pLogGroupName pFilterName =
+    DeleteMetricFilter'
+    { _dLogGroupName = pLogGroupName
+    , _dFilterName = pFilterName
+    }
 
 -- | The name of the log group that is associated with the metric filter to
 -- delete.
@@ -89,8 +96,10 @@ instance ToQuery DeleteMetricFilter where
         toQuery = const mempty
 
 -- | /See:/ 'deleteMetricFilterResponse' smart constructor.
-data DeleteMetricFilterResponse = DeleteMetricFilterResponse' deriving (Eq, Read, Show)
+data DeleteMetricFilterResponse =
+    DeleteMetricFilterResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteMetricFilterResponse' smart constructor.
 deleteMetricFilterResponse :: DeleteMetricFilterResponse
-deleteMetricFilterResponse = DeleteMetricFilterResponse';
+deleteMetricFilterResponse = DeleteMetricFilterResponse'

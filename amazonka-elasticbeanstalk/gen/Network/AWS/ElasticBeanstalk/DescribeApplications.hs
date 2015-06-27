@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplications
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
     , describeApplicationsResponse
     -- ** Response lenses
     , darApplications
-    , darStatusCode
+    , darStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'daApplicationNames'
-newtype DescribeApplications = DescribeApplications'{_daApplicationNames :: Maybe [Text]} deriving (Eq, Read, Show)
+newtype DescribeApplications = DescribeApplications'
+    { _daApplicationNames :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeApplications' smart constructor.
 describeApplications :: DescribeApplications
-describeApplications = DescribeApplications'{_daApplicationNames = Nothing};
+describeApplications =
+    DescribeApplications'
+    { _daApplicationNames = Nothing
+    }
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include those with the specified names.
@@ -94,17 +99,24 @@ instance ToQuery DescribeApplications where
 --
 -- * 'darApplications'
 --
--- * 'darStatusCode'
-data DescribeApplicationsResponse = DescribeApplicationsResponse'{_darApplications :: Maybe [ApplicationDescription], _darStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'darStatus'
+data DescribeApplicationsResponse = DescribeApplicationsResponse'
+    { _darApplications :: Maybe [ApplicationDescription]
+    , _darStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeApplicationsResponse' smart constructor.
 describeApplicationsResponse :: Int -> DescribeApplicationsResponse
-describeApplicationsResponse pStatusCode = DescribeApplicationsResponse'{_darApplications = Nothing, _darStatusCode = pStatusCode};
+describeApplicationsResponse pStatus =
+    DescribeApplicationsResponse'
+    { _darApplications = Nothing
+    , _darStatus = pStatus
+    }
 
 -- | This parameter contains a list of ApplicationDescription.
 darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darApplications = lens _darApplications (\ s a -> s{_darApplications = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-darStatusCode :: Lens' DescribeApplicationsResponse Int
-darStatusCode = lens _darStatusCode (\ s a -> s{_darStatusCode = a});
+darStatus :: Lens' DescribeApplicationsResponse Int
+darStatus = lens _darStatus (\ s a -> s{_darStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SDB.DeleteDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,21 +34,26 @@ module Network.AWS.SDB.DeleteDomain
     , deleteDomainResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SDB.Types
 
 -- | /See:/ 'deleteDomain' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddDomainName'
-newtype DeleteDomain = DeleteDomain'{_ddDomainName :: Text} deriving (Eq, Read, Show)
+newtype DeleteDomain = DeleteDomain'
+    { _ddDomainName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDomain' smart constructor.
 deleteDomain :: Text -> DeleteDomain
-deleteDomain pDomainName = DeleteDomain'{_ddDomainName = pDomainName};
+deleteDomain pDomainName =
+    DeleteDomain'
+    { _ddDomainName = pDomainName
+    }
 
 -- | The name of the domain to delete.
 ddDomainName :: Lens' DeleteDomain Text
@@ -74,8 +79,10 @@ instance ToQuery DeleteDomain where
                "DomainName" =: _ddDomainName]
 
 -- | /See:/ 'deleteDomainResponse' smart constructor.
-data DeleteDomainResponse = DeleteDomainResponse' deriving (Eq, Read, Show)
+data DeleteDomainResponse =
+    DeleteDomainResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteDomainResponse' smart constructor.
 deleteDomainResponse :: DeleteDomainResponse
-deleteDomainResponse = DeleteDomainResponse';
+deleteDomainResponse = DeleteDomainResponse'

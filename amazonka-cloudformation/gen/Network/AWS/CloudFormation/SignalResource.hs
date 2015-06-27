@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.SignalResource
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,10 +41,10 @@ module Network.AWS.CloudFormation.SignalResource
     , signalResourceResponse
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the SignalResource action.
 --
@@ -59,11 +59,22 @@ import Network.AWS.Response
 -- * 'sigUniqueId'
 --
 -- * 'sigStatus'
-data SignalResource = SignalResource'{_sigStackName :: Text, _sigLogicalResourceId :: Text, _sigUniqueId :: Text, _sigStatus :: ResourceSignalStatus} deriving (Eq, Read, Show)
+data SignalResource = SignalResource'
+    { _sigStackName         :: Text
+    , _sigLogicalResourceId :: Text
+    , _sigUniqueId          :: Text
+    , _sigStatus            :: ResourceSignalStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'SignalResource' smart constructor.
 signalResource :: Text -> Text -> Text -> ResourceSignalStatus -> SignalResource
-signalResource pStackName pLogicalResourceId pUniqueId pStatus = SignalResource'{_sigStackName = pStackName, _sigLogicalResourceId = pLogicalResourceId, _sigUniqueId = pUniqueId, _sigStatus = pStatus};
+signalResource pStackName pLogicalResourceId pUniqueId pStatus =
+    SignalResource'
+    { _sigStackName = pStackName
+    , _sigLogicalResourceId = pLogicalResourceId
+    , _sigUniqueId = pUniqueId
+    , _sigStatus = pStatus
+    }
 
 -- | The stack name or unique stack ID that includes the resource that you
 -- want to signal.
@@ -110,8 +121,10 @@ instance ToQuery SignalResource where
                "UniqueId" =: _sigUniqueId, "Status" =: _sigStatus]
 
 -- | /See:/ 'signalResourceResponse' smart constructor.
-data SignalResourceResponse = SignalResourceResponse' deriving (Eq, Read, Show)
+data SignalResourceResponse =
+    SignalResourceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SignalResourceResponse' smart constructor.
 signalResourceResponse :: SignalResourceResponse
-signalResourceResponse = SignalResourceResponse';
+signalResourceResponse = SignalResourceResponse'

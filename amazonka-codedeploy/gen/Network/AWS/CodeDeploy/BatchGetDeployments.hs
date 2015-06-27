@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.BatchGetDeployments
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.CodeDeploy.BatchGetDeployments
     , batchGetDeploymentsResponse
     -- ** Response lenses
     , bgdrDeploymentsInfo
-    , bgdrStatusCode
+    , bgdrStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a batch get deployments operation.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bgdDeploymentIds'
-newtype BatchGetDeployments = BatchGetDeployments'{_bgdDeploymentIds :: Maybe [Text]} deriving (Eq, Read, Show)
+newtype BatchGetDeployments = BatchGetDeployments'
+    { _bgdDeploymentIds :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'BatchGetDeployments' smart constructor.
 batchGetDeployments :: BatchGetDeployments
-batchGetDeployments = BatchGetDeployments'{_bgdDeploymentIds = Nothing};
+batchGetDeployments =
+    BatchGetDeployments'
+    { _bgdDeploymentIds = Nothing
+    }
 
 -- | A list of deployment IDs, with multiple deployment IDs separated by
 -- spaces.
@@ -98,17 +103,24 @@ instance ToQuery BatchGetDeployments where
 --
 -- * 'bgdrDeploymentsInfo'
 --
--- * 'bgdrStatusCode'
-data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'{_bgdrDeploymentsInfo :: Maybe [DeploymentInfo], _bgdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'bgdrStatus'
+data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
+    { _bgdrDeploymentsInfo :: Maybe [DeploymentInfo]
+    , _bgdrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'BatchGetDeploymentsResponse' smart constructor.
 batchGetDeploymentsResponse :: Int -> BatchGetDeploymentsResponse
-batchGetDeploymentsResponse pStatusCode = BatchGetDeploymentsResponse'{_bgdrDeploymentsInfo = Nothing, _bgdrStatusCode = pStatusCode};
+batchGetDeploymentsResponse pStatus =
+    BatchGetDeploymentsResponse'
+    { _bgdrDeploymentsInfo = Nothing
+    , _bgdrStatus = pStatus
+    }
 
 -- | Information about the deployments.
 bgdrDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
 bgdrDeploymentsInfo = lens _bgdrDeploymentsInfo (\ s a -> s{_bgdrDeploymentsInfo = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-bgdrStatusCode :: Lens' BatchGetDeploymentsResponse Int
-bgdrStatusCode = lens _bgdrStatusCode (\ s a -> s{_bgdrStatusCode = a});
+bgdrStatus :: Lens' BatchGetDeploymentsResponse Int
+bgdrStatus = lens _bgdrStatus (\ s a -> s{_bgdrStatus = a});

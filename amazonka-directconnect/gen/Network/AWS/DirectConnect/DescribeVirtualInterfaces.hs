@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeVirtualInterfaces
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     , describeVirtualInterfacesResponse
     -- ** Response lenses
     , desVirtualInterfaces
-    , desStatusCode
+    , desStatus
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the DescribeVirtualInterfaces operation.
 --
@@ -62,11 +62,18 @@ import Network.AWS.Response
 -- * 'dviConnectionId'
 --
 -- * 'dviVirtualInterfaceId'
-data DescribeVirtualInterfaces = DescribeVirtualInterfaces'{_dviConnectionId :: Maybe Text, _dviVirtualInterfaceId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
+    { _dviConnectionId       :: Maybe Text
+    , _dviVirtualInterfaceId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVirtualInterfaces' smart constructor.
 describeVirtualInterfaces :: DescribeVirtualInterfaces
-describeVirtualInterfaces = DescribeVirtualInterfaces'{_dviConnectionId = Nothing, _dviVirtualInterfaceId = Nothing};
+describeVirtualInterfaces =
+    DescribeVirtualInterfaces'
+    { _dviConnectionId = Nothing
+    , _dviVirtualInterfaceId = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 dviConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
@@ -118,17 +125,24 @@ instance ToQuery DescribeVirtualInterfaces where
 --
 -- * 'desVirtualInterfaces'
 --
--- * 'desStatusCode'
-data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'{_desVirtualInterfaces :: Maybe [VirtualInterface], _desStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'desStatus'
+data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
+    { _desVirtualInterfaces :: Maybe [VirtualInterface]
+    , _desStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVirtualInterfacesResponse' smart constructor.
 describeVirtualInterfacesResponse :: Int -> DescribeVirtualInterfacesResponse
-describeVirtualInterfacesResponse pStatusCode = DescribeVirtualInterfacesResponse'{_desVirtualInterfaces = Nothing, _desStatusCode = pStatusCode};
+describeVirtualInterfacesResponse pStatus =
+    DescribeVirtualInterfacesResponse'
+    { _desVirtualInterfaces = Nothing
+    , _desStatus = pStatus
+    }
 
 -- | A list of virtual interfaces.
 desVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
 desVirtualInterfaces = lens _desVirtualInterfaces (\ s a -> s{_desVirtualInterfaces = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatusCode :: Lens' DescribeVirtualInterfacesResponse Int
-desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});
+desStatus :: Lens' DescribeVirtualInterfacesResponse Int
+desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.RegisterInstancesWithLoadBalancer
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,13 +63,13 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     , registerInstancesWithLoadBalancerResponse
     -- ** Response lenses
     , riwlbrInstances
-    , riwlbrStatusCode
+    , riwlbrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'registerInstancesWithLoadBalancer' smart constructor.
 --
@@ -78,11 +78,18 @@ import Network.AWS.Response
 -- * 'riwlbLoadBalancerName'
 --
 -- * 'riwlbInstances'
-data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'{_riwlbLoadBalancerName :: Text, _riwlbInstances :: [Instance]} deriving (Eq, Read, Show)
+data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'
+    { _riwlbLoadBalancerName :: Text
+    , _riwlbInstances        :: [Instance]
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterInstancesWithLoadBalancer' smart constructor.
 registerInstancesWithLoadBalancer :: Text -> RegisterInstancesWithLoadBalancer
-registerInstancesWithLoadBalancer pLoadBalancerName = RegisterInstancesWithLoadBalancer'{_riwlbLoadBalancerName = pLoadBalancerName, _riwlbInstances = mempty};
+registerInstancesWithLoadBalancer pLoadBalancerName =
+    RegisterInstancesWithLoadBalancer'
+    { _riwlbLoadBalancerName = pLoadBalancerName
+    , _riwlbInstances = mempty
+    }
 
 -- | The name of the load balancer.
 riwlbLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer Text
@@ -131,17 +138,24 @@ instance ToQuery RegisterInstancesWithLoadBalancer
 --
 -- * 'riwlbrInstances'
 --
--- * 'riwlbrStatusCode'
-data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'{_riwlbrInstances :: Maybe [Instance], _riwlbrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'riwlbrStatus'
+data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'
+    { _riwlbrInstances :: Maybe [Instance]
+    , _riwlbrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterInstancesWithLoadBalancerResponse' smart constructor.
 registerInstancesWithLoadBalancerResponse :: Int -> RegisterInstancesWithLoadBalancerResponse
-registerInstancesWithLoadBalancerResponse pStatusCode = RegisterInstancesWithLoadBalancerResponse'{_riwlbrInstances = Nothing, _riwlbrStatusCode = pStatusCode};
+registerInstancesWithLoadBalancerResponse pStatus =
+    RegisterInstancesWithLoadBalancerResponse'
+    { _riwlbrInstances = Nothing
+    , _riwlbrStatus = pStatus
+    }
 
 -- | The updated list of instances for the load balancer.
 riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
 riwlbrInstances = lens _riwlbrInstances (\ s a -> s{_riwlbrInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-riwlbrStatusCode :: Lens' RegisterInstancesWithLoadBalancerResponse Int
-riwlbrStatusCode = lens _riwlbrStatusCode (\ s a -> s{_riwlbrStatusCode = a});
+riwlbrStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Int
+riwlbrStatus = lens _riwlbrStatus (\ s a -> s{_riwlbrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeleteAccountAlias
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,21 +35,26 @@ module Network.AWS.IAM.DeleteAccountAlias
     , deleteAccountAliasResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteAccountAlias' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'daaAccountAlias'
-newtype DeleteAccountAlias = DeleteAccountAlias'{_daaAccountAlias :: Text} deriving (Eq, Read, Show)
+newtype DeleteAccountAlias = DeleteAccountAlias'
+    { _daaAccountAlias :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteAccountAlias' smart constructor.
 deleteAccountAlias :: Text -> DeleteAccountAlias
-deleteAccountAlias pAccountAlias = DeleteAccountAlias'{_daaAccountAlias = pAccountAlias};
+deleteAccountAlias pAccountAlias =
+    DeleteAccountAlias'
+    { _daaAccountAlias = pAccountAlias
+    }
 
 -- | The name of the account alias to delete.
 daaAccountAlias :: Lens' DeleteAccountAlias Text
@@ -76,8 +81,10 @@ instance ToQuery DeleteAccountAlias where
                "AccountAlias" =: _daaAccountAlias]
 
 -- | /See:/ 'deleteAccountAliasResponse' smart constructor.
-data DeleteAccountAliasResponse = DeleteAccountAliasResponse' deriving (Eq, Read, Show)
+data DeleteAccountAliasResponse =
+    DeleteAccountAliasResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteAccountAliasResponse' smart constructor.
 deleteAccountAliasResponse :: DeleteAccountAliasResponse
-deleteAccountAliasResponse = DeleteAccountAliasResponse';
+deleteAccountAliasResponse = DeleteAccountAliasResponse'

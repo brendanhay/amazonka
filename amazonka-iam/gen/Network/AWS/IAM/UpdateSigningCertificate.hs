@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.UpdateSigningCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,10 +42,10 @@ module Network.AWS.IAM.UpdateSigningCertificate
     , updateSigningCertificateResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateSigningCertificate' smart constructor.
 --
@@ -56,11 +56,20 @@ import Network.AWS.Response
 -- * 'uscCertificateId'
 --
 -- * 'uscStatus'
-data UpdateSigningCertificate = UpdateSigningCertificate'{_uscUserName :: Maybe Text, _uscCertificateId :: Text, _uscStatus :: StatusType} deriving (Eq, Read, Show)
+data UpdateSigningCertificate = UpdateSigningCertificate'
+    { _uscUserName      :: Maybe Text
+    , _uscCertificateId :: Text
+    , _uscStatus        :: StatusType
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateSigningCertificate' smart constructor.
 updateSigningCertificate :: Text -> StatusType -> UpdateSigningCertificate
-updateSigningCertificate pCertificateId pStatus = UpdateSigningCertificate'{_uscUserName = Nothing, _uscCertificateId = pCertificateId, _uscStatus = pStatus};
+updateSigningCertificate pCertificateId pStatus =
+    UpdateSigningCertificate'
+    { _uscUserName = Nothing
+    , _uscCertificateId = pCertificateId
+    , _uscStatus = pStatus
+    }
 
 -- | The name of the user the signing certificate belongs to.
 uscUserName :: Lens' UpdateSigningCertificate (Maybe Text)
@@ -101,8 +110,10 @@ instance ToQuery UpdateSigningCertificate where
                "Status" =: _uscStatus]
 
 -- | /See:/ 'updateSigningCertificateResponse' smart constructor.
-data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse' deriving (Eq, Read, Show)
+data UpdateSigningCertificateResponse =
+    UpdateSigningCertificateResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateSigningCertificateResponse' smart constructor.
 updateSigningCertificateResponse :: UpdateSigningCertificateResponse
-updateSigningCertificateResponse = UpdateSigningCertificateResponse';
+updateSigningCertificateResponse = UpdateSigningCertificateResponse'

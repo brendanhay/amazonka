@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.PutLifecycleHook
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,13 +62,13 @@ module Network.AWS.AutoScaling.PutLifecycleHook
     -- ** Response constructor
     , putLifecycleHookResponse
     -- ** Response lenses
-    , plhrStatusCode
+    , plhrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putLifecycleHook' smart constructor.
 --
@@ -89,11 +89,30 @@ import Network.AWS.Response
 -- * 'plhLifecycleHookName'
 --
 -- * 'plhAutoScalingGroupName'
-data PutLifecycleHook = PutLifecycleHook'{_plhDefaultResult :: Maybe Text, _plhHeartbeatTimeout :: Maybe Int, _plhNotificationMetadata :: Maybe Text, _plhRoleARN :: Maybe Text, _plhLifecycleTransition :: Maybe Text, _plhNotificationTargetARN :: Maybe Text, _plhLifecycleHookName :: Text, _plhAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data PutLifecycleHook = PutLifecycleHook'
+    { _plhDefaultResult         :: Maybe Text
+    , _plhHeartbeatTimeout      :: Maybe Int
+    , _plhNotificationMetadata  :: Maybe Text
+    , _plhRoleARN               :: Maybe Text
+    , _plhLifecycleTransition   :: Maybe Text
+    , _plhNotificationTargetARN :: Maybe Text
+    , _plhLifecycleHookName     :: Text
+    , _plhAutoScalingGroupName  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PutLifecycleHook' smart constructor.
 putLifecycleHook :: Text -> Text -> PutLifecycleHook
-putLifecycleHook pLifecycleHookName pAutoScalingGroupName = PutLifecycleHook'{_plhDefaultResult = Nothing, _plhHeartbeatTimeout = Nothing, _plhNotificationMetadata = Nothing, _plhRoleARN = Nothing, _plhLifecycleTransition = Nothing, _plhNotificationTargetARN = Nothing, _plhLifecycleHookName = pLifecycleHookName, _plhAutoScalingGroupName = pAutoScalingGroupName};
+putLifecycleHook pLifecycleHookName pAutoScalingGroupName =
+    PutLifecycleHook'
+    { _plhDefaultResult = Nothing
+    , _plhHeartbeatTimeout = Nothing
+    , _plhNotificationMetadata = Nothing
+    , _plhRoleARN = Nothing
+    , _plhLifecycleTransition = Nothing
+    , _plhNotificationTargetARN = Nothing
+    , _plhLifecycleHookName = pLifecycleHookName
+    , _plhAutoScalingGroupName = pAutoScalingGroupName
+    }
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
 -- hook timeout elapses or if an unexpected failure occurs. The value for
@@ -201,13 +220,18 @@ instance ToQuery PutLifecycleHook where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'plhrStatusCode'
-newtype PutLifecycleHookResponse = PutLifecycleHookResponse'{_plhrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'plhrStatus'
+newtype PutLifecycleHookResponse = PutLifecycleHookResponse'
+    { _plhrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PutLifecycleHookResponse' smart constructor.
 putLifecycleHookResponse :: Int -> PutLifecycleHookResponse
-putLifecycleHookResponse pStatusCode = PutLifecycleHookResponse'{_plhrStatusCode = pStatusCode};
+putLifecycleHookResponse pStatus =
+    PutLifecycleHookResponse'
+    { _plhrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-plhrStatusCode :: Lens' PutLifecycleHookResponse Int
-plhrStatusCode = lens _plhrStatusCode (\ s a -> s{_plhrStatusCode = a});
+plhrStatus :: Lens' PutLifecycleHookResponse Int
+plhrStatus = lens _plhrStatus (\ s a -> s{_plhrStatus = a});

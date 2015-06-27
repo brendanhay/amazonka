@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeSubnets
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.EC2.DescribeSubnets
     , describeSubnetsResponse
     -- ** Response lenses
     , dsrSubnets
-    , dsrStatusCode
+    , dsrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeSubnets' smart constructor.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'dsFilters'
 --
 -- * 'dsDryRun'
-data DescribeSubnets = DescribeSubnets'{_dsSubnetIds :: Maybe [Text], _dsFilters :: Maybe [Filter], _dsDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeSubnets = DescribeSubnets'
+    { _dsSubnetIds :: Maybe [Text]
+    , _dsFilters   :: Maybe [Filter]
+    , _dsDryRun    :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSubnets' smart constructor.
 describeSubnets :: DescribeSubnets
-describeSubnets = DescribeSubnets'{_dsSubnetIds = Nothing, _dsFilters = Nothing, _dsDryRun = Nothing};
+describeSubnets =
+    DescribeSubnets'
+    { _dsSubnetIds = Nothing
+    , _dsFilters = Nothing
+    , _dsDryRun = Nothing
+    }
 
 -- | One or more subnet IDs.
 --
@@ -146,17 +155,24 @@ instance ToQuery DescribeSubnets where
 --
 -- * 'dsrSubnets'
 --
--- * 'dsrStatusCode'
-data DescribeSubnetsResponse = DescribeSubnetsResponse'{_dsrSubnets :: Maybe [Subnet], _dsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsrStatus'
+data DescribeSubnetsResponse = DescribeSubnetsResponse'
+    { _dsrSubnets :: Maybe [Subnet]
+    , _dsrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSubnetsResponse' smart constructor.
 describeSubnetsResponse :: Int -> DescribeSubnetsResponse
-describeSubnetsResponse pStatusCode = DescribeSubnetsResponse'{_dsrSubnets = Nothing, _dsrStatusCode = pStatusCode};
+describeSubnetsResponse pStatus =
+    DescribeSubnetsResponse'
+    { _dsrSubnets = Nothing
+    , _dsrStatus = pStatus
+    }
 
 -- | Information about one or more subnets.
 dsrSubnets :: Lens' DescribeSubnetsResponse [Subnet]
 dsrSubnets = lens _dsrSubnets (\ s a -> s{_dsrSubnets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsrStatusCode :: Lens' DescribeSubnetsResponse Int
-dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});
+dsrStatus :: Lens' DescribeSubnetsResponse Int
+dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

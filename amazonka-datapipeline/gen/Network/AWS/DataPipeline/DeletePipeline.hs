@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.DeletePipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.DataPipeline.DeletePipeline
     , deletePipelineResponse
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DeletePipeline.
 --
@@ -51,11 +51,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dpPipelineId'
-newtype DeletePipeline = DeletePipeline'{_dpPipelineId :: Text} deriving (Eq, Read, Show)
+newtype DeletePipeline = DeletePipeline'
+    { _dpPipelineId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeletePipeline' smart constructor.
 deletePipeline :: Text -> DeletePipeline
-deletePipeline pPipelineId = DeletePipeline'{_dpPipelineId = pPipelineId};
+deletePipeline pPipelineId =
+    DeletePipeline'
+    { _dpPipelineId = pPipelineId
+    }
 
 -- | The ID of the pipeline.
 dpPipelineId :: Lens' DeletePipeline Text
@@ -87,8 +92,10 @@ instance ToQuery DeletePipeline where
         toQuery = const mempty
 
 -- | /See:/ 'deletePipelineResponse' smart constructor.
-data DeletePipelineResponse = DeletePipelineResponse' deriving (Eq, Read, Show)
+data DeletePipelineResponse =
+    DeletePipelineResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeletePipelineResponse' smart constructor.
 deletePipelineResponse :: DeletePipelineResponse
-deletePipelineResponse = DeletePipelineResponse';
+deletePipelineResponse = DeletePipelineResponse'

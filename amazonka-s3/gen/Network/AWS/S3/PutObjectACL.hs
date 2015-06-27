@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.PutObjectACL
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.S3.PutObjectACL
     , putObjectACLResponse
     -- ** Response lenses
     , poarRequestCharged
-    , poarStatusCode
+    , poarStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'putObjectACL' smart constructor.
 --
@@ -76,11 +76,36 @@ import Network.AWS.S3.Types
 -- * 'poaBucket'
 --
 -- * 'poaKey'
-data PutObjectACL = PutObjectACL'{_poaGrantReadACP :: Maybe Text, _poaRequestPayer :: Maybe RequestPayer, _poaGrantWriteACP :: Maybe Text, _poaGrantRead :: Maybe Text, _poaGrantFullControl :: Maybe Text, _poaContentMD5 :: Maybe Text, _poaAccessControlPolicy :: Maybe AccessControlPolicy, _poaGrantWrite :: Maybe Text, _poaACL :: Maybe ObjectCannedACL, _poaBucket :: BucketName, _poaKey :: ObjectKey} deriving (Eq, Read, Show)
+data PutObjectACL = PutObjectACL'
+    { _poaGrantReadACP        :: Maybe Text
+    , _poaRequestPayer        :: Maybe RequestPayer
+    , _poaGrantWriteACP       :: Maybe Text
+    , _poaGrantRead           :: Maybe Text
+    , _poaGrantFullControl    :: Maybe Text
+    , _poaContentMD5          :: Maybe Text
+    , _poaAccessControlPolicy :: Maybe AccessControlPolicy
+    , _poaGrantWrite          :: Maybe Text
+    , _poaACL                 :: Maybe ObjectCannedACL
+    , _poaBucket              :: BucketName
+    , _poaKey                 :: ObjectKey
+    } deriving (Eq,Read,Show)
 
 -- | 'PutObjectACL' smart constructor.
 putObjectACL :: BucketName -> ObjectKey -> PutObjectACL
-putObjectACL pBucket pKey = PutObjectACL'{_poaGrantReadACP = Nothing, _poaRequestPayer = Nothing, _poaGrantWriteACP = Nothing, _poaGrantRead = Nothing, _poaGrantFullControl = Nothing, _poaContentMD5 = Nothing, _poaAccessControlPolicy = Nothing, _poaGrantWrite = Nothing, _poaACL = Nothing, _poaBucket = pBucket, _poaKey = pKey};
+putObjectACL pBucket pKey =
+    PutObjectACL'
+    { _poaGrantReadACP = Nothing
+    , _poaRequestPayer = Nothing
+    , _poaGrantWriteACP = Nothing
+    , _poaGrantRead = Nothing
+    , _poaGrantFullControl = Nothing
+    , _poaContentMD5 = Nothing
+    , _poaAccessControlPolicy = Nothing
+    , _poaGrantWrite = Nothing
+    , _poaACL = Nothing
+    , _poaBucket = pBucket
+    , _poaKey = pKey
+    }
 
 -- | Allows grantee to read the bucket ACL.
 poaGrantReadACP :: Lens' PutObjectACL (Maybe Text)
@@ -172,17 +197,24 @@ instance ToQuery PutObjectACL where
 --
 -- * 'poarRequestCharged'
 --
--- * 'poarStatusCode'
-data PutObjectACLResponse = PutObjectACLResponse'{_poarRequestCharged :: Maybe RequestCharged, _poarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'poarStatus'
+data PutObjectACLResponse = PutObjectACLResponse'
+    { _poarRequestCharged :: Maybe RequestCharged
+    , _poarStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PutObjectACLResponse' smart constructor.
 putObjectACLResponse :: Int -> PutObjectACLResponse
-putObjectACLResponse pStatusCode = PutObjectACLResponse'{_poarRequestCharged = Nothing, _poarStatusCode = pStatusCode};
+putObjectACLResponse pStatus =
+    PutObjectACLResponse'
+    { _poarRequestCharged = Nothing
+    , _poarStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 poarRequestCharged :: Lens' PutObjectACLResponse (Maybe RequestCharged)
 poarRequestCharged = lens _poarRequestCharged (\ s a -> s{_poarRequestCharged = a});
 
 -- | FIXME: Undocumented member.
-poarStatusCode :: Lens' PutObjectACLResponse Int
-poarStatusCode = lens _poarStatusCode (\ s a -> s{_poarStatusCode = a});
+poarStatus :: Lens' PutObjectACLResponse Int
+poarStatus = lens _poarStatus (\ s a -> s{_poarStatus = a});

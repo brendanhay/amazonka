@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.UpdateHealthCheck
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.Route53.UpdateHealthCheck
     , updateHealthCheckResponse
     -- ** Response lenses
     , uhcrHealthCheck
-    , uhcrStatusCode
+    , uhcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | >A complex type that contains information about the request to update a
 -- health check.
@@ -75,11 +75,30 @@ import Network.AWS.Route53.Types
 -- * 'uhcPort'
 --
 -- * 'uhcHealthCheckId'
-data UpdateHealthCheck = UpdateHealthCheck'{_uhcIPAddress :: Maybe Text, _uhcFailureThreshold :: Maybe Nat, _uhcSearchString :: Maybe Text, _uhcResourcePath :: Maybe Text, _uhcHealthCheckVersion :: Maybe Nat, _uhcFullyQualifiedDomainName :: Maybe Text, _uhcPort :: Maybe Nat, _uhcHealthCheckId :: Text} deriving (Eq, Read, Show)
+data UpdateHealthCheck = UpdateHealthCheck'
+    { _uhcIPAddress                :: Maybe Text
+    , _uhcFailureThreshold         :: Maybe Nat
+    , _uhcSearchString             :: Maybe Text
+    , _uhcResourcePath             :: Maybe Text
+    , _uhcHealthCheckVersion       :: Maybe Nat
+    , _uhcFullyQualifiedDomainName :: Maybe Text
+    , _uhcPort                     :: Maybe Nat
+    , _uhcHealthCheckId            :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateHealthCheck' smart constructor.
 updateHealthCheck :: Text -> UpdateHealthCheck
-updateHealthCheck pHealthCheckId = UpdateHealthCheck'{_uhcIPAddress = Nothing, _uhcFailureThreshold = Nothing, _uhcSearchString = Nothing, _uhcResourcePath = Nothing, _uhcHealthCheckVersion = Nothing, _uhcFullyQualifiedDomainName = Nothing, _uhcPort = Nothing, _uhcHealthCheckId = pHealthCheckId};
+updateHealthCheck pHealthCheckId =
+    UpdateHealthCheck'
+    { _uhcIPAddress = Nothing
+    , _uhcFailureThreshold = Nothing
+    , _uhcSearchString = Nothing
+    , _uhcResourcePath = Nothing
+    , _uhcHealthCheckVersion = Nothing
+    , _uhcFullyQualifiedDomainName = Nothing
+    , _uhcPort = Nothing
+    , _uhcHealthCheckId = pHealthCheckId
+    }
 
 -- | The IP address of the resource that you want to check.
 --
@@ -187,17 +206,24 @@ instance ToXML UpdateHealthCheck where
 --
 -- * 'uhcrHealthCheck'
 --
--- * 'uhcrStatusCode'
-data UpdateHealthCheckResponse = UpdateHealthCheckResponse'{_uhcrHealthCheck :: HealthCheck, _uhcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'uhcrStatus'
+data UpdateHealthCheckResponse = UpdateHealthCheckResponse'
+    { _uhcrHealthCheck :: HealthCheck
+    , _uhcrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateHealthCheckResponse' smart constructor.
 updateHealthCheckResponse :: HealthCheck -> Int -> UpdateHealthCheckResponse
-updateHealthCheckResponse pHealthCheck pStatusCode = UpdateHealthCheckResponse'{_uhcrHealthCheck = pHealthCheck, _uhcrStatusCode = pStatusCode};
+updateHealthCheckResponse pHealthCheck pStatus =
+    UpdateHealthCheckResponse'
+    { _uhcrHealthCheck = pHealthCheck
+    , _uhcrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 uhcrHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck
 uhcrHealthCheck = lens _uhcrHealthCheck (\ s a -> s{_uhcrHealthCheck = a});
 
 -- | FIXME: Undocumented member.
-uhcrStatusCode :: Lens' UpdateHealthCheckResponse Int
-uhcrStatusCode = lens _uhcrStatusCode (\ s a -> s{_uhcrStatusCode = a});
+uhcrStatus :: Lens' UpdateHealthCheckResponse Int
+uhcrStatus = lens _uhcrStatus (\ s a -> s{_uhcrStatus = a});

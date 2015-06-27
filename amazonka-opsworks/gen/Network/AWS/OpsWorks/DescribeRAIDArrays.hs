@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeRAIDArrays
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.OpsWorks.DescribeRAIDArrays
     , describeRAIDArraysResponse
     -- ** Response lenses
     , drarRAIDArrays
-    , drarStatusCode
+    , drarStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeRAIDArrays' smart constructor.
 --
@@ -59,11 +59,20 @@ import Network.AWS.Response
 -- * 'draRAIDArrayIds'
 --
 -- * 'draStackId'
-data DescribeRAIDArrays = DescribeRAIDArrays'{_draInstanceId :: Maybe Text, _draRAIDArrayIds :: Maybe [Text], _draStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeRAIDArrays = DescribeRAIDArrays'
+    { _draInstanceId   :: Maybe Text
+    , _draRAIDArrayIds :: Maybe [Text]
+    , _draStackId      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeRAIDArrays' smart constructor.
 describeRAIDArrays :: DescribeRAIDArrays
-describeRAIDArrays = DescribeRAIDArrays'{_draInstanceId = Nothing, _draRAIDArrayIds = Nothing, _draStackId = Nothing};
+describeRAIDArrays =
+    DescribeRAIDArrays'
+    { _draInstanceId = Nothing
+    , _draRAIDArrayIds = Nothing
+    , _draStackId = Nothing
+    }
 
 -- | The instance ID. If you use this parameter, @DescribeRaidArrays@ returns
 -- descriptions of the RAID arrays associated with the specified instance.
@@ -123,17 +132,24 @@ instance ToQuery DescribeRAIDArrays where
 --
 -- * 'drarRAIDArrays'
 --
--- * 'drarStatusCode'
-data DescribeRAIDArraysResponse = DescribeRAIDArraysResponse'{_drarRAIDArrays :: Maybe [RAIDArray], _drarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'drarStatus'
+data DescribeRAIDArraysResponse = DescribeRAIDArraysResponse'
+    { _drarRAIDArrays :: Maybe [RAIDArray]
+    , _drarStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeRAIDArraysResponse' smart constructor.
 describeRAIDArraysResponse :: Int -> DescribeRAIDArraysResponse
-describeRAIDArraysResponse pStatusCode = DescribeRAIDArraysResponse'{_drarRAIDArrays = Nothing, _drarStatusCode = pStatusCode};
+describeRAIDArraysResponse pStatus =
+    DescribeRAIDArraysResponse'
+    { _drarRAIDArrays = Nothing
+    , _drarStatus = pStatus
+    }
 
 -- | A @RaidArrays@ object that describes the specified RAID arrays.
 drarRAIDArrays :: Lens' DescribeRAIDArraysResponse [RAIDArray]
 drarRAIDArrays = lens _drarRAIDArrays (\ s a -> s{_drarRAIDArrays = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drarStatusCode :: Lens' DescribeRAIDArraysResponse Int
-drarStatusCode = lens _drarStatusCode (\ s a -> s{_drarStatusCode = a});
+drarStatus :: Lens' DescribeRAIDArraysResponse Int
+drarStatus = lens _drarStatus (\ s a -> s{_drarStatus = a});

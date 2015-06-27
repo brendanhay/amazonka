@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateRDSDBInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.OpsWorks.UpdateRDSDBInstance
     , updateRDSDBInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateRDSDBInstance' smart constructor.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'urdiDBPassword'
 --
 -- * 'urdiRDSDBInstanceARN'
-data UpdateRDSDBInstance = UpdateRDSDBInstance'{_urdiDBUser :: Maybe Text, _urdiDBPassword :: Maybe Text, _urdiRDSDBInstanceARN :: Text} deriving (Eq, Read, Show)
+data UpdateRDSDBInstance = UpdateRDSDBInstance'
+    { _urdiDBUser           :: Maybe Text
+    , _urdiDBPassword       :: Maybe Text
+    , _urdiRDSDBInstanceARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateRDSDBInstance' smart constructor.
 updateRDSDBInstance :: Text -> UpdateRDSDBInstance
-updateRDSDBInstance pRDSDBInstanceARN = UpdateRDSDBInstance'{_urdiDBUser = Nothing, _urdiDBPassword = Nothing, _urdiRDSDBInstanceARN = pRDSDBInstanceARN};
+updateRDSDBInstance pRDSDBInstanceARN =
+    UpdateRDSDBInstance'
+    { _urdiDBUser = Nothing
+    , _urdiDBPassword = Nothing
+    , _urdiRDSDBInstanceARN = pRDSDBInstanceARN
+    }
 
 -- | The master user name.
 urdiDBUser :: Lens' UpdateRDSDBInstance (Maybe Text)
@@ -103,8 +112,10 @@ instance ToQuery UpdateRDSDBInstance where
         toQuery = const mempty
 
 -- | /See:/ 'updateRDSDBInstanceResponse' smart constructor.
-data UpdateRDSDBInstanceResponse = UpdateRDSDBInstanceResponse' deriving (Eq, Read, Show)
+data UpdateRDSDBInstanceResponse =
+    UpdateRDSDBInstanceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateRDSDBInstanceResponse' smart constructor.
 updateRDSDBInstanceResponse :: UpdateRDSDBInstanceResponse
-updateRDSDBInstanceResponse = UpdateRDSDBInstanceResponse';
+updateRDSDBInstanceResponse = UpdateRDSDBInstanceResponse'

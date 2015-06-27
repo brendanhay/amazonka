@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.GrantAccess
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.OpsWorks.GrantAccess
     , grantAccessResponse
     -- ** Response lenses
     , garTemporaryCredential
-    , garStatusCode
+    , garStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'grantAccess' smart constructor.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'gaValidForInMinutes'
 --
 -- * 'gaInstanceId'
-data GrantAccess = GrantAccess'{_gaValidForInMinutes :: Maybe Nat, _gaInstanceId :: Text} deriving (Eq, Read, Show)
+data GrantAccess = GrantAccess'
+    { _gaValidForInMinutes :: Maybe Nat
+    , _gaInstanceId        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GrantAccess' smart constructor.
 grantAccess :: Text -> GrantAccess
-grantAccess pInstanceId = GrantAccess'{_gaValidForInMinutes = Nothing, _gaInstanceId = pInstanceId};
+grantAccess pInstanceId =
+    GrantAccess'
+    { _gaValidForInMinutes = Nothing
+    , _gaInstanceId = pInstanceId
+    }
 
 -- | The length of time (in minutes) that the grant is valid. When the grant
 -- expires at the end of this period, the user will no longer be able to
@@ -107,12 +114,19 @@ instance ToQuery GrantAccess where
 --
 -- * 'garTemporaryCredential'
 --
--- * 'garStatusCode'
-data GrantAccessResponse = GrantAccessResponse'{_garTemporaryCredential :: Maybe TemporaryCredential, _garStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'garStatus'
+data GrantAccessResponse = GrantAccessResponse'
+    { _garTemporaryCredential :: Maybe TemporaryCredential
+    , _garStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GrantAccessResponse' smart constructor.
 grantAccessResponse :: Int -> GrantAccessResponse
-grantAccessResponse pStatusCode = GrantAccessResponse'{_garTemporaryCredential = Nothing, _garStatusCode = pStatusCode};
+grantAccessResponse pStatus =
+    GrantAccessResponse'
+    { _garTemporaryCredential = Nothing
+    , _garStatus = pStatus
+    }
 
 -- | A @TemporaryCredential@ object that contains the data needed to log in
 -- to the instance by RDP clients, such as the Microsoft Remote Desktop
@@ -121,5 +135,5 @@ garTemporaryCredential :: Lens' GrantAccessResponse (Maybe TemporaryCredential)
 garTemporaryCredential = lens _garTemporaryCredential (\ s a -> s{_garTemporaryCredential = a});
 
 -- | FIXME: Undocumented member.
-garStatusCode :: Lens' GrantAccessResponse Int
-garStatusCode = lens _garStatusCode (\ s a -> s{_garStatusCode = a});
+garStatus :: Lens' GrantAccessResponse Int
+garStatus = lens _garStatus (\ s a -> s{_garStatus = a});

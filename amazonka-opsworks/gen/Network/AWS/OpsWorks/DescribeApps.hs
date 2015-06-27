@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeApps
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.OpsWorks.DescribeApps
     , describeAppsResponse
     -- ** Response lenses
     , darApps
-    , darStatusCode
+    , darStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeApps' smart constructor.
 --
@@ -56,11 +56,18 @@ import Network.AWS.Response
 -- * 'daAppIds'
 --
 -- * 'daStackId'
-data DescribeApps = DescribeApps'{_daAppIds :: Maybe [Text], _daStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeApps = DescribeApps'
+    { _daAppIds  :: Maybe [Text]
+    , _daStackId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeApps' smart constructor.
 describeApps :: DescribeApps
-describeApps = DescribeApps'{_daAppIds = Nothing, _daStackId = Nothing};
+describeApps =
+    DescribeApps'
+    { _daAppIds = Nothing
+    , _daStackId = Nothing
+    }
 
 -- | An array of app IDs for the apps to be described. If you use this
 -- parameter, @DescribeApps@ returns a description of the specified apps.
@@ -111,17 +118,24 @@ instance ToQuery DescribeApps where
 --
 -- * 'darApps'
 --
--- * 'darStatusCode'
-data DescribeAppsResponse = DescribeAppsResponse'{_darApps :: Maybe [App], _darStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'darStatus'
+data DescribeAppsResponse = DescribeAppsResponse'
+    { _darApps   :: Maybe [App]
+    , _darStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAppsResponse' smart constructor.
 describeAppsResponse :: Int -> DescribeAppsResponse
-describeAppsResponse pStatusCode = DescribeAppsResponse'{_darApps = Nothing, _darStatusCode = pStatusCode};
+describeAppsResponse pStatus =
+    DescribeAppsResponse'
+    { _darApps = Nothing
+    , _darStatus = pStatus
+    }
 
 -- | An array of @App@ objects that describe the specified apps.
 darApps :: Lens' DescribeAppsResponse [App]
 darApps = lens _darApps (\ s a -> s{_darApps = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-darStatusCode :: Lens' DescribeAppsResponse Int
-darStatusCode = lens _darStatusCode (\ s a -> s{_darStatusCode = a});
+darStatus :: Lens' DescribeAppsResponse Int
+darStatus = lens _darStatus (\ s a -> s{_darStatus = a});

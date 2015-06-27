@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.ListStackResources
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,14 +37,14 @@ module Network.AWS.CloudFormation.ListStackResources
     -- ** Response lenses
     , lsrrNextToken
     , lsrrStackResourceSummaries
-    , lsrrStatusCode
+    , lsrrStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the ListStackResource action.
 --
@@ -55,11 +55,18 @@ import Network.AWS.Response
 -- * 'lsrNextToken'
 --
 -- * 'lsrStackName'
-data ListStackResources = ListStackResources'{_lsrNextToken :: Maybe Text, _lsrStackName :: Text} deriving (Eq, Read, Show)
+data ListStackResources = ListStackResources'
+    { _lsrNextToken :: Maybe Text
+    , _lsrStackName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListStackResources' smart constructor.
 listStackResources :: Text -> ListStackResources
-listStackResources pStackName = ListStackResources'{_lsrNextToken = Nothing, _lsrStackName = pStackName};
+listStackResources pStackName =
+    ListStackResources'
+    { _lsrNextToken = Nothing
+    , _lsrStackName = pStackName
+    }
 
 -- | String that identifies the start of the next list of stack resource
 -- summaries, if there is one.
@@ -124,12 +131,21 @@ instance ToQuery ListStackResources where
 --
 -- * 'lsrrStackResourceSummaries'
 --
--- * 'lsrrStatusCode'
-data ListStackResourcesResponse = ListStackResourcesResponse'{_lsrrNextToken :: Maybe Text, _lsrrStackResourceSummaries :: Maybe [StackResourceSummary], _lsrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lsrrStatus'
+data ListStackResourcesResponse = ListStackResourcesResponse'
+    { _lsrrNextToken              :: Maybe Text
+    , _lsrrStackResourceSummaries :: Maybe [StackResourceSummary]
+    , _lsrrStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListStackResourcesResponse' smart constructor.
 listStackResourcesResponse :: Int -> ListStackResourcesResponse
-listStackResourcesResponse pStatusCode = ListStackResourcesResponse'{_lsrrNextToken = Nothing, _lsrrStackResourceSummaries = Nothing, _lsrrStatusCode = pStatusCode};
+listStackResourcesResponse pStatus =
+    ListStackResourcesResponse'
+    { _lsrrNextToken = Nothing
+    , _lsrrStackResourceSummaries = Nothing
+    , _lsrrStatus = pStatus
+    }
 
 -- | String that identifies the start of the next list of stack resources, if
 -- there is one.
@@ -141,5 +157,5 @@ lsrrStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSum
 lsrrStackResourceSummaries = lens _lsrrStackResourceSummaries (\ s a -> s{_lsrrStackResourceSummaries = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lsrrStatusCode :: Lens' ListStackResourcesResponse Int
-lsrrStatusCode = lens _lsrrStatusCode (\ s a -> s{_lsrrStatusCode = a});
+lsrrStatus :: Lens' ListStackResourcesResponse Int
+lsrrStatus = lens _lsrrStatus (\ s a -> s{_lsrrStatus = a});

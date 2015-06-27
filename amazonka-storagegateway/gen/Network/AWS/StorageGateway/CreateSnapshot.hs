@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.CreateSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,13 +54,13 @@ module Network.AWS.StorageGateway.CreateSnapshot
     -- ** Response lenses
     , csrVolumeARN
     , csrSnapshotId
-    , csrStatusCode
+    , csrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -74,11 +74,18 @@ import Network.AWS.StorageGateway.Types
 -- * 'csVolumeARN'
 --
 -- * 'csSnapshotDescription'
-data CreateSnapshot = CreateSnapshot'{_csVolumeARN :: Text, _csSnapshotDescription :: Text} deriving (Eq, Read, Show)
+data CreateSnapshot = CreateSnapshot'
+    { _csVolumeARN           :: Text
+    , _csSnapshotDescription :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> Text -> CreateSnapshot
-createSnapshot pVolumeARN pSnapshotDescription = CreateSnapshot'{_csVolumeARN = pVolumeARN, _csSnapshotDescription = pSnapshotDescription};
+createSnapshot pVolumeARN pSnapshotDescription =
+    CreateSnapshot'
+    { _csVolumeARN = pVolumeARN
+    , _csSnapshotDescription = pSnapshotDescription
+    }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
@@ -135,12 +142,21 @@ instance ToQuery CreateSnapshot where
 --
 -- * 'csrSnapshotId'
 --
--- * 'csrStatusCode'
-data CreateSnapshotResponse = CreateSnapshotResponse'{_csrVolumeARN :: Maybe Text, _csrSnapshotId :: Maybe Text, _csrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'csrStatus'
+data CreateSnapshotResponse = CreateSnapshotResponse'
+    { _csrVolumeARN  :: Maybe Text
+    , _csrSnapshotId :: Maybe Text
+    , _csrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Int -> CreateSnapshotResponse
-createSnapshotResponse pStatusCode = CreateSnapshotResponse'{_csrVolumeARN = Nothing, _csrSnapshotId = Nothing, _csrStatusCode = pStatusCode};
+createSnapshotResponse pStatus =
+    CreateSnapshotResponse'
+    { _csrVolumeARN = Nothing
+    , _csrSnapshotId = Nothing
+    , _csrStatus = pStatus
+    }
 
 -- | The Amazon Resource Name (ARN) of the volume of which the snapshot was
 -- taken.
@@ -155,5 +171,5 @@ csrSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\ s a -> s{_csrSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-csrStatusCode :: Lens' CreateSnapshotResponse Int
-csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});
+csrStatus :: Lens' CreateSnapshotResponse Int
+csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});

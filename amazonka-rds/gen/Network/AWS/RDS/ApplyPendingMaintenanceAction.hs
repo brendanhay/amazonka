@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.ApplyPendingMaintenanceAction
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.RDS.ApplyPendingMaintenanceAction
     , applyPendingMaintenanceActionResponse
     -- ** Response lenses
     , apmarResourcePendingMaintenanceActions
-    , apmarStatusCode
+    , apmarStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'apmaApplyAction'
 --
 -- * 'apmaOptInType'
-data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'{_apmaResourceIdentifier :: Text, _apmaApplyAction :: Text, _apmaOptInType :: Text} deriving (Eq, Read, Show)
+data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
+    { _apmaResourceIdentifier :: Text
+    , _apmaApplyAction        :: Text
+    , _apmaOptInType          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ApplyPendingMaintenanceAction' smart constructor.
 applyPendingMaintenanceAction :: Text -> Text -> Text -> ApplyPendingMaintenanceAction
-applyPendingMaintenanceAction pResourceIdentifier pApplyAction pOptInType = ApplyPendingMaintenanceAction'{_apmaResourceIdentifier = pResourceIdentifier, _apmaApplyAction = pApplyAction, _apmaOptInType = pOptInType};
+applyPendingMaintenanceAction pResourceIdentifier pApplyAction pOptInType =
+    ApplyPendingMaintenanceAction'
+    { _apmaResourceIdentifier = pResourceIdentifier
+    , _apmaApplyAction = pApplyAction
+    , _apmaOptInType = pOptInType
+    }
 
 -- | The ARN of the resource that the pending maintenance action applies to.
 apmaResourceIdentifier :: Lens' ApplyPendingMaintenanceAction Text
@@ -118,17 +127,24 @@ instance ToQuery ApplyPendingMaintenanceAction where
 --
 -- * 'apmarResourcePendingMaintenanceActions'
 --
--- * 'apmarStatusCode'
-data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'{_apmarResourcePendingMaintenanceActions :: Maybe ResourcePendingMaintenanceActions, _apmarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'apmarStatus'
+data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'
+    { _apmarResourcePendingMaintenanceActions :: Maybe ResourcePendingMaintenanceActions
+    , _apmarStatus                            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ApplyPendingMaintenanceActionResponse' smart constructor.
 applyPendingMaintenanceActionResponse :: Int -> ApplyPendingMaintenanceActionResponse
-applyPendingMaintenanceActionResponse pStatusCode = ApplyPendingMaintenanceActionResponse'{_apmarResourcePendingMaintenanceActions = Nothing, _apmarStatusCode = pStatusCode};
+applyPendingMaintenanceActionResponse pStatus =
+    ApplyPendingMaintenanceActionResponse'
+    { _apmarResourcePendingMaintenanceActions = Nothing
+    , _apmarStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 apmarResourcePendingMaintenanceActions :: Lens' ApplyPendingMaintenanceActionResponse (Maybe ResourcePendingMaintenanceActions)
 apmarResourcePendingMaintenanceActions = lens _apmarResourcePendingMaintenanceActions (\ s a -> s{_apmarResourcePendingMaintenanceActions = a});
 
 -- | FIXME: Undocumented member.
-apmarStatusCode :: Lens' ApplyPendingMaintenanceActionResponse Int
-apmarStatusCode = lens _apmarStatusCode (\ s a -> s{_apmarStatusCode = a});
+apmarStatus :: Lens' ApplyPendingMaintenanceActionResponse Int
+apmarStatus = lens _apmarStatus (\ s a -> s{_apmarStatus = a});

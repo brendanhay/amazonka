@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListAttachedRolePolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.IAM.ListAttachedRolePolicies
     , larprAttachedPolicies
     , larprMarker
     , larprIsTruncated
-    , larprStatusCode
+    , larprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listAttachedRolePolicies' smart constructor.
 --
@@ -68,11 +68,22 @@ import Network.AWS.Response
 -- * 'larpMarker'
 --
 -- * 'larpRoleName'
-data ListAttachedRolePolicies = ListAttachedRolePolicies'{_larpPathPrefix :: Maybe Text, _larpMaxItems :: Maybe Nat, _larpMarker :: Maybe Text, _larpRoleName :: Text} deriving (Eq, Read, Show)
+data ListAttachedRolePolicies = ListAttachedRolePolicies'
+    { _larpPathPrefix :: Maybe Text
+    , _larpMaxItems   :: Maybe Nat
+    , _larpMarker     :: Maybe Text
+    , _larpRoleName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAttachedRolePolicies' smart constructor.
 listAttachedRolePolicies :: Text -> ListAttachedRolePolicies
-listAttachedRolePolicies pRoleName = ListAttachedRolePolicies'{_larpPathPrefix = Nothing, _larpMaxItems = Nothing, _larpMarker = Nothing, _larpRoleName = pRoleName};
+listAttachedRolePolicies pRoleName =
+    ListAttachedRolePolicies'
+    { _larpPathPrefix = Nothing
+    , _larpMaxItems = Nothing
+    , _larpMarker = Nothing
+    , _larpRoleName = pRoleName
+    }
 
 -- | The path prefix for filtering the results. This parameter is optional.
 -- If it is not included, it defaults to a slash (\/), listing all
@@ -143,12 +154,23 @@ instance ToQuery ListAttachedRolePolicies where
 --
 -- * 'larprIsTruncated'
 --
--- * 'larprStatusCode'
-data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'{_larprAttachedPolicies :: Maybe [AttachedPolicy], _larprMarker :: Maybe Text, _larprIsTruncated :: Maybe Bool, _larprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'larprStatus'
+data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
+    { _larprAttachedPolicies :: Maybe [AttachedPolicy]
+    , _larprMarker           :: Maybe Text
+    , _larprIsTruncated      :: Maybe Bool
+    , _larprStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAttachedRolePoliciesResponse' smart constructor.
 listAttachedRolePoliciesResponse :: Int -> ListAttachedRolePoliciesResponse
-listAttachedRolePoliciesResponse pStatusCode = ListAttachedRolePoliciesResponse'{_larprAttachedPolicies = Nothing, _larprMarker = Nothing, _larprIsTruncated = Nothing, _larprStatusCode = pStatusCode};
+listAttachedRolePoliciesResponse pStatus =
+    ListAttachedRolePoliciesResponse'
+    { _larprAttachedPolicies = Nothing
+    , _larprMarker = Nothing
+    , _larprIsTruncated = Nothing
+    , _larprStatus = pStatus
+    }
 
 -- | A list of the attached policies.
 larprAttachedPolicies :: Lens' ListAttachedRolePoliciesResponse [AttachedPolicy]
@@ -168,5 +190,5 @@ larprIsTruncated :: Lens' ListAttachedRolePoliciesResponse (Maybe Bool)
 larprIsTruncated = lens _larprIsTruncated (\ s a -> s{_larprIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-larprStatusCode :: Lens' ListAttachedRolePoliciesResponse Int
-larprStatusCode = lens _larprStatusCode (\ s a -> s{_larprStatusCode = a});
+larprStatus :: Lens' ListAttachedRolePoliciesResponse Int
+larprStatus = lens _larprStatus (\ s a -> s{_larprStatus = a});

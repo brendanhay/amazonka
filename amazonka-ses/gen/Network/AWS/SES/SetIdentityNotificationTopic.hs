@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SES.SetIdentityNotificationTopic
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.SES.SetIdentityNotificationTopic
     -- ** Response constructor
     , setIdentityNotificationTopicResponse
     -- ** Response lenses
-    , sintrStatusCode
+    , sintrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SES.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
 -- | Represents a request to set or clear an identity\'s notification topic.
 --
@@ -64,11 +64,20 @@ import Network.AWS.SES.Types
 -- * 'sintIdentity'
 --
 -- * 'sintNotificationType'
-data SetIdentityNotificationTopic = SetIdentityNotificationTopic'{_sintSNSTopic :: Maybe Text, _sintIdentity :: Text, _sintNotificationType :: NotificationType} deriving (Eq, Read, Show)
+data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
+    { _sintSNSTopic         :: Maybe Text
+    , _sintIdentity         :: Text
+    , _sintNotificationType :: NotificationType
+    } deriving (Eq,Read,Show)
 
 -- | 'SetIdentityNotificationTopic' smart constructor.
 setIdentityNotificationTopic :: Text -> NotificationType -> SetIdentityNotificationTopic
-setIdentityNotificationTopic pIdentity pNotificationType = SetIdentityNotificationTopic'{_sintSNSTopic = Nothing, _sintIdentity = pIdentity, _sintNotificationType = pNotificationType};
+setIdentityNotificationTopic pIdentity pNotificationType =
+    SetIdentityNotificationTopic'
+    { _sintSNSTopic = Nothing
+    , _sintIdentity = pIdentity
+    , _sintNotificationType = pNotificationType
+    }
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter
 -- is omitted from the request or a null value is passed, @SnsTopic@ is
@@ -122,13 +131,18 @@ instance ToQuery SetIdentityNotificationTopic where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sintrStatusCode'
-newtype SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'{_sintrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'sintrStatus'
+newtype SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'
+    { _sintrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SetIdentityNotificationTopicResponse' smart constructor.
 setIdentityNotificationTopicResponse :: Int -> SetIdentityNotificationTopicResponse
-setIdentityNotificationTopicResponse pStatusCode = SetIdentityNotificationTopicResponse'{_sintrStatusCode = pStatusCode};
+setIdentityNotificationTopicResponse pStatus =
+    SetIdentityNotificationTopicResponse'
+    { _sintrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-sintrStatusCode :: Lens' SetIdentityNotificationTopicResponse Int
-sintrStatusCode = lens _sintrStatusCode (\ s a -> s{_sintrStatusCode = a});
+sintrStatus :: Lens' SetIdentityNotificationTopicResponse Int
+sintrStatus = lens _sintrStatus (\ s a -> s{_sintrStatus = a});

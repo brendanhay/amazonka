@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.UpdateAccountPasswordPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,10 +49,10 @@ module Network.AWS.IAM.UpdateAccountPasswordPolicy
     , updateAccountPasswordPolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateAccountPasswordPolicy' smart constructor.
 --
@@ -75,11 +75,32 @@ import Network.AWS.Response
 -- * 'uappRequireUppercaseCharacters'
 --
 -- * 'uappAllowUsersToChangePassword'
-data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'{_uappRequireNumbers :: Maybe Bool, _uappMinimumPasswordLength :: Maybe Nat, _uappPasswordReusePrevention :: Maybe Nat, _uappRequireLowercaseCharacters :: Maybe Bool, _uappMaxPasswordAge :: Maybe Nat, _uappHardExpiry :: Maybe Bool, _uappRequireSymbols :: Maybe Bool, _uappRequireUppercaseCharacters :: Maybe Bool, _uappAllowUsersToChangePassword :: Maybe Bool} deriving (Eq, Read, Show)
+data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
+    { _uappRequireNumbers             :: Maybe Bool
+    , _uappMinimumPasswordLength      :: Maybe Nat
+    , _uappPasswordReusePrevention    :: Maybe Nat
+    , _uappRequireLowercaseCharacters :: Maybe Bool
+    , _uappMaxPasswordAge             :: Maybe Nat
+    , _uappHardExpiry                 :: Maybe Bool
+    , _uappRequireSymbols             :: Maybe Bool
+    , _uappRequireUppercaseCharacters :: Maybe Bool
+    , _uappAllowUsersToChangePassword :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateAccountPasswordPolicy' smart constructor.
 updateAccountPasswordPolicy :: UpdateAccountPasswordPolicy
-updateAccountPasswordPolicy = UpdateAccountPasswordPolicy'{_uappRequireNumbers = Nothing, _uappMinimumPasswordLength = Nothing, _uappPasswordReusePrevention = Nothing, _uappRequireLowercaseCharacters = Nothing, _uappMaxPasswordAge = Nothing, _uappHardExpiry = Nothing, _uappRequireSymbols = Nothing, _uappRequireUppercaseCharacters = Nothing, _uappAllowUsersToChangePassword = Nothing};
+updateAccountPasswordPolicy =
+    UpdateAccountPasswordPolicy'
+    { _uappRequireNumbers = Nothing
+    , _uappMinimumPasswordLength = Nothing
+    , _uappPasswordReusePrevention = Nothing
+    , _uappRequireLowercaseCharacters = Nothing
+    , _uappMaxPasswordAge = Nothing
+    , _uappHardExpiry = Nothing
+    , _uappRequireSymbols = Nothing
+    , _uappRequireUppercaseCharacters = Nothing
+    , _uappAllowUsersToChangePassword = Nothing
+    }
 
 -- | Specifies whether IAM user passwords must contain at least one numeric
 -- character (0 to 9).
@@ -184,8 +205,10 @@ instance ToQuery UpdateAccountPasswordPolicy where
                  _uappAllowUsersToChangePassword]
 
 -- | /See:/ 'updateAccountPasswordPolicyResponse' smart constructor.
-data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse' deriving (Eq, Read, Show)
+data UpdateAccountPasswordPolicyResponse =
+    UpdateAccountPasswordPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateAccountPasswordPolicyResponse' smart constructor.
 updateAccountPasswordPolicyResponse :: UpdateAccountPasswordPolicyResponse
-updateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse';
+updateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse'

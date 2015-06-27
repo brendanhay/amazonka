@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.ListTagsForResource
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.RDS.ListTagsForResource
     , listTagsForResourceResponse
     -- ** Response lenses
     , ltfrrTagList
-    , ltfrrStatusCode
+    , ltfrrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'ltfrFilters'
 --
 -- * 'ltfrResourceName'
-data ListTagsForResource = ListTagsForResource'{_ltfrFilters :: Maybe [Filter], _ltfrResourceName :: Text} deriving (Eq, Read, Show)
+data ListTagsForResource = ListTagsForResource'
+    { _ltfrFilters      :: Maybe [Filter]
+    , _ltfrResourceName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForResource' smart constructor.
 listTagsForResource :: Text -> ListTagsForResource
-listTagsForResource pResourceName = ListTagsForResource'{_ltfrFilters = Nothing, _ltfrResourceName = pResourceName};
+listTagsForResource pResourceName =
+    ListTagsForResource'
+    { _ltfrFilters = Nothing
+    , _ltfrResourceName = pResourceName
+    }
 
 -- | This parameter is not currently supported.
 ltfrFilters :: Lens' ListTagsForResource [Filter]
@@ -105,17 +112,24 @@ instance ToQuery ListTagsForResource where
 --
 -- * 'ltfrrTagList'
 --
--- * 'ltfrrStatusCode'
-data ListTagsForResourceResponse = ListTagsForResourceResponse'{_ltfrrTagList :: Maybe [Tag], _ltfrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ltfrrStatus'
+data ListTagsForResourceResponse = ListTagsForResourceResponse'
+    { _ltfrrTagList :: Maybe [Tag]
+    , _ltfrrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForResourceResponse' smart constructor.
 listTagsForResourceResponse :: Int -> ListTagsForResourceResponse
-listTagsForResourceResponse pStatusCode = ListTagsForResourceResponse'{_ltfrrTagList = Nothing, _ltfrrStatusCode = pStatusCode};
+listTagsForResourceResponse pStatus =
+    ListTagsForResourceResponse'
+    { _ltfrrTagList = Nothing
+    , _ltfrrStatus = pStatus
+    }
 
 -- | List of tags returned by the ListTagsForResource operation.
 ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrTagList = lens _ltfrrTagList (\ s a -> s{_ltfrrTagList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ltfrrStatusCode :: Lens' ListTagsForResourceResponse Int
-ltfrrStatusCode = lens _ltfrrStatusCode (\ s a -> s{_ltfrrStatusCode = a});
+ltfrrStatus :: Lens' ListTagsForResourceResponse Int
+ltfrrStatus = lens _ltfrrStatus (\ s a -> s{_ltfrrStatus = a});

@@ -37,13 +37,13 @@ module Network.AWS.CloudTrail
     ( module Export
     ) where
 
-import Network.AWS.CloudTrail.CreateTrail as Export
-import Network.AWS.CloudTrail.DeleteTrail as Export
-import Network.AWS.CloudTrail.DescribeTrails as Export
-import Network.AWS.CloudTrail.GetTrailStatus as Export
-import Network.AWS.CloudTrail.LookupEvents as Export
-import Network.AWS.CloudTrail.StartLogging as Export
-import Network.AWS.CloudTrail.StopLogging as Export
-import Network.AWS.CloudTrail.Types as Export
-import Network.AWS.CloudTrail.UpdateTrail as Export
-import Network.AWS.CloudTrail.Waiters as Export
+import           Network.AWS.CloudTrail.CreateTrail    as Export
+import           Network.AWS.CloudTrail.DeleteTrail    as Export
+import           Network.AWS.CloudTrail.DescribeTrails as Export
+import           Network.AWS.CloudTrail.GetTrailStatus as Export
+import           Network.AWS.CloudTrail.LookupEvents   as Export
+import           Network.AWS.CloudTrail.StartLogging   as Export
+import           Network.AWS.CloudTrail.StopLogging    as Export
+import           Network.AWS.CloudTrail.Types          as Export
+import           Network.AWS.CloudTrail.UpdateTrail    as Export
+import           Network.AWS.CloudTrail.Waiters        as Export

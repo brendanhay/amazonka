@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DeleteClusterParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.Redshift.DeleteClusterParameterGroup
     , deleteClusterParameterGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -45,11 +45,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delParameterGroupName'
-newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup'{_delParameterGroupName :: Text} deriving (Eq, Read, Show)
+newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup'
+    { _delParameterGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteClusterParameterGroup' smart constructor.
 deleteClusterParameterGroup :: Text -> DeleteClusterParameterGroup
-deleteClusterParameterGroup pParameterGroupName = DeleteClusterParameterGroup'{_delParameterGroupName = pParameterGroupName};
+deleteClusterParameterGroup pParameterGroupName =
+    DeleteClusterParameterGroup'
+    { _delParameterGroupName = pParameterGroupName
+    }
 
 -- | The name of the parameter group to be deleted.
 --
@@ -83,8 +88,10 @@ instance ToQuery DeleteClusterParameterGroup where
                "ParameterGroupName" =: _delParameterGroupName]
 
 -- | /See:/ 'deleteClusterParameterGroupResponse' smart constructor.
-data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse' deriving (Eq, Read, Show)
+data DeleteClusterParameterGroupResponse =
+    DeleteClusterParameterGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteClusterParameterGroupResponse' smart constructor.
 deleteClusterParameterGroupResponse :: DeleteClusterParameterGroupResponse
-deleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse';
+deleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse'

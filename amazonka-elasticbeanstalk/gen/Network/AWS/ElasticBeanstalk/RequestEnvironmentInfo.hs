@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,10 +49,10 @@ module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     , requestEnvironmentInfoResponse
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -65,11 +65,20 @@ import Network.AWS.Response
 -- * 'reiEnvironmentId'
 --
 -- * 'reiInfoType'
-data RequestEnvironmentInfo = RequestEnvironmentInfo'{_reiEnvironmentName :: Maybe Text, _reiEnvironmentId :: Maybe Text, _reiInfoType :: EnvironmentInfoType} deriving (Eq, Read, Show)
+data RequestEnvironmentInfo = RequestEnvironmentInfo'
+    { _reiEnvironmentName :: Maybe Text
+    , _reiEnvironmentId   :: Maybe Text
+    , _reiInfoType        :: EnvironmentInfoType
+    } deriving (Eq,Read,Show)
 
 -- | 'RequestEnvironmentInfo' smart constructor.
 requestEnvironmentInfo :: EnvironmentInfoType -> RequestEnvironmentInfo
-requestEnvironmentInfo pInfoType = RequestEnvironmentInfo'{_reiEnvironmentName = Nothing, _reiEnvironmentId = Nothing, _reiInfoType = pInfoType};
+requestEnvironmentInfo pInfoType =
+    RequestEnvironmentInfo'
+    { _reiEnvironmentName = Nothing
+    , _reiEnvironmentId = Nothing
+    , _reiInfoType = pInfoType
+    }
 
 -- | The name of the environment of the requested data.
 --
@@ -122,8 +131,10 @@ instance ToQuery RequestEnvironmentInfo where
                "InfoType" =: _reiInfoType]
 
 -- | /See:/ 'requestEnvironmentInfoResponse' smart constructor.
-data RequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse' deriving (Eq, Read, Show)
+data RequestEnvironmentInfoResponse =
+    RequestEnvironmentInfoResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RequestEnvironmentInfoResponse' smart constructor.
 requestEnvironmentInfoResponse :: RequestEnvironmentInfoResponse
-requestEnvironmentInfoResponse = RequestEnvironmentInfoResponse';
+requestEnvironmentInfoResponse = RequestEnvironmentInfoResponse'

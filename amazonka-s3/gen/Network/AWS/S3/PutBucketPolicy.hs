@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.PutBucketPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.S3.PutBucketPolicy
     , putBucketPolicyResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'putBucketPolicy' smart constructor.
 --
@@ -49,11 +49,20 @@ import Network.AWS.S3.Types
 -- * 'pbpBucket'
 --
 -- * 'pbpPolicy'
-data PutBucketPolicy = PutBucketPolicy'{_pbpContentMD5 :: Maybe Text, _pbpBucket :: BucketName, _pbpPolicy :: Text} deriving (Eq, Read, Show)
+data PutBucketPolicy = PutBucketPolicy'
+    { _pbpContentMD5 :: Maybe Text
+    , _pbpBucket     :: BucketName
+    , _pbpPolicy     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PutBucketPolicy' smart constructor.
 putBucketPolicy :: BucketName -> Text -> PutBucketPolicy
-putBucketPolicy pBucket pPolicy = PutBucketPolicy'{_pbpContentMD5 = Nothing, _pbpBucket = pBucket, _pbpPolicy = pPolicy};
+putBucketPolicy pBucket pPolicy =
+    PutBucketPolicy'
+    { _pbpContentMD5 = Nothing
+    , _pbpBucket = pBucket
+    , _pbpPolicy = pPolicy
+    }
 
 -- | FIXME: Undocumented member.
 pbpContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
@@ -88,8 +97,10 @@ instance ToQuery PutBucketPolicy where
         toQuery = const (mconcat ["policy"])
 
 -- | /See:/ 'putBucketPolicyResponse' smart constructor.
-data PutBucketPolicyResponse = PutBucketPolicyResponse' deriving (Eq, Read, Show)
+data PutBucketPolicyResponse =
+    PutBucketPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutBucketPolicyResponse' smart constructor.
 putBucketPolicyResponse :: PutBucketPolicyResponse
-putBucketPolicyResponse = PutBucketPolicyResponse';
+putBucketPolicyResponse = PutBucketPolicyResponse'

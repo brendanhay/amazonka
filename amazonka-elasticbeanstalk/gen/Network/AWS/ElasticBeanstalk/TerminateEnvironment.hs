@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.TerminateEnvironment
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,10 +51,10 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     , envDescription
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -67,11 +67,20 @@ import Network.AWS.Response
 -- * 'teEnvironmentName'
 --
 -- * 'teEnvironmentId'
-data TerminateEnvironment = TerminateEnvironment'{_teTerminateResources :: Maybe Bool, _teEnvironmentName :: Maybe Text, _teEnvironmentId :: Maybe Text} deriving (Eq, Read, Show)
+data TerminateEnvironment = TerminateEnvironment'
+    { _teTerminateResources :: Maybe Bool
+    , _teEnvironmentName    :: Maybe Text
+    , _teEnvironmentId      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'TerminateEnvironment' smart constructor.
 terminateEnvironment :: TerminateEnvironment
-terminateEnvironment = TerminateEnvironment'{_teTerminateResources = Nothing, _teEnvironmentName = Nothing, _teEnvironmentId = Nothing};
+terminateEnvironment =
+    TerminateEnvironment'
+    { _teTerminateResources = Nothing
+    , _teEnvironmentName = Nothing
+    , _teEnvironmentId = Nothing
+    }
 
 -- | Indicates whether the associated AWS resources should shut down when the
 -- environment is terminated:

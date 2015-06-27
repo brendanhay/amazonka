@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListAccountAliases
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,14 +41,14 @@ module Network.AWS.IAM.ListAccountAliases
     , laarMarker
     , laarIsTruncated
     , laarAccountAliases
-    , laarStatusCode
+    , laarStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listAccountAliases' smart constructor.
 --
@@ -57,11 +57,18 @@ import Network.AWS.Response
 -- * 'laaMaxItems'
 --
 -- * 'laaMarker'
-data ListAccountAliases = ListAccountAliases'{_laaMaxItems :: Maybe Nat, _laaMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListAccountAliases = ListAccountAliases'
+    { _laaMaxItems :: Maybe Nat
+    , _laaMarker   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAccountAliases' smart constructor.
 listAccountAliases :: ListAccountAliases
-listAccountAliases = ListAccountAliases'{_laaMaxItems = Nothing, _laaMarker = Nothing};
+listAccountAliases =
+    ListAccountAliases'
+    { _laaMaxItems = Nothing
+    , _laaMarker = Nothing
+    }
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- account aliases you want in the response. If there are additional
@@ -124,12 +131,23 @@ instance ToQuery ListAccountAliases where
 --
 -- * 'laarAccountAliases'
 --
--- * 'laarStatusCode'
-data ListAccountAliasesResponse = ListAccountAliasesResponse'{_laarMarker :: Maybe Text, _laarIsTruncated :: Maybe Bool, _laarAccountAliases :: [Text], _laarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'laarStatus'
+data ListAccountAliasesResponse = ListAccountAliasesResponse'
+    { _laarMarker         :: Maybe Text
+    , _laarIsTruncated    :: Maybe Bool
+    , _laarAccountAliases :: [Text]
+    , _laarStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAccountAliasesResponse' smart constructor.
 listAccountAliasesResponse :: Int -> ListAccountAliasesResponse
-listAccountAliasesResponse pStatusCode = ListAccountAliasesResponse'{_laarMarker = Nothing, _laarIsTruncated = Nothing, _laarAccountAliases = mempty, _laarStatusCode = pStatusCode};
+listAccountAliasesResponse pStatus =
+    ListAccountAliasesResponse'
+    { _laarMarker = Nothing
+    , _laarIsTruncated = Nothing
+    , _laarAccountAliases = mempty
+    , _laarStatus = pStatus
+    }
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you\'ve received a response where the results are truncated. Set
@@ -150,5 +168,5 @@ laarAccountAliases :: Lens' ListAccountAliasesResponse [Text]
 laarAccountAliases = lens _laarAccountAliases (\ s a -> s{_laarAccountAliases = a});
 
 -- | FIXME: Undocumented member.
-laarStatusCode :: Lens' ListAccountAliasesResponse Int
-laarStatusCode = lens _laarStatusCode (\ s a -> s{_laarStatusCode = a});
+laarStatus :: Lens' ListAccountAliasesResponse Int
+laarStatus = lens _laarStatus (\ s a -> s{_laarStatus = a});

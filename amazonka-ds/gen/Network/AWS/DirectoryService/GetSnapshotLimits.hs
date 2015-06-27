@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectoryService.GetSnapshotLimits
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.DirectoryService.GetSnapshotLimits
     , getSnapshotLimitsResponse
     -- ** Response lenses
     , gslrSnapshotLimits
-    , gslrStatusCode
+    , gslrStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the GetSnapshotLimits operation.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gslDirectoryId'
-newtype GetSnapshotLimits = GetSnapshotLimits'{_gslDirectoryId :: Text} deriving (Eq, Read, Show)
+newtype GetSnapshotLimits = GetSnapshotLimits'
+    { _gslDirectoryId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetSnapshotLimits' smart constructor.
 getSnapshotLimits :: Text -> GetSnapshotLimits
-getSnapshotLimits pDirectoryId = GetSnapshotLimits'{_gslDirectoryId = pDirectoryId};
+getSnapshotLimits pDirectoryId =
+    GetSnapshotLimits'
+    { _gslDirectoryId = pDirectoryId
+    }
 
 -- | Contains the identifier of the directory to obtain the limits for.
 gslDirectoryId :: Lens' GetSnapshotLimits Text
@@ -95,12 +100,19 @@ instance ToQuery GetSnapshotLimits where
 --
 -- * 'gslrSnapshotLimits'
 --
--- * 'gslrStatusCode'
-data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'{_gslrSnapshotLimits :: Maybe SnapshotLimits, _gslrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gslrStatus'
+data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
+    { _gslrSnapshotLimits :: Maybe SnapshotLimits
+    , _gslrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetSnapshotLimitsResponse' smart constructor.
 getSnapshotLimitsResponse :: Int -> GetSnapshotLimitsResponse
-getSnapshotLimitsResponse pStatusCode = GetSnapshotLimitsResponse'{_gslrSnapshotLimits = Nothing, _gslrStatusCode = pStatusCode};
+getSnapshotLimitsResponse pStatus =
+    GetSnapshotLimitsResponse'
+    { _gslrSnapshotLimits = Nothing
+    , _gslrStatus = pStatus
+    }
 
 -- | A SnapshotLimits object that contains the manual snapshot limits for the
 -- specified directory.
@@ -108,5 +120,5 @@ gslrSnapshotLimits :: Lens' GetSnapshotLimitsResponse (Maybe SnapshotLimits)
 gslrSnapshotLimits = lens _gslrSnapshotLimits (\ s a -> s{_gslrSnapshotLimits = a});
 
 -- | FIXME: Undocumented member.
-gslrStatusCode :: Lens' GetSnapshotLimitsResponse Int
-gslrStatusCode = lens _gslrStatusCode (\ s a -> s{_gslrStatusCode = a});
+gslrStatus :: Lens' GetSnapshotLimitsResponse Int
+gslrStatus = lens _gslrStatus (\ s a -> s{_gslrStatus = a});

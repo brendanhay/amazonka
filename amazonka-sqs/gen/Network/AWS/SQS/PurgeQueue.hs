@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.PurgeQueue
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,21 +42,26 @@ module Network.AWS.SQS.PurgeQueue
     , purgeQueueResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'purgeQueue' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'pqQueueURL'
-newtype PurgeQueue = PurgeQueue'{_pqQueueURL :: Text} deriving (Eq, Read, Show)
+newtype PurgeQueue = PurgeQueue'
+    { _pqQueueURL :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PurgeQueue' smart constructor.
 purgeQueue :: Text -> PurgeQueue
-purgeQueue pQueueURL = PurgeQueue'{_pqQueueURL = pQueueURL};
+purgeQueue pQueueURL =
+    PurgeQueue'
+    { _pqQueueURL = pQueueURL
+    }
 
 -- | The queue URL of the queue to delete the messages from when using the
 -- @PurgeQueue@ API.
@@ -83,8 +88,10 @@ instance ToQuery PurgeQueue where
                "QueueUrl" =: _pqQueueURL]
 
 -- | /See:/ 'purgeQueueResponse' smart constructor.
-data PurgeQueueResponse = PurgeQueueResponse' deriving (Eq, Read, Show)
+data PurgeQueueResponse =
+    PurgeQueueResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PurgeQueueResponse' smart constructor.
 purgeQueueResponse :: PurgeQueueResponse
-purgeQueueResponse = PurgeQueueResponse';
+purgeQueueResponse = PurgeQueueResponse'

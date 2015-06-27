@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.GetEndpointAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.SNS.GetEndpointAttributes
     , getEndpointAttributesResponse
     -- ** Response lenses
     , gearAttributes
-    , gearStatusCode
+    , gearStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for GetEndpointAttributes action.
 --
@@ -50,11 +50,16 @@ import Network.AWS.SNS.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'geaEndpointARN'
-newtype GetEndpointAttributes = GetEndpointAttributes'{_geaEndpointARN :: Text} deriving (Eq, Read, Show)
+newtype GetEndpointAttributes = GetEndpointAttributes'
+    { _geaEndpointARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetEndpointAttributes' smart constructor.
 getEndpointAttributes :: Text -> GetEndpointAttributes
-getEndpointAttributes pEndpointARN = GetEndpointAttributes'{_geaEndpointARN = pEndpointARN};
+getEndpointAttributes pEndpointARN =
+    GetEndpointAttributes'
+    { _geaEndpointARN = pEndpointARN
+    }
 
 -- | EndpointArn for GetEndpointAttributes input.
 geaEndpointARN :: Lens' GetEndpointAttributes Text
@@ -94,12 +99,19 @@ instance ToQuery GetEndpointAttributes where
 --
 -- * 'gearAttributes'
 --
--- * 'gearStatusCode'
-data GetEndpointAttributesResponse = GetEndpointAttributesResponse'{_gearAttributes :: Maybe (Map Text Text), _gearStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gearStatus'
+data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
+    { _gearAttributes :: Maybe (Map Text Text)
+    , _gearStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetEndpointAttributesResponse' smart constructor.
 getEndpointAttributesResponse :: Int -> GetEndpointAttributesResponse
-getEndpointAttributesResponse pStatusCode = GetEndpointAttributesResponse'{_gearAttributes = Nothing, _gearStatusCode = pStatusCode};
+getEndpointAttributesResponse pStatus =
+    GetEndpointAttributesResponse'
+    { _gearAttributes = Nothing
+    , _gearStatus = pStatus
+    }
 
 -- | Attributes include the following:
 --
@@ -118,5 +130,5 @@ gearAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
 gearAttributes = lens _gearAttributes (\ s a -> s{_gearAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gearStatusCode :: Lens' GetEndpointAttributesResponse Int
-gearStatusCode = lens _gearStatusCode (\ s a -> s{_gearStatusCode = a});
+gearStatus :: Lens' GetEndpointAttributesResponse Int
+gearStatus = lens _gearStatus (\ s a -> s{_gearStatus = a});

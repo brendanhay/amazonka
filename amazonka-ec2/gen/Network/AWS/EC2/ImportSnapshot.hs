@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ImportSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.EC2.ImportSnapshot
     , isrSnapshotTaskDetail
     , isrImportTaskId
     , isrDescription
-    , isrStatusCode
+    , isrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'importSnapshot' smart constructor.
 --
@@ -62,11 +62,26 @@ import Network.AWS.Response
 -- * 'isDescription'
 --
 -- * 'isClientData'
-data ImportSnapshot = ImportSnapshot'{_isDiskContainer :: Maybe SnapshotDiskContainer, _isClientToken :: Maybe Text, _isRoleName :: Maybe Text, _isDryRun :: Maybe Bool, _isDescription :: Maybe Text, _isClientData :: Maybe ClientData} deriving (Eq, Read, Show)
+data ImportSnapshot = ImportSnapshot'
+    { _isDiskContainer :: Maybe SnapshotDiskContainer
+    , _isClientToken   :: Maybe Text
+    , _isRoleName      :: Maybe Text
+    , _isDryRun        :: Maybe Bool
+    , _isDescription   :: Maybe Text
+    , _isClientData    :: Maybe ClientData
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportSnapshot' smart constructor.
 importSnapshot :: ImportSnapshot
-importSnapshot = ImportSnapshot'{_isDiskContainer = Nothing, _isClientToken = Nothing, _isRoleName = Nothing, _isDryRun = Nothing, _isDescription = Nothing, _isClientData = Nothing};
+importSnapshot =
+    ImportSnapshot'
+    { _isDiskContainer = Nothing
+    , _isClientToken = Nothing
+    , _isRoleName = Nothing
+    , _isDryRun = Nothing
+    , _isDescription = Nothing
+    , _isClientData = Nothing
+    }
 
 -- | Information about the disk container.
 isDiskContainer :: Lens' ImportSnapshot (Maybe SnapshotDiskContainer)
@@ -136,12 +151,23 @@ instance ToQuery ImportSnapshot where
 --
 -- * 'isrDescription'
 --
--- * 'isrStatusCode'
-data ImportSnapshotResponse = ImportSnapshotResponse'{_isrSnapshotTaskDetail :: Maybe SnapshotTaskDetail, _isrImportTaskId :: Maybe Text, _isrDescription :: Maybe Text, _isrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'isrStatus'
+data ImportSnapshotResponse = ImportSnapshotResponse'
+    { _isrSnapshotTaskDetail :: Maybe SnapshotTaskDetail
+    , _isrImportTaskId       :: Maybe Text
+    , _isrDescription        :: Maybe Text
+    , _isrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportSnapshotResponse' smart constructor.
 importSnapshotResponse :: Int -> ImportSnapshotResponse
-importSnapshotResponse pStatusCode = ImportSnapshotResponse'{_isrSnapshotTaskDetail = Nothing, _isrImportTaskId = Nothing, _isrDescription = Nothing, _isrStatusCode = pStatusCode};
+importSnapshotResponse pStatus =
+    ImportSnapshotResponse'
+    { _isrSnapshotTaskDetail = Nothing
+    , _isrImportTaskId = Nothing
+    , _isrDescription = Nothing
+    , _isrStatus = pStatus
+    }
 
 -- | Information about the import snapshot task.
 isrSnapshotTaskDetail :: Lens' ImportSnapshotResponse (Maybe SnapshotTaskDetail)
@@ -156,5 +182,5 @@ isrDescription :: Lens' ImportSnapshotResponse (Maybe Text)
 isrDescription = lens _isrDescription (\ s a -> s{_isrDescription = a});
 
 -- | FIXME: Undocumented member.
-isrStatusCode :: Lens' ImportSnapshotResponse Int
-isrStatusCode = lens _isrStatusCode (\ s a -> s{_isrStatusCode = a});
+isrStatus :: Lens' ImportSnapshotResponse Int
+isrStatus = lens _isrStatus (\ s a -> s{_isrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetInstanceProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,24 +37,29 @@ module Network.AWS.IAM.GetInstanceProfile
     , getInstanceProfileResponse
     -- ** Response lenses
     , giprInstanceProfile
-    , giprStatusCode
+    , giprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getInstanceProfile' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gipInstanceProfileName'
-newtype GetInstanceProfile = GetInstanceProfile'{_gipInstanceProfileName :: Text} deriving (Eq, Read, Show)
+newtype GetInstanceProfile = GetInstanceProfile'
+    { _gipInstanceProfileName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetInstanceProfile' smart constructor.
 getInstanceProfile :: Text -> GetInstanceProfile
-getInstanceProfile pInstanceProfileName = GetInstanceProfile'{_gipInstanceProfileName = pInstanceProfileName};
+getInstanceProfile pInstanceProfileName =
+    GetInstanceProfile'
+    { _gipInstanceProfileName = pInstanceProfileName
+    }
 
 -- | The name of the instance profile to get information about.
 gipInstanceProfileName :: Lens' GetInstanceProfile Text
@@ -92,17 +97,24 @@ instance ToQuery GetInstanceProfile where
 --
 -- * 'giprInstanceProfile'
 --
--- * 'giprStatusCode'
-data GetInstanceProfileResponse = GetInstanceProfileResponse'{_giprInstanceProfile :: InstanceProfile, _giprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'giprStatus'
+data GetInstanceProfileResponse = GetInstanceProfileResponse'
+    { _giprInstanceProfile :: InstanceProfile
+    , _giprStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetInstanceProfileResponse' smart constructor.
 getInstanceProfileResponse :: InstanceProfile -> Int -> GetInstanceProfileResponse
-getInstanceProfileResponse pInstanceProfile pStatusCode = GetInstanceProfileResponse'{_giprInstanceProfile = pInstanceProfile, _giprStatusCode = pStatusCode};
+getInstanceProfileResponse pInstanceProfile pStatus =
+    GetInstanceProfileResponse'
+    { _giprInstanceProfile = pInstanceProfile
+    , _giprStatus = pStatus
+    }
 
 -- | Information about the instance profile.
 giprInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
 giprInstanceProfile = lens _giprInstanceProfile (\ s a -> s{_giprInstanceProfile = a});
 
 -- | FIXME: Undocumented member.
-giprStatusCode :: Lens' GetInstanceProfileResponse Int
-giprStatusCode = lens _giprStatusCode (\ s a -> s{_giprStatusCode = a});
+giprStatus :: Lens' GetInstanceProfileResponse Int
+giprStatus = lens _giprStatus (\ s a -> s{_giprStatus = a});

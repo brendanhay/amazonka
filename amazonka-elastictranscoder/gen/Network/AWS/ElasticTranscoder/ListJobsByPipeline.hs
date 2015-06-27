@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ListJobsByPipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,14 +40,14 @@ module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     -- ** Response lenses
     , ljbprNextPageToken
     , ljbprJobs
-    , ljbprStatusCode
+    , ljbprStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @ListJobsByPipelineRequest@ structure.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'ljbpPageToken'
 --
 -- * 'ljbpPipelineId'
-data ListJobsByPipeline = ListJobsByPipeline'{_ljbpAscending :: Maybe Text, _ljbpPageToken :: Maybe Text, _ljbpPipelineId :: Text} deriving (Eq, Read, Show)
+data ListJobsByPipeline = ListJobsByPipeline'
+    { _ljbpAscending  :: Maybe Text
+    , _ljbpPageToken  :: Maybe Text
+    , _ljbpPipelineId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListJobsByPipeline' smart constructor.
 listJobsByPipeline :: Text -> ListJobsByPipeline
-listJobsByPipeline pPipelineId = ListJobsByPipeline'{_ljbpAscending = Nothing, _ljbpPageToken = Nothing, _ljbpPipelineId = pPipelineId};
+listJobsByPipeline pPipelineId =
+    ListJobsByPipeline'
+    { _ljbpAscending = Nothing
+    , _ljbpPageToken = Nothing
+    , _ljbpPipelineId = pPipelineId
+    }
 
 -- | To list jobs in chronological order by the date and time that they were
 -- submitted, enter @true@. To list jobs in reverse chronological order,
@@ -126,12 +135,21 @@ instance ToQuery ListJobsByPipeline where
 --
 -- * 'ljbprJobs'
 --
--- * 'ljbprStatusCode'
-data ListJobsByPipelineResponse = ListJobsByPipelineResponse'{_ljbprNextPageToken :: Maybe Text, _ljbprJobs :: Maybe [Job'], _ljbprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ljbprStatus'
+data ListJobsByPipelineResponse = ListJobsByPipelineResponse'
+    { _ljbprNextPageToken :: Maybe Text
+    , _ljbprJobs          :: Maybe [Job']
+    , _ljbprStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListJobsByPipelineResponse' smart constructor.
 listJobsByPipelineResponse :: Int -> ListJobsByPipelineResponse
-listJobsByPipelineResponse pStatusCode = ListJobsByPipelineResponse'{_ljbprNextPageToken = Nothing, _ljbprJobs = Nothing, _ljbprStatusCode = pStatusCode};
+listJobsByPipelineResponse pStatus =
+    ListJobsByPipelineResponse'
+    { _ljbprNextPageToken = Nothing
+    , _ljbprJobs = Nothing
+    , _ljbprStatus = pStatus
+    }
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the jobs in the specified pipeline fit on one page
@@ -145,5 +163,5 @@ ljbprJobs :: Lens' ListJobsByPipelineResponse [Job']
 ljbprJobs = lens _ljbprJobs (\ s a -> s{_ljbprJobs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ljbprStatusCode :: Lens' ListJobsByPipelineResponse Int
-ljbprStatusCode = lens _ljbprStatusCode (\ s a -> s{_ljbprStatusCode = a});
+ljbprStatus :: Lens' ListJobsByPipelineResponse Int
+ljbprStatus = lens _ljbprStatus (\ s a -> s{_ljbprStatus = a});

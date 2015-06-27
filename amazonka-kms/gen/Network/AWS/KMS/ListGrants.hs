@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.ListGrants
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.KMS.ListGrants
     , lgrTruncated
     , lgrGrants
     , lgrNextMarker
-    , lgrStatusCode
+    , lgrStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listGrants' smart constructor.
 --
@@ -53,11 +53,20 @@ import Network.AWS.Response
 -- * 'lgLimit'
 --
 -- * 'lgKeyId'
-data ListGrants = ListGrants'{_lgMarker :: Maybe Text, _lgLimit :: Maybe Nat, _lgKeyId :: Text} deriving (Eq, Read, Show)
+data ListGrants = ListGrants'
+    { _lgMarker :: Maybe Text
+    , _lgLimit  :: Maybe Nat
+    , _lgKeyId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGrants' smart constructor.
 listGrants :: Text -> ListGrants
-listGrants pKeyId = ListGrants'{_lgMarker = Nothing, _lgLimit = Nothing, _lgKeyId = pKeyId};
+listGrants pKeyId =
+    ListGrants'
+    { _lgMarker = Nothing
+    , _lgLimit = Nothing
+    , _lgKeyId = pKeyId
+    }
 
 -- | Use this parameter only when paginating results, and only in a
 -- subsequent request after you\'ve received a response where the results
@@ -126,12 +135,23 @@ instance ToQuery ListGrants where
 --
 -- * 'lgrNextMarker'
 --
--- * 'lgrStatusCode'
-data ListGrantsResponse = ListGrantsResponse'{_lgrTruncated :: Maybe Bool, _lgrGrants :: Maybe [GrantListEntry], _lgrNextMarker :: Maybe Text, _lgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lgrStatus'
+data ListGrantsResponse = ListGrantsResponse'
+    { _lgrTruncated  :: Maybe Bool
+    , _lgrGrants     :: Maybe [GrantListEntry]
+    , _lgrNextMarker :: Maybe Text
+    , _lgrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGrantsResponse' smart constructor.
 listGrantsResponse :: Int -> ListGrantsResponse
-listGrantsResponse pStatusCode = ListGrantsResponse'{_lgrTruncated = Nothing, _lgrGrants = Nothing, _lgrNextMarker = Nothing, _lgrStatusCode = pStatusCode};
+listGrantsResponse pStatus =
+    ListGrantsResponse'
+    { _lgrTruncated = Nothing
+    , _lgrGrants = Nothing
+    , _lgrNextMarker = Nothing
+    , _lgrStatus = pStatus
+    }
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -151,5 +171,5 @@ lgrNextMarker :: Lens' ListGrantsResponse (Maybe Text)
 lgrNextMarker = lens _lgrNextMarker (\ s a -> s{_lgrNextMarker = a});
 
 -- | FIXME: Undocumented member.
-lgrStatusCode :: Lens' ListGrantsResponse Int
-lgrStatusCode = lens _lgrStatusCode (\ s a -> s{_lgrStatusCode = a});
+lgrStatus :: Lens' ListGrantsResponse Int
+lgrStatus = lens _lgrStatus (\ s a -> s{_lgrStatus = a});

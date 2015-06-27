@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ListJobsByStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,14 +37,14 @@ module Network.AWS.ElasticTranscoder.ListJobsByStatus
     -- ** Response lenses
     , ljbsrNextPageToken
     , ljbsrJobs
-    , ljbsrStatusCode
+    , ljbsrStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @ListJobsByStatusRequest@ structure.
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'ljbsPageToken'
 --
 -- * 'ljbsStatus'
-data ListJobsByStatus = ListJobsByStatus'{_ljbsAscending :: Maybe Text, _ljbsPageToken :: Maybe Text, _ljbsStatus :: Text} deriving (Eq, Read, Show)
+data ListJobsByStatus = ListJobsByStatus'
+    { _ljbsAscending :: Maybe Text
+    , _ljbsPageToken :: Maybe Text
+    , _ljbsStatus    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListJobsByStatus' smart constructor.
 listJobsByStatus :: Text -> ListJobsByStatus
-listJobsByStatus pStatus = ListJobsByStatus'{_ljbsAscending = Nothing, _ljbsPageToken = Nothing, _ljbsStatus = pStatus};
+listJobsByStatus pStatus =
+    ListJobsByStatus'
+    { _ljbsAscending = Nothing
+    , _ljbsPageToken = Nothing
+    , _ljbsStatus = pStatus
+    }
 
 -- | To list jobs in chronological order by the date and time that they were
 -- submitted, enter @true@. To list jobs in reverse chronological order,
@@ -123,12 +132,21 @@ instance ToQuery ListJobsByStatus where
 --
 -- * 'ljbsrJobs'
 --
--- * 'ljbsrStatusCode'
-data ListJobsByStatusResponse = ListJobsByStatusResponse'{_ljbsrNextPageToken :: Maybe Text, _ljbsrJobs :: Maybe [Job'], _ljbsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ljbsrStatus'
+data ListJobsByStatusResponse = ListJobsByStatusResponse'
+    { _ljbsrNextPageToken :: Maybe Text
+    , _ljbsrJobs          :: Maybe [Job']
+    , _ljbsrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListJobsByStatusResponse' smart constructor.
 listJobsByStatusResponse :: Int -> ListJobsByStatusResponse
-listJobsByStatusResponse pStatusCode = ListJobsByStatusResponse'{_ljbsrNextPageToken = Nothing, _ljbsrJobs = Nothing, _ljbsrStatusCode = pStatusCode};
+listJobsByStatusResponse pStatus =
+    ListJobsByStatusResponse'
+    { _ljbsrNextPageToken = Nothing
+    , _ljbsrJobs = Nothing
+    , _ljbsrStatus = pStatus
+    }
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the jobs in the specified pipeline fit on one page
@@ -142,5 +160,5 @@ ljbsrJobs :: Lens' ListJobsByStatusResponse [Job']
 ljbsrJobs = lens _ljbsrJobs (\ s a -> s{_ljbsrJobs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ljbsrStatusCode :: Lens' ListJobsByStatusResponse Int
-ljbsrStatusCode = lens _ljbsrStatusCode (\ s a -> s{_ljbsrStatusCode = a});
+ljbsrStatus :: Lens' ListJobsByStatusResponse Int
+ljbsrStatus = lens _ljbsrStatus (\ s a -> s{_ljbsrStatus = a});

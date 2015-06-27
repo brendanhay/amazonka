@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.CreateDBParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,13 +57,13 @@ module Network.AWS.RDS.CreateDBParameterGroup
     , createDBParameterGroupResponse
     -- ** Response lenses
     , cdpgrDBParameterGroup
-    , cdpgrStatusCode
+    , cdpgrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -78,11 +78,22 @@ import Network.AWS.Response
 -- * 'cDBParameterGroupFamily'
 --
 -- * 'cDescription'
-data CreateDBParameterGroup = CreateDBParameterGroup'{_cTags :: Maybe [Tag], _cDBParameterGroupName :: Text, _cDBParameterGroupFamily :: Text, _cDescription :: Text} deriving (Eq, Read, Show)
+data CreateDBParameterGroup = CreateDBParameterGroup'
+    { _cTags                   :: Maybe [Tag]
+    , _cDBParameterGroupName   :: Text
+    , _cDBParameterGroupFamily :: Text
+    , _cDescription            :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDBParameterGroup' smart constructor.
 createDBParameterGroup :: Text -> Text -> Text -> CreateDBParameterGroup
-createDBParameterGroup pDBParameterGroupName pDBParameterGroupFamily pDescription = CreateDBParameterGroup'{_cTags = Nothing, _cDBParameterGroupName = pDBParameterGroupName, _cDBParameterGroupFamily = pDBParameterGroupFamily, _cDescription = pDescription};
+createDBParameterGroup pDBParameterGroupName pDBParameterGroupFamily pDescription =
+    CreateDBParameterGroup'
+    { _cTags = Nothing
+    , _cDBParameterGroupName = pDBParameterGroupName
+    , _cDBParameterGroupFamily = pDBParameterGroupFamily
+    , _cDescription = pDescription
+    }
 
 -- | FIXME: Undocumented member.
 cTags :: Lens' CreateDBParameterGroup [Tag]
@@ -145,17 +156,24 @@ instance ToQuery CreateDBParameterGroup where
 --
 -- * 'cdpgrDBParameterGroup'
 --
--- * 'cdpgrStatusCode'
-data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'{_cdpgrDBParameterGroup :: Maybe DBParameterGroup, _cdpgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdpgrStatus'
+data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'
+    { _cdpgrDBParameterGroup :: Maybe DBParameterGroup
+    , _cdpgrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDBParameterGroupResponse' smart constructor.
 createDBParameterGroupResponse :: Int -> CreateDBParameterGroupResponse
-createDBParameterGroupResponse pStatusCode = CreateDBParameterGroupResponse'{_cdpgrDBParameterGroup = Nothing, _cdpgrStatusCode = pStatusCode};
+createDBParameterGroupResponse pStatus =
+    CreateDBParameterGroupResponse'
+    { _cdpgrDBParameterGroup = Nothing
+    , _cdpgrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 cdpgrDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
 cdpgrDBParameterGroup = lens _cdpgrDBParameterGroup (\ s a -> s{_cdpgrDBParameterGroup = a});
 
 -- | FIXME: Undocumented member.
-cdpgrStatusCode :: Lens' CreateDBParameterGroupResponse Int
-cdpgrStatusCode = lens _cdpgrStatusCode (\ s a -> s{_cdpgrStatusCode = a});
+cdpgrStatus :: Lens' CreateDBParameterGroupResponse Int
+cdpgrStatus = lens _cdpgrStatus (\ s a -> s{_cdpgrStatus = a});

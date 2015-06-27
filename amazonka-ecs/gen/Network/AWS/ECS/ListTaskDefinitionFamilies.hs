@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.ListTaskDefinitionFamilies
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,14 +38,14 @@ module Network.AWS.ECS.ListTaskDefinitionFamilies
     -- ** Response lenses
     , ltdfrFamilies
     , ltdfrNextToken
-    , ltdfrStatusCode
+    , ltdfrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listTaskDefinitionFamilies' smart constructor.
 --
@@ -56,11 +56,20 @@ import Network.AWS.Response
 -- * 'ltdfNextToken'
 --
 -- * 'ltdfMaxResults'
-data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'{_ltdfFamilyPrefix :: Maybe Text, _ltdfNextToken :: Maybe Text, _ltdfMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
+    { _ltdfFamilyPrefix :: Maybe Text
+    , _ltdfNextToken    :: Maybe Text
+    , _ltdfMaxResults   :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTaskDefinitionFamilies' smart constructor.
 listTaskDefinitionFamilies :: ListTaskDefinitionFamilies
-listTaskDefinitionFamilies = ListTaskDefinitionFamilies'{_ltdfFamilyPrefix = Nothing, _ltdfNextToken = Nothing, _ltdfMaxResults = Nothing};
+listTaskDefinitionFamilies =
+    ListTaskDefinitionFamilies'
+    { _ltdfFamilyPrefix = Nothing
+    , _ltdfNextToken = Nothing
+    , _ltdfMaxResults = Nothing
+    }
 
 -- | The @familyPrefix@ is a string that is used to filter the results of
 -- @ListTaskDefinitionFamilies@. If you specify a @familyPrefix@, only task
@@ -139,12 +148,21 @@ instance ToQuery ListTaskDefinitionFamilies where
 --
 -- * 'ltdfrNextToken'
 --
--- * 'ltdfrStatusCode'
-data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'{_ltdfrFamilies :: Maybe [Text], _ltdfrNextToken :: Maybe Text, _ltdfrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ltdfrStatus'
+data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'
+    { _ltdfrFamilies  :: Maybe [Text]
+    , _ltdfrNextToken :: Maybe Text
+    , _ltdfrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTaskDefinitionFamiliesResponse' smart constructor.
 listTaskDefinitionFamiliesResponse :: Int -> ListTaskDefinitionFamiliesResponse
-listTaskDefinitionFamiliesResponse pStatusCode = ListTaskDefinitionFamiliesResponse'{_ltdfrFamilies = Nothing, _ltdfrNextToken = Nothing, _ltdfrStatusCode = pStatusCode};
+listTaskDefinitionFamiliesResponse pStatus =
+    ListTaskDefinitionFamiliesResponse'
+    { _ltdfrFamilies = Nothing
+    , _ltdfrNextToken = Nothing
+    , _ltdfrStatus = pStatus
+    }
 
 -- | The list of task definition family names that match the
 -- @ListTaskDefinitionFamilies@ request.
@@ -160,5 +178,5 @@ ltdfrNextToken :: Lens' ListTaskDefinitionFamiliesResponse (Maybe Text)
 ltdfrNextToken = lens _ltdfrNextToken (\ s a -> s{_ltdfrNextToken = a});
 
 -- | FIXME: Undocumented member.
-ltdfrStatusCode :: Lens' ListTaskDefinitionFamiliesResponse Int
-ltdfrStatusCode = lens _ltdfrStatusCode (\ s a -> s{_ltdfrStatusCode = a});
+ltdfrStatus :: Lens' ListTaskDefinitionFamiliesResponse Int
+ltdfrStatus = lens _ltdfrStatus (\ s a -> s{_ltdfrStatus = a});

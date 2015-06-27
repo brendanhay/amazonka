@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateVPCEndpoint
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,13 +44,13 @@ module Network.AWS.EC2.CreateVPCEndpoint
     -- ** Response lenses
     , cverClientToken
     , cverVPCEndpoint
-    , cverStatusCode
+    , cverStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createVPCEndpoint' smart constructor.
 --
@@ -67,11 +67,26 @@ import Network.AWS.Response
 -- * 'cveVPCId'
 --
 -- * 'cveServiceName'
-data CreateVPCEndpoint = CreateVPCEndpoint'{_cvePolicyDocument :: Maybe Text, _cveClientToken :: Maybe Text, _cveDryRun :: Maybe Bool, _cveRouteTableIds :: Maybe [Text], _cveVPCId :: Text, _cveServiceName :: Text} deriving (Eq, Read, Show)
+data CreateVPCEndpoint = CreateVPCEndpoint'
+    { _cvePolicyDocument :: Maybe Text
+    , _cveClientToken    :: Maybe Text
+    , _cveDryRun         :: Maybe Bool
+    , _cveRouteTableIds  :: Maybe [Text]
+    , _cveVPCId          :: Text
+    , _cveServiceName    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVPCEndpoint' smart constructor.
 createVPCEndpoint :: Text -> Text -> CreateVPCEndpoint
-createVPCEndpoint pVPCId pServiceName = CreateVPCEndpoint'{_cvePolicyDocument = Nothing, _cveClientToken = Nothing, _cveDryRun = Nothing, _cveRouteTableIds = Nothing, _cveVPCId = pVPCId, _cveServiceName = pServiceName};
+createVPCEndpoint pVPCId pServiceName =
+    CreateVPCEndpoint'
+    { _cvePolicyDocument = Nothing
+    , _cveClientToken = Nothing
+    , _cveDryRun = Nothing
+    , _cveRouteTableIds = Nothing
+    , _cveVPCId = pVPCId
+    , _cveServiceName = pServiceName
+    }
 
 -- | A policy to attach to the endpoint that controls access to the service.
 -- The policy must be in valid JSON format. If this parameter is not
@@ -144,12 +159,21 @@ instance ToQuery CreateVPCEndpoint where
 --
 -- * 'cverVPCEndpoint'
 --
--- * 'cverStatusCode'
-data CreateVPCEndpointResponse = CreateVPCEndpointResponse'{_cverClientToken :: Maybe Text, _cverVPCEndpoint :: Maybe VPCEndpoint, _cverStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cverStatus'
+data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
+    { _cverClientToken :: Maybe Text
+    , _cverVPCEndpoint :: Maybe VPCEndpoint
+    , _cverStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVPCEndpointResponse' smart constructor.
 createVPCEndpointResponse :: Int -> CreateVPCEndpointResponse
-createVPCEndpointResponse pStatusCode = CreateVPCEndpointResponse'{_cverClientToken = Nothing, _cverVPCEndpoint = Nothing, _cverStatusCode = pStatusCode};
+createVPCEndpointResponse pStatus =
+    CreateVPCEndpointResponse'
+    { _cverClientToken = Nothing
+    , _cverVPCEndpoint = Nothing
+    , _cverStatus = pStatus
+    }
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request.
@@ -161,5 +185,5 @@ cverVPCEndpoint :: Lens' CreateVPCEndpointResponse (Maybe VPCEndpoint)
 cverVPCEndpoint = lens _cverVPCEndpoint (\ s a -> s{_cverVPCEndpoint = a});
 
 -- | FIXME: Undocumented member.
-cverStatusCode :: Lens' CreateVPCEndpointResponse Int
-cverStatusCode = lens _cverStatusCode (\ s a -> s{_cverStatusCode = a});
+cverStatus :: Lens' CreateVPCEndpointResponse Int
+cverStatus = lens _cverStatus (\ s a -> s{_cverStatus = a});

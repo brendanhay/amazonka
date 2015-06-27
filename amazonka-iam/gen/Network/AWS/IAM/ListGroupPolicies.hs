@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListGroupPolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,14 +47,14 @@ module Network.AWS.IAM.ListGroupPolicies
     , lgprMarker
     , lgprIsTruncated
     , lgprPolicyNames
-    , lgprStatusCode
+    , lgprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listGroupPolicies' smart constructor.
 --
@@ -65,11 +65,20 @@ import Network.AWS.Response
 -- * 'lgpMarker'
 --
 -- * 'lgpGroupName'
-data ListGroupPolicies = ListGroupPolicies'{_lgpMaxItems :: Maybe Nat, _lgpMarker :: Maybe Text, _lgpGroupName :: Text} deriving (Eq, Read, Show)
+data ListGroupPolicies = ListGroupPolicies'
+    { _lgpMaxItems  :: Maybe Nat
+    , _lgpMarker    :: Maybe Text
+    , _lgpGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGroupPolicies' smart constructor.
 listGroupPolicies :: Text -> ListGroupPolicies
-listGroupPolicies pGroupName = ListGroupPolicies'{_lgpMaxItems = Nothing, _lgpMarker = Nothing, _lgpGroupName = pGroupName};
+listGroupPolicies pGroupName =
+    ListGroupPolicies'
+    { _lgpMaxItems = Nothing
+    , _lgpMarker = Nothing
+    , _lgpGroupName = pGroupName
+    }
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- policy names you want in the response. If there are additional policy
@@ -136,12 +145,23 @@ instance ToQuery ListGroupPolicies where
 --
 -- * 'lgprPolicyNames'
 --
--- * 'lgprStatusCode'
-data ListGroupPoliciesResponse = ListGroupPoliciesResponse'{_lgprMarker :: Maybe Text, _lgprIsTruncated :: Maybe Bool, _lgprPolicyNames :: [Text], _lgprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lgprStatus'
+data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
+    { _lgprMarker      :: Maybe Text
+    , _lgprIsTruncated :: Maybe Bool
+    , _lgprPolicyNames :: [Text]
+    , _lgprStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGroupPoliciesResponse' smart constructor.
 listGroupPoliciesResponse :: Int -> ListGroupPoliciesResponse
-listGroupPoliciesResponse pStatusCode = ListGroupPoliciesResponse'{_lgprMarker = Nothing, _lgprIsTruncated = Nothing, _lgprPolicyNames = mempty, _lgprStatusCode = pStatusCode};
+listGroupPoliciesResponse pStatus =
+    ListGroupPoliciesResponse'
+    { _lgprMarker = Nothing
+    , _lgprIsTruncated = Nothing
+    , _lgprPolicyNames = mempty
+    , _lgprStatus = pStatus
+    }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -161,5 +181,5 @@ lgprPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
 lgprPolicyNames = lens _lgprPolicyNames (\ s a -> s{_lgprPolicyNames = a});
 
 -- | FIXME: Undocumented member.
-lgprStatusCode :: Lens' ListGroupPoliciesResponse Int
-lgprStatusCode = lens _lgprStatusCode (\ s a -> s{_lgprStatusCode = a});
+lgprStatus :: Lens' ListGroupPoliciesResponse Int
+lgprStatus = lens _lgprStatus (\ s a -> s{_lgprStatus = a});

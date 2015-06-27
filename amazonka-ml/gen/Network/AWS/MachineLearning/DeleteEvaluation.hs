@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.DeleteEvaluation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,24 +40,29 @@ module Network.AWS.MachineLearning.DeleteEvaluation
     , deleteEvaluationResponse
     -- ** Response lenses
     , derEvaluationId
-    , derStatusCode
+    , derStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteEvaluation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'deEvaluationId'
-newtype DeleteEvaluation = DeleteEvaluation'{_deEvaluationId :: Text} deriving (Eq, Read, Show)
+newtype DeleteEvaluation = DeleteEvaluation'
+    { _deEvaluationId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteEvaluation' smart constructor.
 deleteEvaluation :: Text -> DeleteEvaluation
-deleteEvaluation pEvaluationId = DeleteEvaluation'{_deEvaluationId = pEvaluationId};
+deleteEvaluation pEvaluationId =
+    DeleteEvaluation'
+    { _deEvaluationId = pEvaluationId
+    }
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
 deEvaluationId :: Lens' DeleteEvaluation Text
@@ -105,12 +110,19 @@ instance ToQuery DeleteEvaluation where
 --
 -- * 'derEvaluationId'
 --
--- * 'derStatusCode'
-data DeleteEvaluationResponse = DeleteEvaluationResponse'{_derEvaluationId :: Maybe Text, _derStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'derStatus'
+data DeleteEvaluationResponse = DeleteEvaluationResponse'
+    { _derEvaluationId :: Maybe Text
+    , _derStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteEvaluationResponse' smart constructor.
 deleteEvaluationResponse :: Int -> DeleteEvaluationResponse
-deleteEvaluationResponse pStatusCode = DeleteEvaluationResponse'{_derEvaluationId = Nothing, _derStatusCode = pStatusCode};
+deleteEvaluationResponse pStatus =
+    DeleteEvaluationResponse'
+    { _derEvaluationId = Nothing
+    , _derStatus = pStatus
+    }
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@. This value
 -- should be identical to the value of the @EvaluationId@ in the request.
@@ -118,5 +130,5 @@ derEvaluationId :: Lens' DeleteEvaluationResponse (Maybe Text)
 derEvaluationId = lens _derEvaluationId (\ s a -> s{_derEvaluationId = a});
 
 -- | FIXME: Undocumented member.
-derStatusCode :: Lens' DeleteEvaluationResponse Int
-derStatusCode = lens _derStatusCode (\ s a -> s{_derStatusCode = a});
+derStatus :: Lens' DeleteEvaluationResponse Int
+derStatus = lens _derStatus (\ s a -> s{_derStatus = a});

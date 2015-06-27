@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.CodeDeploy.ListDeploymentGroups
     , ldgrNextToken
     , ldgrApplicationName
     , ldgrDeploymentGroups
-    , ldgrStatusCode
+    , ldgrStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a list deployment groups operation.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'ldgNextToken'
 --
 -- * 'ldgApplicationName'
-data ListDeploymentGroups = ListDeploymentGroups'{_ldgNextToken :: Maybe Text, _ldgApplicationName :: Text} deriving (Eq, Read, Show)
+data ListDeploymentGroups = ListDeploymentGroups'
+    { _ldgNextToken       :: Maybe Text
+    , _ldgApplicationName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDeploymentGroups' smart constructor.
 listDeploymentGroups :: Text -> ListDeploymentGroups
-listDeploymentGroups pApplicationName = ListDeploymentGroups'{_ldgNextToken = Nothing, _ldgApplicationName = pApplicationName};
+listDeploymentGroups pApplicationName =
+    ListDeploymentGroups'
+    { _ldgNextToken = Nothing
+    , _ldgApplicationName = pApplicationName
+    }
 
 -- | An identifier that was returned from the previous list deployment groups
 -- call, which can be used to return the next set of deployment groups in
@@ -117,12 +124,23 @@ instance ToQuery ListDeploymentGroups where
 --
 -- * 'ldgrDeploymentGroups'
 --
--- * 'ldgrStatusCode'
-data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'{_ldgrNextToken :: Maybe Text, _ldgrApplicationName :: Maybe Text, _ldgrDeploymentGroups :: Maybe [Text], _ldgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ldgrStatus'
+data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
+    { _ldgrNextToken        :: Maybe Text
+    , _ldgrApplicationName  :: Maybe Text
+    , _ldgrDeploymentGroups :: Maybe [Text]
+    , _ldgrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDeploymentGroupsResponse' smart constructor.
 listDeploymentGroupsResponse :: Int -> ListDeploymentGroupsResponse
-listDeploymentGroupsResponse pStatusCode = ListDeploymentGroupsResponse'{_ldgrNextToken = Nothing, _ldgrApplicationName = Nothing, _ldgrDeploymentGroups = Nothing, _ldgrStatusCode = pStatusCode};
+listDeploymentGroupsResponse pStatus =
+    ListDeploymentGroupsResponse'
+    { _ldgrNextToken = Nothing
+    , _ldgrApplicationName = Nothing
+    , _ldgrDeploymentGroups = Nothing
+    , _ldgrStatus = pStatus
+    }
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -140,5 +158,5 @@ ldgrDeploymentGroups :: Lens' ListDeploymentGroupsResponse [Text]
 ldgrDeploymentGroups = lens _ldgrDeploymentGroups (\ s a -> s{_ldgrDeploymentGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldgrStatusCode :: Lens' ListDeploymentGroupsResponse Int
-ldgrStatusCode = lens _ldgrStatusCode (\ s a -> s{_ldgrStatusCode = a});
+ldgrStatus :: Lens' ListDeploymentGroupsResponse Int
+ldgrStatus = lens _ldgrStatus (\ s a -> s{_ldgrStatus = a});

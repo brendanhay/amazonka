@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.DescribeStep
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.EMR.DescribeStep
     , describeStepResponse
     -- ** Response lenses
     , dsrStep
-    , dsrStatusCode
+    , dsrStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This input determines which step to describe.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'dsClusterId'
 --
 -- * 'dsStepId'
-data DescribeStep = DescribeStep'{_dsClusterId :: Text, _dsStepId :: Text} deriving (Eq, Read, Show)
+data DescribeStep = DescribeStep'
+    { _dsClusterId :: Text
+    , _dsStepId    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStep' smart constructor.
 describeStep :: Text -> Text -> DescribeStep
-describeStep pClusterId pStepId = DescribeStep'{_dsClusterId = pClusterId, _dsStepId = pStepId};
+describeStep pClusterId pStepId =
+    DescribeStep'
+    { _dsClusterId = pClusterId
+    , _dsStepId = pStepId
+    }
 
 -- | The identifier of the cluster with steps to describe.
 dsClusterId :: Lens' DescribeStep Text
@@ -102,17 +109,24 @@ instance ToQuery DescribeStep where
 --
 -- * 'dsrStep'
 --
--- * 'dsrStatusCode'
-data DescribeStepResponse = DescribeStepResponse'{_dsrStep :: Maybe Step, _dsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsrStatus'
+data DescribeStepResponse = DescribeStepResponse'
+    { _dsrStep   :: Maybe Step
+    , _dsrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStepResponse' smart constructor.
 describeStepResponse :: Int -> DescribeStepResponse
-describeStepResponse pStatusCode = DescribeStepResponse'{_dsrStep = Nothing, _dsrStatusCode = pStatusCode};
+describeStepResponse pStatus =
+    DescribeStepResponse'
+    { _dsrStep = Nothing
+    , _dsrStatus = pStatus
+    }
 
 -- | The step details for the requested step identifier.
 dsrStep :: Lens' DescribeStepResponse (Maybe Step)
 dsrStep = lens _dsrStep (\ s a -> s{_dsrStep = a});
 
 -- | FIXME: Undocumented member.
-dsrStatusCode :: Lens' DescribeStepResponse Int
-dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});
+dsrStatus :: Lens' DescribeStepResponse Int
+dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

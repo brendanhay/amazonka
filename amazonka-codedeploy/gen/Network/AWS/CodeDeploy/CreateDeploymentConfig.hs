@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.CreateDeploymentConfig
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.CodeDeploy.CreateDeploymentConfig
     , createDeploymentConfigResponse
     -- ** Response lenses
     , cdcrDeploymentConfigId
-    , cdcrStatusCode
+    , cdcrStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a create deployment configuration operation.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'cdcMinimumHealthyHosts'
 --
 -- * 'cdcDeploymentConfigName'
-data CreateDeploymentConfig = CreateDeploymentConfig'{_cdcMinimumHealthyHosts :: Maybe MinimumHealthyHosts, _cdcDeploymentConfigName :: Text} deriving (Eq, Read, Show)
+data CreateDeploymentConfig = CreateDeploymentConfig'
+    { _cdcMinimumHealthyHosts  :: Maybe MinimumHealthyHosts
+    , _cdcDeploymentConfigName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDeploymentConfig' smart constructor.
 createDeploymentConfig :: Text -> CreateDeploymentConfig
-createDeploymentConfig pDeploymentConfigName = CreateDeploymentConfig'{_cdcMinimumHealthyHosts = Nothing, _cdcDeploymentConfigName = pDeploymentConfigName};
+createDeploymentConfig pDeploymentConfigName =
+    CreateDeploymentConfig'
+    { _cdcMinimumHealthyHosts = Nothing
+    , _cdcDeploymentConfigName = pDeploymentConfigName
+    }
 
 -- | The minimum number of healthy instances that should be available at any
 -- time during the deployment. There are two parameters expected in the
@@ -122,17 +129,24 @@ instance ToQuery CreateDeploymentConfig where
 --
 -- * 'cdcrDeploymentConfigId'
 --
--- * 'cdcrStatusCode'
-data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'{_cdcrDeploymentConfigId :: Maybe Text, _cdcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdcrStatus'
+data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'
+    { _cdcrDeploymentConfigId :: Maybe Text
+    , _cdcrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDeploymentConfigResponse' smart constructor.
 createDeploymentConfigResponse :: Int -> CreateDeploymentConfigResponse
-createDeploymentConfigResponse pStatusCode = CreateDeploymentConfigResponse'{_cdcrDeploymentConfigId = Nothing, _cdcrStatusCode = pStatusCode};
+createDeploymentConfigResponse pStatus =
+    CreateDeploymentConfigResponse'
+    { _cdcrDeploymentConfigId = Nothing
+    , _cdcrStatus = pStatus
+    }
 
 -- | A unique deployment configuration ID.
 cdcrDeploymentConfigId :: Lens' CreateDeploymentConfigResponse (Maybe Text)
 cdcrDeploymentConfigId = lens _cdcrDeploymentConfigId (\ s a -> s{_cdcrDeploymentConfigId = a});
 
 -- | FIXME: Undocumented member.
-cdcrStatusCode :: Lens' CreateDeploymentConfigResponse Int
-cdcrStatusCode = lens _cdcrStatusCode (\ s a -> s{_cdcrStatusCode = a});
+cdcrStatus :: Lens' CreateDeploymentConfigResponse Int
+cdcrStatus = lens _cdcrStatus (\ s a -> s{_cdcrStatus = a});

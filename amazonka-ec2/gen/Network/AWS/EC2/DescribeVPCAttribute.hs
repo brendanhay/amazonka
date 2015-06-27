@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeVPCAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.EC2.DescribeVPCAttribute
     , dvpcarEnableDNSHostnames
     , dvpcarEnableDNSSupport
     , dvpcarVPCId
-    , dvpcarStatusCode
+    , dvpcarStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVPCAttribute' smart constructor.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'dvpcaDryRun'
 --
 -- * 'dvpcaVPCId'
-data DescribeVPCAttribute = DescribeVPCAttribute'{_dvpcaAttribute :: Maybe VPCAttributeName, _dvpcaDryRun :: Maybe Bool, _dvpcaVPCId :: Text} deriving (Eq, Read, Show)
+data DescribeVPCAttribute = DescribeVPCAttribute'
+    { _dvpcaAttribute :: Maybe VPCAttributeName
+    , _dvpcaDryRun    :: Maybe Bool
+    , _dvpcaVPCId     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCAttribute' smart constructor.
 describeVPCAttribute :: Text -> DescribeVPCAttribute
-describeVPCAttribute pVPCId = DescribeVPCAttribute'{_dvpcaAttribute = Nothing, _dvpcaDryRun = Nothing, _dvpcaVPCId = pVPCId};
+describeVPCAttribute pVPCId =
+    DescribeVPCAttribute'
+    { _dvpcaAttribute = Nothing
+    , _dvpcaDryRun = Nothing
+    , _dvpcaVPCId = pVPCId
+    }
 
 -- | The VPC attribute.
 dvpcaAttribute :: Lens' DescribeVPCAttribute (Maybe VPCAttributeName)
@@ -113,12 +122,23 @@ instance ToQuery DescribeVPCAttribute where
 --
 -- * 'dvpcarVPCId'
 --
--- * 'dvpcarStatusCode'
-data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'{_dvpcarEnableDNSHostnames :: Maybe AttributeBooleanValue, _dvpcarEnableDNSSupport :: Maybe AttributeBooleanValue, _dvpcarVPCId :: Maybe Text, _dvpcarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dvpcarStatus'
+data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
+    { _dvpcarEnableDNSHostnames :: Maybe AttributeBooleanValue
+    , _dvpcarEnableDNSSupport   :: Maybe AttributeBooleanValue
+    , _dvpcarVPCId              :: Maybe Text
+    , _dvpcarStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCAttributeResponse' smart constructor.
 describeVPCAttributeResponse :: Int -> DescribeVPCAttributeResponse
-describeVPCAttributeResponse pStatusCode = DescribeVPCAttributeResponse'{_dvpcarEnableDNSHostnames = Nothing, _dvpcarEnableDNSSupport = Nothing, _dvpcarVPCId = Nothing, _dvpcarStatusCode = pStatusCode};
+describeVPCAttributeResponse pStatus =
+    DescribeVPCAttributeResponse'
+    { _dvpcarEnableDNSHostnames = Nothing
+    , _dvpcarEnableDNSSupport = Nothing
+    , _dvpcarVPCId = Nothing
+    , _dvpcarStatus = pStatus
+    }
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames.
 -- If this attribute is @true@, instances in the VPC get DNS hostnames;
@@ -138,5 +158,5 @@ dvpcarVPCId :: Lens' DescribeVPCAttributeResponse (Maybe Text)
 dvpcarVPCId = lens _dvpcarVPCId (\ s a -> s{_dvpcarVPCId = a});
 
 -- | FIXME: Undocumented member.
-dvpcarStatusCode :: Lens' DescribeVPCAttributeResponse Int
-dvpcarStatusCode = lens _dvpcarStatusCode (\ s a -> s{_dvpcarStatusCode = a});
+dvpcarStatus :: Lens' DescribeVPCAttributeResponse Int
+dvpcarStatus = lens _dvpcarStatus (\ s a -> s{_dvpcarStatus = a});

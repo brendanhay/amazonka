@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateApplication
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,10 +38,10 @@ module Network.AWS.ElasticBeanstalk.UpdateApplication
     , admApplication
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'uaDescription'
 --
 -- * 'uaApplicationName'
-data UpdateApplication = UpdateApplication'{_uaDescription :: Maybe Text, _uaApplicationName :: Text} deriving (Eq, Read, Show)
+data UpdateApplication = UpdateApplication'
+    { _uaDescription     :: Maybe Text
+    , _uaApplicationName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateApplication' smart constructor.
 updateApplication :: Text -> UpdateApplication
-updateApplication pApplicationName = UpdateApplication'{_uaDescription = Nothing, _uaApplicationName = pApplicationName};
+updateApplication pApplicationName =
+    UpdateApplication'
+    { _uaDescription = Nothing
+    , _uaApplicationName = pApplicationName
+    }
 
 -- | A new description for the application.
 --

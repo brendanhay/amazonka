@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteSuggester
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.CloudSearch.DeleteSuggester
     , deleteSuggesterResponse
     -- ** Response lenses
     , deleSuggester
-    , deleStatusCode
+    , deleStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DeleteSuggester@ operation.
 -- Specifies the name of the domain you want to update and name of the
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'deleDomainName'
 --
 -- * 'deleSuggesterName'
-data DeleteSuggester = DeleteSuggester'{_deleDomainName :: Text, _deleSuggesterName :: Text} deriving (Eq, Read, Show)
+data DeleteSuggester = DeleteSuggester'
+    { _deleDomainName    :: Text
+    , _deleSuggesterName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteSuggester' smart constructor.
 deleteSuggester :: Text -> Text -> DeleteSuggester
-deleteSuggester pDomainName pSuggesterName = DeleteSuggester'{_deleDomainName = pDomainName, _deleSuggesterName = pSuggesterName};
+deleteSuggester pDomainName pSuggesterName =
+    DeleteSuggester'
+    { _deleDomainName = pDomainName
+    , _deleSuggesterName = pSuggesterName
+    }
 
 -- | FIXME: Undocumented member.
 deleDomainName :: Lens' DeleteSuggester Text
@@ -101,17 +108,24 @@ instance ToQuery DeleteSuggester where
 --
 -- * 'deleSuggester'
 --
--- * 'deleStatusCode'
-data DeleteSuggesterResponse = DeleteSuggesterResponse'{_deleSuggester :: SuggesterStatus, _deleStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'deleStatus'
+data DeleteSuggesterResponse = DeleteSuggesterResponse'
+    { _deleSuggester :: SuggesterStatus
+    , _deleStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteSuggesterResponse' smart constructor.
 deleteSuggesterResponse :: SuggesterStatus -> Int -> DeleteSuggesterResponse
-deleteSuggesterResponse pSuggester pStatusCode = DeleteSuggesterResponse'{_deleSuggester = pSuggester, _deleStatusCode = pStatusCode};
+deleteSuggesterResponse pSuggester pStatus =
+    DeleteSuggesterResponse'
+    { _deleSuggester = pSuggester
+    , _deleStatus = pStatus
+    }
 
 -- | The status of the suggester being deleted.
 deleSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
 deleSuggester = lens _deleSuggester (\ s a -> s{_deleSuggester = a});
 
 -- | FIXME: Undocumented member.
-deleStatusCode :: Lens' DeleteSuggesterResponse Int
-deleStatusCode = lens _deleStatusCode (\ s a -> s{_deleStatusCode = a});
+deleStatus :: Lens' DeleteSuggesterResponse Int
+deleStatus = lens _deleStatus (\ s a -> s{_deleStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,24 +36,29 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
     , describeTrustedAdvisorCheckSummariesResponse
     -- ** Response lenses
     , dtacsrSummaries
-    , dtacsrStatusCode
+    , dtacsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Support.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
 
 -- | /See:/ 'describeTrustedAdvisorCheckSummaries' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtacsCheckIds'
-newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries'{_dtacsCheckIds :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries'
+    { _dtacsCheckIds :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTrustedAdvisorCheckSummaries' smart constructor.
 describeTrustedAdvisorCheckSummaries :: DescribeTrustedAdvisorCheckSummaries
-describeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries'{_dtacsCheckIds = mempty};
+describeTrustedAdvisorCheckSummaries =
+    DescribeTrustedAdvisorCheckSummaries'
+    { _dtacsCheckIds = mempty
+    }
 
 -- | The IDs of the Trusted Advisor checks.
 dtacsCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
@@ -106,17 +111,24 @@ instance ToQuery DescribeTrustedAdvisorCheckSummaries
 --
 -- * 'dtacsrSummaries'
 --
--- * 'dtacsrStatusCode'
-data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'{_dtacsrSummaries :: [TrustedAdvisorCheckSummary], _dtacsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtacsrStatus'
+data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'
+    { _dtacsrSummaries :: [TrustedAdvisorCheckSummary]
+    , _dtacsrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTrustedAdvisorCheckSummariesResponse' smart constructor.
 describeTrustedAdvisorCheckSummariesResponse :: Int -> DescribeTrustedAdvisorCheckSummariesResponse
-describeTrustedAdvisorCheckSummariesResponse pStatusCode = DescribeTrustedAdvisorCheckSummariesResponse'{_dtacsrSummaries = mempty, _dtacsrStatusCode = pStatusCode};
+describeTrustedAdvisorCheckSummariesResponse pStatus =
+    DescribeTrustedAdvisorCheckSummariesResponse'
+    { _dtacsrSummaries = mempty
+    , _dtacsrStatus = pStatus
+    }
 
 -- | The summary information for the requested Trusted Advisor checks.
 dtacsrSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
 dtacsrSummaries = lens _dtacsrSummaries (\ s a -> s{_dtacsrSummaries = a});
 
 -- | FIXME: Undocumented member.
-dtacsrStatusCode :: Lens' DescribeTrustedAdvisorCheckSummariesResponse Int
-dtacsrStatusCode = lens _dtacsrStatusCode (\ s a -> s{_dtacsrStatusCode = a});
+dtacsrStatus :: Lens' DescribeTrustedAdvisorCheckSummariesResponse Int
+dtacsrStatus = lens _dtacsrStatus (\ s a -> s{_dtacsrStatus = a});

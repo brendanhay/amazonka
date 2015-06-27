@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -340,72 +339,81 @@ module Network.AWS.ElasticTranscoder.Types
     , warMessage
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2012-09-25@ of the Amazon Elastic Transcoder SDK.
 data ElasticTranscoder
 
 instance AWSService ElasticTranscoder where
     type Sg ElasticTranscoder = V4
-
     service = const svc
       where
-        svc :: Service ElasticTranscoder
-        svc = Service
-            { _svcAbbrev   = "ElasticTranscoder"
-            , _svcPrefix   = "elastictranscoder"
-            , _svcVersion  = "2012-09-25"
+        svc =
+            Service
+            { _svcAbbrev = "ElasticTranscoder"
+            , _svcPrefix = "elastictranscoder"
+            , _svcVersion = "2012-09-25"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | One or more required parameter values were not provided in the request.
-_ValidationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ValidationException = _ServiceError . hasStatus 400 . hasCode "ValidationException";
+_ValidationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ValidationException =
+    _ServiceError . hasStatus 400 . hasCode "ValidationException"
 
 -- | Prism for IncompatibleVersionException' errors.
-_IncompatibleVersionException :: AWSError a => Geting (First ServiceError) a ServiceError
-_IncompatibleVersionException = _ServiceError . hasStatus 400 . hasCode "IncompatibleVersionException";
+_IncompatibleVersionException :: AWSError a => Getting (First ServiceError) a ServiceError
+_IncompatibleVersionException =
+    _ServiceError . hasStatus 400 . hasCode "IncompatibleVersionException"
 
 -- | General authentication failure. The request was not signed correctly.
-_AccessDeniedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_AccessDeniedException = _ServiceError . hasStatus 403 . hasCode "AccessDeniedException";
+_AccessDeniedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_AccessDeniedException =
+    _ServiceError . hasStatus 403 . hasCode "AccessDeniedException"
 
 -- | Elastic Transcoder encountered an unexpected exception while trying to
 -- fulfill the request.
-_InternalServiceException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalServiceException = _ServiceError . hasCode "InternalServiceException";
+_InternalServiceException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServiceException = _ServiceError . hasCode "InternalServiceException"
 
 -- | The requested resource does not exist or is not available. For example,
 -- the pipeline to which you\'re trying to add a job doesn\'t exist or is
 -- still being created.
-_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException";
+_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+    _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
 -- | The resource you are attempting to change is in use. For example, you
 -- are attempting to delete a pipeline that is currently in use.
-_ResourceInUseException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceInUseException = _ServiceError . hasStatus 409 . hasCode "ResourceInUseException";
+_ResourceInUseException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException =
+    _ServiceError . hasStatus 409 . hasCode "ResourceInUseException"
 
 -- | Too many operations for a given AWS account. For example, the number of
 -- pipelines exceeds the maximum allowed.
-_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasStatus 429 . hasCode "LimitExceededException";
+_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException =
+    _ServiceError . hasStatus 429 . hasCode "LimitExceededException"
 
 -- | The file to be used as album art. There can be multiple artworks
 -- associated with an audio file, to a maximum of 20.
@@ -435,11 +443,28 @@ _LimitExceededException = _ServiceError . hasStatus 429 . hasCode "LimitExceeded
 -- * 'artEncryption'
 --
 -- * 'artMaxWidth'
-data Artwork = Artwork'{_artSizingPolicy :: Maybe Text, _artMaxHeight :: Maybe Text, _artAlbumArtFormat :: Maybe Text, _artInputKey :: Maybe Text, _artPaddingPolicy :: Maybe Text, _artEncryption :: Maybe Encryption, _artMaxWidth :: Maybe Text} deriving (Eq, Read, Show)
+data Artwork = Artwork'
+    { _artSizingPolicy   :: Maybe Text
+    , _artMaxHeight      :: Maybe Text
+    , _artAlbumArtFormat :: Maybe Text
+    , _artInputKey       :: Maybe Text
+    , _artPaddingPolicy  :: Maybe Text
+    , _artEncryption     :: Maybe Encryption
+    , _artMaxWidth       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Artwork' smart constructor.
 artwork :: Artwork
-artwork = Artwork'{_artSizingPolicy = Nothing, _artMaxHeight = Nothing, _artAlbumArtFormat = Nothing, _artInputKey = Nothing, _artPaddingPolicy = Nothing, _artEncryption = Nothing, _artMaxWidth = Nothing};
+artwork =
+    Artwork'
+    { _artSizingPolicy = Nothing
+    , _artMaxHeight = Nothing
+    , _artAlbumArtFormat = Nothing
+    , _artInputKey = Nothing
+    , _artPaddingPolicy = Nothing
+    , _artEncryption = Nothing
+    , _artMaxWidth = Nothing
+    }
 
 -- | Specify one of the following values to control scaling of the output
 -- album art:
@@ -546,11 +571,22 @@ instance ToJSON Artwork where
 -- * 'acoProfile'
 --
 -- * 'acoBitOrder'
-data AudioCodecOptions = AudioCodecOptions'{_acoBitDepth :: Maybe Text, _acoSigned :: Maybe Text, _acoProfile :: Maybe Text, _acoBitOrder :: Maybe Text} deriving (Eq, Read, Show)
+data AudioCodecOptions = AudioCodecOptions'
+    { _acoBitDepth :: Maybe Text
+    , _acoSigned   :: Maybe Text
+    , _acoProfile  :: Maybe Text
+    , _acoBitOrder :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AudioCodecOptions' smart constructor.
 audioCodecOptions :: AudioCodecOptions
-audioCodecOptions = AudioCodecOptions'{_acoBitDepth = Nothing, _acoSigned = Nothing, _acoProfile = Nothing, _acoBitOrder = Nothing};
+audioCodecOptions =
+    AudioCodecOptions'
+    { _acoBitDepth = Nothing
+    , _acoSigned = Nothing
+    , _acoProfile = Nothing
+    , _acoBitOrder = Nothing
+    }
 
 -- | You can only choose an audio bit depth when you specify @flac@ or @pcm@
 -- for the value of Audio:Codec.
@@ -640,11 +676,26 @@ instance ToJSON AudioCodecOptions where
 -- * 'apBitRate'
 --
 -- * 'apCodecOptions'
-data AudioParameters = AudioParameters'{_apChannels :: Maybe Text, _apCodec :: Maybe Text, _apAudioPackingMode :: Maybe Text, _apSampleRate :: Maybe Text, _apBitRate :: Maybe Text, _apCodecOptions :: Maybe AudioCodecOptions} deriving (Eq, Read, Show)
+data AudioParameters = AudioParameters'
+    { _apChannels         :: Maybe Text
+    , _apCodec            :: Maybe Text
+    , _apAudioPackingMode :: Maybe Text
+    , _apSampleRate       :: Maybe Text
+    , _apBitRate          :: Maybe Text
+    , _apCodecOptions     :: Maybe AudioCodecOptions
+    } deriving (Eq,Read,Show)
 
 -- | 'AudioParameters' smart constructor.
 audioParameters :: AudioParameters
-audioParameters = AudioParameters'{_apChannels = Nothing, _apCodec = Nothing, _apAudioPackingMode = Nothing, _apSampleRate = Nothing, _apBitRate = Nothing, _apCodecOptions = Nothing};
+audioParameters =
+    AudioParameters'
+    { _apChannels = Nothing
+    , _apCodec = Nothing
+    , _apAudioPackingMode = Nothing
+    , _apSampleRate = Nothing
+    , _apBitRate = Nothing
+    , _apCodecOptions = Nothing
+    }
 
 -- | The number of audio channels in the output file. The following values
 -- are valid:
@@ -827,11 +878,20 @@ instance ToJSON AudioParameters where
 -- * 'cfFormat'
 --
 -- * 'cfEncryption'
-data CaptionFormat = CaptionFormat'{_cfPattern :: Maybe Text, _cfFormat :: Maybe Text, _cfEncryption :: Maybe Encryption} deriving (Eq, Read, Show)
+data CaptionFormat = CaptionFormat'
+    { _cfPattern    :: Maybe Text
+    , _cfFormat     :: Maybe Text
+    , _cfEncryption :: Maybe Encryption
+    } deriving (Eq,Read,Show)
 
 -- | 'CaptionFormat' smart constructor.
 captionFormat :: CaptionFormat
-captionFormat = CaptionFormat'{_cfPattern = Nothing, _cfFormat = Nothing, _cfEncryption = Nothing};
+captionFormat =
+    CaptionFormat'
+    { _cfPattern = Nothing
+    , _cfFormat = Nothing
+    , _cfEncryption = Nothing
+    }
 
 -- | The prefix for caption filenames, in the form
 -- /description/-@{language}@, where:
@@ -918,11 +978,24 @@ instance ToJSON CaptionFormat where
 -- * 'csLanguage'
 --
 -- * 'csLabel'
-data CaptionSource = CaptionSource'{_csTimeOffset :: Maybe Text, _csKey :: Maybe Text, _csEncryption :: Maybe Encryption, _csLanguage :: Maybe Text, _csLabel :: Maybe Text} deriving (Eq, Read, Show)
+data CaptionSource = CaptionSource'
+    { _csTimeOffset :: Maybe Text
+    , _csKey        :: Maybe Text
+    , _csEncryption :: Maybe Encryption
+    , _csLanguage   :: Maybe Text
+    , _csLabel      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CaptionSource' smart constructor.
 captionSource :: CaptionSource
-captionSource = CaptionSource'{_csTimeOffset = Nothing, _csKey = Nothing, _csEncryption = Nothing, _csLanguage = Nothing, _csLabel = Nothing};
+captionSource =
+    CaptionSource'
+    { _csTimeOffset = Nothing
+    , _csKey = Nothing
+    , _csEncryption = Nothing
+    , _csLanguage = Nothing
+    , _csLabel = Nothing
+    }
 
 -- | For clip generation or captions that do not start at the same time as
 -- the associated video file, the @TimeOffset@ tells Elastic Transcoder how
@@ -988,11 +1061,20 @@ instance ToJSON CaptionSource where
 -- * 'capCaptionSources'
 --
 -- * 'capCaptionFormats'
-data Captions = Captions'{_capMergePolicy :: Maybe Text, _capCaptionSources :: Maybe [CaptionSource], _capCaptionFormats :: Maybe [CaptionFormat]} deriving (Eq, Read, Show)
+data Captions = Captions'
+    { _capMergePolicy    :: Maybe Text
+    , _capCaptionSources :: Maybe [CaptionSource]
+    , _capCaptionFormats :: Maybe [CaptionFormat]
+    } deriving (Eq,Read,Show)
 
 -- | 'Captions' smart constructor.
 captions :: Captions
-captions = Captions'{_capMergePolicy = Nothing, _capCaptionSources = Nothing, _capCaptionFormats = Nothing};
+captions =
+    Captions'
+    { _capMergePolicy = Nothing
+    , _capCaptionSources = Nothing
+    , _capCaptionFormats = Nothing
+    }
 
 -- | A policy that determines how Elastic Transcoder handles the existence of
 -- multiple captions.
@@ -1051,11 +1133,16 @@ instance ToJSON Captions where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cliTimeSpan'
-newtype Clip = Clip'{_cliTimeSpan :: Maybe TimeSpan} deriving (Eq, Read, Show)
+newtype Clip = Clip'
+    { _cliTimeSpan :: Maybe TimeSpan
+    } deriving (Eq,Read,Show)
 
 -- | 'Clip' smart constructor.
 clip :: Clip
-clip = Clip'{_cliTimeSpan = Nothing};
+clip =
+    Clip'
+    { _cliTimeSpan = Nothing
+    }
 
 -- | Settings that determine when a clip begins and how long it lasts.
 cliTimeSpan :: Lens' Clip (Maybe TimeSpan)
@@ -1097,11 +1184,36 @@ instance ToJSON Clip where
 -- * 'cjoThumbnailEncryption'
 --
 -- * 'cjoRotate'
-data CreateJobOutput = CreateJobOutput'{_cjoThumbnailPattern :: Maybe Text, _cjoCaptions :: Maybe Captions, _cjoPresetId :: Maybe Text, _cjoComposition :: Maybe [Clip], _cjoAlbumArt :: Maybe JobAlbumArt, _cjoWatermarks :: Maybe [JobWatermark], _cjoKey :: Maybe Text, _cjoEncryption :: Maybe Encryption, _cjoSegmentDuration :: Maybe Text, _cjoThumbnailEncryption :: Maybe Encryption, _cjoRotate :: Maybe Text} deriving (Eq, Read, Show)
+data CreateJobOutput = CreateJobOutput'
+    { _cjoThumbnailPattern    :: Maybe Text
+    , _cjoCaptions            :: Maybe Captions
+    , _cjoPresetId            :: Maybe Text
+    , _cjoComposition         :: Maybe [Clip]
+    , _cjoAlbumArt            :: Maybe JobAlbumArt
+    , _cjoWatermarks          :: Maybe [JobWatermark]
+    , _cjoKey                 :: Maybe Text
+    , _cjoEncryption          :: Maybe Encryption
+    , _cjoSegmentDuration     :: Maybe Text
+    , _cjoThumbnailEncryption :: Maybe Encryption
+    , _cjoRotate              :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateJobOutput' smart constructor.
 createJobOutput :: CreateJobOutput
-createJobOutput = CreateJobOutput'{_cjoThumbnailPattern = Nothing, _cjoCaptions = Nothing, _cjoPresetId = Nothing, _cjoComposition = Nothing, _cjoAlbumArt = Nothing, _cjoWatermarks = Nothing, _cjoKey = Nothing, _cjoEncryption = Nothing, _cjoSegmentDuration = Nothing, _cjoThumbnailEncryption = Nothing, _cjoRotate = Nothing};
+createJobOutput =
+    CreateJobOutput'
+    { _cjoThumbnailPattern = Nothing
+    , _cjoCaptions = Nothing
+    , _cjoPresetId = Nothing
+    , _cjoComposition = Nothing
+    , _cjoAlbumArt = Nothing
+    , _cjoWatermarks = Nothing
+    , _cjoKey = Nothing
+    , _cjoEncryption = Nothing
+    , _cjoSegmentDuration = Nothing
+    , _cjoThumbnailEncryption = Nothing
+    , _cjoRotate = Nothing
+    }
 
 -- | Whether you want Elastic Transcoder to create thumbnails for your videos
 -- and, if so, how you want Elastic Transcoder to name the files.
@@ -1300,11 +1412,24 @@ instance ToJSON CreateJobOutput where
 -- * 'cjpName'
 --
 -- * 'cjpHlsContentProtection'
-data CreateJobPlaylist = CreateJobPlaylist'{_cjpPlayReadyDrm :: Maybe PlayReadyDrm, _cjpOutputKeys :: Maybe [Text], _cjpFormat :: Maybe Text, _cjpName :: Maybe Text, _cjpHlsContentProtection :: Maybe HlsContentProtection} deriving (Eq, Read, Show)
+data CreateJobPlaylist = CreateJobPlaylist'
+    { _cjpPlayReadyDrm         :: Maybe PlayReadyDrm
+    , _cjpOutputKeys           :: Maybe [Text]
+    , _cjpFormat               :: Maybe Text
+    , _cjpName                 :: Maybe Text
+    , _cjpHlsContentProtection :: Maybe HlsContentProtection
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateJobPlaylist' smart constructor.
 createJobPlaylist :: CreateJobPlaylist
-createJobPlaylist = CreateJobPlaylist'{_cjpPlayReadyDrm = Nothing, _cjpOutputKeys = Nothing, _cjpFormat = Nothing, _cjpName = Nothing, _cjpHlsContentProtection = Nothing};
+createJobPlaylist =
+    CreateJobPlaylist'
+    { _cjpPlayReadyDrm = Nothing
+    , _cjpOutputKeys = Nothing
+    , _cjpFormat = Nothing
+    , _cjpName = Nothing
+    , _cjpHlsContentProtection = Nothing
+    }
 
 -- | The DRM settings, if any, that you want Elastic Transcoder to apply to
 -- the output files associated with this playlist.
@@ -1401,11 +1526,24 @@ instance ToJSON CreateJobPlaylist where
 -- * 'dpWidth'
 --
 -- * 'dpDurationMillis'
-data DetectedProperties = DetectedProperties'{_dpHeight :: Maybe Int, _dpFrameRate :: Maybe Text, _dpFileSize :: Maybe Integer, _dpWidth :: Maybe Int, _dpDurationMillis :: Maybe Integer} deriving (Eq, Read, Show)
+data DetectedProperties = DetectedProperties'
+    { _dpHeight         :: Maybe Int
+    , _dpFrameRate      :: Maybe Text
+    , _dpFileSize       :: Maybe Integer
+    , _dpWidth          :: Maybe Int
+    , _dpDurationMillis :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'DetectedProperties' smart constructor.
 detectedProperties :: DetectedProperties
-detectedProperties = DetectedProperties'{_dpHeight = Nothing, _dpFrameRate = Nothing, _dpFileSize = Nothing, _dpWidth = Nothing, _dpDurationMillis = Nothing};
+detectedProperties =
+    DetectedProperties'
+    { _dpHeight = Nothing
+    , _dpFrameRate = Nothing
+    , _dpFileSize = Nothing
+    , _dpWidth = Nothing
+    , _dpDurationMillis = Nothing
+    }
 
 -- | The detected height of the input file, in pixels.
 dpHeight :: Lens' DetectedProperties (Maybe Int)
@@ -1461,11 +1599,22 @@ instance ToJSON DetectedProperties where
 -- * 'encKey'
 --
 -- * 'encInitializationVector'
-data Encryption = Encryption'{_encKeyMD5 :: Maybe Text, _encMode :: Maybe Text, _encKey :: Maybe Text, _encInitializationVector :: Maybe Text} deriving (Eq, Read, Show)
+data Encryption = Encryption'
+    { _encKeyMD5               :: Maybe Text
+    , _encMode                 :: Maybe Text
+    , _encKey                  :: Maybe Text
+    , _encInitializationVector :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Encryption' smart constructor.
 encryption :: Encryption
-encryption = Encryption'{_encKeyMD5 = Nothing, _encMode = Nothing, _encKey = Nothing, _encInitializationVector = Nothing};
+encryption =
+    Encryption'
+    { _encKeyMD5 = Nothing
+    , _encMode = Nothing
+    , _encKey = Nothing
+    , _encInitializationVector = Nothing
+    }
 
 -- | The MD5 digest of the key that you used to encrypt your input file, or
 -- that you want Elastic Transcoder to use to encrypt your output file.
@@ -1567,11 +1716,26 @@ instance ToJSON Encryption where
 -- * 'hcpLicenseAcquisitionURL'
 --
 -- * 'hcpInitializationVector'
-data HlsContentProtection = HlsContentProtection'{_hcpKeyMD5 :: Maybe Text, _hcpKeyStoragePolicy :: Maybe Text, _hcpKey :: Maybe Text, _hcpMethod :: Maybe Text, _hcpLicenseAcquisitionURL :: Maybe Text, _hcpInitializationVector :: Maybe Text} deriving (Eq, Read, Show)
+data HlsContentProtection = HlsContentProtection'
+    { _hcpKeyMD5                :: Maybe Text
+    , _hcpKeyStoragePolicy      :: Maybe Text
+    , _hcpKey                   :: Maybe Text
+    , _hcpMethod                :: Maybe Text
+    , _hcpLicenseAcquisitionURL :: Maybe Text
+    , _hcpInitializationVector  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'HlsContentProtection' smart constructor.
 hlsContentProtection :: HlsContentProtection
-hlsContentProtection = HlsContentProtection'{_hcpKeyMD5 = Nothing, _hcpKeyStoragePolicy = Nothing, _hcpKey = Nothing, _hcpMethod = Nothing, _hcpLicenseAcquisitionURL = Nothing, _hcpInitializationVector = Nothing};
+hlsContentProtection =
+    HlsContentProtection'
+    { _hcpKeyMD5 = Nothing
+    , _hcpKeyStoragePolicy = Nothing
+    , _hcpKey = Nothing
+    , _hcpMethod = Nothing
+    , _hcpLicenseAcquisitionURL = Nothing
+    , _hcpInitializationVector = Nothing
+    }
 
 -- | If Elastic Transcoder is generating your key for you, you must leave
 -- this field blank.
@@ -1675,11 +1839,36 @@ instance ToJSON HlsContentProtection where
 -- * 'jTiming'
 --
 -- * 'jOutputKeyPrefix'
-data Job' = Job''{_jStatus :: Maybe Text, _jPipelineId :: Maybe Text, _jARN :: Maybe Text, _jInput :: Maybe JobInput, _jOutputs :: Maybe [JobOutput], _jUserMetadata :: Maybe (Map Text Text), _jOutput :: Maybe JobOutput, _jId :: Maybe Text, _jPlaylists :: Maybe [Playlist], _jTiming :: Maybe Timing, _jOutputKeyPrefix :: Maybe Text} deriving (Eq, Read, Show)
+data Job' = Job''
+    { _jStatus          :: Maybe Text
+    , _jPipelineId      :: Maybe Text
+    , _jARN             :: Maybe Text
+    , _jInput           :: Maybe JobInput
+    , _jOutputs         :: Maybe [JobOutput]
+    , _jUserMetadata    :: Maybe (Map Text Text)
+    , _jOutput          :: Maybe JobOutput
+    , _jId              :: Maybe Text
+    , _jPlaylists       :: Maybe [Playlist]
+    , _jTiming          :: Maybe Timing
+    , _jOutputKeyPrefix :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Job'' smart constructor.
 job' :: Job'
-job' = Job''{_jStatus = Nothing, _jPipelineId = Nothing, _jARN = Nothing, _jInput = Nothing, _jOutputs = Nothing, _jUserMetadata = Nothing, _jOutput = Nothing, _jId = Nothing, _jPlaylists = Nothing, _jTiming = Nothing, _jOutputKeyPrefix = Nothing};
+job' =
+    Job''
+    { _jStatus = Nothing
+    , _jPipelineId = Nothing
+    , _jARN = Nothing
+    , _jInput = Nothing
+    , _jOutputs = Nothing
+    , _jUserMetadata = Nothing
+    , _jOutput = Nothing
+    , _jId = Nothing
+    , _jPlaylists = Nothing
+    , _jTiming = Nothing
+    , _jOutputKeyPrefix = Nothing
+    }
 
 -- | The status of the job: @Submitted@, @Progressing@, @Complete@,
 -- @Canceled@, or @Error@.
@@ -1799,11 +1988,18 @@ instance FromJSON Job' where
 -- * 'jaaMergePolicy'
 --
 -- * 'jaaArtwork'
-data JobAlbumArt = JobAlbumArt'{_jaaMergePolicy :: Maybe Text, _jaaArtwork :: Maybe [Artwork]} deriving (Eq, Read, Show)
+data JobAlbumArt = JobAlbumArt'
+    { _jaaMergePolicy :: Maybe Text
+    , _jaaArtwork     :: Maybe [Artwork]
+    } deriving (Eq,Read,Show)
 
 -- | 'JobAlbumArt' smart constructor.
 jobAlbumArt :: JobAlbumArt
-jobAlbumArt = JobAlbumArt'{_jaaMergePolicy = Nothing, _jaaArtwork = Nothing};
+jobAlbumArt =
+    JobAlbumArt'
+    { _jaaMergePolicy = Nothing
+    , _jaaArtwork = Nothing
+    }
 
 -- | A policy that determines how Elastic Transcoder will handle the
 -- existence of multiple album artwork files.
@@ -1862,11 +2058,30 @@ instance ToJSON JobAlbumArt where
 -- * 'jiContainer'
 --
 -- * 'jiInterlaced'
-data JobInput = JobInput'{_jiFrameRate :: Maybe Text, _jiResolution :: Maybe Text, _jiAspectRatio :: Maybe Text, _jiKey :: Maybe Text, _jiDetectedProperties :: Maybe DetectedProperties, _jiEncryption :: Maybe Encryption, _jiContainer :: Maybe Text, _jiInterlaced :: Maybe Text} deriving (Eq, Read, Show)
+data JobInput = JobInput'
+    { _jiFrameRate          :: Maybe Text
+    , _jiResolution         :: Maybe Text
+    , _jiAspectRatio        :: Maybe Text
+    , _jiKey                :: Maybe Text
+    , _jiDetectedProperties :: Maybe DetectedProperties
+    , _jiEncryption         :: Maybe Encryption
+    , _jiContainer          :: Maybe Text
+    , _jiInterlaced         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'JobInput' smart constructor.
 jobInput :: JobInput
-jobInput = JobInput'{_jiFrameRate = Nothing, _jiResolution = Nothing, _jiAspectRatio = Nothing, _jiKey = Nothing, _jiDetectedProperties = Nothing, _jiEncryption = Nothing, _jiContainer = Nothing, _jiInterlaced = Nothing};
+jobInput =
+    JobInput'
+    { _jiFrameRate = Nothing
+    , _jiResolution = Nothing
+    , _jiAspectRatio = Nothing
+    , _jiKey = Nothing
+    , _jiDetectedProperties = Nothing
+    , _jiEncryption = Nothing
+    , _jiContainer = Nothing
+    , _jiInterlaced = Nothing
+    }
 
 -- | The frame rate of the input file. If you want Elastic Transcoder to
 -- automatically detect the frame rate of the input file, specify @auto@.
@@ -2015,11 +2230,56 @@ instance ToJSON JobInput where
 -- * 'joDuration'
 --
 -- * 'joRotate'
-data JobOutput = JobOutput'{_joAppliedColorSpaceConversion :: Maybe Text, _joStatus :: Maybe Text, _joThumbnailPattern :: Maybe Text, _joHeight :: Maybe Int, _joFrameRate :: Maybe Text, _joCaptions :: Maybe Captions, _joPresetId :: Maybe Text, _joComposition :: Maybe [Clip], _joAlbumArt :: Maybe JobAlbumArt, _joFileSize :: Maybe Integer, _joWatermarks :: Maybe [JobWatermark], _joWidth :: Maybe Int, _joKey :: Maybe Text, _joEncryption :: Maybe Encryption, _joId :: Maybe Text, _joSegmentDuration :: Maybe Text, _joStatusDetail :: Maybe Text, _joDurationMillis :: Maybe Integer, _joThumbnailEncryption :: Maybe Encryption, _joDuration :: Maybe Integer, _joRotate :: Maybe Text} deriving (Eq, Read, Show)
+data JobOutput = JobOutput'
+    { _joAppliedColorSpaceConversion :: Maybe Text
+    , _joStatus                      :: Maybe Text
+    , _joThumbnailPattern            :: Maybe Text
+    , _joHeight                      :: Maybe Int
+    , _joFrameRate                   :: Maybe Text
+    , _joCaptions                    :: Maybe Captions
+    , _joPresetId                    :: Maybe Text
+    , _joComposition                 :: Maybe [Clip]
+    , _joAlbumArt                    :: Maybe JobAlbumArt
+    , _joFileSize                    :: Maybe Integer
+    , _joWatermarks                  :: Maybe [JobWatermark]
+    , _joWidth                       :: Maybe Int
+    , _joKey                         :: Maybe Text
+    , _joEncryption                  :: Maybe Encryption
+    , _joId                          :: Maybe Text
+    , _joSegmentDuration             :: Maybe Text
+    , _joStatusDetail                :: Maybe Text
+    , _joDurationMillis              :: Maybe Integer
+    , _joThumbnailEncryption         :: Maybe Encryption
+    , _joDuration                    :: Maybe Integer
+    , _joRotate                      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'JobOutput' smart constructor.
 jobOutput :: JobOutput
-jobOutput = JobOutput'{_joAppliedColorSpaceConversion = Nothing, _joStatus = Nothing, _joThumbnailPattern = Nothing, _joHeight = Nothing, _joFrameRate = Nothing, _joCaptions = Nothing, _joPresetId = Nothing, _joComposition = Nothing, _joAlbumArt = Nothing, _joFileSize = Nothing, _joWatermarks = Nothing, _joWidth = Nothing, _joKey = Nothing, _joEncryption = Nothing, _joId = Nothing, _joSegmentDuration = Nothing, _joStatusDetail = Nothing, _joDurationMillis = Nothing, _joThumbnailEncryption = Nothing, _joDuration = Nothing, _joRotate = Nothing};
+jobOutput =
+    JobOutput'
+    { _joAppliedColorSpaceConversion = Nothing
+    , _joStatus = Nothing
+    , _joThumbnailPattern = Nothing
+    , _joHeight = Nothing
+    , _joFrameRate = Nothing
+    , _joCaptions = Nothing
+    , _joPresetId = Nothing
+    , _joComposition = Nothing
+    , _joAlbumArt = Nothing
+    , _joFileSize = Nothing
+    , _joWatermarks = Nothing
+    , _joWidth = Nothing
+    , _joKey = Nothing
+    , _joEncryption = Nothing
+    , _joId = Nothing
+    , _joSegmentDuration = Nothing
+    , _joStatusDetail = Nothing
+    , _joDurationMillis = Nothing
+    , _joThumbnailEncryption = Nothing
+    , _joDuration = Nothing
+    , _joRotate = Nothing
+    }
 
 -- | If Elastic Transcoder used a preset with a @ColorSpaceConversionMode@ to
 -- transcode the output file, the @AppliedColorSpaceConversion@ parameter
@@ -2303,11 +2563,20 @@ instance FromJSON JobOutput where
 -- * 'jwInputKey'
 --
 -- * 'jwEncryption'
-data JobWatermark = JobWatermark'{_jwPresetWatermarkId :: Maybe Text, _jwInputKey :: Maybe Text, _jwEncryption :: Maybe Encryption} deriving (Eq, Read, Show)
+data JobWatermark = JobWatermark'
+    { _jwPresetWatermarkId :: Maybe Text
+    , _jwInputKey          :: Maybe Text
+    , _jwEncryption        :: Maybe Encryption
+    } deriving (Eq,Read,Show)
 
 -- | 'JobWatermark' smart constructor.
 jobWatermark :: JobWatermark
-jobWatermark = JobWatermark'{_jwPresetWatermarkId = Nothing, _jwInputKey = Nothing, _jwEncryption = Nothing};
+jobWatermark =
+    JobWatermark'
+    { _jwPresetWatermarkId = Nothing
+    , _jwInputKey = Nothing
+    , _jwEncryption = Nothing
+    }
 
 -- | The ID of the watermark settings that Elastic Transcoder uses to add
 -- watermarks to the video during transcoding. The settings are in the
@@ -2364,11 +2633,22 @@ instance ToJSON JobWatermark where
 -- * 'notCompleted'
 --
 -- * 'notProgressing'
-data Notifications = Notifications'{_notError :: Maybe Text, _notWarning :: Maybe Text, _notCompleted :: Maybe Text, _notProgressing :: Maybe Text} deriving (Eq, Read, Show)
+data Notifications = Notifications'
+    { _notError       :: Maybe Text
+    , _notWarning     :: Maybe Text
+    , _notCompleted   :: Maybe Text
+    , _notProgressing :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Notifications' smart constructor.
 notifications :: Notifications
-notifications = Notifications'{_notError = Nothing, _notWarning = Nothing, _notCompleted = Nothing, _notProgressing = Nothing};
+notifications =
+    Notifications'
+    { _notError = Nothing
+    , _notWarning = Nothing
+    , _notCompleted = Nothing
+    , _notProgressing = Nothing
+    }
 
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder
 -- encounters an error condition.
@@ -2417,11 +2697,20 @@ instance ToJSON Notifications where
 -- * 'perGranteeType'
 --
 -- * 'perGrantee'
-data Permission = Permission'{_perAccess :: Maybe [Text], _perGranteeType :: Maybe Text, _perGrantee :: Maybe Text} deriving (Eq, Read, Show)
+data Permission = Permission'
+    { _perAccess      :: Maybe [Text]
+    , _perGranteeType :: Maybe Text
+    , _perGrantee     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Permission' smart constructor.
 permission :: Permission
-permission = Permission'{_perAccess = Nothing, _perGranteeType = Nothing, _perGrantee = Nothing};
+permission =
+    Permission'
+    { _perAccess = Nothing
+    , _perGranteeType = Nothing
+    , _perGrantee = Nothing
+    }
 
 -- | The permission that you want to give to the AWS user that is listed in
 -- Grantee. Valid values include:
@@ -2499,11 +2788,36 @@ instance ToJSON Permission where
 -- * 'pipThumbnailConfig'
 --
 -- * 'pipNotifications'
-data Pipeline = Pipeline'{_pipStatus :: Maybe Text, _pipARN :: Maybe Text, _pipInputBucket :: Maybe Text, _pipContentConfig :: Maybe PipelineOutputConfig, _pipOutputBucket :: Maybe Text, _pipRole :: Maybe Text, _pipName :: Maybe Text, _pipAWSKMSKeyARN :: Maybe Text, _pipId :: Maybe Text, _pipThumbnailConfig :: Maybe PipelineOutputConfig, _pipNotifications :: Maybe Notifications} deriving (Eq, Read, Show)
+data Pipeline = Pipeline'
+    { _pipStatus          :: Maybe Text
+    , _pipARN             :: Maybe Text
+    , _pipInputBucket     :: Maybe Text
+    , _pipContentConfig   :: Maybe PipelineOutputConfig
+    , _pipOutputBucket    :: Maybe Text
+    , _pipRole            :: Maybe Text
+    , _pipName            :: Maybe Text
+    , _pipAWSKMSKeyARN    :: Maybe Text
+    , _pipId              :: Maybe Text
+    , _pipThumbnailConfig :: Maybe PipelineOutputConfig
+    , _pipNotifications   :: Maybe Notifications
+    } deriving (Eq,Read,Show)
 
 -- | 'Pipeline' smart constructor.
 pipeline :: Pipeline
-pipeline = Pipeline'{_pipStatus = Nothing, _pipARN = Nothing, _pipInputBucket = Nothing, _pipContentConfig = Nothing, _pipOutputBucket = Nothing, _pipRole = Nothing, _pipName = Nothing, _pipAWSKMSKeyARN = Nothing, _pipId = Nothing, _pipThumbnailConfig = Nothing, _pipNotifications = Nothing};
+pipeline =
+    Pipeline'
+    { _pipStatus = Nothing
+    , _pipARN = Nothing
+    , _pipInputBucket = Nothing
+    , _pipContentConfig = Nothing
+    , _pipOutputBucket = Nothing
+    , _pipRole = Nothing
+    , _pipName = Nothing
+    , _pipAWSKMSKeyARN = Nothing
+    , _pipId = Nothing
+    , _pipThumbnailConfig = Nothing
+    , _pipNotifications = Nothing
+    }
 
 -- | The current status of the pipeline:
 --
@@ -2682,11 +2996,20 @@ instance FromJSON Pipeline where
 -- * 'pocStorageClass'
 --
 -- * 'pocPermissions'
-data PipelineOutputConfig = PipelineOutputConfig'{_pocBucket :: Maybe Text, _pocStorageClass :: Maybe Text, _pocPermissions :: Maybe [Permission]} deriving (Eq, Read, Show)
+data PipelineOutputConfig = PipelineOutputConfig'
+    { _pocBucket       :: Maybe Text
+    , _pocStorageClass :: Maybe Text
+    , _pocPermissions  :: Maybe [Permission]
+    } deriving (Eq,Read,Show)
 
 -- | 'PipelineOutputConfig' smart constructor.
 pipelineOutputConfig :: PipelineOutputConfig
-pipelineOutputConfig = PipelineOutputConfig'{_pocBucket = Nothing, _pocStorageClass = Nothing, _pocPermissions = Nothing};
+pipelineOutputConfig =
+    PipelineOutputConfig'
+    { _pocBucket = Nothing
+    , _pocStorageClass = Nothing
+    , _pocPermissions = Nothing
+    }
 
 -- | The Amazon S3 bucket in which you want Elastic Transcoder to save the
 -- transcoded files. Specify this value when all of the following are true:
@@ -2769,11 +3092,26 @@ instance ToJSON PipelineOutputConfig where
 -- * 'prdLicenseAcquisitionURL'
 --
 -- * 'prdInitializationVector'
-data PlayReadyDrm = PlayReadyDrm'{_prdKeyId :: Maybe Text, _prdKeyMD5 :: Maybe Text, _prdFormat :: Maybe Text, _prdKey :: Maybe Text, _prdLicenseAcquisitionURL :: Maybe Text, _prdInitializationVector :: Maybe Text} deriving (Eq, Read, Show)
+data PlayReadyDrm = PlayReadyDrm'
+    { _prdKeyId                 :: Maybe Text
+    , _prdKeyMD5                :: Maybe Text
+    , _prdFormat                :: Maybe Text
+    , _prdKey                   :: Maybe Text
+    , _prdLicenseAcquisitionURL :: Maybe Text
+    , _prdInitializationVector  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PlayReadyDrm' smart constructor.
 playReadyDrm :: PlayReadyDrm
-playReadyDrm = PlayReadyDrm'{_prdKeyId = Nothing, _prdKeyMD5 = Nothing, _prdFormat = Nothing, _prdKey = Nothing, _prdLicenseAcquisitionURL = Nothing, _prdInitializationVector = Nothing};
+playReadyDrm =
+    PlayReadyDrm'
+    { _prdKeyId = Nothing
+    , _prdKeyMD5 = Nothing
+    , _prdFormat = Nothing
+    , _prdKey = Nothing
+    , _prdLicenseAcquisitionURL = Nothing
+    , _prdInitializationVector = Nothing
+    }
 
 -- | The ID for your DRM key, so that your DRM license provider knows which
 -- key to provide.
@@ -2869,11 +3207,28 @@ instance ToJSON PlayReadyDrm where
 -- * 'plaHlsContentProtection'
 --
 -- * 'plaStatusDetail'
-data Playlist = Playlist'{_plaPlayReadyDrm :: Maybe PlayReadyDrm, _plaStatus :: Maybe Text, _plaOutputKeys :: Maybe [Text], _plaFormat :: Maybe Text, _plaName :: Maybe Text, _plaHlsContentProtection :: Maybe HlsContentProtection, _plaStatusDetail :: Maybe Text} deriving (Eq, Read, Show)
+data Playlist = Playlist'
+    { _plaPlayReadyDrm         :: Maybe PlayReadyDrm
+    , _plaStatus               :: Maybe Text
+    , _plaOutputKeys           :: Maybe [Text]
+    , _plaFormat               :: Maybe Text
+    , _plaName                 :: Maybe Text
+    , _plaHlsContentProtection :: Maybe HlsContentProtection
+    , _plaStatusDetail         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Playlist' smart constructor.
 playlist :: Playlist
-playlist = Playlist'{_plaPlayReadyDrm = Nothing, _plaStatus = Nothing, _plaOutputKeys = Nothing, _plaFormat = Nothing, _plaName = Nothing, _plaHlsContentProtection = Nothing, _plaStatusDetail = Nothing};
+playlist =
+    Playlist'
+    { _plaPlayReadyDrm = Nothing
+    , _plaStatus = Nothing
+    , _plaOutputKeys = Nothing
+    , _plaFormat = Nothing
+    , _plaName = Nothing
+    , _plaHlsContentProtection = Nothing
+    , _plaStatusDetail = Nothing
+    }
 
 -- | The DRM settings, if any, that you want Elastic Transcoder to apply to
 -- the output files associated with this playlist.
@@ -2994,11 +3349,32 @@ instance FromJSON Playlist where
 -- * 'preAudio'
 --
 -- * 'preDescription'
-data Preset = Preset'{_preARN :: Maybe Text, _preVideo :: Maybe VideoParameters, _preName :: Maybe Text, _preThumbnails :: Maybe Thumbnails, _preContainer :: Maybe Text, _preId :: Maybe Text, _preType :: Maybe Text, _preAudio :: Maybe AudioParameters, _preDescription :: Maybe Text} deriving (Eq, Read, Show)
+data Preset = Preset'
+    { _preARN         :: Maybe Text
+    , _preVideo       :: Maybe VideoParameters
+    , _preName        :: Maybe Text
+    , _preThumbnails  :: Maybe Thumbnails
+    , _preContainer   :: Maybe Text
+    , _preId          :: Maybe Text
+    , _preType        :: Maybe Text
+    , _preAudio       :: Maybe AudioParameters
+    , _preDescription :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Preset' smart constructor.
 preset :: Preset
-preset = Preset'{_preARN = Nothing, _preVideo = Nothing, _preName = Nothing, _preThumbnails = Nothing, _preContainer = Nothing, _preId = Nothing, _preType = Nothing, _preAudio = Nothing, _preDescription = Nothing};
+preset =
+    Preset'
+    { _preARN = Nothing
+    , _preVideo = Nothing
+    , _preName = Nothing
+    , _preThumbnails = Nothing
+    , _preContainer = Nothing
+    , _preId = Nothing
+    , _preType = Nothing
+    , _preAudio = Nothing
+    , _preDescription = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) for the preset.
 preARN :: Lens' Preset (Maybe Text)
@@ -3095,11 +3471,34 @@ instance FromJSON Preset where
 -- * 'pwHorizontalAlign'
 --
 -- * 'pwTarget'
-data PresetWatermark = PresetWatermark'{_pwVerticalAlign :: Maybe Text, _pwSizingPolicy :: Maybe Text, _pwMaxHeight :: Maybe Text, _pwHorizontalOffset :: Maybe Text, _pwOpacity :: Maybe Text, _pwVerticalOffset :: Maybe Text, _pwMaxWidth :: Maybe Text, _pwId :: Maybe Text, _pwHorizontalAlign :: Maybe Text, _pwTarget :: Maybe Text} deriving (Eq, Read, Show)
+data PresetWatermark = PresetWatermark'
+    { _pwVerticalAlign    :: Maybe Text
+    , _pwSizingPolicy     :: Maybe Text
+    , _pwMaxHeight        :: Maybe Text
+    , _pwHorizontalOffset :: Maybe Text
+    , _pwOpacity          :: Maybe Text
+    , _pwVerticalOffset   :: Maybe Text
+    , _pwMaxWidth         :: Maybe Text
+    , _pwId               :: Maybe Text
+    , _pwHorizontalAlign  :: Maybe Text
+    , _pwTarget           :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PresetWatermark' smart constructor.
 presetWatermark :: PresetWatermark
-presetWatermark = PresetWatermark'{_pwVerticalAlign = Nothing, _pwSizingPolicy = Nothing, _pwMaxHeight = Nothing, _pwHorizontalOffset = Nothing, _pwOpacity = Nothing, _pwVerticalOffset = Nothing, _pwMaxWidth = Nothing, _pwId = Nothing, _pwHorizontalAlign = Nothing, _pwTarget = Nothing};
+presetWatermark =
+    PresetWatermark'
+    { _pwVerticalAlign = Nothing
+    , _pwSizingPolicy = Nothing
+    , _pwMaxHeight = Nothing
+    , _pwHorizontalOffset = Nothing
+    , _pwOpacity = Nothing
+    , _pwVerticalOffset = Nothing
+    , _pwMaxWidth = Nothing
+    , _pwId = Nothing
+    , _pwHorizontalAlign = Nothing
+    , _pwTarget = Nothing
+    }
 
 -- | The vertical position of the watermark unless you specify a non-zero
 -- value for @VerticalOffset@:
@@ -3301,11 +3700,30 @@ instance ToJSON PresetWatermark where
 -- * 'thuInterval'
 --
 -- * 'thuMaxWidth'
-data Thumbnails = Thumbnails'{_thuSizingPolicy :: Maybe Text, _thuFormat :: Maybe Text, _thuMaxHeight :: Maybe Text, _thuResolution :: Maybe Text, _thuPaddingPolicy :: Maybe Text, _thuAspectRatio :: Maybe Text, _thuInterval :: Maybe Text, _thuMaxWidth :: Maybe Text} deriving (Eq, Read, Show)
+data Thumbnails = Thumbnails'
+    { _thuSizingPolicy  :: Maybe Text
+    , _thuFormat        :: Maybe Text
+    , _thuMaxHeight     :: Maybe Text
+    , _thuResolution    :: Maybe Text
+    , _thuPaddingPolicy :: Maybe Text
+    , _thuAspectRatio   :: Maybe Text
+    , _thuInterval      :: Maybe Text
+    , _thuMaxWidth      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Thumbnails' smart constructor.
 thumbnails :: Thumbnails
-thumbnails = Thumbnails'{_thuSizingPolicy = Nothing, _thuFormat = Nothing, _thuMaxHeight = Nothing, _thuResolution = Nothing, _thuPaddingPolicy = Nothing, _thuAspectRatio = Nothing, _thuInterval = Nothing, _thuMaxWidth = Nothing};
+thumbnails =
+    Thumbnails'
+    { _thuSizingPolicy = Nothing
+    , _thuFormat = Nothing
+    , _thuMaxHeight = Nothing
+    , _thuResolution = Nothing
+    , _thuPaddingPolicy = Nothing
+    , _thuAspectRatio = Nothing
+    , _thuInterval = Nothing
+    , _thuMaxWidth = Nothing
+    }
 
 -- | Specify one of the following values to control scaling of thumbnails:
 --
@@ -3430,11 +3848,18 @@ instance ToJSON Thumbnails where
 -- * 'tsStartTime'
 --
 -- * 'tsDuration'
-data TimeSpan = TimeSpan'{_tsStartTime :: Maybe Text, _tsDuration :: Maybe Text} deriving (Eq, Read, Show)
+data TimeSpan = TimeSpan'
+    { _tsStartTime :: Maybe Text
+    , _tsDuration  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'TimeSpan' smart constructor.
 timeSpan :: TimeSpan
-timeSpan = TimeSpan'{_tsStartTime = Nothing, _tsDuration = Nothing};
+timeSpan =
+    TimeSpan'
+    { _tsStartTime = Nothing
+    , _tsDuration = Nothing
+    }
 
 -- | The place in the input file where you want a clip to start. The format
 -- can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is
@@ -3478,11 +3903,20 @@ instance ToJSON TimeSpan where
 -- * 'timFinishTimeMillis'
 --
 -- * 'timStartTimeMillis'
-data Timing = Timing'{_timSubmitTimeMillis :: Maybe Integer, _timFinishTimeMillis :: Maybe Integer, _timStartTimeMillis :: Maybe Integer} deriving (Eq, Read, Show)
+data Timing = Timing'
+    { _timSubmitTimeMillis :: Maybe Integer
+    , _timFinishTimeMillis :: Maybe Integer
+    , _timStartTimeMillis  :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'Timing' smart constructor.
 timing :: Timing
-timing = Timing'{_timSubmitTimeMillis = Nothing, _timFinishTimeMillis = Nothing, _timStartTimeMillis = Nothing};
+timing =
+    Timing'
+    { _timSubmitTimeMillis = Nothing
+    , _timFinishTimeMillis = Nothing
+    , _timStartTimeMillis = Nothing
+    }
 
 -- | The time the job was submitted to Elastic Transcoder, in epoch
 -- milliseconds.
@@ -3541,11 +3975,44 @@ instance FromJSON Timing where
 -- * 'vpFixedGOP'
 --
 -- * 'vpCodecOptions'
-data VideoParameters = VideoParameters'{_vpKeyframesMaxDist :: Maybe Text, _vpFrameRate :: Maybe Text, _vpSizingPolicy :: Maybe Text, _vpMaxFrameRate :: Maybe Text, _vpMaxHeight :: Maybe Text, _vpDisplayAspectRatio :: Maybe Text, _vpWatermarks :: Maybe [PresetWatermark], _vpCodec :: Maybe Text, _vpResolution :: Maybe Text, _vpPaddingPolicy :: Maybe Text, _vpAspectRatio :: Maybe Text, _vpMaxWidth :: Maybe Text, _vpBitRate :: Maybe Text, _vpFixedGOP :: Maybe Text, _vpCodecOptions :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
+data VideoParameters = VideoParameters'
+    { _vpKeyframesMaxDist   :: Maybe Text
+    , _vpFrameRate          :: Maybe Text
+    , _vpSizingPolicy       :: Maybe Text
+    , _vpMaxFrameRate       :: Maybe Text
+    , _vpMaxHeight          :: Maybe Text
+    , _vpDisplayAspectRatio :: Maybe Text
+    , _vpWatermarks         :: Maybe [PresetWatermark]
+    , _vpCodec              :: Maybe Text
+    , _vpResolution         :: Maybe Text
+    , _vpPaddingPolicy      :: Maybe Text
+    , _vpAspectRatio        :: Maybe Text
+    , _vpMaxWidth           :: Maybe Text
+    , _vpBitRate            :: Maybe Text
+    , _vpFixedGOP           :: Maybe Text
+    , _vpCodecOptions       :: Maybe (Map Text Text)
+    } deriving (Eq,Read,Show)
 
 -- | 'VideoParameters' smart constructor.
 videoParameters :: VideoParameters
-videoParameters = VideoParameters'{_vpKeyframesMaxDist = Nothing, _vpFrameRate = Nothing, _vpSizingPolicy = Nothing, _vpMaxFrameRate = Nothing, _vpMaxHeight = Nothing, _vpDisplayAspectRatio = Nothing, _vpWatermarks = Nothing, _vpCodec = Nothing, _vpResolution = Nothing, _vpPaddingPolicy = Nothing, _vpAspectRatio = Nothing, _vpMaxWidth = Nothing, _vpBitRate = Nothing, _vpFixedGOP = Nothing, _vpCodecOptions = Nothing};
+videoParameters =
+    VideoParameters'
+    { _vpKeyframesMaxDist = Nothing
+    , _vpFrameRate = Nothing
+    , _vpSizingPolicy = Nothing
+    , _vpMaxFrameRate = Nothing
+    , _vpMaxHeight = Nothing
+    , _vpDisplayAspectRatio = Nothing
+    , _vpWatermarks = Nothing
+    , _vpCodec = Nothing
+    , _vpResolution = Nothing
+    , _vpPaddingPolicy = Nothing
+    , _vpAspectRatio = Nothing
+    , _vpMaxWidth = Nothing
+    , _vpBitRate = Nothing
+    , _vpFixedGOP = Nothing
+    , _vpCodecOptions = Nothing
+    }
 
 -- | Applicable only when the value of Video:Codec is one of @H.264@,
 -- @MPEG2@, or @VP8@.
@@ -3993,11 +4460,18 @@ instance ToJSON VideoParameters where
 -- * 'warCode'
 --
 -- * 'warMessage'
-data Warning = Warning'{_warCode :: Maybe Text, _warMessage :: Maybe Text} deriving (Eq, Read, Show)
+data Warning = Warning'
+    { _warCode    :: Maybe Text
+    , _warMessage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Warning' smart constructor.
 warning :: Warning
-warning = Warning'{_warCode = Nothing, _warMessage = Nothing};
+warning =
+    Warning'
+    { _warCode = Nothing
+    , _warMessage = Nothing
+    }
 
 -- | The code of the cross-regional warning.
 warCode :: Lens' Warning (Maybe Text)

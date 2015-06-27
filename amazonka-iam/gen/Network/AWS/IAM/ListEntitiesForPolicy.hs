@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListEntitiesForPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.IAM.ListEntitiesForPolicy
     , lefprPolicyUsers
     , lefprMarker
     , lefprIsTruncated
-    , lefprStatusCode
+    , lefprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listEntitiesForPolicy' smart constructor.
 --
@@ -70,11 +70,24 @@ import Network.AWS.Response
 -- * 'lefpMarker'
 --
 -- * 'lefpPolicyARN'
-data ListEntitiesForPolicy = ListEntitiesForPolicy'{_lefpPathPrefix :: Maybe Text, _lefpEntityFilter :: Maybe EntityType, _lefpMaxItems :: Maybe Nat, _lefpMarker :: Maybe Text, _lefpPolicyARN :: Text} deriving (Eq, Read, Show)
+data ListEntitiesForPolicy = ListEntitiesForPolicy'
+    { _lefpPathPrefix   :: Maybe Text
+    , _lefpEntityFilter :: Maybe EntityType
+    , _lefpMaxItems     :: Maybe Nat
+    , _lefpMarker       :: Maybe Text
+    , _lefpPolicyARN    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListEntitiesForPolicy' smart constructor.
 listEntitiesForPolicy :: Text -> ListEntitiesForPolicy
-listEntitiesForPolicy pPolicyARN = ListEntitiesForPolicy'{_lefpPathPrefix = Nothing, _lefpEntityFilter = Nothing, _lefpMaxItems = Nothing, _lefpMarker = Nothing, _lefpPolicyARN = pPolicyARN};
+listEntitiesForPolicy pPolicyARN =
+    ListEntitiesForPolicy'
+    { _lefpPathPrefix = Nothing
+    , _lefpEntityFilter = Nothing
+    , _lefpMaxItems = Nothing
+    , _lefpMarker = Nothing
+    , _lefpPolicyARN = pPolicyARN
+    }
 
 -- | The path prefix for filtering the results. This parameter is optional.
 -- If it is not included, it defaults to a slash (\/), listing all
@@ -163,12 +176,27 @@ instance ToQuery ListEntitiesForPolicy where
 --
 -- * 'lefprIsTruncated'
 --
--- * 'lefprStatusCode'
-data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'{_lefprPolicyGroups :: Maybe [PolicyGroup], _lefprPolicyRoles :: Maybe [PolicyRole], _lefprPolicyUsers :: Maybe [PolicyUser], _lefprMarker :: Maybe Text, _lefprIsTruncated :: Maybe Bool, _lefprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lefprStatus'
+data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'
+    { _lefprPolicyGroups :: Maybe [PolicyGroup]
+    , _lefprPolicyRoles  :: Maybe [PolicyRole]
+    , _lefprPolicyUsers  :: Maybe [PolicyUser]
+    , _lefprMarker       :: Maybe Text
+    , _lefprIsTruncated  :: Maybe Bool
+    , _lefprStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListEntitiesForPolicyResponse' smart constructor.
 listEntitiesForPolicyResponse :: Int -> ListEntitiesForPolicyResponse
-listEntitiesForPolicyResponse pStatusCode = ListEntitiesForPolicyResponse'{_lefprPolicyGroups = Nothing, _lefprPolicyRoles = Nothing, _lefprPolicyUsers = Nothing, _lefprMarker = Nothing, _lefprIsTruncated = Nothing, _lefprStatusCode = pStatusCode};
+listEntitiesForPolicyResponse pStatus =
+    ListEntitiesForPolicyResponse'
+    { _lefprPolicyGroups = Nothing
+    , _lefprPolicyRoles = Nothing
+    , _lefprPolicyUsers = Nothing
+    , _lefprMarker = Nothing
+    , _lefprIsTruncated = Nothing
+    , _lefprStatus = pStatus
+    }
 
 -- | A list of groups that the policy is attached to.
 lefprPolicyGroups :: Lens' ListEntitiesForPolicyResponse [PolicyGroup]
@@ -196,5 +224,5 @@ lefprIsTruncated :: Lens' ListEntitiesForPolicyResponse (Maybe Bool)
 lefprIsTruncated = lens _lefprIsTruncated (\ s a -> s{_lefprIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lefprStatusCode :: Lens' ListEntitiesForPolicyResponse Int
-lefprStatusCode = lens _lefprStatusCode (\ s a -> s{_lefprStatusCode = a});
+lefprStatus :: Lens' ListEntitiesForPolicyResponse Int
+lefprStatus = lens _lefprStatus (\ s a -> s{_lefprStatus = a});

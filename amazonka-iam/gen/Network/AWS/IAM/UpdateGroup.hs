@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.UpdateGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,10 +46,10 @@ module Network.AWS.IAM.UpdateGroup
     , updateGroupResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateGroup' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'ugNewPath'
 --
 -- * 'ugGroupName'
-data UpdateGroup = UpdateGroup'{_ugNewGroupName :: Maybe Text, _ugNewPath :: Maybe Text, _ugGroupName :: Text} deriving (Eq, Read, Show)
+data UpdateGroup = UpdateGroup'
+    { _ugNewGroupName :: Maybe Text
+    , _ugNewPath      :: Maybe Text
+    , _ugGroupName    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateGroup' smart constructor.
 updateGroup :: Text -> UpdateGroup
-updateGroup pGroupName = UpdateGroup'{_ugNewGroupName = Nothing, _ugNewPath = Nothing, _ugGroupName = pGroupName};
+updateGroup pGroupName =
+    UpdateGroup'
+    { _ugNewGroupName = Nothing
+    , _ugNewPath = Nothing
+    , _ugGroupName = pGroupName
+    }
 
 -- | New name for the group. Only include this if changing the group\'s name.
 ugNewGroupName :: Lens' UpdateGroup (Maybe Text)
@@ -100,8 +109,10 @@ instance ToQuery UpdateGroup where
                "NewPath" =: _ugNewPath, "GroupName" =: _ugGroupName]
 
 -- | /See:/ 'updateGroupResponse' smart constructor.
-data UpdateGroupResponse = UpdateGroupResponse' deriving (Eq, Read, Show)
+data UpdateGroupResponse =
+    UpdateGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateGroupResponse' smart constructor.
 updateGroupResponse :: UpdateGroupResponse
-updateGroupResponse = UpdateGroupResponse';
+updateGroupResponse = UpdateGroupResponse'

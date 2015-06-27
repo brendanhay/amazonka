@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.ActivateGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,13 +48,13 @@ module Network.AWS.StorageGateway.ActivateGateway
     , activateGatewayResponse
     -- ** Response lenses
     , agrGatewayARN
-    , agrStatusCode
+    , agrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -83,11 +83,28 @@ import Network.AWS.StorageGateway.Types
 -- * 'agGatewayTimezone'
 --
 -- * 'agGatewayRegion'
-data ActivateGateway = ActivateGateway'{_agMediumChangerType :: Maybe Text, _agTapeDriveType :: Maybe Text, _agGatewayType :: Maybe Text, _agActivationKey :: Text, _agGatewayName :: Text, _agGatewayTimezone :: Text, _agGatewayRegion :: Text} deriving (Eq, Read, Show)
+data ActivateGateway = ActivateGateway'
+    { _agMediumChangerType :: Maybe Text
+    , _agTapeDriveType     :: Maybe Text
+    , _agGatewayType       :: Maybe Text
+    , _agActivationKey     :: Text
+    , _agGatewayName       :: Text
+    , _agGatewayTimezone   :: Text
+    , _agGatewayRegion     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ActivateGateway' smart constructor.
 activateGateway :: Text -> Text -> Text -> Text -> ActivateGateway
-activateGateway pActivationKey pGatewayName pGatewayTimezone pGatewayRegion = ActivateGateway'{_agMediumChangerType = Nothing, _agTapeDriveType = Nothing, _agGatewayType = Nothing, _agActivationKey = pActivationKey, _agGatewayName = pGatewayName, _agGatewayTimezone = pGatewayTimezone, _agGatewayRegion = pGatewayRegion};
+activateGateway pActivationKey pGatewayName pGatewayTimezone pGatewayRegion =
+    ActivateGateway'
+    { _agMediumChangerType = Nothing
+    , _agTapeDriveType = Nothing
+    , _agGatewayType = Nothing
+    , _agActivationKey = pActivationKey
+    , _agGatewayName = pGatewayName
+    , _agGatewayTimezone = pGatewayTimezone
+    , _agGatewayRegion = pGatewayRegion
+    }
 
 -- | The value that indicates the type of medium changer to use for
 -- gateway-VTL. This field is optional.
@@ -191,17 +208,24 @@ instance ToQuery ActivateGateway where
 --
 -- * 'agrGatewayARN'
 --
--- * 'agrStatusCode'
-data ActivateGatewayResponse = ActivateGatewayResponse'{_agrGatewayARN :: Maybe Text, _agrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'agrStatus'
+data ActivateGatewayResponse = ActivateGatewayResponse'
+    { _agrGatewayARN :: Maybe Text
+    , _agrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ActivateGatewayResponse' smart constructor.
 activateGatewayResponse :: Int -> ActivateGatewayResponse
-activateGatewayResponse pStatusCode = ActivateGatewayResponse'{_agrGatewayARN = Nothing, _agrStatusCode = pStatusCode};
+activateGatewayResponse pStatus =
+    ActivateGatewayResponse'
+    { _agrGatewayARN = Nothing
+    , _agrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 agrGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
 agrGatewayARN = lens _agrGatewayARN (\ s a -> s{_agrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-agrStatusCode :: Lens' ActivateGatewayResponse Int
-agrStatusCode = lens _agrStatusCode (\ s a -> s{_agrStatusCode = a});
+agrStatus :: Lens' ActivateGatewayResponse Int
+agrStatus = lens _agrStatus (\ s a -> s{_agrStatus = a});

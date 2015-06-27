@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteScheduledAction
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.AutoScaling.DeleteScheduledAction
     , deleteScheduledActionResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteScheduledAction' smart constructor.
 --
@@ -45,11 +45,18 @@ import Network.AWS.Response
 -- * 'dsaAutoScalingGroupName'
 --
 -- * 'dsaScheduledActionName'
-data DeleteScheduledAction = DeleteScheduledAction'{_dsaAutoScalingGroupName :: Maybe Text, _dsaScheduledActionName :: Text} deriving (Eq, Read, Show)
+data DeleteScheduledAction = DeleteScheduledAction'
+    { _dsaAutoScalingGroupName :: Maybe Text
+    , _dsaScheduledActionName  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteScheduledAction' smart constructor.
 deleteScheduledAction :: Text -> DeleteScheduledAction
-deleteScheduledAction pScheduledActionName = DeleteScheduledAction'{_dsaAutoScalingGroupName = Nothing, _dsaScheduledActionName = pScheduledActionName};
+deleteScheduledAction pScheduledActionName =
+    DeleteScheduledAction'
+    { _dsaAutoScalingGroupName = Nothing
+    , _dsaScheduledActionName = pScheduledActionName
+    }
 
 -- | The name of the Auto Scaling group.
 dsaAutoScalingGroupName :: Lens' DeleteScheduledAction (Maybe Text)
@@ -81,8 +88,10 @@ instance ToQuery DeleteScheduledAction where
                "ScheduledActionName" =: _dsaScheduledActionName]
 
 -- | /See:/ 'deleteScheduledActionResponse' smart constructor.
-data DeleteScheduledActionResponse = DeleteScheduledActionResponse' deriving (Eq, Read, Show)
+data DeleteScheduledActionResponse =
+    DeleteScheduledActionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteScheduledActionResponse' smart constructor.
 deleteScheduledActionResponse :: DeleteScheduledActionResponse
-deleteScheduledActionResponse = DeleteScheduledActionResponse';
+deleteScheduledActionResponse = DeleteScheduledActionResponse'

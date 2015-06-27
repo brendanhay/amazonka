@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.GetDataSource
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,6 @@ module Network.AWS.MachineLearning.GetDataSource
     -- ** Response constructor
     , getDataSourceResponse
     -- ** Response lenses
-    , gdsrStatus
     , gdsrNumberOfFiles
     , gdsrLastUpdatedAt
     , gdsrCreatedAt
@@ -54,13 +53,13 @@ module Network.AWS.MachineLearning.GetDataSource
     , gdsrRedshiftMetadata
     , gdsrRoleARN
     , gdsrDataRearrangement
-    , gdsrStatusCode
+    , gdsrStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getDataSource' smart constructor.
 --
@@ -69,11 +68,18 @@ import Network.AWS.Response
 -- * 'gdsVerbose'
 --
 -- * 'gdsDataSourceId'
-data GetDataSource = GetDataSource'{_gdsVerbose :: Maybe Bool, _gdsDataSourceId :: Text} deriving (Eq, Read, Show)
+data GetDataSource = GetDataSource'
+    { _gdsVerbose      :: Maybe Bool
+    , _gdsDataSourceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDataSource' smart constructor.
 getDataSource :: Text -> GetDataSource
-getDataSource pDataSourceId = GetDataSource'{_gdsVerbose = Nothing, _gdsDataSourceId = pDataSourceId};
+getDataSource pDataSourceId =
+    GetDataSource'
+    { _gdsVerbose = Nothing
+    , _gdsDataSourceId = pDataSourceId
+    }
 
 -- | Specifies whether the @GetDataSource@ operation should return
 -- @DataSourceSchema@.
@@ -96,8 +102,7 @@ instance AWSRequest GetDataSource where
           = receiveJSON
               (\ s h x ->
                  GetDataSourceResponse' <$>
-                   (x .?> "Status") <*> (x .?> "NumberOfFiles") <*>
-                     (x .?> "LastUpdatedAt")
+                   (x .?> "NumberOfFiles") <*> (x .?> "LastUpdatedAt")
                      <*> (x .?> "CreatedAt")
                      <*> (x .?> "RDSMetadata")
                      <*> (x .?> "DataSourceId")
@@ -142,8 +147,6 @@ instance ToQuery GetDataSource where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdsrStatus'
---
 -- * 'gdsrNumberOfFiles'
 --
 -- * 'gdsrLastUpdatedAt'
@@ -176,25 +179,49 @@ instance ToQuery GetDataSource where
 --
 -- * 'gdsrDataRearrangement'
 --
--- * 'gdsrStatusCode'
-data GetDataSourceResponse = GetDataSourceResponse'{_gdsrStatus :: Maybe EntityStatus, _gdsrNumberOfFiles :: Maybe Integer, _gdsrLastUpdatedAt :: Maybe POSIX, _gdsrCreatedAt :: Maybe POSIX, _gdsrRDSMetadata :: Maybe RDSMetadata, _gdsrDataSourceId :: Maybe Text, _gdsrDataSizeInBytes :: Maybe Integer, _gdsrDataSourceSchema :: Maybe Text, _gdsrName :: Maybe Text, _gdsrCreatedByIAMUser :: Maybe Text, _gdsrLogURI :: Maybe Text, _gdsrDataLocationS3 :: Maybe Text, _gdsrComputeStatistics :: Maybe Bool, _gdsrMessage :: Maybe Text, _gdsrRedshiftMetadata :: Maybe RedshiftMetadata, _gdsrRoleARN :: Maybe Text, _gdsrDataRearrangement :: Maybe Text, _gdsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gdsrStatus'
+data GetDataSourceResponse = GetDataSourceResponse'
+    { _gdsrNumberOfFiles     :: Maybe Integer
+    , _gdsrLastUpdatedAt     :: Maybe POSIX
+    , _gdsrCreatedAt         :: Maybe POSIX
+    , _gdsrRDSMetadata       :: Maybe RDSMetadata
+    , _gdsrDataSourceId      :: Maybe Text
+    , _gdsrDataSizeInBytes   :: Maybe Integer
+    , _gdsrDataSourceSchema  :: Maybe Text
+    , _gdsrName              :: Maybe Text
+    , _gdsrCreatedByIAMUser  :: Maybe Text
+    , _gdsrLogURI            :: Maybe Text
+    , _gdsrDataLocationS3    :: Maybe Text
+    , _gdsrComputeStatistics :: Maybe Bool
+    , _gdsrMessage           :: Maybe Text
+    , _gdsrRedshiftMetadata  :: Maybe RedshiftMetadata
+    , _gdsrRoleARN           :: Maybe Text
+    , _gdsrDataRearrangement :: Maybe Text
+    , _gdsrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDataSourceResponse' smart constructor.
 getDataSourceResponse :: Int -> GetDataSourceResponse
-getDataSourceResponse pStatusCode = GetDataSourceResponse'{_gdsrStatus = Nothing, _gdsrNumberOfFiles = Nothing, _gdsrLastUpdatedAt = Nothing, _gdsrCreatedAt = Nothing, _gdsrRDSMetadata = Nothing, _gdsrDataSourceId = Nothing, _gdsrDataSizeInBytes = Nothing, _gdsrDataSourceSchema = Nothing, _gdsrName = Nothing, _gdsrCreatedByIAMUser = Nothing, _gdsrLogURI = Nothing, _gdsrDataLocationS3 = Nothing, _gdsrComputeStatistics = Nothing, _gdsrMessage = Nothing, _gdsrRedshiftMetadata = Nothing, _gdsrRoleARN = Nothing, _gdsrDataRearrangement = Nothing, _gdsrStatusCode = pStatusCode};
-
--- | The current status of the @DataSource@. This element can have one of the
--- following values:
---
--- -   @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request
---     to create a @DataSource@.
--- -   @INPROGRESS@ - The creation process is underway.
--- -   @FAILED@ - The request to create a @DataSource@ did not run to
---     completion. It is not usable.
--- -   @COMPLETED@ - The creation process completed successfully.
--- -   @DELETED@ - The @DataSource@ is marked as deleted. It is not usable.
-gdsrStatus :: Lens' GetDataSourceResponse (Maybe EntityStatus)
-gdsrStatus = lens _gdsrStatus (\ s a -> s{_gdsrStatus = a});
+getDataSourceResponse pStatus =
+    GetDataSourceResponse'
+    { _gdsrNumberOfFiles = Nothing
+    , _gdsrLastUpdatedAt = Nothing
+    , _gdsrCreatedAt = Nothing
+    , _gdsrRDSMetadata = Nothing
+    , _gdsrDataSourceId = Nothing
+    , _gdsrDataSizeInBytes = Nothing
+    , _gdsrDataSourceSchema = Nothing
+    , _gdsrName = Nothing
+    , _gdsrCreatedByIAMUser = Nothing
+    , _gdsrLogURI = Nothing
+    , _gdsrDataLocationS3 = Nothing
+    , _gdsrComputeStatistics = Nothing
+    , _gdsrMessage = Nothing
+    , _gdsrRedshiftMetadata = Nothing
+    , _gdsrRoleARN = Nothing
+    , _gdsrDataRearrangement = Nothing
+    , _gdsrStatus = pStatus
+    }
 
 -- | The number of data files referenced by the @DataSource@.
 gdsrNumberOfFiles :: Lens' GetDataSourceResponse (Maybe Integer)
@@ -275,5 +302,5 @@ gdsrDataRearrangement :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrDataRearrangement = lens _gdsrDataRearrangement (\ s a -> s{_gdsrDataRearrangement = a});
 
 -- | FIXME: Undocumented member.
-gdsrStatusCode :: Lens' GetDataSourceResponse Int
-gdsrStatusCode = lens _gdsrStatusCode (\ s a -> s{_gdsrStatusCode = a});
+gdsrStatus :: Lens' GetDataSourceResponse Int
+gdsrStatus = lens _gdsrStatus (\ s a -> s{_gdsrStatus = a});

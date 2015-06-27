@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListInstanceProfiles
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,14 +42,14 @@ module Network.AWS.IAM.ListInstanceProfiles
     , liprMarker
     , liprIsTruncated
     , liprInstanceProfiles
-    , liprStatusCode
+    , liprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listInstanceProfiles' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'lipMaxItems'
 --
 -- * 'lipMarker'
-data ListInstanceProfiles = ListInstanceProfiles'{_lipPathPrefix :: Maybe Text, _lipMaxItems :: Maybe Nat, _lipMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListInstanceProfiles = ListInstanceProfiles'
+    { _lipPathPrefix :: Maybe Text
+    , _lipMaxItems   :: Maybe Nat
+    , _lipMarker     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListInstanceProfiles' smart constructor.
 listInstanceProfiles :: ListInstanceProfiles
-listInstanceProfiles = ListInstanceProfiles'{_lipPathPrefix = Nothing, _lipMaxItems = Nothing, _lipMarker = Nothing};
+listInstanceProfiles =
+    ListInstanceProfiles'
+    { _lipPathPrefix = Nothing
+    , _lipMaxItems = Nothing
+    , _lipMarker = Nothing
+    }
 
 -- | The path prefix for filtering the results. For example, the prefix
 -- @\/application_abc\/component_xyz\/@ gets all instance profiles whose
@@ -137,12 +146,23 @@ instance ToQuery ListInstanceProfiles where
 --
 -- * 'liprInstanceProfiles'
 --
--- * 'liprStatusCode'
-data ListInstanceProfilesResponse = ListInstanceProfilesResponse'{_liprMarker :: Maybe Text, _liprIsTruncated :: Maybe Bool, _liprInstanceProfiles :: [InstanceProfile], _liprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'liprStatus'
+data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
+    { _liprMarker           :: Maybe Text
+    , _liprIsTruncated      :: Maybe Bool
+    , _liprInstanceProfiles :: [InstanceProfile]
+    , _liprStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListInstanceProfilesResponse' smart constructor.
 listInstanceProfilesResponse :: Int -> ListInstanceProfilesResponse
-listInstanceProfilesResponse pStatusCode = ListInstanceProfilesResponse'{_liprMarker = Nothing, _liprIsTruncated = Nothing, _liprInstanceProfiles = mempty, _liprStatusCode = pStatusCode};
+listInstanceProfilesResponse pStatus =
+    ListInstanceProfilesResponse'
+    { _liprMarker = Nothing
+    , _liprIsTruncated = Nothing
+    , _liprInstanceProfiles = mempty
+    , _liprStatus = pStatus
+    }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -162,5 +182,5 @@ liprInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]
 liprInstanceProfiles = lens _liprInstanceProfiles (\ s a -> s{_liprInstanceProfiles = a});
 
 -- | FIXME: Undocumented member.
-liprStatusCode :: Lens' ListInstanceProfilesResponse Int
-liprStatusCode = lens _liprStatusCode (\ s a -> s{_liprStatusCode = a});
+liprStatus :: Lens' ListInstanceProfilesResponse Int
+liprStatus = lens _liprStatus (\ s a -> s{_liprStatus = a});

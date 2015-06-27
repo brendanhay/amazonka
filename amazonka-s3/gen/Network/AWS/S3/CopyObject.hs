@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.CopyObject
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,13 +69,13 @@ module Network.AWS.S3.CopyObject
     , corSSECustomerKeyMD5
     , corServerSideEncryption
     , corCopyObjectResult
-    , corStatusCode
+    , corStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'copyObject' smart constructor.
 --
@@ -142,11 +142,76 @@ import Network.AWS.S3.Types
 -- * 'coCopySource'
 --
 -- * 'coKey'
-data CopyObject = CopyObject'{_coCopySourceIfModifiedSince :: Maybe RFC822, _coCopySourceIfUnmodifiedSince :: Maybe RFC822, _coCopySourceSSECustomerKeyMD5 :: Maybe Text, _coMetadataDirective :: Maybe MetadataDirective, _coExpires :: Maybe RFC822, _coSSECustomerAlgorithm :: Maybe Text, _coCopySourceIfNoneMatch :: Maybe Text, _coGrantReadACP :: Maybe Text, _coSSECustomerKey :: Maybe (Sensitive Text), _coRequestPayer :: Maybe RequestPayer, _coGrantWriteACP :: Maybe Text, _coWebsiteRedirectLocation :: Maybe Text, _coCopySourceIfMatch :: Maybe Text, _coGrantRead :: Maybe Text, _coStorageClass :: Maybe StorageClass, _coContentEncoding :: Maybe Text, _coSSEKMSKeyId :: Maybe (Sensitive Text), _coGrantFullControl :: Maybe Text, _coSSECustomerKeyMD5 :: Maybe Text, _coMetadata :: Map Text Text, _coCacheControl :: Maybe Text, _coContentLanguage :: Maybe Text, _coACL :: Maybe ObjectCannedACL, _coCopySourceSSECustomerKey :: Maybe (Sensitive Text), _coContentDisposition :: Maybe Text, _coCopySourceSSECustomerAlgorithm :: Maybe Text, _coServerSideEncryption :: Maybe ServerSideEncryption, _coContentType :: Maybe Text, _coBucket :: BucketName, _coCopySource :: Text, _coKey :: ObjectKey} deriving (Eq, Read, Show)
+data CopyObject = CopyObject'
+    { _coCopySourceIfModifiedSince      :: Maybe RFC822
+    , _coCopySourceIfUnmodifiedSince    :: Maybe RFC822
+    , _coCopySourceSSECustomerKeyMD5    :: Maybe Text
+    , _coMetadataDirective              :: Maybe MetadataDirective
+    , _coExpires                        :: Maybe RFC822
+    , _coSSECustomerAlgorithm           :: Maybe Text
+    , _coCopySourceIfNoneMatch          :: Maybe Text
+    , _coGrantReadACP                   :: Maybe Text
+    , _coSSECustomerKey                 :: Maybe (Sensitive Text)
+    , _coRequestPayer                   :: Maybe RequestPayer
+    , _coGrantWriteACP                  :: Maybe Text
+    , _coWebsiteRedirectLocation        :: Maybe Text
+    , _coCopySourceIfMatch              :: Maybe Text
+    , _coGrantRead                      :: Maybe Text
+    , _coStorageClass                   :: Maybe StorageClass
+    , _coContentEncoding                :: Maybe Text
+    , _coSSEKMSKeyId                    :: Maybe (Sensitive Text)
+    , _coGrantFullControl               :: Maybe Text
+    , _coSSECustomerKeyMD5              :: Maybe Text
+    , _coMetadata                       :: Map Text Text
+    , _coCacheControl                   :: Maybe Text
+    , _coContentLanguage                :: Maybe Text
+    , _coACL                            :: Maybe ObjectCannedACL
+    , _coCopySourceSSECustomerKey       :: Maybe (Sensitive Text)
+    , _coContentDisposition             :: Maybe Text
+    , _coCopySourceSSECustomerAlgorithm :: Maybe Text
+    , _coServerSideEncryption           :: Maybe ServerSideEncryption
+    , _coContentType                    :: Maybe Text
+    , _coBucket                         :: BucketName
+    , _coCopySource                     :: Text
+    , _coKey                            :: ObjectKey
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyObject' smart constructor.
 copyObject :: BucketName -> Text -> ObjectKey -> CopyObject
-copyObject pBucket pCopySource pKey = CopyObject'{_coCopySourceIfModifiedSince = Nothing, _coCopySourceIfUnmodifiedSince = Nothing, _coCopySourceSSECustomerKeyMD5 = Nothing, _coMetadataDirective = Nothing, _coExpires = Nothing, _coSSECustomerAlgorithm = Nothing, _coCopySourceIfNoneMatch = Nothing, _coGrantReadACP = Nothing, _coSSECustomerKey = Nothing, _coRequestPayer = Nothing, _coGrantWriteACP = Nothing, _coWebsiteRedirectLocation = Nothing, _coCopySourceIfMatch = Nothing, _coGrantRead = Nothing, _coStorageClass = Nothing, _coContentEncoding = Nothing, _coSSEKMSKeyId = Nothing, _coGrantFullControl = Nothing, _coSSECustomerKeyMD5 = Nothing, _coMetadata = mempty, _coCacheControl = Nothing, _coContentLanguage = Nothing, _coACL = Nothing, _coCopySourceSSECustomerKey = Nothing, _coContentDisposition = Nothing, _coCopySourceSSECustomerAlgorithm = Nothing, _coServerSideEncryption = Nothing, _coContentType = Nothing, _coBucket = pBucket, _coCopySource = pCopySource, _coKey = pKey};
+copyObject pBucket pCopySource pKey =
+    CopyObject'
+    { _coCopySourceIfModifiedSince = Nothing
+    , _coCopySourceIfUnmodifiedSince = Nothing
+    , _coCopySourceSSECustomerKeyMD5 = Nothing
+    , _coMetadataDirective = Nothing
+    , _coExpires = Nothing
+    , _coSSECustomerAlgorithm = Nothing
+    , _coCopySourceIfNoneMatch = Nothing
+    , _coGrantReadACP = Nothing
+    , _coSSECustomerKey = Nothing
+    , _coRequestPayer = Nothing
+    , _coGrantWriteACP = Nothing
+    , _coWebsiteRedirectLocation = Nothing
+    , _coCopySourceIfMatch = Nothing
+    , _coGrantRead = Nothing
+    , _coStorageClass = Nothing
+    , _coContentEncoding = Nothing
+    , _coSSEKMSKeyId = Nothing
+    , _coGrantFullControl = Nothing
+    , _coSSECustomerKeyMD5 = Nothing
+    , _coMetadata = mempty
+    , _coCacheControl = Nothing
+    , _coContentLanguage = Nothing
+    , _coACL = Nothing
+    , _coCopySourceSSECustomerKey = Nothing
+    , _coContentDisposition = Nothing
+    , _coCopySourceSSECustomerAlgorithm = Nothing
+    , _coServerSideEncryption = Nothing
+    , _coContentType = Nothing
+    , _coBucket = pBucket
+    , _coCopySource = pCopySource
+    , _coKey = pKey
+    }
 
 -- | Copies the object if it has been modified since the specified time.
 coCopySourceIfModifiedSince :: Lens' CopyObject (Maybe UTCTime)
@@ -392,12 +457,33 @@ instance ToQuery CopyObject where
 --
 -- * 'corCopyObjectResult'
 --
--- * 'corStatusCode'
-data CopyObjectResponse = CopyObjectResponse'{_corRequestCharged :: Maybe RequestCharged, _corExpiration :: Maybe Text, _corSSECustomerAlgorithm :: Maybe Text, _corCopySourceVersionId :: Maybe Text, _corSSEKMSKeyId :: Maybe (Sensitive Text), _corSSECustomerKeyMD5 :: Maybe Text, _corServerSideEncryption :: Maybe ServerSideEncryption, _corCopyObjectResult :: Maybe CopyObjectResult, _corStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'corStatus'
+data CopyObjectResponse = CopyObjectResponse'
+    { _corRequestCharged       :: Maybe RequestCharged
+    , _corExpiration           :: Maybe Text
+    , _corSSECustomerAlgorithm :: Maybe Text
+    , _corCopySourceVersionId  :: Maybe Text
+    , _corSSEKMSKeyId          :: Maybe (Sensitive Text)
+    , _corSSECustomerKeyMD5    :: Maybe Text
+    , _corServerSideEncryption :: Maybe ServerSideEncryption
+    , _corCopyObjectResult     :: Maybe CopyObjectResult
+    , _corStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyObjectResponse' smart constructor.
 copyObjectResponse :: Int -> CopyObjectResponse
-copyObjectResponse pStatusCode = CopyObjectResponse'{_corRequestCharged = Nothing, _corExpiration = Nothing, _corSSECustomerAlgorithm = Nothing, _corCopySourceVersionId = Nothing, _corSSEKMSKeyId = Nothing, _corSSECustomerKeyMD5 = Nothing, _corServerSideEncryption = Nothing, _corCopyObjectResult = Nothing, _corStatusCode = pStatusCode};
+copyObjectResponse pStatus =
+    CopyObjectResponse'
+    { _corRequestCharged = Nothing
+    , _corExpiration = Nothing
+    , _corSSECustomerAlgorithm = Nothing
+    , _corCopySourceVersionId = Nothing
+    , _corSSEKMSKeyId = Nothing
+    , _corSSECustomerKeyMD5 = Nothing
+    , _corServerSideEncryption = Nothing
+    , _corCopyObjectResult = Nothing
+    , _corStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 corRequestCharged :: Lens' CopyObjectResponse (Maybe RequestCharged)
@@ -439,5 +525,5 @@ corCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
 corCopyObjectResult = lens _corCopyObjectResult (\ s a -> s{_corCopyObjectResult = a});
 
 -- | FIXME: Undocumented member.
-corStatusCode :: Lens' CopyObjectResponse Int
-corStatusCode = lens _corStatusCode (\ s a -> s{_corStatusCode = a});
+corStatus :: Lens' CopyObjectResponse Int
+corStatus = lens _corStatus (\ s a -> s{_corStatus = a});

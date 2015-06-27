@@ -129,18 +129,18 @@ module Network.AWS.DynamoDB
     ( module Export
     ) where
 
-import Network.AWS.DynamoDB.BatchGetItem as Export
-import Network.AWS.DynamoDB.BatchWriteItem as Export
-import Network.AWS.DynamoDB.CreateTable as Export
-import Network.AWS.DynamoDB.DeleteItem as Export
-import Network.AWS.DynamoDB.DeleteTable as Export
-import Network.AWS.DynamoDB.DescribeTable as Export
-import Network.AWS.DynamoDB.GetItem as Export
-import Network.AWS.DynamoDB.ListTables as Export
-import Network.AWS.DynamoDB.PutItem as Export
-import Network.AWS.DynamoDB.Query as Export
-import Network.AWS.DynamoDB.Scan as Export
-import Network.AWS.DynamoDB.Types as Export
-import Network.AWS.DynamoDB.UpdateItem as Export
-import Network.AWS.DynamoDB.UpdateTable as Export
-import Network.AWS.DynamoDB.Waiters as Export
+import           Network.AWS.DynamoDB.BatchGetItem   as Export
+import           Network.AWS.DynamoDB.BatchWriteItem as Export
+import           Network.AWS.DynamoDB.CreateTable    as Export
+import           Network.AWS.DynamoDB.DeleteItem     as Export
+import           Network.AWS.DynamoDB.DeleteTable    as Export
+import           Network.AWS.DynamoDB.DescribeTable  as Export
+import           Network.AWS.DynamoDB.GetItem        as Export
+import           Network.AWS.DynamoDB.ListTables     as Export
+import           Network.AWS.DynamoDB.PutItem        as Export
+import           Network.AWS.DynamoDB.Query          as Export
+import           Network.AWS.DynamoDB.Scan           as Export
+import           Network.AWS.DynamoDB.Types          as Export
+import           Network.AWS.DynamoDB.UpdateItem     as Export
+import           Network.AWS.DynamoDB.UpdateTable    as Export
+import           Network.AWS.DynamoDB.Waiters        as Export

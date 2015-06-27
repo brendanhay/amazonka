@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteVPC
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,10 +38,10 @@ module Network.AWS.EC2.DeleteVPC
     , deleteVPCResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteVPC' smart constructor.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'deleDryRun'
 --
 -- * 'deleVPCId'
-data DeleteVPC = DeleteVPC'{_deleDryRun :: Maybe Bool, _deleVPCId :: Text} deriving (Eq, Read, Show)
+data DeleteVPC = DeleteVPC'
+    { _deleDryRun :: Maybe Bool
+    , _deleVPCId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVPC' smart constructor.
 deleteVPC :: Text -> DeleteVPC
-deleteVPC pVPCId = DeleteVPC'{_deleDryRun = Nothing, _deleVPCId = pVPCId};
+deleteVPC pVPCId =
+    DeleteVPC'
+    { _deleDryRun = Nothing
+    , _deleVPCId = pVPCId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -87,8 +94,10 @@ instance ToQuery DeleteVPC where
                "DryRun" =: _deleDryRun, "VpcId" =: _deleVPCId]
 
 -- | /See:/ 'deleteVPCResponse' smart constructor.
-data DeleteVPCResponse = DeleteVPCResponse' deriving (Eq, Read, Show)
+data DeleteVPCResponse =
+    DeleteVPCResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteVPCResponse' smart constructor.
 deleteVPCResponse :: DeleteVPCResponse
-deleteVPCResponse = DeleteVPCResponse';
+deleteVPCResponse = DeleteVPCResponse'

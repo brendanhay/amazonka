@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.RequestCancelWorkflowExecution
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -64,10 +64,10 @@ module Network.AWS.SWF.RequestCancelWorkflowExecution
     , requestCancelWorkflowExecutionResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'requestCancelWorkflowExecution' smart constructor.
 --
@@ -78,11 +78,20 @@ import Network.AWS.SWF.Types
 -- * 'rcweDomain'
 --
 -- * 'rcweWorkflowId'
-data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution'{_rcweRunId :: Maybe Text, _rcweDomain :: Text, _rcweWorkflowId :: Text} deriving (Eq, Read, Show)
+data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution'
+    { _rcweRunId      :: Maybe Text
+    , _rcweDomain     :: Text
+    , _rcweWorkflowId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RequestCancelWorkflowExecution' smart constructor.
 requestCancelWorkflowExecution :: Text -> Text -> RequestCancelWorkflowExecution
-requestCancelWorkflowExecution pDomain pWorkflowId = RequestCancelWorkflowExecution'{_rcweRunId = Nothing, _rcweDomain = pDomain, _rcweWorkflowId = pWorkflowId};
+requestCancelWorkflowExecution pDomain pWorkflowId =
+    RequestCancelWorkflowExecution'
+    { _rcweRunId = Nothing
+    , _rcweDomain = pDomain
+    , _rcweWorkflowId = pWorkflowId
+    }
 
 -- | The runId of the workflow execution to cancel.
 rcweRunId :: Lens' RequestCancelWorkflowExecution (Maybe Text)
@@ -129,8 +138,11 @@ instance ToQuery RequestCancelWorkflowExecution where
         toQuery = const mempty
 
 -- | /See:/ 'requestCancelWorkflowExecutionResponse' smart constructor.
-data RequestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse' deriving (Eq, Read, Show)
+data RequestCancelWorkflowExecutionResponse =
+    RequestCancelWorkflowExecutionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RequestCancelWorkflowExecutionResponse' smart constructor.
 requestCancelWorkflowExecutionResponse :: RequestCancelWorkflowExecutionResponse
-requestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse';
+requestCancelWorkflowExecutionResponse =
+    RequestCancelWorkflowExecutionResponse'

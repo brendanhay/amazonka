@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.CloudFront.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -445,247 +444,297 @@ module Network.AWS.CloudFront.Types
     , vcCloudFrontDefaultCertificate
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2014-11-06@ of the Amazon CloudFront SDK.
 data CloudFront
 
 instance AWSService CloudFront where
     type Sg CloudFront = V4
-
     service = const svc
       where
-        svc :: Service CloudFront
-        svc = Service
-            { _svcAbbrev   = "CloudFront"
-            , _svcPrefix   = "cloudfront"
-            , _svcVersion  = "2014-11-06"
+        svc =
+            Service
+            { _svcAbbrev = "CloudFront"
+            , _svcPrefix = "cloudfront"
+            , _svcVersion = "2014-11-06"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | Prism for InvalidErrorCode' errors.
-_InvalidErrorCode :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidErrorCode = _ServiceError . hasStatus 400 . hasCode "InvalidErrorCode";
+_InvalidErrorCode :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidErrorCode = _ServiceError . hasStatus 400 . hasCode "InvalidErrorCode"
 
 -- | You cannot create anymore cache behaviors for the distribution.
-_TooManyCacheBehaviors :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyCacheBehaviors = _ServiceError . hasStatus 400 . hasCode "TooManyCacheBehaviors";
+_TooManyCacheBehaviors :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyCacheBehaviors =
+    _ServiceError . hasStatus 400 . hasCode "TooManyCacheBehaviors"
 
 -- | Prism for DistributionNotDisabled' errors.
-_DistributionNotDisabled :: AWSError a => Geting (First ServiceError) a ServiceError
-_DistributionNotDisabled = _ServiceError . hasStatus 409 . hasCode "DistributionNotDisabled";
+_DistributionNotDisabled :: AWSError a => Getting (First ServiceError) a ServiceError
+_DistributionNotDisabled =
+    _ServiceError . hasStatus 409 . hasCode "DistributionNotDisabled"
 
 -- | The origin access identity is not valid or doesn\'t exist.
-_InvalidOriginAccessIdentity :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidOriginAccessIdentity = _ServiceError . hasStatus 400 . hasCode "InvalidOriginAccessIdentity";
+_InvalidOriginAccessIdentity :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidOriginAccessIdentity =
+    _ServiceError . hasStatus 400 . hasCode "InvalidOriginAccessIdentity"
 
 -- | Processing your request would cause you to exceed the maximum number of
 -- origin access identities allowed.
-_TooManyCloudFrontOriginAccessIdentities :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyCloudFrontOriginAccessIdentities = _ServiceError . hasStatus 400 . hasCode "TooManyCloudFrontOriginAccessIdentities";
+_TooManyCloudFrontOriginAccessIdentities :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyCloudFrontOriginAccessIdentities =
+    _ServiceError .
+    hasStatus 400 . hasCode "TooManyCloudFrontOriginAccessIdentities"
 
 -- | Processing your request would cause you to exceed the maximum number of
 -- streaming distributions allowed.
-_TooManyStreamingDistributions :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyStreamingDistributions = _ServiceError . hasStatus 400 . hasCode "TooManyStreamingDistributions";
+_TooManyStreamingDistributions :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyStreamingDistributions =
+    _ServiceError . hasStatus 400 . hasCode "TooManyStreamingDistributions"
 
 -- | The argument is invalid.
-_InvalidArgument :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidArgument = _ServiceError . hasStatus 400 . hasCode "InvalidArgument";
+_InvalidArgument :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidArgument = _ServiceError . hasStatus 400 . hasCode "InvalidArgument"
 
 -- | The specified origin access identity does not exist.
-_NoSuchCloudFrontOriginAccessIdentity :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchCloudFrontOriginAccessIdentity = _ServiceError . hasStatus 404 . hasCode "NoSuchCloudFrontOriginAccessIdentity";
+_NoSuchCloudFrontOriginAccessIdentity :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchCloudFrontOriginAccessIdentity =
+    _ServiceError .
+    hasStatus 404 . hasCode "NoSuchCloudFrontOriginAccessIdentity"
 
 -- | The specified streaming distribution does not exist.
-_NoSuchStreamingDistribution :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchStreamingDistribution = _ServiceError . hasStatus 404 . hasCode "NoSuchStreamingDistribution";
+_NoSuchStreamingDistribution :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchStreamingDistribution =
+    _ServiceError . hasStatus 404 . hasCode "NoSuchStreamingDistribution"
 
 -- | Prism for CloudFrontOriginAccessIdentityInUse' errors.
-_CloudFrontOriginAccessIdentityInUse :: AWSError a => Geting (First ServiceError) a ServiceError
-_CloudFrontOriginAccessIdentityInUse = _ServiceError . hasStatus 409 . hasCode "CloudFrontOriginAccessIdentityInUse";
+_CloudFrontOriginAccessIdentityInUse :: AWSError a => Getting (First ServiceError) a ServiceError
+_CloudFrontOriginAccessIdentityInUse =
+    _ServiceError .
+    hasStatus 409 . hasCode "CloudFrontOriginAccessIdentityInUse"
 
 -- | The value of Quantity and the size of Items do not match.
-_InconsistentQuantities :: AWSError a => Geting (First ServiceError) a ServiceError
-_InconsistentQuantities = _ServiceError . hasStatus 400 . hasCode "InconsistentQuantities";
+_InconsistentQuantities :: AWSError a => Getting (First ServiceError) a ServiceError
+_InconsistentQuantities =
+    _ServiceError . hasStatus 400 . hasCode "InconsistentQuantities"
 
 -- | You have exceeded the maximum number of allowable InProgress
 -- invalidation batch requests, or invalidation objects.
-_TooManyInvalidationsInProgress :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyInvalidationsInProgress = _ServiceError . hasStatus 400 . hasCode "TooManyInvalidationsInProgress";
+_TooManyInvalidationsInProgress :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyInvalidationsInProgress =
+    _ServiceError . hasStatus 400 . hasCode "TooManyInvalidationsInProgress"
 
 -- | Your request contains more CNAMEs than are allowed per distribution.
-_TooManyDistributionCNAMEs :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyDistributionCNAMEs = _ServiceError . hasStatus 400 . hasCode "TooManyDistributionCNAMEs";
+_TooManyDistributionCNAMEs :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyDistributionCNAMEs =
+    _ServiceError . hasStatus 400 . hasCode "TooManyDistributionCNAMEs"
 
 -- | Your request contains forward cookies option which doesn\'t match with
 -- the expectation for the whitelisted list of cookie names. Either list of
 -- cookie names has been specified when not allowed or list of cookie names
 -- is missing when expected.
-_InvalidForwardCookies :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidForwardCookies = _ServiceError . hasStatus 400 . hasCode "InvalidForwardCookies";
+_InvalidForwardCookies :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidForwardCookies =
+    _ServiceError . hasStatus 400 . hasCode "InvalidForwardCookies"
 
 -- | Your request contains more cookie names in the whitelist than are
 -- allowed per cache behavior.
-_TooManyCookieNamesInWhiteList :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyCookieNamesInWhiteList = _ServiceError . hasStatus 400 . hasCode "TooManyCookieNamesInWhiteList";
+_TooManyCookieNamesInWhiteList :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyCookieNamesInWhiteList =
+    _ServiceError . hasStatus 400 . hasCode "TooManyCookieNamesInWhiteList"
 
 -- | Prism for BatchTooLarge' errors.
-_BatchTooLarge :: AWSError a => Geting (First ServiceError) a ServiceError
-_BatchTooLarge = _ServiceError . hasStatus 413 . hasCode "BatchTooLarge";
+_BatchTooLarge :: AWSError a => Getting (First ServiceError) a ServiceError
+_BatchTooLarge = _ServiceError . hasStatus 413 . hasCode "BatchTooLarge"
 
 -- | The Amazon S3 origin server specified does not refer to a valid Amazon
 -- S3 bucket.
-_InvalidOrigin :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidOrigin = _ServiceError . hasStatus 400 . hasCode "InvalidOrigin";
+_InvalidOrigin :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidOrigin = _ServiceError . hasStatus 400 . hasCode "InvalidOrigin"
 
 -- | Your request contains more trusted signers than are allowed per
 -- distribution.
-_TooManyTrustedSigners :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyTrustedSigners = _ServiceError . hasStatus 400 . hasCode "TooManyTrustedSigners";
+_TooManyTrustedSigners :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyTrustedSigners =
+    _ServiceError . hasStatus 400 . hasCode "TooManyTrustedSigners"
 
 -- | No origin exists with the specified Origin Id.
-_NoSuchOrigin :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchOrigin = _ServiceError . hasStatus 404 . hasCode "NoSuchOrigin";
+_NoSuchOrigin :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchOrigin = _ServiceError . hasStatus 404 . hasCode "NoSuchOrigin"
 
 -- | The specified invalidation does not exist.
-_NoSuchInvalidation :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchInvalidation = _ServiceError . hasStatus 404 . hasCode "NoSuchInvalidation";
+_NoSuchInvalidation :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchInvalidation =
+    _ServiceError . hasStatus 404 . hasCode "NoSuchInvalidation"
 
 -- | Prism for StreamingDistributionNotDisabled' errors.
-_StreamingDistributionNotDisabled :: AWSError a => Geting (First ServiceError) a ServiceError
-_StreamingDistributionNotDisabled = _ServiceError . hasStatus 409 . hasCode "StreamingDistributionNotDisabled";
+_StreamingDistributionNotDisabled :: AWSError a => Getting (First ServiceError) a ServiceError
+_StreamingDistributionNotDisabled =
+    _ServiceError . hasStatus 409 . hasCode "StreamingDistributionNotDisabled"
 
 -- | Prism for TooManyStreamingDistributionCNAMEs' errors.
-_TooManyStreamingDistributionCNAMEs :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyStreamingDistributionCNAMEs = _ServiceError . hasStatus 400 . hasCode "TooManyStreamingDistributionCNAMEs";
+_TooManyStreamingDistributionCNAMEs :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyStreamingDistributionCNAMEs =
+    _ServiceError .
+    hasStatus 400 . hasCode "TooManyStreamingDistributionCNAMEs"
 
 -- | Processing your request would cause you to exceed the maximum number of
 -- distributions allowed.
-_TooManyDistributions :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyDistributions = _ServiceError . hasStatus 400 . hasCode "TooManyDistributions";
+_TooManyDistributions :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyDistributions =
+    _ServiceError . hasStatus 400 . hasCode "TooManyDistributions"
 
 -- | This operation requires the HTTPS protocol. Ensure that you specify the
 -- HTTPS protocol in your request, or omit the RequiredProtocols element
 -- from your distribution configuration.
-_InvalidRequiredProtocol :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidRequiredProtocol = _ServiceError . hasStatus 400 . hasCode "InvalidRequiredProtocol";
+_InvalidRequiredProtocol :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRequiredProtocol =
+    _ServiceError . hasStatus 400 . hasCode "InvalidRequiredProtocol"
 
 -- | Prism for TooManyHeadersInForwardedValues' errors.
-_TooManyHeadersInForwardedValues :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyHeadersInForwardedValues = _ServiceError . hasStatus 400 . hasCode "TooManyHeadersInForwardedValues";
+_TooManyHeadersInForwardedValues :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyHeadersInForwardedValues =
+    _ServiceError . hasStatus 400 . hasCode "TooManyHeadersInForwardedValues"
 
 -- | You cannot create anymore custom ssl certificates.
-_TooManyCertificates :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyCertificates = _ServiceError . hasStatus 400 . hasCode "TooManyCertificates";
+_TooManyCertificates :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyCertificates =
+    _ServiceError . hasStatus 400 . hasCode "TooManyCertificates"
 
 -- | This operation requires a body. Ensure that the body is present and the
 -- Content-Type header is set.
-_MissingBody :: AWSError a => Geting (First ServiceError) a ServiceError
-_MissingBody = _ServiceError . hasStatus 400 . hasCode "MissingBody";
+_MissingBody :: AWSError a => Getting (First ServiceError) a ServiceError
+_MissingBody = _ServiceError . hasStatus 400 . hasCode "MissingBody"
 
 -- | The caller reference you attempted to create the distribution with is
 -- associated with another distribution.
-_DistributionAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_DistributionAlreadyExists = _ServiceError . hasStatus 409 . hasCode "DistributionAlreadyExists";
+_DistributionAlreadyExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_DistributionAlreadyExists =
+    _ServiceError . hasStatus 409 . hasCode "DistributionAlreadyExists"
 
 -- | Origin and CallerReference cannot be updated.
-_IllegalUpdate :: AWSError a => Geting (First ServiceError) a ServiceError
-_IllegalUpdate = _ServiceError . hasStatus 400 . hasCode "IllegalUpdate";
+_IllegalUpdate :: AWSError a => Getting (First ServiceError) a ServiceError
+_IllegalUpdate = _ServiceError . hasStatus 400 . hasCode "IllegalUpdate"
 
 -- | Prism for InvalidResponseCode' errors.
-_InvalidResponseCode :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidResponseCode = _ServiceError . hasStatus 400 . hasCode "InvalidResponseCode";
+_InvalidResponseCode :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidResponseCode =
+    _ServiceError . hasStatus 400 . hasCode "InvalidResponseCode"
 
 -- | The If-Match version is missing or not valid for the distribution.
-_InvalidIfMatchVersion :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidIfMatchVersion = _ServiceError . hasStatus 400 . hasCode "InvalidIfMatchVersion";
+_InvalidIfMatchVersion :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidIfMatchVersion =
+    _ServiceError . hasStatus 400 . hasCode "InvalidIfMatchVersion"
 
 -- | The precondition given in one or more of the request-header fields
 -- evaluated to false.
-_PreconditionFailed :: AWSError a => Geting (First ServiceError) a ServiceError
-_PreconditionFailed = _ServiceError . hasStatus 412 . hasCode "PreconditionFailed";
+_PreconditionFailed :: AWSError a => Getting (First ServiceError) a ServiceError
+_PreconditionFailed =
+    _ServiceError . hasStatus 412 . hasCode "PreconditionFailed"
 
 -- | You cannot specify SSLv3 as the minimum protocol version if you only
 -- want to support only clients that Support Server Name Indication (SNI).
-_InvalidProtocolSettings :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidProtocolSettings = _ServiceError . hasStatus 400 . hasCode "InvalidProtocolSettings";
+_InvalidProtocolSettings :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidProtocolSettings =
+    _ServiceError . hasStatus 400 . hasCode "InvalidProtocolSettings"
 
 -- | One or more of your trusted signers do not exist.
-_TrustedSignerDoesNotExist :: AWSError a => Geting (First ServiceError) a ServiceError
-_TrustedSignerDoesNotExist = _ServiceError . hasStatus 400 . hasCode "TrustedSignerDoesNotExist";
+_TrustedSignerDoesNotExist :: AWSError a => Getting (First ServiceError) a ServiceError
+_TrustedSignerDoesNotExist =
+    _ServiceError . hasStatus 400 . hasCode "TrustedSignerDoesNotExist"
 
 -- | Prism for InvalidHeadersForS3Origin' errors.
-_InvalidHeadersForS3Origin :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidHeadersForS3Origin = _ServiceError . hasStatus 400 . hasCode "InvalidHeadersForS3Origin";
+_InvalidHeadersForS3Origin :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidHeadersForS3Origin =
+    _ServiceError . hasStatus 400 . hasCode "InvalidHeadersForS3Origin"
 
 -- | Prism for CNAMEAlreadyExists' errors.
-_CNAMEAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_CNAMEAlreadyExists = _ServiceError . hasStatus 409 . hasCode "CNAMEAlreadyExists";
+_CNAMEAlreadyExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_CNAMEAlreadyExists =
+    _ServiceError . hasStatus 409 . hasCode "CNAMEAlreadyExists"
 
 -- | Prism for StreamingDistributionAlreadyExists' errors.
-_StreamingDistributionAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_StreamingDistributionAlreadyExists = _ServiceError . hasStatus 409 . hasCode "StreamingDistributionAlreadyExists";
+_StreamingDistributionAlreadyExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_StreamingDistributionAlreadyExists =
+    _ServiceError .
+    hasStatus 409 . hasCode "StreamingDistributionAlreadyExists"
 
 -- | You cannot create anymore origins for the distribution.
-_TooManyOrigins :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyOrigins = _ServiceError . hasStatus 400 . hasCode "TooManyOrigins";
+_TooManyOrigins :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyOrigins = _ServiceError . hasStatus 400 . hasCode "TooManyOrigins"
 
 -- | If the CallerReference is a value you already sent in a previous request
 -- to create an identity but the content of the
 -- CloudFrontOriginAccessIdentityConfig is different from the original
 -- request, CloudFront returns a
 -- CloudFrontOriginAccessIdentityAlreadyExists error.
-_CloudFrontOriginAccessIdentityAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_CloudFrontOriginAccessIdentityAlreadyExists = _ServiceError . hasStatus 409 . hasCode "CloudFrontOriginAccessIdentityAlreadyExists";
+_CloudFrontOriginAccessIdentityAlreadyExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_CloudFrontOriginAccessIdentityAlreadyExists =
+    _ServiceError .
+    hasStatus 409 . hasCode "CloudFrontOriginAccessIdentityAlreadyExists"
 
 -- | The relative path is too big, is not URL-encoded, or does not begin with
 -- a slash (\/).
-_InvalidRelativePath :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidRelativePath = _ServiceError . hasStatus 400 . hasCode "InvalidRelativePath";
+_InvalidRelativePath :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRelativePath =
+    _ServiceError . hasStatus 400 . hasCode "InvalidRelativePath"
 
 -- | Access denied.
-_AccessDenied :: AWSError a => Geting (First ServiceError) a ServiceError
-_AccessDenied = _ServiceError . hasStatus 403 . hasCode "AccessDenied";
+_AccessDenied :: AWSError a => Getting (First ServiceError) a ServiceError
+_AccessDenied = _ServiceError . hasStatus 403 . hasCode "AccessDenied"
 
 -- | The specified distribution does not exist.
-_NoSuchDistribution :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchDistribution = _ServiceError . hasStatus 404 . hasCode "NoSuchDistribution";
+_NoSuchDistribution :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchDistribution =
+    _ServiceError . hasStatus 404 . hasCode "NoSuchDistribution"
 
 -- | Prism for InvalidViewerCertificate' errors.
-_InvalidViewerCertificate :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidViewerCertificate = _ServiceError . hasStatus 400 . hasCode "InvalidViewerCertificate";
+_InvalidViewerCertificate :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidViewerCertificate =
+    _ServiceError . hasStatus 400 . hasCode "InvalidViewerCertificate"
 
 -- | The default root object file name is too big or contains an invalid
 -- character.
-_InvalidDefaultRootObject :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDefaultRootObject = _ServiceError . hasStatus 400 . hasCode "InvalidDefaultRootObject";
+_InvalidDefaultRootObject :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDefaultRootObject =
+    _ServiceError . hasStatus 400 . hasCode "InvalidDefaultRootObject"
 
 -- | Prism for InvalidLocationCode' errors.
-_InvalidLocationCode :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidLocationCode = _ServiceError . hasStatus 400 . hasCode "InvalidLocationCode";
+_InvalidLocationCode :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidLocationCode =
+    _ServiceError . hasStatus 400 . hasCode "InvalidLocationCode"
 
 -- | Prism for InvalidGeoRestrictionParameter' errors.
-_InvalidGeoRestrictionParameter :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidGeoRestrictionParameter = _ServiceError . hasStatus 400 . hasCode "InvalidGeoRestrictionParameter";
+_InvalidGeoRestrictionParameter :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidGeoRestrictionParameter =
+    _ServiceError . hasStatus 400 . hasCode "InvalidGeoRestrictionParameter"
 
-data GeoRestrictionType = None | Whitelist | Blacklist deriving (Eq, Ord, Read, Show, Enum, Generic)
+data GeoRestrictionType
+    = None
+    | Whitelist
+    | Blacklist
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText GeoRestrictionType where
     parser = takeLowerText >>= \case
@@ -710,7 +759,11 @@ instance FromXML GeoRestrictionType where
 instance ToXML GeoRestrictionType where
     toXML = toXMLText
 
-data ItemSelection = ISWhitelist | ISNone | ISAll deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ItemSelection
+    = ISWhitelist
+    | ISNone
+    | ISAll
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ItemSelection where
     parser = takeLowerText >>= \case
@@ -735,7 +788,15 @@ instance FromXML ItemSelection where
 instance ToXML ItemSelection where
     toXML = toXMLText
 
-data Method = Head | Post | Patch | Get | Options | Put | Delete deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Method
+    = Head
+    | Post
+    | Patch
+    | Get
+    | Options
+    | Put
+    | Delete
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Method where
     parser = takeLowerText >>= \case
@@ -768,7 +829,10 @@ instance FromXML Method where
 instance ToXML Method where
     toXML = toXMLText
 
-data MinimumProtocolVersion = TLSV1 | SSLV3 deriving (Eq, Ord, Read, Show, Enum, Generic)
+data MinimumProtocolVersion
+    = TLSV1
+    | SSLV3
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText MinimumProtocolVersion where
     parser = takeLowerText >>= \case
@@ -791,7 +855,10 @@ instance FromXML MinimumProtocolVersion where
 instance ToXML MinimumProtocolVersion where
     toXML = toXMLText
 
-data OriginProtocolPolicy = HTTPOnly | MatchViewer deriving (Eq, Ord, Read, Show, Enum, Generic)
+data OriginProtocolPolicy
+    = HTTPOnly
+    | MatchViewer
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText OriginProtocolPolicy where
     parser = takeLowerText >>= \case
@@ -814,7 +881,11 @@ instance FromXML OriginProtocolPolicy where
 instance ToXML OriginProtocolPolicy where
     toXML = toXMLText
 
-data PriceClass = PriceClass200 | PriceClass100 | PriceClassAll deriving (Eq, Ord, Read, Show, Enum, Generic)
+data PriceClass
+    = PriceClass200
+    | PriceClass100
+    | PriceClassAll
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText PriceClass where
     parser = takeLowerText >>= \case
@@ -839,7 +910,10 @@ instance FromXML PriceClass where
 instance ToXML PriceClass where
     toXML = toXMLText
 
-data SSLSupportMethod = VIP | SNIOnly deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SSLSupportMethod
+    = VIP
+    | SNIOnly
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SSLSupportMethod where
     parser = takeLowerText >>= \case
@@ -862,7 +936,11 @@ instance FromXML SSLSupportMethod where
 instance ToXML SSLSupportMethod where
     toXML = toXMLText
 
-data ViewerProtocolPolicy = HTTPSOnly | RedirectTOHTTPS | AllowAll deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ViewerProtocolPolicy
+    = HTTPSOnly
+    | RedirectTOHTTPS
+    | AllowAll
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ViewerProtocolPolicy where
     parser = takeLowerText >>= \case
@@ -902,11 +980,20 @@ instance ToXML ViewerProtocolPolicy where
 -- * 'atsEnabled'
 --
 -- * 'atsQuantity'
-data ActiveTrustedSigners = ActiveTrustedSigners'{_atsItems :: Maybe [Signer], _atsEnabled :: Bool, _atsQuantity :: Int} deriving (Eq, Read, Show)
+data ActiveTrustedSigners = ActiveTrustedSigners'
+    { _atsItems    :: Maybe [Signer]
+    , _atsEnabled  :: !Bool
+    , _atsQuantity :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ActiveTrustedSigners' smart constructor.
 activeTrustedSigners :: Bool -> Int -> ActiveTrustedSigners
-activeTrustedSigners pEnabled pQuantity = ActiveTrustedSigners'{_atsItems = Nothing, _atsEnabled = pEnabled, _atsQuantity = pQuantity};
+activeTrustedSigners pEnabled pQuantity =
+    ActiveTrustedSigners'
+    { _atsItems = Nothing
+    , _atsEnabled = pEnabled
+    , _atsQuantity = pQuantity
+    }
 
 -- | A complex type that contains one Signer complex type for each unique
 -- trusted signer that is specified in the TrustedSigners complex type,
@@ -943,11 +1030,18 @@ instance FromXML ActiveTrustedSigners where
 -- * 'aliItems'
 --
 -- * 'aliQuantity'
-data Aliases = Aliases'{_aliItems :: Maybe [Text], _aliQuantity :: Int} deriving (Eq, Read, Show)
+data Aliases = Aliases'
+    { _aliItems    :: Maybe [Text]
+    , _aliQuantity :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'Aliases' smart constructor.
 aliases :: Int -> Aliases
-aliases pQuantity = Aliases'{_aliItems = Nothing, _aliQuantity = pQuantity};
+aliases pQuantity =
+    Aliases'
+    { _aliItems = Nothing
+    , _aliQuantity = pQuantity
+    }
 
 -- | Optional: A complex type that contains CNAME elements, if any, for this
 -- distribution. If Quantity is 0, you can omit Items.
@@ -990,11 +1084,20 @@ instance ToXML Aliases where
 -- * 'amQuantity'
 --
 -- * 'amItems'
-data AllowedMethods = AllowedMethods'{_amCachedMethods :: Maybe CachedMethods, _amQuantity :: Int, _amItems :: [Method]} deriving (Eq, Read, Show)
+data AllowedMethods = AllowedMethods'
+    { _amCachedMethods :: Maybe CachedMethods
+    , _amQuantity      :: !Int
+    , _amItems         :: [Method]
+    } deriving (Eq,Read,Show)
 
 -- | 'AllowedMethods' smart constructor.
 allowedMethods :: Int -> AllowedMethods
-allowedMethods pQuantity = AllowedMethods'{_amCachedMethods = Nothing, _amQuantity = pQuantity, _amItems = mempty};
+allowedMethods pQuantity =
+    AllowedMethods'
+    { _amCachedMethods = Nothing
+    , _amQuantity = pQuantity
+    , _amItems = mempty
+    }
 
 -- | FIXME: Undocumented member.
 amCachedMethods :: Lens' AllowedMethods (Maybe CachedMethods)
@@ -1061,11 +1164,30 @@ instance ToXML AllowedMethods where
 -- * 'cbViewerProtocolPolicy'
 --
 -- * 'cbMinTTL'
-data CacheBehavior = CacheBehavior'{_cbAllowedMethods :: Maybe AllowedMethods, _cbSmoothStreaming :: Maybe Bool, _cbPathPattern :: Text, _cbTargetOriginId :: Text, _cbForwardedValues :: ForwardedValues, _cbTrustedSigners :: TrustedSigners, _cbViewerProtocolPolicy :: ViewerProtocolPolicy, _cbMinTTL :: Integer} deriving (Eq, Read, Show)
+data CacheBehavior = CacheBehavior'
+    { _cbAllowedMethods       :: Maybe AllowedMethods
+    , _cbSmoothStreaming      :: Maybe Bool
+    , _cbPathPattern          :: Text
+    , _cbTargetOriginId       :: Text
+    , _cbForwardedValues      :: ForwardedValues
+    , _cbTrustedSigners       :: TrustedSigners
+    , _cbViewerProtocolPolicy :: ViewerProtocolPolicy
+    , _cbMinTTL               :: !Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'CacheBehavior' smart constructor.
 cacheBehavior :: Text -> Text -> ForwardedValues -> TrustedSigners -> ViewerProtocolPolicy -> Integer -> CacheBehavior
-cacheBehavior pPathPattern pTargetOriginId pForwardedValues pTrustedSigners pViewerProtocolPolicy pMinTTL = CacheBehavior'{_cbAllowedMethods = Nothing, _cbSmoothStreaming = Nothing, _cbPathPattern = pPathPattern, _cbTargetOriginId = pTargetOriginId, _cbForwardedValues = pForwardedValues, _cbTrustedSigners = pTrustedSigners, _cbViewerProtocolPolicy = pViewerProtocolPolicy, _cbMinTTL = pMinTTL};
+cacheBehavior pPathPattern pTargetOriginId pForwardedValues pTrustedSigners pViewerProtocolPolicy pMinTTL =
+    CacheBehavior'
+    { _cbAllowedMethods = Nothing
+    , _cbSmoothStreaming = Nothing
+    , _cbPathPattern = pPathPattern
+    , _cbTargetOriginId = pTargetOriginId
+    , _cbForwardedValues = pForwardedValues
+    , _cbTrustedSigners = pTrustedSigners
+    , _cbViewerProtocolPolicy = pViewerProtocolPolicy
+    , _cbMinTTL = pMinTTL
+    }
 
 -- | FIXME: Undocumented member.
 cbAllowedMethods :: Lens' CacheBehavior (Maybe AllowedMethods)
@@ -1165,11 +1287,18 @@ instance ToXML CacheBehavior where
 -- * 'cbItems'
 --
 -- * 'cbQuantity'
-data CacheBehaviors = CacheBehaviors'{_cbItems :: Maybe [CacheBehavior], _cbQuantity :: Int} deriving (Eq, Read, Show)
+data CacheBehaviors = CacheBehaviors'
+    { _cbItems    :: Maybe [CacheBehavior]
+    , _cbQuantity :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CacheBehaviors' smart constructor.
 cacheBehaviors :: Int -> CacheBehaviors
-cacheBehaviors pQuantity = CacheBehaviors'{_cbItems = Nothing, _cbQuantity = pQuantity};
+cacheBehaviors pQuantity =
+    CacheBehaviors'
+    { _cbItems = Nothing
+    , _cbQuantity = pQuantity
+    }
 
 -- | Optional: A complex type that contains cache behaviors for this
 -- distribution. If Quantity is 0, you can omit Items.
@@ -1209,11 +1338,18 @@ instance ToXML CacheBehaviors where
 -- * 'cmQuantity'
 --
 -- * 'cmItems'
-data CachedMethods = CachedMethods'{_cmQuantity :: Int, _cmItems :: [Method]} deriving (Eq, Read, Show)
+data CachedMethods = CachedMethods'
+    { _cmQuantity :: !Int
+    , _cmItems    :: [Method]
+    } deriving (Eq,Read,Show)
 
 -- | 'CachedMethods' smart constructor.
 cachedMethods :: Int -> CachedMethods
-cachedMethods pQuantity = CachedMethods'{_cmQuantity = pQuantity, _cmItems = mempty};
+cachedMethods pQuantity =
+    CachedMethods'
+    { _cmQuantity = pQuantity
+    , _cmItems = mempty
+    }
 
 -- | The number of HTTP methods for which you want CloudFront to cache
 -- responses. Valid values are 2 (for caching responses to GET and HEAD
@@ -1250,11 +1386,20 @@ instance ToXML CachedMethods where
 -- * 'cfoaiId'
 --
 -- * 'cfoaiS3CanonicalUserId'
-data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity'{_cfoaiCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig, _cfoaiId :: Text, _cfoaiS3CanonicalUserId :: Text} deriving (Eq, Read, Show)
+data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity'
+    { _cfoaiCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig
+    , _cfoaiId                                   :: Text
+    , _cfoaiS3CanonicalUserId                    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CloudFrontOriginAccessIdentity' smart constructor.
 cloudFrontOriginAccessIdentity :: Text -> Text -> CloudFrontOriginAccessIdentity
-cloudFrontOriginAccessIdentity pId pS3CanonicalUserId = CloudFrontOriginAccessIdentity'{_cfoaiCloudFrontOriginAccessIdentityConfig = Nothing, _cfoaiId = pId, _cfoaiS3CanonicalUserId = pS3CanonicalUserId};
+cloudFrontOriginAccessIdentity pId pS3CanonicalUserId =
+    CloudFrontOriginAccessIdentity'
+    { _cfoaiCloudFrontOriginAccessIdentityConfig = Nothing
+    , _cfoaiId = pId
+    , _cfoaiS3CanonicalUserId = pS3CanonicalUserId
+    }
 
 -- | The current configuration information for the identity.
 cfoaiCloudFrontOriginAccessIdentityConfig :: Lens' CloudFrontOriginAccessIdentity (Maybe CloudFrontOriginAccessIdentityConfig)
@@ -1286,11 +1431,18 @@ instance FromXML CloudFrontOriginAccessIdentity where
 -- * 'cfoaicCallerReference'
 --
 -- * 'cfoaicComment'
-data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig'{_cfoaicCallerReference :: Text, _cfoaicComment :: Text} deriving (Eq, Read, Show)
+data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig'
+    { _cfoaicCallerReference :: Text
+    , _cfoaicComment         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CloudFrontOriginAccessIdentityConfig' smart constructor.
 cloudFrontOriginAccessIdentityConfig :: Text -> Text -> CloudFrontOriginAccessIdentityConfig
-cloudFrontOriginAccessIdentityConfig pCallerReference pComment = CloudFrontOriginAccessIdentityConfig'{_cfoaicCallerReference = pCallerReference, _cfoaicComment = pComment};
+cloudFrontOriginAccessIdentityConfig pCallerReference pComment =
+    CloudFrontOriginAccessIdentityConfig'
+    { _cfoaicCallerReference = pCallerReference
+    , _cfoaicComment = pComment
+    }
 
 -- | A unique number that ensures the request can\'t be replayed. If the
 -- CallerReference is new (no matter the content of the
@@ -1341,11 +1493,26 @@ instance ToXML CloudFrontOriginAccessIdentityConfig
 -- * 'cfoailIsTruncated'
 --
 -- * 'cfoailQuantity'
-data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'{_cfoailItems :: Maybe [CloudFrontOriginAccessIdentitySummary], _cfoailNextMarker :: Maybe Text, _cfoailMarker :: Text, _cfoailMaxItems :: Int, _cfoailIsTruncated :: Bool, _cfoailQuantity :: Int} deriving (Eq, Read, Show)
+data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
+    { _cfoailItems       :: Maybe [CloudFrontOriginAccessIdentitySummary]
+    , _cfoailNextMarker  :: Maybe Text
+    , _cfoailMarker      :: Text
+    , _cfoailMaxItems    :: !Int
+    , _cfoailIsTruncated :: !Bool
+    , _cfoailQuantity    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CloudFrontOriginAccessIdentityList' smart constructor.
 cloudFrontOriginAccessIdentityList :: Text -> Int -> Bool -> Int -> CloudFrontOriginAccessIdentityList
-cloudFrontOriginAccessIdentityList pMarker pMaxItems pIsTruncated pQuantity = CloudFrontOriginAccessIdentityList'{_cfoailItems = Nothing, _cfoailNextMarker = Nothing, _cfoailMarker = pMarker, _cfoailMaxItems = pMaxItems, _cfoailIsTruncated = pIsTruncated, _cfoailQuantity = pQuantity};
+cloudFrontOriginAccessIdentityList pMarker pMaxItems pIsTruncated pQuantity =
+    CloudFrontOriginAccessIdentityList'
+    { _cfoailItems = Nothing
+    , _cfoailNextMarker = Nothing
+    , _cfoailMarker = pMarker
+    , _cfoailMaxItems = pMaxItems
+    , _cfoailIsTruncated = pIsTruncated
+    , _cfoailQuantity = pQuantity
+    }
 
 -- | A complex type that contains one CloudFrontOriginAccessIdentitySummary
 -- element for each origin access identity that was created by the current
@@ -1404,11 +1571,20 @@ instance FromXML CloudFrontOriginAccessIdentityList
 -- * 'cfoaisS3CanonicalUserId'
 --
 -- * 'cfoaisComment'
-data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySummary'{_cfoaisId :: Text, _cfoaisS3CanonicalUserId :: Text, _cfoaisComment :: Text} deriving (Eq, Read, Show)
+data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySummary'
+    { _cfoaisId                :: Text
+    , _cfoaisS3CanonicalUserId :: Text
+    , _cfoaisComment           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CloudFrontOriginAccessIdentitySummary' smart constructor.
 cloudFrontOriginAccessIdentitySummary :: Text -> Text -> Text -> CloudFrontOriginAccessIdentitySummary
-cloudFrontOriginAccessIdentitySummary pId pS3CanonicalUserId pComment = CloudFrontOriginAccessIdentitySummary'{_cfoaisId = pId, _cfoaisS3CanonicalUserId = pS3CanonicalUserId, _cfoaisComment = pComment};
+cloudFrontOriginAccessIdentitySummary pId pS3CanonicalUserId pComment =
+    CloudFrontOriginAccessIdentitySummary'
+    { _cfoaisId = pId
+    , _cfoaisS3CanonicalUserId = pS3CanonicalUserId
+    , _cfoaisComment = pComment
+    }
 
 -- | The ID for the origin access identity. For example: E74FTE3AJFJ256A.
 cfoaisId :: Lens' CloudFrontOriginAccessIdentitySummary Text
@@ -1443,11 +1619,18 @@ instance FromXML
 -- * 'cnItems'
 --
 -- * 'cnQuantity'
-data CookieNames = CookieNames'{_cnItems :: Maybe [Text], _cnQuantity :: Int} deriving (Eq, Read, Show)
+data CookieNames = CookieNames'
+    { _cnItems    :: Maybe [Text]
+    , _cnQuantity :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CookieNames' smart constructor.
 cookieNames :: Int -> CookieNames
-cookieNames pQuantity = CookieNames'{_cnItems = Nothing, _cnQuantity = pQuantity};
+cookieNames pQuantity =
+    CookieNames'
+    { _cnItems = Nothing
+    , _cnQuantity = pQuantity
+    }
 
 -- | Optional: A complex type that contains whitelisted cookies for this
 -- cache behavior. If Quantity is 0, you can omit Items.
@@ -1481,11 +1664,18 @@ instance ToXML CookieNames where
 -- * 'cpWhitelistedNames'
 --
 -- * 'cpForward'
-data CookiePreference = CookiePreference'{_cpWhitelistedNames :: Maybe CookieNames, _cpForward :: ItemSelection} deriving (Eq, Read, Show)
+data CookiePreference = CookiePreference'
+    { _cpWhitelistedNames :: Maybe CookieNames
+    , _cpForward          :: ItemSelection
+    } deriving (Eq,Read,Show)
 
 -- | 'CookiePreference' smart constructor.
 cookiePreference :: ItemSelection -> CookiePreference
-cookiePreference pForward = CookiePreference'{_cpWhitelistedNames = Nothing, _cpForward = pForward};
+cookiePreference pForward =
+    CookiePreference'
+    { _cpWhitelistedNames = Nothing
+    , _cpForward = pForward
+    }
 
 -- | A complex type that specifies the whitelisted cookies, if any, that you
 -- want CloudFront to forward to your origin that is associated with this
@@ -1535,11 +1725,22 @@ instance ToXML CookiePreference where
 -- * 'cerErrorCachingMinTTL'
 --
 -- * 'cerErrorCode'
-data CustomErrorResponse = CustomErrorResponse'{_cerResponsePagePath :: Maybe Text, _cerResponseCode :: Maybe Text, _cerErrorCachingMinTTL :: Maybe Integer, _cerErrorCode :: Int} deriving (Eq, Read, Show)
+data CustomErrorResponse = CustomErrorResponse'
+    { _cerResponsePagePath   :: Maybe Text
+    , _cerResponseCode       :: Maybe Text
+    , _cerErrorCachingMinTTL :: Maybe Integer
+    , _cerErrorCode          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CustomErrorResponse' smart constructor.
 customErrorResponse :: Int -> CustomErrorResponse
-customErrorResponse pErrorCode = CustomErrorResponse'{_cerResponsePagePath = Nothing, _cerResponseCode = Nothing, _cerErrorCachingMinTTL = Nothing, _cerErrorCode = pErrorCode};
+customErrorResponse pErrorCode =
+    CustomErrorResponse'
+    { _cerResponsePagePath = Nothing
+    , _cerResponseCode = Nothing
+    , _cerErrorCachingMinTTL = Nothing
+    , _cerErrorCode = pErrorCode
+    }
 
 -- | The path of the custom error page (for example, \/custom_404.html). The
 -- path is relative to the distribution and must begin with a slash (\/).
@@ -1593,11 +1794,18 @@ instance ToXML CustomErrorResponse where
 -- * 'cerItems'
 --
 -- * 'cerQuantity'
-data CustomErrorResponses = CustomErrorResponses'{_cerItems :: Maybe [CustomErrorResponse], _cerQuantity :: Int} deriving (Eq, Read, Show)
+data CustomErrorResponses = CustomErrorResponses'
+    { _cerItems    :: Maybe [CustomErrorResponse]
+    , _cerQuantity :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CustomErrorResponses' smart constructor.
 customErrorResponses :: Int -> CustomErrorResponses
-customErrorResponses pQuantity = CustomErrorResponses'{_cerItems = Nothing, _cerQuantity = pQuantity};
+customErrorResponses pQuantity =
+    CustomErrorResponses'
+    { _cerItems = Nothing
+    , _cerQuantity = pQuantity
+    }
 
 -- | Optional: A complex type that contains custom error responses for this
 -- distribution. If Quantity is 0, you can omit Items.
@@ -1634,11 +1842,20 @@ instance ToXML CustomErrorResponses where
 -- * 'cocHTTPSPort'
 --
 -- * 'cocOriginProtocolPolicy'
-data CustomOriginConfig = CustomOriginConfig'{_cocHTTPPort :: Int, _cocHTTPSPort :: Int, _cocOriginProtocolPolicy :: OriginProtocolPolicy} deriving (Eq, Read, Show)
+data CustomOriginConfig = CustomOriginConfig'
+    { _cocHTTPPort             :: !Int
+    , _cocHTTPSPort            :: !Int
+    , _cocOriginProtocolPolicy :: OriginProtocolPolicy
+    } deriving (Eq,Read,Show)
 
 -- | 'CustomOriginConfig' smart constructor.
 customOriginConfig :: Int -> Int -> OriginProtocolPolicy -> CustomOriginConfig
-customOriginConfig pHTTPPort pHTTPSPort pOriginProtocolPolicy = CustomOriginConfig'{_cocHTTPPort = pHTTPPort, _cocHTTPSPort = pHTTPSPort, _cocOriginProtocolPolicy = pOriginProtocolPolicy};
+customOriginConfig pHTTPPort pHTTPSPort pOriginProtocolPolicy =
+    CustomOriginConfig'
+    { _cocHTTPPort = pHTTPPort
+    , _cocHTTPSPort = pHTTPSPort
+    , _cocOriginProtocolPolicy = pOriginProtocolPolicy
+    }
 
 -- | The HTTP port the custom origin listens on.
 cocHTTPPort :: Lens' CustomOriginConfig Int
@@ -1687,11 +1904,28 @@ instance ToXML CustomOriginConfig where
 -- * 'dcbViewerProtocolPolicy'
 --
 -- * 'dcbMinTTL'
-data DefaultCacheBehavior = DefaultCacheBehavior'{_dcbAllowedMethods :: Maybe AllowedMethods, _dcbSmoothStreaming :: Maybe Bool, _dcbTargetOriginId :: Text, _dcbForwardedValues :: ForwardedValues, _dcbTrustedSigners :: TrustedSigners, _dcbViewerProtocolPolicy :: ViewerProtocolPolicy, _dcbMinTTL :: Integer} deriving (Eq, Read, Show)
+data DefaultCacheBehavior = DefaultCacheBehavior'
+    { _dcbAllowedMethods       :: Maybe AllowedMethods
+    , _dcbSmoothStreaming      :: Maybe Bool
+    , _dcbTargetOriginId       :: Text
+    , _dcbForwardedValues      :: ForwardedValues
+    , _dcbTrustedSigners       :: TrustedSigners
+    , _dcbViewerProtocolPolicy :: ViewerProtocolPolicy
+    , _dcbMinTTL               :: !Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'DefaultCacheBehavior' smart constructor.
 defaultCacheBehavior :: Text -> ForwardedValues -> TrustedSigners -> ViewerProtocolPolicy -> Integer -> DefaultCacheBehavior
-defaultCacheBehavior pTargetOriginId pForwardedValues pTrustedSigners pViewerProtocolPolicy pMinTTL = DefaultCacheBehavior'{_dcbAllowedMethods = Nothing, _dcbSmoothStreaming = Nothing, _dcbTargetOriginId = pTargetOriginId, _dcbForwardedValues = pForwardedValues, _dcbTrustedSigners = pTrustedSigners, _dcbViewerProtocolPolicy = pViewerProtocolPolicy, _dcbMinTTL = pMinTTL};
+defaultCacheBehavior pTargetOriginId pForwardedValues pTrustedSigners pViewerProtocolPolicy pMinTTL =
+    DefaultCacheBehavior'
+    { _dcbAllowedMethods = Nothing
+    , _dcbSmoothStreaming = Nothing
+    , _dcbTargetOriginId = pTargetOriginId
+    , _dcbForwardedValues = pForwardedValues
+    , _dcbTrustedSigners = pTrustedSigners
+    , _dcbViewerProtocolPolicy = pViewerProtocolPolicy
+    , _dcbMinTTL = pMinTTL
+    }
 
 -- | FIXME: Undocumented member.
 dcbAllowedMethods :: Lens' DefaultCacheBehavior (Maybe AllowedMethods)
@@ -1788,11 +2022,28 @@ instance ToXML DefaultCacheBehavior where
 -- * 'disActiveTrustedSigners'
 --
 -- * 'disDistributionConfig'
-data Distribution = Distribution'{_disId :: Text, _disStatus :: Text, _disLastModifiedTime :: ISO8601, _disInProgressInvalidationBatches :: Int, _disDomainName :: Text, _disActiveTrustedSigners :: ActiveTrustedSigners, _disDistributionConfig :: DistributionConfig} deriving (Eq, Read, Show)
+data Distribution = Distribution'
+    { _disId                            :: Text
+    , _disStatus                        :: Text
+    , _disLastModifiedTime              :: ISO8601
+    , _disInProgressInvalidationBatches :: !Int
+    , _disDomainName                    :: Text
+    , _disActiveTrustedSigners          :: ActiveTrustedSigners
+    , _disDistributionConfig            :: DistributionConfig
+    } deriving (Eq,Read,Show)
 
 -- | 'Distribution' smart constructor.
 distribution :: Text -> Text -> UTCTime -> Int -> Text -> ActiveTrustedSigners -> DistributionConfig -> Distribution
-distribution pId pStatus pLastModifiedTime pInProgressInvalidationBatches pDomainName pActiveTrustedSigners pDistributionConfig = Distribution'{_disId = pId, _disStatus = pStatus, _disLastModifiedTime = _Time # pLastModifiedTime, _disInProgressInvalidationBatches = pInProgressInvalidationBatches, _disDomainName = pDomainName, _disActiveTrustedSigners = pActiveTrustedSigners, _disDistributionConfig = pDistributionConfig};
+distribution pId pStatus pLastModifiedTime pInProgressInvalidationBatches pDomainName pActiveTrustedSigners pDistributionConfig =
+    Distribution'
+    { _disId = pId
+    , _disStatus = pStatus
+    , _disLastModifiedTime = _Time # pLastModifiedTime
+    , _disInProgressInvalidationBatches = pInProgressInvalidationBatches
+    , _disDomainName = pDomainName
+    , _disActiveTrustedSigners = pActiveTrustedSigners
+    , _disDistributionConfig = pDistributionConfig
+    }
 
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
 disId :: Lens' Distribution Text
@@ -1874,11 +2125,40 @@ instance FromXML Distribution where
 -- * 'dcComment'
 --
 -- * 'dcEnabled'
-data DistributionConfig = DistributionConfig'{_dcDefaultRootObject :: Maybe Text, _dcAliases :: Maybe Aliases, _dcCustomErrorResponses :: Maybe CustomErrorResponses, _dcPriceClass :: Maybe PriceClass, _dcViewerCertificate :: Maybe ViewerCertificate, _dcRestrictions :: Maybe Restrictions, _dcCacheBehaviors :: Maybe CacheBehaviors, _dcLogging :: Maybe LoggingConfig, _dcCallerReference :: Text, _dcOrigins :: Origins, _dcDefaultCacheBehavior :: DefaultCacheBehavior, _dcComment :: Text, _dcEnabled :: Bool} deriving (Eq, Read, Show)
+data DistributionConfig = DistributionConfig'
+    { _dcDefaultRootObject    :: Maybe Text
+    , _dcAliases              :: Maybe Aliases
+    , _dcCustomErrorResponses :: Maybe CustomErrorResponses
+    , _dcPriceClass           :: Maybe PriceClass
+    , _dcViewerCertificate    :: Maybe ViewerCertificate
+    , _dcRestrictions         :: Maybe Restrictions
+    , _dcCacheBehaviors       :: Maybe CacheBehaviors
+    , _dcLogging              :: Maybe LoggingConfig
+    , _dcCallerReference      :: Text
+    , _dcOrigins              :: Origins
+    , _dcDefaultCacheBehavior :: DefaultCacheBehavior
+    , _dcComment              :: Text
+    , _dcEnabled              :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DistributionConfig' smart constructor.
 distributionConfig :: Text -> Origins -> DefaultCacheBehavior -> Text -> Bool -> DistributionConfig
-distributionConfig pCallerReference pOrigins pDefaultCacheBehavior pComment pEnabled = DistributionConfig'{_dcDefaultRootObject = Nothing, _dcAliases = Nothing, _dcCustomErrorResponses = Nothing, _dcPriceClass = Nothing, _dcViewerCertificate = Nothing, _dcRestrictions = Nothing, _dcCacheBehaviors = Nothing, _dcLogging = Nothing, _dcCallerReference = pCallerReference, _dcOrigins = pOrigins, _dcDefaultCacheBehavior = pDefaultCacheBehavior, _dcComment = pComment, _dcEnabled = pEnabled};
+distributionConfig pCallerReference pOrigins pDefaultCacheBehavior pComment pEnabled =
+    DistributionConfig'
+    { _dcDefaultRootObject = Nothing
+    , _dcAliases = Nothing
+    , _dcCustomErrorResponses = Nothing
+    , _dcPriceClass = Nothing
+    , _dcViewerCertificate = Nothing
+    , _dcRestrictions = Nothing
+    , _dcCacheBehaviors = Nothing
+    , _dcLogging = Nothing
+    , _dcCallerReference = pCallerReference
+    , _dcOrigins = pOrigins
+    , _dcDefaultCacheBehavior = pDefaultCacheBehavior
+    , _dcComment = pComment
+    , _dcEnabled = pEnabled
+    }
 
 -- | The object that you want CloudFront to return (for example, index.html)
 -- when an end user requests the root URL for your distribution
@@ -2008,11 +2288,26 @@ instance ToXML DistributionConfig where
 -- * 'dlIsTruncated'
 --
 -- * 'dlQuantity'
-data DistributionList = DistributionList'{_dlItems :: Maybe [DistributionSummary], _dlNextMarker :: Maybe Text, _dlMarker :: Text, _dlMaxItems :: Int, _dlIsTruncated :: Bool, _dlQuantity :: Int} deriving (Eq, Read, Show)
+data DistributionList = DistributionList'
+    { _dlItems       :: Maybe [DistributionSummary]
+    , _dlNextMarker  :: Maybe Text
+    , _dlMarker      :: Text
+    , _dlMaxItems    :: !Int
+    , _dlIsTruncated :: !Bool
+    , _dlQuantity    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DistributionList' smart constructor.
 distributionList :: Text -> Int -> Bool -> Int -> DistributionList
-distributionList pMarker pMaxItems pIsTruncated pQuantity = DistributionList'{_dlItems = Nothing, _dlNextMarker = Nothing, _dlMarker = pMarker, _dlMaxItems = pMaxItems, _dlIsTruncated = pIsTruncated, _dlQuantity = pQuantity};
+distributionList pMarker pMaxItems pIsTruncated pQuantity =
+    DistributionList'
+    { _dlItems = Nothing
+    , _dlNextMarker = Nothing
+    , _dlMarker = pMarker
+    , _dlMaxItems = pMaxItems
+    , _dlIsTruncated = pIsTruncated
+    , _dlQuantity = pQuantity
+    }
 
 -- | A complex type that contains one DistributionSummary element for each
 -- distribution that was created by the current AWS account.
@@ -2089,11 +2384,42 @@ instance FromXML DistributionList where
 -- * 'dsViewerCertificate'
 --
 -- * 'dsRestrictions'
-data DistributionSummary = DistributionSummary'{_dsId :: Text, _dsStatus :: Text, _dsLastModifiedTime :: ISO8601, _dsDomainName :: Text, _dsAliases :: Aliases, _dsOrigins :: Origins, _dsDefaultCacheBehavior :: DefaultCacheBehavior, _dsCacheBehaviors :: CacheBehaviors, _dsCustomErrorResponses :: CustomErrorResponses, _dsComment :: Text, _dsPriceClass :: PriceClass, _dsEnabled :: Bool, _dsViewerCertificate :: ViewerCertificate, _dsRestrictions :: Restrictions} deriving (Eq, Read, Show)
+data DistributionSummary = DistributionSummary'
+    { _dsId                   :: Text
+    , _dsStatus               :: Text
+    , _dsLastModifiedTime     :: ISO8601
+    , _dsDomainName           :: Text
+    , _dsAliases              :: Aliases
+    , _dsOrigins              :: Origins
+    , _dsDefaultCacheBehavior :: DefaultCacheBehavior
+    , _dsCacheBehaviors       :: CacheBehaviors
+    , _dsCustomErrorResponses :: CustomErrorResponses
+    , _dsComment              :: Text
+    , _dsPriceClass           :: PriceClass
+    , _dsEnabled              :: !Bool
+    , _dsViewerCertificate    :: ViewerCertificate
+    , _dsRestrictions         :: Restrictions
+    } deriving (Eq,Read,Show)
 
 -- | 'DistributionSummary' smart constructor.
 distributionSummary :: Text -> Text -> UTCTime -> Text -> Aliases -> Origins -> DefaultCacheBehavior -> CacheBehaviors -> CustomErrorResponses -> Text -> PriceClass -> Bool -> ViewerCertificate -> Restrictions -> DistributionSummary
-distributionSummary pId pStatus pLastModifiedTime pDomainName pAliases pOrigins pDefaultCacheBehavior pCacheBehaviors pCustomErrorResponses pComment pPriceClass pEnabled pViewerCertificate pRestrictions = DistributionSummary'{_dsId = pId, _dsStatus = pStatus, _dsLastModifiedTime = _Time # pLastModifiedTime, _dsDomainName = pDomainName, _dsAliases = pAliases, _dsOrigins = pOrigins, _dsDefaultCacheBehavior = pDefaultCacheBehavior, _dsCacheBehaviors = pCacheBehaviors, _dsCustomErrorResponses = pCustomErrorResponses, _dsComment = pComment, _dsPriceClass = pPriceClass, _dsEnabled = pEnabled, _dsViewerCertificate = pViewerCertificate, _dsRestrictions = pRestrictions};
+distributionSummary pId pStatus pLastModifiedTime pDomainName pAliases pOrigins pDefaultCacheBehavior pCacheBehaviors pCustomErrorResponses pComment pPriceClass pEnabled pViewerCertificate pRestrictions =
+    DistributionSummary'
+    { _dsId = pId
+    , _dsStatus = pStatus
+    , _dsLastModifiedTime = _Time # pLastModifiedTime
+    , _dsDomainName = pDomainName
+    , _dsAliases = pAliases
+    , _dsOrigins = pOrigins
+    , _dsDefaultCacheBehavior = pDefaultCacheBehavior
+    , _dsCacheBehaviors = pCacheBehaviors
+    , _dsCustomErrorResponses = pCustomErrorResponses
+    , _dsComment = pComment
+    , _dsPriceClass = pPriceClass
+    , _dsEnabled = pEnabled
+    , _dsViewerCertificate = pViewerCertificate
+    , _dsRestrictions = pRestrictions
+    }
 
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
 dsId :: Lens' DistributionSummary Text
@@ -2189,11 +2515,20 @@ instance FromXML DistributionSummary where
 -- * 'fvQueryString'
 --
 -- * 'fvCookies'
-data ForwardedValues = ForwardedValues'{_fvHeaders :: Maybe Headers, _fvQueryString :: Bool, _fvCookies :: CookiePreference} deriving (Eq, Read, Show)
+data ForwardedValues = ForwardedValues'
+    { _fvHeaders     :: Maybe Headers
+    , _fvQueryString :: !Bool
+    , _fvCookies     :: CookiePreference
+    } deriving (Eq,Read,Show)
 
 -- | 'ForwardedValues' smart constructor.
 forwardedValues :: Bool -> CookiePreference -> ForwardedValues
-forwardedValues pQueryString pCookies = ForwardedValues'{_fvHeaders = Nothing, _fvQueryString = pQueryString, _fvCookies = pCookies};
+forwardedValues pQueryString pCookies =
+    ForwardedValues'
+    { _fvHeaders = Nothing
+    , _fvQueryString = pQueryString
+    , _fvCookies = pCookies
+    }
 
 -- | A complex type that specifies the Headers, if any, that you want
 -- CloudFront to vary upon for this cache behavior.
@@ -2239,11 +2574,20 @@ instance ToXML ForwardedValues where
 -- * 'grRestrictionType'
 --
 -- * 'grQuantity'
-data GeoRestriction = GeoRestriction'{_grItems :: Maybe [Text], _grRestrictionType :: GeoRestrictionType, _grQuantity :: Int} deriving (Eq, Read, Show)
+data GeoRestriction = GeoRestriction'
+    { _grItems           :: Maybe [Text]
+    , _grRestrictionType :: GeoRestrictionType
+    , _grQuantity        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GeoRestriction' smart constructor.
 geoRestriction :: GeoRestrictionType -> Int -> GeoRestriction
-geoRestriction pRestrictionType pQuantity = GeoRestriction'{_grItems = Nothing, _grRestrictionType = pRestrictionType, _grQuantity = pQuantity};
+geoRestriction pRestrictionType pQuantity =
+    GeoRestriction'
+    { _grItems = Nothing
+    , _grRestrictionType = pRestrictionType
+    , _grQuantity = pQuantity
+    }
 
 -- | A complex type that contains a Location element for each country in
 -- which you want CloudFront either to distribute your content (whitelist)
@@ -2307,11 +2651,18 @@ instance ToXML GeoRestriction where
 -- * 'heaItems'
 --
 -- * 'heaQuantity'
-data Headers = Headers'{_heaItems :: Maybe [Text], _heaQuantity :: Int} deriving (Eq, Read, Show)
+data Headers = Headers'
+    { _heaItems    :: Maybe [Text]
+    , _heaQuantity :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'Headers' smart constructor.
 headers :: Int -> Headers
-headers pQuantity = Headers'{_heaItems = Nothing, _heaQuantity = pQuantity};
+headers pQuantity =
+    Headers'
+    { _heaItems = Nothing
+    , _heaQuantity = pQuantity
+    }
 
 -- | Optional: A complex type that contains a Name element for each header
 -- that you want CloudFront to forward to the origin and to vary on for
@@ -2355,11 +2706,22 @@ instance ToXML Headers where
 -- * 'invCreateTime'
 --
 -- * 'invInvalidationBatch'
-data Invalidation = Invalidation'{_invId :: Text, _invStatus :: Text, _invCreateTime :: ISO8601, _invInvalidationBatch :: InvalidationBatch} deriving (Eq, Read, Show)
+data Invalidation = Invalidation'
+    { _invId                :: Text
+    , _invStatus            :: Text
+    , _invCreateTime        :: ISO8601
+    , _invInvalidationBatch :: InvalidationBatch
+    } deriving (Eq,Read,Show)
 
 -- | 'Invalidation' smart constructor.
 invalidation :: Text -> Text -> UTCTime -> InvalidationBatch -> Invalidation
-invalidation pId pStatus pCreateTime pInvalidationBatch = Invalidation'{_invId = pId, _invStatus = pStatus, _invCreateTime = _Time # pCreateTime, _invInvalidationBatch = pInvalidationBatch};
+invalidation pId pStatus pCreateTime pInvalidationBatch =
+    Invalidation'
+    { _invId = pId
+    , _invStatus = pStatus
+    , _invCreateTime = _Time # pCreateTime
+    , _invInvalidationBatch = pInvalidationBatch
+    }
 
 -- | The identifier for the invalidation request. For example:
 -- IDFDVBD632BHDS5.
@@ -2395,11 +2757,18 @@ instance FromXML Invalidation where
 -- * 'ibPaths'
 --
 -- * 'ibCallerReference'
-data InvalidationBatch = InvalidationBatch'{_ibPaths :: Paths, _ibCallerReference :: Text} deriving (Eq, Read, Show)
+data InvalidationBatch = InvalidationBatch'
+    { _ibPaths           :: Paths
+    , _ibCallerReference :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InvalidationBatch' smart constructor.
 invalidationBatch :: Paths -> Text -> InvalidationBatch
-invalidationBatch pPaths pCallerReference = InvalidationBatch'{_ibPaths = pPaths, _ibCallerReference = pCallerReference};
+invalidationBatch pPaths pCallerReference =
+    InvalidationBatch'
+    { _ibPaths = pPaths
+    , _ibCallerReference = pCallerReference
+    }
 
 -- | The path of the object to invalidate. The path is relative to the
 -- distribution and must begin with a slash (\/). You must enclose each
@@ -2452,11 +2821,26 @@ instance ToXML InvalidationBatch where
 -- * 'ilIsTruncated'
 --
 -- * 'ilQuantity'
-data InvalidationList = InvalidationList'{_ilItems :: Maybe [InvalidationSummary], _ilNextMarker :: Maybe Text, _ilMarker :: Text, _ilMaxItems :: Int, _ilIsTruncated :: Bool, _ilQuantity :: Int} deriving (Eq, Read, Show)
+data InvalidationList = InvalidationList'
+    { _ilItems       :: Maybe [InvalidationSummary]
+    , _ilNextMarker  :: Maybe Text
+    , _ilMarker      :: Text
+    , _ilMaxItems    :: !Int
+    , _ilIsTruncated :: !Bool
+    , _ilQuantity    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'InvalidationList' smart constructor.
 invalidationList :: Text -> Int -> Bool -> Int -> InvalidationList
-invalidationList pMarker pMaxItems pIsTruncated pQuantity = InvalidationList'{_ilItems = Nothing, _ilNextMarker = Nothing, _ilMarker = pMarker, _ilMaxItems = pMaxItems, _ilIsTruncated = pIsTruncated, _ilQuantity = pQuantity};
+invalidationList pMarker pMaxItems pIsTruncated pQuantity =
+    InvalidationList'
+    { _ilItems = Nothing
+    , _ilNextMarker = Nothing
+    , _ilMarker = pMarker
+    , _ilMaxItems = pMaxItems
+    , _ilIsTruncated = pIsTruncated
+    , _ilQuantity = pQuantity
+    }
 
 -- | A complex type that contains one InvalidationSummary element for each
 -- invalidation batch that was created by the current AWS account.
@@ -2511,11 +2895,20 @@ instance FromXML InvalidationList where
 -- * 'isCreateTime'
 --
 -- * 'isStatus'
-data InvalidationSummary = InvalidationSummary'{_isId :: Text, _isCreateTime :: ISO8601, _isStatus :: Text} deriving (Eq, Read, Show)
+data InvalidationSummary = InvalidationSummary'
+    { _isId         :: Text
+    , _isCreateTime :: ISO8601
+    , _isStatus     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InvalidationSummary' smart constructor.
 invalidationSummary :: Text -> UTCTime -> Text -> InvalidationSummary
-invalidationSummary pId pCreateTime pStatus = InvalidationSummary'{_isId = pId, _isCreateTime = _Time # pCreateTime, _isStatus = pStatus};
+invalidationSummary pId pCreateTime pStatus =
+    InvalidationSummary'
+    { _isId = pId
+    , _isCreateTime = _Time # pCreateTime
+    , _isStatus = pStatus
+    }
 
 -- | The unique ID for an invalidation request.
 isId :: Lens' InvalidationSummary Text
@@ -2545,11 +2938,18 @@ instance FromXML InvalidationSummary where
 -- * 'kpiItems'
 --
 -- * 'kpiQuantity'
-data KeyPairIds = KeyPairIds'{_kpiItems :: Maybe [Text], _kpiQuantity :: Int} deriving (Eq, Read, Show)
+data KeyPairIds = KeyPairIds'
+    { _kpiItems    :: Maybe [Text]
+    , _kpiQuantity :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'KeyPairIds' smart constructor.
 keyPairIds :: Int -> KeyPairIds
-keyPairIds pQuantity = KeyPairIds'{_kpiItems = Nothing, _kpiQuantity = pQuantity};
+keyPairIds pQuantity =
+    KeyPairIds'
+    { _kpiItems = Nothing
+    , _kpiQuantity = pQuantity
+    }
 
 -- | A complex type that lists the active CloudFront key pairs, if any, that
 -- are associated with AwsAccountNumber.
@@ -2581,11 +2981,22 @@ instance FromXML KeyPairIds where
 -- * 'lcBucket'
 --
 -- * 'lcPrefix'
-data LoggingConfig = LoggingConfig'{_lcEnabled :: Bool, _lcIncludeCookies :: Bool, _lcBucket :: Text, _lcPrefix :: Text} deriving (Eq, Read, Show)
+data LoggingConfig = LoggingConfig'
+    { _lcEnabled        :: !Bool
+    , _lcIncludeCookies :: !Bool
+    , _lcBucket         :: Text
+    , _lcPrefix         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'LoggingConfig' smart constructor.
 loggingConfig :: Bool -> Bool -> Text -> Text -> LoggingConfig
-loggingConfig pEnabled pIncludeCookies pBucket pPrefix = LoggingConfig'{_lcEnabled = pEnabled, _lcIncludeCookies = pIncludeCookies, _lcBucket = pBucket, _lcPrefix = pPrefix};
+loggingConfig pEnabled pIncludeCookies pBucket pPrefix =
+    LoggingConfig'
+    { _lcEnabled = pEnabled
+    , _lcIncludeCookies = pIncludeCookies
+    , _lcBucket = pBucket
+    , _lcPrefix = pPrefix
+    }
 
 -- | Specifies whether you want CloudFront to save access logs to an Amazon
 -- S3 bucket. If you do not want to enable logging when you create a
@@ -2649,11 +3060,24 @@ instance ToXML LoggingConfig where
 -- * 'oriId'
 --
 -- * 'oriDomainName'
-data Origin = Origin'{_oriCustomOriginConfig :: Maybe CustomOriginConfig, _oriS3OriginConfig :: Maybe S3OriginConfig, _oriOriginPath :: Maybe Text, _oriId :: Text, _oriDomainName :: Text} deriving (Eq, Read, Show)
+data Origin = Origin'
+    { _oriCustomOriginConfig :: Maybe CustomOriginConfig
+    , _oriS3OriginConfig     :: Maybe S3OriginConfig
+    , _oriOriginPath         :: Maybe Text
+    , _oriId                 :: Text
+    , _oriDomainName         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Origin' smart constructor.
 origin :: Text -> Text -> Origin
-origin pId pDomainName = Origin'{_oriCustomOriginConfig = Nothing, _oriS3OriginConfig = Nothing, _oriOriginPath = Nothing, _oriId = pId, _oriDomainName = pDomainName};
+origin pId pDomainName =
+    Origin'
+    { _oriCustomOriginConfig = Nothing
+    , _oriS3OriginConfig = Nothing
+    , _oriOriginPath = Nothing
+    , _oriId = pId
+    , _oriDomainName = pDomainName
+    }
 
 -- | A complex type that contains information about a custom origin. If the
 -- origin is an Amazon S3 bucket, use the S3OriginConfig element instead.
@@ -2716,11 +3140,18 @@ instance ToXML Origin where
 -- * 'oriItems'
 --
 -- * 'oriQuantity'
-data Origins = Origins'{_oriItems :: Maybe (List1 Origin), _oriQuantity :: Int} deriving (Eq, Read, Show)
+data Origins = Origins'
+    { _oriItems    :: Maybe (List1 Origin)
+    , _oriQuantity :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'Origins' smart constructor.
 origins :: Int -> Origins
-origins pQuantity = Origins'{_oriItems = Nothing, _oriQuantity = pQuantity};
+origins pQuantity =
+    Origins'
+    { _oriItems = Nothing
+    , _oriQuantity = pQuantity
+    }
 
 -- | A complex type that contains origins for this distribution.
 oriItems :: Lens' Origins (Maybe (NonEmpty Origin))
@@ -2753,11 +3184,18 @@ instance ToXML Origins where
 -- * 'patItems'
 --
 -- * 'patQuantity'
-data Paths = Paths'{_patItems :: Maybe [Text], _patQuantity :: Int} deriving (Eq, Read, Show)
+data Paths = Paths'
+    { _patItems    :: Maybe [Text]
+    , _patQuantity :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'Paths' smart constructor.
 paths :: Int -> Paths
-paths pQuantity = Paths'{_patItems = Nothing, _patQuantity = pQuantity};
+paths pQuantity =
+    Paths'
+    { _patItems = Nothing
+    , _patQuantity = pQuantity
+    }
 
 -- | A complex type that contains a list of the objects that you want to
 -- invalidate.
@@ -2789,11 +3227,16 @@ instance ToXML Paths where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'resGeoRestriction'
-newtype Restrictions = Restrictions'{_resGeoRestriction :: GeoRestriction} deriving (Eq, Read, Show)
+newtype Restrictions = Restrictions'
+    { _resGeoRestriction :: GeoRestriction
+    } deriving (Eq,Read,Show)
 
 -- | 'Restrictions' smart constructor.
 restrictions :: GeoRestriction -> Restrictions
-restrictions pGeoRestriction = Restrictions'{_resGeoRestriction = pGeoRestriction};
+restrictions pGeoRestriction =
+    Restrictions'
+    { _resGeoRestriction = pGeoRestriction
+    }
 
 -- | FIXME: Undocumented member.
 resGeoRestriction :: Lens' Restrictions GeoRestriction
@@ -2817,11 +3260,18 @@ instance ToXML Restrictions where
 -- * 'soDomainName'
 --
 -- * 'soOriginAccessIdentity'
-data S3Origin = S3Origin'{_soDomainName :: Text, _soOriginAccessIdentity :: Text} deriving (Eq, Read, Show)
+data S3Origin = S3Origin'
+    { _soDomainName           :: Text
+    , _soOriginAccessIdentity :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'S3Origin' smart constructor.
 s3Origin :: Text -> Text -> S3Origin
-s3Origin pDomainName pOriginAccessIdentity = S3Origin'{_soDomainName = pDomainName, _soOriginAccessIdentity = pOriginAccessIdentity};
+s3Origin pDomainName pOriginAccessIdentity =
+    S3Origin'
+    { _soDomainName = pDomainName
+    , _soOriginAccessIdentity = pOriginAccessIdentity
+    }
 
 -- | The DNS name of the S3 origin.
 soDomainName :: Lens' S3Origin Text
@@ -2851,11 +3301,16 @@ instance ToXML S3Origin where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'socOriginAccessIdentity'
-newtype S3OriginConfig = S3OriginConfig'{_socOriginAccessIdentity :: Text} deriving (Eq, Read, Show)
+newtype S3OriginConfig = S3OriginConfig'
+    { _socOriginAccessIdentity :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'S3OriginConfig' smart constructor.
 s3OriginConfig :: Text -> S3OriginConfig
-s3OriginConfig pOriginAccessIdentity = S3OriginConfig'{_socOriginAccessIdentity = pOriginAccessIdentity};
+s3OriginConfig pOriginAccessIdentity =
+    S3OriginConfig'
+    { _socOriginAccessIdentity = pOriginAccessIdentity
+    }
 
 -- | The CloudFront origin access identity to associate with the origin. Use
 -- an origin access identity to configure the origin so that end users can
@@ -2892,11 +3347,18 @@ instance ToXML S3OriginConfig where
 -- * 'sigAWSAccountNumber'
 --
 -- * 'sigKeyPairIds'
-data Signer = Signer'{_sigAWSAccountNumber :: Maybe Text, _sigKeyPairIds :: Maybe KeyPairIds} deriving (Eq, Read, Show)
+data Signer = Signer'
+    { _sigAWSAccountNumber :: Maybe Text
+    , _sigKeyPairIds       :: Maybe KeyPairIds
+    } deriving (Eq,Read,Show)
 
 -- | 'Signer' smart constructor.
 signer :: Signer
-signer = Signer'{_sigAWSAccountNumber = Nothing, _sigKeyPairIds = Nothing};
+signer =
+    Signer'
+    { _sigAWSAccountNumber = Nothing
+    , _sigKeyPairIds = Nothing
+    }
 
 -- | Specifies an AWS account that can create signed URLs. Values: self,
 -- which indicates that the AWS account that was used to create the
@@ -2932,11 +3394,26 @@ instance FromXML Signer where
 -- * 'sdActiveTrustedSigners'
 --
 -- * 'sdStreamingDistributionConfig'
-data StreamingDistribution = StreamingDistribution'{_sdLastModifiedTime :: Maybe ISO8601, _sdId :: Text, _sdStatus :: Text, _sdDomainName :: Text, _sdActiveTrustedSigners :: ActiveTrustedSigners, _sdStreamingDistributionConfig :: StreamingDistributionConfig} deriving (Eq, Read, Show)
+data StreamingDistribution = StreamingDistribution'
+    { _sdLastModifiedTime            :: Maybe ISO8601
+    , _sdId                          :: Text
+    , _sdStatus                      :: Text
+    , _sdDomainName                  :: Text
+    , _sdActiveTrustedSigners        :: ActiveTrustedSigners
+    , _sdStreamingDistributionConfig :: StreamingDistributionConfig
+    } deriving (Eq,Read,Show)
 
 -- | 'StreamingDistribution' smart constructor.
 streamingDistribution :: Text -> Text -> Text -> ActiveTrustedSigners -> StreamingDistributionConfig -> StreamingDistribution
-streamingDistribution pId pStatus pDomainName pActiveTrustedSigners pStreamingDistributionConfig = StreamingDistribution'{_sdLastModifiedTime = Nothing, _sdId = pId, _sdStatus = pStatus, _sdDomainName = pDomainName, _sdActiveTrustedSigners = pActiveTrustedSigners, _sdStreamingDistributionConfig = pStreamingDistributionConfig};
+streamingDistribution pId pStatus pDomainName pActiveTrustedSigners pStreamingDistributionConfig =
+    StreamingDistribution'
+    { _sdLastModifiedTime = Nothing
+    , _sdId = pId
+    , _sdStatus = pStatus
+    , _sdDomainName = pDomainName
+    , _sdActiveTrustedSigners = pActiveTrustedSigners
+    , _sdStreamingDistributionConfig = pStreamingDistributionConfig
+    }
 
 -- | The date and time the distribution was last modified.
 sdLastModifiedTime :: Lens' StreamingDistribution (Maybe UTCTime)
@@ -3004,11 +3481,30 @@ instance FromXML StreamingDistribution where
 -- * 'sdcTrustedSigners'
 --
 -- * 'sdcEnabled'
-data StreamingDistributionConfig = StreamingDistributionConfig'{_sdcAliases :: Maybe Aliases, _sdcPriceClass :: Maybe PriceClass, _sdcLogging :: Maybe StreamingLoggingConfig, _sdcCallerReference :: Text, _sdcS3Origin :: S3Origin, _sdcComment :: Text, _sdcTrustedSigners :: TrustedSigners, _sdcEnabled :: Bool} deriving (Eq, Read, Show)
+data StreamingDistributionConfig = StreamingDistributionConfig'
+    { _sdcAliases         :: Maybe Aliases
+    , _sdcPriceClass      :: Maybe PriceClass
+    , _sdcLogging         :: Maybe StreamingLoggingConfig
+    , _sdcCallerReference :: Text
+    , _sdcS3Origin        :: S3Origin
+    , _sdcComment         :: Text
+    , _sdcTrustedSigners  :: TrustedSigners
+    , _sdcEnabled         :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'StreamingDistributionConfig' smart constructor.
 streamingDistributionConfig :: Text -> S3Origin -> Text -> TrustedSigners -> Bool -> StreamingDistributionConfig
-streamingDistributionConfig pCallerReference pS3Origin pComment pTrustedSigners pEnabled = StreamingDistributionConfig'{_sdcAliases = Nothing, _sdcPriceClass = Nothing, _sdcLogging = Nothing, _sdcCallerReference = pCallerReference, _sdcS3Origin = pS3Origin, _sdcComment = pComment, _sdcTrustedSigners = pTrustedSigners, _sdcEnabled = pEnabled};
+streamingDistributionConfig pCallerReference pS3Origin pComment pTrustedSigners pEnabled =
+    StreamingDistributionConfig'
+    { _sdcAliases = Nothing
+    , _sdcPriceClass = Nothing
+    , _sdcLogging = Nothing
+    , _sdcCallerReference = pCallerReference
+    , _sdcS3Origin = pS3Origin
+    , _sdcComment = pComment
+    , _sdcTrustedSigners = pTrustedSigners
+    , _sdcEnabled = pEnabled
+    }
 
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this streaming distribution.
@@ -3107,11 +3603,26 @@ instance ToXML StreamingDistributionConfig where
 -- * 'sdlIsTruncated'
 --
 -- * 'sdlQuantity'
-data StreamingDistributionList = StreamingDistributionList'{_sdlItems :: Maybe [StreamingDistributionSummary], _sdlNextMarker :: Maybe Text, _sdlMarker :: Text, _sdlMaxItems :: Int, _sdlIsTruncated :: Bool, _sdlQuantity :: Int} deriving (Eq, Read, Show)
+data StreamingDistributionList = StreamingDistributionList'
+    { _sdlItems       :: Maybe [StreamingDistributionSummary]
+    , _sdlNextMarker  :: Maybe Text
+    , _sdlMarker      :: Text
+    , _sdlMaxItems    :: !Int
+    , _sdlIsTruncated :: !Bool
+    , _sdlQuantity    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'StreamingDistributionList' smart constructor.
 streamingDistributionList :: Text -> Int -> Bool -> Int -> StreamingDistributionList
-streamingDistributionList pMarker pMaxItems pIsTruncated pQuantity = StreamingDistributionList'{_sdlItems = Nothing, _sdlNextMarker = Nothing, _sdlMarker = pMarker, _sdlMaxItems = pMaxItems, _sdlIsTruncated = pIsTruncated, _sdlQuantity = pQuantity};
+streamingDistributionList pMarker pMaxItems pIsTruncated pQuantity =
+    StreamingDistributionList'
+    { _sdlItems = Nothing
+    , _sdlNextMarker = Nothing
+    , _sdlMarker = pMarker
+    , _sdlMaxItems = pMaxItems
+    , _sdlIsTruncated = pIsTruncated
+    , _sdlQuantity = pQuantity
+    }
 
 -- | A complex type that contains one StreamingDistributionSummary element
 -- for each distribution that was created by the current AWS account.
@@ -3181,11 +3692,34 @@ instance FromXML StreamingDistributionList where
 -- * 'sdsPriceClass'
 --
 -- * 'sdsEnabled'
-data StreamingDistributionSummary = StreamingDistributionSummary'{_sdsId :: Text, _sdsStatus :: Text, _sdsLastModifiedTime :: ISO8601, _sdsDomainName :: Text, _sdsS3Origin :: S3Origin, _sdsAliases :: Aliases, _sdsTrustedSigners :: TrustedSigners, _sdsComment :: Text, _sdsPriceClass :: PriceClass, _sdsEnabled :: Bool} deriving (Eq, Read, Show)
+data StreamingDistributionSummary = StreamingDistributionSummary'
+    { _sdsId               :: Text
+    , _sdsStatus           :: Text
+    , _sdsLastModifiedTime :: ISO8601
+    , _sdsDomainName       :: Text
+    , _sdsS3Origin         :: S3Origin
+    , _sdsAliases          :: Aliases
+    , _sdsTrustedSigners   :: TrustedSigners
+    , _sdsComment          :: Text
+    , _sdsPriceClass       :: PriceClass
+    , _sdsEnabled          :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'StreamingDistributionSummary' smart constructor.
 streamingDistributionSummary :: Text -> Text -> UTCTime -> Text -> S3Origin -> Aliases -> TrustedSigners -> Text -> PriceClass -> Bool -> StreamingDistributionSummary
-streamingDistributionSummary pId pStatus pLastModifiedTime pDomainName pS3Origin pAliases pTrustedSigners pComment pPriceClass pEnabled = StreamingDistributionSummary'{_sdsId = pId, _sdsStatus = pStatus, _sdsLastModifiedTime = _Time # pLastModifiedTime, _sdsDomainName = pDomainName, _sdsS3Origin = pS3Origin, _sdsAliases = pAliases, _sdsTrustedSigners = pTrustedSigners, _sdsComment = pComment, _sdsPriceClass = pPriceClass, _sdsEnabled = pEnabled};
+streamingDistributionSummary pId pStatus pLastModifiedTime pDomainName pS3Origin pAliases pTrustedSigners pComment pPriceClass pEnabled =
+    StreamingDistributionSummary'
+    { _sdsId = pId
+    , _sdsStatus = pStatus
+    , _sdsLastModifiedTime = _Time # pLastModifiedTime
+    , _sdsDomainName = pDomainName
+    , _sdsS3Origin = pS3Origin
+    , _sdsAliases = pAliases
+    , _sdsTrustedSigners = pTrustedSigners
+    , _sdsComment = pComment
+    , _sdsPriceClass = pPriceClass
+    , _sdsEnabled = pEnabled
+    }
 
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
 sdsId :: Lens' StreamingDistributionSummary Text
@@ -3269,11 +3803,20 @@ instance FromXML StreamingDistributionSummary where
 -- * 'slcBucket'
 --
 -- * 'slcPrefix'
-data StreamingLoggingConfig = StreamingLoggingConfig'{_slcEnabled :: Bool, _slcBucket :: Text, _slcPrefix :: Text} deriving (Eq, Read, Show)
+data StreamingLoggingConfig = StreamingLoggingConfig'
+    { _slcEnabled :: !Bool
+    , _slcBucket  :: Text
+    , _slcPrefix  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StreamingLoggingConfig' smart constructor.
 streamingLoggingConfig :: Bool -> Text -> Text -> StreamingLoggingConfig
-streamingLoggingConfig pEnabled pBucket pPrefix = StreamingLoggingConfig'{_slcEnabled = pEnabled, _slcBucket = pBucket, _slcPrefix = pPrefix};
+streamingLoggingConfig pEnabled pBucket pPrefix =
+    StreamingLoggingConfig'
+    { _slcEnabled = pEnabled
+    , _slcBucket = pBucket
+    , _slcPrefix = pPrefix
+    }
 
 -- | Specifies whether you want CloudFront to save access logs to an Amazon
 -- S3 bucket. If you do not want to enable logging when you create a
@@ -3331,11 +3874,20 @@ instance ToXML StreamingLoggingConfig where
 -- * 'tsEnabled'
 --
 -- * 'tsQuantity'
-data TrustedSigners = TrustedSigners'{_tsItems :: Maybe [Text], _tsEnabled :: Bool, _tsQuantity :: Int} deriving (Eq, Read, Show)
+data TrustedSigners = TrustedSigners'
+    { _tsItems    :: Maybe [Text]
+    , _tsEnabled  :: !Bool
+    , _tsQuantity :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'TrustedSigners' smart constructor.
 trustedSigners :: Bool -> Int -> TrustedSigners
-trustedSigners pEnabled pQuantity = TrustedSigners'{_tsItems = Nothing, _tsEnabled = pEnabled, _tsQuantity = pQuantity};
+trustedSigners pEnabled pQuantity =
+    TrustedSigners'
+    { _tsItems = Nothing
+    , _tsEnabled = pEnabled
+    , _tsQuantity = pQuantity
+    }
 
 -- | Optional: A complex type that contains trusted signers for this cache
 -- behavior. If Quantity is 0, you can omit Items.
@@ -3380,11 +3932,22 @@ instance ToXML TrustedSigners where
 -- * 'vcIAMCertificateId'
 --
 -- * 'vcCloudFrontDefaultCertificate'
-data ViewerCertificate = ViewerCertificate'{_vcSSLSupportMethod :: Maybe SSLSupportMethod, _vcMinimumProtocolVersion :: Maybe MinimumProtocolVersion, _vcIAMCertificateId :: Maybe Text, _vcCloudFrontDefaultCertificate :: Maybe Bool} deriving (Eq, Read, Show)
+data ViewerCertificate = ViewerCertificate'
+    { _vcSSLSupportMethod             :: Maybe SSLSupportMethod
+    , _vcMinimumProtocolVersion       :: Maybe MinimumProtocolVersion
+    , _vcIAMCertificateId             :: Maybe Text
+    , _vcCloudFrontDefaultCertificate :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'ViewerCertificate' smart constructor.
 viewerCertificate :: ViewerCertificate
-viewerCertificate = ViewerCertificate'{_vcSSLSupportMethod = Nothing, _vcMinimumProtocolVersion = Nothing, _vcIAMCertificateId = Nothing, _vcCloudFrontDefaultCertificate = Nothing};
+viewerCertificate =
+    ViewerCertificate'
+    { _vcSSLSupportMethod = Nothing
+    , _vcMinimumProtocolVersion = Nothing
+    , _vcIAMCertificateId = Nothing
+    , _vcCloudFrontDefaultCertificate = Nothing
+    }
 
 -- | If you specify a value for IAMCertificateId, you must also specify how
 -- you want CloudFront to serve HTTPS requests. Valid values are vip and

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteNetworkInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.EC2.DeleteNetworkInterface
     , deleteNetworkInterfaceResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteNetworkInterface' smart constructor.
 --
@@ -46,11 +46,18 @@ import Network.AWS.Response
 -- * 'dni1DryRun'
 --
 -- * 'dni1NetworkInterfaceId'
-data DeleteNetworkInterface = DeleteNetworkInterface'{_dni1DryRun :: Maybe Bool, _dni1NetworkInterfaceId :: Text} deriving (Eq, Read, Show)
+data DeleteNetworkInterface = DeleteNetworkInterface'
+    { _dni1DryRun             :: Maybe Bool
+    , _dni1NetworkInterfaceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteNetworkInterface' smart constructor.
 deleteNetworkInterface :: Text -> DeleteNetworkInterface
-deleteNetworkInterface pNetworkInterfaceId = DeleteNetworkInterface'{_dni1DryRun = Nothing, _dni1NetworkInterfaceId = pNetworkInterfaceId};
+deleteNetworkInterface pNetworkInterfaceId =
+    DeleteNetworkInterface'
+    { _dni1DryRun = Nothing
+    , _dni1NetworkInterfaceId = pNetworkInterfaceId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -87,8 +94,10 @@ instance ToQuery DeleteNetworkInterface where
                "NetworkInterfaceId" =: _dni1NetworkInterfaceId]
 
 -- | /See:/ 'deleteNetworkInterfaceResponse' smart constructor.
-data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse' deriving (Eq, Read, Show)
+data DeleteNetworkInterfaceResponse =
+    DeleteNetworkInterfaceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteNetworkInterfaceResponse' smart constructor.
 deleteNetworkInterfaceResponse :: DeleteNetworkInterfaceResponse
-deleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse';
+deleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse'

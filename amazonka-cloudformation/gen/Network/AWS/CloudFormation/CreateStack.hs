@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.CreateStack
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.CloudFormation.CreateStack
     , createStackResponse
     -- ** Response lenses
     , csrStackId
-    , csrStatusCode
+    , csrStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for CreateStack action.
 --
@@ -82,11 +82,38 @@ import Network.AWS.Response
 -- * 'csTimeoutInMinutes'
 --
 -- * 'csStackName'
-data CreateStack = CreateStack'{_csDisableRollback :: Maybe Bool, _csNotificationARNs :: Maybe [Text], _csStackPolicyBody :: Maybe Text, _csParameters :: Maybe [Parameter], _csStackPolicyURL :: Maybe Text, _csTemplateBody :: Maybe Text, _csTemplateURL :: Maybe Text, _csCapabilities :: Maybe [Capability], _csOnFailure :: Maybe OnFailure, _csTags :: Maybe [Tag], _csTimeoutInMinutes :: Maybe Nat, _csStackName :: Text} deriving (Eq, Read, Show)
+data CreateStack = CreateStack'
+    { _csDisableRollback  :: Maybe Bool
+    , _csNotificationARNs :: Maybe [Text]
+    , _csStackPolicyBody  :: Maybe Text
+    , _csParameters       :: Maybe [Parameter]
+    , _csStackPolicyURL   :: Maybe Text
+    , _csTemplateBody     :: Maybe Text
+    , _csTemplateURL      :: Maybe Text
+    , _csCapabilities     :: Maybe [Capability]
+    , _csOnFailure        :: Maybe OnFailure
+    , _csTags             :: Maybe [Tag]
+    , _csTimeoutInMinutes :: Maybe Nat
+    , _csStackName        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateStack' smart constructor.
 createStack :: Text -> CreateStack
-createStack pStackName = CreateStack'{_csDisableRollback = Nothing, _csNotificationARNs = Nothing, _csStackPolicyBody = Nothing, _csParameters = Nothing, _csStackPolicyURL = Nothing, _csTemplateBody = Nothing, _csTemplateURL = Nothing, _csCapabilities = Nothing, _csOnFailure = Nothing, _csTags = Nothing, _csTimeoutInMinutes = Nothing, _csStackName = pStackName};
+createStack pStackName =
+    CreateStack'
+    { _csDisableRollback = Nothing
+    , _csNotificationARNs = Nothing
+    , _csStackPolicyBody = Nothing
+    , _csParameters = Nothing
+    , _csStackPolicyURL = Nothing
+    , _csTemplateBody = Nothing
+    , _csTemplateURL = Nothing
+    , _csCapabilities = Nothing
+    , _csOnFailure = Nothing
+    , _csTags = Nothing
+    , _csTimeoutInMinutes = Nothing
+    , _csStackName = pStackName
+    }
 
 -- | Set to @true@ to disable rollback of the stack if stack creation failed.
 -- You can specify either @DisableRollback@ or @OnFailure@, but not both.
@@ -240,17 +267,24 @@ instance ToQuery CreateStack where
 --
 -- * 'csrStackId'
 --
--- * 'csrStatusCode'
-data CreateStackResponse = CreateStackResponse'{_csrStackId :: Maybe Text, _csrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'csrStatus'
+data CreateStackResponse = CreateStackResponse'
+    { _csrStackId :: Maybe Text
+    , _csrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateStackResponse' smart constructor.
 createStackResponse :: Int -> CreateStackResponse
-createStackResponse pStatusCode = CreateStackResponse'{_csrStackId = Nothing, _csrStatusCode = pStatusCode};
+createStackResponse pStatus =
+    CreateStackResponse'
+    { _csrStackId = Nothing
+    , _csrStatus = pStatus
+    }
 
 -- | Unique identifier of the stack.
 csrStackId :: Lens' CreateStackResponse (Maybe Text)
 csrStackId = lens _csrStackId (\ s a -> s{_csrStackId = a});
 
 -- | FIXME: Undocumented member.
-csrStatusCode :: Lens' CreateStackResponse Int
-csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});
+csrStatus :: Lens' CreateStackResponse Int
+csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});

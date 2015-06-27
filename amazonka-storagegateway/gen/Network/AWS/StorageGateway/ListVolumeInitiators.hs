@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.ListVolumeInitiators
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.StorageGateway.ListVolumeInitiators
     , listVolumeInitiatorsResponse
     -- ** Response lenses
     , lvirInitiators
-    , lvirStatusCode
+    , lvirStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | ListVolumeInitiatorsInput
 --
@@ -49,11 +49,16 @@ import Network.AWS.StorageGateway.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lviVolumeARN'
-newtype ListVolumeInitiators = ListVolumeInitiators'{_lviVolumeARN :: Text} deriving (Eq, Read, Show)
+newtype ListVolumeInitiators = ListVolumeInitiators'
+    { _lviVolumeARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListVolumeInitiators' smart constructor.
 listVolumeInitiators :: Text -> ListVolumeInitiators
-listVolumeInitiators pVolumeARN = ListVolumeInitiators'{_lviVolumeARN = pVolumeARN};
+listVolumeInitiators pVolumeARN =
+    ListVolumeInitiators'
+    { _lviVolumeARN = pVolumeARN
+    }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes for the gateway.
@@ -100,12 +105,19 @@ instance ToQuery ListVolumeInitiators where
 --
 -- * 'lvirInitiators'
 --
--- * 'lvirStatusCode'
-data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'{_lvirInitiators :: Maybe [Text], _lvirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lvirStatus'
+data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
+    { _lvirInitiators :: Maybe [Text]
+    , _lvirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListVolumeInitiatorsResponse' smart constructor.
 listVolumeInitiatorsResponse :: Int -> ListVolumeInitiatorsResponse
-listVolumeInitiatorsResponse pStatusCode = ListVolumeInitiatorsResponse'{_lvirInitiators = Nothing, _lvirStatusCode = pStatusCode};
+listVolumeInitiatorsResponse pStatus =
+    ListVolumeInitiatorsResponse'
+    { _lvirInitiators = Nothing
+    , _lvirStatus = pStatus
+    }
 
 -- | The host names and port numbers of all iSCSI initiators that are
 -- connected to the gateway.
@@ -113,5 +125,5 @@ lvirInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
 lvirInitiators = lens _lvirInitiators (\ s a -> s{_lvirInitiators = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lvirStatusCode :: Lens' ListVolumeInitiatorsResponse Int
-lvirStatusCode = lens _lvirStatusCode (\ s a -> s{_lvirStatusCode = a});
+lvirStatus :: Lens' ListVolumeInitiatorsResponse Int
+lvirStatus = lens _lvirStatus (\ s a -> s{_lvirStatus = a});

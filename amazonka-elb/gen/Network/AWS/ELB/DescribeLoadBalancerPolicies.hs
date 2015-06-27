@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     , describeLoadBalancerPoliciesResponse
     -- ** Response lenses
     , dlbprPolicyDescriptions
-    , dlbprStatusCode
+    , dlbprStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancerPolicies' smart constructor.
 --
@@ -56,11 +56,18 @@ import Network.AWS.Response
 -- * 'dlbpPolicyNames'
 --
 -- * 'dlbpLoadBalancerName'
-data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'{_dlbpPolicyNames :: Maybe [Text], _dlbpLoadBalancerName :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'
+    { _dlbpPolicyNames      :: Maybe [Text]
+    , _dlbpLoadBalancerName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancerPolicies' smart constructor.
 describeLoadBalancerPolicies :: DescribeLoadBalancerPolicies
-describeLoadBalancerPolicies = DescribeLoadBalancerPolicies'{_dlbpPolicyNames = Nothing, _dlbpLoadBalancerName = Nothing};
+describeLoadBalancerPolicies =
+    DescribeLoadBalancerPolicies'
+    { _dlbpPolicyNames = Nothing
+    , _dlbpLoadBalancerName = Nothing
+    }
 
 -- | The names of the policies.
 dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
@@ -107,17 +114,24 @@ instance ToQuery DescribeLoadBalancerPolicies where
 --
 -- * 'dlbprPolicyDescriptions'
 --
--- * 'dlbprStatusCode'
-data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'{_dlbprPolicyDescriptions :: Maybe [PolicyDescription], _dlbprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dlbprStatus'
+data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'
+    { _dlbprPolicyDescriptions :: Maybe [PolicyDescription]
+    , _dlbprStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancerPoliciesResponse' smart constructor.
 describeLoadBalancerPoliciesResponse :: Int -> DescribeLoadBalancerPoliciesResponse
-describeLoadBalancerPoliciesResponse pStatusCode = DescribeLoadBalancerPoliciesResponse'{_dlbprPolicyDescriptions = Nothing, _dlbprStatusCode = pStatusCode};
+describeLoadBalancerPoliciesResponse pStatus =
+    DescribeLoadBalancerPoliciesResponse'
+    { _dlbprPolicyDescriptions = Nothing
+    , _dlbprStatus = pStatus
+    }
 
 -- | Information about the policies.
 dlbprPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
 dlbprPolicyDescriptions = lens _dlbprPolicyDescriptions (\ s a -> s{_dlbprPolicyDescriptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlbprStatusCode :: Lens' DescribeLoadBalancerPoliciesResponse Int
-dlbprStatusCode = lens _dlbprStatusCode (\ s a -> s{_dlbprStatusCode = a});
+dlbprStatus :: Lens' DescribeLoadBalancerPoliciesResponse Int
+dlbprStatus = lens _dlbprStatus (\ s a -> s{_dlbprStatus = a});

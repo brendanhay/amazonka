@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.CreateMLModel
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -56,13 +56,13 @@ module Network.AWS.MachineLearning.CreateMLModel
     , createMLModelResponse
     -- ** Response lenses
     , cmlmrMLModelId
-    , cmlmrStatusCode
+    , cmlmrStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createMLModel' smart constructor.
 --
@@ -81,11 +81,28 @@ import Network.AWS.Response
 -- * 'cmlmMLModelType'
 --
 -- * 'cmlmTrainingDataSourceId'
-data CreateMLModel = CreateMLModel'{_cmlmRecipe :: Maybe Text, _cmlmRecipeURI :: Maybe Text, _cmlmMLModelName :: Maybe Text, _cmlmParameters :: Maybe (Map Text Text), _cmlmMLModelId :: Text, _cmlmMLModelType :: MLModelType, _cmlmTrainingDataSourceId :: Text} deriving (Eq, Read, Show)
+data CreateMLModel = CreateMLModel'
+    { _cmlmRecipe               :: Maybe Text
+    , _cmlmRecipeURI            :: Maybe Text
+    , _cmlmMLModelName          :: Maybe Text
+    , _cmlmParameters           :: Maybe (Map Text Text)
+    , _cmlmMLModelId            :: Text
+    , _cmlmMLModelType          :: MLModelType
+    , _cmlmTrainingDataSourceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateMLModel' smart constructor.
 createMLModel :: Text -> MLModelType -> Text -> CreateMLModel
-createMLModel pMLModelId pMLModelType pTrainingDataSourceId = CreateMLModel'{_cmlmRecipe = Nothing, _cmlmRecipeURI = Nothing, _cmlmMLModelName = Nothing, _cmlmParameters = Nothing, _cmlmMLModelId = pMLModelId, _cmlmMLModelType = pMLModelType, _cmlmTrainingDataSourceId = pTrainingDataSourceId};
+createMLModel pMLModelId pMLModelType pTrainingDataSourceId =
+    CreateMLModel'
+    { _cmlmRecipe = Nothing
+    , _cmlmRecipeURI = Nothing
+    , _cmlmMLModelName = Nothing
+    , _cmlmParameters = Nothing
+    , _cmlmMLModelId = pMLModelId
+    , _cmlmMLModelType = pMLModelType
+    , _cmlmTrainingDataSourceId = pTrainingDataSourceId
+    }
 
 -- | The data recipe for creating @MLModel@. You must specify either the
 -- recipe or its URI. If you don’t specify a recipe or its URI, Amazon ML
@@ -214,12 +231,19 @@ instance ToQuery CreateMLModel where
 --
 -- * 'cmlmrMLModelId'
 --
--- * 'cmlmrStatusCode'
-data CreateMLModelResponse = CreateMLModelResponse'{_cmlmrMLModelId :: Maybe Text, _cmlmrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cmlmrStatus'
+data CreateMLModelResponse = CreateMLModelResponse'
+    { _cmlmrMLModelId :: Maybe Text
+    , _cmlmrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateMLModelResponse' smart constructor.
 createMLModelResponse :: Int -> CreateMLModelResponse
-createMLModelResponse pStatusCode = CreateMLModelResponse'{_cmlmrMLModelId = Nothing, _cmlmrStatusCode = pStatusCode};
+createMLModelResponse pStatus =
+    CreateMLModelResponse'
+    { _cmlmrMLModelId = Nothing
+    , _cmlmrStatus = pStatus
+    }
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
 -- should be identical to the value of the @MLModelId@ in the request.
@@ -227,5 +251,5 @@ cmlmrMLModelId :: Lens' CreateMLModelResponse (Maybe Text)
 cmlmrMLModelId = lens _cmlmrMLModelId (\ s a -> s{_cmlmrMLModelId = a});
 
 -- | FIXME: Undocumented member.
-cmlmrStatusCode :: Lens' CreateMLModelResponse Int
-cmlmrStatusCode = lens _cmlmrStatusCode (\ s a -> s{_cmlmrStatusCode = a});
+cmlmrStatus :: Lens' CreateMLModelResponse Int
+cmlmrStatus = lens _cmlmrStatus (\ s a -> s{_cmlmrStatus = a});

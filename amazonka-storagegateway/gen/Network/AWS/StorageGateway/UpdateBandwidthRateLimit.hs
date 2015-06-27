@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateBandwidthRateLimit
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     , updateBandwidthRateLimitResponse
     -- ** Response lenses
     , ubrlrGatewayARN
-    , ubrlrStatusCode
+    , ubrlrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -67,11 +67,20 @@ import Network.AWS.StorageGateway.Types
 -- * 'ubrlAverageDownloadRateLimitInBitsPerSec'
 --
 -- * 'ubrlGatewayARN'
-data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'{_ubrlAverageUploadRateLimitInBitsPerSec :: Maybe Nat, _ubrlAverageDownloadRateLimitInBitsPerSec :: Maybe Nat, _ubrlGatewayARN :: Text} deriving (Eq, Read, Show)
+data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'
+    { _ubrlAverageUploadRateLimitInBitsPerSec   :: Maybe Nat
+    , _ubrlAverageDownloadRateLimitInBitsPerSec :: Maybe Nat
+    , _ubrlGatewayARN                           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateBandwidthRateLimit' smart constructor.
 updateBandwidthRateLimit :: Text -> UpdateBandwidthRateLimit
-updateBandwidthRateLimit pGatewayARN = UpdateBandwidthRateLimit'{_ubrlAverageUploadRateLimitInBitsPerSec = Nothing, _ubrlAverageDownloadRateLimitInBitsPerSec = Nothing, _ubrlGatewayARN = pGatewayARN};
+updateBandwidthRateLimit pGatewayARN =
+    UpdateBandwidthRateLimit'
+    { _ubrlAverageUploadRateLimitInBitsPerSec = Nothing
+    , _ubrlAverageDownloadRateLimitInBitsPerSec = Nothing
+    , _ubrlGatewayARN = pGatewayARN
+    }
 
 -- | The average upload bandwidth rate limit in bits per second.
 ubrlAverageUploadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
@@ -130,17 +139,24 @@ instance ToQuery UpdateBandwidthRateLimit where
 --
 -- * 'ubrlrGatewayARN'
 --
--- * 'ubrlrStatusCode'
-data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'{_ubrlrGatewayARN :: Maybe Text, _ubrlrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ubrlrStatus'
+data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'
+    { _ubrlrGatewayARN :: Maybe Text
+    , _ubrlrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateBandwidthRateLimitResponse' smart constructor.
 updateBandwidthRateLimitResponse :: Int -> UpdateBandwidthRateLimitResponse
-updateBandwidthRateLimitResponse pStatusCode = UpdateBandwidthRateLimitResponse'{_ubrlrGatewayARN = Nothing, _ubrlrStatusCode = pStatusCode};
+updateBandwidthRateLimitResponse pStatus =
+    UpdateBandwidthRateLimitResponse'
+    { _ubrlrGatewayARN = Nothing
+    , _ubrlrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ubrlrGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
 ubrlrGatewayARN = lens _ubrlrGatewayARN (\ s a -> s{_ubrlrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-ubrlrStatusCode :: Lens' UpdateBandwidthRateLimitResponse Int
-ubrlrStatusCode = lens _ubrlrStatusCode (\ s a -> s{_ubrlrStatusCode = a});
+ubrlrStatus :: Lens' UpdateBandwidthRateLimitResponse Int
+ubrlrStatus = lens _ubrlrStatus (\ s a -> s{_ubrlrStatus = a});

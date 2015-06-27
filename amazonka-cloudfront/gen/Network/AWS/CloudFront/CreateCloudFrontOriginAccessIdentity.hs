@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     , ccfoairETag
     , ccfoairLocation
     , ccfoairCloudFrontOriginAccessIdentity
-    , ccfoairStatusCode
+    , ccfoairStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to create a new origin access identity.
 --
@@ -49,11 +49,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccfoaiCloudFrontOriginAccessIdentityConfig'
-newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity'{_ccfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig} deriving (Eq, Read, Show)
+newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity'
+    { _ccfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCloudFrontOriginAccessIdentity' smart constructor.
 createCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -> CreateCloudFrontOriginAccessIdentity
-createCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig = CreateCloudFrontOriginAccessIdentity'{_ccfoaiCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig};
+createCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig =
+    CreateCloudFrontOriginAccessIdentity'
+    { _ccfoaiCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig
+    }
 
 -- | The origin access identity\'s configuration information.
 ccfoaiCloudFrontOriginAccessIdentityConfig :: Lens' CreateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
@@ -108,12 +113,23 @@ instance ToQuery CreateCloudFrontOriginAccessIdentity
 --
 -- * 'ccfoairCloudFrontOriginAccessIdentity'
 --
--- * 'ccfoairStatusCode'
-data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse'{_ccfoairETag :: Maybe Text, _ccfoairLocation :: Maybe Text, _ccfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity, _ccfoairStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ccfoairStatus'
+data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse'
+    { _ccfoairETag                           :: Maybe Text
+    , _ccfoairLocation                       :: Maybe Text
+    , _ccfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
+    , _ccfoairStatus                         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCloudFrontOriginAccessIdentityResponse' smart constructor.
 createCloudFrontOriginAccessIdentityResponse :: Int -> CreateCloudFrontOriginAccessIdentityResponse
-createCloudFrontOriginAccessIdentityResponse pStatusCode = CreateCloudFrontOriginAccessIdentityResponse'{_ccfoairETag = Nothing, _ccfoairLocation = Nothing, _ccfoairCloudFrontOriginAccessIdentity = Nothing, _ccfoairStatusCode = pStatusCode};
+createCloudFrontOriginAccessIdentityResponse pStatus =
+    CreateCloudFrontOriginAccessIdentityResponse'
+    { _ccfoairETag = Nothing
+    , _ccfoairLocation = Nothing
+    , _ccfoairCloudFrontOriginAccessIdentity = Nothing
+    , _ccfoairStatus = pStatus
+    }
 
 -- | The current version of the origin access identity created.
 ccfoairETag :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
@@ -130,5 +146,5 @@ ccfoairCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIdent
 ccfoairCloudFrontOriginAccessIdentity = lens _ccfoairCloudFrontOriginAccessIdentity (\ s a -> s{_ccfoairCloudFrontOriginAccessIdentity = a});
 
 -- | FIXME: Undocumented member.
-ccfoairStatusCode :: Lens' CreateCloudFrontOriginAccessIdentityResponse Int
-ccfoairStatusCode = lens _ccfoairStatusCode (\ s a -> s{_ccfoairStatusCode = a});
+ccfoairStatus :: Lens' CreateCloudFrontOriginAccessIdentityResponse Int
+ccfoairStatus = lens _ccfoairStatus (\ s a -> s{_ccfoairStatus = a});

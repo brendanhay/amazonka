@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.ListDomainNames
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,20 +30,22 @@ module Network.AWS.CloudSearch.ListDomainNames
     , listDomainNamesResponse
     -- ** Response lenses
     , ldnrDomainNames
-    , ldnrStatusCode
+    , ldnrStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listDomainNames' smart constructor.
-data ListDomainNames = ListDomainNames' deriving (Eq, Read, Show)
+data ListDomainNames =
+    ListDomainNames'
+    deriving (Eq,Read,Show)
 
 -- | 'ListDomainNames' smart constructor.
 listDomainNames :: ListDomainNames
-listDomainNames = ListDomainNames';
+listDomainNames = ListDomainNames'
 
 instance AWSRequest ListDomainNames where
         type Sv ListDomainNames = CloudSearch
@@ -79,17 +81,24 @@ instance ToQuery ListDomainNames where
 --
 -- * 'ldnrDomainNames'
 --
--- * 'ldnrStatusCode'
-data ListDomainNamesResponse = ListDomainNamesResponse'{_ldnrDomainNames :: Maybe (Map Text Text), _ldnrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ldnrStatus'
+data ListDomainNamesResponse = ListDomainNamesResponse'
+    { _ldnrDomainNames :: Maybe (Map Text Text)
+    , _ldnrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDomainNamesResponse' smart constructor.
 listDomainNamesResponse :: Int -> ListDomainNamesResponse
-listDomainNamesResponse pStatusCode = ListDomainNamesResponse'{_ldnrDomainNames = Nothing, _ldnrStatusCode = pStatusCode};
+listDomainNamesResponse pStatus =
+    ListDomainNamesResponse'
+    { _ldnrDomainNames = Nothing
+    , _ldnrStatus = pStatus
+    }
 
 -- | The names of the search domains owned by an account.
 ldnrDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
 ldnrDomainNames = lens _ldnrDomainNames (\ s a -> s{_ldnrDomainNames = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-ldnrStatusCode :: Lens' ListDomainNamesResponse Int
-ldnrStatusCode = lens _ldnrStatusCode (\ s a -> s{_ldnrStatusCode = a});
+ldnrStatus :: Lens' ListDomainNamesResponse Int
+ldnrStatus = lens _ldnrStatus (\ s a -> s{_ldnrStatus = a});

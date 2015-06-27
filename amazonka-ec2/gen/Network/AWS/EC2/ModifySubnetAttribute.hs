@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ModifySubnetAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.EC2.ModifySubnetAttribute
     , modifySubnetAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifySubnetAttribute' smart constructor.
 --
@@ -45,11 +45,18 @@ import Network.AWS.Response
 -- * 'msaMapPublicIPOnLaunch'
 --
 -- * 'msaSubnetId'
-data ModifySubnetAttribute = ModifySubnetAttribute'{_msaMapPublicIPOnLaunch :: Maybe AttributeBooleanValue, _msaSubnetId :: Text} deriving (Eq, Read, Show)
+data ModifySubnetAttribute = ModifySubnetAttribute'
+    { _msaMapPublicIPOnLaunch :: Maybe AttributeBooleanValue
+    , _msaSubnetId            :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifySubnetAttribute' smart constructor.
 modifySubnetAttribute :: Text -> ModifySubnetAttribute
-modifySubnetAttribute pSubnetId = ModifySubnetAttribute'{_msaMapPublicIPOnLaunch = Nothing, _msaSubnetId = pSubnetId};
+modifySubnetAttribute pSubnetId =
+    ModifySubnetAttribute'
+    { _msaMapPublicIPOnLaunch = Nothing
+    , _msaSubnetId = pSubnetId
+    }
 
 -- | Specify @true@ to indicate that instances launched into the specified
 -- subnet should be assigned public IP address.
@@ -82,8 +89,10 @@ instance ToQuery ModifySubnetAttribute where
                "SubnetId" =: _msaSubnetId]
 
 -- | /See:/ 'modifySubnetAttributeResponse' smart constructor.
-data ModifySubnetAttributeResponse = ModifySubnetAttributeResponse' deriving (Eq, Read, Show)
+data ModifySubnetAttributeResponse =
+    ModifySubnetAttributeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ModifySubnetAttributeResponse' smart constructor.
 modifySubnetAttributeResponse :: ModifySubnetAttributeResponse
-modifySubnetAttributeResponse = ModifySubnetAttributeResponse';
+modifySubnetAttributeResponse = ModifySubnetAttributeResponse'

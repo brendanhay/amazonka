@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SES.VerifyEmailIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.SES.VerifyEmailIdentity
     -- ** Response constructor
     , verifyEmailIdentityResponse
     -- ** Response lenses
-    , veirStatusCode
+    , veirStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SES.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
 -- | Represents a request instructing the service to begin email address
 -- verification.
@@ -50,11 +50,16 @@ import Network.AWS.SES.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'veiEmailAddress'
-newtype VerifyEmailIdentity = VerifyEmailIdentity'{_veiEmailAddress :: Text} deriving (Eq, Read, Show)
+newtype VerifyEmailIdentity = VerifyEmailIdentity'
+    { _veiEmailAddress :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VerifyEmailIdentity' smart constructor.
 verifyEmailIdentity :: Text -> VerifyEmailIdentity
-verifyEmailIdentity pEmailAddress = VerifyEmailIdentity'{_veiEmailAddress = pEmailAddress};
+verifyEmailIdentity pEmailAddress =
+    VerifyEmailIdentity'
+    { _veiEmailAddress = pEmailAddress
+    }
 
 -- | The email address to be verified.
 veiEmailAddress :: Lens' VerifyEmailIdentity Text
@@ -90,13 +95,18 @@ instance ToQuery VerifyEmailIdentity where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'veirStatusCode'
-newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'{_veirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'veirStatus'
+newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
+    { _veirStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'VerifyEmailIdentityResponse' smart constructor.
 verifyEmailIdentityResponse :: Int -> VerifyEmailIdentityResponse
-verifyEmailIdentityResponse pStatusCode = VerifyEmailIdentityResponse'{_veirStatusCode = pStatusCode};
+verifyEmailIdentityResponse pStatus =
+    VerifyEmailIdentityResponse'
+    { _veirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-veirStatusCode :: Lens' VerifyEmailIdentityResponse Int
-veirStatusCode = lens _veirStatusCode (\ s a -> s{_veirStatusCode = a});
+veirStatus :: Lens' VerifyEmailIdentityResponse Int
+veirStatus = lens _veirStatus (\ s a -> s{_veirStatus = a});

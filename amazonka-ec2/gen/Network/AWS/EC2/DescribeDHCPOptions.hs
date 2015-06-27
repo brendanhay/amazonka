@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeDHCPOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.EC2.DescribeDHCPOptions
     , describeDHCPOptionsResponse
     -- ** Response lenses
     , ddorDHCPOptions
-    , ddorStatusCode
+    , ddorStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeDHCPOptions' smart constructor.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'ddoDHCPOptionsIds'
 --
 -- * 'ddoDryRun'
-data DescribeDHCPOptions = DescribeDHCPOptions'{_ddoFilters :: Maybe [Filter], _ddoDHCPOptionsIds :: Maybe [Text], _ddoDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeDHCPOptions = DescribeDHCPOptions'
+    { _ddoFilters        :: Maybe [Filter]
+    , _ddoDHCPOptionsIds :: Maybe [Text]
+    , _ddoDryRun         :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDHCPOptions' smart constructor.
 describeDHCPOptions :: DescribeDHCPOptions
-describeDHCPOptions = DescribeDHCPOptions'{_ddoFilters = Nothing, _ddoDHCPOptionsIds = Nothing, _ddoDryRun = Nothing};
+describeDHCPOptions =
+    DescribeDHCPOptions'
+    { _ddoFilters = Nothing
+    , _ddoDHCPOptionsIds = Nothing
+    , _ddoDryRun = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -133,17 +142,24 @@ instance ToQuery DescribeDHCPOptions where
 --
 -- * 'ddorDHCPOptions'
 --
--- * 'ddorStatusCode'
-data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'{_ddorDHCPOptions :: Maybe [DHCPOptions], _ddorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddorStatus'
+data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'
+    { _ddorDHCPOptions :: Maybe [DHCPOptions]
+    , _ddorStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDHCPOptionsResponse' smart constructor.
 describeDHCPOptionsResponse :: Int -> DescribeDHCPOptionsResponse
-describeDHCPOptionsResponse pStatusCode = DescribeDHCPOptionsResponse'{_ddorDHCPOptions = Nothing, _ddorStatusCode = pStatusCode};
+describeDHCPOptionsResponse pStatus =
+    DescribeDHCPOptionsResponse'
+    { _ddorDHCPOptions = Nothing
+    , _ddorStatus = pStatus
+    }
 
 -- | Information about one or more DHCP options sets.
 ddorDHCPOptions :: Lens' DescribeDHCPOptionsResponse [DHCPOptions]
 ddorDHCPOptions = lens _ddorDHCPOptions (\ s a -> s{_ddorDHCPOptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddorStatusCode :: Lens' DescribeDHCPOptionsResponse Int
-ddorStatusCode = lens _ddorStatusCode (\ s a -> s{_ddorStatusCode = a});
+ddorStatus :: Lens' DescribeDHCPOptionsResponse Int
+ddorStatus = lens _ddorStatus (\ s a -> s{_ddorStatus = a});

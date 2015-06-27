@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheEngineVersions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,14 +39,14 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     -- ** Response lenses
     , dcevrCacheEngineVersions
     , dcevrMarker
-    , dcevrStatusCode
+    , dcevrStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeCacheEngineVersions/ action.
 --
@@ -65,11 +65,26 @@ import Network.AWS.Response
 -- * 'dcevMaxRecords'
 --
 -- * 'dcevMarker'
-data DescribeCacheEngineVersions = DescribeCacheEngineVersions'{_dcevCacheParameterGroupFamily :: Maybe Text, _dcevEngineVersion :: Maybe Text, _dcevDefaultOnly :: Maybe Bool, _dcevEngine :: Maybe Text, _dcevMaxRecords :: Maybe Int, _dcevMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
+    { _dcevCacheParameterGroupFamily :: Maybe Text
+    , _dcevEngineVersion             :: Maybe Text
+    , _dcevDefaultOnly               :: Maybe Bool
+    , _dcevEngine                    :: Maybe Text
+    , _dcevMaxRecords                :: Maybe Int
+    , _dcevMarker                    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheEngineVersions' smart constructor.
 describeCacheEngineVersions :: DescribeCacheEngineVersions
-describeCacheEngineVersions = DescribeCacheEngineVersions'{_dcevCacheParameterGroupFamily = Nothing, _dcevEngineVersion = Nothing, _dcevDefaultOnly = Nothing, _dcevEngine = Nothing, _dcevMaxRecords = Nothing, _dcevMarker = Nothing};
+describeCacheEngineVersions =
+    DescribeCacheEngineVersions'
+    { _dcevCacheParameterGroupFamily = Nothing
+    , _dcevEngineVersion = Nothing
+    , _dcevDefaultOnly = Nothing
+    , _dcevEngine = Nothing
+    , _dcevMaxRecords = Nothing
+    , _dcevMarker = Nothing
+    }
 
 -- | The name of a specific cache parameter group family to return details
 -- for.
@@ -166,12 +181,21 @@ instance ToQuery DescribeCacheEngineVersions where
 --
 -- * 'dcevrMarker'
 --
--- * 'dcevrStatusCode'
-data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'{_dcevrCacheEngineVersions :: Maybe [CacheEngineVersion], _dcevrMarker :: Maybe Text, _dcevrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcevrStatus'
+data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'
+    { _dcevrCacheEngineVersions :: Maybe [CacheEngineVersion]
+    , _dcevrMarker              :: Maybe Text
+    , _dcevrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheEngineVersionsResponse' smart constructor.
 describeCacheEngineVersionsResponse :: Int -> DescribeCacheEngineVersionsResponse
-describeCacheEngineVersionsResponse pStatusCode = DescribeCacheEngineVersionsResponse'{_dcevrCacheEngineVersions = Nothing, _dcevrMarker = Nothing, _dcevrStatusCode = pStatusCode};
+describeCacheEngineVersionsResponse pStatus =
+    DescribeCacheEngineVersionsResponse'
+    { _dcevrCacheEngineVersions = Nothing
+    , _dcevrMarker = Nothing
+    , _dcevrStatus = pStatus
+    }
 
 -- | A list of cache engine version details. Each element in the list
 -- contains detailed information about one cache engine version.
@@ -183,5 +207,5 @@ dcevrMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
 dcevrMarker = lens _dcevrMarker (\ s a -> s{_dcevrMarker = a});
 
 -- | FIXME: Undocumented member.
-dcevrStatusCode :: Lens' DescribeCacheEngineVersionsResponse Int
-dcevrStatusCode = lens _dcevrStatusCode (\ s a -> s{_dcevrStatusCode = a});
+dcevrStatus :: Lens' DescribeCacheEngineVersionsResponse Int
+dcevrStatus = lens _dcevrStatus (\ s a -> s{_dcevrStatus = a});

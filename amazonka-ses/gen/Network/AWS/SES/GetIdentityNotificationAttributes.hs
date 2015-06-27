@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SES.GetIdentityNotificationAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,24 +39,29 @@ module Network.AWS.SES.GetIdentityNotificationAttributes
     , getIdentityNotificationAttributesResponse
     -- ** Response lenses
     , ginarNotificationAttributes
-    , ginarStatusCode
+    , ginarStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SES.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
 -- | /See:/ 'getIdentityNotificationAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ginaIdentities'
-newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes'{_ginaIdentities :: [Text]} deriving (Eq, Read, Show)
+newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes'
+    { _ginaIdentities :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityNotificationAttributes' smart constructor.
 getIdentityNotificationAttributes :: GetIdentityNotificationAttributes
-getIdentityNotificationAttributes = GetIdentityNotificationAttributes'{_ginaIdentities = mempty};
+getIdentityNotificationAttributes =
+    GetIdentityNotificationAttributes'
+    { _ginaIdentities = mempty
+    }
 
 -- | A list of one or more identities.
 ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
@@ -105,17 +110,24 @@ instance ToQuery GetIdentityNotificationAttributes
 --
 -- * 'ginarNotificationAttributes'
 --
--- * 'ginarStatusCode'
-data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'{_ginarNotificationAttributes :: Map Text IdentityNotificationAttributes, _ginarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ginarStatus'
+data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'
+    { _ginarNotificationAttributes :: Map Text IdentityNotificationAttributes
+    , _ginarStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityNotificationAttributesResponse' smart constructor.
 getIdentityNotificationAttributesResponse :: Int -> GetIdentityNotificationAttributesResponse
-getIdentityNotificationAttributesResponse pStatusCode = GetIdentityNotificationAttributesResponse'{_ginarNotificationAttributes = mempty, _ginarStatusCode = pStatusCode};
+getIdentityNotificationAttributesResponse pStatus =
+    GetIdentityNotificationAttributesResponse'
+    { _ginarNotificationAttributes = mempty
+    , _ginarStatus = pStatus
+    }
 
 -- | A map of Identity to IdentityNotificationAttributes.
 ginarNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text IdentityNotificationAttributes)
 ginarNotificationAttributes = lens _ginarNotificationAttributes (\ s a -> s{_ginarNotificationAttributes = a}) . _Map;
 
 -- | FIXME: Undocumented member.
-ginarStatusCode :: Lens' GetIdentityNotificationAttributesResponse Int
-ginarStatusCode = lens _ginarStatusCode (\ s a -> s{_ginarStatusCode = a});
+ginarStatus :: Lens' GetIdentityNotificationAttributesResponse Int
+ginarStatus = lens _ginarStatus (\ s a -> s{_ginarStatus = a});

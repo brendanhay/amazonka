@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeVolumes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,13 +48,13 @@ module Network.AWS.EC2.DescribeVolumes
     -- ** Response lenses
     , dvr1NextToken
     , dvr1Volumes
-    , dvr1StatusCode
+    , dvr1Status
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVolumes' smart constructor.
 --
@@ -69,11 +69,24 @@ import Network.AWS.Response
 -- * 'des1DryRun'
 --
 -- * 'des1MaxResults'
-data DescribeVolumes = DescribeVolumes'{_des1Filters :: Maybe [Filter], _des1VolumeIds :: Maybe [Text], _des1NextToken :: Maybe Text, _des1DryRun :: Maybe Bool, _des1MaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeVolumes = DescribeVolumes'
+    { _des1Filters    :: Maybe [Filter]
+    , _des1VolumeIds  :: Maybe [Text]
+    , _des1NextToken  :: Maybe Text
+    , _des1DryRun     :: Maybe Bool
+    , _des1MaxResults :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVolumes' smart constructor.
 describeVolumes :: DescribeVolumes
-describeVolumes = DescribeVolumes'{_des1Filters = Nothing, _des1VolumeIds = Nothing, _des1NextToken = Nothing, _des1DryRun = Nothing, _des1MaxResults = Nothing};
+describeVolumes =
+    DescribeVolumes'
+    { _des1Filters = Nothing
+    , _des1VolumeIds = Nothing
+    , _des1NextToken = Nothing
+    , _des1DryRun = Nothing
+    , _des1MaxResults = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -197,12 +210,21 @@ instance ToQuery DescribeVolumes where
 --
 -- * 'dvr1Volumes'
 --
--- * 'dvr1StatusCode'
-data DescribeVolumesResponse = DescribeVolumesResponse'{_dvr1NextToken :: Maybe Text, _dvr1Volumes :: Maybe [Volume], _dvr1StatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dvr1Status'
+data DescribeVolumesResponse = DescribeVolumesResponse'
+    { _dvr1NextToken :: Maybe Text
+    , _dvr1Volumes   :: Maybe [Volume]
+    , _dvr1Status    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVolumesResponse' smart constructor.
 describeVolumesResponse :: Int -> DescribeVolumesResponse
-describeVolumesResponse pStatusCode = DescribeVolumesResponse'{_dvr1NextToken = Nothing, _dvr1Volumes = Nothing, _dvr1StatusCode = pStatusCode};
+describeVolumesResponse pStatus =
+    DescribeVolumesResponse'
+    { _dvr1NextToken = Nothing
+    , _dvr1Volumes = Nothing
+    , _dvr1Status = pStatus
+    }
 
 -- | The @NextToken@ value to include in a future @DescribeVolumes@ request.
 -- When the results of a @DescribeVolumes@ request exceed @MaxResults@,
@@ -216,5 +238,5 @@ dvr1Volumes :: Lens' DescribeVolumesResponse [Volume]
 dvr1Volumes = lens _dvr1Volumes (\ s a -> s{_dvr1Volumes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvr1StatusCode :: Lens' DescribeVolumesResponse Int
-dvr1StatusCode = lens _dvr1StatusCode (\ s a -> s{_dvr1StatusCode = a});
+dvr1Status :: Lens' DescribeVolumesResponse Int
+dvr1Status = lens _dvr1Status (\ s a -> s{_dvr1Status = a});

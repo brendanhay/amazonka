@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.CreateLoginProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.IAM.CreateLoginProfile
     , createLoginProfileResponse
     -- ** Response lenses
     , clprLoginProfile
-    , clprStatusCode
+    , clprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createLoginProfile' smart constructor.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'clpUserName'
 --
 -- * 'clpPassword'
-data CreateLoginProfile = CreateLoginProfile'{_clpPasswordResetRequired :: Maybe Bool, _clpUserName :: Text, _clpPassword :: Sensitive Text} deriving (Eq, Read, Show)
+data CreateLoginProfile = CreateLoginProfile'
+    { _clpPasswordResetRequired :: Maybe Bool
+    , _clpUserName              :: Text
+    , _clpPassword              :: Sensitive Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLoginProfile' smart constructor.
 createLoginProfile :: Text -> Text -> CreateLoginProfile
-createLoginProfile pUserName pPassword = CreateLoginProfile'{_clpPasswordResetRequired = Nothing, _clpUserName = pUserName, _clpPassword = _Sensitive # pPassword};
+createLoginProfile pUserName pPassword =
+    CreateLoginProfile'
+    { _clpPasswordResetRequired = Nothing
+    , _clpUserName = pUserName
+    , _clpPassword = _Sensitive # pPassword
+    }
 
 -- | Specifies whether the user is required to set a new password on next
 -- sign-in.
@@ -108,17 +117,24 @@ instance ToQuery CreateLoginProfile where
 --
 -- * 'clprLoginProfile'
 --
--- * 'clprStatusCode'
-data CreateLoginProfileResponse = CreateLoginProfileResponse'{_clprLoginProfile :: LoginProfile, _clprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'clprStatus'
+data CreateLoginProfileResponse = CreateLoginProfileResponse'
+    { _clprLoginProfile :: LoginProfile
+    , _clprStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLoginProfileResponse' smart constructor.
 createLoginProfileResponse :: LoginProfile -> Int -> CreateLoginProfileResponse
-createLoginProfileResponse pLoginProfile pStatusCode = CreateLoginProfileResponse'{_clprLoginProfile = pLoginProfile, _clprStatusCode = pStatusCode};
+createLoginProfileResponse pLoginProfile pStatus =
+    CreateLoginProfileResponse'
+    { _clprLoginProfile = pLoginProfile
+    , _clprStatus = pStatus
+    }
 
 -- | The user name and password create date.
 clprLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
 clprLoginProfile = lens _clprLoginProfile (\ s a -> s{_clprLoginProfile = a});
 
 -- | FIXME: Undocumented member.
-clprStatusCode :: Lens' CreateLoginProfileResponse Int
-clprStatusCode = lens _clprStatusCode (\ s a -> s{_clprStatusCode = a});
+clprStatus :: Lens' CreateLoginProfileResponse Int
+clprStatus = lens _clprStatus (\ s a -> s{_clprStatus = a});

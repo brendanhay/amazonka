@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.ListIdentities
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.CognitoIdentity.ListIdentities
     , lirIdentityPoolId
     , lirNextToken
     , lirIdentities
-    , lirStatusCode
+    , lirStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the ListIdentities action.
 --
@@ -60,11 +60,22 @@ import Network.AWS.Response
 -- * 'liIdentityPoolId'
 --
 -- * 'liMaxResults'
-data ListIdentities = ListIdentities'{_liHideDisabled :: Maybe Bool, _liNextToken :: Maybe Text, _liIdentityPoolId :: Text, _liMaxResults :: Nat} deriving (Eq, Read, Show)
+data ListIdentities = ListIdentities'
+    { _liHideDisabled   :: Maybe Bool
+    , _liNextToken      :: Maybe Text
+    , _liIdentityPoolId :: Text
+    , _liMaxResults     :: !Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'ListIdentities' smart constructor.
 listIdentities :: Text -> Natural -> ListIdentities
-listIdentities pIdentityPoolId pMaxResults = ListIdentities'{_liHideDisabled = Nothing, _liNextToken = Nothing, _liIdentityPoolId = pIdentityPoolId, _liMaxResults = _Nat # pMaxResults};
+listIdentities pIdentityPoolId pMaxResults =
+    ListIdentities'
+    { _liHideDisabled = Nothing
+    , _liNextToken = Nothing
+    , _liIdentityPoolId = pIdentityPoolId
+    , _liMaxResults = _Nat # pMaxResults
+    }
 
 -- | An optional boolean parameter that allows you to hide disabled
 -- identities. If omitted, the ListIdentities API will include disabled
@@ -132,12 +143,23 @@ instance ToQuery ListIdentities where
 --
 -- * 'lirIdentities'
 --
--- * 'lirStatusCode'
-data ListIdentitiesResponse = ListIdentitiesResponse'{_lirIdentityPoolId :: Maybe Text, _lirNextToken :: Maybe Text, _lirIdentities :: Maybe [IdentityDescription], _lirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lirStatus'
+data ListIdentitiesResponse = ListIdentitiesResponse'
+    { _lirIdentityPoolId :: Maybe Text
+    , _lirNextToken      :: Maybe Text
+    , _lirIdentities     :: Maybe [IdentityDescription]
+    , _lirStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListIdentitiesResponse' smart constructor.
 listIdentitiesResponse :: Int -> ListIdentitiesResponse
-listIdentitiesResponse pStatusCode = ListIdentitiesResponse'{_lirIdentityPoolId = Nothing, _lirNextToken = Nothing, _lirIdentities = Nothing, _lirStatusCode = pStatusCode};
+listIdentitiesResponse pStatus =
+    ListIdentitiesResponse'
+    { _lirIdentityPoolId = Nothing
+    , _lirNextToken = Nothing
+    , _lirIdentities = Nothing
+    , _lirStatus = pStatus
+    }
 
 -- | An identity pool ID in the format REGION:GUID.
 lirIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
@@ -152,5 +174,5 @@ lirIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
 lirIdentities = lens _lirIdentities (\ s a -> s{_lirIdentities = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lirStatusCode :: Lens' ListIdentitiesResponse Int
-lirStatusCode = lens _lirStatusCode (\ s a -> s{_lirStatusCode = a});
+lirStatus :: Lens' ListIdentitiesResponse Int
+lirStatus = lens _lirStatus (\ s a -> s{_lirStatus = a});

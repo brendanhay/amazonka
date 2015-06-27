@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeReplicationGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,14 +38,14 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
     -- ** Response lenses
     , drgrMarker
     , drgrReplicationGroups
-    , drgrStatusCode
+    , drgrStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeReplicationGroups/ action.
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'descMarker'
 --
 -- * 'descReplicationGroupId'
-data DescribeReplicationGroups = DescribeReplicationGroups'{_descMaxRecords :: Maybe Int, _descMarker :: Maybe Text, _descReplicationGroupId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeReplicationGroups = DescribeReplicationGroups'
+    { _descMaxRecords         :: Maybe Int
+    , _descMarker             :: Maybe Text
+    , _descReplicationGroupId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReplicationGroups' smart constructor.
 describeReplicationGroups :: DescribeReplicationGroups
-describeReplicationGroups = DescribeReplicationGroups'{_descMaxRecords = Nothing, _descMarker = Nothing, _descReplicationGroupId = Nothing};
+describeReplicationGroups =
+    DescribeReplicationGroups'
+    { _descMaxRecords = Nothing
+    , _descMarker = Nothing
+    , _descReplicationGroupId = Nothing
+    }
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
@@ -136,12 +145,21 @@ instance ToQuery DescribeReplicationGroups where
 --
 -- * 'drgrReplicationGroups'
 --
--- * 'drgrStatusCode'
-data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'{_drgrMarker :: Maybe Text, _drgrReplicationGroups :: Maybe [ReplicationGroup], _drgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'drgrStatus'
+data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
+    { _drgrMarker            :: Maybe Text
+    , _drgrReplicationGroups :: Maybe [ReplicationGroup]
+    , _drgrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReplicationGroupsResponse' smart constructor.
 describeReplicationGroupsResponse :: Int -> DescribeReplicationGroupsResponse
-describeReplicationGroupsResponse pStatusCode = DescribeReplicationGroupsResponse'{_drgrMarker = Nothing, _drgrReplicationGroups = Nothing, _drgrStatusCode = pStatusCode};
+describeReplicationGroupsResponse pStatus =
+    DescribeReplicationGroupsResponse'
+    { _drgrMarker = Nothing
+    , _drgrReplicationGroups = Nothing
+    , _drgrStatus = pStatus
+    }
 
 -- | Provides an identifier to allow retrieval of paginated results.
 drgrMarker :: Lens' DescribeReplicationGroupsResponse (Maybe Text)
@@ -153,5 +171,5 @@ drgrReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGro
 drgrReplicationGroups = lens _drgrReplicationGroups (\ s a -> s{_drgrReplicationGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drgrStatusCode :: Lens' DescribeReplicationGroupsResponse Int
-drgrStatusCode = lens _drgrStatusCode (\ s a -> s{_drgrStatusCode = a});
+drgrStatus :: Lens' DescribeReplicationGroupsResponse Int
+drgrStatus = lens _drgrStatus (\ s a -> s{_drgrStatus = a});

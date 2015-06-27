@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.CancelArchival
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.StorageGateway.CancelArchival
     , cancelArchivalResponse
     -- ** Response lenses
     , carTapeARN
-    , carStatusCode
+    , carStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | CancelArchivalInput
 --
@@ -51,11 +51,18 @@ import Network.AWS.StorageGateway.Types
 -- * 'caGatewayARN'
 --
 -- * 'caTapeARN'
-data CancelArchival = CancelArchival'{_caGatewayARN :: Text, _caTapeARN :: Text} deriving (Eq, Read, Show)
+data CancelArchival = CancelArchival'
+    { _caGatewayARN :: Text
+    , _caTapeARN    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelArchival' smart constructor.
 cancelArchival :: Text -> Text -> CancelArchival
-cancelArchival pGatewayARN pTapeARN = CancelArchival'{_caGatewayARN = pGatewayARN, _caTapeARN = pTapeARN};
+cancelArchival pGatewayARN pTapeARN =
+    CancelArchival'
+    { _caGatewayARN = pGatewayARN
+    , _caTapeARN = pTapeARN
+    }
 
 -- | FIXME: Undocumented member.
 caGatewayARN :: Lens' CancelArchival Text
@@ -106,12 +113,19 @@ instance ToQuery CancelArchival where
 --
 -- * 'carTapeARN'
 --
--- * 'carStatusCode'
-data CancelArchivalResponse = CancelArchivalResponse'{_carTapeARN :: Maybe Text, _carStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'carStatus'
+data CancelArchivalResponse = CancelArchivalResponse'
+    { _carTapeARN :: Maybe Text
+    , _carStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelArchivalResponse' smart constructor.
 cancelArchivalResponse :: Int -> CancelArchivalResponse
-cancelArchivalResponse pStatusCode = CancelArchivalResponse'{_carTapeARN = Nothing, _carStatusCode = pStatusCode};
+cancelArchivalResponse pStatus =
+    CancelArchivalResponse'
+    { _carTapeARN = Nothing
+    , _carStatus = pStatus
+    }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which archiving
 -- was canceled.
@@ -119,5 +133,5 @@ carTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 carTapeARN = lens _carTapeARN (\ s a -> s{_carTapeARN = a});
 
 -- | FIXME: Undocumented member.
-carStatusCode :: Lens' CancelArchivalResponse Int
-carStatusCode = lens _carStatusCode (\ s a -> s{_carStatusCode = a});
+carStatus :: Lens' CancelArchivalResponse Int
+carStatus = lens _carStatus (\ s a -> s{_carStatus = a});

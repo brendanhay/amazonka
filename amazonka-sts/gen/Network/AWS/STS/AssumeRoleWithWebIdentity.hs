@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.STS.AssumeRoleWithWebIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -118,13 +118,13 @@ module Network.AWS.STS.AssumeRoleWithWebIdentity
     , arwwirCredentials
     , arwwirAssumedRoleUser
     , arwwirProvider
-    , arwwirStatusCode
+    , arwwirStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.STS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.STS.Types
 
 -- | /See:/ 'assumeRoleWithWebIdentity' smart constructor.
 --
@@ -141,11 +141,26 @@ import Network.AWS.STS.Types
 -- * 'arwwiRoleSessionName'
 --
 -- * 'arwwiWebIdentityToken'
-data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'{_arwwiProviderId :: Maybe Text, _arwwiDurationSeconds :: Maybe Nat, _arwwiPolicy :: Maybe Text, _arwwiRoleARN :: Text, _arwwiRoleSessionName :: Text, _arwwiWebIdentityToken :: Text} deriving (Eq, Read, Show)
+data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
+    { _arwwiProviderId       :: Maybe Text
+    , _arwwiDurationSeconds  :: Maybe Nat
+    , _arwwiPolicy           :: Maybe Text
+    , _arwwiRoleARN          :: Text
+    , _arwwiRoleSessionName  :: Text
+    , _arwwiWebIdentityToken :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AssumeRoleWithWebIdentity' smart constructor.
 assumeRoleWithWebIdentity :: Text -> Text -> Text -> AssumeRoleWithWebIdentity
-assumeRoleWithWebIdentity pRoleARN pRoleSessionName pWebIdentityToken = AssumeRoleWithWebIdentity'{_arwwiProviderId = Nothing, _arwwiDurationSeconds = Nothing, _arwwiPolicy = Nothing, _arwwiRoleARN = pRoleARN, _arwwiRoleSessionName = pRoleSessionName, _arwwiWebIdentityToken = pWebIdentityToken};
+assumeRoleWithWebIdentity pRoleARN pRoleSessionName pWebIdentityToken =
+    AssumeRoleWithWebIdentity'
+    { _arwwiProviderId = Nothing
+    , _arwwiDurationSeconds = Nothing
+    , _arwwiPolicy = Nothing
+    , _arwwiRoleARN = pRoleARN
+    , _arwwiRoleSessionName = pRoleSessionName
+    , _arwwiWebIdentityToken = pWebIdentityToken
+    }
 
 -- | The fully qualified host component of the domain name of the identity
 -- provider.
@@ -256,12 +271,29 @@ instance ToQuery AssumeRoleWithWebIdentity where
 --
 -- * 'arwwirProvider'
 --
--- * 'arwwirStatusCode'
-data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'{_arwwirAudience :: Maybe Text, _arwwirSubjectFromWebIdentityToken :: Maybe Text, _arwwirPackedPolicySize :: Maybe Nat, _arwwirCredentials :: Maybe Credentials, _arwwirAssumedRoleUser :: Maybe AssumedRoleUser, _arwwirProvider :: Maybe Text, _arwwirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'arwwirStatus'
+data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
+    { _arwwirAudience                    :: Maybe Text
+    , _arwwirSubjectFromWebIdentityToken :: Maybe Text
+    , _arwwirPackedPolicySize            :: Maybe Nat
+    , _arwwirCredentials                 :: Maybe Credentials
+    , _arwwirAssumedRoleUser             :: Maybe AssumedRoleUser
+    , _arwwirProvider                    :: Maybe Text
+    , _arwwirStatus                      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AssumeRoleWithWebIdentityResponse' smart constructor.
 assumeRoleWithWebIdentityResponse :: Int -> AssumeRoleWithWebIdentityResponse
-assumeRoleWithWebIdentityResponse pStatusCode = AssumeRoleWithWebIdentityResponse'{_arwwirAudience = Nothing, _arwwirSubjectFromWebIdentityToken = Nothing, _arwwirPackedPolicySize = Nothing, _arwwirCredentials = Nothing, _arwwirAssumedRoleUser = Nothing, _arwwirProvider = Nothing, _arwwirStatusCode = pStatusCode};
+assumeRoleWithWebIdentityResponse pStatus =
+    AssumeRoleWithWebIdentityResponse'
+    { _arwwirAudience = Nothing
+    , _arwwirSubjectFromWebIdentityToken = Nothing
+    , _arwwirPackedPolicySize = Nothing
+    , _arwwirCredentials = Nothing
+    , _arwwirAssumedRoleUser = Nothing
+    , _arwwirProvider = Nothing
+    , _arwwirStatus = pStatus
+    }
 
 -- | The intended audience (also known as client ID) of the web identity
 -- token. This is traditionally the client identifier issued to the
@@ -307,5 +339,5 @@ arwwirProvider :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwirProvider = lens _arwwirProvider (\ s a -> s{_arwwirProvider = a});
 
 -- | FIXME: Undocumented member.
-arwwirStatusCode :: Lens' AssumeRoleWithWebIdentityResponse Int
-arwwirStatusCode = lens _arwwirStatusCode (\ s a -> s{_arwwirStatusCode = a});
+arwwirStatus :: Lens' AssumeRoleWithWebIdentityResponse Int
+arwwirStatus = lens _arwwirStatus (\ s a -> s{_arwwirStatus = a});

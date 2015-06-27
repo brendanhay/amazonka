@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteRoute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.EC2.DeleteRoute
     , deleteRouteResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteRoute' smart constructor.
 --
@@ -48,11 +48,20 @@ import Network.AWS.Response
 -- * 'drRouteTableId'
 --
 -- * 'drDestinationCIDRBlock'
-data DeleteRoute = DeleteRoute'{_drDryRun :: Maybe Bool, _drRouteTableId :: Text, _drDestinationCIDRBlock :: Text} deriving (Eq, Read, Show)
+data DeleteRoute = DeleteRoute'
+    { _drDryRun               :: Maybe Bool
+    , _drRouteTableId         :: Text
+    , _drDestinationCIDRBlock :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteRoute' smart constructor.
 deleteRoute :: Text -> Text -> DeleteRoute
-deleteRoute pRouteTableId pDestinationCIDRBlock = DeleteRoute'{_drDryRun = Nothing, _drRouteTableId = pRouteTableId, _drDestinationCIDRBlock = pDestinationCIDRBlock};
+deleteRoute pRouteTableId pDestinationCIDRBlock =
+    DeleteRoute'
+    { _drDryRun = Nothing
+    , _drRouteTableId = pRouteTableId
+    , _drDestinationCIDRBlock = pDestinationCIDRBlock
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -92,8 +101,10 @@ instance ToQuery DeleteRoute where
                "DestinationCidrBlock" =: _drDestinationCIDRBlock]
 
 -- | /See:/ 'deleteRouteResponse' smart constructor.
-data DeleteRouteResponse = DeleteRouteResponse' deriving (Eq, Read, Show)
+data DeleteRouteResponse =
+    DeleteRouteResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteRouteResponse' smart constructor.
 deleteRouteResponse :: DeleteRouteResponse
-deleteRouteResponse = DeleteRouteResponse';
+deleteRouteResponse = DeleteRouteResponse'

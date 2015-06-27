@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.ModifyClusterParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.Redshift.ModifyClusterParameterGroup
     , cpgnmParameterGroupName
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'mcpgParameterGroupName'
 --
 -- * 'mcpgParameters'
-data ModifyClusterParameterGroup = ModifyClusterParameterGroup'{_mcpgParameterGroupName :: Text, _mcpgParameters :: [Parameter]} deriving (Eq, Read, Show)
+data ModifyClusterParameterGroup = ModifyClusterParameterGroup'
+    { _mcpgParameterGroupName :: Text
+    , _mcpgParameters         :: [Parameter]
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyClusterParameterGroup' smart constructor.
 modifyClusterParameterGroup :: Text -> ModifyClusterParameterGroup
-modifyClusterParameterGroup pParameterGroupName = ModifyClusterParameterGroup'{_mcpgParameterGroupName = pParameterGroupName, _mcpgParameters = mempty};
+modifyClusterParameterGroup pParameterGroupName =
+    ModifyClusterParameterGroup'
+    { _mcpgParameterGroupName = pParameterGroupName
+    , _mcpgParameters = mempty
+    }
 
 -- | The name of the parameter group to be modified.
 mcpgParameterGroupName :: Lens' ModifyClusterParameterGroup Text

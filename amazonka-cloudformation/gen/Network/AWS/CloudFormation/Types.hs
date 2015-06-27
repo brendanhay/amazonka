@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.CloudFormation.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -167,54 +166,62 @@ module Network.AWS.CloudFormation.Types
     , tpDescription
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2010-05-15@ of the Amazon CloudFormation SDK.
 data CloudFormation
 
 instance AWSService CloudFormation where
     type Sg CloudFormation = V4
-
     service = const svc
       where
-        svc :: Service CloudFormation
-        svc = Service
-            { _svcAbbrev   = "CloudFormation"
-            , _svcPrefix   = "cloudformation"
-            , _svcVersion  = "2010-05-15"
+        svc =
+            Service
+            { _svcAbbrev = "CloudFormation"
+            , _svcPrefix = "cloudformation"
+            , _svcVersion = "2010-05-15"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The template contains resources with capabilities that were not
 -- specified in the Capabilities parameter.
-_InsufficientCapabilitiesException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InsufficientCapabilitiesException = _ServiceError . hasStatus 400 . hasCode "InsufficientCapabilitiesException";
+_InsufficientCapabilitiesException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientCapabilitiesException =
+    _ServiceError . hasStatus 400 . hasCode "InsufficientCapabilitiesException"
 
 -- | Quota for the resource has already been reached.
-_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasStatus 400 . hasCode "LimitExceededException";
+_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException =
+    _ServiceError . hasStatus 400 . hasCode "LimitExceededException"
 
 -- | Resource with the name requested already exists.
-_AlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_AlreadyExistsException = _ServiceError . hasStatus 400 . hasCode "AlreadyExistsException";
+_AlreadyExistsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_AlreadyExistsException =
+    _ServiceError . hasStatus 400 . hasCode "AlreadyExistsException"
 
-data Capability = CapabilityIAM deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Capability =
+    CapabilityIAM
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Capability where
     parser = takeLowerText >>= \case
@@ -232,7 +239,11 @@ instance ToHeader Capability
 instance FromXML Capability where
     parseXML = parseXMLText "Capability"
 
-data OnFailure = Rollback | DONothing | Delete deriving (Eq, Ord, Read, Show, Enum, Generic)
+data OnFailure
+    = Rollback
+    | DONothing
+    | Delete
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText OnFailure where
     parser = takeLowerText >>= \case
@@ -251,7 +262,10 @@ instance Hashable OnFailure
 instance ToQuery OnFailure
 instance ToHeader OnFailure
 
-data ResourceSignalStatus = Success | Failure deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ResourceSignalStatus
+    = Success
+    | Failure
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ResourceSignalStatus where
     parser = takeLowerText >>= \case
@@ -268,7 +282,18 @@ instance Hashable ResourceSignalStatus
 instance ToQuery ResourceSignalStatus
 instance ToHeader ResourceSignalStatus
 
-data ResourceStatus = CreateFailed | DeleteFailed | UpdateFailed | CreateComplete | UpdateComplete | DeleteComplete | UpdateINProgress | DeleteINProgress | DeleteSkipped | CreateINProgress deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ResourceStatus
+    = CreateFailed
+    | DeleteFailed
+    | UpdateFailed
+    | CreateComplete
+    | UpdateComplete
+    | DeleteComplete
+    | UpdateINProgress
+    | DeleteINProgress
+    | DeleteSkipped
+    | CreateINProgress
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ResourceStatus where
     parser = takeLowerText >>= \case
@@ -304,7 +329,24 @@ instance ToHeader ResourceStatus
 instance FromXML ResourceStatus where
     parseXML = parseXMLText "ResourceStatus"
 
-data StackStatus = SSUpdateRollbackFailed | SSUpdateCompleteCleanupINProgress | SSUpdateRollbackINProgress | SSCreateINProgress | SSRollbackINProgress | SSUpdateRollbackCompleteCleanupINProgress | SSCreateFailed | SSRollbackComplete | SSDeleteFailed | SSRollbackFailed | SSCreateComplete | SSDeleteComplete | SSUpdateComplete | SSDeleteINProgress | SSUpdateINProgress | SSUpdateRollbackComplete deriving (Eq, Ord, Read, Show, Enum, Generic)
+data StackStatus
+    = SSUpdateRollbackFailed
+    | SSUpdateCompleteCleanupINProgress
+    | SSUpdateRollbackINProgress
+    | SSCreateINProgress
+    | SSRollbackINProgress
+    | SSUpdateRollbackCompleteCleanupINProgress
+    | SSCreateFailed
+    | SSRollbackComplete
+    | SSDeleteFailed
+    | SSRollbackFailed
+    | SSCreateComplete
+    | SSDeleteComplete
+    | SSUpdateComplete
+    | SSDeleteINProgress
+    | SSUpdateINProgress
+    | SSUpdateRollbackComplete
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText StackStatus where
     parser = takeLowerText >>= \case
@@ -363,11 +405,20 @@ instance FromXML StackStatus where
 -- * 'outOutputKey'
 --
 -- * 'outDescription'
-data Output = Output'{_outOutputValue :: Maybe Text, _outOutputKey :: Maybe Text, _outDescription :: Maybe Text} deriving (Eq, Read, Show)
+data Output = Output'
+    { _outOutputValue :: Maybe Text
+    , _outOutputKey   :: Maybe Text
+    , _outDescription :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Output' smart constructor.
 output :: Output
-output = Output'{_outOutputValue = Nothing, _outOutputKey = Nothing, _outDescription = Nothing};
+output =
+    Output'
+    { _outOutputValue = Nothing
+    , _outOutputKey = Nothing
+    , _outDescription = Nothing
+    }
 
 -- | The value associated with the output.
 outOutputValue :: Lens' Output (Maybe Text)
@@ -398,11 +449,20 @@ instance FromXML Output where
 -- * 'parParameterKey'
 --
 -- * 'parUsePreviousValue'
-data Parameter = Parameter'{_parParameterValue :: Maybe Text, _parParameterKey :: Maybe Text, _parUsePreviousValue :: Maybe Bool} deriving (Eq, Read, Show)
+data Parameter = Parameter'
+    { _parParameterValue   :: Maybe Text
+    , _parParameterKey     :: Maybe Text
+    , _parUsePreviousValue :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'Parameter' smart constructor.
 parameter :: Parameter
-parameter = Parameter'{_parParameterValue = Nothing, _parParameterKey = Nothing, _parUsePreviousValue = Nothing};
+parameter =
+    Parameter'
+    { _parParameterValue = Nothing
+    , _parParameterKey = Nothing
+    , _parUsePreviousValue = Nothing
+    }
 
 -- | The value associated with the parameter.
 parParameterValue :: Lens' Parameter (Maybe Text)
@@ -442,11 +502,16 @@ instance ToQuery Parameter where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'pcAllowedValues'
-newtype ParameterConstraints = ParameterConstraints'{_pcAllowedValues :: Maybe [Text]} deriving (Eq, Read, Show)
+newtype ParameterConstraints = ParameterConstraints'
+    { _pcAllowedValues :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'ParameterConstraints' smart constructor.
 parameterConstraints :: ParameterConstraints
-parameterConstraints = ParameterConstraints'{_pcAllowedValues = Nothing};
+parameterConstraints =
+    ParameterConstraints'
+    { _pcAllowedValues = Nothing
+    }
 
 -- | A list of values that are permitted for a parameter.
 pcAllowedValues :: Lens' ParameterConstraints [Text]
@@ -475,11 +540,26 @@ instance FromXML ParameterConstraints where
 -- * 'pdNoEcho'
 --
 -- * 'pdDescription'
-data ParameterDeclaration = ParameterDeclaration'{_pdParameterKey :: Maybe Text, _pdParameterType :: Maybe Text, _pdParameterConstraints :: Maybe ParameterConstraints, _pdDefaultValue :: Maybe Text, _pdNoEcho :: Maybe Bool, _pdDescription :: Maybe Text} deriving (Eq, Read, Show)
+data ParameterDeclaration = ParameterDeclaration'
+    { _pdParameterKey         :: Maybe Text
+    , _pdParameterType        :: Maybe Text
+    , _pdParameterConstraints :: Maybe ParameterConstraints
+    , _pdDefaultValue         :: Maybe Text
+    , _pdNoEcho               :: Maybe Bool
+    , _pdDescription          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ParameterDeclaration' smart constructor.
 parameterDeclaration :: ParameterDeclaration
-parameterDeclaration = ParameterDeclaration'{_pdParameterKey = Nothing, _pdParameterType = Nothing, _pdParameterConstraints = Nothing, _pdDefaultValue = Nothing, _pdNoEcho = Nothing, _pdDescription = Nothing};
+parameterDeclaration =
+    ParameterDeclaration'
+    { _pdParameterKey = Nothing
+    , _pdParameterType = Nothing
+    , _pdParameterConstraints = Nothing
+    , _pdDefaultValue = Nothing
+    , _pdNoEcho = Nothing
+    , _pdDescription = Nothing
+    }
 
 -- | The name that is associated with the parameter.
 pdParameterKey :: Lens' ParameterDeclaration (Maybe Text)
@@ -548,11 +628,42 @@ instance FromXML ParameterDeclaration where
 -- * 'staCreationTime'
 --
 -- * 'staStackStatus'
-data Stack = Stack'{_staDisableRollback :: Maybe Bool, _staLastUpdatedTime :: Maybe ISO8601, _staNotificationARNs :: Maybe [Text], _staStackStatusReason :: Maybe Text, _staOutputs :: Maybe [Output], _staParameters :: Maybe [Parameter], _staStackId :: Maybe Text, _staCapabilities :: Maybe [Capability], _staDescription :: Maybe Text, _staTags :: Maybe [Tag], _staTimeoutInMinutes :: Maybe Nat, _staStackName :: Text, _staCreationTime :: ISO8601, _staStackStatus :: StackStatus} deriving (Eq, Read, Show)
+data Stack = Stack'
+    { _staDisableRollback   :: Maybe Bool
+    , _staLastUpdatedTime   :: Maybe ISO8601
+    , _staNotificationARNs  :: Maybe [Text]
+    , _staStackStatusReason :: Maybe Text
+    , _staOutputs           :: Maybe [Output]
+    , _staParameters        :: Maybe [Parameter]
+    , _staStackId           :: Maybe Text
+    , _staCapabilities      :: Maybe [Capability]
+    , _staDescription       :: Maybe Text
+    , _staTags              :: Maybe [Tag]
+    , _staTimeoutInMinutes  :: Maybe Nat
+    , _staStackName         :: Text
+    , _staCreationTime      :: ISO8601
+    , _staStackStatus       :: StackStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'Stack' smart constructor.
 stack :: Text -> UTCTime -> StackStatus -> Stack
-stack pStackName pCreationTime pStackStatus = Stack'{_staDisableRollback = Nothing, _staLastUpdatedTime = Nothing, _staNotificationARNs = Nothing, _staStackStatusReason = Nothing, _staOutputs = Nothing, _staParameters = Nothing, _staStackId = Nothing, _staCapabilities = Nothing, _staDescription = Nothing, _staTags = Nothing, _staTimeoutInMinutes = Nothing, _staStackName = pStackName, _staCreationTime = _Time # pCreationTime, _staStackStatus = pStackStatus};
+stack pStackName pCreationTime pStackStatus =
+    Stack'
+    { _staDisableRollback = Nothing
+    , _staLastUpdatedTime = Nothing
+    , _staNotificationARNs = Nothing
+    , _staStackStatusReason = Nothing
+    , _staOutputs = Nothing
+    , _staParameters = Nothing
+    , _staStackId = Nothing
+    , _staCapabilities = Nothing
+    , _staDescription = Nothing
+    , _staTags = Nothing
+    , _staTimeoutInMinutes = Nothing
+    , _staStackName = pStackName
+    , _staCreationTime = _Time # pCreationTime
+    , _staStackStatus = pStackStatus
+    }
 
 -- | Boolean to enable or disable rollback on stack creation failures:
 --
@@ -667,11 +778,34 @@ instance FromXML Stack where
 -- * 'seStackName'
 --
 -- * 'seTimestamp'
-data StackEvent = StackEvent'{_seLogicalResourceId :: Maybe Text, _seResourceStatusReason :: Maybe Text, _seResourceType :: Maybe Text, _sePhysicalResourceId :: Maybe Text, _seResourceProperties :: Maybe Text, _seResourceStatus :: Maybe ResourceStatus, _seStackId :: Text, _seEventId :: Text, _seStackName :: Text, _seTimestamp :: ISO8601} deriving (Eq, Read, Show)
+data StackEvent = StackEvent'
+    { _seLogicalResourceId    :: Maybe Text
+    , _seResourceStatusReason :: Maybe Text
+    , _seResourceType         :: Maybe Text
+    , _sePhysicalResourceId   :: Maybe Text
+    , _seResourceProperties   :: Maybe Text
+    , _seResourceStatus       :: Maybe ResourceStatus
+    , _seStackId              :: Text
+    , _seEventId              :: Text
+    , _seStackName            :: Text
+    , _seTimestamp            :: ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'StackEvent' smart constructor.
 stackEvent :: Text -> Text -> Text -> UTCTime -> StackEvent
-stackEvent pStackId pEventId pStackName pTimestamp = StackEvent'{_seLogicalResourceId = Nothing, _seResourceStatusReason = Nothing, _seResourceType = Nothing, _sePhysicalResourceId = Nothing, _seResourceProperties = Nothing, _seResourceStatus = Nothing, _seStackId = pStackId, _seEventId = pEventId, _seStackName = pStackName, _seTimestamp = _Time # pTimestamp};
+stackEvent pStackId pEventId pStackName pTimestamp =
+    StackEvent'
+    { _seLogicalResourceId = Nothing
+    , _seResourceStatusReason = Nothing
+    , _seResourceType = Nothing
+    , _sePhysicalResourceId = Nothing
+    , _seResourceProperties = Nothing
+    , _seResourceStatus = Nothing
+    , _seStackId = pStackId
+    , _seEventId = pEventId
+    , _seStackName = pStackName
+    , _seTimestamp = _Time # pTimestamp
+    }
 
 -- | The logical name of the resource specified in the template.
 seLogicalResourceId :: Lens' StackEvent (Maybe Text)
@@ -753,11 +887,32 @@ instance FromXML StackEvent where
 -- * 'srTimestamp'
 --
 -- * 'srResourceStatus'
-data StackResource = StackResource'{_srResourceStatusReason :: Maybe Text, _srPhysicalResourceId :: Maybe Text, _srStackId :: Maybe Text, _srDescription :: Maybe Text, _srStackName :: Maybe Text, _srLogicalResourceId :: Text, _srResourceType :: Text, _srTimestamp :: ISO8601, _srResourceStatus :: ResourceStatus} deriving (Eq, Read, Show)
+data StackResource = StackResource'
+    { _srResourceStatusReason :: Maybe Text
+    , _srPhysicalResourceId   :: Maybe Text
+    , _srStackId              :: Maybe Text
+    , _srDescription          :: Maybe Text
+    , _srStackName            :: Maybe Text
+    , _srLogicalResourceId    :: Text
+    , _srResourceType         :: Text
+    , _srTimestamp            :: ISO8601
+    , _srResourceStatus       :: ResourceStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'StackResource' smart constructor.
 stackResource :: Text -> Text -> UTCTime -> ResourceStatus -> StackResource
-stackResource pLogicalResourceId pResourceType pTimestamp pResourceStatus = StackResource'{_srResourceStatusReason = Nothing, _srPhysicalResourceId = Nothing, _srStackId = Nothing, _srDescription = Nothing, _srStackName = Nothing, _srLogicalResourceId = pLogicalResourceId, _srResourceType = pResourceType, _srTimestamp = _Time # pTimestamp, _srResourceStatus = pResourceStatus};
+stackResource pLogicalResourceId pResourceType pTimestamp pResourceStatus =
+    StackResource'
+    { _srResourceStatusReason = Nothing
+    , _srPhysicalResourceId = Nothing
+    , _srStackId = Nothing
+    , _srDescription = Nothing
+    , _srStackName = Nothing
+    , _srLogicalResourceId = pLogicalResourceId
+    , _srResourceType = pResourceType
+    , _srTimestamp = _Time # pTimestamp
+    , _srResourceStatus = pResourceStatus
+    }
 
 -- | Success\/failure message associated with the resource.
 srResourceStatusReason :: Lens' StackResource (Maybe Text)
@@ -836,11 +991,34 @@ instance FromXML StackResource where
 -- * 'srdLastUpdatedTimestamp'
 --
 -- * 'srdResourceStatus'
-data StackResourceDetail = StackResourceDetail'{_srdResourceStatusReason :: Maybe Text, _srdPhysicalResourceId :: Maybe Text, _srdMetadata :: Maybe Text, _srdStackId :: Maybe Text, _srdDescription :: Maybe Text, _srdStackName :: Maybe Text, _srdLogicalResourceId :: Text, _srdResourceType :: Text, _srdLastUpdatedTimestamp :: ISO8601, _srdResourceStatus :: ResourceStatus} deriving (Eq, Read, Show)
+data StackResourceDetail = StackResourceDetail'
+    { _srdResourceStatusReason :: Maybe Text
+    , _srdPhysicalResourceId   :: Maybe Text
+    , _srdMetadata             :: Maybe Text
+    , _srdStackId              :: Maybe Text
+    , _srdDescription          :: Maybe Text
+    , _srdStackName            :: Maybe Text
+    , _srdLogicalResourceId    :: Text
+    , _srdResourceType         :: Text
+    , _srdLastUpdatedTimestamp :: ISO8601
+    , _srdResourceStatus       :: ResourceStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'StackResourceDetail' smart constructor.
 stackResourceDetail :: Text -> Text -> UTCTime -> ResourceStatus -> StackResourceDetail
-stackResourceDetail pLogicalResourceId pResourceType pLastUpdatedTimestamp pResourceStatus = StackResourceDetail'{_srdResourceStatusReason = Nothing, _srdPhysicalResourceId = Nothing, _srdMetadata = Nothing, _srdStackId = Nothing, _srdDescription = Nothing, _srdStackName = Nothing, _srdLogicalResourceId = pLogicalResourceId, _srdResourceType = pResourceType, _srdLastUpdatedTimestamp = _Time # pLastUpdatedTimestamp, _srdResourceStatus = pResourceStatus};
+stackResourceDetail pLogicalResourceId pResourceType pLastUpdatedTimestamp pResourceStatus =
+    StackResourceDetail'
+    { _srdResourceStatusReason = Nothing
+    , _srdPhysicalResourceId = Nothing
+    , _srdMetadata = Nothing
+    , _srdStackId = Nothing
+    , _srdDescription = Nothing
+    , _srdStackName = Nothing
+    , _srdLogicalResourceId = pLogicalResourceId
+    , _srdResourceType = pResourceType
+    , _srdLastUpdatedTimestamp = _Time # pLastUpdatedTimestamp
+    , _srdResourceStatus = pResourceStatus
+    }
 
 -- | Success\/failure message associated with the resource.
 srdResourceStatusReason :: Lens' StackResourceDetail (Maybe Text)
@@ -919,11 +1097,26 @@ instance FromXML StackResourceDetail where
 -- * 'srsLastUpdatedTimestamp'
 --
 -- * 'srsResourceStatus'
-data StackResourceSummary = StackResourceSummary'{_srsResourceStatusReason :: Maybe Text, _srsPhysicalResourceId :: Maybe Text, _srsLogicalResourceId :: Text, _srsResourceType :: Text, _srsLastUpdatedTimestamp :: ISO8601, _srsResourceStatus :: ResourceStatus} deriving (Eq, Read, Show)
+data StackResourceSummary = StackResourceSummary'
+    { _srsResourceStatusReason :: Maybe Text
+    , _srsPhysicalResourceId   :: Maybe Text
+    , _srsLogicalResourceId    :: Text
+    , _srsResourceType         :: Text
+    , _srsLastUpdatedTimestamp :: ISO8601
+    , _srsResourceStatus       :: ResourceStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'StackResourceSummary' smart constructor.
 stackResourceSummary :: Text -> Text -> UTCTime -> ResourceStatus -> StackResourceSummary
-stackResourceSummary pLogicalResourceId pResourceType pLastUpdatedTimestamp pResourceStatus = StackResourceSummary'{_srsResourceStatusReason = Nothing, _srsPhysicalResourceId = Nothing, _srsLogicalResourceId = pLogicalResourceId, _srsResourceType = pResourceType, _srsLastUpdatedTimestamp = _Time # pLastUpdatedTimestamp, _srsResourceStatus = pResourceStatus};
+stackResourceSummary pLogicalResourceId pResourceType pLastUpdatedTimestamp pResourceStatus =
+    StackResourceSummary'
+    { _srsResourceStatusReason = Nothing
+    , _srsPhysicalResourceId = Nothing
+    , _srsLogicalResourceId = pLogicalResourceId
+    , _srsResourceType = pResourceType
+    , _srsLastUpdatedTimestamp = _Time # pLastUpdatedTimestamp
+    , _srsResourceStatus = pResourceStatus
+    }
 
 -- | Success\/failure message associated with the resource.
 srsResourceStatusReason :: Lens' StackResourceSummary (Maybe Text)
@@ -983,11 +1176,30 @@ instance FromXML StackResourceSummary where
 -- * 'ssCreationTime'
 --
 -- * 'ssStackStatus'
-data StackSummary = StackSummary'{_ssLastUpdatedTime :: Maybe ISO8601, _ssTemplateDescription :: Maybe Text, _ssStackStatusReason :: Maybe Text, _ssDeletionTime :: Maybe ISO8601, _ssStackId :: Maybe Text, _ssStackName :: Text, _ssCreationTime :: ISO8601, _ssStackStatus :: StackStatus} deriving (Eq, Read, Show)
+data StackSummary = StackSummary'
+    { _ssLastUpdatedTime     :: Maybe ISO8601
+    , _ssTemplateDescription :: Maybe Text
+    , _ssStackStatusReason   :: Maybe Text
+    , _ssDeletionTime        :: Maybe ISO8601
+    , _ssStackId             :: Maybe Text
+    , _ssStackName           :: Text
+    , _ssCreationTime        :: ISO8601
+    , _ssStackStatus         :: StackStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'StackSummary' smart constructor.
 stackSummary :: Text -> UTCTime -> StackStatus -> StackSummary
-stackSummary pStackName pCreationTime pStackStatus = StackSummary'{_ssLastUpdatedTime = Nothing, _ssTemplateDescription = Nothing, _ssStackStatusReason = Nothing, _ssDeletionTime = Nothing, _ssStackId = Nothing, _ssStackName = pStackName, _ssCreationTime = _Time # pCreationTime, _ssStackStatus = pStackStatus};
+stackSummary pStackName pCreationTime pStackStatus =
+    StackSummary'
+    { _ssLastUpdatedTime = Nothing
+    , _ssTemplateDescription = Nothing
+    , _ssStackStatusReason = Nothing
+    , _ssDeletionTime = Nothing
+    , _ssStackId = Nothing
+    , _ssStackName = pStackName
+    , _ssCreationTime = _Time # pCreationTime
+    , _ssStackStatus = pStackStatus
+    }
 
 -- | The time the stack was last updated. This field will only be returned if
 -- the stack has been updated at least once.
@@ -1045,11 +1257,18 @@ instance FromXML StackSummary where
 -- * 'tagValue'
 --
 -- * 'tagKey'
-data Tag = Tag'{_tagValue :: Maybe Text, _tagKey :: Maybe Text} deriving (Eq, Read, Show)
+data Tag = Tag'
+    { _tagValue :: Maybe Text
+    , _tagKey   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
-tag = Tag'{_tagValue = Nothing, _tagKey = Nothing};
+tag =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = Nothing
+    }
 
 -- | /Required/. A string containing the value for this tag. You can specify
 -- a maximum of 256 characters for a tag value.
@@ -1083,11 +1302,22 @@ instance ToQuery Tag where
 -- * 'tpNoEcho'
 --
 -- * 'tpDescription'
-data TemplateParameter = TemplateParameter'{_tpParameterKey :: Maybe Text, _tpDefaultValue :: Maybe Text, _tpNoEcho :: Maybe Bool, _tpDescription :: Maybe Text} deriving (Eq, Read, Show)
+data TemplateParameter = TemplateParameter'
+    { _tpParameterKey :: Maybe Text
+    , _tpDefaultValue :: Maybe Text
+    , _tpNoEcho       :: Maybe Bool
+    , _tpDescription  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'TemplateParameter' smart constructor.
 templateParameter :: TemplateParameter
-templateParameter = TemplateParameter'{_tpParameterKey = Nothing, _tpDefaultValue = Nothing, _tpNoEcho = Nothing, _tpDescription = Nothing};
+templateParameter =
+    TemplateParameter'
+    { _tpParameterKey = Nothing
+    , _tpDefaultValue = Nothing
+    , _tpNoEcho = Nothing
+    , _tpDescription = Nothing
+    }
 
 -- | The name associated with the parameter.
 tpParameterKey :: Lens' TemplateParameter (Maybe Text)

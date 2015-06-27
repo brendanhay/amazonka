@@ -37,24 +37,24 @@ module Network.AWS.DataPipeline
     ( module Export
     ) where
 
-import Network.AWS.DataPipeline.ActivatePipeline as Export
-import Network.AWS.DataPipeline.AddTags as Export
-import Network.AWS.DataPipeline.CreatePipeline as Export
-import Network.AWS.DataPipeline.DeactivatePipeline as Export
-import Network.AWS.DataPipeline.DeletePipeline as Export
-import Network.AWS.DataPipeline.DescribeObjects as Export
-import Network.AWS.DataPipeline.DescribePipelines as Export
-import Network.AWS.DataPipeline.EvaluateExpression as Export
-import Network.AWS.DataPipeline.GetPipelineDefinition as Export
-import Network.AWS.DataPipeline.ListPipelines as Export
-import Network.AWS.DataPipeline.PollForTask as Export
-import Network.AWS.DataPipeline.PutPipelineDefinition as Export
-import Network.AWS.DataPipeline.QueryObjects as Export
-import Network.AWS.DataPipeline.RemoveTags as Export
-import Network.AWS.DataPipeline.ReportTaskProgress as Export
-import Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat as Export
-import Network.AWS.DataPipeline.SetStatus as Export
-import Network.AWS.DataPipeline.SetTaskStatus as Export
-import Network.AWS.DataPipeline.Types as Export
-import Network.AWS.DataPipeline.ValidatePipelineDefinition as Export
-import Network.AWS.DataPipeline.Waiters as Export
+import           Network.AWS.DataPipeline.ActivatePipeline           as Export
+import           Network.AWS.DataPipeline.AddTags                    as Export
+import           Network.AWS.DataPipeline.CreatePipeline             as Export
+import           Network.AWS.DataPipeline.DeactivatePipeline         as Export
+import           Network.AWS.DataPipeline.DeletePipeline             as Export
+import           Network.AWS.DataPipeline.DescribeObjects            as Export
+import           Network.AWS.DataPipeline.DescribePipelines          as Export
+import           Network.AWS.DataPipeline.EvaluateExpression         as Export
+import           Network.AWS.DataPipeline.GetPipelineDefinition      as Export
+import           Network.AWS.DataPipeline.ListPipelines              as Export
+import           Network.AWS.DataPipeline.PollForTask                as Export
+import           Network.AWS.DataPipeline.PutPipelineDefinition      as Export
+import           Network.AWS.DataPipeline.QueryObjects               as Export
+import           Network.AWS.DataPipeline.RemoveTags                 as Export
+import           Network.AWS.DataPipeline.ReportTaskProgress         as Export
+import           Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat  as Export
+import           Network.AWS.DataPipeline.SetStatus                  as Export
+import           Network.AWS.DataPipeline.SetTaskStatus              as Export
+import           Network.AWS.DataPipeline.Types                      as Export
+import           Network.AWS.DataPipeline.ValidatePipelineDefinition as Export
+import           Network.AWS.DataPipeline.Waiters                    as Export

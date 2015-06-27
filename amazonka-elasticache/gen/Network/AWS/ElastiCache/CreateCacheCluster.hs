@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateCacheCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,13 +55,13 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     , createCacheClusterResponse
     -- ** Response lenses
     , cccrCacheCluster
-    , cccrStatusCode
+    , cccrStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /CreateCacheCluster/ action.
 --
@@ -112,11 +112,58 @@ import Network.AWS.Response
 -- * 'cccPort'
 --
 -- * 'cccCacheClusterId'
-data CreateCacheCluster = CreateCacheCluster'{_cccCacheNodeType :: Maybe Text, _cccEngineVersion :: Maybe Text, _cccSecurityGroupIds :: Maybe [Text], _cccAutoMinorVersionUpgrade :: Maybe Bool, _cccSnapshotARNs :: Maybe [Text], _cccCacheParameterGroupName :: Maybe Text, _cccSnapshotWindow :: Maybe Text, _cccEngine :: Maybe Text, _cccPreferredAvailabilityZones :: Maybe [Text], _cccPreferredMaintenanceWindow :: Maybe Text, _cccCacheSubnetGroupName :: Maybe Text, _cccPreferredAvailabilityZone :: Maybe Text, _cccSnapshotRetentionLimit :: Maybe Int, _cccAZMode :: Maybe AZMode, _cccSnapshotName :: Maybe Text, _cccReplicationGroupId :: Maybe Text, _cccNotificationTopicARN :: Maybe Text, _cccTags :: Maybe [Tag], _cccNumCacheNodes :: Maybe Int, _cccCacheSecurityGroupNames :: Maybe [Text], _cccPort :: Maybe Int, _cccCacheClusterId :: Text} deriving (Eq, Read, Show)
+data CreateCacheCluster = CreateCacheCluster'
+    { _cccCacheNodeType              :: Maybe Text
+    , _cccEngineVersion              :: Maybe Text
+    , _cccSecurityGroupIds           :: Maybe [Text]
+    , _cccAutoMinorVersionUpgrade    :: Maybe Bool
+    , _cccSnapshotARNs               :: Maybe [Text]
+    , _cccCacheParameterGroupName    :: Maybe Text
+    , _cccSnapshotWindow             :: Maybe Text
+    , _cccEngine                     :: Maybe Text
+    , _cccPreferredAvailabilityZones :: Maybe [Text]
+    , _cccPreferredMaintenanceWindow :: Maybe Text
+    , _cccCacheSubnetGroupName       :: Maybe Text
+    , _cccPreferredAvailabilityZone  :: Maybe Text
+    , _cccSnapshotRetentionLimit     :: Maybe Int
+    , _cccAZMode                     :: Maybe AZMode
+    , _cccSnapshotName               :: Maybe Text
+    , _cccReplicationGroupId         :: Maybe Text
+    , _cccNotificationTopicARN       :: Maybe Text
+    , _cccTags                       :: Maybe [Tag]
+    , _cccNumCacheNodes              :: Maybe Int
+    , _cccCacheSecurityGroupNames    :: Maybe [Text]
+    , _cccPort                       :: Maybe Int
+    , _cccCacheClusterId             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCacheCluster' smart constructor.
 createCacheCluster :: Text -> CreateCacheCluster
-createCacheCluster pCacheClusterId = CreateCacheCluster'{_cccCacheNodeType = Nothing, _cccEngineVersion = Nothing, _cccSecurityGroupIds = Nothing, _cccAutoMinorVersionUpgrade = Nothing, _cccSnapshotARNs = Nothing, _cccCacheParameterGroupName = Nothing, _cccSnapshotWindow = Nothing, _cccEngine = Nothing, _cccPreferredAvailabilityZones = Nothing, _cccPreferredMaintenanceWindow = Nothing, _cccCacheSubnetGroupName = Nothing, _cccPreferredAvailabilityZone = Nothing, _cccSnapshotRetentionLimit = Nothing, _cccAZMode = Nothing, _cccSnapshotName = Nothing, _cccReplicationGroupId = Nothing, _cccNotificationTopicARN = Nothing, _cccTags = Nothing, _cccNumCacheNodes = Nothing, _cccCacheSecurityGroupNames = Nothing, _cccPort = Nothing, _cccCacheClusterId = pCacheClusterId};
+createCacheCluster pCacheClusterId =
+    CreateCacheCluster'
+    { _cccCacheNodeType = Nothing
+    , _cccEngineVersion = Nothing
+    , _cccSecurityGroupIds = Nothing
+    , _cccAutoMinorVersionUpgrade = Nothing
+    , _cccSnapshotARNs = Nothing
+    , _cccCacheParameterGroupName = Nothing
+    , _cccSnapshotWindow = Nothing
+    , _cccEngine = Nothing
+    , _cccPreferredAvailabilityZones = Nothing
+    , _cccPreferredMaintenanceWindow = Nothing
+    , _cccCacheSubnetGroupName = Nothing
+    , _cccPreferredAvailabilityZone = Nothing
+    , _cccSnapshotRetentionLimit = Nothing
+    , _cccAZMode = Nothing
+    , _cccSnapshotName = Nothing
+    , _cccReplicationGroupId = Nothing
+    , _cccNotificationTopicARN = Nothing
+    , _cccTags = Nothing
+    , _cccNumCacheNodes = Nothing
+    , _cccCacheSecurityGroupNames = Nothing
+    , _cccPort = Nothing
+    , _cccCacheClusterId = pCacheClusterId
+    }
 
 -- | The compute and memory capacity of the nodes in the node group.
 --
@@ -431,17 +478,24 @@ instance ToQuery CreateCacheCluster where
 --
 -- * 'cccrCacheCluster'
 --
--- * 'cccrStatusCode'
-data CreateCacheClusterResponse = CreateCacheClusterResponse'{_cccrCacheCluster :: Maybe CacheCluster, _cccrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cccrStatus'
+data CreateCacheClusterResponse = CreateCacheClusterResponse'
+    { _cccrCacheCluster :: Maybe CacheCluster
+    , _cccrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCacheClusterResponse' smart constructor.
 createCacheClusterResponse :: Int -> CreateCacheClusterResponse
-createCacheClusterResponse pStatusCode = CreateCacheClusterResponse'{_cccrCacheCluster = Nothing, _cccrStatusCode = pStatusCode};
+createCacheClusterResponse pStatus =
+    CreateCacheClusterResponse'
+    { _cccrCacheCluster = Nothing
+    , _cccrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 cccrCacheCluster :: Lens' CreateCacheClusterResponse (Maybe CacheCluster)
 cccrCacheCluster = lens _cccrCacheCluster (\ s a -> s{_cccrCacheCluster = a});
 
 -- | FIXME: Undocumented member.
-cccrStatusCode :: Lens' CreateCacheClusterResponse Int
-cccrStatusCode = lens _cccrStatusCode (\ s a -> s{_cccrStatusCode = a});
+cccrStatus :: Lens' CreateCacheClusterResponse Int
+cccrStatus = lens _cccrStatus (\ s a -> s{_cccrStatus = a});

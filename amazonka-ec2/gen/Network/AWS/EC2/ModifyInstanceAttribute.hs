@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ModifyInstanceAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,10 +52,10 @@ module Network.AWS.EC2.ModifyInstanceAttribute
     , modifyInstanceAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyInstanceAttribute' smart constructor.
 --
@@ -90,11 +90,44 @@ import Network.AWS.Response
 -- * 'modDryRun'
 --
 -- * 'modInstanceId'
-data ModifyInstanceAttribute = ModifyInstanceAttribute'{_modAttribute :: Maybe InstanceAttributeName, _modGroups :: Maybe [Text], _modSourceDestCheck :: Maybe AttributeBooleanValue, _modDisableAPITermination :: Maybe AttributeBooleanValue, _modRAMDisk :: Maybe AttributeValue, _modValue :: Maybe Text, _modKernel :: Maybe AttributeValue, _modInstanceType :: Maybe AttributeValue, _modEBSOptimized :: Maybe AttributeBooleanValue, _modUserData :: Maybe BlobAttributeValue, _modSRIOVNetSupport :: Maybe AttributeValue, _modInstanceInitiatedShutdownBehavior :: Maybe AttributeValue, _modBlockDeviceMappings :: Maybe [InstanceBlockDeviceMappingSpecification], _modDryRun :: Maybe Bool, _modInstanceId :: Text} deriving (Eq, Read, Show)
+data ModifyInstanceAttribute = ModifyInstanceAttribute'
+    { _modAttribute                         :: Maybe InstanceAttributeName
+    , _modGroups                            :: Maybe [Text]
+    , _modSourceDestCheck                   :: Maybe AttributeBooleanValue
+    , _modDisableAPITermination             :: Maybe AttributeBooleanValue
+    , _modRAMDisk                           :: Maybe AttributeValue
+    , _modValue                             :: Maybe Text
+    , _modKernel                            :: Maybe AttributeValue
+    , _modInstanceType                      :: Maybe AttributeValue
+    , _modEBSOptimized                      :: Maybe AttributeBooleanValue
+    , _modUserData                          :: Maybe BlobAttributeValue
+    , _modSRIOVNetSupport                   :: Maybe AttributeValue
+    , _modInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
+    , _modBlockDeviceMappings               :: Maybe [InstanceBlockDeviceMappingSpecification]
+    , _modDryRun                            :: Maybe Bool
+    , _modInstanceId                        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyInstanceAttribute' smart constructor.
 modifyInstanceAttribute :: Text -> ModifyInstanceAttribute
-modifyInstanceAttribute pInstanceId = ModifyInstanceAttribute'{_modAttribute = Nothing, _modGroups = Nothing, _modSourceDestCheck = Nothing, _modDisableAPITermination = Nothing, _modRAMDisk = Nothing, _modValue = Nothing, _modKernel = Nothing, _modInstanceType = Nothing, _modEBSOptimized = Nothing, _modUserData = Nothing, _modSRIOVNetSupport = Nothing, _modInstanceInitiatedShutdownBehavior = Nothing, _modBlockDeviceMappings = Nothing, _modDryRun = Nothing, _modInstanceId = pInstanceId};
+modifyInstanceAttribute pInstanceId =
+    ModifyInstanceAttribute'
+    { _modAttribute = Nothing
+    , _modGroups = Nothing
+    , _modSourceDestCheck = Nothing
+    , _modDisableAPITermination = Nothing
+    , _modRAMDisk = Nothing
+    , _modValue = Nothing
+    , _modKernel = Nothing
+    , _modInstanceType = Nothing
+    , _modEBSOptimized = Nothing
+    , _modUserData = Nothing
+    , _modSRIOVNetSupport = Nothing
+    , _modInstanceInitiatedShutdownBehavior = Nothing
+    , _modBlockDeviceMappings = Nothing
+    , _modDryRun = Nothing
+    , _modInstanceId = pInstanceId
+    }
 
 -- | The name of the attribute.
 modAttribute :: Lens' ModifyInstanceAttribute (Maybe InstanceAttributeName)
@@ -234,8 +267,10 @@ instance ToQuery ModifyInstanceAttribute where
                "InstanceId" =: _modInstanceId]
 
 -- | /See:/ 'modifyInstanceAttributeResponse' smart constructor.
-data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse' deriving (Eq, Read, Show)
+data ModifyInstanceAttributeResponse =
+    ModifyInstanceAttributeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ModifyInstanceAttributeResponse' smart constructor.
 modifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse
-modifyInstanceAttributeResponse = ModifyInstanceAttributeResponse';
+modifyInstanceAttributeResponse = ModifyInstanceAttributeResponse'

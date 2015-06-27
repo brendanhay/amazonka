@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -125,75 +124,88 @@ module Network.AWS.CloudWatchLogs.Types
     , sfRoleARN
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2014-03-28@ of the Amazon CloudWatch Logs SDK.
 data CloudWatchLogs
 
 instance AWSService CloudWatchLogs where
     type Sg CloudWatchLogs = V4
-
     service = const svc
       where
-        svc :: Service CloudWatchLogs
-        svc = Service
-            { _svcAbbrev   = "CloudWatchLogs"
-            , _svcPrefix   = "logs"
-            , _svcVersion  = "2014-03-28"
+        svc =
+            Service
+            { _svcAbbrev = "CloudWatchLogs"
+            , _svcPrefix = "logs"
+            , _svcVersion = "2014-03-28"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | Returned if a parameter of the request is incorrectly specified.
-_InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterException = _ServiceError . hasCode "InvalidParameterException";
+_InvalidParameterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterException =
+    _ServiceError . hasCode "InvalidParameterException"
 
 -- | Prism for InvalidSequenceTokenException' errors.
-_InvalidSequenceTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSequenceTokenException = _ServiceError . hasCode "InvalidSequenceTokenException";
+_InvalidSequenceTokenException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSequenceTokenException =
+    _ServiceError . hasCode "InvalidSequenceTokenException"
 
 -- | Returned if the specified resource already exists.
-_ResourceAlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceAlreadyExistsException = _ServiceError . hasCode "ResourceAlreadyExistsException";
+_ResourceAlreadyExistsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceAlreadyExistsException =
+    _ServiceError . hasCode "ResourceAlreadyExistsException"
 
 -- | Returned if multiple requests to update the same resource were in
 -- conflict.
-_OperationAbortedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_OperationAbortedException = _ServiceError . hasCode "OperationAbortedException";
+_OperationAbortedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_OperationAbortedException =
+    _ServiceError . hasCode "OperationAbortedException"
 
 -- | Prism for DataAlreadyAcceptedException' errors.
-_DataAlreadyAcceptedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DataAlreadyAcceptedException = _ServiceError . hasCode "DataAlreadyAcceptedException";
+_DataAlreadyAcceptedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DataAlreadyAcceptedException =
+    _ServiceError . hasCode "DataAlreadyAcceptedException"
 
 -- | Returned if the service cannot complete the request.
-_ServiceUnavailableException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ServiceUnavailableException = _ServiceError . hasCode "ServiceUnavailableException";
+_ServiceUnavailableException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ServiceUnavailableException =
+    _ServiceError . hasCode "ServiceUnavailableException"
 
 -- | Returned if the specified resource does not exist.
-_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFoundException";
+_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+    _ServiceError . hasCode "ResourceNotFoundException"
 
 -- | Returned if you have reached the maximum number of resources that can be
 -- created.
-_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException";
+_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
 
-data OrderBy = LogStreamName | LastEventTime deriving (Eq, Ord, Read, Show, Enum, Generic)
+data OrderBy
+    = LogStreamName
+    | LastEventTime
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText OrderBy where
     parser = takeLowerText >>= \case
@@ -228,11 +240,24 @@ instance ToJSON OrderBy where
 -- * 'fleTimestamp'
 --
 -- * 'fleEventId'
-data FilteredLogEvent = FilteredLogEvent'{_fleIngestionTime :: Maybe Nat, _fleLogStreamName :: Maybe Text, _fleMessage :: Maybe Text, _fleTimestamp :: Maybe Nat, _fleEventId :: Maybe Text} deriving (Eq, Read, Show)
+data FilteredLogEvent = FilteredLogEvent'
+    { _fleIngestionTime :: Maybe Nat
+    , _fleLogStreamName :: Maybe Text
+    , _fleMessage       :: Maybe Text
+    , _fleTimestamp     :: Maybe Nat
+    , _fleEventId       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'FilteredLogEvent' smart constructor.
 filteredLogEvent :: FilteredLogEvent
-filteredLogEvent = FilteredLogEvent'{_fleIngestionTime = Nothing, _fleLogStreamName = Nothing, _fleMessage = Nothing, _fleTimestamp = Nothing, _fleEventId = Nothing};
+filteredLogEvent =
+    FilteredLogEvent'
+    { _fleIngestionTime = Nothing
+    , _fleLogStreamName = Nothing
+    , _fleMessage = Nothing
+    , _fleTimestamp = Nothing
+    , _fleEventId = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 fleIngestionTime :: Lens' FilteredLogEvent (Maybe Natural)
@@ -276,11 +301,18 @@ instance FromJSON FilteredLogEvent where
 -- * 'ileTimestamp'
 --
 -- * 'ileMessage'
-data InputLogEvent = InputLogEvent'{_ileTimestamp :: Nat, _ileMessage :: Text} deriving (Eq, Read, Show)
+data InputLogEvent = InputLogEvent'
+    { _ileTimestamp :: !Nat
+    , _ileMessage   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InputLogEvent' smart constructor.
 inputLogEvent :: Natural -> Text -> InputLogEvent
-inputLogEvent pTimestamp pMessage = InputLogEvent'{_ileTimestamp = _Nat # pTimestamp, _ileMessage = pMessage};
+inputLogEvent pTimestamp pMessage =
+    InputLogEvent'
+    { _ileTimestamp = _Nat # pTimestamp
+    , _ileMessage = pMessage
+    }
 
 -- | FIXME: Undocumented member.
 ileTimestamp :: Lens' InputLogEvent Natural
@@ -311,11 +343,26 @@ instance ToJSON InputLogEvent where
 -- * 'lgRetentionInDays'
 --
 -- * 'lgStoredBytes'
-data LogGroup = LogGroup'{_lgCreationTime :: Maybe Nat, _lgMetricFilterCount :: Maybe Int, _lgArn :: Maybe Text, _lgLogGroupName :: Maybe Text, _lgRetentionInDays :: Maybe Int, _lgStoredBytes :: Maybe Nat} deriving (Eq, Read, Show)
+data LogGroup = LogGroup'
+    { _lgCreationTime      :: Maybe Nat
+    , _lgMetricFilterCount :: Maybe Int
+    , _lgArn               :: Maybe Text
+    , _lgLogGroupName      :: Maybe Text
+    , _lgRetentionInDays   :: Maybe Int
+    , _lgStoredBytes       :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'LogGroup' smart constructor.
 logGroup :: LogGroup
-logGroup = LogGroup'{_lgCreationTime = Nothing, _lgMetricFilterCount = Nothing, _lgArn = Nothing, _lgLogGroupName = Nothing, _lgRetentionInDays = Nothing, _lgStoredBytes = Nothing};
+logGroup =
+    LogGroup'
+    { _lgCreationTime = Nothing
+    , _lgMetricFilterCount = Nothing
+    , _lgArn = Nothing
+    , _lgLogGroupName = Nothing
+    , _lgRetentionInDays = Nothing
+    , _lgStoredBytes = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 lgCreationTime :: Lens' LogGroup (Maybe Natural)
@@ -374,11 +421,30 @@ instance FromJSON LogGroup where
 -- * 'lsLastIngestionTime'
 --
 -- * 'lsLastEventTimestamp'
-data LogStream = LogStream'{_lsCreationTime :: Maybe Nat, _lsUploadSequenceToken :: Maybe Text, _lsArn :: Maybe Text, _lsFirstEventTimestamp :: Maybe Nat, _lsLogStreamName :: Maybe Text, _lsStoredBytes :: Maybe Nat, _lsLastIngestionTime :: Maybe Nat, _lsLastEventTimestamp :: Maybe Nat} deriving (Eq, Read, Show)
+data LogStream = LogStream'
+    { _lsCreationTime        :: Maybe Nat
+    , _lsUploadSequenceToken :: Maybe Text
+    , _lsArn                 :: Maybe Text
+    , _lsFirstEventTimestamp :: Maybe Nat
+    , _lsLogStreamName       :: Maybe Text
+    , _lsStoredBytes         :: Maybe Nat
+    , _lsLastIngestionTime   :: Maybe Nat
+    , _lsLastEventTimestamp  :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'LogStream' smart constructor.
 logStream :: LogStream
-logStream = LogStream'{_lsCreationTime = Nothing, _lsUploadSequenceToken = Nothing, _lsArn = Nothing, _lsFirstEventTimestamp = Nothing, _lsLogStreamName = Nothing, _lsStoredBytes = Nothing, _lsLastIngestionTime = Nothing, _lsLastEventTimestamp = Nothing};
+logStream =
+    LogStream'
+    { _lsCreationTime = Nothing
+    , _lsUploadSequenceToken = Nothing
+    , _lsArn = Nothing
+    , _lsFirstEventTimestamp = Nothing
+    , _lsLogStreamName = Nothing
+    , _lsStoredBytes = Nothing
+    , _lsLastIngestionTime = Nothing
+    , _lsLastEventTimestamp = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 lsCreationTime :: Lens' LogStream (Maybe Natural)
@@ -441,11 +507,22 @@ instance FromJSON LogStream where
 -- * 'mfFilterPattern'
 --
 -- * 'mfMetricTransformations'
-data MetricFilter = MetricFilter'{_mfCreationTime :: Maybe Nat, _mfFilterName :: Maybe Text, _mfFilterPattern :: Maybe Text, _mfMetricTransformations :: Maybe (List1 MetricTransformation)} deriving (Eq, Read, Show)
+data MetricFilter = MetricFilter'
+    { _mfCreationTime          :: Maybe Nat
+    , _mfFilterName            :: Maybe Text
+    , _mfFilterPattern         :: Maybe Text
+    , _mfMetricTransformations :: Maybe (List1 MetricTransformation)
+    } deriving (Eq,Read,Show)
 
 -- | 'MetricFilter' smart constructor.
 metricFilter :: MetricFilter
-metricFilter = MetricFilter'{_mfCreationTime = Nothing, _mfFilterName = Nothing, _mfFilterPattern = Nothing, _mfMetricTransformations = Nothing};
+metricFilter =
+    MetricFilter'
+    { _mfCreationTime = Nothing
+    , _mfFilterName = Nothing
+    , _mfFilterPattern = Nothing
+    , _mfMetricTransformations = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 mfCreationTime :: Lens' MetricFilter (Maybe Natural)
@@ -481,11 +558,20 @@ instance FromJSON MetricFilter where
 -- * 'mfmrEventMessage'
 --
 -- * 'mfmrEventNumber'
-data MetricFilterMatchRecord = MetricFilterMatchRecord'{_mfmrExtractedValues :: Maybe (Map Text Text), _mfmrEventMessage :: Maybe Text, _mfmrEventNumber :: Maybe Integer} deriving (Eq, Read, Show)
+data MetricFilterMatchRecord = MetricFilterMatchRecord'
+    { _mfmrExtractedValues :: Maybe (Map Text Text)
+    , _mfmrEventMessage    :: Maybe Text
+    , _mfmrEventNumber     :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'MetricFilterMatchRecord' smart constructor.
 metricFilterMatchRecord :: MetricFilterMatchRecord
-metricFilterMatchRecord = MetricFilterMatchRecord'{_mfmrExtractedValues = Nothing, _mfmrEventMessage = Nothing, _mfmrEventNumber = Nothing};
+metricFilterMatchRecord =
+    MetricFilterMatchRecord'
+    { _mfmrExtractedValues = Nothing
+    , _mfmrEventMessage = Nothing
+    , _mfmrEventNumber = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 mfmrExtractedValues :: Lens' MetricFilterMatchRecord (HashMap Text Text)
@@ -517,11 +603,20 @@ instance FromJSON MetricFilterMatchRecord where
 -- * 'mtMetricNamespace'
 --
 -- * 'mtMetricValue'
-data MetricTransformation = MetricTransformation'{_mtMetricName :: Text, _mtMetricNamespace :: Text, _mtMetricValue :: Text} deriving (Eq, Read, Show)
+data MetricTransformation = MetricTransformation'
+    { _mtMetricName      :: Text
+    , _mtMetricNamespace :: Text
+    , _mtMetricValue     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'MetricTransformation' smart constructor.
 metricTransformation :: Text -> Text -> Text -> MetricTransformation
-metricTransformation pMetricName pMetricNamespace pMetricValue = MetricTransformation'{_mtMetricName = pMetricName, _mtMetricNamespace = pMetricNamespace, _mtMetricValue = pMetricValue};
+metricTransformation pMetricName pMetricNamespace pMetricValue =
+    MetricTransformation'
+    { _mtMetricName = pMetricName
+    , _mtMetricNamespace = pMetricNamespace
+    , _mtMetricValue = pMetricValue
+    }
 
 -- | FIXME: Undocumented member.
 mtMetricName :: Lens' MetricTransformation Text
@@ -559,11 +654,20 @@ instance ToJSON MetricTransformation where
 -- * 'oleMessage'
 --
 -- * 'oleTimestamp'
-data OutputLogEvent = OutputLogEvent'{_oleIngestionTime :: Maybe Nat, _oleMessage :: Maybe Text, _oleTimestamp :: Maybe Nat} deriving (Eq, Read, Show)
+data OutputLogEvent = OutputLogEvent'
+    { _oleIngestionTime :: Maybe Nat
+    , _oleMessage       :: Maybe Text
+    , _oleTimestamp     :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'OutputLogEvent' smart constructor.
 outputLogEvent :: OutputLogEvent
-outputLogEvent = OutputLogEvent'{_oleIngestionTime = Nothing, _oleMessage = Nothing, _oleTimestamp = Nothing};
+outputLogEvent =
+    OutputLogEvent'
+    { _oleIngestionTime = Nothing
+    , _oleMessage = Nothing
+    , _oleTimestamp = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 oleIngestionTime :: Lens' OutputLogEvent (Maybe Natural)
@@ -594,11 +698,20 @@ instance FromJSON OutputLogEvent where
 -- * 'rleiTooNewLogEventStartIndex'
 --
 -- * 'rleiExpiredLogEventEndIndex'
-data RejectedLogEventsInfo = RejectedLogEventsInfo'{_rleiTooOldLogEventEndIndex :: Maybe Int, _rleiTooNewLogEventStartIndex :: Maybe Int, _rleiExpiredLogEventEndIndex :: Maybe Int} deriving (Eq, Read, Show)
+data RejectedLogEventsInfo = RejectedLogEventsInfo'
+    { _rleiTooOldLogEventEndIndex   :: Maybe Int
+    , _rleiTooNewLogEventStartIndex :: Maybe Int
+    , _rleiExpiredLogEventEndIndex  :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RejectedLogEventsInfo' smart constructor.
 rejectedLogEventsInfo :: RejectedLogEventsInfo
-rejectedLogEventsInfo = RejectedLogEventsInfo'{_rleiTooOldLogEventEndIndex = Nothing, _rleiTooNewLogEventStartIndex = Nothing, _rleiExpiredLogEventEndIndex = Nothing};
+rejectedLogEventsInfo =
+    RejectedLogEventsInfo'
+    { _rleiTooOldLogEventEndIndex = Nothing
+    , _rleiTooNewLogEventStartIndex = Nothing
+    , _rleiExpiredLogEventEndIndex = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 rleiTooOldLogEventEndIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
@@ -631,11 +744,18 @@ instance FromJSON RejectedLogEventsInfo where
 -- * 'slsLogStreamName'
 --
 -- * 'slsSearchedCompletely'
-data SearchedLogStream = SearchedLogStream'{_slsLogStreamName :: Maybe Text, _slsSearchedCompletely :: Maybe Bool} deriving (Eq, Read, Show)
+data SearchedLogStream = SearchedLogStream'
+    { _slsLogStreamName      :: Maybe Text
+    , _slsSearchedCompletely :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'SearchedLogStream' smart constructor.
 searchedLogStream :: SearchedLogStream
-searchedLogStream = SearchedLogStream'{_slsLogStreamName = Nothing, _slsSearchedCompletely = Nothing};
+searchedLogStream =
+    SearchedLogStream'
+    { _slsLogStreamName = Nothing
+    , _slsSearchedCompletely = Nothing
+    }
 
 -- | The name of the log stream.
 slsLogStreamName :: Lens' SearchedLogStream (Maybe Text)
@@ -669,11 +789,26 @@ instance FromJSON SearchedLogStream where
 -- * 'sfFilterPattern'
 --
 -- * 'sfRoleARN'
-data SubscriptionFilter = SubscriptionFilter'{_sfCreationTime :: Maybe Nat, _sfFilterName :: Maybe Text, _sfDestinationARN :: Maybe Text, _sfLogGroupName :: Maybe Text, _sfFilterPattern :: Maybe Text, _sfRoleARN :: Maybe Text} deriving (Eq, Read, Show)
+data SubscriptionFilter = SubscriptionFilter'
+    { _sfCreationTime   :: Maybe Nat
+    , _sfFilterName     :: Maybe Text
+    , _sfDestinationARN :: Maybe Text
+    , _sfLogGroupName   :: Maybe Text
+    , _sfFilterPattern  :: Maybe Text
+    , _sfRoleARN        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SubscriptionFilter' smart constructor.
 subscriptionFilter :: SubscriptionFilter
-subscriptionFilter = SubscriptionFilter'{_sfCreationTime = Nothing, _sfFilterName = Nothing, _sfDestinationARN = Nothing, _sfLogGroupName = Nothing, _sfFilterPattern = Nothing, _sfRoleARN = Nothing};
+subscriptionFilter =
+    SubscriptionFilter'
+    { _sfCreationTime = Nothing
+    , _sfFilterName = Nothing
+    , _sfDestinationARN = Nothing
+    , _sfLogGroupName = Nothing
+    , _sfFilterPattern = Nothing
+    , _sfRoleARN = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 sfCreationTime :: Lens' SubscriptionFilter (Maybe Natural)

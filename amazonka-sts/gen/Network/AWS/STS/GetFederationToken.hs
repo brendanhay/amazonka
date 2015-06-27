@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.STS.GetFederationToken
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -108,13 +108,13 @@ module Network.AWS.STS.GetFederationToken
     , gftrPackedPolicySize
     , gftrCredentials
     , gftrFederatedUser
-    , gftrStatusCode
+    , gftrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.STS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.STS.Types
 
 -- | /See:/ 'getFederationToken' smart constructor.
 --
@@ -125,11 +125,20 @@ import Network.AWS.STS.Types
 -- * 'gftPolicy'
 --
 -- * 'gftName'
-data GetFederationToken = GetFederationToken'{_gftDurationSeconds :: Maybe Nat, _gftPolicy :: Maybe Text, _gftName :: Text} deriving (Eq, Read, Show)
+data GetFederationToken = GetFederationToken'
+    { _gftDurationSeconds :: Maybe Nat
+    , _gftPolicy          :: Maybe Text
+    , _gftName            :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetFederationToken' smart constructor.
 getFederationToken :: Text -> GetFederationToken
-getFederationToken pName = GetFederationToken'{_gftDurationSeconds = Nothing, _gftPolicy = Nothing, _gftName = pName};
+getFederationToken pName =
+    GetFederationToken'
+    { _gftDurationSeconds = Nothing
+    , _gftPolicy = Nothing
+    , _gftName = pName
+    }
 
 -- | The duration, in seconds, that the session should last. Acceptable
 -- durations for federation sessions range from 900 seconds (15 minutes) to
@@ -212,12 +221,23 @@ instance ToQuery GetFederationToken where
 --
 -- * 'gftrFederatedUser'
 --
--- * 'gftrStatusCode'
-data GetFederationTokenResponse = GetFederationTokenResponse'{_gftrPackedPolicySize :: Maybe Nat, _gftrCredentials :: Maybe Credentials, _gftrFederatedUser :: Maybe FederatedUser, _gftrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gftrStatus'
+data GetFederationTokenResponse = GetFederationTokenResponse'
+    { _gftrPackedPolicySize :: Maybe Nat
+    , _gftrCredentials      :: Maybe Credentials
+    , _gftrFederatedUser    :: Maybe FederatedUser
+    , _gftrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetFederationTokenResponse' smart constructor.
 getFederationTokenResponse :: Int -> GetFederationTokenResponse
-getFederationTokenResponse pStatusCode = GetFederationTokenResponse'{_gftrPackedPolicySize = Nothing, _gftrCredentials = Nothing, _gftrFederatedUser = Nothing, _gftrStatusCode = pStatusCode};
+getFederationTokenResponse pStatus =
+    GetFederationTokenResponse'
+    { _gftrPackedPolicySize = Nothing
+    , _gftrCredentials = Nothing
+    , _gftrFederatedUser = Nothing
+    , _gftrStatus = pStatus
+    }
 
 -- | A percentage value indicating the size of the policy in packed form. The
 -- service rejects policies for which the packed size is greater than 100
@@ -237,5 +257,5 @@ gftrFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
 gftrFederatedUser = lens _gftrFederatedUser (\ s a -> s{_gftrFederatedUser = a});
 
 -- | FIXME: Undocumented member.
-gftrStatusCode :: Lens' GetFederationTokenResponse Int
-gftrStatusCode = lens _gftrStatusCode (\ s a -> s{_gftrStatusCode = a});
+gftrStatus :: Lens' GetFederationTokenResponse Int
+gftrStatus = lens _gftrStatus (\ s a -> s{_gftrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeEventSubscriptions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,14 +37,14 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     -- ** Response lenses
     , desrEventSubscriptionsList
     , desrMarker
-    , desrStatusCode
+    , desrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'des1MaxRecords'
 --
 -- * 'des1Marker'
-data DescribeEventSubscriptions = DescribeEventSubscriptions'{_des1SubscriptionName :: Maybe Text, _des1MaxRecords :: Maybe Int, _des1Marker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeEventSubscriptions = DescribeEventSubscriptions'
+    { _des1SubscriptionName :: Maybe Text
+    , _des1MaxRecords       :: Maybe Int
+    , _des1Marker           :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEventSubscriptions' smart constructor.
 describeEventSubscriptions :: DescribeEventSubscriptions
-describeEventSubscriptions = DescribeEventSubscriptions'{_des1SubscriptionName = Nothing, _des1MaxRecords = Nothing, _des1Marker = Nothing};
+describeEventSubscriptions =
+    DescribeEventSubscriptions'
+    { _des1SubscriptionName = Nothing
+    , _des1MaxRecords = Nothing
+    , _des1Marker = Nothing
+    }
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- described.
@@ -137,12 +146,21 @@ instance ToQuery DescribeEventSubscriptions where
 --
 -- * 'desrMarker'
 --
--- * 'desrStatusCode'
-data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList :: Maybe [EventSubscription], _desrMarker :: Maybe Text, _desrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'desrStatus'
+data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
+    { _desrEventSubscriptionsList :: Maybe [EventSubscription]
+    , _desrMarker                 :: Maybe Text
+    , _desrStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEventSubscriptionsResponse' smart constructor.
 describeEventSubscriptionsResponse :: Int -> DescribeEventSubscriptionsResponse
-describeEventSubscriptionsResponse pStatusCode = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList = Nothing, _desrMarker = Nothing, _desrStatusCode = pStatusCode};
+describeEventSubscriptionsResponse pStatus =
+    DescribeEventSubscriptionsResponse'
+    { _desrEventSubscriptionsList = Nothing
+    , _desrMarker = Nothing
+    , _desrStatus = pStatus
+    }
 
 -- | A list of event subscriptions.
 desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
@@ -158,5 +176,5 @@ desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrMarker = lens _desrMarker (\ s a -> s{_desrMarker = a});
 
 -- | FIXME: Undocumented member.
-desrStatusCode :: Lens' DescribeEventSubscriptionsResponse Int
-desrStatusCode = lens _desrStatusCode (\ s a -> s{_desrStatusCode = a});
+desrStatus :: Lens' DescribeEventSubscriptionsResponse Int
+desrStatus = lens _desrStatus (\ s a -> s{_desrStatus = a});

@@ -35,24 +35,24 @@ module Network.AWS.DirectConnect
     ( module Export
     ) where
 
-import Network.AWS.DirectConnect.AllocateConnectionOnInterconnect as Export
-import Network.AWS.DirectConnect.AllocatePrivateVirtualInterface as Export
-import Network.AWS.DirectConnect.AllocatePublicVirtualInterface as Export
-import Network.AWS.DirectConnect.ConfirmConnection as Export
-import Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface as Export
-import Network.AWS.DirectConnect.ConfirmPublicVirtualInterface as Export
-import Network.AWS.DirectConnect.CreateConnection as Export
-import Network.AWS.DirectConnect.CreateInterconnect as Export
-import Network.AWS.DirectConnect.CreatePrivateVirtualInterface as Export
-import Network.AWS.DirectConnect.CreatePublicVirtualInterface as Export
-import Network.AWS.DirectConnect.DeleteConnection as Export
-import Network.AWS.DirectConnect.DeleteInterconnect as Export
-import Network.AWS.DirectConnect.DeleteVirtualInterface as Export
-import Network.AWS.DirectConnect.DescribeConnections as Export
-import Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect as Export
-import Network.AWS.DirectConnect.DescribeInterconnects as Export
-import Network.AWS.DirectConnect.DescribeLocations as Export
-import Network.AWS.DirectConnect.DescribeVirtualGateways as Export
-import Network.AWS.DirectConnect.DescribeVirtualInterfaces as Export
-import Network.AWS.DirectConnect.Types as Export
-import Network.AWS.DirectConnect.Waiters as Export
+import           Network.AWS.DirectConnect.AllocateConnectionOnInterconnect  as Export
+import           Network.AWS.DirectConnect.AllocatePrivateVirtualInterface   as Export
+import           Network.AWS.DirectConnect.AllocatePublicVirtualInterface    as Export
+import           Network.AWS.DirectConnect.ConfirmConnection                 as Export
+import           Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface    as Export
+import           Network.AWS.DirectConnect.ConfirmPublicVirtualInterface     as Export
+import           Network.AWS.DirectConnect.CreateConnection                  as Export
+import           Network.AWS.DirectConnect.CreateInterconnect                as Export
+import           Network.AWS.DirectConnect.CreatePrivateVirtualInterface     as Export
+import           Network.AWS.DirectConnect.CreatePublicVirtualInterface      as Export
+import           Network.AWS.DirectConnect.DeleteConnection                  as Export
+import           Network.AWS.DirectConnect.DeleteInterconnect                as Export
+import           Network.AWS.DirectConnect.DeleteVirtualInterface            as Export
+import           Network.AWS.DirectConnect.DescribeConnections               as Export
+import           Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect as Export
+import           Network.AWS.DirectConnect.DescribeInterconnects             as Export
+import           Network.AWS.DirectConnect.DescribeLocations                 as Export
+import           Network.AWS.DirectConnect.DescribeVirtualGateways           as Export
+import           Network.AWS.DirectConnect.DescribeVirtualInterfaces         as Export
+import           Network.AWS.DirectConnect.Types                             as Export
+import           Network.AWS.DirectConnect.Waiters                           as Export

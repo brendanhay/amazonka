@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     , removeSourceIdentifierFromSubscriptionResponse
     -- ** Response lenses
     , rsifsrEventSubscription
-    , rsifsrStatusCode
+    , rsifsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'rsifsSubscriptionName'
 --
 -- * 'rsifsSourceIdentifier'
-data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription'{_rsifsSubscriptionName :: Text, _rsifsSourceIdentifier :: Text} deriving (Eq, Read, Show)
+data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription'
+    { _rsifsSubscriptionName :: Text
+    , _rsifsSourceIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveSourceIdentifierFromSubscription' smart constructor.
 removeSourceIdentifierFromSubscription :: Text -> Text -> RemoveSourceIdentifierFromSubscription
-removeSourceIdentifierFromSubscription pSubscriptionName pSourceIdentifier = RemoveSourceIdentifierFromSubscription'{_rsifsSubscriptionName = pSubscriptionName, _rsifsSourceIdentifier = pSourceIdentifier};
+removeSourceIdentifierFromSubscription pSubscriptionName pSourceIdentifier =
+    RemoveSourceIdentifierFromSubscription'
+    { _rsifsSubscriptionName = pSubscriptionName
+    , _rsifsSourceIdentifier = pSourceIdentifier
+    }
 
 -- | The name of the RDS event notification subscription you want to remove a
 -- source identifier from.
@@ -106,17 +113,24 @@ instance ToQuery
 --
 -- * 'rsifsrEventSubscription'
 --
--- * 'rsifsrStatusCode'
-data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse'{_rsifsrEventSubscription :: Maybe EventSubscription, _rsifsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rsifsrStatus'
+data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse'
+    { _rsifsrEventSubscription :: Maybe EventSubscription
+    , _rsifsrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveSourceIdentifierFromSubscriptionResponse' smart constructor.
 removeSourceIdentifierFromSubscriptionResponse :: Int -> RemoveSourceIdentifierFromSubscriptionResponse
-removeSourceIdentifierFromSubscriptionResponse pStatusCode = RemoveSourceIdentifierFromSubscriptionResponse'{_rsifsrEventSubscription = Nothing, _rsifsrStatusCode = pStatusCode};
+removeSourceIdentifierFromSubscriptionResponse pStatus =
+    RemoveSourceIdentifierFromSubscriptionResponse'
+    { _rsifsrEventSubscription = Nothing
+    , _rsifsrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rsifsrEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse (Maybe EventSubscription)
 rsifsrEventSubscription = lens _rsifsrEventSubscription (\ s a -> s{_rsifsrEventSubscription = a});
 
 -- | FIXME: Undocumented member.
-rsifsrStatusCode :: Lens' RemoveSourceIdentifierFromSubscriptionResponse Int
-rsifsrStatusCode = lens _rsifsrStatusCode (\ s a -> s{_rsifsrStatusCode = a});
+rsifsrStatus :: Lens' RemoveSourceIdentifierFromSubscriptionResponse Int
+rsifsrStatus = lens _rsifsrStatus (\ s a -> s{_rsifsrStatus = a});

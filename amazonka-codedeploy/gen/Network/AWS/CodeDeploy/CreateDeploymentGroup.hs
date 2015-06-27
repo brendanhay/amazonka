@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.CreateDeploymentGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.CodeDeploy.CreateDeploymentGroup
     , createDeploymentGroupResponse
     -- ** Response lenses
     , cdgrDeploymentGroupId
-    , cdgrStatusCode
+    , cdgrStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a create deployment group operation.
 --
@@ -66,11 +66,28 @@ import Network.AWS.Response
 -- * 'cdgDeploymentGroupName'
 --
 -- * 'cdgServiceRoleARN'
-data CreateDeploymentGroup = CreateDeploymentGroup'{_cdgDeploymentConfigName :: Maybe Text, _cdgEc2TagFilters :: Maybe [EC2TagFilter], _cdgOnPremisesInstanceTagFilters :: Maybe [TagFilter], _cdgAutoScalingGroups :: Maybe [Text], _cdgApplicationName :: Text, _cdgDeploymentGroupName :: Text, _cdgServiceRoleARN :: Text} deriving (Eq, Read, Show)
+data CreateDeploymentGroup = CreateDeploymentGroup'
+    { _cdgDeploymentConfigName         :: Maybe Text
+    , _cdgEc2TagFilters                :: Maybe [EC2TagFilter]
+    , _cdgOnPremisesInstanceTagFilters :: Maybe [TagFilter]
+    , _cdgAutoScalingGroups            :: Maybe [Text]
+    , _cdgApplicationName              :: Text
+    , _cdgDeploymentGroupName          :: Text
+    , _cdgServiceRoleARN               :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDeploymentGroup' smart constructor.
 createDeploymentGroup :: Text -> Text -> Text -> CreateDeploymentGroup
-createDeploymentGroup pApplicationName pDeploymentGroupName pServiceRoleARN = CreateDeploymentGroup'{_cdgDeploymentConfigName = Nothing, _cdgEc2TagFilters = Nothing, _cdgOnPremisesInstanceTagFilters = Nothing, _cdgAutoScalingGroups = Nothing, _cdgApplicationName = pApplicationName, _cdgDeploymentGroupName = pDeploymentGroupName, _cdgServiceRoleARN = pServiceRoleARN};
+createDeploymentGroup pApplicationName pDeploymentGroupName pServiceRoleARN =
+    CreateDeploymentGroup'
+    { _cdgDeploymentConfigName = Nothing
+    , _cdgEc2TagFilters = Nothing
+    , _cdgOnPremisesInstanceTagFilters = Nothing
+    , _cdgAutoScalingGroups = Nothing
+    , _cdgApplicationName = pApplicationName
+    , _cdgDeploymentGroupName = pDeploymentGroupName
+    , _cdgServiceRoleARN = pServiceRoleARN
+    }
 
 -- | If specified, the deployment configuration name must be one of the
 -- predefined values, or it can be a custom deployment configuration:
@@ -183,17 +200,24 @@ instance ToQuery CreateDeploymentGroup where
 --
 -- * 'cdgrDeploymentGroupId'
 --
--- * 'cdgrStatusCode'
-data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'{_cdgrDeploymentGroupId :: Maybe Text, _cdgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdgrStatus'
+data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
+    { _cdgrDeploymentGroupId :: Maybe Text
+    , _cdgrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDeploymentGroupResponse' smart constructor.
 createDeploymentGroupResponse :: Int -> CreateDeploymentGroupResponse
-createDeploymentGroupResponse pStatusCode = CreateDeploymentGroupResponse'{_cdgrDeploymentGroupId = Nothing, _cdgrStatusCode = pStatusCode};
+createDeploymentGroupResponse pStatus =
+    CreateDeploymentGroupResponse'
+    { _cdgrDeploymentGroupId = Nothing
+    , _cdgrStatus = pStatus
+    }
 
 -- | A unique deployment group ID.
 cdgrDeploymentGroupId :: Lens' CreateDeploymentGroupResponse (Maybe Text)
 cdgrDeploymentGroupId = lens _cdgrDeploymentGroupId (\ s a -> s{_cdgrDeploymentGroupId = a});
 
 -- | FIXME: Undocumented member.
-cdgrStatusCode :: Lens' CreateDeploymentGroupResponse Int
-cdgrStatusCode = lens _cdgrStatusCode (\ s a -> s{_cdgrStatusCode = a});
+cdgrStatus :: Lens' CreateDeploymentGroupResponse Int
+cdgrStatus = lens _cdgrStatus (\ s a -> s{_cdgrStatus = a});

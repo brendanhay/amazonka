@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.DeleteLoadBalancerPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.ELB.DeleteLoadBalancerPolicy
     -- ** Response constructor
     , deleteLoadBalancerPolicyResponse
     -- ** Response lenses
-    , dStatusCode
+    , dStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | =
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'delLoadBalancerName'
 --
 -- * 'delPolicyName'
-data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'{_delLoadBalancerName :: Text, _delPolicyName :: Text} deriving (Eq, Read, Show)
+data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
+    { _delLoadBalancerName :: Text
+    , _delPolicyName       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLoadBalancerPolicy' smart constructor.
 deleteLoadBalancerPolicy :: Text -> Text -> DeleteLoadBalancerPolicy
-deleteLoadBalancerPolicy pLoadBalancerName pPolicyName = DeleteLoadBalancerPolicy'{_delLoadBalancerName = pLoadBalancerName, _delPolicyName = pPolicyName};
+deleteLoadBalancerPolicy pLoadBalancerName pPolicyName =
+    DeleteLoadBalancerPolicy'
+    { _delLoadBalancerName = pLoadBalancerName
+    , _delPolicyName = pPolicyName
+    }
 
 -- | The name of the load balancer.
 delLoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
@@ -94,13 +101,18 @@ instance ToQuery DeleteLoadBalancerPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dStatusCode'
-newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'{_dStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dStatus'
+newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
+    { _dStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLoadBalancerPolicyResponse' smart constructor.
 deleteLoadBalancerPolicyResponse :: Int -> DeleteLoadBalancerPolicyResponse
-deleteLoadBalancerPolicyResponse pStatusCode = DeleteLoadBalancerPolicyResponse'{_dStatusCode = pStatusCode};
+deleteLoadBalancerPolicyResponse pStatus =
+    DeleteLoadBalancerPolicyResponse'
+    { _dStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-dStatusCode :: Lens' DeleteLoadBalancerPolicyResponse Int
-dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});
+dStatus :: Lens' DeleteLoadBalancerPolicyResponse Int
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeleteRole
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,21 +39,26 @@ module Network.AWS.IAM.DeleteRole
     , deleteRoleResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteRole' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drRoleName'
-newtype DeleteRole = DeleteRole'{_drRoleName :: Text} deriving (Eq, Read, Show)
+newtype DeleteRole = DeleteRole'
+    { _drRoleName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteRole' smart constructor.
 deleteRole :: Text -> DeleteRole
-deleteRole pRoleName = DeleteRole'{_drRoleName = pRoleName};
+deleteRole pRoleName =
+    DeleteRole'
+    { _drRoleName = pRoleName
+    }
 
 -- | The name of the role to delete.
 drRoleName :: Lens' DeleteRole Text
@@ -79,8 +84,10 @@ instance ToQuery DeleteRole where
                "RoleName" =: _drRoleName]
 
 -- | /See:/ 'deleteRoleResponse' smart constructor.
-data DeleteRoleResponse = DeleteRoleResponse' deriving (Eq, Read, Show)
+data DeleteRoleResponse =
+    DeleteRoleResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteRoleResponse' smart constructor.
 deleteRoleResponse :: DeleteRoleResponse
-deleteRoleResponse = DeleteRoleResponse';
+deleteRoleResponse = DeleteRoleResponse'

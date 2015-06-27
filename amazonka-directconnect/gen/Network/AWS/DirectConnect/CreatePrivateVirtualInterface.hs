@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.CreatePrivateVirtualInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,10 +51,10 @@ module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     , viVirtualInterfaceId
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the CreatePrivateVirtualInterface
 -- operation.
@@ -66,11 +66,18 @@ import Network.AWS.Response
 -- * 'creConnectionId'
 --
 -- * 'creNewPrivateVirtualInterface'
-data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'{_creConnectionId :: Text, _creNewPrivateVirtualInterface :: NewPrivateVirtualInterface} deriving (Eq, Read, Show)
+data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'
+    { _creConnectionId               :: Text
+    , _creNewPrivateVirtualInterface :: NewPrivateVirtualInterface
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePrivateVirtualInterface' smart constructor.
 createPrivateVirtualInterface :: Text -> NewPrivateVirtualInterface -> CreatePrivateVirtualInterface
-createPrivateVirtualInterface pConnectionId pNewPrivateVirtualInterface = CreatePrivateVirtualInterface'{_creConnectionId = pConnectionId, _creNewPrivateVirtualInterface = pNewPrivateVirtualInterface};
+createPrivateVirtualInterface pConnectionId pNewPrivateVirtualInterface =
+    CreatePrivateVirtualInterface'
+    { _creConnectionId = pConnectionId
+    , _creNewPrivateVirtualInterface = pNewPrivateVirtualInterface
+    }
 
 -- | FIXME: Undocumented member.
 creConnectionId :: Lens' CreatePrivateVirtualInterface Text

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.GetWorkflowExecutionHistory
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -60,14 +60,14 @@ module Network.AWS.SWF.GetWorkflowExecutionHistory
     -- ** Response lenses
     , gwehrNextPageToken
     , gwehrEvents
-    , gwehrStatusCode
+    , gwehrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'getWorkflowExecutionHistory' smart constructor.
 --
@@ -82,11 +82,24 @@ import Network.AWS.SWF.Types
 -- * 'gwehDomain'
 --
 -- * 'gwehExecution'
-data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory'{_gwehNextPageToken :: Maybe Text, _gwehReverseOrder :: Maybe Bool, _gwehMaximumPageSize :: Maybe Nat, _gwehDomain :: Text, _gwehExecution :: WorkflowExecution} deriving (Eq, Read, Show)
+data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory'
+    { _gwehNextPageToken   :: Maybe Text
+    , _gwehReverseOrder    :: Maybe Bool
+    , _gwehMaximumPageSize :: Maybe Nat
+    , _gwehDomain          :: Text
+    , _gwehExecution       :: WorkflowExecution
+    } deriving (Eq,Read,Show)
 
 -- | 'GetWorkflowExecutionHistory' smart constructor.
 getWorkflowExecutionHistory :: Text -> WorkflowExecution -> GetWorkflowExecutionHistory
-getWorkflowExecutionHistory pDomain pExecution = GetWorkflowExecutionHistory'{_gwehNextPageToken = Nothing, _gwehReverseOrder = Nothing, _gwehMaximumPageSize = Nothing, _gwehDomain = pDomain, _gwehExecution = pExecution};
+getWorkflowExecutionHistory pDomain pExecution =
+    GetWorkflowExecutionHistory'
+    { _gwehNextPageToken = Nothing
+    , _gwehReverseOrder = Nothing
+    , _gwehMaximumPageSize = Nothing
+    , _gwehDomain = pDomain
+    , _gwehExecution = pExecution
+    }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -180,12 +193,21 @@ instance ToQuery GetWorkflowExecutionHistory where
 --
 -- * 'gwehrEvents'
 --
--- * 'gwehrStatusCode'
-data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'{_gwehrNextPageToken :: Maybe Text, _gwehrEvents :: [HistoryEvent], _gwehrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gwehrStatus'
+data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'
+    { _gwehrNextPageToken :: Maybe Text
+    , _gwehrEvents        :: [HistoryEvent]
+    , _gwehrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetWorkflowExecutionHistoryResponse' smart constructor.
 getWorkflowExecutionHistoryResponse :: Int -> GetWorkflowExecutionHistoryResponse
-getWorkflowExecutionHistoryResponse pStatusCode = GetWorkflowExecutionHistoryResponse'{_gwehrNextPageToken = Nothing, _gwehrEvents = mempty, _gwehrStatusCode = pStatusCode};
+getWorkflowExecutionHistoryResponse pStatus =
+    GetWorkflowExecutionHistoryResponse'
+    { _gwehrNextPageToken = Nothing
+    , _gwehrEvents = mempty
+    , _gwehrStatus = pStatus
+    }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -202,5 +224,5 @@ gwehrEvents :: Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
 gwehrEvents = lens _gwehrEvents (\ s a -> s{_gwehrEvents = a});
 
 -- | FIXME: Undocumented member.
-gwehrStatusCode :: Lens' GetWorkflowExecutionHistoryResponse Int
-gwehrStatusCode = lens _gwehrStatusCode (\ s a -> s{_gwehrStatusCode = a});
+gwehrStatus :: Lens' GetWorkflowExecutionHistoryResponse Int
+gwehrStatus = lens _gwehrStatus (\ s a -> s{_gwehrStatus = a});

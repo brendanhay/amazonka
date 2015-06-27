@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.RunInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -95,10 +95,10 @@ module Network.AWS.EC2.RunInstances
     , resOwnerId
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'runInstances' smart constructor.
 --
@@ -149,11 +149,60 @@ import Network.AWS.Response
 -- * 'runMinCount'
 --
 -- * 'runMaxCount'
-data RunInstances = RunInstances'{_runSecurityGroupIds :: Maybe [Text], _runAdditionalInfo :: Maybe Text, _runSecurityGroups :: Maybe [Text], _runClientToken :: Maybe Text, _runDisableAPITermination :: Maybe Bool, _runNetworkInterfaces :: Maybe [InstanceNetworkInterfaceSpecification], _runKeyName :: Maybe Text, _runRAMDiskId :: Maybe Text, _runKernelId :: Maybe Text, _runSubnetId :: Maybe Text, _runInstanceType :: Maybe InstanceType, _runEBSOptimized :: Maybe Bool, _runUserData :: Maybe Text, _runMonitoring :: Maybe RunInstancesMonitoringEnabled, _runIAMInstanceProfile :: Maybe IAMInstanceProfileSpecification, _runInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior, _runPrivateIPAddress :: Maybe Text, _runBlockDeviceMappings :: Maybe [BlockDeviceMapping], _runDryRun :: Maybe Bool, _runPlacement :: Maybe Placement, _runImageId :: Text, _runMinCount :: Int, _runMaxCount :: Int} deriving (Eq, Read, Show)
+data RunInstances = RunInstances'
+    { _runSecurityGroupIds                  :: Maybe [Text]
+    , _runAdditionalInfo                    :: Maybe Text
+    , _runSecurityGroups                    :: Maybe [Text]
+    , _runClientToken                       :: Maybe Text
+    , _runDisableAPITermination             :: Maybe Bool
+    , _runNetworkInterfaces                 :: Maybe [InstanceNetworkInterfaceSpecification]
+    , _runKeyName                           :: Maybe Text
+    , _runRAMDiskId                         :: Maybe Text
+    , _runKernelId                          :: Maybe Text
+    , _runSubnetId                          :: Maybe Text
+    , _runInstanceType                      :: Maybe InstanceType
+    , _runEBSOptimized                      :: Maybe Bool
+    , _runUserData                          :: Maybe Text
+    , _runMonitoring                        :: Maybe RunInstancesMonitoringEnabled
+    , _runIAMInstanceProfile                :: Maybe IAMInstanceProfileSpecification
+    , _runInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior
+    , _runPrivateIPAddress                  :: Maybe Text
+    , _runBlockDeviceMappings               :: Maybe [BlockDeviceMapping]
+    , _runDryRun                            :: Maybe Bool
+    , _runPlacement                         :: Maybe Placement
+    , _runImageId                           :: Text
+    , _runMinCount                          :: !Int
+    , _runMaxCount                          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RunInstances' smart constructor.
 runInstances :: Text -> Int -> Int -> RunInstances
-runInstances pImageId pMinCount pMaxCount = RunInstances'{_runSecurityGroupIds = Nothing, _runAdditionalInfo = Nothing, _runSecurityGroups = Nothing, _runClientToken = Nothing, _runDisableAPITermination = Nothing, _runNetworkInterfaces = Nothing, _runKeyName = Nothing, _runRAMDiskId = Nothing, _runKernelId = Nothing, _runSubnetId = Nothing, _runInstanceType = Nothing, _runEBSOptimized = Nothing, _runUserData = Nothing, _runMonitoring = Nothing, _runIAMInstanceProfile = Nothing, _runInstanceInitiatedShutdownBehavior = Nothing, _runPrivateIPAddress = Nothing, _runBlockDeviceMappings = Nothing, _runDryRun = Nothing, _runPlacement = Nothing, _runImageId = pImageId, _runMinCount = pMinCount, _runMaxCount = pMaxCount};
+runInstances pImageId pMinCount pMaxCount =
+    RunInstances'
+    { _runSecurityGroupIds = Nothing
+    , _runAdditionalInfo = Nothing
+    , _runSecurityGroups = Nothing
+    , _runClientToken = Nothing
+    , _runDisableAPITermination = Nothing
+    , _runNetworkInterfaces = Nothing
+    , _runKeyName = Nothing
+    , _runRAMDiskId = Nothing
+    , _runKernelId = Nothing
+    , _runSubnetId = Nothing
+    , _runInstanceType = Nothing
+    , _runEBSOptimized = Nothing
+    , _runUserData = Nothing
+    , _runMonitoring = Nothing
+    , _runIAMInstanceProfile = Nothing
+    , _runInstanceInitiatedShutdownBehavior = Nothing
+    , _runPrivateIPAddress = Nothing
+    , _runBlockDeviceMappings = Nothing
+    , _runDryRun = Nothing
+    , _runPlacement = Nothing
+    , _runImageId = pImageId
+    , _runMinCount = pMinCount
+    , _runMaxCount = pMaxCount
+    }
 
 -- | One or more security group IDs. You can create a security group using
 -- CreateSecurityGroup.

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.CreateLogStream
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.CloudWatchLogs.CreateLogStream
     , createLogStreamResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createLogStream' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'clsLogGroupName'
 --
 -- * 'clsLogStreamName'
-data CreateLogStream = CreateLogStream'{_clsLogGroupName :: Text, _clsLogStreamName :: Text} deriving (Eq, Read, Show)
+data CreateLogStream = CreateLogStream'
+    { _clsLogGroupName  :: Text
+    , _clsLogStreamName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLogStream' smart constructor.
 createLogStream :: Text -> Text -> CreateLogStream
-createLogStream pLogGroupName pLogStreamName = CreateLogStream'{_clsLogGroupName = pLogGroupName, _clsLogStreamName = pLogStreamName};
+createLogStream pLogGroupName pLogStreamName =
+    CreateLogStream'
+    { _clsLogGroupName = pLogGroupName
+    , _clsLogStreamName = pLogStreamName
+    }
 
 -- | The name of the log group under which the log stream is to be created.
 clsLogGroupName :: Lens' CreateLogStream Text
@@ -94,8 +101,10 @@ instance ToQuery CreateLogStream where
         toQuery = const mempty
 
 -- | /See:/ 'createLogStreamResponse' smart constructor.
-data CreateLogStreamResponse = CreateLogStreamResponse' deriving (Eq, Read, Show)
+data CreateLogStreamResponse =
+    CreateLogStreamResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CreateLogStreamResponse' smart constructor.
 createLogStreamResponse :: CreateLogStreamResponse
-createLogStreamResponse = CreateLogStreamResponse';
+createLogStreamResponse = CreateLogStreamResponse'

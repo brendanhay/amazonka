@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.UpdateStreamingDistribution
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
     -- ** Response lenses
     , usdrETag
     , usdrStreamingDistribution
-    , usdrStatusCode
+    , usdrStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to update a streaming distribution.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'usdStreamingDistributionConfig'
 --
 -- * 'usdId'
-data UpdateStreamingDistribution = UpdateStreamingDistribution'{_usdIfMatch :: Maybe Text, _usdStreamingDistributionConfig :: StreamingDistributionConfig, _usdId :: Text} deriving (Eq, Read, Show)
+data UpdateStreamingDistribution = UpdateStreamingDistribution'
+    { _usdIfMatch                     :: Maybe Text
+    , _usdStreamingDistributionConfig :: StreamingDistributionConfig
+    , _usdId                          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateStreamingDistribution' smart constructor.
 updateStreamingDistribution :: StreamingDistributionConfig -> Text -> UpdateStreamingDistribution
-updateStreamingDistribution pStreamingDistributionConfig pId = UpdateStreamingDistribution'{_usdIfMatch = Nothing, _usdStreamingDistributionConfig = pStreamingDistributionConfig, _usdId = pId};
+updateStreamingDistribution pStreamingDistributionConfig pId =
+    UpdateStreamingDistribution'
+    { _usdIfMatch = Nothing
+    , _usdStreamingDistributionConfig = pStreamingDistributionConfig
+    , _usdId = pId
+    }
 
 -- | The value of the ETag header you received when retrieving the streaming
 -- distribution\'s configuration. For example: E2QWRUHAPOMQZL.
@@ -115,12 +124,21 @@ instance ToQuery UpdateStreamingDistribution where
 --
 -- * 'usdrStreamingDistribution'
 --
--- * 'usdrStatusCode'
-data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'{_usdrETag :: Maybe Text, _usdrStreamingDistribution :: Maybe StreamingDistribution, _usdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'usdrStatus'
+data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
+    { _usdrETag                  :: Maybe Text
+    , _usdrStreamingDistribution :: Maybe StreamingDistribution
+    , _usdrStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateStreamingDistributionResponse' smart constructor.
 updateStreamingDistributionResponse :: Int -> UpdateStreamingDistributionResponse
-updateStreamingDistributionResponse pStatusCode = UpdateStreamingDistributionResponse'{_usdrETag = Nothing, _usdrStreamingDistribution = Nothing, _usdrStatusCode = pStatusCode};
+updateStreamingDistributionResponse pStatus =
+    UpdateStreamingDistributionResponse'
+    { _usdrETag = Nothing
+    , _usdrStreamingDistribution = Nothing
+    , _usdrStatus = pStatus
+    }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 usdrETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
@@ -131,5 +149,5 @@ usdrStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe St
 usdrStreamingDistribution = lens _usdrStreamingDistribution (\ s a -> s{_usdrStreamingDistribution = a});
 
 -- | FIXME: Undocumented member.
-usdrStatusCode :: Lens' UpdateStreamingDistributionResponse Int
-usdrStatusCode = lens _usdrStatusCode (\ s a -> s{_usdrStatusCode = a});
+usdrStatus :: Lens' UpdateStreamingDistributionResponse Int
+usdrStatus = lens _usdrStatus (\ s a -> s{_usdrStatus = a});

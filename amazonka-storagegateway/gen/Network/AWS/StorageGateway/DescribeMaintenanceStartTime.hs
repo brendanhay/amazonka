@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeMaintenanceStartTime
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     , dmstrHourOfDay
     , dmstrTimezone
     , dmstrDayOfWeek
-    , dmstrStatusCode
+    , dmstrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the of the gateway.
 --
@@ -53,11 +53,16 @@ import Network.AWS.StorageGateway.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dmstGatewayARN'
-newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime'{_dmstGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime'
+    { _dmstGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMaintenanceStartTime' smart constructor.
 describeMaintenanceStartTime :: Text -> DescribeMaintenanceStartTime
-describeMaintenanceStartTime pGatewayARN = DescribeMaintenanceStartTime'{_dmstGatewayARN = pGatewayARN};
+describeMaintenanceStartTime pGatewayARN =
+    DescribeMaintenanceStartTime'
+    { _dmstGatewayARN = pGatewayARN
+    }
 
 -- | FIXME: Undocumented member.
 dmstGatewayARN :: Lens' DescribeMaintenanceStartTime Text
@@ -113,12 +118,27 @@ instance ToQuery DescribeMaintenanceStartTime where
 --
 -- * 'dmstrDayOfWeek'
 --
--- * 'dmstrStatusCode'
-data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse'{_dmstrGatewayARN :: Maybe Text, _dmstrMinuteOfHour :: Maybe Nat, _dmstrHourOfDay :: Maybe Nat, _dmstrTimezone :: Maybe Text, _dmstrDayOfWeek :: Maybe Nat, _dmstrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dmstrStatus'
+data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse'
+    { _dmstrGatewayARN   :: Maybe Text
+    , _dmstrMinuteOfHour :: Maybe Nat
+    , _dmstrHourOfDay    :: Maybe Nat
+    , _dmstrTimezone     :: Maybe Text
+    , _dmstrDayOfWeek    :: Maybe Nat
+    , _dmstrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMaintenanceStartTimeResponse' smart constructor.
 describeMaintenanceStartTimeResponse :: Int -> DescribeMaintenanceStartTimeResponse
-describeMaintenanceStartTimeResponse pStatusCode = DescribeMaintenanceStartTimeResponse'{_dmstrGatewayARN = Nothing, _dmstrMinuteOfHour = Nothing, _dmstrHourOfDay = Nothing, _dmstrTimezone = Nothing, _dmstrDayOfWeek = Nothing, _dmstrStatusCode = pStatusCode};
+describeMaintenanceStartTimeResponse pStatus =
+    DescribeMaintenanceStartTimeResponse'
+    { _dmstrGatewayARN = Nothing
+    , _dmstrMinuteOfHour = Nothing
+    , _dmstrHourOfDay = Nothing
+    , _dmstrTimezone = Nothing
+    , _dmstrDayOfWeek = Nothing
+    , _dmstrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dmstrGatewayARN :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
@@ -141,5 +161,5 @@ dmstrDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrDayOfWeek = lens _dmstrDayOfWeek (\ s a -> s{_dmstrDayOfWeek = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
-dmstrStatusCode :: Lens' DescribeMaintenanceStartTimeResponse Int
-dmstrStatusCode = lens _dmstrStatusCode (\ s a -> s{_dmstrStatusCode = a});
+dmstrStatus :: Lens' DescribeMaintenanceStartTimeResponse Int
+dmstrStatus = lens _dmstrStatus (\ s a -> s{_dmstrStatus = a});

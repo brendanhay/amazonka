@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeBundleTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.EC2.DescribeBundleTasks
     , describeBundleTasksResponse
     -- ** Response lenses
     , dbtrBundleTasks
-    , dbtrStatusCode
+    , dbtrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeBundleTasks' smart constructor.
 --
@@ -56,11 +56,20 @@ import Network.AWS.Response
 -- * 'dbtFilters'
 --
 -- * 'dbtDryRun'
-data DescribeBundleTasks = DescribeBundleTasks'{_dbtBundleIds :: Maybe [Text], _dbtFilters :: Maybe [Filter], _dbtDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeBundleTasks = DescribeBundleTasks'
+    { _dbtBundleIds :: Maybe [Text]
+    , _dbtFilters   :: Maybe [Filter]
+    , _dbtDryRun    :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeBundleTasks' smart constructor.
 describeBundleTasks :: DescribeBundleTasks
-describeBundleTasks = DescribeBundleTasks'{_dbtBundleIds = Nothing, _dbtFilters = Nothing, _dbtDryRun = Nothing};
+describeBundleTasks =
+    DescribeBundleTasks'
+    { _dbtBundleIds = Nothing
+    , _dbtFilters = Nothing
+    , _dbtDryRun = Nothing
+    }
 
 -- | One or more bundle task IDs.
 --
@@ -136,17 +145,24 @@ instance ToQuery DescribeBundleTasks where
 --
 -- * 'dbtrBundleTasks'
 --
--- * 'dbtrStatusCode'
-data DescribeBundleTasksResponse = DescribeBundleTasksResponse'{_dbtrBundleTasks :: Maybe [BundleTask], _dbtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dbtrStatus'
+data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
+    { _dbtrBundleTasks :: Maybe [BundleTask]
+    , _dbtrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeBundleTasksResponse' smart constructor.
 describeBundleTasksResponse :: Int -> DescribeBundleTasksResponse
-describeBundleTasksResponse pStatusCode = DescribeBundleTasksResponse'{_dbtrBundleTasks = Nothing, _dbtrStatusCode = pStatusCode};
+describeBundleTasksResponse pStatus =
+    DescribeBundleTasksResponse'
+    { _dbtrBundleTasks = Nothing
+    , _dbtrStatus = pStatus
+    }
 
 -- | Information about one or more bundle tasks.
 dbtrBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
 dbtrBundleTasks = lens _dbtrBundleTasks (\ s a -> s{_dbtrBundleTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dbtrStatusCode :: Lens' DescribeBundleTasksResponse Int
-dbtrStatusCode = lens _dbtrStatusCode (\ s a -> s{_dbtrStatusCode = a});
+dbtrStatus :: Lens' DescribeBundleTasksResponse Int
+dbtrStatus = lens _dbtrStatus (\ s a -> s{_dbtrStatus = a});

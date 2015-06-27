@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.PromoteReadReplica
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.RDS.PromoteReadReplica
     , promoteReadReplicaResponse
     -- ** Response lenses
     , prrrDBInstance
-    , prrrStatusCode
+    , prrrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'prrBackupRetentionPeriod'
 --
 -- * 'prrDBInstanceIdentifier'
-data PromoteReadReplica = PromoteReadReplica'{_prrPreferredBackupWindow :: Maybe Text, _prrBackupRetentionPeriod :: Maybe Int, _prrDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
+data PromoteReadReplica = PromoteReadReplica'
+    { _prrPreferredBackupWindow :: Maybe Text
+    , _prrBackupRetentionPeriod :: Maybe Int
+    , _prrDBInstanceIdentifier  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PromoteReadReplica' smart constructor.
 promoteReadReplica :: Text -> PromoteReadReplica
-promoteReadReplica pDBInstanceIdentifier = PromoteReadReplica'{_prrPreferredBackupWindow = Nothing, _prrBackupRetentionPeriod = Nothing, _prrDBInstanceIdentifier = pDBInstanceIdentifier};
+promoteReadReplica pDBInstanceIdentifier =
+    PromoteReadReplica'
+    { _prrPreferredBackupWindow = Nothing
+    , _prrBackupRetentionPeriod = Nothing
+    , _prrDBInstanceIdentifier = pDBInstanceIdentifier
+    }
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled, using the @BackupRetentionPeriod@
@@ -135,17 +144,24 @@ instance ToQuery PromoteReadReplica where
 --
 -- * 'prrrDBInstance'
 --
--- * 'prrrStatusCode'
-data PromoteReadReplicaResponse = PromoteReadReplicaResponse'{_prrrDBInstance :: Maybe DBInstance, _prrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'prrrStatus'
+data PromoteReadReplicaResponse = PromoteReadReplicaResponse'
+    { _prrrDBInstance :: Maybe DBInstance
+    , _prrrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PromoteReadReplicaResponse' smart constructor.
 promoteReadReplicaResponse :: Int -> PromoteReadReplicaResponse
-promoteReadReplicaResponse pStatusCode = PromoteReadReplicaResponse'{_prrrDBInstance = Nothing, _prrrStatusCode = pStatusCode};
+promoteReadReplicaResponse pStatus =
+    PromoteReadReplicaResponse'
+    { _prrrDBInstance = Nothing
+    , _prrrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 prrrDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
 prrrDBInstance = lens _prrrDBInstance (\ s a -> s{_prrrDBInstance = a});
 
 -- | FIXME: Undocumented member.
-prrrStatusCode :: Lens' PromoteReadReplicaResponse Int
-prrrStatusCode = lens _prrrStatusCode (\ s a -> s{_prrrStatusCode = a});
+prrrStatus :: Lens' PromoteReadReplicaResponse Int
+prrrStatus = lens _prrrStatus (\ s a -> s{_prrrStatus = a});

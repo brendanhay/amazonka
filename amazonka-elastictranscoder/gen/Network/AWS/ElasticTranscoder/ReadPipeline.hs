@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ReadPipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.ElasticTranscoder.ReadPipeline
     -- ** Response lenses
     , reaWarnings
     , reaPipeline
-    , reaStatusCode
+    , reaStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @ReadPipelineRequest@ structure.
 --
@@ -48,11 +48,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'reaId'
-newtype ReadPipeline = ReadPipeline'{_reaId :: Text} deriving (Eq, Read, Show)
+newtype ReadPipeline = ReadPipeline'
+    { _reaId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReadPipeline' smart constructor.
 readPipeline :: Text -> ReadPipeline
-readPipeline pId = ReadPipeline'{_reaId = pId};
+readPipeline pId =
+    ReadPipeline'
+    { _reaId = pId
+    }
 
 -- | The identifier of the pipeline to read.
 reaId :: Lens' ReadPipeline Text
@@ -89,12 +94,21 @@ instance ToQuery ReadPipeline where
 --
 -- * 'reaPipeline'
 --
--- * 'reaStatusCode'
-data ReadPipelineResponse = ReadPipelineResponse'{_reaWarnings :: Maybe [Warning], _reaPipeline :: Maybe Pipeline, _reaStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'reaStatus'
+data ReadPipelineResponse = ReadPipelineResponse'
+    { _reaWarnings :: Maybe [Warning]
+    , _reaPipeline :: Maybe Pipeline
+    , _reaStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ReadPipelineResponse' smart constructor.
 readPipelineResponse :: Int -> ReadPipelineResponse
-readPipelineResponse pStatusCode = ReadPipelineResponse'{_reaWarnings = Nothing, _reaPipeline = Nothing, _reaStatusCode = pStatusCode};
+readPipelineResponse pStatus =
+    ReadPipelineResponse'
+    { _reaWarnings = Nothing
+    , _reaPipeline = Nothing
+    , _reaStatus = pStatus
+    }
 
 -- | Elastic Transcoder returns a warning if the resources used by your
 -- pipeline are not in the same region as the pipeline.
@@ -111,5 +125,5 @@ reaPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
 reaPipeline = lens _reaPipeline (\ s a -> s{_reaPipeline = a});
 
 -- | FIXME: Undocumented member.
-reaStatusCode :: Lens' ReadPipelineResponse Int
-reaStatusCode = lens _reaStatusCode (\ s a -> s{_reaStatusCode = a});
+reaStatus :: Lens' ReadPipelineResponse Int
+reaStatus = lens _reaStatus (\ s a -> s{_reaStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.GetConfig
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.CloudHSM.GetConfig
     , gcrConfigFile
     , gcrConfigCred
     , gcrConfigType
-    , gcrStatusCode
+    , gcrStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getConfig' smart constructor.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'gcClientVersion'
 --
 -- * 'gcHAPGList'
-data GetConfig = GetConfig'{_gcClientARN :: Text, _gcClientVersion :: ClientVersion, _gcHAPGList :: [Text]} deriving (Eq, Read, Show)
+data GetConfig = GetConfig'
+    { _gcClientARN     :: Text
+    , _gcClientVersion :: ClientVersion
+    , _gcHAPGList      :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'GetConfig' smart constructor.
 getConfig :: Text -> ClientVersion -> GetConfig
-getConfig pClientARN pClientVersion = GetConfig'{_gcClientARN = pClientARN, _gcClientVersion = pClientVersion, _gcHAPGList = mempty};
+getConfig pClientARN pClientVersion =
+    GetConfig'
+    { _gcClientARN = pClientARN
+    , _gcClientVersion = pClientVersion
+    , _gcHAPGList = mempty
+    }
 
 -- | The ARN of the client.
 gcClientARN :: Lens' GetConfig Text
@@ -117,12 +126,23 @@ instance ToQuery GetConfig where
 --
 -- * 'gcrConfigType'
 --
--- * 'gcrStatusCode'
-data GetConfigResponse = GetConfigResponse'{_gcrConfigFile :: Maybe Text, _gcrConfigCred :: Maybe Text, _gcrConfigType :: Maybe Text, _gcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gcrStatus'
+data GetConfigResponse = GetConfigResponse'
+    { _gcrConfigFile :: Maybe Text
+    , _gcrConfigCred :: Maybe Text
+    , _gcrConfigType :: Maybe Text
+    , _gcrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetConfigResponse' smart constructor.
 getConfigResponse :: Int -> GetConfigResponse
-getConfigResponse pStatusCode = GetConfigResponse'{_gcrConfigFile = Nothing, _gcrConfigCred = Nothing, _gcrConfigType = Nothing, _gcrStatusCode = pStatusCode};
+getConfigResponse pStatus =
+    GetConfigResponse'
+    { _gcrConfigFile = Nothing
+    , _gcrConfigCred = Nothing
+    , _gcrConfigType = Nothing
+    , _gcrStatus = pStatus
+    }
 
 -- | The chrystoki.conf configuration file.
 gcrConfigFile :: Lens' GetConfigResponse (Maybe Text)
@@ -137,5 +157,5 @@ gcrConfigType :: Lens' GetConfigResponse (Maybe Text)
 gcrConfigType = lens _gcrConfigType (\ s a -> s{_gcrConfigType = a});
 
 -- | FIXME: Undocumented member.
-gcrStatusCode :: Lens' GetConfigResponse Int
-gcrStatusCode = lens _gcrStatusCode (\ s a -> s{_gcrStatusCode = a});
+gcrStatus :: Lens' GetConfigResponse Int
+gcrStatus = lens _gcrStatus (\ s a -> s{_gcrStatus = a});

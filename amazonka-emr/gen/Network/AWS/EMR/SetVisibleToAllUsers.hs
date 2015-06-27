@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.SetVisibleToAllUsers
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,10 +38,10 @@ module Network.AWS.EMR.SetVisibleToAllUsers
     , setVisibleToAllUsersResponse
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input to the SetVisibleToAllUsers action.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'svtauJobFlowIds'
 --
 -- * 'svtauVisibleToAllUsers'
-data SetVisibleToAllUsers = SetVisibleToAllUsers'{_svtauJobFlowIds :: [Text], _svtauVisibleToAllUsers :: Bool} deriving (Eq, Read, Show)
+data SetVisibleToAllUsers = SetVisibleToAllUsers'
+    { _svtauJobFlowIds        :: [Text]
+    , _svtauVisibleToAllUsers :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'SetVisibleToAllUsers' smart constructor.
 setVisibleToAllUsers :: Bool -> SetVisibleToAllUsers
-setVisibleToAllUsers pVisibleToAllUsers = SetVisibleToAllUsers'{_svtauJobFlowIds = mempty, _svtauVisibleToAllUsers = pVisibleToAllUsers};
+setVisibleToAllUsers pVisibleToAllUsers =
+    SetVisibleToAllUsers'
+    { _svtauJobFlowIds = mempty
+    , _svtauVisibleToAllUsers = pVisibleToAllUsers
+    }
 
 -- | Identifiers of the job flows to receive the new visibility setting.
 svtauJobFlowIds :: Lens' SetVisibleToAllUsers [Text]
@@ -100,8 +107,10 @@ instance ToQuery SetVisibleToAllUsers where
         toQuery = const mempty
 
 -- | /See:/ 'setVisibleToAllUsersResponse' smart constructor.
-data SetVisibleToAllUsersResponse = SetVisibleToAllUsersResponse' deriving (Eq, Read, Show)
+data SetVisibleToAllUsersResponse =
+    SetVisibleToAllUsersResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetVisibleToAllUsersResponse' smart constructor.
 setVisibleToAllUsersResponse :: SetVisibleToAllUsersResponse
-setVisibleToAllUsersResponse = SetVisibleToAllUsersResponse';
+setVisibleToAllUsersResponse = SetVisibleToAllUsersResponse'

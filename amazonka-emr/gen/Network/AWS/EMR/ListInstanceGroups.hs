@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.ListInstanceGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,14 +34,14 @@ module Network.AWS.EMR.ListInstanceGroups
     -- ** Response lenses
     , ligrMarker
     , ligrInstanceGroups
-    , ligrStatusCode
+    , ligrStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This input determines which instance groups to retrieve.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'ligMarker'
 --
 -- * 'ligClusterId'
-data ListInstanceGroups = ListInstanceGroups'{_ligMarker :: Maybe Text, _ligClusterId :: Text} deriving (Eq, Read, Show)
+data ListInstanceGroups = ListInstanceGroups'
+    { _ligMarker    :: Maybe Text
+    , _ligClusterId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListInstanceGroups' smart constructor.
 listInstanceGroups :: Text -> ListInstanceGroups
-listInstanceGroups pClusterId = ListInstanceGroups'{_ligMarker = Nothing, _ligClusterId = pClusterId};
+listInstanceGroups pClusterId =
+    ListInstanceGroups'
+    { _ligMarker = Nothing
+    , _ligClusterId = pClusterId
+    }
 
 -- | The pagination token that indicates the next set of results to retrieve.
 ligMarker :: Lens' ListInstanceGroups (Maybe Text)
@@ -118,12 +125,21 @@ instance ToQuery ListInstanceGroups where
 --
 -- * 'ligrInstanceGroups'
 --
--- * 'ligrStatusCode'
-data ListInstanceGroupsResponse = ListInstanceGroupsResponse'{_ligrMarker :: Maybe Text, _ligrInstanceGroups :: Maybe [InstanceGroup], _ligrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ligrStatus'
+data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
+    { _ligrMarker         :: Maybe Text
+    , _ligrInstanceGroups :: Maybe [InstanceGroup]
+    , _ligrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListInstanceGroupsResponse' smart constructor.
 listInstanceGroupsResponse :: Int -> ListInstanceGroupsResponse
-listInstanceGroupsResponse pStatusCode = ListInstanceGroupsResponse'{_ligrMarker = Nothing, _ligrInstanceGroups = Nothing, _ligrStatusCode = pStatusCode};
+listInstanceGroupsResponse pStatus =
+    ListInstanceGroupsResponse'
+    { _ligrMarker = Nothing
+    , _ligrInstanceGroups = Nothing
+    , _ligrStatus = pStatus
+    }
 
 -- | The pagination token that indicates the next set of results to retrieve.
 ligrMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
@@ -134,5 +150,5 @@ ligrInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
 ligrInstanceGroups = lens _ligrInstanceGroups (\ s a -> s{_ligrInstanceGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ligrStatusCode :: Lens' ListInstanceGroupsResponse Int
-ligrStatusCode = lens _ligrStatusCode (\ s a -> s{_ligrStatusCode = a});
+ligrStatus :: Lens' ListInstanceGroupsResponse Int
+ligrStatus = lens _ligrStatus (\ s a -> s{_ligrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.TransferDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,13 +68,13 @@ module Network.AWS.Route53Domains.TransferDomain
     , transferDomainResponse
     -- ** Response lenses
     , tdrOperationId
-    , tdrStatusCode
+    , tdrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | The TransferDomain request includes the following elements.
 --
@@ -105,11 +105,38 @@ import Network.AWS.Route53Domains.Types
 -- * 'tdRegistrantContact'
 --
 -- * 'tdTechContact'
-data TransferDomain = TransferDomain'{_tdPrivacyProtectTechContact :: Maybe Bool, _tdPrivacyProtectRegistrantContact :: Maybe Bool, _tdAutoRenew :: Maybe Bool, _tdPrivacyProtectAdminContact :: Maybe Bool, _tdIDNLangCode :: Maybe Text, _tdAuthCode :: Maybe (Sensitive Text), _tdNameservers :: Maybe [Nameserver], _tdDomainName :: Text, _tdDurationInYears :: Nat, _tdAdminContact :: Sensitive ContactDetail, _tdRegistrantContact :: Sensitive ContactDetail, _tdTechContact :: Sensitive ContactDetail} deriving (Eq, Read, Show)
+data TransferDomain = TransferDomain'
+    { _tdPrivacyProtectTechContact       :: Maybe Bool
+    , _tdPrivacyProtectRegistrantContact :: Maybe Bool
+    , _tdAutoRenew                       :: Maybe Bool
+    , _tdPrivacyProtectAdminContact      :: Maybe Bool
+    , _tdIDNLangCode                     :: Maybe Text
+    , _tdAuthCode                        :: Maybe (Sensitive Text)
+    , _tdNameservers                     :: Maybe [Nameserver]
+    , _tdDomainName                      :: Text
+    , _tdDurationInYears                 :: !Nat
+    , _tdAdminContact                    :: Sensitive ContactDetail
+    , _tdRegistrantContact               :: Sensitive ContactDetail
+    , _tdTechContact                     :: Sensitive ContactDetail
+    } deriving (Eq,Read,Show)
 
 -- | 'TransferDomain' smart constructor.
 transferDomain :: Text -> Natural -> ContactDetail -> ContactDetail -> ContactDetail -> TransferDomain
-transferDomain pDomainName pDurationInYears pAdminContact pRegistrantContact pTechContact = TransferDomain'{_tdPrivacyProtectTechContact = Nothing, _tdPrivacyProtectRegistrantContact = Nothing, _tdAutoRenew = Nothing, _tdPrivacyProtectAdminContact = Nothing, _tdIDNLangCode = Nothing, _tdAuthCode = Nothing, _tdNameservers = Nothing, _tdDomainName = pDomainName, _tdDurationInYears = _Nat # pDurationInYears, _tdAdminContact = _Sensitive # pAdminContact, _tdRegistrantContact = _Sensitive # pRegistrantContact, _tdTechContact = _Sensitive # pTechContact};
+transferDomain pDomainName pDurationInYears pAdminContact pRegistrantContact pTechContact =
+    TransferDomain'
+    { _tdPrivacyProtectTechContact = Nothing
+    , _tdPrivacyProtectRegistrantContact = Nothing
+    , _tdAutoRenew = Nothing
+    , _tdPrivacyProtectAdminContact = Nothing
+    , _tdIDNLangCode = Nothing
+    , _tdAuthCode = Nothing
+    , _tdNameservers = Nothing
+    , _tdDomainName = pDomainName
+    , _tdDurationInYears = _Nat # pDurationInYears
+    , _tdAdminContact = _Sensitive # pAdminContact
+    , _tdRegistrantContact = _Sensitive # pRegistrantContact
+    , _tdTechContact = _Sensitive # pTechContact
+    }
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS (\"who is\") queries will return contact
@@ -309,12 +336,19 @@ instance ToQuery TransferDomain where
 --
 -- * 'tdrOperationId'
 --
--- * 'tdrStatusCode'
-data TransferDomainResponse = TransferDomainResponse'{_tdrOperationId :: Text, _tdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'tdrStatus'
+data TransferDomainResponse = TransferDomainResponse'
+    { _tdrOperationId :: Text
+    , _tdrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'TransferDomainResponse' smart constructor.
 transferDomainResponse :: Text -> Int -> TransferDomainResponse
-transferDomainResponse pOperationId pStatusCode = TransferDomainResponse'{_tdrOperationId = pOperationId, _tdrStatusCode = pStatusCode};
+transferDomainResponse pOperationId pStatus =
+    TransferDomainResponse'
+    { _tdrOperationId = pOperationId
+    , _tdrStatus = pStatus
+    }
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -328,5 +362,5 @@ tdrOperationId :: Lens' TransferDomainResponse Text
 tdrOperationId = lens _tdrOperationId (\ s a -> s{_tdrOperationId = a});
 
 -- | FIXME: Undocumented member.
-tdrStatusCode :: Lens' TransferDomainResponse Int
-tdrStatusCode = lens _tdrStatusCode (\ s a -> s{_tdrStatusCode = a});
+tdrStatus :: Lens' TransferDomainResponse Int
+tdrStatus = lens _tdrStatus (\ s a -> s{_tdrStatus = a});

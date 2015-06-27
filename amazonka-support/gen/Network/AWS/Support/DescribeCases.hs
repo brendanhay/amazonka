@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Support.DescribeCases
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,14 +55,14 @@ module Network.AWS.Support.DescribeCases
     -- ** Response lenses
     , desCases
     , desNextToken
-    , desStatusCode
+    , desStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Support.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
 
 -- | /See:/ 'describeCases' smart constructor.
 --
@@ -85,11 +85,32 @@ import Network.AWS.Support.Types
 -- * 'dcLanguage'
 --
 -- * 'dcMaxResults'
-data DescribeCases = DescribeCases'{_dcIncludeResolvedCases :: Maybe Bool, _dcCaseIdList :: Maybe [Text], _dcAfterTime :: Maybe Text, _dcNextToken :: Maybe Text, _dcBeforeTime :: Maybe Text, _dcIncludeCommunications :: Maybe Bool, _dcDisplayId :: Maybe Text, _dcLanguage :: Maybe Text, _dcMaxResults :: Maybe Nat} deriving (Eq, Read, Show)
+data DescribeCases = DescribeCases'
+    { _dcIncludeResolvedCases  :: Maybe Bool
+    , _dcCaseIdList            :: Maybe [Text]
+    , _dcAfterTime             :: Maybe Text
+    , _dcNextToken             :: Maybe Text
+    , _dcBeforeTime            :: Maybe Text
+    , _dcIncludeCommunications :: Maybe Bool
+    , _dcDisplayId             :: Maybe Text
+    , _dcLanguage              :: Maybe Text
+    , _dcMaxResults            :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCases' smart constructor.
 describeCases :: DescribeCases
-describeCases = DescribeCases'{_dcIncludeResolvedCases = Nothing, _dcCaseIdList = Nothing, _dcAfterTime = Nothing, _dcNextToken = Nothing, _dcBeforeTime = Nothing, _dcIncludeCommunications = Nothing, _dcDisplayId = Nothing, _dcLanguage = Nothing, _dcMaxResults = Nothing};
+describeCases =
+    DescribeCases'
+    { _dcIncludeResolvedCases = Nothing
+    , _dcCaseIdList = Nothing
+    , _dcAfterTime = Nothing
+    , _dcNextToken = Nothing
+    , _dcBeforeTime = Nothing
+    , _dcIncludeCommunications = Nothing
+    , _dcDisplayId = Nothing
+    , _dcLanguage = Nothing
+    , _dcMaxResults = Nothing
+    }
 
 -- | Specifies whether resolved support cases should be included in the
 -- DescribeCases results. The default is /false/.
@@ -193,12 +214,21 @@ instance ToQuery DescribeCases where
 --
 -- * 'desNextToken'
 --
--- * 'desStatusCode'
-data DescribeCasesResponse = DescribeCasesResponse'{_desCases :: Maybe [CaseDetails], _desNextToken :: Maybe Text, _desStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'desStatus'
+data DescribeCasesResponse = DescribeCasesResponse'
+    { _desCases     :: Maybe [CaseDetails]
+    , _desNextToken :: Maybe Text
+    , _desStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCasesResponse' smart constructor.
 describeCasesResponse :: Int -> DescribeCasesResponse
-describeCasesResponse pStatusCode = DescribeCasesResponse'{_desCases = Nothing, _desNextToken = Nothing, _desStatusCode = pStatusCode};
+describeCasesResponse pStatus =
+    DescribeCasesResponse'
+    { _desCases = Nothing
+    , _desNextToken = Nothing
+    , _desStatus = pStatus
+    }
 
 -- | The details for the cases that match the request.
 desCases :: Lens' DescribeCasesResponse [CaseDetails]
@@ -209,5 +239,5 @@ desNextToken :: Lens' DescribeCasesResponse (Maybe Text)
 desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 
 -- | FIXME: Undocumented member.
-desStatusCode :: Lens' DescribeCasesResponse Int
-desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});
+desStatus :: Lens' DescribeCasesResponse Int
+desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

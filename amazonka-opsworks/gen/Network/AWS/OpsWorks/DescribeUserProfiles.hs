@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeUserProfiles
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,24 +37,29 @@ module Network.AWS.OpsWorks.DescribeUserProfiles
     , describeUserProfilesResponse
     -- ** Response lenses
     , duprUserProfiles
-    , duprStatusCode
+    , duprStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeUserProfiles' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dupIAMUserARNs'
-newtype DescribeUserProfiles = DescribeUserProfiles'{_dupIAMUserARNs :: Maybe [Text]} deriving (Eq, Read, Show)
+newtype DescribeUserProfiles = DescribeUserProfiles'
+    { _dupIAMUserARNs :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeUserProfiles' smart constructor.
 describeUserProfiles :: DescribeUserProfiles
-describeUserProfiles = DescribeUserProfiles'{_dupIAMUserARNs = Nothing};
+describeUserProfiles =
+    DescribeUserProfiles'
+    { _dupIAMUserARNs = Nothing
+    }
 
 -- | An array of IAM user ARNs that identify the users to be described.
 dupIAMUserARNs :: Lens' DescribeUserProfiles [Text]
@@ -100,17 +105,24 @@ instance ToQuery DescribeUserProfiles where
 --
 -- * 'duprUserProfiles'
 --
--- * 'duprStatusCode'
-data DescribeUserProfilesResponse = DescribeUserProfilesResponse'{_duprUserProfiles :: Maybe [UserProfile], _duprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'duprStatus'
+data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
+    { _duprUserProfiles :: Maybe [UserProfile]
+    , _duprStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeUserProfilesResponse' smart constructor.
 describeUserProfilesResponse :: Int -> DescribeUserProfilesResponse
-describeUserProfilesResponse pStatusCode = DescribeUserProfilesResponse'{_duprUserProfiles = Nothing, _duprStatusCode = pStatusCode};
+describeUserProfilesResponse pStatus =
+    DescribeUserProfilesResponse'
+    { _duprUserProfiles = Nothing
+    , _duprStatus = pStatus
+    }
 
 -- | A @Users@ object that describes the specified users.
 duprUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
 duprUserProfiles = lens _duprUserProfiles (\ s a -> s{_duprUserProfiles = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-duprStatusCode :: Lens' DescribeUserProfilesResponse Int
-duprStatusCode = lens _duprStatusCode (\ s a -> s{_duprStatusCode = a});
+duprStatus :: Lens' DescribeUserProfilesResponse Int
+duprStatus = lens _duprStatus (\ s a -> s{_duprStatus = a});

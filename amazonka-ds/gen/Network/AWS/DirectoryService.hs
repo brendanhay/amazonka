@@ -19,22 +19,22 @@ module Network.AWS.DirectoryService
     ( module Export
     ) where
 
-import Network.AWS.DirectoryService.ConnectDirectory as Export
-import Network.AWS.DirectoryService.CreateAlias as Export
-import Network.AWS.DirectoryService.CreateComputer as Export
-import Network.AWS.DirectoryService.CreateDirectory as Export
-import Network.AWS.DirectoryService.CreateSnapshot as Export
-import Network.AWS.DirectoryService.DeleteDirectory as Export
-import Network.AWS.DirectoryService.DeleteSnapshot as Export
-import Network.AWS.DirectoryService.DescribeDirectories as Export
-import Network.AWS.DirectoryService.DescribeSnapshots as Export
-import Network.AWS.DirectoryService.DisableRadius as Export
-import Network.AWS.DirectoryService.DisableSso as Export
-import Network.AWS.DirectoryService.EnableRadius as Export
-import Network.AWS.DirectoryService.EnableSso as Export
-import Network.AWS.DirectoryService.GetDirectoryLimits as Export
-import Network.AWS.DirectoryService.GetSnapshotLimits as Export
-import Network.AWS.DirectoryService.RestoreFromSnapshot as Export
-import Network.AWS.DirectoryService.Types as Export
-import Network.AWS.DirectoryService.UpdateRadius as Export
-import Network.AWS.DirectoryService.Waiters as Export
+import           Network.AWS.DirectoryService.ConnectDirectory    as Export
+import           Network.AWS.DirectoryService.CreateAlias         as Export
+import           Network.AWS.DirectoryService.CreateComputer      as Export
+import           Network.AWS.DirectoryService.CreateDirectory     as Export
+import           Network.AWS.DirectoryService.CreateSnapshot      as Export
+import           Network.AWS.DirectoryService.DeleteDirectory     as Export
+import           Network.AWS.DirectoryService.DeleteSnapshot      as Export
+import           Network.AWS.DirectoryService.DescribeDirectories as Export
+import           Network.AWS.DirectoryService.DescribeSnapshots   as Export
+import           Network.AWS.DirectoryService.DisableRadius       as Export
+import           Network.AWS.DirectoryService.DisableSso          as Export
+import           Network.AWS.DirectoryService.EnableRadius        as Export
+import           Network.AWS.DirectoryService.EnableSso           as Export
+import           Network.AWS.DirectoryService.GetDirectoryLimits  as Export
+import           Network.AWS.DirectoryService.GetSnapshotLimits   as Export
+import           Network.AWS.DirectoryService.RestoreFromSnapshot as Export
+import           Network.AWS.DirectoryService.Types               as Export
+import           Network.AWS.DirectoryService.UpdateRadius        as Export
+import           Network.AWS.DirectoryService.Waiters             as Export

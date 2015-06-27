@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.DeleteIdentities
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.CognitoIdentity.DeleteIdentities
     , deleteIdentitiesResponse
     -- ** Response lenses
     , dirUnprocessedIdentityIds
-    , dirStatusCode
+    , dirStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the @DeleteIdentities@ action.
 --
@@ -50,11 +50,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'diIdentityIdsToDelete'
-newtype DeleteIdentities = DeleteIdentities'{_diIdentityIdsToDelete :: List1 Text} deriving (Eq, Read, Show)
+newtype DeleteIdentities = DeleteIdentities'
+    { _diIdentityIdsToDelete :: List1 Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteIdentities' smart constructor.
 deleteIdentities :: NonEmpty Text -> DeleteIdentities
-deleteIdentities pIdentityIdsToDelete = DeleteIdentities'{_diIdentityIdsToDelete = _List1 # pIdentityIdsToDelete};
+deleteIdentities pIdentityIdsToDelete =
+    DeleteIdentities'
+    { _diIdentityIdsToDelete = _List1 # pIdentityIdsToDelete
+    }
 
 -- | A list of 1-60 identities that you want to delete.
 diIdentityIdsToDelete :: Lens' DeleteIdentities (NonEmpty Text)
@@ -100,12 +105,19 @@ instance ToQuery DeleteIdentities where
 --
 -- * 'dirUnprocessedIdentityIds'
 --
--- * 'dirStatusCode'
-data DeleteIdentitiesResponse = DeleteIdentitiesResponse'{_dirUnprocessedIdentityIds :: Maybe [UnprocessedIdentityId], _dirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dirStatus'
+data DeleteIdentitiesResponse = DeleteIdentitiesResponse'
+    { _dirUnprocessedIdentityIds :: Maybe [UnprocessedIdentityId]
+    , _dirStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteIdentitiesResponse' smart constructor.
 deleteIdentitiesResponse :: Int -> DeleteIdentitiesResponse
-deleteIdentitiesResponse pStatusCode = DeleteIdentitiesResponse'{_dirUnprocessedIdentityIds = Nothing, _dirStatusCode = pStatusCode};
+deleteIdentitiesResponse pStatus =
+    DeleteIdentitiesResponse'
+    { _dirUnprocessedIdentityIds = Nothing
+    , _dirStatus = pStatus
+    }
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an
 -- ErrorCode and IdentityId.
@@ -113,5 +125,5 @@ dirUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse [UnprocessedIdentity
 dirUnprocessedIdentityIds = lens _dirUnprocessedIdentityIds (\ s a -> s{_dirUnprocessedIdentityIds = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dirStatusCode :: Lens' DeleteIdentitiesResponse Int
-dirStatusCode = lens _dirStatusCode (\ s a -> s{_dirStatusCode = a});
+dirStatus :: Lens' DeleteIdentitiesResponse Int
+dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});

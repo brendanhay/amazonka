@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.EvaluateExpression
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.DataPipeline.EvaluateExpression
     , evaluateExpressionResponse
     -- ** Response lenses
     , eerEvaluatedExpression
-    , eerStatusCode
+    , eerStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for EvaluateExpression.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'eeObjectId'
 --
 -- * 'eeExpression'
-data EvaluateExpression = EvaluateExpression'{_eePipelineId :: Text, _eeObjectId :: Text, _eeExpression :: Text} deriving (Eq, Read, Show)
+data EvaluateExpression = EvaluateExpression'
+    { _eePipelineId :: Text
+    , _eeObjectId   :: Text
+    , _eeExpression :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EvaluateExpression' smart constructor.
 evaluateExpression :: Text -> Text -> Text -> EvaluateExpression
-evaluateExpression pPipelineId pObjectId pExpression = EvaluateExpression'{_eePipelineId = pPipelineId, _eeObjectId = pObjectId, _eeExpression = pExpression};
+evaluateExpression pPipelineId pObjectId pExpression =
+    EvaluateExpression'
+    { _eePipelineId = pPipelineId
+    , _eeObjectId = pObjectId
+    , _eeExpression = pExpression
+    }
 
 -- | The ID of the pipeline.
 eePipelineId :: Lens' EvaluateExpression Text
@@ -115,17 +124,24 @@ instance ToQuery EvaluateExpression where
 --
 -- * 'eerEvaluatedExpression'
 --
--- * 'eerStatusCode'
-data EvaluateExpressionResponse = EvaluateExpressionResponse'{_eerEvaluatedExpression :: Text, _eerStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'eerStatus'
+data EvaluateExpressionResponse = EvaluateExpressionResponse'
+    { _eerEvaluatedExpression :: Text
+    , _eerStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'EvaluateExpressionResponse' smart constructor.
 evaluateExpressionResponse :: Text -> Int -> EvaluateExpressionResponse
-evaluateExpressionResponse pEvaluatedExpression pStatusCode = EvaluateExpressionResponse'{_eerEvaluatedExpression = pEvaluatedExpression, _eerStatusCode = pStatusCode};
+evaluateExpressionResponse pEvaluatedExpression pStatus =
+    EvaluateExpressionResponse'
+    { _eerEvaluatedExpression = pEvaluatedExpression
+    , _eerStatus = pStatus
+    }
 
 -- | The evaluated expression.
 eerEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
 eerEvaluatedExpression = lens _eerEvaluatedExpression (\ s a -> s{_eerEvaluatedExpression = a});
 
 -- | FIXME: Undocumented member.
-eerStatusCode :: Lens' EvaluateExpressionResponse Int
-eerStatusCode = lens _eerStatusCode (\ s a -> s{_eerStatusCode = a});
+eerStatus :: Lens' EvaluateExpressionResponse Int
+eerStatus = lens _eerStatus (\ s a -> s{_eerStatus = a});

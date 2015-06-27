@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.SetInstanceHealth
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,10 +38,10 @@ module Network.AWS.AutoScaling.SetInstanceHealth
     , setInstanceHealthResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'setInstanceHealth' smart constructor.
 --
@@ -52,11 +52,20 @@ import Network.AWS.Response
 -- * 'sihInstanceId'
 --
 -- * 'sihHealthStatus'
-data SetInstanceHealth = SetInstanceHealth'{_sihShouldRespectGracePeriod :: Maybe Bool, _sihInstanceId :: Text, _sihHealthStatus :: Text} deriving (Eq, Read, Show)
+data SetInstanceHealth = SetInstanceHealth'
+    { _sihShouldRespectGracePeriod :: Maybe Bool
+    , _sihInstanceId               :: Text
+    , _sihHealthStatus             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetInstanceHealth' smart constructor.
 setInstanceHealth :: Text -> Text -> SetInstanceHealth
-setInstanceHealth pInstanceId pHealthStatus = SetInstanceHealth'{_sihShouldRespectGracePeriod = Nothing, _sihInstanceId = pInstanceId, _sihHealthStatus = pHealthStatus};
+setInstanceHealth pInstanceId pHealthStatus =
+    SetInstanceHealth'
+    { _sihShouldRespectGracePeriod = Nothing
+    , _sihInstanceId = pInstanceId
+    , _sihHealthStatus = pHealthStatus
+    }
 
 -- | If the Auto Scaling group of the specified instance has a
 -- @HealthCheckGracePeriod@ specified for the group, by default, this call
@@ -102,8 +111,10 @@ instance ToQuery SetInstanceHealth where
                "HealthStatus" =: _sihHealthStatus]
 
 -- | /See:/ 'setInstanceHealthResponse' smart constructor.
-data SetInstanceHealthResponse = SetInstanceHealthResponse' deriving (Eq, Read, Show)
+data SetInstanceHealthResponse =
+    SetInstanceHealthResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetInstanceHealthResponse' smart constructor.
 setInstanceHealthResponse :: SetInstanceHealthResponse
-setInstanceHealthResponse = SetInstanceHealthResponse';
+setInstanceHealthResponse = SetInstanceHealthResponse'

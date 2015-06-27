@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.DescribeEvaluations
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,14 +44,14 @@ module Network.AWS.MachineLearning.DescribeEvaluations
     -- ** Response lenses
     , der1Results
     , der1NextToken
-    , der1StatusCode
+    , der1Status
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeEvaluations' smart constructor.
 --
@@ -78,11 +78,36 @@ import Network.AWS.Response
 -- * 'deFilterVariable'
 --
 -- * 'deLE'
-data DescribeEvaluations = DescribeEvaluations'{_deEQ :: Maybe Text, _deGE :: Maybe Text, _dePrefix :: Maybe Text, _deGT :: Maybe Text, _deNE :: Maybe Text, _deNextToken :: Maybe Text, _deSortOrder :: Maybe SortOrder, _deLimit :: Maybe Nat, _deLT :: Maybe Text, _deFilterVariable :: Maybe EvaluationFilterVariable, _deLE :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeEvaluations = DescribeEvaluations'
+    { _deEQ             :: Maybe Text
+    , _deGE             :: Maybe Text
+    , _dePrefix         :: Maybe Text
+    , _deGT             :: Maybe Text
+    , _deNE             :: Maybe Text
+    , _deNextToken      :: Maybe Text
+    , _deSortOrder      :: Maybe SortOrder
+    , _deLimit          :: Maybe Nat
+    , _deLT             :: Maybe Text
+    , _deFilterVariable :: Maybe EvaluationFilterVariable
+    , _deLE             :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEvaluations' smart constructor.
 describeEvaluations :: DescribeEvaluations
-describeEvaluations = DescribeEvaluations'{_deEQ = Nothing, _deGE = Nothing, _dePrefix = Nothing, _deGT = Nothing, _deNE = Nothing, _deNextToken = Nothing, _deSortOrder = Nothing, _deLimit = Nothing, _deLT = Nothing, _deFilterVariable = Nothing, _deLE = Nothing};
+describeEvaluations =
+    DescribeEvaluations'
+    { _deEQ = Nothing
+    , _deGE = Nothing
+    , _dePrefix = Nothing
+    , _deGT = Nothing
+    , _deNE = Nothing
+    , _deNextToken = Nothing
+    , _deSortOrder = Nothing
+    , _deLimit = Nothing
+    , _deLT = Nothing
+    , _deFilterVariable = Nothing
+    , _deLE = Nothing
+    }
 
 -- | The equal to operator. The @Evaluation@ results will have
 -- @FilterVariable@ values that exactly match the value specified with
@@ -230,12 +255,21 @@ instance ToQuery DescribeEvaluations where
 --
 -- * 'der1NextToken'
 --
--- * 'der1StatusCode'
-data DescribeEvaluationsResponse = DescribeEvaluationsResponse'{_der1Results :: Maybe [Evaluation], _der1NextToken :: Maybe Text, _der1StatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'der1Status'
+data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
+    { _der1Results   :: Maybe [Evaluation]
+    , _der1NextToken :: Maybe Text
+    , _der1Status    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEvaluationsResponse' smart constructor.
 describeEvaluationsResponse :: Int -> DescribeEvaluationsResponse
-describeEvaluationsResponse pStatusCode = DescribeEvaluationsResponse'{_der1Results = Nothing, _der1NextToken = Nothing, _der1StatusCode = pStatusCode};
+describeEvaluationsResponse pStatus =
+    DescribeEvaluationsResponse'
+    { _der1Results = Nothing
+    , _der1NextToken = Nothing
+    , _der1Status = pStatus
+    }
 
 -- | A list of Evaluation that meet the search criteria.
 der1Results :: Lens' DescribeEvaluationsResponse [Evaluation]
@@ -247,5 +281,5 @@ der1NextToken :: Lens' DescribeEvaluationsResponse (Maybe Text)
 der1NextToken = lens _der1NextToken (\ s a -> s{_der1NextToken = a});
 
 -- | FIXME: Undocumented member.
-der1StatusCode :: Lens' DescribeEvaluationsResponse Int
-der1StatusCode = lens _der1StatusCode (\ s a -> s{_der1StatusCode = a});
+der1Status :: Lens' DescribeEvaluationsResponse Int
+der1Status = lens _der1Status (\ s a -> s{_der1Status = a});

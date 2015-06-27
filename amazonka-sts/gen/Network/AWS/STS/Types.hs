@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.STS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,56 +51,63 @@ module Network.AWS.STS.Types
     , fuARN
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2011-06-15@ of the Amazon Security Token Service SDK.
 data STS
 
 instance AWSService STS where
     type Sg STS = V4
-
     service = const svc
       where
-        svc :: Service STS
-        svc = Service
-            { _svcAbbrev   = "STS"
-            , _svcPrefix   = "sts"
-            , _svcVersion  = "2011-06-15"
+        svc =
+            Service
+            { _svcAbbrev = "STS"
+            , _svcPrefix = "sts"
+            , _svcVersion = "2011-06-15"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The request was rejected because the policy document was malformed. The
 -- error message describes the specific error.
-_MalformedPolicyDocumentException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MalformedPolicyDocumentException = _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument";
+_MalformedPolicyDocumentException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MalformedPolicyDocumentException =
+    _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument"
 
 -- | The request was rejected because the policy document was too large. The
 -- error message describes how big the policy document is, in packed form,
 -- as a percentage of what the API allows.
-_PackedPolicyTooLargeException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PackedPolicyTooLargeException = _ServiceError . hasStatus 400 . hasCode "PackedPolicyTooLarge";
+_PackedPolicyTooLargeException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PackedPolicyTooLargeException =
+    _ServiceError . hasStatus 400 . hasCode "PackedPolicyTooLarge"
 
 -- | The error returned if the message passed to @DecodeAuthorizationMessage@
 -- was invalid. This can happen if the token contains invalid characters,
 -- such as linebreaks.
-_InvalidAuthorizationMessageException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidAuthorizationMessageException = _ServiceError . hasStatus 400 . hasCode "InvalidAuthorizationMessageException";
+_InvalidAuthorizationMessageException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidAuthorizationMessageException =
+    _ServiceError .
+    hasStatus 400 . hasCode "InvalidAuthorizationMessageException"
 
 -- | The request could not be fulfilled because the non-AWS identity provider
 -- (IDP) that was asked to verify the incoming identity token could not be
@@ -109,20 +115,23 @@ _InvalidAuthorizationMessageException = _ServiceError . hasStatus 400 . hasCode 
 -- Retry the request a limited number of times so that you don\'t exceed
 -- the request rate. If the error persists, the non-AWS identity provider
 -- might be down or not responding.
-_IDPCommunicationErrorException :: AWSError a => Geting (First ServiceError) a ServiceError
-_IDPCommunicationErrorException = _ServiceError . hasStatus 400 . hasCode "IDPCommunicationError";
+_IDPCommunicationErrorException :: AWSError a => Getting (First ServiceError) a ServiceError
+_IDPCommunicationErrorException =
+    _ServiceError . hasStatus 400 . hasCode "IDPCommunicationError"
 
 -- | The web identity token that was passed is expired or is not valid. Get a
 -- new identity token from the identity provider and then retry the
 -- request.
-_ExpiredTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ExpiredTokenException = _ServiceError . hasStatus 400 . hasCode "ExpiredTokenException";
+_ExpiredTokenException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ExpiredTokenException =
+    _ServiceError . hasStatus 400 . hasCode "ExpiredTokenException"
 
 -- | The web identity token that was passed could not be validated by AWS.
 -- Get a new identity token from the identity provider and then retry the
 -- request.
-_InvalidIdentityTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidIdentityTokenException = _ServiceError . hasStatus 400 . hasCode "InvalidIdentityToken";
+_InvalidIdentityTokenException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidIdentityTokenException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidIdentityToken"
 
 -- | The identity provider (IdP) reported that authentication failed. This
 -- might be because the claim is invalid.
@@ -130,8 +139,9 @@ _InvalidIdentityTokenException = _ServiceError . hasStatus 400 . hasCode "Invali
 -- If this error is returned for the @AssumeRoleWithWebIdentity@ operation,
 -- it can also mean that the claim has expired or has been explicitly
 -- revoked.
-_IDPRejectedClaimException :: AWSError a => Geting (First ServiceError) a ServiceError
-_IDPRejectedClaimException = _ServiceError . hasStatus 403 . hasCode "IDPRejectedClaim";
+_IDPRejectedClaimException :: AWSError a => Getting (First ServiceError) a ServiceError
+_IDPRejectedClaimException =
+    _ServiceError . hasStatus 403 . hasCode "IDPRejectedClaim"
 
 -- | The identifiers for the temporary security credentials that the
 -- operation returns.
@@ -143,11 +153,18 @@ _IDPRejectedClaimException = _ServiceError . hasStatus 403 . hasCode "IDPRejecte
 -- * 'aruAssumedRoleId'
 --
 -- * 'aruARN'
-data AssumedRoleUser = AssumedRoleUser'{_aruAssumedRoleId :: Text, _aruARN :: Text} deriving (Eq, Read, Show)
+data AssumedRoleUser = AssumedRoleUser'
+    { _aruAssumedRoleId :: Text
+    , _aruARN           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AssumedRoleUser' smart constructor.
 assumedRoleUser :: Text -> Text -> AssumedRoleUser
-assumedRoleUser pAssumedRoleId pARN = AssumedRoleUser'{_aruAssumedRoleId = pAssumedRoleId, _aruARN = pARN};
+assumedRoleUser pAssumedRoleId pARN =
+    AssumedRoleUser'
+    { _aruAssumedRoleId = pAssumedRoleId
+    , _aruARN = pARN
+    }
 
 -- | A unique identifier that contains the role ID and the role session name
 -- of the role that is being assumed. The role ID is generated by AWS when
@@ -181,11 +198,22 @@ instance FromXML AssumedRoleUser where
 -- * 'creSessionToken'
 --
 -- * 'creExpiration'
-data Credentials = Credentials'{_creAccessKeyId :: Text, _creSecretAccessKey :: Text, _creSessionToken :: Text, _creExpiration :: ISO8601} deriving (Eq, Read, Show)
+data Credentials = Credentials'
+    { _creAccessKeyId     :: Text
+    , _creSecretAccessKey :: Text
+    , _creSessionToken    :: Text
+    , _creExpiration      :: ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'Credentials' smart constructor.
 credentials :: Text -> Text -> Text -> UTCTime -> Credentials
-credentials pAccessKeyId pSecretAccessKey pSessionToken pExpiration = Credentials'{_creAccessKeyId = pAccessKeyId, _creSecretAccessKey = pSecretAccessKey, _creSessionToken = pSessionToken, _creExpiration = _Time # pExpiration};
+credentials pAccessKeyId pSecretAccessKey pSessionToken pExpiration =
+    Credentials'
+    { _creAccessKeyId = pAccessKeyId
+    , _creSecretAccessKey = pSecretAccessKey
+    , _creSessionToken = pSessionToken
+    , _creExpiration = _Time # pExpiration
+    }
 
 -- | The access key ID that identifies the temporary security credentials.
 creAccessKeyId :: Lens' Credentials Text
@@ -221,11 +249,18 @@ instance FromXML Credentials where
 -- * 'fuFederatedUserId'
 --
 -- * 'fuARN'
-data FederatedUser = FederatedUser'{_fuFederatedUserId :: Text, _fuARN :: Text} deriving (Eq, Read, Show)
+data FederatedUser = FederatedUser'
+    { _fuFederatedUserId :: Text
+    , _fuARN             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'FederatedUser' smart constructor.
 federatedUser :: Text -> Text -> FederatedUser
-federatedUser pFederatedUserId pARN = FederatedUser'{_fuFederatedUserId = pFederatedUserId, _fuARN = pARN};
+federatedUser pFederatedUserId pARN =
+    FederatedUser'
+    { _fuFederatedUserId = pFederatedUserId
+    , _fuARN = pARN
+    }
 
 -- | The string that identifies the federated user associated with the
 -- credentials, similar to the unique ID of an IAM user.

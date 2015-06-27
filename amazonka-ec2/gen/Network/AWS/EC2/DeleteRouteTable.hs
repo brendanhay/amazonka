@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteRouteTable
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.EC2.DeleteRouteTable
     , deleteRouteTableResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteRouteTable' smart constructor.
 --
@@ -47,11 +47,18 @@ import Network.AWS.Response
 -- * 'drt1DryRun'
 --
 -- * 'drt1RouteTableId'
-data DeleteRouteTable = DeleteRouteTable'{_drt1DryRun :: Maybe Bool, _drt1RouteTableId :: Text} deriving (Eq, Read, Show)
+data DeleteRouteTable = DeleteRouteTable'
+    { _drt1DryRun       :: Maybe Bool
+    , _drt1RouteTableId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteRouteTable' smart constructor.
 deleteRouteTable :: Text -> DeleteRouteTable
-deleteRouteTable pRouteTableId = DeleteRouteTable'{_drt1DryRun = Nothing, _drt1RouteTableId = pRouteTableId};
+deleteRouteTable pRouteTableId =
+    DeleteRouteTable'
+    { _drt1DryRun = Nothing
+    , _drt1RouteTableId = pRouteTableId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -85,8 +92,10 @@ instance ToQuery DeleteRouteTable where
                "RouteTableId" =: _drt1RouteTableId]
 
 -- | /See:/ 'deleteRouteTableResponse' smart constructor.
-data DeleteRouteTableResponse = DeleteRouteTableResponse' deriving (Eq, Read, Show)
+data DeleteRouteTableResponse =
+    DeleteRouteTableResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteRouteTableResponse' smart constructor.
 deleteRouteTableResponse :: DeleteRouteTableResponse
-deleteRouteTableResponse = DeleteRouteTableResponse';
+deleteRouteTableResponse = DeleteRouteTableResponse'

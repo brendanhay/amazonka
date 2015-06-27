@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.GetHealthCheckLastFailureReason
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.Route53.GetHealthCheckLastFailureReason
     , getHealthCheckLastFailureReasonResponse
     -- ** Response lenses
     , ghclfrrHealthCheckObservations
-    , ghclfrrStatusCode
+    , ghclfrrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | A complex type that contains information about the request to get the
 -- most recent failure reason for a health check.
@@ -51,11 +51,16 @@ import Network.AWS.Route53.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ghclfrHealthCheckId'
-newtype GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReason'{_ghclfrHealthCheckId :: Text} deriving (Eq, Read, Show)
+newtype GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReason'
+    { _ghclfrHealthCheckId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetHealthCheckLastFailureReason' smart constructor.
 getHealthCheckLastFailureReason :: Text -> GetHealthCheckLastFailureReason
-getHealthCheckLastFailureReason pHealthCheckId = GetHealthCheckLastFailureReason'{_ghclfrHealthCheckId = pHealthCheckId};
+getHealthCheckLastFailureReason pHealthCheckId =
+    GetHealthCheckLastFailureReason'
+    { _ghclfrHealthCheckId = pHealthCheckId
+    }
 
 -- | The ID of the health check for which you want to retrieve the reason for
 -- the most recent failure.
@@ -99,12 +104,19 @@ instance ToQuery GetHealthCheckLastFailureReason
 --
 -- * 'ghclfrrHealthCheckObservations'
 --
--- * 'ghclfrrStatusCode'
-data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'{_ghclfrrHealthCheckObservations :: [HealthCheckObservation], _ghclfrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ghclfrrStatus'
+data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'
+    { _ghclfrrHealthCheckObservations :: [HealthCheckObservation]
+    , _ghclfrrStatus                  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetHealthCheckLastFailureReasonResponse' smart constructor.
 getHealthCheckLastFailureReasonResponse :: Int -> GetHealthCheckLastFailureReasonResponse
-getHealthCheckLastFailureReasonResponse pStatusCode = GetHealthCheckLastFailureReasonResponse'{_ghclfrrHealthCheckObservations = mempty, _ghclfrrStatusCode = pStatusCode};
+getHealthCheckLastFailureReasonResponse pStatus =
+    GetHealthCheckLastFailureReasonResponse'
+    { _ghclfrrHealthCheckObservations = mempty
+    , _ghclfrrStatus = pStatus
+    }
 
 -- | A list that contains one @HealthCheckObservation@ element for each Route
 -- 53 health checker.
@@ -112,5 +124,5 @@ ghclfrrHealthCheckObservations :: Lens' GetHealthCheckLastFailureReasonResponse 
 ghclfrrHealthCheckObservations = lens _ghclfrrHealthCheckObservations (\ s a -> s{_ghclfrrHealthCheckObservations = a});
 
 -- | FIXME: Undocumented member.
-ghclfrrStatusCode :: Lens' GetHealthCheckLastFailureReasonResponse Int
-ghclfrrStatusCode = lens _ghclfrrStatusCode (\ s a -> s{_ghclfrrStatusCode = a});
+ghclfrrStatus :: Lens' GetHealthCheckLastFailureReasonResponse Int
+ghclfrrStatus = lens _ghclfrrStatus (\ s a -> s{_ghclfrrStatus = a});

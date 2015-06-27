@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.BatchGetApplications
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.CodeDeploy.BatchGetApplications
     , batchGetApplicationsResponse
     -- ** Response lenses
     , bgarApplicationsInfo
-    , bgarStatusCode
+    , bgarStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a batch get applications operation.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bgaApplicationNames'
-newtype BatchGetApplications = BatchGetApplications'{_bgaApplicationNames :: Maybe [Text]} deriving (Eq, Read, Show)
+newtype BatchGetApplications = BatchGetApplications'
+    { _bgaApplicationNames :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'BatchGetApplications' smart constructor.
 batchGetApplications :: BatchGetApplications
-batchGetApplications = BatchGetApplications'{_bgaApplicationNames = Nothing};
+batchGetApplications =
+    BatchGetApplications'
+    { _bgaApplicationNames = Nothing
+    }
 
 -- | A list of application names, with multiple application names separated
 -- by spaces.
@@ -98,17 +103,24 @@ instance ToQuery BatchGetApplications where
 --
 -- * 'bgarApplicationsInfo'
 --
--- * 'bgarStatusCode'
-data BatchGetApplicationsResponse = BatchGetApplicationsResponse'{_bgarApplicationsInfo :: Maybe [ApplicationInfo], _bgarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'bgarStatus'
+data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
+    { _bgarApplicationsInfo :: Maybe [ApplicationInfo]
+    , _bgarStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'BatchGetApplicationsResponse' smart constructor.
 batchGetApplicationsResponse :: Int -> BatchGetApplicationsResponse
-batchGetApplicationsResponse pStatusCode = BatchGetApplicationsResponse'{_bgarApplicationsInfo = Nothing, _bgarStatusCode = pStatusCode};
+batchGetApplicationsResponse pStatus =
+    BatchGetApplicationsResponse'
+    { _bgarApplicationsInfo = Nothing
+    , _bgarStatus = pStatus
+    }
 
 -- | Information about the applications.
 bgarApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
 bgarApplicationsInfo = lens _bgarApplicationsInfo (\ s a -> s{_bgarApplicationsInfo = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-bgarStatusCode :: Lens' BatchGetApplicationsResponse Int
-bgarStatusCode = lens _bgarStatusCode (\ s a -> s{_bgarStatusCode = a});
+bgarStatus :: Lens' BatchGetApplicationsResponse Int
+bgarStatus = lens _bgarStatus (\ s a -> s{_bgarStatus = a});

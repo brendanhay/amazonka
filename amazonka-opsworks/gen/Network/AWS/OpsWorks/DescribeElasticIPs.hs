@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeElasticIPs
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.OpsWorks.DescribeElasticIPs
     , describeElasticIPsResponse
     -- ** Response lenses
     , deirElasticIPs
-    , deirStatusCode
+    , deirStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeElasticIPs' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'deiIPs'
 --
 -- * 'deiStackId'
-data DescribeElasticIPs = DescribeElasticIPs'{_deiInstanceId :: Maybe Text, _deiIPs :: Maybe [Text], _deiStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeElasticIPs = DescribeElasticIPs'
+    { _deiInstanceId :: Maybe Text
+    , _deiIPs        :: Maybe [Text]
+    , _deiStackId    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeElasticIPs' smart constructor.
 describeElasticIPs :: DescribeElasticIPs
-describeElasticIPs = DescribeElasticIPs'{_deiInstanceId = Nothing, _deiIPs = Nothing, _deiStackId = Nothing};
+describeElasticIPs =
+    DescribeElasticIPs'
+    { _deiInstanceId = Nothing
+    , _deiIPs = Nothing
+    , _deiStackId = Nothing
+    }
 
 -- | The instance ID. If you include this parameter, @DescribeElasticIps@
 -- returns a description of the Elastic IP addresses associated with the
@@ -127,12 +136,19 @@ instance ToQuery DescribeElasticIPs where
 --
 -- * 'deirElasticIPs'
 --
--- * 'deirStatusCode'
-data DescribeElasticIPsResponse = DescribeElasticIPsResponse'{_deirElasticIPs :: Maybe [ElasticIP], _deirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'deirStatus'
+data DescribeElasticIPsResponse = DescribeElasticIPsResponse'
+    { _deirElasticIPs :: Maybe [ElasticIP]
+    , _deirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeElasticIPsResponse' smart constructor.
 describeElasticIPsResponse :: Int -> DescribeElasticIPsResponse
-describeElasticIPsResponse pStatusCode = DescribeElasticIPsResponse'{_deirElasticIPs = Nothing, _deirStatusCode = pStatusCode};
+describeElasticIPsResponse pStatus =
+    DescribeElasticIPsResponse'
+    { _deirElasticIPs = Nothing
+    , _deirStatus = pStatus
+    }
 
 -- | An @ElasticIps@ object that describes the specified Elastic IP
 -- addresses.
@@ -140,5 +156,5 @@ deirElasticIPs :: Lens' DescribeElasticIPsResponse [ElasticIP]
 deirElasticIPs = lens _deirElasticIPs (\ s a -> s{_deirElasticIPs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-deirStatusCode :: Lens' DescribeElasticIPsResponse Int
-deirStatusCode = lens _deirStatusCode (\ s a -> s{_deirStatusCode = a});
+deirStatus :: Lens' DescribeElasticIPsResponse Int
+deirStatus = lens _deirStatus (\ s a -> s{_deirStatus = a});

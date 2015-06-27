@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.AttachGroupPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.IAM.AttachGroupPolicy
     , attachGroupPolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachGroupPolicy' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'agpGroupName'
 --
 -- * 'agpPolicyARN'
-data AttachGroupPolicy = AttachGroupPolicy'{_agpGroupName :: Text, _agpPolicyARN :: Text} deriving (Eq, Read, Show)
+data AttachGroupPolicy = AttachGroupPolicy'
+    { _agpGroupName :: Text
+    , _agpPolicyARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachGroupPolicy' smart constructor.
 attachGroupPolicy :: Text -> Text -> AttachGroupPolicy
-attachGroupPolicy pGroupName pPolicyARN = AttachGroupPolicy'{_agpGroupName = pGroupName, _agpPolicyARN = pPolicyARN};
+attachGroupPolicy pGroupName pPolicyARN =
+    AttachGroupPolicy'
+    { _agpGroupName = pGroupName
+    , _agpPolicyARN = pPolicyARN
+    }
 
 -- | The name (friendly name, not ARN) of the group to attach the policy to.
 agpGroupName :: Lens' AttachGroupPolicy Text
@@ -87,8 +94,10 @@ instance ToQuery AttachGroupPolicy where
                "PolicyArn" =: _agpPolicyARN]
 
 -- | /See:/ 'attachGroupPolicyResponse' smart constructor.
-data AttachGroupPolicyResponse = AttachGroupPolicyResponse' deriving (Eq, Read, Show)
+data AttachGroupPolicyResponse =
+    AttachGroupPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AttachGroupPolicyResponse' smart constructor.
 attachGroupPolicyResponse :: AttachGroupPolicyResponse
-attachGroupPolicyResponse = AttachGroupPolicyResponse';
+attachGroupPolicyResponse = AttachGroupPolicyResponse'

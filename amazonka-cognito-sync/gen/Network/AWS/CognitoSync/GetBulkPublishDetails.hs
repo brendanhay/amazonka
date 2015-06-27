@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.GetBulkPublishDetails
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.CognitoSync.GetBulkPublishDetails
     , gbpdrBulkPublishCompleteTime
     , gbpdrFailureMessage
     , gbpdrBulkPublishStatus
-    , gbpdrStatusCode
+    , gbpdrStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the GetBulkPublishDetails operation.
 --
@@ -51,11 +51,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gbpdIdentityPoolId'
-newtype GetBulkPublishDetails = GetBulkPublishDetails'{_gbpdIdentityPoolId :: Text} deriving (Eq, Read, Show)
+newtype GetBulkPublishDetails = GetBulkPublishDetails'
+    { _gbpdIdentityPoolId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBulkPublishDetails' smart constructor.
 getBulkPublishDetails :: Text -> GetBulkPublishDetails
-getBulkPublishDetails pIdentityPoolId = GetBulkPublishDetails'{_gbpdIdentityPoolId = pIdentityPoolId};
+getBulkPublishDetails pIdentityPoolId =
+    GetBulkPublishDetails'
+    { _gbpdIdentityPoolId = pIdentityPoolId
+    }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -114,12 +119,27 @@ instance ToQuery GetBulkPublishDetails where
 --
 -- * 'gbpdrBulkPublishStatus'
 --
--- * 'gbpdrStatusCode'
-data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'{_gbpdrBulkPublishStartTime :: Maybe POSIX, _gbpdrIdentityPoolId :: Maybe Text, _gbpdrBulkPublishCompleteTime :: Maybe POSIX, _gbpdrFailureMessage :: Maybe Text, _gbpdrBulkPublishStatus :: Maybe BulkPublishStatus, _gbpdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gbpdrStatus'
+data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
+    { _gbpdrBulkPublishStartTime    :: Maybe POSIX
+    , _gbpdrIdentityPoolId          :: Maybe Text
+    , _gbpdrBulkPublishCompleteTime :: Maybe POSIX
+    , _gbpdrFailureMessage          :: Maybe Text
+    , _gbpdrBulkPublishStatus       :: Maybe BulkPublishStatus
+    , _gbpdrStatus                  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBulkPublishDetailsResponse' smart constructor.
 getBulkPublishDetailsResponse :: Int -> GetBulkPublishDetailsResponse
-getBulkPublishDetailsResponse pStatusCode = GetBulkPublishDetailsResponse'{_gbpdrBulkPublishStartTime = Nothing, _gbpdrIdentityPoolId = Nothing, _gbpdrBulkPublishCompleteTime = Nothing, _gbpdrFailureMessage = Nothing, _gbpdrBulkPublishStatus = Nothing, _gbpdrStatusCode = pStatusCode};
+getBulkPublishDetailsResponse pStatus =
+    GetBulkPublishDetailsResponse'
+    { _gbpdrBulkPublishStartTime = Nothing
+    , _gbpdrIdentityPoolId = Nothing
+    , _gbpdrBulkPublishCompleteTime = Nothing
+    , _gbpdrFailureMessage = Nothing
+    , _gbpdrBulkPublishStatus = Nothing
+    , _gbpdrStatus = pStatus
+    }
 
 -- | The date\/time at which the last bulk publish was initiated.
 gbpdrBulkPublishStartTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
@@ -156,5 +176,5 @@ gbpdrBulkPublishStatus :: Lens' GetBulkPublishDetailsResponse (Maybe BulkPublish
 gbpdrBulkPublishStatus = lens _gbpdrBulkPublishStatus (\ s a -> s{_gbpdrBulkPublishStatus = a});
 
 -- | FIXME: Undocumented member.
-gbpdrStatusCode :: Lens' GetBulkPublishDetailsResponse Int
-gbpdrStatusCode = lens _gbpdrStatusCode (\ s a -> s{_gbpdrStatusCode = a});
+gbpdrStatus :: Lens' GetBulkPublishDetailsResponse Int
+gbpdrStatus = lens _gbpdrStatus (\ s a -> s{_gbpdrStatus = a});

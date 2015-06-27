@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.ListAliases
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.KMS.ListAliases
     , larTruncated
     , larAliases
     , larNextMarker
-    , larStatusCode
+    , larStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listAliases' smart constructor.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'laMarker'
 --
 -- * 'laLimit'
-data ListAliases = ListAliases'{_laMarker :: Maybe Text, _laLimit :: Maybe Nat} deriving (Eq, Read, Show)
+data ListAliases = ListAliases'
+    { _laMarker :: Maybe Text
+    , _laLimit  :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAliases' smart constructor.
 listAliases :: ListAliases
-listAliases = ListAliases'{_laMarker = Nothing, _laLimit = Nothing};
+listAliases =
+    ListAliases'
+    { _laMarker = Nothing
+    , _laLimit = Nothing
+    }
 
 -- | Use this parameter when paginating results, and only in a subsequent
 -- request after you\'ve received a response where the results are
@@ -111,12 +118,23 @@ instance ToQuery ListAliases where
 --
 -- * 'larNextMarker'
 --
--- * 'larStatusCode'
-data ListAliasesResponse = ListAliasesResponse'{_larTruncated :: Maybe Bool, _larAliases :: Maybe [AliasListEntry], _larNextMarker :: Maybe Text, _larStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'larStatus'
+data ListAliasesResponse = ListAliasesResponse'
+    { _larTruncated  :: Maybe Bool
+    , _larAliases    :: Maybe [AliasListEntry]
+    , _larNextMarker :: Maybe Text
+    , _larStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAliasesResponse' smart constructor.
 listAliasesResponse :: Int -> ListAliasesResponse
-listAliasesResponse pStatusCode = ListAliasesResponse'{_larTruncated = Nothing, _larAliases = Nothing, _larNextMarker = Nothing, _larStatusCode = pStatusCode};
+listAliasesResponse pStatus =
+    ListAliasesResponse'
+    { _larTruncated = Nothing
+    , _larAliases = Nothing
+    , _larNextMarker = Nothing
+    , _larStatus = pStatus
+    }
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -136,5 +154,5 @@ larNextMarker :: Lens' ListAliasesResponse (Maybe Text)
 larNextMarker = lens _larNextMarker (\ s a -> s{_larNextMarker = a});
 
 -- | FIXME: Undocumented member.
-larStatusCode :: Lens' ListAliasesResponse Int
-larStatusCode = lens _larStatusCode (\ s a -> s{_larStatusCode = a});
+larStatus :: Lens' ListAliasesResponse Int
+larStatus = lens _larStatus (\ s a -> s{_larStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     , modifySnapshotCopyRetentionPeriodResponse
     -- ** Response lenses
     , mscrprCluster
-    , mscrprStatusCode
+    , mscrprStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'mscrpClusterIdentifier'
 --
 -- * 'mscrpRetentionPeriod'
-data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod'{_mscrpClusterIdentifier :: Text, _mscrpRetentionPeriod :: Int} deriving (Eq, Read, Show)
+data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod'
+    { _mscrpClusterIdentifier :: Text
+    , _mscrpRetentionPeriod   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifySnapshotCopyRetentionPeriod' smart constructor.
 modifySnapshotCopyRetentionPeriod :: Text -> Int -> ModifySnapshotCopyRetentionPeriod
-modifySnapshotCopyRetentionPeriod pClusterIdentifier pRetentionPeriod = ModifySnapshotCopyRetentionPeriod'{_mscrpClusterIdentifier = pClusterIdentifier, _mscrpRetentionPeriod = pRetentionPeriod};
+modifySnapshotCopyRetentionPeriod pClusterIdentifier pRetentionPeriod =
+    ModifySnapshotCopyRetentionPeriod'
+    { _mscrpClusterIdentifier = pClusterIdentifier
+    , _mscrpRetentionPeriod = pRetentionPeriod
+    }
 
 -- | The unique identifier of the cluster for which you want to change the
 -- retention period for automated snapshots that are copied to a
@@ -115,17 +122,24 @@ instance ToQuery ModifySnapshotCopyRetentionPeriod
 --
 -- * 'mscrprCluster'
 --
--- * 'mscrprStatusCode'
-data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse'{_mscrprCluster :: Maybe Cluster, _mscrprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'mscrprStatus'
+data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse'
+    { _mscrprCluster :: Maybe Cluster
+    , _mscrprStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifySnapshotCopyRetentionPeriodResponse' smart constructor.
 modifySnapshotCopyRetentionPeriodResponse :: Int -> ModifySnapshotCopyRetentionPeriodResponse
-modifySnapshotCopyRetentionPeriodResponse pStatusCode = ModifySnapshotCopyRetentionPeriodResponse'{_mscrprCluster = Nothing, _mscrprStatusCode = pStatusCode};
+modifySnapshotCopyRetentionPeriodResponse pStatus =
+    ModifySnapshotCopyRetentionPeriodResponse'
+    { _mscrprCluster = Nothing
+    , _mscrprStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 mscrprCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
 mscrprCluster = lens _mscrprCluster (\ s a -> s{_mscrprCluster = a});
 
 -- | FIXME: Undocumented member.
-mscrprStatusCode :: Lens' ModifySnapshotCopyRetentionPeriodResponse Int
-mscrprStatusCode = lens _mscrprStatusCode (\ s a -> s{_mscrprStatusCode = a});
+mscrprStatus :: Lens' ModifySnapshotCopyRetentionPeriodResponse Int
+mscrprStatus = lens _mscrprStatus (\ s a -> s{_mscrprStatus = a});

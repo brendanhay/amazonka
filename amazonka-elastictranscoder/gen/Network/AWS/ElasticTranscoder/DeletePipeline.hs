@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.DeletePipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.ElasticTranscoder.DeletePipeline
     -- ** Response constructor
     , deletePipelineResponse
     -- ** Response lenses
-    , delStatusCode
+    , delStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @DeletePipelineRequest@ structure.
 --
@@ -50,11 +50,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delId'
-newtype DeletePipeline = DeletePipeline'{_delId :: Text} deriving (Eq, Read, Show)
+newtype DeletePipeline = DeletePipeline'
+    { _delId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeletePipeline' smart constructor.
 deletePipeline :: Text -> DeletePipeline
-deletePipeline pId = DeletePipeline'{_delId = pId};
+deletePipeline pId =
+    DeletePipeline'
+    { _delId = pId
+    }
 
 -- | The identifier of the pipeline that you want to delete.
 delId :: Lens' DeletePipeline Text
@@ -85,13 +90,18 @@ instance ToQuery DeletePipeline where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delStatusCode'
-newtype DeletePipelineResponse = DeletePipelineResponse'{_delStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'delStatus'
+newtype DeletePipelineResponse = DeletePipelineResponse'
+    { _delStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeletePipelineResponse' smart constructor.
 deletePipelineResponse :: Int -> DeletePipelineResponse
-deletePipelineResponse pStatusCode = DeletePipelineResponse'{_delStatusCode = pStatusCode};
+deletePipelineResponse pStatus =
+    DeletePipelineResponse'
+    { _delStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-delStatusCode :: Lens' DeletePipelineResponse Int
-delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});
+delStatus :: Lens' DeletePipelineResponse Int
+delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

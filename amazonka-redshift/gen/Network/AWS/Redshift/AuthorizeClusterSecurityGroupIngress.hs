@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,13 +53,13 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     , authorizeClusterSecurityGroupIngressResponse
     -- ** Response lenses
     , acsgirClusterSecurityGroup
-    , acsgirStatusCode
+    , acsgirStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | ???
 --
@@ -74,11 +74,22 @@ import Network.AWS.Response
 -- * 'acsgiCIDRIP'
 --
 -- * 'acsgiClusterSecurityGroupName'
-data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress'{_acsgiEC2SecurityGroupOwnerId :: Maybe Text, _acsgiEC2SecurityGroupName :: Maybe Text, _acsgiCIDRIP :: Maybe Text, _acsgiClusterSecurityGroupName :: Text} deriving (Eq, Read, Show)
+data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress'
+    { _acsgiEC2SecurityGroupOwnerId  :: Maybe Text
+    , _acsgiEC2SecurityGroupName     :: Maybe Text
+    , _acsgiCIDRIP                   :: Maybe Text
+    , _acsgiClusterSecurityGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeClusterSecurityGroupIngress' smart constructor.
 authorizeClusterSecurityGroupIngress :: Text -> AuthorizeClusterSecurityGroupIngress
-authorizeClusterSecurityGroupIngress pClusterSecurityGroupName = AuthorizeClusterSecurityGroupIngress'{_acsgiEC2SecurityGroupOwnerId = Nothing, _acsgiEC2SecurityGroupName = Nothing, _acsgiCIDRIP = Nothing, _acsgiClusterSecurityGroupName = pClusterSecurityGroupName};
+authorizeClusterSecurityGroupIngress pClusterSecurityGroupName =
+    AuthorizeClusterSecurityGroupIngress'
+    { _acsgiEC2SecurityGroupOwnerId = Nothing
+    , _acsgiEC2SecurityGroupName = Nothing
+    , _acsgiCIDRIP = Nothing
+    , _acsgiClusterSecurityGroupName = pClusterSecurityGroupName
+    }
 
 -- | The AWS account number of the owner of the security group specified by
 -- the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an
@@ -144,17 +155,24 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress
 --
 -- * 'acsgirClusterSecurityGroup'
 --
--- * 'acsgirStatusCode'
-data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse'{_acsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup, _acsgirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'acsgirStatus'
+data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse'
+    { _acsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
+    , _acsgirStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeClusterSecurityGroupIngressResponse' smart constructor.
 authorizeClusterSecurityGroupIngressResponse :: Int -> AuthorizeClusterSecurityGroupIngressResponse
-authorizeClusterSecurityGroupIngressResponse pStatusCode = AuthorizeClusterSecurityGroupIngressResponse'{_acsgirClusterSecurityGroup = Nothing, _acsgirStatusCode = pStatusCode};
+authorizeClusterSecurityGroupIngressResponse pStatus =
+    AuthorizeClusterSecurityGroupIngressResponse'
+    { _acsgirClusterSecurityGroup = Nothing
+    , _acsgirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 acsgirClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
 acsgirClusterSecurityGroup = lens _acsgirClusterSecurityGroup (\ s a -> s{_acsgirClusterSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-acsgirStatusCode :: Lens' AuthorizeClusterSecurityGroupIngressResponse Int
-acsgirStatusCode = lens _acsgirStatusCode (\ s a -> s{_acsgirStatusCode = a});
+acsgirStatus :: Lens' AuthorizeClusterSecurityGroupIngressResponse Int
+acsgirStatus = lens _acsgirStatus (\ s a -> s{_acsgirStatus = a});

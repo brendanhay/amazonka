@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.ListParts
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,13 +68,13 @@ module Network.AWS.Glacier.ListParts
     , lprVaultARN
     , lprMarker
     , lprCreationDate
-    , lprStatusCode
+    , lprStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for retrieving a list of parts of an archive that have
 -- been uploaded in a specific multipart upload.
@@ -92,11 +92,24 @@ import Network.AWS.Response
 -- * 'lpVaultName'
 --
 -- * 'lpUploadId'
-data ListParts = ListParts'{_lpMarker :: Maybe Text, _lpLimit :: Maybe Text, _lpAccountId :: Text, _lpVaultName :: Text, _lpUploadId :: Text} deriving (Eq, Read, Show)
+data ListParts = ListParts'
+    { _lpMarker    :: Maybe Text
+    , _lpLimit     :: Maybe Text
+    , _lpAccountId :: Text
+    , _lpVaultName :: Text
+    , _lpUploadId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListParts' smart constructor.
 listParts :: Text -> Text -> Text -> ListParts
-listParts pAccountId pVaultName pUploadId = ListParts'{_lpMarker = Nothing, _lpLimit = Nothing, _lpAccountId = pAccountId, _lpVaultName = pVaultName, _lpUploadId = pUploadId};
+listParts pAccountId pVaultName pUploadId =
+    ListParts'
+    { _lpMarker = Nothing
+    , _lpLimit = Nothing
+    , _lpAccountId = pAccountId
+    , _lpVaultName = pVaultName
+    , _lpUploadId = pUploadId
+    }
 
 -- | An opaque string used for pagination. This value specifies the part at
 -- which the listing of parts should begin. Get the marker value from the
@@ -180,12 +193,31 @@ instance ToQuery ListParts where
 --
 -- * 'lprCreationDate'
 --
--- * 'lprStatusCode'
-data ListPartsResponse = ListPartsResponse'{_lprParts :: Maybe [PartListElement], _lprMultipartUploadId :: Maybe Text, _lprArchiveDescription :: Maybe Text, _lprPartSizeInBytes :: Maybe Integer, _lprVaultARN :: Maybe Text, _lprMarker :: Maybe Text, _lprCreationDate :: Maybe Text, _lprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lprStatus'
+data ListPartsResponse = ListPartsResponse'
+    { _lprParts              :: Maybe [PartListElement]
+    , _lprMultipartUploadId  :: Maybe Text
+    , _lprArchiveDescription :: Maybe Text
+    , _lprPartSizeInBytes    :: Maybe Integer
+    , _lprVaultARN           :: Maybe Text
+    , _lprMarker             :: Maybe Text
+    , _lprCreationDate       :: Maybe Text
+    , _lprStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListPartsResponse' smart constructor.
 listPartsResponse :: Int -> ListPartsResponse
-listPartsResponse pStatusCode = ListPartsResponse'{_lprParts = Nothing, _lprMultipartUploadId = Nothing, _lprArchiveDescription = Nothing, _lprPartSizeInBytes = Nothing, _lprVaultARN = Nothing, _lprMarker = Nothing, _lprCreationDate = Nothing, _lprStatusCode = pStatusCode};
+listPartsResponse pStatus =
+    ListPartsResponse'
+    { _lprParts = Nothing
+    , _lprMultipartUploadId = Nothing
+    , _lprArchiveDescription = Nothing
+    , _lprPartSizeInBytes = Nothing
+    , _lprVaultARN = Nothing
+    , _lprMarker = Nothing
+    , _lprCreationDate = Nothing
+    , _lprStatus = pStatus
+    }
 
 -- | A list of the part sizes of the multipart upload.
 lprParts :: Lens' ListPartsResponse [PartListElement]
@@ -220,5 +252,5 @@ lprCreationDate :: Lens' ListPartsResponse (Maybe Text)
 lprCreationDate = lens _lprCreationDate (\ s a -> s{_lprCreationDate = a});
 
 -- | FIXME: Undocumented member.
-lprStatusCode :: Lens' ListPartsResponse Int
-lprStatusCode = lens _lprStatusCode (\ s a -> s{_lprStatusCode = a});
+lprStatus :: Lens' ListPartsResponse Int
+lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});

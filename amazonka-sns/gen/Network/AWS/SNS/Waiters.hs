@@ -15,6 +15,6 @@
 
 module Network.AWS.SNS.Waiters where
 
-import Network.AWS.Prelude
-import Network.AWS.SNS.Types
-import Network.AWS.Waiter
+import           Network.AWS.Prelude
+import           Network.AWS.SNS.Types
+import           Network.AWS.Waiter

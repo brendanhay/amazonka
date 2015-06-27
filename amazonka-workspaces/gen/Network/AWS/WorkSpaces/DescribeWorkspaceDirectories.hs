@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
     -- ** Response lenses
     , dwdrDirectories
     , dwdrNextToken
-    , dwdrStatusCode
+    , dwdrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.WorkSpaces.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.WorkSpaces.Types
 
 -- | Contains the inputs for the DescribeWorkspaceDirectories operation.
 --
@@ -58,11 +58,18 @@ import Network.AWS.WorkSpaces.Types
 -- * 'dwdNextToken'
 --
 -- * 'dwdDirectoryIds'
-data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'{_dwdNextToken :: Maybe Text, _dwdDirectoryIds :: Maybe (List1 Text)} deriving (Eq, Read, Show)
+data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
+    { _dwdNextToken    :: Maybe Text
+    , _dwdDirectoryIds :: Maybe (List1 Text)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkspaceDirectories' smart constructor.
 describeWorkspaceDirectories :: DescribeWorkspaceDirectories
-describeWorkspaceDirectories = DescribeWorkspaceDirectories'{_dwdNextToken = Nothing, _dwdDirectoryIds = Nothing};
+describeWorkspaceDirectories =
+    DescribeWorkspaceDirectories'
+    { _dwdNextToken = Nothing
+    , _dwdDirectoryIds = Nothing
+    }
 
 -- | The @NextToken@ value from a previous call to this operation. Pass null
 -- if this is the first call.
@@ -120,12 +127,21 @@ instance ToQuery DescribeWorkspaceDirectories where
 --
 -- * 'dwdrNextToken'
 --
--- * 'dwdrStatusCode'
-data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'{_dwdrDirectories :: Maybe [WorkspaceDirectory], _dwdrNextToken :: Maybe Text, _dwdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dwdrStatus'
+data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'
+    { _dwdrDirectories :: Maybe [WorkspaceDirectory]
+    , _dwdrNextToken   :: Maybe Text
+    , _dwdrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkspaceDirectoriesResponse' smart constructor.
 describeWorkspaceDirectoriesResponse :: Int -> DescribeWorkspaceDirectoriesResponse
-describeWorkspaceDirectoriesResponse pStatusCode = DescribeWorkspaceDirectoriesResponse'{_dwdrDirectories = Nothing, _dwdrNextToken = Nothing, _dwdrStatusCode = pStatusCode};
+describeWorkspaceDirectoriesResponse pStatus =
+    DescribeWorkspaceDirectoriesResponse'
+    { _dwdrDirectories = Nothing
+    , _dwdrNextToken = Nothing
+    , _dwdrStatus = pStatus
+    }
 
 -- | An array of structures that contain information about the directories.
 dwdrDirectories :: Lens' DescribeWorkspaceDirectoriesResponse [WorkspaceDirectory]
@@ -139,5 +155,5 @@ dwdrNextToken :: Lens' DescribeWorkspaceDirectoriesResponse (Maybe Text)
 dwdrNextToken = lens _dwdrNextToken (\ s a -> s{_dwdrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dwdrStatusCode :: Lens' DescribeWorkspaceDirectoriesResponse Int
-dwdrStatusCode = lens _dwdrStatusCode (\ s a -> s{_dwdrStatusCode = a});
+dwdrStatus :: Lens' DescribeWorkspaceDirectoriesResponse Int
+dwdrStatus = lens _dwdrStatus (\ s a -> s{_dwdrStatus = a});

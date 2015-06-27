@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.RevokeSecurityGroupIngress
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,10 +51,10 @@ module Network.AWS.EC2.RevokeSecurityGroupIngress
     , revokeSecurityGroupIngressResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'revokeSecurityGroupIngress' smart constructor.
 --
@@ -79,11 +79,34 @@ import Network.AWS.Response
 -- * 'rsgiSourceSecurityGroupName'
 --
 -- * 'rsgiDryRun'
-data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'{_rsgiFromPort :: Maybe Int, _rsgiIPPermissions :: Maybe [IPPermission], _rsgiIPProtocol :: Maybe Text, _rsgiGroupId :: Maybe Text, _rsgiToPort :: Maybe Int, _rsgiCIDRIP :: Maybe Text, _rsgiGroupName :: Maybe Text, _rsgiSourceSecurityGroupOwnerId :: Maybe Text, _rsgiSourceSecurityGroupName :: Maybe Text, _rsgiDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
+    { _rsgiFromPort                   :: Maybe Int
+    , _rsgiIPPermissions              :: Maybe [IPPermission]
+    , _rsgiIPProtocol                 :: Maybe Text
+    , _rsgiGroupId                    :: Maybe Text
+    , _rsgiToPort                     :: Maybe Int
+    , _rsgiCIDRIP                     :: Maybe Text
+    , _rsgiGroupName                  :: Maybe Text
+    , _rsgiSourceSecurityGroupOwnerId :: Maybe Text
+    , _rsgiSourceSecurityGroupName    :: Maybe Text
+    , _rsgiDryRun                     :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'RevokeSecurityGroupIngress' smart constructor.
 revokeSecurityGroupIngress :: RevokeSecurityGroupIngress
-revokeSecurityGroupIngress = RevokeSecurityGroupIngress'{_rsgiFromPort = Nothing, _rsgiIPPermissions = Nothing, _rsgiIPProtocol = Nothing, _rsgiGroupId = Nothing, _rsgiToPort = Nothing, _rsgiCIDRIP = Nothing, _rsgiGroupName = Nothing, _rsgiSourceSecurityGroupOwnerId = Nothing, _rsgiSourceSecurityGroupName = Nothing, _rsgiDryRun = Nothing};
+revokeSecurityGroupIngress =
+    RevokeSecurityGroupIngress'
+    { _rsgiFromPort = Nothing
+    , _rsgiIPPermissions = Nothing
+    , _rsgiIPProtocol = Nothing
+    , _rsgiGroupId = Nothing
+    , _rsgiToPort = Nothing
+    , _rsgiCIDRIP = Nothing
+    , _rsgiGroupName = Nothing
+    , _rsgiSourceSecurityGroupOwnerId = Nothing
+    , _rsgiSourceSecurityGroupName = Nothing
+    , _rsgiDryRun = Nothing
+    }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use @-1@ to specify all ICMP types.
@@ -173,8 +196,10 @@ instance ToQuery RevokeSecurityGroupIngress where
                "DryRun" =: _rsgiDryRun]
 
 -- | /See:/ 'revokeSecurityGroupIngressResponse' smart constructor.
-data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse' deriving (Eq, Read, Show)
+data RevokeSecurityGroupIngressResponse =
+    RevokeSecurityGroupIngressResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RevokeSecurityGroupIngressResponse' smart constructor.
 revokeSecurityGroupIngressResponse :: RevokeSecurityGroupIngressResponse
-revokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse';
+revokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse'

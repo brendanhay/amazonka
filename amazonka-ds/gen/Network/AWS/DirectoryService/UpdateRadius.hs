@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectoryService.UpdateRadius
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.DirectoryService.UpdateRadius
     -- ** Response constructor
     , updateRadiusResponse
     -- ** Response lenses
-    , urrStatusCode
+    , urrStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the UpdateRadius operation.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'urDirectoryId'
 --
 -- * 'urRadiusSettings'
-data UpdateRadius = UpdateRadius'{_urDirectoryId :: Text, _urRadiusSettings :: RadiusSettings} deriving (Eq, Read, Show)
+data UpdateRadius = UpdateRadius'
+    { _urDirectoryId    :: Text
+    , _urRadiusSettings :: RadiusSettings
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateRadius' smart constructor.
 updateRadius :: Text -> RadiusSettings -> UpdateRadius
-updateRadius pDirectoryId pRadiusSettings = UpdateRadius'{_urDirectoryId = pDirectoryId, _urRadiusSettings = pRadiusSettings};
+updateRadius pDirectoryId pRadiusSettings =
+    UpdateRadius'
+    { _urDirectoryId = pDirectoryId
+    , _urRadiusSettings = pRadiusSettings
+    }
 
 -- | The identifier of the directory to update the RADIUS server information
 -- for.
@@ -103,13 +110,18 @@ instance ToQuery UpdateRadius where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'urrStatusCode'
-newtype UpdateRadiusResponse = UpdateRadiusResponse'{_urrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'urrStatus'
+newtype UpdateRadiusResponse = UpdateRadiusResponse'
+    { _urrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateRadiusResponse' smart constructor.
 updateRadiusResponse :: Int -> UpdateRadiusResponse
-updateRadiusResponse pStatusCode = UpdateRadiusResponse'{_urrStatusCode = pStatusCode};
+updateRadiusResponse pStatus =
+    UpdateRadiusResponse'
+    { _urrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-urrStatusCode :: Lens' UpdateRadiusResponse Int
-urrStatusCode = lens _urrStatusCode (\ s a -> s{_urrStatusCode = a});
+urrStatus :: Lens' UpdateRadiusResponse Int
+urrStatus = lens _urrStatus (\ s a -> s{_urrStatus = a});

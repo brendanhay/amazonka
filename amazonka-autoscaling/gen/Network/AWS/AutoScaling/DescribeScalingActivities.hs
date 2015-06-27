@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeScalingActivities
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,14 +39,14 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     -- ** Response lenses
     , dNextToken
     , dActivities
-    , dStatusCode
+    , dStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeScalingActivities' smart constructor.
 --
@@ -59,11 +59,22 @@ import Network.AWS.Response
 -- * 'dsa1AutoScalingGroupName'
 --
 -- * 'dsa1ActivityIds'
-data DescribeScalingActivities = DescribeScalingActivities'{_dsa1NextToken :: Maybe Text, _dsa1MaxRecords :: Maybe Int, _dsa1AutoScalingGroupName :: Maybe Text, _dsa1ActivityIds :: Maybe [Text]} deriving (Eq, Read, Show)
+data DescribeScalingActivities = DescribeScalingActivities'
+    { _dsa1NextToken            :: Maybe Text
+    , _dsa1MaxRecords           :: Maybe Int
+    , _dsa1AutoScalingGroupName :: Maybe Text
+    , _dsa1ActivityIds          :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeScalingActivities' smart constructor.
 describeScalingActivities :: DescribeScalingActivities
-describeScalingActivities = DescribeScalingActivities'{_dsa1NextToken = Nothing, _dsa1MaxRecords = Nothing, _dsa1AutoScalingGroupName = Nothing, _dsa1ActivityIds = Nothing};
+describeScalingActivities =
+    DescribeScalingActivities'
+    { _dsa1NextToken = Nothing
+    , _dsa1MaxRecords = Nothing
+    , _dsa1AutoScalingGroupName = Nothing
+    , _dsa1ActivityIds = Nothing
+    }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -134,12 +145,21 @@ instance ToQuery DescribeScalingActivities where
 --
 -- * 'dActivities'
 --
--- * 'dStatusCode'
-data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'{_dNextToken :: Maybe Text, _dActivities :: [Activity], _dStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dStatus'
+data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
+    { _dNextToken  :: Maybe Text
+    , _dActivities :: [Activity]
+    , _dStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeScalingActivitiesResponse' smart constructor.
 describeScalingActivitiesResponse :: Int -> DescribeScalingActivitiesResponse
-describeScalingActivitiesResponse pStatusCode = DescribeScalingActivitiesResponse'{_dNextToken = Nothing, _dActivities = mempty, _dStatusCode = pStatusCode};
+describeScalingActivitiesResponse pStatus =
+    DescribeScalingActivitiesResponse'
+    { _dNextToken = Nothing
+    , _dActivities = mempty
+    , _dStatus = pStatus
+    }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -151,5 +171,5 @@ dActivities :: Lens' DescribeScalingActivitiesResponse [Activity]
 dActivities = lens _dActivities (\ s a -> s{_dActivities = a});
 
 -- | FIXME: Undocumented member.
-dStatusCode :: Lens' DescribeScalingActivitiesResponse Int
-dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});
+dStatus :: Lens' DescribeScalingActivitiesResponse Int
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

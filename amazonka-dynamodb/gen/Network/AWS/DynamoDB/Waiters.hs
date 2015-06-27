@@ -15,4 +15,31 @@
 
 module Network.AWS.DynamoDB.Waiters where
 
-import Network.AWS.Waiters
+import           Network.AWS.DynamoDB.DescribeTable
+import           Network.AWS.DynamoDB.DescribeTable
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter
+
+tableNotExists :: Wait DescribeTable
+tableNotExists =
+    Wait
+    { _waitName = "TableNotExists"
+    , _waitAttempts = 25
+    , _waitDelay = 20
+    , _waitAcceptors = [matchError "ResourceNotFoundException" AcceptSuccess]
+    }
+
+tableExists :: Wait DescribeTable
+tableExists =
+    Wait
+    { _waitName = "TableExists"
+    , _waitAttempts = 25
+    , _waitDelay = 20
+    , _waitAcceptors = [ matchAll
+                             "ACTIVE"
+                             AcceptSuccess
+                             (desTable .
+                              _Just . tdTableStatus . _Just . to toText)
+                       , matchError "ResourceNotFoundException" AcceptRetry]
+    }

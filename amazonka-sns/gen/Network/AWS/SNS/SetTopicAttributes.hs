@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.SetTopicAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.SNS.SetTopicAttributes
     , setTopicAttributesResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for SetTopicAttributes action.
 --
@@ -50,11 +50,20 @@ import Network.AWS.SNS.Types
 -- * 'staTopicARN'
 --
 -- * 'staAttributeName'
-data SetTopicAttributes = SetTopicAttributes'{_staAttributeValue :: Maybe Text, _staTopicARN :: Text, _staAttributeName :: Text} deriving (Eq, Read, Show)
+data SetTopicAttributes = SetTopicAttributes'
+    { _staAttributeValue :: Maybe Text
+    , _staTopicARN       :: Text
+    , _staAttributeName  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetTopicAttributes' smart constructor.
 setTopicAttributes :: Text -> Text -> SetTopicAttributes
-setTopicAttributes pTopicARN pAttributeName = SetTopicAttributes'{_staAttributeValue = Nothing, _staTopicARN = pTopicARN, _staAttributeName = pAttributeName};
+setTopicAttributes pTopicARN pAttributeName =
+    SetTopicAttributes'
+    { _staAttributeValue = Nothing
+    , _staTopicARN = pTopicARN
+    , _staAttributeName = pAttributeName
+    }
 
 -- | The new value for the attribute.
 staAttributeValue :: Lens' SetTopicAttributes (Maybe Text)
@@ -94,8 +103,10 @@ instance ToQuery SetTopicAttributes where
                "AttributeName" =: _staAttributeName]
 
 -- | /See:/ 'setTopicAttributesResponse' smart constructor.
-data SetTopicAttributesResponse = SetTopicAttributesResponse' deriving (Eq, Read, Show)
+data SetTopicAttributesResponse =
+    SetTopicAttributesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetTopicAttributesResponse' smart constructor.
 setTopicAttributesResponse :: SetTopicAttributesResponse
-setTopicAttributesResponse = SetTopicAttributesResponse';
+setTopicAttributesResponse = SetTopicAttributesResponse'

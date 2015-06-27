@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.GetBucketLocation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,29 @@ module Network.AWS.S3.GetBucketLocation
     , getBucketLocationResponse
     -- ** Response lenses
     , gLocationConstraint
-    , gStatusCode
+    , gStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketLocation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gblBucket'
-newtype GetBucketLocation = GetBucketLocation'{_gblBucket :: BucketName} deriving (Eq, Read, Show)
+newtype GetBucketLocation = GetBucketLocation'
+    { _gblBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketLocation' smart constructor.
 getBucketLocation :: BucketName -> GetBucketLocation
-getBucketLocation pBucket = GetBucketLocation'{_gblBucket = pBucket};
+getBucketLocation pBucket =
+    GetBucketLocation'
+    { _gblBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 gblBucket :: Lens' GetBucketLocation BucketName
@@ -81,17 +86,24 @@ instance ToQuery GetBucketLocation where
 --
 -- * 'gLocationConstraint'
 --
--- * 'gStatusCode'
-data GetBucketLocationResponse = GetBucketLocationResponse'{_gLocationConstraint :: Maybe Region, _gStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gStatus'
+data GetBucketLocationResponse = GetBucketLocationResponse'
+    { _gLocationConstraint :: Maybe Region
+    , _gStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketLocationResponse' smart constructor.
 getBucketLocationResponse :: Int -> GetBucketLocationResponse
-getBucketLocationResponse pStatusCode = GetBucketLocationResponse'{_gLocationConstraint = Nothing, _gStatusCode = pStatusCode};
+getBucketLocationResponse pStatus =
+    GetBucketLocationResponse'
+    { _gLocationConstraint = Nothing
+    , _gStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 gLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
 gLocationConstraint = lens _gLocationConstraint (\ s a -> s{_gLocationConstraint = a});
 
 -- | FIXME: Undocumented member.
-gStatusCode :: Lens' GetBucketLocationResponse Int
-gStatusCode = lens _gStatusCode (\ s a -> s{_gStatusCode = a});
+gStatus :: Lens' GetBucketLocationResponse Int
+gStatus = lens _gStatus (\ s a -> s{_gStatus = a});

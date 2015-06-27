@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.ModifyCacheParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,10 +37,10 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     , cpgnmCacheParameterGroupName
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /ModifyCacheParameterGroup/ action.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'mcpgCacheParameterGroupName'
 --
 -- * 'mcpgParameterNameValues'
-data ModifyCacheParameterGroup = ModifyCacheParameterGroup'{_mcpgCacheParameterGroupName :: Text, _mcpgParameterNameValues :: [ParameterNameValue]} deriving (Eq, Read, Show)
+data ModifyCacheParameterGroup = ModifyCacheParameterGroup'
+    { _mcpgCacheParameterGroupName :: Text
+    , _mcpgParameterNameValues     :: [ParameterNameValue]
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyCacheParameterGroup' smart constructor.
 modifyCacheParameterGroup :: Text -> ModifyCacheParameterGroup
-modifyCacheParameterGroup pCacheParameterGroupName = ModifyCacheParameterGroup'{_mcpgCacheParameterGroupName = pCacheParameterGroupName, _mcpgParameterNameValues = mempty};
+modifyCacheParameterGroup pCacheParameterGroupName =
+    ModifyCacheParameterGroup'
+    { _mcpgCacheParameterGroupName = pCacheParameterGroupName
+    , _mcpgParameterNameValues = mempty
+    }
 
 -- | The name of the cache parameter group to modify.
 mcpgCacheParameterGroupName :: Lens' ModifyCacheParameterGroup Text

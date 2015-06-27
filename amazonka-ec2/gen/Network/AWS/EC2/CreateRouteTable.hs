@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateRouteTable
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.EC2.CreateRouteTable
     , createRouteTableResponse
     -- ** Response lenses
     , crtrRouteTable
-    , crtrStatusCode
+    , crtrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createRouteTable' smart constructor.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'crtDryRun'
 --
 -- * 'crtVPCId'
-data CreateRouteTable = CreateRouteTable'{_crtDryRun :: Maybe Bool, _crtVPCId :: Text} deriving (Eq, Read, Show)
+data CreateRouteTable = CreateRouteTable'
+    { _crtDryRun :: Maybe Bool
+    , _crtVPCId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateRouteTable' smart constructor.
 createRouteTable :: Text -> CreateRouteTable
-createRouteTable pVPCId = CreateRouteTable'{_crtDryRun = Nothing, _crtVPCId = pVPCId};
+createRouteTable pVPCId =
+    CreateRouteTable'
+    { _crtDryRun = Nothing
+    , _crtVPCId = pVPCId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -99,17 +106,24 @@ instance ToQuery CreateRouteTable where
 --
 -- * 'crtrRouteTable'
 --
--- * 'crtrStatusCode'
-data CreateRouteTableResponse = CreateRouteTableResponse'{_crtrRouteTable :: Maybe RouteTable, _crtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'crtrStatus'
+data CreateRouteTableResponse = CreateRouteTableResponse'
+    { _crtrRouteTable :: Maybe RouteTable
+    , _crtrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateRouteTableResponse' smart constructor.
 createRouteTableResponse :: Int -> CreateRouteTableResponse
-createRouteTableResponse pStatusCode = CreateRouteTableResponse'{_crtrRouteTable = Nothing, _crtrStatusCode = pStatusCode};
+createRouteTableResponse pStatus =
+    CreateRouteTableResponse'
+    { _crtrRouteTable = Nothing
+    , _crtrStatus = pStatus
+    }
 
 -- | Information about the route table.
 crtrRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
 crtrRouteTable = lens _crtrRouteTable (\ s a -> s{_crtrRouteTable = a});
 
 -- | FIXME: Undocumented member.
-crtrStatusCode :: Lens' CreateRouteTableResponse Int
-crtrStatusCode = lens _crtrStatusCode (\ s a -> s{_crtrStatusCode = a});
+crtrStatus :: Lens' CreateRouteTableResponse Int
+crtrStatus = lens _crtrStatus (\ s a -> s{_crtrStatus = a});

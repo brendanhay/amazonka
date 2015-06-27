@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.DeleteLoadBalancerListeners
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.ELB.DeleteLoadBalancerListeners
     -- ** Response constructor
     , deleteLoadBalancerListenersResponse
     -- ** Response lenses
-    , dlblrStatusCode
+    , dlblrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteLoadBalancerListeners' smart constructor.
 --
@@ -47,11 +47,18 @@ import Network.AWS.Response
 -- * 'dlblLoadBalancerName'
 --
 -- * 'dlblLoadBalancerPorts'
-data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'{_dlblLoadBalancerName :: Text, _dlblLoadBalancerPorts :: [Int]} deriving (Eq, Read, Show)
+data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'
+    { _dlblLoadBalancerName  :: Text
+    , _dlblLoadBalancerPorts :: [Int]
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLoadBalancerListeners' smart constructor.
 deleteLoadBalancerListeners :: Text -> DeleteLoadBalancerListeners
-deleteLoadBalancerListeners pLoadBalancerName = DeleteLoadBalancerListeners'{_dlblLoadBalancerName = pLoadBalancerName, _dlblLoadBalancerPorts = mempty};
+deleteLoadBalancerListeners pLoadBalancerName =
+    DeleteLoadBalancerListeners'
+    { _dlblLoadBalancerName = pLoadBalancerName
+    , _dlblLoadBalancerPorts = mempty
+    }
 
 -- | The name of the load balancer.
 dlblLoadBalancerName :: Lens' DeleteLoadBalancerListeners Text
@@ -93,13 +100,18 @@ instance ToQuery DeleteLoadBalancerListeners where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlblrStatusCode'
-newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse'{_dlblrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dlblrStatus'
+newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse'
+    { _dlblrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLoadBalancerListenersResponse' smart constructor.
 deleteLoadBalancerListenersResponse :: Int -> DeleteLoadBalancerListenersResponse
-deleteLoadBalancerListenersResponse pStatusCode = DeleteLoadBalancerListenersResponse'{_dlblrStatusCode = pStatusCode};
+deleteLoadBalancerListenersResponse pStatus =
+    DeleteLoadBalancerListenersResponse'
+    { _dlblrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-dlblrStatusCode :: Lens' DeleteLoadBalancerListenersResponse Int
-dlblrStatusCode = lens _dlblrStatusCode (\ s a -> s{_dlblrStatusCode = a});
+dlblrStatus :: Lens' DeleteLoadBalancerListenersResponse Int
+dlblrStatus = lens _dlblrStatus (\ s a -> s{_dlblrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DisableVGWRoutePropagation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.EC2.DisableVGWRoutePropagation
     , disableVGWRoutePropagationResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'disableVGWRoutePropagation' smart constructor.
 --
@@ -46,11 +46,18 @@ import Network.AWS.Response
 -- * 'dvrpRouteTableId'
 --
 -- * 'dvrpGatewayId'
-data DisableVGWRoutePropagation = DisableVGWRoutePropagation'{_dvrpRouteTableId :: Text, _dvrpGatewayId :: Text} deriving (Eq, Read, Show)
+data DisableVGWRoutePropagation = DisableVGWRoutePropagation'
+    { _dvrpRouteTableId :: Text
+    , _dvrpGatewayId    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableVGWRoutePropagation' smart constructor.
 disableVGWRoutePropagation :: Text -> Text -> DisableVGWRoutePropagation
-disableVGWRoutePropagation pRouteTableId pGatewayId = DisableVGWRoutePropagation'{_dvrpRouteTableId = pRouteTableId, _dvrpGatewayId = pGatewayId};
+disableVGWRoutePropagation pRouteTableId pGatewayId =
+    DisableVGWRoutePropagation'
+    { _dvrpRouteTableId = pRouteTableId
+    , _dvrpGatewayId = pGatewayId
+    }
 
 -- | The ID of the route table.
 dvrpRouteTableId :: Lens' DisableVGWRoutePropagation Text
@@ -84,8 +91,10 @@ instance ToQuery DisableVGWRoutePropagation where
                "GatewayId" =: _dvrpGatewayId]
 
 -- | /See:/ 'disableVGWRoutePropagationResponse' smart constructor.
-data DisableVGWRoutePropagationResponse = DisableVGWRoutePropagationResponse' deriving (Eq, Read, Show)
+data DisableVGWRoutePropagationResponse =
+    DisableVGWRoutePropagationResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DisableVGWRoutePropagationResponse' smart constructor.
 disableVGWRoutePropagationResponse :: DisableVGWRoutePropagationResponse
-disableVGWRoutePropagationResponse = DisableVGWRoutePropagationResponse';
+disableVGWRoutePropagationResponse = DisableVGWRoutePropagationResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DetachInternetGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.EC2.DetachInternetGateway
     , detachInternetGatewayResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachInternetGateway' smart constructor.
 --
@@ -50,11 +50,20 @@ import Network.AWS.Response
 -- * 'digInternetGatewayId'
 --
 -- * 'digVPCId'
-data DetachInternetGateway = DetachInternetGateway'{_digDryRun :: Maybe Bool, _digInternetGatewayId :: Text, _digVPCId :: Text} deriving (Eq, Read, Show)
+data DetachInternetGateway = DetachInternetGateway'
+    { _digDryRun            :: Maybe Bool
+    , _digInternetGatewayId :: Text
+    , _digVPCId             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachInternetGateway' smart constructor.
 detachInternetGateway :: Text -> Text -> DetachInternetGateway
-detachInternetGateway pInternetGatewayId pVPCId = DetachInternetGateway'{_digDryRun = Nothing, _digInternetGatewayId = pInternetGatewayId, _digVPCId = pVPCId};
+detachInternetGateway pInternetGatewayId pVPCId =
+    DetachInternetGateway'
+    { _digDryRun = Nothing
+    , _digInternetGatewayId = pInternetGatewayId
+    , _digVPCId = pVPCId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -94,8 +103,10 @@ instance ToQuery DetachInternetGateway where
                "VpcId" =: _digVPCId]
 
 -- | /See:/ 'detachInternetGatewayResponse' smart constructor.
-data DetachInternetGatewayResponse = DetachInternetGatewayResponse' deriving (Eq, Read, Show)
+data DetachInternetGatewayResponse =
+    DetachInternetGatewayResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DetachInternetGatewayResponse' smart constructor.
 detachInternetGatewayResponse :: DetachInternetGatewayResponse
-detachInternetGatewayResponse = DetachInternetGatewayResponse';
+detachInternetGatewayResponse = DetachInternetGatewayResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeVPNGateways
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.EC2.DescribeVPNGateways
     , describeVPNGatewaysResponse
     -- ** Response lenses
     , dvgrVPNGateways
-    , dvgrStatusCode
+    , dvgrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVPNGateways' smart constructor.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'dvpngDryRun'
 --
 -- * 'dvpngVPNGatewayIds'
-data DescribeVPNGateways = DescribeVPNGateways'{_dvpngFilters :: Maybe [Filter], _dvpngDryRun :: Maybe Bool, _dvpngVPNGatewayIds :: Maybe [Text]} deriving (Eq, Read, Show)
+data DescribeVPNGateways = DescribeVPNGateways'
+    { _dvpngFilters       :: Maybe [Filter]
+    , _dvpngDryRun        :: Maybe Bool
+    , _dvpngVPNGatewayIds :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPNGateways' smart constructor.
 describeVPNGateways :: DescribeVPNGateways
-describeVPNGateways = DescribeVPNGateways'{_dvpngFilters = Nothing, _dvpngDryRun = Nothing, _dvpngVPNGatewayIds = Nothing};
+describeVPNGateways =
+    DescribeVPNGateways'
+    { _dvpngFilters = Nothing
+    , _dvpngDryRun = Nothing
+    , _dvpngVPNGatewayIds = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -144,17 +153,24 @@ instance ToQuery DescribeVPNGateways where
 --
 -- * 'dvgrVPNGateways'
 --
--- * 'dvgrStatusCode'
-data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'{_dvgrVPNGateways :: Maybe [VPNGateway], _dvgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dvgrStatus'
+data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
+    { _dvgrVPNGateways :: Maybe [VPNGateway]
+    , _dvgrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPNGatewaysResponse' smart constructor.
 describeVPNGatewaysResponse :: Int -> DescribeVPNGatewaysResponse
-describeVPNGatewaysResponse pStatusCode = DescribeVPNGatewaysResponse'{_dvgrVPNGateways = Nothing, _dvgrStatusCode = pStatusCode};
+describeVPNGatewaysResponse pStatus =
+    DescribeVPNGatewaysResponse'
+    { _dvgrVPNGateways = Nothing
+    , _dvgrStatus = pStatus
+    }
 
 -- | Information about one or more virtual private gateways.
 dvgrVPNGateways :: Lens' DescribeVPNGatewaysResponse [VPNGateway]
 dvgrVPNGateways = lens _dvgrVPNGateways (\ s a -> s{_dvgrVPNGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvgrStatusCode :: Lens' DescribeVPNGatewaysResponse Int
-dvgrStatusCode = lens _dvgrStatusCode (\ s a -> s{_dvgrStatusCode = a});
+dvgrStatus :: Lens' DescribeVPNGatewaysResponse Int
+dvgrStatus = lens _dvgrStatus (\ s a -> s{_dvgrStatus = a});

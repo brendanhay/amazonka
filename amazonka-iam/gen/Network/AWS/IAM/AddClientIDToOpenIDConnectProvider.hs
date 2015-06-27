@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,10 +37,10 @@ module Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
     , addClientIDToOpenIDConnectProviderResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'addClientIDToOpenIDConnectProvider' smart constructor.
 --
@@ -49,11 +49,18 @@ import Network.AWS.Response
 -- * 'acidtoidcpOpenIDConnectProviderARN'
 --
 -- * 'acidtoidcpClientID'
-data AddClientIDToOpenIDConnectProvider = AddClientIDToOpenIDConnectProvider'{_acidtoidcpOpenIDConnectProviderARN :: Text, _acidtoidcpClientID :: Text} deriving (Eq, Read, Show)
+data AddClientIDToOpenIDConnectProvider = AddClientIDToOpenIDConnectProvider'
+    { _acidtoidcpOpenIDConnectProviderARN :: Text
+    , _acidtoidcpClientID                 :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AddClientIDToOpenIDConnectProvider' smart constructor.
 addClientIDToOpenIDConnectProvider :: Text -> Text -> AddClientIDToOpenIDConnectProvider
-addClientIDToOpenIDConnectProvider pOpenIDConnectProviderARN pClientID = AddClientIDToOpenIDConnectProvider'{_acidtoidcpOpenIDConnectProviderARN = pOpenIDConnectProviderARN, _acidtoidcpClientID = pClientID};
+addClientIDToOpenIDConnectProvider pOpenIDConnectProviderARN pClientID =
+    AddClientIDToOpenIDConnectProvider'
+    { _acidtoidcpOpenIDConnectProviderARN = pOpenIDConnectProviderARN
+    , _acidtoidcpClientID = pClientID
+    }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to add the client ID to. You can get a list of OIDC provider ARNs by
@@ -96,8 +103,11 @@ instance ToQuery AddClientIDToOpenIDConnectProvider
                "ClientID" =: _acidtoidcpClientID]
 
 -- | /See:/ 'addClientIDToOpenIDConnectProviderResponse' smart constructor.
-data AddClientIDToOpenIDConnectProviderResponse = AddClientIDToOpenIDConnectProviderResponse' deriving (Eq, Read, Show)
+data AddClientIDToOpenIDConnectProviderResponse =
+    AddClientIDToOpenIDConnectProviderResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AddClientIDToOpenIDConnectProviderResponse' smart constructor.
 addClientIDToOpenIDConnectProviderResponse :: AddClientIDToOpenIDConnectProviderResponse
-addClientIDToOpenIDConnectProviderResponse = AddClientIDToOpenIDConnectProviderResponse';
+addClientIDToOpenIDConnectProviderResponse =
+    AddClientIDToOpenIDConnectProviderResponse'

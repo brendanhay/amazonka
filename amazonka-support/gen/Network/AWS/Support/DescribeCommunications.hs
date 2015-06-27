@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Support.DescribeCommunications
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,14 +49,14 @@ module Network.AWS.Support.DescribeCommunications
     -- ** Response lenses
     , dcrNextToken
     , dcrCommunications
-    , dcrStatusCode
+    , dcrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Support.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
 
 -- | /See:/ 'describeCommunications' smart constructor.
 --
@@ -71,11 +71,24 @@ import Network.AWS.Support.Types
 -- * 'dMaxResults'
 --
 -- * 'dCaseId'
-data DescribeCommunications = DescribeCommunications'{_dAfterTime :: Maybe Text, _dNextToken :: Maybe Text, _dBeforeTime :: Maybe Text, _dMaxResults :: Maybe Nat, _dCaseId :: Text} deriving (Eq, Read, Show)
+data DescribeCommunications = DescribeCommunications'
+    { _dAfterTime  :: Maybe Text
+    , _dNextToken  :: Maybe Text
+    , _dBeforeTime :: Maybe Text
+    , _dMaxResults :: Maybe Nat
+    , _dCaseId     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCommunications' smart constructor.
 describeCommunications :: Text -> DescribeCommunications
-describeCommunications pCaseId = DescribeCommunications'{_dAfterTime = Nothing, _dNextToken = Nothing, _dBeforeTime = Nothing, _dMaxResults = Nothing, _dCaseId = pCaseId};
+describeCommunications pCaseId =
+    DescribeCommunications'
+    { _dAfterTime = Nothing
+    , _dNextToken = Nothing
+    , _dBeforeTime = Nothing
+    , _dMaxResults = Nothing
+    , _dCaseId = pCaseId
+    }
 
 -- | The start date for a filtered date search on support case
 -- communications. Case communications are available for 12 months after
@@ -156,12 +169,21 @@ instance ToQuery DescribeCommunications where
 --
 -- * 'dcrCommunications'
 --
--- * 'dcrStatusCode'
-data DescribeCommunicationsResponse = DescribeCommunicationsResponse'{_dcrNextToken :: Maybe Text, _dcrCommunications :: Maybe [Communication], _dcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcrStatus'
+data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
+    { _dcrNextToken      :: Maybe Text
+    , _dcrCommunications :: Maybe [Communication]
+    , _dcrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCommunicationsResponse' smart constructor.
 describeCommunicationsResponse :: Int -> DescribeCommunicationsResponse
-describeCommunicationsResponse pStatusCode = DescribeCommunicationsResponse'{_dcrNextToken = Nothing, _dcrCommunications = Nothing, _dcrStatusCode = pStatusCode};
+describeCommunicationsResponse pStatus =
+    DescribeCommunicationsResponse'
+    { _dcrNextToken = Nothing
+    , _dcrCommunications = Nothing
+    , _dcrStatus = pStatus
+    }
 
 -- | A resumption point for pagination.
 dcrNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
@@ -172,5 +194,5 @@ dcrCommunications :: Lens' DescribeCommunicationsResponse [Communication]
 dcrCommunications = lens _dcrCommunications (\ s a -> s{_dcrCommunications = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrStatusCode :: Lens' DescribeCommunicationsResponse Int
-dcrStatusCode = lens _dcrStatusCode (\ s a -> s{_dcrStatusCode = a});
+dcrStatus :: Lens' DescribeCommunicationsResponse Int
+dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});

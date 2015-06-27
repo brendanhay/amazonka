@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.ListIdentityPools
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.CognitoIdentity.ListIdentityPools
     -- ** Response lenses
     , liprIdentityPools
     , liprNextToken
-    , liprStatusCode
+    , liprStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the ListIdentityPools action.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'lipNextToken'
 --
 -- * 'lipMaxResults'
-data ListIdentityPools = ListIdentityPools'{_lipNextToken :: Maybe Text, _lipMaxResults :: Nat} deriving (Eq, Read, Show)
+data ListIdentityPools = ListIdentityPools'
+    { _lipNextToken  :: Maybe Text
+    , _lipMaxResults :: !Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'ListIdentityPools' smart constructor.
 listIdentityPools :: Natural -> ListIdentityPools
-listIdentityPools pMaxResults = ListIdentityPools'{_lipNextToken = Nothing, _lipMaxResults = _Nat # pMaxResults};
+listIdentityPools pMaxResults =
+    ListIdentityPools'
+    { _lipNextToken = Nothing
+    , _lipMaxResults = _Nat # pMaxResults
+    }
 
 -- | A pagination token.
 lipNextToken :: Lens' ListIdentityPools (Maybe Text)
@@ -111,12 +118,21 @@ instance ToQuery ListIdentityPools where
 --
 -- * 'liprNextToken'
 --
--- * 'liprStatusCode'
-data ListIdentityPoolsResponse = ListIdentityPoolsResponse'{_liprIdentityPools :: Maybe [IdentityPoolShortDescription], _liprNextToken :: Maybe Text, _liprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'liprStatus'
+data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
+    { _liprIdentityPools :: Maybe [IdentityPoolShortDescription]
+    , _liprNextToken     :: Maybe Text
+    , _liprStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListIdentityPoolsResponse' smart constructor.
 listIdentityPoolsResponse :: Int -> ListIdentityPoolsResponse
-listIdentityPoolsResponse pStatusCode = ListIdentityPoolsResponse'{_liprIdentityPools = Nothing, _liprNextToken = Nothing, _liprStatusCode = pStatusCode};
+listIdentityPoolsResponse pStatus =
+    ListIdentityPoolsResponse'
+    { _liprIdentityPools = Nothing
+    , _liprNextToken = Nothing
+    , _liprStatus = pStatus
+    }
 
 -- | The identity pools returned by the ListIdentityPools action.
 liprIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
@@ -127,5 +143,5 @@ liprNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
 liprNextToken = lens _liprNextToken (\ s a -> s{_liprNextToken = a});
 
 -- | FIXME: Undocumented member.
-liprStatusCode :: Lens' ListIdentityPoolsResponse Int
-liprStatusCode = lens _liprStatusCode (\ s a -> s{_liprStatusCode = a});
+liprStatus :: Lens' ListIdentityPoolsResponse Int
+liprStatus = lens _liprStatus (\ s a -> s{_liprStatus = a});

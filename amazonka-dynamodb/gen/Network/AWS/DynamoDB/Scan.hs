@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DynamoDB.Scan
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -67,14 +67,18 @@ module Network.AWS.DynamoDB.Scan
     , srScannedCount
     , srItems
     , srConsumedCapacity
+    , srStatus
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
--- | /See:/ 'scan' smart constructor.
+-- | Represents the input of a /Scan/ operation.
+--
+-- /See:/ 'scan' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -107,11 +111,44 @@ import Network.AWS.DynamoDB.Types
 -- * 'scaIndexName'
 --
 -- * 'scaTableName'
-data Scan = Scan'{_scaProjectionExpression :: Maybe Text, _scaScanFilter :: Maybe (HashMap Text Condition), _scaTotalSegments :: Maybe Nat, _scaFilterExpression :: Maybe Text, _scaExpressionAttributeNames :: Maybe (HashMap Text Text), _scaAttributesToGet :: Maybe (List1 Text), _scaReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _scaExpressionAttributeValues :: Maybe (HashMap Text AttributeValue), _scaLimit :: Maybe Nat, _scaSelect :: Maybe Select, _scaSegment :: Maybe Nat, _scaConditionalOperator :: Maybe ConditionalOperator, _scaExclusiveStartKey :: Maybe (HashMap Text AttributeValue), _scaIndexName :: Maybe Text, _scaTableName :: Text} deriving (Eq, Read, Show)
+data Scan = Scan'
+    { _scaProjectionExpression      :: Maybe Text
+    , _scaScanFilter                :: Maybe (Map Text Condition)
+    , _scaTotalSegments             :: Maybe Nat
+    , _scaFilterExpression          :: Maybe Text
+    , _scaExpressionAttributeNames  :: Maybe (Map Text Text)
+    , _scaAttributesToGet           :: Maybe (List1 Text)
+    , _scaReturnConsumedCapacity    :: Maybe ReturnConsumedCapacity
+    , _scaExpressionAttributeValues :: Maybe (Map Text AttributeValue)
+    , _scaLimit                     :: Maybe Nat
+    , _scaSelect                    :: Maybe Select
+    , _scaSegment                   :: Maybe Nat
+    , _scaConditionalOperator       :: Maybe ConditionalOperator
+    , _scaExclusiveStartKey         :: Maybe (Map Text AttributeValue)
+    , _scaIndexName                 :: Maybe Text
+    , _scaTableName                 :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Scan' smart constructor.
 scan :: Text -> Scan
-scan pTableName = Scan'{_scaProjectionExpression = Nothing, _scaScanFilter = Nothing, _scaTotalSegments = Nothing, _scaFilterExpression = Nothing, _scaExpressionAttributeNames = Nothing, _scaAttributesToGet = Nothing, _scaReturnConsumedCapacity = Nothing, _scaExpressionAttributeValues = Nothing, _scaLimit = Nothing, _scaSelect = Nothing, _scaSegment = Nothing, _scaConditionalOperator = Nothing, _scaExclusiveStartKey = Nothing, _scaIndexName = Nothing, _scaTableName = pTableName};
+scan pTableName =
+    Scan'
+    { _scaProjectionExpression = Nothing
+    , _scaScanFilter = Nothing
+    , _scaTotalSegments = Nothing
+    , _scaFilterExpression = Nothing
+    , _scaExpressionAttributeNames = Nothing
+    , _scaAttributesToGet = Nothing
+    , _scaReturnConsumedCapacity = Nothing
+    , _scaExpressionAttributeValues = Nothing
+    , _scaLimit = Nothing
+    , _scaSelect = Nothing
+    , _scaSegment = Nothing
+    , _scaConditionalOperator = Nothing
+    , _scaExclusiveStartKey = Nothing
+    , _scaIndexName = Nothing
+    , _scaTableName = pTableName
+    }
 
 -- | A string that identifies one or more attributes to retrieve from the
 -- specified table or index. These attributes can include scalars, sets, or
@@ -177,8 +214,8 @@ scaProjectionExpression = lens _scaProjectionExpression (\ s a -> s{_scaProjecti
 --     For complete descriptions of all comparison operators, see
 --     <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Condition.html Condition>.
 --
-scaScanFilter :: Lens' Scan (Maybe (HashMap Text Condition))
-scaScanFilter = lens _scaScanFilter (\ s a -> s{_scaScanFilter = a}) . mapping _Coerce;
+scaScanFilter :: Lens' Scan (HashMap Text Condition)
+scaScanFilter = lens _scaScanFilter (\ s a -> s{_scaScanFilter = a}) . _Default . _Map;
 
 -- | For a parallel /Scan/ request, /TotalSegments/ represents the total
 -- number of segments into which the /Scan/ operation will be divided. The
@@ -249,8 +286,8 @@ scaFilterExpression = lens _scaFilterExpression (\ s a -> s{_scaFilterExpression
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-scaExpressionAttributeNames :: Lens' Scan (Maybe (HashMap Text Text))
-scaExpressionAttributeNames = lens _scaExpressionAttributeNames (\ s a -> s{_scaExpressionAttributeNames = a}) . mapping _Coerce;
+scaExpressionAttributeNames :: Lens' Scan (HashMap Text Text)
+scaExpressionAttributeNames = lens _scaExpressionAttributeNames (\ s a -> s{_scaExpressionAttributeNames = a}) . _Default . _Map;
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /ProjectionExpression/ instead. Do not combine legacy
@@ -293,8 +330,8 @@ scaReturnConsumedCapacity = lens _scaReturnConsumedCapacity (\ s a -> s{_scaRetu
 -- For more information on expression attribute values, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-scaExpressionAttributeValues :: Lens' Scan (Maybe (HashMap Text AttributeValue))
-scaExpressionAttributeValues = lens _scaExpressionAttributeValues (\ s a -> s{_scaExpressionAttributeValues = a}) . mapping _Coerce;
+scaExpressionAttributeValues :: Lens' Scan (HashMap Text AttributeValue)
+scaExpressionAttributeValues = lens _scaExpressionAttributeValues (\ s a -> s{_scaExpressionAttributeValues = a}) . _Default . _Map;
 
 -- | The maximum number of items to evaluate (not necessarily the number of
 -- matching items). If DynamoDB processes the number of items up to the
@@ -381,8 +418,8 @@ scaConditionalOperator = lens _scaConditionalOperator (\ s a -> s{_scaConditiona
 -- In a parallel scan, a /Scan/ request that includes /ExclusiveStartKey/
 -- must specify the same segment whose previous /Scan/ returned the
 -- corresponding value of /LastEvaluatedKey/.
-scaExclusiveStartKey :: Lens' Scan (Maybe (HashMap Text AttributeValue))
-scaExclusiveStartKey = lens _scaExclusiveStartKey (\ s a -> s{_scaExclusiveStartKey = a}) . mapping _Coerce;
+scaExclusiveStartKey :: Lens' Scan (HashMap Text AttributeValue)
+scaExclusiveStartKey = lens _scaExclusiveStartKey (\ s a -> s{_scaExclusiveStartKey = a}) . _Default . _Map;
 
 -- | The name of a secondary index to scan. This index can be any local
 -- secondary index or global secondary index. Note that if you use the
@@ -394,6 +431,14 @@ scaIndexName = lens _scaIndexName (\ s a -> s{_scaIndexName = a});
 -- @IndexName@, the name of the table to which that index belongs.
 scaTableName :: Lens' Scan Text
 scaTableName = lens _scaTableName (\ s a -> s{_scaTableName = a});
+
+instance AWSPager Scan where
+        page rq rs
+          | stop (rs ^. srLastEvaluatedKey) = Nothing
+          | stop (rs ^. srItems) = Nothing
+          | otherwise =
+            Just $ rq &
+              scaExclusiveStartKey .~ rs ^. srLastEvaluatedKey
 
 instance AWSRequest Scan where
         type Sv Scan = DynamoDB
@@ -407,7 +452,8 @@ instance AWSRequest Scan where
                      (x .?> "Count")
                      <*> (x .?> "ScannedCount")
                      <*> (x .?> "Items" .!@ mempty)
-                     <*> (x .?> "ConsumedCapacity"))
+                     <*> (x .?> "ConsumedCapacity")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders Scan where
         toHeaders
@@ -445,7 +491,9 @@ instance ToPath Scan where
 instance ToQuery Scan where
         toQuery = const mempty
 
--- | /See:/ 'scanResponse' smart constructor.
+-- | Represents the output of a /Scan/ operation.
+--
+-- /See:/ 'scanResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -458,11 +506,28 @@ instance ToQuery Scan where
 -- * 'srItems'
 --
 -- * 'srConsumedCapacity'
-data ScanResponse = ScanResponse'{_srLastEvaluatedKey :: Maybe (HashMap Text AttributeValue), _srCount :: Maybe Int, _srScannedCount :: Maybe Int, _srItems :: Maybe [HashMap Text AttributeValue], _srConsumedCapacity :: Maybe ConsumedCapacity} deriving (Eq, Read, Show)
+--
+-- * 'srStatus'
+data ScanResponse = ScanResponse'
+    { _srLastEvaluatedKey :: Maybe (Map Text AttributeValue)
+    , _srCount            :: Maybe Int
+    , _srScannedCount     :: Maybe Int
+    , _srItems            :: Maybe [Map Text AttributeValue]
+    , _srConsumedCapacity :: Maybe ConsumedCapacity
+    , _srStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ScanResponse' smart constructor.
-scanResponse :: ScanResponse
-scanResponse = ScanResponse'{_srLastEvaluatedKey = Nothing, _srCount = Nothing, _srScannedCount = Nothing, _srItems = Nothing, _srConsumedCapacity = Nothing};
+scanResponse :: Int -> ScanResponse
+scanResponse pStatus =
+    ScanResponse'
+    { _srLastEvaluatedKey = Nothing
+    , _srCount = Nothing
+    , _srScannedCount = Nothing
+    , _srItems = Nothing
+    , _srConsumedCapacity = Nothing
+    , _srStatus = pStatus
+    }
 
 -- | The primary key of the item where the operation stopped, inclusive of
 -- the previous result set. Use this value to start a new operation,
@@ -474,8 +539,8 @@ scanResponse = ScanResponse'{_srLastEvaluatedKey = Nothing, _srCount = Nothing, 
 -- If /LastEvaluatedKey/ is not empty, it does not necessarily mean that
 -- there is more data in the result set. The only way to know when you have
 -- reached the end of the result set is when /LastEvaluatedKey/ is empty.
-srLastEvaluatedKey :: Lens' ScanResponse (Maybe (HashMap Text AttributeValue))
-srLastEvaluatedKey = lens _srLastEvaluatedKey (\ s a -> s{_srLastEvaluatedKey = a}) . mapping _Coerce;
+srLastEvaluatedKey :: Lens' ScanResponse (HashMap Text AttributeValue)
+srLastEvaluatedKey = lens _srLastEvaluatedKey (\ s a -> s{_srLastEvaluatedKey = a}) . _Default . _Map;
 
 -- | The number of items in the response.
 --
@@ -502,9 +567,13 @@ srScannedCount = lens _srScannedCount (\ s a -> s{_srScannedCount = a});
 -- | An array of item attributes that match the scan criteria. Each element
 -- in this array consists of an attribute name and the value for that
 -- attribute.
-srItems :: Lens' ScanResponse (Maybe [HashMap Text AttributeValue])
-srItems = lens _srItems (\ s a -> s{_srItems = a}) . mapping _Coerce;
+srItems :: Lens' ScanResponse [HashMap Text AttributeValue]
+srItems = lens _srItems (\ s a -> s{_srItems = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 srConsumedCapacity :: Lens' ScanResponse (Maybe ConsumedCapacity)
 srConsumedCapacity = lens _srConsumedCapacity (\ s a -> s{_srConsumedCapacity = a});
+
+-- | FIXME: Undocumented member.
+srStatus :: Lens' ScanResponse Int
+srStatus = lens _srStatus (\ s a -> s{_srStatus = a});

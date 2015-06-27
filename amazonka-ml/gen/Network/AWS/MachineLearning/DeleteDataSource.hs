@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.DeleteDataSource
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,24 +40,29 @@ module Network.AWS.MachineLearning.DeleteDataSource
     , deleteDataSourceResponse
     -- ** Response lenses
     , ddsrDataSourceId
-    , ddsrStatusCode
+    , ddsrStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteDataSource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddsDataSourceId'
-newtype DeleteDataSource = DeleteDataSource'{_ddsDataSourceId :: Text} deriving (Eq, Read, Show)
+newtype DeleteDataSource = DeleteDataSource'
+    { _ddsDataSourceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDataSource' smart constructor.
 deleteDataSource :: Text -> DeleteDataSource
-deleteDataSource pDataSourceId = DeleteDataSource'{_ddsDataSourceId = pDataSourceId};
+deleteDataSource pDataSourceId =
+    DeleteDataSource'
+    { _ddsDataSourceId = pDataSourceId
+    }
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@.
 ddsDataSourceId :: Lens' DeleteDataSource Text
@@ -100,12 +105,19 @@ instance ToQuery DeleteDataSource where
 --
 -- * 'ddsrDataSourceId'
 --
--- * 'ddsrStatusCode'
-data DeleteDataSourceResponse = DeleteDataSourceResponse'{_ddsrDataSourceId :: Maybe Text, _ddsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddsrStatus'
+data DeleteDataSourceResponse = DeleteDataSourceResponse'
+    { _ddsrDataSourceId :: Maybe Text
+    , _ddsrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDataSourceResponse' smart constructor.
 deleteDataSourceResponse :: Int -> DeleteDataSourceResponse
-deleteDataSourceResponse pStatusCode = DeleteDataSourceResponse'{_ddsrDataSourceId = Nothing, _ddsrStatusCode = pStatusCode};
+deleteDataSourceResponse pStatus =
+    DeleteDataSourceResponse'
+    { _ddsrDataSourceId = Nothing
+    , _ddsrStatus = pStatus
+    }
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
@@ -113,5 +125,5 @@ ddsrDataSourceId :: Lens' DeleteDataSourceResponse (Maybe Text)
 ddsrDataSourceId = lens _ddsrDataSourceId (\ s a -> s{_ddsrDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-ddsrStatusCode :: Lens' DeleteDataSourceResponse Int
-ddsrStatusCode = lens _ddsrStatusCode (\ s a -> s{_ddsrStatusCode = a});
+ddsrStatus :: Lens' DeleteDataSourceResponse Int
+ddsrStatus = lens _ddsrStatus (\ s a -> s{_ddsrStatus = a});

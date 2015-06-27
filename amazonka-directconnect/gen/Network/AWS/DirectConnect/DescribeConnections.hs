@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeConnections
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,10 +37,10 @@ module Network.AWS.DirectConnect.DescribeConnections
     , conConnections
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the DescribeConnections operation.
 --
@@ -49,11 +49,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'desConnectionId'
-newtype DescribeConnections = DescribeConnections'{_desConnectionId :: Maybe Text} deriving (Eq, Read, Show)
+newtype DescribeConnections = DescribeConnections'
+    { _desConnectionId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeConnections' smart constructor.
 describeConnections :: DescribeConnections
-describeConnections = DescribeConnections'{_desConnectionId = Nothing};
+describeConnections =
+    DescribeConnections'
+    { _desConnectionId = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 desConnectionId :: Lens' DescribeConnections (Maybe Text)

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ListPresets
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,14 +36,14 @@ module Network.AWS.ElasticTranscoder.ListPresets
     -- ** Response lenses
     , lisNextPageToken
     , lisPresets
-    , lisStatusCode
+    , lisStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @ListPresetsRequest@ structure.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'lisAscending'
 --
 -- * 'lisPageToken'
-data ListPresets = ListPresets'{_lisAscending :: Maybe Text, _lisPageToken :: Maybe Text} deriving (Eq, Read, Show)
+data ListPresets = ListPresets'
+    { _lisAscending :: Maybe Text
+    , _lisPageToken :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListPresets' smart constructor.
 listPresets :: ListPresets
-listPresets = ListPresets'{_lisAscending = Nothing, _lisPageToken = Nothing};
+listPresets =
+    ListPresets'
+    { _lisAscending = Nothing
+    , _lisPageToken = Nothing
+    }
 
 -- | To list presets in chronological order by the date and time that they
 -- were created, enter @true@. To list presets in reverse chronological
@@ -113,12 +120,21 @@ instance ToQuery ListPresets where
 --
 -- * 'lisPresets'
 --
--- * 'lisStatusCode'
-data ListPresetsResponse = ListPresetsResponse'{_lisNextPageToken :: Maybe Text, _lisPresets :: Maybe [Preset], _lisStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lisStatus'
+data ListPresetsResponse = ListPresetsResponse'
+    { _lisNextPageToken :: Maybe Text
+    , _lisPresets       :: Maybe [Preset]
+    , _lisStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListPresetsResponse' smart constructor.
 listPresetsResponse :: Int -> ListPresetsResponse
-listPresetsResponse pStatusCode = ListPresetsResponse'{_lisNextPageToken = Nothing, _lisPresets = Nothing, _lisStatusCode = pStatusCode};
+listPresetsResponse pStatus =
+    ListPresetsResponse'
+    { _lisNextPageToken = Nothing
+    , _lisPresets = Nothing
+    , _lisStatus = pStatus
+    }
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the presets fit on one page or when you\'ve
@@ -132,5 +148,5 @@ lisPresets :: Lens' ListPresetsResponse [Preset]
 lisPresets = lens _lisPresets (\ s a -> s{_lisPresets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lisStatusCode :: Lens' ListPresetsResponse Int
-lisStatusCode = lens _lisStatusCode (\ s a -> s{_lisStatusCode = a});
+lisStatus :: Lens' ListPresetsResponse Int
+lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeSpotDatafeedSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     , describeSpotDatafeedSubscriptionResponse
     -- ** Response lenses
     , dsdsrSpotDatafeedSubscription
-    , dsdsrStatusCode
+    , dsdsrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotDatafeedSubscription.
 --
@@ -49,11 +49,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsdsDryRun'
-newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription'{_dsdsDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription'
+    { _dsdsDryRun :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotDatafeedSubscription' smart constructor.
 describeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
-describeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription'{_dsdsDryRun = Nothing};
+describeSpotDatafeedSubscription =
+    DescribeSpotDatafeedSubscription'
+    { _dsdsDryRun = Nothing
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -100,17 +105,24 @@ instance ToQuery DescribeSpotDatafeedSubscription
 --
 -- * 'dsdsrSpotDatafeedSubscription'
 --
--- * 'dsdsrStatusCode'
-data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'{_dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription, _dsdsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsdsrStatus'
+data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'
+    { _dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
+    , _dsdsrStatus                   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotDatafeedSubscriptionResponse' smart constructor.
 describeSpotDatafeedSubscriptionResponse :: Int -> DescribeSpotDatafeedSubscriptionResponse
-describeSpotDatafeedSubscriptionResponse pStatusCode = DescribeSpotDatafeedSubscriptionResponse'{_dsdsrSpotDatafeedSubscription = Nothing, _dsdsrStatusCode = pStatusCode};
+describeSpotDatafeedSubscriptionResponse pStatus =
+    DescribeSpotDatafeedSubscriptionResponse'
+    { _dsdsrSpotDatafeedSubscription = Nothing
+    , _dsdsrStatus = pStatus
+    }
 
 -- | The Spot Instance data feed subscription.
 dsdsrSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 dsdsrSpotDatafeedSubscription = lens _dsdsrSpotDatafeedSubscription (\ s a -> s{_dsdsrSpotDatafeedSubscription = a});
 
 -- | FIXME: Undocumented member.
-dsdsrStatusCode :: Lens' DescribeSpotDatafeedSubscriptionResponse Int
-dsdsrStatusCode = lens _dsdsrStatusCode (\ s a -> s{_dsdsrStatusCode = a});
+dsdsrStatus :: Lens' DescribeSpotDatafeedSubscriptionResponse Int
+dsdsrStatus = lens _dsdsrStatus (\ s a -> s{_dsdsrStatus = a});

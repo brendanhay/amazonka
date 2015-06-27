@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.ListTaskDefinitions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,14 +39,14 @@ module Network.AWS.ECS.ListTaskDefinitions
     -- ** Response lenses
     , ltdrTaskDefinitionARNs
     , ltdrNextToken
-    , ltdrStatusCode
+    , ltdrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listTaskDefinitions' smart constructor.
 --
@@ -61,11 +61,24 @@ import Network.AWS.Response
 -- * 'ltdSort'
 --
 -- * 'ltdMaxResults'
-data ListTaskDefinitions = ListTaskDefinitions'{_ltdStatus :: Maybe TaskDefinitionStatus, _ltdFamilyPrefix :: Maybe Text, _ltdNextToken :: Maybe Text, _ltdSort :: Maybe SortOrder, _ltdMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data ListTaskDefinitions = ListTaskDefinitions'
+    { _ltdStatus       :: Maybe TaskDefinitionStatus
+    , _ltdFamilyPrefix :: Maybe Text
+    , _ltdNextToken    :: Maybe Text
+    , _ltdSort         :: Maybe SortOrder
+    , _ltdMaxResults   :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTaskDefinitions' smart constructor.
 listTaskDefinitions :: ListTaskDefinitions
-listTaskDefinitions = ListTaskDefinitions'{_ltdStatus = Nothing, _ltdFamilyPrefix = Nothing, _ltdNextToken = Nothing, _ltdSort = Nothing, _ltdMaxResults = Nothing};
+listTaskDefinitions =
+    ListTaskDefinitions'
+    { _ltdStatus = Nothing
+    , _ltdFamilyPrefix = Nothing
+    , _ltdNextToken = Nothing
+    , _ltdSort = Nothing
+    , _ltdMaxResults = Nothing
+    }
 
 -- | The task definition status that you want to filter the
 -- @ListTaskDefinitions@ results with. By default, only @ACTIVE@ task
@@ -163,12 +176,21 @@ instance ToQuery ListTaskDefinitions where
 --
 -- * 'ltdrNextToken'
 --
--- * 'ltdrStatusCode'
-data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'{_ltdrTaskDefinitionARNs :: Maybe [Text], _ltdrNextToken :: Maybe Text, _ltdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ltdrStatus'
+data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'
+    { _ltdrTaskDefinitionARNs :: Maybe [Text]
+    , _ltdrNextToken          :: Maybe Text
+    , _ltdrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTaskDefinitionsResponse' smart constructor.
 listTaskDefinitionsResponse :: Int -> ListTaskDefinitionsResponse
-listTaskDefinitionsResponse pStatusCode = ListTaskDefinitionsResponse'{_ltdrTaskDefinitionARNs = Nothing, _ltdrNextToken = Nothing, _ltdrStatusCode = pStatusCode};
+listTaskDefinitionsResponse pStatus =
+    ListTaskDefinitionsResponse'
+    { _ltdrTaskDefinitionARNs = Nothing
+    , _ltdrNextToken = Nothing
+    , _ltdrStatus = pStatus
+    }
 
 -- | The list of task definition Amazon Resource Name (ARN) entries for the
 -- @ListTaskDefintions@ request.
@@ -183,5 +205,5 @@ ltdrNextToken :: Lens' ListTaskDefinitionsResponse (Maybe Text)
 ltdrNextToken = lens _ltdrNextToken (\ s a -> s{_ltdrNextToken = a});
 
 -- | FIXME: Undocumented member.
-ltdrStatusCode :: Lens' ListTaskDefinitionsResponse Int
-ltdrStatusCode = lens _ltdrStatusCode (\ s a -> s{_ltdrStatusCode = a});
+ltdrStatus :: Lens' ListTaskDefinitionsResponse Int
+ltdrStatus = lens _ltdrStatus (\ s a -> s{_ltdrStatus = a});

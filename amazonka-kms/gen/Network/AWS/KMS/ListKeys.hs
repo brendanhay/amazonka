@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.ListKeys
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.KMS.ListKeys
     , lkrTruncated
     , lkrKeys
     , lkrNextMarker
-    , lkrStatusCode
+    , lkrStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listKeys' smart constructor.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'lkMarker'
 --
 -- * 'lkLimit'
-data ListKeys = ListKeys'{_lkMarker :: Maybe Text, _lkLimit :: Maybe Nat} deriving (Eq, Read, Show)
+data ListKeys = ListKeys'
+    { _lkMarker :: Maybe Text
+    , _lkLimit  :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'ListKeys' smart constructor.
 listKeys :: ListKeys
-listKeys = ListKeys'{_lkMarker = Nothing, _lkLimit = Nothing};
+listKeys =
+    ListKeys'
+    { _lkMarker = Nothing
+    , _lkLimit = Nothing
+    }
 
 -- | Use this parameter only when paginating results, and only in a
 -- subsequent request after you\'ve received a response where the results
@@ -111,12 +118,23 @@ instance ToQuery ListKeys where
 --
 -- * 'lkrNextMarker'
 --
--- * 'lkrStatusCode'
-data ListKeysResponse = ListKeysResponse'{_lkrTruncated :: Maybe Bool, _lkrKeys :: Maybe [KeyListEntry], _lkrNextMarker :: Maybe Text, _lkrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lkrStatus'
+data ListKeysResponse = ListKeysResponse'
+    { _lkrTruncated  :: Maybe Bool
+    , _lkrKeys       :: Maybe [KeyListEntry]
+    , _lkrNextMarker :: Maybe Text
+    , _lkrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListKeysResponse' smart constructor.
 listKeysResponse :: Int -> ListKeysResponse
-listKeysResponse pStatusCode = ListKeysResponse'{_lkrTruncated = Nothing, _lkrKeys = Nothing, _lkrNextMarker = Nothing, _lkrStatusCode = pStatusCode};
+listKeysResponse pStatus =
+    ListKeysResponse'
+    { _lkrTruncated = Nothing
+    , _lkrKeys = Nothing
+    , _lkrNextMarker = Nothing
+    , _lkrStatus = pStatus
+    }
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -135,5 +153,5 @@ lkrNextMarker :: Lens' ListKeysResponse (Maybe Text)
 lkrNextMarker = lens _lkrNextMarker (\ s a -> s{_lkrNextMarker = a});
 
 -- | FIXME: Undocumented member.
-lkrStatusCode :: Lens' ListKeysResponse Int
-lkrStatusCode = lens _lkrStatusCode (\ s a -> s{_lkrStatusCode = a});
+lkrStatus :: Lens' ListKeysResponse Int
+lkrStatus = lens _lkrStatus (\ s a -> s{_lkrStatus = a});

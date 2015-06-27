@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Kinesis.SplitShard
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -82,10 +82,10 @@ module Network.AWS.Kinesis.SplitShard
     , splitShardResponse
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @SplitShard@.
 --
@@ -98,11 +98,20 @@ import Network.AWS.Response
 -- * 'ssShardToSplit'
 --
 -- * 'ssNewStartingHashKey'
-data SplitShard = SplitShard'{_ssStreamName :: Text, _ssShardToSplit :: Text, _ssNewStartingHashKey :: Text} deriving (Eq, Read, Show)
+data SplitShard = SplitShard'
+    { _ssStreamName         :: Text
+    , _ssShardToSplit       :: Text
+    , _ssNewStartingHashKey :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SplitShard' smart constructor.
 splitShard :: Text -> Text -> Text -> SplitShard
-splitShard pStreamName pShardToSplit pNewStartingHashKey = SplitShard'{_ssStreamName = pStreamName, _ssShardToSplit = pShardToSplit, _ssNewStartingHashKey = pNewStartingHashKey};
+splitShard pStreamName pShardToSplit pNewStartingHashKey =
+    SplitShard'
+    { _ssStreamName = pStreamName
+    , _ssShardToSplit = pShardToSplit
+    , _ssNewStartingHashKey = pNewStartingHashKey
+    }
 
 -- | The name of the stream for the shard split.
 ssStreamName :: Lens' SplitShard Text
@@ -152,8 +161,10 @@ instance ToQuery SplitShard where
         toQuery = const mempty
 
 -- | /See:/ 'splitShardResponse' smart constructor.
-data SplitShardResponse = SplitShardResponse' deriving (Eq, Read, Show)
+data SplitShardResponse =
+    SplitShardResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SplitShardResponse' smart constructor.
 splitShardResponse :: SplitShardResponse
-splitShardResponse = SplitShardResponse';
+splitShardResponse = SplitShardResponse'

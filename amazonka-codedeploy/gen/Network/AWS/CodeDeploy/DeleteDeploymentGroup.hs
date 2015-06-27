@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.DeleteDeploymentGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     , deleteDeploymentGroupResponse
     -- ** Response lenses
     , ddgrHooksNotCleanedUp
-    , ddgrStatusCode
+    , ddgrStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a delete deployment group operation.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'ddgApplicationName'
 --
 -- * 'ddgDeploymentGroupName'
-data DeleteDeploymentGroup = DeleteDeploymentGroup'{_ddgApplicationName :: Text, _ddgDeploymentGroupName :: Text} deriving (Eq, Read, Show)
+data DeleteDeploymentGroup = DeleteDeploymentGroup'
+    { _ddgApplicationName     :: Text
+    , _ddgDeploymentGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDeploymentGroup' smart constructor.
 deleteDeploymentGroup :: Text -> Text -> DeleteDeploymentGroup
-deleteDeploymentGroup pApplicationName pDeploymentGroupName = DeleteDeploymentGroup'{_ddgApplicationName = pApplicationName, _ddgDeploymentGroupName = pDeploymentGroupName};
+deleteDeploymentGroup pApplicationName pDeploymentGroupName =
+    DeleteDeploymentGroup'
+    { _ddgApplicationName = pApplicationName
+    , _ddgDeploymentGroupName = pDeploymentGroupName
+    }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
@@ -107,12 +114,19 @@ instance ToQuery DeleteDeploymentGroup where
 --
 -- * 'ddgrHooksNotCleanedUp'
 --
--- * 'ddgrStatusCode'
-data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'{_ddgrHooksNotCleanedUp :: Maybe [AutoScalingGroup], _ddgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddgrStatus'
+data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
+    { _ddgrHooksNotCleanedUp :: Maybe [AutoScalingGroup]
+    , _ddgrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDeploymentGroupResponse' smart constructor.
 deleteDeploymentGroupResponse :: Int -> DeleteDeploymentGroupResponse
-deleteDeploymentGroupResponse pStatusCode = DeleteDeploymentGroupResponse'{_ddgrHooksNotCleanedUp = Nothing, _ddgrStatusCode = pStatusCode};
+deleteDeploymentGroupResponse pStatus =
+    DeleteDeploymentGroupResponse'
+    { _ddgrHooksNotCleanedUp = Nothing
+    , _ddgrStatus = pStatus
+    }
 
 -- | If the output contains no data, and the corresponding deployment group
 -- contained at least one Auto Scaling group, AWS CodeDeploy successfully
@@ -124,5 +138,5 @@ ddgrHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
 ddgrHooksNotCleanedUp = lens _ddgrHooksNotCleanedUp (\ s a -> s{_ddgrHooksNotCleanedUp = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddgrStatusCode :: Lens' DeleteDeploymentGroupResponse Int
-ddgrStatusCode = lens _ddgrStatusCode (\ s a -> s{_ddgrStatusCode = a});
+ddgrStatus :: Lens' DeleteDeploymentGroupResponse Int
+ddgrStatus = lens _ddgrStatus (\ s a -> s{_ddgrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.ListOpenWorkflowExecutions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,11 @@ module Network.AWS.SWF.ListOpenWorkflowExecutions
     , weiExecutionInfos
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'listOpenWorkflowExecutions' smart constructor.
 --
@@ -98,11 +98,30 @@ import Network.AWS.SWF.Types
 -- * 'loweDomain'
 --
 -- * 'loweStartTimeFilter'
-data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions'{_loweNextPageToken :: Maybe Text, _loweExecutionFilter :: Maybe WorkflowExecutionFilter, _loweTypeFilter :: Maybe WorkflowTypeFilter, _loweReverseOrder :: Maybe Bool, _loweTagFilter :: Maybe TagFilter, _loweMaximumPageSize :: Maybe Nat, _loweDomain :: Text, _loweStartTimeFilter :: ExecutionTimeFilter} deriving (Eq, Read, Show)
+data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions'
+    { _loweNextPageToken   :: Maybe Text
+    , _loweExecutionFilter :: Maybe WorkflowExecutionFilter
+    , _loweTypeFilter      :: Maybe WorkflowTypeFilter
+    , _loweReverseOrder    :: Maybe Bool
+    , _loweTagFilter       :: Maybe TagFilter
+    , _loweMaximumPageSize :: Maybe Nat
+    , _loweDomain          :: Text
+    , _loweStartTimeFilter :: ExecutionTimeFilter
+    } deriving (Eq,Read,Show)
 
 -- | 'ListOpenWorkflowExecutions' smart constructor.
 listOpenWorkflowExecutions :: Text -> ExecutionTimeFilter -> ListOpenWorkflowExecutions
-listOpenWorkflowExecutions pDomain pStartTimeFilter = ListOpenWorkflowExecutions'{_loweNextPageToken = Nothing, _loweExecutionFilter = Nothing, _loweTypeFilter = Nothing, _loweReverseOrder = Nothing, _loweTagFilter = Nothing, _loweMaximumPageSize = Nothing, _loweDomain = pDomain, _loweStartTimeFilter = pStartTimeFilter};
+listOpenWorkflowExecutions pDomain pStartTimeFilter =
+    ListOpenWorkflowExecutions'
+    { _loweNextPageToken = Nothing
+    , _loweExecutionFilter = Nothing
+    , _loweTypeFilter = Nothing
+    , _loweReverseOrder = Nothing
+    , _loweTagFilter = Nothing
+    , _loweMaximumPageSize = Nothing
+    , _loweDomain = pDomain
+    , _loweStartTimeFilter = pStartTimeFilter
+    }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call

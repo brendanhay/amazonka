@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.DeleteAlias
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,21 +33,26 @@ module Network.AWS.KMS.DeleteAlias
     , deleteAliasResponse
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteAlias' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'daAliasName'
-newtype DeleteAlias = DeleteAlias'{_daAliasName :: Text} deriving (Eq, Read, Show)
+newtype DeleteAlias = DeleteAlias'
+    { _daAliasName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteAlias' smart constructor.
 deleteAlias :: Text -> DeleteAlias
-deleteAlias pAliasName = DeleteAlias'{_daAliasName = pAliasName};
+deleteAlias pAliasName =
+    DeleteAlias'
+    { _daAliasName = pAliasName
+    }
 
 -- | The alias to be deleted. The name must start with the word \"alias\"
 -- followed by a forward slash (alias\/). Aliases that begin with
@@ -81,8 +86,10 @@ instance ToQuery DeleteAlias where
         toQuery = const mempty
 
 -- | /See:/ 'deleteAliasResponse' smart constructor.
-data DeleteAliasResponse = DeleteAliasResponse' deriving (Eq, Read, Show)
+data DeleteAliasResponse =
+    DeleteAliasResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteAliasResponse' smart constructor.
 deleteAliasResponse :: DeleteAliasResponse
-deleteAliasResponse = DeleteAliasResponse';
+deleteAliasResponse = DeleteAliasResponse'

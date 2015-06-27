@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ModifySnapshotAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,10 +48,10 @@ module Network.AWS.EC2.ModifySnapshotAttribute
     , modifySnapshotAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifySnapshotAttribute' smart constructor.
 --
@@ -70,11 +70,28 @@ import Network.AWS.Response
 -- * 'msaDryRun'
 --
 -- * 'msaSnapshotId'
-data ModifySnapshotAttribute = ModifySnapshotAttribute'{_msaAttribute :: Maybe SnapshotAttributeName, _msaUserIds :: Maybe [Text], _msaCreateVolumePermission :: Maybe CreateVolumePermissionModifications, _msaGroupNames :: Maybe [Text], _msaOperationType :: Maybe Text, _msaDryRun :: Maybe Bool, _msaSnapshotId :: Text} deriving (Eq, Read, Show)
+data ModifySnapshotAttribute = ModifySnapshotAttribute'
+    { _msaAttribute              :: Maybe SnapshotAttributeName
+    , _msaUserIds                :: Maybe [Text]
+    , _msaCreateVolumePermission :: Maybe CreateVolumePermissionModifications
+    , _msaGroupNames             :: Maybe [Text]
+    , _msaOperationType          :: Maybe Text
+    , _msaDryRun                 :: Maybe Bool
+    , _msaSnapshotId             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifySnapshotAttribute' smart constructor.
 modifySnapshotAttribute :: Text -> ModifySnapshotAttribute
-modifySnapshotAttribute pSnapshotId = ModifySnapshotAttribute'{_msaAttribute = Nothing, _msaUserIds = Nothing, _msaCreateVolumePermission = Nothing, _msaGroupNames = Nothing, _msaOperationType = Nothing, _msaDryRun = Nothing, _msaSnapshotId = pSnapshotId};
+modifySnapshotAttribute pSnapshotId =
+    ModifySnapshotAttribute'
+    { _msaAttribute = Nothing
+    , _msaUserIds = Nothing
+    , _msaCreateVolumePermission = Nothing
+    , _msaGroupNames = Nothing
+    , _msaOperationType = Nothing
+    , _msaDryRun = Nothing
+    , _msaSnapshotId = pSnapshotId
+    }
 
 -- | The snapshot attribute to modify.
 msaAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
@@ -137,8 +154,10 @@ instance ToQuery ModifySnapshotAttribute where
                "SnapshotId" =: _msaSnapshotId]
 
 -- | /See:/ 'modifySnapshotAttributeResponse' smart constructor.
-data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse' deriving (Eq, Read, Show)
+data ModifySnapshotAttributeResponse =
+    ModifySnapshotAttributeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ModifySnapshotAttributeResponse' smart constructor.
 modifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse
-modifySnapshotAttributeResponse = ModifySnapshotAttributeResponse';
+modifySnapshotAttributeResponse = ModifySnapshotAttributeResponse'

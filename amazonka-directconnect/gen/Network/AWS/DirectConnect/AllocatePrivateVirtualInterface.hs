@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -59,10 +59,10 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     , viVirtualInterfaceId
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the AllocatePrivateVirtualInterface
 -- operation.
@@ -76,11 +76,20 @@ import Network.AWS.Response
 -- * 'apviOwnerAccount'
 --
 -- * 'apviNewPrivateVirtualInterfaceAllocation'
-data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface'{_apviConnectionId :: Text, _apviOwnerAccount :: Text, _apviNewPrivateVirtualInterfaceAllocation :: NewPrivateVirtualInterfaceAllocation} deriving (Eq, Read, Show)
+data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface'
+    { _apviConnectionId                         :: Text
+    , _apviOwnerAccount                         :: Text
+    , _apviNewPrivateVirtualInterfaceAllocation :: NewPrivateVirtualInterfaceAllocation
+    } deriving (Eq,Read,Show)
 
 -- | 'AllocatePrivateVirtualInterface' smart constructor.
 allocatePrivateVirtualInterface :: Text -> Text -> NewPrivateVirtualInterfaceAllocation -> AllocatePrivateVirtualInterface
-allocatePrivateVirtualInterface pConnectionId pOwnerAccount pNewPrivateVirtualInterfaceAllocation = AllocatePrivateVirtualInterface'{_apviConnectionId = pConnectionId, _apviOwnerAccount = pOwnerAccount, _apviNewPrivateVirtualInterfaceAllocation = pNewPrivateVirtualInterfaceAllocation};
+allocatePrivateVirtualInterface pConnectionId pOwnerAccount pNewPrivateVirtualInterfaceAllocation =
+    AllocatePrivateVirtualInterface'
+    { _apviConnectionId = pConnectionId
+    , _apviOwnerAccount = pOwnerAccount
+    , _apviNewPrivateVirtualInterfaceAllocation = pNewPrivateVirtualInterfaceAllocation
+    }
 
 -- | The connection ID on which the private virtual interface is provisioned.
 --

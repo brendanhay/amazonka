@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.UpdateMLModel
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.MachineLearning.UpdateMLModel
     , updateMLModelResponse
     -- ** Response lenses
     , umlmrMLModelId
-    , umlmrStatusCode
+    , umlmrStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateMLModel' smart constructor.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'umlmScoreThreshold'
 --
 -- * 'umlmMLModelId'
-data UpdateMLModel = UpdateMLModel'{_umlmMLModelName :: Maybe Text, _umlmScoreThreshold :: Maybe Double, _umlmMLModelId :: Text} deriving (Eq, Read, Show)
+data UpdateMLModel = UpdateMLModel'
+    { _umlmMLModelName    :: Maybe Text
+    , _umlmScoreThreshold :: Maybe Double
+    , _umlmMLModelId      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateMLModel' smart constructor.
 updateMLModel :: Text -> UpdateMLModel
-updateMLModel pMLModelId = UpdateMLModel'{_umlmMLModelName = Nothing, _umlmScoreThreshold = Nothing, _umlmMLModelId = pMLModelId};
+updateMLModel pMLModelId =
+    UpdateMLModel'
+    { _umlmMLModelName = Nothing
+    , _umlmScoreThreshold = Nothing
+    , _umlmMLModelId = pMLModelId
+    }
 
 -- | A user-supplied name or description of the @MLModel@.
 umlmMLModelName :: Lens' UpdateMLModel (Maybe Text)
@@ -120,12 +129,19 @@ instance ToQuery UpdateMLModel where
 --
 -- * 'umlmrMLModelId'
 --
--- * 'umlmrStatusCode'
-data UpdateMLModelResponse = UpdateMLModelResponse'{_umlmrMLModelId :: Maybe Text, _umlmrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'umlmrStatus'
+data UpdateMLModelResponse = UpdateMLModelResponse'
+    { _umlmrMLModelId :: Maybe Text
+    , _umlmrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateMLModelResponse' smart constructor.
 updateMLModelResponse :: Int -> UpdateMLModelResponse
-updateMLModelResponse pStatusCode = UpdateMLModelResponse'{_umlmrMLModelId = Nothing, _umlmrStatusCode = pStatusCode};
+updateMLModelResponse pStatus =
+    UpdateMLModelResponse'
+    { _umlmrMLModelId = Nothing
+    , _umlmrStatus = pStatus
+    }
 
 -- | The ID assigned to the @MLModel@ during creation. This value should be
 -- identical to the value of the @MLModelID@ in the request.
@@ -133,5 +149,5 @@ umlmrMLModelId :: Lens' UpdateMLModelResponse (Maybe Text)
 umlmrMLModelId = lens _umlmrMLModelId (\ s a -> s{_umlmrMLModelId = a});
 
 -- | FIXME: Undocumented member.
-umlmrStatusCode :: Lens' UpdateMLModelResponse Int
-umlmrStatusCode = lens _umlmrStatusCode (\ s a -> s{_umlmrStatusCode = a});
+umlmrStatus :: Lens' UpdateMLModelResponse Int
+umlmrStatus = lens _umlmrStatus (\ s a -> s{_umlmrStatus = a});

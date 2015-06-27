@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.ListSteps
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,14 +36,14 @@ module Network.AWS.EMR.ListSteps
     -- ** Response lenses
     , lsrSteps
     , lsrMarker
-    , lsrStatusCode
+    , lsrStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This input determines which steps to list.
 --
@@ -58,11 +58,22 @@ import Network.AWS.Response
 -- * 'lsMarker'
 --
 -- * 'lsClusterId'
-data ListSteps = ListSteps'{_lsStepIds :: Maybe [Text], _lsStepStates :: Maybe [StepState], _lsMarker :: Maybe Text, _lsClusterId :: Text} deriving (Eq, Read, Show)
+data ListSteps = ListSteps'
+    { _lsStepIds    :: Maybe [Text]
+    , _lsStepStates :: Maybe [StepState]
+    , _lsMarker     :: Maybe Text
+    , _lsClusterId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListSteps' smart constructor.
 listSteps :: Text -> ListSteps
-listSteps pClusterId = ListSteps'{_lsStepIds = Nothing, _lsStepStates = Nothing, _lsMarker = Nothing, _lsClusterId = pClusterId};
+listSteps pClusterId =
+    ListSteps'
+    { _lsStepIds = Nothing
+    , _lsStepStates = Nothing
+    , _lsMarker = Nothing
+    , _lsClusterId = pClusterId
+    }
 
 -- | The filter to limit the step list based on the identifier of the steps.
 lsStepIds :: Lens' ListSteps [Text]
@@ -129,12 +140,21 @@ instance ToQuery ListSteps where
 --
 -- * 'lsrMarker'
 --
--- * 'lsrStatusCode'
-data ListStepsResponse = ListStepsResponse'{_lsrSteps :: Maybe [StepSummary], _lsrMarker :: Maybe Text, _lsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lsrStatus'
+data ListStepsResponse = ListStepsResponse'
+    { _lsrSteps  :: Maybe [StepSummary]
+    , _lsrMarker :: Maybe Text
+    , _lsrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListStepsResponse' smart constructor.
 listStepsResponse :: Int -> ListStepsResponse
-listStepsResponse pStatusCode = ListStepsResponse'{_lsrSteps = Nothing, _lsrMarker = Nothing, _lsrStatusCode = pStatusCode};
+listStepsResponse pStatus =
+    ListStepsResponse'
+    { _lsrSteps = Nothing
+    , _lsrMarker = Nothing
+    , _lsrStatus = pStatus
+    }
 
 -- | The filtered list of steps for the cluster.
 lsrSteps :: Lens' ListStepsResponse [StepSummary]
@@ -145,5 +165,5 @@ lsrMarker :: Lens' ListStepsResponse (Maybe Text)
 lsrMarker = lens _lsrMarker (\ s a -> s{_lsrMarker = a});
 
 -- | FIXME: Undocumented member.
-lsrStatusCode :: Lens' ListStepsResponse Int
-lsrStatusCode = lens _lsrStatusCode (\ s a -> s{_lsrStatusCode = a});
+lsrStatus :: Lens' ListStepsResponse Int
+lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});

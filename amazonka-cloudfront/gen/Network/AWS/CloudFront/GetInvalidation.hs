@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.GetInvalidation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.CloudFront.GetInvalidation
     , getInvalidationResponse
     -- ** Response lenses
     , girInvalidation
-    , girStatusCode
+    , girStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to get an invalidation\'s information.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'giDistributionId'
 --
 -- * 'giId'
-data GetInvalidation = GetInvalidation'{_giDistributionId :: Text, _giId :: Text} deriving (Eq, Read, Show)
+data GetInvalidation = GetInvalidation'
+    { _giDistributionId :: Text
+    , _giId             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetInvalidation' smart constructor.
 getInvalidation :: Text -> Text -> GetInvalidation
-getInvalidation pDistributionId pId = GetInvalidation'{_giDistributionId = pDistributionId, _giId = pId};
+getInvalidation pDistributionId pId =
+    GetInvalidation'
+    { _giDistributionId = pDistributionId
+    , _giId = pId
+    }
 
 -- | The distribution\'s id.
 giDistributionId :: Lens' GetInvalidation Text
@@ -95,17 +102,24 @@ instance ToQuery GetInvalidation where
 --
 -- * 'girInvalidation'
 --
--- * 'girStatusCode'
-data GetInvalidationResponse = GetInvalidationResponse'{_girInvalidation :: Maybe Invalidation, _girStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'girStatus'
+data GetInvalidationResponse = GetInvalidationResponse'
+    { _girInvalidation :: Maybe Invalidation
+    , _girStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetInvalidationResponse' smart constructor.
 getInvalidationResponse :: Int -> GetInvalidationResponse
-getInvalidationResponse pStatusCode = GetInvalidationResponse'{_girInvalidation = Nothing, _girStatusCode = pStatusCode};
+getInvalidationResponse pStatus =
+    GetInvalidationResponse'
+    { _girInvalidation = Nothing
+    , _girStatus = pStatus
+    }
 
 -- | The invalidation\'s information.
 girInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
 girInvalidation = lens _girInvalidation (\ s a -> s{_girInvalidation = a});
 
 -- | FIXME: Undocumented member.
-girStatusCode :: Lens' GetInvalidationResponse Int
-girStatusCode = lens _girStatusCode (\ s a -> s{_girStatusCode = a});
+girStatus :: Lens' GetInvalidationResponse Int
+girStatus = lens _girStatus (\ s a -> s{_girStatus = a});

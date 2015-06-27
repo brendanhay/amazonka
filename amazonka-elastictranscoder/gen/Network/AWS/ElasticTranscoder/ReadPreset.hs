@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ReadPreset
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.ElasticTranscoder.ReadPreset
     , readPresetResponse
     -- ** Response lenses
     , rprPreset
-    , rprStatusCode
+    , rprStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @ReadPresetRequest@ structure.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rpId'
-newtype ReadPreset = ReadPreset'{_rpId :: Text} deriving (Eq, Read, Show)
+newtype ReadPreset = ReadPreset'
+    { _rpId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReadPreset' smart constructor.
 readPreset :: Text -> ReadPreset
-readPreset pId = ReadPreset'{_rpId = pId};
+readPreset pId =
+    ReadPreset'
+    { _rpId = pId
+    }
 
 -- | The identifier of the preset for which you want to get detailed
 -- information.
@@ -86,12 +91,19 @@ instance ToQuery ReadPreset where
 --
 -- * 'rprPreset'
 --
--- * 'rprStatusCode'
-data ReadPresetResponse = ReadPresetResponse'{_rprPreset :: Maybe Preset, _rprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rprStatus'
+data ReadPresetResponse = ReadPresetResponse'
+    { _rprPreset :: Maybe Preset
+    , _rprStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ReadPresetResponse' smart constructor.
 readPresetResponse :: Int -> ReadPresetResponse
-readPresetResponse pStatusCode = ReadPresetResponse'{_rprPreset = Nothing, _rprStatusCode = pStatusCode};
+readPresetResponse pStatus =
+    ReadPresetResponse'
+    { _rprPreset = Nothing
+    , _rprStatus = pStatus
+    }
 
 -- | A section of the response body that provides information about the
 -- preset.
@@ -99,5 +111,5 @@ rprPreset :: Lens' ReadPresetResponse (Maybe Preset)
 rprPreset = lens _rprPreset (\ s a -> s{_rprPreset = a});
 
 -- | FIXME: Undocumented member.
-rprStatusCode :: Lens' ReadPresetResponse Int
-rprStatusCode = lens _rprStatusCode (\ s a -> s{_rprStatusCode = a});
+rprStatus :: Lens' ReadPresetResponse Int
+rprStatus = lens _rprStatus (\ s a -> s{_rprStatus = a});

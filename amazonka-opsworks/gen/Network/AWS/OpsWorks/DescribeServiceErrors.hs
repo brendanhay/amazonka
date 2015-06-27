@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeServiceErrors
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.OpsWorks.DescribeServiceErrors
     , describeServiceErrorsResponse
     -- ** Response lenses
     , dserServiceErrors
-    , dserStatusCode
+    , dserStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeServiceErrors' smart constructor.
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'dseServiceErrorIds'
 --
 -- * 'dseStackId'
-data DescribeServiceErrors = DescribeServiceErrors'{_dseInstanceId :: Maybe Text, _dseServiceErrorIds :: Maybe [Text], _dseStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeServiceErrors = DescribeServiceErrors'
+    { _dseInstanceId      :: Maybe Text
+    , _dseServiceErrorIds :: Maybe [Text]
+    , _dseStackId         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeServiceErrors' smart constructor.
 describeServiceErrors :: DescribeServiceErrors
-describeServiceErrors = DescribeServiceErrors'{_dseInstanceId = Nothing, _dseServiceErrorIds = Nothing, _dseStackId = Nothing};
+describeServiceErrors =
+    DescribeServiceErrors'
+    { _dseInstanceId = Nothing
+    , _dseServiceErrorIds = Nothing
+    , _dseStackId = Nothing
+    }
 
 -- | The instance ID. If you use this parameter, @DescribeServiceErrors@
 -- returns descriptions of the errors associated with the specified
@@ -123,12 +132,19 @@ instance ToQuery DescribeServiceErrors where
 --
 -- * 'dserServiceErrors'
 --
--- * 'dserStatusCode'
-data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'{_dserServiceErrors :: Maybe [ServiceError'], _dserStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dserStatus'
+data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'
+    { _dserServiceErrors :: Maybe [ServiceError']
+    , _dserStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeServiceErrorsResponse' smart constructor.
 describeServiceErrorsResponse :: Int -> DescribeServiceErrorsResponse
-describeServiceErrorsResponse pStatusCode = DescribeServiceErrorsResponse'{_dserServiceErrors = Nothing, _dserStatusCode = pStatusCode};
+describeServiceErrorsResponse pStatus =
+    DescribeServiceErrorsResponse'
+    { _dserServiceErrors = Nothing
+    , _dserStatus = pStatus
+    }
 
 -- | An array of @ServiceError@ objects that describe the specified service
 -- errors.
@@ -136,5 +152,5 @@ dserServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
 dserServiceErrors = lens _dserServiceErrors (\ s a -> s{_dserServiceErrors = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dserStatusCode :: Lens' DescribeServiceErrorsResponse Int
-dserStatusCode = lens _dserStatusCode (\ s a -> s{_dserStatusCode = a});
+dserStatus :: Lens' DescribeServiceErrorsResponse Int
+dserStatus = lens _dserStatus (\ s a -> s{_dserStatus = a});

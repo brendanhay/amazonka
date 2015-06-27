@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.SES.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -95,46 +94,52 @@ module Network.AWS.SES.Types
     , sdpTimestamp
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2010-12-01@ of the Amazon Simple Email Service SDK.
 data SES
 
 instance AWSService SES where
     type Sg SES = V4
-
     service = const svc
       where
-        svc :: Service SES
-        svc = Service
-            { _svcAbbrev   = "SES"
-            , _svcPrefix   = "email"
-            , _svcVersion  = "2010-12-01"
+        svc =
+            Service
+            { _svcAbbrev = "SES"
+            , _svcPrefix = "email"
+            , _svcVersion = "2010-12-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | Indicates that the action failed, and the message could not be sent.
 -- Check the error stack for more information about what caused the error.
-_MessageRejected :: AWSError a => Geting (First ServiceError) a ServiceError
-_MessageRejected = _ServiceError . hasStatus 400 . hasCode "MessageRejected";
+_MessageRejected :: AWSError a => Getting (First ServiceError) a ServiceError
+_MessageRejected = _ServiceError . hasStatus 400 . hasCode "MessageRejected"
 
-data IdentityType = Domain | EmailAddress deriving (Eq, Ord, Read, Show, Enum, Generic)
+data IdentityType
+    = Domain
+    | EmailAddress
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText IdentityType where
     parser = takeLowerText >>= \case
@@ -151,7 +156,11 @@ instance Hashable IdentityType
 instance ToQuery IdentityType
 instance ToHeader IdentityType
 
-data NotificationType = Delivery | Bounce | Complaint deriving (Eq, Ord, Read, Show, Enum, Generic)
+data NotificationType
+    = Delivery
+    | Bounce
+    | Complaint
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText NotificationType where
     parser = takeLowerText >>= \case
@@ -170,7 +179,13 @@ instance Hashable NotificationType
 instance ToQuery NotificationType
 instance ToHeader NotificationType
 
-data VerificationStatus = NotStarted | Pending | Success | TemporaryFailure | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VerificationStatus
+    = NotStarted
+    | Pending
+    | Success
+    | TemporaryFailure
+    | Failed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VerificationStatus where
     parser = takeLowerText >>= \case
@@ -207,11 +222,18 @@ instance FromXML VerificationStatus where
 -- * 'bodText'
 --
 -- * 'bodHTML'
-data Body = Body'{_bodText :: Maybe Content, _bodHTML :: Maybe Content} deriving (Eq, Read, Show)
+data Body = Body'
+    { _bodText :: Maybe Content
+    , _bodHTML :: Maybe Content
+    } deriving (Eq,Read,Show)
 
 -- | 'Body' smart constructor.
 body :: Body
-body = Body'{_bodText = Nothing, _bodHTML = Nothing};
+body =
+    Body'
+    { _bodText = Nothing
+    , _bodHTML = Nothing
+    }
 
 -- | The content of the message, in text format. Use this for text-based
 -- email clients, or clients on high-latency networks (such as mobile
@@ -243,11 +265,18 @@ instance ToQuery Body where
 -- * 'conCharset'
 --
 -- * 'conData'
-data Content = Content'{_conCharset :: Maybe Text, _conData :: Text} deriving (Eq, Read, Show)
+data Content = Content'
+    { _conCharset :: Maybe Text
+    , _conData    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Content' smart constructor.
 content :: Text -> Content
-content pData = Content'{_conCharset = Nothing, _conData = pData};
+content pData =
+    Content'
+    { _conCharset = Nothing
+    , _conData = pData
+    }
 
 -- | The character set of the content.
 conCharset :: Lens' Content (Maybe Text)
@@ -280,11 +309,20 @@ instance ToQuery Content where
 -- * 'desCCAddresses'
 --
 -- * 'desToAddresses'
-data Destination = Destination'{_desBCCAddresses :: Maybe [Text], _desCCAddresses :: Maybe [Text], _desToAddresses :: Maybe [Text]} deriving (Eq, Read, Show)
+data Destination = Destination'
+    { _desBCCAddresses :: Maybe [Text]
+    , _desCCAddresses  :: Maybe [Text]
+    , _desToAddresses  :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'Destination' smart constructor.
 destination :: Destination
-destination = Destination'{_desBCCAddresses = Nothing, _desCCAddresses = Nothing, _desToAddresses = Nothing};
+destination =
+    Destination'
+    { _desBCCAddresses = Nothing
+    , _desCCAddresses = Nothing
+    , _desToAddresses = Nothing
+    }
 
 -- | The BCC: field(s) of the message.
 desBCCAddresses :: Lens' Destination [Text]
@@ -319,11 +357,20 @@ instance ToQuery Destination where
 -- * 'idaDkimEnabled'
 --
 -- * 'idaDkimVerificationStatus'
-data IdentityDkimAttributes = IdentityDkimAttributes'{_idaDkimTokens :: Maybe [Text], _idaDkimEnabled :: Bool, _idaDkimVerificationStatus :: VerificationStatus} deriving (Eq, Read, Show)
+data IdentityDkimAttributes = IdentityDkimAttributes'
+    { _idaDkimTokens             :: Maybe [Text]
+    , _idaDkimEnabled            :: !Bool
+    , _idaDkimVerificationStatus :: VerificationStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'IdentityDkimAttributes' smart constructor.
 identityDkimAttributes :: Bool -> VerificationStatus -> IdentityDkimAttributes
-identityDkimAttributes pDkimEnabled pDkimVerificationStatus = IdentityDkimAttributes'{_idaDkimTokens = Nothing, _idaDkimEnabled = pDkimEnabled, _idaDkimVerificationStatus = pDkimVerificationStatus};
+identityDkimAttributes pDkimEnabled pDkimVerificationStatus =
+    IdentityDkimAttributes'
+    { _idaDkimTokens = Nothing
+    , _idaDkimEnabled = pDkimEnabled
+    , _idaDkimVerificationStatus = pDkimVerificationStatus
+    }
 
 -- | A set of character strings that represent the domain\'s identity. Using
 -- these tokens, you will need to create DNS CNAME records that point to
@@ -374,11 +421,22 @@ instance FromXML IdentityDkimAttributes where
 -- * 'inaDeliveryTopic'
 --
 -- * 'inaForwardingEnabled'
-data IdentityNotificationAttributes = IdentityNotificationAttributes'{_inaBounceTopic :: Text, _inaComplaintTopic :: Text, _inaDeliveryTopic :: Text, _inaForwardingEnabled :: Bool} deriving (Eq, Read, Show)
+data IdentityNotificationAttributes = IdentityNotificationAttributes'
+    { _inaBounceTopic       :: Text
+    , _inaComplaintTopic    :: Text
+    , _inaDeliveryTopic     :: Text
+    , _inaForwardingEnabled :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'IdentityNotificationAttributes' smart constructor.
 identityNotificationAttributes :: Text -> Text -> Text -> Bool -> IdentityNotificationAttributes
-identityNotificationAttributes pBounceTopic pComplaintTopic pDeliveryTopic pForwardingEnabled = IdentityNotificationAttributes'{_inaBounceTopic = pBounceTopic, _inaComplaintTopic = pComplaintTopic, _inaDeliveryTopic = pDeliveryTopic, _inaForwardingEnabled = pForwardingEnabled};
+identityNotificationAttributes pBounceTopic pComplaintTopic pDeliveryTopic pForwardingEnabled =
+    IdentityNotificationAttributes'
+    { _inaBounceTopic = pBounceTopic
+    , _inaComplaintTopic = pComplaintTopic
+    , _inaDeliveryTopic = pDeliveryTopic
+    , _inaForwardingEnabled = pForwardingEnabled
+    }
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
 -- will publish bounce notifications.
@@ -419,11 +477,18 @@ instance FromXML IdentityNotificationAttributes where
 -- * 'ivaVerificationToken'
 --
 -- * 'ivaVerificationStatus'
-data IdentityVerificationAttributes = IdentityVerificationAttributes'{_ivaVerificationToken :: Maybe Text, _ivaVerificationStatus :: VerificationStatus} deriving (Eq, Read, Show)
+data IdentityVerificationAttributes = IdentityVerificationAttributes'
+    { _ivaVerificationToken  :: Maybe Text
+    , _ivaVerificationStatus :: VerificationStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'IdentityVerificationAttributes' smart constructor.
 identityVerificationAttributes :: VerificationStatus -> IdentityVerificationAttributes
-identityVerificationAttributes pVerificationStatus = IdentityVerificationAttributes'{_ivaVerificationToken = Nothing, _ivaVerificationStatus = pVerificationStatus};
+identityVerificationAttributes pVerificationStatus =
+    IdentityVerificationAttributes'
+    { _ivaVerificationToken = Nothing
+    , _ivaVerificationStatus = pVerificationStatus
+    }
 
 -- | The verification token for a domain identity. Null for email address
 -- identities.
@@ -450,11 +515,18 @@ instance FromXML IdentityVerificationAttributes where
 -- * 'mesSubject'
 --
 -- * 'mesBody'
-data Message = Message'{_mesSubject :: Content, _mesBody :: Body} deriving (Eq, Read, Show)
+data Message = Message'
+    { _mesSubject :: Content
+    , _mesBody    :: Body
+    } deriving (Eq,Read,Show)
 
 -- | 'Message' smart constructor.
 message :: Content -> Body -> Message
-message pSubject pBody = Message'{_mesSubject = pSubject, _mesBody = pBody};
+message pSubject pBody =
+    Message'
+    { _mesSubject = pSubject
+    , _mesBody = pBody
+    }
 
 -- | The subject of the message: A short summary of the content, which will
 -- appear in the recipient\'s inbox.
@@ -477,11 +549,16 @@ instance ToQuery Message where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rmData'
-newtype RawMessage = RawMessage'{_rmData :: Base64} deriving (Eq, Read, Show)
+newtype RawMessage = RawMessage'
+    { _rmData :: Base64
+    } deriving (Eq,Read,Show)
 
 -- | 'RawMessage' smart constructor.
 rawMessage :: Base64 -> RawMessage
-rawMessage pData = RawMessage'{_rmData = pData};
+rawMessage pData =
+    RawMessage'
+    { _rmData = pData
+    }
 
 -- | The raw data of the message. The client must ensure that the message
 -- format complies with Internet email standards regarding email header
@@ -514,11 +591,24 @@ instance ToQuery RawMessage where
 -- * 'sdpBounces'
 --
 -- * 'sdpTimestamp'
-data SendDataPoint = SendDataPoint'{_sdpRejects :: Maybe Integer, _sdpComplaints :: Maybe Integer, _sdpDeliveryAttempts :: Maybe Integer, _sdpBounces :: Maybe Integer, _sdpTimestamp :: Maybe ISO8601} deriving (Eq, Read, Show)
+data SendDataPoint = SendDataPoint'
+    { _sdpRejects          :: Maybe Integer
+    , _sdpComplaints       :: Maybe Integer
+    , _sdpDeliveryAttempts :: Maybe Integer
+    , _sdpBounces          :: Maybe Integer
+    , _sdpTimestamp        :: Maybe ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'SendDataPoint' smart constructor.
 sendDataPoint :: SendDataPoint
-sendDataPoint = SendDataPoint'{_sdpRejects = Nothing, _sdpComplaints = Nothing, _sdpDeliveryAttempts = Nothing, _sdpBounces = Nothing, _sdpTimestamp = Nothing};
+sendDataPoint =
+    SendDataPoint'
+    { _sdpRejects = Nothing
+    , _sdpComplaints = Nothing
+    , _sdpDeliveryAttempts = Nothing
+    , _sdpBounces = Nothing
+    , _sdpTimestamp = Nothing
+    }
 
 -- | Number of emails rejected by Amazon SES.
 sdpRejects :: Lens' SendDataPoint (Maybe Integer)

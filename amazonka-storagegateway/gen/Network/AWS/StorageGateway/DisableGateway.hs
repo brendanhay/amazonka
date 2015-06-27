@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DisableGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.StorageGateway.DisableGateway
     , disableGatewayResponse
     -- ** Response lenses
     , dGatewayARN
-    , dStatusCode
+    , dStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | DisableGatewayInput
 --
@@ -54,11 +54,16 @@ import Network.AWS.StorageGateway.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'disGatewayARN'
-newtype DisableGateway = DisableGateway'{_disGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype DisableGateway = DisableGateway'
+    { _disGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableGateway' smart constructor.
 disableGateway :: Text -> DisableGateway
-disableGateway pGatewayARN = DisableGateway'{_disGatewayARN = pGatewayARN};
+disableGateway pGatewayARN =
+    DisableGateway'
+    { _disGatewayARN = pGatewayARN
+    }
 
 -- | FIXME: Undocumented member.
 disGatewayARN :: Lens' DisableGateway Text
@@ -102,17 +107,24 @@ instance ToQuery DisableGateway where
 --
 -- * 'dGatewayARN'
 --
--- * 'dStatusCode'
-data DisableGatewayResponse = DisableGatewayResponse'{_dGatewayARN :: Maybe Text, _dStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dStatus'
+data DisableGatewayResponse = DisableGatewayResponse'
+    { _dGatewayARN :: Maybe Text
+    , _dStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableGatewayResponse' smart constructor.
 disableGatewayResponse :: Int -> DisableGatewayResponse
-disableGatewayResponse pStatusCode = DisableGatewayResponse'{_dGatewayARN = Nothing, _dStatusCode = pStatusCode};
+disableGatewayResponse pStatus =
+    DisableGatewayResponse'
+    { _dGatewayARN = Nothing
+    , _dStatus = pStatus
+    }
 
 -- | The unique Amazon Resource Name of the disabled gateway.
 dGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 dGatewayARN = lens _dGatewayARN (\ s a -> s{_dGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-dStatusCode :: Lens' DisableGatewayResponse Int
-dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});
+dStatus :: Lens' DisableGatewayResponse Int
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

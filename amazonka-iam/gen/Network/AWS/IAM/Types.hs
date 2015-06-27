@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.IAM.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -95,7 +94,7 @@ module Network.AWS.IAM.Types
 
     -- * Group
     , Group
-    , group
+    , group'
     , groPath
     , groGroupName
     , groGroupId
@@ -302,69 +301,78 @@ module Network.AWS.IAM.Types
     , vmdSerialNumber
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2010-05-08@ of the Amazon Identity and Access Management SDK.
 data IAM
 
 instance AWSService IAM where
     type Sg IAM = V4
-
     service = const svc
       where
-        svc :: Service IAM
-        svc = Service
-            { _svcAbbrev   = "IAM"
-            , _svcPrefix   = "iam"
-            , _svcVersion  = "2010-05-08"
+        svc =
+            Service
+            { _svcAbbrev = "IAM"
+            , _svcPrefix = "iam"
+            , _svcVersion = "2010-05-08"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The request was rejected because the credential report does not exist.
 -- To generate a credential report, use GenerateCredentialReport.
-_CredentialReportNotPresentException :: AWSError a => Geting (First ServiceError) a ServiceError
-_CredentialReportNotPresentException = _ServiceError . hasStatus 410 . hasCode "ReportNotPresent";
+_CredentialReportNotPresentException :: AWSError a => Getting (First ServiceError) a ServiceError
+_CredentialReportNotPresentException =
+    _ServiceError . hasStatus 410 . hasCode "ReportNotPresent"
 
 -- | The request was rejected because the credential report is still being
 -- generated.
-_CredentialReportNotReadyException :: AWSError a => Geting (First ServiceError) a ServiceError
-_CredentialReportNotReadyException = _ServiceError . hasStatus 404 . hasCode "ReportInProgress";
+_CredentialReportNotReadyException :: AWSError a => Getting (First ServiceError) a ServiceError
+_CredentialReportNotReadyException =
+    _ServiceError . hasStatus 404 . hasCode "ReportInProgress"
 
 -- | The request was rejected because the policy document was malformed. The
 -- error message describes the specific error.
-_MalformedPolicyDocumentException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MalformedPolicyDocumentException = _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument";
+_MalformedPolicyDocumentException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MalformedPolicyDocumentException =
+    _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument"
 
 -- | The request was rejected because it attempted to create a resource that
 -- already exists.
-_EntityAlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_EntityAlreadyExistsException = _ServiceError . hasStatus 409 . hasCode "EntityAlreadyExists";
+_EntityAlreadyExistsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_EntityAlreadyExistsException =
+    _ServiceError . hasStatus 409 . hasCode "EntityAlreadyExists"
 
 -- | The request was rejected because the certificate was malformed or
 -- expired. The error message describes the specific error.
-_MalformedCertificateException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MalformedCertificateException = _ServiceError . hasStatus 400 . hasCode "MalformedCertificate";
+_MalformedCertificateException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MalformedCertificateException =
+    _ServiceError . hasStatus 400 . hasCode "MalformedCertificate"
 
 -- | The request was rejected because the same certificate is associated to
 -- another user under the account.
-_DuplicateCertificateException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicateCertificateException = _ServiceError . hasStatus 409 . hasCode "DuplicateCertificate";
+_DuplicateCertificateException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DuplicateCertificateException =
+    _ServiceError . hasStatus 409 . hasCode "DuplicateCertificate"
 
 -- | The request was rejected because the most recent credential report has
 -- expired. To generate a new credential report, use
@@ -372,69 +380,83 @@ _DuplicateCertificateException = _ServiceError . hasStatus 409 . hasCode "Duplic
 -- expiration, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports>
 -- in the /Using IAM/ guide.
-_CredentialReportExpiredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_CredentialReportExpiredException = _ServiceError . hasStatus 410 . hasCode "ReportExpired";
+_CredentialReportExpiredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_CredentialReportExpiredException =
+    _ServiceError . hasStatus 410 . hasCode "ReportExpired"
 
 -- | The request was rejected because it referenced an entity that does not
 -- exist. The error message describes the entity.
-_NoSuchEntityException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchEntityException = _ServiceError . hasStatus 404 . hasCode "NoSuchEntity";
+_NoSuchEntityException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchEntityException = _ServiceError . hasStatus 404 . hasCode "NoSuchEntity"
 
 -- | The request was rejected because it attempted to delete a resource that
 -- has attached subordinate entities. The error message describes these
 -- entities.
-_DeleteConflictException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeleteConflictException = _ServiceError . hasStatus 409 . hasCode "DeleteConflict";
+_DeleteConflictException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeleteConflictException =
+    _ServiceError . hasStatus 409 . hasCode "DeleteConflict"
 
 -- | The request was rejected because the certificate is invalid.
-_InvalidCertificateException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidCertificateException = _ServiceError . hasStatus 400 . hasCode "InvalidCertificate";
+_InvalidCertificateException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidCertificateException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidCertificate"
 
 -- | The request was rejected because the type of user for the transaction
 -- was incorrect.
-_InvalidUserTypeException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidUserTypeException = _ServiceError . hasStatus 400 . hasCode "InvalidUserType";
+_InvalidUserTypeException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidUserTypeException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidUserType"
 
 -- | The request processing has failed because of an unknown error, exception
 -- or failure.
-_ServiceFailureException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ServiceFailureException = _ServiceError . hasStatus 500 . hasCode "ServiceFailure";
+_ServiceFailureException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ServiceFailureException =
+    _ServiceError . hasStatus 500 . hasCode "ServiceFailure"
 
 -- | The request was rejected because an invalid or out-of-range value was
 -- supplied for an input parameter.
-_InvalidInputException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidInputException = _ServiceError . hasStatus 400 . hasCode "InvalidInput";
+_InvalidInputException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidInputException = _ServiceError . hasStatus 400 . hasCode "InvalidInput"
 
 -- | The request was rejected because the authentication code was not
 -- recognized. The error message describes the specific error.
-_InvalidAuthenticationCodeException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidAuthenticationCodeException = _ServiceError . hasStatus 403 . hasCode "InvalidAuthenticationCode";
+_InvalidAuthenticationCodeException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidAuthenticationCodeException =
+    _ServiceError . hasStatus 403 . hasCode "InvalidAuthenticationCode"
 
 -- | The request was rejected because it referenced an entity that is
 -- temporarily unmodifiable, such as a user name that was deleted and then
 -- recreated. The error indicates that the request is likely to succeed if
 -- you try again after waiting several minutes. The error message describes
 -- the entity.
-_EntityTemporarilyUnmodifiableException :: AWSError a => Geting (First ServiceError) a ServiceError
-_EntityTemporarilyUnmodifiableException = _ServiceError . hasStatus 409 . hasCode "EntityTemporarilyUnmodifiable";
+_EntityTemporarilyUnmodifiableException :: AWSError a => Getting (First ServiceError) a ServiceError
+_EntityTemporarilyUnmodifiableException =
+    _ServiceError . hasStatus 409 . hasCode "EntityTemporarilyUnmodifiable"
 
 -- | The request was rejected because the public key certificate and the
 -- private key do not match.
-_KeyPairMismatchException :: AWSError a => Geting (First ServiceError) a ServiceError
-_KeyPairMismatchException = _ServiceError . hasStatus 400 . hasCode "KeyPairMismatch";
+_KeyPairMismatchException :: AWSError a => Getting (First ServiceError) a ServiceError
+_KeyPairMismatchException =
+    _ServiceError . hasStatus 400 . hasCode "KeyPairMismatch"
 
 -- | The request was rejected because it attempted to create resources beyond
 -- the current AWS account limits. The error message describes the limit
 -- exceeded.
-_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasStatus 409 . hasCode "LimitExceeded";
+_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException =
+    _ServiceError . hasStatus 409 . hasCode "LimitExceeded"
 
 -- | The request was rejected because the provided password did not meet the
 -- requirements imposed by the account password policy.
-_PasswordPolicyViolationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PasswordPolicyViolationException = _ServiceError . hasStatus 400 . hasCode "PasswordPolicyViolation";
+_PasswordPolicyViolationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PasswordPolicyViolationException =
+    _ServiceError . hasStatus 400 . hasCode "PasswordPolicyViolation"
 
-data AssignmentStatusType = Assigned | Unassigned | Any deriving (Eq, Ord, Read, Show, Enum, Generic)
+data AssignmentStatusType
+    = Assigned
+    | Unassigned
+    | Any
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AssignmentStatusType where
     parser = takeLowerText >>= \case
@@ -453,7 +475,13 @@ instance Hashable AssignmentStatusType
 instance ToQuery AssignmentStatusType
 instance ToHeader AssignmentStatusType
 
-data EntityType = Group | LocalManagedPolicy | AWSManagedPolicy | User | Role deriving (Eq, Ord, Read, Show, Enum, Generic)
+data EntityType
+    = Group
+    | LocalManagedPolicy
+    | AWSManagedPolicy
+    | User
+    | Role
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText EntityType where
     parser = takeLowerText >>= \case
@@ -476,7 +504,11 @@ instance Hashable EntityType
 instance ToQuery EntityType
 instance ToHeader EntityType
 
-data PolicyScopeType = AWS | Local | All deriving (Eq, Ord, Read, Show, Enum, Generic)
+data PolicyScopeType
+    = AWS
+    | Local
+    | All
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText PolicyScopeType where
     parser = takeLowerText >>= \case
@@ -495,7 +527,9 @@ instance Hashable PolicyScopeType
 instance ToQuery PolicyScopeType
 instance ToHeader PolicyScopeType
 
-data ReportFormatType = TextCSV deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ReportFormatType =
+    TextCSV
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ReportFormatType where
     parser = takeLowerText >>= \case
@@ -513,7 +547,11 @@ instance ToHeader ReportFormatType
 instance FromXML ReportFormatType where
     parseXML = parseXMLText "ReportFormatType"
 
-data ReportStateType = Inprogress | Started | Complete deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ReportStateType
+    = Inprogress
+    | Started
+    | Complete
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ReportStateType where
     parser = takeLowerText >>= \case
@@ -535,7 +573,10 @@ instance ToHeader ReportStateType
 instance FromXML ReportStateType where
     parseXML = parseXMLText "ReportStateType"
 
-data StatusType = Inactive | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
+data StatusType
+    = Inactive
+    | Active
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText StatusType where
     parser = takeLowerText >>= \case
@@ -555,7 +596,33 @@ instance ToHeader StatusType
 instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
 
-data SummaryKeyType = AttachedPoliciesPerUserQuota | UsersQuota | Groups | GroupsQuota | Users | MFADevicesInUse | PolicyVersionsInUse | SigningCertificatesPerUserQuota | PoliciesQuota | AccessKeysPerUserQuota | PolicySizeQuota | ServerCertificates | AttachedPoliciesPerRoleQuota | GroupsPerUserQuota | GroupPolicySizeQuota | AccountSigningCertificatesPresent | UserPolicySizeQuota | AttachedPoliciesPerGroupQuota | AccountAccessKeysPresent | ServerCertificatesQuota | VersionsPerPolicyQuota | PolicyVersionsInUseQuota | Policies | AccountMFAEnabled | MFADevices deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SummaryKeyType
+    = AttachedPoliciesPerUserQuota
+    | UsersQuota
+    | Groups
+    | GroupsQuota
+    | Users
+    | MFADevicesInUse
+    | PolicyVersionsInUse
+    | SigningCertificatesPerUserQuota
+    | PoliciesQuota
+    | AccessKeysPerUserQuota
+    | PolicySizeQuota
+    | ServerCertificates
+    | AttachedPoliciesPerRoleQuota
+    | GroupsPerUserQuota
+    | GroupPolicySizeQuota
+    | AccountSigningCertificatesPresent
+    | UserPolicySizeQuota
+    | AttachedPoliciesPerGroupQuota
+    | AccountAccessKeysPresent
+    | ServerCertificatesQuota
+    | VersionsPerPolicyQuota
+    | PolicyVersionsInUseQuota
+    | Policies
+    | AccountMFAEnabled
+    | MFADevices
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SummaryKeyType where
     parser = takeLowerText >>= \case
@@ -644,11 +711,24 @@ instance FromXML SummaryKeyType where
 -- * 'akStatus'
 --
 -- * 'akSecretAccessKey'
-data AccessKey = AccessKey'{_akCreateDate :: Maybe ISO8601, _akUserName :: Text, _akAccessKeyId :: Text, _akStatus :: StatusType, _akSecretAccessKey :: Sensitive Text} deriving (Eq, Read, Show)
+data AccessKey = AccessKey'
+    { _akCreateDate      :: Maybe ISO8601
+    , _akUserName        :: Text
+    , _akAccessKeyId     :: Text
+    , _akStatus          :: StatusType
+    , _akSecretAccessKey :: Sensitive Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AccessKey' smart constructor.
 accessKey :: Text -> Text -> StatusType -> Text -> AccessKey
-accessKey pUserName pAccessKeyId pStatus pSecretAccessKey = AccessKey'{_akCreateDate = Nothing, _akUserName = pUserName, _akAccessKeyId = pAccessKeyId, _akStatus = pStatus, _akSecretAccessKey = _Sensitive # pSecretAccessKey};
+accessKey pUserName pAccessKeyId pStatus pSecretAccessKey =
+    AccessKey'
+    { _akCreateDate = Nothing
+    , _akUserName = pUserName
+    , _akAccessKeyId = pAccessKeyId
+    , _akStatus = pStatus
+    , _akSecretAccessKey = _Sensitive # pSecretAccessKey
+    }
 
 -- | The date when the access key was created.
 akCreateDate :: Lens' AccessKey (Maybe UTCTime)
@@ -693,11 +773,20 @@ instance FromXML AccessKey where
 -- * 'akluServiceName'
 --
 -- * 'akluRegion'
-data AccessKeyLastUsed = AccessKeyLastUsed'{_akluLastUsedDate :: ISO8601, _akluServiceName :: Text, _akluRegion :: Text} deriving (Eq, Read, Show)
+data AccessKeyLastUsed = AccessKeyLastUsed'
+    { _akluLastUsedDate :: ISO8601
+    , _akluServiceName  :: Text
+    , _akluRegion       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AccessKeyLastUsed' smart constructor.
 accessKeyLastUsed :: UTCTime -> Text -> Text -> AccessKeyLastUsed
-accessKeyLastUsed pLastUsedDate pServiceName pRegion = AccessKeyLastUsed'{_akluLastUsedDate = _Time # pLastUsedDate, _akluServiceName = pServiceName, _akluRegion = pRegion};
+accessKeyLastUsed pLastUsedDate pServiceName pRegion =
+    AccessKeyLastUsed'
+    { _akluLastUsedDate = _Time # pLastUsedDate
+    , _akluServiceName = pServiceName
+    , _akluRegion = pRegion
+    }
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -764,11 +853,22 @@ instance FromXML AccessKeyLastUsed where
 -- * 'akmUserName'
 --
 -- * 'akmAccessKeyId'
-data AccessKeyMetadata = AccessKeyMetadata'{_akmStatus :: Maybe StatusType, _akmCreateDate :: Maybe ISO8601, _akmUserName :: Maybe Text, _akmAccessKeyId :: Maybe Text} deriving (Eq, Read, Show)
+data AccessKeyMetadata = AccessKeyMetadata'
+    { _akmStatus      :: Maybe StatusType
+    , _akmCreateDate  :: Maybe ISO8601
+    , _akmUserName    :: Maybe Text
+    , _akmAccessKeyId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AccessKeyMetadata' smart constructor.
 accessKeyMetadata :: AccessKeyMetadata
-accessKeyMetadata = AccessKeyMetadata'{_akmStatus = Nothing, _akmCreateDate = Nothing, _akmUserName = Nothing, _akmAccessKeyId = Nothing};
+accessKeyMetadata =
+    AccessKeyMetadata'
+    { _akmStatus = Nothing
+    , _akmCreateDate = Nothing
+    , _akmUserName = Nothing
+    , _akmAccessKeyId = Nothing
+    }
 
 -- | The status of the access key. @Active@ means the key is valid for API
 -- calls; @Inactive@ means it is not.
@@ -812,11 +912,18 @@ instance FromXML AccessKeyMetadata where
 -- * 'apPolicyName'
 --
 -- * 'apPolicyARN'
-data AttachedPolicy = AttachedPolicy'{_apPolicyName :: Maybe Text, _apPolicyARN :: Maybe Text} deriving (Eq, Read, Show)
+data AttachedPolicy = AttachedPolicy'
+    { _apPolicyName :: Maybe Text
+    , _apPolicyARN  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachedPolicy' smart constructor.
 attachedPolicy :: AttachedPolicy
-attachedPolicy = AttachedPolicy'{_apPolicyName = Nothing, _apPolicyARN = Nothing};
+attachedPolicy =
+    AttachedPolicy'
+    { _apPolicyName = Nothing
+    , _apPolicyARN = Nothing
+    }
 
 -- | The friendly name of the attached policy.
 apPolicyName :: Lens' AttachedPolicy (Maybe Text)
@@ -839,7 +946,7 @@ instance FromXML AttachedPolicy where
 -- -   GetGroup
 -- -   ListGroups
 --
--- /See:/ 'group' smart constructor.
+-- /See:/ 'group'' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -852,11 +959,24 @@ instance FromXML AttachedPolicy where
 -- * 'groARN'
 --
 -- * 'groCreateDate'
-data Group = Group'{_groPath :: Text, _groGroupName :: Text, _groGroupId :: Text, _groARN :: Text, _groCreateDate :: ISO8601} deriving (Eq, Read, Show)
+data Group = Group'
+    { _groPath       :: Text
+    , _groGroupName  :: Text
+    , _groGroupId    :: Text
+    , _groARN        :: Text
+    , _groCreateDate :: ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'Group' smart constructor.
-group :: Text -> Text -> Text -> Text -> UTCTime -> Group
-group pPath pGroupName pGroupId pARN pCreateDate = Group'{_groPath = pPath, _groGroupName = pGroupName, _groGroupId = pGroupId, _groARN = pARN, _groCreateDate = _Time # pCreateDate};
+group' :: Text -> Text -> Text -> Text -> UTCTime -> Group
+group' pPath pGroupName pGroupId pARN pCreateDate =
+    Group'
+    { _groPath = pPath
+    , _groGroupName = pGroupName
+    , _groGroupId = pGroupId
+    , _groARN = pARN
+    , _groCreateDate = _Time # pCreateDate
+    }
 
 -- | The path to the group. For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
@@ -919,11 +1039,28 @@ instance FromXML Group where
 -- * 'gdGroupName'
 --
 -- * 'gdAttachedManagedPolicies'
-data GroupDetail = GroupDetail'{_gdARN :: Maybe Text, _gdPath :: Maybe Text, _gdCreateDate :: Maybe ISO8601, _gdGroupId :: Maybe Text, _gdGroupPolicyList :: Maybe [PolicyDetail], _gdGroupName :: Maybe Text, _gdAttachedManagedPolicies :: Maybe [AttachedPolicy]} deriving (Eq, Read, Show)
+data GroupDetail = GroupDetail'
+    { _gdARN                     :: Maybe Text
+    , _gdPath                    :: Maybe Text
+    , _gdCreateDate              :: Maybe ISO8601
+    , _gdGroupId                 :: Maybe Text
+    , _gdGroupPolicyList         :: Maybe [PolicyDetail]
+    , _gdGroupName               :: Maybe Text
+    , _gdAttachedManagedPolicies :: Maybe [AttachedPolicy]
+    } deriving (Eq,Read,Show)
 
 -- | 'GroupDetail' smart constructor.
 groupDetail :: GroupDetail
-groupDetail = GroupDetail'{_gdARN = Nothing, _gdPath = Nothing, _gdCreateDate = Nothing, _gdGroupId = Nothing, _gdGroupPolicyList = Nothing, _gdGroupName = Nothing, _gdAttachedManagedPolicies = Nothing};
+groupDetail =
+    GroupDetail'
+    { _gdARN = Nothing
+    , _gdPath = Nothing
+    , _gdCreateDate = Nothing
+    , _gdGroupId = Nothing
+    , _gdGroupPolicyList = Nothing
+    , _gdGroupName = Nothing
+    , _gdAttachedManagedPolicies = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 gdARN :: Lens' GroupDetail (Maybe Text)
@@ -1002,11 +1139,26 @@ instance FromXML GroupDetail where
 -- * 'ipCreateDate'
 --
 -- * 'ipRoles'
-data InstanceProfile = InstanceProfile'{_ipPath :: Text, _ipInstanceProfileName :: Text, _ipInstanceProfileId :: Text, _ipARN :: Text, _ipCreateDate :: ISO8601, _ipRoles :: [Role]} deriving (Eq, Read, Show)
+data InstanceProfile = InstanceProfile'
+    { _ipPath                :: Text
+    , _ipInstanceProfileName :: Text
+    , _ipInstanceProfileId   :: Text
+    , _ipARN                 :: Text
+    , _ipCreateDate          :: ISO8601
+    , _ipRoles               :: [Role]
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceProfile' smart constructor.
 instanceProfile :: Text -> Text -> Text -> Text -> UTCTime -> InstanceProfile
-instanceProfile pPath pInstanceProfileName pInstanceProfileId pARN pCreateDate = InstanceProfile'{_ipPath = pPath, _ipInstanceProfileName = pInstanceProfileName, _ipInstanceProfileId = pInstanceProfileId, _ipARN = pARN, _ipCreateDate = _Time # pCreateDate, _ipRoles = mempty};
+instanceProfile pPath pInstanceProfileName pInstanceProfileId pARN pCreateDate =
+    InstanceProfile'
+    { _ipPath = pPath
+    , _ipInstanceProfileName = pInstanceProfileName
+    , _ipInstanceProfileId = pInstanceProfileId
+    , _ipARN = pARN
+    , _ipCreateDate = _Time # pCreateDate
+    , _ipRoles = mempty
+    }
 
 -- | The path to the instance profile. For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
@@ -1064,11 +1216,20 @@ instance FromXML InstanceProfile where
 -- * 'lpUserName'
 --
 -- * 'lpCreateDate'
-data LoginProfile = LoginProfile'{_lpPasswordResetRequired :: Maybe Bool, _lpUserName :: Text, _lpCreateDate :: ISO8601} deriving (Eq, Read, Show)
+data LoginProfile = LoginProfile'
+    { _lpPasswordResetRequired :: Maybe Bool
+    , _lpUserName              :: Text
+    , _lpCreateDate            :: ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'LoginProfile' smart constructor.
 loginProfile :: Text -> UTCTime -> LoginProfile
-loginProfile pUserName pCreateDate = LoginProfile'{_lpPasswordResetRequired = Nothing, _lpUserName = pUserName, _lpCreateDate = _Time # pCreateDate};
+loginProfile pUserName pCreateDate =
+    LoginProfile'
+    { _lpPasswordResetRequired = Nothing
+    , _lpUserName = pUserName
+    , _lpCreateDate = _Time # pCreateDate
+    }
 
 -- | Specifies whether the user is required to set a new password on next
 -- sign-in.
@@ -1104,11 +1265,20 @@ instance FromXML LoginProfile where
 -- * 'mdSerialNumber'
 --
 -- * 'mdEnableDate'
-data MFADevice = MFADevice'{_mdUserName :: Text, _mdSerialNumber :: Text, _mdEnableDate :: ISO8601} deriving (Eq, Read, Show)
+data MFADevice = MFADevice'
+    { _mdUserName     :: Text
+    , _mdSerialNumber :: Text
+    , _mdEnableDate   :: ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'MFADevice' smart constructor.
 mfaDevice :: Text -> Text -> UTCTime -> MFADevice
-mfaDevice pUserName pSerialNumber pEnableDate = MFADevice'{_mdUserName = pUserName, _mdSerialNumber = pSerialNumber, _mdEnableDate = _Time # pEnableDate};
+mfaDevice pUserName pSerialNumber pEnableDate =
+    MFADevice'
+    { _mdUserName = pUserName
+    , _mdSerialNumber = pSerialNumber
+    , _mdEnableDate = _Time # pEnableDate
+    }
 
 -- | The user with whom the MFA device is associated.
 mdUserName :: Lens' MFADevice Text
@@ -1165,11 +1335,36 @@ instance FromXML MFADevice where
 -- * 'mpdAttachmentCount'
 --
 -- * 'mpdDescription'
-data ManagedPolicyDetail = ManagedPolicyDetail'{_mpdPolicyName :: Maybe Text, _mpdARN :: Maybe Text, _mpdPath :: Maybe Text, _mpdUpdateDate :: Maybe ISO8601, _mpdPolicyId :: Maybe Text, _mpdCreateDate :: Maybe ISO8601, _mpdPolicyVersionList :: Maybe [PolicyVersion], _mpdIsAttachable :: Maybe Bool, _mpdDefaultVersionId :: Maybe Text, _mpdAttachmentCount :: Maybe Int, _mpdDescription :: Maybe Text} deriving (Eq, Read, Show)
+data ManagedPolicyDetail = ManagedPolicyDetail'
+    { _mpdPolicyName        :: Maybe Text
+    , _mpdARN               :: Maybe Text
+    , _mpdPath              :: Maybe Text
+    , _mpdUpdateDate        :: Maybe ISO8601
+    , _mpdPolicyId          :: Maybe Text
+    , _mpdCreateDate        :: Maybe ISO8601
+    , _mpdPolicyVersionList :: Maybe [PolicyVersion]
+    , _mpdIsAttachable      :: Maybe Bool
+    , _mpdDefaultVersionId  :: Maybe Text
+    , _mpdAttachmentCount   :: Maybe Int
+    , _mpdDescription       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ManagedPolicyDetail' smart constructor.
 managedPolicyDetail :: ManagedPolicyDetail
-managedPolicyDetail = ManagedPolicyDetail'{_mpdPolicyName = Nothing, _mpdARN = Nothing, _mpdPath = Nothing, _mpdUpdateDate = Nothing, _mpdPolicyId = Nothing, _mpdCreateDate = Nothing, _mpdPolicyVersionList = Nothing, _mpdIsAttachable = Nothing, _mpdDefaultVersionId = Nothing, _mpdAttachmentCount = Nothing, _mpdDescription = Nothing};
+managedPolicyDetail =
+    ManagedPolicyDetail'
+    { _mpdPolicyName = Nothing
+    , _mpdARN = Nothing
+    , _mpdPath = Nothing
+    , _mpdUpdateDate = Nothing
+    , _mpdPolicyId = Nothing
+    , _mpdCreateDate = Nothing
+    , _mpdPolicyVersionList = Nothing
+    , _mpdIsAttachable = Nothing
+    , _mpdDefaultVersionId = Nothing
+    , _mpdAttachmentCount = Nothing
+    , _mpdDescription = Nothing
+    }
 
 -- | The friendly name (not ARN) identifying the policy.
 mpdPolicyName :: Lens' ManagedPolicyDetail (Maybe Text)
@@ -1263,11 +1458,16 @@ instance FromXML ManagedPolicyDetail where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'oidcpleARN'
-newtype OpenIDConnectProviderListEntry = OpenIDConnectProviderListEntry'{_oidcpleARN :: Maybe Text} deriving (Eq, Read, Show)
+newtype OpenIDConnectProviderListEntry = OpenIDConnectProviderListEntry'
+    { _oidcpleARN :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'OpenIDConnectProviderListEntry' smart constructor.
 openIDConnectProviderListEntry :: OpenIDConnectProviderListEntry
-openIDConnectProviderListEntry = OpenIDConnectProviderListEntry'{_oidcpleARN = Nothing};
+openIDConnectProviderListEntry =
+    OpenIDConnectProviderListEntry'
+    { _oidcpleARN = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 oidcpleARN :: Lens' OpenIDConnectProviderListEntry (Maybe Text)
@@ -1305,11 +1505,34 @@ instance FromXML OpenIDConnectProviderListEntry where
 -- * 'ppRequireUppercaseCharacters'
 --
 -- * 'ppAllowUsersToChangePassword'
-data PasswordPolicy = PasswordPolicy'{_ppExpirePasswords :: Maybe Bool, _ppRequireNumbers :: Maybe Bool, _ppMinimumPasswordLength :: Maybe Nat, _ppPasswordReusePrevention :: Maybe Nat, _ppRequireLowercaseCharacters :: Maybe Bool, _ppMaxPasswordAge :: Maybe Nat, _ppHardExpiry :: Maybe Bool, _ppRequireSymbols :: Maybe Bool, _ppRequireUppercaseCharacters :: Maybe Bool, _ppAllowUsersToChangePassword :: Maybe Bool} deriving (Eq, Read, Show)
+data PasswordPolicy = PasswordPolicy'
+    { _ppExpirePasswords            :: Maybe Bool
+    , _ppRequireNumbers             :: Maybe Bool
+    , _ppMinimumPasswordLength      :: Maybe Nat
+    , _ppPasswordReusePrevention    :: Maybe Nat
+    , _ppRequireLowercaseCharacters :: Maybe Bool
+    , _ppMaxPasswordAge             :: Maybe Nat
+    , _ppHardExpiry                 :: Maybe Bool
+    , _ppRequireSymbols             :: Maybe Bool
+    , _ppRequireUppercaseCharacters :: Maybe Bool
+    , _ppAllowUsersToChangePassword :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'PasswordPolicy' smart constructor.
 passwordPolicy :: PasswordPolicy
-passwordPolicy = PasswordPolicy'{_ppExpirePasswords = Nothing, _ppRequireNumbers = Nothing, _ppMinimumPasswordLength = Nothing, _ppPasswordReusePrevention = Nothing, _ppRequireLowercaseCharacters = Nothing, _ppMaxPasswordAge = Nothing, _ppHardExpiry = Nothing, _ppRequireSymbols = Nothing, _ppRequireUppercaseCharacters = Nothing, _ppAllowUsersToChangePassword = Nothing};
+passwordPolicy =
+    PasswordPolicy'
+    { _ppExpirePasswords = Nothing
+    , _ppRequireNumbers = Nothing
+    , _ppMinimumPasswordLength = Nothing
+    , _ppPasswordReusePrevention = Nothing
+    , _ppRequireLowercaseCharacters = Nothing
+    , _ppMaxPasswordAge = Nothing
+    , _ppHardExpiry = Nothing
+    , _ppRequireSymbols = Nothing
+    , _ppRequireUppercaseCharacters = Nothing
+    , _ppAllowUsersToChangePassword = Nothing
+    }
 
 -- | Specifies whether IAM users are required to change their password after
 -- a specified number of days.
@@ -1402,11 +1625,34 @@ instance FromXML PasswordPolicy where
 -- * 'polAttachmentCount'
 --
 -- * 'polDescription'
-data Policy = Policy'{_polPolicyName :: Maybe Text, _polARN :: Maybe Text, _polPath :: Maybe Text, _polUpdateDate :: Maybe ISO8601, _polPolicyId :: Maybe Text, _polCreateDate :: Maybe ISO8601, _polIsAttachable :: Maybe Bool, _polDefaultVersionId :: Maybe Text, _polAttachmentCount :: Maybe Int, _polDescription :: Maybe Text} deriving (Eq, Read, Show)
+data Policy = Policy'
+    { _polPolicyName       :: Maybe Text
+    , _polARN              :: Maybe Text
+    , _polPath             :: Maybe Text
+    , _polUpdateDate       :: Maybe ISO8601
+    , _polPolicyId         :: Maybe Text
+    , _polCreateDate       :: Maybe ISO8601
+    , _polIsAttachable     :: Maybe Bool
+    , _polDefaultVersionId :: Maybe Text
+    , _polAttachmentCount  :: Maybe Int
+    , _polDescription      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Policy' smart constructor.
 policy :: Policy
-policy = Policy'{_polPolicyName = Nothing, _polARN = Nothing, _polPath = Nothing, _polUpdateDate = Nothing, _polPolicyId = Nothing, _polCreateDate = Nothing, _polIsAttachable = Nothing, _polDefaultVersionId = Nothing, _polAttachmentCount = Nothing, _polDescription = Nothing};
+policy =
+    Policy'
+    { _polPolicyName = Nothing
+    , _polARN = Nothing
+    , _polPath = Nothing
+    , _polUpdateDate = Nothing
+    , _polPolicyId = Nothing
+    , _polCreateDate = Nothing
+    , _polIsAttachable = Nothing
+    , _polDefaultVersionId = Nothing
+    , _polAttachmentCount = Nothing
+    , _polDescription = Nothing
+    }
 
 -- | The friendly name (not ARN) identifying the policy.
 polPolicyName :: Lens' Policy (Maybe Text)
@@ -1496,11 +1742,18 @@ instance FromXML Policy where
 -- * 'pdPolicyDocument'
 --
 -- * 'pdPolicyName'
-data PolicyDetail = PolicyDetail'{_pdPolicyDocument :: Maybe Text, _pdPolicyName :: Maybe Text} deriving (Eq, Read, Show)
+data PolicyDetail = PolicyDetail'
+    { _pdPolicyDocument :: Maybe Text
+    , _pdPolicyName     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PolicyDetail' smart constructor.
 policyDetail :: PolicyDetail
-policyDetail = PolicyDetail'{_pdPolicyDocument = Nothing, _pdPolicyName = Nothing};
+policyDetail =
+    PolicyDetail'
+    { _pdPolicyDocument = Nothing
+    , _pdPolicyName = Nothing
+    }
 
 -- | The policy document.
 pdPolicyDocument :: Lens' PolicyDetail (Maybe Text)
@@ -1529,11 +1782,16 @@ instance FromXML PolicyDetail where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'pgGroupName'
-newtype PolicyGroup = PolicyGroup'{_pgGroupName :: Maybe Text} deriving (Eq, Read, Show)
+newtype PolicyGroup = PolicyGroup'
+    { _pgGroupName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PolicyGroup' smart constructor.
 policyGroup :: PolicyGroup
-policyGroup = PolicyGroup'{_pgGroupName = Nothing};
+policyGroup =
+    PolicyGroup'
+    { _pgGroupName = Nothing
+    }
 
 -- | The name (friendly name, not ARN) identifying the group.
 pgGroupName :: Lens' PolicyGroup (Maybe Text)
@@ -1556,11 +1814,16 @@ instance FromXML PolicyGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'prRoleName'
-newtype PolicyRole = PolicyRole'{_prRoleName :: Maybe Text} deriving (Eq, Read, Show)
+newtype PolicyRole = PolicyRole'
+    { _prRoleName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PolicyRole' smart constructor.
 policyRole :: PolicyRole
-policyRole = PolicyRole'{_prRoleName = Nothing};
+policyRole =
+    PolicyRole'
+    { _prRoleName = Nothing
+    }
 
 -- | The name (friendly name, not ARN) identifying the role.
 prRoleName :: Lens' PolicyRole (Maybe Text)
@@ -1583,11 +1846,16 @@ instance FromXML PolicyRole where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'puUserName'
-newtype PolicyUser = PolicyUser'{_puUserName :: Maybe Text} deriving (Eq, Read, Show)
+newtype PolicyUser = PolicyUser'
+    { _puUserName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PolicyUser' smart constructor.
 policyUser :: PolicyUser
-policyUser = PolicyUser'{_puUserName = Nothing};
+policyUser =
+    PolicyUser'
+    { _puUserName = Nothing
+    }
 
 -- | The name (friendly name, not ARN) identifying the user.
 puUserName :: Lens' PolicyUser (Maybe Text)
@@ -1617,11 +1885,22 @@ instance FromXML PolicyUser where
 -- * 'pvDocument'
 --
 -- * 'pvIsDefaultVersion'
-data PolicyVersion = PolicyVersion'{_pvVersionId :: Maybe Text, _pvCreateDate :: Maybe ISO8601, _pvDocument :: Maybe Text, _pvIsDefaultVersion :: Maybe Bool} deriving (Eq, Read, Show)
+data PolicyVersion = PolicyVersion'
+    { _pvVersionId        :: Maybe Text
+    , _pvCreateDate       :: Maybe ISO8601
+    , _pvDocument         :: Maybe Text
+    , _pvIsDefaultVersion :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'PolicyVersion' smart constructor.
 policyVersion :: PolicyVersion
-policyVersion = PolicyVersion'{_pvVersionId = Nothing, _pvCreateDate = Nothing, _pvDocument = Nothing, _pvIsDefaultVersion = Nothing};
+policyVersion =
+    PolicyVersion'
+    { _pvVersionId = Nothing
+    , _pvCreateDate = Nothing
+    , _pvDocument = Nothing
+    , _pvIsDefaultVersion = Nothing
+    }
 
 -- | The identifier for the policy version.
 --
@@ -1682,11 +1961,26 @@ instance FromXML PolicyVersion where
 -- * 'rolARN'
 --
 -- * 'rolCreateDate'
-data Role = Role'{_rolAssumeRolePolicyDocument :: Maybe Text, _rolPath :: Text, _rolRoleName :: Text, _rolRoleId :: Text, _rolARN :: Text, _rolCreateDate :: ISO8601} deriving (Eq, Read, Show)
+data Role = Role'
+    { _rolAssumeRolePolicyDocument :: Maybe Text
+    , _rolPath                     :: Text
+    , _rolRoleName                 :: Text
+    , _rolRoleId                   :: Text
+    , _rolARN                      :: Text
+    , _rolCreateDate               :: ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'Role' smart constructor.
 role :: Text -> Text -> Text -> Text -> UTCTime -> Role
-role pPath pRoleName pRoleId pARN pCreateDate = Role'{_rolAssumeRolePolicyDocument = Nothing, _rolPath = pPath, _rolRoleName = pRoleName, _rolRoleId = pRoleId, _rolARN = pARN, _rolCreateDate = _Time # pCreateDate};
+role pPath pRoleName pRoleId pARN pCreateDate =
+    Role'
+    { _rolAssumeRolePolicyDocument = Nothing
+    , _rolPath = pPath
+    , _rolRoleName = pRoleName
+    , _rolRoleId = pRoleId
+    , _rolARN = pARN
+    , _rolCreateDate = _Time # pCreateDate
+    }
 
 -- | The policy that grants an entity permission to assume the role.
 rolAssumeRolePolicyDocument :: Lens' Role (Maybe Text)
@@ -1758,11 +2052,32 @@ instance FromXML Role where
 -- * 'rdRolePolicyList'
 --
 -- * 'rdAttachedManagedPolicies'
-data RoleDetail = RoleDetail'{_rdAssumeRolePolicyDocument :: Maybe Text, _rdARN :: Maybe Text, _rdPath :: Maybe Text, _rdInstanceProfileList :: Maybe [InstanceProfile], _rdCreateDate :: Maybe ISO8601, _rdRoleName :: Maybe Text, _rdRoleId :: Maybe Text, _rdRolePolicyList :: Maybe [PolicyDetail], _rdAttachedManagedPolicies :: Maybe [AttachedPolicy]} deriving (Eq, Read, Show)
+data RoleDetail = RoleDetail'
+    { _rdAssumeRolePolicyDocument :: Maybe Text
+    , _rdARN                      :: Maybe Text
+    , _rdPath                     :: Maybe Text
+    , _rdInstanceProfileList      :: Maybe [InstanceProfile]
+    , _rdCreateDate               :: Maybe ISO8601
+    , _rdRoleName                 :: Maybe Text
+    , _rdRoleId                   :: Maybe Text
+    , _rdRolePolicyList           :: Maybe [PolicyDetail]
+    , _rdAttachedManagedPolicies  :: Maybe [AttachedPolicy]
+    } deriving (Eq,Read,Show)
 
 -- | 'RoleDetail' smart constructor.
 roleDetail :: RoleDetail
-roleDetail = RoleDetail'{_rdAssumeRolePolicyDocument = Nothing, _rdARN = Nothing, _rdPath = Nothing, _rdInstanceProfileList = Nothing, _rdCreateDate = Nothing, _rdRoleName = Nothing, _rdRoleId = Nothing, _rdRolePolicyList = Nothing, _rdAttachedManagedPolicies = Nothing};
+roleDetail =
+    RoleDetail'
+    { _rdAssumeRolePolicyDocument = Nothing
+    , _rdARN = Nothing
+    , _rdPath = Nothing
+    , _rdInstanceProfileList = Nothing
+    , _rdCreateDate = Nothing
+    , _rdRoleName = Nothing
+    , _rdRoleId = Nothing
+    , _rdRolePolicyList = Nothing
+    , _rdAttachedManagedPolicies = Nothing
+    }
 
 -- | The trust policy that grants permission to assume the role.
 rdAssumeRolePolicyDocument :: Lens' RoleDetail (Maybe Text)
@@ -1838,11 +2153,20 @@ instance FromXML RoleDetail where
 -- * 'samlpleCreateDate'
 --
 -- * 'samlpleValidUntil'
-data SAMLProviderListEntry = SAMLProviderListEntry'{_samlpleARN :: Maybe Text, _samlpleCreateDate :: Maybe ISO8601, _samlpleValidUntil :: Maybe ISO8601} deriving (Eq, Read, Show)
+data SAMLProviderListEntry = SAMLProviderListEntry'
+    { _samlpleARN        :: Maybe Text
+    , _samlpleCreateDate :: Maybe ISO8601
+    , _samlpleValidUntil :: Maybe ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'SAMLProviderListEntry' smart constructor.
 sAMLProviderListEntry :: SAMLProviderListEntry
-sAMLProviderListEntry = SAMLProviderListEntry'{_samlpleARN = Nothing, _samlpleCreateDate = Nothing, _samlpleValidUntil = Nothing};
+sAMLProviderListEntry =
+    SAMLProviderListEntry'
+    { _samlpleARN = Nothing
+    , _samlpleCreateDate = Nothing
+    , _samlpleValidUntil = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider.
 samlpleARN :: Lens' SAMLProviderListEntry (Maybe Text)
@@ -1876,11 +2200,20 @@ instance FromXML SAMLProviderListEntry where
 -- * 'serServerCertificateMetadata'
 --
 -- * 'serCertificateBody'
-data ServerCertificate = ServerCertificate'{_serCertificateChain :: Maybe Text, _serServerCertificateMetadata :: ServerCertificateMetadata, _serCertificateBody :: Text} deriving (Eq, Read, Show)
+data ServerCertificate = ServerCertificate'
+    { _serCertificateChain          :: Maybe Text
+    , _serServerCertificateMetadata :: ServerCertificateMetadata
+    , _serCertificateBody           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ServerCertificate' smart constructor.
 serverCertificate :: ServerCertificateMetadata -> Text -> ServerCertificate
-serverCertificate pServerCertificateMetadata pCertificateBody = ServerCertificate'{_serCertificateChain = Nothing, _serServerCertificateMetadata = pServerCertificateMetadata, _serCertificateBody = pCertificateBody};
+serverCertificate pServerCertificateMetadata pCertificateBody =
+    ServerCertificate'
+    { _serCertificateChain = Nothing
+    , _serServerCertificateMetadata = pServerCertificateMetadata
+    , _serCertificateBody = pCertificateBody
+    }
 
 -- | The contents of the public key certificate chain.
 serCertificateChain :: Lens' ServerCertificate (Maybe Text)
@@ -1923,11 +2256,26 @@ instance FromXML ServerCertificate where
 -- * 'scmServerCertificateId'
 --
 -- * 'scmARN'
-data ServerCertificateMetadata = ServerCertificateMetadata'{_scmUploadDate :: Maybe ISO8601, _scmExpiration :: Maybe ISO8601, _scmPath :: Text, _scmServerCertificateName :: Text, _scmServerCertificateId :: Text, _scmARN :: Text} deriving (Eq, Read, Show)
+data ServerCertificateMetadata = ServerCertificateMetadata'
+    { _scmUploadDate            :: Maybe ISO8601
+    , _scmExpiration            :: Maybe ISO8601
+    , _scmPath                  :: Text
+    , _scmServerCertificateName :: Text
+    , _scmServerCertificateId   :: Text
+    , _scmARN                   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ServerCertificateMetadata' smart constructor.
 serverCertificateMetadata :: Text -> Text -> Text -> Text -> ServerCertificateMetadata
-serverCertificateMetadata pPath pServerCertificateName pServerCertificateId pARN = ServerCertificateMetadata'{_scmUploadDate = Nothing, _scmExpiration = Nothing, _scmPath = pPath, _scmServerCertificateName = pServerCertificateName, _scmServerCertificateId = pServerCertificateId, _scmARN = pARN};
+serverCertificateMetadata pPath pServerCertificateName pServerCertificateId pARN =
+    ServerCertificateMetadata'
+    { _scmUploadDate = Nothing
+    , _scmExpiration = Nothing
+    , _scmPath = pPath
+    , _scmServerCertificateName = pServerCertificateName
+    , _scmServerCertificateId = pServerCertificateId
+    , _scmARN = pARN
+    }
 
 -- | The date when the server certificate was uploaded.
 scmUploadDate :: Lens' ServerCertificateMetadata (Maybe UTCTime)
@@ -1989,11 +2337,24 @@ instance FromXML ServerCertificateMetadata where
 -- * 'scCertificateBody'
 --
 -- * 'scStatus'
-data SigningCertificate = SigningCertificate'{_scUploadDate :: Maybe ISO8601, _scUserName :: Text, _scCertificateId :: Text, _scCertificateBody :: Text, _scStatus :: StatusType} deriving (Eq, Read, Show)
+data SigningCertificate = SigningCertificate'
+    { _scUploadDate      :: Maybe ISO8601
+    , _scUserName        :: Text
+    , _scCertificateId   :: Text
+    , _scCertificateBody :: Text
+    , _scStatus          :: StatusType
+    } deriving (Eq,Read,Show)
 
 -- | 'SigningCertificate' smart constructor.
 signingCertificate :: Text -> Text -> Text -> StatusType -> SigningCertificate
-signingCertificate pUserName pCertificateId pCertificateBody pStatus = SigningCertificate'{_scUploadDate = Nothing, _scUserName = pUserName, _scCertificateId = pCertificateId, _scCertificateBody = pCertificateBody, _scStatus = pStatus};
+signingCertificate pUserName pCertificateId pCertificateBody pStatus =
+    SigningCertificate'
+    { _scUploadDate = Nothing
+    , _scUserName = pUserName
+    , _scCertificateId = pCertificateId
+    , _scCertificateBody = pCertificateBody
+    , _scStatus = pStatus
+    }
 
 -- | The date when the signing certificate was uploaded.
 scUploadDate :: Lens' SigningCertificate (Maybe UTCTime)
@@ -2050,11 +2411,26 @@ instance FromXML SigningCertificate where
 -- * 'useARN'
 --
 -- * 'useCreateDate'
-data User = User'{_usePasswordLastUsed :: Maybe ISO8601, _usePath :: Text, _useUserName :: Text, _useUserId :: Text, _useARN :: Text, _useCreateDate :: ISO8601} deriving (Eq, Read, Show)
+data User = User'
+    { _usePasswordLastUsed :: Maybe ISO8601
+    , _usePath             :: Text
+    , _useUserName         :: Text
+    , _useUserId           :: Text
+    , _useARN              :: Text
+    , _useCreateDate       :: ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'User' smart constructor.
 user :: Text -> Text -> Text -> Text -> UTCTime -> User
-user pPath pUserName pUserId pARN pCreateDate = User'{_usePasswordLastUsed = Nothing, _usePath = pPath, _useUserName = pUserName, _useUserId = pUserId, _useARN = pARN, _useCreateDate = _Time # pCreateDate};
+user pPath pUserName pUserId pARN pCreateDate =
+    User'
+    { _usePasswordLastUsed = Nothing
+    , _usePath = pPath
+    , _useUserName = pUserName
+    , _useUserId = pUserId
+    , _useARN = pARN
+    , _useCreateDate = _Time # pCreateDate
+    }
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -2140,11 +2516,30 @@ instance FromXML User where
 -- * 'udUserPolicyList'
 --
 -- * 'udAttachedManagedPolicies'
-data UserDetail = UserDetail'{_udARN :: Maybe Text, _udPath :: Maybe Text, _udGroupList :: Maybe [Text], _udCreateDate :: Maybe ISO8601, _udUserName :: Maybe Text, _udUserId :: Maybe Text, _udUserPolicyList :: Maybe [PolicyDetail], _udAttachedManagedPolicies :: Maybe [AttachedPolicy]} deriving (Eq, Read, Show)
+data UserDetail = UserDetail'
+    { _udARN                     :: Maybe Text
+    , _udPath                    :: Maybe Text
+    , _udGroupList               :: Maybe [Text]
+    , _udCreateDate              :: Maybe ISO8601
+    , _udUserName                :: Maybe Text
+    , _udUserId                  :: Maybe Text
+    , _udUserPolicyList          :: Maybe [PolicyDetail]
+    , _udAttachedManagedPolicies :: Maybe [AttachedPolicy]
+    } deriving (Eq,Read,Show)
 
 -- | 'UserDetail' smart constructor.
 userDetail :: UserDetail
-userDetail = UserDetail'{_udARN = Nothing, _udPath = Nothing, _udGroupList = Nothing, _udCreateDate = Nothing, _udUserName = Nothing, _udUserId = Nothing, _udUserPolicyList = Nothing, _udAttachedManagedPolicies = Nothing};
+userDetail =
+    UserDetail'
+    { _udARN = Nothing
+    , _udPath = Nothing
+    , _udGroupList = Nothing
+    , _udCreateDate = Nothing
+    , _udUserName = Nothing
+    , _udUserId = Nothing
+    , _udUserPolicyList = Nothing
+    , _udAttachedManagedPolicies = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 udARN :: Lens' UserDetail (Maybe Text)
@@ -2216,11 +2611,24 @@ instance FromXML UserDetail where
 -- * 'vmdEnableDate'
 --
 -- * 'vmdSerialNumber'
-data VirtualMFADevice = VirtualMFADevice'{_vmdQRCodePNG :: Maybe (Sensitive Base64), _vmdBase32StringSeed :: Maybe (Sensitive Base64), _vmdUser :: Maybe User, _vmdEnableDate :: Maybe ISO8601, _vmdSerialNumber :: Text} deriving (Eq, Read, Show)
+data VirtualMFADevice = VirtualMFADevice'
+    { _vmdQRCodePNG        :: Maybe (Sensitive Base64)
+    , _vmdBase32StringSeed :: Maybe (Sensitive Base64)
+    , _vmdUser             :: Maybe User
+    , _vmdEnableDate       :: Maybe ISO8601
+    , _vmdSerialNumber     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VirtualMFADevice' smart constructor.
 virtualMFADevice :: Text -> VirtualMFADevice
-virtualMFADevice pSerialNumber = VirtualMFADevice'{_vmdQRCodePNG = Nothing, _vmdBase32StringSeed = Nothing, _vmdUser = Nothing, _vmdEnableDate = Nothing, _vmdSerialNumber = pSerialNumber};
+virtualMFADevice pSerialNumber =
+    VirtualMFADevice'
+    { _vmdQRCodePNG = Nothing
+    , _vmdBase32StringSeed = Nothing
+    , _vmdUser = Nothing
+    , _vmdEnableDate = Nothing
+    , _vmdSerialNumber = pSerialNumber
+    }
 
 -- | A QR code PNG image that encodes
 -- @otpauth:\/\/totp\/$virtualMFADeviceName\@$AccountName?secret=$Base32String@

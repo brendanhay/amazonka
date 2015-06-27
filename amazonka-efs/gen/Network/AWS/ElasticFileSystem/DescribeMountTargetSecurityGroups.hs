@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticFileSystem.DescribeMountTargetSecurityGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,24 +42,29 @@ module Network.AWS.ElasticFileSystem.DescribeMountTargetSecurityGroups
     , describeMountTargetSecurityGroupsResponse
     -- ** Response lenses
     , dmtsgrSecurityGroups
-    , dmtsgrStatusCode
+    , dmtsgrStatus
     ) where
 
-import Network.AWS.ElasticFileSystem.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticFileSystem.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeMountTargetSecurityGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dmtsgMountTargetId'
-newtype DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'{_dmtsgMountTargetId :: Text} deriving (Eq, Read, Show)
+newtype DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
+    { _dmtsgMountTargetId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMountTargetSecurityGroups' smart constructor.
 describeMountTargetSecurityGroups :: Text -> DescribeMountTargetSecurityGroups
-describeMountTargetSecurityGroups pMountTargetId = DescribeMountTargetSecurityGroups'{_dmtsgMountTargetId = pMountTargetId};
+describeMountTargetSecurityGroups pMountTargetId =
+    DescribeMountTargetSecurityGroups'
+    { _dmtsgMountTargetId = pMountTargetId
+    }
 
 -- | The ID of the mount target whose security groups you want to retrieve.
 dmtsgMountTargetId :: Lens' DescribeMountTargetSecurityGroups Text
@@ -100,17 +105,24 @@ instance ToQuery DescribeMountTargetSecurityGroups
 --
 -- * 'dmtsgrSecurityGroups'
 --
--- * 'dmtsgrStatusCode'
-data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'{_dmtsgrSecurityGroups :: [Text], _dmtsgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dmtsgrStatus'
+data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'
+    { _dmtsgrSecurityGroups :: [Text]
+    , _dmtsgrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMountTargetSecurityGroupsResponse' smart constructor.
 describeMountTargetSecurityGroupsResponse :: Int -> DescribeMountTargetSecurityGroupsResponse
-describeMountTargetSecurityGroupsResponse pStatusCode = DescribeMountTargetSecurityGroupsResponse'{_dmtsgrSecurityGroups = mempty, _dmtsgrStatusCode = pStatusCode};
+describeMountTargetSecurityGroupsResponse pStatus =
+    DescribeMountTargetSecurityGroupsResponse'
+    { _dmtsgrSecurityGroups = mempty
+    , _dmtsgrStatus = pStatus
+    }
 
 -- | An array of security groups.
 dmtsgrSecurityGroups :: Lens' DescribeMountTargetSecurityGroupsResponse [Text]
 dmtsgrSecurityGroups = lens _dmtsgrSecurityGroups (\ s a -> s{_dmtsgrSecurityGroups = a});
 
 -- | FIXME: Undocumented member.
-dmtsgrStatusCode :: Lens' DescribeMountTargetSecurityGroupsResponse Int
-dmtsgrStatusCode = lens _dmtsgrStatusCode (\ s a -> s{_dmtsgrStatusCode = a});
+dmtsgrStatus :: Lens' DescribeMountTargetSecurityGroupsResponse Int
+dmtsgrStatus = lens _dmtsgrStatus (\ s a -> s{_dmtsgrStatus = a});

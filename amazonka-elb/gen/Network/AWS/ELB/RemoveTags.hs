@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.RemoveTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.ELB.RemoveTags
     -- ** Response constructor
     , removeTagsResponse
     -- ** Response lenses
-    , rtrStatusCode
+    , rtrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'removeTags' smart constructor.
 --
@@ -47,11 +47,18 @@ import Network.AWS.Response
 -- * 'rtLoadBalancerNames'
 --
 -- * 'rtTags'
-data RemoveTags = RemoveTags'{_rtLoadBalancerNames :: [Text], _rtTags :: List1 TagKeyOnly} deriving (Eq, Read, Show)
+data RemoveTags = RemoveTags'
+    { _rtLoadBalancerNames :: [Text]
+    , _rtTags              :: List1 TagKeyOnly
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveTags' smart constructor.
 removeTags :: NonEmpty TagKeyOnly -> RemoveTags
-removeTags pTags = RemoveTags'{_rtLoadBalancerNames = mempty, _rtTags = _List1 # pTags};
+removeTags pTags =
+    RemoveTags'
+    { _rtLoadBalancerNames = mempty
+    , _rtTags = _List1 # pTags
+    }
 
 -- | The name of the load balancer. You can specify a maximum of one load
 -- balancer name.
@@ -90,13 +97,18 @@ instance ToQuery RemoveTags where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrStatusCode'
-newtype RemoveTagsResponse = RemoveTagsResponse'{_rtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rtrStatus'
+newtype RemoveTagsResponse = RemoveTagsResponse'
+    { _rtrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveTagsResponse' smart constructor.
 removeTagsResponse :: Int -> RemoveTagsResponse
-removeTagsResponse pStatusCode = RemoveTagsResponse'{_rtrStatusCode = pStatusCode};
+removeTagsResponse pStatus =
+    RemoveTagsResponse'
+    { _rtrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-rtrStatusCode :: Lens' RemoveTagsResponse Int
-rtrStatusCode = lens _rtrStatusCode (\ s a -> s{_rtrStatusCode = a});
+rtrStatus :: Lens' RemoveTagsResponse Int
+rtrStatus = lens _rtrStatus (\ s a -> s{_rtrStatus = a});

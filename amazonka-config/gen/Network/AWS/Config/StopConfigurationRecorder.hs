@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Config.StopConfigurationRecorder
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.Config.StopConfigurationRecorder
     , stopConfigurationRecorderResponse
     ) where
 
-import Network.AWS.Config.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Config.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the StopConfigurationRecorder action.
 --
@@ -45,11 +45,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'scrConfigurationRecorderName'
-newtype StopConfigurationRecorder = StopConfigurationRecorder'{_scrConfigurationRecorderName :: Text} deriving (Eq, Read, Show)
+newtype StopConfigurationRecorder = StopConfigurationRecorder'
+    { _scrConfigurationRecorderName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StopConfigurationRecorder' smart constructor.
 stopConfigurationRecorder :: Text -> StopConfigurationRecorder
-stopConfigurationRecorder pConfigurationRecorderName = StopConfigurationRecorder'{_scrConfigurationRecorderName = pConfigurationRecorderName};
+stopConfigurationRecorder pConfigurationRecorderName =
+    StopConfigurationRecorder'
+    { _scrConfigurationRecorderName = pConfigurationRecorderName
+    }
 
 -- | The name of the recorder object that records each configuration change
 -- made to the resources.
@@ -87,8 +92,10 @@ instance ToQuery StopConfigurationRecorder where
         toQuery = const mempty
 
 -- | /See:/ 'stopConfigurationRecorderResponse' smart constructor.
-data StopConfigurationRecorderResponse = StopConfigurationRecorderResponse' deriving (Eq, Read, Show)
+data StopConfigurationRecorderResponse =
+    StopConfigurationRecorderResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'StopConfigurationRecorderResponse' smart constructor.
 stopConfigurationRecorderResponse :: StopConfigurationRecorderResponse
-stopConfigurationRecorderResponse = StopConfigurationRecorderResponse';
+stopConfigurationRecorderResponse = StopConfigurationRecorderResponse'

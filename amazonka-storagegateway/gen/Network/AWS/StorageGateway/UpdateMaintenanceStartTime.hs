@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateMaintenanceStartTime
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     , updateMaintenanceStartTimeResponse
     -- ** Response lenses
     , umstrGatewayARN
-    , umstrStatusCode
+    , umstrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the following fields:
 --
@@ -62,11 +62,22 @@ import Network.AWS.StorageGateway.Types
 -- * 'umstMinuteOfHour'
 --
 -- * 'umstDayOfWeek'
-data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'{_umstGatewayARN :: Text, _umstHourOfDay :: Nat, _umstMinuteOfHour :: Nat, _umstDayOfWeek :: Nat} deriving (Eq, Read, Show)
+data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
+    { _umstGatewayARN   :: Text
+    , _umstHourOfDay    :: !Nat
+    , _umstMinuteOfHour :: !Nat
+    , _umstDayOfWeek    :: !Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateMaintenanceStartTime' smart constructor.
 updateMaintenanceStartTime :: Text -> Natural -> Natural -> Natural -> UpdateMaintenanceStartTime
-updateMaintenanceStartTime pGatewayARN pHourOfDay pMinuteOfHour pDayOfWeek = UpdateMaintenanceStartTime'{_umstGatewayARN = pGatewayARN, _umstHourOfDay = _Nat # pHourOfDay, _umstMinuteOfHour = _Nat # pMinuteOfHour, _umstDayOfWeek = _Nat # pDayOfWeek};
+updateMaintenanceStartTime pGatewayARN pHourOfDay pMinuteOfHour pDayOfWeek =
+    UpdateMaintenanceStartTime'
+    { _umstGatewayARN = pGatewayARN
+    , _umstHourOfDay = _Nat # pHourOfDay
+    , _umstMinuteOfHour = _Nat # pMinuteOfHour
+    , _umstDayOfWeek = _Nat # pDayOfWeek
+    }
 
 -- | FIXME: Undocumented member.
 umstGatewayARN :: Lens' UpdateMaintenanceStartTime Text
@@ -132,17 +143,24 @@ instance ToQuery UpdateMaintenanceStartTime where
 --
 -- * 'umstrGatewayARN'
 --
--- * 'umstrStatusCode'
-data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'{_umstrGatewayARN :: Maybe Text, _umstrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'umstrStatus'
+data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'
+    { _umstrGatewayARN :: Maybe Text
+    , _umstrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateMaintenanceStartTimeResponse' smart constructor.
 updateMaintenanceStartTimeResponse :: Int -> UpdateMaintenanceStartTimeResponse
-updateMaintenanceStartTimeResponse pStatusCode = UpdateMaintenanceStartTimeResponse'{_umstrGatewayARN = Nothing, _umstrStatusCode = pStatusCode};
+updateMaintenanceStartTimeResponse pStatus =
+    UpdateMaintenanceStartTimeResponse'
+    { _umstrGatewayARN = Nothing
+    , _umstrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 umstrGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse (Maybe Text)
 umstrGatewayARN = lens _umstrGatewayARN (\ s a -> s{_umstrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-umstrStatusCode :: Lens' UpdateMaintenanceStartTimeResponse Int
-umstrStatusCode = lens _umstrStatusCode (\ s a -> s{_umstrStatusCode = a});
+umstrStatus :: Lens' UpdateMaintenanceStartTimeResponse Int
+umstrStatus = lens _umstrStatus (\ s a -> s{_umstrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DeregisterElasticIP
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,21 +40,26 @@ module Network.AWS.OpsWorks.DeregisterElasticIP
     , deregisterElasticIPResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deregisterElasticIP' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'derElasticIP'
-newtype DeregisterElasticIP = DeregisterElasticIP'{_derElasticIP :: Text} deriving (Eq, Read, Show)
+newtype DeregisterElasticIP = DeregisterElasticIP'
+    { _derElasticIP :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeregisterElasticIP' smart constructor.
 deregisterElasticIP :: Text -> DeregisterElasticIP
-deregisterElasticIP pElasticIP = DeregisterElasticIP'{_derElasticIP = pElasticIP};
+deregisterElasticIP pElasticIP =
+    DeregisterElasticIP'
+    { _derElasticIP = pElasticIP
+    }
 
 -- | The Elastic IP address.
 derElasticIP :: Lens' DeregisterElasticIP Text
@@ -88,8 +93,10 @@ instance ToQuery DeregisterElasticIP where
         toQuery = const mempty
 
 -- | /See:/ 'deregisterElasticIPResponse' smart constructor.
-data DeregisterElasticIPResponse = DeregisterElasticIPResponse' deriving (Eq, Read, Show)
+data DeregisterElasticIPResponse =
+    DeregisterElasticIPResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeregisterElasticIPResponse' smart constructor.
 deregisterElasticIPResponse :: DeregisterElasticIPResponse
-deregisterElasticIPResponse = DeregisterElasticIPResponse';
+deregisterElasticIPResponse = DeregisterElasticIPResponse'

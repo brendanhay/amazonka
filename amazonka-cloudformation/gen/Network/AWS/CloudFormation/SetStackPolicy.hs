@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.SetStackPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.CloudFormation.SetStackPolicy
     , setStackPolicyResponse
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the SetStackPolicy action.
 --
@@ -50,11 +50,20 @@ import Network.AWS.Response
 -- * 'sspStackPolicyURL'
 --
 -- * 'sspStackName'
-data SetStackPolicy = SetStackPolicy'{_sspStackPolicyBody :: Maybe Text, _sspStackPolicyURL :: Maybe Text, _sspStackName :: Text} deriving (Eq, Read, Show)
+data SetStackPolicy = SetStackPolicy'
+    { _sspStackPolicyBody :: Maybe Text
+    , _sspStackPolicyURL  :: Maybe Text
+    , _sspStackName       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetStackPolicy' smart constructor.
 setStackPolicy :: Text -> SetStackPolicy
-setStackPolicy pStackName = SetStackPolicy'{_sspStackPolicyBody = Nothing, _sspStackPolicyURL = Nothing, _sspStackName = pStackName};
+setStackPolicy pStackName =
+    SetStackPolicy'
+    { _sspStackPolicyBody = Nothing
+    , _sspStackPolicyURL = Nothing
+    , _sspStackName = pStackName
+    }
 
 -- | Structure containing the stack policy body. For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
@@ -96,8 +105,10 @@ instance ToQuery SetStackPolicy where
                "StackName" =: _sspStackName]
 
 -- | /See:/ 'setStackPolicyResponse' smart constructor.
-data SetStackPolicyResponse = SetStackPolicyResponse' deriving (Eq, Read, Show)
+data SetStackPolicyResponse =
+    SetStackPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetStackPolicyResponse' smart constructor.
 setStackPolicyResponse :: SetStackPolicyResponse
-setStackPolicyResponse = SetStackPolicyResponse';
+setStackPolicyResponse = SetStackPolicyResponse'

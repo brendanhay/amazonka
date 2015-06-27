@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListSigningCertificates
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,14 +47,14 @@ module Network.AWS.IAM.ListSigningCertificates
     , lisMarker
     , lisIsTruncated
     , lisCertificates
-    , lisStatusCode
+    , lisStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listSigningCertificates' smart constructor.
 --
@@ -65,11 +65,20 @@ import Network.AWS.Response
 -- * 'lMaxItems'
 --
 -- * 'lMarker'
-data ListSigningCertificates = ListSigningCertificates'{_lUserName :: Maybe Text, _lMaxItems :: Maybe Nat, _lMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListSigningCertificates = ListSigningCertificates'
+    { _lUserName :: Maybe Text
+    , _lMaxItems :: Maybe Nat
+    , _lMarker   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListSigningCertificates' smart constructor.
 listSigningCertificates :: ListSigningCertificates
-listSigningCertificates = ListSigningCertificates'{_lUserName = Nothing, _lMaxItems = Nothing, _lMarker = Nothing};
+listSigningCertificates =
+    ListSigningCertificates'
+    { _lUserName = Nothing
+    , _lMaxItems = Nothing
+    , _lMarker = Nothing
+    }
 
 -- | The name of the user.
 lUserName :: Lens' ListSigningCertificates (Maybe Text)
@@ -137,12 +146,23 @@ instance ToQuery ListSigningCertificates where
 --
 -- * 'lisCertificates'
 --
--- * 'lisStatusCode'
-data ListSigningCertificatesResponse = ListSigningCertificatesResponse'{_lisMarker :: Maybe Text, _lisIsTruncated :: Maybe Bool, _lisCertificates :: [SigningCertificate], _lisStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lisStatus'
+data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
+    { _lisMarker       :: Maybe Text
+    , _lisIsTruncated  :: Maybe Bool
+    , _lisCertificates :: [SigningCertificate]
+    , _lisStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListSigningCertificatesResponse' smart constructor.
 listSigningCertificatesResponse :: Int -> ListSigningCertificatesResponse
-listSigningCertificatesResponse pStatusCode = ListSigningCertificatesResponse'{_lisMarker = Nothing, _lisIsTruncated = Nothing, _lisCertificates = mempty, _lisStatusCode = pStatusCode};
+listSigningCertificatesResponse pStatus =
+    ListSigningCertificatesResponse'
+    { _lisMarker = Nothing
+    , _lisIsTruncated = Nothing
+    , _lisCertificates = mempty
+    , _lisStatus = pStatus
+    }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -162,5 +182,5 @@ lisCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
 lisCertificates = lens _lisCertificates (\ s a -> s{_lisCertificates = a});
 
 -- | FIXME: Undocumented member.
-lisStatusCode :: Lens' ListSigningCertificatesResponse Int
-lisStatusCode = lens _lisStatusCode (\ s a -> s{_lisStatusCode = a});
+lisStatus :: Lens' ListSigningCertificatesResponse Int
+lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});

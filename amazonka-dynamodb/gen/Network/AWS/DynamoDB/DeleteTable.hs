@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DynamoDB.DeleteTable
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,23 +47,31 @@ module Network.AWS.DynamoDB.DeleteTable
     , deleteTableResponse
     -- ** Response lenses
     , dtrTableDescription
+    , dtrStatus
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
--- | /See:/ 'deleteTable' smart constructor.
+-- | Represents the input of a /DeleteTable/ operation.
+--
+-- /See:/ 'deleteTable' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtTableName'
-newtype DeleteTable = DeleteTable'{_dtTableName :: Text} deriving (Eq, Read, Show)
+newtype DeleteTable = DeleteTable'
+    { _dtTableName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTable' smart constructor.
 deleteTable :: Text -> DeleteTable
-deleteTable pTableName = DeleteTable'{_dtTableName = pTableName};
+deleteTable pTableName =
+    DeleteTable'
+    { _dtTableName = pTableName
+    }
 
 -- | The name of the table to delete.
 dtTableName :: Lens' DeleteTable Text
@@ -76,7 +84,8 @@ instance AWSRequest DeleteTable where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteTableResponse' <$> (x .?> "TableDescription"))
+                 DeleteTableResponse' <$>
+                   (x .?> "TableDescription") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteTable where
         toHeaders
@@ -97,17 +106,32 @@ instance ToPath DeleteTable where
 instance ToQuery DeleteTable where
         toQuery = const mempty
 
--- | /See:/ 'deleteTableResponse' smart constructor.
+-- | Represents the output of a /DeleteTable/ operation.
+--
+-- /See:/ 'deleteTableResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtrTableDescription'
-newtype DeleteTableResponse = DeleteTableResponse'{_dtrTableDescription :: Maybe TableDescription} deriving (Eq, Read, Show)
+--
+-- * 'dtrStatus'
+data DeleteTableResponse = DeleteTableResponse'
+    { _dtrTableDescription :: Maybe TableDescription
+    , _dtrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTableResponse' smart constructor.
-deleteTableResponse :: DeleteTableResponse
-deleteTableResponse = DeleteTableResponse'{_dtrTableDescription = Nothing};
+deleteTableResponse :: Int -> DeleteTableResponse
+deleteTableResponse pStatus =
+    DeleteTableResponse'
+    { _dtrTableDescription = Nothing
+    , _dtrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dtrTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
 dtrTableDescription = lens _dtrTableDescription (\ s a -> s{_dtrTableDescription = a});
+
+-- | FIXME: Undocumented member.
+dtrStatus :: Lens' DeleteTableResponse Int
+dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});

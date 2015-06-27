@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeCommands
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.OpsWorks.DescribeCommands
     , describeCommandsResponse
     -- ** Response lenses
     , dcrCommands
-    , dcrStatusCode
+    , dcrStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeCommands' smart constructor.
 --
@@ -59,11 +59,20 @@ import Network.AWS.Response
 -- * 'dcDeploymentId'
 --
 -- * 'dcCommandIds'
-data DescribeCommands = DescribeCommands'{_dcInstanceId :: Maybe Text, _dcDeploymentId :: Maybe Text, _dcCommandIds :: Maybe [Text]} deriving (Eq, Read, Show)
+data DescribeCommands = DescribeCommands'
+    { _dcInstanceId   :: Maybe Text
+    , _dcDeploymentId :: Maybe Text
+    , _dcCommandIds   :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCommands' smart constructor.
 describeCommands :: DescribeCommands
-describeCommands = DescribeCommands'{_dcInstanceId = Nothing, _dcDeploymentId = Nothing, _dcCommandIds = Nothing};
+describeCommands =
+    DescribeCommands'
+    { _dcInstanceId = Nothing
+    , _dcDeploymentId = Nothing
+    , _dcCommandIds = Nothing
+    }
 
 -- | The instance ID. If you include this parameter, @DescribeCommands@
 -- returns a description of the commands associated with the specified
@@ -124,12 +133,19 @@ instance ToQuery DescribeCommands where
 --
 -- * 'dcrCommands'
 --
--- * 'dcrStatusCode'
-data DescribeCommandsResponse = DescribeCommandsResponse'{_dcrCommands :: Maybe [Command], _dcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcrStatus'
+data DescribeCommandsResponse = DescribeCommandsResponse'
+    { _dcrCommands :: Maybe [Command]
+    , _dcrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCommandsResponse' smart constructor.
 describeCommandsResponse :: Int -> DescribeCommandsResponse
-describeCommandsResponse pStatusCode = DescribeCommandsResponse'{_dcrCommands = Nothing, _dcrStatusCode = pStatusCode};
+describeCommandsResponse pStatus =
+    DescribeCommandsResponse'
+    { _dcrCommands = Nothing
+    , _dcrStatus = pStatus
+    }
 
 -- | An array of @Command@ objects that describe each of the specified
 -- commands.
@@ -137,5 +153,5 @@ dcrCommands :: Lens' DescribeCommandsResponse [Command]
 dcrCommands = lens _dcrCommands (\ s a -> s{_dcrCommands = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrStatusCode :: Lens' DescribeCommandsResponse Int
-dcrStatusCode = lens _dcrStatusCode (\ s a -> s{_dcrStatusCode = a});
+dcrStatus :: Lens' DescribeCommandsResponse Int
+dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});

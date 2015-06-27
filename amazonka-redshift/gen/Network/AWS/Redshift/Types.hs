@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Redshift.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -450,402 +449,488 @@ module Network.AWS.Redshift.Types
     , vsgmVPCSecurityGroupId
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2012-12-01@ of the Amazon Redshift SDK.
 data Redshift
 
 instance AWSService Redshift where
     type Sg Redshift = V4
-
     service = const svc
       where
-        svc :: Service Redshift
-        svc = Service
-            { _svcAbbrev   = "Redshift"
-            , _svcPrefix   = "redshift"
-            , _svcVersion  = "2012-12-01"
+        svc =
+            Service
+            { _svcAbbrev = "Redshift"
+            , _svcPrefix = "redshift"
+            , _svcVersion = "2012-12-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The request would result in the user exceeding the allowed number of
 -- cluster security groups. For information about increasing your quota, go
 -- to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterSecurityGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterSecurityGroupQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "QuotaExceeded.ClusterSecurityGroup";
+_ClusterSecurityGroupQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSecurityGroupQuotaExceededFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "QuotaExceeded.ClusterSecurityGroup"
 
 -- | Cross-region snapshot copy was temporarily disabled. Try your request
 -- again.
-_CopyToRegionDisabledFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_CopyToRegionDisabledFault = _ServiceError . hasStatus 400 . hasCode "CopyToRegionDisabledFault";
+_CopyToRegionDisabledFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_CopyToRegionDisabledFault =
+    _ServiceError . hasStatus 400 . hasCode "CopyToRegionDisabledFault"
 
 -- | The authorization quota for the cluster security group has been reached.
-_AuthorizationQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_AuthorizationQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "AuthorizationQuotaExceeded";
+_AuthorizationQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_AuthorizationQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "AuthorizationQuotaExceeded"
 
 -- | The specified Amazon Redshift event source could not be found.
-_SourceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SourceNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SourceNotFound";
+_SourceNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SourceNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SourceNotFound"
 
 -- | The string specified for the logging S3 key prefix does not comply with
 -- the documented constraints.
-_InvalidS3KeyPrefixFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidS3KeyPrefixFault = _ServiceError . hasStatus 400 . hasCode "InvalidS3KeyPrefixFault";
+_InvalidS3KeyPrefixFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidS3KeyPrefixFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidS3KeyPrefixFault"
 
 -- | The specified CIDR block or EC2 security group is already authorized for
 -- the specified cluster security group.
-_AuthorizationAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_AuthorizationAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AuthorizationAlreadyExists";
+_AuthorizationAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_AuthorizationAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "AuthorizationAlreadyExists"
 
 -- | The state of the cluster security group is not @available@.
-_InvalidClusterSecurityGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidClusterSecurityGroupStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidClusterSecurityGroupState";
+_InvalidClusterSecurityGroupStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidClusterSecurityGroupStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidClusterSecurityGroupState"
 
 -- | A cluster security group with the same name already exists.
-_ClusterSecurityGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterSecurityGroupAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "ClusterSecurityGroupAlreadyExists";
+_ClusterSecurityGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSecurityGroupAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "ClusterSecurityGroupAlreadyExists"
 
 -- | The Elastic IP (EIP) is invalid or cannot be found.
-_InvalidElasticIPFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidElasticIPFault = _ServiceError . hasStatus 400 . hasCode "InvalidElasticIpFault";
+_InvalidElasticIPFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidElasticIPFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidElasticIpFault"
 
 -- | The snapshot identifier does not refer to an existing cluster snapshot.
-_ClusterSnapshotNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterSnapshotNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ClusterSnapshotNotFound";
+_ClusterSnapshotNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSnapshotNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "ClusterSnapshotNotFound"
 
 -- | There is no Amazon Redshift HSM configuration with the specified
 -- identifier.
-_HSMConfigurationNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_HSMConfigurationNotFoundFault = _ServiceError . hasStatus 400 . hasCode "HsmConfigurationNotFoundFault";
+_HSMConfigurationNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_HSMConfigurationNotFoundFault =
+    _ServiceError . hasStatus 400 . hasCode "HsmConfigurationNotFoundFault"
 
 -- | The specified HSM configuration is not in the @available@ state, or it
 -- is still in use by one or more Amazon Redshift clusters.
-_InvalidHSMConfigurationStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidHSMConfigurationStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidHsmConfigurationStateFault";
+_InvalidHSMConfigurationStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidHSMConfigurationStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidHsmConfigurationStateFault"
 
 -- | The value specified as a snapshot identifier is already used by an
 -- existing snapshot.
-_ClusterSnapshotAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterSnapshotAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "ClusterSnapshotAlreadyExists";
+_ClusterSnapshotAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSnapshotAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "ClusterSnapshotAlreadyExists"
 
 -- | There is already an existing Amazon Redshift HSM configuration with the
 -- specified identifier.
-_HSMConfigurationAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_HSMConfigurationAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "HsmConfigurationAlreadyExistsFault";
+_HSMConfigurationAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_HSMConfigurationAlreadyExistsFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "HsmConfigurationAlreadyExistsFault"
 
 -- | The value specified for the event category was not one of the allowed
 -- values, or it specified a category that does not apply to the specified
 -- source type. The allowed values are Configuration, Management,
 -- Monitoring, and Security.
-_SubscriptionCategoryNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubscriptionCategoryNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SubscriptionCategoryNotFound";
+_SubscriptionCategoryNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubscriptionCategoryNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "SubscriptionCategoryNotFound"
 
 -- | An Amazon Redshift event notification subscription with the specified
 -- name does not exist.
-_SubscriptionNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubscriptionNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SubscriptionNotFound";
+_SubscriptionNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubscriptionNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "SubscriptionNotFound"
 
 -- | The requested subnet is not valid, or not all of the subnets are in the
 -- same VPC.
-_InvalidSubnet :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSubnet = _ServiceError . hasStatus 400 . hasCode "InvalidSubnet";
+_InvalidSubnet :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSubnet = _ServiceError . hasStatus 400 . hasCode "InvalidSubnet"
 
 -- | The S3 bucket name is invalid. For more information about naming rules,
 -- go to
 -- <http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html Bucket Restrictions and Limitations>
 -- in the Amazon Simple Storage Service (S3) Developer Guide.
-_InvalidS3BucketNameFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidS3BucketNameFault = _ServiceError . hasStatus 400 . hasCode "InvalidS3BucketNameFault";
+_InvalidS3BucketNameFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidS3BucketNameFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidS3BucketNameFault"
 
 -- | The request would exceed the allowed number of cluster instances for
 -- this account. For information about increasing your quota, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "ClusterQuotaExceeded";
+_ClusterQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "ClusterQuotaExceeded"
 
 -- | The cluster already has cross-region snapshot copy disabled.
-_SnapshotCopyAlreadyDisabledFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SnapshotCopyAlreadyDisabledFault = _ServiceError . hasStatus 400 . hasCode "SnapshotCopyAlreadyDisabledFault";
+_SnapshotCopyAlreadyDisabledFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotCopyAlreadyDisabledFault =
+    _ServiceError . hasStatus 400 . hasCode "SnapshotCopyAlreadyDisabledFault"
 
 -- | The parameter group name does not refer to an existing parameter group.
-_ClusterParameterGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterParameterGroupNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ClusterParameterGroupNotFound";
+_ClusterParameterGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterParameterGroupNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "ClusterParameterGroupNotFound"
 
 -- | The quota for HSM client certificates has been reached. For information
 -- about increasing your quota, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_HSMClientCertificateQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_HSMClientCertificateQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "HsmClientCertificateQuotaExceededFault";
+_HSMClientCertificateQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_HSMClientCertificateQuotaExceededFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "HsmClientCertificateQuotaExceededFault"
 
 -- | The cluster already has cross-region snapshot copy enabled.
-_SnapshotCopyAlreadyEnabledFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SnapshotCopyAlreadyEnabledFault = _ServiceError . hasStatus 400 . hasCode "SnapshotCopyAlreadyEnabledFault";
+_SnapshotCopyAlreadyEnabledFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotCopyAlreadyEnabledFault =
+    _ServiceError . hasStatus 400 . hasCode "SnapshotCopyAlreadyEnabledFault"
 
 -- | A cluster parameter group with the same name already exists.
-_ClusterParameterGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterParameterGroupAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "ClusterParameterGroupAlreadyExists";
+_ClusterParameterGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterParameterGroupAlreadyExistsFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "ClusterParameterGroupAlreadyExists"
 
 -- | The operation would exceed the number of nodes allowed for a cluster.
-_NumberOfNodesPerClusterLimitExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_NumberOfNodesPerClusterLimitExceededFault = _ServiceError . hasStatus 400 . hasCode "NumberOfNodesPerClusterLimitExceeded";
+_NumberOfNodesPerClusterLimitExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberOfNodesPerClusterLimitExceededFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "NumberOfNodesPerClusterLimitExceeded"
 
 -- | Cross-region snapshot copy was temporarily disabled. Try your request
 -- again.
-_SnapshotCopyDisabledFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SnapshotCopyDisabledFault = _ServiceError . hasStatus 400 . hasCode "SnapshotCopyDisabledFault";
+_SnapshotCopyDisabledFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotCopyDisabledFault =
+    _ServiceError . hasStatus 400 . hasCode "SnapshotCopyDisabledFault"
 
 -- | A resize operation for the specified cluster is not found.
-_ResizeNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResizeNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ResizeNotFound";
+_ResizeNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResizeNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ResizeNotFound"
 
 -- | The request would result in the user exceeding the allowed number of
 -- cluster parameter groups. For information about increasing your quota,
 -- go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterParameterGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterParameterGroupQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "ClusterParameterGroupQuotaExceeded";
+_ClusterParameterGroupQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterParameterGroupQuotaExceededFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "ClusterParameterGroupQuotaExceeded"
 
 -- | An Amazon SNS topic with the specified Amazon Resource Name (ARN) does
 -- not exist.
-_SNSTopicARNNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SNSTopicARNNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SNSTopicArnNotFound";
+_SNSTopicARNNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SNSTopicARNNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "SNSTopicArnNotFound"
 
 -- | There is no Amazon Redshift HSM client certificate with the specified
 -- identifier.
-_HSMClientCertificateNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_HSMClientCertificateNotFoundFault = _ServiceError . hasStatus 400 . hasCode "HsmClientCertificateNotFoundFault";
+_HSMClientCertificateNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_HSMClientCertificateNotFoundFault =
+    _ServiceError . hasStatus 400 . hasCode "HsmClientCertificateNotFoundFault"
 
 -- | The /ClusterIdentifier/ parameter does not refer to an existing cluster.
-_ClusterNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ClusterNotFound";
+_ClusterNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "ClusterNotFound"
 
 -- | You do not have permission to publish to the specified Amazon SNS topic.
-_SNSNoAuthorizationFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SNSNoAuthorizationFault = _ServiceError . hasStatus 400 . hasCode "SNSNoAuthorization";
+_SNSNoAuthorizationFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SNSNoAuthorizationFault =
+    _ServiceError . hasStatus 400 . hasCode "SNSNoAuthorization"
 
 -- | The specified cluster is not in the @available@ state.
-_InvalidClusterStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidClusterStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidClusterState";
+_InvalidClusterStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidClusterStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidClusterState"
 
 -- | The number of nodes specified exceeds the allotted capacity of the
 -- cluster.
-_InsufficientClusterCapacityFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InsufficientClusterCapacityFault = _ServiceError . hasStatus 400 . hasCode "InsufficientClusterCapacity";
+_InsufficientClusterCapacityFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientClusterCapacityFault =
+    _ServiceError . hasStatus 400 . hasCode "InsufficientClusterCapacity"
 
 -- | The quota for HSM configurations has been reached. For information about
 -- increasing your quota, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_HSMConfigurationQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_HSMConfigurationQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "HsmConfigurationQuotaExceededFault";
+_HSMConfigurationQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_HSMConfigurationQuotaExceededFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "HsmConfigurationQuotaExceededFault"
 
 -- | The request would result in the user exceeding the allowed number of
 -- cluster snapshots.
-_ClusterSnapshotQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterSnapshotQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "ClusterSnapshotQuotaExceeded";
+_ClusterSnapshotQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSnapshotQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "ClusterSnapshotQuotaExceeded"
 
 -- | Amazon SNS has responded that there is a problem with the specified
 -- Amazon SNS topic.
-_SNSInvalidTopicFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SNSInvalidTopicFault = _ServiceError . hasStatus 400 . hasCode "SNSInvalidTopic";
+_SNSInvalidTopicFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SNSInvalidTopicFault =
+    _ServiceError . hasStatus 400 . hasCode "SNSInvalidTopic"
 
 -- | A request option was specified that is not supported.
-_UnsupportedOptionFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_UnsupportedOptionFault = _ServiceError . hasStatus 400 . hasCode "UnsupportedOptionFault";
+_UnsupportedOptionFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnsupportedOptionFault =
+    _ServiceError . hasStatus 400 . hasCode "UnsupportedOptionFault"
 
 -- | There is already an existing event notification subscription with the
 -- specified name.
-_SubscriptionAlreadyExistFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubscriptionAlreadyExistFault = _ServiceError . hasStatus 400 . hasCode "SubscriptionAlreadyExist";
+_SubscriptionAlreadyExistFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubscriptionAlreadyExistFault =
+    _ServiceError . hasStatus 400 . hasCode "SubscriptionAlreadyExist"
 
 -- | The cluster subnet group does not cover all Availability Zones.
-_InvalidVPCNetworkStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidVPCNetworkStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidVPCNetworkStateFault";
+_InvalidVPCNetworkStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidVPCNetworkStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidVPCNetworkStateFault"
 
 -- | The cluster subnet group name does not refer to an existing cluster
 -- subnet group.
-_ClusterSubnetGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterSubnetGroupNotFoundFault = _ServiceError . hasStatus 400 . hasCode "ClusterSubnetGroupNotFoundFault";
+_ClusterSubnetGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSubnetGroupNotFoundFault =
+    _ServiceError . hasStatus 400 . hasCode "ClusterSubnetGroupNotFoundFault"
 
 -- | Could not find the specified S3 bucket.
-_BucketNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_BucketNotFoundFault = _ServiceError . hasStatus 400 . hasCode "BucketNotFoundFault";
+_BucketNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_BucketNotFoundFault =
+    _ServiceError . hasStatus 400 . hasCode "BucketNotFoundFault"
 
 -- | The subscription request is invalid because it is a duplicate request.
 -- This subscription request is already in progress.
-_InvalidSubscriptionStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSubscriptionStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidSubscriptionStateFault";
+_InvalidSubscriptionStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSubscriptionStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidSubscriptionStateFault"
 
 -- | The specified CIDR IP range or EC2 security group is not authorized for
 -- the specified cluster security group.
-_AuthorizationNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_AuthorizationNotFoundFault = _ServiceError . hasStatus 404 . hasCode "AuthorizationNotFound";
+_AuthorizationNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_AuthorizationNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "AuthorizationNotFound"
 
 -- | The cluster subnet group cannot be deleted because it is in use.
-_InvalidClusterSubnetGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidClusterSubnetGroupStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidClusterSubnetGroupStateFault";
+_InvalidClusterSubnetGroupStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidClusterSubnetGroupStateFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "InvalidClusterSubnetGroupStateFault"
 
 -- | The state of the cluster snapshot is not @available@, or other accounts
 -- are authorized to access the snapshot.
-_InvalidClusterSnapshotStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidClusterSnapshotStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidClusterSnapshotState";
+_InvalidClusterSnapshotStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidClusterSnapshotStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidClusterSnapshotState"
 
 -- | A /ClusterSubnetGroupName/ is already used by an existing cluster subnet
 -- group.
-_ClusterSubnetGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterSubnetGroupAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "ClusterSubnetGroupAlreadyExists";
+_ClusterSubnetGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSubnetGroupAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "ClusterSubnetGroupAlreadyExists"
 
 -- | The cluster security group name does not refer to an existing cluster
 -- security group.
-_ClusterSecurityGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterSecurityGroupNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ClusterSecurityGroupNotFound";
+_ClusterSecurityGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSecurityGroupNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "ClusterSecurityGroupNotFound"
 
 -- | The specified options are incompatible.
-_IncompatibleOrderableOptions :: AWSError a => Geting (First ServiceError) a ServiceError
-_IncompatibleOrderableOptions = _ServiceError . hasStatus 400 . hasCode "IncompatibleOrderableOptions";
+_IncompatibleOrderableOptions :: AWSError a => Getting (First ServiceError) a ServiceError
+_IncompatibleOrderableOptions =
+    _ServiceError . hasStatus 400 . hasCode "IncompatibleOrderableOptions"
 
 -- | Specified offering does not exist.
-_ReservedNodeOfferingNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedNodeOfferingNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ReservedNodeOfferingNotFound";
+_ReservedNodeOfferingNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedNodeOfferingNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "ReservedNodeOfferingNotFound"
 
 -- | The state of the subnet is invalid.
-_InvalidClusterSubnetStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidClusterSubnetStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidClusterSubnetStateFault";
+_InvalidClusterSubnetStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidClusterSubnetStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidClusterSubnetStateFault"
 
 -- | The specified reserved compute node not found.
-_ReservedNodeNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedNodeNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ReservedNodeNotFound";
+_ReservedNodeNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedNodeNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "ReservedNodeNotFound"
 
 -- | The request would exceed the allowed number of event subscriptions for
 -- this account. For information about increasing your quota, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_EventSubscriptionQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_EventSubscriptionQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "EventSubscriptionQuotaExceeded";
+_EventSubscriptionQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_EventSubscriptionQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "EventSubscriptionQuotaExceeded"
 
 -- | The cluster parameter group action can not be completed because another
 -- task is in progress that involves the parameter group. Wait a few
 -- moments and try the operation again.
-_InvalidClusterParameterGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidClusterParameterGroupStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidClusterParameterGroupState";
+_InvalidClusterParameterGroupStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidClusterParameterGroupStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidClusterParameterGroupState"
 
 -- | User already has a reservation with the given identifier.
-_ReservedNodeAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedNodeAlreadyExistsFault = _ServiceError . hasStatus 404 . hasCode "ReservedNodeAlreadyExists";
+_ReservedNodeAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedNodeAlreadyExistsFault =
+    _ServiceError . hasStatus 404 . hasCode "ReservedNodeAlreadyExists"
 
 -- | Request would exceed the user\'s compute node quota. For information
 -- about increasing your quota, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ReservedNodeQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedNodeQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "ReservedNodeQuotaExceeded";
+_ReservedNodeQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedNodeQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "ReservedNodeQuotaExceeded"
 
 -- | An Amazon Redshift event with the specified event ID does not exist.
-_SubscriptionEventIdNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubscriptionEventIdNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SubscriptionEventIdNotFound";
+_SubscriptionEventIdNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubscriptionEventIdNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "SubscriptionEventIdNotFound"
 
 -- | The resource could not be found.
-_ResourceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundFault";
+_ResourceNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundFault"
 
 -- | The restore is invalid.
-_InvalidRestoreFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidRestoreFault = _ServiceError . hasStatus 406 . hasCode "InvalidRestore";
+_InvalidRestoreFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRestoreFault = _ServiceError . hasStatus 406 . hasCode "InvalidRestore"
 
 -- | The specified region is incorrect or does not exist.
-_UnknownSnapshotCopyRegionFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_UnknownSnapshotCopyRegionFault = _ServiceError . hasStatus 404 . hasCode "UnknownSnapshotCopyRegionFault";
+_UnknownSnapshotCopyRegionFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnknownSnapshotCopyRegionFault =
+    _ServiceError . hasStatus 404 . hasCode "UnknownSnapshotCopyRegionFault"
 
 -- | The owner of the specified snapshot has not authorized your account to
 -- access the snapshot.
-_AccessToSnapshotDeniedFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_AccessToSnapshotDeniedFault = _ServiceError . hasStatus 400 . hasCode "AccessToSnapshotDenied";
+_AccessToSnapshotDeniedFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_AccessToSnapshotDeniedFault =
+    _ServiceError . hasStatus 400 . hasCode "AccessToSnapshotDenied"
 
 -- | The account already has a cluster with the given identifier.
-_ClusterAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "ClusterAlreadyExists";
+_ClusterAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "ClusterAlreadyExists"
 
 -- | There is already an existing Amazon Redshift HSM client certificate with
 -- the specified identifier.
-_HSMClientCertificateAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_HSMClientCertificateAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "HsmClientCertificateAlreadyExistsFault";
+_HSMClientCertificateAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_HSMClientCertificateAlreadyExistsFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "HsmClientCertificateAlreadyExistsFault"
 
 -- | The specified HSM client certificate is not in the @available@ state, or
 -- it is still in use by one or more Amazon Redshift clusters.
-_InvalidHSMClientCertificateStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidHSMClientCertificateStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidHsmClientCertificateStateFault";
+_InvalidHSMClientCertificateStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidHSMClientCertificateStateFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "InvalidHsmClientCertificateStateFault"
 
 -- | The operation would exceed the number of nodes allotted to the account.
 -- For information about increasing your quota, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_NumberOfNodesQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_NumberOfNodesQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "NumberOfNodesQuotaExceeded";
+_NumberOfNodesQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberOfNodesQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "NumberOfNodesQuotaExceeded"
 
 -- | The request exceeds the limit of 10 tags for the resource.
-_TagLimitExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_TagLimitExceededFault = _ServiceError . hasStatus 400 . hasCode "TagLimitExceededFault";
+_TagLimitExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_TagLimitExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "TagLimitExceededFault"
 
 -- | The request would result in user exceeding the allowed number of subnets
 -- in a cluster subnet groups. For information about increasing your quota,
 -- go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterSubnetQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterSubnetQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "ClusterSubnetQuotaExceededFault";
+_ClusterSubnetQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSubnetQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "ClusterSubnetQuotaExceededFault"
 
 -- | A specified subnet is already in use by another cluster.
-_SubnetAlreadyInUse :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubnetAlreadyInUse = _ServiceError . hasStatus 400 . hasCode "SubnetAlreadyInUse";
+_SubnetAlreadyInUse :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubnetAlreadyInUse =
+    _ServiceError . hasStatus 400 . hasCode "SubnetAlreadyInUse"
 
 -- | The tag is invalid.
-_InvalidTagFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidTagFault = _ServiceError . hasStatus 400 . hasCode "InvalidTagFault";
+_InvalidTagFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidTagFault = _ServiceError . hasStatus 400 . hasCode "InvalidTagFault"
 
 -- | The cluster does not have read bucket or put object permissions on the
 -- S3 bucket specified when enabling logging.
-_InsufficientS3BucketPolicyFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InsufficientS3BucketPolicyFault = _ServiceError . hasStatus 400 . hasCode "InsufficientS3BucketPolicyFault";
+_InsufficientS3BucketPolicyFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientS3BucketPolicyFault =
+    _ServiceError . hasStatus 400 . hasCode "InsufficientS3BucketPolicyFault"
 
 -- | The request would result in user exceeding the allowed number of cluster
 -- subnet groups. For information about increasing your quota, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterSubnetGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterSubnetGroupQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "ClusterSubnetGroupQuotaExceeded";
+_ClusterSubnetGroupQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSubnetGroupQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "ClusterSubnetGroupQuotaExceeded"
 
 -- | The value specified for the event severity was not one of the allowed
 -- values, or it specified a severity that does not apply to the specified
 -- source type. The allowed values are ERROR and INFO.
-_SubscriptionSeverityNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubscriptionSeverityNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SubscriptionSeverityNotFound";
+_SubscriptionSeverityNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubscriptionSeverityNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "SubscriptionSeverityNotFound"
 
 -- | Your account is not authorized to perform the requested operation.
-_UnauthorizedOperation :: AWSError a => Geting (First ServiceError) a ServiceError
-_UnauthorizedOperation = _ServiceError . hasStatus 400 . hasCode "UnauthorizedOperation";
+_UnauthorizedOperation :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnauthorizedOperation =
+    _ServiceError . hasStatus 400 . hasCode "UnauthorizedOperation"
 
-data SourceType = ClusterParameterGroup | Cluster | ClusterSecurityGroup | ClusterSnapshot deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SourceType
+    = ClusterParameterGroup
+    | Cluster
+    | ClusterSecurityGroup
+    | ClusterSnapshot
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
@@ -876,11 +961,16 @@ instance FromXML SourceType where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'awraAccountId'
-newtype AccountWithRestoreAccess = AccountWithRestoreAccess'{_awraAccountId :: Maybe Text} deriving (Eq, Read, Show)
+newtype AccountWithRestoreAccess = AccountWithRestoreAccess'
+    { _awraAccountId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AccountWithRestoreAccess' smart constructor.
 accountWithRestoreAccess :: AccountWithRestoreAccess
-accountWithRestoreAccess = AccountWithRestoreAccess'{_awraAccountId = Nothing};
+accountWithRestoreAccess =
+    AccountWithRestoreAccess'
+    { _awraAccountId = Nothing
+    }
 
 -- | The identifier of an AWS customer account authorized to restore a
 -- snapshot.
@@ -898,11 +988,16 @@ instance FromXML AccountWithRestoreAccess where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'azName'
-newtype AvailabilityZone = AvailabilityZone'{_azName :: Maybe Text} deriving (Eq, Read, Show)
+newtype AvailabilityZone = AvailabilityZone'
+    { _azName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AvailabilityZone' smart constructor.
 availabilityZone :: AvailabilityZone
-availabilityZone = AvailabilityZone'{_azName = Nothing};
+availabilityZone =
+    AvailabilityZone'
+    { _azName = Nothing
+    }
 
 -- | The name of the availability zone.
 azName :: Lens' AvailabilityZone (Maybe Text)
@@ -978,11 +1073,76 @@ instance FromXML AvailabilityZone where
 -- * 'cluTags'
 --
 -- * 'cluClusterNodes'
-data Cluster = Cluster'{_cluRestoreStatus :: Maybe RestoreStatus, _cluClusterSnapshotCopyStatus :: Maybe ClusterSnapshotCopyStatus, _cluClusterRevisionNumber :: Maybe Text, _cluMasterUsername :: Maybe Text, _cluPubliclyAccessible :: Maybe Bool, _cluVPCId :: Maybe Text, _cluClusterSecurityGroups :: Maybe [ClusterSecurityGroupMembership], _cluAutomatedSnapshotRetentionPeriod :: Maybe Int, _cluEncrypted :: Maybe Bool, _cluClusterIdentifier :: Maybe Text, _cluNumberOfNodes :: Maybe Int, _cluClusterSubnetGroupName :: Maybe Text, _cluPreferredMaintenanceWindow :: Maybe Text, _cluModifyStatus :: Maybe Text, _cluClusterPublicKey :: Maybe Text, _cluClusterParameterGroups :: Maybe [ClusterParameterGroupStatus], _cluAvailabilityZone :: Maybe Text, _cluVPCSecurityGroups :: Maybe [VPCSecurityGroupMembership], _cluKMSKeyId :: Maybe Text, _cluHSMStatus :: Maybe HSMStatus, _cluElasticIPStatus :: Maybe ElasticIPStatus, _cluClusterVersion :: Maybe Text, _cluNodeType :: Maybe Text, _cluEndpoint :: Maybe Endpoint, _cluClusterCreateTime :: Maybe ISO8601, _cluAllowVersionUpgrade :: Maybe Bool, _cluPendingModifiedValues :: Maybe PendingModifiedValues, _cluClusterStatus :: Maybe Text, _cluDBName :: Maybe Text, _cluTags :: Maybe [Tag], _cluClusterNodes :: Maybe [ClusterNode]} deriving (Eq, Read, Show)
+data Cluster = Cluster'
+    { _cluRestoreStatus                    :: Maybe RestoreStatus
+    , _cluClusterSnapshotCopyStatus        :: Maybe ClusterSnapshotCopyStatus
+    , _cluClusterRevisionNumber            :: Maybe Text
+    , _cluMasterUsername                   :: Maybe Text
+    , _cluPubliclyAccessible               :: Maybe Bool
+    , _cluVPCId                            :: Maybe Text
+    , _cluClusterSecurityGroups            :: Maybe [ClusterSecurityGroupMembership]
+    , _cluAutomatedSnapshotRetentionPeriod :: Maybe Int
+    , _cluEncrypted                        :: Maybe Bool
+    , _cluClusterIdentifier                :: Maybe Text
+    , _cluNumberOfNodes                    :: Maybe Int
+    , _cluClusterSubnetGroupName           :: Maybe Text
+    , _cluPreferredMaintenanceWindow       :: Maybe Text
+    , _cluModifyStatus                     :: Maybe Text
+    , _cluClusterPublicKey                 :: Maybe Text
+    , _cluClusterParameterGroups           :: Maybe [ClusterParameterGroupStatus]
+    , _cluAvailabilityZone                 :: Maybe Text
+    , _cluVPCSecurityGroups                :: Maybe [VPCSecurityGroupMembership]
+    , _cluKMSKeyId                         :: Maybe Text
+    , _cluHSMStatus                        :: Maybe HSMStatus
+    , _cluElasticIPStatus                  :: Maybe ElasticIPStatus
+    , _cluClusterVersion                   :: Maybe Text
+    , _cluNodeType                         :: Maybe Text
+    , _cluEndpoint                         :: Maybe Endpoint
+    , _cluClusterCreateTime                :: Maybe ISO8601
+    , _cluAllowVersionUpgrade              :: Maybe Bool
+    , _cluPendingModifiedValues            :: Maybe PendingModifiedValues
+    , _cluClusterStatus                    :: Maybe Text
+    , _cluDBName                           :: Maybe Text
+    , _cluTags                             :: Maybe [Tag]
+    , _cluClusterNodes                     :: Maybe [ClusterNode]
+    } deriving (Eq,Read,Show)
 
 -- | 'Cluster' smart constructor.
 cluster :: Cluster
-cluster = Cluster'{_cluRestoreStatus = Nothing, _cluClusterSnapshotCopyStatus = Nothing, _cluClusterRevisionNumber = Nothing, _cluMasterUsername = Nothing, _cluPubliclyAccessible = Nothing, _cluVPCId = Nothing, _cluClusterSecurityGroups = Nothing, _cluAutomatedSnapshotRetentionPeriod = Nothing, _cluEncrypted = Nothing, _cluClusterIdentifier = Nothing, _cluNumberOfNodes = Nothing, _cluClusterSubnetGroupName = Nothing, _cluPreferredMaintenanceWindow = Nothing, _cluModifyStatus = Nothing, _cluClusterPublicKey = Nothing, _cluClusterParameterGroups = Nothing, _cluAvailabilityZone = Nothing, _cluVPCSecurityGroups = Nothing, _cluKMSKeyId = Nothing, _cluHSMStatus = Nothing, _cluElasticIPStatus = Nothing, _cluClusterVersion = Nothing, _cluNodeType = Nothing, _cluEndpoint = Nothing, _cluClusterCreateTime = Nothing, _cluAllowVersionUpgrade = Nothing, _cluPendingModifiedValues = Nothing, _cluClusterStatus = Nothing, _cluDBName = Nothing, _cluTags = Nothing, _cluClusterNodes = Nothing};
+cluster =
+    Cluster'
+    { _cluRestoreStatus = Nothing
+    , _cluClusterSnapshotCopyStatus = Nothing
+    , _cluClusterRevisionNumber = Nothing
+    , _cluMasterUsername = Nothing
+    , _cluPubliclyAccessible = Nothing
+    , _cluVPCId = Nothing
+    , _cluClusterSecurityGroups = Nothing
+    , _cluAutomatedSnapshotRetentionPeriod = Nothing
+    , _cluEncrypted = Nothing
+    , _cluClusterIdentifier = Nothing
+    , _cluNumberOfNodes = Nothing
+    , _cluClusterSubnetGroupName = Nothing
+    , _cluPreferredMaintenanceWindow = Nothing
+    , _cluModifyStatus = Nothing
+    , _cluClusterPublicKey = Nothing
+    , _cluClusterParameterGroups = Nothing
+    , _cluAvailabilityZone = Nothing
+    , _cluVPCSecurityGroups = Nothing
+    , _cluKMSKeyId = Nothing
+    , _cluHSMStatus = Nothing
+    , _cluElasticIPStatus = Nothing
+    , _cluClusterVersion = Nothing
+    , _cluNodeType = Nothing
+    , _cluEndpoint = Nothing
+    , _cluClusterCreateTime = Nothing
+    , _cluAllowVersionUpgrade = Nothing
+    , _cluPendingModifiedValues = Nothing
+    , _cluClusterStatus = Nothing
+    , _cluDBName = Nothing
+    , _cluTags = Nothing
+    , _cluClusterNodes = Nothing
+    }
 
 -- | Describes the status of a cluster restore action. Returns null if the
 -- cluster was not created by restoring a snapshot.
@@ -1190,11 +1350,20 @@ instance FromXML Cluster where
 -- * 'cnPrivateIPAddress'
 --
 -- * 'cnPublicIPAddress'
-data ClusterNode = ClusterNode'{_cnNodeRole :: Maybe Text, _cnPrivateIPAddress :: Maybe Text, _cnPublicIPAddress :: Maybe Text} deriving (Eq, Read, Show)
+data ClusterNode = ClusterNode'
+    { _cnNodeRole         :: Maybe Text
+    , _cnPrivateIPAddress :: Maybe Text
+    , _cnPublicIPAddress  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ClusterNode' smart constructor.
 clusterNode :: ClusterNode
-clusterNode = ClusterNode'{_cnNodeRole = Nothing, _cnPrivateIPAddress = Nothing, _cnPublicIPAddress = Nothing};
+clusterNode =
+    ClusterNode'
+    { _cnNodeRole = Nothing
+    , _cnPrivateIPAddress = Nothing
+    , _cnPublicIPAddress = Nothing
+    }
 
 -- | Whether the node is a leader node or a compute node.
 cnNodeRole :: Lens' ClusterNode (Maybe Text)
@@ -1227,11 +1396,22 @@ instance FromXML ClusterNode where
 -- * 'cpgParameterGroupName'
 --
 -- * 'cpgTags'
-data ClusterParameterGroup = ClusterParameterGroup'{_cpgParameterGroupFamily :: Maybe Text, _cpgDescription :: Maybe Text, _cpgParameterGroupName :: Maybe Text, _cpgTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data ClusterParameterGroup = ClusterParameterGroup'
+    { _cpgParameterGroupFamily :: Maybe Text
+    , _cpgDescription          :: Maybe Text
+    , _cpgParameterGroupName   :: Maybe Text
+    , _cpgTags                 :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'ClusterParameterGroup' smart constructor.
 clusterParameterGroup :: ClusterParameterGroup
-clusterParameterGroup = ClusterParameterGroup'{_cpgParameterGroupFamily = Nothing, _cpgDescription = Nothing, _cpgParameterGroupName = Nothing, _cpgTags = Nothing};
+clusterParameterGroup =
+    ClusterParameterGroup'
+    { _cpgParameterGroupFamily = Nothing
+    , _cpgDescription = Nothing
+    , _cpgParameterGroupName = Nothing
+    , _cpgTags = Nothing
+    }
 
 -- | The name of the cluster parameter group family that this cluster
 -- parameter group is compatible with.
@@ -1271,11 +1451,18 @@ instance FromXML ClusterParameterGroup where
 -- * 'cpgnmParameterGroupStatus'
 --
 -- * 'cpgnmParameterGroupName'
-data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'{_cpgnmParameterGroupStatus :: Maybe Text, _cpgnmParameterGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'
+    { _cpgnmParameterGroupStatus :: Maybe Text
+    , _cpgnmParameterGroupName   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ClusterParameterGroupNameMessage' smart constructor.
 clusterParameterGroupNameMessage :: ClusterParameterGroupNameMessage
-clusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'{_cpgnmParameterGroupStatus = Nothing, _cpgnmParameterGroupName = Nothing};
+clusterParameterGroupNameMessage =
+    ClusterParameterGroupNameMessage'
+    { _cpgnmParameterGroupStatus = Nothing
+    , _cpgnmParameterGroupName = Nothing
+    }
 
 -- | The status of the parameter group. For example, if you made a change to
 -- a parameter group name-value pair, then the change could be pending a
@@ -1303,11 +1490,18 @@ instance FromXML ClusterParameterGroupNameMessage
 -- * 'cpgsParameterApplyStatus'
 --
 -- * 'cpgsParameterGroupName'
-data ClusterParameterGroupStatus = ClusterParameterGroupStatus'{_cpgsParameterApplyStatus :: Maybe Text, _cpgsParameterGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data ClusterParameterGroupStatus = ClusterParameterGroupStatus'
+    { _cpgsParameterApplyStatus :: Maybe Text
+    , _cpgsParameterGroupName   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ClusterParameterGroupStatus' smart constructor.
 clusterParameterGroupStatus :: ClusterParameterGroupStatus
-clusterParameterGroupStatus = ClusterParameterGroupStatus'{_cpgsParameterApplyStatus = Nothing, _cpgsParameterGroupName = Nothing};
+clusterParameterGroupStatus =
+    ClusterParameterGroupStatus'
+    { _cpgsParameterApplyStatus = Nothing
+    , _cpgsParameterGroupName = Nothing
+    }
 
 -- | The status of parameter updates.
 cpgsParameterApplyStatus :: Lens' ClusterParameterGroupStatus (Maybe Text)
@@ -1338,11 +1532,24 @@ instance FromXML ClusterParameterGroupStatus where
 -- * 'cDescription'
 --
 -- * 'cTags'
-data ClusterSecurityGroup = ClusterSecurityGroup'{_cClusterSecurityGroupName :: Maybe Text, _cIPRanges :: Maybe [IPRange], _cEC2SecurityGroups :: Maybe [EC2SecurityGroup], _cDescription :: Maybe Text, _cTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data ClusterSecurityGroup = ClusterSecurityGroup'
+    { _cClusterSecurityGroupName :: Maybe Text
+    , _cIPRanges                 :: Maybe [IPRange]
+    , _cEC2SecurityGroups        :: Maybe [EC2SecurityGroup]
+    , _cDescription              :: Maybe Text
+    , _cTags                     :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'ClusterSecurityGroup' smart constructor.
 clusterSecurityGroup :: ClusterSecurityGroup
-clusterSecurityGroup = ClusterSecurityGroup'{_cClusterSecurityGroupName = Nothing, _cIPRanges = Nothing, _cEC2SecurityGroups = Nothing, _cDescription = Nothing, _cTags = Nothing};
+clusterSecurityGroup =
+    ClusterSecurityGroup'
+    { _cClusterSecurityGroupName = Nothing
+    , _cIPRanges = Nothing
+    , _cEC2SecurityGroups = Nothing
+    , _cDescription = Nothing
+    , _cTags = Nothing
+    }
 
 -- | The name of the cluster security group to which the operation was
 -- applied.
@@ -1390,11 +1597,18 @@ instance FromXML ClusterSecurityGroup where
 -- * 'csgmStatus'
 --
 -- * 'csgmClusterSecurityGroupName'
-data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership'{_csgmStatus :: Maybe Text, _csgmClusterSecurityGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership'
+    { _csgmStatus                   :: Maybe Text
+    , _csgmClusterSecurityGroupName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ClusterSecurityGroupMembership' smart constructor.
 clusterSecurityGroupMembership :: ClusterSecurityGroupMembership
-clusterSecurityGroupMembership = ClusterSecurityGroupMembership'{_csgmStatus = Nothing, _csgmClusterSecurityGroupName = Nothing};
+clusterSecurityGroupMembership =
+    ClusterSecurityGroupMembership'
+    { _csgmStatus = Nothing
+    , _csgmClusterSecurityGroupName = Nothing
+    }
 
 -- | The status of the cluster security group.
 csgmStatus :: Lens' ClusterSecurityGroupMembership (Maybe Text)
@@ -1420,11 +1634,18 @@ instance FromXML ClusterSecurityGroupMembership where
 -- * 'cscsRetentionPeriod'
 --
 -- * 'cscsDestinationRegion'
-data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'{_cscsRetentionPeriod :: Maybe Integer, _cscsDestinationRegion :: Maybe Text} deriving (Eq, Read, Show)
+data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'
+    { _cscsRetentionPeriod   :: Maybe Integer
+    , _cscsDestinationRegion :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ClusterSnapshotCopyStatus' smart constructor.
 clusterSnapshotCopyStatus :: ClusterSnapshotCopyStatus
-clusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'{_cscsRetentionPeriod = Nothing, _cscsDestinationRegion = Nothing};
+clusterSnapshotCopyStatus =
+    ClusterSnapshotCopyStatus'
+    { _cscsRetentionPeriod = Nothing
+    , _cscsDestinationRegion = Nothing
+    }
 
 -- | The number of days that automated snapshots are retained in the
 -- destination region after they are copied from a source region.
@@ -1459,11 +1680,26 @@ instance FromXML ClusterSnapshotCopyStatus where
 -- * 'csgDescription'
 --
 -- * 'csgTags'
-data ClusterSubnetGroup = ClusterSubnetGroup'{_csgVPCId :: Maybe Text, _csgSubnets :: Maybe [Subnet], _csgClusterSubnetGroupName :: Maybe Text, _csgSubnetGroupStatus :: Maybe Text, _csgDescription :: Maybe Text, _csgTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data ClusterSubnetGroup = ClusterSubnetGroup'
+    { _csgVPCId                  :: Maybe Text
+    , _csgSubnets                :: Maybe [Subnet]
+    , _csgClusterSubnetGroupName :: Maybe Text
+    , _csgSubnetGroupStatus      :: Maybe Text
+    , _csgDescription            :: Maybe Text
+    , _csgTags                   :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'ClusterSubnetGroup' smart constructor.
 clusterSubnetGroup :: ClusterSubnetGroup
-clusterSubnetGroup = ClusterSubnetGroup'{_csgVPCId = Nothing, _csgSubnets = Nothing, _csgClusterSubnetGroupName = Nothing, _csgSubnetGroupStatus = Nothing, _csgDescription = Nothing, _csgTags = Nothing};
+clusterSubnetGroup =
+    ClusterSubnetGroup'
+    { _csgVPCId = Nothing
+    , _csgSubnets = Nothing
+    , _csgClusterSubnetGroupName = Nothing
+    , _csgSubnetGroupStatus = Nothing
+    , _csgDescription = Nothing
+    , _csgTags = Nothing
+    }
 
 -- | The VPC ID of the cluster subnet group.
 csgVPCId :: Lens' ClusterSubnetGroup (Maybe Text)
@@ -1515,11 +1751,20 @@ instance FromXML ClusterSubnetGroup where
 -- * 'cvClusterVersion'
 --
 -- * 'cvDescription'
-data ClusterVersion = ClusterVersion'{_cvClusterParameterGroupFamily :: Maybe Text, _cvClusterVersion :: Maybe Text, _cvDescription :: Maybe Text} deriving (Eq, Read, Show)
+data ClusterVersion = ClusterVersion'
+    { _cvClusterParameterGroupFamily :: Maybe Text
+    , _cvClusterVersion              :: Maybe Text
+    , _cvDescription                 :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ClusterVersion' smart constructor.
 clusterVersion :: ClusterVersion
-clusterVersion = ClusterVersion'{_cvClusterParameterGroupFamily = Nothing, _cvClusterVersion = Nothing, _cvDescription = Nothing};
+clusterVersion =
+    ClusterVersion'
+    { _cvClusterParameterGroupFamily = Nothing
+    , _cvClusterVersion = Nothing
+    , _cvDescription = Nothing
+    }
 
 -- | The name of the cluster parameter group family for the cluster.
 cvClusterParameterGroupFamily :: Lens' ClusterVersion (Maybe Text)
@@ -1551,11 +1796,20 @@ instance FromXML ClusterVersion where
 -- * 'dcpMarker'
 --
 -- * 'dcpParameterGroupFamily'
-data DefaultClusterParameters = DefaultClusterParameters'{_dcpParameters :: Maybe [Parameter], _dcpMarker :: Maybe Text, _dcpParameterGroupFamily :: Maybe Text} deriving (Eq, Read, Show)
+data DefaultClusterParameters = DefaultClusterParameters'
+    { _dcpParameters           :: Maybe [Parameter]
+    , _dcpMarker               :: Maybe Text
+    , _dcpParameterGroupFamily :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DefaultClusterParameters' smart constructor.
 defaultClusterParameters :: DefaultClusterParameters
-defaultClusterParameters = DefaultClusterParameters'{_dcpParameters = Nothing, _dcpMarker = Nothing, _dcpParameterGroupFamily = Nothing};
+defaultClusterParameters =
+    DefaultClusterParameters'
+    { _dcpParameters = Nothing
+    , _dcpMarker = Nothing
+    , _dcpParameterGroupFamily = Nothing
+    }
 
 -- | The list of cluster default parameters.
 dcpParameters :: Lens' DefaultClusterParameters [Parameter]
@@ -1596,11 +1850,22 @@ instance FromXML DefaultClusterParameters where
 -- * 'esgEC2SecurityGroupName'
 --
 -- * 'esgTags'
-data EC2SecurityGroup = EC2SecurityGroup'{_esgStatus :: Maybe Text, _esgEC2SecurityGroupOwnerId :: Maybe Text, _esgEC2SecurityGroupName :: Maybe Text, _esgTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data EC2SecurityGroup = EC2SecurityGroup'
+    { _esgStatus                  :: Maybe Text
+    , _esgEC2SecurityGroupOwnerId :: Maybe Text
+    , _esgEC2SecurityGroupName    :: Maybe Text
+    , _esgTags                    :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'EC2SecurityGroup' smart constructor.
 ec2SecurityGroup :: EC2SecurityGroup
-ec2SecurityGroup = EC2SecurityGroup'{_esgStatus = Nothing, _esgEC2SecurityGroupOwnerId = Nothing, _esgEC2SecurityGroupName = Nothing, _esgTags = Nothing};
+ec2SecurityGroup =
+    EC2SecurityGroup'
+    { _esgStatus = Nothing
+    , _esgEC2SecurityGroupOwnerId = Nothing
+    , _esgEC2SecurityGroupName = Nothing
+    , _esgTags = Nothing
+    }
 
 -- | The status of the EC2 security group.
 esgStatus :: Lens' EC2SecurityGroup (Maybe Text)
@@ -1638,11 +1903,18 @@ instance FromXML EC2SecurityGroup where
 -- * 'eisStatus'
 --
 -- * 'eisElasticIP'
-data ElasticIPStatus = ElasticIPStatus'{_eisStatus :: Maybe Text, _eisElasticIP :: Maybe Text} deriving (Eq, Read, Show)
+data ElasticIPStatus = ElasticIPStatus'
+    { _eisStatus    :: Maybe Text
+    , _eisElasticIP :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ElasticIPStatus' smart constructor.
 elasticIPStatus :: ElasticIPStatus
-elasticIPStatus = ElasticIPStatus'{_eisStatus = Nothing, _eisElasticIP = Nothing};
+elasticIPStatus =
+    ElasticIPStatus'
+    { _eisStatus = Nothing
+    , _eisElasticIP = Nothing
+    }
 
 -- | Describes the status of the elastic IP (EIP) address.
 eisStatus :: Lens' ElasticIPStatus (Maybe Text)
@@ -1666,11 +1938,18 @@ instance FromXML ElasticIPStatus where
 -- * 'endAddress'
 --
 -- * 'endPort'
-data Endpoint = Endpoint'{_endAddress :: Maybe Text, _endPort :: Maybe Int} deriving (Eq, Read, Show)
+data Endpoint = Endpoint'
+    { _endAddress :: Maybe Text
+    , _endPort    :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'Endpoint' smart constructor.
 endpoint :: Endpoint
-endpoint = Endpoint'{_endAddress = Nothing, _endPort = Nothing};
+endpoint =
+    Endpoint'
+    { _endAddress = Nothing
+    , _endPort = Nothing
+    }
 
 -- | The DNS address of the Cluster.
 endAddress :: Lens' Endpoint (Maybe Text)
@@ -1703,11 +1982,28 @@ instance FromXML Endpoint where
 -- * 'eveMessage'
 --
 -- * 'eveEventId'
-data Event = Event'{_eveSourceType :: Maybe SourceType, _eveSeverity :: Maybe Text, _eveSourceIdentifier :: Maybe Text, _eveDate :: Maybe ISO8601, _eveEventCategories :: Maybe [Text], _eveMessage :: Maybe Text, _eveEventId :: Maybe Text} deriving (Eq, Read, Show)
+data Event = Event'
+    { _eveSourceType       :: Maybe SourceType
+    , _eveSeverity         :: Maybe Text
+    , _eveSourceIdentifier :: Maybe Text
+    , _eveDate             :: Maybe ISO8601
+    , _eveEventCategories  :: Maybe [Text]
+    , _eveMessage          :: Maybe Text
+    , _eveEventId          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Event' smart constructor.
 event :: Event
-event = Event'{_eveSourceType = Nothing, _eveSeverity = Nothing, _eveSourceIdentifier = Nothing, _eveDate = Nothing, _eveEventCategories = Nothing, _eveMessage = Nothing, _eveEventId = Nothing};
+event =
+    Event'
+    { _eveSourceType = Nothing
+    , _eveSeverity = Nothing
+    , _eveSourceIdentifier = Nothing
+    , _eveDate = Nothing
+    , _eveEventCategories = Nothing
+    , _eveMessage = Nothing
+    , _eveEventId = Nothing
+    }
 
 -- | The source type for this event.
 eveSourceType :: Lens' Event (Maybe SourceType)
@@ -1758,11 +2054,18 @@ instance FromXML Event where
 -- * 'ecmSourceType'
 --
 -- * 'ecmEvents'
-data EventCategoriesMap = EventCategoriesMap'{_ecmSourceType :: Maybe Text, _ecmEvents :: Maybe [EventInfoMap]} deriving (Eq, Read, Show)
+data EventCategoriesMap = EventCategoriesMap'
+    { _ecmSourceType :: Maybe Text
+    , _ecmEvents     :: Maybe [EventInfoMap]
+    } deriving (Eq,Read,Show)
 
 -- | 'EventCategoriesMap' smart constructor.
 eventCategoriesMap :: EventCategoriesMap
-eventCategoriesMap = EventCategoriesMap'{_ecmSourceType = Nothing, _ecmEvents = Nothing};
+eventCategoriesMap =
+    EventCategoriesMap'
+    { _ecmSourceType = Nothing
+    , _ecmEvents = Nothing
+    }
 
 -- | The Amazon Redshift source type, such as cluster or cluster-snapshot,
 -- that the returned categories belong to.
@@ -1791,11 +2094,22 @@ instance FromXML EventCategoriesMap where
 -- * 'eimEventCategories'
 --
 -- * 'eimEventId'
-data EventInfoMap = EventInfoMap'{_eimEventDescription :: Maybe Text, _eimSeverity :: Maybe Text, _eimEventCategories :: Maybe [Text], _eimEventId :: Maybe Text} deriving (Eq, Read, Show)
+data EventInfoMap = EventInfoMap'
+    { _eimEventDescription :: Maybe Text
+    , _eimSeverity         :: Maybe Text
+    , _eimEventCategories  :: Maybe [Text]
+    , _eimEventId          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EventInfoMap' smart constructor.
 eventInfoMap :: EventInfoMap
-eventInfoMap = EventInfoMap'{_eimEventDescription = Nothing, _eimSeverity = Nothing, _eimEventCategories = Nothing, _eimEventId = Nothing};
+eventInfoMap =
+    EventInfoMap'
+    { _eimEventDescription = Nothing
+    , _eimSeverity = Nothing
+    , _eimEventCategories = Nothing
+    , _eimEventId = Nothing
+    }
 
 -- | The description of an Amazon Redshift event.
 eimEventDescription :: Lens' EventInfoMap (Maybe Text)
@@ -1848,11 +2162,36 @@ instance FromXML EventInfoMap where
 -- * 'esSourceIdsList'
 --
 -- * 'esTags'
-data EventSubscription = EventSubscription'{_esCustomerAWSId :: Maybe Text, _esStatus :: Maybe Text, _esCustSubscriptionId :: Maybe Text, _esSNSTopicARN :: Maybe Text, _esEnabled :: Maybe Bool, _esSourceType :: Maybe Text, _esSeverity :: Maybe Text, _esSubscriptionCreationTime :: Maybe ISO8601, _esEventCategoriesList :: Maybe [Text], _esSourceIdsList :: Maybe [Text], _esTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data EventSubscription = EventSubscription'
+    { _esCustomerAWSId            :: Maybe Text
+    , _esStatus                   :: Maybe Text
+    , _esCustSubscriptionId       :: Maybe Text
+    , _esSNSTopicARN              :: Maybe Text
+    , _esEnabled                  :: Maybe Bool
+    , _esSourceType               :: Maybe Text
+    , _esSeverity                 :: Maybe Text
+    , _esSubscriptionCreationTime :: Maybe ISO8601
+    , _esEventCategoriesList      :: Maybe [Text]
+    , _esSourceIdsList            :: Maybe [Text]
+    , _esTags                     :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'EventSubscription' smart constructor.
 eventSubscription :: EventSubscription
-eventSubscription = EventSubscription'{_esCustomerAWSId = Nothing, _esStatus = Nothing, _esCustSubscriptionId = Nothing, _esSNSTopicARN = Nothing, _esEnabled = Nothing, _esSourceType = Nothing, _esSeverity = Nothing, _esSubscriptionCreationTime = Nothing, _esEventCategoriesList = Nothing, _esSourceIdsList = Nothing, _esTags = Nothing};
+eventSubscription =
+    EventSubscription'
+    { _esCustomerAWSId = Nothing
+    , _esStatus = Nothing
+    , _esCustSubscriptionId = Nothing
+    , _esSNSTopicARN = Nothing
+    , _esEnabled = Nothing
+    , _esSourceType = Nothing
+    , _esSeverity = Nothing
+    , _esSubscriptionCreationTime = Nothing
+    , _esEventCategoriesList = Nothing
+    , _esSourceIdsList = Nothing
+    , _esTags = Nothing
+    }
 
 -- | The AWS customer account associated with the Amazon Redshift event
 -- notification subscription.
@@ -1952,11 +2291,20 @@ instance FromXML EventSubscription where
 -- * 'hccHSMClientCertificatePublicKey'
 --
 -- * 'hccTags'
-data HSMClientCertificate = HSMClientCertificate'{_hccHSMClientCertificateIdentifier :: Maybe Text, _hccHSMClientCertificatePublicKey :: Maybe Text, _hccTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data HSMClientCertificate = HSMClientCertificate'
+    { _hccHSMClientCertificateIdentifier :: Maybe Text
+    , _hccHSMClientCertificatePublicKey  :: Maybe Text
+    , _hccTags                           :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'HSMClientCertificate' smart constructor.
 hsmClientCertificate :: HSMClientCertificate
-hsmClientCertificate = HSMClientCertificate'{_hccHSMClientCertificateIdentifier = Nothing, _hccHSMClientCertificatePublicKey = Nothing, _hccTags = Nothing};
+hsmClientCertificate =
+    HSMClientCertificate'
+    { _hccHSMClientCertificateIdentifier = Nothing
+    , _hccHSMClientCertificatePublicKey = Nothing
+    , _hccTags = Nothing
+    }
 
 -- | The identifier of the HSM client certificate.
 hccHSMClientCertificateIdentifier :: Lens' HSMClientCertificate (Maybe Text)
@@ -1997,11 +2345,24 @@ instance FromXML HSMClientCertificate where
 -- * 'hcHSMIPAddress'
 --
 -- * 'hcTags'
-data HSMConfiguration = HSMConfiguration'{_hcHSMConfigurationIdentifier :: Maybe Text, _hcHSMPartitionName :: Maybe Text, _hcDescription :: Maybe Text, _hcHSMIPAddress :: Maybe Text, _hcTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data HSMConfiguration = HSMConfiguration'
+    { _hcHSMConfigurationIdentifier :: Maybe Text
+    , _hcHSMPartitionName           :: Maybe Text
+    , _hcDescription                :: Maybe Text
+    , _hcHSMIPAddress               :: Maybe Text
+    , _hcTags                       :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'HSMConfiguration' smart constructor.
 hsmConfiguration :: HSMConfiguration
-hsmConfiguration = HSMConfiguration'{_hcHSMConfigurationIdentifier = Nothing, _hcHSMPartitionName = Nothing, _hcDescription = Nothing, _hcHSMIPAddress = Nothing, _hcTags = Nothing};
+hsmConfiguration =
+    HSMConfiguration'
+    { _hcHSMConfigurationIdentifier = Nothing
+    , _hcHSMPartitionName = Nothing
+    , _hcDescription = Nothing
+    , _hcHSMIPAddress = Nothing
+    , _hcTags = Nothing
+    }
 
 -- | The name of the Amazon Redshift HSM configuration.
 hcHSMConfigurationIdentifier :: Lens' HSMConfiguration (Maybe Text)
@@ -2047,11 +2408,20 @@ instance FromXML HSMConfiguration where
 -- * 'hsHSMConfigurationIdentifier'
 --
 -- * 'hsHSMClientCertificateIdentifier'
-data HSMStatus = HSMStatus'{_hsStatus :: Maybe Text, _hsHSMConfigurationIdentifier :: Maybe Text, _hsHSMClientCertificateIdentifier :: Maybe Text} deriving (Eq, Read, Show)
+data HSMStatus = HSMStatus'
+    { _hsStatus                         :: Maybe Text
+    , _hsHSMConfigurationIdentifier     :: Maybe Text
+    , _hsHSMClientCertificateIdentifier :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'HSMStatus' smart constructor.
 hsmStatus :: HSMStatus
-hsmStatus = HSMStatus'{_hsStatus = Nothing, _hsHSMConfigurationIdentifier = Nothing, _hsHSMClientCertificateIdentifier = Nothing};
+hsmStatus =
+    HSMStatus'
+    { _hsStatus = Nothing
+    , _hsHSMConfigurationIdentifier = Nothing
+    , _hsHSMClientCertificateIdentifier = Nothing
+    }
 
 -- | Reports whether the Amazon Redshift cluster has finished applying any
 -- HSM settings changes specified in a modify cluster command.
@@ -2089,11 +2459,20 @@ instance FromXML HSMStatus where
 -- * 'irCIDRIP'
 --
 -- * 'irTags'
-data IPRange = IPRange'{_irStatus :: Maybe Text, _irCIDRIP :: Maybe Text, _irTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data IPRange = IPRange'
+    { _irStatus :: Maybe Text
+    , _irCIDRIP :: Maybe Text
+    , _irTags   :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'IPRange' smart constructor.
 ipRange :: IPRange
-ipRange = IPRange'{_irStatus = Nothing, _irCIDRIP = Nothing, _irTags = Nothing};
+ipRange =
+    IPRange'
+    { _irStatus = Nothing
+    , _irCIDRIP = Nothing
+    , _irTags = Nothing
+    }
 
 -- | The status of the IP range, for example, \"authorized\".
 irStatus :: Lens' IPRange (Maybe Text)
@@ -2131,11 +2510,26 @@ instance FromXML IPRange where
 -- * 'lsLoggingEnabled'
 --
 -- * 'lsLastFailureMessage'
-data LoggingStatus = LoggingStatus'{_lsLastSuccessfulDeliveryTime :: Maybe ISO8601, _lsLastFailureTime :: Maybe ISO8601, _lsS3KeyPrefix :: Maybe Text, _lsBucketName :: Maybe Text, _lsLoggingEnabled :: Maybe Bool, _lsLastFailureMessage :: Maybe Text} deriving (Eq, Read, Show)
+data LoggingStatus = LoggingStatus'
+    { _lsLastSuccessfulDeliveryTime :: Maybe ISO8601
+    , _lsLastFailureTime            :: Maybe ISO8601
+    , _lsS3KeyPrefix                :: Maybe Text
+    , _lsBucketName                 :: Maybe Text
+    , _lsLoggingEnabled             :: Maybe Bool
+    , _lsLastFailureMessage         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'LoggingStatus' smart constructor.
 loggingStatus :: LoggingStatus
-loggingStatus = LoggingStatus'{_lsLastSuccessfulDeliveryTime = Nothing, _lsLastFailureTime = Nothing, _lsS3KeyPrefix = Nothing, _lsBucketName = Nothing, _lsLoggingEnabled = Nothing, _lsLastFailureMessage = Nothing};
+loggingStatus =
+    LoggingStatus'
+    { _lsLastSuccessfulDeliveryTime = Nothing
+    , _lsLastFailureTime = Nothing
+    , _lsS3KeyPrefix = Nothing
+    , _lsBucketName = Nothing
+    , _lsLoggingEnabled = Nothing
+    , _lsLastFailureMessage = Nothing
+    }
 
 -- | The last time when logs were delivered.
 lsLastSuccessfulDeliveryTime :: Lens' LoggingStatus (Maybe UTCTime)
@@ -2184,11 +2578,22 @@ instance FromXML LoggingStatus where
 -- * 'ocoClusterVersion'
 --
 -- * 'ocoNodeType'
-data OrderableClusterOption = OrderableClusterOption'{_ocoAvailabilityZones :: Maybe [AvailabilityZone], _ocoClusterType :: Maybe Text, _ocoClusterVersion :: Maybe Text, _ocoNodeType :: Maybe Text} deriving (Eq, Read, Show)
+data OrderableClusterOption = OrderableClusterOption'
+    { _ocoAvailabilityZones :: Maybe [AvailabilityZone]
+    , _ocoClusterType       :: Maybe Text
+    , _ocoClusterVersion    :: Maybe Text
+    , _ocoNodeType          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'OrderableClusterOption' smart constructor.
 orderableClusterOption :: OrderableClusterOption
-orderableClusterOption = OrderableClusterOption'{_ocoAvailabilityZones = Nothing, _ocoClusterType = Nothing, _ocoClusterVersion = Nothing, _ocoNodeType = Nothing};
+orderableClusterOption =
+    OrderableClusterOption'
+    { _ocoAvailabilityZones = Nothing
+    , _ocoClusterType = Nothing
+    , _ocoClusterVersion = Nothing
+    , _ocoNodeType = Nothing
+    }
 
 -- | A list of availability zones for the orderable cluster.
 ocoAvailabilityZones :: Lens' OrderableClusterOption [AvailabilityZone]
@@ -2236,11 +2641,30 @@ instance FromXML OrderableClusterOption where
 -- * 'parParameterName'
 --
 -- * 'parDescription'
-data Parameter = Parameter'{_parParameterValue :: Maybe Text, _parMinimumEngineVersion :: Maybe Text, _parSource :: Maybe Text, _parIsModifiable :: Maybe Bool, _parAllowedValues :: Maybe Text, _parDataType :: Maybe Text, _parParameterName :: Maybe Text, _parDescription :: Maybe Text} deriving (Eq, Read, Show)
+data Parameter = Parameter'
+    { _parParameterValue       :: Maybe Text
+    , _parMinimumEngineVersion :: Maybe Text
+    , _parSource               :: Maybe Text
+    , _parIsModifiable         :: Maybe Bool
+    , _parAllowedValues        :: Maybe Text
+    , _parDataType             :: Maybe Text
+    , _parParameterName        :: Maybe Text
+    , _parDescription          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Parameter' smart constructor.
 parameter :: Parameter
-parameter = Parameter'{_parParameterValue = Nothing, _parMinimumEngineVersion = Nothing, _parSource = Nothing, _parIsModifiable = Nothing, _parAllowedValues = Nothing, _parDataType = Nothing, _parParameterName = Nothing, _parDescription = Nothing};
+parameter =
+    Parameter'
+    { _parParameterValue = Nothing
+    , _parMinimumEngineVersion = Nothing
+    , _parSource = Nothing
+    , _parIsModifiable = Nothing
+    , _parAllowedValues = Nothing
+    , _parDataType = Nothing
+    , _parParameterName = Nothing
+    , _parDescription = Nothing
+    }
 
 -- | The value of the parameter.
 parParameterValue :: Lens' Parameter (Maybe Text)
@@ -2321,11 +2745,28 @@ instance ToQuery Parameter where
 -- * 'pmvClusterVersion'
 --
 -- * 'pmvNodeType'
-data PendingModifiedValues = PendingModifiedValues'{_pmvMasterUserPassword :: Maybe Text, _pmvAutomatedSnapshotRetentionPeriod :: Maybe Int, _pmvClusterIdentifier :: Maybe Text, _pmvNumberOfNodes :: Maybe Int, _pmvClusterType :: Maybe Text, _pmvClusterVersion :: Maybe Text, _pmvNodeType :: Maybe Text} deriving (Eq, Read, Show)
+data PendingModifiedValues = PendingModifiedValues'
+    { _pmvMasterUserPassword               :: Maybe Text
+    , _pmvAutomatedSnapshotRetentionPeriod :: Maybe Int
+    , _pmvClusterIdentifier                :: Maybe Text
+    , _pmvNumberOfNodes                    :: Maybe Int
+    , _pmvClusterType                      :: Maybe Text
+    , _pmvClusterVersion                   :: Maybe Text
+    , _pmvNodeType                         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PendingModifiedValues' smart constructor.
 pendingModifiedValues :: PendingModifiedValues
-pendingModifiedValues = PendingModifiedValues'{_pmvMasterUserPassword = Nothing, _pmvAutomatedSnapshotRetentionPeriod = Nothing, _pmvClusterIdentifier = Nothing, _pmvNumberOfNodes = Nothing, _pmvClusterType = Nothing, _pmvClusterVersion = Nothing, _pmvNodeType = Nothing};
+pendingModifiedValues =
+    PendingModifiedValues'
+    { _pmvMasterUserPassword = Nothing
+    , _pmvAutomatedSnapshotRetentionPeriod = Nothing
+    , _pmvClusterIdentifier = Nothing
+    , _pmvNumberOfNodes = Nothing
+    , _pmvClusterType = Nothing
+    , _pmvClusterVersion = Nothing
+    , _pmvNodeType = Nothing
+    }
 
 -- | The pending or in-progress change of the master user password for the
 -- cluster.
@@ -2377,11 +2818,18 @@ instance FromXML PendingModifiedValues where
 -- * 'rcRecurringChargeFrequency'
 --
 -- * 'rcRecurringChargeAmount'
-data RecurringCharge = RecurringCharge'{_rcRecurringChargeFrequency :: Maybe Text, _rcRecurringChargeAmount :: Maybe Double} deriving (Eq, Read, Show)
+data RecurringCharge = RecurringCharge'
+    { _rcRecurringChargeFrequency :: Maybe Text
+    , _rcRecurringChargeAmount    :: Maybe Double
+    } deriving (Eq,Read,Show)
 
 -- | 'RecurringCharge' smart constructor.
 recurringCharge :: RecurringCharge
-recurringCharge = RecurringCharge'{_rcRecurringChargeFrequency = Nothing, _rcRecurringChargeAmount = Nothing};
+recurringCharge =
+    RecurringCharge'
+    { _rcRecurringChargeFrequency = Nothing
+    , _rcRecurringChargeAmount = Nothing
+    }
 
 -- | The frequency at which the recurring charge amount is applied.
 rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
@@ -2427,11 +2875,38 @@ instance FromXML RecurringCharge where
 -- * 'rnFixedPrice'
 --
 -- * 'rnDuration'
-data ReservedNode = ReservedNode'{_rnState :: Maybe Text, _rnCurrencyCode :: Maybe Text, _rnStartTime :: Maybe ISO8601, _rnNodeCount :: Maybe Int, _rnReservedNodeOfferingId :: Maybe Text, _rnReservedNodeId :: Maybe Text, _rnOfferingType :: Maybe Text, _rnUsagePrice :: Maybe Double, _rnNodeType :: Maybe Text, _rnRecurringCharges :: Maybe [RecurringCharge], _rnFixedPrice :: Maybe Double, _rnDuration :: Maybe Int} deriving (Eq, Read, Show)
+data ReservedNode = ReservedNode'
+    { _rnState                  :: Maybe Text
+    , _rnCurrencyCode           :: Maybe Text
+    , _rnStartTime              :: Maybe ISO8601
+    , _rnNodeCount              :: Maybe Int
+    , _rnReservedNodeOfferingId :: Maybe Text
+    , _rnReservedNodeId         :: Maybe Text
+    , _rnOfferingType           :: Maybe Text
+    , _rnUsagePrice             :: Maybe Double
+    , _rnNodeType               :: Maybe Text
+    , _rnRecurringCharges       :: Maybe [RecurringCharge]
+    , _rnFixedPrice             :: Maybe Double
+    , _rnDuration               :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ReservedNode' smart constructor.
 reservedNode :: ReservedNode
-reservedNode = ReservedNode'{_rnState = Nothing, _rnCurrencyCode = Nothing, _rnStartTime = Nothing, _rnNodeCount = Nothing, _rnReservedNodeOfferingId = Nothing, _rnReservedNodeId = Nothing, _rnOfferingType = Nothing, _rnUsagePrice = Nothing, _rnNodeType = Nothing, _rnRecurringCharges = Nothing, _rnFixedPrice = Nothing, _rnDuration = Nothing};
+reservedNode =
+    ReservedNode'
+    { _rnState = Nothing
+    , _rnCurrencyCode = Nothing
+    , _rnStartTime = Nothing
+    , _rnNodeCount = Nothing
+    , _rnReservedNodeOfferingId = Nothing
+    , _rnReservedNodeId = Nothing
+    , _rnOfferingType = Nothing
+    , _rnUsagePrice = Nothing
+    , _rnNodeType = Nothing
+    , _rnRecurringCharges = Nothing
+    , _rnFixedPrice = Nothing
+    , _rnDuration = Nothing
+    }
 
 -- | The state of the reserved compute node.
 --
@@ -2529,11 +3004,30 @@ instance FromXML ReservedNode where
 -- * 'rnoFixedPrice'
 --
 -- * 'rnoDuration'
-data ReservedNodeOffering = ReservedNodeOffering'{_rnoCurrencyCode :: Maybe Text, _rnoReservedNodeOfferingId :: Maybe Text, _rnoOfferingType :: Maybe Text, _rnoUsagePrice :: Maybe Double, _rnoNodeType :: Maybe Text, _rnoRecurringCharges :: Maybe [RecurringCharge], _rnoFixedPrice :: Maybe Double, _rnoDuration :: Maybe Int} deriving (Eq, Read, Show)
+data ReservedNodeOffering = ReservedNodeOffering'
+    { _rnoCurrencyCode           :: Maybe Text
+    , _rnoReservedNodeOfferingId :: Maybe Text
+    , _rnoOfferingType           :: Maybe Text
+    , _rnoUsagePrice             :: Maybe Double
+    , _rnoNodeType               :: Maybe Text
+    , _rnoRecurringCharges       :: Maybe [RecurringCharge]
+    , _rnoFixedPrice             :: Maybe Double
+    , _rnoDuration               :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ReservedNodeOffering' smart constructor.
 reservedNodeOffering :: ReservedNodeOffering
-reservedNodeOffering = ReservedNodeOffering'{_rnoCurrencyCode = Nothing, _rnoReservedNodeOfferingId = Nothing, _rnoOfferingType = Nothing, _rnoUsagePrice = Nothing, _rnoNodeType = Nothing, _rnoRecurringCharges = Nothing, _rnoFixedPrice = Nothing, _rnoDuration = Nothing};
+reservedNodeOffering =
+    ReservedNodeOffering'
+    { _rnoCurrencyCode = Nothing
+    , _rnoReservedNodeOfferingId = Nothing
+    , _rnoOfferingType = Nothing
+    , _rnoUsagePrice = Nothing
+    , _rnoNodeType = Nothing
+    , _rnoRecurringCharges = Nothing
+    , _rnoFixedPrice = Nothing
+    , _rnoDuration = Nothing
+    }
 
 -- | The currency code for the compute nodes offering.
 rnoCurrencyCode :: Lens' ReservedNodeOffering (Maybe Text)
@@ -2604,11 +3098,26 @@ instance FromXML ReservedNodeOffering where
 -- * 'rsElapsedTimeInSeconds'
 --
 -- * 'rsSnapshotSizeInMegaBytes'
-data RestoreStatus = RestoreStatus'{_rsEstimatedTimeToCompletionInSeconds :: Maybe Integer, _rsStatus :: Maybe Text, _rsCurrentRestoreRateInMegaBytesPerSecond :: Maybe Double, _rsProgressInMegaBytes :: Maybe Integer, _rsElapsedTimeInSeconds :: Maybe Integer, _rsSnapshotSizeInMegaBytes :: Maybe Integer} deriving (Eq, Read, Show)
+data RestoreStatus = RestoreStatus'
+    { _rsEstimatedTimeToCompletionInSeconds     :: Maybe Integer
+    , _rsStatus                                 :: Maybe Text
+    , _rsCurrentRestoreRateInMegaBytesPerSecond :: Maybe Double
+    , _rsProgressInMegaBytes                    :: Maybe Integer
+    , _rsElapsedTimeInSeconds                   :: Maybe Integer
+    , _rsSnapshotSizeInMegaBytes                :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'RestoreStatus' smart constructor.
 restoreStatus :: RestoreStatus
-restoreStatus = RestoreStatus'{_rsEstimatedTimeToCompletionInSeconds = Nothing, _rsStatus = Nothing, _rsCurrentRestoreRateInMegaBytesPerSecond = Nothing, _rsProgressInMegaBytes = Nothing, _rsElapsedTimeInSeconds = Nothing, _rsSnapshotSizeInMegaBytes = Nothing};
+restoreStatus =
+    RestoreStatus'
+    { _rsEstimatedTimeToCompletionInSeconds = Nothing
+    , _rsStatus = Nothing
+    , _rsCurrentRestoreRateInMegaBytesPerSecond = Nothing
+    , _rsProgressInMegaBytes = Nothing
+    , _rsElapsedTimeInSeconds = Nothing
+    , _rsSnapshotSizeInMegaBytes = Nothing
+    }
 
 -- | The estimate of the time remaining before the restore will complete.
 -- Returns 0 for a completed restore.
@@ -2708,11 +3217,68 @@ instance FromXML RestoreStatus where
 -- * 'snaActualIncrementalBackupSizeInMegaBytes'
 --
 -- * 'snaPort'
-data Snapshot = Snapshot'{_snaStatus :: Maybe Text, _snaAccountsWithRestoreAccess :: Maybe [AccountWithRestoreAccess], _snaSnapshotIdentifier :: Maybe Text, _snaEncryptedWithHSM :: Maybe Bool, _snaMasterUsername :: Maybe Text, _snaSourceRegion :: Maybe Text, _snaVPCId :: Maybe Text, _snaBackupProgressInMegaBytes :: Maybe Double, _snaEncrypted :: Maybe Bool, _snaClusterIdentifier :: Maybe Text, _snaNumberOfNodes :: Maybe Int, _snaSnapshotType :: Maybe Text, _snaAvailabilityZone :: Maybe Text, _snaKMSKeyId :: Maybe Text, _snaCurrentBackupRateInMegaBytesPerSecond :: Maybe Double, _snaSnapshotCreateTime :: Maybe ISO8601, _snaClusterVersion :: Maybe Text, _snaOwnerAccount :: Maybe Text, _snaNodeType :: Maybe Text, _snaClusterCreateTime :: Maybe ISO8601, _snaElapsedTimeInSeconds :: Maybe Integer, _snaEstimatedSecondsToCompletion :: Maybe Integer, _snaTotalBackupSizeInMegaBytes :: Maybe Double, _snaDBName :: Maybe Text, _snaTags :: Maybe [Tag], _snaActualIncrementalBackupSizeInMegaBytes :: Maybe Double, _snaPort :: Maybe Int} deriving (Eq, Read, Show)
+data Snapshot = Snapshot'
+    { _snaStatus                                 :: Maybe Text
+    , _snaAccountsWithRestoreAccess              :: Maybe [AccountWithRestoreAccess]
+    , _snaSnapshotIdentifier                     :: Maybe Text
+    , _snaEncryptedWithHSM                       :: Maybe Bool
+    , _snaMasterUsername                         :: Maybe Text
+    , _snaSourceRegion                           :: Maybe Text
+    , _snaVPCId                                  :: Maybe Text
+    , _snaBackupProgressInMegaBytes              :: Maybe Double
+    , _snaEncrypted                              :: Maybe Bool
+    , _snaClusterIdentifier                      :: Maybe Text
+    , _snaNumberOfNodes                          :: Maybe Int
+    , _snaSnapshotType                           :: Maybe Text
+    , _snaAvailabilityZone                       :: Maybe Text
+    , _snaKMSKeyId                               :: Maybe Text
+    , _snaCurrentBackupRateInMegaBytesPerSecond  :: Maybe Double
+    , _snaSnapshotCreateTime                     :: Maybe ISO8601
+    , _snaClusterVersion                         :: Maybe Text
+    , _snaOwnerAccount                           :: Maybe Text
+    , _snaNodeType                               :: Maybe Text
+    , _snaClusterCreateTime                      :: Maybe ISO8601
+    , _snaElapsedTimeInSeconds                   :: Maybe Integer
+    , _snaEstimatedSecondsToCompletion           :: Maybe Integer
+    , _snaTotalBackupSizeInMegaBytes             :: Maybe Double
+    , _snaDBName                                 :: Maybe Text
+    , _snaTags                                   :: Maybe [Tag]
+    , _snaActualIncrementalBackupSizeInMegaBytes :: Maybe Double
+    , _snaPort                                   :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Snapshot
-snapshot = Snapshot'{_snaStatus = Nothing, _snaAccountsWithRestoreAccess = Nothing, _snaSnapshotIdentifier = Nothing, _snaEncryptedWithHSM = Nothing, _snaMasterUsername = Nothing, _snaSourceRegion = Nothing, _snaVPCId = Nothing, _snaBackupProgressInMegaBytes = Nothing, _snaEncrypted = Nothing, _snaClusterIdentifier = Nothing, _snaNumberOfNodes = Nothing, _snaSnapshotType = Nothing, _snaAvailabilityZone = Nothing, _snaKMSKeyId = Nothing, _snaCurrentBackupRateInMegaBytesPerSecond = Nothing, _snaSnapshotCreateTime = Nothing, _snaClusterVersion = Nothing, _snaOwnerAccount = Nothing, _snaNodeType = Nothing, _snaClusterCreateTime = Nothing, _snaElapsedTimeInSeconds = Nothing, _snaEstimatedSecondsToCompletion = Nothing, _snaTotalBackupSizeInMegaBytes = Nothing, _snaDBName = Nothing, _snaTags = Nothing, _snaActualIncrementalBackupSizeInMegaBytes = Nothing, _snaPort = Nothing};
+snapshot =
+    Snapshot'
+    { _snaStatus = Nothing
+    , _snaAccountsWithRestoreAccess = Nothing
+    , _snaSnapshotIdentifier = Nothing
+    , _snaEncryptedWithHSM = Nothing
+    , _snaMasterUsername = Nothing
+    , _snaSourceRegion = Nothing
+    , _snaVPCId = Nothing
+    , _snaBackupProgressInMegaBytes = Nothing
+    , _snaEncrypted = Nothing
+    , _snaClusterIdentifier = Nothing
+    , _snaNumberOfNodes = Nothing
+    , _snaSnapshotType = Nothing
+    , _snaAvailabilityZone = Nothing
+    , _snaKMSKeyId = Nothing
+    , _snaCurrentBackupRateInMegaBytesPerSecond = Nothing
+    , _snaSnapshotCreateTime = Nothing
+    , _snaClusterVersion = Nothing
+    , _snaOwnerAccount = Nothing
+    , _snaNodeType = Nothing
+    , _snaClusterCreateTime = Nothing
+    , _snaElapsedTimeInSeconds = Nothing
+    , _snaEstimatedSecondsToCompletion = Nothing
+    , _snaTotalBackupSizeInMegaBytes = Nothing
+    , _snaDBName = Nothing
+    , _snaTags = Nothing
+    , _snaActualIncrementalBackupSizeInMegaBytes = Nothing
+    , _snaPort = Nothing
+    }
 
 -- | The snapshot status. The value of the status depends on the API
 -- operation used.
@@ -2892,11 +3458,20 @@ instance FromXML Snapshot where
 -- * 'subSubnetIdentifier'
 --
 -- * 'subSubnetAvailabilityZone'
-data Subnet = Subnet'{_subSubnetStatus :: Maybe Text, _subSubnetIdentifier :: Maybe Text, _subSubnetAvailabilityZone :: Maybe AvailabilityZone} deriving (Eq, Read, Show)
+data Subnet = Subnet'
+    { _subSubnetStatus           :: Maybe Text
+    , _subSubnetIdentifier       :: Maybe Text
+    , _subSubnetAvailabilityZone :: Maybe AvailabilityZone
+    } deriving (Eq,Read,Show)
 
 -- | 'Subnet' smart constructor.
 subnet :: Subnet
-subnet = Subnet'{_subSubnetStatus = Nothing, _subSubnetIdentifier = Nothing, _subSubnetAvailabilityZone = Nothing};
+subnet =
+    Subnet'
+    { _subSubnetStatus = Nothing
+    , _subSubnetIdentifier = Nothing
+    , _subSubnetAvailabilityZone = Nothing
+    }
 
 -- | The status of the subnet.
 subSubnetStatus :: Lens' Subnet (Maybe Text)
@@ -2925,11 +3500,18 @@ instance FromXML Subnet where
 -- * 'tagValue'
 --
 -- * 'tagKey'
-data Tag = Tag'{_tagValue :: Maybe Text, _tagKey :: Maybe Text} deriving (Eq, Read, Show)
+data Tag = Tag'
+    { _tagValue :: Maybe Text
+    , _tagKey   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
-tag = Tag'{_tagValue = Nothing, _tagKey = Nothing};
+tag =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = Nothing
+    }
 
 -- | The value for the resource tag.
 tagValue :: Lens' Tag (Maybe Text)
@@ -2958,11 +3540,20 @@ instance ToQuery Tag where
 -- * 'trTag'
 --
 -- * 'trResourceName'
-data TaggedResource = TaggedResource'{_trResourceType :: Maybe Text, _trTag :: Maybe Tag, _trResourceName :: Maybe Text} deriving (Eq, Read, Show)
+data TaggedResource = TaggedResource'
+    { _trResourceType :: Maybe Text
+    , _trTag          :: Maybe Tag
+    , _trResourceName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'TaggedResource' smart constructor.
 taggedResource :: TaggedResource
-taggedResource = TaggedResource'{_trResourceType = Nothing, _trTag = Nothing, _trResourceName = Nothing};
+taggedResource =
+    TaggedResource'
+    { _trResourceType = Nothing
+    , _trTag = Nothing
+    , _trResourceName = Nothing
+    }
 
 -- | The type of resource with which the tag is associated. Valid resource
 -- types are:
@@ -3008,11 +3599,18 @@ instance FromXML TaggedResource where
 -- * 'vsgmStatus'
 --
 -- * 'vsgmVPCSecurityGroupId'
-data VPCSecurityGroupMembership = VPCSecurityGroupMembership'{_vsgmStatus :: Maybe Text, _vsgmVPCSecurityGroupId :: Maybe Text} deriving (Eq, Read, Show)
+data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
+    { _vsgmStatus             :: Maybe Text
+    , _vsgmVPCSecurityGroupId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VPCSecurityGroupMembership' smart constructor.
 vpcSecurityGroupMembership :: VPCSecurityGroupMembership
-vpcSecurityGroupMembership = VPCSecurityGroupMembership'{_vsgmStatus = Nothing, _vsgmVPCSecurityGroupId = Nothing};
+vpcSecurityGroupMembership =
+    VPCSecurityGroupMembership'
+    { _vsgmStatus = Nothing
+    , _vsgmVPCSecurityGroupId = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 vsgmStatus :: Lens' VPCSecurityGroupMembership (Maybe Text)

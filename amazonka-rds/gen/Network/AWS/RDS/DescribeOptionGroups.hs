@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeOptionGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,14 +38,14 @@ module Network.AWS.RDS.DescribeOptionGroups
     -- ** Response lenses
     , dogrMarker
     , dogrOptionGroupsList
-    , dogrStatusCode
+    , dogrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -64,11 +64,26 @@ import Network.AWS.Response
 -- * 'dogMarker'
 --
 -- * 'dogOptionGroupName'
-data DescribeOptionGroups = DescribeOptionGroups'{_dogFilters :: Maybe [Filter], _dogEngineName :: Maybe Text, _dogMajorEngineVersion :: Maybe Text, _dogMaxRecords :: Maybe Int, _dogMarker :: Maybe Text, _dogOptionGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeOptionGroups = DescribeOptionGroups'
+    { _dogFilters            :: Maybe [Filter]
+    , _dogEngineName         :: Maybe Text
+    , _dogMajorEngineVersion :: Maybe Text
+    , _dogMaxRecords         :: Maybe Int
+    , _dogMarker             :: Maybe Text
+    , _dogOptionGroupName    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeOptionGroups' smart constructor.
 describeOptionGroups :: DescribeOptionGroups
-describeOptionGroups = DescribeOptionGroups'{_dogFilters = Nothing, _dogEngineName = Nothing, _dogMajorEngineVersion = Nothing, _dogMaxRecords = Nothing, _dogMarker = Nothing, _dogOptionGroupName = Nothing};
+describeOptionGroups =
+    DescribeOptionGroups'
+    { _dogFilters = Nothing
+    , _dogEngineName = Nothing
+    , _dogMajorEngineVersion = Nothing
+    , _dogMaxRecords = Nothing
+    , _dogMarker = Nothing
+    , _dogOptionGroupName = Nothing
+    }
 
 -- | This parameter is not currently supported.
 dogFilters :: Lens' DescribeOptionGroups [Filter]
@@ -157,12 +172,21 @@ instance ToQuery DescribeOptionGroups where
 --
 -- * 'dogrOptionGroupsList'
 --
--- * 'dogrStatusCode'
-data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'{_dogrMarker :: Maybe Text, _dogrOptionGroupsList :: Maybe [OptionGroup], _dogrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dogrStatus'
+data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
+    { _dogrMarker           :: Maybe Text
+    , _dogrOptionGroupsList :: Maybe [OptionGroup]
+    , _dogrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeOptionGroupsResponse' smart constructor.
 describeOptionGroupsResponse :: Int -> DescribeOptionGroupsResponse
-describeOptionGroupsResponse pStatusCode = DescribeOptionGroupsResponse'{_dogrMarker = Nothing, _dogrOptionGroupsList = Nothing, _dogrStatusCode = pStatusCode};
+describeOptionGroupsResponse pStatus =
+    DescribeOptionGroupsResponse'
+    { _dogrMarker = Nothing
+    , _dogrOptionGroupsList = Nothing
+    , _dogrStatus = pStatus
+    }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -175,5 +199,5 @@ dogrOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
 dogrOptionGroupsList = lens _dogrOptionGroupsList (\ s a -> s{_dogrOptionGroupsList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dogrStatusCode :: Lens' DescribeOptionGroupsResponse Int
-dogrStatusCode = lens _dogrStatusCode (\ s a -> s{_dogrStatusCode = a});
+dogrStatus :: Lens' DescribeOptionGroupsResponse Int
+dogrStatus = lens _dogrStatus (\ s a -> s{_dogrStatus = a});

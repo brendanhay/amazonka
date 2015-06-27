@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeSecurityGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.EC2.DescribeSecurityGroups
     , describeSecurityGroupsResponse
     -- ** Response lenses
     , dsgrSecurityGroups
-    , dsgrStatusCode
+    , dsgrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeSecurityGroups' smart constructor.
 --
@@ -61,11 +61,22 @@ import Network.AWS.Response
 -- * 'dsg1GroupIds'
 --
 -- * 'dsg1DryRun'
-data DescribeSecurityGroups = DescribeSecurityGroups'{_dsg1GroupNames :: Maybe [Text], _dsg1Filters :: Maybe [Filter], _dsg1GroupIds :: Maybe [Text], _dsg1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeSecurityGroups = DescribeSecurityGroups'
+    { _dsg1GroupNames :: Maybe [Text]
+    , _dsg1Filters    :: Maybe [Filter]
+    , _dsg1GroupIds   :: Maybe [Text]
+    , _dsg1DryRun     :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSecurityGroups' smart constructor.
 describeSecurityGroups :: DescribeSecurityGroups
-describeSecurityGroups = DescribeSecurityGroups'{_dsg1GroupNames = Nothing, _dsg1Filters = Nothing, _dsg1GroupIds = Nothing, _dsg1DryRun = Nothing};
+describeSecurityGroups =
+    DescribeSecurityGroups'
+    { _dsg1GroupNames = Nothing
+    , _dsg1Filters = Nothing
+    , _dsg1GroupIds = Nothing
+    , _dsg1DryRun = Nothing
+    }
 
 -- | [EC2-Classic and default VPC only] One or more security group names. You
 -- can specify either the security group name or the security group ID. For
@@ -170,17 +181,24 @@ instance ToQuery DescribeSecurityGroups where
 --
 -- * 'dsgrSecurityGroups'
 --
--- * 'dsgrStatusCode'
-data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'{_dsgrSecurityGroups :: Maybe [SecurityGroup], _dsgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsgrStatus'
+data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
+    { _dsgrSecurityGroups :: Maybe [SecurityGroup]
+    , _dsgrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSecurityGroupsResponse' smart constructor.
 describeSecurityGroupsResponse :: Int -> DescribeSecurityGroupsResponse
-describeSecurityGroupsResponse pStatusCode = DescribeSecurityGroupsResponse'{_dsgrSecurityGroups = Nothing, _dsgrStatusCode = pStatusCode};
+describeSecurityGroupsResponse pStatus =
+    DescribeSecurityGroupsResponse'
+    { _dsgrSecurityGroups = Nothing
+    , _dsgrStatus = pStatus
+    }
 
 -- | Information about one or more security groups.
 dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgrSecurityGroups = lens _dsgrSecurityGroups (\ s a -> s{_dsgrSecurityGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsgrStatusCode :: Lens' DescribeSecurityGroupsResponse Int
-dsgrStatusCode = lens _dsgrStatusCode (\ s a -> s{_dsgrStatusCode = a});
+dsgrStatus :: Lens' DescribeSecurityGroupsResponse Int
+dsgrStatus = lens _dsgrStatus (\ s a -> s{_dsgrStatus = a});

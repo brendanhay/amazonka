@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SES.GetIdentityVerificationAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.SES.GetIdentityVerificationAttributes
     , getIdentityVerificationAttributesResponse
     -- ** Response lenses
     , givarVerificationAttributes
-    , givarStatusCode
+    , givarStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SES.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
 -- | Represents a request instructing the service to provide the verification
 -- attributes for a list of identities.
@@ -53,11 +53,16 @@ import Network.AWS.SES.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'givaIdentities'
-newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes'{_givaIdentities :: [Text]} deriving (Eq, Read, Show)
+newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes'
+    { _givaIdentities :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityVerificationAttributes' smart constructor.
 getIdentityVerificationAttributes :: GetIdentityVerificationAttributes
-getIdentityVerificationAttributes = GetIdentityVerificationAttributes'{_givaIdentities = mempty};
+getIdentityVerificationAttributes =
+    GetIdentityVerificationAttributes'
+    { _givaIdentities = mempty
+    }
 
 -- | A list of identities.
 givaIdentities :: Lens' GetIdentityVerificationAttributes [Text]
@@ -103,17 +108,24 @@ instance ToQuery GetIdentityVerificationAttributes
 --
 -- * 'givarVerificationAttributes'
 --
--- * 'givarStatusCode'
-data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'{_givarVerificationAttributes :: Map Text IdentityVerificationAttributes, _givarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'givarStatus'
+data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
+    { _givarVerificationAttributes :: Map Text IdentityVerificationAttributes
+    , _givarStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityVerificationAttributesResponse' smart constructor.
 getIdentityVerificationAttributesResponse :: Int -> GetIdentityVerificationAttributesResponse
-getIdentityVerificationAttributesResponse pStatusCode = GetIdentityVerificationAttributesResponse'{_givarVerificationAttributes = mempty, _givarStatusCode = pStatusCode};
+getIdentityVerificationAttributesResponse pStatus =
+    GetIdentityVerificationAttributesResponse'
+    { _givarVerificationAttributes = mempty
+    , _givarStatus = pStatus
+    }
 
 -- | A map of Identities to IdentityVerificationAttributes objects.
 givarVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (HashMap Text IdentityVerificationAttributes)
 givarVerificationAttributes = lens _givarVerificationAttributes (\ s a -> s{_givarVerificationAttributes = a}) . _Map;
 
 -- | FIXME: Undocumented member.
-givarStatusCode :: Lens' GetIdentityVerificationAttributesResponse Int
-givarStatusCode = lens _givarStatusCode (\ s a -> s{_givarStatusCode = a});
+givarStatus :: Lens' GetIdentityVerificationAttributesResponse Int
+givarStatus = lens _givarStatus (\ s a -> s{_givarStatus = a});

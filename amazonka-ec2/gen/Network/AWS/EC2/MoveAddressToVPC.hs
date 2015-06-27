@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.MoveAddressToVPC
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,15 +38,14 @@ module Network.AWS.EC2.MoveAddressToVPC
     -- ** Response constructor
     , moveAddressToVPCResponse
     -- ** Response lenses
-    , matvrStatus
     , matvrAllocationId
-    , matvrStatusCode
+    , matvrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'moveAddressToVPC' smart constructor.
 --
@@ -55,11 +54,18 @@ import Network.AWS.Response
 -- * 'matvDryRun'
 --
 -- * 'matvPublicIP'
-data MoveAddressToVPC = MoveAddressToVPC'{_matvDryRun :: Maybe Bool, _matvPublicIP :: Text} deriving (Eq, Read, Show)
+data MoveAddressToVPC = MoveAddressToVPC'
+    { _matvDryRun   :: Maybe Bool
+    , _matvPublicIP :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'MoveAddressToVPC' smart constructor.
 moveAddressToVPC :: Text -> MoveAddressToVPC
-moveAddressToVPC pPublicIP = MoveAddressToVPC'{_matvDryRun = Nothing, _matvPublicIP = pPublicIP};
+moveAddressToVPC pPublicIP =
+    MoveAddressToVPC'
+    { _matvDryRun = Nothing
+    , _matvPublicIP = pPublicIP
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -80,8 +86,7 @@ instance AWSRequest MoveAddressToVPC where
           = receiveXML
               (\ s h x ->
                  MoveAddressToVPCResponse' <$>
-                   (x .@? "status") <*> (x .@? "allocationId") <*>
-                     (pure (fromEnum s)))
+                   (x .@? "allocationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders MoveAddressToVPC where
         toHeaders = const mempty
@@ -100,25 +105,26 @@ instance ToQuery MoveAddressToVPC where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'matvrStatus'
---
 -- * 'matvrAllocationId'
 --
--- * 'matvrStatusCode'
-data MoveAddressToVPCResponse = MoveAddressToVPCResponse'{_matvrStatus :: Maybe AddressStatus, _matvrAllocationId :: Maybe Text, _matvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'matvrStatus'
+data MoveAddressToVPCResponse = MoveAddressToVPCResponse'
+    { _matvrAllocationId :: Maybe Text
+    , _matvrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'MoveAddressToVPCResponse' smart constructor.
 moveAddressToVPCResponse :: Int -> MoveAddressToVPCResponse
-moveAddressToVPCResponse pStatusCode = MoveAddressToVPCResponse'{_matvrStatus = Nothing, _matvrAllocationId = Nothing, _matvrStatusCode = pStatusCode};
-
--- | The status of the move of the IP address.
-matvrStatus :: Lens' MoveAddressToVPCResponse (Maybe AddressStatus)
-matvrStatus = lens _matvrStatus (\ s a -> s{_matvrStatus = a});
+moveAddressToVPCResponse pStatus =
+    MoveAddressToVPCResponse'
+    { _matvrAllocationId = Nothing
+    , _matvrStatus = pStatus
+    }
 
 -- | The allocation ID for the Elastic IP address.
 matvrAllocationId :: Lens' MoveAddressToVPCResponse (Maybe Text)
 matvrAllocationId = lens _matvrAllocationId (\ s a -> s{_matvrAllocationId = a});
 
 -- | FIXME: Undocumented member.
-matvrStatusCode :: Lens' MoveAddressToVPCResponse Int
-matvrStatusCode = lens _matvrStatusCode (\ s a -> s{_matvrStatusCode = a});
+matvrStatus :: Lens' MoveAddressToVPCResponse Int
+matvrStatus = lens _matvrStatus (\ s a -> s{_matvrStatus = a});

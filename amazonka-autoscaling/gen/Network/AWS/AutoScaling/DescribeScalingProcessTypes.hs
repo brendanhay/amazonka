@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeScalingProcessTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,20 +31,22 @@ module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     , describeScalingProcessTypesResponse
     -- ** Response lenses
     , dsptrProcesses
-    , dsptrStatusCode
+    , dsptrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeScalingProcessTypes' smart constructor.
-data DescribeScalingProcessTypes = DescribeScalingProcessTypes' deriving (Eq, Read, Show)
+data DescribeScalingProcessTypes =
+    DescribeScalingProcessTypes'
+    deriving (Eq,Read,Show)
 
 -- | 'DescribeScalingProcessTypes' smart constructor.
 describeScalingProcessTypes :: DescribeScalingProcessTypes
-describeScalingProcessTypes = DescribeScalingProcessTypes';
+describeScalingProcessTypes = DescribeScalingProcessTypes'
 
 instance AWSRequest DescribeScalingProcessTypes where
         type Sv DescribeScalingProcessTypes = AutoScaling
@@ -80,17 +82,24 @@ instance ToQuery DescribeScalingProcessTypes where
 --
 -- * 'dsptrProcesses'
 --
--- * 'dsptrStatusCode'
-data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'{_dsptrProcesses :: Maybe [ProcessType], _dsptrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsptrStatus'
+data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
+    { _dsptrProcesses :: Maybe [ProcessType]
+    , _dsptrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeScalingProcessTypesResponse' smart constructor.
 describeScalingProcessTypesResponse :: Int -> DescribeScalingProcessTypesResponse
-describeScalingProcessTypesResponse pStatusCode = DescribeScalingProcessTypesResponse'{_dsptrProcesses = Nothing, _dsptrStatusCode = pStatusCode};
+describeScalingProcessTypesResponse pStatus =
+    DescribeScalingProcessTypesResponse'
+    { _dsptrProcesses = Nothing
+    , _dsptrStatus = pStatus
+    }
 
 -- | The names of the process types.
 dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
 dsptrProcesses = lens _dsptrProcesses (\ s a -> s{_dsptrProcesses = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsptrStatusCode :: Lens' DescribeScalingProcessTypesResponse Int
-dsptrStatusCode = lens _dsptrStatusCode (\ s a -> s{_dsptrStatusCode = a});
+dsptrStatus :: Lens' DescribeScalingProcessTypesResponse Int
+dsptrStatus = lens _dsptrStatus (\ s a -> s{_dsptrStatus = a});

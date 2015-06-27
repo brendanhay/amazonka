@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.CreateClusterSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.Redshift.CreateClusterSecurityGroup
     , createClusterSecurityGroupResponse
     -- ** Response lenses
     , creClusterSecurityGroup
-    , creStatusCode
+    , creStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | ???
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'creClusterSecurityGroupName'
 --
 -- * 'creDescription'
-data CreateClusterSecurityGroup = CreateClusterSecurityGroup'{_creTags :: Maybe [Tag], _creClusterSecurityGroupName :: Text, _creDescription :: Text} deriving (Eq, Read, Show)
+data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
+    { _creTags                     :: Maybe [Tag]
+    , _creClusterSecurityGroupName :: Text
+    , _creDescription              :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterSecurityGroup' smart constructor.
 createClusterSecurityGroup :: Text -> Text -> CreateClusterSecurityGroup
-createClusterSecurityGroup pClusterSecurityGroupName pDescription = CreateClusterSecurityGroup'{_creTags = Nothing, _creClusterSecurityGroupName = pClusterSecurityGroupName, _creDescription = pDescription};
+createClusterSecurityGroup pClusterSecurityGroupName pDescription =
+    CreateClusterSecurityGroup'
+    { _creTags = Nothing
+    , _creClusterSecurityGroupName = pClusterSecurityGroupName
+    , _creDescription = pDescription
+    }
 
 -- | A list of tag instances.
 creTags :: Lens' CreateClusterSecurityGroup [Tag]
@@ -122,17 +131,24 @@ instance ToQuery CreateClusterSecurityGroup where
 --
 -- * 'creClusterSecurityGroup'
 --
--- * 'creStatusCode'
-data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'{_creClusterSecurityGroup :: Maybe ClusterSecurityGroup, _creStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'creStatus'
+data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'
+    { _creClusterSecurityGroup :: Maybe ClusterSecurityGroup
+    , _creStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterSecurityGroupResponse' smart constructor.
 createClusterSecurityGroupResponse :: Int -> CreateClusterSecurityGroupResponse
-createClusterSecurityGroupResponse pStatusCode = CreateClusterSecurityGroupResponse'{_creClusterSecurityGroup = Nothing, _creStatusCode = pStatusCode};
+createClusterSecurityGroupResponse pStatus =
+    CreateClusterSecurityGroupResponse'
+    { _creClusterSecurityGroup = Nothing
+    , _creStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 creClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
 creClusterSecurityGroup = lens _creClusterSecurityGroup (\ s a -> s{_creClusterSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-creStatusCode :: Lens' CreateClusterSecurityGroupResponse Int
-creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});
+creStatus :: Lens' CreateClusterSecurityGroupResponse Int
+creStatus = lens _creStatus (\ s a -> s{_creStatus = a});

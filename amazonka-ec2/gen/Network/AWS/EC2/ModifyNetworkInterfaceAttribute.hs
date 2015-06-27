@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ModifyNetworkInterfaceAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,10 +38,10 @@ module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     , modifyNetworkInterfaceAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyNetworkInterfaceAttribute' smart constructor.
 --
@@ -58,11 +58,26 @@ import Network.AWS.Response
 -- * 'mniaDescription'
 --
 -- * 'mniaNetworkInterfaceId'
-data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'{_mniaGroups :: Maybe [Text], _mniaSourceDestCheck :: Maybe AttributeBooleanValue, _mniaAttachment :: Maybe NetworkInterfaceAttachmentChanges, _mniaDryRun :: Maybe Bool, _mniaDescription :: Maybe AttributeValue, _mniaNetworkInterfaceId :: Text} deriving (Eq, Read, Show)
+data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
+    { _mniaGroups             :: Maybe [Text]
+    , _mniaSourceDestCheck    :: Maybe AttributeBooleanValue
+    , _mniaAttachment         :: Maybe NetworkInterfaceAttachmentChanges
+    , _mniaDryRun             :: Maybe Bool
+    , _mniaDescription        :: Maybe AttributeValue
+    , _mniaNetworkInterfaceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyNetworkInterfaceAttribute' smart constructor.
 modifyNetworkInterfaceAttribute :: Text -> ModifyNetworkInterfaceAttribute
-modifyNetworkInterfaceAttribute pNetworkInterfaceId = ModifyNetworkInterfaceAttribute'{_mniaGroups = Nothing, _mniaSourceDestCheck = Nothing, _mniaAttachment = Nothing, _mniaDryRun = Nothing, _mniaDescription = Nothing, _mniaNetworkInterfaceId = pNetworkInterfaceId};
+modifyNetworkInterfaceAttribute pNetworkInterfaceId =
+    ModifyNetworkInterfaceAttribute'
+    { _mniaGroups = Nothing
+    , _mniaSourceDestCheck = Nothing
+    , _mniaAttachment = Nothing
+    , _mniaDryRun = Nothing
+    , _mniaDescription = Nothing
+    , _mniaNetworkInterfaceId = pNetworkInterfaceId
+    }
 
 -- | Changes the security groups for the network interface. The new set of
 -- groups you specify replaces the current set. You must specify at least
@@ -134,8 +149,11 @@ instance ToQuery ModifyNetworkInterfaceAttribute
                "NetworkInterfaceId" =: _mniaNetworkInterfaceId]
 
 -- | /See:/ 'modifyNetworkInterfaceAttributeResponse' smart constructor.
-data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse' deriving (Eq, Read, Show)
+data ModifyNetworkInterfaceAttributeResponse =
+    ModifyNetworkInterfaceAttributeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ModifyNetworkInterfaceAttributeResponse' smart constructor.
 modifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse
-modifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse';
+modifyNetworkInterfaceAttributeResponse =
+    ModifyNetworkInterfaceAttributeResponse'

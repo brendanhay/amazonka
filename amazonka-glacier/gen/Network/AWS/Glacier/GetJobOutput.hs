@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.GetJobOutput
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -89,10 +89,10 @@ module Network.AWS.Glacier.GetJobOutput
     , gjorBody
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for downloading output of an Amazon Glacier job.
 --
@@ -107,11 +107,22 @@ import Network.AWS.Response
 -- * 'gjoVaultName'
 --
 -- * 'gjoJobId'
-data GetJobOutput = GetJobOutput'{_gjoRange :: Maybe Text, _gjoAccountId :: Text, _gjoVaultName :: Text, _gjoJobId :: Text} deriving (Eq, Read, Show)
+data GetJobOutput = GetJobOutput'
+    { _gjoRange     :: Maybe Text
+    , _gjoAccountId :: Text
+    , _gjoVaultName :: Text
+    , _gjoJobId     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetJobOutput' smart constructor.
 getJobOutput :: Text -> Text -> Text -> GetJobOutput
-getJobOutput pAccountId pVaultName pJobId = GetJobOutput'{_gjoRange = Nothing, _gjoAccountId = pAccountId, _gjoVaultName = pVaultName, _gjoJobId = pJobId};
+getJobOutput pAccountId pVaultName pJobId =
+    GetJobOutput'
+    { _gjoRange = Nothing
+    , _gjoAccountId = pAccountId
+    , _gjoVaultName = pVaultName
+    , _gjoJobId = pJobId
+    }
 
 -- | The range of bytes to retrieve from the output. For example, if you want
 -- to download the first 1,048,576 bytes, specify \"Range:
@@ -185,11 +196,28 @@ instance ToQuery GetJobOutput where
 -- * 'gjorStatus'
 --
 -- * 'gjorBody'
-data GetJobOutputResponse = GetJobOutputResponse'{_gjorChecksum :: Maybe Text, _gjorAcceptRanges :: Maybe Text, _gjorArchiveDescription :: Maybe Text, _gjorContentRange :: Maybe Text, _gjorContentType :: Maybe Text, _gjorStatus :: Int, _gjorBody :: RsBody} deriving Show
+data GetJobOutputResponse = GetJobOutputResponse'
+    { _gjorChecksum           :: Maybe Text
+    , _gjorAcceptRanges       :: Maybe Text
+    , _gjorArchiveDescription :: Maybe Text
+    , _gjorContentRange       :: Maybe Text
+    , _gjorContentType        :: Maybe Text
+    , _gjorStatus             :: !Int
+    , _gjorBody               :: RsBody
+    } deriving (Show)
 
 -- | 'GetJobOutputResponse' smart constructor.
 getJobOutputResponse :: Int -> RsBody -> GetJobOutputResponse
-getJobOutputResponse pStatus pBody = GetJobOutputResponse'{_gjorChecksum = Nothing, _gjorAcceptRanges = Nothing, _gjorArchiveDescription = Nothing, _gjorContentRange = Nothing, _gjorContentType = Nothing, _gjorStatus = pStatus, _gjorBody = pBody};
+getJobOutputResponse pStatus pBody =
+    GetJobOutputResponse'
+    { _gjorChecksum = Nothing
+    , _gjorAcceptRanges = Nothing
+    , _gjorArchiveDescription = Nothing
+    , _gjorContentRange = Nothing
+    , _gjorContentType = Nothing
+    , _gjorStatus = pStatus
+    , _gjorBody = pBody
+    }
 
 -- | The checksum of the data in the response. This header is returned only
 -- when retrieving the output for an archive retrieval job. Furthermore,

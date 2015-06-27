@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.SetVaultAccessPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.Glacier.SetVaultAccessPolicy
     , setVaultAccessPolicyResponse
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | SetVaultAccessPolicy input.
 --
@@ -56,11 +56,20 @@ import Network.AWS.Response
 -- * 'svapAccountId'
 --
 -- * 'svapVaultName'
-data SetVaultAccessPolicy = SetVaultAccessPolicy'{_svapPolicy :: Maybe VaultAccessPolicy, _svapAccountId :: Text, _svapVaultName :: Text} deriving (Eq, Read, Show)
+data SetVaultAccessPolicy = SetVaultAccessPolicy'
+    { _svapPolicy    :: Maybe VaultAccessPolicy
+    , _svapAccountId :: Text
+    , _svapVaultName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetVaultAccessPolicy' smart constructor.
 setVaultAccessPolicy :: Text -> Text -> SetVaultAccessPolicy
-setVaultAccessPolicy pAccountId pVaultName = SetVaultAccessPolicy'{_svapPolicy = Nothing, _svapAccountId = pAccountId, _svapVaultName = pVaultName};
+setVaultAccessPolicy pAccountId pVaultName =
+    SetVaultAccessPolicy'
+    { _svapPolicy = Nothing
+    , _svapAccountId = pAccountId
+    , _svapVaultName = pVaultName
+    }
 
 -- | The vault access policy as a JSON string.
 svapPolicy :: Lens' SetVaultAccessPolicy (Maybe VaultAccessPolicy)
@@ -102,8 +111,10 @@ instance ToQuery SetVaultAccessPolicy where
         toQuery = const mempty
 
 -- | /See:/ 'setVaultAccessPolicyResponse' smart constructor.
-data SetVaultAccessPolicyResponse = SetVaultAccessPolicyResponse' deriving (Eq, Read, Show)
+data SetVaultAccessPolicyResponse =
+    SetVaultAccessPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetVaultAccessPolicyResponse' smart constructor.
 setVaultAccessPolicyResponse :: SetVaultAccessPolicyResponse
-setVaultAccessPolicyResponse = SetVaultAccessPolicyResponse';
+setVaultAccessPolicyResponse = SetVaultAccessPolicyResponse'

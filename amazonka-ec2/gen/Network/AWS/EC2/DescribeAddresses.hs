@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeAddresses
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.EC2.DescribeAddresses
     , describeAddressesResponse
     -- ** Response lenses
     , darAddresses
-    , darStatusCode
+    , darStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAddresses' smart constructor.
 --
@@ -59,11 +59,22 @@ import Network.AWS.Response
 -- * 'daDryRun'
 --
 -- * 'daAllocationIds'
-data DescribeAddresses = DescribeAddresses'{_daPublicIPs :: Maybe [Text], _daFilters :: Maybe [Filter], _daDryRun :: Maybe Bool, _daAllocationIds :: Maybe [Text]} deriving (Eq, Read, Show)
+data DescribeAddresses = DescribeAddresses'
+    { _daPublicIPs     :: Maybe [Text]
+    , _daFilters       :: Maybe [Filter]
+    , _daDryRun        :: Maybe Bool
+    , _daAllocationIds :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAddresses' smart constructor.
 describeAddresses :: DescribeAddresses
-describeAddresses = DescribeAddresses'{_daPublicIPs = Nothing, _daFilters = Nothing, _daDryRun = Nothing, _daAllocationIds = Nothing};
+describeAddresses =
+    DescribeAddresses'
+    { _daPublicIPs = Nothing
+    , _daFilters = Nothing
+    , _daDryRun = Nothing
+    , _daAllocationIds = Nothing
+    }
 
 -- | [EC2-Classic] One or more Elastic IP addresses.
 --
@@ -143,17 +154,24 @@ instance ToQuery DescribeAddresses where
 --
 -- * 'darAddresses'
 --
--- * 'darStatusCode'
-data DescribeAddressesResponse = DescribeAddressesResponse'{_darAddresses :: Maybe [Address], _darStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'darStatus'
+data DescribeAddressesResponse = DescribeAddressesResponse'
+    { _darAddresses :: Maybe [Address]
+    , _darStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAddressesResponse' smart constructor.
 describeAddressesResponse :: Int -> DescribeAddressesResponse
-describeAddressesResponse pStatusCode = DescribeAddressesResponse'{_darAddresses = Nothing, _darStatusCode = pStatusCode};
+describeAddressesResponse pStatus =
+    DescribeAddressesResponse'
+    { _darAddresses = Nothing
+    , _darStatus = pStatus
+    }
 
 -- | Information about one or more Elastic IP addresses.
 darAddresses :: Lens' DescribeAddressesResponse [Address]
 darAddresses = lens _darAddresses (\ s a -> s{_darAddresses = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-darStatusCode :: Lens' DescribeAddressesResponse Int
-darStatusCode = lens _darStatusCode (\ s a -> s{_darStatusCode = a});
+darStatus :: Lens' DescribeAddressesResponse Int
+darStatus = lens _darStatus (\ s a -> s{_darStatus = a});

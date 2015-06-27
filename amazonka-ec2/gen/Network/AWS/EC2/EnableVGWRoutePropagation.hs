@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.EnableVGWRoutePropagation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.EC2.EnableVGWRoutePropagation
     , enableVGWRoutePropagationResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'enableVGWRoutePropagation' smart constructor.
 --
@@ -46,11 +46,18 @@ import Network.AWS.Response
 -- * 'evrpRouteTableId'
 --
 -- * 'evrpGatewayId'
-data EnableVGWRoutePropagation = EnableVGWRoutePropagation'{_evrpRouteTableId :: Text, _evrpGatewayId :: Text} deriving (Eq, Read, Show)
+data EnableVGWRoutePropagation = EnableVGWRoutePropagation'
+    { _evrpRouteTableId :: Text
+    , _evrpGatewayId    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableVGWRoutePropagation' smart constructor.
 enableVGWRoutePropagation :: Text -> Text -> EnableVGWRoutePropagation
-enableVGWRoutePropagation pRouteTableId pGatewayId = EnableVGWRoutePropagation'{_evrpRouteTableId = pRouteTableId, _evrpGatewayId = pGatewayId};
+enableVGWRoutePropagation pRouteTableId pGatewayId =
+    EnableVGWRoutePropagation'
+    { _evrpRouteTableId = pRouteTableId
+    , _evrpGatewayId = pGatewayId
+    }
 
 -- | The ID of the route table.
 evrpRouteTableId :: Lens' EnableVGWRoutePropagation Text
@@ -84,8 +91,10 @@ instance ToQuery EnableVGWRoutePropagation where
                "GatewayId" =: _evrpGatewayId]
 
 -- | /See:/ 'enableVGWRoutePropagationResponse' smart constructor.
-data EnableVGWRoutePropagationResponse = EnableVGWRoutePropagationResponse' deriving (Eq, Read, Show)
+data EnableVGWRoutePropagationResponse =
+    EnableVGWRoutePropagationResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'EnableVGWRoutePropagationResponse' smart constructor.
 enableVGWRoutePropagationResponse :: EnableVGWRoutePropagationResponse
-enableVGWRoutePropagationResponse = EnableVGWRoutePropagationResponse';
+enableVGWRoutePropagationResponse = EnableVGWRoutePropagationResponse'

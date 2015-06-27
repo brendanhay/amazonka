@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.RestoreDBInstanceToPointInTime
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -56,13 +56,13 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     , restoreDBInstanceToPointInTimeResponse
     -- ** Response lenses
     , rditpitrDBInstance
-    , rditpitrStatusCode
+    , rditpitrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -109,11 +109,54 @@ import Network.AWS.Response
 -- * 'rditpitSourceDBInstanceIdentifier'
 --
 -- * 'rditpitTargetDBInstanceIdentifier'
-data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'{_rditpitUseLatestRestorableTime :: Maybe Bool, _rditpitAutoMinorVersionUpgrade :: Maybe Bool, _rditpitPubliclyAccessible :: Maybe Bool, _rditpitDBSubnetGroupName :: Maybe Text, _rditpitRestoreTime :: Maybe ISO8601, _rditpitIOPS :: Maybe Int, _rditpitEngine :: Maybe Text, _rditpitTDECredentialPassword :: Maybe Text, _rditpitDBInstanceClass :: Maybe Text, _rditpitLicenseModel :: Maybe Text, _rditpitAvailabilityZone :: Maybe Text, _rditpitMultiAZ :: Maybe Bool, _rditpitTDECredentialARN :: Maybe Text, _rditpitOptionGroupName :: Maybe Text, _rditpitDBName :: Maybe Text, _rditpitTags :: Maybe [Tag], _rditpitPort :: Maybe Int, _rditpitStorageType :: Maybe Text, _rditpitSourceDBInstanceIdentifier :: Text, _rditpitTargetDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
+data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
+    { _rditpitUseLatestRestorableTime    :: Maybe Bool
+    , _rditpitAutoMinorVersionUpgrade    :: Maybe Bool
+    , _rditpitPubliclyAccessible         :: Maybe Bool
+    , _rditpitDBSubnetGroupName          :: Maybe Text
+    , _rditpitRestoreTime                :: Maybe ISO8601
+    , _rditpitIOPS                       :: Maybe Int
+    , _rditpitEngine                     :: Maybe Text
+    , _rditpitTDECredentialPassword      :: Maybe Text
+    , _rditpitDBInstanceClass            :: Maybe Text
+    , _rditpitLicenseModel               :: Maybe Text
+    , _rditpitAvailabilityZone           :: Maybe Text
+    , _rditpitMultiAZ                    :: Maybe Bool
+    , _rditpitTDECredentialARN           :: Maybe Text
+    , _rditpitOptionGroupName            :: Maybe Text
+    , _rditpitDBName                     :: Maybe Text
+    , _rditpitTags                       :: Maybe [Tag]
+    , _rditpitPort                       :: Maybe Int
+    , _rditpitStorageType                :: Maybe Text
+    , _rditpitSourceDBInstanceIdentifier :: Text
+    , _rditpitTargetDBInstanceIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RestoreDBInstanceToPointInTime' smart constructor.
 restoreDBInstanceToPointInTime :: Text -> Text -> RestoreDBInstanceToPointInTime
-restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier pTargetDBInstanceIdentifier = RestoreDBInstanceToPointInTime'{_rditpitUseLatestRestorableTime = Nothing, _rditpitAutoMinorVersionUpgrade = Nothing, _rditpitPubliclyAccessible = Nothing, _rditpitDBSubnetGroupName = Nothing, _rditpitRestoreTime = Nothing, _rditpitIOPS = Nothing, _rditpitEngine = Nothing, _rditpitTDECredentialPassword = Nothing, _rditpitDBInstanceClass = Nothing, _rditpitLicenseModel = Nothing, _rditpitAvailabilityZone = Nothing, _rditpitMultiAZ = Nothing, _rditpitTDECredentialARN = Nothing, _rditpitOptionGroupName = Nothing, _rditpitDBName = Nothing, _rditpitTags = Nothing, _rditpitPort = Nothing, _rditpitStorageType = Nothing, _rditpitSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier, _rditpitTargetDBInstanceIdentifier = pTargetDBInstanceIdentifier};
+restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier pTargetDBInstanceIdentifier =
+    RestoreDBInstanceToPointInTime'
+    { _rditpitUseLatestRestorableTime = Nothing
+    , _rditpitAutoMinorVersionUpgrade = Nothing
+    , _rditpitPubliclyAccessible = Nothing
+    , _rditpitDBSubnetGroupName = Nothing
+    , _rditpitRestoreTime = Nothing
+    , _rditpitIOPS = Nothing
+    , _rditpitEngine = Nothing
+    , _rditpitTDECredentialPassword = Nothing
+    , _rditpitDBInstanceClass = Nothing
+    , _rditpitLicenseModel = Nothing
+    , _rditpitAvailabilityZone = Nothing
+    , _rditpitMultiAZ = Nothing
+    , _rditpitTDECredentialARN = Nothing
+    , _rditpitOptionGroupName = Nothing
+    , _rditpitDBName = Nothing
+    , _rditpitTags = Nothing
+    , _rditpitPort = Nothing
+    , _rditpitStorageType = Nothing
+    , _rditpitSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier
+    , _rditpitTargetDBInstanceIdentifier = pTargetDBInstanceIdentifier
+    }
 
 -- | Specifies whether (@true@) or not (@false@) the DB instance is restored
 -- from the latest backup time.
@@ -355,17 +398,24 @@ instance ToQuery RestoreDBInstanceToPointInTime where
 --
 -- * 'rditpitrDBInstance'
 --
--- * 'rditpitrStatusCode'
-data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'{_rditpitrDBInstance :: Maybe DBInstance, _rditpitrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rditpitrStatus'
+data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'
+    { _rditpitrDBInstance :: Maybe DBInstance
+    , _rditpitrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RestoreDBInstanceToPointInTimeResponse' smart constructor.
 restoreDBInstanceToPointInTimeResponse :: Int -> RestoreDBInstanceToPointInTimeResponse
-restoreDBInstanceToPointInTimeResponse pStatusCode = RestoreDBInstanceToPointInTimeResponse'{_rditpitrDBInstance = Nothing, _rditpitrStatusCode = pStatusCode};
+restoreDBInstanceToPointInTimeResponse pStatus =
+    RestoreDBInstanceToPointInTimeResponse'
+    { _rditpitrDBInstance = Nothing
+    , _rditpitrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rditpitrDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBInstance)
 rditpitrDBInstance = lens _rditpitrDBInstance (\ s a -> s{_rditpitrDBInstance = a});
 
 -- | FIXME: Undocumented member.
-rditpitrStatusCode :: Lens' RestoreDBInstanceToPointInTimeResponse Int
-rditpitrStatusCode = lens _rditpitrStatusCode (\ s a -> s{_rditpitrStatusCode = a});
+rditpitrStatus :: Lens' RestoreDBInstanceToPointInTimeResponse Int
+rditpitrStatus = lens _rditpitrStatus (\ s a -> s{_rditpitrStatus = a});

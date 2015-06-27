@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.RegisterApplicationRevision
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.CodeDeploy.RegisterApplicationRevision
     , registerApplicationRevisionResponse
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a register application revision operation.
 --
@@ -50,11 +50,20 @@ import Network.AWS.Response
 -- * 'rarApplicationName'
 --
 -- * 'rarRevision'
-data RegisterApplicationRevision = RegisterApplicationRevision'{_rarDescription :: Maybe Text, _rarApplicationName :: Text, _rarRevision :: RevisionLocation} deriving (Eq, Read, Show)
+data RegisterApplicationRevision = RegisterApplicationRevision'
+    { _rarDescription     :: Maybe Text
+    , _rarApplicationName :: Text
+    , _rarRevision        :: RevisionLocation
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterApplicationRevision' smart constructor.
 registerApplicationRevision :: Text -> RevisionLocation -> RegisterApplicationRevision
-registerApplicationRevision pApplicationName pRevision = RegisterApplicationRevision'{_rarDescription = Nothing, _rarApplicationName = pApplicationName, _rarRevision = pRevision};
+registerApplicationRevision pApplicationName pRevision =
+    RegisterApplicationRevision'
+    { _rarDescription = Nothing
+    , _rarApplicationName = pApplicationName
+    , _rarRevision = pRevision
+    }
 
 -- | A comment about the revision.
 rarDescription :: Lens' RegisterApplicationRevision (Maybe Text)
@@ -102,8 +111,10 @@ instance ToQuery RegisterApplicationRevision where
         toQuery = const mempty
 
 -- | /See:/ 'registerApplicationRevisionResponse' smart constructor.
-data RegisterApplicationRevisionResponse = RegisterApplicationRevisionResponse' deriving (Eq, Read, Show)
+data RegisterApplicationRevisionResponse =
+    RegisterApplicationRevisionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RegisterApplicationRevisionResponse' smart constructor.
 registerApplicationRevisionResponse :: RegisterApplicationRevisionResponse
-registerApplicationRevisionResponse = RegisterApplicationRevisionResponse';
+registerApplicationRevisionResponse = RegisterApplicationRevisionResponse'

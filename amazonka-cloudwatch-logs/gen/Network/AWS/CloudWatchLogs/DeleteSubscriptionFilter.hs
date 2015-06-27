@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
     , deleteSubscriptionFilterResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteSubscriptionFilter' smart constructor.
 --
@@ -45,11 +45,18 @@ import Network.AWS.Response
 -- * 'delLogGroupName'
 --
 -- * 'delFilterName'
-data DeleteSubscriptionFilter = DeleteSubscriptionFilter'{_delLogGroupName :: Text, _delFilterName :: Text} deriving (Eq, Read, Show)
+data DeleteSubscriptionFilter = DeleteSubscriptionFilter'
+    { _delLogGroupName :: Text
+    , _delFilterName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteSubscriptionFilter' smart constructor.
 deleteSubscriptionFilter :: Text -> Text -> DeleteSubscriptionFilter
-deleteSubscriptionFilter pLogGroupName pFilterName = DeleteSubscriptionFilter'{_delLogGroupName = pLogGroupName, _delFilterName = pFilterName};
+deleteSubscriptionFilter pLogGroupName pFilterName =
+    DeleteSubscriptionFilter'
+    { _delLogGroupName = pLogGroupName
+    , _delFilterName = pFilterName
+    }
 
 -- | The name of the log group that is associated with the subscription
 -- filter to delete.
@@ -91,8 +98,10 @@ instance ToQuery DeleteSubscriptionFilter where
         toQuery = const mempty
 
 -- | /See:/ 'deleteSubscriptionFilterResponse' smart constructor.
-data DeleteSubscriptionFilterResponse = DeleteSubscriptionFilterResponse' deriving (Eq, Read, Show)
+data DeleteSubscriptionFilterResponse =
+    DeleteSubscriptionFilterResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteSubscriptionFilterResponse' smart constructor.
 deleteSubscriptionFilterResponse :: DeleteSubscriptionFilterResponse
-deleteSubscriptionFilterResponse = DeleteSubscriptionFilterResponse';
+deleteSubscriptionFilterResponse = DeleteSubscriptionFilterResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DeregisterRDSDBInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,21 +38,26 @@ module Network.AWS.OpsWorks.DeregisterRDSDBInstance
     , deregisterRDSDBInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deregisterRDSDBInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drdiRDSDBInstanceARN'
-newtype DeregisterRDSDBInstance = DeregisterRDSDBInstance'{_drdiRDSDBInstanceARN :: Text} deriving (Eq, Read, Show)
+newtype DeregisterRDSDBInstance = DeregisterRDSDBInstance'
+    { _drdiRDSDBInstanceARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeregisterRDSDBInstance' smart constructor.
 deregisterRDSDBInstance :: Text -> DeregisterRDSDBInstance
-deregisterRDSDBInstance pRDSDBInstanceARN = DeregisterRDSDBInstance'{_drdiRDSDBInstanceARN = pRDSDBInstanceARN};
+deregisterRDSDBInstance pRDSDBInstanceARN =
+    DeregisterRDSDBInstance'
+    { _drdiRDSDBInstanceARN = pRDSDBInstanceARN
+    }
 
 -- | The Amazon RDS instance\'s ARN.
 drdiRDSDBInstanceARN :: Lens' DeregisterRDSDBInstance Text
@@ -88,8 +93,10 @@ instance ToQuery DeregisterRDSDBInstance where
         toQuery = const mempty
 
 -- | /See:/ 'deregisterRDSDBInstanceResponse' smart constructor.
-data DeregisterRDSDBInstanceResponse = DeregisterRDSDBInstanceResponse' deriving (Eq, Read, Show)
+data DeregisterRDSDBInstanceResponse =
+    DeregisterRDSDBInstanceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeregisterRDSDBInstanceResponse' smart constructor.
 deregisterRDSDBInstanceResponse :: DeregisterRDSDBInstanceResponse
-deregisterRDSDBInstanceResponse = DeregisterRDSDBInstanceResponse';
+deregisterRDSDBInstanceResponse = DeregisterRDSDBInstanceResponse'

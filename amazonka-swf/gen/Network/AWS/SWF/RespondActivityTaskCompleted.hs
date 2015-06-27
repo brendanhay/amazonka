@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.RespondActivityTaskCompleted
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -67,10 +67,10 @@ module Network.AWS.SWF.RespondActivityTaskCompleted
     , respondActivityTaskCompletedResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'respondActivityTaskCompleted' smart constructor.
 --
@@ -79,11 +79,18 @@ import Network.AWS.SWF.Types
 -- * 'ratcResult'
 --
 -- * 'ratcTaskToken'
-data RespondActivityTaskCompleted = RespondActivityTaskCompleted'{_ratcResult :: Maybe Text, _ratcTaskToken :: Text} deriving (Eq, Read, Show)
+data RespondActivityTaskCompleted = RespondActivityTaskCompleted'
+    { _ratcResult    :: Maybe Text
+    , _ratcTaskToken :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RespondActivityTaskCompleted' smart constructor.
 respondActivityTaskCompleted :: Text -> RespondActivityTaskCompleted
-respondActivityTaskCompleted pTaskToken = RespondActivityTaskCompleted'{_ratcResult = Nothing, _ratcTaskToken = pTaskToken};
+respondActivityTaskCompleted pTaskToken =
+    RespondActivityTaskCompleted'
+    { _ratcResult = Nothing
+    , _ratcTaskToken = pTaskToken
+    }
 
 -- | The result of the activity task. It is a free form string that is
 -- implementation specific.
@@ -131,8 +138,10 @@ instance ToQuery RespondActivityTaskCompleted where
         toQuery = const mempty
 
 -- | /See:/ 'respondActivityTaskCompletedResponse' smart constructor.
-data RespondActivityTaskCompletedResponse = RespondActivityTaskCompletedResponse' deriving (Eq, Read, Show)
+data RespondActivityTaskCompletedResponse =
+    RespondActivityTaskCompletedResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RespondActivityTaskCompletedResponse' smart constructor.
 respondActivityTaskCompletedResponse :: RespondActivityTaskCompletedResponse
-respondActivityTaskCompletedResponse = RespondActivityTaskCompletedResponse';
+respondActivityTaskCompletedResponse = RespondActivityTaskCompletedResponse'

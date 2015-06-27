@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteDHCPOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.EC2.DeleteDHCPOptions
     , deleteDHCPOptionsResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteDHCPOptions' smart constructor.
 --
@@ -48,11 +48,18 @@ import Network.AWS.Response
 -- * 'ddhcpoDryRun'
 --
 -- * 'ddhcpoDHCPOptionsId'
-data DeleteDHCPOptions = DeleteDHCPOptions'{_ddhcpoDryRun :: Maybe Bool, _ddhcpoDHCPOptionsId :: Text} deriving (Eq, Read, Show)
+data DeleteDHCPOptions = DeleteDHCPOptions'
+    { _ddhcpoDryRun        :: Maybe Bool
+    , _ddhcpoDHCPOptionsId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDHCPOptions' smart constructor.
 deleteDHCPOptions :: Text -> DeleteDHCPOptions
-deleteDHCPOptions pDHCPOptionsId = DeleteDHCPOptions'{_ddhcpoDryRun = Nothing, _ddhcpoDHCPOptionsId = pDHCPOptionsId};
+deleteDHCPOptions pDHCPOptionsId =
+    DeleteDHCPOptions'
+    { _ddhcpoDryRun = Nothing
+    , _ddhcpoDHCPOptionsId = pDHCPOptionsId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -86,8 +93,10 @@ instance ToQuery DeleteDHCPOptions where
                "DhcpOptionsId" =: _ddhcpoDHCPOptionsId]
 
 -- | /See:/ 'deleteDHCPOptionsResponse' smart constructor.
-data DeleteDHCPOptionsResponse = DeleteDHCPOptionsResponse' deriving (Eq, Read, Show)
+data DeleteDHCPOptionsResponse =
+    DeleteDHCPOptionsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteDHCPOptionsResponse' smart constructor.
 deleteDHCPOptionsResponse :: DeleteDHCPOptionsResponse
-deleteDHCPOptionsResponse = DeleteDHCPOptionsResponse';
+deleteDHCPOptionsResponse = DeleteDHCPOptionsResponse'

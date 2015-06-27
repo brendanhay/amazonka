@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.DetachLoadBalancerFromSubnets
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     , detachLoadBalancerFromSubnetsResponse
     -- ** Response lenses
     , dlbfsrSubnets
-    , dlbfsrStatusCode
+    , dlbfsrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachLoadBalancerFromSubnets' smart constructor.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'dlbfsLoadBalancerName'
 --
 -- * 'dlbfsSubnets'
-data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'{_dlbfsLoadBalancerName :: Text, _dlbfsSubnets :: [Text]} deriving (Eq, Read, Show)
+data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'
+    { _dlbfsLoadBalancerName :: Text
+    , _dlbfsSubnets          :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachLoadBalancerFromSubnets' smart constructor.
 detachLoadBalancerFromSubnets :: Text -> DetachLoadBalancerFromSubnets
-detachLoadBalancerFromSubnets pLoadBalancerName = DetachLoadBalancerFromSubnets'{_dlbfsLoadBalancerName = pLoadBalancerName, _dlbfsSubnets = mempty};
+detachLoadBalancerFromSubnets pLoadBalancerName =
+    DetachLoadBalancerFromSubnets'
+    { _dlbfsLoadBalancerName = pLoadBalancerName
+    , _dlbfsSubnets = mempty
+    }
 
 -- | The name of the load balancer.
 dlbfsLoadBalancerName :: Lens' DetachLoadBalancerFromSubnets Text
@@ -105,17 +112,24 @@ instance ToQuery DetachLoadBalancerFromSubnets where
 --
 -- * 'dlbfsrSubnets'
 --
--- * 'dlbfsrStatusCode'
-data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'{_dlbfsrSubnets :: Maybe [Text], _dlbfsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dlbfsrStatus'
+data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'
+    { _dlbfsrSubnets :: Maybe [Text]
+    , _dlbfsrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachLoadBalancerFromSubnetsResponse' smart constructor.
 detachLoadBalancerFromSubnetsResponse :: Int -> DetachLoadBalancerFromSubnetsResponse
-detachLoadBalancerFromSubnetsResponse pStatusCode = DetachLoadBalancerFromSubnetsResponse'{_dlbfsrSubnets = Nothing, _dlbfsrStatusCode = pStatusCode};
+detachLoadBalancerFromSubnetsResponse pStatus =
+    DetachLoadBalancerFromSubnetsResponse'
+    { _dlbfsrSubnets = Nothing
+    , _dlbfsrStatus = pStatus
+    }
 
 -- | The IDs of the remaining subnets for the load balancer.
 dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
 dlbfsrSubnets = lens _dlbfsrSubnets (\ s a -> s{_dlbfsrSubnets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlbfsrStatusCode :: Lens' DetachLoadBalancerFromSubnetsResponse Int
-dlbfsrStatusCode = lens _dlbfsrStatusCode (\ s a -> s{_dlbfsrStatusCode = a});
+dlbfsrStatus :: Lens' DetachLoadBalancerFromSubnetsResponse Int
+dlbfsrStatus = lens _dlbfsrStatus (\ s a -> s{_dlbfsrStatus = a});

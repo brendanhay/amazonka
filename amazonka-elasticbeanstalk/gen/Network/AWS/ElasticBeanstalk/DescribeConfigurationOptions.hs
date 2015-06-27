@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     -- ** Response lenses
     , dcorOptions
     , dcorSolutionStackName
-    , dcorStatusCode
+    , dcorStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Result message containig a list of application version descriptions.
 --
@@ -64,11 +64,24 @@ import Network.AWS.Response
 -- * 'dcoOptions'
 --
 -- * 'dcoSolutionStackName'
-data DescribeConfigurationOptions = DescribeConfigurationOptions'{_dcoTemplateName :: Maybe Text, _dcoEnvironmentName :: Maybe Text, _dcoApplicationName :: Maybe Text, _dcoOptions :: Maybe [OptionSpecification], _dcoSolutionStackName :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeConfigurationOptions = DescribeConfigurationOptions'
+    { _dcoTemplateName      :: Maybe Text
+    , _dcoEnvironmentName   :: Maybe Text
+    , _dcoApplicationName   :: Maybe Text
+    , _dcoOptions           :: Maybe [OptionSpecification]
+    , _dcoSolutionStackName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeConfigurationOptions' smart constructor.
 describeConfigurationOptions :: DescribeConfigurationOptions
-describeConfigurationOptions = DescribeConfigurationOptions'{_dcoTemplateName = Nothing, _dcoEnvironmentName = Nothing, _dcoApplicationName = Nothing, _dcoOptions = Nothing, _dcoSolutionStackName = Nothing};
+describeConfigurationOptions =
+    DescribeConfigurationOptions'
+    { _dcoTemplateName = Nothing
+    , _dcoEnvironmentName = Nothing
+    , _dcoApplicationName = Nothing
+    , _dcoOptions = Nothing
+    , _dcoSolutionStackName = Nothing
+    }
 
 -- | The name of the configuration template whose configuration options you
 -- want to describe.
@@ -142,12 +155,21 @@ instance ToQuery DescribeConfigurationOptions where
 --
 -- * 'dcorSolutionStackName'
 --
--- * 'dcorStatusCode'
-data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'{_dcorOptions :: Maybe [ConfigurationOptionDescription], _dcorSolutionStackName :: Maybe Text, _dcorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcorStatus'
+data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'
+    { _dcorOptions           :: Maybe [ConfigurationOptionDescription]
+    , _dcorSolutionStackName :: Maybe Text
+    , _dcorStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeConfigurationOptionsResponse' smart constructor.
 describeConfigurationOptionsResponse :: Int -> DescribeConfigurationOptionsResponse
-describeConfigurationOptionsResponse pStatusCode = DescribeConfigurationOptionsResponse'{_dcorOptions = Nothing, _dcorSolutionStackName = Nothing, _dcorStatusCode = pStatusCode};
+describeConfigurationOptionsResponse pStatus =
+    DescribeConfigurationOptionsResponse'
+    { _dcorOptions = Nothing
+    , _dcorSolutionStackName = Nothing
+    , _dcorStatus = pStatus
+    }
 
 -- | A list of ConfigurationOptionDescription.
 dcorOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
@@ -158,5 +180,5 @@ dcorSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
 dcorSolutionStackName = lens _dcorSolutionStackName (\ s a -> s{_dcorSolutionStackName = a});
 
 -- | FIXME: Undocumented member.
-dcorStatusCode :: Lens' DescribeConfigurationOptionsResponse Int
-dcorStatusCode = lens _dcorStatusCode (\ s a -> s{_dcorStatusCode = a});
+dcorStatus :: Lens' DescribeConfigurationOptionsResponse Int
+dcorStatus = lens _dcorStatus (\ s a -> s{_dcorStatus = a});

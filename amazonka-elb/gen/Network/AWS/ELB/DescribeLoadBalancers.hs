@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.DescribeLoadBalancers
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,14 +36,14 @@ module Network.AWS.ELB.DescribeLoadBalancers
     -- ** Response lenses
     , dlbrLoadBalancerDescriptions
     , dlbrNextMarker
-    , dlbrStatusCode
+    , dlbrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancers' smart constructor.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'dlbPageSize'
 --
 -- * 'dlbLoadBalancerNames'
-data DescribeLoadBalancers = DescribeLoadBalancers'{_dlbMarker :: Maybe Text, _dlbPageSize :: Maybe Nat, _dlbLoadBalancerNames :: Maybe [Text]} deriving (Eq, Read, Show)
+data DescribeLoadBalancers = DescribeLoadBalancers'
+    { _dlbMarker            :: Maybe Text
+    , _dlbPageSize          :: Maybe Nat
+    , _dlbLoadBalancerNames :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancers' smart constructor.
 describeLoadBalancers :: DescribeLoadBalancers
-describeLoadBalancers = DescribeLoadBalancers'{_dlbMarker = Nothing, _dlbPageSize = Nothing, _dlbLoadBalancerNames = Nothing};
+describeLoadBalancers =
+    DescribeLoadBalancers'
+    { _dlbMarker = Nothing
+    , _dlbPageSize = Nothing
+    , _dlbLoadBalancerNames = Nothing
+    }
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
@@ -119,12 +128,21 @@ instance ToQuery DescribeLoadBalancers where
 --
 -- * 'dlbrNextMarker'
 --
--- * 'dlbrStatusCode'
-data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancerDescriptions :: Maybe [LoadBalancerDescription], _dlbrNextMarker :: Maybe Text, _dlbrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dlbrStatus'
+data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
+    { _dlbrLoadBalancerDescriptions :: Maybe [LoadBalancerDescription]
+    , _dlbrNextMarker               :: Maybe Text
+    , _dlbrStatus                   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancersResponse' smart constructor.
 describeLoadBalancersResponse :: Int -> DescribeLoadBalancersResponse
-describeLoadBalancersResponse pStatusCode = DescribeLoadBalancersResponse'{_dlbrLoadBalancerDescriptions = Nothing, _dlbrNextMarker = Nothing, _dlbrStatusCode = pStatusCode};
+describeLoadBalancersResponse pStatus =
+    DescribeLoadBalancersResponse'
+    { _dlbrLoadBalancerDescriptions = Nothing
+    , _dlbrNextMarker = Nothing
+    , _dlbrStatus = pStatus
+    }
 
 -- | Information about the load balancers.
 dlbrLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalancerDescription]
@@ -136,5 +154,5 @@ dlbrNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrNextMarker = lens _dlbrNextMarker (\ s a -> s{_dlbrNextMarker = a});
 
 -- | FIXME: Undocumented member.
-dlbrStatusCode :: Lens' DescribeLoadBalancersResponse Int
-dlbrStatusCode = lens _dlbrStatusCode (\ s a -> s{_dlbrStatusCode = a});
+dlbrStatus :: Lens' DescribeLoadBalancersResponse Int
+dlbrStatus = lens _dlbrStatus (\ s a -> s{_dlbrStatus = a});

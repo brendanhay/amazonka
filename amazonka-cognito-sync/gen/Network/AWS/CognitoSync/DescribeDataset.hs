@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.DescribeDataset
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.CognitoSync.DescribeDataset
     , describeDatasetResponse
     -- ** Response lenses
     , ddrDataset
-    , ddrStatusCode
+    , ddrStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request for meta data about a dataset (creation date, number of
 -- records, size) by owner and dataset name.
@@ -61,11 +61,20 @@ import Network.AWS.Response
 -- * 'ddIdentityId'
 --
 -- * 'ddDatasetName'
-data DescribeDataset = DescribeDataset'{_ddIdentityPoolId :: Text, _ddIdentityId :: Text, _ddDatasetName :: Text} deriving (Eq, Read, Show)
+data DescribeDataset = DescribeDataset'
+    { _ddIdentityPoolId :: Text
+    , _ddIdentityId     :: Text
+    , _ddDatasetName    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDataset' smart constructor.
 describeDataset :: Text -> Text -> Text -> DescribeDataset
-describeDataset pIdentityPoolId pIdentityId pDatasetName = DescribeDataset'{_ddIdentityPoolId = pIdentityPoolId, _ddIdentityId = pIdentityId, _ddDatasetName = pDatasetName};
+describeDataset pIdentityPoolId pIdentityId pDatasetName =
+    DescribeDataset'
+    { _ddIdentityPoolId = pIdentityPoolId
+    , _ddIdentityId = pIdentityId
+    , _ddDatasetName = pDatasetName
+    }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -119,12 +128,19 @@ instance ToQuery DescribeDataset where
 --
 -- * 'ddrDataset'
 --
--- * 'ddrStatusCode'
-data DescribeDatasetResponse = DescribeDatasetResponse'{_ddrDataset :: Maybe Dataset, _ddrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddrStatus'
+data DescribeDatasetResponse = DescribeDatasetResponse'
+    { _ddrDataset :: Maybe Dataset
+    , _ddrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDatasetResponse' smart constructor.
 describeDatasetResponse :: Int -> DescribeDatasetResponse
-describeDatasetResponse pStatusCode = DescribeDatasetResponse'{_ddrDataset = Nothing, _ddrStatusCode = pStatusCode};
+describeDatasetResponse pStatus =
+    DescribeDatasetResponse'
+    { _ddrDataset = Nothing
+    , _ddrStatus = pStatus
+    }
 
 -- | Meta data for a collection of data for an identity. An identity can have
 -- multiple datasets. A dataset can be general or associated with a
@@ -135,5 +151,5 @@ ddrDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
 ddrDataset = lens _ddrDataset (\ s a -> s{_ddrDataset = a});
 
 -- | FIXME: Undocumented member.
-ddrStatusCode :: Lens' DescribeDatasetResponse Int
-ddrStatusCode = lens _ddrStatusCode (\ s a -> s{_ddrStatusCode = a});
+ddrStatus :: Lens' DescribeDatasetResponse Int
+ddrStatus = lens _ddrStatus (\ s a -> s{_ddrStatus = a});

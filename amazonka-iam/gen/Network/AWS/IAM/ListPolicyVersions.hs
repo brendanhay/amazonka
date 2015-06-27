@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListPolicyVersions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.IAM.ListPolicyVersions
     , lpvrVersions
     , lpvrMarker
     , lpvrIsTruncated
-    , lpvrStatusCode
+    , lpvrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listPolicyVersions' smart constructor.
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'lpvMarker'
 --
 -- * 'lpvPolicyARN'
-data ListPolicyVersions = ListPolicyVersions'{_lpvMaxItems :: Maybe Nat, _lpvMarker :: Maybe Text, _lpvPolicyARN :: Text} deriving (Eq, Read, Show)
+data ListPolicyVersions = ListPolicyVersions'
+    { _lpvMaxItems  :: Maybe Nat
+    , _lpvMarker    :: Maybe Text
+    , _lpvPolicyARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListPolicyVersions' smart constructor.
 listPolicyVersions :: Text -> ListPolicyVersions
-listPolicyVersions pPolicyARN = ListPolicyVersions'{_lpvMaxItems = Nothing, _lpvMarker = Nothing, _lpvPolicyARN = pPolicyARN};
+listPolicyVersions pPolicyARN =
+    ListPolicyVersions'
+    { _lpvMaxItems = Nothing
+    , _lpvMarker = Nothing
+    , _lpvPolicyARN = pPolicyARN
+    }
 
 -- | Use this parameter only when paginating results to indicate the maximum
 -- number of policy versions you want in the response. If there are
@@ -124,12 +133,23 @@ instance ToQuery ListPolicyVersions where
 --
 -- * 'lpvrIsTruncated'
 --
--- * 'lpvrStatusCode'
-data ListPolicyVersionsResponse = ListPolicyVersionsResponse'{_lpvrVersions :: Maybe [PolicyVersion], _lpvrMarker :: Maybe Text, _lpvrIsTruncated :: Maybe Bool, _lpvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lpvrStatus'
+data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
+    { _lpvrVersions    :: Maybe [PolicyVersion]
+    , _lpvrMarker      :: Maybe Text
+    , _lpvrIsTruncated :: Maybe Bool
+    , _lpvrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListPolicyVersionsResponse' smart constructor.
 listPolicyVersionsResponse :: Int -> ListPolicyVersionsResponse
-listPolicyVersionsResponse pStatusCode = ListPolicyVersionsResponse'{_lpvrVersions = Nothing, _lpvrMarker = Nothing, _lpvrIsTruncated = Nothing, _lpvrStatusCode = pStatusCode};
+listPolicyVersionsResponse pStatus =
+    ListPolicyVersionsResponse'
+    { _lpvrVersions = Nothing
+    , _lpvrMarker = Nothing
+    , _lpvrIsTruncated = Nothing
+    , _lpvrStatus = pStatus
+    }
 
 -- | A list of policy versions.
 --
@@ -153,5 +173,5 @@ lpvrIsTruncated :: Lens' ListPolicyVersionsResponse (Maybe Bool)
 lpvrIsTruncated = lens _lpvrIsTruncated (\ s a -> s{_lpvrIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lpvrStatusCode :: Lens' ListPolicyVersionsResponse Int
-lpvrStatusCode = lens _lpvrStatusCode (\ s a -> s{_lpvrStatusCode = a});
+lpvrStatus :: Lens' ListPolicyVersionsResponse Int
+lpvrStatus = lens _lpvrStatus (\ s a -> s{_lpvrStatus = a});

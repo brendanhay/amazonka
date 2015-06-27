@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.EstimateTemplateCost
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.CloudFormation.EstimateTemplateCost
     , estimateTemplateCostResponse
     -- ** Response lenses
     , etcrURL
-    , etcrStatusCode
+    , etcrStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'estimateTemplateCost' smart constructor.
 --
@@ -53,11 +53,20 @@ import Network.AWS.Response
 -- * 'etcTemplateBody'
 --
 -- * 'etcTemplateURL'
-data EstimateTemplateCost = EstimateTemplateCost'{_etcParameters :: Maybe [Parameter], _etcTemplateBody :: Maybe Text, _etcTemplateURL :: Maybe Text} deriving (Eq, Read, Show)
+data EstimateTemplateCost = EstimateTemplateCost'
+    { _etcParameters   :: Maybe [Parameter]
+    , _etcTemplateBody :: Maybe Text
+    , _etcTemplateURL  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EstimateTemplateCost' smart constructor.
 estimateTemplateCost :: EstimateTemplateCost
-estimateTemplateCost = EstimateTemplateCost'{_etcParameters = Nothing, _etcTemplateBody = Nothing, _etcTemplateURL = Nothing};
+estimateTemplateCost =
+    EstimateTemplateCost'
+    { _etcParameters = Nothing
+    , _etcTemplateBody = Nothing
+    , _etcTemplateURL = Nothing
+    }
 
 -- | A list of @Parameter@ structures that specify input parameters.
 etcParameters :: Lens' EstimateTemplateCost [Parameter]
@@ -119,12 +128,19 @@ instance ToQuery EstimateTemplateCost where
 --
 -- * 'etcrURL'
 --
--- * 'etcrStatusCode'
-data EstimateTemplateCostResponse = EstimateTemplateCostResponse'{_etcrURL :: Maybe Text, _etcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'etcrStatus'
+data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
+    { _etcrURL    :: Maybe Text
+    , _etcrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'EstimateTemplateCostResponse' smart constructor.
 estimateTemplateCostResponse :: Int -> EstimateTemplateCostResponse
-estimateTemplateCostResponse pStatusCode = EstimateTemplateCostResponse'{_etcrURL = Nothing, _etcrStatusCode = pStatusCode};
+estimateTemplateCostResponse pStatus =
+    EstimateTemplateCostResponse'
+    { _etcrURL = Nothing
+    , _etcrStatus = pStatus
+    }
 
 -- | An AWS Simple Monthly Calculator URL with a query string that describes
 -- the resources required to run the template.
@@ -132,5 +148,5 @@ etcrURL :: Lens' EstimateTemplateCostResponse (Maybe Text)
 etcrURL = lens _etcrURL (\ s a -> s{_etcrURL = a});
 
 -- | FIXME: Undocumented member.
-etcrStatusCode :: Lens' EstimateTemplateCostResponse Int
-etcrStatusCode = lens _etcrStatusCode (\ s a -> s{_etcrStatusCode = a});
+etcrStatus :: Lens' EstimateTemplateCostResponse Int
+etcrStatus = lens _etcrStatus (\ s a -> s{_etcrStatus = a});

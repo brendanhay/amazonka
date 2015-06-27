@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.ListBootstrapActions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,14 +35,14 @@ module Network.AWS.EMR.ListBootstrapActions
     -- ** Response lenses
     , lbarBootstrapActions
     , lbarMarker
-    , lbarStatusCode
+    , lbarStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This input determines which bootstrap actions to retrieve.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'lbaMarker'
 --
 -- * 'lbaClusterId'
-data ListBootstrapActions = ListBootstrapActions'{_lbaMarker :: Maybe Text, _lbaClusterId :: Text} deriving (Eq, Read, Show)
+data ListBootstrapActions = ListBootstrapActions'
+    { _lbaMarker    :: Maybe Text
+    , _lbaClusterId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListBootstrapActions' smart constructor.
 listBootstrapActions :: Text -> ListBootstrapActions
-listBootstrapActions pClusterId = ListBootstrapActions'{_lbaMarker = Nothing, _lbaClusterId = pClusterId};
+listBootstrapActions pClusterId =
+    ListBootstrapActions'
+    { _lbaMarker = Nothing
+    , _lbaClusterId = pClusterId
+    }
 
 -- | The pagination token that indicates the next set of results to retrieve
 -- .
@@ -120,12 +127,21 @@ instance ToQuery ListBootstrapActions where
 --
 -- * 'lbarMarker'
 --
--- * 'lbarStatusCode'
-data ListBootstrapActionsResponse = ListBootstrapActionsResponse'{_lbarBootstrapActions :: Maybe [Command], _lbarMarker :: Maybe Text, _lbarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lbarStatus'
+data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
+    { _lbarBootstrapActions :: Maybe [Command]
+    , _lbarMarker           :: Maybe Text
+    , _lbarStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListBootstrapActionsResponse' smart constructor.
 listBootstrapActionsResponse :: Int -> ListBootstrapActionsResponse
-listBootstrapActionsResponse pStatusCode = ListBootstrapActionsResponse'{_lbarBootstrapActions = Nothing, _lbarMarker = Nothing, _lbarStatusCode = pStatusCode};
+listBootstrapActionsResponse pStatus =
+    ListBootstrapActionsResponse'
+    { _lbarBootstrapActions = Nothing
+    , _lbarMarker = Nothing
+    , _lbarStatus = pStatus
+    }
 
 -- | The bootstrap actions associated with the cluster .
 lbarBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
@@ -137,5 +153,5 @@ lbarMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
 lbarMarker = lens _lbarMarker (\ s a -> s{_lbarMarker = a});
 
 -- | FIXME: Undocumented member.
-lbarStatusCode :: Lens' ListBootstrapActionsResponse Int
-lbarStatusCode = lens _lbarStatusCode (\ s a -> s{_lbarStatusCode = a});
+lbarStatus :: Lens' ListBootstrapActionsResponse Int
+lbarStatus = lens _lbarStatus (\ s a -> s{_lbarStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.AttachLoadBalancerToSubnets
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     , attachLoadBalancerToSubnetsResponse
     -- ** Response lenses
     , albtsrSubnets
-    , albtsrStatusCode
+    , albtsrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachLoadBalancerToSubnets' smart constructor.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'albtsLoadBalancerName'
 --
 -- * 'albtsSubnets'
-data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'{_albtsLoadBalancerName :: Text, _albtsSubnets :: [Text]} deriving (Eq, Read, Show)
+data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'
+    { _albtsLoadBalancerName :: Text
+    , _albtsSubnets          :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachLoadBalancerToSubnets' smart constructor.
 attachLoadBalancerToSubnets :: Text -> AttachLoadBalancerToSubnets
-attachLoadBalancerToSubnets pLoadBalancerName = AttachLoadBalancerToSubnets'{_albtsLoadBalancerName = pLoadBalancerName, _albtsSubnets = mempty};
+attachLoadBalancerToSubnets pLoadBalancerName =
+    AttachLoadBalancerToSubnets'
+    { _albtsLoadBalancerName = pLoadBalancerName
+    , _albtsSubnets = mempty
+    }
 
 -- | The name of the load balancer.
 albtsLoadBalancerName :: Lens' AttachLoadBalancerToSubnets Text
@@ -104,17 +111,24 @@ instance ToQuery AttachLoadBalancerToSubnets where
 --
 -- * 'albtsrSubnets'
 --
--- * 'albtsrStatusCode'
-data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'{_albtsrSubnets :: Maybe [Text], _albtsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'albtsrStatus'
+data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
+    { _albtsrSubnets :: Maybe [Text]
+    , _albtsrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachLoadBalancerToSubnetsResponse' smart constructor.
 attachLoadBalancerToSubnetsResponse :: Int -> AttachLoadBalancerToSubnetsResponse
-attachLoadBalancerToSubnetsResponse pStatusCode = AttachLoadBalancerToSubnetsResponse'{_albtsrSubnets = Nothing, _albtsrStatusCode = pStatusCode};
+attachLoadBalancerToSubnetsResponse pStatus =
+    AttachLoadBalancerToSubnetsResponse'
+    { _albtsrSubnets = Nothing
+    , _albtsrStatus = pStatus
+    }
 
 -- | The IDs of the subnets attached to the load balancer.
 albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
 albtsrSubnets = lens _albtsrSubnets (\ s a -> s{_albtsrSubnets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-albtsrStatusCode :: Lens' AttachLoadBalancerToSubnetsResponse Int
-albtsrStatusCode = lens _albtsrStatusCode (\ s a -> s{_albtsrStatusCode = a});
+albtsrStatus :: Lens' AttachLoadBalancerToSubnetsResponse Int
+albtsrStatus = lens _albtsrStatus (\ s a -> s{_albtsrStatus = a});

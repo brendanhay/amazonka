@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.EnableMetricsCollection
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,10 +38,10 @@ module Network.AWS.AutoScaling.EnableMetricsCollection
     , enableMetricsCollectionResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'enableMetricsCollection' smart constructor.
 --
@@ -52,11 +52,20 @@ import Network.AWS.Response
 -- * 'emcAutoScalingGroupName'
 --
 -- * 'emcGranularity'
-data EnableMetricsCollection = EnableMetricsCollection'{_emcMetrics :: Maybe [Text], _emcAutoScalingGroupName :: Text, _emcGranularity :: Text} deriving (Eq, Read, Show)
+data EnableMetricsCollection = EnableMetricsCollection'
+    { _emcMetrics              :: Maybe [Text]
+    , _emcAutoScalingGroupName :: Text
+    , _emcGranularity          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableMetricsCollection' smart constructor.
 enableMetricsCollection :: Text -> Text -> EnableMetricsCollection
-enableMetricsCollection pAutoScalingGroupName pGranularity = EnableMetricsCollection'{_emcMetrics = Nothing, _emcAutoScalingGroupName = pAutoScalingGroupName, _emcGranularity = pGranularity};
+enableMetricsCollection pAutoScalingGroupName pGranularity =
+    EnableMetricsCollection'
+    { _emcMetrics = Nothing
+    , _emcAutoScalingGroupName = pAutoScalingGroupName
+    , _emcGranularity = pGranularity
+    }
 
 -- | One or more metrics. If you omit this parameter, all metrics are
 -- enabled.
@@ -117,8 +126,10 @@ instance ToQuery EnableMetricsCollection where
                "Granularity" =: _emcGranularity]
 
 -- | /See:/ 'enableMetricsCollectionResponse' smart constructor.
-data EnableMetricsCollectionResponse = EnableMetricsCollectionResponse' deriving (Eq, Read, Show)
+data EnableMetricsCollectionResponse =
+    EnableMetricsCollectionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'EnableMetricsCollectionResponse' smart constructor.
 enableMetricsCollectionResponse :: EnableMetricsCollectionResponse
-enableMetricsCollectionResponse = EnableMetricsCollectionResponse';
+enableMetricsCollectionResponse = EnableMetricsCollectionResponse'

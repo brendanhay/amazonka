@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.UpdateService
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,13 +50,13 @@ module Network.AWS.ECS.UpdateService
     , updateServiceResponse
     -- ** Response lenses
     , usrService
-    , usrStatusCode
+    , usrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateService' smart constructor.
 --
@@ -69,11 +69,22 @@ import Network.AWS.Response
 -- * 'usTaskDefinition'
 --
 -- * 'usService'
-data UpdateService = UpdateService'{_usCluster :: Maybe Text, _usDesiredCount :: Maybe Int, _usTaskDefinition :: Maybe Text, _usService :: Text} deriving (Eq, Read, Show)
+data UpdateService = UpdateService'
+    { _usCluster        :: Maybe Text
+    , _usDesiredCount   :: Maybe Int
+    , _usTaskDefinition :: Maybe Text
+    , _usService        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateService' smart constructor.
 updateService :: Text -> UpdateService
-updateService pService = UpdateService'{_usCluster = Nothing, _usDesiredCount = Nothing, _usTaskDefinition = Nothing, _usService = pService};
+updateService pService =
+    UpdateService'
+    { _usCluster = Nothing
+    , _usDesiredCount = Nothing
+    , _usTaskDefinition = Nothing
+    , _usService = pService
+    }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- your service is running on. If you do not specify a cluster, the default
@@ -139,17 +150,24 @@ instance ToQuery UpdateService where
 --
 -- * 'usrService'
 --
--- * 'usrStatusCode'
-data UpdateServiceResponse = UpdateServiceResponse'{_usrService :: Maybe ContainerService, _usrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'usrStatus'
+data UpdateServiceResponse = UpdateServiceResponse'
+    { _usrService :: Maybe ContainerService
+    , _usrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateServiceResponse' smart constructor.
 updateServiceResponse :: Int -> UpdateServiceResponse
-updateServiceResponse pStatusCode = UpdateServiceResponse'{_usrService = Nothing, _usrStatusCode = pStatusCode};
+updateServiceResponse pStatus =
+    UpdateServiceResponse'
+    { _usrService = Nothing
+    , _usrStatus = pStatus
+    }
 
 -- | The full description of your service following the update call.
 usrService :: Lens' UpdateServiceResponse (Maybe ContainerService)
 usrService = lens _usrService (\ s a -> s{_usrService = a});
 
 -- | FIXME: Undocumented member.
-usrStatusCode :: Lens' UpdateServiceResponse Int
-usrStatusCode = lens _usrStatusCode (\ s a -> s{_usrStatusCode = a});
+usrStatus :: Lens' UpdateServiceResponse Int
+usrStatus = lens _usrStatus (\ s a -> s{_usrStatus = a});

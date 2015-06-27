@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeStackSummary
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,24 +39,29 @@ module Network.AWS.OpsWorks.DescribeStackSummary
     , describeStackSummaryResponse
     -- ** Response lenses
     , dssrStackSummary
-    , dssrStatusCode
+    , dssrStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeStackSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dssStackId'
-newtype DescribeStackSummary = DescribeStackSummary'{_dssStackId :: Text} deriving (Eq, Read, Show)
+newtype DescribeStackSummary = DescribeStackSummary'
+    { _dssStackId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackSummary' smart constructor.
 describeStackSummary :: Text -> DescribeStackSummary
-describeStackSummary pStackId = DescribeStackSummary'{_dssStackId = pStackId};
+describeStackSummary pStackId =
+    DescribeStackSummary'
+    { _dssStackId = pStackId
+    }
 
 -- | The stack ID.
 dssStackId :: Lens' DescribeStackSummary Text
@@ -101,17 +106,24 @@ instance ToQuery DescribeStackSummary where
 --
 -- * 'dssrStackSummary'
 --
--- * 'dssrStatusCode'
-data DescribeStackSummaryResponse = DescribeStackSummaryResponse'{_dssrStackSummary :: Maybe StackSummary, _dssrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dssrStatus'
+data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
+    { _dssrStackSummary :: Maybe StackSummary
+    , _dssrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackSummaryResponse' smart constructor.
 describeStackSummaryResponse :: Int -> DescribeStackSummaryResponse
-describeStackSummaryResponse pStatusCode = DescribeStackSummaryResponse'{_dssrStackSummary = Nothing, _dssrStatusCode = pStatusCode};
+describeStackSummaryResponse pStatus =
+    DescribeStackSummaryResponse'
+    { _dssrStackSummary = Nothing
+    , _dssrStatus = pStatus
+    }
 
 -- | A @StackSummary@ object that contains the results.
 dssrStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
 dssrStackSummary = lens _dssrStackSummary (\ s a -> s{_dssrStackSummary = a});
 
 -- | FIXME: Undocumented member.
-dssrStatusCode :: Lens' DescribeStackSummaryResponse Int
-dssrStatusCode = lens _dssrStatusCode (\ s a -> s{_dssrStatusCode = a});
+dssrStatus :: Lens' DescribeStackSummaryResponse Int
+dssrStatus = lens _dssrStatus (\ s a -> s{_dssrStatus = a});

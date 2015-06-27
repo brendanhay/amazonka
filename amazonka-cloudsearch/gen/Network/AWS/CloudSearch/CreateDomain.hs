@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.CreateDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.CloudSearch.CreateDomain
     , createDomainResponse
     -- ** Response lenses
     , cdrDomainStatus
-    , cdrStatusCode
+    , cdrStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @CreateDomain@ operation. Specifies
 -- a name for the new search domain.
@@ -50,11 +50,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdDomainName'
-newtype CreateDomain = CreateDomain'{_cdDomainName :: Text} deriving (Eq, Read, Show)
+newtype CreateDomain = CreateDomain'
+    { _cdDomainName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDomain' smart constructor.
 createDomain :: Text -> CreateDomain
-createDomain pDomainName = CreateDomain'{_cdDomainName = pDomainName};
+createDomain pDomainName =
+    CreateDomain'
+    { _cdDomainName = pDomainName
+    }
 
 -- | A name for the domain you are creating. Allowed characters are a-z
 -- (lower-case letters), 0-9, and hyphen (-). Domain names must start with
@@ -95,17 +100,24 @@ instance ToQuery CreateDomain where
 --
 -- * 'cdrDomainStatus'
 --
--- * 'cdrStatusCode'
-data CreateDomainResponse = CreateDomainResponse'{_cdrDomainStatus :: Maybe DomainStatus, _cdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdrStatus'
+data CreateDomainResponse = CreateDomainResponse'
+    { _cdrDomainStatus :: Maybe DomainStatus
+    , _cdrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDomainResponse' smart constructor.
 createDomainResponse :: Int -> CreateDomainResponse
-createDomainResponse pStatusCode = CreateDomainResponse'{_cdrDomainStatus = Nothing, _cdrStatusCode = pStatusCode};
+createDomainResponse pStatus =
+    CreateDomainResponse'
+    { _cdrDomainStatus = Nothing
+    , _cdrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 cdrDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
 cdrDomainStatus = lens _cdrDomainStatus (\ s a -> s{_cdrDomainStatus = a});
 
 -- | FIXME: Undocumented member.
-cdrStatusCode :: Lens' CreateDomainResponse Int
-cdrStatusCode = lens _cdrStatusCode (\ s a -> s{_cdrStatusCode = a});
+cdrStatus :: Lens' CreateDomainResponse Int
+cdrStatus = lens _cdrStatus (\ s a -> s{_cdrStatus = a});

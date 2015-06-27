@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.UpdateDomainContactPrivacy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,13 +46,13 @@ module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     , updateDomainContactPrivacyResponse
     -- ** Response lenses
     , udcprOperationId
-    , udcprStatusCode
+    , udcprStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | The UpdateDomainContactPrivacy request includes the following elements.
 --
@@ -67,11 +67,22 @@ import Network.AWS.Route53Domains.Types
 -- * 'udcpAdminPrivacy'
 --
 -- * 'udcpDomainName'
-data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'{_udcpTechPrivacy :: Maybe Bool, _udcpRegistrantPrivacy :: Maybe Bool, _udcpAdminPrivacy :: Maybe Bool, _udcpDomainName :: Text} deriving (Eq, Read, Show)
+data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
+    { _udcpTechPrivacy       :: Maybe Bool
+    , _udcpRegistrantPrivacy :: Maybe Bool
+    , _udcpAdminPrivacy      :: Maybe Bool
+    , _udcpDomainName        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDomainContactPrivacy' smart constructor.
 updateDomainContactPrivacy :: Text -> UpdateDomainContactPrivacy
-updateDomainContactPrivacy pDomainName = UpdateDomainContactPrivacy'{_udcpTechPrivacy = Nothing, _udcpRegistrantPrivacy = Nothing, _udcpAdminPrivacy = Nothing, _udcpDomainName = pDomainName};
+updateDomainContactPrivacy pDomainName =
+    UpdateDomainContactPrivacy'
+    { _udcpTechPrivacy = Nothing
+    , _udcpRegistrantPrivacy = Nothing
+    , _udcpAdminPrivacy = Nothing
+    , _udcpDomainName = pDomainName
+    }
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS (\"who is\") queries will return contact
@@ -175,12 +186,19 @@ instance ToQuery UpdateDomainContactPrivacy where
 --
 -- * 'udcprOperationId'
 --
--- * 'udcprStatusCode'
-data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'{_udcprOperationId :: Text, _udcprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'udcprStatus'
+data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
+    { _udcprOperationId :: Text
+    , _udcprStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDomainContactPrivacyResponse' smart constructor.
 updateDomainContactPrivacyResponse :: Text -> Int -> UpdateDomainContactPrivacyResponse
-updateDomainContactPrivacyResponse pOperationId pStatusCode = UpdateDomainContactPrivacyResponse'{_udcprOperationId = pOperationId, _udcprStatusCode = pStatusCode};
+updateDomainContactPrivacyResponse pOperationId pStatus =
+    UpdateDomainContactPrivacyResponse'
+    { _udcprOperationId = pOperationId
+    , _udcprStatus = pStatus
+    }
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -194,5 +212,5 @@ udcprOperationId :: Lens' UpdateDomainContactPrivacyResponse Text
 udcprOperationId = lens _udcprOperationId (\ s a -> s{_udcprOperationId = a});
 
 -- | FIXME: Undocumented member.
-udcprStatusCode :: Lens' UpdateDomainContactPrivacyResponse Int
-udcprStatusCode = lens _udcprStatusCode (\ s a -> s{_udcprStatusCode = a});
+udcprStatus :: Lens' UpdateDomainContactPrivacyResponse Int
+udcprStatus = lens _udcprStatus (\ s a -> s{_udcprStatus = a});

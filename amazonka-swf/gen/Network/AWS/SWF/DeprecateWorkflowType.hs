@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.DeprecateWorkflowType
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,10 +63,10 @@ module Network.AWS.SWF.DeprecateWorkflowType
     , deprecateWorkflowTypeResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'deprecateWorkflowType' smart constructor.
 --
@@ -75,11 +75,18 @@ import Network.AWS.SWF.Types
 -- * 'depDomain'
 --
 -- * 'depWorkflowType'
-data DeprecateWorkflowType = DeprecateWorkflowType'{_depDomain :: Text, _depWorkflowType :: WorkflowType} deriving (Eq, Read, Show)
+data DeprecateWorkflowType = DeprecateWorkflowType'
+    { _depDomain       :: Text
+    , _depWorkflowType :: WorkflowType
+    } deriving (Eq,Read,Show)
 
 -- | 'DeprecateWorkflowType' smart constructor.
 deprecateWorkflowType :: Text -> WorkflowType -> DeprecateWorkflowType
-deprecateWorkflowType pDomain pWorkflowType = DeprecateWorkflowType'{_depDomain = pDomain, _depWorkflowType = pWorkflowType};
+deprecateWorkflowType pDomain pWorkflowType =
+    DeprecateWorkflowType'
+    { _depDomain = pDomain
+    , _depWorkflowType = pWorkflowType
+    }
 
 -- | The name of the domain in which the workflow type is registered.
 depDomain :: Lens' DeprecateWorkflowType Text
@@ -119,8 +126,10 @@ instance ToQuery DeprecateWorkflowType where
         toQuery = const mempty
 
 -- | /See:/ 'deprecateWorkflowTypeResponse' smart constructor.
-data DeprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse' deriving (Eq, Read, Show)
+data DeprecateWorkflowTypeResponse =
+    DeprecateWorkflowTypeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeprecateWorkflowTypeResponse' smart constructor.
 deprecateWorkflowTypeResponse :: DeprecateWorkflowTypeResponse
-deprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse';
+deprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse'

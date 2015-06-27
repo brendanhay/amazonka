@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateLayer
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,10 +52,10 @@ module Network.AWS.OpsWorks.UpdateLayer
     , updateLayerResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateLayer' smart constructor.
 --
@@ -90,11 +90,44 @@ import Network.AWS.Response
 -- * 'ulAutoAssignElasticIPs'
 --
 -- * 'ulLayerId'
-data UpdateLayer = UpdateLayer'{_ulCustomInstanceProfileARN :: Maybe Text, _ulInstallUpdatesOnBoot :: Maybe Bool, _ulCustomSecurityGroupIds :: Maybe [Text], _ulLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration, _ulShortname :: Maybe Text, _ulCustomRecipes :: Maybe Recipes, _ulVolumeConfigurations :: Maybe [VolumeConfiguration], _ulEnableAutoHealing :: Maybe Bool, _ulPackages :: Maybe [Text], _ulName :: Maybe Text, _ulAttributes :: Maybe (Map LayerAttributesKeys Text), _ulAutoAssignPublicIPs :: Maybe Bool, _ulUseEBSOptimizedInstances :: Maybe Bool, _ulAutoAssignElasticIPs :: Maybe Bool, _ulLayerId :: Text} deriving (Eq, Read, Show)
+data UpdateLayer = UpdateLayer'
+    { _ulCustomInstanceProfileARN    :: Maybe Text
+    , _ulInstallUpdatesOnBoot        :: Maybe Bool
+    , _ulCustomSecurityGroupIds      :: Maybe [Text]
+    , _ulLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration
+    , _ulShortname                   :: Maybe Text
+    , _ulCustomRecipes               :: Maybe Recipes
+    , _ulVolumeConfigurations        :: Maybe [VolumeConfiguration]
+    , _ulEnableAutoHealing           :: Maybe Bool
+    , _ulPackages                    :: Maybe [Text]
+    , _ulName                        :: Maybe Text
+    , _ulAttributes                  :: Maybe (Map LayerAttributesKeys Text)
+    , _ulAutoAssignPublicIPs         :: Maybe Bool
+    , _ulUseEBSOptimizedInstances    :: Maybe Bool
+    , _ulAutoAssignElasticIPs        :: Maybe Bool
+    , _ulLayerId                     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateLayer' smart constructor.
 updateLayer :: Text -> UpdateLayer
-updateLayer pLayerId = UpdateLayer'{_ulCustomInstanceProfileARN = Nothing, _ulInstallUpdatesOnBoot = Nothing, _ulCustomSecurityGroupIds = Nothing, _ulLifecycleEventConfiguration = Nothing, _ulShortname = Nothing, _ulCustomRecipes = Nothing, _ulVolumeConfigurations = Nothing, _ulEnableAutoHealing = Nothing, _ulPackages = Nothing, _ulName = Nothing, _ulAttributes = Nothing, _ulAutoAssignPublicIPs = Nothing, _ulUseEBSOptimizedInstances = Nothing, _ulAutoAssignElasticIPs = Nothing, _ulLayerId = pLayerId};
+updateLayer pLayerId =
+    UpdateLayer'
+    { _ulCustomInstanceProfileARN = Nothing
+    , _ulInstallUpdatesOnBoot = Nothing
+    , _ulCustomSecurityGroupIds = Nothing
+    , _ulLifecycleEventConfiguration = Nothing
+    , _ulShortname = Nothing
+    , _ulCustomRecipes = Nothing
+    , _ulVolumeConfigurations = Nothing
+    , _ulEnableAutoHealing = Nothing
+    , _ulPackages = Nothing
+    , _ulName = Nothing
+    , _ulAttributes = Nothing
+    , _ulAutoAssignPublicIPs = Nothing
+    , _ulUseEBSOptimizedInstances = Nothing
+    , _ulAutoAssignElasticIPs = Nothing
+    , _ulLayerId = pLayerId
+    }
 
 -- | The ARN of an IAM profile to be used for all of the layer\'s EC2
 -- instances. For more information about IAM ARNs, see
@@ -226,8 +259,10 @@ instance ToQuery UpdateLayer where
         toQuery = const mempty
 
 -- | /See:/ 'updateLayerResponse' smart constructor.
-data UpdateLayerResponse = UpdateLayerResponse' deriving (Eq, Read, Show)
+data UpdateLayerResponse =
+    UpdateLayerResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateLayerResponse' smart constructor.
 updateLayerResponse :: UpdateLayerResponse
-updateLayerResponse = UpdateLayerResponse';
+updateLayerResponse = UpdateLayerResponse'

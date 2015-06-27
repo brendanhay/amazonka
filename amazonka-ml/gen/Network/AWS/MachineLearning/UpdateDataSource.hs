@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.UpdateDataSource
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.MachineLearning.UpdateDataSource
     , updateDataSourceResponse
     -- ** Response lenses
     , udsrDataSourceId
-    , udsrStatusCode
+    , udsrStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateDataSource' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'udsDataSourceId'
 --
 -- * 'udsDataSourceName'
-data UpdateDataSource = UpdateDataSource'{_udsDataSourceId :: Text, _udsDataSourceName :: Text} deriving (Eq, Read, Show)
+data UpdateDataSource = UpdateDataSource'
+    { _udsDataSourceId   :: Text
+    , _udsDataSourceName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDataSource' smart constructor.
 updateDataSource :: Text -> Text -> UpdateDataSource
-updateDataSource pDataSourceId pDataSourceName = UpdateDataSource'{_udsDataSourceId = pDataSourceId, _udsDataSourceName = pDataSourceName};
+updateDataSource pDataSourceId pDataSourceName =
+    UpdateDataSource'
+    { _udsDataSourceId = pDataSourceId
+    , _udsDataSourceName = pDataSourceName
+    }
 
 -- | The ID assigned to the @DataSource@ during creation.
 udsDataSourceId :: Lens' UpdateDataSource Text
@@ -108,12 +115,19 @@ instance ToQuery UpdateDataSource where
 --
 -- * 'udsrDataSourceId'
 --
--- * 'udsrStatusCode'
-data UpdateDataSourceResponse = UpdateDataSourceResponse'{_udsrDataSourceId :: Maybe Text, _udsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'udsrStatus'
+data UpdateDataSourceResponse = UpdateDataSourceResponse'
+    { _udsrDataSourceId :: Maybe Text
+    , _udsrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDataSourceResponse' smart constructor.
 updateDataSourceResponse :: Int -> UpdateDataSourceResponse
-updateDataSourceResponse pStatusCode = UpdateDataSourceResponse'{_udsrDataSourceId = Nothing, _udsrStatusCode = pStatusCode};
+updateDataSourceResponse pStatus =
+    UpdateDataSourceResponse'
+    { _udsrDataSourceId = Nothing
+    , _udsrStatus = pStatus
+    }
 
 -- | The ID assigned to the @DataSource@ during creation. This value should
 -- be identical to the value of the @DataSourceID@ in the request.
@@ -121,5 +135,5 @@ udsrDataSourceId :: Lens' UpdateDataSourceResponse (Maybe Text)
 udsrDataSourceId = lens _udsrDataSourceId (\ s a -> s{_udsrDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-udsrStatusCode :: Lens' UpdateDataSourceResponse Int
-udsrStatusCode = lens _udsrStatusCode (\ s a -> s{_udsrStatusCode = a});
+udsrStatus :: Lens' UpdateDataSourceResponse Int
+udsrStatus = lens _udsrStatus (\ s a -> s{_udsrStatus = a});

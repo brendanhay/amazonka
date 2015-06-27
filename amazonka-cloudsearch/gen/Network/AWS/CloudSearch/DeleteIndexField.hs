@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteIndexField
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.CloudSearch.DeleteIndexField
     , deleteIndexFieldResponse
     -- ** Response lenses
     , difrIndexField
-    , difrStatusCode
+    , difrStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DeleteIndexField@ operation.
 -- Specifies the name of the domain you want to update and the name of the
@@ -55,11 +55,18 @@ import Network.AWS.Response
 -- * 'dif1DomainName'
 --
 -- * 'dif1IndexFieldName'
-data DeleteIndexField = DeleteIndexField'{_dif1DomainName :: Text, _dif1IndexFieldName :: Text} deriving (Eq, Read, Show)
+data DeleteIndexField = DeleteIndexField'
+    { _dif1DomainName     :: Text
+    , _dif1IndexFieldName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteIndexField' smart constructor.
 deleteIndexField :: Text -> Text -> DeleteIndexField
-deleteIndexField pDomainName pIndexFieldName = DeleteIndexField'{_dif1DomainName = pDomainName, _dif1IndexFieldName = pIndexFieldName};
+deleteIndexField pDomainName pIndexFieldName =
+    DeleteIndexField'
+    { _dif1DomainName = pDomainName
+    , _dif1IndexFieldName = pIndexFieldName
+    }
 
 -- | FIXME: Undocumented member.
 dif1DomainName :: Lens' DeleteIndexField Text
@@ -102,17 +109,24 @@ instance ToQuery DeleteIndexField where
 --
 -- * 'difrIndexField'
 --
--- * 'difrStatusCode'
-data DeleteIndexFieldResponse = DeleteIndexFieldResponse'{_difrIndexField :: IndexFieldStatus, _difrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'difrStatus'
+data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
+    { _difrIndexField :: IndexFieldStatus
+    , _difrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteIndexFieldResponse' smart constructor.
 deleteIndexFieldResponse :: IndexFieldStatus -> Int -> DeleteIndexFieldResponse
-deleteIndexFieldResponse pIndexField pStatusCode = DeleteIndexFieldResponse'{_difrIndexField = pIndexField, _difrStatusCode = pStatusCode};
+deleteIndexFieldResponse pIndexField pStatus =
+    DeleteIndexFieldResponse'
+    { _difrIndexField = pIndexField
+    , _difrStatus = pStatus
+    }
 
 -- | The status of the index field being deleted.
 difrIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
 difrIndexField = lens _difrIndexField (\ s a -> s{_difrIndexField = a});
 
 -- | FIXME: Undocumented member.
-difrStatusCode :: Lens' DeleteIndexFieldResponse Int
-difrStatusCode = lens _difrStatusCode (\ s a -> s{_difrStatusCode = a});
+difrStatus :: Lens' DeleteIndexFieldResponse Int
+difrStatus = lens _difrStatus (\ s a -> s{_difrStatus = a});

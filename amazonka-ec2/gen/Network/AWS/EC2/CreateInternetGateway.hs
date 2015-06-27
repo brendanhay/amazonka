@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateInternetGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,24 +36,29 @@ module Network.AWS.EC2.CreateInternetGateway
     , createInternetGatewayResponse
     -- ** Response lenses
     , cigrInternetGateway
-    , cigrStatusCode
+    , cigrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createInternetGateway' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cigDryRun'
-newtype CreateInternetGateway = CreateInternetGateway'{_cigDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+newtype CreateInternetGateway = CreateInternetGateway'
+    { _cigDryRun :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateInternetGateway' smart constructor.
 createInternetGateway :: CreateInternetGateway
-createInternetGateway = CreateInternetGateway'{_cigDryRun = Nothing};
+createInternetGateway =
+    CreateInternetGateway'
+    { _cigDryRun = Nothing
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -92,17 +97,24 @@ instance ToQuery CreateInternetGateway where
 --
 -- * 'cigrInternetGateway'
 --
--- * 'cigrStatusCode'
-data CreateInternetGatewayResponse = CreateInternetGatewayResponse'{_cigrInternetGateway :: Maybe InternetGateway, _cigrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cigrStatus'
+data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
+    { _cigrInternetGateway :: Maybe InternetGateway
+    , _cigrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateInternetGatewayResponse' smart constructor.
 createInternetGatewayResponse :: Int -> CreateInternetGatewayResponse
-createInternetGatewayResponse pStatusCode = CreateInternetGatewayResponse'{_cigrInternetGateway = Nothing, _cigrStatusCode = pStatusCode};
+createInternetGatewayResponse pStatus =
+    CreateInternetGatewayResponse'
+    { _cigrInternetGateway = Nothing
+    , _cigrStatus = pStatus
+    }
 
 -- | Information about the Internet gateway.
 cigrInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
 cigrInternetGateway = lens _cigrInternetGateway (\ s a -> s{_cigrInternetGateway = a});
 
 -- | FIXME: Undocumented member.
-cigrStatusCode :: Lens' CreateInternetGatewayResponse Int
-cigrStatusCode = lens _cigrStatusCode (\ s a -> s{_cigrStatusCode = a});
+cigrStatus :: Lens' CreateInternetGatewayResponse Int
+cigrStatus = lens _cigrStatus (\ s a -> s{_cigrStatus = a});

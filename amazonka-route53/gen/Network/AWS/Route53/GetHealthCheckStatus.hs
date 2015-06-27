@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.GetHealthCheckStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.Route53.GetHealthCheckStatus
     , getHealthCheckStatusResponse
     -- ** Response lenses
     , ghcsrHealthCheckObservations
-    , ghcsrStatusCode
+    , ghcsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | A complex type that contains information about the request to get health
 -- check status for a health check.
@@ -50,11 +50,16 @@ import Network.AWS.Route53.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ghcsHealthCheckId'
-newtype GetHealthCheckStatus = GetHealthCheckStatus'{_ghcsHealthCheckId :: Text} deriving (Eq, Read, Show)
+newtype GetHealthCheckStatus = GetHealthCheckStatus'
+    { _ghcsHealthCheckId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetHealthCheckStatus' smart constructor.
 getHealthCheckStatus :: Text -> GetHealthCheckStatus
-getHealthCheckStatus pHealthCheckId = GetHealthCheckStatus'{_ghcsHealthCheckId = pHealthCheckId};
+getHealthCheckStatus pHealthCheckId =
+    GetHealthCheckStatus'
+    { _ghcsHealthCheckId = pHealthCheckId
+    }
 
 -- | The ID of the health check for which you want to retrieve the most
 -- recent status.
@@ -95,12 +100,19 @@ instance ToQuery GetHealthCheckStatus where
 --
 -- * 'ghcsrHealthCheckObservations'
 --
--- * 'ghcsrStatusCode'
-data GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'{_ghcsrHealthCheckObservations :: [HealthCheckObservation], _ghcsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ghcsrStatus'
+data GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'
+    { _ghcsrHealthCheckObservations :: [HealthCheckObservation]
+    , _ghcsrStatus                  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetHealthCheckStatusResponse' smart constructor.
 getHealthCheckStatusResponse :: Int -> GetHealthCheckStatusResponse
-getHealthCheckStatusResponse pStatusCode = GetHealthCheckStatusResponse'{_ghcsrHealthCheckObservations = mempty, _ghcsrStatusCode = pStatusCode};
+getHealthCheckStatusResponse pStatus =
+    GetHealthCheckStatusResponse'
+    { _ghcsrHealthCheckObservations = mempty
+    , _ghcsrStatus = pStatus
+    }
 
 -- | A list that contains one @HealthCheckObservation@ element for each Route
 -- 53 health checker.
@@ -108,5 +120,5 @@ ghcsrHealthCheckObservations :: Lens' GetHealthCheckStatusResponse [HealthCheckO
 ghcsrHealthCheckObservations = lens _ghcsrHealthCheckObservations (\ s a -> s{_ghcsrHealthCheckObservations = a});
 
 -- | FIXME: Undocumented member.
-ghcsrStatusCode :: Lens' GetHealthCheckStatusResponse Int
-ghcsrStatusCode = lens _ghcsrStatusCode (\ s a -> s{_ghcsrStatusCode = a});
+ghcsrStatus :: Lens' GetHealthCheckStatusResponse Int
+ghcsrStatus = lens _ghcsrStatus (\ s a -> s{_ghcsrStatus = a});

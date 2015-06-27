@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.ListServices
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,14 +35,14 @@ module Network.AWS.ECS.ListServices
     -- ** Response lenses
     , lsrServiceARNs
     , lsrNextToken
-    , lsrStatusCode
+    , lsrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listServices' smart constructor.
 --
@@ -53,11 +53,20 @@ import Network.AWS.Response
 -- * 'lsNextToken'
 --
 -- * 'lsMaxResults'
-data ListServices = ListServices'{_lsCluster :: Maybe Text, _lsNextToken :: Maybe Text, _lsMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data ListServices = ListServices'
+    { _lsCluster    :: Maybe Text
+    , _lsNextToken  :: Maybe Text
+    , _lsMaxResults :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListServices' smart constructor.
 listServices :: ListServices
-listServices = ListServices'{_lsCluster = Nothing, _lsNextToken = Nothing, _lsMaxResults = Nothing};
+listServices =
+    ListServices'
+    { _lsCluster = Nothing
+    , _lsNextToken = Nothing
+    , _lsMaxResults = Nothing
+    }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the services you want to list. If you do not specify a cluster,
@@ -134,12 +143,21 @@ instance ToQuery ListServices where
 --
 -- * 'lsrNextToken'
 --
--- * 'lsrStatusCode'
-data ListServicesResponse = ListServicesResponse'{_lsrServiceARNs :: Maybe [Text], _lsrNextToken :: Maybe Text, _lsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lsrStatus'
+data ListServicesResponse = ListServicesResponse'
+    { _lsrServiceARNs :: Maybe [Text]
+    , _lsrNextToken   :: Maybe Text
+    , _lsrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListServicesResponse' smart constructor.
 listServicesResponse :: Int -> ListServicesResponse
-listServicesResponse pStatusCode = ListServicesResponse'{_lsrServiceARNs = Nothing, _lsrNextToken = Nothing, _lsrStatusCode = pStatusCode};
+listServicesResponse pStatus =
+    ListServicesResponse'
+    { _lsrServiceARNs = Nothing
+    , _lsrNextToken = Nothing
+    , _lsrStatus = pStatus
+    }
 
 -- | The list of full Amazon Resource Name (ARN) entries for each service
 -- associated with the specified cluster.
@@ -154,5 +172,5 @@ lsrNextToken :: Lens' ListServicesResponse (Maybe Text)
 lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
 
 -- | FIXME: Undocumented member.
-lsrStatusCode :: Lens' ListServicesResponse Int
-lsrStatusCode = lens _lsrStatusCode (\ s a -> s{_lsrStatusCode = a});
+lsrStatus :: Lens' ListServicesResponse Int
+lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});

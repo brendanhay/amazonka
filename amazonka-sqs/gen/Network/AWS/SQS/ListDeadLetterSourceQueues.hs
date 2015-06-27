@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.ListDeadLetterSourceQueues
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,24 +36,29 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
     , listDeadLetterSourceQueuesResponse
     -- ** Response lenses
     , ldlsqrQueueURLs
-    , ldlsqrStatusCode
+    , ldlsqrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'listDeadLetterSourceQueues' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ldlsqQueueURL'
-newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues'{_ldlsqQueueURL :: Text} deriving (Eq, Read, Show)
+newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues'
+    { _ldlsqQueueURL :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDeadLetterSourceQueues' smart constructor.
 listDeadLetterSourceQueues :: Text -> ListDeadLetterSourceQueues
-listDeadLetterSourceQueues pQueueURL = ListDeadLetterSourceQueues'{_ldlsqQueueURL = pQueueURL};
+listDeadLetterSourceQueues pQueueURL =
+    ListDeadLetterSourceQueues'
+    { _ldlsqQueueURL = pQueueURL
+    }
 
 -- | The queue URL of a dead letter queue.
 ldlsqQueueURL :: Lens' ListDeadLetterSourceQueues Text
@@ -93,12 +98,19 @@ instance ToQuery ListDeadLetterSourceQueues where
 --
 -- * 'ldlsqrQueueURLs'
 --
--- * 'ldlsqrStatusCode'
-data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'{_ldlsqrQueueURLs :: [Text], _ldlsqrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ldlsqrStatus'
+data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'
+    { _ldlsqrQueueURLs :: [Text]
+    , _ldlsqrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDeadLetterSourceQueuesResponse' smart constructor.
 listDeadLetterSourceQueuesResponse :: Int -> ListDeadLetterSourceQueuesResponse
-listDeadLetterSourceQueuesResponse pStatusCode = ListDeadLetterSourceQueuesResponse'{_ldlsqrQueueURLs = mempty, _ldlsqrStatusCode = pStatusCode};
+listDeadLetterSourceQueuesResponse pStatus =
+    ListDeadLetterSourceQueuesResponse'
+    { _ldlsqrQueueURLs = mempty
+    , _ldlsqrStatus = pStatus
+    }
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue.
@@ -106,5 +118,5 @@ ldlsqrQueueURLs :: Lens' ListDeadLetterSourceQueuesResponse [Text]
 ldlsqrQueueURLs = lens _ldlsqrQueueURLs (\ s a -> s{_ldlsqrQueueURLs = a});
 
 -- | FIXME: Undocumented member.
-ldlsqrStatusCode :: Lens' ListDeadLetterSourceQueuesResponse Int
-ldlsqrStatusCode = lens _ldlsqrStatusCode (\ s a -> s{_ldlsqrStatusCode = a});
+ldlsqrStatus :: Lens' ListDeadLetterSourceQueuesResponse Int
+ldlsqrStatus = lens _ldlsqrStatus (\ s a -> s{_ldlsqrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.CreateLBCookieStickinessPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,13 +52,13 @@ module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     -- ** Response constructor
     , createLBCookieStickinessPolicyResponse
     -- ** Response lenses
-    , clbcsprStatusCode
+    , clbcsprStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createLBCookieStickinessPolicy' smart constructor.
 --
@@ -69,11 +69,20 @@ import Network.AWS.Response
 -- * 'clbcspLoadBalancerName'
 --
 -- * 'clbcspPolicyName'
-data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy'{_clbcspCookieExpirationPeriod :: Maybe Integer, _clbcspLoadBalancerName :: Text, _clbcspPolicyName :: Text} deriving (Eq, Read, Show)
+data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy'
+    { _clbcspCookieExpirationPeriod :: Maybe Integer
+    , _clbcspLoadBalancerName       :: Text
+    , _clbcspPolicyName             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLBCookieStickinessPolicy' smart constructor.
 createLBCookieStickinessPolicy :: Text -> Text -> CreateLBCookieStickinessPolicy
-createLBCookieStickinessPolicy pLoadBalancerName pPolicyName = CreateLBCookieStickinessPolicy'{_clbcspCookieExpirationPeriod = Nothing, _clbcspLoadBalancerName = pLoadBalancerName, _clbcspPolicyName = pPolicyName};
+createLBCookieStickinessPolicy pLoadBalancerName pPolicyName =
+    CreateLBCookieStickinessPolicy'
+    { _clbcspCookieExpirationPeriod = Nothing
+    , _clbcspLoadBalancerName = pLoadBalancerName
+    , _clbcspPolicyName = pPolicyName
+    }
 
 -- | The time period, in seconds, after which the cookie should be considered
 -- stale. If you do not specify this parameter, the sticky session lasts
@@ -125,13 +134,18 @@ instance ToQuery CreateLBCookieStickinessPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clbcsprStatusCode'
-newtype CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse'{_clbcsprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'clbcsprStatus'
+newtype CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse'
+    { _clbcsprStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLBCookieStickinessPolicyResponse' smart constructor.
 createLBCookieStickinessPolicyResponse :: Int -> CreateLBCookieStickinessPolicyResponse
-createLBCookieStickinessPolicyResponse pStatusCode = CreateLBCookieStickinessPolicyResponse'{_clbcsprStatusCode = pStatusCode};
+createLBCookieStickinessPolicyResponse pStatus =
+    CreateLBCookieStickinessPolicyResponse'
+    { _clbcsprStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-clbcsprStatusCode :: Lens' CreateLBCookieStickinessPolicyResponse Int
-clbcsprStatusCode = lens _clbcsprStatusCode (\ s a -> s{_clbcsprStatusCode = a});
+clbcsprStatus :: Lens' CreateLBCookieStickinessPolicyResponse Int
+clbcsprStatus = lens _clbcsprStatus (\ s a -> s{_clbcsprStatus = a});

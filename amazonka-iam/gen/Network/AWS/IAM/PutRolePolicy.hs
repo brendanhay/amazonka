@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.PutRolePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -59,10 +59,10 @@ module Network.AWS.IAM.PutRolePolicy
     , putRolePolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putRolePolicy' smart constructor.
 --
@@ -73,11 +73,20 @@ import Network.AWS.Response
 -- * 'prpPolicyName'
 --
 -- * 'prpPolicyDocument'
-data PutRolePolicy = PutRolePolicy'{_prpRoleName :: Text, _prpPolicyName :: Text, _prpPolicyDocument :: Text} deriving (Eq, Read, Show)
+data PutRolePolicy = PutRolePolicy'
+    { _prpRoleName       :: Text
+    , _prpPolicyName     :: Text
+    , _prpPolicyDocument :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PutRolePolicy' smart constructor.
 putRolePolicy :: Text -> Text -> Text -> PutRolePolicy
-putRolePolicy pRoleName pPolicyName pPolicyDocument = PutRolePolicy'{_prpRoleName = pRoleName, _prpPolicyName = pPolicyName, _prpPolicyDocument = pPolicyDocument};
+putRolePolicy pRoleName pPolicyName pPolicyDocument =
+    PutRolePolicy'
+    { _prpRoleName = pRoleName
+    , _prpPolicyName = pPolicyName
+    , _prpPolicyDocument = pPolicyDocument
+    }
 
 -- | The name of the role to associate the policy with.
 prpRoleName :: Lens' PutRolePolicy Text
@@ -113,8 +122,10 @@ instance ToQuery PutRolePolicy where
                "PolicyDocument" =: _prpPolicyDocument]
 
 -- | /See:/ 'putRolePolicyResponse' smart constructor.
-data PutRolePolicyResponse = PutRolePolicyResponse' deriving (Eq, Read, Show)
+data PutRolePolicyResponse =
+    PutRolePolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutRolePolicyResponse' smart constructor.
 putRolePolicyResponse :: PutRolePolicyResponse
-putRolePolicyResponse = PutRolePolicyResponse';
+putRolePolicyResponse = PutRolePolicyResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeInternetGateways
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.EC2.DescribeInternetGateways
     , describeInternetGatewaysResponse
     -- ** Response lenses
     , digrInternetGateways
-    , digrStatusCode
+    , digrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeInternetGateways' smart constructor.
 --
@@ -51,11 +51,20 @@ import Network.AWS.Response
 -- * 'desInternetGatewayIds'
 --
 -- * 'desDryRun'
-data DescribeInternetGateways = DescribeInternetGateways'{_desFilters :: Maybe [Filter], _desInternetGatewayIds :: Maybe [Text], _desDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeInternetGateways = DescribeInternetGateways'
+    { _desFilters            :: Maybe [Filter]
+    , _desInternetGatewayIds :: Maybe [Text]
+    , _desDryRun             :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInternetGateways' smart constructor.
 describeInternetGateways :: DescribeInternetGateways
-describeInternetGateways = DescribeInternetGateways'{_desFilters = Nothing, _desInternetGatewayIds = Nothing, _desDryRun = Nothing};
+describeInternetGateways =
+    DescribeInternetGateways'
+    { _desFilters = Nothing
+    , _desInternetGatewayIds = Nothing
+    , _desDryRun = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -132,17 +141,24 @@ instance ToQuery DescribeInternetGateways where
 --
 -- * 'digrInternetGateways'
 --
--- * 'digrStatusCode'
-data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'{_digrInternetGateways :: Maybe [InternetGateway], _digrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'digrStatus'
+data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'
+    { _digrInternetGateways :: Maybe [InternetGateway]
+    , _digrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInternetGatewaysResponse' smart constructor.
 describeInternetGatewaysResponse :: Int -> DescribeInternetGatewaysResponse
-describeInternetGatewaysResponse pStatusCode = DescribeInternetGatewaysResponse'{_digrInternetGateways = Nothing, _digrStatusCode = pStatusCode};
+describeInternetGatewaysResponse pStatus =
+    DescribeInternetGatewaysResponse'
+    { _digrInternetGateways = Nothing
+    , _digrStatus = pStatus
+    }
 
 -- | Information about one or more Internet gateways.
 digrInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
 digrInternetGateways = lens _digrInternetGateways (\ s a -> s{_digrInternetGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-digrStatusCode :: Lens' DescribeInternetGatewaysResponse Int
-digrStatusCode = lens _digrStatusCode (\ s a -> s{_digrStatusCode = a});
+digrStatus :: Lens' DescribeInternetGatewaysResponse Int
+digrStatus = lens _digrStatus (\ s a -> s{_digrStatus = a});

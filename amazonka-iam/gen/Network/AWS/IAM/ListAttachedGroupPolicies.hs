@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListAttachedGroupPolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.IAM.ListAttachedGroupPolicies
     , lagprAttachedPolicies
     , lagprMarker
     , lagprIsTruncated
-    , lagprStatusCode
+    , lagprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listAttachedGroupPolicies' smart constructor.
 --
@@ -68,11 +68,22 @@ import Network.AWS.Response
 -- * 'lagpMarker'
 --
 -- * 'lagpGroupName'
-data ListAttachedGroupPolicies = ListAttachedGroupPolicies'{_lagpPathPrefix :: Maybe Text, _lagpMaxItems :: Maybe Nat, _lagpMarker :: Maybe Text, _lagpGroupName :: Text} deriving (Eq, Read, Show)
+data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
+    { _lagpPathPrefix :: Maybe Text
+    , _lagpMaxItems   :: Maybe Nat
+    , _lagpMarker     :: Maybe Text
+    , _lagpGroupName  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAttachedGroupPolicies' smart constructor.
 listAttachedGroupPolicies :: Text -> ListAttachedGroupPolicies
-listAttachedGroupPolicies pGroupName = ListAttachedGroupPolicies'{_lagpPathPrefix = Nothing, _lagpMaxItems = Nothing, _lagpMarker = Nothing, _lagpGroupName = pGroupName};
+listAttachedGroupPolicies pGroupName =
+    ListAttachedGroupPolicies'
+    { _lagpPathPrefix = Nothing
+    , _lagpMaxItems = Nothing
+    , _lagpMarker = Nothing
+    , _lagpGroupName = pGroupName
+    }
 
 -- | The path prefix for filtering the results. This parameter is optional.
 -- If it is not included, it defaults to a slash (\/), listing all
@@ -143,12 +154,23 @@ instance ToQuery ListAttachedGroupPolicies where
 --
 -- * 'lagprIsTruncated'
 --
--- * 'lagprStatusCode'
-data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'{_lagprAttachedPolicies :: Maybe [AttachedPolicy], _lagprMarker :: Maybe Text, _lagprIsTruncated :: Maybe Bool, _lagprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lagprStatus'
+data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
+    { _lagprAttachedPolicies :: Maybe [AttachedPolicy]
+    , _lagprMarker           :: Maybe Text
+    , _lagprIsTruncated      :: Maybe Bool
+    , _lagprStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAttachedGroupPoliciesResponse' smart constructor.
 listAttachedGroupPoliciesResponse :: Int -> ListAttachedGroupPoliciesResponse
-listAttachedGroupPoliciesResponse pStatusCode = ListAttachedGroupPoliciesResponse'{_lagprAttachedPolicies = Nothing, _lagprMarker = Nothing, _lagprIsTruncated = Nothing, _lagprStatusCode = pStatusCode};
+listAttachedGroupPoliciesResponse pStatus =
+    ListAttachedGroupPoliciesResponse'
+    { _lagprAttachedPolicies = Nothing
+    , _lagprMarker = Nothing
+    , _lagprIsTruncated = Nothing
+    , _lagprStatus = pStatus
+    }
 
 -- | A list of the attached policies.
 lagprAttachedPolicies :: Lens' ListAttachedGroupPoliciesResponse [AttachedPolicy]
@@ -168,5 +190,5 @@ lagprIsTruncated :: Lens' ListAttachedGroupPoliciesResponse (Maybe Bool)
 lagprIsTruncated = lens _lagprIsTruncated (\ s a -> s{_lagprIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lagprStatusCode :: Lens' ListAttachedGroupPoliciesResponse Int
-lagprStatusCode = lens _lagprStatusCode (\ s a -> s{_lagprStatusCode = a});
+lagprStatus :: Lens' ListAttachedGroupPoliciesResponse Int
+lagprStatus = lens _lagprStatus (\ s a -> s{_lagprStatus = a});

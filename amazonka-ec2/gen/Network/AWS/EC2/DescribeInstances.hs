@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,14 +47,14 @@ module Network.AWS.EC2.DescribeInstances
     -- ** Response lenses
     , dirNextToken
     , dirReservations
-    , dirStatusCode
+    , dirStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeInstances' smart constructor.
 --
@@ -69,11 +69,24 @@ import Network.AWS.Response
 -- * 'di1DryRun'
 --
 -- * 'di1MaxResults'
-data DescribeInstances = DescribeInstances'{_di1Filters :: Maybe [Filter], _di1NextToken :: Maybe Text, _di1InstanceIds :: Maybe [Text], _di1DryRun :: Maybe Bool, _di1MaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeInstances = DescribeInstances'
+    { _di1Filters     :: Maybe [Filter]
+    , _di1NextToken   :: Maybe Text
+    , _di1InstanceIds :: Maybe [Text]
+    , _di1DryRun      :: Maybe Bool
+    , _di1MaxResults  :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstances' smart constructor.
 describeInstances :: DescribeInstances
-describeInstances = DescribeInstances'{_di1Filters = Nothing, _di1NextToken = Nothing, _di1InstanceIds = Nothing, _di1DryRun = Nothing, _di1MaxResults = Nothing};
+describeInstances =
+    DescribeInstances'
+    { _di1Filters = Nothing
+    , _di1NextToken = Nothing
+    , _di1InstanceIds = Nothing
+    , _di1DryRun = Nothing
+    , _di1MaxResults = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -393,12 +406,21 @@ instance ToQuery DescribeInstances where
 --
 -- * 'dirReservations'
 --
--- * 'dirStatusCode'
-data DescribeInstancesResponse = DescribeInstancesResponse'{_dirNextToken :: Maybe Text, _dirReservations :: Maybe [Reservation], _dirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dirStatus'
+data DescribeInstancesResponse = DescribeInstancesResponse'
+    { _dirNextToken    :: Maybe Text
+    , _dirReservations :: Maybe [Reservation]
+    , _dirStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstancesResponse' smart constructor.
 describeInstancesResponse :: Int -> DescribeInstancesResponse
-describeInstancesResponse pStatusCode = DescribeInstancesResponse'{_dirNextToken = Nothing, _dirReservations = Nothing, _dirStatusCode = pStatusCode};
+describeInstancesResponse pStatus =
+    DescribeInstancesResponse'
+    { _dirNextToken = Nothing
+    , _dirReservations = Nothing
+    , _dirStatus = pStatus
+    }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -410,5 +432,5 @@ dirReservations :: Lens' DescribeInstancesResponse [Reservation]
 dirReservations = lens _dirReservations (\ s a -> s{_dirReservations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dirStatusCode :: Lens' DescribeInstancesResponse Int
-dirStatusCode = lens _dirStatusCode (\ s a -> s{_dirStatusCode = a});
+dirStatus :: Lens' DescribeInstancesResponse Int
+dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});

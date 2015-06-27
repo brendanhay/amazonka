@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.SetTaskStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.DataPipeline.SetTaskStatus
     -- ** Response constructor
     , setTaskStatusResponse
     -- ** Response lenses
-    , stsrStatusCode
+    , stsrStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for SetTaskStatus.
 --
@@ -62,11 +62,24 @@ import Network.AWS.Response
 -- * 'stsTaskId'
 --
 -- * 'stsTaskStatus'
-data SetTaskStatus = SetTaskStatus'{_stsErrorStackTrace :: Maybe Text, _stsErrorId :: Maybe Text, _stsErrorMessage :: Maybe Text, _stsTaskId :: Text, _stsTaskStatus :: TaskStatus} deriving (Eq, Read, Show)
+data SetTaskStatus = SetTaskStatus'
+    { _stsErrorStackTrace :: Maybe Text
+    , _stsErrorId         :: Maybe Text
+    , _stsErrorMessage    :: Maybe Text
+    , _stsTaskId          :: Text
+    , _stsTaskStatus      :: TaskStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'SetTaskStatus' smart constructor.
 setTaskStatus :: Text -> TaskStatus -> SetTaskStatus
-setTaskStatus pTaskId pTaskStatus = SetTaskStatus'{_stsErrorStackTrace = Nothing, _stsErrorId = Nothing, _stsErrorMessage = Nothing, _stsTaskId = pTaskId, _stsTaskStatus = pTaskStatus};
+setTaskStatus pTaskId pTaskStatus =
+    SetTaskStatus'
+    { _stsErrorStackTrace = Nothing
+    , _stsErrorId = Nothing
+    , _stsErrorMessage = Nothing
+    , _stsTaskId = pTaskId
+    , _stsTaskStatus = pTaskStatus
+    }
 
 -- | If an error occurred during the task, this value specifies the stack
 -- trace associated with the error. This value is set on the physical
@@ -138,13 +151,18 @@ instance ToQuery SetTaskStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'stsrStatusCode'
-newtype SetTaskStatusResponse = SetTaskStatusResponse'{_stsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'stsrStatus'
+newtype SetTaskStatusResponse = SetTaskStatusResponse'
+    { _stsrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SetTaskStatusResponse' smart constructor.
 setTaskStatusResponse :: Int -> SetTaskStatusResponse
-setTaskStatusResponse pStatusCode = SetTaskStatusResponse'{_stsrStatusCode = pStatusCode};
+setTaskStatusResponse pStatus =
+    SetTaskStatusResponse'
+    { _stsrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-stsrStatusCode :: Lens' SetTaskStatusResponse Int
-stsrStatusCode = lens _stsrStatusCode (\ s a -> s{_stsrStatusCode = a});
+stsrStatus :: Lens' SetTaskStatusResponse Int
+stsrStatus = lens _stsrStatus (\ s a -> s{_stsrStatus = a});

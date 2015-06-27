@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CheckDNSAvailability
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     -- ** Response lenses
     , cdarFullyQualifiedCNAME
     , cdarAvailable
-    , cdarStatusCode
+    , cdarStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Results message indicating whether a CNAME is available.
 --
@@ -48,11 +48,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdaCNAMEPrefix'
-newtype CheckDNSAvailability = CheckDNSAvailability'{_cdaCNAMEPrefix :: Text} deriving (Eq, Read, Show)
+newtype CheckDNSAvailability = CheckDNSAvailability'
+    { _cdaCNAMEPrefix :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CheckDNSAvailability' smart constructor.
 checkDNSAvailability :: Text -> CheckDNSAvailability
-checkDNSAvailability pCNAMEPrefix = CheckDNSAvailability'{_cdaCNAMEPrefix = pCNAMEPrefix};
+checkDNSAvailability pCNAMEPrefix =
+    CheckDNSAvailability'
+    { _cdaCNAMEPrefix = pCNAMEPrefix
+    }
 
 -- | The prefix used when this CNAME is reserved.
 cdaCNAMEPrefix :: Lens' CheckDNSAvailability Text
@@ -93,12 +98,21 @@ instance ToQuery CheckDNSAvailability where
 --
 -- * 'cdarAvailable'
 --
--- * 'cdarStatusCode'
-data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'{_cdarFullyQualifiedCNAME :: Maybe Text, _cdarAvailable :: Maybe Bool, _cdarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdarStatus'
+data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
+    { _cdarFullyQualifiedCNAME :: Maybe Text
+    , _cdarAvailable           :: Maybe Bool
+    , _cdarStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CheckDNSAvailabilityResponse' smart constructor.
 checkDNSAvailabilityResponse :: Int -> CheckDNSAvailabilityResponse
-checkDNSAvailabilityResponse pStatusCode = CheckDNSAvailabilityResponse'{_cdarFullyQualifiedCNAME = Nothing, _cdarAvailable = Nothing, _cdarStatusCode = pStatusCode};
+checkDNSAvailabilityResponse pStatus =
+    CheckDNSAvailabilityResponse'
+    { _cdarFullyQualifiedCNAME = Nothing
+    , _cdarAvailable = Nothing
+    , _cdarStatus = pStatus
+    }
 
 -- | The fully qualified CNAME to reserve when CreateEnvironment is called
 -- with the provided prefix.
@@ -117,5 +131,5 @@ cdarAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
 cdarAvailable = lens _cdarAvailable (\ s a -> s{_cdarAvailable = a});
 
 -- | FIXME: Undocumented member.
-cdarStatusCode :: Lens' CheckDNSAvailabilityResponse Int
-cdarStatusCode = lens _cdarStatusCode (\ s a -> s{_cdarStatusCode = a});
+cdarStatus :: Lens' CheckDNSAvailabilityResponse Int
+cdarStatus = lens _cdarStatus (\ s a -> s{_cdarStatus = a});

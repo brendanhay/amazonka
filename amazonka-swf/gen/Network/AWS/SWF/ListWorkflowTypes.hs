@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.ListWorkflowTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -58,14 +58,14 @@ module Network.AWS.SWF.ListWorkflowTypes
     -- ** Response lenses
     , lwtrNextPageToken
     , lwtrTypeInfos
-    , lwtrStatusCode
+    , lwtrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'listWorkflowTypes' smart constructor.
 --
@@ -82,11 +82,26 @@ import Network.AWS.SWF.Types
 -- * 'lwtDomain'
 --
 -- * 'lwtRegistrationStatus'
-data ListWorkflowTypes = ListWorkflowTypes'{_lwtNextPageToken :: Maybe Text, _lwtReverseOrder :: Maybe Bool, _lwtName :: Maybe Text, _lwtMaximumPageSize :: Maybe Nat, _lwtDomain :: Text, _lwtRegistrationStatus :: RegistrationStatus} deriving (Eq, Read, Show)
+data ListWorkflowTypes = ListWorkflowTypes'
+    { _lwtNextPageToken      :: Maybe Text
+    , _lwtReverseOrder       :: Maybe Bool
+    , _lwtName               :: Maybe Text
+    , _lwtMaximumPageSize    :: Maybe Nat
+    , _lwtDomain             :: Text
+    , _lwtRegistrationStatus :: RegistrationStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'ListWorkflowTypes' smart constructor.
 listWorkflowTypes :: Text -> RegistrationStatus -> ListWorkflowTypes
-listWorkflowTypes pDomain pRegistrationStatus = ListWorkflowTypes'{_lwtNextPageToken = Nothing, _lwtReverseOrder = Nothing, _lwtName = Nothing, _lwtMaximumPageSize = Nothing, _lwtDomain = pDomain, _lwtRegistrationStatus = pRegistrationStatus};
+listWorkflowTypes pDomain pRegistrationStatus =
+    ListWorkflowTypes'
+    { _lwtNextPageToken = Nothing
+    , _lwtReverseOrder = Nothing
+    , _lwtName = Nothing
+    , _lwtMaximumPageSize = Nothing
+    , _lwtDomain = pDomain
+    , _lwtRegistrationStatus = pRegistrationStatus
+    }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -183,12 +198,21 @@ instance ToQuery ListWorkflowTypes where
 --
 -- * 'lwtrTypeInfos'
 --
--- * 'lwtrStatusCode'
-data ListWorkflowTypesResponse = ListWorkflowTypesResponse'{_lwtrNextPageToken :: Maybe Text, _lwtrTypeInfos :: [WorkflowTypeInfo], _lwtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lwtrStatus'
+data ListWorkflowTypesResponse = ListWorkflowTypesResponse'
+    { _lwtrNextPageToken :: Maybe Text
+    , _lwtrTypeInfos     :: [WorkflowTypeInfo]
+    , _lwtrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListWorkflowTypesResponse' smart constructor.
 listWorkflowTypesResponse :: Int -> ListWorkflowTypesResponse
-listWorkflowTypesResponse pStatusCode = ListWorkflowTypesResponse'{_lwtrNextPageToken = Nothing, _lwtrTypeInfos = mempty, _lwtrStatusCode = pStatusCode};
+listWorkflowTypesResponse pStatus =
+    ListWorkflowTypesResponse'
+    { _lwtrNextPageToken = Nothing
+    , _lwtrTypeInfos = mempty
+    , _lwtrStatus = pStatus
+    }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -205,5 +229,5 @@ lwtrTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
 lwtrTypeInfos = lens _lwtrTypeInfos (\ s a -> s{_lwtrTypeInfos = a});
 
 -- | FIXME: Undocumented member.
-lwtrStatusCode :: Lens' ListWorkflowTypesResponse Int
-lwtrStatusCode = lens _lwtrStatusCode (\ s a -> s{_lwtrStatusCode = a});
+lwtrStatus :: Lens' ListWorkflowTypesResponse Int
+lwtrStatus = lens _lwtrStatus (\ s a -> s{_lwtrStatus = a});

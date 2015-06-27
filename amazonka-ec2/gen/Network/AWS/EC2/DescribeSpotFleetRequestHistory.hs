@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeSpotFleetRequestHistory
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,13 +46,13 @@ module Network.AWS.EC2.DescribeSpotFleetRequestHistory
     , dsfrhrStartTime
     , dsfrhrLastEvaluatedTime
     , dsfrhrHistoryRecords
-    , dsfrhrStatusCode
+    , dsfrhrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotFleetRequestHistory.
 --
@@ -71,11 +71,26 @@ import Network.AWS.Response
 -- * 'dsfrhSpotFleetRequestId'
 --
 -- * 'dsfrhStartTime'
-data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'{_dsfrhNextToken :: Maybe Text, _dsfrhEventType :: Maybe EventType, _dsfrhDryRun :: Maybe Bool, _dsfrhMaxResults :: Maybe Int, _dsfrhSpotFleetRequestId :: Text, _dsfrhStartTime :: ISO8601} deriving (Eq, Read, Show)
+data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'
+    { _dsfrhNextToken          :: Maybe Text
+    , _dsfrhEventType          :: Maybe EventType
+    , _dsfrhDryRun             :: Maybe Bool
+    , _dsfrhMaxResults         :: Maybe Int
+    , _dsfrhSpotFleetRequestId :: Text
+    , _dsfrhStartTime          :: ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotFleetRequestHistory' smart constructor.
 describeSpotFleetRequestHistory :: Text -> UTCTime -> DescribeSpotFleetRequestHistory
-describeSpotFleetRequestHistory pSpotFleetRequestId pStartTime = DescribeSpotFleetRequestHistory'{_dsfrhNextToken = Nothing, _dsfrhEventType = Nothing, _dsfrhDryRun = Nothing, _dsfrhMaxResults = Nothing, _dsfrhSpotFleetRequestId = pSpotFleetRequestId, _dsfrhStartTime = _Time # pStartTime};
+describeSpotFleetRequestHistory pSpotFleetRequestId pStartTime =
+    DescribeSpotFleetRequestHistory'
+    { _dsfrhNextToken = Nothing
+    , _dsfrhEventType = Nothing
+    , _dsfrhDryRun = Nothing
+    , _dsfrhMaxResults = Nothing
+    , _dsfrhSpotFleetRequestId = pSpotFleetRequestId
+    , _dsfrhStartTime = _Time # pStartTime
+    }
 
 -- | The token for the next set of results.
 dsfrhNextToken :: Lens' DescribeSpotFleetRequestHistory (Maybe Text)
@@ -161,12 +176,27 @@ instance ToQuery DescribeSpotFleetRequestHistory
 --
 -- * 'dsfrhrHistoryRecords'
 --
--- * 'dsfrhrStatusCode'
-data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'{_dsfrhrNextToken :: Maybe Text, _dsfrhrSpotFleetRequestId :: Text, _dsfrhrStartTime :: ISO8601, _dsfrhrLastEvaluatedTime :: ISO8601, _dsfrhrHistoryRecords :: [HistoryRecord], _dsfrhrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsfrhrStatus'
+data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'
+    { _dsfrhrNextToken          :: Maybe Text
+    , _dsfrhrSpotFleetRequestId :: Text
+    , _dsfrhrStartTime          :: ISO8601
+    , _dsfrhrLastEvaluatedTime  :: ISO8601
+    , _dsfrhrHistoryRecords     :: [HistoryRecord]
+    , _dsfrhrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotFleetRequestHistoryResponse' smart constructor.
 describeSpotFleetRequestHistoryResponse :: Text -> UTCTime -> UTCTime -> Int -> DescribeSpotFleetRequestHistoryResponse
-describeSpotFleetRequestHistoryResponse pSpotFleetRequestId pStartTime pLastEvaluatedTime pStatusCode = DescribeSpotFleetRequestHistoryResponse'{_dsfrhrNextToken = Nothing, _dsfrhrSpotFleetRequestId = pSpotFleetRequestId, _dsfrhrStartTime = _Time # pStartTime, _dsfrhrLastEvaluatedTime = _Time # pLastEvaluatedTime, _dsfrhrHistoryRecords = mempty, _dsfrhrStatusCode = pStatusCode};
+describeSpotFleetRequestHistoryResponse pSpotFleetRequestId pStartTime pLastEvaluatedTime pStatus =
+    DescribeSpotFleetRequestHistoryResponse'
+    { _dsfrhrNextToken = Nothing
+    , _dsfrhrSpotFleetRequestId = pSpotFleetRequestId
+    , _dsfrhrStartTime = _Time # pStartTime
+    , _dsfrhrLastEvaluatedTime = _Time # pLastEvaluatedTime
+    , _dsfrhrHistoryRecords = mempty
+    , _dsfrhrStatus = pStatus
+    }
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
@@ -196,5 +226,5 @@ dsfrhrHistoryRecords :: Lens' DescribeSpotFleetRequestHistoryResponse [HistoryRe
 dsfrhrHistoryRecords = lens _dsfrhrHistoryRecords (\ s a -> s{_dsfrhrHistoryRecords = a});
 
 -- | FIXME: Undocumented member.
-dsfrhrStatusCode :: Lens' DescribeSpotFleetRequestHistoryResponse Int
-dsfrhrStatusCode = lens _dsfrhrStatusCode (\ s a -> s{_dsfrhrStatusCode = a});
+dsfrhrStatus :: Lens' DescribeSpotFleetRequestHistoryResponse Int
+dsfrhrStatus = lens _dsfrhrStatus (\ s a -> s{_dsfrhrStatus = a});

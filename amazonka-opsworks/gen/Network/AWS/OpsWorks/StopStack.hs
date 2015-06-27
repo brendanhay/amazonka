@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.StopStack
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,21 +38,26 @@ module Network.AWS.OpsWorks.StopStack
     , stopStackResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'stopStack' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'stoStackId'
-newtype StopStack = StopStack'{_stoStackId :: Text} deriving (Eq, Read, Show)
+newtype StopStack = StopStack'
+    { _stoStackId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StopStack' smart constructor.
 stopStack :: Text -> StopStack
-stopStack pStackId = StopStack'{_stoStackId = pStackId};
+stopStack pStackId =
+    StopStack'
+    { _stoStackId = pStackId
+    }
 
 -- | The stack ID.
 stoStackId :: Lens' StopStack Text
@@ -84,8 +89,10 @@ instance ToQuery StopStack where
         toQuery = const mempty
 
 -- | /See:/ 'stopStackResponse' smart constructor.
-data StopStackResponse = StopStackResponse' deriving (Eq, Read, Show)
+data StopStackResponse =
+    StopStackResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'StopStackResponse' smart constructor.
 stopStackResponse :: StopStackResponse
-stopStackResponse = StopStackResponse';
+stopStackResponse = StopStackResponse'

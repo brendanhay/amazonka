@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeVPCEndpointServices
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.EC2.DescribeVPCEndpointServices
     -- ** Response lenses
     , dvesrServiceNames
     , dvesrNextToken
-    , dvesrStatusCode
+    , dvesrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVPCEndpointServices' smart constructor.
 --
@@ -53,11 +53,20 @@ import Network.AWS.Response
 -- * 'dvesDryRun'
 --
 -- * 'dvesMaxResults'
-data DescribeVPCEndpointServices = DescribeVPCEndpointServices'{_dvesNextToken :: Maybe Text, _dvesDryRun :: Maybe Bool, _dvesMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeVPCEndpointServices = DescribeVPCEndpointServices'
+    { _dvesNextToken  :: Maybe Text
+    , _dvesDryRun     :: Maybe Bool
+    , _dvesMaxResults :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCEndpointServices' smart constructor.
 describeVPCEndpointServices :: DescribeVPCEndpointServices
-describeVPCEndpointServices = DescribeVPCEndpointServices'{_dvesNextToken = Nothing, _dvesDryRun = Nothing, _dvesMaxResults = Nothing};
+describeVPCEndpointServices =
+    DescribeVPCEndpointServices'
+    { _dvesNextToken = Nothing
+    , _dvesDryRun = Nothing
+    , _dvesMaxResults = Nothing
+    }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.)
@@ -116,12 +125,21 @@ instance ToQuery DescribeVPCEndpointServices where
 --
 -- * 'dvesrNextToken'
 --
--- * 'dvesrStatusCode'
-data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'{_dvesrServiceNames :: Maybe [Text], _dvesrNextToken :: Maybe Text, _dvesrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dvesrStatus'
+data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
+    { _dvesrServiceNames :: Maybe [Text]
+    , _dvesrNextToken    :: Maybe Text
+    , _dvesrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCEndpointServicesResponse' smart constructor.
 describeVPCEndpointServicesResponse :: Int -> DescribeVPCEndpointServicesResponse
-describeVPCEndpointServicesResponse pStatusCode = DescribeVPCEndpointServicesResponse'{_dvesrServiceNames = Nothing, _dvesrNextToken = Nothing, _dvesrStatusCode = pStatusCode};
+describeVPCEndpointServicesResponse pStatus =
+    DescribeVPCEndpointServicesResponse'
+    { _dvesrServiceNames = Nothing
+    , _dvesrNextToken = Nothing
+    , _dvesrStatus = pStatus
+    }
 
 -- | A list of supported AWS services.
 dvesrServiceNames :: Lens' DescribeVPCEndpointServicesResponse [Text]
@@ -133,5 +151,5 @@ dvesrNextToken :: Lens' DescribeVPCEndpointServicesResponse (Maybe Text)
 dvesrNextToken = lens _dvesrNextToken (\ s a -> s{_dvesrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dvesrStatusCode :: Lens' DescribeVPCEndpointServicesResponse Int
-dvesrStatusCode = lens _dvesrStatusCode (\ s a -> s{_dvesrStatusCode = a});
+dvesrStatus :: Lens' DescribeVPCEndpointServicesResponse Int
+dvesrStatus = lens _dvesrStatus (\ s a -> s{_dvesrStatus = a});

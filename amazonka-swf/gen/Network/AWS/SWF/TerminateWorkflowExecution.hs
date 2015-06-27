@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.TerminateWorkflowExecution
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,10 +70,10 @@ module Network.AWS.SWF.TerminateWorkflowExecution
     , terminateWorkflowExecutionResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'terminateWorkflowExecution' smart constructor.
 --
@@ -90,11 +90,26 @@ import Network.AWS.SWF.Types
 -- * 'tweDomain'
 --
 -- * 'tweWorkflowId'
-data TerminateWorkflowExecution = TerminateWorkflowExecution'{_tweRunId :: Maybe Text, _tweReason :: Maybe Text, _tweDetails :: Maybe Text, _tweChildPolicy :: Maybe ChildPolicy, _tweDomain :: Text, _tweWorkflowId :: Text} deriving (Eq, Read, Show)
+data TerminateWorkflowExecution = TerminateWorkflowExecution'
+    { _tweRunId       :: Maybe Text
+    , _tweReason      :: Maybe Text
+    , _tweDetails     :: Maybe Text
+    , _tweChildPolicy :: Maybe ChildPolicy
+    , _tweDomain      :: Text
+    , _tweWorkflowId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'TerminateWorkflowExecution' smart constructor.
 terminateWorkflowExecution :: Text -> Text -> TerminateWorkflowExecution
-terminateWorkflowExecution pDomain pWorkflowId = TerminateWorkflowExecution'{_tweRunId = Nothing, _tweReason = Nothing, _tweDetails = Nothing, _tweChildPolicy = Nothing, _tweDomain = pDomain, _tweWorkflowId = pWorkflowId};
+terminateWorkflowExecution pDomain pWorkflowId =
+    TerminateWorkflowExecution'
+    { _tweRunId = Nothing
+    , _tweReason = Nothing
+    , _tweDetails = Nothing
+    , _tweChildPolicy = Nothing
+    , _tweDomain = pDomain
+    , _tweWorkflowId = pWorkflowId
+    }
 
 -- | The runId of the workflow execution to terminate.
 tweRunId :: Lens' TerminateWorkflowExecution (Maybe Text)
@@ -172,8 +187,10 @@ instance ToQuery TerminateWorkflowExecution where
         toQuery = const mempty
 
 -- | /See:/ 'terminateWorkflowExecutionResponse' smart constructor.
-data TerminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse' deriving (Eq, Read, Show)
+data TerminateWorkflowExecutionResponse =
+    TerminateWorkflowExecutionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'TerminateWorkflowExecutionResponse' smart constructor.
 terminateWorkflowExecutionResponse :: TerminateWorkflowExecutionResponse
-terminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse';
+terminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse'

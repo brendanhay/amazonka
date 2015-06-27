@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SES.SendRawEmail
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,13 +62,13 @@ module Network.AWS.SES.SendRawEmail
     , sendRawEmailResponse
     -- ** Response lenses
     , srerMessageId
-    , srerStatusCode
+    , srerStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SES.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
 -- | Represents a request instructing the service to send a raw email
 -- message.
@@ -86,11 +86,20 @@ import Network.AWS.SES.Types
 -- * 'sreSource'
 --
 -- * 'sreRawMessage'
-data SendRawEmail = SendRawEmail'{_sreDestinations :: Maybe [Text], _sreSource :: Maybe Text, _sreRawMessage :: RawMessage} deriving (Eq, Read, Show)
+data SendRawEmail = SendRawEmail'
+    { _sreDestinations :: Maybe [Text]
+    , _sreSource       :: Maybe Text
+    , _sreRawMessage   :: RawMessage
+    } deriving (Eq,Read,Show)
 
 -- | 'SendRawEmail' smart constructor.
 sendRawEmail :: RawMessage -> SendRawEmail
-sendRawEmail pRawMessage = SendRawEmail'{_sreDestinations = Nothing, _sreSource = Nothing, _sreRawMessage = pRawMessage};
+sendRawEmail pRawMessage =
+    SendRawEmail'
+    { _sreDestinations = Nothing
+    , _sreSource = Nothing
+    , _sreRawMessage = pRawMessage
+    }
 
 -- | A list of destinations for the message, consisting of To:, CC:, and BCC:
 -- addresses.
@@ -162,17 +171,24 @@ instance ToQuery SendRawEmail where
 --
 -- * 'srerMessageId'
 --
--- * 'srerStatusCode'
-data SendRawEmailResponse = SendRawEmailResponse'{_srerMessageId :: Text, _srerStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'srerStatus'
+data SendRawEmailResponse = SendRawEmailResponse'
+    { _srerMessageId :: Text
+    , _srerStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SendRawEmailResponse' smart constructor.
 sendRawEmailResponse :: Text -> Int -> SendRawEmailResponse
-sendRawEmailResponse pMessageId pStatusCode = SendRawEmailResponse'{_srerMessageId = pMessageId, _srerStatusCode = pStatusCode};
+sendRawEmailResponse pMessageId pStatus =
+    SendRawEmailResponse'
+    { _srerMessageId = pMessageId
+    , _srerStatus = pStatus
+    }
 
 -- | The unique message identifier returned from the @SendRawEmail@ action.
 srerMessageId :: Lens' SendRawEmailResponse Text
 srerMessageId = lens _srerMessageId (\ s a -> s{_srerMessageId = a});
 
 -- | FIXME: Undocumented member.
-srerStatusCode :: Lens' SendRawEmailResponse Int
-srerStatusCode = lens _srerStatusCode (\ s a -> s{_srerStatusCode = a});
+srerStatus :: Lens' SendRawEmailResponse Int
+srerStatus = lens _srerStatus (\ s a -> s{_srerStatus = a});

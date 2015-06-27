@@ -1,4 +1,1 @@
-TOP    := ../..
-PARENT := amazonka-dynamodb
-
-include $(TOP)/share/examples.mk
+include ../../share/example.mk

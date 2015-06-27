@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DescribeMetricFilters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     -- ** Response lenses
     , dmfrNextToken
     , dmfrMetricFilters
-    , dmfrStatusCode
+    , dmfrStatus
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeMetricFilters' smart constructor.
 --
@@ -62,11 +62,22 @@ import Network.AWS.Response
 -- * 'dmfLimit'
 --
 -- * 'dmfLogGroupName'
-data DescribeMetricFilters = DescribeMetricFilters'{_dmfFilterNamePrefix :: Maybe Text, _dmfNextToken :: Maybe Text, _dmfLimit :: Maybe Nat, _dmfLogGroupName :: Text} deriving (Eq, Read, Show)
+data DescribeMetricFilters = DescribeMetricFilters'
+    { _dmfFilterNamePrefix :: Maybe Text
+    , _dmfNextToken        :: Maybe Text
+    , _dmfLimit            :: Maybe Nat
+    , _dmfLogGroupName     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMetricFilters' smart constructor.
 describeMetricFilters :: Text -> DescribeMetricFilters
-describeMetricFilters pLogGroupName = DescribeMetricFilters'{_dmfFilterNamePrefix = Nothing, _dmfNextToken = Nothing, _dmfLimit = Nothing, _dmfLogGroupName = pLogGroupName};
+describeMetricFilters pLogGroupName =
+    DescribeMetricFilters'
+    { _dmfFilterNamePrefix = Nothing
+    , _dmfNextToken = Nothing
+    , _dmfLimit = Nothing
+    , _dmfLogGroupName = pLogGroupName
+    }
 
 -- | Will only return metric filters that match the provided
 -- filterNamePrefix. If you don\'t specify a value, no prefix filter is
@@ -133,12 +144,21 @@ instance ToQuery DescribeMetricFilters where
 --
 -- * 'dmfrMetricFilters'
 --
--- * 'dmfrStatusCode'
-data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'{_dmfrNextToken :: Maybe Text, _dmfrMetricFilters :: Maybe [MetricFilter], _dmfrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dmfrStatus'
+data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
+    { _dmfrNextToken     :: Maybe Text
+    , _dmfrMetricFilters :: Maybe [MetricFilter]
+    , _dmfrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMetricFiltersResponse' smart constructor.
 describeMetricFiltersResponse :: Int -> DescribeMetricFiltersResponse
-describeMetricFiltersResponse pStatusCode = DescribeMetricFiltersResponse'{_dmfrNextToken = Nothing, _dmfrMetricFilters = Nothing, _dmfrStatusCode = pStatusCode};
+describeMetricFiltersResponse pStatus =
+    DescribeMetricFiltersResponse'
+    { _dmfrNextToken = Nothing
+    , _dmfrMetricFilters = Nothing
+    , _dmfrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dmfrNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
@@ -149,5 +169,5 @@ dmfrMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
 dmfrMetricFilters = lens _dmfrMetricFilters (\ s a -> s{_dmfrMetricFilters = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dmfrStatusCode :: Lens' DescribeMetricFiltersResponse Int
-dmfrStatusCode = lens _dmfrStatusCode (\ s a -> s{_dmfrStatusCode = a});
+dmfrStatus :: Lens' DescribeMetricFiltersResponse Int
+dmfrStatus = lens _dmfrStatus (\ s a -> s{_dmfrStatus = a});

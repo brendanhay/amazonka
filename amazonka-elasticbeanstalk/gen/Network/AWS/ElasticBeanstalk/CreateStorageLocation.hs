@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CreateStorageLocation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,20 +32,22 @@ module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     , createStorageLocationResponse
     -- ** Response lenses
     , cslrS3Bucket
-    , cslrStatusCode
+    , cslrStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createStorageLocation' smart constructor.
-data CreateStorageLocation = CreateStorageLocation' deriving (Eq, Read, Show)
+data CreateStorageLocation =
+    CreateStorageLocation'
+    deriving (Eq,Read,Show)
 
 -- | 'CreateStorageLocation' smart constructor.
 createStorageLocation :: CreateStorageLocation
-createStorageLocation = CreateStorageLocation';
+createStorageLocation = CreateStorageLocation'
 
 instance AWSRequest CreateStorageLocation where
         type Sv CreateStorageLocation = ElasticBeanstalk
@@ -79,17 +81,24 @@ instance ToQuery CreateStorageLocation where
 --
 -- * 'cslrS3Bucket'
 --
--- * 'cslrStatusCode'
-data CreateStorageLocationResponse = CreateStorageLocationResponse'{_cslrS3Bucket :: Maybe Text, _cslrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cslrStatus'
+data CreateStorageLocationResponse = CreateStorageLocationResponse'
+    { _cslrS3Bucket :: Maybe Text
+    , _cslrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateStorageLocationResponse' smart constructor.
 createStorageLocationResponse :: Int -> CreateStorageLocationResponse
-createStorageLocationResponse pStatusCode = CreateStorageLocationResponse'{_cslrS3Bucket = Nothing, _cslrStatusCode = pStatusCode};
+createStorageLocationResponse pStatus =
+    CreateStorageLocationResponse'
+    { _cslrS3Bucket = Nothing
+    , _cslrStatus = pStatus
+    }
 
 -- | The name of the Amazon S3 bucket created.
 cslrS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
 cslrS3Bucket = lens _cslrS3Bucket (\ s a -> s{_cslrS3Bucket = a});
 
 -- | FIXME: Undocumented member.
-cslrStatusCode :: Lens' CreateStorageLocationResponse Int
-cslrStatusCode = lens _cslrStatusCode (\ s a -> s{_cslrStatusCode = a});
+cslrStatus :: Lens' CreateStorageLocationResponse Int
+cslrStatus = lens _cslrStatus (\ s a -> s{_cslrStatus = a});

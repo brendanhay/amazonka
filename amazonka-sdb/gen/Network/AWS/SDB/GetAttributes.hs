@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SDB.GetAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.SDB.GetAttributes
     , getAttributesResponse
     -- ** Response lenses
     , garAttributes
-    , garStatusCode
+    , garStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SDB.Types
 
 -- | /See:/ 'getAttributes' smart constructor.
 --
@@ -60,11 +60,22 @@ import Network.AWS.SDB.Types
 -- * 'gaDomainName'
 --
 -- * 'gaItemName'
-data GetAttributes = GetAttributes'{_gaConsistentRead :: Maybe Bool, _gaAttributeNames :: Maybe [Text], _gaDomainName :: Text, _gaItemName :: Text} deriving (Eq, Read, Show)
+data GetAttributes = GetAttributes'
+    { _gaConsistentRead :: Maybe Bool
+    , _gaAttributeNames :: Maybe [Text]
+    , _gaDomainName     :: Text
+    , _gaItemName       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetAttributes' smart constructor.
 getAttributes :: Text -> Text -> GetAttributes
-getAttributes pDomainName pItemName = GetAttributes'{_gaConsistentRead = Nothing, _gaAttributeNames = Nothing, _gaDomainName = pDomainName, _gaItemName = pItemName};
+getAttributes pDomainName pItemName =
+    GetAttributes'
+    { _gaConsistentRead = Nothing
+    , _gaAttributeNames = Nothing
+    , _gaDomainName = pDomainName
+    , _gaItemName = pItemName
+    }
 
 -- | Determines whether or not strong consistency should be enforced when
 -- data is read from SimpleDB. If @true@, any data previously written to
@@ -120,17 +131,24 @@ instance ToQuery GetAttributes where
 --
 -- * 'garAttributes'
 --
--- * 'garStatusCode'
-data GetAttributesResponse = GetAttributesResponse'{_garAttributes :: Maybe [Attribute], _garStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'garStatus'
+data GetAttributesResponse = GetAttributesResponse'
+    { _garAttributes :: Maybe [Attribute]
+    , _garStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetAttributesResponse' smart constructor.
 getAttributesResponse :: Int -> GetAttributesResponse
-getAttributesResponse pStatusCode = GetAttributesResponse'{_garAttributes = Nothing, _garStatusCode = pStatusCode};
+getAttributesResponse pStatus =
+    GetAttributesResponse'
+    { _garAttributes = Nothing
+    , _garStatus = pStatus
+    }
 
 -- | The list of attributes returned by the operation.
 garAttributes :: Lens' GetAttributesResponse [Attribute]
 garAttributes = lens _garAttributes (\ s a -> s{_garAttributes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-garStatusCode :: Lens' GetAttributesResponse Int
-garStatusCode = lens _garStatusCode (\ s a -> s{_garStatusCode = a});
+garStatus :: Lens' GetAttributesResponse Int
+garStatus = lens _garStatus (\ s a -> s{_garStatus = a});

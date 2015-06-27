@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetAccessKeyLastUsed
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,24 +36,29 @@ module Network.AWS.IAM.GetAccessKeyLastUsed
     -- ** Response lenses
     , gaklurUserName
     , gaklurAccessKeyLastUsed
-    , gaklurStatusCode
+    , gaklurStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getAccessKeyLastUsed' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gakluAccessKeyId'
-newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'{_gakluAccessKeyId :: Text} deriving (Eq, Read, Show)
+newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
+    { _gakluAccessKeyId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetAccessKeyLastUsed' smart constructor.
 getAccessKeyLastUsed :: Text -> GetAccessKeyLastUsed
-getAccessKeyLastUsed pAccessKeyId = GetAccessKeyLastUsed'{_gakluAccessKeyId = pAccessKeyId};
+getAccessKeyLastUsed pAccessKeyId =
+    GetAccessKeyLastUsed'
+    { _gakluAccessKeyId = pAccessKeyId
+    }
 
 -- | The identifier of an access key.
 gakluAccessKeyId :: Lens' GetAccessKeyLastUsed Text
@@ -96,12 +101,21 @@ instance ToQuery GetAccessKeyLastUsed where
 --
 -- * 'gaklurAccessKeyLastUsed'
 --
--- * 'gaklurStatusCode'
-data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'{_gaklurUserName :: Maybe Text, _gaklurAccessKeyLastUsed :: Maybe AccessKeyLastUsed, _gaklurStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gaklurStatus'
+data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
+    { _gaklurUserName          :: Maybe Text
+    , _gaklurAccessKeyLastUsed :: Maybe AccessKeyLastUsed
+    , _gaklurStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetAccessKeyLastUsedResponse' smart constructor.
 getAccessKeyLastUsedResponse :: Int -> GetAccessKeyLastUsedResponse
-getAccessKeyLastUsedResponse pStatusCode = GetAccessKeyLastUsedResponse'{_gaklurUserName = Nothing, _gaklurAccessKeyLastUsed = Nothing, _gaklurStatusCode = pStatusCode};
+getAccessKeyLastUsedResponse pStatus =
+    GetAccessKeyLastUsedResponse'
+    { _gaklurUserName = Nothing
+    , _gaklurAccessKeyLastUsed = Nothing
+    , _gaklurStatus = pStatus
+    }
 
 -- | The name of the AWS IAM user that owns this access key.
 gaklurUserName :: Lens' GetAccessKeyLastUsedResponse (Maybe Text)
@@ -112,5 +126,5 @@ gaklurAccessKeyLastUsed :: Lens' GetAccessKeyLastUsedResponse (Maybe AccessKeyLa
 gaklurAccessKeyLastUsed = lens _gaklurAccessKeyLastUsed (\ s a -> s{_gaklurAccessKeyLastUsed = a});
 
 -- | FIXME: Undocumented member.
-gaklurStatusCode :: Lens' GetAccessKeyLastUsedResponse Int
-gaklurStatusCode = lens _gaklurStatusCode (\ s a -> s{_gaklurStatusCode = a});
+gaklurStatus :: Lens' GetAccessKeyLastUsedResponse Int
+gaklurStatus = lens _gaklurStatus (\ s a -> s{_gaklurStatus = a});

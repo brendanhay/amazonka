@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Lambda.UpdateFunctionConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,10 +55,10 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     , fcDescription
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateFunctionConfiguration' smart constructor.
 --
@@ -75,11 +75,26 @@ import Network.AWS.Response
 -- * 'ufcDescription'
 --
 -- * 'ufcFunctionName'
-data UpdateFunctionConfiguration = UpdateFunctionConfiguration'{_ufcMemorySize :: Maybe Nat, _ufcRole :: Maybe Text, _ufcHandler :: Maybe Text, _ufcTimeout :: Maybe Nat, _ufcDescription :: Maybe Text, _ufcFunctionName :: Text} deriving (Eq, Read, Show)
+data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
+    { _ufcMemorySize   :: Maybe Nat
+    , _ufcRole         :: Maybe Text
+    , _ufcHandler      :: Maybe Text
+    , _ufcTimeout      :: Maybe Nat
+    , _ufcDescription  :: Maybe Text
+    , _ufcFunctionName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateFunctionConfiguration' smart constructor.
 updateFunctionConfiguration :: Text -> UpdateFunctionConfiguration
-updateFunctionConfiguration pFunctionName = UpdateFunctionConfiguration'{_ufcMemorySize = Nothing, _ufcRole = Nothing, _ufcHandler = Nothing, _ufcTimeout = Nothing, _ufcDescription = Nothing, _ufcFunctionName = pFunctionName};
+updateFunctionConfiguration pFunctionName =
+    UpdateFunctionConfiguration'
+    { _ufcMemorySize = Nothing
+    , _ufcRole = Nothing
+    , _ufcHandler = Nothing
+    , _ufcTimeout = Nothing
+    , _ufcDescription = Nothing
+    , _ufcFunctionName = pFunctionName
+    }
 
 -- | The amount of memory, in MB, your Lambda function is given. AWS Lambda
 -- uses this memory size to infer the amount of CPU allocated to your

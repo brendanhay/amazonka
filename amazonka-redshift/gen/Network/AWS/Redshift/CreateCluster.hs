@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.CreateCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,13 +62,13 @@ module Network.AWS.Redshift.CreateCluster
     , createClusterResponse
     -- ** Response lenses
     , ccrCluster
-    , ccrStatusCode
+    , ccrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -123,11 +123,62 @@ import Network.AWS.Response
 -- * 'ccMasterUsername'
 --
 -- * 'ccMasterUserPassword'
-data CreateCluster = CreateCluster'{_ccPubliclyAccessible :: Maybe Bool, _ccHSMConfigurationIdentifier :: Maybe Text, _ccClusterSecurityGroups :: Maybe [Text], _ccAutomatedSnapshotRetentionPeriod :: Maybe Int, _ccEncrypted :: Maybe Bool, _ccNumberOfNodes :: Maybe Int, _ccHSMClientCertificateIdentifier :: Maybe Text, _ccClusterSubnetGroupName :: Maybe Text, _ccElasticIP :: Maybe Text, _ccPreferredMaintenanceWindow :: Maybe Text, _ccAvailabilityZone :: Maybe Text, _ccKMSKeyId :: Maybe Text, _ccVPCSecurityGroupIds :: Maybe [Text], _ccClusterType :: Maybe Text, _ccClusterVersion :: Maybe Text, _ccAllowVersionUpgrade :: Maybe Bool, _ccClusterParameterGroupName :: Maybe Text, _ccDBName :: Maybe Text, _ccTags :: Maybe [Tag], _ccPort :: Maybe Int, _ccClusterIdentifier :: Text, _ccNodeType :: Text, _ccMasterUsername :: Text, _ccMasterUserPassword :: Text} deriving (Eq, Read, Show)
+data CreateCluster = CreateCluster'
+    { _ccPubliclyAccessible               :: Maybe Bool
+    , _ccHSMConfigurationIdentifier       :: Maybe Text
+    , _ccClusterSecurityGroups            :: Maybe [Text]
+    , _ccAutomatedSnapshotRetentionPeriod :: Maybe Int
+    , _ccEncrypted                        :: Maybe Bool
+    , _ccNumberOfNodes                    :: Maybe Int
+    , _ccHSMClientCertificateIdentifier   :: Maybe Text
+    , _ccClusterSubnetGroupName           :: Maybe Text
+    , _ccElasticIP                        :: Maybe Text
+    , _ccPreferredMaintenanceWindow       :: Maybe Text
+    , _ccAvailabilityZone                 :: Maybe Text
+    , _ccKMSKeyId                         :: Maybe Text
+    , _ccVPCSecurityGroupIds              :: Maybe [Text]
+    , _ccClusterType                      :: Maybe Text
+    , _ccClusterVersion                   :: Maybe Text
+    , _ccAllowVersionUpgrade              :: Maybe Bool
+    , _ccClusterParameterGroupName        :: Maybe Text
+    , _ccDBName                           :: Maybe Text
+    , _ccTags                             :: Maybe [Tag]
+    , _ccPort                             :: Maybe Int
+    , _ccClusterIdentifier                :: Text
+    , _ccNodeType                         :: Text
+    , _ccMasterUsername                   :: Text
+    , _ccMasterUserPassword               :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCluster' smart constructor.
 createCluster :: Text -> Text -> Text -> Text -> CreateCluster
-createCluster pClusterIdentifier pNodeType pMasterUsername pMasterUserPassword = CreateCluster'{_ccPubliclyAccessible = Nothing, _ccHSMConfigurationIdentifier = Nothing, _ccClusterSecurityGroups = Nothing, _ccAutomatedSnapshotRetentionPeriod = Nothing, _ccEncrypted = Nothing, _ccNumberOfNodes = Nothing, _ccHSMClientCertificateIdentifier = Nothing, _ccClusterSubnetGroupName = Nothing, _ccElasticIP = Nothing, _ccPreferredMaintenanceWindow = Nothing, _ccAvailabilityZone = Nothing, _ccKMSKeyId = Nothing, _ccVPCSecurityGroupIds = Nothing, _ccClusterType = Nothing, _ccClusterVersion = Nothing, _ccAllowVersionUpgrade = Nothing, _ccClusterParameterGroupName = Nothing, _ccDBName = Nothing, _ccTags = Nothing, _ccPort = Nothing, _ccClusterIdentifier = pClusterIdentifier, _ccNodeType = pNodeType, _ccMasterUsername = pMasterUsername, _ccMasterUserPassword = pMasterUserPassword};
+createCluster pClusterIdentifier pNodeType pMasterUsername pMasterUserPassword =
+    CreateCluster'
+    { _ccPubliclyAccessible = Nothing
+    , _ccHSMConfigurationIdentifier = Nothing
+    , _ccClusterSecurityGroups = Nothing
+    , _ccAutomatedSnapshotRetentionPeriod = Nothing
+    , _ccEncrypted = Nothing
+    , _ccNumberOfNodes = Nothing
+    , _ccHSMClientCertificateIdentifier = Nothing
+    , _ccClusterSubnetGroupName = Nothing
+    , _ccElasticIP = Nothing
+    , _ccPreferredMaintenanceWindow = Nothing
+    , _ccAvailabilityZone = Nothing
+    , _ccKMSKeyId = Nothing
+    , _ccVPCSecurityGroupIds = Nothing
+    , _ccClusterType = Nothing
+    , _ccClusterVersion = Nothing
+    , _ccAllowVersionUpgrade = Nothing
+    , _ccClusterParameterGroupName = Nothing
+    , _ccDBName = Nothing
+    , _ccTags = Nothing
+    , _ccPort = Nothing
+    , _ccClusterIdentifier = pClusterIdentifier
+    , _ccNodeType = pNodeType
+    , _ccMasterUsername = pMasterUsername
+    , _ccMasterUserPassword = pMasterUserPassword
+    }
 
 -- | If @true@, the cluster can be accessed from a public network.
 ccPubliclyAccessible :: Lens' CreateCluster (Maybe Bool)
@@ -448,17 +499,24 @@ instance ToQuery CreateCluster where
 --
 -- * 'ccrCluster'
 --
--- * 'ccrStatusCode'
-data CreateClusterResponse = CreateClusterResponse'{_ccrCluster :: Maybe Cluster, _ccrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ccrStatus'
+data CreateClusterResponse = CreateClusterResponse'
+    { _ccrCluster :: Maybe Cluster
+    , _ccrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterResponse' smart constructor.
 createClusterResponse :: Int -> CreateClusterResponse
-createClusterResponse pStatusCode = CreateClusterResponse'{_ccrCluster = Nothing, _ccrStatusCode = pStatusCode};
+createClusterResponse pStatus =
+    CreateClusterResponse'
+    { _ccrCluster = Nothing
+    , _ccrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ccrCluster :: Lens' CreateClusterResponse (Maybe Cluster)
 ccrCluster = lens _ccrCluster (\ s a -> s{_ccrCluster = a});
 
 -- | FIXME: Undocumented member.
-ccrStatusCode :: Lens' CreateClusterResponse Int
-ccrStatusCode = lens _ccrStatusCode (\ s a -> s{_ccrStatusCode = a});
+ccrStatus :: Lens' CreateClusterResponse Int
+ccrStatus = lens _ccrStatus (\ s a -> s{_ccrStatus = a});

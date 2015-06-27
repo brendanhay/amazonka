@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
     , abortEnvironmentUpdateResponse
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -48,11 +48,18 @@ import Network.AWS.Response
 -- * 'aeuEnvironmentName'
 --
 -- * 'aeuEnvironmentId'
-data AbortEnvironmentUpdate = AbortEnvironmentUpdate'{_aeuEnvironmentName :: Maybe Text, _aeuEnvironmentId :: Maybe Text} deriving (Eq, Read, Show)
+data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
+    { _aeuEnvironmentName :: Maybe Text
+    , _aeuEnvironmentId   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AbortEnvironmentUpdate' smart constructor.
 abortEnvironmentUpdate :: AbortEnvironmentUpdate
-abortEnvironmentUpdate = AbortEnvironmentUpdate'{_aeuEnvironmentName = Nothing, _aeuEnvironmentId = Nothing};
+abortEnvironmentUpdate =
+    AbortEnvironmentUpdate'
+    { _aeuEnvironmentName = Nothing
+    , _aeuEnvironmentId = Nothing
+    }
 
 -- | This specifies the name of the environment with the in-progress update
 -- that you want to cancel.
@@ -88,8 +95,10 @@ instance ToQuery AbortEnvironmentUpdate where
                "EnvironmentId" =: _aeuEnvironmentId]
 
 -- | /See:/ 'abortEnvironmentUpdateResponse' smart constructor.
-data AbortEnvironmentUpdateResponse = AbortEnvironmentUpdateResponse' deriving (Eq, Read, Show)
+data AbortEnvironmentUpdateResponse =
+    AbortEnvironmentUpdateResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AbortEnvironmentUpdateResponse' smart constructor.
 abortEnvironmentUpdateResponse :: AbortEnvironmentUpdateResponse
-abortEnvironmentUpdateResponse = AbortEnvironmentUpdateResponse';
+abortEnvironmentUpdateResponse = AbortEnvironmentUpdateResponse'

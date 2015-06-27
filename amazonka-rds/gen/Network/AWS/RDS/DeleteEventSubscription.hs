@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DeleteEventSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.RDS.DeleteEventSubscription
     , deleteEventSubscriptionResponse
     -- ** Response lenses
     , delEventSubscription
-    , delStatusCode
+    , delStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'desSubscriptionName'
-newtype DeleteEventSubscription = DeleteEventSubscription'{_desSubscriptionName :: Text} deriving (Eq, Read, Show)
+newtype DeleteEventSubscription = DeleteEventSubscription'
+    { _desSubscriptionName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteEventSubscription' smart constructor.
 deleteEventSubscription :: Text -> DeleteEventSubscription
-deleteEventSubscription pSubscriptionName = DeleteEventSubscription'{_desSubscriptionName = pSubscriptionName};
+deleteEventSubscription pSubscriptionName =
+    DeleteEventSubscription'
+    { _desSubscriptionName = pSubscriptionName
+    }
 
 -- | The name of the RDS event notification subscription you want to delete.
 desSubscriptionName :: Lens' DeleteEventSubscription Text
@@ -88,17 +93,24 @@ instance ToQuery DeleteEventSubscription where
 --
 -- * 'delEventSubscription'
 --
--- * 'delStatusCode'
-data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'{_delEventSubscription :: Maybe EventSubscription, _delStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'delStatus'
+data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
+    { _delEventSubscription :: Maybe EventSubscription
+    , _delStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteEventSubscriptionResponse' smart constructor.
 deleteEventSubscriptionResponse :: Int -> DeleteEventSubscriptionResponse
-deleteEventSubscriptionResponse pStatusCode = DeleteEventSubscriptionResponse'{_delEventSubscription = Nothing, _delStatusCode = pStatusCode};
+deleteEventSubscriptionResponse pStatus =
+    DeleteEventSubscriptionResponse'
+    { _delEventSubscription = Nothing
+    , _delStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 delEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
 delEventSubscription = lens _delEventSubscription (\ s a -> s{_delEventSubscription = a});
 
 -- | FIXME: Undocumented member.
-delStatusCode :: Lens' DeleteEventSubscriptionResponse Int
-delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});
+delStatus :: Lens' DeleteEventSubscriptionResponse Int
+delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

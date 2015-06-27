@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectoryService.ConnectDirectory
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.DirectoryService.ConnectDirectory
     , connectDirectoryResponse
     -- ** Response lenses
     , cdrDirectoryId
-    , cdrStatusCode
+    , cdrStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the ConnectDirectory operation.
 --
@@ -62,11 +62,26 @@ import Network.AWS.Response
 -- * 'cdSize'
 --
 -- * 'cdConnectSettings'
-data ConnectDirectory = ConnectDirectory'{_cdShortName :: Maybe Text, _cdDescription :: Maybe Text, _cdName :: Text, _cdPassword :: Sensitive Text, _cdSize :: DirectorySize, _cdConnectSettings :: DirectoryConnectSettings} deriving (Eq, Read, Show)
+data ConnectDirectory = ConnectDirectory'
+    { _cdShortName       :: Maybe Text
+    , _cdDescription     :: Maybe Text
+    , _cdName            :: Text
+    , _cdPassword        :: Sensitive Text
+    , _cdSize            :: DirectorySize
+    , _cdConnectSettings :: DirectoryConnectSettings
+    } deriving (Eq,Read,Show)
 
 -- | 'ConnectDirectory' smart constructor.
 connectDirectory :: Text -> Text -> DirectorySize -> DirectoryConnectSettings -> ConnectDirectory
-connectDirectory pName pPassword pSize pConnectSettings = ConnectDirectory'{_cdShortName = Nothing, _cdDescription = Nothing, _cdName = pName, _cdPassword = _Sensitive # pPassword, _cdSize = pSize, _cdConnectSettings = pConnectSettings};
+connectDirectory pName pPassword pSize pConnectSettings =
+    ConnectDirectory'
+    { _cdShortName = Nothing
+    , _cdDescription = Nothing
+    , _cdName = pName
+    , _cdPassword = _Sensitive # pPassword
+    , _cdSize = pSize
+    , _cdConnectSettings = pConnectSettings
+    }
 
 -- | The NetBIOS name of the on-premises directory, such as @CORP@.
 cdShortName :: Lens' ConnectDirectory (Maybe Text)
@@ -136,17 +151,24 @@ instance ToQuery ConnectDirectory where
 --
 -- * 'cdrDirectoryId'
 --
--- * 'cdrStatusCode'
-data ConnectDirectoryResponse = ConnectDirectoryResponse'{_cdrDirectoryId :: Maybe Text, _cdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdrStatus'
+data ConnectDirectoryResponse = ConnectDirectoryResponse'
+    { _cdrDirectoryId :: Maybe Text
+    , _cdrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ConnectDirectoryResponse' smart constructor.
 connectDirectoryResponse :: Int -> ConnectDirectoryResponse
-connectDirectoryResponse pStatusCode = ConnectDirectoryResponse'{_cdrDirectoryId = Nothing, _cdrStatusCode = pStatusCode};
+connectDirectoryResponse pStatus =
+    ConnectDirectoryResponse'
+    { _cdrDirectoryId = Nothing
+    , _cdrStatus = pStatus
+    }
 
 -- | The identifier of the new directory.
 cdrDirectoryId :: Lens' ConnectDirectoryResponse (Maybe Text)
 cdrDirectoryId = lens _cdrDirectoryId (\ s a -> s{_cdrDirectoryId = a});
 
 -- | FIXME: Undocumented member.
-cdrStatusCode :: Lens' ConnectDirectoryResponse Int
-cdrStatusCode = lens _cdrStatusCode (\ s a -> s{_cdrStatusCode = a});
+cdrStatus :: Lens' ConnectDirectoryResponse Int
+cdrStatus = lens _cdrStatus (\ s a -> s{_cdrStatus = a});

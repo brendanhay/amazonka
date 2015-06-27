@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.SetDefaultPolicyVersion
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,10 +42,10 @@ module Network.AWS.IAM.SetDefaultPolicyVersion
     , setDefaultPolicyVersionResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'setDefaultPolicyVersion' smart constructor.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'sdpvPolicyARN'
 --
 -- * 'sdpvVersionId'
-data SetDefaultPolicyVersion = SetDefaultPolicyVersion'{_sdpvPolicyARN :: Text, _sdpvVersionId :: Text} deriving (Eq, Read, Show)
+data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
+    { _sdpvPolicyARN :: Text
+    , _sdpvVersionId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetDefaultPolicyVersion' smart constructor.
 setDefaultPolicyVersion :: Text -> Text -> SetDefaultPolicyVersion
-setDefaultPolicyVersion pPolicyARN pVersionId = SetDefaultPolicyVersion'{_sdpvPolicyARN = pPolicyARN, _sdpvVersionId = pVersionId};
+setDefaultPolicyVersion pPolicyARN pVersionId =
+    SetDefaultPolicyVersion'
+    { _sdpvPolicyARN = pPolicyARN
+    , _sdpvVersionId = pVersionId
+    }
 
 -- | FIXME: Undocumented member.
 sdpvPolicyARN :: Lens' SetDefaultPolicyVersion Text
@@ -96,8 +103,10 @@ instance ToQuery SetDefaultPolicyVersion where
                "VersionId" =: _sdpvVersionId]
 
 -- | /See:/ 'setDefaultPolicyVersionResponse' smart constructor.
-data SetDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse' deriving (Eq, Read, Show)
+data SetDefaultPolicyVersionResponse =
+    SetDefaultPolicyVersionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetDefaultPolicyVersionResponse' smart constructor.
 setDefaultPolicyVersionResponse :: SetDefaultPolicyVersionResponse
-setDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse';
+setDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse'

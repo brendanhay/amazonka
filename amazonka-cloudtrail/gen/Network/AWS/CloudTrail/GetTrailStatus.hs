@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudTrail.GetTrailStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.CloudTrail.GetTrailStatus
     , gtsrLatestCloudWatchLogsDeliveryError
     , gtsrLatestNotificationTime
     , gtsrStopLoggingTime
-    , gtsrStatusCode
+    , gtsrStatus
     ) where
 
-import Network.AWS.CloudTrail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The name of a trail about which you want the current status.
 --
@@ -57,11 +57,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gtsName'
-newtype GetTrailStatus = GetTrailStatus'{_gtsName :: Text} deriving (Eq, Read, Show)
+newtype GetTrailStatus = GetTrailStatus'
+    { _gtsName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetTrailStatus' smart constructor.
 getTrailStatus :: Text -> GetTrailStatus
-getTrailStatus pName = GetTrailStatus'{_gtsName = pName};
+getTrailStatus pName =
+    GetTrailStatus'
+    { _gtsName = pName
+    }
 
 -- | The name of the trail for which you are requesting the current status.
 gtsName :: Lens' GetTrailStatus Text
@@ -131,12 +136,35 @@ instance ToQuery GetTrailStatus where
 --
 -- * 'gtsrStopLoggingTime'
 --
--- * 'gtsrStatusCode'
-data GetTrailStatusResponse = GetTrailStatusResponse'{_gtsrLatestDeliveryError :: Maybe Text, _gtsrStartLoggingTime :: Maybe POSIX, _gtsrLatestNotificationError :: Maybe Text, _gtsrIsLogging :: Maybe Bool, _gtsrLatestDeliveryTime :: Maybe POSIX, _gtsrLatestCloudWatchLogsDeliveryTime :: Maybe POSIX, _gtsrLatestCloudWatchLogsDeliveryError :: Maybe Text, _gtsrLatestNotificationTime :: Maybe POSIX, _gtsrStopLoggingTime :: Maybe POSIX, _gtsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gtsrStatus'
+data GetTrailStatusResponse = GetTrailStatusResponse'
+    { _gtsrLatestDeliveryError               :: Maybe Text
+    , _gtsrStartLoggingTime                  :: Maybe POSIX
+    , _gtsrLatestNotificationError           :: Maybe Text
+    , _gtsrIsLogging                         :: Maybe Bool
+    , _gtsrLatestDeliveryTime                :: Maybe POSIX
+    , _gtsrLatestCloudWatchLogsDeliveryTime  :: Maybe POSIX
+    , _gtsrLatestCloudWatchLogsDeliveryError :: Maybe Text
+    , _gtsrLatestNotificationTime            :: Maybe POSIX
+    , _gtsrStopLoggingTime                   :: Maybe POSIX
+    , _gtsrStatus                            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetTrailStatusResponse' smart constructor.
 getTrailStatusResponse :: Int -> GetTrailStatusResponse
-getTrailStatusResponse pStatusCode = GetTrailStatusResponse'{_gtsrLatestDeliveryError = Nothing, _gtsrStartLoggingTime = Nothing, _gtsrLatestNotificationError = Nothing, _gtsrIsLogging = Nothing, _gtsrLatestDeliveryTime = Nothing, _gtsrLatestCloudWatchLogsDeliveryTime = Nothing, _gtsrLatestCloudWatchLogsDeliveryError = Nothing, _gtsrLatestNotificationTime = Nothing, _gtsrStopLoggingTime = Nothing, _gtsrStatusCode = pStatusCode};
+getTrailStatusResponse pStatus =
+    GetTrailStatusResponse'
+    { _gtsrLatestDeliveryError = Nothing
+    , _gtsrStartLoggingTime = Nothing
+    , _gtsrLatestNotificationError = Nothing
+    , _gtsrIsLogging = Nothing
+    , _gtsrLatestDeliveryTime = Nothing
+    , _gtsrLatestCloudWatchLogsDeliveryTime = Nothing
+    , _gtsrLatestCloudWatchLogsDeliveryError = Nothing
+    , _gtsrLatestNotificationTime = Nothing
+    , _gtsrStopLoggingTime = Nothing
+    , _gtsrStatus = pStatus
+    }
 
 -- | Displays any Amazon S3 error that CloudTrail encountered when attempting
 -- to deliver log files to the designated bucket. For more information see
@@ -189,5 +217,5 @@ gtsrStopLoggingTime :: Lens' GetTrailStatusResponse (Maybe UTCTime)
 gtsrStopLoggingTime = lens _gtsrStopLoggingTime (\ s a -> s{_gtsrStopLoggingTime = a}) . mapping _Time;
 
 -- | FIXME: Undocumented member.
-gtsrStatusCode :: Lens' GetTrailStatusResponse Int
-gtsrStatusCode = lens _gtsrStatusCode (\ s a -> s{_gtsrStatusCode = a});
+gtsrStatus :: Lens' GetTrailStatusResponse Int
+gtsrStatus = lens _gtsrStatus (\ s a -> s{_gtsrStatus = a});

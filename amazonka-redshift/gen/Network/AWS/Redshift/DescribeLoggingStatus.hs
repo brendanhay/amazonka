@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeLoggingStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.Redshift.DescribeLoggingStatus
     , lsLastFailureMessage
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -52,11 +52,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlsClusterIdentifier'
-newtype DescribeLoggingStatus = DescribeLoggingStatus'{_dlsClusterIdentifier :: Text} deriving (Eq, Read, Show)
+newtype DescribeLoggingStatus = DescribeLoggingStatus'
+    { _dlsClusterIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoggingStatus' smart constructor.
 describeLoggingStatus :: Text -> DescribeLoggingStatus
-describeLoggingStatus pClusterIdentifier = DescribeLoggingStatus'{_dlsClusterIdentifier = pClusterIdentifier};
+describeLoggingStatus pClusterIdentifier =
+    DescribeLoggingStatus'
+    { _dlsClusterIdentifier = pClusterIdentifier
+    }
 
 -- | The identifier of the cluster to get the logging status from.
 --

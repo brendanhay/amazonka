@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeleteGroupPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.IAM.DeleteGroupPolicy
     , deleteGroupPolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteGroupPolicy' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'delGroupName'
 --
 -- * 'delPolicyName'
-data DeleteGroupPolicy = DeleteGroupPolicy'{_delGroupName :: Text, _delPolicyName :: Text} deriving (Eq, Read, Show)
+data DeleteGroupPolicy = DeleteGroupPolicy'
+    { _delGroupName  :: Text
+    , _delPolicyName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteGroupPolicy' smart constructor.
 deleteGroupPolicy :: Text -> Text -> DeleteGroupPolicy
-deleteGroupPolicy pGroupName pPolicyName = DeleteGroupPolicy'{_delGroupName = pGroupName, _delPolicyName = pPolicyName};
+deleteGroupPolicy pGroupName pPolicyName =
+    DeleteGroupPolicy'
+    { _delGroupName = pGroupName
+    , _delPolicyName = pPolicyName
+    }
 
 -- | The name (friendly name, not ARN) identifying the group that the policy
 -- is embedded in.
@@ -88,8 +95,10 @@ instance ToQuery DeleteGroupPolicy where
                "PolicyName" =: _delPolicyName]
 
 -- | /See:/ 'deleteGroupPolicyResponse' smart constructor.
-data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse' deriving (Eq, Read, Show)
+data DeleteGroupPolicyResponse =
+    DeleteGroupPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteGroupPolicyResponse' smart constructor.
 deleteGroupPolicyResponse :: DeleteGroupPolicyResponse
-deleteGroupPolicyResponse = DeleteGroupPolicyResponse';
+deleteGroupPolicyResponse = DeleteGroupPolicyResponse'

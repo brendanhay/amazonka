@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketReplication
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,21 +32,26 @@ module Network.AWS.S3.DeleteBucketReplication
     , deleteBucketReplicationResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'deleteBucketReplication' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dbrBucket'
-newtype DeleteBucketReplication = DeleteBucketReplication'{_dbrBucket :: BucketName} deriving (Eq, Read, Show)
+newtype DeleteBucketReplication = DeleteBucketReplication'
+    { _dbrBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteBucketReplication' smart constructor.
 deleteBucketReplication :: BucketName -> DeleteBucketReplication
-deleteBucketReplication pBucket = DeleteBucketReplication'{_dbrBucket = pBucket};
+deleteBucketReplication pBucket =
+    DeleteBucketReplication'
+    { _dbrBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 dbrBucket :: Lens' DeleteBucketReplication BucketName
@@ -71,8 +76,10 @@ instance ToQuery DeleteBucketReplication where
         toQuery = const (mconcat ["replication"])
 
 -- | /See:/ 'deleteBucketReplicationResponse' smart constructor.
-data DeleteBucketReplicationResponse = DeleteBucketReplicationResponse' deriving (Eq, Read, Show)
+data DeleteBucketReplicationResponse =
+    DeleteBucketReplicationResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteBucketReplicationResponse' smart constructor.
 deleteBucketReplicationResponse :: DeleteBucketReplicationResponse
-deleteBucketReplicationResponse = DeleteBucketReplicationResponse';
+deleteBucketReplicationResponse = DeleteBucketReplicationResponse'

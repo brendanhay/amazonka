@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.CreateLunaClient
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.CloudHSM.CreateLunaClient
     , createLunaClientResponse
     -- ** Response lenses
     , clcrClientARN
-    , clcrStatusCode
+    , clcrStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the CreateLunaClient action.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'clcLabel'
 --
 -- * 'clcCertificate'
-data CreateLunaClient = CreateLunaClient'{_clcLabel :: Maybe Text, _clcCertificate :: Text} deriving (Eq, Read, Show)
+data CreateLunaClient = CreateLunaClient'
+    { _clcLabel       :: Maybe Text
+    , _clcCertificate :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLunaClient' smart constructor.
 createLunaClient :: Text -> CreateLunaClient
-createLunaClient pCertificate = CreateLunaClient'{_clcLabel = Nothing, _clcCertificate = pCertificate};
+createLunaClient pCertificate =
+    CreateLunaClient'
+    { _clcLabel = Nothing
+    , _clcCertificate = pCertificate
+    }
 
 -- | The label for the client.
 clcLabel :: Lens' CreateLunaClient (Maybe Text)
@@ -105,17 +112,24 @@ instance ToQuery CreateLunaClient where
 --
 -- * 'clcrClientARN'
 --
--- * 'clcrStatusCode'
-data CreateLunaClientResponse = CreateLunaClientResponse'{_clcrClientARN :: Maybe Text, _clcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'clcrStatus'
+data CreateLunaClientResponse = CreateLunaClientResponse'
+    { _clcrClientARN :: Maybe Text
+    , _clcrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLunaClientResponse' smart constructor.
 createLunaClientResponse :: Int -> CreateLunaClientResponse
-createLunaClientResponse pStatusCode = CreateLunaClientResponse'{_clcrClientARN = Nothing, _clcrStatusCode = pStatusCode};
+createLunaClientResponse pStatus =
+    CreateLunaClientResponse'
+    { _clcrClientARN = Nothing
+    , _clcrStatus = pStatus
+    }
 
 -- | The ARN of the client.
 clcrClientARN :: Lens' CreateLunaClientResponse (Maybe Text)
 clcrClientARN = lens _clcrClientARN (\ s a -> s{_clcrClientARN = a});
 
 -- | FIXME: Undocumented member.
-clcrStatusCode :: Lens' CreateLunaClientResponse Int
-clcrStatusCode = lens _clcrStatusCode (\ s a -> s{_clcrStatusCode = a});
+clcrStatus :: Lens' CreateLunaClientResponse Int
+clcrStatus = lens _clcrStatus (\ s a -> s{_clcrStatus = a});

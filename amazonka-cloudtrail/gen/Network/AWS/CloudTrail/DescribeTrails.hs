@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudTrail.DescribeTrails
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.CloudTrail.DescribeTrails
     , describeTrailsResponse
     -- ** Response lenses
     , dtrTrailList
-    , dtrStatusCode
+    , dtrStatus
     ) where
 
-import Network.AWS.CloudTrail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Returns information about the trail.
 --
@@ -48,11 +48,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtTrailNameList'
-newtype DescribeTrails = DescribeTrails'{_dtTrailNameList :: Maybe [Text]} deriving (Eq, Read, Show)
+newtype DescribeTrails = DescribeTrails'
+    { _dtTrailNameList :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTrails' smart constructor.
 describeTrails :: DescribeTrails
-describeTrails = DescribeTrails'{_dtTrailNameList = Nothing};
+describeTrails =
+    DescribeTrails'
+    { _dtTrailNameList = Nothing
+    }
 
 -- | The trail returned.
 dtTrailNameList :: Lens' DescribeTrails [Text]
@@ -98,17 +103,24 @@ instance ToQuery DescribeTrails where
 --
 -- * 'dtrTrailList'
 --
--- * 'dtrStatusCode'
-data DescribeTrailsResponse = DescribeTrailsResponse'{_dtrTrailList :: Maybe [Trail], _dtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtrStatus'
+data DescribeTrailsResponse = DescribeTrailsResponse'
+    { _dtrTrailList :: Maybe [Trail]
+    , _dtrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTrailsResponse' smart constructor.
 describeTrailsResponse :: Int -> DescribeTrailsResponse
-describeTrailsResponse pStatusCode = DescribeTrailsResponse'{_dtrTrailList = Nothing, _dtrStatusCode = pStatusCode};
+describeTrailsResponse pStatus =
+    DescribeTrailsResponse'
+    { _dtrTrailList = Nothing
+    , _dtrStatus = pStatus
+    }
 
 -- | The list of trails.
 dtrTrailList :: Lens' DescribeTrailsResponse [Trail]
 dtrTrailList = lens _dtrTrailList (\ s a -> s{_dtrTrailList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtrStatusCode :: Lens' DescribeTrailsResponse Int
-dtrStatusCode = lens _dtrStatusCode (\ s a -> s{_dtrStatusCode = a});
+dtrStatus :: Lens' DescribeTrailsResponse Int
+dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});

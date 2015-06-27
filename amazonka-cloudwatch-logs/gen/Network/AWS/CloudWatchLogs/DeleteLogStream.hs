@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteLogStream
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.CloudWatchLogs.DeleteLogStream
     , deleteLogStreamResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteLogStream' smart constructor.
 --
@@ -46,11 +46,18 @@ import Network.AWS.Response
 -- * 'dlsLogGroupName'
 --
 -- * 'dlsLogStreamName'
-data DeleteLogStream = DeleteLogStream'{_dlsLogGroupName :: Text, _dlsLogStreamName :: Text} deriving (Eq, Read, Show)
+data DeleteLogStream = DeleteLogStream'
+    { _dlsLogGroupName  :: Text
+    , _dlsLogStreamName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLogStream' smart constructor.
 deleteLogStream :: Text -> Text -> DeleteLogStream
-deleteLogStream pLogGroupName pLogStreamName = DeleteLogStream'{_dlsLogGroupName = pLogGroupName, _dlsLogStreamName = pLogStreamName};
+deleteLogStream pLogGroupName pLogStreamName =
+    DeleteLogStream'
+    { _dlsLogGroupName = pLogGroupName
+    , _dlsLogStreamName = pLogStreamName
+    }
 
 -- | The name of the log group under which the log stream to delete belongs.
 dlsLogGroupName :: Lens' DeleteLogStream Text
@@ -88,8 +95,10 @@ instance ToQuery DeleteLogStream where
         toQuery = const mempty
 
 -- | /See:/ 'deleteLogStreamResponse' smart constructor.
-data DeleteLogStreamResponse = DeleteLogStreamResponse' deriving (Eq, Read, Show)
+data DeleteLogStreamResponse =
+    DeleteLogStreamResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteLogStreamResponse' smart constructor.
 deleteLogStreamResponse :: DeleteLogStreamResponse
-deleteLogStreamResponse = DeleteLogStreamResponse';
+deleteLogStreamResponse = DeleteLogStreamResponse'

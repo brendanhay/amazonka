@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     , describeApplicationVersionsResponse
     -- ** Response lenses
     , davrApplicationVersions
-    , davrStatusCode
+    , davrStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Result message containing a list of configuration descriptions.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'dVersionLabels'
 --
 -- * 'dApplicationName'
-data DescribeApplicationVersions = DescribeApplicationVersions'{_dVersionLabels :: Maybe [Text], _dApplicationName :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeApplicationVersions = DescribeApplicationVersions'
+    { _dVersionLabels   :: Maybe [Text]
+    , _dApplicationName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeApplicationVersions' smart constructor.
 describeApplicationVersions :: DescribeApplicationVersions
-describeApplicationVersions = DescribeApplicationVersions'{_dVersionLabels = Nothing, _dApplicationName = Nothing};
+describeApplicationVersions =
+    DescribeApplicationVersions'
+    { _dVersionLabels = Nothing
+    , _dApplicationName = Nothing
+    }
 
 -- | If specified, restricts the returned descriptions to only include ones
 -- that have the specified version labels.
@@ -105,17 +112,24 @@ instance ToQuery DescribeApplicationVersions where
 --
 -- * 'davrApplicationVersions'
 --
--- * 'davrStatusCode'
-data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'{_davrApplicationVersions :: Maybe [ApplicationVersionDescription], _davrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'davrStatus'
+data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
+    { _davrApplicationVersions :: Maybe [ApplicationVersionDescription]
+    , _davrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeApplicationVersionsResponse' smart constructor.
 describeApplicationVersionsResponse :: Int -> DescribeApplicationVersionsResponse
-describeApplicationVersionsResponse pStatusCode = DescribeApplicationVersionsResponse'{_davrApplicationVersions = Nothing, _davrStatusCode = pStatusCode};
+describeApplicationVersionsResponse pStatus =
+    DescribeApplicationVersionsResponse'
+    { _davrApplicationVersions = Nothing
+    , _davrStatus = pStatus
+    }
 
 -- | A list of ApplicationVersionDescription .
 davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
 davrApplicationVersions = lens _davrApplicationVersions (\ s a -> s{_davrApplicationVersions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-davrStatusCode :: Lens' DescribeApplicationVersionsResponse Int
-davrStatusCode = lens _davrStatusCode (\ s a -> s{_davrStatusCode = a});
+davrStatus :: Lens' DescribeApplicationVersionsResponse Int
+davrStatus = lens _davrStatus (\ s a -> s{_davrStatus = a});

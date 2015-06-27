@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeOptionGroupOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,14 +37,14 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
     -- ** Response lenses
     , dogorOptionGroupOptions
     , dogorMarker
-    , dogorStatusCode
+    , dogorStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -61,11 +61,24 @@ import Network.AWS.Response
 -- * 'dogoMarker'
 --
 -- * 'dogoEngineName'
-data DescribeOptionGroupOptions = DescribeOptionGroupOptions'{_dogoFilters :: Maybe [Filter], _dogoMajorEngineVersion :: Maybe Text, _dogoMaxRecords :: Maybe Int, _dogoMarker :: Maybe Text, _dogoEngineName :: Text} deriving (Eq, Read, Show)
+data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
+    { _dogoFilters            :: Maybe [Filter]
+    , _dogoMajorEngineVersion :: Maybe Text
+    , _dogoMaxRecords         :: Maybe Int
+    , _dogoMarker             :: Maybe Text
+    , _dogoEngineName         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeOptionGroupOptions' smart constructor.
 describeOptionGroupOptions :: Text -> DescribeOptionGroupOptions
-describeOptionGroupOptions pEngineName = DescribeOptionGroupOptions'{_dogoFilters = Nothing, _dogoMajorEngineVersion = Nothing, _dogoMaxRecords = Nothing, _dogoMarker = Nothing, _dogoEngineName = pEngineName};
+describeOptionGroupOptions pEngineName =
+    DescribeOptionGroupOptions'
+    { _dogoFilters = Nothing
+    , _dogoMajorEngineVersion = Nothing
+    , _dogoMaxRecords = Nothing
+    , _dogoMarker = Nothing
+    , _dogoEngineName = pEngineName
+    }
 
 -- | This parameter is not currently supported.
 dogoFilters :: Lens' DescribeOptionGroupOptions [Filter]
@@ -149,12 +162,21 @@ instance ToQuery DescribeOptionGroupOptions where
 --
 -- * 'dogorMarker'
 --
--- * 'dogorStatusCode'
-data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'{_dogorOptionGroupOptions :: Maybe [OptionGroupOption], _dogorMarker :: Maybe Text, _dogorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dogorStatus'
+data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'
+    { _dogorOptionGroupOptions :: Maybe [OptionGroupOption]
+    , _dogorMarker             :: Maybe Text
+    , _dogorStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeOptionGroupOptionsResponse' smart constructor.
 describeOptionGroupOptionsResponse :: Int -> DescribeOptionGroupOptionsResponse
-describeOptionGroupOptionsResponse pStatusCode = DescribeOptionGroupOptionsResponse'{_dogorOptionGroupOptions = Nothing, _dogorMarker = Nothing, _dogorStatusCode = pStatusCode};
+describeOptionGroupOptionsResponse pStatus =
+    DescribeOptionGroupOptionsResponse'
+    { _dogorOptionGroupOptions = Nothing
+    , _dogorMarker = Nothing
+    , _dogorStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dogorOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
@@ -167,5 +189,5 @@ dogorMarker :: Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
 dogorMarker = lens _dogorMarker (\ s a -> s{_dogorMarker = a});
 
 -- | FIXME: Undocumented member.
-dogorStatusCode :: Lens' DescribeOptionGroupOptionsResponse Int
-dogorStatusCode = lens _dogorStatusCode (\ s a -> s{_dogorStatusCode = a});
+dogorStatus :: Lens' DescribeOptionGroupOptionsResponse Int
+dogorStatus = lens _dogorStatus (\ s a -> s{_dogorStatus = a});

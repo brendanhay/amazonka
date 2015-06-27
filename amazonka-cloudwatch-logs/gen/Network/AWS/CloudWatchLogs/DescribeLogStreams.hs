@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DescribeLogStreams
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,13 +47,13 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     -- ** Response lenses
     , dlsrNextToken
     , dlsrLogStreams
-    , dlsrStatusCode
+    , dlsrStatus
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLogStreams' smart constructor.
 --
@@ -70,11 +70,26 @@ import Network.AWS.Response
 -- * 'desLimit'
 --
 -- * 'desLogGroupName'
-data DescribeLogStreams = DescribeLogStreams'{_desOrderBy :: Maybe OrderBy, _desDescending :: Maybe Bool, _desNextToken :: Maybe Text, _desLogStreamNamePrefix :: Maybe Text, _desLimit :: Maybe Nat, _desLogGroupName :: Text} deriving (Eq, Read, Show)
+data DescribeLogStreams = DescribeLogStreams'
+    { _desOrderBy             :: Maybe OrderBy
+    , _desDescending          :: Maybe Bool
+    , _desNextToken           :: Maybe Text
+    , _desLogStreamNamePrefix :: Maybe Text
+    , _desLimit               :: Maybe Nat
+    , _desLogGroupName        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLogStreams' smart constructor.
 describeLogStreams :: Text -> DescribeLogStreams
-describeLogStreams pLogGroupName = DescribeLogStreams'{_desOrderBy = Nothing, _desDescending = Nothing, _desNextToken = Nothing, _desLogStreamNamePrefix = Nothing, _desLimit = Nothing, _desLogGroupName = pLogGroupName};
+describeLogStreams pLogGroupName =
+    DescribeLogStreams'
+    { _desOrderBy = Nothing
+    , _desDescending = Nothing
+    , _desNextToken = Nothing
+    , _desLogStreamNamePrefix = Nothing
+    , _desLimit = Nothing
+    , _desLogGroupName = pLogGroupName
+    }
 
 -- | Specifies what to order the returned log streams by. Valid arguments are
 -- \'LogStreamName\' or \'LastEventTime\'. If you don\'t specify a value,
@@ -156,12 +171,21 @@ instance ToQuery DescribeLogStreams where
 --
 -- * 'dlsrLogStreams'
 --
--- * 'dlsrStatusCode'
-data DescribeLogStreamsResponse = DescribeLogStreamsResponse'{_dlsrNextToken :: Maybe Text, _dlsrLogStreams :: Maybe [LogStream], _dlsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dlsrStatus'
+data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
+    { _dlsrNextToken  :: Maybe Text
+    , _dlsrLogStreams :: Maybe [LogStream]
+    , _dlsrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLogStreamsResponse' smart constructor.
 describeLogStreamsResponse :: Int -> DescribeLogStreamsResponse
-describeLogStreamsResponse pStatusCode = DescribeLogStreamsResponse'{_dlsrNextToken = Nothing, _dlsrLogStreams = Nothing, _dlsrStatusCode = pStatusCode};
+describeLogStreamsResponse pStatus =
+    DescribeLogStreamsResponse'
+    { _dlsrNextToken = Nothing
+    , _dlsrLogStreams = Nothing
+    , _dlsrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dlsrNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
@@ -172,5 +196,5 @@ dlsrLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
 dlsrLogStreams = lens _dlsrLogStreams (\ s a -> s{_dlsrLogStreams = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlsrStatusCode :: Lens' DescribeLogStreamsResponse Int
-dlsrStatusCode = lens _dlsrStatusCode (\ s a -> s{_dlsrStatusCode = a});
+dlsrStatus :: Lens' DescribeLogStreamsResponse Int
+dlsrStatus = lens _dlsrStatus (\ s a -> s{_dlsrStatus = a});

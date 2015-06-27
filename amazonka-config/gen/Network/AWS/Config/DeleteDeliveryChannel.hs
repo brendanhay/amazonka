@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Config.DeleteDeliveryChannel
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,10 +37,10 @@ module Network.AWS.Config.DeleteDeliveryChannel
     , deleteDeliveryChannelResponse
     ) where
 
-import Network.AWS.Config.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Config.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the DeleteDeliveryChannel action. The action accepts the
 -- following data in JSON format.
@@ -50,11 +50,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddcDeliveryChannelName'
-newtype DeleteDeliveryChannel = DeleteDeliveryChannel'{_ddcDeliveryChannelName :: Text} deriving (Eq, Read, Show)
+newtype DeleteDeliveryChannel = DeleteDeliveryChannel'
+    { _ddcDeliveryChannelName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDeliveryChannel' smart constructor.
 deleteDeliveryChannel :: Text -> DeleteDeliveryChannel
-deleteDeliveryChannel pDeliveryChannelName = DeleteDeliveryChannel'{_ddcDeliveryChannelName = pDeliveryChannelName};
+deleteDeliveryChannel pDeliveryChannelName =
+    DeleteDeliveryChannel'
+    { _ddcDeliveryChannelName = pDeliveryChannelName
+    }
 
 -- | The name of the delivery channel to delete.
 ddcDeliveryChannelName :: Lens' DeleteDeliveryChannel Text
@@ -89,8 +94,10 @@ instance ToQuery DeleteDeliveryChannel where
         toQuery = const mempty
 
 -- | /See:/ 'deleteDeliveryChannelResponse' smart constructor.
-data DeleteDeliveryChannelResponse = DeleteDeliveryChannelResponse' deriving (Eq, Read, Show)
+data DeleteDeliveryChannelResponse =
+    DeleteDeliveryChannelResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteDeliveryChannelResponse' smart constructor.
 deleteDeliveryChannelResponse :: DeleteDeliveryChannelResponse
-deleteDeliveryChannelResponse = DeleteDeliveryChannelResponse';
+deleteDeliveryChannelResponse = DeleteDeliveryChannelResponse'

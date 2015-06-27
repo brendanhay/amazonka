@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeregisterImage
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.EC2.DeregisterImage
     , deregisterImageResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deregisterImage' smart constructor.
 --
@@ -48,11 +48,18 @@ import Network.AWS.Response
 -- * 'diDryRun'
 --
 -- * 'diImageId'
-data DeregisterImage = DeregisterImage'{_diDryRun :: Maybe Bool, _diImageId :: Text} deriving (Eq, Read, Show)
+data DeregisterImage = DeregisterImage'
+    { _diDryRun  :: Maybe Bool
+    , _diImageId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeregisterImage' smart constructor.
 deregisterImage :: Text -> DeregisterImage
-deregisterImage pImageId = DeregisterImage'{_diDryRun = Nothing, _diImageId = pImageId};
+deregisterImage pImageId =
+    DeregisterImage'
+    { _diDryRun = Nothing
+    , _diImageId = pImageId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -85,8 +92,10 @@ instance ToQuery DeregisterImage where
                "DryRun" =: _diDryRun, "ImageId" =: _diImageId]
 
 -- | /See:/ 'deregisterImageResponse' smart constructor.
-data DeregisterImageResponse = DeregisterImageResponse' deriving (Eq, Read, Show)
+data DeregisterImageResponse =
+    DeregisterImageResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeregisterImageResponse' smart constructor.
 deregisterImageResponse :: DeregisterImageResponse
-deregisterImageResponse = DeregisterImageResponse';
+deregisterImageResponse = DeregisterImageResponse'

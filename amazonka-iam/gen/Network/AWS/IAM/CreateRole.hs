@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.CreateRole
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.IAM.CreateRole
     , createRoleResponse
     -- ** Response lenses
     , crrRole
-    , crrStatusCode
+    , crrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createRole' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'crRoleName'
 --
 -- * 'crAssumeRolePolicyDocument'
-data CreateRole = CreateRole'{_crPath :: Maybe Text, _crRoleName :: Text, _crAssumeRolePolicyDocument :: Text} deriving (Eq, Read, Show)
+data CreateRole = CreateRole'
+    { _crPath                     :: Maybe Text
+    , _crRoleName                 :: Text
+    , _crAssumeRolePolicyDocument :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateRole' smart constructor.
 createRole :: Text -> Text -> CreateRole
-createRole pRoleName pAssumeRolePolicyDocument = CreateRole'{_crPath = Nothing, _crRoleName = pRoleName, _crAssumeRolePolicyDocument = pAssumeRolePolicyDocument};
+createRole pRoleName pAssumeRolePolicyDocument =
+    CreateRole'
+    { _crPath = Nothing
+    , _crRoleName = pRoleName
+    , _crAssumeRolePolicyDocument = pAssumeRolePolicyDocument
+    }
 
 -- | The path to the role. For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
@@ -116,17 +125,24 @@ instance ToQuery CreateRole where
 --
 -- * 'crrRole'
 --
--- * 'crrStatusCode'
-data CreateRoleResponse = CreateRoleResponse'{_crrRole :: Role, _crrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'crrStatus'
+data CreateRoleResponse = CreateRoleResponse'
+    { _crrRole   :: Role
+    , _crrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateRoleResponse' smart constructor.
 createRoleResponse :: Role -> Int -> CreateRoleResponse
-createRoleResponse pRole pStatusCode = CreateRoleResponse'{_crrRole = pRole, _crrStatusCode = pStatusCode};
+createRoleResponse pRole pStatus =
+    CreateRoleResponse'
+    { _crrRole = pRole
+    , _crrStatus = pStatus
+    }
 
 -- | Information about the role.
 crrRole :: Lens' CreateRoleResponse Role
 crrRole = lens _crrRole (\ s a -> s{_crrRole = a});
 
 -- | FIXME: Undocumented member.
-crrStatusCode :: Lens' CreateRoleResponse Int
-crrStatusCode = lens _crrStatusCode (\ s a -> s{_crrStatusCode = a});
+crrStatus :: Lens' CreateRoleResponse Int
+crrStatus = lens _crrStatus (\ s a -> s{_crrStatus = a});

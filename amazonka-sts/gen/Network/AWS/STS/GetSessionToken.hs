@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.STS.GetSessionToken
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,13 +68,13 @@ module Network.AWS.STS.GetSessionToken
     , getSessionTokenResponse
     -- ** Response lenses
     , gstrCredentials
-    , gstrStatusCode
+    , gstrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.STS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.STS.Types
 
 -- | /See:/ 'getSessionToken' smart constructor.
 --
@@ -85,11 +85,20 @@ import Network.AWS.STS.Types
 -- * 'gstDurationSeconds'
 --
 -- * 'gstSerialNumber'
-data GetSessionToken = GetSessionToken'{_gstTokenCode :: Maybe Text, _gstDurationSeconds :: Maybe Nat, _gstSerialNumber :: Maybe Text} deriving (Eq, Read, Show)
+data GetSessionToken = GetSessionToken'
+    { _gstTokenCode       :: Maybe Text
+    , _gstDurationSeconds :: Maybe Nat
+    , _gstSerialNumber    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetSessionToken' smart constructor.
 getSessionToken :: GetSessionToken
-getSessionToken = GetSessionToken'{_gstTokenCode = Nothing, _gstDurationSeconds = Nothing, _gstSerialNumber = Nothing};
+getSessionToken =
+    GetSessionToken'
+    { _gstTokenCode = Nothing
+    , _gstDurationSeconds = Nothing
+    , _gstSerialNumber = Nothing
+    }
 
 -- | The value provided by the MFA device, if MFA is required. If any policy
 -- requires the IAM user to submit an MFA code, specify this value. If MFA
@@ -154,17 +163,24 @@ instance ToQuery GetSessionToken where
 --
 -- * 'gstrCredentials'
 --
--- * 'gstrStatusCode'
-data GetSessionTokenResponse = GetSessionTokenResponse'{_gstrCredentials :: Maybe Credentials, _gstrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gstrStatus'
+data GetSessionTokenResponse = GetSessionTokenResponse'
+    { _gstrCredentials :: Maybe Credentials
+    , _gstrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetSessionTokenResponse' smart constructor.
 getSessionTokenResponse :: Int -> GetSessionTokenResponse
-getSessionTokenResponse pStatusCode = GetSessionTokenResponse'{_gstrCredentials = Nothing, _gstrStatusCode = pStatusCode};
+getSessionTokenResponse pStatus =
+    GetSessionTokenResponse'
+    { _gstrCredentials = Nothing
+    , _gstrStatus = pStatus
+    }
 
 -- | The session credentials for API authentication.
 gstrCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
 gstrCredentials = lens _gstrCredentials (\ s a -> s{_gstrCredentials = a});
 
 -- | FIXME: Undocumented member.
-gstrStatusCode :: Lens' GetSessionTokenResponse Int
-gstrStatusCode = lens _gstrStatusCode (\ s a -> s{_gstrStatusCode = a});
+gstrStatus :: Lens' GetSessionTokenResponse Int
+gstrStatus = lens _gstrStatus (\ s a -> s{_gstrStatus = a});

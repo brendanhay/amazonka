@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.GetCredentialsForIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
     -- ** Response lenses
     , gcfirCredentials
     , gcfirIdentityId
-    , gcfirStatusCode
+    , gcfirStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the @GetCredentialsForIdentity@ action.
 --
@@ -56,11 +56,18 @@ import Network.AWS.Response
 -- * 'gcfiLogins'
 --
 -- * 'gcfiIdentityId'
-data GetCredentialsForIdentity = GetCredentialsForIdentity'{_gcfiLogins :: Maybe (Map Text Text), _gcfiIdentityId :: Text} deriving (Eq, Read, Show)
+data GetCredentialsForIdentity = GetCredentialsForIdentity'
+    { _gcfiLogins     :: Maybe (Map Text Text)
+    , _gcfiIdentityId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetCredentialsForIdentity' smart constructor.
 getCredentialsForIdentity :: Text -> GetCredentialsForIdentity
-getCredentialsForIdentity pIdentityId = GetCredentialsForIdentity'{_gcfiLogins = Nothing, _gcfiIdentityId = pIdentityId};
+getCredentialsForIdentity pIdentityId =
+    GetCredentialsForIdentity'
+    { _gcfiLogins = Nothing
+    , _gcfiIdentityId = pIdentityId
+    }
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
@@ -116,12 +123,21 @@ instance ToQuery GetCredentialsForIdentity where
 --
 -- * 'gcfirIdentityId'
 --
--- * 'gcfirStatusCode'
-data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'{_gcfirCredentials :: Maybe Credentials, _gcfirIdentityId :: Maybe Text, _gcfirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gcfirStatus'
+data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
+    { _gcfirCredentials :: Maybe Credentials
+    , _gcfirIdentityId  :: Maybe Text
+    , _gcfirStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetCredentialsForIdentityResponse' smart constructor.
 getCredentialsForIdentityResponse :: Int -> GetCredentialsForIdentityResponse
-getCredentialsForIdentityResponse pStatusCode = GetCredentialsForIdentityResponse'{_gcfirCredentials = Nothing, _gcfirIdentityId = Nothing, _gcfirStatusCode = pStatusCode};
+getCredentialsForIdentityResponse pStatus =
+    GetCredentialsForIdentityResponse'
+    { _gcfirCredentials = Nothing
+    , _gcfirIdentityId = Nothing
+    , _gcfirStatus = pStatus
+    }
 
 -- | Credentials for the the provided identity ID.
 gcfirCredentials :: Lens' GetCredentialsForIdentityResponse (Maybe Credentials)
@@ -132,5 +148,5 @@ gcfirIdentityId :: Lens' GetCredentialsForIdentityResponse (Maybe Text)
 gcfirIdentityId = lens _gcfirIdentityId (\ s a -> s{_gcfirIdentityId = a});
 
 -- | FIXME: Undocumented member.
-gcfirStatusCode :: Lens' GetCredentialsForIdentityResponse Int
-gcfirStatusCode = lens _gcfirStatusCode (\ s a -> s{_gcfirStatusCode = a});
+gcfirStatus :: Lens' GetCredentialsForIdentityResponse Int
+gcfirStatus = lens _gcfirStatus (\ s a -> s{_gcfirStatus = a});

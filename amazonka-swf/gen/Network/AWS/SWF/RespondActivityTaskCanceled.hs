@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.RespondActivityTaskCanceled
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -67,10 +67,10 @@ module Network.AWS.SWF.RespondActivityTaskCanceled
     , respondActivityTaskCanceledResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'respondActivityTaskCanceled' smart constructor.
 --
@@ -79,11 +79,18 @@ import Network.AWS.SWF.Types
 -- * 'resDetails'
 --
 -- * 'resTaskToken'
-data RespondActivityTaskCanceled = RespondActivityTaskCanceled'{_resDetails :: Maybe Text, _resTaskToken :: Text} deriving (Eq, Read, Show)
+data RespondActivityTaskCanceled = RespondActivityTaskCanceled'
+    { _resDetails   :: Maybe Text
+    , _resTaskToken :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RespondActivityTaskCanceled' smart constructor.
 respondActivityTaskCanceled :: Text -> RespondActivityTaskCanceled
-respondActivityTaskCanceled pTaskToken = RespondActivityTaskCanceled'{_resDetails = Nothing, _resTaskToken = pTaskToken};
+respondActivityTaskCanceled pTaskToken =
+    RespondActivityTaskCanceled'
+    { _resDetails = Nothing
+    , _resTaskToken = pTaskToken
+    }
 
 -- | /Optional./ Information about the cancellation.
 resDetails :: Lens' RespondActivityTaskCanceled (Maybe Text)
@@ -129,8 +136,10 @@ instance ToQuery RespondActivityTaskCanceled where
         toQuery = const mempty
 
 -- | /See:/ 'respondActivityTaskCanceledResponse' smart constructor.
-data RespondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse' deriving (Eq, Read, Show)
+data RespondActivityTaskCanceledResponse =
+    RespondActivityTaskCanceledResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RespondActivityTaskCanceledResponse' smart constructor.
 respondActivityTaskCanceledResponse :: RespondActivityTaskCanceledResponse
-respondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse';
+respondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse'

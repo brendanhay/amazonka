@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.GetBucketWebsite
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,24 +35,29 @@ module Network.AWS.S3.GetBucketWebsite
     , gbwrErrorDocument
     , gbwrRoutingRules
     , gbwrIndexDocument
-    , gbwrStatusCode
+    , gbwrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketWebsite' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gbwBucket'
-newtype GetBucketWebsite = GetBucketWebsite'{_gbwBucket :: BucketName} deriving (Eq, Read, Show)
+newtype GetBucketWebsite = GetBucketWebsite'
+    { _gbwBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketWebsite' smart constructor.
 getBucketWebsite :: BucketName -> GetBucketWebsite
-getBucketWebsite pBucket = GetBucketWebsite'{_gbwBucket = pBucket};
+getBucketWebsite pBucket =
+    GetBucketWebsite'
+    { _gbwBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 gbwBucket :: Lens' GetBucketWebsite BucketName
@@ -96,12 +101,25 @@ instance ToQuery GetBucketWebsite where
 --
 -- * 'gbwrIndexDocument'
 --
--- * 'gbwrStatusCode'
-data GetBucketWebsiteResponse = GetBucketWebsiteResponse'{_gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo, _gbwrErrorDocument :: Maybe ErrorDocument, _gbwrRoutingRules :: Maybe [RoutingRule], _gbwrIndexDocument :: Maybe IndexDocument, _gbwrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gbwrStatus'
+data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
+    { _gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
+    , _gbwrErrorDocument         :: Maybe ErrorDocument
+    , _gbwrRoutingRules          :: Maybe [RoutingRule]
+    , _gbwrIndexDocument         :: Maybe IndexDocument
+    , _gbwrStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketWebsiteResponse' smart constructor.
 getBucketWebsiteResponse :: Int -> GetBucketWebsiteResponse
-getBucketWebsiteResponse pStatusCode = GetBucketWebsiteResponse'{_gbwrRedirectAllRequestsTo = Nothing, _gbwrErrorDocument = Nothing, _gbwrRoutingRules = Nothing, _gbwrIndexDocument = Nothing, _gbwrStatusCode = pStatusCode};
+getBucketWebsiteResponse pStatus =
+    GetBucketWebsiteResponse'
+    { _gbwrRedirectAllRequestsTo = Nothing
+    , _gbwrErrorDocument = Nothing
+    , _gbwrRoutingRules = Nothing
+    , _gbwrIndexDocument = Nothing
+    , _gbwrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 gbwrRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
@@ -120,5 +138,5 @@ gbwrIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
 gbwrIndexDocument = lens _gbwrIndexDocument (\ s a -> s{_gbwrIndexDocument = a});
 
 -- | FIXME: Undocumented member.
-gbwrStatusCode :: Lens' GetBucketWebsiteResponse Int
-gbwrStatusCode = lens _gbwrStatusCode (\ s a -> s{_gbwrStatusCode = a});
+gbwrStatus :: Lens' GetBucketWebsiteResponse Int
+gbwrStatus = lens _gbwrStatus (\ s a -> s{_gbwrStatus = a});

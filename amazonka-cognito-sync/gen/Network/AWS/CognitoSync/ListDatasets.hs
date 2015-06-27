@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.ListDatasets
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.CognitoSync.ListDatasets
     , ldrCount
     , ldrNextToken
     , ldrDatasets
-    , ldrStatusCode
+    , ldrStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request for a list of datasets for an identity.
 --
@@ -64,11 +64,22 @@ import Network.AWS.Response
 -- * 'ldIdentityId'
 --
 -- * 'ldIdentityPoolId'
-data ListDatasets = ListDatasets'{_ldNextToken :: Maybe Text, _ldMaxResults :: Maybe Int, _ldIdentityId :: Text, _ldIdentityPoolId :: Text} deriving (Eq, Read, Show)
+data ListDatasets = ListDatasets'
+    { _ldNextToken      :: Maybe Text
+    , _ldMaxResults     :: Maybe Int
+    , _ldIdentityId     :: Text
+    , _ldIdentityPoolId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDatasets' smart constructor.
 listDatasets :: Text -> Text -> ListDatasets
-listDatasets pIdentityId pIdentityPoolId = ListDatasets'{_ldNextToken = Nothing, _ldMaxResults = Nothing, _ldIdentityId = pIdentityId, _ldIdentityPoolId = pIdentityPoolId};
+listDatasets pIdentityId pIdentityPoolId =
+    ListDatasets'
+    { _ldNextToken = Nothing
+    , _ldMaxResults = Nothing
+    , _ldIdentityId = pIdentityId
+    , _ldIdentityPoolId = pIdentityPoolId
+    }
 
 -- | A pagination token for obtaining the next page of results.
 ldNextToken :: Lens' ListDatasets (Maybe Text)
@@ -133,12 +144,23 @@ instance ToQuery ListDatasets where
 --
 -- * 'ldrDatasets'
 --
--- * 'ldrStatusCode'
-data ListDatasetsResponse = ListDatasetsResponse'{_ldrCount :: Maybe Int, _ldrNextToken :: Maybe Text, _ldrDatasets :: Maybe [Dataset], _ldrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ldrStatus'
+data ListDatasetsResponse = ListDatasetsResponse'
+    { _ldrCount     :: Maybe Int
+    , _ldrNextToken :: Maybe Text
+    , _ldrDatasets  :: Maybe [Dataset]
+    , _ldrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDatasetsResponse' smart constructor.
 listDatasetsResponse :: Int -> ListDatasetsResponse
-listDatasetsResponse pStatusCode = ListDatasetsResponse'{_ldrCount = Nothing, _ldrNextToken = Nothing, _ldrDatasets = Nothing, _ldrStatusCode = pStatusCode};
+listDatasetsResponse pStatus =
+    ListDatasetsResponse'
+    { _ldrCount = Nothing
+    , _ldrNextToken = Nothing
+    , _ldrDatasets = Nothing
+    , _ldrStatus = pStatus
+    }
 
 -- | Number of datasets returned.
 ldrCount :: Lens' ListDatasetsResponse (Maybe Int)
@@ -153,5 +175,5 @@ ldrDatasets :: Lens' ListDatasetsResponse [Dataset]
 ldrDatasets = lens _ldrDatasets (\ s a -> s{_ldrDatasets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldrStatusCode :: Lens' ListDatasetsResponse Int
-ldrStatusCode = lens _ldrStatusCode (\ s a -> s{_ldrStatusCode = a});
+ldrStatus :: Lens' ListDatasetsResponse Int
+ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});

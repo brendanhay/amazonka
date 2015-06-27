@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.ListRecords
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,13 +53,13 @@ module Network.AWS.CognitoSync.ListRecords
     , lrrMergedDatasetNames
     , lrrLastModifiedBy
     , lrrDatasetSyncCount
-    , lrrStatusCode
+    , lrrStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request for a list of records.
 --
@@ -80,11 +80,28 @@ import Network.AWS.Response
 -- * 'lrIdentityId'
 --
 -- * 'lrDatasetName'
-data ListRecords = ListRecords'{_lrLastSyncCount :: Maybe Integer, _lrNextToken :: Maybe Text, _lrSyncSessionToken :: Maybe Text, _lrMaxResults :: Maybe Int, _lrIdentityPoolId :: Text, _lrIdentityId :: Text, _lrDatasetName :: Text} deriving (Eq, Read, Show)
+data ListRecords = ListRecords'
+    { _lrLastSyncCount    :: Maybe Integer
+    , _lrNextToken        :: Maybe Text
+    , _lrSyncSessionToken :: Maybe Text
+    , _lrMaxResults       :: Maybe Int
+    , _lrIdentityPoolId   :: Text
+    , _lrIdentityId       :: Text
+    , _lrDatasetName      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListRecords' smart constructor.
 listRecords :: Text -> Text -> Text -> ListRecords
-listRecords pIdentityPoolId pIdentityId pDatasetName = ListRecords'{_lrLastSyncCount = Nothing, _lrNextToken = Nothing, _lrSyncSessionToken = Nothing, _lrMaxResults = Nothing, _lrIdentityPoolId = pIdentityPoolId, _lrIdentityId = pIdentityId, _lrDatasetName = pDatasetName};
+listRecords pIdentityPoolId pIdentityId pDatasetName =
+    ListRecords'
+    { _lrLastSyncCount = Nothing
+    , _lrNextToken = Nothing
+    , _lrSyncSessionToken = Nothing
+    , _lrMaxResults = Nothing
+    , _lrIdentityPoolId = pIdentityPoolId
+    , _lrIdentityId = pIdentityId
+    , _lrDatasetName = pDatasetName
+    }
 
 -- | The last server sync count for this record.
 lrLastSyncCount :: Lens' ListRecords (Maybe Integer)
@@ -184,12 +201,35 @@ instance ToQuery ListRecords where
 --
 -- * 'lrrDatasetSyncCount'
 --
--- * 'lrrStatusCode'
-data ListRecordsResponse = ListRecordsResponse'{_lrrDatasetDeletedAfterRequestedSyncCount :: Maybe Bool, _lrrDatasetExists :: Maybe Bool, _lrrCount :: Maybe Int, _lrrRecords :: Maybe [Record], _lrrNextToken :: Maybe Text, _lrrSyncSessionToken :: Maybe Text, _lrrMergedDatasetNames :: Maybe [Text], _lrrLastModifiedBy :: Maybe Text, _lrrDatasetSyncCount :: Maybe Integer, _lrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lrrStatus'
+data ListRecordsResponse = ListRecordsResponse'
+    { _lrrDatasetDeletedAfterRequestedSyncCount :: Maybe Bool
+    , _lrrDatasetExists                         :: Maybe Bool
+    , _lrrCount                                 :: Maybe Int
+    , _lrrRecords                               :: Maybe [Record]
+    , _lrrNextToken                             :: Maybe Text
+    , _lrrSyncSessionToken                      :: Maybe Text
+    , _lrrMergedDatasetNames                    :: Maybe [Text]
+    , _lrrLastModifiedBy                        :: Maybe Text
+    , _lrrDatasetSyncCount                      :: Maybe Integer
+    , _lrrStatus                                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListRecordsResponse' smart constructor.
 listRecordsResponse :: Int -> ListRecordsResponse
-listRecordsResponse pStatusCode = ListRecordsResponse'{_lrrDatasetDeletedAfterRequestedSyncCount = Nothing, _lrrDatasetExists = Nothing, _lrrCount = Nothing, _lrrRecords = Nothing, _lrrNextToken = Nothing, _lrrSyncSessionToken = Nothing, _lrrMergedDatasetNames = Nothing, _lrrLastModifiedBy = Nothing, _lrrDatasetSyncCount = Nothing, _lrrStatusCode = pStatusCode};
+listRecordsResponse pStatus =
+    ListRecordsResponse'
+    { _lrrDatasetDeletedAfterRequestedSyncCount = Nothing
+    , _lrrDatasetExists = Nothing
+    , _lrrCount = Nothing
+    , _lrrRecords = Nothing
+    , _lrrNextToken = Nothing
+    , _lrrSyncSessionToken = Nothing
+    , _lrrMergedDatasetNames = Nothing
+    , _lrrLastModifiedBy = Nothing
+    , _lrrDatasetSyncCount = Nothing
+    , _lrrStatus = pStatus
+    }
 
 -- | A boolean value specifying whether to delete the dataset locally.
 lrrDatasetDeletedAfterRequestedSyncCount :: Lens' ListRecordsResponse (Maybe Bool)
@@ -228,5 +268,5 @@ lrrDatasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer)
 lrrDatasetSyncCount = lens _lrrDatasetSyncCount (\ s a -> s{_lrrDatasetSyncCount = a});
 
 -- | FIXME: Undocumented member.
-lrrStatusCode :: Lens' ListRecordsResponse Int
-lrrStatusCode = lens _lrrStatusCode (\ s a -> s{_lrrStatusCode = a});
+lrrStatus :: Lens' ListRecordsResponse Int
+lrrStatus = lens _lrrStatus (\ s a -> s{_lrrStatus = a});

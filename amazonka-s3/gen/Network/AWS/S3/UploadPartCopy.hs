@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.UploadPartCopy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,13 +54,13 @@ module Network.AWS.S3.UploadPartCopy
     , upcrSSEKMSKeyId
     , upcrSSECustomerKeyMD5
     , upcrServerSideEncryption
-    , upcrStatusCode
+    , upcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'uploadPartCopy' smart constructor.
 --
@@ -99,11 +99,48 @@ import Network.AWS.S3.Types
 -- * 'upcPartNumber'
 --
 -- * 'upcUploadId'
-data UploadPartCopy = UploadPartCopy'{_upcCopySourceIfModifiedSince :: Maybe RFC822, _upcCopySourceIfUnmodifiedSince :: Maybe RFC822, _upcCopySourceRange :: Maybe Text, _upcCopySourceSSECustomerKeyMD5 :: Maybe Text, _upcSSECustomerAlgorithm :: Maybe Text, _upcCopySourceIfNoneMatch :: Maybe Text, _upcSSECustomerKey :: Maybe (Sensitive Text), _upcRequestPayer :: Maybe RequestPayer, _upcCopySourceIfMatch :: Maybe Text, _upcSSECustomerKeyMD5 :: Maybe Text, _upcCopySourceSSECustomerKey :: Maybe (Sensitive Text), _upcCopySourceSSECustomerAlgorithm :: Maybe Text, _upcBucket :: BucketName, _upcCopySource :: Text, _upcKey :: ObjectKey, _upcPartNumber :: Int, _upcUploadId :: Text} deriving (Eq, Read, Show)
+data UploadPartCopy = UploadPartCopy'
+    { _upcCopySourceIfModifiedSince      :: Maybe RFC822
+    , _upcCopySourceIfUnmodifiedSince    :: Maybe RFC822
+    , _upcCopySourceRange                :: Maybe Text
+    , _upcCopySourceSSECustomerKeyMD5    :: Maybe Text
+    , _upcSSECustomerAlgorithm           :: Maybe Text
+    , _upcCopySourceIfNoneMatch          :: Maybe Text
+    , _upcSSECustomerKey                 :: Maybe (Sensitive Text)
+    , _upcRequestPayer                   :: Maybe RequestPayer
+    , _upcCopySourceIfMatch              :: Maybe Text
+    , _upcSSECustomerKeyMD5              :: Maybe Text
+    , _upcCopySourceSSECustomerKey       :: Maybe (Sensitive Text)
+    , _upcCopySourceSSECustomerAlgorithm :: Maybe Text
+    , _upcBucket                         :: BucketName
+    , _upcCopySource                     :: Text
+    , _upcKey                            :: ObjectKey
+    , _upcPartNumber                     :: !Int
+    , _upcUploadId                       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UploadPartCopy' smart constructor.
 uploadPartCopy :: BucketName -> Text -> ObjectKey -> Int -> Text -> UploadPartCopy
-uploadPartCopy pBucket pCopySource pKey pPartNumber pUploadId = UploadPartCopy'{_upcCopySourceIfModifiedSince = Nothing, _upcCopySourceIfUnmodifiedSince = Nothing, _upcCopySourceRange = Nothing, _upcCopySourceSSECustomerKeyMD5 = Nothing, _upcSSECustomerAlgorithm = Nothing, _upcCopySourceIfNoneMatch = Nothing, _upcSSECustomerKey = Nothing, _upcRequestPayer = Nothing, _upcCopySourceIfMatch = Nothing, _upcSSECustomerKeyMD5 = Nothing, _upcCopySourceSSECustomerKey = Nothing, _upcCopySourceSSECustomerAlgorithm = Nothing, _upcBucket = pBucket, _upcCopySource = pCopySource, _upcKey = pKey, _upcPartNumber = pPartNumber, _upcUploadId = pUploadId};
+uploadPartCopy pBucket pCopySource pKey pPartNumber pUploadId =
+    UploadPartCopy'
+    { _upcCopySourceIfModifiedSince = Nothing
+    , _upcCopySourceIfUnmodifiedSince = Nothing
+    , _upcCopySourceRange = Nothing
+    , _upcCopySourceSSECustomerKeyMD5 = Nothing
+    , _upcSSECustomerAlgorithm = Nothing
+    , _upcCopySourceIfNoneMatch = Nothing
+    , _upcSSECustomerKey = Nothing
+    , _upcRequestPayer = Nothing
+    , _upcCopySourceIfMatch = Nothing
+    , _upcSSECustomerKeyMD5 = Nothing
+    , _upcCopySourceSSECustomerKey = Nothing
+    , _upcCopySourceSSECustomerAlgorithm = Nothing
+    , _upcBucket = pBucket
+    , _upcCopySource = pCopySource
+    , _upcKey = pKey
+    , _upcPartNumber = pPartNumber
+    , _upcUploadId = pUploadId
+    }
 
 -- | Copies the object if it has been modified since the specified time.
 upcCopySourceIfModifiedSince :: Lens' UploadPartCopy (Maybe UTCTime)
@@ -271,12 +308,31 @@ instance ToQuery UploadPartCopy where
 --
 -- * 'upcrServerSideEncryption'
 --
--- * 'upcrStatusCode'
-data UploadPartCopyResponse = UploadPartCopyResponse'{_upcrRequestCharged :: Maybe RequestCharged, _upcrCopyPartResult :: Maybe CopyPartResult, _upcrSSECustomerAlgorithm :: Maybe Text, _upcrCopySourceVersionId :: Maybe Text, _upcrSSEKMSKeyId :: Maybe (Sensitive Text), _upcrSSECustomerKeyMD5 :: Maybe Text, _upcrServerSideEncryption :: Maybe ServerSideEncryption, _upcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'upcrStatus'
+data UploadPartCopyResponse = UploadPartCopyResponse'
+    { _upcrRequestCharged       :: Maybe RequestCharged
+    , _upcrCopyPartResult       :: Maybe CopyPartResult
+    , _upcrSSECustomerAlgorithm :: Maybe Text
+    , _upcrCopySourceVersionId  :: Maybe Text
+    , _upcrSSEKMSKeyId          :: Maybe (Sensitive Text)
+    , _upcrSSECustomerKeyMD5    :: Maybe Text
+    , _upcrServerSideEncryption :: Maybe ServerSideEncryption
+    , _upcrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UploadPartCopyResponse' smart constructor.
 uploadPartCopyResponse :: Int -> UploadPartCopyResponse
-uploadPartCopyResponse pStatusCode = UploadPartCopyResponse'{_upcrRequestCharged = Nothing, _upcrCopyPartResult = Nothing, _upcrSSECustomerAlgorithm = Nothing, _upcrCopySourceVersionId = Nothing, _upcrSSEKMSKeyId = Nothing, _upcrSSECustomerKeyMD5 = Nothing, _upcrServerSideEncryption = Nothing, _upcrStatusCode = pStatusCode};
+uploadPartCopyResponse pStatus =
+    UploadPartCopyResponse'
+    { _upcrRequestCharged = Nothing
+    , _upcrCopyPartResult = Nothing
+    , _upcrSSECustomerAlgorithm = Nothing
+    , _upcrCopySourceVersionId = Nothing
+    , _upcrSSEKMSKeyId = Nothing
+    , _upcrSSECustomerKeyMD5 = Nothing
+    , _upcrServerSideEncryption = Nothing
+    , _upcrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 upcrRequestCharged :: Lens' UploadPartCopyResponse (Maybe RequestCharged)
@@ -314,5 +370,5 @@ upcrServerSideEncryption :: Lens' UploadPartCopyResponse (Maybe ServerSideEncryp
 upcrServerSideEncryption = lens _upcrServerSideEncryption (\ s a -> s{_upcrServerSideEncryption = a});
 
 -- | FIXME: Undocumented member.
-upcrStatusCode :: Lens' UploadPartCopyResponse Int
-upcrStatusCode = lens _upcrStatusCode (\ s a -> s{_upcrStatusCode = a});
+upcrStatus :: Lens' UploadPartCopyResponse Int
+upcrStatus = lens _upcrStatus (\ s a -> s{_upcrStatus = a});

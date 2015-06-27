@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.RecordActivityTaskHeartbeat
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,13 +80,13 @@ module Network.AWS.SWF.RecordActivityTaskHeartbeat
     , recordActivityTaskHeartbeatResponse
     -- ** Response lenses
     , rathrCancelRequested
-    , rathrStatusCode
+    , rathrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'recordActivityTaskHeartbeat' smart constructor.
 --
@@ -95,11 +95,18 @@ import Network.AWS.SWF.Types
 -- * 'rathDetails'
 --
 -- * 'rathTaskToken'
-data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat'{_rathDetails :: Maybe Text, _rathTaskToken :: Text} deriving (Eq, Read, Show)
+data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat'
+    { _rathDetails   :: Maybe Text
+    , _rathTaskToken :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RecordActivityTaskHeartbeat' smart constructor.
 recordActivityTaskHeartbeat :: Text -> RecordActivityTaskHeartbeat
-recordActivityTaskHeartbeat pTaskToken = RecordActivityTaskHeartbeat'{_rathDetails = Nothing, _rathTaskToken = pTaskToken};
+recordActivityTaskHeartbeat pTaskToken =
+    RecordActivityTaskHeartbeat'
+    { _rathDetails = Nothing
+    , _rathTaskToken = pTaskToken
+    }
 
 -- | If specified, contains details about the progress of the task.
 rathDetails :: Lens' RecordActivityTaskHeartbeat (Maybe Text)
@@ -155,17 +162,24 @@ instance ToQuery RecordActivityTaskHeartbeat where
 --
 -- * 'rathrCancelRequested'
 --
--- * 'rathrStatusCode'
-data RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse'{_rathrCancelRequested :: Bool, _rathrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rathrStatus'
+data RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse'
+    { _rathrCancelRequested :: !Bool
+    , _rathrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RecordActivityTaskHeartbeatResponse' smart constructor.
 recordActivityTaskHeartbeatResponse :: Bool -> Int -> RecordActivityTaskHeartbeatResponse
-recordActivityTaskHeartbeatResponse pCancelRequested pStatusCode = RecordActivityTaskHeartbeatResponse'{_rathrCancelRequested = pCancelRequested, _rathrStatusCode = pStatusCode};
+recordActivityTaskHeartbeatResponse pCancelRequested pStatus =
+    RecordActivityTaskHeartbeatResponse'
+    { _rathrCancelRequested = pCancelRequested
+    , _rathrStatus = pStatus
+    }
 
 -- | Set to @true@ if cancellation of the task is requested.
 rathrCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse Bool
 rathrCancelRequested = lens _rathrCancelRequested (\ s a -> s{_rathrCancelRequested = a});
 
 -- | FIXME: Undocumented member.
-rathrStatusCode :: Lens' RecordActivityTaskHeartbeatResponse Int
-rathrStatusCode = lens _rathrStatusCode (\ s a -> s{_rathrStatusCode = a});
+rathrStatus :: Lens' RecordActivityTaskHeartbeatResponse Int
+rathrStatus = lens _rathrStatus (\ s a -> s{_rathrStatus = a});

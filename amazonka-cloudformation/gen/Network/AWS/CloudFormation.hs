@@ -36,22 +36,22 @@ module Network.AWS.CloudFormation
     ( module Export
     ) where
 
-import Network.AWS.CloudFormation.CancelUpdateStack as Export
-import Network.AWS.CloudFormation.CreateStack as Export
-import Network.AWS.CloudFormation.DeleteStack as Export
-import Network.AWS.CloudFormation.DescribeStackEvents as Export
-import Network.AWS.CloudFormation.DescribeStackResource as Export
-import Network.AWS.CloudFormation.DescribeStackResources as Export
-import Network.AWS.CloudFormation.DescribeStacks as Export
-import Network.AWS.CloudFormation.EstimateTemplateCost as Export
-import Network.AWS.CloudFormation.GetStackPolicy as Export
-import Network.AWS.CloudFormation.GetTemplate as Export
-import Network.AWS.CloudFormation.GetTemplateSummary as Export
-import Network.AWS.CloudFormation.ListStackResources as Export
-import Network.AWS.CloudFormation.ListStacks as Export
-import Network.AWS.CloudFormation.SetStackPolicy as Export
-import Network.AWS.CloudFormation.SignalResource as Export
-import Network.AWS.CloudFormation.Types as Export
-import Network.AWS.CloudFormation.UpdateStack as Export
-import Network.AWS.CloudFormation.ValidateTemplate as Export
-import Network.AWS.CloudFormation.Waiters as Export
+import           Network.AWS.CloudFormation.CancelUpdateStack      as Export
+import           Network.AWS.CloudFormation.CreateStack            as Export
+import           Network.AWS.CloudFormation.DeleteStack            as Export
+import           Network.AWS.CloudFormation.DescribeStackEvents    as Export
+import           Network.AWS.CloudFormation.DescribeStackResource  as Export
+import           Network.AWS.CloudFormation.DescribeStackResources as Export
+import           Network.AWS.CloudFormation.DescribeStacks         as Export
+import           Network.AWS.CloudFormation.EstimateTemplateCost   as Export
+import           Network.AWS.CloudFormation.GetStackPolicy         as Export
+import           Network.AWS.CloudFormation.GetTemplate            as Export
+import           Network.AWS.CloudFormation.GetTemplateSummary     as Export
+import           Network.AWS.CloudFormation.ListStackResources     as Export
+import           Network.AWS.CloudFormation.ListStacks             as Export
+import           Network.AWS.CloudFormation.SetStackPolicy         as Export
+import           Network.AWS.CloudFormation.SignalResource         as Export
+import           Network.AWS.CloudFormation.Types                  as Export
+import           Network.AWS.CloudFormation.UpdateStack            as Export
+import           Network.AWS.CloudFormation.ValidateTemplate       as Export
+import           Network.AWS.CloudFormation.Waiters                as Export

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SES.GetSendQuota
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,20 +34,22 @@ module Network.AWS.SES.GetSendQuota
     , gsqrMaxSendRate
     , gsqrSentLast24Hours
     , gsqrMax24HourSend
-    , gsqrStatusCode
+    , gsqrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SES.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
 -- | /See:/ 'getSendQuota' smart constructor.
-data GetSendQuota = GetSendQuota' deriving (Eq, Read, Show)
+data GetSendQuota =
+    GetSendQuota'
+    deriving (Eq,Read,Show)
 
 -- | 'GetSendQuota' smart constructor.
 getSendQuota :: GetSendQuota
-getSendQuota = GetSendQuota';
+getSendQuota = GetSendQuota'
 
 instance AWSRequest GetSendQuota where
         type Sv GetSendQuota = SES
@@ -87,12 +89,23 @@ instance ToQuery GetSendQuota where
 --
 -- * 'gsqrMax24HourSend'
 --
--- * 'gsqrStatusCode'
-data GetSendQuotaResponse = GetSendQuotaResponse'{_gsqrMaxSendRate :: Maybe Double, _gsqrSentLast24Hours :: Maybe Double, _gsqrMax24HourSend :: Maybe Double, _gsqrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gsqrStatus'
+data GetSendQuotaResponse = GetSendQuotaResponse'
+    { _gsqrMaxSendRate     :: Maybe Double
+    , _gsqrSentLast24Hours :: Maybe Double
+    , _gsqrMax24HourSend   :: Maybe Double
+    , _gsqrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetSendQuotaResponse' smart constructor.
 getSendQuotaResponse :: Int -> GetSendQuotaResponse
-getSendQuotaResponse pStatusCode = GetSendQuotaResponse'{_gsqrMaxSendRate = Nothing, _gsqrSentLast24Hours = Nothing, _gsqrMax24HourSend = Nothing, _gsqrStatusCode = pStatusCode};
+getSendQuotaResponse pStatus =
+    GetSendQuotaResponse'
+    { _gsqrMaxSendRate = Nothing
+    , _gsqrSentLast24Hours = Nothing
+    , _gsqrMax24HourSend = Nothing
+    , _gsqrStatus = pStatus
+    }
 
 -- | The maximum number of emails that Amazon SES can accept from the user\'s
 -- account per second.
@@ -112,5 +125,5 @@ gsqrMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrMax24HourSend = lens _gsqrMax24HourSend (\ s a -> s{_gsqrMax24HourSend = a});
 
 -- | FIXME: Undocumented member.
-gsqrStatusCode :: Lens' GetSendQuotaResponse Int
-gsqrStatusCode = lens _gsqrStatusCode (\ s a -> s{_gsqrStatusCode = a});
+gsqrStatus :: Lens' GetSendQuotaResponse Int
+gsqrStatus = lens _gsqrStatus (\ s a -> s{_gsqrStatus = a});

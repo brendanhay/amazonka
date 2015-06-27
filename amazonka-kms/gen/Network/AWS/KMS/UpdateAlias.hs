@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.UpdateAlias
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,10 +46,10 @@ module Network.AWS.KMS.UpdateAlias
     , updateAliasResponse
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateAlias' smart constructor.
 --
@@ -58,11 +58,18 @@ import Network.AWS.Response
 -- * 'uaAliasName'
 --
 -- * 'uaTargetKeyId'
-data UpdateAlias = UpdateAlias'{_uaAliasName :: Text, _uaTargetKeyId :: Text} deriving (Eq, Read, Show)
+data UpdateAlias = UpdateAlias'
+    { _uaAliasName   :: Text
+    , _uaTargetKeyId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateAlias' smart constructor.
 updateAlias :: Text -> Text -> UpdateAlias
-updateAlias pAliasName pTargetKeyId = UpdateAlias'{_uaAliasName = pAliasName, _uaTargetKeyId = pTargetKeyId};
+updateAlias pAliasName pTargetKeyId =
+    UpdateAlias'
+    { _uaAliasName = pAliasName
+    , _uaTargetKeyId = pTargetKeyId
+    }
 
 -- | String that contains the name of the alias to be modifed. The name must
 -- start with the word \"alias\" followed by a forward slash (alias\/).
@@ -109,8 +116,10 @@ instance ToQuery UpdateAlias where
         toQuery = const mempty
 
 -- | /See:/ 'updateAliasResponse' smart constructor.
-data UpdateAliasResponse = UpdateAliasResponse' deriving (Eq, Read, Show)
+data UpdateAliasResponse =
+    UpdateAliasResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateAliasResponse' smart constructor.
 updateAliasResponse :: UpdateAliasResponse
-updateAliasResponse = UpdateAliasResponse';
+updateAliasResponse = UpdateAliasResponse'

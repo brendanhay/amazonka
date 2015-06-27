@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.CloudSearchDomains.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -67,8 +66,8 @@ module Network.AWS.CloudSearchDomains.Types
     -- * SearchStatus
     , SearchStatus
     , searchStatus
-    , seaRid
-    , seaTimems
+    , ssRid
+    , ssTimems
 
     -- * SuggestModel
     , SuggestModel
@@ -80,8 +79,8 @@ module Network.AWS.CloudSearchDomains.Types
     -- * SuggestStatus
     , SuggestStatus
     , suggestStatus
-    , ssRid
-    , ssTimems
+    , sugRid
+    , sugTimems
 
     -- * SuggestionMatch
     , SuggestionMatch
@@ -91,51 +90,57 @@ module Network.AWS.CloudSearchDomains.Types
     , smId
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2013-01-01@ of the Amazon CloudSearch Domain SDK.
 data CloudSearchDomains
 
 instance AWSService CloudSearchDomains where
     type Sg CloudSearchDomains = V4
-
     service = const svc
       where
-        svc :: Service CloudSearchDomains
-        svc = Service
-            { _svcAbbrev   = "CloudSearchDomains"
-            , _svcPrefix   = "cloudsearchdomain"
-            , _svcVersion  = "2013-01-01"
+        svc =
+            Service
+            { _svcAbbrev = "CloudSearchDomains"
+            , _svcPrefix = "cloudsearchdomain"
+            , _svcVersion = "2013-01-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | Information about any problems encountered while processing an upload
 -- request.
-_DocumentServiceException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DocumentServiceException = _ServiceError . hasCode "DocumentServiceException";
+_DocumentServiceException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DocumentServiceException = _ServiceError . hasCode "DocumentServiceException"
 
 -- | Information about any problems encountered while processing a search
 -- request.
-_SearchException :: AWSError a => Geting (First ServiceError) a ServiceError
-_SearchException = _ServiceError . hasCode "SearchException";
+_SearchException :: AWSError a => Getting (First ServiceError) a ServiceError
+_SearchException = _ServiceError . hasCode "SearchException"
 
-data ContentType = ApplicationJSON | ApplicationXML deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ContentType
+    = ApplicationJSON
+    | ApplicationXML
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ContentType where
     parser = takeLowerText >>= \case
@@ -155,7 +160,12 @@ instance ToHeader ContentType
 instance ToJSON ContentType where
     toJSON = toJSONText
 
-data QueryParser = Lucene | Dismax | Simple | Structured deriving (Eq, Ord, Read, Show, Enum, Generic)
+data QueryParser
+    = Lucene
+    | Dismax
+    | Simple
+    | Structured
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText QueryParser where
     parser = takeLowerText >>= \case
@@ -188,11 +198,18 @@ instance ToJSON QueryParser where
 -- * 'bucValue'
 --
 -- * 'bucCount'
-data Bucket = Bucket'{_bucValue :: Maybe Text, _bucCount :: Maybe Integer} deriving (Eq, Read, Show)
+data Bucket = Bucket'
+    { _bucValue :: Maybe Text
+    , _bucCount :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'Bucket' smart constructor.
 bucket :: Bucket
-bucket = Bucket'{_bucValue = Nothing, _bucCount = Nothing};
+bucket =
+    Bucket'
+    { _bucValue = Nothing
+    , _bucCount = Nothing
+    }
 
 -- | The facet value being counted.
 bucValue :: Lens' Bucket (Maybe Text)
@@ -216,11 +233,16 @@ instance FromJSON Bucket where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'biBuckets'
-newtype BucketInfo = BucketInfo'{_biBuckets :: Maybe [Bucket]} deriving (Eq, Read, Show)
+newtype BucketInfo = BucketInfo'
+    { _biBuckets :: Maybe [Bucket]
+    } deriving (Eq,Read,Show)
 
 -- | 'BucketInfo' smart constructor.
 bucketInfo :: BucketInfo
-bucketInfo = BucketInfo'{_biBuckets = Nothing};
+bucketInfo =
+    BucketInfo'
+    { _biBuckets = Nothing
+    }
 
 -- | A list of the calculated facet values and counts.
 biBuckets :: Lens' BucketInfo [Bucket]
@@ -239,11 +261,16 @@ instance FromJSON BucketInfo where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dswMessage'
-newtype DocumentServiceWarning = DocumentServiceWarning'{_dswMessage :: Maybe Text} deriving (Eq, Read, Show)
+newtype DocumentServiceWarning = DocumentServiceWarning'
+    { _dswMessage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DocumentServiceWarning' smart constructor.
 documentServiceWarning :: DocumentServiceWarning
-documentServiceWarning = DocumentServiceWarning'{_dswMessage = Nothing};
+documentServiceWarning =
+    DocumentServiceWarning'
+    { _dswMessage = Nothing
+    }
 
 -- | The description for a warning returned by the document service.
 dswMessage :: Lens' DocumentServiceWarning (Maybe Text)
@@ -268,11 +295,22 @@ instance FromJSON DocumentServiceWarning where
 -- * 'hitHighlights'
 --
 -- * 'hitFields'
-data Hit = Hit'{_hitExprs :: Maybe (Map Text Text), _hitId :: Maybe Text, _hitHighlights :: Maybe (Map Text Text), _hitFields :: Maybe (Map Text [Text])} deriving (Eq, Read, Show)
+data Hit = Hit'
+    { _hitExprs      :: Maybe (Map Text Text)
+    , _hitId         :: Maybe Text
+    , _hitHighlights :: Maybe (Map Text Text)
+    , _hitFields     :: Maybe (Map Text [Text])
+    } deriving (Eq,Read,Show)
 
 -- | 'Hit' smart constructor.
 hit :: Hit
-hit = Hit'{_hitExprs = Nothing, _hitId = Nothing, _hitHighlights = Nothing, _hitFields = Nothing};
+hit =
+    Hit'
+    { _hitExprs = Nothing
+    , _hitId = Nothing
+    , _hitHighlights = Nothing
+    , _hitFields = Nothing
+    }
 
 -- | The expressions returned from a document that matches the search
 -- request.
@@ -313,11 +351,22 @@ instance FromJSON Hit where
 -- * 'hitStart'
 --
 -- * 'hitFound'
-data Hits = Hits'{_hitCursor :: Maybe Text, _hitHit :: Maybe [Hit], _hitStart :: Maybe Integer, _hitFound :: Maybe Integer} deriving (Eq, Read, Show)
+data Hits = Hits'
+    { _hitCursor :: Maybe Text
+    , _hitHit    :: Maybe [Hit]
+    , _hitStart  :: Maybe Integer
+    , _hitFound  :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'Hits' smart constructor.
 hits :: Hits
-hits = Hits'{_hitCursor = Nothing, _hitHit = Nothing, _hitStart = Nothing, _hitFound = Nothing};
+hits =
+    Hits'
+    { _hitCursor = Nothing
+    , _hitHit = Nothing
+    , _hitStart = Nothing
+    , _hitFound = Nothing
+    }
 
 -- | A cursor that can be used to retrieve the next set of matching documents
 -- when you want to page through a large result set.
@@ -352,22 +401,29 @@ instance FromJSON Hits where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'seaRid'
+-- * 'ssRid'
 --
--- * 'seaTimems'
-data SearchStatus = SearchStatus'{_seaRid :: Maybe Text, _seaTimems :: Maybe Integer} deriving (Eq, Read, Show)
+-- * 'ssTimems'
+data SearchStatus = SearchStatus'
+    { _ssRid    :: Maybe Text
+    , _ssTimems :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'SearchStatus' smart constructor.
 searchStatus :: SearchStatus
-searchStatus = SearchStatus'{_seaRid = Nothing, _seaTimems = Nothing};
+searchStatus =
+    SearchStatus'
+    { _ssRid = Nothing
+    , _ssTimems = Nothing
+    }
 
 -- | The encrypted resource ID for the request.
-seaRid :: Lens' SearchStatus (Maybe Text)
-seaRid = lens _seaRid (\ s a -> s{_seaRid = a});
+ssRid :: Lens' SearchStatus (Maybe Text)
+ssRid = lens _ssRid (\ s a -> s{_ssRid = a});
 
 -- | How long it took to process the request, in milliseconds.
-seaTimems :: Lens' SearchStatus (Maybe Integer)
-seaTimems = lens _seaTimems (\ s a -> s{_seaTimems = a});
+ssTimems :: Lens' SearchStatus (Maybe Integer)
+ssTimems = lens _ssTimems (\ s a -> s{_ssTimems = a});
 
 instance FromJSON SearchStatus where
         parseJSON
@@ -387,11 +443,20 @@ instance FromJSON SearchStatus where
 -- * 'smSuggestions'
 --
 -- * 'smQuery'
-data SuggestModel = SuggestModel'{_smFound :: Maybe Integer, _smSuggestions :: Maybe [SuggestionMatch], _smQuery :: Maybe Text} deriving (Eq, Read, Show)
+data SuggestModel = SuggestModel'
+    { _smFound       :: Maybe Integer
+    , _smSuggestions :: Maybe [SuggestionMatch]
+    , _smQuery       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SuggestModel' smart constructor.
 suggestModel :: SuggestModel
-suggestModel = SuggestModel'{_smFound = Nothing, _smSuggestions = Nothing, _smQuery = Nothing};
+suggestModel =
+    SuggestModel'
+    { _smFound = Nothing
+    , _smSuggestions = Nothing
+    , _smQuery = Nothing
+    }
 
 -- | The number of documents that were found to match the query string.
 smFound :: Lens' SuggestModel (Maybe Integer)
@@ -420,22 +485,29 @@ instance FromJSON SuggestModel where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ssRid'
+-- * 'sugRid'
 --
--- * 'ssTimems'
-data SuggestStatus = SuggestStatus'{_ssRid :: Maybe Text, _ssTimems :: Maybe Integer} deriving (Eq, Read, Show)
+-- * 'sugTimems'
+data SuggestStatus = SuggestStatus'
+    { _sugRid    :: Maybe Text
+    , _sugTimems :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'SuggestStatus' smart constructor.
 suggestStatus :: SuggestStatus
-suggestStatus = SuggestStatus'{_ssRid = Nothing, _ssTimems = Nothing};
+suggestStatus =
+    SuggestStatus'
+    { _sugRid = Nothing
+    , _sugTimems = Nothing
+    }
 
 -- | The encrypted resource ID for the request.
-ssRid :: Lens' SuggestStatus (Maybe Text)
-ssRid = lens _ssRid (\ s a -> s{_ssRid = a});
+sugRid :: Lens' SuggestStatus (Maybe Text)
+sugRid = lens _sugRid (\ s a -> s{_sugRid = a});
 
 -- | How long it took to process the request, in milliseconds.
-ssTimems :: Lens' SuggestStatus (Maybe Integer)
-ssTimems = lens _ssTimems (\ s a -> s{_ssTimems = a});
+sugTimems :: Lens' SuggestStatus (Maybe Integer)
+sugTimems = lens _sugTimems (\ s a -> s{_sugTimems = a});
 
 instance FromJSON SuggestStatus where
         parseJSON
@@ -456,11 +528,20 @@ instance FromJSON SuggestStatus where
 -- * 'smScore'
 --
 -- * 'smId'
-data SuggestionMatch = SuggestionMatch'{_smSuggestion :: Maybe Text, _smScore :: Maybe Integer, _smId :: Maybe Text} deriving (Eq, Read, Show)
+data SuggestionMatch = SuggestionMatch'
+    { _smSuggestion :: Maybe Text
+    , _smScore      :: Maybe Integer
+    , _smId         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SuggestionMatch' smart constructor.
 suggestionMatch :: SuggestionMatch
-suggestionMatch = SuggestionMatch'{_smSuggestion = Nothing, _smScore = Nothing, _smId = Nothing};
+suggestionMatch =
+    SuggestionMatch'
+    { _smSuggestion = Nothing
+    , _smScore = Nothing
+    , _smId = Nothing
+    }
 
 -- | The string that matches the query string specified in the
 -- @SuggestRequest@.

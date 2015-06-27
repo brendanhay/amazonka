@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeVolumes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.OpsWorks.DescribeVolumes
     , describeVolumesResponse
     -- ** Response lenses
     , dvrVolumes
-    , dvrStatusCode
+    , dvrStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVolumes' smart constructor.
 --
@@ -62,11 +62,22 @@ import Network.AWS.Response
 -- * 'dvRAIDArrayId'
 --
 -- * 'dvStackId'
-data DescribeVolumes = DescribeVolumes'{_dvInstanceId :: Maybe Text, _dvVolumeIds :: Maybe [Text], _dvRAIDArrayId :: Maybe Text, _dvStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeVolumes = DescribeVolumes'
+    { _dvInstanceId  :: Maybe Text
+    , _dvVolumeIds   :: Maybe [Text]
+    , _dvRAIDArrayId :: Maybe Text
+    , _dvStackId     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVolumes' smart constructor.
 describeVolumes :: DescribeVolumes
-describeVolumes = DescribeVolumes'{_dvInstanceId = Nothing, _dvVolumeIds = Nothing, _dvRAIDArrayId = Nothing, _dvStackId = Nothing};
+describeVolumes =
+    DescribeVolumes'
+    { _dvInstanceId = Nothing
+    , _dvVolumeIds = Nothing
+    , _dvRAIDArrayId = Nothing
+    , _dvStackId = Nothing
+    }
 
 -- | The instance ID. If you use this parameter, @DescribeVolumes@ returns
 -- descriptions of the volumes associated with the specified instance.
@@ -130,17 +141,24 @@ instance ToQuery DescribeVolumes where
 --
 -- * 'dvrVolumes'
 --
--- * 'dvrStatusCode'
-data DescribeVolumesResponse = DescribeVolumesResponse'{_dvrVolumes :: Maybe [Volume], _dvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dvrStatus'
+data DescribeVolumesResponse = DescribeVolumesResponse'
+    { _dvrVolumes :: Maybe [Volume]
+    , _dvrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVolumesResponse' smart constructor.
 describeVolumesResponse :: Int -> DescribeVolumesResponse
-describeVolumesResponse pStatusCode = DescribeVolumesResponse'{_dvrVolumes = Nothing, _dvrStatusCode = pStatusCode};
+describeVolumesResponse pStatus =
+    DescribeVolumesResponse'
+    { _dvrVolumes = Nothing
+    , _dvrStatus = pStatus
+    }
 
 -- | An array of volume IDs.
 dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrVolumes = lens _dvrVolumes (\ s a -> s{_dvrVolumes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvrStatusCode :: Lens' DescribeVolumesResponse Int
-dvrStatusCode = lens _dvrStatusCode (\ s a -> s{_dvrStatusCode = a});
+dvrStatus :: Lens' DescribeVolumesResponse Int
+dvrStatus = lens _dvrStatus (\ s a -> s{_dvrStatus = a});

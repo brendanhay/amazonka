@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.UpdateDomainContact
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.Route53Domains.UpdateDomainContact
     , updateDomainContactResponse
     -- ** Response lenses
     , udcrOperationId
-    , udcrStatusCode
+    , udcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | The UpdateDomainContact request includes the following elements.
 --
@@ -63,11 +63,22 @@ import Network.AWS.Route53Domains.Types
 -- * 'udcTechContact'
 --
 -- * 'udcDomainName'
-data UpdateDomainContact = UpdateDomainContact'{_udcRegistrantContact :: Maybe (Sensitive ContactDetail), _udcAdminContact :: Maybe (Sensitive ContactDetail), _udcTechContact :: Maybe (Sensitive ContactDetail), _udcDomainName :: Text} deriving (Eq, Read, Show)
+data UpdateDomainContact = UpdateDomainContact'
+    { _udcRegistrantContact :: Maybe (Sensitive ContactDetail)
+    , _udcAdminContact      :: Maybe (Sensitive ContactDetail)
+    , _udcTechContact       :: Maybe (Sensitive ContactDetail)
+    , _udcDomainName        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDomainContact' smart constructor.
 updateDomainContact :: Text -> UpdateDomainContact
-updateDomainContact pDomainName = UpdateDomainContact'{_udcRegistrantContact = Nothing, _udcAdminContact = Nothing, _udcTechContact = Nothing, _udcDomainName = pDomainName};
+updateDomainContact pDomainName =
+    UpdateDomainContact'
+    { _udcRegistrantContact = Nothing
+    , _udcAdminContact = Nothing
+    , _udcTechContact = Nothing
+    , _udcDomainName = pDomainName
+    }
 
 -- | Provides detailed contact information.
 --
@@ -162,12 +173,19 @@ instance ToQuery UpdateDomainContact where
 --
 -- * 'udcrOperationId'
 --
--- * 'udcrStatusCode'
-data UpdateDomainContactResponse = UpdateDomainContactResponse'{_udcrOperationId :: Text, _udcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'udcrStatus'
+data UpdateDomainContactResponse = UpdateDomainContactResponse'
+    { _udcrOperationId :: Text
+    , _udcrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDomainContactResponse' smart constructor.
 updateDomainContactResponse :: Text -> Int -> UpdateDomainContactResponse
-updateDomainContactResponse pOperationId pStatusCode = UpdateDomainContactResponse'{_udcrOperationId = pOperationId, _udcrStatusCode = pStatusCode};
+updateDomainContactResponse pOperationId pStatus =
+    UpdateDomainContactResponse'
+    { _udcrOperationId = pOperationId
+    , _udcrStatus = pStatus
+    }
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -181,5 +199,5 @@ udcrOperationId :: Lens' UpdateDomainContactResponse Text
 udcrOperationId = lens _udcrOperationId (\ s a -> s{_udcrOperationId = a});
 
 -- | FIXME: Undocumented member.
-udcrStatusCode :: Lens' UpdateDomainContactResponse Int
-udcrStatusCode = lens _udcrStatusCode (\ s a -> s{_udcrStatusCode = a});
+udcrStatus :: Lens' UpdateDomainContactResponse Int
+udcrStatus = lens _udcrStatus (\ s a -> s{_udcrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.StopDeployment
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,15 +31,14 @@ module Network.AWS.CodeDeploy.StopDeployment
     -- ** Response constructor
     , stopDeploymentResponse
     -- ** Response lenses
-    , sdrStatus
     , sdrStatusMessage
-    , sdrStatusCode
+    , sdrStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a stop deployment operation.
 --
@@ -48,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'sdDeploymentId'
-newtype StopDeployment = StopDeployment'{_sdDeploymentId :: Text} deriving (Eq, Read, Show)
+newtype StopDeployment = StopDeployment'
+    { _sdDeploymentId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StopDeployment' smart constructor.
 stopDeployment :: Text -> StopDeployment
-stopDeployment pDeploymentId = StopDeployment'{_sdDeploymentId = pDeploymentId};
+stopDeployment pDeploymentId =
+    StopDeployment'
+    { _sdDeploymentId = pDeploymentId
+    }
 
 -- | The unique ID of a deployment.
 sdDeploymentId :: Lens' StopDeployment Text
@@ -66,8 +70,7 @@ instance AWSRequest StopDeployment where
           = receiveJSON
               (\ s h x ->
                  StopDeploymentResponse' <$>
-                   (x .?> "status") <*> (x .?> "statusMessage") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "statusMessage") <*> (pure (fromEnum s)))
 
 instance ToHeaders StopDeployment where
         toHeaders
@@ -94,28 +97,26 @@ instance ToQuery StopDeployment where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sdrStatus'
---
 -- * 'sdrStatusMessage'
 --
--- * 'sdrStatusCode'
-data StopDeploymentResponse = StopDeploymentResponse'{_sdrStatus :: Maybe StopStatus, _sdrStatusMessage :: Maybe Text, _sdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'sdrStatus'
+data StopDeploymentResponse = StopDeploymentResponse'
+    { _sdrStatusMessage :: Maybe Text
+    , _sdrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'StopDeploymentResponse' smart constructor.
 stopDeploymentResponse :: Int -> StopDeploymentResponse
-stopDeploymentResponse pStatusCode = StopDeploymentResponse'{_sdrStatus = Nothing, _sdrStatusMessage = Nothing, _sdrStatusCode = pStatusCode};
-
--- | The status of the stop deployment operation:
---
--- -   Pending: The stop operation is pending.
--- -   Succeeded: The stop operation succeeded.
-sdrStatus :: Lens' StopDeploymentResponse (Maybe StopStatus)
-sdrStatus = lens _sdrStatus (\ s a -> s{_sdrStatus = a});
+stopDeploymentResponse pStatus =
+    StopDeploymentResponse'
+    { _sdrStatusMessage = Nothing
+    , _sdrStatus = pStatus
+    }
 
 -- | An accompanying status message.
 sdrStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)
 sdrStatusMessage = lens _sdrStatusMessage (\ s a -> s{_sdrStatusMessage = a});
 
 -- | FIXME: Undocumented member.
-sdrStatusCode :: Lens' StopDeploymentResponse Int
-sdrStatusCode = lens _sdrStatusCode (\ s a -> s{_sdrStatusCode = a});
+sdrStatus :: Lens' StopDeploymentResponse Int
+sdrStatus = lens _sdrStatus (\ s a -> s{_sdrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CopyImage
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,13 +44,13 @@ module Network.AWS.EC2.CopyImage
     , copyImageResponse
     -- ** Response lenses
     , copImageId
-    , copStatusCode
+    , copStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'copyImage' smart constructor.
 --
@@ -67,11 +67,26 @@ import Network.AWS.Response
 -- * 'ciSourceImageId'
 --
 -- * 'ciName'
-data CopyImage = CopyImage'{_ciClientToken :: Maybe Text, _ciDryRun :: Maybe Bool, _ciDescription :: Maybe Text, _ciSourceRegion :: Text, _ciSourceImageId :: Text, _ciName :: Text} deriving (Eq, Read, Show)
+data CopyImage = CopyImage'
+    { _ciClientToken   :: Maybe Text
+    , _ciDryRun        :: Maybe Bool
+    , _ciDescription   :: Maybe Text
+    , _ciSourceRegion  :: Text
+    , _ciSourceImageId :: Text
+    , _ciName          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyImage' smart constructor.
 copyImage :: Text -> Text -> Text -> CopyImage
-copyImage pSourceRegion pSourceImageId pName = CopyImage'{_ciClientToken = Nothing, _ciDryRun = Nothing, _ciDescription = Nothing, _ciSourceRegion = pSourceRegion, _ciSourceImageId = pSourceImageId, _ciName = pName};
+copyImage pSourceRegion pSourceImageId pName =
+    CopyImage'
+    { _ciClientToken = Nothing
+    , _ciDryRun = Nothing
+    , _ciDescription = Nothing
+    , _ciSourceRegion = pSourceRegion
+    , _ciSourceImageId = pSourceImageId
+    , _ciName = pName
+    }
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of
 -- the request. For more information, see
@@ -137,17 +152,24 @@ instance ToQuery CopyImage where
 --
 -- * 'copImageId'
 --
--- * 'copStatusCode'
-data CopyImageResponse = CopyImageResponse'{_copImageId :: Maybe Text, _copStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'copStatus'
+data CopyImageResponse = CopyImageResponse'
+    { _copImageId :: Maybe Text
+    , _copStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyImageResponse' smart constructor.
 copyImageResponse :: Int -> CopyImageResponse
-copyImageResponse pStatusCode = CopyImageResponse'{_copImageId = Nothing, _copStatusCode = pStatusCode};
+copyImageResponse pStatus =
+    CopyImageResponse'
+    { _copImageId = Nothing
+    , _copStatus = pStatus
+    }
 
 -- | The ID of the new AMI.
 copImageId :: Lens' CopyImageResponse (Maybe Text)
 copImageId = lens _copImageId (\ s a -> s{_copImageId = a});
 
 -- | FIXME: Undocumented member.
-copStatusCode :: Lens' CopyImageResponse Int
-copStatusCode = lens _copStatusCode (\ s a -> s{_copStatusCode = a});
+copStatus :: Lens' CopyImageResponse Int
+copStatus = lens _copStatus (\ s a -> s{_copStatus = a});

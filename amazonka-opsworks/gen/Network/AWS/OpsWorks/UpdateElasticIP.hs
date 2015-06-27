@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateElasticIP
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,10 +41,10 @@ module Network.AWS.OpsWorks.UpdateElasticIP
     , updateElasticIPResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateElasticIP' smart constructor.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'ueiName'
 --
 -- * 'ueiElasticIP'
-data UpdateElasticIP = UpdateElasticIP'{_ueiName :: Maybe Text, _ueiElasticIP :: Text} deriving (Eq, Read, Show)
+data UpdateElasticIP = UpdateElasticIP'
+    { _ueiName      :: Maybe Text
+    , _ueiElasticIP :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateElasticIP' smart constructor.
 updateElasticIP :: Text -> UpdateElasticIP
-updateElasticIP pElasticIP = UpdateElasticIP'{_ueiName = Nothing, _ueiElasticIP = pElasticIP};
+updateElasticIP pElasticIP =
+    UpdateElasticIP'
+    { _ueiName = Nothing
+    , _ueiElasticIP = pElasticIP
+    }
 
 -- | The new name.
 ueiName :: Lens' UpdateElasticIP (Maybe Text)
@@ -94,8 +101,10 @@ instance ToQuery UpdateElasticIP where
         toQuery = const mempty
 
 -- | /See:/ 'updateElasticIPResponse' smart constructor.
-data UpdateElasticIPResponse = UpdateElasticIPResponse' deriving (Eq, Read, Show)
+data UpdateElasticIPResponse =
+    UpdateElasticIPResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateElasticIPResponse' smart constructor.
 updateElasticIPResponse :: UpdateElasticIPResponse
-updateElasticIPResponse = UpdateElasticIPResponse';
+updateElasticIPResponse = UpdateElasticIPResponse'

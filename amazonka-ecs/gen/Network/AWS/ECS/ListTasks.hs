@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.ListTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,14 +43,14 @@ module Network.AWS.ECS.ListTasks
     -- ** Response lenses
     , ltrNextToken
     , ltrTaskARNs
-    , ltrStatusCode
+    , ltrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listTasks' smart constructor.
 --
@@ -71,11 +71,30 @@ import Network.AWS.Response
 -- * 'ltContainerInstance'
 --
 -- * 'ltMaxResults'
-data ListTasks = ListTasks'{_ltDesiredStatus :: Maybe DesiredStatus, _ltCluster :: Maybe Text, _ltFamily :: Maybe Text, _ltNextToken :: Maybe Text, _ltStartedBy :: Maybe Text, _ltServiceName :: Maybe Text, _ltContainerInstance :: Maybe Text, _ltMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data ListTasks = ListTasks'
+    { _ltDesiredStatus     :: Maybe DesiredStatus
+    , _ltCluster           :: Maybe Text
+    , _ltFamily            :: Maybe Text
+    , _ltNextToken         :: Maybe Text
+    , _ltStartedBy         :: Maybe Text
+    , _ltServiceName       :: Maybe Text
+    , _ltContainerInstance :: Maybe Text
+    , _ltMaxResults        :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTasks' smart constructor.
 listTasks :: ListTasks
-listTasks = ListTasks'{_ltDesiredStatus = Nothing, _ltCluster = Nothing, _ltFamily = Nothing, _ltNextToken = Nothing, _ltStartedBy = Nothing, _ltServiceName = Nothing, _ltContainerInstance = Nothing, _ltMaxResults = Nothing};
+listTasks =
+    ListTasks'
+    { _ltDesiredStatus = Nothing
+    , _ltCluster = Nothing
+    , _ltFamily = Nothing
+    , _ltNextToken = Nothing
+    , _ltStartedBy = Nothing
+    , _ltServiceName = Nothing
+    , _ltContainerInstance = Nothing
+    , _ltMaxResults = Nothing
+    }
 
 -- | The task status that you want to filter the @ListTasks@ results with.
 -- Specifying a @desiredStatus@ of @STOPPED@ will limit the results to
@@ -188,12 +207,21 @@ instance ToQuery ListTasks where
 --
 -- * 'ltrTaskARNs'
 --
--- * 'ltrStatusCode'
-data ListTasksResponse = ListTasksResponse'{_ltrNextToken :: Maybe Text, _ltrTaskARNs :: Maybe [Text], _ltrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ltrStatus'
+data ListTasksResponse = ListTasksResponse'
+    { _ltrNextToken :: Maybe Text
+    , _ltrTaskARNs  :: Maybe [Text]
+    , _ltrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTasksResponse' smart constructor.
 listTasksResponse :: Int -> ListTasksResponse
-listTasksResponse pStatusCode = ListTasksResponse'{_ltrNextToken = Nothing, _ltrTaskARNs = Nothing, _ltrStatusCode = pStatusCode};
+listTasksResponse pStatus =
+    ListTasksResponse'
+    { _ltrNextToken = Nothing
+    , _ltrTaskARNs = Nothing
+    , _ltrStatus = pStatus
+    }
 
 -- | The @nextToken@ value to include in a future @ListTasks@ request. When
 -- the results of a @ListTasks@ request exceed @maxResults@, this value can
@@ -208,5 +236,5 @@ ltrTaskARNs :: Lens' ListTasksResponse [Text]
 ltrTaskARNs = lens _ltrTaskARNs (\ s a -> s{_ltrTaskARNs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ltrStatusCode :: Lens' ListTasksResponse Int
-ltrStatusCode = lens _ltrStatusCode (\ s a -> s{_ltrStatusCode = a});
+ltrStatus :: Lens' ListTasksResponse Int
+ltrStatus = lens _ltrStatus (\ s a -> s{_ltrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.PutBucketACL
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.S3.PutBucketACL
     , putBucketACLResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'putBucketACL' smart constructor.
 --
@@ -66,11 +66,32 @@ import Network.AWS.S3.Types
 -- * 'pbaACL'
 --
 -- * 'pbaBucket'
-data PutBucketACL = PutBucketACL'{_pbaGrantReadACP :: Maybe Text, _pbaGrantWriteACP :: Maybe Text, _pbaGrantRead :: Maybe Text, _pbaGrantFullControl :: Maybe Text, _pbaContentMD5 :: Maybe Text, _pbaAccessControlPolicy :: Maybe AccessControlPolicy, _pbaGrantWrite :: Maybe Text, _pbaACL :: Maybe BucketCannedACL, _pbaBucket :: BucketName} deriving (Eq, Read, Show)
+data PutBucketACL = PutBucketACL'
+    { _pbaGrantReadACP        :: Maybe Text
+    , _pbaGrantWriteACP       :: Maybe Text
+    , _pbaGrantRead           :: Maybe Text
+    , _pbaGrantFullControl    :: Maybe Text
+    , _pbaContentMD5          :: Maybe Text
+    , _pbaAccessControlPolicy :: Maybe AccessControlPolicy
+    , _pbaGrantWrite          :: Maybe Text
+    , _pbaACL                 :: Maybe BucketCannedACL
+    , _pbaBucket              :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'PutBucketACL' smart constructor.
 putBucketACL :: BucketName -> PutBucketACL
-putBucketACL pBucket = PutBucketACL'{_pbaGrantReadACP = Nothing, _pbaGrantWriteACP = Nothing, _pbaGrantRead = Nothing, _pbaGrantFullControl = Nothing, _pbaContentMD5 = Nothing, _pbaAccessControlPolicy = Nothing, _pbaGrantWrite = Nothing, _pbaACL = Nothing, _pbaBucket = pBucket};
+putBucketACL pBucket =
+    PutBucketACL'
+    { _pbaGrantReadACP = Nothing
+    , _pbaGrantWriteACP = Nothing
+    , _pbaGrantRead = Nothing
+    , _pbaGrantFullControl = Nothing
+    , _pbaContentMD5 = Nothing
+    , _pbaAccessControlPolicy = Nothing
+    , _pbaGrantWrite = Nothing
+    , _pbaACL = Nothing
+    , _pbaBucket = pBucket
+    }
 
 -- | Allows grantee to read the bucket ACL.
 pbaGrantReadACP :: Lens' PutBucketACL (Maybe Text)
@@ -142,8 +163,10 @@ instance ToQuery PutBucketACL where
         toQuery = const (mconcat ["acl"])
 
 -- | /See:/ 'putBucketACLResponse' smart constructor.
-data PutBucketACLResponse = PutBucketACLResponse' deriving (Eq, Read, Show)
+data PutBucketACLResponse =
+    PutBucketACLResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutBucketACLResponse' smart constructor.
 putBucketACLResponse :: PutBucketACLResponse
-putBucketACLResponse = PutBucketACLResponse';
+putBucketACLResponse = PutBucketACLResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ReplaceRoute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,10 +44,10 @@ module Network.AWS.EC2.ReplaceRoute
     , replaceRouteResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'replaceRoute' smart constructor.
 --
@@ -66,11 +66,28 @@ import Network.AWS.Response
 -- * 'rrRouteTableId'
 --
 -- * 'rrDestinationCIDRBlock'
-data ReplaceRoute = ReplaceRoute'{_rrInstanceId :: Maybe Text, _rrVPCPeeringConnectionId :: Maybe Text, _rrNetworkInterfaceId :: Maybe Text, _rrGatewayId :: Maybe Text, _rrDryRun :: Maybe Bool, _rrRouteTableId :: Text, _rrDestinationCIDRBlock :: Text} deriving (Eq, Read, Show)
+data ReplaceRoute = ReplaceRoute'
+    { _rrInstanceId             :: Maybe Text
+    , _rrVPCPeeringConnectionId :: Maybe Text
+    , _rrNetworkInterfaceId     :: Maybe Text
+    , _rrGatewayId              :: Maybe Text
+    , _rrDryRun                 :: Maybe Bool
+    , _rrRouteTableId           :: Text
+    , _rrDestinationCIDRBlock   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReplaceRoute' smart constructor.
 replaceRoute :: Text -> Text -> ReplaceRoute
-replaceRoute pRouteTableId pDestinationCIDRBlock = ReplaceRoute'{_rrInstanceId = Nothing, _rrVPCPeeringConnectionId = Nothing, _rrNetworkInterfaceId = Nothing, _rrGatewayId = Nothing, _rrDryRun = Nothing, _rrRouteTableId = pRouteTableId, _rrDestinationCIDRBlock = pDestinationCIDRBlock};
+replaceRoute pRouteTableId pDestinationCIDRBlock =
+    ReplaceRoute'
+    { _rrInstanceId = Nothing
+    , _rrVPCPeeringConnectionId = Nothing
+    , _rrNetworkInterfaceId = Nothing
+    , _rrGatewayId = Nothing
+    , _rrDryRun = Nothing
+    , _rrRouteTableId = pRouteTableId
+    , _rrDestinationCIDRBlock = pDestinationCIDRBlock
+    }
 
 -- | The ID of a NAT instance in your VPC.
 rrInstanceId :: Lens' ReplaceRoute (Maybe Text)
@@ -130,8 +147,10 @@ instance ToQuery ReplaceRoute where
                "DestinationCidrBlock" =: _rrDestinationCIDRBlock]
 
 -- | /See:/ 'replaceRouteResponse' smart constructor.
-data ReplaceRouteResponse = ReplaceRouteResponse' deriving (Eq, Read, Show)
+data ReplaceRouteResponse =
+    ReplaceRouteResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ReplaceRouteResponse' smart constructor.
 replaceRouteResponse :: ReplaceRouteResponse
-replaceRouteResponse = ReplaceRouteResponse';
+replaceRouteResponse = ReplaceRouteResponse'

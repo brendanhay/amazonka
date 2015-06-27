@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     -- ** Response constructor
     , setLoadBalancerPoliciesOfListenerResponse
     -- ** Response lenses
-    , slbpolrStatusCode
+    , slbpolrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'setLoadBalancerPoliciesOfListener' smart constructor.
 --
@@ -52,11 +52,20 @@ import Network.AWS.Response
 -- * 'slbpolLoadBalancerPort'
 --
 -- * 'slbpolPolicyNames'
-data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'{_slbpolLoadBalancerName :: Text, _slbpolLoadBalancerPort :: Int, _slbpolPolicyNames :: [Text]} deriving (Eq, Read, Show)
+data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'
+    { _slbpolLoadBalancerName :: Text
+    , _slbpolLoadBalancerPort :: !Int
+    , _slbpolPolicyNames      :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'SetLoadBalancerPoliciesOfListener' smart constructor.
 setLoadBalancerPoliciesOfListener :: Text -> Int -> SetLoadBalancerPoliciesOfListener
-setLoadBalancerPoliciesOfListener pLoadBalancerName pLoadBalancerPort = SetLoadBalancerPoliciesOfListener'{_slbpolLoadBalancerName = pLoadBalancerName, _slbpolLoadBalancerPort = pLoadBalancerPort, _slbpolPolicyNames = mempty};
+setLoadBalancerPoliciesOfListener pLoadBalancerName pLoadBalancerPort =
+    SetLoadBalancerPoliciesOfListener'
+    { _slbpolLoadBalancerName = pLoadBalancerName
+    , _slbpolLoadBalancerPort = pLoadBalancerPort
+    , _slbpolPolicyNames = mempty
+    }
 
 -- | The name of the load balancer.
 slbpolLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener Text
@@ -108,13 +117,18 @@ instance ToQuery SetLoadBalancerPoliciesOfListener
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'slbpolrStatusCode'
-newtype SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse'{_slbpolrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'slbpolrStatus'
+newtype SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse'
+    { _slbpolrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SetLoadBalancerPoliciesOfListenerResponse' smart constructor.
 setLoadBalancerPoliciesOfListenerResponse :: Int -> SetLoadBalancerPoliciesOfListenerResponse
-setLoadBalancerPoliciesOfListenerResponse pStatusCode = SetLoadBalancerPoliciesOfListenerResponse'{_slbpolrStatusCode = pStatusCode};
+setLoadBalancerPoliciesOfListenerResponse pStatus =
+    SetLoadBalancerPoliciesOfListenerResponse'
+    { _slbpolrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-slbpolrStatusCode :: Lens' SetLoadBalancerPoliciesOfListenerResponse Int
-slbpolrStatusCode = lens _slbpolrStatusCode (\ s a -> s{_slbpolrStatusCode = a});
+slbpolrStatus :: Lens' SetLoadBalancerPoliciesOfListenerResponse Int
+slbpolrStatus = lens _slbpolrStatus (\ s a -> s{_slbpolrStatus = a});

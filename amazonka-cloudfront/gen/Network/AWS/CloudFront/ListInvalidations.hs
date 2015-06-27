@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.ListInvalidations
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,14 +34,14 @@ module Network.AWS.CloudFront.ListInvalidations
     , listInvalidationsResponse
     -- ** Response lenses
     , lirInvalidationList
-    , lirStatusCode
+    , lirStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to list invalidations.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'liMarker'
 --
 -- * 'liDistributionId'
-data ListInvalidations = ListInvalidations'{_liMaxItems :: Maybe Text, _liMarker :: Maybe Text, _liDistributionId :: Text} deriving (Eq, Read, Show)
+data ListInvalidations = ListInvalidations'
+    { _liMaxItems       :: Maybe Text
+    , _liMarker         :: Maybe Text
+    , _liDistributionId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListInvalidations' smart constructor.
 listInvalidations :: Text -> ListInvalidations
-listInvalidations pDistributionId = ListInvalidations'{_liMaxItems = Nothing, _liMarker = Nothing, _liDistributionId = pDistributionId};
+listInvalidations pDistributionId =
+    ListInvalidations'
+    { _liMaxItems = Nothing
+    , _liMarker = Nothing
+    , _liDistributionId = pDistributionId
+    }
 
 -- | The maximum number of invalidation batches you want in the response
 -- body.
@@ -123,17 +132,24 @@ instance ToQuery ListInvalidations where
 --
 -- * 'lirInvalidationList'
 --
--- * 'lirStatusCode'
-data ListInvalidationsResponse = ListInvalidationsResponse'{_lirInvalidationList :: InvalidationList, _lirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lirStatus'
+data ListInvalidationsResponse = ListInvalidationsResponse'
+    { _lirInvalidationList :: InvalidationList
+    , _lirStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListInvalidationsResponse' smart constructor.
 listInvalidationsResponse :: InvalidationList -> Int -> ListInvalidationsResponse
-listInvalidationsResponse pInvalidationList pStatusCode = ListInvalidationsResponse'{_lirInvalidationList = pInvalidationList, _lirStatusCode = pStatusCode};
+listInvalidationsResponse pInvalidationList pStatus =
+    ListInvalidationsResponse'
+    { _lirInvalidationList = pInvalidationList
+    , _lirStatus = pStatus
+    }
 
 -- | Information about invalidation batches.
 lirInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
 lirInvalidationList = lens _lirInvalidationList (\ s a -> s{_lirInvalidationList = a});
 
 -- | FIXME: Undocumented member.
-lirStatusCode :: Lens' ListInvalidationsResponse Int
-lirStatusCode = lens _lirStatusCode (\ s a -> s{_lirStatusCode = a});
+lirStatus :: Lens' ListInvalidationsResponse Int
+lirStatus = lens _lirStatus (\ s a -> s{_lirStatus = a});

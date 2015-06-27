@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheSecurityGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,14 +37,14 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     -- ** Response lenses
     , dcsgr1CacheSecurityGroups
     , dcsgr1Marker
-    , dcsgr1StatusCode
+    , dcsgr1Status
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeCacheSecurityGroups/ action.
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'dcsg1MaxRecords'
 --
 -- * 'dcsg1Marker'
-data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'{_dcsg1CacheSecurityGroupName :: Maybe Text, _dcsg1MaxRecords :: Maybe Int, _dcsg1Marker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
+    { _dcsg1CacheSecurityGroupName :: Maybe Text
+    , _dcsg1MaxRecords             :: Maybe Int
+    , _dcsg1Marker                 :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheSecurityGroups' smart constructor.
 describeCacheSecurityGroups :: DescribeCacheSecurityGroups
-describeCacheSecurityGroups = DescribeCacheSecurityGroups'{_dcsg1CacheSecurityGroupName = Nothing, _dcsg1MaxRecords = Nothing, _dcsg1Marker = Nothing};
+describeCacheSecurityGroups =
+    DescribeCacheSecurityGroups'
+    { _dcsg1CacheSecurityGroupName = Nothing
+    , _dcsg1MaxRecords = Nothing
+    , _dcsg1Marker = Nothing
+    }
 
 -- | The name of the cache security group to return details for.
 dcsg1CacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
@@ -133,12 +142,21 @@ instance ToQuery DescribeCacheSecurityGroups where
 --
 -- * 'dcsgr1Marker'
 --
--- * 'dcsgr1StatusCode'
-data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'{_dcsgr1CacheSecurityGroups :: Maybe [CacheSecurityGroup], _dcsgr1Marker :: Maybe Text, _dcsgr1StatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcsgr1Status'
+data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
+    { _dcsgr1CacheSecurityGroups :: Maybe [CacheSecurityGroup]
+    , _dcsgr1Marker              :: Maybe Text
+    , _dcsgr1Status              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheSecurityGroupsResponse' smart constructor.
 describeCacheSecurityGroupsResponse :: Int -> DescribeCacheSecurityGroupsResponse
-describeCacheSecurityGroupsResponse pStatusCode = DescribeCacheSecurityGroupsResponse'{_dcsgr1CacheSecurityGroups = Nothing, _dcsgr1Marker = Nothing, _dcsgr1StatusCode = pStatusCode};
+describeCacheSecurityGroupsResponse pStatus =
+    DescribeCacheSecurityGroupsResponse'
+    { _dcsgr1CacheSecurityGroups = Nothing
+    , _dcsgr1Marker = Nothing
+    , _dcsgr1Status = pStatus
+    }
 
 -- | A list of cache security groups. Each element in the list contains
 -- detailed information about one group.
@@ -150,5 +168,5 @@ dcsgr1Marker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
 dcsgr1Marker = lens _dcsgr1Marker (\ s a -> s{_dcsgr1Marker = a});
 
 -- | FIXME: Undocumented member.
-dcsgr1StatusCode :: Lens' DescribeCacheSecurityGroupsResponse Int
-dcsgr1StatusCode = lens _dcsgr1StatusCode (\ s a -> s{_dcsgr1StatusCode = a});
+dcsgr1Status :: Lens' DescribeCacheSecurityGroupsResponse Int
+dcsgr1Status = lens _dcsgr1Status (\ s a -> s{_dcsgr1Status = a});

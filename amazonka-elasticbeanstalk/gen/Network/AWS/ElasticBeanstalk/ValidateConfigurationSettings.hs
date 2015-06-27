@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     , validateConfigurationSettingsResponse
     -- ** Response lenses
     , vcsrMessages
-    , vcsrStatusCode
+    , vcsrStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A list of validation messages for a specified configuration template.
 --
@@ -60,11 +60,22 @@ import Network.AWS.Response
 -- * 'vcsApplicationName'
 --
 -- * 'vcsOptionSettings'
-data ValidateConfigurationSettings = ValidateConfigurationSettings'{_vcsTemplateName :: Maybe Text, _vcsEnvironmentName :: Maybe Text, _vcsApplicationName :: Text, _vcsOptionSettings :: [ConfigurationOptionSetting]} deriving (Eq, Read, Show)
+data ValidateConfigurationSettings = ValidateConfigurationSettings'
+    { _vcsTemplateName    :: Maybe Text
+    , _vcsEnvironmentName :: Maybe Text
+    , _vcsApplicationName :: Text
+    , _vcsOptionSettings  :: [ConfigurationOptionSetting]
+    } deriving (Eq,Read,Show)
 
 -- | 'ValidateConfigurationSettings' smart constructor.
 validateConfigurationSettings :: Text -> ValidateConfigurationSettings
-validateConfigurationSettings pApplicationName = ValidateConfigurationSettings'{_vcsTemplateName = Nothing, _vcsEnvironmentName = Nothing, _vcsApplicationName = pApplicationName, _vcsOptionSettings = mempty};
+validateConfigurationSettings pApplicationName =
+    ValidateConfigurationSettings'
+    { _vcsTemplateName = Nothing
+    , _vcsEnvironmentName = Nothing
+    , _vcsApplicationName = pApplicationName
+    , _vcsOptionSettings = mempty
+    }
 
 -- | The name of the configuration template to validate the settings against.
 --
@@ -131,17 +142,24 @@ instance ToQuery ValidateConfigurationSettings where
 --
 -- * 'vcsrMessages'
 --
--- * 'vcsrStatusCode'
-data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'{_vcsrMessages :: Maybe [ValidationMessage], _vcsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'vcsrStatus'
+data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'
+    { _vcsrMessages :: Maybe [ValidationMessage]
+    , _vcsrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ValidateConfigurationSettingsResponse' smart constructor.
 validateConfigurationSettingsResponse :: Int -> ValidateConfigurationSettingsResponse
-validateConfigurationSettingsResponse pStatusCode = ValidateConfigurationSettingsResponse'{_vcsrMessages = Nothing, _vcsrStatusCode = pStatusCode};
+validateConfigurationSettingsResponse pStatus =
+    ValidateConfigurationSettingsResponse'
+    { _vcsrMessages = Nothing
+    , _vcsrStatus = pStatus
+    }
 
 -- | A list of ValidationMessage.
 vcsrMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
 vcsrMessages = lens _vcsrMessages (\ s a -> s{_vcsrMessages = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-vcsrStatusCode :: Lens' ValidateConfigurationSettingsResponse Int
-vcsrStatusCode = lens _vcsrStatusCode (\ s a -> s{_vcsrStatusCode = a});
+vcsrStatus :: Lens' ValidateConfigurationSettingsResponse Int
+vcsrStatus = lens _vcsrStatus (\ s a -> s{_vcsrStatus = a});

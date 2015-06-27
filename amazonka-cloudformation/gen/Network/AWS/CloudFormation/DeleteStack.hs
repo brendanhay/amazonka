@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.DeleteStack
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.CloudFormation.DeleteStack
     , deleteStackResponse
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for DeleteStack action.
 --
@@ -46,11 +46,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsStackName'
-newtype DeleteStack = DeleteStack'{_dsStackName :: Text} deriving (Eq, Read, Show)
+newtype DeleteStack = DeleteStack'
+    { _dsStackName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteStack' smart constructor.
 deleteStack :: Text -> DeleteStack
-deleteStack pStackName = DeleteStack'{_dsStackName = pStackName};
+deleteStack pStackName =
+    DeleteStack'
+    { _dsStackName = pStackName
+    }
 
 -- | The name or the unique stack ID that is associated with the stack.
 dsStackName :: Lens' DeleteStack Text
@@ -76,8 +81,10 @@ instance ToQuery DeleteStack where
                "StackName" =: _dsStackName]
 
 -- | /See:/ 'deleteStackResponse' smart constructor.
-data DeleteStackResponse = DeleteStackResponse' deriving (Eq, Read, Show)
+data DeleteStackResponse =
+    DeleteStackResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteStackResponse' smart constructor.
 deleteStackResponse :: DeleteStackResponse
-deleteStackResponse = DeleteStackResponse';
+deleteStackResponse = DeleteStackResponse'

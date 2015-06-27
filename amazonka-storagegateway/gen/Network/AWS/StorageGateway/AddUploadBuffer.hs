@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.AddUploadBuffer
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.StorageGateway.AddUploadBuffer
     , addUploadBufferResponse
     -- ** Response lenses
     , aubrGatewayARN
-    , aubrStatusCode
+    , aubrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'addUploadBuffer' smart constructor.
 --
@@ -54,11 +54,18 @@ import Network.AWS.StorageGateway.Types
 -- * 'aubGatewayARN'
 --
 -- * 'aubDiskIds'
-data AddUploadBuffer = AddUploadBuffer'{_aubGatewayARN :: Text, _aubDiskIds :: [Text]} deriving (Eq, Read, Show)
+data AddUploadBuffer = AddUploadBuffer'
+    { _aubGatewayARN :: Text
+    , _aubDiskIds    :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'AddUploadBuffer' smart constructor.
 addUploadBuffer :: Text -> AddUploadBuffer
-addUploadBuffer pGatewayARN = AddUploadBuffer'{_aubGatewayARN = pGatewayARN, _aubDiskIds = mempty};
+addUploadBuffer pGatewayARN =
+    AddUploadBuffer'
+    { _aubGatewayARN = pGatewayARN
+    , _aubDiskIds = mempty
+    }
 
 -- | FIXME: Undocumented member.
 aubGatewayARN :: Lens' AddUploadBuffer Text
@@ -106,17 +113,24 @@ instance ToQuery AddUploadBuffer where
 --
 -- * 'aubrGatewayARN'
 --
--- * 'aubrStatusCode'
-data AddUploadBufferResponse = AddUploadBufferResponse'{_aubrGatewayARN :: Maybe Text, _aubrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'aubrStatus'
+data AddUploadBufferResponse = AddUploadBufferResponse'
+    { _aubrGatewayARN :: Maybe Text
+    , _aubrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AddUploadBufferResponse' smart constructor.
 addUploadBufferResponse :: Int -> AddUploadBufferResponse
-addUploadBufferResponse pStatusCode = AddUploadBufferResponse'{_aubrGatewayARN = Nothing, _aubrStatusCode = pStatusCode};
+addUploadBufferResponse pStatus =
+    AddUploadBufferResponse'
+    { _aubrGatewayARN = Nothing
+    , _aubrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 aubrGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
 aubrGatewayARN = lens _aubrGatewayARN (\ s a -> s{_aubrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-aubrStatusCode :: Lens' AddUploadBufferResponse Int
-aubrStatusCode = lens _aubrStatusCode (\ s a -> s{_aubrStatusCode = a});
+aubrStatus :: Lens' AddUploadBufferResponse Int
+aubrStatus = lens _aubrStatus (\ s a -> s{_aubrStatus = a});

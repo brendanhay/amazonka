@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SES.VerifyEmailAddress
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.SES.VerifyEmailAddress
     , verifyEmailAddressResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SES.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
 -- | Represents a request instructing the service to begin email address
 -- verification.
@@ -52,11 +52,16 @@ import Network.AWS.SES.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'veaEmailAddress'
-newtype VerifyEmailAddress = VerifyEmailAddress'{_veaEmailAddress :: Text} deriving (Eq, Read, Show)
+newtype VerifyEmailAddress = VerifyEmailAddress'
+    { _veaEmailAddress :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VerifyEmailAddress' smart constructor.
 verifyEmailAddress :: Text -> VerifyEmailAddress
-verifyEmailAddress pEmailAddress = VerifyEmailAddress'{_veaEmailAddress = pEmailAddress};
+verifyEmailAddress pEmailAddress =
+    VerifyEmailAddress'
+    { _veaEmailAddress = pEmailAddress
+    }
 
 -- | The email address to be verified.
 veaEmailAddress :: Lens' VerifyEmailAddress Text
@@ -83,8 +88,10 @@ instance ToQuery VerifyEmailAddress where
                "EmailAddress" =: _veaEmailAddress]
 
 -- | /See:/ 'verifyEmailAddressResponse' smart constructor.
-data VerifyEmailAddressResponse = VerifyEmailAddressResponse' deriving (Eq, Read, Show)
+data VerifyEmailAddressResponse =
+    VerifyEmailAddressResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'VerifyEmailAddressResponse' smart constructor.
 verifyEmailAddressResponse :: VerifyEmailAddressResponse
-verifyEmailAddressResponse = VerifyEmailAddressResponse';
+verifyEmailAddressResponse = VerifyEmailAddressResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.RegisterDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,10 +53,10 @@ module Network.AWS.SWF.RegisterDomain
     , registerDomainResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'registerDomain' smart constructor.
 --
@@ -67,11 +67,20 @@ import Network.AWS.SWF.Types
 -- * 'rdName'
 --
 -- * 'rdWorkflowExecutionRetentionPeriodInDays'
-data RegisterDomain = RegisterDomain'{_rdDescription :: Maybe Text, _rdName :: Text, _rdWorkflowExecutionRetentionPeriodInDays :: Text} deriving (Eq, Read, Show)
+data RegisterDomain = RegisterDomain'
+    { _rdDescription                            :: Maybe Text
+    , _rdName                                   :: Text
+    , _rdWorkflowExecutionRetentionPeriodInDays :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterDomain' smart constructor.
 registerDomain :: Text -> Text -> RegisterDomain
-registerDomain pName pWorkflowExecutionRetentionPeriodInDays = RegisterDomain'{_rdDescription = Nothing, _rdName = pName, _rdWorkflowExecutionRetentionPeriodInDays = pWorkflowExecutionRetentionPeriodInDays};
+registerDomain pName pWorkflowExecutionRetentionPeriodInDays =
+    RegisterDomain'
+    { _rdDescription = Nothing
+    , _rdName = pName
+    , _rdWorkflowExecutionRetentionPeriodInDays = pWorkflowExecutionRetentionPeriodInDays
+    }
 
 -- | A text description of the domain.
 rdDescription :: Lens' RegisterDomain (Maybe Text)
@@ -133,8 +142,10 @@ instance ToQuery RegisterDomain where
         toQuery = const mempty
 
 -- | /See:/ 'registerDomainResponse' smart constructor.
-data RegisterDomainResponse = RegisterDomainResponse' deriving (Eq, Read, Show)
+data RegisterDomainResponse =
+    RegisterDomainResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RegisterDomainResponse' smart constructor.
 registerDomainResponse :: RegisterDomainResponse
-registerDomainResponse = RegisterDomainResponse';
+registerDomainResponse = RegisterDomainResponse'

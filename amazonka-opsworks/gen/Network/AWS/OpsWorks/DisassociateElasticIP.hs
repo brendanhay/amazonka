@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DisassociateElasticIP
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,21 +40,26 @@ module Network.AWS.OpsWorks.DisassociateElasticIP
     , disassociateElasticIPResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'disassociateElasticIP' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'deiElasticIP'
-newtype DisassociateElasticIP = DisassociateElasticIP'{_deiElasticIP :: Text} deriving (Eq, Read, Show)
+newtype DisassociateElasticIP = DisassociateElasticIP'
+    { _deiElasticIP :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DisassociateElasticIP' smart constructor.
 disassociateElasticIP :: Text -> DisassociateElasticIP
-disassociateElasticIP pElasticIP = DisassociateElasticIP'{_deiElasticIP = pElasticIP};
+disassociateElasticIP pElasticIP =
+    DisassociateElasticIP'
+    { _deiElasticIP = pElasticIP
+    }
 
 -- | The Elastic IP address.
 deiElasticIP :: Lens' DisassociateElasticIP Text
@@ -88,8 +93,10 @@ instance ToQuery DisassociateElasticIP where
         toQuery = const mempty
 
 -- | /See:/ 'disassociateElasticIPResponse' smart constructor.
-data DisassociateElasticIPResponse = DisassociateElasticIPResponse' deriving (Eq, Read, Show)
+data DisassociateElasticIPResponse =
+    DisassociateElasticIPResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DisassociateElasticIPResponse' smart constructor.
 disassociateElasticIPResponse :: DisassociateElasticIPResponse
-disassociateElasticIPResponse = DisassociateElasticIPResponse';
+disassociateElasticIPResponse = DisassociateElasticIPResponse'

@@ -15,6 +15,6 @@
 
 module Network.AWS.MachineLearning.Waiters where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter

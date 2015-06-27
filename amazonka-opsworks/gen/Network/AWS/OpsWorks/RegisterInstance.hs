@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.RegisterInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,13 +52,13 @@ module Network.AWS.OpsWorks.RegisterInstance
     , registerInstanceResponse
     -- ** Response lenses
     , rirInstanceId
-    , rirStatusCode
+    , rirStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'registerInstance' smart constructor.
 --
@@ -77,11 +77,28 @@ import Network.AWS.Response
 -- * 'riRsaPublicKey'
 --
 -- * 'riStackId'
-data RegisterInstance = RegisterInstance'{_riPrivateIP :: Maybe Text, _riHostname :: Maybe Text, _riInstanceIdentity :: Maybe InstanceIdentity, _riPublicIP :: Maybe Text, _riRsaPublicKeyFingerprint :: Maybe Text, _riRsaPublicKey :: Maybe Text, _riStackId :: Text} deriving (Eq, Read, Show)
+data RegisterInstance = RegisterInstance'
+    { _riPrivateIP               :: Maybe Text
+    , _riHostname                :: Maybe Text
+    , _riInstanceIdentity        :: Maybe InstanceIdentity
+    , _riPublicIP                :: Maybe Text
+    , _riRsaPublicKeyFingerprint :: Maybe Text
+    , _riRsaPublicKey            :: Maybe Text
+    , _riStackId                 :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterInstance' smart constructor.
 registerInstance :: Text -> RegisterInstance
-registerInstance pStackId = RegisterInstance'{_riPrivateIP = Nothing, _riHostname = Nothing, _riInstanceIdentity = Nothing, _riPublicIP = Nothing, _riRsaPublicKeyFingerprint = Nothing, _riRsaPublicKey = Nothing, _riStackId = pStackId};
+registerInstance pStackId =
+    RegisterInstance'
+    { _riPrivateIP = Nothing
+    , _riHostname = Nothing
+    , _riInstanceIdentity = Nothing
+    , _riPublicIP = Nothing
+    , _riRsaPublicKeyFingerprint = Nothing
+    , _riRsaPublicKey = Nothing
+    , _riStackId = pStackId
+    }
 
 -- | The instance\'s private IP address.
 riPrivateIP :: Lens' RegisterInstance (Maybe Text)
@@ -157,17 +174,24 @@ instance ToQuery RegisterInstance where
 --
 -- * 'rirInstanceId'
 --
--- * 'rirStatusCode'
-data RegisterInstanceResponse = RegisterInstanceResponse'{_rirInstanceId :: Maybe Text, _rirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rirStatus'
+data RegisterInstanceResponse = RegisterInstanceResponse'
+    { _rirInstanceId :: Maybe Text
+    , _rirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterInstanceResponse' smart constructor.
 registerInstanceResponse :: Int -> RegisterInstanceResponse
-registerInstanceResponse pStatusCode = RegisterInstanceResponse'{_rirInstanceId = Nothing, _rirStatusCode = pStatusCode};
+registerInstanceResponse pStatus =
+    RegisterInstanceResponse'
+    { _rirInstanceId = Nothing
+    , _rirStatus = pStatus
+    }
 
 -- | The registered instance\'s AWS OpsWorks ID.
 rirInstanceId :: Lens' RegisterInstanceResponse (Maybe Text)
 rirInstanceId = lens _rirInstanceId (\ s a -> s{_rirInstanceId = a});
 
 -- | FIXME: Undocumented member.
-rirStatusCode :: Lens' RegisterInstanceResponse Int
-rirStatusCode = lens _rirStatusCode (\ s a -> s{_rirStatusCode = a});
+rirStatus :: Lens' RegisterInstanceResponse Int
+rirStatus = lens _rirStatus (\ s a -> s{_rirStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeCertificates
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.RDS.DescribeCertificates
     -- ** Response lenses
     , dcrCertificates
     , dcrMarker
-    , dcrStatusCode
+    , dcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -58,11 +58,22 @@ import Network.AWS.Response
 -- * 'dcMaxRecords'
 --
 -- * 'dcMarker'
-data DescribeCertificates = DescribeCertificates'{_dcFilters :: Maybe [Filter], _dcCertificateIdentifier :: Maybe Text, _dcMaxRecords :: Maybe Int, _dcMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeCertificates = DescribeCertificates'
+    { _dcFilters               :: Maybe [Filter]
+    , _dcCertificateIdentifier :: Maybe Text
+    , _dcMaxRecords            :: Maybe Int
+    , _dcMarker                :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCertificates' smart constructor.
 describeCertificates :: DescribeCertificates
-describeCertificates = DescribeCertificates'{_dcFilters = Nothing, _dcCertificateIdentifier = Nothing, _dcMaxRecords = Nothing, _dcMarker = Nothing};
+describeCertificates =
+    DescribeCertificates'
+    { _dcFilters = Nothing
+    , _dcCertificateIdentifier = Nothing
+    , _dcMaxRecords = Nothing
+    , _dcMarker = Nothing
+    }
 
 -- | This parameter is not currently supported.
 dcFilters :: Lens' DescribeCertificates [Filter]
@@ -137,12 +148,21 @@ instance ToQuery DescribeCertificates where
 --
 -- * 'dcrMarker'
 --
--- * 'dcrStatusCode'
-data DescribeCertificatesResponse = DescribeCertificatesResponse'{_dcrCertificates :: Maybe [Certificate], _dcrMarker :: Maybe Text, _dcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcrStatus'
+data DescribeCertificatesResponse = DescribeCertificatesResponse'
+    { _dcrCertificates :: Maybe [Certificate]
+    , _dcrMarker       :: Maybe Text
+    , _dcrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCertificatesResponse' smart constructor.
 describeCertificatesResponse :: Int -> DescribeCertificatesResponse
-describeCertificatesResponse pStatusCode = DescribeCertificatesResponse'{_dcrCertificates = Nothing, _dcrMarker = Nothing, _dcrStatusCode = pStatusCode};
+describeCertificatesResponse pStatus =
+    DescribeCertificatesResponse'
+    { _dcrCertificates = Nothing
+    , _dcrMarker = Nothing
+    , _dcrStatus = pStatus
+    }
 
 -- | The list of Certificate objects for the AWS account.
 dcrCertificates :: Lens' DescribeCertificatesResponse [Certificate]
@@ -155,5 +175,5 @@ dcrMarker :: Lens' DescribeCertificatesResponse (Maybe Text)
 dcrMarker = lens _dcrMarker (\ s a -> s{_dcrMarker = a});
 
 -- | FIXME: Undocumented member.
-dcrStatusCode :: Lens' DescribeCertificatesResponse Int
-dcrStatusCode = lens _dcrStatusCode (\ s a -> s{_dcrStatusCode = a});
+dcrStatus :: Lens' DescribeCertificatesResponse Int
+dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});

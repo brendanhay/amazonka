@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.RebootInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,21 +39,26 @@ module Network.AWS.OpsWorks.RebootInstance
     , rebootInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'rebootInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'riInstanceId'
-newtype RebootInstance = RebootInstance'{_riInstanceId :: Text} deriving (Eq, Read, Show)
+newtype RebootInstance = RebootInstance'
+    { _riInstanceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RebootInstance' smart constructor.
 rebootInstance :: Text -> RebootInstance
-rebootInstance pInstanceId = RebootInstance'{_riInstanceId = pInstanceId};
+rebootInstance pInstanceId =
+    RebootInstance'
+    { _riInstanceId = pInstanceId
+    }
 
 -- | The instance ID.
 riInstanceId :: Lens' RebootInstance Text
@@ -85,8 +90,10 @@ instance ToQuery RebootInstance where
         toQuery = const mempty
 
 -- | /See:/ 'rebootInstanceResponse' smart constructor.
-data RebootInstanceResponse = RebootInstanceResponse' deriving (Eq, Read, Show)
+data RebootInstanceResponse =
+    RebootInstanceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RebootInstanceResponse' smart constructor.
 rebootInstanceResponse :: RebootInstanceResponse
-rebootInstanceResponse = RebootInstanceResponse';
+rebootInstanceResponse = RebootInstanceResponse'

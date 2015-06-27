@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.RunTask
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.ECS.RunTask
     -- ** Response lenses
     , rtrFailures
     , rtrTasks
-    , rtrStatusCode
+    , rtrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'runTask' smart constructor.
 --
@@ -62,11 +62,24 @@ import Network.AWS.Response
 -- * 'rtStartedBy'
 --
 -- * 'rtTaskDefinition'
-data RunTask = RunTask'{_rtOverrides :: Maybe TaskOverride, _rtCluster :: Maybe Text, _rtCount :: Maybe Int, _rtStartedBy :: Maybe Text, _rtTaskDefinition :: Text} deriving (Eq, Read, Show)
+data RunTask = RunTask'
+    { _rtOverrides      :: Maybe TaskOverride
+    , _rtCluster        :: Maybe Text
+    , _rtCount          :: Maybe Int
+    , _rtStartedBy      :: Maybe Text
+    , _rtTaskDefinition :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RunTask' smart constructor.
 runTask :: Text -> RunTask
-runTask pTaskDefinition = RunTask'{_rtOverrides = Nothing, _rtCluster = Nothing, _rtCount = Nothing, _rtStartedBy = Nothing, _rtTaskDefinition = pTaskDefinition};
+runTask pTaskDefinition =
+    RunTask'
+    { _rtOverrides = Nothing
+    , _rtCluster = Nothing
+    , _rtCount = Nothing
+    , _rtStartedBy = Nothing
+    , _rtTaskDefinition = pTaskDefinition
+    }
 
 -- | A list of container overrides in JSON format that specify the name of a
 -- container in the specified task definition and the overrides it should
@@ -155,12 +168,21 @@ instance ToQuery RunTask where
 --
 -- * 'rtrTasks'
 --
--- * 'rtrStatusCode'
-data RunTaskResponse = RunTaskResponse'{_rtrFailures :: Maybe [Failure], _rtrTasks :: Maybe [Task], _rtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rtrStatus'
+data RunTaskResponse = RunTaskResponse'
+    { _rtrFailures :: Maybe [Failure]
+    , _rtrTasks    :: Maybe [Task]
+    , _rtrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RunTaskResponse' smart constructor.
 runTaskResponse :: Int -> RunTaskResponse
-runTaskResponse pStatusCode = RunTaskResponse'{_rtrFailures = Nothing, _rtrTasks = Nothing, _rtrStatusCode = pStatusCode};
+runTaskResponse pStatus =
+    RunTaskResponse'
+    { _rtrFailures = Nothing
+    , _rtrTasks = Nothing
+    , _rtrStatus = pStatus
+    }
 
 -- | Any failed tasks from your @RunTask@ action are listed here.
 rtrFailures :: Lens' RunTaskResponse [Failure]
@@ -172,5 +194,5 @@ rtrTasks :: Lens' RunTaskResponse [Task]
 rtrTasks = lens _rtrTasks (\ s a -> s{_rtrTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-rtrStatusCode :: Lens' RunTaskResponse Int
-rtrStatusCode = lens _rtrStatusCode (\ s a -> s{_rtrStatusCode = a});
+rtrStatus :: Lens' RunTaskResponse Int
+rtrStatus = lens _rtrStatus (\ s a -> s{_rtrStatus = a});

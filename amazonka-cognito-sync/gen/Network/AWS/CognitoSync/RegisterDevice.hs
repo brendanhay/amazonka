@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.RegisterDevice
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.CognitoSync.RegisterDevice
     , registerDeviceResponse
     -- ** Response lenses
     , rdrDeviceId
-    , rdrStatusCode
+    , rdrStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to RegisterDevice.
 --
@@ -56,11 +56,22 @@ import Network.AWS.Response
 -- * 'rdPlatform'
 --
 -- * 'rdToken'
-data RegisterDevice = RegisterDevice'{_rdIdentityPoolId :: Text, _rdIdentityId :: Text, _rdPlatform :: Platform, _rdToken :: Text} deriving (Eq, Read, Show)
+data RegisterDevice = RegisterDevice'
+    { _rdIdentityPoolId :: Text
+    , _rdIdentityId     :: Text
+    , _rdPlatform       :: Platform
+    , _rdToken          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterDevice' smart constructor.
 registerDevice :: Text -> Text -> Platform -> Text -> RegisterDevice
-registerDevice pIdentityPoolId pIdentityId pPlatform pToken = RegisterDevice'{_rdIdentityPoolId = pIdentityPoolId, _rdIdentityId = pIdentityId, _rdPlatform = pPlatform, _rdToken = pToken};
+registerDevice pIdentityPoolId pIdentityId pPlatform pToken =
+    RegisterDevice'
+    { _rdIdentityPoolId = pIdentityPoolId
+    , _rdIdentityId = pIdentityId
+    , _rdPlatform = pPlatform
+    , _rdToken = pToken
+    }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -119,17 +130,24 @@ instance ToQuery RegisterDevice where
 --
 -- * 'rdrDeviceId'
 --
--- * 'rdrStatusCode'
-data RegisterDeviceResponse = RegisterDeviceResponse'{_rdrDeviceId :: Maybe Text, _rdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rdrStatus'
+data RegisterDeviceResponse = RegisterDeviceResponse'
+    { _rdrDeviceId :: Maybe Text
+    , _rdrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterDeviceResponse' smart constructor.
 registerDeviceResponse :: Int -> RegisterDeviceResponse
-registerDeviceResponse pStatusCode = RegisterDeviceResponse'{_rdrDeviceId = Nothing, _rdrStatusCode = pStatusCode};
+registerDeviceResponse pStatus =
+    RegisterDeviceResponse'
+    { _rdrDeviceId = Nothing
+    , _rdrStatus = pStatus
+    }
 
 -- | The unique ID generated for this device by Cognito.
 rdrDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
 rdrDeviceId = lens _rdrDeviceId (\ s a -> s{_rdrDeviceId = a});
 
 -- | FIXME: Undocumented member.
-rdrStatusCode :: Lens' RegisterDeviceResponse Int
-rdrStatusCode = lens _rdrStatusCode (\ s a -> s{_rdrStatusCode = a});
+rdrStatus :: Lens' RegisterDeviceResponse Int
+rdrStatus = lens _rdrStatus (\ s a -> s{_rdrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Config.DeliverConfigSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.Config.DeliverConfigSnapshot
     , deliverConfigSnapshotResponse
     -- ** Response lenses
     , dcsrConfigSnapshotId
-    , dcsrStatusCode
+    , dcsrStatus
     ) where
 
-import Network.AWS.Config.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Config.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the DeliverConfigSnapshot action.
 --
@@ -56,11 +56,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcsDeliveryChannelName'
-newtype DeliverConfigSnapshot = DeliverConfigSnapshot'{_dcsDeliveryChannelName :: Text} deriving (Eq, Read, Show)
+newtype DeliverConfigSnapshot = DeliverConfigSnapshot'
+    { _dcsDeliveryChannelName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeliverConfigSnapshot' smart constructor.
 deliverConfigSnapshot :: Text -> DeliverConfigSnapshot
-deliverConfigSnapshot pDeliveryChannelName = DeliverConfigSnapshot'{_dcsDeliveryChannelName = pDeliveryChannelName};
+deliverConfigSnapshot pDeliveryChannelName =
+    DeliverConfigSnapshot'
+    { _dcsDeliveryChannelName = pDeliveryChannelName
+    }
 
 -- | The name of the delivery channel through which the snapshot is
 -- delivered.
@@ -107,17 +112,24 @@ instance ToQuery DeliverConfigSnapshot where
 --
 -- * 'dcsrConfigSnapshotId'
 --
--- * 'dcsrStatusCode'
-data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'{_dcsrConfigSnapshotId :: Maybe Text, _dcsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcsrStatus'
+data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
+    { _dcsrConfigSnapshotId :: Maybe Text
+    , _dcsrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeliverConfigSnapshotResponse' smart constructor.
 deliverConfigSnapshotResponse :: Int -> DeliverConfigSnapshotResponse
-deliverConfigSnapshotResponse pStatusCode = DeliverConfigSnapshotResponse'{_dcsrConfigSnapshotId = Nothing, _dcsrStatusCode = pStatusCode};
+deliverConfigSnapshotResponse pStatus =
+    DeliverConfigSnapshotResponse'
+    { _dcsrConfigSnapshotId = Nothing
+    , _dcsrStatus = pStatus
+    }
 
 -- | The ID of the snapshot that is being created.
 dcsrConfigSnapshotId :: Lens' DeliverConfigSnapshotResponse (Maybe Text)
 dcsrConfigSnapshotId = lens _dcsrConfigSnapshotId (\ s a -> s{_dcsrConfigSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-dcsrStatusCode :: Lens' DeliverConfigSnapshotResponse Int
-dcsrStatusCode = lens _dcsrStatusCode (\ s a -> s{_dcsrStatusCode = a});
+dcsrStatus :: Lens' DeliverConfigSnapshotResponse Int
+dcsrStatus = lens _dcsrStatus (\ s a -> s{_dcsrStatus = a});

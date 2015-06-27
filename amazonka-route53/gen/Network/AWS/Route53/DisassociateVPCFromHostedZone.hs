@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.DisassociateVPCFromHostedZone
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.Route53.DisassociateVPCFromHostedZone
     , disassociateVPCFromHostedZoneResponse
     -- ** Response lenses
     , dvfhzrChangeInfo
-    , dvfhzrStatusCode
+    , dvfhzrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | A complex type that contains information about the request to
 -- disassociate a VPC from an hosted zone.
@@ -63,11 +63,20 @@ import Network.AWS.Route53.Types
 -- * 'dvfhzHostedZoneId'
 --
 -- * 'dvfhzVPC'
-data DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZone'{_dvfhzComment :: Maybe Text, _dvfhzHostedZoneId :: Text, _dvfhzVPC :: VPC} deriving (Eq, Read, Show)
+data DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZone'
+    { _dvfhzComment      :: Maybe Text
+    , _dvfhzHostedZoneId :: Text
+    , _dvfhzVPC          :: VPC
+    } deriving (Eq,Read,Show)
 
 -- | 'DisassociateVPCFromHostedZone' smart constructor.
 disassociateVPCFromHostedZone :: Text -> VPC -> DisassociateVPCFromHostedZone
-disassociateVPCFromHostedZone pHostedZoneId pVPC = DisassociateVPCFromHostedZone'{_dvfhzComment = Nothing, _dvfhzHostedZoneId = pHostedZoneId, _dvfhzVPC = pVPC};
+disassociateVPCFromHostedZone pHostedZoneId pVPC =
+    DisassociateVPCFromHostedZone'
+    { _dvfhzComment = Nothing
+    , _dvfhzHostedZoneId = pHostedZoneId
+    , _dvfhzVPC = pVPC
+    }
 
 -- | /Optional:/ Any comments you want to include about a
 -- @DisassociateVPCFromHostedZoneRequest@.
@@ -128,12 +137,19 @@ instance ToXML DisassociateVPCFromHostedZone where
 --
 -- * 'dvfhzrChangeInfo'
 --
--- * 'dvfhzrStatusCode'
-data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse'{_dvfhzrChangeInfo :: ChangeInfo, _dvfhzrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dvfhzrStatus'
+data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse'
+    { _dvfhzrChangeInfo :: ChangeInfo
+    , _dvfhzrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DisassociateVPCFromHostedZoneResponse' smart constructor.
 disassociateVPCFromHostedZoneResponse :: ChangeInfo -> Int -> DisassociateVPCFromHostedZoneResponse
-disassociateVPCFromHostedZoneResponse pChangeInfo pStatusCode = DisassociateVPCFromHostedZoneResponse'{_dvfhzrChangeInfo = pChangeInfo, _dvfhzrStatusCode = pStatusCode};
+disassociateVPCFromHostedZoneResponse pChangeInfo pStatus =
+    DisassociateVPCFromHostedZoneResponse'
+    { _dvfhzrChangeInfo = pChangeInfo
+    , _dvfhzrStatus = pStatus
+    }
 
 -- | A complex type that contains the ID, the status, and the date and time
 -- of your @DisassociateVPCFromHostedZoneRequest@.
@@ -141,5 +157,5 @@ dvfhzrChangeInfo :: Lens' DisassociateVPCFromHostedZoneResponse ChangeInfo
 dvfhzrChangeInfo = lens _dvfhzrChangeInfo (\ s a -> s{_dvfhzrChangeInfo = a});
 
 -- | FIXME: Undocumented member.
-dvfhzrStatusCode :: Lens' DisassociateVPCFromHostedZoneResponse Int
-dvfhzrStatusCode = lens _dvfhzrStatusCode (\ s a -> s{_dvfhzrStatusCode = a});
+dvfhzrStatus :: Lens' DisassociateVPCFromHostedZoneResponse Int
+dvfhzrStatus = lens _dvfhzrStatus (\ s a -> s{_dvfhzrStatus = a});

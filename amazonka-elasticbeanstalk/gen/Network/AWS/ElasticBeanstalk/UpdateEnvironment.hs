@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateEnvironment
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,10 +69,10 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     , envDescription
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -97,11 +97,32 @@ import Network.AWS.Response
 -- * 'ueSolutionStackName'
 --
 -- * 'ueDescription'
-data UpdateEnvironment = UpdateEnvironment'{_ueTemplateName :: Maybe Text, _ueOptionsToRemove :: Maybe [OptionSpecification], _ueOptionSettings :: Maybe [ConfigurationOptionSetting], _ueVersionLabel :: Maybe Text, _ueTier :: Maybe EnvironmentTier, _ueEnvironmentName :: Maybe Text, _ueEnvironmentId :: Maybe Text, _ueSolutionStackName :: Maybe Text, _ueDescription :: Maybe Text} deriving (Eq, Read, Show)
+data UpdateEnvironment = UpdateEnvironment'
+    { _ueTemplateName      :: Maybe Text
+    , _ueOptionsToRemove   :: Maybe [OptionSpecification]
+    , _ueOptionSettings    :: Maybe [ConfigurationOptionSetting]
+    , _ueVersionLabel      :: Maybe Text
+    , _ueTier              :: Maybe EnvironmentTier
+    , _ueEnvironmentName   :: Maybe Text
+    , _ueEnvironmentId     :: Maybe Text
+    , _ueSolutionStackName :: Maybe Text
+    , _ueDescription       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateEnvironment' smart constructor.
 updateEnvironment :: UpdateEnvironment
-updateEnvironment = UpdateEnvironment'{_ueTemplateName = Nothing, _ueOptionsToRemove = Nothing, _ueOptionSettings = Nothing, _ueVersionLabel = Nothing, _ueTier = Nothing, _ueEnvironmentName = Nothing, _ueEnvironmentId = Nothing, _ueSolutionStackName = Nothing, _ueDescription = Nothing};
+updateEnvironment =
+    UpdateEnvironment'
+    { _ueTemplateName = Nothing
+    , _ueOptionsToRemove = Nothing
+    , _ueOptionSettings = Nothing
+    , _ueVersionLabel = Nothing
+    , _ueTier = Nothing
+    , _ueEnvironmentName = Nothing
+    , _ueEnvironmentId = Nothing
+    , _ueSolutionStackName = Nothing
+    , _ueDescription = Nothing
+    }
 
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys this
 -- configuration template to the environment. If no such configuration

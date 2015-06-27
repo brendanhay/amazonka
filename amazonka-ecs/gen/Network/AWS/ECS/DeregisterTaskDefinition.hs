@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.DeregisterTaskDefinition
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,24 +43,29 @@ module Network.AWS.ECS.DeregisterTaskDefinition
     , deregisterTaskDefinitionResponse
     -- ** Response lenses
     , dtdrTaskDefinition
-    , dtdrStatusCode
+    , dtdrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deregisterTaskDefinition' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'derTaskDefinition'
-newtype DeregisterTaskDefinition = DeregisterTaskDefinition'{_derTaskDefinition :: Text} deriving (Eq, Read, Show)
+newtype DeregisterTaskDefinition = DeregisterTaskDefinition'
+    { _derTaskDefinition :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeregisterTaskDefinition' smart constructor.
 deregisterTaskDefinition :: Text -> DeregisterTaskDefinition
-deregisterTaskDefinition pTaskDefinition = DeregisterTaskDefinition'{_derTaskDefinition = pTaskDefinition};
+deregisterTaskDefinition pTaskDefinition =
+    DeregisterTaskDefinition'
+    { _derTaskDefinition = pTaskDefinition
+    }
 
 -- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
 -- Name (ARN) of the task definition that you want to deregister. You must
@@ -105,17 +110,24 @@ instance ToQuery DeregisterTaskDefinition where
 --
 -- * 'dtdrTaskDefinition'
 --
--- * 'dtdrStatusCode'
-data DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'{_dtdrTaskDefinition :: Maybe TaskDefinition, _dtdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtdrStatus'
+data DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'
+    { _dtdrTaskDefinition :: Maybe TaskDefinition
+    , _dtdrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeregisterTaskDefinitionResponse' smart constructor.
 deregisterTaskDefinitionResponse :: Int -> DeregisterTaskDefinitionResponse
-deregisterTaskDefinitionResponse pStatusCode = DeregisterTaskDefinitionResponse'{_dtdrTaskDefinition = Nothing, _dtdrStatusCode = pStatusCode};
+deregisterTaskDefinitionResponse pStatus =
+    DeregisterTaskDefinitionResponse'
+    { _dtdrTaskDefinition = Nothing
+    , _dtdrStatus = pStatus
+    }
 
 -- | The full description of the deregistered task.
 dtdrTaskDefinition :: Lens' DeregisterTaskDefinitionResponse (Maybe TaskDefinition)
 dtdrTaskDefinition = lens _dtdrTaskDefinition (\ s a -> s{_dtdrTaskDefinition = a});
 
 -- | FIXME: Undocumented member.
-dtdrStatusCode :: Lens' DeregisterTaskDefinitionResponse Int
-dtdrStatusCode = lens _dtdrStatusCode (\ s a -> s{_dtdrStatusCode = a});
+dtdrStatus :: Lens' DeregisterTaskDefinitionResponse Int
+dtdrStatus = lens _dtdrStatus (\ s a -> s{_dtdrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,14 +48,14 @@ module Network.AWS.Redshift.DescribeClusterParameters
     -- ** Response lenses
     , dcprParameters
     , dcprMarker
-    , dcprStatusCode
+    , dcprStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeClusterParameters' smart constructor.
 --
@@ -68,11 +68,22 @@ import Network.AWS.Response
 -- * 'dcp1Source'
 --
 -- * 'dcp1ParameterGroupName'
-data DescribeClusterParameters = DescribeClusterParameters'{_dcp1MaxRecords :: Maybe Int, _dcp1Marker :: Maybe Text, _dcp1Source :: Maybe Text, _dcp1ParameterGroupName :: Text} deriving (Eq, Read, Show)
+data DescribeClusterParameters = DescribeClusterParameters'
+    { _dcp1MaxRecords         :: Maybe Int
+    , _dcp1Marker             :: Maybe Text
+    , _dcp1Source             :: Maybe Text
+    , _dcp1ParameterGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterParameters' smart constructor.
 describeClusterParameters :: Text -> DescribeClusterParameters
-describeClusterParameters pParameterGroupName = DescribeClusterParameters'{_dcp1MaxRecords = Nothing, _dcp1Marker = Nothing, _dcp1Source = Nothing, _dcp1ParameterGroupName = pParameterGroupName};
+describeClusterParameters pParameterGroupName =
+    DescribeClusterParameters'
+    { _dcp1MaxRecords = Nothing
+    , _dcp1Marker = Nothing
+    , _dcp1Source = Nothing
+    , _dcp1ParameterGroupName = pParameterGroupName
+    }
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -156,12 +167,21 @@ instance ToQuery DescribeClusterParameters where
 --
 -- * 'dcprMarker'
 --
--- * 'dcprStatusCode'
-data DescribeClusterParametersResponse = DescribeClusterParametersResponse'{_dcprParameters :: Maybe [Parameter], _dcprMarker :: Maybe Text, _dcprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcprStatus'
+data DescribeClusterParametersResponse = DescribeClusterParametersResponse'
+    { _dcprParameters :: Maybe [Parameter]
+    , _dcprMarker     :: Maybe Text
+    , _dcprStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterParametersResponse' smart constructor.
 describeClusterParametersResponse :: Int -> DescribeClusterParametersResponse
-describeClusterParametersResponse pStatusCode = DescribeClusterParametersResponse'{_dcprParameters = Nothing, _dcprMarker = Nothing, _dcprStatusCode = pStatusCode};
+describeClusterParametersResponse pStatus =
+    DescribeClusterParametersResponse'
+    { _dcprParameters = Nothing
+    , _dcprMarker = Nothing
+    , _dcprStatus = pStatus
+    }
 
 -- | A list of Parameter instances. Each instance lists the parameters of one
 -- cluster parameter group.
@@ -178,5 +198,5 @@ dcprMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
 dcprMarker = lens _dcprMarker (\ s a -> s{_dcprMarker = a});
 
 -- | FIXME: Undocumented member.
-dcprStatusCode :: Lens' DescribeClusterParametersResponse Int
-dcprStatusCode = lens _dcprStatusCode (\ s a -> s{_dcprStatusCode = a});
+dcprStatus :: Lens' DescribeClusterParametersResponse Int
+dcprStatus = lens _dcprStatus (\ s a -> s{_dcprStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ImportExport.CancelJob
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.ImportExport.CancelJob
     , cancelJobResponse
     -- ** Response lenses
     , canSuccess
-    , canStatusCode
+    , canStatus
     ) where
 
-import Network.AWS.ImportExport.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ImportExport.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input structure for the CancelJob operation.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'canAPIVersion'
 --
 -- * 'canJobId'
-data CancelJob = CancelJob'{_canAPIVersion :: Maybe Text, _canJobId :: Text} deriving (Eq, Read, Show)
+data CancelJob = CancelJob'
+    { _canAPIVersion :: Maybe Text
+    , _canJobId      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelJob' smart constructor.
 cancelJob :: Text -> CancelJob
-cancelJob pJobId = CancelJob'{_canAPIVersion = Nothing, _canJobId = pJobId};
+cancelJob pJobId =
+    CancelJob'
+    { _canAPIVersion = Nothing
+    , _canJobId = pJobId
+    }
 
 -- | FIXME: Undocumented member.
 canAPIVersion :: Lens' CancelJob (Maybe Text)
@@ -97,17 +104,24 @@ instance ToQuery CancelJob where
 --
 -- * 'canSuccess'
 --
--- * 'canStatusCode'
-data CancelJobResponse = CancelJobResponse'{_canSuccess :: Maybe Bool, _canStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'canStatus'
+data CancelJobResponse = CancelJobResponse'
+    { _canSuccess :: Maybe Bool
+    , _canStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelJobResponse' smart constructor.
 cancelJobResponse :: Int -> CancelJobResponse
-cancelJobResponse pStatusCode = CancelJobResponse'{_canSuccess = Nothing, _canStatusCode = pStatusCode};
+cancelJobResponse pStatus =
+    CancelJobResponse'
+    { _canSuccess = Nothing
+    , _canStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 canSuccess :: Lens' CancelJobResponse (Maybe Bool)
 canSuccess = lens _canSuccess (\ s a -> s{_canSuccess = a});
 
 -- | FIXME: Undocumented member.
-canStatusCode :: Lens' CancelJobResponse Int
-canStatusCode = lens _canStatusCode (\ s a -> s{_canStatusCode = a});
+canStatus :: Lens' CancelJobResponse Int
+canStatus = lens _canStatus (\ s a -> s{_canStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteSpotDatafeedSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.EC2.DeleteSpotDatafeedSubscription
     , deleteSpotDatafeedSubscriptionResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteSpotDatafeedSubscription.
 --
@@ -46,11 +46,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsds1DryRun'
-newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'{_dsds1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
+newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'
+    { _dsds1DryRun :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteSpotDatafeedSubscription' smart constructor.
 deleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription
-deleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'{_dsds1DryRun = Nothing};
+deleteSpotDatafeedSubscription =
+    DeleteSpotDatafeedSubscription'
+    { _dsds1DryRun = Nothing
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -84,8 +89,11 @@ instance ToQuery DeleteSpotDatafeedSubscription where
                "DryRun" =: _dsds1DryRun]
 
 -- | /See:/ 'deleteSpotDatafeedSubscriptionResponse' smart constructor.
-data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse' deriving (Eq, Read, Show)
+data DeleteSpotDatafeedSubscriptionResponse =
+    DeleteSpotDatafeedSubscriptionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteSpotDatafeedSubscriptionResponse' smart constructor.
 deleteSpotDatafeedSubscriptionResponse :: DeleteSpotDatafeedSubscriptionResponse
-deleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse';
+deleteSpotDatafeedSubscriptionResponse =
+    DeleteSpotDatafeedSubscriptionResponse'

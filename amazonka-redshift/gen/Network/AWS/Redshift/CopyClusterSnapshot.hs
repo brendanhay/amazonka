@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.CopyClusterSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,13 +47,13 @@ module Network.AWS.Redshift.CopyClusterSnapshot
     , copyClusterSnapshotResponse
     -- ** Response lenses
     , ccsrSnapshot
-    , ccsrStatusCode
+    , ccsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -66,11 +66,20 @@ import Network.AWS.Response
 -- * 'ccsSourceSnapshotIdentifier'
 --
 -- * 'ccsTargetSnapshotIdentifier'
-data CopyClusterSnapshot = CopyClusterSnapshot'{_ccsSourceSnapshotClusterIdentifier :: Maybe Text, _ccsSourceSnapshotIdentifier :: Text, _ccsTargetSnapshotIdentifier :: Text} deriving (Eq, Read, Show)
+data CopyClusterSnapshot = CopyClusterSnapshot'
+    { _ccsSourceSnapshotClusterIdentifier :: Maybe Text
+    , _ccsSourceSnapshotIdentifier        :: Text
+    , _ccsTargetSnapshotIdentifier        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyClusterSnapshot' smart constructor.
 copyClusterSnapshot :: Text -> Text -> CopyClusterSnapshot
-copyClusterSnapshot pSourceSnapshotIdentifier pTargetSnapshotIdentifier = CopyClusterSnapshot'{_ccsSourceSnapshotClusterIdentifier = Nothing, _ccsSourceSnapshotIdentifier = pSourceSnapshotIdentifier, _ccsTargetSnapshotIdentifier = pTargetSnapshotIdentifier};
+copyClusterSnapshot pSourceSnapshotIdentifier pTargetSnapshotIdentifier =
+    CopyClusterSnapshot'
+    { _ccsSourceSnapshotClusterIdentifier = Nothing
+    , _ccsSourceSnapshotIdentifier = pSourceSnapshotIdentifier
+    , _ccsTargetSnapshotIdentifier = pTargetSnapshotIdentifier
+    }
 
 -- | The identifier of the cluster the source snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
@@ -139,17 +148,24 @@ instance ToQuery CopyClusterSnapshot where
 --
 -- * 'ccsrSnapshot'
 --
--- * 'ccsrStatusCode'
-data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'{_ccsrSnapshot :: Maybe Snapshot, _ccsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ccsrStatus'
+data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'
+    { _ccsrSnapshot :: Maybe Snapshot
+    , _ccsrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyClusterSnapshotResponse' smart constructor.
 copyClusterSnapshotResponse :: Int -> CopyClusterSnapshotResponse
-copyClusterSnapshotResponse pStatusCode = CopyClusterSnapshotResponse'{_ccsrSnapshot = Nothing, _ccsrStatusCode = pStatusCode};
+copyClusterSnapshotResponse pStatus =
+    CopyClusterSnapshotResponse'
+    { _ccsrSnapshot = Nothing
+    , _ccsrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ccsrSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
 ccsrSnapshot = lens _ccsrSnapshot (\ s a -> s{_ccsrSnapshot = a});
 
 -- | FIXME: Undocumented member.
-ccsrStatusCode :: Lens' CopyClusterSnapshotResponse Int
-ccsrStatusCode = lens _ccsrStatusCode (\ s a -> s{_ccsrStatusCode = a});
+ccsrStatus :: Lens' CopyClusterSnapshotResponse Int
+ccsrStatus = lens _ccsrStatus (\ s a -> s{_ccsrStatus = a});

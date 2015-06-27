@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.ListMultipartUploads
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,13 +68,13 @@ module Network.AWS.Glacier.ListMultipartUploads
     -- ** Response lenses
     , lmurUploadsList
     , lmurMarker
-    , lmurStatusCode
+    , lmurStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for retrieving list of in-progress multipart uploads
 -- for an Amazon Glacier vault.
@@ -90,11 +90,22 @@ import Network.AWS.Response
 -- * 'lmuAccountId'
 --
 -- * 'lmuVaultName'
-data ListMultipartUploads = ListMultipartUploads'{_lmuMarker :: Maybe Text, _lmuLimit :: Maybe Text, _lmuAccountId :: Text, _lmuVaultName :: Text} deriving (Eq, Read, Show)
+data ListMultipartUploads = ListMultipartUploads'
+    { _lmuMarker    :: Maybe Text
+    , _lmuLimit     :: Maybe Text
+    , _lmuAccountId :: Text
+    , _lmuVaultName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListMultipartUploads' smart constructor.
 listMultipartUploads :: Text -> Text -> ListMultipartUploads
-listMultipartUploads pAccountId pVaultName = ListMultipartUploads'{_lmuMarker = Nothing, _lmuLimit = Nothing, _lmuAccountId = pAccountId, _lmuVaultName = pVaultName};
+listMultipartUploads pAccountId pVaultName =
+    ListMultipartUploads'
+    { _lmuMarker = Nothing
+    , _lmuLimit = Nothing
+    , _lmuAccountId = pAccountId
+    , _lmuVaultName = pVaultName
+    }
 
 -- | An opaque string used for pagination. This value specifies the upload at
 -- which the listing of uploads should begin. Get the marker value from a
@@ -158,12 +169,21 @@ instance ToQuery ListMultipartUploads where
 --
 -- * 'lmurMarker'
 --
--- * 'lmurStatusCode'
-data ListMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurUploadsList :: Maybe [UploadListElement], _lmurMarker :: Maybe Text, _lmurStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lmurStatus'
+data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
+    { _lmurUploadsList :: Maybe [UploadListElement]
+    , _lmurMarker      :: Maybe Text
+    , _lmurStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
 listMultipartUploadsResponse :: Int -> ListMultipartUploadsResponse
-listMultipartUploadsResponse pStatusCode = ListMultipartUploadsResponse'{_lmurUploadsList = Nothing, _lmurMarker = Nothing, _lmurStatusCode = pStatusCode};
+listMultipartUploadsResponse pStatus =
+    ListMultipartUploadsResponse'
+    { _lmurUploadsList = Nothing
+    , _lmurMarker = Nothing
+    , _lmurStatus = pStatus
+    }
 
 -- | A list of in-progress multipart uploads.
 lmurUploadsList :: Lens' ListMultipartUploadsResponse [UploadListElement]
@@ -177,5 +197,5 @@ lmurMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmurMarker = lens _lmurMarker (\ s a -> s{_lmurMarker = a});
 
 -- | FIXME: Undocumented member.
-lmurStatusCode :: Lens' ListMultipartUploadsResponse Int
-lmurStatusCode = lens _lmurStatusCode (\ s a -> s{_lmurStatusCode = a});
+lmurStatus :: Lens' ListMultipartUploadsResponse Int
+lmurStatus = lens _lmurStatus (\ s a -> s{_lmurStatus = a});

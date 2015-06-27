@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.ChangeTagsForResource
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.Route53.ChangeTagsForResource
     -- ** Response constructor
     , changeTagsForResourceResponse
     -- ** Response lenses
-    , ctfrrStatusCode
+    , ctfrrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | A complex type containing information about a request to add, change, or
 -- delete the tags that are associated with a resource.
@@ -56,11 +56,22 @@ import Network.AWS.Route53.Types
 -- * 'ctfrResourceType'
 --
 -- * 'ctfrResourceId'
-data ChangeTagsForResource = ChangeTagsForResource'{_ctfrRemoveTagKeys :: Maybe (List1 Text), _ctfrAddTags :: Maybe (List1 Tag), _ctfrResourceType :: TagResourceType, _ctfrResourceId :: Text} deriving (Eq, Read, Show)
+data ChangeTagsForResource = ChangeTagsForResource'
+    { _ctfrRemoveTagKeys :: Maybe (List1 Text)
+    , _ctfrAddTags       :: Maybe (List1 Tag)
+    , _ctfrResourceType  :: TagResourceType
+    , _ctfrResourceId    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ChangeTagsForResource' smart constructor.
 changeTagsForResource :: TagResourceType -> Text -> ChangeTagsForResource
-changeTagsForResource pResourceType pResourceId = ChangeTagsForResource'{_ctfrRemoveTagKeys = Nothing, _ctfrAddTags = Nothing, _ctfrResourceType = pResourceType, _ctfrResourceId = pResourceId};
+changeTagsForResource pResourceType pResourceId =
+    ChangeTagsForResource'
+    { _ctfrRemoveTagKeys = Nothing
+    , _ctfrAddTags = Nothing
+    , _ctfrResourceType = pResourceType
+    , _ctfrResourceId = pResourceId
+    }
 
 -- | A list of @Tag@ keys that you want to remove from the specified
 -- resource.
@@ -128,13 +139,18 @@ instance ToXML ChangeTagsForResource where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ctfrrStatusCode'
-newtype ChangeTagsForResourceResponse = ChangeTagsForResourceResponse'{_ctfrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ctfrrStatus'
+newtype ChangeTagsForResourceResponse = ChangeTagsForResourceResponse'
+    { _ctfrrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ChangeTagsForResourceResponse' smart constructor.
 changeTagsForResourceResponse :: Int -> ChangeTagsForResourceResponse
-changeTagsForResourceResponse pStatusCode = ChangeTagsForResourceResponse'{_ctfrrStatusCode = pStatusCode};
+changeTagsForResourceResponse pStatus =
+    ChangeTagsForResourceResponse'
+    { _ctfrrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-ctfrrStatusCode :: Lens' ChangeTagsForResourceResponse Int
-ctfrrStatusCode = lens _ctfrrStatusCode (\ s a -> s{_ctfrrStatusCode = a});
+ctfrrStatus :: Lens' ChangeTagsForResourceResponse Int
+ctfrrStatus = lens _ctfrrStatus (\ s a -> s{_ctfrrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.Publish
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,13 +47,13 @@ module Network.AWS.SNS.Publish
     , publishResponse
     -- ** Response lenses
     , prMessageId
-    , prStatusCode
+    , prStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for Publish action.
 --
@@ -72,11 +72,26 @@ import Network.AWS.SNS.Types
 -- * 'pubMessageStructure'
 --
 -- * 'pubMessage'
-data Publish = Publish'{_pubMessageAttributes :: Maybe (Map Text MessageAttributeValue), _pubTargetARN :: Maybe Text, _pubSubject :: Maybe Text, _pubTopicARN :: Maybe Text, _pubMessageStructure :: Maybe Text, _pubMessage :: Text} deriving (Eq, Read, Show)
+data Publish = Publish'
+    { _pubMessageAttributes :: Maybe (Map Text MessageAttributeValue)
+    , _pubTargetARN         :: Maybe Text
+    , _pubSubject           :: Maybe Text
+    , _pubTopicARN          :: Maybe Text
+    , _pubMessageStructure  :: Maybe Text
+    , _pubMessage           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Publish' smart constructor.
 publish :: Text -> Publish
-publish pMessage = Publish'{_pubMessageAttributes = Nothing, _pubTargetARN = Nothing, _pubSubject = Nothing, _pubTopicARN = Nothing, _pubMessageStructure = Nothing, _pubMessage = pMessage};
+publish pMessage =
+    Publish'
+    { _pubMessageAttributes = Nothing
+    , _pubTargetARN = Nothing
+    , _pubSubject = Nothing
+    , _pubTopicARN = Nothing
+    , _pubMessageStructure = Nothing
+    , _pubMessage = pMessage
+    }
 
 -- | Message attributes for Publish action.
 pubMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
@@ -194,12 +209,19 @@ instance ToQuery Publish where
 --
 -- * 'prMessageId'
 --
--- * 'prStatusCode'
-data PublishResponse = PublishResponse'{_prMessageId :: Maybe Text, _prStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'prStatus'
+data PublishResponse = PublishResponse'
+    { _prMessageId :: Maybe Text
+    , _prStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PublishResponse' smart constructor.
 publishResponse :: Int -> PublishResponse
-publishResponse pStatusCode = PublishResponse'{_prMessageId = Nothing, _prStatusCode = pStatusCode};
+publishResponse pStatus =
+    PublishResponse'
+    { _prMessageId = Nothing
+    , _prStatus = pStatus
+    }
 
 -- | Unique identifier assigned to the published message.
 --
@@ -208,5 +230,5 @@ prMessageId :: Lens' PublishResponse (Maybe Text)
 prMessageId = lens _prMessageId (\ s a -> s{_prMessageId = a});
 
 -- | FIXME: Undocumented member.
-prStatusCode :: Lens' PublishResponse Int
-prStatusCode = lens _prStatusCode (\ s a -> s{_prStatusCode = a});
+prStatus :: Lens' PublishResponse Int
+prStatus = lens _prStatus (\ s a -> s{_prStatus = a});

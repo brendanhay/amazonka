@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteVPNConnectionRoute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.EC2.DeleteVPNConnectionRoute
     , deleteVPNConnectionRouteResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteVPNConnectionRoute' smart constructor.
 --
@@ -48,11 +48,18 @@ import Network.AWS.Response
 -- * 'dvcrVPNConnectionId'
 --
 -- * 'dvcrDestinationCIDRBlock'
-data DeleteVPNConnectionRoute = DeleteVPNConnectionRoute'{_dvcrVPNConnectionId :: Text, _dvcrDestinationCIDRBlock :: Text} deriving (Eq, Read, Show)
+data DeleteVPNConnectionRoute = DeleteVPNConnectionRoute'
+    { _dvcrVPNConnectionId      :: Text
+    , _dvcrDestinationCIDRBlock :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVPNConnectionRoute' smart constructor.
 deleteVPNConnectionRoute :: Text -> Text -> DeleteVPNConnectionRoute
-deleteVPNConnectionRoute pVPNConnectionId pDestinationCIDRBlock = DeleteVPNConnectionRoute'{_dvcrVPNConnectionId = pVPNConnectionId, _dvcrDestinationCIDRBlock = pDestinationCIDRBlock};
+deleteVPNConnectionRoute pVPNConnectionId pDestinationCIDRBlock =
+    DeleteVPNConnectionRoute'
+    { _dvcrVPNConnectionId = pVPNConnectionId
+    , _dvcrDestinationCIDRBlock = pDestinationCIDRBlock
+    }
 
 -- | The ID of the VPN connection.
 dvcrVPNConnectionId :: Lens' DeleteVPNConnectionRoute Text
@@ -86,8 +93,10 @@ instance ToQuery DeleteVPNConnectionRoute where
                "DestinationCidrBlock" =: _dvcrDestinationCIDRBlock]
 
 -- | /See:/ 'deleteVPNConnectionRouteResponse' smart constructor.
-data DeleteVPNConnectionRouteResponse = DeleteVPNConnectionRouteResponse' deriving (Eq, Read, Show)
+data DeleteVPNConnectionRouteResponse =
+    DeleteVPNConnectionRouteResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteVPNConnectionRouteResponse' smart constructor.
 deleteVPNConnectionRouteResponse :: DeleteVPNConnectionRouteResponse
-deleteVPNConnectionRouteResponse = DeleteVPNConnectionRouteResponse';
+deleteVPNConnectionRouteResponse = DeleteVPNConnectionRouteResponse'

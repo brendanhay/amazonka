@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.ListIdentityPoolUsage
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.CognitoSync.ListIdentityPoolUsage
     , lipurCount
     , lipurNextToken
     , lipurMaxResults
-    , lipurStatusCode
+    , lipurStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request for usage information on an identity pool.
 --
@@ -57,11 +57,18 @@ import Network.AWS.Response
 -- * 'lipuNextToken'
 --
 -- * 'lipuMaxResults'
-data ListIdentityPoolUsage = ListIdentityPoolUsage'{_lipuNextToken :: Maybe Text, _lipuMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data ListIdentityPoolUsage = ListIdentityPoolUsage'
+    { _lipuNextToken  :: Maybe Text
+    , _lipuMaxResults :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListIdentityPoolUsage' smart constructor.
 listIdentityPoolUsage :: ListIdentityPoolUsage
-listIdentityPoolUsage = ListIdentityPoolUsage'{_lipuNextToken = Nothing, _lipuMaxResults = Nothing};
+listIdentityPoolUsage =
+    ListIdentityPoolUsage'
+    { _lipuNextToken = Nothing
+    , _lipuMaxResults = Nothing
+    }
 
 -- | A pagination token for obtaining the next page of results.
 lipuNextToken :: Lens' ListIdentityPoolUsage (Maybe Text)
@@ -116,12 +123,25 @@ instance ToQuery ListIdentityPoolUsage where
 --
 -- * 'lipurMaxResults'
 --
--- * 'lipurStatusCode'
-data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'{_lipurIdentityPoolUsages :: Maybe [IdentityPoolUsage], _lipurCount :: Maybe Int, _lipurNextToken :: Maybe Text, _lipurMaxResults :: Maybe Int, _lipurStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lipurStatus'
+data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
+    { _lipurIdentityPoolUsages :: Maybe [IdentityPoolUsage]
+    , _lipurCount              :: Maybe Int
+    , _lipurNextToken          :: Maybe Text
+    , _lipurMaxResults         :: Maybe Int
+    , _lipurStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListIdentityPoolUsageResponse' smart constructor.
 listIdentityPoolUsageResponse :: Int -> ListIdentityPoolUsageResponse
-listIdentityPoolUsageResponse pStatusCode = ListIdentityPoolUsageResponse'{_lipurIdentityPoolUsages = Nothing, _lipurCount = Nothing, _lipurNextToken = Nothing, _lipurMaxResults = Nothing, _lipurStatusCode = pStatusCode};
+listIdentityPoolUsageResponse pStatus =
+    ListIdentityPoolUsageResponse'
+    { _lipurIdentityPoolUsages = Nothing
+    , _lipurCount = Nothing
+    , _lipurNextToken = Nothing
+    , _lipurMaxResults = Nothing
+    , _lipurStatus = pStatus
+    }
 
 -- | Usage information for the identity pools.
 lipurIdentityPoolUsages :: Lens' ListIdentityPoolUsageResponse [IdentityPoolUsage]
@@ -140,5 +160,5 @@ lipurMaxResults :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
 lipurMaxResults = lens _lipurMaxResults (\ s a -> s{_lipurMaxResults = a});
 
 -- | FIXME: Undocumented member.
-lipurStatusCode :: Lens' ListIdentityPoolUsageResponse Int
-lipurStatusCode = lens _lipurStatusCode (\ s a -> s{_lipurStatusCode = a});
+lipurStatus :: Lens' ListIdentityPoolUsageResponse Int
+lipurStatus = lens _lipurStatus (\ s a -> s{_lipurStatus = a});

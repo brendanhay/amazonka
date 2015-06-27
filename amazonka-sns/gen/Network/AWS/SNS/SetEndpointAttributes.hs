@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.SetEndpointAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.SNS.SetEndpointAttributes
     , setEndpointAttributesResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for SetEndpointAttributes action.
 --
@@ -50,11 +50,18 @@ import Network.AWS.SNS.Types
 -- * 'seaEndpointARN'
 --
 -- * 'seaAttributes'
-data SetEndpointAttributes = SetEndpointAttributes'{_seaEndpointARN :: Text, _seaAttributes :: Map Text Text} deriving (Eq, Read, Show)
+data SetEndpointAttributes = SetEndpointAttributes'
+    { _seaEndpointARN :: Text
+    , _seaAttributes  :: Map Text Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetEndpointAttributes' smart constructor.
 setEndpointAttributes :: Text -> SetEndpointAttributes
-setEndpointAttributes pEndpointARN = SetEndpointAttributes'{_seaEndpointARN = pEndpointARN, _seaAttributes = mempty};
+setEndpointAttributes pEndpointARN =
+    SetEndpointAttributes'
+    { _seaEndpointARN = pEndpointARN
+    , _seaAttributes = mempty
+    }
 
 -- | EndpointArn used for SetEndpointAttributes action.
 seaEndpointARN :: Lens' SetEndpointAttributes Text
@@ -100,8 +107,10 @@ instance ToQuery SetEndpointAttributes where
                  toQueryMap "entry" "key" "value" _seaAttributes]
 
 -- | /See:/ 'setEndpointAttributesResponse' smart constructor.
-data SetEndpointAttributesResponse = SetEndpointAttributesResponse' deriving (Eq, Read, Show)
+data SetEndpointAttributesResponse =
+    SetEndpointAttributesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetEndpointAttributesResponse' smart constructor.
 setEndpointAttributesResponse :: SetEndpointAttributesResponse
-setEndpointAttributesResponse = SetEndpointAttributesResponse';
+setEndpointAttributesResponse = SetEndpointAttributesResponse'

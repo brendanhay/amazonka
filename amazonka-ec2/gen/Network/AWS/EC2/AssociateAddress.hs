@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.AssociateAddress
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,13 +57,13 @@ module Network.AWS.EC2.AssociateAddress
     , associateAddressResponse
     -- ** Response lenses
     , assAssociationId
-    , assStatusCode
+    , assStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'associateAddress' smart constructor.
 --
@@ -82,11 +82,28 @@ import Network.AWS.Response
 -- * 'assPublicIP'
 --
 -- * 'assDryRun'
-data AssociateAddress = AssociateAddress'{_assInstanceId :: Maybe Text, _assAllocationId :: Maybe Text, _assNetworkInterfaceId :: Maybe Text, _assAllowReassociation :: Maybe Bool, _assPrivateIPAddress :: Maybe Text, _assPublicIP :: Maybe Text, _assDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data AssociateAddress = AssociateAddress'
+    { _assInstanceId         :: Maybe Text
+    , _assAllocationId       :: Maybe Text
+    , _assNetworkInterfaceId :: Maybe Text
+    , _assAllowReassociation :: Maybe Bool
+    , _assPrivateIPAddress   :: Maybe Text
+    , _assPublicIP           :: Maybe Text
+    , _assDryRun             :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'AssociateAddress' smart constructor.
 associateAddress :: AssociateAddress
-associateAddress = AssociateAddress'{_assInstanceId = Nothing, _assAllocationId = Nothing, _assNetworkInterfaceId = Nothing, _assAllowReassociation = Nothing, _assPrivateIPAddress = Nothing, _assPublicIP = Nothing, _assDryRun = Nothing};
+associateAddress =
+    AssociateAddress'
+    { _assInstanceId = Nothing
+    , _assAllocationId = Nothing
+    , _assNetworkInterfaceId = Nothing
+    , _assAllowReassociation = Nothing
+    , _assPrivateIPAddress = Nothing
+    , _assPublicIP = Nothing
+    , _assDryRun = Nothing
+    }
 
 -- | The ID of the instance. This is required for EC2-Classic. For EC2-VPC,
 -- you can specify either the instance ID or the network interface ID, but
@@ -163,12 +180,19 @@ instance ToQuery AssociateAddress where
 --
 -- * 'assAssociationId'
 --
--- * 'assStatusCode'
-data AssociateAddressResponse = AssociateAddressResponse'{_assAssociationId :: Maybe Text, _assStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'assStatus'
+data AssociateAddressResponse = AssociateAddressResponse'
+    { _assAssociationId :: Maybe Text
+    , _assStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AssociateAddressResponse' smart constructor.
 associateAddressResponse :: Int -> AssociateAddressResponse
-associateAddressResponse pStatusCode = AssociateAddressResponse'{_assAssociationId = Nothing, _assStatusCode = pStatusCode};
+associateAddressResponse pStatus =
+    AssociateAddressResponse'
+    { _assAssociationId = Nothing
+    , _assStatus = pStatus
+    }
 
 -- | [EC2-VPC] The ID that represents the association of the Elastic IP
 -- address with an instance.
@@ -176,5 +200,5 @@ assAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
 assAssociationId = lens _assAssociationId (\ s a -> s{_assAssociationId = a});
 
 -- | FIXME: Undocumented member.
-assStatusCode :: Lens' AssociateAddressResponse Int
-assStatusCode = lens _assStatusCode (\ s a -> s{_assStatusCode = a});
+assStatus :: Lens' AssociateAddressResponse Int
+assStatus = lens _assStatus (\ s a -> s{_assStatus = a});

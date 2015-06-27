@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DetachVPNGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,10 +42,10 @@ module Network.AWS.EC2.DetachVPNGateway
     , detachVPNGatewayResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachVPNGateway' smart constructor.
 --
@@ -56,11 +56,20 @@ import Network.AWS.Response
 -- * 'detVPNGatewayId'
 --
 -- * 'detVPCId'
-data DetachVPNGateway = DetachVPNGateway'{_detDryRun :: Maybe Bool, _detVPNGatewayId :: Text, _detVPCId :: Text} deriving (Eq, Read, Show)
+data DetachVPNGateway = DetachVPNGateway'
+    { _detDryRun       :: Maybe Bool
+    , _detVPNGatewayId :: Text
+    , _detVPCId        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachVPNGateway' smart constructor.
 detachVPNGateway :: Text -> Text -> DetachVPNGateway
-detachVPNGateway pVPNGatewayId pVPCId = DetachVPNGateway'{_detDryRun = Nothing, _detVPNGatewayId = pVPNGatewayId, _detVPCId = pVPCId};
+detachVPNGateway pVPNGatewayId pVPCId =
+    DetachVPNGateway'
+    { _detDryRun = Nothing
+    , _detVPNGatewayId = pVPNGatewayId
+    , _detVPCId = pVPCId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -99,8 +108,10 @@ instance ToQuery DetachVPNGateway where
                "VpcId" =: _detVPCId]
 
 -- | /See:/ 'detachVPNGatewayResponse' smart constructor.
-data DetachVPNGatewayResponse = DetachVPNGatewayResponse' deriving (Eq, Read, Show)
+data DetachVPNGatewayResponse =
+    DetachVPNGatewayResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DetachVPNGatewayResponse' smart constructor.
 detachVPNGatewayResponse :: DetachVPNGatewayResponse
-detachVPNGatewayResponse = DetachVPNGatewayResponse';
+detachVPNGatewayResponse = DetachVPNGatewayResponse'

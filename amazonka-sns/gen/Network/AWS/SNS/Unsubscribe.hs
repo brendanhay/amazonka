@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.Unsubscribe
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,10 +38,10 @@ module Network.AWS.SNS.Unsubscribe
     , unsubscribeResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for Unsubscribe action.
 --
@@ -50,11 +50,16 @@ import Network.AWS.SNS.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'unsSubscriptionARN'
-newtype Unsubscribe = Unsubscribe'{_unsSubscriptionARN :: Text} deriving (Eq, Read, Show)
+newtype Unsubscribe = Unsubscribe'
+    { _unsSubscriptionARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Unsubscribe' smart constructor.
 unsubscribe :: Text -> Unsubscribe
-unsubscribe pSubscriptionARN = Unsubscribe'{_unsSubscriptionARN = pSubscriptionARN};
+unsubscribe pSubscriptionARN =
+    Unsubscribe'
+    { _unsSubscriptionARN = pSubscriptionARN
+    }
 
 -- | The ARN of the subscription to be deleted.
 unsSubscriptionARN :: Lens' Unsubscribe Text
@@ -80,8 +85,10 @@ instance ToQuery Unsubscribe where
                "SubscriptionArn" =: _unsSubscriptionARN]
 
 -- | /See:/ 'unsubscribeResponse' smart constructor.
-data UnsubscribeResponse = UnsubscribeResponse' deriving (Eq, Read, Show)
+data UnsubscribeResponse =
+    UnsubscribeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UnsubscribeResponse' smart constructor.
 unsubscribeResponse :: UnsubscribeResponse
-unsubscribeResponse = UnsubscribeResponse';
+unsubscribeResponse = UnsubscribeResponse'

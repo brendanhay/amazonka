@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DeleteApp
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,21 +38,26 @@ module Network.AWS.OpsWorks.DeleteApp
     , deleteAppResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteApp' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'daAppId'
-newtype DeleteApp = DeleteApp'{_daAppId :: Text} deriving (Eq, Read, Show)
+newtype DeleteApp = DeleteApp'
+    { _daAppId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteApp' smart constructor.
 deleteApp :: Text -> DeleteApp
-deleteApp pAppId = DeleteApp'{_daAppId = pAppId};
+deleteApp pAppId =
+    DeleteApp'
+    { _daAppId = pAppId
+    }
 
 -- | The app ID.
 daAppId :: Lens' DeleteApp Text
@@ -83,8 +88,10 @@ instance ToQuery DeleteApp where
         toQuery = const mempty
 
 -- | /See:/ 'deleteAppResponse' smart constructor.
-data DeleteAppResponse = DeleteAppResponse' deriving (Eq, Read, Show)
+data DeleteAppResponse =
+    DeleteAppResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteAppResponse' smart constructor.
 deleteAppResponse :: DeleteAppResponse
-deleteAppResponse = DeleteAppResponse';
+deleteAppResponse = DeleteAppResponse'

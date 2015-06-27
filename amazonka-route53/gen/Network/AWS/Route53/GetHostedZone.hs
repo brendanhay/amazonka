@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.GetHostedZone
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.Route53.GetHostedZone
     , ghzrVPCs
     , ghzrDelegationSet
     , ghzrHostedZone
-    , ghzrStatusCode
+    , ghzrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | The input for a GetHostedZone request.
 --
@@ -52,11 +52,16 @@ import Network.AWS.Route53.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ghzId'
-newtype GetHostedZone = GetHostedZone'{_ghzId :: Text} deriving (Eq, Read, Show)
+newtype GetHostedZone = GetHostedZone'
+    { _ghzId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetHostedZone' smart constructor.
 getHostedZone :: Text -> GetHostedZone
-getHostedZone pId = GetHostedZone'{_ghzId = pId};
+getHostedZone pId =
+    GetHostedZone'
+    { _ghzId = pId
+    }
 
 -- | The ID of the hosted zone for which you want to get a list of the name
 -- servers in the delegation set.
@@ -99,12 +104,23 @@ instance ToQuery GetHostedZone where
 --
 -- * 'ghzrHostedZone'
 --
--- * 'ghzrStatusCode'
-data GetHostedZoneResponse = GetHostedZoneResponse'{_ghzrVPCs :: Maybe (List1 VPC), _ghzrDelegationSet :: Maybe DelegationSet, _ghzrHostedZone :: HostedZone, _ghzrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ghzrStatus'
+data GetHostedZoneResponse = GetHostedZoneResponse'
+    { _ghzrVPCs          :: Maybe (List1 VPC)
+    , _ghzrDelegationSet :: Maybe DelegationSet
+    , _ghzrHostedZone    :: HostedZone
+    , _ghzrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetHostedZoneResponse' smart constructor.
 getHostedZoneResponse :: HostedZone -> Int -> GetHostedZoneResponse
-getHostedZoneResponse pHostedZone pStatusCode = GetHostedZoneResponse'{_ghzrVPCs = Nothing, _ghzrDelegationSet = Nothing, _ghzrHostedZone = pHostedZone, _ghzrStatusCode = pStatusCode};
+getHostedZoneResponse pHostedZone pStatus =
+    GetHostedZoneResponse'
+    { _ghzrVPCs = Nothing
+    , _ghzrDelegationSet = Nothing
+    , _ghzrHostedZone = pHostedZone
+    , _ghzrStatus = pStatus
+    }
 
 -- | A complex type that contains information about VPCs associated with the
 -- specified hosted zone.
@@ -122,5 +138,5 @@ ghzrHostedZone :: Lens' GetHostedZoneResponse HostedZone
 ghzrHostedZone = lens _ghzrHostedZone (\ s a -> s{_ghzrHostedZone = a});
 
 -- | FIXME: Undocumented member.
-ghzrStatusCode :: Lens' GetHostedZoneResponse Int
-ghzrStatusCode = lens _ghzrStatusCode (\ s a -> s{_ghzrStatusCode = a});
+ghzrStatus :: Lens' GetHostedZoneResponse Int
+ghzrStatus = lens _ghzrStatus (\ s a -> s{_ghzrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ImportExport.GetShippingLabel
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.ImportExport.GetShippingLabel
     -- ** Response lenses
     , gslrShippingLabelURL
     , gslrWarning
-    , gslrStatusCode
+    , gslrStatus
     ) where
 
-import Network.AWS.ImportExport.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ImportExport.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getShippingLabel' smart constructor.
 --
@@ -80,11 +80,38 @@ import Network.AWS.Response
 -- * 'gslStreet1'
 --
 -- * 'gslJobIds'
-data GetShippingLabel = GetShippingLabel'{_gslStreet3 :: Maybe Text, _gslAPIVersion :: Maybe Text, _gslPostalCode :: Maybe Text, _gslCountry :: Maybe Text, _gslStateOrProvince :: Maybe Text, _gslStreet2 :: Maybe Text, _gslName :: Maybe Text, _gslCompany :: Maybe Text, _gslCity :: Maybe Text, _gslPhoneNumber :: Maybe Text, _gslStreet1 :: Maybe Text, _gslJobIds :: [Text]} deriving (Eq, Read, Show)
+data GetShippingLabel = GetShippingLabel'
+    { _gslStreet3         :: Maybe Text
+    , _gslAPIVersion      :: Maybe Text
+    , _gslPostalCode      :: Maybe Text
+    , _gslCountry         :: Maybe Text
+    , _gslStateOrProvince :: Maybe Text
+    , _gslStreet2         :: Maybe Text
+    , _gslName            :: Maybe Text
+    , _gslCompany         :: Maybe Text
+    , _gslCity            :: Maybe Text
+    , _gslPhoneNumber     :: Maybe Text
+    , _gslStreet1         :: Maybe Text
+    , _gslJobIds          :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'GetShippingLabel' smart constructor.
 getShippingLabel :: GetShippingLabel
-getShippingLabel = GetShippingLabel'{_gslStreet3 = Nothing, _gslAPIVersion = Nothing, _gslPostalCode = Nothing, _gslCountry = Nothing, _gslStateOrProvince = Nothing, _gslStreet2 = Nothing, _gslName = Nothing, _gslCompany = Nothing, _gslCity = Nothing, _gslPhoneNumber = Nothing, _gslStreet1 = Nothing, _gslJobIds = mempty};
+getShippingLabel =
+    GetShippingLabel'
+    { _gslStreet3 = Nothing
+    , _gslAPIVersion = Nothing
+    , _gslPostalCode = Nothing
+    , _gslCountry = Nothing
+    , _gslStateOrProvince = Nothing
+    , _gslStreet2 = Nothing
+    , _gslName = Nothing
+    , _gslCompany = Nothing
+    , _gslCity = Nothing
+    , _gslPhoneNumber = Nothing
+    , _gslStreet1 = Nothing
+    , _gslJobIds = mempty
+    }
 
 -- | FIXME: Undocumented member.
 gslStreet3 :: Lens' GetShippingLabel (Maybe Text)
@@ -176,12 +203,21 @@ instance ToQuery GetShippingLabel where
 --
 -- * 'gslrWarning'
 --
--- * 'gslrStatusCode'
-data GetShippingLabelResponse = GetShippingLabelResponse'{_gslrShippingLabelURL :: Maybe Text, _gslrWarning :: Maybe Text, _gslrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gslrStatus'
+data GetShippingLabelResponse = GetShippingLabelResponse'
+    { _gslrShippingLabelURL :: Maybe Text
+    , _gslrWarning          :: Maybe Text
+    , _gslrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetShippingLabelResponse' smart constructor.
 getShippingLabelResponse :: Int -> GetShippingLabelResponse
-getShippingLabelResponse pStatusCode = GetShippingLabelResponse'{_gslrShippingLabelURL = Nothing, _gslrWarning = Nothing, _gslrStatusCode = pStatusCode};
+getShippingLabelResponse pStatus =
+    GetShippingLabelResponse'
+    { _gslrShippingLabelURL = Nothing
+    , _gslrWarning = Nothing
+    , _gslrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 gslrShippingLabelURL :: Lens' GetShippingLabelResponse (Maybe Text)
@@ -192,5 +228,5 @@ gslrWarning :: Lens' GetShippingLabelResponse (Maybe Text)
 gslrWarning = lens _gslrWarning (\ s a -> s{_gslrWarning = a});
 
 -- | FIXME: Undocumented member.
-gslrStatusCode :: Lens' GetShippingLabelResponse Int
-gslrStatusCode = lens _gslrStatusCode (\ s a -> s{_gslrStatusCode = a});
+gslrStatus :: Lens' GetShippingLabelResponse Int
+gslrStatus = lens _gslrStatus (\ s a -> s{_gslrStatus = a});

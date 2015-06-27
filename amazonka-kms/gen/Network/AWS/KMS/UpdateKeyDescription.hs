@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.UpdateKeyDescription
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.KMS.UpdateKeyDescription
     , updateKeyDescriptionResponse
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateKeyDescription' smart constructor.
 --
@@ -45,11 +45,18 @@ import Network.AWS.Response
 -- * 'ukdKeyId'
 --
 -- * 'ukdDescription'
-data UpdateKeyDescription = UpdateKeyDescription'{_ukdKeyId :: Text, _ukdDescription :: Text} deriving (Eq, Read, Show)
+data UpdateKeyDescription = UpdateKeyDescription'
+    { _ukdKeyId       :: Text
+    , _ukdDescription :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateKeyDescription' smart constructor.
 updateKeyDescription :: Text -> Text -> UpdateKeyDescription
-updateKeyDescription pKeyId pDescription = UpdateKeyDescription'{_ukdKeyId = pKeyId, _ukdDescription = pDescription};
+updateKeyDescription pKeyId pDescription =
+    UpdateKeyDescription'
+    { _ukdKeyId = pKeyId
+    , _ukdDescription = pDescription
+    }
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier or the fully specified ARN to a key.
@@ -94,8 +101,10 @@ instance ToQuery UpdateKeyDescription where
         toQuery = const mempty
 
 -- | /See:/ 'updateKeyDescriptionResponse' smart constructor.
-data UpdateKeyDescriptionResponse = UpdateKeyDescriptionResponse' deriving (Eq, Read, Show)
+data UpdateKeyDescriptionResponse =
+    UpdateKeyDescriptionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateKeyDescriptionResponse' smart constructor.
 updateKeyDescriptionResponse :: UpdateKeyDescriptionResponse
-updateKeyDescriptionResponse = UpdateKeyDescriptionResponse';
+updateKeyDescriptionResponse = UpdateKeyDescriptionResponse'

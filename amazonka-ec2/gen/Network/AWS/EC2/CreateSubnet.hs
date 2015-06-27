@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateSubnet
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,13 +61,13 @@ module Network.AWS.EC2.CreateSubnet
     , createSubnetResponse
     -- ** Response lenses
     , creSubnet
-    , creStatusCode
+    , creStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createSubnet' smart constructor.
 --
@@ -80,11 +80,22 @@ import Network.AWS.Response
 -- * 'creaVPCId'
 --
 -- * 'creaCIDRBlock'
-data CreateSubnet = CreateSubnet'{_creaAvailabilityZone :: Maybe Text, _creaDryRun :: Maybe Bool, _creaVPCId :: Text, _creaCIDRBlock :: Text} deriving (Eq, Read, Show)
+data CreateSubnet = CreateSubnet'
+    { _creaAvailabilityZone :: Maybe Text
+    , _creaDryRun           :: Maybe Bool
+    , _creaVPCId            :: Text
+    , _creaCIDRBlock        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSubnet' smart constructor.
 createSubnet :: Text -> Text -> CreateSubnet
-createSubnet pVPCId pCIDRBlock = CreateSubnet'{_creaAvailabilityZone = Nothing, _creaDryRun = Nothing, _creaVPCId = pVPCId, _creaCIDRBlock = pCIDRBlock};
+createSubnet pVPCId pCIDRBlock =
+    CreateSubnet'
+    { _creaAvailabilityZone = Nothing
+    , _creaDryRun = Nothing
+    , _creaVPCId = pVPCId
+    , _creaCIDRBlock = pCIDRBlock
+    }
 
 -- | The Availability Zone for the subnet.
 --
@@ -139,17 +150,24 @@ instance ToQuery CreateSubnet where
 --
 -- * 'creSubnet'
 --
--- * 'creStatusCode'
-data CreateSubnetResponse = CreateSubnetResponse'{_creSubnet :: Maybe Subnet, _creStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'creStatus'
+data CreateSubnetResponse = CreateSubnetResponse'
+    { _creSubnet :: Maybe Subnet
+    , _creStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSubnetResponse' smart constructor.
 createSubnetResponse :: Int -> CreateSubnetResponse
-createSubnetResponse pStatusCode = CreateSubnetResponse'{_creSubnet = Nothing, _creStatusCode = pStatusCode};
+createSubnetResponse pStatus =
+    CreateSubnetResponse'
+    { _creSubnet = Nothing
+    , _creStatus = pStatus
+    }
 
 -- | Information about the subnet.
 creSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
 creSubnet = lens _creSubnet (\ s a -> s{_creSubnet = a});
 
 -- | FIXME: Undocumented member.
-creStatusCode :: Lens' CreateSubnetResponse Int
-creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});
+creStatus :: Lens' CreateSubnetResponse Int
+creStatus = lens _creStatus (\ s a -> s{_creStatus = a});

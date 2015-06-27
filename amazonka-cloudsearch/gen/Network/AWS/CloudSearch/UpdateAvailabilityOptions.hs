@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.UpdateAvailabilityOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     , updateAvailabilityOptionsResponse
     -- ** Response lenses
     , uaorAvailabilityOptions
-    , uaorStatusCode
+    , uaorStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @UpdateAvailabilityOptions@
 -- operation. Specifies the name of the domain you want to update and the
@@ -58,11 +58,18 @@ import Network.AWS.Response
 -- * 'uaoDomainName'
 --
 -- * 'uaoMultiAZ'
-data UpdateAvailabilityOptions = UpdateAvailabilityOptions'{_uaoDomainName :: Text, _uaoMultiAZ :: Bool} deriving (Eq, Read, Show)
+data UpdateAvailabilityOptions = UpdateAvailabilityOptions'
+    { _uaoDomainName :: Text
+    , _uaoMultiAZ    :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateAvailabilityOptions' smart constructor.
 updateAvailabilityOptions :: Text -> Bool -> UpdateAvailabilityOptions
-updateAvailabilityOptions pDomainName pMultiAZ = UpdateAvailabilityOptions'{_uaoDomainName = pDomainName, _uaoMultiAZ = pMultiAZ};
+updateAvailabilityOptions pDomainName pMultiAZ =
+    UpdateAvailabilityOptions'
+    { _uaoDomainName = pDomainName
+    , _uaoMultiAZ = pMultiAZ
+    }
 
 -- | FIXME: Undocumented member.
 uaoDomainName :: Lens' UpdateAvailabilityOptions Text
@@ -111,12 +118,19 @@ instance ToQuery UpdateAvailabilityOptions where
 --
 -- * 'uaorAvailabilityOptions'
 --
--- * 'uaorStatusCode'
-data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'{_uaorAvailabilityOptions :: Maybe AvailabilityOptionsStatus, _uaorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'uaorStatus'
+data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'
+    { _uaorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
+    , _uaorStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateAvailabilityOptionsResponse' smart constructor.
 updateAvailabilityOptionsResponse :: Int -> UpdateAvailabilityOptionsResponse
-updateAvailabilityOptionsResponse pStatusCode = UpdateAvailabilityOptionsResponse'{_uaorAvailabilityOptions = Nothing, _uaorStatusCode = pStatusCode};
+updateAvailabilityOptionsResponse pStatus =
+    UpdateAvailabilityOptionsResponse'
+    { _uaorAvailabilityOptions = Nothing
+    , _uaorStatus = pStatus
+    }
 
 -- | The newly-configured availability options. Indicates whether Multi-AZ is
 -- enabled for the domain.
@@ -124,5 +138,5 @@ uaorAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe Availa
 uaorAvailabilityOptions = lens _uaorAvailabilityOptions (\ s a -> s{_uaorAvailabilityOptions = a});
 
 -- | FIXME: Undocumented member.
-uaorStatusCode :: Lens' UpdateAvailabilityOptionsResponse Int
-uaorStatusCode = lens _uaorStatusCode (\ s a -> s{_uaorStatusCode = a});
+uaorStatus :: Lens' UpdateAvailabilityOptionsResponse Int
+uaorStatus = lens _uaorStatus (\ s a -> s{_uaorStatus = a});

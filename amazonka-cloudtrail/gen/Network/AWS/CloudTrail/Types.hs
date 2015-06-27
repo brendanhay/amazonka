@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.CloudTrail.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -78,116 +77,142 @@ module Network.AWS.CloudTrail.Types
     , traS3BucketName
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2013-11-01@ of the Amazon CloudTrail SDK.
 data CloudTrail
 
 instance AWSService CloudTrail where
     type Sg CloudTrail = V4
-
     service = const svc
       where
-        svc :: Service CloudTrail
-        svc = Service
-            { _svcAbbrev   = "CloudTrail"
-            , _svcPrefix   = "cloudtrail"
-            , _svcVersion  = "2013-11-01"
+        svc =
+            Service
+            { _svcAbbrev = "CloudTrail"
+            , _svcPrefix = "cloudtrail"
+            , _svcVersion = "2013-11-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | Occurs if the timestamp values are invalid. Either the start time occurs
 -- after the end time or the time range is outside the range of possible
 -- values.
-_InvalidTimeRangeException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidTimeRangeException = _ServiceError . hasStatus 400 . hasCode "InvalidTimeRange";
+_InvalidTimeRangeException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidTimeRangeException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidTimeRange"
 
 -- | This exception is thrown when the policy on the S3 bucket is not
 -- sufficient.
-_InsufficientS3BucketPolicyException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InsufficientS3BucketPolicyException = _ServiceError . hasStatus 403 . hasCode "InsufficientS3BucketPolicy";
+_InsufficientS3BucketPolicyException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientS3BucketPolicyException =
+    _ServiceError . hasStatus 403 . hasCode "InsufficientS3BucketPolicy"
 
 -- | This exception is thrown when the maximum number of trails is reached.
-_MaximumNumberOfTrailsExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MaximumNumberOfTrailsExceededException = _ServiceError . hasStatus 403 . hasCode "MaximumNumberOfTrailsExceeded";
+_MaximumNumberOfTrailsExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MaximumNumberOfTrailsExceededException =
+    _ServiceError . hasStatus 403 . hasCode "MaximumNumberOfTrailsExceeded"
 
 -- | This exception is thrown when the policy on the SNS topic is not
 -- sufficient.
-_InsufficientSNSTopicPolicyException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InsufficientSNSTopicPolicyException = _ServiceError . hasStatus 403 . hasCode "InsufficientSnsTopicPolicy";
+_InsufficientSNSTopicPolicyException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientSNSTopicPolicyException =
+    _ServiceError . hasStatus 403 . hasCode "InsufficientSnsTopicPolicy"
 
 -- | This exception is thrown when the provided role is not valid.
-_InvalidCloudWatchLogsRoleARNException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidCloudWatchLogsRoleARNException = _ServiceError . hasStatus 400 . hasCode "InvalidCloudWatchLogsRoleArn";
+_InvalidCloudWatchLogsRoleARNException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidCloudWatchLogsRoleARNException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidCloudWatchLogsRoleArn"
 
 -- | This exception is thrown when the provided trail name is not valid.
-_InvalidTrailNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidTrailNameException = _ServiceError . hasStatus 400 . hasCode "InvalidTrailName";
+_InvalidTrailNameException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidTrailNameException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidTrailName"
 
 -- | Occurs when an invalid lookup attribute is specified.
-_InvalidLookupAttributesException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidLookupAttributesException = _ServiceError . hasStatus 400 . hasCode "InvalidLookupAttributes";
+_InvalidLookupAttributesException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidLookupAttributesException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidLookupAttributes"
 
 -- | This exception is thrown when the trail with the given name is not
 -- found.
-_TrailNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TrailNotFoundException = _ServiceError . hasStatus 404 . hasCode "TrailNotFound";
+_TrailNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TrailNotFoundException =
+    _ServiceError . hasStatus 404 . hasCode "TrailNotFound"
 
 -- | Cannot set a CloudWatch Logs delivery for this region.
-_CloudWatchLogsDeliveryUnavailableException :: AWSError a => Geting (First ServiceError) a ServiceError
-_CloudWatchLogsDeliveryUnavailableException = _ServiceError . hasStatus 400 . hasCode "CloudWatchLogsDeliveryUnavailable";
+_CloudWatchLogsDeliveryUnavailableException :: AWSError a => Getting (First ServiceError) a ServiceError
+_CloudWatchLogsDeliveryUnavailableException =
+    _ServiceError . hasStatus 400 . hasCode "CloudWatchLogsDeliveryUnavailable"
 
 -- | This exception is thrown when the provided SNS topic name is not valid.
-_InvalidSNSTopicNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSNSTopicNameException = _ServiceError . hasStatus 400 . hasCode "InvalidSnsTopicName";
+_InvalidSNSTopicNameException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSNSTopicNameException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidSnsTopicName"
 
 -- | This exception is thrown when the provided CloudWatch log group is not
 -- valid.
-_InvalidCloudWatchLogsLogGroupARNException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidCloudWatchLogsLogGroupARNException = _ServiceError . hasStatus 400 . hasCode "InvalidCloudWatchLogsLogGroupArn";
+_InvalidCloudWatchLogsLogGroupARNException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidCloudWatchLogsLogGroupARNException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidCloudWatchLogsLogGroupArn"
 
 -- | This exception is thrown when the provided S3 bucket name is not valid.
-_InvalidS3BucketNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidS3BucketNameException = _ServiceError . hasStatus 400 . hasCode "InvalidS3BucketName";
+_InvalidS3BucketNameException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidS3BucketNameException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidS3BucketName"
 
 -- | Invalid token or token that was previously used in a request with
 -- different parameters. This exception is thrown if the token is invalid.
-_InvalidNextTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNextTokenException = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken";
+_InvalidNextTokenException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNextTokenException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
 -- | This exception is thrown when the specified S3 bucket does not exist.
-_S3BucketDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
-_S3BucketDoesNotExistException = _ServiceError . hasStatus 404 . hasCode "S3BucketDoesNotExist";
+_S3BucketDoesNotExistException :: AWSError a => Getting (First ServiceError) a ServiceError
+_S3BucketDoesNotExistException =
+    _ServiceError . hasStatus 404 . hasCode "S3BucketDoesNotExist"
 
 -- | This exception is thrown if the limit specified is invalid.
-_InvalidMaxResultsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidMaxResultsException = _ServiceError . hasStatus 400 . hasCode "InvalidMaxResults";
+_InvalidMaxResultsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidMaxResultsException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidMaxResults"
 
 -- | This exception is thrown when the specified trail already exists.
-_TrailAlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TrailAlreadyExistsException = _ServiceError . hasStatus 400 . hasCode "TrailAlreadyExists";
+_TrailAlreadyExistsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TrailAlreadyExistsException =
+    _ServiceError . hasStatus 400 . hasCode "TrailAlreadyExists"
 
 -- | This exception is thrown when the provided S3 prefix is not valid.
-_InvalidS3PrefixException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidS3PrefixException = _ServiceError . hasStatus 400 . hasCode "InvalidS3Prefix";
+_InvalidS3PrefixException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidS3PrefixException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidS3Prefix"
 
-data LookupAttributeKey = ResourceType | ResourceName | Username | EventName | EventId deriving (Eq, Ord, Read, Show, Enum, Generic)
+data LookupAttributeKey
+    = ResourceType
+    | ResourceName
+    | Username
+    | EventName
+    | EventId
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText LookupAttributeKey where
     parser = takeLowerText >>= \case
@@ -231,11 +256,26 @@ instance ToJSON LookupAttributeKey where
 -- * 'eveEventName'
 --
 -- * 'eveEventId'
-data Event = Event'{_eveUsername :: Maybe Text, _eveEventTime :: Maybe POSIX, _eveResources :: Maybe [Resource], _eveCloudTrailEvent :: Maybe Text, _eveEventName :: Maybe Text, _eveEventId :: Maybe Text} deriving (Eq, Read, Show)
+data Event = Event'
+    { _eveUsername        :: Maybe Text
+    , _eveEventTime       :: Maybe POSIX
+    , _eveResources       :: Maybe [Resource]
+    , _eveCloudTrailEvent :: Maybe Text
+    , _eveEventName       :: Maybe Text
+    , _eveEventId         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Event' smart constructor.
 event :: Event
-event = Event'{_eveUsername = Nothing, _eveEventTime = Nothing, _eveResources = Nothing, _eveCloudTrailEvent = Nothing, _eveEventName = Nothing, _eveEventId = Nothing};
+event =
+    Event'
+    { _eveUsername = Nothing
+    , _eveEventTime = Nothing
+    , _eveResources = Nothing
+    , _eveCloudTrailEvent = Nothing
+    , _eveEventName = Nothing
+    , _eveEventId = Nothing
+    }
 
 -- | A user name or role name of the requester that called the API in the
 -- event returned.
@@ -282,11 +322,18 @@ instance FromJSON Event where
 -- * 'laAttributeKey'
 --
 -- * 'laAttributeValue'
-data LookupAttribute = LookupAttribute'{_laAttributeKey :: LookupAttributeKey, _laAttributeValue :: Text} deriving (Eq, Read, Show)
+data LookupAttribute = LookupAttribute'
+    { _laAttributeKey   :: LookupAttributeKey
+    , _laAttributeValue :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'LookupAttribute' smart constructor.
 lookupAttribute :: LookupAttributeKey -> Text -> LookupAttribute
-lookupAttribute pAttributeKey pAttributeValue = LookupAttribute'{_laAttributeKey = pAttributeKey, _laAttributeValue = pAttributeValue};
+lookupAttribute pAttributeKey pAttributeValue =
+    LookupAttribute'
+    { _laAttributeKey = pAttributeKey
+    , _laAttributeValue = pAttributeValue
+    }
 
 -- | Specifies an attribute on which to filter the events returned.
 laAttributeKey :: Lens' LookupAttribute LookupAttributeKey
@@ -311,11 +358,18 @@ instance ToJSON LookupAttribute where
 -- * 'resResourceType'
 --
 -- * 'resResourceName'
-data Resource = Resource'{_resResourceType :: Maybe Text, _resResourceName :: Maybe Text} deriving (Eq, Read, Show)
+data Resource = Resource'
+    { _resResourceType :: Maybe Text
+    , _resResourceName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Resource' smart constructor.
 resource :: Resource
-resource = Resource'{_resResourceType = Nothing, _resResourceName = Nothing};
+resource =
+    Resource'
+    { _resResourceType = Nothing
+    , _resResourceName = Nothing
+    }
 
 -- | The type of a resource referenced by the event returned. When the
 -- resource type cannot be determined, null is returned. Some examples of
@@ -359,11 +413,28 @@ instance FromJSON Resource where
 -- * 'traCloudWatchLogsRoleARN'
 --
 -- * 'traS3BucketName'
-data Trail = Trail'{_traS3KeyPrefix :: Maybe Text, _traSNSTopicName :: Maybe Text, _traCloudWatchLogsLogGroupARN :: Maybe Text, _traName :: Maybe Text, _traIncludeGlobalServiceEvents :: Maybe Bool, _traCloudWatchLogsRoleARN :: Maybe Text, _traS3BucketName :: Maybe Text} deriving (Eq, Read, Show)
+data Trail = Trail'
+    { _traS3KeyPrefix                :: Maybe Text
+    , _traSNSTopicName               :: Maybe Text
+    , _traCloudWatchLogsLogGroupARN  :: Maybe Text
+    , _traName                       :: Maybe Text
+    , _traIncludeGlobalServiceEvents :: Maybe Bool
+    , _traCloudWatchLogsRoleARN      :: Maybe Text
+    , _traS3BucketName               :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Trail' smart constructor.
 trail :: Trail
-trail = Trail'{_traS3KeyPrefix = Nothing, _traSNSTopicName = Nothing, _traCloudWatchLogsLogGroupARN = Nothing, _traName = Nothing, _traIncludeGlobalServiceEvents = Nothing, _traCloudWatchLogsRoleARN = Nothing, _traS3BucketName = Nothing};
+trail =
+    Trail'
+    { _traS3KeyPrefix = Nothing
+    , _traSNSTopicName = Nothing
+    , _traCloudWatchLogsLogGroupARN = Nothing
+    , _traName = Nothing
+    , _traIncludeGlobalServiceEvents = Nothing
+    , _traCloudWatchLogsRoleARN = Nothing
+    , _traS3BucketName = Nothing
+    }
 
 -- | Value of the Amazon S3 prefix.
 traS3KeyPrefix :: Lens' Trail (Maybe Text)

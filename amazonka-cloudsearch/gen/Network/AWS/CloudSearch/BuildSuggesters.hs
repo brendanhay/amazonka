@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.BuildSuggesters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.CloudSearch.BuildSuggesters
     , buildSuggestersResponse
     -- ** Response lenses
     , bsrFieldNames
-    , bsrStatusCode
+    , bsrStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @BuildSuggester@ operation.
 -- Specifies the name of the domain you want to update.
@@ -50,11 +50,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bsDomainName'
-newtype BuildSuggesters = BuildSuggesters'{_bsDomainName :: Text} deriving (Eq, Read, Show)
+newtype BuildSuggesters = BuildSuggesters'
+    { _bsDomainName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'BuildSuggesters' smart constructor.
 buildSuggesters :: Text -> BuildSuggesters
-buildSuggesters pDomainName = BuildSuggesters'{_bsDomainName = pDomainName};
+buildSuggesters pDomainName =
+    BuildSuggesters'
+    { _bsDomainName = pDomainName
+    }
 
 -- | FIXME: Undocumented member.
 bsDomainName :: Lens' BuildSuggesters Text
@@ -94,17 +99,24 @@ instance ToQuery BuildSuggesters where
 --
 -- * 'bsrFieldNames'
 --
--- * 'bsrStatusCode'
-data BuildSuggestersResponse = BuildSuggestersResponse'{_bsrFieldNames :: Maybe [Text], _bsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'bsrStatus'
+data BuildSuggestersResponse = BuildSuggestersResponse'
+    { _bsrFieldNames :: Maybe [Text]
+    , _bsrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'BuildSuggestersResponse' smart constructor.
 buildSuggestersResponse :: Int -> BuildSuggestersResponse
-buildSuggestersResponse pStatusCode = BuildSuggestersResponse'{_bsrFieldNames = Nothing, _bsrStatusCode = pStatusCode};
+buildSuggestersResponse pStatus =
+    BuildSuggestersResponse'
+    { _bsrFieldNames = Nothing
+    , _bsrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 bsrFieldNames :: Lens' BuildSuggestersResponse [Text]
 bsrFieldNames = lens _bsrFieldNames (\ s a -> s{_bsrFieldNames = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-bsrStatusCode :: Lens' BuildSuggestersResponse Int
-bsrStatusCode = lens _bsrStatusCode (\ s a -> s{_bsrStatusCode = a});
+bsrStatus :: Lens' BuildSuggestersResponse Int
+bsrStatus = lens _bsrStatus (\ s a -> s{_bsrStatus = a});

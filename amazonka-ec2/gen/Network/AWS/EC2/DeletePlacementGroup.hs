@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeletePlacementGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,10 +37,10 @@ module Network.AWS.EC2.DeletePlacementGroup
     , deletePlacementGroupResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deletePlacementGroup' smart constructor.
 --
@@ -49,11 +49,18 @@ import Network.AWS.Response
 -- * 'dpgDryRun'
 --
 -- * 'dpgGroupName'
-data DeletePlacementGroup = DeletePlacementGroup'{_dpgDryRun :: Maybe Bool, _dpgGroupName :: Text} deriving (Eq, Read, Show)
+data DeletePlacementGroup = DeletePlacementGroup'
+    { _dpgDryRun    :: Maybe Bool
+    , _dpgGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeletePlacementGroup' smart constructor.
 deletePlacementGroup :: Text -> DeletePlacementGroup
-deletePlacementGroup pGroupName = DeletePlacementGroup'{_dpgDryRun = Nothing, _dpgGroupName = pGroupName};
+deletePlacementGroup pGroupName =
+    DeletePlacementGroup'
+    { _dpgDryRun = Nothing
+    , _dpgGroupName = pGroupName
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -87,8 +94,10 @@ instance ToQuery DeletePlacementGroup where
                "DryRun" =: _dpgDryRun, "GroupName" =: _dpgGroupName]
 
 -- | /See:/ 'deletePlacementGroupResponse' smart constructor.
-data DeletePlacementGroupResponse = DeletePlacementGroupResponse' deriving (Eq, Read, Show)
+data DeletePlacementGroupResponse =
+    DeletePlacementGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeletePlacementGroupResponse' smart constructor.
 deletePlacementGroupResponse :: DeletePlacementGroupResponse
-deletePlacementGroupResponse = DeletePlacementGroupResponse';
+deletePlacementGroupResponse = DeletePlacementGroupResponse'

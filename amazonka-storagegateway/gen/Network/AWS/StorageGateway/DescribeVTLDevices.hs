@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeVTLDevices
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,14 +41,14 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     , dvtldrGatewayARN
     , dvtldrVTLDevices
     , dvtldrMarker
-    , dvtldrStatusCode
+    , dvtldrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | DescribeVTLDevicesInput
 --
@@ -63,11 +63,22 @@ import Network.AWS.StorageGateway.Types
 -- * 'dvtldVTLDeviceARNs'
 --
 -- * 'dvtldGatewayARN'
-data DescribeVTLDevices = DescribeVTLDevices'{_dvtldMarker :: Maybe Text, _dvtldLimit :: Maybe Nat, _dvtldVTLDeviceARNs :: Maybe [Text], _dvtldGatewayARN :: Text} deriving (Eq, Read, Show)
+data DescribeVTLDevices = DescribeVTLDevices'
+    { _dvtldMarker        :: Maybe Text
+    , _dvtldLimit         :: Maybe Nat
+    , _dvtldVTLDeviceARNs :: Maybe [Text]
+    , _dvtldGatewayARN    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVTLDevices' smart constructor.
 describeVTLDevices :: Text -> DescribeVTLDevices
-describeVTLDevices pGatewayARN = DescribeVTLDevices'{_dvtldMarker = Nothing, _dvtldLimit = Nothing, _dvtldVTLDeviceARNs = Nothing, _dvtldGatewayARN = pGatewayARN};
+describeVTLDevices pGatewayARN =
+    DescribeVTLDevices'
+    { _dvtldMarker = Nothing
+    , _dvtldLimit = Nothing
+    , _dvtldVTLDeviceARNs = Nothing
+    , _dvtldGatewayARN = pGatewayARN
+    }
 
 -- | An opaque string that indicates the position at which to begin
 -- describing the VTL devices.
@@ -148,12 +159,23 @@ instance ToQuery DescribeVTLDevices where
 --
 -- * 'dvtldrMarker'
 --
--- * 'dvtldrStatusCode'
-data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'{_dvtldrGatewayARN :: Maybe Text, _dvtldrVTLDevices :: Maybe [VTLDevice], _dvtldrMarker :: Maybe Text, _dvtldrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dvtldrStatus'
+data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
+    { _dvtldrGatewayARN :: Maybe Text
+    , _dvtldrVTLDevices :: Maybe [VTLDevice]
+    , _dvtldrMarker     :: Maybe Text
+    , _dvtldrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVTLDevicesResponse' smart constructor.
 describeVTLDevicesResponse :: Int -> DescribeVTLDevicesResponse
-describeVTLDevicesResponse pStatusCode = DescribeVTLDevicesResponse'{_dvtldrGatewayARN = Nothing, _dvtldrVTLDevices = Nothing, _dvtldrMarker = Nothing, _dvtldrStatusCode = pStatusCode};
+describeVTLDevicesResponse pStatus =
+    DescribeVTLDevicesResponse'
+    { _dvtldrGatewayARN = Nothing
+    , _dvtldrVTLDevices = Nothing
+    , _dvtldrMarker = Nothing
+    , _dvtldrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dvtldrGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
@@ -173,5 +195,5 @@ dvtldrMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
 dvtldrMarker = lens _dvtldrMarker (\ s a -> s{_dvtldrMarker = a});
 
 -- | FIXME: Undocumented member.
-dvtldrStatusCode :: Lens' DescribeVTLDevicesResponse Int
-dvtldrStatusCode = lens _dvtldrStatusCode (\ s a -> s{_dvtldrStatusCode = a});
+dvtldrStatus :: Lens' DescribeVTLDevicesResponse Int
+dvtldrStatus = lens _dvtldrStatus (\ s a -> s{_dvtldrStatus = a});

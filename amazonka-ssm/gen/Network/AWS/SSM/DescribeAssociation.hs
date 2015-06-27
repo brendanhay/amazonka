@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SSM.DescribeAssociation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.SSM.DescribeAssociation
     , describeAssociationResponse
     -- ** Response lenses
     , darAssociationDescription
-    , darStatusCode
+    , darStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
 
 -- | /See:/ 'describeAssociation' smart constructor.
 --
@@ -49,11 +49,18 @@ import Network.AWS.SSM.Types
 -- * 'daName'
 --
 -- * 'daInstanceId'
-data DescribeAssociation = DescribeAssociation'{_daName :: Text, _daInstanceId :: Text} deriving (Eq, Read, Show)
+data DescribeAssociation = DescribeAssociation'
+    { _daName       :: Text
+    , _daInstanceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAssociation' smart constructor.
 describeAssociation :: Text -> Text -> DescribeAssociation
-describeAssociation pName pInstanceId = DescribeAssociation'{_daName = pName, _daInstanceId = pInstanceId};
+describeAssociation pName pInstanceId =
+    DescribeAssociation'
+    { _daName = pName
+    , _daInstanceId = pInstanceId
+    }
 
 -- | The name of the configuration document.
 daName :: Lens' DescribeAssociation Text
@@ -101,17 +108,24 @@ instance ToQuery DescribeAssociation where
 --
 -- * 'darAssociationDescription'
 --
--- * 'darStatusCode'
-data DescribeAssociationResponse = DescribeAssociationResponse'{_darAssociationDescription :: Maybe AssociationDescription, _darStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'darStatus'
+data DescribeAssociationResponse = DescribeAssociationResponse'
+    { _darAssociationDescription :: Maybe AssociationDescription
+    , _darStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAssociationResponse' smart constructor.
 describeAssociationResponse :: Int -> DescribeAssociationResponse
-describeAssociationResponse pStatusCode = DescribeAssociationResponse'{_darAssociationDescription = Nothing, _darStatusCode = pStatusCode};
+describeAssociationResponse pStatus =
+    DescribeAssociationResponse'
+    { _darAssociationDescription = Nothing
+    , _darStatus = pStatus
+    }
 
 -- | Information about the association.
 darAssociationDescription :: Lens' DescribeAssociationResponse (Maybe AssociationDescription)
 darAssociationDescription = lens _darAssociationDescription (\ s a -> s{_darAssociationDescription = a});
 
 -- | FIXME: Undocumented member.
-darStatusCode :: Lens' DescribeAssociationResponse Int
-darStatusCode = lens _darStatusCode (\ s a -> s{_darStatusCode = a});
+darStatus :: Lens' DescribeAssociationResponse Int
+darStatus = lens _darStatus (\ s a -> s{_darStatus = a});

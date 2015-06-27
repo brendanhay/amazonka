@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.DeleteApplication
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,10 +32,10 @@ module Network.AWS.CodeDeploy.DeleteApplication
     , deleteApplicationResponse
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a delete application operation.
 --
@@ -44,11 +44,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'daApplicationName'
-newtype DeleteApplication = DeleteApplication'{_daApplicationName :: Text} deriving (Eq, Read, Show)
+newtype DeleteApplication = DeleteApplication'
+    { _daApplicationName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteApplication' smart constructor.
 deleteApplication :: Text -> DeleteApplication
-deleteApplication pApplicationName = DeleteApplication'{_daApplicationName = pApplicationName};
+deleteApplication pApplicationName =
+    DeleteApplication'
+    { _daApplicationName = pApplicationName
+    }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
@@ -82,8 +87,10 @@ instance ToQuery DeleteApplication where
         toQuery = const mempty
 
 -- | /See:/ 'deleteApplicationResponse' smart constructor.
-data DeleteApplicationResponse = DeleteApplicationResponse' deriving (Eq, Read, Show)
+data DeleteApplicationResponse =
+    DeleteApplicationResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteApplicationResponse' smart constructor.
 deleteApplicationResponse :: DeleteApplicationResponse
-deleteApplicationResponse = DeleteApplicationResponse';
+deleteApplicationResponse = DeleteApplicationResponse'

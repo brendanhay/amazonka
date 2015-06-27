@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Support.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -160,79 +159,85 @@ module Network.AWS.Support.Types
     , tarsResourcesSuppressed
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2013-04-15@ of the Amazon Support SDK.
 data Support
 
 instance AWSService Support where
     type Sg Support = V4
-
     service = const svc
       where
-        svc :: Service Support
-        svc = Service
-            { _svcAbbrev   = "Support"
-            , _svcPrefix   = "support"
-            , _svcVersion  = "2013-04-15"
+        svc =
+            Service
+            { _svcAbbrev = "Support"
+            , _svcPrefix = "support"
+            , _svcVersion = "2013-04-15"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The expiration time of the attachment set has passed. The set expires 1
 -- hour after it is created.
-_AttachmentSetExpired :: AWSError a => Geting (First ServiceError) a ServiceError
-_AttachmentSetExpired = _ServiceError . hasCode "AttachmentSetExpired";
+_AttachmentSetExpired :: AWSError a => Getting (First ServiceError) a ServiceError
+_AttachmentSetExpired = _ServiceError . hasCode "AttachmentSetExpired"
 
 -- | The limit for the number of attachment sets created in a short period of
 -- time has been exceeded.
-_AttachmentLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_AttachmentLimitExceeded = _ServiceError . hasCode "AttachmentLimitExceeded";
+_AttachmentLimitExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_AttachmentLimitExceeded = _ServiceError . hasCode "AttachmentLimitExceeded"
 
 -- | The limit for the number of DescribeAttachment requests in a short
 -- period of time has been exceeded.
-_DescribeAttachmentLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_DescribeAttachmentLimitExceeded = _ServiceError . hasCode "DescribeAttachmentLimitExceeded";
+_DescribeAttachmentLimitExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_DescribeAttachmentLimitExceeded =
+    _ServiceError . hasCode "DescribeAttachmentLimitExceeded"
 
 -- | The requested @CaseId@ could not be located.
-_CaseIdNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
-_CaseIdNotFound = _ServiceError . hasCode "CaseIdNotFound";
+_CaseIdNotFound :: AWSError a => Getting (First ServiceError) a ServiceError
+_CaseIdNotFound = _ServiceError . hasCode "CaseIdNotFound"
 
 -- | An attachment set with the specified ID could not be found.
-_AttachmentSetIdNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
-_AttachmentSetIdNotFound = _ServiceError . hasCode "AttachmentSetIdNotFound";
+_AttachmentSetIdNotFound :: AWSError a => Getting (First ServiceError) a ServiceError
+_AttachmentSetIdNotFound = _ServiceError . hasCode "AttachmentSetIdNotFound"
 
 -- | A limit for the size of an attachment set has been exceeded. The limits
 -- are 3 attachments and 5 MB per attachment.
-_AttachmentSetSizeLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_AttachmentSetSizeLimitExceeded = _ServiceError . hasCode "AttachmentSetSizeLimitExceeded";
+_AttachmentSetSizeLimitExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_AttachmentSetSizeLimitExceeded =
+    _ServiceError . hasCode "AttachmentSetSizeLimitExceeded"
 
 -- | An attachment with the specified ID could not be found.
-_AttachmentIdNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
-_AttachmentIdNotFound = _ServiceError . hasCode "AttachmentIdNotFound";
+_AttachmentIdNotFound :: AWSError a => Getting (First ServiceError) a ServiceError
+_AttachmentIdNotFound = _ServiceError . hasCode "AttachmentIdNotFound"
 
 -- | An internal server error occurred.
-_InternalServerError :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalServerError = _ServiceError . hasCode "InternalServerError";
+_InternalServerError :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServerError = _ServiceError . hasCode "InternalServerError"
 
 -- | The case creation limit for the account has been exceeded.
-_CaseCreationLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_CaseCreationLimitExceeded = _ServiceError . hasCode "CaseCreationLimitExceeded";
+_CaseCreationLimitExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_CaseCreationLimitExceeded =
+    _ServiceError . hasCode "CaseCreationLimitExceeded"
 
 -- | An attachment to a case communication. The attachment consists of the
 -- file name and the content of the file.
@@ -244,11 +249,18 @@ _CaseCreationLimitExceeded = _ServiceError . hasCode "CaseCreationLimitExceeded"
 -- * 'attData'
 --
 -- * 'attFileName'
-data Attachment = Attachment'{_attData :: Maybe Base64, _attFileName :: Maybe Text} deriving (Eq, Read, Show)
+data Attachment = Attachment'
+    { _attData     :: Maybe Base64
+    , _attFileName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Attachment' smart constructor.
 attachment :: Attachment
-attachment = Attachment'{_attData = Nothing, _attFileName = Nothing};
+attachment =
+    Attachment'
+    { _attData = Nothing
+    , _attFileName = Nothing
+    }
 
 -- | The content of the attachment file.
 attData :: Lens' Attachment (Maybe Base64)
@@ -281,11 +293,18 @@ instance ToJSON Attachment where
 -- * 'adAttachmentId'
 --
 -- * 'adFileName'
-data AttachmentDetails = AttachmentDetails'{_adAttachmentId :: Maybe Text, _adFileName :: Maybe Text} deriving (Eq, Read, Show)
+data AttachmentDetails = AttachmentDetails'
+    { _adAttachmentId :: Maybe Text
+    , _adFileName     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachmentDetails' smart constructor.
 attachmentDetails :: AttachmentDetails
-attachmentDetails = AttachmentDetails'{_adAttachmentId = Nothing, _adFileName = Nothing};
+attachmentDetails =
+    AttachmentDetails'
+    { _adAttachmentId = Nothing
+    , _adFileName = Nothing
+    }
 
 -- | The ID of the attachment.
 adAttachmentId :: Lens' AttachmentDetails (Maybe Text)
@@ -359,11 +378,38 @@ instance FromJSON AttachmentDetails where
 -- * 'cdTimeCreated'
 --
 -- * 'cdServiceCode'
-data CaseDetails = CaseDetails'{_cdSubject :: Maybe Text, _cdStatus :: Maybe Text, _cdRecentCommunications :: Maybe RecentCaseCommunications, _cdSeverityCode :: Maybe Text, _cdCaseId :: Maybe Text, _cdCcEmailAddresses :: Maybe [Text], _cdDisplayId :: Maybe Text, _cdSubmittedBy :: Maybe Text, _cdLanguage :: Maybe Text, _cdCategoryCode :: Maybe Text, _cdTimeCreated :: Maybe Text, _cdServiceCode :: Maybe Text} deriving (Eq, Read, Show)
+data CaseDetails = CaseDetails'
+    { _cdSubject              :: Maybe Text
+    , _cdStatus               :: Maybe Text
+    , _cdRecentCommunications :: Maybe RecentCaseCommunications
+    , _cdSeverityCode         :: Maybe Text
+    , _cdCaseId               :: Maybe Text
+    , _cdCcEmailAddresses     :: Maybe [Text]
+    , _cdDisplayId            :: Maybe Text
+    , _cdSubmittedBy          :: Maybe Text
+    , _cdLanguage             :: Maybe Text
+    , _cdCategoryCode         :: Maybe Text
+    , _cdTimeCreated          :: Maybe Text
+    , _cdServiceCode          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CaseDetails' smart constructor.
 caseDetails :: CaseDetails
-caseDetails = CaseDetails'{_cdSubject = Nothing, _cdStatus = Nothing, _cdRecentCommunications = Nothing, _cdSeverityCode = Nothing, _cdCaseId = Nothing, _cdCcEmailAddresses = Nothing, _cdDisplayId = Nothing, _cdSubmittedBy = Nothing, _cdLanguage = Nothing, _cdCategoryCode = Nothing, _cdTimeCreated = Nothing, _cdServiceCode = Nothing};
+caseDetails =
+    CaseDetails'
+    { _cdSubject = Nothing
+    , _cdStatus = Nothing
+    , _cdRecentCommunications = Nothing
+    , _cdSeverityCode = Nothing
+    , _cdCaseId = Nothing
+    , _cdCcEmailAddresses = Nothing
+    , _cdDisplayId = Nothing
+    , _cdSubmittedBy = Nothing
+    , _cdLanguage = Nothing
+    , _cdCategoryCode = Nothing
+    , _cdTimeCreated = Nothing
+    , _cdServiceCode = Nothing
+    }
 
 -- | The subject line for the case in the AWS Support Center.
 cdSubject :: Lens' CaseDetails (Maybe Text)
@@ -451,11 +497,18 @@ instance FromJSON CaseDetails where
 -- * 'catName'
 --
 -- * 'catCode'
-data Category = Category'{_catName :: Maybe Text, _catCode :: Maybe Text} deriving (Eq, Read, Show)
+data Category = Category'
+    { _catName :: Maybe Text
+    , _catCode :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Category' smart constructor.
 category :: Category
-category = Category'{_catName = Nothing, _catCode = Nothing};
+category =
+    Category'
+    { _catName = Nothing
+    , _catCode = Nothing
+    }
 
 -- | The category name for the support case.
 catName :: Lens' Category (Maybe Text)
@@ -488,11 +541,24 @@ instance FromJSON Category where
 -- * 'comTimeCreated'
 --
 -- * 'comAttachmentSet'
-data Communication = Communication'{_comBody :: Maybe Text, _comCaseId :: Maybe Text, _comSubmittedBy :: Maybe Text, _comTimeCreated :: Maybe Text, _comAttachmentSet :: Maybe [AttachmentDetails]} deriving (Eq, Read, Show)
+data Communication = Communication'
+    { _comBody          :: Maybe Text
+    , _comCaseId        :: Maybe Text
+    , _comSubmittedBy   :: Maybe Text
+    , _comTimeCreated   :: Maybe Text
+    , _comAttachmentSet :: Maybe [AttachmentDetails]
+    } deriving (Eq,Read,Show)
 
 -- | 'Communication' smart constructor.
 communication :: Communication
-communication = Communication'{_comBody = Nothing, _comCaseId = Nothing, _comSubmittedBy = Nothing, _comTimeCreated = Nothing, _comAttachmentSet = Nothing};
+communication =
+    Communication'
+    { _comBody = Nothing
+    , _comCaseId = Nothing
+    , _comSubmittedBy = Nothing
+    , _comTimeCreated = Nothing
+    , _comAttachmentSet = Nothing
+    }
 
 -- | The text of the communication between the customer and AWS Support.
 comBody :: Lens' Communication (Maybe Text)
@@ -535,11 +601,18 @@ instance FromJSON Communication where
 -- * 'rccNextToken'
 --
 -- * 'rccCommunications'
-data RecentCaseCommunications = RecentCaseCommunications'{_rccNextToken :: Maybe Text, _rccCommunications :: Maybe [Communication]} deriving (Eq, Read, Show)
+data RecentCaseCommunications = RecentCaseCommunications'
+    { _rccNextToken      :: Maybe Text
+    , _rccCommunications :: Maybe [Communication]
+    } deriving (Eq,Read,Show)
 
 -- | 'RecentCaseCommunications' smart constructor.
 recentCaseCommunications :: RecentCaseCommunications
-recentCaseCommunications = RecentCaseCommunications'{_rccNextToken = Nothing, _rccCommunications = Nothing};
+recentCaseCommunications =
+    RecentCaseCommunications'
+    { _rccNextToken = Nothing
+    , _rccCommunications = Nothing
+    }
 
 -- | A resumption point for pagination.
 rccNextToken :: Lens' RecentCaseCommunications (Maybe Text)
@@ -567,11 +640,18 @@ instance FromJSON RecentCaseCommunications where
 -- * 'slName'
 --
 -- * 'slCode'
-data SeverityLevel = SeverityLevel'{_slName :: Maybe Text, _slCode :: Maybe Text} deriving (Eq, Read, Show)
+data SeverityLevel = SeverityLevel'
+    { _slName :: Maybe Text
+    , _slCode :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SeverityLevel' smart constructor.
 severityLevel :: SeverityLevel
-severityLevel = SeverityLevel'{_slName = Nothing, _slCode = Nothing};
+severityLevel =
+    SeverityLevel'
+    { _slName = Nothing
+    , _slCode = Nothing
+    }
 
 -- | The name of the severity level that corresponds to the severity level
 -- code.
@@ -602,11 +682,20 @@ instance FromJSON SeverityLevel where
 -- * 'ssName'
 --
 -- * 'ssCode'
-data SupportService = SupportService'{_ssCategories :: Maybe [Category], _ssName :: Maybe Text, _ssCode :: Maybe Text} deriving (Eq, Read, Show)
+data SupportService = SupportService'
+    { _ssCategories :: Maybe [Category]
+    , _ssName       :: Maybe Text
+    , _ssCode       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SupportService' smart constructor.
 supportService :: SupportService
-supportService = SupportService'{_ssCategories = Nothing, _ssName = Nothing, _ssCode = Nothing};
+supportService =
+    SupportService'
+    { _ssCategories = Nothing
+    , _ssName = Nothing
+    , _ssCode = Nothing
+    }
 
 -- | A list of categories that describe the type of support issue a case
 -- describes. Categories consist of a category name and a category code.
@@ -641,11 +730,16 @@ instance FromJSON SupportService where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'tacssCostOptimizing'
-newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary'{_tacssCostOptimizing :: Maybe TrustedAdvisorCostOptimizingSummary} deriving (Eq, Read, Show)
+newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary'
+    { _tacssCostOptimizing :: Maybe TrustedAdvisorCostOptimizingSummary
+    } deriving (Eq,Read,Show)
 
 -- | 'TrustedAdvisorCategorySpecificSummary' smart constructor.
 trustedAdvisorCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
-trustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary'{_tacssCostOptimizing = Nothing};
+trustedAdvisorCategorySpecificSummary =
+    TrustedAdvisorCategorySpecificSummary'
+    { _tacssCostOptimizing = Nothing
+    }
 
 -- | The summary information about cost savings for a Trusted Advisor check
 -- that is in the Cost Optimizing category.
@@ -675,11 +769,24 @@ instance FromJSON
 -- * 'tacdCategory'
 --
 -- * 'tacdMetadata'
-data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription'{_tacdId :: Text, _tacdName :: Text, _tacdDescription :: Text, _tacdCategory :: Text, _tacdMetadata :: [Text]} deriving (Eq, Read, Show)
+data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription'
+    { _tacdId          :: Text
+    , _tacdName        :: Text
+    , _tacdDescription :: Text
+    , _tacdCategory    :: Text
+    , _tacdMetadata    :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'TrustedAdvisorCheckDescription' smart constructor.
 trustedAdvisorCheckDescription :: Text -> Text -> Text -> Text -> TrustedAdvisorCheckDescription
-trustedAdvisorCheckDescription pId pName pDescription pCategory = TrustedAdvisorCheckDescription'{_tacdId = pId, _tacdName = pName, _tacdDescription = pDescription, _tacdCategory = pCategory, _tacdMetadata = mempty};
+trustedAdvisorCheckDescription pId pName pDescription pCategory =
+    TrustedAdvisorCheckDescription'
+    { _tacdId = pId
+    , _tacdName = pName
+    , _tacdDescription = pDescription
+    , _tacdCategory = pCategory
+    , _tacdMetadata = mempty
+    }
 
 -- | The unique identifier for the Trusted Advisor check.
 tacdId :: Lens' TrustedAdvisorCheckDescription Text
@@ -728,11 +835,20 @@ instance FromJSON TrustedAdvisorCheckDescription
 -- * 'tacrsStatus'
 --
 -- * 'tacrsMillisUntilNextRefreshable'
-data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'{_tacrsCheckId :: Text, _tacrsStatus :: Text, _tacrsMillisUntilNextRefreshable :: Integer} deriving (Eq, Read, Show)
+data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'
+    { _tacrsCheckId                    :: Text
+    , _tacrsStatus                     :: Text
+    , _tacrsMillisUntilNextRefreshable :: !Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'TrustedAdvisorCheckRefreshStatus' smart constructor.
 trustedAdvisorCheckRefreshStatus :: Text -> Text -> Integer -> TrustedAdvisorCheckRefreshStatus
-trustedAdvisorCheckRefreshStatus pCheckId pStatus pMillisUntilNextRefreshable = TrustedAdvisorCheckRefreshStatus'{_tacrsCheckId = pCheckId, _tacrsStatus = pStatus, _tacrsMillisUntilNextRefreshable = pMillisUntilNextRefreshable};
+trustedAdvisorCheckRefreshStatus pCheckId pStatus pMillisUntilNextRefreshable =
+    TrustedAdvisorCheckRefreshStatus'
+    { _tacrsCheckId = pCheckId
+    , _tacrsStatus = pStatus
+    , _tacrsMillisUntilNextRefreshable = pMillisUntilNextRefreshable
+    }
 
 -- | The unique identifier for the Trusted Advisor check.
 tacrsCheckId :: Lens' TrustedAdvisorCheckRefreshStatus Text
@@ -776,11 +892,26 @@ instance FromJSON TrustedAdvisorCheckRefreshStatus
 -- * 'tacrCategorySpecificSummary'
 --
 -- * 'tacrFlaggedResources'
-data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult'{_tacrCheckId :: Text, _tacrTimestamp :: Text, _tacrStatus :: Text, _tacrResourcesSummary :: TrustedAdvisorResourcesSummary, _tacrCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary, _tacrFlaggedResources :: [TrustedAdvisorResourceDetail]} deriving (Eq, Read, Show)
+data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult'
+    { _tacrCheckId                 :: Text
+    , _tacrTimestamp               :: Text
+    , _tacrStatus                  :: Text
+    , _tacrResourcesSummary        :: TrustedAdvisorResourcesSummary
+    , _tacrCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
+    , _tacrFlaggedResources        :: [TrustedAdvisorResourceDetail]
+    } deriving (Eq,Read,Show)
 
 -- | 'TrustedAdvisorCheckResult' smart constructor.
 trustedAdvisorCheckResult :: Text -> Text -> Text -> TrustedAdvisorResourcesSummary -> TrustedAdvisorCategorySpecificSummary -> TrustedAdvisorCheckResult
-trustedAdvisorCheckResult pCheckId pTimestamp pStatus pResourcesSummary pCategorySpecificSummary = TrustedAdvisorCheckResult'{_tacrCheckId = pCheckId, _tacrTimestamp = pTimestamp, _tacrStatus = pStatus, _tacrResourcesSummary = pResourcesSummary, _tacrCategorySpecificSummary = pCategorySpecificSummary, _tacrFlaggedResources = mempty};
+trustedAdvisorCheckResult pCheckId pTimestamp pStatus pResourcesSummary pCategorySpecificSummary =
+    TrustedAdvisorCheckResult'
+    { _tacrCheckId = pCheckId
+    , _tacrTimestamp = pTimestamp
+    , _tacrStatus = pStatus
+    , _tacrResourcesSummary = pResourcesSummary
+    , _tacrCategorySpecificSummary = pCategorySpecificSummary
+    , _tacrFlaggedResources = mempty
+    }
 
 -- | The unique identifier for the Trusted Advisor check.
 tacrCheckId :: Lens' TrustedAdvisorCheckResult Text
@@ -837,11 +968,26 @@ instance FromJSON TrustedAdvisorCheckResult where
 -- * 'tacsResourcesSummary'
 --
 -- * 'tacsCategorySpecificSummary'
-data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary'{_tacsHasFlaggedResources :: Maybe Bool, _tacsCheckId :: Text, _tacsTimestamp :: Text, _tacsStatus :: Text, _tacsResourcesSummary :: TrustedAdvisorResourcesSummary, _tacsCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary} deriving (Eq, Read, Show)
+data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary'
+    { _tacsHasFlaggedResources     :: Maybe Bool
+    , _tacsCheckId                 :: Text
+    , _tacsTimestamp               :: Text
+    , _tacsStatus                  :: Text
+    , _tacsResourcesSummary        :: TrustedAdvisorResourcesSummary
+    , _tacsCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
+    } deriving (Eq,Read,Show)
 
 -- | 'TrustedAdvisorCheckSummary' smart constructor.
 trustedAdvisorCheckSummary :: Text -> Text -> Text -> TrustedAdvisorResourcesSummary -> TrustedAdvisorCategorySpecificSummary -> TrustedAdvisorCheckSummary
-trustedAdvisorCheckSummary pCheckId pTimestamp pStatus pResourcesSummary pCategorySpecificSummary = TrustedAdvisorCheckSummary'{_tacsHasFlaggedResources = Nothing, _tacsCheckId = pCheckId, _tacsTimestamp = pTimestamp, _tacsStatus = pStatus, _tacsResourcesSummary = pResourcesSummary, _tacsCategorySpecificSummary = pCategorySpecificSummary};
+trustedAdvisorCheckSummary pCheckId pTimestamp pStatus pResourcesSummary pCategorySpecificSummary =
+    TrustedAdvisorCheckSummary'
+    { _tacsHasFlaggedResources = Nothing
+    , _tacsCheckId = pCheckId
+    , _tacsTimestamp = pTimestamp
+    , _tacsStatus = pStatus
+    , _tacsResourcesSummary = pResourcesSummary
+    , _tacsCategorySpecificSummary = pCategorySpecificSummary
+    }
 
 -- | Specifies whether the Trusted Advisor check has flagged resources.
 tacsHasFlaggedResources :: Lens' TrustedAdvisorCheckSummary (Maybe Bool)
@@ -890,11 +1036,18 @@ instance FromJSON TrustedAdvisorCheckSummary where
 -- * 'tacosEstimatedMonthlySavings'
 --
 -- * 'tacosEstimatedPercentMonthlySavings'
-data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary'{_tacosEstimatedMonthlySavings :: Double, _tacosEstimatedPercentMonthlySavings :: Double} deriving (Eq, Read, Show)
+data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary'
+    { _tacosEstimatedMonthlySavings        :: !Double
+    , _tacosEstimatedPercentMonthlySavings :: !Double
+    } deriving (Eq,Read,Show)
 
 -- | 'TrustedAdvisorCostOptimizingSummary' smart constructor.
 trustedAdvisorCostOptimizingSummary :: Double -> Double -> TrustedAdvisorCostOptimizingSummary
-trustedAdvisorCostOptimizingSummary pEstimatedMonthlySavings pEstimatedPercentMonthlySavings = TrustedAdvisorCostOptimizingSummary'{_tacosEstimatedMonthlySavings = pEstimatedMonthlySavings, _tacosEstimatedPercentMonthlySavings = pEstimatedPercentMonthlySavings};
+trustedAdvisorCostOptimizingSummary pEstimatedMonthlySavings pEstimatedPercentMonthlySavings =
+    TrustedAdvisorCostOptimizingSummary'
+    { _tacosEstimatedMonthlySavings = pEstimatedMonthlySavings
+    , _tacosEstimatedPercentMonthlySavings = pEstimatedPercentMonthlySavings
+    }
 
 -- | The estimated monthly savings that might be realized if the recommended
 -- actions are taken.
@@ -931,11 +1084,24 @@ instance FromJSON TrustedAdvisorCostOptimizingSummary
 -- * 'tardResourceId'
 --
 -- * 'tardMetadata'
-data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'{_tardIsSuppressed :: Maybe Bool, _tardStatus :: Text, _tardRegion :: Text, _tardResourceId :: Text, _tardMetadata :: [Text]} deriving (Eq, Read, Show)
+data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
+    { _tardIsSuppressed :: Maybe Bool
+    , _tardStatus       :: Text
+    , _tardRegion       :: Text
+    , _tardResourceId   :: Text
+    , _tardMetadata     :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'TrustedAdvisorResourceDetail' smart constructor.
 trustedAdvisorResourceDetail :: Text -> Text -> Text -> TrustedAdvisorResourceDetail
-trustedAdvisorResourceDetail pStatus pRegion pResourceId = TrustedAdvisorResourceDetail'{_tardIsSuppressed = Nothing, _tardStatus = pStatus, _tardRegion = pRegion, _tardResourceId = pResourceId, _tardMetadata = mempty};
+trustedAdvisorResourceDetail pStatus pRegion pResourceId =
+    TrustedAdvisorResourceDetail'
+    { _tardIsSuppressed = Nothing
+    , _tardStatus = pStatus
+    , _tardRegion = pRegion
+    , _tardResourceId = pResourceId
+    , _tardMetadata = mempty
+    }
 
 -- | Specifies whether the AWS resource was ignored by Trusted Advisor
 -- because it was marked as suppressed by the user.
@@ -988,11 +1154,22 @@ instance FromJSON TrustedAdvisorResourceDetail where
 -- * 'tarsResourcesIgnored'
 --
 -- * 'tarsResourcesSuppressed'
-data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary'{_tarsResourcesProcessed :: Integer, _tarsResourcesFlagged :: Integer, _tarsResourcesIgnored :: Integer, _tarsResourcesSuppressed :: Integer} deriving (Eq, Read, Show)
+data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary'
+    { _tarsResourcesProcessed  :: !Integer
+    , _tarsResourcesFlagged    :: !Integer
+    , _tarsResourcesIgnored    :: !Integer
+    , _tarsResourcesSuppressed :: !Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'TrustedAdvisorResourcesSummary' smart constructor.
 trustedAdvisorResourcesSummary :: Integer -> Integer -> Integer -> Integer -> TrustedAdvisorResourcesSummary
-trustedAdvisorResourcesSummary pResourcesProcessed pResourcesFlagged pResourcesIgnored pResourcesSuppressed = TrustedAdvisorResourcesSummary'{_tarsResourcesProcessed = pResourcesProcessed, _tarsResourcesFlagged = pResourcesFlagged, _tarsResourcesIgnored = pResourcesIgnored, _tarsResourcesSuppressed = pResourcesSuppressed};
+trustedAdvisorResourcesSummary pResourcesProcessed pResourcesFlagged pResourcesIgnored pResourcesSuppressed =
+    TrustedAdvisorResourcesSummary'
+    { _tarsResourcesProcessed = pResourcesProcessed
+    , _tarsResourcesFlagged = pResourcesFlagged
+    , _tarsResourcesIgnored = pResourcesIgnored
+    , _tarsResourcesSuppressed = pResourcesSuppressed
+    }
 
 -- | The number of AWS resources that were analyzed by the Trusted Advisor
 -- check.

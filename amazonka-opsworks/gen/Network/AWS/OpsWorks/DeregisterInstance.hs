@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DeregisterInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,21 +41,26 @@ module Network.AWS.OpsWorks.DeregisterInstance
     , deregisterInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deregisterInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'derInstanceId'
-newtype DeregisterInstance = DeregisterInstance'{_derInstanceId :: Text} deriving (Eq, Read, Show)
+newtype DeregisterInstance = DeregisterInstance'
+    { _derInstanceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeregisterInstance' smart constructor.
 deregisterInstance :: Text -> DeregisterInstance
-deregisterInstance pInstanceId = DeregisterInstance'{_derInstanceId = pInstanceId};
+deregisterInstance pInstanceId =
+    DeregisterInstance'
+    { _derInstanceId = pInstanceId
+    }
 
 -- | The instance ID.
 derInstanceId :: Lens' DeregisterInstance Text
@@ -89,8 +94,10 @@ instance ToQuery DeregisterInstance where
         toQuery = const mempty
 
 -- | /See:/ 'deregisterInstanceResponse' smart constructor.
-data DeregisterInstanceResponse = DeregisterInstanceResponse' deriving (Eq, Read, Show)
+data DeregisterInstanceResponse =
+    DeregisterInstanceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeregisterInstanceResponse' smart constructor.
 deregisterInstanceResponse :: DeregisterInstanceResponse
-deregisterInstanceResponse = DeregisterInstanceResponse';
+deregisterInstanceResponse = DeregisterInstanceResponse'

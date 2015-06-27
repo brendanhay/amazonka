@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateApp
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,10 +48,10 @@ module Network.AWS.OpsWorks.UpdateApp
     , updateAppResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateApp' smart constructor.
 --
@@ -78,11 +78,36 @@ import Network.AWS.Response
 -- * 'uaDescription'
 --
 -- * 'uaAppId'
-data UpdateApp = UpdateApp'{_uaSSLConfiguration :: Maybe SSLConfiguration, _uaEnableSSL :: Maybe Bool, _uaEnvironment :: Maybe [EnvironmentVariable], _uaDataSources :: Maybe [DataSource], _uaAppSource :: Maybe Source, _uaName :: Maybe Text, _uaAttributes :: Maybe (Map AppAttributesKeys Text), _uaType :: Maybe AppType, _uaDomains :: Maybe [Text], _uaDescription :: Maybe Text, _uaAppId :: Text} deriving (Eq, Read, Show)
+data UpdateApp = UpdateApp'
+    { _uaSSLConfiguration :: Maybe SSLConfiguration
+    , _uaEnableSSL        :: Maybe Bool
+    , _uaEnvironment      :: Maybe [EnvironmentVariable]
+    , _uaDataSources      :: Maybe [DataSource]
+    , _uaAppSource        :: Maybe Source
+    , _uaName             :: Maybe Text
+    , _uaAttributes       :: Maybe (Map AppAttributesKeys Text)
+    , _uaType             :: Maybe AppType
+    , _uaDomains          :: Maybe [Text]
+    , _uaDescription      :: Maybe Text
+    , _uaAppId            :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateApp' smart constructor.
 updateApp :: Text -> UpdateApp
-updateApp pAppId = UpdateApp'{_uaSSLConfiguration = Nothing, _uaEnableSSL = Nothing, _uaEnvironment = Nothing, _uaDataSources = Nothing, _uaAppSource = Nothing, _uaName = Nothing, _uaAttributes = Nothing, _uaType = Nothing, _uaDomains = Nothing, _uaDescription = Nothing, _uaAppId = pAppId};
+updateApp pAppId =
+    UpdateApp'
+    { _uaSSLConfiguration = Nothing
+    , _uaEnableSSL = Nothing
+    , _uaEnvironment = Nothing
+    , _uaDataSources = Nothing
+    , _uaAppSource = Nothing
+    , _uaName = Nothing
+    , _uaAttributes = Nothing
+    , _uaType = Nothing
+    , _uaDomains = Nothing
+    , _uaDescription = Nothing
+    , _uaAppId = pAppId
+    }
 
 -- | An @SslConfiguration@ object with the SSL configuration.
 uaSSLConfiguration :: Lens' UpdateApp (Maybe SSLConfiguration)
@@ -179,8 +204,10 @@ instance ToQuery UpdateApp where
         toQuery = const mempty
 
 -- | /See:/ 'updateAppResponse' smart constructor.
-data UpdateAppResponse = UpdateAppResponse' deriving (Eq, Read, Show)
+data UpdateAppResponse =
+    UpdateAppResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateAppResponse' smart constructor.
 updateAppResponse :: UpdateAppResponse
-updateAppResponse = UpdateAppResponse';
+updateAppResponse = UpdateAppResponse'

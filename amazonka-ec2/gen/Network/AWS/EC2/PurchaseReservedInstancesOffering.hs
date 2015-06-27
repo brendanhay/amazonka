@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.PurchaseReservedInstancesOffering
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     , purchaseReservedInstancesOfferingResponse
     -- ** Response lenses
     , priorReservedInstancesId
-    , priorStatusCode
+    , priorStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'purchaseReservedInstancesOffering' smart constructor.
 --
@@ -68,11 +68,22 @@ import Network.AWS.Response
 -- * 'prioReservedInstancesOfferingId'
 --
 -- * 'prioInstanceCount'
-data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'{_prioLimitPrice :: Maybe ReservedInstanceLimitPrice, _prioDryRun :: Maybe Bool, _prioReservedInstancesOfferingId :: Text, _prioInstanceCount :: Int} deriving (Eq, Read, Show)
+data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
+    { _prioLimitPrice                  :: Maybe ReservedInstanceLimitPrice
+    , _prioDryRun                      :: Maybe Bool
+    , _prioReservedInstancesOfferingId :: Text
+    , _prioInstanceCount               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PurchaseReservedInstancesOffering' smart constructor.
 purchaseReservedInstancesOffering :: Text -> Int -> PurchaseReservedInstancesOffering
-purchaseReservedInstancesOffering pReservedInstancesOfferingId pInstanceCount = PurchaseReservedInstancesOffering'{_prioLimitPrice = Nothing, _prioDryRun = Nothing, _prioReservedInstancesOfferingId = pReservedInstancesOfferingId, _prioInstanceCount = pInstanceCount};
+purchaseReservedInstancesOffering pReservedInstancesOfferingId pInstanceCount =
+    PurchaseReservedInstancesOffering'
+    { _prioLimitPrice = Nothing
+    , _prioDryRun = Nothing
+    , _prioReservedInstancesOfferingId = pReservedInstancesOfferingId
+    , _prioInstanceCount = pInstanceCount
+    }
 
 -- | Specified for Reserved Instance Marketplace offerings to limit the total
 -- order and ensure that the Reserved Instances are not purchased at
@@ -135,17 +146,24 @@ instance ToQuery PurchaseReservedInstancesOffering
 --
 -- * 'priorReservedInstancesId'
 --
--- * 'priorStatusCode'
-data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'{_priorReservedInstancesId :: Maybe Text, _priorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'priorStatus'
+data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'
+    { _priorReservedInstancesId :: Maybe Text
+    , _priorStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PurchaseReservedInstancesOfferingResponse' smart constructor.
 purchaseReservedInstancesOfferingResponse :: Int -> PurchaseReservedInstancesOfferingResponse
-purchaseReservedInstancesOfferingResponse pStatusCode = PurchaseReservedInstancesOfferingResponse'{_priorReservedInstancesId = Nothing, _priorStatusCode = pStatusCode};
+purchaseReservedInstancesOfferingResponse pStatus =
+    PurchaseReservedInstancesOfferingResponse'
+    { _priorReservedInstancesId = Nothing
+    , _priorStatus = pStatus
+    }
 
 -- | The IDs of the purchased Reserved Instances.
 priorReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
 priorReservedInstancesId = lens _priorReservedInstancesId (\ s a -> s{_priorReservedInstancesId = a});
 
 -- | FIXME: Undocumented member.
-priorStatusCode :: Lens' PurchaseReservedInstancesOfferingResponse Int
-priorStatusCode = lens _priorStatusCode (\ s a -> s{_priorStatusCode = a});
+priorStatus :: Lens' PurchaseReservedInstancesOfferingResponse Int
+priorStatus = lens _priorStatus (\ s a -> s{_priorStatus = a});

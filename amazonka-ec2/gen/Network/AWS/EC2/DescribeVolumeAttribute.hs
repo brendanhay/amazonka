@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeVolumeAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     , dvarProductCodes
     , dvarVolumeId
     , dvarAutoEnableIO
-    , dvarStatusCode
+    , dvarStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVolumeAttribute' smart constructor.
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'dvaDryRun'
 --
 -- * 'dvaVolumeId'
-data DescribeVolumeAttribute = DescribeVolumeAttribute'{_dvaAttribute :: Maybe VolumeAttributeName, _dvaDryRun :: Maybe Bool, _dvaVolumeId :: Text} deriving (Eq, Read, Show)
+data DescribeVolumeAttribute = DescribeVolumeAttribute'
+    { _dvaAttribute :: Maybe VolumeAttributeName
+    , _dvaDryRun    :: Maybe Bool
+    , _dvaVolumeId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVolumeAttribute' smart constructor.
 describeVolumeAttribute :: Text -> DescribeVolumeAttribute
-describeVolumeAttribute pVolumeId = DescribeVolumeAttribute'{_dvaAttribute = Nothing, _dvaDryRun = Nothing, _dvaVolumeId = pVolumeId};
+describeVolumeAttribute pVolumeId =
+    DescribeVolumeAttribute'
+    { _dvaAttribute = Nothing
+    , _dvaDryRun = Nothing
+    , _dvaVolumeId = pVolumeId
+    }
 
 -- | The instance attribute.
 dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
@@ -117,12 +126,23 @@ instance ToQuery DescribeVolumeAttribute where
 --
 -- * 'dvarAutoEnableIO'
 --
--- * 'dvarStatusCode'
-data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'{_dvarProductCodes :: Maybe [ProductCode], _dvarVolumeId :: Maybe Text, _dvarAutoEnableIO :: Maybe AttributeBooleanValue, _dvarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dvarStatus'
+data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
+    { _dvarProductCodes :: Maybe [ProductCode]
+    , _dvarVolumeId     :: Maybe Text
+    , _dvarAutoEnableIO :: Maybe AttributeBooleanValue
+    , _dvarStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVolumeAttributeResponse' smart constructor.
 describeVolumeAttributeResponse :: Int -> DescribeVolumeAttributeResponse
-describeVolumeAttributeResponse pStatusCode = DescribeVolumeAttributeResponse'{_dvarProductCodes = Nothing, _dvarVolumeId = Nothing, _dvarAutoEnableIO = Nothing, _dvarStatusCode = pStatusCode};
+describeVolumeAttributeResponse pStatus =
+    DescribeVolumeAttributeResponse'
+    { _dvarProductCodes = Nothing
+    , _dvarVolumeId = Nothing
+    , _dvarAutoEnableIO = Nothing
+    , _dvarStatus = pStatus
+    }
 
 -- | A list of product codes.
 dvarProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
@@ -137,5 +157,5 @@ dvarAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBoolea
 dvarAutoEnableIO = lens _dvarAutoEnableIO (\ s a -> s{_dvarAutoEnableIO = a});
 
 -- | FIXME: Undocumented member.
-dvarStatusCode :: Lens' DescribeVolumeAttributeResponse Int
-dvarStatusCode = lens _dvarStatusCode (\ s a -> s{_dvarStatusCode = a});
+dvarStatus :: Lens' DescribeVolumeAttributeResponse Int
+dvarStatus = lens _dvarStatus (\ s a -> s{_dvarStatus = a});

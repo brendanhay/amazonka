@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.ListInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,14 +40,14 @@ module Network.AWS.EMR.ListInstances
     -- ** Response lenses
     , lirInstances
     , lirMarker
-    , lirStatusCode
+    , lirStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This input determines which instances to list.
 --
@@ -62,11 +62,22 @@ import Network.AWS.Response
 -- * 'liInstanceGroupId'
 --
 -- * 'liClusterId'
-data ListInstances = ListInstances'{_liInstanceGroupTypes :: Maybe [InstanceGroupType], _liMarker :: Maybe Text, _liInstanceGroupId :: Maybe Text, _liClusterId :: Text} deriving (Eq, Read, Show)
+data ListInstances = ListInstances'
+    { _liInstanceGroupTypes :: Maybe [InstanceGroupType]
+    , _liMarker             :: Maybe Text
+    , _liInstanceGroupId    :: Maybe Text
+    , _liClusterId          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListInstances' smart constructor.
 listInstances :: Text -> ListInstances
-listInstances pClusterId = ListInstances'{_liInstanceGroupTypes = Nothing, _liMarker = Nothing, _liInstanceGroupId = Nothing, _liClusterId = pClusterId};
+listInstances pClusterId =
+    ListInstances'
+    { _liInstanceGroupTypes = Nothing
+    , _liMarker = Nothing
+    , _liInstanceGroupId = Nothing
+    , _liClusterId = pClusterId
+    }
 
 -- | The type of instance group for which to list the instances.
 liInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
@@ -134,12 +145,21 @@ instance ToQuery ListInstances where
 --
 -- * 'lirMarker'
 --
--- * 'lirStatusCode'
-data ListInstancesResponse = ListInstancesResponse'{_lirInstances :: Maybe [Instance], _lirMarker :: Maybe Text, _lirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lirStatus'
+data ListInstancesResponse = ListInstancesResponse'
+    { _lirInstances :: Maybe [Instance]
+    , _lirMarker    :: Maybe Text
+    , _lirStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListInstancesResponse' smart constructor.
 listInstancesResponse :: Int -> ListInstancesResponse
-listInstancesResponse pStatusCode = ListInstancesResponse'{_lirInstances = Nothing, _lirMarker = Nothing, _lirStatusCode = pStatusCode};
+listInstancesResponse pStatus =
+    ListInstancesResponse'
+    { _lirInstances = Nothing
+    , _lirMarker = Nothing
+    , _lirStatus = pStatus
+    }
 
 -- | The list of instances for the cluster and given filters.
 lirInstances :: Lens' ListInstancesResponse [Instance]
@@ -150,5 +170,5 @@ lirMarker :: Lens' ListInstancesResponse (Maybe Text)
 lirMarker = lens _lirMarker (\ s a -> s{_lirMarker = a});
 
 -- | FIXME: Undocumented member.
-lirStatusCode :: Lens' ListInstancesResponse Int
-lirStatusCode = lens _lirStatusCode (\ s a -> s{_lirStatusCode = a});
+lirStatus :: Lens' ListInstancesResponse Int
+lirStatus = lens _lirStatus (\ s a -> s{_lirStatus = a});

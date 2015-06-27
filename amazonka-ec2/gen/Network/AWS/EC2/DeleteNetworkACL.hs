@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteNetworkACL
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.EC2.DeleteNetworkACL
     , deleteNetworkACLResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteNetworkACL' smart constructor.
 --
@@ -46,11 +46,18 @@ import Network.AWS.Response
 -- * 'dnaDryRun'
 --
 -- * 'dnaNetworkACLId'
-data DeleteNetworkACL = DeleteNetworkACL'{_dnaDryRun :: Maybe Bool, _dnaNetworkACLId :: Text} deriving (Eq, Read, Show)
+data DeleteNetworkACL = DeleteNetworkACL'
+    { _dnaDryRun       :: Maybe Bool
+    , _dnaNetworkACLId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteNetworkACL' smart constructor.
 deleteNetworkACL :: Text -> DeleteNetworkACL
-deleteNetworkACL pNetworkACLId = DeleteNetworkACL'{_dnaDryRun = Nothing, _dnaNetworkACLId = pNetworkACLId};
+deleteNetworkACL pNetworkACLId =
+    DeleteNetworkACL'
+    { _dnaDryRun = Nothing
+    , _dnaNetworkACLId = pNetworkACLId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -84,8 +91,10 @@ instance ToQuery DeleteNetworkACL where
                "NetworkAclId" =: _dnaNetworkACLId]
 
 -- | /See:/ 'deleteNetworkACLResponse' smart constructor.
-data DeleteNetworkACLResponse = DeleteNetworkACLResponse' deriving (Eq, Read, Show)
+data DeleteNetworkACLResponse =
+    DeleteNetworkACLResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteNetworkACLResponse' smart constructor.
 deleteNetworkACLResponse :: DeleteNetworkACLResponse
-deleteNetworkACLResponse = DeleteNetworkACLResponse';
+deleteNetworkACLResponse = DeleteNetworkACLResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeImportSnapshotTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.EC2.DescribeImportSnapshotTasks
     -- ** Response lenses
     , distrNextToken
     , distrImportSnapshotTasks
-    , distrStatusCode
+    , distrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeImportSnapshotTasks' smart constructor.
 --
@@ -58,11 +58,24 @@ import Network.AWS.Response
 -- * 'distDryRun'
 --
 -- * 'distMaxResults'
-data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'{_distFilters :: Maybe [Filter], _distImportTaskIds :: Maybe [Text], _distNextToken :: Maybe Text, _distDryRun :: Maybe Bool, _distMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
+    { _distFilters       :: Maybe [Filter]
+    , _distImportTaskIds :: Maybe [Text]
+    , _distNextToken     :: Maybe Text
+    , _distDryRun        :: Maybe Bool
+    , _distMaxResults    :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeImportSnapshotTasks' smart constructor.
 describeImportSnapshotTasks :: DescribeImportSnapshotTasks
-describeImportSnapshotTasks = DescribeImportSnapshotTasks'{_distFilters = Nothing, _distImportTaskIds = Nothing, _distNextToken = Nothing, _distDryRun = Nothing, _distMaxResults = Nothing};
+describeImportSnapshotTasks =
+    DescribeImportSnapshotTasks'
+    { _distFilters = Nothing
+    , _distImportTaskIds = Nothing
+    , _distNextToken = Nothing
+    , _distDryRun = Nothing
+    , _distMaxResults = Nothing
+    }
 
 -- | One or more filters.
 distFilters :: Lens' DescribeImportSnapshotTasks [Filter]
@@ -126,12 +139,21 @@ instance ToQuery DescribeImportSnapshotTasks where
 --
 -- * 'distrImportSnapshotTasks'
 --
--- * 'distrStatusCode'
-data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'{_distrNextToken :: Maybe Text, _distrImportSnapshotTasks :: Maybe [ImportSnapshotTask], _distrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'distrStatus'
+data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
+    { _distrNextToken           :: Maybe Text
+    , _distrImportSnapshotTasks :: Maybe [ImportSnapshotTask]
+    , _distrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeImportSnapshotTasksResponse' smart constructor.
 describeImportSnapshotTasksResponse :: Int -> DescribeImportSnapshotTasksResponse
-describeImportSnapshotTasksResponse pStatusCode = DescribeImportSnapshotTasksResponse'{_distrNextToken = Nothing, _distrImportSnapshotTasks = Nothing, _distrStatusCode = pStatusCode};
+describeImportSnapshotTasksResponse pStatus =
+    DescribeImportSnapshotTasksResponse'
+    { _distrNextToken = Nothing
+    , _distrImportSnapshotTasks = Nothing
+    , _distrStatus = pStatus
+    }
 
 -- | The token to use to get the next page of results. This value is @null@
 -- when there are no more results to return.
@@ -144,5 +166,5 @@ distrImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse [ImportSna
 distrImportSnapshotTasks = lens _distrImportSnapshotTasks (\ s a -> s{_distrImportSnapshotTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-distrStatusCode :: Lens' DescribeImportSnapshotTasksResponse Int
-distrStatusCode = lens _distrStatusCode (\ s a -> s{_distrStatusCode = a});
+distrStatus :: Lens' DescribeImportSnapshotTasksResponse Int
+distrStatus = lens _distrStatus (\ s a -> s{_distrStatus = a});

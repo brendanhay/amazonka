@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeMetricCollectionTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,20 +35,22 @@ module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     -- ** Response lenses
     , dmctrMetrics
     , dmctrGranularities
-    , dmctrStatusCode
+    , dmctrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeMetricCollectionTypes' smart constructor.
-data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes' deriving (Eq, Read, Show)
+data DescribeMetricCollectionTypes =
+    DescribeMetricCollectionTypes'
+    deriving (Eq,Read,Show)
 
 -- | 'DescribeMetricCollectionTypes' smart constructor.
 describeMetricCollectionTypes :: DescribeMetricCollectionTypes
-describeMetricCollectionTypes = DescribeMetricCollectionTypes';
+describeMetricCollectionTypes = DescribeMetricCollectionTypes'
 
 instance AWSRequest DescribeMetricCollectionTypes
          where
@@ -91,12 +93,21 @@ instance ToQuery DescribeMetricCollectionTypes where
 --
 -- * 'dmctrGranularities'
 --
--- * 'dmctrStatusCode'
-data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'{_dmctrMetrics :: Maybe [MetricCollectionType], _dmctrGranularities :: Maybe [MetricGranularityType], _dmctrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dmctrStatus'
+data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
+    { _dmctrMetrics       :: Maybe [MetricCollectionType]
+    , _dmctrGranularities :: Maybe [MetricGranularityType]
+    , _dmctrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMetricCollectionTypesResponse' smart constructor.
 describeMetricCollectionTypesResponse :: Int -> DescribeMetricCollectionTypesResponse
-describeMetricCollectionTypesResponse pStatusCode = DescribeMetricCollectionTypesResponse'{_dmctrMetrics = Nothing, _dmctrGranularities = Nothing, _dmctrStatusCode = pStatusCode};
+describeMetricCollectionTypesResponse pStatus =
+    DescribeMetricCollectionTypesResponse'
+    { _dmctrMetrics = Nothing
+    , _dmctrGranularities = Nothing
+    , _dmctrStatus = pStatus
+    }
 
 -- | One or more metrics.
 dmctrMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
@@ -107,5 +118,5 @@ dmctrGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranula
 dmctrGranularities = lens _dmctrGranularities (\ s a -> s{_dmctrGranularities = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dmctrStatusCode :: Lens' DescribeMetricCollectionTypesResponse Int
-dmctrStatusCode = lens _dmctrStatusCode (\ s a -> s{_dmctrStatusCode = a});
+dmctrStatus :: Lens' DescribeMetricCollectionTypesResponse Int
+dmctrStatus = lens _dmctrStatus (\ s a -> s{_dmctrStatus = a});

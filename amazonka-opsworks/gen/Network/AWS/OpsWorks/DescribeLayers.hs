@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeLayers
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.OpsWorks.DescribeLayers
     , describeLayersResponse
     -- ** Response lenses
     , dlrLayers
-    , dlrStatusCode
+    , dlrStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLayers' smart constructor.
 --
@@ -56,11 +56,18 @@ import Network.AWS.Response
 -- * 'dlLayerIds'
 --
 -- * 'dlStackId'
-data DescribeLayers = DescribeLayers'{_dlLayerIds :: Maybe [Text], _dlStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeLayers = DescribeLayers'
+    { _dlLayerIds :: Maybe [Text]
+    , _dlStackId  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLayers' smart constructor.
 describeLayers :: DescribeLayers
-describeLayers = DescribeLayers'{_dlLayerIds = Nothing, _dlStackId = Nothing};
+describeLayers =
+    DescribeLayers'
+    { _dlLayerIds = Nothing
+    , _dlStackId = Nothing
+    }
 
 -- | An array of layer IDs that specify the layers to be described. If you
 -- omit this parameter, @DescribeLayers@ returns a description of every
@@ -110,17 +117,24 @@ instance ToQuery DescribeLayers where
 --
 -- * 'dlrLayers'
 --
--- * 'dlrStatusCode'
-data DescribeLayersResponse = DescribeLayersResponse'{_dlrLayers :: Maybe [Layer], _dlrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dlrStatus'
+data DescribeLayersResponse = DescribeLayersResponse'
+    { _dlrLayers :: Maybe [Layer]
+    , _dlrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLayersResponse' smart constructor.
 describeLayersResponse :: Int -> DescribeLayersResponse
-describeLayersResponse pStatusCode = DescribeLayersResponse'{_dlrLayers = Nothing, _dlrStatusCode = pStatusCode};
+describeLayersResponse pStatus =
+    DescribeLayersResponse'
+    { _dlrLayers = Nothing
+    , _dlrStatus = pStatus
+    }
 
 -- | An array of @Layer@ objects that describe the layers.
 dlrLayers :: Lens' DescribeLayersResponse [Layer]
 dlrLayers = lens _dlrLayers (\ s a -> s{_dlrLayers = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlrStatusCode :: Lens' DescribeLayersResponse Int
-dlrStatusCode = lens _dlrStatusCode (\ s a -> s{_dlrStatusCode = a});
+dlrStatus :: Lens' DescribeLayersResponse Int
+dlrStatus = lens _dlrStatus (\ s a -> s{_dlrStatus = a});

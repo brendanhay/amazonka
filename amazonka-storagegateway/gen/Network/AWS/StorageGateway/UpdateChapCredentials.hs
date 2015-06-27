@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateChapCredentials
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.StorageGateway.UpdateChapCredentials
     -- ** Response lenses
     , uccrTargetARN
     , uccrInitiatorName
-    , uccrStatusCode
+    , uccrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -68,11 +68,22 @@ import Network.AWS.StorageGateway.Types
 -- * 'uccSecretToAuthenticateInitiator'
 --
 -- * 'uccInitiatorName'
-data UpdateChapCredentials = UpdateChapCredentials'{_uccSecretToAuthenticateTarget :: Maybe Text, _uccTargetARN :: Text, _uccSecretToAuthenticateInitiator :: Text, _uccInitiatorName :: Text} deriving (Eq, Read, Show)
+data UpdateChapCredentials = UpdateChapCredentials'
+    { _uccSecretToAuthenticateTarget    :: Maybe Text
+    , _uccTargetARN                     :: Text
+    , _uccSecretToAuthenticateInitiator :: Text
+    , _uccInitiatorName                 :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateChapCredentials' smart constructor.
 updateChapCredentials :: Text -> Text -> Text -> UpdateChapCredentials
-updateChapCredentials pTargetARN pSecretToAuthenticateInitiator pInitiatorName = UpdateChapCredentials'{_uccSecretToAuthenticateTarget = Nothing, _uccTargetARN = pTargetARN, _uccSecretToAuthenticateInitiator = pSecretToAuthenticateInitiator, _uccInitiatorName = pInitiatorName};
+updateChapCredentials pTargetARN pSecretToAuthenticateInitiator pInitiatorName =
+    UpdateChapCredentials'
+    { _uccSecretToAuthenticateTarget = Nothing
+    , _uccTargetARN = pTargetARN
+    , _uccSecretToAuthenticateInitiator = pSecretToAuthenticateInitiator
+    , _uccInitiatorName = pInitiatorName
+    }
 
 -- | The secret key that the target must provide to participate in mutual
 -- CHAP with the initiator (e.g. Windows client).
@@ -148,12 +159,21 @@ instance ToQuery UpdateChapCredentials where
 --
 -- * 'uccrInitiatorName'
 --
--- * 'uccrStatusCode'
-data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'{_uccrTargetARN :: Maybe Text, _uccrInitiatorName :: Maybe Text, _uccrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'uccrStatus'
+data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
+    { _uccrTargetARN     :: Maybe Text
+    , _uccrInitiatorName :: Maybe Text
+    , _uccrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateChapCredentialsResponse' smart constructor.
 updateChapCredentialsResponse :: Int -> UpdateChapCredentialsResponse
-updateChapCredentialsResponse pStatusCode = UpdateChapCredentialsResponse'{_uccrTargetARN = Nothing, _uccrInitiatorName = Nothing, _uccrStatusCode = pStatusCode};
+updateChapCredentialsResponse pStatus =
+    UpdateChapCredentialsResponse'
+    { _uccrTargetARN = Nothing
+    , _uccrInitiatorName = Nothing
+    , _uccrStatus = pStatus
+    }
 
 -- | The Amazon Resource Name (ARN) of the target. This is the same target
 -- specified in the request.
@@ -166,5 +186,5 @@ uccrInitiatorName :: Lens' UpdateChapCredentialsResponse (Maybe Text)
 uccrInitiatorName = lens _uccrInitiatorName (\ s a -> s{_uccrInitiatorName = a});
 
 -- | FIXME: Undocumented member.
-uccrStatusCode :: Lens' UpdateChapCredentialsResponse Int
-uccrStatusCode = lens _uccrStatusCode (\ s a -> s{_uccrStatusCode = a});
+uccrStatus :: Lens' UpdateChapCredentialsResponse Int
+uccrStatus = lens _uccrStatus (\ s a -> s{_uccrStatus = a});

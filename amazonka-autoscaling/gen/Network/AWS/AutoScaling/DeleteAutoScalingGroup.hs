@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteAutoScalingGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     , deleteAutoScalingGroupResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteAutoScalingGroup' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'dasgForceDelete'
 --
 -- * 'dasgAutoScalingGroupName'
-data DeleteAutoScalingGroup = DeleteAutoScalingGroup'{_dasgForceDelete :: Maybe Bool, _dasgAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
+    { _dasgForceDelete          :: Maybe Bool
+    , _dasgAutoScalingGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteAutoScalingGroup' smart constructor.
 deleteAutoScalingGroup :: Text -> DeleteAutoScalingGroup
-deleteAutoScalingGroup pAutoScalingGroupName = DeleteAutoScalingGroup'{_dasgForceDelete = Nothing, _dasgAutoScalingGroupName = pAutoScalingGroupName};
+deleteAutoScalingGroup pAutoScalingGroupName =
+    DeleteAutoScalingGroup'
+    { _dasgForceDelete = Nothing
+    , _dasgAutoScalingGroupName = pAutoScalingGroupName
+    }
 
 -- | Specifies that the group will be deleted along with all instances
 -- associated with the group, without waiting for all instances to be
@@ -92,8 +99,10 @@ instance ToQuery DeleteAutoScalingGroup where
                "AutoScalingGroupName" =: _dasgAutoScalingGroupName]
 
 -- | /See:/ 'deleteAutoScalingGroupResponse' smart constructor.
-data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse' deriving (Eq, Read, Show)
+data DeleteAutoScalingGroupResponse =
+    DeleteAutoScalingGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteAutoScalingGroupResponse' smart constructor.
 deleteAutoScalingGroupResponse :: DeleteAutoScalingGroupResponse
-deleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse';
+deleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse'

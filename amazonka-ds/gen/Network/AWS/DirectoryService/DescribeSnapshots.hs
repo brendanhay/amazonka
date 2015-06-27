@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectoryService.DescribeSnapshots
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.DirectoryService.DescribeSnapshots
     -- ** Response lenses
     , desNextToken
     , desSnapshots
-    , desStatusCode
+    , desStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the DescribeSnapshots operation.
 --
@@ -66,11 +66,22 @@ import Network.AWS.Response
 -- * 'dsSnapshotIds'
 --
 -- * 'dsLimit'
-data DescribeSnapshots = DescribeSnapshots'{_dsDirectoryId :: Maybe Text, _dsNextToken :: Maybe Text, _dsSnapshotIds :: Maybe [Text], _dsLimit :: Maybe Nat} deriving (Eq, Read, Show)
+data DescribeSnapshots = DescribeSnapshots'
+    { _dsDirectoryId :: Maybe Text
+    , _dsNextToken   :: Maybe Text
+    , _dsSnapshotIds :: Maybe [Text]
+    , _dsLimit       :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshots' smart constructor.
 describeSnapshots :: DescribeSnapshots
-describeSnapshots = DescribeSnapshots'{_dsDirectoryId = Nothing, _dsNextToken = Nothing, _dsSnapshotIds = Nothing, _dsLimit = Nothing};
+describeSnapshots =
+    DescribeSnapshots'
+    { _dsDirectoryId = Nothing
+    , _dsNextToken = Nothing
+    , _dsSnapshotIds = Nothing
+    , _dsLimit = Nothing
+    }
 
 -- | The identifier of the directory to retrieve snapshot information for.
 dsDirectoryId :: Lens' DescribeSnapshots (Maybe Text)
@@ -136,12 +147,21 @@ instance ToQuery DescribeSnapshots where
 --
 -- * 'desSnapshots'
 --
--- * 'desStatusCode'
-data DescribeSnapshotsResponse = DescribeSnapshotsResponse'{_desNextToken :: Maybe Text, _desSnapshots :: Maybe [Snapshot], _desStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'desStatus'
+data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
+    { _desNextToken :: Maybe Text
+    , _desSnapshots :: Maybe [Snapshot]
+    , _desStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
-describeSnapshotsResponse pStatusCode = DescribeSnapshotsResponse'{_desNextToken = Nothing, _desSnapshots = Nothing, _desStatusCode = pStatusCode};
+describeSnapshotsResponse pStatus =
+    DescribeSnapshotsResponse'
+    { _desNextToken = Nothing
+    , _desSnapshots = Nothing
+    , _desStatus = pStatus
+    }
 
 -- | If not null, more results are available. Pass this value in the
 -- /NextToken/ member of a subsequent call to DescribeSnapshots.
@@ -158,5 +178,5 @@ desSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 desSnapshots = lens _desSnapshots (\ s a -> s{_desSnapshots = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatusCode :: Lens' DescribeSnapshotsResponse Int
-desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});
+desStatus :: Lens' DescribeSnapshotsResponse Int
+desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

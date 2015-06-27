@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.CountOpenWorkflowExecutions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,10 +68,10 @@ module Network.AWS.SWF.CountOpenWorkflowExecutions
     , wecCount
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'countOpenWorkflowExecutions' smart constructor.
 --
@@ -86,11 +86,24 @@ import Network.AWS.SWF.Types
 -- * 'coweDomain'
 --
 -- * 'coweStartTimeFilter'
-data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'{_coweExecutionFilter :: Maybe WorkflowExecutionFilter, _coweTypeFilter :: Maybe WorkflowTypeFilter, _coweTagFilter :: Maybe TagFilter, _coweDomain :: Text, _coweStartTimeFilter :: ExecutionTimeFilter} deriving (Eq, Read, Show)
+data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'
+    { _coweExecutionFilter :: Maybe WorkflowExecutionFilter
+    , _coweTypeFilter      :: Maybe WorkflowTypeFilter
+    , _coweTagFilter       :: Maybe TagFilter
+    , _coweDomain          :: Text
+    , _coweStartTimeFilter :: ExecutionTimeFilter
+    } deriving (Eq,Read,Show)
 
 -- | 'CountOpenWorkflowExecutions' smart constructor.
 countOpenWorkflowExecutions :: Text -> ExecutionTimeFilter -> CountOpenWorkflowExecutions
-countOpenWorkflowExecutions pDomain pStartTimeFilter = CountOpenWorkflowExecutions'{_coweExecutionFilter = Nothing, _coweTypeFilter = Nothing, _coweTagFilter = Nothing, _coweDomain = pDomain, _coweStartTimeFilter = pStartTimeFilter};
+countOpenWorkflowExecutions pDomain pStartTimeFilter =
+    CountOpenWorkflowExecutions'
+    { _coweExecutionFilter = Nothing
+    , _coweTypeFilter = Nothing
+    , _coweTagFilter = Nothing
+    , _coweDomain = pDomain
+    , _coweStartTimeFilter = pStartTimeFilter
+    }
 
 -- | If specified, only workflow executions matching the @WorkflowId@ in the
 -- filter are counted.

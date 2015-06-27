@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DynamoDB.DeleteItem
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,14 +57,17 @@ module Network.AWS.DynamoDB.DeleteItem
     , dirConsumedCapacity
     , dirItemCollectionMetrics
     , dirAttributes
+    , dirStatus
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
--- | /See:/ 'deleteItem' smart constructor.
+-- | Represents the input of a /DeleteItem/ operation.
+--
+-- /See:/ 'deleteItem' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -87,11 +90,34 @@ import Network.AWS.DynamoDB.Types
 -- * 'diTableName'
 --
 -- * 'diKey'
-data DeleteItem = DeleteItem'{_diReturnValues :: Maybe ReturnValue, _diExpressionAttributeNames :: Maybe (HashMap Text Text), _diReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _diExpressionAttributeValues :: Maybe (HashMap Text AttributeValue), _diReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics, _diConditionExpression :: Maybe Text, _diConditionalOperator :: Maybe ConditionalOperator, _diExpected :: Maybe (HashMap Text ExpectedAttributeValue), _diTableName :: Text, _diKey :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
+data DeleteItem = DeleteItem'
+    { _diReturnValues                :: Maybe ReturnValue
+    , _diExpressionAttributeNames    :: Maybe (Map Text Text)
+    , _diReturnConsumedCapacity      :: Maybe ReturnConsumedCapacity
+    , _diExpressionAttributeValues   :: Maybe (Map Text AttributeValue)
+    , _diReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
+    , _diConditionExpression         :: Maybe Text
+    , _diConditionalOperator         :: Maybe ConditionalOperator
+    , _diExpected                    :: Maybe (Map Text ExpectedAttributeValue)
+    , _diTableName                   :: Text
+    , _diKey                         :: Map Text AttributeValue
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteItem' smart constructor.
 deleteItem :: Text -> DeleteItem
-deleteItem pTableName = DeleteItem'{_diReturnValues = Nothing, _diExpressionAttributeNames = Nothing, _diReturnConsumedCapacity = Nothing, _diExpressionAttributeValues = Nothing, _diReturnItemCollectionMetrics = Nothing, _diConditionExpression = Nothing, _diConditionalOperator = Nothing, _diExpected = Nothing, _diTableName = pTableName, _diKey = mempty};
+deleteItem pTableName =
+    DeleteItem'
+    { _diReturnValues = Nothing
+    , _diExpressionAttributeNames = Nothing
+    , _diReturnConsumedCapacity = Nothing
+    , _diExpressionAttributeValues = Nothing
+    , _diReturnItemCollectionMetrics = Nothing
+    , _diConditionExpression = Nothing
+    , _diConditionalOperator = Nothing
+    , _diExpected = Nothing
+    , _diTableName = pTableName
+    , _diKey = mempty
+    }
 
 -- | Use /ReturnValues/ if you want to get the item attributes as they
 -- appeared before they were deleted. For /DeleteItem/, the valid values
@@ -143,8 +169,8 @@ diReturnValues = lens _diReturnValues (\ s a -> s{_diReturnValues = a});
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-diExpressionAttributeNames :: Lens' DeleteItem (Maybe (HashMap Text Text))
-diExpressionAttributeNames = lens _diExpressionAttributeNames (\ s a -> s{_diExpressionAttributeNames = a}) . mapping _Coerce;
+diExpressionAttributeNames :: Lens' DeleteItem (HashMap Text Text)
+diExpressionAttributeNames = lens _diExpressionAttributeNames (\ s a -> s{_diExpressionAttributeNames = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
 diReturnConsumedCapacity :: Lens' DeleteItem (Maybe ReturnConsumedCapacity)
@@ -169,8 +195,8 @@ diReturnConsumedCapacity = lens _diReturnConsumedCapacity (\ s a -> s{_diReturnC
 -- For more information on expression attribute values, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-diExpressionAttributeValues :: Lens' DeleteItem (Maybe (HashMap Text AttributeValue))
-diExpressionAttributeValues = lens _diExpressionAttributeValues (\ s a -> s{_diExpressionAttributeValues = a}) . mapping _Coerce;
+diExpressionAttributeValues :: Lens' DeleteItem (HashMap Text AttributeValue)
+diExpressionAttributeValues = lens _diExpressionAttributeValues (\ s a -> s{_diExpressionAttributeValues = a}) . _Default . _Map;
 
 -- | A value that if set to @SIZE@, the response includes statistics about
 -- item collections, if any, that were modified during the operation are
@@ -446,8 +472,8 @@ diConditionalOperator = lens _diConditionalOperator (\ s a -> s{_diConditionalOp
 -- exception.
 --
 -- This parameter does not support attributes of type List or Map.
-diExpected :: Lens' DeleteItem (Maybe (HashMap Text ExpectedAttributeValue))
-diExpected = lens _diExpected (\ s a -> s{_diExpected = a}) . mapping _Coerce;
+diExpected :: Lens' DeleteItem (HashMap Text ExpectedAttributeValue)
+diExpected = lens _diExpected (\ s a -> s{_diExpected = a}) . _Default . _Map;
 
 -- | The name of the table from which to delete the item.
 diTableName :: Lens' DeleteItem Text
@@ -461,7 +487,7 @@ diTableName = lens _diTableName (\ s a -> s{_diTableName = a});
 -- attribute. For a hash-and-range type primary key, you must provide both
 -- the hash attribute and the range attribute.
 diKey :: Lens' DeleteItem (HashMap Text AttributeValue)
-diKey = lens _diKey (\ s a -> s{_diKey = a}) . _Coerce;
+diKey = lens _diKey (\ s a -> s{_diKey = a}) . _Map;
 
 instance AWSRequest DeleteItem where
         type Sv DeleteItem = DynamoDB
@@ -473,7 +499,8 @@ instance AWSRequest DeleteItem where
                  DeleteItemResponse' <$>
                    (x .?> "ConsumedCapacity") <*>
                      (x .?> "ItemCollectionMetrics")
-                     <*> (x .?> "Attributes" .!@ mempty))
+                     <*> (x .?> "Attributes" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteItem where
         toHeaders
@@ -507,7 +534,9 @@ instance ToPath DeleteItem where
 instance ToQuery DeleteItem where
         toQuery = const mempty
 
--- | /See:/ 'deleteItemResponse' smart constructor.
+-- | Represents the output of a /DeleteItem/ operation.
+--
+-- /See:/ 'deleteItemResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -516,11 +545,24 @@ instance ToQuery DeleteItem where
 -- * 'dirItemCollectionMetrics'
 --
 -- * 'dirAttributes'
-data DeleteItemResponse = DeleteItemResponse'{_dirConsumedCapacity :: Maybe ConsumedCapacity, _dirItemCollectionMetrics :: Maybe ItemCollectionMetrics, _dirAttributes :: Maybe (HashMap Text AttributeValue)} deriving (Eq, Read, Show)
+--
+-- * 'dirStatus'
+data DeleteItemResponse = DeleteItemResponse'
+    { _dirConsumedCapacity      :: Maybe ConsumedCapacity
+    , _dirItemCollectionMetrics :: Maybe ItemCollectionMetrics
+    , _dirAttributes            :: Maybe (Map Text AttributeValue)
+    , _dirStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteItemResponse' smart constructor.
-deleteItemResponse :: DeleteItemResponse
-deleteItemResponse = DeleteItemResponse'{_dirConsumedCapacity = Nothing, _dirItemCollectionMetrics = Nothing, _dirAttributes = Nothing};
+deleteItemResponse :: Int -> DeleteItemResponse
+deleteItemResponse pStatus =
+    DeleteItemResponse'
+    { _dirConsumedCapacity = Nothing
+    , _dirItemCollectionMetrics = Nothing
+    , _dirAttributes = Nothing
+    , _dirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dirConsumedCapacity :: Lens' DeleteItemResponse (Maybe ConsumedCapacity)
@@ -554,5 +596,9 @@ dirItemCollectionMetrics = lens _dirItemCollectionMetrics (\ s a -> s{_dirItemCo
 -- item as it appeared before the /DeleteItem/ operation. This map appears
 -- in the response only if /ReturnValues/ was specified as @ALL_OLD@ in the
 -- request.
-dirAttributes :: Lens' DeleteItemResponse (Maybe (HashMap Text AttributeValue))
-dirAttributes = lens _dirAttributes (\ s a -> s{_dirAttributes = a}) . mapping _Coerce;
+dirAttributes :: Lens' DeleteItemResponse (HashMap Text AttributeValue)
+dirAttributes = lens _dirAttributes (\ s a -> s{_dirAttributes = a}) . _Default . _Map;
+
+-- | FIXME: Undocumented member.
+dirStatus :: Lens' DeleteItemResponse Int
+dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});

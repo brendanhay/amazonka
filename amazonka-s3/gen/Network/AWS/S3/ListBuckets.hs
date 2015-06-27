@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.ListBuckets
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,20 +32,22 @@ module Network.AWS.S3.ListBuckets
     -- ** Response lenses
     , lbrBuckets
     , lbrOwner
-    , lbrStatusCode
+    , lbrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'listBuckets' smart constructor.
-data ListBuckets = ListBuckets' deriving (Eq, Read, Show)
+data ListBuckets =
+    ListBuckets'
+    deriving (Eq,Read,Show)
 
 -- | 'ListBuckets' smart constructor.
 listBuckets :: ListBuckets
-listBuckets = ListBuckets';
+listBuckets = ListBuckets'
 
 instance AWSRequest ListBuckets where
         type Sv ListBuckets = S3
@@ -77,12 +79,21 @@ instance ToQuery ListBuckets where
 --
 -- * 'lbrOwner'
 --
--- * 'lbrStatusCode'
-data ListBucketsResponse = ListBucketsResponse'{_lbrBuckets :: Maybe [Bucket], _lbrOwner :: Maybe Owner, _lbrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lbrStatus'
+data ListBucketsResponse = ListBucketsResponse'
+    { _lbrBuckets :: Maybe [Bucket]
+    , _lbrOwner   :: Maybe Owner
+    , _lbrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListBucketsResponse' smart constructor.
 listBucketsResponse :: Int -> ListBucketsResponse
-listBucketsResponse pStatusCode = ListBucketsResponse'{_lbrBuckets = Nothing, _lbrOwner = Nothing, _lbrStatusCode = pStatusCode};
+listBucketsResponse pStatus =
+    ListBucketsResponse'
+    { _lbrBuckets = Nothing
+    , _lbrOwner = Nothing
+    , _lbrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 lbrBuckets :: Lens' ListBucketsResponse [Bucket]
@@ -93,5 +104,5 @@ lbrOwner :: Lens' ListBucketsResponse (Maybe Owner)
 lbrOwner = lens _lbrOwner (\ s a -> s{_lbrOwner = a});
 
 -- | FIXME: Undocumented member.
-lbrStatusCode :: Lens' ListBucketsResponse Int
-lbrStatusCode = lens _lbrStatusCode (\ s a -> s{_lbrStatusCode = a});
+lbrStatus :: Lens' ListBucketsResponse Int
+lbrStatus = lens _lbrStatus (\ s a -> s{_lbrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,24 +41,29 @@ module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
     , describeTimeBasedAutoScalingResponse
     -- ** Response lenses
     , dtbasrTimeBasedAutoScalingConfigurations
-    , dtbasrStatusCode
+    , dtbasrStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeTimeBasedAutoScaling' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtbasInstanceIds'
-newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling'{_dtbasInstanceIds :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling'
+    { _dtbasInstanceIds :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTimeBasedAutoScaling' smart constructor.
 describeTimeBasedAutoScaling :: DescribeTimeBasedAutoScaling
-describeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling'{_dtbasInstanceIds = mempty};
+describeTimeBasedAutoScaling =
+    DescribeTimeBasedAutoScaling'
+    { _dtbasInstanceIds = mempty
+    }
 
 -- | An array of instance IDs.
 dtbasInstanceIds :: Lens' DescribeTimeBasedAutoScaling [Text]
@@ -106,12 +111,19 @@ instance ToQuery DescribeTimeBasedAutoScaling where
 --
 -- * 'dtbasrTimeBasedAutoScalingConfigurations'
 --
--- * 'dtbasrStatusCode'
-data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'{_dtbasrTimeBasedAutoScalingConfigurations :: Maybe [TimeBasedAutoScalingConfiguration], _dtbasrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtbasrStatus'
+data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'
+    { _dtbasrTimeBasedAutoScalingConfigurations :: Maybe [TimeBasedAutoScalingConfiguration]
+    , _dtbasrStatus                             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTimeBasedAutoScalingResponse' smart constructor.
 describeTimeBasedAutoScalingResponse :: Int -> DescribeTimeBasedAutoScalingResponse
-describeTimeBasedAutoScalingResponse pStatusCode = DescribeTimeBasedAutoScalingResponse'{_dtbasrTimeBasedAutoScalingConfigurations = Nothing, _dtbasrStatusCode = pStatusCode};
+describeTimeBasedAutoScalingResponse pStatus =
+    DescribeTimeBasedAutoScalingResponse'
+    { _dtbasrTimeBasedAutoScalingConfigurations = Nothing
+    , _dtbasrStatus = pStatus
+    }
 
 -- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe
 -- the configuration for the specified instances.
@@ -119,5 +131,5 @@ dtbasrTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingRe
 dtbasrTimeBasedAutoScalingConfigurations = lens _dtbasrTimeBasedAutoScalingConfigurations (\ s a -> s{_dtbasrTimeBasedAutoScalingConfigurations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtbasrStatusCode :: Lens' DescribeTimeBasedAutoScalingResponse Int
-dtbasrStatusCode = lens _dtbasrStatusCode (\ s a -> s{_dtbasrStatusCode = a});
+dtbasrStatus :: Lens' DescribeTimeBasedAutoScalingResponse Int
+dtbasrStatus = lens _dtbasrStatus (\ s a -> s{_dtbasrStatus = a});

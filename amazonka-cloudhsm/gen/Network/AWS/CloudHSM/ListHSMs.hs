@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.ListHSMs
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,24 +39,29 @@ module Network.AWS.CloudHSM.ListHSMs
     -- ** Response lenses
     , lisNextToken
     , lisHSMList
-    , lisStatusCode
+    , lisStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listHSMs' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lNextToken'
-newtype ListHSMs = ListHSMs'{_lNextToken :: Maybe Text} deriving (Eq, Read, Show)
+newtype ListHSMs = ListHSMs'
+    { _lNextToken :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListHSMs' smart constructor.
 listHSMs :: ListHSMs
-listHSMs = ListHSMs'{_lNextToken = Nothing};
+listHSMs =
+    ListHSMs'
+    { _lNextToken = Nothing
+    }
 
 -- | The /NextToken/ value from a previous call to ListHsms. Pass null if
 -- this is the first call.
@@ -103,12 +108,21 @@ instance ToQuery ListHSMs where
 --
 -- * 'lisHSMList'
 --
--- * 'lisStatusCode'
-data ListHSMsResponse = ListHSMsResponse'{_lisNextToken :: Maybe Text, _lisHSMList :: Maybe [Text], _lisStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lisStatus'
+data ListHSMsResponse = ListHSMsResponse'
+    { _lisNextToken :: Maybe Text
+    , _lisHSMList   :: Maybe [Text]
+    , _lisStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListHSMsResponse' smart constructor.
 listHSMsResponse :: Int -> ListHSMsResponse
-listHSMsResponse pStatusCode = ListHSMsResponse'{_lisNextToken = Nothing, _lisHSMList = Nothing, _lisStatusCode = pStatusCode};
+listHSMsResponse pStatus =
+    ListHSMsResponse'
+    { _lisNextToken = Nothing
+    , _lisHSMList = Nothing
+    , _lisStatus = pStatus
+    }
 
 -- | If not null, more results are available. Pass this value to ListHsms to
 -- retrieve the next set of items.
@@ -120,5 +134,5 @@ lisHSMList :: Lens' ListHSMsResponse [Text]
 lisHSMList = lens _lisHSMList (\ s a -> s{_lisHSMList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lisStatusCode :: Lens' ListHSMsResponse Int
-lisStatusCode = lens _lisStatusCode (\ s a -> s{_lisStatusCode = a});
+lisStatus :: Lens' ListHSMsResponse Int
+lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.ListAvailableZones
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,22 +30,24 @@ module Network.AWS.CloudHSM.ListAvailableZones
     , listAvailableZonesResponse
     -- ** Response lenses
     , lazrAZList
-    , lazrStatusCode
+    , lazrStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the ListAvailableZones action.
 --
 -- /See:/ 'listAvailableZones' smart constructor.
-data ListAvailableZones = ListAvailableZones' deriving (Eq, Read, Show)
+data ListAvailableZones =
+    ListAvailableZones'
+    deriving (Eq,Read,Show)
 
 -- | 'ListAvailableZones' smart constructor.
 listAvailableZones :: ListAvailableZones
-listAvailableZones = ListAvailableZones';
+listAvailableZones = ListAvailableZones'
 
 instance AWSRequest ListAvailableZones where
         type Sv ListAvailableZones = CloudHSM
@@ -83,12 +85,19 @@ instance ToQuery ListAvailableZones where
 --
 -- * 'lazrAZList'
 --
--- * 'lazrStatusCode'
-data ListAvailableZonesResponse = ListAvailableZonesResponse'{_lazrAZList :: Maybe [Text], _lazrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lazrStatus'
+data ListAvailableZonesResponse = ListAvailableZonesResponse'
+    { _lazrAZList :: Maybe [Text]
+    , _lazrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAvailableZonesResponse' smart constructor.
 listAvailableZonesResponse :: Int -> ListAvailableZonesResponse
-listAvailableZonesResponse pStatusCode = ListAvailableZonesResponse'{_lazrAZList = Nothing, _lazrStatusCode = pStatusCode};
+listAvailableZonesResponse pStatus =
+    ListAvailableZonesResponse'
+    { _lazrAZList = Nothing
+    , _lazrStatus = pStatus
+    }
 
 -- | The list of Availability Zones that have available AWS CloudHSM
 -- capacity.
@@ -96,5 +105,5 @@ lazrAZList :: Lens' ListAvailableZonesResponse [Text]
 lazrAZList = lens _lazrAZList (\ s a -> s{_lazrAZList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lazrStatusCode :: Lens' ListAvailableZonesResponse Int
-lazrStatusCode = lens _lazrStatusCode (\ s a -> s{_lazrStatusCode = a});
+lazrStatus :: Lens' ListAvailableZonesResponse Int
+lazrStatus = lens _lazrStatus (\ s a -> s{_lazrStatus = a});

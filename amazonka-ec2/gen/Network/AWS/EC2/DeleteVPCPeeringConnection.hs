@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteVPCPeeringConnection
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.EC2.DeleteVPCPeeringConnection
     , deleteVPCPeeringConnectionResponse
     -- ** Response lenses
     , dvpcrReturn
-    , dvpcrStatusCode
+    , dvpcrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteVPCPeeringConnection' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'dvpcDryRun'
 --
 -- * 'dvpcVPCPeeringConnectionId'
-data DeleteVPCPeeringConnection = DeleteVPCPeeringConnection'{_dvpcDryRun :: Maybe Bool, _dvpcVPCPeeringConnectionId :: Text} deriving (Eq, Read, Show)
+data DeleteVPCPeeringConnection = DeleteVPCPeeringConnection'
+    { _dvpcDryRun                 :: Maybe Bool
+    , _dvpcVPCPeeringConnectionId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVPCPeeringConnection' smart constructor.
 deleteVPCPeeringConnection :: Text -> DeleteVPCPeeringConnection
-deleteVPCPeeringConnection pVPCPeeringConnectionId = DeleteVPCPeeringConnection'{_dvpcDryRun = Nothing, _dvpcVPCPeeringConnectionId = pVPCPeeringConnectionId};
+deleteVPCPeeringConnection pVPCPeeringConnectionId =
+    DeleteVPCPeeringConnection'
+    { _dvpcDryRun = Nothing
+    , _dvpcVPCPeeringConnectionId = pVPCPeeringConnectionId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -101,17 +108,24 @@ instance ToQuery DeleteVPCPeeringConnection where
 --
 -- * 'dvpcrReturn'
 --
--- * 'dvpcrStatusCode'
-data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'{_dvpcrReturn :: Maybe Bool, _dvpcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dvpcrStatus'
+data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
+    { _dvpcrReturn :: Maybe Bool
+    , _dvpcrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVPCPeeringConnectionResponse' smart constructor.
 deleteVPCPeeringConnectionResponse :: Int -> DeleteVPCPeeringConnectionResponse
-deleteVPCPeeringConnectionResponse pStatusCode = DeleteVPCPeeringConnectionResponse'{_dvpcrReturn = Nothing, _dvpcrStatusCode = pStatusCode};
+deleteVPCPeeringConnectionResponse pStatus =
+    DeleteVPCPeeringConnectionResponse'
+    { _dvpcrReturn = Nothing
+    , _dvpcrStatus = pStatus
+    }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 dvpcrReturn :: Lens' DeleteVPCPeeringConnectionResponse (Maybe Bool)
 dvpcrReturn = lens _dvpcrReturn (\ s a -> s{_dvpcrReturn = a});
 
 -- | FIXME: Undocumented member.
-dvpcrStatusCode :: Lens' DeleteVPCPeeringConnectionResponse Int
-dvpcrStatusCode = lens _dvpcrStatusCode (\ s a -> s{_dvpcrStatusCode = a});
+dvpcrStatus :: Lens' DeleteVPCPeeringConnectionResponse Int
+dvpcrStatus = lens _dvpcrStatus (\ s a -> s{_dvpcrStatus = a});

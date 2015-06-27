@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Kinesis.RemoveTagsFromStream
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.Kinesis.RemoveTagsFromStream
     , removeTagsFromStreamResponse
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @RemoveTagsFromStream@.
 --
@@ -49,11 +49,18 @@ import Network.AWS.Response
 -- * 'rtfsStreamName'
 --
 -- * 'rtfsTagKeys'
-data RemoveTagsFromStream = RemoveTagsFromStream'{_rtfsStreamName :: Text, _rtfsTagKeys :: List1 Text} deriving (Eq, Read, Show)
+data RemoveTagsFromStream = RemoveTagsFromStream'
+    { _rtfsStreamName :: Text
+    , _rtfsTagKeys    :: List1 Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveTagsFromStream' smart constructor.
 removeTagsFromStream :: Text -> NonEmpty Text -> RemoveTagsFromStream
-removeTagsFromStream pStreamName pTagKeys = RemoveTagsFromStream'{_rtfsStreamName = pStreamName, _rtfsTagKeys = _List1 # pTagKeys};
+removeTagsFromStream pStreamName pTagKeys =
+    RemoveTagsFromStream'
+    { _rtfsStreamName = pStreamName
+    , _rtfsTagKeys = _List1 # pTagKeys
+    }
 
 -- | The name of the stream.
 rtfsStreamName :: Lens' RemoveTagsFromStream Text
@@ -93,8 +100,10 @@ instance ToQuery RemoveTagsFromStream where
         toQuery = const mempty
 
 -- | /See:/ 'removeTagsFromStreamResponse' smart constructor.
-data RemoveTagsFromStreamResponse = RemoveTagsFromStreamResponse' deriving (Eq, Read, Show)
+data RemoveTagsFromStreamResponse =
+    RemoveTagsFromStreamResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RemoveTagsFromStreamResponse' smart constructor.
 removeTagsFromStreamResponse :: RemoveTagsFromStreamResponse
-removeTagsFromStreamResponse = RemoveTagsFromStreamResponse';
+removeTagsFromStreamResponse = RemoveTagsFromStreamResponse'

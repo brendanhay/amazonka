@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.ModifyCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -59,13 +59,13 @@ module Network.AWS.Redshift.ModifyCluster
     , modifyClusterResponse
     -- ** Response lenses
     , mcrCluster
-    , mcrStatusCode
+    , mcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -102,11 +102,44 @@ import Network.AWS.Response
 -- * 'mcClusterParameterGroupName'
 --
 -- * 'mcClusterIdentifier'
-data ModifyCluster = ModifyCluster'{_mcMasterUserPassword :: Maybe Text, _mcHSMConfigurationIdentifier :: Maybe Text, _mcClusterSecurityGroups :: Maybe [Text], _mcAutomatedSnapshotRetentionPeriod :: Maybe Int, _mcNumberOfNodes :: Maybe Int, _mcHSMClientCertificateIdentifier :: Maybe Text, _mcPreferredMaintenanceWindow :: Maybe Text, _mcVPCSecurityGroupIds :: Maybe [Text], _mcClusterType :: Maybe Text, _mcNewClusterIdentifier :: Maybe Text, _mcClusterVersion :: Maybe Text, _mcNodeType :: Maybe Text, _mcAllowVersionUpgrade :: Maybe Bool, _mcClusterParameterGroupName :: Maybe Text, _mcClusterIdentifier :: Text} deriving (Eq, Read, Show)
+data ModifyCluster = ModifyCluster'
+    { _mcMasterUserPassword               :: Maybe Text
+    , _mcHSMConfigurationIdentifier       :: Maybe Text
+    , _mcClusterSecurityGroups            :: Maybe [Text]
+    , _mcAutomatedSnapshotRetentionPeriod :: Maybe Int
+    , _mcNumberOfNodes                    :: Maybe Int
+    , _mcHSMClientCertificateIdentifier   :: Maybe Text
+    , _mcPreferredMaintenanceWindow       :: Maybe Text
+    , _mcVPCSecurityGroupIds              :: Maybe [Text]
+    , _mcClusterType                      :: Maybe Text
+    , _mcNewClusterIdentifier             :: Maybe Text
+    , _mcClusterVersion                   :: Maybe Text
+    , _mcNodeType                         :: Maybe Text
+    , _mcAllowVersionUpgrade              :: Maybe Bool
+    , _mcClusterParameterGroupName        :: Maybe Text
+    , _mcClusterIdentifier                :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyCluster' smart constructor.
 modifyCluster :: Text -> ModifyCluster
-modifyCluster pClusterIdentifier = ModifyCluster'{_mcMasterUserPassword = Nothing, _mcHSMConfigurationIdentifier = Nothing, _mcClusterSecurityGroups = Nothing, _mcAutomatedSnapshotRetentionPeriod = Nothing, _mcNumberOfNodes = Nothing, _mcHSMClientCertificateIdentifier = Nothing, _mcPreferredMaintenanceWindow = Nothing, _mcVPCSecurityGroupIds = Nothing, _mcClusterType = Nothing, _mcNewClusterIdentifier = Nothing, _mcClusterVersion = Nothing, _mcNodeType = Nothing, _mcAllowVersionUpgrade = Nothing, _mcClusterParameterGroupName = Nothing, _mcClusterIdentifier = pClusterIdentifier};
+modifyCluster pClusterIdentifier =
+    ModifyCluster'
+    { _mcMasterUserPassword = Nothing
+    , _mcHSMConfigurationIdentifier = Nothing
+    , _mcClusterSecurityGroups = Nothing
+    , _mcAutomatedSnapshotRetentionPeriod = Nothing
+    , _mcNumberOfNodes = Nothing
+    , _mcHSMClientCertificateIdentifier = Nothing
+    , _mcPreferredMaintenanceWindow = Nothing
+    , _mcVPCSecurityGroupIds = Nothing
+    , _mcClusterType = Nothing
+    , _mcNewClusterIdentifier = Nothing
+    , _mcClusterVersion = Nothing
+    , _mcNodeType = Nothing
+    , _mcAllowVersionUpgrade = Nothing
+    , _mcClusterParameterGroupName = Nothing
+    , _mcClusterIdentifier = pClusterIdentifier
+    }
 
 -- | The new password for the cluster master user. This change is
 -- asynchronously applied as soon as possible. Between the time of the
@@ -345,17 +378,24 @@ instance ToQuery ModifyCluster where
 --
 -- * 'mcrCluster'
 --
--- * 'mcrStatusCode'
-data ModifyClusterResponse = ModifyClusterResponse'{_mcrCluster :: Maybe Cluster, _mcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'mcrStatus'
+data ModifyClusterResponse = ModifyClusterResponse'
+    { _mcrCluster :: Maybe Cluster
+    , _mcrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyClusterResponse' smart constructor.
 modifyClusterResponse :: Int -> ModifyClusterResponse
-modifyClusterResponse pStatusCode = ModifyClusterResponse'{_mcrCluster = Nothing, _mcrStatusCode = pStatusCode};
+modifyClusterResponse pStatus =
+    ModifyClusterResponse'
+    { _mcrCluster = Nothing
+    , _mcrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 mcrCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
 mcrCluster = lens _mcrCluster (\ s a -> s{_mcrCluster = a});
 
 -- | FIXME: Undocumented member.
-mcrStatusCode :: Lens' ModifyClusterResponse Int
-mcrStatusCode = lens _mcrStatusCode (\ s a -> s{_mcrStatusCode = a});
+mcrStatus :: Lens' ModifyClusterResponse Int
+mcrStatus = lens _mcrStatus (\ s a -> s{_mcrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.AttachClassicLinkVPC
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,13 +47,13 @@ module Network.AWS.EC2.AttachClassicLinkVPC
     , attachClassicLinkVPCResponse
     -- ** Response lenses
     , aclvrReturn
-    , aclvrStatusCode
+    , aclvrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachClassicLinkVPC' smart constructor.
 --
@@ -66,11 +66,22 @@ import Network.AWS.Response
 -- * 'aclvVPCId'
 --
 -- * 'aclvGroups'
-data AttachClassicLinkVPC = AttachClassicLinkVPC'{_aclvDryRun :: Maybe Bool, _aclvInstanceId :: Text, _aclvVPCId :: Text, _aclvGroups :: [Text]} deriving (Eq, Read, Show)
+data AttachClassicLinkVPC = AttachClassicLinkVPC'
+    { _aclvDryRun     :: Maybe Bool
+    , _aclvInstanceId :: Text
+    , _aclvVPCId      :: Text
+    , _aclvGroups     :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachClassicLinkVPC' smart constructor.
 attachClassicLinkVPC :: Text -> Text -> AttachClassicLinkVPC
-attachClassicLinkVPC pInstanceId pVPCId = AttachClassicLinkVPC'{_aclvDryRun = Nothing, _aclvInstanceId = pInstanceId, _aclvVPCId = pVPCId, _aclvGroups = mempty};
+attachClassicLinkVPC pInstanceId pVPCId =
+    AttachClassicLinkVPC'
+    { _aclvDryRun = Nothing
+    , _aclvInstanceId = pInstanceId
+    , _aclvVPCId = pVPCId
+    , _aclvGroups = mempty
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -126,17 +137,24 @@ instance ToQuery AttachClassicLinkVPC where
 --
 -- * 'aclvrReturn'
 --
--- * 'aclvrStatusCode'
-data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'{_aclvrReturn :: Maybe Bool, _aclvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'aclvrStatus'
+data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
+    { _aclvrReturn :: Maybe Bool
+    , _aclvrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachClassicLinkVPCResponse' smart constructor.
 attachClassicLinkVPCResponse :: Int -> AttachClassicLinkVPCResponse
-attachClassicLinkVPCResponse pStatusCode = AttachClassicLinkVPCResponse'{_aclvrReturn = Nothing, _aclvrStatusCode = pStatusCode};
+attachClassicLinkVPCResponse pStatus =
+    AttachClassicLinkVPCResponse'
+    { _aclvrReturn = Nothing
+    , _aclvrStatus = pStatus
+    }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 aclvrReturn :: Lens' AttachClassicLinkVPCResponse (Maybe Bool)
 aclvrReturn = lens _aclvrReturn (\ s a -> s{_aclvrReturn = a});
 
 -- | FIXME: Undocumented member.
-aclvrStatusCode :: Lens' AttachClassicLinkVPCResponse Int
-aclvrStatusCode = lens _aclvrStatusCode (\ s a -> s{_aclvrStatusCode = a});
+aclvrStatus :: Lens' AttachClassicLinkVPCResponse Int
+aclvrStatus = lens _aclvrStatus (\ s a -> s{_aclvrStatus = a});

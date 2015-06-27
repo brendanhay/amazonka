@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateFlowLogs
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,13 +48,13 @@ module Network.AWS.EC2.CreateFlowLogs
     , cflrUnsuccessful
     , cflrClientToken
     , cflrFlowLogIds
-    , cflrStatusCode
+    , cflrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createFlowLogs' smart constructor.
 --
@@ -71,11 +71,26 @@ import Network.AWS.Response
 -- * 'cflLogGroupName'
 --
 -- * 'cflDeliverLogsPermissionARN'
-data CreateFlowLogs = CreateFlowLogs'{_cflClientToken :: Maybe Text, _cflResourceIds :: [Text], _cflResourceType :: FlowLogsResourceType, _cflTrafficType :: TrafficType, _cflLogGroupName :: Text, _cflDeliverLogsPermissionARN :: Text} deriving (Eq, Read, Show)
+data CreateFlowLogs = CreateFlowLogs'
+    { _cflClientToken              :: Maybe Text
+    , _cflResourceIds              :: [Text]
+    , _cflResourceType             :: FlowLogsResourceType
+    , _cflTrafficType              :: TrafficType
+    , _cflLogGroupName             :: Text
+    , _cflDeliverLogsPermissionARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateFlowLogs' smart constructor.
 createFlowLogs :: FlowLogsResourceType -> TrafficType -> Text -> Text -> CreateFlowLogs
-createFlowLogs pResourceType pTrafficType pLogGroupName pDeliverLogsPermissionARN = CreateFlowLogs'{_cflClientToken = Nothing, _cflResourceIds = mempty, _cflResourceType = pResourceType, _cflTrafficType = pTrafficType, _cflLogGroupName = pLogGroupName, _cflDeliverLogsPermissionARN = pDeliverLogsPermissionARN};
+createFlowLogs pResourceType pTrafficType pLogGroupName pDeliverLogsPermissionARN =
+    CreateFlowLogs'
+    { _cflClientToken = Nothing
+    , _cflResourceIds = mempty
+    , _cflResourceType = pResourceType
+    , _cflTrafficType = pTrafficType
+    , _cflLogGroupName = pLogGroupName
+    , _cflDeliverLogsPermissionARN = pDeliverLogsPermissionARN
+    }
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. For more information, see
@@ -146,12 +161,23 @@ instance ToQuery CreateFlowLogs where
 --
 -- * 'cflrFlowLogIds'
 --
--- * 'cflrStatusCode'
-data CreateFlowLogsResponse = CreateFlowLogsResponse'{_cflrUnsuccessful :: Maybe [UnsuccessfulItem], _cflrClientToken :: Maybe Text, _cflrFlowLogIds :: Maybe [Text], _cflrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cflrStatus'
+data CreateFlowLogsResponse = CreateFlowLogsResponse'
+    { _cflrUnsuccessful :: Maybe [UnsuccessfulItem]
+    , _cflrClientToken  :: Maybe Text
+    , _cflrFlowLogIds   :: Maybe [Text]
+    , _cflrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateFlowLogsResponse' smart constructor.
 createFlowLogsResponse :: Int -> CreateFlowLogsResponse
-createFlowLogsResponse pStatusCode = CreateFlowLogsResponse'{_cflrUnsuccessful = Nothing, _cflrClientToken = Nothing, _cflrFlowLogIds = Nothing, _cflrStatusCode = pStatusCode};
+createFlowLogsResponse pStatus =
+    CreateFlowLogsResponse'
+    { _cflrUnsuccessful = Nothing
+    , _cflrClientToken = Nothing
+    , _cflrFlowLogIds = Nothing
+    , _cflrStatus = pStatus
+    }
 
 -- | Information about the flow logs that could not be created successfully.
 cflrUnsuccessful :: Lens' CreateFlowLogsResponse [UnsuccessfulItem]
@@ -167,5 +193,5 @@ cflrFlowLogIds :: Lens' CreateFlowLogsResponse [Text]
 cflrFlowLogIds = lens _cflrFlowLogIds (\ s a -> s{_cflrFlowLogIds = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-cflrStatusCode :: Lens' CreateFlowLogsResponse Int
-cflrStatusCode = lens _cflrStatusCode (\ s a -> s{_cflrStatusCode = a});
+cflrStatus :: Lens' CreateFlowLogsResponse Int
+cflrStatus = lens _cflrStatus (\ s a -> s{_cflrStatus = a});

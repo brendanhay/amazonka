@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.GetChange
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.Route53.GetChange
     , getChangeResponse
     -- ** Response lenses
     , gcrChangeInfo
-    , gcrStatusCode
+    , gcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | The input for a GetChange request.
 --
@@ -55,11 +55,16 @@ import Network.AWS.Route53.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gcId'
-newtype GetChange = GetChange'{_gcId :: Text} deriving (Eq, Read, Show)
+newtype GetChange = GetChange'
+    { _gcId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetChange' smart constructor.
 getChange :: Text -> GetChange
-getChange pId = GetChange'{_gcId = pId};
+getChange pId =
+    GetChange'
+    { _gcId = pId
+    }
 
 -- | The ID of the change batch request. The value that you specify here is
 -- the value that @ChangeResourceRecordSets@ returned in the Id element
@@ -95,12 +100,19 @@ instance ToQuery GetChange where
 --
 -- * 'gcrChangeInfo'
 --
--- * 'gcrStatusCode'
-data GetChangeResponse = GetChangeResponse'{_gcrChangeInfo :: ChangeInfo, _gcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gcrStatus'
+data GetChangeResponse = GetChangeResponse'
+    { _gcrChangeInfo :: ChangeInfo
+    , _gcrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetChangeResponse' smart constructor.
 getChangeResponse :: ChangeInfo -> Int -> GetChangeResponse
-getChangeResponse pChangeInfo pStatusCode = GetChangeResponse'{_gcrChangeInfo = pChangeInfo, _gcrStatusCode = pStatusCode};
+getChangeResponse pChangeInfo pStatus =
+    GetChangeResponse'
+    { _gcrChangeInfo = pChangeInfo
+    , _gcrStatus = pStatus
+    }
 
 -- | A complex type that contains information about the specified change
 -- batch, including the change batch ID, the status of the change, and the
@@ -109,5 +121,5 @@ gcrChangeInfo :: Lens' GetChangeResponse ChangeInfo
 gcrChangeInfo = lens _gcrChangeInfo (\ s a -> s{_gcrChangeInfo = a});
 
 -- | FIXME: Undocumented member.
-gcrStatusCode :: Lens' GetChangeResponse Int
-gcrStatusCode = lens _gcrStatusCode (\ s a -> s{_gcrStatusCode = a});
+gcrStatus :: Lens' GetChangeResponse Int
+gcrStatus = lens _gcrStatus (\ s a -> s{_gcrStatus = a});

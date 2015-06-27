@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.DeleteIdentityPool
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
     , deleteIdentityPoolResponse
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the DeleteIdentityPool action.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delIdentityPoolId'
-newtype DeleteIdentityPool = DeleteIdentityPool'{_delIdentityPoolId :: Text} deriving (Eq, Read, Show)
+newtype DeleteIdentityPool = DeleteIdentityPool'
+    { _delIdentityPoolId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteIdentityPool' smart constructor.
 deleteIdentityPool :: Text -> DeleteIdentityPool
-deleteIdentityPool pIdentityPoolId = DeleteIdentityPool'{_delIdentityPoolId = pIdentityPoolId};
+deleteIdentityPool pIdentityPoolId =
+    DeleteIdentityPool'
+    { _delIdentityPoolId = pIdentityPoolId
+    }
 
 -- | An identity pool ID in the format REGION:GUID.
 delIdentityPoolId :: Lens' DeleteIdentityPool Text
@@ -85,8 +90,10 @@ instance ToQuery DeleteIdentityPool where
         toQuery = const mempty
 
 -- | /See:/ 'deleteIdentityPoolResponse' smart constructor.
-data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse' deriving (Eq, Read, Show)
+data DeleteIdentityPoolResponse =
+    DeleteIdentityPoolResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteIdentityPoolResponse' smart constructor.
 deleteIdentityPoolResponse :: DeleteIdentityPoolResponse
-deleteIdentityPoolResponse = DeleteIdentityPoolResponse';
+deleteIdentityPoolResponse = DeleteIdentityPoolResponse'

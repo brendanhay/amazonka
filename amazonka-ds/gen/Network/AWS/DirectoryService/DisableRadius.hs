@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectoryService.DisableRadius
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.DirectoryService.DisableRadius
     -- ** Response constructor
     , disableRadiusResponse
     -- ** Response lenses
-    , drrStatusCode
+    , drrStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the DisableRadius operation.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drDirectoryId'
-newtype DisableRadius = DisableRadius'{_drDirectoryId :: Text} deriving (Eq, Read, Show)
+newtype DisableRadius = DisableRadius'
+    { _drDirectoryId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableRadius' smart constructor.
 disableRadius :: Text -> DisableRadius
-disableRadius pDirectoryId = DisableRadius'{_drDirectoryId = pDirectoryId};
+disableRadius pDirectoryId =
+    DisableRadius'
+    { _drDirectoryId = pDirectoryId
+    }
 
 -- | The identifier of the directory to disable MFA for.
 drDirectoryId :: Lens' DisableRadius Text
@@ -92,13 +97,18 @@ instance ToQuery DisableRadius where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drrStatusCode'
-newtype DisableRadiusResponse = DisableRadiusResponse'{_drrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'drrStatus'
+newtype DisableRadiusResponse = DisableRadiusResponse'
+    { _drrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableRadiusResponse' smart constructor.
 disableRadiusResponse :: Int -> DisableRadiusResponse
-disableRadiusResponse pStatusCode = DisableRadiusResponse'{_drrStatusCode = pStatusCode};
+disableRadiusResponse pStatus =
+    DisableRadiusResponse'
+    { _drrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-drrStatusCode :: Lens' DisableRadiusResponse Int
-drrStatusCode = lens _drrStatusCode (\ s a -> s{_drrStatusCode = a});
+drrStatus :: Lens' DisableRadiusResponse Int
+drrStatus = lens _drrStatus (\ s a -> s{_drrStatus = a});

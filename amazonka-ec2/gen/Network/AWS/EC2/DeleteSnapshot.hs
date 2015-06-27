@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,10 +49,10 @@ module Network.AWS.EC2.DeleteSnapshot
     , deleteSnapshotResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteSnapshot' smart constructor.
 --
@@ -61,11 +61,18 @@ import Network.AWS.Response
 -- * 'd1DryRun'
 --
 -- * 'd1SnapshotId'
-data DeleteSnapshot = DeleteSnapshot'{_d1DryRun :: Maybe Bool, _d1SnapshotId :: Text} deriving (Eq, Read, Show)
+data DeleteSnapshot = DeleteSnapshot'
+    { _d1DryRun     :: Maybe Bool
+    , _d1SnapshotId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteSnapshot' smart constructor.
 deleteSnapshot :: Text -> DeleteSnapshot
-deleteSnapshot pSnapshotId = DeleteSnapshot'{_d1DryRun = Nothing, _d1SnapshotId = pSnapshotId};
+deleteSnapshot pSnapshotId =
+    DeleteSnapshot'
+    { _d1DryRun = Nothing
+    , _d1SnapshotId = pSnapshotId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -98,8 +105,10 @@ instance ToQuery DeleteSnapshot where
                "DryRun" =: _d1DryRun, "SnapshotId" =: _d1SnapshotId]
 
 -- | /See:/ 'deleteSnapshotResponse' smart constructor.
-data DeleteSnapshotResponse = DeleteSnapshotResponse' deriving (Eq, Read, Show)
+data DeleteSnapshotResponse =
+    DeleteSnapshotResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteSnapshotResponse' smart constructor.
 deleteSnapshotResponse :: DeleteSnapshotResponse
-deleteSnapshotResponse = DeleteSnapshotResponse';
+deleteSnapshotResponse = DeleteSnapshotResponse'

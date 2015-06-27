@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     , deregisterInstancesFromLoadBalancerResponse
     -- ** Response lenses
     , diflbrInstances
-    , diflbrStatusCode
+    , diflbrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deregisterInstancesFromLoadBalancer' smart constructor.
 --
@@ -57,11 +57,18 @@ import Network.AWS.Response
 -- * 'diflbLoadBalancerName'
 --
 -- * 'diflbInstances'
-data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'{_diflbLoadBalancerName :: Text, _diflbInstances :: [Instance]} deriving (Eq, Read, Show)
+data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
+    { _diflbLoadBalancerName :: Text
+    , _diflbInstances        :: [Instance]
+    } deriving (Eq,Read,Show)
 
 -- | 'DeregisterInstancesFromLoadBalancer' smart constructor.
 deregisterInstancesFromLoadBalancer :: Text -> DeregisterInstancesFromLoadBalancer
-deregisterInstancesFromLoadBalancer pLoadBalancerName = DeregisterInstancesFromLoadBalancer'{_diflbLoadBalancerName = pLoadBalancerName, _diflbInstances = mempty};
+deregisterInstancesFromLoadBalancer pLoadBalancerName =
+    DeregisterInstancesFromLoadBalancer'
+    { _diflbLoadBalancerName = pLoadBalancerName
+    , _diflbInstances = mempty
+    }
 
 -- | The name of the load balancer.
 diflbLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
@@ -111,17 +118,24 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
 --
 -- * 'diflbrInstances'
 --
--- * 'diflbrStatusCode'
-data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'{_diflbrInstances :: Maybe [Instance], _diflbrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'diflbrStatus'
+data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
+    { _diflbrInstances :: Maybe [Instance]
+    , _diflbrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeregisterInstancesFromLoadBalancerResponse' smart constructor.
 deregisterInstancesFromLoadBalancerResponse :: Int -> DeregisterInstancesFromLoadBalancerResponse
-deregisterInstancesFromLoadBalancerResponse pStatusCode = DeregisterInstancesFromLoadBalancerResponse'{_diflbrInstances = Nothing, _diflbrStatusCode = pStatusCode};
+deregisterInstancesFromLoadBalancerResponse pStatus =
+    DeregisterInstancesFromLoadBalancerResponse'
+    { _diflbrInstances = Nothing
+    , _diflbrStatus = pStatus
+    }
 
 -- | The remaining instances registered with the load balancer.
 diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
 diflbrInstances = lens _diflbrInstances (\ s a -> s{_diflbrInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-diflbrStatusCode :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
-diflbrStatusCode = lens _diflbrStatusCode (\ s a -> s{_diflbrStatusCode = a});
+diflbrStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
+diflbrStatus = lens _diflbrStatus (\ s a -> s{_diflbrStatus = a});

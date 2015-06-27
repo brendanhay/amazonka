@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,10 +70,10 @@ module Network.AWS.EC2.CreateVolume
     , volVolumeType
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createVolume' smart constructor.
 --
@@ -94,11 +94,30 @@ import Network.AWS.Response
 -- * 'cSnapshotId'
 --
 -- * 'cAvailabilityZone'
-data CreateVolume = CreateVolume'{_cSize :: Maybe Int, _cIOPS :: Maybe Int, _cEncrypted :: Maybe Bool, _cKMSKeyId :: Maybe Text, _cVolumeType :: Maybe VolumeType, _cDryRun :: Maybe Bool, _cSnapshotId :: Maybe Text, _cAvailabilityZone :: Text} deriving (Eq, Read, Show)
+data CreateVolume = CreateVolume'
+    { _cSize             :: Maybe Int
+    , _cIOPS             :: Maybe Int
+    , _cEncrypted        :: Maybe Bool
+    , _cKMSKeyId         :: Maybe Text
+    , _cVolumeType       :: Maybe VolumeType
+    , _cDryRun           :: Maybe Bool
+    , _cSnapshotId       :: Maybe Text
+    , _cAvailabilityZone :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVolume' smart constructor.
 createVolume :: Text -> CreateVolume
-createVolume pAvailabilityZone = CreateVolume'{_cSize = Nothing, _cIOPS = Nothing, _cEncrypted = Nothing, _cKMSKeyId = Nothing, _cVolumeType = Nothing, _cDryRun = Nothing, _cSnapshotId = Nothing, _cAvailabilityZone = pAvailabilityZone};
+createVolume pAvailabilityZone =
+    CreateVolume'
+    { _cSize = Nothing
+    , _cIOPS = Nothing
+    , _cEncrypted = Nothing
+    , _cKMSKeyId = Nothing
+    , _cVolumeType = Nothing
+    , _cDryRun = Nothing
+    , _cSnapshotId = Nothing
+    , _cAvailabilityZone = pAvailabilityZone
+    }
 
 -- | The size of the volume, in GiBs.
 --

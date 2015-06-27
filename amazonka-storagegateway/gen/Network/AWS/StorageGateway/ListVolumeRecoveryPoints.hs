@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.ListVolumeRecoveryPoints
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,24 +40,29 @@ module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     -- ** Response lenses
     , lvrprVolumeRecoveryPointInfos
     , lvrprGatewayARN
-    , lvrprStatusCode
+    , lvrprStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'listVolumeRecoveryPoints' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lvrpGatewayARN'
-newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints'{_lvrpGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints'
+    { _lvrpGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListVolumeRecoveryPoints' smart constructor.
 listVolumeRecoveryPoints :: Text -> ListVolumeRecoveryPoints
-listVolumeRecoveryPoints pGatewayARN = ListVolumeRecoveryPoints'{_lvrpGatewayARN = pGatewayARN};
+listVolumeRecoveryPoints pGatewayARN =
+    ListVolumeRecoveryPoints'
+    { _lvrpGatewayARN = pGatewayARN
+    }
 
 -- | FIXME: Undocumented member.
 lvrpGatewayARN :: Lens' ListVolumeRecoveryPoints Text
@@ -104,12 +109,21 @@ instance ToQuery ListVolumeRecoveryPoints where
 --
 -- * 'lvrprGatewayARN'
 --
--- * 'lvrprStatusCode'
-data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'{_lvrprVolumeRecoveryPointInfos :: Maybe [VolumeRecoveryPointInfo], _lvrprGatewayARN :: Maybe Text, _lvrprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lvrprStatus'
+data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
+    { _lvrprVolumeRecoveryPointInfos :: Maybe [VolumeRecoveryPointInfo]
+    , _lvrprGatewayARN               :: Maybe Text
+    , _lvrprStatus                   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListVolumeRecoveryPointsResponse' smart constructor.
 listVolumeRecoveryPointsResponse :: Int -> ListVolumeRecoveryPointsResponse
-listVolumeRecoveryPointsResponse pStatusCode = ListVolumeRecoveryPointsResponse'{_lvrprVolumeRecoveryPointInfos = Nothing, _lvrprGatewayARN = Nothing, _lvrprStatusCode = pStatusCode};
+listVolumeRecoveryPointsResponse pStatus =
+    ListVolumeRecoveryPointsResponse'
+    { _lvrprVolumeRecoveryPointInfos = Nothing
+    , _lvrprGatewayARN = Nothing
+    , _lvrprStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 lvrprVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
@@ -120,5 +134,5 @@ lvrprGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
 lvrprGatewayARN = lens _lvrprGatewayARN (\ s a -> s{_lvrprGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-lvrprStatusCode :: Lens' ListVolumeRecoveryPointsResponse Int
-lvrprStatusCode = lens _lvrprStatusCode (\ s a -> s{_lvrprStatusCode = a});
+lvrprStatus :: Lens' ListVolumeRecoveryPointsResponse Int
+lvrprStatus = lens _lvrprStatus (\ s a -> s{_lvrprStatus = a});

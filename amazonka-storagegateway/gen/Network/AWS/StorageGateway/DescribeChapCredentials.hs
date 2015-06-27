@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeChapCredentials
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.StorageGateway.DescribeChapCredentials
     , describeChapCredentialsResponse
     -- ** Response lenses
     , dccrChapCredentials
-    , dccrStatusCode
+    , dccrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the iSCSI
 -- volume target.
@@ -50,11 +50,16 @@ import Network.AWS.StorageGateway.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dccTargetARN'
-newtype DescribeChapCredentials = DescribeChapCredentials'{_dccTargetARN :: Text} deriving (Eq, Read, Show)
+newtype DescribeChapCredentials = DescribeChapCredentials'
+    { _dccTargetARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeChapCredentials' smart constructor.
 describeChapCredentials :: Text -> DescribeChapCredentials
-describeChapCredentials pTargetARN = DescribeChapCredentials'{_dccTargetARN = pTargetARN};
+describeChapCredentials pTargetARN =
+    DescribeChapCredentials'
+    { _dccTargetARN = pTargetARN
+    }
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
@@ -102,12 +107,19 @@ instance ToQuery DescribeChapCredentials where
 --
 -- * 'dccrChapCredentials'
 --
--- * 'dccrStatusCode'
-data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'{_dccrChapCredentials :: Maybe [ChapInfo], _dccrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dccrStatus'
+data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'
+    { _dccrChapCredentials :: Maybe [ChapInfo]
+    , _dccrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeChapCredentialsResponse' smart constructor.
 describeChapCredentialsResponse :: Int -> DescribeChapCredentialsResponse
-describeChapCredentialsResponse pStatusCode = DescribeChapCredentialsResponse'{_dccrChapCredentials = Nothing, _dccrStatusCode = pStatusCode};
+describeChapCredentialsResponse pStatus =
+    DescribeChapCredentialsResponse'
+    { _dccrChapCredentials = Nothing
+    , _dccrStatus = pStatus
+    }
 
 -- | An array of ChapInfo objects that represent CHAP credentials. Each
 -- object in the array contains CHAP credential information for one
@@ -131,5 +143,5 @@ dccrChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
 dccrChapCredentials = lens _dccrChapCredentials (\ s a -> s{_dccrChapCredentials = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dccrStatusCode :: Lens' DescribeChapCredentialsResponse Int
-dccrStatusCode = lens _dccrStatusCode (\ s a -> s{_dccrStatusCode = a});
+dccrStatus :: Lens' DescribeChapCredentialsResponse Int
+dccrStatus = lens _dccrStatus (\ s a -> s{_dccrStatus = a});

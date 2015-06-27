@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListUsers
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,14 +41,14 @@ module Network.AWS.IAM.ListUsers
     , lurMarker
     , lurIsTruncated
     , lurUsers
-    , lurStatusCode
+    , lurStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listUsers' smart constructor.
 --
@@ -59,11 +59,20 @@ import Network.AWS.Response
 -- * 'luMaxItems'
 --
 -- * 'luMarker'
-data ListUsers = ListUsers'{_luPathPrefix :: Maybe Text, _luMaxItems :: Maybe Nat, _luMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListUsers = ListUsers'
+    { _luPathPrefix :: Maybe Text
+    , _luMaxItems   :: Maybe Nat
+    , _luMarker     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListUsers' smart constructor.
 listUsers :: ListUsers
-listUsers = ListUsers'{_luPathPrefix = Nothing, _luMaxItems = Nothing, _luMarker = Nothing};
+listUsers =
+    ListUsers'
+    { _luPathPrefix = Nothing
+    , _luMaxItems = Nothing
+    , _luMarker = Nothing
+    }
 
 -- | The path prefix for filtering the results. For example:
 -- @\/division_abc\/subdivision_xyz\/@, which would get all user names
@@ -133,12 +142,23 @@ instance ToQuery ListUsers where
 --
 -- * 'lurUsers'
 --
--- * 'lurStatusCode'
-data ListUsersResponse = ListUsersResponse'{_lurMarker :: Maybe Text, _lurIsTruncated :: Maybe Bool, _lurUsers :: [User], _lurStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lurStatus'
+data ListUsersResponse = ListUsersResponse'
+    { _lurMarker      :: Maybe Text
+    , _lurIsTruncated :: Maybe Bool
+    , _lurUsers       :: [User]
+    , _lurStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListUsersResponse' smart constructor.
 listUsersResponse :: Int -> ListUsersResponse
-listUsersResponse pStatusCode = ListUsersResponse'{_lurMarker = Nothing, _lurIsTruncated = Nothing, _lurUsers = mempty, _lurStatusCode = pStatusCode};
+listUsersResponse pStatus =
+    ListUsersResponse'
+    { _lurMarker = Nothing
+    , _lurIsTruncated = Nothing
+    , _lurUsers = mempty
+    , _lurStatus = pStatus
+    }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -157,5 +177,5 @@ lurUsers :: Lens' ListUsersResponse [User]
 lurUsers = lens _lurUsers (\ s a -> s{_lurUsers = a});
 
 -- | FIXME: Undocumented member.
-lurStatusCode :: Lens' ListUsersResponse Int
-lurStatusCode = lens _lurStatusCode (\ s a -> s{_lurStatusCode = a});
+lurStatus :: Lens' ListUsersResponse Int
+lurStatus = lens _lurStatus (\ s a -> s{_lurStatus = a});

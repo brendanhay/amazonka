@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.UploadServerCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,13 +53,13 @@ module Network.AWS.IAM.UploadServerCertificate
     , uploadServerCertificateResponse
     -- ** Response lenses
     , uplServerCertificateMetadata
-    , uplStatusCode
+    , uplStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'uploadServerCertificate' smart constructor.
 --
@@ -74,11 +74,24 @@ import Network.AWS.Response
 -- * 'uscCertificateBody'
 --
 -- * 'uscPrivateKey'
-data UploadServerCertificate = UploadServerCertificate'{_uscPath :: Maybe Text, _uscCertificateChain :: Maybe Text, _uscServerCertificateName :: Text, _uscCertificateBody :: Text, _uscPrivateKey :: Sensitive Text} deriving (Eq, Read, Show)
+data UploadServerCertificate = UploadServerCertificate'
+    { _uscPath                  :: Maybe Text
+    , _uscCertificateChain      :: Maybe Text
+    , _uscServerCertificateName :: Text
+    , _uscCertificateBody       :: Text
+    , _uscPrivateKey            :: Sensitive Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UploadServerCertificate' smart constructor.
 uploadServerCertificate :: Text -> Text -> Text -> UploadServerCertificate
-uploadServerCertificate pServerCertificateName pCertificateBody pPrivateKey = UploadServerCertificate'{_uscPath = Nothing, _uscCertificateChain = Nothing, _uscServerCertificateName = pServerCertificateName, _uscCertificateBody = pCertificateBody, _uscPrivateKey = _Sensitive # pPrivateKey};
+uploadServerCertificate pServerCertificateName pCertificateBody pPrivateKey =
+    UploadServerCertificate'
+    { _uscPath = Nothing
+    , _uscCertificateChain = Nothing
+    , _uscServerCertificateName = pServerCertificateName
+    , _uscCertificateBody = pCertificateBody
+    , _uscPrivateKey = _Sensitive # pPrivateKey
+    }
 
 -- | The path for the server certificate. For more information about paths,
 -- see
@@ -151,12 +164,19 @@ instance ToQuery UploadServerCertificate where
 --
 -- * 'uplServerCertificateMetadata'
 --
--- * 'uplStatusCode'
-data UploadServerCertificateResponse = UploadServerCertificateResponse'{_uplServerCertificateMetadata :: Maybe ServerCertificateMetadata, _uplStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'uplStatus'
+data UploadServerCertificateResponse = UploadServerCertificateResponse'
+    { _uplServerCertificateMetadata :: Maybe ServerCertificateMetadata
+    , _uplStatus                    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UploadServerCertificateResponse' smart constructor.
 uploadServerCertificateResponse :: Int -> UploadServerCertificateResponse
-uploadServerCertificateResponse pStatusCode = UploadServerCertificateResponse'{_uplServerCertificateMetadata = Nothing, _uplStatusCode = pStatusCode};
+uploadServerCertificateResponse pStatus =
+    UploadServerCertificateResponse'
+    { _uplServerCertificateMetadata = Nothing
+    , _uplStatus = pStatus
+    }
 
 -- | The meta information of the uploaded server certificate without its
 -- certificate body, certificate chain, and private key.
@@ -164,5 +184,5 @@ uplServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe Ser
 uplServerCertificateMetadata = lens _uplServerCertificateMetadata (\ s a -> s{_uplServerCertificateMetadata = a});
 
 -- | FIXME: Undocumented member.
-uplStatusCode :: Lens' UploadServerCertificateResponse Int
-uplStatusCode = lens _uplStatusCode (\ s a -> s{_uplStatusCode = a});
+uplStatus :: Lens' UploadServerCertificateResponse Int
+uplStatus = lens _uplStatus (\ s a -> s{_uplStatus = a});

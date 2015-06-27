@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,13 +63,13 @@ module Network.AWS.EC2.CreateSecurityGroup
     , createSecurityGroupResponse
     -- ** Response lenses
     , csgrGroupId
-    , csgrStatusCode
+    , csgrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createSecurityGroup' smart constructor.
 --
@@ -82,11 +82,22 @@ import Network.AWS.Response
 -- * 'csgGroupName'
 --
 -- * 'csgDescription'
-data CreateSecurityGroup = CreateSecurityGroup'{_csgVPCId :: Maybe Text, _csgDryRun :: Maybe Bool, _csgGroupName :: Text, _csgDescription :: Text} deriving (Eq, Read, Show)
+data CreateSecurityGroup = CreateSecurityGroup'
+    { _csgVPCId       :: Maybe Text
+    , _csgDryRun      :: Maybe Bool
+    , _csgGroupName   :: Text
+    , _csgDescription :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSecurityGroup' smart constructor.
 createSecurityGroup :: Text -> Text -> CreateSecurityGroup
-createSecurityGroup pGroupName pDescription = CreateSecurityGroup'{_csgVPCId = Nothing, _csgDryRun = Nothing, _csgGroupName = pGroupName, _csgDescription = pDescription};
+createSecurityGroup pGroupName pDescription =
+    CreateSecurityGroup'
+    { _csgVPCId = Nothing
+    , _csgDryRun = Nothing
+    , _csgGroupName = pGroupName
+    , _csgDescription = pDescription
+    }
 
 -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
 csgVPCId :: Lens' CreateSecurityGroup (Maybe Text)
@@ -153,17 +164,24 @@ instance ToQuery CreateSecurityGroup where
 --
 -- * 'csgrGroupId'
 --
--- * 'csgrStatusCode'
-data CreateSecurityGroupResponse = CreateSecurityGroupResponse'{_csgrGroupId :: Text, _csgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'csgrStatus'
+data CreateSecurityGroupResponse = CreateSecurityGroupResponse'
+    { _csgrGroupId :: Text
+    , _csgrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSecurityGroupResponse' smart constructor.
 createSecurityGroupResponse :: Text -> Int -> CreateSecurityGroupResponse
-createSecurityGroupResponse pGroupId pStatusCode = CreateSecurityGroupResponse'{_csgrGroupId = pGroupId, _csgrStatusCode = pStatusCode};
+createSecurityGroupResponse pGroupId pStatus =
+    CreateSecurityGroupResponse'
+    { _csgrGroupId = pGroupId
+    , _csgrStatus = pStatus
+    }
 
 -- | The ID of the security group.
 csgrGroupId :: Lens' CreateSecurityGroupResponse Text
 csgrGroupId = lens _csgrGroupId (\ s a -> s{_csgrGroupId = a});
 
 -- | FIXME: Undocumented member.
-csgrStatusCode :: Lens' CreateSecurityGroupResponse Int
-csgrStatusCode = lens _csgrStatusCode (\ s a -> s{_csgrStatusCode = a});
+csgrStatus :: Lens' CreateSecurityGroupResponse Int
+csgrStatus = lens _csgrStatus (\ s a -> s{_csgrStatus = a});

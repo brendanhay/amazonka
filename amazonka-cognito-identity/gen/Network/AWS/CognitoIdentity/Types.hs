@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.CognitoIdentity.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -76,87 +75,104 @@ module Network.AWS.CognitoIdentity.Types
     , uiiIdentityId
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2014-06-30@ of the Amazon Cognito Identity SDK.
 data CognitoIdentity
 
 instance AWSService CognitoIdentity where
     type Sg CognitoIdentity = V4
-
     service = const svc
       where
-        svc :: Service CognitoIdentity
-        svc = Service
-            { _svcAbbrev   = "CognitoIdentity"
-            , _svcPrefix   = "cognito-identity"
-            , _svcVersion  = "2014-06-30"
+        svc =
+            Service
+            { _svcAbbrev = "CognitoIdentity"
+            , _svcPrefix = "cognito-identity"
+            , _svcVersion = "2014-06-30"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | Thrown if the identity pool has no role associated for the given auth
 -- type (auth\/unauth) or if the AssumeRole fails.
-_InvalidIdentityPoolConfigurationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidIdentityPoolConfigurationException = _ServiceError . hasStatus 400 . hasCode "InvalidIdentityPoolConfigurationException";
+_InvalidIdentityPoolConfigurationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidIdentityPoolConfigurationException =
+    _ServiceError .
+    hasStatus 400 . hasCode "InvalidIdentityPoolConfigurationException"
 
 -- | Thrown for missing or bad input parameter(s).
-_InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterException = _ServiceError . hasStatus 400 . hasCode "InvalidParameterException";
+_InvalidParameterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidParameterException"
 
 -- | Thrown when a user is not authorized to access the requested resource.
-_NotAuthorizedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NotAuthorizedException = _ServiceError . hasStatus 403 . hasCode "NotAuthorizedException";
+_NotAuthorizedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NotAuthorizedException =
+    _ServiceError . hasStatus 403 . hasCode "NotAuthorizedException"
 
 -- | Thrown when the service encounters an error during processing the
 -- request.
-_InternalErrorException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalErrorException = _ServiceError . hasCode "InternalErrorException";
+_InternalErrorException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalErrorException = _ServiceError . hasCode "InternalErrorException"
 
 -- | An exception thrown when a dependent service such as Facebook or Twitter
 -- is not responding
-_ExternalServiceException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ExternalServiceException = _ServiceError . hasStatus 400 . hasCode "ExternalServiceException";
+_ExternalServiceException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ExternalServiceException =
+    _ServiceError . hasStatus 400 . hasCode "ExternalServiceException"
 
 -- | Thrown when a request is throttled.
-_TooManyRequestsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyRequestsException = _ServiceError . hasStatus 429 . hasCode "TooManyRequestsException";
+_TooManyRequestsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyRequestsException =
+    _ServiceError . hasStatus 429 . hasCode "TooManyRequestsException"
 
 -- | Thrown when a user tries to use a login which is already linked to
 -- another account.
-_ResourceConflictException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceConflictException = _ServiceError . hasStatus 409 . hasCode "ResourceConflictException";
+_ResourceConflictException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceConflictException =
+    _ServiceError . hasStatus 409 . hasCode "ResourceConflictException"
 
 -- | The provided developer user identifier is already registered with
 -- Cognito under a different identity ID.
-_DeveloperUserAlreadyRegisteredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeveloperUserAlreadyRegisteredException = _ServiceError . hasStatus 400 . hasCode "DeveloperUserAlreadyRegisteredException";
+_DeveloperUserAlreadyRegisteredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeveloperUserAlreadyRegisteredException =
+    _ServiceError .
+    hasStatus 400 . hasCode "DeveloperUserAlreadyRegisteredException"
 
 -- | Thrown when the requested resource (for example, a dataset or record)
 -- does not exist.
-_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException";
+_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+    _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
 -- | Thrown when the total number of user pools has exceeded a preset limit.
-_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasStatus 400 . hasCode "LimitExceededException";
+_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException =
+    _ServiceError . hasStatus 400 . hasCode "LimitExceededException"
 
-data CognitoErrorCode = InternalServerError | AccessDenied deriving (Eq, Ord, Read, Show, Enum, Generic)
+data CognitoErrorCode
+    = InternalServerError
+    | AccessDenied
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText CognitoErrorCode where
     parser = takeLowerText >>= \case
@@ -189,11 +205,22 @@ instance FromJSON CognitoErrorCode where
 -- * 'creSecretKey'
 --
 -- * 'creAccessKeyId'
-data Credentials = Credentials'{_creSessionToken :: Maybe Text, _creExpiration :: Maybe POSIX, _creSecretKey :: Maybe Text, _creAccessKeyId :: Maybe Text} deriving (Eq, Read, Show)
+data Credentials = Credentials'
+    { _creSessionToken :: Maybe Text
+    , _creExpiration   :: Maybe POSIX
+    , _creSecretKey    :: Maybe Text
+    , _creAccessKeyId  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Credentials' smart constructor.
 credentials :: Credentials
-credentials = Credentials'{_creSessionToken = Nothing, _creExpiration = Nothing, _creSecretKey = Nothing, _creAccessKeyId = Nothing};
+credentials =
+    Credentials'
+    { _creSessionToken = Nothing
+    , _creExpiration = Nothing
+    , _creSecretKey = Nothing
+    , _creAccessKeyId = Nothing
+    }
 
 -- | The Session Token portion of the credentials
 creSessionToken :: Lens' Credentials (Maybe Text)
@@ -233,11 +260,22 @@ instance FromJSON Credentials where
 -- * 'idLogins'
 --
 -- * 'idIdentityId'
-data IdentityDescription = IdentityDescription'{_idLastModifiedDate :: Maybe POSIX, _idCreationDate :: Maybe POSIX, _idLogins :: Maybe [Text], _idIdentityId :: Maybe Text} deriving (Eq, Read, Show)
+data IdentityDescription = IdentityDescription'
+    { _idLastModifiedDate :: Maybe POSIX
+    , _idCreationDate     :: Maybe POSIX
+    , _idLogins           :: Maybe [Text]
+    , _idIdentityId       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'IdentityDescription' smart constructor.
 identityDescription :: IdentityDescription
-identityDescription = IdentityDescription'{_idLastModifiedDate = Nothing, _idCreationDate = Nothing, _idLogins = Nothing, _idIdentityId = Nothing};
+identityDescription =
+    IdentityDescription'
+    { _idLastModifiedDate = Nothing
+    , _idCreationDate = Nothing
+    , _idLogins = Nothing
+    , _idIdentityId = Nothing
+    }
 
 -- | Date on which the identity was last modified.
 idLastModifiedDate :: Lens' IdentityDescription (Maybe UTCTime)
@@ -282,11 +320,26 @@ instance FromJSON IdentityDescription where
 -- * 'ipIdentityPoolName'
 --
 -- * 'ipAllowUnauthenticatedIdentities'
-data IdentityPool = IdentityPool'{_ipSupportedLoginProviders :: Maybe (Map Text Text), _ipDeveloperProviderName :: Maybe Text, _ipOpenIdConnectProviderARNs :: Maybe [Text], _ipIdentityPoolId :: Text, _ipIdentityPoolName :: Text, _ipAllowUnauthenticatedIdentities :: Bool} deriving (Eq, Read, Show)
+data IdentityPool = IdentityPool'
+    { _ipSupportedLoginProviders        :: Maybe (Map Text Text)
+    , _ipDeveloperProviderName          :: Maybe Text
+    , _ipOpenIdConnectProviderARNs      :: Maybe [Text]
+    , _ipIdentityPoolId                 :: Text
+    , _ipIdentityPoolName               :: Text
+    , _ipAllowUnauthenticatedIdentities :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'IdentityPool' smart constructor.
 identityPool :: Text -> Text -> Bool -> IdentityPool
-identityPool pIdentityPoolId pIdentityPoolName pAllowUnauthenticatedIdentities = IdentityPool'{_ipSupportedLoginProviders = Nothing, _ipDeveloperProviderName = Nothing, _ipOpenIdConnectProviderARNs = Nothing, _ipIdentityPoolId = pIdentityPoolId, _ipIdentityPoolName = pIdentityPoolName, _ipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities};
+identityPool pIdentityPoolId pIdentityPoolName pAllowUnauthenticatedIdentities =
+    IdentityPool'
+    { _ipSupportedLoginProviders = Nothing
+    , _ipDeveloperProviderName = Nothing
+    , _ipOpenIdConnectProviderARNs = Nothing
+    , _ipIdentityPoolId = pIdentityPoolId
+    , _ipIdentityPoolName = pIdentityPoolName
+    , _ipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities
+    }
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 ipSupportedLoginProviders :: Lens' IdentityPool (HashMap Text Text)
@@ -346,11 +399,18 @@ instance ToJSON IdentityPool where
 -- * 'ipsdIdentityPoolId'
 --
 -- * 'ipsdIdentityPoolName'
-data IdentityPoolShortDescription = IdentityPoolShortDescription'{_ipsdIdentityPoolId :: Maybe Text, _ipsdIdentityPoolName :: Maybe Text} deriving (Eq, Read, Show)
+data IdentityPoolShortDescription = IdentityPoolShortDescription'
+    { _ipsdIdentityPoolId   :: Maybe Text
+    , _ipsdIdentityPoolName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'IdentityPoolShortDescription' smart constructor.
 identityPoolShortDescription :: IdentityPoolShortDescription
-identityPoolShortDescription = IdentityPoolShortDescription'{_ipsdIdentityPoolId = Nothing, _ipsdIdentityPoolName = Nothing};
+identityPoolShortDescription =
+    IdentityPoolShortDescription'
+    { _ipsdIdentityPoolId = Nothing
+    , _ipsdIdentityPoolName = Nothing
+    }
 
 -- | An identity pool ID in the format REGION:GUID.
 ipsdIdentityPoolId :: Lens' IdentityPoolShortDescription (Maybe Text)
@@ -378,11 +438,18 @@ instance FromJSON IdentityPoolShortDescription where
 -- * 'uiiErrorCode'
 --
 -- * 'uiiIdentityId'
-data UnprocessedIdentityId = UnprocessedIdentityId'{_uiiErrorCode :: Maybe CognitoErrorCode, _uiiIdentityId :: Maybe Text} deriving (Eq, Read, Show)
+data UnprocessedIdentityId = UnprocessedIdentityId'
+    { _uiiErrorCode  :: Maybe CognitoErrorCode
+    , _uiiIdentityId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UnprocessedIdentityId' smart constructor.
 unprocessedIdentityId :: UnprocessedIdentityId
-unprocessedIdentityId = UnprocessedIdentityId'{_uiiErrorCode = Nothing, _uiiIdentityId = Nothing};
+unprocessedIdentityId =
+    UnprocessedIdentityId'
+    { _uiiErrorCode = Nothing
+    , _uiiIdentityId = Nothing
+    }
 
 -- | The error code indicating the type of error that occurred.
 uiiErrorCode :: Lens' UnprocessedIdentityId (Maybe CognitoErrorCode)

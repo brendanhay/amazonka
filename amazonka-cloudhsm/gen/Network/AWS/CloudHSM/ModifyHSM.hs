@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.ModifyHSM
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.CloudHSM.ModifyHSM
     , modifyHSMResponse
     -- ** Response lenses
     , modHSMARN
-    , modStatusCode
+    , modStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the ModifyHsm action.
 --
@@ -62,11 +62,26 @@ import Network.AWS.Response
 -- * 'mhEniIP'
 --
 -- * 'mhHSMARN'
-data ModifyHSM = ModifyHSM'{_mhIAMRoleARN :: Maybe Text, _mhSubnetId :: Maybe Text, _mhSyslogIP :: Maybe Text, _mhExternalId :: Maybe Text, _mhEniIP :: Maybe Text, _mhHSMARN :: Text} deriving (Eq, Read, Show)
+data ModifyHSM = ModifyHSM'
+    { _mhIAMRoleARN :: Maybe Text
+    , _mhSubnetId   :: Maybe Text
+    , _mhSyslogIP   :: Maybe Text
+    , _mhExternalId :: Maybe Text
+    , _mhEniIP      :: Maybe Text
+    , _mhHSMARN     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyHSM' smart constructor.
 modifyHSM :: Text -> ModifyHSM
-modifyHSM pHSMARN = ModifyHSM'{_mhIAMRoleARN = Nothing, _mhSubnetId = Nothing, _mhSyslogIP = Nothing, _mhExternalId = Nothing, _mhEniIP = Nothing, _mhHSMARN = pHSMARN};
+modifyHSM pHSMARN =
+    ModifyHSM'
+    { _mhIAMRoleARN = Nothing
+    , _mhSubnetId = Nothing
+    , _mhSyslogIP = Nothing
+    , _mhExternalId = Nothing
+    , _mhEniIP = Nothing
+    , _mhHSMARN = pHSMARN
+    }
 
 -- | The new IAM role ARN.
 mhIAMRoleARN :: Lens' ModifyHSM (Maybe Text)
@@ -134,17 +149,24 @@ instance ToQuery ModifyHSM where
 --
 -- * 'modHSMARN'
 --
--- * 'modStatusCode'
-data ModifyHSMResponse = ModifyHSMResponse'{_modHSMARN :: Maybe Text, _modStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'modStatus'
+data ModifyHSMResponse = ModifyHSMResponse'
+    { _modHSMARN :: Maybe Text
+    , _modStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyHSMResponse' smart constructor.
 modifyHSMResponse :: Int -> ModifyHSMResponse
-modifyHSMResponse pStatusCode = ModifyHSMResponse'{_modHSMARN = Nothing, _modStatusCode = pStatusCode};
+modifyHSMResponse pStatus =
+    ModifyHSMResponse'
+    { _modHSMARN = Nothing
+    , _modStatus = pStatus
+    }
 
 -- | The ARN of the HSM.
 modHSMARN :: Lens' ModifyHSMResponse (Maybe Text)
 modHSMARN = lens _modHSMARN (\ s a -> s{_modHSMARN = a});
 
 -- | FIXME: Undocumented member.
-modStatusCode :: Lens' ModifyHSMResponse Int
-modStatusCode = lens _modStatusCode (\ s a -> s{_modStatusCode = a});
+modStatus :: Lens' ModifyHSMResponse Int
+modStatus = lens _modStatus (\ s a -> s{_modStatus = a});

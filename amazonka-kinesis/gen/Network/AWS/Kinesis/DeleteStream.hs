@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Kinesis.DeleteStream
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,10 +51,10 @@ module Network.AWS.Kinesis.DeleteStream
     , deleteStreamResponse
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @DeleteStream@.
 --
@@ -63,11 +63,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsStreamName'
-newtype DeleteStream = DeleteStream'{_dsStreamName :: Text} deriving (Eq, Read, Show)
+newtype DeleteStream = DeleteStream'
+    { _dsStreamName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteStream' smart constructor.
 deleteStream :: Text -> DeleteStream
-deleteStream pStreamName = DeleteStream'{_dsStreamName = pStreamName};
+deleteStream pStreamName =
+    DeleteStream'
+    { _dsStreamName = pStreamName
+    }
 
 -- | The name of the stream to delete.
 dsStreamName :: Lens' DeleteStream Text
@@ -99,8 +104,10 @@ instance ToQuery DeleteStream where
         toQuery = const mempty
 
 -- | /See:/ 'deleteStreamResponse' smart constructor.
-data DeleteStreamResponse = DeleteStreamResponse' deriving (Eq, Read, Show)
+data DeleteStreamResponse =
+    DeleteStreamResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteStreamResponse' smart constructor.
 deleteStreamResponse :: DeleteStreamResponse
-deleteStreamResponse = DeleteStreamResponse';
+deleteStreamResponse = DeleteStreamResponse'

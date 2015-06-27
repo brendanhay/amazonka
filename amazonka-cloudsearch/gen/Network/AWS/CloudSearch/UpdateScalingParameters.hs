@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.UpdateScalingParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
     , updateScalingParametersResponse
     -- ** Response lenses
     , usprScalingParameters
-    , usprStatusCode
+    , usprStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @UpdateScalingParameters@ operation.
 -- Specifies the name of the domain you want to update and the scaling
@@ -60,11 +60,18 @@ import Network.AWS.Response
 -- * 'uspDomainName'
 --
 -- * 'uspScalingParameters'
-data UpdateScalingParameters = UpdateScalingParameters'{_uspDomainName :: Text, _uspScalingParameters :: ScalingParameters} deriving (Eq, Read, Show)
+data UpdateScalingParameters = UpdateScalingParameters'
+    { _uspDomainName        :: Text
+    , _uspScalingParameters :: ScalingParameters
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateScalingParameters' smart constructor.
 updateScalingParameters :: Text -> ScalingParameters -> UpdateScalingParameters
-updateScalingParameters pDomainName pScalingParameters = UpdateScalingParameters'{_uspDomainName = pDomainName, _uspScalingParameters = pScalingParameters};
+updateScalingParameters pDomainName pScalingParameters =
+    UpdateScalingParameters'
+    { _uspDomainName = pDomainName
+    , _uspScalingParameters = pScalingParameters
+    }
 
 -- | FIXME: Undocumented member.
 uspDomainName :: Lens' UpdateScalingParameters Text
@@ -109,17 +116,24 @@ instance ToQuery UpdateScalingParameters where
 --
 -- * 'usprScalingParameters'
 --
--- * 'usprStatusCode'
-data UpdateScalingParametersResponse = UpdateScalingParametersResponse'{_usprScalingParameters :: ScalingParametersStatus, _usprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'usprStatus'
+data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
+    { _usprScalingParameters :: ScalingParametersStatus
+    , _usprStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateScalingParametersResponse' smart constructor.
 updateScalingParametersResponse :: ScalingParametersStatus -> Int -> UpdateScalingParametersResponse
-updateScalingParametersResponse pScalingParameters pStatusCode = UpdateScalingParametersResponse'{_usprScalingParameters = pScalingParameters, _usprStatusCode = pStatusCode};
+updateScalingParametersResponse pScalingParameters pStatus =
+    UpdateScalingParametersResponse'
+    { _usprScalingParameters = pScalingParameters
+    , _usprStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 usprScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
 usprScalingParameters = lens _usprScalingParameters (\ s a -> s{_usprScalingParameters = a});
 
 -- | FIXME: Undocumented member.
-usprStatusCode :: Lens' UpdateScalingParametersResponse Int
-usprStatusCode = lens _usprStatusCode (\ s a -> s{_usprStatusCode = a});
+usprStatus :: Lens' UpdateScalingParametersResponse Int
+usprStatus = lens _usprStatus (\ s a -> s{_usprStatus = a});

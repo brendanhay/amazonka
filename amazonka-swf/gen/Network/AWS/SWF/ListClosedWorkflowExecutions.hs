@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.ListClosedWorkflowExecutions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -75,11 +75,11 @@ module Network.AWS.SWF.ListClosedWorkflowExecutions
     , weiExecutionInfos
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'listClosedWorkflowExecutions' smart constructor.
 --
@@ -104,11 +104,34 @@ import Network.AWS.SWF.Types
 -- * 'lcweMaximumPageSize'
 --
 -- * 'lcweDomain'
-data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'{_lcweNextPageToken :: Maybe Text, _lcweCloseStatusFilter :: Maybe CloseStatusFilter, _lcweExecutionFilter :: Maybe WorkflowExecutionFilter, _lcweTypeFilter :: Maybe WorkflowTypeFilter, _lcweCloseTimeFilter :: Maybe ExecutionTimeFilter, _lcweReverseOrder :: Maybe Bool, _lcweTagFilter :: Maybe TagFilter, _lcweStartTimeFilter :: Maybe ExecutionTimeFilter, _lcweMaximumPageSize :: Maybe Nat, _lcweDomain :: Text} deriving (Eq, Read, Show)
+data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'
+    { _lcweNextPageToken     :: Maybe Text
+    , _lcweCloseStatusFilter :: Maybe CloseStatusFilter
+    , _lcweExecutionFilter   :: Maybe WorkflowExecutionFilter
+    , _lcweTypeFilter        :: Maybe WorkflowTypeFilter
+    , _lcweCloseTimeFilter   :: Maybe ExecutionTimeFilter
+    , _lcweReverseOrder      :: Maybe Bool
+    , _lcweTagFilter         :: Maybe TagFilter
+    , _lcweStartTimeFilter   :: Maybe ExecutionTimeFilter
+    , _lcweMaximumPageSize   :: Maybe Nat
+    , _lcweDomain            :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListClosedWorkflowExecutions' smart constructor.
 listClosedWorkflowExecutions :: Text -> ListClosedWorkflowExecutions
-listClosedWorkflowExecutions pDomain = ListClosedWorkflowExecutions'{_lcweNextPageToken = Nothing, _lcweCloseStatusFilter = Nothing, _lcweExecutionFilter = Nothing, _lcweTypeFilter = Nothing, _lcweCloseTimeFilter = Nothing, _lcweReverseOrder = Nothing, _lcweTagFilter = Nothing, _lcweStartTimeFilter = Nothing, _lcweMaximumPageSize = Nothing, _lcweDomain = pDomain};
+listClosedWorkflowExecutions pDomain =
+    ListClosedWorkflowExecutions'
+    { _lcweNextPageToken = Nothing
+    , _lcweCloseStatusFilter = Nothing
+    , _lcweExecutionFilter = Nothing
+    , _lcweTypeFilter = Nothing
+    , _lcweCloseTimeFilter = Nothing
+    , _lcweReverseOrder = Nothing
+    , _lcweTagFilter = Nothing
+    , _lcweStartTimeFilter = Nothing
+    , _lcweMaximumPageSize = Nothing
+    , _lcweDomain = pDomain
+    }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call

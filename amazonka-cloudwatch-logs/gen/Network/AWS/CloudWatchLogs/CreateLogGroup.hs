@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.CreateLogGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,21 +40,26 @@ module Network.AWS.CloudWatchLogs.CreateLogGroup
     , createLogGroupResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createLogGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'clgLogGroupName'
-newtype CreateLogGroup = CreateLogGroup'{_clgLogGroupName :: Text} deriving (Eq, Read, Show)
+newtype CreateLogGroup = CreateLogGroup'
+    { _clgLogGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLogGroup' smart constructor.
 createLogGroup :: Text -> CreateLogGroup
-createLogGroup pLogGroupName = CreateLogGroup'{_clgLogGroupName = pLogGroupName};
+createLogGroup pLogGroupName =
+    CreateLogGroup'
+    { _clgLogGroupName = pLogGroupName
+    }
 
 -- | The name of the log group to create.
 clgLogGroupName :: Lens' CreateLogGroup Text
@@ -86,8 +91,10 @@ instance ToQuery CreateLogGroup where
         toQuery = const mempty
 
 -- | /See:/ 'createLogGroupResponse' smart constructor.
-data CreateLogGroupResponse = CreateLogGroupResponse' deriving (Eq, Read, Show)
+data CreateLogGroupResponse =
+    CreateLogGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CreateLogGroupResponse' smart constructor.
 createLogGroupResponse :: CreateLogGroupResponse
-createLogGroupResponse = CreateLogGroupResponse';
+createLogGroupResponse = CreateLogGroupResponse'

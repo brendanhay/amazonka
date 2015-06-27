@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.PurchaseReservedNodeOffering
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.Redshift.PurchaseReservedNodeOffering
     , purchaseReservedNodeOfferingResponse
     -- ** Response lenses
     , prnorReservedNode
-    , prnorStatusCode
+    , prnorStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -59,11 +59,18 @@ import Network.AWS.Response
 -- * 'prnoNodeCount'
 --
 -- * 'prnoReservedNodeOfferingId'
-data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'{_prnoNodeCount :: Maybe Int, _prnoReservedNodeOfferingId :: Text} deriving (Eq, Read, Show)
+data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'
+    { _prnoNodeCount              :: Maybe Int
+    , _prnoReservedNodeOfferingId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PurchaseReservedNodeOffering' smart constructor.
 purchaseReservedNodeOffering :: Text -> PurchaseReservedNodeOffering
-purchaseReservedNodeOffering pReservedNodeOfferingId = PurchaseReservedNodeOffering'{_prnoNodeCount = Nothing, _prnoReservedNodeOfferingId = pReservedNodeOfferingId};
+purchaseReservedNodeOffering pReservedNodeOfferingId =
+    PurchaseReservedNodeOffering'
+    { _prnoNodeCount = Nothing
+    , _prnoReservedNodeOfferingId = pReservedNodeOfferingId
+    }
 
 -- | The number of reserved nodes you want to purchase.
 --
@@ -111,17 +118,24 @@ instance ToQuery PurchaseReservedNodeOffering where
 --
 -- * 'prnorReservedNode'
 --
--- * 'prnorStatusCode'
-data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'{_prnorReservedNode :: Maybe ReservedNode, _prnorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'prnorStatus'
+data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'
+    { _prnorReservedNode :: Maybe ReservedNode
+    , _prnorStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PurchaseReservedNodeOfferingResponse' smart constructor.
 purchaseReservedNodeOfferingResponse :: Int -> PurchaseReservedNodeOfferingResponse
-purchaseReservedNodeOfferingResponse pStatusCode = PurchaseReservedNodeOfferingResponse'{_prnorReservedNode = Nothing, _prnorStatusCode = pStatusCode};
+purchaseReservedNodeOfferingResponse pStatus =
+    PurchaseReservedNodeOfferingResponse'
+    { _prnorReservedNode = Nothing
+    , _prnorStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 prnorReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
 prnorReservedNode = lens _prnorReservedNode (\ s a -> s{_prnorReservedNode = a});
 
 -- | FIXME: Undocumented member.
-prnorStatusCode :: Lens' PurchaseReservedNodeOfferingResponse Int
-prnorStatusCode = lens _prnorStatusCode (\ s a -> s{_prnorStatusCode = a});
+prnorStatus :: Lens' PurchaseReservedNodeOfferingResponse Int
+prnorStatus = lens _prnorStatus (\ s a -> s{_prnorStatus = a});

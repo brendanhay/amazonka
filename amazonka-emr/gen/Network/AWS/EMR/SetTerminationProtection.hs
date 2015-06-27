@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.SetTerminationProtection
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,10 +52,10 @@ module Network.AWS.EMR.SetTerminationProtection
     , setTerminationProtectionResponse
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input argument to the TerminationProtection operation.
 --
@@ -66,11 +66,18 @@ import Network.AWS.Response
 -- * 'stpJobFlowIds'
 --
 -- * 'stpTerminationProtected'
-data SetTerminationProtection = SetTerminationProtection'{_stpJobFlowIds :: [Text], _stpTerminationProtected :: Bool} deriving (Eq, Read, Show)
+data SetTerminationProtection = SetTerminationProtection'
+    { _stpJobFlowIds           :: [Text]
+    , _stpTerminationProtected :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'SetTerminationProtection' smart constructor.
 setTerminationProtection :: Bool -> SetTerminationProtection
-setTerminationProtection pTerminationProtected = SetTerminationProtection'{_stpJobFlowIds = mempty, _stpTerminationProtected = pTerminationProtected};
+setTerminationProtection pTerminationProtected =
+    SetTerminationProtection'
+    { _stpJobFlowIds = mempty
+    , _stpTerminationProtected = pTerminationProtected
+    }
 
 -- | A list of strings that uniquely identify the job flows to protect. This
 -- identifier is returned by RunJobFlow and can also be obtained from
@@ -115,8 +122,10 @@ instance ToQuery SetTerminationProtection where
         toQuery = const mempty
 
 -- | /See:/ 'setTerminationProtectionResponse' smart constructor.
-data SetTerminationProtectionResponse = SetTerminationProtectionResponse' deriving (Eq, Read, Show)
+data SetTerminationProtectionResponse =
+    SetTerminationProtectionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetTerminationProtectionResponse' smart constructor.
 setTerminationProtectionResponse :: SetTerminationProtectionResponse
-setTerminationProtectionResponse = SetTerminationProtectionResponse';
+setTerminationProtectionResponse = SetTerminationProtectionResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.GetIdentityPoolConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     , gipcrIdentityPoolId
     , gipcrCognitoStreams
     , gipcrPushSync
-    , gipcrStatusCode
+    , gipcrStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the GetIdentityPoolConfiguration operation.
 --
@@ -49,11 +49,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gipcIdentityPoolId'
-newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration'{_gipcIdentityPoolId :: Text} deriving (Eq, Read, Show)
+newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration'
+    { _gipcIdentityPoolId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityPoolConfiguration' smart constructor.
 getIdentityPoolConfiguration :: Text -> GetIdentityPoolConfiguration
-getIdentityPoolConfiguration pIdentityPoolId = GetIdentityPoolConfiguration'{_gipcIdentityPoolId = pIdentityPoolId};
+getIdentityPoolConfiguration pIdentityPoolId =
+    GetIdentityPoolConfiguration'
+    { _gipcIdentityPoolId = pIdentityPoolId
+    }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -103,12 +108,23 @@ instance ToQuery GetIdentityPoolConfiguration where
 --
 -- * 'gipcrPushSync'
 --
--- * 'gipcrStatusCode'
-data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse'{_gipcrIdentityPoolId :: Maybe Text, _gipcrCognitoStreams :: Maybe CognitoStreams, _gipcrPushSync :: Maybe PushSync, _gipcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gipcrStatus'
+data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse'
+    { _gipcrIdentityPoolId :: Maybe Text
+    , _gipcrCognitoStreams :: Maybe CognitoStreams
+    , _gipcrPushSync       :: Maybe PushSync
+    , _gipcrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityPoolConfigurationResponse' smart constructor.
 getIdentityPoolConfigurationResponse :: Int -> GetIdentityPoolConfigurationResponse
-getIdentityPoolConfigurationResponse pStatusCode = GetIdentityPoolConfigurationResponse'{_gipcrIdentityPoolId = Nothing, _gipcrCognitoStreams = Nothing, _gipcrPushSync = Nothing, _gipcrStatusCode = pStatusCode};
+getIdentityPoolConfigurationResponse pStatus =
+    GetIdentityPoolConfigurationResponse'
+    { _gipcrIdentityPoolId = Nothing
+    , _gipcrCognitoStreams = Nothing
+    , _gipcrPushSync = Nothing
+    , _gipcrStatus = pStatus
+    }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -125,5 +141,5 @@ gipcrPushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
 gipcrPushSync = lens _gipcrPushSync (\ s a -> s{_gipcrPushSync = a});
 
 -- | FIXME: Undocumented member.
-gipcrStatusCode :: Lens' GetIdentityPoolConfigurationResponse Int
-gipcrStatusCode = lens _gipcrStatusCode (\ s a -> s{_gipcrStatusCode = a});
+gipcrStatus :: Lens' GetIdentityPoolConfigurationResponse Int
+gipcrStatus = lens _gipcrStatus (\ s a -> s{_gipcrStatus = a});

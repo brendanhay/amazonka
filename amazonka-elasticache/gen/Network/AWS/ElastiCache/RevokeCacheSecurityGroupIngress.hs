@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     , revokeCacheSecurityGroupIngressResponse
     -- ** Response lenses
     , rcsgirCacheSecurityGroup
-    , rcsgirStatusCode
+    , rcsgirStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /RevokeCacheSecurityGroupIngress/ action.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'rcsgiEC2SecurityGroupName'
 --
 -- * 'rcsgiEC2SecurityGroupOwnerId'
-data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress'{_rcsgiCacheSecurityGroupName :: Text, _rcsgiEC2SecurityGroupName :: Text, _rcsgiEC2SecurityGroupOwnerId :: Text} deriving (Eq, Read, Show)
+data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress'
+    { _rcsgiCacheSecurityGroupName  :: Text
+    , _rcsgiEC2SecurityGroupName    :: Text
+    , _rcsgiEC2SecurityGroupOwnerId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RevokeCacheSecurityGroupIngress' smart constructor.
 revokeCacheSecurityGroupIngress :: Text -> Text -> Text -> RevokeCacheSecurityGroupIngress
-revokeCacheSecurityGroupIngress pCacheSecurityGroupName pEC2SecurityGroupName pEC2SecurityGroupOwnerId = RevokeCacheSecurityGroupIngress'{_rcsgiCacheSecurityGroupName = pCacheSecurityGroupName, _rcsgiEC2SecurityGroupName = pEC2SecurityGroupName, _rcsgiEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId};
+revokeCacheSecurityGroupIngress pCacheSecurityGroupName pEC2SecurityGroupName pEC2SecurityGroupOwnerId =
+    RevokeCacheSecurityGroupIngress'
+    { _rcsgiCacheSecurityGroupName = pCacheSecurityGroupName
+    , _rcsgiEC2SecurityGroupName = pEC2SecurityGroupName
+    , _rcsgiEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId
+    }
 
 -- | The name of the cache security group to revoke ingress from.
 rcsgiCacheSecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
@@ -114,17 +123,24 @@ instance ToQuery RevokeCacheSecurityGroupIngress
 --
 -- * 'rcsgirCacheSecurityGroup'
 --
--- * 'rcsgirStatusCode'
-data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse'{_rcsgirCacheSecurityGroup :: Maybe CacheSecurityGroup, _rcsgirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rcsgirStatus'
+data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse'
+    { _rcsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
+    , _rcsgirStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RevokeCacheSecurityGroupIngressResponse' smart constructor.
 revokeCacheSecurityGroupIngressResponse :: Int -> RevokeCacheSecurityGroupIngressResponse
-revokeCacheSecurityGroupIngressResponse pStatusCode = RevokeCacheSecurityGroupIngressResponse'{_rcsgirCacheSecurityGroup = Nothing, _rcsgirStatusCode = pStatusCode};
+revokeCacheSecurityGroupIngressResponse pStatus =
+    RevokeCacheSecurityGroupIngressResponse'
+    { _rcsgirCacheSecurityGroup = Nothing
+    , _rcsgirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rcsgirCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
 rcsgirCacheSecurityGroup = lens _rcsgirCacheSecurityGroup (\ s a -> s{_rcsgirCacheSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-rcsgirStatusCode :: Lens' RevokeCacheSecurityGroupIngressResponse Int
-rcsgirStatusCode = lens _rcsgirStatusCode (\ s a -> s{_rcsgirStatusCode = a});
+rcsgirStatus :: Lens' RevokeCacheSecurityGroupIngressResponse Int
+rcsgirStatus = lens _rcsgirStatus (\ s a -> s{_rcsgirStatus = a});

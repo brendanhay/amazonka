@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeMovingAddresses
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.EC2.DescribeMovingAddresses
     -- ** Response lenses
     , dmarMovingAddressStatuses
     , dmarNextToken
-    , dmarStatusCode
+    , dmarStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeMovingAddresses' smart constructor.
 --
@@ -61,11 +61,24 @@ import Network.AWS.Response
 -- * 'dmaDryRun'
 --
 -- * 'dmaMaxResults'
-data DescribeMovingAddresses = DescribeMovingAddresses'{_dmaPublicIPs :: Maybe [Text], _dmaFilters :: Maybe [Filter], _dmaNextToken :: Maybe Text, _dmaDryRun :: Maybe Bool, _dmaMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeMovingAddresses = DescribeMovingAddresses'
+    { _dmaPublicIPs  :: Maybe [Text]
+    , _dmaFilters    :: Maybe [Filter]
+    , _dmaNextToken  :: Maybe Text
+    , _dmaDryRun     :: Maybe Bool
+    , _dmaMaxResults :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMovingAddresses' smart constructor.
 describeMovingAddresses :: DescribeMovingAddresses
-describeMovingAddresses = DescribeMovingAddresses'{_dmaPublicIPs = Nothing, _dmaFilters = Nothing, _dmaNextToken = Nothing, _dmaDryRun = Nothing, _dmaMaxResults = Nothing};
+describeMovingAddresses =
+    DescribeMovingAddresses'
+    { _dmaPublicIPs = Nothing
+    , _dmaFilters = Nothing
+    , _dmaNextToken = Nothing
+    , _dmaDryRun = Nothing
+    , _dmaMaxResults = Nothing
+    }
 
 -- | One or more Elastic IP addresses.
 dmaPublicIPs :: Lens' DescribeMovingAddresses [Text]
@@ -137,12 +150,21 @@ instance ToQuery DescribeMovingAddresses where
 --
 -- * 'dmarNextToken'
 --
--- * 'dmarStatusCode'
-data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'{_dmarMovingAddressStatuses :: Maybe [MovingAddressStatus], _dmarNextToken :: Maybe Text, _dmarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dmarStatus'
+data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
+    { _dmarMovingAddressStatuses :: Maybe [MovingAddressStatus]
+    , _dmarNextToken             :: Maybe Text
+    , _dmarStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMovingAddressesResponse' smart constructor.
 describeMovingAddressesResponse :: Int -> DescribeMovingAddressesResponse
-describeMovingAddressesResponse pStatusCode = DescribeMovingAddressesResponse'{_dmarMovingAddressStatuses = Nothing, _dmarNextToken = Nothing, _dmarStatusCode = pStatusCode};
+describeMovingAddressesResponse pStatus =
+    DescribeMovingAddressesResponse'
+    { _dmarMovingAddressStatuses = Nothing
+    , _dmarNextToken = Nothing
+    , _dmarStatus = pStatus
+    }
 
 -- | The status for each Elastic IP address.
 dmarMovingAddressStatuses :: Lens' DescribeMovingAddressesResponse [MovingAddressStatus]
@@ -154,5 +176,5 @@ dmarNextToken :: Lens' DescribeMovingAddressesResponse (Maybe Text)
 dmarNextToken = lens _dmarNextToken (\ s a -> s{_dmarNextToken = a});
 
 -- | FIXME: Undocumented member.
-dmarStatusCode :: Lens' DescribeMovingAddressesResponse Int
-dmarStatusCode = lens _dmarStatusCode (\ s a -> s{_dmarStatusCode = a});
+dmarStatus :: Lens' DescribeMovingAddressesResponse Int
+dmarStatus = lens _dmarStatus (\ s a -> s{_dmarStatus = a});

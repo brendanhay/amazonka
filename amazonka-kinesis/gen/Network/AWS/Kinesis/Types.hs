@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Kinesis.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -95,73 +94,83 @@ module Network.AWS.Kinesis.Types
     , tagKey
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2013-12-02@ of the Amazon Kinesis SDK.
 data Kinesis
 
 instance AWSService Kinesis where
     type Sg Kinesis = V4
-
     service = const svc
       where
-        svc :: Service Kinesis
-        svc = Service
-            { _svcAbbrev   = "Kinesis"
-            , _svcPrefix   = "kinesis"
-            , _svcVersion  = "2013-12-02"
+        svc =
+            Service
+            { _svcAbbrev = "Kinesis"
+            , _svcPrefix = "kinesis"
+            , _svcVersion = "2013-12-02"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The provided iterator exceeds the maximum age allowed.
-_ExpiredIteratorException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ExpiredIteratorException = _ServiceError . hasCode "ExpiredIteratorException";
+_ExpiredIteratorException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ExpiredIteratorException = _ServiceError . hasCode "ExpiredIteratorException"
 
 -- | A specified parameter exceeds its restrictions, is not supported, or
 -- can\'t be used. For more information, see the returned message.
-_InvalidArgumentException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException";
+_InvalidArgumentException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException"
 
 -- | The request rate is too high, or the requested data is too large for the
 -- available throughput. Reduce the frequency or size of your requests. For
 -- more information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/api-retries.html Error Retries and Exponential Backoff in AWS>
 -- in the /AWS General Reference/.
-_ProvisionedThroughputExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ProvisionedThroughputExceededException = _ServiceError . hasCode "ProvisionedThroughputExceededException";
+_ProvisionedThroughputExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ProvisionedThroughputExceededException =
+    _ServiceError . hasCode "ProvisionedThroughputExceededException"
 
 -- | The requested resource could not be found. It might not be specified
 -- correctly, or it might not be in the @ACTIVE@ state.
-_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFoundException";
+_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+    _ServiceError . hasCode "ResourceNotFoundException"
 
 -- | The resource is not available for this operation. For example, you
 -- attempted to split a shard but the stream is not in the @ACTIVE@ state.
-_ResourceInUseException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException";
+_ResourceInUseException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"
 
 -- | The requested resource exceeds the maximum number allowed, or the number
 -- of concurrent stream requests exceeds the maximum number allowed (5).
-_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException";
+_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
 
-data ShardIteratorType = AfterSequenceNumber | ATSequenceNumber | TrimHorizon | Latest deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ShardIteratorType
+    = AfterSequenceNumber
+    | ATSequenceNumber
+    | TrimHorizon
+    | Latest
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ShardIteratorType where
     parser = takeLowerText >>= \case
@@ -185,7 +194,12 @@ instance ToHeader ShardIteratorType
 instance ToJSON ShardIteratorType where
     toJSON = toJSONText
 
-data StreamStatus = Deleting | Updating | Creating | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
+data StreamStatus
+    = Deleting
+    | Updating
+    | Creating
+    | Active
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText StreamStatus where
     parser = takeLowerText >>= \case
@@ -219,11 +233,18 @@ instance FromJSON StreamStatus where
 -- * 'hkrStartingHashKey'
 --
 -- * 'hkrEndingHashKey'
-data HashKeyRange = HashKeyRange'{_hkrStartingHashKey :: Text, _hkrEndingHashKey :: Text} deriving (Eq, Read, Show)
+data HashKeyRange = HashKeyRange'
+    { _hkrStartingHashKey :: Text
+    , _hkrEndingHashKey   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'HashKeyRange' smart constructor.
 hashKeyRange :: Text -> Text -> HashKeyRange
-hashKeyRange pStartingHashKey pEndingHashKey = HashKeyRange'{_hkrStartingHashKey = pStartingHashKey, _hkrEndingHashKey = pEndingHashKey};
+hashKeyRange pStartingHashKey pEndingHashKey =
+    HashKeyRange'
+    { _hkrStartingHashKey = pStartingHashKey
+    , _hkrEndingHashKey = pEndingHashKey
+    }
 
 -- | The starting hash key of the hash key range.
 hkrStartingHashKey :: Lens' HashKeyRange Text
@@ -251,11 +272,20 @@ instance FromJSON HashKeyRange where
 -- * 'prreData'
 --
 -- * 'prrePartitionKey'
-data PutRecordsRequestEntry = PutRecordsRequestEntry'{_prreExplicitHashKey :: Maybe Text, _prreData :: Base64, _prrePartitionKey :: Text} deriving (Eq, Read, Show)
+data PutRecordsRequestEntry = PutRecordsRequestEntry'
+    { _prreExplicitHashKey :: Maybe Text
+    , _prreData            :: Base64
+    , _prrePartitionKey    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PutRecordsRequestEntry' smart constructor.
 putRecordsRequestEntry :: Base64 -> Text -> PutRecordsRequestEntry
-putRecordsRequestEntry pData pPartitionKey = PutRecordsRequestEntry'{_prreExplicitHashKey = Nothing, _prreData = pData, _prrePartitionKey = pPartitionKey};
+putRecordsRequestEntry pData pPartitionKey =
+    PutRecordsRequestEntry'
+    { _prreExplicitHashKey = Nothing
+    , _prreData = pData
+    , _prrePartitionKey = pPartitionKey
+    }
 
 -- | The hash value used to determine explicitly the shard that the data
 -- record is assigned to by overriding the partition key hash.
@@ -304,11 +334,22 @@ instance ToJSON PutRecordsRequestEntry where
 -- * 'prreErrorMessage'
 --
 -- * 'prreShardId'
-data PutRecordsResultEntry = PutRecordsResultEntry'{_prreSequenceNumber :: Maybe Text, _prreErrorCode :: Maybe Text, _prreErrorMessage :: Maybe Text, _prreShardId :: Maybe Text} deriving (Eq, Read, Show)
+data PutRecordsResultEntry = PutRecordsResultEntry'
+    { _prreSequenceNumber :: Maybe Text
+    , _prreErrorCode      :: Maybe Text
+    , _prreErrorMessage   :: Maybe Text
+    , _prreShardId        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PutRecordsResultEntry' smart constructor.
 putRecordsResultEntry :: PutRecordsResultEntry
-putRecordsResultEntry = PutRecordsResultEntry'{_prreSequenceNumber = Nothing, _prreErrorCode = Nothing, _prreErrorMessage = Nothing, _prreShardId = Nothing};
+putRecordsResultEntry =
+    PutRecordsResultEntry'
+    { _prreSequenceNumber = Nothing
+    , _prreErrorCode = Nothing
+    , _prreErrorMessage = Nothing
+    , _prreShardId = Nothing
+    }
 
 -- | The sequence number for an individual record result.
 prreSequenceNumber :: Lens' PutRecordsResultEntry (Maybe Text)
@@ -352,11 +393,20 @@ instance FromJSON PutRecordsResultEntry where
 -- * 'recData'
 --
 -- * 'recPartitionKey'
-data Record = Record'{_recSequenceNumber :: Text, _recData :: Base64, _recPartitionKey :: Text} deriving (Eq, Read, Show)
+data Record = Record'
+    { _recSequenceNumber :: Text
+    , _recData           :: Base64
+    , _recPartitionKey   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Record' smart constructor.
 record :: Text -> Base64 -> Text -> Record
-record pSequenceNumber pData pPartitionKey = Record'{_recSequenceNumber = pSequenceNumber, _recData = pData, _recPartitionKey = pPartitionKey};
+record pSequenceNumber pData pPartitionKey =
+    Record'
+    { _recSequenceNumber = pSequenceNumber
+    , _recData = pData
+    , _recPartitionKey = pPartitionKey
+    }
 
 -- | The unique identifier for the record in the Amazon Kinesis stream.
 recSequenceNumber :: Lens' Record Text
@@ -390,11 +440,18 @@ instance FromJSON Record where
 -- * 'snrEndingSequenceNumber'
 --
 -- * 'snrStartingSequenceNumber'
-data SequenceNumberRange = SequenceNumberRange'{_snrEndingSequenceNumber :: Maybe Text, _snrStartingSequenceNumber :: Text} deriving (Eq, Read, Show)
+data SequenceNumberRange = SequenceNumberRange'
+    { _snrEndingSequenceNumber   :: Maybe Text
+    , _snrStartingSequenceNumber :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SequenceNumberRange' smart constructor.
 sequenceNumberRange :: Text -> SequenceNumberRange
-sequenceNumberRange pStartingSequenceNumber = SequenceNumberRange'{_snrEndingSequenceNumber = Nothing, _snrStartingSequenceNumber = pStartingSequenceNumber};
+sequenceNumberRange pStartingSequenceNumber =
+    SequenceNumberRange'
+    { _snrEndingSequenceNumber = Nothing
+    , _snrStartingSequenceNumber = pStartingSequenceNumber
+    }
 
 -- | The ending sequence number for the range. Shards that are in the OPEN
 -- state have an ending sequence number of @null@.
@@ -428,11 +485,24 @@ instance FromJSON SequenceNumberRange where
 -- * 'shaHashKeyRange'
 --
 -- * 'shaSequenceNumberRange'
-data Shard = Shard'{_shaAdjacentParentShardId :: Maybe Text, _shaParentShardId :: Maybe Text, _shaShardId :: Text, _shaHashKeyRange :: HashKeyRange, _shaSequenceNumberRange :: SequenceNumberRange} deriving (Eq, Read, Show)
+data Shard = Shard'
+    { _shaAdjacentParentShardId :: Maybe Text
+    , _shaParentShardId         :: Maybe Text
+    , _shaShardId               :: Text
+    , _shaHashKeyRange          :: HashKeyRange
+    , _shaSequenceNumberRange   :: SequenceNumberRange
+    } deriving (Eq,Read,Show)
 
 -- | 'Shard' smart constructor.
 shard :: Text -> HashKeyRange -> SequenceNumberRange -> Shard
-shard pShardId pHashKeyRange pSequenceNumberRange = Shard'{_shaAdjacentParentShardId = Nothing, _shaParentShardId = Nothing, _shaShardId = pShardId, _shaHashKeyRange = pHashKeyRange, _shaSequenceNumberRange = pSequenceNumberRange};
+shard pShardId pHashKeyRange pSequenceNumberRange =
+    Shard'
+    { _shaAdjacentParentShardId = Nothing
+    , _shaParentShardId = Nothing
+    , _shaShardId = pShardId
+    , _shaHashKeyRange = pHashKeyRange
+    , _shaSequenceNumberRange = pSequenceNumberRange
+    }
 
 -- | The shard Id of the shard adjacent to the shard\'s parent.
 shaAdjacentParentShardId :: Lens' Shard (Maybe Text)
@@ -481,11 +551,24 @@ instance FromJSON Shard where
 -- * 'sdShards'
 --
 -- * 'sdHasMoreShards'
-data StreamDescription = StreamDescription'{_sdStreamName :: Text, _sdStreamARN :: Text, _sdStreamStatus :: StreamStatus, _sdShards :: [Shard], _sdHasMoreShards :: Bool} deriving (Eq, Read, Show)
+data StreamDescription = StreamDescription'
+    { _sdStreamName    :: Text
+    , _sdStreamARN     :: Text
+    , _sdStreamStatus  :: StreamStatus
+    , _sdShards        :: [Shard]
+    , _sdHasMoreShards :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'StreamDescription' smart constructor.
 streamDescription :: Text -> Text -> StreamStatus -> Bool -> StreamDescription
-streamDescription pStreamName pStreamARN pStreamStatus pHasMoreShards = StreamDescription'{_sdStreamName = pStreamName, _sdStreamARN = pStreamARN, _sdStreamStatus = pStreamStatus, _sdShards = mempty, _sdHasMoreShards = pHasMoreShards};
+streamDescription pStreamName pStreamARN pStreamStatus pHasMoreShards =
+    StreamDescription'
+    { _sdStreamName = pStreamName
+    , _sdStreamARN = pStreamARN
+    , _sdStreamStatus = pStreamStatus
+    , _sdShards = mempty
+    , _sdHasMoreShards = pHasMoreShards
+    }
 
 -- | The name of the stream being described.
 sdStreamName :: Lens' StreamDescription Text
@@ -539,11 +622,18 @@ instance FromJSON StreamDescription where
 -- * 'tagValue'
 --
 -- * 'tagKey'
-data Tag = Tag'{_tagValue :: Maybe Text, _tagKey :: Text} deriving (Eq, Read, Show)
+data Tag = Tag'
+    { _tagValue :: Maybe Text
+    , _tagKey   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Tag
-tag pKey = Tag'{_tagValue = Nothing, _tagKey = pKey};
+tag pKey =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = pKey
+    }
 
 -- | An optional string, typically used to describe or define the tag.
 -- Maximum length: 256 characters. Valid characters: Unicode letters,

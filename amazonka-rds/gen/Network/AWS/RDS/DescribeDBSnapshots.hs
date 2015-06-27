@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBSnapshots
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,14 +38,14 @@ module Network.AWS.RDS.DescribeDBSnapshots
     -- ** Response lenses
     , ddsrMarker
     , ddsrDBSnapshots
-    , ddsrStatusCode
+    , ddsrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -64,11 +64,26 @@ import Network.AWS.Response
 -- * 'ddsMaxRecords'
 --
 -- * 'ddsMarker'
-data DescribeDBSnapshots = DescribeDBSnapshots'{_ddsFilters :: Maybe [Filter], _ddsDBSnapshotIdentifier :: Maybe Text, _ddsSnapshotType :: Maybe Text, _ddsDBInstanceIdentifier :: Maybe Text, _ddsMaxRecords :: Maybe Int, _ddsMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBSnapshots = DescribeDBSnapshots'
+    { _ddsFilters              :: Maybe [Filter]
+    , _ddsDBSnapshotIdentifier :: Maybe Text
+    , _ddsSnapshotType         :: Maybe Text
+    , _ddsDBInstanceIdentifier :: Maybe Text
+    , _ddsMaxRecords           :: Maybe Int
+    , _ddsMarker               :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBSnapshots' smart constructor.
 describeDBSnapshots :: DescribeDBSnapshots
-describeDBSnapshots = DescribeDBSnapshots'{_ddsFilters = Nothing, _ddsDBSnapshotIdentifier = Nothing, _ddsSnapshotType = Nothing, _ddsDBInstanceIdentifier = Nothing, _ddsMaxRecords = Nothing, _ddsMarker = Nothing};
+describeDBSnapshots =
+    DescribeDBSnapshots'
+    { _ddsFilters = Nothing
+    , _ddsDBSnapshotIdentifier = Nothing
+    , _ddsSnapshotType = Nothing
+    , _ddsDBInstanceIdentifier = Nothing
+    , _ddsMaxRecords = Nothing
+    , _ddsMarker = Nothing
+    }
 
 -- | This parameter is not currently supported.
 ddsFilters :: Lens' DescribeDBSnapshots [Filter]
@@ -175,12 +190,21 @@ instance ToQuery DescribeDBSnapshots where
 --
 -- * 'ddsrDBSnapshots'
 --
--- * 'ddsrStatusCode'
-data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'{_ddsrMarker :: Maybe Text, _ddsrDBSnapshots :: Maybe [DBSnapshot], _ddsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddsrStatus'
+data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
+    { _ddsrMarker      :: Maybe Text
+    , _ddsrDBSnapshots :: Maybe [DBSnapshot]
+    , _ddsrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBSnapshotsResponse' smart constructor.
 describeDBSnapshotsResponse :: Int -> DescribeDBSnapshotsResponse
-describeDBSnapshotsResponse pStatusCode = DescribeDBSnapshotsResponse'{_ddsrMarker = Nothing, _ddsrDBSnapshots = Nothing, _ddsrStatusCode = pStatusCode};
+describeDBSnapshotsResponse pStatus =
+    DescribeDBSnapshotsResponse'
+    { _ddsrMarker = Nothing
+    , _ddsrDBSnapshots = Nothing
+    , _ddsrStatus = pStatus
+    }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -193,5 +217,5 @@ ddsrDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
 ddsrDBSnapshots = lens _ddsrDBSnapshots (\ s a -> s{_ddsrDBSnapshots = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddsrStatusCode :: Lens' DescribeDBSnapshotsResponse Int
-ddsrStatusCode = lens _ddsrStatusCode (\ s a -> s{_ddsrStatusCode = a});
+ddsrStatus :: Lens' DescribeDBSnapshotsResponse Int
+ddsrStatus = lens _ddsrStatus (\ s a -> s{_ddsrStatus = a});

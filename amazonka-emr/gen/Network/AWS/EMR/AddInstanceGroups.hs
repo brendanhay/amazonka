@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.AddInstanceGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.EMR.AddInstanceGroups
     -- ** Response lenses
     , aigrJobFlowId
     , aigrInstanceGroupIds
-    , aigrStatusCode
+    , aigrStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to an AddInstanceGroups call.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'aigInstanceGroups'
 --
 -- * 'aigJobFlowId'
-data AddInstanceGroups = AddInstanceGroups'{_aigInstanceGroups :: [InstanceGroupConfig], _aigJobFlowId :: Text} deriving (Eq, Read, Show)
+data AddInstanceGroups = AddInstanceGroups'
+    { _aigInstanceGroups :: [InstanceGroupConfig]
+    , _aigJobFlowId      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AddInstanceGroups' smart constructor.
 addInstanceGroups :: Text -> AddInstanceGroups
-addInstanceGroups pJobFlowId = AddInstanceGroups'{_aigInstanceGroups = mempty, _aigJobFlowId = pJobFlowId};
+addInstanceGroups pJobFlowId =
+    AddInstanceGroups'
+    { _aigInstanceGroups = mempty
+    , _aigJobFlowId = pJobFlowId
+    }
 
 -- | Instance Groups to add.
 aigInstanceGroups :: Lens' AddInstanceGroups [InstanceGroupConfig]
@@ -108,12 +115,21 @@ instance ToQuery AddInstanceGroups where
 --
 -- * 'aigrInstanceGroupIds'
 --
--- * 'aigrStatusCode'
-data AddInstanceGroupsResponse = AddInstanceGroupsResponse'{_aigrJobFlowId :: Maybe Text, _aigrInstanceGroupIds :: Maybe [Text], _aigrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'aigrStatus'
+data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
+    { _aigrJobFlowId        :: Maybe Text
+    , _aigrInstanceGroupIds :: Maybe [Text]
+    , _aigrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AddInstanceGroupsResponse' smart constructor.
 addInstanceGroupsResponse :: Int -> AddInstanceGroupsResponse
-addInstanceGroupsResponse pStatusCode = AddInstanceGroupsResponse'{_aigrJobFlowId = Nothing, _aigrInstanceGroupIds = Nothing, _aigrStatusCode = pStatusCode};
+addInstanceGroupsResponse pStatus =
+    AddInstanceGroupsResponse'
+    { _aigrJobFlowId = Nothing
+    , _aigrInstanceGroupIds = Nothing
+    , _aigrStatus = pStatus
+    }
 
 -- | The job flow ID in which the instance groups are added.
 aigrJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
@@ -124,5 +140,5 @@ aigrInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
 aigrInstanceGroupIds = lens _aigrInstanceGroupIds (\ s a -> s{_aigrInstanceGroupIds = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-aigrStatusCode :: Lens' AddInstanceGroupsResponse Int
-aigrStatusCode = lens _aigrStatusCode (\ s a -> s{_aigrStatusCode = a});
+aigrStatus :: Lens' AddInstanceGroupsResponse Int
+aigrStatus = lens _aigrStatus (\ s a -> s{_aigrStatus = a});

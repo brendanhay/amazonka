@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.GetBucketLogging
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,24 +33,29 @@ module Network.AWS.S3.GetBucketLogging
     , getBucketLoggingResponse
     -- ** Response lenses
     , getLoggingEnabled
-    , getStatusCode
+    , getStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketLogging' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gBucket'
-newtype GetBucketLogging = GetBucketLogging'{_gBucket :: BucketName} deriving (Eq, Read, Show)
+newtype GetBucketLogging = GetBucketLogging'
+    { _gBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketLogging' smart constructor.
 getBucketLogging :: BucketName -> GetBucketLogging
-getBucketLogging pBucket = GetBucketLogging'{_gBucket = pBucket};
+getBucketLogging pBucket =
+    GetBucketLogging'
+    { _gBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 gBucket :: Lens' GetBucketLogging BucketName
@@ -82,17 +87,24 @@ instance ToQuery GetBucketLogging where
 --
 -- * 'getLoggingEnabled'
 --
--- * 'getStatusCode'
-data GetBucketLoggingResponse = GetBucketLoggingResponse'{_getLoggingEnabled :: Maybe LoggingEnabled, _getStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'getStatus'
+data GetBucketLoggingResponse = GetBucketLoggingResponse'
+    { _getLoggingEnabled :: Maybe LoggingEnabled
+    , _getStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketLoggingResponse' smart constructor.
 getBucketLoggingResponse :: Int -> GetBucketLoggingResponse
-getBucketLoggingResponse pStatusCode = GetBucketLoggingResponse'{_getLoggingEnabled = Nothing, _getStatusCode = pStatusCode};
+getBucketLoggingResponse pStatus =
+    GetBucketLoggingResponse'
+    { _getLoggingEnabled = Nothing
+    , _getStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 getLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
 getLoggingEnabled = lens _getLoggingEnabled (\ s a -> s{_getLoggingEnabled = a});
 
 -- | FIXME: Undocumented member.
-getStatusCode :: Lens' GetBucketLoggingResponse Int
-getStatusCode = lens _getStatusCode (\ s a -> s{_getStatusCode = a});
+getStatus :: Lens' GetBucketLoggingResponse Int
+getStatus = lens _getStatus (\ s a -> s{_getStatus = a});

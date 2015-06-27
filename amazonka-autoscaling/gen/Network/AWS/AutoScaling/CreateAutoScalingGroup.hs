@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.CreateAutoScalingGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,10 +54,10 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     , createAutoScalingGroupResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createAutoScalingGroup' smart constructor.
 --
@@ -92,11 +92,44 @@ import Network.AWS.Response
 -- * 'casgMinSize'
 --
 -- * 'casgMaxSize'
-data CreateAutoScalingGroup = CreateAutoScalingGroup'{_casgInstanceId :: Maybe Text, _casgTerminationPolicies :: Maybe [Text], _casgHealthCheckGracePeriod :: Maybe Int, _casgVPCZoneIdentifier :: Maybe Text, _casgDefaultCooldown :: Maybe Int, _casgDesiredCapacity :: Maybe Int, _casgAvailabilityZones :: Maybe (List1 Text), _casgHealthCheckType :: Maybe Text, _casgLaunchConfigurationName :: Maybe Text, _casgPlacementGroup :: Maybe Text, _casgLoadBalancerNames :: Maybe [Text], _casgTags :: Maybe [Tag], _casgAutoScalingGroupName :: Text, _casgMinSize :: Int, _casgMaxSize :: Int} deriving (Eq, Read, Show)
+data CreateAutoScalingGroup = CreateAutoScalingGroup'
+    { _casgInstanceId              :: Maybe Text
+    , _casgTerminationPolicies     :: Maybe [Text]
+    , _casgHealthCheckGracePeriod  :: Maybe Int
+    , _casgVPCZoneIdentifier       :: Maybe Text
+    , _casgDefaultCooldown         :: Maybe Int
+    , _casgDesiredCapacity         :: Maybe Int
+    , _casgAvailabilityZones       :: Maybe (List1 Text)
+    , _casgHealthCheckType         :: Maybe Text
+    , _casgLaunchConfigurationName :: Maybe Text
+    , _casgPlacementGroup          :: Maybe Text
+    , _casgLoadBalancerNames       :: Maybe [Text]
+    , _casgTags                    :: Maybe [Tag]
+    , _casgAutoScalingGroupName    :: Text
+    , _casgMinSize                 :: !Int
+    , _casgMaxSize                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAutoScalingGroup' smart constructor.
 createAutoScalingGroup :: Text -> Int -> Int -> CreateAutoScalingGroup
-createAutoScalingGroup pAutoScalingGroupName pMinSize pMaxSize = CreateAutoScalingGroup'{_casgInstanceId = Nothing, _casgTerminationPolicies = Nothing, _casgHealthCheckGracePeriod = Nothing, _casgVPCZoneIdentifier = Nothing, _casgDefaultCooldown = Nothing, _casgDesiredCapacity = Nothing, _casgAvailabilityZones = Nothing, _casgHealthCheckType = Nothing, _casgLaunchConfigurationName = Nothing, _casgPlacementGroup = Nothing, _casgLoadBalancerNames = Nothing, _casgTags = Nothing, _casgAutoScalingGroupName = pAutoScalingGroupName, _casgMinSize = pMinSize, _casgMaxSize = pMaxSize};
+createAutoScalingGroup pAutoScalingGroupName pMinSize pMaxSize =
+    CreateAutoScalingGroup'
+    { _casgInstanceId = Nothing
+    , _casgTerminationPolicies = Nothing
+    , _casgHealthCheckGracePeriod = Nothing
+    , _casgVPCZoneIdentifier = Nothing
+    , _casgDefaultCooldown = Nothing
+    , _casgDesiredCapacity = Nothing
+    , _casgAvailabilityZones = Nothing
+    , _casgHealthCheckType = Nothing
+    , _casgLaunchConfigurationName = Nothing
+    , _casgPlacementGroup = Nothing
+    , _casgLoadBalancerNames = Nothing
+    , _casgTags = Nothing
+    , _casgAutoScalingGroupName = pAutoScalingGroupName
+    , _casgMinSize = pMinSize
+    , _casgMaxSize = pMaxSize
+    }
 
 -- | The ID of the EC2 instance used to create a launch configuration for the
 -- group. Alternatively, use the @LaunchConfigurationName@ parameter to
@@ -272,8 +305,10 @@ instance ToQuery CreateAutoScalingGroup where
                "MinSize" =: _casgMinSize, "MaxSize" =: _casgMaxSize]
 
 -- | /See:/ 'createAutoScalingGroupResponse' smart constructor.
-data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse' deriving (Eq, Read, Show)
+data CreateAutoScalingGroupResponse =
+    CreateAutoScalingGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CreateAutoScalingGroupResponse' smart constructor.
 createAutoScalingGroupResponse :: CreateAutoScalingGroupResponse
-createAutoScalingGroupResponse = CreateAutoScalingGroupResponse';
+createAutoScalingGroupResponse = CreateAutoScalingGroupResponse'

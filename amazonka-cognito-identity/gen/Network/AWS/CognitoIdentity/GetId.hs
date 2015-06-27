@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.GetId
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.CognitoIdentity.GetId
     , getIdResponse
     -- ** Response lenses
     , girIdentityId
-    , girStatusCode
+    , girStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the GetId action.
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'giLogins'
 --
 -- * 'giIdentityPoolId'
-data GetId = GetId'{_giAccountId :: Maybe Text, _giLogins :: Maybe (Map Text Text), _giIdentityPoolId :: Text} deriving (Eq, Read, Show)
+data GetId = GetId'
+    { _giAccountId      :: Maybe Text
+    , _giLogins         :: Maybe (Map Text Text)
+    , _giIdentityPoolId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetId' smart constructor.
 getId :: Text -> GetId
-getId pIdentityPoolId = GetId'{_giAccountId = Nothing, _giLogins = Nothing, _giIdentityPoolId = pIdentityPoolId};
+getId pIdentityPoolId =
+    GetId'
+    { _giAccountId = Nothing
+    , _giLogins = Nothing
+    , _giIdentityPoolId = pIdentityPoolId
+    }
 
 -- | A standard AWS account ID (9+ digits).
 giAccountId :: Lens' GetId (Maybe Text)
@@ -124,17 +133,24 @@ instance ToQuery GetId where
 --
 -- * 'girIdentityId'
 --
--- * 'girStatusCode'
-data GetIdResponse = GetIdResponse'{_girIdentityId :: Maybe Text, _girStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'girStatus'
+data GetIdResponse = GetIdResponse'
+    { _girIdentityId :: Maybe Text
+    , _girStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetIdResponse' smart constructor.
 getIdResponse :: Int -> GetIdResponse
-getIdResponse pStatusCode = GetIdResponse'{_girIdentityId = Nothing, _girStatusCode = pStatusCode};
+getIdResponse pStatus =
+    GetIdResponse'
+    { _girIdentityId = Nothing
+    , _girStatus = pStatus
+    }
 
 -- | A unique identifier in the format REGION:GUID.
 girIdentityId :: Lens' GetIdResponse (Maybe Text)
 girIdentityId = lens _girIdentityId (\ s a -> s{_girIdentityId = a});
 
 -- | FIXME: Undocumented member.
-girStatusCode :: Lens' GetIdResponse Int
-girStatusCode = lens _girStatusCode (\ s a -> s{_girStatusCode = a});
+girStatus :: Lens' GetIdResponse Int
+girStatus = lens _girStatus (\ s a -> s{_girStatus = a});

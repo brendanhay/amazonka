@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CancelSpotFleetRequests
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.EC2.CancelSpotFleetRequests
     -- ** Response lenses
     , csfrrSuccessfulFleetRequests
     , csfrrUnsuccessfulFleetRequests
-    , csfrrStatusCode
+    , csfrrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for CancelSpotFleetRequests.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'csfrSpotFleetRequestIds'
 --
 -- * 'csfrTerminateInstances'
-data CancelSpotFleetRequests = CancelSpotFleetRequests'{_csfrDryRun :: Maybe Bool, _csfrSpotFleetRequestIds :: [Text], _csfrTerminateInstances :: Bool} deriving (Eq, Read, Show)
+data CancelSpotFleetRequests = CancelSpotFleetRequests'
+    { _csfrDryRun              :: Maybe Bool
+    , _csfrSpotFleetRequestIds :: [Text]
+    , _csfrTerminateInstances  :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelSpotFleetRequests' smart constructor.
 cancelSpotFleetRequests :: Bool -> CancelSpotFleetRequests
-cancelSpotFleetRequests pTerminateInstances = CancelSpotFleetRequests'{_csfrDryRun = Nothing, _csfrSpotFleetRequestIds = mempty, _csfrTerminateInstances = pTerminateInstances};
+cancelSpotFleetRequests pTerminateInstances =
+    CancelSpotFleetRequests'
+    { _csfrDryRun = Nothing
+    , _csfrSpotFleetRequestIds = mempty
+    , _csfrTerminateInstances = pTerminateInstances
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -115,12 +124,21 @@ instance ToQuery CancelSpotFleetRequests where
 --
 -- * 'csfrrUnsuccessfulFleetRequests'
 --
--- * 'csfrrStatusCode'
-data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'{_csfrrSuccessfulFleetRequests :: Maybe [CancelSpotFleetRequestsSuccessItem], _csfrrUnsuccessfulFleetRequests :: Maybe [CancelSpotFleetRequestsErrorItem], _csfrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'csfrrStatus'
+data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'
+    { _csfrrSuccessfulFleetRequests   :: Maybe [CancelSpotFleetRequestsSuccessItem]
+    , _csfrrUnsuccessfulFleetRequests :: Maybe [CancelSpotFleetRequestsErrorItem]
+    , _csfrrStatus                    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelSpotFleetRequestsResponse' smart constructor.
 cancelSpotFleetRequestsResponse :: Int -> CancelSpotFleetRequestsResponse
-cancelSpotFleetRequestsResponse pStatusCode = CancelSpotFleetRequestsResponse'{_csfrrSuccessfulFleetRequests = Nothing, _csfrrUnsuccessfulFleetRequests = Nothing, _csfrrStatusCode = pStatusCode};
+cancelSpotFleetRequestsResponse pStatus =
+    CancelSpotFleetRequestsResponse'
+    { _csfrrSuccessfulFleetRequests = Nothing
+    , _csfrrUnsuccessfulFleetRequests = Nothing
+    , _csfrrStatus = pStatus
+    }
 
 -- | Information about the Spot fleet requests that are successfully
 -- canceled.
@@ -133,5 +151,5 @@ csfrrUnsuccessfulFleetRequests :: Lens' CancelSpotFleetRequestsResponse [CancelS
 csfrrUnsuccessfulFleetRequests = lens _csfrrUnsuccessfulFleetRequests (\ s a -> s{_csfrrUnsuccessfulFleetRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-csfrrStatusCode :: Lens' CancelSpotFleetRequestsResponse Int
-csfrrStatusCode = lens _csfrrStatusCode (\ s a -> s{_csfrrStatusCode = a});
+csfrrStatus :: Lens' CancelSpotFleetRequestsResponse Int
+csfrrStatus = lens _csfrrStatus (\ s a -> s{_csfrrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatch.PutMetricData
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,10 +50,10 @@ module Network.AWS.CloudWatch.PutMetricData
     , putMetricDataResponse
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putMetricData' smart constructor.
 --
@@ -62,11 +62,18 @@ import Network.AWS.Response
 -- * 'pmdNamespace'
 --
 -- * 'pmdMetricData'
-data PutMetricData = PutMetricData'{_pmdNamespace :: Text, _pmdMetricData :: [MetricDatum]} deriving (Eq, Read, Show)
+data PutMetricData = PutMetricData'
+    { _pmdNamespace  :: Text
+    , _pmdMetricData :: [MetricDatum]
+    } deriving (Eq,Read,Show)
 
 -- | 'PutMetricData' smart constructor.
 putMetricData :: Text -> PutMetricData
-putMetricData pNamespace = PutMetricData'{_pmdNamespace = pNamespace, _pmdMetricData = mempty};
+putMetricData pNamespace =
+    PutMetricData'
+    { _pmdNamespace = pNamespace
+    , _pmdMetricData = mempty
+    }
 
 -- | The namespace for the metric data.
 pmdNamespace :: Lens' PutMetricData Text
@@ -97,8 +104,10 @@ instance ToQuery PutMetricData where
                "MetricData" =: toQueryList "member" _pmdMetricData]
 
 -- | /See:/ 'putMetricDataResponse' smart constructor.
-data PutMetricDataResponse = PutMetricDataResponse' deriving (Eq, Read, Show)
+data PutMetricDataResponse =
+    PutMetricDataResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutMetricDataResponse' smart constructor.
 putMetricDataResponse :: PutMetricDataResponse
-putMetricDataResponse = PutMetricDataResponse';
+putMetricDataResponse = PutMetricDataResponse'

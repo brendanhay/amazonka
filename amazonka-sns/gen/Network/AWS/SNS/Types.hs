@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.SNS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -67,80 +66,91 @@ module Network.AWS.SNS.Types
     , topTopicARN
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2010-03-31@ of the Amazon Simple Notification Service SDK.
 data SNS
 
 instance AWSService SNS where
     type Sg SNS = V4
-
     service = const svc
       where
-        svc :: Service SNS
-        svc = Service
-            { _svcAbbrev   = "SNS"
-            , _svcPrefix   = "sns"
-            , _svcVersion  = "2010-03-31"
+        svc =
+            Service
+            { _svcAbbrev = "SNS"
+            , _svcPrefix = "sns"
+            , _svcVersion = "2010-03-31"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | Exception error indicating endpoint disabled.
-_EndpointDisabledException :: AWSError a => Geting (First ServiceError) a ServiceError
-_EndpointDisabledException = _ServiceError . hasStatus 400 . hasCode "EndpointDisabled";
+_EndpointDisabledException :: AWSError a => Getting (First ServiceError) a ServiceError
+_EndpointDisabledException =
+    _ServiceError . hasStatus 400 . hasCode "EndpointDisabled"
 
 -- | Indicates that the user has been denied access to the requested
 -- resource.
-_AuthorizationErrorException :: AWSError a => Geting (First ServiceError) a ServiceError
-_AuthorizationErrorException = _ServiceError . hasStatus 403 . hasCode "AuthorizationError";
+_AuthorizationErrorException :: AWSError a => Getting (First ServiceError) a ServiceError
+_AuthorizationErrorException =
+    _ServiceError . hasStatus 403 . hasCode "AuthorizationError"
 
 -- | Indicates that a request parameter does not comply with the associated
 -- constraints.
-_InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterException = _ServiceError . hasStatus 400 . hasCode "InvalidParameter";
+_InvalidParameterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidParameter"
 
 -- | Indicates that the customer already owns the maximum allowed number of
 -- subscriptions.
-_SubscriptionLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubscriptionLimitExceededException = _ServiceError . hasStatus 403 . hasCode "SubscriptionLimitExceeded";
+_SubscriptionLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubscriptionLimitExceededException =
+    _ServiceError . hasStatus 403 . hasCode "SubscriptionLimitExceeded"
 
 -- | Exception error indicating platform application disabled.
-_PlatformApplicationDisabledException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PlatformApplicationDisabledException = _ServiceError . hasStatus 400 . hasCode "PlatformApplicationDisabled";
+_PlatformApplicationDisabledException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PlatformApplicationDisabledException =
+    _ServiceError . hasStatus 400 . hasCode "PlatformApplicationDisabled"
 
 -- | Indicates an internal service error.
-_InternalErrorException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalErrorException = _ServiceError . hasStatus 500 . hasCode "InternalError";
+_InternalErrorException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalErrorException =
+    _ServiceError . hasStatus 500 . hasCode "InternalError"
 
 -- | Indicates that the requested resource does not exist.
-_NotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NotFoundException = _ServiceError . hasStatus 404 . hasCode "NotFound";
+_NotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NotFoundException = _ServiceError . hasStatus 404 . hasCode "NotFound"
 
 -- | Indicates that a request parameter does not comply with the associated
 -- constraints.
-_InvalidParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterValueException = _ServiceError . hasStatus 400 . hasCode "ParameterValueInvalid";
+_InvalidParameterValueException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterValueException =
+    _ServiceError . hasStatus 400 . hasCode "ParameterValueInvalid"
 
 -- | Indicates that the customer already owns the maximum allowed number of
 -- topics.
-_TopicLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TopicLimitExceededException = _ServiceError . hasStatus 403 . hasCode "TopicLimitExceeded";
+_TopicLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TopicLimitExceededException =
+    _ServiceError . hasStatus 403 . hasCode "TopicLimitExceeded"
 
 -- | Endpoint for mobile app and device.
 --
@@ -151,11 +161,18 @@ _TopicLimitExceededException = _ServiceError . hasStatus 403 . hasCode "TopicLim
 -- * 'endAttributes'
 --
 -- * 'endEndpointARN'
-data Endpoint = Endpoint'{_endAttributes :: Maybe (Map Text Text), _endEndpointARN :: Maybe Text} deriving (Eq, Read, Show)
+data Endpoint = Endpoint'
+    { _endAttributes  :: Maybe (Map Text Text)
+    , _endEndpointARN :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Endpoint' smart constructor.
 endpoint :: Endpoint
-endpoint = Endpoint'{_endAttributes = Nothing, _endEndpointARN = Nothing};
+endpoint =
+    Endpoint'
+    { _endAttributes = Nothing
+    , _endEndpointARN = Nothing
+    }
 
 -- | Attributes for endpoint.
 endAttributes :: Lens' Endpoint (HashMap Text Text)
@@ -202,11 +219,20 @@ instance ToQuery Endpoint where
 -- * 'mavStringValue'
 --
 -- * 'mavDataType'
-data MessageAttributeValue = MessageAttributeValue'{_mavBinaryValue :: Maybe Base64, _mavStringValue :: Maybe Text, _mavDataType :: Text} deriving (Eq, Read, Show)
+data MessageAttributeValue = MessageAttributeValue'
+    { _mavBinaryValue :: Maybe Base64
+    , _mavStringValue :: Maybe Text
+    , _mavDataType    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'MessageAttributeValue' smart constructor.
 messageAttributeValue :: Text -> MessageAttributeValue
-messageAttributeValue pDataType = MessageAttributeValue'{_mavBinaryValue = Nothing, _mavStringValue = Nothing, _mavDataType = pDataType};
+messageAttributeValue pDataType =
+    MessageAttributeValue'
+    { _mavBinaryValue = Nothing
+    , _mavStringValue = Nothing
+    , _mavDataType = pDataType
+    }
 
 -- | Binary type attributes can store any binary data, for example,
 -- compressed data, encrypted data, or images.
@@ -241,11 +267,18 @@ instance ToQuery MessageAttributeValue where
 -- * 'paPlatformApplicationARN'
 --
 -- * 'paAttributes'
-data PlatformApplication = PlatformApplication'{_paPlatformApplicationARN :: Maybe Text, _paAttributes :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
+data PlatformApplication = PlatformApplication'
+    { _paPlatformApplicationARN :: Maybe Text
+    , _paAttributes             :: Maybe (Map Text Text)
+    } deriving (Eq,Read,Show)
 
 -- | 'PlatformApplication' smart constructor.
 platformApplication :: PlatformApplication
-platformApplication = PlatformApplication'{_paPlatformApplicationARN = Nothing, _paAttributes = Nothing};
+platformApplication =
+    PlatformApplication'
+    { _paPlatformApplicationARN = Nothing
+    , _paAttributes = Nothing
+    }
 
 -- | PlatformApplicationArn for platform application object.
 paPlatformApplicationARN :: Lens' PlatformApplication (Maybe Text)
@@ -277,11 +310,24 @@ instance FromXML PlatformApplication where
 -- * 'subEndpoint'
 --
 -- * 'subSubscriptionARN'
-data Subscription = Subscription'{_subProtocol :: Maybe Text, _subOwner :: Maybe Text, _subTopicARN :: Maybe Text, _subEndpoint :: Maybe Endpoint, _subSubscriptionARN :: Maybe Text} deriving (Eq, Read, Show)
+data Subscription = Subscription'
+    { _subProtocol        :: Maybe Text
+    , _subOwner           :: Maybe Text
+    , _subTopicARN        :: Maybe Text
+    , _subEndpoint        :: Maybe Endpoint
+    , _subSubscriptionARN :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Subscription' smart constructor.
 subscription :: Subscription
-subscription = Subscription'{_subProtocol = Nothing, _subOwner = Nothing, _subTopicARN = Nothing, _subEndpoint = Nothing, _subSubscriptionARN = Nothing};
+subscription =
+    Subscription'
+    { _subProtocol = Nothing
+    , _subOwner = Nothing
+    , _subTopicARN = Nothing
+    , _subEndpoint = Nothing
+    , _subSubscriptionARN = Nothing
+    }
 
 -- | The subscription\'s protocol.
 subProtocol :: Lens' Subscription (Maybe Text)
@@ -319,11 +365,16 @@ instance FromXML Subscription where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'topTopicARN'
-newtype Topic = Topic'{_topTopicARN :: Maybe Text} deriving (Eq, Read, Show)
+newtype Topic = Topic'
+    { _topTopicARN :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Topic' smart constructor.
 topic :: Topic
-topic = Topic'{_topTopicARN = Nothing};
+topic =
+    Topic'
+    { _topTopicARN = Nothing
+    }
 
 -- | The topic\'s ARN.
 topTopicARN :: Lens' Topic (Maybe Text)

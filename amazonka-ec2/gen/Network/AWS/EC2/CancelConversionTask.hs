@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CancelConversionTask
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,10 +42,10 @@ module Network.AWS.EC2.CancelConversionTask
     , cancelConversionTaskResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'cancelConversionTask' smart constructor.
 --
@@ -56,11 +56,20 @@ import Network.AWS.Response
 -- * 'cctDryRun'
 --
 -- * 'cctConversionTaskId'
-data CancelConversionTask = CancelConversionTask'{_cctReasonMessage :: Maybe Text, _cctDryRun :: Maybe Bool, _cctConversionTaskId :: Text} deriving (Eq, Read, Show)
+data CancelConversionTask = CancelConversionTask'
+    { _cctReasonMessage    :: Maybe Text
+    , _cctDryRun           :: Maybe Bool
+    , _cctConversionTaskId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelConversionTask' smart constructor.
 cancelConversionTask :: Text -> CancelConversionTask
-cancelConversionTask pConversionTaskId = CancelConversionTask'{_cctReasonMessage = Nothing, _cctDryRun = Nothing, _cctConversionTaskId = pConversionTaskId};
+cancelConversionTask pConversionTaskId =
+    CancelConversionTask'
+    { _cctReasonMessage = Nothing
+    , _cctDryRun = Nothing
+    , _cctConversionTaskId = pConversionTaskId
+    }
 
 -- | The reason for canceling the conversion task.
 cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
@@ -100,8 +109,10 @@ instance ToQuery CancelConversionTask where
                "ConversionTaskId" =: _cctConversionTaskId]
 
 -- | /See:/ 'cancelConversionTaskResponse' smart constructor.
-data CancelConversionTaskResponse = CancelConversionTaskResponse' deriving (Eq, Read, Show)
+data CancelConversionTaskResponse =
+    CancelConversionTaskResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CancelConversionTaskResponse' smart constructor.
 cancelConversionTaskResponse :: CancelConversionTaskResponse
-cancelConversionTaskResponse = CancelConversionTaskResponse';
+cancelConversionTaskResponse = CancelConversionTaskResponse'

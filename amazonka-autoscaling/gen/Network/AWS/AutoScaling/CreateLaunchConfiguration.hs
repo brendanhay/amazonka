@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.CreateLaunchConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,10 +57,10 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
     , createLaunchConfigurationResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createLaunchConfiguration' smart constructor.
 --
@@ -101,11 +101,50 @@ import Network.AWS.Response
 -- * 'clcBlockDeviceMappings'
 --
 -- * 'clcLaunchConfigurationName'
-data CreateLaunchConfiguration = CreateLaunchConfiguration'{_clcInstanceId :: Maybe Text, _clcSecurityGroups :: Maybe [Text], _clcAssociatePublicIPAddress :: Maybe Bool, _clcInstanceMonitoring :: Maybe InstanceMonitoring, _clcSpotPrice :: Maybe Text, _clcKeyName :: Maybe Text, _clcClassicLinkVPCSecurityGroups :: Maybe [Text], _clcRAMDiskId :: Maybe Text, _clcKernelId :: Maybe Text, _clcInstanceType :: Maybe Text, _clcEBSOptimized :: Maybe Bool, _clcUserData :: Maybe Text, _clcClassicLinkVPCId :: Maybe Text, _clcIAMInstanceProfile :: Maybe Text, _clcImageId :: Maybe Text, _clcPlacementTenancy :: Maybe Text, _clcBlockDeviceMappings :: Maybe [BlockDeviceMapping], _clcLaunchConfigurationName :: Text} deriving (Eq, Read, Show)
+data CreateLaunchConfiguration = CreateLaunchConfiguration'
+    { _clcInstanceId                   :: Maybe Text
+    , _clcSecurityGroups               :: Maybe [Text]
+    , _clcAssociatePublicIPAddress     :: Maybe Bool
+    , _clcInstanceMonitoring           :: Maybe InstanceMonitoring
+    , _clcSpotPrice                    :: Maybe Text
+    , _clcKeyName                      :: Maybe Text
+    , _clcClassicLinkVPCSecurityGroups :: Maybe [Text]
+    , _clcRAMDiskId                    :: Maybe Text
+    , _clcKernelId                     :: Maybe Text
+    , _clcInstanceType                 :: Maybe Text
+    , _clcEBSOptimized                 :: Maybe Bool
+    , _clcUserData                     :: Maybe Text
+    , _clcClassicLinkVPCId             :: Maybe Text
+    , _clcIAMInstanceProfile           :: Maybe Text
+    , _clcImageId                      :: Maybe Text
+    , _clcPlacementTenancy             :: Maybe Text
+    , _clcBlockDeviceMappings          :: Maybe [BlockDeviceMapping]
+    , _clcLaunchConfigurationName      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLaunchConfiguration' smart constructor.
 createLaunchConfiguration :: Text -> CreateLaunchConfiguration
-createLaunchConfiguration pLaunchConfigurationName = CreateLaunchConfiguration'{_clcInstanceId = Nothing, _clcSecurityGroups = Nothing, _clcAssociatePublicIPAddress = Nothing, _clcInstanceMonitoring = Nothing, _clcSpotPrice = Nothing, _clcKeyName = Nothing, _clcClassicLinkVPCSecurityGroups = Nothing, _clcRAMDiskId = Nothing, _clcKernelId = Nothing, _clcInstanceType = Nothing, _clcEBSOptimized = Nothing, _clcUserData = Nothing, _clcClassicLinkVPCId = Nothing, _clcIAMInstanceProfile = Nothing, _clcImageId = Nothing, _clcPlacementTenancy = Nothing, _clcBlockDeviceMappings = Nothing, _clcLaunchConfigurationName = pLaunchConfigurationName};
+createLaunchConfiguration pLaunchConfigurationName =
+    CreateLaunchConfiguration'
+    { _clcInstanceId = Nothing
+    , _clcSecurityGroups = Nothing
+    , _clcAssociatePublicIPAddress = Nothing
+    , _clcInstanceMonitoring = Nothing
+    , _clcSpotPrice = Nothing
+    , _clcKeyName = Nothing
+    , _clcClassicLinkVPCSecurityGroups = Nothing
+    , _clcRAMDiskId = Nothing
+    , _clcKernelId = Nothing
+    , _clcInstanceType = Nothing
+    , _clcEBSOptimized = Nothing
+    , _clcUserData = Nothing
+    , _clcClassicLinkVPCId = Nothing
+    , _clcIAMInstanceProfile = Nothing
+    , _clcImageId = Nothing
+    , _clcPlacementTenancy = Nothing
+    , _clcBlockDeviceMappings = Nothing
+    , _clcLaunchConfigurationName = pLaunchConfigurationName
+    }
 
 -- | The ID of the EC2 instance to use to create the launch configuration.
 --
@@ -331,8 +370,10 @@ instance ToQuery CreateLaunchConfiguration where
                  _clcLaunchConfigurationName]
 
 -- | /See:/ 'createLaunchConfigurationResponse' smart constructor.
-data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse' deriving (Eq, Read, Show)
+data CreateLaunchConfigurationResponse =
+    CreateLaunchConfigurationResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CreateLaunchConfigurationResponse' smart constructor.
 createLaunchConfigurationResponse :: CreateLaunchConfigurationResponse
-createLaunchConfigurationResponse = CreateLaunchConfigurationResponse';
+createLaunchConfigurationResponse = CreateLaunchConfigurationResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     , revokeClusterSecurityGroupIngressResponse
     -- ** Response lenses
     , rcsgirClusterSecurityGroup
-    , rcsgirStatusCode
+    , rcsgirStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | ???
 --
@@ -61,11 +61,22 @@ import Network.AWS.Response
 -- * 'rcsgiCIDRIP'
 --
 -- * 'rcsgiClusterSecurityGroupName'
-data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'{_rcsgiEC2SecurityGroupOwnerId :: Maybe Text, _rcsgiEC2SecurityGroupName :: Maybe Text, _rcsgiCIDRIP :: Maybe Text, _rcsgiClusterSecurityGroupName :: Text} deriving (Eq, Read, Show)
+data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'
+    { _rcsgiEC2SecurityGroupOwnerId  :: Maybe Text
+    , _rcsgiEC2SecurityGroupName     :: Maybe Text
+    , _rcsgiCIDRIP                   :: Maybe Text
+    , _rcsgiClusterSecurityGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RevokeClusterSecurityGroupIngress' smart constructor.
 revokeClusterSecurityGroupIngress :: Text -> RevokeClusterSecurityGroupIngress
-revokeClusterSecurityGroupIngress pClusterSecurityGroupName = RevokeClusterSecurityGroupIngress'{_rcsgiEC2SecurityGroupOwnerId = Nothing, _rcsgiEC2SecurityGroupName = Nothing, _rcsgiCIDRIP = Nothing, _rcsgiClusterSecurityGroupName = pClusterSecurityGroupName};
+revokeClusterSecurityGroupIngress pClusterSecurityGroupName =
+    RevokeClusterSecurityGroupIngress'
+    { _rcsgiEC2SecurityGroupOwnerId = Nothing
+    , _rcsgiEC2SecurityGroupName = Nothing
+    , _rcsgiCIDRIP = Nothing
+    , _rcsgiClusterSecurityGroupName = pClusterSecurityGroupName
+    }
 
 -- | The AWS account number of the owner of the security group specified in
 -- the @EC2SecurityGroupName@ parameter. The AWS access key ID is not an
@@ -136,17 +147,24 @@ instance ToQuery RevokeClusterSecurityGroupIngress
 --
 -- * 'rcsgirClusterSecurityGroup'
 --
--- * 'rcsgirStatusCode'
-data RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse'{_rcsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup, _rcsgirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rcsgirStatus'
+data RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse'
+    { _rcsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
+    , _rcsgirStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RevokeClusterSecurityGroupIngressResponse' smart constructor.
 revokeClusterSecurityGroupIngressResponse :: Int -> RevokeClusterSecurityGroupIngressResponse
-revokeClusterSecurityGroupIngressResponse pStatusCode = RevokeClusterSecurityGroupIngressResponse'{_rcsgirClusterSecurityGroup = Nothing, _rcsgirStatusCode = pStatusCode};
+revokeClusterSecurityGroupIngressResponse pStatus =
+    RevokeClusterSecurityGroupIngressResponse'
+    { _rcsgirClusterSecurityGroup = Nothing
+    , _rcsgirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rcsgirClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
 rcsgirClusterSecurityGroup = lens _rcsgirClusterSecurityGroup (\ s a -> s{_rcsgirClusterSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-rcsgirStatusCode :: Lens' RevokeClusterSecurityGroupIngressResponse Int
-rcsgirStatusCode = lens _rcsgirStatusCode (\ s a -> s{_rcsgirStatusCode = a});
+rcsgirStatus :: Lens' RevokeClusterSecurityGroupIngressResponse Int
+rcsgirStatus = lens _rcsgirStatus (\ s a -> s{_rcsgirStatus = a});

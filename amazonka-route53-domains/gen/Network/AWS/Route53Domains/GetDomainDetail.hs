@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.GetDomainDetail
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,13 +53,13 @@ module Network.AWS.Route53Domains.GetDomainDetail
     , gddrAdminContact
     , gddrRegistrantContact
     , gddrTechContact
-    , gddrStatusCode
+    , gddrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | The GetDomainDetail request includes the following element.
 --
@@ -68,11 +68,16 @@ import Network.AWS.Route53Domains.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gddDomainName'
-newtype GetDomainDetail = GetDomainDetail'{_gddDomainName :: Text} deriving (Eq, Read, Show)
+newtype GetDomainDetail = GetDomainDetail'
+    { _gddDomainName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDomainDetail' smart constructor.
 getDomainDetail :: Text -> GetDomainDetail
-getDomainDetail pDomainName = GetDomainDetail'{_gddDomainName = pDomainName};
+getDomainDetail pDomainName =
+    GetDomainDetail'
+    { _gddDomainName = pDomainName
+    }
 
 -- | The name of a domain.
 --
@@ -186,12 +191,59 @@ instance ToQuery GetDomainDetail where
 --
 -- * 'gddrTechContact'
 --
--- * 'gddrStatusCode'
-data GetDomainDetailResponse = GetDomainDetailResponse'{_gddrTechPrivacy :: Maybe Bool, _gddrDNSSec :: Maybe Text, _gddrWhoIsServer :: Maybe Text, _gddrRegistryDomainId :: Maybe Text, _gddrRegistrantPrivacy :: Maybe Bool, _gddrUpdatedDate :: Maybe POSIX, _gddrAdminPrivacy :: Maybe Bool, _gddrAbuseContactEmail :: Maybe Text, _gddrRegistrarURL :: Maybe Text, _gddrAutoRenew :: Maybe Bool, _gddrAbuseContactPhone :: Maybe Text, _gddrExpirationDate :: Maybe POSIX, _gddrCreationDate :: Maybe POSIX, _gddrRegistrarName :: Maybe Text, _gddrStatusList :: Maybe [Text], _gddrReseller :: Maybe Text, _gddrDomainName :: Text, _gddrNameservers :: [Nameserver], _gddrAdminContact :: Sensitive ContactDetail, _gddrRegistrantContact :: Sensitive ContactDetail, _gddrTechContact :: Sensitive ContactDetail, _gddrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gddrStatus'
+data GetDomainDetailResponse = GetDomainDetailResponse'
+    { _gddrTechPrivacy       :: Maybe Bool
+    , _gddrDNSSec            :: Maybe Text
+    , _gddrWhoIsServer       :: Maybe Text
+    , _gddrRegistryDomainId  :: Maybe Text
+    , _gddrRegistrantPrivacy :: Maybe Bool
+    , _gddrUpdatedDate       :: Maybe POSIX
+    , _gddrAdminPrivacy      :: Maybe Bool
+    , _gddrAbuseContactEmail :: Maybe Text
+    , _gddrRegistrarURL      :: Maybe Text
+    , _gddrAutoRenew         :: Maybe Bool
+    , _gddrAbuseContactPhone :: Maybe Text
+    , _gddrExpirationDate    :: Maybe POSIX
+    , _gddrCreationDate      :: Maybe POSIX
+    , _gddrRegistrarName     :: Maybe Text
+    , _gddrStatusList        :: Maybe [Text]
+    , _gddrReseller          :: Maybe Text
+    , _gddrDomainName        :: Text
+    , _gddrNameservers       :: [Nameserver]
+    , _gddrAdminContact      :: Sensitive ContactDetail
+    , _gddrRegistrantContact :: Sensitive ContactDetail
+    , _gddrTechContact       :: Sensitive ContactDetail
+    , _gddrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDomainDetailResponse' smart constructor.
 getDomainDetailResponse :: Text -> ContactDetail -> ContactDetail -> ContactDetail -> Int -> GetDomainDetailResponse
-getDomainDetailResponse pDomainName pAdminContact pRegistrantContact pTechContact pStatusCode = GetDomainDetailResponse'{_gddrTechPrivacy = Nothing, _gddrDNSSec = Nothing, _gddrWhoIsServer = Nothing, _gddrRegistryDomainId = Nothing, _gddrRegistrantPrivacy = Nothing, _gddrUpdatedDate = Nothing, _gddrAdminPrivacy = Nothing, _gddrAbuseContactEmail = Nothing, _gddrRegistrarURL = Nothing, _gddrAutoRenew = Nothing, _gddrAbuseContactPhone = Nothing, _gddrExpirationDate = Nothing, _gddrCreationDate = Nothing, _gddrRegistrarName = Nothing, _gddrStatusList = Nothing, _gddrReseller = Nothing, _gddrDomainName = pDomainName, _gddrNameservers = mempty, _gddrAdminContact = _Sensitive # pAdminContact, _gddrRegistrantContact = _Sensitive # pRegistrantContact, _gddrTechContact = _Sensitive # pTechContact, _gddrStatusCode = pStatusCode};
+getDomainDetailResponse pDomainName pAdminContact pRegistrantContact pTechContact pStatus =
+    GetDomainDetailResponse'
+    { _gddrTechPrivacy = Nothing
+    , _gddrDNSSec = Nothing
+    , _gddrWhoIsServer = Nothing
+    , _gddrRegistryDomainId = Nothing
+    , _gddrRegistrantPrivacy = Nothing
+    , _gddrUpdatedDate = Nothing
+    , _gddrAdminPrivacy = Nothing
+    , _gddrAbuseContactEmail = Nothing
+    , _gddrRegistrarURL = Nothing
+    , _gddrAutoRenew = Nothing
+    , _gddrAbuseContactPhone = Nothing
+    , _gddrExpirationDate = Nothing
+    , _gddrCreationDate = Nothing
+    , _gddrRegistrarName = Nothing
+    , _gddrStatusList = Nothing
+    , _gddrReseller = Nothing
+    , _gddrDomainName = pDomainName
+    , _gddrNameservers = mempty
+    , _gddrAdminContact = _Sensitive # pAdminContact
+    , _gddrRegistrantContact = _Sensitive # pRegistrantContact
+    , _gddrTechContact = _Sensitive # pTechContact
+    , _gddrStatus = pStatus
+    }
 
 -- | Specifies whether contact information for the tech contact is concealed
 -- from WHOIS queries. If the value is @true@, WHOIS (\"who is\") queries
@@ -354,5 +406,5 @@ gddrTechContact :: Lens' GetDomainDetailResponse ContactDetail
 gddrTechContact = lens _gddrTechContact (\ s a -> s{_gddrTechContact = a}) . _Sensitive;
 
 -- | FIXME: Undocumented member.
-gddrStatusCode :: Lens' GetDomainDetailResponse Int
-gddrStatusCode = lens _gddrStatusCode (\ s a -> s{_gddrStatusCode = a});
+gddrStatus :: Lens' GetDomainDetailResponse Int
+gddrStatus = lens _gddrStatus (\ s a -> s{_gddrStatus = a});

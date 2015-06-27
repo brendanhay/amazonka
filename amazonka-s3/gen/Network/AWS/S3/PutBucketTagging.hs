@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.PutBucketTagging
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.S3.PutBucketTagging
     , putBucketTaggingResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'putBucketTagging' smart constructor.
 --
@@ -48,11 +48,20 @@ import Network.AWS.S3.Types
 -- * 'pbtBucket'
 --
 -- * 'pbtTagging'
-data PutBucketTagging = PutBucketTagging'{_pbtContentMD5 :: Maybe Text, _pbtBucket :: BucketName, _pbtTagging :: Tagging} deriving (Eq, Read, Show)
+data PutBucketTagging = PutBucketTagging'
+    { _pbtContentMD5 :: Maybe Text
+    , _pbtBucket     :: BucketName
+    , _pbtTagging    :: Tagging
+    } deriving (Eq,Read,Show)
 
 -- | 'PutBucketTagging' smart constructor.
 putBucketTagging :: BucketName -> Tagging -> PutBucketTagging
-putBucketTagging pBucket pTagging = PutBucketTagging'{_pbtContentMD5 = Nothing, _pbtBucket = pBucket, _pbtTagging = pTagging};
+putBucketTagging pBucket pTagging =
+    PutBucketTagging'
+    { _pbtContentMD5 = Nothing
+    , _pbtBucket = pBucket
+    , _pbtTagging = pTagging
+    }
 
 -- | FIXME: Undocumented member.
 pbtContentMD5 :: Lens' PutBucketTagging (Maybe Text)
@@ -91,8 +100,10 @@ instance ToQuery PutBucketTagging where
         toQuery = const (mconcat ["tagging"])
 
 -- | /See:/ 'putBucketTaggingResponse' smart constructor.
-data PutBucketTaggingResponse = PutBucketTaggingResponse' deriving (Eq, Read, Show)
+data PutBucketTaggingResponse =
+    PutBucketTaggingResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutBucketTaggingResponse' smart constructor.
 putBucketTaggingResponse :: PutBucketTaggingResponse
-putBucketTaggingResponse = PutBucketTaggingResponse';
+putBucketTaggingResponse = PutBucketTaggingResponse'

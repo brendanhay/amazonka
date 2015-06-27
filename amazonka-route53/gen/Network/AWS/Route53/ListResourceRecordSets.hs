@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.ListResourceRecordSets
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -82,14 +82,14 @@ module Network.AWS.Route53.ListResourceRecordSets
     , lrrsrResourceRecordSets
     , lrrsrIsTruncated
     , lrrsrMaxItems
-    , lrrsrStatusCode
+    , lrrsrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | The input for a ListResourceRecordSets request.
 --
@@ -106,11 +106,24 @@ import Network.AWS.Route53.Types
 -- * 'lrrsMaxItems'
 --
 -- * 'lrrsHostedZoneId'
-data ListResourceRecordSets = ListResourceRecordSets'{_lrrsStartRecordName :: Maybe Text, _lrrsStartRecordType :: Maybe RecordType, _lrrsStartRecordIdentifier :: Maybe Text, _lrrsMaxItems :: Maybe Text, _lrrsHostedZoneId :: Text} deriving (Eq, Read, Show)
+data ListResourceRecordSets = ListResourceRecordSets'
+    { _lrrsStartRecordName       :: Maybe Text
+    , _lrrsStartRecordType       :: Maybe RecordType
+    , _lrrsStartRecordIdentifier :: Maybe Text
+    , _lrrsMaxItems              :: Maybe Text
+    , _lrrsHostedZoneId          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListResourceRecordSets' smart constructor.
 listResourceRecordSets :: Text -> ListResourceRecordSets
-listResourceRecordSets pHostedZoneId = ListResourceRecordSets'{_lrrsStartRecordName = Nothing, _lrrsStartRecordType = Nothing, _lrrsStartRecordIdentifier = Nothing, _lrrsMaxItems = Nothing, _lrrsHostedZoneId = pHostedZoneId};
+listResourceRecordSets pHostedZoneId =
+    ListResourceRecordSets'
+    { _lrrsStartRecordName = Nothing
+    , _lrrsStartRecordType = Nothing
+    , _lrrsStartRecordIdentifier = Nothing
+    , _lrrsMaxItems = Nothing
+    , _lrrsHostedZoneId = pHostedZoneId
+    }
 
 -- | The first name in the lexicographic ordering of domain names that you
 -- want the @ListResourceRecordSets@ request to list.
@@ -219,12 +232,29 @@ instance ToQuery ListResourceRecordSets where
 --
 -- * 'lrrsrMaxItems'
 --
--- * 'lrrsrStatusCode'
-data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'{_lrrsrNextRecordType :: Maybe RecordType, _lrrsrNextRecordName :: Maybe Text, _lrrsrNextRecordIdentifier :: Maybe Text, _lrrsrResourceRecordSets :: [ResourceRecordSet], _lrrsrIsTruncated :: Bool, _lrrsrMaxItems :: Text, _lrrsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lrrsrStatus'
+data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
+    { _lrrsrNextRecordType       :: Maybe RecordType
+    , _lrrsrNextRecordName       :: Maybe Text
+    , _lrrsrNextRecordIdentifier :: Maybe Text
+    , _lrrsrResourceRecordSets   :: [ResourceRecordSet]
+    , _lrrsrIsTruncated          :: !Bool
+    , _lrrsrMaxItems             :: Text
+    , _lrrsrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListResourceRecordSetsResponse' smart constructor.
 listResourceRecordSetsResponse :: Bool -> Text -> Int -> ListResourceRecordSetsResponse
-listResourceRecordSetsResponse pIsTruncated pMaxItems pStatusCode = ListResourceRecordSetsResponse'{_lrrsrNextRecordType = Nothing, _lrrsrNextRecordName = Nothing, _lrrsrNextRecordIdentifier = Nothing, _lrrsrResourceRecordSets = mempty, _lrrsrIsTruncated = pIsTruncated, _lrrsrMaxItems = pMaxItems, _lrrsrStatusCode = pStatusCode};
+listResourceRecordSetsResponse pIsTruncated pMaxItems pStatus =
+    ListResourceRecordSetsResponse'
+    { _lrrsrNextRecordType = Nothing
+    , _lrrsrNextRecordName = Nothing
+    , _lrrsrNextRecordIdentifier = Nothing
+    , _lrrsrResourceRecordSets = mempty
+    , _lrrsrIsTruncated = pIsTruncated
+    , _lrrsrMaxItems = pMaxItems
+    , _lrrsrStatus = pStatus
+    }
 
 -- | If the results were truncated, the type of the next record in the list.
 -- This element is present only if
@@ -264,5 +294,5 @@ lrrsrMaxItems :: Lens' ListResourceRecordSetsResponse Text
 lrrsrMaxItems = lens _lrrsrMaxItems (\ s a -> s{_lrrsrMaxItems = a});
 
 -- | FIXME: Undocumented member.
-lrrsrStatusCode :: Lens' ListResourceRecordSetsResponse Int
-lrrsrStatusCode = lens _lrrsrStatusCode (\ s a -> s{_lrrsrStatusCode = a});
+lrrsrStatus :: Lens' ListResourceRecordSetsResponse Int
+lrrsrStatus = lens _lrrsrStatus (\ s a -> s{_lrrsrStatus = a});

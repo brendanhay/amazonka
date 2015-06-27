@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.CreateTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.Redshift.CreateTags
     , createTagsResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the output from the @CreateTags@ action.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'ctResourceName'
 --
 -- * 'ctTags'
-data CreateTags = CreateTags'{_ctResourceName :: Text, _ctTags :: [Tag]} deriving (Eq, Read, Show)
+data CreateTags = CreateTags'
+    { _ctResourceName :: Text
+    , _ctTags         :: [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateTags' smart constructor.
 createTags :: Text -> CreateTags
-createTags pResourceName = CreateTags'{_ctResourceName = pResourceName, _ctTags = mempty};
+createTags pResourceName =
+    CreateTags'
+    { _ctResourceName = pResourceName
+    , _ctTags = mempty
+    }
 
 -- | The Amazon Resource Name (ARN) to which you want to add the tag or tags.
 -- For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
@@ -95,8 +102,10 @@ instance ToQuery CreateTags where
                "Tags" =: toQueryList "Tag" _ctTags]
 
 -- | /See:/ 'createTagsResponse' smart constructor.
-data CreateTagsResponse = CreateTagsResponse' deriving (Eq, Read, Show)
+data CreateTagsResponse =
+    CreateTagsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CreateTagsResponse' smart constructor.
 createTagsResponse :: CreateTagsResponse
-createTagsResponse = CreateTagsResponse';
+createTagsResponse = CreateTagsResponse'

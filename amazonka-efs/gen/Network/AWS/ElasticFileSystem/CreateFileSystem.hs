@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticFileSystem.CreateFileSystem
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,21 +80,26 @@ module Network.AWS.ElasticFileSystem.CreateFileSystem
     , fsdSizeInBytes
     ) where
 
-import Network.AWS.ElasticFileSystem.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticFileSystem.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createFileSystem' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cfsCreationToken'
-newtype CreateFileSystem = CreateFileSystem'{_cfsCreationToken :: Text} deriving (Eq, Read, Show)
+newtype CreateFileSystem = CreateFileSystem'
+    { _cfsCreationToken :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateFileSystem' smart constructor.
 createFileSystem :: Text -> CreateFileSystem
-createFileSystem pCreationToken = CreateFileSystem'{_cfsCreationToken = pCreationToken};
+createFileSystem pCreationToken =
+    CreateFileSystem'
+    { _cfsCreationToken = pCreationToken
+    }
 
 -- | String of up to 64 ASCII characters. Amazon EFS uses this to ensure
 -- idempotent creation.

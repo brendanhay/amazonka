@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.EnableVPCClassicLink
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.EC2.EnableVPCClassicLink
     , enableVPCClassicLinkResponse
     -- ** Response lenses
     , evclrReturn
-    , evclrStatusCode
+    , evclrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'enableVPCClassicLink' smart constructor.
 --
@@ -56,11 +56,18 @@ import Network.AWS.Response
 -- * 'evclDryRun'
 --
 -- * 'evclVPCId'
-data EnableVPCClassicLink = EnableVPCClassicLink'{_evclDryRun :: Maybe Bool, _evclVPCId :: Text} deriving (Eq, Read, Show)
+data EnableVPCClassicLink = EnableVPCClassicLink'
+    { _evclDryRun :: Maybe Bool
+    , _evclVPCId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableVPCClassicLink' smart constructor.
 enableVPCClassicLink :: Text -> EnableVPCClassicLink
-enableVPCClassicLink pVPCId = EnableVPCClassicLink'{_evclDryRun = Nothing, _evclVPCId = pVPCId};
+enableVPCClassicLink pVPCId =
+    EnableVPCClassicLink'
+    { _evclDryRun = Nothing
+    , _evclVPCId = pVPCId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -103,17 +110,24 @@ instance ToQuery EnableVPCClassicLink where
 --
 -- * 'evclrReturn'
 --
--- * 'evclrStatusCode'
-data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'{_evclrReturn :: Maybe Bool, _evclrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'evclrStatus'
+data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'
+    { _evclrReturn :: Maybe Bool
+    , _evclrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableVPCClassicLinkResponse' smart constructor.
 enableVPCClassicLinkResponse :: Int -> EnableVPCClassicLinkResponse
-enableVPCClassicLinkResponse pStatusCode = EnableVPCClassicLinkResponse'{_evclrReturn = Nothing, _evclrStatusCode = pStatusCode};
+enableVPCClassicLinkResponse pStatus =
+    EnableVPCClassicLinkResponse'
+    { _evclrReturn = Nothing
+    , _evclrStatus = pStatus
+    }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 evclrReturn :: Lens' EnableVPCClassicLinkResponse (Maybe Bool)
 evclrReturn = lens _evclrReturn (\ s a -> s{_evclrReturn = a});
 
 -- | FIXME: Undocumented member.
-evclrStatusCode :: Lens' EnableVPCClassicLinkResponse Int
-evclrStatusCode = lens _evclrStatusCode (\ s a -> s{_evclrStatusCode = a});
+evclrStatus :: Lens' EnableVPCClassicLinkResponse Int
+evclrStatus = lens _evclrStatus (\ s a -> s{_evclrStatus = a});

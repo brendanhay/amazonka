@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     , describeEnvironmentResourcesResponse
     -- ** Response lenses
     , derrEnvironmentResources
-    , derrStatusCode
+    , derrStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'derEnvironmentName'
 --
 -- * 'derEnvironmentId'
-data DescribeEnvironmentResources = DescribeEnvironmentResources'{_derEnvironmentName :: Maybe Text, _derEnvironmentId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeEnvironmentResources = DescribeEnvironmentResources'
+    { _derEnvironmentName :: Maybe Text
+    , _derEnvironmentId   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEnvironmentResources' smart constructor.
 describeEnvironmentResources :: DescribeEnvironmentResources
-describeEnvironmentResources = DescribeEnvironmentResources'{_derEnvironmentName = Nothing, _derEnvironmentId = Nothing};
+describeEnvironmentResources =
+    DescribeEnvironmentResources'
+    { _derEnvironmentName = Nothing
+    , _derEnvironmentId = Nothing
+    }
 
 -- | The name of the environment to retrieve AWS resource usage data.
 --
@@ -110,17 +117,24 @@ instance ToQuery DescribeEnvironmentResources where
 --
 -- * 'derrEnvironmentResources'
 --
--- * 'derrStatusCode'
-data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'{_derrEnvironmentResources :: Maybe EnvironmentResourceDescription, _derrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'derrStatus'
+data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'
+    { _derrEnvironmentResources :: Maybe EnvironmentResourceDescription
+    , _derrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEnvironmentResourcesResponse' smart constructor.
 describeEnvironmentResourcesResponse :: Int -> DescribeEnvironmentResourcesResponse
-describeEnvironmentResourcesResponse pStatusCode = DescribeEnvironmentResourcesResponse'{_derrEnvironmentResources = Nothing, _derrStatusCode = pStatusCode};
+describeEnvironmentResourcesResponse pStatus =
+    DescribeEnvironmentResourcesResponse'
+    { _derrEnvironmentResources = Nothing
+    , _derrStatus = pStatus
+    }
 
 -- | A list of EnvironmentResourceDescription.
 derrEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
 derrEnvironmentResources = lens _derrEnvironmentResources (\ s a -> s{_derrEnvironmentResources = a});
 
 -- | FIXME: Undocumented member.
-derrStatusCode :: Lens' DescribeEnvironmentResourcesResponse Int
-derrStatusCode = lens _derrStatusCode (\ s a -> s{_derrStatusCode = a});
+derrStatus :: Lens' DescribeEnvironmentResourcesResponse Int
+derrStatus = lens _derrStatus (\ s a -> s{_derrStatus = a});

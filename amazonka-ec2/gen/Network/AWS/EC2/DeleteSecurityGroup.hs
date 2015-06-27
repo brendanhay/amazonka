@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.EC2.DeleteSecurityGroup
     , deleteSecurityGroupResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteSecurityGroup' smart constructor.
 --
@@ -53,11 +53,20 @@ import Network.AWS.Response
 -- * 'dsgGroupName'
 --
 -- * 'dsgDryRun'
-data DeleteSecurityGroup = DeleteSecurityGroup'{_dsgGroupId :: Maybe Text, _dsgGroupName :: Maybe Text, _dsgDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DeleteSecurityGroup = DeleteSecurityGroup'
+    { _dsgGroupId   :: Maybe Text
+    , _dsgGroupName :: Maybe Text
+    , _dsgDryRun    :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteSecurityGroup' smart constructor.
 deleteSecurityGroup :: DeleteSecurityGroup
-deleteSecurityGroup = DeleteSecurityGroup'{_dsgGroupId = Nothing, _dsgGroupName = Nothing, _dsgDryRun = Nothing};
+deleteSecurityGroup =
+    DeleteSecurityGroup'
+    { _dsgGroupId = Nothing
+    , _dsgGroupName = Nothing
+    , _dsgDryRun = Nothing
+    }
 
 -- | The ID of the security group. Required for a nondefault VPC.
 dsgGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
@@ -97,8 +106,10 @@ instance ToQuery DeleteSecurityGroup where
                "GroupName" =: _dsgGroupName, "DryRun" =: _dsgDryRun]
 
 -- | /See:/ 'deleteSecurityGroupResponse' smart constructor.
-data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse' deriving (Eq, Read, Show)
+data DeleteSecurityGroupResponse =
+    DeleteSecurityGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteSecurityGroupResponse' smart constructor.
 deleteSecurityGroupResponse :: DeleteSecurityGroupResponse
-deleteSecurityGroupResponse = DeleteSecurityGroupResponse';
+deleteSecurityGroupResponse = DeleteSecurityGroupResponse'

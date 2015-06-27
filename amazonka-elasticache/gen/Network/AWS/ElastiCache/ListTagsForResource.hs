@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.ListTagsForResource
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,10 +41,10 @@ module Network.AWS.ElastiCache.ListTagsForResource
     , tlmTagList
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input parameters for the /ListTagsForResource/ action.
 --
@@ -53,11 +53,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ltfrResourceName'
-newtype ListTagsForResource = ListTagsForResource'{_ltfrResourceName :: Text} deriving (Eq, Read, Show)
+newtype ListTagsForResource = ListTagsForResource'
+    { _ltfrResourceName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForResource' smart constructor.
 listTagsForResource :: Text -> ListTagsForResource
-listTagsForResource pResourceName = ListTagsForResource'{_ltfrResourceName = pResourceName};
+listTagsForResource pResourceName =
+    ListTagsForResource'
+    { _ltfrResourceName = pResourceName
+    }
 
 -- | The name of the resource for which you want the list of tags, for
 -- example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@.

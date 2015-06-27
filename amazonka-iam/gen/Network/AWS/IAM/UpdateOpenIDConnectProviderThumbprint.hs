@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,10 +49,10 @@ module Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint
     , updateOpenIDConnectProviderThumbprintResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateOpenIDConnectProviderThumbprint' smart constructor.
 --
@@ -61,11 +61,18 @@ import Network.AWS.Response
 -- * 'uoidcptOpenIDConnectProviderARN'
 --
 -- * 'uoidcptThumbprintList'
-data UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbprint'{_uoidcptOpenIDConnectProviderARN :: Text, _uoidcptThumbprintList :: [Text]} deriving (Eq, Read, Show)
+data UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbprint'
+    { _uoidcptOpenIDConnectProviderARN :: Text
+    , _uoidcptThumbprintList           :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateOpenIDConnectProviderThumbprint' smart constructor.
 updateOpenIDConnectProviderThumbprint :: Text -> UpdateOpenIDConnectProviderThumbprint
-updateOpenIDConnectProviderThumbprint pOpenIDConnectProviderARN = UpdateOpenIDConnectProviderThumbprint'{_uoidcptOpenIDConnectProviderARN = pOpenIDConnectProviderARN, _uoidcptThumbprintList = mempty};
+updateOpenIDConnectProviderThumbprint pOpenIDConnectProviderARN =
+    UpdateOpenIDConnectProviderThumbprint'
+    { _uoidcptOpenIDConnectProviderARN = pOpenIDConnectProviderARN
+    , _uoidcptThumbprintList = mempty
+    }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to update the thumbprint for. You can get a list of OIDC provider ARNs
@@ -111,8 +118,11 @@ instance ToQuery
                  toQueryList "member" _uoidcptThumbprintList]
 
 -- | /See:/ 'updateOpenIDConnectProviderThumbprintResponse' smart constructor.
-data UpdateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProviderThumbprintResponse' deriving (Eq, Read, Show)
+data UpdateOpenIDConnectProviderThumbprintResponse =
+    UpdateOpenIDConnectProviderThumbprintResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateOpenIDConnectProviderThumbprintResponse' smart constructor.
 updateOpenIDConnectProviderThumbprintResponse :: UpdateOpenIDConnectProviderThumbprintResponse
-updateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProviderThumbprintResponse';
+updateOpenIDConnectProviderThumbprintResponse =
+    UpdateOpenIDConnectProviderThumbprintResponse'

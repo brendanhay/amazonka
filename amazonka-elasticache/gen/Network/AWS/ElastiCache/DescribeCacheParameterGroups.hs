@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheParameterGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,14 +37,14 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     -- ** Response lenses
     , dcpgrCacheParameterGroups
     , dcpgrMarker
-    , dcpgrStatusCode
+    , dcpgrStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeCacheParameterGroups/ action.
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'dcpgMaxRecords'
 --
 -- * 'dcpgMarker'
-data DescribeCacheParameterGroups = DescribeCacheParameterGroups'{_dcpgCacheParameterGroupName :: Maybe Text, _dcpgMaxRecords :: Maybe Int, _dcpgMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeCacheParameterGroups = DescribeCacheParameterGroups'
+    { _dcpgCacheParameterGroupName :: Maybe Text
+    , _dcpgMaxRecords              :: Maybe Int
+    , _dcpgMarker                  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheParameterGroups' smart constructor.
 describeCacheParameterGroups :: DescribeCacheParameterGroups
-describeCacheParameterGroups = DescribeCacheParameterGroups'{_dcpgCacheParameterGroupName = Nothing, _dcpgMaxRecords = Nothing, _dcpgMarker = Nothing};
+describeCacheParameterGroups =
+    DescribeCacheParameterGroups'
+    { _dcpgCacheParameterGroupName = Nothing
+    , _dcpgMaxRecords = Nothing
+    , _dcpgMarker = Nothing
+    }
 
 -- | The name of a specific cache parameter group to return details for.
 dcpgCacheParameterGroupName :: Lens' DescribeCacheParameterGroups (Maybe Text)
@@ -134,12 +143,21 @@ instance ToQuery DescribeCacheParameterGroups where
 --
 -- * 'dcpgrMarker'
 --
--- * 'dcpgrStatusCode'
-data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse'{_dcpgrCacheParameterGroups :: Maybe [CacheParameterGroup], _dcpgrMarker :: Maybe Text, _dcpgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcpgrStatus'
+data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse'
+    { _dcpgrCacheParameterGroups :: Maybe [CacheParameterGroup]
+    , _dcpgrMarker               :: Maybe Text
+    , _dcpgrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheParameterGroupsResponse' smart constructor.
 describeCacheParameterGroupsResponse :: Int -> DescribeCacheParameterGroupsResponse
-describeCacheParameterGroupsResponse pStatusCode = DescribeCacheParameterGroupsResponse'{_dcpgrCacheParameterGroups = Nothing, _dcpgrMarker = Nothing, _dcpgrStatusCode = pStatusCode};
+describeCacheParameterGroupsResponse pStatus =
+    DescribeCacheParameterGroupsResponse'
+    { _dcpgrCacheParameterGroups = Nothing
+    , _dcpgrMarker = Nothing
+    , _dcpgrStatus = pStatus
+    }
 
 -- | A list of cache parameter groups. Each element in the list contains
 -- detailed information about one cache parameter group.
@@ -151,5 +169,5 @@ dcpgrMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
 dcpgrMarker = lens _dcpgrMarker (\ s a -> s{_dcpgrMarker = a});
 
 -- | FIXME: Undocumented member.
-dcpgrStatusCode :: Lens' DescribeCacheParameterGroupsResponse Int
-dcpgrStatusCode = lens _dcpgrStatusCode (\ s a -> s{_dcpgrStatusCode = a});
+dcpgrStatus :: Lens' DescribeCacheParameterGroupsResponse Int
+dcpgrStatus = lens _dcpgrStatus (\ s a -> s{_dcpgrStatus = a});

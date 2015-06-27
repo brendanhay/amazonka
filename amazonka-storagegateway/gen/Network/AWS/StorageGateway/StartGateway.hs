@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.StartGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,13 +44,13 @@ module Network.AWS.StorageGateway.StartGateway
     , startGatewayResponse
     -- ** Response lenses
     , staGatewayARN
-    , staStatusCode
+    , staStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the of the gateway to start.
 --
@@ -59,11 +59,16 @@ import Network.AWS.StorageGateway.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'sgGatewayARN'
-newtype StartGateway = StartGateway'{_sgGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype StartGateway = StartGateway'
+    { _sgGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StartGateway' smart constructor.
 startGateway :: Text -> StartGateway
-startGateway pGatewayARN = StartGateway'{_sgGatewayARN = pGatewayARN};
+startGateway pGatewayARN =
+    StartGateway'
+    { _sgGatewayARN = pGatewayARN
+    }
 
 -- | FIXME: Undocumented member.
 sgGatewayARN :: Lens' StartGateway Text
@@ -107,17 +112,24 @@ instance ToQuery StartGateway where
 --
 -- * 'staGatewayARN'
 --
--- * 'staStatusCode'
-data StartGatewayResponse = StartGatewayResponse'{_staGatewayARN :: Maybe Text, _staStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'staStatus'
+data StartGatewayResponse = StartGatewayResponse'
+    { _staGatewayARN :: Maybe Text
+    , _staStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'StartGatewayResponse' smart constructor.
 startGatewayResponse :: Int -> StartGatewayResponse
-startGatewayResponse pStatusCode = StartGatewayResponse'{_staGatewayARN = Nothing, _staStatusCode = pStatusCode};
+startGatewayResponse pStatus =
+    StartGatewayResponse'
+    { _staGatewayARN = Nothing
+    , _staStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 staGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
 staGatewayARN = lens _staGatewayARN (\ s a -> s{_staGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-staStatusCode :: Lens' StartGatewayResponse Int
-staStatusCode = lens _staStatusCode (\ s a -> s{_staStatusCode = a});
+staStatus :: Lens' StartGatewayResponse Int
+staStatus = lens _staStatus (\ s a -> s{_staStatus = a});

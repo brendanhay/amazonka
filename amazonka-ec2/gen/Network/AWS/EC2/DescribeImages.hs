@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeImages
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.EC2.DescribeImages
     , describeImagesResponse
     -- ** Response lenses
     , descImages
-    , descStatusCode
+    , descStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeImages' smart constructor.
 --
@@ -63,11 +63,24 @@ import Network.AWS.Response
 -- * 'di2ImageIds'
 --
 -- * 'di2DryRun'
-data DescribeImages = DescribeImages'{_di2Owners :: Maybe [Text], _di2ExecutableUsers :: Maybe [Text], _di2Filters :: Maybe [Filter], _di2ImageIds :: Maybe [Text], _di2DryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeImages = DescribeImages'
+    { _di2Owners          :: Maybe [Text]
+    , _di2ExecutableUsers :: Maybe [Text]
+    , _di2Filters         :: Maybe [Filter]
+    , _di2ImageIds        :: Maybe [Text]
+    , _di2DryRun          :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeImages' smart constructor.
 describeImages :: DescribeImages
-describeImages = DescribeImages'{_di2Owners = Nothing, _di2ExecutableUsers = Nothing, _di2Filters = Nothing, _di2ImageIds = Nothing, _di2DryRun = Nothing};
+describeImages =
+    DescribeImages'
+    { _di2Owners = Nothing
+    , _di2ExecutableUsers = Nothing
+    , _di2Filters = Nothing
+    , _di2ImageIds = Nothing
+    , _di2DryRun = Nothing
+    }
 
 -- | Filters the images by the owner. Specify an AWS account ID, @amazon@
 -- (owner is Amazon), @aws-marketplace@ (owner is AWS Marketplace), @self@
@@ -214,17 +227,24 @@ instance ToQuery DescribeImages where
 --
 -- * 'descImages'
 --
--- * 'descStatusCode'
-data DescribeImagesResponse = DescribeImagesResponse'{_descImages :: Maybe [Image], _descStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'descStatus'
+data DescribeImagesResponse = DescribeImagesResponse'
+    { _descImages :: Maybe [Image]
+    , _descStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeImagesResponse' smart constructor.
 describeImagesResponse :: Int -> DescribeImagesResponse
-describeImagesResponse pStatusCode = DescribeImagesResponse'{_descImages = Nothing, _descStatusCode = pStatusCode};
+describeImagesResponse pStatus =
+    DescribeImagesResponse'
+    { _descImages = Nothing
+    , _descStatus = pStatus
+    }
 
 -- | Information about one or more images.
 descImages :: Lens' DescribeImagesResponse [Image]
 descImages = lens _descImages (\ s a -> s{_descImages = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-descStatusCode :: Lens' DescribeImagesResponse Int
-descStatusCode = lens _descStatusCode (\ s a -> s{_descStatusCode = a});
+descStatus :: Lens' DescribeImagesResponse Int
+descStatus = lens _descStatus (\ s a -> s{_descStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     , confirmPrivateVirtualInterfaceResponse
     -- ** Response lenses
     , cpvirVirtualInterfaceState
-    , cpvirStatusCode
+    , cpvirStatus
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the ConfirmPrivateVirtualInterface
 -- operation.
@@ -56,11 +56,18 @@ import Network.AWS.Response
 -- * 'cpviVirtualInterfaceId'
 --
 -- * 'cpviVirtualGatewayId'
-data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'{_cpviVirtualInterfaceId :: Text, _cpviVirtualGatewayId :: Text} deriving (Eq, Read, Show)
+data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
+    { _cpviVirtualInterfaceId :: Text
+    , _cpviVirtualGatewayId   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfirmPrivateVirtualInterface' smart constructor.
 confirmPrivateVirtualInterface :: Text -> Text -> ConfirmPrivateVirtualInterface
-confirmPrivateVirtualInterface pVirtualInterfaceId pVirtualGatewayId = ConfirmPrivateVirtualInterface'{_cpviVirtualInterfaceId = pVirtualInterfaceId, _cpviVirtualGatewayId = pVirtualGatewayId};
+confirmPrivateVirtualInterface pVirtualInterfaceId pVirtualGatewayId =
+    ConfirmPrivateVirtualInterface'
+    { _cpviVirtualInterfaceId = pVirtualInterfaceId
+    , _cpviVirtualGatewayId = pVirtualGatewayId
+    }
 
 -- | FIXME: Undocumented member.
 cpviVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
@@ -123,17 +130,24 @@ instance ToQuery ConfirmPrivateVirtualInterface where
 --
 -- * 'cpvirVirtualInterfaceState'
 --
--- * 'cpvirStatusCode'
-data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'{_cpvirVirtualInterfaceState :: Maybe VirtualInterfaceState, _cpvirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cpvirStatus'
+data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'
+    { _cpvirVirtualInterfaceState :: Maybe VirtualInterfaceState
+    , _cpvirStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfirmPrivateVirtualInterfaceResponse' smart constructor.
 confirmPrivateVirtualInterfaceResponse :: Int -> ConfirmPrivateVirtualInterfaceResponse
-confirmPrivateVirtualInterfaceResponse pStatusCode = ConfirmPrivateVirtualInterfaceResponse'{_cpvirVirtualInterfaceState = Nothing, _cpvirStatusCode = pStatusCode};
+confirmPrivateVirtualInterfaceResponse pStatus =
+    ConfirmPrivateVirtualInterfaceResponse'
+    { _cpvirVirtualInterfaceState = Nothing
+    , _cpvirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 cpvirVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 cpvirVirtualInterfaceState = lens _cpvirVirtualInterfaceState (\ s a -> s{_cpvirVirtualInterfaceState = a});
 
 -- | FIXME: Undocumented member.
-cpvirStatusCode :: Lens' ConfirmPrivateVirtualInterfaceResponse Int
-cpvirStatusCode = lens _cpvirStatusCode (\ s a -> s{_cpvirStatusCode = a});
+cpvirStatus :: Lens' ConfirmPrivateVirtualInterfaceResponse Int
+cpvirStatus = lens _cpvirStatus (\ s a -> s{_cpvirStatus = a});

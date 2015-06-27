@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.CreateGrant
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,13 +47,13 @@ module Network.AWS.KMS.CreateGrant
     -- ** Response lenses
     , cgrGrantId
     , cgrGrantToken
-    , cgrStatusCode
+    , cgrStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createGrant' smart constructor.
 --
@@ -70,11 +70,26 @@ import Network.AWS.Response
 -- * 'cgKeyId'
 --
 -- * 'cgGranteePrincipal'
-data CreateGrant = CreateGrant'{_cgRetiringPrincipal :: Maybe Text, _cgConstraints :: Maybe GrantConstraints, _cgGrantTokens :: Maybe [Text], _cgOperations :: Maybe [GrantOperation], _cgKeyId :: Text, _cgGranteePrincipal :: Text} deriving (Eq, Read, Show)
+data CreateGrant = CreateGrant'
+    { _cgRetiringPrincipal :: Maybe Text
+    , _cgConstraints       :: Maybe GrantConstraints
+    , _cgGrantTokens       :: Maybe [Text]
+    , _cgOperations        :: Maybe [GrantOperation]
+    , _cgKeyId             :: Text
+    , _cgGranteePrincipal  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateGrant' smart constructor.
 createGrant :: Text -> Text -> CreateGrant
-createGrant pKeyId pGranteePrincipal = CreateGrant'{_cgRetiringPrincipal = Nothing, _cgConstraints = Nothing, _cgGrantTokens = Nothing, _cgOperations = Nothing, _cgKeyId = pKeyId, _cgGranteePrincipal = pGranteePrincipal};
+createGrant pKeyId pGranteePrincipal =
+    CreateGrant'
+    { _cgRetiringPrincipal = Nothing
+    , _cgConstraints = Nothing
+    , _cgGrantTokens = Nothing
+    , _cgOperations = Nothing
+    , _cgKeyId = pKeyId
+    , _cgGranteePrincipal = pGranteePrincipal
+    }
 
 -- | Principal given permission to retire the grant. For more information,
 -- see RetireGrant.
@@ -163,12 +178,21 @@ instance ToQuery CreateGrant where
 --
 -- * 'cgrGrantToken'
 --
--- * 'cgrStatusCode'
-data CreateGrantResponse = CreateGrantResponse'{_cgrGrantId :: Maybe Text, _cgrGrantToken :: Maybe Text, _cgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cgrStatus'
+data CreateGrantResponse = CreateGrantResponse'
+    { _cgrGrantId    :: Maybe Text
+    , _cgrGrantToken :: Maybe Text
+    , _cgrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateGrantResponse' smart constructor.
 createGrantResponse :: Int -> CreateGrantResponse
-createGrantResponse pStatusCode = CreateGrantResponse'{_cgrGrantId = Nothing, _cgrGrantToken = Nothing, _cgrStatusCode = pStatusCode};
+createGrantResponse pStatus =
+    CreateGrantResponse'
+    { _cgrGrantId = Nothing
+    , _cgrGrantToken = Nothing
+    , _cgrStatus = pStatus
+    }
 
 -- | Unique grant identifier. You can use the /GrantId/ value to revoke a
 -- grant.
@@ -181,5 +205,5 @@ cgrGrantToken :: Lens' CreateGrantResponse (Maybe Text)
 cgrGrantToken = lens _cgrGrantToken (\ s a -> s{_cgrGrantToken = a});
 
 -- | FIXME: Undocumented member.
-cgrStatusCode :: Lens' CreateGrantResponse Int
-cgrStatusCode = lens _cgrStatusCode (\ s a -> s{_cgrStatusCode = a});
+cgrStatus :: Lens' CreateGrantResponse Int
+cgrStatus = lens _cgrStatus (\ s a -> s{_cgrStatus = a});

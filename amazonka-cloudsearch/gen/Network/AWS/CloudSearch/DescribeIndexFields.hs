@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeIndexFields
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.CloudSearch.DescribeIndexFields
     , describeIndexFieldsResponse
     -- ** Response lenses
     , difr1IndexFields
-    , difr1StatusCode
+    , difr1Status
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeIndexFields@ operation.
 -- Specifies the name of the domain you want to describe. To restrict the
@@ -63,11 +63,20 @@ import Network.AWS.Response
 -- * 'difFieldNames'
 --
 -- * 'difDomainName'
-data DescribeIndexFields = DescribeIndexFields'{_difDeployed :: Maybe Bool, _difFieldNames :: Maybe [Text], _difDomainName :: Text} deriving (Eq, Read, Show)
+data DescribeIndexFields = DescribeIndexFields'
+    { _difDeployed   :: Maybe Bool
+    , _difFieldNames :: Maybe [Text]
+    , _difDomainName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeIndexFields' smart constructor.
 describeIndexFields :: Text -> DescribeIndexFields
-describeIndexFields pDomainName = DescribeIndexFields'{_difDeployed = Nothing, _difFieldNames = Nothing, _difDomainName = pDomainName};
+describeIndexFields pDomainName =
+    DescribeIndexFields'
+    { _difDeployed = Nothing
+    , _difFieldNames = Nothing
+    , _difDomainName = pDomainName
+    }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
@@ -121,17 +130,24 @@ instance ToQuery DescribeIndexFields where
 --
 -- * 'difr1IndexFields'
 --
--- * 'difr1StatusCode'
-data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'{_difr1IndexFields :: [IndexFieldStatus], _difr1StatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'difr1Status'
+data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
+    { _difr1IndexFields :: [IndexFieldStatus]
+    , _difr1Status      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeIndexFieldsResponse' smart constructor.
 describeIndexFieldsResponse :: Int -> DescribeIndexFieldsResponse
-describeIndexFieldsResponse pStatusCode = DescribeIndexFieldsResponse'{_difr1IndexFields = mempty, _difr1StatusCode = pStatusCode};
+describeIndexFieldsResponse pStatus =
+    DescribeIndexFieldsResponse'
+    { _difr1IndexFields = mempty
+    , _difr1Status = pStatus
+    }
 
 -- | The index fields configured for the domain.
 difr1IndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
 difr1IndexFields = lens _difr1IndexFields (\ s a -> s{_difr1IndexFields = a});
 
 -- | FIXME: Undocumented member.
-difr1StatusCode :: Lens' DescribeIndexFieldsResponse Int
-difr1StatusCode = lens _difr1StatusCode (\ s a -> s{_difr1StatusCode = a});
+difr1Status :: Lens' DescribeIndexFieldsResponse Int
+difr1Status = lens _difr1Status (\ s a -> s{_difr1Status = a});

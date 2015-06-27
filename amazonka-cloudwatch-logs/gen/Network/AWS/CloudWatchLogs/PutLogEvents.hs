@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.PutLogEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,13 +53,13 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     -- ** Response lenses
     , plerRejectedLogEventsInfo
     , plerNextSequenceToken
-    , plerStatusCode
+    , plerStatus
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putLogEvents' smart constructor.
 --
@@ -72,11 +72,22 @@ import Network.AWS.Response
 -- * 'pleLogStreamName'
 --
 -- * 'pleLogEvents'
-data PutLogEvents = PutLogEvents'{_pleSequenceToken :: Maybe Text, _pleLogGroupName :: Text, _pleLogStreamName :: Text, _pleLogEvents :: List1 InputLogEvent} deriving (Eq, Read, Show)
+data PutLogEvents = PutLogEvents'
+    { _pleSequenceToken :: Maybe Text
+    , _pleLogGroupName  :: Text
+    , _pleLogStreamName :: Text
+    , _pleLogEvents     :: List1 InputLogEvent
+    } deriving (Eq,Read,Show)
 
 -- | 'PutLogEvents' smart constructor.
 putLogEvents :: Text -> Text -> NonEmpty InputLogEvent -> PutLogEvents
-putLogEvents pLogGroupName pLogStreamName pLogEvents = PutLogEvents'{_pleSequenceToken = Nothing, _pleLogGroupName = pLogGroupName, _pleLogStreamName = pLogStreamName, _pleLogEvents = _List1 # pLogEvents};
+putLogEvents pLogGroupName pLogStreamName pLogEvents =
+    PutLogEvents'
+    { _pleSequenceToken = Nothing
+    , _pleLogGroupName = pLogGroupName
+    , _pleLogStreamName = pLogStreamName
+    , _pleLogEvents = _List1 # pLogEvents
+    }
 
 -- | A string token that must be obtained from the response of the previous
 -- @PutLogEvents@ request.
@@ -138,12 +149,21 @@ instance ToQuery PutLogEvents where
 --
 -- * 'plerNextSequenceToken'
 --
--- * 'plerStatusCode'
-data PutLogEventsResponse = PutLogEventsResponse'{_plerRejectedLogEventsInfo :: Maybe RejectedLogEventsInfo, _plerNextSequenceToken :: Maybe Text, _plerStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'plerStatus'
+data PutLogEventsResponse = PutLogEventsResponse'
+    { _plerRejectedLogEventsInfo :: Maybe RejectedLogEventsInfo
+    , _plerNextSequenceToken     :: Maybe Text
+    , _plerStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PutLogEventsResponse' smart constructor.
 putLogEventsResponse :: Int -> PutLogEventsResponse
-putLogEventsResponse pStatusCode = PutLogEventsResponse'{_plerRejectedLogEventsInfo = Nothing, _plerNextSequenceToken = Nothing, _plerStatusCode = pStatusCode};
+putLogEventsResponse pStatus =
+    PutLogEventsResponse'
+    { _plerRejectedLogEventsInfo = Nothing
+    , _plerNextSequenceToken = Nothing
+    , _plerStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 plerRejectedLogEventsInfo :: Lens' PutLogEventsResponse (Maybe RejectedLogEventsInfo)
@@ -154,5 +174,5 @@ plerNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
 plerNextSequenceToken = lens _plerNextSequenceToken (\ s a -> s{_plerNextSequenceToken = a});
 
 -- | FIXME: Undocumented member.
-plerStatusCode :: Lens' PutLogEventsResponse Int
-plerStatusCode = lens _plerStatusCode (\ s a -> s{_plerStatusCode = a});
+plerStatus :: Lens' PutLogEventsResponse Int
+plerStatus = lens _plerStatus (\ s a -> s{_plerStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.CodeDeploy.GetDeploymentGroup
     , getDeploymentGroupResponse
     -- ** Response lenses
     , gdgrDeploymentGroupInfo
-    , gdgrStatusCode
+    , gdgrStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a get deployment group operation.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'gdgApplicationName'
 --
 -- * 'gdgDeploymentGroupName'
-data GetDeploymentGroup = GetDeploymentGroup'{_gdgApplicationName :: Text, _gdgDeploymentGroupName :: Text} deriving (Eq, Read, Show)
+data GetDeploymentGroup = GetDeploymentGroup'
+    { _gdgApplicationName     :: Text
+    , _gdgDeploymentGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDeploymentGroup' smart constructor.
 getDeploymentGroup :: Text -> Text -> GetDeploymentGroup
-getDeploymentGroup pApplicationName pDeploymentGroupName = GetDeploymentGroup'{_gdgApplicationName = pApplicationName, _gdgDeploymentGroupName = pDeploymentGroupName};
+getDeploymentGroup pApplicationName pDeploymentGroupName =
+    GetDeploymentGroup'
+    { _gdgApplicationName = pApplicationName
+    , _gdgDeploymentGroupName = pDeploymentGroupName
+    }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
@@ -107,17 +114,24 @@ instance ToQuery GetDeploymentGroup where
 --
 -- * 'gdgrDeploymentGroupInfo'
 --
--- * 'gdgrStatusCode'
-data GetDeploymentGroupResponse = GetDeploymentGroupResponse'{_gdgrDeploymentGroupInfo :: Maybe DeploymentGroupInfo, _gdgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gdgrStatus'
+data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
+    { _gdgrDeploymentGroupInfo :: Maybe DeploymentGroupInfo
+    , _gdgrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDeploymentGroupResponse' smart constructor.
 getDeploymentGroupResponse :: Int -> GetDeploymentGroupResponse
-getDeploymentGroupResponse pStatusCode = GetDeploymentGroupResponse'{_gdgrDeploymentGroupInfo = Nothing, _gdgrStatusCode = pStatusCode};
+getDeploymentGroupResponse pStatus =
+    GetDeploymentGroupResponse'
+    { _gdgrDeploymentGroupInfo = Nothing
+    , _gdgrStatus = pStatus
+    }
 
 -- | Information about the deployment group.
 gdgrDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGroupInfo)
 gdgrDeploymentGroupInfo = lens _gdgrDeploymentGroupInfo (\ s a -> s{_gdgrDeploymentGroupInfo = a});
 
 -- | FIXME: Undocumented member.
-gdgrStatusCode :: Lens' GetDeploymentGroupResponse Int
-gdgrStatusCode = lens _gdgrStatusCode (\ s a -> s{_gdgrStatusCode = a});
+gdgrStatus :: Lens' GetDeploymentGroupResponse Int
+gdgrStatus = lens _gdgrStatus (\ s a -> s{_gdgrStatus = a});

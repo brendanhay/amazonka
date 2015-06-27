@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.CloudWatch.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -130,75 +129,87 @@ module Network.AWS.CloudWatch.Types
     , ssMaximum
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2010-08-01@ of the Amazon CloudWatch SDK.
 data CloudWatch
 
 instance AWSService CloudWatch where
     type Sg CloudWatch = V4
-
     service = const svc
       where
-        svc :: Service CloudWatch
-        svc = Service
-            { _svcAbbrev   = "CloudWatch"
-            , _svcPrefix   = "monitoring"
-            , _svcVersion  = "2010-08-01"
+        svc =
+            Service
+            { _svcAbbrev = "CloudWatch"
+            , _svcPrefix = "monitoring"
+            , _svcVersion = "2010-08-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The quota for alarms for this customer has already been reached.
-_LimitExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded";
+_LimitExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
 
 -- | The next token specified is invalid.
-_InvalidNextToken :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken";
+_InvalidNextToken :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
 -- | Indicates that the request processing has failed due to some unknown
 -- error, exception, or failure.
-_InternalServiceFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalServiceFault = _ServiceError . hasStatus 500 . hasCode "InternalServiceError";
+_InternalServiceFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServiceFault =
+    _ServiceError . hasStatus 500 . hasCode "InternalServiceError"
 
 -- | Bad or out-of-range value was supplied for the input parameter.
-_InvalidParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterValueException = _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue";
+_InvalidParameterValueException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterValueException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue"
 
 -- | Data was not syntactically valid JSON.
-_InvalidFormatFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidFormatFault = _ServiceError . hasStatus 400 . hasCode "InvalidFormat";
+_InvalidFormatFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidFormatFault = _ServiceError . hasStatus 400 . hasCode "InvalidFormat"
 
 -- | An input parameter that is mandatory for processing the request is not
 -- supplied.
-_MissingRequiredParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MissingRequiredParameterException = _ServiceError . hasStatus 400 . hasCode "MissingParameter";
+_MissingRequiredParameterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MissingRequiredParameterException =
+    _ServiceError . hasStatus 400 . hasCode "MissingParameter"
 
 -- | Parameters that must not be used together were used together.
-_InvalidParameterCombinationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterCombinationException = _ServiceError . hasStatus 400 . hasCode "InvalidParameterCombination";
+_InvalidParameterCombinationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterCombinationException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidParameterCombination"
 
 -- | The named resource does not exist.
-_ResourceNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFound = _ServiceError . hasStatus 404 . hasCode "ResourceNotFound";
+_ResourceNotFound :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFound = _ServiceError . hasStatus 404 . hasCode "ResourceNotFound"
 
-data ComparisonOperator = GreaterThanOrEqualToThreshold | GreaterThanThreshold | LessThanOrEqualToThreshold | LessThanThreshold deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ComparisonOperator
+    = GreaterThanOrEqualToThreshold
+    | GreaterThanThreshold
+    | LessThanOrEqualToThreshold
+    | LessThanThreshold
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ComparisonOperator where
     parser = takeLowerText >>= \case
@@ -222,7 +233,11 @@ instance ToHeader ComparisonOperator
 instance FromXML ComparisonOperator where
     parseXML = parseXMLText "ComparisonOperator"
 
-data HistoryItemType = StateUpdate | Action | ConfigurationUpdate deriving (Eq, Ord, Read, Show, Enum, Generic)
+data HistoryItemType
+    = StateUpdate
+    | Action
+    | ConfigurationUpdate
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText HistoryItemType where
     parser = takeLowerText >>= \case
@@ -244,7 +259,35 @@ instance ToHeader HistoryItemType
 instance FromXML HistoryItemType where
     parseXML = parseXMLText "HistoryItemType"
 
-data StandardUnit = Bits | BitsSecond | MegabytesSecond | Megabytes | None | Count | Terabytes | TerabytesSecond | Percent | CountSecond | TerabitsSecond | Terabits | Milliseconds | GigabytesSecond | Microseconds | Gigabytes | GigabitsSecond | Gigabits | Megabits | MegabitsSecond | Kilobits | KilobitsSecond | Kilobytes | KilobytesSecond | Seconds | BytesSecond | Bytes deriving (Eq, Ord, Read, Show, Enum, Generic)
+data StandardUnit
+    = Bits
+    | BitsSecond
+    | MegabytesSecond
+    | Megabytes
+    | None
+    | Count
+    | Terabytes
+    | TerabytesSecond
+    | Percent
+    | CountSecond
+    | TerabitsSecond
+    | Terabits
+    | Milliseconds
+    | GigabytesSecond
+    | Microseconds
+    | Gigabytes
+    | GigabitsSecond
+    | Gigabits
+    | Megabits
+    | MegabitsSecond
+    | Kilobits
+    | KilobitsSecond
+    | Kilobytes
+    | KilobytesSecond
+    | Seconds
+    | BytesSecond
+    | Bytes
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText StandardUnit where
     parser = takeLowerText >>= \case
@@ -314,7 +357,11 @@ instance ToHeader StandardUnit
 instance FromXML StandardUnit where
     parseXML = parseXMLText "StandardUnit"
 
-data StateValue = OK | InsufficientData | Alarm deriving (Eq, Ord, Read, Show, Enum, Generic)
+data StateValue
+    = OK
+    | InsufficientData
+    | Alarm
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText StateValue where
     parser = takeLowerText >>= \case
@@ -336,7 +383,13 @@ instance ToHeader StateValue
 instance FromXML StateValue where
     parseXML = parseXMLText "StateValue"
 
-data Statistic = SampleCount | Maximum | Average | Minimum | Sum deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Statistic
+    = SampleCount
+    | Maximum
+    | Average
+    | Minimum
+    | Sum
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Statistic where
     parser = takeLowerText >>= \case
@@ -380,11 +433,24 @@ instance FromXML Statistic where
 -- * 'ahiTimestamp'
 --
 -- * 'ahiHistorySummary'
-data AlarmHistoryItem = AlarmHistoryItem'{_ahiAlarmName :: Maybe Text, _ahiHistoryItemType :: Maybe HistoryItemType, _ahiHistoryData :: Maybe Text, _ahiTimestamp :: Maybe ISO8601, _ahiHistorySummary :: Maybe Text} deriving (Eq, Read, Show)
+data AlarmHistoryItem = AlarmHistoryItem'
+    { _ahiAlarmName       :: Maybe Text
+    , _ahiHistoryItemType :: Maybe HistoryItemType
+    , _ahiHistoryData     :: Maybe Text
+    , _ahiTimestamp       :: Maybe ISO8601
+    , _ahiHistorySummary  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AlarmHistoryItem' smart constructor.
 alarmHistoryItem :: AlarmHistoryItem
-alarmHistoryItem = AlarmHistoryItem'{_ahiAlarmName = Nothing, _ahiHistoryItemType = Nothing, _ahiHistoryData = Nothing, _ahiTimestamp = Nothing, _ahiHistorySummary = Nothing};
+alarmHistoryItem =
+    AlarmHistoryItem'
+    { _ahiAlarmName = Nothing
+    , _ahiHistoryItemType = Nothing
+    , _ahiHistoryData = Nothing
+    , _ahiTimestamp = Nothing
+    , _ahiHistorySummary = Nothing
+    }
 
 -- | The descriptive name for the alarm.
 ahiAlarmName :: Lens' AlarmHistoryItem (Maybe Text)
@@ -439,11 +505,28 @@ instance FromXML AlarmHistoryItem where
 -- * 'datTimestamp'
 --
 -- * 'datUnit'
-data Datapoint = Datapoint'{_datSampleCount :: Maybe Double, _datMaximum :: Maybe Double, _datAverage :: Maybe Double, _datMinimum :: Maybe Double, _datSum :: Maybe Double, _datTimestamp :: Maybe ISO8601, _datUnit :: Maybe StandardUnit} deriving (Eq, Read, Show)
+data Datapoint = Datapoint'
+    { _datSampleCount :: Maybe Double
+    , _datMaximum     :: Maybe Double
+    , _datAverage     :: Maybe Double
+    , _datMinimum     :: Maybe Double
+    , _datSum         :: Maybe Double
+    , _datTimestamp   :: Maybe ISO8601
+    , _datUnit        :: Maybe StandardUnit
+    } deriving (Eq,Read,Show)
 
 -- | 'Datapoint' smart constructor.
 datapoint :: Datapoint
-datapoint = Datapoint'{_datSampleCount = Nothing, _datMaximum = Nothing, _datAverage = Nothing, _datMinimum = Nothing, _datSum = Nothing, _datTimestamp = Nothing, _datUnit = Nothing};
+datapoint =
+    Datapoint'
+    { _datSampleCount = Nothing
+    , _datMaximum = Nothing
+    , _datAverage = Nothing
+    , _datMinimum = Nothing
+    , _datSum = Nothing
+    , _datTimestamp = Nothing
+    , _datUnit = Nothing
+    }
 
 -- | The number of metric values that contributed to the aggregate value of
 -- this datapoint.
@@ -501,11 +584,18 @@ instance FromXML Datapoint where
 -- * 'dimName'
 --
 -- * 'dimValue'
-data Dimension = Dimension'{_dimName :: Text, _dimValue :: Text} deriving (Eq, Read, Show)
+data Dimension = Dimension'
+    { _dimName  :: Text
+    , _dimValue :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Dimension' smart constructor.
 dimension :: Text -> Text -> Dimension
-dimension pName pValue = Dimension'{_dimName = pName, _dimValue = pValue};
+dimension pName pValue =
+    Dimension'
+    { _dimName = pName
+    , _dimValue = pValue
+    }
 
 -- | The name of the dimension.
 dimName :: Lens' Dimension Text
@@ -532,11 +622,18 @@ instance ToQuery Dimension where
 -- * 'dfValue'
 --
 -- * 'dfName'
-data DimensionFilter = DimensionFilter'{_dfValue :: Maybe Text, _dfName :: Text} deriving (Eq, Read, Show)
+data DimensionFilter = DimensionFilter'
+    { _dfValue :: Maybe Text
+    , _dfName  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DimensionFilter' smart constructor.
 dimensionFilter :: Text -> DimensionFilter
-dimensionFilter pName = DimensionFilter'{_dfValue = Nothing, _dfName = pName};
+dimensionFilter pName =
+    DimensionFilter'
+    { _dfValue = Nothing
+    , _dfName = pName
+    }
 
 -- | The value of the dimension to be matched.
 dfValue :: Lens' DimensionFilter (Maybe Text)
@@ -567,11 +664,20 @@ instance ToQuery DimensionFilter where
 -- * 'metNamespace'
 --
 -- * 'metDimensions'
-data Metric = Metric'{_metMetricName :: Maybe Text, _metNamespace :: Maybe Text, _metDimensions :: Maybe [Dimension]} deriving (Eq, Read, Show)
+data Metric = Metric'
+    { _metMetricName :: Maybe Text
+    , _metNamespace  :: Maybe Text
+    , _metDimensions :: Maybe [Dimension]
+    } deriving (Eq,Read,Show)
 
 -- | 'Metric' smart constructor.
 metric :: Metric
-metric = Metric'{_metMetricName = Nothing, _metNamespace = Nothing, _metDimensions = Nothing};
+metric =
+    Metric'
+    { _metMetricName = Nothing
+    , _metNamespace = Nothing
+    , _metDimensions = Nothing
+    }
 
 -- | The name of the metric.
 metMetricName :: Lens' Metric (Maybe Text)
@@ -640,11 +746,56 @@ instance FromXML Metric where
 -- * 'maStatistic'
 --
 -- * 'maUnit'
-data MetricAlarm = MetricAlarm'{_maAlarmName :: Maybe Text, _maStateUpdatedTimestamp :: Maybe ISO8601, _maAlarmDescription :: Maybe Text, _maPeriod :: Maybe Nat, _maEvaluationPeriods :: Maybe Nat, _maMetricName :: Maybe Text, _maNamespace :: Maybe Text, _maOKActions :: Maybe [Text], _maComparisonOperator :: Maybe ComparisonOperator, _maStateValue :: Maybe StateValue, _maThreshold :: Maybe Double, _maActionsEnabled :: Maybe Bool, _maAlarmConfigurationUpdatedTimestamp :: Maybe ISO8601, _maInsufficientDataActions :: Maybe [Text], _maDimensions :: Maybe [Dimension], _maStateReasonData :: Maybe Text, _maStateReason :: Maybe Text, _maAlarmARN :: Maybe Text, _maAlarmActions :: Maybe [Text], _maStatistic :: Maybe Statistic, _maUnit :: Maybe StandardUnit} deriving (Eq, Read, Show)
+data MetricAlarm = MetricAlarm'
+    { _maAlarmName                          :: Maybe Text
+    , _maStateUpdatedTimestamp              :: Maybe ISO8601
+    , _maAlarmDescription                   :: Maybe Text
+    , _maPeriod                             :: Maybe Nat
+    , _maEvaluationPeriods                  :: Maybe Nat
+    , _maMetricName                         :: Maybe Text
+    , _maNamespace                          :: Maybe Text
+    , _maOKActions                          :: Maybe [Text]
+    , _maComparisonOperator                 :: Maybe ComparisonOperator
+    , _maStateValue                         :: Maybe StateValue
+    , _maThreshold                          :: Maybe Double
+    , _maActionsEnabled                     :: Maybe Bool
+    , _maAlarmConfigurationUpdatedTimestamp :: Maybe ISO8601
+    , _maInsufficientDataActions            :: Maybe [Text]
+    , _maDimensions                         :: Maybe [Dimension]
+    , _maStateReasonData                    :: Maybe Text
+    , _maStateReason                        :: Maybe Text
+    , _maAlarmARN                           :: Maybe Text
+    , _maAlarmActions                       :: Maybe [Text]
+    , _maStatistic                          :: Maybe Statistic
+    , _maUnit                               :: Maybe StandardUnit
+    } deriving (Eq,Read,Show)
 
 -- | 'MetricAlarm' smart constructor.
 metricAlarm :: MetricAlarm
-metricAlarm = MetricAlarm'{_maAlarmName = Nothing, _maStateUpdatedTimestamp = Nothing, _maAlarmDescription = Nothing, _maPeriod = Nothing, _maEvaluationPeriods = Nothing, _maMetricName = Nothing, _maNamespace = Nothing, _maOKActions = Nothing, _maComparisonOperator = Nothing, _maStateValue = Nothing, _maThreshold = Nothing, _maActionsEnabled = Nothing, _maAlarmConfigurationUpdatedTimestamp = Nothing, _maInsufficientDataActions = Nothing, _maDimensions = Nothing, _maStateReasonData = Nothing, _maStateReason = Nothing, _maAlarmARN = Nothing, _maAlarmActions = Nothing, _maStatistic = Nothing, _maUnit = Nothing};
+metricAlarm =
+    MetricAlarm'
+    { _maAlarmName = Nothing
+    , _maStateUpdatedTimestamp = Nothing
+    , _maAlarmDescription = Nothing
+    , _maPeriod = Nothing
+    , _maEvaluationPeriods = Nothing
+    , _maMetricName = Nothing
+    , _maNamespace = Nothing
+    , _maOKActions = Nothing
+    , _maComparisonOperator = Nothing
+    , _maStateValue = Nothing
+    , _maThreshold = Nothing
+    , _maActionsEnabled = Nothing
+    , _maAlarmConfigurationUpdatedTimestamp = Nothing
+    , _maInsufficientDataActions = Nothing
+    , _maDimensions = Nothing
+    , _maStateReasonData = Nothing
+    , _maStateReason = Nothing
+    , _maAlarmARN = Nothing
+    , _maAlarmActions = Nothing
+    , _maStatistic = Nothing
+    , _maUnit = Nothing
+    }
 
 -- | The name of the alarm.
 maAlarmName :: Lens' MetricAlarm (Maybe Text)
@@ -808,11 +959,26 @@ instance FromXML MetricAlarm where
 -- * 'mdUnit'
 --
 -- * 'mdMetricName'
-data MetricDatum = MetricDatum'{_mdValue :: Maybe Double, _mdDimensions :: Maybe [Dimension], _mdTimestamp :: Maybe ISO8601, _mdStatisticValues :: Maybe StatisticSet, _mdUnit :: Maybe StandardUnit, _mdMetricName :: Text} deriving (Eq, Read, Show)
+data MetricDatum = MetricDatum'
+    { _mdValue           :: Maybe Double
+    , _mdDimensions      :: Maybe [Dimension]
+    , _mdTimestamp       :: Maybe ISO8601
+    , _mdStatisticValues :: Maybe StatisticSet
+    , _mdUnit            :: Maybe StandardUnit
+    , _mdMetricName      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'MetricDatum' smart constructor.
 metricDatum :: Text -> MetricDatum
-metricDatum pMetricName = MetricDatum'{_mdValue = Nothing, _mdDimensions = Nothing, _mdTimestamp = Nothing, _mdStatisticValues = Nothing, _mdUnit = Nothing, _mdMetricName = pMetricName};
+metricDatum pMetricName =
+    MetricDatum'
+    { _mdValue = Nothing
+    , _mdDimensions = Nothing
+    , _mdTimestamp = Nothing
+    , _mdStatisticValues = Nothing
+    , _mdUnit = Nothing
+    , _mdMetricName = pMetricName
+    }
 
 -- | The value for the metric.
 --
@@ -877,11 +1043,22 @@ instance ToQuery MetricDatum where
 -- * 'ssMinimum'
 --
 -- * 'ssMaximum'
-data StatisticSet = StatisticSet'{_ssSampleCount :: Double, _ssSum :: Double, _ssMinimum :: Double, _ssMaximum :: Double} deriving (Eq, Read, Show)
+data StatisticSet = StatisticSet'
+    { _ssSampleCount :: !Double
+    , _ssSum         :: !Double
+    , _ssMinimum     :: !Double
+    , _ssMaximum     :: !Double
+    } deriving (Eq,Read,Show)
 
 -- | 'StatisticSet' smart constructor.
 statisticSet :: Double -> Double -> Double -> Double -> StatisticSet
-statisticSet pSampleCount pSum pMinimum pMaximum = StatisticSet'{_ssSampleCount = pSampleCount, _ssSum = pSum, _ssMinimum = pMinimum, _ssMaximum = pMaximum};
+statisticSet pSampleCount pSum pMinimum pMaximum =
+    StatisticSet'
+    { _ssSampleCount = pSampleCount
+    , _ssSum = pSum
+    , _ssMinimum = pMinimum
+    , _ssMaximum = pMaximum
+    }
 
 -- | The number of samples used for the statistic set.
 ssSampleCount :: Lens' StatisticSet Double

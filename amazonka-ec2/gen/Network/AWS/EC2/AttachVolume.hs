@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.AttachVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,10 +72,10 @@ module Network.AWS.EC2.AttachVolume
     , vAttachTime
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachVolume' smart constructor.
 --
@@ -88,11 +88,22 @@ import Network.AWS.Response
 -- * 'avInstanceId'
 --
 -- * 'avDevice'
-data AttachVolume = AttachVolume'{_avDryRun :: Maybe Bool, _avVolumeId :: Text, _avInstanceId :: Text, _avDevice :: Text} deriving (Eq, Read, Show)
+data AttachVolume = AttachVolume'
+    { _avDryRun     :: Maybe Bool
+    , _avVolumeId   :: Text
+    , _avInstanceId :: Text
+    , _avDevice     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachVolume' smart constructor.
 attachVolume :: Text -> Text -> Text -> AttachVolume
-attachVolume pVolumeId pInstanceId pDevice = AttachVolume'{_avDryRun = Nothing, _avVolumeId = pVolumeId, _avInstanceId = pInstanceId, _avDevice = pDevice};
+attachVolume pVolumeId pInstanceId pDevice =
+    AttachVolume'
+    { _avDryRun = Nothing
+    , _avVolumeId = pVolumeId
+    , _avInstanceId = pInstanceId
+    , _avDevice = pDevice
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

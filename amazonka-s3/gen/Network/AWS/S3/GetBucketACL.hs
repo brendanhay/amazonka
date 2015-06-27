@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.GetBucketACL
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,24 +33,29 @@ module Network.AWS.S3.GetBucketACL
     -- ** Response lenses
     , gbarGrants
     , gbarOwner
-    , gbarStatusCode
+    , gbarStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketACL' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gbaBucket'
-newtype GetBucketACL = GetBucketACL'{_gbaBucket :: BucketName} deriving (Eq, Read, Show)
+newtype GetBucketACL = GetBucketACL'
+    { _gbaBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketACL' smart constructor.
 getBucketACL :: BucketName -> GetBucketACL
-getBucketACL pBucket = GetBucketACL'{_gbaBucket = pBucket};
+getBucketACL pBucket =
+    GetBucketACL'
+    { _gbaBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 gbaBucket :: Lens' GetBucketACL BucketName
@@ -87,12 +92,21 @@ instance ToQuery GetBucketACL where
 --
 -- * 'gbarOwner'
 --
--- * 'gbarStatusCode'
-data GetBucketACLResponse = GetBucketACLResponse'{_gbarGrants :: Maybe [Grant], _gbarOwner :: Maybe Owner, _gbarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gbarStatus'
+data GetBucketACLResponse = GetBucketACLResponse'
+    { _gbarGrants :: Maybe [Grant]
+    , _gbarOwner  :: Maybe Owner
+    , _gbarStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketACLResponse' smart constructor.
 getBucketACLResponse :: Int -> GetBucketACLResponse
-getBucketACLResponse pStatusCode = GetBucketACLResponse'{_gbarGrants = Nothing, _gbarOwner = Nothing, _gbarStatusCode = pStatusCode};
+getBucketACLResponse pStatus =
+    GetBucketACLResponse'
+    { _gbarGrants = Nothing
+    , _gbarOwner = Nothing
+    , _gbarStatus = pStatus
+    }
 
 -- | A list of grants.
 gbarGrants :: Lens' GetBucketACLResponse [Grant]
@@ -103,5 +117,5 @@ gbarOwner :: Lens' GetBucketACLResponse (Maybe Owner)
 gbarOwner = lens _gbarOwner (\ s a -> s{_gbarOwner = a});
 
 -- | FIXME: Undocumented member.
-gbarStatusCode :: Lens' GetBucketACLResponse Int
-gbarStatusCode = lens _gbarStatusCode (\ s a -> s{_gbarStatusCode = a});
+gbarStatus :: Lens' GetBucketACLResponse Int
+gbarStatus = lens _gbarStatus (\ s a -> s{_gbarStatus = a});

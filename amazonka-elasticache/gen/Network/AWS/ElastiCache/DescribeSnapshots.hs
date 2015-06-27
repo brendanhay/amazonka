@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeSnapshots
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,14 +40,14 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     -- ** Response lenses
     , dsr1Snapshots
     , dsr1Marker
-    , dsr1StatusCode
+    , dsr1Status
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeSnapshotsMessage/ action.
 --
@@ -64,11 +64,24 @@ import Network.AWS.Response
 -- * 'dsSnapshotName'
 --
 -- * 'dsSnapshotSource'
-data DescribeSnapshots = DescribeSnapshots'{_dsCacheClusterId :: Maybe Text, _dsMaxRecords :: Maybe Int, _dsMarker :: Maybe Text, _dsSnapshotName :: Maybe Text, _dsSnapshotSource :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeSnapshots = DescribeSnapshots'
+    { _dsCacheClusterId :: Maybe Text
+    , _dsMaxRecords     :: Maybe Int
+    , _dsMarker         :: Maybe Text
+    , _dsSnapshotName   :: Maybe Text
+    , _dsSnapshotSource :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshots' smart constructor.
 describeSnapshots :: DescribeSnapshots
-describeSnapshots = DescribeSnapshots'{_dsCacheClusterId = Nothing, _dsMaxRecords = Nothing, _dsMarker = Nothing, _dsSnapshotName = Nothing, _dsSnapshotSource = Nothing};
+describeSnapshots =
+    DescribeSnapshots'
+    { _dsCacheClusterId = Nothing
+    , _dsMaxRecords = Nothing
+    , _dsMarker = Nothing
+    , _dsSnapshotName = Nothing
+    , _dsSnapshotSource = Nothing
+    }
 
 -- | A user-supplied cluster identifier. If this parameter is specified, only
 -- snapshots associated with that specific cache cluster will be described.
@@ -150,12 +163,21 @@ instance ToQuery DescribeSnapshots where
 --
 -- * 'dsr1Marker'
 --
--- * 'dsr1StatusCode'
-data DescribeSnapshotsResponse = DescribeSnapshotsResponse'{_dsr1Snapshots :: Maybe [Snapshot], _dsr1Marker :: Maybe Text, _dsr1StatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsr1Status'
+data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
+    { _dsr1Snapshots :: Maybe [Snapshot]
+    , _dsr1Marker    :: Maybe Text
+    , _dsr1Status    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
-describeSnapshotsResponse pStatusCode = DescribeSnapshotsResponse'{_dsr1Snapshots = Nothing, _dsr1Marker = Nothing, _dsr1StatusCode = pStatusCode};
+describeSnapshotsResponse pStatus =
+    DescribeSnapshotsResponse'
+    { _dsr1Snapshots = Nothing
+    , _dsr1Marker = Nothing
+    , _dsr1Status = pStatus
+    }
 
 -- | A list of snapshots. Each item in the list contains detailed information
 -- about one snapshot.
@@ -170,5 +192,5 @@ dsr1Marker :: Lens' DescribeSnapshotsResponse (Maybe Text)
 dsr1Marker = lens _dsr1Marker (\ s a -> s{_dsr1Marker = a});
 
 -- | FIXME: Undocumented member.
-dsr1StatusCode :: Lens' DescribeSnapshotsResponse Int
-dsr1StatusCode = lens _dsr1StatusCode (\ s a -> s{_dsr1StatusCode = a});
+dsr1Status :: Lens' DescribeSnapshotsResponse Int
+dsr1Status = lens _dsr1Status (\ s a -> s{_dsr1Status = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.DeleteVaultNotifications
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,10 +49,10 @@ module Network.AWS.Glacier.DeleteVaultNotifications
     , deleteVaultNotificationsResponse
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for deleting a vault notification configuration from an
 -- Amazon Glacier vault.
@@ -64,11 +64,18 @@ import Network.AWS.Response
 -- * 'dvnAccountId'
 --
 -- * 'dvnVaultName'
-data DeleteVaultNotifications = DeleteVaultNotifications'{_dvnAccountId :: Text, _dvnVaultName :: Text} deriving (Eq, Read, Show)
+data DeleteVaultNotifications = DeleteVaultNotifications'
+    { _dvnAccountId :: Text
+    , _dvnVaultName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVaultNotifications' smart constructor.
 deleteVaultNotifications :: Text -> Text -> DeleteVaultNotifications
-deleteVaultNotifications pAccountId pVaultName = DeleteVaultNotifications'{_dvnAccountId = pAccountId, _dvnVaultName = pVaultName};
+deleteVaultNotifications pAccountId pVaultName =
+    DeleteVaultNotifications'
+    { _dvnAccountId = pAccountId
+    , _dvnVaultName = pVaultName
+    }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
@@ -103,8 +110,10 @@ instance ToQuery DeleteVaultNotifications where
         toQuery = const mempty
 
 -- | /See:/ 'deleteVaultNotificationsResponse' smart constructor.
-data DeleteVaultNotificationsResponse = DeleteVaultNotificationsResponse' deriving (Eq, Read, Show)
+data DeleteVaultNotificationsResponse =
+    DeleteVaultNotificationsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteVaultNotificationsResponse' smart constructor.
 deleteVaultNotificationsResponse :: DeleteVaultNotificationsResponse
-deleteVaultNotificationsResponse = DeleteVaultNotificationsResponse';
+deleteVaultNotificationsResponse = DeleteVaultNotificationsResponse'

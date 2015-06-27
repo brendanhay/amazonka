@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.SetSubscriptionAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.SNS.SetSubscriptionAttributes
     , setSubscriptionAttributesResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for SetSubscriptionAttributes action.
 --
@@ -51,11 +51,20 @@ import Network.AWS.SNS.Types
 -- * 'ssaSubscriptionARN'
 --
 -- * 'ssaAttributeName'
-data SetSubscriptionAttributes = SetSubscriptionAttributes'{_ssaAttributeValue :: Maybe Text, _ssaSubscriptionARN :: Text, _ssaAttributeName :: Text} deriving (Eq, Read, Show)
+data SetSubscriptionAttributes = SetSubscriptionAttributes'
+    { _ssaAttributeValue  :: Maybe Text
+    , _ssaSubscriptionARN :: Text
+    , _ssaAttributeName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetSubscriptionAttributes' smart constructor.
 setSubscriptionAttributes :: Text -> Text -> SetSubscriptionAttributes
-setSubscriptionAttributes pSubscriptionARN pAttributeName = SetSubscriptionAttributes'{_ssaAttributeValue = Nothing, _ssaSubscriptionARN = pSubscriptionARN, _ssaAttributeName = pAttributeName};
+setSubscriptionAttributes pSubscriptionARN pAttributeName =
+    SetSubscriptionAttributes'
+    { _ssaAttributeValue = Nothing
+    , _ssaSubscriptionARN = pSubscriptionARN
+    , _ssaAttributeName = pAttributeName
+    }
 
 -- | The new value for the attribute in JSON format.
 ssaAttributeValue :: Lens' SetSubscriptionAttributes (Maybe Text)
@@ -97,8 +106,10 @@ instance ToQuery SetSubscriptionAttributes where
                "AttributeName" =: _ssaAttributeName]
 
 -- | /See:/ 'setSubscriptionAttributesResponse' smart constructor.
-data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse' deriving (Eq, Read, Show)
+data SetSubscriptionAttributesResponse =
+    SetSubscriptionAttributesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetSubscriptionAttributesResponse' smart constructor.
 setSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse
-setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse';
+setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse'

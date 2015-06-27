@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.StartInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,13 +54,13 @@ module Network.AWS.EC2.StartInstances
     , startInstancesResponse
     -- ** Response lenses
     , staStartingInstances
-    , staStatusCode
+    , staStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'startInstances' smart constructor.
 --
@@ -71,11 +71,20 @@ import Network.AWS.Response
 -- * 'staDryRun'
 --
 -- * 'staInstanceIds'
-data StartInstances = StartInstances'{_staAdditionalInfo :: Maybe Text, _staDryRun :: Maybe Bool, _staInstanceIds :: [Text]} deriving (Eq, Read, Show)
+data StartInstances = StartInstances'
+    { _staAdditionalInfo :: Maybe Text
+    , _staDryRun         :: Maybe Bool
+    , _staInstanceIds    :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'StartInstances' smart constructor.
 startInstances :: StartInstances
-startInstances = StartInstances'{_staAdditionalInfo = Nothing, _staDryRun = Nothing, _staInstanceIds = mempty};
+startInstances =
+    StartInstances'
+    { _staAdditionalInfo = Nothing
+    , _staDryRun = Nothing
+    , _staInstanceIds = mempty
+    }
 
 -- | Reserved.
 staAdditionalInfo :: Lens' StartInstances (Maybe Text)
@@ -124,17 +133,24 @@ instance ToQuery StartInstances where
 --
 -- * 'staStartingInstances'
 --
--- * 'staStatusCode'
-data StartInstancesResponse = StartInstancesResponse'{_staStartingInstances :: Maybe [InstanceStateChange], _staStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'staStatus'
+data StartInstancesResponse = StartInstancesResponse'
+    { _staStartingInstances :: Maybe [InstanceStateChange]
+    , _staStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'StartInstancesResponse' smart constructor.
 startInstancesResponse :: Int -> StartInstancesResponse
-startInstancesResponse pStatusCode = StartInstancesResponse'{_staStartingInstances = Nothing, _staStatusCode = pStatusCode};
+startInstancesResponse pStatus =
+    StartInstancesResponse'
+    { _staStartingInstances = Nothing
+    , _staStatus = pStatus
+    }
 
 -- | Information about one or more started instances.
 staStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
 staStartingInstances = lens _staStartingInstances (\ s a -> s{_staStartingInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-staStatusCode :: Lens' StartInstancesResponse Int
-staStatusCode = lens _staStatusCode (\ s a -> s{_staStatusCode = a});
+staStatus :: Lens' StartInstancesResponse Int
+staStatus = lens _staStatus (\ s a -> s{_staStatus = a});

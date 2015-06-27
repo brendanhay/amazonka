@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketLifecycle
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,21 +32,26 @@ module Network.AWS.S3.DeleteBucketLifecycle
     , deleteBucketLifecycleResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'deleteBucketLifecycle' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dblBucket'
-newtype DeleteBucketLifecycle = DeleteBucketLifecycle'{_dblBucket :: BucketName} deriving (Eq, Read, Show)
+newtype DeleteBucketLifecycle = DeleteBucketLifecycle'
+    { _dblBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteBucketLifecycle' smart constructor.
 deleteBucketLifecycle :: BucketName -> DeleteBucketLifecycle
-deleteBucketLifecycle pBucket = DeleteBucketLifecycle'{_dblBucket = pBucket};
+deleteBucketLifecycle pBucket =
+    DeleteBucketLifecycle'
+    { _dblBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 dblBucket :: Lens' DeleteBucketLifecycle BucketName
@@ -70,8 +75,10 @@ instance ToQuery DeleteBucketLifecycle where
         toQuery = const (mconcat ["lifecycle"])
 
 -- | /See:/ 'deleteBucketLifecycleResponse' smart constructor.
-data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse' deriving (Eq, Read, Show)
+data DeleteBucketLifecycleResponse =
+    DeleteBucketLifecycleResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteBucketLifecycleResponse' smart constructor.
 deleteBucketLifecycleResponse :: DeleteBucketLifecycleResponse
-deleteBucketLifecycleResponse = DeleteBucketLifecycleResponse';
+deleteBucketLifecycleResponse = DeleteBucketLifecycleResponse'

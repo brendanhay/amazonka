@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.AttachUserPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.IAM.AttachUserPolicy
     , attachUserPolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachUserPolicy' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'aupUserName'
 --
 -- * 'aupPolicyARN'
-data AttachUserPolicy = AttachUserPolicy'{_aupUserName :: Text, _aupPolicyARN :: Text} deriving (Eq, Read, Show)
+data AttachUserPolicy = AttachUserPolicy'
+    { _aupUserName  :: Text
+    , _aupPolicyARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachUserPolicy' smart constructor.
 attachUserPolicy :: Text -> Text -> AttachUserPolicy
-attachUserPolicy pUserName pPolicyARN = AttachUserPolicy'{_aupUserName = pUserName, _aupPolicyARN = pPolicyARN};
+attachUserPolicy pUserName pPolicyARN =
+    AttachUserPolicy'
+    { _aupUserName = pUserName
+    , _aupPolicyARN = pPolicyARN
+    }
 
 -- | The name (friendly name, not ARN) of the user to attach the policy to.
 aupUserName :: Lens' AttachUserPolicy Text
@@ -87,8 +94,10 @@ instance ToQuery AttachUserPolicy where
                "PolicyArn" =: _aupPolicyARN]
 
 -- | /See:/ 'attachUserPolicyResponse' smart constructor.
-data AttachUserPolicyResponse = AttachUserPolicyResponse' deriving (Eq, Read, Show)
+data AttachUserPolicyResponse =
+    AttachUserPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AttachUserPolicyResponse' smart constructor.
 attachUserPolicyResponse :: AttachUserPolicyResponse
-attachUserPolicyResponse = AttachUserPolicyResponse';
+attachUserPolicyResponse = AttachUserPolicyResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Support.AddCommunicationToCase
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,13 +44,13 @@ module Network.AWS.Support.AddCommunicationToCase
     , addCommunicationToCaseResponse
     -- ** Response lenses
     , actcrResult
-    , actcrStatusCode
+    , actcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Support.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
 
 -- | To be written.
 --
@@ -65,11 +65,22 @@ import Network.AWS.Support.Types
 -- * 'actcAttachmentSetId'
 --
 -- * 'actcCommunicationBody'
-data AddCommunicationToCase = AddCommunicationToCase'{_actcCaseId :: Maybe Text, _actcCcEmailAddresses :: Maybe [Text], _actcAttachmentSetId :: Maybe Text, _actcCommunicationBody :: Text} deriving (Eq, Read, Show)
+data AddCommunicationToCase = AddCommunicationToCase'
+    { _actcCaseId            :: Maybe Text
+    , _actcCcEmailAddresses  :: Maybe [Text]
+    , _actcAttachmentSetId   :: Maybe Text
+    , _actcCommunicationBody :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AddCommunicationToCase' smart constructor.
 addCommunicationToCase :: Text -> AddCommunicationToCase
-addCommunicationToCase pCommunicationBody = AddCommunicationToCase'{_actcCaseId = Nothing, _actcCcEmailAddresses = Nothing, _actcAttachmentSetId = Nothing, _actcCommunicationBody = pCommunicationBody};
+addCommunicationToCase pCommunicationBody =
+    AddCommunicationToCase'
+    { _actcCaseId = Nothing
+    , _actcCcEmailAddresses = Nothing
+    , _actcAttachmentSetId = Nothing
+    , _actcCommunicationBody = pCommunicationBody
+    }
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
@@ -134,17 +145,24 @@ instance ToQuery AddCommunicationToCase where
 --
 -- * 'actcrResult'
 --
--- * 'actcrStatusCode'
-data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'{_actcrResult :: Maybe Bool, _actcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'actcrStatus'
+data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
+    { _actcrResult :: Maybe Bool
+    , _actcrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AddCommunicationToCaseResponse' smart constructor.
 addCommunicationToCaseResponse :: Int -> AddCommunicationToCaseResponse
-addCommunicationToCaseResponse pStatusCode = AddCommunicationToCaseResponse'{_actcrResult = Nothing, _actcrStatusCode = pStatusCode};
+addCommunicationToCaseResponse pStatus =
+    AddCommunicationToCaseResponse'
+    { _actcrResult = Nothing
+    , _actcrStatus = pStatus
+    }
 
 -- | True if AddCommunicationToCase succeeds. Otherwise, returns an error.
 actcrResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
 actcrResult = lens _actcrResult (\ s a -> s{_actcrResult = a});
 
 -- | FIXME: Undocumented member.
-actcrStatusCode :: Lens' AddCommunicationToCaseResponse Int
-actcrStatusCode = lens _actcrStatusCode (\ s a -> s{_actcrStatusCode = a});
+actcrStatus :: Lens' AddCommunicationToCaseResponse Int
+actcrStatus = lens _actcrStatus (\ s a -> s{_actcrStatus = a});

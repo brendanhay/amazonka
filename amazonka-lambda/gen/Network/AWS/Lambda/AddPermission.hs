@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Lambda.AddPermission
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,13 +48,13 @@ module Network.AWS.Lambda.AddPermission
     , addPermissionResponse
     -- ** Response lenses
     , aprStatement
-    , aprStatusCode
+    , aprStatus
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'addPermission' smart constructor.
 --
@@ -71,11 +71,26 @@ import Network.AWS.Response
 -- * 'apAction'
 --
 -- * 'apPrincipal'
-data AddPermission = AddPermission'{_apSourceAccount :: Maybe Text, _apSourceARN :: Maybe Text, _apFunctionName :: Text, _apStatementId :: Text, _apAction :: Text, _apPrincipal :: Text} deriving (Eq, Read, Show)
+data AddPermission = AddPermission'
+    { _apSourceAccount :: Maybe Text
+    , _apSourceARN     :: Maybe Text
+    , _apFunctionName  :: Text
+    , _apStatementId   :: Text
+    , _apAction        :: Text
+    , _apPrincipal     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AddPermission' smart constructor.
 addPermission :: Text -> Text -> Text -> Text -> AddPermission
-addPermission pFunctionName pStatementId pAction pPrincipal = AddPermission'{_apSourceAccount = Nothing, _apSourceARN = Nothing, _apFunctionName = pFunctionName, _apStatementId = pStatementId, _apAction = pAction, _apPrincipal = pPrincipal};
+addPermission pFunctionName pStatementId pAction pPrincipal =
+    AddPermission'
+    { _apSourceAccount = Nothing
+    , _apSourceARN = Nothing
+    , _apFunctionName = pFunctionName
+    , _apStatementId = pStatementId
+    , _apAction = pAction
+    , _apPrincipal = pPrincipal
+    }
 
 -- | The AWS account ID (without a hyphen) of the source owner. If the
 -- @SourceArn@ identifies a bucket, then this is the bucket owner\'s
@@ -169,12 +184,19 @@ instance ToQuery AddPermission where
 --
 -- * 'aprStatement'
 --
--- * 'aprStatusCode'
-data AddPermissionResponse = AddPermissionResponse'{_aprStatement :: Maybe Text, _aprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'aprStatus'
+data AddPermissionResponse = AddPermissionResponse'
+    { _aprStatement :: Maybe Text
+    , _aprStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AddPermissionResponse' smart constructor.
 addPermissionResponse :: Int -> AddPermissionResponse
-addPermissionResponse pStatusCode = AddPermissionResponse'{_aprStatement = Nothing, _aprStatusCode = pStatusCode};
+addPermissionResponse pStatus =
+    AddPermissionResponse'
+    { _aprStatement = Nothing
+    , _aprStatus = pStatus
+    }
 
 -- | The permission statement you specified in the request. The response
 -- returns the same as a string using \"\\\" as an escape character in the
@@ -183,5 +205,5 @@ aprStatement :: Lens' AddPermissionResponse (Maybe Text)
 aprStatement = lens _aprStatement (\ s a -> s{_aprStatement = a});
 
 -- | FIXME: Undocumented member.
-aprStatusCode :: Lens' AddPermissionResponse Int
-aprStatusCode = lens _aprStatusCode (\ s a -> s{_aprStatusCode = a});
+aprStatus :: Lens' AddPermissionResponse Int
+aprStatus = lens _aprStatus (\ s a -> s{_aprStatus = a});

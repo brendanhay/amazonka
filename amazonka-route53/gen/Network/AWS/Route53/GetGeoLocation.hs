@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.GetGeoLocation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.Route53.GetGeoLocation
     , getGeoLocationResponse
     -- ** Response lenses
     , gglrGeoLocationDetails
-    , gglrStatusCode
+    , gglrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | A complex type that contains information about the request to get a geo
 -- location.
@@ -56,11 +56,20 @@ import Network.AWS.Route53.Types
 -- * 'gglCountryCode'
 --
 -- * 'gglContinentCode'
-data GetGeoLocation = GetGeoLocation'{_gglSubdivisionCode :: Maybe Text, _gglCountryCode :: Maybe Text, _gglContinentCode :: Maybe Text} deriving (Eq, Read, Show)
+data GetGeoLocation = GetGeoLocation'
+    { _gglSubdivisionCode :: Maybe Text
+    , _gglCountryCode     :: Maybe Text
+    , _gglContinentCode   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetGeoLocation' smart constructor.
 getGeoLocation :: GetGeoLocation
-getGeoLocation = GetGeoLocation'{_gglSubdivisionCode = Nothing, _gglCountryCode = Nothing, _gglContinentCode = Nothing};
+getGeoLocation =
+    GetGeoLocation'
+    { _gglSubdivisionCode = Nothing
+    , _gglCountryCode = Nothing
+    , _gglContinentCode = Nothing
+    }
 
 -- | The code for a country\'s subdivision (e.g., a province of Canada). A
 -- subdivision code is only valid with the appropriate country code.
@@ -120,12 +129,19 @@ instance ToQuery GetGeoLocation where
 --
 -- * 'gglrGeoLocationDetails'
 --
--- * 'gglrStatusCode'
-data GetGeoLocationResponse = GetGeoLocationResponse'{_gglrGeoLocationDetails :: GeoLocationDetails, _gglrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gglrStatus'
+data GetGeoLocationResponse = GetGeoLocationResponse'
+    { _gglrGeoLocationDetails :: GeoLocationDetails
+    , _gglrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetGeoLocationResponse' smart constructor.
 getGeoLocationResponse :: GeoLocationDetails -> Int -> GetGeoLocationResponse
-getGeoLocationResponse pGeoLocationDetails pStatusCode = GetGeoLocationResponse'{_gglrGeoLocationDetails = pGeoLocationDetails, _gglrStatusCode = pStatusCode};
+getGeoLocationResponse pGeoLocationDetails pStatus =
+    GetGeoLocationResponse'
+    { _gglrGeoLocationDetails = pGeoLocationDetails
+    , _gglrStatus = pStatus
+    }
 
 -- | A complex type that contains the information about the specified geo
 -- location.
@@ -133,5 +149,5 @@ gglrGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
 gglrGeoLocationDetails = lens _gglrGeoLocationDetails (\ s a -> s{_gglrGeoLocationDetails = a});
 
 -- | FIXME: Undocumented member.
-gglrStatusCode :: Lens' GetGeoLocationResponse Int
-gglrStatusCode = lens _gglrStatusCode (\ s a -> s{_gglrStatusCode = a});
+gglrStatus :: Lens' GetGeoLocationResponse Int
+gglrStatus = lens _gglrStatus (\ s a -> s{_gglrStatus = a});

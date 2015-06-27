@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteSnapshotSchedule
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,24 +42,29 @@ module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     , deleteSnapshotScheduleResponse
     -- ** Response lenses
     , dssr1VolumeARN
-    , dssr1StatusCode
+    , dssr1Status
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'deleteSnapshotSchedule' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delVolumeARN'
-newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule'{_delVolumeARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule'
+    { _delVolumeARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteSnapshotSchedule' smart constructor.
 deleteSnapshotSchedule :: Text -> DeleteSnapshotSchedule
-deleteSnapshotSchedule pVolumeARN = DeleteSnapshotSchedule'{_delVolumeARN = pVolumeARN};
+deleteSnapshotSchedule pVolumeARN =
+    DeleteSnapshotSchedule'
+    { _delVolumeARN = pVolumeARN
+    }
 
 -- | FIXME: Undocumented member.
 delVolumeARN :: Lens' DeleteSnapshotSchedule Text
@@ -102,17 +107,24 @@ instance ToQuery DeleteSnapshotSchedule where
 --
 -- * 'dssr1VolumeARN'
 --
--- * 'dssr1StatusCode'
-data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'{_dssr1VolumeARN :: Maybe Text, _dssr1StatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dssr1Status'
+data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
+    { _dssr1VolumeARN :: Maybe Text
+    , _dssr1Status    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteSnapshotScheduleResponse' smart constructor.
 deleteSnapshotScheduleResponse :: Int -> DeleteSnapshotScheduleResponse
-deleteSnapshotScheduleResponse pStatusCode = DeleteSnapshotScheduleResponse'{_dssr1VolumeARN = Nothing, _dssr1StatusCode = pStatusCode};
+deleteSnapshotScheduleResponse pStatus =
+    DeleteSnapshotScheduleResponse'
+    { _dssr1VolumeARN = Nothing
+    , _dssr1Status = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dssr1VolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
 dssr1VolumeARN = lens _dssr1VolumeARN (\ s a -> s{_dssr1VolumeARN = a});
 
 -- | FIXME: Undocumented member.
-dssr1StatusCode :: Lens' DeleteSnapshotScheduleResponse Int
-dssr1StatusCode = lens _dssr1StatusCode (\ s a -> s{_dssr1StatusCode = a});
+dssr1Status :: Lens' DeleteSnapshotScheduleResponse Int
+dssr1Status = lens _dssr1Status (\ s a -> s{_dssr1Status = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.AllocatePublicVirtualInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -59,10 +59,10 @@ module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     , viVirtualInterfaceId
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the AllocatePublicVirtualInterface
 -- operation.
@@ -76,11 +76,20 @@ import Network.AWS.Response
 -- * 'allOwnerAccount'
 --
 -- * 'allNewPublicVirtualInterfaceAllocation'
-data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'{_allConnectionId :: Text, _allOwnerAccount :: Text, _allNewPublicVirtualInterfaceAllocation :: NewPublicVirtualInterfaceAllocation} deriving (Eq, Read, Show)
+data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
+    { _allConnectionId                        :: Text
+    , _allOwnerAccount                        :: Text
+    , _allNewPublicVirtualInterfaceAllocation :: NewPublicVirtualInterfaceAllocation
+    } deriving (Eq,Read,Show)
 
 -- | 'AllocatePublicVirtualInterface' smart constructor.
 allocatePublicVirtualInterface :: Text -> Text -> NewPublicVirtualInterfaceAllocation -> AllocatePublicVirtualInterface
-allocatePublicVirtualInterface pConnectionId pOwnerAccount pNewPublicVirtualInterfaceAllocation = AllocatePublicVirtualInterface'{_allConnectionId = pConnectionId, _allOwnerAccount = pOwnerAccount, _allNewPublicVirtualInterfaceAllocation = pNewPublicVirtualInterfaceAllocation};
+allocatePublicVirtualInterface pConnectionId pOwnerAccount pNewPublicVirtualInterfaceAllocation =
+    AllocatePublicVirtualInterface'
+    { _allConnectionId = pConnectionId
+    , _allOwnerAccount = pOwnerAccount
+    , _allNewPublicVirtualInterfaceAllocation = pNewPublicVirtualInterfaceAllocation
+    }
 
 -- | The connection ID on which the public virtual interface is provisioned.
 --

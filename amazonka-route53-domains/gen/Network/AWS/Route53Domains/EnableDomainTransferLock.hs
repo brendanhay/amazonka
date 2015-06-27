@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.EnableDomainTransferLock
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.Route53Domains.EnableDomainTransferLock
     , enableDomainTransferLockResponse
     -- ** Response lenses
     , edtlrOperationId
-    , edtlrStatusCode
+    , edtlrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | The EnableDomainTransferLock request includes the following element.
 --
@@ -51,11 +51,16 @@ import Network.AWS.Route53Domains.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'edtlDomainName'
-newtype EnableDomainTransferLock = EnableDomainTransferLock'{_edtlDomainName :: Text} deriving (Eq, Read, Show)
+newtype EnableDomainTransferLock = EnableDomainTransferLock'
+    { _edtlDomainName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableDomainTransferLock' smart constructor.
 enableDomainTransferLock :: Text -> EnableDomainTransferLock
-enableDomainTransferLock pDomainName = EnableDomainTransferLock'{_edtlDomainName = pDomainName};
+enableDomainTransferLock pDomainName =
+    EnableDomainTransferLock'
+    { _edtlDomainName = pDomainName
+    }
 
 -- | The name of a domain.
 --
@@ -110,12 +115,19 @@ instance ToQuery EnableDomainTransferLock where
 --
 -- * 'edtlrOperationId'
 --
--- * 'edtlrStatusCode'
-data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'{_edtlrOperationId :: Text, _edtlrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'edtlrStatus'
+data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'
+    { _edtlrOperationId :: Text
+    , _edtlrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableDomainTransferLockResponse' smart constructor.
 enableDomainTransferLockResponse :: Text -> Int -> EnableDomainTransferLockResponse
-enableDomainTransferLockResponse pOperationId pStatusCode = EnableDomainTransferLockResponse'{_edtlrOperationId = pOperationId, _edtlrStatusCode = pStatusCode};
+enableDomainTransferLockResponse pOperationId pStatus =
+    EnableDomainTransferLockResponse'
+    { _edtlrOperationId = pOperationId
+    , _edtlrStatus = pStatus
+    }
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -129,5 +141,5 @@ edtlrOperationId :: Lens' EnableDomainTransferLockResponse Text
 edtlrOperationId = lens _edtlrOperationId (\ s a -> s{_edtlrOperationId = a});
 
 -- | FIXME: Undocumented member.
-edtlrStatusCode :: Lens' EnableDomainTransferLockResponse Int
-edtlrStatusCode = lens _edtlrStatusCode (\ s a -> s{_edtlrStatusCode = a});
+edtlrStatus :: Lens' EnableDomainTransferLockResponse Int
+edtlrStatus = lens _edtlrStatus (\ s a -> s{_edtlrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.CreateDBSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     , createDBSubnetGroupResponse
     -- ** Response lenses
     , cdsgrDBSubnetGroup
-    , cdsgrStatusCode
+    , cdsgrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -57,11 +57,22 @@ import Network.AWS.Response
 -- * 'cdbsgDBSubnetGroupDescription'
 --
 -- * 'cdbsgSubnetIds'
-data CreateDBSubnetGroup = CreateDBSubnetGroup'{_cdbsgTags :: Maybe [Tag], _cdbsgDBSubnetGroupName :: Text, _cdbsgDBSubnetGroupDescription :: Text, _cdbsgSubnetIds :: [Text]} deriving (Eq, Read, Show)
+data CreateDBSubnetGroup = CreateDBSubnetGroup'
+    { _cdbsgTags                     :: Maybe [Tag]
+    , _cdbsgDBSubnetGroupName        :: Text
+    , _cdbsgDBSubnetGroupDescription :: Text
+    , _cdbsgSubnetIds                :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDBSubnetGroup' smart constructor.
 createDBSubnetGroup :: Text -> Text -> CreateDBSubnetGroup
-createDBSubnetGroup pDBSubnetGroupName pDBSubnetGroupDescription = CreateDBSubnetGroup'{_cdbsgTags = Nothing, _cdbsgDBSubnetGroupName = pDBSubnetGroupName, _cdbsgDBSubnetGroupDescription = pDBSubnetGroupDescription, _cdbsgSubnetIds = mempty};
+createDBSubnetGroup pDBSubnetGroupName pDBSubnetGroupDescription =
+    CreateDBSubnetGroup'
+    { _cdbsgTags = Nothing
+    , _cdbsgDBSubnetGroupName = pDBSubnetGroupName
+    , _cdbsgDBSubnetGroupDescription = pDBSubnetGroupDescription
+    , _cdbsgSubnetIds = mempty
+    }
 
 -- | FIXME: Undocumented member.
 cdbsgTags :: Lens' CreateDBSubnetGroup [Tag]
@@ -120,17 +131,24 @@ instance ToQuery CreateDBSubnetGroup where
 --
 -- * 'cdsgrDBSubnetGroup'
 --
--- * 'cdsgrStatusCode'
-data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'{_cdsgrDBSubnetGroup :: Maybe DBSubnetGroup, _cdsgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdsgrStatus'
+data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'
+    { _cdsgrDBSubnetGroup :: Maybe DBSubnetGroup
+    , _cdsgrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDBSubnetGroupResponse' smart constructor.
 createDBSubnetGroupResponse :: Int -> CreateDBSubnetGroupResponse
-createDBSubnetGroupResponse pStatusCode = CreateDBSubnetGroupResponse'{_cdsgrDBSubnetGroup = Nothing, _cdsgrStatusCode = pStatusCode};
+createDBSubnetGroupResponse pStatus =
+    CreateDBSubnetGroupResponse'
+    { _cdsgrDBSubnetGroup = Nothing
+    , _cdsgrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 cdsgrDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
 cdsgrDBSubnetGroup = lens _cdsgrDBSubnetGroup (\ s a -> s{_cdsgrDBSubnetGroup = a});
 
 -- | FIXME: Undocumented member.
-cdsgrStatusCode :: Lens' CreateDBSubnetGroupResponse Int
-cdsgrStatusCode = lens _cdsgrStatusCode (\ s a -> s{_cdsgrStatusCode = a});
+cdsgrStatus :: Lens' CreateDBSubnetGroupResponse Int
+cdsgrStatus = lens _cdsgrStatus (\ s a -> s{_cdsgrStatus = a});

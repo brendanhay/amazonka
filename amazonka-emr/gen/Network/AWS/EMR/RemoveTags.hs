@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.RemoveTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.EMR.RemoveTags
     -- ** Response constructor
     , removeTagsResponse
     -- ** Response lenses
-    , rtrStatusCode
+    , rtrStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This input identifies a cluster and a list of tags to remove.
 --
@@ -55,11 +55,18 @@ import Network.AWS.Response
 -- * 'rtResourceId'
 --
 -- * 'rtTagKeys'
-data RemoveTags = RemoveTags'{_rtResourceId :: Text, _rtTagKeys :: [Text]} deriving (Eq, Read, Show)
+data RemoveTags = RemoveTags'
+    { _rtResourceId :: Text
+    , _rtTagKeys    :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveTags' smart constructor.
 removeTags :: Text -> RemoveTags
-removeTags pResourceId = RemoveTags'{_rtResourceId = pResourceId, _rtTagKeys = mempty};
+removeTags pResourceId =
+    RemoveTags'
+    { _rtResourceId = pResourceId
+    , _rtTagKeys = mempty
+    }
 
 -- | The Amazon EMR resource identifier from which tags will be removed. This
 -- value must be a cluster identifier.
@@ -106,13 +113,18 @@ instance ToQuery RemoveTags where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrStatusCode'
-newtype RemoveTagsResponse = RemoveTagsResponse'{_rtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rtrStatus'
+newtype RemoveTagsResponse = RemoveTagsResponse'
+    { _rtrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveTagsResponse' smart constructor.
 removeTagsResponse :: Int -> RemoveTagsResponse
-removeTagsResponse pStatusCode = RemoveTagsResponse'{_rtrStatusCode = pStatusCode};
+removeTagsResponse pStatus =
+    RemoveTagsResponse'
+    { _rtrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-rtrStatusCode :: Lens' RemoveTagsResponse Int
-rtrStatusCode = lens _rtrStatusCode (\ s a -> s{_rtrStatusCode = a});
+rtrStatus :: Lens' RemoveTagsResponse Int
+rtrStatus = lens _rtrStatus (\ s a -> s{_rtrStatus = a});

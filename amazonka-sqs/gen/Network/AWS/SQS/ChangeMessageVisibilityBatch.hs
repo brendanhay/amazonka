@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.ChangeMessageVisibilityBatch
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,13 +50,13 @@ module Network.AWS.SQS.ChangeMessageVisibilityBatch
     -- ** Response lenses
     , cmvbrSuccessful
     , cmvbrFailed
-    , cmvbrStatusCode
+    , cmvbrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'changeMessageVisibilityBatch' smart constructor.
 --
@@ -65,11 +65,18 @@ import Network.AWS.SQS.Types
 -- * 'cmvbQueueURL'
 --
 -- * 'cmvbEntries'
-data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'{_cmvbQueueURL :: Text, _cmvbEntries :: [ChangeMessageVisibilityBatchRequestEntry]} deriving (Eq, Read, Show)
+data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'
+    { _cmvbQueueURL :: Text
+    , _cmvbEntries  :: [ChangeMessageVisibilityBatchRequestEntry]
+    } deriving (Eq,Read,Show)
 
 -- | 'ChangeMessageVisibilityBatch' smart constructor.
 changeMessageVisibilityBatch :: Text -> ChangeMessageVisibilityBatch
-changeMessageVisibilityBatch pQueueURL = ChangeMessageVisibilityBatch'{_cmvbQueueURL = pQueueURL, _cmvbEntries = mempty};
+changeMessageVisibilityBatch pQueueURL =
+    ChangeMessageVisibilityBatch'
+    { _cmvbQueueURL = pQueueURL
+    , _cmvbEntries = mempty
+    }
 
 -- | The URL of the Amazon SQS queue to take action on.
 cmvbQueueURL :: Lens' ChangeMessageVisibilityBatch Text
@@ -126,12 +133,21 @@ instance ToQuery ChangeMessageVisibilityBatch where
 --
 -- * 'cmvbrFailed'
 --
--- * 'cmvbrStatusCode'
-data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'{_cmvbrSuccessful :: [ChangeMessageVisibilityBatchResultEntry], _cmvbrFailed :: [BatchResultErrorEntry], _cmvbrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cmvbrStatus'
+data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'
+    { _cmvbrSuccessful :: [ChangeMessageVisibilityBatchResultEntry]
+    , _cmvbrFailed     :: [BatchResultErrorEntry]
+    , _cmvbrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ChangeMessageVisibilityBatchResponse' smart constructor.
 changeMessageVisibilityBatchResponse :: Int -> ChangeMessageVisibilityBatchResponse
-changeMessageVisibilityBatchResponse pStatusCode = ChangeMessageVisibilityBatchResponse'{_cmvbrSuccessful = mempty, _cmvbrFailed = mempty, _cmvbrStatusCode = pStatusCode};
+changeMessageVisibilityBatchResponse pStatus =
+    ChangeMessageVisibilityBatchResponse'
+    { _cmvbrSuccessful = mempty
+    , _cmvbrFailed = mempty
+    , _cmvbrStatus = pStatus
+    }
 
 -- | A list of ChangeMessageVisibilityBatchResultEntry items.
 cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
@@ -142,5 +158,5 @@ cmvbrFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry
 cmvbrFailed = lens _cmvbrFailed (\ s a -> s{_cmvbrFailed = a});
 
 -- | FIXME: Undocumented member.
-cmvbrStatusCode :: Lens' ChangeMessageVisibilityBatchResponse Int
-cmvbrStatusCode = lens _cmvbrStatusCode (\ s a -> s{_cmvbrStatusCode = a});
+cmvbrStatus :: Lens' ChangeMessageVisibilityBatchResponse Int
+cmvbrStatus = lens _cmvbrStatus (\ s a -> s{_cmvbrStatus = a});

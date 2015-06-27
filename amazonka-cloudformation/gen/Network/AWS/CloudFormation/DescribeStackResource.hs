@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.DescribeStackResource
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.CloudFormation.DescribeStackResource
     , describeStackResourceResponse
     -- ** Response lenses
     , dsrrStackResourceDetail
-    , dsrrStatusCode
+    , dsrrStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for DescribeStackResource action.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'dStackName'
 --
 -- * 'dLogicalResourceId'
-data DescribeStackResource = DescribeStackResource'{_dStackName :: Text, _dLogicalResourceId :: Text} deriving (Eq, Read, Show)
+data DescribeStackResource = DescribeStackResource'
+    { _dStackName         :: Text
+    , _dLogicalResourceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackResource' smart constructor.
 describeStackResource :: Text -> Text -> DescribeStackResource
-describeStackResource pStackName pLogicalResourceId = DescribeStackResource'{_dStackName = pStackName, _dLogicalResourceId = pLogicalResourceId};
+describeStackResource pStackName pLogicalResourceId =
+    DescribeStackResource'
+    { _dStackName = pStackName
+    , _dLogicalResourceId = pLogicalResourceId
+    }
 
 -- | The name or the unique stack ID that is associated with the stack, which
 -- are not always interchangeable:
@@ -110,12 +117,19 @@ instance ToQuery DescribeStackResource where
 --
 -- * 'dsrrStackResourceDetail'
 --
--- * 'dsrrStatusCode'
-data DescribeStackResourceResponse = DescribeStackResourceResponse'{_dsrrStackResourceDetail :: Maybe StackResourceDetail, _dsrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsrrStatus'
+data DescribeStackResourceResponse = DescribeStackResourceResponse'
+    { _dsrrStackResourceDetail :: Maybe StackResourceDetail
+    , _dsrrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackResourceResponse' smart constructor.
 describeStackResourceResponse :: Int -> DescribeStackResourceResponse
-describeStackResourceResponse pStatusCode = DescribeStackResourceResponse'{_dsrrStackResourceDetail = Nothing, _dsrrStatusCode = pStatusCode};
+describeStackResourceResponse pStatus =
+    DescribeStackResourceResponse'
+    { _dsrrStackResourceDetail = Nothing
+    , _dsrrStatus = pStatus
+    }
 
 -- | A @StackResourceDetail@ structure containing the description of the
 -- specified resource in the specified stack.
@@ -123,5 +137,5 @@ dsrrStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResou
 dsrrStackResourceDetail = lens _dsrrStackResourceDetail (\ s a -> s{_dsrrStackResourceDetail = a});
 
 -- | FIXME: Undocumented member.
-dsrrStatusCode :: Lens' DescribeStackResourceResponse Int
-dsrrStatusCode = lens _dsrrStatusCode (\ s a -> s{_dsrrStatusCode = a});
+dsrrStatus :: Lens' DescribeStackResourceResponse Int
+dsrrStatus = lens _dsrrStatus (\ s a -> s{_dsrrStatus = a});

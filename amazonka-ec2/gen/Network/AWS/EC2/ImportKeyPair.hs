@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ImportKeyPair
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.EC2.ImportKeyPair
     -- ** Response lenses
     , ikprKeyFingerprint
     , ikprKeyName
-    , ikprStatusCode
+    , ikprStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'importKeyPair' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'ikpKeyName'
 --
 -- * 'ikpPublicKeyMaterial'
-data ImportKeyPair = ImportKeyPair'{_ikpDryRun :: Maybe Bool, _ikpKeyName :: Text, _ikpPublicKeyMaterial :: Base64} deriving (Eq, Read, Show)
+data ImportKeyPair = ImportKeyPair'
+    { _ikpDryRun            :: Maybe Bool
+    , _ikpKeyName           :: Text
+    , _ikpPublicKeyMaterial :: Base64
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportKeyPair' smart constructor.
 importKeyPair :: Text -> Base64 -> ImportKeyPair
-importKeyPair pKeyName pPublicKeyMaterial = ImportKeyPair'{_ikpDryRun = Nothing, _ikpKeyName = pKeyName, _ikpPublicKeyMaterial = pPublicKeyMaterial};
+importKeyPair pKeyName pPublicKeyMaterial =
+    ImportKeyPair'
+    { _ikpDryRun = Nothing
+    , _ikpKeyName = pKeyName
+    , _ikpPublicKeyMaterial = pPublicKeyMaterial
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -115,12 +124,21 @@ instance ToQuery ImportKeyPair where
 --
 -- * 'ikprKeyName'
 --
--- * 'ikprStatusCode'
-data ImportKeyPairResponse = ImportKeyPairResponse'{_ikprKeyFingerprint :: Maybe Text, _ikprKeyName :: Maybe Text, _ikprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ikprStatus'
+data ImportKeyPairResponse = ImportKeyPairResponse'
+    { _ikprKeyFingerprint :: Maybe Text
+    , _ikprKeyName        :: Maybe Text
+    , _ikprStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportKeyPairResponse' smart constructor.
 importKeyPairResponse :: Int -> ImportKeyPairResponse
-importKeyPairResponse pStatusCode = ImportKeyPairResponse'{_ikprKeyFingerprint = Nothing, _ikprKeyName = Nothing, _ikprStatusCode = pStatusCode};
+importKeyPairResponse pStatus =
+    ImportKeyPairResponse'
+    { _ikprKeyFingerprint = Nothing
+    , _ikprKeyName = Nothing
+    , _ikprStatus = pStatus
+    }
 
 -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 ikprKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
@@ -131,5 +149,5 @@ ikprKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
 ikprKeyName = lens _ikprKeyName (\ s a -> s{_ikprKeyName = a});
 
 -- | FIXME: Undocumented member.
-ikprStatusCode :: Lens' ImportKeyPairResponse Int
-ikprStatusCode = lens _ikprStatusCode (\ s a -> s{_ikprStatusCode = a});
+ikprStatus :: Lens' ImportKeyPairResponse Int
+ikprStatus = lens _ikprStatus (\ s a -> s{_ikprStatus = a});

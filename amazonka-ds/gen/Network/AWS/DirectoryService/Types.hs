@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.DirectoryService.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -164,94 +163,110 @@ module Network.AWS.DirectoryService.Types
     , slManualSnapshotsLimit
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2015-04-16@ of the Amazon Directory Service SDK.
 data DirectoryService
 
 instance AWSService DirectoryService where
     type Sg DirectoryService = V4
-
     service = const svc
       where
-        svc :: Service DirectoryService
-        svc = Service
-            { _svcAbbrev   = "DirectoryService"
-            , _svcPrefix   = "ds"
-            , _svcVersion  = "2015-04-16"
+        svc =
+            Service
+            { _svcAbbrev = "DirectoryService"
+            , _svcPrefix = "ds"
+            , _svcVersion = "2015-04-16"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | An authentication error occurred.
-_AuthenticationFailedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_AuthenticationFailedException = _ServiceError . hasCode "AuthenticationFailedException";
+_AuthenticationFailedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_AuthenticationFailedException =
+    _ServiceError . hasCode "AuthenticationFailedException"
 
 -- | The specified directory is unavailable or could not be found.
-_DirectoryUnavailableException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DirectoryUnavailableException = _ServiceError . hasCode "DirectoryUnavailableException";
+_DirectoryUnavailableException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DirectoryUnavailableException =
+    _ServiceError . hasCode "DirectoryUnavailableException"
 
 -- | One or more parameters are not valid.
-_InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterException = _ServiceError . hasCode "InvalidParameterException";
+_InvalidParameterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterException =
+    _ServiceError . hasCode "InvalidParameterException"
 
 -- | The operation is not supported.
-_UnsupportedOperationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_UnsupportedOperationException = _ServiceError . hasCode "UnsupportedOperationException";
+_UnsupportedOperationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnsupportedOperationException =
+    _ServiceError . hasCode "UnsupportedOperationException"
 
 -- | The specified entity already exists.
-_EntityAlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_EntityAlreadyExistsException = _ServiceError . hasCode "EntityAlreadyExistsException";
+_EntityAlreadyExistsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_EntityAlreadyExistsException =
+    _ServiceError . hasCode "EntityAlreadyExistsException"
 
 -- | The maximum number of directories in the region has been reached. You
 -- can use the GetDirectoryLimits operation to determine your directory
 -- limits in the region.
-_DirectoryLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DirectoryLimitExceededException = _ServiceError . hasCode "DirectoryLimitExceededException";
+_DirectoryLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DirectoryLimitExceededException =
+    _ServiceError . hasCode "DirectoryLimitExceededException"
 
 -- | The specified entity could not be found.
-_EntityDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
-_EntityDoesNotExistException = _ServiceError . hasCode "EntityDoesNotExistException";
+_EntityDoesNotExistException :: AWSError a => Getting (First ServiceError) a ServiceError
+_EntityDoesNotExistException =
+    _ServiceError . hasCode "EntityDoesNotExistException"
 
 -- | The account does not have sufficient permission to perform the
 -- operation.
-_InsufficientPermissionsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InsufficientPermissionsException = _ServiceError . hasCode "InsufficientPermissionsException";
+_InsufficientPermissionsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientPermissionsException =
+    _ServiceError . hasCode "InsufficientPermissionsException"
 
 -- | The /NextToken/ value is not valid.
-_InvalidNextTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNextTokenException = _ServiceError . hasCode "InvalidNextTokenException";
+_InvalidNextTokenException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNextTokenException =
+    _ServiceError . hasCode "InvalidNextTokenException"
 
 -- | An exception has occurred in AWS Directory Service.
-_ServiceException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ServiceException = _ServiceError . hasCode "ServiceException";
+_ServiceException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ServiceException = _ServiceError . hasCode "ServiceException"
 
 -- | The maximum number of manual snapshots for the directory has been
 -- reached. You can use the GetSnapshotLimits operation to determine the
 -- snapshot limits for a directory.
-_SnapshotLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_SnapshotLimitExceededException = _ServiceError . hasCode "SnapshotLimitExceededException";
+_SnapshotLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotLimitExceededException =
+    _ServiceError . hasCode "SnapshotLimitExceededException"
 
 -- | A client exception has occurred.
-_ClientException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClientException = _ServiceError . hasCode "ClientException";
+_ClientException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClientException = _ServiceError . hasCode "ClientException"
 
-data DirectorySize = Small | Large deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DirectorySize
+    = Small
+    | Large
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DirectorySize where
     parser = takeLowerText >>= \case
@@ -274,7 +289,19 @@ instance ToJSON DirectorySize where
 instance FromJSON DirectorySize where
     parseJSON = parseJSONText "DirectorySize"
 
-data DirectoryStage = DSRestoreFailed | DSDeleted | DSRestoring | DSImpaired | DSDeleting | DSFailed | DSRequested | DSCreated | DSInoperable | DSActive | DSCreating deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DirectoryStage
+    = DSRestoreFailed
+    | DSDeleted
+    | DSRestoring
+    | DSImpaired
+    | DSDeleting
+    | DSFailed
+    | DSRequested
+    | DSCreated
+    | DSInoperable
+    | DSActive
+    | DSCreating
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DirectoryStage where
     parser = takeLowerText >>= \case
@@ -312,7 +339,10 @@ instance ToHeader DirectoryStage
 instance FromJSON DirectoryStage where
     parseJSON = parseJSONText "DirectoryStage"
 
-data DirectoryType = ADConnector | SimpleAD deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DirectoryType
+    = ADConnector
+    | SimpleAD
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DirectoryType where
     parser = takeLowerText >>= \case
@@ -332,7 +362,12 @@ instance ToHeader DirectoryType
 instance FromJSON DirectoryType where
     parseJSON = parseJSONText "DirectoryType"
 
-data RadiusAuthenticationProtocol = Chap | MSCHAPV1 | MSCHAPV2 | Pap deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RadiusAuthenticationProtocol
+    = Chap
+    | MSCHAPV1
+    | MSCHAPV2
+    | Pap
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText RadiusAuthenticationProtocol where
     parser = takeLowerText >>= \case
@@ -359,7 +394,11 @@ instance ToJSON RadiusAuthenticationProtocol where
 instance FromJSON RadiusAuthenticationProtocol where
     parseJSON = parseJSONText "RadiusAuthenticationProtocol"
 
-data RadiusStatus = Creating | Completed | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RadiusStatus
+    = Creating
+    | Completed
+    | Failed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText RadiusStatus where
     parser = takeLowerText >>= \case
@@ -381,7 +420,11 @@ instance ToHeader RadiusStatus
 instance FromJSON RadiusStatus where
     parseJSON = parseJSONText "RadiusStatus"
 
-data SnapshotStatus = SSCompleted | SSFailed | SSCreating deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SnapshotStatus
+    = SSCompleted
+    | SSFailed
+    | SSCreating
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SnapshotStatus where
     parser = takeLowerText >>= \case
@@ -403,7 +446,10 @@ instance ToHeader SnapshotStatus
 instance FromJSON SnapshotStatus where
     parseJSON = parseJSONText "SnapshotStatus"
 
-data SnapshotType = Auto | Manual deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SnapshotType
+    = Auto
+    | Manual
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SnapshotType where
     parser = takeLowerText >>= \case
@@ -432,11 +478,18 @@ instance FromJSON SnapshotType where
 -- * 'attValue'
 --
 -- * 'attName'
-data Attribute = Attribute'{_attValue :: Maybe Text, _attName :: Maybe Text} deriving (Eq, Read, Show)
+data Attribute = Attribute'
+    { _attValue :: Maybe Text
+    , _attName  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Attribute' smart constructor.
 attribute :: Attribute
-attribute = Attribute'{_attValue = Nothing, _attName = Nothing};
+attribute =
+    Attribute'
+    { _attValue = Nothing
+    , _attName = Nothing
+    }
 
 -- | The value of the attribute.
 attValue :: Lens' Attribute (Maybe Text)
@@ -467,11 +520,20 @@ instance ToJSON Attribute where
 -- * 'comComputerAttributes'
 --
 -- * 'comComputerName'
-data Computer = Computer'{_comComputerId :: Maybe Text, _comComputerAttributes :: Maybe [Attribute], _comComputerName :: Maybe Text} deriving (Eq, Read, Show)
+data Computer = Computer'
+    { _comComputerId         :: Maybe Text
+    , _comComputerAttributes :: Maybe [Attribute]
+    , _comComputerName       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Computer' smart constructor.
 computer :: Computer
-computer = Computer'{_comComputerId = Nothing, _comComputerAttributes = Nothing, _comComputerName = Nothing};
+computer =
+    Computer'
+    { _comComputerId = Nothing
+    , _comComputerAttributes = Nothing
+    , _comComputerName = Nothing
+    }
 
 -- | The identifier of the computer.
 comComputerId :: Lens' Computer (Maybe Text)
@@ -509,11 +571,22 @@ instance FromJSON Computer where
 -- * 'dcsCustomerDNSIPs'
 --
 -- * 'dcsCustomerUserName'
-data DirectoryConnectSettings = DirectoryConnectSettings'{_dcsVPCId :: Text, _dcsSubnetIds :: [Text], _dcsCustomerDNSIPs :: [Text], _dcsCustomerUserName :: Text} deriving (Eq, Read, Show)
+data DirectoryConnectSettings = DirectoryConnectSettings'
+    { _dcsVPCId            :: Text
+    , _dcsSubnetIds        :: [Text]
+    , _dcsCustomerDNSIPs   :: [Text]
+    , _dcsCustomerUserName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DirectoryConnectSettings' smart constructor.
 directoryConnectSettings :: Text -> Text -> DirectoryConnectSettings
-directoryConnectSettings pVPCId pCustomerUserName = DirectoryConnectSettings'{_dcsVPCId = pVPCId, _dcsSubnetIds = mempty, _dcsCustomerDNSIPs = mempty, _dcsCustomerUserName = pCustomerUserName};
+directoryConnectSettings pVPCId pCustomerUserName =
+    DirectoryConnectSettings'
+    { _dcsVPCId = pVPCId
+    , _dcsSubnetIds = mempty
+    , _dcsCustomerDNSIPs = mempty
+    , _dcsCustomerUserName = pCustomerUserName
+    }
 
 -- | The identifier of the VPC that the AD Connector is created in.
 dcsVPCId :: Lens' DirectoryConnectSettings Text
@@ -563,11 +636,26 @@ instance ToJSON DirectoryConnectSettings where
 -- * 'dcsdSecurityGroupId'
 --
 -- * 'dcsdAvailabilityZones'
-data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'{_dcsdCustomerUserName :: Maybe Text, _dcsdSubnetIds :: Maybe [Text], _dcsdVPCId :: Maybe Text, _dcsdConnectIPs :: Maybe [Text], _dcsdSecurityGroupId :: Maybe Text, _dcsdAvailabilityZones :: Maybe [Text]} deriving (Eq, Read, Show)
+data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
+    { _dcsdCustomerUserName  :: Maybe Text
+    , _dcsdSubnetIds         :: Maybe [Text]
+    , _dcsdVPCId             :: Maybe Text
+    , _dcsdConnectIPs        :: Maybe [Text]
+    , _dcsdSecurityGroupId   :: Maybe Text
+    , _dcsdAvailabilityZones :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DirectoryConnectSettingsDescription' smart constructor.
 directoryConnectSettingsDescription :: DirectoryConnectSettingsDescription
-directoryConnectSettingsDescription = DirectoryConnectSettingsDescription'{_dcsdCustomerUserName = Nothing, _dcsdSubnetIds = Nothing, _dcsdVPCId = Nothing, _dcsdConnectIPs = Nothing, _dcsdSecurityGroupId = Nothing, _dcsdAvailabilityZones = Nothing};
+directoryConnectSettingsDescription =
+    DirectoryConnectSettingsDescription'
+    { _dcsdCustomerUserName = Nothing
+    , _dcsdSubnetIds = Nothing
+    , _dcsdVPCId = Nothing
+    , _dcsdConnectIPs = Nothing
+    , _dcsdSecurityGroupId = Nothing
+    , _dcsdAvailabilityZones = Nothing
+    }
 
 -- | The username of the service account in the on-premises directory.
 dcsdCustomerUserName :: Lens' DirectoryConnectSettingsDescription (Maybe Text)
@@ -647,11 +735,50 @@ instance FromJSON DirectoryConnectSettingsDescription
 -- * 'ddConnectSettings'
 --
 -- * 'ddDescription'
-data DirectoryDescription = DirectoryDescription'{_ddRadiusStatus :: Maybe RadiusStatus, _ddDirectoryId :: Maybe Text, _ddStage :: Maybe DirectoryStage, _ddAccessURL :: Maybe Text, _ddShortName :: Maybe Text, _ddSize :: Maybe DirectorySize, _ddRadiusSettings :: Maybe RadiusSettings, _ddLaunchTime :: Maybe POSIX, _ddAlias :: Maybe Text, _ddName :: Maybe Text, _ddSsoEnabled :: Maybe Bool, _ddStageLastUpdatedDateTime :: Maybe POSIX, _ddStageReason :: Maybe Text, _ddDNSIPAddrs :: Maybe [Text], _ddVPCSettings :: Maybe DirectoryVPCSettingsDescription, _ddType :: Maybe DirectoryType, _ddConnectSettings :: Maybe DirectoryConnectSettingsDescription, _ddDescription :: Maybe Text} deriving (Eq, Read, Show)
+data DirectoryDescription = DirectoryDescription'
+    { _ddRadiusStatus             :: Maybe RadiusStatus
+    , _ddDirectoryId              :: Maybe Text
+    , _ddStage                    :: Maybe DirectoryStage
+    , _ddAccessURL                :: Maybe Text
+    , _ddShortName                :: Maybe Text
+    , _ddSize                     :: Maybe DirectorySize
+    , _ddRadiusSettings           :: Maybe RadiusSettings
+    , _ddLaunchTime               :: Maybe POSIX
+    , _ddAlias                    :: Maybe Text
+    , _ddName                     :: Maybe Text
+    , _ddSsoEnabled               :: Maybe Bool
+    , _ddStageLastUpdatedDateTime :: Maybe POSIX
+    , _ddStageReason              :: Maybe Text
+    , _ddDNSIPAddrs               :: Maybe [Text]
+    , _ddVPCSettings              :: Maybe DirectoryVPCSettingsDescription
+    , _ddType                     :: Maybe DirectoryType
+    , _ddConnectSettings          :: Maybe DirectoryConnectSettingsDescription
+    , _ddDescription              :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DirectoryDescription' smart constructor.
 directoryDescription :: DirectoryDescription
-directoryDescription = DirectoryDescription'{_ddRadiusStatus = Nothing, _ddDirectoryId = Nothing, _ddStage = Nothing, _ddAccessURL = Nothing, _ddShortName = Nothing, _ddSize = Nothing, _ddRadiusSettings = Nothing, _ddLaunchTime = Nothing, _ddAlias = Nothing, _ddName = Nothing, _ddSsoEnabled = Nothing, _ddStageLastUpdatedDateTime = Nothing, _ddStageReason = Nothing, _ddDNSIPAddrs = Nothing, _ddVPCSettings = Nothing, _ddType = Nothing, _ddConnectSettings = Nothing, _ddDescription = Nothing};
+directoryDescription =
+    DirectoryDescription'
+    { _ddRadiusStatus = Nothing
+    , _ddDirectoryId = Nothing
+    , _ddStage = Nothing
+    , _ddAccessURL = Nothing
+    , _ddShortName = Nothing
+    , _ddSize = Nothing
+    , _ddRadiusSettings = Nothing
+    , _ddLaunchTime = Nothing
+    , _ddAlias = Nothing
+    , _ddName = Nothing
+    , _ddSsoEnabled = Nothing
+    , _ddStageLastUpdatedDateTime = Nothing
+    , _ddStageReason = Nothing
+    , _ddDNSIPAddrs = Nothing
+    , _ddVPCSettings = Nothing
+    , _ddType = Nothing
+    , _ddConnectSettings = Nothing
+    , _ddDescription = Nothing
+    }
 
 -- | The status of the RADIUS MFA server connection.
 ddRadiusStatus :: Lens' DirectoryDescription (Maybe RadiusStatus)
@@ -776,11 +903,26 @@ instance FromJSON DirectoryDescription where
 -- * 'dlCloudOnlyDirectoriesCurrentCount'
 --
 -- * 'dlCloudOnlyDirectoriesLimitReached'
-data DirectoryLimits = DirectoryLimits'{_dlConnectedDirectoriesCurrentCount :: Maybe Nat, _dlConnectedDirectoriesLimit :: Maybe Nat, _dlConnectedDirectoriesLimitReached :: Maybe Bool, _dlCloudOnlyDirectoriesLimit :: Maybe Nat, _dlCloudOnlyDirectoriesCurrentCount :: Maybe Nat, _dlCloudOnlyDirectoriesLimitReached :: Maybe Bool} deriving (Eq, Read, Show)
+data DirectoryLimits = DirectoryLimits'
+    { _dlConnectedDirectoriesCurrentCount :: Maybe Nat
+    , _dlConnectedDirectoriesLimit        :: Maybe Nat
+    , _dlConnectedDirectoriesLimitReached :: Maybe Bool
+    , _dlCloudOnlyDirectoriesLimit        :: Maybe Nat
+    , _dlCloudOnlyDirectoriesCurrentCount :: Maybe Nat
+    , _dlCloudOnlyDirectoriesLimitReached :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DirectoryLimits' smart constructor.
 directoryLimits :: DirectoryLimits
-directoryLimits = DirectoryLimits'{_dlConnectedDirectoriesCurrentCount = Nothing, _dlConnectedDirectoriesLimit = Nothing, _dlConnectedDirectoriesLimitReached = Nothing, _dlCloudOnlyDirectoriesLimit = Nothing, _dlCloudOnlyDirectoriesCurrentCount = Nothing, _dlCloudOnlyDirectoriesLimitReached = Nothing};
+directoryLimits =
+    DirectoryLimits'
+    { _dlConnectedDirectoriesCurrentCount = Nothing
+    , _dlConnectedDirectoriesLimit = Nothing
+    , _dlConnectedDirectoriesLimitReached = Nothing
+    , _dlCloudOnlyDirectoriesLimit = Nothing
+    , _dlCloudOnlyDirectoriesCurrentCount = Nothing
+    , _dlCloudOnlyDirectoriesLimitReached = Nothing
+    }
 
 -- | The current number of connected directories in the region.
 dlConnectedDirectoriesCurrentCount :: Lens' DirectoryLimits (Maybe Natural)
@@ -828,11 +970,18 @@ instance FromJSON DirectoryLimits where
 -- * 'dvsVPCId'
 --
 -- * 'dvsSubnetIds'
-data DirectoryVPCSettings = DirectoryVPCSettings'{_dvsVPCId :: Text, _dvsSubnetIds :: [Text]} deriving (Eq, Read, Show)
+data DirectoryVPCSettings = DirectoryVPCSettings'
+    { _dvsVPCId     :: Text
+    , _dvsSubnetIds :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DirectoryVPCSettings' smart constructor.
 directoryVPCSettings :: Text -> DirectoryVPCSettings
-directoryVPCSettings pVPCId = DirectoryVPCSettings'{_dvsVPCId = pVPCId, _dvsSubnetIds = mempty};
+directoryVPCSettings pVPCId =
+    DirectoryVPCSettings'
+    { _dvsVPCId = pVPCId
+    , _dvsSubnetIds = mempty
+    }
 
 -- | The identifier of the VPC to create the Simple AD directory in.
 dvsVPCId :: Lens' DirectoryVPCSettings Text
@@ -862,11 +1011,22 @@ instance ToJSON DirectoryVPCSettings where
 -- * 'dvsdSecurityGroupId'
 --
 -- * 'dvsdAvailabilityZones'
-data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'{_dvsdSubnetIds :: Maybe [Text], _dvsdVPCId :: Maybe Text, _dvsdSecurityGroupId :: Maybe Text, _dvsdAvailabilityZones :: Maybe [Text]} deriving (Eq, Read, Show)
+data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'
+    { _dvsdSubnetIds         :: Maybe [Text]
+    , _dvsdVPCId             :: Maybe Text
+    , _dvsdSecurityGroupId   :: Maybe Text
+    , _dvsdAvailabilityZones :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DirectoryVPCSettingsDescription' smart constructor.
 directoryVPCSettingsDescription :: DirectoryVPCSettingsDescription
-directoryVPCSettingsDescription = DirectoryVPCSettingsDescription'{_dvsdSubnetIds = Nothing, _dvsdVPCId = Nothing, _dvsdSecurityGroupId = Nothing, _dvsdAvailabilityZones = Nothing};
+directoryVPCSettingsDescription =
+    DirectoryVPCSettingsDescription'
+    { _dvsdSubnetIds = Nothing
+    , _dvsdVPCId = Nothing
+    , _dvsdSecurityGroupId = Nothing
+    , _dvsdAvailabilityZones = Nothing
+    }
 
 -- | The identifiers of the subnets for the directory servers.
 dvsdSubnetIds :: Lens' DirectoryVPCSettingsDescription [Text]
@@ -916,11 +1076,30 @@ instance FromJSON DirectoryVPCSettingsDescription
 -- * 'rsRadiusTimeout'
 --
 -- * 'rsRadiusPort'
-data RadiusSettings = RadiusSettings'{_rsDisplayLabel :: Maybe Text, _rsRadiusServers :: Maybe [Text], _rsRadiusRetries :: Maybe Nat, _rsAuthenticationProtocol :: Maybe RadiusAuthenticationProtocol, _rsUseSameUsername :: Maybe Bool, _rsSharedSecret :: Maybe (Sensitive Text), _rsRadiusTimeout :: Maybe Nat, _rsRadiusPort :: Maybe Nat} deriving (Eq, Read, Show)
+data RadiusSettings = RadiusSettings'
+    { _rsDisplayLabel           :: Maybe Text
+    , _rsRadiusServers          :: Maybe [Text]
+    , _rsRadiusRetries          :: Maybe Nat
+    , _rsAuthenticationProtocol :: Maybe RadiusAuthenticationProtocol
+    , _rsUseSameUsername        :: Maybe Bool
+    , _rsSharedSecret           :: Maybe (Sensitive Text)
+    , _rsRadiusTimeout          :: Maybe Nat
+    , _rsRadiusPort             :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'RadiusSettings' smart constructor.
 radiusSettings :: RadiusSettings
-radiusSettings = RadiusSettings'{_rsDisplayLabel = Nothing, _rsRadiusServers = Nothing, _rsRadiusRetries = Nothing, _rsAuthenticationProtocol = Nothing, _rsUseSameUsername = Nothing, _rsSharedSecret = Nothing, _rsRadiusTimeout = Nothing, _rsRadiusPort = Nothing};
+radiusSettings =
+    RadiusSettings'
+    { _rsDisplayLabel = Nothing
+    , _rsRadiusServers = Nothing
+    , _rsRadiusRetries = Nothing
+    , _rsAuthenticationProtocol = Nothing
+    , _rsUseSameUsername = Nothing
+    , _rsSharedSecret = Nothing
+    , _rsRadiusTimeout = Nothing
+    , _rsRadiusPort = Nothing
+    }
 
 -- | Not currently used.
 rsDisplayLabel :: Lens' RadiusSettings (Maybe Text)
@@ -1004,11 +1183,26 @@ instance ToJSON RadiusSettings where
 -- * 'snaType'
 --
 -- * 'snaSnapshotId'
-data Snapshot = Snapshot'{_snaDirectoryId :: Maybe Text, _snaStatus :: Maybe SnapshotStatus, _snaStartTime :: Maybe POSIX, _snaName :: Maybe Text, _snaType :: Maybe SnapshotType, _snaSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
+data Snapshot = Snapshot'
+    { _snaDirectoryId :: Maybe Text
+    , _snaStatus      :: Maybe SnapshotStatus
+    , _snaStartTime   :: Maybe POSIX
+    , _snaName        :: Maybe Text
+    , _snaType        :: Maybe SnapshotType
+    , _snaSnapshotId  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Snapshot
-snapshot = Snapshot'{_snaDirectoryId = Nothing, _snaStatus = Nothing, _snaStartTime = Nothing, _snaName = Nothing, _snaType = Nothing, _snaSnapshotId = Nothing};
+snapshot =
+    Snapshot'
+    { _snaDirectoryId = Nothing
+    , _snaStatus = Nothing
+    , _snaStartTime = Nothing
+    , _snaName = Nothing
+    , _snaType = Nothing
+    , _snaSnapshotId = Nothing
+    }
 
 -- | The directory identifier.
 snaDirectoryId :: Lens' Snapshot (Maybe Text)
@@ -1056,11 +1250,20 @@ instance FromJSON Snapshot where
 -- * 'slManualSnapshotsCurrentCount'
 --
 -- * 'slManualSnapshotsLimit'
-data SnapshotLimits = SnapshotLimits'{_slManualSnapshotsLimitReached :: Maybe Bool, _slManualSnapshotsCurrentCount :: Maybe Nat, _slManualSnapshotsLimit :: Maybe Nat} deriving (Eq, Read, Show)
+data SnapshotLimits = SnapshotLimits'
+    { _slManualSnapshotsLimitReached :: Maybe Bool
+    , _slManualSnapshotsCurrentCount :: Maybe Nat
+    , _slManualSnapshotsLimit        :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'SnapshotLimits' smart constructor.
 snapshotLimits :: SnapshotLimits
-snapshotLimits = SnapshotLimits'{_slManualSnapshotsLimitReached = Nothing, _slManualSnapshotsCurrentCount = Nothing, _slManualSnapshotsLimit = Nothing};
+snapshotLimits =
+    SnapshotLimits'
+    { _slManualSnapshotsLimitReached = Nothing
+    , _slManualSnapshotsCurrentCount = Nothing
+    , _slManualSnapshotsLimit = Nothing
+    }
 
 -- | Indicates if the manual snapshot limit has been reached.
 slManualSnapshotsLimitReached :: Lens' SnapshotLimits (Maybe Bool)

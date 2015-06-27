@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.PutScalingPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     , putScalingPolicyResponse
     -- ** Response lenses
     , psprPolicyARN
-    , psprStatusCode
+    , psprStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putScalingPolicy' smart constructor.
 --
@@ -63,11 +63,26 @@ import Network.AWS.Response
 -- * 'pspPolicyName'
 --
 -- * 'pspAdjustmentType'
-data PutScalingPolicy = PutScalingPolicy'{_pspMinAdjustmentStep :: Maybe Int, _pspScalingAdjustment :: Maybe Int, _pspCooldown :: Maybe Int, _pspAutoScalingGroupName :: Text, _pspPolicyName :: Text, _pspAdjustmentType :: Text} deriving (Eq, Read, Show)
+data PutScalingPolicy = PutScalingPolicy'
+    { _pspMinAdjustmentStep    :: Maybe Int
+    , _pspScalingAdjustment    :: Maybe Int
+    , _pspCooldown             :: Maybe Int
+    , _pspAutoScalingGroupName :: Text
+    , _pspPolicyName           :: Text
+    , _pspAdjustmentType       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PutScalingPolicy' smart constructor.
 putScalingPolicy :: Text -> Text -> Text -> PutScalingPolicy
-putScalingPolicy pAutoScalingGroupName pPolicyName pAdjustmentType = PutScalingPolicy'{_pspMinAdjustmentStep = Nothing, _pspScalingAdjustment = Nothing, _pspCooldown = Nothing, _pspAutoScalingGroupName = pAutoScalingGroupName, _pspPolicyName = pPolicyName, _pspAdjustmentType = pAdjustmentType};
+putScalingPolicy pAutoScalingGroupName pPolicyName pAdjustmentType =
+    PutScalingPolicy'
+    { _pspMinAdjustmentStep = Nothing
+    , _pspScalingAdjustment = Nothing
+    , _pspCooldown = Nothing
+    , _pspAutoScalingGroupName = pAutoScalingGroupName
+    , _pspPolicyName = pPolicyName
+    , _pspAdjustmentType = pAdjustmentType
+    }
 
 -- | Used with @AdjustmentType@ with the value @PercentChangeInCapacity@, the
 -- scaling policy changes the @DesiredCapacity@ of the Auto Scaling group
@@ -146,17 +161,24 @@ instance ToQuery PutScalingPolicy where
 --
 -- * 'psprPolicyARN'
 --
--- * 'psprStatusCode'
-data PutScalingPolicyResponse = PutScalingPolicyResponse'{_psprPolicyARN :: Maybe Text, _psprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'psprStatus'
+data PutScalingPolicyResponse = PutScalingPolicyResponse'
+    { _psprPolicyARN :: Maybe Text
+    , _psprStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PutScalingPolicyResponse' smart constructor.
 putScalingPolicyResponse :: Int -> PutScalingPolicyResponse
-putScalingPolicyResponse pStatusCode = PutScalingPolicyResponse'{_psprPolicyARN = Nothing, _psprStatusCode = pStatusCode};
+putScalingPolicyResponse pStatus =
+    PutScalingPolicyResponse'
+    { _psprPolicyARN = Nothing
+    , _psprStatus = pStatus
+    }
 
 -- | The Amazon Resource Name (ARN) of the policy.
 psprPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
 psprPolicyARN = lens _psprPolicyARN (\ s a -> s{_psprPolicyARN = a});
 
 -- | FIXME: Undocumented member.
-psprStatusCode :: Lens' PutScalingPolicyResponse Int
-psprStatusCode = lens _psprStatusCode (\ s a -> s{_psprStatusCode = a});
+psprStatus :: Lens' PutScalingPolicyResponse Int
+psprStatus = lens _psprStatus (\ s a -> s{_psprStatus = a});

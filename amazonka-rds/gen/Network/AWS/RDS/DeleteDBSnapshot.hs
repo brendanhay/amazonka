@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.RDS.DeleteDBSnapshot
     , deleteDBSnapshotResponse
     -- ** Response lenses
     , dDBSnapshot
-    , dStatusCode
+    , dStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -50,11 +50,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delDBSnapshotIdentifier'
-newtype DeleteDBSnapshot = DeleteDBSnapshot'{_delDBSnapshotIdentifier :: Text} deriving (Eq, Read, Show)
+newtype DeleteDBSnapshot = DeleteDBSnapshot'
+    { _delDBSnapshotIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDBSnapshot' smart constructor.
 deleteDBSnapshot :: Text -> DeleteDBSnapshot
-deleteDBSnapshot pDBSnapshotIdentifier = DeleteDBSnapshot'{_delDBSnapshotIdentifier = pDBSnapshotIdentifier};
+deleteDBSnapshot pDBSnapshotIdentifier =
+    DeleteDBSnapshot'
+    { _delDBSnapshotIdentifier = pDBSnapshotIdentifier
+    }
 
 -- | The DBSnapshot identifier.
 --
@@ -92,17 +97,24 @@ instance ToQuery DeleteDBSnapshot where
 --
 -- * 'dDBSnapshot'
 --
--- * 'dStatusCode'
-data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'{_dDBSnapshot :: Maybe DBSnapshot, _dStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dStatus'
+data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'
+    { _dDBSnapshot :: Maybe DBSnapshot
+    , _dStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDBSnapshotResponse' smart constructor.
 deleteDBSnapshotResponse :: Int -> DeleteDBSnapshotResponse
-deleteDBSnapshotResponse pStatusCode = DeleteDBSnapshotResponse'{_dDBSnapshot = Nothing, _dStatusCode = pStatusCode};
+deleteDBSnapshotResponse pStatus =
+    DeleteDBSnapshotResponse'
+    { _dDBSnapshot = Nothing
+    , _dStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
 dDBSnapshot = lens _dDBSnapshot (\ s a -> s{_dDBSnapshot = a});
 
 -- | FIXME: Undocumented member.
-dStatusCode :: Lens' DeleteDBSnapshotResponse Int
-dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});
+dStatus :: Lens' DeleteDBSnapshotResponse Int
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

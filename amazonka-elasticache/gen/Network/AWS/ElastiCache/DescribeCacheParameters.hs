@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,14 +38,14 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     , dcprCacheNodeTypeSpecificParameters
     , dcprParameters
     , dcprMarker
-    , dcprStatusCode
+    , dcprStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeCacheParameters/ action.
 --
@@ -60,11 +60,22 @@ import Network.AWS.Response
 -- * 'dcpSource'
 --
 -- * 'dcpCacheParameterGroupName'
-data DescribeCacheParameters = DescribeCacheParameters'{_dcpMaxRecords :: Maybe Int, _dcpMarker :: Maybe Text, _dcpSource :: Maybe Text, _dcpCacheParameterGroupName :: Text} deriving (Eq, Read, Show)
+data DescribeCacheParameters = DescribeCacheParameters'
+    { _dcpMaxRecords              :: Maybe Int
+    , _dcpMarker                  :: Maybe Text
+    , _dcpSource                  :: Maybe Text
+    , _dcpCacheParameterGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheParameters' smart constructor.
 describeCacheParameters :: Text -> DescribeCacheParameters
-describeCacheParameters pCacheParameterGroupName = DescribeCacheParameters'{_dcpMaxRecords = Nothing, _dcpMarker = Nothing, _dcpSource = Nothing, _dcpCacheParameterGroupName = pCacheParameterGroupName};
+describeCacheParameters pCacheParameterGroupName =
+    DescribeCacheParameters'
+    { _dcpMaxRecords = Nothing
+    , _dcpMarker = Nothing
+    , _dcpSource = Nothing
+    , _dcpCacheParameterGroupName = pCacheParameterGroupName
+    }
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
@@ -147,12 +158,23 @@ instance ToQuery DescribeCacheParameters where
 --
 -- * 'dcprMarker'
 --
--- * 'dcprStatusCode'
-data DescribeCacheParametersResponse = DescribeCacheParametersResponse'{_dcprCacheNodeTypeSpecificParameters :: Maybe [CacheNodeTypeSpecificParameter], _dcprParameters :: Maybe [Parameter], _dcprMarker :: Maybe Text, _dcprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcprStatus'
+data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
+    { _dcprCacheNodeTypeSpecificParameters :: Maybe [CacheNodeTypeSpecificParameter]
+    , _dcprParameters                      :: Maybe [Parameter]
+    , _dcprMarker                          :: Maybe Text
+    , _dcprStatus                          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheParametersResponse' smart constructor.
 describeCacheParametersResponse :: Int -> DescribeCacheParametersResponse
-describeCacheParametersResponse pStatusCode = DescribeCacheParametersResponse'{_dcprCacheNodeTypeSpecificParameters = Nothing, _dcprParameters = Nothing, _dcprMarker = Nothing, _dcprStatusCode = pStatusCode};
+describeCacheParametersResponse pStatus =
+    DescribeCacheParametersResponse'
+    { _dcprCacheNodeTypeSpecificParameters = Nothing
+    , _dcprParameters = Nothing
+    , _dcprMarker = Nothing
+    , _dcprStatus = pStatus
+    }
 
 -- | A list of parameters specific to a particular cache node type. Each
 -- element in the list contains detailed information about one parameter.
@@ -168,5 +190,5 @@ dcprMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
 dcprMarker = lens _dcprMarker (\ s a -> s{_dcprMarker = a});
 
 -- | FIXME: Undocumented member.
-dcprStatusCode :: Lens' DescribeCacheParametersResponse Int
-dcprStatusCode = lens _dcprStatusCode (\ s a -> s{_dcprStatusCode = a});
+dcprStatus :: Lens' DescribeCacheParametersResponse Int
+dcprStatus = lens _dcprStatus (\ s a -> s{_dcprStatus = a});

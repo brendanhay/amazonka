@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateStack
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,10 +54,10 @@ module Network.AWS.OpsWorks.UpdateStack
     , updateStackResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateStack' smart constructor.
 --
@@ -96,11 +96,48 @@ import Network.AWS.Response
 -- * 'usHostnameTheme'
 --
 -- * 'usStackId'
-data UpdateStack = UpdateStack'{_usDefaultInstanceProfileARN :: Maybe Text, _usServiceRoleARN :: Maybe Text, _usDefaultRootDeviceType :: Maybe RootDeviceType, _usChefConfiguration :: Maybe ChefConfiguration, _usDefaultSSHKeyName :: Maybe Text, _usCustomJSON :: Maybe Text, _usCustomCookbooksSource :: Maybe Source, _usDefaultAvailabilityZone :: Maybe Text, _usName :: Maybe Text, _usUseOpsworksSecurityGroups :: Maybe Bool, _usDefaultOS :: Maybe Text, _usAttributes :: Maybe (Map StackAttributesKeys Text), _usUseCustomCookbooks :: Maybe Bool, _usDefaultSubnetId :: Maybe Text, _usConfigurationManager :: Maybe StackConfigurationManager, _usHostnameTheme :: Maybe Text, _usStackId :: Text} deriving (Eq, Read, Show)
+data UpdateStack = UpdateStack'
+    { _usDefaultInstanceProfileARN :: Maybe Text
+    , _usServiceRoleARN            :: Maybe Text
+    , _usDefaultRootDeviceType     :: Maybe RootDeviceType
+    , _usChefConfiguration         :: Maybe ChefConfiguration
+    , _usDefaultSSHKeyName         :: Maybe Text
+    , _usCustomJSON                :: Maybe Text
+    , _usCustomCookbooksSource     :: Maybe Source
+    , _usDefaultAvailabilityZone   :: Maybe Text
+    , _usName                      :: Maybe Text
+    , _usUseOpsworksSecurityGroups :: Maybe Bool
+    , _usDefaultOS                 :: Maybe Text
+    , _usAttributes                :: Maybe (Map StackAttributesKeys Text)
+    , _usUseCustomCookbooks        :: Maybe Bool
+    , _usDefaultSubnetId           :: Maybe Text
+    , _usConfigurationManager      :: Maybe StackConfigurationManager
+    , _usHostnameTheme             :: Maybe Text
+    , _usStackId                   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateStack' smart constructor.
 updateStack :: Text -> UpdateStack
-updateStack pStackId = UpdateStack'{_usDefaultInstanceProfileARN = Nothing, _usServiceRoleARN = Nothing, _usDefaultRootDeviceType = Nothing, _usChefConfiguration = Nothing, _usDefaultSSHKeyName = Nothing, _usCustomJSON = Nothing, _usCustomCookbooksSource = Nothing, _usDefaultAvailabilityZone = Nothing, _usName = Nothing, _usUseOpsworksSecurityGroups = Nothing, _usDefaultOS = Nothing, _usAttributes = Nothing, _usUseCustomCookbooks = Nothing, _usDefaultSubnetId = Nothing, _usConfigurationManager = Nothing, _usHostnameTheme = Nothing, _usStackId = pStackId};
+updateStack pStackId =
+    UpdateStack'
+    { _usDefaultInstanceProfileARN = Nothing
+    , _usServiceRoleARN = Nothing
+    , _usDefaultRootDeviceType = Nothing
+    , _usChefConfiguration = Nothing
+    , _usDefaultSSHKeyName = Nothing
+    , _usCustomJSON = Nothing
+    , _usCustomCookbooksSource = Nothing
+    , _usDefaultAvailabilityZone = Nothing
+    , _usName = Nothing
+    , _usUseOpsworksSecurityGroups = Nothing
+    , _usDefaultOS = Nothing
+    , _usAttributes = Nothing
+    , _usUseCustomCookbooks = Nothing
+    , _usDefaultSubnetId = Nothing
+    , _usConfigurationManager = Nothing
+    , _usHostnameTheme = Nothing
+    , _usStackId = pStackId
+    }
 
 -- | The ARN of an IAM profile that is the default profile for all of the
 -- stack\'s EC2 instances. For more information about IAM ARNs, see
@@ -310,8 +347,10 @@ instance ToQuery UpdateStack where
         toQuery = const mempty
 
 -- | /See:/ 'updateStackResponse' smart constructor.
-data UpdateStackResponse = UpdateStackResponse' deriving (Eq, Read, Show)
+data UpdateStackResponse =
+    UpdateStackResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateStackResponse' smart constructor.
 updateStackResponse :: UpdateStackResponse
-updateStackResponse = UpdateStackResponse';
+updateStackResponse = UpdateStackResponse'

@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -274,91 +273,110 @@ module Network.AWS.ElasticBeanstalk.Types
     , vmMessage
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2010-12-01@ of the Amazon Elastic Beanstalk SDK.
 data ElasticBeanstalk
 
 instance AWSService ElasticBeanstalk where
     type Sg ElasticBeanstalk = V4
-
     service = const svc
       where
-        svc :: Service ElasticBeanstalk
-        svc = Service
-            { _svcAbbrev   = "ElasticBeanstalk"
-            , _svcPrefix   = "elasticbeanstalk"
-            , _svcVersion  = "2010-12-01"
+        svc =
+            Service
+            { _svcAbbrev = "ElasticBeanstalk"
+            , _svcPrefix = "elasticbeanstalk"
+            , _svcVersion = "2010-12-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The caller does not have a subscription to Amazon S3.
-_S3SubscriptionRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_S3SubscriptionRequiredException = _ServiceError . hasStatus 400 . hasCode "S3SubscriptionRequiredException";
+_S3SubscriptionRequiredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_S3SubscriptionRequiredException =
+    _ServiceError . hasStatus 400 . hasCode "S3SubscriptionRequiredException"
 
 -- | The web service attempted to create a bucket in an Amazon S3 account
 -- that already has 100 buckets.
-_TooManyBucketsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyBucketsException = _ServiceError . hasStatus 400 . hasCode "TooManyBucketsException";
+_TooManyBucketsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyBucketsException =
+    _ServiceError . hasStatus 400 . hasCode "TooManyBucketsException"
 
 -- | Unable to perform the specified operation because another operation is
 -- already in progress affecting an an element in this activity.
-_OperationInProgressException :: AWSError a => Geting (First ServiceError) a ServiceError
-_OperationInProgressException = _ServiceError . hasStatus 400 . hasCode "OperationInProgressFailure";
+_OperationInProgressException :: AWSError a => Getting (First ServiceError) a ServiceError
+_OperationInProgressException =
+    _ServiceError . hasStatus 400 . hasCode "OperationInProgressFailure"
 
 -- | The caller has exceeded the limit on the number of configuration
 -- templates associated with their account.
-_TooManyConfigurationTemplatesException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyConfigurationTemplatesException = _ServiceError . hasStatus 400 . hasCode "TooManyConfigurationTemplatesException";
+_TooManyConfigurationTemplatesException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyConfigurationTemplatesException =
+    _ServiceError .
+    hasStatus 400 . hasCode "TooManyConfigurationTemplatesException"
 
 -- | The caller has exceeded the limit on the number of application versions
 -- associated with their account.
-_TooManyApplicationVersionsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyApplicationVersionsException = _ServiceError . hasCode "TooManyApplicationVersionsException";
+_TooManyApplicationVersionsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyApplicationVersionsException =
+    _ServiceError . hasCode "TooManyApplicationVersionsException"
 
 -- | Unable to perform the specified operation because the user does not have
 -- enough privileges for one of more downstream aws services
-_InsufficientPrivilegesException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InsufficientPrivilegesException = _ServiceError . hasStatus 403 . hasCode "InsufficientPrivilegesException";
+_InsufficientPrivilegesException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientPrivilegesException =
+    _ServiceError . hasStatus 403 . hasCode "InsufficientPrivilegesException"
 
 -- | The caller has exceeded the limit on the number of applications
 -- associated with their account.
-_TooManyApplicationsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyApplicationsException = _ServiceError . hasStatus 400 . hasCode "TooManyApplicationsException";
+_TooManyApplicationsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyApplicationsException =
+    _ServiceError . hasStatus 400 . hasCode "TooManyApplicationsException"
 
 -- | Unable to delete the Amazon S3 source bundle associated with the
 -- application version, although the application version deleted
 -- successfully.
-_SourceBundleDeletionException :: AWSError a => Geting (First ServiceError) a ServiceError
-_SourceBundleDeletionException = _ServiceError . hasStatus 400 . hasCode "SourceBundleDeletionFailure";
+_SourceBundleDeletionException :: AWSError a => Getting (First ServiceError) a ServiceError
+_SourceBundleDeletionException =
+    _ServiceError . hasStatus 400 . hasCode "SourceBundleDeletionFailure"
 
 -- | The specified S3 bucket does not belong to the S3 region in which the
 -- service is running.
-_S3LocationNotInServiceRegionException :: AWSError a => Geting (First ServiceError) a ServiceError
-_S3LocationNotInServiceRegionException = _ServiceError . hasStatus 400 . hasCode "S3LocationNotInServiceRegionException";
+_S3LocationNotInServiceRegionException :: AWSError a => Getting (First ServiceError) a ServiceError
+_S3LocationNotInServiceRegionException =
+    _ServiceError .
+    hasStatus 400 . hasCode "S3LocationNotInServiceRegionException"
 
 -- | The caller has exceeded the limit of allowed environments associated
 -- with the account.
-_TooManyEnvironmentsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyEnvironmentsException = _ServiceError . hasStatus 400 . hasCode "TooManyEnvironmentsException";
+_TooManyEnvironmentsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyEnvironmentsException =
+    _ServiceError . hasStatus 400 . hasCode "TooManyEnvironmentsException"
 
-data ConfigurationDeploymentStatus = Pending | Deployed | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ConfigurationDeploymentStatus
+    = Pending
+    | Deployed
+    | Failed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ConfigurationDeploymentStatus where
     parser = takeLowerText >>= \case
@@ -380,7 +398,10 @@ instance ToHeader ConfigurationDeploymentStatus
 instance FromXML ConfigurationDeploymentStatus where
     parseXML = parseXMLText "ConfigurationDeploymentStatus"
 
-data ConfigurationOptionValueType = List | Scalar deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ConfigurationOptionValueType
+    = List
+    | Scalar
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ConfigurationOptionValueType where
     parser = takeLowerText >>= \case
@@ -400,7 +421,12 @@ instance ToHeader ConfigurationOptionValueType
 instance FromXML ConfigurationOptionValueType where
     parseXML = parseXMLText "ConfigurationOptionValueType"
 
-data EnvironmentHealth = Red | Yellow | Green | Grey deriving (Eq, Ord, Read, Show, Enum, Generic)
+data EnvironmentHealth
+    = Red
+    | Yellow
+    | Green
+    | Grey
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText EnvironmentHealth where
     parser = takeLowerText >>= \case
@@ -424,7 +450,10 @@ instance ToHeader EnvironmentHealth
 instance FromXML EnvironmentHealth where
     parseXML = parseXMLText "EnvironmentHealth"
 
-data EnvironmentInfoType = Bundle | Tail deriving (Eq, Ord, Read, Show, Enum, Generic)
+data EnvironmentInfoType
+    = Bundle
+    | Tail
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText EnvironmentInfoType where
     parser = takeLowerText >>= \case
@@ -444,7 +473,13 @@ instance ToHeader EnvironmentInfoType
 instance FromXML EnvironmentInfoType where
     parseXML = parseXMLText "EnvironmentInfoType"
 
-data EnvironmentStatus = Updating | Terminating | Launching | Terminated | Ready deriving (Eq, Ord, Read, Show, Enum, Generic)
+data EnvironmentStatus
+    = Updating
+    | Terminating
+    | Launching
+    | Terminated
+    | Ready
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText EnvironmentStatus where
     parser = takeLowerText >>= \case
@@ -470,12 +505,19 @@ instance ToHeader EnvironmentStatus
 instance FromXML EnvironmentStatus where
     parseXML = parseXMLText "EnvironmentStatus"
 
-data EventSeverity = LevelDebug | LevelInfo | LevelWarn | LevelTrace | LevelFatal | LevelError deriving (Eq, Ord, Read, Show, Enum, Generic)
+data EventSeverity
+    = LevelDebug
+    | LevelInfo
+    | LevelError'
+    | LevelWarn
+    | LevelTrace
+    | LevelFatal
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText EventSeverity where
     parser = takeLowerText >>= \case
         "DEBUG" -> pure LevelDebug
-        "ERROR" -> pure LevelError
+        "ERROR" -> pure LevelError'
         "FATAL" -> pure LevelFatal
         "INFO" -> pure LevelInfo
         "TRACE" -> pure LevelTrace
@@ -485,7 +527,7 @@ instance FromText EventSeverity where
 instance ToText EventSeverity where
     toText = \case
         LevelDebug -> "DEBUG"
-        LevelError -> "ERROR"
+        LevelError' -> "ERROR"
         LevelFatal -> "FATAL"
         LevelInfo -> "INFO"
         LevelTrace -> "TRACE"
@@ -498,17 +540,20 @@ instance ToHeader EventSeverity
 instance FromXML EventSeverity where
     parseXML = parseXMLText "EventSeverity"
 
-data ValidationSeverity = VSError | VSWarning deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ValidationSeverity
+    = VSWarning
+    | VSError'
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ValidationSeverity where
     parser = takeLowerText >>= \case
-        "error" -> pure VSError
+        "error" -> pure VSError'
         "warning" -> pure VSWarning
         e -> fail ("Failure parsing ValidationSeverity from " ++ show e)
 
 instance ToText ValidationSeverity where
     toText = \case
-        VSError -> "error"
+        VSError' -> "error"
         VSWarning -> "warning"
 
 instance Hashable ValidationSeverity
@@ -535,11 +580,26 @@ instance FromXML ValidationSeverity where
 -- * 'adConfigurationTemplates'
 --
 -- * 'adDescription'
-data ApplicationDescription = ApplicationDescription'{_adDateUpdated :: Maybe ISO8601, _adVersions :: Maybe [Text], _adDateCreated :: Maybe ISO8601, _adApplicationName :: Maybe Text, _adConfigurationTemplates :: Maybe [Text], _adDescription :: Maybe Text} deriving (Eq, Read, Show)
+data ApplicationDescription = ApplicationDescription'
+    { _adDateUpdated            :: Maybe ISO8601
+    , _adVersions               :: Maybe [Text]
+    , _adDateCreated            :: Maybe ISO8601
+    , _adApplicationName        :: Maybe Text
+    , _adConfigurationTemplates :: Maybe [Text]
+    , _adDescription            :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ApplicationDescription' smart constructor.
 applicationDescription :: ApplicationDescription
-applicationDescription = ApplicationDescription'{_adDateUpdated = Nothing, _adVersions = Nothing, _adDateCreated = Nothing, _adApplicationName = Nothing, _adConfigurationTemplates = Nothing, _adDescription = Nothing};
+applicationDescription =
+    ApplicationDescription'
+    { _adDateUpdated = Nothing
+    , _adVersions = Nothing
+    , _adDateCreated = Nothing
+    , _adApplicationName = Nothing
+    , _adConfigurationTemplates = Nothing
+    , _adDescription = Nothing
+    }
 
 -- | The date when the application was last modified.
 adDateUpdated :: Lens' ApplicationDescription (Maybe UTCTime)
@@ -586,11 +646,16 @@ instance FromXML ApplicationDescription where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'admApplication'
-newtype ApplicationDescriptionMessage = ApplicationDescriptionMessage'{_admApplication :: Maybe ApplicationDescription} deriving (Eq, Read, Show)
+newtype ApplicationDescriptionMessage = ApplicationDescriptionMessage'
+    { _admApplication :: Maybe ApplicationDescription
+    } deriving (Eq,Read,Show)
 
 -- | 'ApplicationDescriptionMessage' smart constructor.
 applicationDescriptionMessage :: ApplicationDescriptionMessage
-applicationDescriptionMessage = ApplicationDescriptionMessage'{_admApplication = Nothing};
+applicationDescriptionMessage =
+    ApplicationDescriptionMessage'
+    { _admApplication = Nothing
+    }
 
 -- | The ApplicationDescription of the application.
 admApplication :: Lens' ApplicationDescriptionMessage (Maybe ApplicationDescription)
@@ -618,11 +683,26 @@ instance FromXML ApplicationDescriptionMessage where
 -- * 'avdApplicationName'
 --
 -- * 'avdDescription'
-data ApplicationVersionDescription = ApplicationVersionDescription'{_avdDateUpdated :: Maybe ISO8601, _avdSourceBundle :: Maybe S3Location, _avdVersionLabel :: Maybe Text, _avdDateCreated :: Maybe ISO8601, _avdApplicationName :: Maybe Text, _avdDescription :: Maybe Text} deriving (Eq, Read, Show)
+data ApplicationVersionDescription = ApplicationVersionDescription'
+    { _avdDateUpdated     :: Maybe ISO8601
+    , _avdSourceBundle    :: Maybe S3Location
+    , _avdVersionLabel    :: Maybe Text
+    , _avdDateCreated     :: Maybe ISO8601
+    , _avdApplicationName :: Maybe Text
+    , _avdDescription     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ApplicationVersionDescription' smart constructor.
 applicationVersionDescription :: ApplicationVersionDescription
-applicationVersionDescription = ApplicationVersionDescription'{_avdDateUpdated = Nothing, _avdSourceBundle = Nothing, _avdVersionLabel = Nothing, _avdDateCreated = Nothing, _avdApplicationName = Nothing, _avdDescription = Nothing};
+applicationVersionDescription =
+    ApplicationVersionDescription'
+    { _avdDateUpdated = Nothing
+    , _avdSourceBundle = Nothing
+    , _avdVersionLabel = Nothing
+    , _avdDateCreated = Nothing
+    , _avdApplicationName = Nothing
+    , _avdDescription = Nothing
+    }
 
 -- | The last modified date of the application version.
 avdDateUpdated :: Lens' ApplicationVersionDescription (Maybe UTCTime)
@@ -664,11 +744,16 @@ instance FromXML ApplicationVersionDescription where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'avdmApplicationVersion'
-newtype ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage'{_avdmApplicationVersion :: Maybe ApplicationVersionDescription} deriving (Eq, Read, Show)
+newtype ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage'
+    { _avdmApplicationVersion :: Maybe ApplicationVersionDescription
+    } deriving (Eq,Read,Show)
 
 -- | 'ApplicationVersionDescriptionMessage' smart constructor.
 applicationVersionDescriptionMessage :: ApplicationVersionDescriptionMessage
-applicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage'{_avdmApplicationVersion = Nothing};
+applicationVersionDescriptionMessage =
+    ApplicationVersionDescriptionMessage'
+    { _avdmApplicationVersion = Nothing
+    }
 
 -- | The ApplicationVersionDescription of the application version.
 avdmApplicationVersion :: Lens' ApplicationVersionDescriptionMessage (Maybe ApplicationVersionDescription)
@@ -687,11 +772,16 @@ instance FromXML ApplicationVersionDescriptionMessage
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'asgName'
-newtype AutoScalingGroup = AutoScalingGroup'{_asgName :: Maybe Text} deriving (Eq, Read, Show)
+newtype AutoScalingGroup = AutoScalingGroup'
+    { _asgName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AutoScalingGroup' smart constructor.
 autoScalingGroup :: AutoScalingGroup
-autoScalingGroup = AutoScalingGroup'{_asgName = Nothing};
+autoScalingGroup =
+    AutoScalingGroup'
+    { _asgName = Nothing
+    }
 
 -- | The name of the @AutoScalingGroup@ .
 asgName :: Lens' AutoScalingGroup (Maybe Text)
@@ -727,11 +817,36 @@ instance FromXML AutoScalingGroup where
 -- * 'codValueType'
 --
 -- * 'codMinValue'
-data ConfigurationOptionDescription = ConfigurationOptionDescription'{_codMaxValue :: Maybe Int, _codRegex :: Maybe OptionRestrictionRegex, _codUserDefined :: Maybe Bool, _codMaxLength :: Maybe Int, _codValueOptions :: Maybe [Text], _codNamespace :: Maybe Text, _codName :: Maybe Text, _codChangeSeverity :: Maybe Text, _codDefaultValue :: Maybe Text, _codValueType :: Maybe ConfigurationOptionValueType, _codMinValue :: Maybe Int} deriving (Eq, Read, Show)
+data ConfigurationOptionDescription = ConfigurationOptionDescription'
+    { _codMaxValue       :: Maybe Int
+    , _codRegex          :: Maybe OptionRestrictionRegex
+    , _codUserDefined    :: Maybe Bool
+    , _codMaxLength      :: Maybe Int
+    , _codValueOptions   :: Maybe [Text]
+    , _codNamespace      :: Maybe Text
+    , _codName           :: Maybe Text
+    , _codChangeSeverity :: Maybe Text
+    , _codDefaultValue   :: Maybe Text
+    , _codValueType      :: Maybe ConfigurationOptionValueType
+    , _codMinValue       :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfigurationOptionDescription' smart constructor.
 configurationOptionDescription :: ConfigurationOptionDescription
-configurationOptionDescription = ConfigurationOptionDescription'{_codMaxValue = Nothing, _codRegex = Nothing, _codUserDefined = Nothing, _codMaxLength = Nothing, _codValueOptions = Nothing, _codNamespace = Nothing, _codName = Nothing, _codChangeSeverity = Nothing, _codDefaultValue = Nothing, _codValueType = Nothing, _codMinValue = Nothing};
+configurationOptionDescription =
+    ConfigurationOptionDescription'
+    { _codMaxValue = Nothing
+    , _codRegex = Nothing
+    , _codUserDefined = Nothing
+    , _codMaxLength = Nothing
+    , _codValueOptions = Nothing
+    , _codNamespace = Nothing
+    , _codName = Nothing
+    , _codChangeSeverity = Nothing
+    , _codDefaultValue = Nothing
+    , _codValueType = Nothing
+    , _codMinValue = Nothing
+    }
 
 -- | If specified, the configuration option must be a numeric value less than
 -- this value.
@@ -870,11 +985,22 @@ instance FromXML ConfigurationOptionDescription where
 -- * 'cosValue'
 --
 -- * 'cosNamespace'
-data ConfigurationOptionSetting = ConfigurationOptionSetting'{_cosOptionName :: Maybe Text, _cosResourceName :: Maybe Text, _cosValue :: Maybe Text, _cosNamespace :: Maybe Text} deriving (Eq, Read, Show)
+data ConfigurationOptionSetting = ConfigurationOptionSetting'
+    { _cosOptionName   :: Maybe Text
+    , _cosResourceName :: Maybe Text
+    , _cosValue        :: Maybe Text
+    , _cosNamespace    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfigurationOptionSetting' smart constructor.
 configurationOptionSetting :: ConfigurationOptionSetting
-configurationOptionSetting = ConfigurationOptionSetting'{_cosOptionName = Nothing, _cosResourceName = Nothing, _cosValue = Nothing, _cosNamespace = Nothing};
+configurationOptionSetting =
+    ConfigurationOptionSetting'
+    { _cosOptionName = Nothing
+    , _cosResourceName = Nothing
+    , _cosValue = Nothing
+    , _cosNamespace = Nothing
+    }
 
 -- | The name of the configuration option.
 cosOptionName :: Lens' ConfigurationOptionSetting (Maybe Text)
@@ -929,11 +1055,32 @@ instance ToQuery ConfigurationOptionSetting where
 -- * 'csdSolutionStackName'
 --
 -- * 'csdDescription'
-data ConfigurationSettingsDescription = ConfigurationSettingsDescription'{_csdTemplateName :: Maybe Text, _csdOptionSettings :: Maybe [ConfigurationOptionSetting], _csdDateUpdated :: Maybe ISO8601, _csdDateCreated :: Maybe ISO8601, _csdEnvironmentName :: Maybe Text, _csdApplicationName :: Maybe Text, _csdDeploymentStatus :: Maybe ConfigurationDeploymentStatus, _csdSolutionStackName :: Maybe Text, _csdDescription :: Maybe Text} deriving (Eq, Read, Show)
+data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
+    { _csdTemplateName      :: Maybe Text
+    , _csdOptionSettings    :: Maybe [ConfigurationOptionSetting]
+    , _csdDateUpdated       :: Maybe ISO8601
+    , _csdDateCreated       :: Maybe ISO8601
+    , _csdEnvironmentName   :: Maybe Text
+    , _csdApplicationName   :: Maybe Text
+    , _csdDeploymentStatus  :: Maybe ConfigurationDeploymentStatus
+    , _csdSolutionStackName :: Maybe Text
+    , _csdDescription       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfigurationSettingsDescription' smart constructor.
 configurationSettingsDescription :: ConfigurationSettingsDescription
-configurationSettingsDescription = ConfigurationSettingsDescription'{_csdTemplateName = Nothing, _csdOptionSettings = Nothing, _csdDateUpdated = Nothing, _csdDateCreated = Nothing, _csdEnvironmentName = Nothing, _csdApplicationName = Nothing, _csdDeploymentStatus = Nothing, _csdSolutionStackName = Nothing, _csdDescription = Nothing};
+configurationSettingsDescription =
+    ConfigurationSettingsDescription'
+    { _csdTemplateName = Nothing
+    , _csdOptionSettings = Nothing
+    , _csdDateUpdated = Nothing
+    , _csdDateCreated = Nothing
+    , _csdEnvironmentName = Nothing
+    , _csdApplicationName = Nothing
+    , _csdDeploymentStatus = Nothing
+    , _csdSolutionStackName = Nothing
+    , _csdDescription = Nothing
+    }
 
 -- | If not @null@, the name of the configuration template for this
 -- configuration set.
@@ -1047,11 +1194,46 @@ instance FromXML ConfigurationSettingsDescription
 -- * 'envSolutionStackName'
 --
 -- * 'envDescription'
-data EnvironmentDescription = EnvironmentDescription'{_envCNAME :: Maybe Text, _envStatus :: Maybe EnvironmentStatus, _envTemplateName :: Maybe Text, _envAbortableOperationInProgress :: Maybe Bool, _envEndpointURL :: Maybe Text, _envDateUpdated :: Maybe ISO8601, _envResources :: Maybe EnvironmentResourcesDescription, _envHealth :: Maybe EnvironmentHealth, _envVersionLabel :: Maybe Text, _envDateCreated :: Maybe ISO8601, _envTier :: Maybe EnvironmentTier, _envEnvironmentName :: Maybe Text, _envApplicationName :: Maybe Text, _envEnvironmentId :: Maybe Text, _envSolutionStackName :: Maybe Text, _envDescription :: Maybe Text} deriving (Eq, Read, Show)
+data EnvironmentDescription = EnvironmentDescription'
+    { _envCNAME                        :: Maybe Text
+    , _envStatus                       :: Maybe EnvironmentStatus
+    , _envTemplateName                 :: Maybe Text
+    , _envAbortableOperationInProgress :: Maybe Bool
+    , _envEndpointURL                  :: Maybe Text
+    , _envDateUpdated                  :: Maybe ISO8601
+    , _envResources                    :: Maybe EnvironmentResourcesDescription
+    , _envHealth                       :: Maybe EnvironmentHealth
+    , _envVersionLabel                 :: Maybe Text
+    , _envDateCreated                  :: Maybe ISO8601
+    , _envTier                         :: Maybe EnvironmentTier
+    , _envEnvironmentName              :: Maybe Text
+    , _envApplicationName              :: Maybe Text
+    , _envEnvironmentId                :: Maybe Text
+    , _envSolutionStackName            :: Maybe Text
+    , _envDescription                  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EnvironmentDescription' smart constructor.
 environmentDescription :: EnvironmentDescription
-environmentDescription = EnvironmentDescription'{_envCNAME = Nothing, _envStatus = Nothing, _envTemplateName = Nothing, _envAbortableOperationInProgress = Nothing, _envEndpointURL = Nothing, _envDateUpdated = Nothing, _envResources = Nothing, _envHealth = Nothing, _envVersionLabel = Nothing, _envDateCreated = Nothing, _envTier = Nothing, _envEnvironmentName = Nothing, _envApplicationName = Nothing, _envEnvironmentId = Nothing, _envSolutionStackName = Nothing, _envDescription = Nothing};
+environmentDescription =
+    EnvironmentDescription'
+    { _envCNAME = Nothing
+    , _envStatus = Nothing
+    , _envTemplateName = Nothing
+    , _envAbortableOperationInProgress = Nothing
+    , _envEndpointURL = Nothing
+    , _envDateUpdated = Nothing
+    , _envResources = Nothing
+    , _envHealth = Nothing
+    , _envVersionLabel = Nothing
+    , _envDateCreated = Nothing
+    , _envTier = Nothing
+    , _envEnvironmentName = Nothing
+    , _envApplicationName = Nothing
+    , _envEnvironmentId = Nothing
+    , _envSolutionStackName = Nothing
+    , _envDescription = Nothing
+    }
 
 -- | The URL to the CNAME for this environment.
 envCNAME :: Lens' EnvironmentDescription (Maybe Text)
@@ -1185,11 +1367,22 @@ instance FromXML EnvironmentDescription where
 -- * 'eidInfoType'
 --
 -- * 'eidMessage'
-data EnvironmentInfoDescription = EnvironmentInfoDescription'{_eidSampleTimestamp :: Maybe ISO8601, _eidEC2InstanceId :: Maybe Text, _eidInfoType :: Maybe EnvironmentInfoType, _eidMessage :: Maybe Text} deriving (Eq, Read, Show)
+data EnvironmentInfoDescription = EnvironmentInfoDescription'
+    { _eidSampleTimestamp :: Maybe ISO8601
+    , _eidEC2InstanceId   :: Maybe Text
+    , _eidInfoType        :: Maybe EnvironmentInfoType
+    , _eidMessage         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EnvironmentInfoDescription' smart constructor.
 environmentInfoDescription :: EnvironmentInfoDescription
-environmentInfoDescription = EnvironmentInfoDescription'{_eidSampleTimestamp = Nothing, _eidEC2InstanceId = Nothing, _eidInfoType = Nothing, _eidMessage = Nothing};
+environmentInfoDescription =
+    EnvironmentInfoDescription'
+    { _eidSampleTimestamp = Nothing
+    , _eidEC2InstanceId = Nothing
+    , _eidInfoType = Nothing
+    , _eidMessage = Nothing
+    }
 
 -- | The time stamp when this information was retrieved.
 eidSampleTimestamp :: Lens' EnvironmentInfoDescription (Maybe UTCTime)
@@ -1234,11 +1427,28 @@ instance FromXML EnvironmentInfoDescription where
 -- * 'erdLaunchConfigurations'
 --
 -- * 'erdAutoScalingGroups'
-data EnvironmentResourceDescription = EnvironmentResourceDescription'{_erdQueues :: Maybe [Queue], _erdTriggers :: Maybe [Trigger], _erdLoadBalancers :: Maybe [LoadBalancer], _erdInstances :: Maybe [Instance], _erdEnvironmentName :: Maybe Text, _erdLaunchConfigurations :: Maybe [LaunchConfiguration], _erdAutoScalingGroups :: Maybe [AutoScalingGroup]} deriving (Eq, Read, Show)
+data EnvironmentResourceDescription = EnvironmentResourceDescription'
+    { _erdQueues               :: Maybe [Queue]
+    , _erdTriggers             :: Maybe [Trigger]
+    , _erdLoadBalancers        :: Maybe [LoadBalancer]
+    , _erdInstances            :: Maybe [Instance]
+    , _erdEnvironmentName      :: Maybe Text
+    , _erdLaunchConfigurations :: Maybe [LaunchConfiguration]
+    , _erdAutoScalingGroups    :: Maybe [AutoScalingGroup]
+    } deriving (Eq,Read,Show)
 
 -- | 'EnvironmentResourceDescription' smart constructor.
 environmentResourceDescription :: EnvironmentResourceDescription
-environmentResourceDescription = EnvironmentResourceDescription'{_erdQueues = Nothing, _erdTriggers = Nothing, _erdLoadBalancers = Nothing, _erdInstances = Nothing, _erdEnvironmentName = Nothing, _erdLaunchConfigurations = Nothing, _erdAutoScalingGroups = Nothing};
+environmentResourceDescription =
+    EnvironmentResourceDescription'
+    { _erdQueues = Nothing
+    , _erdTriggers = Nothing
+    , _erdLoadBalancers = Nothing
+    , _erdInstances = Nothing
+    , _erdEnvironmentName = Nothing
+    , _erdLaunchConfigurations = Nothing
+    , _erdAutoScalingGroups = Nothing
+    }
 
 -- | The queues used by this environment.
 erdQueues :: Lens' EnvironmentResourceDescription [Queue]
@@ -1298,11 +1508,16 @@ instance FromXML EnvironmentResourceDescription where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'erdLoadBalancer'
-newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription'{_erdLoadBalancer :: Maybe LoadBalancerDescription} deriving (Eq, Read, Show)
+newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription'
+    { _erdLoadBalancer :: Maybe LoadBalancerDescription
+    } deriving (Eq,Read,Show)
 
 -- | 'EnvironmentResourcesDescription' smart constructor.
 environmentResourcesDescription :: EnvironmentResourcesDescription
-environmentResourcesDescription = EnvironmentResourcesDescription'{_erdLoadBalancer = Nothing};
+environmentResourcesDescription =
+    EnvironmentResourcesDescription'
+    { _erdLoadBalancer = Nothing
+    }
 
 -- | Describes the LoadBalancer.
 erdLoadBalancer :: Lens' EnvironmentResourcesDescription (Maybe LoadBalancerDescription)
@@ -1325,11 +1540,20 @@ instance FromXML EnvironmentResourcesDescription
 -- * 'etVersion'
 --
 -- * 'etType'
-data EnvironmentTier = EnvironmentTier'{_etName :: Maybe Text, _etVersion :: Maybe Text, _etType :: Maybe Text} deriving (Eq, Read, Show)
+data EnvironmentTier = EnvironmentTier'
+    { _etName    :: Maybe Text
+    , _etVersion :: Maybe Text
+    , _etType    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EnvironmentTier' smart constructor.
 environmentTier :: EnvironmentTier
-environmentTier = EnvironmentTier'{_etName = Nothing, _etVersion = Nothing, _etType = Nothing};
+environmentTier =
+    EnvironmentTier'
+    { _etName = Nothing
+    , _etVersion = Nothing
+    , _etType = Nothing
+    }
 
 -- | The name of this environment tier.
 etName :: Lens' EnvironmentTier (Maybe Text)
@@ -1376,11 +1600,30 @@ instance ToQuery EnvironmentTier where
 -- * 'edEventDate'
 --
 -- * 'edMessage'
-data EventDescription = EventDescription'{_edRequestId :: Maybe Text, _edTemplateName :: Maybe Text, _edSeverity :: Maybe EventSeverity, _edVersionLabel :: Maybe Text, _edEnvironmentName :: Maybe Text, _edApplicationName :: Maybe Text, _edEventDate :: Maybe ISO8601, _edMessage :: Maybe Text} deriving (Eq, Read, Show)
+data EventDescription = EventDescription'
+    { _edRequestId       :: Maybe Text
+    , _edTemplateName    :: Maybe Text
+    , _edSeverity        :: Maybe EventSeverity
+    , _edVersionLabel    :: Maybe Text
+    , _edEnvironmentName :: Maybe Text
+    , _edApplicationName :: Maybe Text
+    , _edEventDate       :: Maybe ISO8601
+    , _edMessage         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EventDescription' smart constructor.
 eventDescription :: EventDescription
-eventDescription = EventDescription'{_edRequestId = Nothing, _edTemplateName = Nothing, _edSeverity = Nothing, _edVersionLabel = Nothing, _edEnvironmentName = Nothing, _edApplicationName = Nothing, _edEventDate = Nothing, _edMessage = Nothing};
+eventDescription =
+    EventDescription'
+    { _edRequestId = Nothing
+    , _edTemplateName = Nothing
+    , _edSeverity = Nothing
+    , _edVersionLabel = Nothing
+    , _edEnvironmentName = Nothing
+    , _edApplicationName = Nothing
+    , _edEventDate = Nothing
+    , _edMessage = Nothing
+    }
 
 -- | The web service request ID for the activity of this event.
 edRequestId :: Lens' EventDescription (Maybe Text)
@@ -1433,11 +1676,16 @@ instance FromXML EventDescription where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'insId'
-newtype Instance = Instance'{_insId :: Maybe Text} deriving (Eq, Read, Show)
+newtype Instance = Instance'
+    { _insId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Instance' smart constructor.
 instance' :: Instance
-instance' = Instance'{_insId = Nothing};
+instance' =
+    Instance'
+    { _insId = Nothing
+    }
 
 -- | The ID of the Amazon EC2 instance.
 insId :: Lens' Instance (Maybe Text)
@@ -1453,11 +1701,16 @@ instance FromXML Instance where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lcName'
-newtype LaunchConfiguration = LaunchConfiguration'{_lcName :: Maybe Text} deriving (Eq, Read, Show)
+newtype LaunchConfiguration = LaunchConfiguration'
+    { _lcName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'LaunchConfiguration' smart constructor.
 launchConfiguration :: LaunchConfiguration
-launchConfiguration = LaunchConfiguration'{_lcName = Nothing};
+launchConfiguration =
+    LaunchConfiguration'
+    { _lcName = Nothing
+    }
 
 -- | The name of the launch configuration.
 lcName :: Lens' LaunchConfiguration (Maybe Text)
@@ -1475,11 +1728,18 @@ instance FromXML LaunchConfiguration where
 -- * 'lisProtocol'
 --
 -- * 'lisPort'
-data Listener = Listener'{_lisProtocol :: Maybe Text, _lisPort :: Maybe Int} deriving (Eq, Read, Show)
+data Listener = Listener'
+    { _lisProtocol :: Maybe Text
+    , _lisPort     :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'Listener' smart constructor.
 listener :: Listener
-listener = Listener'{_lisProtocol = Nothing, _lisPort = Nothing};
+listener =
+    Listener'
+    { _lisProtocol = Nothing
+    , _lisPort = Nothing
+    }
 
 -- | The protocol that is used by the Listener.
 lisProtocol :: Lens' Listener (Maybe Text)
@@ -1500,11 +1760,16 @@ instance FromXML Listener where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lbName'
-newtype LoadBalancer = LoadBalancer'{_lbName :: Maybe Text} deriving (Eq, Read, Show)
+newtype LoadBalancer = LoadBalancer'
+    { _lbName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'LoadBalancer' smart constructor.
 loadBalancer :: LoadBalancer
-loadBalancer = LoadBalancer'{_lbName = Nothing};
+loadBalancer =
+    LoadBalancer'
+    { _lbName = Nothing
+    }
 
 -- | The name of the LoadBalancer.
 lbName :: Lens' LoadBalancer (Maybe Text)
@@ -1524,11 +1789,20 @@ instance FromXML LoadBalancer where
 -- * 'lbdDomain'
 --
 -- * 'lbdListeners'
-data LoadBalancerDescription = LoadBalancerDescription'{_lbdLoadBalancerName :: Maybe Text, _lbdDomain :: Maybe Text, _lbdListeners :: Maybe [Listener]} deriving (Eq, Read, Show)
+data LoadBalancerDescription = LoadBalancerDescription'
+    { _lbdLoadBalancerName :: Maybe Text
+    , _lbdDomain           :: Maybe Text
+    , _lbdListeners        :: Maybe [Listener]
+    } deriving (Eq,Read,Show)
 
 -- | 'LoadBalancerDescription' smart constructor.
 loadBalancerDescription :: LoadBalancerDescription
-loadBalancerDescription = LoadBalancerDescription'{_lbdLoadBalancerName = Nothing, _lbdDomain = Nothing, _lbdListeners = Nothing};
+loadBalancerDescription =
+    LoadBalancerDescription'
+    { _lbdLoadBalancerName = Nothing
+    , _lbdDomain = Nothing
+    , _lbdListeners = Nothing
+    }
 
 -- | The name of the LoadBalancer.
 lbdLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
@@ -1559,11 +1833,18 @@ instance FromXML LoadBalancerDescription where
 -- * 'orrPattern'
 --
 -- * 'orrLabel'
-data OptionRestrictionRegex = OptionRestrictionRegex'{_orrPattern :: Maybe Text, _orrLabel :: Maybe Text} deriving (Eq, Read, Show)
+data OptionRestrictionRegex = OptionRestrictionRegex'
+    { _orrPattern :: Maybe Text
+    , _orrLabel   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'OptionRestrictionRegex' smart constructor.
 optionRestrictionRegex :: OptionRestrictionRegex
-optionRestrictionRegex = OptionRestrictionRegex'{_orrPattern = Nothing, _orrLabel = Nothing};
+optionRestrictionRegex =
+    OptionRestrictionRegex'
+    { _orrPattern = Nothing
+    , _orrLabel = Nothing
+    }
 
 -- | The regular expression pattern that a string configuration option value
 -- with this restriction must match.
@@ -1590,11 +1871,20 @@ instance FromXML OptionRestrictionRegex where
 -- * 'osResourceName'
 --
 -- * 'osNamespace'
-data OptionSpecification = OptionSpecification'{_osOptionName :: Maybe Text, _osResourceName :: Maybe Text, _osNamespace :: Maybe Text} deriving (Eq, Read, Show)
+data OptionSpecification = OptionSpecification'
+    { _osOptionName   :: Maybe Text
+    , _osResourceName :: Maybe Text
+    , _osNamespace    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'OptionSpecification' smart constructor.
 optionSpecification :: OptionSpecification
-optionSpecification = OptionSpecification'{_osOptionName = Nothing, _osResourceName = Nothing, _osNamespace = Nothing};
+optionSpecification =
+    OptionSpecification'
+    { _osOptionName = Nothing
+    , _osResourceName = Nothing
+    , _osNamespace = Nothing
+    }
 
 -- | The name of the configuration option.
 osOptionName :: Lens' OptionSpecification (Maybe Text)
@@ -1624,11 +1914,18 @@ instance ToQuery OptionSpecification where
 -- * 'queURL'
 --
 -- * 'queName'
-data Queue = Queue'{_queURL :: Maybe Text, _queName :: Maybe Text} deriving (Eq, Read, Show)
+data Queue = Queue'
+    { _queURL  :: Maybe Text
+    , _queName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Queue' smart constructor.
 queue :: Queue
-queue = Queue'{_queURL = Nothing, _queName = Nothing};
+queue =
+    Queue'
+    { _queURL = Nothing
+    , _queName = Nothing
+    }
 
 -- | The URL of the queue.
 queURL :: Lens' Queue (Maybe Text)
@@ -1651,11 +1948,18 @@ instance FromXML Queue where
 -- * 'slS3Key'
 --
 -- * 'slS3Bucket'
-data S3Location = S3Location'{_slS3Key :: Maybe Text, _slS3Bucket :: Maybe Text} deriving (Eq, Read, Show)
+data S3Location = S3Location'
+    { _slS3Key    :: Maybe Text
+    , _slS3Bucket :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'S3Location' smart constructor.
 s3Location :: S3Location
-s3Location = S3Location'{_slS3Key = Nothing, _slS3Bucket = Nothing};
+s3Location =
+    S3Location'
+    { _slS3Key = Nothing
+    , _slS3Bucket = Nothing
+    }
 
 -- | The Amazon S3 key where the data is located.
 slS3Key :: Lens' S3Location (Maybe Text)
@@ -1684,11 +1988,18 @@ instance ToQuery S3Location where
 -- * 'ssdPermittedFileTypes'
 --
 -- * 'ssdSolutionStackName'
-data SolutionStackDescription = SolutionStackDescription'{_ssdPermittedFileTypes :: Maybe [Text], _ssdSolutionStackName :: Maybe Text} deriving (Eq, Read, Show)
+data SolutionStackDescription = SolutionStackDescription'
+    { _ssdPermittedFileTypes :: Maybe [Text]
+    , _ssdSolutionStackName  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SolutionStackDescription' smart constructor.
 solutionStackDescription :: SolutionStackDescription
-solutionStackDescription = SolutionStackDescription'{_ssdPermittedFileTypes = Nothing, _ssdSolutionStackName = Nothing};
+solutionStackDescription =
+    SolutionStackDescription'
+    { _ssdPermittedFileTypes = Nothing
+    , _ssdSolutionStackName = Nothing
+    }
 
 -- | The permitted file types allowed for a solution stack.
 ssdPermittedFileTypes :: Lens' SolutionStackDescription [Text]
@@ -1714,11 +2025,18 @@ instance FromXML SolutionStackDescription where
 -- * 'scTemplateName'
 --
 -- * 'scApplicationName'
-data SourceConfiguration = SourceConfiguration'{_scTemplateName :: Maybe Text, _scApplicationName :: Maybe Text} deriving (Eq, Read, Show)
+data SourceConfiguration = SourceConfiguration'
+    { _scTemplateName    :: Maybe Text
+    , _scApplicationName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SourceConfiguration' smart constructor.
 sourceConfiguration :: SourceConfiguration
-sourceConfiguration = SourceConfiguration'{_scTemplateName = Nothing, _scApplicationName = Nothing};
+sourceConfiguration =
+    SourceConfiguration'
+    { _scTemplateName = Nothing
+    , _scApplicationName = Nothing
+    }
 
 -- | The name of the configuration template.
 scTemplateName :: Lens' SourceConfiguration (Maybe Text)
@@ -1743,11 +2061,18 @@ instance ToQuery SourceConfiguration where
 -- * 'tagValue'
 --
 -- * 'tagKey'
-data Tag = Tag'{_tagValue :: Maybe Text, _tagKey :: Maybe Text} deriving (Eq, Read, Show)
+data Tag = Tag'
+    { _tagValue :: Maybe Text
+    , _tagKey   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
-tag = Tag'{_tagValue = Nothing, _tagKey = Nothing};
+tag =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = Nothing
+    }
 
 -- | The value of the tag.
 tagValue :: Lens' Tag (Maybe Text)
@@ -1768,11 +2093,16 @@ instance ToQuery Tag where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'triName'
-newtype Trigger = Trigger'{_triName :: Maybe Text} deriving (Eq, Read, Show)
+newtype Trigger = Trigger'
+    { _triName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Trigger' smart constructor.
 trigger :: Trigger
-trigger = Trigger'{_triName = Nothing};
+trigger =
+    Trigger'
+    { _triName = Nothing
+    }
 
 -- | The name of the trigger.
 triName :: Lens' Trigger (Maybe Text)
@@ -1794,11 +2124,22 @@ instance FromXML Trigger where
 -- * 'vmNamespace'
 --
 -- * 'vmMessage'
-data ValidationMessage = ValidationMessage'{_vmOptionName :: Maybe Text, _vmSeverity :: Maybe ValidationSeverity, _vmNamespace :: Maybe Text, _vmMessage :: Maybe Text} deriving (Eq, Read, Show)
+data ValidationMessage = ValidationMessage'
+    { _vmOptionName :: Maybe Text
+    , _vmSeverity   :: Maybe ValidationSeverity
+    , _vmNamespace  :: Maybe Text
+    , _vmMessage    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ValidationMessage' smart constructor.
 validationMessage :: ValidationMessage
-validationMessage = ValidationMessage'{_vmOptionName = Nothing, _vmSeverity = Nothing, _vmNamespace = Nothing, _vmMessage = Nothing};
+validationMessage =
+    ValidationMessage'
+    { _vmOptionName = Nothing
+    , _vmSeverity = Nothing
+    , _vmNamespace = Nothing
+    , _vmMessage = Nothing
+    }
 
 -- |
 vmOptionName :: Lens' ValidationMessage (Maybe Text)

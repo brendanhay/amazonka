@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.ListTagsForResource
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.Route53.ListTagsForResource
     , listTagsForResourceResponse
     -- ** Response lenses
     , ltfrrResourceTagSet
-    , ltfrrStatusCode
+    , ltfrrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | A complex type containing information about a request for a list of the
 -- tags that are associated with an individual resource.
@@ -51,11 +51,18 @@ import Network.AWS.Route53.Types
 -- * 'ltfrResourceType'
 --
 -- * 'ltfrResourceId'
-data ListTagsForResource = ListTagsForResource'{_ltfrResourceType :: TagResourceType, _ltfrResourceId :: Text} deriving (Eq, Read, Show)
+data ListTagsForResource = ListTagsForResource'
+    { _ltfrResourceType :: TagResourceType
+    , _ltfrResourceId   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForResource' smart constructor.
 listTagsForResource :: TagResourceType -> Text -> ListTagsForResource
-listTagsForResource pResourceType pResourceId = ListTagsForResource'{_ltfrResourceType = pResourceType, _ltfrResourceId = pResourceId};
+listTagsForResource pResourceType pResourceId =
+    ListTagsForResource'
+    { _ltfrResourceType = pResourceType
+    , _ltfrResourceId = pResourceId
+    }
 
 -- | The type of the resource.
 --
@@ -100,12 +107,19 @@ instance ToQuery ListTagsForResource where
 --
 -- * 'ltfrrResourceTagSet'
 --
--- * 'ltfrrStatusCode'
-data ListTagsForResourceResponse = ListTagsForResourceResponse'{_ltfrrResourceTagSet :: ResourceTagSet, _ltfrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ltfrrStatus'
+data ListTagsForResourceResponse = ListTagsForResourceResponse'
+    { _ltfrrResourceTagSet :: ResourceTagSet
+    , _ltfrrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForResourceResponse' smart constructor.
 listTagsForResourceResponse :: ResourceTagSet -> Int -> ListTagsForResourceResponse
-listTagsForResourceResponse pResourceTagSet pStatusCode = ListTagsForResourceResponse'{_ltfrrResourceTagSet = pResourceTagSet, _ltfrrStatusCode = pStatusCode};
+listTagsForResourceResponse pResourceTagSet pStatus =
+    ListTagsForResourceResponse'
+    { _ltfrrResourceTagSet = pResourceTagSet
+    , _ltfrrStatus = pStatus
+    }
 
 -- | A @ResourceTagSet@ containing tags associated with the specified
 -- resource.
@@ -113,5 +127,5 @@ ltfrrResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
 ltfrrResourceTagSet = lens _ltfrrResourceTagSet (\ s a -> s{_ltfrrResourceTagSet = a});
 
 -- | FIXME: Undocumented member.
-ltfrrStatusCode :: Lens' ListTagsForResourceResponse Int
-ltfrrStatusCode = lens _ltfrrStatusCode (\ s a -> s{_ltfrrStatusCode = a});
+ltfrrStatus :: Lens' ListTagsForResourceResponse Int
+ltfrrStatus = lens _ltfrrStatus (\ s a -> s{_ltfrrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.GetObject
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,14 +71,14 @@ module Network.AWS.S3.GetObject
     , gorContentDisposition
     , gorServerSideEncryption
     , gorContentType
-    , gorStatusCode
+    , gorStatus
     , gorBody
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'getObject' smart constructor.
 --
@@ -119,11 +119,50 @@ import Network.AWS.S3.Types
 -- * 'goBucket'
 --
 -- * 'goKey'
-data GetObject = GetObject'{_goIfMatch :: Maybe Text, _goVersionId :: Maybe ObjectVersionId, _goResponseContentType :: Maybe Text, _goResponseContentDisposition :: Maybe Text, _goResponseContentLanguage :: Maybe Text, _goSSECustomerAlgorithm :: Maybe Text, _goSSECustomerKey :: Maybe (Sensitive Text), _goRequestPayer :: Maybe RequestPayer, _goResponseContentEncoding :: Maybe Text, _goIfModifiedSince :: Maybe RFC822, _goRange :: Maybe Text, _goIfUnmodifiedSince :: Maybe RFC822, _goSSECustomerKeyMD5 :: Maybe Text, _goResponseCacheControl :: Maybe Text, _goResponseExpires :: Maybe RFC822, _goIfNoneMatch :: Maybe Text, _goBucket :: BucketName, _goKey :: ObjectKey} deriving (Eq, Read, Show)
+data GetObject = GetObject'
+    { _goIfMatch                    :: Maybe Text
+    , _goVersionId                  :: Maybe ObjectVersionId
+    , _goResponseContentType        :: Maybe Text
+    , _goResponseContentDisposition :: Maybe Text
+    , _goResponseContentLanguage    :: Maybe Text
+    , _goSSECustomerAlgorithm       :: Maybe Text
+    , _goSSECustomerKey             :: Maybe (Sensitive Text)
+    , _goRequestPayer               :: Maybe RequestPayer
+    , _goResponseContentEncoding    :: Maybe Text
+    , _goIfModifiedSince            :: Maybe RFC822
+    , _goRange                      :: Maybe Text
+    , _goIfUnmodifiedSince          :: Maybe RFC822
+    , _goSSECustomerKeyMD5          :: Maybe Text
+    , _goResponseCacheControl       :: Maybe Text
+    , _goResponseExpires            :: Maybe RFC822
+    , _goIfNoneMatch                :: Maybe Text
+    , _goBucket                     :: BucketName
+    , _goKey                        :: ObjectKey
+    } deriving (Eq,Read,Show)
 
 -- | 'GetObject' smart constructor.
 getObject :: BucketName -> ObjectKey -> GetObject
-getObject pBucket pKey = GetObject'{_goIfMatch = Nothing, _goVersionId = Nothing, _goResponseContentType = Nothing, _goResponseContentDisposition = Nothing, _goResponseContentLanguage = Nothing, _goSSECustomerAlgorithm = Nothing, _goSSECustomerKey = Nothing, _goRequestPayer = Nothing, _goResponseContentEncoding = Nothing, _goIfModifiedSince = Nothing, _goRange = Nothing, _goIfUnmodifiedSince = Nothing, _goSSECustomerKeyMD5 = Nothing, _goResponseCacheControl = Nothing, _goResponseExpires = Nothing, _goIfNoneMatch = Nothing, _goBucket = pBucket, _goKey = pKey};
+getObject pBucket pKey =
+    GetObject'
+    { _goIfMatch = Nothing
+    , _goVersionId = Nothing
+    , _goResponseContentType = Nothing
+    , _goResponseContentDisposition = Nothing
+    , _goResponseContentLanguage = Nothing
+    , _goSSECustomerAlgorithm = Nothing
+    , _goSSECustomerKey = Nothing
+    , _goRequestPayer = Nothing
+    , _goResponseContentEncoding = Nothing
+    , _goIfModifiedSince = Nothing
+    , _goRange = Nothing
+    , _goIfUnmodifiedSince = Nothing
+    , _goSSECustomerKeyMD5 = Nothing
+    , _goResponseCacheControl = Nothing
+    , _goResponseExpires = Nothing
+    , _goIfNoneMatch = Nothing
+    , _goBucket = pBucket
+    , _goKey = pKey
+    }
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
 -- specified, otherwise return a 412 (precondition failed).
@@ -332,14 +371,67 @@ instance ToQuery GetObject where
 --
 -- * 'gorContentType'
 --
--- * 'gorStatusCode'
+-- * 'gorStatus'
 --
 -- * 'gorBody'
-data GetObjectResponse = GetObjectResponse'{_gorVersionId :: Maybe ObjectVersionId, _gorETag :: Maybe ETag, _gorRequestCharged :: Maybe RequestCharged, _gorContentLength :: Maybe Int, _gorRestore :: Maybe Text, _gorExpires :: Maybe RFC822, _gorDeleteMarker :: Maybe Bool, _gorExpiration :: Maybe Text, _gorSSECustomerAlgorithm :: Maybe Text, _gorMissingMeta :: Maybe Int, _gorWebsiteRedirectLocation :: Maybe Text, _gorAcceptRanges :: Maybe Text, _gorContentEncoding :: Maybe Text, _gorSSEKMSKeyId :: Maybe (Sensitive Text), _gorSSECustomerKeyMD5 :: Maybe Text, _gorMetadata :: Map Text Text, _gorReplicationStatus :: Maybe ReplicationStatus, _gorCacheControl :: Maybe Text, _gorContentLanguage :: Maybe Text, _gorLastModified :: Maybe RFC822, _gorContentDisposition :: Maybe Text, _gorServerSideEncryption :: Maybe ServerSideEncryption, _gorContentType :: Maybe Text, _gorStatusCode :: Int, _gorBody :: RsBody} deriving Show
+data GetObjectResponse = GetObjectResponse'
+    { _gorVersionId               :: Maybe ObjectVersionId
+    , _gorETag                    :: Maybe ETag
+    , _gorRequestCharged          :: Maybe RequestCharged
+    , _gorContentLength           :: Maybe Int
+    , _gorRestore                 :: Maybe Text
+    , _gorExpires                 :: Maybe RFC822
+    , _gorDeleteMarker            :: Maybe Bool
+    , _gorExpiration              :: Maybe Text
+    , _gorSSECustomerAlgorithm    :: Maybe Text
+    , _gorMissingMeta             :: Maybe Int
+    , _gorWebsiteRedirectLocation :: Maybe Text
+    , _gorAcceptRanges            :: Maybe Text
+    , _gorContentEncoding         :: Maybe Text
+    , _gorSSEKMSKeyId             :: Maybe (Sensitive Text)
+    , _gorSSECustomerKeyMD5       :: Maybe Text
+    , _gorMetadata                :: Map Text Text
+    , _gorReplicationStatus       :: Maybe ReplicationStatus
+    , _gorCacheControl            :: Maybe Text
+    , _gorContentLanguage         :: Maybe Text
+    , _gorLastModified            :: Maybe RFC822
+    , _gorContentDisposition      :: Maybe Text
+    , _gorServerSideEncryption    :: Maybe ServerSideEncryption
+    , _gorContentType             :: Maybe Text
+    , _gorStatus                  :: !Int
+    , _gorBody                    :: RsBody
+    } deriving (Show)
 
 -- | 'GetObjectResponse' smart constructor.
 getObjectResponse :: Int -> RsBody -> GetObjectResponse
-getObjectResponse pStatusCode pBody = GetObjectResponse'{_gorVersionId = Nothing, _gorETag = Nothing, _gorRequestCharged = Nothing, _gorContentLength = Nothing, _gorRestore = Nothing, _gorExpires = Nothing, _gorDeleteMarker = Nothing, _gorExpiration = Nothing, _gorSSECustomerAlgorithm = Nothing, _gorMissingMeta = Nothing, _gorWebsiteRedirectLocation = Nothing, _gorAcceptRanges = Nothing, _gorContentEncoding = Nothing, _gorSSEKMSKeyId = Nothing, _gorSSECustomerKeyMD5 = Nothing, _gorMetadata = mempty, _gorReplicationStatus = Nothing, _gorCacheControl = Nothing, _gorContentLanguage = Nothing, _gorLastModified = Nothing, _gorContentDisposition = Nothing, _gorServerSideEncryption = Nothing, _gorContentType = Nothing, _gorStatusCode = pStatusCode, _gorBody = pBody};
+getObjectResponse pStatus pBody =
+    GetObjectResponse'
+    { _gorVersionId = Nothing
+    , _gorETag = Nothing
+    , _gorRequestCharged = Nothing
+    , _gorContentLength = Nothing
+    , _gorRestore = Nothing
+    , _gorExpires = Nothing
+    , _gorDeleteMarker = Nothing
+    , _gorExpiration = Nothing
+    , _gorSSECustomerAlgorithm = Nothing
+    , _gorMissingMeta = Nothing
+    , _gorWebsiteRedirectLocation = Nothing
+    , _gorAcceptRanges = Nothing
+    , _gorContentEncoding = Nothing
+    , _gorSSEKMSKeyId = Nothing
+    , _gorSSECustomerKeyMD5 = Nothing
+    , _gorMetadata = mempty
+    , _gorReplicationStatus = Nothing
+    , _gorCacheControl = Nothing
+    , _gorContentLanguage = Nothing
+    , _gorLastModified = Nothing
+    , _gorContentDisposition = Nothing
+    , _gorServerSideEncryption = Nothing
+    , _gorContentType = Nothing
+    , _gorStatus = pStatus
+    , _gorBody = pBody
+    }
 
 -- | Version of the object.
 gorVersionId :: Lens' GetObjectResponse (Maybe ObjectVersionId)
@@ -455,8 +547,8 @@ gorContentType :: Lens' GetObjectResponse (Maybe Text)
 gorContentType = lens _gorContentType (\ s a -> s{_gorContentType = a});
 
 -- | FIXME: Undocumented member.
-gorStatusCode :: Lens' GetObjectResponse Int
-gorStatusCode = lens _gorStatusCode (\ s a -> s{_gorStatusCode = a});
+gorStatus :: Lens' GetObjectResponse Int
+gorStatus = lens _gorStatus (\ s a -> s{_gorStatus = a});
 
 -- | Object data.
 gorBody :: Lens' GetObjectResponse RsBody

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,24 +40,29 @@ module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     , describeLoadBasedAutoScalingResponse
     -- ** Response lenses
     , dlbasrLoadBasedAutoScalingConfigurations
-    , dlbasrStatusCode
+    , dlbasrStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLoadBasedAutoScaling' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlbasLayerIds'
-newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'{_dlbasLayerIds :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'
+    { _dlbasLayerIds :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBasedAutoScaling' smart constructor.
 describeLoadBasedAutoScaling :: DescribeLoadBasedAutoScaling
-describeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'{_dlbasLayerIds = mempty};
+describeLoadBasedAutoScaling =
+    DescribeLoadBasedAutoScaling'
+    { _dlbasLayerIds = mempty
+    }
 
 -- | An array of layer IDs.
 dlbasLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
@@ -105,12 +110,19 @@ instance ToQuery DescribeLoadBasedAutoScaling where
 --
 -- * 'dlbasrLoadBasedAutoScalingConfigurations'
 --
--- * 'dlbasrStatusCode'
-data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'{_dlbasrLoadBasedAutoScalingConfigurations :: Maybe [LoadBasedAutoScalingConfiguration], _dlbasrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dlbasrStatus'
+data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'
+    { _dlbasrLoadBasedAutoScalingConfigurations :: Maybe [LoadBasedAutoScalingConfiguration]
+    , _dlbasrStatus                             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBasedAutoScalingResponse' smart constructor.
 describeLoadBasedAutoScalingResponse :: Int -> DescribeLoadBasedAutoScalingResponse
-describeLoadBasedAutoScalingResponse pStatusCode = DescribeLoadBasedAutoScalingResponse'{_dlbasrLoadBasedAutoScalingConfigurations = Nothing, _dlbasrStatusCode = pStatusCode};
+describeLoadBasedAutoScalingResponse pStatus =
+    DescribeLoadBasedAutoScalingResponse'
+    { _dlbasrLoadBasedAutoScalingConfigurations = Nothing
+    , _dlbasrStatus = pStatus
+    }
 
 -- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe
 -- each layer\'s configuration.
@@ -118,5 +130,5 @@ dlbasrLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingRe
 dlbasrLoadBasedAutoScalingConfigurations = lens _dlbasrLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrLoadBasedAutoScalingConfigurations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlbasrStatusCode :: Lens' DescribeLoadBasedAutoScalingResponse Int
-dlbasrStatusCode = lens _dlbasrStatusCode (\ s a -> s{_dlbasrStatusCode = a});
+dlbasrStatus :: Lens' DescribeLoadBasedAutoScalingResponse Int
+dlbasrStatus = lens _dlbasrStatus (\ s a -> s{_dlbasrStatus = a});

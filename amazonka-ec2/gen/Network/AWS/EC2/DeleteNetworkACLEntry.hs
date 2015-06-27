@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteNetworkACLEntry
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.EC2.DeleteNetworkACLEntry
     , deleteNetworkACLEntryResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteNetworkACLEntry' smart constructor.
 --
@@ -52,11 +52,22 @@ import Network.AWS.Response
 -- * 'dnaeRuleNumber'
 --
 -- * 'dnaeEgress'
-data DeleteNetworkACLEntry = DeleteNetworkACLEntry'{_dnaeDryRun :: Maybe Bool, _dnaeNetworkACLId :: Text, _dnaeRuleNumber :: Int, _dnaeEgress :: Bool} deriving (Eq, Read, Show)
+data DeleteNetworkACLEntry = DeleteNetworkACLEntry'
+    { _dnaeDryRun       :: Maybe Bool
+    , _dnaeNetworkACLId :: Text
+    , _dnaeRuleNumber   :: !Int
+    , _dnaeEgress       :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteNetworkACLEntry' smart constructor.
 deleteNetworkACLEntry :: Text -> Int -> Bool -> DeleteNetworkACLEntry
-deleteNetworkACLEntry pNetworkACLId pRuleNumber pEgress = DeleteNetworkACLEntry'{_dnaeDryRun = Nothing, _dnaeNetworkACLId = pNetworkACLId, _dnaeRuleNumber = pRuleNumber, _dnaeEgress = pEgress};
+deleteNetworkACLEntry pNetworkACLId pRuleNumber pEgress =
+    DeleteNetworkACLEntry'
+    { _dnaeDryRun = Nothing
+    , _dnaeNetworkACLId = pNetworkACLId
+    , _dnaeRuleNumber = pRuleNumber
+    , _dnaeEgress = pEgress
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -101,8 +112,10 @@ instance ToQuery DeleteNetworkACLEntry where
                "Egress" =: _dnaeEgress]
 
 -- | /See:/ 'deleteNetworkACLEntryResponse' smart constructor.
-data DeleteNetworkACLEntryResponse = DeleteNetworkACLEntryResponse' deriving (Eq, Read, Show)
+data DeleteNetworkACLEntryResponse =
+    DeleteNetworkACLEntryResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteNetworkACLEntryResponse' smart constructor.
 deleteNetworkACLEntryResponse :: DeleteNetworkACLEntryResponse
-deleteNetworkACLEntryResponse = DeleteNetworkACLEntryResponse';
+deleteNetworkACLEntryResponse = DeleteNetworkACLEntryResponse'

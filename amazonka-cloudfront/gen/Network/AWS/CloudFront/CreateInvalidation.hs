@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.CreateInvalidation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.CloudFront.CreateInvalidation
     -- ** Response lenses
     , cirInvalidation
     , cirLocation
-    , cirStatusCode
+    , cirStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to create an invalidation.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'ciDistributionId'
 --
 -- * 'ciInvalidationBatch'
-data CreateInvalidation = CreateInvalidation'{_ciDistributionId :: Text, _ciInvalidationBatch :: InvalidationBatch} deriving (Eq, Read, Show)
+data CreateInvalidation = CreateInvalidation'
+    { _ciDistributionId    :: Text
+    , _ciInvalidationBatch :: InvalidationBatch
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateInvalidation' smart constructor.
 createInvalidation :: Text -> InvalidationBatch -> CreateInvalidation
-createInvalidation pDistributionId pInvalidationBatch = CreateInvalidation'{_ciDistributionId = pDistributionId, _ciInvalidationBatch = pInvalidationBatch};
+createInvalidation pDistributionId pInvalidationBatch =
+    CreateInvalidation'
+    { _ciDistributionId = pDistributionId
+    , _ciInvalidationBatch = pInvalidationBatch
+    }
 
 -- | The distribution\'s id.
 ciDistributionId :: Lens' CreateInvalidation Text
@@ -106,12 +113,21 @@ instance ToQuery CreateInvalidation where
 --
 -- * 'cirLocation'
 --
--- * 'cirStatusCode'
-data CreateInvalidationResponse = CreateInvalidationResponse'{_cirInvalidation :: Maybe Invalidation, _cirLocation :: Maybe Text, _cirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cirStatus'
+data CreateInvalidationResponse = CreateInvalidationResponse'
+    { _cirInvalidation :: Maybe Invalidation
+    , _cirLocation     :: Maybe Text
+    , _cirStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateInvalidationResponse' smart constructor.
 createInvalidationResponse :: Int -> CreateInvalidationResponse
-createInvalidationResponse pStatusCode = CreateInvalidationResponse'{_cirInvalidation = Nothing, _cirLocation = Nothing, _cirStatusCode = pStatusCode};
+createInvalidationResponse pStatus =
+    CreateInvalidationResponse'
+    { _cirInvalidation = Nothing
+    , _cirLocation = Nothing
+    , _cirStatus = pStatus
+    }
 
 -- | The invalidation\'s information.
 cirInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
@@ -123,5 +139,5 @@ cirLocation :: Lens' CreateInvalidationResponse (Maybe Text)
 cirLocation = lens _cirLocation (\ s a -> s{_cirLocation = a});
 
 -- | FIXME: Undocumented member.
-cirStatusCode :: Lens' CreateInvalidationResponse Int
-cirStatusCode = lens _cirStatusCode (\ s a -> s{_cirStatusCode = a});
+cirStatus :: Lens' CreateInvalidationResponse Int
+cirStatus = lens _cirStatus (\ s a -> s{_cirStatus = a});

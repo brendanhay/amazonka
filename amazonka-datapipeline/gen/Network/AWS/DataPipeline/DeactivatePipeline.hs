@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.DeactivatePipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.DataPipeline.DeactivatePipeline
     -- ** Response constructor
     , deactivatePipelineResponse
     -- ** Response lenses
-    , deaStatusCode
+    , deaStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DeactivatePipeline.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'deaCancelActive'
 --
 -- * 'deaPipelineId'
-data DeactivatePipeline = DeactivatePipeline'{_deaCancelActive :: Maybe Bool, _deaPipelineId :: Text} deriving (Eq, Read, Show)
+data DeactivatePipeline = DeactivatePipeline'
+    { _deaCancelActive :: Maybe Bool
+    , _deaPipelineId   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeactivatePipeline' smart constructor.
 deactivatePipeline :: Text -> DeactivatePipeline
-deactivatePipeline pPipelineId = DeactivatePipeline'{_deaCancelActive = Nothing, _deaPipelineId = pPipelineId};
+deactivatePipeline pPipelineId =
+    DeactivatePipeline'
+    { _deaCancelActive = Nothing
+    , _deaPipelineId = pPipelineId
+    }
 
 -- | Indicates whether to cancel any running objects. The default is true,
 -- which sets the state of any running objects to @CANCELED@. If this value
@@ -107,13 +114,18 @@ instance ToQuery DeactivatePipeline where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deaStatusCode'
-newtype DeactivatePipelineResponse = DeactivatePipelineResponse'{_deaStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'deaStatus'
+newtype DeactivatePipelineResponse = DeactivatePipelineResponse'
+    { _deaStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeactivatePipelineResponse' smart constructor.
 deactivatePipelineResponse :: Int -> DeactivatePipelineResponse
-deactivatePipelineResponse pStatusCode = DeactivatePipelineResponse'{_deaStatusCode = pStatusCode};
+deactivatePipelineResponse pStatus =
+    DeactivatePipelineResponse'
+    { _deaStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-deaStatusCode :: Lens' DeactivatePipelineResponse Int
-deaStatusCode = lens _deaStatusCode (\ s a -> s{_deaStatusCode = a});
+deaStatus :: Lens' DeactivatePipelineResponse Int
+deaStatus = lens _deaStatus (\ s a -> s{_deaStatus = a});

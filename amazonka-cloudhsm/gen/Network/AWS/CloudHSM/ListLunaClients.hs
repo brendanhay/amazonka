@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.ListLunaClients
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,24 +38,29 @@ module Network.AWS.CloudHSM.ListLunaClients
     -- ** Response lenses
     , llcrNextToken
     , llcrClientList
-    , llcrStatusCode
+    , llcrStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listLunaClients' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'llcNextToken'
-newtype ListLunaClients = ListLunaClients'{_llcNextToken :: Maybe Text} deriving (Eq, Read, Show)
+newtype ListLunaClients = ListLunaClients'
+    { _llcNextToken :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListLunaClients' smart constructor.
 listLunaClients :: ListLunaClients
-listLunaClients = ListLunaClients'{_llcNextToken = Nothing};
+listLunaClients =
+    ListLunaClients'
+    { _llcNextToken = Nothing
+    }
 
 -- | The /NextToken/ value from a previous call to ListLunaClients. Pass null
 -- if this is the first call.
@@ -102,12 +107,21 @@ instance ToQuery ListLunaClients where
 --
 -- * 'llcrClientList'
 --
--- * 'llcrStatusCode'
-data ListLunaClientsResponse = ListLunaClientsResponse'{_llcrNextToken :: Maybe Text, _llcrClientList :: [Text], _llcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'llcrStatus'
+data ListLunaClientsResponse = ListLunaClientsResponse'
+    { _llcrNextToken  :: Maybe Text
+    , _llcrClientList :: [Text]
+    , _llcrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListLunaClientsResponse' smart constructor.
 listLunaClientsResponse :: Int -> ListLunaClientsResponse
-listLunaClientsResponse pStatusCode = ListLunaClientsResponse'{_llcrNextToken = Nothing, _llcrClientList = mempty, _llcrStatusCode = pStatusCode};
+listLunaClientsResponse pStatus =
+    ListLunaClientsResponse'
+    { _llcrNextToken = Nothing
+    , _llcrClientList = mempty
+    , _llcrStatus = pStatus
+    }
 
 -- | If not null, more results are available. Pass this to ListLunaClients to
 -- retrieve the next set of items.
@@ -119,5 +133,5 @@ llcrClientList :: Lens' ListLunaClientsResponse [Text]
 llcrClientList = lens _llcrClientList (\ s a -> s{_llcrClientList = a});
 
 -- | FIXME: Undocumented member.
-llcrStatusCode :: Lens' ListLunaClientsResponse Int
-llcrStatusCode = lens _llcrStatusCode (\ s a -> s{_llcrStatusCode = a});
+llcrStatus :: Lens' ListLunaClientsResponse Int
+llcrStatus = lens _llcrStatus (\ s a -> s{_llcrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.HeadBucket
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,21 +33,26 @@ module Network.AWS.S3.HeadBucket
     , headBucketResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'headBucket' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'hbBucket'
-newtype HeadBucket = HeadBucket'{_hbBucket :: BucketName} deriving (Eq, Read, Show)
+newtype HeadBucket = HeadBucket'
+    { _hbBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'HeadBucket' smart constructor.
 headBucket :: BucketName -> HeadBucket
-headBucket pBucket = HeadBucket'{_hbBucket = pBucket};
+headBucket pBucket =
+    HeadBucket'
+    { _hbBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 hbBucket :: Lens' HeadBucket BucketName
@@ -70,8 +75,10 @@ instance ToQuery HeadBucket where
         toQuery = const mempty
 
 -- | /See:/ 'headBucketResponse' smart constructor.
-data HeadBucketResponse = HeadBucketResponse' deriving (Eq, Read, Show)
+data HeadBucketResponse =
+    HeadBucketResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'HeadBucketResponse' smart constructor.
 headBucketResponse :: HeadBucketResponse
-headBucketResponse = HeadBucketResponse';
+headBucketResponse = HeadBucketResponse'

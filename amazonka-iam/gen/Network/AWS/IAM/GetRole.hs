@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetRole
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,24 +37,29 @@ module Network.AWS.IAM.GetRole
     , getRoleResponse
     -- ** Response lenses
     , grrRole
-    , grrStatusCode
+    , grrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getRole' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'grRoleName'
-newtype GetRole = GetRole'{_grRoleName :: Text} deriving (Eq, Read, Show)
+newtype GetRole = GetRole'
+    { _grRoleName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetRole' smart constructor.
 getRole :: Text -> GetRole
-getRole pRoleName = GetRole'{_grRoleName = pRoleName};
+getRole pRoleName =
+    GetRole'
+    { _grRoleName = pRoleName
+    }
 
 -- | The name of the role to get information about.
 grRoleName :: Lens' GetRole Text
@@ -91,17 +96,24 @@ instance ToQuery GetRole where
 --
 -- * 'grrRole'
 --
--- * 'grrStatusCode'
-data GetRoleResponse = GetRoleResponse'{_grrRole :: Role, _grrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'grrStatus'
+data GetRoleResponse = GetRoleResponse'
+    { _grrRole   :: Role
+    , _grrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetRoleResponse' smart constructor.
 getRoleResponse :: Role -> Int -> GetRoleResponse
-getRoleResponse pRole pStatusCode = GetRoleResponse'{_grrRole = pRole, _grrStatusCode = pStatusCode};
+getRoleResponse pRole pStatus =
+    GetRoleResponse'
+    { _grrRole = pRole
+    , _grrStatus = pStatus
+    }
 
 -- | Information about the role.
 grrRole :: Lens' GetRoleResponse Role
 grrRole = lens _grrRole (\ s a -> s{_grrRole = a});
 
 -- | FIXME: Undocumented member.
-grrStatusCode :: Lens' GetRoleResponse Int
-grrStatusCode = lens _grrStatusCode (\ s a -> s{_grrStatusCode = a});
+grrStatus :: Lens' GetRoleResponse Int
+grrStatus = lens _grrStatus (\ s a -> s{_grrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DetachGroupPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.IAM.DetachGroupPolicy
     , detachGroupPolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachGroupPolicy' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'dgpGroupName'
 --
 -- * 'dgpPolicyARN'
-data DetachGroupPolicy = DetachGroupPolicy'{_dgpGroupName :: Text, _dgpPolicyARN :: Text} deriving (Eq, Read, Show)
+data DetachGroupPolicy = DetachGroupPolicy'
+    { _dgpGroupName :: Text
+    , _dgpPolicyARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachGroupPolicy' smart constructor.
 detachGroupPolicy :: Text -> Text -> DetachGroupPolicy
-detachGroupPolicy pGroupName pPolicyARN = DetachGroupPolicy'{_dgpGroupName = pGroupName, _dgpPolicyARN = pPolicyARN};
+detachGroupPolicy pGroupName pPolicyARN =
+    DetachGroupPolicy'
+    { _dgpGroupName = pGroupName
+    , _dgpPolicyARN = pPolicyARN
+    }
 
 -- | The name (friendly name, not ARN) of the group to detach the policy
 -- from.
@@ -87,8 +94,10 @@ instance ToQuery DetachGroupPolicy where
                "PolicyArn" =: _dgpPolicyARN]
 
 -- | /See:/ 'detachGroupPolicyResponse' smart constructor.
-data DetachGroupPolicyResponse = DetachGroupPolicyResponse' deriving (Eq, Read, Show)
+data DetachGroupPolicyResponse =
+    DetachGroupPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DetachGroupPolicyResponse' smart constructor.
 detachGroupPolicyResponse :: DetachGroupPolicyResponse
-detachGroupPolicyResponse = DetachGroupPolicyResponse';
+detachGroupPolicyResponse = DetachGroupPolicyResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeHSMConfigurations
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,14 +49,14 @@ module Network.AWS.Redshift.DescribeHSMConfigurations
     -- ** Response lenses
     , dhcrMarker
     , dhcrHSMConfigurations
-    , dhcrStatusCode
+    , dhcrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -73,11 +73,24 @@ import Network.AWS.Response
 -- * 'dhsmcMaxRecords'
 --
 -- * 'dhsmcMarker'
-data DescribeHSMConfigurations = DescribeHSMConfigurations'{_dhsmcTagValues :: Maybe [Text], _dhsmcHSMConfigurationIdentifier :: Maybe Text, _dhsmcTagKeys :: Maybe [Text], _dhsmcMaxRecords :: Maybe Int, _dhsmcMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeHSMConfigurations = DescribeHSMConfigurations'
+    { _dhsmcTagValues                  :: Maybe [Text]
+    , _dhsmcHSMConfigurationIdentifier :: Maybe Text
+    , _dhsmcTagKeys                    :: Maybe [Text]
+    , _dhsmcMaxRecords                 :: Maybe Int
+    , _dhsmcMarker                     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeHSMConfigurations' smart constructor.
 describeHSMConfigurations :: DescribeHSMConfigurations
-describeHSMConfigurations = DescribeHSMConfigurations'{_dhsmcTagValues = Nothing, _dhsmcHSMConfigurationIdentifier = Nothing, _dhsmcTagKeys = Nothing, _dhsmcMaxRecords = Nothing, _dhsmcMarker = Nothing};
+describeHSMConfigurations =
+    DescribeHSMConfigurations'
+    { _dhsmcTagValues = Nothing
+    , _dhsmcHSMConfigurationIdentifier = Nothing
+    , _dhsmcTagKeys = Nothing
+    , _dhsmcMaxRecords = Nothing
+    , _dhsmcMarker = Nothing
+    }
 
 -- | A tag value or values for which you want to return all matching HSM
 -- configurations that are associated with the specified tag value or
@@ -178,12 +191,21 @@ instance ToQuery DescribeHSMConfigurations where
 --
 -- * 'dhcrHSMConfigurations'
 --
--- * 'dhcrStatusCode'
-data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'{_dhcrMarker :: Maybe Text, _dhcrHSMConfigurations :: Maybe [HSMConfiguration], _dhcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dhcrStatus'
+data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'
+    { _dhcrMarker            :: Maybe Text
+    , _dhcrHSMConfigurations :: Maybe [HSMConfiguration]
+    , _dhcrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeHSMConfigurationsResponse' smart constructor.
 describeHSMConfigurationsResponse :: Int -> DescribeHSMConfigurationsResponse
-describeHSMConfigurationsResponse pStatusCode = DescribeHSMConfigurationsResponse'{_dhcrMarker = Nothing, _dhcrHSMConfigurations = Nothing, _dhcrStatusCode = pStatusCode};
+describeHSMConfigurationsResponse pStatus =
+    DescribeHSMConfigurationsResponse'
+    { _dhcrMarker = Nothing
+    , _dhcrHSMConfigurations = Nothing
+    , _dhcrStatus = pStatus
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -199,5 +221,5 @@ dhcrHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfigurati
 dhcrHSMConfigurations = lens _dhcrHSMConfigurations (\ s a -> s{_dhcrHSMConfigurations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dhcrStatusCode :: Lens' DescribeHSMConfigurationsResponse Int
-dhcrStatusCode = lens _dhcrStatusCode (\ s a -> s{_dhcrStatusCode = a});
+dhcrStatus :: Lens' DescribeHSMConfigurationsResponse Int
+dhcrStatus = lens _dhcrStatus (\ s a -> s{_dhcrStatus = a});

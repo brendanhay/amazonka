@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.CreateDataSourceFromS
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,13 +68,13 @@ module Network.AWS.MachineLearning.CreateDataSourceFromS
     , createDataSourceFromSResponse
     -- ** Response lenses
     , cdsfsrDataSourceId
-    , cdsfsrStatusCode
+    , cdsfsrStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createDataSourceFromS' smart constructor.
 --
@@ -87,11 +87,22 @@ import Network.AWS.Response
 -- * 'cdsfsDataSourceId'
 --
 -- * 'cdsfsDataSpec'
-data CreateDataSourceFromS = CreateDataSourceFromS'{_cdsfsDataSourceName :: Maybe Text, _cdsfsComputeStatistics :: Maybe Bool, _cdsfsDataSourceId :: Text, _cdsfsDataSpec :: S3DataSpec} deriving (Eq, Read, Show)
+data CreateDataSourceFromS = CreateDataSourceFromS'
+    { _cdsfsDataSourceName    :: Maybe Text
+    , _cdsfsComputeStatistics :: Maybe Bool
+    , _cdsfsDataSourceId      :: Text
+    , _cdsfsDataSpec          :: S3DataSpec
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDataSourceFromS' smart constructor.
 createDataSourceFromS :: Text -> S3DataSpec -> CreateDataSourceFromS
-createDataSourceFromS pDataSourceId pDataSpec = CreateDataSourceFromS'{_cdsfsDataSourceName = Nothing, _cdsfsComputeStatistics = Nothing, _cdsfsDataSourceId = pDataSourceId, _cdsfsDataSpec = pDataSpec};
+createDataSourceFromS pDataSourceId pDataSpec =
+    CreateDataSourceFromS'
+    { _cdsfsDataSourceName = Nothing
+    , _cdsfsComputeStatistics = Nothing
+    , _cdsfsDataSourceId = pDataSourceId
+    , _cdsfsDataSpec = pDataSpec
+    }
 
 -- | A user-supplied name or description of the @DataSource@.
 cdsfsDataSourceName :: Lens' CreateDataSourceFromS (Maybe Text)
@@ -176,12 +187,19 @@ instance ToQuery CreateDataSourceFromS where
 --
 -- * 'cdsfsrDataSourceId'
 --
--- * 'cdsfsrStatusCode'
-data CreateDataSourceFromSResponse = CreateDataSourceFromSResponse'{_cdsfsrDataSourceId :: Maybe Text, _cdsfsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdsfsrStatus'
+data CreateDataSourceFromSResponse = CreateDataSourceFromSResponse'
+    { _cdsfsrDataSourceId :: Maybe Text
+    , _cdsfsrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDataSourceFromSResponse' smart constructor.
 createDataSourceFromSResponse :: Int -> CreateDataSourceFromSResponse
-createDataSourceFromSResponse pStatusCode = CreateDataSourceFromSResponse'{_cdsfsrDataSourceId = Nothing, _cdsfsrStatusCode = pStatusCode};
+createDataSourceFromSResponse pStatus =
+    CreateDataSourceFromSResponse'
+    { _cdsfsrDataSourceId = Nothing
+    , _cdsfsrStatus = pStatus
+    }
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
@@ -189,5 +207,5 @@ cdsfsrDataSourceId :: Lens' CreateDataSourceFromSResponse (Maybe Text)
 cdsfsrDataSourceId = lens _cdsfsrDataSourceId (\ s a -> s{_cdsfsrDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-cdsfsrStatusCode :: Lens' CreateDataSourceFromSResponse Int
-cdsfsrStatusCode = lens _cdsfsrStatusCode (\ s a -> s{_cdsfsrStatusCode = a});
+cdsfsrStatus :: Lens' CreateDataSourceFromSResponse Int
+cdsfsrStatus = lens _cdsfsrStatus (\ s a -> s{_cdsfsrStatus = a});

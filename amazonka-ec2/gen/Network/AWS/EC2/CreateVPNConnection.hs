@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateVPNConnection
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,13 +52,13 @@ module Network.AWS.EC2.CreateVPNConnection
     , createVPNConnectionResponse
     -- ** Response lenses
     , cvcrVPNConnection
-    , cvcrStatusCode
+    , cvcrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createVPNConnection' smart constructor.
 --
@@ -73,11 +73,24 @@ import Network.AWS.Response
 -- * 'cvcCustomerGatewayId'
 --
 -- * 'cvcVPNGatewayId'
-data CreateVPNConnection = CreateVPNConnection'{_cvcOptions :: Maybe VPNConnectionOptionsSpecification, _cvcDryRun :: Maybe Bool, _cvcType :: Text, _cvcCustomerGatewayId :: Text, _cvcVPNGatewayId :: Text} deriving (Eq, Read, Show)
+data CreateVPNConnection = CreateVPNConnection'
+    { _cvcOptions           :: Maybe VPNConnectionOptionsSpecification
+    , _cvcDryRun            :: Maybe Bool
+    , _cvcType              :: Text
+    , _cvcCustomerGatewayId :: Text
+    , _cvcVPNGatewayId      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVPNConnection' smart constructor.
 createVPNConnection :: Text -> Text -> Text -> CreateVPNConnection
-createVPNConnection pType pCustomerGatewayId pVPNGatewayId = CreateVPNConnection'{_cvcOptions = Nothing, _cvcDryRun = Nothing, _cvcType = pType, _cvcCustomerGatewayId = pCustomerGatewayId, _cvcVPNGatewayId = pVPNGatewayId};
+createVPNConnection pType pCustomerGatewayId pVPNGatewayId =
+    CreateVPNConnection'
+    { _cvcOptions = Nothing
+    , _cvcDryRun = Nothing
+    , _cvcType = pType
+    , _cvcCustomerGatewayId = pCustomerGatewayId
+    , _cvcVPNGatewayId = pVPNGatewayId
+    }
 
 -- | Indicates whether the VPN connection requires static routes. If you are
 -- creating a VPN connection for a device that does not support BGP, you
@@ -139,17 +152,24 @@ instance ToQuery CreateVPNConnection where
 --
 -- * 'cvcrVPNConnection'
 --
--- * 'cvcrStatusCode'
-data CreateVPNConnectionResponse = CreateVPNConnectionResponse'{_cvcrVPNConnection :: Maybe VPNConnection, _cvcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cvcrStatus'
+data CreateVPNConnectionResponse = CreateVPNConnectionResponse'
+    { _cvcrVPNConnection :: Maybe VPNConnection
+    , _cvcrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVPNConnectionResponse' smart constructor.
 createVPNConnectionResponse :: Int -> CreateVPNConnectionResponse
-createVPNConnectionResponse pStatusCode = CreateVPNConnectionResponse'{_cvcrVPNConnection = Nothing, _cvcrStatusCode = pStatusCode};
+createVPNConnectionResponse pStatus =
+    CreateVPNConnectionResponse'
+    { _cvcrVPNConnection = Nothing
+    , _cvcrStatus = pStatus
+    }
 
 -- | Information about the VPN connection.
 cvcrVPNConnection :: Lens' CreateVPNConnectionResponse (Maybe VPNConnection)
 cvcrVPNConnection = lens _cvcrVPNConnection (\ s a -> s{_cvcrVPNConnection = a});
 
 -- | FIXME: Undocumented member.
-cvcrStatusCode :: Lens' CreateVPNConnectionResponse Int
-cvcrStatusCode = lens _cvcrStatusCode (\ s a -> s{_cvcrStatusCode = a});
+cvcrStatus :: Lens' CreateVPNConnectionResponse Int
+cvcrStatus = lens _cvcrStatus (\ s a -> s{_cvcrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.ActivatePipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.DataPipeline.ActivatePipeline
     -- ** Response constructor
     , activatePipelineResponse
     -- ** Response lenses
-    , aprStatusCode
+    , aprStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for ActivatePipeline.
 --
@@ -59,11 +59,20 @@ import Network.AWS.Response
 -- * 'apParameterValues'
 --
 -- * 'apPipelineId'
-data ActivatePipeline = ActivatePipeline'{_apStartTimestamp :: Maybe POSIX, _apParameterValues :: Maybe [ParameterValue], _apPipelineId :: Text} deriving (Eq, Read, Show)
+data ActivatePipeline = ActivatePipeline'
+    { _apStartTimestamp  :: Maybe POSIX
+    , _apParameterValues :: Maybe [ParameterValue]
+    , _apPipelineId      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ActivatePipeline' smart constructor.
 activatePipeline :: Text -> ActivatePipeline
-activatePipeline pPipelineId = ActivatePipeline'{_apStartTimestamp = Nothing, _apParameterValues = Nothing, _apPipelineId = pPipelineId};
+activatePipeline pPipelineId =
+    ActivatePipeline'
+    { _apStartTimestamp = Nothing
+    , _apParameterValues = Nothing
+    , _apPipelineId = pPipelineId
+    }
 
 -- | The date and time to resume the pipeline. By default, the pipeline
 -- resumes from the last completed execution.
@@ -115,13 +124,18 @@ instance ToQuery ActivatePipeline where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aprStatusCode'
-newtype ActivatePipelineResponse = ActivatePipelineResponse'{_aprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'aprStatus'
+newtype ActivatePipelineResponse = ActivatePipelineResponse'
+    { _aprStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ActivatePipelineResponse' smart constructor.
 activatePipelineResponse :: Int -> ActivatePipelineResponse
-activatePipelineResponse pStatusCode = ActivatePipelineResponse'{_aprStatusCode = pStatusCode};
+activatePipelineResponse pStatus =
+    ActivatePipelineResponse'
+    { _aprStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-aprStatusCode :: Lens' ActivatePipelineResponse Int
-aprStatusCode = lens _aprStatusCode (\ s a -> s{_aprStatusCode = a});
+aprStatus :: Lens' ActivatePipelineResponse Int
+aprStatus = lens _aprStatus (\ s a -> s{_aprStatus = a});

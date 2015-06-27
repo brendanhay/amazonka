@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.UpdateServerCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,10 +47,10 @@ module Network.AWS.IAM.UpdateServerCertificate
     , updateServerCertificateResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateServerCertificate' smart constructor.
 --
@@ -61,11 +61,20 @@ import Network.AWS.Response
 -- * 'updNewPath'
 --
 -- * 'updServerCertificateName'
-data UpdateServerCertificate = UpdateServerCertificate'{_updNewServerCertificateName :: Maybe Text, _updNewPath :: Maybe Text, _updServerCertificateName :: Text} deriving (Eq, Read, Show)
+data UpdateServerCertificate = UpdateServerCertificate'
+    { _updNewServerCertificateName :: Maybe Text
+    , _updNewPath                  :: Maybe Text
+    , _updServerCertificateName    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateServerCertificate' smart constructor.
 updateServerCertificate :: Text -> UpdateServerCertificate
-updateServerCertificate pServerCertificateName = UpdateServerCertificate'{_updNewServerCertificateName = Nothing, _updNewPath = Nothing, _updServerCertificateName = pServerCertificateName};
+updateServerCertificate pServerCertificateName =
+    UpdateServerCertificate'
+    { _updNewServerCertificateName = Nothing
+    , _updNewPath = Nothing
+    , _updServerCertificateName = pServerCertificateName
+    }
 
 -- | The new name for the server certificate. Include this only if you are
 -- updating the server certificate\'s name. The name of the certificate
@@ -108,8 +117,10 @@ instance ToQuery UpdateServerCertificate where
                "ServerCertificateName" =: _updServerCertificateName]
 
 -- | /See:/ 'updateServerCertificateResponse' smart constructor.
-data UpdateServerCertificateResponse = UpdateServerCertificateResponse' deriving (Eq, Read, Show)
+data UpdateServerCertificateResponse =
+    UpdateServerCertificateResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateServerCertificateResponse' smart constructor.
 updateServerCertificateResponse :: UpdateServerCertificateResponse
-updateServerCertificateResponse = UpdateServerCertificateResponse';
+updateServerCertificateResponse = UpdateServerCertificateResponse'

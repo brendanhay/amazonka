@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     , avdmApplicationVersion
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -56,11 +56,20 @@ import Network.AWS.Response
 -- * 'uavApplicationName'
 --
 -- * 'uavVersionLabel'
-data UpdateApplicationVersion = UpdateApplicationVersion'{_uavDescription :: Maybe Text, _uavApplicationName :: Text, _uavVersionLabel :: Text} deriving (Eq, Read, Show)
+data UpdateApplicationVersion = UpdateApplicationVersion'
+    { _uavDescription     :: Maybe Text
+    , _uavApplicationName :: Text
+    , _uavVersionLabel    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateApplicationVersion' smart constructor.
 updateApplicationVersion :: Text -> Text -> UpdateApplicationVersion
-updateApplicationVersion pApplicationName pVersionLabel = UpdateApplicationVersion'{_uavDescription = Nothing, _uavApplicationName = pApplicationName, _uavVersionLabel = pVersionLabel};
+updateApplicationVersion pApplicationName pVersionLabel =
+    UpdateApplicationVersion'
+    { _uavDescription = Nothing
+    , _uavApplicationName = pApplicationName
+    , _uavVersionLabel = pVersionLabel
+    }
 
 -- | A new description for this release.
 uavDescription :: Lens' UpdateApplicationVersion (Maybe Text)

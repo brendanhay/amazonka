@@ -15,6 +15,6 @@
 
 module Network.AWS.CloudSearchDomains.Waiters where
 
-import Network.AWS.CloudSearchDomains.Types
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import           Network.AWS.CloudSearchDomains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter

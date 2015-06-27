@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.PollForTask
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,13 +48,13 @@ module Network.AWS.DataPipeline.PollForTask
     , pollForTaskResponse
     -- ** Response lenses
     , pftrTaskObject
-    , pftrStatusCode
+    , pftrStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for PollForTask.
 --
@@ -67,11 +67,20 @@ import Network.AWS.Response
 -- * 'pftInstanceIdentity'
 --
 -- * 'pftWorkerGroup'
-data PollForTask = PollForTask'{_pftHostname :: Maybe Text, _pftInstanceIdentity :: Maybe InstanceIdentity, _pftWorkerGroup :: Text} deriving (Eq, Read, Show)
+data PollForTask = PollForTask'
+    { _pftHostname         :: Maybe Text
+    , _pftInstanceIdentity :: Maybe InstanceIdentity
+    , _pftWorkerGroup      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PollForTask' smart constructor.
 pollForTask :: Text -> PollForTask
-pollForTask pWorkerGroup = PollForTask'{_pftHostname = Nothing, _pftInstanceIdentity = Nothing, _pftWorkerGroup = pWorkerGroup};
+pollForTask pWorkerGroup =
+    PollForTask'
+    { _pftHostname = Nothing
+    , _pftInstanceIdentity = Nothing
+    , _pftWorkerGroup = pWorkerGroup
+    }
 
 -- | The public DNS name of the calling task runner.
 pftHostname :: Lens' PollForTask (Maybe Text)
@@ -137,12 +146,19 @@ instance ToQuery PollForTask where
 --
 -- * 'pftrTaskObject'
 --
--- * 'pftrStatusCode'
-data PollForTaskResponse = PollForTaskResponse'{_pftrTaskObject :: Maybe TaskObject, _pftrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'pftrStatus'
+data PollForTaskResponse = PollForTaskResponse'
+    { _pftrTaskObject :: Maybe TaskObject
+    , _pftrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PollForTaskResponse' smart constructor.
 pollForTaskResponse :: Int -> PollForTaskResponse
-pollForTaskResponse pStatusCode = PollForTaskResponse'{_pftrTaskObject = Nothing, _pftrStatusCode = pStatusCode};
+pollForTaskResponse pStatus =
+    PollForTaskResponse'
+    { _pftrTaskObject = Nothing
+    , _pftrStatus = pStatus
+    }
 
 -- | The information needed to complete the task that is being assigned to
 -- the task runner. One of the fields returned in this object is @taskId@,
@@ -153,5 +169,5 @@ pftrTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 pftrTaskObject = lens _pftrTaskObject (\ s a -> s{_pftrTaskObject = a});
 
 -- | FIXME: Undocumented member.
-pftrStatusCode :: Lens' PollForTaskResponse Int
-pftrStatusCode = lens _pftrStatusCode (\ s a -> s{_pftrStatusCode = a});
+pftrStatus :: Lens' PollForTaskResponse Int
+pftrStatus = lens _pftrStatus (\ s a -> s{_pftrStatus = a});

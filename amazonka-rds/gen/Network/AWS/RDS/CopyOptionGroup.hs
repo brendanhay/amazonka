@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.CopyOptionGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.RDS.CopyOptionGroup
     , copyOptionGroupResponse
     -- ** Response lenses
     , cogrOptionGroup
-    , cogrStatusCode
+    , cogrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -56,11 +56,22 @@ import Network.AWS.Response
 -- * 'copTargetOptionGroupIdentifier'
 --
 -- * 'copTargetOptionGroupDescription'
-data CopyOptionGroup = CopyOptionGroup'{_copTags :: Maybe [Tag], _copSourceOptionGroupIdentifier :: Text, _copTargetOptionGroupIdentifier :: Text, _copTargetOptionGroupDescription :: Text} deriving (Eq, Read, Show)
+data CopyOptionGroup = CopyOptionGroup'
+    { _copTags                         :: Maybe [Tag]
+    , _copSourceOptionGroupIdentifier  :: Text
+    , _copTargetOptionGroupIdentifier  :: Text
+    , _copTargetOptionGroupDescription :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyOptionGroup' smart constructor.
 copyOptionGroup :: Text -> Text -> Text -> CopyOptionGroup
-copyOptionGroup pSourceOptionGroupIdentifier pTargetOptionGroupIdentifier pTargetOptionGroupDescription = CopyOptionGroup'{_copTags = Nothing, _copSourceOptionGroupIdentifier = pSourceOptionGroupIdentifier, _copTargetOptionGroupIdentifier = pTargetOptionGroupIdentifier, _copTargetOptionGroupDescription = pTargetOptionGroupDescription};
+copyOptionGroup pSourceOptionGroupIdentifier pTargetOptionGroupIdentifier pTargetOptionGroupDescription =
+    CopyOptionGroup'
+    { _copTags = Nothing
+    , _copSourceOptionGroupIdentifier = pSourceOptionGroupIdentifier
+    , _copTargetOptionGroupIdentifier = pTargetOptionGroupIdentifier
+    , _copTargetOptionGroupDescription = pTargetOptionGroupDescription
+    }
 
 -- | FIXME: Undocumented member.
 copTags :: Lens' CopyOptionGroup [Tag]
@@ -132,17 +143,24 @@ instance ToQuery CopyOptionGroup where
 --
 -- * 'cogrOptionGroup'
 --
--- * 'cogrStatusCode'
-data CopyOptionGroupResponse = CopyOptionGroupResponse'{_cogrOptionGroup :: Maybe OptionGroup, _cogrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cogrStatus'
+data CopyOptionGroupResponse = CopyOptionGroupResponse'
+    { _cogrOptionGroup :: Maybe OptionGroup
+    , _cogrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyOptionGroupResponse' smart constructor.
 copyOptionGroupResponse :: Int -> CopyOptionGroupResponse
-copyOptionGroupResponse pStatusCode = CopyOptionGroupResponse'{_cogrOptionGroup = Nothing, _cogrStatusCode = pStatusCode};
+copyOptionGroupResponse pStatus =
+    CopyOptionGroupResponse'
+    { _cogrOptionGroup = Nothing
+    , _cogrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 cogrOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
 cogrOptionGroup = lens _cogrOptionGroup (\ s a -> s{_cogrOptionGroup = a});
 
 -- | FIXME: Undocumented member.
-cogrStatusCode :: Lens' CopyOptionGroupResponse Int
-cogrStatusCode = lens _cogrStatusCode (\ s a -> s{_cogrStatusCode = a});
+cogrStatus :: Lens' CopyOptionGroupResponse Int
+cogrStatus = lens _cogrStatus (\ s a -> s{_cogrStatus = a});

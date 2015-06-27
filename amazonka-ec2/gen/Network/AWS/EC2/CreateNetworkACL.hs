@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateNetworkACL
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.EC2.CreateNetworkACL
     , createNetworkACLResponse
     -- ** Response lenses
     , cnarNetworkACL
-    , cnarStatusCode
+    , cnarStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createNetworkACL' smart constructor.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'cnaDryRun'
 --
 -- * 'cnaVPCId'
-data CreateNetworkACL = CreateNetworkACL'{_cnaDryRun :: Maybe Bool, _cnaVPCId :: Text} deriving (Eq, Read, Show)
+data CreateNetworkACL = CreateNetworkACL'
+    { _cnaDryRun :: Maybe Bool
+    , _cnaVPCId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateNetworkACL' smart constructor.
 createNetworkACL :: Text -> CreateNetworkACL
-createNetworkACL pVPCId = CreateNetworkACL'{_cnaDryRun = Nothing, _cnaVPCId = pVPCId};
+createNetworkACL pVPCId =
+    CreateNetworkACL'
+    { _cnaDryRun = Nothing
+    , _cnaVPCId = pVPCId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -100,17 +107,24 @@ instance ToQuery CreateNetworkACL where
 --
 -- * 'cnarNetworkACL'
 --
--- * 'cnarStatusCode'
-data CreateNetworkACLResponse = CreateNetworkACLResponse'{_cnarNetworkACL :: Maybe NetworkACL, _cnarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cnarStatus'
+data CreateNetworkACLResponse = CreateNetworkACLResponse'
+    { _cnarNetworkACL :: Maybe NetworkACL
+    , _cnarStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateNetworkACLResponse' smart constructor.
 createNetworkACLResponse :: Int -> CreateNetworkACLResponse
-createNetworkACLResponse pStatusCode = CreateNetworkACLResponse'{_cnarNetworkACL = Nothing, _cnarStatusCode = pStatusCode};
+createNetworkACLResponse pStatus =
+    CreateNetworkACLResponse'
+    { _cnarNetworkACL = Nothing
+    , _cnarStatus = pStatus
+    }
 
 -- | Information about the network ACL.
 cnarNetworkACL :: Lens' CreateNetworkACLResponse (Maybe NetworkACL)
 cnarNetworkACL = lens _cnarNetworkACL (\ s a -> s{_cnarNetworkACL = a});
 
 -- | FIXME: Undocumented member.
-cnarStatusCode :: Lens' CreateNetworkACLResponse Int
-cnarStatusCode = lens _cnarStatusCode (\ s a -> s{_cnarStatusCode = a});
+cnarStatus :: Lens' CreateNetworkACLResponse Int
+cnarStatus = lens _cnarStatus (\ s a -> s{_cnarStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Support.AddAttachmentsToSet
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,13 +44,13 @@ module Network.AWS.Support.AddAttachmentsToSet
     -- ** Response lenses
     , aatsrExpiryTime
     , aatsrAttachmentSetId
-    , aatsrStatusCode
+    , aatsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Support.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
 
 -- | /See:/ 'addAttachmentsToSet' smart constructor.
 --
@@ -59,11 +59,18 @@ import Network.AWS.Support.Types
 -- * 'aatsAttachmentSetId'
 --
 -- * 'aatsAttachments'
-data AddAttachmentsToSet = AddAttachmentsToSet'{_aatsAttachmentSetId :: Maybe Text, _aatsAttachments :: [Attachment]} deriving (Eq, Read, Show)
+data AddAttachmentsToSet = AddAttachmentsToSet'
+    { _aatsAttachmentSetId :: Maybe Text
+    , _aatsAttachments     :: [Attachment]
+    } deriving (Eq,Read,Show)
 
 -- | 'AddAttachmentsToSet' smart constructor.
 addAttachmentsToSet :: AddAttachmentsToSet
-addAttachmentsToSet = AddAttachmentsToSet'{_aatsAttachmentSetId = Nothing, _aatsAttachments = mempty};
+addAttachmentsToSet =
+    AddAttachmentsToSet'
+    { _aatsAttachmentSetId = Nothing
+    , _aatsAttachments = mempty
+    }
 
 -- | The ID of the attachment set. If an @AttachmentSetId@ is not specified,
 -- a new attachment set is created, and the ID of the set is returned in
@@ -122,12 +129,21 @@ instance ToQuery AddAttachmentsToSet where
 --
 -- * 'aatsrAttachmentSetId'
 --
--- * 'aatsrStatusCode'
-data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'{_aatsrExpiryTime :: Maybe Text, _aatsrAttachmentSetId :: Maybe Text, _aatsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'aatsrStatus'
+data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
+    { _aatsrExpiryTime      :: Maybe Text
+    , _aatsrAttachmentSetId :: Maybe Text
+    , _aatsrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AddAttachmentsToSetResponse' smart constructor.
 addAttachmentsToSetResponse :: Int -> AddAttachmentsToSetResponse
-addAttachmentsToSetResponse pStatusCode = AddAttachmentsToSetResponse'{_aatsrExpiryTime = Nothing, _aatsrAttachmentSetId = Nothing, _aatsrStatusCode = pStatusCode};
+addAttachmentsToSetResponse pStatus =
+    AddAttachmentsToSetResponse'
+    { _aatsrExpiryTime = Nothing
+    , _aatsrAttachmentSetId = Nothing
+    , _aatsrStatus = pStatus
+    }
 
 -- | The time and date when the attachment set expires.
 aatsrExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
@@ -141,5 +157,5 @@ aatsrAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatsrAttachmentSetId = lens _aatsrAttachmentSetId (\ s a -> s{_aatsrAttachmentSetId = a});
 
 -- | FIXME: Undocumented member.
-aatsrStatusCode :: Lens' AddAttachmentsToSetResponse Int
-aatsrStatusCode = lens _aatsrStatusCode (\ s a -> s{_aatsrStatusCode = a});
+aatsrStatus :: Lens' AddAttachmentsToSetResponse Int
+aatsrStatus = lens _aatsrStatus (\ s a -> s{_aatsrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteFlowLogs
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,29 @@ module Network.AWS.EC2.DeleteFlowLogs
     , deleteFlowLogsResponse
     -- ** Response lenses
     , dflrUnsuccessful
-    , dflrStatusCode
+    , dflrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteFlowLogs' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dflFlowLogIds'
-newtype DeleteFlowLogs = DeleteFlowLogs'{_dflFlowLogIds :: [Text]} deriving (Eq, Read, Show)
+newtype DeleteFlowLogs = DeleteFlowLogs'
+    { _dflFlowLogIds :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteFlowLogs' smart constructor.
 deleteFlowLogs :: DeleteFlowLogs
-deleteFlowLogs = DeleteFlowLogs'{_dflFlowLogIds = mempty};
+deleteFlowLogs =
+    DeleteFlowLogs'
+    { _dflFlowLogIds = mempty
+    }
 
 -- | One or more flow log IDs.
 dflFlowLogIds :: Lens' DeleteFlowLogs [Text]
@@ -85,17 +90,24 @@ instance ToQuery DeleteFlowLogs where
 --
 -- * 'dflrUnsuccessful'
 --
--- * 'dflrStatusCode'
-data DeleteFlowLogsResponse = DeleteFlowLogsResponse'{_dflrUnsuccessful :: Maybe [UnsuccessfulItem], _dflrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dflrStatus'
+data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
+    { _dflrUnsuccessful :: Maybe [UnsuccessfulItem]
+    , _dflrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteFlowLogsResponse' smart constructor.
 deleteFlowLogsResponse :: Int -> DeleteFlowLogsResponse
-deleteFlowLogsResponse pStatusCode = DeleteFlowLogsResponse'{_dflrUnsuccessful = Nothing, _dflrStatusCode = pStatusCode};
+deleteFlowLogsResponse pStatus =
+    DeleteFlowLogsResponse'
+    { _dflrUnsuccessful = Nothing
+    , _dflrStatus = pStatus
+    }
 
 -- | Information about the flow logs that could not be deleted successfully.
 dflrUnsuccessful :: Lens' DeleteFlowLogsResponse [UnsuccessfulItem]
 dflrUnsuccessful = lens _dflrUnsuccessful (\ s a -> s{_dflrUnsuccessful = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dflrStatusCode :: Lens' DeleteFlowLogsResponse Int
-dflrStatusCode = lens _dflrStatusCode (\ s a -> s{_dflrStatusCode = a});
+dflrStatus :: Lens' DeleteFlowLogsResponse Int
+dflrStatus = lens _dflrStatus (\ s a -> s{_dflrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.RemoveRoleFromInstanceProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,10 +43,10 @@ module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     , removeRoleFromInstanceProfileResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'removeRoleFromInstanceProfile' smart constructor.
 --
@@ -55,11 +55,18 @@ import Network.AWS.Response
 -- * 'rrfipInstanceProfileName'
 --
 -- * 'rrfipRoleName'
-data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile'{_rrfipInstanceProfileName :: Text, _rrfipRoleName :: Text} deriving (Eq, Read, Show)
+data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile'
+    { _rrfipInstanceProfileName :: Text
+    , _rrfipRoleName            :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveRoleFromInstanceProfile' smart constructor.
 removeRoleFromInstanceProfile :: Text -> Text -> RemoveRoleFromInstanceProfile
-removeRoleFromInstanceProfile pInstanceProfileName pRoleName = RemoveRoleFromInstanceProfile'{_rrfipInstanceProfileName = pInstanceProfileName, _rrfipRoleName = pRoleName};
+removeRoleFromInstanceProfile pInstanceProfileName pRoleName =
+    RemoveRoleFromInstanceProfile'
+    { _rrfipInstanceProfileName = pInstanceProfileName
+    , _rrfipRoleName = pRoleName
+    }
 
 -- | The name of the instance profile to update.
 rrfipInstanceProfileName :: Lens' RemoveRoleFromInstanceProfile Text
@@ -95,8 +102,10 @@ instance ToQuery RemoveRoleFromInstanceProfile where
                "RoleName" =: _rrfipRoleName]
 
 -- | /See:/ 'removeRoleFromInstanceProfileResponse' smart constructor.
-data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse' deriving (Eq, Read, Show)
+data RemoveRoleFromInstanceProfileResponse =
+    RemoveRoleFromInstanceProfileResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RemoveRoleFromInstanceProfileResponse' smart constructor.
 removeRoleFromInstanceProfileResponse :: RemoveRoleFromInstanceProfileResponse
-removeRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse';
+removeRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse'

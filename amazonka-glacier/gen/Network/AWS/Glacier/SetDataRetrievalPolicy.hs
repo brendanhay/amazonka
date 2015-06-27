@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.SetDataRetrievalPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,10 +41,10 @@ module Network.AWS.Glacier.SetDataRetrievalPolicy
     , setDataRetrievalPolicyResponse
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | SetDataRetrievalPolicy input.
 --
@@ -55,11 +55,18 @@ import Network.AWS.Response
 -- * 'sdrpPolicy'
 --
 -- * 'sdrpAccountId'
-data SetDataRetrievalPolicy = SetDataRetrievalPolicy'{_sdrpPolicy :: Maybe DataRetrievalPolicy, _sdrpAccountId :: Text} deriving (Eq, Read, Show)
+data SetDataRetrievalPolicy = SetDataRetrievalPolicy'
+    { _sdrpPolicy    :: Maybe DataRetrievalPolicy
+    , _sdrpAccountId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetDataRetrievalPolicy' smart constructor.
 setDataRetrievalPolicy :: Text -> SetDataRetrievalPolicy
-setDataRetrievalPolicy pAccountId = SetDataRetrievalPolicy'{_sdrpPolicy = Nothing, _sdrpAccountId = pAccountId};
+setDataRetrievalPolicy pAccountId =
+    SetDataRetrievalPolicy'
+    { _sdrpPolicy = Nothing
+    , _sdrpAccountId = pAccountId
+    }
 
 -- | The data retrieval policy in JSON format.
 sdrpPolicy :: Lens' SetDataRetrievalPolicy (Maybe DataRetrievalPolicy)
@@ -100,8 +107,10 @@ instance ToQuery SetDataRetrievalPolicy where
         toQuery = const mempty
 
 -- | /See:/ 'setDataRetrievalPolicyResponse' smart constructor.
-data SetDataRetrievalPolicyResponse = SetDataRetrievalPolicyResponse' deriving (Eq, Read, Show)
+data SetDataRetrievalPolicyResponse =
+    SetDataRetrievalPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetDataRetrievalPolicyResponse' smart constructor.
 setDataRetrievalPolicyResponse :: SetDataRetrievalPolicyResponse
-setDataRetrievalPolicyResponse = SetDataRetrievalPolicyResponse';
+setDataRetrievalPolicyResponse = SetDataRetrievalPolicyResponse'

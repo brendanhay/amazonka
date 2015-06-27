@@ -51,23 +51,23 @@ module Network.AWS.CognitoIdentity
     ( module Export
     ) where
 
-import Network.AWS.CognitoIdentity.CreateIdentityPool as Export
-import Network.AWS.CognitoIdentity.DeleteIdentities as Export
-import Network.AWS.CognitoIdentity.DeleteIdentityPool as Export
-import Network.AWS.CognitoIdentity.DescribeIdentity as Export
-import Network.AWS.CognitoIdentity.DescribeIdentityPool as Export
-import Network.AWS.CognitoIdentity.GetCredentialsForIdentity as Export
-import Network.AWS.CognitoIdentity.GetId as Export
-import Network.AWS.CognitoIdentity.GetIdentityPoolRoles as Export
-import Network.AWS.CognitoIdentity.GetOpenIdToken as Export
-import Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity as Export
-import Network.AWS.CognitoIdentity.ListIdentities as Export
-import Network.AWS.CognitoIdentity.ListIdentityPools as Export
-import Network.AWS.CognitoIdentity.LookupDeveloperIdentity as Export
-import Network.AWS.CognitoIdentity.MergeDeveloperIdentities as Export
-import Network.AWS.CognitoIdentity.SetIdentityPoolRoles as Export
-import Network.AWS.CognitoIdentity.Types as Export
-import Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity as Export
-import Network.AWS.CognitoIdentity.UnlinkIdentity as Export
-import Network.AWS.CognitoIdentity.UpdateIdentityPool as Export
-import Network.AWS.CognitoIdentity.Waiters as Export
+import           Network.AWS.CognitoIdentity.CreateIdentityPool                 as Export
+import           Network.AWS.CognitoIdentity.DeleteIdentities                   as Export
+import           Network.AWS.CognitoIdentity.DeleteIdentityPool                 as Export
+import           Network.AWS.CognitoIdentity.DescribeIdentity                   as Export
+import           Network.AWS.CognitoIdentity.DescribeIdentityPool               as Export
+import           Network.AWS.CognitoIdentity.GetCredentialsForIdentity          as Export
+import           Network.AWS.CognitoIdentity.GetId                              as Export
+import           Network.AWS.CognitoIdentity.GetIdentityPoolRoles               as Export
+import           Network.AWS.CognitoIdentity.GetOpenIdToken                     as Export
+import           Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity as Export
+import           Network.AWS.CognitoIdentity.ListIdentities                     as Export
+import           Network.AWS.CognitoIdentity.ListIdentityPools                  as Export
+import           Network.AWS.CognitoIdentity.LookupDeveloperIdentity            as Export
+import           Network.AWS.CognitoIdentity.MergeDeveloperIdentities           as Export
+import           Network.AWS.CognitoIdentity.SetIdentityPoolRoles               as Export
+import           Network.AWS.CognitoIdentity.Types                              as Export
+import           Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity            as Export
+import           Network.AWS.CognitoIdentity.UnlinkIdentity                     as Export
+import           Network.AWS.CognitoIdentity.UpdateIdentityPool                 as Export
+import           Network.AWS.CognitoIdentity.Waiters                            as Export

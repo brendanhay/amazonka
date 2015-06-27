@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeBandwidthRateLimit
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
     , dbrlrGatewayARN
     , dbrlrAverageUploadRateLimitInBitsPerSec
     , dbrlrAverageDownloadRateLimitInBitsPerSec
-    , dbrlrStatusCode
+    , dbrlrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the of the gateway.
 --
@@ -57,11 +57,16 @@ import Network.AWS.StorageGateway.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dbrlGatewayARN'
-newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit'{_dbrlGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit'
+    { _dbrlGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeBandwidthRateLimit' smart constructor.
 describeBandwidthRateLimit :: Text -> DescribeBandwidthRateLimit
-describeBandwidthRateLimit pGatewayARN = DescribeBandwidthRateLimit'{_dbrlGatewayARN = pGatewayARN};
+describeBandwidthRateLimit pGatewayARN =
+    DescribeBandwidthRateLimit'
+    { _dbrlGatewayARN = pGatewayARN
+    }
 
 -- | FIXME: Undocumented member.
 dbrlGatewayARN :: Lens' DescribeBandwidthRateLimit Text
@@ -113,12 +118,23 @@ instance ToQuery DescribeBandwidthRateLimit where
 --
 -- * 'dbrlrAverageDownloadRateLimitInBitsPerSec'
 --
--- * 'dbrlrStatusCode'
-data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'{_dbrlrGatewayARN :: Maybe Text, _dbrlrAverageUploadRateLimitInBitsPerSec :: Maybe Nat, _dbrlrAverageDownloadRateLimitInBitsPerSec :: Maybe Nat, _dbrlrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dbrlrStatus'
+data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
+    { _dbrlrGatewayARN                           :: Maybe Text
+    , _dbrlrAverageUploadRateLimitInBitsPerSec   :: Maybe Nat
+    , _dbrlrAverageDownloadRateLimitInBitsPerSec :: Maybe Nat
+    , _dbrlrStatus                               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeBandwidthRateLimitResponse' smart constructor.
 describeBandwidthRateLimitResponse :: Int -> DescribeBandwidthRateLimitResponse
-describeBandwidthRateLimitResponse pStatusCode = DescribeBandwidthRateLimitResponse'{_dbrlrGatewayARN = Nothing, _dbrlrAverageUploadRateLimitInBitsPerSec = Nothing, _dbrlrAverageDownloadRateLimitInBitsPerSec = Nothing, _dbrlrStatusCode = pStatusCode};
+describeBandwidthRateLimitResponse pStatus =
+    DescribeBandwidthRateLimitResponse'
+    { _dbrlrGatewayARN = Nothing
+    , _dbrlrAverageUploadRateLimitInBitsPerSec = Nothing
+    , _dbrlrAverageDownloadRateLimitInBitsPerSec = Nothing
+    , _dbrlrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dbrlrGatewayARN :: Lens' DescribeBandwidthRateLimitResponse (Maybe Text)
@@ -135,5 +151,5 @@ dbrlrAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitRes
 dbrlrAverageDownloadRateLimitInBitsPerSec = lens _dbrlrAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_dbrlrAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
-dbrlrStatusCode :: Lens' DescribeBandwidthRateLimitResponse Int
-dbrlrStatusCode = lens _dbrlrStatusCode (\ s a -> s{_dbrlrStatusCode = a});
+dbrlrStatus :: Lens' DescribeBandwidthRateLimitResponse Int
+dbrlrStatus = lens _dbrlrStatus (\ s a -> s{_dbrlrStatus = a});

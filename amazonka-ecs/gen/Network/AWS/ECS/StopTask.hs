@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.StopTask
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.ECS.StopTask
     , stopTaskResponse
     -- ** Response lenses
     , stoTask
-    , stoStatusCode
+    , stoStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'stopTask' smart constructor.
 --
@@ -48,11 +48,18 @@ import Network.AWS.Response
 -- * 'stCluster'
 --
 -- * 'stTask'
-data StopTask = StopTask'{_stCluster :: Maybe Text, _stTask :: Text} deriving (Eq, Read, Show)
+data StopTask = StopTask'
+    { _stCluster :: Maybe Text
+    , _stTask    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StopTask' smart constructor.
 stopTask :: Text -> StopTask
-stopTask pTask = StopTask'{_stCluster = Nothing, _stTask = pTask};
+stopTask pTask =
+    StopTask'
+    { _stCluster = Nothing
+    , _stTask = pTask
+    }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the task you want to stop. If you do not specify a cluster, the
@@ -101,17 +108,24 @@ instance ToQuery StopTask where
 --
 -- * 'stoTask'
 --
--- * 'stoStatusCode'
-data StopTaskResponse = StopTaskResponse'{_stoTask :: Maybe Task, _stoStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'stoStatus'
+data StopTaskResponse = StopTaskResponse'
+    { _stoTask   :: Maybe Task
+    , _stoStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'StopTaskResponse' smart constructor.
 stopTaskResponse :: Int -> StopTaskResponse
-stopTaskResponse pStatusCode = StopTaskResponse'{_stoTask = Nothing, _stoStatusCode = pStatusCode};
+stopTaskResponse pStatus =
+    StopTaskResponse'
+    { _stoTask = Nothing
+    , _stoStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 stoTask :: Lens' StopTaskResponse (Maybe Task)
 stoTask = lens _stoTask (\ s a -> s{_stoTask = a});
 
 -- | FIXME: Undocumented member.
-stoStatusCode :: Lens' StopTaskResponse Int
-stoStatusCode = lens _stoStatusCode (\ s a -> s{_stoStatusCode = a});
+stoStatus :: Lens' StopTaskResponse Int
+stoStatus = lens _stoStatus (\ s a -> s{_stoStatus = a});

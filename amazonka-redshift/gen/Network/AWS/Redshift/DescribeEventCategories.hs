@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeEventCategories
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.Redshift.DescribeEventCategories
     , describeEventCategoriesResponse
     -- ** Response lenses
     , decrEventCategoriesMapList
-    , decrStatusCode
+    , decrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -50,11 +50,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'decSourceType'
-newtype DescribeEventCategories = DescribeEventCategories'{_decSourceType :: Maybe Text} deriving (Eq, Read, Show)
+newtype DescribeEventCategories = DescribeEventCategories'
+    { _decSourceType :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEventCategories' smart constructor.
 describeEventCategories :: DescribeEventCategories
-describeEventCategories = DescribeEventCategories'{_decSourceType = Nothing};
+describeEventCategories =
+    DescribeEventCategories'
+    { _decSourceType = Nothing
+    }
 
 -- | The source type, such as cluster or parameter group, to which the
 -- described event categories apply.
@@ -98,17 +103,24 @@ instance ToQuery DescribeEventCategories where
 --
 -- * 'decrEventCategoriesMapList'
 --
--- * 'decrStatusCode'
-data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList :: Maybe [EventCategoriesMap], _decrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'decrStatus'
+data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
+    { _decrEventCategoriesMapList :: Maybe [EventCategoriesMap]
+    , _decrStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEventCategoriesResponse' smart constructor.
 describeEventCategoriesResponse :: Int -> DescribeEventCategoriesResponse
-describeEventCategoriesResponse pStatusCode = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList = Nothing, _decrStatusCode = pStatusCode};
+describeEventCategoriesResponse pStatus =
+    DescribeEventCategoriesResponse'
+    { _decrEventCategoriesMapList = Nothing
+    , _decrStatus = pStatus
+    }
 
 -- | A list of event categories descriptions.
 decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
 decrEventCategoriesMapList = lens _decrEventCategoriesMapList (\ s a -> s{_decrEventCategoriesMapList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-decrStatusCode :: Lens' DescribeEventCategoriesResponse Int
-decrStatusCode = lens _decrStatusCode (\ s a -> s{_decrStatusCode = a});
+decrStatus :: Lens' DescribeEventCategoriesResponse Int
+decrStatus = lens _decrStatus (\ s a -> s{_decrStatus = a});

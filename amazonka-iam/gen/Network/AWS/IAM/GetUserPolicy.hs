@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetUserPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.IAM.GetUserPolicy
     , guprUserName
     , guprPolicyName
     , guprPolicyDocument
-    , guprStatusCode
+    , guprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getUserPolicy' smart constructor.
 --
@@ -60,11 +60,18 @@ import Network.AWS.Response
 -- * 'gupUserName'
 --
 -- * 'gupPolicyName'
-data GetUserPolicy = GetUserPolicy'{_gupUserName :: Text, _gupPolicyName :: Text} deriving (Eq, Read, Show)
+data GetUserPolicy = GetUserPolicy'
+    { _gupUserName   :: Text
+    , _gupPolicyName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetUserPolicy' smart constructor.
 getUserPolicy :: Text -> Text -> GetUserPolicy
-getUserPolicy pUserName pPolicyName = GetUserPolicy'{_gupUserName = pUserName, _gupPolicyName = pPolicyName};
+getUserPolicy pUserName pPolicyName =
+    GetUserPolicy'
+    { _gupUserName = pUserName
+    , _gupPolicyName = pPolicyName
+    }
 
 -- | The name of the user who the policy is associated with.
 gupUserName :: Lens' GetUserPolicy Text
@@ -112,12 +119,23 @@ instance ToQuery GetUserPolicy where
 --
 -- * 'guprPolicyDocument'
 --
--- * 'guprStatusCode'
-data GetUserPolicyResponse = GetUserPolicyResponse'{_guprUserName :: Text, _guprPolicyName :: Text, _guprPolicyDocument :: Text, _guprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'guprStatus'
+data GetUserPolicyResponse = GetUserPolicyResponse'
+    { _guprUserName       :: Text
+    , _guprPolicyName     :: Text
+    , _guprPolicyDocument :: Text
+    , _guprStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetUserPolicyResponse' smart constructor.
 getUserPolicyResponse :: Text -> Text -> Text -> Int -> GetUserPolicyResponse
-getUserPolicyResponse pUserName pPolicyName pPolicyDocument pStatusCode = GetUserPolicyResponse'{_guprUserName = pUserName, _guprPolicyName = pPolicyName, _guprPolicyDocument = pPolicyDocument, _guprStatusCode = pStatusCode};
+getUserPolicyResponse pUserName pPolicyName pPolicyDocument pStatus =
+    GetUserPolicyResponse'
+    { _guprUserName = pUserName
+    , _guprPolicyName = pPolicyName
+    , _guprPolicyDocument = pPolicyDocument
+    , _guprStatus = pStatus
+    }
 
 -- | The user the policy is associated with.
 guprUserName :: Lens' GetUserPolicyResponse Text
@@ -132,5 +150,5 @@ guprPolicyDocument :: Lens' GetUserPolicyResponse Text
 guprPolicyDocument = lens _guprPolicyDocument (\ s a -> s{_guprPolicyDocument = a});
 
 -- | FIXME: Undocumented member.
-guprStatusCode :: Lens' GetUserPolicyResponse Int
-guprStatusCode = lens _guprStatusCode (\ s a -> s{_guprStatusCode = a});
+guprStatus :: Lens' GetUserPolicyResponse Int
+guprStatus = lens _guprStatus (\ s a -> s{_guprStatus = a});

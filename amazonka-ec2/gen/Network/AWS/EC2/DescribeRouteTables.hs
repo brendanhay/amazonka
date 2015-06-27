@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeRouteTables
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.EC2.DescribeRouteTables
     , describeRouteTablesResponse
     -- ** Response lenses
     , drtrRouteTables
-    , drtrStatusCode
+    , drtrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeRouteTables' smart constructor.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'drt2DryRun'
 --
 -- * 'drt2RouteTableIds'
-data DescribeRouteTables = DescribeRouteTables'{_drt2Filters :: Maybe [Filter], _drt2DryRun :: Maybe Bool, _drt2RouteTableIds :: Maybe [Text]} deriving (Eq, Read, Show)
+data DescribeRouteTables = DescribeRouteTables'
+    { _drt2Filters       :: Maybe [Filter]
+    , _drt2DryRun        :: Maybe Bool
+    , _drt2RouteTableIds :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeRouteTables' smart constructor.
 describeRouteTables :: DescribeRouteTables
-describeRouteTables = DescribeRouteTables'{_drt2Filters = Nothing, _drt2DryRun = Nothing, _drt2RouteTableIds = Nothing};
+describeRouteTables =
+    DescribeRouteTables'
+    { _drt2Filters = Nothing
+    , _drt2DryRun = Nothing
+    , _drt2RouteTableIds = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -170,17 +179,24 @@ instance ToQuery DescribeRouteTables where
 --
 -- * 'drtrRouteTables'
 --
--- * 'drtrStatusCode'
-data DescribeRouteTablesResponse = DescribeRouteTablesResponse'{_drtrRouteTables :: Maybe [RouteTable], _drtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'drtrStatus'
+data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
+    { _drtrRouteTables :: Maybe [RouteTable]
+    , _drtrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeRouteTablesResponse' smart constructor.
 describeRouteTablesResponse :: Int -> DescribeRouteTablesResponse
-describeRouteTablesResponse pStatusCode = DescribeRouteTablesResponse'{_drtrRouteTables = Nothing, _drtrStatusCode = pStatusCode};
+describeRouteTablesResponse pStatus =
+    DescribeRouteTablesResponse'
+    { _drtrRouteTables = Nothing
+    , _drtrStatus = pStatus
+    }
 
 -- | Information about one or more route tables.
 drtrRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
 drtrRouteTables = lens _drtrRouteTables (\ s a -> s{_drtrRouteTables = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drtrStatusCode :: Lens' DescribeRouteTablesResponse Int
-drtrStatusCode = lens _drtrStatusCode (\ s a -> s{_drtrStatusCode = a});
+drtrStatus :: Lens' DescribeRouteTablesResponse Int
+drtrStatus = lens _drtrStatus (\ s a -> s{_drtrStatus = a});

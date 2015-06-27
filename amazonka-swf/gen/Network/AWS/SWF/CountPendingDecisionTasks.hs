@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.CountPendingDecisionTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -59,10 +59,10 @@ module Network.AWS.SWF.CountPendingDecisionTasks
     , ptcCount
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'countPendingDecisionTasks' smart constructor.
 --
@@ -71,11 +71,18 @@ import Network.AWS.SWF.Types
 -- * 'cpdtDomain'
 --
 -- * 'cpdtTaskList'
-data CountPendingDecisionTasks = CountPendingDecisionTasks'{_cpdtDomain :: Text, _cpdtTaskList :: TaskList} deriving (Eq, Read, Show)
+data CountPendingDecisionTasks = CountPendingDecisionTasks'
+    { _cpdtDomain   :: Text
+    , _cpdtTaskList :: TaskList
+    } deriving (Eq,Read,Show)
 
 -- | 'CountPendingDecisionTasks' smart constructor.
 countPendingDecisionTasks :: Text -> TaskList -> CountPendingDecisionTasks
-countPendingDecisionTasks pDomain pTaskList = CountPendingDecisionTasks'{_cpdtDomain = pDomain, _cpdtTaskList = pTaskList};
+countPendingDecisionTasks pDomain pTaskList =
+    CountPendingDecisionTasks'
+    { _cpdtDomain = pDomain
+    , _cpdtTaskList = pTaskList
+    }
 
 -- | The name of the domain that contains the task list.
 cpdtDomain :: Lens' CountPendingDecisionTasks Text

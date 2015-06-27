@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.CreatePolicyVersion
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,13 +47,13 @@ module Network.AWS.IAM.CreatePolicyVersion
     , createPolicyVersionResponse
     -- ** Response lenses
     , cpvrPolicyVersion
-    , cpvrStatusCode
+    , cpvrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createPolicyVersion' smart constructor.
 --
@@ -64,11 +64,20 @@ import Network.AWS.Response
 -- * 'cpvPolicyARN'
 --
 -- * 'cpvPolicyDocument'
-data CreatePolicyVersion = CreatePolicyVersion'{_cpvSetAsDefault :: Maybe Bool, _cpvPolicyARN :: Text, _cpvPolicyDocument :: Text} deriving (Eq, Read, Show)
+data CreatePolicyVersion = CreatePolicyVersion'
+    { _cpvSetAsDefault   :: Maybe Bool
+    , _cpvPolicyARN      :: Text
+    , _cpvPolicyDocument :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePolicyVersion' smart constructor.
 createPolicyVersion :: Text -> Text -> CreatePolicyVersion
-createPolicyVersion pPolicyARN pPolicyDocument = CreatePolicyVersion'{_cpvSetAsDefault = Nothing, _cpvPolicyARN = pPolicyARN, _cpvPolicyDocument = pPolicyDocument};
+createPolicyVersion pPolicyARN pPolicyDocument =
+    CreatePolicyVersion'
+    { _cpvSetAsDefault = Nothing
+    , _cpvPolicyARN = pPolicyARN
+    , _cpvPolicyDocument = pPolicyDocument
+    }
 
 -- | Specifies whether to set this version as the policy\'s default version.
 --
@@ -124,17 +133,24 @@ instance ToQuery CreatePolicyVersion where
 --
 -- * 'cpvrPolicyVersion'
 --
--- * 'cpvrStatusCode'
-data CreatePolicyVersionResponse = CreatePolicyVersionResponse'{_cpvrPolicyVersion :: Maybe PolicyVersion, _cpvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cpvrStatus'
+data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
+    { _cpvrPolicyVersion :: Maybe PolicyVersion
+    , _cpvrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePolicyVersionResponse' smart constructor.
 createPolicyVersionResponse :: Int -> CreatePolicyVersionResponse
-createPolicyVersionResponse pStatusCode = CreatePolicyVersionResponse'{_cpvrPolicyVersion = Nothing, _cpvrStatusCode = pStatusCode};
+createPolicyVersionResponse pStatus =
+    CreatePolicyVersionResponse'
+    { _cpvrPolicyVersion = Nothing
+    , _cpvrStatus = pStatus
+    }
 
 -- | Information about the policy version.
 cpvrPolicyVersion :: Lens' CreatePolicyVersionResponse (Maybe PolicyVersion)
 cpvrPolicyVersion = lens _cpvrPolicyVersion (\ s a -> s{_cpvrPolicyVersion = a});
 
 -- | FIXME: Undocumented member.
-cpvrStatusCode :: Lens' CreatePolicyVersionResponse Int
-cpvrStatusCode = lens _cpvrStatusCode (\ s a -> s{_cpvrStatusCode = a});
+cpvrStatus :: Lens' CreatePolicyVersionResponse Int
+cpvrStatus = lens _cpvrStatus (\ s a -> s{_cpvrStatus = a});

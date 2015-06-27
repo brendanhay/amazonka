@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.TestMetricFilter
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.CloudWatchLogs.TestMetricFilter
     , testMetricFilterResponse
     -- ** Response lenses
     , tmfrMatches
-    , tmfrStatusCode
+    , tmfrStatus
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'testMetricFilter' smart constructor.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'tmfFilterPattern'
 --
 -- * 'tmfLogEventMessages'
-data TestMetricFilter = TestMetricFilter'{_tmfFilterPattern :: Text, _tmfLogEventMessages :: List1 Text} deriving (Eq, Read, Show)
+data TestMetricFilter = TestMetricFilter'
+    { _tmfFilterPattern    :: Text
+    , _tmfLogEventMessages :: List1 Text
+    } deriving (Eq,Read,Show)
 
 -- | 'TestMetricFilter' smart constructor.
 testMetricFilter :: Text -> NonEmpty Text -> TestMetricFilter
-testMetricFilter pFilterPattern pLogEventMessages = TestMetricFilter'{_tmfFilterPattern = pFilterPattern, _tmfLogEventMessages = _List1 # pLogEventMessages};
+testMetricFilter pFilterPattern pLogEventMessages =
+    TestMetricFilter'
+    { _tmfFilterPattern = pFilterPattern
+    , _tmfLogEventMessages = _List1 # pLogEventMessages
+    }
 
 -- | FIXME: Undocumented member.
 tmfFilterPattern :: Lens' TestMetricFilter Text
@@ -101,17 +108,24 @@ instance ToQuery TestMetricFilter where
 --
 -- * 'tmfrMatches'
 --
--- * 'tmfrStatusCode'
-data TestMetricFilterResponse = TestMetricFilterResponse'{_tmfrMatches :: Maybe [MetricFilterMatchRecord], _tmfrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'tmfrStatus'
+data TestMetricFilterResponse = TestMetricFilterResponse'
+    { _tmfrMatches :: Maybe [MetricFilterMatchRecord]
+    , _tmfrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'TestMetricFilterResponse' smart constructor.
 testMetricFilterResponse :: Int -> TestMetricFilterResponse
-testMetricFilterResponse pStatusCode = TestMetricFilterResponse'{_tmfrMatches = Nothing, _tmfrStatusCode = pStatusCode};
+testMetricFilterResponse pStatus =
+    TestMetricFilterResponse'
+    { _tmfrMatches = Nothing
+    , _tmfrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 tmfrMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
 tmfrMatches = lens _tmfrMatches (\ s a -> s{_tmfrMatches = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-tmfrStatusCode :: Lens' TestMetricFilterResponse Int
-tmfrStatusCode = lens _tmfrStatusCode (\ s a -> s{_tmfrStatusCode = a});
+tmfrStatus :: Lens' TestMetricFilterResponse Int
+tmfrStatus = lens _tmfrStatus (\ s a -> s{_tmfrStatus = a});

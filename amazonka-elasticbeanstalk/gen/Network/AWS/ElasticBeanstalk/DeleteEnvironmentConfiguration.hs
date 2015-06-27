@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     , deleteEnvironmentConfigurationResponse
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'decApplicationName'
 --
 -- * 'decEnvironmentName'
-data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration'{_decApplicationName :: Text, _decEnvironmentName :: Text} deriving (Eq, Read, Show)
+data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration'
+    { _decApplicationName :: Text
+    , _decEnvironmentName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteEnvironmentConfiguration' smart constructor.
 deleteEnvironmentConfiguration :: Text -> Text -> DeleteEnvironmentConfiguration
-deleteEnvironmentConfiguration pApplicationName pEnvironmentName = DeleteEnvironmentConfiguration'{_decApplicationName = pApplicationName, _decEnvironmentName = pEnvironmentName};
+deleteEnvironmentConfiguration pApplicationName pEnvironmentName =
+    DeleteEnvironmentConfiguration'
+    { _decApplicationName = pApplicationName
+    , _decEnvironmentName = pEnvironmentName
+    }
 
 -- | The name of the application the environment is associated with.
 decApplicationName :: Lens' DeleteEnvironmentConfiguration Text
@@ -95,8 +102,11 @@ instance ToQuery DeleteEnvironmentConfiguration where
                "EnvironmentName" =: _decEnvironmentName]
 
 -- | /See:/ 'deleteEnvironmentConfigurationResponse' smart constructor.
-data DeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse' deriving (Eq, Read, Show)
+data DeleteEnvironmentConfigurationResponse =
+    DeleteEnvironmentConfigurationResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteEnvironmentConfigurationResponse' smart constructor.
 deleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse
-deleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse';
+deleteEnvironmentConfigurationResponse =
+    DeleteEnvironmentConfigurationResponse'

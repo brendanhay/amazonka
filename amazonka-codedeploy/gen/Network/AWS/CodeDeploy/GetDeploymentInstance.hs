@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.CodeDeploy.GetDeploymentInstance
     , getDeploymentInstanceResponse
     -- ** Response lenses
     , gdirInstanceSummary
-    , gdirStatusCode
+    , gdirStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a get deployment instance operation.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'gdiDeploymentId'
 --
 -- * 'gdiInstanceId'
-data GetDeploymentInstance = GetDeploymentInstance'{_gdiDeploymentId :: Text, _gdiInstanceId :: Text} deriving (Eq, Read, Show)
+data GetDeploymentInstance = GetDeploymentInstance'
+    { _gdiDeploymentId :: Text
+    , _gdiInstanceId   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDeploymentInstance' smart constructor.
 getDeploymentInstance :: Text -> Text -> GetDeploymentInstance
-getDeploymentInstance pDeploymentId pInstanceId = GetDeploymentInstance'{_gdiDeploymentId = pDeploymentId, _gdiInstanceId = pInstanceId};
+getDeploymentInstance pDeploymentId pInstanceId =
+    GetDeploymentInstance'
+    { _gdiDeploymentId = pDeploymentId
+    , _gdiInstanceId = pInstanceId
+    }
 
 -- | The unique ID of a deployment.
 gdiDeploymentId :: Lens' GetDeploymentInstance Text
@@ -105,17 +112,24 @@ instance ToQuery GetDeploymentInstance where
 --
 -- * 'gdirInstanceSummary'
 --
--- * 'gdirStatusCode'
-data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'{_gdirInstanceSummary :: Maybe InstanceSummary, _gdirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gdirStatus'
+data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'
+    { _gdirInstanceSummary :: Maybe InstanceSummary
+    , _gdirStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDeploymentInstanceResponse' smart constructor.
 getDeploymentInstanceResponse :: Int -> GetDeploymentInstanceResponse
-getDeploymentInstanceResponse pStatusCode = GetDeploymentInstanceResponse'{_gdirInstanceSummary = Nothing, _gdirStatusCode = pStatusCode};
+getDeploymentInstanceResponse pStatus =
+    GetDeploymentInstanceResponse'
+    { _gdirInstanceSummary = Nothing
+    , _gdirStatus = pStatus
+    }
 
 -- | Information about the instance.
 gdirInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSummary)
 gdirInstanceSummary = lens _gdirInstanceSummary (\ s a -> s{_gdirInstanceSummary = a});
 
 -- | FIXME: Undocumented member.
-gdirStatusCode :: Lens' GetDeploymentInstanceResponse Int
-gdirStatusCode = lens _gdirStatusCode (\ s a -> s{_gdirStatusCode = a});
+gdirStatus :: Lens' GetDeploymentInstanceResponse Int
+gdirStatus = lens _gdirStatus (\ s a -> s{_gdirStatus = a});

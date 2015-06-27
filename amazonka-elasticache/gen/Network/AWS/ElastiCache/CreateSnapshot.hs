@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.ElastiCache.CreateSnapshot
     , createSnapshotResponse
     -- ** Response lenses
     , cSnapshot
-    , cStatusCode
+    , cStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /CreateSnapshot/ action.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'csCacheClusterId'
 --
 -- * 'csSnapshotName'
-data CreateSnapshot = CreateSnapshot'{_csCacheClusterId :: Text, _csSnapshotName :: Text} deriving (Eq, Read, Show)
+data CreateSnapshot = CreateSnapshot'
+    { _csCacheClusterId :: Text
+    , _csSnapshotName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> Text -> CreateSnapshot
-createSnapshot pCacheClusterId pSnapshotName = CreateSnapshot'{_csCacheClusterId = pCacheClusterId, _csSnapshotName = pSnapshotName};
+createSnapshot pCacheClusterId pSnapshotName =
+    CreateSnapshot'
+    { _csCacheClusterId = pCacheClusterId
+    , _csSnapshotName = pSnapshotName
+    }
 
 -- | The identifier of an existing cache cluster. The snapshot will be
 -- created from this cache cluster.
@@ -96,17 +103,24 @@ instance ToQuery CreateSnapshot where
 --
 -- * 'cSnapshot'
 --
--- * 'cStatusCode'
-data CreateSnapshotResponse = CreateSnapshotResponse'{_cSnapshot :: Maybe Snapshot, _cStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cStatus'
+data CreateSnapshotResponse = CreateSnapshotResponse'
+    { _cSnapshot :: Maybe Snapshot
+    , _cStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Int -> CreateSnapshotResponse
-createSnapshotResponse pStatusCode = CreateSnapshotResponse'{_cSnapshot = Nothing, _cStatusCode = pStatusCode};
+createSnapshotResponse pStatus =
+    CreateSnapshotResponse'
+    { _cSnapshot = Nothing
+    , _cStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 cSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
 cSnapshot = lens _cSnapshot (\ s a -> s{_cSnapshot = a});
 
 -- | FIXME: Undocumented member.
-cStatusCode :: Lens' CreateSnapshotResponse Int
-cStatusCode = lens _cStatusCode (\ s a -> s{_cStatusCode = a});
+cStatus :: Lens' CreateSnapshotResponse Int
+cStatus = lens _cStatus (\ s a -> s{_cStatus = a});

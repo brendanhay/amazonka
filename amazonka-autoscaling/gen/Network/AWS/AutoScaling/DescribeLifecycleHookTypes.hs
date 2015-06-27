@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeLifecycleHookTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,20 +30,22 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     , describeLifecycleHookTypesResponse
     -- ** Response lenses
     , dlhtrLifecycleHookTypes
-    , dlhtrStatusCode
+    , dlhtrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLifecycleHookTypes' smart constructor.
-data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes' deriving (Eq, Read, Show)
+data DescribeLifecycleHookTypes =
+    DescribeLifecycleHookTypes'
+    deriving (Eq,Read,Show)
 
 -- | 'DescribeLifecycleHookTypes' smart constructor.
 describeLifecycleHookTypes :: DescribeLifecycleHookTypes
-describeLifecycleHookTypes = DescribeLifecycleHookTypes';
+describeLifecycleHookTypes = DescribeLifecycleHookTypes'
 
 instance AWSRequest DescribeLifecycleHookTypes where
         type Sv DescribeLifecycleHookTypes = AutoScaling
@@ -79,12 +81,19 @@ instance ToQuery DescribeLifecycleHookTypes where
 --
 -- * 'dlhtrLifecycleHookTypes'
 --
--- * 'dlhtrStatusCode'
-data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'{_dlhtrLifecycleHookTypes :: Maybe [Text], _dlhtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dlhtrStatus'
+data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
+    { _dlhtrLifecycleHookTypes :: Maybe [Text]
+    , _dlhtrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLifecycleHookTypesResponse' smart constructor.
 describeLifecycleHookTypesResponse :: Int -> DescribeLifecycleHookTypesResponse
-describeLifecycleHookTypesResponse pStatusCode = DescribeLifecycleHookTypesResponse'{_dlhtrLifecycleHookTypes = Nothing, _dlhtrStatusCode = pStatusCode};
+describeLifecycleHookTypesResponse pStatus =
+    DescribeLifecycleHookTypesResponse'
+    { _dlhtrLifecycleHookTypes = Nothing
+    , _dlhtrStatus = pStatus
+    }
 
 -- | One or more of the following notification types:
 --
@@ -96,5 +105,5 @@ dlhtrLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
 dlhtrLifecycleHookTypes = lens _dlhtrLifecycleHookTypes (\ s a -> s{_dlhtrLifecycleHookTypes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlhtrStatusCode :: Lens' DescribeLifecycleHookTypesResponse Int
-dlhtrStatusCode = lens _dlhtrStatusCode (\ s a -> s{_dlhtrStatusCode = a});
+dlhtrStatus :: Lens' DescribeLifecycleHookTypesResponse Int
+dlhtrStatus = lens _dlhtrStatus (\ s a -> s{_dlhtrStatus = a});

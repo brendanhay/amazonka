@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Lambda.GetFunction
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,24 +39,29 @@ module Network.AWS.Lambda.GetFunction
     -- ** Response lenses
     , gfrCode
     , gfrConfiguration
-    , gfrStatusCode
+    , gfrStatus
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getFunction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gfFunctionName'
-newtype GetFunction = GetFunction'{_gfFunctionName :: Text} deriving (Eq, Read, Show)
+newtype GetFunction = GetFunction'
+    { _gfFunctionName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetFunction' smart constructor.
 getFunction :: Text -> GetFunction
-getFunction pFunctionName = GetFunction'{_gfFunctionName = pFunctionName};
+getFunction pFunctionName =
+    GetFunction'
+    { _gfFunctionName = pFunctionName
+    }
 
 -- | The Lambda function name.
 --
@@ -105,12 +110,21 @@ instance ToQuery GetFunction where
 --
 -- * 'gfrConfiguration'
 --
--- * 'gfrStatusCode'
-data GetFunctionResponse = GetFunctionResponse'{_gfrCode :: Maybe FunctionCodeLocation, _gfrConfiguration :: Maybe FunctionConfiguration, _gfrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gfrStatus'
+data GetFunctionResponse = GetFunctionResponse'
+    { _gfrCode          :: Maybe FunctionCodeLocation
+    , _gfrConfiguration :: Maybe FunctionConfiguration
+    , _gfrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetFunctionResponse' smart constructor.
 getFunctionResponse :: Int -> GetFunctionResponse
-getFunctionResponse pStatusCode = GetFunctionResponse'{_gfrCode = Nothing, _gfrConfiguration = Nothing, _gfrStatusCode = pStatusCode};
+getFunctionResponse pStatus =
+    GetFunctionResponse'
+    { _gfrCode = Nothing
+    , _gfrConfiguration = Nothing
+    , _gfrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 gfrCode :: Lens' GetFunctionResponse (Maybe FunctionCodeLocation)
@@ -121,5 +135,5 @@ gfrConfiguration :: Lens' GetFunctionResponse (Maybe FunctionConfiguration)
 gfrConfiguration = lens _gfrConfiguration (\ s a -> s{_gfrConfiguration = a});
 
 -- | FIXME: Undocumented member.
-gfrStatusCode :: Lens' GetFunctionResponse Int
-gfrStatusCode = lens _gfrStatusCode (\ s a -> s{_gfrStatusCode = a});
+gfrStatus :: Lens' GetFunctionResponse Int
+gfrStatus = lens _gfrStatus (\ s a -> s{_gfrStatus = a});

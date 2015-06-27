@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.PutObject
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,13 +63,13 @@ module Network.AWS.S3.PutObject
     , porSSEKMSKeyId
     , porSSECustomerKeyMD5
     , porServerSideEncryption
-    , porStatusCode
+    , porStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'putObject' smart constructor.
 --
@@ -124,11 +124,64 @@ import Network.AWS.S3.Types
 -- * 'poKey'
 --
 -- * 'poBody'
-data PutObject = PutObject'{_poContentLength :: Maybe Int, _poExpires :: Maybe RFC822, _poSSECustomerAlgorithm :: Maybe Text, _poGrantReadACP :: Maybe Text, _poSSECustomerKey :: Maybe (Sensitive Text), _poRequestPayer :: Maybe RequestPayer, _poGrantWriteACP :: Maybe Text, _poWebsiteRedirectLocation :: Maybe Text, _poGrantRead :: Maybe Text, _poStorageClass :: Maybe StorageClass, _poContentEncoding :: Maybe Text, _poSSEKMSKeyId :: Maybe (Sensitive Text), _poGrantFullControl :: Maybe Text, _poSSECustomerKeyMD5 :: Maybe Text, _poMetadata :: Map Text Text, _poContentMD5 :: Maybe Text, _poCacheControl :: Maybe Text, _poContentLanguage :: Maybe Text, _poACL :: Maybe ObjectCannedACL, _poContentDisposition :: Maybe Text, _poServerSideEncryption :: Maybe ServerSideEncryption, _poContentType :: Maybe Text, _poBucket :: BucketName, _poKey :: ObjectKey, _poBody :: RqBody} deriving Show
+data PutObject = PutObject'
+    { _poContentLength           :: Maybe Int
+    , _poExpires                 :: Maybe RFC822
+    , _poSSECustomerAlgorithm    :: Maybe Text
+    , _poGrantReadACP            :: Maybe Text
+    , _poSSECustomerKey          :: Maybe (Sensitive Text)
+    , _poRequestPayer            :: Maybe RequestPayer
+    , _poGrantWriteACP           :: Maybe Text
+    , _poWebsiteRedirectLocation :: Maybe Text
+    , _poGrantRead               :: Maybe Text
+    , _poStorageClass            :: Maybe StorageClass
+    , _poContentEncoding         :: Maybe Text
+    , _poSSEKMSKeyId             :: Maybe (Sensitive Text)
+    , _poGrantFullControl        :: Maybe Text
+    , _poSSECustomerKeyMD5       :: Maybe Text
+    , _poMetadata                :: Map Text Text
+    , _poContentMD5              :: Maybe Text
+    , _poCacheControl            :: Maybe Text
+    , _poContentLanguage         :: Maybe Text
+    , _poACL                     :: Maybe ObjectCannedACL
+    , _poContentDisposition      :: Maybe Text
+    , _poServerSideEncryption    :: Maybe ServerSideEncryption
+    , _poContentType             :: Maybe Text
+    , _poBucket                  :: BucketName
+    , _poKey                     :: ObjectKey
+    , _poBody                    :: RqBody
+    } deriving (Show)
 
 -- | 'PutObject' smart constructor.
 putObject :: BucketName -> ObjectKey -> RqBody -> PutObject
-putObject pBucket pKey pBody = PutObject'{_poContentLength = Nothing, _poExpires = Nothing, _poSSECustomerAlgorithm = Nothing, _poGrantReadACP = Nothing, _poSSECustomerKey = Nothing, _poRequestPayer = Nothing, _poGrantWriteACP = Nothing, _poWebsiteRedirectLocation = Nothing, _poGrantRead = Nothing, _poStorageClass = Nothing, _poContentEncoding = Nothing, _poSSEKMSKeyId = Nothing, _poGrantFullControl = Nothing, _poSSECustomerKeyMD5 = Nothing, _poMetadata = mempty, _poContentMD5 = Nothing, _poCacheControl = Nothing, _poContentLanguage = Nothing, _poACL = Nothing, _poContentDisposition = Nothing, _poServerSideEncryption = Nothing, _poContentType = Nothing, _poBucket = pBucket, _poKey = pKey, _poBody = pBody};
+putObject pBucket pKey pBody =
+    PutObject'
+    { _poContentLength = Nothing
+    , _poExpires = Nothing
+    , _poSSECustomerAlgorithm = Nothing
+    , _poGrantReadACP = Nothing
+    , _poSSECustomerKey = Nothing
+    , _poRequestPayer = Nothing
+    , _poGrantWriteACP = Nothing
+    , _poWebsiteRedirectLocation = Nothing
+    , _poGrantRead = Nothing
+    , _poStorageClass = Nothing
+    , _poContentEncoding = Nothing
+    , _poSSEKMSKeyId = Nothing
+    , _poGrantFullControl = Nothing
+    , _poSSECustomerKeyMD5 = Nothing
+    , _poMetadata = mempty
+    , _poContentMD5 = Nothing
+    , _poCacheControl = Nothing
+    , _poContentLanguage = Nothing
+    , _poACL = Nothing
+    , _poContentDisposition = Nothing
+    , _poServerSideEncryption = Nothing
+    , _poContentType = Nothing
+    , _poBucket = pBucket
+    , _poKey = pKey
+    , _poBody = pBody
+    }
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
 -- body cannot be determined automatically.
@@ -332,12 +385,33 @@ instance ToQuery PutObject where
 --
 -- * 'porServerSideEncryption'
 --
--- * 'porStatusCode'
-data PutObjectResponse = PutObjectResponse'{_porVersionId :: Maybe ObjectVersionId, _porETag :: Maybe ETag, _porRequestCharged :: Maybe RequestCharged, _porExpiration :: Maybe Text, _porSSECustomerAlgorithm :: Maybe Text, _porSSEKMSKeyId :: Maybe (Sensitive Text), _porSSECustomerKeyMD5 :: Maybe Text, _porServerSideEncryption :: Maybe ServerSideEncryption, _porStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'porStatus'
+data PutObjectResponse = PutObjectResponse'
+    { _porVersionId            :: Maybe ObjectVersionId
+    , _porETag                 :: Maybe ETag
+    , _porRequestCharged       :: Maybe RequestCharged
+    , _porExpiration           :: Maybe Text
+    , _porSSECustomerAlgorithm :: Maybe Text
+    , _porSSEKMSKeyId          :: Maybe (Sensitive Text)
+    , _porSSECustomerKeyMD5    :: Maybe Text
+    , _porServerSideEncryption :: Maybe ServerSideEncryption
+    , _porStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PutObjectResponse' smart constructor.
 putObjectResponse :: Int -> PutObjectResponse
-putObjectResponse pStatusCode = PutObjectResponse'{_porVersionId = Nothing, _porETag = Nothing, _porRequestCharged = Nothing, _porExpiration = Nothing, _porSSECustomerAlgorithm = Nothing, _porSSEKMSKeyId = Nothing, _porSSECustomerKeyMD5 = Nothing, _porServerSideEncryption = Nothing, _porStatusCode = pStatusCode};
+putObjectResponse pStatus =
+    PutObjectResponse'
+    { _porVersionId = Nothing
+    , _porETag = Nothing
+    , _porRequestCharged = Nothing
+    , _porExpiration = Nothing
+    , _porSSECustomerAlgorithm = Nothing
+    , _porSSEKMSKeyId = Nothing
+    , _porSSECustomerKeyMD5 = Nothing
+    , _porServerSideEncryption = Nothing
+    , _porStatus = pStatus
+    }
 
 -- | Version of the object.
 porVersionId :: Lens' PutObjectResponse (Maybe ObjectVersionId)
@@ -380,5 +454,5 @@ porServerSideEncryption :: Lens' PutObjectResponse (Maybe ServerSideEncryption)
 porServerSideEncryption = lens _porServerSideEncryption (\ s a -> s{_porServerSideEncryption = a});
 
 -- | FIXME: Undocumented member.
-porStatusCode :: Lens' PutObjectResponse Int
-porStatusCode = lens _porStatusCode (\ s a -> s{_porStatusCode = a});
+porStatus :: Lens' PutObjectResponse Int
+porStatus = lens _porStatus (\ s a -> s{_porStatus = a});

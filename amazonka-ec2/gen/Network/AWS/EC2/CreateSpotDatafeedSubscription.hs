@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateSpotDatafeedSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
     , createSpotDatafeedSubscriptionResponse
     -- ** Response lenses
     , csdsrSpotDatafeedSubscription
-    , csdsrStatusCode
+    , csdsrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for CreateSpotDatafeedSubscription.
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'csdsDryRun'
 --
 -- * 'csdsBucket'
-data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'{_csdsPrefix :: Maybe Text, _csdsDryRun :: Maybe Bool, _csdsBucket :: Text} deriving (Eq, Read, Show)
+data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
+    { _csdsPrefix :: Maybe Text
+    , _csdsDryRun :: Maybe Bool
+    , _csdsBucket :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSpotDatafeedSubscription' smart constructor.
 createSpotDatafeedSubscription :: Text -> CreateSpotDatafeedSubscription
-createSpotDatafeedSubscription pBucket = CreateSpotDatafeedSubscription'{_csdsPrefix = Nothing, _csdsDryRun = Nothing, _csdsBucket = pBucket};
+createSpotDatafeedSubscription pBucket =
+    CreateSpotDatafeedSubscription'
+    { _csdsPrefix = Nothing
+    , _csdsDryRun = Nothing
+    , _csdsBucket = pBucket
+    }
 
 -- | A prefix for the data feed file names.
 csdsPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
@@ -115,17 +124,24 @@ instance ToQuery CreateSpotDatafeedSubscription where
 --
 -- * 'csdsrSpotDatafeedSubscription'
 --
--- * 'csdsrStatusCode'
-data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse'{_csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription, _csdsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'csdsrStatus'
+data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse'
+    { _csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
+    , _csdsrStatus                   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSpotDatafeedSubscriptionResponse' smart constructor.
 createSpotDatafeedSubscriptionResponse :: Int -> CreateSpotDatafeedSubscriptionResponse
-createSpotDatafeedSubscriptionResponse pStatusCode = CreateSpotDatafeedSubscriptionResponse'{_csdsrSpotDatafeedSubscription = Nothing, _csdsrStatusCode = pStatusCode};
+createSpotDatafeedSubscriptionResponse pStatus =
+    CreateSpotDatafeedSubscriptionResponse'
+    { _csdsrSpotDatafeedSubscription = Nothing
+    , _csdsrStatus = pStatus
+    }
 
 -- | The Spot Instance data feed subscription.
 csdsrSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 csdsrSpotDatafeedSubscription = lens _csdsrSpotDatafeedSubscription (\ s a -> s{_csdsrSpotDatafeedSubscription = a});
 
 -- | FIXME: Undocumented member.
-csdsrStatusCode :: Lens' CreateSpotDatafeedSubscriptionResponse Int
-csdsrStatusCode = lens _csdsrStatusCode (\ s a -> s{_csdsrStatusCode = a});
+csdsrStatus :: Lens' CreateSpotDatafeedSubscriptionResponse Int
+csdsrStatus = lens _csdsrStatus (\ s a -> s{_csdsrStatus = a});

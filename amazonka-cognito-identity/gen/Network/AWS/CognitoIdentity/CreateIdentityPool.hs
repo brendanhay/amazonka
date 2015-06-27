@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.CreateIdentityPool
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,10 +46,10 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
     , ipAllowUnauthenticatedIdentities
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the CreateIdentityPool action.
 --
@@ -66,11 +66,24 @@ import Network.AWS.Response
 -- * 'cipIdentityPoolName'
 --
 -- * 'cipAllowUnauthenticatedIdentities'
-data CreateIdentityPool = CreateIdentityPool'{_cipSupportedLoginProviders :: Maybe (Map Text Text), _cipDeveloperProviderName :: Maybe Text, _cipOpenIdConnectProviderARNs :: Maybe [Text], _cipIdentityPoolName :: Text, _cipAllowUnauthenticatedIdentities :: Bool} deriving (Eq, Read, Show)
+data CreateIdentityPool = CreateIdentityPool'
+    { _cipSupportedLoginProviders        :: Maybe (Map Text Text)
+    , _cipDeveloperProviderName          :: Maybe Text
+    , _cipOpenIdConnectProviderARNs      :: Maybe [Text]
+    , _cipIdentityPoolName               :: Text
+    , _cipAllowUnauthenticatedIdentities :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateIdentityPool' smart constructor.
 createIdentityPool :: Text -> Bool -> CreateIdentityPool
-createIdentityPool pIdentityPoolName pAllowUnauthenticatedIdentities = CreateIdentityPool'{_cipSupportedLoginProviders = Nothing, _cipDeveloperProviderName = Nothing, _cipOpenIdConnectProviderARNs = Nothing, _cipIdentityPoolName = pIdentityPoolName, _cipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities};
+createIdentityPool pIdentityPoolName pAllowUnauthenticatedIdentities =
+    CreateIdentityPool'
+    { _cipSupportedLoginProviders = Nothing
+    , _cipDeveloperProviderName = Nothing
+    , _cipOpenIdConnectProviderARNs = Nothing
+    , _cipIdentityPoolName = pIdentityPoolName
+    , _cipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities
+    }
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 cipSupportedLoginProviders :: Lens' CreateIdentityPool (HashMap Text Text)

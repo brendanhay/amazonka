@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.AssociateRouteTable
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.EC2.AssociateRouteTable
     , associateRouteTableResponse
     -- ** Response lenses
     , artrAssociationId
-    , artrStatusCode
+    , artrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'associateRouteTable' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'artSubnetId'
 --
 -- * 'artRouteTableId'
-data AssociateRouteTable = AssociateRouteTable'{_artDryRun :: Maybe Bool, _artSubnetId :: Text, _artRouteTableId :: Text} deriving (Eq, Read, Show)
+data AssociateRouteTable = AssociateRouteTable'
+    { _artDryRun       :: Maybe Bool
+    , _artSubnetId     :: Text
+    , _artRouteTableId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AssociateRouteTable' smart constructor.
 associateRouteTable :: Text -> Text -> AssociateRouteTable
-associateRouteTable pSubnetId pRouteTableId = AssociateRouteTable'{_artDryRun = Nothing, _artSubnetId = pSubnetId, _artRouteTableId = pRouteTableId};
+associateRouteTable pSubnetId pRouteTableId =
+    AssociateRouteTable'
+    { _artDryRun = Nothing
+    , _artSubnetId = pSubnetId
+    , _artRouteTableId = pRouteTableId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -112,17 +121,24 @@ instance ToQuery AssociateRouteTable where
 --
 -- * 'artrAssociationId'
 --
--- * 'artrStatusCode'
-data AssociateRouteTableResponse = AssociateRouteTableResponse'{_artrAssociationId :: Maybe Text, _artrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'artrStatus'
+data AssociateRouteTableResponse = AssociateRouteTableResponse'
+    { _artrAssociationId :: Maybe Text
+    , _artrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AssociateRouteTableResponse' smart constructor.
 associateRouteTableResponse :: Int -> AssociateRouteTableResponse
-associateRouteTableResponse pStatusCode = AssociateRouteTableResponse'{_artrAssociationId = Nothing, _artrStatusCode = pStatusCode};
+associateRouteTableResponse pStatus =
+    AssociateRouteTableResponse'
+    { _artrAssociationId = Nothing
+    , _artrStatus = pStatus
+    }
 
 -- | The route table association ID (needed to disassociate the route table).
 artrAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
 artrAssociationId = lens _artrAssociationId (\ s a -> s{_artrAssociationId = a});
 
 -- | FIXME: Undocumented member.
-artrStatusCode :: Lens' AssociateRouteTableResponse Int
-artrStatusCode = lens _artrStatusCode (\ s a -> s{_artrStatusCode = a});
+artrStatus :: Lens' AssociateRouteTableResponse Int
+artrStatus = lens _artrStatus (\ s a -> s{_artrStatus = a});

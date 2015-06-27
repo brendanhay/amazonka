@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListGroupsForUser
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,14 +39,14 @@ module Network.AWS.IAM.ListGroupsForUser
     , lgfurMarker
     , lgfurIsTruncated
     , lgfurGroups
-    , lgfurStatusCode
+    , lgfurStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listGroupsForUser' smart constructor.
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'lgfuMarker'
 --
 -- * 'lgfuUserName'
-data ListGroupsForUser = ListGroupsForUser'{_lgfuMaxItems :: Maybe Nat, _lgfuMarker :: Maybe Text, _lgfuUserName :: Text} deriving (Eq, Read, Show)
+data ListGroupsForUser = ListGroupsForUser'
+    { _lgfuMaxItems :: Maybe Nat
+    , _lgfuMarker   :: Maybe Text
+    , _lgfuUserName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGroupsForUser' smart constructor.
 listGroupsForUser :: Text -> ListGroupsForUser
-listGroupsForUser pUserName = ListGroupsForUser'{_lgfuMaxItems = Nothing, _lgfuMarker = Nothing, _lgfuUserName = pUserName};
+listGroupsForUser pUserName =
+    ListGroupsForUser'
+    { _lgfuMaxItems = Nothing
+    , _lgfuMarker = Nothing
+    , _lgfuUserName = pUserName
+    }
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- groups you want in the response. If there are additional groups beyond
@@ -127,12 +136,23 @@ instance ToQuery ListGroupsForUser where
 --
 -- * 'lgfurGroups'
 --
--- * 'lgfurStatusCode'
-data ListGroupsForUserResponse = ListGroupsForUserResponse'{_lgfurMarker :: Maybe Text, _lgfurIsTruncated :: Maybe Bool, _lgfurGroups :: [Group], _lgfurStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lgfurStatus'
+data ListGroupsForUserResponse = ListGroupsForUserResponse'
+    { _lgfurMarker      :: Maybe Text
+    , _lgfurIsTruncated :: Maybe Bool
+    , _lgfurGroups      :: [Group]
+    , _lgfurStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGroupsForUserResponse' smart constructor.
 listGroupsForUserResponse :: Int -> ListGroupsForUserResponse
-listGroupsForUserResponse pStatusCode = ListGroupsForUserResponse'{_lgfurMarker = Nothing, _lgfurIsTruncated = Nothing, _lgfurGroups = mempty, _lgfurStatusCode = pStatusCode};
+listGroupsForUserResponse pStatus =
+    ListGroupsForUserResponse'
+    { _lgfurMarker = Nothing
+    , _lgfurIsTruncated = Nothing
+    , _lgfurGroups = mempty
+    , _lgfurStatus = pStatus
+    }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -152,5 +172,5 @@ lgfurGroups :: Lens' ListGroupsForUserResponse [Group]
 lgfurGroups = lens _lgfurGroups (\ s a -> s{_lgfurGroups = a});
 
 -- | FIXME: Undocumented member.
-lgfurStatusCode :: Lens' ListGroupsForUserResponse Int
-lgfurStatusCode = lens _lgfurStatusCode (\ s a -> s{_lgfurStatusCode = a});
+lgfurStatus :: Lens' ListGroupsForUserResponse Int
+lgfurStatus = lens _lgfurStatus (\ s a -> s{_lgfurStatus = a});

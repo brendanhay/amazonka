@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SDB.DomainMetadata
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,24 +40,29 @@ module Network.AWS.SDB.DomainMetadata
     , dmrAttributeNamesSizeBytes
     , dmrTimestamp
     , dmrItemCount
-    , dmrStatusCode
+    , dmrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SDB.Types
 
 -- | /See:/ 'domainMetadata' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dmDomainName'
-newtype DomainMetadata = DomainMetadata'{_dmDomainName :: Text} deriving (Eq, Read, Show)
+newtype DomainMetadata = DomainMetadata'
+    { _dmDomainName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DomainMetadata' smart constructor.
 domainMetadata :: Text -> DomainMetadata
-domainMetadata pDomainName = DomainMetadata'{_dmDomainName = pDomainName};
+domainMetadata pDomainName =
+    DomainMetadata'
+    { _dmDomainName = pDomainName
+    }
 
 -- | The name of the domain for which to display the metadata of.
 dmDomainName :: Lens' DomainMetadata Text
@@ -111,12 +116,31 @@ instance ToQuery DomainMetadata where
 --
 -- * 'dmrItemCount'
 --
--- * 'dmrStatusCode'
-data DomainMetadataResponse = DomainMetadataResponse'{_dmrItemNamesSizeBytes :: Maybe Integer, _dmrAttributeNameCount :: Maybe Int, _dmrAttributeValuesSizeBytes :: Maybe Integer, _dmrAttributeValueCount :: Maybe Int, _dmrAttributeNamesSizeBytes :: Maybe Integer, _dmrTimestamp :: Maybe Int, _dmrItemCount :: Maybe Int, _dmrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dmrStatus'
+data DomainMetadataResponse = DomainMetadataResponse'
+    { _dmrItemNamesSizeBytes       :: Maybe Integer
+    , _dmrAttributeNameCount       :: Maybe Int
+    , _dmrAttributeValuesSizeBytes :: Maybe Integer
+    , _dmrAttributeValueCount      :: Maybe Int
+    , _dmrAttributeNamesSizeBytes  :: Maybe Integer
+    , _dmrTimestamp                :: Maybe Int
+    , _dmrItemCount                :: Maybe Int
+    , _dmrStatus                   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DomainMetadataResponse' smart constructor.
 domainMetadataResponse :: Int -> DomainMetadataResponse
-domainMetadataResponse pStatusCode = DomainMetadataResponse'{_dmrItemNamesSizeBytes = Nothing, _dmrAttributeNameCount = Nothing, _dmrAttributeValuesSizeBytes = Nothing, _dmrAttributeValueCount = Nothing, _dmrAttributeNamesSizeBytes = Nothing, _dmrTimestamp = Nothing, _dmrItemCount = Nothing, _dmrStatusCode = pStatusCode};
+domainMetadataResponse pStatus =
+    DomainMetadataResponse'
+    { _dmrItemNamesSizeBytes = Nothing
+    , _dmrAttributeNameCount = Nothing
+    , _dmrAttributeValuesSizeBytes = Nothing
+    , _dmrAttributeValueCount = Nothing
+    , _dmrAttributeNamesSizeBytes = Nothing
+    , _dmrTimestamp = Nothing
+    , _dmrItemCount = Nothing
+    , _dmrStatus = pStatus
+    }
 
 -- | The total size of all item names in the domain, in bytes.
 dmrItemNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
@@ -147,5 +171,5 @@ dmrItemCount :: Lens' DomainMetadataResponse (Maybe Int)
 dmrItemCount = lens _dmrItemCount (\ s a -> s{_dmrItemCount = a});
 
 -- | FIXME: Undocumented member.
-dmrStatusCode :: Lens' DomainMetadataResponse Int
-dmrStatusCode = lens _dmrStatusCode (\ s a -> s{_dmrStatusCode = a});
+dmrStatus :: Lens' DomainMetadataResponse Int
+dmrStatus = lens _dmrStatus (\ s a -> s{_dmrStatus = a});

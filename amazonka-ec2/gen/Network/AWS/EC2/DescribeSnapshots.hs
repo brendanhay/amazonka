@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeSnapshots
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -85,14 +85,14 @@ module Network.AWS.EC2.DescribeSnapshots
     -- ** Response lenses
     , dsr1NextToken
     , dsr1Snapshots
-    , dsr1StatusCode
+    , dsr1Status
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeSnapshots' smart constructor.
 --
@@ -111,11 +111,28 @@ import Network.AWS.Response
 -- * 'ds1DryRun'
 --
 -- * 'ds1MaxResults'
-data DescribeSnapshots = DescribeSnapshots'{_ds1OwnerIds :: Maybe [Text], _ds1Filters :: Maybe [Filter], _ds1NextToken :: Maybe Text, _ds1SnapshotIds :: Maybe [Text], _ds1RestorableByUserIds :: Maybe [Text], _ds1DryRun :: Maybe Bool, _ds1MaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeSnapshots = DescribeSnapshots'
+    { _ds1OwnerIds            :: Maybe [Text]
+    , _ds1Filters             :: Maybe [Filter]
+    , _ds1NextToken           :: Maybe Text
+    , _ds1SnapshotIds         :: Maybe [Text]
+    , _ds1RestorableByUserIds :: Maybe [Text]
+    , _ds1DryRun              :: Maybe Bool
+    , _ds1MaxResults          :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshots' smart constructor.
 describeSnapshots :: DescribeSnapshots
-describeSnapshots = DescribeSnapshots'{_ds1OwnerIds = Nothing, _ds1Filters = Nothing, _ds1NextToken = Nothing, _ds1SnapshotIds = Nothing, _ds1RestorableByUserIds = Nothing, _ds1DryRun = Nothing, _ds1MaxResults = Nothing};
+describeSnapshots =
+    DescribeSnapshots'
+    { _ds1OwnerIds = Nothing
+    , _ds1Filters = Nothing
+    , _ds1NextToken = Nothing
+    , _ds1SnapshotIds = Nothing
+    , _ds1RestorableByUserIds = Nothing
+    , _ds1DryRun = Nothing
+    , _ds1MaxResults = Nothing
+    }
 
 -- | Returns the snapshots owned by the specified owner. Multiple owners can
 -- be specified.
@@ -248,12 +265,21 @@ instance ToQuery DescribeSnapshots where
 --
 -- * 'dsr1Snapshots'
 --
--- * 'dsr1StatusCode'
-data DescribeSnapshotsResponse = DescribeSnapshotsResponse'{_dsr1NextToken :: Maybe Text, _dsr1Snapshots :: Maybe [Snapshot], _dsr1StatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsr1Status'
+data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
+    { _dsr1NextToken :: Maybe Text
+    , _dsr1Snapshots :: Maybe [Snapshot]
+    , _dsr1Status    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
-describeSnapshotsResponse pStatusCode = DescribeSnapshotsResponse'{_dsr1NextToken = Nothing, _dsr1Snapshots = Nothing, _dsr1StatusCode = pStatusCode};
+describeSnapshotsResponse pStatus =
+    DescribeSnapshotsResponse'
+    { _dsr1NextToken = Nothing
+    , _dsr1Snapshots = Nothing
+    , _dsr1Status = pStatus
+    }
 
 -- | The @NextToken@ value to include in a future @DescribeSnapshots@
 -- request. When the results of a @DescribeSnapshots@ request exceed
@@ -267,5 +293,5 @@ dsr1Snapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dsr1Snapshots = lens _dsr1Snapshots (\ s a -> s{_dsr1Snapshots = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsr1StatusCode :: Lens' DescribeSnapshotsResponse Int
-dsr1StatusCode = lens _dsr1StatusCode (\ s a -> s{_dsr1StatusCode = a});
+dsr1Status :: Lens' DescribeSnapshotsResponse Int
+dsr1Status = lens _dsr1Status (\ s a -> s{_dsr1Status = a});

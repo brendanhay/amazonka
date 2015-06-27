@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.DeleteVault
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,10 +57,10 @@ module Network.AWS.Glacier.DeleteVault
     , deleteVaultResponse
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for deleting a vault from Amazon Glacier.
 --
@@ -71,11 +71,18 @@ import Network.AWS.Response
 -- * 'delAccountId'
 --
 -- * 'delVaultName'
-data DeleteVault = DeleteVault'{_delAccountId :: Text, _delVaultName :: Text} deriving (Eq, Read, Show)
+data DeleteVault = DeleteVault'
+    { _delAccountId :: Text
+    , _delVaultName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVault' smart constructor.
 deleteVault :: Text -> Text -> DeleteVault
-deleteVault pAccountId pVaultName = DeleteVault'{_delAccountId = pAccountId, _delVaultName = pVaultName};
+deleteVault pAccountId pVaultName =
+    DeleteVault'
+    { _delAccountId = pAccountId
+    , _delVaultName = pVaultName
+    }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
@@ -108,8 +115,10 @@ instance ToQuery DeleteVault where
         toQuery = const mempty
 
 -- | /See:/ 'deleteVaultResponse' smart constructor.
-data DeleteVaultResponse = DeleteVaultResponse' deriving (Eq, Read, Show)
+data DeleteVaultResponse =
+    DeleteVaultResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteVaultResponse' smart constructor.
 deleteVaultResponse :: DeleteVaultResponse
-deleteVaultResponse = DeleteVaultResponse';
+deleteVaultResponse = DeleteVaultResponse'

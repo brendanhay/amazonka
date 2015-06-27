@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearchDomains.UploadDocuments
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,17 +57,16 @@ module Network.AWS.CloudSearchDomains.UploadDocuments
     -- ** Response constructor
     , uploadDocumentsResponse
     -- ** Response lenses
-    , udrStatus
     , udrAdds
     , udrWarnings
     , udrDeletes
-    , udrStatusCode
+    , udrStatus
     ) where
 
-import Network.AWS.CloudSearchDomains.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearchDomains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @UploadDocuments@ request.
 --
@@ -78,11 +77,18 @@ import Network.AWS.Response
 -- * 'udContentType'
 --
 -- * 'udDocuments'
-data UploadDocuments = UploadDocuments'{_udContentType :: ContentType, _udDocuments :: RqBody} deriving Show
+data UploadDocuments = UploadDocuments'
+    { _udContentType :: ContentType
+    , _udDocuments   :: RqBody
+    } deriving (Show)
 
 -- | 'UploadDocuments' smart constructor.
 uploadDocuments :: ContentType -> RqBody -> UploadDocuments
-uploadDocuments pContentType pDocuments = UploadDocuments'{_udContentType = pContentType, _udDocuments = pDocuments};
+uploadDocuments pContentType pDocuments =
+    UploadDocuments'
+    { _udContentType = pContentType
+    , _udDocuments = pDocuments
+    }
 
 -- | The format of the batch you are uploading. Amazon CloudSearch supports
 -- two document batch formats:
@@ -104,9 +110,8 @@ instance AWSRequest UploadDocuments where
           = receiveJSON
               (\ s h x ->
                  UploadDocumentsResponse' <$>
-                   (x .?> "status") <*> (x .?> "adds") <*>
-                     (x .?> "warnings" .!@ mempty)
-                     <*> (x .?> "deletes")
+                   (x .?> "adds") <*> (x .?> "warnings" .!@ mempty) <*>
+                     (x .?> "deletes")
                      <*> (pure (fromEnum s)))
 
 instance ToBody UploadDocuments where
@@ -131,24 +136,29 @@ instance ToQuery UploadDocuments where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udrStatus'
---
 -- * 'udrAdds'
 --
 -- * 'udrWarnings'
 --
 -- * 'udrDeletes'
 --
--- * 'udrStatusCode'
-data UploadDocumentsResponse = UploadDocumentsResponse'{_udrStatus :: Maybe Text, _udrAdds :: Maybe Integer, _udrWarnings :: Maybe [DocumentServiceWarning], _udrDeletes :: Maybe Integer, _udrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'udrStatus'
+data UploadDocumentsResponse = UploadDocumentsResponse'
+    { _udrAdds     :: Maybe Integer
+    , _udrWarnings :: Maybe [DocumentServiceWarning]
+    , _udrDeletes  :: Maybe Integer
+    , _udrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UploadDocumentsResponse' smart constructor.
 uploadDocumentsResponse :: Int -> UploadDocumentsResponse
-uploadDocumentsResponse pStatusCode = UploadDocumentsResponse'{_udrStatus = Nothing, _udrAdds = Nothing, _udrWarnings = Nothing, _udrDeletes = Nothing, _udrStatusCode = pStatusCode};
-
--- | The status of an @UploadDocumentsRequest@.
-udrStatus :: Lens' UploadDocumentsResponse (Maybe Text)
-udrStatus = lens _udrStatus (\ s a -> s{_udrStatus = a});
+uploadDocumentsResponse pStatus =
+    UploadDocumentsResponse'
+    { _udrAdds = Nothing
+    , _udrWarnings = Nothing
+    , _udrDeletes = Nothing
+    , _udrStatus = pStatus
+    }
 
 -- | The number of documents that were added to the search domain.
 udrAdds :: Lens' UploadDocumentsResponse (Maybe Integer)
@@ -164,5 +174,5 @@ udrDeletes :: Lens' UploadDocumentsResponse (Maybe Integer)
 udrDeletes = lens _udrDeletes (\ s a -> s{_udrDeletes = a});
 
 -- | FIXME: Undocumented member.
-udrStatusCode :: Lens' UploadDocumentsResponse Int
-udrStatusCode = lens _udrStatusCode (\ s a -> s{_udrStatusCode = a});
+udrStatus :: Lens' UploadDocumentsResponse Int
+udrStatus = lens _udrStatus (\ s a -> s{_udrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.DeprecateDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -58,21 +58,26 @@ module Network.AWS.SWF.DeprecateDomain
     , deprecateDomainResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'deprecateDomain' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'depName'
-newtype DeprecateDomain = DeprecateDomain'{_depName :: Text} deriving (Eq, Read, Show)
+newtype DeprecateDomain = DeprecateDomain'
+    { _depName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeprecateDomain' smart constructor.
 deprecateDomain :: Text -> DeprecateDomain
-deprecateDomain pName = DeprecateDomain'{_depName = pName};
+deprecateDomain pName =
+    DeprecateDomain'
+    { _depName = pName
+    }
 
 -- | The name of the domain to deprecate.
 depName :: Lens' DeprecateDomain Text
@@ -105,8 +110,10 @@ instance ToQuery DeprecateDomain where
         toQuery = const mempty
 
 -- | /See:/ 'deprecateDomainResponse' smart constructor.
-data DeprecateDomainResponse = DeprecateDomainResponse' deriving (Eq, Read, Show)
+data DeprecateDomainResponse =
+    DeprecateDomainResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeprecateDomainResponse' smart constructor.
 deprecateDomainResponse :: DeprecateDomainResponse
-deprecateDomainResponse = DeprecateDomainResponse';
+deprecateDomainResponse = DeprecateDomainResponse'

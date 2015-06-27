@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteLogGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,21 +33,26 @@ module Network.AWS.CloudWatchLogs.DeleteLogGroup
     , deleteLogGroupResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteLogGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlgLogGroupName'
-newtype DeleteLogGroup = DeleteLogGroup'{_dlgLogGroupName :: Text} deriving (Eq, Read, Show)
+newtype DeleteLogGroup = DeleteLogGroup'
+    { _dlgLogGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLogGroup' smart constructor.
 deleteLogGroup :: Text -> DeleteLogGroup
-deleteLogGroup pLogGroupName = DeleteLogGroup'{_dlgLogGroupName = pLogGroupName};
+deleteLogGroup pLogGroupName =
+    DeleteLogGroup'
+    { _dlgLogGroupName = pLogGroupName
+    }
 
 -- | The name of the log group to delete.
 dlgLogGroupName :: Lens' DeleteLogGroup Text
@@ -79,8 +84,10 @@ instance ToQuery DeleteLogGroup where
         toQuery = const mempty
 
 -- | /See:/ 'deleteLogGroupResponse' smart constructor.
-data DeleteLogGroupResponse = DeleteLogGroupResponse' deriving (Eq, Read, Show)
+data DeleteLogGroupResponse =
+    DeleteLogGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteLogGroupResponse' smart constructor.
 deleteLogGroupResponse :: DeleteLogGroupResponse
-deleteLogGroupResponse = DeleteLogGroupResponse';
+deleteLogGroupResponse = DeleteLogGroupResponse'

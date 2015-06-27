@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.CloneStack
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -58,13 +58,13 @@ module Network.AWS.OpsWorks.CloneStack
     , cloneStackResponse
     -- ** Response lenses
     , csrStackId
-    , csrStatusCode
+    , csrStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'cloneStack' smart constructor.
 --
@@ -111,11 +111,56 @@ import Network.AWS.Response
 -- * 'cloSourceStackId'
 --
 -- * 'cloServiceRoleARN'
-data CloneStack = CloneStack'{_cloCloneAppIds :: Maybe [Text], _cloDefaultInstanceProfileARN :: Maybe Text, _cloDefaultRootDeviceType :: Maybe RootDeviceType, _cloChefConfiguration :: Maybe ChefConfiguration, _cloVPCId :: Maybe Text, _cloDefaultSSHKeyName :: Maybe Text, _cloCustomJSON :: Maybe Text, _cloClonePermissions :: Maybe Bool, _cloCustomCookbooksSource :: Maybe Source, _cloDefaultAvailabilityZone :: Maybe Text, _cloName :: Maybe Text, _cloUseOpsworksSecurityGroups :: Maybe Bool, _cloDefaultOS :: Maybe Text, _cloAttributes :: Maybe (Map StackAttributesKeys Text), _cloUseCustomCookbooks :: Maybe Bool, _cloDefaultSubnetId :: Maybe Text, _cloRegion :: Maybe Text, _cloConfigurationManager :: Maybe StackConfigurationManager, _cloHostnameTheme :: Maybe Text, _cloSourceStackId :: Text, _cloServiceRoleARN :: Text} deriving (Eq, Read, Show)
+data CloneStack = CloneStack'
+    { _cloCloneAppIds               :: Maybe [Text]
+    , _cloDefaultInstanceProfileARN :: Maybe Text
+    , _cloDefaultRootDeviceType     :: Maybe RootDeviceType
+    , _cloChefConfiguration         :: Maybe ChefConfiguration
+    , _cloVPCId                     :: Maybe Text
+    , _cloDefaultSSHKeyName         :: Maybe Text
+    , _cloCustomJSON                :: Maybe Text
+    , _cloClonePermissions          :: Maybe Bool
+    , _cloCustomCookbooksSource     :: Maybe Source
+    , _cloDefaultAvailabilityZone   :: Maybe Text
+    , _cloName                      :: Maybe Text
+    , _cloUseOpsworksSecurityGroups :: Maybe Bool
+    , _cloDefaultOS                 :: Maybe Text
+    , _cloAttributes                :: Maybe (Map StackAttributesKeys Text)
+    , _cloUseCustomCookbooks        :: Maybe Bool
+    , _cloDefaultSubnetId           :: Maybe Text
+    , _cloRegion                    :: Maybe Text
+    , _cloConfigurationManager      :: Maybe StackConfigurationManager
+    , _cloHostnameTheme             :: Maybe Text
+    , _cloSourceStackId             :: Text
+    , _cloServiceRoleARN            :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CloneStack' smart constructor.
 cloneStack :: Text -> Text -> CloneStack
-cloneStack pSourceStackId pServiceRoleARN = CloneStack'{_cloCloneAppIds = Nothing, _cloDefaultInstanceProfileARN = Nothing, _cloDefaultRootDeviceType = Nothing, _cloChefConfiguration = Nothing, _cloVPCId = Nothing, _cloDefaultSSHKeyName = Nothing, _cloCustomJSON = Nothing, _cloClonePermissions = Nothing, _cloCustomCookbooksSource = Nothing, _cloDefaultAvailabilityZone = Nothing, _cloName = Nothing, _cloUseOpsworksSecurityGroups = Nothing, _cloDefaultOS = Nothing, _cloAttributes = Nothing, _cloUseCustomCookbooks = Nothing, _cloDefaultSubnetId = Nothing, _cloRegion = Nothing, _cloConfigurationManager = Nothing, _cloHostnameTheme = Nothing, _cloSourceStackId = pSourceStackId, _cloServiceRoleARN = pServiceRoleARN};
+cloneStack pSourceStackId pServiceRoleARN =
+    CloneStack'
+    { _cloCloneAppIds = Nothing
+    , _cloDefaultInstanceProfileARN = Nothing
+    , _cloDefaultRootDeviceType = Nothing
+    , _cloChefConfiguration = Nothing
+    , _cloVPCId = Nothing
+    , _cloDefaultSSHKeyName = Nothing
+    , _cloCustomJSON = Nothing
+    , _cloClonePermissions = Nothing
+    , _cloCustomCookbooksSource = Nothing
+    , _cloDefaultAvailabilityZone = Nothing
+    , _cloName = Nothing
+    , _cloUseOpsworksSecurityGroups = Nothing
+    , _cloDefaultOS = Nothing
+    , _cloAttributes = Nothing
+    , _cloUseCustomCookbooks = Nothing
+    , _cloDefaultSubnetId = Nothing
+    , _cloRegion = Nothing
+    , _cloConfigurationManager = Nothing
+    , _cloHostnameTheme = Nothing
+    , _cloSourceStackId = pSourceStackId
+    , _cloServiceRoleARN = pServiceRoleARN
+    }
 
 -- | A list of source stack app IDs to be included in the cloned stack.
 cloCloneAppIds :: Lens' CloneStack [Text]
@@ -385,17 +430,24 @@ instance ToQuery CloneStack where
 --
 -- * 'csrStackId'
 --
--- * 'csrStatusCode'
-data CloneStackResponse = CloneStackResponse'{_csrStackId :: Maybe Text, _csrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'csrStatus'
+data CloneStackResponse = CloneStackResponse'
+    { _csrStackId :: Maybe Text
+    , _csrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CloneStackResponse' smart constructor.
 cloneStackResponse :: Int -> CloneStackResponse
-cloneStackResponse pStatusCode = CloneStackResponse'{_csrStackId = Nothing, _csrStatusCode = pStatusCode};
+cloneStackResponse pStatus =
+    CloneStackResponse'
+    { _csrStackId = Nothing
+    , _csrStatus = pStatus
+    }
 
 -- | The cloned stack ID.
 csrStackId :: Lens' CloneStackResponse (Maybe Text)
 csrStackId = lens _csrStackId (\ s a -> s{_csrStackId = a});
 
 -- | FIXME: Undocumented member.
-csrStatusCode :: Lens' CloneStackResponse Int
-csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});
+csrStatus :: Lens' CloneStackResponse Int
+csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});

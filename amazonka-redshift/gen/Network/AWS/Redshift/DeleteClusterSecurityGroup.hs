@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DeleteClusterSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.Redshift.DeleteClusterSecurityGroup
     , deleteClusterSecurityGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -51,11 +51,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delClusterSecurityGroupName'
-newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup'{_delClusterSecurityGroupName :: Text} deriving (Eq, Read, Show)
+newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup'
+    { _delClusterSecurityGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteClusterSecurityGroup' smart constructor.
 deleteClusterSecurityGroup :: Text -> DeleteClusterSecurityGroup
-deleteClusterSecurityGroup pClusterSecurityGroupName = DeleteClusterSecurityGroup'{_delClusterSecurityGroupName = pClusterSecurityGroupName};
+deleteClusterSecurityGroup pClusterSecurityGroupName =
+    DeleteClusterSecurityGroup'
+    { _delClusterSecurityGroupName = pClusterSecurityGroupName
+    }
 
 -- | The name of the cluster security group to be deleted.
 delClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup Text
@@ -85,8 +90,10 @@ instance ToQuery DeleteClusterSecurityGroup where
                  _delClusterSecurityGroupName]
 
 -- | /See:/ 'deleteClusterSecurityGroupResponse' smart constructor.
-data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse' deriving (Eq, Read, Show)
+data DeleteClusterSecurityGroupResponse =
+    DeleteClusterSecurityGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteClusterSecurityGroupResponse' smart constructor.
 deleteClusterSecurityGroupResponse :: DeleteClusterSecurityGroupResponse
-deleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse';
+deleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.EnableVolumeIO
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.EC2.EnableVolumeIO
     , enableVolumeIOResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'enableVolumeIO' smart constructor.
 --
@@ -46,11 +46,18 @@ import Network.AWS.Response
 -- * 'evioDryRun'
 --
 -- * 'evioVolumeId'
-data EnableVolumeIO = EnableVolumeIO'{_evioDryRun :: Maybe Bool, _evioVolumeId :: Text} deriving (Eq, Read, Show)
+data EnableVolumeIO = EnableVolumeIO'
+    { _evioDryRun   :: Maybe Bool
+    , _evioVolumeId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableVolumeIO' smart constructor.
 enableVolumeIO :: Text -> EnableVolumeIO
-enableVolumeIO pVolumeId = EnableVolumeIO'{_evioDryRun = Nothing, _evioVolumeId = pVolumeId};
+enableVolumeIO pVolumeId =
+    EnableVolumeIO'
+    { _evioDryRun = Nothing
+    , _evioVolumeId = pVolumeId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -83,8 +90,10 @@ instance ToQuery EnableVolumeIO where
                "DryRun" =: _evioDryRun, "VolumeId" =: _evioVolumeId]
 
 -- | /See:/ 'enableVolumeIOResponse' smart constructor.
-data EnableVolumeIOResponse = EnableVolumeIOResponse' deriving (Eq, Read, Show)
+data EnableVolumeIOResponse =
+    EnableVolumeIOResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'EnableVolumeIOResponse' smart constructor.
 enableVolumeIOResponse :: EnableVolumeIOResponse
-enableVolumeIOResponse = EnableVolumeIOResponse';
+enableVolumeIOResponse = EnableVolumeIOResponse'

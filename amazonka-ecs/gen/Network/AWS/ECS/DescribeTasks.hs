@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.DescribeTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.ECS.DescribeTasks
     -- ** Response lenses
     , dtrFailures
     , dtrTasks
-    , dtrStatusCode
+    , dtrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeTasks' smart constructor.
 --
@@ -49,11 +49,18 @@ import Network.AWS.Response
 -- * 'dtCluster'
 --
 -- * 'dtTasks'
-data DescribeTasks = DescribeTasks'{_dtCluster :: Maybe Text, _dtTasks :: [Text]} deriving (Eq, Read, Show)
+data DescribeTasks = DescribeTasks'
+    { _dtCluster :: Maybe Text
+    , _dtTasks   :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTasks' smart constructor.
 describeTasks :: DescribeTasks
-describeTasks = DescribeTasks'{_dtCluster = Nothing, _dtTasks = mempty};
+describeTasks =
+    DescribeTasks'
+    { _dtCluster = Nothing
+    , _dtTasks = mempty
+    }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the task you want to describe. If you do not specify a cluster,
@@ -107,12 +114,21 @@ instance ToQuery DescribeTasks where
 --
 -- * 'dtrTasks'
 --
--- * 'dtrStatusCode'
-data DescribeTasksResponse = DescribeTasksResponse'{_dtrFailures :: Maybe [Failure], _dtrTasks :: Maybe [Task], _dtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtrStatus'
+data DescribeTasksResponse = DescribeTasksResponse'
+    { _dtrFailures :: Maybe [Failure]
+    , _dtrTasks    :: Maybe [Task]
+    , _dtrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTasksResponse' smart constructor.
 describeTasksResponse :: Int -> DescribeTasksResponse
-describeTasksResponse pStatusCode = DescribeTasksResponse'{_dtrFailures = Nothing, _dtrTasks = Nothing, _dtrStatusCode = pStatusCode};
+describeTasksResponse pStatus =
+    DescribeTasksResponse'
+    { _dtrFailures = Nothing
+    , _dtrTasks = Nothing
+    , _dtrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dtrFailures :: Lens' DescribeTasksResponse [Failure]
@@ -123,5 +139,5 @@ dtrTasks :: Lens' DescribeTasksResponse [Task]
 dtrTasks = lens _dtrTasks (\ s a -> s{_dtrTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtrStatusCode :: Lens' DescribeTasksResponse Int
-dtrStatusCode = lens _dtrStatusCode (\ s a -> s{_dtrStatusCode = a});
+dtrStatus :: Lens' DescribeTasksResponse Int
+dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});

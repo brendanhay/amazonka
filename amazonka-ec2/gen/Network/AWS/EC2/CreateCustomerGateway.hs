@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateCustomerGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,13 +61,13 @@ module Network.AWS.EC2.CreateCustomerGateway
     , createCustomerGatewayResponse
     -- ** Response lenses
     , ccgrCustomerGateway
-    , ccgrStatusCode
+    , ccgrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createCustomerGateway' smart constructor.
 --
@@ -80,11 +80,22 @@ import Network.AWS.Response
 -- * 'ccgPublicIP'
 --
 -- * 'ccgBGPASN'
-data CreateCustomerGateway = CreateCustomerGateway'{_ccgDryRun :: Maybe Bool, _ccgType :: GatewayType, _ccgPublicIP :: Text, _ccgBGPASN :: Int} deriving (Eq, Read, Show)
+data CreateCustomerGateway = CreateCustomerGateway'
+    { _ccgDryRun   :: Maybe Bool
+    , _ccgType     :: GatewayType
+    , _ccgPublicIP :: Text
+    , _ccgBGPASN   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCustomerGateway' smart constructor.
 createCustomerGateway :: GatewayType -> Text -> Int -> CreateCustomerGateway
-createCustomerGateway pType pPublicIP pBGPASN = CreateCustomerGateway'{_ccgDryRun = Nothing, _ccgType = pType, _ccgPublicIP = pPublicIP, _ccgBGPASN = pBGPASN};
+createCustomerGateway pType pPublicIP pBGPASN =
+    CreateCustomerGateway'
+    { _ccgDryRun = Nothing
+    , _ccgType = pType
+    , _ccgPublicIP = pPublicIP
+    , _ccgBGPASN = pBGPASN
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -140,17 +151,24 @@ instance ToQuery CreateCustomerGateway where
 --
 -- * 'ccgrCustomerGateway'
 --
--- * 'ccgrStatusCode'
-data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'{_ccgrCustomerGateway :: Maybe CustomerGateway, _ccgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ccgrStatus'
+data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
+    { _ccgrCustomerGateway :: Maybe CustomerGateway
+    , _ccgrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCustomerGatewayResponse' smart constructor.
 createCustomerGatewayResponse :: Int -> CreateCustomerGatewayResponse
-createCustomerGatewayResponse pStatusCode = CreateCustomerGatewayResponse'{_ccgrCustomerGateway = Nothing, _ccgrStatusCode = pStatusCode};
+createCustomerGatewayResponse pStatus =
+    CreateCustomerGatewayResponse'
+    { _ccgrCustomerGateway = Nothing
+    , _ccgrStatus = pStatus
+    }
 
 -- | Information about the customer gateway.
 ccgrCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
 ccgrCustomerGateway = lens _ccgrCustomerGateway (\ s a -> s{_ccgrCustomerGateway = a});
 
 -- | FIXME: Undocumented member.
-ccgrStatusCode :: Lens' CreateCustomerGatewayResponse Int
-ccgrStatusCode = lens _ccgrStatusCode (\ s a -> s{_ccgrStatusCode = a});
+ccgrStatus :: Lens' CreateCustomerGatewayResponse Int
+ccgrStatus = lens _ccgrStatus (\ s a -> s{_ccgrStatus = a});

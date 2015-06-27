@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatch.EnableAlarmActions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,21 +32,26 @@ module Network.AWS.CloudWatch.EnableAlarmActions
     , enableAlarmActionsResponse
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'enableAlarmActions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'eaaAlarmNames'
-newtype EnableAlarmActions = EnableAlarmActions'{_eaaAlarmNames :: [Text]} deriving (Eq, Read, Show)
+newtype EnableAlarmActions = EnableAlarmActions'
+    { _eaaAlarmNames :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableAlarmActions' smart constructor.
 enableAlarmActions :: EnableAlarmActions
-enableAlarmActions = EnableAlarmActions'{_eaaAlarmNames = mempty};
+enableAlarmActions =
+    EnableAlarmActions'
+    { _eaaAlarmNames = mempty
+    }
 
 -- | The names of the alarms to enable actions for.
 eaaAlarmNames :: Lens' EnableAlarmActions [Text]
@@ -73,8 +78,10 @@ instance ToQuery EnableAlarmActions where
                "AlarmNames" =: toQueryList "member" _eaaAlarmNames]
 
 -- | /See:/ 'enableAlarmActionsResponse' smart constructor.
-data EnableAlarmActionsResponse = EnableAlarmActionsResponse' deriving (Eq, Read, Show)
+data EnableAlarmActionsResponse =
+    EnableAlarmActionsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'EnableAlarmActionsResponse' smart constructor.
 enableAlarmActionsResponse :: EnableAlarmActionsResponse
-enableAlarmActionsResponse = EnableAlarmActionsResponse';
+enableAlarmActionsResponse = EnableAlarmActionsResponse'

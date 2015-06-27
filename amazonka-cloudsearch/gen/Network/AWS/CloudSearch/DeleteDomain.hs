@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.CloudSearch.DeleteDomain
     , deleteDomainResponse
     -- ** Response lenses
     , ddrDomainStatus
-    , ddrStatusCode
+    , ddrStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DeleteDomain@ operation. Specifies
 -- the name of the domain you want to delete.
@@ -51,11 +51,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddDomainName'
-newtype DeleteDomain = DeleteDomain'{_ddDomainName :: Text} deriving (Eq, Read, Show)
+newtype DeleteDomain = DeleteDomain'
+    { _ddDomainName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDomain' smart constructor.
 deleteDomain :: Text -> DeleteDomain
-deleteDomain pDomainName = DeleteDomain'{_ddDomainName = pDomainName};
+deleteDomain pDomainName =
+    DeleteDomain'
+    { _ddDomainName = pDomainName
+    }
 
 -- | The name of the domain you want to permanently delete.
 ddDomainName :: Lens' DeleteDomain Text
@@ -94,17 +99,24 @@ instance ToQuery DeleteDomain where
 --
 -- * 'ddrDomainStatus'
 --
--- * 'ddrStatusCode'
-data DeleteDomainResponse = DeleteDomainResponse'{_ddrDomainStatus :: Maybe DomainStatus, _ddrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddrStatus'
+data DeleteDomainResponse = DeleteDomainResponse'
+    { _ddrDomainStatus :: Maybe DomainStatus
+    , _ddrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDomainResponse' smart constructor.
 deleteDomainResponse :: Int -> DeleteDomainResponse
-deleteDomainResponse pStatusCode = DeleteDomainResponse'{_ddrDomainStatus = Nothing, _ddrStatusCode = pStatusCode};
+deleteDomainResponse pStatus =
+    DeleteDomainResponse'
+    { _ddrDomainStatus = Nothing
+    , _ddrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ddrDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
 ddrDomainStatus = lens _ddrDomainStatus (\ s a -> s{_ddrDomainStatus = a});
 
 -- | FIXME: Undocumented member.
-ddrStatusCode :: Lens' DeleteDomainResponse Int
-ddrStatusCode = lens _ddrStatusCode (\ s a -> s{_ddrStatusCode = a});
+ddrStatus :: Lens' DeleteDomainResponse Int
+ddrStatus = lens _ddrStatus (\ s a -> s{_ddrStatus = a});

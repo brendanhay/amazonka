@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.ListStacks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,14 +38,14 @@ module Network.AWS.CloudFormation.ListStacks
     -- ** Response lenses
     , lisStackSummaries
     , lisNextToken
-    , lisStatusCode
+    , lisStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for ListStacks action.
 --
@@ -56,11 +56,18 @@ import Network.AWS.Response
 -- * 'lsNextToken'
 --
 -- * 'lsStackStatusFilter'
-data ListStacks = ListStacks'{_lsNextToken :: Maybe Text, _lsStackStatusFilter :: Maybe [StackStatus]} deriving (Eq, Read, Show)
+data ListStacks = ListStacks'
+    { _lsNextToken         :: Maybe Text
+    , _lsStackStatusFilter :: Maybe [StackStatus]
+    } deriving (Eq,Read,Show)
 
 -- | 'ListStacks' smart constructor.
 listStacks :: ListStacks
-listStacks = ListStacks'{_lsNextToken = Nothing, _lsStackStatusFilter = Nothing};
+listStacks =
+    ListStacks'
+    { _lsNextToken = Nothing
+    , _lsStackStatusFilter = Nothing
+    }
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
@@ -122,12 +129,21 @@ instance ToQuery ListStacks where
 --
 -- * 'lisNextToken'
 --
--- * 'lisStatusCode'
-data ListStacksResponse = ListStacksResponse'{_lisStackSummaries :: Maybe [StackSummary], _lisNextToken :: Maybe Text, _lisStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lisStatus'
+data ListStacksResponse = ListStacksResponse'
+    { _lisStackSummaries :: Maybe [StackSummary]
+    , _lisNextToken      :: Maybe Text
+    , _lisStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListStacksResponse' smart constructor.
 listStacksResponse :: Int -> ListStacksResponse
-listStacksResponse pStatusCode = ListStacksResponse'{_lisStackSummaries = Nothing, _lisNextToken = Nothing, _lisStatusCode = pStatusCode};
+listStacksResponse pStatus =
+    ListStacksResponse'
+    { _lisStackSummaries = Nothing
+    , _lisNextToken = Nothing
+    , _lisStatus = pStatus
+    }
 
 -- | A list of @StackSummary@ structures containing information about the
 -- specified stacks.
@@ -140,5 +156,5 @@ lisNextToken :: Lens' ListStacksResponse (Maybe Text)
 lisNextToken = lens _lisNextToken (\ s a -> s{_lisNextToken = a});
 
 -- | FIXME: Undocumented member.
-lisStatusCode :: Lens' ListStacksResponse Int
-lisStatusCode = lens _lisStatusCode (\ s a -> s{_lisStatusCode = a});
+lisStatus :: Lens' ListStacksResponse Int
+lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});

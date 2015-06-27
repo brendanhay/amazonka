@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     , disableAvailabilityZonesForLoadBalancerResponse
     -- ** Response lenses
     , dazflbrAvailabilityZones
-    , dazflbrStatusCode
+    , dazflbrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'disableAvailabilityZonesForLoadBalancer' smart constructor.
 --
@@ -60,11 +60,18 @@ import Network.AWS.Response
 -- * 'dazflbLoadBalancerName'
 --
 -- * 'dazflbAvailabilityZones'
-data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer'{_dazflbLoadBalancerName :: Text, _dazflbAvailabilityZones :: [Text]} deriving (Eq, Read, Show)
+data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer'
+    { _dazflbLoadBalancerName  :: Text
+    , _dazflbAvailabilityZones :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableAvailabilityZonesForLoadBalancer' smart constructor.
 disableAvailabilityZonesForLoadBalancer :: Text -> DisableAvailabilityZonesForLoadBalancer
-disableAvailabilityZonesForLoadBalancer pLoadBalancerName = DisableAvailabilityZonesForLoadBalancer'{_dazflbLoadBalancerName = pLoadBalancerName, _dazflbAvailabilityZones = mempty};
+disableAvailabilityZonesForLoadBalancer pLoadBalancerName =
+    DisableAvailabilityZonesForLoadBalancer'
+    { _dazflbLoadBalancerName = pLoadBalancerName
+    , _dazflbAvailabilityZones = mempty
+    }
 
 -- | The name of the load balancer.
 dazflbLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer Text
@@ -115,17 +122,24 @@ instance ToQuery
 --
 -- * 'dazflbrAvailabilityZones'
 --
--- * 'dazflbrStatusCode'
-data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse'{_dazflbrAvailabilityZones :: Maybe [Text], _dazflbrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dazflbrStatus'
+data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse'
+    { _dazflbrAvailabilityZones :: Maybe [Text]
+    , _dazflbrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 disableAvailabilityZonesForLoadBalancerResponse :: Int -> DisableAvailabilityZonesForLoadBalancerResponse
-disableAvailabilityZonesForLoadBalancerResponse pStatusCode = DisableAvailabilityZonesForLoadBalancerResponse'{_dazflbrAvailabilityZones = Nothing, _dazflbrStatusCode = pStatusCode};
+disableAvailabilityZonesForLoadBalancerResponse pStatus =
+    DisableAvailabilityZonesForLoadBalancerResponse'
+    { _dazflbrAvailabilityZones = Nothing
+    , _dazflbrStatus = pStatus
+    }
 
 -- | The remaining Availability Zones for the load balancer.
 dazflbrAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse [Text]
 dazflbrAvailabilityZones = lens _dazflbrAvailabilityZones (\ s a -> s{_dazflbrAvailabilityZones = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dazflbrStatusCode :: Lens' DisableAvailabilityZonesForLoadBalancerResponse Int
-dazflbrStatusCode = lens _dazflbrStatusCode (\ s a -> s{_dazflbrStatusCode = a});
+dazflbrStatus :: Lens' DisableAvailabilityZonesForLoadBalancerResponse Int
+dazflbrStatus = lens _dazflbrStatus (\ s a -> s{_dazflbrStatus = a});

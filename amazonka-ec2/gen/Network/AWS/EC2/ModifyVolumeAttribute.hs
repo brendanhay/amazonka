@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ModifyVolumeAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,10 +44,10 @@ module Network.AWS.EC2.ModifyVolumeAttribute
     , modifyVolumeAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyVolumeAttribute' smart constructor.
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'mvaDryRun'
 --
 -- * 'mvaVolumeId'
-data ModifyVolumeAttribute = ModifyVolumeAttribute'{_mvaAutoEnableIO :: Maybe AttributeBooleanValue, _mvaDryRun :: Maybe Bool, _mvaVolumeId :: Text} deriving (Eq, Read, Show)
+data ModifyVolumeAttribute = ModifyVolumeAttribute'
+    { _mvaAutoEnableIO :: Maybe AttributeBooleanValue
+    , _mvaDryRun       :: Maybe Bool
+    , _mvaVolumeId     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyVolumeAttribute' smart constructor.
 modifyVolumeAttribute :: Text -> ModifyVolumeAttribute
-modifyVolumeAttribute pVolumeId = ModifyVolumeAttribute'{_mvaAutoEnableIO = Nothing, _mvaDryRun = Nothing, _mvaVolumeId = pVolumeId};
+modifyVolumeAttribute pVolumeId =
+    ModifyVolumeAttribute'
+    { _mvaAutoEnableIO = Nothing
+    , _mvaDryRun = Nothing
+    , _mvaVolumeId = pVolumeId
+    }
 
 -- | Indicates whether the volume should be auto-enabled for I\/O operations.
 mvaAutoEnableIO :: Lens' ModifyVolumeAttribute (Maybe AttributeBooleanValue)
@@ -101,8 +110,10 @@ instance ToQuery ModifyVolumeAttribute where
                "DryRun" =: _mvaDryRun, "VolumeId" =: _mvaVolumeId]
 
 -- | /See:/ 'modifyVolumeAttributeResponse' smart constructor.
-data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse' deriving (Eq, Read, Show)
+data ModifyVolumeAttributeResponse =
+    ModifyVolumeAttributeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ModifyVolumeAttributeResponse' smart constructor.
 modifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse
-modifyVolumeAttributeResponse = ModifyVolumeAttributeResponse';
+modifyVolumeAttributeResponse = ModifyVolumeAttributeResponse'

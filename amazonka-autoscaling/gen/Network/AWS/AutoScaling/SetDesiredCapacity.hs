@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.SetDesiredCapacity
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,10 +38,10 @@ module Network.AWS.AutoScaling.SetDesiredCapacity
     , setDesiredCapacityResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'setDesiredCapacity' smart constructor.
 --
@@ -52,11 +52,20 @@ import Network.AWS.Response
 -- * 'sdcAutoScalingGroupName'
 --
 -- * 'sdcDesiredCapacity'
-data SetDesiredCapacity = SetDesiredCapacity'{_sdcHonorCooldown :: Maybe Bool, _sdcAutoScalingGroupName :: Text, _sdcDesiredCapacity :: Int} deriving (Eq, Read, Show)
+data SetDesiredCapacity = SetDesiredCapacity'
+    { _sdcHonorCooldown        :: Maybe Bool
+    , _sdcAutoScalingGroupName :: Text
+    , _sdcDesiredCapacity      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SetDesiredCapacity' smart constructor.
 setDesiredCapacity :: Text -> Int -> SetDesiredCapacity
-setDesiredCapacity pAutoScalingGroupName pDesiredCapacity = SetDesiredCapacity'{_sdcHonorCooldown = Nothing, _sdcAutoScalingGroupName = pAutoScalingGroupName, _sdcDesiredCapacity = pDesiredCapacity};
+setDesiredCapacity pAutoScalingGroupName pDesiredCapacity =
+    SetDesiredCapacity'
+    { _sdcHonorCooldown = Nothing
+    , _sdcAutoScalingGroupName = pAutoScalingGroupName
+    , _sdcDesiredCapacity = pDesiredCapacity
+    }
 
 -- | By default, @SetDesiredCapacity@ overrides any cooldown period
 -- associated with the Auto Scaling group. Specify @True@ to make Auto
@@ -98,8 +107,10 @@ instance ToQuery SetDesiredCapacity where
                "DesiredCapacity" =: _sdcDesiredCapacity]
 
 -- | /See:/ 'setDesiredCapacityResponse' smart constructor.
-data SetDesiredCapacityResponse = SetDesiredCapacityResponse' deriving (Eq, Read, Show)
+data SetDesiredCapacityResponse =
+    SetDesiredCapacityResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetDesiredCapacityResponse' smart constructor.
 setDesiredCapacityResponse :: SetDesiredCapacityResponse
-setDesiredCapacityResponse = SetDesiredCapacityResponse';
+setDesiredCapacityResponse = SetDesiredCapacityResponse'

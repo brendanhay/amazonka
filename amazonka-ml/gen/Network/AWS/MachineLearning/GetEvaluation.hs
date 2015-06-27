@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.GetEvaluation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,7 +32,6 @@ module Network.AWS.MachineLearning.GetEvaluation
     -- ** Response constructor
     , getEvaluationResponse
     -- ** Response lenses
-    , gerStatus
     , gerPerformanceMetrics
     , gerLastUpdatedAt
     , gerCreatedAt
@@ -44,24 +43,29 @@ module Network.AWS.MachineLearning.GetEvaluation
     , gerMessage
     , gerEvaluationId
     , gerEvaluationDataSourceId
-    , gerStatusCode
+    , gerStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getEvaluation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'geEvaluationId'
-newtype GetEvaluation = GetEvaluation'{_geEvaluationId :: Text} deriving (Eq, Read, Show)
+newtype GetEvaluation = GetEvaluation'
+    { _geEvaluationId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetEvaluation' smart constructor.
 getEvaluation :: Text -> GetEvaluation
-getEvaluation pEvaluationId = GetEvaluation'{_geEvaluationId = pEvaluationId};
+getEvaluation pEvaluationId =
+    GetEvaluation'
+    { _geEvaluationId = pEvaluationId
+    }
 
 -- | The ID of the @Evaluation@ to retrieve. The evaluation of each @MLModel@
 -- is recorded and cataloged. The ID provides the means to access the
@@ -77,7 +81,7 @@ instance AWSRequest GetEvaluation where
           = receiveJSON
               (\ s h x ->
                  GetEvaluationResponse' <$>
-                   (x .?> "Status") <*> (x .?> "PerformanceMetrics") <*>
+                   (x .?> "PerformanceMetrics") <*>
                      (x .?> "LastUpdatedAt")
                      <*> (x .?> "CreatedAt")
                      <*> (x .?> "InputDataLocationS3")
@@ -116,8 +120,6 @@ instance ToQuery GetEvaluation where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gerStatus'
---
 -- * 'gerPerformanceMetrics'
 --
 -- * 'gerLastUpdatedAt'
@@ -140,25 +142,39 @@ instance ToQuery GetEvaluation where
 --
 -- * 'gerEvaluationDataSourceId'
 --
--- * 'gerStatusCode'
-data GetEvaluationResponse = GetEvaluationResponse'{_gerStatus :: Maybe EntityStatus, _gerPerformanceMetrics :: Maybe PerformanceMetrics, _gerLastUpdatedAt :: Maybe POSIX, _gerCreatedAt :: Maybe POSIX, _gerInputDataLocationS3 :: Maybe Text, _gerMLModelId :: Maybe Text, _gerName :: Maybe Text, _gerCreatedByIAMUser :: Maybe Text, _gerLogURI :: Maybe Text, _gerMessage :: Maybe Text, _gerEvaluationId :: Maybe Text, _gerEvaluationDataSourceId :: Maybe Text, _gerStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gerStatus'
+data GetEvaluationResponse = GetEvaluationResponse'
+    { _gerPerformanceMetrics     :: Maybe PerformanceMetrics
+    , _gerLastUpdatedAt          :: Maybe POSIX
+    , _gerCreatedAt              :: Maybe POSIX
+    , _gerInputDataLocationS3    :: Maybe Text
+    , _gerMLModelId              :: Maybe Text
+    , _gerName                   :: Maybe Text
+    , _gerCreatedByIAMUser       :: Maybe Text
+    , _gerLogURI                 :: Maybe Text
+    , _gerMessage                :: Maybe Text
+    , _gerEvaluationId           :: Maybe Text
+    , _gerEvaluationDataSourceId :: Maybe Text
+    , _gerStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetEvaluationResponse' smart constructor.
 getEvaluationResponse :: Int -> GetEvaluationResponse
-getEvaluationResponse pStatusCode = GetEvaluationResponse'{_gerStatus = Nothing, _gerPerformanceMetrics = Nothing, _gerLastUpdatedAt = Nothing, _gerCreatedAt = Nothing, _gerInputDataLocationS3 = Nothing, _gerMLModelId = Nothing, _gerName = Nothing, _gerCreatedByIAMUser = Nothing, _gerLogURI = Nothing, _gerMessage = Nothing, _gerEvaluationId = Nothing, _gerEvaluationDataSourceId = Nothing, _gerStatusCode = pStatusCode};
-
--- | The status of the evaluation. This element can have one of the following
--- values:
---
--- -   @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request
---     to evaluate an @MLModel@.
--- -   @INPROGRESS@ - The evaluation is underway.
--- -   @FAILED@ - The request to evaluate an @MLModel@ did not run to
---     completion. It is not usable.
--- -   @COMPLETED@ - The evaluation process completed successfully.
--- -   @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
-gerStatus :: Lens' GetEvaluationResponse (Maybe EntityStatus)
-gerStatus = lens _gerStatus (\ s a -> s{_gerStatus = a});
+getEvaluationResponse pStatus =
+    GetEvaluationResponse'
+    { _gerPerformanceMetrics = Nothing
+    , _gerLastUpdatedAt = Nothing
+    , _gerCreatedAt = Nothing
+    , _gerInputDataLocationS3 = Nothing
+    , _gerMLModelId = Nothing
+    , _gerName = Nothing
+    , _gerCreatedByIAMUser = Nothing
+    , _gerLogURI = Nothing
+    , _gerMessage = Nothing
+    , _gerEvaluationId = Nothing
+    , _gerEvaluationDataSourceId = Nothing
+    , _gerStatus = pStatus
+    }
 
 -- | Measurements of how well the @MLModel@ performed using observations
 -- referenced by the @DataSource@. One of the following metric is returned
@@ -226,5 +242,5 @@ gerEvaluationDataSourceId :: Lens' GetEvaluationResponse (Maybe Text)
 gerEvaluationDataSourceId = lens _gerEvaluationDataSourceId (\ s a -> s{_gerEvaluationDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-gerStatusCode :: Lens' GetEvaluationResponse Int
-gerStatusCode = lens _gerStatusCode (\ s a -> s{_gerStatusCode = a});
+gerStatus :: Lens' GetEvaluationResponse Int
+gerStatus = lens _gerStatus (\ s a -> s{_gerStatus = a});

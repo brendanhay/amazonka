@@ -15,6 +15,46 @@
 
 module Network.AWS.CloudFront.Waiters where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import           Network.AWS.CloudFront.GetDistribution
+import           Network.AWS.CloudFront.GetInvalidation
+import           Network.AWS.CloudFront.GetStreamingDistribution
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter
+
+streamingDistributionDeployed :: Wait GetStreamingDistribution
+streamingDistributionDeployed =
+    Wait
+    { _waitName = "StreamingDistributionDeployed"
+    , _waitAttempts = 25
+    , _waitDelay = 60
+    , _waitAcceptors = [ matchAll
+                             "Deployed"
+                             AcceptSuccess
+                             (gsdrStreamingDistribution .
+                              _Just . sdStatus . to toText)]
+    }
+
+distributionDeployed :: Wait GetDistribution
+distributionDeployed =
+    Wait
+    { _waitName = "DistributionDeployed"
+    , _waitAttempts = 25
+    , _waitDelay = 60
+    , _waitAcceptors = [ matchAll
+                             "Deployed"
+                             AcceptSuccess
+                             (gdrDistribution . _Just . disStatus . to toText)]
+    }
+
+invalidationCompleted :: Wait GetInvalidation
+invalidationCompleted =
+    Wait
+    { _waitName = "InvalidationCompleted"
+    , _waitAttempts = 60
+    , _waitDelay = 20
+    , _waitAcceptors = [ matchAll
+                             "Completed"
+                             AcceptSuccess
+                             (girInvalidation . _Just . invStatus . to toText)]
+    }

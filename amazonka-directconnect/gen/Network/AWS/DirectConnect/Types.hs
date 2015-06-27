@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.DirectConnect.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -143,49 +142,54 @@ module Network.AWS.DirectConnect.Types
     , viVirtualInterfaceId
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2012-10-25@ of the Amazon Direct Connect SDK.
 data DirectConnect
 
 instance AWSService DirectConnect where
     type Sg DirectConnect = V4
-
     service = const svc
       where
-        svc :: Service DirectConnect
-        svc = Service
-            { _svcAbbrev   = "DirectConnect"
-            , _svcPrefix   = "directconnect"
-            , _svcVersion  = "2012-10-25"
+        svc =
+            Service
+            { _svcAbbrev = "DirectConnect"
+            , _svcPrefix = "directconnect"
+            , _svcVersion = "2012-10-25"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The API was called with invalid parameters. The error message will
 -- contain additional details about the cause.
-_DirectConnectClientException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DirectConnectClientException = _ServiceError . hasCode "DirectConnectClientException";
+_DirectConnectClientException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DirectConnectClientException =
+    _ServiceError . hasCode "DirectConnectClientException"
 
 -- | A server-side error occurred during the API call. The error message will
 -- contain additional details about the cause.
-_DirectConnectServerException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DirectConnectServerException = _ServiceError . hasCode "DirectConnectServerException";
+_DirectConnectServerException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DirectConnectServerException =
+    _ServiceError . hasCode "DirectConnectServerException"
 
 -- | State of the connection.
 --
@@ -204,7 +208,16 @@ _DirectConnectServerException = _ServiceError . hasCode "DirectConnectServerExce
 -- -   __Deleted__: The connection has been deleted.
 -- -   __Rejected__: A hosted connection in the \'Ordering\' state will
 --     enter the \'Rejected\' state if it is deleted by the end customer.
-data ConnectionState = CSDeleted | CSOrdering | CSAvailable | CSDeleting | CSPending | CSDown | CSRequested | CSRejected deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ConnectionState
+    = CSDeleted
+    | CSOrdering
+    | CSAvailable
+    | CSDeleting
+    | CSPending
+    | CSDown
+    | CSRequested
+    | CSRejected
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ConnectionState where
     parser = takeLowerText >>= \case
@@ -247,7 +260,14 @@ instance FromJSON ConnectionState where
 --     for use.
 -- -   __Down__: The network link is down.
 -- -   __Deleted__: The interconnect has been deleted.
-data InterconnectState = ISDeleted | ISAvailable | ISDeleting | ISRequested | ISPending | ISDown deriving (Eq, Ord, Read, Show, Enum, Generic)
+data InterconnectState
+    = ISDeleted
+    | ISAvailable
+    | ISDeleting
+    | ISRequested
+    | ISPending
+    | ISDown
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText InterconnectState where
     parser = takeLowerText >>= \case
@@ -297,7 +317,15 @@ instance FromJSON InterconnectState where
 --     the virtual interface. If a virtual interface in the \'Confirming\'
 --     state is deleted by the virtual interface owner, the virtual
 --     interface will enter the \'Rejected\' state.
-data VirtualInterfaceState = Deleting | Pending | Confirming | Rejected | Verifying | Deleted | Available deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VirtualInterfaceState
+    = Deleting
+    | Pending
+    | Confirming
+    | Rejected
+    | Verifying
+    | Deleted
+    | Available
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VirtualInterfaceState where
     parser = takeLowerText >>= \case
@@ -351,11 +379,32 @@ instance FromJSON VirtualInterfaceState where
 -- * 'conOwnerAccount'
 --
 -- * 'conConnectionState'
-data Connection = Connection'{_conVlan :: Maybe Int, _conLocation :: Maybe Text, _conConnectionId :: Maybe Text, _conConnectionName :: Maybe Text, _conPartnerName :: Maybe Text, _conBandwidth :: Maybe Text, _conRegion :: Maybe Text, _conOwnerAccount :: Maybe Text, _conConnectionState :: Maybe ConnectionState} deriving (Eq, Read, Show)
+data Connection = Connection'
+    { _conVlan            :: Maybe Int
+    , _conLocation        :: Maybe Text
+    , _conConnectionId    :: Maybe Text
+    , _conConnectionName  :: Maybe Text
+    , _conPartnerName     :: Maybe Text
+    , _conBandwidth       :: Maybe Text
+    , _conRegion          :: Maybe Text
+    , _conOwnerAccount    :: Maybe Text
+    , _conConnectionState :: Maybe ConnectionState
+    } deriving (Eq,Read,Show)
 
 -- | 'Connection' smart constructor.
 connection :: Connection
-connection = Connection'{_conVlan = Nothing, _conLocation = Nothing, _conConnectionId = Nothing, _conConnectionName = Nothing, _conPartnerName = Nothing, _conBandwidth = Nothing, _conRegion = Nothing, _conOwnerAccount = Nothing, _conConnectionState = Nothing};
+connection =
+    Connection'
+    { _conVlan = Nothing
+    , _conLocation = Nothing
+    , _conConnectionId = Nothing
+    , _conConnectionName = Nothing
+    , _conPartnerName = Nothing
+    , _conBandwidth = Nothing
+    , _conRegion = Nothing
+    , _conOwnerAccount = Nothing
+    , _conConnectionState = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 conVlan :: Lens' Connection (Maybe Int)
@@ -419,11 +468,16 @@ instance FromJSON Connection where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'conConnections'
-newtype Connections = Connections'{_conConnections :: Maybe [Connection]} deriving (Eq, Read, Show)
+newtype Connections = Connections'
+    { _conConnections :: Maybe [Connection]
+    } deriving (Eq,Read,Show)
 
 -- | 'Connections' smart constructor.
 connections :: Connections
-connections = Connections'{_conConnections = Nothing};
+connections =
+    Connections'
+    { _conConnections = Nothing
+    }
 
 -- | A list of connections.
 conConnections :: Lens' Connections [Connection]
@@ -463,11 +517,26 @@ instance FromJSON Connections where
 -- * 'intInterconnectState'
 --
 -- * 'intRegion'
-data Interconnect = Interconnect'{_intInterconnectId :: Maybe Text, _intInterconnectName :: Maybe Text, _intLocation :: Maybe Text, _intBandwidth :: Maybe Text, _intInterconnectState :: Maybe InterconnectState, _intRegion :: Maybe Text} deriving (Eq, Read, Show)
+data Interconnect = Interconnect'
+    { _intInterconnectId    :: Maybe Text
+    , _intInterconnectName  :: Maybe Text
+    , _intLocation          :: Maybe Text
+    , _intBandwidth         :: Maybe Text
+    , _intInterconnectState :: Maybe InterconnectState
+    , _intRegion            :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Interconnect' smart constructor.
 interconnect :: Interconnect
-interconnect = Interconnect'{_intInterconnectId = Nothing, _intInterconnectName = Nothing, _intLocation = Nothing, _intBandwidth = Nothing, _intInterconnectState = Nothing, _intRegion = Nothing};
+interconnect =
+    Interconnect'
+    { _intInterconnectId = Nothing
+    , _intInterconnectName = Nothing
+    , _intLocation = Nothing
+    , _intBandwidth = Nothing
+    , _intInterconnectState = Nothing
+    , _intRegion = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 intInterconnectId :: Lens' Interconnect (Maybe Text)
@@ -515,11 +584,18 @@ instance FromJSON Interconnect where
 -- * 'locLocationName'
 --
 -- * 'locLocationCode'
-data Location = Location'{_locLocationName :: Maybe Text, _locLocationCode :: Maybe Text} deriving (Eq, Read, Show)
+data Location = Location'
+    { _locLocationName :: Maybe Text
+    , _locLocationCode :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Location' smart constructor.
 location :: Location
-location = Location'{_locLocationName = Nothing, _locLocationCode = Nothing};
+location =
+    Location'
+    { _locLocationName = Nothing
+    , _locLocationCode = Nothing
+    }
 
 -- | The name of the AWS Direct Connect location. The name includes the
 -- colocation partner name and the physical site of the lit building.
@@ -557,11 +633,28 @@ instance FromJSON Location where
 -- * 'newAsn'
 --
 -- * 'newVirtualGatewayId'
-data NewPrivateVirtualInterface = NewPrivateVirtualInterface'{_newCustomerAddress :: Maybe Text, _newAmazonAddress :: Maybe Text, _newAuthKey :: Maybe Text, _newVirtualInterfaceName :: Text, _newVlan :: Int, _newAsn :: Int, _newVirtualGatewayId :: Text} deriving (Eq, Read, Show)
+data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
+    { _newCustomerAddress      :: Maybe Text
+    , _newAmazonAddress        :: Maybe Text
+    , _newAuthKey              :: Maybe Text
+    , _newVirtualInterfaceName :: Text
+    , _newVlan                 :: !Int
+    , _newAsn                  :: !Int
+    , _newVirtualGatewayId     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'NewPrivateVirtualInterface' smart constructor.
 newPrivateVirtualInterface :: Text -> Int -> Int -> Text -> NewPrivateVirtualInterface
-newPrivateVirtualInterface pVirtualInterfaceName pVlan pAsn pVirtualGatewayId = NewPrivateVirtualInterface'{_newCustomerAddress = Nothing, _newAmazonAddress = Nothing, _newAuthKey = Nothing, _newVirtualInterfaceName = pVirtualInterfaceName, _newVlan = pVlan, _newAsn = pAsn, _newVirtualGatewayId = pVirtualGatewayId};
+newPrivateVirtualInterface pVirtualInterfaceName pVlan pAsn pVirtualGatewayId =
+    NewPrivateVirtualInterface'
+    { _newCustomerAddress = Nothing
+    , _newAmazonAddress = Nothing
+    , _newAuthKey = Nothing
+    , _newVirtualInterfaceName = pVirtualInterfaceName
+    , _newVlan = pVlan
+    , _newAsn = pAsn
+    , _newVirtualGatewayId = pVirtualGatewayId
+    }
 
 -- | FIXME: Undocumented member.
 newCustomerAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
@@ -619,11 +712,26 @@ instance ToJSON NewPrivateVirtualInterface where
 -- * 'npviaVlan'
 --
 -- * 'npviaAsn'
-data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation'{_npviaCustomerAddress :: Maybe Text, _npviaAmazonAddress :: Maybe Text, _npviaAuthKey :: Maybe Text, _npviaVirtualInterfaceName :: Text, _npviaVlan :: Int, _npviaAsn :: Int} deriving (Eq, Read, Show)
+data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation'
+    { _npviaCustomerAddress      :: Maybe Text
+    , _npviaAmazonAddress        :: Maybe Text
+    , _npviaAuthKey              :: Maybe Text
+    , _npviaVirtualInterfaceName :: Text
+    , _npviaVlan                 :: !Int
+    , _npviaAsn                  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'NewPrivateVirtualInterfaceAllocation' smart constructor.
 newPrivateVirtualInterfaceAllocation :: Text -> Int -> Int -> NewPrivateVirtualInterfaceAllocation
-newPrivateVirtualInterfaceAllocation pVirtualInterfaceName pVlan pAsn = NewPrivateVirtualInterfaceAllocation'{_npviaCustomerAddress = Nothing, _npviaAmazonAddress = Nothing, _npviaAuthKey = Nothing, _npviaVirtualInterfaceName = pVirtualInterfaceName, _npviaVlan = pVlan, _npviaAsn = pAsn};
+newPrivateVirtualInterfaceAllocation pVirtualInterfaceName pVlan pAsn =
+    NewPrivateVirtualInterfaceAllocation'
+    { _npviaCustomerAddress = Nothing
+    , _npviaAmazonAddress = Nothing
+    , _npviaAuthKey = Nothing
+    , _npviaVirtualInterfaceName = pVirtualInterfaceName
+    , _npviaVlan = pVlan
+    , _npviaAsn = pAsn
+    }
 
 -- | FIXME: Undocumented member.
 npviaCustomerAddress :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
@@ -678,11 +786,28 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
 -- * 'npviCustomerAddress'
 --
 -- * 'npviRouteFilterPrefixes'
-data NewPublicVirtualInterface = NewPublicVirtualInterface'{_npviAuthKey :: Maybe Text, _npviVirtualInterfaceName :: Text, _npviVlan :: Int, _npviAsn :: Int, _npviAmazonAddress :: Text, _npviCustomerAddress :: Text, _npviRouteFilterPrefixes :: [RouteFilterPrefix]} deriving (Eq, Read, Show)
+data NewPublicVirtualInterface = NewPublicVirtualInterface'
+    { _npviAuthKey              :: Maybe Text
+    , _npviVirtualInterfaceName :: Text
+    , _npviVlan                 :: !Int
+    , _npviAsn                  :: !Int
+    , _npviAmazonAddress        :: Text
+    , _npviCustomerAddress      :: Text
+    , _npviRouteFilterPrefixes  :: [RouteFilterPrefix]
+    } deriving (Eq,Read,Show)
 
 -- | 'NewPublicVirtualInterface' smart constructor.
 newPublicVirtualInterface :: Text -> Int -> Int -> Text -> Text -> NewPublicVirtualInterface
-newPublicVirtualInterface pVirtualInterfaceName pVlan pAsn pAmazonAddress pCustomerAddress = NewPublicVirtualInterface'{_npviAuthKey = Nothing, _npviVirtualInterfaceName = pVirtualInterfaceName, _npviVlan = pVlan, _npviAsn = pAsn, _npviAmazonAddress = pAmazonAddress, _npviCustomerAddress = pCustomerAddress, _npviRouteFilterPrefixes = mempty};
+newPublicVirtualInterface pVirtualInterfaceName pVlan pAsn pAmazonAddress pCustomerAddress =
+    NewPublicVirtualInterface'
+    { _npviAuthKey = Nothing
+    , _npviVirtualInterfaceName = pVirtualInterfaceName
+    , _npviVlan = pVlan
+    , _npviAsn = pAsn
+    , _npviAmazonAddress = pAmazonAddress
+    , _npviCustomerAddress = pCustomerAddress
+    , _npviRouteFilterPrefixes = mempty
+    }
 
 -- | FIXME: Undocumented member.
 npviAuthKey :: Lens' NewPublicVirtualInterface (Maybe Text)
@@ -742,11 +867,28 @@ instance ToJSON NewPublicVirtualInterface where
 -- * 'nCustomerAddress'
 --
 -- * 'nRouteFilterPrefixes'
-data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'{_nAuthKey :: Maybe Text, _nVirtualInterfaceName :: Text, _nVlan :: Int, _nAsn :: Int, _nAmazonAddress :: Text, _nCustomerAddress :: Text, _nRouteFilterPrefixes :: [RouteFilterPrefix]} deriving (Eq, Read, Show)
+data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
+    { _nAuthKey              :: Maybe Text
+    , _nVirtualInterfaceName :: Text
+    , _nVlan                 :: !Int
+    , _nAsn                  :: !Int
+    , _nAmazonAddress        :: Text
+    , _nCustomerAddress      :: Text
+    , _nRouteFilterPrefixes  :: [RouteFilterPrefix]
+    } deriving (Eq,Read,Show)
 
 -- | 'NewPublicVirtualInterfaceAllocation' smart constructor.
 newPublicVirtualInterfaceAllocation :: Text -> Int -> Int -> Text -> Text -> NewPublicVirtualInterfaceAllocation
-newPublicVirtualInterfaceAllocation pVirtualInterfaceName pVlan pAsn pAmazonAddress pCustomerAddress = NewPublicVirtualInterfaceAllocation'{_nAuthKey = Nothing, _nVirtualInterfaceName = pVirtualInterfaceName, _nVlan = pVlan, _nAsn = pAsn, _nAmazonAddress = pAmazonAddress, _nCustomerAddress = pCustomerAddress, _nRouteFilterPrefixes = mempty};
+newPublicVirtualInterfaceAllocation pVirtualInterfaceName pVlan pAsn pAmazonAddress pCustomerAddress =
+    NewPublicVirtualInterfaceAllocation'
+    { _nAuthKey = Nothing
+    , _nVirtualInterfaceName = pVirtualInterfaceName
+    , _nVlan = pVlan
+    , _nAsn = pAsn
+    , _nAmazonAddress = pAmazonAddress
+    , _nCustomerAddress = pCustomerAddress
+    , _nRouteFilterPrefixes = mempty
+    }
 
 -- | FIXME: Undocumented member.
 nAuthKey :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
@@ -795,11 +937,16 @@ instance ToJSON NewPublicVirtualInterfaceAllocation
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rfpCidr'
-newtype RouteFilterPrefix = RouteFilterPrefix'{_rfpCidr :: Maybe Text} deriving (Eq, Read, Show)
+newtype RouteFilterPrefix = RouteFilterPrefix'
+    { _rfpCidr :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RouteFilterPrefix' smart constructor.
 routeFilterPrefix :: RouteFilterPrefix
-routeFilterPrefix = RouteFilterPrefix'{_rfpCidr = Nothing};
+routeFilterPrefix =
+    RouteFilterPrefix'
+    { _rfpCidr = Nothing
+    }
 
 -- | CIDR notation for the advertised route. Multiple routes are separated by
 -- commas.
@@ -831,11 +978,18 @@ instance ToJSON RouteFilterPrefix where
 -- * 'vgVirtualGatewayId'
 --
 -- * 'vgVirtualGatewayState'
-data VirtualGateway = VirtualGateway'{_vgVirtualGatewayId :: Maybe Text, _vgVirtualGatewayState :: Maybe Text} deriving (Eq, Read, Show)
+data VirtualGateway = VirtualGateway'
+    { _vgVirtualGatewayId    :: Maybe Text
+    , _vgVirtualGatewayState :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VirtualGateway' smart constructor.
 virtualGateway :: VirtualGateway
-virtualGateway = VirtualGateway'{_vgVirtualGatewayId = Nothing, _vgVirtualGatewayState = Nothing};
+virtualGateway =
+    VirtualGateway'
+    { _vgVirtualGatewayId = Nothing
+    , _vgVirtualGatewayState = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 vgVirtualGatewayId :: Lens' VirtualGateway (Maybe Text)
@@ -889,11 +1043,44 @@ instance FromJSON VirtualGateway where
 -- * 'viVirtualInterfaceName'
 --
 -- * 'viVirtualInterfaceId'
-data VirtualInterface = VirtualInterface'{_viVirtualGatewayId :: Maybe Text, _viRouteFilterPrefixes :: Maybe [RouteFilterPrefix], _viCustomerAddress :: Maybe Text, _viVlan :: Maybe Int, _viLocation :: Maybe Text, _viAmazonAddress :: Maybe Text, _viVirtualInterfaceState :: Maybe VirtualInterfaceState, _viConnectionId :: Maybe Text, _viAsn :: Maybe Int, _viVirtualInterfaceType :: Maybe Text, _viAuthKey :: Maybe Text, _viCustomerRouterConfig :: Maybe Text, _viOwnerAccount :: Maybe Text, _viVirtualInterfaceName :: Maybe Text, _viVirtualInterfaceId :: Maybe Text} deriving (Eq, Read, Show)
+data VirtualInterface = VirtualInterface'
+    { _viVirtualGatewayId      :: Maybe Text
+    , _viRouteFilterPrefixes   :: Maybe [RouteFilterPrefix]
+    , _viCustomerAddress       :: Maybe Text
+    , _viVlan                  :: Maybe Int
+    , _viLocation              :: Maybe Text
+    , _viAmazonAddress         :: Maybe Text
+    , _viVirtualInterfaceState :: Maybe VirtualInterfaceState
+    , _viConnectionId          :: Maybe Text
+    , _viAsn                   :: Maybe Int
+    , _viVirtualInterfaceType  :: Maybe Text
+    , _viAuthKey               :: Maybe Text
+    , _viCustomerRouterConfig  :: Maybe Text
+    , _viOwnerAccount          :: Maybe Text
+    , _viVirtualInterfaceName  :: Maybe Text
+    , _viVirtualInterfaceId    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VirtualInterface' smart constructor.
 virtualInterface :: VirtualInterface
-virtualInterface = VirtualInterface'{_viVirtualGatewayId = Nothing, _viRouteFilterPrefixes = Nothing, _viCustomerAddress = Nothing, _viVlan = Nothing, _viLocation = Nothing, _viAmazonAddress = Nothing, _viVirtualInterfaceState = Nothing, _viConnectionId = Nothing, _viAsn = Nothing, _viVirtualInterfaceType = Nothing, _viAuthKey = Nothing, _viCustomerRouterConfig = Nothing, _viOwnerAccount = Nothing, _viVirtualInterfaceName = Nothing, _viVirtualInterfaceId = Nothing};
+virtualInterface =
+    VirtualInterface'
+    { _viVirtualGatewayId = Nothing
+    , _viRouteFilterPrefixes = Nothing
+    , _viCustomerAddress = Nothing
+    , _viVlan = Nothing
+    , _viLocation = Nothing
+    , _viAmazonAddress = Nothing
+    , _viVirtualInterfaceState = Nothing
+    , _viConnectionId = Nothing
+    , _viAsn = Nothing
+    , _viVirtualInterfaceType = Nothing
+    , _viAuthKey = Nothing
+    , _viCustomerRouterConfig = Nothing
+    , _viOwnerAccount = Nothing
+    , _viVirtualInterfaceName = Nothing
+    , _viVirtualInterfaceId = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 viVirtualGatewayId :: Lens' VirtualInterface (Maybe Text)

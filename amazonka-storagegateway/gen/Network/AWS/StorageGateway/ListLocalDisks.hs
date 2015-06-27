@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.ListLocalDisks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.StorageGateway.ListLocalDisks
     -- ** Response lenses
     , lldrGatewayARN
     , lldrDisks
-    , lldrStatusCode
+    , lldrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the of the gateway.
 --
@@ -57,11 +57,16 @@ import Network.AWS.StorageGateway.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lldGatewayARN'
-newtype ListLocalDisks = ListLocalDisks'{_lldGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype ListLocalDisks = ListLocalDisks'
+    { _lldGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListLocalDisks' smart constructor.
 listLocalDisks :: Text -> ListLocalDisks
-listLocalDisks pGatewayARN = ListLocalDisks'{_lldGatewayARN = pGatewayARN};
+listLocalDisks pGatewayARN =
+    ListLocalDisks'
+    { _lldGatewayARN = pGatewayARN
+    }
 
 -- | FIXME: Undocumented member.
 lldGatewayARN :: Lens' ListLocalDisks Text
@@ -106,12 +111,21 @@ instance ToQuery ListLocalDisks where
 --
 -- * 'lldrDisks'
 --
--- * 'lldrStatusCode'
-data ListLocalDisksResponse = ListLocalDisksResponse'{_lldrGatewayARN :: Maybe Text, _lldrDisks :: Maybe [Disk], _lldrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lldrStatus'
+data ListLocalDisksResponse = ListLocalDisksResponse'
+    { _lldrGatewayARN :: Maybe Text
+    , _lldrDisks      :: Maybe [Disk]
+    , _lldrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListLocalDisksResponse' smart constructor.
 listLocalDisksResponse :: Int -> ListLocalDisksResponse
-listLocalDisksResponse pStatusCode = ListLocalDisksResponse'{_lldrGatewayARN = Nothing, _lldrDisks = Nothing, _lldrStatusCode = pStatusCode};
+listLocalDisksResponse pStatus =
+    ListLocalDisksResponse'
+    { _lldrGatewayARN = Nothing
+    , _lldrDisks = Nothing
+    , _lldrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 lldrGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
@@ -122,5 +136,5 @@ lldrDisks :: Lens' ListLocalDisksResponse [Disk]
 lldrDisks = lens _lldrDisks (\ s a -> s{_lldrDisks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lldrStatusCode :: Lens' ListLocalDisksResponse Int
-lldrStatusCode = lens _lldrStatusCode (\ s a -> s{_lldrStatusCode = a});
+lldrStatus :: Lens' ListLocalDisksResponse Int
+lldrStatus = lens _lldrStatus (\ s a -> s{_lldrStatus = a});

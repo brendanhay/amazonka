@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.EnableMFADevice
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,10 +37,10 @@ module Network.AWS.IAM.EnableMFADevice
     , enableMFADeviceResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'enableMFADevice' smart constructor.
 --
@@ -53,11 +53,22 @@ import Network.AWS.Response
 -- * 'emdAuthenticationCode1'
 --
 -- * 'emdAuthenticationCode2'
-data EnableMFADevice = EnableMFADevice'{_emdUserName :: Text, _emdSerialNumber :: Text, _emdAuthenticationCode1 :: Text, _emdAuthenticationCode2 :: Text} deriving (Eq, Read, Show)
+data EnableMFADevice = EnableMFADevice'
+    { _emdUserName            :: Text
+    , _emdSerialNumber        :: Text
+    , _emdAuthenticationCode1 :: Text
+    , _emdAuthenticationCode2 :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableMFADevice' smart constructor.
 enableMFADevice :: Text -> Text -> Text -> Text -> EnableMFADevice
-enableMFADevice pUserName pSerialNumber pAuthenticationCode1 pAuthenticationCode2 = EnableMFADevice'{_emdUserName = pUserName, _emdSerialNumber = pSerialNumber, _emdAuthenticationCode1 = pAuthenticationCode1, _emdAuthenticationCode2 = pAuthenticationCode2};
+enableMFADevice pUserName pSerialNumber pAuthenticationCode1 pAuthenticationCode2 =
+    EnableMFADevice'
+    { _emdUserName = pUserName
+    , _emdSerialNumber = pSerialNumber
+    , _emdAuthenticationCode1 = pAuthenticationCode1
+    , _emdAuthenticationCode2 = pAuthenticationCode2
+    }
 
 -- | The name of the user for whom you want to enable the MFA device.
 emdUserName :: Lens' EnableMFADevice Text
@@ -99,8 +110,10 @@ instance ToQuery EnableMFADevice where
                "AuthenticationCode2" =: _emdAuthenticationCode2]
 
 -- | /See:/ 'enableMFADeviceResponse' smart constructor.
-data EnableMFADeviceResponse = EnableMFADeviceResponse' deriving (Eq, Read, Show)
+data EnableMFADeviceResponse =
+    EnableMFADeviceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'EnableMFADeviceResponse' smart constructor.
 enableMFADeviceResponse :: EnableMFADeviceResponse
-enableMFADeviceResponse = EnableMFADeviceResponse';
+enableMFADeviceResponse = EnableMFADeviceResponse'

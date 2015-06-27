@@ -15,6 +15,6 @@
 
 module Network.AWS.WorkSpaces.Waiters where
 
-import Network.AWS.Prelude
-import Network.AWS.Waiter
-import Network.AWS.WorkSpaces.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter
+import           Network.AWS.WorkSpaces.Types

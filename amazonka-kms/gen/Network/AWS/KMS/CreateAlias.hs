@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.CreateAlias
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,10 +45,10 @@ module Network.AWS.KMS.CreateAlias
     , createAliasResponse
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createAlias' smart constructor.
 --
@@ -57,11 +57,18 @@ import Network.AWS.Response
 -- * 'caAliasName'
 --
 -- * 'caTargetKeyId'
-data CreateAlias = CreateAlias'{_caAliasName :: Text, _caTargetKeyId :: Text} deriving (Eq, Read, Show)
+data CreateAlias = CreateAlias'
+    { _caAliasName   :: Text
+    , _caTargetKeyId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAlias' smart constructor.
 createAlias :: Text -> Text -> CreateAlias
-createAlias pAliasName pTargetKeyId = CreateAlias'{_caAliasName = pAliasName, _caTargetKeyId = pTargetKeyId};
+createAlias pAliasName pTargetKeyId =
+    CreateAlias'
+    { _caAliasName = pAliasName
+    , _caTargetKeyId = pTargetKeyId
+    }
 
 -- | String that contains the display name. The name must start with the word
 -- \"alias\" followed by a forward slash (alias\/). Aliases that begin with
@@ -108,8 +115,10 @@ instance ToQuery CreateAlias where
         toQuery = const mempty
 
 -- | /See:/ 'createAliasResponse' smart constructor.
-data CreateAliasResponse = CreateAliasResponse' deriving (Eq, Read, Show)
+data CreateAliasResponse =
+    CreateAliasResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CreateAliasResponse' smart constructor.
 createAliasResponse :: CreateAliasResponse
-createAliasResponse = CreateAliasResponse';
+createAliasResponse = CreateAliasResponse'

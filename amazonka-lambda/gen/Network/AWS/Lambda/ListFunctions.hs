@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Lambda.ListFunctions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,14 +39,14 @@ module Network.AWS.Lambda.ListFunctions
     -- ** Response lenses
     , lfrNextMarker
     , lfrFunctions
-    , lfrStatusCode
+    , lfrStatus
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listFunctions' smart constructor.
 --
@@ -55,11 +55,18 @@ import Network.AWS.Response
 -- * 'lfMaxItems'
 --
 -- * 'lfMarker'
-data ListFunctions = ListFunctions'{_lfMaxItems :: Maybe Nat, _lfMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListFunctions = ListFunctions'
+    { _lfMaxItems :: Maybe Nat
+    , _lfMarker   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListFunctions' smart constructor.
 listFunctions :: ListFunctions
-listFunctions = ListFunctions'{_lfMaxItems = Nothing, _lfMarker = Nothing};
+listFunctions =
+    ListFunctions'
+    { _lfMaxItems = Nothing
+    , _lfMarker = Nothing
+    }
 
 -- | Optional integer. Specifies the maximum number of AWS Lambda functions
 -- to return in response. This parameter value must be greater than 0.
@@ -113,12 +120,21 @@ instance ToQuery ListFunctions where
 --
 -- * 'lfrFunctions'
 --
--- * 'lfrStatusCode'
-data ListFunctionsResponse = ListFunctionsResponse'{_lfrNextMarker :: Maybe Text, _lfrFunctions :: Maybe [FunctionConfiguration], _lfrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lfrStatus'
+data ListFunctionsResponse = ListFunctionsResponse'
+    { _lfrNextMarker :: Maybe Text
+    , _lfrFunctions  :: Maybe [FunctionConfiguration]
+    , _lfrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListFunctionsResponse' smart constructor.
 listFunctionsResponse :: Int -> ListFunctionsResponse
-listFunctionsResponse pStatusCode = ListFunctionsResponse'{_lfrNextMarker = Nothing, _lfrFunctions = Nothing, _lfrStatusCode = pStatusCode};
+listFunctionsResponse pStatus =
+    ListFunctionsResponse'
+    { _lfrNextMarker = Nothing
+    , _lfrFunctions = Nothing
+    , _lfrStatus = pStatus
+    }
 
 -- | A string, present if there are more functions.
 lfrNextMarker :: Lens' ListFunctionsResponse (Maybe Text)
@@ -129,5 +145,5 @@ lfrFunctions :: Lens' ListFunctionsResponse [FunctionConfiguration]
 lfrFunctions = lens _lfrFunctions (\ s a -> s{_lfrFunctions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lfrStatusCode :: Lens' ListFunctionsResponse Int
-lfrStatusCode = lens _lfrStatusCode (\ s a -> s{_lfrStatusCode = a});
+lfrStatus :: Lens' ListFunctionsResponse Int
+lfrStatus = lens _lfrStatus (\ s a -> s{_lfrStatus = a});

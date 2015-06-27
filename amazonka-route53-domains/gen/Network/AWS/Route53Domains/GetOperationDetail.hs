@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.GetOperationDetail
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,19 +32,18 @@ module Network.AWS.Route53Domains.GetOperationDetail
     -- ** Response constructor
     , getOperationDetailResponse
     -- ** Response lenses
-    , godrStatus
     , godrSubmittedDate
     , godrDomainName
     , godrOperationId
     , godrType
     , godrMessage
-    , godrStatusCode
+    , godrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | The GetOperationDetail request includes the following element.
 --
@@ -53,11 +52,16 @@ import Network.AWS.Route53Domains.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'godOperationId'
-newtype GetOperationDetail = GetOperationDetail'{_godOperationId :: Text} deriving (Eq, Read, Show)
+newtype GetOperationDetail = GetOperationDetail'
+    { _godOperationId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetOperationDetail' smart constructor.
 getOperationDetail :: Text -> GetOperationDetail
-getOperationDetail pOperationId = GetOperationDetail'{_godOperationId = pOperationId};
+getOperationDetail pOperationId =
+    GetOperationDetail'
+    { _godOperationId = pOperationId
+    }
 
 -- | The identifier for the operation for which you want to get the status.
 -- Amazon Route 53 returned the identifier in the response to the original
@@ -80,9 +84,8 @@ instance AWSRequest GetOperationDetail where
           = receiveJSON
               (\ s h x ->
                  GetOperationDetailResponse' <$>
-                   (x .?> "Status") <*> (x .?> "SubmittedDate") <*>
-                     (x .?> "DomainName")
-                     <*> (x .?> "OperationId")
+                   (x .?> "SubmittedDate") <*> (x .?> "DomainName") <*>
+                     (x .?> "OperationId")
                      <*> (x .?> "Type")
                      <*> (x .?> "Message")
                      <*> (pure (fromEnum s)))
@@ -113,8 +116,6 @@ instance ToQuery GetOperationDetail where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'godrStatus'
---
 -- * 'godrSubmittedDate'
 --
 -- * 'godrDomainName'
@@ -125,18 +126,27 @@ instance ToQuery GetOperationDetail where
 --
 -- * 'godrMessage'
 --
--- * 'godrStatusCode'
-data GetOperationDetailResponse = GetOperationDetailResponse'{_godrStatus :: Maybe OperationStatus, _godrSubmittedDate :: Maybe POSIX, _godrDomainName :: Maybe Text, _godrOperationId :: Maybe Text, _godrType :: Maybe OperationType, _godrMessage :: Maybe Text, _godrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'godrStatus'
+data GetOperationDetailResponse = GetOperationDetailResponse'
+    { _godrSubmittedDate :: Maybe POSIX
+    , _godrDomainName    :: Maybe Text
+    , _godrOperationId   :: Maybe Text
+    , _godrType          :: Maybe OperationType
+    , _godrMessage       :: Maybe Text
+    , _godrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetOperationDetailResponse' smart constructor.
 getOperationDetailResponse :: Int -> GetOperationDetailResponse
-getOperationDetailResponse pStatusCode = GetOperationDetailResponse'{_godrStatus = Nothing, _godrSubmittedDate = Nothing, _godrDomainName = Nothing, _godrOperationId = Nothing, _godrType = Nothing, _godrMessage = Nothing, _godrStatusCode = pStatusCode};
-
--- | The current status of the requested operation in the system.
---
--- Type: String
-godrStatus :: Lens' GetOperationDetailResponse (Maybe OperationStatus)
-godrStatus = lens _godrStatus (\ s a -> s{_godrStatus = a});
+getOperationDetailResponse pStatus =
+    GetOperationDetailResponse'
+    { _godrSubmittedDate = Nothing
+    , _godrDomainName = Nothing
+    , _godrOperationId = Nothing
+    , _godrType = Nothing
+    , _godrMessage = Nothing
+    , _godrStatus = pStatus
+    }
 
 -- | The date when the request was submitted.
 godrSubmittedDate :: Lens' GetOperationDetailResponse (Maybe UTCTime)
@@ -167,5 +177,5 @@ godrMessage :: Lens' GetOperationDetailResponse (Maybe Text)
 godrMessage = lens _godrMessage (\ s a -> s{_godrMessage = a});
 
 -- | FIXME: Undocumented member.
-godrStatusCode :: Lens' GetOperationDetailResponse Int
-godrStatusCode = lens _godrStatusCode (\ s a -> s{_godrStatusCode = a});
+godrStatus :: Lens' GetOperationDetailResponse Int
+godrStatus = lens _godrStatus (\ s a -> s{_godrStatus = a});

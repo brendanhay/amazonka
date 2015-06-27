@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteTape
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.StorageGateway.DeleteTape
     , deleteTapeResponse
     -- ** Response lenses
     , dtrTapeARN
-    , dtrStatusCode
+    , dtrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | DeleteTapeInput
 --
@@ -50,11 +50,18 @@ import Network.AWS.StorageGateway.Types
 -- * 'dt1GatewayARN'
 --
 -- * 'dt1TapeARN'
-data DeleteTape = DeleteTape'{_dt1GatewayARN :: Text, _dt1TapeARN :: Text} deriving (Eq, Read, Show)
+data DeleteTape = DeleteTape'
+    { _dt1GatewayARN :: Text
+    , _dt1TapeARN    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTape' smart constructor.
 deleteTape :: Text -> Text -> DeleteTape
-deleteTape pGatewayARN pTapeARN = DeleteTape'{_dt1GatewayARN = pGatewayARN, _dt1TapeARN = pTapeARN};
+deleteTape pGatewayARN pTapeARN =
+    DeleteTape'
+    { _dt1GatewayARN = pGatewayARN
+    , _dt1TapeARN = pTapeARN
+    }
 
 -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
 -- tape to delete is associated with. Use the ListGateways operation to
@@ -105,17 +112,24 @@ instance ToQuery DeleteTape where
 --
 -- * 'dtrTapeARN'
 --
--- * 'dtrStatusCode'
-data DeleteTapeResponse = DeleteTapeResponse'{_dtrTapeARN :: Maybe Text, _dtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtrStatus'
+data DeleteTapeResponse = DeleteTapeResponse'
+    { _dtrTapeARN :: Maybe Text
+    , _dtrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTapeResponse' smart constructor.
 deleteTapeResponse :: Int -> DeleteTapeResponse
-deleteTapeResponse pStatusCode = DeleteTapeResponse'{_dtrTapeARN = Nothing, _dtrStatusCode = pStatusCode};
+deleteTapeResponse pStatus =
+    DeleteTapeResponse'
+    { _dtrTapeARN = Nothing
+    , _dtrStatus = pStatus
+    }
 
 -- | The Amazon Resource Name (ARN) of the deleted virtual tape.
 dtrTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
 dtrTapeARN = lens _dtrTapeARN (\ s a -> s{_dtrTapeARN = a});
 
 -- | FIXME: Undocumented member.
-dtrStatusCode :: Lens' DeleteTapeResponse Int
-dtrStatusCode = lens _dtrStatusCode (\ s a -> s{_dtrStatusCode = a});
+dtrStatus :: Lens' DeleteTapeResponse Int
+dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});

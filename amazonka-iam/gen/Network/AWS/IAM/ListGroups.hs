@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,14 +39,14 @@ module Network.AWS.IAM.ListGroups
     , lgrMarker
     , lgrIsTruncated
     , lgrGroups
-    , lgrStatusCode
+    , lgrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listGroups' smart constructor.
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'lgMaxItems'
 --
 -- * 'lgMarker'
-data ListGroups = ListGroups'{_lgPathPrefix :: Maybe Text, _lgMaxItems :: Maybe Nat, _lgMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListGroups = ListGroups'
+    { _lgPathPrefix :: Maybe Text
+    , _lgMaxItems   :: Maybe Nat
+    , _lgMarker     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGroups' smart constructor.
 listGroups :: ListGroups
-listGroups = ListGroups'{_lgPathPrefix = Nothing, _lgMaxItems = Nothing, _lgMarker = Nothing};
+listGroups =
+    ListGroups'
+    { _lgPathPrefix = Nothing
+    , _lgMaxItems = Nothing
+    , _lgMarker = Nothing
+    }
 
 -- | The path prefix for filtering the results. For example, the prefix
 -- @\/division_abc\/subdivision_xyz\/@ gets all groups whose path starts
@@ -131,12 +140,23 @@ instance ToQuery ListGroups where
 --
 -- * 'lgrGroups'
 --
--- * 'lgrStatusCode'
-data ListGroupsResponse = ListGroupsResponse'{_lgrMarker :: Maybe Text, _lgrIsTruncated :: Maybe Bool, _lgrGroups :: [Group], _lgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lgrStatus'
+data ListGroupsResponse = ListGroupsResponse'
+    { _lgrMarker      :: Maybe Text
+    , _lgrIsTruncated :: Maybe Bool
+    , _lgrGroups      :: [Group]
+    , _lgrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGroupsResponse' smart constructor.
 listGroupsResponse :: Int -> ListGroupsResponse
-listGroupsResponse pStatusCode = ListGroupsResponse'{_lgrMarker = Nothing, _lgrIsTruncated = Nothing, _lgrGroups = mempty, _lgrStatusCode = pStatusCode};
+listGroupsResponse pStatus =
+    ListGroupsResponse'
+    { _lgrMarker = Nothing
+    , _lgrIsTruncated = Nothing
+    , _lgrGroups = mempty
+    , _lgrStatus = pStatus
+    }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -156,5 +176,5 @@ lgrGroups :: Lens' ListGroupsResponse [Group]
 lgrGroups = lens _lgrGroups (\ s a -> s{_lgrGroups = a});
 
 -- | FIXME: Undocumented member.
-lgrStatusCode :: Lens' ListGroupsResponse Int
-lgrStatusCode = lens _lgrStatusCode (\ s a -> s{_lgrStatusCode = a});
+lgrStatus :: Lens' ListGroupsResponse Int
+lgrStatus = lens _lgrStatus (\ s a -> s{_lgrStatus = a});

@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.KMS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -89,109 +88,126 @@ module Network.AWS.KMS.Types
     , kmKeyId
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2014-11-01@ of the Amazon Key Management Service SDK.
 data KMS
 
 instance AWSService KMS where
     type Sg KMS = V4
-
     service = const svc
       where
-        svc :: Service KMS
-        svc = Service
-            { _svcAbbrev   = "KMS"
-            , _svcPrefix   = "kms"
-            , _svcVersion  = "2014-11-01"
+        svc =
+            Service
+            { _svcAbbrev = "KMS"
+            , _svcPrefix = "kms"
+            , _svcVersion = "2014-11-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The request was rejected because the marker that specifies where
 -- pagination should next begin is not valid.
-_InvalidMarkerException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidMarkerException = _ServiceError . hasStatus 400 . hasCode "InvalidMarker";
+_InvalidMarkerException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidMarkerException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidMarker"
 
 -- | The request was rejected because the specified KeySpec parameter is not
 -- valid. The currently supported value is ENCRYPT\/DECRYPT.
-_InvalidKeyUsageException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidKeyUsageException = _ServiceError . hasStatus 400 . hasCode "InvalidKeyUsage";
+_InvalidKeyUsageException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidKeyUsageException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidKeyUsage"
 
 -- | The request was rejected because a specified parameter is not supported.
-_UnsupportedOperationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_UnsupportedOperationException = _ServiceError . hasStatus 400 . hasCode "UnsupportedOperation";
+_UnsupportedOperationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnsupportedOperationException =
+    _ServiceError . hasStatus 400 . hasCode "UnsupportedOperation"
 
 -- | The request was rejected because the specified policy is not
 -- syntactically or semantically correct.
-_MalformedPolicyDocumentException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MalformedPolicyDocumentException = _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument";
+_MalformedPolicyDocumentException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MalformedPolicyDocumentException =
+    _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument"
 
 -- | A request was rejected because the specified key was marked as disabled.
-_DisabledException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DisabledException = _ServiceError . hasStatus 409 . hasCode "Disabled";
+_DisabledException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DisabledException = _ServiceError . hasStatus 409 . hasCode "Disabled"
 
 -- | The request was rejected because the key was disabled, not found, or
 -- otherwise not available.
-_KeyUnavailableException :: AWSError a => Geting (First ServiceError) a ServiceError
-_KeyUnavailableException = _ServiceError . hasStatus 500 . hasCode "KeyUnavailable";
+_KeyUnavailableException :: AWSError a => Getting (First ServiceError) a ServiceError
+_KeyUnavailableException =
+    _ServiceError . hasStatus 500 . hasCode "KeyUnavailable"
 
 -- | The request was rejected because an internal exception occurred. This
 -- error can be retried.
-_KMSInternalException :: AWSError a => Geting (First ServiceError) a ServiceError
-_KMSInternalException = _ServiceError . hasStatus 500 . hasCode "KMSInternal";
+_KMSInternalException :: AWSError a => Getting (First ServiceError) a ServiceError
+_KMSInternalException = _ServiceError . hasStatus 500 . hasCode "KMSInternal"
 
 -- | The request was rejected because the specified entity or resource could
 -- not be found.
-_NotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NotFoundException = _ServiceError . hasStatus 404 . hasCode "NotFound";
+_NotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NotFoundException = _ServiceError . hasStatus 404 . hasCode "NotFound"
 
 -- | The request was rejected because the specified alias name is not valid.
-_InvalidAliasNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidAliasNameException = _ServiceError . hasStatus 400 . hasCode "InvalidAliasName";
+_InvalidAliasNameException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidAliasNameException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidAliasName"
 
 -- | The request was rejected because a specified ARN was not valid.
-_InvalidARNException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidARNException = _ServiceError . hasStatus 400 . hasCode "InvalidArn";
+_InvalidARNException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidARNException = _ServiceError . hasStatus 400 . hasCode "InvalidArn"
 
 -- | The system timed out while trying to fulfill the request.
-_DependencyTimeoutException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DependencyTimeoutException = _ServiceError . hasStatus 503 . hasCode "DependencyTimeout";
+_DependencyTimeoutException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DependencyTimeoutException =
+    _ServiceError . hasStatus 503 . hasCode "DependencyTimeout"
 
 -- | A grant token provided as part of the request is invalid.
-_InvalidGrantTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidGrantTokenException = _ServiceError . hasStatus 400 . hasCode "InvalidGrantToken";
+_InvalidGrantTokenException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidGrantTokenException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidGrantToken"
 
 -- | The request was rejected because the specified ciphertext has been
 -- corrupted or is otherwise invalid.
-_InvalidCiphertextException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidCiphertextException = _ServiceError . hasStatus 400 . hasCode "InvalidCiphertext";
+_InvalidCiphertextException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidCiphertextException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidCiphertext"
 
 -- | The request was rejected because a quota was exceeded.
-_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasStatus 400 . hasCode "LimitExceeded";
+_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException =
+    _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
 
 -- | The request was rejected because it attempted to create a resource that
 -- already exists.
-_AlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_AlreadyExistsException = _ServiceError . hasStatus 400 . hasCode "AlreadyExists";
+_AlreadyExistsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_AlreadyExistsException =
+    _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
 
-data DataKeySpec = AES128 | AES256 deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DataKeySpec
+    = AES128
+    | AES256
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DataKeySpec where
     parser = takeLowerText >>= \case
@@ -211,7 +227,16 @@ instance ToHeader DataKeySpec
 instance ToJSON DataKeySpec where
     toJSON = toJSONText
 
-data GrantOperation = Encrypt | GenerateDataKeyWithoutPlaintext | CreateGrant | RetireGrant | GenerateDataKey | Decrypt | ReEncryptTo | ReEncryptFrom deriving (Eq, Ord, Read, Show, Enum, Generic)
+data GrantOperation
+    = Encrypt
+    | GenerateDataKeyWithoutPlaintext
+    | CreateGrant
+    | RetireGrant
+    | GenerateDataKey
+    | Decrypt
+    | ReEncryptTo
+    | ReEncryptFrom
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText GrantOperation where
     parser = takeLowerText >>= \case
@@ -246,7 +271,9 @@ instance ToJSON GrantOperation where
 instance FromJSON GrantOperation where
     parseJSON = parseJSONText "GrantOperation"
 
-data KeyUsageType = EncryptDecrypt deriving (Eq, Ord, Read, Show, Enum, Generic)
+data KeyUsageType =
+    EncryptDecrypt
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText KeyUsageType where
     parser = takeLowerText >>= \case
@@ -278,11 +305,20 @@ instance FromJSON KeyUsageType where
 -- * 'aleAliasName'
 --
 -- * 'aleAliasARN'
-data AliasListEntry = AliasListEntry'{_aleTargetKeyId :: Maybe Text, _aleAliasName :: Maybe Text, _aleAliasARN :: Maybe Text} deriving (Eq, Read, Show)
+data AliasListEntry = AliasListEntry'
+    { _aleTargetKeyId :: Maybe Text
+    , _aleAliasName   :: Maybe Text
+    , _aleAliasARN    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AliasListEntry' smart constructor.
 aliasListEntry :: AliasListEntry
-aliasListEntry = AliasListEntry'{_aleTargetKeyId = Nothing, _aleAliasName = Nothing, _aleAliasARN = Nothing};
+aliasListEntry =
+    AliasListEntry'
+    { _aleTargetKeyId = Nothing
+    , _aleAliasName = Nothing
+    , _aleAliasARN = Nothing
+    }
 
 -- | String that contains the key identifier pointed to by the alias.
 aleTargetKeyId :: Lens' AliasListEntry (Maybe Text)
@@ -313,11 +349,18 @@ instance FromJSON AliasListEntry where
 -- * 'gcEncryptionContextEquals'
 --
 -- * 'gcEncryptionContextSubset'
-data GrantConstraints = GrantConstraints'{_gcEncryptionContextEquals :: Maybe (Map Text Text), _gcEncryptionContextSubset :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
+data GrantConstraints = GrantConstraints'
+    { _gcEncryptionContextEquals :: Maybe (Map Text Text)
+    , _gcEncryptionContextSubset :: Maybe (Map Text Text)
+    } deriving (Eq,Read,Show)
 
 -- | 'GrantConstraints' smart constructor.
 grantConstraints :: GrantConstraints
-grantConstraints = GrantConstraints'{_gcEncryptionContextEquals = Nothing, _gcEncryptionContextSubset = Nothing};
+grantConstraints =
+    GrantConstraints'
+    { _gcEncryptionContextEquals = Nothing
+    , _gcEncryptionContextSubset = Nothing
+    }
 
 -- | The constraint contains additional key\/value pairs that serve to
 -- further limit the grant.
@@ -361,11 +404,26 @@ instance ToJSON GrantConstraints where
 -- * 'gleGranteePrincipal'
 --
 -- * 'gleOperations'
-data GrantListEntry = GrantListEntry'{_gleRetiringPrincipal :: Maybe Text, _gleIssuingAccount :: Maybe Text, _gleGrantId :: Maybe Text, _gleConstraints :: Maybe GrantConstraints, _gleGranteePrincipal :: Maybe Text, _gleOperations :: Maybe [GrantOperation]} deriving (Eq, Read, Show)
+data GrantListEntry = GrantListEntry'
+    { _gleRetiringPrincipal :: Maybe Text
+    , _gleIssuingAccount    :: Maybe Text
+    , _gleGrantId           :: Maybe Text
+    , _gleConstraints       :: Maybe GrantConstraints
+    , _gleGranteePrincipal  :: Maybe Text
+    , _gleOperations        :: Maybe [GrantOperation]
+    } deriving (Eq,Read,Show)
 
 -- | 'GrantListEntry' smart constructor.
 grantListEntry :: GrantListEntry
-grantListEntry = GrantListEntry'{_gleRetiringPrincipal = Nothing, _gleIssuingAccount = Nothing, _gleGrantId = Nothing, _gleConstraints = Nothing, _gleGranteePrincipal = Nothing, _gleOperations = Nothing};
+grantListEntry =
+    GrantListEntry'
+    { _gleRetiringPrincipal = Nothing
+    , _gleIssuingAccount = Nothing
+    , _gleGrantId = Nothing
+    , _gleConstraints = Nothing
+    , _gleGranteePrincipal = Nothing
+    , _gleOperations = Nothing
+    }
 
 -- | The principal that can retire the account.
 gleRetiringPrincipal :: Lens' GrantListEntry (Maybe Text)
@@ -422,11 +480,18 @@ instance FromJSON GrantListEntry where
 -- * 'kleKeyARN'
 --
 -- * 'kleKeyId'
-data KeyListEntry = KeyListEntry'{_kleKeyARN :: Maybe Text, _kleKeyId :: Maybe Text} deriving (Eq, Read, Show)
+data KeyListEntry = KeyListEntry'
+    { _kleKeyARN :: Maybe Text
+    , _kleKeyId  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'KeyListEntry' smart constructor.
 keyListEntry :: KeyListEntry
-keyListEntry = KeyListEntry'{_kleKeyARN = Nothing, _kleKeyId = Nothing};
+keyListEntry =
+    KeyListEntry'
+    { _kleKeyARN = Nothing
+    , _kleKeyId = Nothing
+    }
 
 -- | ARN of the key.
 kleKeyARN :: Lens' KeyListEntry (Maybe Text)
@@ -462,11 +527,28 @@ instance FromJSON KeyListEntry where
 -- * 'kmDescription'
 --
 -- * 'kmKeyId'
-data KeyMetadata = KeyMetadata'{_kmARN :: Maybe Text, _kmEnabled :: Maybe Bool, _kmAWSAccountId :: Maybe Text, _kmKeyUsage :: Maybe KeyUsageType, _kmCreationDate :: Maybe POSIX, _kmDescription :: Maybe Text, _kmKeyId :: Text} deriving (Eq, Read, Show)
+data KeyMetadata = KeyMetadata'
+    { _kmARN          :: Maybe Text
+    , _kmEnabled      :: Maybe Bool
+    , _kmAWSAccountId :: Maybe Text
+    , _kmKeyUsage     :: Maybe KeyUsageType
+    , _kmCreationDate :: Maybe POSIX
+    , _kmDescription  :: Maybe Text
+    , _kmKeyId        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'KeyMetadata' smart constructor.
 keyMetadata :: Text -> KeyMetadata
-keyMetadata pKeyId = KeyMetadata'{_kmARN = Nothing, _kmEnabled = Nothing, _kmAWSAccountId = Nothing, _kmKeyUsage = Nothing, _kmCreationDate = Nothing, _kmDescription = Nothing, _kmKeyId = pKeyId};
+keyMetadata pKeyId =
+    KeyMetadata'
+    { _kmARN = Nothing
+    , _kmEnabled = Nothing
+    , _kmAWSAccountId = Nothing
+    , _kmKeyUsage = Nothing
+    , _kmCreationDate = Nothing
+    , _kmDescription = Nothing
+    , _kmKeyId = pKeyId
+    }
 
 -- | Key ARN (Amazon Resource Name).
 kmARN :: Lens' KeyMetadata (Maybe Text)

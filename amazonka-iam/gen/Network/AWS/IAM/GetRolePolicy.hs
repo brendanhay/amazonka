@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetRolePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,13 +48,13 @@ module Network.AWS.IAM.GetRolePolicy
     , grprRoleName
     , grprPolicyName
     , grprPolicyDocument
-    , grprStatusCode
+    , grprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getRolePolicy' smart constructor.
 --
@@ -63,11 +63,18 @@ import Network.AWS.Response
 -- * 'grpRoleName'
 --
 -- * 'grpPolicyName'
-data GetRolePolicy = GetRolePolicy'{_grpRoleName :: Text, _grpPolicyName :: Text} deriving (Eq, Read, Show)
+data GetRolePolicy = GetRolePolicy'
+    { _grpRoleName   :: Text
+    , _grpPolicyName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetRolePolicy' smart constructor.
 getRolePolicy :: Text -> Text -> GetRolePolicy
-getRolePolicy pRoleName pPolicyName = GetRolePolicy'{_grpRoleName = pRoleName, _grpPolicyName = pPolicyName};
+getRolePolicy pRoleName pPolicyName =
+    GetRolePolicy'
+    { _grpRoleName = pRoleName
+    , _grpPolicyName = pPolicyName
+    }
 
 -- | The name of the role associated with the policy.
 grpRoleName :: Lens' GetRolePolicy Text
@@ -115,12 +122,23 @@ instance ToQuery GetRolePolicy where
 --
 -- * 'grprPolicyDocument'
 --
--- * 'grprStatusCode'
-data GetRolePolicyResponse = GetRolePolicyResponse'{_grprRoleName :: Text, _grprPolicyName :: Text, _grprPolicyDocument :: Text, _grprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'grprStatus'
+data GetRolePolicyResponse = GetRolePolicyResponse'
+    { _grprRoleName       :: Text
+    , _grprPolicyName     :: Text
+    , _grprPolicyDocument :: Text
+    , _grprStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetRolePolicyResponse' smart constructor.
 getRolePolicyResponse :: Text -> Text -> Text -> Int -> GetRolePolicyResponse
-getRolePolicyResponse pRoleName pPolicyName pPolicyDocument pStatusCode = GetRolePolicyResponse'{_grprRoleName = pRoleName, _grprPolicyName = pPolicyName, _grprPolicyDocument = pPolicyDocument, _grprStatusCode = pStatusCode};
+getRolePolicyResponse pRoleName pPolicyName pPolicyDocument pStatus =
+    GetRolePolicyResponse'
+    { _grprRoleName = pRoleName
+    , _grprPolicyName = pPolicyName
+    , _grprPolicyDocument = pPolicyDocument
+    , _grprStatus = pStatus
+    }
 
 -- | The role the policy is associated with.
 grprRoleName :: Lens' GetRolePolicyResponse Text
@@ -135,5 +153,5 @@ grprPolicyDocument :: Lens' GetRolePolicyResponse Text
 grprPolicyDocument = lens _grprPolicyDocument (\ s a -> s{_grprPolicyDocument = a});
 
 -- | FIXME: Undocumented member.
-grprStatusCode :: Lens' GetRolePolicyResponse Int
-grprStatusCode = lens _grprStatusCode (\ s a -> s{_grprStatusCode = a});
+grprStatus :: Lens' GetRolePolicyResponse Int
+grprStatus = lens _grprStatus (\ s a -> s{_grprStatus = a});

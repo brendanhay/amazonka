@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     , terminateInstanceInAutoScalingGroupResponse
     -- ** Response lenses
     , tiiasgrActivity
-    , tiiasgrStatusCode
+    , tiiasgrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'terminateInstanceInAutoScalingGroup' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'tiiasgInstanceId'
 --
 -- * 'tiiasgShouldDecrementDesiredCapacity'
-data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'{_tiiasgInstanceId :: Text, _tiiasgShouldDecrementDesiredCapacity :: Bool} deriving (Eq, Read, Show)
+data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
+    { _tiiasgInstanceId                     :: Text
+    , _tiiasgShouldDecrementDesiredCapacity :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'TerminateInstanceInAutoScalingGroup' smart constructor.
 terminateInstanceInAutoScalingGroup :: Text -> Bool -> TerminateInstanceInAutoScalingGroup
-terminateInstanceInAutoScalingGroup pInstanceId pShouldDecrementDesiredCapacity = TerminateInstanceInAutoScalingGroup'{_tiiasgInstanceId = pInstanceId, _tiiasgShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity};
+terminateInstanceInAutoScalingGroup pInstanceId pShouldDecrementDesiredCapacity =
+    TerminateInstanceInAutoScalingGroup'
+    { _tiiasgInstanceId = pInstanceId
+    , _tiiasgShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity
+    }
 
 -- | The ID of the EC2 instance.
 tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
@@ -107,17 +114,24 @@ instance ToQuery TerminateInstanceInAutoScalingGroup
 --
 -- * 'tiiasgrActivity'
 --
--- * 'tiiasgrStatusCode'
-data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'{_tiiasgrActivity :: Maybe Activity, _tiiasgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'tiiasgrStatus'
+data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
+    { _tiiasgrActivity :: Maybe Activity
+    , _tiiasgrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'TerminateInstanceInAutoScalingGroupResponse' smart constructor.
 terminateInstanceInAutoScalingGroupResponse :: Int -> TerminateInstanceInAutoScalingGroupResponse
-terminateInstanceInAutoScalingGroupResponse pStatusCode = TerminateInstanceInAutoScalingGroupResponse'{_tiiasgrActivity = Nothing, _tiiasgrStatusCode = pStatusCode};
+terminateInstanceInAutoScalingGroupResponse pStatus =
+    TerminateInstanceInAutoScalingGroupResponse'
+    { _tiiasgrActivity = Nothing
+    , _tiiasgrStatus = pStatus
+    }
 
 -- | A scaling activity.
 tiiasgrActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
 tiiasgrActivity = lens _tiiasgrActivity (\ s a -> s{_tiiasgrActivity = a});
 
 -- | FIXME: Undocumented member.
-tiiasgrStatusCode :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
-tiiasgrStatusCode = lens _tiiasgrStatusCode (\ s a -> s{_tiiasgrStatusCode = a});
+tiiasgrStatus :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
+tiiasgrStatus = lens _tiiasgrStatus (\ s a -> s{_tiiasgrStatus = a});

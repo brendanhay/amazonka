@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ModifyVPCAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.EC2.ModifyVPCAttribute
     , modifyVPCAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyVPCAttribute' smart constructor.
 --
@@ -48,11 +48,20 @@ import Network.AWS.Response
 -- * 'mvaEnableDNSSupport'
 --
 -- * 'mvaVPCId'
-data ModifyVPCAttribute = ModifyVPCAttribute'{_mvaEnableDNSHostnames :: Maybe AttributeBooleanValue, _mvaEnableDNSSupport :: Maybe AttributeBooleanValue, _mvaVPCId :: Text} deriving (Eq, Read, Show)
+data ModifyVPCAttribute = ModifyVPCAttribute'
+    { _mvaEnableDNSHostnames :: Maybe AttributeBooleanValue
+    , _mvaEnableDNSSupport   :: Maybe AttributeBooleanValue
+    , _mvaVPCId              :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyVPCAttribute' smart constructor.
 modifyVPCAttribute :: Text -> ModifyVPCAttribute
-modifyVPCAttribute pVPCId = ModifyVPCAttribute'{_mvaEnableDNSHostnames = Nothing, _mvaEnableDNSSupport = Nothing, _mvaVPCId = pVPCId};
+modifyVPCAttribute pVPCId =
+    ModifyVPCAttribute'
+    { _mvaEnableDNSHostnames = Nothing
+    , _mvaEnableDNSSupport = Nothing
+    , _mvaVPCId = pVPCId
+    }
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames.
 -- If enabled, instances in the VPC get DNS hostnames; otherwise, they do
@@ -98,8 +107,10 @@ instance ToQuery ModifyVPCAttribute where
                "VpcId" =: _mvaVPCId]
 
 -- | /See:/ 'modifyVPCAttributeResponse' smart constructor.
-data ModifyVPCAttributeResponse = ModifyVPCAttributeResponse' deriving (Eq, Read, Show)
+data ModifyVPCAttributeResponse =
+    ModifyVPCAttributeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ModifyVPCAttributeResponse' smart constructor.
 modifyVPCAttributeResponse :: ModifyVPCAttributeResponse
-modifyVPCAttributeResponse = ModifyVPCAttributeResponse';
+modifyVPCAttributeResponse = ModifyVPCAttributeResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.UploadPart
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,13 +53,13 @@ module Network.AWS.S3.UploadPart
     , uprSSEKMSKeyId
     , uprSSECustomerKeyMD5
     , uprServerSideEncryption
-    , uprStatusCode
+    , uprStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'uploadPart' smart constructor.
 --
@@ -86,11 +86,36 @@ import Network.AWS.S3.Types
 -- * 'upUploadId'
 --
 -- * 'upBody'
-data UploadPart = UploadPart'{_upContentLength :: Maybe Int, _upSSECustomerAlgorithm :: Maybe Text, _upSSECustomerKey :: Maybe (Sensitive Text), _upRequestPayer :: Maybe RequestPayer, _upSSECustomerKeyMD5 :: Maybe Text, _upContentMD5 :: Maybe Text, _upBucket :: BucketName, _upKey :: ObjectKey, _upPartNumber :: Int, _upUploadId :: Text, _upBody :: RqBody} deriving Show
+data UploadPart = UploadPart'
+    { _upContentLength        :: Maybe Int
+    , _upSSECustomerAlgorithm :: Maybe Text
+    , _upSSECustomerKey       :: Maybe (Sensitive Text)
+    , _upRequestPayer         :: Maybe RequestPayer
+    , _upSSECustomerKeyMD5    :: Maybe Text
+    , _upContentMD5           :: Maybe Text
+    , _upBucket               :: BucketName
+    , _upKey                  :: ObjectKey
+    , _upPartNumber           :: !Int
+    , _upUploadId             :: Text
+    , _upBody                 :: RqBody
+    } deriving (Show)
 
 -- | 'UploadPart' smart constructor.
 uploadPart :: BucketName -> ObjectKey -> Int -> Text -> RqBody -> UploadPart
-uploadPart pBucket pKey pPartNumber pUploadId pBody = UploadPart'{_upContentLength = Nothing, _upSSECustomerAlgorithm = Nothing, _upSSECustomerKey = Nothing, _upRequestPayer = Nothing, _upSSECustomerKeyMD5 = Nothing, _upContentMD5 = Nothing, _upBucket = pBucket, _upKey = pKey, _upPartNumber = pPartNumber, _upUploadId = pUploadId, _upBody = pBody};
+uploadPart pBucket pKey pPartNumber pUploadId pBody =
+    UploadPart'
+    { _upContentLength = Nothing
+    , _upSSECustomerAlgorithm = Nothing
+    , _upSSECustomerKey = Nothing
+    , _upRequestPayer = Nothing
+    , _upSSECustomerKeyMD5 = Nothing
+    , _upContentMD5 = Nothing
+    , _upBucket = pBucket
+    , _upKey = pKey
+    , _upPartNumber = pPartNumber
+    , _upUploadId = pUploadId
+    , _upBody = pBody
+    }
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
 -- body cannot be determined automatically.
@@ -208,12 +233,29 @@ instance ToQuery UploadPart where
 --
 -- * 'uprServerSideEncryption'
 --
--- * 'uprStatusCode'
-data UploadPartResponse = UploadPartResponse'{_uprETag :: Maybe ETag, _uprRequestCharged :: Maybe RequestCharged, _uprSSECustomerAlgorithm :: Maybe Text, _uprSSEKMSKeyId :: Maybe (Sensitive Text), _uprSSECustomerKeyMD5 :: Maybe Text, _uprServerSideEncryption :: Maybe ServerSideEncryption, _uprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'uprStatus'
+data UploadPartResponse = UploadPartResponse'
+    { _uprETag                 :: Maybe ETag
+    , _uprRequestCharged       :: Maybe RequestCharged
+    , _uprSSECustomerAlgorithm :: Maybe Text
+    , _uprSSEKMSKeyId          :: Maybe (Sensitive Text)
+    , _uprSSECustomerKeyMD5    :: Maybe Text
+    , _uprServerSideEncryption :: Maybe ServerSideEncryption
+    , _uprStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UploadPartResponse' smart constructor.
 uploadPartResponse :: Int -> UploadPartResponse
-uploadPartResponse pStatusCode = UploadPartResponse'{_uprETag = Nothing, _uprRequestCharged = Nothing, _uprSSECustomerAlgorithm = Nothing, _uprSSEKMSKeyId = Nothing, _uprSSECustomerKeyMD5 = Nothing, _uprServerSideEncryption = Nothing, _uprStatusCode = pStatusCode};
+uploadPartResponse pStatus =
+    UploadPartResponse'
+    { _uprETag = Nothing
+    , _uprRequestCharged = Nothing
+    , _uprSSECustomerAlgorithm = Nothing
+    , _uprSSEKMSKeyId = Nothing
+    , _uprSSECustomerKeyMD5 = Nothing
+    , _uprServerSideEncryption = Nothing
+    , _uprStatus = pStatus
+    }
 
 -- | Entity tag for the uploaded object.
 uprETag :: Lens' UploadPartResponse (Maybe ETag)
@@ -246,5 +288,5 @@ uprServerSideEncryption :: Lens' UploadPartResponse (Maybe ServerSideEncryption)
 uprServerSideEncryption = lens _uprServerSideEncryption (\ s a -> s{_uprServerSideEncryption = a});
 
 -- | FIXME: Undocumented member.
-uprStatusCode :: Lens' UploadPartResponse Int
-uprStatusCode = lens _uprStatusCode (\ s a -> s{_uprStatusCode = a});
+uprStatus :: Lens' UploadPartResponse Int
+uprStatus = lens _uprStatus (\ s a -> s{_uprStatus = a});

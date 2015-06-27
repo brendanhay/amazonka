@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.SetLoadBasedAutoScaling
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,10 +48,10 @@ module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
     , setLoadBasedAutoScalingResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'setLoadBasedAutoScaling' smart constructor.
 --
@@ -64,11 +64,22 @@ import Network.AWS.Response
 -- * 'slbasDownScaling'
 --
 -- * 'slbasLayerId'
-data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling'{_slbasUpScaling :: Maybe AutoScalingThresholds, _slbasEnable :: Maybe Bool, _slbasDownScaling :: Maybe AutoScalingThresholds, _slbasLayerId :: Text} deriving (Eq, Read, Show)
+data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling'
+    { _slbasUpScaling   :: Maybe AutoScalingThresholds
+    , _slbasEnable      :: Maybe Bool
+    , _slbasDownScaling :: Maybe AutoScalingThresholds
+    , _slbasLayerId     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetLoadBasedAutoScaling' smart constructor.
 setLoadBasedAutoScaling :: Text -> SetLoadBasedAutoScaling
-setLoadBasedAutoScaling pLayerId = SetLoadBasedAutoScaling'{_slbasUpScaling = Nothing, _slbasEnable = Nothing, _slbasDownScaling = Nothing, _slbasLayerId = pLayerId};
+setLoadBasedAutoScaling pLayerId =
+    SetLoadBasedAutoScaling'
+    { _slbasUpScaling = Nothing
+    , _slbasEnable = Nothing
+    , _slbasDownScaling = Nothing
+    , _slbasLayerId = pLayerId
+    }
 
 -- | An @AutoScalingThresholds@ object with the upscaling threshold
 -- configuration. If the load exceeds these thresholds for a specified
@@ -123,8 +134,10 @@ instance ToQuery SetLoadBasedAutoScaling where
         toQuery = const mempty
 
 -- | /See:/ 'setLoadBasedAutoScalingResponse' smart constructor.
-data SetLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse' deriving (Eq, Read, Show)
+data SetLoadBasedAutoScalingResponse =
+    SetLoadBasedAutoScalingResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetLoadBasedAutoScalingResponse' smart constructor.
 setLoadBasedAutoScalingResponse :: SetLoadBasedAutoScalingResponse
-setLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse';
+setLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse'

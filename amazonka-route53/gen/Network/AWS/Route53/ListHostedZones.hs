@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.ListHostedZones
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,14 +47,14 @@ module Network.AWS.Route53.ListHostedZones
     , lhzrMarker
     , lhzrIsTruncated
     , lhzrMaxItems
-    , lhzrStatusCode
+    , lhzrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | To retrieve a list of your hosted zones, send a @GET@ request to the
 -- @2013-04-01\/hostedzone@ resource. The response to this request includes
@@ -79,11 +79,20 @@ import Network.AWS.Route53.Types
 -- * 'lhzMaxItems'
 --
 -- * 'lhzMarker'
-data ListHostedZones = ListHostedZones'{_lhzDelegationSetId :: Maybe Text, _lhzMaxItems :: Maybe Text, _lhzMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListHostedZones = ListHostedZones'
+    { _lhzDelegationSetId :: Maybe Text
+    , _lhzMaxItems        :: Maybe Text
+    , _lhzMarker          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListHostedZones' smart constructor.
 listHostedZones :: ListHostedZones
-listHostedZones = ListHostedZones'{_lhzDelegationSetId = Nothing, _lhzMaxItems = Nothing, _lhzMarker = Nothing};
+listHostedZones =
+    ListHostedZones'
+    { _lhzDelegationSetId = Nothing
+    , _lhzMaxItems = Nothing
+    , _lhzMarker = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 lhzDelegationSetId :: Lens' ListHostedZones (Maybe Text)
@@ -151,12 +160,27 @@ instance ToQuery ListHostedZones where
 --
 -- * 'lhzrMaxItems'
 --
--- * 'lhzrStatusCode'
-data ListHostedZonesResponse = ListHostedZonesResponse'{_lhzrNextMarker :: Maybe Text, _lhzrHostedZones :: [HostedZone], _lhzrMarker :: Text, _lhzrIsTruncated :: Bool, _lhzrMaxItems :: Text, _lhzrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lhzrStatus'
+data ListHostedZonesResponse = ListHostedZonesResponse'
+    { _lhzrNextMarker  :: Maybe Text
+    , _lhzrHostedZones :: [HostedZone]
+    , _lhzrMarker      :: Text
+    , _lhzrIsTruncated :: !Bool
+    , _lhzrMaxItems    :: Text
+    , _lhzrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListHostedZonesResponse' smart constructor.
 listHostedZonesResponse :: Text -> Bool -> Text -> Int -> ListHostedZonesResponse
-listHostedZonesResponse pMarker pIsTruncated pMaxItems pStatusCode = ListHostedZonesResponse'{_lhzrNextMarker = Nothing, _lhzrHostedZones = mempty, _lhzrMarker = pMarker, _lhzrIsTruncated = pIsTruncated, _lhzrMaxItems = pMaxItems, _lhzrStatusCode = pStatusCode};
+listHostedZonesResponse pMarker pIsTruncated pMaxItems pStatus =
+    ListHostedZonesResponse'
+    { _lhzrNextMarker = Nothing
+    , _lhzrHostedZones = mempty
+    , _lhzrMarker = pMarker
+    , _lhzrIsTruncated = pIsTruncated
+    , _lhzrMaxItems = pMaxItems
+    , _lhzrStatus = pStatus
+    }
 
 -- | Indicates where to continue listing hosted zones. If
 -- ListHostedZonesResponse$IsTruncated is @true@, make another request to
@@ -194,5 +218,5 @@ lhzrMaxItems :: Lens' ListHostedZonesResponse Text
 lhzrMaxItems = lens _lhzrMaxItems (\ s a -> s{_lhzrMaxItems = a});
 
 -- | FIXME: Undocumented member.
-lhzrStatusCode :: Lens' ListHostedZonesResponse Int
-lhzrStatusCode = lens _lhzrStatusCode (\ s a -> s{_lhzrStatusCode = a});
+lhzrStatus :: Lens' ListHostedZonesResponse Int
+lhzrStatus = lens _lhzrStatus (\ s a -> s{_lhzrStatus = a});

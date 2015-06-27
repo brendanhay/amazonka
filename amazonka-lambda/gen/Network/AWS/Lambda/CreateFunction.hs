@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Lambda.CreateFunction
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -56,10 +56,10 @@ module Network.AWS.Lambda.CreateFunction
     , fcDescription
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createFunction' smart constructor.
 --
@@ -80,11 +80,30 @@ import Network.AWS.Response
 -- * 'cfHandler'
 --
 -- * 'cfCode'
-data CreateFunction = CreateFunction'{_cfMemorySize :: Maybe Nat, _cfTimeout :: Maybe Nat, _cfDescription :: Maybe Text, _cfFunctionName :: Text, _cfRuntime :: Runtime, _cfRole :: Text, _cfHandler :: Text, _cfCode :: FunctionCode} deriving (Eq, Read, Show)
+data CreateFunction = CreateFunction'
+    { _cfMemorySize   :: Maybe Nat
+    , _cfTimeout      :: Maybe Nat
+    , _cfDescription  :: Maybe Text
+    , _cfFunctionName :: Text
+    , _cfRuntime      :: Runtime
+    , _cfRole         :: Text
+    , _cfHandler      :: Text
+    , _cfCode         :: FunctionCode
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateFunction' smart constructor.
 createFunction :: Text -> Runtime -> Text -> Text -> FunctionCode -> CreateFunction
-createFunction pFunctionName pRuntime pRole pHandler pCode = CreateFunction'{_cfMemorySize = Nothing, _cfTimeout = Nothing, _cfDescription = Nothing, _cfFunctionName = pFunctionName, _cfRuntime = pRuntime, _cfRole = pRole, _cfHandler = pHandler, _cfCode = pCode};
+createFunction pFunctionName pRuntime pRole pHandler pCode =
+    CreateFunction'
+    { _cfMemorySize = Nothing
+    , _cfTimeout = Nothing
+    , _cfDescription = Nothing
+    , _cfFunctionName = pFunctionName
+    , _cfRuntime = pRuntime
+    , _cfRole = pRole
+    , _cfHandler = pHandler
+    , _cfCode = pCode
+    }
 
 -- | The amount of memory, in MB, your Lambda function is given. Lambda uses
 -- this memory size to infer the amount of CPU and memory allocated to your

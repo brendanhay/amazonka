@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeNotificationConfigurations
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,14 +36,14 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     -- ** Response lenses
     , dncrNextToken
     , dncrNotificationConfigurations
-    , dncrStatusCode
+    , dncrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeNotificationConfigurations' smart constructor.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'dncNextToken'
 --
 -- * 'dncMaxRecords'
-data DescribeNotificationConfigurations = DescribeNotificationConfigurations'{_dncAutoScalingGroupNames :: Maybe [Text], _dncNextToken :: Maybe Text, _dncMaxRecords :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
+    { _dncAutoScalingGroupNames :: Maybe [Text]
+    , _dncNextToken             :: Maybe Text
+    , _dncMaxRecords            :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeNotificationConfigurations' smart constructor.
 describeNotificationConfigurations :: DescribeNotificationConfigurations
-describeNotificationConfigurations = DescribeNotificationConfigurations'{_dncAutoScalingGroupNames = Nothing, _dncNextToken = Nothing, _dncMaxRecords = Nothing};
+describeNotificationConfigurations =
+    DescribeNotificationConfigurations'
+    { _dncAutoScalingGroupNames = Nothing
+    , _dncNextToken = Nothing
+    , _dncMaxRecords = Nothing
+    }
 
 -- | The name of the group.
 dncAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
@@ -128,12 +137,21 @@ instance ToQuery DescribeNotificationConfigurations
 --
 -- * 'dncrNotificationConfigurations'
 --
--- * 'dncrStatusCode'
-data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'{_dncrNextToken :: Maybe Text, _dncrNotificationConfigurations :: [NotificationConfiguration], _dncrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dncrStatus'
+data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'
+    { _dncrNextToken                  :: Maybe Text
+    , _dncrNotificationConfigurations :: [NotificationConfiguration]
+    , _dncrStatus                     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeNotificationConfigurationsResponse' smart constructor.
 describeNotificationConfigurationsResponse :: Int -> DescribeNotificationConfigurationsResponse
-describeNotificationConfigurationsResponse pStatusCode = DescribeNotificationConfigurationsResponse'{_dncrNextToken = Nothing, _dncrNotificationConfigurations = mempty, _dncrStatusCode = pStatusCode};
+describeNotificationConfigurationsResponse pStatus =
+    DescribeNotificationConfigurationsResponse'
+    { _dncrNextToken = Nothing
+    , _dncrNotificationConfigurations = mempty
+    , _dncrStatus = pStatus
+    }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -145,5 +163,5 @@ dncrNotificationConfigurations :: Lens' DescribeNotificationConfigurationsRespon
 dncrNotificationConfigurations = lens _dncrNotificationConfigurations (\ s a -> s{_dncrNotificationConfigurations = a});
 
 -- | FIXME: Undocumented member.
-dncrStatusCode :: Lens' DescribeNotificationConfigurationsResponse Int
-dncrStatusCode = lens _dncrStatusCode (\ s a -> s{_dncrStatusCode = a});
+dncrStatus :: Lens' DescribeNotificationConfigurationsResponse Int
+dncrStatus = lens _dncrStatus (\ s a -> s{_dncrStatus = a});

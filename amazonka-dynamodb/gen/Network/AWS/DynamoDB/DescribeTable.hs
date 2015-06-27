@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DynamoDB.DescribeTable
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,24 +39,32 @@ module Network.AWS.DynamoDB.DescribeTable
     -- ** Response constructor
     , describeTableResponse
     -- ** Response lenses
-    , dtrTable
+    , desTable
+    , desStatus
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
--- | /See:/ 'describeTable' smart constructor.
+-- | Represents the input of a /DescribeTable/ operation.
+--
+-- /See:/ 'describeTable' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'desTableName'
-newtype DescribeTable = DescribeTable'{_desTableName :: Text} deriving (Eq, Read, Show)
+newtype DescribeTable = DescribeTable'
+    { _desTableName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTable' smart constructor.
 describeTable :: Text -> DescribeTable
-describeTable pTableName = DescribeTable'{_desTableName = pTableName};
+describeTable pTableName =
+    DescribeTable'
+    { _desTableName = pTableName
+    }
 
 -- | The name of the table to describe.
 desTableName :: Lens' DescribeTable Text
@@ -69,7 +77,8 @@ instance AWSRequest DescribeTable where
         response
           = receiveJSON
               (\ s h x ->
-                 DescribeTableResponse' <$> (x .?> "Table"))
+                 DescribeTableResponse' <$>
+                   (x .?> "Table") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTable where
         toHeaders
@@ -90,17 +99,32 @@ instance ToPath DescribeTable where
 instance ToQuery DescribeTable where
         toQuery = const mempty
 
--- | /See:/ 'describeTableResponse' smart constructor.
+-- | Represents the output of a /DescribeTable/ operation.
+--
+-- /See:/ 'describeTableResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrTable'
-newtype DescribeTableResponse = DescribeTableResponse'{_dtrTable :: Maybe TableDescription} deriving (Eq, Read, Show)
+-- * 'desTable'
+--
+-- * 'desStatus'
+data DescribeTableResponse = DescribeTableResponse'
+    { _desTable  :: Maybe TableDescription
+    , _desStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTableResponse' smart constructor.
-describeTableResponse :: DescribeTableResponse
-describeTableResponse = DescribeTableResponse'{_dtrTable = Nothing};
+describeTableResponse :: Int -> DescribeTableResponse
+describeTableResponse pStatus =
+    DescribeTableResponse'
+    { _desTable = Nothing
+    , _desStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-dtrTable :: Lens' DescribeTableResponse (Maybe TableDescription)
-dtrTable = lens _dtrTable (\ s a -> s{_dtrTable = a});
+desTable :: Lens' DescribeTableResponse (Maybe TableDescription)
+desTable = lens _desTable (\ s a -> s{_desTable = a});
+
+-- | FIXME: Undocumented member.
+desStatus :: Lens' DescribeTableResponse Int
+desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DetachNetworkInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.EC2.DetachNetworkInterface
     , detachNetworkInterfaceResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachNetworkInterface' smart constructor.
 --
@@ -48,11 +48,20 @@ import Network.AWS.Response
 -- * 'dniDryRun'
 --
 -- * 'dniAttachmentId'
-data DetachNetworkInterface = DetachNetworkInterface'{_dniForce :: Maybe Bool, _dniDryRun :: Maybe Bool, _dniAttachmentId :: Text} deriving (Eq, Read, Show)
+data DetachNetworkInterface = DetachNetworkInterface'
+    { _dniForce        :: Maybe Bool
+    , _dniDryRun       :: Maybe Bool
+    , _dniAttachmentId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachNetworkInterface' smart constructor.
 detachNetworkInterface :: Text -> DetachNetworkInterface
-detachNetworkInterface pAttachmentId = DetachNetworkInterface'{_dniForce = Nothing, _dniDryRun = Nothing, _dniAttachmentId = pAttachmentId};
+detachNetworkInterface pAttachmentId =
+    DetachNetworkInterface'
+    { _dniForce = Nothing
+    , _dniDryRun = Nothing
+    , _dniAttachmentId = pAttachmentId
+    }
 
 -- | Specifies whether to force a detachment.
 dniForce :: Lens' DetachNetworkInterface (Maybe Bool)
@@ -93,8 +102,10 @@ instance ToQuery DetachNetworkInterface where
                "AttachmentId" =: _dniAttachmentId]
 
 -- | /See:/ 'detachNetworkInterfaceResponse' smart constructor.
-data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse' deriving (Eq, Read, Show)
+data DetachNetworkInterfaceResponse =
+    DetachNetworkInterfaceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DetachNetworkInterfaceResponse' smart constructor.
 detachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse
-detachNetworkInterfaceResponse = DetachNetworkInterfaceResponse';
+detachNetworkInterfaceResponse = DetachNetworkInterfaceResponse'

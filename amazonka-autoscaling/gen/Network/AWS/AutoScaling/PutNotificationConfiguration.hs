@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.PutNotificationConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,10 +42,10 @@ module Network.AWS.AutoScaling.PutNotificationConfiguration
     , putNotificationConfigurationResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putNotificationConfiguration' smart constructor.
 --
@@ -56,11 +56,20 @@ import Network.AWS.Response
 -- * 'pncTopicARN'
 --
 -- * 'pncNotificationTypes'
-data PutNotificationConfiguration = PutNotificationConfiguration'{_pncAutoScalingGroupName :: Text, _pncTopicARN :: Text, _pncNotificationTypes :: [Text]} deriving (Eq, Read, Show)
+data PutNotificationConfiguration = PutNotificationConfiguration'
+    { _pncAutoScalingGroupName :: Text
+    , _pncTopicARN             :: Text
+    , _pncNotificationTypes    :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'PutNotificationConfiguration' smart constructor.
 putNotificationConfiguration :: Text -> Text -> PutNotificationConfiguration
-putNotificationConfiguration pAutoScalingGroupName pTopicARN = PutNotificationConfiguration'{_pncAutoScalingGroupName = pAutoScalingGroupName, _pncTopicARN = pTopicARN, _pncNotificationTypes = mempty};
+putNotificationConfiguration pAutoScalingGroupName pTopicARN =
+    PutNotificationConfiguration'
+    { _pncAutoScalingGroupName = pAutoScalingGroupName
+    , _pncTopicARN = pTopicARN
+    , _pncNotificationTypes = mempty
+    }
 
 -- | The name of the Auto Scaling group.
 pncAutoScalingGroupName :: Lens' PutNotificationConfiguration Text
@@ -104,8 +113,10 @@ instance ToQuery PutNotificationConfiguration where
                  toQueryList "member" _pncNotificationTypes]
 
 -- | /See:/ 'putNotificationConfigurationResponse' smart constructor.
-data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse' deriving (Eq, Read, Show)
+data PutNotificationConfigurationResponse =
+    PutNotificationConfigurationResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutNotificationConfigurationResponse' smart constructor.
 putNotificationConfigurationResponse :: PutNotificationConfigurationResponse
-putNotificationConfigurationResponse = PutNotificationConfigurationResponse';
+putNotificationConfigurationResponse = PutNotificationConfigurationResponse'

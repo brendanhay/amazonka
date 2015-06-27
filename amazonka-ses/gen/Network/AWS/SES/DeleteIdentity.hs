@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SES.DeleteIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.SES.DeleteIdentity
     -- ** Response constructor
     , deleteIdentityResponse
     -- ** Response lenses
-    , dirStatusCode
+    , dirStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SES.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
 -- | Represents a request instructing the service to delete an identity from
 -- the list of identities for the AWS Account.
@@ -50,11 +50,16 @@ import Network.AWS.SES.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'diIdentity'
-newtype DeleteIdentity = DeleteIdentity'{_diIdentity :: Text} deriving (Eq, Read, Show)
+newtype DeleteIdentity = DeleteIdentity'
+    { _diIdentity :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteIdentity' smart constructor.
 deleteIdentity :: Text -> DeleteIdentity
-deleteIdentity pIdentity = DeleteIdentity'{_diIdentity = pIdentity};
+deleteIdentity pIdentity =
+    DeleteIdentity'
+    { _diIdentity = pIdentity
+    }
 
 -- | The identity to be removed from the list of identities for the AWS
 -- Account.
@@ -90,13 +95,18 @@ instance ToQuery DeleteIdentity where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirStatusCode'
-newtype DeleteIdentityResponse = DeleteIdentityResponse'{_dirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dirStatus'
+newtype DeleteIdentityResponse = DeleteIdentityResponse'
+    { _dirStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteIdentityResponse' smart constructor.
 deleteIdentityResponse :: Int -> DeleteIdentityResponse
-deleteIdentityResponse pStatusCode = DeleteIdentityResponse'{_dirStatusCode = pStatusCode};
+deleteIdentityResponse pStatus =
+    DeleteIdentityResponse'
+    { _dirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-dirStatusCode :: Lens' DeleteIdentityResponse Int
-dirStatusCode = lens _dirStatusCode (\ s a -> s{_dirStatusCode = a});
+dirStatus :: Lens' DeleteIdentityResponse Int
+dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});

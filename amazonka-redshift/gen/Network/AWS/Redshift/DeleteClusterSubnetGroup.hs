@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DeleteClusterSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,21 +32,26 @@ module Network.AWS.Redshift.DeleteClusterSubnetGroup
     , deleteClusterSubnetGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteClusterSubnetGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcsgClusterSubnetGroupName'
-newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'{_dcsgClusterSubnetGroupName :: Text} deriving (Eq, Read, Show)
+newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'
+    { _dcsgClusterSubnetGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteClusterSubnetGroup' smart constructor.
 deleteClusterSubnetGroup :: Text -> DeleteClusterSubnetGroup
-deleteClusterSubnetGroup pClusterSubnetGroupName = DeleteClusterSubnetGroup'{_dcsgClusterSubnetGroupName = pClusterSubnetGroupName};
+deleteClusterSubnetGroup pClusterSubnetGroupName =
+    DeleteClusterSubnetGroup'
+    { _dcsgClusterSubnetGroupName = pClusterSubnetGroupName
+    }
 
 -- | The name of the cluster subnet group name to be deleted.
 dcsgClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup Text
@@ -76,8 +81,10 @@ instance ToQuery DeleteClusterSubnetGroup where
                  _dcsgClusterSubnetGroupName]
 
 -- | /See:/ 'deleteClusterSubnetGroupResponse' smart constructor.
-data DeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse' deriving (Eq, Read, Show)
+data DeleteClusterSubnetGroupResponse =
+    DeleteClusterSubnetGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteClusterSubnetGroupResponse' smart constructor.
 deleteClusterSubnetGroupResponse :: DeleteClusterSubnetGroupResponse
-deleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse';
+deleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse'

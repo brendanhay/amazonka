@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeRegions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.EC2.DescribeRegions
     , describeRegionsResponse
     -- ** Response lenses
     , drrRegions
-    , drrStatusCode
+    , drrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeRegions' smart constructor.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'dr1Filters'
 --
 -- * 'dr1DryRun'
-data DescribeRegions = DescribeRegions'{_dr1RegionNames :: Maybe [Text], _dr1Filters :: Maybe [Filter], _dr1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeRegions = DescribeRegions'
+    { _dr1RegionNames :: Maybe [Text]
+    , _dr1Filters     :: Maybe [Filter]
+    , _dr1DryRun      :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeRegions' smart constructor.
 describeRegions :: DescribeRegions
-describeRegions = DescribeRegions'{_dr1RegionNames = Nothing, _dr1Filters = Nothing, _dr1DryRun = Nothing};
+describeRegions =
+    DescribeRegions'
+    { _dr1RegionNames = Nothing
+    , _dr1Filters = Nothing
+    , _dr1DryRun = Nothing
+    }
 
 -- | The names of one or more regions.
 dr1RegionNames :: Lens' DescribeRegions [Text]
@@ -114,17 +123,24 @@ instance ToQuery DescribeRegions where
 --
 -- * 'drrRegions'
 --
--- * 'drrStatusCode'
-data DescribeRegionsResponse = DescribeRegionsResponse'{_drrRegions :: Maybe [RegionInfo], _drrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'drrStatus'
+data DescribeRegionsResponse = DescribeRegionsResponse'
+    { _drrRegions :: Maybe [RegionInfo]
+    , _drrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeRegionsResponse' smart constructor.
 describeRegionsResponse :: Int -> DescribeRegionsResponse
-describeRegionsResponse pStatusCode = DescribeRegionsResponse'{_drrRegions = Nothing, _drrStatusCode = pStatusCode};
+describeRegionsResponse pStatus =
+    DescribeRegionsResponse'
+    { _drrRegions = Nothing
+    , _drrStatus = pStatus
+    }
 
 -- | Information about one or more regions.
 drrRegions :: Lens' DescribeRegionsResponse [RegionInfo]
 drrRegions = lens _drrRegions (\ s a -> s{_drrRegions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drrStatusCode :: Lens' DescribeRegionsResponse Int
-drrStatusCode = lens _drrStatusCode (\ s a -> s{_drrStatusCode = a});
+drrStatus :: Lens' DescribeRegionsResponse Int
+drrStatus = lens _drrStatus (\ s a -> s{_drrStatus = a});

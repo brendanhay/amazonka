@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ChangePassword
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.IAM.ChangePassword
     , changePasswordResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'changePassword' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'cpOldPassword'
 --
 -- * 'cpNewPassword'
-data ChangePassword = ChangePassword'{_cpOldPassword :: Sensitive Text, _cpNewPassword :: Sensitive Text} deriving (Eq, Read, Show)
+data ChangePassword = ChangePassword'
+    { _cpOldPassword :: Sensitive Text
+    , _cpNewPassword :: Sensitive Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ChangePassword' smart constructor.
 changePassword :: Text -> Text -> ChangePassword
-changePassword pOldPassword pNewPassword = ChangePassword'{_cpOldPassword = _Sensitive # pOldPassword, _cpNewPassword = _Sensitive # pNewPassword};
+changePassword pOldPassword pNewPassword =
+    ChangePassword'
+    { _cpOldPassword = _Sensitive # pOldPassword
+    , _cpNewPassword = _Sensitive # pNewPassword
+    }
 
 -- | The IAM user\'s current password.
 cpOldPassword :: Lens' ChangePassword Text
@@ -87,8 +94,10 @@ instance ToQuery ChangePassword where
                "NewPassword" =: _cpNewPassword]
 
 -- | /See:/ 'changePasswordResponse' smart constructor.
-data ChangePasswordResponse = ChangePasswordResponse' deriving (Eq, Read, Show)
+data ChangePasswordResponse =
+    ChangePasswordResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ChangePasswordResponse' smart constructor.
 changePasswordResponse :: ChangePasswordResponse
-changePasswordResponse = ChangePasswordResponse';
+changePasswordResponse = ChangePasswordResponse'

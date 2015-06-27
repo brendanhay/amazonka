@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DynamoDB.GetItem
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,14 +46,17 @@ module Network.AWS.DynamoDB.GetItem
     -- ** Response lenses
     , girConsumedCapacity
     , girItem
+    , girStatus
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
--- | /See:/ 'getItem' smart constructor.
+-- | Represents the input of a /GetItem/ operation.
+--
+-- /See:/ 'getItem' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -70,11 +73,28 @@ import Network.AWS.DynamoDB.Types
 -- * 'giTableName'
 --
 -- * 'giKey'
-data GetItem = GetItem'{_giProjectionExpression :: Maybe Text, _giConsistentRead :: Maybe Bool, _giExpressionAttributeNames :: Maybe (HashMap Text Text), _giAttributesToGet :: Maybe (List1 Text), _giReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _giTableName :: Text, _giKey :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
+data GetItem = GetItem'
+    { _giProjectionExpression     :: Maybe Text
+    , _giConsistentRead           :: Maybe Bool
+    , _giExpressionAttributeNames :: Maybe (Map Text Text)
+    , _giAttributesToGet          :: Maybe (List1 Text)
+    , _giReturnConsumedCapacity   :: Maybe ReturnConsumedCapacity
+    , _giTableName                :: Text
+    , _giKey                      :: Map Text AttributeValue
+    } deriving (Eq,Read,Show)
 
 -- | 'GetItem' smart constructor.
 getItem :: Text -> GetItem
-getItem pTableName = GetItem'{_giProjectionExpression = Nothing, _giConsistentRead = Nothing, _giExpressionAttributeNames = Nothing, _giAttributesToGet = Nothing, _giReturnConsumedCapacity = Nothing, _giTableName = pTableName, _giKey = mempty};
+getItem pTableName =
+    GetItem'
+    { _giProjectionExpression = Nothing
+    , _giConsistentRead = Nothing
+    , _giExpressionAttributeNames = Nothing
+    , _giAttributesToGet = Nothing
+    , _giReturnConsumedCapacity = Nothing
+    , _giTableName = pTableName
+    , _giKey = mempty
+    }
 
 -- | A string that identifies one or more attributes to retrieve from the
 -- table. These attributes can include scalars, sets, or elements of a JSON
@@ -134,8 +154,8 @@ giConsistentRead = lens _giConsistentRead (\ s a -> s{_giConsistentRead = a});
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-giExpressionAttributeNames :: Lens' GetItem (Maybe (HashMap Text Text))
-giExpressionAttributeNames = lens _giExpressionAttributeNames (\ s a -> s{_giExpressionAttributeNames = a}) . mapping _Coerce;
+giExpressionAttributeNames :: Lens' GetItem (HashMap Text Text)
+giExpressionAttributeNames = lens _giExpressionAttributeNames (\ s a -> s{_giExpressionAttributeNames = a}) . _Default . _Map;
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /ProjectionExpression/ instead. Do not combine legacy
@@ -171,7 +191,7 @@ giTableName = lens _giTableName (\ s a -> s{_giTableName = a});
 -- attribute. For a hash-and-range type primary key, you must provide both
 -- the hash attribute and the range attribute.
 giKey :: Lens' GetItem (HashMap Text AttributeValue)
-giKey = lens _giKey (\ s a -> s{_giKey = a}) . _Coerce;
+giKey = lens _giKey (\ s a -> s{_giKey = a}) . _Map;
 
 instance AWSRequest GetItem where
         type Sv GetItem = DynamoDB
@@ -182,7 +202,8 @@ instance AWSRequest GetItem where
               (\ s h x ->
                  GetItemResponse' <$>
                    (x .?> "ConsumedCapacity") <*>
-                     (x .?> "Item" .!@ mempty))
+                     (x .?> "Item" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetItem where
         toHeaders
@@ -211,18 +232,31 @@ instance ToPath GetItem where
 instance ToQuery GetItem where
         toQuery = const mempty
 
--- | /See:/ 'getItemResponse' smart constructor.
+-- | Represents the output of a /GetItem/ operation.
+--
+-- /See:/ 'getItemResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'girConsumedCapacity'
 --
 -- * 'girItem'
-data GetItemResponse = GetItemResponse'{_girConsumedCapacity :: Maybe ConsumedCapacity, _girItem :: Maybe (HashMap Text AttributeValue)} deriving (Eq, Read, Show)
+--
+-- * 'girStatus'
+data GetItemResponse = GetItemResponse'
+    { _girConsumedCapacity :: Maybe ConsumedCapacity
+    , _girItem             :: Maybe (Map Text AttributeValue)
+    , _girStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetItemResponse' smart constructor.
-getItemResponse :: GetItemResponse
-getItemResponse = GetItemResponse'{_girConsumedCapacity = Nothing, _girItem = Nothing};
+getItemResponse :: Int -> GetItemResponse
+getItemResponse pStatus =
+    GetItemResponse'
+    { _girConsumedCapacity = Nothing
+    , _girItem = Nothing
+    , _girStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 girConsumedCapacity :: Lens' GetItemResponse (Maybe ConsumedCapacity)
@@ -230,5 +264,9 @@ girConsumedCapacity = lens _girConsumedCapacity (\ s a -> s{_girConsumedCapacity
 
 -- | A map of attribute names to /AttributeValue/ objects, as specified by
 -- /AttributesToGet/.
-girItem :: Lens' GetItemResponse (Maybe (HashMap Text AttributeValue))
-girItem = lens _girItem (\ s a -> s{_girItem = a}) . mapping _Coerce;
+girItem :: Lens' GetItemResponse (HashMap Text AttributeValue)
+girItem = lens _girItem (\ s a -> s{_girItem = a}) . _Default . _Map;
+
+-- | FIXME: Undocumented member.
+girStatus :: Lens' GetItemResponse Int
+girStatus = lens _girStatus (\ s a -> s{_girStatus = a});

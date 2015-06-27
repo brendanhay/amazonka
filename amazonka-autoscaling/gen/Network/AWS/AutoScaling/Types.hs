@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.AutoScaling.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -259,71 +258,90 @@ module Network.AWS.AutoScaling.Types
     , tdValue
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2011-01-01@ of the Amazon Auto Scaling SDK.
 data AutoScaling
 
 instance AWSService AutoScaling where
     type Sg AutoScaling = V4
-
     service = const svc
       where
-        svc :: Service AutoScaling
-        svc = Service
-            { _svcAbbrev   = "AutoScaling"
-            , _svcPrefix   = "autoscaling"
-            , _svcVersion  = "2011-01-01"
+        svc =
+            Service
+            { _svcAbbrev = "AutoScaling"
+            , _svcPrefix = "autoscaling"
+            , _svcVersion = "2011-01-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | You have already reached a limit for your Auto Scaling resources (for
 -- example, groups, launch configurations, or lifecycle hooks). For more
 -- information, see DescribeAccountLimits.
-_LimitExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded";
+_LimitExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
 
 -- | You already have an Auto Scaling group or launch configuration with this
 -- name.
-_AlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_AlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AlreadyExists";
+_AlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_AlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
 
 -- | The Auto Scaling group or launch configuration can\'t be deleted because
 -- it is in use.
-_ResourceInUseFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceInUseFault = _ServiceError . hasStatus 400 . hasCode "ResourceInUse";
+_ResourceInUseFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseFault = _ServiceError . hasStatus 400 . hasCode "ResourceInUse"
 
 -- | The @NextToken@ value is not valid.
-_InvalidNextToken :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken";
+_InvalidNextToken :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
 -- | The Auto Scaling group can\'t be deleted because there are scaling
 -- activities in progress.
-_ScalingActivityInProgressFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ScalingActivityInProgressFault = _ServiceError . hasStatus 400 . hasCode "ScalingActivityInProgress";
+_ScalingActivityInProgressFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ScalingActivityInProgressFault =
+    _ServiceError . hasStatus 400 . hasCode "ScalingActivityInProgress"
 
 -- | You already have a pending update to an Auto Scaling resource (for
 -- example, a group, instance, or load balancer).
-_ResourceContentionFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceContentionFault = _ServiceError . hasStatus 500 . hasCode "ResourceContention";
+_ResourceContentionFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceContentionFault =
+    _ServiceError . hasStatus 500 . hasCode "ResourceContention"
 
-data LifecycleState = PendingWait | Terminating | TerminatingWait | Pending | Standby | EnteringStandby | InService | Detached | Detaching | Quarantined | PendingProceed | Terminated | TerminatingProceed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data LifecycleState
+    = PendingWait
+    | Terminating
+    | TerminatingWait
+    | Pending
+    | Standby
+    | EnteringStandby
+    | InService
+    | Detached
+    | Detaching
+    | Quarantined
+    | PendingProceed
+    | Terminated
+    | TerminatingProceed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText LifecycleState where
     parser = takeLowerText >>= \case
@@ -365,7 +383,18 @@ instance ToHeader LifecycleState
 instance FromXML LifecycleState where
     parseXML = parseXMLText "LifecycleState"
 
-data ScalingActivityStatusCode = WaitingForSpotInstanceId | WaitingForSpotInstanceRequestId | WaitingForInstanceId | Successful | InProgress | PreInService | WaitingForELBConnectionDraining | MidLifecycleAction | Cancelled | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ScalingActivityStatusCode
+    = WaitingForSpotInstanceId
+    | WaitingForSpotInstanceRequestId
+    | WaitingForInstanceId
+    | Successful
+    | InProgress
+    | PreInService
+    | WaitingForELBConnectionDraining
+    | MidLifecycleAction
+    | Cancelled
+    | Failed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ScalingActivityStatusCode where
     parser = takeLowerText >>= \case
@@ -428,11 +457,34 @@ instance FromXML ScalingActivityStatusCode where
 -- * 'actStartTime'
 --
 -- * 'actStatusCode'
-data Activity = Activity'{_actProgress :: Maybe Int, _actStatusMessage :: Maybe Text, _actDetails :: Maybe Text, _actEndTime :: Maybe ISO8601, _actDescription :: Maybe Text, _actActivityId :: Text, _actAutoScalingGroupName :: Text, _actCause :: Text, _actStartTime :: ISO8601, _actStatusCode :: ScalingActivityStatusCode} deriving (Eq, Read, Show)
+data Activity = Activity'
+    { _actProgress             :: Maybe Int
+    , _actStatusMessage        :: Maybe Text
+    , _actDetails              :: Maybe Text
+    , _actEndTime              :: Maybe ISO8601
+    , _actDescription          :: Maybe Text
+    , _actActivityId           :: Text
+    , _actAutoScalingGroupName :: Text
+    , _actCause                :: Text
+    , _actStartTime            :: ISO8601
+    , _actStatusCode           :: ScalingActivityStatusCode
+    } deriving (Eq,Read,Show)
 
 -- | 'Activity' smart constructor.
 activity :: Text -> Text -> Text -> UTCTime -> ScalingActivityStatusCode -> Activity
-activity pActivityId pAutoScalingGroupName pCause pStartTime pStatusCode = Activity'{_actProgress = Nothing, _actStatusMessage = Nothing, _actDetails = Nothing, _actEndTime = Nothing, _actDescription = Nothing, _actActivityId = pActivityId, _actAutoScalingGroupName = pAutoScalingGroupName, _actCause = pCause, _actStartTime = _Time # pStartTime, _actStatusCode = pStatusCode};
+activity pActivityId pAutoScalingGroupName pCause pStartTime pStatusCode =
+    Activity'
+    { _actProgress = Nothing
+    , _actStatusMessage = Nothing
+    , _actDetails = Nothing
+    , _actEndTime = Nothing
+    , _actDescription = Nothing
+    , _actActivityId = pActivityId
+    , _actAutoScalingGroupName = pAutoScalingGroupName
+    , _actCause = pCause
+    , _actStartTime = _Time # pStartTime
+    , _actStatusCode = pStatusCode
+    }
 
 -- | A value between 0 and 100 that indicates the progress of the activity.
 actProgress :: Lens' Activity (Maybe Int)
@@ -498,11 +550,16 @@ instance FromXML Activity where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'atAdjustmentType'
-newtype AdjustmentType = AdjustmentType'{_atAdjustmentType :: Maybe Text} deriving (Eq, Read, Show)
+newtype AdjustmentType = AdjustmentType'
+    { _atAdjustmentType :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AdjustmentType' smart constructor.
 adjustmentType :: AdjustmentType
-adjustmentType = AdjustmentType'{_atAdjustmentType = Nothing};
+adjustmentType =
+    AdjustmentType'
+    { _atAdjustmentType = Nothing
+    }
 
 -- | The policy adjustment type. The valid values are @ChangeInCapacity@,
 -- @ExactCapacity@, and @PercentChangeInCapacity@.
@@ -522,11 +579,18 @@ instance FromXML AdjustmentType where
 -- * 'alaAlarmName'
 --
 -- * 'alaAlarmARN'
-data Alarm = Alarm'{_alaAlarmName :: Maybe Text, _alaAlarmARN :: Maybe Text} deriving (Eq, Read, Show)
+data Alarm = Alarm'
+    { _alaAlarmName :: Maybe Text
+    , _alaAlarmARN  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Alarm' smart constructor.
 alarm :: Alarm
-alarm = Alarm'{_alaAlarmName = Nothing, _alaAlarmARN = Nothing};
+alarm =
+    Alarm'
+    { _alaAlarmName = Nothing
+    , _alaAlarmARN = Nothing
+    }
 
 -- | The name of the alarm.
 alaAlarmName :: Lens' Alarm (Maybe Text)
@@ -586,11 +650,54 @@ instance FromXML Alarm where
 -- * 'asgHealthCheckType'
 --
 -- * 'asgCreatedTime'
-data AutoScalingGroup = AutoScalingGroup'{_asgStatus :: Maybe Text, _asgTerminationPolicies :: Maybe [Text], _asgHealthCheckGracePeriod :: Maybe Int, _asgVPCZoneIdentifier :: Maybe Text, _asgEnabledMetrics :: Maybe [EnabledMetric], _asgInstances :: Maybe [Instance], _asgAutoScalingGroupARN :: Maybe Text, _asgSuspendedProcesses :: Maybe [SuspendedProcess], _asgPlacementGroup :: Maybe Text, _asgLoadBalancerNames :: Maybe [Text], _asgTags :: Maybe [TagDescription], _asgAutoScalingGroupName :: Text, _asgLaunchConfigurationName :: Text, _asgMinSize :: Int, _asgMaxSize :: Int, _asgDesiredCapacity :: Int, _asgDefaultCooldown :: Int, _asgAvailabilityZones :: List1 Text, _asgHealthCheckType :: Text, _asgCreatedTime :: ISO8601} deriving (Eq, Read, Show)
+data AutoScalingGroup = AutoScalingGroup'
+    { _asgStatus                  :: Maybe Text
+    , _asgTerminationPolicies     :: Maybe [Text]
+    , _asgHealthCheckGracePeriod  :: Maybe Int
+    , _asgVPCZoneIdentifier       :: Maybe Text
+    , _asgEnabledMetrics          :: Maybe [EnabledMetric]
+    , _asgInstances               :: Maybe [Instance]
+    , _asgAutoScalingGroupARN     :: Maybe Text
+    , _asgSuspendedProcesses      :: Maybe [SuspendedProcess]
+    , _asgPlacementGroup          :: Maybe Text
+    , _asgLoadBalancerNames       :: Maybe [Text]
+    , _asgTags                    :: Maybe [TagDescription]
+    , _asgAutoScalingGroupName    :: Text
+    , _asgLaunchConfigurationName :: Text
+    , _asgMinSize                 :: !Int
+    , _asgMaxSize                 :: !Int
+    , _asgDesiredCapacity         :: !Int
+    , _asgDefaultCooldown         :: !Int
+    , _asgAvailabilityZones       :: List1 Text
+    , _asgHealthCheckType         :: Text
+    , _asgCreatedTime             :: ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'AutoScalingGroup' smart constructor.
 autoScalingGroup :: Text -> Text -> Int -> Int -> Int -> Int -> NonEmpty Text -> Text -> UTCTime -> AutoScalingGroup
-autoScalingGroup pAutoScalingGroupName pLaunchConfigurationName pMinSize pMaxSize pDesiredCapacity pDefaultCooldown pAvailabilityZones pHealthCheckType pCreatedTime = AutoScalingGroup'{_asgStatus = Nothing, _asgTerminationPolicies = Nothing, _asgHealthCheckGracePeriod = Nothing, _asgVPCZoneIdentifier = Nothing, _asgEnabledMetrics = Nothing, _asgInstances = Nothing, _asgAutoScalingGroupARN = Nothing, _asgSuspendedProcesses = Nothing, _asgPlacementGroup = Nothing, _asgLoadBalancerNames = Nothing, _asgTags = Nothing, _asgAutoScalingGroupName = pAutoScalingGroupName, _asgLaunchConfigurationName = pLaunchConfigurationName, _asgMinSize = pMinSize, _asgMaxSize = pMaxSize, _asgDesiredCapacity = pDesiredCapacity, _asgDefaultCooldown = pDefaultCooldown, _asgAvailabilityZones = _List1 # pAvailabilityZones, _asgHealthCheckType = pHealthCheckType, _asgCreatedTime = _Time # pCreatedTime};
+autoScalingGroup pAutoScalingGroupName pLaunchConfigurationName pMinSize pMaxSize pDesiredCapacity pDefaultCooldown pAvailabilityZones pHealthCheckType pCreatedTime =
+    AutoScalingGroup'
+    { _asgStatus = Nothing
+    , _asgTerminationPolicies = Nothing
+    , _asgHealthCheckGracePeriod = Nothing
+    , _asgVPCZoneIdentifier = Nothing
+    , _asgEnabledMetrics = Nothing
+    , _asgInstances = Nothing
+    , _asgAutoScalingGroupARN = Nothing
+    , _asgSuspendedProcesses = Nothing
+    , _asgPlacementGroup = Nothing
+    , _asgLoadBalancerNames = Nothing
+    , _asgTags = Nothing
+    , _asgAutoScalingGroupName = pAutoScalingGroupName
+    , _asgLaunchConfigurationName = pLaunchConfigurationName
+    , _asgMinSize = pMinSize
+    , _asgMaxSize = pMaxSize
+    , _asgDesiredCapacity = pDesiredCapacity
+    , _asgDefaultCooldown = pDefaultCooldown
+    , _asgAvailabilityZones = _List1 # pAvailabilityZones
+    , _asgHealthCheckType = pHealthCheckType
+    , _asgCreatedTime = _Time # pCreatedTime
+    }
 
 -- | The current state of the group when DeleteAutoScalingGroup is in
 -- progress.
@@ -737,11 +844,26 @@ instance FromXML AutoScalingGroup where
 -- * 'asidHealthStatus'
 --
 -- * 'asidLaunchConfigurationName'
-data AutoScalingInstanceDetails = AutoScalingInstanceDetails'{_asidInstanceId :: Text, _asidAutoScalingGroupName :: Text, _asidAvailabilityZone :: Text, _asidLifecycleState :: Text, _asidHealthStatus :: Text, _asidLaunchConfigurationName :: Text} deriving (Eq, Read, Show)
+data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
+    { _asidInstanceId              :: Text
+    , _asidAutoScalingGroupName    :: Text
+    , _asidAvailabilityZone        :: Text
+    , _asidLifecycleState          :: Text
+    , _asidHealthStatus            :: Text
+    , _asidLaunchConfigurationName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AutoScalingInstanceDetails' smart constructor.
 autoScalingInstanceDetails :: Text -> Text -> Text -> Text -> Text -> Text -> AutoScalingInstanceDetails
-autoScalingInstanceDetails pInstanceId pAutoScalingGroupName pAvailabilityZone pLifecycleState pHealthStatus pLaunchConfigurationName = AutoScalingInstanceDetails'{_asidInstanceId = pInstanceId, _asidAutoScalingGroupName = pAutoScalingGroupName, _asidAvailabilityZone = pAvailabilityZone, _asidLifecycleState = pLifecycleState, _asidHealthStatus = pHealthStatus, _asidLaunchConfigurationName = pLaunchConfigurationName};
+autoScalingInstanceDetails pInstanceId pAutoScalingGroupName pAvailabilityZone pLifecycleState pHealthStatus pLaunchConfigurationName =
+    AutoScalingInstanceDetails'
+    { _asidInstanceId = pInstanceId
+    , _asidAutoScalingGroupName = pAutoScalingGroupName
+    , _asidAvailabilityZone = pAvailabilityZone
+    , _asidLifecycleState = pLifecycleState
+    , _asidHealthStatus = pHealthStatus
+    , _asidLaunchConfigurationName = pLaunchConfigurationName
+    }
 
 -- | The ID of the instance.
 asidInstanceId :: Lens' AutoScalingInstanceDetails Text
@@ -793,11 +915,22 @@ instance FromXML AutoScalingInstanceDetails where
 -- * 'bdmEBS'
 --
 -- * 'bdmDeviceName'
-data BlockDeviceMapping = BlockDeviceMapping'{_bdmVirtualName :: Maybe Text, _bdmNoDevice :: Maybe Bool, _bdmEBS :: Maybe EBS, _bdmDeviceName :: Text} deriving (Eq, Read, Show)
+data BlockDeviceMapping = BlockDeviceMapping'
+    { _bdmVirtualName :: Maybe Text
+    , _bdmNoDevice    :: Maybe Bool
+    , _bdmEBS         :: Maybe EBS
+    , _bdmDeviceName  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'BlockDeviceMapping' smart constructor.
 blockDeviceMapping :: Text -> BlockDeviceMapping
-blockDeviceMapping pDeviceName = BlockDeviceMapping'{_bdmVirtualName = Nothing, _bdmNoDevice = Nothing, _bdmEBS = Nothing, _bdmDeviceName = pDeviceName};
+blockDeviceMapping pDeviceName =
+    BlockDeviceMapping'
+    { _bdmVirtualName = Nothing
+    , _bdmNoDevice = Nothing
+    , _bdmEBS = Nothing
+    , _bdmDeviceName = pDeviceName
+    }
 
 -- | The name of the virtual device, @ephemeral0@ to @ephemeral3@.
 bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
@@ -849,11 +982,24 @@ instance ToQuery BlockDeviceMapping where
 -- * 'ebsVolumeType'
 --
 -- * 'ebsSnapshotId'
-data EBS = EBS'{_ebsDeleteOnTermination :: Maybe Bool, _ebsVolumeSize :: Maybe Nat, _ebsIOPS :: Maybe Nat, _ebsVolumeType :: Maybe Text, _ebsSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
+data EBS = EBS'
+    { _ebsDeleteOnTermination :: Maybe Bool
+    , _ebsVolumeSize          :: Maybe Nat
+    , _ebsIOPS                :: Maybe Nat
+    , _ebsVolumeType          :: Maybe Text
+    , _ebsSnapshotId          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EBS' smart constructor.
 ebs :: EBS
-ebs = EBS'{_ebsDeleteOnTermination = Nothing, _ebsVolumeSize = Nothing, _ebsIOPS = Nothing, _ebsVolumeType = Nothing, _ebsSnapshotId = Nothing};
+ebs =
+    EBS'
+    { _ebsDeleteOnTermination = Nothing
+    , _ebsVolumeSize = Nothing
+    , _ebsIOPS = Nothing
+    , _ebsVolumeType = Nothing
+    , _ebsSnapshotId = Nothing
+    }
 
 -- | Indicates whether to delete the volume on instance termination.
 --
@@ -921,11 +1067,18 @@ instance ToQuery EBS where
 -- * 'emGranularity'
 --
 -- * 'emMetric'
-data EnabledMetric = EnabledMetric'{_emGranularity :: Maybe Text, _emMetric :: Maybe Text} deriving (Eq, Read, Show)
+data EnabledMetric = EnabledMetric'
+    { _emGranularity :: Maybe Text
+    , _emMetric      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EnabledMetric' smart constructor.
 enabledMetric :: EnabledMetric
-enabledMetric = EnabledMetric'{_emGranularity = Nothing, _emMetric = Nothing};
+enabledMetric =
+    EnabledMetric'
+    { _emGranularity = Nothing
+    , _emMetric = Nothing
+    }
 
 -- | The granularity of the metric. The only valid value is @1Minute@.
 emGranularity :: Lens' EnabledMetric (Maybe Text)
@@ -966,11 +1119,18 @@ instance FromXML EnabledMetric where
 -- * 'filValues'
 --
 -- * 'filName'
-data Filter = Filter'{_filValues :: Maybe [Text], _filName :: Text} deriving (Eq, Read, Show)
+data Filter = Filter'
+    { _filValues :: Maybe [Text]
+    , _filName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Filter' smart constructor.
 filter' :: Text -> Filter
-filter' pName = Filter'{_filValues = Nothing, _filName = pName};
+filter' pName =
+    Filter'
+    { _filValues = Nothing
+    , _filName = pName
+    }
 
 -- | The value of the filter.
 filValues :: Lens' Filter [Text]
@@ -1003,11 +1163,24 @@ instance ToQuery Filter where
 -- * 'insHealthStatus'
 --
 -- * 'insLaunchConfigurationName'
-data Instance = Instance'{_insInstanceId :: Text, _insAvailabilityZone :: Text, _insLifecycleState :: LifecycleState, _insHealthStatus :: Text, _insLaunchConfigurationName :: Text} deriving (Eq, Read, Show)
+data Instance = Instance'
+    { _insInstanceId              :: Text
+    , _insAvailabilityZone        :: Text
+    , _insLifecycleState          :: LifecycleState
+    , _insHealthStatus            :: Text
+    , _insLaunchConfigurationName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Instance' smart constructor.
 instance' :: Text -> Text -> LifecycleState -> Text -> Text -> Instance
-instance' pInstanceId pAvailabilityZone pLifecycleState pHealthStatus pLaunchConfigurationName = Instance'{_insInstanceId = pInstanceId, _insAvailabilityZone = pAvailabilityZone, _insLifecycleState = pLifecycleState, _insHealthStatus = pHealthStatus, _insLaunchConfigurationName = pLaunchConfigurationName};
+instance' pInstanceId pAvailabilityZone pLifecycleState pHealthStatus pLaunchConfigurationName =
+    Instance'
+    { _insInstanceId = pInstanceId
+    , _insAvailabilityZone = pAvailabilityZone
+    , _insLifecycleState = pLifecycleState
+    , _insHealthStatus = pHealthStatus
+    , _insLaunchConfigurationName = pLaunchConfigurationName
+    }
 
 -- | The ID of the instance.
 insInstanceId :: Lens' Instance Text
@@ -1045,11 +1218,16 @@ instance FromXML Instance where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'imEnabled'
-newtype InstanceMonitoring = InstanceMonitoring'{_imEnabled :: Maybe Bool} deriving (Eq, Read, Show)
+newtype InstanceMonitoring = InstanceMonitoring'
+    { _imEnabled :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceMonitoring' smart constructor.
 instanceMonitoring :: InstanceMonitoring
-instanceMonitoring = InstanceMonitoring'{_imEnabled = Nothing};
+instanceMonitoring =
+    InstanceMonitoring'
+    { _imEnabled = Nothing
+    }
 
 -- | If @True@, instance monitoring is enabled.
 imEnabled :: Lens' InstanceMonitoring (Maybe Bool)
@@ -1106,11 +1284,52 @@ instance ToQuery InstanceMonitoring where
 -- * 'lcInstanceType'
 --
 -- * 'lcCreatedTime'
-data LaunchConfiguration = LaunchConfiguration'{_lcSecurityGroups :: Maybe [Text], _lcAssociatePublicIPAddress :: Maybe Bool, _lcInstanceMonitoring :: Maybe InstanceMonitoring, _lcSpotPrice :: Maybe Text, _lcKeyName :: Maybe Text, _lcClassicLinkVPCSecurityGroups :: Maybe [Text], _lcRAMDiskId :: Maybe Text, _lcKernelId :: Maybe Text, _lcEBSOptimized :: Maybe Bool, _lcUserData :: Maybe Text, _lcClassicLinkVPCId :: Maybe Text, _lcIAMInstanceProfile :: Maybe Text, _lcLaunchConfigurationARN :: Maybe Text, _lcPlacementTenancy :: Maybe Text, _lcBlockDeviceMappings :: Maybe [BlockDeviceMapping], _lcLaunchConfigurationName :: Text, _lcImageId :: Text, _lcInstanceType :: Text, _lcCreatedTime :: ISO8601} deriving (Eq, Read, Show)
+data LaunchConfiguration = LaunchConfiguration'
+    { _lcSecurityGroups               :: Maybe [Text]
+    , _lcAssociatePublicIPAddress     :: Maybe Bool
+    , _lcInstanceMonitoring           :: Maybe InstanceMonitoring
+    , _lcSpotPrice                    :: Maybe Text
+    , _lcKeyName                      :: Maybe Text
+    , _lcClassicLinkVPCSecurityGroups :: Maybe [Text]
+    , _lcRAMDiskId                    :: Maybe Text
+    , _lcKernelId                     :: Maybe Text
+    , _lcEBSOptimized                 :: Maybe Bool
+    , _lcUserData                     :: Maybe Text
+    , _lcClassicLinkVPCId             :: Maybe Text
+    , _lcIAMInstanceProfile           :: Maybe Text
+    , _lcLaunchConfigurationARN       :: Maybe Text
+    , _lcPlacementTenancy             :: Maybe Text
+    , _lcBlockDeviceMappings          :: Maybe [BlockDeviceMapping]
+    , _lcLaunchConfigurationName      :: Text
+    , _lcImageId                      :: Text
+    , _lcInstanceType                 :: Text
+    , _lcCreatedTime                  :: ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'LaunchConfiguration' smart constructor.
 launchConfiguration :: Text -> Text -> Text -> UTCTime -> LaunchConfiguration
-launchConfiguration pLaunchConfigurationName pImageId pInstanceType pCreatedTime = LaunchConfiguration'{_lcSecurityGroups = Nothing, _lcAssociatePublicIPAddress = Nothing, _lcInstanceMonitoring = Nothing, _lcSpotPrice = Nothing, _lcKeyName = Nothing, _lcClassicLinkVPCSecurityGroups = Nothing, _lcRAMDiskId = Nothing, _lcKernelId = Nothing, _lcEBSOptimized = Nothing, _lcUserData = Nothing, _lcClassicLinkVPCId = Nothing, _lcIAMInstanceProfile = Nothing, _lcLaunchConfigurationARN = Nothing, _lcPlacementTenancy = Nothing, _lcBlockDeviceMappings = Nothing, _lcLaunchConfigurationName = pLaunchConfigurationName, _lcImageId = pImageId, _lcInstanceType = pInstanceType, _lcCreatedTime = _Time # pCreatedTime};
+launchConfiguration pLaunchConfigurationName pImageId pInstanceType pCreatedTime =
+    LaunchConfiguration'
+    { _lcSecurityGroups = Nothing
+    , _lcAssociatePublicIPAddress = Nothing
+    , _lcInstanceMonitoring = Nothing
+    , _lcSpotPrice = Nothing
+    , _lcKeyName = Nothing
+    , _lcClassicLinkVPCSecurityGroups = Nothing
+    , _lcRAMDiskId = Nothing
+    , _lcKernelId = Nothing
+    , _lcEBSOptimized = Nothing
+    , _lcUserData = Nothing
+    , _lcClassicLinkVPCId = Nothing
+    , _lcIAMInstanceProfile = Nothing
+    , _lcLaunchConfigurationARN = Nothing
+    , _lcPlacementTenancy = Nothing
+    , _lcBlockDeviceMappings = Nothing
+    , _lcLaunchConfigurationName = pLaunchConfigurationName
+    , _lcImageId = pImageId
+    , _lcInstanceType = pInstanceType
+    , _lcCreatedTime = _Time # pCreatedTime
+    }
 
 -- | The security groups to associate with the instances.
 lcSecurityGroups :: Lens' LaunchConfiguration [Text]
@@ -1267,11 +1486,32 @@ instance FromXML LaunchConfiguration where
 -- * 'lhLifecycleTransition'
 --
 -- * 'lhNotificationTargetARN'
-data LifecycleHook = LifecycleHook'{_lhDefaultResult :: Maybe Text, _lhLifecycleHookName :: Maybe Text, _lhHeartbeatTimeout :: Maybe Int, _lhAutoScalingGroupName :: Maybe Text, _lhNotificationMetadata :: Maybe Text, _lhGlobalTimeout :: Maybe Int, _lhRoleARN :: Maybe Text, _lhLifecycleTransition :: Maybe Text, _lhNotificationTargetARN :: Maybe Text} deriving (Eq, Read, Show)
+data LifecycleHook = LifecycleHook'
+    { _lhDefaultResult         :: Maybe Text
+    , _lhLifecycleHookName     :: Maybe Text
+    , _lhHeartbeatTimeout      :: Maybe Int
+    , _lhAutoScalingGroupName  :: Maybe Text
+    , _lhNotificationMetadata  :: Maybe Text
+    , _lhGlobalTimeout         :: Maybe Int
+    , _lhRoleARN               :: Maybe Text
+    , _lhLifecycleTransition   :: Maybe Text
+    , _lhNotificationTargetARN :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'LifecycleHook' smart constructor.
 lifecycleHook :: LifecycleHook
-lifecycleHook = LifecycleHook'{_lhDefaultResult = Nothing, _lhLifecycleHookName = Nothing, _lhHeartbeatTimeout = Nothing, _lhAutoScalingGroupName = Nothing, _lhNotificationMetadata = Nothing, _lhGlobalTimeout = Nothing, _lhRoleARN = Nothing, _lhLifecycleTransition = Nothing, _lhNotificationTargetARN = Nothing};
+lifecycleHook =
+    LifecycleHook'
+    { _lhDefaultResult = Nothing
+    , _lhLifecycleHookName = Nothing
+    , _lhHeartbeatTimeout = Nothing
+    , _lhAutoScalingGroupName = Nothing
+    , _lhNotificationMetadata = Nothing
+    , _lhGlobalTimeout = Nothing
+    , _lhRoleARN = Nothing
+    , _lhLifecycleTransition = Nothing
+    , _lhNotificationTargetARN = Nothing
+    }
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
 -- hook timeout elapses or if an unexpected failure occurs. The valid
@@ -1352,11 +1592,18 @@ instance FromXML LifecycleHook where
 -- * 'lbsState'
 --
 -- * 'lbsLoadBalancerName'
-data LoadBalancerState = LoadBalancerState'{_lbsState :: Maybe Text, _lbsLoadBalancerName :: Maybe Text} deriving (Eq, Read, Show)
+data LoadBalancerState = LoadBalancerState'
+    { _lbsState            :: Maybe Text
+    , _lbsLoadBalancerName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'LoadBalancerState' smart constructor.
 loadBalancerState :: LoadBalancerState
-loadBalancerState = LoadBalancerState'{_lbsState = Nothing, _lbsLoadBalancerName = Nothing};
+loadBalancerState =
+    LoadBalancerState'
+    { _lbsState = Nothing
+    , _lbsLoadBalancerName = Nothing
+    }
 
 -- | The state of the load balancer.
 --
@@ -1393,11 +1640,16 @@ instance FromXML LoadBalancerState where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mctMetric'
-newtype MetricCollectionType = MetricCollectionType'{_mctMetric :: Maybe Text} deriving (Eq, Read, Show)
+newtype MetricCollectionType = MetricCollectionType'
+    { _mctMetric :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'MetricCollectionType' smart constructor.
 metricCollectionType :: MetricCollectionType
-metricCollectionType = MetricCollectionType'{_mctMetric = Nothing};
+metricCollectionType =
+    MetricCollectionType'
+    { _mctMetric = Nothing
+    }
 
 -- | The metric.
 --
@@ -1431,11 +1683,16 @@ instance FromXML MetricCollectionType where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mgtGranularity'
-newtype MetricGranularityType = MetricGranularityType'{_mgtGranularity :: Maybe Text} deriving (Eq, Read, Show)
+newtype MetricGranularityType = MetricGranularityType'
+    { _mgtGranularity :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'MetricGranularityType' smart constructor.
 metricGranularityType :: MetricGranularityType
-metricGranularityType = MetricGranularityType'{_mgtGranularity = Nothing};
+metricGranularityType =
+    MetricGranularityType'
+    { _mgtGranularity = Nothing
+    }
 
 -- | The granularity. The only valid value is @1Minute@.
 mgtGranularity :: Lens' MetricGranularityType (Maybe Text)
@@ -1456,11 +1713,20 @@ instance FromXML MetricGranularityType where
 -- * 'ncAutoScalingGroupName'
 --
 -- * 'ncNotificationType'
-data NotificationConfiguration = NotificationConfiguration'{_ncTopicARN :: Maybe Text, _ncAutoScalingGroupName :: Maybe Text, _ncNotificationType :: Maybe Text} deriving (Eq, Read, Show)
+data NotificationConfiguration = NotificationConfiguration'
+    { _ncTopicARN             :: Maybe Text
+    , _ncAutoScalingGroupName :: Maybe Text
+    , _ncNotificationType     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'NotificationConfiguration' smart constructor.
 notificationConfiguration :: NotificationConfiguration
-notificationConfiguration = NotificationConfiguration'{_ncTopicARN = Nothing, _ncAutoScalingGroupName = Nothing, _ncNotificationType = Nothing};
+notificationConfiguration =
+    NotificationConfiguration'
+    { _ncTopicARN = Nothing
+    , _ncAutoScalingGroupName = Nothing
+    , _ncNotificationType = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
@@ -1503,11 +1769,16 @@ instance FromXML NotificationConfiguration where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ptProcessName'
-newtype ProcessType = ProcessType'{_ptProcessName :: Text} deriving (Eq, Read, Show)
+newtype ProcessType = ProcessType'
+    { _ptProcessName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ProcessType' smart constructor.
 processType :: Text -> ProcessType
-processType pProcessName = ProcessType'{_ptProcessName = pProcessName};
+processType pProcessName =
+    ProcessType'
+    { _ptProcessName = pProcessName
+    }
 
 -- | The name of the process.
 --
@@ -1554,11 +1825,30 @@ instance FromXML ProcessType where
 -- * 'scaPolicyARN'
 --
 -- * 'scaAlarms'
-data ScalingPolicy = ScalingPolicy'{_scaMinAdjustmentStep :: Maybe Int, _scaPolicyName :: Maybe Text, _scaAdjustmentType :: Maybe Text, _scaScalingAdjustment :: Maybe Int, _scaAutoScalingGroupName :: Maybe Text, _scaCooldown :: Maybe Int, _scaPolicyARN :: Maybe Text, _scaAlarms :: Maybe [Alarm]} deriving (Eq, Read, Show)
+data ScalingPolicy = ScalingPolicy'
+    { _scaMinAdjustmentStep    :: Maybe Int
+    , _scaPolicyName           :: Maybe Text
+    , _scaAdjustmentType       :: Maybe Text
+    , _scaScalingAdjustment    :: Maybe Int
+    , _scaAutoScalingGroupName :: Maybe Text
+    , _scaCooldown             :: Maybe Int
+    , _scaPolicyARN            :: Maybe Text
+    , _scaAlarms               :: Maybe [Alarm]
+    } deriving (Eq,Read,Show)
 
 -- | 'ScalingPolicy' smart constructor.
 scalingPolicy :: ScalingPolicy
-scalingPolicy = ScalingPolicy'{_scaMinAdjustmentStep = Nothing, _scaPolicyName = Nothing, _scaAdjustmentType = Nothing, _scaScalingAdjustment = Nothing, _scaAutoScalingGroupName = Nothing, _scaCooldown = Nothing, _scaPolicyARN = Nothing, _scaAlarms = Nothing};
+scalingPolicy =
+    ScalingPolicy'
+    { _scaMinAdjustmentStep = Nothing
+    , _scaPolicyName = Nothing
+    , _scaAdjustmentType = Nothing
+    , _scaScalingAdjustment = Nothing
+    , _scaAutoScalingGroupName = Nothing
+    , _scaCooldown = Nothing
+    , _scaPolicyARN = Nothing
+    , _scaAlarms = Nothing
+    }
 
 -- | Changes the @DesiredCapacity@ of the Auto Scaling group by at least the
 -- specified number of instances.
@@ -1618,11 +1908,18 @@ instance FromXML ScalingPolicy where
 -- * 'spqScalingProcesses'
 --
 -- * 'spqAutoScalingGroupName'
-data ScalingProcessQuery = ScalingProcessQuery'{_spqScalingProcesses :: Maybe [Text], _spqAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data ScalingProcessQuery = ScalingProcessQuery'
+    { _spqScalingProcesses     :: Maybe [Text]
+    , _spqAutoScalingGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ScalingProcessQuery' smart constructor.
 scalingProcessQuery :: Text -> ScalingProcessQuery
-scalingProcessQuery pAutoScalingGroupName = ScalingProcessQuery'{_spqScalingProcesses = Nothing, _spqAutoScalingGroupName = pAutoScalingGroupName};
+scalingProcessQuery pAutoScalingGroupName =
+    ScalingProcessQuery'
+    { _spqScalingProcesses = Nothing
+    , _spqAutoScalingGroupName = pAutoScalingGroupName
+    }
 
 -- | One or more of the following processes:
 --
@@ -1682,11 +1979,34 @@ instance ToQuery ScalingProcessQuery where
 -- * 'sugaEndTime'
 --
 -- * 'sugaAutoScalingGroupName'
-data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'{_sugaScheduledActionARN :: Maybe Text, _sugaTime :: Maybe ISO8601, _sugaStartTime :: Maybe ISO8601, _sugaScheduledActionName :: Maybe Text, _sugaMaxSize :: Maybe Int, _sugaDesiredCapacity :: Maybe Int, _sugaRecurrence :: Maybe Text, _sugaMinSize :: Maybe Int, _sugaEndTime :: Maybe ISO8601, _sugaAutoScalingGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
+    { _sugaScheduledActionARN   :: Maybe Text
+    , _sugaTime                 :: Maybe ISO8601
+    , _sugaStartTime            :: Maybe ISO8601
+    , _sugaScheduledActionName  :: Maybe Text
+    , _sugaMaxSize              :: Maybe Int
+    , _sugaDesiredCapacity      :: Maybe Int
+    , _sugaRecurrence           :: Maybe Text
+    , _sugaMinSize              :: Maybe Int
+    , _sugaEndTime              :: Maybe ISO8601
+    , _sugaAutoScalingGroupName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ScheduledUpdateGroupAction' smart constructor.
 scheduledUpdateGroupAction :: ScheduledUpdateGroupAction
-scheduledUpdateGroupAction = ScheduledUpdateGroupAction'{_sugaScheduledActionARN = Nothing, _sugaTime = Nothing, _sugaStartTime = Nothing, _sugaScheduledActionName = Nothing, _sugaMaxSize = Nothing, _sugaDesiredCapacity = Nothing, _sugaRecurrence = Nothing, _sugaMinSize = Nothing, _sugaEndTime = Nothing, _sugaAutoScalingGroupName = Nothing};
+scheduledUpdateGroupAction =
+    ScheduledUpdateGroupAction'
+    { _sugaScheduledActionARN = Nothing
+    , _sugaTime = Nothing
+    , _sugaStartTime = Nothing
+    , _sugaScheduledActionName = Nothing
+    , _sugaMaxSize = Nothing
+    , _sugaDesiredCapacity = Nothing
+    , _sugaRecurrence = Nothing
+    , _sugaMinSize = Nothing
+    , _sugaEndTime = Nothing
+    , _sugaAutoScalingGroupName = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the scheduled action.
 sugaScheduledActionARN :: Lens' ScheduledUpdateGroupAction (Maybe Text)
@@ -1756,11 +2076,18 @@ instance FromXML ScheduledUpdateGroupAction where
 -- * 'spProcessName'
 --
 -- * 'spSuspensionReason'
-data SuspendedProcess = SuspendedProcess'{_spProcessName :: Maybe Text, _spSuspensionReason :: Maybe Text} deriving (Eq, Read, Show)
+data SuspendedProcess = SuspendedProcess'
+    { _spProcessName      :: Maybe Text
+    , _spSuspensionReason :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SuspendedProcess' smart constructor.
 suspendedProcess :: SuspendedProcess
-suspendedProcess = SuspendedProcess'{_spProcessName = Nothing, _spSuspensionReason = Nothing};
+suspendedProcess =
+    SuspendedProcess'
+    { _spProcessName = Nothing
+    , _spSuspensionReason = Nothing
+    }
 
 -- | The name of the suspended process.
 spProcessName :: Lens' SuspendedProcess (Maybe Text)
@@ -1790,11 +2117,24 @@ instance FromXML SuspendedProcess where
 -- * 'tagPropagateAtLaunch'
 --
 -- * 'tagValue'
-data Tag = Tag'{_tagKey :: Text, _tagResourceId :: Text, _tagResourceType :: Text, _tagPropagateAtLaunch :: Bool, _tagValue :: Text} deriving (Eq, Read, Show)
+data Tag = Tag'
+    { _tagKey               :: Text
+    , _tagResourceId        :: Text
+    , _tagResourceType      :: Text
+    , _tagPropagateAtLaunch :: !Bool
+    , _tagValue             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Text -> Text -> Bool -> Text -> Tag
-tag pKey pResourceId pResourceType pPropagateAtLaunch pValue = Tag'{_tagKey = pKey, _tagResourceId = pResourceId, _tagResourceType = pResourceType, _tagPropagateAtLaunch = pPropagateAtLaunch, _tagValue = pValue};
+tag pKey pResourceId pResourceType pPropagateAtLaunch pValue =
+    Tag'
+    { _tagKey = pKey
+    , _tagResourceId = pResourceId
+    , _tagResourceType = pResourceType
+    , _tagPropagateAtLaunch = pPropagateAtLaunch
+    , _tagValue = pValue
+    }
 
 -- | The tag key.
 tagKey :: Lens' Tag Text
@@ -1840,11 +2180,24 @@ instance ToQuery Tag where
 -- * 'tdPropagateAtLaunch'
 --
 -- * 'tdValue'
-data TagDescription = TagDescription'{_tdResourceId :: Text, _tdResourceType :: Text, _tdKey :: Text, _tdPropagateAtLaunch :: Bool, _tdValue :: Text} deriving (Eq, Read, Show)
+data TagDescription = TagDescription'
+    { _tdResourceId        :: Text
+    , _tdResourceType      :: Text
+    , _tdKey               :: Text
+    , _tdPropagateAtLaunch :: !Bool
+    , _tdValue             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'TagDescription' smart constructor.
 tagDescription :: Text -> Text -> Text -> Bool -> Text -> TagDescription
-tagDescription pResourceId pResourceType pKey pPropagateAtLaunch pValue = TagDescription'{_tdResourceId = pResourceId, _tdResourceType = pResourceType, _tdKey = pKey, _tdPropagateAtLaunch = pPropagateAtLaunch, _tdValue = pValue};
+tagDescription pResourceId pResourceType pKey pPropagateAtLaunch pValue =
+    TagDescription'
+    { _tdResourceId = pResourceId
+    , _tdResourceType = pResourceType
+    , _tdKey = pKey
+    , _tdPropagateAtLaunch = pPropagateAtLaunch
+    , _tdValue = pValue
+    }
 
 -- | The name of the group.
 tdResourceId :: Lens' TagDescription Text

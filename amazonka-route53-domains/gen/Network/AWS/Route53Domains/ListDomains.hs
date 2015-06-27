@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.ListDomains
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,14 +35,14 @@ module Network.AWS.Route53Domains.ListDomains
     -- ** Response lenses
     , ldrNextPageMarker
     , ldrDomains
-    , ldrStatusCode
+    , ldrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | The ListDomains request includes the following elements.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Route53Domains.Types
 -- * 'ldMaxItems'
 --
 -- * 'ldMarker'
-data ListDomains = ListDomains'{_ldMaxItems :: Maybe Int, _ldMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListDomains = ListDomains'
+    { _ldMaxItems :: Maybe Int
+    , _ldMarker   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDomains' smart constructor.
 listDomains :: ListDomains
-listDomains = ListDomains'{_ldMaxItems = Nothing, _ldMarker = Nothing};
+listDomains =
+    ListDomains'
+    { _ldMaxItems = Nothing
+    , _ldMarker = Nothing
+    }
 
 -- | Number of domains to be returned.
 --
@@ -139,12 +146,21 @@ instance ToQuery ListDomains where
 --
 -- * 'ldrDomains'
 --
--- * 'ldrStatusCode'
-data ListDomainsResponse = ListDomainsResponse'{_ldrNextPageMarker :: Maybe Text, _ldrDomains :: [DomainSummary], _ldrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ldrStatus'
+data ListDomainsResponse = ListDomainsResponse'
+    { _ldrNextPageMarker :: Maybe Text
+    , _ldrDomains        :: [DomainSummary]
+    , _ldrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: Int -> ListDomainsResponse
-listDomainsResponse pStatusCode = ListDomainsResponse'{_ldrNextPageMarker = Nothing, _ldrDomains = mempty, _ldrStatusCode = pStatusCode};
+listDomainsResponse pStatus =
+    ListDomainsResponse'
+    { _ldrNextPageMarker = Nothing
+    , _ldrDomains = mempty
+    , _ldrStatus = pStatus
+    }
 
 -- | If there are more domains than you specified for @MaxItems@ in the
 -- request, submit another request and include the value of
@@ -165,5 +181,5 @@ ldrDomains :: Lens' ListDomainsResponse [DomainSummary]
 ldrDomains = lens _ldrDomains (\ s a -> s{_ldrDomains = a});
 
 -- | FIXME: Undocumented member.
-ldrStatusCode :: Lens' ListDomainsResponse Int
-ldrStatusCode = lens _ldrStatusCode (\ s a -> s{_ldrStatusCode = a});
+ldrStatus :: Lens' ListDomainsResponse Int
+ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});

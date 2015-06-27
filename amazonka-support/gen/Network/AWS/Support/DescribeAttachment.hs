@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Support.DescribeAttachment
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,24 +36,29 @@ module Network.AWS.Support.DescribeAttachment
     , describeAttachmentResponse
     -- ** Response lenses
     , darAttachment
-    , darStatusCode
+    , darStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Support.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
 
 -- | /See:/ 'describeAttachment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'daAttachmentId'
-newtype DescribeAttachment = DescribeAttachment'{_daAttachmentId :: Text} deriving (Eq, Read, Show)
+newtype DescribeAttachment = DescribeAttachment'
+    { _daAttachmentId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAttachment' smart constructor.
 describeAttachment :: Text -> DescribeAttachment
-describeAttachment pAttachmentId = DescribeAttachment'{_daAttachmentId = pAttachmentId};
+describeAttachment pAttachmentId =
+    DescribeAttachment'
+    { _daAttachmentId = pAttachmentId
+    }
 
 -- | The ID of the attachment to return. Attachment IDs are returned by the
 -- DescribeCommunications operation.
@@ -100,17 +105,24 @@ instance ToQuery DescribeAttachment where
 --
 -- * 'darAttachment'
 --
--- * 'darStatusCode'
-data DescribeAttachmentResponse = DescribeAttachmentResponse'{_darAttachment :: Maybe Attachment, _darStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'darStatus'
+data DescribeAttachmentResponse = DescribeAttachmentResponse'
+    { _darAttachment :: Maybe Attachment
+    , _darStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAttachmentResponse' smart constructor.
 describeAttachmentResponse :: Int -> DescribeAttachmentResponse
-describeAttachmentResponse pStatusCode = DescribeAttachmentResponse'{_darAttachment = Nothing, _darStatusCode = pStatusCode};
+describeAttachmentResponse pStatus =
+    DescribeAttachmentResponse'
+    { _darAttachment = Nothing
+    , _darStatus = pStatus
+    }
 
 -- | The attachment content and file name.
 darAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
 darAttachment = lens _darAttachment (\ s a -> s{_darAttachment = a});
 
 -- | FIXME: Undocumented member.
-darStatusCode :: Lens' DescribeAttachmentResponse Int
-darStatusCode = lens _darStatusCode (\ s a -> s{_darStatusCode = a});
+darStatus :: Lens' DescribeAttachmentResponse Int
+darStatus = lens _darStatus (\ s a -> s{_darStatus = a});

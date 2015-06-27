@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeSuggesters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.CloudSearch.DescribeSuggesters
     , describeSuggestersResponse
     -- ** Response lenses
     , dsr1Suggesters
-    , dsr1StatusCode
+    , dsr1Status
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeSuggester@ operation.
 -- Specifies the name of the domain you want to describe. To restrict the
@@ -64,11 +64,20 @@ import Network.AWS.Response
 -- * 'desSuggesterNames'
 --
 -- * 'desDomainName'
-data DescribeSuggesters = DescribeSuggesters'{_desDeployed :: Maybe Bool, _desSuggesterNames :: Maybe [Text], _desDomainName :: Text} deriving (Eq, Read, Show)
+data DescribeSuggesters = DescribeSuggesters'
+    { _desDeployed       :: Maybe Bool
+    , _desSuggesterNames :: Maybe [Text]
+    , _desDomainName     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSuggesters' smart constructor.
 describeSuggesters :: Text -> DescribeSuggesters
-describeSuggesters pDomainName = DescribeSuggesters'{_desDeployed = Nothing, _desSuggesterNames = Nothing, _desDomainName = pDomainName};
+describeSuggesters pDomainName =
+    DescribeSuggesters'
+    { _desDeployed = Nothing
+    , _desSuggesterNames = Nothing
+    , _desDomainName = pDomainName
+    }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
@@ -121,17 +130,24 @@ instance ToQuery DescribeSuggesters where
 --
 -- * 'dsr1Suggesters'
 --
--- * 'dsr1StatusCode'
-data DescribeSuggestersResponse = DescribeSuggestersResponse'{_dsr1Suggesters :: [SuggesterStatus], _dsr1StatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsr1Status'
+data DescribeSuggestersResponse = DescribeSuggestersResponse'
+    { _dsr1Suggesters :: [SuggesterStatus]
+    , _dsr1Status     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSuggestersResponse' smart constructor.
 describeSuggestersResponse :: Int -> DescribeSuggestersResponse
-describeSuggestersResponse pStatusCode = DescribeSuggestersResponse'{_dsr1Suggesters = mempty, _dsr1StatusCode = pStatusCode};
+describeSuggestersResponse pStatus =
+    DescribeSuggestersResponse'
+    { _dsr1Suggesters = mempty
+    , _dsr1Status = pStatus
+    }
 
 -- | The suggesters configured for the domain specified in the request.
 dsr1Suggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
 dsr1Suggesters = lens _dsr1Suggesters (\ s a -> s{_dsr1Suggesters = a});
 
 -- | FIXME: Undocumented member.
-dsr1StatusCode :: Lens' DescribeSuggestersResponse Int
-dsr1StatusCode = lens _dsr1StatusCode (\ s a -> s{_dsr1StatusCode = a});
+dsr1Status :: Lens' DescribeSuggestersResponse Int
+dsr1Status = lens _dsr1Status (\ s a -> s{_dsr1Status = a});

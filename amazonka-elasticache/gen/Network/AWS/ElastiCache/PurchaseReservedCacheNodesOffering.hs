@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     , purchaseReservedCacheNodesOfferingResponse
     -- ** Response lenses
     , prcnorReservedCacheNode
-    , prcnorStatusCode
+    , prcnorStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /PurchaseReservedCacheNodesOffering/ action.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'prcnoReservedCacheNodeId'
 --
 -- * 'prcnoReservedCacheNodesOfferingId'
-data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'{_prcnoCacheNodeCount :: Maybe Int, _prcnoReservedCacheNodeId :: Maybe Text, _prcnoReservedCacheNodesOfferingId :: Text} deriving (Eq, Read, Show)
+data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
+    { _prcnoCacheNodeCount               :: Maybe Int
+    , _prcnoReservedCacheNodeId          :: Maybe Text
+    , _prcnoReservedCacheNodesOfferingId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PurchaseReservedCacheNodesOffering' smart constructor.
 purchaseReservedCacheNodesOffering :: Text -> PurchaseReservedCacheNodesOffering
-purchaseReservedCacheNodesOffering pReservedCacheNodesOfferingId = PurchaseReservedCacheNodesOffering'{_prcnoCacheNodeCount = Nothing, _prcnoReservedCacheNodeId = Nothing, _prcnoReservedCacheNodesOfferingId = pReservedCacheNodesOfferingId};
+purchaseReservedCacheNodesOffering pReservedCacheNodesOfferingId =
+    PurchaseReservedCacheNodesOffering'
+    { _prcnoCacheNodeCount = Nothing
+    , _prcnoReservedCacheNodeId = Nothing
+    , _prcnoReservedCacheNodesOfferingId = pReservedCacheNodesOfferingId
+    }
 
 -- | The number of cache node instances to reserve.
 --
@@ -118,17 +127,24 @@ instance ToQuery PurchaseReservedCacheNodesOffering
 --
 -- * 'prcnorReservedCacheNode'
 --
--- * 'prcnorStatusCode'
-data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'{_prcnorReservedCacheNode :: Maybe ReservedCacheNode, _prcnorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'prcnorStatus'
+data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'
+    { _prcnorReservedCacheNode :: Maybe ReservedCacheNode
+    , _prcnorStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PurchaseReservedCacheNodesOfferingResponse' smart constructor.
 purchaseReservedCacheNodesOfferingResponse :: Int -> PurchaseReservedCacheNodesOfferingResponse
-purchaseReservedCacheNodesOfferingResponse pStatusCode = PurchaseReservedCacheNodesOfferingResponse'{_prcnorReservedCacheNode = Nothing, _prcnorStatusCode = pStatusCode};
+purchaseReservedCacheNodesOfferingResponse pStatus =
+    PurchaseReservedCacheNodesOfferingResponse'
+    { _prcnorReservedCacheNode = Nothing
+    , _prcnorStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 prcnorReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Maybe ReservedCacheNode)
 prcnorReservedCacheNode = lens _prcnorReservedCacheNode (\ s a -> s{_prcnorReservedCacheNode = a});
 
 -- | FIXME: Undocumented member.
-prcnorStatusCode :: Lens' PurchaseReservedCacheNodesOfferingResponse Int
-prcnorStatusCode = lens _prcnorStatusCode (\ s a -> s{_prcnorStatusCode = a});
+prcnorStatus :: Lens' PurchaseReservedCacheNodesOfferingResponse Int
+prcnorStatus = lens _prcnorStatus (\ s a -> s{_prcnorStatus = a});

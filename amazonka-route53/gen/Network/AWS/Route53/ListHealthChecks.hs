@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.ListHealthChecks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,14 +46,14 @@ module Network.AWS.Route53.ListHealthChecks
     , lhcrMarker
     , lhcrIsTruncated
     , lhcrMaxItems
-    , lhcrStatusCode
+    , lhcrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | To retrieve a list of your health checks, send a @GET@ request to the
 -- @2013-04-01\/healthcheck@ resource. The response to this request
@@ -73,11 +73,18 @@ import Network.AWS.Route53.Types
 -- * 'lhcMaxItems'
 --
 -- * 'lhcMarker'
-data ListHealthChecks = ListHealthChecks'{_lhcMaxItems :: Maybe Text, _lhcMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListHealthChecks = ListHealthChecks'
+    { _lhcMaxItems :: Maybe Text
+    , _lhcMarker   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListHealthChecks' smart constructor.
 listHealthChecks :: ListHealthChecks
-listHealthChecks = ListHealthChecks'{_lhcMaxItems = Nothing, _lhcMarker = Nothing};
+listHealthChecks =
+    ListHealthChecks'
+    { _lhcMaxItems = Nothing
+    , _lhcMarker = Nothing
+    }
 
 -- | Specify the maximum number of health checks to return per page of
 -- results.
@@ -140,12 +147,27 @@ instance ToQuery ListHealthChecks where
 --
 -- * 'lhcrMaxItems'
 --
--- * 'lhcrStatusCode'
-data ListHealthChecksResponse = ListHealthChecksResponse'{_lhcrNextMarker :: Maybe Text, _lhcrHealthChecks :: [HealthCheck], _lhcrMarker :: Text, _lhcrIsTruncated :: Bool, _lhcrMaxItems :: Text, _lhcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lhcrStatus'
+data ListHealthChecksResponse = ListHealthChecksResponse'
+    { _lhcrNextMarker   :: Maybe Text
+    , _lhcrHealthChecks :: [HealthCheck]
+    , _lhcrMarker       :: Text
+    , _lhcrIsTruncated  :: !Bool
+    , _lhcrMaxItems     :: Text
+    , _lhcrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListHealthChecksResponse' smart constructor.
 listHealthChecksResponse :: Text -> Bool -> Text -> Int -> ListHealthChecksResponse
-listHealthChecksResponse pMarker pIsTruncated pMaxItems pStatusCode = ListHealthChecksResponse'{_lhcrNextMarker = Nothing, _lhcrHealthChecks = mempty, _lhcrMarker = pMarker, _lhcrIsTruncated = pIsTruncated, _lhcrMaxItems = pMaxItems, _lhcrStatusCode = pStatusCode};
+listHealthChecksResponse pMarker pIsTruncated pMaxItems pStatus =
+    ListHealthChecksResponse'
+    { _lhcrNextMarker = Nothing
+    , _lhcrHealthChecks = mempty
+    , _lhcrMarker = pMarker
+    , _lhcrIsTruncated = pIsTruncated
+    , _lhcrMaxItems = pMaxItems
+    , _lhcrStatus = pStatus
+    }
 
 -- | Indicates where to continue listing health checks. If
 -- ListHealthChecksResponse$IsTruncated is @true@, make another request to
@@ -183,5 +205,5 @@ lhcrMaxItems :: Lens' ListHealthChecksResponse Text
 lhcrMaxItems = lens _lhcrMaxItems (\ s a -> s{_lhcrMaxItems = a});
 
 -- | FIXME: Undocumented member.
-lhcrStatusCode :: Lens' ListHealthChecksResponse Int
-lhcrStatusCode = lens _lhcrStatusCode (\ s a -> s{_lhcrStatusCode = a});
+lhcrStatus :: Lens' ListHealthChecksResponse Int
+lhcrStatus = lens _lhcrStatus (\ s a -> s{_lhcrStatus = a});

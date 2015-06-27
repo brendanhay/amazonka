@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.ReEncrypt
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,13 +50,13 @@ module Network.AWS.KMS.ReEncrypt
     , rerSourceKeyId
     , rerKeyId
     , rerCiphertextBlob
-    , rerStatusCode
+    , rerStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'reEncrypt' smart constructor.
 --
@@ -71,11 +71,24 @@ import Network.AWS.Response
 -- * 'reCiphertextBlob'
 --
 -- * 'reDestinationKeyId'
-data ReEncrypt = ReEncrypt'{_reDestinationEncryptionContext :: Maybe (Map Text Text), _reSourceEncryptionContext :: Maybe (Map Text Text), _reGrantTokens :: Maybe [Text], _reCiphertextBlob :: Base64, _reDestinationKeyId :: Text} deriving (Eq, Read, Show)
+data ReEncrypt = ReEncrypt'
+    { _reDestinationEncryptionContext :: Maybe (Map Text Text)
+    , _reSourceEncryptionContext      :: Maybe (Map Text Text)
+    , _reGrantTokens                  :: Maybe [Text]
+    , _reCiphertextBlob               :: Base64
+    , _reDestinationKeyId             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReEncrypt' smart constructor.
 reEncrypt :: Base64 -> Text -> ReEncrypt
-reEncrypt pCiphertextBlob pDestinationKeyId = ReEncrypt'{_reDestinationEncryptionContext = Nothing, _reSourceEncryptionContext = Nothing, _reGrantTokens = Nothing, _reCiphertextBlob = pCiphertextBlob, _reDestinationKeyId = pDestinationKeyId};
+reEncrypt pCiphertextBlob pDestinationKeyId =
+    ReEncrypt'
+    { _reDestinationEncryptionContext = Nothing
+    , _reSourceEncryptionContext = Nothing
+    , _reGrantTokens = Nothing
+    , _reCiphertextBlob = pCiphertextBlob
+    , _reDestinationKeyId = pDestinationKeyId
+    }
 
 -- | Encryption context to be used when the data is re-encrypted.
 reDestinationEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
@@ -158,12 +171,23 @@ instance ToQuery ReEncrypt where
 --
 -- * 'rerCiphertextBlob'
 --
--- * 'rerStatusCode'
-data ReEncryptResponse = ReEncryptResponse'{_rerSourceKeyId :: Maybe Text, _rerKeyId :: Maybe Text, _rerCiphertextBlob :: Maybe Base64, _rerStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rerStatus'
+data ReEncryptResponse = ReEncryptResponse'
+    { _rerSourceKeyId    :: Maybe Text
+    , _rerKeyId          :: Maybe Text
+    , _rerCiphertextBlob :: Maybe Base64
+    , _rerStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ReEncryptResponse' smart constructor.
 reEncryptResponse :: Int -> ReEncryptResponse
-reEncryptResponse pStatusCode = ReEncryptResponse'{_rerSourceKeyId = Nothing, _rerKeyId = Nothing, _rerCiphertextBlob = Nothing, _rerStatusCode = pStatusCode};
+reEncryptResponse pStatus =
+    ReEncryptResponse'
+    { _rerSourceKeyId = Nothing
+    , _rerKeyId = Nothing
+    , _rerCiphertextBlob = Nothing
+    , _rerStatus = pStatus
+    }
 
 -- | Unique identifier of the key used to originally encrypt the data.
 rerSourceKeyId :: Lens' ReEncryptResponse (Maybe Text)
@@ -179,5 +203,5 @@ rerCiphertextBlob :: Lens' ReEncryptResponse (Maybe Base64)
 rerCiphertextBlob = lens _rerCiphertextBlob (\ s a -> s{_rerCiphertextBlob = a});
 
 -- | FIXME: Undocumented member.
-rerStatusCode :: Lens' ReEncryptResponse Int
-rerStatusCode = lens _rerStatusCode (\ s a -> s{_rerStatusCode = a});
+rerStatus :: Lens' ReEncryptResponse Int
+rerStatus = lens _rerStatus (\ s a -> s{_rerStatus = a});

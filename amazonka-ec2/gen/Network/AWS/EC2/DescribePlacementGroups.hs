@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribePlacementGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.EC2.DescribePlacementGroups
     , describePlacementGroupsResponse
     -- ** Response lenses
     , dpgrPlacementGroups
-    , dpgrStatusCode
+    , dpgrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describePlacementGroups' smart constructor.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'dpg1Filters'
 --
 -- * 'dpg1DryRun'
-data DescribePlacementGroups = DescribePlacementGroups'{_dpg1GroupNames :: Maybe [Text], _dpg1Filters :: Maybe [Filter], _dpg1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribePlacementGroups = DescribePlacementGroups'
+    { _dpg1GroupNames :: Maybe [Text]
+    , _dpg1Filters    :: Maybe [Filter]
+    , _dpg1DryRun     :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribePlacementGroups' smart constructor.
 describePlacementGroups :: DescribePlacementGroups
-describePlacementGroups = DescribePlacementGroups'{_dpg1GroupNames = Nothing, _dpg1Filters = Nothing, _dpg1DryRun = Nothing};
+describePlacementGroups =
+    DescribePlacementGroups'
+    { _dpg1GroupNames = Nothing
+    , _dpg1Filters = Nothing
+    , _dpg1DryRun = Nothing
+    }
 
 -- | One or more placement group names.
 --
@@ -121,17 +130,24 @@ instance ToQuery DescribePlacementGroups where
 --
 -- * 'dpgrPlacementGroups'
 --
--- * 'dpgrStatusCode'
-data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'{_dpgrPlacementGroups :: Maybe [PlacementGroup], _dpgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dpgrStatus'
+data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
+    { _dpgrPlacementGroups :: Maybe [PlacementGroup]
+    , _dpgrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribePlacementGroupsResponse' smart constructor.
 describePlacementGroupsResponse :: Int -> DescribePlacementGroupsResponse
-describePlacementGroupsResponse pStatusCode = DescribePlacementGroupsResponse'{_dpgrPlacementGroups = Nothing, _dpgrStatusCode = pStatusCode};
+describePlacementGroupsResponse pStatus =
+    DescribePlacementGroupsResponse'
+    { _dpgrPlacementGroups = Nothing
+    , _dpgrStatus = pStatus
+    }
 
 -- | One or more placement groups.
 dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgrPlacementGroups = lens _dpgrPlacementGroups (\ s a -> s{_dpgrPlacementGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dpgrStatusCode :: Lens' DescribePlacementGroupsResponse Int
-dpgrStatusCode = lens _dpgrStatusCode (\ s a -> s{_dpgrStatusCode = a});
+dpgrStatus :: Lens' DescribePlacementGroupsResponse Int
+dpgrStatus = lens _dpgrStatus (\ s a -> s{_dpgrStatus = a});

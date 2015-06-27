@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.InitiateJob
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -162,13 +162,13 @@ module Network.AWS.Glacier.InitiateJob
     -- ** Response lenses
     , ijrJobId
     , ijrLocation
-    , ijrStatusCode
+    , ijrStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for initiating an Amazon Glacier job.
 --
@@ -181,11 +181,20 @@ import Network.AWS.Response
 -- * 'ijAccountId'
 --
 -- * 'ijVaultName'
-data InitiateJob = InitiateJob'{_ijJobParameters :: Maybe JobParameters, _ijAccountId :: Text, _ijVaultName :: Text} deriving (Eq, Read, Show)
+data InitiateJob = InitiateJob'
+    { _ijJobParameters :: Maybe JobParameters
+    , _ijAccountId     :: Text
+    , _ijVaultName     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InitiateJob' smart constructor.
 initiateJob :: Text -> Text -> InitiateJob
-initiateJob pAccountId pVaultName = InitiateJob'{_ijJobParameters = Nothing, _ijAccountId = pAccountId, _ijVaultName = pVaultName};
+initiateJob pAccountId pVaultName =
+    InitiateJob'
+    { _ijJobParameters = Nothing
+    , _ijAccountId = pAccountId
+    , _ijVaultName = pVaultName
+    }
 
 -- | Provides options for specifying job information.
 ijJobParameters :: Lens' InitiateJob (Maybe JobParameters)
@@ -240,12 +249,21 @@ instance ToQuery InitiateJob where
 --
 -- * 'ijrLocation'
 --
--- * 'ijrStatusCode'
-data InitiateJobResponse = InitiateJobResponse'{_ijrJobId :: Maybe Text, _ijrLocation :: Maybe Text, _ijrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ijrStatus'
+data InitiateJobResponse = InitiateJobResponse'
+    { _ijrJobId    :: Maybe Text
+    , _ijrLocation :: Maybe Text
+    , _ijrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'InitiateJobResponse' smart constructor.
 initiateJobResponse :: Int -> InitiateJobResponse
-initiateJobResponse pStatusCode = InitiateJobResponse'{_ijrJobId = Nothing, _ijrLocation = Nothing, _ijrStatusCode = pStatusCode};
+initiateJobResponse pStatus =
+    InitiateJobResponse'
+    { _ijrJobId = Nothing
+    , _ijrLocation = Nothing
+    , _ijrStatus = pStatus
+    }
 
 -- | The ID of the job.
 ijrJobId :: Lens' InitiateJobResponse (Maybe Text)
@@ -256,5 +274,5 @@ ijrLocation :: Lens' InitiateJobResponse (Maybe Text)
 ijrLocation = lens _ijrLocation (\ s a -> s{_ijrLocation = a});
 
 -- | FIXME: Undocumented member.
-ijrStatusCode :: Lens' InitiateJobResponse Int
-ijrStatusCode = lens _ijrStatusCode (\ s a -> s{_ijrStatusCode = a});
+ijrStatus :: Lens' InitiateJobResponse Int
+ijrStatus = lens _ijrStatus (\ s a -> s{_ijrStatus = a});

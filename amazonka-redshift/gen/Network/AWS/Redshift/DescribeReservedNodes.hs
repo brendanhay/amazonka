@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeReservedNodes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,14 +35,14 @@ module Network.AWS.Redshift.DescribeReservedNodes
     -- ** Response lenses
     , drnrReservedNodes
     , drnrMarker
-    , drnrStatusCode
+    , drnrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'drnMaxRecords'
 --
 -- * 'drnMarker'
-data DescribeReservedNodes = DescribeReservedNodes'{_drnReservedNodeId :: Maybe Text, _drnMaxRecords :: Maybe Int, _drnMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeReservedNodes = DescribeReservedNodes'
+    { _drnReservedNodeId :: Maybe Text
+    , _drnMaxRecords     :: Maybe Int
+    , _drnMarker         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedNodes' smart constructor.
 describeReservedNodes :: DescribeReservedNodes
-describeReservedNodes = DescribeReservedNodes'{_drnReservedNodeId = Nothing, _drnMaxRecords = Nothing, _drnMarker = Nothing};
+describeReservedNodes =
+    DescribeReservedNodes'
+    { _drnReservedNodeId = Nothing
+    , _drnMaxRecords = Nothing
+    , _drnMarker = Nothing
+    }
 
 -- | Identifier for the node reservation.
 drnReservedNodeId :: Lens' DescribeReservedNodes (Maybe Text)
@@ -132,12 +141,21 @@ instance ToQuery DescribeReservedNodes where
 --
 -- * 'drnrMarker'
 --
--- * 'drnrStatusCode'
-data DescribeReservedNodesResponse = DescribeReservedNodesResponse'{_drnrReservedNodes :: Maybe [ReservedNode], _drnrMarker :: Maybe Text, _drnrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'drnrStatus'
+data DescribeReservedNodesResponse = DescribeReservedNodesResponse'
+    { _drnrReservedNodes :: Maybe [ReservedNode]
+    , _drnrMarker        :: Maybe Text
+    , _drnrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedNodesResponse' smart constructor.
 describeReservedNodesResponse :: Int -> DescribeReservedNodesResponse
-describeReservedNodesResponse pStatusCode = DescribeReservedNodesResponse'{_drnrReservedNodes = Nothing, _drnrMarker = Nothing, _drnrStatusCode = pStatusCode};
+describeReservedNodesResponse pStatus =
+    DescribeReservedNodesResponse'
+    { _drnrReservedNodes = Nothing
+    , _drnrMarker = Nothing
+    , _drnrStatus = pStatus
+    }
 
 -- | The list of reserved nodes.
 drnrReservedNodes :: Lens' DescribeReservedNodesResponse [ReservedNode]
@@ -153,5 +171,5 @@ drnrMarker :: Lens' DescribeReservedNodesResponse (Maybe Text)
 drnrMarker = lens _drnrMarker (\ s a -> s{_drnrMarker = a});
 
 -- | FIXME: Undocumented member.
-drnrStatusCode :: Lens' DescribeReservedNodesResponse Int
-drnrStatusCode = lens _drnrStatusCode (\ s a -> s{_drnrStatusCode = a});
+drnrStatus :: Lens' DescribeReservedNodesResponse Int
+drnrStatus = lens _drnrStatus (\ s a -> s{_drnrStatus = a});

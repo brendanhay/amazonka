@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -56,10 +56,10 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     , csdDescription
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -80,11 +80,28 @@ import Network.AWS.Response
 -- * 'cctApplicationName'
 --
 -- * 'cctTemplateName'
-data CreateConfigurationTemplate = CreateConfigurationTemplate'{_cctOptionSettings :: Maybe [ConfigurationOptionSetting], _cctSourceConfiguration :: Maybe SourceConfiguration, _cctEnvironmentId :: Maybe Text, _cctSolutionStackName :: Maybe Text, _cctDescription :: Maybe Text, _cctApplicationName :: Text, _cctTemplateName :: Text} deriving (Eq, Read, Show)
+data CreateConfigurationTemplate = CreateConfigurationTemplate'
+    { _cctOptionSettings      :: Maybe [ConfigurationOptionSetting]
+    , _cctSourceConfiguration :: Maybe SourceConfiguration
+    , _cctEnvironmentId       :: Maybe Text
+    , _cctSolutionStackName   :: Maybe Text
+    , _cctDescription         :: Maybe Text
+    , _cctApplicationName     :: Text
+    , _cctTemplateName        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateConfigurationTemplate' smart constructor.
 createConfigurationTemplate :: Text -> Text -> CreateConfigurationTemplate
-createConfigurationTemplate pApplicationName pTemplateName = CreateConfigurationTemplate'{_cctOptionSettings = Nothing, _cctSourceConfiguration = Nothing, _cctEnvironmentId = Nothing, _cctSolutionStackName = Nothing, _cctDescription = Nothing, _cctApplicationName = pApplicationName, _cctTemplateName = pTemplateName};
+createConfigurationTemplate pApplicationName pTemplateName =
+    CreateConfigurationTemplate'
+    { _cctOptionSettings = Nothing
+    , _cctSourceConfiguration = Nothing
+    , _cctEnvironmentId = Nothing
+    , _cctSolutionStackName = Nothing
+    , _cctDescription = Nothing
+    , _cctApplicationName = pApplicationName
+    , _cctTemplateName = pTemplateName
+    }
 
 -- | If specified, AWS Elastic Beanstalk sets the specified configuration
 -- option to the requested value. The new value overrides the value

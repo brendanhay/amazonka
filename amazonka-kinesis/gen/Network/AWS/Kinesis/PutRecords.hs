@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Kinesis.PutRecords
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -92,13 +92,13 @@ module Network.AWS.Kinesis.PutRecords
     -- ** Response lenses
     , pFailedRecordCount
     , pRecords
-    , pStatusCode
+    , pStatus
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A @PutRecords@ request.
 --
@@ -109,11 +109,18 @@ import Network.AWS.Response
 -- * 'pr1RecordEntries'
 --
 -- * 'pr1StreamName'
-data PutRecords = PutRecords'{_pr1RecordEntries :: List1 PutRecordsRequestEntry, _pr1StreamName :: Text} deriving (Eq, Read, Show)
+data PutRecords = PutRecords'
+    { _pr1RecordEntries :: List1 PutRecordsRequestEntry
+    , _pr1StreamName    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PutRecords' smart constructor.
 putRecords :: NonEmpty PutRecordsRequestEntry -> Text -> PutRecords
-putRecords pRecordEntries pStreamName = PutRecords'{_pr1RecordEntries = _List1 # pRecordEntries, _pr1StreamName = pStreamName};
+putRecords pRecordEntries pStreamName =
+    PutRecords'
+    { _pr1RecordEntries = _List1 # pRecordEntries
+    , _pr1StreamName = pStreamName
+    }
 
 -- | The records associated with the request.
 pr1RecordEntries :: Lens' PutRecords (NonEmpty PutRecordsRequestEntry)
@@ -165,12 +172,21 @@ instance ToQuery PutRecords where
 --
 -- * 'pRecords'
 --
--- * 'pStatusCode'
-data PutRecordsResponse = PutRecordsResponse'{_pFailedRecordCount :: Maybe Nat, _pRecords :: List1 PutRecordsResultEntry, _pStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'pStatus'
+data PutRecordsResponse = PutRecordsResponse'
+    { _pFailedRecordCount :: Maybe Nat
+    , _pRecords           :: List1 PutRecordsResultEntry
+    , _pStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PutRecordsResponse' smart constructor.
 putRecordsResponse :: NonEmpty PutRecordsResultEntry -> Int -> PutRecordsResponse
-putRecordsResponse pRecords pStatusCode = PutRecordsResponse'{_pFailedRecordCount = Nothing, _pRecords = _List1 # pRecords, _pStatusCode = pStatusCode};
+putRecordsResponse pRecords pStatus =
+    PutRecordsResponse'
+    { _pFailedRecordCount = Nothing
+    , _pRecords = _List1 # pRecords
+    , _pStatus = pStatus
+    }
 
 -- | The number of unsuccessfully processed records in a @PutRecords@
 -- request.
@@ -187,5 +203,5 @@ pRecords :: Lens' PutRecordsResponse (NonEmpty PutRecordsResultEntry)
 pRecords = lens _pRecords (\ s a -> s{_pRecords = a}) . _List1;
 
 -- | FIXME: Undocumented member.
-pStatusCode :: Lens' PutRecordsResponse Int
-pStatusCode = lens _pStatusCode (\ s a -> s{_pStatusCode = a});
+pStatus :: Lens' PutRecordsResponse Int
+pStatus = lens _pStatus (\ s a -> s{_pStatus = a});

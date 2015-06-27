@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.CreateClusterSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     , createClusterSubnetGroupResponse
     -- ** Response lenses
     , ccsgrClusterSubnetGroup
-    , ccsgrStatusCode
+    , ccsgrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -62,11 +62,22 @@ import Network.AWS.Response
 -- * 'ccsgDescription'
 --
 -- * 'ccsgSubnetIds'
-data CreateClusterSubnetGroup = CreateClusterSubnetGroup'{_ccsgTags :: Maybe [Tag], _ccsgClusterSubnetGroupName :: Text, _ccsgDescription :: Text, _ccsgSubnetIds :: [Text]} deriving (Eq, Read, Show)
+data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
+    { _ccsgTags                   :: Maybe [Tag]
+    , _ccsgClusterSubnetGroupName :: Text
+    , _ccsgDescription            :: Text
+    , _ccsgSubnetIds              :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterSubnetGroup' smart constructor.
 createClusterSubnetGroup :: Text -> Text -> CreateClusterSubnetGroup
-createClusterSubnetGroup pClusterSubnetGroupName pDescription = CreateClusterSubnetGroup'{_ccsgTags = Nothing, _ccsgClusterSubnetGroupName = pClusterSubnetGroupName, _ccsgDescription = pDescription, _ccsgSubnetIds = mempty};
+createClusterSubnetGroup pClusterSubnetGroupName pDescription =
+    CreateClusterSubnetGroup'
+    { _ccsgTags = Nothing
+    , _ccsgClusterSubnetGroupName = pClusterSubnetGroupName
+    , _ccsgDescription = pDescription
+    , _ccsgSubnetIds = mempty
+    }
 
 -- | A list of tag instances.
 ccsgTags :: Lens' CreateClusterSubnetGroup [Tag]
@@ -131,17 +142,24 @@ instance ToQuery CreateClusterSubnetGroup where
 --
 -- * 'ccsgrClusterSubnetGroup'
 --
--- * 'ccsgrStatusCode'
-data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'{_ccsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup, _ccsgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ccsgrStatus'
+data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'
+    { _ccsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
+    , _ccsgrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterSubnetGroupResponse' smart constructor.
 createClusterSubnetGroupResponse :: Int -> CreateClusterSubnetGroupResponse
-createClusterSubnetGroupResponse pStatusCode = CreateClusterSubnetGroupResponse'{_ccsgrClusterSubnetGroup = Nothing, _ccsgrStatusCode = pStatusCode};
+createClusterSubnetGroupResponse pStatus =
+    CreateClusterSubnetGroupResponse'
+    { _ccsgrClusterSubnetGroup = Nothing
+    , _ccsgrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ccsgrClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
 ccsgrClusterSubnetGroup = lens _ccsgrClusterSubnetGroup (\ s a -> s{_ccsgrClusterSubnetGroup = a});
 
 -- | FIXME: Undocumented member.
-ccsgrStatusCode :: Lens' CreateClusterSubnetGroupResponse Int
-ccsgrStatusCode = lens _ccsgrStatusCode (\ s a -> s{_ccsgrStatusCode = a});
+ccsgrStatus :: Lens' CreateClusterSubnetGroupResponse Int
+ccsgrStatus = lens _ccsgrStatus (\ s a -> s{_ccsgrStatus = a});

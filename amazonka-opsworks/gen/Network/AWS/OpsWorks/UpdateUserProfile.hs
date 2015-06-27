@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateUserProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.OpsWorks.UpdateUserProfile
     , updateUserProfileResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateUserProfile' smart constructor.
 --
@@ -56,11 +56,22 @@ import Network.AWS.Response
 -- * 'uupAllowSelfManagement'
 --
 -- * 'uupIAMUserARN'
-data UpdateUserProfile = UpdateUserProfile'{_uupSSHUsername :: Maybe Text, _uupSSHPublicKey :: Maybe Text, _uupAllowSelfManagement :: Maybe Bool, _uupIAMUserARN :: Text} deriving (Eq, Read, Show)
+data UpdateUserProfile = UpdateUserProfile'
+    { _uupSSHUsername         :: Maybe Text
+    , _uupSSHPublicKey        :: Maybe Text
+    , _uupAllowSelfManagement :: Maybe Bool
+    , _uupIAMUserARN          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateUserProfile' smart constructor.
 updateUserProfile :: Text -> UpdateUserProfile
-updateUserProfile pIAMUserARN = UpdateUserProfile'{_uupSSHUsername = Nothing, _uupSSHPublicKey = Nothing, _uupAllowSelfManagement = Nothing, _uupIAMUserARN = pIAMUserARN};
+updateUserProfile pIAMUserARN =
+    UpdateUserProfile'
+    { _uupSSHUsername = Nothing
+    , _uupSSHPublicKey = Nothing
+    , _uupAllowSelfManagement = Nothing
+    , _uupIAMUserARN = pIAMUserARN
+    }
 
 -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
 -- [0-9], \'-\', and \'_\'. If the specified name includes other
@@ -115,8 +126,10 @@ instance ToQuery UpdateUserProfile where
         toQuery = const mempty
 
 -- | /See:/ 'updateUserProfileResponse' smart constructor.
-data UpdateUserProfileResponse = UpdateUserProfileResponse' deriving (Eq, Read, Show)
+data UpdateUserProfileResponse =
+    UpdateUserProfileResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateUserProfileResponse' smart constructor.
 updateUserProfileResponse :: UpdateUserProfileResponse
-updateUserProfileResponse = UpdateUserProfileResponse';
+updateUserProfileResponse = UpdateUserProfileResponse'

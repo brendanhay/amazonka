@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.CreatePreset
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,13 +55,13 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     -- ** Response lenses
     , cprWarning
     , cprPreset
-    , cprStatusCode
+    , cprStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @CreatePresetRequest@ structure.
 --
@@ -80,11 +80,26 @@ import Network.AWS.Response
 -- * 'cpName'
 --
 -- * 'cpContainer'
-data CreatePreset = CreatePreset'{_cpVideo :: Maybe VideoParameters, _cpThumbnails :: Maybe Thumbnails, _cpAudio :: Maybe AudioParameters, _cpDescription :: Maybe Text, _cpName :: Text, _cpContainer :: Text} deriving (Eq, Read, Show)
+data CreatePreset = CreatePreset'
+    { _cpVideo       :: Maybe VideoParameters
+    , _cpThumbnails  :: Maybe Thumbnails
+    , _cpAudio       :: Maybe AudioParameters
+    , _cpDescription :: Maybe Text
+    , _cpName        :: Text
+    , _cpContainer   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePreset' smart constructor.
 createPreset :: Text -> Text -> CreatePreset
-createPreset pName pContainer = CreatePreset'{_cpVideo = Nothing, _cpThumbnails = Nothing, _cpAudio = Nothing, _cpDescription = Nothing, _cpName = pName, _cpContainer = pContainer};
+createPreset pName pContainer =
+    CreatePreset'
+    { _cpVideo = Nothing
+    , _cpThumbnails = Nothing
+    , _cpAudio = Nothing
+    , _cpDescription = Nothing
+    , _cpName = pName
+    , _cpContainer = pContainer
+    }
 
 -- | A section of the request body that specifies the video parameters.
 cpVideo :: Lens' CreatePreset (Maybe VideoParameters)
@@ -151,12 +166,21 @@ instance ToQuery CreatePreset where
 --
 -- * 'cprPreset'
 --
--- * 'cprStatusCode'
-data CreatePresetResponse = CreatePresetResponse'{_cprWarning :: Maybe Text, _cprPreset :: Maybe Preset, _cprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cprStatus'
+data CreatePresetResponse = CreatePresetResponse'
+    { _cprWarning :: Maybe Text
+    , _cprPreset  :: Maybe Preset
+    , _cprStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePresetResponse' smart constructor.
 createPresetResponse :: Int -> CreatePresetResponse
-createPresetResponse pStatusCode = CreatePresetResponse'{_cprWarning = Nothing, _cprPreset = Nothing, _cprStatusCode = pStatusCode};
+createPresetResponse pStatus =
+    CreatePresetResponse'
+    { _cprWarning = Nothing
+    , _cprPreset = Nothing
+    , _cprStatus = pStatus
+    }
 
 -- | If the preset settings don\'t comply with the standards for the video
 -- codec but Elastic Transcoder created the preset, this message explains
@@ -172,5 +196,5 @@ cprPreset :: Lens' CreatePresetResponse (Maybe Preset)
 cprPreset = lens _cprPreset (\ s a -> s{_cprPreset = a});
 
 -- | FIXME: Undocumented member.
-cprStatusCode :: Lens' CreatePresetResponse Int
-cprStatusCode = lens _cprStatusCode (\ s a -> s{_cprStatusCode = a});
+cprStatus :: Lens' CreatePresetResponse Int
+cprStatus = lens _cprStatus (\ s a -> s{_cprStatus = a});

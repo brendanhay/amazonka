@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.SetPlatformApplicationAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.SNS.SetPlatformApplicationAttributes
     , setPlatformApplicationAttributesResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for SetPlatformApplicationAttributes action.
 --
@@ -50,11 +50,18 @@ import Network.AWS.SNS.Types
 -- * 'spaaPlatformApplicationARN'
 --
 -- * 'spaaAttributes'
-data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'{_spaaPlatformApplicationARN :: Text, _spaaAttributes :: Map Text Text} deriving (Eq, Read, Show)
+data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
+    { _spaaPlatformApplicationARN :: Text
+    , _spaaAttributes             :: Map Text Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetPlatformApplicationAttributes' smart constructor.
 setPlatformApplicationAttributes :: Text -> SetPlatformApplicationAttributes
-setPlatformApplicationAttributes pPlatformApplicationARN = SetPlatformApplicationAttributes'{_spaaPlatformApplicationARN = pPlatformApplicationARN, _spaaAttributes = mempty};
+setPlatformApplicationAttributes pPlatformApplicationARN =
+    SetPlatformApplicationAttributes'
+    { _spaaPlatformApplicationARN = pPlatformApplicationARN
+    , _spaaAttributes = mempty
+    }
 
 -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
 spaaPlatformApplicationARN :: Lens' SetPlatformApplicationAttributes Text
@@ -114,8 +121,11 @@ instance ToQuery SetPlatformApplicationAttributes
                  toQueryMap "entry" "key" "value" _spaaAttributes]
 
 -- | /See:/ 'setPlatformApplicationAttributesResponse' smart constructor.
-data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse' deriving (Eq, Read, Show)
+data SetPlatformApplicationAttributesResponse =
+    SetPlatformApplicationAttributesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetPlatformApplicationAttributesResponse' smart constructor.
 setPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse
-setPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse';
+setPlatformApplicationAttributesResponse =
+    SetPlatformApplicationAttributesResponse'

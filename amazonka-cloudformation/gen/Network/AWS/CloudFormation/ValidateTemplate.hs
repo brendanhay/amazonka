@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.ValidateTemplate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.CloudFormation.ValidateTemplate
     , vtrCapabilitiesReason
     , vtrCapabilities
     , vtrDescription
-    , vtrStatusCode
+    , vtrStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for ValidateTemplate action.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'vtTemplateBody'
 --
 -- * 'vtTemplateURL'
-data ValidateTemplate = ValidateTemplate'{_vtTemplateBody :: Maybe Text, _vtTemplateURL :: Maybe Text} deriving (Eq, Read, Show)
+data ValidateTemplate = ValidateTemplate'
+    { _vtTemplateBody :: Maybe Text
+    , _vtTemplateURL  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ValidateTemplate' smart constructor.
 validateTemplate :: ValidateTemplate
-validateTemplate = ValidateTemplate'{_vtTemplateBody = Nothing, _vtTemplateURL = Nothing};
+validateTemplate =
+    ValidateTemplate'
+    { _vtTemplateBody = Nothing
+    , _vtTemplateURL = Nothing
+    }
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. For more information, go to
@@ -125,12 +132,25 @@ instance ToQuery ValidateTemplate where
 --
 -- * 'vtrDescription'
 --
--- * 'vtrStatusCode'
-data ValidateTemplateResponse = ValidateTemplateResponse'{_vtrParameters :: Maybe [TemplateParameter], _vtrCapabilitiesReason :: Maybe Text, _vtrCapabilities :: Maybe [Capability], _vtrDescription :: Maybe Text, _vtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'vtrStatus'
+data ValidateTemplateResponse = ValidateTemplateResponse'
+    { _vtrParameters         :: Maybe [TemplateParameter]
+    , _vtrCapabilitiesReason :: Maybe Text
+    , _vtrCapabilities       :: Maybe [Capability]
+    , _vtrDescription        :: Maybe Text
+    , _vtrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ValidateTemplateResponse' smart constructor.
 validateTemplateResponse :: Int -> ValidateTemplateResponse
-validateTemplateResponse pStatusCode = ValidateTemplateResponse'{_vtrParameters = Nothing, _vtrCapabilitiesReason = Nothing, _vtrCapabilities = Nothing, _vtrDescription = Nothing, _vtrStatusCode = pStatusCode};
+validateTemplateResponse pStatus =
+    ValidateTemplateResponse'
+    { _vtrParameters = Nothing
+    , _vtrCapabilitiesReason = Nothing
+    , _vtrCapabilities = Nothing
+    , _vtrDescription = Nothing
+    , _vtrStatus = pStatus
+    }
 
 -- | A list of @TemplateParameter@ structures.
 vtrParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
@@ -155,5 +175,5 @@ vtrDescription :: Lens' ValidateTemplateResponse (Maybe Text)
 vtrDescription = lens _vtrDescription (\ s a -> s{_vtrDescription = a});
 
 -- | FIXME: Undocumented member.
-vtrStatusCode :: Lens' ValidateTemplateResponse Int
-vtrStatusCode = lens _vtrStatusCode (\ s a -> s{_vtrStatusCode = a});
+vtrStatus :: Lens' ValidateTemplateResponse Int
+vtrStatus = lens _vtrStatus (\ s a -> s{_vtrStatus = a});

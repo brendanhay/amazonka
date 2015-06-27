@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.DefineIndexField
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.CloudSearch.DefineIndexField
     , defineIndexFieldResponse
     -- ** Response lenses
     , defIndexField
-    , defStatusCode
+    , defStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DefineIndexField@ operation.
 -- Specifies the name of the domain you want to update and the index field
@@ -60,11 +60,18 @@ import Network.AWS.Response
 -- * 'def1DomainName'
 --
 -- * 'def1IndexField'
-data DefineIndexField = DefineIndexField'{_def1DomainName :: Text, _def1IndexField :: IndexField} deriving (Eq, Read, Show)
+data DefineIndexField = DefineIndexField'
+    { _def1DomainName :: Text
+    , _def1IndexField :: IndexField
+    } deriving (Eq,Read,Show)
 
 -- | 'DefineIndexField' smart constructor.
 defineIndexField :: Text -> IndexField -> DefineIndexField
-defineIndexField pDomainName pIndexField = DefineIndexField'{_def1DomainName = pDomainName, _def1IndexField = pIndexField};
+defineIndexField pDomainName pIndexField =
+    DefineIndexField'
+    { _def1DomainName = pDomainName
+    , _def1IndexField = pIndexField
+    }
 
 -- | FIXME: Undocumented member.
 def1DomainName :: Lens' DefineIndexField Text
@@ -107,17 +114,24 @@ instance ToQuery DefineIndexField where
 --
 -- * 'defIndexField'
 --
--- * 'defStatusCode'
-data DefineIndexFieldResponse = DefineIndexFieldResponse'{_defIndexField :: IndexFieldStatus, _defStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'defStatus'
+data DefineIndexFieldResponse = DefineIndexFieldResponse'
+    { _defIndexField :: IndexFieldStatus
+    , _defStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DefineIndexFieldResponse' smart constructor.
 defineIndexFieldResponse :: IndexFieldStatus -> Int -> DefineIndexFieldResponse
-defineIndexFieldResponse pIndexField pStatusCode = DefineIndexFieldResponse'{_defIndexField = pIndexField, _defStatusCode = pStatusCode};
+defineIndexFieldResponse pIndexField pStatus =
+    DefineIndexFieldResponse'
+    { _defIndexField = pIndexField
+    , _defStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 defIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
 defIndexField = lens _defIndexField (\ s a -> s{_defIndexField = a});
 
 -- | FIXME: Undocumented member.
-defStatusCode :: Lens' DefineIndexFieldResponse Int
-defStatusCode = lens _defStatusCode (\ s a -> s{_defStatusCode = a});
+defStatus :: Lens' DefineIndexFieldResponse Int
+defStatus = lens _defStatus (\ s a -> s{_defStatus = a});

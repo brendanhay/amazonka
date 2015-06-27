@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeCustomerGateways
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.EC2.DescribeCustomerGateways
     , describeCustomerGatewaysResponse
     -- ** Response lenses
     , dcgrCustomerGateways
-    , dcgrStatusCode
+    , dcgrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeCustomerGateways' smart constructor.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'dcgFilters'
 --
 -- * 'dcgDryRun'
-data DescribeCustomerGateways = DescribeCustomerGateways'{_dcgCustomerGatewayIds :: Maybe [Text], _dcgFilters :: Maybe [Filter], _dcgDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeCustomerGateways = DescribeCustomerGateways'
+    { _dcgCustomerGatewayIds :: Maybe [Text]
+    , _dcgFilters            :: Maybe [Filter]
+    , _dcgDryRun             :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCustomerGateways' smart constructor.
 describeCustomerGateways :: DescribeCustomerGateways
-describeCustomerGateways = DescribeCustomerGateways'{_dcgCustomerGatewayIds = Nothing, _dcgFilters = Nothing, _dcgDryRun = Nothing};
+describeCustomerGateways =
+    DescribeCustomerGateways'
+    { _dcgCustomerGatewayIds = Nothing
+    , _dcgFilters = Nothing
+    , _dcgDryRun = Nothing
+    }
 
 -- | One or more customer gateway IDs.
 --
@@ -143,17 +152,24 @@ instance ToQuery DescribeCustomerGateways where
 --
 -- * 'dcgrCustomerGateways'
 --
--- * 'dcgrStatusCode'
-data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'{_dcgrCustomerGateways :: Maybe [CustomerGateway], _dcgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcgrStatus'
+data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
+    { _dcgrCustomerGateways :: Maybe [CustomerGateway]
+    , _dcgrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCustomerGatewaysResponse' smart constructor.
 describeCustomerGatewaysResponse :: Int -> DescribeCustomerGatewaysResponse
-describeCustomerGatewaysResponse pStatusCode = DescribeCustomerGatewaysResponse'{_dcgrCustomerGateways = Nothing, _dcgrStatusCode = pStatusCode};
+describeCustomerGatewaysResponse pStatus =
+    DescribeCustomerGatewaysResponse'
+    { _dcgrCustomerGateways = Nothing
+    , _dcgrStatus = pStatus
+    }
 
 -- | Information about one or more customer gateways.
 dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
 dcgrCustomerGateways = lens _dcgrCustomerGateways (\ s a -> s{_dcgrCustomerGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcgrStatusCode :: Lens' DescribeCustomerGatewaysResponse Int
-dcgrStatusCode = lens _dcgrStatusCode (\ s a -> s{_dcgrStatusCode = a});
+dcgrStatus :: Lens' DescribeCustomerGatewaysResponse Int
+dcgrStatus = lens _dcgrStatus (\ s a -> s{_dcgrStatus = a});

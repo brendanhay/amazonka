@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.StorageGateway.DeleteGateway
     , deleteGatewayResponse
     -- ** Response lenses
     , dgrGatewayARN
-    , dgrStatusCode
+    , dgrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the id of the gateway to delete.
 --
@@ -64,11 +64,16 @@ import Network.AWS.StorageGateway.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dgGatewayARN'
-newtype DeleteGateway = DeleteGateway'{_dgGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteGateway = DeleteGateway'
+    { _dgGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteGateway' smart constructor.
 deleteGateway :: Text -> DeleteGateway
-deleteGateway pGatewayARN = DeleteGateway'{_dgGatewayARN = pGatewayARN};
+deleteGateway pGatewayARN =
+    DeleteGateway'
+    { _dgGatewayARN = pGatewayARN
+    }
 
 -- | FIXME: Undocumented member.
 dgGatewayARN :: Lens' DeleteGateway Text
@@ -112,17 +117,24 @@ instance ToQuery DeleteGateway where
 --
 -- * 'dgrGatewayARN'
 --
--- * 'dgrStatusCode'
-data DeleteGatewayResponse = DeleteGatewayResponse'{_dgrGatewayARN :: Maybe Text, _dgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dgrStatus'
+data DeleteGatewayResponse = DeleteGatewayResponse'
+    { _dgrGatewayARN :: Maybe Text
+    , _dgrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteGatewayResponse' smart constructor.
 deleteGatewayResponse :: Int -> DeleteGatewayResponse
-deleteGatewayResponse pStatusCode = DeleteGatewayResponse'{_dgrGatewayARN = Nothing, _dgrStatusCode = pStatusCode};
+deleteGatewayResponse pStatus =
+    DeleteGatewayResponse'
+    { _dgrGatewayARN = Nothing
+    , _dgrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dgrGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
 dgrGatewayARN = lens _dgrGatewayARN (\ s a -> s{_dgrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-dgrStatusCode :: Lens' DeleteGatewayResponse Int
-dgrStatusCode = lens _dgrStatusCode (\ s a -> s{_dgrStatusCode = a});
+dgrStatus :: Lens' DeleteGatewayResponse Int
+dgrStatus = lens _dgrStatus (\ s a -> s{_dgrStatus = a});

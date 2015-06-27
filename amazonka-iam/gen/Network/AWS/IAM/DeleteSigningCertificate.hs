@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeleteSigningCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.IAM.DeleteSigningCertificate
     , deleteSigningCertificateResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteSigningCertificate' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'dscUserName'
 --
 -- * 'dscCertificateId'
-data DeleteSigningCertificate = DeleteSigningCertificate'{_dscUserName :: Maybe Text, _dscCertificateId :: Text} deriving (Eq, Read, Show)
+data DeleteSigningCertificate = DeleteSigningCertificate'
+    { _dscUserName      :: Maybe Text
+    , _dscCertificateId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteSigningCertificate' smart constructor.
 deleteSigningCertificate :: Text -> DeleteSigningCertificate
-deleteSigningCertificate pCertificateId = DeleteSigningCertificate'{_dscUserName = Nothing, _dscCertificateId = pCertificateId};
+deleteSigningCertificate pCertificateId =
+    DeleteSigningCertificate'
+    { _dscUserName = Nothing
+    , _dscCertificateId = pCertificateId
+    }
 
 -- | The name of the user the signing certificate belongs to.
 dscUserName :: Lens' DeleteSigningCertificate (Maybe Text)
@@ -90,8 +97,10 @@ instance ToQuery DeleteSigningCertificate where
                "CertificateId" =: _dscCertificateId]
 
 -- | /See:/ 'deleteSigningCertificateResponse' smart constructor.
-data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse' deriving (Eq, Read, Show)
+data DeleteSigningCertificateResponse =
+    DeleteSigningCertificateResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteSigningCertificateResponse' smart constructor.
 deleteSigningCertificateResponse :: DeleteSigningCertificateResponse
-deleteSigningCertificateResponse = DeleteSigningCertificateResponse';
+deleteSigningCertificateResponse = DeleteSigningCertificateResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,13 +52,13 @@ module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     -- ** Response lenses
     , goitfdirToken
     , goitfdirIdentityId
-    , goitfdirStatusCode
+    , goitfdirStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the @GetOpenIdTokenForDeveloperIdentity@ action.
 --
@@ -73,11 +73,22 @@ import Network.AWS.Response
 -- * 'goitfdiIdentityPoolId'
 --
 -- * 'goitfdiLogins'
-data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'{_goitfdiTokenDuration :: Maybe Nat, _goitfdiIdentityId :: Maybe Text, _goitfdiIdentityPoolId :: Text, _goitfdiLogins :: Map Text Text} deriving (Eq, Read, Show)
+data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
+    { _goitfdiTokenDuration  :: Maybe Nat
+    , _goitfdiIdentityId     :: Maybe Text
+    , _goitfdiIdentityPoolId :: Text
+    , _goitfdiLogins         :: Map Text Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetOpenIdTokenForDeveloperIdentity' smart constructor.
 getOpenIdTokenForDeveloperIdentity :: Text -> GetOpenIdTokenForDeveloperIdentity
-getOpenIdTokenForDeveloperIdentity pIdentityPoolId = GetOpenIdTokenForDeveloperIdentity'{_goitfdiTokenDuration = Nothing, _goitfdiIdentityId = Nothing, _goitfdiIdentityPoolId = pIdentityPoolId, _goitfdiLogins = mempty};
+getOpenIdTokenForDeveloperIdentity pIdentityPoolId =
+    GetOpenIdTokenForDeveloperIdentity'
+    { _goitfdiTokenDuration = Nothing
+    , _goitfdiIdentityId = Nothing
+    , _goitfdiIdentityPoolId = pIdentityPoolId
+    , _goitfdiLogins = mempty
+    }
 
 -- | The expiration time of the token, in seconds. You can specify a custom
 -- expiration time for the token so that you can cache it. If you don\'t
@@ -165,12 +176,21 @@ instance ToQuery GetOpenIdTokenForDeveloperIdentity
 --
 -- * 'goitfdirIdentityId'
 --
--- * 'goitfdirStatusCode'
-data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'{_goitfdirToken :: Maybe Text, _goitfdirIdentityId :: Maybe Text, _goitfdirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'goitfdirStatus'
+data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'
+    { _goitfdirToken      :: Maybe Text
+    , _goitfdirIdentityId :: Maybe Text
+    , _goitfdirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetOpenIdTokenForDeveloperIdentityResponse' smart constructor.
 getOpenIdTokenForDeveloperIdentityResponse :: Int -> GetOpenIdTokenForDeveloperIdentityResponse
-getOpenIdTokenForDeveloperIdentityResponse pStatusCode = GetOpenIdTokenForDeveloperIdentityResponse'{_goitfdirToken = Nothing, _goitfdirIdentityId = Nothing, _goitfdirStatusCode = pStatusCode};
+getOpenIdTokenForDeveloperIdentityResponse pStatus =
+    GetOpenIdTokenForDeveloperIdentityResponse'
+    { _goitfdirToken = Nothing
+    , _goitfdirIdentityId = Nothing
+    , _goitfdirStatus = pStatus
+    }
 
 -- | An OpenID token.
 goitfdirToken :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Text)
@@ -181,5 +201,5 @@ goitfdirIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Te
 goitfdirIdentityId = lens _goitfdirIdentityId (\ s a -> s{_goitfdirIdentityId = a});
 
 -- | FIXME: Undocumented member.
-goitfdirStatusCode :: Lens' GetOpenIdTokenForDeveloperIdentityResponse Int
-goitfdirStatusCode = lens _goitfdirStatusCode (\ s a -> s{_goitfdirStatusCode = a});
+goitfdirStatus :: Lens' GetOpenIdTokenForDeveloperIdentityResponse Int
+goitfdirStatus = lens _goitfdirStatus (\ s a -> s{_goitfdirStatus = a});

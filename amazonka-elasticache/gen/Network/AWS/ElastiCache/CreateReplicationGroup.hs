@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateReplicationGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -64,13 +64,13 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     , createReplicationGroupResponse
     -- ** Response lenses
     , crgrReplicationGroup
-    , crgrStatusCode
+    , crgrStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /CreateReplicationGroup/ action.
 --
@@ -121,11 +121,58 @@ import Network.AWS.Response
 -- * 'crgReplicationGroupId'
 --
 -- * 'crgReplicationGroupDescription'
-data CreateReplicationGroup = CreateReplicationGroup'{_crgAutomaticFailoverEnabled :: Maybe Bool, _crgCacheNodeType :: Maybe Text, _crgEngineVersion :: Maybe Text, _crgSecurityGroupIds :: Maybe [Text], _crgAutoMinorVersionUpgrade :: Maybe Bool, _crgSnapshotARNs :: Maybe [Text], _crgCacheParameterGroupName :: Maybe Text, _crgSnapshotWindow :: Maybe Text, _crgPrimaryClusterId :: Maybe Text, _crgEngine :: Maybe Text, _crgPreferredMaintenanceWindow :: Maybe Text, _crgCacheSubnetGroupName :: Maybe Text, _crgSnapshotRetentionLimit :: Maybe Int, _crgSnapshotName :: Maybe Text, _crgPreferredCacheClusterAZs :: Maybe [Text], _crgNumCacheClusters :: Maybe Int, _crgNotificationTopicARN :: Maybe Text, _crgTags :: Maybe [Tag], _crgCacheSecurityGroupNames :: Maybe [Text], _crgPort :: Maybe Int, _crgReplicationGroupId :: Text, _crgReplicationGroupDescription :: Text} deriving (Eq, Read, Show)
+data CreateReplicationGroup = CreateReplicationGroup'
+    { _crgAutomaticFailoverEnabled    :: Maybe Bool
+    , _crgCacheNodeType               :: Maybe Text
+    , _crgEngineVersion               :: Maybe Text
+    , _crgSecurityGroupIds            :: Maybe [Text]
+    , _crgAutoMinorVersionUpgrade     :: Maybe Bool
+    , _crgSnapshotARNs                :: Maybe [Text]
+    , _crgCacheParameterGroupName     :: Maybe Text
+    , _crgSnapshotWindow              :: Maybe Text
+    , _crgPrimaryClusterId            :: Maybe Text
+    , _crgEngine                      :: Maybe Text
+    , _crgPreferredMaintenanceWindow  :: Maybe Text
+    , _crgCacheSubnetGroupName        :: Maybe Text
+    , _crgSnapshotRetentionLimit      :: Maybe Int
+    , _crgSnapshotName                :: Maybe Text
+    , _crgPreferredCacheClusterAZs    :: Maybe [Text]
+    , _crgNumCacheClusters            :: Maybe Int
+    , _crgNotificationTopicARN        :: Maybe Text
+    , _crgTags                        :: Maybe [Tag]
+    , _crgCacheSecurityGroupNames     :: Maybe [Text]
+    , _crgPort                        :: Maybe Int
+    , _crgReplicationGroupId          :: Text
+    , _crgReplicationGroupDescription :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateReplicationGroup' smart constructor.
 createReplicationGroup :: Text -> Text -> CreateReplicationGroup
-createReplicationGroup pReplicationGroupId pReplicationGroupDescription = CreateReplicationGroup'{_crgAutomaticFailoverEnabled = Nothing, _crgCacheNodeType = Nothing, _crgEngineVersion = Nothing, _crgSecurityGroupIds = Nothing, _crgAutoMinorVersionUpgrade = Nothing, _crgSnapshotARNs = Nothing, _crgCacheParameterGroupName = Nothing, _crgSnapshotWindow = Nothing, _crgPrimaryClusterId = Nothing, _crgEngine = Nothing, _crgPreferredMaintenanceWindow = Nothing, _crgCacheSubnetGroupName = Nothing, _crgSnapshotRetentionLimit = Nothing, _crgSnapshotName = Nothing, _crgPreferredCacheClusterAZs = Nothing, _crgNumCacheClusters = Nothing, _crgNotificationTopicARN = Nothing, _crgTags = Nothing, _crgCacheSecurityGroupNames = Nothing, _crgPort = Nothing, _crgReplicationGroupId = pReplicationGroupId, _crgReplicationGroupDescription = pReplicationGroupDescription};
+createReplicationGroup pReplicationGroupId pReplicationGroupDescription =
+    CreateReplicationGroup'
+    { _crgAutomaticFailoverEnabled = Nothing
+    , _crgCacheNodeType = Nothing
+    , _crgEngineVersion = Nothing
+    , _crgSecurityGroupIds = Nothing
+    , _crgAutoMinorVersionUpgrade = Nothing
+    , _crgSnapshotARNs = Nothing
+    , _crgCacheParameterGroupName = Nothing
+    , _crgSnapshotWindow = Nothing
+    , _crgPrimaryClusterId = Nothing
+    , _crgEngine = Nothing
+    , _crgPreferredMaintenanceWindow = Nothing
+    , _crgCacheSubnetGroupName = Nothing
+    , _crgSnapshotRetentionLimit = Nothing
+    , _crgSnapshotName = Nothing
+    , _crgPreferredCacheClusterAZs = Nothing
+    , _crgNumCacheClusters = Nothing
+    , _crgNotificationTopicARN = Nothing
+    , _crgTags = Nothing
+    , _crgCacheSecurityGroupNames = Nothing
+    , _crgPort = Nothing
+    , _crgReplicationGroupId = pReplicationGroupId
+    , _crgReplicationGroupDescription = pReplicationGroupDescription
+    }
 
 -- | Specifies whether a read-only replica will be automatically promoted to
 -- read\/write primary if the existing primary fails.
@@ -421,17 +468,24 @@ instance ToQuery CreateReplicationGroup where
 --
 -- * 'crgrReplicationGroup'
 --
--- * 'crgrStatusCode'
-data CreateReplicationGroupResponse = CreateReplicationGroupResponse'{_crgrReplicationGroup :: Maybe ReplicationGroup, _crgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'crgrStatus'
+data CreateReplicationGroupResponse = CreateReplicationGroupResponse'
+    { _crgrReplicationGroup :: Maybe ReplicationGroup
+    , _crgrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateReplicationGroupResponse' smart constructor.
 createReplicationGroupResponse :: Int -> CreateReplicationGroupResponse
-createReplicationGroupResponse pStatusCode = CreateReplicationGroupResponse'{_crgrReplicationGroup = Nothing, _crgrStatusCode = pStatusCode};
+createReplicationGroupResponse pStatus =
+    CreateReplicationGroupResponse'
+    { _crgrReplicationGroup = Nothing
+    , _crgrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 crgrReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationGroup)
 crgrReplicationGroup = lens _crgrReplicationGroup (\ s a -> s{_crgrReplicationGroup = a});
 
 -- | FIXME: Undocumented member.
-crgrStatusCode :: Lens' CreateReplicationGroupResponse Int
-crgrStatusCode = lens _crgrStatusCode (\ s a -> s{_crgrStatusCode = a});
+crgrStatus :: Lens' CreateReplicationGroupResponse Int
+crgrStatus = lens _crgrStatus (\ s a -> s{_crgrStatus = a});

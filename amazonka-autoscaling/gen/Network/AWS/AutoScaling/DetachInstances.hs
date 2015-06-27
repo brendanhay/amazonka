@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DetachInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.AutoScaling.DetachInstances
     , detachInstancesResponse
     -- ** Response lenses
     , dirActivities
-    , dirStatusCode
+    , dirStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachInstances' smart constructor.
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'diAutoScalingGroupName'
 --
 -- * 'diShouldDecrementDesiredCapacity'
-data DetachInstances = DetachInstances'{_diInstanceIds :: Maybe [Text], _diAutoScalingGroupName :: Text, _diShouldDecrementDesiredCapacity :: Bool} deriving (Eq, Read, Show)
+data DetachInstances = DetachInstances'
+    { _diInstanceIds                    :: Maybe [Text]
+    , _diAutoScalingGroupName           :: Text
+    , _diShouldDecrementDesiredCapacity :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachInstances' smart constructor.
 detachInstances :: Text -> Bool -> DetachInstances
-detachInstances pAutoScalingGroupName pShouldDecrementDesiredCapacity = DetachInstances'{_diInstanceIds = Nothing, _diAutoScalingGroupName = pAutoScalingGroupName, _diShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity};
+detachInstances pAutoScalingGroupName pShouldDecrementDesiredCapacity =
+    DetachInstances'
+    { _diInstanceIds = Nothing
+    , _diAutoScalingGroupName = pAutoScalingGroupName
+    , _diShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity
+    }
 
 -- | One or more instance IDs.
 diInstanceIds :: Lens' DetachInstances [Text]
@@ -111,12 +120,19 @@ instance ToQuery DetachInstances where
 --
 -- * 'dirActivities'
 --
--- * 'dirStatusCode'
-data DetachInstancesResponse = DetachInstancesResponse'{_dirActivities :: Maybe [Activity], _dirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dirStatus'
+data DetachInstancesResponse = DetachInstancesResponse'
+    { _dirActivities :: Maybe [Activity]
+    , _dirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachInstancesResponse' smart constructor.
 detachInstancesResponse :: Int -> DetachInstancesResponse
-detachInstancesResponse pStatusCode = DetachInstancesResponse'{_dirActivities = Nothing, _dirStatusCode = pStatusCode};
+detachInstancesResponse pStatus =
+    DetachInstancesResponse'
+    { _dirActivities = Nothing
+    , _dirStatus = pStatus
+    }
 
 -- | The activities related to detaching the instances from the Auto Scaling
 -- group.
@@ -124,5 +140,5 @@ dirActivities :: Lens' DetachInstancesResponse [Activity]
 dirActivities = lens _dirActivities (\ s a -> s{_dirActivities = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dirStatusCode :: Lens' DetachInstancesResponse Int
-dirStatusCode = lens _dirStatusCode (\ s a -> s{_dirStatusCode = a});
+dirStatus :: Lens' DetachInstancesResponse Int
+dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});

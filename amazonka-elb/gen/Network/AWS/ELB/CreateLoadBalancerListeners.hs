@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.CreateLoadBalancerListeners
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.ELB.CreateLoadBalancerListeners
     -- ** Response constructor
     , createLoadBalancerListenersResponse
     -- ** Response lenses
-    , clblrStatusCode
+    , clblrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createLoadBalancerListeners' smart constructor.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'clblLoadBalancerName'
 --
 -- * 'clblListeners'
-data CreateLoadBalancerListeners = CreateLoadBalancerListeners'{_clblLoadBalancerName :: Text, _clblListeners :: [Listener]} deriving (Eq, Read, Show)
+data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
+    { _clblLoadBalancerName :: Text
+    , _clblListeners        :: [Listener]
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLoadBalancerListeners' smart constructor.
 createLoadBalancerListeners :: Text -> CreateLoadBalancerListeners
-createLoadBalancerListeners pLoadBalancerName = CreateLoadBalancerListeners'{_clblLoadBalancerName = pLoadBalancerName, _clblListeners = mempty};
+createLoadBalancerListeners pLoadBalancerName =
+    CreateLoadBalancerListeners'
+    { _clblLoadBalancerName = pLoadBalancerName
+    , _clblListeners = mempty
+    }
 
 -- | The name of the load balancer.
 clblLoadBalancerName :: Lens' CreateLoadBalancerListeners Text
@@ -99,13 +106,18 @@ instance ToQuery CreateLoadBalancerListeners where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clblrStatusCode'
-newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'{_clblrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'clblrStatus'
+newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'
+    { _clblrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLoadBalancerListenersResponse' smart constructor.
 createLoadBalancerListenersResponse :: Int -> CreateLoadBalancerListenersResponse
-createLoadBalancerListenersResponse pStatusCode = CreateLoadBalancerListenersResponse'{_clblrStatusCode = pStatusCode};
+createLoadBalancerListenersResponse pStatus =
+    CreateLoadBalancerListenersResponse'
+    { _clblrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-clblrStatusCode :: Lens' CreateLoadBalancerListenersResponse Int
-clblrStatusCode = lens _clblrStatusCode (\ s a -> s{_clblrStatusCode = a});
+clblrStatus :: Lens' CreateLoadBalancerListenersResponse Int
+clblrStatus = lens _clblrStatus (\ s a -> s{_clblrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.LookupDeveloperIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     , ldirNextToken
     , ldirIdentityId
     , ldirDeveloperUserIdentifierList
-    , ldirStatusCode
+    , ldirStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the @LookupDeveloperIdentityInput@ action.
 --
@@ -72,11 +72,24 @@ import Network.AWS.Response
 -- * 'ldiMaxResults'
 --
 -- * 'ldiIdentityPoolId'
-data LookupDeveloperIdentity = LookupDeveloperIdentity'{_ldiDeveloperUserIdentifier :: Maybe Text, _ldiNextToken :: Maybe Text, _ldiIdentityId :: Maybe Text, _ldiMaxResults :: Maybe Nat, _ldiIdentityPoolId :: Text} deriving (Eq, Read, Show)
+data LookupDeveloperIdentity = LookupDeveloperIdentity'
+    { _ldiDeveloperUserIdentifier :: Maybe Text
+    , _ldiNextToken               :: Maybe Text
+    , _ldiIdentityId              :: Maybe Text
+    , _ldiMaxResults              :: Maybe Nat
+    , _ldiIdentityPoolId          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'LookupDeveloperIdentity' smart constructor.
 lookupDeveloperIdentity :: Text -> LookupDeveloperIdentity
-lookupDeveloperIdentity pIdentityPoolId = LookupDeveloperIdentity'{_ldiDeveloperUserIdentifier = Nothing, _ldiNextToken = Nothing, _ldiIdentityId = Nothing, _ldiMaxResults = Nothing, _ldiIdentityPoolId = pIdentityPoolId};
+lookupDeveloperIdentity pIdentityPoolId =
+    LookupDeveloperIdentity'
+    { _ldiDeveloperUserIdentifier = Nothing
+    , _ldiNextToken = Nothing
+    , _ldiIdentityId = Nothing
+    , _ldiMaxResults = Nothing
+    , _ldiIdentityPoolId = pIdentityPoolId
+    }
 
 -- | A unique ID used by your backend authentication process to identify a
 -- user. Typically, a developer identity provider would issue many
@@ -156,12 +169,23 @@ instance ToQuery LookupDeveloperIdentity where
 --
 -- * 'ldirDeveloperUserIdentifierList'
 --
--- * 'ldirStatusCode'
-data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'{_ldirNextToken :: Maybe Text, _ldirIdentityId :: Maybe Text, _ldirDeveloperUserIdentifierList :: Maybe [Text], _ldirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ldirStatus'
+data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'
+    { _ldirNextToken                   :: Maybe Text
+    , _ldirIdentityId                  :: Maybe Text
+    , _ldirDeveloperUserIdentifierList :: Maybe [Text]
+    , _ldirStatus                      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'LookupDeveloperIdentityResponse' smart constructor.
 lookupDeveloperIdentityResponse :: Int -> LookupDeveloperIdentityResponse
-lookupDeveloperIdentityResponse pStatusCode = LookupDeveloperIdentityResponse'{_ldirNextToken = Nothing, _ldirIdentityId = Nothing, _ldirDeveloperUserIdentifierList = Nothing, _ldirStatusCode = pStatusCode};
+lookupDeveloperIdentityResponse pStatus =
+    LookupDeveloperIdentityResponse'
+    { _ldirNextToken = Nothing
+    , _ldirIdentityId = Nothing
+    , _ldirDeveloperUserIdentifierList = Nothing
+    , _ldirStatus = pStatus
+    }
 
 -- | A pagination token. The first call you make will have @NextToken@ set to
 -- null. After that the service will return @NextToken@ values as needed.
@@ -183,5 +207,5 @@ ldirDeveloperUserIdentifierList :: Lens' LookupDeveloperIdentityResponse [Text]
 ldirDeveloperUserIdentifierList = lens _ldirDeveloperUserIdentifierList (\ s a -> s{_ldirDeveloperUserIdentifierList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldirStatusCode :: Lens' LookupDeveloperIdentityResponse Int
-ldirStatusCode = lens _ldirStatusCode (\ s a -> s{_ldirStatusCode = a});
+ldirStatus :: Lens' LookupDeveloperIdentityResponse Int
+ldirStatus = lens _ldirStatus (\ s a -> s{_ldirStatus = a});

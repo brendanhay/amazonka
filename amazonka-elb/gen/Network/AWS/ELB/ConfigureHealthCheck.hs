@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.ConfigureHealthCheck
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.ELB.ConfigureHealthCheck
     , configureHealthCheckResponse
     -- ** Response lenses
     , chcrHealthCheck
-    , chcrStatusCode
+    , chcrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'configureHealthCheck' smart constructor.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'chcLoadBalancerName'
 --
 -- * 'chcHealthCheck'
-data ConfigureHealthCheck = ConfigureHealthCheck'{_chcLoadBalancerName :: Text, _chcHealthCheck :: HealthCheck} deriving (Eq, Read, Show)
+data ConfigureHealthCheck = ConfigureHealthCheck'
+    { _chcLoadBalancerName :: Text
+    , _chcHealthCheck      :: HealthCheck
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfigureHealthCheck' smart constructor.
 configureHealthCheck :: Text -> HealthCheck -> ConfigureHealthCheck
-configureHealthCheck pLoadBalancerName pHealthCheck = ConfigureHealthCheck'{_chcLoadBalancerName = pLoadBalancerName, _chcHealthCheck = pHealthCheck};
+configureHealthCheck pLoadBalancerName pHealthCheck =
+    ConfigureHealthCheck'
+    { _chcLoadBalancerName = pLoadBalancerName
+    , _chcHealthCheck = pHealthCheck
+    }
 
 -- | The name of the load balancer.
 chcLoadBalancerName :: Lens' ConfigureHealthCheck Text
@@ -98,17 +105,24 @@ instance ToQuery ConfigureHealthCheck where
 --
 -- * 'chcrHealthCheck'
 --
--- * 'chcrStatusCode'
-data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'{_chcrHealthCheck :: Maybe HealthCheck, _chcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'chcrStatus'
+data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
+    { _chcrHealthCheck :: Maybe HealthCheck
+    , _chcrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfigureHealthCheckResponse' smart constructor.
 configureHealthCheckResponse :: Int -> ConfigureHealthCheckResponse
-configureHealthCheckResponse pStatusCode = ConfigureHealthCheckResponse'{_chcrHealthCheck = Nothing, _chcrStatusCode = pStatusCode};
+configureHealthCheckResponse pStatus =
+    ConfigureHealthCheckResponse'
+    { _chcrHealthCheck = Nothing
+    , _chcrStatus = pStatus
+    }
 
 -- | The updated health check.
 chcrHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
 chcrHealthCheck = lens _chcrHealthCheck (\ s a -> s{_chcrHealthCheck = a});
 
 -- | FIXME: Undocumented member.
-chcrStatusCode :: Lens' ConfigureHealthCheckResponse Int
-chcrStatusCode = lens _chcrStatusCode (\ s a -> s{_chcrStatusCode = a});
+chcrStatus :: Lens' ConfigureHealthCheckResponse Int
+chcrStatus = lens _chcrStatus (\ s a -> s{_chcrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.CreateQueue
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,13 +61,13 @@ module Network.AWS.SQS.CreateQueue
     , createQueueResponse
     -- ** Response lenses
     , cqrQueueURL
-    , cqrStatusCode
+    , cqrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'createQueue' smart constructor.
 --
@@ -76,11 +76,18 @@ import Network.AWS.SQS.Types
 -- * 'cqAttributes'
 --
 -- * 'cqQueueName'
-data CreateQueue = CreateQueue'{_cqAttributes :: Maybe (Map QueueAttributeName Text), _cqQueueName :: Text} deriving (Eq, Read, Show)
+data CreateQueue = CreateQueue'
+    { _cqAttributes :: Maybe (Map QueueAttributeName Text)
+    , _cqQueueName  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateQueue' smart constructor.
 createQueue :: Text -> CreateQueue
-createQueue pQueueName = CreateQueue'{_cqAttributes = Nothing, _cqQueueName = pQueueName};
+createQueue pQueueName =
+    CreateQueue'
+    { _cqAttributes = Nothing
+    , _cqQueueName = pQueueName
+    }
 
 -- | A map of attributes with their corresponding values.
 --
@@ -151,17 +158,24 @@ instance ToQuery CreateQueue where
 --
 -- * 'cqrQueueURL'
 --
--- * 'cqrStatusCode'
-data CreateQueueResponse = CreateQueueResponse'{_cqrQueueURL :: Maybe Text, _cqrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cqrStatus'
+data CreateQueueResponse = CreateQueueResponse'
+    { _cqrQueueURL :: Maybe Text
+    , _cqrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateQueueResponse' smart constructor.
 createQueueResponse :: Int -> CreateQueueResponse
-createQueueResponse pStatusCode = CreateQueueResponse'{_cqrQueueURL = Nothing, _cqrStatusCode = pStatusCode};
+createQueueResponse pStatus =
+    CreateQueueResponse'
+    { _cqrQueueURL = Nothing
+    , _cqrStatus = pStatus
+    }
 
 -- | The URL for the created Amazon SQS queue.
 cqrQueueURL :: Lens' CreateQueueResponse (Maybe Text)
 cqrQueueURL = lens _cqrQueueURL (\ s a -> s{_cqrQueueURL = a});
 
 -- | FIXME: Undocumented member.
-cqrStatusCode :: Lens' CreateQueueResponse Int
-cqrStatusCode = lens _cqrStatusCode (\ s a -> s{_cqrStatusCode = a});
+cqrStatus :: Lens' CreateQueueResponse Int
+cqrStatus = lens _cqrStatus (\ s a -> s{_cqrStatus = a});

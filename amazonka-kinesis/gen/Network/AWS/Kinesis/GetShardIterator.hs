@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Kinesis.GetShardIterator
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -75,13 +75,13 @@ module Network.AWS.Kinesis.GetShardIterator
     , getShardIteratorResponse
     -- ** Response lenses
     , gsirShardIterator
-    , gsirStatusCode
+    , gsirStatus
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @GetShardIterator@.
 --
@@ -96,11 +96,22 @@ import Network.AWS.Response
 -- * 'gsiShardId'
 --
 -- * 'gsiShardIteratorType'
-data GetShardIterator = GetShardIterator'{_gsiStartingSequenceNumber :: Maybe Text, _gsiStreamName :: Text, _gsiShardId :: Text, _gsiShardIteratorType :: ShardIteratorType} deriving (Eq, Read, Show)
+data GetShardIterator = GetShardIterator'
+    { _gsiStartingSequenceNumber :: Maybe Text
+    , _gsiStreamName             :: Text
+    , _gsiShardId                :: Text
+    , _gsiShardIteratorType      :: ShardIteratorType
+    } deriving (Eq,Read,Show)
 
 -- | 'GetShardIterator' smart constructor.
 getShardIterator :: Text -> Text -> ShardIteratorType -> GetShardIterator
-getShardIterator pStreamName pShardId pShardIteratorType = GetShardIterator'{_gsiStartingSequenceNumber = Nothing, _gsiStreamName = pStreamName, _gsiShardId = pShardId, _gsiShardIteratorType = pShardIteratorType};
+getShardIterator pStreamName pShardId pShardIteratorType =
+    GetShardIterator'
+    { _gsiStartingSequenceNumber = Nothing
+    , _gsiStreamName = pStreamName
+    , _gsiShardId = pShardId
+    , _gsiShardIteratorType = pShardIteratorType
+    }
 
 -- | The sequence number of the data record in the shard from which to start
 -- reading from.
@@ -173,12 +184,19 @@ instance ToQuery GetShardIterator where
 --
 -- * 'gsirShardIterator'
 --
--- * 'gsirStatusCode'
-data GetShardIteratorResponse = GetShardIteratorResponse'{_gsirShardIterator :: Maybe Text, _gsirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gsirStatus'
+data GetShardIteratorResponse = GetShardIteratorResponse'
+    { _gsirShardIterator :: Maybe Text
+    , _gsirStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetShardIteratorResponse' smart constructor.
 getShardIteratorResponse :: Int -> GetShardIteratorResponse
-getShardIteratorResponse pStatusCode = GetShardIteratorResponse'{_gsirShardIterator = Nothing, _gsirStatusCode = pStatusCode};
+getShardIteratorResponse pStatus =
+    GetShardIteratorResponse'
+    { _gsirShardIterator = Nothing
+    , _gsirStatus = pStatus
+    }
 
 -- | The position in the shard from which to start reading data records
 -- sequentially. A shard iterator specifies this position using the
@@ -187,5 +205,5 @@ gsirShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
 gsirShardIterator = lens _gsirShardIterator (\ s a -> s{_gsirShardIterator = a});
 
 -- | FIXME: Undocumented member.
-gsirStatusCode :: Lens' GetShardIteratorResponse Int
-gsirStatusCode = lens _gsirStatusCode (\ s a -> s{_gsirStatusCode = a});
+gsirStatus :: Lens' GetShardIteratorResponse Int
+gsirStatus = lens _gsirStatus (\ s a -> s{_gsirStatus = a});

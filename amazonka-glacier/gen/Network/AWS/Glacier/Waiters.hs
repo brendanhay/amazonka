@@ -15,6 +15,6 @@
 
 module Network.AWS.Glacier.Waiters where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter

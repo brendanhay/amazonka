@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -77,10 +77,10 @@ module Network.AWS.EC2.CreateSnapshot
     , snaEncrypted
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createSnapshot' smart constructor.
 --
@@ -91,11 +91,20 @@ import Network.AWS.Response
 -- * 'cs1Description'
 --
 -- * 'cs1VolumeId'
-data CreateSnapshot = CreateSnapshot'{_cs1DryRun :: Maybe Bool, _cs1Description :: Maybe Text, _cs1VolumeId :: Text} deriving (Eq, Read, Show)
+data CreateSnapshot = CreateSnapshot'
+    { _cs1DryRun      :: Maybe Bool
+    , _cs1Description :: Maybe Text
+    , _cs1VolumeId    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> CreateSnapshot
-createSnapshot pVolumeId = CreateSnapshot'{_cs1DryRun = Nothing, _cs1Description = Nothing, _cs1VolumeId = pVolumeId};
+createSnapshot pVolumeId =
+    CreateSnapshot'
+    { _cs1DryRun = Nothing
+    , _cs1Description = Nothing
+    , _cs1VolumeId = pVolumeId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

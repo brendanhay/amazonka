@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.CreateDataSourceFromRDS
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,13 +51,13 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRDS
     , createDataSourceFromRDSResponse
     -- ** Response lenses
     , cDataSourceId
-    , cStatusCode
+    , cStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createDataSourceFromRDS' smart constructor.
 --
@@ -72,11 +72,24 @@ import Network.AWS.Response
 -- * 'creRDSData'
 --
 -- * 'creRoleARN'
-data CreateDataSourceFromRDS = CreateDataSourceFromRDS'{_creDataSourceName :: Maybe Text, _creComputeStatistics :: Maybe Bool, _creDataSourceId :: Text, _creRDSData :: RDSDataSpec, _creRoleARN :: Text} deriving (Eq, Read, Show)
+data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
+    { _creDataSourceName    :: Maybe Text
+    , _creComputeStatistics :: Maybe Bool
+    , _creDataSourceId      :: Text
+    , _creRDSData           :: RDSDataSpec
+    , _creRoleARN           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDataSourceFromRDS' smart constructor.
 createDataSourceFromRDS :: Text -> RDSDataSpec -> Text -> CreateDataSourceFromRDS
-createDataSourceFromRDS pDataSourceId pRDSData pRoleARN = CreateDataSourceFromRDS'{_creDataSourceName = Nothing, _creComputeStatistics = Nothing, _creDataSourceId = pDataSourceId, _creRDSData = pRDSData, _creRoleARN = pRoleARN};
+createDataSourceFromRDS pDataSourceId pRDSData pRoleARN =
+    CreateDataSourceFromRDS'
+    { _creDataSourceName = Nothing
+    , _creComputeStatistics = Nothing
+    , _creDataSourceId = pDataSourceId
+    , _creRDSData = pRDSData
+    , _creRoleARN = pRoleARN
+    }
 
 -- | A user-supplied name or description of the @DataSource@.
 creDataSourceName :: Lens' CreateDataSourceFromRDS (Maybe Text)
@@ -203,12 +216,19 @@ instance ToQuery CreateDataSourceFromRDS where
 --
 -- * 'cDataSourceId'
 --
--- * 'cStatusCode'
-data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'{_cDataSourceId :: Maybe Text, _cStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cStatus'
+data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'
+    { _cDataSourceId :: Maybe Text
+    , _cStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDataSourceFromRDSResponse' smart constructor.
 createDataSourceFromRDSResponse :: Int -> CreateDataSourceFromRDSResponse
-createDataSourceFromRDSResponse pStatusCode = CreateDataSourceFromRDSResponse'{_cDataSourceId = Nothing, _cStatusCode = pStatusCode};
+createDataSourceFromRDSResponse pStatus =
+    CreateDataSourceFromRDSResponse'
+    { _cDataSourceId = Nothing
+    , _cStatus = pStatus
+    }
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
@@ -216,5 +236,5 @@ cDataSourceId :: Lens' CreateDataSourceFromRDSResponse (Maybe Text)
 cDataSourceId = lens _cDataSourceId (\ s a -> s{_cDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-cStatusCode :: Lens' CreateDataSourceFromRDSResponse Int
-cStatusCode = lens _cStatusCode (\ s a -> s{_cStatusCode = a});
+cStatus :: Lens' CreateDataSourceFromRDSResponse Int
+cStatus = lens _cStatus (\ s a -> s{_cStatus = a});

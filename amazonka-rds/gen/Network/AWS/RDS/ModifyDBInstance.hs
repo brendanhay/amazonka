@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.ModifyDBInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,13 +55,13 @@ module Network.AWS.RDS.ModifyDBInstance
     , modifyDBInstanceResponse
     -- ** Response lenses
     , mdirDBInstance
-    , mdirStatusCode
+    , mdirStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -112,11 +112,58 @@ import Network.AWS.Response
 -- * 'mdiStorageType'
 --
 -- * 'mdiDBInstanceIdentifier'
-data ModifyDBInstance = ModifyDBInstance'{_mdiDBSecurityGroups :: Maybe [Text], _mdiEngineVersion :: Maybe Text, _mdiAutoMinorVersionUpgrade :: Maybe Bool, _mdiMasterUserPassword :: Maybe Text, _mdiIOPS :: Maybe Int, _mdiAllowMajorVersionUpgrade :: Maybe Bool, _mdiNewDBInstanceIdentifier :: Maybe Text, _mdiTDECredentialPassword :: Maybe Text, _mdiDBInstanceClass :: Maybe Text, _mdiPreferredMaintenanceWindow :: Maybe Text, _mdiCACertificateIdentifier :: Maybe Text, _mdiPreferredBackupWindow :: Maybe Text, _mdiBackupRetentionPeriod :: Maybe Int, _mdiDBParameterGroupName :: Maybe Text, _mdiVPCSecurityGroupIds :: Maybe [Text], _mdiMultiAZ :: Maybe Bool, _mdiAllocatedStorage :: Maybe Int, _mdiApplyImmediately :: Maybe Bool, _mdiTDECredentialARN :: Maybe Text, _mdiOptionGroupName :: Maybe Text, _mdiStorageType :: Maybe Text, _mdiDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
+data ModifyDBInstance = ModifyDBInstance'
+    { _mdiDBSecurityGroups           :: Maybe [Text]
+    , _mdiEngineVersion              :: Maybe Text
+    , _mdiAutoMinorVersionUpgrade    :: Maybe Bool
+    , _mdiMasterUserPassword         :: Maybe Text
+    , _mdiIOPS                       :: Maybe Int
+    , _mdiAllowMajorVersionUpgrade   :: Maybe Bool
+    , _mdiNewDBInstanceIdentifier    :: Maybe Text
+    , _mdiTDECredentialPassword      :: Maybe Text
+    , _mdiDBInstanceClass            :: Maybe Text
+    , _mdiPreferredMaintenanceWindow :: Maybe Text
+    , _mdiCACertificateIdentifier    :: Maybe Text
+    , _mdiPreferredBackupWindow      :: Maybe Text
+    , _mdiBackupRetentionPeriod      :: Maybe Int
+    , _mdiDBParameterGroupName       :: Maybe Text
+    , _mdiVPCSecurityGroupIds        :: Maybe [Text]
+    , _mdiMultiAZ                    :: Maybe Bool
+    , _mdiAllocatedStorage           :: Maybe Int
+    , _mdiApplyImmediately           :: Maybe Bool
+    , _mdiTDECredentialARN           :: Maybe Text
+    , _mdiOptionGroupName            :: Maybe Text
+    , _mdiStorageType                :: Maybe Text
+    , _mdiDBInstanceIdentifier       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyDBInstance' smart constructor.
 modifyDBInstance :: Text -> ModifyDBInstance
-modifyDBInstance pDBInstanceIdentifier = ModifyDBInstance'{_mdiDBSecurityGroups = Nothing, _mdiEngineVersion = Nothing, _mdiAutoMinorVersionUpgrade = Nothing, _mdiMasterUserPassword = Nothing, _mdiIOPS = Nothing, _mdiAllowMajorVersionUpgrade = Nothing, _mdiNewDBInstanceIdentifier = Nothing, _mdiTDECredentialPassword = Nothing, _mdiDBInstanceClass = Nothing, _mdiPreferredMaintenanceWindow = Nothing, _mdiCACertificateIdentifier = Nothing, _mdiPreferredBackupWindow = Nothing, _mdiBackupRetentionPeriod = Nothing, _mdiDBParameterGroupName = Nothing, _mdiVPCSecurityGroupIds = Nothing, _mdiMultiAZ = Nothing, _mdiAllocatedStorage = Nothing, _mdiApplyImmediately = Nothing, _mdiTDECredentialARN = Nothing, _mdiOptionGroupName = Nothing, _mdiStorageType = Nothing, _mdiDBInstanceIdentifier = pDBInstanceIdentifier};
+modifyDBInstance pDBInstanceIdentifier =
+    ModifyDBInstance'
+    { _mdiDBSecurityGroups = Nothing
+    , _mdiEngineVersion = Nothing
+    , _mdiAutoMinorVersionUpgrade = Nothing
+    , _mdiMasterUserPassword = Nothing
+    , _mdiIOPS = Nothing
+    , _mdiAllowMajorVersionUpgrade = Nothing
+    , _mdiNewDBInstanceIdentifier = Nothing
+    , _mdiTDECredentialPassword = Nothing
+    , _mdiDBInstanceClass = Nothing
+    , _mdiPreferredMaintenanceWindow = Nothing
+    , _mdiCACertificateIdentifier = Nothing
+    , _mdiPreferredBackupWindow = Nothing
+    , _mdiBackupRetentionPeriod = Nothing
+    , _mdiDBParameterGroupName = Nothing
+    , _mdiVPCSecurityGroupIds = Nothing
+    , _mdiMultiAZ = Nothing
+    , _mdiAllocatedStorage = Nothing
+    , _mdiApplyImmediately = Nothing
+    , _mdiTDECredentialARN = Nothing
+    , _mdiOptionGroupName = Nothing
+    , _mdiStorageType = Nothing
+    , _mdiDBInstanceIdentifier = pDBInstanceIdentifier
+    }
 
 -- | A list of DB security groups to authorize on this DB instance. Changing
 -- this setting does not result in an outage and the change is
@@ -541,17 +588,24 @@ instance ToQuery ModifyDBInstance where
 --
 -- * 'mdirDBInstance'
 --
--- * 'mdirStatusCode'
-data ModifyDBInstanceResponse = ModifyDBInstanceResponse'{_mdirDBInstance :: Maybe DBInstance, _mdirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'mdirStatus'
+data ModifyDBInstanceResponse = ModifyDBInstanceResponse'
+    { _mdirDBInstance :: Maybe DBInstance
+    , _mdirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyDBInstanceResponse' smart constructor.
 modifyDBInstanceResponse :: Int -> ModifyDBInstanceResponse
-modifyDBInstanceResponse pStatusCode = ModifyDBInstanceResponse'{_mdirDBInstance = Nothing, _mdirStatusCode = pStatusCode};
+modifyDBInstanceResponse pStatus =
+    ModifyDBInstanceResponse'
+    { _mdirDBInstance = Nothing
+    , _mdirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 mdirDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
 mdirDBInstance = lens _mdirDBInstance (\ s a -> s{_mdirDBInstance = a});
 
 -- | FIXME: Undocumented member.
-mdirStatusCode :: Lens' ModifyDBInstanceResponse Int
-mdirStatusCode = lens _mdirStatusCode (\ s a -> s{_mdirStatusCode = a});
+mdirStatus :: Lens' ModifyDBInstanceResponse Int
+mdirStatus = lens _mdirStatus (\ s a -> s{_mdirStatus = a});

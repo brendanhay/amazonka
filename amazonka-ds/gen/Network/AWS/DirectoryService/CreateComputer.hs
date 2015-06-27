@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectoryService.CreateComputer
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.DirectoryService.CreateComputer
     , createComputerResponse
     -- ** Response lenses
     , ccrComputer
-    , ccrStatusCode
+    , ccrStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the CreateComputer operation.
 --
@@ -60,11 +60,24 @@ import Network.AWS.Response
 -- * 'ccComputerName'
 --
 -- * 'ccPassword'
-data CreateComputer = CreateComputer'{_ccComputerAttributes :: Maybe [Attribute], _ccOrganizationalUnitDistinguishedName :: Maybe Text, _ccDirectoryId :: Text, _ccComputerName :: Text, _ccPassword :: Sensitive Text} deriving (Eq, Read, Show)
+data CreateComputer = CreateComputer'
+    { _ccComputerAttributes                  :: Maybe [Attribute]
+    , _ccOrganizationalUnitDistinguishedName :: Maybe Text
+    , _ccDirectoryId                         :: Text
+    , _ccComputerName                        :: Text
+    , _ccPassword                            :: Sensitive Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateComputer' smart constructor.
 createComputer :: Text -> Text -> Text -> CreateComputer
-createComputer pDirectoryId pComputerName pPassword = CreateComputer'{_ccComputerAttributes = Nothing, _ccOrganizationalUnitDistinguishedName = Nothing, _ccDirectoryId = pDirectoryId, _ccComputerName = pComputerName, _ccPassword = _Sensitive # pPassword};
+createComputer pDirectoryId pComputerName pPassword =
+    CreateComputer'
+    { _ccComputerAttributes = Nothing
+    , _ccOrganizationalUnitDistinguishedName = Nothing
+    , _ccDirectoryId = pDirectoryId
+    , _ccComputerName = pComputerName
+    , _ccPassword = _Sensitive # pPassword
+    }
 
 -- | An array of Attribute objects that contain any LDAP attributes to apply
 -- to the computer account.
@@ -133,17 +146,24 @@ instance ToQuery CreateComputer where
 --
 -- * 'ccrComputer'
 --
--- * 'ccrStatusCode'
-data CreateComputerResponse = CreateComputerResponse'{_ccrComputer :: Maybe Computer, _ccrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ccrStatus'
+data CreateComputerResponse = CreateComputerResponse'
+    { _ccrComputer :: Maybe Computer
+    , _ccrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateComputerResponse' smart constructor.
 createComputerResponse :: Int -> CreateComputerResponse
-createComputerResponse pStatusCode = CreateComputerResponse'{_ccrComputer = Nothing, _ccrStatusCode = pStatusCode};
+createComputerResponse pStatus =
+    CreateComputerResponse'
+    { _ccrComputer = Nothing
+    , _ccrStatus = pStatus
+    }
 
 -- | A Computer object the represents the computer account.
 ccrComputer :: Lens' CreateComputerResponse (Maybe Computer)
 ccrComputer = lens _ccrComputer (\ s a -> s{_ccrComputer = a});
 
 -- | FIXME: Undocumented member.
-ccrStatusCode :: Lens' CreateComputerResponse Int
-ccrStatusCode = lens _ccrStatusCode (\ s a -> s{_ccrStatusCode = a});
+ccrStatus :: Lens' CreateComputerResponse Int
+ccrStatus = lens _ccrStatus (\ s a -> s{_ccrStatus = a});

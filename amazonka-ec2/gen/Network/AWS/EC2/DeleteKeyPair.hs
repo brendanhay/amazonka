@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteKeyPair
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.EC2.DeleteKeyPair
     , deleteKeyPairResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteKeyPair' smart constructor.
 --
@@ -46,11 +46,18 @@ import Network.AWS.Response
 -- * 'dkpDryRun'
 --
 -- * 'dkpKeyName'
-data DeleteKeyPair = DeleteKeyPair'{_dkpDryRun :: Maybe Bool, _dkpKeyName :: Text} deriving (Eq, Read, Show)
+data DeleteKeyPair = DeleteKeyPair'
+    { _dkpDryRun  :: Maybe Bool
+    , _dkpKeyName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteKeyPair' smart constructor.
 deleteKeyPair :: Text -> DeleteKeyPair
-deleteKeyPair pKeyName = DeleteKeyPair'{_dkpDryRun = Nothing, _dkpKeyName = pKeyName};
+deleteKeyPair pKeyName =
+    DeleteKeyPair'
+    { _dkpDryRun = Nothing
+    , _dkpKeyName = pKeyName
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -83,8 +90,10 @@ instance ToQuery DeleteKeyPair where
                "DryRun" =: _dkpDryRun, "KeyName" =: _dkpKeyName]
 
 -- | /See:/ 'deleteKeyPairResponse' smart constructor.
-data DeleteKeyPairResponse = DeleteKeyPairResponse' deriving (Eq, Read, Show)
+data DeleteKeyPairResponse =
+    DeleteKeyPairResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteKeyPairResponse' smart constructor.
 deleteKeyPairResponse :: DeleteKeyPairResponse
-deleteKeyPairResponse = DeleteKeyPairResponse';
+deleteKeyPairResponse = DeleteKeyPairResponse'

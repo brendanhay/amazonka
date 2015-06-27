@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeletePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,21 +53,26 @@ module Network.AWS.IAM.DeletePolicy
     , deletePolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deletePolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dpPolicyARN'
-newtype DeletePolicy = DeletePolicy'{_dpPolicyARN :: Text} deriving (Eq, Read, Show)
+newtype DeletePolicy = DeletePolicy'
+    { _dpPolicyARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeletePolicy' smart constructor.
 deletePolicy :: Text -> DeletePolicy
-deletePolicy pPolicyARN = DeletePolicy'{_dpPolicyARN = pPolicyARN};
+deletePolicy pPolicyARN =
+    DeletePolicy'
+    { _dpPolicyARN = pPolicyARN
+    }
 
 -- | FIXME: Undocumented member.
 dpPolicyARN :: Lens' DeletePolicy Text
@@ -93,8 +98,10 @@ instance ToQuery DeletePolicy where
                "PolicyArn" =: _dpPolicyARN]
 
 -- | /See:/ 'deletePolicyResponse' smart constructor.
-data DeletePolicyResponse = DeletePolicyResponse' deriving (Eq, Read, Show)
+data DeletePolicyResponse =
+    DeletePolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeletePolicyResponse' smart constructor.
 deletePolicyResponse :: DeletePolicyResponse
-deletePolicyResponse = DeletePolicyResponse';
+deletePolicyResponse = DeletePolicyResponse'

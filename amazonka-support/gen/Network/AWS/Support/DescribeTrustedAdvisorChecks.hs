@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorChecks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,24 +36,29 @@ module Network.AWS.Support.DescribeTrustedAdvisorChecks
     , describeTrustedAdvisorChecksResponse
     -- ** Response lenses
     , dtacrChecks
-    , dtacrStatusCode
+    , dtacrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Support.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
 
 -- | /See:/ 'describeTrustedAdvisorChecks' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtacLanguage'
-newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks'{_dtacLanguage :: Text} deriving (Eq, Read, Show)
+newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks'
+    { _dtacLanguage :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTrustedAdvisorChecks' smart constructor.
 describeTrustedAdvisorChecks :: Text -> DescribeTrustedAdvisorChecks
-describeTrustedAdvisorChecks pLanguage = DescribeTrustedAdvisorChecks'{_dtacLanguage = pLanguage};
+describeTrustedAdvisorChecks pLanguage =
+    DescribeTrustedAdvisorChecks'
+    { _dtacLanguage = pLanguage
+    }
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
@@ -103,17 +108,24 @@ instance ToQuery DescribeTrustedAdvisorChecks where
 --
 -- * 'dtacrChecks'
 --
--- * 'dtacrStatusCode'
-data DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse'{_dtacrChecks :: [TrustedAdvisorCheckDescription], _dtacrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtacrStatus'
+data DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse'
+    { _dtacrChecks :: [TrustedAdvisorCheckDescription]
+    , _dtacrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTrustedAdvisorChecksResponse' smart constructor.
 describeTrustedAdvisorChecksResponse :: Int -> DescribeTrustedAdvisorChecksResponse
-describeTrustedAdvisorChecksResponse pStatusCode = DescribeTrustedAdvisorChecksResponse'{_dtacrChecks = mempty, _dtacrStatusCode = pStatusCode};
+describeTrustedAdvisorChecksResponse pStatus =
+    DescribeTrustedAdvisorChecksResponse'
+    { _dtacrChecks = mempty
+    , _dtacrStatus = pStatus
+    }
 
 -- | Information about all available Trusted Advisor checks.
 dtacrChecks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
 dtacrChecks = lens _dtacrChecks (\ s a -> s{_dtacrChecks = a});
 
 -- | FIXME: Undocumented member.
-dtacrStatusCode :: Lens' DescribeTrustedAdvisorChecksResponse Int
-dtacrStatusCode = lens _dtacrStatusCode (\ s a -> s{_dtacrStatusCode = a});
+dtacrStatus :: Lens' DescribeTrustedAdvisorChecksResponse Int
+dtacrStatus = lens _dtacrStatus (\ s a -> s{_dtacrStatus = a});

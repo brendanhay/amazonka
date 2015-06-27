@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.UpdateIdentityPool
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,10 +46,10 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     , ipAllowUnauthenticatedIdentities
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | An object representing a Cognito identity pool.
 --
@@ -68,11 +68,26 @@ import Network.AWS.Response
 -- * 'uipIdentityPoolName'
 --
 -- * 'uipAllowUnauthenticatedIdentities'
-data UpdateIdentityPool = UpdateIdentityPool'{_uipSupportedLoginProviders :: Maybe (Map Text Text), _uipDeveloperProviderName :: Maybe Text, _uipOpenIdConnectProviderARNs :: Maybe [Text], _uipIdentityPoolId :: Text, _uipIdentityPoolName :: Text, _uipAllowUnauthenticatedIdentities :: Bool} deriving (Eq, Read, Show)
+data UpdateIdentityPool = UpdateIdentityPool'
+    { _uipSupportedLoginProviders        :: Maybe (Map Text Text)
+    , _uipDeveloperProviderName          :: Maybe Text
+    , _uipOpenIdConnectProviderARNs      :: Maybe [Text]
+    , _uipIdentityPoolId                 :: Text
+    , _uipIdentityPoolName               :: Text
+    , _uipAllowUnauthenticatedIdentities :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateIdentityPool' smart constructor.
 updateIdentityPool :: Text -> Text -> Bool -> UpdateIdentityPool
-updateIdentityPool pIdentityPoolId pIdentityPoolName pAllowUnauthenticatedIdentities = UpdateIdentityPool'{_uipSupportedLoginProviders = Nothing, _uipDeveloperProviderName = Nothing, _uipOpenIdConnectProviderARNs = Nothing, _uipIdentityPoolId = pIdentityPoolId, _uipIdentityPoolName = pIdentityPoolName, _uipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities};
+updateIdentityPool pIdentityPoolId pIdentityPoolName pAllowUnauthenticatedIdentities =
+    UpdateIdentityPool'
+    { _uipSupportedLoginProviders = Nothing
+    , _uipDeveloperProviderName = Nothing
+    , _uipOpenIdConnectProviderARNs = Nothing
+    , _uipIdentityPoolId = pIdentityPoolId
+    , _uipIdentityPoolName = pIdentityPoolName
+    , _uipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities
+    }
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 uipSupportedLoginProviders :: Lens' UpdateIdentityPool (HashMap Text Text)

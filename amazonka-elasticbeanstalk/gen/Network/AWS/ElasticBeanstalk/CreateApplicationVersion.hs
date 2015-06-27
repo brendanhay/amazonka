@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CreateApplicationVersion
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,10 +43,10 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     , avdmApplicationVersion
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -63,11 +63,24 @@ import Network.AWS.Response
 -- * 'cavApplicationName'
 --
 -- * 'cavVersionLabel'
-data CreateApplicationVersion = CreateApplicationVersion'{_cavSourceBundle :: Maybe S3Location, _cavAutoCreateApplication :: Maybe Bool, _cavDescription :: Maybe Text, _cavApplicationName :: Text, _cavVersionLabel :: Text} deriving (Eq, Read, Show)
+data CreateApplicationVersion = CreateApplicationVersion'
+    { _cavSourceBundle          :: Maybe S3Location
+    , _cavAutoCreateApplication :: Maybe Bool
+    , _cavDescription           :: Maybe Text
+    , _cavApplicationName       :: Text
+    , _cavVersionLabel          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateApplicationVersion' smart constructor.
 createApplicationVersion :: Text -> Text -> CreateApplicationVersion
-createApplicationVersion pApplicationName pVersionLabel = CreateApplicationVersion'{_cavSourceBundle = Nothing, _cavAutoCreateApplication = Nothing, _cavDescription = Nothing, _cavApplicationName = pApplicationName, _cavVersionLabel = pVersionLabel};
+createApplicationVersion pApplicationName pVersionLabel =
+    CreateApplicationVersion'
+    { _cavSourceBundle = Nothing
+    , _cavAutoCreateApplication = Nothing
+    , _cavDescription = Nothing
+    , _cavApplicationName = pApplicationName
+    , _cavVersionLabel = pVersionLabel
+    }
 
 -- | The Amazon S3 bucket and key that identify the location of the source
 -- bundle for this version.

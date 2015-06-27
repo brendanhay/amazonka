@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.AttachNetworkInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.EC2.AttachNetworkInterface
     , attachNetworkInterfaceResponse
     -- ** Response lenses
     , anirAttachmentId
-    , anirStatusCode
+    , anirStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachNetworkInterface' smart constructor.
 --
@@ -54,11 +54,22 @@ import Network.AWS.Response
 -- * 'aniInstanceId'
 --
 -- * 'aniDeviceIndex'
-data AttachNetworkInterface = AttachNetworkInterface'{_aniDryRun :: Maybe Bool, _aniNetworkInterfaceId :: Text, _aniInstanceId :: Text, _aniDeviceIndex :: Int} deriving (Eq, Read, Show)
+data AttachNetworkInterface = AttachNetworkInterface'
+    { _aniDryRun             :: Maybe Bool
+    , _aniNetworkInterfaceId :: Text
+    , _aniInstanceId         :: Text
+    , _aniDeviceIndex        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachNetworkInterface' smart constructor.
 attachNetworkInterface :: Text -> Text -> Int -> AttachNetworkInterface
-attachNetworkInterface pNetworkInterfaceId pInstanceId pDeviceIndex = AttachNetworkInterface'{_aniDryRun = Nothing, _aniNetworkInterfaceId = pNetworkInterfaceId, _aniInstanceId = pInstanceId, _aniDeviceIndex = pDeviceIndex};
+attachNetworkInterface pNetworkInterfaceId pInstanceId pDeviceIndex =
+    AttachNetworkInterface'
+    { _aniDryRun = Nothing
+    , _aniNetworkInterfaceId = pNetworkInterfaceId
+    , _aniInstanceId = pInstanceId
+    , _aniDeviceIndex = pDeviceIndex
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -113,17 +124,24 @@ instance ToQuery AttachNetworkInterface where
 --
 -- * 'anirAttachmentId'
 --
--- * 'anirStatusCode'
-data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'{_anirAttachmentId :: Maybe Text, _anirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'anirStatus'
+data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
+    { _anirAttachmentId :: Maybe Text
+    , _anirStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachNetworkInterfaceResponse' smart constructor.
 attachNetworkInterfaceResponse :: Int -> AttachNetworkInterfaceResponse
-attachNetworkInterfaceResponse pStatusCode = AttachNetworkInterfaceResponse'{_anirAttachmentId = Nothing, _anirStatusCode = pStatusCode};
+attachNetworkInterfaceResponse pStatus =
+    AttachNetworkInterfaceResponse'
+    { _anirAttachmentId = Nothing
+    , _anirStatus = pStatus
+    }
 
 -- | The ID of the network interface attachment.
 anirAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
 anirAttachmentId = lens _anirAttachmentId (\ s a -> s{_anirAttachmentId = a});
 
 -- | FIXME: Undocumented member.
-anirStatusCode :: Lens' AttachNetworkInterfaceResponse Int
-anirStatusCode = lens _anirStatusCode (\ s a -> s{_anirStatusCode = a});
+anirStatus :: Lens' AttachNetworkInterfaceResponse Int
+anirStatus = lens _anirStatus (\ s a -> s{_anirStatus = a});

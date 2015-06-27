@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudTrail.StopLogging
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.CloudTrail.StopLogging
     -- ** Response constructor
     , stopLoggingResponse
     -- ** Response lenses
-    , slrStatusCode
+    , slrStatus
     ) where
 
-import Network.AWS.CloudTrail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Passes the request to CloudTrail to stop logging AWS API calls for the
 -- specified account.
@@ -50,11 +50,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'slName'
-newtype StopLogging = StopLogging'{_slName :: Text} deriving (Eq, Read, Show)
+newtype StopLogging = StopLogging'
+    { _slName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StopLogging' smart constructor.
 stopLogging :: Text -> StopLogging
-stopLogging pName = StopLogging'{_slName = pName};
+stopLogging pName =
+    StopLogging'
+    { _slName = pName
+    }
 
 -- | Communicates to CloudTrail the name of the trail for which to stop
 -- logging AWS API calls.
@@ -96,13 +101,18 @@ instance ToQuery StopLogging where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'slrStatusCode'
-newtype StopLoggingResponse = StopLoggingResponse'{_slrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'slrStatus'
+newtype StopLoggingResponse = StopLoggingResponse'
+    { _slrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'StopLoggingResponse' smart constructor.
 stopLoggingResponse :: Int -> StopLoggingResponse
-stopLoggingResponse pStatusCode = StopLoggingResponse'{_slrStatusCode = pStatusCode};
+stopLoggingResponse pStatus =
+    StopLoggingResponse'
+    { _slrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-slrStatusCode :: Lens' StopLoggingResponse Int
-slrStatusCode = lens _slrStatusCode (\ s a -> s{_slrStatusCode = a});
+slrStatus :: Lens' StopLoggingResponse Int
+slrStatus = lens _slrStatus (\ s a -> s{_slrStatus = a});

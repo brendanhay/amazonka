@@ -70,11 +70,11 @@ module Network.AWS.STS
     ( module Export
     ) where
 
-import Network.AWS.STS.AssumeRole as Export
-import Network.AWS.STS.AssumeRoleWithSAML as Export
-import Network.AWS.STS.AssumeRoleWithWebIdentity as Export
-import Network.AWS.STS.DecodeAuthorizationMessage as Export
-import Network.AWS.STS.GetFederationToken as Export
-import Network.AWS.STS.GetSessionToken as Export
-import Network.AWS.STS.Types as Export
-import Network.AWS.STS.Waiters as Export
+import           Network.AWS.STS.AssumeRole                 as Export
+import           Network.AWS.STS.AssumeRoleWithSAML         as Export
+import           Network.AWS.STS.AssumeRoleWithWebIdentity  as Export
+import           Network.AWS.STS.DecodeAuthorizationMessage as Export
+import           Network.AWS.STS.GetFederationToken         as Export
+import           Network.AWS.STS.GetSessionToken            as Export
+import           Network.AWS.STS.Types                      as Export
+import           Network.AWS.STS.Waiters                    as Export

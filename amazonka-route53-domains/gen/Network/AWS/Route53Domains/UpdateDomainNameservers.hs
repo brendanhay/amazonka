@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.UpdateDomainNameservers
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.Route53Domains.UpdateDomainNameservers
     , updateDomainNameserversResponse
     -- ** Response lenses
     , udnrOperationId
-    , udnrStatusCode
+    , udnrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | The UpdateDomainNameserver request includes the following elements.
 --
@@ -61,11 +61,20 @@ import Network.AWS.Route53Domains.Types
 -- * 'udnDomainName'
 --
 -- * 'udnNameservers'
-data UpdateDomainNameservers = UpdateDomainNameservers'{_udnFIAuthKey :: Maybe Text, _udnDomainName :: Text, _udnNameservers :: [Nameserver]} deriving (Eq, Read, Show)
+data UpdateDomainNameservers = UpdateDomainNameservers'
+    { _udnFIAuthKey   :: Maybe Text
+    , _udnDomainName  :: Text
+    , _udnNameservers :: [Nameserver]
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDomainNameservers' smart constructor.
 updateDomainNameservers :: Text -> UpdateDomainNameservers
-updateDomainNameservers pDomainName = UpdateDomainNameservers'{_udnFIAuthKey = Nothing, _udnDomainName = pDomainName, _udnNameservers = mempty};
+updateDomainNameservers pDomainName =
+    UpdateDomainNameservers'
+    { _udnFIAuthKey = Nothing
+    , _udnDomainName = pDomainName
+    , _udnNameservers = mempty
+    }
 
 -- | The authorization key for .fi domains
 udnFIAuthKey :: Lens' UpdateDomainNameservers (Maybe Text)
@@ -137,12 +146,19 @@ instance ToQuery UpdateDomainNameservers where
 --
 -- * 'udnrOperationId'
 --
--- * 'udnrStatusCode'
-data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'{_udnrOperationId :: Text, _udnrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'udnrStatus'
+data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
+    { _udnrOperationId :: Text
+    , _udnrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDomainNameserversResponse' smart constructor.
 updateDomainNameserversResponse :: Text -> Int -> UpdateDomainNameserversResponse
-updateDomainNameserversResponse pOperationId pStatusCode = UpdateDomainNameserversResponse'{_udnrOperationId = pOperationId, _udnrStatusCode = pStatusCode};
+updateDomainNameserversResponse pOperationId pStatus =
+    UpdateDomainNameserversResponse'
+    { _udnrOperationId = pOperationId
+    , _udnrStatus = pStatus
+    }
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -156,5 +172,5 @@ udnrOperationId :: Lens' UpdateDomainNameserversResponse Text
 udnrOperationId = lens _udnrOperationId (\ s a -> s{_udnrOperationId = a});
 
 -- | FIXME: Undocumented member.
-udnrStatusCode :: Lens' UpdateDomainNameserversResponse Int
-udnrStatusCode = lens _udnrStatusCode (\ s a -> s{_udnrStatusCode = a});
+udnrStatus :: Lens' UpdateDomainNameserversResponse Int
+udnrStatus = lens _udnrStatus (\ s a -> s{_udnrStatus = a});

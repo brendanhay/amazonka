@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.DeleteMLModel
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,24 +39,29 @@ module Network.AWS.MachineLearning.DeleteMLModel
     , deleteMLModelResponse
     -- ** Response lenses
     , dmlmrMLModelId
-    , dmlmrStatusCode
+    , dmlmrStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteMLModel' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dmlmMLModelId'
-newtype DeleteMLModel = DeleteMLModel'{_dmlmMLModelId :: Text} deriving (Eq, Read, Show)
+newtype DeleteMLModel = DeleteMLModel'
+    { _dmlmMLModelId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteMLModel' smart constructor.
 deleteMLModel :: Text -> DeleteMLModel
-deleteMLModel pMLModelId = DeleteMLModel'{_dmlmMLModelId = pMLModelId};
+deleteMLModel pMLModelId =
+    DeleteMLModel'
+    { _dmlmMLModelId = pMLModelId
+    }
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@.
 dmlmMLModelId :: Lens' DeleteMLModel Text
@@ -102,12 +107,19 @@ instance ToQuery DeleteMLModel where
 --
 -- * 'dmlmrMLModelId'
 --
--- * 'dmlmrStatusCode'
-data DeleteMLModelResponse = DeleteMLModelResponse'{_dmlmrMLModelId :: Maybe Text, _dmlmrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dmlmrStatus'
+data DeleteMLModelResponse = DeleteMLModelResponse'
+    { _dmlmrMLModelId :: Maybe Text
+    , _dmlmrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteMLModelResponse' smart constructor.
 deleteMLModelResponse :: Int -> DeleteMLModelResponse
-deleteMLModelResponse pStatusCode = DeleteMLModelResponse'{_dmlmrMLModelId = Nothing, _dmlmrStatusCode = pStatusCode};
+deleteMLModelResponse pStatus =
+    DeleteMLModelResponse'
+    { _dmlmrMLModelId = Nothing
+    , _dmlmrStatus = pStatus
+    }
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
 -- should be identical to the value of the @MLModelID@ in the request.
@@ -115,5 +127,5 @@ dmlmrMLModelId :: Lens' DeleteMLModelResponse (Maybe Text)
 dmlmrMLModelId = lens _dmlmrMLModelId (\ s a -> s{_dmlmrMLModelId = a});
 
 -- | FIXME: Undocumented member.
-dmlmrStatusCode :: Lens' DeleteMLModelResponse Int
-dmlmrStatusCode = lens _dmlmrStatusCode (\ s a -> s{_dmlmrStatusCode = a});
+dmlmrStatus :: Lens' DeleteMLModelResponse Int
+dmlmrStatus = lens _dmlmrStatus (\ s a -> s{_dmlmrStatus = a});

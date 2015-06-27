@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.EMR.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -333,55 +332,64 @@ module Network.AWS.EMR.Types
     , tagKey
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2009-03-31@ of the Amazon Elastic MapReduce SDK.
 data EMR
 
 instance AWSService EMR where
     type Sg EMR = V4
-
     service = const svc
       where
-        svc :: Service EMR
-        svc = Service
-            { _svcAbbrev   = "EMR"
-            , _svcPrefix   = "elasticmapreduce"
-            , _svcVersion  = "2009-03-31"
+        svc =
+            Service
+            { _svcAbbrev = "EMR"
+            , _svcPrefix = "elasticmapreduce"
+            , _svcVersion = "2009-03-31"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | This exception occurs when there is something wrong with user input.
-_InvalidRequestException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidRequestException = _ServiceError . hasCode "InvalidRequestException";
+_InvalidRequestException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
 
 -- | Indicates that an error occurred while processing the request and that
 -- the request was not completed.
-_InternalServerError :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalServerError = _ServiceError . hasStatus 500 . hasCode "InternalFailure";
+_InternalServerError :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServerError =
+    _ServiceError . hasStatus 500 . hasCode "InternalFailure"
 
 -- | This exception occurs when there is an internal failure in the EMR
 -- service.
-_InternalServerException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalServerException = _ServiceError . hasCode "InternalServerException";
+_InternalServerException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServerException = _ServiceError . hasCode "InternalServerException"
 
-data ActionOnFailure = TerminateCluster | TerminateJobFlow | CancelAndWait | Continue deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ActionOnFailure
+    = TerminateCluster
+    | TerminateJobFlow
+    | CancelAndWait
+    | Continue
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ActionOnFailure where
     parser = takeLowerText >>= \case
@@ -408,7 +416,15 @@ instance ToJSON ActionOnFailure where
 instance FromJSON ActionOnFailure where
     parseJSON = parseJSONText "ActionOnFailure"
 
-data ClusterState = TerminatedWithErrors | Terminating | Starting | Running | Bootstrapping | Terminated | Waiting deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ClusterState
+    = TerminatedWithErrors
+    | Terminating
+    | Starting
+    | Running
+    | Bootstrapping
+    | Terminated
+    | Waiting
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ClusterState where
     parser = takeLowerText >>= \case
@@ -441,7 +457,15 @@ instance ToJSON ClusterState where
 instance FromJSON ClusterState where
     parseJSON = parseJSONText "ClusterState"
 
-data ClusterStateChangeReasonCode = BootstrapFailure | StepFailure | AllStepsCompleted | UserRequest | ValidationError | InternalError | InstanceFailure deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ClusterStateChangeReasonCode
+    = BootstrapFailure
+    | StepFailure
+    | AllStepsCompleted
+    | UserRequest
+    | ValidationError
+    | InternalError
+    | InstanceFailure
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ClusterStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -471,7 +495,18 @@ instance ToHeader ClusterStateChangeReasonCode
 instance FromJSON ClusterStateChangeReasonCode where
     parseJSON = parseJSONText "ClusterStateChangeReasonCode"
 
-data InstanceGroupState = IGSResizing | IGSTerminated | IGSEnded | IGSShuttingDown | IGSTerminating | IGSProvisioning | IGSBootstrapping | IGSArrested | IGSRunning | IGSSuspended deriving (Eq, Ord, Read, Show, Enum, Generic)
+data InstanceGroupState
+    = IGSResizing
+    | IGSTerminated
+    | IGSEnded
+    | IGSShuttingDown
+    | IGSTerminating
+    | IGSProvisioning
+    | IGSBootstrapping
+    | IGSArrested
+    | IGSRunning
+    | IGSSuspended
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText InstanceGroupState where
     parser = takeLowerText >>= \case
@@ -507,7 +542,12 @@ instance ToHeader InstanceGroupState
 instance FromJSON InstanceGroupState where
     parseJSON = parseJSONText "InstanceGroupState"
 
-data InstanceGroupStateChangeReasonCode = IGSCRCValidationError | IGSCRCInstanceFailure | IGSCRCInternalError | IGSCRCClusterTerminated deriving (Eq, Ord, Read, Show, Enum, Generic)
+data InstanceGroupStateChangeReasonCode
+    = IGSCRCValidationError
+    | IGSCRCInstanceFailure
+    | IGSCRCInternalError
+    | IGSCRCClusterTerminated
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText InstanceGroupStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -531,7 +571,11 @@ instance ToHeader InstanceGroupStateChangeReasonCode
 instance FromJSON InstanceGroupStateChangeReasonCode where
     parseJSON = parseJSONText "InstanceGroupStateChangeReasonCode"
 
-data InstanceGroupType = IGTTask | IGTCore | IGTMaster deriving (Eq, Ord, Read, Show, Enum, Generic)
+data InstanceGroupType
+    = IGTTask
+    | IGTCore
+    | IGTMaster
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText InstanceGroupType where
     parser = takeLowerText >>= \case
@@ -556,7 +600,11 @@ instance ToJSON InstanceGroupType where
 instance FromJSON InstanceGroupType where
     parseJSON = parseJSONText "InstanceGroupType"
 
-data InstanceRoleType = Master | Task | Core deriving (Eq, Ord, Read, Show, Enum, Generic)
+data InstanceRoleType
+    = Master
+    | Task
+    | Core
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText InstanceRoleType where
     parser = takeLowerText >>= \case
@@ -578,7 +626,13 @@ instance ToHeader InstanceRoleType
 instance ToJSON InstanceRoleType where
     toJSON = toJSONText
 
-data InstanceState = ISTerminated | ISAwaitingFulfillment | ISRunning | ISBootstrapping | ISProvisioning deriving (Eq, Ord, Read, Show, Enum, Generic)
+data InstanceState
+    = ISTerminated
+    | ISAwaitingFulfillment
+    | ISRunning
+    | ISBootstrapping
+    | ISProvisioning
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText InstanceState where
     parser = takeLowerText >>= \case
@@ -604,7 +658,13 @@ instance ToHeader InstanceState
 instance FromJSON InstanceState where
     parseJSON = parseJSONText "InstanceState"
 
-data InstanceStateChangeReasonCode = ISCRCBootstrapFailure | ISCRCValidationError | ISCRCInternalError | ISCRCClusterTerminated | ISCRCInstanceFailure deriving (Eq, Ord, Read, Show, Enum, Generic)
+data InstanceStateChangeReasonCode
+    = ISCRCBootstrapFailure
+    | ISCRCValidationError
+    | ISCRCInternalError
+    | ISCRCClusterTerminated
+    | ISCRCInstanceFailure
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText InstanceStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -630,7 +690,10 @@ instance ToHeader InstanceStateChangeReasonCode
 instance FromJSON InstanceStateChangeReasonCode where
     parseJSON = parseJSONText "InstanceStateChangeReasonCode"
 
-data MarketType = Spot | ONDemand deriving (Eq, Ord, Read, Show, Enum, Generic)
+data MarketType
+    = Spot
+    | ONDemand
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText MarketType where
     parser = takeLowerText >>= \case
@@ -653,7 +716,14 @@ instance ToJSON MarketType where
 instance FromJSON MarketType where
     parseJSON = parseJSONText "MarketType"
 
-data StepState = SSRunning | SSCompleted | SSFailed | SSCancelled | SSInterrupted | SSPending deriving (Eq, Ord, Read, Show, Enum, Generic)
+data StepState
+    = SSRunning
+    | SSCompleted
+    | SSFailed
+    | SSCancelled
+    | SSInterrupted
+    | SSPending
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText StepState where
     parser = takeLowerText >>= \case
@@ -684,7 +754,9 @@ instance ToJSON StepState where
 instance FromJSON StepState where
     parseJSON = parseJSONText "StepState"
 
-data StepStateChangeReasonCode = None deriving (Eq, Ord, Read, Show, Enum, Generic)
+data StepStateChangeReasonCode =
+    None
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText StepStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -728,11 +800,22 @@ instance FromJSON StepStateChangeReasonCode where
 -- * 'appName'
 --
 -- * 'appVersion'
-data Application = Application'{_appAdditionalInfo :: Maybe (Map Text Text), _appArgs :: Maybe [Text], _appName :: Maybe Text, _appVersion :: Maybe Text} deriving (Eq, Read, Show)
+data Application = Application'
+    { _appAdditionalInfo :: Maybe (Map Text Text)
+    , _appArgs           :: Maybe [Text]
+    , _appName           :: Maybe Text
+    , _appVersion        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Application' smart constructor.
 application :: Application
-application = Application'{_appAdditionalInfo = Nothing, _appArgs = Nothing, _appName = Nothing, _appVersion = Nothing};
+application =
+    Application'
+    { _appAdditionalInfo = Nothing
+    , _appArgs = Nothing
+    , _appName = Nothing
+    , _appVersion = Nothing
+    }
 
 -- | This option is for advanced users only. This is meta information about
 -- third-party applications that third-party vendors use for testing
@@ -771,11 +854,18 @@ instance FromJSON Application where
 -- * 'bacName'
 --
 -- * 'bacScriptBootstrapAction'
-data BootstrapActionConfig = BootstrapActionConfig'{_bacName :: Text, _bacScriptBootstrapAction :: ScriptBootstrapActionConfig} deriving (Eq, Read, Show)
+data BootstrapActionConfig = BootstrapActionConfig'
+    { _bacName                  :: Text
+    , _bacScriptBootstrapAction :: ScriptBootstrapActionConfig
+    } deriving (Eq,Read,Show)
 
 -- | 'BootstrapActionConfig' smart constructor.
 bootstrapActionConfig :: Text -> ScriptBootstrapActionConfig -> BootstrapActionConfig
-bootstrapActionConfig pName pScriptBootstrapAction = BootstrapActionConfig'{_bacName = pName, _bacScriptBootstrapAction = pScriptBootstrapAction};
+bootstrapActionConfig pName pScriptBootstrapAction =
+    BootstrapActionConfig'
+    { _bacName = pName
+    , _bacScriptBootstrapAction = pScriptBootstrapAction
+    }
 
 -- | The name of the bootstrap action.
 bacName :: Lens' BootstrapActionConfig Text
@@ -826,11 +916,44 @@ instance ToJSON BootstrapActionConfig where
 -- * 'cluName'
 --
 -- * 'cluStatus'
-data Cluster = Cluster'{_cluRequestedAMIVersion :: Maybe Text, _cluEC2InstanceAttributes :: Maybe EC2InstanceAttributes, _cluNormalizedInstanceHours :: Maybe Int, _cluLogURI :: Maybe Text, _cluRunningAMIVersion :: Maybe Text, _cluMasterPublicDNSName :: Maybe Text, _cluAutoTerminate :: Maybe Bool, _cluTerminationProtected :: Maybe Bool, _cluVisibleToAllUsers :: Maybe Bool, _cluApplications :: Maybe [Application], _cluTags :: Maybe [Tag], _cluServiceRole :: Maybe Text, _cluId :: Text, _cluName :: Text, _cluStatus :: ClusterStatus} deriving (Eq, Read, Show)
+data Cluster = Cluster'
+    { _cluRequestedAMIVersion     :: Maybe Text
+    , _cluEC2InstanceAttributes   :: Maybe EC2InstanceAttributes
+    , _cluNormalizedInstanceHours :: Maybe Int
+    , _cluLogURI                  :: Maybe Text
+    , _cluRunningAMIVersion       :: Maybe Text
+    , _cluMasterPublicDNSName     :: Maybe Text
+    , _cluAutoTerminate           :: Maybe Bool
+    , _cluTerminationProtected    :: Maybe Bool
+    , _cluVisibleToAllUsers       :: Maybe Bool
+    , _cluApplications            :: Maybe [Application]
+    , _cluTags                    :: Maybe [Tag]
+    , _cluServiceRole             :: Maybe Text
+    , _cluId                      :: Text
+    , _cluName                    :: Text
+    , _cluStatus                  :: ClusterStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'Cluster' smart constructor.
 cluster :: Text -> Text -> ClusterStatus -> Cluster
-cluster pId pName pStatus = Cluster'{_cluRequestedAMIVersion = Nothing, _cluEC2InstanceAttributes = Nothing, _cluNormalizedInstanceHours = Nothing, _cluLogURI = Nothing, _cluRunningAMIVersion = Nothing, _cluMasterPublicDNSName = Nothing, _cluAutoTerminate = Nothing, _cluTerminationProtected = Nothing, _cluVisibleToAllUsers = Nothing, _cluApplications = Nothing, _cluTags = Nothing, _cluServiceRole = Nothing, _cluId = pId, _cluName = pName, _cluStatus = pStatus};
+cluster pId pName pStatus =
+    Cluster'
+    { _cluRequestedAMIVersion = Nothing
+    , _cluEC2InstanceAttributes = Nothing
+    , _cluNormalizedInstanceHours = Nothing
+    , _cluLogURI = Nothing
+    , _cluRunningAMIVersion = Nothing
+    , _cluMasterPublicDNSName = Nothing
+    , _cluAutoTerminate = Nothing
+    , _cluTerminationProtected = Nothing
+    , _cluVisibleToAllUsers = Nothing
+    , _cluApplications = Nothing
+    , _cluTags = Nothing
+    , _cluServiceRole = Nothing
+    , _cluId = pId
+    , _cluName = pName
+    , _cluStatus = pStatus
+    }
 
 -- | The AMI version requested for this cluster.
 cluRequestedAMIVersion :: Lens' Cluster (Maybe Text)
@@ -939,11 +1062,18 @@ instance FromJSON Cluster where
 -- * 'cscrCode'
 --
 -- * 'cscrMessage'
-data ClusterStateChangeReason = ClusterStateChangeReason'{_cscrCode :: Maybe ClusterStateChangeReasonCode, _cscrMessage :: Maybe Text} deriving (Eq, Read, Show)
+data ClusterStateChangeReason = ClusterStateChangeReason'
+    { _cscrCode    :: Maybe ClusterStateChangeReasonCode
+    , _cscrMessage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ClusterStateChangeReason' smart constructor.
 clusterStateChangeReason :: ClusterStateChangeReason
-clusterStateChangeReason = ClusterStateChangeReason'{_cscrCode = Nothing, _cscrMessage = Nothing};
+clusterStateChangeReason =
+    ClusterStateChangeReason'
+    { _cscrCode = Nothing
+    , _cscrMessage = Nothing
+    }
 
 -- | The programmatic code for the state change reason.
 cscrCode :: Lens' ClusterStateChangeReason (Maybe ClusterStateChangeReasonCode)
@@ -971,11 +1101,20 @@ instance FromJSON ClusterStateChangeReason where
 -- * 'csStateChangeReason'
 --
 -- * 'csTimeline'
-data ClusterStatus = ClusterStatus'{_csState :: Maybe ClusterState, _csStateChangeReason :: Maybe ClusterStateChangeReason, _csTimeline :: Maybe ClusterTimeline} deriving (Eq, Read, Show)
+data ClusterStatus = ClusterStatus'
+    { _csState             :: Maybe ClusterState
+    , _csStateChangeReason :: Maybe ClusterStateChangeReason
+    , _csTimeline          :: Maybe ClusterTimeline
+    } deriving (Eq,Read,Show)
 
 -- | 'ClusterStatus' smart constructor.
 clusterStatus :: ClusterStatus
-clusterStatus = ClusterStatus'{_csState = Nothing, _csStateChangeReason = Nothing, _csTimeline = Nothing};
+clusterStatus =
+    ClusterStatus'
+    { _csState = Nothing
+    , _csStateChangeReason = Nothing
+    , _csTimeline = Nothing
+    }
 
 -- | The current state of the cluster.
 csState :: Lens' ClusterStatus (Maybe ClusterState)
@@ -1011,11 +1150,22 @@ instance FromJSON ClusterStatus where
 -- * 'csName'
 --
 -- * 'csId'
-data ClusterSummary = ClusterSummary'{_csStatus :: Maybe ClusterStatus, _csNormalizedInstanceHours :: Maybe Int, _csName :: Maybe Text, _csId :: Maybe Text} deriving (Eq, Read, Show)
+data ClusterSummary = ClusterSummary'
+    { _csStatus                  :: Maybe ClusterStatus
+    , _csNormalizedInstanceHours :: Maybe Int
+    , _csName                    :: Maybe Text
+    , _csId                      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ClusterSummary' smart constructor.
 clusterSummary :: ClusterSummary
-clusterSummary = ClusterSummary'{_csStatus = Nothing, _csNormalizedInstanceHours = Nothing, _csName = Nothing, _csId = Nothing};
+clusterSummary =
+    ClusterSummary'
+    { _csStatus = Nothing
+    , _csNormalizedInstanceHours = Nothing
+    , _csName = Nothing
+    , _csId = Nothing
+    }
 
 -- | The details about the current status of the cluster.
 csStatus :: Lens' ClusterSummary (Maybe ClusterStatus)
@@ -1059,11 +1209,20 @@ instance FromJSON ClusterSummary where
 -- * 'ctCreationDateTime'
 --
 -- * 'ctEndDateTime'
-data ClusterTimeline = ClusterTimeline'{_ctReadyDateTime :: Maybe POSIX, _ctCreationDateTime :: Maybe POSIX, _ctEndDateTime :: Maybe POSIX} deriving (Eq, Read, Show)
+data ClusterTimeline = ClusterTimeline'
+    { _ctReadyDateTime    :: Maybe POSIX
+    , _ctCreationDateTime :: Maybe POSIX
+    , _ctEndDateTime      :: Maybe POSIX
+    } deriving (Eq,Read,Show)
 
 -- | 'ClusterTimeline' smart constructor.
 clusterTimeline :: ClusterTimeline
-clusterTimeline = ClusterTimeline'{_ctReadyDateTime = Nothing, _ctCreationDateTime = Nothing, _ctEndDateTime = Nothing};
+clusterTimeline =
+    ClusterTimeline'
+    { _ctReadyDateTime = Nothing
+    , _ctCreationDateTime = Nothing
+    , _ctEndDateTime = Nothing
+    }
 
 -- | The date and time when the cluster was ready to execute steps.
 ctReadyDateTime :: Lens' ClusterTimeline (Maybe UTCTime)
@@ -1097,11 +1256,20 @@ instance FromJSON ClusterTimeline where
 -- * 'comScriptPath'
 --
 -- * 'comName'
-data Command = Command'{_comArgs :: Maybe [Text], _comScriptPath :: Maybe Text, _comName :: Maybe Text} deriving (Eq, Read, Show)
+data Command = Command'
+    { _comArgs       :: Maybe [Text]
+    , _comScriptPath :: Maybe Text
+    , _comName       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Command' smart constructor.
 command :: Command
-command = Command'{_comArgs = Nothing, _comScriptPath = Nothing, _comName = Nothing};
+command =
+    Command'
+    { _comArgs = Nothing
+    , _comScriptPath = Nothing
+    , _comName = Nothing
+    }
 
 -- | Arguments for Amazon EMR to pass to the command for execution.
 comArgs :: Lens' Command [Text]
@@ -1146,11 +1314,30 @@ instance FromJSON Command where
 -- * 'eiaEC2SubnetId'
 --
 -- * 'eiaEC2AvailabilityZone'
-data EC2InstanceAttributes = EC2InstanceAttributes'{_eiaEC2KeyName :: Maybe Text, _eiaEmrManagedSlaveSecurityGroup :: Maybe Text, _eiaAdditionalSlaveSecurityGroups :: Maybe [Text], _eiaIAMInstanceProfile :: Maybe Text, _eiaAdditionalMasterSecurityGroups :: Maybe [Text], _eiaEmrManagedMasterSecurityGroup :: Maybe Text, _eiaEC2SubnetId :: Maybe Text, _eiaEC2AvailabilityZone :: Maybe Text} deriving (Eq, Read, Show)
+data EC2InstanceAttributes = EC2InstanceAttributes'
+    { _eiaEC2KeyName                     :: Maybe Text
+    , _eiaEmrManagedSlaveSecurityGroup   :: Maybe Text
+    , _eiaAdditionalSlaveSecurityGroups  :: Maybe [Text]
+    , _eiaIAMInstanceProfile             :: Maybe Text
+    , _eiaAdditionalMasterSecurityGroups :: Maybe [Text]
+    , _eiaEmrManagedMasterSecurityGroup  :: Maybe Text
+    , _eiaEC2SubnetId                    :: Maybe Text
+    , _eiaEC2AvailabilityZone            :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EC2InstanceAttributes' smart constructor.
 ec2InstanceAttributes :: EC2InstanceAttributes
-ec2InstanceAttributes = EC2InstanceAttributes'{_eiaEC2KeyName = Nothing, _eiaEmrManagedSlaveSecurityGroup = Nothing, _eiaAdditionalSlaveSecurityGroups = Nothing, _eiaIAMInstanceProfile = Nothing, _eiaAdditionalMasterSecurityGroups = Nothing, _eiaEmrManagedMasterSecurityGroup = Nothing, _eiaEC2SubnetId = Nothing, _eiaEC2AvailabilityZone = Nothing};
+ec2InstanceAttributes =
+    EC2InstanceAttributes'
+    { _eiaEC2KeyName = Nothing
+    , _eiaEmrManagedSlaveSecurityGroup = Nothing
+    , _eiaAdditionalSlaveSecurityGroups = Nothing
+    , _eiaIAMInstanceProfile = Nothing
+    , _eiaAdditionalMasterSecurityGroups = Nothing
+    , _eiaEmrManagedMasterSecurityGroup = Nothing
+    , _eiaEC2SubnetId = Nothing
+    , _eiaEC2AvailabilityZone = Nothing
+    }
 
 -- | The name of the Amazon EC2 key pair to use when connecting with SSH into
 -- the master node as a user named \"hadoop\".
@@ -1226,11 +1413,22 @@ instance FromJSON EC2InstanceAttributes where
 -- * 'hjscProperties'
 --
 -- * 'hjscJAR'
-data HadoopJARStepConfig = HadoopJARStepConfig'{_hjscArgs :: Maybe [Text], _hjscMainClass :: Maybe Text, _hjscProperties :: Maybe [KeyValue], _hjscJAR :: Text} deriving (Eq, Read, Show)
+data HadoopJARStepConfig = HadoopJARStepConfig'
+    { _hjscArgs       :: Maybe [Text]
+    , _hjscMainClass  :: Maybe Text
+    , _hjscProperties :: Maybe [KeyValue]
+    , _hjscJAR        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'HadoopJARStepConfig' smart constructor.
 hadoopJARStepConfig :: Text -> HadoopJARStepConfig
-hadoopJARStepConfig pJAR = HadoopJARStepConfig'{_hjscArgs = Nothing, _hjscMainClass = Nothing, _hjscProperties = Nothing, _hjscJAR = pJAR};
+hadoopJARStepConfig pJAR =
+    HadoopJARStepConfig'
+    { _hjscArgs = Nothing
+    , _hjscMainClass = Nothing
+    , _hjscProperties = Nothing
+    , _hjscJAR = pJAR
+    }
 
 -- | A list of command line arguments passed to the JAR file\'s main function
 -- when executed.
@@ -1272,11 +1470,22 @@ instance ToJSON HadoopJARStepConfig where
 -- * 'hscMainClass'
 --
 -- * 'hscProperties'
-data HadoopStepConfig = HadoopStepConfig'{_hscArgs :: Maybe [Text], _hscJAR :: Maybe Text, _hscMainClass :: Maybe Text, _hscProperties :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
+data HadoopStepConfig = HadoopStepConfig'
+    { _hscArgs       :: Maybe [Text]
+    , _hscJAR        :: Maybe Text
+    , _hscMainClass  :: Maybe Text
+    , _hscProperties :: Maybe (Map Text Text)
+    } deriving (Eq,Read,Show)
 
 -- | 'HadoopStepConfig' smart constructor.
 hadoopStepConfig :: HadoopStepConfig
-hadoopStepConfig = HadoopStepConfig'{_hscArgs = Nothing, _hscJAR = Nothing, _hscMainClass = Nothing, _hscProperties = Nothing};
+hadoopStepConfig =
+    HadoopStepConfig'
+    { _hscArgs = Nothing
+    , _hscJAR = Nothing
+    , _hscMainClass = Nothing
+    , _hscProperties = Nothing
+    }
 
 -- | The list of command line arguments to pass to the JAR file\'s main
 -- function for execution.
@@ -1325,11 +1534,28 @@ instance FromJSON HadoopStepConfig where
 -- * 'insPrivateDNSName'
 --
 -- * 'insPublicIPAddress'
-data Instance = Instance'{_insStatus :: Maybe InstanceStatus, _insPublicDNSName :: Maybe Text, _insEC2InstanceId :: Maybe Text, _insPrivateIPAddress :: Maybe Text, _insId :: Maybe Text, _insPrivateDNSName :: Maybe Text, _insPublicIPAddress :: Maybe Text} deriving (Eq, Read, Show)
+data Instance = Instance'
+    { _insStatus           :: Maybe InstanceStatus
+    , _insPublicDNSName    :: Maybe Text
+    , _insEC2InstanceId    :: Maybe Text
+    , _insPrivateIPAddress :: Maybe Text
+    , _insId               :: Maybe Text
+    , _insPrivateDNSName   :: Maybe Text
+    , _insPublicIPAddress  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Instance' smart constructor.
 instance' :: Instance
-instance' = Instance'{_insStatus = Nothing, _insPublicDNSName = Nothing, _insEC2InstanceId = Nothing, _insPrivateIPAddress = Nothing, _insId = Nothing, _insPrivateDNSName = Nothing, _insPublicIPAddress = Nothing};
+instance' =
+    Instance'
+    { _insStatus = Nothing
+    , _insPublicDNSName = Nothing
+    , _insEC2InstanceId = Nothing
+    , _insPrivateIPAddress = Nothing
+    , _insId = Nothing
+    , _insPrivateDNSName = Nothing
+    , _insPublicIPAddress = Nothing
+    }
 
 -- | The current status of the instance.
 insStatus :: Lens' Instance (Maybe InstanceStatus)
@@ -1396,11 +1622,32 @@ instance FromJSON Instance where
 -- * 'igName'
 --
 -- * 'igId'
-data InstanceGroup = InstanceGroup'{_igStatus :: Maybe InstanceGroupStatus, _igBidPrice :: Maybe Text, _igRequestedInstanceCount :: Maybe Int, _igRunningInstanceCount :: Maybe Int, _igInstanceGroupType :: Maybe InstanceGroupType, _igInstanceType :: Maybe Text, _igMarket :: Maybe MarketType, _igName :: Maybe Text, _igId :: Maybe Text} deriving (Eq, Read, Show)
+data InstanceGroup = InstanceGroup'
+    { _igStatus                 :: Maybe InstanceGroupStatus
+    , _igBidPrice               :: Maybe Text
+    , _igRequestedInstanceCount :: Maybe Int
+    , _igRunningInstanceCount   :: Maybe Int
+    , _igInstanceGroupType      :: Maybe InstanceGroupType
+    , _igInstanceType           :: Maybe Text
+    , _igMarket                 :: Maybe MarketType
+    , _igName                   :: Maybe Text
+    , _igId                     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceGroup' smart constructor.
 instanceGroup :: InstanceGroup
-instanceGroup = InstanceGroup'{_igStatus = Nothing, _igBidPrice = Nothing, _igRequestedInstanceCount = Nothing, _igRunningInstanceCount = Nothing, _igInstanceGroupType = Nothing, _igInstanceType = Nothing, _igMarket = Nothing, _igName = Nothing, _igId = Nothing};
+instanceGroup =
+    InstanceGroup'
+    { _igStatus = Nothing
+    , _igBidPrice = Nothing
+    , _igRequestedInstanceCount = Nothing
+    , _igRunningInstanceCount = Nothing
+    , _igInstanceGroupType = Nothing
+    , _igInstanceType = Nothing
+    , _igMarket = Nothing
+    , _igName = Nothing
+    , _igId = Nothing
+    }
 
 -- | The current status of the instance group.
 igStatus :: Lens' InstanceGroup (Maybe InstanceGroupStatus)
@@ -1471,11 +1718,26 @@ instance FromJSON InstanceGroup where
 -- * 'igcInstanceType'
 --
 -- * 'igcInstanceCount'
-data InstanceGroupConfig = InstanceGroupConfig'{_igcBidPrice :: Maybe Text, _igcMarket :: Maybe MarketType, _igcName :: Maybe Text, _igcInstanceRole :: InstanceRoleType, _igcInstanceType :: Text, _igcInstanceCount :: Int} deriving (Eq, Read, Show)
+data InstanceGroupConfig = InstanceGroupConfig'
+    { _igcBidPrice      :: Maybe Text
+    , _igcMarket        :: Maybe MarketType
+    , _igcName          :: Maybe Text
+    , _igcInstanceRole  :: InstanceRoleType
+    , _igcInstanceType  :: Text
+    , _igcInstanceCount :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceGroupConfig' smart constructor.
 instanceGroupConfig :: InstanceRoleType -> Text -> Int -> InstanceGroupConfig
-instanceGroupConfig pInstanceRole pInstanceType pInstanceCount = InstanceGroupConfig'{_igcBidPrice = Nothing, _igcMarket = Nothing, _igcName = Nothing, _igcInstanceRole = pInstanceRole, _igcInstanceType = pInstanceType, _igcInstanceCount = pInstanceCount};
+instanceGroupConfig pInstanceRole pInstanceType pInstanceCount =
+    InstanceGroupConfig'
+    { _igcBidPrice = Nothing
+    , _igcMarket = Nothing
+    , _igcName = Nothing
+    , _igcInstanceRole = pInstanceRole
+    , _igcInstanceType = pInstanceType
+    , _igcInstanceCount = pInstanceCount
+    }
 
 -- | Bid price for each Amazon EC2 instance in the instance group when
 -- launching nodes as Spot Instances, expressed in USD.
@@ -1522,11 +1784,20 @@ instance ToJSON InstanceGroupConfig where
 -- * 'igmcEC2InstanceIdsToTerminate'
 --
 -- * 'igmcInstanceGroupId'
-data InstanceGroupModifyConfig = InstanceGroupModifyConfig'{_igmcInstanceCount :: Maybe Int, _igmcEC2InstanceIdsToTerminate :: Maybe [Text], _igmcInstanceGroupId :: Text} deriving (Eq, Read, Show)
+data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
+    { _igmcInstanceCount             :: Maybe Int
+    , _igmcEC2InstanceIdsToTerminate :: Maybe [Text]
+    , _igmcInstanceGroupId           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceGroupModifyConfig' smart constructor.
 instanceGroupModifyConfig :: Text -> InstanceGroupModifyConfig
-instanceGroupModifyConfig pInstanceGroupId = InstanceGroupModifyConfig'{_igmcInstanceCount = Nothing, _igmcEC2InstanceIdsToTerminate = Nothing, _igmcInstanceGroupId = pInstanceGroupId};
+instanceGroupModifyConfig pInstanceGroupId =
+    InstanceGroupModifyConfig'
+    { _igmcInstanceCount = Nothing
+    , _igmcEC2InstanceIdsToTerminate = Nothing
+    , _igmcInstanceGroupId = pInstanceGroupId
+    }
 
 -- | Target size for the instance group.
 igmcInstanceCount :: Lens' InstanceGroupModifyConfig (Maybe Int)
@@ -1559,11 +1830,18 @@ instance ToJSON InstanceGroupModifyConfig where
 -- * 'igscrCode'
 --
 -- * 'igscrMessage'
-data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason'{_igscrCode :: Maybe InstanceGroupStateChangeReasonCode, _igscrMessage :: Maybe Text} deriving (Eq, Read, Show)
+data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason'
+    { _igscrCode    :: Maybe InstanceGroupStateChangeReasonCode
+    , _igscrMessage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceGroupStateChangeReason' smart constructor.
 instanceGroupStateChangeReason :: InstanceGroupStateChangeReason
-instanceGroupStateChangeReason = InstanceGroupStateChangeReason'{_igscrCode = Nothing, _igscrMessage = Nothing};
+instanceGroupStateChangeReason =
+    InstanceGroupStateChangeReason'
+    { _igscrCode = Nothing
+    , _igscrMessage = Nothing
+    }
 
 -- | The programmable code for the state change reason.
 igscrCode :: Lens' InstanceGroupStateChangeReason (Maybe InstanceGroupStateChangeReasonCode)
@@ -1592,11 +1870,20 @@ instance FromJSON InstanceGroupStateChangeReason
 -- * 'igsStateChangeReason'
 --
 -- * 'igsTimeline'
-data InstanceGroupStatus = InstanceGroupStatus'{_igsState :: Maybe InstanceGroupState, _igsStateChangeReason :: Maybe InstanceGroupStateChangeReason, _igsTimeline :: Maybe InstanceGroupTimeline} deriving (Eq, Read, Show)
+data InstanceGroupStatus = InstanceGroupStatus'
+    { _igsState             :: Maybe InstanceGroupState
+    , _igsStateChangeReason :: Maybe InstanceGroupStateChangeReason
+    , _igsTimeline          :: Maybe InstanceGroupTimeline
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceGroupStatus' smart constructor.
 instanceGroupStatus :: InstanceGroupStatus
-instanceGroupStatus = InstanceGroupStatus'{_igsState = Nothing, _igsStateChangeReason = Nothing, _igsTimeline = Nothing};
+instanceGroupStatus =
+    InstanceGroupStatus'
+    { _igsState = Nothing
+    , _igsStateChangeReason = Nothing
+    , _igsTimeline = Nothing
+    }
 
 -- | The current state of the instance group.
 igsState :: Lens' InstanceGroupStatus (Maybe InstanceGroupState)
@@ -1629,11 +1916,20 @@ instance FromJSON InstanceGroupStatus where
 -- * 'igtCreationDateTime'
 --
 -- * 'igtEndDateTime'
-data InstanceGroupTimeline = InstanceGroupTimeline'{_igtReadyDateTime :: Maybe POSIX, _igtCreationDateTime :: Maybe POSIX, _igtEndDateTime :: Maybe POSIX} deriving (Eq, Read, Show)
+data InstanceGroupTimeline = InstanceGroupTimeline'
+    { _igtReadyDateTime    :: Maybe POSIX
+    , _igtCreationDateTime :: Maybe POSIX
+    , _igtEndDateTime      :: Maybe POSIX
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceGroupTimeline' smart constructor.
 instanceGroupTimeline :: InstanceGroupTimeline
-instanceGroupTimeline = InstanceGroupTimeline'{_igtReadyDateTime = Nothing, _igtCreationDateTime = Nothing, _igtEndDateTime = Nothing};
+instanceGroupTimeline =
+    InstanceGroupTimeline'
+    { _igtReadyDateTime = Nothing
+    , _igtCreationDateTime = Nothing
+    , _igtEndDateTime = Nothing
+    }
 
 -- | The date and time when the instance group became ready to perform tasks.
 igtReadyDateTime :: Lens' InstanceGroupTimeline (Maybe UTCTime)
@@ -1665,11 +1961,18 @@ instance FromJSON InstanceGroupTimeline where
 -- * 'iscrCode'
 --
 -- * 'iscrMessage'
-data InstanceStateChangeReason = InstanceStateChangeReason'{_iscrCode :: Maybe InstanceStateChangeReasonCode, _iscrMessage :: Maybe Text} deriving (Eq, Read, Show)
+data InstanceStateChangeReason = InstanceStateChangeReason'
+    { _iscrCode    :: Maybe InstanceStateChangeReasonCode
+    , _iscrMessage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceStateChangeReason' smart constructor.
 instanceStateChangeReason :: InstanceStateChangeReason
-instanceStateChangeReason = InstanceStateChangeReason'{_iscrCode = Nothing, _iscrMessage = Nothing};
+instanceStateChangeReason =
+    InstanceStateChangeReason'
+    { _iscrCode = Nothing
+    , _iscrMessage = Nothing
+    }
 
 -- | The programmable code for the state change reason.
 iscrCode :: Lens' InstanceStateChangeReason (Maybe InstanceStateChangeReasonCode)
@@ -1697,11 +2000,20 @@ instance FromJSON InstanceStateChangeReason where
 -- * 'isStateChangeReason'
 --
 -- * 'isTimeline'
-data InstanceStatus = InstanceStatus'{_isState :: Maybe InstanceState, _isStateChangeReason :: Maybe InstanceStateChangeReason, _isTimeline :: Maybe InstanceTimeline} deriving (Eq, Read, Show)
+data InstanceStatus = InstanceStatus'
+    { _isState             :: Maybe InstanceState
+    , _isStateChangeReason :: Maybe InstanceStateChangeReason
+    , _isTimeline          :: Maybe InstanceTimeline
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceStatus' smart constructor.
 instanceStatus :: InstanceStatus
-instanceStatus = InstanceStatus'{_isState = Nothing, _isStateChangeReason = Nothing, _isTimeline = Nothing};
+instanceStatus =
+    InstanceStatus'
+    { _isState = Nothing
+    , _isStateChangeReason = Nothing
+    , _isTimeline = Nothing
+    }
 
 -- | The current state of the instance.
 isState :: Lens' InstanceStatus (Maybe InstanceState)
@@ -1734,11 +2046,20 @@ instance FromJSON InstanceStatus where
 -- * 'itCreationDateTime'
 --
 -- * 'itEndDateTime'
-data InstanceTimeline = InstanceTimeline'{_itReadyDateTime :: Maybe POSIX, _itCreationDateTime :: Maybe POSIX, _itEndDateTime :: Maybe POSIX} deriving (Eq, Read, Show)
+data InstanceTimeline = InstanceTimeline'
+    { _itReadyDateTime    :: Maybe POSIX
+    , _itCreationDateTime :: Maybe POSIX
+    , _itEndDateTime      :: Maybe POSIX
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceTimeline' smart constructor.
 instanceTimeline :: InstanceTimeline
-instanceTimeline = InstanceTimeline'{_itReadyDateTime = Nothing, _itCreationDateTime = Nothing, _itEndDateTime = Nothing};
+instanceTimeline =
+    InstanceTimeline'
+    { _itReadyDateTime = Nothing
+    , _itCreationDateTime = Nothing
+    , _itEndDateTime = Nothing
+    }
 
 -- | The date and time when the instance was ready to perform tasks.
 itReadyDateTime :: Lens' InstanceTimeline (Maybe UTCTime)
@@ -1798,11 +2119,42 @@ instance FromJSON InstanceTimeline where
 -- * 'jficTerminationProtected'
 --
 -- * 'jficPlacement'
-data JobFlowInstancesConfig = JobFlowInstancesConfig'{_jficSlaveInstanceType :: Maybe Text, _jficEC2KeyName :: Maybe Text, _jficInstanceCount :: Maybe Int, _jficEmrManagedSlaveSecurityGroup :: Maybe Text, _jficAdditionalSlaveSecurityGroups :: Maybe [Text], _jficHadoopVersion :: Maybe Text, _jficAdditionalMasterSecurityGroups :: Maybe [Text], _jficEmrManagedMasterSecurityGroup :: Maybe Text, _jficEC2SubnetId :: Maybe Text, _jficMasterInstanceType :: Maybe Text, _jficInstanceGroups :: Maybe [InstanceGroupConfig], _jficKeepJobFlowAliveWhenNoSteps :: Maybe Bool, _jficTerminationProtected :: Maybe Bool, _jficPlacement :: Maybe PlacementType} deriving (Eq, Read, Show)
+data JobFlowInstancesConfig = JobFlowInstancesConfig'
+    { _jficSlaveInstanceType              :: Maybe Text
+    , _jficEC2KeyName                     :: Maybe Text
+    , _jficInstanceCount                  :: Maybe Int
+    , _jficEmrManagedSlaveSecurityGroup   :: Maybe Text
+    , _jficAdditionalSlaveSecurityGroups  :: Maybe [Text]
+    , _jficHadoopVersion                  :: Maybe Text
+    , _jficAdditionalMasterSecurityGroups :: Maybe [Text]
+    , _jficEmrManagedMasterSecurityGroup  :: Maybe Text
+    , _jficEC2SubnetId                    :: Maybe Text
+    , _jficMasterInstanceType             :: Maybe Text
+    , _jficInstanceGroups                 :: Maybe [InstanceGroupConfig]
+    , _jficKeepJobFlowAliveWhenNoSteps    :: Maybe Bool
+    , _jficTerminationProtected           :: Maybe Bool
+    , _jficPlacement                      :: Maybe PlacementType
+    } deriving (Eq,Read,Show)
 
 -- | 'JobFlowInstancesConfig' smart constructor.
 jobFlowInstancesConfig :: JobFlowInstancesConfig
-jobFlowInstancesConfig = JobFlowInstancesConfig'{_jficSlaveInstanceType = Nothing, _jficEC2KeyName = Nothing, _jficInstanceCount = Nothing, _jficEmrManagedSlaveSecurityGroup = Nothing, _jficAdditionalSlaveSecurityGroups = Nothing, _jficHadoopVersion = Nothing, _jficAdditionalMasterSecurityGroups = Nothing, _jficEmrManagedMasterSecurityGroup = Nothing, _jficEC2SubnetId = Nothing, _jficMasterInstanceType = Nothing, _jficInstanceGroups = Nothing, _jficKeepJobFlowAliveWhenNoSteps = Nothing, _jficTerminationProtected = Nothing, _jficPlacement = Nothing};
+jobFlowInstancesConfig =
+    JobFlowInstancesConfig'
+    { _jficSlaveInstanceType = Nothing
+    , _jficEC2KeyName = Nothing
+    , _jficInstanceCount = Nothing
+    , _jficEmrManagedSlaveSecurityGroup = Nothing
+    , _jficAdditionalSlaveSecurityGroups = Nothing
+    , _jficHadoopVersion = Nothing
+    , _jficAdditionalMasterSecurityGroups = Nothing
+    , _jficEmrManagedMasterSecurityGroup = Nothing
+    , _jficEC2SubnetId = Nothing
+    , _jficMasterInstanceType = Nothing
+    , _jficInstanceGroups = Nothing
+    , _jficKeepJobFlowAliveWhenNoSteps = Nothing
+    , _jficTerminationProtected = Nothing
+    , _jficPlacement = Nothing
+    }
 
 -- | The EC2 instance type of the slave nodes.
 jficSlaveInstanceType :: Lens' JobFlowInstancesConfig (Maybe Text)
@@ -1910,11 +2262,18 @@ instance ToJSON JobFlowInstancesConfig where
 -- * 'kvValue'
 --
 -- * 'kvKey'
-data KeyValue = KeyValue'{_kvValue :: Maybe Text, _kvKey :: Maybe Text} deriving (Eq, Read, Show)
+data KeyValue = KeyValue'
+    { _kvValue :: Maybe Text
+    , _kvKey   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'KeyValue' smart constructor.
 keyValue :: KeyValue
-keyValue = KeyValue'{_kvValue = Nothing, _kvKey = Nothing};
+keyValue =
+    KeyValue'
+    { _kvValue = Nothing
+    , _kvKey = Nothing
+    }
 
 -- | The value part of the identified key.
 kvValue :: Lens' KeyValue (Maybe Text)
@@ -1935,11 +2294,16 @@ instance ToJSON KeyValue where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ptAvailabilityZone'
-newtype PlacementType = PlacementType'{_ptAvailabilityZone :: Text} deriving (Eq, Read, Show)
+newtype PlacementType = PlacementType'
+    { _ptAvailabilityZone :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PlacementType' smart constructor.
 placementType :: Text -> PlacementType
-placementType pAvailabilityZone = PlacementType'{_ptAvailabilityZone = pAvailabilityZone};
+placementType pAvailabilityZone =
+    PlacementType'
+    { _ptAvailabilityZone = pAvailabilityZone
+    }
 
 -- | The Amazon EC2 Availability Zone for the job flow.
 ptAvailabilityZone :: Lens' PlacementType Text
@@ -1958,11 +2322,18 @@ instance ToJSON PlacementType where
 -- * 'sbacArgs'
 --
 -- * 'sbacPath'
-data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'{_sbacArgs :: Maybe [Text], _sbacPath :: Text} deriving (Eq, Read, Show)
+data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'
+    { _sbacArgs :: Maybe [Text]
+    , _sbacPath :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ScriptBootstrapActionConfig' smart constructor.
 scriptBootstrapActionConfig :: Text -> ScriptBootstrapActionConfig
-scriptBootstrapActionConfig pPath = ScriptBootstrapActionConfig'{_sbacArgs = Nothing, _sbacPath = pPath};
+scriptBootstrapActionConfig pPath =
+    ScriptBootstrapActionConfig'
+    { _sbacArgs = Nothing
+    , _sbacPath = pPath
+    }
 
 -- | A list of command line arguments to pass to the bootstrap action script.
 sbacArgs :: Lens' ScriptBootstrapActionConfig [Text]
@@ -1992,11 +2363,24 @@ instance ToJSON ScriptBootstrapActionConfig where
 -- * 'steName'
 --
 -- * 'steId'
-data Step = Step'{_steStatus :: Maybe StepStatus, _steActionOnFailure :: Maybe ActionOnFailure, _steConfig :: Maybe HadoopStepConfig, _steName :: Maybe Text, _steId :: Maybe Text} deriving (Eq, Read, Show)
+data Step = Step'
+    { _steStatus          :: Maybe StepStatus
+    , _steActionOnFailure :: Maybe ActionOnFailure
+    , _steConfig          :: Maybe HadoopStepConfig
+    , _steName            :: Maybe Text
+    , _steId              :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Step' smart constructor.
 step :: Step
-step = Step'{_steStatus = Nothing, _steActionOnFailure = Nothing, _steConfig = Nothing, _steName = Nothing, _steId = Nothing};
+step =
+    Step'
+    { _steStatus = Nothing
+    , _steActionOnFailure = Nothing
+    , _steConfig = Nothing
+    , _steName = Nothing
+    , _steId = Nothing
+    }
 
 -- | The current execution status details of the cluster step.
 steStatus :: Lens' Step (Maybe StepStatus)
@@ -2040,11 +2424,20 @@ instance FromJSON Step where
 -- * 'scName'
 --
 -- * 'scHadoopJARStep'
-data StepConfig = StepConfig'{_scActionOnFailure :: Maybe ActionOnFailure, _scName :: Text, _scHadoopJARStep :: HadoopJARStepConfig} deriving (Eq, Read, Show)
+data StepConfig = StepConfig'
+    { _scActionOnFailure :: Maybe ActionOnFailure
+    , _scName            :: Text
+    , _scHadoopJARStep   :: HadoopJARStepConfig
+    } deriving (Eq,Read,Show)
 
 -- | 'StepConfig' smart constructor.
 stepConfig :: Text -> HadoopJARStepConfig -> StepConfig
-stepConfig pName pHadoopJARStep = StepConfig'{_scActionOnFailure = Nothing, _scName = pName, _scHadoopJARStep = pHadoopJARStep};
+stepConfig pName pHadoopJARStep =
+    StepConfig'
+    { _scActionOnFailure = Nothing
+    , _scName = pName
+    , _scHadoopJARStep = pHadoopJARStep
+    }
 
 -- | The action to take if the job flow step fails.
 scActionOnFailure :: Lens' StepConfig (Maybe ActionOnFailure)
@@ -2074,11 +2467,18 @@ instance ToJSON StepConfig where
 -- * 'sscrCode'
 --
 -- * 'sscrMessage'
-data StepStateChangeReason = StepStateChangeReason'{_sscrCode :: Maybe StepStateChangeReasonCode, _sscrMessage :: Maybe Text} deriving (Eq, Read, Show)
+data StepStateChangeReason = StepStateChangeReason'
+    { _sscrCode    :: Maybe StepStateChangeReasonCode
+    , _sscrMessage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StepStateChangeReason' smart constructor.
 stepStateChangeReason :: StepStateChangeReason
-stepStateChangeReason = StepStateChangeReason'{_sscrCode = Nothing, _sscrMessage = Nothing};
+stepStateChangeReason =
+    StepStateChangeReason'
+    { _sscrCode = Nothing
+    , _sscrMessage = Nothing
+    }
 
 -- | The programmable code for the state change reason.
 sscrCode :: Lens' StepStateChangeReason (Maybe StepStateChangeReasonCode)
@@ -2106,11 +2506,20 @@ instance FromJSON StepStateChangeReason where
 -- * 'ssStateChangeReason'
 --
 -- * 'ssTimeline'
-data StepStatus = StepStatus'{_ssState :: Maybe StepState, _ssStateChangeReason :: Maybe StepStateChangeReason, _ssTimeline :: Maybe StepTimeline} deriving (Eq, Read, Show)
+data StepStatus = StepStatus'
+    { _ssState             :: Maybe StepState
+    , _ssStateChangeReason :: Maybe StepStateChangeReason
+    , _ssTimeline          :: Maybe StepTimeline
+    } deriving (Eq,Read,Show)
 
 -- | 'StepStatus' smart constructor.
 stepStatus :: StepStatus
-stepStatus = StepStatus'{_ssState = Nothing, _ssStateChangeReason = Nothing, _ssTimeline = Nothing};
+stepStatus =
+    StepStatus'
+    { _ssState = Nothing
+    , _ssStateChangeReason = Nothing
+    , _ssTimeline = Nothing
+    }
 
 -- | The execution state of the cluster step.
 ssState :: Lens' StepStatus (Maybe StepState)
@@ -2147,11 +2556,24 @@ instance FromJSON StepStatus where
 -- * 'ssName'
 --
 -- * 'ssId'
-data StepSummary = StepSummary'{_ssStatus :: Maybe StepStatus, _ssActionOnFailure :: Maybe ActionOnFailure, _ssConfig :: Maybe HadoopStepConfig, _ssName :: Maybe Text, _ssId :: Maybe Text} deriving (Eq, Read, Show)
+data StepSummary = StepSummary'
+    { _ssStatus          :: Maybe StepStatus
+    , _ssActionOnFailure :: Maybe ActionOnFailure
+    , _ssConfig          :: Maybe HadoopStepConfig
+    , _ssName            :: Maybe Text
+    , _ssId              :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StepSummary' smart constructor.
 stepSummary :: StepSummary
-stepSummary = StepSummary'{_ssStatus = Nothing, _ssActionOnFailure = Nothing, _ssConfig = Nothing, _ssName = Nothing, _ssId = Nothing};
+stepSummary =
+    StepSummary'
+    { _ssStatus = Nothing
+    , _ssActionOnFailure = Nothing
+    , _ssConfig = Nothing
+    , _ssName = Nothing
+    , _ssId = Nothing
+    }
 
 -- | The current execution status details of the cluster step.
 ssStatus :: Lens' StepSummary (Maybe StepStatus)
@@ -2195,11 +2617,20 @@ instance FromJSON StepSummary where
 -- * 'stEndDateTime'
 --
 -- * 'stStartDateTime'
-data StepTimeline = StepTimeline'{_stCreationDateTime :: Maybe POSIX, _stEndDateTime :: Maybe POSIX, _stStartDateTime :: Maybe POSIX} deriving (Eq, Read, Show)
+data StepTimeline = StepTimeline'
+    { _stCreationDateTime :: Maybe POSIX
+    , _stEndDateTime      :: Maybe POSIX
+    , _stStartDateTime    :: Maybe POSIX
+    } deriving (Eq,Read,Show)
 
 -- | 'StepTimeline' smart constructor.
 stepTimeline :: StepTimeline
-stepTimeline = StepTimeline'{_stCreationDateTime = Nothing, _stEndDateTime = Nothing, _stStartDateTime = Nothing};
+stepTimeline =
+    StepTimeline'
+    { _stCreationDateTime = Nothing
+    , _stEndDateTime = Nothing
+    , _stStartDateTime = Nothing
+    }
 
 -- | The date and time when the cluster step was created.
 stCreationDateTime :: Lens' StepTimeline (Maybe UTCTime)
@@ -2232,11 +2663,18 @@ instance FromJSON StepTimeline where
 -- * 'spcArgs'
 --
 -- * 'spcName'
-data SupportedProductConfig = SupportedProductConfig'{_spcArgs :: Maybe [Text], _spcName :: Maybe Text} deriving (Eq, Read, Show)
+data SupportedProductConfig = SupportedProductConfig'
+    { _spcArgs :: Maybe [Text]
+    , _spcName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SupportedProductConfig' smart constructor.
 supportedProductConfig :: SupportedProductConfig
-supportedProductConfig = SupportedProductConfig'{_spcArgs = Nothing, _spcName = Nothing};
+supportedProductConfig =
+    SupportedProductConfig'
+    { _spcArgs = Nothing
+    , _spcName = Nothing
+    }
 
 -- | The list of user-supplied arguments.
 spcArgs :: Lens' SupportedProductConfig [Text]
@@ -2263,11 +2701,18 @@ instance ToJSON SupportedProductConfig where
 -- * 'tagValue'
 --
 -- * 'tagKey'
-data Tag = Tag'{_tagValue :: Maybe Text, _tagKey :: Maybe Text} deriving (Eq, Read, Show)
+data Tag = Tag'
+    { _tagValue :: Maybe Text
+    , _tagKey   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
-tag = Tag'{_tagValue = Nothing, _tagKey = Nothing};
+tag =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = Nothing
+    }
 
 -- | A user-defined value, which is optional in a tag. For more information,
 -- see

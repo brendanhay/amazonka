@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeClassicLinkInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.EC2.DescribeClassicLinkInstances
     -- ** Response lenses
     , dclirNextToken
     , dclirInstances
-    , dclirStatusCode
+    , dclirStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeClassicLinkInstances' smart constructor.
 --
@@ -61,11 +61,24 @@ import Network.AWS.Response
 -- * 'dcliDryRun'
 --
 -- * 'dcliMaxResults'
-data DescribeClassicLinkInstances = DescribeClassicLinkInstances'{_dcliFilters :: Maybe [Filter], _dcliNextToken :: Maybe Text, _dcliInstanceIds :: Maybe [Text], _dcliDryRun :: Maybe Bool, _dcliMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
+    { _dcliFilters     :: Maybe [Filter]
+    , _dcliNextToken   :: Maybe Text
+    , _dcliInstanceIds :: Maybe [Text]
+    , _dcliDryRun      :: Maybe Bool
+    , _dcliMaxResults  :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClassicLinkInstances' smart constructor.
 describeClassicLinkInstances :: DescribeClassicLinkInstances
-describeClassicLinkInstances = DescribeClassicLinkInstances'{_dcliFilters = Nothing, _dcliNextToken = Nothing, _dcliInstanceIds = Nothing, _dcliDryRun = Nothing, _dcliMaxResults = Nothing};
+describeClassicLinkInstances =
+    DescribeClassicLinkInstances'
+    { _dcliFilters = Nothing
+    , _dcliNextToken = Nothing
+    , _dcliInstanceIds = Nothing
+    , _dcliDryRun = Nothing
+    , _dcliMaxResults = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -161,12 +174,21 @@ instance ToQuery DescribeClassicLinkInstances where
 --
 -- * 'dclirInstances'
 --
--- * 'dclirStatusCode'
-data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'{_dclirNextToken :: Maybe Text, _dclirInstances :: Maybe [ClassicLinkInstance], _dclirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dclirStatus'
+data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'
+    { _dclirNextToken :: Maybe Text
+    , _dclirInstances :: Maybe [ClassicLinkInstance]
+    , _dclirStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClassicLinkInstancesResponse' smart constructor.
 describeClassicLinkInstancesResponse :: Int -> DescribeClassicLinkInstancesResponse
-describeClassicLinkInstancesResponse pStatusCode = DescribeClassicLinkInstancesResponse'{_dclirNextToken = Nothing, _dclirInstances = Nothing, _dclirStatusCode = pStatusCode};
+describeClassicLinkInstancesResponse pStatus =
+    DescribeClassicLinkInstancesResponse'
+    { _dclirNextToken = Nothing
+    , _dclirInstances = Nothing
+    , _dclirStatus = pStatus
+    }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -178,5 +200,5 @@ dclirInstances :: Lens' DescribeClassicLinkInstancesResponse [ClassicLinkInstanc
 dclirInstances = lens _dclirInstances (\ s a -> s{_dclirInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dclirStatusCode :: Lens' DescribeClassicLinkInstancesResponse Int
-dclirStatusCode = lens _dclirStatusCode (\ s a -> s{_dclirStatusCode = a});
+dclirStatus :: Lens' DescribeClassicLinkInstancesResponse Int
+dclirStatus = lens _dclirStatus (\ s a -> s{_dclirStatus = a});

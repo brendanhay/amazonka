@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,10 +37,10 @@ module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     , deleteApplicationVersionResponse
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -53,11 +53,20 @@ import Network.AWS.Response
 -- * 'davApplicationName'
 --
 -- * 'davVersionLabel'
-data DeleteApplicationVersion = DeleteApplicationVersion'{_davDeleteSourceBundle :: Maybe Bool, _davApplicationName :: Text, _davVersionLabel :: Text} deriving (Eq, Read, Show)
+data DeleteApplicationVersion = DeleteApplicationVersion'
+    { _davDeleteSourceBundle :: Maybe Bool
+    , _davApplicationName    :: Text
+    , _davVersionLabel       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteApplicationVersion' smart constructor.
 deleteApplicationVersion :: Text -> Text -> DeleteApplicationVersion
-deleteApplicationVersion pApplicationName pVersionLabel = DeleteApplicationVersion'{_davDeleteSourceBundle = Nothing, _davApplicationName = pApplicationName, _davVersionLabel = pVersionLabel};
+deleteApplicationVersion pApplicationName pVersionLabel =
+    DeleteApplicationVersion'
+    { _davDeleteSourceBundle = Nothing
+    , _davApplicationName = pApplicationName
+    , _davVersionLabel = pVersionLabel
+    }
 
 -- | Indicates whether to delete the associated source bundle from Amazon S3:
 --
@@ -103,8 +112,10 @@ instance ToQuery DeleteApplicationVersion where
                "VersionLabel" =: _davVersionLabel]
 
 -- | /See:/ 'deleteApplicationVersionResponse' smart constructor.
-data DeleteApplicationVersionResponse = DeleteApplicationVersionResponse' deriving (Eq, Read, Show)
+data DeleteApplicationVersionResponse =
+    DeleteApplicationVersionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteApplicationVersionResponse' smart constructor.
 deleteApplicationVersionResponse :: DeleteApplicationVersionResponse
-deleteApplicationVersionResponse = DeleteApplicationVersionResponse';
+deleteApplicationVersionResponse = DeleteApplicationVersionResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.GetTemplateSummary
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     , gtsrMetadata
     , gtsrCapabilities
     , gtsrDescription
-    , gtsrStatusCode
+    , gtsrStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the GetTemplateSummary action.
 --
@@ -68,11 +68,20 @@ import Network.AWS.Response
 -- * 'gtsTemplateURL'
 --
 -- * 'gtsStackName'
-data GetTemplateSummary = GetTemplateSummary'{_gtsTemplateBody :: Maybe Text, _gtsTemplateURL :: Maybe Text, _gtsStackName :: Maybe Text} deriving (Eq, Read, Show)
+data GetTemplateSummary = GetTemplateSummary'
+    { _gtsTemplateBody :: Maybe Text
+    , _gtsTemplateURL  :: Maybe Text
+    , _gtsStackName    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetTemplateSummary' smart constructor.
 getTemplateSummary :: GetTemplateSummary
-getTemplateSummary = GetTemplateSummary'{_gtsTemplateBody = Nothing, _gtsTemplateURL = Nothing, _gtsStackName = Nothing};
+getTemplateSummary =
+    GetTemplateSummary'
+    { _gtsTemplateBody = Nothing
+    , _gtsTemplateURL = Nothing
+    , _gtsStackName = Nothing
+    }
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. For more information about
@@ -159,12 +168,29 @@ instance ToQuery GetTemplateSummary where
 --
 -- * 'gtsrDescription'
 --
--- * 'gtsrStatusCode'
-data GetTemplateSummaryResponse = GetTemplateSummaryResponse'{_gtsrVersion :: Maybe Text, _gtsrParameters :: Maybe [ParameterDeclaration], _gtsrCapabilitiesReason :: Maybe Text, _gtsrMetadata :: Maybe Text, _gtsrCapabilities :: Maybe [Capability], _gtsrDescription :: Maybe Text, _gtsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gtsrStatus'
+data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
+    { _gtsrVersion            :: Maybe Text
+    , _gtsrParameters         :: Maybe [ParameterDeclaration]
+    , _gtsrCapabilitiesReason :: Maybe Text
+    , _gtsrMetadata           :: Maybe Text
+    , _gtsrCapabilities       :: Maybe [Capability]
+    , _gtsrDescription        :: Maybe Text
+    , _gtsrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetTemplateSummaryResponse' smart constructor.
 getTemplateSummaryResponse :: Int -> GetTemplateSummaryResponse
-getTemplateSummaryResponse pStatusCode = GetTemplateSummaryResponse'{_gtsrVersion = Nothing, _gtsrParameters = Nothing, _gtsrCapabilitiesReason = Nothing, _gtsrMetadata = Nothing, _gtsrCapabilities = Nothing, _gtsrDescription = Nothing, _gtsrStatusCode = pStatusCode};
+getTemplateSummaryResponse pStatus =
+    GetTemplateSummaryResponse'
+    { _gtsrVersion = Nothing
+    , _gtsrParameters = Nothing
+    , _gtsrCapabilitiesReason = Nothing
+    , _gtsrMetadata = Nothing
+    , _gtsrCapabilities = Nothing
+    , _gtsrDescription = Nothing
+    , _gtsrStatus = pStatus
+    }
 
 -- | The AWS template format version, which identifies the capabilities of
 -- the template.
@@ -199,5 +225,5 @@ gtsrDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrDescription = lens _gtsrDescription (\ s a -> s{_gtsrDescription = a});
 
 -- | FIXME: Undocumented member.
-gtsrStatusCode :: Lens' GetTemplateSummaryResponse Int
-gtsrStatusCode = lens _gtsrStatusCode (\ s a -> s{_gtsrStatusCode = a});
+gtsrStatus :: Lens' GetTemplateSummaryResponse Int
+gtsrStatus = lens _gtsrStatus (\ s a -> s{_gtsrStatus = a});

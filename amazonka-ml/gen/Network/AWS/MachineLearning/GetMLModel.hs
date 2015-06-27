@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.GetMLModel
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,7 +35,6 @@ module Network.AWS.MachineLearning.GetMLModel
     -- ** Response constructor
     , getMLModelResponse
     -- ** Response lenses
-    , gmlmrStatus
     , gmlmrTrainingParameters
     , gmlmrLastUpdatedAt
     , gmlmrCreatedAt
@@ -53,13 +52,13 @@ module Network.AWS.MachineLearning.GetMLModel
     , gmlmrTrainingDataSourceId
     , gmlmrMessage
     , gmlmrMLModelType
-    , gmlmrStatusCode
+    , gmlmrStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getMLModel' smart constructor.
 --
@@ -68,11 +67,18 @@ import Network.AWS.Response
 -- * 'gmlmVerbose'
 --
 -- * 'gmlmMLModelId'
-data GetMLModel = GetMLModel'{_gmlmVerbose :: Maybe Bool, _gmlmMLModelId :: Text} deriving (Eq, Read, Show)
+data GetMLModel = GetMLModel'
+    { _gmlmVerbose   :: Maybe Bool
+    , _gmlmMLModelId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetMLModel' smart constructor.
 getMLModel :: Text -> GetMLModel
-getMLModel pMLModelId = GetMLModel'{_gmlmVerbose = Nothing, _gmlmMLModelId = pMLModelId};
+getMLModel pMLModelId =
+    GetMLModel'
+    { _gmlmVerbose = Nothing
+    , _gmlmMLModelId = pMLModelId
+    }
 
 -- | Specifies whether the @GetMLModel@ operation should return @Recipe@.
 --
@@ -94,9 +100,8 @@ instance AWSRequest GetMLModel where
           = receiveJSON
               (\ s h x ->
                  GetMLModelResponse' <$>
-                   (x .?> "Status") <*>
-                     (x .?> "TrainingParameters" .!@ mempty)
-                     <*> (x .?> "LastUpdatedAt")
+                   (x .?> "TrainingParameters" .!@ mempty) <*>
+                     (x .?> "LastUpdatedAt")
                      <*> (x .?> "CreatedAt")
                      <*> (x .?> "ScoreThresholdLastUpdatedAt")
                      <*> (x .?> "Recipe")
@@ -142,8 +147,6 @@ instance ToQuery GetMLModel where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gmlmrStatus'
---
 -- * 'gmlmrTrainingParameters'
 --
 -- * 'gmlmrLastUpdatedAt'
@@ -178,24 +181,51 @@ instance ToQuery GetMLModel where
 --
 -- * 'gmlmrMLModelType'
 --
--- * 'gmlmrStatusCode'
-data GetMLModelResponse = GetMLModelResponse'{_gmlmrStatus :: Maybe EntityStatus, _gmlmrTrainingParameters :: Maybe (Map Text Text), _gmlmrLastUpdatedAt :: Maybe POSIX, _gmlmrCreatedAt :: Maybe POSIX, _gmlmrScoreThresholdLastUpdatedAt :: Maybe POSIX, _gmlmrRecipe :: Maybe Text, _gmlmrInputDataLocationS3 :: Maybe Text, _gmlmrSizeInBytes :: Maybe Integer, _gmlmrMLModelId :: Maybe Text, _gmlmrSchema :: Maybe Text, _gmlmrScoreThreshold :: Maybe Double, _gmlmrName :: Maybe Text, _gmlmrCreatedByIAMUser :: Maybe Text, _gmlmrLogURI :: Maybe Text, _gmlmrEndpointInfo :: Maybe RealtimeEndpointInfo, _gmlmrTrainingDataSourceId :: Maybe Text, _gmlmrMessage :: Maybe Text, _gmlmrMLModelType :: Maybe MLModelType, _gmlmrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gmlmrStatus'
+data GetMLModelResponse = GetMLModelResponse'
+    { _gmlmrTrainingParameters          :: Maybe (Map Text Text)
+    , _gmlmrLastUpdatedAt               :: Maybe POSIX
+    , _gmlmrCreatedAt                   :: Maybe POSIX
+    , _gmlmrScoreThresholdLastUpdatedAt :: Maybe POSIX
+    , _gmlmrRecipe                      :: Maybe Text
+    , _gmlmrInputDataLocationS3         :: Maybe Text
+    , _gmlmrSizeInBytes                 :: Maybe Integer
+    , _gmlmrMLModelId                   :: Maybe Text
+    , _gmlmrSchema                      :: Maybe Text
+    , _gmlmrScoreThreshold              :: Maybe Double
+    , _gmlmrName                        :: Maybe Text
+    , _gmlmrCreatedByIAMUser            :: Maybe Text
+    , _gmlmrLogURI                      :: Maybe Text
+    , _gmlmrEndpointInfo                :: Maybe RealtimeEndpointInfo
+    , _gmlmrTrainingDataSourceId        :: Maybe Text
+    , _gmlmrMessage                     :: Maybe Text
+    , _gmlmrMLModelType                 :: Maybe MLModelType
+    , _gmlmrStatus                      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetMLModelResponse' smart constructor.
 getMLModelResponse :: Int -> GetMLModelResponse
-getMLModelResponse pStatusCode = GetMLModelResponse'{_gmlmrStatus = Nothing, _gmlmrTrainingParameters = Nothing, _gmlmrLastUpdatedAt = Nothing, _gmlmrCreatedAt = Nothing, _gmlmrScoreThresholdLastUpdatedAt = Nothing, _gmlmrRecipe = Nothing, _gmlmrInputDataLocationS3 = Nothing, _gmlmrSizeInBytes = Nothing, _gmlmrMLModelId = Nothing, _gmlmrSchema = Nothing, _gmlmrScoreThreshold = Nothing, _gmlmrName = Nothing, _gmlmrCreatedByIAMUser = Nothing, _gmlmrLogURI = Nothing, _gmlmrEndpointInfo = Nothing, _gmlmrTrainingDataSourceId = Nothing, _gmlmrMessage = Nothing, _gmlmrMLModelType = Nothing, _gmlmrStatusCode = pStatusCode};
-
--- | The current status of the @MLModel@. This element can have one of the
--- following values:
---
--- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request
---     to describe a @MLModel@.
--- -   @INPROGRESS@ - The request is processing.
--- -   @FAILED@ - The request did not run to completion. It is not usable.
--- -   @COMPLETED@ - The request completed successfully.
--- -   @DELETED@ - The @MLModel@ is marked as deleted. It is not usable.
-gmlmrStatus :: Lens' GetMLModelResponse (Maybe EntityStatus)
-gmlmrStatus = lens _gmlmrStatus (\ s a -> s{_gmlmrStatus = a});
+getMLModelResponse pStatus =
+    GetMLModelResponse'
+    { _gmlmrTrainingParameters = Nothing
+    , _gmlmrLastUpdatedAt = Nothing
+    , _gmlmrCreatedAt = Nothing
+    , _gmlmrScoreThresholdLastUpdatedAt = Nothing
+    , _gmlmrRecipe = Nothing
+    , _gmlmrInputDataLocationS3 = Nothing
+    , _gmlmrSizeInBytes = Nothing
+    , _gmlmrMLModelId = Nothing
+    , _gmlmrSchema = Nothing
+    , _gmlmrScoreThreshold = Nothing
+    , _gmlmrName = Nothing
+    , _gmlmrCreatedByIAMUser = Nothing
+    , _gmlmrLogURI = Nothing
+    , _gmlmrEndpointInfo = Nothing
+    , _gmlmrTrainingDataSourceId = Nothing
+    , _gmlmrMessage = Nothing
+    , _gmlmrMLModelType = Nothing
+    , _gmlmrStatus = pStatus
+    }
 
 -- | A list of the training parameters in the @MLModel@. The list is
 -- implemented as a map of key\/value pairs.
@@ -332,5 +362,5 @@ gmlmrMLModelType :: Lens' GetMLModelResponse (Maybe MLModelType)
 gmlmrMLModelType = lens _gmlmrMLModelType (\ s a -> s{_gmlmrMLModelType = a});
 
 -- | FIXME: Undocumented member.
-gmlmrStatusCode :: Lens' GetMLModelResponse Int
-gmlmrStatusCode = lens _gmlmrStatusCode (\ s a -> s{_gmlmrStatusCode = a});
+gmlmrStatus :: Lens' GetMLModelResponse Int
+gmlmrStatus = lens _gmlmrStatus (\ s a -> s{_gmlmrStatus = a});

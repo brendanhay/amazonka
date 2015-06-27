@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.StopInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,21 +42,26 @@ module Network.AWS.OpsWorks.StopInstance
     , stopInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'stopInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'siInstanceId'
-newtype StopInstance = StopInstance'{_siInstanceId :: Text} deriving (Eq, Read, Show)
+newtype StopInstance = StopInstance'
+    { _siInstanceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StopInstance' smart constructor.
 stopInstance :: Text -> StopInstance
-stopInstance pInstanceId = StopInstance'{_siInstanceId = pInstanceId};
+stopInstance pInstanceId =
+    StopInstance'
+    { _siInstanceId = pInstanceId
+    }
 
 -- | The instance ID.
 siInstanceId :: Lens' StopInstance Text
@@ -88,8 +93,10 @@ instance ToQuery StopInstance where
         toQuery = const mempty
 
 -- | /See:/ 'stopInstanceResponse' smart constructor.
-data StopInstanceResponse = StopInstanceResponse' deriving (Eq, Read, Show)
+data StopInstanceResponse =
+    StopInstanceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'StopInstanceResponse' smart constructor.
 stopInstanceResponse :: StopInstanceResponse
-stopInstanceResponse = StopInstanceResponse';
+stopInstanceResponse = StopInstanceResponse'

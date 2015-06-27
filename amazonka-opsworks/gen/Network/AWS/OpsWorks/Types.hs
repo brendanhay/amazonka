@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.OpsWorks.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -490,49 +489,57 @@ module Network.AWS.OpsWorks.Types
     , wassTuesday
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2013-02-18@ of the Amazon OpsWorks SDK.
 data OpsWorks
 
 instance AWSService OpsWorks where
     type Sg OpsWorks = V4
-
     service = const svc
       where
-        svc :: Service OpsWorks
-        svc = Service
-            { _svcAbbrev   = "OpsWorks"
-            , _svcPrefix   = "opsworks"
-            , _svcVersion  = "2013-02-18"
+        svc =
+            Service
+            { _svcAbbrev = "OpsWorks"
+            , _svcPrefix = "opsworks"
+            , _svcVersion = "2013-02-18"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | Indicates that a request was invalid.
-_ValidationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ValidationException = _ServiceError . hasCode "ValidationException";
+_ValidationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ValidationException = _ServiceError . hasCode "ValidationException"
 
 -- | Indicates that a resource was not found.
-_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFoundException";
+_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+    _ServiceError . hasCode "ResourceNotFoundException"
 
-data AppAttributesKeys = DocumentRoot | RailsEnv | AutoBundleOnDeploy deriving (Eq, Ord, Read, Show, Enum, Generic)
+data AppAttributesKeys
+    = DocumentRoot
+    | RailsEnv
+    | AutoBundleOnDeploy
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AppAttributesKeys where
     parser = takeLowerText >>= \case
@@ -557,7 +564,14 @@ instance ToJSON AppAttributesKeys where
 instance FromJSON AppAttributesKeys where
     parseJSON = parseJSONText "AppAttributesKeys"
 
-data AppType = Java | Other | Rails | Static | PHP | Nodejs deriving (Eq, Ord, Read, Show, Enum, Generic)
+data AppType
+    = Java
+    | Other
+    | Rails
+    | Static
+    | PHP
+    | Nodejs
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AppType where
     parser = takeLowerText >>= \case
@@ -588,7 +602,10 @@ instance ToJSON AppType where
 instance FromJSON AppType where
     parseJSON = parseJSONText "AppType"
 
-data Architecture = I386 | X8664 deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Architecture
+    = I386
+    | X8664
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Architecture where
     parser = takeLowerText >>= \case
@@ -611,7 +628,10 @@ instance ToJSON Architecture where
 instance FromJSON Architecture where
     parseJSON = parseJSONText "Architecture"
 
-data AutoScalingType = Timer | Load deriving (Eq, Ord, Read, Show, Enum, Generic)
+data AutoScalingType
+    = Timer
+    | Load
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AutoScalingType where
     parser = takeLowerText >>= \case
@@ -634,7 +654,18 @@ instance ToJSON AutoScalingType where
 instance FromJSON AutoScalingType where
     parseJSON = parseJSONText "AutoScalingType"
 
-data DeploymentCommandName = ExecuteRecipes | Start | UpdateCustomCookbooks | InstallDependencies | Undeploy | Rollback | Restart | Stop | UpdateDependencies | Deploy deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DeploymentCommandName
+    = ExecuteRecipes
+    | Start
+    | UpdateCustomCookbooks
+    | InstallDependencies
+    | Undeploy
+    | Rollback
+    | Restart
+    | Stop
+    | UpdateDependencies
+    | Deploy
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DeploymentCommandName where
     parser = takeLowerText >>= \case
@@ -673,7 +704,32 @@ instance ToJSON DeploymentCommandName where
 instance FromJSON DeploymentCommandName where
     parseJSON = parseJSONText "DeploymentCommandName"
 
-data LayerAttributesKeys = HaproxyHealthCheckURL | MemcachedMemory | GangliaPassword | JavaAppServerVersion | GangliaURL | HaproxyHealthCheckMethod | PassengerVersion | JVMVersion | MysqlRootPassword | HaproxyStatsPassword | RubyVersion | JVMOptions | JVM | BundlerVersion | HaproxyStatsURL | ManageBundler | RubygemsVersion | GangliaUser | EnableHaproxyStats | MysqlRootPasswordUbiquitous | HaproxyStatsUser | JavaAppServer | NodejsVersion | RailsStack deriving (Eq, Ord, Read, Show, Enum, Generic)
+data LayerAttributesKeys
+    = HaproxyHealthCheckURL
+    | MemcachedMemory
+    | GangliaPassword
+    | JavaAppServerVersion
+    | GangliaURL
+    | HaproxyHealthCheckMethod
+    | PassengerVersion
+    | JVMVersion
+    | MysqlRootPassword
+    | HaproxyStatsPassword
+    | RubyVersion
+    | JVMOptions
+    | JVM
+    | BundlerVersion
+    | HaproxyStatsURL
+    | ManageBundler
+    | RubygemsVersion
+    | GangliaUser
+    | EnableHaproxyStats
+    | MysqlRootPasswordUbiquitous
+    | HaproxyStatsUser
+    | JavaAppServer
+    | NodejsVersion
+    | RailsStack
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText LayerAttributesKeys where
     parser = takeLowerText >>= \case
@@ -740,7 +796,18 @@ instance ToJSON LayerAttributesKeys where
 instance FromJSON LayerAttributesKeys where
     parseJSON = parseJSONText "LayerAttributesKeys"
 
-data LayerType = Memcached | JavaApp | MonitoringMaster | NodejsApp | Custom | LB | RailsApp | DBMaster | Web | PHPApp deriving (Eq, Ord, Read, Show, Enum, Generic)
+data LayerType
+    = Memcached
+    | JavaApp
+    | MonitoringMaster
+    | NodejsApp
+    | Custom
+    | LB
+    | RailsApp
+    | DBMaster
+    | Web
+    | PHPApp
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText LayerType where
     parser = takeLowerText >>= \case
@@ -779,7 +846,10 @@ instance ToJSON LayerType where
 instance FromJSON LayerType where
     parseJSON = parseJSONText "LayerType"
 
-data RootDeviceType = InstanceStore | EBS deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RootDeviceType
+    = InstanceStore
+    | EBS
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText RootDeviceType where
     parser = takeLowerText >>= \case
@@ -802,7 +872,12 @@ instance ToJSON RootDeviceType where
 instance FromJSON RootDeviceType where
     parseJSON = parseJSONText "RootDeviceType"
 
-data SourceType = SVN | Git | Archive | S3 deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SourceType
+    = SVN
+    | Git
+    | Archive
+    | S3
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
@@ -829,7 +904,9 @@ instance ToJSON SourceType where
 instance FromJSON SourceType where
     parseJSON = parseJSONText "SourceType"
 
-data StackAttributesKeys = Color deriving (Eq, Ord, Read, Show, Enum, Generic)
+data StackAttributesKeys =
+    Color
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText StackAttributesKeys where
     parser = takeLowerText >>= \case
@@ -850,7 +927,10 @@ instance ToJSON StackAttributesKeys where
 instance FromJSON StackAttributesKeys where
     parseJSON = parseJSONText "StackAttributesKeys"
 
-data VirtualizationType = Paravirtual | HVM deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VirtualizationType
+    = Paravirtual
+    | HVM
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VirtualizationType where
     parser = takeLowerText >>= \case
@@ -870,7 +950,11 @@ instance ToHeader VirtualizationType
 instance FromJSON VirtualizationType where
     parseJSON = parseJSONText "VirtualizationType"
 
-data VolumeType = Standard | IO1 | GP2 deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VolumeType
+    = Standard
+    | IO1
+    | GP2
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VolumeType where
     parser = takeLowerText >>= \case
@@ -928,11 +1012,42 @@ instance FromJSON VolumeType where
 -- * 'appStackId'
 --
 -- * 'appDescription'
-data App = App'{_appSSLConfiguration :: Maybe SSLConfiguration, _appShortname :: Maybe Text, _appEnableSSL :: Maybe Bool, _appCreatedAt :: Maybe Text, _appEnvironment :: Maybe [EnvironmentVariable], _appDataSources :: Maybe [DataSource], _appAppId :: Maybe Text, _appAppSource :: Maybe Source, _appName :: Maybe Text, _appAttributes :: Maybe (Map AppAttributesKeys Text), _appType :: Maybe AppType, _appDomains :: Maybe [Text], _appStackId :: Maybe Text, _appDescription :: Maybe Text} deriving (Eq, Read, Show)
+data App = App'
+    { _appSSLConfiguration :: Maybe SSLConfiguration
+    , _appShortname        :: Maybe Text
+    , _appEnableSSL        :: Maybe Bool
+    , _appCreatedAt        :: Maybe Text
+    , _appEnvironment      :: Maybe [EnvironmentVariable]
+    , _appDataSources      :: Maybe [DataSource]
+    , _appAppId            :: Maybe Text
+    , _appAppSource        :: Maybe Source
+    , _appName             :: Maybe Text
+    , _appAttributes       :: Maybe (Map AppAttributesKeys Text)
+    , _appType             :: Maybe AppType
+    , _appDomains          :: Maybe [Text]
+    , _appStackId          :: Maybe Text
+    , _appDescription      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'App' smart constructor.
 app :: App
-app = App'{_appSSLConfiguration = Nothing, _appShortname = Nothing, _appEnableSSL = Nothing, _appCreatedAt = Nothing, _appEnvironment = Nothing, _appDataSources = Nothing, _appAppId = Nothing, _appAppSource = Nothing, _appName = Nothing, _appAttributes = Nothing, _appType = Nothing, _appDomains = Nothing, _appStackId = Nothing, _appDescription = Nothing};
+app =
+    App'
+    { _appSSLConfiguration = Nothing
+    , _appShortname = Nothing
+    , _appEnableSSL = Nothing
+    , _appCreatedAt = Nothing
+    , _appEnvironment = Nothing
+    , _appDataSources = Nothing
+    , _appAppId = Nothing
+    , _appAppSource = Nothing
+    , _appName = Nothing
+    , _appAttributes = Nothing
+    , _appType = Nothing
+    , _appDomains = Nothing
+    , _appStackId = Nothing
+    , _appDescription = Nothing
+    }
 
 -- | An @SslConfiguration@ object with the SSL configuration.
 appSSLConfiguration :: Lens' App (Maybe SSLConfiguration)
@@ -1042,11 +1157,28 @@ instance FromJSON App where
 -- * 'astMemoryThreshold'
 --
 -- * 'astCPUThreshold'
-data AutoScalingThresholds = AutoScalingThresholds'{_astInstanceCount :: Maybe Int, _astIgnoreMetricsTime :: Maybe Nat, _astLoadThreshold :: Maybe Double, _astThresholdsWaitTime :: Maybe Nat, _astAlarms :: Maybe [Text], _astMemoryThreshold :: Maybe Double, _astCPUThreshold :: Maybe Double} deriving (Eq, Read, Show)
+data AutoScalingThresholds = AutoScalingThresholds'
+    { _astInstanceCount      :: Maybe Int
+    , _astIgnoreMetricsTime  :: Maybe Nat
+    , _astLoadThreshold      :: Maybe Double
+    , _astThresholdsWaitTime :: Maybe Nat
+    , _astAlarms             :: Maybe [Text]
+    , _astMemoryThreshold    :: Maybe Double
+    , _astCPUThreshold       :: Maybe Double
+    } deriving (Eq,Read,Show)
 
 -- | 'AutoScalingThresholds' smart constructor.
 autoScalingThresholds :: AutoScalingThresholds
-autoScalingThresholds = AutoScalingThresholds'{_astInstanceCount = Nothing, _astIgnoreMetricsTime = Nothing, _astLoadThreshold = Nothing, _astThresholdsWaitTime = Nothing, _astAlarms = Nothing, _astMemoryThreshold = Nothing, _astCPUThreshold = Nothing};
+autoScalingThresholds =
+    AutoScalingThresholds'
+    { _astInstanceCount = Nothing
+    , _astIgnoreMetricsTime = Nothing
+    , _astLoadThreshold = Nothing
+    , _astThresholdsWaitTime = Nothing
+    , _astAlarms = Nothing
+    , _astMemoryThreshold = Nothing
+    , _astCPUThreshold = Nothing
+    }
 
 -- | The number of instances to add or remove when the load exceeds a
 -- threshold.
@@ -1134,11 +1266,22 @@ instance ToJSON AutoScalingThresholds where
 -- * 'bdmEBS'
 --
 -- * 'bdmDeviceName'
-data BlockDeviceMapping = BlockDeviceMapping'{_bdmVirtualName :: Maybe Text, _bdmNoDevice :: Maybe Text, _bdmEBS :: Maybe EBSBlockDevice, _bdmDeviceName :: Maybe Text} deriving (Eq, Read, Show)
+data BlockDeviceMapping = BlockDeviceMapping'
+    { _bdmVirtualName :: Maybe Text
+    , _bdmNoDevice    :: Maybe Text
+    , _bdmEBS         :: Maybe EBSBlockDevice
+    , _bdmDeviceName  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'BlockDeviceMapping' smart constructor.
 blockDeviceMapping :: BlockDeviceMapping
-blockDeviceMapping = BlockDeviceMapping'{_bdmVirtualName = Nothing, _bdmNoDevice = Nothing, _bdmEBS = Nothing, _bdmDeviceName = Nothing};
+blockDeviceMapping =
+    BlockDeviceMapping'
+    { _bdmVirtualName = Nothing
+    , _bdmNoDevice = Nothing
+    , _bdmEBS = Nothing
+    , _bdmDeviceName = Nothing
+    }
 
 -- | The virtual device name. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping>.
@@ -1187,11 +1330,18 @@ instance ToJSON BlockDeviceMapping where
 -- * 'ccBerkshelfVersion'
 --
 -- * 'ccManageBerkshelf'
-data ChefConfiguration = ChefConfiguration'{_ccBerkshelfVersion :: Maybe Text, _ccManageBerkshelf :: Maybe Bool} deriving (Eq, Read, Show)
+data ChefConfiguration = ChefConfiguration'
+    { _ccBerkshelfVersion :: Maybe Text
+    , _ccManageBerkshelf  :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'ChefConfiguration' smart constructor.
 chefConfiguration :: ChefConfiguration
-chefConfiguration = ChefConfiguration'{_ccBerkshelfVersion = Nothing, _ccManageBerkshelf = Nothing};
+chefConfiguration =
+    ChefConfiguration'
+    { _ccBerkshelfVersion = Nothing
+    , _ccManageBerkshelf = Nothing
+    }
 
 -- | The Berkshelf version.
 ccBerkshelfVersion :: Lens' ChefConfiguration (Maybe Text)
@@ -1240,11 +1390,34 @@ instance ToJSON ChefConfiguration where
 -- * 'comCompletedAt'
 --
 -- * 'comAcknowledgedAt'
-data Command = Command'{_comInstanceId :: Maybe Text, _comDeploymentId :: Maybe Text, _comStatus :: Maybe Text, _comLogURL :: Maybe Text, _comCreatedAt :: Maybe Text, _comCommandId :: Maybe Text, _comExitCode :: Maybe Int, _comType :: Maybe Text, _comCompletedAt :: Maybe Text, _comAcknowledgedAt :: Maybe Text} deriving (Eq, Read, Show)
+data Command = Command'
+    { _comInstanceId     :: Maybe Text
+    , _comDeploymentId   :: Maybe Text
+    , _comStatus         :: Maybe Text
+    , _comLogURL         :: Maybe Text
+    , _comCreatedAt      :: Maybe Text
+    , _comCommandId      :: Maybe Text
+    , _comExitCode       :: Maybe Int
+    , _comType           :: Maybe Text
+    , _comCompletedAt    :: Maybe Text
+    , _comAcknowledgedAt :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Command' smart constructor.
 command :: Command
-command = Command'{_comInstanceId = Nothing, _comDeploymentId = Nothing, _comStatus = Nothing, _comLogURL = Nothing, _comCreatedAt = Nothing, _comCommandId = Nothing, _comExitCode = Nothing, _comType = Nothing, _comCompletedAt = Nothing, _comAcknowledgedAt = Nothing};
+command =
+    Command'
+    { _comInstanceId = Nothing
+    , _comDeploymentId = Nothing
+    , _comStatus = Nothing
+    , _comLogURL = Nothing
+    , _comCreatedAt = Nothing
+    , _comCommandId = Nothing
+    , _comExitCode = Nothing
+    , _comType = Nothing
+    , _comCompletedAt = Nothing
+    , _comAcknowledgedAt = Nothing
+    }
 
 -- | The ID of the instance where the command was executed.
 comInstanceId :: Lens' Command (Maybe Text)
@@ -1328,11 +1501,20 @@ instance FromJSON Command where
 -- * 'dsDatabaseName'
 --
 -- * 'dsType'
-data DataSource = DataSource'{_dsARN :: Maybe Text, _dsDatabaseName :: Maybe Text, _dsType :: Maybe Text} deriving (Eq, Read, Show)
+data DataSource = DataSource'
+    { _dsARN          :: Maybe Text
+    , _dsDatabaseName :: Maybe Text
+    , _dsType         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DataSource' smart constructor.
 dataSource :: DataSource
-dataSource = DataSource'{_dsARN = Nothing, _dsDatabaseName = Nothing, _dsType = Nothing};
+dataSource =
+    DataSource'
+    { _dsARN = Nothing
+    , _dsDatabaseName = Nothing
+    , _dsType = Nothing
+    }
 
 -- | The data source\'s ARN.
 dsARN :: Lens' DataSource (Maybe Text)
@@ -1390,11 +1572,38 @@ instance ToJSON DataSource where
 -- * 'depComment'
 --
 -- * 'depDuration'
-data Deployment = Deployment'{_depDeploymentId :: Maybe Text, _depStatus :: Maybe Text, _depCommand :: Maybe DeploymentCommand, _depCreatedAt :: Maybe Text, _depCustomJSON :: Maybe Text, _depIAMUserARN :: Maybe Text, _depAppId :: Maybe Text, _depInstanceIds :: Maybe [Text], _depCompletedAt :: Maybe Text, _depStackId :: Maybe Text, _depComment :: Maybe Text, _depDuration :: Maybe Int} deriving (Eq, Read, Show)
+data Deployment = Deployment'
+    { _depDeploymentId :: Maybe Text
+    , _depStatus       :: Maybe Text
+    , _depCommand      :: Maybe DeploymentCommand
+    , _depCreatedAt    :: Maybe Text
+    , _depCustomJSON   :: Maybe Text
+    , _depIAMUserARN   :: Maybe Text
+    , _depAppId        :: Maybe Text
+    , _depInstanceIds  :: Maybe [Text]
+    , _depCompletedAt  :: Maybe Text
+    , _depStackId      :: Maybe Text
+    , _depComment      :: Maybe Text
+    , _depDuration     :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'Deployment' smart constructor.
 deployment :: Deployment
-deployment = Deployment'{_depDeploymentId = Nothing, _depStatus = Nothing, _depCommand = Nothing, _depCreatedAt = Nothing, _depCustomJSON = Nothing, _depIAMUserARN = Nothing, _depAppId = Nothing, _depInstanceIds = Nothing, _depCompletedAt = Nothing, _depStackId = Nothing, _depComment = Nothing, _depDuration = Nothing};
+deployment =
+    Deployment'
+    { _depDeploymentId = Nothing
+    , _depStatus = Nothing
+    , _depCommand = Nothing
+    , _depCreatedAt = Nothing
+    , _depCustomJSON = Nothing
+    , _depIAMUserARN = Nothing
+    , _depAppId = Nothing
+    , _depInstanceIds = Nothing
+    , _depCompletedAt = Nothing
+    , _depStackId = Nothing
+    , _depComment = Nothing
+    , _depDuration = Nothing
+    }
 
 -- | The deployment ID.
 depDeploymentId :: Lens' Deployment (Maybe Text)
@@ -1482,11 +1691,18 @@ instance FromJSON Deployment where
 -- * 'dcArgs'
 --
 -- * 'dcName'
-data DeploymentCommand = DeploymentCommand'{_dcArgs :: Maybe (Map Text [Text]), _dcName :: DeploymentCommandName} deriving (Eq, Read, Show)
+data DeploymentCommand = DeploymentCommand'
+    { _dcArgs :: Maybe (Map Text [Text])
+    , _dcName :: DeploymentCommandName
+    } deriving (Eq,Read,Show)
 
 -- | 'DeploymentCommand' smart constructor.
 deploymentCommand :: DeploymentCommandName -> DeploymentCommand
-deploymentCommand pName = DeploymentCommand'{_dcArgs = Nothing, _dcName = pName};
+deploymentCommand pName =
+    DeploymentCommand'
+    { _dcArgs = Nothing
+    , _dcName = pName
+    }
 
 -- | The arguments of those commands that take arguments. It should be set to
 -- a JSON object with the following format:
@@ -1573,11 +1789,24 @@ instance ToJSON DeploymentCommand where
 -- * 'ebdVolumeType'
 --
 -- * 'ebdSnapshotId'
-data EBSBlockDevice = EBSBlockDevice'{_ebdDeleteOnTermination :: Maybe Bool, _ebdVolumeSize :: Maybe Int, _ebdIOPS :: Maybe Int, _ebdVolumeType :: Maybe VolumeType, _ebdSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
+data EBSBlockDevice = EBSBlockDevice'
+    { _ebdDeleteOnTermination :: Maybe Bool
+    , _ebdVolumeSize          :: Maybe Int
+    , _ebdIOPS                :: Maybe Int
+    , _ebdVolumeType          :: Maybe VolumeType
+    , _ebdSnapshotId          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EBSBlockDevice' smart constructor.
 ebsBlockDevice :: EBSBlockDevice
-ebsBlockDevice = EBSBlockDevice'{_ebdDeleteOnTermination = Nothing, _ebdVolumeSize = Nothing, _ebdIOPS = Nothing, _ebdVolumeType = Nothing, _ebdSnapshotId = Nothing};
+ebsBlockDevice =
+    EBSBlockDevice'
+    { _ebdDeleteOnTermination = Nothing
+    , _ebdVolumeSize = Nothing
+    , _ebdIOPS = Nothing
+    , _ebdVolumeType = Nothing
+    , _ebdSnapshotId = Nothing
+    }
 
 -- | Whether the volume is deleted on instance termination.
 ebdDeleteOnTermination :: Lens' EBSBlockDevice (Maybe Bool)
@@ -1637,11 +1866,24 @@ instance ToJSON EBSBlockDevice where
 -- * 'eiName'
 --
 -- * 'eiRegion'
-data ElasticIP = ElasticIP'{_eiInstanceId :: Maybe Text, _eiDomain :: Maybe Text, _eiIP :: Maybe Text, _eiName :: Maybe Text, _eiRegion :: Maybe Text} deriving (Eq, Read, Show)
+data ElasticIP = ElasticIP'
+    { _eiInstanceId :: Maybe Text
+    , _eiDomain     :: Maybe Text
+    , _eiIP         :: Maybe Text
+    , _eiName       :: Maybe Text
+    , _eiRegion     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ElasticIP' smart constructor.
 elasticIP :: ElasticIP
-elasticIP = ElasticIP'{_eiInstanceId = Nothing, _eiDomain = Nothing, _eiIP = Nothing, _eiName = Nothing, _eiRegion = Nothing};
+elasticIP =
+    ElasticIP'
+    { _eiInstanceId = Nothing
+    , _eiDomain = Nothing
+    , _eiIP = Nothing
+    , _eiName = Nothing
+    , _eiRegion = Nothing
+    }
 
 -- | The ID of the instance that the address is attached to.
 eiInstanceId :: Lens' ElasticIP (Maybe Text)
@@ -1697,11 +1939,32 @@ instance FromJSON ElasticIP where
 -- * 'elbLayerId'
 --
 -- * 'elbDNSName'
-data ElasticLoadBalancer = ElasticLoadBalancer'{_elbSubnetIds :: Maybe [Text], _elbVPCId :: Maybe Text, _elbAvailabilityZones :: Maybe [Text], _elbRegion :: Maybe Text, _elbElasticLoadBalancerName :: Maybe Text, _elbEC2InstanceIds :: Maybe [Text], _elbStackId :: Maybe Text, _elbLayerId :: Maybe Text, _elbDNSName :: Maybe Text} deriving (Eq, Read, Show)
+data ElasticLoadBalancer = ElasticLoadBalancer'
+    { _elbSubnetIds               :: Maybe [Text]
+    , _elbVPCId                   :: Maybe Text
+    , _elbAvailabilityZones       :: Maybe [Text]
+    , _elbRegion                  :: Maybe Text
+    , _elbElasticLoadBalancerName :: Maybe Text
+    , _elbEC2InstanceIds          :: Maybe [Text]
+    , _elbStackId                 :: Maybe Text
+    , _elbLayerId                 :: Maybe Text
+    , _elbDNSName                 :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ElasticLoadBalancer' smart constructor.
 elasticLoadBalancer :: ElasticLoadBalancer
-elasticLoadBalancer = ElasticLoadBalancer'{_elbSubnetIds = Nothing, _elbVPCId = Nothing, _elbAvailabilityZones = Nothing, _elbRegion = Nothing, _elbElasticLoadBalancerName = Nothing, _elbEC2InstanceIds = Nothing, _elbStackId = Nothing, _elbLayerId = Nothing, _elbDNSName = Nothing};
+elasticLoadBalancer =
+    ElasticLoadBalancer'
+    { _elbSubnetIds = Nothing
+    , _elbVPCId = Nothing
+    , _elbAvailabilityZones = Nothing
+    , _elbRegion = Nothing
+    , _elbElasticLoadBalancerName = Nothing
+    , _elbEC2InstanceIds = Nothing
+    , _elbStackId = Nothing
+    , _elbLayerId = Nothing
+    , _elbDNSName = Nothing
+    }
 
 -- | A list of subnet IDs, if the stack is running in a VPC.
 elbSubnetIds :: Lens' ElasticLoadBalancer [Text]
@@ -1765,11 +2028,20 @@ instance FromJSON ElasticLoadBalancer where
 -- * 'evKey'
 --
 -- * 'evValue'
-data EnvironmentVariable = EnvironmentVariable'{_evSecure :: Maybe Bool, _evKey :: Text, _evValue :: Text} deriving (Eq, Read, Show)
+data EnvironmentVariable = EnvironmentVariable'
+    { _evSecure :: Maybe Bool
+    , _evKey    :: Text
+    , _evValue  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EnvironmentVariable' smart constructor.
 environmentVariable :: Text -> Text -> EnvironmentVariable
-environmentVariable pKey pValue = EnvironmentVariable'{_evSecure = Nothing, _evKey = pKey, _evValue = pValue};
+environmentVariable pKey pValue =
+    EnvironmentVariable'
+    { _evSecure = Nothing
+    , _evKey = pKey
+    , _evValue = pValue
+    }
 
 -- | (Optional) Whether the variable\'s value will be returned by the
 -- DescribeApps action. To conceal an environment variable\'s value, set
@@ -1879,11 +2151,84 @@ instance ToJSON EnvironmentVariable where
 -- * 'insBlockDeviceMappings'
 --
 -- * 'insRootDeviceType'
-data Instance = Instance'{_insInstanceId :: Maybe Text, _insPrivateIP :: Maybe Text, _insInstallUpdatesOnBoot :: Maybe Bool, _insReportedAgentVersion :: Maybe Text, _insStatus :: Maybe Text, _insPrivateDNS :: Maybe Text, _insVirtualizationType :: Maybe VirtualizationType, _insSecurityGroupIds :: Maybe [Text], _insSSHHostRsaKeyFingerprint :: Maybe Text, _insInstanceProfileARN :: Maybe Text, _insHostname :: Maybe Text, _insCreatedAt :: Maybe Text, _insSSHKeyName :: Maybe Text, _insEC2InstanceId :: Maybe Text, _insRootDeviceVolumeId :: Maybe Text, _insSubnetId :: Maybe Text, _insInstanceType :: Maybe Text, _insInfrastructureClass :: Maybe Text, _insEBSOptimized :: Maybe Bool, _insSSHHostDsaKeyFingerprint :: Maybe Text, _insElasticIP :: Maybe Text, _insOS :: Maybe Text, _insAvailabilityZone :: Maybe Text, _insLastServiceErrorId :: Maybe Text, _insAutoScalingType :: Maybe AutoScalingType, _insLayerIds :: Maybe [Text], _insArchitecture :: Maybe Architecture, _insPublicDNS :: Maybe Text, _insPublicIP :: Maybe Text, _insAMIId :: Maybe Text, _insReportedOS :: Maybe ReportedOS, _insStackId :: Maybe Text, _insRegisteredBy :: Maybe Text, _insBlockDeviceMappings :: Maybe [BlockDeviceMapping], _insRootDeviceType :: Maybe RootDeviceType} deriving (Eq, Read, Show)
+data Instance = Instance'
+    { _insInstanceId               :: Maybe Text
+    , _insPrivateIP                :: Maybe Text
+    , _insInstallUpdatesOnBoot     :: Maybe Bool
+    , _insReportedAgentVersion     :: Maybe Text
+    , _insStatus                   :: Maybe Text
+    , _insPrivateDNS               :: Maybe Text
+    , _insVirtualizationType       :: Maybe VirtualizationType
+    , _insSecurityGroupIds         :: Maybe [Text]
+    , _insSSHHostRsaKeyFingerprint :: Maybe Text
+    , _insInstanceProfileARN       :: Maybe Text
+    , _insHostname                 :: Maybe Text
+    , _insCreatedAt                :: Maybe Text
+    , _insSSHKeyName               :: Maybe Text
+    , _insEC2InstanceId            :: Maybe Text
+    , _insRootDeviceVolumeId       :: Maybe Text
+    , _insSubnetId                 :: Maybe Text
+    , _insInstanceType             :: Maybe Text
+    , _insInfrastructureClass      :: Maybe Text
+    , _insEBSOptimized             :: Maybe Bool
+    , _insSSHHostDsaKeyFingerprint :: Maybe Text
+    , _insElasticIP                :: Maybe Text
+    , _insOS                       :: Maybe Text
+    , _insAvailabilityZone         :: Maybe Text
+    , _insLastServiceErrorId       :: Maybe Text
+    , _insAutoScalingType          :: Maybe AutoScalingType
+    , _insLayerIds                 :: Maybe [Text]
+    , _insArchitecture             :: Maybe Architecture
+    , _insPublicDNS                :: Maybe Text
+    , _insPublicIP                 :: Maybe Text
+    , _insAMIId                    :: Maybe Text
+    , _insReportedOS               :: Maybe ReportedOS
+    , _insStackId                  :: Maybe Text
+    , _insRegisteredBy             :: Maybe Text
+    , _insBlockDeviceMappings      :: Maybe [BlockDeviceMapping]
+    , _insRootDeviceType           :: Maybe RootDeviceType
+    } deriving (Eq,Read,Show)
 
 -- | 'Instance' smart constructor.
 instance' :: Instance
-instance' = Instance'{_insInstanceId = Nothing, _insPrivateIP = Nothing, _insInstallUpdatesOnBoot = Nothing, _insReportedAgentVersion = Nothing, _insStatus = Nothing, _insPrivateDNS = Nothing, _insVirtualizationType = Nothing, _insSecurityGroupIds = Nothing, _insSSHHostRsaKeyFingerprint = Nothing, _insInstanceProfileARN = Nothing, _insHostname = Nothing, _insCreatedAt = Nothing, _insSSHKeyName = Nothing, _insEC2InstanceId = Nothing, _insRootDeviceVolumeId = Nothing, _insSubnetId = Nothing, _insInstanceType = Nothing, _insInfrastructureClass = Nothing, _insEBSOptimized = Nothing, _insSSHHostDsaKeyFingerprint = Nothing, _insElasticIP = Nothing, _insOS = Nothing, _insAvailabilityZone = Nothing, _insLastServiceErrorId = Nothing, _insAutoScalingType = Nothing, _insLayerIds = Nothing, _insArchitecture = Nothing, _insPublicDNS = Nothing, _insPublicIP = Nothing, _insAMIId = Nothing, _insReportedOS = Nothing, _insStackId = Nothing, _insRegisteredBy = Nothing, _insBlockDeviceMappings = Nothing, _insRootDeviceType = Nothing};
+instance' =
+    Instance'
+    { _insInstanceId = Nothing
+    , _insPrivateIP = Nothing
+    , _insInstallUpdatesOnBoot = Nothing
+    , _insReportedAgentVersion = Nothing
+    , _insStatus = Nothing
+    , _insPrivateDNS = Nothing
+    , _insVirtualizationType = Nothing
+    , _insSecurityGroupIds = Nothing
+    , _insSSHHostRsaKeyFingerprint = Nothing
+    , _insInstanceProfileARN = Nothing
+    , _insHostname = Nothing
+    , _insCreatedAt = Nothing
+    , _insSSHKeyName = Nothing
+    , _insEC2InstanceId = Nothing
+    , _insRootDeviceVolumeId = Nothing
+    , _insSubnetId = Nothing
+    , _insInstanceType = Nothing
+    , _insInfrastructureClass = Nothing
+    , _insEBSOptimized = Nothing
+    , _insSSHHostDsaKeyFingerprint = Nothing
+    , _insElasticIP = Nothing
+    , _insOS = Nothing
+    , _insAvailabilityZone = Nothing
+    , _insLastServiceErrorId = Nothing
+    , _insAutoScalingType = Nothing
+    , _insLayerIds = Nothing
+    , _insArchitecture = Nothing
+    , _insPublicDNS = Nothing
+    , _insPublicIP = Nothing
+    , _insAMIId = Nothing
+    , _insReportedOS = Nothing
+    , _insStackId = Nothing
+    , _insRegisteredBy = Nothing
+    , _insBlockDeviceMappings = Nothing
+    , _insRootDeviceType = Nothing
+    }
 
 -- | The instance ID.
 insInstanceId :: Lens' Instance (Maybe Text)
@@ -2115,11 +2460,18 @@ instance FromJSON Instance where
 -- * 'iiSignature'
 --
 -- * 'iiDocument'
-data InstanceIdentity = InstanceIdentity'{_iiSignature :: Maybe Text, _iiDocument :: Maybe Text} deriving (Eq, Read, Show)
+data InstanceIdentity = InstanceIdentity'
+    { _iiSignature :: Maybe Text
+    , _iiDocument  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceIdentity' smart constructor.
 instanceIdentity :: InstanceIdentity
-instanceIdentity = InstanceIdentity'{_iiSignature = Nothing, _iiDocument = Nothing};
+instanceIdentity =
+    InstanceIdentity'
+    { _iiSignature = Nothing
+    , _iiDocument = Nothing
+    }
 
 -- | A signature that can be used to verify the document\'s accuracy and
 -- authenticity.
@@ -2179,11 +2531,52 @@ instance ToJSON InstanceIdentity where
 -- * 'icStartFailed'
 --
 -- * 'icRegistering'
-data InstancesCount = InstancesCount'{_icTerminating :: Maybe Int, _icPending :: Maybe Int, _icOnline :: Maybe Int, _icUnassigning :: Maybe Int, _icRequested :: Maybe Int, _icRunningSetup :: Maybe Int, _icDeregistering :: Maybe Int, _icBooting :: Maybe Int, _icStopped :: Maybe Int, _icRebooting :: Maybe Int, _icAssigning :: Maybe Int, _icShuttingDown :: Maybe Int, _icSetupFailed :: Maybe Int, _icConnectionLost :: Maybe Int, _icTerminated :: Maybe Int, _icStopping :: Maybe Int, _icRegistered :: Maybe Int, _icStartFailed :: Maybe Int, _icRegistering :: Maybe Int} deriving (Eq, Read, Show)
+data InstancesCount = InstancesCount'
+    { _icTerminating    :: Maybe Int
+    , _icPending        :: Maybe Int
+    , _icOnline         :: Maybe Int
+    , _icUnassigning    :: Maybe Int
+    , _icRequested      :: Maybe Int
+    , _icRunningSetup   :: Maybe Int
+    , _icDeregistering  :: Maybe Int
+    , _icBooting        :: Maybe Int
+    , _icStopped        :: Maybe Int
+    , _icRebooting      :: Maybe Int
+    , _icAssigning      :: Maybe Int
+    , _icShuttingDown   :: Maybe Int
+    , _icSetupFailed    :: Maybe Int
+    , _icConnectionLost :: Maybe Int
+    , _icTerminated     :: Maybe Int
+    , _icStopping       :: Maybe Int
+    , _icRegistered     :: Maybe Int
+    , _icStartFailed    :: Maybe Int
+    , _icRegistering    :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'InstancesCount' smart constructor.
 instancesCount :: InstancesCount
-instancesCount = InstancesCount'{_icTerminating = Nothing, _icPending = Nothing, _icOnline = Nothing, _icUnassigning = Nothing, _icRequested = Nothing, _icRunningSetup = Nothing, _icDeregistering = Nothing, _icBooting = Nothing, _icStopped = Nothing, _icRebooting = Nothing, _icAssigning = Nothing, _icShuttingDown = Nothing, _icSetupFailed = Nothing, _icConnectionLost = Nothing, _icTerminated = Nothing, _icStopping = Nothing, _icRegistered = Nothing, _icStartFailed = Nothing, _icRegistering = Nothing};
+instancesCount =
+    InstancesCount'
+    { _icTerminating = Nothing
+    , _icPending = Nothing
+    , _icOnline = Nothing
+    , _icUnassigning = Nothing
+    , _icRequested = Nothing
+    , _icRunningSetup = Nothing
+    , _icDeregistering = Nothing
+    , _icBooting = Nothing
+    , _icStopped = Nothing
+    , _icRebooting = Nothing
+    , _icAssigning = Nothing
+    , _icShuttingDown = Nothing
+    , _icSetupFailed = Nothing
+    , _icConnectionLost = Nothing
+    , _icTerminated = Nothing
+    , _icStopping = Nothing
+    , _icRegistered = Nothing
+    , _icStartFailed = Nothing
+    , _icRegistering = Nothing
+    }
 
 -- | The number of instances with @terminating@ status.
 icTerminating :: Lens' InstancesCount (Maybe Int)
@@ -2330,11 +2723,54 @@ instance FromJSON InstancesCount where
 -- * 'layDefaultSecurityGroupNames'
 --
 -- * 'layAutoAssignElasticIPs'
-data Layer = Layer'{_layCustomInstanceProfileARN :: Maybe Text, _layInstallUpdatesOnBoot :: Maybe Bool, _layCustomSecurityGroupIds :: Maybe [Text], _layLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration, _layShortname :: Maybe Text, _layCreatedAt :: Maybe Text, _layDefaultRecipes :: Maybe Recipes, _layCustomRecipes :: Maybe Recipes, _layVolumeConfigurations :: Maybe [VolumeConfiguration], _layEnableAutoHealing :: Maybe Bool, _layPackages :: Maybe [Text], _layName :: Maybe Text, _layAttributes :: Maybe (Map LayerAttributesKeys Text), _layAutoAssignPublicIPs :: Maybe Bool, _layUseEBSOptimizedInstances :: Maybe Bool, _layType :: Maybe LayerType, _layStackId :: Maybe Text, _layLayerId :: Maybe Text, _layDefaultSecurityGroupNames :: Maybe [Text], _layAutoAssignElasticIPs :: Maybe Bool} deriving (Eq, Read, Show)
+data Layer = Layer'
+    { _layCustomInstanceProfileARN    :: Maybe Text
+    , _layInstallUpdatesOnBoot        :: Maybe Bool
+    , _layCustomSecurityGroupIds      :: Maybe [Text]
+    , _layLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration
+    , _layShortname                   :: Maybe Text
+    , _layCreatedAt                   :: Maybe Text
+    , _layDefaultRecipes              :: Maybe Recipes
+    , _layCustomRecipes               :: Maybe Recipes
+    , _layVolumeConfigurations        :: Maybe [VolumeConfiguration]
+    , _layEnableAutoHealing           :: Maybe Bool
+    , _layPackages                    :: Maybe [Text]
+    , _layName                        :: Maybe Text
+    , _layAttributes                  :: Maybe (Map LayerAttributesKeys Text)
+    , _layAutoAssignPublicIPs         :: Maybe Bool
+    , _layUseEBSOptimizedInstances    :: Maybe Bool
+    , _layType                        :: Maybe LayerType
+    , _layStackId                     :: Maybe Text
+    , _layLayerId                     :: Maybe Text
+    , _layDefaultSecurityGroupNames   :: Maybe [Text]
+    , _layAutoAssignElasticIPs        :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'Layer' smart constructor.
 layer :: Layer
-layer = Layer'{_layCustomInstanceProfileARN = Nothing, _layInstallUpdatesOnBoot = Nothing, _layCustomSecurityGroupIds = Nothing, _layLifecycleEventConfiguration = Nothing, _layShortname = Nothing, _layCreatedAt = Nothing, _layDefaultRecipes = Nothing, _layCustomRecipes = Nothing, _layVolumeConfigurations = Nothing, _layEnableAutoHealing = Nothing, _layPackages = Nothing, _layName = Nothing, _layAttributes = Nothing, _layAutoAssignPublicIPs = Nothing, _layUseEBSOptimizedInstances = Nothing, _layType = Nothing, _layStackId = Nothing, _layLayerId = Nothing, _layDefaultSecurityGroupNames = Nothing, _layAutoAssignElasticIPs = Nothing};
+layer =
+    Layer'
+    { _layCustomInstanceProfileARN = Nothing
+    , _layInstallUpdatesOnBoot = Nothing
+    , _layCustomSecurityGroupIds = Nothing
+    , _layLifecycleEventConfiguration = Nothing
+    , _layShortname = Nothing
+    , _layCreatedAt = Nothing
+    , _layDefaultRecipes = Nothing
+    , _layCustomRecipes = Nothing
+    , _layVolumeConfigurations = Nothing
+    , _layEnableAutoHealing = Nothing
+    , _layPackages = Nothing
+    , _layName = Nothing
+    , _layAttributes = Nothing
+    , _layAutoAssignPublicIPs = Nothing
+    , _layUseEBSOptimizedInstances = Nothing
+    , _layType = Nothing
+    , _layStackId = Nothing
+    , _layLayerId = Nothing
+    , _layDefaultSecurityGroupNames = Nothing
+    , _layAutoAssignElasticIPs = Nothing
+    }
 
 -- | The ARN of the default IAM profile to be used for the layer\'s EC2
 -- instances. For more information about IAM ARNs, see
@@ -2471,11 +2907,16 @@ instance FromJSON Layer where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lecShutdown'
-newtype LifecycleEventConfiguration = LifecycleEventConfiguration'{_lecShutdown :: Maybe ShutdownEventConfiguration} deriving (Eq, Read, Show)
+newtype LifecycleEventConfiguration = LifecycleEventConfiguration'
+    { _lecShutdown :: Maybe ShutdownEventConfiguration
+    } deriving (Eq,Read,Show)
 
 -- | 'LifecycleEventConfiguration' smart constructor.
 lifecycleEventConfiguration :: LifecycleEventConfiguration
-lifecycleEventConfiguration = LifecycleEventConfiguration'{_lecShutdown = Nothing};
+lifecycleEventConfiguration =
+    LifecycleEventConfiguration'
+    { _lecShutdown = Nothing
+    }
 
 -- | A @ShutdownEventConfiguration@ object that specifies the Shutdown event
 -- configuration.
@@ -2505,11 +2946,22 @@ instance ToJSON LifecycleEventConfiguration where
 -- * 'lbascDownScaling'
 --
 -- * 'lbascLayerId'
-data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'{_lbascUpScaling :: Maybe AutoScalingThresholds, _lbascEnable :: Maybe Bool, _lbascDownScaling :: Maybe AutoScalingThresholds, _lbascLayerId :: Maybe Text} deriving (Eq, Read, Show)
+data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'
+    { _lbascUpScaling   :: Maybe AutoScalingThresholds
+    , _lbascEnable      :: Maybe Bool
+    , _lbascDownScaling :: Maybe AutoScalingThresholds
+    , _lbascLayerId     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'LoadBasedAutoScalingConfiguration' smart constructor.
 loadBasedAutoScalingConfiguration :: LoadBasedAutoScalingConfiguration
-loadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'{_lbascUpScaling = Nothing, _lbascEnable = Nothing, _lbascDownScaling = Nothing, _lbascLayerId = Nothing};
+loadBasedAutoScalingConfiguration =
+    LoadBasedAutoScalingConfiguration'
+    { _lbascUpScaling = Nothing
+    , _lbascEnable = Nothing
+    , _lbascDownScaling = Nothing
+    , _lbascLayerId = Nothing
+    }
 
 -- | An @AutoScalingThresholds@ object that describes the upscaling
 -- configuration, which defines how and when AWS OpsWorks increases the
@@ -2556,11 +3008,24 @@ instance FromJSON LoadBasedAutoScalingConfiguration
 -- * 'perLevel'
 --
 -- * 'perAllowSSH'
-data Permission = Permission'{_perIAMUserARN :: Maybe Text, _perAllowSudo :: Maybe Bool, _perStackId :: Maybe Text, _perLevel :: Maybe Text, _perAllowSSH :: Maybe Bool} deriving (Eq, Read, Show)
+data Permission = Permission'
+    { _perIAMUserARN :: Maybe Text
+    , _perAllowSudo  :: Maybe Bool
+    , _perStackId    :: Maybe Text
+    , _perLevel      :: Maybe Text
+    , _perAllowSSH   :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'Permission' smart constructor.
 permission :: Permission
-permission = Permission'{_perIAMUserARN = Nothing, _perAllowSudo = Nothing, _perStackId = Nothing, _perLevel = Nothing, _perAllowSSH = Nothing};
+permission =
+    Permission'
+    { _perIAMUserARN = Nothing
+    , _perAllowSudo = Nothing
+    , _perStackId = Nothing
+    , _perLevel = Nothing
+    , _perAllowSSH = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management
 -- (IAM) role. For more information about IAM ARNs, see
@@ -2635,11 +3100,40 @@ instance FromJSON Permission where
 -- * 'raStackId'
 --
 -- * 'raMountPoint'
-data RAIDArray = RAIDArray'{_raInstanceId :: Maybe Text, _raSize :: Maybe Int, _raCreatedAt :: Maybe Text, _raIOPS :: Maybe Int, _raRAIDLevel :: Maybe Int, _raDevice :: Maybe Text, _raNumberOfDisks :: Maybe Int, _raName :: Maybe Text, _raAvailabilityZone :: Maybe Text, _raRAIDArrayId :: Maybe Text, _raVolumeType :: Maybe Text, _raStackId :: Maybe Text, _raMountPoint :: Maybe Text} deriving (Eq, Read, Show)
+data RAIDArray = RAIDArray'
+    { _raInstanceId       :: Maybe Text
+    , _raSize             :: Maybe Int
+    , _raCreatedAt        :: Maybe Text
+    , _raIOPS             :: Maybe Int
+    , _raRAIDLevel        :: Maybe Int
+    , _raDevice           :: Maybe Text
+    , _raNumberOfDisks    :: Maybe Int
+    , _raName             :: Maybe Text
+    , _raAvailabilityZone :: Maybe Text
+    , _raRAIDArrayId      :: Maybe Text
+    , _raVolumeType       :: Maybe Text
+    , _raStackId          :: Maybe Text
+    , _raMountPoint       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RAIDArray' smart constructor.
 raidArray :: RAIDArray
-raidArray = RAIDArray'{_raInstanceId = Nothing, _raSize = Nothing, _raCreatedAt = Nothing, _raIOPS = Nothing, _raRAIDLevel = Nothing, _raDevice = Nothing, _raNumberOfDisks = Nothing, _raName = Nothing, _raAvailabilityZone = Nothing, _raRAIDArrayId = Nothing, _raVolumeType = Nothing, _raStackId = Nothing, _raMountPoint = Nothing};
+raidArray =
+    RAIDArray'
+    { _raInstanceId = Nothing
+    , _raSize = Nothing
+    , _raCreatedAt = Nothing
+    , _raIOPS = Nothing
+    , _raRAIDLevel = Nothing
+    , _raDevice = Nothing
+    , _raNumberOfDisks = Nothing
+    , _raName = Nothing
+    , _raAvailabilityZone = Nothing
+    , _raRAIDArrayId = Nothing
+    , _raVolumeType = Nothing
+    , _raStackId = Nothing
+    , _raMountPoint = Nothing
+    }
 
 -- | The instance ID.
 raInstanceId :: Lens' RAIDArray (Maybe Text)
@@ -2735,11 +3229,32 @@ instance FromJSON RAIDArray where
 -- * 'rdiStackId'
 --
 -- * 'rdiDBPassword'
-data RDSDBInstance = RDSDBInstance'{_rdiDBUser :: Maybe Text, _rdiRDSDBInstanceARN :: Maybe Text, _rdiMissingOnRDS :: Maybe Bool, _rdiEngine :: Maybe Text, _rdiAddress :: Maybe Text, _rdiDBInstanceIdentifier :: Maybe Text, _rdiRegion :: Maybe Text, _rdiStackId :: Maybe Text, _rdiDBPassword :: Maybe Text} deriving (Eq, Read, Show)
+data RDSDBInstance = RDSDBInstance'
+    { _rdiDBUser               :: Maybe Text
+    , _rdiRDSDBInstanceARN     :: Maybe Text
+    , _rdiMissingOnRDS         :: Maybe Bool
+    , _rdiEngine               :: Maybe Text
+    , _rdiAddress              :: Maybe Text
+    , _rdiDBInstanceIdentifier :: Maybe Text
+    , _rdiRegion               :: Maybe Text
+    , _rdiStackId              :: Maybe Text
+    , _rdiDBPassword           :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RDSDBInstance' smart constructor.
 rdsDBInstance :: RDSDBInstance
-rdsDBInstance = RDSDBInstance'{_rdiDBUser = Nothing, _rdiRDSDBInstanceARN = Nothing, _rdiMissingOnRDS = Nothing, _rdiEngine = Nothing, _rdiAddress = Nothing, _rdiDBInstanceIdentifier = Nothing, _rdiRegion = Nothing, _rdiStackId = Nothing, _rdiDBPassword = Nothing};
+rdsDBInstance =
+    RDSDBInstance'
+    { _rdiDBUser = Nothing
+    , _rdiRDSDBInstanceARN = Nothing
+    , _rdiMissingOnRDS = Nothing
+    , _rdiEngine = Nothing
+    , _rdiAddress = Nothing
+    , _rdiDBInstanceIdentifier = Nothing
+    , _rdiRegion = Nothing
+    , _rdiStackId = Nothing
+    , _rdiDBPassword = Nothing
+    }
 
 -- | The master user name.
 rdiDBUser :: Lens' RDSDBInstance (Maybe Text)
@@ -2821,11 +3336,24 @@ instance FromJSON RDSDBInstance where
 -- * 'recConfigure'
 --
 -- * 'recDeploy'
-data Recipes = Recipes'{_recSetup :: Maybe [Text], _recUndeploy :: Maybe [Text], _recShutdown :: Maybe [Text], _recConfigure :: Maybe [Text], _recDeploy :: Maybe [Text]} deriving (Eq, Read, Show)
+data Recipes = Recipes'
+    { _recSetup     :: Maybe [Text]
+    , _recUndeploy  :: Maybe [Text]
+    , _recShutdown  :: Maybe [Text]
+    , _recConfigure :: Maybe [Text]
+    , _recDeploy    :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'Recipes' smart constructor.
 recipes :: Recipes
-recipes = Recipes'{_recSetup = Nothing, _recUndeploy = Nothing, _recShutdown = Nothing, _recConfigure = Nothing, _recDeploy = Nothing};
+recipes =
+    Recipes'
+    { _recSetup = Nothing
+    , _recUndeploy = Nothing
+    , _recShutdown = Nothing
+    , _recConfigure = Nothing
+    , _recDeploy = Nothing
+    }
 
 -- | An array of custom recipe names to be run following a @setup@ event.
 recSetup :: Lens' Recipes [Text]
@@ -2876,11 +3404,20 @@ instance ToJSON Recipes where
 -- * 'roName'
 --
 -- * 'roVersion'
-data ReportedOS = ReportedOS'{_roFamily :: Maybe Text, _roName :: Maybe Text, _roVersion :: Maybe Text} deriving (Eq, Read, Show)
+data ReportedOS = ReportedOS'
+    { _roFamily  :: Maybe Text
+    , _roName    :: Maybe Text
+    , _roVersion :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReportedOS' smart constructor.
 reportedOS :: ReportedOS
-reportedOS = ReportedOS'{_roFamily = Nothing, _roName = Nothing, _roVersion = Nothing};
+reportedOS =
+    ReportedOS'
+    { _roFamily = Nothing
+    , _roName = Nothing
+    , _roVersion = Nothing
+    }
 
 -- | The operating system family.
 roFamily :: Lens' ReportedOS (Maybe Text)
@@ -2913,11 +3450,20 @@ instance FromJSON ReportedOS where
 -- * 'scCertificate'
 --
 -- * 'scPrivateKey'
-data SSLConfiguration = SSLConfiguration'{_scChain :: Maybe Text, _scCertificate :: Text, _scPrivateKey :: Text} deriving (Eq, Read, Show)
+data SSLConfiguration = SSLConfiguration'
+    { _scChain       :: Maybe Text
+    , _scCertificate :: Text
+    , _scPrivateKey  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SSLConfiguration' smart constructor.
 sslConfiguration :: Text -> Text -> SSLConfiguration
-sslConfiguration pCertificate pPrivateKey = SSLConfiguration'{_scChain = Nothing, _scCertificate = pCertificate, _scPrivateKey = pPrivateKey};
+sslConfiguration pCertificate pPrivateKey =
+    SSLConfiguration'
+    { _scChain = Nothing
+    , _scCertificate = pCertificate
+    , _scPrivateKey = pPrivateKey
+    }
 
 -- | Optional. Can be used to specify an intermediate certificate authority
 -- key or client authentication.
@@ -2960,11 +3506,22 @@ instance ToJSON SSLConfiguration where
 -- * 'supIAMUserARN'
 --
 -- * 'supName'
-data SelfUserProfile = SelfUserProfile'{_supSSHUsername :: Maybe Text, _supSSHPublicKey :: Maybe Text, _supIAMUserARN :: Maybe Text, _supName :: Maybe Text} deriving (Eq, Read, Show)
+data SelfUserProfile = SelfUserProfile'
+    { _supSSHUsername  :: Maybe Text
+    , _supSSHPublicKey :: Maybe Text
+    , _supIAMUserARN   :: Maybe Text
+    , _supName         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SelfUserProfile' smart constructor.
 selfUserProfile :: SelfUserProfile
-selfUserProfile = SelfUserProfile'{_supSSHUsername = Nothing, _supSSHPublicKey = Nothing, _supIAMUserARN = Nothing, _supName = Nothing};
+selfUserProfile =
+    SelfUserProfile'
+    { _supSSHUsername = Nothing
+    , _supSSHPublicKey = Nothing
+    , _supIAMUserARN = Nothing
+    , _supName = Nothing
+    }
 
 -- | The user\'s SSH user name.
 supSSHUsername :: Lens' SelfUserProfile (Maybe Text)
@@ -3008,11 +3565,26 @@ instance FromJSON SelfUserProfile where
 -- * 'seMessage'
 --
 -- * 'seStackId'
-data ServiceError' = ServiceError''{_seInstanceId :: Maybe Text, _seCreatedAt :: Maybe Text, _seServiceErrorId :: Maybe Text, _seType :: Maybe Text, _seMessage :: Maybe Text, _seStackId :: Maybe Text} deriving (Eq, Read, Show)
+data ServiceError' = ServiceError''
+    { _seInstanceId     :: Maybe Text
+    , _seCreatedAt      :: Maybe Text
+    , _seServiceErrorId :: Maybe Text
+    , _seType           :: Maybe Text
+    , _seMessage        :: Maybe Text
+    , _seStackId        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ServiceError'' smart constructor.
 serviceError' :: ServiceError'
-serviceError' = ServiceError''{_seInstanceId = Nothing, _seCreatedAt = Nothing, _seServiceErrorId = Nothing, _seType = Nothing, _seMessage = Nothing, _seStackId = Nothing};
+serviceError' =
+    ServiceError''
+    { _seInstanceId = Nothing
+    , _seCreatedAt = Nothing
+    , _seServiceErrorId = Nothing
+    , _seType = Nothing
+    , _seMessage = Nothing
+    , _seStackId = Nothing
+    }
 
 -- | The instance ID.
 seInstanceId :: Lens' ServiceError' (Maybe Text)
@@ -3058,11 +3630,18 @@ instance FromJSON ServiceError' where
 -- * 'secExecutionTimeout'
 --
 -- * 'secDelayUntilElbConnectionsDrained'
-data ShutdownEventConfiguration = ShutdownEventConfiguration'{_secExecutionTimeout :: Maybe Int, _secDelayUntilElbConnectionsDrained :: Maybe Bool} deriving (Eq, Read, Show)
+data ShutdownEventConfiguration = ShutdownEventConfiguration'
+    { _secExecutionTimeout                :: Maybe Int
+    , _secDelayUntilElbConnectionsDrained :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'ShutdownEventConfiguration' smart constructor.
 shutdownEventConfiguration :: ShutdownEventConfiguration
-shutdownEventConfiguration = ShutdownEventConfiguration'{_secExecutionTimeout = Nothing, _secDelayUntilElbConnectionsDrained = Nothing};
+shutdownEventConfiguration =
+    ShutdownEventConfiguration'
+    { _secExecutionTimeout = Nothing
+    , _secDelayUntilElbConnectionsDrained = Nothing
+    }
 
 -- | The time, in seconds, that AWS OpsWorks will wait after triggering a
 -- Shutdown event before shutting down an instance.
@@ -3111,11 +3690,26 @@ instance ToJSON ShutdownEventConfiguration where
 -- * 'souType'
 --
 -- * 'souRevision'
-data Source = Source'{_souURL :: Maybe Text, _souUsername :: Maybe Text, _souSSHKey :: Maybe Text, _souPassword :: Maybe Text, _souType :: Maybe SourceType, _souRevision :: Maybe Text} deriving (Eq, Read, Show)
+data Source = Source'
+    { _souURL      :: Maybe Text
+    , _souUsername :: Maybe Text
+    , _souSSHKey   :: Maybe Text
+    , _souPassword :: Maybe Text
+    , _souType     :: Maybe SourceType
+    , _souRevision :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Source' smart constructor.
 source :: Source
-source = Source'{_souURL = Nothing, _souUsername = Nothing, _souSSHKey = Nothing, _souPassword = Nothing, _souType = Nothing, _souRevision = Nothing};
+source =
+    Source'
+    { _souURL = Nothing
+    , _souUsername = Nothing
+    , _souSSHKey = Nothing
+    , _souPassword = Nothing
+    , _souType = Nothing
+    , _souRevision = Nothing
+    }
 
 -- | The source URL.
 souURL :: Lens' Source (Maybe Text)
@@ -3229,11 +3823,56 @@ instance ToJSON Source where
 -- * 'staStackId'
 --
 -- * 'staHostnameTheme'
-data Stack = Stack'{_staDefaultInstanceProfileARN :: Maybe Text, _staServiceRoleARN :: Maybe Text, _staARN :: Maybe Text, _staDefaultRootDeviceType :: Maybe RootDeviceType, _staCreatedAt :: Maybe Text, _staChefConfiguration :: Maybe ChefConfiguration, _staVPCId :: Maybe Text, _staDefaultSSHKeyName :: Maybe Text, _staCustomJSON :: Maybe Text, _staCustomCookbooksSource :: Maybe Source, _staDefaultAvailabilityZone :: Maybe Text, _staName :: Maybe Text, _staUseOpsworksSecurityGroups :: Maybe Bool, _staDefaultOS :: Maybe Text, _staAttributes :: Maybe (Map StackAttributesKeys Text), _staUseCustomCookbooks :: Maybe Bool, _staDefaultSubnetId :: Maybe Text, _staRegion :: Maybe Text, _staConfigurationManager :: Maybe StackConfigurationManager, _staStackId :: Maybe Text, _staHostnameTheme :: Maybe Text} deriving (Eq, Read, Show)
+data Stack = Stack'
+    { _staDefaultInstanceProfileARN :: Maybe Text
+    , _staServiceRoleARN            :: Maybe Text
+    , _staARN                       :: Maybe Text
+    , _staDefaultRootDeviceType     :: Maybe RootDeviceType
+    , _staCreatedAt                 :: Maybe Text
+    , _staChefConfiguration         :: Maybe ChefConfiguration
+    , _staVPCId                     :: Maybe Text
+    , _staDefaultSSHKeyName         :: Maybe Text
+    , _staCustomJSON                :: Maybe Text
+    , _staCustomCookbooksSource     :: Maybe Source
+    , _staDefaultAvailabilityZone   :: Maybe Text
+    , _staName                      :: Maybe Text
+    , _staUseOpsworksSecurityGroups :: Maybe Bool
+    , _staDefaultOS                 :: Maybe Text
+    , _staAttributes                :: Maybe (Map StackAttributesKeys Text)
+    , _staUseCustomCookbooks        :: Maybe Bool
+    , _staDefaultSubnetId           :: Maybe Text
+    , _staRegion                    :: Maybe Text
+    , _staConfigurationManager      :: Maybe StackConfigurationManager
+    , _staStackId                   :: Maybe Text
+    , _staHostnameTheme             :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Stack' smart constructor.
 stack :: Stack
-stack = Stack'{_staDefaultInstanceProfileARN = Nothing, _staServiceRoleARN = Nothing, _staARN = Nothing, _staDefaultRootDeviceType = Nothing, _staCreatedAt = Nothing, _staChefConfiguration = Nothing, _staVPCId = Nothing, _staDefaultSSHKeyName = Nothing, _staCustomJSON = Nothing, _staCustomCookbooksSource = Nothing, _staDefaultAvailabilityZone = Nothing, _staName = Nothing, _staUseOpsworksSecurityGroups = Nothing, _staDefaultOS = Nothing, _staAttributes = Nothing, _staUseCustomCookbooks = Nothing, _staDefaultSubnetId = Nothing, _staRegion = Nothing, _staConfigurationManager = Nothing, _staStackId = Nothing, _staHostnameTheme = Nothing};
+stack =
+    Stack'
+    { _staDefaultInstanceProfileARN = Nothing
+    , _staServiceRoleARN = Nothing
+    , _staARN = Nothing
+    , _staDefaultRootDeviceType = Nothing
+    , _staCreatedAt = Nothing
+    , _staChefConfiguration = Nothing
+    , _staVPCId = Nothing
+    , _staDefaultSSHKeyName = Nothing
+    , _staCustomJSON = Nothing
+    , _staCustomCookbooksSource = Nothing
+    , _staDefaultAvailabilityZone = Nothing
+    , _staName = Nothing
+    , _staUseOpsworksSecurityGroups = Nothing
+    , _staDefaultOS = Nothing
+    , _staAttributes = Nothing
+    , _staUseCustomCookbooks = Nothing
+    , _staDefaultSubnetId = Nothing
+    , _staRegion = Nothing
+    , _staConfigurationManager = Nothing
+    , _staStackId = Nothing
+    , _staHostnameTheme = Nothing
+    }
 
 -- | The ARN of an IAM profile that is the default profile for all of the
 -- stack\'s EC2 instances. For more information about IAM ARNs, see
@@ -3375,11 +4014,18 @@ instance FromJSON Stack where
 -- * 'scmName'
 --
 -- * 'scmVersion'
-data StackConfigurationManager = StackConfigurationManager'{_scmName :: Maybe Text, _scmVersion :: Maybe Text} deriving (Eq, Read, Show)
+data StackConfigurationManager = StackConfigurationManager'
+    { _scmName    :: Maybe Text
+    , _scmVersion :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StackConfigurationManager' smart constructor.
 stackConfigurationManager :: StackConfigurationManager
-stackConfigurationManager = StackConfigurationManager'{_scmName = Nothing, _scmVersion = Nothing};
+stackConfigurationManager =
+    StackConfigurationManager'
+    { _scmName = Nothing
+    , _scmVersion = Nothing
+    }
 
 -- | The name. This parameter must be set to \"Chef\".
 scmName :: Lens' StackConfigurationManager (Maybe Text)
@@ -3419,11 +4065,26 @@ instance ToJSON StackConfigurationManager where
 -- * 'ssLayersCount'
 --
 -- * 'ssInstancesCount'
-data StackSummary = StackSummary'{_ssARN :: Maybe Text, _ssAppsCount :: Maybe Int, _ssName :: Maybe Text, _ssStackId :: Maybe Text, _ssLayersCount :: Maybe Int, _ssInstancesCount :: Maybe InstancesCount} deriving (Eq, Read, Show)
+data StackSummary = StackSummary'
+    { _ssARN            :: Maybe Text
+    , _ssAppsCount      :: Maybe Int
+    , _ssName           :: Maybe Text
+    , _ssStackId        :: Maybe Text
+    , _ssLayersCount    :: Maybe Int
+    , _ssInstancesCount :: Maybe InstancesCount
+    } deriving (Eq,Read,Show)
 
 -- | 'StackSummary' smart constructor.
 stackSummary :: StackSummary
-stackSummary = StackSummary'{_ssARN = Nothing, _ssAppsCount = Nothing, _ssName = Nothing, _ssStackId = Nothing, _ssLayersCount = Nothing, _ssInstancesCount = Nothing};
+stackSummary =
+    StackSummary'
+    { _ssARN = Nothing
+    , _ssAppsCount = Nothing
+    , _ssName = Nothing
+    , _ssStackId = Nothing
+    , _ssLayersCount = Nothing
+    , _ssInstancesCount = Nothing
+    }
 
 -- | The stack\'s ARN.
 ssARN :: Lens' StackSummary (Maybe Text)
@@ -3474,11 +4135,22 @@ instance FromJSON StackSummary where
 -- * 'tcPassword'
 --
 -- * 'tcValidForInMinutes'
-data TemporaryCredential = TemporaryCredential'{_tcInstanceId :: Maybe Text, _tcUsername :: Maybe Text, _tcPassword :: Maybe Text, _tcValidForInMinutes :: Maybe Int} deriving (Eq, Read, Show)
+data TemporaryCredential = TemporaryCredential'
+    { _tcInstanceId        :: Maybe Text
+    , _tcUsername          :: Maybe Text
+    , _tcPassword          :: Maybe Text
+    , _tcValidForInMinutes :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'TemporaryCredential' smart constructor.
 temporaryCredential :: TemporaryCredential
-temporaryCredential = TemporaryCredential'{_tcInstanceId = Nothing, _tcUsername = Nothing, _tcPassword = Nothing, _tcValidForInMinutes = Nothing};
+temporaryCredential =
+    TemporaryCredential'
+    { _tcInstanceId = Nothing
+    , _tcUsername = Nothing
+    , _tcPassword = Nothing
+    , _tcValidForInMinutes = Nothing
+    }
 
 -- | The instance\'s AWS OpsWorks ID.
 tcInstanceId :: Lens' TemporaryCredential (Maybe Text)
@@ -3517,11 +4189,18 @@ instance FromJSON TemporaryCredential where
 -- * 'tbascInstanceId'
 --
 -- * 'tbascAutoScalingSchedule'
-data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration'{_tbascInstanceId :: Maybe Text, _tbascAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule} deriving (Eq, Read, Show)
+data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration'
+    { _tbascInstanceId          :: Maybe Text
+    , _tbascAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
+    } deriving (Eq,Read,Show)
 
 -- | 'TimeBasedAutoScalingConfiguration' smart constructor.
 timeBasedAutoScalingConfiguration :: TimeBasedAutoScalingConfiguration
-timeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration'{_tbascInstanceId = Nothing, _tbascAutoScalingSchedule = Nothing};
+timeBasedAutoScalingConfiguration =
+    TimeBasedAutoScalingConfiguration'
+    { _tbascInstanceId = Nothing
+    , _tbascAutoScalingSchedule = Nothing
+    }
 
 -- | The instance ID.
 tbascInstanceId :: Lens' TimeBasedAutoScalingConfiguration (Maybe Text)
@@ -3555,11 +4234,24 @@ instance FromJSON TimeBasedAutoScalingConfiguration
 -- * 'upIAMUserARN'
 --
 -- * 'upName'
-data UserProfile = UserProfile'{_upSSHUsername :: Maybe Text, _upSSHPublicKey :: Maybe Text, _upAllowSelfManagement :: Maybe Bool, _upIAMUserARN :: Maybe Text, _upName :: Maybe Text} deriving (Eq, Read, Show)
+data UserProfile = UserProfile'
+    { _upSSHUsername         :: Maybe Text
+    , _upSSHPublicKey        :: Maybe Text
+    , _upAllowSelfManagement :: Maybe Bool
+    , _upIAMUserARN          :: Maybe Text
+    , _upName                :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UserProfile' smart constructor.
 userProfile :: UserProfile
-userProfile = UserProfile'{_upSSHUsername = Nothing, _upSSHPublicKey = Nothing, _upAllowSelfManagement = Nothing, _upIAMUserARN = Nothing, _upName = Nothing};
+userProfile =
+    UserProfile'
+    { _upSSHUsername = Nothing
+    , _upSSHPublicKey = Nothing
+    , _upAllowSelfManagement = Nothing
+    , _upIAMUserARN = Nothing
+    , _upName = Nothing
+    }
 
 -- | The user\'s SSH user name.
 upSSHUsername :: Lens' UserProfile (Maybe Text)
@@ -3624,11 +4316,40 @@ instance FromJSON UserProfile where
 -- * 'volEC2VolumeId'
 --
 -- * 'volMountPoint'
-data Volume = Volume'{_volInstanceId :: Maybe Text, _volStatus :: Maybe Text, _volSize :: Maybe Int, _volIOPS :: Maybe Int, _volDevice :: Maybe Text, _volName :: Maybe Text, _volAvailabilityZone :: Maybe Text, _volRAIDArrayId :: Maybe Text, _volVolumeId :: Maybe Text, _volRegion :: Maybe Text, _volVolumeType :: Maybe Text, _volEC2VolumeId :: Maybe Text, _volMountPoint :: Maybe Text} deriving (Eq, Read, Show)
+data Volume = Volume'
+    { _volInstanceId       :: Maybe Text
+    , _volStatus           :: Maybe Text
+    , _volSize             :: Maybe Int
+    , _volIOPS             :: Maybe Int
+    , _volDevice           :: Maybe Text
+    , _volName             :: Maybe Text
+    , _volAvailabilityZone :: Maybe Text
+    , _volRAIDArrayId      :: Maybe Text
+    , _volVolumeId         :: Maybe Text
+    , _volRegion           :: Maybe Text
+    , _volVolumeType       :: Maybe Text
+    , _volEC2VolumeId      :: Maybe Text
+    , _volMountPoint       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Volume' smart constructor.
 volume :: Volume
-volume = Volume'{_volInstanceId = Nothing, _volStatus = Nothing, _volSize = Nothing, _volIOPS = Nothing, _volDevice = Nothing, _volName = Nothing, _volAvailabilityZone = Nothing, _volRAIDArrayId = Nothing, _volVolumeId = Nothing, _volRegion = Nothing, _volVolumeType = Nothing, _volEC2VolumeId = Nothing, _volMountPoint = Nothing};
+volume =
+    Volume'
+    { _volInstanceId = Nothing
+    , _volStatus = Nothing
+    , _volSize = Nothing
+    , _volIOPS = Nothing
+    , _volDevice = Nothing
+    , _volName = Nothing
+    , _volAvailabilityZone = Nothing
+    , _volRAIDArrayId = Nothing
+    , _volVolumeId = Nothing
+    , _volRegion = Nothing
+    , _volVolumeType = Nothing
+    , _volEC2VolumeId = Nothing
+    , _volMountPoint = Nothing
+    }
 
 -- | The instance ID.
 volInstanceId :: Lens' Volume (Maybe Text)
@@ -3720,11 +4441,26 @@ instance FromJSON Volume where
 -- * 'vcNumberOfDisks'
 --
 -- * 'vcSize'
-data VolumeConfiguration = VolumeConfiguration'{_vcIOPS :: Maybe Int, _vcRAIDLevel :: Maybe Int, _vcVolumeType :: Maybe Text, _vcMountPoint :: Text, _vcNumberOfDisks :: Int, _vcSize :: Int} deriving (Eq, Read, Show)
+data VolumeConfiguration = VolumeConfiguration'
+    { _vcIOPS          :: Maybe Int
+    , _vcRAIDLevel     :: Maybe Int
+    , _vcVolumeType    :: Maybe Text
+    , _vcMountPoint    :: Text
+    , _vcNumberOfDisks :: !Int
+    , _vcSize          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'VolumeConfiguration' smart constructor.
 volumeConfiguration :: Text -> Int -> Int -> VolumeConfiguration
-volumeConfiguration pMountPoint pNumberOfDisks pSize = VolumeConfiguration'{_vcIOPS = Nothing, _vcRAIDLevel = Nothing, _vcVolumeType = Nothing, _vcMountPoint = pMountPoint, _vcNumberOfDisks = pNumberOfDisks, _vcSize = pSize};
+volumeConfiguration pMountPoint pNumberOfDisks pSize =
+    VolumeConfiguration'
+    { _vcIOPS = Nothing
+    , _vcRAIDLevel = Nothing
+    , _vcVolumeType = Nothing
+    , _vcMountPoint = pMountPoint
+    , _vcNumberOfDisks = pNumberOfDisks
+    , _vcSize = pSize
+    }
 
 -- | For PIOPS volumes, the IOPS per disk.
 vcIOPS :: Lens' VolumeConfiguration (Maybe Int)
@@ -3811,11 +4547,28 @@ instance ToJSON VolumeConfiguration where
 -- * 'wassSunday'
 --
 -- * 'wassTuesday'
-data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'{_wassThursday :: Maybe (Map Text Text), _wassWednesday :: Maybe (Map Text Text), _wassSaturday :: Maybe (Map Text Text), _wassMonday :: Maybe (Map Text Text), _wassFriday :: Maybe (Map Text Text), _wassSunday :: Maybe (Map Text Text), _wassTuesday :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
+data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'
+    { _wassThursday  :: Maybe (Map Text Text)
+    , _wassWednesday :: Maybe (Map Text Text)
+    , _wassSaturday  :: Maybe (Map Text Text)
+    , _wassMonday    :: Maybe (Map Text Text)
+    , _wassFriday    :: Maybe (Map Text Text)
+    , _wassSunday    :: Maybe (Map Text Text)
+    , _wassTuesday   :: Maybe (Map Text Text)
+    } deriving (Eq,Read,Show)
 
 -- | 'WeeklyAutoScalingSchedule' smart constructor.
 weeklyAutoScalingSchedule :: WeeklyAutoScalingSchedule
-weeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'{_wassThursday = Nothing, _wassWednesday = Nothing, _wassSaturday = Nothing, _wassMonday = Nothing, _wassFriday = Nothing, _wassSunday = Nothing, _wassTuesday = Nothing};
+weeklyAutoScalingSchedule =
+    WeeklyAutoScalingSchedule'
+    { _wassThursday = Nothing
+    , _wassWednesday = Nothing
+    , _wassSaturday = Nothing
+    , _wassMonday = Nothing
+    , _wassFriday = Nothing
+    , _wassSunday = Nothing
+    , _wassTuesday = Nothing
+    }
 
 -- | The schedule for Thursday.
 wassThursday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)

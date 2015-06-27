@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.RestoreObject
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.S3.RestoreObject
     , restoreObjectResponse
     -- ** Response lenses
     , rorRequestCharged
-    , rorStatusCode
+    , rorStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'restoreObject' smart constructor.
 --
@@ -57,11 +57,24 @@ import Network.AWS.S3.Types
 -- * 'roBucket'
 --
 -- * 'roKey'
-data RestoreObject = RestoreObject'{_roVersionId :: Maybe ObjectVersionId, _roRequestPayer :: Maybe RequestPayer, _roRestoreRequest :: Maybe RestoreRequest, _roBucket :: BucketName, _roKey :: ObjectKey} deriving (Eq, Read, Show)
+data RestoreObject = RestoreObject'
+    { _roVersionId      :: Maybe ObjectVersionId
+    , _roRequestPayer   :: Maybe RequestPayer
+    , _roRestoreRequest :: Maybe RestoreRequest
+    , _roBucket         :: BucketName
+    , _roKey            :: ObjectKey
+    } deriving (Eq,Read,Show)
 
 -- | 'RestoreObject' smart constructor.
 restoreObject :: BucketName -> ObjectKey -> RestoreObject
-restoreObject pBucket pKey = RestoreObject'{_roVersionId = Nothing, _roRequestPayer = Nothing, _roRestoreRequest = Nothing, _roBucket = pBucket, _roKey = pKey};
+restoreObject pBucket pKey =
+    RestoreObject'
+    { _roVersionId = Nothing
+    , _roRequestPayer = Nothing
+    , _roRestoreRequest = Nothing
+    , _roBucket = pBucket
+    , _roKey = pKey
+    }
 
 -- | FIXME: Undocumented member.
 roVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
@@ -119,17 +132,24 @@ instance ToQuery RestoreObject where
 --
 -- * 'rorRequestCharged'
 --
--- * 'rorStatusCode'
-data RestoreObjectResponse = RestoreObjectResponse'{_rorRequestCharged :: Maybe RequestCharged, _rorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rorStatus'
+data RestoreObjectResponse = RestoreObjectResponse'
+    { _rorRequestCharged :: Maybe RequestCharged
+    , _rorStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RestoreObjectResponse' smart constructor.
 restoreObjectResponse :: Int -> RestoreObjectResponse
-restoreObjectResponse pStatusCode = RestoreObjectResponse'{_rorRequestCharged = Nothing, _rorStatusCode = pStatusCode};
+restoreObjectResponse pStatus =
+    RestoreObjectResponse'
+    { _rorRequestCharged = Nothing
+    , _rorStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rorRequestCharged :: Lens' RestoreObjectResponse (Maybe RequestCharged)
 rorRequestCharged = lens _rorRequestCharged (\ s a -> s{_rorRequestCharged = a});
 
 -- | FIXME: Undocumented member.
-rorStatusCode :: Lens' RestoreObjectResponse Int
-rorStatusCode = lens _rorStatusCode (\ s a -> s{_rorStatusCode = a});
+rorStatus :: Lens' RestoreObjectResponse Int
+rorStatus = lens _rorStatus (\ s a -> s{_rorStatus = a});

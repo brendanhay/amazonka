@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListMFADevices
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,14 +42,14 @@ module Network.AWS.IAM.ListMFADevices
     , lmdrMarker
     , lmdrIsTruncated
     , lmdrMFADevices
-    , lmdrStatusCode
+    , lmdrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listMFADevices' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'lmdMaxItems'
 --
 -- * 'lmdMarker'
-data ListMFADevices = ListMFADevices'{_lmdUserName :: Maybe Text, _lmdMaxItems :: Maybe Nat, _lmdMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListMFADevices = ListMFADevices'
+    { _lmdUserName :: Maybe Text
+    , _lmdMaxItems :: Maybe Nat
+    , _lmdMarker   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListMFADevices' smart constructor.
 listMFADevices :: ListMFADevices
-listMFADevices = ListMFADevices'{_lmdUserName = Nothing, _lmdMaxItems = Nothing, _lmdMarker = Nothing};
+listMFADevices =
+    ListMFADevices'
+    { _lmdUserName = Nothing
+    , _lmdMaxItems = Nothing
+    , _lmdMarker = Nothing
+    }
 
 -- | The name of the user whose MFA devices you want to list.
 lmdUserName :: Lens' ListMFADevices (Maybe Text)
@@ -131,12 +140,23 @@ instance ToQuery ListMFADevices where
 --
 -- * 'lmdrMFADevices'
 --
--- * 'lmdrStatusCode'
-data ListMFADevicesResponse = ListMFADevicesResponse'{_lmdrMarker :: Maybe Text, _lmdrIsTruncated :: Maybe Bool, _lmdrMFADevices :: [MFADevice], _lmdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lmdrStatus'
+data ListMFADevicesResponse = ListMFADevicesResponse'
+    { _lmdrMarker      :: Maybe Text
+    , _lmdrIsTruncated :: Maybe Bool
+    , _lmdrMFADevices  :: [MFADevice]
+    , _lmdrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListMFADevicesResponse' smart constructor.
 listMFADevicesResponse :: Int -> ListMFADevicesResponse
-listMFADevicesResponse pStatusCode = ListMFADevicesResponse'{_lmdrMarker = Nothing, _lmdrIsTruncated = Nothing, _lmdrMFADevices = mempty, _lmdrStatusCode = pStatusCode};
+listMFADevicesResponse pStatus =
+    ListMFADevicesResponse'
+    { _lmdrMarker = Nothing
+    , _lmdrIsTruncated = Nothing
+    , _lmdrMFADevices = mempty
+    , _lmdrStatus = pStatus
+    }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -156,5 +176,5 @@ lmdrMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
 lmdrMFADevices = lens _lmdrMFADevices (\ s a -> s{_lmdrMFADevices = a});
 
 -- | FIXME: Undocumented member.
-lmdrStatusCode :: Lens' ListMFADevicesResponse Int
-lmdrStatusCode = lens _lmdrStatusCode (\ s a -> s{_lmdrStatusCode = a});
+lmdrStatus :: Lens' ListMFADevicesResponse Int
+lmdrStatus = lens _lmdrStatus (\ s a -> s{_lmdrStatus = a});

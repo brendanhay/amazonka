@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Glacier.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -141,74 +140,87 @@ module Network.AWS.Glacier.Types
     , vncEvents
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2012-06-01@ of the Amazon Glacier SDK.
 data Glacier
 
 instance AWSService Glacier where
     type Sg Glacier = V4
-
     service = const svc
       where
-        svc :: Service Glacier
-        svc = Service
-            { _svcAbbrev   = "Glacier"
-            , _svcPrefix   = "glacier"
-            , _svcVersion  = "2012-06-01"
+        svc =
+            Service
+            { _svcAbbrev = "Glacier"
+            , _svcPrefix = "glacier"
+            , _svcVersion = "2012-06-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | Returned if a retrieval job would exceed the current data policy\'s
 -- retrieval rate limit. For more information about data retrieval
 -- policies,
-_PolicyEnforcedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PolicyEnforcedException = _ServiceError . hasStatus 400 . hasCode "PolicyEnforcedException";
+_PolicyEnforcedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PolicyEnforcedException =
+    _ServiceError . hasStatus 400 . hasCode "PolicyEnforcedException"
 
 -- | Returned if a parameter of the request is incorrectly specified.
-_InvalidParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterValueException = _ServiceError . hasStatus 400 . hasCode "InvalidParameterValueException";
+_InvalidParameterValueException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterValueException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidParameterValueException"
 
 -- | Returned if, when uploading an archive, Amazon Glacier times out while
 -- receiving the upload.
-_RequestTimeoutException :: AWSError a => Geting (First ServiceError) a ServiceError
-_RequestTimeoutException = _ServiceError . hasStatus 408 . hasCode "RequestTimeoutException";
+_RequestTimeoutException :: AWSError a => Getting (First ServiceError) a ServiceError
+_RequestTimeoutException =
+    _ServiceError . hasStatus 408 . hasCode "RequestTimeoutException"
 
 -- | Returned if the service cannot complete the request.
-_ServiceUnavailableException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ServiceUnavailableException = _ServiceError . hasStatus 500 . hasCode "ServiceUnavailableException";
+_ServiceUnavailableException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ServiceUnavailableException =
+    _ServiceError . hasStatus 500 . hasCode "ServiceUnavailableException"
 
 -- | Returned if the specified resource, such as a vault, upload ID, or job
 -- ID, does not exist.
-_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException";
+_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+    _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
 -- | Returned if the request results in a vault or account limit being
 -- exceeded.
-_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasStatus 400 . hasCode "LimitExceededException";
+_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException =
+    _ServiceError . hasStatus 400 . hasCode "LimitExceededException"
 
 -- | Returned if a required header or parameter is missing from the request.
-_MissingParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MissingParameterValueException = _ServiceError . hasStatus 400 . hasCode "MissingParameterValueException";
+_MissingParameterValueException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MissingParameterValueException =
+    _ServiceError . hasStatus 400 . hasCode "MissingParameterValueException"
 
-data ActionCode = InventoryRetrieval | ArchiveRetrieval deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ActionCode
+    = InventoryRetrieval
+    | ArchiveRetrieval
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ActionCode where
     parser = takeLowerText >>= \case
@@ -228,7 +240,11 @@ instance ToHeader ActionCode
 instance FromJSON ActionCode where
     parseJSON = parseJSONText "ActionCode"
 
-data StatusCode = InProgress | Succeeded | Failed deriving (Eq, Ord, Read, Show, Enum, Num, Integral, Real)
+data StatusCode
+    = InProgress
+    | Succeeded
+    | Failed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText StatusCode where
     parser = takeLowerText >>= \case
@@ -266,11 +282,20 @@ instance FromJSON StatusCode where
 -- * 'acoChecksum'
 --
 -- * 'acoLocation'
-data ArchiveCreationOutput = ArchiveCreationOutput'{_acoArchiveId :: Maybe Text, _acoChecksum :: Maybe Text, _acoLocation :: Maybe Text} deriving (Eq, Read, Show)
+data ArchiveCreationOutput = ArchiveCreationOutput'
+    { _acoArchiveId :: Maybe Text
+    , _acoChecksum  :: Maybe Text
+    , _acoLocation  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ArchiveCreationOutput' smart constructor.
 archiveCreationOutput :: ArchiveCreationOutput
-archiveCreationOutput = ArchiveCreationOutput'{_acoArchiveId = Nothing, _acoChecksum = Nothing, _acoLocation = Nothing};
+archiveCreationOutput =
+    ArchiveCreationOutput'
+    { _acoArchiveId = Nothing
+    , _acoChecksum = Nothing
+    , _acoLocation = Nothing
+    }
 
 -- | The ID of the archive. This value is also included as part of the
 -- location.
@@ -301,11 +326,16 @@ instance FromJSON ArchiveCreationOutput where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drpRules'
-newtype DataRetrievalPolicy = DataRetrievalPolicy'{_drpRules :: Maybe [DataRetrievalRule]} deriving (Eq, Read, Show)
+newtype DataRetrievalPolicy = DataRetrievalPolicy'
+    { _drpRules :: Maybe [DataRetrievalRule]
+    } deriving (Eq,Read,Show)
 
 -- | 'DataRetrievalPolicy' smart constructor.
 dataRetrievalPolicy :: DataRetrievalPolicy
-dataRetrievalPolicy = DataRetrievalPolicy'{_drpRules = Nothing};
+dataRetrievalPolicy =
+    DataRetrievalPolicy'
+    { _drpRules = Nothing
+    }
 
 -- | The policy rule. Although this is a list type, currently there must be
 -- only one rule, which contains a Strategy field and optionally a
@@ -332,11 +362,18 @@ instance ToJSON DataRetrievalPolicy where
 -- * 'drrStrategy'
 --
 -- * 'drrBytesPerHour'
-data DataRetrievalRule = DataRetrievalRule'{_drrStrategy :: Maybe Text, _drrBytesPerHour :: Maybe Integer} deriving (Eq, Read, Show)
+data DataRetrievalRule = DataRetrievalRule'
+    { _drrStrategy     :: Maybe Text
+    , _drrBytesPerHour :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'DataRetrievalRule' smart constructor.
 dataRetrievalRule :: DataRetrievalRule
-dataRetrievalRule = DataRetrievalRule'{_drrStrategy = Nothing, _drrBytesPerHour = Nothing};
+dataRetrievalRule =
+    DataRetrievalRule'
+    { _drrStrategy = Nothing
+    , _drrBytesPerHour = Nothing
+    }
 
 -- | The type of data retrieval policy to set.
 --
@@ -382,11 +419,26 @@ instance ToJSON DataRetrievalRule where
 -- * 'dvoCreationDate'
 --
 -- * 'dvoNumberOfArchives'
-data DescribeVaultOutput = DescribeVaultOutput'{_dvoVaultName :: Maybe Text, _dvoSizeInBytes :: Maybe Integer, _dvoLastInventoryDate :: Maybe Text, _dvoVaultARN :: Maybe Text, _dvoCreationDate :: Maybe Text, _dvoNumberOfArchives :: Maybe Integer} deriving (Eq, Read, Show)
+data DescribeVaultOutput = DescribeVaultOutput'
+    { _dvoVaultName         :: Maybe Text
+    , _dvoSizeInBytes       :: Maybe Integer
+    , _dvoLastInventoryDate :: Maybe Text
+    , _dvoVaultARN          :: Maybe Text
+    , _dvoCreationDate      :: Maybe Text
+    , _dvoNumberOfArchives  :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVaultOutput' smart constructor.
 describeVaultOutput :: DescribeVaultOutput
-describeVaultOutput = DescribeVaultOutput'{_dvoVaultName = Nothing, _dvoSizeInBytes = Nothing, _dvoLastInventoryDate = Nothing, _dvoVaultARN = Nothing, _dvoCreationDate = Nothing, _dvoNumberOfArchives = Nothing};
+describeVaultOutput =
+    DescribeVaultOutput'
+    { _dvoVaultName = Nothing
+    , _dvoSizeInBytes = Nothing
+    , _dvoLastInventoryDate = Nothing
+    , _dvoVaultARN = Nothing
+    , _dvoCreationDate = Nothing
+    , _dvoNumberOfArchives = Nothing
+    }
 
 -- | The name of the vault.
 dvoVaultName :: Lens' DescribeVaultOutput (Maybe Text)
@@ -469,11 +521,48 @@ instance FromJSON DescribeVaultOutput where
 -- * 'gjdStatusCode'
 --
 -- * 'gjdInventorySizeInBytes'
-data GlacierJobDescription = GlacierJobDescription'{_gjdArchiveId :: Maybe Text, _gjdSHA256TreeHash :: Maybe Text, _gjdJobId :: Maybe Text, _gjdRetrievalByteRange :: Maybe Text, _gjdInventoryRetrievalParameters :: Maybe InventoryRetrievalJobDescription, _gjdAction :: Maybe ActionCode, _gjdJobDescription :: Maybe Text, _gjdSNSTopic :: Maybe Text, _gjdVaultARN :: Maybe Text, _gjdStatusMessage :: Maybe Text, _gjdArchiveSHA256TreeHash :: Maybe Text, _gjdCreationDate :: Maybe Text, _gjdCompleted :: Maybe Bool, _gjdCompletionDate :: Maybe Text, _gjdArchiveSizeInBytes :: Maybe Integer, _gjdStatusCode :: Maybe StatusCode, _gjdInventorySizeInBytes :: Maybe Integer} deriving (Eq, Read, Show)
+data GlacierJobDescription = GlacierJobDescription'
+    { _gjdArchiveId                    :: Maybe Text
+    , _gjdSHA256TreeHash               :: Maybe Text
+    , _gjdJobId                        :: Maybe Text
+    , _gjdRetrievalByteRange           :: Maybe Text
+    , _gjdInventoryRetrievalParameters :: Maybe InventoryRetrievalJobDescription
+    , _gjdAction                       :: Maybe ActionCode
+    , _gjdJobDescription               :: Maybe Text
+    , _gjdSNSTopic                     :: Maybe Text
+    , _gjdVaultARN                     :: Maybe Text
+    , _gjdStatusMessage                :: Maybe Text
+    , _gjdArchiveSHA256TreeHash        :: Maybe Text
+    , _gjdCreationDate                 :: Maybe Text
+    , _gjdCompleted                    :: Maybe Bool
+    , _gjdCompletionDate               :: Maybe Text
+    , _gjdArchiveSizeInBytes           :: Maybe Integer
+    , _gjdStatusCode                   :: Maybe StatusCode
+    , _gjdInventorySizeInBytes         :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'GlacierJobDescription' smart constructor.
 glacierJobDescription :: GlacierJobDescription
-glacierJobDescription = GlacierJobDescription'{_gjdArchiveId = Nothing, _gjdSHA256TreeHash = Nothing, _gjdJobId = Nothing, _gjdRetrievalByteRange = Nothing, _gjdInventoryRetrievalParameters = Nothing, _gjdAction = Nothing, _gjdJobDescription = Nothing, _gjdSNSTopic = Nothing, _gjdVaultARN = Nothing, _gjdStatusMessage = Nothing, _gjdArchiveSHA256TreeHash = Nothing, _gjdCreationDate = Nothing, _gjdCompleted = Nothing, _gjdCompletionDate = Nothing, _gjdArchiveSizeInBytes = Nothing, _gjdStatusCode = Nothing, _gjdInventorySizeInBytes = Nothing};
+glacierJobDescription =
+    GlacierJobDescription'
+    { _gjdArchiveId = Nothing
+    , _gjdSHA256TreeHash = Nothing
+    , _gjdJobId = Nothing
+    , _gjdRetrievalByteRange = Nothing
+    , _gjdInventoryRetrievalParameters = Nothing
+    , _gjdAction = Nothing
+    , _gjdJobDescription = Nothing
+    , _gjdSNSTopic = Nothing
+    , _gjdVaultARN = Nothing
+    , _gjdStatusMessage = Nothing
+    , _gjdArchiveSHA256TreeHash = Nothing
+    , _gjdCreationDate = Nothing
+    , _gjdCompleted = Nothing
+    , _gjdCompletionDate = Nothing
+    , _gjdArchiveSizeInBytes = Nothing
+    , _gjdStatusCode = Nothing
+    , _gjdInventorySizeInBytes = Nothing
+    }
 
 -- | For an ArchiveRetrieval job, this is the archive ID requested for
 -- download. Otherwise, this field is null.
@@ -614,11 +703,24 @@ instance FromJSON GlacierJobDescription where
 -- * 'irjdMarker'
 --
 -- * 'irjdLimit'
-data InventoryRetrievalJobDescription = InventoryRetrievalJobDescription'{_irjdFormat :: Maybe Text, _irjdEndDate :: Maybe Text, _irjdStartDate :: Maybe Text, _irjdMarker :: Maybe Text, _irjdLimit :: Maybe Text} deriving (Eq, Read, Show)
+data InventoryRetrievalJobDescription = InventoryRetrievalJobDescription'
+    { _irjdFormat    :: Maybe Text
+    , _irjdEndDate   :: Maybe Text
+    , _irjdStartDate :: Maybe Text
+    , _irjdMarker    :: Maybe Text
+    , _irjdLimit     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InventoryRetrievalJobDescription' smart constructor.
 inventoryRetrievalJobDescription :: InventoryRetrievalJobDescription
-inventoryRetrievalJobDescription = InventoryRetrievalJobDescription'{_irjdFormat = Nothing, _irjdEndDate = Nothing, _irjdStartDate = Nothing, _irjdMarker = Nothing, _irjdLimit = Nothing};
+inventoryRetrievalJobDescription =
+    InventoryRetrievalJobDescription'
+    { _irjdFormat = Nothing
+    , _irjdEndDate = Nothing
+    , _irjdStartDate = Nothing
+    , _irjdMarker = Nothing
+    , _irjdLimit = Nothing
+    }
 
 -- | The output format for the vault inventory list, which is set by the
 -- __InitiateJob__ request when initiating a job to retrieve a vault
@@ -677,11 +779,22 @@ instance FromJSON InventoryRetrievalJobDescription
 -- * 'irjiMarker'
 --
 -- * 'irjiLimit'
-data InventoryRetrievalJobInput = InventoryRetrievalJobInput'{_irjiEndDate :: Maybe Text, _irjiStartDate :: Maybe Text, _irjiMarker :: Maybe Text, _irjiLimit :: Maybe Text} deriving (Eq, Read, Show)
+data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
+    { _irjiEndDate   :: Maybe Text
+    , _irjiStartDate :: Maybe Text
+    , _irjiMarker    :: Maybe Text
+    , _irjiLimit     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InventoryRetrievalJobInput' smart constructor.
 inventoryRetrievalJobInput :: InventoryRetrievalJobInput
-inventoryRetrievalJobInput = InventoryRetrievalJobInput'{_irjiEndDate = Nothing, _irjiStartDate = Nothing, _irjiMarker = Nothing, _irjiLimit = Nothing};
+inventoryRetrievalJobInput =
+    InventoryRetrievalJobInput'
+    { _irjiEndDate = Nothing
+    , _irjiStartDate = Nothing
+    , _irjiMarker = Nothing
+    , _irjiLimit = Nothing
+    }
 
 -- | The end of the date range in UTC for vault inventory retrieval that
 -- includes archives created before this date. A string representation of
@@ -734,11 +847,28 @@ instance ToJSON InventoryRetrievalJobInput where
 -- * 'jpType'
 --
 -- * 'jpDescription'
-data JobParameters = JobParameters'{_jpArchiveId :: Maybe Text, _jpRetrievalByteRange :: Maybe Text, _jpFormat :: Maybe Text, _jpInventoryRetrievalParameters :: Maybe InventoryRetrievalJobInput, _jpSNSTopic :: Maybe Text, _jpType :: Maybe Text, _jpDescription :: Maybe Text} deriving (Eq, Read, Show)
+data JobParameters = JobParameters'
+    { _jpArchiveId                    :: Maybe Text
+    , _jpRetrievalByteRange           :: Maybe Text
+    , _jpFormat                       :: Maybe Text
+    , _jpInventoryRetrievalParameters :: Maybe InventoryRetrievalJobInput
+    , _jpSNSTopic                     :: Maybe Text
+    , _jpType                         :: Maybe Text
+    , _jpDescription                  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'JobParameters' smart constructor.
 jobParameters :: JobParameters
-jobParameters = JobParameters'{_jpArchiveId = Nothing, _jpRetrievalByteRange = Nothing, _jpFormat = Nothing, _jpInventoryRetrievalParameters = Nothing, _jpSNSTopic = Nothing, _jpType = Nothing, _jpDescription = Nothing};
+jobParameters =
+    JobParameters'
+    { _jpArchiveId = Nothing
+    , _jpRetrievalByteRange = Nothing
+    , _jpFormat = Nothing
+    , _jpInventoryRetrievalParameters = Nothing
+    , _jpSNSTopic = Nothing
+    , _jpType = Nothing
+    , _jpDescription = Nothing
+    }
 
 -- | The ID of the archive that you want to retrieve. This field is required
 -- only if @Type@ is set to archive-retrieval. An error occurs if you
@@ -811,11 +941,18 @@ instance ToJSON JobParameters where
 -- * 'pleSHA256TreeHash'
 --
 -- * 'pleRangeInBytes'
-data PartListElement = PartListElement'{_pleSHA256TreeHash :: Maybe Text, _pleRangeInBytes :: Maybe Text} deriving (Eq, Read, Show)
+data PartListElement = PartListElement'
+    { _pleSHA256TreeHash :: Maybe Text
+    , _pleRangeInBytes   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PartListElement' smart constructor.
 partListElement :: PartListElement
-partListElement = PartListElement'{_pleSHA256TreeHash = Nothing, _pleRangeInBytes = Nothing};
+partListElement =
+    PartListElement'
+    { _pleSHA256TreeHash = Nothing
+    , _pleRangeInBytes = Nothing
+    }
 
 -- | The SHA256 tree hash value that Amazon Glacier calculated for the part.
 -- This field is never @null@.
@@ -848,11 +985,24 @@ instance FromJSON PartListElement where
 -- * 'uleVaultARN'
 --
 -- * 'uleCreationDate'
-data UploadListElement = UploadListElement'{_uleMultipartUploadId :: Maybe Text, _uleArchiveDescription :: Maybe Text, _ulePartSizeInBytes :: Maybe Integer, _uleVaultARN :: Maybe Text, _uleCreationDate :: Maybe Text} deriving (Eq, Read, Show)
+data UploadListElement = UploadListElement'
+    { _uleMultipartUploadId  :: Maybe Text
+    , _uleArchiveDescription :: Maybe Text
+    , _ulePartSizeInBytes    :: Maybe Integer
+    , _uleVaultARN           :: Maybe Text
+    , _uleCreationDate       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UploadListElement' smart constructor.
 uploadListElement :: UploadListElement
-uploadListElement = UploadListElement'{_uleMultipartUploadId = Nothing, _uleArchiveDescription = Nothing, _ulePartSizeInBytes = Nothing, _uleVaultARN = Nothing, _uleCreationDate = Nothing};
+uploadListElement =
+    UploadListElement'
+    { _uleMultipartUploadId = Nothing
+    , _uleArchiveDescription = Nothing
+    , _ulePartSizeInBytes = Nothing
+    , _uleVaultARN = Nothing
+    , _uleCreationDate = Nothing
+    }
 
 -- | The ID of a multipart upload.
 uleMultipartUploadId :: Lens' UploadListElement (Maybe Text)
@@ -895,11 +1045,16 @@ instance FromJSON UploadListElement where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'vapPolicy'
-newtype VaultAccessPolicy = VaultAccessPolicy'{_vapPolicy :: Maybe Text} deriving (Eq, Read, Show)
+newtype VaultAccessPolicy = VaultAccessPolicy'
+    { _vapPolicy :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VaultAccessPolicy' smart constructor.
 vaultAccessPolicy :: VaultAccessPolicy
-vaultAccessPolicy = VaultAccessPolicy'{_vapPolicy = Nothing};
+vaultAccessPolicy =
+    VaultAccessPolicy'
+    { _vapPolicy = Nothing
+    }
 
 -- | The vault access policy.
 vapPolicy :: Lens' VaultAccessPolicy (Maybe Text)
@@ -923,11 +1078,18 @@ instance ToJSON VaultAccessPolicy where
 -- * 'vncSNSTopic'
 --
 -- * 'vncEvents'
-data VaultNotificationConfig = VaultNotificationConfig'{_vncSNSTopic :: Maybe Text, _vncEvents :: Maybe [Text]} deriving (Eq, Read, Show)
+data VaultNotificationConfig = VaultNotificationConfig'
+    { _vncSNSTopic :: Maybe Text
+    , _vncEvents   :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'VaultNotificationConfig' smart constructor.
 vaultNotificationConfig :: VaultNotificationConfig
-vaultNotificationConfig = VaultNotificationConfig'{_vncSNSTopic = Nothing, _vncEvents = Nothing};
+vaultNotificationConfig =
+    VaultNotificationConfig'
+    { _vncSNSTopic = Nothing
+    , _vncEvents = Nothing
+    }
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic Amazon
 -- Resource Name (ARN).

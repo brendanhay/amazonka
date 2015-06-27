@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,10 +42,10 @@ module Network.AWS.OpsWorks.UpdateVolume
     , updateVolumeResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateVolume' smart constructor.
 --
@@ -56,11 +56,20 @@ import Network.AWS.Response
 -- * 'updMountPoint'
 --
 -- * 'updVolumeId'
-data UpdateVolume = UpdateVolume'{_updName :: Maybe Text, _updMountPoint :: Maybe Text, _updVolumeId :: Text} deriving (Eq, Read, Show)
+data UpdateVolume = UpdateVolume'
+    { _updName       :: Maybe Text
+    , _updMountPoint :: Maybe Text
+    , _updVolumeId   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateVolume' smart constructor.
 updateVolume :: Text -> UpdateVolume
-updateVolume pVolumeId = UpdateVolume'{_updName = Nothing, _updMountPoint = Nothing, _updVolumeId = pVolumeId};
+updateVolume pVolumeId =
+    UpdateVolume'
+    { _updName = Nothing
+    , _updMountPoint = Nothing
+    , _updVolumeId = pVolumeId
+    }
 
 -- | The new name.
 updName :: Lens' UpdateVolume (Maybe Text)
@@ -102,8 +111,10 @@ instance ToQuery UpdateVolume where
         toQuery = const mempty
 
 -- | /See:/ 'updateVolumeResponse' smart constructor.
-data UpdateVolumeResponse = UpdateVolumeResponse' deriving (Eq, Read, Show)
+data UpdateVolumeResponse =
+    UpdateVolumeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateVolumeResponse' smart constructor.
 updateVolumeResponse :: UpdateVolumeResponse
-updateVolumeResponse = UpdateVolumeResponse';
+updateVolumeResponse = UpdateVolumeResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DynamoDB.UpdateItem
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,14 +54,17 @@ module Network.AWS.DynamoDB.UpdateItem
     , uirConsumedCapacity
     , uirItemCollectionMetrics
     , uirAttributes
+    , uirStatus
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
--- | /See:/ 'updateItem' smart constructor.
+-- | Represents the input of an /UpdateItem/ operation.
+--
+-- /See:/ 'updateItem' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -88,11 +91,38 @@ import Network.AWS.DynamoDB.Types
 -- * 'uiTableName'
 --
 -- * 'uiKey'
-data UpdateItem = UpdateItem'{_uiReturnValues :: Maybe ReturnValue, _uiExpressionAttributeNames :: Maybe (HashMap Text Text), _uiUpdateExpression :: Maybe Text, _uiAttributeUpdates :: Maybe (HashMap Text AttributeValueUpdate), _uiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _uiExpressionAttributeValues :: Maybe (HashMap Text AttributeValue), _uiReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics, _uiConditionExpression :: Maybe Text, _uiConditionalOperator :: Maybe ConditionalOperator, _uiExpected :: Maybe (HashMap Text ExpectedAttributeValue), _uiTableName :: Text, _uiKey :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
+data UpdateItem = UpdateItem'
+    { _uiReturnValues                :: Maybe ReturnValue
+    , _uiExpressionAttributeNames    :: Maybe (Map Text Text)
+    , _uiUpdateExpression            :: Maybe Text
+    , _uiAttributeUpdates            :: Maybe (Map Text AttributeValueUpdate)
+    , _uiReturnConsumedCapacity      :: Maybe ReturnConsumedCapacity
+    , _uiExpressionAttributeValues   :: Maybe (Map Text AttributeValue)
+    , _uiReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
+    , _uiConditionExpression         :: Maybe Text
+    , _uiConditionalOperator         :: Maybe ConditionalOperator
+    , _uiExpected                    :: Maybe (Map Text ExpectedAttributeValue)
+    , _uiTableName                   :: Text
+    , _uiKey                         :: Map Text AttributeValue
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateItem' smart constructor.
 updateItem :: Text -> UpdateItem
-updateItem pTableName = UpdateItem'{_uiReturnValues = Nothing, _uiExpressionAttributeNames = Nothing, _uiUpdateExpression = Nothing, _uiAttributeUpdates = Nothing, _uiReturnConsumedCapacity = Nothing, _uiExpressionAttributeValues = Nothing, _uiReturnItemCollectionMetrics = Nothing, _uiConditionExpression = Nothing, _uiConditionalOperator = Nothing, _uiExpected = Nothing, _uiTableName = pTableName, _uiKey = mempty};
+updateItem pTableName =
+    UpdateItem'
+    { _uiReturnValues = Nothing
+    , _uiExpressionAttributeNames = Nothing
+    , _uiUpdateExpression = Nothing
+    , _uiAttributeUpdates = Nothing
+    , _uiReturnConsumedCapacity = Nothing
+    , _uiExpressionAttributeValues = Nothing
+    , _uiReturnItemCollectionMetrics = Nothing
+    , _uiConditionExpression = Nothing
+    , _uiConditionalOperator = Nothing
+    , _uiExpected = Nothing
+    , _uiTableName = pTableName
+    , _uiKey = mempty
+    }
 
 -- | Use /ReturnValues/ if you want to get the item attributes as they
 -- appeared either before or after they were updated. For /UpdateItem/, the
@@ -154,8 +184,8 @@ uiReturnValues = lens _uiReturnValues (\ s a -> s{_uiReturnValues = a});
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-uiExpressionAttributeNames :: Lens' UpdateItem (Maybe (HashMap Text Text))
-uiExpressionAttributeNames = lens _uiExpressionAttributeNames (\ s a -> s{_uiExpressionAttributeNames = a}) . mapping _Coerce;
+uiExpressionAttributeNames :: Lens' UpdateItem (HashMap Text Text)
+uiExpressionAttributeNames = lens _uiExpressionAttributeNames (\ s a -> s{_uiExpressionAttributeNames = a}) . _Default . _Map;
 
 -- | An expression that defines one or more attributes to be updated, the
 -- action to be performed on them, and new value(s) for them.
@@ -342,8 +372,8 @@ uiUpdateExpression = lens _uiUpdateExpression (\ s a -> s{_uiUpdateExpression = 
 -- If you provide any attributes that are part of an index key, then the
 -- data types for those attributes must match those of the schema in the
 -- table\'s attribute definition.
-uiAttributeUpdates :: Lens' UpdateItem (Maybe (HashMap Text AttributeValueUpdate))
-uiAttributeUpdates = lens _uiAttributeUpdates (\ s a -> s{_uiAttributeUpdates = a}) . mapping _Coerce;
+uiAttributeUpdates :: Lens' UpdateItem (HashMap Text AttributeValueUpdate)
+uiAttributeUpdates = lens _uiAttributeUpdates (\ s a -> s{_uiAttributeUpdates = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
 uiReturnConsumedCapacity :: Lens' UpdateItem (Maybe ReturnConsumedCapacity)
@@ -368,8 +398,8 @@ uiReturnConsumedCapacity = lens _uiReturnConsumedCapacity (\ s a -> s{_uiReturnC
 -- For more information on expression attribute values, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-uiExpressionAttributeValues :: Lens' UpdateItem (Maybe (HashMap Text AttributeValue))
-uiExpressionAttributeValues = lens _uiExpressionAttributeValues (\ s a -> s{_uiExpressionAttributeValues = a}) . mapping _Coerce;
+uiExpressionAttributeValues :: Lens' UpdateItem (HashMap Text AttributeValue)
+uiExpressionAttributeValues = lens _uiExpressionAttributeValues (\ s a -> s{_uiExpressionAttributeValues = a}) . _Default . _Map;
 
 -- | A value that if set to @SIZE@, the response includes statistics about
 -- item collections, if any, that were modified during the operation are
@@ -645,8 +675,8 @@ uiConditionalOperator = lens _uiConditionalOperator (\ s a -> s{_uiConditionalOp
 -- exception.
 --
 -- This parameter does not support attributes of type List or Map.
-uiExpected :: Lens' UpdateItem (Maybe (HashMap Text ExpectedAttributeValue))
-uiExpected = lens _uiExpected (\ s a -> s{_uiExpected = a}) . mapping _Coerce;
+uiExpected :: Lens' UpdateItem (HashMap Text ExpectedAttributeValue)
+uiExpected = lens _uiExpected (\ s a -> s{_uiExpected = a}) . _Default . _Map;
 
 -- | The name of the table containing the item to update.
 uiTableName :: Lens' UpdateItem Text
@@ -660,7 +690,7 @@ uiTableName = lens _uiTableName (\ s a -> s{_uiTableName = a});
 -- attribute. For a hash-and-range type primary key, you must provide both
 -- the hash attribute and the range attribute.
 uiKey :: Lens' UpdateItem (HashMap Text AttributeValue)
-uiKey = lens _uiKey (\ s a -> s{_uiKey = a}) . _Coerce;
+uiKey = lens _uiKey (\ s a -> s{_uiKey = a}) . _Map;
 
 instance AWSRequest UpdateItem where
         type Sv UpdateItem = DynamoDB
@@ -672,7 +702,8 @@ instance AWSRequest UpdateItem where
                  UpdateItemResponse' <$>
                    (x .?> "ConsumedCapacity") <*>
                      (x .?> "ItemCollectionMetrics")
-                     <*> (x .?> "Attributes" .!@ mempty))
+                     <*> (x .?> "Attributes" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateItem where
         toHeaders
@@ -708,7 +739,9 @@ instance ToPath UpdateItem where
 instance ToQuery UpdateItem where
         toQuery = const mempty
 
--- | /See:/ 'updateItemResponse' smart constructor.
+-- | Represents the output of an /UpdateItem/ operation.
+--
+-- /See:/ 'updateItemResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -717,11 +750,24 @@ instance ToQuery UpdateItem where
 -- * 'uirItemCollectionMetrics'
 --
 -- * 'uirAttributes'
-data UpdateItemResponse = UpdateItemResponse'{_uirConsumedCapacity :: Maybe ConsumedCapacity, _uirItemCollectionMetrics :: Maybe ItemCollectionMetrics, _uirAttributes :: Maybe (HashMap Text AttributeValue)} deriving (Eq, Read, Show)
+--
+-- * 'uirStatus'
+data UpdateItemResponse = UpdateItemResponse'
+    { _uirConsumedCapacity      :: Maybe ConsumedCapacity
+    , _uirItemCollectionMetrics :: Maybe ItemCollectionMetrics
+    , _uirAttributes            :: Maybe (Map Text AttributeValue)
+    , _uirStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateItemResponse' smart constructor.
-updateItemResponse :: UpdateItemResponse
-updateItemResponse = UpdateItemResponse'{_uirConsumedCapacity = Nothing, _uirItemCollectionMetrics = Nothing, _uirAttributes = Nothing};
+updateItemResponse :: Int -> UpdateItemResponse
+updateItemResponse pStatus =
+    UpdateItemResponse'
+    { _uirConsumedCapacity = Nothing
+    , _uirItemCollectionMetrics = Nothing
+    , _uirAttributes = Nothing
+    , _uirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 uirConsumedCapacity :: Lens' UpdateItemResponse (Maybe ConsumedCapacity)
@@ -735,5 +781,9 @@ uirItemCollectionMetrics = lens _uirItemCollectionMetrics (\ s a -> s{_uirItemCo
 -- operation. This map only appears if /ReturnValues/ was specified as
 -- something other than @NONE@ in the request. Each element represents one
 -- attribute.
-uirAttributes :: Lens' UpdateItemResponse (Maybe (HashMap Text AttributeValue))
-uirAttributes = lens _uirAttributes (\ s a -> s{_uirAttributes = a}) . mapping _Coerce;
+uirAttributes :: Lens' UpdateItemResponse (HashMap Text AttributeValue)
+uirAttributes = lens _uirAttributes (\ s a -> s{_uirAttributes = a}) . _Default . _Map;
+
+-- | FIXME: Undocumented member.
+uirStatus :: Lens' UpdateItemResponse Int
+uirStatus = lens _uirStatus (\ s a -> s{_uirStatus = a});

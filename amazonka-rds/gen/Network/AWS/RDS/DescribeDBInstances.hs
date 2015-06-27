@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,14 +37,14 @@ module Network.AWS.RDS.DescribeDBInstances
     -- ** Response lenses
     , desDBInstances
     , desMarker
-    , desStatusCode
+    , desStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -59,11 +59,22 @@ import Network.AWS.Response
 -- * 'ddbiMaxRecords'
 --
 -- * 'ddbiMarker'
-data DescribeDBInstances = DescribeDBInstances'{_ddbiFilters :: Maybe [Filter], _ddbiDBInstanceIdentifier :: Maybe Text, _ddbiMaxRecords :: Maybe Int, _ddbiMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBInstances = DescribeDBInstances'
+    { _ddbiFilters              :: Maybe [Filter]
+    , _ddbiDBInstanceIdentifier :: Maybe Text
+    , _ddbiMaxRecords           :: Maybe Int
+    , _ddbiMarker               :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBInstances' smart constructor.
 describeDBInstances :: DescribeDBInstances
-describeDBInstances = DescribeDBInstances'{_ddbiFilters = Nothing, _ddbiDBInstanceIdentifier = Nothing, _ddbiMaxRecords = Nothing, _ddbiMarker = Nothing};
+describeDBInstances =
+    DescribeDBInstances'
+    { _ddbiFilters = Nothing
+    , _ddbiDBInstanceIdentifier = Nothing
+    , _ddbiMaxRecords = Nothing
+    , _ddbiMarker = Nothing
+    }
 
 -- | This parameter is not currently supported.
 ddbiFilters :: Lens' DescribeDBInstances [Filter]
@@ -147,12 +158,21 @@ instance ToQuery DescribeDBInstances where
 --
 -- * 'desMarker'
 --
--- * 'desStatusCode'
-data DescribeDBInstancesResponse = DescribeDBInstancesResponse'{_desDBInstances :: Maybe [DBInstance], _desMarker :: Maybe Text, _desStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'desStatus'
+data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
+    { _desDBInstances :: Maybe [DBInstance]
+    , _desMarker      :: Maybe Text
+    , _desStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBInstancesResponse' smart constructor.
 describeDBInstancesResponse :: Int -> DescribeDBInstancesResponse
-describeDBInstancesResponse pStatusCode = DescribeDBInstancesResponse'{_desDBInstances = Nothing, _desMarker = Nothing, _desStatusCode = pStatusCode};
+describeDBInstancesResponse pStatus =
+    DescribeDBInstancesResponse'
+    { _desDBInstances = Nothing
+    , _desMarker = Nothing
+    , _desStatus = pStatus
+    }
 
 -- | A list of DBInstance instances.
 desDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
@@ -165,5 +185,5 @@ desMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
 desMarker = lens _desMarker (\ s a -> s{_desMarker = a});
 
 -- | FIXME: Undocumented member.
-desStatusCode :: Lens' DescribeDBInstancesResponse Int
-desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});
+desStatus :: Lens' DescribeDBInstancesResponse Int
+desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

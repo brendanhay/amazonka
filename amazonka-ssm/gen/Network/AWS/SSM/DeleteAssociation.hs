@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SSM.DeleteAssociation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.SSM.DeleteAssociation
     -- ** Response constructor
     , deleteAssociationResponse
     -- ** Response lenses
-    , delStatusCode
+    , delStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
 
 -- | /See:/ 'deleteAssociation' smart constructor.
 --
@@ -54,11 +54,18 @@ import Network.AWS.SSM.Types
 -- * 'delName'
 --
 -- * 'delInstanceId'
-data DeleteAssociation = DeleteAssociation'{_delName :: Text, _delInstanceId :: Text} deriving (Eq, Read, Show)
+data DeleteAssociation = DeleteAssociation'
+    { _delName       :: Text
+    , _delInstanceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteAssociation' smart constructor.
 deleteAssociation :: Text -> Text -> DeleteAssociation
-deleteAssociation pName pInstanceId = DeleteAssociation'{_delName = pName, _delInstanceId = pInstanceId};
+deleteAssociation pName pInstanceId =
+    DeleteAssociation'
+    { _delName = pName
+    , _delInstanceId = pInstanceId
+    }
 
 -- | The name of the configuration document.
 delName :: Lens' DeleteAssociation Text
@@ -101,13 +108,18 @@ instance ToQuery DeleteAssociation where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delStatusCode'
-newtype DeleteAssociationResponse = DeleteAssociationResponse'{_delStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'delStatus'
+newtype DeleteAssociationResponse = DeleteAssociationResponse'
+    { _delStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteAssociationResponse' smart constructor.
 deleteAssociationResponse :: Int -> DeleteAssociationResponse
-deleteAssociationResponse pStatusCode = DeleteAssociationResponse'{_delStatusCode = pStatusCode};
+deleteAssociationResponse pStatus =
+    DeleteAssociationResponse'
+    { _delStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-delStatusCode :: Lens' DeleteAssociationResponse Int
-delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});
+delStatus :: Lens' DeleteAssociationResponse Int
+delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,14 +44,14 @@ module Network.AWS.AutoScaling.DescribeTags
     -- ** Response lenses
     , dtrNextToken
     , dtrTags
-    , dtrStatusCode
+    , dtrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeTags' smart constructor.
 --
@@ -62,11 +62,20 @@ import Network.AWS.Response
 -- * 'dtNextToken'
 --
 -- * 'dtMaxRecords'
-data DescribeTags = DescribeTags'{_dtFilters :: Maybe [Filter], _dtNextToken :: Maybe Text, _dtMaxRecords :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeTags = DescribeTags'
+    { _dtFilters    :: Maybe [Filter]
+    , _dtNextToken  :: Maybe Text
+    , _dtMaxRecords :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: DescribeTags
-describeTags = DescribeTags'{_dtFilters = Nothing, _dtNextToken = Nothing, _dtMaxRecords = Nothing};
+describeTags =
+    DescribeTags'
+    { _dtFilters = Nothing
+    , _dtNextToken = Nothing
+    , _dtMaxRecords = Nothing
+    }
 
 -- | A filter used to scope the tags to return.
 dtFilters :: Lens' DescribeTags [Filter]
@@ -125,12 +134,21 @@ instance ToQuery DescribeTags where
 --
 -- * 'dtrTags'
 --
--- * 'dtrStatusCode'
-data DescribeTagsResponse = DescribeTagsResponse'{_dtrNextToken :: Maybe Text, _dtrTags :: Maybe [TagDescription], _dtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtrStatus'
+data DescribeTagsResponse = DescribeTagsResponse'
+    { _dtrNextToken :: Maybe Text
+    , _dtrTags      :: Maybe [TagDescription]
+    , _dtrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
-describeTagsResponse pStatusCode = DescribeTagsResponse'{_dtrNextToken = Nothing, _dtrTags = Nothing, _dtrStatusCode = pStatusCode};
+describeTagsResponse pStatus =
+    DescribeTagsResponse'
+    { _dtrNextToken = Nothing
+    , _dtrTags = Nothing
+    , _dtrStatus = pStatus
+    }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -142,5 +160,5 @@ dtrTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtrStatusCode :: Lens' DescribeTagsResponse Int
-dtrStatusCode = lens _dtrStatusCode (\ s a -> s{_dtrStatusCode = a});
+dtrStatus :: Lens' DescribeTagsResponse Int
+dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});

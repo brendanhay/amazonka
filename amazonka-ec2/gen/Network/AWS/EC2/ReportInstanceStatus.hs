@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ReportInstanceStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,10 +45,10 @@ module Network.AWS.EC2.ReportInstanceStatus
     , reportInstanceStatusResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'reportInstanceStatus' smart constructor.
 --
@@ -67,11 +67,28 @@ import Network.AWS.Response
 -- * 'risStatus'
 --
 -- * 'risReasonCodes'
-data ReportInstanceStatus = ReportInstanceStatus'{_risStartTime :: Maybe ISO8601, _risEndTime :: Maybe ISO8601, _risDryRun :: Maybe Bool, _risDescription :: Maybe Text, _risInstances :: [Text], _risStatus :: ReportStatusType, _risReasonCodes :: [ReportInstanceReasonCodes]} deriving (Eq, Read, Show)
+data ReportInstanceStatus = ReportInstanceStatus'
+    { _risStartTime   :: Maybe ISO8601
+    , _risEndTime     :: Maybe ISO8601
+    , _risDryRun      :: Maybe Bool
+    , _risDescription :: Maybe Text
+    , _risInstances   :: [Text]
+    , _risStatus      :: ReportStatusType
+    , _risReasonCodes :: [ReportInstanceReasonCodes]
+    } deriving (Eq,Read,Show)
 
 -- | 'ReportInstanceStatus' smart constructor.
 reportInstanceStatus :: ReportStatusType -> ReportInstanceStatus
-reportInstanceStatus pStatus = ReportInstanceStatus'{_risStartTime = Nothing, _risEndTime = Nothing, _risDryRun = Nothing, _risDescription = Nothing, _risInstances = mempty, _risStatus = pStatus, _risReasonCodes = mempty};
+reportInstanceStatus pStatus =
+    ReportInstanceStatus'
+    { _risStartTime = Nothing
+    , _risEndTime = Nothing
+    , _risDryRun = Nothing
+    , _risDescription = Nothing
+    , _risInstances = mempty
+    , _risStatus = pStatus
+    , _risReasonCodes = mempty
+    }
 
 -- | The time at which the reported instance health state began.
 risStartTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
@@ -157,8 +174,10 @@ instance ToQuery ReportInstanceStatus where
                toQueryList "item" _risReasonCodes]
 
 -- | /See:/ 'reportInstanceStatusResponse' smart constructor.
-data ReportInstanceStatusResponse = ReportInstanceStatusResponse' deriving (Eq, Read, Show)
+data ReportInstanceStatusResponse =
+    ReportInstanceStatusResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ReportInstanceStatusResponse' smart constructor.
 reportInstanceStatusResponse :: ReportInstanceStatusResponse
-reportInstanceStatusResponse = ReportInstanceStatusResponse';
+reportInstanceStatusResponse = ReportInstanceStatusResponse'

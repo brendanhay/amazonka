@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.EC2.DeleteVolume
     , deleteVolumeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteVolume' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'dv2DryRun'
 --
 -- * 'dv2VolumeId'
-data DeleteVolume = DeleteVolume'{_dv2DryRun :: Maybe Bool, _dv2VolumeId :: Text} deriving (Eq, Read, Show)
+data DeleteVolume = DeleteVolume'
+    { _dv2DryRun   :: Maybe Bool
+    , _dv2VolumeId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVolume' smart constructor.
 deleteVolume :: Text -> DeleteVolume
-deleteVolume pVolumeId = DeleteVolume'{_dv2DryRun = Nothing, _dv2VolumeId = pVolumeId};
+deleteVolume pVolumeId =
+    DeleteVolume'
+    { _dv2DryRun = Nothing
+    , _dv2VolumeId = pVolumeId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -89,8 +96,10 @@ instance ToQuery DeleteVolume where
                "DryRun" =: _dv2DryRun, "VolumeId" =: _dv2VolumeId]
 
 -- | /See:/ 'deleteVolumeResponse' smart constructor.
-data DeleteVolumeResponse = DeleteVolumeResponse' deriving (Eq, Read, Show)
+data DeleteVolumeResponse =
+    DeleteVolumeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteVolumeResponse' smart constructor.
 deleteVolumeResponse :: DeleteVolumeResponse
-deleteVolumeResponse = DeleteVolumeResponse';
+deleteVolumeResponse = DeleteVolumeResponse'

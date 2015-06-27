@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.AttachVPNGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.EC2.AttachVPNGateway
     , attachVPNGatewayResponse
     -- ** Response lenses
     , avgrVPCAttachment
-    , avgrStatusCode
+    , avgrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachVPNGateway' smart constructor.
 --
@@ -53,11 +53,20 @@ import Network.AWS.Response
 -- * 'avgVPNGatewayId'
 --
 -- * 'avgVPCId'
-data AttachVPNGateway = AttachVPNGateway'{_avgDryRun :: Maybe Bool, _avgVPNGatewayId :: Text, _avgVPCId :: Text} deriving (Eq, Read, Show)
+data AttachVPNGateway = AttachVPNGateway'
+    { _avgDryRun       :: Maybe Bool
+    , _avgVPNGatewayId :: Text
+    , _avgVPCId        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachVPNGateway' smart constructor.
 attachVPNGateway :: Text -> Text -> AttachVPNGateway
-attachVPNGateway pVPNGatewayId pVPCId = AttachVPNGateway'{_avgDryRun = Nothing, _avgVPNGatewayId = pVPNGatewayId, _avgVPCId = pVPCId};
+attachVPNGateway pVPNGatewayId pVPCId =
+    AttachVPNGateway'
+    { _avgDryRun = Nothing
+    , _avgVPNGatewayId = pVPNGatewayId
+    , _avgVPCId = pVPCId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -105,17 +114,24 @@ instance ToQuery AttachVPNGateway where
 --
 -- * 'avgrVPCAttachment'
 --
--- * 'avgrStatusCode'
-data AttachVPNGatewayResponse = AttachVPNGatewayResponse'{_avgrVPCAttachment :: Maybe VPCAttachment, _avgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'avgrStatus'
+data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
+    { _avgrVPCAttachment :: Maybe VPCAttachment
+    , _avgrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachVPNGatewayResponse' smart constructor.
 attachVPNGatewayResponse :: Int -> AttachVPNGatewayResponse
-attachVPNGatewayResponse pStatusCode = AttachVPNGatewayResponse'{_avgrVPCAttachment = Nothing, _avgrStatusCode = pStatusCode};
+attachVPNGatewayResponse pStatus =
+    AttachVPNGatewayResponse'
+    { _avgrVPCAttachment = Nothing
+    , _avgrStatus = pStatus
+    }
 
 -- | Information about the attachment.
 avgrVPCAttachment :: Lens' AttachVPNGatewayResponse (Maybe VPCAttachment)
 avgrVPCAttachment = lens _avgrVPCAttachment (\ s a -> s{_avgrVPCAttachment = a});
 
 -- | FIXME: Undocumented member.
-avgrStatusCode :: Lens' AttachVPNGatewayResponse Int
-avgrStatusCode = lens _avgrStatusCode (\ s a -> s{_avgrStatusCode = a});
+avgrStatus :: Lens' AttachVPNGatewayResponse Int
+avgrStatus = lens _avgrStatus (\ s a -> s{_avgrStatus = a});

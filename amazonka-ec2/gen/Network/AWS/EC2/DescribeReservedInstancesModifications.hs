@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesModifications
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,14 +42,14 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     -- ** Response lenses
     , drimrNextToken
     , drimrReservedInstancesModifications
-    , drimrStatusCode
+    , drimrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeReservedInstancesModifications' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'drimReservedInstancesModificationIds'
 --
 -- * 'drimNextToken'
-data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'{_drimFilters :: Maybe [Filter], _drimReservedInstancesModificationIds :: Maybe [Text], _drimNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'
+    { _drimFilters                          :: Maybe [Filter]
+    , _drimReservedInstancesModificationIds :: Maybe [Text]
+    , _drimNextToken                        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedInstancesModifications' smart constructor.
 describeReservedInstancesModifications :: DescribeReservedInstancesModifications
-describeReservedInstancesModifications = DescribeReservedInstancesModifications'{_drimFilters = Nothing, _drimReservedInstancesModificationIds = Nothing, _drimNextToken = Nothing};
+describeReservedInstancesModifications =
+    DescribeReservedInstancesModifications'
+    { _drimFilters = Nothing
+    , _drimReservedInstancesModificationIds = Nothing
+    , _drimNextToken = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -167,12 +176,21 @@ instance ToQuery
 --
 -- * 'drimrReservedInstancesModifications'
 --
--- * 'drimrStatusCode'
-data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'{_drimrNextToken :: Maybe Text, _drimrReservedInstancesModifications :: Maybe [ReservedInstancesModification], _drimrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'drimrStatus'
+data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'
+    { _drimrNextToken                      :: Maybe Text
+    , _drimrReservedInstancesModifications :: Maybe [ReservedInstancesModification]
+    , _drimrStatus                         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedInstancesModificationsResponse' smart constructor.
 describeReservedInstancesModificationsResponse :: Int -> DescribeReservedInstancesModificationsResponse
-describeReservedInstancesModificationsResponse pStatusCode = DescribeReservedInstancesModificationsResponse'{_drimrNextToken = Nothing, _drimrReservedInstancesModifications = Nothing, _drimrStatusCode = pStatusCode};
+describeReservedInstancesModificationsResponse pStatus =
+    DescribeReservedInstancesModificationsResponse'
+    { _drimrNextToken = Nothing
+    , _drimrReservedInstancesModifications = Nothing
+    , _drimrStatus = pStatus
+    }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -184,5 +202,5 @@ drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificati
 drimrReservedInstancesModifications = lens _drimrReservedInstancesModifications (\ s a -> s{_drimrReservedInstancesModifications = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drimrStatusCode :: Lens' DescribeReservedInstancesModificationsResponse Int
-drimrStatusCode = lens _drimrStatusCode (\ s a -> s{_drimrStatusCode = a});
+drimrStatus :: Lens' DescribeReservedInstancesModificationsResponse Int
+drimrStatus = lens _drimrStatus (\ s a -> s{_drimrStatus = a});

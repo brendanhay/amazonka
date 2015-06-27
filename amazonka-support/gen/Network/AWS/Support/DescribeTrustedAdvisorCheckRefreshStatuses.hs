@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,24 +34,29 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     , describeTrustedAdvisorCheckRefreshStatusesResponse
     -- ** Response lenses
     , dtacrsrStatuses
-    , dtacrsrStatusCode
+    , dtacrsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Support.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
 
 -- | /See:/ 'describeTrustedAdvisorCheckRefreshStatuses' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtacrsCheckIds'
-newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses'{_dtacrsCheckIds :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses'
+    { _dtacrsCheckIds :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTrustedAdvisorCheckRefreshStatuses' smart constructor.
 describeTrustedAdvisorCheckRefreshStatuses :: DescribeTrustedAdvisorCheckRefreshStatuses
-describeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses'{_dtacrsCheckIds = mempty};
+describeTrustedAdvisorCheckRefreshStatuses =
+    DescribeTrustedAdvisorCheckRefreshStatuses'
+    { _dtacrsCheckIds = mempty
+    }
 
 -- | The IDs of the Trusted Advisor checks.
 dtacrsCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
@@ -106,17 +111,24 @@ instance ToQuery
 --
 -- * 'dtacrsrStatuses'
 --
--- * 'dtacrsrStatusCode'
-data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'{_dtacrsrStatuses :: [TrustedAdvisorCheckRefreshStatus], _dtacrsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtacrsrStatus'
+data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'
+    { _dtacrsrStatuses :: [TrustedAdvisorCheckRefreshStatus]
+    , _dtacrsrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
 describeTrustedAdvisorCheckRefreshStatusesResponse :: Int -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
-describeTrustedAdvisorCheckRefreshStatusesResponse pStatusCode = DescribeTrustedAdvisorCheckRefreshStatusesResponse'{_dtacrsrStatuses = mempty, _dtacrsrStatusCode = pStatusCode};
+describeTrustedAdvisorCheckRefreshStatusesResponse pStatus =
+    DescribeTrustedAdvisorCheckRefreshStatusesResponse'
+    { _dtacrsrStatuses = mempty
+    , _dtacrsrStatus = pStatus
+    }
 
 -- | The refresh status of the specified Trusted Advisor checks.
 dtacrsrStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
 dtacrsrStatuses = lens _dtacrsrStatuses (\ s a -> s{_dtacrsrStatuses = a});
 
 -- | FIXME: Undocumented member.
-dtacrsrStatusCode :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Int
-dtacrsrStatusCode = lens _dtacrsrStatusCode (\ s a -> s{_dtacrsrStatusCode = a});
+dtacrsrStatus :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Int
+dtacrsrStatus = lens _dtacrsrStatus (\ s a -> s{_dtacrsrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.PollForActivityTask
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,13 +71,13 @@ module Network.AWS.SWF.PollForActivityTask
     , pfatrStartedEventId
     , pfatrWorkflowExecution
     , pfatrActivityType
-    , pfatrStatusCode
+    , pfatrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'pollForActivityTask' smart constructor.
 --
@@ -88,11 +88,20 @@ import Network.AWS.SWF.Types
 -- * 'pfatDomain'
 --
 -- * 'pfatTaskList'
-data PollForActivityTask = PollForActivityTask'{_pfatIdentity :: Maybe Text, _pfatDomain :: Text, _pfatTaskList :: TaskList} deriving (Eq, Read, Show)
+data PollForActivityTask = PollForActivityTask'
+    { _pfatIdentity :: Maybe Text
+    , _pfatDomain   :: Text
+    , _pfatTaskList :: TaskList
+    } deriving (Eq,Read,Show)
 
 -- | 'PollForActivityTask' smart constructor.
 pollForActivityTask :: Text -> TaskList -> PollForActivityTask
-pollForActivityTask pDomain pTaskList = PollForActivityTask'{_pfatIdentity = Nothing, _pfatDomain = pDomain, _pfatTaskList = pTaskList};
+pollForActivityTask pDomain pTaskList =
+    PollForActivityTask'
+    { _pfatIdentity = Nothing
+    , _pfatDomain = pDomain
+    , _pfatTaskList = pTaskList
+    }
 
 -- | Identity of the worker making the request, recorded in the
 -- @ActivityTaskStarted@ event in the workflow history. This enables
@@ -170,12 +179,29 @@ instance ToQuery PollForActivityTask where
 --
 -- * 'pfatrActivityType'
 --
--- * 'pfatrStatusCode'
-data PollForActivityTaskResponse = PollForActivityTaskResponse'{_pfatrInput :: Maybe Text, _pfatrTaskToken :: Text, _pfatrActivityId :: Text, _pfatrStartedEventId :: Integer, _pfatrWorkflowExecution :: WorkflowExecution, _pfatrActivityType :: ActivityType, _pfatrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'pfatrStatus'
+data PollForActivityTaskResponse = PollForActivityTaskResponse'
+    { _pfatrInput             :: Maybe Text
+    , _pfatrTaskToken         :: Text
+    , _pfatrActivityId        :: Text
+    , _pfatrStartedEventId    :: !Integer
+    , _pfatrWorkflowExecution :: WorkflowExecution
+    , _pfatrActivityType      :: ActivityType
+    , _pfatrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PollForActivityTaskResponse' smart constructor.
 pollForActivityTaskResponse :: Text -> Text -> Integer -> WorkflowExecution -> ActivityType -> Int -> PollForActivityTaskResponse
-pollForActivityTaskResponse pTaskToken pActivityId pStartedEventId pWorkflowExecution pActivityType pStatusCode = PollForActivityTaskResponse'{_pfatrInput = Nothing, _pfatrTaskToken = pTaskToken, _pfatrActivityId = pActivityId, _pfatrStartedEventId = pStartedEventId, _pfatrWorkflowExecution = pWorkflowExecution, _pfatrActivityType = pActivityType, _pfatrStatusCode = pStatusCode};
+pollForActivityTaskResponse pTaskToken pActivityId pStartedEventId pWorkflowExecution pActivityType pStatus =
+    PollForActivityTaskResponse'
+    { _pfatrInput = Nothing
+    , _pfatrTaskToken = pTaskToken
+    , _pfatrActivityId = pActivityId
+    , _pfatrStartedEventId = pStartedEventId
+    , _pfatrWorkflowExecution = pWorkflowExecution
+    , _pfatrActivityType = pActivityType
+    , _pfatrStatus = pStatus
+    }
 
 -- | The inputs provided when the activity task was scheduled. The form of
 -- the input is user defined and should be meaningful to the activity
@@ -206,5 +232,5 @@ pfatrActivityType :: Lens' PollForActivityTaskResponse ActivityType
 pfatrActivityType = lens _pfatrActivityType (\ s a -> s{_pfatrActivityType = a});
 
 -- | FIXME: Undocumented member.
-pfatrStatusCode :: Lens' PollForActivityTaskResponse Int
-pfatrStatusCode = lens _pfatrStatusCode (\ s a -> s{_pfatrStatusCode = a});
+pfatrStatus :: Lens' PollForActivityTaskResponse Int
+pfatrStatus = lens _pfatrStatus (\ s a -> s{_pfatrStatus = a});

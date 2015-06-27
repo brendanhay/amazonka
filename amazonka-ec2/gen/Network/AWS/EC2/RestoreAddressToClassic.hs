@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.RestoreAddressToClassic
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,15 +35,14 @@ module Network.AWS.EC2.RestoreAddressToClassic
     -- ** Response constructor
     , restoreAddressToClassicResponse
     -- ** Response lenses
-    , ratcrStatus
     , ratcrPublicIP
-    , ratcrStatusCode
+    , ratcrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'restoreAddressToClassic' smart constructor.
 --
@@ -52,11 +51,18 @@ import Network.AWS.Response
 -- * 'ratcDryRun'
 --
 -- * 'ratcPublicIP'
-data RestoreAddressToClassic = RestoreAddressToClassic'{_ratcDryRun :: Maybe Bool, _ratcPublicIP :: Text} deriving (Eq, Read, Show)
+data RestoreAddressToClassic = RestoreAddressToClassic'
+    { _ratcDryRun   :: Maybe Bool
+    , _ratcPublicIP :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RestoreAddressToClassic' smart constructor.
 restoreAddressToClassic :: Text -> RestoreAddressToClassic
-restoreAddressToClassic pPublicIP = RestoreAddressToClassic'{_ratcDryRun = Nothing, _ratcPublicIP = pPublicIP};
+restoreAddressToClassic pPublicIP =
+    RestoreAddressToClassic'
+    { _ratcDryRun = Nothing
+    , _ratcPublicIP = pPublicIP
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -78,8 +84,7 @@ instance AWSRequest RestoreAddressToClassic where
           = receiveXML
               (\ s h x ->
                  RestoreAddressToClassicResponse' <$>
-                   (x .@? "status") <*> (x .@? "publicIp") <*>
-                     (pure (fromEnum s)))
+                   (x .@? "publicIp") <*> (pure (fromEnum s)))
 
 instance ToHeaders RestoreAddressToClassic where
         toHeaders = const mempty
@@ -99,25 +104,26 @@ instance ToQuery RestoreAddressToClassic where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ratcrStatus'
---
 -- * 'ratcrPublicIP'
 --
--- * 'ratcrStatusCode'
-data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'{_ratcrStatus :: Maybe AddressStatus, _ratcrPublicIP :: Maybe Text, _ratcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ratcrStatus'
+data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
+    { _ratcrPublicIP :: Maybe Text
+    , _ratcrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RestoreAddressToClassicResponse' smart constructor.
 restoreAddressToClassicResponse :: Int -> RestoreAddressToClassicResponse
-restoreAddressToClassicResponse pStatusCode = RestoreAddressToClassicResponse'{_ratcrStatus = Nothing, _ratcrPublicIP = Nothing, _ratcrStatusCode = pStatusCode};
-
--- | The move status for the IP address.
-ratcrStatus :: Lens' RestoreAddressToClassicResponse (Maybe AddressStatus)
-ratcrStatus = lens _ratcrStatus (\ s a -> s{_ratcrStatus = a});
+restoreAddressToClassicResponse pStatus =
+    RestoreAddressToClassicResponse'
+    { _ratcrPublicIP = Nothing
+    , _ratcrStatus = pStatus
+    }
 
 -- | The Elastic IP address.
 ratcrPublicIP :: Lens' RestoreAddressToClassicResponse (Maybe Text)
 ratcrPublicIP = lens _ratcrPublicIP (\ s a -> s{_ratcrPublicIP = a});
 
 -- | FIXME: Undocumented member.
-ratcrStatusCode :: Lens' RestoreAddressToClassicResponse Int
-ratcrStatusCode = lens _ratcrStatusCode (\ s a -> s{_ratcrStatusCode = a});
+ratcrStatus :: Lens' RestoreAddressToClassicResponse Int
+ratcrStatus = lens _ratcrStatus (\ s a -> s{_ratcrStatus = a});

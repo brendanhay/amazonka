@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.CreatePublicVirtualInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,10 +52,10 @@ module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     , viVirtualInterfaceId
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the CreatePublicVirtualInterface
 -- operation.
@@ -67,11 +67,18 @@ import Network.AWS.Response
 -- * 'cpviConnectionId'
 --
 -- * 'cpviNewPublicVirtualInterface'
-data CreatePublicVirtualInterface = CreatePublicVirtualInterface'{_cpviConnectionId :: Text, _cpviNewPublicVirtualInterface :: NewPublicVirtualInterface} deriving (Eq, Read, Show)
+data CreatePublicVirtualInterface = CreatePublicVirtualInterface'
+    { _cpviConnectionId              :: Text
+    , _cpviNewPublicVirtualInterface :: NewPublicVirtualInterface
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePublicVirtualInterface' smart constructor.
 createPublicVirtualInterface :: Text -> NewPublicVirtualInterface -> CreatePublicVirtualInterface
-createPublicVirtualInterface pConnectionId pNewPublicVirtualInterface = CreatePublicVirtualInterface'{_cpviConnectionId = pConnectionId, _cpviNewPublicVirtualInterface = pNewPublicVirtualInterface};
+createPublicVirtualInterface pConnectionId pNewPublicVirtualInterface =
+    CreatePublicVirtualInterface'
+    { _cpviConnectionId = pConnectionId
+    , _cpviNewPublicVirtualInterface = pNewPublicVirtualInterface
+    }
 
 -- | FIXME: Undocumented member.
 cpviConnectionId :: Lens' CreatePublicVirtualInterface Text

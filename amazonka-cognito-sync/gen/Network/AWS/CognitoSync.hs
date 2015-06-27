@@ -38,22 +38,22 @@ module Network.AWS.CognitoSync
     ( module Export
     ) where
 
-import Network.AWS.CognitoSync.BulkPublish as Export
-import Network.AWS.CognitoSync.DeleteDataset as Export
-import Network.AWS.CognitoSync.DescribeDataset as Export
-import Network.AWS.CognitoSync.DescribeIdentityPoolUsage as Export
-import Network.AWS.CognitoSync.DescribeIdentityUsage as Export
-import Network.AWS.CognitoSync.GetBulkPublishDetails as Export
-import Network.AWS.CognitoSync.GetCognitoEvents as Export
-import Network.AWS.CognitoSync.GetIdentityPoolConfiguration as Export
-import Network.AWS.CognitoSync.ListDatasets as Export
-import Network.AWS.CognitoSync.ListIdentityPoolUsage as Export
-import Network.AWS.CognitoSync.ListRecords as Export
-import Network.AWS.CognitoSync.RegisterDevice as Export
-import Network.AWS.CognitoSync.SetCognitoEvents as Export
-import Network.AWS.CognitoSync.SetIdentityPoolConfiguration as Export
-import Network.AWS.CognitoSync.SubscribeToDataset as Export
-import Network.AWS.CognitoSync.Types as Export
-import Network.AWS.CognitoSync.UnsubscribeFromDataset as Export
-import Network.AWS.CognitoSync.UpdateRecords as Export
-import Network.AWS.CognitoSync.Waiters as Export
+import           Network.AWS.CognitoSync.BulkPublish                  as Export
+import           Network.AWS.CognitoSync.DeleteDataset                as Export
+import           Network.AWS.CognitoSync.DescribeDataset              as Export
+import           Network.AWS.CognitoSync.DescribeIdentityPoolUsage    as Export
+import           Network.AWS.CognitoSync.DescribeIdentityUsage        as Export
+import           Network.AWS.CognitoSync.GetBulkPublishDetails        as Export
+import           Network.AWS.CognitoSync.GetCognitoEvents             as Export
+import           Network.AWS.CognitoSync.GetIdentityPoolConfiguration as Export
+import           Network.AWS.CognitoSync.ListDatasets                 as Export
+import           Network.AWS.CognitoSync.ListIdentityPoolUsage        as Export
+import           Network.AWS.CognitoSync.ListRecords                  as Export
+import           Network.AWS.CognitoSync.RegisterDevice               as Export
+import           Network.AWS.CognitoSync.SetCognitoEvents             as Export
+import           Network.AWS.CognitoSync.SetIdentityPoolConfiguration as Export
+import           Network.AWS.CognitoSync.SubscribeToDataset           as Export
+import           Network.AWS.CognitoSync.Types                        as Export
+import           Network.AWS.CognitoSync.UnsubscribeFromDataset       as Export
+import           Network.AWS.CognitoSync.UpdateRecords                as Export
+import           Network.AWS.CognitoSync.Waiters                      as Export

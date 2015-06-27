@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.UpdateLoginProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.IAM.UpdateLoginProfile
     , updateLoginProfileResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateLoginProfile' smart constructor.
 --
@@ -53,11 +53,20 @@ import Network.AWS.Response
 -- * 'ulpPasswordResetRequired'
 --
 -- * 'ulpUserName'
-data UpdateLoginProfile = UpdateLoginProfile'{_ulpPassword :: Maybe (Sensitive Text), _ulpPasswordResetRequired :: Maybe Bool, _ulpUserName :: Text} deriving (Eq, Read, Show)
+data UpdateLoginProfile = UpdateLoginProfile'
+    { _ulpPassword              :: Maybe (Sensitive Text)
+    , _ulpPasswordResetRequired :: Maybe Bool
+    , _ulpUserName              :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateLoginProfile' smart constructor.
 updateLoginProfile :: Text -> UpdateLoginProfile
-updateLoginProfile pUserName = UpdateLoginProfile'{_ulpPassword = Nothing, _ulpPasswordResetRequired = Nothing, _ulpUserName = pUserName};
+updateLoginProfile pUserName =
+    UpdateLoginProfile'
+    { _ulpPassword = Nothing
+    , _ulpPasswordResetRequired = Nothing
+    , _ulpUserName = pUserName
+    }
 
 -- | The new password for the specified user.
 ulpPassword :: Lens' UpdateLoginProfile (Maybe Text)
@@ -94,8 +103,10 @@ instance ToQuery UpdateLoginProfile where
                "UserName" =: _ulpUserName]
 
 -- | /See:/ 'updateLoginProfileResponse' smart constructor.
-data UpdateLoginProfileResponse = UpdateLoginProfileResponse' deriving (Eq, Read, Show)
+data UpdateLoginProfileResponse =
+    UpdateLoginProfileResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateLoginProfileResponse' smart constructor.
 updateLoginProfileResponse :: UpdateLoginProfileResponse
-updateLoginProfileResponse = UpdateLoginProfileResponse';
+updateLoginProfileResponse = UpdateLoginProfileResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateDHCPOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,13 +71,13 @@ module Network.AWS.EC2.CreateDHCPOptions
     , createDHCPOptionsResponse
     -- ** Response lenses
     , cdorDHCPOptions
-    , cdorStatusCode
+    , cdorStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createDHCPOptions' smart constructor.
 --
@@ -86,11 +86,18 @@ import Network.AWS.Response
 -- * 'cdoDryRun'
 --
 -- * 'cdoDHCPConfigurations'
-data CreateDHCPOptions = CreateDHCPOptions'{_cdoDryRun :: Maybe Bool, _cdoDHCPConfigurations :: [NewDHCPConfiguration]} deriving (Eq, Read, Show)
+data CreateDHCPOptions = CreateDHCPOptions'
+    { _cdoDryRun             :: Maybe Bool
+    , _cdoDHCPConfigurations :: [NewDHCPConfiguration]
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDHCPOptions' smart constructor.
 createDHCPOptions :: CreateDHCPOptions
-createDHCPOptions = CreateDHCPOptions'{_cdoDryRun = Nothing, _cdoDHCPConfigurations = mempty};
+createDHCPOptions =
+    CreateDHCPOptions'
+    { _cdoDryRun = Nothing
+    , _cdoDHCPConfigurations = mempty
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -133,17 +140,24 @@ instance ToQuery CreateDHCPOptions where
 --
 -- * 'cdorDHCPOptions'
 --
--- * 'cdorStatusCode'
-data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'{_cdorDHCPOptions :: Maybe DHCPOptions, _cdorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdorStatus'
+data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'
+    { _cdorDHCPOptions :: Maybe DHCPOptions
+    , _cdorStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDHCPOptionsResponse' smart constructor.
 createDHCPOptionsResponse :: Int -> CreateDHCPOptionsResponse
-createDHCPOptionsResponse pStatusCode = CreateDHCPOptionsResponse'{_cdorDHCPOptions = Nothing, _cdorStatusCode = pStatusCode};
+createDHCPOptionsResponse pStatus =
+    CreateDHCPOptionsResponse'
+    { _cdorDHCPOptions = Nothing
+    , _cdorStatus = pStatus
+    }
 
 -- | A set of DHCP options.
 cdorDHCPOptions :: Lens' CreateDHCPOptionsResponse (Maybe DHCPOptions)
 cdorDHCPOptions = lens _cdorDHCPOptions (\ s a -> s{_cdorDHCPOptions = a});
 
 -- | FIXME: Undocumented member.
-cdorStatusCode :: Lens' CreateDHCPOptionsResponse Int
-cdorStatusCode = lens _cdorStatusCode (\ s a -> s{_cdorStatusCode = a});
+cdorStatus :: Lens' CreateDHCPOptionsResponse Int
+cdorStatus = lens _cdorStatus (\ s a -> s{_cdorStatus = a});

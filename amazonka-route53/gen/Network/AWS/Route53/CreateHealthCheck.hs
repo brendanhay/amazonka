@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.CreateHealthCheck
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.Route53.CreateHealthCheck
     -- ** Response lenses
     , chcrHealthCheck
     , chcrLocation
-    , chcrStatusCode
+    , chcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | >A complex type that contains information about the request to create a
 -- health check.
@@ -58,11 +58,18 @@ import Network.AWS.Route53.Types
 -- * 'chcCallerReference'
 --
 -- * 'chcHealthCheckConfig'
-data CreateHealthCheck = CreateHealthCheck'{_chcCallerReference :: Text, _chcHealthCheckConfig :: HealthCheckConfig} deriving (Eq, Read, Show)
+data CreateHealthCheck = CreateHealthCheck'
+    { _chcCallerReference   :: Text
+    , _chcHealthCheckConfig :: HealthCheckConfig
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateHealthCheck' smart constructor.
 createHealthCheck :: Text -> HealthCheckConfig -> CreateHealthCheck
-createHealthCheck pCallerReference pHealthCheckConfig = CreateHealthCheck'{_chcCallerReference = pCallerReference, _chcHealthCheckConfig = pHealthCheckConfig};
+createHealthCheck pCallerReference pHealthCheckConfig =
+    CreateHealthCheck'
+    { _chcCallerReference = pCallerReference
+    , _chcHealthCheckConfig = pHealthCheckConfig
+    }
 
 -- | A unique string that identifies the request and that allows failed
 -- @CreateHealthCheck@ requests to be retried without the risk of executing
@@ -123,12 +130,21 @@ instance ToXML CreateHealthCheck where
 --
 -- * 'chcrLocation'
 --
--- * 'chcrStatusCode'
-data CreateHealthCheckResponse = CreateHealthCheckResponse'{_chcrHealthCheck :: HealthCheck, _chcrLocation :: Text, _chcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'chcrStatus'
+data CreateHealthCheckResponse = CreateHealthCheckResponse'
+    { _chcrHealthCheck :: HealthCheck
+    , _chcrLocation    :: Text
+    , _chcrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateHealthCheckResponse' smart constructor.
 createHealthCheckResponse :: HealthCheck -> Text -> Int -> CreateHealthCheckResponse
-createHealthCheckResponse pHealthCheck pLocation pStatusCode = CreateHealthCheckResponse'{_chcrHealthCheck = pHealthCheck, _chcrLocation = pLocation, _chcrStatusCode = pStatusCode};
+createHealthCheckResponse pHealthCheck pLocation pStatus =
+    CreateHealthCheckResponse'
+    { _chcrHealthCheck = pHealthCheck
+    , _chcrLocation = pLocation
+    , _chcrStatus = pStatus
+    }
 
 -- | A complex type that contains identifying information about the health
 -- check.
@@ -140,5 +156,5 @@ chcrLocation :: Lens' CreateHealthCheckResponse Text
 chcrLocation = lens _chcrLocation (\ s a -> s{_chcrLocation = a});
 
 -- | FIXME: Undocumented member.
-chcrStatusCode :: Lens' CreateHealthCheckResponse Int
-chcrStatusCode = lens _chcrStatusCode (\ s a -> s{_chcrStatusCode = a});
+chcrStatus :: Lens' CreateHealthCheckResponse Int
+chcrStatus = lens _chcrStatus (\ s a -> s{_chcrStatus = a});

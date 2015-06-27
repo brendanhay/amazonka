@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.SetIdentityPoolRoles
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
     , setIdentityPoolRolesResponse
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the @SetIdentityPoolRoles@ action.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'siprIdentityPoolId'
 --
 -- * 'siprRoles'
-data SetIdentityPoolRoles = SetIdentityPoolRoles'{_siprIdentityPoolId :: Text, _siprRoles :: Map Text Text} deriving (Eq, Read, Show)
+data SetIdentityPoolRoles = SetIdentityPoolRoles'
+    { _siprIdentityPoolId :: Text
+    , _siprRoles          :: Map Text Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetIdentityPoolRoles' smart constructor.
 setIdentityPoolRoles :: Text -> SetIdentityPoolRoles
-setIdentityPoolRoles pIdentityPoolId = SetIdentityPoolRoles'{_siprIdentityPoolId = pIdentityPoolId, _siprRoles = mempty};
+setIdentityPoolRoles pIdentityPoolId =
+    SetIdentityPoolRoles'
+    { _siprIdentityPoolId = pIdentityPoolId
+    , _siprRoles = mempty
+    }
 
 -- | An identity pool ID in the format REGION:GUID.
 siprIdentityPoolId :: Lens' SetIdentityPoolRoles Text
@@ -96,8 +103,10 @@ instance ToQuery SetIdentityPoolRoles where
         toQuery = const mempty
 
 -- | /See:/ 'setIdentityPoolRolesResponse' smart constructor.
-data SetIdentityPoolRolesResponse = SetIdentityPoolRolesResponse' deriving (Eq, Read, Show)
+data SetIdentityPoolRolesResponse =
+    SetIdentityPoolRolesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetIdentityPoolRolesResponse' smart constructor.
 setIdentityPoolRolesResponse :: SetIdentityPoolRolesResponse
-setIdentityPoolRolesResponse = SetIdentityPoolRolesResponse';
+setIdentityPoolRolesResponse = SetIdentityPoolRolesResponse'

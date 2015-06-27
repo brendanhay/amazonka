@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeNetworkInterfaceAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     , dniarNetworkInterfaceId
     , dniarAttachment
     , dniarDescription
-    , dniarStatusCode
+    , dniarStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeNetworkInterfaceAttribute' smart constructor.
 --
@@ -56,11 +56,20 @@ import Network.AWS.Response
 -- * 'dniaDryRun'
 --
 -- * 'dniaNetworkInterfaceId'
-data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'{_dniaAttribute :: Maybe NetworkInterfaceAttribute, _dniaDryRun :: Maybe Bool, _dniaNetworkInterfaceId :: Text} deriving (Eq, Read, Show)
+data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'
+    { _dniaAttribute          :: Maybe NetworkInterfaceAttribute
+    , _dniaDryRun             :: Maybe Bool
+    , _dniaNetworkInterfaceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeNetworkInterfaceAttribute' smart constructor.
 describeNetworkInterfaceAttribute :: Text -> DescribeNetworkInterfaceAttribute
-describeNetworkInterfaceAttribute pNetworkInterfaceId = DescribeNetworkInterfaceAttribute'{_dniaAttribute = Nothing, _dniaDryRun = Nothing, _dniaNetworkInterfaceId = pNetworkInterfaceId};
+describeNetworkInterfaceAttribute pNetworkInterfaceId =
+    DescribeNetworkInterfaceAttribute'
+    { _dniaAttribute = Nothing
+    , _dniaDryRun = Nothing
+    , _dniaNetworkInterfaceId = pNetworkInterfaceId
+    }
 
 -- | The attribute of the network interface.
 dniaAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
@@ -127,12 +136,27 @@ instance ToQuery DescribeNetworkInterfaceAttribute
 --
 -- * 'dniarDescription'
 --
--- * 'dniarStatusCode'
-data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'{_dniarGroups :: Maybe [GroupIdentifier], _dniarSourceDestCheck :: Maybe AttributeBooleanValue, _dniarNetworkInterfaceId :: Maybe Text, _dniarAttachment :: Maybe NetworkInterfaceAttachment, _dniarDescription :: Maybe AttributeValue, _dniarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dniarStatus'
+data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'
+    { _dniarGroups             :: Maybe [GroupIdentifier]
+    , _dniarSourceDestCheck    :: Maybe AttributeBooleanValue
+    , _dniarNetworkInterfaceId :: Maybe Text
+    , _dniarAttachment         :: Maybe NetworkInterfaceAttachment
+    , _dniarDescription        :: Maybe AttributeValue
+    , _dniarStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeNetworkInterfaceAttributeResponse' smart constructor.
 describeNetworkInterfaceAttributeResponse :: Int -> DescribeNetworkInterfaceAttributeResponse
-describeNetworkInterfaceAttributeResponse pStatusCode = DescribeNetworkInterfaceAttributeResponse'{_dniarGroups = Nothing, _dniarSourceDestCheck = Nothing, _dniarNetworkInterfaceId = Nothing, _dniarAttachment = Nothing, _dniarDescription = Nothing, _dniarStatusCode = pStatusCode};
+describeNetworkInterfaceAttributeResponse pStatus =
+    DescribeNetworkInterfaceAttributeResponse'
+    { _dniarGroups = Nothing
+    , _dniarSourceDestCheck = Nothing
+    , _dniarNetworkInterfaceId = Nothing
+    , _dniarAttachment = Nothing
+    , _dniarDescription = Nothing
+    , _dniarStatus = pStatus
+    }
 
 -- | The security groups associated with the network interface.
 dniarGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
@@ -155,5 +179,5 @@ dniarDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Attri
 dniarDescription = lens _dniarDescription (\ s a -> s{_dniarDescription = a});
 
 -- | FIXME: Undocumented member.
-dniarStatusCode :: Lens' DescribeNetworkInterfaceAttributeResponse Int
-dniarStatusCode = lens _dniarStatusCode (\ s a -> s{_dniarStatusCode = a});
+dniarStatus :: Lens' DescribeNetworkInterfaceAttributeResponse Int
+dniarStatus = lens _dniarStatus (\ s a -> s{_dniarStatus = a});

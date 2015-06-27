@@ -15,6 +15,6 @@
 
 module Network.AWS.SWF.Waiters where
 
-import Network.AWS.Prelude
-import Network.AWS.SWF.Types
-import Network.AWS.Waiter
+import           Network.AWS.Prelude
+import           Network.AWS.SWF.Types
+import           Network.AWS.Waiter

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateVPC
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,13 +46,13 @@ module Network.AWS.EC2.CreateVPC
     , createVPCResponse
     -- ** Response lenses
     , cvrVPC
-    , cvrStatusCode
+    , cvrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createVPC' smart constructor.
 --
@@ -63,11 +63,20 @@ import Network.AWS.Response
 -- * 'cvDryRun'
 --
 -- * 'cvCIDRBlock'
-data CreateVPC = CreateVPC'{_cvInstanceTenancy :: Maybe Tenancy, _cvDryRun :: Maybe Bool, _cvCIDRBlock :: Text} deriving (Eq, Read, Show)
+data CreateVPC = CreateVPC'
+    { _cvInstanceTenancy :: Maybe Tenancy
+    , _cvDryRun          :: Maybe Bool
+    , _cvCIDRBlock       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVPC' smart constructor.
 createVPC :: Text -> CreateVPC
-createVPC pCIDRBlock = CreateVPC'{_cvInstanceTenancy = Nothing, _cvDryRun = Nothing, _cvCIDRBlock = pCIDRBlock};
+createVPC pCIDRBlock =
+    CreateVPC'
+    { _cvInstanceTenancy = Nothing
+    , _cvDryRun = Nothing
+    , _cvCIDRBlock = pCIDRBlock
+    }
 
 -- | The supported tenancy options for instances launched into the VPC. A
 -- value of @default@ means that instances can be launched with any
@@ -122,17 +131,24 @@ instance ToQuery CreateVPC where
 --
 -- * 'cvrVPC'
 --
--- * 'cvrStatusCode'
-data CreateVPCResponse = CreateVPCResponse'{_cvrVPC :: Maybe VPC, _cvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cvrStatus'
+data CreateVPCResponse = CreateVPCResponse'
+    { _cvrVPC    :: Maybe VPC
+    , _cvrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVPCResponse' smart constructor.
 createVPCResponse :: Int -> CreateVPCResponse
-createVPCResponse pStatusCode = CreateVPCResponse'{_cvrVPC = Nothing, _cvrStatusCode = pStatusCode};
+createVPCResponse pStatus =
+    CreateVPCResponse'
+    { _cvrVPC = Nothing
+    , _cvrStatus = pStatus
+    }
 
 -- | Information about the VPC.
 cvrVPC :: Lens' CreateVPCResponse (Maybe VPC)
 cvrVPC = lens _cvrVPC (\ s a -> s{_cvrVPC = a});
 
 -- | FIXME: Undocumented member.
-cvrStatusCode :: Lens' CreateVPCResponse Int
-cvrStatusCode = lens _cvrStatusCode (\ s a -> s{_cvrStatusCode = a});
+cvrStatus :: Lens' CreateVPCResponse Int
+cvrStatus = lens _cvrStatus (\ s a -> s{_cvrStatus = a});

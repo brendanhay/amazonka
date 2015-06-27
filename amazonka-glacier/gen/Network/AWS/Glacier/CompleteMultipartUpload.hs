@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.CompleteMultipartUpload
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -86,10 +86,10 @@ module Network.AWS.Glacier.CompleteMultipartUpload
     , acoLocation
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options to complete a multipart upload operation. This informs
 -- Amazon Glacier that all the archive parts have been uploaded and Amazon
@@ -110,11 +110,24 @@ import Network.AWS.Response
 -- * 'cmuVaultName'
 --
 -- * 'cmuUploadId'
-data CompleteMultipartUpload = CompleteMultipartUpload'{_cmuChecksum :: Maybe Text, _cmuArchiveSize :: Maybe Text, _cmuAccountId :: Text, _cmuVaultName :: Text, _cmuUploadId :: Text} deriving (Eq, Read, Show)
+data CompleteMultipartUpload = CompleteMultipartUpload'
+    { _cmuChecksum    :: Maybe Text
+    , _cmuArchiveSize :: Maybe Text
+    , _cmuAccountId   :: Text
+    , _cmuVaultName   :: Text
+    , _cmuUploadId    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CompleteMultipartUpload' smart constructor.
 completeMultipartUpload :: Text -> Text -> Text -> CompleteMultipartUpload
-completeMultipartUpload pAccountId pVaultName pUploadId = CompleteMultipartUpload'{_cmuChecksum = Nothing, _cmuArchiveSize = Nothing, _cmuAccountId = pAccountId, _cmuVaultName = pVaultName, _cmuUploadId = pUploadId};
+completeMultipartUpload pAccountId pVaultName pUploadId =
+    CompleteMultipartUpload'
+    { _cmuChecksum = Nothing
+    , _cmuArchiveSize = Nothing
+    , _cmuAccountId = pAccountId
+    , _cmuVaultName = pVaultName
+    , _cmuUploadId = pUploadId
+    }
 
 -- | The SHA256 tree hash of the entire archive. It is the tree hash of
 -- SHA256 tree hash of the individual parts. If the value you specify in

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeInstanceStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,14 +61,14 @@ module Network.AWS.EC2.DescribeInstanceStatus
     -- ** Response lenses
     , disrInstanceStatuses
     , disrNextToken
-    , disrStatusCode
+    , disrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeInstanceStatus' smart constructor.
 --
@@ -85,11 +85,26 @@ import Network.AWS.Response
 -- * 'descDryRun'
 --
 -- * 'descMaxResults'
-data DescribeInstanceStatus = DescribeInstanceStatus'{_descIncludeAllInstances :: Maybe Bool, _descFilters :: Maybe [Filter], _descNextToken :: Maybe Text, _descInstanceIds :: Maybe [Text], _descDryRun :: Maybe Bool, _descMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeInstanceStatus = DescribeInstanceStatus'
+    { _descIncludeAllInstances :: Maybe Bool
+    , _descFilters             :: Maybe [Filter]
+    , _descNextToken           :: Maybe Text
+    , _descInstanceIds         :: Maybe [Text]
+    , _descDryRun              :: Maybe Bool
+    , _descMaxResults          :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstanceStatus' smart constructor.
 describeInstanceStatus :: DescribeInstanceStatus
-describeInstanceStatus = DescribeInstanceStatus'{_descIncludeAllInstances = Nothing, _descFilters = Nothing, _descNextToken = Nothing, _descInstanceIds = Nothing, _descDryRun = Nothing, _descMaxResults = Nothing};
+describeInstanceStatus =
+    DescribeInstanceStatus'
+    { _descIncludeAllInstances = Nothing
+    , _descFilters = Nothing
+    , _descNextToken = Nothing
+    , _descInstanceIds = Nothing
+    , _descDryRun = Nothing
+    , _descMaxResults = Nothing
+    }
 
 -- | When @true@, includes the health status for all instances. When @false@,
 -- includes the health status for running instances only.
@@ -218,12 +233,21 @@ instance ToQuery DescribeInstanceStatus where
 --
 -- * 'disrNextToken'
 --
--- * 'disrStatusCode'
-data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'{_disrInstanceStatuses :: Maybe [InstanceStatus], _disrNextToken :: Maybe Text, _disrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'disrStatus'
+data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
+    { _disrInstanceStatuses :: Maybe [InstanceStatus]
+    , _disrNextToken        :: Maybe Text
+    , _disrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstanceStatusResponse' smart constructor.
 describeInstanceStatusResponse :: Int -> DescribeInstanceStatusResponse
-describeInstanceStatusResponse pStatusCode = DescribeInstanceStatusResponse'{_disrInstanceStatuses = Nothing, _disrNextToken = Nothing, _disrStatusCode = pStatusCode};
+describeInstanceStatusResponse pStatus =
+    DescribeInstanceStatusResponse'
+    { _disrInstanceStatuses = Nothing
+    , _disrNextToken = Nothing
+    , _disrStatus = pStatus
+    }
 
 -- | One or more instance status descriptions.
 disrInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
@@ -235,5 +259,5 @@ disrNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
 disrNextToken = lens _disrNextToken (\ s a -> s{_disrNextToken = a});
 
 -- | FIXME: Undocumented member.
-disrStatusCode :: Lens' DescribeInstanceStatusResponse Int
-disrStatusCode = lens _disrStatusCode (\ s a -> s{_disrStatusCode = a});
+disrStatus :: Lens' DescribeInstanceStatusResponse Int
+disrStatus = lens _disrStatus (\ s a -> s{_disrStatus = a});

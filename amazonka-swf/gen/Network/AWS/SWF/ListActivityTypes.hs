@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.ListActivityTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,14 +61,14 @@ module Network.AWS.SWF.ListActivityTypes
     -- ** Response lenses
     , latrNextPageToken
     , latrTypeInfos
-    , latrStatusCode
+    , latrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'listActivityTypes' smart constructor.
 --
@@ -85,11 +85,26 @@ import Network.AWS.SWF.Types
 -- * 'latDomain'
 --
 -- * 'latRegistrationStatus'
-data ListActivityTypes = ListActivityTypes'{_latNextPageToken :: Maybe Text, _latReverseOrder :: Maybe Bool, _latName :: Maybe Text, _latMaximumPageSize :: Maybe Nat, _latDomain :: Text, _latRegistrationStatus :: RegistrationStatus} deriving (Eq, Read, Show)
+data ListActivityTypes = ListActivityTypes'
+    { _latNextPageToken      :: Maybe Text
+    , _latReverseOrder       :: Maybe Bool
+    , _latName               :: Maybe Text
+    , _latMaximumPageSize    :: Maybe Nat
+    , _latDomain             :: Text
+    , _latRegistrationStatus :: RegistrationStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'ListActivityTypes' smart constructor.
 listActivityTypes :: Text -> RegistrationStatus -> ListActivityTypes
-listActivityTypes pDomain pRegistrationStatus = ListActivityTypes'{_latNextPageToken = Nothing, _latReverseOrder = Nothing, _latName = Nothing, _latMaximumPageSize = Nothing, _latDomain = pDomain, _latRegistrationStatus = pRegistrationStatus};
+listActivityTypes pDomain pRegistrationStatus =
+    ListActivityTypes'
+    { _latNextPageToken = Nothing
+    , _latReverseOrder = Nothing
+    , _latName = Nothing
+    , _latMaximumPageSize = Nothing
+    , _latDomain = pDomain
+    , _latRegistrationStatus = pRegistrationStatus
+    }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -185,12 +200,21 @@ instance ToQuery ListActivityTypes where
 --
 -- * 'latrTypeInfos'
 --
--- * 'latrStatusCode'
-data ListActivityTypesResponse = ListActivityTypesResponse'{_latrNextPageToken :: Maybe Text, _latrTypeInfos :: [ActivityTypeInfo], _latrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'latrStatus'
+data ListActivityTypesResponse = ListActivityTypesResponse'
+    { _latrNextPageToken :: Maybe Text
+    , _latrTypeInfos     :: [ActivityTypeInfo]
+    , _latrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListActivityTypesResponse' smart constructor.
 listActivityTypesResponse :: Int -> ListActivityTypesResponse
-listActivityTypesResponse pStatusCode = ListActivityTypesResponse'{_latrNextPageToken = Nothing, _latrTypeInfos = mempty, _latrStatusCode = pStatusCode};
+listActivityTypesResponse pStatus =
+    ListActivityTypesResponse'
+    { _latrNextPageToken = Nothing
+    , _latrTypeInfos = mempty
+    , _latrStatus = pStatus
+    }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -207,5 +231,5 @@ latrTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]
 latrTypeInfos = lens _latrTypeInfos (\ s a -> s{_latrTypeInfos = a});
 
 -- | FIXME: Undocumented member.
-latrStatusCode :: Lens' ListActivityTypesResponse Int
-latrStatusCode = lens _latrStatusCode (\ s a -> s{_latrStatusCode = a});
+latrStatus :: Lens' ListActivityTypesResponse Int
+latrStatus = lens _latrStatus (\ s a -> s{_latrStatus = a});

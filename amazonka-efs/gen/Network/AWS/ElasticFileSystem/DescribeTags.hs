@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticFileSystem.DescribeTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.ElasticFileSystem.DescribeTags
     , dtrMarker
     , dtrNextMarker
     , dtrTags
-    , dtrStatusCode
+    , dtrStatus
     ) where
 
-import Network.AWS.ElasticFileSystem.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticFileSystem.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeTags' smart constructor.
 --
@@ -59,11 +59,20 @@ import Network.AWS.Response
 -- * 'dtMarker'
 --
 -- * 'dtFileSystemId'
-data DescribeTags = DescribeTags'{_dtMaxItems :: Maybe Nat, _dtMarker :: Maybe Text, _dtFileSystemId :: Text} deriving (Eq, Read, Show)
+data DescribeTags = DescribeTags'
+    { _dtMaxItems     :: Maybe Nat
+    , _dtMarker       :: Maybe Text
+    , _dtFileSystemId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: Text -> DescribeTags
-describeTags pFileSystemId = DescribeTags'{_dtMaxItems = Nothing, _dtMarker = Nothing, _dtFileSystemId = pFileSystemId};
+describeTags pFileSystemId =
+    DescribeTags'
+    { _dtMaxItems = Nothing
+    , _dtMarker = Nothing
+    , _dtFileSystemId = pFileSystemId
+    }
 
 -- | Optional. Maximum number of file system tags to return in the response.
 -- It must be an integer with a value greater than zero.
@@ -115,12 +124,23 @@ instance ToQuery DescribeTags where
 --
 -- * 'dtrTags'
 --
--- * 'dtrStatusCode'
-data DescribeTagsResponse = DescribeTagsResponse'{_dtrMarker :: Maybe Text, _dtrNextMarker :: Maybe Text, _dtrTags :: [Tag], _dtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtrStatus'
+data DescribeTagsResponse = DescribeTagsResponse'
+    { _dtrMarker     :: Maybe Text
+    , _dtrNextMarker :: Maybe Text
+    , _dtrTags       :: [Tag]
+    , _dtrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
-describeTagsResponse pStatusCode = DescribeTagsResponse'{_dtrMarker = Nothing, _dtrNextMarker = Nothing, _dtrTags = mempty, _dtrStatusCode = pStatusCode};
+describeTagsResponse pStatus =
+    DescribeTagsResponse'
+    { _dtrMarker = Nothing
+    , _dtrNextMarker = Nothing
+    , _dtrTags = mempty
+    , _dtrStatus = pStatus
+    }
 
 -- | If the request included a @Marker@, the response returns that value in
 -- this field.
@@ -140,5 +160,5 @@ dtrTags :: Lens' DescribeTagsResponse [Tag]
 dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a});
 
 -- | FIXME: Undocumented member.
-dtrStatusCode :: Lens' DescribeTagsResponse Int
-dtrStatusCode = lens _dtrStatusCode (\ s a -> s{_dtrStatusCode = a});
+dtrStatus :: Lens' DescribeTagsResponse Int
+dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});

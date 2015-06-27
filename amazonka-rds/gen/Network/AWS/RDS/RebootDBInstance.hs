@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.RebootDBInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,13 +50,13 @@ module Network.AWS.RDS.RebootDBInstance
     , rebootDBInstanceResponse
     -- ** Response lenses
     , rdirDBInstance
-    , rdirStatusCode
+    , rdirStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -67,11 +67,18 @@ import Network.AWS.Response
 -- * 'rdiForceFailover'
 --
 -- * 'rdiDBInstanceIdentifier'
-data RebootDBInstance = RebootDBInstance'{_rdiForceFailover :: Maybe Bool, _rdiDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
+data RebootDBInstance = RebootDBInstance'
+    { _rdiForceFailover        :: Maybe Bool
+    , _rdiDBInstanceIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RebootDBInstance' smart constructor.
 rebootDBInstance :: Text -> RebootDBInstance
-rebootDBInstance pDBInstanceIdentifier = RebootDBInstance'{_rdiForceFailover = Nothing, _rdiDBInstanceIdentifier = pDBInstanceIdentifier};
+rebootDBInstance pDBInstanceIdentifier =
+    RebootDBInstance'
+    { _rdiForceFailover = Nothing
+    , _rdiDBInstanceIdentifier = pDBInstanceIdentifier
+    }
 
 -- | When @true@, the reboot will be conducted through a MultiAZ failover.
 --
@@ -121,17 +128,24 @@ instance ToQuery RebootDBInstance where
 --
 -- * 'rdirDBInstance'
 --
--- * 'rdirStatusCode'
-data RebootDBInstanceResponse = RebootDBInstanceResponse'{_rdirDBInstance :: Maybe DBInstance, _rdirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rdirStatus'
+data RebootDBInstanceResponse = RebootDBInstanceResponse'
+    { _rdirDBInstance :: Maybe DBInstance
+    , _rdirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RebootDBInstanceResponse' smart constructor.
 rebootDBInstanceResponse :: Int -> RebootDBInstanceResponse
-rebootDBInstanceResponse pStatusCode = RebootDBInstanceResponse'{_rdirDBInstance = Nothing, _rdirStatusCode = pStatusCode};
+rebootDBInstanceResponse pStatus =
+    RebootDBInstanceResponse'
+    { _rdirDBInstance = Nothing
+    , _rdirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rdirDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
 rdirDBInstance = lens _rdirDBInstance (\ s a -> s{_rdirDBInstance = a});
 
 -- | FIXME: Undocumented member.
-rdirStatusCode :: Lens' RebootDBInstanceResponse Int
-rdirStatusCode = lens _rdirStatusCode (\ s a -> s{_rdirStatusCode = a});
+rdirStatus :: Lens' RebootDBInstanceResponse Int
+rdirStatus = lens _rdirStatus (\ s a -> s{_rdirStatus = a});

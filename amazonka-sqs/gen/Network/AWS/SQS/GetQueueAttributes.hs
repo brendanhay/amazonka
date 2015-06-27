@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.GetQueueAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -81,13 +81,13 @@ module Network.AWS.SQS.GetQueueAttributes
     , getQueueAttributesResponse
     -- ** Response lenses
     , gqarAttributes
-    , gqarStatusCode
+    , gqarStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'getQueueAttributes' smart constructor.
 --
@@ -96,11 +96,18 @@ import Network.AWS.SQS.Types
 -- * 'gqaAttributeNames'
 --
 -- * 'gqaQueueURL'
-data GetQueueAttributes = GetQueueAttributes'{_gqaAttributeNames :: Maybe [QueueAttributeName], _gqaQueueURL :: Text} deriving (Eq, Read, Show)
+data GetQueueAttributes = GetQueueAttributes'
+    { _gqaAttributeNames :: Maybe [QueueAttributeName]
+    , _gqaQueueURL       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetQueueAttributes' smart constructor.
 getQueueAttributes :: Text -> GetQueueAttributes
-getQueueAttributes pQueueURL = GetQueueAttributes'{_gqaAttributeNames = Nothing, _gqaQueueURL = pQueueURL};
+getQueueAttributes pQueueURL =
+    GetQueueAttributes'
+    { _gqaAttributeNames = Nothing
+    , _gqaQueueURL = pQueueURL
+    }
 
 -- | A list of attributes to retrieve information for.
 gqaAttributeNames :: Lens' GetQueueAttributes [QueueAttributeName]
@@ -145,17 +152,24 @@ instance ToQuery GetQueueAttributes where
 --
 -- * 'gqarAttributes'
 --
--- * 'gqarStatusCode'
-data GetQueueAttributesResponse = GetQueueAttributesResponse'{_gqarAttributes :: Maybe (Map QueueAttributeName Text), _gqarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gqarStatus'
+data GetQueueAttributesResponse = GetQueueAttributesResponse'
+    { _gqarAttributes :: Maybe (Map QueueAttributeName Text)
+    , _gqarStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetQueueAttributesResponse' smart constructor.
 getQueueAttributesResponse :: Int -> GetQueueAttributesResponse
-getQueueAttributesResponse pStatusCode = GetQueueAttributesResponse'{_gqarAttributes = Nothing, _gqarStatusCode = pStatusCode};
+getQueueAttributesResponse pStatus =
+    GetQueueAttributesResponse'
+    { _gqarAttributes = Nothing
+    , _gqarStatus = pStatus
+    }
 
 -- | A map of attributes to the respective values.
 gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap QueueAttributeName Text)
 gqarAttributes = lens _gqarAttributes (\ s a -> s{_gqarAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gqarStatusCode :: Lens' GetQueueAttributesResponse Int
-gqarStatusCode = lens _gqarStatusCode (\ s a -> s{_gqarStatusCode = a});
+gqarStatus :: Lens' GetQueueAttributesResponse Int
+gqarStatus = lens _gqarStatus (\ s a -> s{_gqarStatus = a});

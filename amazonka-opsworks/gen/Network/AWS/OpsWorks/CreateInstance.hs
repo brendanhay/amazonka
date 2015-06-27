@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,13 +54,13 @@ module Network.AWS.OpsWorks.CreateInstance
     , createInstanceResponse
     -- ** Response lenses
     , cirInstanceId
-    , cirStatusCode
+    , cirStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createInstance' smart constructor.
 --
@@ -97,11 +97,46 @@ import Network.AWS.Response
 -- * 'ciLayerIds'
 --
 -- * 'ciInstanceType'
-data CreateInstance = CreateInstance'{_ciInstallUpdatesOnBoot :: Maybe Bool, _ciVirtualizationType :: Maybe Text, _ciHostname :: Maybe Text, _ciSSHKeyName :: Maybe Text, _ciSubnetId :: Maybe Text, _ciEBSOptimized :: Maybe Bool, _ciOS :: Maybe Text, _ciAvailabilityZone :: Maybe Text, _ciAutoScalingType :: Maybe AutoScalingType, _ciArchitecture :: Maybe Architecture, _ciAMIId :: Maybe Text, _ciBlockDeviceMappings :: Maybe [BlockDeviceMapping], _ciRootDeviceType :: Maybe RootDeviceType, _ciStackId :: Text, _ciLayerIds :: [Text], _ciInstanceType :: Text} deriving (Eq, Read, Show)
+data CreateInstance = CreateInstance'
+    { _ciInstallUpdatesOnBoot :: Maybe Bool
+    , _ciVirtualizationType   :: Maybe Text
+    , _ciHostname             :: Maybe Text
+    , _ciSSHKeyName           :: Maybe Text
+    , _ciSubnetId             :: Maybe Text
+    , _ciEBSOptimized         :: Maybe Bool
+    , _ciOS                   :: Maybe Text
+    , _ciAvailabilityZone     :: Maybe Text
+    , _ciAutoScalingType      :: Maybe AutoScalingType
+    , _ciArchitecture         :: Maybe Architecture
+    , _ciAMIId                :: Maybe Text
+    , _ciBlockDeviceMappings  :: Maybe [BlockDeviceMapping]
+    , _ciRootDeviceType       :: Maybe RootDeviceType
+    , _ciStackId              :: Text
+    , _ciLayerIds             :: [Text]
+    , _ciInstanceType         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateInstance' smart constructor.
 createInstance :: Text -> Text -> CreateInstance
-createInstance pStackId pInstanceType = CreateInstance'{_ciInstallUpdatesOnBoot = Nothing, _ciVirtualizationType = Nothing, _ciHostname = Nothing, _ciSSHKeyName = Nothing, _ciSubnetId = Nothing, _ciEBSOptimized = Nothing, _ciOS = Nothing, _ciAvailabilityZone = Nothing, _ciAutoScalingType = Nothing, _ciArchitecture = Nothing, _ciAMIId = Nothing, _ciBlockDeviceMappings = Nothing, _ciRootDeviceType = Nothing, _ciStackId = pStackId, _ciLayerIds = mempty, _ciInstanceType = pInstanceType};
+createInstance pStackId pInstanceType =
+    CreateInstance'
+    { _ciInstallUpdatesOnBoot = Nothing
+    , _ciVirtualizationType = Nothing
+    , _ciHostname = Nothing
+    , _ciSSHKeyName = Nothing
+    , _ciSubnetId = Nothing
+    , _ciEBSOptimized = Nothing
+    , _ciOS = Nothing
+    , _ciAvailabilityZone = Nothing
+    , _ciAutoScalingType = Nothing
+    , _ciArchitecture = Nothing
+    , _ciAMIId = Nothing
+    , _ciBlockDeviceMappings = Nothing
+    , _ciRootDeviceType = Nothing
+    , _ciStackId = pStackId
+    , _ciLayerIds = mempty
+    , _ciInstanceType = pInstanceType
+    }
 
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. To control when updates are
@@ -263,17 +298,24 @@ instance ToQuery CreateInstance where
 --
 -- * 'cirInstanceId'
 --
--- * 'cirStatusCode'
-data CreateInstanceResponse = CreateInstanceResponse'{_cirInstanceId :: Maybe Text, _cirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cirStatus'
+data CreateInstanceResponse = CreateInstanceResponse'
+    { _cirInstanceId :: Maybe Text
+    , _cirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateInstanceResponse' smart constructor.
 createInstanceResponse :: Int -> CreateInstanceResponse
-createInstanceResponse pStatusCode = CreateInstanceResponse'{_cirInstanceId = Nothing, _cirStatusCode = pStatusCode};
+createInstanceResponse pStatus =
+    CreateInstanceResponse'
+    { _cirInstanceId = Nothing
+    , _cirStatus = pStatus
+    }
 
 -- | The instance ID.
 cirInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
 cirInstanceId = lens _cirInstanceId (\ s a -> s{_cirInstanceId = a});
 
 -- | FIXME: Undocumented member.
-cirStatusCode :: Lens' CreateInstanceResponse Int
-cirStatusCode = lens _cirStatusCode (\ s a -> s{_cirStatusCode = a});
+cirStatus :: Lens' CreateInstanceResponse Int
+cirStatus = lens _cirStatus (\ s a -> s{_cirStatus = a});

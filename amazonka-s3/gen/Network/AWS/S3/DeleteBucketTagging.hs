@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketTagging
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,21 +32,26 @@ module Network.AWS.S3.DeleteBucketTagging
     , deleteBucketTaggingResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'deleteBucketTagging' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dbtBucket'
-newtype DeleteBucketTagging = DeleteBucketTagging'{_dbtBucket :: BucketName} deriving (Eq, Read, Show)
+newtype DeleteBucketTagging = DeleteBucketTagging'
+    { _dbtBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteBucketTagging' smart constructor.
 deleteBucketTagging :: BucketName -> DeleteBucketTagging
-deleteBucketTagging pBucket = DeleteBucketTagging'{_dbtBucket = pBucket};
+deleteBucketTagging pBucket =
+    DeleteBucketTagging'
+    { _dbtBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 dbtBucket :: Lens' DeleteBucketTagging BucketName
@@ -70,8 +75,10 @@ instance ToQuery DeleteBucketTagging where
         toQuery = const (mconcat ["tagging"])
 
 -- | /See:/ 'deleteBucketTaggingResponse' smart constructor.
-data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse' deriving (Eq, Read, Show)
+data DeleteBucketTaggingResponse =
+    DeleteBucketTaggingResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteBucketTaggingResponse' smart constructor.
 deleteBucketTaggingResponse :: DeleteBucketTaggingResponse
-deleteBucketTaggingResponse = DeleteBucketTaggingResponse';
+deleteBucketTaggingResponse = DeleteBucketTaggingResponse'

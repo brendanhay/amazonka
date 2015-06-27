@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.RevokeDBSecurityGroupIngress
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     , revokeDBSecurityGroupIngressResponse
     -- ** Response lenses
     , rdsgirDBSecurityGroup
-    , rdsgirStatusCode
+    , rdsgirStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -63,11 +63,24 @@ import Network.AWS.Response
 -- * 'rdsgiEC2SecurityGroupId'
 --
 -- * 'rdsgiDBSecurityGroupName'
-data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'{_rdsgiEC2SecurityGroupOwnerId :: Maybe Text, _rdsgiEC2SecurityGroupName :: Maybe Text, _rdsgiCIDRIP :: Maybe Text, _rdsgiEC2SecurityGroupId :: Maybe Text, _rdsgiDBSecurityGroupName :: Text} deriving (Eq, Read, Show)
+data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
+    { _rdsgiEC2SecurityGroupOwnerId :: Maybe Text
+    , _rdsgiEC2SecurityGroupName    :: Maybe Text
+    , _rdsgiCIDRIP                  :: Maybe Text
+    , _rdsgiEC2SecurityGroupId      :: Maybe Text
+    , _rdsgiDBSecurityGroupName     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RevokeDBSecurityGroupIngress' smart constructor.
 revokeDBSecurityGroupIngress :: Text -> RevokeDBSecurityGroupIngress
-revokeDBSecurityGroupIngress pDBSecurityGroupName = RevokeDBSecurityGroupIngress'{_rdsgiEC2SecurityGroupOwnerId = Nothing, _rdsgiEC2SecurityGroupName = Nothing, _rdsgiCIDRIP = Nothing, _rdsgiEC2SecurityGroupId = Nothing, _rdsgiDBSecurityGroupName = pDBSecurityGroupName};
+revokeDBSecurityGroupIngress pDBSecurityGroupName =
+    RevokeDBSecurityGroupIngress'
+    { _rdsgiEC2SecurityGroupOwnerId = Nothing
+    , _rdsgiEC2SecurityGroupName = Nothing
+    , _rdsgiCIDRIP = Nothing
+    , _rdsgiEC2SecurityGroupId = Nothing
+    , _rdsgiDBSecurityGroupName = pDBSecurityGroupName
+    }
 
 -- | The AWS Account Number of the owner of the EC2 security group specified
 -- in the @EC2SecurityGroupName@ parameter. The AWS Access Key ID is not an
@@ -139,17 +152,24 @@ instance ToQuery RevokeDBSecurityGroupIngress where
 --
 -- * 'rdsgirDBSecurityGroup'
 --
--- * 'rdsgirStatusCode'
-data RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse'{_rdsgirDBSecurityGroup :: Maybe DBSecurityGroup, _rdsgirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rdsgirStatus'
+data RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse'
+    { _rdsgirDBSecurityGroup :: Maybe DBSecurityGroup
+    , _rdsgirStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RevokeDBSecurityGroupIngressResponse' smart constructor.
 revokeDBSecurityGroupIngressResponse :: Int -> RevokeDBSecurityGroupIngressResponse
-revokeDBSecurityGroupIngressResponse pStatusCode = RevokeDBSecurityGroupIngressResponse'{_rdsgirDBSecurityGroup = Nothing, _rdsgirStatusCode = pStatusCode};
+revokeDBSecurityGroupIngressResponse pStatus =
+    RevokeDBSecurityGroupIngressResponse'
+    { _rdsgirDBSecurityGroup = Nothing
+    , _rdsgirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rdsgirDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
 rdsgirDBSecurityGroup = lens _rdsgirDBSecurityGroup (\ s a -> s{_rdsgirDBSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-rdsgirStatusCode :: Lens' RevokeDBSecurityGroupIngressResponse Int
-rdsgirStatusCode = lens _rdsgirStatusCode (\ s a -> s{_rdsgirStatusCode = a});
+rdsgirStatus :: Lens' RevokeDBSecurityGroupIngressResponse Int
+rdsgirStatus = lens _rdsgirStatus (\ s a -> s{_rdsgirStatus = a});

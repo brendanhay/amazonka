@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.AddTagsToResource
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,10 +46,10 @@ module Network.AWS.ElastiCache.AddTagsToResource
     , tlmTagList
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of an /AddTagsToResource/ action.
 --
@@ -60,11 +60,18 @@ import Network.AWS.Response
 -- * 'attrResourceName'
 --
 -- * 'attrTags'
-data AddTagsToResource = AddTagsToResource'{_attrResourceName :: Text, _attrTags :: [Tag]} deriving (Eq, Read, Show)
+data AddTagsToResource = AddTagsToResource'
+    { _attrResourceName :: Text
+    , _attrTags         :: [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'AddTagsToResource' smart constructor.
 addTagsToResource :: Text -> AddTagsToResource
-addTagsToResource pResourceName = AddTagsToResource'{_attrResourceName = pResourceName, _attrTags = mempty};
+addTagsToResource pResourceName =
+    AddTagsToResource'
+    { _attrResourceName = pResourceName
+    , _attrTags = mempty
+    }
 
 -- | The name of the resource to which the tags are to be added, for example
 -- @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@.

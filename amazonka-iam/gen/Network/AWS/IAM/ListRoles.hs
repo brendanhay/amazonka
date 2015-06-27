@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListRoles
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,14 +42,14 @@ module Network.AWS.IAM.ListRoles
     , lrrMarker
     , lrrIsTruncated
     , lrrRoles
-    , lrrStatusCode
+    , lrrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listRoles' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'lrMaxItems'
 --
 -- * 'lrMarker'
-data ListRoles = ListRoles'{_lrPathPrefix :: Maybe Text, _lrMaxItems :: Maybe Nat, _lrMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListRoles = ListRoles'
+    { _lrPathPrefix :: Maybe Text
+    , _lrMaxItems   :: Maybe Nat
+    , _lrMarker     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListRoles' smart constructor.
 listRoles :: ListRoles
-listRoles = ListRoles'{_lrPathPrefix = Nothing, _lrMaxItems = Nothing, _lrMarker = Nothing};
+listRoles =
+    ListRoles'
+    { _lrPathPrefix = Nothing
+    , _lrMaxItems = Nothing
+    , _lrMarker = Nothing
+    }
 
 -- | The path prefix for filtering the results. For example, the prefix
 -- @\/application_abc\/component_xyz\/@ gets all roles whose path starts
@@ -134,12 +143,23 @@ instance ToQuery ListRoles where
 --
 -- * 'lrrRoles'
 --
--- * 'lrrStatusCode'
-data ListRolesResponse = ListRolesResponse'{_lrrMarker :: Maybe Text, _lrrIsTruncated :: Maybe Bool, _lrrRoles :: [Role], _lrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lrrStatus'
+data ListRolesResponse = ListRolesResponse'
+    { _lrrMarker      :: Maybe Text
+    , _lrrIsTruncated :: Maybe Bool
+    , _lrrRoles       :: [Role]
+    , _lrrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListRolesResponse' smart constructor.
 listRolesResponse :: Int -> ListRolesResponse
-listRolesResponse pStatusCode = ListRolesResponse'{_lrrMarker = Nothing, _lrrIsTruncated = Nothing, _lrrRoles = mempty, _lrrStatusCode = pStatusCode};
+listRolesResponse pStatus =
+    ListRolesResponse'
+    { _lrrMarker = Nothing
+    , _lrrIsTruncated = Nothing
+    , _lrrRoles = mempty
+    , _lrrStatus = pStatus
+    }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -158,5 +178,5 @@ lrrRoles :: Lens' ListRolesResponse [Role]
 lrrRoles = lens _lrrRoles (\ s a -> s{_lrrRoles = a});
 
 -- | FIXME: Undocumented member.
-lrrStatusCode :: Lens' ListRolesResponse Int
-lrrStatusCode = lens _lrrStatusCode (\ s a -> s{_lrrStatusCode = a});
+lrrStatus :: Lens' ListRolesResponse Int
+lrrStatus = lens _lrrStatus (\ s a -> s{_lrrStatus = a});

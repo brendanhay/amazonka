@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipelineStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     , updatePipelineStatusResponse
     -- ** Response lenses
     , upsrPipeline
-    , upsrStatusCode
+    , upsrStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @UpdatePipelineStatusRequest@ structure.
 --
@@ -57,11 +57,18 @@ import Network.AWS.Response
 -- * 'upsId'
 --
 -- * 'upsStatus'
-data UpdatePipelineStatus = UpdatePipelineStatus'{_upsId :: Text, _upsStatus :: Text} deriving (Eq, Read, Show)
+data UpdatePipelineStatus = UpdatePipelineStatus'
+    { _upsId     :: Text
+    , _upsStatus :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdatePipelineStatus' smart constructor.
 updatePipelineStatus :: Text -> Text -> UpdatePipelineStatus
-updatePipelineStatus pId pStatus = UpdatePipelineStatus'{_upsId = pId, _upsStatus = pStatus};
+updatePipelineStatus pId pStatus =
+    UpdatePipelineStatus'
+    { _upsId = pId
+    , _upsStatus = pStatus
+    }
 
 -- | The identifier of the pipeline to update.
 upsId :: Lens' UpdatePipelineStatus Text
@@ -109,12 +116,19 @@ instance ToQuery UpdatePipelineStatus where
 --
 -- * 'upsrPipeline'
 --
--- * 'upsrStatusCode'
-data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'{_upsrPipeline :: Maybe Pipeline, _upsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'upsrStatus'
+data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
+    { _upsrPipeline :: Maybe Pipeline
+    , _upsrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdatePipelineStatusResponse' smart constructor.
 updatePipelineStatusResponse :: Int -> UpdatePipelineStatusResponse
-updatePipelineStatusResponse pStatusCode = UpdatePipelineStatusResponse'{_upsrPipeline = Nothing, _upsrStatusCode = pStatusCode};
+updatePipelineStatusResponse pStatus =
+    UpdatePipelineStatusResponse'
+    { _upsrPipeline = Nothing
+    , _upsrStatus = pStatus
+    }
 
 -- | A section of the response body that provides information about the
 -- pipeline.
@@ -122,5 +136,5 @@ upsrPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
 upsrPipeline = lens _upsrPipeline (\ s a -> s{_upsrPipeline = a});
 
 -- | FIXME: Undocumented member.
-upsrStatusCode :: Lens' UpdatePipelineStatusResponse Int
-upsrStatusCode = lens _upsrStatusCode (\ s a -> s{_upsrStatusCode = a});
+upsrStatus :: Lens' UpdatePipelineStatusResponse Int
+upsrStatus = lens _upsrStatus (\ s a -> s{_upsrStatus = a});

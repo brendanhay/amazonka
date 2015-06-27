@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.PutMetricFilter
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.CloudWatchLogs.PutMetricFilter
     , putMetricFilterResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putMetricFilter' smart constructor.
 --
@@ -56,11 +56,22 @@ import Network.AWS.Response
 -- * 'pmfFilterPattern'
 --
 -- * 'pmfMetricTransformations'
-data PutMetricFilter = PutMetricFilter'{_pmfLogGroupName :: Text, _pmfFilterName :: Text, _pmfFilterPattern :: Text, _pmfMetricTransformations :: List1 MetricTransformation} deriving (Eq, Read, Show)
+data PutMetricFilter = PutMetricFilter'
+    { _pmfLogGroupName          :: Text
+    , _pmfFilterName            :: Text
+    , _pmfFilterPattern         :: Text
+    , _pmfMetricTransformations :: List1 MetricTransformation
+    } deriving (Eq,Read,Show)
 
 -- | 'PutMetricFilter' smart constructor.
 putMetricFilter :: Text -> Text -> Text -> NonEmpty MetricTransformation -> PutMetricFilter
-putMetricFilter pLogGroupName pFilterName pFilterPattern pMetricTransformations = PutMetricFilter'{_pmfLogGroupName = pLogGroupName, _pmfFilterName = pFilterName, _pmfFilterPattern = pFilterPattern, _pmfMetricTransformations = _List1 # pMetricTransformations};
+putMetricFilter pLogGroupName pFilterName pFilterPattern pMetricTransformations =
+    PutMetricFilter'
+    { _pmfLogGroupName = pLogGroupName
+    , _pmfFilterName = pFilterName
+    , _pmfFilterPattern = pFilterPattern
+    , _pmfMetricTransformations = _List1 # pMetricTransformations
+    }
 
 -- | The name of the log group to associate the metric filter with.
 pmfLogGroupName :: Lens' PutMetricFilter Text
@@ -110,8 +121,10 @@ instance ToQuery PutMetricFilter where
         toQuery = const mempty
 
 -- | /See:/ 'putMetricFilterResponse' smart constructor.
-data PutMetricFilterResponse = PutMetricFilterResponse' deriving (Eq, Read, Show)
+data PutMetricFilterResponse =
+    PutMetricFilterResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutMetricFilterResponse' smart constructor.
 putMetricFilterResponse :: PutMetricFilterResponse
-putMetricFilterResponse = PutMetricFilterResponse';
+putMetricFilterResponse = PutMetricFilterResponse'

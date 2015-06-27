@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBParameterGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,14 +38,14 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     -- ** Response lenses
     , ddpgrMarker
     , ddpgrDBParameterGroups
-    , ddpgrStatusCode
+    , ddpgrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -60,11 +60,22 @@ import Network.AWS.Response
 -- * 'ddpgMaxRecords'
 --
 -- * 'ddpgMarker'
-data DescribeDBParameterGroups = DescribeDBParameterGroups'{_ddpgFilters :: Maybe [Filter], _ddpgDBParameterGroupName :: Maybe Text, _ddpgMaxRecords :: Maybe Int, _ddpgMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBParameterGroups = DescribeDBParameterGroups'
+    { _ddpgFilters              :: Maybe [Filter]
+    , _ddpgDBParameterGroupName :: Maybe Text
+    , _ddpgMaxRecords           :: Maybe Int
+    , _ddpgMarker               :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBParameterGroups' smart constructor.
 describeDBParameterGroups :: DescribeDBParameterGroups
-describeDBParameterGroups = DescribeDBParameterGroups'{_ddpgFilters = Nothing, _ddpgDBParameterGroupName = Nothing, _ddpgMaxRecords = Nothing, _ddpgMarker = Nothing};
+describeDBParameterGroups =
+    DescribeDBParameterGroups'
+    { _ddpgFilters = Nothing
+    , _ddpgDBParameterGroupName = Nothing
+    , _ddpgMaxRecords = Nothing
+    , _ddpgMarker = Nothing
+    }
 
 -- | This parameter is not currently supported.
 ddpgFilters :: Lens' DescribeDBParameterGroups [Filter]
@@ -148,12 +159,21 @@ instance ToQuery DescribeDBParameterGroups where
 --
 -- * 'ddpgrDBParameterGroups'
 --
--- * 'ddpgrStatusCode'
-data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'{_ddpgrMarker :: Maybe Text, _ddpgrDBParameterGroups :: Maybe [DBParameterGroup], _ddpgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddpgrStatus'
+data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
+    { _ddpgrMarker            :: Maybe Text
+    , _ddpgrDBParameterGroups :: Maybe [DBParameterGroup]
+    , _ddpgrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBParameterGroupsResponse' smart constructor.
 describeDBParameterGroupsResponse :: Int -> DescribeDBParameterGroupsResponse
-describeDBParameterGroupsResponse pStatusCode = DescribeDBParameterGroupsResponse'{_ddpgrMarker = Nothing, _ddpgrDBParameterGroups = Nothing, _ddpgrStatusCode = pStatusCode};
+describeDBParameterGroupsResponse pStatus =
+    DescribeDBParameterGroupsResponse'
+    { _ddpgrMarker = Nothing
+    , _ddpgrDBParameterGroups = Nothing
+    , _ddpgrStatus = pStatus
+    }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -166,5 +186,5 @@ ddpgrDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGr
 ddpgrDBParameterGroups = lens _ddpgrDBParameterGroups (\ s a -> s{_ddpgrDBParameterGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddpgrStatusCode :: Lens' DescribeDBParameterGroupsResponse Int
-ddpgrStatusCode = lens _ddpgrStatusCode (\ s a -> s{_ddpgrStatusCode = a});
+ddpgrStatus :: Lens' DescribeDBParameterGroupsResponse Int
+ddpgrStatus = lens _ddpgrStatus (\ s a -> s{_ddpgrStatus = a});

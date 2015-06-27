@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticFileSystem.DeleteFileSystem
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,21 +48,26 @@ module Network.AWS.ElasticFileSystem.DeleteFileSystem
     , deleteFileSystemResponse
     ) where
 
-import Network.AWS.ElasticFileSystem.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticFileSystem.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteFileSystem' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dFileSystemId'
-newtype DeleteFileSystem = DeleteFileSystem'{_dFileSystemId :: Text} deriving (Eq, Read, Show)
+newtype DeleteFileSystem = DeleteFileSystem'
+    { _dFileSystemId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteFileSystem' smart constructor.
 deleteFileSystem :: Text -> DeleteFileSystem
-deleteFileSystem pFileSystemId = DeleteFileSystem'{_dFileSystemId = pFileSystemId};
+deleteFileSystem pFileSystemId =
+    DeleteFileSystem'
+    { _dFileSystemId = pFileSystemId
+    }
 
 -- | The ID of the file system you want to delete.
 dFileSystemId :: Lens' DeleteFileSystem Text
@@ -86,8 +91,10 @@ instance ToQuery DeleteFileSystem where
         toQuery = const mempty
 
 -- | /See:/ 'deleteFileSystemResponse' smart constructor.
-data DeleteFileSystemResponse = DeleteFileSystemResponse' deriving (Eq, Read, Show)
+data DeleteFileSystemResponse =
+    DeleteFileSystemResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteFileSystemResponse' smart constructor.
 deleteFileSystemResponse :: DeleteFileSystemResponse
-deleteFileSystemResponse = DeleteFileSystemResponse';
+deleteFileSystemResponse = DeleteFileSystemResponse'

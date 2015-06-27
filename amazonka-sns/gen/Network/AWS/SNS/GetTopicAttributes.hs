@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.GetTopicAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.SNS.GetTopicAttributes
     , getTopicAttributesResponse
     -- ** Response lenses
     , gtarAttributes
-    , gtarStatusCode
+    , gtarStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for GetTopicAttributes action.
 --
@@ -48,11 +48,16 @@ import Network.AWS.SNS.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gtaTopicARN'
-newtype GetTopicAttributes = GetTopicAttributes'{_gtaTopicARN :: Text} deriving (Eq, Read, Show)
+newtype GetTopicAttributes = GetTopicAttributes'
+    { _gtaTopicARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetTopicAttributes' smart constructor.
 getTopicAttributes :: Text -> GetTopicAttributes
-getTopicAttributes pTopicARN = GetTopicAttributes'{_gtaTopicARN = pTopicARN};
+getTopicAttributes pTopicARN =
+    GetTopicAttributes'
+    { _gtaTopicARN = pTopicARN
+    }
 
 -- | The ARN of the topic whose properties you want to get.
 gtaTopicARN :: Lens' GetTopicAttributes Text
@@ -92,12 +97,19 @@ instance ToQuery GetTopicAttributes where
 --
 -- * 'gtarAttributes'
 --
--- * 'gtarStatusCode'
-data GetTopicAttributesResponse = GetTopicAttributesResponse'{_gtarAttributes :: Maybe (Map Text Text), _gtarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gtarStatus'
+data GetTopicAttributesResponse = GetTopicAttributesResponse'
+    { _gtarAttributes :: Maybe (Map Text Text)
+    , _gtarStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetTopicAttributesResponse' smart constructor.
 getTopicAttributesResponse :: Int -> GetTopicAttributesResponse
-getTopicAttributesResponse pStatusCode = GetTopicAttributesResponse'{_gtarAttributes = Nothing, _gtarStatusCode = pStatusCode};
+getTopicAttributesResponse pStatus =
+    GetTopicAttributesResponse'
+    { _gtarAttributes = Nothing
+    , _gtarStatus = pStatus
+    }
 
 -- | A map of the topic\'s attributes. Attributes in this map include the
 -- following:
@@ -122,5 +134,5 @@ gtarAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
 gtarAttributes = lens _gtarAttributes (\ s a -> s{_gtarAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gtarStatusCode :: Lens' GetTopicAttributesResponse Int
-gtarStatusCode = lens _gtarStatusCode (\ s a -> s{_gtarStatusCode = a});
+gtarStatus :: Lens' GetTopicAttributesResponse Int
+gtarStatus = lens _gtarStatus (\ s a -> s{_gtarStatus = a});

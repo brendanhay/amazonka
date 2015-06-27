@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetOpenIDConnectProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,24 +35,29 @@ module Network.AWS.IAM.GetOpenIDConnectProvider
     , goidcprURL
     , goidcprThumbprintList
     , goidcprClientIDList
-    , goidcprStatusCode
+    , goidcprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getOpenIDConnectProvider' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'goidcpOpenIDConnectProviderARN'
-newtype GetOpenIDConnectProvider = GetOpenIDConnectProvider'{_goidcpOpenIDConnectProviderARN :: Text} deriving (Eq, Read, Show)
+newtype GetOpenIDConnectProvider = GetOpenIDConnectProvider'
+    { _goidcpOpenIDConnectProviderARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetOpenIDConnectProvider' smart constructor.
 getOpenIDConnectProvider :: Text -> GetOpenIDConnectProvider
-getOpenIDConnectProvider pOpenIDConnectProviderARN = GetOpenIDConnectProvider'{_goidcpOpenIDConnectProviderARN = pOpenIDConnectProviderARN};
+getOpenIDConnectProvider pOpenIDConnectProviderARN =
+    GetOpenIDConnectProvider'
+    { _goidcpOpenIDConnectProviderARN = pOpenIDConnectProviderARN
+    }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to get information for. You can get a list of OIDC provider ARNs by
@@ -106,12 +111,25 @@ instance ToQuery GetOpenIDConnectProvider where
 --
 -- * 'goidcprClientIDList'
 --
--- * 'goidcprStatusCode'
-data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'{_goidcprCreateDate :: Maybe ISO8601, _goidcprURL :: Maybe Text, _goidcprThumbprintList :: Maybe [Text], _goidcprClientIDList :: Maybe [Text], _goidcprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'goidcprStatus'
+data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
+    { _goidcprCreateDate     :: Maybe ISO8601
+    , _goidcprURL            :: Maybe Text
+    , _goidcprThumbprintList :: Maybe [Text]
+    , _goidcprClientIDList   :: Maybe [Text]
+    , _goidcprStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetOpenIDConnectProviderResponse' smart constructor.
 getOpenIDConnectProviderResponse :: Int -> GetOpenIDConnectProviderResponse
-getOpenIDConnectProviderResponse pStatusCode = GetOpenIDConnectProviderResponse'{_goidcprCreateDate = Nothing, _goidcprURL = Nothing, _goidcprThumbprintList = Nothing, _goidcprClientIDList = Nothing, _goidcprStatusCode = pStatusCode};
+getOpenIDConnectProviderResponse pStatus =
+    GetOpenIDConnectProviderResponse'
+    { _goidcprCreateDate = Nothing
+    , _goidcprURL = Nothing
+    , _goidcprThumbprintList = Nothing
+    , _goidcprClientIDList = Nothing
+    , _goidcprStatus = pStatus
+    }
 
 -- | The date and time when the IAM OpenID Connect provider entity was
 -- created in the AWS account.
@@ -136,5 +154,5 @@ goidcprClientIDList :: Lens' GetOpenIDConnectProviderResponse [Text]
 goidcprClientIDList = lens _goidcprClientIDList (\ s a -> s{_goidcprClientIDList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-goidcprStatusCode :: Lens' GetOpenIDConnectProviderResponse Int
-goidcprStatusCode = lens _goidcprStatusCode (\ s a -> s{_goidcprStatusCode = a});
+goidcprStatus :: Lens' GetOpenIDConnectProviderResponse Int
+goidcprStatus = lens _goidcprStatus (\ s a -> s{_goidcprStatus = a});

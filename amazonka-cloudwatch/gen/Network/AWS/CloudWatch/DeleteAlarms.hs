@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatch.DeleteAlarms
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,21 +33,26 @@ module Network.AWS.CloudWatch.DeleteAlarms
     , deleteAlarmsResponse
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteAlarms' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delAlarmNames'
-newtype DeleteAlarms = DeleteAlarms'{_delAlarmNames :: [Text]} deriving (Eq, Read, Show)
+newtype DeleteAlarms = DeleteAlarms'
+    { _delAlarmNames :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteAlarms' smart constructor.
 deleteAlarms :: DeleteAlarms
-deleteAlarms = DeleteAlarms'{_delAlarmNames = mempty};
+deleteAlarms =
+    DeleteAlarms'
+    { _delAlarmNames = mempty
+    }
 
 -- | A list of alarms to be deleted.
 delAlarmNames :: Lens' DeleteAlarms [Text]
@@ -73,8 +78,10 @@ instance ToQuery DeleteAlarms where
                "AlarmNames" =: toQueryList "member" _delAlarmNames]
 
 -- | /See:/ 'deleteAlarmsResponse' smart constructor.
-data DeleteAlarmsResponse = DeleteAlarmsResponse' deriving (Eq, Read, Show)
+data DeleteAlarmsResponse =
+    DeleteAlarmsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteAlarmsResponse' smart constructor.
 deleteAlarmsResponse :: DeleteAlarmsResponse
-deleteAlarmsResponse = DeleteAlarmsResponse';
+deleteAlarmsResponse = DeleteAlarmsResponse'

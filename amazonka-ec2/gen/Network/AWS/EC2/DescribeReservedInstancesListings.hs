@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesListings
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,13 +57,13 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     , describeReservedInstancesListingsResponse
     -- ** Response lenses
     , drilrReservedInstancesListings
-    , drilrStatusCode
+    , drilrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeReservedInstancesListings' smart constructor.
 --
@@ -74,11 +74,20 @@ import Network.AWS.Response
 -- * 'drilReservedInstancesId'
 --
 -- * 'drilReservedInstancesListingId'
-data DescribeReservedInstancesListings = DescribeReservedInstancesListings'{_drilFilters :: Maybe [Filter], _drilReservedInstancesId :: Maybe Text, _drilReservedInstancesListingId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
+    { _drilFilters                    :: Maybe [Filter]
+    , _drilReservedInstancesId        :: Maybe Text
+    , _drilReservedInstancesListingId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedInstancesListings' smart constructor.
 describeReservedInstancesListings :: DescribeReservedInstancesListings
-describeReservedInstancesListings = DescribeReservedInstancesListings'{_drilFilters = Nothing, _drilReservedInstancesId = Nothing, _drilReservedInstancesListingId = Nothing};
+describeReservedInstancesListings =
+    DescribeReservedInstancesListings'
+    { _drilFilters = Nothing
+    , _drilReservedInstancesId = Nothing
+    , _drilReservedInstancesListingId = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -142,17 +151,24 @@ instance ToQuery DescribeReservedInstancesListings
 --
 -- * 'drilrReservedInstancesListings'
 --
--- * 'drilrStatusCode'
-data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'{_drilrReservedInstancesListings :: Maybe [ReservedInstancesListing], _drilrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'drilrStatus'
+data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'
+    { _drilrReservedInstancesListings :: Maybe [ReservedInstancesListing]
+    , _drilrStatus                    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedInstancesListingsResponse' smart constructor.
 describeReservedInstancesListingsResponse :: Int -> DescribeReservedInstancesListingsResponse
-describeReservedInstancesListingsResponse pStatusCode = DescribeReservedInstancesListingsResponse'{_drilrReservedInstancesListings = Nothing, _drilrStatusCode = pStatusCode};
+describeReservedInstancesListingsResponse pStatus =
+    DescribeReservedInstancesListingsResponse'
+    { _drilrReservedInstancesListings = Nothing
+    , _drilrStatus = pStatus
+    }
 
 -- | Information about the Reserved Instance listing.
 drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
 drilrReservedInstancesListings = lens _drilrReservedInstancesListings (\ s a -> s{_drilrReservedInstancesListings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drilrStatusCode :: Lens' DescribeReservedInstancesListingsResponse Int
-drilrStatusCode = lens _drilrStatusCode (\ s a -> s{_drilrStatusCode = a});
+drilrStatus :: Lens' DescribeReservedInstancesListingsResponse Int
+drilrStatus = lens _drilrStatus (\ s a -> s{_drilrStatus = a});

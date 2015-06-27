@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.RunJobFlow
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,13 +69,13 @@ module Network.AWS.EMR.RunJobFlow
     , runJobFlowResponse
     -- ** Response lenses
     , rjfrJobFlowId
-    , rjfrStatusCode
+    , rjfrStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the RunJobFlow operation.
 --
@@ -108,11 +108,40 @@ import Network.AWS.Response
 -- * 'rjfName'
 --
 -- * 'rjfInstances'
-data RunJobFlow = RunJobFlow'{_rjfAMIVersion :: Maybe Text, _rjfAdditionalInfo :: Maybe Text, _rjfJobFlowRole :: Maybe Text, _rjfSteps :: Maybe [StepConfig], _rjfBootstrapActions :: Maybe [BootstrapActionConfig], _rjfNewSupportedProducts :: Maybe [SupportedProductConfig], _rjfLogURI :: Maybe Text, _rjfSupportedProducts :: Maybe [Text], _rjfVisibleToAllUsers :: Maybe Bool, _rjfTags :: Maybe [Tag], _rjfServiceRole :: Maybe Text, _rjfName :: Text, _rjfInstances :: JobFlowInstancesConfig} deriving (Eq, Read, Show)
+data RunJobFlow = RunJobFlow'
+    { _rjfAMIVersion           :: Maybe Text
+    , _rjfAdditionalInfo       :: Maybe Text
+    , _rjfJobFlowRole          :: Maybe Text
+    , _rjfSteps                :: Maybe [StepConfig]
+    , _rjfBootstrapActions     :: Maybe [BootstrapActionConfig]
+    , _rjfNewSupportedProducts :: Maybe [SupportedProductConfig]
+    , _rjfLogURI               :: Maybe Text
+    , _rjfSupportedProducts    :: Maybe [Text]
+    , _rjfVisibleToAllUsers    :: Maybe Bool
+    , _rjfTags                 :: Maybe [Tag]
+    , _rjfServiceRole          :: Maybe Text
+    , _rjfName                 :: Text
+    , _rjfInstances            :: JobFlowInstancesConfig
+    } deriving (Eq,Read,Show)
 
 -- | 'RunJobFlow' smart constructor.
 runJobFlow :: Text -> JobFlowInstancesConfig -> RunJobFlow
-runJobFlow pName pInstances = RunJobFlow'{_rjfAMIVersion = Nothing, _rjfAdditionalInfo = Nothing, _rjfJobFlowRole = Nothing, _rjfSteps = Nothing, _rjfBootstrapActions = Nothing, _rjfNewSupportedProducts = Nothing, _rjfLogURI = Nothing, _rjfSupportedProducts = Nothing, _rjfVisibleToAllUsers = Nothing, _rjfTags = Nothing, _rjfServiceRole = Nothing, _rjfName = pName, _rjfInstances = pInstances};
+runJobFlow pName pInstances =
+    RunJobFlow'
+    { _rjfAMIVersion = Nothing
+    , _rjfAdditionalInfo = Nothing
+    , _rjfJobFlowRole = Nothing
+    , _rjfSteps = Nothing
+    , _rjfBootstrapActions = Nothing
+    , _rjfNewSupportedProducts = Nothing
+    , _rjfLogURI = Nothing
+    , _rjfSupportedProducts = Nothing
+    , _rjfVisibleToAllUsers = Nothing
+    , _rjfTags = Nothing
+    , _rjfServiceRole = Nothing
+    , _rjfName = pName
+    , _rjfInstances = pInstances
+    }
 
 -- | The version of the Amazon Machine Image (AMI) to use when launching
 -- Amazon EC2 instances in the job flow. The following values are valid:
@@ -256,17 +285,24 @@ instance ToQuery RunJobFlow where
 --
 -- * 'rjfrJobFlowId'
 --
--- * 'rjfrStatusCode'
-data RunJobFlowResponse = RunJobFlowResponse'{_rjfrJobFlowId :: Maybe Text, _rjfrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rjfrStatus'
+data RunJobFlowResponse = RunJobFlowResponse'
+    { _rjfrJobFlowId :: Maybe Text
+    , _rjfrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RunJobFlowResponse' smart constructor.
 runJobFlowResponse :: Int -> RunJobFlowResponse
-runJobFlowResponse pStatusCode = RunJobFlowResponse'{_rjfrJobFlowId = Nothing, _rjfrStatusCode = pStatusCode};
+runJobFlowResponse pStatus =
+    RunJobFlowResponse'
+    { _rjfrJobFlowId = Nothing
+    , _rjfrStatus = pStatus
+    }
 
 -- | An unique identifier for the job flow.
 rjfrJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
 rjfrJobFlowId = lens _rjfrJobFlowId (\ s a -> s{_rjfrJobFlowId = a});
 
 -- | FIXME: Undocumented member.
-rjfrStatusCode :: Lens' RunJobFlowResponse Int
-rjfrStatusCode = lens _rjfrStatusCode (\ s a -> s{_rjfrStatusCode = a});
+rjfrStatus :: Lens' RunJobFlowResponse Int
+rjfrStatus = lens _rjfrStatus (\ s a -> s{_rjfrStatus = a});

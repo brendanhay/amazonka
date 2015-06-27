@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.CodeDeploy.ListDeploymentInstances
     -- ** Response lenses
     , ldirNextToken
     , ldirInstancesList
-    , ldirStatusCode
+    , ldirStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a list deployment instances operation.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'ldiNextToken'
 --
 -- * 'ldiDeploymentId'
-data ListDeploymentInstances = ListDeploymentInstances'{_ldiInstanceStatusFilter :: Maybe [InstanceStatus], _ldiNextToken :: Maybe Text, _ldiDeploymentId :: Text} deriving (Eq, Read, Show)
+data ListDeploymentInstances = ListDeploymentInstances'
+    { _ldiInstanceStatusFilter :: Maybe [InstanceStatus]
+    , _ldiNextToken            :: Maybe Text
+    , _ldiDeploymentId         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDeploymentInstances' smart constructor.
 listDeploymentInstances :: Text -> ListDeploymentInstances
-listDeploymentInstances pDeploymentId = ListDeploymentInstances'{_ldiInstanceStatusFilter = Nothing, _ldiNextToken = Nothing, _ldiDeploymentId = pDeploymentId};
+listDeploymentInstances pDeploymentId =
+    ListDeploymentInstances'
+    { _ldiInstanceStatusFilter = Nothing
+    , _ldiNextToken = Nothing
+    , _ldiDeploymentId = pDeploymentId
+    }
 
 -- | A subset of instances to list, by status:
 --
@@ -134,12 +143,21 @@ instance ToQuery ListDeploymentInstances where
 --
 -- * 'ldirInstancesList'
 --
--- * 'ldirStatusCode'
-data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'{_ldirNextToken :: Maybe Text, _ldirInstancesList :: Maybe [Text], _ldirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ldirStatus'
+data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'
+    { _ldirNextToken     :: Maybe Text
+    , _ldirInstancesList :: Maybe [Text]
+    , _ldirStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDeploymentInstancesResponse' smart constructor.
 listDeploymentInstancesResponse :: Int -> ListDeploymentInstancesResponse
-listDeploymentInstancesResponse pStatusCode = ListDeploymentInstancesResponse'{_ldirNextToken = Nothing, _ldirInstancesList = Nothing, _ldirStatusCode = pStatusCode};
+listDeploymentInstancesResponse pStatus =
+    ListDeploymentInstancesResponse'
+    { _ldirNextToken = Nothing
+    , _ldirInstancesList = Nothing
+    , _ldirStatus = pStatus
+    }
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -153,5 +171,5 @@ ldirInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
 ldirInstancesList = lens _ldirInstancesList (\ s a -> s{_ldirInstancesList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldirStatusCode :: Lens' ListDeploymentInstancesResponse Int
-ldirStatusCode = lens _ldirStatusCode (\ s a -> s{_ldirStatusCode = a});
+ldirStatus :: Lens' ListDeploymentInstancesResponse Int
+ldirStatus = lens _ldirStatus (\ s a -> s{_ldirStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DeleteUserProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,21 +37,26 @@ module Network.AWS.OpsWorks.DeleteUserProfile
     , deleteUserProfileResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteUserProfile' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dupIAMUserARN'
-newtype DeleteUserProfile = DeleteUserProfile'{_dupIAMUserARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteUserProfile = DeleteUserProfile'
+    { _dupIAMUserARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteUserProfile' smart constructor.
 deleteUserProfile :: Text -> DeleteUserProfile
-deleteUserProfile pIAMUserARN = DeleteUserProfile'{_dupIAMUserARN = pIAMUserARN};
+deleteUserProfile pIAMUserARN =
+    DeleteUserProfile'
+    { _dupIAMUserARN = pIAMUserARN
+    }
 
 -- | The user\'s IAM ARN.
 dupIAMUserARN :: Lens' DeleteUserProfile Text
@@ -84,8 +89,10 @@ instance ToQuery DeleteUserProfile where
         toQuery = const mempty
 
 -- | /See:/ 'deleteUserProfileResponse' smart constructor.
-data DeleteUserProfileResponse = DeleteUserProfileResponse' deriving (Eq, Read, Show)
+data DeleteUserProfileResponse =
+    DeleteUserProfileResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteUserProfileResponse' smart constructor.
 deleteUserProfileResponse :: DeleteUserProfileResponse
-deleteUserProfileResponse = DeleteUserProfileResponse';
+deleteUserProfileResponse = DeleteUserProfileResponse'

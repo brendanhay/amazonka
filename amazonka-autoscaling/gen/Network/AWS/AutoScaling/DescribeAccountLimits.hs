@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAccountLimits
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,20 +35,22 @@ module Network.AWS.AutoScaling.DescribeAccountLimits
     -- ** Response lenses
     , dalrMaxNumberOfLaunchConfigurations
     , dalrMaxNumberOfAutoScalingGroups
-    , dalrStatusCode
+    , dalrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAccountLimits' smart constructor.
-data DescribeAccountLimits = DescribeAccountLimits' deriving (Eq, Read, Show)
+data DescribeAccountLimits =
+    DescribeAccountLimits'
+    deriving (Eq,Read,Show)
 
 -- | 'DescribeAccountLimits' smart constructor.
 describeAccountLimits :: DescribeAccountLimits
-describeAccountLimits = DescribeAccountLimits';
+describeAccountLimits = DescribeAccountLimits'
 
 instance AWSRequest DescribeAccountLimits where
         type Sv DescribeAccountLimits = AutoScaling
@@ -84,12 +86,21 @@ instance ToQuery DescribeAccountLimits where
 --
 -- * 'dalrMaxNumberOfAutoScalingGroups'
 --
--- * 'dalrStatusCode'
-data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'{_dalrMaxNumberOfLaunchConfigurations :: Maybe Int, _dalrMaxNumberOfAutoScalingGroups :: Maybe Int, _dalrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dalrStatus'
+data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
+    { _dalrMaxNumberOfLaunchConfigurations :: Maybe Int
+    , _dalrMaxNumberOfAutoScalingGroups    :: Maybe Int
+    , _dalrStatus                          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAccountLimitsResponse' smart constructor.
 describeAccountLimitsResponse :: Int -> DescribeAccountLimitsResponse
-describeAccountLimitsResponse pStatusCode = DescribeAccountLimitsResponse'{_dalrMaxNumberOfLaunchConfigurations = Nothing, _dalrMaxNumberOfAutoScalingGroups = Nothing, _dalrStatusCode = pStatusCode};
+describeAccountLimitsResponse pStatus =
+    DescribeAccountLimitsResponse'
+    { _dalrMaxNumberOfLaunchConfigurations = Nothing
+    , _dalrMaxNumberOfAutoScalingGroups = Nothing
+    , _dalrStatus = pStatus
+    }
 
 -- | The maximum number of launch configurations allowed for your AWS
 -- account. The default limit is 100 per region.
@@ -102,5 +113,5 @@ dalrMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe I
 dalrMaxNumberOfAutoScalingGroups = lens _dalrMaxNumberOfAutoScalingGroups (\ s a -> s{_dalrMaxNumberOfAutoScalingGroups = a});
 
 -- | FIXME: Undocumented member.
-dalrStatusCode :: Lens' DescribeAccountLimitsResponse Int
-dalrStatusCode = lens _dalrStatusCode (\ s a -> s{_dalrStatusCode = a});
+dalrStatus :: Lens' DescribeAccountLimitsResponse Int
+dalrStatus = lens _dalrStatus (\ s a -> s{_dalrStatus = a});

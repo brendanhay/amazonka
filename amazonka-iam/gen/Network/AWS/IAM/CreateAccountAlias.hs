@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.CreateAccountAlias
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,21 +35,26 @@ module Network.AWS.IAM.CreateAccountAlias
     , createAccountAliasResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createAccountAlias' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'caaAccountAlias'
-newtype CreateAccountAlias = CreateAccountAlias'{_caaAccountAlias :: Text} deriving (Eq, Read, Show)
+newtype CreateAccountAlias = CreateAccountAlias'
+    { _caaAccountAlias :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAccountAlias' smart constructor.
 createAccountAlias :: Text -> CreateAccountAlias
-createAccountAlias pAccountAlias = CreateAccountAlias'{_caaAccountAlias = pAccountAlias};
+createAccountAlias pAccountAlias =
+    CreateAccountAlias'
+    { _caaAccountAlias = pAccountAlias
+    }
 
 -- | The account alias to create.
 caaAccountAlias :: Lens' CreateAccountAlias Text
@@ -76,8 +81,10 @@ instance ToQuery CreateAccountAlias where
                "AccountAlias" =: _caaAccountAlias]
 
 -- | /See:/ 'createAccountAliasResponse' smart constructor.
-data CreateAccountAliasResponse = CreateAccountAliasResponse' deriving (Eq, Read, Show)
+data CreateAccountAliasResponse =
+    CreateAccountAliasResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CreateAccountAliasResponse' smart constructor.
 createAccountAliasResponse :: CreateAccountAliasResponse
-createAccountAliasResponse = CreateAccountAliasResponse';
+createAccountAliasResponse = CreateAccountAliasResponse'

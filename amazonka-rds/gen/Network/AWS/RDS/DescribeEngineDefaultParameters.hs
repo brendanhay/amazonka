@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeEngineDefaultParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,14 +36,14 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     , describeEngineDefaultParametersResponse
     -- ** Response lenses
     , dedprEngineDefaults
-    , dedprStatusCode
+    , dedprStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -58,11 +58,22 @@ import Network.AWS.Response
 -- * 'dedpMarker'
 --
 -- * 'dedpDBParameterGroupFamily'
-data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'{_dedpFilters :: Maybe [Filter], _dedpMaxRecords :: Maybe Int, _dedpMarker :: Maybe Text, _dedpDBParameterGroupFamily :: Text} deriving (Eq, Read, Show)
+data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
+    { _dedpFilters                :: Maybe [Filter]
+    , _dedpMaxRecords             :: Maybe Int
+    , _dedpMarker                 :: Maybe Text
+    , _dedpDBParameterGroupFamily :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEngineDefaultParameters' smart constructor.
 describeEngineDefaultParameters :: Text -> DescribeEngineDefaultParameters
-describeEngineDefaultParameters pDBParameterGroupFamily = DescribeEngineDefaultParameters'{_dedpFilters = Nothing, _dedpMaxRecords = Nothing, _dedpMarker = Nothing, _dedpDBParameterGroupFamily = pDBParameterGroupFamily};
+describeEngineDefaultParameters pDBParameterGroupFamily =
+    DescribeEngineDefaultParameters'
+    { _dedpFilters = Nothing
+    , _dedpMaxRecords = Nothing
+    , _dedpMarker = Nothing
+    , _dedpDBParameterGroupFamily = pDBParameterGroupFamily
+    }
 
 -- | Not currently supported.
 dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
@@ -142,17 +153,24 @@ instance ToQuery DescribeEngineDefaultParameters
 --
 -- * 'dedprEngineDefaults'
 --
--- * 'dedprStatusCode'
-data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'{_dedprEngineDefaults :: EngineDefaults, _dedprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dedprStatus'
+data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
+    { _dedprEngineDefaults :: EngineDefaults
+    , _dedprStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEngineDefaultParametersResponse' smart constructor.
 describeEngineDefaultParametersResponse :: EngineDefaults -> Int -> DescribeEngineDefaultParametersResponse
-describeEngineDefaultParametersResponse pEngineDefaults pStatusCode = DescribeEngineDefaultParametersResponse'{_dedprEngineDefaults = pEngineDefaults, _dedprStatusCode = pStatusCode};
+describeEngineDefaultParametersResponse pEngineDefaults pStatus =
+    DescribeEngineDefaultParametersResponse'
+    { _dedprEngineDefaults = pEngineDefaults
+    , _dedprStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
 dedprEngineDefaults = lens _dedprEngineDefaults (\ s a -> s{_dedprEngineDefaults = a});
 
 -- | FIXME: Undocumented member.
-dedprStatusCode :: Lens' DescribeEngineDefaultParametersResponse Int
-dedprStatusCode = lens _dedprStatusCode (\ s a -> s{_dedprStatusCode = a});
+dedprStatus :: Lens' DescribeEngineDefaultParametersResponse Int
+dedprStatus = lens _dedprStatus (\ s a -> s{_dedprStatus = a});

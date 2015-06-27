@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.CreateOptionGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.RDS.CreateOptionGroup
     , createOptionGroupResponse
     -- ** Response lenses
     , creaOptionGroup
-    , creaStatusCode
+    , creaStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -59,11 +59,24 @@ import Network.AWS.Response
 -- * 'cogMajorEngineVersion'
 --
 -- * 'cogOptionGroupDescription'
-data CreateOptionGroup = CreateOptionGroup'{_cogTags :: Maybe [Tag], _cogOptionGroupName :: Text, _cogEngineName :: Text, _cogMajorEngineVersion :: Text, _cogOptionGroupDescription :: Text} deriving (Eq, Read, Show)
+data CreateOptionGroup = CreateOptionGroup'
+    { _cogTags                   :: Maybe [Tag]
+    , _cogOptionGroupName        :: Text
+    , _cogEngineName             :: Text
+    , _cogMajorEngineVersion     :: Text
+    , _cogOptionGroupDescription :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateOptionGroup' smart constructor.
 createOptionGroup :: Text -> Text -> Text -> Text -> CreateOptionGroup
-createOptionGroup pOptionGroupName pEngineName pMajorEngineVersion pOptionGroupDescription = CreateOptionGroup'{_cogTags = Nothing, _cogOptionGroupName = pOptionGroupName, _cogEngineName = pEngineName, _cogMajorEngineVersion = pMajorEngineVersion, _cogOptionGroupDescription = pOptionGroupDescription};
+createOptionGroup pOptionGroupName pEngineName pMajorEngineVersion pOptionGroupDescription =
+    CreateOptionGroup'
+    { _cogTags = Nothing
+    , _cogOptionGroupName = pOptionGroupName
+    , _cogEngineName = pEngineName
+    , _cogMajorEngineVersion = pMajorEngineVersion
+    , _cogOptionGroupDescription = pOptionGroupDescription
+    }
 
 -- | FIXME: Undocumented member.
 cogTags :: Lens' CreateOptionGroup [Tag]
@@ -129,17 +142,24 @@ instance ToQuery CreateOptionGroup where
 --
 -- * 'creaOptionGroup'
 --
--- * 'creaStatusCode'
-data CreateOptionGroupResponse = CreateOptionGroupResponse'{_creaOptionGroup :: Maybe OptionGroup, _creaStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'creaStatus'
+data CreateOptionGroupResponse = CreateOptionGroupResponse'
+    { _creaOptionGroup :: Maybe OptionGroup
+    , _creaStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateOptionGroupResponse' smart constructor.
 createOptionGroupResponse :: Int -> CreateOptionGroupResponse
-createOptionGroupResponse pStatusCode = CreateOptionGroupResponse'{_creaOptionGroup = Nothing, _creaStatusCode = pStatusCode};
+createOptionGroupResponse pStatus =
+    CreateOptionGroupResponse'
+    { _creaOptionGroup = Nothing
+    , _creaStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 creaOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
 creaOptionGroup = lens _creaOptionGroup (\ s a -> s{_creaOptionGroup = a});
 
 -- | FIXME: Undocumented member.
-creaStatusCode :: Lens' CreateOptionGroupResponse Int
-creaStatusCode = lens _creaStatusCode (\ s a -> s{_creaStatusCode = a});
+creaStatus :: Lens' CreateOptionGroupResponse Int
+creaStatus = lens _creaStatus (\ s a -> s{_creaStatus = a});

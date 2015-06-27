@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeleteUser
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,21 +33,26 @@ module Network.AWS.IAM.DeleteUser
     , deleteUserResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteUser' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'duUserName'
-newtype DeleteUser = DeleteUser'{_duUserName :: Text} deriving (Eq, Read, Show)
+newtype DeleteUser = DeleteUser'
+    { _duUserName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteUser' smart constructor.
 deleteUser :: Text -> DeleteUser
-deleteUser pUserName = DeleteUser'{_duUserName = pUserName};
+deleteUser pUserName =
+    DeleteUser'
+    { _duUserName = pUserName
+    }
 
 -- | The name of the user to delete.
 duUserName :: Lens' DeleteUser Text
@@ -73,8 +78,10 @@ instance ToQuery DeleteUser where
                "UserName" =: _duUserName]
 
 -- | /See:/ 'deleteUserResponse' smart constructor.
-data DeleteUserResponse = DeleteUserResponse' deriving (Eq, Read, Show)
+data DeleteUserResponse =
+    DeleteUserResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteUserResponse' smart constructor.
 deleteUserResponse :: DeleteUserResponse
-deleteUserResponse = DeleteUserResponse';
+deleteUserResponse = DeleteUserResponse'

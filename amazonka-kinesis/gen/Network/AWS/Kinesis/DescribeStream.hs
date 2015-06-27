@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Kinesis.DescribeStream
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -56,14 +56,14 @@ module Network.AWS.Kinesis.DescribeStream
     , describeStreamResponse
     -- ** Response lenses
     , dsrStreamDescription
-    , dsrStatusCode
+    , dsrStatus
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @DescribeStream@.
 --
@@ -76,11 +76,20 @@ import Network.AWS.Response
 -- * 'desLimit'
 --
 -- * 'desStreamName'
-data DescribeStream = DescribeStream'{_desExclusiveStartShardId :: Maybe Text, _desLimit :: Maybe Nat, _desStreamName :: Text} deriving (Eq, Read, Show)
+data DescribeStream = DescribeStream'
+    { _desExclusiveStartShardId :: Maybe Text
+    , _desLimit                 :: Maybe Nat
+    , _desStreamName            :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStream' smart constructor.
 describeStream :: Text -> DescribeStream
-describeStream pStreamName = DescribeStream'{_desExclusiveStartShardId = Nothing, _desLimit = Nothing, _desStreamName = pStreamName};
+describeStream pStreamName =
+    DescribeStream'
+    { _desExclusiveStartShardId = Nothing
+    , _desLimit = Nothing
+    , _desStreamName = pStreamName
+    }
 
 -- | The shard ID of the shard to start with.
 desExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
@@ -148,12 +157,19 @@ instance ToQuery DescribeStream where
 --
 -- * 'dsrStreamDescription'
 --
--- * 'dsrStatusCode'
-data DescribeStreamResponse = DescribeStreamResponse'{_dsrStreamDescription :: StreamDescription, _dsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsrStatus'
+data DescribeStreamResponse = DescribeStreamResponse'
+    { _dsrStreamDescription :: StreamDescription
+    , _dsrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStreamResponse' smart constructor.
 describeStreamResponse :: StreamDescription -> Int -> DescribeStreamResponse
-describeStreamResponse pStreamDescription pStatusCode = DescribeStreamResponse'{_dsrStreamDescription = pStreamDescription, _dsrStatusCode = pStatusCode};
+describeStreamResponse pStreamDescription pStatus =
+    DescribeStreamResponse'
+    { _dsrStreamDescription = pStreamDescription
+    , _dsrStatus = pStatus
+    }
 
 -- | The current status of the stream, the stream ARN, an array of shard
 -- objects that comprise the stream, and states whether there are more
@@ -162,5 +178,5 @@ dsrStreamDescription :: Lens' DescribeStreamResponse StreamDescription
 dsrStreamDescription = lens _dsrStreamDescription (\ s a -> s{_dsrStreamDescription = a});
 
 -- | FIXME: Undocumented member.
-dsrStatusCode :: Lens' DescribeStreamResponse Int
-dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});
+dsrStatus :: Lens' DescribeStreamResponse Int
+dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

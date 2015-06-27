@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetAccountPasswordPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,20 +32,22 @@ module Network.AWS.IAM.GetAccountPasswordPolicy
     , getAccountPasswordPolicyResponse
     -- ** Response lenses
     , gapprPasswordPolicy
-    , gapprStatusCode
+    , gapprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getAccountPasswordPolicy' smart constructor.
-data GetAccountPasswordPolicy = GetAccountPasswordPolicy' deriving (Eq, Read, Show)
+data GetAccountPasswordPolicy =
+    GetAccountPasswordPolicy'
+    deriving (Eq,Read,Show)
 
 -- | 'GetAccountPasswordPolicy' smart constructor.
 getAccountPasswordPolicy :: GetAccountPasswordPolicy
-getAccountPasswordPolicy = GetAccountPasswordPolicy';
+getAccountPasswordPolicy = GetAccountPasswordPolicy'
 
 instance AWSRequest GetAccountPasswordPolicy where
         type Sv GetAccountPasswordPolicy = IAM
@@ -80,17 +82,24 @@ instance ToQuery GetAccountPasswordPolicy where
 --
 -- * 'gapprPasswordPolicy'
 --
--- * 'gapprStatusCode'
-data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'{_gapprPasswordPolicy :: PasswordPolicy, _gapprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gapprStatus'
+data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
+    { _gapprPasswordPolicy :: PasswordPolicy
+    , _gapprStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetAccountPasswordPolicyResponse' smart constructor.
 getAccountPasswordPolicyResponse :: PasswordPolicy -> Int -> GetAccountPasswordPolicyResponse
-getAccountPasswordPolicyResponse pPasswordPolicy pStatusCode = GetAccountPasswordPolicyResponse'{_gapprPasswordPolicy = pPasswordPolicy, _gapprStatusCode = pStatusCode};
+getAccountPasswordPolicyResponse pPasswordPolicy pStatus =
+    GetAccountPasswordPolicyResponse'
+    { _gapprPasswordPolicy = pPasswordPolicy
+    , _gapprStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 gapprPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
 gapprPasswordPolicy = lens _gapprPasswordPolicy (\ s a -> s{_gapprPasswordPolicy = a});
 
 -- | FIXME: Undocumented member.
-gapprStatusCode :: Lens' GetAccountPasswordPolicyResponse Int
-gapprStatusCode = lens _gapprStatusCode (\ s a -> s{_gapprStatusCode = a});
+gapprStatus :: Lens' GetAccountPasswordPolicyResponse Int
+gapprStatus = lens _gapprStatus (\ s a -> s{_gapprStatus = a});

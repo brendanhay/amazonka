@@ -43,22 +43,22 @@ module Network.AWS.SQS
     ( module Export
     ) where
 
-import Network.AWS.SQS.AddPermission as Export
-import Network.AWS.SQS.ChangeMessageVisibility as Export
-import Network.AWS.SQS.ChangeMessageVisibilityBatch as Export
-import Network.AWS.SQS.CreateQueue as Export
-import Network.AWS.SQS.DeleteMessage as Export
-import Network.AWS.SQS.DeleteMessageBatch as Export
-import Network.AWS.SQS.DeleteQueue as Export
-import Network.AWS.SQS.GetQueueAttributes as Export
-import Network.AWS.SQS.GetQueueURL as Export
-import Network.AWS.SQS.ListDeadLetterSourceQueues as Export
-import Network.AWS.SQS.ListQueues as Export
-import Network.AWS.SQS.PurgeQueue as Export
-import Network.AWS.SQS.ReceiveMessage as Export
-import Network.AWS.SQS.RemovePermission as Export
-import Network.AWS.SQS.SendMessage as Export
-import Network.AWS.SQS.SendMessageBatch as Export
-import Network.AWS.SQS.SetQueueAttributes as Export
-import Network.AWS.SQS.Types as Export
-import Network.AWS.SQS.Waiters as Export
+import           Network.AWS.SQS.AddPermission                as Export
+import           Network.AWS.SQS.ChangeMessageVisibility      as Export
+import           Network.AWS.SQS.ChangeMessageVisibilityBatch as Export
+import           Network.AWS.SQS.CreateQueue                  as Export
+import           Network.AWS.SQS.DeleteMessage                as Export
+import           Network.AWS.SQS.DeleteMessageBatch           as Export
+import           Network.AWS.SQS.DeleteQueue                  as Export
+import           Network.AWS.SQS.GetQueueAttributes           as Export
+import           Network.AWS.SQS.GetQueueURL                  as Export
+import           Network.AWS.SQS.ListDeadLetterSourceQueues   as Export
+import           Network.AWS.SQS.ListQueues                   as Export
+import           Network.AWS.SQS.PurgeQueue                   as Export
+import           Network.AWS.SQS.ReceiveMessage               as Export
+import           Network.AWS.SQS.RemovePermission             as Export
+import           Network.AWS.SQS.SendMessage                  as Export
+import           Network.AWS.SQS.SendMessageBatch             as Export
+import           Network.AWS.SQS.SetQueueAttributes           as Export
+import           Network.AWS.SQS.Types                        as Export
+import           Network.AWS.SQS.Waiters                      as Export

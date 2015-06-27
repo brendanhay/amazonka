@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,10 +38,10 @@ module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     , deleteConfigurationTemplateResponse
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'dctApplicationName'
 --
 -- * 'dctTemplateName'
-data DeleteConfigurationTemplate = DeleteConfigurationTemplate'{_dctApplicationName :: Text, _dctTemplateName :: Text} deriving (Eq, Read, Show)
+data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
+    { _dctApplicationName :: Text
+    , _dctTemplateName    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteConfigurationTemplate' smart constructor.
 deleteConfigurationTemplate :: Text -> Text -> DeleteConfigurationTemplate
-deleteConfigurationTemplate pApplicationName pTemplateName = DeleteConfigurationTemplate'{_dctApplicationName = pApplicationName, _dctTemplateName = pTemplateName};
+deleteConfigurationTemplate pApplicationName pTemplateName =
+    DeleteConfigurationTemplate'
+    { _dctApplicationName = pApplicationName
+    , _dctTemplateName = pTemplateName
+    }
 
 -- | The name of the application to delete the configuration template from.
 dctApplicationName :: Lens' DeleteConfigurationTemplate Text
@@ -91,8 +98,10 @@ instance ToQuery DeleteConfigurationTemplate where
                "TemplateName" =: _dctTemplateName]
 
 -- | /See:/ 'deleteConfigurationTemplateResponse' smart constructor.
-data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse' deriving (Eq, Read, Show)
+data DeleteConfigurationTemplateResponse =
+    DeleteConfigurationTemplateResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteConfigurationTemplateResponse' smart constructor.
 deleteConfigurationTemplateResponse :: DeleteConfigurationTemplateResponse
-deleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse';
+deleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse'

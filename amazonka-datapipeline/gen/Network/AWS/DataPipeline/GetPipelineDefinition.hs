@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.GetPipelineDefinition
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
     , gpdrPipelineObjects
     , gpdrParameterObjects
     , gpdrParameterValues
-    , gpdrStatusCode
+    , gpdrStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for GetPipelineDefinition.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'gpdVersion'
 --
 -- * 'gpdPipelineId'
-data GetPipelineDefinition = GetPipelineDefinition'{_gpdVersion :: Maybe Text, _gpdPipelineId :: Text} deriving (Eq, Read, Show)
+data GetPipelineDefinition = GetPipelineDefinition'
+    { _gpdVersion    :: Maybe Text
+    , _gpdPipelineId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetPipelineDefinition' smart constructor.
 getPipelineDefinition :: Text -> GetPipelineDefinition
-getPipelineDefinition pPipelineId = GetPipelineDefinition'{_gpdVersion = Nothing, _gpdPipelineId = pPipelineId};
+getPipelineDefinition pPipelineId =
+    GetPipelineDefinition'
+    { _gpdVersion = Nothing
+    , _gpdPipelineId = pPipelineId
+    }
 
 -- | The version of the pipeline definition to retrieve. Set this parameter
 -- to @latest@ (default) to use the last definition saved to the pipeline
@@ -117,12 +124,23 @@ instance ToQuery GetPipelineDefinition where
 --
 -- * 'gpdrParameterValues'
 --
--- * 'gpdrStatusCode'
-data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'{_gpdrPipelineObjects :: Maybe [PipelineObject], _gpdrParameterObjects :: Maybe [ParameterObject], _gpdrParameterValues :: Maybe [ParameterValue], _gpdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gpdrStatus'
+data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
+    { _gpdrPipelineObjects  :: Maybe [PipelineObject]
+    , _gpdrParameterObjects :: Maybe [ParameterObject]
+    , _gpdrParameterValues  :: Maybe [ParameterValue]
+    , _gpdrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetPipelineDefinitionResponse' smart constructor.
 getPipelineDefinitionResponse :: Int -> GetPipelineDefinitionResponse
-getPipelineDefinitionResponse pStatusCode = GetPipelineDefinitionResponse'{_gpdrPipelineObjects = Nothing, _gpdrParameterObjects = Nothing, _gpdrParameterValues = Nothing, _gpdrStatusCode = pStatusCode};
+getPipelineDefinitionResponse pStatus =
+    GetPipelineDefinitionResponse'
+    { _gpdrPipelineObjects = Nothing
+    , _gpdrParameterObjects = Nothing
+    , _gpdrParameterValues = Nothing
+    , _gpdrStatus = pStatus
+    }
 
 -- | The objects defined in the pipeline.
 gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
@@ -137,5 +155,5 @@ gpdrParameterValues :: Lens' GetPipelineDefinitionResponse [ParameterValue]
 gpdrParameterValues = lens _gpdrParameterValues (\ s a -> s{_gpdrParameterValues = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gpdrStatusCode :: Lens' GetPipelineDefinitionResponse Int
-gpdrStatusCode = lens _gpdrStatusCode (\ s a -> s{_gpdrStatusCode = a});
+gpdrStatus :: Lens' GetPipelineDefinitionResponse Int
+gpdrStatus = lens _gpdrStatus (\ s a -> s{_gpdrStatus = a});

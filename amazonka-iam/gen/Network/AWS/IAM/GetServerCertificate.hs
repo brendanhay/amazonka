@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetServerCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,29 @@ module Network.AWS.IAM.GetServerCertificate
     , getServerCertificateResponse
     -- ** Response lenses
     , gscrServerCertificate
-    , gscrStatusCode
+    , gscrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getServerCertificate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gscServerCertificateName'
-newtype GetServerCertificate = GetServerCertificate'{_gscServerCertificateName :: Text} deriving (Eq, Read, Show)
+newtype GetServerCertificate = GetServerCertificate'
+    { _gscServerCertificateName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetServerCertificate' smart constructor.
 getServerCertificate :: Text -> GetServerCertificate
-getServerCertificate pServerCertificateName = GetServerCertificate'{_gscServerCertificateName = pServerCertificateName};
+getServerCertificate pServerCertificateName =
+    GetServerCertificate'
+    { _gscServerCertificateName = pServerCertificateName
+    }
 
 -- | The name of the server certificate you want to retrieve information
 -- about.
@@ -88,17 +93,24 @@ instance ToQuery GetServerCertificate where
 --
 -- * 'gscrServerCertificate'
 --
--- * 'gscrStatusCode'
-data GetServerCertificateResponse = GetServerCertificateResponse'{_gscrServerCertificate :: ServerCertificate, _gscrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gscrStatus'
+data GetServerCertificateResponse = GetServerCertificateResponse'
+    { _gscrServerCertificate :: ServerCertificate
+    , _gscrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetServerCertificateResponse' smart constructor.
 getServerCertificateResponse :: ServerCertificate -> Int -> GetServerCertificateResponse
-getServerCertificateResponse pServerCertificate pStatusCode = GetServerCertificateResponse'{_gscrServerCertificate = pServerCertificate, _gscrStatusCode = pStatusCode};
+getServerCertificateResponse pServerCertificate pStatus =
+    GetServerCertificateResponse'
+    { _gscrServerCertificate = pServerCertificate
+    , _gscrStatus = pStatus
+    }
 
 -- | Information about the server certificate.
 gscrServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
 gscrServerCertificate = lens _gscrServerCertificate (\ s a -> s{_gscrServerCertificate = a});
 
 -- | FIXME: Undocumented member.
-gscrStatusCode :: Lens' GetServerCertificateResponse Int
-gscrStatusCode = lens _gscrStatusCode (\ s a -> s{_gscrStatusCode = a});
+gscrStatus :: Lens' GetServerCertificateResponse Int
+gscrStatus = lens _gscrStatus (\ s a -> s{_gscrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     , updatePipelineNotificationsResponse
     -- ** Response lenses
     , upnrPipeline
-    , upnrStatusCode
+    , upnrStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @UpdatePipelineNotificationsRequest@ structure.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'upnId'
 --
 -- * 'upnNotifications'
-data UpdatePipelineNotifications = UpdatePipelineNotifications'{_upnId :: Text, _upnNotifications :: Notifications} deriving (Eq, Read, Show)
+data UpdatePipelineNotifications = UpdatePipelineNotifications'
+    { _upnId            :: Text
+    , _upnNotifications :: Notifications
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdatePipelineNotifications' smart constructor.
 updatePipelineNotifications :: Text -> Notifications -> UpdatePipelineNotifications
-updatePipelineNotifications pId pNotifications = UpdatePipelineNotifications'{_upnId = pId, _upnNotifications = pNotifications};
+updatePipelineNotifications pId pNotifications =
+    UpdatePipelineNotifications'
+    { _upnId = pId
+    , _upnNotifications = pNotifications
+    }
 
 -- | The identifier of the pipeline for which you want to change notification
 -- settings.
@@ -124,12 +131,19 @@ instance ToQuery UpdatePipelineNotifications where
 --
 -- * 'upnrPipeline'
 --
--- * 'upnrStatusCode'
-data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'{_upnrPipeline :: Maybe Pipeline, _upnrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'upnrStatus'
+data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
+    { _upnrPipeline :: Maybe Pipeline
+    , _upnrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdatePipelineNotificationsResponse' smart constructor.
 updatePipelineNotificationsResponse :: Int -> UpdatePipelineNotificationsResponse
-updatePipelineNotificationsResponse pStatusCode = UpdatePipelineNotificationsResponse'{_upnrPipeline = Nothing, _upnrStatusCode = pStatusCode};
+updatePipelineNotificationsResponse pStatus =
+    UpdatePipelineNotificationsResponse'
+    { _upnrPipeline = Nothing
+    , _upnrStatus = pStatus
+    }
 
 -- | A section of the response body that provides information about the
 -- pipeline.
@@ -137,5 +151,5 @@ upnrPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
 upnrPipeline = lens _upnrPipeline (\ s a -> s{_upnrPipeline = a});
 
 -- | FIXME: Undocumented member.
-upnrStatusCode :: Lens' UpdatePipelineNotificationsResponse Int
-upnrStatusCode = lens _upnrStatusCode (\ s a -> s{_upnrStatusCode = a});
+upnrStatus :: Lens' UpdatePipelineNotificationsResponse Int
+upnrStatus = lens _upnrStatus (\ s a -> s{_upnrStatus = a});

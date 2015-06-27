@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListAttachedUserPolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.IAM.ListAttachedUserPolicies
     , lauprAttachedPolicies
     , lauprMarker
     , lauprIsTruncated
-    , lauprStatusCode
+    , lauprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listAttachedUserPolicies' smart constructor.
 --
@@ -68,11 +68,22 @@ import Network.AWS.Response
 -- * 'laupMarker'
 --
 -- * 'laupUserName'
-data ListAttachedUserPolicies = ListAttachedUserPolicies'{_laupPathPrefix :: Maybe Text, _laupMaxItems :: Maybe Nat, _laupMarker :: Maybe Text, _laupUserName :: Text} deriving (Eq, Read, Show)
+data ListAttachedUserPolicies = ListAttachedUserPolicies'
+    { _laupPathPrefix :: Maybe Text
+    , _laupMaxItems   :: Maybe Nat
+    , _laupMarker     :: Maybe Text
+    , _laupUserName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAttachedUserPolicies' smart constructor.
 listAttachedUserPolicies :: Text -> ListAttachedUserPolicies
-listAttachedUserPolicies pUserName = ListAttachedUserPolicies'{_laupPathPrefix = Nothing, _laupMaxItems = Nothing, _laupMarker = Nothing, _laupUserName = pUserName};
+listAttachedUserPolicies pUserName =
+    ListAttachedUserPolicies'
+    { _laupPathPrefix = Nothing
+    , _laupMaxItems = Nothing
+    , _laupMarker = Nothing
+    , _laupUserName = pUserName
+    }
 
 -- | The path prefix for filtering the results. This parameter is optional.
 -- If it is not included, it defaults to a slash (\/), listing all
@@ -143,12 +154,23 @@ instance ToQuery ListAttachedUserPolicies where
 --
 -- * 'lauprIsTruncated'
 --
--- * 'lauprStatusCode'
-data ListAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'{_lauprAttachedPolicies :: Maybe [AttachedPolicy], _lauprMarker :: Maybe Text, _lauprIsTruncated :: Maybe Bool, _lauprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lauprStatus'
+data ListAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'
+    { _lauprAttachedPolicies :: Maybe [AttachedPolicy]
+    , _lauprMarker           :: Maybe Text
+    , _lauprIsTruncated      :: Maybe Bool
+    , _lauprStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAttachedUserPoliciesResponse' smart constructor.
 listAttachedUserPoliciesResponse :: Int -> ListAttachedUserPoliciesResponse
-listAttachedUserPoliciesResponse pStatusCode = ListAttachedUserPoliciesResponse'{_lauprAttachedPolicies = Nothing, _lauprMarker = Nothing, _lauprIsTruncated = Nothing, _lauprStatusCode = pStatusCode};
+listAttachedUserPoliciesResponse pStatus =
+    ListAttachedUserPoliciesResponse'
+    { _lauprAttachedPolicies = Nothing
+    , _lauprMarker = Nothing
+    , _lauprIsTruncated = Nothing
+    , _lauprStatus = pStatus
+    }
 
 -- | A list of the attached policies.
 lauprAttachedPolicies :: Lens' ListAttachedUserPoliciesResponse [AttachedPolicy]
@@ -168,5 +190,5 @@ lauprIsTruncated :: Lens' ListAttachedUserPoliciesResponse (Maybe Bool)
 lauprIsTruncated = lens _lauprIsTruncated (\ s a -> s{_lauprIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lauprStatusCode :: Lens' ListAttachedUserPoliciesResponse Int
-lauprStatusCode = lens _lauprStatusCode (\ s a -> s{_lauprStatusCode = a});
+lauprStatus :: Lens' ListAttachedUserPoliciesResponse Int
+lauprStatus = lens _lauprStatus (\ s a -> s{_lauprStatus = a});

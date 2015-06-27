@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Support.DescribeServices
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,13 +46,13 @@ module Network.AWS.Support.DescribeServices
     , describeServicesResponse
     -- ** Response lenses
     , dsrServices
-    , dsrStatusCode
+    , dsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Support.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
 
 -- | /See:/ 'describeServices' smart constructor.
 --
@@ -61,11 +61,18 @@ import Network.AWS.Support.Types
 -- * 'dsServiceCodeList'
 --
 -- * 'dsLanguage'
-data DescribeServices = DescribeServices'{_dsServiceCodeList :: Maybe [Text], _dsLanguage :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeServices = DescribeServices'
+    { _dsServiceCodeList :: Maybe [Text]
+    , _dsLanguage        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeServices' smart constructor.
 describeServices :: DescribeServices
-describeServices = DescribeServices'{_dsServiceCodeList = Nothing, _dsLanguage = Nothing};
+describeServices =
+    DescribeServices'
+    { _dsServiceCodeList = Nothing
+    , _dsLanguage = Nothing
+    }
 
 -- | A JSON-formatted list of service codes available for AWS services.
 dsServiceCodeList :: Lens' DescribeServices [Text]
@@ -119,17 +126,24 @@ instance ToQuery DescribeServices where
 --
 -- * 'dsrServices'
 --
--- * 'dsrStatusCode'
-data DescribeServicesResponse = DescribeServicesResponse'{_dsrServices :: Maybe [SupportService], _dsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsrStatus'
+data DescribeServicesResponse = DescribeServicesResponse'
+    { _dsrServices :: Maybe [SupportService]
+    , _dsrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeServicesResponse' smart constructor.
 describeServicesResponse :: Int -> DescribeServicesResponse
-describeServicesResponse pStatusCode = DescribeServicesResponse'{_dsrServices = Nothing, _dsrStatusCode = pStatusCode};
+describeServicesResponse pStatus =
+    DescribeServicesResponse'
+    { _dsrServices = Nothing
+    , _dsrStatus = pStatus
+    }
 
 -- | A JSON-formatted list of AWS services.
 dsrServices :: Lens' DescribeServicesResponse [SupportService]
 dsrServices = lens _dsrServices (\ s a -> s{_dsrServices = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsrStatusCode :: Lens' DescribeServicesResponse Int
-dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});
+dsrStatus :: Lens' DescribeServicesResponse Int
+dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.RebuildEnvironment
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     , rebuildEnvironmentResponse
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -49,11 +49,18 @@ import Network.AWS.Response
 -- * 'reEnvironmentName'
 --
 -- * 'reEnvironmentId'
-data RebuildEnvironment = RebuildEnvironment'{_reEnvironmentName :: Maybe Text, _reEnvironmentId :: Maybe Text} deriving (Eq, Read, Show)
+data RebuildEnvironment = RebuildEnvironment'
+    { _reEnvironmentName :: Maybe Text
+    , _reEnvironmentId   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RebuildEnvironment' smart constructor.
 rebuildEnvironment :: RebuildEnvironment
-rebuildEnvironment = RebuildEnvironment'{_reEnvironmentName = Nothing, _reEnvironmentId = Nothing};
+rebuildEnvironment =
+    RebuildEnvironment'
+    { _reEnvironmentName = Nothing
+    , _reEnvironmentId = Nothing
+    }
 
 -- | The name of the environment to rebuild.
 --
@@ -93,8 +100,10 @@ instance ToQuery RebuildEnvironment where
                "EnvironmentId" =: _reEnvironmentId]
 
 -- | /See:/ 'rebuildEnvironmentResponse' smart constructor.
-data RebuildEnvironmentResponse = RebuildEnvironmentResponse' deriving (Eq, Read, Show)
+data RebuildEnvironmentResponse =
+    RebuildEnvironmentResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RebuildEnvironmentResponse' smart constructor.
 rebuildEnvironmentResponse :: RebuildEnvironmentResponse
-rebuildEnvironmentResponse = RebuildEnvironmentResponse';
+rebuildEnvironmentResponse = RebuildEnvironmentResponse'

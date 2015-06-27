@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.AddTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.DataPipeline.AddTags
     -- ** Response constructor
     , addTagsResponse
     -- ** Response lenses
-    , atrStatusCode
+    , atrStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for AddTags.
 --
@@ -49,11 +49,18 @@ import Network.AWS.Response
 -- * 'atPipelineId'
 --
 -- * 'atTags'
-data AddTags = AddTags'{_atPipelineId :: Text, _atTags :: [Tag]} deriving (Eq, Read, Show)
+data AddTags = AddTags'
+    { _atPipelineId :: Text
+    , _atTags       :: [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'AddTags' smart constructor.
 addTags :: Text -> AddTags
-addTags pPipelineId = AddTags'{_atPipelineId = pPipelineId, _atTags = mempty};
+addTags pPipelineId =
+    AddTags'
+    { _atPipelineId = pPipelineId
+    , _atTags = mempty
+    }
 
 -- | The ID of the pipeline.
 atPipelineId :: Lens' AddTags Text
@@ -97,13 +104,18 @@ instance ToQuery AddTags where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atrStatusCode'
-newtype AddTagsResponse = AddTagsResponse'{_atrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'atrStatus'
+newtype AddTagsResponse = AddTagsResponse'
+    { _atrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AddTagsResponse' smart constructor.
 addTagsResponse :: Int -> AddTagsResponse
-addTagsResponse pStatusCode = AddTagsResponse'{_atrStatusCode = pStatusCode};
+addTagsResponse pStatus =
+    AddTagsResponse'
+    { _atrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-atrStatusCode :: Lens' AddTagsResponse Int
-atrStatusCode = lens _atrStatusCode (\ s a -> s{_atrStatusCode = a});
+atrStatus :: Lens' AddTagsResponse Int
+atrStatus = lens _atrStatus (\ s a -> s{_atrStatus = a});

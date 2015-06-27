@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ImportVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.EC2.ImportVolume
     , importVolumeResponse
     -- ** Response lenses
     , ivrConversionTask
-    , ivrStatusCode
+    , ivrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'importVolume' smart constructor.
 --
@@ -62,11 +62,24 @@ import Network.AWS.Response
 -- * 'ivImage'
 --
 -- * 'ivVolume'
-data ImportVolume = ImportVolume'{_ivDryRun :: Maybe Bool, _ivDescription :: Maybe Text, _ivAvailabilityZone :: Text, _ivImage :: DiskImageDetail, _ivVolume :: VolumeDetail} deriving (Eq, Read, Show)
+data ImportVolume = ImportVolume'
+    { _ivDryRun           :: Maybe Bool
+    , _ivDescription      :: Maybe Text
+    , _ivAvailabilityZone :: Text
+    , _ivImage            :: DiskImageDetail
+    , _ivVolume           :: VolumeDetail
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportVolume' smart constructor.
 importVolume :: Text -> DiskImageDetail -> VolumeDetail -> ImportVolume
-importVolume pAvailabilityZone pImage pVolume = ImportVolume'{_ivDryRun = Nothing, _ivDescription = Nothing, _ivAvailabilityZone = pAvailabilityZone, _ivImage = pImage, _ivVolume = pVolume};
+importVolume pAvailabilityZone pImage pVolume =
+    ImportVolume'
+    { _ivDryRun = Nothing
+    , _ivDescription = Nothing
+    , _ivAvailabilityZone = pAvailabilityZone
+    , _ivImage = pImage
+    , _ivVolume = pVolume
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -123,17 +136,24 @@ instance ToQuery ImportVolume where
 --
 -- * 'ivrConversionTask'
 --
--- * 'ivrStatusCode'
-data ImportVolumeResponse = ImportVolumeResponse'{_ivrConversionTask :: Maybe ConversionTask, _ivrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ivrStatus'
+data ImportVolumeResponse = ImportVolumeResponse'
+    { _ivrConversionTask :: Maybe ConversionTask
+    , _ivrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportVolumeResponse' smart constructor.
 importVolumeResponse :: Int -> ImportVolumeResponse
-importVolumeResponse pStatusCode = ImportVolumeResponse'{_ivrConversionTask = Nothing, _ivrStatusCode = pStatusCode};
+importVolumeResponse pStatus =
+    ImportVolumeResponse'
+    { _ivrConversionTask = Nothing
+    , _ivrStatus = pStatus
+    }
 
 -- | Information about the conversion task.
 ivrConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
 ivrConversionTask = lens _ivrConversionTask (\ s a -> s{_ivrConversionTask = a});
 
 -- | FIXME: Undocumented member.
-ivrStatusCode :: Lens' ImportVolumeResponse Int
-ivrStatusCode = lens _ivrStatusCode (\ s a -> s{_ivrStatusCode = a});
+ivrStatus :: Lens' ImportVolumeResponse Int
+ivrStatus = lens _ivrStatus (\ s a -> s{_ivrStatus = a});

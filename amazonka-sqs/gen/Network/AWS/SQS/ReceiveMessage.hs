@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.ReceiveMessage
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -81,13 +81,13 @@ module Network.AWS.SQS.ReceiveMessage
     , receiveMessageResponse
     -- ** Response lenses
     , rmrMessages
-    , rmrStatusCode
+    , rmrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'receiveMessage' smart constructor.
 --
@@ -104,11 +104,26 @@ import Network.AWS.SQS.Types
 -- * 'rmMaxNumberOfMessages'
 --
 -- * 'rmQueueURL'
-data ReceiveMessage = ReceiveMessage'{_rmVisibilityTimeout :: Maybe Int, _rmMessageAttributeNames :: Maybe [Text], _rmWaitTimeSeconds :: Maybe Int, _rmAttributeNames :: Maybe [QueueAttributeName], _rmMaxNumberOfMessages :: Maybe Int, _rmQueueURL :: Text} deriving (Eq, Read, Show)
+data ReceiveMessage = ReceiveMessage'
+    { _rmVisibilityTimeout     :: Maybe Int
+    , _rmMessageAttributeNames :: Maybe [Text]
+    , _rmWaitTimeSeconds       :: Maybe Int
+    , _rmAttributeNames        :: Maybe [QueueAttributeName]
+    , _rmMaxNumberOfMessages   :: Maybe Int
+    , _rmQueueURL              :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReceiveMessage' smart constructor.
 receiveMessage :: Text -> ReceiveMessage
-receiveMessage pQueueURL = ReceiveMessage'{_rmVisibilityTimeout = Nothing, _rmMessageAttributeNames = Nothing, _rmWaitTimeSeconds = Nothing, _rmAttributeNames = Nothing, _rmMaxNumberOfMessages = Nothing, _rmQueueURL = pQueueURL};
+receiveMessage pQueueURL =
+    ReceiveMessage'
+    { _rmVisibilityTimeout = Nothing
+    , _rmMessageAttributeNames = Nothing
+    , _rmWaitTimeSeconds = Nothing
+    , _rmAttributeNames = Nothing
+    , _rmMaxNumberOfMessages = Nothing
+    , _rmQueueURL = pQueueURL
+    }
 
 -- | The duration (in seconds) that the received messages are hidden from
 -- subsequent retrieve requests after being retrieved by a @ReceiveMessage@
@@ -208,17 +223,24 @@ instance ToQuery ReceiveMessage where
 --
 -- * 'rmrMessages'
 --
--- * 'rmrStatusCode'
-data ReceiveMessageResponse = ReceiveMessageResponse'{_rmrMessages :: Maybe [Message], _rmrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rmrStatus'
+data ReceiveMessageResponse = ReceiveMessageResponse'
+    { _rmrMessages :: Maybe [Message]
+    , _rmrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ReceiveMessageResponse' smart constructor.
 receiveMessageResponse :: Int -> ReceiveMessageResponse
-receiveMessageResponse pStatusCode = ReceiveMessageResponse'{_rmrMessages = Nothing, _rmrStatusCode = pStatusCode};
+receiveMessageResponse pStatus =
+    ReceiveMessageResponse'
+    { _rmrMessages = Nothing
+    , _rmrStatus = pStatus
+    }
 
 -- | A list of messages.
 rmrMessages :: Lens' ReceiveMessageResponse [Message]
 rmrMessages = lens _rmrMessages (\ s a -> s{_rmrMessages = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-rmrStatusCode :: Lens' ReceiveMessageResponse Int
-rmrStatusCode = lens _rmrStatusCode (\ s a -> s{_rmrStatusCode = a});
+rmrStatus :: Lens' ReceiveMessageResponse Int
+rmrStatus = lens _rmrStatus (\ s a -> s{_rmrStatus = a});

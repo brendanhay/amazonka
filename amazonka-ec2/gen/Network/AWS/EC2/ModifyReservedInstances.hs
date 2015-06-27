@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ModifyReservedInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.EC2.ModifyReservedInstances
     , modifyReservedInstancesResponse
     -- ** Response lenses
     , mrirReservedInstancesModificationId
-    , mrirStatusCode
+    , mrirStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyReservedInstances' smart constructor.
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'mriReservedInstancesIds'
 --
 -- * 'mriTargetConfigurations'
-data ModifyReservedInstances = ModifyReservedInstances'{_mriClientToken :: Maybe Text, _mriReservedInstancesIds :: [Text], _mriTargetConfigurations :: [ReservedInstancesConfiguration]} deriving (Eq, Read, Show)
+data ModifyReservedInstances = ModifyReservedInstances'
+    { _mriClientToken          :: Maybe Text
+    , _mriReservedInstancesIds :: [Text]
+    , _mriTargetConfigurations :: [ReservedInstancesConfiguration]
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyReservedInstances' smart constructor.
 modifyReservedInstances :: ModifyReservedInstances
-modifyReservedInstances = ModifyReservedInstances'{_mriClientToken = Nothing, _mriReservedInstancesIds = mempty, _mriTargetConfigurations = mempty};
+modifyReservedInstances =
+    ModifyReservedInstances'
+    { _mriClientToken = Nothing
+    , _mriReservedInstancesIds = mempty
+    , _mriTargetConfigurations = mempty
+    }
 
 -- | A unique, case-sensitive token you provide to ensure idempotency of your
 -- modification request. For more information, see
@@ -113,17 +122,24 @@ instance ToQuery ModifyReservedInstances where
 --
 -- * 'mrirReservedInstancesModificationId'
 --
--- * 'mrirStatusCode'
-data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'{_mrirReservedInstancesModificationId :: Maybe Text, _mrirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'mrirStatus'
+data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
+    { _mrirReservedInstancesModificationId :: Maybe Text
+    , _mrirStatus                          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyReservedInstancesResponse' smart constructor.
 modifyReservedInstancesResponse :: Int -> ModifyReservedInstancesResponse
-modifyReservedInstancesResponse pStatusCode = ModifyReservedInstancesResponse'{_mrirReservedInstancesModificationId = Nothing, _mrirStatusCode = pStatusCode};
+modifyReservedInstancesResponse pStatus =
+    ModifyReservedInstancesResponse'
+    { _mrirReservedInstancesModificationId = Nothing
+    , _mrirStatus = pStatus
+    }
 
 -- | The ID for the modification.
 mrirReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
 mrirReservedInstancesModificationId = lens _mrirReservedInstancesModificationId (\ s a -> s{_mrirReservedInstancesModificationId = a});
 
 -- | FIXME: Undocumented member.
-mrirStatusCode :: Lens' ModifyReservedInstancesResponse Int
-mrirStatusCode = lens _mrirStatusCode (\ s a -> s{_mrirStatusCode = a});
+mrirStatus :: Lens' ModifyReservedInstancesResponse Int
+mrirStatus = lens _mrirStatus (\ s a -> s{_mrirStatus = a});

@@ -15,6 +15,19 @@
 
 module Network.AWS.Kinesis.Waiters where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import           Network.AWS.Kinesis.DescribeStream
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter
+
+streamExists :: Wait DescribeStream
+streamExists =
+    Wait
+    { _waitName = "StreamExists"
+    , _waitAttempts = 18
+    , _waitDelay = 10
+    , _waitAcceptors = [ matchAll
+                             "ACTIVE"
+                             AcceptSuccess
+                             (dsrStreamDescription . sdStreamStatus . to toText)]
+    }

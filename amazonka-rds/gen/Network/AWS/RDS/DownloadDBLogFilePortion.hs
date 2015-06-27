@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DownloadDBLogFilePortion
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,14 +37,14 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
     , ddlfprLogFileData
     , ddlfprAdditionalDataPending
     , ddlfprMarker
-    , ddlfprStatusCode
+    , ddlfprStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -59,11 +59,22 @@ import Network.AWS.Response
 -- * 'ddlfpDBInstanceIdentifier'
 --
 -- * 'ddlfpLogFileName'
-data DownloadDBLogFilePortion = DownloadDBLogFilePortion'{_ddlfpNumberOfLines :: Maybe Int, _ddlfpMarker :: Maybe Text, _ddlfpDBInstanceIdentifier :: Text, _ddlfpLogFileName :: Text} deriving (Eq, Read, Show)
+data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
+    { _ddlfpNumberOfLines        :: Maybe Int
+    , _ddlfpMarker               :: Maybe Text
+    , _ddlfpDBInstanceIdentifier :: Text
+    , _ddlfpLogFileName          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DownloadDBLogFilePortion' smart constructor.
 downloadDBLogFilePortion :: Text -> Text -> DownloadDBLogFilePortion
-downloadDBLogFilePortion pDBInstanceIdentifier pLogFileName = DownloadDBLogFilePortion'{_ddlfpNumberOfLines = Nothing, _ddlfpMarker = Nothing, _ddlfpDBInstanceIdentifier = pDBInstanceIdentifier, _ddlfpLogFileName = pLogFileName};
+downloadDBLogFilePortion pDBInstanceIdentifier pLogFileName =
+    DownloadDBLogFilePortion'
+    { _ddlfpNumberOfLines = Nothing
+    , _ddlfpMarker = Nothing
+    , _ddlfpDBInstanceIdentifier = pDBInstanceIdentifier
+    , _ddlfpLogFileName = pLogFileName
+    }
 
 -- | The number of lines to download.
 --
@@ -162,12 +173,23 @@ instance ToQuery DownloadDBLogFilePortion where
 --
 -- * 'ddlfprMarker'
 --
--- * 'ddlfprStatusCode'
-data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'{_ddlfprLogFileData :: Maybe Text, _ddlfprAdditionalDataPending :: Maybe Bool, _ddlfprMarker :: Maybe Text, _ddlfprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddlfprStatus'
+data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
+    { _ddlfprLogFileData           :: Maybe Text
+    , _ddlfprAdditionalDataPending :: Maybe Bool
+    , _ddlfprMarker                :: Maybe Text
+    , _ddlfprStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DownloadDBLogFilePortionResponse' smart constructor.
 downloadDBLogFilePortionResponse :: Int -> DownloadDBLogFilePortionResponse
-downloadDBLogFilePortionResponse pStatusCode = DownloadDBLogFilePortionResponse'{_ddlfprLogFileData = Nothing, _ddlfprAdditionalDataPending = Nothing, _ddlfprMarker = Nothing, _ddlfprStatusCode = pStatusCode};
+downloadDBLogFilePortionResponse pStatus =
+    DownloadDBLogFilePortionResponse'
+    { _ddlfprLogFileData = Nothing
+    , _ddlfprAdditionalDataPending = Nothing
+    , _ddlfprMarker = Nothing
+    , _ddlfprStatus = pStatus
+    }
 
 -- | Entries from the specified log file.
 ddlfprLogFileData :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
@@ -184,5 +206,5 @@ ddlfprMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
 ddlfprMarker = lens _ddlfprMarker (\ s a -> s{_ddlfprMarker = a});
 
 -- | FIXME: Undocumented member.
-ddlfprStatusCode :: Lens' DownloadDBLogFilePortionResponse Int
-ddlfprStatusCode = lens _ddlfprStatusCode (\ s a -> s{_ddlfprStatusCode = a});
+ddlfprStatus :: Lens' DownloadDBLogFilePortionResponse Int
+ddlfprStatus = lens _ddlfprStatus (\ s a -> s{_ddlfprStatus = a});

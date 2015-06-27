@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironments
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     , describeEnvironmentsResponse
     -- ** Response lenses
     , desEnvironments
-    , desStatusCode
+    , desStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -62,11 +62,26 @@ import Network.AWS.Response
 -- * 'desApplicationName'
 --
 -- * 'desIncludeDeleted'
-data DescribeEnvironments = DescribeEnvironments'{_desEnvironmentIds :: Maybe [Text], _desEnvironmentNames :: Maybe [Text], _desVersionLabel :: Maybe Text, _desIncludedDeletedBackTo :: Maybe ISO8601, _desApplicationName :: Maybe Text, _desIncludeDeleted :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeEnvironments = DescribeEnvironments'
+    { _desEnvironmentIds        :: Maybe [Text]
+    , _desEnvironmentNames      :: Maybe [Text]
+    , _desVersionLabel          :: Maybe Text
+    , _desIncludedDeletedBackTo :: Maybe ISO8601
+    , _desApplicationName       :: Maybe Text
+    , _desIncludeDeleted        :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEnvironments' smart constructor.
 describeEnvironments :: DescribeEnvironments
-describeEnvironments = DescribeEnvironments'{_desEnvironmentIds = Nothing, _desEnvironmentNames = Nothing, _desVersionLabel = Nothing, _desIncludedDeletedBackTo = Nothing, _desApplicationName = Nothing, _desIncludeDeleted = Nothing};
+describeEnvironments =
+    DescribeEnvironments'
+    { _desEnvironmentIds = Nothing
+    , _desEnvironmentNames = Nothing
+    , _desVersionLabel = Nothing
+    , _desIncludedDeletedBackTo = Nothing
+    , _desApplicationName = Nothing
+    , _desIncludeDeleted = Nothing
+    }
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that have the specified IDs.
@@ -145,17 +160,24 @@ instance ToQuery DescribeEnvironments where
 --
 -- * 'desEnvironments'
 --
--- * 'desStatusCode'
-data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'{_desEnvironments :: Maybe [EnvironmentDescription], _desStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'desStatus'
+data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
+    { _desEnvironments :: Maybe [EnvironmentDescription]
+    , _desStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEnvironmentsResponse' smart constructor.
 describeEnvironmentsResponse :: Int -> DescribeEnvironmentsResponse
-describeEnvironmentsResponse pStatusCode = DescribeEnvironmentsResponse'{_desEnvironments = Nothing, _desStatusCode = pStatusCode};
+describeEnvironmentsResponse pStatus =
+    DescribeEnvironmentsResponse'
+    { _desEnvironments = Nothing
+    , _desStatus = pStatus
+    }
 
 -- | Returns an EnvironmentDescription list.
 desEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
 desEnvironments = lens _desEnvironments (\ s a -> s{_desEnvironments = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatusCode :: Lens' DescribeEnvironmentsResponse Int
-desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});
+desStatus :: Lens' DescribeEnvironmentsResponse Int
+desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

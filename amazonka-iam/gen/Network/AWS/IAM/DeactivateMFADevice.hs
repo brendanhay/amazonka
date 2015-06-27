@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeactivateMFADevice
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.IAM.DeactivateMFADevice
     , deactivateMFADeviceResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deactivateMFADevice' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'dmdUserName'
 --
 -- * 'dmdSerialNumber'
-data DeactivateMFADevice = DeactivateMFADevice'{_dmdUserName :: Text, _dmdSerialNumber :: Text} deriving (Eq, Read, Show)
+data DeactivateMFADevice = DeactivateMFADevice'
+    { _dmdUserName     :: Text
+    , _dmdSerialNumber :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeactivateMFADevice' smart constructor.
 deactivateMFADevice :: Text -> Text -> DeactivateMFADevice
-deactivateMFADevice pUserName pSerialNumber = DeactivateMFADevice'{_dmdUserName = pUserName, _dmdSerialNumber = pSerialNumber};
+deactivateMFADevice pUserName pSerialNumber =
+    DeactivateMFADevice'
+    { _dmdUserName = pUserName
+    , _dmdSerialNumber = pSerialNumber
+    }
 
 -- | The name of the user whose MFA device you want to deactivate.
 dmdUserName :: Lens' DeactivateMFADevice Text
@@ -88,8 +95,10 @@ instance ToQuery DeactivateMFADevice where
                "SerialNumber" =: _dmdSerialNumber]
 
 -- | /See:/ 'deactivateMFADeviceResponse' smart constructor.
-data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse' deriving (Eq, Read, Show)
+data DeactivateMFADeviceResponse =
+    DeactivateMFADeviceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeactivateMFADeviceResponse' smart constructor.
 deactivateMFADeviceResponse :: DeactivateMFADeviceResponse
-deactivateMFADeviceResponse = DeactivateMFADeviceResponse';
+deactivateMFADeviceResponse = DeactivateMFADeviceResponse'

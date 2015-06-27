@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectoryService.EnableRadius
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.DirectoryService.EnableRadius
     -- ** Response constructor
     , enableRadiusResponse
     -- ** Response lenses
-    , errStatusCode
+    , errStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the EnableRadius operation.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'erDirectoryId'
 --
 -- * 'erRadiusSettings'
-data EnableRadius = EnableRadius'{_erDirectoryId :: Text, _erRadiusSettings :: RadiusSettings} deriving (Eq, Read, Show)
+data EnableRadius = EnableRadius'
+    { _erDirectoryId    :: Text
+    , _erRadiusSettings :: RadiusSettings
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableRadius' smart constructor.
 enableRadius :: Text -> RadiusSettings -> EnableRadius
-enableRadius pDirectoryId pRadiusSettings = EnableRadius'{_erDirectoryId = pDirectoryId, _erRadiusSettings = pRadiusSettings};
+enableRadius pDirectoryId pRadiusSettings =
+    EnableRadius'
+    { _erDirectoryId = pDirectoryId
+    , _erRadiusSettings = pRadiusSettings
+    }
 
 -- | The identifier of the directory to enable MFA for.
 erDirectoryId :: Lens' EnableRadius Text
@@ -102,13 +109,18 @@ instance ToQuery EnableRadius where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'errStatusCode'
-newtype EnableRadiusResponse = EnableRadiusResponse'{_errStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'errStatus'
+newtype EnableRadiusResponse = EnableRadiusResponse'
+    { _errStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableRadiusResponse' smart constructor.
 enableRadiusResponse :: Int -> EnableRadiusResponse
-enableRadiusResponse pStatusCode = EnableRadiusResponse'{_errStatusCode = pStatusCode};
+enableRadiusResponse pStatus =
+    EnableRadiusResponse'
+    { _errStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-errStatusCode :: Lens' EnableRadiusResponse Int
-errStatusCode = lens _errStatusCode (\ s a -> s{_errStatusCode = a});
+errStatus :: Lens' EnableRadiusResponse Int
+errStatus = lens _errStatus (\ s a -> s{_errStatus = a});

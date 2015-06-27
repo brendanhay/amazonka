@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.DeleteArchive
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -59,10 +59,10 @@ module Network.AWS.Glacier.DeleteArchive
     , deleteArchiveResponse
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for deleting an archive from an Amazon Glacier vault.
 --
@@ -75,11 +75,20 @@ import Network.AWS.Response
 -- * 'daVaultName'
 --
 -- * 'daArchiveId'
-data DeleteArchive = DeleteArchive'{_daAccountId :: Text, _daVaultName :: Text, _daArchiveId :: Text} deriving (Eq, Read, Show)
+data DeleteArchive = DeleteArchive'
+    { _daAccountId :: Text
+    , _daVaultName :: Text
+    , _daArchiveId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteArchive' smart constructor.
 deleteArchive :: Text -> Text -> Text -> DeleteArchive
-deleteArchive pAccountId pVaultName pArchiveId = DeleteArchive'{_daAccountId = pAccountId, _daVaultName = pVaultName, _daArchiveId = pArchiveId};
+deleteArchive pAccountId pVaultName pArchiveId =
+    DeleteArchive'
+    { _daAccountId = pAccountId
+    , _daVaultName = pVaultName
+    , _daArchiveId = pArchiveId
+    }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
@@ -117,8 +126,10 @@ instance ToQuery DeleteArchive where
         toQuery = const mempty
 
 -- | /See:/ 'deleteArchiveResponse' smart constructor.
-data DeleteArchiveResponse = DeleteArchiveResponse' deriving (Eq, Read, Show)
+data DeleteArchiveResponse =
+    DeleteArchiveResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteArchiveResponse' smart constructor.
 deleteArchiveResponse :: DeleteArchiveResponse
-deleteArchiveResponse = DeleteArchiveResponse';
+deleteArchiveResponse = DeleteArchiveResponse'

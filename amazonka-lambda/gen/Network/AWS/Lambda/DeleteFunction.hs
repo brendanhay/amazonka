@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Lambda.DeleteFunction
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,21 +38,26 @@ module Network.AWS.Lambda.DeleteFunction
     , deleteFunctionResponse
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteFunction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dfFunctionName'
-newtype DeleteFunction = DeleteFunction'{_dfFunctionName :: Text} deriving (Eq, Read, Show)
+newtype DeleteFunction = DeleteFunction'
+    { _dfFunctionName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteFunction' smart constructor.
 deleteFunction :: Text -> DeleteFunction
-deleteFunction pFunctionName = DeleteFunction'{_dfFunctionName = pFunctionName};
+deleteFunction pFunctionName =
+    DeleteFunction'
+    { _dfFunctionName = pFunctionName
+    }
 
 -- | The Lambda function to delete.
 --
@@ -85,8 +90,10 @@ instance ToQuery DeleteFunction where
         toQuery = const mempty
 
 -- | /See:/ 'deleteFunctionResponse' smart constructor.
-data DeleteFunctionResponse = DeleteFunctionResponse' deriving (Eq, Read, Show)
+data DeleteFunctionResponse =
+    DeleteFunctionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteFunctionResponse' smart constructor.
 deleteFunctionResponse :: DeleteFunctionResponse
-deleteFunctionResponse = DeleteFunctionResponse';
+deleteFunctionResponse = DeleteFunctionResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.DescribeContainerInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.ECS.DescribeContainerInstances
     -- ** Response lenses
     , desFailures
     , desContainerInstances
-    , desStatusCode
+    , desStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeContainerInstances' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'dciCluster'
 --
 -- * 'dciContainerInstances'
-data DescribeContainerInstances = DescribeContainerInstances'{_dciCluster :: Maybe Text, _dciContainerInstances :: [Text]} deriving (Eq, Read, Show)
+data DescribeContainerInstances = DescribeContainerInstances'
+    { _dciCluster            :: Maybe Text
+    , _dciContainerInstances :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeContainerInstances' smart constructor.
 describeContainerInstances :: DescribeContainerInstances
-describeContainerInstances = DescribeContainerInstances'{_dciCluster = Nothing, _dciContainerInstances = mempty};
+describeContainerInstances =
+    DescribeContainerInstances'
+    { _dciCluster = Nothing
+    , _dciContainerInstances = mempty
+    }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the container instances you want to describe. If you do not
@@ -111,12 +118,21 @@ instance ToQuery DescribeContainerInstances where
 --
 -- * 'desContainerInstances'
 --
--- * 'desStatusCode'
-data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'{_desFailures :: Maybe [Failure], _desContainerInstances :: Maybe [ContainerInstance], _desStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'desStatus'
+data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
+    { _desFailures           :: Maybe [Failure]
+    , _desContainerInstances :: Maybe [ContainerInstance]
+    , _desStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeContainerInstancesResponse' smart constructor.
 describeContainerInstancesResponse :: Int -> DescribeContainerInstancesResponse
-describeContainerInstancesResponse pStatusCode = DescribeContainerInstancesResponse'{_desFailures = Nothing, _desContainerInstances = Nothing, _desStatusCode = pStatusCode};
+describeContainerInstancesResponse pStatus =
+    DescribeContainerInstancesResponse'
+    { _desFailures = Nothing
+    , _desContainerInstances = Nothing
+    , _desStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 desFailures :: Lens' DescribeContainerInstancesResponse [Failure]
@@ -127,5 +143,5 @@ desContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInst
 desContainerInstances = lens _desContainerInstances (\ s a -> s{_desContainerInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatusCode :: Lens' DescribeContainerInstancesResponse Int
-desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});
+desStatus :: Lens' DescribeContainerInstancesResponse Int
+desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

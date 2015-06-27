@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeAccountAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,13 +53,13 @@ module Network.AWS.EC2.DescribeAccountAttributes
     , describeAccountAttributesResponse
     -- ** Response lenses
     , daarAccountAttributes
-    , daarStatusCode
+    , daarStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAccountAttributes' smart constructor.
 --
@@ -68,11 +68,18 @@ import Network.AWS.Response
 -- * 'daaAttributeNames'
 --
 -- * 'daaDryRun'
-data DescribeAccountAttributes = DescribeAccountAttributes'{_daaAttributeNames :: Maybe [AccountAttributeName], _daaDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeAccountAttributes = DescribeAccountAttributes'
+    { _daaAttributeNames :: Maybe [AccountAttributeName]
+    , _daaDryRun         :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAccountAttributes' smart constructor.
 describeAccountAttributes :: DescribeAccountAttributes
-describeAccountAttributes = DescribeAccountAttributes'{_daaAttributeNames = Nothing, _daaDryRun = Nothing};
+describeAccountAttributes =
+    DescribeAccountAttributes'
+    { _daaAttributeNames = Nothing
+    , _daaDryRun = Nothing
+    }
 
 -- | One or more account attribute names.
 daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
@@ -119,17 +126,24 @@ instance ToQuery DescribeAccountAttributes where
 --
 -- * 'daarAccountAttributes'
 --
--- * 'daarStatusCode'
-data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'{_daarAccountAttributes :: Maybe [AccountAttribute], _daarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'daarStatus'
+data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
+    { _daarAccountAttributes :: Maybe [AccountAttribute]
+    , _daarStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAccountAttributesResponse' smart constructor.
 describeAccountAttributesResponse :: Int -> DescribeAccountAttributesResponse
-describeAccountAttributesResponse pStatusCode = DescribeAccountAttributesResponse'{_daarAccountAttributes = Nothing, _daarStatusCode = pStatusCode};
+describeAccountAttributesResponse pStatus =
+    DescribeAccountAttributesResponse'
+    { _daarAccountAttributes = Nothing
+    , _daarStatus = pStatus
+    }
 
 -- | Information about one or more account attributes.
 daarAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
 daarAccountAttributes = lens _daarAccountAttributes (\ s a -> s{_daarAccountAttributes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-daarStatusCode :: Lens' DescribeAccountAttributesResponse Int
-daarStatusCode = lens _daarStatusCode (\ s a -> s{_daarStatusCode = a});
+daarStatus :: Lens' DescribeAccountAttributesResponse Int
+daarStatus = lens _daarStatus (\ s a -> s{_daarStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.RebootCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.Redshift.RebootCluster
     , rebootClusterResponse
     -- ** Response lenses
     , rcrCluster
-    , rcrStatusCode
+    , rcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -54,11 +54,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rcClusterIdentifier'
-newtype RebootCluster = RebootCluster'{_rcClusterIdentifier :: Text} deriving (Eq, Read, Show)
+newtype RebootCluster = RebootCluster'
+    { _rcClusterIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RebootCluster' smart constructor.
 rebootCluster :: Text -> RebootCluster
-rebootCluster pClusterIdentifier = RebootCluster'{_rcClusterIdentifier = pClusterIdentifier};
+rebootCluster pClusterIdentifier =
+    RebootCluster'
+    { _rcClusterIdentifier = pClusterIdentifier
+    }
 
 -- | The cluster identifier.
 rcClusterIdentifier :: Lens' RebootCluster Text
@@ -93,17 +98,24 @@ instance ToQuery RebootCluster where
 --
 -- * 'rcrCluster'
 --
--- * 'rcrStatusCode'
-data RebootClusterResponse = RebootClusterResponse'{_rcrCluster :: Maybe Cluster, _rcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rcrStatus'
+data RebootClusterResponse = RebootClusterResponse'
+    { _rcrCluster :: Maybe Cluster
+    , _rcrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RebootClusterResponse' smart constructor.
 rebootClusterResponse :: Int -> RebootClusterResponse
-rebootClusterResponse pStatusCode = RebootClusterResponse'{_rcrCluster = Nothing, _rcrStatusCode = pStatusCode};
+rebootClusterResponse pStatus =
+    RebootClusterResponse'
+    { _rcrCluster = Nothing
+    , _rcrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rcrCluster :: Lens' RebootClusterResponse (Maybe Cluster)
 rcrCluster = lens _rcrCluster (\ s a -> s{_rcrCluster = a});
 
 -- | FIXME: Undocumented member.
-rcrStatusCode :: Lens' RebootClusterResponse Int
-rcrStatusCode = lens _rcrStatusCode (\ s a -> s{_rcrStatusCode = a});
+rcrStatus :: Lens' RebootClusterResponse Int
+rcrStatus = lens _rcrStatus (\ s a -> s{_rcrStatus = a});

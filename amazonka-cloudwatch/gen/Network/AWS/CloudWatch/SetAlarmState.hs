@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatch.SetAlarmState
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.CloudWatch.SetAlarmState
     , setAlarmStateResponse
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'setAlarmState' smart constructor.
 --
@@ -55,11 +55,22 @@ import Network.AWS.Response
 -- * 'sasStateValue'
 --
 -- * 'sasStateReason'
-data SetAlarmState = SetAlarmState'{_sasStateReasonData :: Maybe Text, _sasAlarmName :: Text, _sasStateValue :: StateValue, _sasStateReason :: Text} deriving (Eq, Read, Show)
+data SetAlarmState = SetAlarmState'
+    { _sasStateReasonData :: Maybe Text
+    , _sasAlarmName       :: Text
+    , _sasStateValue      :: StateValue
+    , _sasStateReason     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetAlarmState' smart constructor.
 setAlarmState :: Text -> StateValue -> Text -> SetAlarmState
-setAlarmState pAlarmName pStateValue pStateReason = SetAlarmState'{_sasStateReasonData = Nothing, _sasAlarmName = pAlarmName, _sasStateValue = pStateValue, _sasStateReason = pStateReason};
+setAlarmState pAlarmName pStateValue pStateReason =
+    SetAlarmState'
+    { _sasStateReasonData = Nothing
+    , _sasAlarmName = pAlarmName
+    , _sasStateValue = pStateValue
+    , _sasStateReason = pStateReason
+    }
 
 -- | The reason that this alarm is set to this specific state (in
 -- machine-readable JSON format)
@@ -103,8 +114,10 @@ instance ToQuery SetAlarmState where
                "StateReason" =: _sasStateReason]
 
 -- | /See:/ 'setAlarmStateResponse' smart constructor.
-data SetAlarmStateResponse = SetAlarmStateResponse' deriving (Eq, Read, Show)
+data SetAlarmStateResponse =
+    SetAlarmStateResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetAlarmStateResponse' smart constructor.
 setAlarmStateResponse :: SetAlarmStateResponse
-setAlarmStateResponse = SetAlarmStateResponse';
+setAlarmStateResponse = SetAlarmStateResponse'

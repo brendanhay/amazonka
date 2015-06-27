@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeDomains
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.CloudSearch.DescribeDomains
     , describeDomainsResponse
     -- ** Response lenses
     , descDomainStatusList
-    , descStatusCode
+    , descStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeDomains@ operation. By
 -- default shows the status of all domains. To restrict the response to
@@ -57,11 +57,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddDomainNames'
-newtype DescribeDomains = DescribeDomains'{_ddDomainNames :: Maybe [Text]} deriving (Eq, Read, Show)
+newtype DescribeDomains = DescribeDomains'
+    { _ddDomainNames :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDomains' smart constructor.
 describeDomains :: DescribeDomains
-describeDomains = DescribeDomains'{_ddDomainNames = Nothing};
+describeDomains =
+    DescribeDomains'
+    { _ddDomainNames = Nothing
+    }
 
 -- | The names of the domains you want to include in the response.
 ddDomainNames :: Lens' DescribeDomains [Text]
@@ -102,17 +107,24 @@ instance ToQuery DescribeDomains where
 --
 -- * 'descDomainStatusList'
 --
--- * 'descStatusCode'
-data DescribeDomainsResponse = DescribeDomainsResponse'{_descDomainStatusList :: [DomainStatus], _descStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'descStatus'
+data DescribeDomainsResponse = DescribeDomainsResponse'
+    { _descDomainStatusList :: [DomainStatus]
+    , _descStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDomainsResponse' smart constructor.
 describeDomainsResponse :: Int -> DescribeDomainsResponse
-describeDomainsResponse pStatusCode = DescribeDomainsResponse'{_descDomainStatusList = mempty, _descStatusCode = pStatusCode};
+describeDomainsResponse pStatus =
+    DescribeDomainsResponse'
+    { _descDomainStatusList = mempty
+    , _descStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 descDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
 descDomainStatusList = lens _descDomainStatusList (\ s a -> s{_descDomainStatusList = a});
 
 -- | FIXME: Undocumented member.
-descStatusCode :: Lens' DescribeDomainsResponse Int
-descStatusCode = lens _descStatusCode (\ s a -> s{_descStatusCode = a});
+descStatus :: Lens' DescribeDomainsResponse Int
+descStatus = lens _descStatus (\ s a -> s{_descStatus = a});

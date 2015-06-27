@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.RegisterElasticIP
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.OpsWorks.RegisterElasticIP
     , registerElasticIPResponse
     -- ** Response lenses
     , reirElasticIP
-    , reirStatusCode
+    , reirStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'registerElasticIP' smart constructor.
 --
@@ -58,11 +58,18 @@ import Network.AWS.Response
 -- * 'reiElasticIP'
 --
 -- * 'reiStackId'
-data RegisterElasticIP = RegisterElasticIP'{_reiElasticIP :: Text, _reiStackId :: Text} deriving (Eq, Read, Show)
+data RegisterElasticIP = RegisterElasticIP'
+    { _reiElasticIP :: Text
+    , _reiStackId   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterElasticIP' smart constructor.
 registerElasticIP :: Text -> Text -> RegisterElasticIP
-registerElasticIP pElasticIP pStackId = RegisterElasticIP'{_reiElasticIP = pElasticIP, _reiStackId = pStackId};
+registerElasticIP pElasticIP pStackId =
+    RegisterElasticIP'
+    { _reiElasticIP = pElasticIP
+    , _reiStackId = pStackId
+    }
 
 -- | The Elastic IP address.
 reiElasticIP :: Lens' RegisterElasticIP Text
@@ -112,17 +119,24 @@ instance ToQuery RegisterElasticIP where
 --
 -- * 'reirElasticIP'
 --
--- * 'reirStatusCode'
-data RegisterElasticIPResponse = RegisterElasticIPResponse'{_reirElasticIP :: Maybe Text, _reirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'reirStatus'
+data RegisterElasticIPResponse = RegisterElasticIPResponse'
+    { _reirElasticIP :: Maybe Text
+    , _reirStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterElasticIPResponse' smart constructor.
 registerElasticIPResponse :: Int -> RegisterElasticIPResponse
-registerElasticIPResponse pStatusCode = RegisterElasticIPResponse'{_reirElasticIP = Nothing, _reirStatusCode = pStatusCode};
+registerElasticIPResponse pStatus =
+    RegisterElasticIPResponse'
+    { _reirElasticIP = Nothing
+    , _reirStatus = pStatus
+    }
 
 -- | The Elastic IP address.
 reirElasticIP :: Lens' RegisterElasticIPResponse (Maybe Text)
 reirElasticIP = lens _reirElasticIP (\ s a -> s{_reirElasticIP = a});
 
 -- | FIXME: Undocumented member.
-reirStatusCode :: Lens' RegisterElasticIPResponse Int
-reirStatusCode = lens _reirStatusCode (\ s a -> s{_reirStatusCode = a});
+reirStatus :: Lens' RegisterElasticIPResponse Int
+reirStatus = lens _reirStatus (\ s a -> s{_reirStatus = a});

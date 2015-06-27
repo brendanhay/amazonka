@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteVPCEndpoints
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.EC2.DeleteVPCEndpoints
     , deleteVPCEndpointsResponse
     -- ** Response lenses
     , dverUnsuccessful
-    , dverStatusCode
+    , dverStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteVPCEndpoints' smart constructor.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'dveDryRun'
 --
 -- * 'dveVPCEndpointIds'
-data DeleteVPCEndpoints = DeleteVPCEndpoints'{_dveDryRun :: Maybe Bool, _dveVPCEndpointIds :: [Text]} deriving (Eq, Read, Show)
+data DeleteVPCEndpoints = DeleteVPCEndpoints'
+    { _dveDryRun         :: Maybe Bool
+    , _dveVPCEndpointIds :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVPCEndpoints' smart constructor.
 deleteVPCEndpoints :: DeleteVPCEndpoints
-deleteVPCEndpoints = DeleteVPCEndpoints'{_dveDryRun = Nothing, _dveVPCEndpointIds = mempty};
+deleteVPCEndpoints =
+    DeleteVPCEndpoints'
+    { _dveDryRun = Nothing
+    , _dveVPCEndpointIds = mempty
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -99,17 +106,24 @@ instance ToQuery DeleteVPCEndpoints where
 --
 -- * 'dverUnsuccessful'
 --
--- * 'dverStatusCode'
-data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'{_dverUnsuccessful :: Maybe [UnsuccessfulItem], _dverStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dverStatus'
+data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
+    { _dverUnsuccessful :: Maybe [UnsuccessfulItem]
+    , _dverStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVPCEndpointsResponse' smart constructor.
 deleteVPCEndpointsResponse :: Int -> DeleteVPCEndpointsResponse
-deleteVPCEndpointsResponse pStatusCode = DeleteVPCEndpointsResponse'{_dverUnsuccessful = Nothing, _dverStatusCode = pStatusCode};
+deleteVPCEndpointsResponse pStatus =
+    DeleteVPCEndpointsResponse'
+    { _dverUnsuccessful = Nothing
+    , _dverStatus = pStatus
+    }
 
 -- | Information about the endpoints that were not successfully deleted.
 dverUnsuccessful :: Lens' DeleteVPCEndpointsResponse [UnsuccessfulItem]
 dverUnsuccessful = lens _dverUnsuccessful (\ s a -> s{_dverUnsuccessful = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dverStatusCode :: Lens' DeleteVPCEndpointsResponse Int
-dverStatusCode = lens _dverStatusCode (\ s a -> s{_dverStatusCode = a});
+dverStatus :: Lens' DeleteVPCEndpointsResponse Int
+dverStatus = lens _dverStatus (\ s a -> s{_dverStatus = a});

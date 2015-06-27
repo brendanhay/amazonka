@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,13 +47,13 @@ module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     , updateGatewaySoftwareNowResponse
     -- ** Response lenses
     , ugsnrGatewayARN
-    , ugsnrStatusCode
+    , ugsnrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the of the gateway to update.
 --
@@ -62,11 +62,16 @@ import Network.AWS.StorageGateway.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ugsnGatewayARN'
-newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow'{_ugsnGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow'
+    { _ugsnGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateGatewaySoftwareNow' smart constructor.
 updateGatewaySoftwareNow :: Text -> UpdateGatewaySoftwareNow
-updateGatewaySoftwareNow pGatewayARN = UpdateGatewaySoftwareNow'{_ugsnGatewayARN = pGatewayARN};
+updateGatewaySoftwareNow pGatewayARN =
+    UpdateGatewaySoftwareNow'
+    { _ugsnGatewayARN = pGatewayARN
+    }
 
 -- | FIXME: Undocumented member.
 ugsnGatewayARN :: Lens' UpdateGatewaySoftwareNow Text
@@ -111,17 +116,24 @@ instance ToQuery UpdateGatewaySoftwareNow where
 --
 -- * 'ugsnrGatewayARN'
 --
--- * 'ugsnrStatusCode'
-data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'{_ugsnrGatewayARN :: Maybe Text, _ugsnrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ugsnrStatus'
+data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
+    { _ugsnrGatewayARN :: Maybe Text
+    , _ugsnrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateGatewaySoftwareNowResponse' smart constructor.
 updateGatewaySoftwareNowResponse :: Int -> UpdateGatewaySoftwareNowResponse
-updateGatewaySoftwareNowResponse pStatusCode = UpdateGatewaySoftwareNowResponse'{_ugsnrGatewayARN = Nothing, _ugsnrStatusCode = pStatusCode};
+updateGatewaySoftwareNowResponse pStatus =
+    UpdateGatewaySoftwareNowResponse'
+    { _ugsnrGatewayARN = Nothing
+    , _ugsnrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ugsnrGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
 ugsnrGatewayARN = lens _ugsnrGatewayARN (\ s a -> s{_ugsnrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-ugsnrStatusCode :: Lens' UpdateGatewaySoftwareNowResponse Int
-ugsnrStatusCode = lens _ugsnrStatusCode (\ s a -> s{_ugsnrStatusCode = a});
+ugsnrStatus :: Lens' UpdateGatewaySoftwareNowResponse Int
+ugsnrStatus = lens _ugsnrStatus (\ s a -> s{_ugsnrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CopySnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,13 +51,13 @@ module Network.AWS.EC2.CopySnapshot
     , copySnapshotResponse
     -- ** Response lenses
     , csrSnapshotId
-    , csrStatusCode
+    , csrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'copySnapshot' smart constructor.
 --
@@ -74,11 +74,26 @@ import Network.AWS.Response
 -- * 'csSourceRegion'
 --
 -- * 'csSourceSnapshotId'
-data CopySnapshot = CopySnapshot'{_csPresignedURL :: Maybe Text, _csDestinationRegion :: Maybe Text, _csDryRun :: Maybe Bool, _csDescription :: Maybe Text, _csSourceRegion :: Text, _csSourceSnapshotId :: Text} deriving (Eq, Read, Show)
+data CopySnapshot = CopySnapshot'
+    { _csPresignedURL      :: Maybe Text
+    , _csDestinationRegion :: Maybe Text
+    , _csDryRun            :: Maybe Bool
+    , _csDescription       :: Maybe Text
+    , _csSourceRegion      :: Text
+    , _csSourceSnapshotId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CopySnapshot' smart constructor.
 copySnapshot :: Text -> Text -> CopySnapshot
-copySnapshot pSourceRegion pSourceSnapshotId = CopySnapshot'{_csPresignedURL = Nothing, _csDestinationRegion = Nothing, _csDryRun = Nothing, _csDescription = Nothing, _csSourceRegion = pSourceRegion, _csSourceSnapshotId = pSourceSnapshotId};
+copySnapshot pSourceRegion pSourceSnapshotId =
+    CopySnapshot'
+    { _csPresignedURL = Nothing
+    , _csDestinationRegion = Nothing
+    , _csDryRun = Nothing
+    , _csDescription = Nothing
+    , _csSourceRegion = pSourceRegion
+    , _csSourceSnapshotId = pSourceSnapshotId
+    }
 
 -- | The pre-signed URL that facilitates copying an encrypted snapshot. This
 -- parameter is only required when copying an encrypted snapshot with the
@@ -160,17 +175,24 @@ instance ToQuery CopySnapshot where
 --
 -- * 'csrSnapshotId'
 --
--- * 'csrStatusCode'
-data CopySnapshotResponse = CopySnapshotResponse'{_csrSnapshotId :: Maybe Text, _csrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'csrStatus'
+data CopySnapshotResponse = CopySnapshotResponse'
+    { _csrSnapshotId :: Maybe Text
+    , _csrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CopySnapshotResponse' smart constructor.
 copySnapshotResponse :: Int -> CopySnapshotResponse
-copySnapshotResponse pStatusCode = CopySnapshotResponse'{_csrSnapshotId = Nothing, _csrStatusCode = pStatusCode};
+copySnapshotResponse pStatus =
+    CopySnapshotResponse'
+    { _csrSnapshotId = Nothing
+    , _csrStatus = pStatus
+    }
 
 -- | The ID of the new snapshot.
 csrSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\ s a -> s{_csrSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-csrStatusCode :: Lens' CopySnapshotResponse Int
-csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});
+csrStatus :: Lens' CopySnapshotResponse Int
+csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});

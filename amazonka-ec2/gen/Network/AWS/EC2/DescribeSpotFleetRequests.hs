@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeSpotFleetRequests
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.EC2.DescribeSpotFleetRequests
     -- ** Response lenses
     , dsfrrNextToken
     , dsfrrSpotFleetRequestConfigs
-    , dsfrrStatusCode
+    , dsfrrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotFleetRequests.
 --
@@ -57,11 +57,22 @@ import Network.AWS.Response
 -- * 'dsfrDryRun'
 --
 -- * 'dsfrMaxResults'
-data DescribeSpotFleetRequests = DescribeSpotFleetRequests'{_dsfrSpotFleetRequestIds :: Maybe [Text], _dsfrNextToken :: Maybe Text, _dsfrDryRun :: Maybe Bool, _dsfrMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
+    { _dsfrSpotFleetRequestIds :: Maybe [Text]
+    , _dsfrNextToken           :: Maybe Text
+    , _dsfrDryRun              :: Maybe Bool
+    , _dsfrMaxResults          :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotFleetRequests' smart constructor.
 describeSpotFleetRequests :: DescribeSpotFleetRequests
-describeSpotFleetRequests = DescribeSpotFleetRequests'{_dsfrSpotFleetRequestIds = Nothing, _dsfrNextToken = Nothing, _dsfrDryRun = Nothing, _dsfrMaxResults = Nothing};
+describeSpotFleetRequests =
+    DescribeSpotFleetRequests'
+    { _dsfrSpotFleetRequestIds = Nothing
+    , _dsfrNextToken = Nothing
+    , _dsfrDryRun = Nothing
+    , _dsfrMaxResults = Nothing
+    }
 
 -- | The IDs of the Spot fleet requests.
 dsfrSpotFleetRequestIds :: Lens' DescribeSpotFleetRequests [Text]
@@ -125,12 +136,21 @@ instance ToQuery DescribeSpotFleetRequests where
 --
 -- * 'dsfrrSpotFleetRequestConfigs'
 --
--- * 'dsfrrStatusCode'
-data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'{_dsfrrNextToken :: Maybe Text, _dsfrrSpotFleetRequestConfigs :: [SpotFleetRequestConfig], _dsfrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsfrrStatus'
+data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
+    { _dsfrrNextToken               :: Maybe Text
+    , _dsfrrSpotFleetRequestConfigs :: [SpotFleetRequestConfig]
+    , _dsfrrStatus                  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotFleetRequestsResponse' smart constructor.
 describeSpotFleetRequestsResponse :: Int -> DescribeSpotFleetRequestsResponse
-describeSpotFleetRequestsResponse pStatusCode = DescribeSpotFleetRequestsResponse'{_dsfrrNextToken = Nothing, _dsfrrSpotFleetRequestConfigs = mempty, _dsfrrStatusCode = pStatusCode};
+describeSpotFleetRequestsResponse pStatus =
+    DescribeSpotFleetRequestsResponse'
+    { _dsfrrNextToken = Nothing
+    , _dsfrrSpotFleetRequestConfigs = mempty
+    , _dsfrrStatus = pStatus
+    }
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
@@ -142,5 +162,5 @@ dsfrrSpotFleetRequestConfigs :: Lens' DescribeSpotFleetRequestsResponse [SpotFle
 dsfrrSpotFleetRequestConfigs = lens _dsfrrSpotFleetRequestConfigs (\ s a -> s{_dsfrrSpotFleetRequestConfigs = a});
 
 -- | FIXME: Undocumented member.
-dsfrrStatusCode :: Lens' DescribeSpotFleetRequestsResponse Int
-dsfrrStatusCode = lens _dsfrrStatusCode (\ s a -> s{_dsfrrStatusCode = a});
+dsfrrStatus :: Lens' DescribeSpotFleetRequestsResponse Int
+dsfrrStatus = lens _dsfrrStatus (\ s a -> s{_dsfrrStatus = a});

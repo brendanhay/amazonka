@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.OpsWorks.DescribeInstances
     , describeInstancesResponse
     -- ** Response lenses
     , dirInstances
-    , dirStatusCode
+    , dirStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeInstances' smart constructor.
 --
@@ -59,11 +59,20 @@ import Network.AWS.Response
 -- * 'diStackId'
 --
 -- * 'diLayerId'
-data DescribeInstances = DescribeInstances'{_diInstanceIds :: Maybe [Text], _diStackId :: Maybe Text, _diLayerId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeInstances = DescribeInstances'
+    { _diInstanceIds :: Maybe [Text]
+    , _diStackId     :: Maybe Text
+    , _diLayerId     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstances' smart constructor.
 describeInstances :: DescribeInstances
-describeInstances = DescribeInstances'{_diInstanceIds = Nothing, _diStackId = Nothing, _diLayerId = Nothing};
+describeInstances =
+    DescribeInstances'
+    { _diInstanceIds = Nothing
+    , _diStackId = Nothing
+    , _diLayerId = Nothing
+    }
 
 -- | An array of instance IDs to be described. If you use this parameter,
 -- @DescribeInstances@ returns a description of the specified instances.
@@ -122,17 +131,24 @@ instance ToQuery DescribeInstances where
 --
 -- * 'dirInstances'
 --
--- * 'dirStatusCode'
-data DescribeInstancesResponse = DescribeInstancesResponse'{_dirInstances :: Maybe [Instance], _dirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dirStatus'
+data DescribeInstancesResponse = DescribeInstancesResponse'
+    { _dirInstances :: Maybe [Instance]
+    , _dirStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstancesResponse' smart constructor.
 describeInstancesResponse :: Int -> DescribeInstancesResponse
-describeInstancesResponse pStatusCode = DescribeInstancesResponse'{_dirInstances = Nothing, _dirStatusCode = pStatusCode};
+describeInstancesResponse pStatus =
+    DescribeInstancesResponse'
+    { _dirInstances = Nothing
+    , _dirStatus = pStatus
+    }
 
 -- | An array of @Instance@ objects that describe the instances.
 dirInstances :: Lens' DescribeInstancesResponse [Instance]
 dirInstances = lens _dirInstances (\ s a -> s{_dirInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dirStatusCode :: Lens' DescribeInstancesResponse Int
-dirStatusCode = lens _dirStatusCode (\ s a -> s{_dirStatusCode = a});
+dirStatus :: Lens' DescribeInstancesResponse Int
+dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});

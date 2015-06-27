@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
     , batchGetOnPremisesInstancesResponse
     -- ** Response lenses
     , bgopirInstanceInfos
-    , bgopirStatusCode
+    , bgopirStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a batch get on-premises instances operation.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bgopiInstanceNames'
-newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'{_bgopiInstanceNames :: Maybe [Text]} deriving (Eq, Read, Show)
+newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'
+    { _bgopiInstanceNames :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'BatchGetOnPremisesInstances' smart constructor.
 batchGetOnPremisesInstances :: BatchGetOnPremisesInstances
-batchGetOnPremisesInstances = BatchGetOnPremisesInstances'{_bgopiInstanceNames = Nothing};
+batchGetOnPremisesInstances =
+    BatchGetOnPremisesInstances'
+    { _bgopiInstanceNames = Nothing
+    }
 
 -- | The names of the on-premises instances to get information about.
 bgopiInstanceNames :: Lens' BatchGetOnPremisesInstances [Text]
@@ -97,17 +102,24 @@ instance ToQuery BatchGetOnPremisesInstances where
 --
 -- * 'bgopirInstanceInfos'
 --
--- * 'bgopirStatusCode'
-data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'{_bgopirInstanceInfos :: Maybe [InstanceInfo], _bgopirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'bgopirStatus'
+data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'
+    { _bgopirInstanceInfos :: Maybe [InstanceInfo]
+    , _bgopirStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'BatchGetOnPremisesInstancesResponse' smart constructor.
 batchGetOnPremisesInstancesResponse :: Int -> BatchGetOnPremisesInstancesResponse
-batchGetOnPremisesInstancesResponse pStatusCode = BatchGetOnPremisesInstancesResponse'{_bgopirInstanceInfos = Nothing, _bgopirStatusCode = pStatusCode};
+batchGetOnPremisesInstancesResponse pStatus =
+    BatchGetOnPremisesInstancesResponse'
+    { _bgopirInstanceInfos = Nothing
+    , _bgopirStatus = pStatus
+    }
 
 -- | Information about the on-premises instances.
 bgopirInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse [InstanceInfo]
 bgopirInstanceInfos = lens _bgopirInstanceInfos (\ s a -> s{_bgopirInstanceInfos = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-bgopirStatusCode :: Lens' BatchGetOnPremisesInstancesResponse Int
-bgopirStatusCode = lens _bgopirStatusCode (\ s a -> s{_bgopirStatusCode = a});
+bgopirStatus :: Lens' BatchGetOnPremisesInstancesResponse Int
+bgopirStatus = lens _bgopirStatus (\ s a -> s{_bgopirStatus = a});

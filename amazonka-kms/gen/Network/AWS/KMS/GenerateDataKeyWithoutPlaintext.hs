@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     -- ** Response lenses
     , gdkwprKeyId
     , gdkwprCiphertextBlob
-    , gdkwprStatusCode
+    , gdkwprStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'generateDataKeyWithoutPlaintext' smart constructor.
 --
@@ -62,11 +62,24 @@ import Network.AWS.Response
 -- * 'gdkwpGrantTokens'
 --
 -- * 'gdkwpKeyId'
-data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'{_gdkwpKeySpec :: Maybe DataKeySpec, _gdkwpEncryptionContext :: Maybe (Map Text Text), _gdkwpNumberOfBytes :: Maybe Nat, _gdkwpGrantTokens :: Maybe [Text], _gdkwpKeyId :: Text} deriving (Eq, Read, Show)
+data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
+    { _gdkwpKeySpec           :: Maybe DataKeySpec
+    , _gdkwpEncryptionContext :: Maybe (Map Text Text)
+    , _gdkwpNumberOfBytes     :: Maybe Nat
+    , _gdkwpGrantTokens       :: Maybe [Text]
+    , _gdkwpKeyId             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GenerateDataKeyWithoutPlaintext' smart constructor.
 generateDataKeyWithoutPlaintext :: Text -> GenerateDataKeyWithoutPlaintext
-generateDataKeyWithoutPlaintext pKeyId = GenerateDataKeyWithoutPlaintext'{_gdkwpKeySpec = Nothing, _gdkwpEncryptionContext = Nothing, _gdkwpNumberOfBytes = Nothing, _gdkwpGrantTokens = Nothing, _gdkwpKeyId = pKeyId};
+generateDataKeyWithoutPlaintext pKeyId =
+    GenerateDataKeyWithoutPlaintext'
+    { _gdkwpKeySpec = Nothing
+    , _gdkwpEncryptionContext = Nothing
+    , _gdkwpNumberOfBytes = Nothing
+    , _gdkwpGrantTokens = Nothing
+    , _gdkwpKeyId = pKeyId
+    }
 
 -- | Value that identifies the encryption algorithm and key size. Currently
 -- this can be AES_128 or AES_256.
@@ -151,12 +164,21 @@ instance ToQuery GenerateDataKeyWithoutPlaintext
 --
 -- * 'gdkwprCiphertextBlob'
 --
--- * 'gdkwprStatusCode'
-data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse'{_gdkwprKeyId :: Maybe Text, _gdkwprCiphertextBlob :: Maybe Base64, _gdkwprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gdkwprStatus'
+data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse'
+    { _gdkwprKeyId          :: Maybe Text
+    , _gdkwprCiphertextBlob :: Maybe Base64
+    , _gdkwprStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GenerateDataKeyWithoutPlaintextResponse' smart constructor.
 generateDataKeyWithoutPlaintextResponse :: Int -> GenerateDataKeyWithoutPlaintextResponse
-generateDataKeyWithoutPlaintextResponse pStatusCode = GenerateDataKeyWithoutPlaintextResponse'{_gdkwprKeyId = Nothing, _gdkwprCiphertextBlob = Nothing, _gdkwprStatusCode = pStatusCode};
+generateDataKeyWithoutPlaintextResponse pStatus =
+    GenerateDataKeyWithoutPlaintextResponse'
+    { _gdkwprKeyId = Nothing
+    , _gdkwprCiphertextBlob = Nothing
+    , _gdkwprStatus = pStatus
+    }
 
 -- | System generated unique identifier of the key to be used to decrypt the
 -- encrypted copy of the data key.
@@ -173,5 +195,5 @@ gdkwprCiphertextBlob :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe Bas
 gdkwprCiphertextBlob = lens _gdkwprCiphertextBlob (\ s a -> s{_gdkwprCiphertextBlob = a});
 
 -- | FIXME: Undocumented member.
-gdkwprStatusCode :: Lens' GenerateDataKeyWithoutPlaintextResponse Int
-gdkwprStatusCode = lens _gdkwprStatusCode (\ s a -> s{_gdkwprStatusCode = a});
+gdkwprStatus :: Lens' GenerateDataKeyWithoutPlaintextResponse Int
+gdkwprStatus = lens _gdkwprStatus (\ s a -> s{_gdkwprStatus = a});

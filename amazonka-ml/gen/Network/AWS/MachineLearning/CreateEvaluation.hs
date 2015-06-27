@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.CreateEvaluation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,13 +52,13 @@ module Network.AWS.MachineLearning.CreateEvaluation
     , createEvaluationResponse
     -- ** Response lenses
     , cerEvaluationId
-    , cerStatusCode
+    , cerStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createEvaluation' smart constructor.
 --
@@ -71,11 +71,22 @@ import Network.AWS.Response
 -- * 'ceMLModelId'
 --
 -- * 'ceEvaluationDataSourceId'
-data CreateEvaluation = CreateEvaluation'{_ceEvaluationName :: Maybe Text, _ceEvaluationId :: Text, _ceMLModelId :: Text, _ceEvaluationDataSourceId :: Text} deriving (Eq, Read, Show)
+data CreateEvaluation = CreateEvaluation'
+    { _ceEvaluationName         :: Maybe Text
+    , _ceEvaluationId           :: Text
+    , _ceMLModelId              :: Text
+    , _ceEvaluationDataSourceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateEvaluation' smart constructor.
 createEvaluation :: Text -> Text -> Text -> CreateEvaluation
-createEvaluation pEvaluationId pMLModelId pEvaluationDataSourceId = CreateEvaluation'{_ceEvaluationName = Nothing, _ceEvaluationId = pEvaluationId, _ceMLModelId = pMLModelId, _ceEvaluationDataSourceId = pEvaluationDataSourceId};
+createEvaluation pEvaluationId pMLModelId pEvaluationDataSourceId =
+    CreateEvaluation'
+    { _ceEvaluationName = Nothing
+    , _ceEvaluationId = pEvaluationId
+    , _ceMLModelId = pMLModelId
+    , _ceEvaluationDataSourceId = pEvaluationDataSourceId
+    }
 
 -- | A user-supplied name or description of the @Evaluation@.
 ceEvaluationName :: Lens' CreateEvaluation (Maybe Text)
@@ -144,12 +155,19 @@ instance ToQuery CreateEvaluation where
 --
 -- * 'cerEvaluationId'
 --
--- * 'cerStatusCode'
-data CreateEvaluationResponse = CreateEvaluationResponse'{_cerEvaluationId :: Maybe Text, _cerStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cerStatus'
+data CreateEvaluationResponse = CreateEvaluationResponse'
+    { _cerEvaluationId :: Maybe Text
+    , _cerStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateEvaluationResponse' smart constructor.
 createEvaluationResponse :: Int -> CreateEvaluationResponse
-createEvaluationResponse pStatusCode = CreateEvaluationResponse'{_cerEvaluationId = Nothing, _cerStatusCode = pStatusCode};
+createEvaluationResponse pStatus =
+    CreateEvaluationResponse'
+    { _cerEvaluationId = Nothing
+    , _cerStatus = pStatus
+    }
 
 -- | The user-supplied ID that uniquely identifies the @Evaluation@. This
 -- value should be identical to the value of the @EvaluationId@ in the
@@ -158,5 +176,5 @@ cerEvaluationId :: Lens' CreateEvaluationResponse (Maybe Text)
 cerEvaluationId = lens _cerEvaluationId (\ s a -> s{_cerEvaluationId = a});
 
 -- | FIXME: Undocumented member.
-cerStatusCode :: Lens' CreateEvaluationResponse Int
-cerStatusCode = lens _cerStatusCode (\ s a -> s{_cerStatusCode = a});
+cerStatus :: Lens' CreateEvaluationResponse Int
+cerStatus = lens _cerStatus (\ s a -> s{_cerStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateRoute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,13 +61,13 @@ module Network.AWS.EC2.CreateRoute
     -- ** Response lenses
     , crrReturn
     , crrClientToken
-    , crrStatusCode
+    , crrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createRoute' smart constructor.
 --
@@ -88,11 +88,30 @@ import Network.AWS.Response
 -- * 'crRouteTableId'
 --
 -- * 'crDestinationCIDRBlock'
-data CreateRoute = CreateRoute'{_crInstanceId :: Maybe Text, _crVPCPeeringConnectionId :: Maybe Text, _crClientToken :: Maybe Text, _crNetworkInterfaceId :: Maybe Text, _crGatewayId :: Maybe Text, _crDryRun :: Maybe Bool, _crRouteTableId :: Text, _crDestinationCIDRBlock :: Text} deriving (Eq, Read, Show)
+data CreateRoute = CreateRoute'
+    { _crInstanceId             :: Maybe Text
+    , _crVPCPeeringConnectionId :: Maybe Text
+    , _crClientToken            :: Maybe Text
+    , _crNetworkInterfaceId     :: Maybe Text
+    , _crGatewayId              :: Maybe Text
+    , _crDryRun                 :: Maybe Bool
+    , _crRouteTableId           :: Text
+    , _crDestinationCIDRBlock   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateRoute' smart constructor.
 createRoute :: Text -> Text -> CreateRoute
-createRoute pRouteTableId pDestinationCIDRBlock = CreateRoute'{_crInstanceId = Nothing, _crVPCPeeringConnectionId = Nothing, _crClientToken = Nothing, _crNetworkInterfaceId = Nothing, _crGatewayId = Nothing, _crDryRun = Nothing, _crRouteTableId = pRouteTableId, _crDestinationCIDRBlock = pDestinationCIDRBlock};
+createRoute pRouteTableId pDestinationCIDRBlock =
+    CreateRoute'
+    { _crInstanceId = Nothing
+    , _crVPCPeeringConnectionId = Nothing
+    , _crClientToken = Nothing
+    , _crNetworkInterfaceId = Nothing
+    , _crGatewayId = Nothing
+    , _crDryRun = Nothing
+    , _crRouteTableId = pRouteTableId
+    , _crDestinationCIDRBlock = pDestinationCIDRBlock
+    }
 
 -- | The ID of a NAT instance in your VPC. The operation fails if you specify
 -- an instance ID unless exactly one network interface is attached.
@@ -173,12 +192,21 @@ instance ToQuery CreateRoute where
 --
 -- * 'crrClientToken'
 --
--- * 'crrStatusCode'
-data CreateRouteResponse = CreateRouteResponse'{_crrReturn :: Maybe Bool, _crrClientToken :: Maybe Text, _crrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'crrStatus'
+data CreateRouteResponse = CreateRouteResponse'
+    { _crrReturn      :: Maybe Bool
+    , _crrClientToken :: Maybe Text
+    , _crrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateRouteResponse' smart constructor.
 createRouteResponse :: Int -> CreateRouteResponse
-createRouteResponse pStatusCode = CreateRouteResponse'{_crrReturn = Nothing, _crrClientToken = Nothing, _crrStatusCode = pStatusCode};
+createRouteResponse pStatus =
+    CreateRouteResponse'
+    { _crrReturn = Nothing
+    , _crrClientToken = Nothing
+    , _crrStatus = pStatus
+    }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 crrReturn :: Lens' CreateRouteResponse (Maybe Bool)
@@ -190,5 +218,5 @@ crrClientToken :: Lens' CreateRouteResponse (Maybe Text)
 crrClientToken = lens _crrClientToken (\ s a -> s{_crrClientToken = a});
 
 -- | FIXME: Undocumented member.
-crrStatusCode :: Lens' CreateRouteResponse Int
-crrStatusCode = lens _crrStatusCode (\ s a -> s{_crrStatusCode = a});
+crrStatus :: Lens' CreateRouteResponse Int
+crrStatus = lens _crrStatus (\ s a -> s{_crrStatus = a});

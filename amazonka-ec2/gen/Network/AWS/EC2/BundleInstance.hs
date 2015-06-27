@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.BundleInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.EC2.BundleInstance
     , bundleInstanceResponse
     -- ** Response lenses
     , birBundleTask
-    , birStatusCode
+    , birStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'bundleInstance' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'biInstanceId'
 --
 -- * 'biStorage'
-data BundleInstance = BundleInstance'{_biDryRun :: Maybe Bool, _biInstanceId :: Text, _biStorage :: Storage} deriving (Eq, Read, Show)
+data BundleInstance = BundleInstance'
+    { _biDryRun     :: Maybe Bool
+    , _biInstanceId :: Text
+    , _biStorage    :: Storage
+    } deriving (Eq,Read,Show)
 
 -- | 'BundleInstance' smart constructor.
 bundleInstance :: Text -> Storage -> BundleInstance
-bundleInstance pInstanceId pStorage = BundleInstance'{_biDryRun = Nothing, _biInstanceId = pInstanceId, _biStorage = pStorage};
+bundleInstance pInstanceId pStorage =
+    BundleInstance'
+    { _biDryRun = Nothing
+    , _biInstanceId = pInstanceId
+    , _biStorage = pStorage
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -120,17 +129,24 @@ instance ToQuery BundleInstance where
 --
 -- * 'birBundleTask'
 --
--- * 'birStatusCode'
-data BundleInstanceResponse = BundleInstanceResponse'{_birBundleTask :: Maybe BundleTask, _birStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'birStatus'
+data BundleInstanceResponse = BundleInstanceResponse'
+    { _birBundleTask :: Maybe BundleTask
+    , _birStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'BundleInstanceResponse' smart constructor.
 bundleInstanceResponse :: Int -> BundleInstanceResponse
-bundleInstanceResponse pStatusCode = BundleInstanceResponse'{_birBundleTask = Nothing, _birStatusCode = pStatusCode};
+bundleInstanceResponse pStatus =
+    BundleInstanceResponse'
+    { _birBundleTask = Nothing
+    , _birStatus = pStatus
+    }
 
 -- | Information about the bundle task.
 birBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
 birBundleTask = lens _birBundleTask (\ s a -> s{_birBundleTask = a});
 
 -- | FIXME: Undocumented member.
-birStatusCode :: Lens' BundleInstanceResponse Int
-birStatusCode = lens _birStatusCode (\ s a -> s{_birStatusCode = a});
+birStatus :: Lens' BundleInstanceResponse Int
+birStatus = lens _birStatus (\ s a -> s{_birStatus = a});

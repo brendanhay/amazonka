@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAdjustmentTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,20 +30,22 @@ module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     , describeAdjustmentTypesResponse
     -- ** Response lenses
     , datrAdjustmentTypes
-    , datrStatusCode
+    , datrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAdjustmentTypes' smart constructor.
-data DescribeAdjustmentTypes = DescribeAdjustmentTypes' deriving (Eq, Read, Show)
+data DescribeAdjustmentTypes =
+    DescribeAdjustmentTypes'
+    deriving (Eq,Read,Show)
 
 -- | 'DescribeAdjustmentTypes' smart constructor.
 describeAdjustmentTypes :: DescribeAdjustmentTypes
-describeAdjustmentTypes = DescribeAdjustmentTypes';
+describeAdjustmentTypes = DescribeAdjustmentTypes'
 
 instance AWSRequest DescribeAdjustmentTypes where
         type Sv DescribeAdjustmentTypes = AutoScaling
@@ -78,17 +80,24 @@ instance ToQuery DescribeAdjustmentTypes where
 --
 -- * 'datrAdjustmentTypes'
 --
--- * 'datrStatusCode'
-data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'{_datrAdjustmentTypes :: Maybe [AdjustmentType], _datrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'datrStatus'
+data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
+    { _datrAdjustmentTypes :: Maybe [AdjustmentType]
+    , _datrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAdjustmentTypesResponse' smart constructor.
 describeAdjustmentTypesResponse :: Int -> DescribeAdjustmentTypesResponse
-describeAdjustmentTypesResponse pStatusCode = DescribeAdjustmentTypesResponse'{_datrAdjustmentTypes = Nothing, _datrStatusCode = pStatusCode};
+describeAdjustmentTypesResponse pStatus =
+    DescribeAdjustmentTypesResponse'
+    { _datrAdjustmentTypes = Nothing
+    , _datrStatus = pStatus
+    }
 
 -- | The policy adjustment types.
 datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
 datrAdjustmentTypes = lens _datrAdjustmentTypes (\ s a -> s{_datrAdjustmentTypes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-datrStatusCode :: Lens' DescribeAdjustmentTypesResponse Int
-datrStatusCode = lens _datrStatusCode (\ s a -> s{_datrStatusCode = a});
+datrStatus :: Lens' DescribeAdjustmentTypesResponse Int
+datrStatus = lens _datrStatus (\ s a -> s{_datrStatus = a});

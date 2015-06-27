@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.GetBucketPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,29 @@ module Network.AWS.S3.GetBucketPolicy
     , getBucketPolicyResponse
     -- ** Response lenses
     , gbprPolicy
-    , gbprStatusCode
+    , gbprStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gbpBucket'
-newtype GetBucketPolicy = GetBucketPolicy'{_gbpBucket :: BucketName} deriving (Eq, Read, Show)
+newtype GetBucketPolicy = GetBucketPolicy'
+    { _gbpBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketPolicy' smart constructor.
 getBucketPolicy :: BucketName -> GetBucketPolicy
-getBucketPolicy pBucket = GetBucketPolicy'{_gbpBucket = pBucket};
+getBucketPolicy pBucket =
+    GetBucketPolicy'
+    { _gbpBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 gbpBucket :: Lens' GetBucketPolicy BucketName
@@ -81,17 +86,24 @@ instance ToQuery GetBucketPolicy where
 --
 -- * 'gbprPolicy'
 --
--- * 'gbprStatusCode'
-data GetBucketPolicyResponse = GetBucketPolicyResponse'{_gbprPolicy :: Maybe Text, _gbprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gbprStatus'
+data GetBucketPolicyResponse = GetBucketPolicyResponse'
+    { _gbprPolicy :: Maybe Text
+    , _gbprStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketPolicyResponse' smart constructor.
 getBucketPolicyResponse :: Int -> GetBucketPolicyResponse
-getBucketPolicyResponse pStatusCode = GetBucketPolicyResponse'{_gbprPolicy = Nothing, _gbprStatusCode = pStatusCode};
+getBucketPolicyResponse pStatus =
+    GetBucketPolicyResponse'
+    { _gbprPolicy = Nothing
+    , _gbprStatus = pStatus
+    }
 
 -- | The bucket policy as a JSON document.
 gbprPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
 gbprPolicy = lens _gbprPolicy (\ s a -> s{_gbprPolicy = a});
 
 -- | FIXME: Undocumented member.
-gbprStatusCode :: Lens' GetBucketPolicyResponse Int
-gbprStatusCode = lens _gbprStatusCode (\ s a -> s{_gbprStatusCode = a});
+gbprStatus :: Lens' GetBucketPolicyResponse Int
+gbprStatus = lens _gbprStatus (\ s a -> s{_gbprStatus = a});

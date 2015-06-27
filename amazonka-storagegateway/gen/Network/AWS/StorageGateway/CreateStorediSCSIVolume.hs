@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.CreateStorediSCSIVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,13 +51,13 @@ module Network.AWS.StorageGateway.CreateStorediSCSIVolume
     , csscsivrTargetARN
     , csscsivrVolumeARN
     , csscsivrVolumeSizeInBytes
-    , csscsivrStatusCode
+    , csscsivrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -82,11 +82,26 @@ import Network.AWS.StorageGateway.Types
 -- * 'csscsivTargetName'
 --
 -- * 'csscsivNetworkInterfaceId'
-data CreateStorediSCSIVolume = CreateStorediSCSIVolume'{_csscsivSnapshotId :: Maybe Text, _csscsivGatewayARN :: Text, _csscsivDiskId :: Text, _csscsivPreserveExistingData :: Bool, _csscsivTargetName :: Text, _csscsivNetworkInterfaceId :: Text} deriving (Eq, Read, Show)
+data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
+    { _csscsivSnapshotId           :: Maybe Text
+    , _csscsivGatewayARN           :: Text
+    , _csscsivDiskId               :: Text
+    , _csscsivPreserveExistingData :: !Bool
+    , _csscsivTargetName           :: Text
+    , _csscsivNetworkInterfaceId   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateStorediSCSIVolume' smart constructor.
 createStorediSCSIVolume :: Text -> Text -> Bool -> Text -> Text -> CreateStorediSCSIVolume
-createStorediSCSIVolume pGatewayARN pDiskId pPreserveExistingData pTargetName pNetworkInterfaceId = CreateStorediSCSIVolume'{_csscsivSnapshotId = Nothing, _csscsivGatewayARN = pGatewayARN, _csscsivDiskId = pDiskId, _csscsivPreserveExistingData = pPreserveExistingData, _csscsivTargetName = pTargetName, _csscsivNetworkInterfaceId = pNetworkInterfaceId};
+createStorediSCSIVolume pGatewayARN pDiskId pPreserveExistingData pTargetName pNetworkInterfaceId =
+    CreateStorediSCSIVolume'
+    { _csscsivSnapshotId = Nothing
+    , _csscsivGatewayARN = pGatewayARN
+    , _csscsivDiskId = pDiskId
+    , _csscsivPreserveExistingData = pPreserveExistingData
+    , _csscsivTargetName = pTargetName
+    , _csscsivNetworkInterfaceId = pNetworkInterfaceId
+    }
 
 -- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as
 -- the new stored volume. Specify this field if you want to create the
@@ -183,12 +198,23 @@ instance ToQuery CreateStorediSCSIVolume where
 --
 -- * 'csscsivrVolumeSizeInBytes'
 --
--- * 'csscsivrStatusCode'
-data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'{_csscsivrTargetARN :: Maybe Text, _csscsivrVolumeARN :: Maybe Text, _csscsivrVolumeSizeInBytes :: Maybe Integer, _csscsivrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'csscsivrStatus'
+data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
+    { _csscsivrTargetARN         :: Maybe Text
+    , _csscsivrVolumeARN         :: Maybe Text
+    , _csscsivrVolumeSizeInBytes :: Maybe Integer
+    , _csscsivrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateStorediSCSIVolumeResponse' smart constructor.
 createStorediSCSIVolumeResponse :: Int -> CreateStorediSCSIVolumeResponse
-createStorediSCSIVolumeResponse pStatusCode = CreateStorediSCSIVolumeResponse'{_csscsivrTargetARN = Nothing, _csscsivrVolumeARN = Nothing, _csscsivrVolumeSizeInBytes = Nothing, _csscsivrStatusCode = pStatusCode};
+createStorediSCSIVolumeResponse pStatus =
+    CreateStorediSCSIVolumeResponse'
+    { _csscsivrTargetARN = Nothing
+    , _csscsivrVolumeARN = Nothing
+    , _csscsivrVolumeSizeInBytes = Nothing
+    , _csscsivrStatus = pStatus
+    }
 
 -- | he Amazon Resource Name (ARN) of the volume target that includes the
 -- iSCSI name that initiators can use to connect to the target.
@@ -204,5 +230,5 @@ csscsivrVolumeSizeInBytes :: Lens' CreateStorediSCSIVolumeResponse (Maybe Intege
 csscsivrVolumeSizeInBytes = lens _csscsivrVolumeSizeInBytes (\ s a -> s{_csscsivrVolumeSizeInBytes = a});
 
 -- | FIXME: Undocumented member.
-csscsivrStatusCode :: Lens' CreateStorediSCSIVolumeResponse Int
-csscsivrStatusCode = lens _csscsivrStatusCode (\ s a -> s{_csscsivrStatusCode = a});
+csscsivrStatus :: Lens' CreateStorediSCSIVolumeResponse Int
+csscsivrStatus = lens _csscsivrStatus (\ s a -> s{_csscsivrStatus = a});

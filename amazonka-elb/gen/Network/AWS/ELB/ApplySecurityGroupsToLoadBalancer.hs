@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     , applySecurityGroupsToLoadBalancerResponse
     -- ** Response lenses
     , asgtlbrSecurityGroups
-    , asgtlbrStatusCode
+    , asgtlbrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'applySecurityGroupsToLoadBalancer' smart constructor.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'asgtlbLoadBalancerName'
 --
 -- * 'asgtlbSecurityGroups'
-data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'{_asgtlbLoadBalancerName :: Text, _asgtlbSecurityGroups :: [Text]} deriving (Eq, Read, Show)
+data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'
+    { _asgtlbLoadBalancerName :: Text
+    , _asgtlbSecurityGroups   :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'ApplySecurityGroupsToLoadBalancer' smart constructor.
 applySecurityGroupsToLoadBalancer :: Text -> ApplySecurityGroupsToLoadBalancer
-applySecurityGroupsToLoadBalancer pLoadBalancerName = ApplySecurityGroupsToLoadBalancer'{_asgtlbLoadBalancerName = pLoadBalancerName, _asgtlbSecurityGroups = mempty};
+applySecurityGroupsToLoadBalancer pLoadBalancerName =
+    ApplySecurityGroupsToLoadBalancer'
+    { _asgtlbLoadBalancerName = pLoadBalancerName
+    , _asgtlbSecurityGroups = mempty
+    }
 
 -- | The name of the load balancer.
 asgtlbLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancer Text
@@ -109,17 +116,24 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer
 --
 -- * 'asgtlbrSecurityGroups'
 --
--- * 'asgtlbrStatusCode'
-data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'{_asgtlbrSecurityGroups :: Maybe [Text], _asgtlbrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'asgtlbrStatus'
+data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'
+    { _asgtlbrSecurityGroups :: Maybe [Text]
+    , _asgtlbrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ApplySecurityGroupsToLoadBalancerResponse' smart constructor.
 applySecurityGroupsToLoadBalancerResponse :: Int -> ApplySecurityGroupsToLoadBalancerResponse
-applySecurityGroupsToLoadBalancerResponse pStatusCode = ApplySecurityGroupsToLoadBalancerResponse'{_asgtlbrSecurityGroups = Nothing, _asgtlbrStatusCode = pStatusCode};
+applySecurityGroupsToLoadBalancerResponse pStatus =
+    ApplySecurityGroupsToLoadBalancerResponse'
+    { _asgtlbrSecurityGroups = Nothing
+    , _asgtlbrStatus = pStatus
+    }
 
 -- | The IDs of the security groups associated with the load balancer.
 asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
 asgtlbrSecurityGroups = lens _asgtlbrSecurityGroups (\ s a -> s{_asgtlbrSecurityGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-asgtlbrStatusCode :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
-asgtlbrStatusCode = lens _asgtlbrStatusCode (\ s a -> s{_asgtlbrStatusCode = a});
+asgtlbrStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
+asgtlbrStatus = lens _asgtlbrStatus (\ s a -> s{_asgtlbrStatus = a});

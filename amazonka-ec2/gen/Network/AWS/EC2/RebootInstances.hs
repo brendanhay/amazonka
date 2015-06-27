@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.RebootInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,10 +43,10 @@ module Network.AWS.EC2.RebootInstances
     , rebootInstancesResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'rebootInstances' smart constructor.
 --
@@ -55,11 +55,18 @@ import Network.AWS.Response
 -- * 'rebDryRun'
 --
 -- * 'rebInstanceIds'
-data RebootInstances = RebootInstances'{_rebDryRun :: Maybe Bool, _rebInstanceIds :: [Text]} deriving (Eq, Read, Show)
+data RebootInstances = RebootInstances'
+    { _rebDryRun      :: Maybe Bool
+    , _rebInstanceIds :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'RebootInstances' smart constructor.
 rebootInstances :: RebootInstances
-rebootInstances = RebootInstances'{_rebDryRun = Nothing, _rebInstanceIds = mempty};
+rebootInstances =
+    RebootInstances'
+    { _rebDryRun = Nothing
+    , _rebInstanceIds = mempty
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -93,8 +100,10 @@ instance ToQuery RebootInstances where
                toQueryList "InstanceId" _rebInstanceIds]
 
 -- | /See:/ 'rebootInstancesResponse' smart constructor.
-data RebootInstancesResponse = RebootInstancesResponse' deriving (Eq, Read, Show)
+data RebootInstancesResponse =
+    RebootInstancesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RebootInstancesResponse' smart constructor.
 rebootInstancesResponse :: RebootInstancesResponse
-rebootInstancesResponse = RebootInstancesResponse';
+rebootInstancesResponse = RebootInstancesResponse'

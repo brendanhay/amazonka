@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SDB.PutAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,10 +70,10 @@ module Network.AWS.SDB.PutAttributes
     , putAttributesResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SDB.Types
 
 -- | /See:/ 'putAttributes' smart constructor.
 --
@@ -86,11 +86,22 @@ import Network.AWS.SDB.Types
 -- * 'paItemName'
 --
 -- * 'paAttributes'
-data PutAttributes = PutAttributes'{_paExpected :: Maybe UpdateCondition, _paDomainName :: Text, _paItemName :: Text, _paAttributes :: [ReplaceableAttribute]} deriving (Eq, Read, Show)
+data PutAttributes = PutAttributes'
+    { _paExpected   :: Maybe UpdateCondition
+    , _paDomainName :: Text
+    , _paItemName   :: Text
+    , _paAttributes :: [ReplaceableAttribute]
+    } deriving (Eq,Read,Show)
 
 -- | 'PutAttributes' smart constructor.
 putAttributes :: Text -> Text -> PutAttributes
-putAttributes pDomainName pItemName = PutAttributes'{_paExpected = Nothing, _paDomainName = pDomainName, _paItemName = pItemName, _paAttributes = mempty};
+putAttributes pDomainName pItemName =
+    PutAttributes'
+    { _paExpected = Nothing
+    , _paDomainName = pDomainName
+    , _paItemName = pItemName
+    , _paAttributes = mempty
+    }
 
 -- | The update condition which, if specified, determines whether the
 -- specified attributes will be updated or not. The update condition must
@@ -134,8 +145,10 @@ instance ToQuery PutAttributes where
                toQueryList "Attribute" _paAttributes]
 
 -- | /See:/ 'putAttributesResponse' smart constructor.
-data PutAttributesResponse = PutAttributesResponse' deriving (Eq, Read, Show)
+data PutAttributesResponse =
+    PutAttributesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutAttributesResponse' smart constructor.
 putAttributesResponse :: PutAttributesResponse
-putAttributesResponse = PutAttributesResponse';
+putAttributesResponse = PutAttributesResponse'

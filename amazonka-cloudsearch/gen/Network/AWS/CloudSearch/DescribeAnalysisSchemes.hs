@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeAnalysisSchemes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     , describeAnalysisSchemesResponse
     -- ** Response lenses
     , dasrAnalysisSchemes
-    , dasrStatusCode
+    , dasrStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeAnalysisSchemes@ operation.
 -- Specifies the name of the domain you want to describe. To limit the
@@ -64,11 +64,20 @@ import Network.AWS.Response
 -- * 'descAnalysisSchemeNames'
 --
 -- * 'descDomainName'
-data DescribeAnalysisSchemes = DescribeAnalysisSchemes'{_descDeployed :: Maybe Bool, _descAnalysisSchemeNames :: Maybe [Text], _descDomainName :: Text} deriving (Eq, Read, Show)
+data DescribeAnalysisSchemes = DescribeAnalysisSchemes'
+    { _descDeployed            :: Maybe Bool
+    , _descAnalysisSchemeNames :: Maybe [Text]
+    , _descDomainName          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAnalysisSchemes' smart constructor.
 describeAnalysisSchemes :: Text -> DescribeAnalysisSchemes
-describeAnalysisSchemes pDomainName = DescribeAnalysisSchemes'{_descDeployed = Nothing, _descAnalysisSchemeNames = Nothing, _descDomainName = pDomainName};
+describeAnalysisSchemes pDomainName =
+    DescribeAnalysisSchemes'
+    { _descDeployed = Nothing
+    , _descAnalysisSchemeNames = Nothing
+    , _descDomainName = pDomainName
+    }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
@@ -123,17 +132,24 @@ instance ToQuery DescribeAnalysisSchemes where
 --
 -- * 'dasrAnalysisSchemes'
 --
--- * 'dasrStatusCode'
-data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'{_dasrAnalysisSchemes :: [AnalysisSchemeStatus], _dasrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dasrStatus'
+data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
+    { _dasrAnalysisSchemes :: [AnalysisSchemeStatus]
+    , _dasrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAnalysisSchemesResponse' smart constructor.
 describeAnalysisSchemesResponse :: Int -> DescribeAnalysisSchemesResponse
-describeAnalysisSchemesResponse pStatusCode = DescribeAnalysisSchemesResponse'{_dasrAnalysisSchemes = mempty, _dasrStatusCode = pStatusCode};
+describeAnalysisSchemesResponse pStatus =
+    DescribeAnalysisSchemesResponse'
+    { _dasrAnalysisSchemes = mempty
+    , _dasrStatus = pStatus
+    }
 
 -- | The analysis scheme descriptions.
 dasrAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
 dasrAnalysisSchemes = lens _dasrAnalysisSchemes (\ s a -> s{_dasrAnalysisSchemes = a});
 
 -- | FIXME: Undocumented member.
-dasrStatusCode :: Lens' DescribeAnalysisSchemesResponse Int
-dasrStatusCode = lens _dasrStatusCode (\ s a -> s{_dasrStatusCode = a});
+dasrStatus :: Lens' DescribeAnalysisSchemesResponse Int
+dasrStatus = lens _dasrStatus (\ s a -> s{_dasrStatus = a});

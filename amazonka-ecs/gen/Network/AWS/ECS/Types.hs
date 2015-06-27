@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.ECS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -248,108 +247,124 @@ module Network.AWS.ECS.Types
     , vfReadOnly
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2014-11-13@ of the Amazon EC2 Container Service SDK.
 data ECS
 
 instance AWSService ECS where
     type Sg ECS = V4
-
     service = const svc
       where
-        svc :: Service ECS
-        svc = Service
-            { _svcAbbrev   = "ECS"
-            , _svcPrefix   = "ecs"
-            , _svcVersion  = "2014-11-13"
+        svc =
+            Service
+            { _svcAbbrev = "ECS"
+            , _svcPrefix = "ecs"
+            , _svcVersion = "2014-11-13"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The specified parameter is invalid. Review the available parameters for
 -- the API request.
-_InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterException = _ServiceError . hasCode "InvalidParameterException";
+_InvalidParameterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterException =
+    _ServiceError . hasCode "InvalidParameterException"
 
 -- | These errors are usually caused by a server-side issue.
-_ServerException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ServerException = _ServiceError . hasCode "ServerException";
+_ServerException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ServerException = _ServiceError . hasCode "ServerException"
 
 -- | You cannot delete a cluster that contains services. You must first
 -- update the service to reduce its desired task count to 0 and then delete
 -- the service. For more information, see UpdateService and DeleteService.
-_ClusterContainsServicesException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterContainsServicesException = _ServiceError . hasCode "ClusterContainsServicesException";
+_ClusterContainsServicesException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterContainsServicesException =
+    _ServiceError . hasCode "ClusterContainsServicesException"
 
 -- | You cannot delete a cluster that has registered container instances. You
 -- must first deregister the container instances before you can delete the
 -- cluster. For more information, see DeregisterContainerInstance.
-_ClusterContainsContainerInstancesException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterContainsContainerInstancesException = _ServiceError . hasCode "ClusterContainsContainerInstancesException";
+_ClusterContainsContainerInstancesException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterContainsContainerInstancesException =
+    _ServiceError . hasCode "ClusterContainsContainerInstancesException"
 
 -- | The specified service is not active. You cannot update a service that is
 -- not active. If you have previously deleted a service, you can recreate
 -- it with CreateService.
-_ServiceNotActiveException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ServiceNotActiveException = _ServiceError . hasCode "ServiceNotActiveException";
+_ServiceNotActiveException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ServiceNotActiveException =
+    _ServiceError . hasCode "ServiceNotActiveException"
 
 -- | There is no update available for this Amazon ECS container agent. This
 -- could be because the agent is already running the latest version, or it
 -- is so old that there is no update path to the current version.
-_NoUpdateAvailableException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoUpdateAvailableException = _ServiceError . hasCode "NoUpdateAvailableException";
+_NoUpdateAvailableException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoUpdateAvailableException =
+    _ServiceError . hasCode "NoUpdateAvailableException"
 
 -- | The specified cluster could not be found. You can view your available
 -- clusters with ListClusters. Amazon ECS clusters are region-specific.
-_ClusterNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterNotFoundException = _ServiceError . hasCode "ClusterNotFoundException";
+_ClusterNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterNotFoundException = _ServiceError . hasCode "ClusterNotFoundException"
 
 -- | The specified service could not be found. You can view your available
 -- services with ListServices. Amazon ECS services are cluster-specific and
 -- region-specific.
-_ServiceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ServiceNotFoundException = _ServiceError . hasCode "ServiceNotFoundException";
+_ServiceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ServiceNotFoundException = _ServiceError . hasCode "ServiceNotFoundException"
 
 -- | Amazon ECS is unable to determine the current version of the Amazon ECS
 -- container agent on the container instance and does not have enough
 -- information to proceed with an update. This could be because the agent
 -- running on the container instance is an older or custom version that
 -- does not use our version information.
-_MissingVersionException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MissingVersionException = _ServiceError . hasCode "MissingVersionException";
+_MissingVersionException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MissingVersionException = _ServiceError . hasCode "MissingVersionException"
 
 -- | There is already a current Amazon ECS container agent update in progress
 -- on the specified container instance. If the container agent becomes
 -- disconnected while it is in a transitional stage, such as @PENDING@ or
 -- @STAGING@, the update process can get stuck in that state. However, when
 -- the agent reconnects, it will resume where it stopped previously.
-_UpdateInProgressException :: AWSError a => Geting (First ServiceError) a ServiceError
-_UpdateInProgressException = _ServiceError . hasCode "UpdateInProgressException";
+_UpdateInProgressException :: AWSError a => Getting (First ServiceError) a ServiceError
+_UpdateInProgressException =
+    _ServiceError . hasCode "UpdateInProgressException"
 
 -- | These errors are usually caused by something the client did, such as use
 -- an action or resource on behalf of a user that doesn\'t have permission
 -- to use the action or resource, or specify an identifier that is not
 -- valid.
-_ClientException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClientException = _ServiceError . hasCode "ClientException";
+_ClientException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClientException = _ServiceError . hasCode "ClientException"
 
-data AgentUpdateStatus = AUSFailed | AUSStaged | AUSPending | AUSStaging | AUSUpdated | AUSUpdating deriving (Eq, Ord, Read, Show, Enum, Generic)
+data AgentUpdateStatus
+    = AUSFailed
+    | AUSStaged
+    | AUSPending
+    | AUSStaging
+    | AUSUpdated
+    | AUSUpdating
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AgentUpdateStatus where
     parser = takeLowerText >>= \case
@@ -377,7 +392,11 @@ instance ToHeader AgentUpdateStatus
 instance FromJSON AgentUpdateStatus where
     parseJSON = parseJSONText "AgentUpdateStatus"
 
-data DesiredStatus = Pending | Stopped | Running deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DesiredStatus
+    = Pending
+    | Stopped
+    | Running
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DesiredStatus where
     parser = takeLowerText >>= \case
@@ -399,7 +418,10 @@ instance ToHeader DesiredStatus
 instance ToJSON DesiredStatus where
     toJSON = toJSONText
 
-data SortOrder = Asc | Desc deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SortOrder
+    = Asc
+    | Desc
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SortOrder where
     parser = takeLowerText >>= \case
@@ -419,7 +441,10 @@ instance ToHeader SortOrder
 instance ToJSON SortOrder where
     toJSON = toJSONText
 
-data TaskDefinitionStatus = Inactive | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
+data TaskDefinitionStatus
+    = Inactive
+    | Active
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText TaskDefinitionStatus where
     parser = takeLowerText >>= \case
@@ -442,7 +467,10 @@ instance ToJSON TaskDefinitionStatus where
 instance FromJSON TaskDefinitionStatus where
     parseJSON = parseJSONText "TaskDefinitionStatus"
 
-data TransportProtocol = Udp | TCP deriving (Eq, Ord, Read, Show, Enum, Generic)
+data TransportProtocol
+    = Udp
+    | TCP
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText TransportProtocol where
     parser = takeLowerText >>= \case
@@ -488,11 +516,28 @@ instance FromJSON TransportProtocol where
 -- * 'cluClusterName'
 --
 -- * 'cluActiveServicesCount'
-data Cluster = Cluster'{_cluStatus :: Maybe Text, _cluClusterARN :: Maybe Text, _cluRunningTasksCount :: Maybe Int, _cluRegisteredContainerInstancesCount :: Maybe Int, _cluPendingTasksCount :: Maybe Int, _cluClusterName :: Maybe Text, _cluActiveServicesCount :: Maybe Int} deriving (Eq, Read, Show)
+data Cluster = Cluster'
+    { _cluStatus                            :: Maybe Text
+    , _cluClusterARN                        :: Maybe Text
+    , _cluRunningTasksCount                 :: Maybe Int
+    , _cluRegisteredContainerInstancesCount :: Maybe Int
+    , _cluPendingTasksCount                 :: Maybe Int
+    , _cluClusterName                       :: Maybe Text
+    , _cluActiveServicesCount               :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'Cluster' smart constructor.
 cluster :: Cluster
-cluster = Cluster'{_cluStatus = Nothing, _cluClusterARN = Nothing, _cluRunningTasksCount = Nothing, _cluRegisteredContainerInstancesCount = Nothing, _cluPendingTasksCount = Nothing, _cluClusterName = Nothing, _cluActiveServicesCount = Nothing};
+cluster =
+    Cluster'
+    { _cluStatus = Nothing
+    , _cluClusterARN = Nothing
+    , _cluRunningTasksCount = Nothing
+    , _cluRegisteredContainerInstancesCount = Nothing
+    , _cluPendingTasksCount = Nothing
+    , _cluClusterName = Nothing
+    , _cluActiveServicesCount = Nothing
+    }
 
 -- | The status of the cluster. The valid values are @ACTIVE@ or @INACTIVE@.
 -- @ACTIVE@ indicates that you can register container instances with the
@@ -558,11 +603,28 @@ instance FromJSON Cluster where
 -- * 'conName'
 --
 -- * 'conExitCode'
-data Container = Container'{_conNetworkBindings :: Maybe [NetworkBinding], _conContainerARN :: Maybe Text, _conTaskARN :: Maybe Text, _conLastStatus :: Maybe Text, _conReason :: Maybe Text, _conName :: Maybe Text, _conExitCode :: Maybe Int} deriving (Eq, Read, Show)
+data Container = Container'
+    { _conNetworkBindings :: Maybe [NetworkBinding]
+    , _conContainerARN    :: Maybe Text
+    , _conTaskARN         :: Maybe Text
+    , _conLastStatus      :: Maybe Text
+    , _conReason          :: Maybe Text
+    , _conName            :: Maybe Text
+    , _conExitCode        :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'Container' smart constructor.
 container :: Container
-container = Container'{_conNetworkBindings = Nothing, _conContainerARN = Nothing, _conTaskARN = Nothing, _conLastStatus = Nothing, _conReason = Nothing, _conName = Nothing, _conExitCode = Nothing};
+container =
+    Container'
+    { _conNetworkBindings = Nothing
+    , _conContainerARN = Nothing
+    , _conTaskARN = Nothing
+    , _conLastStatus = Nothing
+    , _conReason = Nothing
+    , _conName = Nothing
+    , _conExitCode = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 conNetworkBindings :: Lens' Container [NetworkBinding]
@@ -636,11 +698,38 @@ instance FromJSON Container where
 -- * 'cdEssential'
 --
 -- * 'cdCpu'
-data ContainerDefinition = ContainerDefinition'{_cdImage :: Maybe Text, _cdCommand :: Maybe [Text], _cdVolumesFrom :: Maybe [VolumeFrom], _cdEnvironment :: Maybe [KeyValuePair], _cdEntryPoint :: Maybe [Text], _cdPortMappings :: Maybe [PortMapping], _cdMemory :: Maybe Int, _cdName :: Maybe Text, _cdMountPoints :: Maybe [MountPoint], _cdLinks :: Maybe [Text], _cdEssential :: Maybe Bool, _cdCpu :: Maybe Int} deriving (Eq, Read, Show)
+data ContainerDefinition = ContainerDefinition'
+    { _cdImage        :: Maybe Text
+    , _cdCommand      :: Maybe [Text]
+    , _cdVolumesFrom  :: Maybe [VolumeFrom]
+    , _cdEnvironment  :: Maybe [KeyValuePair]
+    , _cdEntryPoint   :: Maybe [Text]
+    , _cdPortMappings :: Maybe [PortMapping]
+    , _cdMemory       :: Maybe Int
+    , _cdName         :: Maybe Text
+    , _cdMountPoints  :: Maybe [MountPoint]
+    , _cdLinks        :: Maybe [Text]
+    , _cdEssential    :: Maybe Bool
+    , _cdCpu          :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ContainerDefinition' smart constructor.
 containerDefinition :: ContainerDefinition
-containerDefinition = ContainerDefinition'{_cdImage = Nothing, _cdCommand = Nothing, _cdVolumesFrom = Nothing, _cdEnvironment = Nothing, _cdEntryPoint = Nothing, _cdPortMappings = Nothing, _cdMemory = Nothing, _cdName = Nothing, _cdMountPoints = Nothing, _cdLinks = Nothing, _cdEssential = Nothing, _cdCpu = Nothing};
+containerDefinition =
+    ContainerDefinition'
+    { _cdImage = Nothing
+    , _cdCommand = Nothing
+    , _cdVolumesFrom = Nothing
+    , _cdEnvironment = Nothing
+    , _cdEntryPoint = Nothing
+    , _cdPortMappings = Nothing
+    , _cdMemory = Nothing
+    , _cdName = Nothing
+    , _cdMountPoints = Nothing
+    , _cdLinks = Nothing
+    , _cdEssential = Nothing
+    , _cdCpu = Nothing
+    }
 
 -- | The image used to start a container. This string is passed directly to
 -- the Docker daemon. Images in the Docker Hub registry are available by
@@ -807,11 +896,34 @@ instance ToJSON ContainerDefinition where
 -- * 'ciPendingTasksCount'
 --
 -- * 'ciRegisteredResources'
-data ContainerInstance = ContainerInstance'{_ciStatus :: Maybe Text, _ciRunningTasksCount :: Maybe Int, _ciRemainingResources :: Maybe [Resource], _ciEc2InstanceId :: Maybe Text, _ciContainerInstanceARN :: Maybe Text, _ciAgentConnected :: Maybe Bool, _ciVersionInfo :: Maybe VersionInfo, _ciAgentUpdateStatus :: Maybe AgentUpdateStatus, _ciPendingTasksCount :: Maybe Int, _ciRegisteredResources :: Maybe [Resource]} deriving (Eq, Read, Show)
+data ContainerInstance = ContainerInstance'
+    { _ciStatus               :: Maybe Text
+    , _ciRunningTasksCount    :: Maybe Int
+    , _ciRemainingResources   :: Maybe [Resource]
+    , _ciEc2InstanceId        :: Maybe Text
+    , _ciContainerInstanceARN :: Maybe Text
+    , _ciAgentConnected       :: Maybe Bool
+    , _ciVersionInfo          :: Maybe VersionInfo
+    , _ciAgentUpdateStatus    :: Maybe AgentUpdateStatus
+    , _ciPendingTasksCount    :: Maybe Int
+    , _ciRegisteredResources  :: Maybe [Resource]
+    } deriving (Eq,Read,Show)
 
 -- | 'ContainerInstance' smart constructor.
 containerInstance :: ContainerInstance
-containerInstance = ContainerInstance'{_ciStatus = Nothing, _ciRunningTasksCount = Nothing, _ciRemainingResources = Nothing, _ciEc2InstanceId = Nothing, _ciContainerInstanceARN = Nothing, _ciAgentConnected = Nothing, _ciVersionInfo = Nothing, _ciAgentUpdateStatus = Nothing, _ciPendingTasksCount = Nothing, _ciRegisteredResources = Nothing};
+containerInstance =
+    ContainerInstance'
+    { _ciStatus = Nothing
+    , _ciRunningTasksCount = Nothing
+    , _ciRemainingResources = Nothing
+    , _ciEc2InstanceId = Nothing
+    , _ciContainerInstanceARN = Nothing
+    , _ciAgentConnected = Nothing
+    , _ciVersionInfo = Nothing
+    , _ciAgentUpdateStatus = Nothing
+    , _ciPendingTasksCount = Nothing
+    , _ciRegisteredResources = Nothing
+    }
 
 -- | The status of the container instance. The valid values are @ACTIVE@ or
 -- @INACTIVE@. @ACTIVE@ indicates that the container instance can accept
@@ -896,11 +1008,20 @@ instance FromJSON ContainerInstance where
 -- * 'coEnvironment'
 --
 -- * 'coName'
-data ContainerOverride = ContainerOverride'{_coCommand :: Maybe [Text], _coEnvironment :: Maybe [KeyValuePair], _coName :: Maybe Text} deriving (Eq, Read, Show)
+data ContainerOverride = ContainerOverride'
+    { _coCommand     :: Maybe [Text]
+    , _coEnvironment :: Maybe [KeyValuePair]
+    , _coName        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ContainerOverride' smart constructor.
 containerOverride :: ContainerOverride
-containerOverride = ContainerOverride'{_coCommand = Nothing, _coEnvironment = Nothing, _coName = Nothing};
+containerOverride =
+    ContainerOverride'
+    { _coCommand = Nothing
+    , _coEnvironment = Nothing
+    , _coName = Nothing
+    }
 
 -- | The command to send to the container that overrides the default command
 -- from the Docker image or the task definition.
@@ -960,11 +1081,38 @@ instance ToJSON ContainerOverride where
 -- * 'csServiceARN'
 --
 -- * 'csRoleARN'
-data ContainerService = ContainerService'{_csStatus :: Maybe Text, _csRunningCount :: Maybe Int, _csClusterARN :: Maybe Text, _csDesiredCount :: Maybe Int, _csLoadBalancers :: Maybe [LoadBalancer], _csPendingCount :: Maybe Int, _csEvents :: Maybe [ServiceEvent], _csServiceName :: Maybe Text, _csDeployments :: Maybe [Deployment], _csTaskDefinition :: Maybe Text, _csServiceARN :: Maybe Text, _csRoleARN :: Maybe Text} deriving (Eq, Read, Show)
+data ContainerService = ContainerService'
+    { _csStatus         :: Maybe Text
+    , _csRunningCount   :: Maybe Int
+    , _csClusterARN     :: Maybe Text
+    , _csDesiredCount   :: Maybe Int
+    , _csLoadBalancers  :: Maybe [LoadBalancer]
+    , _csPendingCount   :: Maybe Int
+    , _csEvents         :: Maybe [ServiceEvent]
+    , _csServiceName    :: Maybe Text
+    , _csDeployments    :: Maybe [Deployment]
+    , _csTaskDefinition :: Maybe Text
+    , _csServiceARN     :: Maybe Text
+    , _csRoleARN        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ContainerService' smart constructor.
 containerService :: ContainerService
-containerService = ContainerService'{_csStatus = Nothing, _csRunningCount = Nothing, _csClusterARN = Nothing, _csDesiredCount = Nothing, _csLoadBalancers = Nothing, _csPendingCount = Nothing, _csEvents = Nothing, _csServiceName = Nothing, _csDeployments = Nothing, _csTaskDefinition = Nothing, _csServiceARN = Nothing, _csRoleARN = Nothing};
+containerService =
+    ContainerService'
+    { _csStatus = Nothing
+    , _csRunningCount = Nothing
+    , _csClusterARN = Nothing
+    , _csDesiredCount = Nothing
+    , _csLoadBalancers = Nothing
+    , _csPendingCount = Nothing
+    , _csEvents = Nothing
+    , _csServiceName = Nothing
+    , _csDeployments = Nothing
+    , _csTaskDefinition = Nothing
+    , _csServiceARN = Nothing
+    , _csRoleARN = Nothing
+    }
 
 -- | The status of the service. The valid values are @ACTIVE@, @DRAINING@, or
 -- @INACTIVE@.
@@ -1065,11 +1213,30 @@ instance FromJSON ContainerService where
 -- * 'depTaskDefinition'
 --
 -- * 'depUpdatedAt'
-data Deployment = Deployment'{_depStatus :: Maybe Text, _depRunningCount :: Maybe Int, _depCreatedAt :: Maybe POSIX, _depDesiredCount :: Maybe Int, _depPendingCount :: Maybe Int, _depId :: Maybe Text, _depTaskDefinition :: Maybe Text, _depUpdatedAt :: Maybe POSIX} deriving (Eq, Read, Show)
+data Deployment = Deployment'
+    { _depStatus         :: Maybe Text
+    , _depRunningCount   :: Maybe Int
+    , _depCreatedAt      :: Maybe POSIX
+    , _depDesiredCount   :: Maybe Int
+    , _depPendingCount   :: Maybe Int
+    , _depId             :: Maybe Text
+    , _depTaskDefinition :: Maybe Text
+    , _depUpdatedAt      :: Maybe POSIX
+    } deriving (Eq,Read,Show)
 
 -- | 'Deployment' smart constructor.
 deployment :: Deployment
-deployment = Deployment'{_depStatus = Nothing, _depRunningCount = Nothing, _depCreatedAt = Nothing, _depDesiredCount = Nothing, _depPendingCount = Nothing, _depId = Nothing, _depTaskDefinition = Nothing, _depUpdatedAt = Nothing};
+deployment =
+    Deployment'
+    { _depStatus = Nothing
+    , _depRunningCount = Nothing
+    , _depCreatedAt = Nothing
+    , _depDesiredCount = Nothing
+    , _depPendingCount = Nothing
+    , _depId = Nothing
+    , _depTaskDefinition = Nothing
+    , _depUpdatedAt = Nothing
+    }
 
 -- | The status of the deployment. Valid values are @PRIMARY@ (for the most
 -- recent deployment), @ACTIVE@ (for previous deployments that still have
@@ -1129,11 +1296,18 @@ instance FromJSON Deployment where
 -- * 'faiArn'
 --
 -- * 'faiReason'
-data Failure = Failure'{_faiArn :: Maybe Text, _faiReason :: Maybe Text} deriving (Eq, Read, Show)
+data Failure = Failure'
+    { _faiArn    :: Maybe Text
+    , _faiReason :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Failure' smart constructor.
 failure :: Failure
-failure = Failure'{_faiArn = Nothing, _faiReason = Nothing};
+failure =
+    Failure'
+    { _faiArn = Nothing
+    , _faiReason = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the failed resource.
 faiArn :: Lens' Failure (Maybe Text)
@@ -1154,11 +1328,16 @@ instance FromJSON Failure where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'hvpSourcePath'
-newtype HostVolumeProperties = HostVolumeProperties'{_hvpSourcePath :: Maybe Text} deriving (Eq, Read, Show)
+newtype HostVolumeProperties = HostVolumeProperties'
+    { _hvpSourcePath :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'HostVolumeProperties' smart constructor.
 hostVolumeProperties :: HostVolumeProperties
-hostVolumeProperties = HostVolumeProperties'{_hvpSourcePath = Nothing};
+hostVolumeProperties =
+    HostVolumeProperties'
+    { _hvpSourcePath = Nothing
+    }
 
 -- | The path on the host container instance that is presented to the
 -- container. If this parameter is empty, then the Docker daemon has
@@ -1185,11 +1364,18 @@ instance ToJSON HostVolumeProperties where
 -- * 'kvpValue'
 --
 -- * 'kvpName'
-data KeyValuePair = KeyValuePair'{_kvpValue :: Maybe Text, _kvpName :: Maybe Text} deriving (Eq, Read, Show)
+data KeyValuePair = KeyValuePair'
+    { _kvpValue :: Maybe Text
+    , _kvpName  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'KeyValuePair' smart constructor.
 keyValuePair :: KeyValuePair
-keyValuePair = KeyValuePair'{_kvpValue = Nothing, _kvpName = Nothing};
+keyValuePair =
+    KeyValuePair'
+    { _kvpValue = Nothing
+    , _kvpName = Nothing
+    }
 
 -- | The value of the key value pair. For environment variables, this is the
 -- value of the environment variable.
@@ -1220,11 +1406,20 @@ instance ToJSON KeyValuePair where
 -- * 'lbContainerName'
 --
 -- * 'lbContainerPort'
-data LoadBalancer = LoadBalancer'{_lbLoadBalancerName :: Maybe Text, _lbContainerName :: Maybe Text, _lbContainerPort :: Maybe Int} deriving (Eq, Read, Show)
+data LoadBalancer = LoadBalancer'
+    { _lbLoadBalancerName :: Maybe Text
+    , _lbContainerName    :: Maybe Text
+    , _lbContainerPort    :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'LoadBalancer' smart constructor.
 loadBalancer :: LoadBalancer
-loadBalancer = LoadBalancer'{_lbLoadBalancerName = Nothing, _lbContainerName = Nothing, _lbContainerPort = Nothing};
+loadBalancer =
+    LoadBalancer'
+    { _lbLoadBalancerName = Nothing
+    , _lbContainerName = Nothing
+    , _lbContainerPort = Nothing
+    }
 
 -- | The name of the load balancer.
 lbLoadBalancerName :: Lens' LoadBalancer (Maybe Text)
@@ -1266,11 +1461,20 @@ instance ToJSON LoadBalancer where
 -- * 'mpSourceVolume'
 --
 -- * 'mpReadOnly'
-data MountPoint = MountPoint'{_mpContainerPath :: Maybe Text, _mpSourceVolume :: Maybe Text, _mpReadOnly :: Maybe Bool} deriving (Eq, Read, Show)
+data MountPoint = MountPoint'
+    { _mpContainerPath :: Maybe Text
+    , _mpSourceVolume  :: Maybe Text
+    , _mpReadOnly      :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'MountPoint' smart constructor.
 mountPoint :: MountPoint
-mountPoint = MountPoint'{_mpContainerPath = Nothing, _mpSourceVolume = Nothing, _mpReadOnly = Nothing};
+mountPoint =
+    MountPoint'
+    { _mpContainerPath = Nothing
+    , _mpSourceVolume = Nothing
+    , _mpReadOnly = Nothing
+    }
 
 -- | The path on the container to mount the host volume at.
 mpContainerPath :: Lens' MountPoint (Maybe Text)
@@ -1312,11 +1516,22 @@ instance ToJSON MountPoint where
 -- * 'nbHostPort'
 --
 -- * 'nbContainerPort'
-data NetworkBinding = NetworkBinding'{_nbBindIP :: Maybe Text, _nbProtocol :: Maybe TransportProtocol, _nbHostPort :: Maybe Int, _nbContainerPort :: Maybe Int} deriving (Eq, Read, Show)
+data NetworkBinding = NetworkBinding'
+    { _nbBindIP        :: Maybe Text
+    , _nbProtocol      :: Maybe TransportProtocol
+    , _nbHostPort      :: Maybe Int
+    , _nbContainerPort :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'NetworkBinding' smart constructor.
 networkBinding :: NetworkBinding
-networkBinding = NetworkBinding'{_nbBindIP = Nothing, _nbProtocol = Nothing, _nbHostPort = Nothing, _nbContainerPort = Nothing};
+networkBinding =
+    NetworkBinding'
+    { _nbBindIP = Nothing
+    , _nbProtocol = Nothing
+    , _nbHostPort = Nothing
+    , _nbContainerPort = Nothing
+    }
 
 -- | The IP address that the container is bound to on the container instance.
 nbBindIP :: Lens' NetworkBinding (Maybe Text)
@@ -1364,11 +1579,20 @@ instance ToJSON NetworkBinding where
 -- * 'pmHostPort'
 --
 -- * 'pmContainerPort'
-data PortMapping = PortMapping'{_pmProtocol :: Maybe TransportProtocol, _pmHostPort :: Maybe Int, _pmContainerPort :: Maybe Int} deriving (Eq, Read, Show)
+data PortMapping = PortMapping'
+    { _pmProtocol      :: Maybe TransportProtocol
+    , _pmHostPort      :: Maybe Int
+    , _pmContainerPort :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PortMapping' smart constructor.
 portMapping :: PortMapping
-portMapping = PortMapping'{_pmProtocol = Nothing, _pmHostPort = Nothing, _pmContainerPort = Nothing};
+portMapping =
+    PortMapping'
+    { _pmProtocol = Nothing
+    , _pmHostPort = Nothing
+    , _pmContainerPort = Nothing
+    }
 
 -- | The protocol used for the port mapping. Valid values are @tcp@ and
 -- @udp@. The default is @tcp@.
@@ -1441,11 +1665,26 @@ instance ToJSON PortMapping where
 -- * 'resName'
 --
 -- * 'resType'
-data Resource = Resource'{_resStringSetValue :: Maybe [Text], _resIntegerValue :: Maybe Int, _resDoubleValue :: Maybe Double, _resLongValue :: Maybe Integer, _resName :: Maybe Text, _resType :: Maybe Text} deriving (Eq, Read, Show)
+data Resource = Resource'
+    { _resStringSetValue :: Maybe [Text]
+    , _resIntegerValue   :: Maybe Int
+    , _resDoubleValue    :: Maybe Double
+    , _resLongValue      :: Maybe Integer
+    , _resName           :: Maybe Text
+    , _resType           :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Resource' smart constructor.
 resource :: Resource
-resource = Resource'{_resStringSetValue = Nothing, _resIntegerValue = Nothing, _resDoubleValue = Nothing, _resLongValue = Nothing, _resName = Nothing, _resType = Nothing};
+resource =
+    Resource'
+    { _resStringSetValue = Nothing
+    , _resIntegerValue = Nothing
+    , _resDoubleValue = Nothing
+    , _resLongValue = Nothing
+    , _resName = Nothing
+    , _resType = Nothing
+    }
 
 -- | When the @stringSetValue@ type is set, the value of the resource must be
 -- a string type.
@@ -1507,11 +1746,20 @@ instance ToJSON Resource where
 -- * 'seId'
 --
 -- * 'seMessage'
-data ServiceEvent = ServiceEvent'{_seCreatedAt :: Maybe POSIX, _seId :: Maybe Text, _seMessage :: Maybe Text} deriving (Eq, Read, Show)
+data ServiceEvent = ServiceEvent'
+    { _seCreatedAt :: Maybe POSIX
+    , _seId        :: Maybe Text
+    , _seMessage   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ServiceEvent' smart constructor.
 serviceEvent :: ServiceEvent
-serviceEvent = ServiceEvent'{_seCreatedAt = Nothing, _seId = Nothing, _seMessage = Nothing};
+serviceEvent =
+    ServiceEvent'
+    { _seCreatedAt = Nothing
+    , _seId = Nothing
+    , _seMessage = Nothing
+    }
 
 -- | The Unix time in seconds and milliseconds when the event was triggered.
 seCreatedAt :: Lens' ServiceEvent (Maybe UTCTime)
@@ -1554,11 +1802,32 @@ instance FromJSON ServiceEvent where
 -- * 'tasStartedBy'
 --
 -- * 'tasTaskDefinitionARN'
-data Task = Task'{_tasDesiredStatus :: Maybe Text, _tasClusterARN :: Maybe Text, _tasOverrides :: Maybe TaskOverride, _tasTaskARN :: Maybe Text, _tasContainerInstanceARN :: Maybe Text, _tasLastStatus :: Maybe Text, _tasContainers :: Maybe [Container], _tasStartedBy :: Maybe Text, _tasTaskDefinitionARN :: Maybe Text} deriving (Eq, Read, Show)
+data Task = Task'
+    { _tasDesiredStatus        :: Maybe Text
+    , _tasClusterARN           :: Maybe Text
+    , _tasOverrides            :: Maybe TaskOverride
+    , _tasTaskARN              :: Maybe Text
+    , _tasContainerInstanceARN :: Maybe Text
+    , _tasLastStatus           :: Maybe Text
+    , _tasContainers           :: Maybe [Container]
+    , _tasStartedBy            :: Maybe Text
+    , _tasTaskDefinitionARN    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Task' smart constructor.
 task :: Task
-task = Task'{_tasDesiredStatus = Nothing, _tasClusterARN = Nothing, _tasOverrides = Nothing, _tasTaskARN = Nothing, _tasContainerInstanceARN = Nothing, _tasLastStatus = Nothing, _tasContainers = Nothing, _tasStartedBy = Nothing, _tasTaskDefinitionARN = Nothing};
+task =
+    Task'
+    { _tasDesiredStatus = Nothing
+    , _tasClusterARN = Nothing
+    , _tasOverrides = Nothing
+    , _tasTaskARN = Nothing
+    , _tasContainerInstanceARN = Nothing
+    , _tasLastStatus = Nothing
+    , _tasContainers = Nothing
+    , _tasStartedBy = Nothing
+    , _tasTaskDefinitionARN = Nothing
+    }
 
 -- | The desired status of the task.
 tasDesiredStatus :: Lens' Task (Maybe Text)
@@ -1630,11 +1899,26 @@ instance FromJSON Task where
 -- * 'tdRevision'
 --
 -- * 'tdVolumes'
-data TaskDefinition = TaskDefinition'{_tdStatus :: Maybe TaskDefinitionStatus, _tdFamily :: Maybe Text, _tdContainerDefinitions :: Maybe [ContainerDefinition], _tdTaskDefinitionARN :: Maybe Text, _tdRevision :: Maybe Int, _tdVolumes :: Maybe [Volume]} deriving (Eq, Read, Show)
+data TaskDefinition = TaskDefinition'
+    { _tdStatus               :: Maybe TaskDefinitionStatus
+    , _tdFamily               :: Maybe Text
+    , _tdContainerDefinitions :: Maybe [ContainerDefinition]
+    , _tdTaskDefinitionARN    :: Maybe Text
+    , _tdRevision             :: Maybe Int
+    , _tdVolumes              :: Maybe [Volume]
+    } deriving (Eq,Read,Show)
 
 -- | 'TaskDefinition' smart constructor.
 taskDefinition :: TaskDefinition
-taskDefinition = TaskDefinition'{_tdStatus = Nothing, _tdFamily = Nothing, _tdContainerDefinitions = Nothing, _tdTaskDefinitionARN = Nothing, _tdRevision = Nothing, _tdVolumes = Nothing};
+taskDefinition =
+    TaskDefinition'
+    { _tdStatus = Nothing
+    , _tdFamily = Nothing
+    , _tdContainerDefinitions = Nothing
+    , _tdTaskDefinitionARN = Nothing
+    , _tdRevision = Nothing
+    , _tdVolumes = Nothing
+    }
 
 -- | The status of the task definition.
 tdStatus :: Lens' TaskDefinition (Maybe TaskDefinitionStatus)
@@ -1693,11 +1977,16 @@ instance FromJSON TaskDefinition where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'toContainerOverrides'
-newtype TaskOverride = TaskOverride'{_toContainerOverrides :: Maybe [ContainerOverride]} deriving (Eq, Read, Show)
+newtype TaskOverride = TaskOverride'
+    { _toContainerOverrides :: Maybe [ContainerOverride]
+    } deriving (Eq,Read,Show)
 
 -- | 'TaskOverride' smart constructor.
 taskOverride :: TaskOverride
-taskOverride = TaskOverride'{_toContainerOverrides = Nothing};
+taskOverride =
+    TaskOverride'
+    { _toContainerOverrides = Nothing
+    }
 
 -- | One or more container overrides sent to a task.
 toContainerOverrides :: Lens' TaskOverride [ContainerOverride]
@@ -1724,11 +2013,20 @@ instance ToJSON TaskOverride where
 -- * 'viAgentHash'
 --
 -- * 'viDockerVersion'
-data VersionInfo = VersionInfo'{_viAgentVersion :: Maybe Text, _viAgentHash :: Maybe Text, _viDockerVersion :: Maybe Text} deriving (Eq, Read, Show)
+data VersionInfo = VersionInfo'
+    { _viAgentVersion  :: Maybe Text
+    , _viAgentHash     :: Maybe Text
+    , _viDockerVersion :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VersionInfo' smart constructor.
 versionInfo :: VersionInfo
-versionInfo = VersionInfo'{_viAgentVersion = Nothing, _viAgentHash = Nothing, _viDockerVersion = Nothing};
+versionInfo =
+    VersionInfo'
+    { _viAgentVersion = Nothing
+    , _viAgentHash = Nothing
+    , _viDockerVersion = Nothing
+    }
 
 -- | The version number of the Amazon ECS container agent.
 viAgentVersion :: Lens' VersionInfo (Maybe Text)
@@ -1766,11 +2064,18 @@ instance ToJSON VersionInfo where
 -- * 'volName'
 --
 -- * 'volHost'
-data Volume = Volume'{_volName :: Maybe Text, _volHost :: Maybe HostVolumeProperties} deriving (Eq, Read, Show)
+data Volume = Volume'
+    { _volName :: Maybe Text
+    , _volHost :: Maybe HostVolumeProperties
+    } deriving (Eq,Read,Show)
 
 -- | 'Volume' smart constructor.
 volume :: Volume
-volume = Volume'{_volName = Nothing, _volHost = Nothing};
+volume =
+    Volume'
+    { _volName = Nothing
+    , _volHost = Nothing
+    }
 
 -- | The name of the volume. This name is referenced in the @sourceVolume@
 -- parameter of container definition @mountPoints@.
@@ -1800,11 +2105,18 @@ instance ToJSON Volume where
 -- * 'vfSourceContainer'
 --
 -- * 'vfReadOnly'
-data VolumeFrom = VolumeFrom'{_vfSourceContainer :: Maybe Text, _vfReadOnly :: Maybe Bool} deriving (Eq, Read, Show)
+data VolumeFrom = VolumeFrom'
+    { _vfSourceContainer :: Maybe Text
+    , _vfReadOnly        :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'VolumeFrom' smart constructor.
 volumeFrom :: VolumeFrom
-volumeFrom = VolumeFrom'{_vfSourceContainer = Nothing, _vfReadOnly = Nothing};
+volumeFrom =
+    VolumeFrom'
+    { _vfSourceContainer = Nothing
+    , _vfReadOnly = Nothing
+    }
 
 -- | The name of the container to mount volumes from.
 vfSourceContainer :: Lens' VolumeFrom (Maybe Text)

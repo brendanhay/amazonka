@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.ModifyCacheCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,13 +50,13 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     , modifyCacheClusterResponse
     -- ** Response lenses
     , mccrCacheCluster
-    , mccrStatusCode
+    , mccrStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /ModifyCacheCluster/ action.
 --
@@ -95,11 +95,46 @@ import Network.AWS.Response
 -- * 'mccCacheSecurityGroupNames'
 --
 -- * 'mccCacheClusterId'
-data ModifyCacheCluster = ModifyCacheCluster'{_mccEngineVersion :: Maybe Text, _mccSecurityGroupIds :: Maybe [Text], _mccAutoMinorVersionUpgrade :: Maybe Bool, _mccCacheParameterGroupName :: Maybe Text, _mccNewAvailabilityZones :: Maybe [Text], _mccSnapshotWindow :: Maybe Text, _mccPreferredMaintenanceWindow :: Maybe Text, _mccCacheNodeIdsToRemove :: Maybe [Text], _mccSnapshotRetentionLimit :: Maybe Int, _mccAZMode :: Maybe AZMode, _mccNotificationTopicStatus :: Maybe Text, _mccApplyImmediately :: Maybe Bool, _mccNotificationTopicARN :: Maybe Text, _mccNumCacheNodes :: Maybe Int, _mccCacheSecurityGroupNames :: Maybe [Text], _mccCacheClusterId :: Text} deriving (Eq, Read, Show)
+data ModifyCacheCluster = ModifyCacheCluster'
+    { _mccEngineVersion              :: Maybe Text
+    , _mccSecurityGroupIds           :: Maybe [Text]
+    , _mccAutoMinorVersionUpgrade    :: Maybe Bool
+    , _mccCacheParameterGroupName    :: Maybe Text
+    , _mccNewAvailabilityZones       :: Maybe [Text]
+    , _mccSnapshotWindow             :: Maybe Text
+    , _mccPreferredMaintenanceWindow :: Maybe Text
+    , _mccCacheNodeIdsToRemove       :: Maybe [Text]
+    , _mccSnapshotRetentionLimit     :: Maybe Int
+    , _mccAZMode                     :: Maybe AZMode
+    , _mccNotificationTopicStatus    :: Maybe Text
+    , _mccApplyImmediately           :: Maybe Bool
+    , _mccNotificationTopicARN       :: Maybe Text
+    , _mccNumCacheNodes              :: Maybe Int
+    , _mccCacheSecurityGroupNames    :: Maybe [Text]
+    , _mccCacheClusterId             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyCacheCluster' smart constructor.
 modifyCacheCluster :: Text -> ModifyCacheCluster
-modifyCacheCluster pCacheClusterId = ModifyCacheCluster'{_mccEngineVersion = Nothing, _mccSecurityGroupIds = Nothing, _mccAutoMinorVersionUpgrade = Nothing, _mccCacheParameterGroupName = Nothing, _mccNewAvailabilityZones = Nothing, _mccSnapshotWindow = Nothing, _mccPreferredMaintenanceWindow = Nothing, _mccCacheNodeIdsToRemove = Nothing, _mccSnapshotRetentionLimit = Nothing, _mccAZMode = Nothing, _mccNotificationTopicStatus = Nothing, _mccApplyImmediately = Nothing, _mccNotificationTopicARN = Nothing, _mccNumCacheNodes = Nothing, _mccCacheSecurityGroupNames = Nothing, _mccCacheClusterId = pCacheClusterId};
+modifyCacheCluster pCacheClusterId =
+    ModifyCacheCluster'
+    { _mccEngineVersion = Nothing
+    , _mccSecurityGroupIds = Nothing
+    , _mccAutoMinorVersionUpgrade = Nothing
+    , _mccCacheParameterGroupName = Nothing
+    , _mccNewAvailabilityZones = Nothing
+    , _mccSnapshotWindow = Nothing
+    , _mccPreferredMaintenanceWindow = Nothing
+    , _mccCacheNodeIdsToRemove = Nothing
+    , _mccSnapshotRetentionLimit = Nothing
+    , _mccAZMode = Nothing
+    , _mccNotificationTopicStatus = Nothing
+    , _mccApplyImmediately = Nothing
+    , _mccNotificationTopicARN = Nothing
+    , _mccNumCacheNodes = Nothing
+    , _mccCacheSecurityGroupNames = Nothing
+    , _mccCacheClusterId = pCacheClusterId
+    }
 
 -- | The upgraded version of the cache engine to be run on the cache nodes.
 mccEngineVersion :: Lens' ModifyCacheCluster (Maybe Text)
@@ -391,17 +426,24 @@ instance ToQuery ModifyCacheCluster where
 --
 -- * 'mccrCacheCluster'
 --
--- * 'mccrStatusCode'
-data ModifyCacheClusterResponse = ModifyCacheClusterResponse'{_mccrCacheCluster :: Maybe CacheCluster, _mccrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'mccrStatus'
+data ModifyCacheClusterResponse = ModifyCacheClusterResponse'
+    { _mccrCacheCluster :: Maybe CacheCluster
+    , _mccrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyCacheClusterResponse' smart constructor.
 modifyCacheClusterResponse :: Int -> ModifyCacheClusterResponse
-modifyCacheClusterResponse pStatusCode = ModifyCacheClusterResponse'{_mccrCacheCluster = Nothing, _mccrStatusCode = pStatusCode};
+modifyCacheClusterResponse pStatus =
+    ModifyCacheClusterResponse'
+    { _mccrCacheCluster = Nothing
+    , _mccrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 mccrCacheCluster :: Lens' ModifyCacheClusterResponse (Maybe CacheCluster)
 mccrCacheCluster = lens _mccrCacheCluster (\ s a -> s{_mccrCacheCluster = a});
 
 -- | FIXME: Undocumented member.
-mccrStatusCode :: Lens' ModifyCacheClusterResponse Int
-mccrStatusCode = lens _mccrStatusCode (\ s a -> s{_mccrStatusCode = a});
+mccrStatus :: Lens' ModifyCacheClusterResponse Int
+mccrStatus = lens _mccrStatus (\ s a -> s{_mccrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Kinesis.ListStreams
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,14 +50,14 @@ module Network.AWS.Kinesis.ListStreams
     -- ** Response lenses
     , lsrStreamNames
     , lsrHasMoreStreams
-    , lsrStatusCode
+    , lsrStatus
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @ListStreams@.
 --
@@ -68,11 +68,18 @@ import Network.AWS.Response
 -- * 'lsLimit'
 --
 -- * 'lsExclusiveStartStreamName'
-data ListStreams = ListStreams'{_lsLimit :: Maybe Nat, _lsExclusiveStartStreamName :: Maybe Text} deriving (Eq, Read, Show)
+data ListStreams = ListStreams'
+    { _lsLimit                    :: Maybe Nat
+    , _lsExclusiveStartStreamName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListStreams' smart constructor.
 listStreams :: ListStreams
-listStreams = ListStreams'{_lsLimit = Nothing, _lsExclusiveStartStreamName = Nothing};
+listStreams =
+    ListStreams'
+    { _lsLimit = Nothing
+    , _lsExclusiveStartStreamName = Nothing
+    }
 
 -- | The maximum number of streams to list.
 lsLimit :: Lens' ListStreams (Maybe Natural)
@@ -135,12 +142,21 @@ instance ToQuery ListStreams where
 --
 -- * 'lsrHasMoreStreams'
 --
--- * 'lsrStatusCode'
-data ListStreamsResponse = ListStreamsResponse'{_lsrStreamNames :: [Text], _lsrHasMoreStreams :: Bool, _lsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lsrStatus'
+data ListStreamsResponse = ListStreamsResponse'
+    { _lsrStreamNames    :: [Text]
+    , _lsrHasMoreStreams :: !Bool
+    , _lsrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListStreamsResponse' smart constructor.
 listStreamsResponse :: Bool -> Int -> ListStreamsResponse
-listStreamsResponse pHasMoreStreams pStatusCode = ListStreamsResponse'{_lsrStreamNames = mempty, _lsrHasMoreStreams = pHasMoreStreams, _lsrStatusCode = pStatusCode};
+listStreamsResponse pHasMoreStreams pStatus =
+    ListStreamsResponse'
+    { _lsrStreamNames = mempty
+    , _lsrHasMoreStreams = pHasMoreStreams
+    , _lsrStatus = pStatus
+    }
 
 -- | The names of the streams that are associated with the AWS account making
 -- the @ListStreams@ request.
@@ -152,5 +168,5 @@ lsrHasMoreStreams :: Lens' ListStreamsResponse Bool
 lsrHasMoreStreams = lens _lsrHasMoreStreams (\ s a -> s{_lsrHasMoreStreams = a});
 
 -- | FIXME: Undocumented member.
-lsrStatusCode :: Lens' ListStreamsResponse Int
-lsrStatusCode = lens _lsrStatusCode (\ s a -> s{_lsrStatusCode = a});
+lsrStatus :: Lens' ListStreamsResponse Int
+lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});

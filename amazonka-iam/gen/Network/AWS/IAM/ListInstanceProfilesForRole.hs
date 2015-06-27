@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListInstanceProfilesForRole
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,14 +42,14 @@ module Network.AWS.IAM.ListInstanceProfilesForRole
     , lipfrrMarker
     , lipfrrIsTruncated
     , lipfrrInstanceProfiles
-    , lipfrrStatusCode
+    , lipfrrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listInstanceProfilesForRole' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'lipfrMarker'
 --
 -- * 'lipfrRoleName'
-data ListInstanceProfilesForRole = ListInstanceProfilesForRole'{_lipfrMaxItems :: Maybe Nat, _lipfrMarker :: Maybe Text, _lipfrRoleName :: Text} deriving (Eq, Read, Show)
+data ListInstanceProfilesForRole = ListInstanceProfilesForRole'
+    { _lipfrMaxItems :: Maybe Nat
+    , _lipfrMarker   :: Maybe Text
+    , _lipfrRoleName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListInstanceProfilesForRole' smart constructor.
 listInstanceProfilesForRole :: Text -> ListInstanceProfilesForRole
-listInstanceProfilesForRole pRoleName = ListInstanceProfilesForRole'{_lipfrMaxItems = Nothing, _lipfrMarker = Nothing, _lipfrRoleName = pRoleName};
+listInstanceProfilesForRole pRoleName =
+    ListInstanceProfilesForRole'
+    { _lipfrMaxItems = Nothing
+    , _lipfrMarker = Nothing
+    , _lipfrRoleName = pRoleName
+    }
 
 -- | Use this parameter only when paginating results to indicate the maximum
 -- number of instance profiles you want in the response. If there are
@@ -136,12 +145,23 @@ instance ToQuery ListInstanceProfilesForRole where
 --
 -- * 'lipfrrInstanceProfiles'
 --
--- * 'lipfrrStatusCode'
-data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'{_lipfrrMarker :: Maybe Text, _lipfrrIsTruncated :: Maybe Bool, _lipfrrInstanceProfiles :: [InstanceProfile], _lipfrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lipfrrStatus'
+data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
+    { _lipfrrMarker           :: Maybe Text
+    , _lipfrrIsTruncated      :: Maybe Bool
+    , _lipfrrInstanceProfiles :: [InstanceProfile]
+    , _lipfrrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListInstanceProfilesForRoleResponse' smart constructor.
 listInstanceProfilesForRoleResponse :: Int -> ListInstanceProfilesForRoleResponse
-listInstanceProfilesForRoleResponse pStatusCode = ListInstanceProfilesForRoleResponse'{_lipfrrMarker = Nothing, _lipfrrIsTruncated = Nothing, _lipfrrInstanceProfiles = mempty, _lipfrrStatusCode = pStatusCode};
+listInstanceProfilesForRoleResponse pStatus =
+    ListInstanceProfilesForRoleResponse'
+    { _lipfrrMarker = Nothing
+    , _lipfrrIsTruncated = Nothing
+    , _lipfrrInstanceProfiles = mempty
+    , _lipfrrStatus = pStatus
+    }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -161,5 +181,5 @@ lipfrrInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstancePro
 lipfrrInstanceProfiles = lens _lipfrrInstanceProfiles (\ s a -> s{_lipfrrInstanceProfiles = a});
 
 -- | FIXME: Undocumented member.
-lipfrrStatusCode :: Lens' ListInstanceProfilesForRoleResponse Int
-lipfrrStatusCode = lens _lipfrrStatusCode (\ s a -> s{_lipfrrStatusCode = a});
+lipfrrStatus :: Lens' ListInstanceProfilesForRoleResponse Int
+lipfrrStatus = lens _lipfrrStatus (\ s a -> s{_lipfrrStatus = a});

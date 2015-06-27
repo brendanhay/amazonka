@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.RespondDecisionTaskCompleted
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,10 +51,10 @@ module Network.AWS.SWF.RespondDecisionTaskCompleted
     , respondDecisionTaskCompletedResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'respondDecisionTaskCompleted' smart constructor.
 --
@@ -65,11 +65,20 @@ import Network.AWS.SWF.Types
 -- * 'rdtcExecutionContext'
 --
 -- * 'rdtcTaskToken'
-data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted'{_rdtcDecisions :: Maybe [Decision], _rdtcExecutionContext :: Maybe Text, _rdtcTaskToken :: Text} deriving (Eq, Read, Show)
+data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted'
+    { _rdtcDecisions        :: Maybe [Decision]
+    , _rdtcExecutionContext :: Maybe Text
+    , _rdtcTaskToken        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RespondDecisionTaskCompleted' smart constructor.
 respondDecisionTaskCompleted :: Text -> RespondDecisionTaskCompleted
-respondDecisionTaskCompleted pTaskToken = RespondDecisionTaskCompleted'{_rdtcDecisions = Nothing, _rdtcExecutionContext = Nothing, _rdtcTaskToken = pTaskToken};
+respondDecisionTaskCompleted pTaskToken =
+    RespondDecisionTaskCompleted'
+    { _rdtcDecisions = Nothing
+    , _rdtcExecutionContext = Nothing
+    , _rdtcTaskToken = pTaskToken
+    }
 
 -- | The list of decisions (possibly empty) made by the decider while
 -- processing this decision task. See the docs for the Decision structure
@@ -123,8 +132,10 @@ instance ToQuery RespondDecisionTaskCompleted where
         toQuery = const mempty
 
 -- | /See:/ 'respondDecisionTaskCompletedResponse' smart constructor.
-data RespondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse' deriving (Eq, Read, Show)
+data RespondDecisionTaskCompletedResponse =
+    RespondDecisionTaskCompletedResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RespondDecisionTaskCompletedResponse' smart constructor.
 respondDecisionTaskCompletedResponse :: RespondDecisionTaskCompletedResponse
-respondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse';
+respondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.SetQueueAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.SQS.SetQueueAttributes
     , setQueueAttributesResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'setQueueAttributes' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.SQS.Types
 -- * 'sqaQueueURL'
 --
 -- * 'sqaAttributes'
-data SetQueueAttributes = SetQueueAttributes'{_sqaQueueURL :: Text, _sqaAttributes :: Map QueueAttributeName Text} deriving (Eq, Read, Show)
+data SetQueueAttributes = SetQueueAttributes'
+    { _sqaQueueURL   :: Text
+    , _sqaAttributes :: Map QueueAttributeName Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetQueueAttributes' smart constructor.
 setQueueAttributes :: Text -> SetQueueAttributes
-setQueueAttributes pQueueURL = SetQueueAttributes'{_sqaQueueURL = pQueueURL, _sqaAttributes = mempty};
+setQueueAttributes pQueueURL =
+    SetQueueAttributes'
+    { _sqaQueueURL = pQueueURL
+    , _sqaAttributes = mempty
+    }
 
 -- | The URL of the Amazon SQS queue to take action on.
 sqaQueueURL :: Lens' SetQueueAttributes Text
@@ -118,8 +125,10 @@ instance ToQuery SetQueueAttributes where
                toQueryMap "Attribute" "Name" "Value" _sqaAttributes]
 
 -- | /See:/ 'setQueueAttributesResponse' smart constructor.
-data SetQueueAttributesResponse = SetQueueAttributesResponse' deriving (Eq, Read, Show)
+data SetQueueAttributesResponse =
+    SetQueueAttributesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetQueueAttributesResponse' smart constructor.
 setQueueAttributesResponse :: SetQueueAttributesResponse
-setQueueAttributesResponse = SetQueueAttributesResponse';
+setQueueAttributesResponse = SetQueueAttributesResponse'

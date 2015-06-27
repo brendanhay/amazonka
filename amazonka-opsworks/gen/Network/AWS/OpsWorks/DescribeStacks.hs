@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeStacks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,24 +38,29 @@ module Network.AWS.OpsWorks.DescribeStacks
     , describeStacksResponse
     -- ** Response lenses
     , dsrStacks
-    , dsrStatusCode
+    , dsrStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeStacks' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsStackIds'
-newtype DescribeStacks = DescribeStacks'{_dsStackIds :: Maybe [Text]} deriving (Eq, Read, Show)
+newtype DescribeStacks = DescribeStacks'
+    { _dsStackIds :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStacks' smart constructor.
 describeStacks :: DescribeStacks
-describeStacks = DescribeStacks'{_dsStackIds = Nothing};
+describeStacks =
+    DescribeStacks'
+    { _dsStackIds = Nothing
+    }
 
 -- | An array of stack IDs that specify the stacks to be described. If you
 -- omit this parameter, @DescribeStacks@ returns a description of every
@@ -100,17 +105,24 @@ instance ToQuery DescribeStacks where
 --
 -- * 'dsrStacks'
 --
--- * 'dsrStatusCode'
-data DescribeStacksResponse = DescribeStacksResponse'{_dsrStacks :: Maybe [Stack], _dsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsrStatus'
+data DescribeStacksResponse = DescribeStacksResponse'
+    { _dsrStacks :: Maybe [Stack]
+    , _dsrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStacksResponse' smart constructor.
 describeStacksResponse :: Int -> DescribeStacksResponse
-describeStacksResponse pStatusCode = DescribeStacksResponse'{_dsrStacks = Nothing, _dsrStatusCode = pStatusCode};
+describeStacksResponse pStatus =
+    DescribeStacksResponse'
+    { _dsrStacks = Nothing
+    , _dsrStatus = pStatus
+    }
 
 -- | An array of @Stack@ objects that describe the stacks.
 dsrStacks :: Lens' DescribeStacksResponse [Stack]
 dsrStacks = lens _dsrStacks (\ s a -> s{_dsrStacks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsrStatusCode :: Lens' DescribeStacksResponse Int
-dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});
+dsrStatus :: Lens' DescribeStacksResponse Int
+dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

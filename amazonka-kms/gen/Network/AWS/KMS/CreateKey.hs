@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.CreateKey
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.KMS.CreateKey
     , createKeyResponse
     -- ** Response lenses
     , ckrKeyMetadata
-    , ckrStatusCode
+    , ckrStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createKey' smart constructor.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'ckPolicy'
 --
 -- * 'ckDescription'
-data CreateKey = CreateKey'{_ckKeyUsage :: Maybe KeyUsageType, _ckPolicy :: Maybe Text, _ckDescription :: Maybe Text} deriving (Eq, Read, Show)
+data CreateKey = CreateKey'
+    { _ckKeyUsage    :: Maybe KeyUsageType
+    , _ckPolicy      :: Maybe Text
+    , _ckDescription :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateKey' smart constructor.
 createKey :: CreateKey
-createKey = CreateKey'{_ckKeyUsage = Nothing, _ckPolicy = Nothing, _ckDescription = Nothing};
+createKey =
+    CreateKey'
+    { _ckKeyUsage = Nothing
+    , _ckPolicy = Nothing
+    , _ckDescription = Nothing
+    }
 
 -- | Specifies the intended use of the key. Currently this defaults to
 -- ENCRYPT\/DECRYPT, and only symmetric encryption and decryption are
@@ -114,17 +123,24 @@ instance ToQuery CreateKey where
 --
 -- * 'ckrKeyMetadata'
 --
--- * 'ckrStatusCode'
-data CreateKeyResponse = CreateKeyResponse'{_ckrKeyMetadata :: Maybe KeyMetadata, _ckrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ckrStatus'
+data CreateKeyResponse = CreateKeyResponse'
+    { _ckrKeyMetadata :: Maybe KeyMetadata
+    , _ckrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateKeyResponse' smart constructor.
 createKeyResponse :: Int -> CreateKeyResponse
-createKeyResponse pStatusCode = CreateKeyResponse'{_ckrKeyMetadata = Nothing, _ckrStatusCode = pStatusCode};
+createKeyResponse pStatus =
+    CreateKeyResponse'
+    { _ckrKeyMetadata = Nothing
+    , _ckrStatus = pStatus
+    }
 
 -- | Metadata associated with the key.
 ckrKeyMetadata :: Lens' CreateKeyResponse (Maybe KeyMetadata)
 ckrKeyMetadata = lens _ckrKeyMetadata (\ s a -> s{_ckrKeyMetadata = a});
 
 -- | FIXME: Undocumented member.
-ckrStatusCode :: Lens' CreateKeyResponse Int
-ckrStatusCode = lens _ckrStatusCode (\ s a -> s{_ckrStatusCode = a});
+ckrStatus :: Lens' CreateKeyResponse Int
+ckrStatus = lens _ckrStatus (\ s a -> s{_ckrStatus = a});

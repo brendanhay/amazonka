@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.UnassignPrivateIPAddresses
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.EC2.UnassignPrivateIPAddresses
     , unassignPrivateIPAddressesResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'unassignPrivateIPAddresses' smart constructor.
 --
@@ -46,11 +46,18 @@ import Network.AWS.Response
 -- * 'upiaNetworkInterfaceId'
 --
 -- * 'upiaPrivateIPAddresses'
-data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'{_upiaNetworkInterfaceId :: Text, _upiaPrivateIPAddresses :: [Text]} deriving (Eq, Read, Show)
+data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'
+    { _upiaNetworkInterfaceId :: Text
+    , _upiaPrivateIPAddresses :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'UnassignPrivateIPAddresses' smart constructor.
 unassignPrivateIPAddresses :: Text -> UnassignPrivateIPAddresses
-unassignPrivateIPAddresses pNetworkInterfaceId = UnassignPrivateIPAddresses'{_upiaNetworkInterfaceId = pNetworkInterfaceId, _upiaPrivateIPAddresses = mempty};
+unassignPrivateIPAddresses pNetworkInterfaceId =
+    UnassignPrivateIPAddresses'
+    { _upiaNetworkInterfaceId = pNetworkInterfaceId
+    , _upiaPrivateIPAddresses = mempty
+    }
 
 -- | The ID of the network interface.
 upiaNetworkInterfaceId :: Lens' UnassignPrivateIPAddresses Text
@@ -87,8 +94,10 @@ instance ToQuery UnassignPrivateIPAddresses where
                  _upiaPrivateIPAddresses]
 
 -- | /See:/ 'unassignPrivateIPAddressesResponse' smart constructor.
-data UnassignPrivateIPAddressesResponse = UnassignPrivateIPAddressesResponse' deriving (Eq, Read, Show)
+data UnassignPrivateIPAddressesResponse =
+    UnassignPrivateIPAddressesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UnassignPrivateIPAddressesResponse' smart constructor.
 unassignPrivateIPAddressesResponse :: UnassignPrivateIPAddressesResponse
-unassignPrivateIPAddressesResponse = UnassignPrivateIPAddressesResponse';
+unassignPrivateIPAddressesResponse = UnassignPrivateIPAddressesResponse'

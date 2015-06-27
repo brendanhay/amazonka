@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteSubnet
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.EC2.DeleteSubnet
     , deleteSubnetResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteSubnet' smart constructor.
 --
@@ -46,11 +46,18 @@ import Network.AWS.Response
 -- * 'del1DryRun'
 --
 -- * 'del1SubnetId'
-data DeleteSubnet = DeleteSubnet'{_del1DryRun :: Maybe Bool, _del1SubnetId :: Text} deriving (Eq, Read, Show)
+data DeleteSubnet = DeleteSubnet'
+    { _del1DryRun   :: Maybe Bool
+    , _del1SubnetId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteSubnet' smart constructor.
 deleteSubnet :: Text -> DeleteSubnet
-deleteSubnet pSubnetId = DeleteSubnet'{_del1DryRun = Nothing, _del1SubnetId = pSubnetId};
+deleteSubnet pSubnetId =
+    DeleteSubnet'
+    { _del1DryRun = Nothing
+    , _del1SubnetId = pSubnetId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -83,8 +90,10 @@ instance ToQuery DeleteSubnet where
                "DryRun" =: _del1DryRun, "SubnetId" =: _del1SubnetId]
 
 -- | /See:/ 'deleteSubnetResponse' smart constructor.
-data DeleteSubnetResponse = DeleteSubnetResponse' deriving (Eq, Read, Show)
+data DeleteSubnetResponse =
+    DeleteSubnetResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteSubnetResponse' smart constructor.
 deleteSubnetResponse :: DeleteSubnetResponse
-deleteSubnetResponse = DeleteSubnetResponse';
+deleteSubnetResponse = DeleteSubnetResponse'

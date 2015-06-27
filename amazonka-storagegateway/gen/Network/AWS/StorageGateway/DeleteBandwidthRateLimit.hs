@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteBandwidthRateLimit
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     , deleteBandwidthRateLimitResponse
     -- ** Response lenses
     , deleGatewayARN
-    , deleStatusCode
+    , deleStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'deleteBandwidthRateLimit' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.StorageGateway.Types
 -- * 'delGatewayARN'
 --
 -- * 'delBandwidthType'
-data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit'{_delGatewayARN :: Text, _delBandwidthType :: Text} deriving (Eq, Read, Show)
+data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit'
+    { _delGatewayARN    :: Text
+    , _delBandwidthType :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteBandwidthRateLimit' smart constructor.
 deleteBandwidthRateLimit :: Text -> Text -> DeleteBandwidthRateLimit
-deleteBandwidthRateLimit pGatewayARN pBandwidthType = DeleteBandwidthRateLimit'{_delGatewayARN = pGatewayARN, _delBandwidthType = pBandwidthType};
+deleteBandwidthRateLimit pGatewayARN pBandwidthType =
+    DeleteBandwidthRateLimit'
+    { _delGatewayARN = pGatewayARN
+    , _delBandwidthType = pBandwidthType
+    }
 
 -- | FIXME: Undocumented member.
 delGatewayARN :: Lens' DeleteBandwidthRateLimit Text
@@ -108,17 +115,24 @@ instance ToQuery DeleteBandwidthRateLimit where
 --
 -- * 'deleGatewayARN'
 --
--- * 'deleStatusCode'
-data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'{_deleGatewayARN :: Maybe Text, _deleStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'deleStatus'
+data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'
+    { _deleGatewayARN :: Maybe Text
+    , _deleStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteBandwidthRateLimitResponse' smart constructor.
 deleteBandwidthRateLimitResponse :: Int -> DeleteBandwidthRateLimitResponse
-deleteBandwidthRateLimitResponse pStatusCode = DeleteBandwidthRateLimitResponse'{_deleGatewayARN = Nothing, _deleStatusCode = pStatusCode};
+deleteBandwidthRateLimitResponse pStatus =
+    DeleteBandwidthRateLimitResponse'
+    { _deleGatewayARN = Nothing
+    , _deleStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 deleGatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
 deleGatewayARN = lens _deleGatewayARN (\ s a -> s{_deleGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-deleStatusCode :: Lens' DeleteBandwidthRateLimitResponse Int
-deleStatusCode = lens _deleStatusCode (\ s a -> s{_deleStatusCode = a});
+deleStatus :: Lens' DeleteBandwidthRateLimitResponse Int
+deleStatus = lens _deleStatus (\ s a -> s{_deleStatus = a});

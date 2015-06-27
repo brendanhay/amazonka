@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DeleteHSMConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,10 +32,10 @@ module Network.AWS.Redshift.DeleteHSMConfiguration
     , deleteHSMConfigurationResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -44,11 +44,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dhcHSMConfigurationIdentifier'
-newtype DeleteHSMConfiguration = DeleteHSMConfiguration'{_dhcHSMConfigurationIdentifier :: Text} deriving (Eq, Read, Show)
+newtype DeleteHSMConfiguration = DeleteHSMConfiguration'
+    { _dhcHSMConfigurationIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteHSMConfiguration' smart constructor.
 deleteHSMConfiguration :: Text -> DeleteHSMConfiguration
-deleteHSMConfiguration pHSMConfigurationIdentifier = DeleteHSMConfiguration'{_dhcHSMConfigurationIdentifier = pHSMConfigurationIdentifier};
+deleteHSMConfiguration pHSMConfigurationIdentifier =
+    DeleteHSMConfiguration'
+    { _dhcHSMConfigurationIdentifier = pHSMConfigurationIdentifier
+    }
 
 -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
 dhcHSMConfigurationIdentifier :: Lens' DeleteHSMConfiguration Text
@@ -78,8 +83,10 @@ instance ToQuery DeleteHSMConfiguration where
                  _dhcHSMConfigurationIdentifier]
 
 -- | /See:/ 'deleteHSMConfigurationResponse' smart constructor.
-data DeleteHSMConfigurationResponse = DeleteHSMConfigurationResponse' deriving (Eq, Read, Show)
+data DeleteHSMConfigurationResponse =
+    DeleteHSMConfigurationResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteHSMConfigurationResponse' smart constructor.
 deleteHSMConfigurationResponse :: DeleteHSMConfigurationResponse
-deleteHSMConfigurationResponse = DeleteHSMConfigurationResponse';
+deleteHSMConfigurationResponse = DeleteHSMConfigurationResponse'

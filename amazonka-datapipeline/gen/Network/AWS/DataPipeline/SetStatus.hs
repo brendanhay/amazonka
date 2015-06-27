@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.SetStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.DataPipeline.SetStatus
     , setStatusResponse
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for SetStatus.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'ssObjectIds'
 --
 -- * 'ssStatus'
-data SetStatus = SetStatus'{_ssPipelineId :: Text, _ssObjectIds :: [Text], _ssStatus :: Text} deriving (Eq, Read, Show)
+data SetStatus = SetStatus'
+    { _ssPipelineId :: Text
+    , _ssObjectIds  :: [Text]
+    , _ssStatus     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetStatus' smart constructor.
 setStatus :: Text -> Text -> SetStatus
-setStatus pPipelineId pStatus = SetStatus'{_ssPipelineId = pPipelineId, _ssObjectIds = mempty, _ssStatus = pStatus};
+setStatus pPipelineId pStatus =
+    SetStatus'
+    { _ssPipelineId = pPipelineId
+    , _ssObjectIds = mempty
+    , _ssStatus = pStatus
+    }
 
 -- | The ID of the pipeline that contains the objects.
 ssPipelineId :: Lens' SetStatus Text
@@ -104,8 +113,10 @@ instance ToQuery SetStatus where
         toQuery = const mempty
 
 -- | /See:/ 'setStatusResponse' smart constructor.
-data SetStatusResponse = SetStatusResponse' deriving (Eq, Read, Show)
+data SetStatusResponse =
+    SetStatusResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetStatusResponse' smart constructor.
 setStatusResponse :: SetStatusResponse
-setStatusResponse = SetStatusResponse';
+setStatusResponse = SetStatusResponse'

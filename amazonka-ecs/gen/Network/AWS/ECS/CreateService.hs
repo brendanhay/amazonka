@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.CreateService
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.ECS.CreateService
     , createServiceResponse
     -- ** Response lenses
     , csrService
-    , csrStatusCode
+    , csrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createService' smart constructor.
 --
@@ -66,11 +66,28 @@ import Network.AWS.Response
 -- * 'creTaskDefinition'
 --
 -- * 'creDesiredCount'
-data CreateService = CreateService'{_creCluster :: Maybe Text, _creClientToken :: Maybe Text, _creLoadBalancers :: Maybe [LoadBalancer], _creRole :: Maybe Text, _creServiceName :: Text, _creTaskDefinition :: Text, _creDesiredCount :: Int} deriving (Eq, Read, Show)
+data CreateService = CreateService'
+    { _creCluster        :: Maybe Text
+    , _creClientToken    :: Maybe Text
+    , _creLoadBalancers  :: Maybe [LoadBalancer]
+    , _creRole           :: Maybe Text
+    , _creServiceName    :: Text
+    , _creTaskDefinition :: Text
+    , _creDesiredCount   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateService' smart constructor.
 createService :: Text -> Text -> Int -> CreateService
-createService pServiceName pTaskDefinition pDesiredCount = CreateService'{_creCluster = Nothing, _creClientToken = Nothing, _creLoadBalancers = Nothing, _creRole = Nothing, _creServiceName = pServiceName, _creTaskDefinition = pTaskDefinition, _creDesiredCount = pDesiredCount};
+createService pServiceName pTaskDefinition pDesiredCount =
+    CreateService'
+    { _creCluster = Nothing
+    , _creClientToken = Nothing
+    , _creLoadBalancers = Nothing
+    , _creRole = Nothing
+    , _creServiceName = pServiceName
+    , _creTaskDefinition = pTaskDefinition
+    , _creDesiredCount = pDesiredCount
+    }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- you want to run your service on. If you do not specify a cluster, the
@@ -154,17 +171,24 @@ instance ToQuery CreateService where
 --
 -- * 'csrService'
 --
--- * 'csrStatusCode'
-data CreateServiceResponse = CreateServiceResponse'{_csrService :: Maybe ContainerService, _csrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'csrStatus'
+data CreateServiceResponse = CreateServiceResponse'
+    { _csrService :: Maybe ContainerService
+    , _csrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateServiceResponse' smart constructor.
 createServiceResponse :: Int -> CreateServiceResponse
-createServiceResponse pStatusCode = CreateServiceResponse'{_csrService = Nothing, _csrStatusCode = pStatusCode};
+createServiceResponse pStatus =
+    CreateServiceResponse'
+    { _csrService = Nothing
+    , _csrStatus = pStatus
+    }
 
 -- | The full description of your service following the create call.
 csrService :: Lens' CreateServiceResponse (Maybe ContainerService)
 csrService = lens _csrService (\ s a -> s{_csrService = a});
 
 -- | FIXME: Undocumented member.
-csrStatusCode :: Lens' CreateServiceResponse Int
-csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});
+csrStatus :: Lens' CreateServiceResponse Int
+csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});

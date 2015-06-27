@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.GetObjectTorrent
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,14 +34,14 @@ module Network.AWS.S3.GetObjectTorrent
     , getObjectTorrentResponse
     -- ** Response lenses
     , gotrRequestCharged
-    , gotrStatusCode
+    , gotrStatus
     , gotrBody
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'getObjectTorrent' smart constructor.
 --
@@ -52,11 +52,20 @@ import Network.AWS.S3.Types
 -- * 'gotBucket'
 --
 -- * 'gotKey'
-data GetObjectTorrent = GetObjectTorrent'{_gotRequestPayer :: Maybe RequestPayer, _gotBucket :: BucketName, _gotKey :: ObjectKey} deriving (Eq, Read, Show)
+data GetObjectTorrent = GetObjectTorrent'
+    { _gotRequestPayer :: Maybe RequestPayer
+    , _gotBucket       :: BucketName
+    , _gotKey          :: ObjectKey
+    } deriving (Eq,Read,Show)
 
 -- | 'GetObjectTorrent' smart constructor.
 getObjectTorrent :: BucketName -> ObjectKey -> GetObjectTorrent
-getObjectTorrent pBucket pKey = GetObjectTorrent'{_gotRequestPayer = Nothing, _gotBucket = pBucket, _gotKey = pKey};
+getObjectTorrent pBucket pKey =
+    GetObjectTorrent'
+    { _gotRequestPayer = Nothing
+    , _gotBucket = pBucket
+    , _gotKey = pKey
+    }
 
 -- | FIXME: Undocumented member.
 gotRequestPayer :: Lens' GetObjectTorrent (Maybe RequestPayer)
@@ -100,22 +109,31 @@ instance ToQuery GetObjectTorrent where
 --
 -- * 'gotrRequestCharged'
 --
--- * 'gotrStatusCode'
+-- * 'gotrStatus'
 --
 -- * 'gotrBody'
-data GetObjectTorrentResponse = GetObjectTorrentResponse'{_gotrRequestCharged :: Maybe RequestCharged, _gotrStatusCode :: Int, _gotrBody :: RsBody} deriving Show
+data GetObjectTorrentResponse = GetObjectTorrentResponse'
+    { _gotrRequestCharged :: Maybe RequestCharged
+    , _gotrStatus         :: !Int
+    , _gotrBody           :: RsBody
+    } deriving (Show)
 
 -- | 'GetObjectTorrentResponse' smart constructor.
 getObjectTorrentResponse :: Int -> RsBody -> GetObjectTorrentResponse
-getObjectTorrentResponse pStatusCode pBody = GetObjectTorrentResponse'{_gotrRequestCharged = Nothing, _gotrStatusCode = pStatusCode, _gotrBody = pBody};
+getObjectTorrentResponse pStatus pBody =
+    GetObjectTorrentResponse'
+    { _gotrRequestCharged = Nothing
+    , _gotrStatus = pStatus
+    , _gotrBody = pBody
+    }
 
 -- | FIXME: Undocumented member.
 gotrRequestCharged :: Lens' GetObjectTorrentResponse (Maybe RequestCharged)
 gotrRequestCharged = lens _gotrRequestCharged (\ s a -> s{_gotrRequestCharged = a});
 
 -- | FIXME: Undocumented member.
-gotrStatusCode :: Lens' GetObjectTorrentResponse Int
-gotrStatusCode = lens _gotrStatusCode (\ s a -> s{_gotrStatusCode = a});
+gotrStatus :: Lens' GetObjectTorrentResponse Int
+gotrStatus = lens _gotrStatus (\ s a -> s{_gotrStatus = a});
 
 -- | FIXME: Undocumented member.
 gotrBody :: Lens' GetObjectTorrentResponse RsBody

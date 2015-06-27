@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.UnlinkIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,10 +38,10 @@ module Network.AWS.CognitoIdentity.UnlinkIdentity
     , unlinkIdentityResponse
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the UnlinkIdentity action.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'uiLogins'
 --
 -- * 'uiLoginsToRemove'
-data UnlinkIdentity = UnlinkIdentity'{_uiIdentityId :: Text, _uiLogins :: Map Text Text, _uiLoginsToRemove :: [Text]} deriving (Eq, Read, Show)
+data UnlinkIdentity = UnlinkIdentity'
+    { _uiIdentityId     :: Text
+    , _uiLogins         :: Map Text Text
+    , _uiLoginsToRemove :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'UnlinkIdentity' smart constructor.
 unlinkIdentity :: Text -> UnlinkIdentity
-unlinkIdentity pIdentityId = UnlinkIdentity'{_uiIdentityId = pIdentityId, _uiLogins = mempty, _uiLoginsToRemove = mempty};
+unlinkIdentity pIdentityId =
+    UnlinkIdentity'
+    { _uiIdentityId = pIdentityId
+    , _uiLogins = mempty
+    , _uiLoginsToRemove = mempty
+    }
 
 -- | A unique identifier in the format REGION:GUID.
 uiIdentityId :: Lens' UnlinkIdentity Text
@@ -103,8 +112,10 @@ instance ToQuery UnlinkIdentity where
         toQuery = const mempty
 
 -- | /See:/ 'unlinkIdentityResponse' smart constructor.
-data UnlinkIdentityResponse = UnlinkIdentityResponse' deriving (Eq, Read, Show)
+data UnlinkIdentityResponse =
+    UnlinkIdentityResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UnlinkIdentityResponse' smart constructor.
 unlinkIdentityResponse :: UnlinkIdentityResponse
-unlinkIdentityResponse = UnlinkIdentityResponse';
+unlinkIdentityResponse = UnlinkIdentityResponse'

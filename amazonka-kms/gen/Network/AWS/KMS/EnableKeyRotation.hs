@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.EnableKeyRotation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,21 +32,26 @@ module Network.AWS.KMS.EnableKeyRotation
     , enableKeyRotationResponse
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'enableKeyRotation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ekrKeyId'
-newtype EnableKeyRotation = EnableKeyRotation'{_ekrKeyId :: Text} deriving (Eq, Read, Show)
+newtype EnableKeyRotation = EnableKeyRotation'
+    { _ekrKeyId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableKeyRotation' smart constructor.
 enableKeyRotation :: Text -> EnableKeyRotation
-enableKeyRotation pKeyId = EnableKeyRotation'{_ekrKeyId = pKeyId};
+enableKeyRotation pKeyId =
+    EnableKeyRotation'
+    { _ekrKeyId = pKeyId
+    }
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier or the fully specified ARN to a key.
@@ -84,8 +89,10 @@ instance ToQuery EnableKeyRotation where
         toQuery = const mempty
 
 -- | /See:/ 'enableKeyRotationResponse' smart constructor.
-data EnableKeyRotationResponse = EnableKeyRotationResponse' deriving (Eq, Read, Show)
+data EnableKeyRotationResponse =
+    EnableKeyRotationResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'EnableKeyRotationResponse' smart constructor.
 enableKeyRotationResponse :: EnableKeyRotationResponse
-enableKeyRotationResponse = EnableKeyRotationResponse';
+enableKeyRotationResponse = EnableKeyRotationResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CancelBundleTask
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.EC2.CancelBundleTask
     , cancelBundleTaskResponse
     -- ** Response lenses
     , cbtrBundleTask
-    , cbtrStatusCode
+    , cbtrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'cancelBundleTask' smart constructor.
 --
@@ -49,11 +49,18 @@ import Network.AWS.Response
 -- * 'cbtDryRun'
 --
 -- * 'cbtBundleId'
-data CancelBundleTask = CancelBundleTask'{_cbtDryRun :: Maybe Bool, _cbtBundleId :: Text} deriving (Eq, Read, Show)
+data CancelBundleTask = CancelBundleTask'
+    { _cbtDryRun   :: Maybe Bool
+    , _cbtBundleId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelBundleTask' smart constructor.
 cancelBundleTask :: Text -> CancelBundleTask
-cancelBundleTask pBundleId = CancelBundleTask'{_cbtDryRun = Nothing, _cbtBundleId = pBundleId};
+cancelBundleTask pBundleId =
+    CancelBundleTask'
+    { _cbtDryRun = Nothing
+    , _cbtBundleId = pBundleId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -95,17 +102,24 @@ instance ToQuery CancelBundleTask where
 --
 -- * 'cbtrBundleTask'
 --
--- * 'cbtrStatusCode'
-data CancelBundleTaskResponse = CancelBundleTaskResponse'{_cbtrBundleTask :: Maybe BundleTask, _cbtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cbtrStatus'
+data CancelBundleTaskResponse = CancelBundleTaskResponse'
+    { _cbtrBundleTask :: Maybe BundleTask
+    , _cbtrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelBundleTaskResponse' smart constructor.
 cancelBundleTaskResponse :: Int -> CancelBundleTaskResponse
-cancelBundleTaskResponse pStatusCode = CancelBundleTaskResponse'{_cbtrBundleTask = Nothing, _cbtrStatusCode = pStatusCode};
+cancelBundleTaskResponse pStatus =
+    CancelBundleTaskResponse'
+    { _cbtrBundleTask = Nothing
+    , _cbtrStatus = pStatus
+    }
 
 -- | Information about the bundle task.
 cbtrBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
 cbtrBundleTask = lens _cbtrBundleTask (\ s a -> s{_cbtrBundleTask = a});
 
 -- | FIXME: Undocumented member.
-cbtrStatusCode :: Lens' CancelBundleTaskResponse Int
-cbtrStatusCode = lens _cbtrStatusCode (\ s a -> s{_cbtrStatusCode = a});
+cbtrStatus :: Lens' CancelBundleTaskResponse Int
+cbtrStatus = lens _cbtrStatus (\ s a -> s{_cbtrStatus = a});

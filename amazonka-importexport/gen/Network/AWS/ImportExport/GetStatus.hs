@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ImportExport.GetStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,13 +51,13 @@ module Network.AWS.ImportExport.GetStatus
     , gsrLogKey
     , gsrProgressMessage
     , gsrLocationMessage
-    , gsrStatusCode
+    , gsrStatus
     ) where
 
-import Network.AWS.ImportExport.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ImportExport.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input structure for the GetStatus operation.
 --
@@ -68,11 +68,18 @@ import Network.AWS.Response
 -- * 'gsAPIVersion'
 --
 -- * 'gsJobId'
-data GetStatus = GetStatus'{_gsAPIVersion :: Maybe Text, _gsJobId :: Text} deriving (Eq, Read, Show)
+data GetStatus = GetStatus'
+    { _gsAPIVersion :: Maybe Text
+    , _gsJobId      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetStatus' smart constructor.
 getStatus :: Text -> GetStatus
-getStatus pJobId = GetStatus'{_gsAPIVersion = Nothing, _gsJobId = pJobId};
+getStatus pJobId =
+    GetStatus'
+    { _gsAPIVersion = Nothing
+    , _gsJobId = pJobId
+    }
 
 -- | FIXME: Undocumented member.
 gsAPIVersion :: Lens' GetStatus (Maybe Text)
@@ -161,12 +168,49 @@ instance ToQuery GetStatus where
 --
 -- * 'gsrLocationMessage'
 --
--- * 'gsrStatusCode'
-data GetStatusResponse = GetStatusResponse'{_gsrCarrier :: Maybe Text, _gsrSignature :: Maybe Text, _gsrTrackingNumber :: Maybe Text, _gsrJobType :: Maybe JobType, _gsrJobId :: Maybe Text, _gsrSignatureFileContents :: Maybe Text, _gsrErrorCount :: Maybe Int, _gsrCurrentManifest :: Maybe Text, _gsrArtifactList :: Maybe [Artifact], _gsrLogBucket :: Maybe Text, _gsrCreationDate :: Maybe ISO8601, _gsrProgressCode :: Maybe Text, _gsrLocationCode :: Maybe Text, _gsrLogKey :: Maybe Text, _gsrProgressMessage :: Maybe Text, _gsrLocationMessage :: Maybe Text, _gsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gsrStatus'
+data GetStatusResponse = GetStatusResponse'
+    { _gsrCarrier               :: Maybe Text
+    , _gsrSignature             :: Maybe Text
+    , _gsrTrackingNumber        :: Maybe Text
+    , _gsrJobType               :: Maybe JobType
+    , _gsrJobId                 :: Maybe Text
+    , _gsrSignatureFileContents :: Maybe Text
+    , _gsrErrorCount            :: Maybe Int
+    , _gsrCurrentManifest       :: Maybe Text
+    , _gsrArtifactList          :: Maybe [Artifact]
+    , _gsrLogBucket             :: Maybe Text
+    , _gsrCreationDate          :: Maybe ISO8601
+    , _gsrProgressCode          :: Maybe Text
+    , _gsrLocationCode          :: Maybe Text
+    , _gsrLogKey                :: Maybe Text
+    , _gsrProgressMessage       :: Maybe Text
+    , _gsrLocationMessage       :: Maybe Text
+    , _gsrStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetStatusResponse' smart constructor.
 getStatusResponse :: Int -> GetStatusResponse
-getStatusResponse pStatusCode = GetStatusResponse'{_gsrCarrier = Nothing, _gsrSignature = Nothing, _gsrTrackingNumber = Nothing, _gsrJobType = Nothing, _gsrJobId = Nothing, _gsrSignatureFileContents = Nothing, _gsrErrorCount = Nothing, _gsrCurrentManifest = Nothing, _gsrArtifactList = Nothing, _gsrLogBucket = Nothing, _gsrCreationDate = Nothing, _gsrProgressCode = Nothing, _gsrLocationCode = Nothing, _gsrLogKey = Nothing, _gsrProgressMessage = Nothing, _gsrLocationMessage = Nothing, _gsrStatusCode = pStatusCode};
+getStatusResponse pStatus =
+    GetStatusResponse'
+    { _gsrCarrier = Nothing
+    , _gsrSignature = Nothing
+    , _gsrTrackingNumber = Nothing
+    , _gsrJobType = Nothing
+    , _gsrJobId = Nothing
+    , _gsrSignatureFileContents = Nothing
+    , _gsrErrorCount = Nothing
+    , _gsrCurrentManifest = Nothing
+    , _gsrArtifactList = Nothing
+    , _gsrLogBucket = Nothing
+    , _gsrCreationDate = Nothing
+    , _gsrProgressCode = Nothing
+    , _gsrLocationCode = Nothing
+    , _gsrLogKey = Nothing
+    , _gsrProgressMessage = Nothing
+    , _gsrLocationMessage = Nothing
+    , _gsrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 gsrCarrier :: Lens' GetStatusResponse (Maybe Text)
@@ -233,5 +277,5 @@ gsrLocationMessage :: Lens' GetStatusResponse (Maybe Text)
 gsrLocationMessage = lens _gsrLocationMessage (\ s a -> s{_gsrLocationMessage = a});
 
 -- | FIXME: Undocumented member.
-gsrStatusCode :: Lens' GetStatusResponse Int
-gsrStatusCode = lens _gsrStatusCode (\ s a -> s{_gsrStatusCode = a});
+gsrStatus :: Lens' GetStatusResponse Int
+gsrStatus = lens _gsrStatus (\ s a -> s{_gsrStatus = a});

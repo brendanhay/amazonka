@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetDeployment
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.CodeDeploy.GetDeployment
     , getDeploymentResponse
     -- ** Response lenses
     , gdrDeploymentInfo
-    , gdrStatusCode
+    , gdrStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a get deployment operation.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gdDeploymentId'
-newtype GetDeployment = GetDeployment'{_gdDeploymentId :: Text} deriving (Eq, Read, Show)
+newtype GetDeployment = GetDeployment'
+    { _gdDeploymentId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDeployment' smart constructor.
 getDeployment :: Text -> GetDeployment
-getDeployment pDeploymentId = GetDeployment'{_gdDeploymentId = pDeploymentId};
+getDeployment pDeploymentId =
+    GetDeployment'
+    { _gdDeploymentId = pDeploymentId
+    }
 
 -- | An existing deployment ID associated with the applicable IAM user or AWS
 -- account.
@@ -95,17 +100,24 @@ instance ToQuery GetDeployment where
 --
 -- * 'gdrDeploymentInfo'
 --
--- * 'gdrStatusCode'
-data GetDeploymentResponse = GetDeploymentResponse'{_gdrDeploymentInfo :: Maybe DeploymentInfo, _gdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gdrStatus'
+data GetDeploymentResponse = GetDeploymentResponse'
+    { _gdrDeploymentInfo :: Maybe DeploymentInfo
+    , _gdrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDeploymentResponse' smart constructor.
 getDeploymentResponse :: Int -> GetDeploymentResponse
-getDeploymentResponse pStatusCode = GetDeploymentResponse'{_gdrDeploymentInfo = Nothing, _gdrStatusCode = pStatusCode};
+getDeploymentResponse pStatus =
+    GetDeploymentResponse'
+    { _gdrDeploymentInfo = Nothing
+    , _gdrStatus = pStatus
+    }
 
 -- | Information about the deployment.
 gdrDeploymentInfo :: Lens' GetDeploymentResponse (Maybe DeploymentInfo)
 gdrDeploymentInfo = lens _gdrDeploymentInfo (\ s a -> s{_gdrDeploymentInfo = a});
 
 -- | FIXME: Undocumented member.
-gdrStatusCode :: Lens' GetDeploymentResponse Int
-gdrStatusCode = lens _gdrStatusCode (\ s a -> s{_gdrStatusCode = a});
+gdrStatus :: Lens' GetDeploymentResponse Int
+gdrStatus = lens _gdrStatus (\ s a -> s{_gdrStatus = a});

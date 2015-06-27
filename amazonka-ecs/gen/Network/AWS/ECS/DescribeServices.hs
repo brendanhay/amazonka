@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.DescribeServices
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.ECS.DescribeServices
     -- ** Response lenses
     , dFailures
     , dServices
-    , dStatusCode
+    , dStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeServices' smart constructor.
 --
@@ -49,11 +49,18 @@ import Network.AWS.Response
 -- * 'desCluster'
 --
 -- * 'desServices'
-data DescribeServices = DescribeServices'{_desCluster :: Maybe Text, _desServices :: [Text]} deriving (Eq, Read, Show)
+data DescribeServices = DescribeServices'
+    { _desCluster  :: Maybe Text
+    , _desServices :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeServices' smart constructor.
 describeServices :: DescribeServices
-describeServices = DescribeServices'{_desCluster = Nothing, _desServices = mempty};
+describeServices =
+    DescribeServices'
+    { _desCluster = Nothing
+    , _desServices = mempty
+    }
 
 -- | The name of the cluster that hosts the service you want to describe.
 desCluster :: Lens' DescribeServices (Maybe Text)
@@ -105,12 +112,21 @@ instance ToQuery DescribeServices where
 --
 -- * 'dServices'
 --
--- * 'dStatusCode'
-data DescribeServicesResponse = DescribeServicesResponse'{_dFailures :: Maybe [Failure], _dServices :: Maybe [ContainerService], _dStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dStatus'
+data DescribeServicesResponse = DescribeServicesResponse'
+    { _dFailures :: Maybe [Failure]
+    , _dServices :: Maybe [ContainerService]
+    , _dStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeServicesResponse' smart constructor.
 describeServicesResponse :: Int -> DescribeServicesResponse
-describeServicesResponse pStatusCode = DescribeServicesResponse'{_dFailures = Nothing, _dServices = Nothing, _dStatusCode = pStatusCode};
+describeServicesResponse pStatus =
+    DescribeServicesResponse'
+    { _dFailures = Nothing
+    , _dServices = Nothing
+    , _dStatus = pStatus
+    }
 
 -- | Any failures associated with the call.
 dFailures :: Lens' DescribeServicesResponse [Failure]
@@ -121,5 +137,5 @@ dServices :: Lens' DescribeServicesResponse [ContainerService]
 dServices = lens _dServices (\ s a -> s{_dServices = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dStatusCode :: Lens' DescribeServicesResponse Int
-dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});
+dStatus :: Lens' DescribeServicesResponse Int
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DeletePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.AutoScaling.DeletePolicy
     , deletePolicyResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -47,11 +47,18 @@ import Network.AWS.Response
 -- * 'dpAutoScalingGroupName'
 --
 -- * 'dpPolicyName'
-data DeletePolicy = DeletePolicy'{_dpAutoScalingGroupName :: Maybe Text, _dpPolicyName :: Text} deriving (Eq, Read, Show)
+data DeletePolicy = DeletePolicy'
+    { _dpAutoScalingGroupName :: Maybe Text
+    , _dpPolicyName           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeletePolicy' smart constructor.
 deletePolicy :: Text -> DeletePolicy
-deletePolicy pPolicyName = DeletePolicy'{_dpAutoScalingGroupName = Nothing, _dpPolicyName = pPolicyName};
+deletePolicy pPolicyName =
+    DeletePolicy'
+    { _dpAutoScalingGroupName = Nothing
+    , _dpPolicyName = pPolicyName
+    }
 
 -- | The name of the Auto Scaling group.
 dpAutoScalingGroupName :: Lens' DeletePolicy (Maybe Text)
@@ -82,8 +89,10 @@ instance ToQuery DeletePolicy where
                "PolicyName" =: _dpPolicyName]
 
 -- | /See:/ 'deletePolicyResponse' smart constructor.
-data DeletePolicyResponse = DeletePolicyResponse' deriving (Eq, Read, Show)
+data DeletePolicyResponse =
+    DeletePolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeletePolicyResponse' smart constructor.
 deletePolicyResponse :: DeletePolicyResponse
-deletePolicyResponse = DeletePolicyResponse';
+deletePolicyResponse = DeletePolicyResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeRDSDBInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.OpsWorks.DescribeRDSDBInstances
     , describeRDSDBInstancesResponse
     -- ** Response lenses
     , drdirRDSDBInstances
-    , drdirStatusCode
+    , drdirStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeRDSDBInstances' smart constructor.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'drdiRDSDBInstanceARNs'
 --
 -- * 'drdiStackId'
-data DescribeRDSDBInstances = DescribeRDSDBInstances'{_drdiRDSDBInstanceARNs :: Maybe [Text], _drdiStackId :: Text} deriving (Eq, Read, Show)
+data DescribeRDSDBInstances = DescribeRDSDBInstances'
+    { _drdiRDSDBInstanceARNs :: Maybe [Text]
+    , _drdiStackId           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeRDSDBInstances' smart constructor.
 describeRDSDBInstances :: Text -> DescribeRDSDBInstances
-describeRDSDBInstances pStackId = DescribeRDSDBInstances'{_drdiRDSDBInstanceARNs = Nothing, _drdiStackId = pStackId};
+describeRDSDBInstances pStackId =
+    DescribeRDSDBInstances'
+    { _drdiRDSDBInstanceARNs = Nothing
+    , _drdiStackId = pStackId
+    }
 
 -- | An array containing the ARNs of the instances to be described.
 drdiRDSDBInstanceARNs :: Lens' DescribeRDSDBInstances [Text]
@@ -111,17 +118,24 @@ instance ToQuery DescribeRDSDBInstances where
 --
 -- * 'drdirRDSDBInstances'
 --
--- * 'drdirStatusCode'
-data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'{_drdirRDSDBInstances :: Maybe [RDSDBInstance], _drdirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'drdirStatus'
+data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'
+    { _drdirRDSDBInstances :: Maybe [RDSDBInstance]
+    , _drdirStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeRDSDBInstancesResponse' smart constructor.
 describeRDSDBInstancesResponse :: Int -> DescribeRDSDBInstancesResponse
-describeRDSDBInstancesResponse pStatusCode = DescribeRDSDBInstancesResponse'{_drdirRDSDBInstances = Nothing, _drdirStatusCode = pStatusCode};
+describeRDSDBInstancesResponse pStatus =
+    DescribeRDSDBInstancesResponse'
+    { _drdirRDSDBInstances = Nothing
+    , _drdirStatus = pStatus
+    }
 
 -- | An a array of @RdsDbInstance@ objects that describe the instances.
 drdirRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse [RDSDBInstance]
 drdirRDSDBInstances = lens _drdirRDSDBInstances (\ s a -> s{_drdirRDSDBInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drdirStatusCode :: Lens' DescribeRDSDBInstancesResponse Int
-drdirStatusCode = lens _drdirStatusCode (\ s a -> s{_drdirStatusCode = a});
+drdirStatus :: Lens' DescribeRDSDBInstancesResponse Int
+drdirStatus = lens _drdirStatus (\ s a -> s{_drdirStatus = a});

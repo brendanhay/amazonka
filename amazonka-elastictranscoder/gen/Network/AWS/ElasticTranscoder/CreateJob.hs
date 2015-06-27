@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.CreateJob
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.ElasticTranscoder.CreateJob
     , createJobResponse
     -- ** Response lenses
     , cjrJob
-    , cjrStatusCode
+    , cjrStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @CreateJobRequest@ structure.
 --
@@ -72,11 +72,28 @@ import Network.AWS.Response
 -- * 'cjPipelineId'
 --
 -- * 'cjInput'
-data CreateJob = CreateJob'{_cjOutputs :: Maybe [CreateJobOutput], _cjUserMetadata :: Maybe (Map Text Text), _cjOutput :: Maybe CreateJobOutput, _cjPlaylists :: Maybe [CreateJobPlaylist], _cjOutputKeyPrefix :: Maybe Text, _cjPipelineId :: Text, _cjInput :: JobInput} deriving (Eq, Read, Show)
+data CreateJob = CreateJob'
+    { _cjOutputs         :: Maybe [CreateJobOutput]
+    , _cjUserMetadata    :: Maybe (Map Text Text)
+    , _cjOutput          :: Maybe CreateJobOutput
+    , _cjPlaylists       :: Maybe [CreateJobPlaylist]
+    , _cjOutputKeyPrefix :: Maybe Text
+    , _cjPipelineId      :: Text
+    , _cjInput           :: JobInput
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateJob' smart constructor.
 createJob :: Text -> JobInput -> CreateJob
-createJob pPipelineId pInput = CreateJob'{_cjOutputs = Nothing, _cjUserMetadata = Nothing, _cjOutput = Nothing, _cjPlaylists = Nothing, _cjOutputKeyPrefix = Nothing, _cjPipelineId = pPipelineId, _cjInput = pInput};
+createJob pPipelineId pInput =
+    CreateJob'
+    { _cjOutputs = Nothing
+    , _cjUserMetadata = Nothing
+    , _cjOutput = Nothing
+    , _cjPlaylists = Nothing
+    , _cjOutputKeyPrefix = Nothing
+    , _cjPipelineId = pPipelineId
+    , _cjInput = pInput
+    }
 
 -- | A section of the request body that provides information about the
 -- transcoded (target) files. We recommend that you use the @Outputs@
@@ -159,12 +176,19 @@ instance ToQuery CreateJob where
 --
 -- * 'cjrJob'
 --
--- * 'cjrStatusCode'
-data CreateJobResponse = CreateJobResponse'{_cjrJob :: Maybe Job', _cjrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cjrStatus'
+data CreateJobResponse = CreateJobResponse'
+    { _cjrJob    :: Maybe Job'
+    , _cjrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateJobResponse' smart constructor.
 createJobResponse :: Int -> CreateJobResponse
-createJobResponse pStatusCode = CreateJobResponse'{_cjrJob = Nothing, _cjrStatusCode = pStatusCode};
+createJobResponse pStatus =
+    CreateJobResponse'
+    { _cjrJob = Nothing
+    , _cjrStatus = pStatus
+    }
 
 -- | A section of the response body that provides information about the job
 -- that is created.
@@ -172,5 +196,5 @@ cjrJob :: Lens' CreateJobResponse (Maybe Job')
 cjrJob = lens _cjrJob (\ s a -> s{_cjrJob = a});
 
 -- | FIXME: Undocumented member.
-cjrStatusCode :: Lens' CreateJobResponse Int
-cjrStatusCode = lens _cjrStatusCode (\ s a -> s{_cjrStatusCode = a});
+cjrStatus :: Lens' CreateJobResponse Int
+cjrStatus = lens _cjrStatus (\ s a -> s{_cjrStatus = a});

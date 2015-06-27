@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.ImportExport.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,132 +61,149 @@ module Network.AWS.ImportExport.Types
     , jobCreationDate
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V2
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V2
 
 -- | Version @2010-06-01@ of the Amazon Import/Export SDK.
 data ImportExport
 
 instance AWSService ImportExport where
     type Sg ImportExport = V2
-
     service = const svc
       where
-        svc :: Service ImportExport
-        svc = Service
-            { _svcAbbrev   = "ImportExport"
-            , _svcPrefix   = "importexport"
-            , _svcVersion  = "2010-06-01"
+        svc =
+            Service
+            { _svcAbbrev = "ImportExport"
+            , _svcPrefix = "importexport"
+            , _svcVersion = "2010-06-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The JOBID was missing, not found, or not associated with the AWS
 -- account.
-_InvalidJobIdException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidJobIdException = _ServiceError . hasCode "InvalidJobIdException";
+_InvalidJobIdException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidJobIdException = _ServiceError . hasCode "InvalidJobIdException"
 
 -- | One or more parameters had an invalid value.
-_InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterException = _ServiceError . hasCode "InvalidParameterException";
+_InvalidParameterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterException =
+    _ServiceError . hasCode "InvalidParameterException"
 
 -- | Indicates that the specified job has expired out of the system.
-_ExpiredJobIdException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ExpiredJobIdException = _ServiceError . hasCode "ExpiredJobIdException";
+_ExpiredJobIdException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ExpiredJobIdException = _ServiceError . hasCode "ExpiredJobIdException"
 
 -- | File system specified in export manifest is invalid.
-_InvalidFileSystemException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidFileSystemException = _ServiceError . hasCode "InvalidFileSystemException";
+_InvalidFileSystemException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidFileSystemException =
+    _ServiceError . hasCode "InvalidFileSystemException"
 
 -- | The AWS Access Key ID specified in the request did not match the
 -- manifest\'s accessKeyId value. The manifest and the request
 -- authentication must use the same AWS Access Key ID.
-_InvalidAccessKeyIdException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidAccessKeyIdException = _ServiceError . hasCode "InvalidAccessKeyIdException";
+_InvalidAccessKeyIdException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidAccessKeyIdException =
+    _ServiceError . hasCode "InvalidAccessKeyIdException"
 
 -- | AWS Import\/Export cannot update the job
-_UnableToUpdateJobIdException :: AWSError a => Geting (First ServiceError) a ServiceError
-_UnableToUpdateJobIdException = _ServiceError . hasCode "UnableToUpdateJobIdException";
+_UnableToUpdateJobIdException :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnableToUpdateJobIdException =
+    _ServiceError . hasCode "UnableToUpdateJobIdException"
 
 -- | AWS Import\/Export cannot cancel the job
-_UnableToCancelJobIdException :: AWSError a => Geting (First ServiceError) a ServiceError
-_UnableToCancelJobIdException = _ServiceError . hasCode "UnableToCancelJobIdException";
+_UnableToCancelJobIdException :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnableToCancelJobIdException =
+    _ServiceError . hasCode "UnableToCancelJobIdException"
 
 -- | The client tool version is invalid.
-_InvalidVersionException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidVersionException = _ServiceError . hasCode "InvalidVersionException";
+_InvalidVersionException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidVersionException = _ServiceError . hasCode "InvalidVersionException"
 
 -- | Your manifest file contained buckets from multiple regions. A job is
 -- restricted to buckets from one region. Please correct and resubmit.
-_MultipleRegionsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MultipleRegionsException = _ServiceError . hasCode "MultipleRegionsException";
+_MultipleRegionsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MultipleRegionsException = _ServiceError . hasCode "MultipleRegionsException"
 
 -- | Your manifest is not well-formed.
-_MalformedManifestException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MalformedManifestException = _ServiceError . hasCode "MalformedManifestException";
+_MalformedManifestException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MalformedManifestException =
+    _ServiceError . hasCode "MalformedManifestException"
 
 -- | The specified job ID has been canceled and is no longer valid.
-_CanceledJobIdException :: AWSError a => Geting (First ServiceError) a ServiceError
-_CanceledJobIdException = _ServiceError . hasCode "CanceledJobIdException";
+_CanceledJobIdException :: AWSError a => Getting (First ServiceError) a ServiceError
+_CanceledJobIdException = _ServiceError . hasCode "CanceledJobIdException"
 
 -- | The account specified does not have the appropriate bucket permissions.
-_BucketPermissionException :: AWSError a => Geting (First ServiceError) a ServiceError
-_BucketPermissionException = _ServiceError . hasCode "BucketPermissionException";
+_BucketPermissionException :: AWSError a => Getting (First ServiceError) a ServiceError
+_BucketPermissionException =
+    _ServiceError . hasCode "BucketPermissionException"
 
 -- | One or more required parameters was missing from the request.
-_MissingParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MissingParameterException = _ServiceError . hasCode "MissingParameterException";
+_MissingParameterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MissingParameterException =
+    _ServiceError . hasCode "MissingParameterException"
 
 -- | The specified bucket does not exist. Create the specified bucket or
 -- change the manifest\'s bucket, exportBucket, or logBucket field to a
 -- bucket that the account, as specified by the manifest\'s Access Key ID,
 -- has write permissions to.
-_NoSuchBucketException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchBucketException = _ServiceError . hasCode "NoSuchBucketException";
+_NoSuchBucketException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchBucketException = _ServiceError . hasCode "NoSuchBucketException"
 
 -- | The address specified in the manifest is invalid.
-_InvalidAddressException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidAddressException = _ServiceError . hasCode "InvalidAddressException";
+_InvalidAddressException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidAddressException = _ServiceError . hasCode "InvalidAddressException"
 
 -- | One or more manifest fields was invalid. Please correct and resubmit.
-_InvalidManifestFieldException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidManifestFieldException = _ServiceError . hasCode "InvalidManifestFieldException";
+_InvalidManifestFieldException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidManifestFieldException =
+    _ServiceError . hasCode "InvalidManifestFieldException"
 
 -- | One or more required customs parameters was missing from the manifest.
-_MissingCustomsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MissingCustomsException = _ServiceError . hasCode "MissingCustomsException";
+_MissingCustomsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MissingCustomsException = _ServiceError . hasCode "MissingCustomsException"
 
 -- | One or more customs parameters was invalid. Please correct and resubmit.
-_InvalidCustomsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidCustomsException = _ServiceError . hasCode "InvalidCustomsException";
+_InvalidCustomsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidCustomsException = _ServiceError . hasCode "InvalidCustomsException"
 
 -- | One or more required fields were missing from the manifest file. Please
 -- correct and resubmit.
-_MissingManifestFieldException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MissingManifestFieldException = _ServiceError . hasCode "MissingManifestFieldException";
+_MissingManifestFieldException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MissingManifestFieldException =
+    _ServiceError . hasCode "MissingManifestFieldException"
 
 -- | Each account can create only a certain number of jobs per day. If you
 -- need to create more than this, please contact
 -- awsimportexport\@amazon.com to explain your particular use case.
-_CreateJobQuotaExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_CreateJobQuotaExceededException = _ServiceError . hasCode "CreateJobQuotaExceededException";
+_CreateJobQuotaExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_CreateJobQuotaExceededException =
+    _ServiceError . hasCode "CreateJobQuotaExceededException"
 
 -- | Specifies whether the job to initiate is an import or export job.
-data JobType = Export | Import deriving (Eq, Ord, Read, Show, Enum, Generic)
+data JobType
+    = Export
+    | Import
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText JobType where
     parser = takeLowerText >>= \case
@@ -217,11 +233,18 @@ instance FromXML JobType where
 -- * 'artURL'
 --
 -- * 'artDescription'
-data Artifact = Artifact'{_artURL :: Maybe Text, _artDescription :: Maybe Text} deriving (Eq, Read, Show)
+data Artifact = Artifact'
+    { _artURL         :: Maybe Text
+    , _artDescription :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Artifact' smart constructor.
 artifact :: Artifact
-artifact = Artifact'{_artURL = Nothing, _artDescription = Nothing};
+artifact =
+    Artifact'
+    { _artURL = Nothing
+    , _artDescription = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 artURL :: Lens' Artifact (Maybe Text)
@@ -249,11 +272,22 @@ instance FromXML Artifact where
 -- * 'jobIsCanceled'
 --
 -- * 'jobCreationDate'
-data Job = Job'{_jobJobType :: JobType, _jobJobId :: Text, _jobIsCanceled :: Bool, _jobCreationDate :: ISO8601} deriving (Eq, Read, Show)
+data Job = Job'
+    { _jobJobType      :: JobType
+    , _jobJobId        :: Text
+    , _jobIsCanceled   :: !Bool
+    , _jobCreationDate :: ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'Job' smart constructor.
 job :: JobType -> Text -> Bool -> UTCTime -> Job
-job pJobType pJobId pIsCanceled pCreationDate = Job'{_jobJobType = pJobType, _jobJobId = pJobId, _jobIsCanceled = pIsCanceled, _jobCreationDate = _Time # pCreationDate};
+job pJobType pJobId pIsCanceled pCreationDate =
+    Job'
+    { _jobJobType = pJobType
+    , _jobJobId = pJobId
+    , _jobIsCanceled = pIsCanceled
+    , _jobCreationDate = _Time # pCreationDate
+    }
 
 -- | FIXME: Undocumented member.
 jobJobType :: Lens' Job JobType

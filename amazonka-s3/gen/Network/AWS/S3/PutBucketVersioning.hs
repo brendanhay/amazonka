@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.PutBucketVersioning
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.S3.PutBucketVersioning
     , putBucketVersioningResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'putBucketVersioning' smart constructor.
 --
@@ -52,11 +52,22 @@ import Network.AWS.S3.Types
 -- * 'pbvBucket'
 --
 -- * 'pbvVersioningConfiguration'
-data PutBucketVersioning = PutBucketVersioning'{_pbvMFA :: Maybe Text, _pbvContentMD5 :: Maybe Text, _pbvBucket :: BucketName, _pbvVersioningConfiguration :: VersioningConfiguration} deriving (Eq, Read, Show)
+data PutBucketVersioning = PutBucketVersioning'
+    { _pbvMFA                     :: Maybe Text
+    , _pbvContentMD5              :: Maybe Text
+    , _pbvBucket                  :: BucketName
+    , _pbvVersioningConfiguration :: VersioningConfiguration
+    } deriving (Eq,Read,Show)
 
 -- | 'PutBucketVersioning' smart constructor.
 putBucketVersioning :: BucketName -> VersioningConfiguration -> PutBucketVersioning
-putBucketVersioning pBucket pVersioningConfiguration = PutBucketVersioning'{_pbvMFA = Nothing, _pbvContentMD5 = Nothing, _pbvBucket = pBucket, _pbvVersioningConfiguration = pVersioningConfiguration};
+putBucketVersioning pBucket pVersioningConfiguration =
+    PutBucketVersioning'
+    { _pbvMFA = Nothing
+    , _pbvContentMD5 = Nothing
+    , _pbvBucket = pBucket
+    , _pbvVersioningConfiguration = pVersioningConfiguration
+    }
 
 -- | The concatenation of the authentication device\'s serial number, a
 -- space, and the value that is displayed on your authentication device.
@@ -103,8 +114,10 @@ instance ToQuery PutBucketVersioning where
         toQuery = const (mconcat ["versioning"])
 
 -- | /See:/ 'putBucketVersioningResponse' smart constructor.
-data PutBucketVersioningResponse = PutBucketVersioningResponse' deriving (Eq, Read, Show)
+data PutBucketVersioningResponse =
+    PutBucketVersioningResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutBucketVersioningResponse' smart constructor.
 putBucketVersioningResponse :: PutBucketVersioningResponse
-putBucketVersioningResponse = PutBucketVersioningResponse';
+putBucketVersioningResponse = PutBucketVersioningResponse'

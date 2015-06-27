@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.DescribeKey
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,29 @@ module Network.AWS.KMS.DescribeKey
     , describeKeyResponse
     -- ** Response lenses
     , dkrKeyMetadata
-    , dkrStatusCode
+    , dkrStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeKey' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'desKeyId'
-newtype DescribeKey = DescribeKey'{_desKeyId :: Text} deriving (Eq, Read, Show)
+newtype DescribeKey = DescribeKey'
+    { _desKeyId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeKey' smart constructor.
 describeKey :: Text -> DescribeKey
-describeKey pKeyId = DescribeKey'{_desKeyId = pKeyId};
+describeKey pKeyId =
+    DescribeKey'
+    { _desKeyId = pKeyId
+    }
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier, a fully specified ARN to either an alias or
@@ -100,17 +105,24 @@ instance ToQuery DescribeKey where
 --
 -- * 'dkrKeyMetadata'
 --
--- * 'dkrStatusCode'
-data DescribeKeyResponse = DescribeKeyResponse'{_dkrKeyMetadata :: Maybe KeyMetadata, _dkrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dkrStatus'
+data DescribeKeyResponse = DescribeKeyResponse'
+    { _dkrKeyMetadata :: Maybe KeyMetadata
+    , _dkrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeKeyResponse' smart constructor.
 describeKeyResponse :: Int -> DescribeKeyResponse
-describeKeyResponse pStatusCode = DescribeKeyResponse'{_dkrKeyMetadata = Nothing, _dkrStatusCode = pStatusCode};
+describeKeyResponse pStatus =
+    DescribeKeyResponse'
+    { _dkrKeyMetadata = Nothing
+    , _dkrStatus = pStatus
+    }
 
 -- | Metadata associated with the key.
 dkrKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
 dkrKeyMetadata = lens _dkrKeyMetadata (\ s a -> s{_dkrKeyMetadata = a});
 
 -- | FIXME: Undocumented member.
-dkrStatusCode :: Lens' DescribeKeyResponse Int
-dkrStatusCode = lens _dkrStatusCode (\ s a -> s{_dkrStatusCode = a});
+dkrStatus :: Lens' DescribeKeyResponse Int
+dkrStatus = lens _dkrStatus (\ s a -> s{_dkrStatus = a});

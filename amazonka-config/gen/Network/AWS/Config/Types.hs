@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Config.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -137,126 +136,149 @@ module Network.AWS.Config.Types
     , relRelationshipName
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2014-11-12@ of the Amazon Config SDK.
 data Config
 
 instance AWSService Config where
     type Sg Config = V4
-
     service = const svc
       where
-        svc :: Service Config
-        svc = Service
-            { _svcAbbrev   = "Config"
-            , _svcPrefix   = "config"
-            , _svcVersion  = "2014-11-12"
+        svc =
+            Service
+            { _svcAbbrev = "Config"
+            , _svcPrefix = "config"
+            , _svcVersion = "2014-11-12"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The requested action is not valid.
-_ValidationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ValidationException = _ServiceError . hasCode "ValidationException";
+_ValidationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ValidationException = _ServiceError . hasCode "ValidationException"
 
 -- | The specified time range is not valid. The earlier time is not
 -- chronologically before the later time.
-_InvalidTimeRangeException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidTimeRangeException = _ServiceError . hasCode "InvalidTimeRangeException";
+_InvalidTimeRangeException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidTimeRangeException =
+    _ServiceError . hasCode "InvalidTimeRangeException"
 
 -- | The specified Amazon SNS topic does not exist.
-_InvalidSNSTopicARNException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSNSTopicARNException = _ServiceError . hasCode "InvalidSNSTopicARNException";
+_InvalidSNSTopicARNException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSNSTopicARNException =
+    _ServiceError . hasCode "InvalidSNSTopicARNException"
 
 -- | You have provided a null or empty role ARN.
-_InvalidRoleException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidRoleException = _ServiceError . hasCode "InvalidRoleException";
+_InvalidRoleException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRoleException = _ServiceError . hasCode "InvalidRoleException"
 
 -- | You cannot delete the delivery channel you specified because the
 -- configuration recorder is running.
-_LastDeliveryChannelDeleteFailedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LastDeliveryChannelDeleteFailedException = _ServiceError . hasCode "LastDeliveryChannelDeleteFailedException";
+_LastDeliveryChannelDeleteFailedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LastDeliveryChannelDeleteFailedException =
+    _ServiceError . hasCode "LastDeliveryChannelDeleteFailedException"
 
 -- | You have reached the limit on the pagination.
-_InvalidLimitException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidLimitException = _ServiceError . hasCode "InvalidLimitException";
+_InvalidLimitException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidLimitException = _ServiceError . hasCode "InvalidLimitException"
 
 -- | The specified delivery channel name is not valid.
-_InvalidDeliveryChannelNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDeliveryChannelNameException = _ServiceError . hasCode "InvalidDeliveryChannelNameException";
+_InvalidDeliveryChannelNameException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDeliveryChannelNameException =
+    _ServiceError . hasCode "InvalidDeliveryChannelNameException"
 
 -- | You have specified a delivery channel that does not exist.
-_NoSuchDeliveryChannelException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchDeliveryChannelException = _ServiceError . hasCode "NoSuchDeliveryChannelException";
+_NoSuchDeliveryChannelException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchDeliveryChannelException =
+    _ServiceError . hasCode "NoSuchDeliveryChannelException"
 
 -- | You have specified a resource that is either unknown or has not been
 -- discovered.
-_ResourceNotDiscoveredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotDiscoveredException = _ServiceError . hasCode "ResourceNotDiscoveredException";
+_ResourceNotDiscoveredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotDiscoveredException =
+    _ServiceError . hasCode "ResourceNotDiscoveredException"
 
 -- | The specified nextToken for pagination is not valid.
-_InvalidNextTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNextTokenException = _ServiceError . hasCode "InvalidNextTokenException";
+_InvalidNextTokenException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNextTokenException =
+    _ServiceError . hasCode "InvalidNextTokenException"
 
 -- | The specified Amazon S3 bucket does not exist.
-_NoSuchBucketException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchBucketException = _ServiceError . hasCode "NoSuchBucketException";
+_NoSuchBucketException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchBucketException = _ServiceError . hasCode "NoSuchBucketException"
 
 -- | There are no configuration recorders available to provide the role
 -- needed to describe your resources.
-_NoAvailableConfigurationRecorderException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoAvailableConfigurationRecorderException = _ServiceError . hasCode "NoAvailableConfigurationRecorderException";
+_NoAvailableConfigurationRecorderException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoAvailableConfigurationRecorderException =
+    _ServiceError . hasCode "NoAvailableConfigurationRecorderException"
 
 -- | There is no delivery channel available to record configurations.
-_NoAvailableDeliveryChannelException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoAvailableDeliveryChannelException = _ServiceError . hasCode "NoAvailableDeliveryChannelException";
+_NoAvailableDeliveryChannelException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoAvailableDeliveryChannelException =
+    _ServiceError . hasCode "NoAvailableDeliveryChannelException"
 
 -- | There is no configuration recorder running.
-_NoRunningConfigurationRecorderException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoRunningConfigurationRecorderException = _ServiceError . hasCode "NoRunningConfigurationRecorderException";
+_NoRunningConfigurationRecorderException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoRunningConfigurationRecorderException =
+    _ServiceError . hasCode "NoRunningConfigurationRecorderException"
 
 -- | You have reached the limit on the number of recorders you can create.
-_MaxNumberOfConfigurationRecordersExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MaxNumberOfConfigurationRecordersExceededException = _ServiceError . hasCode "MaxNumberOfConfigurationRecordersExceededException";
+_MaxNumberOfConfigurationRecordersExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MaxNumberOfConfigurationRecordersExceededException =
+    _ServiceError .
+    hasCode "MaxNumberOfConfigurationRecordersExceededException"
 
 -- | You have provided a configuration recorder name that is not valid.
-_InvalidConfigurationRecorderNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidConfigurationRecorderNameException = _ServiceError . hasCode "InvalidConfigurationRecorderNameException";
+_InvalidConfigurationRecorderNameException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidConfigurationRecorderNameException =
+    _ServiceError . hasCode "InvalidConfigurationRecorderNameException"
 
 -- | Your Amazon S3 bucket policy does not permit AWS Config to write to it.
-_InsufficientDeliveryPolicyException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InsufficientDeliveryPolicyException = _ServiceError . hasCode "InsufficientDeliveryPolicyException";
+_InsufficientDeliveryPolicyException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientDeliveryPolicyException =
+    _ServiceError . hasCode "InsufficientDeliveryPolicyException"
 
 -- | You have reached the limit on the number of delivery channels you can
 -- create.
-_MaxNumberOfDeliveryChannelsExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MaxNumberOfDeliveryChannelsExceededException = _ServiceError . hasCode "MaxNumberOfDeliveryChannelsExceededException";
+_MaxNumberOfDeliveryChannelsExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MaxNumberOfDeliveryChannelsExceededException =
+    _ServiceError . hasCode "MaxNumberOfDeliveryChannelsExceededException"
 
 -- | You have specified a configuration recorder that does not exist.
-_NoSuchConfigurationRecorderException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchConfigurationRecorderException = _ServiceError . hasCode "NoSuchConfigurationRecorderException";
+_NoSuchConfigurationRecorderException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchConfigurationRecorderException =
+    _ServiceError . hasCode "NoSuchConfigurationRecorderException"
 
 -- | The specified Amazon S3 key prefix is not valid.
-_InvalidS3KeyPrefixException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidS3KeyPrefixException = _ServiceError . hasCode "InvalidS3KeyPrefixException";
+_InvalidS3KeyPrefixException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidS3KeyPrefixException =
+    _ServiceError . hasCode "InvalidS3KeyPrefixException"
 
-data ChronologicalOrder = Forward | Reverse deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ChronologicalOrder
+    = Forward
+    | Reverse
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ChronologicalOrder where
     parser = takeLowerText >>= \case
@@ -276,7 +298,12 @@ instance ToHeader ChronologicalOrder
 instance ToJSON ChronologicalOrder where
     toJSON = toJSONText
 
-data ConfigurationItemStatus = OK | Discovered | Deleted | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ConfigurationItemStatus
+    = OK
+    | Discovered
+    | Deleted
+    | Failed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ConfigurationItemStatus where
     parser = takeLowerText >>= \case
@@ -300,7 +327,11 @@ instance ToHeader ConfigurationItemStatus
 instance FromJSON ConfigurationItemStatus where
     parseJSON = parseJSONText "ConfigurationItemStatus"
 
-data DeliveryStatus = Success | NotApplicable | Failure deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DeliveryStatus
+    = Success
+    | NotApplicable
+    | Failure
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DeliveryStatus where
     parser = takeLowerText >>= \case
@@ -322,7 +353,11 @@ instance ToHeader DeliveryStatus
 instance FromJSON DeliveryStatus where
     parseJSON = parseJSONText "DeliveryStatus"
 
-data RecorderStatus = RSPending | RSFailure | RSSuccess deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RecorderStatus
+    = RSPending
+    | RSFailure
+    | RSSuccess
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText RecorderStatus where
     parser = takeLowerText >>= \case
@@ -344,7 +379,22 @@ instance ToHeader RecorderStatus
 instance FromJSON RecorderStatus where
     parseJSON = parseJSONText "RecorderStatus"
 
-data ResourceType = AWSCloudTrailTrail | AWSEC2VPNConnection | AWSEC2SecurityGroup | AWSEC2Instance | AWSEC2NetworkACL | AWSEC2VPNGateway | AWSEC2VPC | AWSEC2NetworkInterface | AWSEC2InternetGateway | AWSEC2Subnet | AWSEC2EIP | AWSEC2CustomerGateway | AWSEC2RouteTable | AWSEC2Volume deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ResourceType
+    = AWSCloudTrailTrail
+    | AWSEC2VPNConnection
+    | AWSEC2SecurityGroup
+    | AWSEC2Instance
+    | AWSEC2NetworkACL
+    | AWSEC2VPNGateway
+    | AWSEC2VPC
+    | AWSEC2NetworkInterface
+    | AWSEC2InternetGateway
+    | AWSEC2Subnet
+    | AWSEC2EIP
+    | AWSEC2CustomerGateway
+    | AWSEC2RouteTable
+    | AWSEC2Volume
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case
@@ -407,11 +457,24 @@ instance FromJSON ResourceType where
 -- * 'cediLastStatus'
 --
 -- * 'cediLastErrorMessage'
-data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo'{_cediLastErrorCode :: Maybe Text, _cediLastAttemptTime :: Maybe POSIX, _cediLastSuccessfulTime :: Maybe POSIX, _cediLastStatus :: Maybe DeliveryStatus, _cediLastErrorMessage :: Maybe Text} deriving (Eq, Read, Show)
+data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo'
+    { _cediLastErrorCode      :: Maybe Text
+    , _cediLastAttemptTime    :: Maybe POSIX
+    , _cediLastSuccessfulTime :: Maybe POSIX
+    , _cediLastStatus         :: Maybe DeliveryStatus
+    , _cediLastErrorMessage   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfigExportDeliveryInfo' smart constructor.
 configExportDeliveryInfo :: ConfigExportDeliveryInfo
-configExportDeliveryInfo = ConfigExportDeliveryInfo'{_cediLastErrorCode = Nothing, _cediLastAttemptTime = Nothing, _cediLastSuccessfulTime = Nothing, _cediLastStatus = Nothing, _cediLastErrorMessage = Nothing};
+configExportDeliveryInfo =
+    ConfigExportDeliveryInfo'
+    { _cediLastErrorCode = Nothing
+    , _cediLastAttemptTime = Nothing
+    , _cediLastSuccessfulTime = Nothing
+    , _cediLastStatus = Nothing
+    , _cediLastErrorMessage = Nothing
+    }
 
 -- | The error code from the last attempted delivery.
 cediLastErrorCode :: Lens' ConfigExportDeliveryInfo (Maybe Text)
@@ -457,11 +520,22 @@ instance FromJSON ConfigExportDeliveryInfo where
 -- * 'csdiLastStatus'
 --
 -- * 'csdiLastErrorMessage'
-data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo'{_csdiLastErrorCode :: Maybe Text, _csdiLastStatusChangeTime :: Maybe POSIX, _csdiLastStatus :: Maybe DeliveryStatus, _csdiLastErrorMessage :: Maybe Text} deriving (Eq, Read, Show)
+data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo'
+    { _csdiLastErrorCode        :: Maybe Text
+    , _csdiLastStatusChangeTime :: Maybe POSIX
+    , _csdiLastStatus           :: Maybe DeliveryStatus
+    , _csdiLastErrorMessage     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfigStreamDeliveryInfo' smart constructor.
 configStreamDeliveryInfo :: ConfigStreamDeliveryInfo
-configStreamDeliveryInfo = ConfigStreamDeliveryInfo'{_csdiLastErrorCode = Nothing, _csdiLastStatusChangeTime = Nothing, _csdiLastStatus = Nothing, _csdiLastErrorMessage = Nothing};
+configStreamDeliveryInfo =
+    ConfigStreamDeliveryInfo'
+    { _csdiLastErrorCode = Nothing
+    , _csdiLastStatusChangeTime = Nothing
+    , _csdiLastStatus = Nothing
+    , _csdiLastErrorMessage = Nothing
+    }
 
 -- | The error code from the last attempted delivery.
 csdiLastErrorCode :: Lens' ConfigStreamDeliveryInfo (Maybe Text)
@@ -527,11 +601,44 @@ instance FromJSON ConfigStreamDeliveryInfo where
 -- * 'ciConfigurationItemMD5Hash'
 --
 -- * 'ciTags'
-data ConfigurationItem = ConfigurationItem'{_ciResourceId :: Maybe Text, _ciConfigurationStateId :: Maybe Text, _ciResourceType :: Maybe ResourceType, _ciArn :: Maybe Text, _ciResourceCreationTime :: Maybe POSIX, _ciConfigurationItemStatus :: Maybe ConfigurationItemStatus, _ciAccountId :: Maybe Text, _ciConfigurationItemCaptureTime :: Maybe POSIX, _ciAvailabilityZone :: Maybe Text, _ciRelationships :: Maybe [Relationship], _ciVersion :: Maybe Text, _ciRelatedEvents :: Maybe [Text], _ciConfiguration :: Maybe Text, _ciConfigurationItemMD5Hash :: Maybe Text, _ciTags :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
+data ConfigurationItem = ConfigurationItem'
+    { _ciResourceId                   :: Maybe Text
+    , _ciConfigurationStateId         :: Maybe Text
+    , _ciResourceType                 :: Maybe ResourceType
+    , _ciArn                          :: Maybe Text
+    , _ciResourceCreationTime         :: Maybe POSIX
+    , _ciConfigurationItemStatus      :: Maybe ConfigurationItemStatus
+    , _ciAccountId                    :: Maybe Text
+    , _ciConfigurationItemCaptureTime :: Maybe POSIX
+    , _ciAvailabilityZone             :: Maybe Text
+    , _ciRelationships                :: Maybe [Relationship]
+    , _ciVersion                      :: Maybe Text
+    , _ciRelatedEvents                :: Maybe [Text]
+    , _ciConfiguration                :: Maybe Text
+    , _ciConfigurationItemMD5Hash     :: Maybe Text
+    , _ciTags                         :: Maybe (Map Text Text)
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfigurationItem' smart constructor.
 configurationItem :: ConfigurationItem
-configurationItem = ConfigurationItem'{_ciResourceId = Nothing, _ciConfigurationStateId = Nothing, _ciResourceType = Nothing, _ciArn = Nothing, _ciResourceCreationTime = Nothing, _ciConfigurationItemStatus = Nothing, _ciAccountId = Nothing, _ciConfigurationItemCaptureTime = Nothing, _ciAvailabilityZone = Nothing, _ciRelationships = Nothing, _ciVersion = Nothing, _ciRelatedEvents = Nothing, _ciConfiguration = Nothing, _ciConfigurationItemMD5Hash = Nothing, _ciTags = Nothing};
+configurationItem =
+    ConfigurationItem'
+    { _ciResourceId = Nothing
+    , _ciConfigurationStateId = Nothing
+    , _ciResourceType = Nothing
+    , _ciArn = Nothing
+    , _ciResourceCreationTime = Nothing
+    , _ciConfigurationItemStatus = Nothing
+    , _ciAccountId = Nothing
+    , _ciConfigurationItemCaptureTime = Nothing
+    , _ciAvailabilityZone = Nothing
+    , _ciRelationships = Nothing
+    , _ciVersion = Nothing
+    , _ciRelatedEvents = Nothing
+    , _ciConfiguration = Nothing
+    , _ciConfigurationItemMD5Hash = Nothing
+    , _ciTags = Nothing
+    }
 
 -- | The ID of the resource (for example., @sg-xxxxxx@).
 ciResourceId :: Lens' ConfigurationItem (Maybe Text)
@@ -636,11 +743,18 @@ instance FromJSON ConfigurationItem where
 -- * 'crName'
 --
 -- * 'crRoleARN'
-data ConfigurationRecorder = ConfigurationRecorder'{_crName :: Maybe Text, _crRoleARN :: Maybe Text} deriving (Eq, Read, Show)
+data ConfigurationRecorder = ConfigurationRecorder'
+    { _crName    :: Maybe Text
+    , _crRoleARN :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfigurationRecorder' smart constructor.
 configurationRecorder :: ConfigurationRecorder
-configurationRecorder = ConfigurationRecorder'{_crName = Nothing, _crRoleARN = Nothing};
+configurationRecorder =
+    ConfigurationRecorder'
+    { _crName = Nothing
+    , _crRoleARN = Nothing
+    }
 
 -- | The name of the recorder. By default, AWS Config automatically assigns
 -- the name \"default\" when creating the configuration recorder. You
@@ -685,11 +799,30 @@ instance ToJSON ConfigurationRecorder where
 -- * 'crsName'
 --
 -- * 'crsLastStartTime'
-data ConfigurationRecorderStatus = ConfigurationRecorderStatus'{_crsLastErrorCode :: Maybe Text, _crsLastStopTime :: Maybe POSIX, _crsLastStatusChangeTime :: Maybe POSIX, _crsRecording :: Maybe Bool, _crsLastStatus :: Maybe RecorderStatus, _crsLastErrorMessage :: Maybe Text, _crsName :: Maybe Text, _crsLastStartTime :: Maybe POSIX} deriving (Eq, Read, Show)
+data ConfigurationRecorderStatus = ConfigurationRecorderStatus'
+    { _crsLastErrorCode        :: Maybe Text
+    , _crsLastStopTime         :: Maybe POSIX
+    , _crsLastStatusChangeTime :: Maybe POSIX
+    , _crsRecording            :: Maybe Bool
+    , _crsLastStatus           :: Maybe RecorderStatus
+    , _crsLastErrorMessage     :: Maybe Text
+    , _crsName                 :: Maybe Text
+    , _crsLastStartTime        :: Maybe POSIX
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfigurationRecorderStatus' smart constructor.
 configurationRecorderStatus :: ConfigurationRecorderStatus
-configurationRecorderStatus = ConfigurationRecorderStatus'{_crsLastErrorCode = Nothing, _crsLastStopTime = Nothing, _crsLastStatusChangeTime = Nothing, _crsRecording = Nothing, _crsLastStatus = Nothing, _crsLastErrorMessage = Nothing, _crsName = Nothing, _crsLastStartTime = Nothing};
+configurationRecorderStatus =
+    ConfigurationRecorderStatus'
+    { _crsLastErrorCode = Nothing
+    , _crsLastStopTime = Nothing
+    , _crsLastStatusChangeTime = Nothing
+    , _crsRecording = Nothing
+    , _crsLastStatus = Nothing
+    , _crsLastErrorMessage = Nothing
+    , _crsName = Nothing
+    , _crsLastStartTime = Nothing
+    }
 
 -- | The error code indicating that the recording failed.
 crsLastErrorCode :: Lens' ConfigurationRecorderStatus (Maybe Text)
@@ -750,11 +883,22 @@ instance FromJSON ConfigurationRecorderStatus where
 -- * 'dcName'
 --
 -- * 'dcS3BucketName'
-data DeliveryChannel = DeliveryChannel'{_dcS3KeyPrefix :: Maybe Text, _dcSnsTopicARN :: Maybe Text, _dcName :: Maybe Text, _dcS3BucketName :: Maybe Text} deriving (Eq, Read, Show)
+data DeliveryChannel = DeliveryChannel'
+    { _dcS3KeyPrefix  :: Maybe Text
+    , _dcSnsTopicARN  :: Maybe Text
+    , _dcName         :: Maybe Text
+    , _dcS3BucketName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeliveryChannel' smart constructor.
 deliveryChannel :: DeliveryChannel
-deliveryChannel = DeliveryChannel'{_dcS3KeyPrefix = Nothing, _dcSnsTopicARN = Nothing, _dcName = Nothing, _dcS3BucketName = Nothing};
+deliveryChannel =
+    DeliveryChannel'
+    { _dcS3KeyPrefix = Nothing
+    , _dcSnsTopicARN = Nothing
+    , _dcName = Nothing
+    , _dcS3BucketName = Nothing
+    }
 
 -- | The prefix for the specified Amazon S3 bucket.
 dcS3KeyPrefix :: Lens' DeliveryChannel (Maybe Text)
@@ -807,11 +951,22 @@ instance ToJSON DeliveryChannel where
 -- * 'dcsConfigHistoryDeliveryInfo'
 --
 -- * 'dcsName'
-data DeliveryChannelStatus = DeliveryChannelStatus'{_dcsConfigStreamDeliveryInfo :: Maybe ConfigStreamDeliveryInfo, _dcsConfigSnapshotDeliveryInfo :: Maybe ConfigExportDeliveryInfo, _dcsConfigHistoryDeliveryInfo :: Maybe ConfigExportDeliveryInfo, _dcsName :: Maybe Text} deriving (Eq, Read, Show)
+data DeliveryChannelStatus = DeliveryChannelStatus'
+    { _dcsConfigStreamDeliveryInfo   :: Maybe ConfigStreamDeliveryInfo
+    , _dcsConfigSnapshotDeliveryInfo :: Maybe ConfigExportDeliveryInfo
+    , _dcsConfigHistoryDeliveryInfo  :: Maybe ConfigExportDeliveryInfo
+    , _dcsName                       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeliveryChannelStatus' smart constructor.
 deliveryChannelStatus :: DeliveryChannelStatus
-deliveryChannelStatus = DeliveryChannelStatus'{_dcsConfigStreamDeliveryInfo = Nothing, _dcsConfigSnapshotDeliveryInfo = Nothing, _dcsConfigHistoryDeliveryInfo = Nothing, _dcsName = Nothing};
+deliveryChannelStatus =
+    DeliveryChannelStatus'
+    { _dcsConfigStreamDeliveryInfo = Nothing
+    , _dcsConfigSnapshotDeliveryInfo = Nothing
+    , _dcsConfigHistoryDeliveryInfo = Nothing
+    , _dcsName = Nothing
+    }
 
 -- | A list containing the status of the delivery of the configuration stream
 -- notification to the specified Amazon SNS topic.
@@ -853,11 +1008,20 @@ instance FromJSON DeliveryChannelStatus where
 -- * 'relResourceType'
 --
 -- * 'relRelationshipName'
-data Relationship = Relationship'{_relResourceId :: Maybe Text, _relResourceType :: Maybe ResourceType, _relRelationshipName :: Maybe Text} deriving (Eq, Read, Show)
+data Relationship = Relationship'
+    { _relResourceId       :: Maybe Text
+    , _relResourceType     :: Maybe ResourceType
+    , _relRelationshipName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Relationship' smart constructor.
 relationship :: Relationship
-relationship = Relationship'{_relResourceId = Nothing, _relResourceType = Nothing, _relRelationshipName = Nothing};
+relationship =
+    Relationship'
+    { _relResourceId = Nothing
+    , _relResourceType = Nothing
+    , _relRelationshipName = Nothing
+    }
 
 -- | The resource ID of the related resource (for example, @sg-xxxxxx@.
 relResourceId :: Lens' Relationship (Maybe Text)

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SDB.DeleteAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,10 +44,10 @@ module Network.AWS.SDB.DeleteAttributes
     , deleteAttributesResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SDB.Types
 
 -- | /See:/ 'deleteAttributes' smart constructor.
 --
@@ -60,11 +60,22 @@ import Network.AWS.SDB.Types
 -- * 'daDomainName'
 --
 -- * 'daItemName'
-data DeleteAttributes = DeleteAttributes'{_daAttributes :: Maybe [Attribute], _daExpected :: Maybe UpdateCondition, _daDomainName :: Text, _daItemName :: Text} deriving (Eq, Read, Show)
+data DeleteAttributes = DeleteAttributes'
+    { _daAttributes :: Maybe [Attribute]
+    , _daExpected   :: Maybe UpdateCondition
+    , _daDomainName :: Text
+    , _daItemName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteAttributes' smart constructor.
 deleteAttributes :: Text -> Text -> DeleteAttributes
-deleteAttributes pDomainName pItemName = DeleteAttributes'{_daAttributes = Nothing, _daExpected = Nothing, _daDomainName = pDomainName, _daItemName = pItemName};
+deleteAttributes pDomainName pItemName =
+    DeleteAttributes'
+    { _daAttributes = Nothing
+    , _daExpected = Nothing
+    , _daDomainName = pDomainName
+    , _daItemName = pItemName
+    }
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes
 -- represent categories of data that can be assigned to items.
@@ -110,8 +121,10 @@ instance ToQuery DeleteAttributes where
                "ItemName" =: _daItemName]
 
 -- | /See:/ 'deleteAttributesResponse' smart constructor.
-data DeleteAttributesResponse = DeleteAttributesResponse' deriving (Eq, Read, Show)
+data DeleteAttributesResponse =
+    DeleteAttributesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteAttributesResponse' smart constructor.
 deleteAttributesResponse :: DeleteAttributesResponse
-deleteAttributesResponse = DeleteAttributesResponse';
+deleteAttributesResponse = DeleteAttributesResponse'

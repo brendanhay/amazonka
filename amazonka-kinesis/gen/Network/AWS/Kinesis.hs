@@ -18,18 +18,18 @@ module Network.AWS.Kinesis
     ( module Export
     ) where
 
-import Network.AWS.Kinesis.AddTagsToStream as Export
-import Network.AWS.Kinesis.CreateStream as Export
-import Network.AWS.Kinesis.DeleteStream as Export
-import Network.AWS.Kinesis.DescribeStream as Export
-import Network.AWS.Kinesis.GetRecords as Export
-import Network.AWS.Kinesis.GetShardIterator as Export
-import Network.AWS.Kinesis.ListStreams as Export
-import Network.AWS.Kinesis.ListTagsForStream as Export
-import Network.AWS.Kinesis.MergeShards as Export
-import Network.AWS.Kinesis.PutRecord as Export
-import Network.AWS.Kinesis.PutRecords as Export
-import Network.AWS.Kinesis.RemoveTagsFromStream as Export
-import Network.AWS.Kinesis.SplitShard as Export
-import Network.AWS.Kinesis.Types as Export
-import Network.AWS.Kinesis.Waiters as Export
+import           Network.AWS.Kinesis.AddTagsToStream      as Export
+import           Network.AWS.Kinesis.CreateStream         as Export
+import           Network.AWS.Kinesis.DeleteStream         as Export
+import           Network.AWS.Kinesis.DescribeStream       as Export
+import           Network.AWS.Kinesis.GetRecords           as Export
+import           Network.AWS.Kinesis.GetShardIterator     as Export
+import           Network.AWS.Kinesis.ListStreams          as Export
+import           Network.AWS.Kinesis.ListTagsForStream    as Export
+import           Network.AWS.Kinesis.MergeShards          as Export
+import           Network.AWS.Kinesis.PutRecord            as Export
+import           Network.AWS.Kinesis.PutRecords           as Export
+import           Network.AWS.Kinesis.RemoveTagsFromStream as Export
+import           Network.AWS.Kinesis.SplitShard           as Export
+import           Network.AWS.Kinesis.Types                as Export
+import           Network.AWS.Kinesis.Waiters              as Export

@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Lambda.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -84,73 +83,85 @@ module Network.AWS.Lambda.Types
     , fcDescription
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2015-03-31@ of the Amazon Lambda SDK.
 data Lambda
 
 instance AWSService Lambda where
     type Sg Lambda = V4
-
     service = const svc
       where
-        svc :: Service Lambda
-        svc = Service
-            { _svcAbbrev   = "Lambda"
-            , _svcPrefix   = "lambda"
-            , _svcVersion  = "2015-03-31"
+        svc =
+            Service
+            { _svcAbbrev = "Lambda"
+            , _svcPrefix = "lambda"
+            , _svcVersion = "2015-03-31"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | Lambda function access policy is limited to 20 KB.
-_PolicyLengthExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PolicyLengthExceededException = _ServiceError . hasStatus 400 . hasCode "PolicyLengthExceededException";
+_PolicyLengthExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PolicyLengthExceededException =
+    _ServiceError . hasStatus 400 . hasCode "PolicyLengthExceededException"
 
 -- | The request body could not be parsed as JSON.
-_InvalidRequestContentException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidRequestContentException = _ServiceError . hasStatus 400 . hasCode "InvalidRequestContentException";
+_InvalidRequestContentException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRequestContentException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidRequestContentException"
 
 -- | One of the parameters in the request is invalid. For example, if you
 -- provided an IAM role for AWS Lambda to assume in the @CreateFunction@ or
 -- the @UpdateFunctionConfiguration@ API, that AWS Lambda is unable to
 -- assume you will get this exception.
-_InvalidParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterValueException = _ServiceError . hasStatus 400 . hasCode "InvalidParameterValueException";
+_InvalidParameterValueException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterValueException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidParameterValueException"
 
 -- | Prism for TooManyRequestsException' errors.
-_TooManyRequestsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyRequestsException = _ServiceError . hasStatus 429 . hasCode "TooManyRequestsException";
+_TooManyRequestsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyRequestsException =
+    _ServiceError . hasStatus 429 . hasCode "TooManyRequestsException"
 
 -- | The AWS Lambda service encountered an internal error.
-_ServiceException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ServiceException = _ServiceError . hasStatus 500 . hasCode "ServiceException";
+_ServiceException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ServiceException = _ServiceError . hasStatus 500 . hasCode "ServiceException"
 
 -- | The resource already exists.
-_ResourceConflictException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceConflictException = _ServiceError . hasStatus 409 . hasCode "ResourceConflictException";
+_ResourceConflictException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceConflictException =
+    _ServiceError . hasStatus 409 . hasCode "ResourceConflictException"
 
 -- | The resource (for example, a Lambda function or access policy statement)
 -- specified in the request does not exist.
-_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException";
+_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+    _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
-data EventSourcePosition = TrimHorizon | Latest deriving (Eq, Ord, Read, Show, Enum, Generic)
+data EventSourcePosition
+    = TrimHorizon
+    | Latest
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText EventSourcePosition where
     parser = takeLowerText >>= \case
@@ -170,7 +181,11 @@ instance ToHeader EventSourcePosition
 instance ToJSON EventSourcePosition where
     toJSON = toJSONText
 
-data InvocationType = Event | RequestResponse | DryRun deriving (Eq, Ord, Read, Show, Enum, Generic)
+data InvocationType
+    = Event
+    | RequestResponse
+    | DryRun
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText InvocationType where
     parser = takeLowerText >>= \case
@@ -192,7 +207,10 @@ instance ToHeader InvocationType
 instance ToJSON InvocationType where
     toJSON = toJSONText
 
-data LogType = None | Tail deriving (Eq, Ord, Read, Show, Enum, Generic)
+data LogType
+    = None
+    | Tail
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText LogType where
     parser = takeLowerText >>= \case
@@ -212,7 +230,9 @@ instance ToHeader LogType
 instance ToJSON LogType where
     toJSON = toJSONText
 
-data Runtime = Nodejs deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Runtime =
+    Nodejs
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Runtime where
     parser = takeLowerText >>= \case
@@ -255,11 +275,30 @@ instance FromJSON Runtime where
 -- * 'esmcStateTransitionReason'
 --
 -- * 'esmcLastModified'
-data EventSourceMappingConfiguration = EventSourceMappingConfiguration'{_esmcEventSourceARN :: Maybe Text, _esmcFunctionARN :: Maybe Text, _esmcState :: Maybe Text, _esmcUUID :: Maybe Text, _esmcLastProcessingResult :: Maybe Text, _esmcBatchSize :: Maybe Nat, _esmcStateTransitionReason :: Maybe Text, _esmcLastModified :: Maybe POSIX} deriving (Eq, Read, Show)
+data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
+    { _esmcEventSourceARN        :: Maybe Text
+    , _esmcFunctionARN           :: Maybe Text
+    , _esmcState                 :: Maybe Text
+    , _esmcUUID                  :: Maybe Text
+    , _esmcLastProcessingResult  :: Maybe Text
+    , _esmcBatchSize             :: Maybe Nat
+    , _esmcStateTransitionReason :: Maybe Text
+    , _esmcLastModified          :: Maybe POSIX
+    } deriving (Eq,Read,Show)
 
 -- | 'EventSourceMappingConfiguration' smart constructor.
 eventSourceMappingConfiguration :: EventSourceMappingConfiguration
-eventSourceMappingConfiguration = EventSourceMappingConfiguration'{_esmcEventSourceARN = Nothing, _esmcFunctionARN = Nothing, _esmcState = Nothing, _esmcUUID = Nothing, _esmcLastProcessingResult = Nothing, _esmcBatchSize = Nothing, _esmcStateTransitionReason = Nothing, _esmcLastModified = Nothing};
+eventSourceMappingConfiguration =
+    EventSourceMappingConfiguration'
+    { _esmcEventSourceARN = Nothing
+    , _esmcFunctionARN = Nothing
+    , _esmcState = Nothing
+    , _esmcUUID = Nothing
+    , _esmcLastProcessingResult = Nothing
+    , _esmcBatchSize = Nothing
+    , _esmcStateTransitionReason = Nothing
+    , _esmcLastModified = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream that is the
 -- source of events.
@@ -328,11 +367,22 @@ instance FromJSON EventSourceMappingConfiguration
 -- * 'fcZipFile'
 --
 -- * 'fcS3Bucket'
-data FunctionCode = FunctionCode'{_fcS3ObjectVersion :: Maybe Text, _fcS3Key :: Maybe Text, _fcZipFile :: Maybe Base64, _fcS3Bucket :: Maybe Text} deriving (Eq, Read, Show)
+data FunctionCode = FunctionCode'
+    { _fcS3ObjectVersion :: Maybe Text
+    , _fcS3Key           :: Maybe Text
+    , _fcZipFile         :: Maybe Base64
+    , _fcS3Bucket        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'FunctionCode' smart constructor.
 functionCode :: FunctionCode
-functionCode = FunctionCode'{_fcS3ObjectVersion = Nothing, _fcS3Key = Nothing, _fcZipFile = Nothing, _fcS3Bucket = Nothing};
+functionCode =
+    FunctionCode'
+    { _fcS3ObjectVersion = Nothing
+    , _fcS3Key = Nothing
+    , _fcZipFile = Nothing
+    , _fcS3Bucket = Nothing
+    }
 
 -- | The Amazon S3 object (the deployment package) version you want to
 -- upload.
@@ -373,11 +423,18 @@ instance ToJSON FunctionCode where
 -- * 'fclLocation'
 --
 -- * 'fclRepositoryType'
-data FunctionCodeLocation = FunctionCodeLocation'{_fclLocation :: Maybe Text, _fclRepositoryType :: Maybe Text} deriving (Eq, Read, Show)
+data FunctionCodeLocation = FunctionCodeLocation'
+    { _fclLocation       :: Maybe Text
+    , _fclRepositoryType :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'FunctionCodeLocation' smart constructor.
 functionCodeLocation :: FunctionCodeLocation
-functionCodeLocation = FunctionCodeLocation'{_fclLocation = Nothing, _fclRepositoryType = Nothing};
+functionCodeLocation =
+    FunctionCodeLocation'
+    { _fclLocation = Nothing
+    , _fclRepositoryType = Nothing
+    }
 
 -- | The presigned URL you can use to download the function\'s .zip file that
 -- you previously uploaded. The URL is valid for up to 10 minutes.
@@ -420,11 +477,34 @@ instance FromJSON FunctionCodeLocation where
 -- * 'fcLastModified'
 --
 -- * 'fcDescription'
-data FunctionConfiguration = FunctionConfiguration'{_fcRuntime :: Maybe Runtime, _fcMemorySize :: Maybe Nat, _fcFunctionARN :: Maybe Text, _fcRole :: Maybe Text, _fcFunctionName :: Maybe Text, _fcCodeSize :: Maybe Integer, _fcHandler :: Maybe Text, _fcTimeout :: Maybe Nat, _fcLastModified :: Maybe Text, _fcDescription :: Maybe Text} deriving (Eq, Read, Show)
+data FunctionConfiguration = FunctionConfiguration'
+    { _fcRuntime      :: Maybe Runtime
+    , _fcMemorySize   :: Maybe Nat
+    , _fcFunctionARN  :: Maybe Text
+    , _fcRole         :: Maybe Text
+    , _fcFunctionName :: Maybe Text
+    , _fcCodeSize     :: Maybe Integer
+    , _fcHandler      :: Maybe Text
+    , _fcTimeout      :: Maybe Nat
+    , _fcLastModified :: Maybe Text
+    , _fcDescription  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'FunctionConfiguration' smart constructor.
 functionConfiguration :: FunctionConfiguration
-functionConfiguration = FunctionConfiguration'{_fcRuntime = Nothing, _fcMemorySize = Nothing, _fcFunctionARN = Nothing, _fcRole = Nothing, _fcFunctionName = Nothing, _fcCodeSize = Nothing, _fcHandler = Nothing, _fcTimeout = Nothing, _fcLastModified = Nothing, _fcDescription = Nothing};
+functionConfiguration =
+    FunctionConfiguration'
+    { _fcRuntime = Nothing
+    , _fcMemorySize = Nothing
+    , _fcFunctionARN = Nothing
+    , _fcRole = Nothing
+    , _fcFunctionName = Nothing
+    , _fcCodeSize = Nothing
+    , _fcHandler = Nothing
+    , _fcTimeout = Nothing
+    , _fcLastModified = Nothing
+    , _fcDescription = Nothing
+    }
 
 -- | The runtime environment for the Lambda function.
 fcRuntime :: Lens' FunctionConfiguration (Maybe Runtime)

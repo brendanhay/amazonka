@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.RestartAppServer
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.ElasticBeanstalk.RestartAppServer
     , restartAppServerResponse
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -48,11 +48,18 @@ import Network.AWS.Response
 -- * 'rasEnvironmentName'
 --
 -- * 'rasEnvironmentId'
-data RestartAppServer = RestartAppServer'{_rasEnvironmentName :: Maybe Text, _rasEnvironmentId :: Maybe Text} deriving (Eq, Read, Show)
+data RestartAppServer = RestartAppServer'
+    { _rasEnvironmentName :: Maybe Text
+    , _rasEnvironmentId   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RestartAppServer' smart constructor.
 restartAppServer :: RestartAppServer
-restartAppServer = RestartAppServer'{_rasEnvironmentName = Nothing, _rasEnvironmentId = Nothing};
+restartAppServer =
+    RestartAppServer'
+    { _rasEnvironmentName = Nothing
+    , _rasEnvironmentId = Nothing
+    }
 
 -- | The name of the environment to restart the server for.
 --
@@ -91,8 +98,10 @@ instance ToQuery RestartAppServer where
                "EnvironmentId" =: _rasEnvironmentId]
 
 -- | /See:/ 'restartAppServerResponse' smart constructor.
-data RestartAppServerResponse = RestartAppServerResponse' deriving (Eq, Read, Show)
+data RestartAppServerResponse =
+    RestartAppServerResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RestartAppServerResponse' smart constructor.
 restartAppServerResponse :: RestartAppServerResponse
-restartAppServerResponse = RestartAppServerResponse';
+restartAppServerResponse = RestartAppServerResponse'

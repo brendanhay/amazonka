@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.UpdateRecords
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.CognitoSync.UpdateRecords
     , updateRecordsResponse
     -- ** Response lenses
     , urrRecords
-    , urrStatusCode
+    , urrStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to post updates to records or add and delete records for a
 -- dataset and user.
@@ -71,11 +71,28 @@ import Network.AWS.Response
 -- * 'urDatasetName'
 --
 -- * 'urSyncSessionToken'
-data UpdateRecords = UpdateRecords'{_urRecordPatches :: Maybe [RecordPatch], _urDeviceId :: Maybe Text, _urClientContext :: Maybe Text, _urIdentityPoolId :: Text, _urIdentityId :: Text, _urDatasetName :: Text, _urSyncSessionToken :: Text} deriving (Eq, Read, Show)
+data UpdateRecords = UpdateRecords'
+    { _urRecordPatches    :: Maybe [RecordPatch]
+    , _urDeviceId         :: Maybe Text
+    , _urClientContext    :: Maybe Text
+    , _urIdentityPoolId   :: Text
+    , _urIdentityId       :: Text
+    , _urDatasetName      :: Text
+    , _urSyncSessionToken :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateRecords' smart constructor.
 updateRecords :: Text -> Text -> Text -> Text -> UpdateRecords
-updateRecords pIdentityPoolId pIdentityId pDatasetName pSyncSessionToken = UpdateRecords'{_urRecordPatches = Nothing, _urDeviceId = Nothing, _urClientContext = Nothing, _urIdentityPoolId = pIdentityPoolId, _urIdentityId = pIdentityId, _urDatasetName = pDatasetName, _urSyncSessionToken = pSyncSessionToken};
+updateRecords pIdentityPoolId pIdentityId pDatasetName pSyncSessionToken =
+    UpdateRecords'
+    { _urRecordPatches = Nothing
+    , _urDeviceId = Nothing
+    , _urClientContext = Nothing
+    , _urIdentityPoolId = pIdentityPoolId
+    , _urIdentityId = pIdentityId
+    , _urDatasetName = pDatasetName
+    , _urSyncSessionToken = pSyncSessionToken
+    }
 
 -- | A list of patch operations.
 urRecordPatches :: Lens' UpdateRecords [RecordPatch]
@@ -155,17 +172,24 @@ instance ToQuery UpdateRecords where
 --
 -- * 'urrRecords'
 --
--- * 'urrStatusCode'
-data UpdateRecordsResponse = UpdateRecordsResponse'{_urrRecords :: Maybe [Record], _urrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'urrStatus'
+data UpdateRecordsResponse = UpdateRecordsResponse'
+    { _urrRecords :: Maybe [Record]
+    , _urrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateRecordsResponse' smart constructor.
 updateRecordsResponse :: Int -> UpdateRecordsResponse
-updateRecordsResponse pStatusCode = UpdateRecordsResponse'{_urrRecords = Nothing, _urrStatusCode = pStatusCode};
+updateRecordsResponse pStatus =
+    UpdateRecordsResponse'
+    { _urrRecords = Nothing
+    , _urrStatus = pStatus
+    }
 
 -- | A list of records that have been updated.
 urrRecords :: Lens' UpdateRecordsResponse [Record]
 urrRecords = lens _urrRecords (\ s a -> s{_urrRecords = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-urrStatusCode :: Lens' UpdateRecordsResponse Int
-urrStatusCode = lens _urrStatusCode (\ s a -> s{_urrStatusCode = a});
+urrStatus :: Lens' UpdateRecordsResponse Int
+urrStatus = lens _urrStatus (\ s a -> s{_urrStatus = a});

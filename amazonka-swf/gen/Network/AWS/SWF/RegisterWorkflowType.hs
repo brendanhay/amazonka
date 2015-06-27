@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.RegisterWorkflowType
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,10 +71,10 @@ module Network.AWS.SWF.RegisterWorkflowType
     , registerWorkflowTypeResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'registerWorkflowType' smart constructor.
 --
@@ -97,11 +97,32 @@ import Network.AWS.SWF.Types
 -- * 'rwtName'
 --
 -- * 'rwtVersion'
-data RegisterWorkflowType = RegisterWorkflowType'{_rwtDefaultChildPolicy :: Maybe ChildPolicy, _rwtDefaultTaskList :: Maybe TaskList, _rwtDefaultTaskPriority :: Maybe Text, _rwtDefaultExecutionStartToCloseTimeout :: Maybe Text, _rwtDefaultTaskStartToCloseTimeout :: Maybe Text, _rwtDescription :: Maybe Text, _rwtDomain :: Text, _rwtName :: Text, _rwtVersion :: Text} deriving (Eq, Read, Show)
+data RegisterWorkflowType = RegisterWorkflowType'
+    { _rwtDefaultChildPolicy                  :: Maybe ChildPolicy
+    , _rwtDefaultTaskList                     :: Maybe TaskList
+    , _rwtDefaultTaskPriority                 :: Maybe Text
+    , _rwtDefaultExecutionStartToCloseTimeout :: Maybe Text
+    , _rwtDefaultTaskStartToCloseTimeout      :: Maybe Text
+    , _rwtDescription                         :: Maybe Text
+    , _rwtDomain                              :: Text
+    , _rwtName                                :: Text
+    , _rwtVersion                             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterWorkflowType' smart constructor.
 registerWorkflowType :: Text -> Text -> Text -> RegisterWorkflowType
-registerWorkflowType pDomain pName pVersion = RegisterWorkflowType'{_rwtDefaultChildPolicy = Nothing, _rwtDefaultTaskList = Nothing, _rwtDefaultTaskPriority = Nothing, _rwtDefaultExecutionStartToCloseTimeout = Nothing, _rwtDefaultTaskStartToCloseTimeout = Nothing, _rwtDescription = Nothing, _rwtDomain = pDomain, _rwtName = pName, _rwtVersion = pVersion};
+registerWorkflowType pDomain pName pVersion =
+    RegisterWorkflowType'
+    { _rwtDefaultChildPolicy = Nothing
+    , _rwtDefaultTaskList = Nothing
+    , _rwtDefaultTaskPriority = Nothing
+    , _rwtDefaultExecutionStartToCloseTimeout = Nothing
+    , _rwtDefaultTaskStartToCloseTimeout = Nothing
+    , _rwtDescription = Nothing
+    , _rwtDomain = pDomain
+    , _rwtName = pName
+    , _rwtVersion = pVersion
+    }
 
 -- | If set, specifies the default policy to use for the child workflow
 -- executions when a workflow execution of this type is terminated, by
@@ -232,8 +253,10 @@ instance ToQuery RegisterWorkflowType where
         toQuery = const mempty
 
 -- | /See:/ 'registerWorkflowTypeResponse' smart constructor.
-data RegisterWorkflowTypeResponse = RegisterWorkflowTypeResponse' deriving (Eq, Read, Show)
+data RegisterWorkflowTypeResponse =
+    RegisterWorkflowTypeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RegisterWorkflowTypeResponse' smart constructor.
 registerWorkflowTypeResponse :: RegisterWorkflowTypeResponse
-registerWorkflowTypeResponse = RegisterWorkflowTypeResponse';
+registerWorkflowTypeResponse = RegisterWorkflowTypeResponse'

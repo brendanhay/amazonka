@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.CheckDomainAvailability
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.Route53Domains.CheckDomainAvailability
     , checkDomainAvailabilityResponse
     -- ** Response lenses
     , cdarAvailability
-    , cdarStatusCode
+    , cdarStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | The CheckDomainAvailability request contains the following elements.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Route53Domains.Types
 -- * 'cdaIDNLangCode'
 --
 -- * 'cdaDomainName'
-data CheckDomainAvailability = CheckDomainAvailability'{_cdaIDNLangCode :: Maybe Text, _cdaDomainName :: Text} deriving (Eq, Read, Show)
+data CheckDomainAvailability = CheckDomainAvailability'
+    { _cdaIDNLangCode :: Maybe Text
+    , _cdaDomainName  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CheckDomainAvailability' smart constructor.
 checkDomainAvailability :: Text -> CheckDomainAvailability
-checkDomainAvailability pDomainName = CheckDomainAvailability'{_cdaIDNLangCode = Nothing, _cdaDomainName = pDomainName};
+checkDomainAvailability pDomainName =
+    CheckDomainAvailability'
+    { _cdaIDNLangCode = Nothing
+    , _cdaDomainName = pDomainName
+    }
 
 -- | Reserved for future use.
 cdaIDNLangCode :: Lens' CheckDomainAvailability (Maybe Text)
@@ -118,12 +125,19 @@ instance ToQuery CheckDomainAvailability where
 --
 -- * 'cdarAvailability'
 --
--- * 'cdarStatusCode'
-data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'{_cdarAvailability :: DomainAvailability, _cdarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdarStatus'
+data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
+    { _cdarAvailability :: DomainAvailability
+    , _cdarStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CheckDomainAvailabilityResponse' smart constructor.
 checkDomainAvailabilityResponse :: DomainAvailability -> Int -> CheckDomainAvailabilityResponse
-checkDomainAvailabilityResponse pAvailability pStatusCode = CheckDomainAvailabilityResponse'{_cdarAvailability = pAvailability, _cdarStatusCode = pStatusCode};
+checkDomainAvailabilityResponse pAvailability pStatus =
+    CheckDomainAvailabilityResponse'
+    { _cdarAvailability = pAvailability
+    , _cdarStatus = pStatus
+    }
 
 -- | Whether the domain name is available for registering.
 --
@@ -151,5 +165,5 @@ cdarAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
 cdarAvailability = lens _cdarAvailability (\ s a -> s{_cdarAvailability = a});
 
 -- | FIXME: Undocumented member.
-cdarStatusCode :: Lens' CheckDomainAvailabilityResponse Int
-cdarStatusCode = lens _cdarStatusCode (\ s a -> s{_cdarStatusCode = a});
+cdarStatus :: Lens' CheckDomainAvailabilityResponse Int
+cdarStatus = lens _cdarStatus (\ s a -> s{_cdarStatus = a});

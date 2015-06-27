@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.UpdateHostedZoneComment
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.Route53.UpdateHostedZoneComment
     , updateHostedZoneCommentResponse
     -- ** Response lenses
     , uhzcrHostedZone
-    , uhzcrStatusCode
+    , uhzcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | A complex type that contains information about the request to update a
 -- hosted zone comment.
@@ -56,11 +56,18 @@ import Network.AWS.Route53.Types
 -- * 'uhzcComment'
 --
 -- * 'uhzcId'
-data UpdateHostedZoneComment = UpdateHostedZoneComment'{_uhzcComment :: Maybe Text, _uhzcId :: Text} deriving (Eq, Read, Show)
+data UpdateHostedZoneComment = UpdateHostedZoneComment'
+    { _uhzcComment :: Maybe Text
+    , _uhzcId      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateHostedZoneComment' smart constructor.
 updateHostedZoneComment :: Text -> UpdateHostedZoneComment
-updateHostedZoneComment pId = UpdateHostedZoneComment'{_uhzcComment = Nothing, _uhzcId = pId};
+updateHostedZoneComment pId =
+    UpdateHostedZoneComment'
+    { _uhzcComment = Nothing
+    , _uhzcId = pId
+    }
 
 -- | A comment about your hosted zone.
 uhzcComment :: Lens' UpdateHostedZoneComment (Maybe Text)
@@ -109,17 +116,24 @@ instance ToXML UpdateHostedZoneComment where
 --
 -- * 'uhzcrHostedZone'
 --
--- * 'uhzcrStatusCode'
-data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'{_uhzcrHostedZone :: HostedZone, _uhzcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'uhzcrStatus'
+data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
+    { _uhzcrHostedZone :: HostedZone
+    , _uhzcrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateHostedZoneCommentResponse' smart constructor.
 updateHostedZoneCommentResponse :: HostedZone -> Int -> UpdateHostedZoneCommentResponse
-updateHostedZoneCommentResponse pHostedZone pStatusCode = UpdateHostedZoneCommentResponse'{_uhzcrHostedZone = pHostedZone, _uhzcrStatusCode = pStatusCode};
+updateHostedZoneCommentResponse pHostedZone pStatus =
+    UpdateHostedZoneCommentResponse'
+    { _uhzcrHostedZone = pHostedZone
+    , _uhzcrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 uhzcrHostedZone :: Lens' UpdateHostedZoneCommentResponse HostedZone
 uhzcrHostedZone = lens _uhzcrHostedZone (\ s a -> s{_uhzcrHostedZone = a});
 
 -- | FIXME: Undocumented member.
-uhzcrStatusCode :: Lens' UpdateHostedZoneCommentResponse Int
-uhzcrStatusCode = lens _uhzcrStatusCode (\ s a -> s{_uhzcrStatusCode = a});
+uhzcrStatus :: Lens' UpdateHostedZoneCommentResponse Int
+uhzcrStatus = lens _uhzcrStatus (\ s a -> s{_uhzcrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DisableMetricsCollection
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.AutoScaling.DisableMetricsCollection
     , disableMetricsCollectionResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'disableMetricsCollection' smart constructor.
 --
@@ -46,11 +46,18 @@ import Network.AWS.Response
 -- * 'dmcMetrics'
 --
 -- * 'dmcAutoScalingGroupName'
-data DisableMetricsCollection = DisableMetricsCollection'{_dmcMetrics :: Maybe [Text], _dmcAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data DisableMetricsCollection = DisableMetricsCollection'
+    { _dmcMetrics              :: Maybe [Text]
+    , _dmcAutoScalingGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableMetricsCollection' smart constructor.
 disableMetricsCollection :: Text -> DisableMetricsCollection
-disableMetricsCollection pAutoScalingGroupName = DisableMetricsCollection'{_dmcMetrics = Nothing, _dmcAutoScalingGroupName = pAutoScalingGroupName};
+disableMetricsCollection pAutoScalingGroupName =
+    DisableMetricsCollection'
+    { _dmcMetrics = Nothing
+    , _dmcAutoScalingGroupName = pAutoScalingGroupName
+    }
 
 -- | One or more metrics. If you omit this parameter, all metrics are
 -- disabled.
@@ -103,8 +110,10 @@ instance ToQuery DisableMetricsCollection where
                "AutoScalingGroupName" =: _dmcAutoScalingGroupName]
 
 -- | /See:/ 'disableMetricsCollectionResponse' smart constructor.
-data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse' deriving (Eq, Read, Show)
+data DisableMetricsCollectionResponse =
+    DisableMetricsCollectionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DisableMetricsCollectionResponse' smart constructor.
 disableMetricsCollectionResponse :: DisableMetricsCollectionResponse
-disableMetricsCollectionResponse = DisableMetricsCollectionResponse';
+disableMetricsCollectionResponse = DisableMetricsCollectionResponse'

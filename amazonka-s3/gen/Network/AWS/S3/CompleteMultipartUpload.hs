@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.CompleteMultipartUpload
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,13 +44,13 @@ module Network.AWS.S3.CompleteMultipartUpload
     , cKey
     , cSSEKMSKeyId
     , cServerSideEncryption
-    , cStatusCode
+    , cStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'completeMultipartUpload' smart constructor.
 --
@@ -65,11 +65,24 @@ import Network.AWS.S3.Types
 -- * 'comKey'
 --
 -- * 'comUploadId'
-data CompleteMultipartUpload = CompleteMultipartUpload'{_comRequestPayer :: Maybe RequestPayer, _comMultipartUpload :: Maybe CompletedMultipartUpload, _comBucket :: BucketName, _comKey :: ObjectKey, _comUploadId :: Text} deriving (Eq, Read, Show)
+data CompleteMultipartUpload = CompleteMultipartUpload'
+    { _comRequestPayer    :: Maybe RequestPayer
+    , _comMultipartUpload :: Maybe CompletedMultipartUpload
+    , _comBucket          :: BucketName
+    , _comKey             :: ObjectKey
+    , _comUploadId        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CompleteMultipartUpload' smart constructor.
 completeMultipartUpload :: BucketName -> ObjectKey -> Text -> CompleteMultipartUpload
-completeMultipartUpload pBucket pKey pUploadId = CompleteMultipartUpload'{_comRequestPayer = Nothing, _comMultipartUpload = Nothing, _comBucket = pBucket, _comKey = pKey, _comUploadId = pUploadId};
+completeMultipartUpload pBucket pKey pUploadId =
+    CompleteMultipartUpload'
+    { _comRequestPayer = Nothing
+    , _comMultipartUpload = Nothing
+    , _comBucket = pBucket
+    , _comKey = pKey
+    , _comUploadId = pUploadId
+    }
 
 -- | FIXME: Undocumented member.
 comRequestPayer :: Lens' CompleteMultipartUpload (Maybe RequestPayer)
@@ -153,12 +166,35 @@ instance ToQuery CompleteMultipartUpload where
 --
 -- * 'cServerSideEncryption'
 --
--- * 'cStatusCode'
-data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'{_cVersionId :: Maybe ObjectVersionId, _cETag :: Maybe ETag, _cRequestCharged :: Maybe RequestCharged, _cLocation :: Maybe Text, _cExpiration :: Maybe Text, _cBucket :: Maybe BucketName, _cKey :: Maybe ObjectKey, _cSSEKMSKeyId :: Maybe (Sensitive Text), _cServerSideEncryption :: Maybe ServerSideEncryption, _cStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cStatus'
+data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
+    { _cVersionId            :: Maybe ObjectVersionId
+    , _cETag                 :: Maybe ETag
+    , _cRequestCharged       :: Maybe RequestCharged
+    , _cLocation             :: Maybe Text
+    , _cExpiration           :: Maybe Text
+    , _cBucket               :: Maybe BucketName
+    , _cKey                  :: Maybe ObjectKey
+    , _cSSEKMSKeyId          :: Maybe (Sensitive Text)
+    , _cServerSideEncryption :: Maybe ServerSideEncryption
+    , _cStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CompleteMultipartUploadResponse' smart constructor.
 completeMultipartUploadResponse :: Int -> CompleteMultipartUploadResponse
-completeMultipartUploadResponse pStatusCode = CompleteMultipartUploadResponse'{_cVersionId = Nothing, _cETag = Nothing, _cRequestCharged = Nothing, _cLocation = Nothing, _cExpiration = Nothing, _cBucket = Nothing, _cKey = Nothing, _cSSEKMSKeyId = Nothing, _cServerSideEncryption = Nothing, _cStatusCode = pStatusCode};
+completeMultipartUploadResponse pStatus =
+    CompleteMultipartUploadResponse'
+    { _cVersionId = Nothing
+    , _cETag = Nothing
+    , _cRequestCharged = Nothing
+    , _cLocation = Nothing
+    , _cExpiration = Nothing
+    , _cBucket = Nothing
+    , _cKey = Nothing
+    , _cSSEKMSKeyId = Nothing
+    , _cServerSideEncryption = Nothing
+    , _cStatus = pStatus
+    }
 
 -- | Version of the object.
 cVersionId :: Lens' CompleteMultipartUploadResponse (Maybe ObjectVersionId)
@@ -201,5 +237,5 @@ cServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSide
 cServerSideEncryption = lens _cServerSideEncryption (\ s a -> s{_cServerSideEncryption = a});
 
 -- | FIXME: Undocumented member.
-cStatusCode :: Lens' CompleteMultipartUploadResponse Int
-cStatusCode = lens _cStatusCode (\ s a -> s{_cStatusCode = a});
+cStatus :: Lens' CompleteMultipartUploadResponse Int
+cStatus = lens _cStatus (\ s a -> s{_cStatus = a});

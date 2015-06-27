@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.EnableKey
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,21 +33,26 @@ module Network.AWS.KMS.EnableKey
     , enableKeyResponse
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'enableKey' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ekKeyId'
-newtype EnableKey = EnableKey'{_ekKeyId :: Text} deriving (Eq, Read, Show)
+newtype EnableKey = EnableKey'
+    { _ekKeyId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableKey' smart constructor.
 enableKey :: Text -> EnableKey
-enableKey pKeyId = EnableKey'{_ekKeyId = pKeyId};
+enableKey pKeyId =
+    EnableKey'
+    { _ekKeyId = pKeyId
+    }
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier or the fully specified ARN to a key.
@@ -84,8 +89,10 @@ instance ToQuery EnableKey where
         toQuery = const mempty
 
 -- | /See:/ 'enableKeyResponse' smart constructor.
-data EnableKeyResponse = EnableKeyResponse' deriving (Eq, Read, Show)
+data EnableKeyResponse =
+    EnableKeyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'EnableKeyResponse' smart constructor.
 enableKeyResponse :: EnableKeyResponse
-enableKeyResponse = EnableKeyResponse';
+enableKeyResponse = EnableKeyResponse'

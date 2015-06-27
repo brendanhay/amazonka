@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
     , addTagsToOnPremisesInstancesResponse
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of an adds tags to on-premises instance operation.
 --
@@ -47,11 +47,18 @@ import Network.AWS.Response
 -- * 'attopiTags'
 --
 -- * 'attopiInstanceNames'
-data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'{_attopiTags :: [Tag], _attopiInstanceNames :: [Text]} deriving (Eq, Read, Show)
+data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'
+    { _attopiTags          :: [Tag]
+    , _attopiInstanceNames :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'AddTagsToOnPremisesInstances' smart constructor.
 addTagsToOnPremisesInstances :: AddTagsToOnPremisesInstances
-addTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'{_attopiTags = mempty, _attopiInstanceNames = mempty};
+addTagsToOnPremisesInstances =
+    AddTagsToOnPremisesInstances'
+    { _attopiTags = mempty
+    , _attopiInstanceNames = mempty
+    }
 
 -- | The tag key-value pairs to add to the on-premises instances.
 --
@@ -96,8 +103,10 @@ instance ToQuery AddTagsToOnPremisesInstances where
         toQuery = const mempty
 
 -- | /See:/ 'addTagsToOnPremisesInstancesResponse' smart constructor.
-data AddTagsToOnPremisesInstancesResponse = AddTagsToOnPremisesInstancesResponse' deriving (Eq, Read, Show)
+data AddTagsToOnPremisesInstancesResponse =
+    AddTagsToOnPremisesInstancesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AddTagsToOnPremisesInstancesResponse' smart constructor.
 addTagsToOnPremisesInstancesResponse :: AddTagsToOnPremisesInstancesResponse
-addTagsToOnPremisesInstancesResponse = AddTagsToOnPremisesInstancesResponse';
+addTagsToOnPremisesInstancesResponse = AddTagsToOnPremisesInstancesResponse'

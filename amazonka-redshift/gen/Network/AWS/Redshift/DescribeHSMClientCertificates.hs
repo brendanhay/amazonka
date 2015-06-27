@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeHSMClientCertificates
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,14 +50,14 @@ module Network.AWS.Redshift.DescribeHSMClientCertificates
     -- ** Response lenses
     , dhccrMarker
     , dhccrHSMClientCertificates
-    , dhccrStatusCode
+    , dhccrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -74,11 +74,24 @@ import Network.AWS.Response
 -- * 'dhccMaxRecords'
 --
 -- * 'dhccMarker'
-data DescribeHSMClientCertificates = DescribeHSMClientCertificates'{_dhccTagValues :: Maybe [Text], _dhccTagKeys :: Maybe [Text], _dhccHSMClientCertificateIdentifier :: Maybe Text, _dhccMaxRecords :: Maybe Int, _dhccMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeHSMClientCertificates = DescribeHSMClientCertificates'
+    { _dhccTagValues                      :: Maybe [Text]
+    , _dhccTagKeys                        :: Maybe [Text]
+    , _dhccHSMClientCertificateIdentifier :: Maybe Text
+    , _dhccMaxRecords                     :: Maybe Int
+    , _dhccMarker                         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeHSMClientCertificates' smart constructor.
 describeHSMClientCertificates :: DescribeHSMClientCertificates
-describeHSMClientCertificates = DescribeHSMClientCertificates'{_dhccTagValues = Nothing, _dhccTagKeys = Nothing, _dhccHSMClientCertificateIdentifier = Nothing, _dhccMaxRecords = Nothing, _dhccMarker = Nothing};
+describeHSMClientCertificates =
+    DescribeHSMClientCertificates'
+    { _dhccTagValues = Nothing
+    , _dhccTagKeys = Nothing
+    , _dhccHSMClientCertificateIdentifier = Nothing
+    , _dhccMaxRecords = Nothing
+    , _dhccMarker = Nothing
+    }
 
 -- | A tag value or values for which you want to return all matching HSM
 -- client certificates that are associated with the specified tag value or
@@ -182,12 +195,21 @@ instance ToQuery DescribeHSMClientCertificates where
 --
 -- * 'dhccrHSMClientCertificates'
 --
--- * 'dhccrStatusCode'
-data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'{_dhccrMarker :: Maybe Text, _dhccrHSMClientCertificates :: Maybe [HSMClientCertificate], _dhccrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dhccrStatus'
+data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'
+    { _dhccrMarker                :: Maybe Text
+    , _dhccrHSMClientCertificates :: Maybe [HSMClientCertificate]
+    , _dhccrStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeHSMClientCertificatesResponse' smart constructor.
 describeHSMClientCertificatesResponse :: Int -> DescribeHSMClientCertificatesResponse
-describeHSMClientCertificatesResponse pStatusCode = DescribeHSMClientCertificatesResponse'{_dhccrMarker = Nothing, _dhccrHSMClientCertificates = Nothing, _dhccrStatusCode = pStatusCode};
+describeHSMClientCertificatesResponse pStatus =
+    DescribeHSMClientCertificatesResponse'
+    { _dhccrMarker = Nothing
+    , _dhccrHSMClientCertificates = Nothing
+    , _dhccrStatus = pStatus
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -205,5 +227,5 @@ dhccrHSMClientCertificates :: Lens' DescribeHSMClientCertificatesResponse [HSMCl
 dhccrHSMClientCertificates = lens _dhccrHSMClientCertificates (\ s a -> s{_dhccrHSMClientCertificates = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dhccrStatusCode :: Lens' DescribeHSMClientCertificatesResponse Int
-dhccrStatusCode = lens _dhccrStatusCode (\ s a -> s{_dhccrStatusCode = a});
+dhccrStatus :: Lens' DescribeHSMClientCertificatesResponse Int
+dhccrStatus = lens _dhccrStatus (\ s a -> s{_dhccrStatus = a});

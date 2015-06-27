@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     , authorizeCacheSecurityGroupIngressResponse
     -- ** Response lenses
     , acsgirCacheSecurityGroup
-    , acsgirStatusCode
+    , acsgirStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of an /AuthorizeCacheSecurityGroupIngress/ action.
 --
@@ -59,11 +59,20 @@ import Network.AWS.Response
 -- * 'acsgiEC2SecurityGroupName'
 --
 -- * 'acsgiEC2SecurityGroupOwnerId'
-data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'{_acsgiCacheSecurityGroupName :: Text, _acsgiEC2SecurityGroupName :: Text, _acsgiEC2SecurityGroupOwnerId :: Text} deriving (Eq, Read, Show)
+data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
+    { _acsgiCacheSecurityGroupName  :: Text
+    , _acsgiEC2SecurityGroupName    :: Text
+    , _acsgiEC2SecurityGroupOwnerId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeCacheSecurityGroupIngress' smart constructor.
 authorizeCacheSecurityGroupIngress :: Text -> Text -> Text -> AuthorizeCacheSecurityGroupIngress
-authorizeCacheSecurityGroupIngress pCacheSecurityGroupName pEC2SecurityGroupName pEC2SecurityGroupOwnerId = AuthorizeCacheSecurityGroupIngress'{_acsgiCacheSecurityGroupName = pCacheSecurityGroupName, _acsgiEC2SecurityGroupName = pEC2SecurityGroupName, _acsgiEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId};
+authorizeCacheSecurityGroupIngress pCacheSecurityGroupName pEC2SecurityGroupName pEC2SecurityGroupOwnerId =
+    AuthorizeCacheSecurityGroupIngress'
+    { _acsgiCacheSecurityGroupName = pCacheSecurityGroupName
+    , _acsgiEC2SecurityGroupName = pEC2SecurityGroupName
+    , _acsgiEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId
+    }
 
 -- | The cache security group which will allow network ingress.
 acsgiCacheSecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
@@ -121,17 +130,24 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress
 --
 -- * 'acsgirCacheSecurityGroup'
 --
--- * 'acsgirStatusCode'
-data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'{_acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup, _acsgirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'acsgirStatus'
+data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'
+    { _acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
+    , _acsgirStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeCacheSecurityGroupIngressResponse' smart constructor.
 authorizeCacheSecurityGroupIngressResponse :: Int -> AuthorizeCacheSecurityGroupIngressResponse
-authorizeCacheSecurityGroupIngressResponse pStatusCode = AuthorizeCacheSecurityGroupIngressResponse'{_acsgirCacheSecurityGroup = Nothing, _acsgirStatusCode = pStatusCode};
+authorizeCacheSecurityGroupIngressResponse pStatus =
+    AuthorizeCacheSecurityGroupIngressResponse'
+    { _acsgirCacheSecurityGroup = Nothing
+    , _acsgirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 acsgirCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
 acsgirCacheSecurityGroup = lens _acsgirCacheSecurityGroup (\ s a -> s{_acsgirCacheSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-acsgirStatusCode :: Lens' AuthorizeCacheSecurityGroupIngressResponse Int
-acsgirStatusCode = lens _acsgirStatusCode (\ s a -> s{_acsgirStatusCode = a});
+acsgirStatus :: Lens' AuthorizeCacheSecurityGroupIngressResponse Int
+acsgirStatus = lens _acsgirStatus (\ s a -> s{_acsgirStatus = a});

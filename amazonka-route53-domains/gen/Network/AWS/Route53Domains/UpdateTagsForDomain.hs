@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.UpdateTagsForDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.Route53Domains.UpdateTagsForDomain
     -- ** Response constructor
     , updateTagsForDomainResponse
     -- ** Response lenses
-    , utfdrStatusCode
+    , utfdrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | The UpdateTagsForDomainRequest includes the following elements.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Route53Domains.Types
 -- * 'utfdTagsToUpdate'
 --
 -- * 'utfdDomainName'
-data UpdateTagsForDomain = UpdateTagsForDomain'{_utfdTagsToUpdate :: Maybe [Tag], _utfdDomainName :: Text} deriving (Eq, Read, Show)
+data UpdateTagsForDomain = UpdateTagsForDomain'
+    { _utfdTagsToUpdate :: Maybe [Tag]
+    , _utfdDomainName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateTagsForDomain' smart constructor.
 updateTagsForDomain :: Text -> UpdateTagsForDomain
-updateTagsForDomain pDomainName = UpdateTagsForDomain'{_utfdTagsToUpdate = Nothing, _utfdDomainName = pDomainName};
+updateTagsForDomain pDomainName =
+    UpdateTagsForDomain'
+    { _utfdTagsToUpdate = Nothing
+    , _utfdDomainName = pDomainName
+    }
 
 -- | A list of the tag keys and values that you want to add or update. If you
 -- specify a key that already exists, the corresponding value will be
@@ -159,13 +166,18 @@ instance ToQuery UpdateTagsForDomain where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'utfdrStatusCode'
-newtype UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'{_utfdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'utfdrStatus'
+newtype UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'
+    { _utfdrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateTagsForDomainResponse' smart constructor.
 updateTagsForDomainResponse :: Int -> UpdateTagsForDomainResponse
-updateTagsForDomainResponse pStatusCode = UpdateTagsForDomainResponse'{_utfdrStatusCode = pStatusCode};
+updateTagsForDomainResponse pStatus =
+    UpdateTagsForDomainResponse'
+    { _utfdrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-utfdrStatusCode :: Lens' UpdateTagsForDomainResponse Int
-utfdrStatusCode = lens _utfdrStatusCode (\ s a -> s{_utfdrStatusCode = a});
+utfdrStatus :: Lens' UpdateTagsForDomainResponse Int
+utfdrStatus = lens _utfdrStatus (\ s a -> s{_utfdrStatus = a});

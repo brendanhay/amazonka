@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.DeregisterContainerInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.ECS.DeregisterContainerInstance
     , deregisterContainerInstanceResponse
     -- ** Response lenses
     , dcirContainerInstance
-    , dcirStatusCode
+    , dcirStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deregisterContainerInstance' smart constructor.
 --
@@ -52,11 +52,20 @@ import Network.AWS.Response
 -- * 'derForce'
 --
 -- * 'derContainerInstance'
-data DeregisterContainerInstance = DeregisterContainerInstance'{_derCluster :: Maybe Text, _derForce :: Maybe Bool, _derContainerInstance :: Text} deriving (Eq, Read, Show)
+data DeregisterContainerInstance = DeregisterContainerInstance'
+    { _derCluster           :: Maybe Text
+    , _derForce             :: Maybe Bool
+    , _derContainerInstance :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeregisterContainerInstance' smart constructor.
 deregisterContainerInstance :: Text -> DeregisterContainerInstance
-deregisterContainerInstance pContainerInstance = DeregisterContainerInstance'{_derCluster = Nothing, _derForce = Nothing, _derContainerInstance = pContainerInstance};
+deregisterContainerInstance pContainerInstance =
+    DeregisterContainerInstance'
+    { _derCluster = Nothing
+    , _derForce = Nothing
+    , _derContainerInstance = pContainerInstance
+    }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the container instance you want to deregister. If you do not
@@ -120,17 +129,24 @@ instance ToQuery DeregisterContainerInstance where
 --
 -- * 'dcirContainerInstance'
 --
--- * 'dcirStatusCode'
-data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'{_dcirContainerInstance :: Maybe ContainerInstance, _dcirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcirStatus'
+data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
+    { _dcirContainerInstance :: Maybe ContainerInstance
+    , _dcirStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeregisterContainerInstanceResponse' smart constructor.
 deregisterContainerInstanceResponse :: Int -> DeregisterContainerInstanceResponse
-deregisterContainerInstanceResponse pStatusCode = DeregisterContainerInstanceResponse'{_dcirContainerInstance = Nothing, _dcirStatusCode = pStatusCode};
+deregisterContainerInstanceResponse pStatus =
+    DeregisterContainerInstanceResponse'
+    { _dcirContainerInstance = Nothing
+    , _dcirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dcirContainerInstance :: Lens' DeregisterContainerInstanceResponse (Maybe ContainerInstance)
 dcirContainerInstance = lens _dcirContainerInstance (\ s a -> s{_dcirContainerInstance = a});
 
 -- | FIXME: Undocumented member.
-dcirStatusCode :: Lens' DeregisterContainerInstanceResponse Int
-dcirStatusCode = lens _dcirStatusCode (\ s a -> s{_dcirStatusCode = a});
+dcirStatus :: Lens' DeregisterContainerInstanceResponse Int
+dcirStatus = lens _dcirStatus (\ s a -> s{_dcirStatus = a});

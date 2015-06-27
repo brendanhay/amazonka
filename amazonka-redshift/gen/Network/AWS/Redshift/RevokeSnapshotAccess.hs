@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.RevokeSnapshotAccess
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.Redshift.RevokeSnapshotAccess
     , revokeSnapshotAccessResponse
     -- ** Response lenses
     , rsarSnapshot
-    , rsarStatusCode
+    , rsarStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -59,11 +59,20 @@ import Network.AWS.Response
 -- * 'rsaSnapshotIdentifier'
 --
 -- * 'rsaAccountWithRestoreAccess'
-data RevokeSnapshotAccess = RevokeSnapshotAccess'{_rsaSnapshotClusterIdentifier :: Maybe Text, _rsaSnapshotIdentifier :: Text, _rsaAccountWithRestoreAccess :: Text} deriving (Eq, Read, Show)
+data RevokeSnapshotAccess = RevokeSnapshotAccess'
+    { _rsaSnapshotClusterIdentifier :: Maybe Text
+    , _rsaSnapshotIdentifier        :: Text
+    , _rsaAccountWithRestoreAccess  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RevokeSnapshotAccess' smart constructor.
 revokeSnapshotAccess :: Text -> Text -> RevokeSnapshotAccess
-revokeSnapshotAccess pSnapshotIdentifier pAccountWithRestoreAccess = RevokeSnapshotAccess'{_rsaSnapshotClusterIdentifier = Nothing, _rsaSnapshotIdentifier = pSnapshotIdentifier, _rsaAccountWithRestoreAccess = pAccountWithRestoreAccess};
+revokeSnapshotAccess pSnapshotIdentifier pAccountWithRestoreAccess =
+    RevokeSnapshotAccess'
+    { _rsaSnapshotClusterIdentifier = Nothing
+    , _rsaSnapshotIdentifier = pSnapshotIdentifier
+    , _rsaAccountWithRestoreAccess = pAccountWithRestoreAccess
+    }
 
 -- | The identifier of the cluster the snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
@@ -115,17 +124,24 @@ instance ToQuery RevokeSnapshotAccess where
 --
 -- * 'rsarSnapshot'
 --
--- * 'rsarStatusCode'
-data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'{_rsarSnapshot :: Maybe Snapshot, _rsarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rsarStatus'
+data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
+    { _rsarSnapshot :: Maybe Snapshot
+    , _rsarStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RevokeSnapshotAccessResponse' smart constructor.
 revokeSnapshotAccessResponse :: Int -> RevokeSnapshotAccessResponse
-revokeSnapshotAccessResponse pStatusCode = RevokeSnapshotAccessResponse'{_rsarSnapshot = Nothing, _rsarStatusCode = pStatusCode};
+revokeSnapshotAccessResponse pStatus =
+    RevokeSnapshotAccessResponse'
+    { _rsarSnapshot = Nothing
+    , _rsarStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rsarSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
 rsarSnapshot = lens _rsarSnapshot (\ s a -> s{_rsarSnapshot = a});
 
 -- | FIXME: Undocumented member.
-rsarStatusCode :: Lens' RevokeSnapshotAccessResponse Int
-rsarStatusCode = lens _rsarStatusCode (\ s a -> s{_rsarStatusCode = a});
+rsarStatus :: Lens' RevokeSnapshotAccessResponse Int
+rsarStatus = lens _rsarStatus (\ s a -> s{_rsarStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.SuspendProcesses
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,10 +45,10 @@ module Network.AWS.AutoScaling.SuspendProcesses
     , suspendProcessesResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'suspendProcesses' smart constructor.
 --
@@ -57,11 +57,18 @@ import Network.AWS.Response
 -- * 'spScalingProcesses'
 --
 -- * 'spAutoScalingGroupName'
-data SuspendProcesses = SuspendProcesses'{_spScalingProcesses :: Maybe [Text], _spAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data SuspendProcesses = SuspendProcesses'
+    { _spScalingProcesses     :: Maybe [Text]
+    , _spAutoScalingGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SuspendProcesses' smart constructor.
 suspendProcesses :: Text -> SuspendProcesses
-suspendProcesses pAutoScalingGroupName = SuspendProcesses'{_spScalingProcesses = Nothing, _spAutoScalingGroupName = pAutoScalingGroupName};
+suspendProcesses pAutoScalingGroupName =
+    SuspendProcesses'
+    { _spScalingProcesses = Nothing
+    , _spAutoScalingGroupName = pAutoScalingGroupName
+    }
 
 -- | One or more of the following processes:
 --
@@ -111,8 +118,10 @@ instance ToQuery SuspendProcesses where
                "AutoScalingGroupName" =: _spAutoScalingGroupName]
 
 -- | /See:/ 'suspendProcessesResponse' smart constructor.
-data SuspendProcessesResponse = SuspendProcessesResponse' deriving (Eq, Read, Show)
+data SuspendProcessesResponse =
+    SuspendProcessesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SuspendProcessesResponse' smart constructor.
 suspendProcessesResponse :: SuspendProcessesResponse
-suspendProcessesResponse = SuspendProcessesResponse';
+suspendProcessesResponse = SuspendProcessesResponse'

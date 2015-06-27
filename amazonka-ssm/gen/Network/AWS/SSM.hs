@@ -30,16 +30,16 @@ module Network.AWS.SSM
     ( module Export
     ) where
 
-import Network.AWS.SSM.CreateAssociation as Export
-import Network.AWS.SSM.CreateAssociationBatch as Export
-import Network.AWS.SSM.CreateDocument as Export
-import Network.AWS.SSM.DeleteAssociation as Export
-import Network.AWS.SSM.DeleteDocument as Export
-import Network.AWS.SSM.DescribeAssociation as Export
-import Network.AWS.SSM.DescribeDocument as Export
-import Network.AWS.SSM.GetDocument as Export
-import Network.AWS.SSM.ListAssociations as Export
-import Network.AWS.SSM.ListDocuments as Export
-import Network.AWS.SSM.Types as Export
-import Network.AWS.SSM.UpdateAssociationStatus as Export
-import Network.AWS.SSM.Waiters as Export
+import           Network.AWS.SSM.CreateAssociation       as Export
+import           Network.AWS.SSM.CreateAssociationBatch  as Export
+import           Network.AWS.SSM.CreateDocument          as Export
+import           Network.AWS.SSM.DeleteAssociation       as Export
+import           Network.AWS.SSM.DeleteDocument          as Export
+import           Network.AWS.SSM.DescribeAssociation     as Export
+import           Network.AWS.SSM.DescribeDocument        as Export
+import           Network.AWS.SSM.GetDocument             as Export
+import           Network.AWS.SSM.ListAssociations        as Export
+import           Network.AWS.SSM.ListDocuments           as Export
+import           Network.AWS.SSM.Types                   as Export
+import           Network.AWS.SSM.UpdateAssociationStatus as Export
+import           Network.AWS.SSM.Waiters                 as Export

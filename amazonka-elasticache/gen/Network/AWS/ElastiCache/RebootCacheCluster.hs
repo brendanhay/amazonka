@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.RebootCacheCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.ElastiCache.RebootCacheCluster
     , rebootCacheClusterResponse
     -- ** Response lenses
     , rccrCacheCluster
-    , rccrStatusCode
+    , rccrStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /RebootCacheCluster/ action.
 --
@@ -60,11 +60,18 @@ import Network.AWS.Response
 -- * 'rccCacheClusterId'
 --
 -- * 'rccCacheNodeIdsToReboot'
-data RebootCacheCluster = RebootCacheCluster'{_rccCacheClusterId :: Text, _rccCacheNodeIdsToReboot :: [Text]} deriving (Eq, Read, Show)
+data RebootCacheCluster = RebootCacheCluster'
+    { _rccCacheClusterId       :: Text
+    , _rccCacheNodeIdsToReboot :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'RebootCacheCluster' smart constructor.
 rebootCacheCluster :: Text -> RebootCacheCluster
-rebootCacheCluster pCacheClusterId = RebootCacheCluster'{_rccCacheClusterId = pCacheClusterId, _rccCacheNodeIdsToReboot = mempty};
+rebootCacheCluster pCacheClusterId =
+    RebootCacheCluster'
+    { _rccCacheClusterId = pCacheClusterId
+    , _rccCacheNodeIdsToReboot = mempty
+    }
 
 -- | The cache cluster identifier. This parameter is stored as a lowercase
 -- string.
@@ -109,17 +116,24 @@ instance ToQuery RebootCacheCluster where
 --
 -- * 'rccrCacheCluster'
 --
--- * 'rccrStatusCode'
-data RebootCacheClusterResponse = RebootCacheClusterResponse'{_rccrCacheCluster :: Maybe CacheCluster, _rccrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rccrStatus'
+data RebootCacheClusterResponse = RebootCacheClusterResponse'
+    { _rccrCacheCluster :: Maybe CacheCluster
+    , _rccrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RebootCacheClusterResponse' smart constructor.
 rebootCacheClusterResponse :: Int -> RebootCacheClusterResponse
-rebootCacheClusterResponse pStatusCode = RebootCacheClusterResponse'{_rccrCacheCluster = Nothing, _rccrStatusCode = pStatusCode};
+rebootCacheClusterResponse pStatus =
+    RebootCacheClusterResponse'
+    { _rccrCacheCluster = Nothing
+    , _rccrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rccrCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
 rccrCacheCluster = lens _rccrCacheCluster (\ s a -> s{_rccrCacheCluster = a});
 
 -- | FIXME: Undocumented member.
-rccrStatusCode :: Lens' RebootCacheClusterResponse Int
-rccrStatusCode = lens _rccrStatusCode (\ s a -> s{_rccrStatusCode = a});
+rccrStatus :: Lens' RebootCacheClusterResponse Int
+rccrStatus = lens _rccrStatus (\ s a -> s{_rccrStatus = a});

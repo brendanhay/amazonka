@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.RespondActivityTaskFailed
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,10 +62,10 @@ module Network.AWS.SWF.RespondActivityTaskFailed
     , respondActivityTaskFailedResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'respondActivityTaskFailed' smart constructor.
 --
@@ -76,11 +76,20 @@ import Network.AWS.SWF.Types
 -- * 'ratfDetails'
 --
 -- * 'ratfTaskToken'
-data RespondActivityTaskFailed = RespondActivityTaskFailed'{_ratfReason :: Maybe Text, _ratfDetails :: Maybe Text, _ratfTaskToken :: Text} deriving (Eq, Read, Show)
+data RespondActivityTaskFailed = RespondActivityTaskFailed'
+    { _ratfReason    :: Maybe Text
+    , _ratfDetails   :: Maybe Text
+    , _ratfTaskToken :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RespondActivityTaskFailed' smart constructor.
 respondActivityTaskFailed :: Text -> RespondActivityTaskFailed
-respondActivityTaskFailed pTaskToken = RespondActivityTaskFailed'{_ratfReason = Nothing, _ratfDetails = Nothing, _ratfTaskToken = pTaskToken};
+respondActivityTaskFailed pTaskToken =
+    RespondActivityTaskFailed'
+    { _ratfReason = Nothing
+    , _ratfDetails = Nothing
+    , _ratfTaskToken = pTaskToken
+    }
 
 -- | Description of the error that may assist in diagnostics.
 ratfReason :: Lens' RespondActivityTaskFailed (Maybe Text)
@@ -130,8 +139,10 @@ instance ToQuery RespondActivityTaskFailed where
         toQuery = const mempty
 
 -- | /See:/ 'respondActivityTaskFailedResponse' smart constructor.
-data RespondActivityTaskFailedResponse = RespondActivityTaskFailedResponse' deriving (Eq, Read, Show)
+data RespondActivityTaskFailedResponse =
+    RespondActivityTaskFailedResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RespondActivityTaskFailedResponse' smart constructor.
 respondActivityTaskFailedResponse :: RespondActivityTaskFailedResponse
-respondActivityTaskFailedResponse = RespondActivityTaskFailedResponse';
+respondActivityTaskFailedResponse = RespondActivityTaskFailedResponse'

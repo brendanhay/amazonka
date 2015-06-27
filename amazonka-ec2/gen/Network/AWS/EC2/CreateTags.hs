@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,10 +41,10 @@ module Network.AWS.EC2.CreateTags
     , createTagsResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createTags' smart constructor.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'creResources'
 --
 -- * 'creTags'
-data CreateTags = CreateTags'{_creDryRun :: Maybe Bool, _creResources :: [Text], _creTags :: [Tag]} deriving (Eq, Read, Show)
+data CreateTags = CreateTags'
+    { _creDryRun    :: Maybe Bool
+    , _creResources :: [Text]
+    , _creTags      :: [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateTags' smart constructor.
 createTags :: CreateTags
-createTags = CreateTags'{_creDryRun = Nothing, _creResources = mempty, _creTags = mempty};
+createTags =
+    CreateTags'
+    { _creDryRun = Nothing
+    , _creResources = mempty
+    , _creTags = mempty
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -100,8 +109,10 @@ instance ToQuery CreateTags where
                toQueryList "item" _creTags]
 
 -- | /See:/ 'createTagsResponse' smart constructor.
-data CreateTagsResponse = CreateTagsResponse' deriving (Eq, Read, Show)
+data CreateTagsResponse =
+    CreateTagsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CreateTagsResponse' smart constructor.
 createTagsResponse :: CreateTagsResponse
-createTagsResponse = CreateTagsResponse';
+createTagsResponse = CreateTagsResponse'

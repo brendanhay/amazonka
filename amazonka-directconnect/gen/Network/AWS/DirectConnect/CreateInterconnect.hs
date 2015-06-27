@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.CreateInterconnect
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,10 +57,10 @@ module Network.AWS.DirectConnect.CreateInterconnect
     , intRegion
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the CreateInterconnect operation.
 --
@@ -73,11 +73,20 @@ import Network.AWS.Response
 -- * 'ciBandwidth'
 --
 -- * 'ciLocation'
-data CreateInterconnect = CreateInterconnect'{_ciInterconnectName :: Text, _ciBandwidth :: Text, _ciLocation :: Text} deriving (Eq, Read, Show)
+data CreateInterconnect = CreateInterconnect'
+    { _ciInterconnectName :: Text
+    , _ciBandwidth        :: Text
+    , _ciLocation         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateInterconnect' smart constructor.
 createInterconnect :: Text -> Text -> Text -> CreateInterconnect
-createInterconnect pInterconnectName pBandwidth pLocation = CreateInterconnect'{_ciInterconnectName = pInterconnectName, _ciBandwidth = pBandwidth, _ciLocation = pLocation};
+createInterconnect pInterconnectName pBandwidth pLocation =
+    CreateInterconnect'
+    { _ciInterconnectName = pInterconnectName
+    , _ciBandwidth = pBandwidth
+    , _ciLocation = pLocation
+    }
 
 -- | The name of the interconnect.
 --

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.EnableLogging
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,10 +42,10 @@ module Network.AWS.Redshift.EnableLogging
     , lsLastFailureMessage
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'elClusterIdentifier'
 --
 -- * 'elBucketName'
-data EnableLogging = EnableLogging'{_elS3KeyPrefix :: Maybe Text, _elClusterIdentifier :: Text, _elBucketName :: Text} deriving (Eq, Read, Show)
+data EnableLogging = EnableLogging'
+    { _elS3KeyPrefix       :: Maybe Text
+    , _elClusterIdentifier :: Text
+    , _elBucketName        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableLogging' smart constructor.
 enableLogging :: Text -> Text -> EnableLogging
-enableLogging pClusterIdentifier pBucketName = EnableLogging'{_elS3KeyPrefix = Nothing, _elClusterIdentifier = pClusterIdentifier, _elBucketName = pBucketName};
+enableLogging pClusterIdentifier pBucketName =
+    EnableLogging'
+    { _elS3KeyPrefix = Nothing
+    , _elClusterIdentifier = pClusterIdentifier
+    , _elBucketName = pBucketName
+    }
 
 -- | The prefix applied to the log file names.
 --

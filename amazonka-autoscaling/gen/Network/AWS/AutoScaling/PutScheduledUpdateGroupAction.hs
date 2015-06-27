@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,10 +47,10 @@ module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     , putScheduledUpdateGroupActionResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putScheduledUpdateGroupAction' smart constructor.
 --
@@ -73,11 +73,32 @@ import Network.AWS.Response
 -- * 'psugaAutoScalingGroupName'
 --
 -- * 'psugaScheduledActionName'
-data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'{_psugaTime :: Maybe ISO8601, _psugaStartTime :: Maybe ISO8601, _psugaMaxSize :: Maybe Int, _psugaDesiredCapacity :: Maybe Int, _psugaRecurrence :: Maybe Text, _psugaMinSize :: Maybe Int, _psugaEndTime :: Maybe ISO8601, _psugaAutoScalingGroupName :: Text, _psugaScheduledActionName :: Text} deriving (Eq, Read, Show)
+data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
+    { _psugaTime                 :: Maybe ISO8601
+    , _psugaStartTime            :: Maybe ISO8601
+    , _psugaMaxSize              :: Maybe Int
+    , _psugaDesiredCapacity      :: Maybe Int
+    , _psugaRecurrence           :: Maybe Text
+    , _psugaMinSize              :: Maybe Int
+    , _psugaEndTime              :: Maybe ISO8601
+    , _psugaAutoScalingGroupName :: Text
+    , _psugaScheduledActionName  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PutScheduledUpdateGroupAction' smart constructor.
 putScheduledUpdateGroupAction :: Text -> Text -> PutScheduledUpdateGroupAction
-putScheduledUpdateGroupAction pAutoScalingGroupName pScheduledActionName = PutScheduledUpdateGroupAction'{_psugaTime = Nothing, _psugaStartTime = Nothing, _psugaMaxSize = Nothing, _psugaDesiredCapacity = Nothing, _psugaRecurrence = Nothing, _psugaMinSize = Nothing, _psugaEndTime = Nothing, _psugaAutoScalingGroupName = pAutoScalingGroupName, _psugaScheduledActionName = pScheduledActionName};
+putScheduledUpdateGroupAction pAutoScalingGroupName pScheduledActionName =
+    PutScheduledUpdateGroupAction'
+    { _psugaTime = Nothing
+    , _psugaStartTime = Nothing
+    , _psugaMaxSize = Nothing
+    , _psugaDesiredCapacity = Nothing
+    , _psugaRecurrence = Nothing
+    , _psugaMinSize = Nothing
+    , _psugaEndTime = Nothing
+    , _psugaAutoScalingGroupName = pAutoScalingGroupName
+    , _psugaScheduledActionName = pScheduledActionName
+    }
 
 -- | @Time@ is deprecated; use @StartTime@ instead.
 --
@@ -162,8 +183,10 @@ instance ToQuery PutScheduledUpdateGroupAction where
                "ScheduledActionName" =: _psugaScheduledActionName]
 
 -- | /See:/ 'putScheduledUpdateGroupActionResponse' smart constructor.
-data PutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse' deriving (Eq, Read, Show)
+data PutScheduledUpdateGroupActionResponse =
+    PutScheduledUpdateGroupActionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutScheduledUpdateGroupActionResponse' smart constructor.
 putScheduledUpdateGroupActionResponse :: PutScheduledUpdateGroupActionResponse
-putScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse';
+putScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse'

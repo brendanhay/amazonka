@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.AddTagsToResource
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.RDS.AddTagsToResource
     , addTagsToResourceResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'attrResourceName'
 --
 -- * 'attrTags'
-data AddTagsToResource = AddTagsToResource'{_attrResourceName :: Text, _attrTags :: [Tag]} deriving (Eq, Read, Show)
+data AddTagsToResource = AddTagsToResource'
+    { _attrResourceName :: Text
+    , _attrTags         :: [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'AddTagsToResource' smart constructor.
 addTagsToResource :: Text -> AddTagsToResource
-addTagsToResource pResourceName = AddTagsToResource'{_attrResourceName = pResourceName, _attrTags = mempty};
+addTagsToResource pResourceName =
+    AddTagsToResource'
+    { _attrResourceName = pResourceName
+    , _attrTags = mempty
+    }
 
 -- | The Amazon RDS resource the tags will be added to. This value is an
 -- Amazon Resource Name (ARN). For information about creating an ARN, see
@@ -90,8 +97,10 @@ instance ToQuery AddTagsToResource where
                "Tags" =: toQueryList "Tag" _attrTags]
 
 -- | /See:/ 'addTagsToResourceResponse' smart constructor.
-data AddTagsToResourceResponse = AddTagsToResourceResponse' deriving (Eq, Read, Show)
+data AddTagsToResourceResponse =
+    AddTagsToResourceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AddTagsToResourceResponse' smart constructor.
 addTagsToResourceResponse :: AddTagsToResourceResponse
-addTagsToResourceResponse = AddTagsToResourceResponse';
+addTagsToResourceResponse = AddTagsToResourceResponse'

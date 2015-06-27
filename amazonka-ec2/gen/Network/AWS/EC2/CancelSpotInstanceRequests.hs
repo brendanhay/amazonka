@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CancelSpotInstanceRequests
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
     , cancelSpotInstanceRequestsResponse
     -- ** Response lenses
     , csirrCancelledSpotInstanceRequests
-    , csirrStatusCode
+    , csirrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for CancelSpotInstanceRequests.
 --
@@ -59,11 +59,18 @@ import Network.AWS.Response
 -- * 'csirDryRun'
 --
 -- * 'csirSpotInstanceRequestIds'
-data CancelSpotInstanceRequests = CancelSpotInstanceRequests'{_csirDryRun :: Maybe Bool, _csirSpotInstanceRequestIds :: [Text]} deriving (Eq, Read, Show)
+data CancelSpotInstanceRequests = CancelSpotInstanceRequests'
+    { _csirDryRun                 :: Maybe Bool
+    , _csirSpotInstanceRequestIds :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelSpotInstanceRequests' smart constructor.
 cancelSpotInstanceRequests :: CancelSpotInstanceRequests
-cancelSpotInstanceRequests = CancelSpotInstanceRequests'{_csirDryRun = Nothing, _csirSpotInstanceRequestIds = mempty};
+cancelSpotInstanceRequests =
+    CancelSpotInstanceRequests'
+    { _csirDryRun = Nothing
+    , _csirSpotInstanceRequestIds = mempty
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -112,17 +119,24 @@ instance ToQuery CancelSpotInstanceRequests where
 --
 -- * 'csirrCancelledSpotInstanceRequests'
 --
--- * 'csirrStatusCode'
-data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'{_csirrCancelledSpotInstanceRequests :: Maybe [CancelledSpotInstanceRequest], _csirrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'csirrStatus'
+data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
+    { _csirrCancelledSpotInstanceRequests :: Maybe [CancelledSpotInstanceRequest]
+    , _csirrStatus                        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelSpotInstanceRequestsResponse' smart constructor.
 cancelSpotInstanceRequestsResponse :: Int -> CancelSpotInstanceRequestsResponse
-cancelSpotInstanceRequestsResponse pStatusCode = CancelSpotInstanceRequestsResponse'{_csirrCancelledSpotInstanceRequests = Nothing, _csirrStatusCode = pStatusCode};
+cancelSpotInstanceRequestsResponse pStatus =
+    CancelSpotInstanceRequestsResponse'
+    { _csirrCancelledSpotInstanceRequests = Nothing
+    , _csirrStatus = pStatus
+    }
 
 -- | One or more Spot Instance requests.
 csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
 csirrCancelledSpotInstanceRequests = lens _csirrCancelledSpotInstanceRequests (\ s a -> s{_csirrCancelledSpotInstanceRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-csirrStatusCode :: Lens' CancelSpotInstanceRequestsResponse Int
-csirrStatusCode = lens _csirrStatusCode (\ s a -> s{_csirrStatusCode = a});
+csirrStatus :: Lens' CancelSpotInstanceRequestsResponse Int
+csirrStatus = lens _csirrStatus (\ s a -> s{_csirrStatus = a});

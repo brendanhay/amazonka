@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.AddPermission
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,10 +57,10 @@ module Network.AWS.SQS.AddPermission
     , addPermissionResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'addPermission' smart constructor.
 --
@@ -73,11 +73,22 @@ import Network.AWS.SQS.Types
 -- * 'apAWSAccountIds'
 --
 -- * 'apActions'
-data AddPermission = AddPermission'{_apQueueURL :: Text, _apLabel :: Text, _apAWSAccountIds :: [Text], _apActions :: [Text]} deriving (Eq, Read, Show)
+data AddPermission = AddPermission'
+    { _apQueueURL      :: Text
+    , _apLabel         :: Text
+    , _apAWSAccountIds :: [Text]
+    , _apActions       :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'AddPermission' smart constructor.
 addPermission :: Text -> Text -> AddPermission
-addPermission pQueueURL pLabel = AddPermission'{_apQueueURL = pQueueURL, _apLabel = pLabel, _apAWSAccountIds = mempty, _apActions = mempty};
+addPermission pQueueURL pLabel =
+    AddPermission'
+    { _apQueueURL = pQueueURL
+    , _apLabel = pLabel
+    , _apAWSAccountIds = mempty
+    , _apActions = mempty
+    }
 
 -- | The URL of the Amazon SQS queue to take action on.
 apQueueURL :: Lens' AddPermission Text
@@ -135,8 +146,10 @@ instance ToQuery AddPermission where
                toQueryList "ActionName" _apActions]
 
 -- | /See:/ 'addPermissionResponse' smart constructor.
-data AddPermissionResponse = AddPermissionResponse' deriving (Eq, Read, Show)
+data AddPermissionResponse =
+    AddPermissionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AddPermissionResponse' smart constructor.
 addPermissionResponse :: AddPermissionResponse
-addPermissionResponse = AddPermissionResponse';
+addPermissionResponse = AddPermissionResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.ListGateways
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,14 +45,14 @@ module Network.AWS.StorageGateway.ListGateways
     -- ** Response lenses
     , lgrMarker
     , lgrGateways
-    , lgrStatusCode
+    , lgrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing zero or more of the following fields:
 --
@@ -66,11 +66,18 @@ import Network.AWS.StorageGateway.Types
 -- * 'lgMarker'
 --
 -- * 'lgLimit'
-data ListGateways = ListGateways'{_lgMarker :: Maybe Text, _lgLimit :: Maybe Nat} deriving (Eq, Read, Show)
+data ListGateways = ListGateways'
+    { _lgMarker :: Maybe Text
+    , _lgLimit  :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGateways' smart constructor.
 listGateways :: ListGateways
-listGateways = ListGateways'{_lgMarker = Nothing, _lgLimit = Nothing};
+listGateways =
+    ListGateways'
+    { _lgMarker = Nothing
+    , _lgLimit = Nothing
+    }
 
 -- | An opaque string that indicates the position at which to begin the
 -- returned list of gateways.
@@ -127,12 +134,21 @@ instance ToQuery ListGateways where
 --
 -- * 'lgrGateways'
 --
--- * 'lgrStatusCode'
-data ListGatewaysResponse = ListGatewaysResponse'{_lgrMarker :: Maybe Text, _lgrGateways :: Maybe [GatewayInfo], _lgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lgrStatus'
+data ListGatewaysResponse = ListGatewaysResponse'
+    { _lgrMarker   :: Maybe Text
+    , _lgrGateways :: Maybe [GatewayInfo]
+    , _lgrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGatewaysResponse' smart constructor.
 listGatewaysResponse :: Int -> ListGatewaysResponse
-listGatewaysResponse pStatusCode = ListGatewaysResponse'{_lgrMarker = Nothing, _lgrGateways = Nothing, _lgrStatusCode = pStatusCode};
+listGatewaysResponse pStatus =
+    ListGatewaysResponse'
+    { _lgrMarker = Nothing
+    , _lgrGateways = Nothing
+    , _lgrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 lgrMarker :: Lens' ListGatewaysResponse (Maybe Text)
@@ -143,5 +159,5 @@ lgrGateways :: Lens' ListGatewaysResponse [GatewayInfo]
 lgrGateways = lens _lgrGateways (\ s a -> s{_lgrGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lgrStatusCode :: Lens' ListGatewaysResponse Int
-lgrStatusCode = lens _lgrStatusCode (\ s a -> s{_lgrStatusCode = a});
+lgrStatus :: Lens' ListGatewaysResponse Int
+lgrStatus = lens _lgrStatus (\ s a -> s{_lgrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeSpotPriceHistory
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,14 +51,14 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     -- ** Response lenses
     , dsphrNextToken
     , dsphrSpotPriceHistory
-    , dsphrStatusCode
+    , dsphrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotPriceHistory.
 --
@@ -83,11 +83,32 @@ import Network.AWS.Response
 -- * 'dsphDryRun'
 --
 -- * 'dsphMaxResults'
-data DescribeSpotPriceHistory = DescribeSpotPriceHistory'{_dsphInstanceTypes :: Maybe [InstanceType], _dsphStartTime :: Maybe ISO8601, _dsphFilters :: Maybe [Filter], _dsphNextToken :: Maybe Text, _dsphAvailabilityZone :: Maybe Text, _dsphEndTime :: Maybe ISO8601, _dsphProductDescriptions :: Maybe [Text], _dsphDryRun :: Maybe Bool, _dsphMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
+    { _dsphInstanceTypes       :: Maybe [InstanceType]
+    , _dsphStartTime           :: Maybe ISO8601
+    , _dsphFilters             :: Maybe [Filter]
+    , _dsphNextToken           :: Maybe Text
+    , _dsphAvailabilityZone    :: Maybe Text
+    , _dsphEndTime             :: Maybe ISO8601
+    , _dsphProductDescriptions :: Maybe [Text]
+    , _dsphDryRun              :: Maybe Bool
+    , _dsphMaxResults          :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotPriceHistory' smart constructor.
 describeSpotPriceHistory :: DescribeSpotPriceHistory
-describeSpotPriceHistory = DescribeSpotPriceHistory'{_dsphInstanceTypes = Nothing, _dsphStartTime = Nothing, _dsphFilters = Nothing, _dsphNextToken = Nothing, _dsphAvailabilityZone = Nothing, _dsphEndTime = Nothing, _dsphProductDescriptions = Nothing, _dsphDryRun = Nothing, _dsphMaxResults = Nothing};
+describeSpotPriceHistory =
+    DescribeSpotPriceHistory'
+    { _dsphInstanceTypes = Nothing
+    , _dsphStartTime = Nothing
+    , _dsphFilters = Nothing
+    , _dsphNextToken = Nothing
+    , _dsphAvailabilityZone = Nothing
+    , _dsphEndTime = Nothing
+    , _dsphProductDescriptions = Nothing
+    , _dsphDryRun = Nothing
+    , _dsphMaxResults = Nothing
+    }
 
 -- | Filters the results by the specified instance types.
 dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
@@ -208,12 +229,21 @@ instance ToQuery DescribeSpotPriceHistory where
 --
 -- * 'dsphrSpotPriceHistory'
 --
--- * 'dsphrStatusCode'
-data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'{_dsphrNextToken :: Maybe Text, _dsphrSpotPriceHistory :: Maybe [SpotPrice], _dsphrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsphrStatus'
+data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
+    { _dsphrNextToken        :: Maybe Text
+    , _dsphrSpotPriceHistory :: Maybe [SpotPrice]
+    , _dsphrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotPriceHistoryResponse' smart constructor.
 describeSpotPriceHistoryResponse :: Int -> DescribeSpotPriceHistoryResponse
-describeSpotPriceHistoryResponse pStatusCode = DescribeSpotPriceHistoryResponse'{_dsphrNextToken = Nothing, _dsphrSpotPriceHistory = Nothing, _dsphrStatusCode = pStatusCode};
+describeSpotPriceHistoryResponse pStatus =
+    DescribeSpotPriceHistoryResponse'
+    { _dsphrNextToken = Nothing
+    , _dsphrSpotPriceHistory = Nothing
+    , _dsphrStatus = pStatus
+    }
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
@@ -225,5 +255,5 @@ dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
 dsphrSpotPriceHistory = lens _dsphrSpotPriceHistory (\ s a -> s{_dsphrSpotPriceHistory = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsphrStatusCode :: Lens' DescribeSpotPriceHistoryResponse Int
-dsphrStatusCode = lens _dsphrStatusCode (\ s a -> s{_dsphrStatusCode = a});
+dsphrStatus :: Lens' DescribeSpotPriceHistoryResponse Int
+dsphrStatus = lens _dsphrStatus (\ s a -> s{_dsphrStatus = a});

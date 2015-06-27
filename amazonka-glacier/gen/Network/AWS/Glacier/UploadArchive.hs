@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.UploadArchive
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,10 +80,10 @@ module Network.AWS.Glacier.UploadArchive
     , acoLocation
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options to add an archive to a vault.
 --
@@ -100,11 +100,24 @@ import Network.AWS.Response
 -- * 'uaAccountId'
 --
 -- * 'uaBody'
-data UploadArchive = UploadArchive'{_uaChecksum :: Maybe Text, _uaArchiveDescription :: Maybe Text, _uaVaultName :: Text, _uaAccountId :: Text, _uaBody :: RqBody} deriving Show
+data UploadArchive = UploadArchive'
+    { _uaChecksum           :: Maybe Text
+    , _uaArchiveDescription :: Maybe Text
+    , _uaVaultName          :: Text
+    , _uaAccountId          :: Text
+    , _uaBody               :: RqBody
+    } deriving (Show)
 
 -- | 'UploadArchive' smart constructor.
 uploadArchive :: Text -> Text -> RqBody -> UploadArchive
-uploadArchive pVaultName pAccountId pBody = UploadArchive'{_uaChecksum = Nothing, _uaArchiveDescription = Nothing, _uaVaultName = pVaultName, _uaAccountId = pAccountId, _uaBody = pBody};
+uploadArchive pVaultName pAccountId pBody =
+    UploadArchive'
+    { _uaChecksum = Nothing
+    , _uaArchiveDescription = Nothing
+    , _uaVaultName = pVaultName
+    , _uaAccountId = pAccountId
+    , _uaBody = pBody
+    }
 
 -- | The SHA256 tree hash of the data being uploaded.
 uaChecksum :: Lens' UploadArchive (Maybe Text)

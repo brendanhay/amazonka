@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.WorkSpaces.DescribeWorkspaces
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,13 +46,13 @@ module Network.AWS.WorkSpaces.DescribeWorkspaces
     -- ** Response lenses
     , dwrNextToken
     , dwrWorkspaces
-    , dwrStatusCode
+    , dwrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.WorkSpaces.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.WorkSpaces.Types
 
 -- | Contains the inputs for the DescribeWorkspaces operation.
 --
@@ -71,11 +71,26 @@ import Network.AWS.WorkSpaces.Types
 -- * 'dwNextToken'
 --
 -- * 'dwLimit'
-data DescribeWorkspaces = DescribeWorkspaces'{_dwDirectoryId :: Maybe Text, _dwWorkspaceIds :: Maybe (List1 Text), _dwUserName :: Maybe Text, _dwBundleId :: Maybe Text, _dwNextToken :: Maybe Text, _dwLimit :: Maybe Nat} deriving (Eq, Read, Show)
+data DescribeWorkspaces = DescribeWorkspaces'
+    { _dwDirectoryId  :: Maybe Text
+    , _dwWorkspaceIds :: Maybe (List1 Text)
+    , _dwUserName     :: Maybe Text
+    , _dwBundleId     :: Maybe Text
+    , _dwNextToken    :: Maybe Text
+    , _dwLimit        :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkspaces' smart constructor.
 describeWorkspaces :: DescribeWorkspaces
-describeWorkspaces = DescribeWorkspaces'{_dwDirectoryId = Nothing, _dwWorkspaceIds = Nothing, _dwUserName = Nothing, _dwBundleId = Nothing, _dwNextToken = Nothing, _dwLimit = Nothing};
+describeWorkspaces =
+    DescribeWorkspaces'
+    { _dwDirectoryId = Nothing
+    , _dwWorkspaceIds = Nothing
+    , _dwUserName = Nothing
+    , _dwBundleId = Nothing
+    , _dwNextToken = Nothing
+    , _dwLimit = Nothing
+    }
 
 -- | Specifies the directory identifier to which to limit the WorkSpaces.
 -- Optionally, you can specify a specific directory user with the
@@ -162,12 +177,21 @@ instance ToQuery DescribeWorkspaces where
 --
 -- * 'dwrWorkspaces'
 --
--- * 'dwrStatusCode'
-data DescribeWorkspacesResponse = DescribeWorkspacesResponse'{_dwrNextToken :: Maybe Text, _dwrWorkspaces :: Maybe [Workspace], _dwrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dwrStatus'
+data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
+    { _dwrNextToken  :: Maybe Text
+    , _dwrWorkspaces :: Maybe [Workspace]
+    , _dwrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkspacesResponse' smart constructor.
 describeWorkspacesResponse :: Int -> DescribeWorkspacesResponse
-describeWorkspacesResponse pStatusCode = DescribeWorkspacesResponse'{_dwrNextToken = Nothing, _dwrWorkspaces = Nothing, _dwrStatusCode = pStatusCode};
+describeWorkspacesResponse pStatus =
+    DescribeWorkspacesResponse'
+    { _dwrNextToken = Nothing
+    , _dwrWorkspaces = Nothing
+    , _dwrStatus = pStatus
+    }
 
 -- | If not null, more results are available. Pass this value for the
 -- @NextToken@ parameter in a subsequent call to this operation to retrieve
@@ -185,5 +209,5 @@ dwrWorkspaces :: Lens' DescribeWorkspacesResponse [Workspace]
 dwrWorkspaces = lens _dwrWorkspaces (\ s a -> s{_dwrWorkspaces = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dwrStatusCode :: Lens' DescribeWorkspacesResponse Int
-dwrStatusCode = lens _dwrStatusCode (\ s a -> s{_dwrStatusCode = a});
+dwrStatus :: Lens' DescribeWorkspacesResponse Int
+dwrStatus = lens _dwrStatus (\ s a -> s{_dwrStatus = a});

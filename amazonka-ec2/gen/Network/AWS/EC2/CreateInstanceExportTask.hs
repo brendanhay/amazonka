@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateInstanceExportTask
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.EC2.CreateInstanceExportTask
     , createInstanceExportTaskResponse
     -- ** Response lenses
     , cietrExportTask
-    , cietrStatusCode
+    , cietrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createInstanceExportTask' smart constructor.
 --
@@ -59,11 +59,22 @@ import Network.AWS.Response
 -- * 'cietDescription'
 --
 -- * 'cietInstanceId'
-data CreateInstanceExportTask = CreateInstanceExportTask'{_cietTargetEnvironment :: Maybe ExportEnvironment, _cietExportToS3Task :: Maybe ExportToS3TaskSpecification, _cietDescription :: Maybe Text, _cietInstanceId :: Text} deriving (Eq, Read, Show)
+data CreateInstanceExportTask = CreateInstanceExportTask'
+    { _cietTargetEnvironment :: Maybe ExportEnvironment
+    , _cietExportToS3Task    :: Maybe ExportToS3TaskSpecification
+    , _cietDescription       :: Maybe Text
+    , _cietInstanceId        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateInstanceExportTask' smart constructor.
 createInstanceExportTask :: Text -> CreateInstanceExportTask
-createInstanceExportTask pInstanceId = CreateInstanceExportTask'{_cietTargetEnvironment = Nothing, _cietExportToS3Task = Nothing, _cietDescription = Nothing, _cietInstanceId = pInstanceId};
+createInstanceExportTask pInstanceId =
+    CreateInstanceExportTask'
+    { _cietTargetEnvironment = Nothing
+    , _cietExportToS3Task = Nothing
+    , _cietDescription = Nothing
+    , _cietInstanceId = pInstanceId
+    }
 
 -- | The target virtualization environment.
 cietTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
@@ -116,17 +127,24 @@ instance ToQuery CreateInstanceExportTask where
 --
 -- * 'cietrExportTask'
 --
--- * 'cietrStatusCode'
-data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'{_cietrExportTask :: Maybe ExportTask, _cietrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cietrStatus'
+data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
+    { _cietrExportTask :: Maybe ExportTask
+    , _cietrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateInstanceExportTaskResponse' smart constructor.
 createInstanceExportTaskResponse :: Int -> CreateInstanceExportTaskResponse
-createInstanceExportTaskResponse pStatusCode = CreateInstanceExportTaskResponse'{_cietrExportTask = Nothing, _cietrStatusCode = pStatusCode};
+createInstanceExportTaskResponse pStatus =
+    CreateInstanceExportTaskResponse'
+    { _cietrExportTask = Nothing
+    , _cietrStatus = pStatus
+    }
 
 -- | Information about the instance export task.
 cietrExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
 cietrExportTask = lens _cietrExportTask (\ s a -> s{_cietrExportTask = a});
 
 -- | FIXME: Undocumented member.
-cietrStatusCode :: Lens' CreateInstanceExportTaskResponse Int
-cietrStatusCode = lens _cietrStatusCode (\ s a -> s{_cietrStatusCode = a});
+cietrStatus :: Lens' CreateInstanceExportTaskResponse Int
+cietrStatus = lens _cietrStatus (\ s a -> s{_cietrStatus = a});

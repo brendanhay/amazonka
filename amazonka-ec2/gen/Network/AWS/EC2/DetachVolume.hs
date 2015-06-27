@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DetachVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,10 +57,10 @@ module Network.AWS.EC2.DetachVolume
     , vAttachTime
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachVolume' smart constructor.
 --
@@ -75,11 +75,24 @@ import Network.AWS.Response
 -- * 'dvDryRun'
 --
 -- * 'dvVolumeId'
-data DetachVolume = DetachVolume'{_dvInstanceId :: Maybe Text, _dvForce :: Maybe Bool, _dvDevice :: Maybe Text, _dvDryRun :: Maybe Bool, _dvVolumeId :: Text} deriving (Eq, Read, Show)
+data DetachVolume = DetachVolume'
+    { _dvInstanceId :: Maybe Text
+    , _dvForce      :: Maybe Bool
+    , _dvDevice     :: Maybe Text
+    , _dvDryRun     :: Maybe Bool
+    , _dvVolumeId   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachVolume' smart constructor.
 detachVolume :: Text -> DetachVolume
-detachVolume pVolumeId = DetachVolume'{_dvInstanceId = Nothing, _dvForce = Nothing, _dvDevice = Nothing, _dvDryRun = Nothing, _dvVolumeId = pVolumeId};
+detachVolume pVolumeId =
+    DetachVolume'
+    { _dvInstanceId = Nothing
+    , _dvForce = Nothing
+    , _dvDevice = Nothing
+    , _dvDryRun = Nothing
+    , _dvVolumeId = pVolumeId
+    }
 
 -- | The ID of the instance.
 dvInstanceId :: Lens' DetachVolume (Maybe Text)

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.ListJobs
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -81,13 +81,13 @@ module Network.AWS.Glacier.ListJobs
     -- ** Response lenses
     , ljrMarker
     , ljrJobList
-    , ljrStatusCode
+    , ljrStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for retrieving a job list for an Amazon Glacier vault.
 --
@@ -106,11 +106,26 @@ import Network.AWS.Response
 -- * 'ljAccountId'
 --
 -- * 'ljVaultName'
-data ListJobs = ListJobs'{_ljMarker :: Maybe Text, _ljCompleted :: Maybe Text, _ljLimit :: Maybe Text, _ljStatuscode :: Maybe Text, _ljAccountId :: Text, _ljVaultName :: Text} deriving (Eq, Read, Show)
+data ListJobs = ListJobs'
+    { _ljMarker     :: Maybe Text
+    , _ljCompleted  :: Maybe Text
+    , _ljLimit      :: Maybe Text
+    , _ljStatuscode :: Maybe Text
+    , _ljAccountId  :: Text
+    , _ljVaultName  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListJobs' smart constructor.
 listJobs :: Text -> Text -> ListJobs
-listJobs pAccountId pVaultName = ListJobs'{_ljMarker = Nothing, _ljCompleted = Nothing, _ljLimit = Nothing, _ljStatuscode = Nothing, _ljAccountId = pAccountId, _ljVaultName = pVaultName};
+listJobs pAccountId pVaultName =
+    ListJobs'
+    { _ljMarker = Nothing
+    , _ljCompleted = Nothing
+    , _ljLimit = Nothing
+    , _ljStatuscode = Nothing
+    , _ljAccountId = pAccountId
+    , _ljVaultName = pVaultName
+    }
 
 -- | An opaque string used for pagination. This value specifies the job at
 -- which the listing of jobs should begin. Get the marker value from a
@@ -184,12 +199,21 @@ instance ToQuery ListJobs where
 --
 -- * 'ljrJobList'
 --
--- * 'ljrStatusCode'
-data ListJobsResponse = ListJobsResponse'{_ljrMarker :: Maybe Text, _ljrJobList :: Maybe [GlacierJobDescription], _ljrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ljrStatus'
+data ListJobsResponse = ListJobsResponse'
+    { _ljrMarker  :: Maybe Text
+    , _ljrJobList :: Maybe [GlacierJobDescription]
+    , _ljrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListJobsResponse' smart constructor.
 listJobsResponse :: Int -> ListJobsResponse
-listJobsResponse pStatusCode = ListJobsResponse'{_ljrMarker = Nothing, _ljrJobList = Nothing, _ljrStatusCode = pStatusCode};
+listJobsResponse pStatus =
+    ListJobsResponse'
+    { _ljrMarker = Nothing
+    , _ljrJobList = Nothing
+    , _ljrStatus = pStatus
+    }
 
 -- | An opaque string that represents where to continue pagination of the
 -- results. You use this value in a new List Jobs request to obtain more
@@ -203,5 +227,5 @@ ljrJobList :: Lens' ListJobsResponse [GlacierJobDescription]
 ljrJobList = lens _ljrJobList (\ s a -> s{_ljrJobList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ljrStatusCode :: Lens' ListJobsResponse Int
-ljrStatusCode = lens _ljrStatusCode (\ s a -> s{_ljrStatusCode = a});
+ljrStatus :: Lens' ListJobsResponse Int
+ljrStatus = lens _ljrStatus (\ s a -> s{_ljrStatus = a});

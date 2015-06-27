@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.AssociateVPCWithHostedZone
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.Route53.AssociateVPCWithHostedZone
     , associateVPCWithHostedZoneResponse
     -- ** Response lenses
     , avwhzrChangeInfo
-    , avwhzrStatusCode
+    , avwhzrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | A complex type that contains information about the request to associate
 -- a VPC with an hosted zone.
@@ -63,11 +63,20 @@ import Network.AWS.Route53.Types
 -- * 'avwhzHostedZoneId'
 --
 -- * 'avwhzVPC'
-data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone'{_avwhzComment :: Maybe Text, _avwhzHostedZoneId :: Text, _avwhzVPC :: VPC} deriving (Eq, Read, Show)
+data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone'
+    { _avwhzComment      :: Maybe Text
+    , _avwhzHostedZoneId :: Text
+    , _avwhzVPC          :: VPC
+    } deriving (Eq,Read,Show)
 
 -- | 'AssociateVPCWithHostedZone' smart constructor.
 associateVPCWithHostedZone :: Text -> VPC -> AssociateVPCWithHostedZone
-associateVPCWithHostedZone pHostedZoneId pVPC = AssociateVPCWithHostedZone'{_avwhzComment = Nothing, _avwhzHostedZoneId = pHostedZoneId, _avwhzVPC = pVPC};
+associateVPCWithHostedZone pHostedZoneId pVPC =
+    AssociateVPCWithHostedZone'
+    { _avwhzComment = Nothing
+    , _avwhzHostedZoneId = pHostedZoneId
+    , _avwhzVPC = pVPC
+    }
 
 -- | /Optional:/ Any comments you want to include about a
 -- @AssociateVPCWithHostedZoneRequest@.
@@ -126,12 +135,19 @@ instance ToXML AssociateVPCWithHostedZone where
 --
 -- * 'avwhzrChangeInfo'
 --
--- * 'avwhzrStatusCode'
-data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'{_avwhzrChangeInfo :: ChangeInfo, _avwhzrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'avwhzrStatus'
+data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'
+    { _avwhzrChangeInfo :: ChangeInfo
+    , _avwhzrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AssociateVPCWithHostedZoneResponse' smart constructor.
 associateVPCWithHostedZoneResponse :: ChangeInfo -> Int -> AssociateVPCWithHostedZoneResponse
-associateVPCWithHostedZoneResponse pChangeInfo pStatusCode = AssociateVPCWithHostedZoneResponse'{_avwhzrChangeInfo = pChangeInfo, _avwhzrStatusCode = pStatusCode};
+associateVPCWithHostedZoneResponse pChangeInfo pStatus =
+    AssociateVPCWithHostedZoneResponse'
+    { _avwhzrChangeInfo = pChangeInfo
+    , _avwhzrStatus = pStatus
+    }
 
 -- | A complex type that contains the ID, the status, and the date and time
 -- of your @AssociateVPCWithHostedZoneRequest@.
@@ -139,5 +155,5 @@ avwhzrChangeInfo :: Lens' AssociateVPCWithHostedZoneResponse ChangeInfo
 avwhzrChangeInfo = lens _avwhzrChangeInfo (\ s a -> s{_avwhzrChangeInfo = a});
 
 -- | FIXME: Undocumented member.
-avwhzrStatusCode :: Lens' AssociateVPCWithHostedZoneResponse Int
-avwhzrStatusCode = lens _avwhzrStatusCode (\ s a -> s{_avwhzrStatusCode = a});
+avwhzrStatus :: Lens' AssociateVPCWithHostedZoneResponse Int
+avwhzrStatus = lens _avwhzrStatus (\ s a -> s{_avwhzrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DescribeLogGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
     -- ** Response lenses
     , dlgrLogGroups
     , dlgrNextToken
-    , dlgrStatusCode
+    , dlgrStatus
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLogGroups' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'dlgLogGroupNamePrefix'
 --
 -- * 'dlgLimit'
-data DescribeLogGroups = DescribeLogGroups'{_dlgNextToken :: Maybe Text, _dlgLogGroupNamePrefix :: Maybe Text, _dlgLimit :: Maybe Nat} deriving (Eq, Read, Show)
+data DescribeLogGroups = DescribeLogGroups'
+    { _dlgNextToken          :: Maybe Text
+    , _dlgLogGroupNamePrefix :: Maybe Text
+    , _dlgLimit              :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLogGroups' smart constructor.
 describeLogGroups :: DescribeLogGroups
-describeLogGroups = DescribeLogGroups'{_dlgNextToken = Nothing, _dlgLogGroupNamePrefix = Nothing, _dlgLimit = Nothing};
+describeLogGroups =
+    DescribeLogGroups'
+    { _dlgNextToken = Nothing
+    , _dlgLogGroupNamePrefix = Nothing
+    , _dlgLimit = Nothing
+    }
 
 -- | A string token used for pagination that points to the next page of
 -- results. It must be a value obtained from the response of the previous
@@ -124,12 +133,21 @@ instance ToQuery DescribeLogGroups where
 --
 -- * 'dlgrNextToken'
 --
--- * 'dlgrStatusCode'
-data DescribeLogGroupsResponse = DescribeLogGroupsResponse'{_dlgrLogGroups :: Maybe [LogGroup], _dlgrNextToken :: Maybe Text, _dlgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dlgrStatus'
+data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
+    { _dlgrLogGroups :: Maybe [LogGroup]
+    , _dlgrNextToken :: Maybe Text
+    , _dlgrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLogGroupsResponse' smart constructor.
 describeLogGroupsResponse :: Int -> DescribeLogGroupsResponse
-describeLogGroupsResponse pStatusCode = DescribeLogGroupsResponse'{_dlgrLogGroups = Nothing, _dlgrNextToken = Nothing, _dlgrStatusCode = pStatusCode};
+describeLogGroupsResponse pStatus =
+    DescribeLogGroupsResponse'
+    { _dlgrLogGroups = Nothing
+    , _dlgrNextToken = Nothing
+    , _dlgrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dlgrLogGroups :: Lens' DescribeLogGroupsResponse [LogGroup]
@@ -140,5 +158,5 @@ dlgrNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
 dlgrNextToken = lens _dlgrNextToken (\ s a -> s{_dlgrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dlgrStatusCode :: Lens' DescribeLogGroupsResponse Int
-dlgrStatusCode = lens _dlgrStatusCode (\ s a -> s{_dlgrStatusCode = a});
+dlgrStatus :: Lens' DescribeLogGroupsResponse Int
+dlgrStatus = lens _dlgrStatus (\ s a -> s{_dlgrStatus = a});

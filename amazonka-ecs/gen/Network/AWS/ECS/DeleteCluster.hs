@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.DeleteCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,24 +35,29 @@ module Network.AWS.ECS.DeleteCluster
     , deleteClusterResponse
     -- ** Response lenses
     , delCluster
-    , delStatusCode
+    , delStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteCluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcCluster'
-newtype DeleteCluster = DeleteCluster'{_dcCluster :: Text} deriving (Eq, Read, Show)
+newtype DeleteCluster = DeleteCluster'
+    { _dcCluster :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteCluster' smart constructor.
 deleteCluster :: Text -> DeleteCluster
-deleteCluster pCluster = DeleteCluster'{_dcCluster = pCluster};
+deleteCluster pCluster =
+    DeleteCluster'
+    { _dcCluster = pCluster
+    }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- you want to delete.
@@ -95,17 +100,24 @@ instance ToQuery DeleteCluster where
 --
 -- * 'delCluster'
 --
--- * 'delStatusCode'
-data DeleteClusterResponse = DeleteClusterResponse'{_delCluster :: Maybe Cluster, _delStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'delStatus'
+data DeleteClusterResponse = DeleteClusterResponse'
+    { _delCluster :: Maybe Cluster
+    , _delStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteClusterResponse' smart constructor.
 deleteClusterResponse :: Int -> DeleteClusterResponse
-deleteClusterResponse pStatusCode = DeleteClusterResponse'{_delCluster = Nothing, _delStatusCode = pStatusCode};
+deleteClusterResponse pStatus =
+    DeleteClusterResponse'
+    { _delCluster = Nothing
+    , _delStatus = pStatus
+    }
 
 -- | The full description of the deleted cluster.
 delCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 delCluster = lens _delCluster (\ s a -> s{_delCluster = a});
 
 -- | FIXME: Undocumented member.
-delStatusCode :: Lens' DeleteClusterResponse Int
-delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});
+delStatus :: Lens' DeleteClusterResponse Int
+delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

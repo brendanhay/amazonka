@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.RDS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -507,299 +506,365 @@ module Network.AWS.RDS.Types
     , vsgmVPCSecurityGroupId
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2014-10-31@ of the Amazon Relational Database Service SDK.
 data RDS
 
 instance AWSService RDS where
     type Sg RDS = V4
-
     service = const svc
       where
-        svc :: Service RDS
-        svc = Service
-            { _svcAbbrev   = "RDS"
-            , _svcPrefix   = "rds"
-            , _svcVersion  = "2014-10-31"
+        svc =
+            Service
+            { _svcAbbrev = "RDS"
+            , _svcPrefix = "rds"
+            , _svcVersion = "2014-10-31"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | /CertificateIdentifier/ does not refer to an existing certificate.
-_CertificateNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_CertificateNotFoundFault = _ServiceError . hasStatus 400 . hasCode "CertificateNotFound";
+_CertificateNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_CertificateNotFoundFault =
+    _ServiceError . hasStatus 400 . hasCode "CertificateNotFound"
 
 -- | Request would exceed the user\'s DB Instance quota.
-_ReservedDBInstanceQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedDBInstanceQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "ReservedDBInstanceQuotaExceeded";
+_ReservedDBInstanceQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedDBInstanceQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "ReservedDBInstanceQuotaExceeded"
 
 -- | DB security group authorization quota has been reached.
-_AuthorizationQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_AuthorizationQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "AuthorizationQuotaExceeded";
+_AuthorizationQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_AuthorizationQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "AuthorizationQuotaExceeded"
 
 -- | The requested source could not be found.
-_SourceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SourceNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SourceNotFound";
+_SourceNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SourceNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SourceNotFound"
 
 -- | The DB parameter group cannot be deleted because it is in use.
-_InvalidDBParameterGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDBParameterGroupStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidDBParameterGroupState";
+_InvalidDBParameterGroupStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDBParameterGroupStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidDBParameterGroupState"
 
 -- | A DB parameter group with the same name exists.
-_DBParameterGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBParameterGroupAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "DBParameterGroupAlreadyExists";
+_DBParameterGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBParameterGroupAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "DBParameterGroupAlreadyExists"
 
 -- | /SourceDBInstanceIdentifier/ refers to a DB instance with
 -- /BackupRetentionPeriod/ equal to 0.
-_PointInTimeRestoreNotEnabledFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_PointInTimeRestoreNotEnabledFault = _ServiceError . hasStatus 400 . hasCode "PointInTimeRestoreNotEnabled";
+_PointInTimeRestoreNotEnabledFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_PointInTimeRestoreNotEnabledFault =
+    _ServiceError . hasStatus 400 . hasCode "PointInTimeRestoreNotEnabled"
 
 -- | Request would result in user exceeding the allowed number of DB
 -- parameter groups.
-_DBParameterGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBParameterGroupQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "DBParameterGroupQuotaExceeded";
+_DBParameterGroupQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBParameterGroupQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "DBParameterGroupQuotaExceeded"
 
 -- | Provisioned IOPS not available in the specified Availability Zone.
-_ProvisionedIOPSNotAvailableInAZFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ProvisionedIOPSNotAvailableInAZFault = _ServiceError . hasStatus 400 . hasCode "ProvisionedIopsNotAvailableInAZFault";
+_ProvisionedIOPSNotAvailableInAZFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ProvisionedIOPSNotAvailableInAZFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "ProvisionedIopsNotAvailableInAZFault"
 
 -- | The specified CIDRIP or EC2 security group is already authorized for the
 -- specified DB security group.
-_AuthorizationAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_AuthorizationAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AuthorizationAlreadyExists";
+_AuthorizationAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_AuthorizationAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "AuthorizationAlreadyExists"
 
 -- | User already has a reservation with the given identifier.
-_ReservedDBInstanceAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedDBInstanceAlreadyExistsFault = _ServiceError . hasStatus 404 . hasCode "ReservedDBInstanceAlreadyExists";
+_ReservedDBInstanceAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedDBInstanceAlreadyExistsFault =
+    _ServiceError . hasStatus 404 . hasCode "ReservedDBInstanceAlreadyExists"
 
 -- | The supplied category does not exist.
-_SubscriptionCategoryNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubscriptionCategoryNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SubscriptionCategoryNotFound";
+_SubscriptionCategoryNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubscriptionCategoryNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "SubscriptionCategoryNotFound"
 
 -- | Request would result in user exceeding the allowed number of subnets in
 -- a DB subnet groups.
-_DBSubnetQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSubnetQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "DBSubnetQuotaExceededFault";
+_DBSubnetQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBSubnetQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "DBSubnetQuotaExceededFault"
 
 -- | The subscription name does not exist.
-_SubscriptionNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubscriptionNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SubscriptionNotFound";
+_SubscriptionNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubscriptionNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "SubscriptionNotFound"
 
 -- | The requested subnet is invalid, or multiple subnets were requested that
 -- are not all in a common VPC.
-_InvalidSubnet :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSubnet = _ServiceError . hasStatus 400 . hasCode "InvalidSubnet";
+_InvalidSubnet :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSubnet = _ServiceError . hasStatus 400 . hasCode "InvalidSubnet"
 
 -- | The specified option group could not be found.
-_OptionGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_OptionGroupNotFoundFault = _ServiceError . hasStatus 404 . hasCode "OptionGroupNotFoundFault";
+_OptionGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_OptionGroupNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "OptionGroupNotFoundFault"
 
 -- | The option group you are trying to create already exists.
-_OptionGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_OptionGroupAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "OptionGroupAlreadyExistsFault";
+_OptionGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_OptionGroupAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "OptionGroupAlreadyExistsFault"
 
 -- | /StorageType/ specified cannot be associated with the DB Instance.
-_StorageTypeNotSupportedFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_StorageTypeNotSupportedFault = _ServiceError . hasStatus 400 . hasCode "StorageTypeNotSupported";
+_StorageTypeNotSupportedFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_StorageTypeNotSupportedFault =
+    _ServiceError . hasStatus 400 . hasCode "StorageTypeNotSupported"
 
 -- | Request would result in user exceeding the allowed number of DB security
 -- groups.
-_DBSecurityGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSecurityGroupQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "QuotaExceeded.DBSecurityGroup";
+_DBSecurityGroupQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBSecurityGroupQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "QuotaExceeded.DBSecurityGroup"
 
 -- | /DBSnapshotIdentifier/ does not refer to an existing DB snapshot.
-_DBSnapshotNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSnapshotNotFoundFault = _ServiceError . hasStatus 404 . hasCode "DBSnapshotNotFound";
+_DBSnapshotNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBSnapshotNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "DBSnapshotNotFound"
 
 -- | This error can occur if someone else is modifying a subscription. You
 -- should retry the action.
-_InvalidEventSubscriptionStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidEventSubscriptionStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidEventSubscriptionState";
+_InvalidEventSubscriptionStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidEventSubscriptionStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidEventSubscriptionState"
 
 -- | Error accessing KMS key.
-_KMSKeyNotAccessibleFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_KMSKeyNotAccessibleFault = _ServiceError . hasStatus 400 . hasCode "KMSKeyNotAccessibleFault";
+_KMSKeyNotAccessibleFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_KMSKeyNotAccessibleFault =
+    _ServiceError . hasStatus 400 . hasCode "KMSKeyNotAccessibleFault"
 
 -- | The quota of 20 option groups was exceeded for this AWS account.
-_OptionGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_OptionGroupQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "OptionGroupQuotaExceededFault";
+_OptionGroupQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_OptionGroupQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "OptionGroupQuotaExceededFault"
 
 -- | A DB security group with the name specified in /DBSecurityGroupName/
 -- already exists.
-_DBSecurityGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSecurityGroupAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "DBSecurityGroupAlreadyExists";
+_DBSecurityGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBSecurityGroupAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "DBSecurityGroupAlreadyExists"
 
 -- | Request would result in user exceeding the allowed number of DB
 -- snapshots.
-_SnapshotQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SnapshotQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "SnapshotQuotaExceeded";
+_SnapshotQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "SnapshotQuotaExceeded"
 
 -- | The SNS topic ARN does not exist.
-_SNSTopicARNNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SNSTopicARNNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SNSTopicArnNotFound";
+_SNSTopicARNNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SNSTopicARNNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "SNSTopicArnNotFound"
 
 -- | /DBSubnetGroupName/ is already used by an existing DB subnet group.
-_DBSubnetGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSubnetGroupAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "DBSubnetGroupAlreadyExists";
+_DBSubnetGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBSubnetGroupAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "DBSubnetGroupAlreadyExists"
 
 -- | Request would result in user exceeding the allowed number of DB
 -- instances.
-_InstanceQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InstanceQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "InstanceQuotaExceeded";
+_InstanceQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InstanceQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "InstanceQuotaExceeded"
 
 -- | You do not have permission to publish to the SNS topic ARN.
-_SNSNoAuthorizationFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SNSNoAuthorizationFault = _ServiceError . hasStatus 400 . hasCode "SNSNoAuthorization";
+_SNSNoAuthorizationFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SNSNoAuthorizationFault =
+    _ServiceError . hasStatus 400 . hasCode "SNSNoAuthorization"
 
 -- | /DBSecurityGroupName/ does not refer to an existing DB security group.
-_DBSecurityGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSecurityGroupNotFoundFault = _ServiceError . hasStatus 404 . hasCode "DBSecurityGroupNotFound";
+_DBSecurityGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBSecurityGroupNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "DBSecurityGroupNotFound"
 
 -- | A DB security group is not allowed for this action.
-_DBSecurityGroupNotSupportedFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSecurityGroupNotSupportedFault = _ServiceError . hasStatus 400 . hasCode "DBSecurityGroupNotSupported";
+_DBSecurityGroupNotSupportedFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBSecurityGroupNotSupportedFault =
+    _ServiceError . hasStatus 400 . hasCode "DBSecurityGroupNotSupported"
 
 -- | Specified offering does not exist.
-_ReservedDBInstancesOfferingNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedDBInstancesOfferingNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ReservedDBInstancesOfferingNotFound";
+_ReservedDBInstancesOfferingNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedDBInstancesOfferingNotFoundFault =
+    _ServiceError .
+    hasStatus 404 . hasCode "ReservedDBInstancesOfferingNotFound"
 
 -- | Indicates the DBSubnetGroup does not belong to the same VPC as that of
 -- an existing cross region read replica of the same source instance.
-_InvalidDBSubnetGroupFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDBSubnetGroupFault = _ServiceError . hasStatus 400 . hasCode "InvalidDBSubnetGroupFault";
+_InvalidDBSubnetGroupFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDBSubnetGroupFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidDBSubnetGroupFault"
 
 -- | The DB subnet is not in the /available/ state.
-_InvalidDBSubnetStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDBSubnetStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidDBSubnetStateFault";
+_InvalidDBSubnetStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDBSubnetStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidDBSubnetStateFault"
 
 -- | /DBParameterGroupName/ does not refer to an existing DB parameter group.
-_DBParameterGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBParameterGroupNotFoundFault = _ServiceError . hasStatus 404 . hasCode "DBParameterGroupNotFound";
+_DBParameterGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBParameterGroupNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "DBParameterGroupNotFound"
 
 -- | SNS has responded that there is a problem with the SND topic specified.
-_SNSInvalidTopicFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SNSInvalidTopicFault = _ServiceError . hasStatus 400 . hasCode "SNSInvalidTopic";
+_SNSInvalidTopicFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SNSInvalidTopicFault =
+    _ServiceError . hasStatus 400 . hasCode "SNSInvalidTopic"
 
 -- | The supplied subscription name already exists.
-_SubscriptionAlreadyExistFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubscriptionAlreadyExistFault = _ServiceError . hasStatus 400 . hasCode "SubscriptionAlreadyExist";
+_SubscriptionAlreadyExistFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubscriptionAlreadyExistFault =
+    _ServiceError . hasStatus 400 . hasCode "SubscriptionAlreadyExist"
 
 -- | Specified DB instance class is not available in the specified
 -- Availability Zone.
-_InsufficientDBInstanceCapacityFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InsufficientDBInstanceCapacityFault = _ServiceError . hasStatus 400 . hasCode "InsufficientDBInstanceCapacity";
+_InsufficientDBInstanceCapacityFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientDBInstanceCapacityFault =
+    _ServiceError . hasStatus 400 . hasCode "InsufficientDBInstanceCapacity"
 
 -- | DB subnet group does not cover all Availability Zones after it is
 -- created because users\' change.
-_InvalidVPCNetworkStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidVPCNetworkStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidVPCNetworkStateFault";
+_InvalidVPCNetworkStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidVPCNetworkStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidVPCNetworkStateFault"
 
 -- | Specified CIDRIP or EC2 security group is not authorized for the
 -- specified DB security group.
 --
 -- RDS may not also be authorized via IAM to perform necessary actions on
 -- your behalf.
-_AuthorizationNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_AuthorizationNotFoundFault = _ServiceError . hasStatus 404 . hasCode "AuthorizationNotFound";
+_AuthorizationNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_AuthorizationNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "AuthorizationNotFound"
 
 -- | The specified reserved DB Instance not found.
-_ReservedDBInstanceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedDBInstanceNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ReservedDBInstanceNotFound";
+_ReservedDBInstanceNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedDBInstanceNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "ReservedDBInstanceNotFound"
 
 -- | Request would result in user exceeding the allowed number of DB subnet
 -- groups.
-_DBSubnetGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSubnetGroupQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "DBSubnetGroupQuotaExceeded";
+_DBSubnetGroupQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBSubnetGroupQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "DBSubnetGroupQuotaExceeded"
 
 -- | Indicates that the DBSubnetGroup should not be specified while creating
 -- read replicas that lie in the same region as the source instance.
-_DBSubnetGroupNotAllowedFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSubnetGroupNotAllowedFault = _ServiceError . hasStatus 400 . hasCode "DBSubnetGroupNotAllowedFault";
+_DBSubnetGroupNotAllowedFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBSubnetGroupNotAllowedFault =
+    _ServiceError . hasStatus 400 . hasCode "DBSubnetGroupNotAllowedFault"
 
 -- | You have reached the maximum number of event subscriptions.
-_EventSubscriptionQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_EventSubscriptionQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "EventSubscriptionQuotaExceeded";
+_EventSubscriptionQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_EventSubscriptionQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "EventSubscriptionQuotaExceeded"
 
 -- | The option group is not in the /available/ state.
-_InvalidOptionGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidOptionGroupStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidOptionGroupStateFault";
+_InvalidOptionGroupStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidOptionGroupStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidOptionGroupStateFault"
 
 -- | User already has a DB instance with the given identifier.
-_DBInstanceAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBInstanceAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "DBInstanceAlreadyExists";
+_DBInstanceAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBInstanceAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "DBInstanceAlreadyExists"
 
 -- | The specified resource ID was not found.
-_ResourceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundFault";
+_ResourceNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundFault"
 
 -- | The DB upgrade failed because a resource the DB depends on could not be
 -- modified.
-_DBUpgradeDependencyFailureFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBUpgradeDependencyFailureFault = _ServiceError . hasStatus 400 . hasCode "DBUpgradeDependencyFailure";
+_DBUpgradeDependencyFailureFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBUpgradeDependencyFailureFault =
+    _ServiceError . hasStatus 400 . hasCode "DBUpgradeDependencyFailure"
 
 -- | The state of the DB security group does not allow deletion.
-_InvalidDBSecurityGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDBSecurityGroupStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidDBSecurityGroupState";
+_InvalidDBSecurityGroupStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDBSecurityGroupStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidDBSecurityGroupState"
 
 -- | /DBSubnetGroupName/ does not refer to an existing DB subnet group.
-_DBSubnetGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSubnetGroupNotFoundFault = _ServiceError . hasStatus 404 . hasCode "DBSubnetGroupNotFoundFault";
+_DBSubnetGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBSubnetGroupNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "DBSubnetGroupNotFoundFault"
 
 -- | Cannot restore from vpc backup to non-vpc DB instance.
-_InvalidRestoreFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidRestoreFault = _ServiceError . hasStatus 400 . hasCode "InvalidRestoreFault";
+_InvalidRestoreFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRestoreFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidRestoreFault"
 
 -- | The specified DB instance is not in the /available/ state.
-_InvalidDBInstanceStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDBInstanceStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidDBInstanceState";
+_InvalidDBInstanceStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDBInstanceStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidDBInstanceState"
 
 -- | The state of the DB snapshot does not allow deletion.
-_InvalidDBSnapshotStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDBSnapshotStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidDBSnapshotState";
+_InvalidDBSnapshotStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDBSnapshotStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidDBSnapshotState"
 
 -- | The DB subnet group cannot be deleted because it is in use.
-_InvalidDBSubnetGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDBSubnetGroupStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidDBSubnetGroupStateFault";
+_InvalidDBSubnetGroupStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDBSubnetGroupStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidDBSubnetGroupStateFault"
 
 -- | Request would result in user exceeding the allowed amount of storage
 -- available across all DB instances.
-_StorageQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_StorageQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "StorageQuotaExceeded";
+_StorageQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_StorageQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "StorageQuotaExceeded"
 
 -- | /DBSnapshotIdentifier/ is already used by an existing snapshot.
-_DBSnapshotAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSnapshotAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "DBSnapshotAlreadyExists";
+_DBSnapshotAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBSnapshotAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "DBSnapshotAlreadyExists"
 
 -- | /DBInstanceIdentifier/ does not refer to an existing DB instance.
-_DBInstanceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBInstanceNotFoundFault = _ServiceError . hasStatus 404 . hasCode "DBInstanceNotFound";
+_DBInstanceNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBInstanceNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "DBInstanceNotFound"
 
 -- | The DB subnet is already in use in the Availability Zone.
-_SubnetAlreadyInUse :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubnetAlreadyInUse = _ServiceError . hasStatus 400 . hasCode "SubnetAlreadyInUse";
+_SubnetAlreadyInUse :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubnetAlreadyInUse =
+    _ServiceError . hasStatus 400 . hasCode "SubnetAlreadyInUse"
 
 -- | Subnets in the DB subnet group should cover at least two Availability
 -- Zones unless there is only one Availability Zone.
-_DBSubnetGroupDoesNotCoverEnoughAZs :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSubnetGroupDoesNotCoverEnoughAZs = _ServiceError . hasStatus 400 . hasCode "DBSubnetGroupDoesNotCoverEnoughAZs";
+_DBSubnetGroupDoesNotCoverEnoughAZs :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBSubnetGroupDoesNotCoverEnoughAZs =
+    _ServiceError .
+    hasStatus 400 . hasCode "DBSubnetGroupDoesNotCoverEnoughAZs"
 
-data ApplyMethod = PendingReboot | Immediate deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ApplyMethod
+    = PendingReboot
+    | Immediate
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ApplyMethod where
     parser = takeLowerText >>= \case
@@ -819,7 +884,12 @@ instance ToHeader ApplyMethod
 instance FromXML ApplyMethod where
     parseXML = parseXMLText "ApplyMethod"
 
-data SourceType = DBSecurityGroup | DBSnapshot | DBParameterGroup | DBInstance deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SourceType
+    = DBSecurityGroup
+    | DBSnapshot
+    | DBParameterGroup
+    | DBInstance
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
@@ -855,11 +925,20 @@ instance FromXML SourceType where
 -- * 'aqUsed'
 --
 -- * 'aqAccountQuotaName'
-data AccountQuota = AccountQuota'{_aqMax :: Maybe Integer, _aqUsed :: Maybe Integer, _aqAccountQuotaName :: Maybe Text} deriving (Eq, Read, Show)
+data AccountQuota = AccountQuota'
+    { _aqMax              :: Maybe Integer
+    , _aqUsed             :: Maybe Integer
+    , _aqAccountQuotaName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AccountQuota' smart constructor.
 accountQuota :: AccountQuota
-accountQuota = AccountQuota'{_aqMax = Nothing, _aqUsed = Nothing, _aqAccountQuotaName = Nothing};
+accountQuota =
+    AccountQuota'
+    { _aqMax = Nothing
+    , _aqUsed = Nothing
+    , _aqAccountQuotaName = Nothing
+    }
 
 -- | The maximum allowed value for the quota.
 aqMax :: Lens' AccountQuota (Maybe Integer)
@@ -890,11 +969,16 @@ instance FromXML AccountQuota where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'azName'
-newtype AvailabilityZone = AvailabilityZone'{_azName :: Maybe Text} deriving (Eq, Read, Show)
+newtype AvailabilityZone = AvailabilityZone'
+    { _azName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AvailabilityZone' smart constructor.
 availabilityZone :: AvailabilityZone
-availabilityZone = AvailabilityZone'{_azName = Nothing};
+availabilityZone =
+    AvailabilityZone'
+    { _azName = Nothing
+    }
 
 -- | The name of the availability zone.
 azName :: Lens' AvailabilityZone (Maybe Text)
@@ -918,11 +1002,24 @@ instance FromXML AvailabilityZone where
 -- * 'cerThumbprint'
 --
 -- * 'cerValidFrom'
-data Certificate = Certificate'{_cerCertificateType :: Maybe Text, _cerValidTill :: Maybe ISO8601, _cerCertificateIdentifier :: Maybe Text, _cerThumbprint :: Maybe Text, _cerValidFrom :: Maybe ISO8601} deriving (Eq, Read, Show)
+data Certificate = Certificate'
+    { _cerCertificateType       :: Maybe Text
+    , _cerValidTill             :: Maybe ISO8601
+    , _cerCertificateIdentifier :: Maybe Text
+    , _cerThumbprint            :: Maybe Text
+    , _cerValidFrom             :: Maybe ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'Certificate' smart constructor.
 certificate :: Certificate
-certificate = Certificate'{_cerCertificateType = Nothing, _cerValidTill = Nothing, _cerCertificateIdentifier = Nothing, _cerThumbprint = Nothing, _cerValidFrom = Nothing};
+certificate =
+    Certificate'
+    { _cerCertificateType = Nothing
+    , _cerValidTill = Nothing
+    , _cerCertificateIdentifier = Nothing
+    , _cerThumbprint = Nothing
+    , _cerValidFrom = Nothing
+    }
 
 -- | The type of the certificate.
 cerCertificateType :: Lens' Certificate (Maybe Text)
@@ -962,11 +1059,18 @@ instance FromXML Certificate where
 -- * 'csCharacterSetName'
 --
 -- * 'csCharacterSetDescription'
-data CharacterSet = CharacterSet'{_csCharacterSetName :: Maybe Text, _csCharacterSetDescription :: Maybe Text} deriving (Eq, Read, Show)
+data CharacterSet = CharacterSet'
+    { _csCharacterSetName        :: Maybe Text
+    , _csCharacterSetDescription :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CharacterSet' smart constructor.
 characterSet :: CharacterSet
-characterSet = CharacterSet'{_csCharacterSetName = Nothing, _csCharacterSetDescription = Nothing};
+characterSet =
+    CharacterSet'
+    { _csCharacterSetName = Nothing
+    , _csCharacterSetDescription = Nothing
+    }
 
 -- | The name of the character set.
 csCharacterSetName :: Lens' CharacterSet (Maybe Text)
@@ -1002,11 +1106,28 @@ instance FromXML CharacterSet where
 -- * 'devDBParameterGroupFamily'
 --
 -- * 'devDBEngineDescription'
-data DBEngineVersion = DBEngineVersion'{_devDBEngineVersionDescription :: Maybe Text, _devEngineVersion :: Maybe Text, _devDefaultCharacterSet :: Maybe CharacterSet, _devSupportedCharacterSets :: Maybe [CharacterSet], _devEngine :: Maybe Text, _devDBParameterGroupFamily :: Maybe Text, _devDBEngineDescription :: Maybe Text} deriving (Eq, Read, Show)
+data DBEngineVersion = DBEngineVersion'
+    { _devDBEngineVersionDescription :: Maybe Text
+    , _devEngineVersion              :: Maybe Text
+    , _devDefaultCharacterSet        :: Maybe CharacterSet
+    , _devSupportedCharacterSets     :: Maybe [CharacterSet]
+    , _devEngine                     :: Maybe Text
+    , _devDBParameterGroupFamily     :: Maybe Text
+    , _devDBEngineDescription        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DBEngineVersion' smart constructor.
 dbEngineVersion :: DBEngineVersion
-dbEngineVersion = DBEngineVersion'{_devDBEngineVersionDescription = Nothing, _devEngineVersion = Nothing, _devDefaultCharacterSet = Nothing, _devSupportedCharacterSets = Nothing, _devEngine = Nothing, _devDBParameterGroupFamily = Nothing, _devDBEngineDescription = Nothing};
+dbEngineVersion =
+    DBEngineVersion'
+    { _devDBEngineVersionDescription = Nothing
+    , _devEngineVersion = Nothing
+    , _devDefaultCharacterSet = Nothing
+    , _devSupportedCharacterSets = Nothing
+    , _devEngine = Nothing
+    , _devDBParameterGroupFamily = Nothing
+    , _devDBEngineDescription = Nothing
+    }
 
 -- | The description of the database engine version.
 devDBEngineVersionDescription :: Lens' DBEngineVersion (Maybe Text)
@@ -1138,11 +1259,88 @@ instance FromXML DBEngineVersion where
 -- * 'diDBName'
 --
 -- * 'diStorageType'
-data DBInstance = DBInstance'{_diDBSecurityGroups :: Maybe [DBSecurityGroupMembership], _diEngineVersion :: Maybe Text, _diStorageEncrypted :: Maybe Bool, _diAutoMinorVersionUpgrade :: Maybe Bool, _diMasterUsername :: Maybe Text, _diPubliclyAccessible :: Maybe Bool, _diReadReplicaDBInstanceIdentifiers :: Maybe [Text], _diIOPS :: Maybe Int, _diInstanceCreateTime :: Maybe ISO8601, _diReadReplicaSourceDBInstanceIdentifier :: Maybe Text, _diEngine :: Maybe Text, _diLatestRestorableTime :: Maybe ISO8601, _diDBInstanceClass :: Maybe Text, _diLicenseModel :: Maybe Text, _diPreferredMaintenanceWindow :: Maybe Text, _diCharacterSetName :: Maybe Text, _diDBInstanceIdentifier :: Maybe Text, _diCACertificateIdentifier :: Maybe Text, _diPreferredBackupWindow :: Maybe Text, _diAvailabilityZone :: Maybe Text, _diVPCSecurityGroups :: Maybe [VPCSecurityGroupMembership], _diBackupRetentionPeriod :: Maybe Int, _diKMSKeyId :: Maybe Text, _diDBSubnetGroup :: Maybe DBSubnetGroup, _diMultiAZ :: Maybe Bool, _diSecondaryAvailabilityZone :: Maybe Text, _diOptionGroupMemberships :: Maybe [OptionGroupMembership], _diDBiResourceId :: Maybe Text, _diAllocatedStorage :: Maybe Int, _diEndpoint :: Maybe Endpoint, _diDBParameterGroups :: Maybe [DBParameterGroupStatus], _diTDECredentialARN :: Maybe Text, _diDBInstanceStatus :: Maybe Text, _diPendingModifiedValues :: Maybe PendingModifiedValues, _diStatusInfos :: Maybe [DBInstanceStatusInfo], _diDBName :: Maybe Text, _diStorageType :: Maybe Text} deriving (Eq, Read, Show)
+data DBInstance = DBInstance'
+    { _diDBSecurityGroups                      :: Maybe [DBSecurityGroupMembership]
+    , _diEngineVersion                         :: Maybe Text
+    , _diStorageEncrypted                      :: Maybe Bool
+    , _diAutoMinorVersionUpgrade               :: Maybe Bool
+    , _diMasterUsername                        :: Maybe Text
+    , _diPubliclyAccessible                    :: Maybe Bool
+    , _diReadReplicaDBInstanceIdentifiers      :: Maybe [Text]
+    , _diIOPS                                  :: Maybe Int
+    , _diInstanceCreateTime                    :: Maybe ISO8601
+    , _diReadReplicaSourceDBInstanceIdentifier :: Maybe Text
+    , _diEngine                                :: Maybe Text
+    , _diLatestRestorableTime                  :: Maybe ISO8601
+    , _diDBInstanceClass                       :: Maybe Text
+    , _diLicenseModel                          :: Maybe Text
+    , _diPreferredMaintenanceWindow            :: Maybe Text
+    , _diCharacterSetName                      :: Maybe Text
+    , _diDBInstanceIdentifier                  :: Maybe Text
+    , _diCACertificateIdentifier               :: Maybe Text
+    , _diPreferredBackupWindow                 :: Maybe Text
+    , _diAvailabilityZone                      :: Maybe Text
+    , _diVPCSecurityGroups                     :: Maybe [VPCSecurityGroupMembership]
+    , _diBackupRetentionPeriod                 :: Maybe Int
+    , _diKMSKeyId                              :: Maybe Text
+    , _diDBSubnetGroup                         :: Maybe DBSubnetGroup
+    , _diMultiAZ                               :: Maybe Bool
+    , _diSecondaryAvailabilityZone             :: Maybe Text
+    , _diOptionGroupMemberships                :: Maybe [OptionGroupMembership]
+    , _diDBiResourceId                         :: Maybe Text
+    , _diAllocatedStorage                      :: Maybe Int
+    , _diEndpoint                              :: Maybe Endpoint
+    , _diDBParameterGroups                     :: Maybe [DBParameterGroupStatus]
+    , _diTDECredentialARN                      :: Maybe Text
+    , _diDBInstanceStatus                      :: Maybe Text
+    , _diPendingModifiedValues                 :: Maybe PendingModifiedValues
+    , _diStatusInfos                           :: Maybe [DBInstanceStatusInfo]
+    , _diDBName                                :: Maybe Text
+    , _diStorageType                           :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DBInstance' smart constructor.
 dbInstance :: DBInstance
-dbInstance = DBInstance'{_diDBSecurityGroups = Nothing, _diEngineVersion = Nothing, _diStorageEncrypted = Nothing, _diAutoMinorVersionUpgrade = Nothing, _diMasterUsername = Nothing, _diPubliclyAccessible = Nothing, _diReadReplicaDBInstanceIdentifiers = Nothing, _diIOPS = Nothing, _diInstanceCreateTime = Nothing, _diReadReplicaSourceDBInstanceIdentifier = Nothing, _diEngine = Nothing, _diLatestRestorableTime = Nothing, _diDBInstanceClass = Nothing, _diLicenseModel = Nothing, _diPreferredMaintenanceWindow = Nothing, _diCharacterSetName = Nothing, _diDBInstanceIdentifier = Nothing, _diCACertificateIdentifier = Nothing, _diPreferredBackupWindow = Nothing, _diAvailabilityZone = Nothing, _diVPCSecurityGroups = Nothing, _diBackupRetentionPeriod = Nothing, _diKMSKeyId = Nothing, _diDBSubnetGroup = Nothing, _diMultiAZ = Nothing, _diSecondaryAvailabilityZone = Nothing, _diOptionGroupMemberships = Nothing, _diDBiResourceId = Nothing, _diAllocatedStorage = Nothing, _diEndpoint = Nothing, _diDBParameterGroups = Nothing, _diTDECredentialARN = Nothing, _diDBInstanceStatus = Nothing, _diPendingModifiedValues = Nothing, _diStatusInfos = Nothing, _diDBName = Nothing, _diStorageType = Nothing};
+dbInstance =
+    DBInstance'
+    { _diDBSecurityGroups = Nothing
+    , _diEngineVersion = Nothing
+    , _diStorageEncrypted = Nothing
+    , _diAutoMinorVersionUpgrade = Nothing
+    , _diMasterUsername = Nothing
+    , _diPubliclyAccessible = Nothing
+    , _diReadReplicaDBInstanceIdentifiers = Nothing
+    , _diIOPS = Nothing
+    , _diInstanceCreateTime = Nothing
+    , _diReadReplicaSourceDBInstanceIdentifier = Nothing
+    , _diEngine = Nothing
+    , _diLatestRestorableTime = Nothing
+    , _diDBInstanceClass = Nothing
+    , _diLicenseModel = Nothing
+    , _diPreferredMaintenanceWindow = Nothing
+    , _diCharacterSetName = Nothing
+    , _diDBInstanceIdentifier = Nothing
+    , _diCACertificateIdentifier = Nothing
+    , _diPreferredBackupWindow = Nothing
+    , _diAvailabilityZone = Nothing
+    , _diVPCSecurityGroups = Nothing
+    , _diBackupRetentionPeriod = Nothing
+    , _diKMSKeyId = Nothing
+    , _diDBSubnetGroup = Nothing
+    , _diMultiAZ = Nothing
+    , _diSecondaryAvailabilityZone = Nothing
+    , _diOptionGroupMemberships = Nothing
+    , _diDBiResourceId = Nothing
+    , _diAllocatedStorage = Nothing
+    , _diEndpoint = Nothing
+    , _diDBParameterGroups = Nothing
+    , _diTDECredentialARN = Nothing
+    , _diDBInstanceStatus = Nothing
+    , _diPendingModifiedValues = Nothing
+    , _diStatusInfos = Nothing
+    , _diDBName = Nothing
+    , _diStorageType = Nothing
+    }
 
 -- | Provides List of DB security group elements containing only
 -- @DBSecurityGroup.Name@ and @DBSecurityGroup.Status@ subelements.
@@ -1417,11 +1615,22 @@ instance FromXML DBInstance where
 -- * 'disiStatusType'
 --
 -- * 'disiMessage'
-data DBInstanceStatusInfo = DBInstanceStatusInfo'{_disiStatus :: Maybe Text, _disiNormal :: Maybe Bool, _disiStatusType :: Maybe Text, _disiMessage :: Maybe Text} deriving (Eq, Read, Show)
+data DBInstanceStatusInfo = DBInstanceStatusInfo'
+    { _disiStatus     :: Maybe Text
+    , _disiNormal     :: Maybe Bool
+    , _disiStatusType :: Maybe Text
+    , _disiMessage    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DBInstanceStatusInfo' smart constructor.
 dbInstanceStatusInfo :: DBInstanceStatusInfo
-dbInstanceStatusInfo = DBInstanceStatusInfo'{_disiStatus = Nothing, _disiNormal = Nothing, _disiStatusType = Nothing, _disiMessage = Nothing};
+dbInstanceStatusInfo =
+    DBInstanceStatusInfo'
+    { _disiStatus = Nothing
+    , _disiNormal = Nothing
+    , _disiStatusType = Nothing
+    , _disiMessage = Nothing
+    }
 
 -- | Status of the DB instance. For a StatusType of read replica, the values
 -- can be replicating, error, stopped, or terminated.
@@ -1465,11 +1674,20 @@ instance FromXML DBInstanceStatusInfo where
 -- * 'dpgDBParameterGroupName'
 --
 -- * 'dpgDescription'
-data DBParameterGroup = DBParameterGroup'{_dpgDBParameterGroupFamily :: Maybe Text, _dpgDBParameterGroupName :: Maybe Text, _dpgDescription :: Maybe Text} deriving (Eq, Read, Show)
+data DBParameterGroup = DBParameterGroup'
+    { _dpgDBParameterGroupFamily :: Maybe Text
+    , _dpgDBParameterGroupName   :: Maybe Text
+    , _dpgDescription            :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DBParameterGroup' smart constructor.
 dbParameterGroup :: DBParameterGroup
-dbParameterGroup = DBParameterGroup'{_dpgDBParameterGroupFamily = Nothing, _dpgDBParameterGroupName = Nothing, _dpgDescription = Nothing};
+dbParameterGroup =
+    DBParameterGroup'
+    { _dpgDBParameterGroupFamily = Nothing
+    , _dpgDBParameterGroupName = Nothing
+    , _dpgDescription = Nothing
+    }
 
 -- | Provides the name of the DB parameter group family that this DB
 -- parameter group is compatible with.
@@ -1499,11 +1717,16 @@ instance FromXML DBParameterGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dpgnmDBParameterGroupName'
-newtype DBParameterGroupNameMessage = DBParameterGroupNameMessage'{_dpgnmDBParameterGroupName :: Maybe Text} deriving (Eq, Read, Show)
+newtype DBParameterGroupNameMessage = DBParameterGroupNameMessage'
+    { _dpgnmDBParameterGroupName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DBParameterGroupNameMessage' smart constructor.
 dbParameterGroupNameMessage :: DBParameterGroupNameMessage
-dbParameterGroupNameMessage = DBParameterGroupNameMessage'{_dpgnmDBParameterGroupName = Nothing};
+dbParameterGroupNameMessage =
+    DBParameterGroupNameMessage'
+    { _dpgnmDBParameterGroupName = Nothing
+    }
 
 -- | The name of the DB parameter group.
 dpgnmDBParameterGroupName :: Lens' DBParameterGroupNameMessage (Maybe Text)
@@ -1532,11 +1755,18 @@ instance FromXML DBParameterGroupNameMessage where
 -- * 'dpgsDBParameterGroupName'
 --
 -- * 'dpgsParameterApplyStatus'
-data DBParameterGroupStatus = DBParameterGroupStatus'{_dpgsDBParameterGroupName :: Maybe Text, _dpgsParameterApplyStatus :: Maybe Text} deriving (Eq, Read, Show)
+data DBParameterGroupStatus = DBParameterGroupStatus'
+    { _dpgsDBParameterGroupName :: Maybe Text
+    , _dpgsParameterApplyStatus :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DBParameterGroupStatus' smart constructor.
 dbParameterGroupStatus :: DBParameterGroupStatus
-dbParameterGroupStatus = DBParameterGroupStatus'{_dpgsDBParameterGroupName = Nothing, _dpgsParameterApplyStatus = Nothing};
+dbParameterGroupStatus =
+    DBParameterGroupStatus'
+    { _dpgsDBParameterGroupName = Nothing
+    , _dpgsParameterApplyStatus = Nothing
+    }
 
 -- | The name of the DP parameter group.
 dpgsDBParameterGroupName :: Lens' DBParameterGroupStatus (Maybe Text)
@@ -1577,11 +1807,26 @@ instance FromXML DBParameterGroupStatus where
 -- * 'dsgEC2SecurityGroups'
 --
 -- * 'dsgDBSecurityGroupDescription'
-data DBSecurityGroup = DBSecurityGroup'{_dsgVPCId :: Maybe Text, _dsgOwnerId :: Maybe Text, _dsgIPRanges :: Maybe [IPRange], _dsgDBSecurityGroupName :: Maybe Text, _dsgEC2SecurityGroups :: Maybe [EC2SecurityGroup], _dsgDBSecurityGroupDescription :: Maybe Text} deriving (Eq, Read, Show)
+data DBSecurityGroup = DBSecurityGroup'
+    { _dsgVPCId                      :: Maybe Text
+    , _dsgOwnerId                    :: Maybe Text
+    , _dsgIPRanges                   :: Maybe [IPRange]
+    , _dsgDBSecurityGroupName        :: Maybe Text
+    , _dsgEC2SecurityGroups          :: Maybe [EC2SecurityGroup]
+    , _dsgDBSecurityGroupDescription :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DBSecurityGroup' smart constructor.
 dbSecurityGroup :: DBSecurityGroup
-dbSecurityGroup = DBSecurityGroup'{_dsgVPCId = Nothing, _dsgOwnerId = Nothing, _dsgIPRanges = Nothing, _dsgDBSecurityGroupName = Nothing, _dsgEC2SecurityGroups = Nothing, _dsgDBSecurityGroupDescription = Nothing};
+dbSecurityGroup =
+    DBSecurityGroup'
+    { _dsgVPCId = Nothing
+    , _dsgOwnerId = Nothing
+    , _dsgIPRanges = Nothing
+    , _dsgDBSecurityGroupName = Nothing
+    , _dsgEC2SecurityGroups = Nothing
+    , _dsgDBSecurityGroupDescription = Nothing
+    }
 
 -- | Provides the VpcId of the DB security group.
 dsgVPCId :: Lens' DBSecurityGroup (Maybe Text)
@@ -1633,11 +1878,18 @@ instance FromXML DBSecurityGroup where
 -- * 'dsgmStatus'
 --
 -- * 'dsgmDBSecurityGroupName'
-data DBSecurityGroupMembership = DBSecurityGroupMembership'{_dsgmStatus :: Maybe Text, _dsgmDBSecurityGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data DBSecurityGroupMembership = DBSecurityGroupMembership'
+    { _dsgmStatus              :: Maybe Text
+    , _dsgmDBSecurityGroupName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DBSecurityGroupMembership' smart constructor.
 dbSecurityGroupMembership :: DBSecurityGroupMembership
-dbSecurityGroupMembership = DBSecurityGroupMembership'{_dsgmStatus = Nothing, _dsgmDBSecurityGroupName = Nothing};
+dbSecurityGroupMembership =
+    DBSecurityGroupMembership'
+    { _dsgmStatus = Nothing
+    , _dsgmDBSecurityGroupName = Nothing
+    }
 
 -- | The status of the DB security group.
 dsgmStatus :: Lens' DBSecurityGroupMembership (Maybe Text)
@@ -1707,11 +1959,58 @@ instance FromXML DBSecurityGroupMembership where
 -- * 'dsPort'
 --
 -- * 'dsStorageType'
-data DBSnapshot = DBSnapshot'{_dsEngineVersion :: Maybe Text, _dsStatus :: Maybe Text, _dsMasterUsername :: Maybe Text, _dsSourceRegion :: Maybe Text, _dsIOPS :: Maybe Int, _dsInstanceCreateTime :: Maybe ISO8601, _dsVPCId :: Maybe Text, _dsEngine :: Maybe Text, _dsEncrypted :: Maybe Bool, _dsDBSnapshotIdentifier :: Maybe Text, _dsLicenseModel :: Maybe Text, _dsSnapshotType :: Maybe Text, _dsDBInstanceIdentifier :: Maybe Text, _dsAvailabilityZone :: Maybe Text, _dsKMSKeyId :: Maybe Text, _dsSnapshotCreateTime :: Maybe ISO8601, _dsAllocatedStorage :: Maybe Int, _dsTDECredentialARN :: Maybe Text, _dsOptionGroupName :: Maybe Text, _dsPercentProgress :: Maybe Int, _dsPort :: Maybe Int, _dsStorageType :: Maybe Text} deriving (Eq, Read, Show)
+data DBSnapshot = DBSnapshot'
+    { _dsEngineVersion        :: Maybe Text
+    , _dsStatus               :: Maybe Text
+    , _dsMasterUsername       :: Maybe Text
+    , _dsSourceRegion         :: Maybe Text
+    , _dsIOPS                 :: Maybe Int
+    , _dsInstanceCreateTime   :: Maybe ISO8601
+    , _dsVPCId                :: Maybe Text
+    , _dsEngine               :: Maybe Text
+    , _dsEncrypted            :: Maybe Bool
+    , _dsDBSnapshotIdentifier :: Maybe Text
+    , _dsLicenseModel         :: Maybe Text
+    , _dsSnapshotType         :: Maybe Text
+    , _dsDBInstanceIdentifier :: Maybe Text
+    , _dsAvailabilityZone     :: Maybe Text
+    , _dsKMSKeyId             :: Maybe Text
+    , _dsSnapshotCreateTime   :: Maybe ISO8601
+    , _dsAllocatedStorage     :: Maybe Int
+    , _dsTDECredentialARN     :: Maybe Text
+    , _dsOptionGroupName      :: Maybe Text
+    , _dsPercentProgress      :: Maybe Int
+    , _dsPort                 :: Maybe Int
+    , _dsStorageType          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DBSnapshot' smart constructor.
 dbSnapshot :: DBSnapshot
-dbSnapshot = DBSnapshot'{_dsEngineVersion = Nothing, _dsStatus = Nothing, _dsMasterUsername = Nothing, _dsSourceRegion = Nothing, _dsIOPS = Nothing, _dsInstanceCreateTime = Nothing, _dsVPCId = Nothing, _dsEngine = Nothing, _dsEncrypted = Nothing, _dsDBSnapshotIdentifier = Nothing, _dsLicenseModel = Nothing, _dsSnapshotType = Nothing, _dsDBInstanceIdentifier = Nothing, _dsAvailabilityZone = Nothing, _dsKMSKeyId = Nothing, _dsSnapshotCreateTime = Nothing, _dsAllocatedStorage = Nothing, _dsTDECredentialARN = Nothing, _dsOptionGroupName = Nothing, _dsPercentProgress = Nothing, _dsPort = Nothing, _dsStorageType = Nothing};
+dbSnapshot =
+    DBSnapshot'
+    { _dsEngineVersion = Nothing
+    , _dsStatus = Nothing
+    , _dsMasterUsername = Nothing
+    , _dsSourceRegion = Nothing
+    , _dsIOPS = Nothing
+    , _dsInstanceCreateTime = Nothing
+    , _dsVPCId = Nothing
+    , _dsEngine = Nothing
+    , _dsEncrypted = Nothing
+    , _dsDBSnapshotIdentifier = Nothing
+    , _dsLicenseModel = Nothing
+    , _dsSnapshotType = Nothing
+    , _dsDBInstanceIdentifier = Nothing
+    , _dsAvailabilityZone = Nothing
+    , _dsKMSKeyId = Nothing
+    , _dsSnapshotCreateTime = Nothing
+    , _dsAllocatedStorage = Nothing
+    , _dsTDECredentialARN = Nothing
+    , _dsOptionGroupName = Nothing
+    , _dsPercentProgress = Nothing
+    , _dsPort = Nothing
+    , _dsStorageType = Nothing
+    }
 
 -- | Specifies the version of the database engine.
 dsEngineVersion :: Lens' DBSnapshot (Maybe Text)
@@ -1855,11 +2154,24 @@ instance FromXML DBSnapshot where
 -- * 'dbsDBSubnetGroupDescription'
 --
 -- * 'dbsSubnetGroupStatus'
-data DBSubnetGroup = DBSubnetGroup'{_dbsDBSubnetGroupName :: Maybe Text, _dbsVPCId :: Maybe Text, _dbsSubnets :: Maybe [Subnet], _dbsDBSubnetGroupDescription :: Maybe Text, _dbsSubnetGroupStatus :: Maybe Text} deriving (Eq, Read, Show)
+data DBSubnetGroup = DBSubnetGroup'
+    { _dbsDBSubnetGroupName        :: Maybe Text
+    , _dbsVPCId                    :: Maybe Text
+    , _dbsSubnets                  :: Maybe [Subnet]
+    , _dbsDBSubnetGroupDescription :: Maybe Text
+    , _dbsSubnetGroupStatus        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DBSubnetGroup' smart constructor.
 dbSubnetGroup :: DBSubnetGroup
-dbSubnetGroup = DBSubnetGroup'{_dbsDBSubnetGroupName = Nothing, _dbsVPCId = Nothing, _dbsSubnets = Nothing, _dbsDBSubnetGroupDescription = Nothing, _dbsSubnetGroupStatus = Nothing};
+dbSubnetGroup =
+    DBSubnetGroup'
+    { _dbsDBSubnetGroupName = Nothing
+    , _dbsVPCId = Nothing
+    , _dbsSubnets = Nothing
+    , _dbsDBSubnetGroupDescription = Nothing
+    , _dbsSubnetGroupStatus = Nothing
+    }
 
 -- | Specifies the name of the DB subnet group.
 dbsDBSubnetGroupName :: Lens' DBSubnetGroup (Maybe Text)
@@ -1901,11 +2213,20 @@ instance FromXML DBSubnetGroup where
 -- * 'ddlfdSize'
 --
 -- * 'ddlfdLogFileName'
-data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails'{_ddlfdLastWritten :: Maybe Integer, _ddlfdSize :: Maybe Integer, _ddlfdLogFileName :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails'
+    { _ddlfdLastWritten :: Maybe Integer
+    , _ddlfdSize        :: Maybe Integer
+    , _ddlfdLogFileName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBLogFilesDetails' smart constructor.
 describeDBLogFilesDetails :: DescribeDBLogFilesDetails
-describeDBLogFilesDetails = DescribeDBLogFilesDetails'{_ddlfdLastWritten = Nothing, _ddlfdSize = Nothing, _ddlfdLogFileName = Nothing};
+describeDBLogFilesDetails =
+    DescribeDBLogFilesDetails'
+    { _ddlfdLastWritten = Nothing
+    , _ddlfdSize = Nothing
+    , _ddlfdLogFileName = Nothing
+    }
 
 -- | A POSIX timestamp when the last log entry was written.
 ddlfdLastWritten :: Lens' DescribeDBLogFilesDetails (Maybe Integer)
@@ -1942,11 +2263,22 @@ instance FromXML DescribeDBLogFilesDetails where
 -- * 'esgEC2SecurityGroupName'
 --
 -- * 'esgEC2SecurityGroupId'
-data EC2SecurityGroup = EC2SecurityGroup'{_esgStatus :: Maybe Text, _esgEC2SecurityGroupOwnerId :: Maybe Text, _esgEC2SecurityGroupName :: Maybe Text, _esgEC2SecurityGroupId :: Maybe Text} deriving (Eq, Read, Show)
+data EC2SecurityGroup = EC2SecurityGroup'
+    { _esgStatus                  :: Maybe Text
+    , _esgEC2SecurityGroupOwnerId :: Maybe Text
+    , _esgEC2SecurityGroupName    :: Maybe Text
+    , _esgEC2SecurityGroupId      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EC2SecurityGroup' smart constructor.
 ec2SecurityGroup :: EC2SecurityGroup
-ec2SecurityGroup = EC2SecurityGroup'{_esgStatus = Nothing, _esgEC2SecurityGroupOwnerId = Nothing, _esgEC2SecurityGroupName = Nothing, _esgEC2SecurityGroupId = Nothing};
+ec2SecurityGroup =
+    EC2SecurityGroup'
+    { _esgStatus = Nothing
+    , _esgEC2SecurityGroupOwnerId = Nothing
+    , _esgEC2SecurityGroupName = Nothing
+    , _esgEC2SecurityGroupId = Nothing
+    }
 
 -- | Provides the status of the EC2 security group. Status can be
 -- \"authorizing\", \"authorized\", \"revoking\", and \"revoked\".
@@ -1987,11 +2319,18 @@ instance FromXML EC2SecurityGroup where
 -- * 'endAddress'
 --
 -- * 'endPort'
-data Endpoint = Endpoint'{_endAddress :: Maybe Text, _endPort :: Maybe Int} deriving (Eq, Read, Show)
+data Endpoint = Endpoint'
+    { _endAddress :: Maybe Text
+    , _endPort    :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'Endpoint' smart constructor.
 endpoint :: Endpoint
-endpoint = Endpoint'{_endAddress = Nothing, _endPort = Nothing};
+endpoint =
+    Endpoint'
+    { _endAddress = Nothing
+    , _endPort = Nothing
+    }
 
 -- | Specifies the DNS address of the DB instance.
 endAddress :: Lens' Endpoint (Maybe Text)
@@ -2017,11 +2356,20 @@ instance FromXML Endpoint where
 -- * 'edParameters'
 --
 -- * 'edMarker'
-data EngineDefaults = EngineDefaults'{_edDBParameterGroupFamily :: Maybe Text, _edParameters :: Maybe [Parameter], _edMarker :: Maybe Text} deriving (Eq, Read, Show)
+data EngineDefaults = EngineDefaults'
+    { _edDBParameterGroupFamily :: Maybe Text
+    , _edParameters             :: Maybe [Parameter]
+    , _edMarker                 :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EngineDefaults' smart constructor.
 engineDefaults :: EngineDefaults
-engineDefaults = EngineDefaults'{_edDBParameterGroupFamily = Nothing, _edParameters = Nothing, _edMarker = Nothing};
+engineDefaults =
+    EngineDefaults'
+    { _edDBParameterGroupFamily = Nothing
+    , _edParameters = Nothing
+    , _edMarker = Nothing
+    }
 
 -- | Specifies the name of the DB parameter group family which the engine
 -- default parameters apply to.
@@ -2062,11 +2410,24 @@ instance FromXML EngineDefaults where
 -- * 'eveEventCategories'
 --
 -- * 'eveMessage'
-data Event = Event'{_eveSourceType :: Maybe SourceType, _eveSourceIdentifier :: Maybe Text, _eveDate :: Maybe ISO8601, _eveEventCategories :: Maybe [Text], _eveMessage :: Maybe Text} deriving (Eq, Read, Show)
+data Event = Event'
+    { _eveSourceType       :: Maybe SourceType
+    , _eveSourceIdentifier :: Maybe Text
+    , _eveDate             :: Maybe ISO8601
+    , _eveEventCategories  :: Maybe [Text]
+    , _eveMessage          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Event' smart constructor.
 event :: Event
-event = Event'{_eveSourceType = Nothing, _eveSourceIdentifier = Nothing, _eveDate = Nothing, _eveEventCategories = Nothing, _eveMessage = Nothing};
+event =
+    Event'
+    { _eveSourceType = Nothing
+    , _eveSourceIdentifier = Nothing
+    , _eveDate = Nothing
+    , _eveEventCategories = Nothing
+    , _eveMessage = Nothing
+    }
 
 -- | Specifies the source type for this event.
 eveSourceType :: Lens' Event (Maybe SourceType)
@@ -2108,11 +2469,18 @@ instance FromXML Event where
 -- * 'ecmSourceType'
 --
 -- * 'ecmEventCategories'
-data EventCategoriesMap = EventCategoriesMap'{_ecmSourceType :: Maybe Text, _ecmEventCategories :: Maybe [Text]} deriving (Eq, Read, Show)
+data EventCategoriesMap = EventCategoriesMap'
+    { _ecmSourceType      :: Maybe Text
+    , _ecmEventCategories :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'EventCategoriesMap' smart constructor.
 eventCategoriesMap :: EventCategoriesMap
-eventCategoriesMap = EventCategoriesMap'{_ecmSourceType = Nothing, _ecmEventCategories = Nothing};
+eventCategoriesMap =
+    EventCategoriesMap'
+    { _ecmSourceType = Nothing
+    , _ecmEventCategories = Nothing
+    }
 
 -- | The source type that the returned categories belong to
 ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
@@ -2153,11 +2521,32 @@ instance FromXML EventCategoriesMap where
 -- * 'esEventCategoriesList'
 --
 -- * 'esSourceIdsList'
-data EventSubscription = EventSubscription'{_esCustomerAWSId :: Maybe Text, _esStatus :: Maybe Text, _esCustSubscriptionId :: Maybe Text, _esSNSTopicARN :: Maybe Text, _esEnabled :: Maybe Bool, _esSourceType :: Maybe Text, _esSubscriptionCreationTime :: Maybe Text, _esEventCategoriesList :: Maybe [Text], _esSourceIdsList :: Maybe [Text]} deriving (Eq, Read, Show)
+data EventSubscription = EventSubscription'
+    { _esCustomerAWSId            :: Maybe Text
+    , _esStatus                   :: Maybe Text
+    , _esCustSubscriptionId       :: Maybe Text
+    , _esSNSTopicARN              :: Maybe Text
+    , _esEnabled                  :: Maybe Bool
+    , _esSourceType               :: Maybe Text
+    , _esSubscriptionCreationTime :: Maybe Text
+    , _esEventCategoriesList      :: Maybe [Text]
+    , _esSourceIdsList            :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'EventSubscription' smart constructor.
 eventSubscription :: EventSubscription
-eventSubscription = EventSubscription'{_esCustomerAWSId = Nothing, _esStatus = Nothing, _esCustSubscriptionId = Nothing, _esSNSTopicARN = Nothing, _esEnabled = Nothing, _esSourceType = Nothing, _esSubscriptionCreationTime = Nothing, _esEventCategoriesList = Nothing, _esSourceIdsList = Nothing};
+eventSubscription =
+    EventSubscription'
+    { _esCustomerAWSId = Nothing
+    , _esStatus = Nothing
+    , _esCustSubscriptionId = Nothing
+    , _esSNSTopicARN = Nothing
+    , _esEnabled = Nothing
+    , _esSourceType = Nothing
+    , _esSubscriptionCreationTime = Nothing
+    , _esEventCategoriesList = Nothing
+    , _esSourceIdsList = Nothing
+    }
 
 -- | The AWS customer account associated with the RDS event notification
 -- subscription.
@@ -2229,11 +2618,18 @@ instance FromXML EventSubscription where
 -- * 'filName'
 --
 -- * 'filValues'
-data Filter = Filter'{_filName :: Text, _filValues :: [Text]} deriving (Eq, Read, Show)
+data Filter = Filter'
+    { _filName   :: Text
+    , _filValues :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'Filter' smart constructor.
 filter' :: Text -> Filter
-filter' pName = Filter'{_filName = pName, _filValues = mempty};
+filter' pName =
+    Filter'
+    { _filName = pName
+    , _filValues = mempty
+    }
 
 -- | This parameter is not currently supported.
 filName :: Lens' Filter Text
@@ -2259,11 +2655,18 @@ instance ToQuery Filter where
 -- * 'irStatus'
 --
 -- * 'irCIDRIP'
-data IPRange = IPRange'{_irStatus :: Maybe Text, _irCIDRIP :: Maybe Text} deriving (Eq, Read, Show)
+data IPRange = IPRange'
+    { _irStatus :: Maybe Text
+    , _irCIDRIP :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'IPRange' smart constructor.
 ipRange :: IPRange
-ipRange = IPRange'{_irStatus = Nothing, _irCIDRIP = Nothing};
+ipRange =
+    IPRange'
+    { _irStatus = Nothing
+    , _irCIDRIP = Nothing
+    }
 
 -- | Specifies the status of the IP range. Status can be \"authorizing\",
 -- \"authorized\", \"revoking\", and \"revoked\".
@@ -2299,11 +2702,30 @@ instance FromXML IPRange where
 -- * 'optDBSecurityGroupMemberships'
 --
 -- * 'optPort'
-data Option = Option'{_optOptionName :: Maybe Text, _optPermanent :: Maybe Bool, _optPersistent :: Maybe Bool, _optOptionDescription :: Maybe Text, _optOptionSettings :: Maybe [OptionSetting], _optVPCSecurityGroupMemberships :: Maybe [VPCSecurityGroupMembership], _optDBSecurityGroupMemberships :: Maybe [DBSecurityGroupMembership], _optPort :: Maybe Int} deriving (Eq, Read, Show)
+data Option = Option'
+    { _optOptionName                  :: Maybe Text
+    , _optPermanent                   :: Maybe Bool
+    , _optPersistent                  :: Maybe Bool
+    , _optOptionDescription           :: Maybe Text
+    , _optOptionSettings              :: Maybe [OptionSetting]
+    , _optVPCSecurityGroupMemberships :: Maybe [VPCSecurityGroupMembership]
+    , _optDBSecurityGroupMemberships  :: Maybe [DBSecurityGroupMembership]
+    , _optPort                        :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'Option' smart constructor.
 option :: Option
-option = Option'{_optOptionName = Nothing, _optPermanent = Nothing, _optPersistent = Nothing, _optOptionDescription = Nothing, _optOptionSettings = Nothing, _optVPCSecurityGroupMemberships = Nothing, _optDBSecurityGroupMemberships = Nothing, _optPort = Nothing};
+option =
+    Option'
+    { _optOptionName = Nothing
+    , _optPermanent = Nothing
+    , _optPersistent = Nothing
+    , _optOptionDescription = Nothing
+    , _optOptionSettings = Nothing
+    , _optVPCSecurityGroupMemberships = Nothing
+    , _optDBSecurityGroupMemberships = Nothing
+    , _optPort = Nothing
+    }
 
 -- | The name of the option.
 optOptionName :: Lens' Option (Maybe Text)
@@ -2371,11 +2793,24 @@ instance FromXML Option where
 -- * 'ocPort'
 --
 -- * 'ocOptionName'
-data OptionConfiguration = OptionConfiguration'{_ocOptionSettings :: Maybe [OptionSetting], _ocVPCSecurityGroupMemberships :: Maybe [Text], _ocDBSecurityGroupMemberships :: Maybe [Text], _ocPort :: Maybe Int, _ocOptionName :: Text} deriving (Eq, Read, Show)
+data OptionConfiguration = OptionConfiguration'
+    { _ocOptionSettings              :: Maybe [OptionSetting]
+    , _ocVPCSecurityGroupMemberships :: Maybe [Text]
+    , _ocDBSecurityGroupMemberships  :: Maybe [Text]
+    , _ocPort                        :: Maybe Int
+    , _ocOptionName                  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'OptionConfiguration' smart constructor.
 optionConfiguration :: Text -> OptionConfiguration
-optionConfiguration pOptionName = OptionConfiguration'{_ocOptionSettings = Nothing, _ocVPCSecurityGroupMemberships = Nothing, _ocDBSecurityGroupMemberships = Nothing, _ocPort = Nothing, _ocOptionName = pOptionName};
+optionConfiguration pOptionName =
+    OptionConfiguration'
+    { _ocOptionSettings = Nothing
+    , _ocVPCSecurityGroupMemberships = Nothing
+    , _ocDBSecurityGroupMemberships = Nothing
+    , _ocPort = Nothing
+    , _ocOptionName = pOptionName
+    }
 
 -- | The option settings to include in an option group.
 ocOptionSettings :: Lens' OptionConfiguration [OptionSetting]
@@ -2432,11 +2867,28 @@ instance ToQuery OptionConfiguration where
 -- * 'ogOptions'
 --
 -- * 'ogOptionGroupName'
-data OptionGroup = OptionGroup'{_ogOptionGroupDescription :: Maybe Text, _ogVPCId :: Maybe Text, _ogAllowsVPCAndNonVPCInstanceMemberships :: Maybe Bool, _ogEngineName :: Maybe Text, _ogMajorEngineVersion :: Maybe Text, _ogOptions :: Maybe [Option], _ogOptionGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data OptionGroup = OptionGroup'
+    { _ogOptionGroupDescription                :: Maybe Text
+    , _ogVPCId                                 :: Maybe Text
+    , _ogAllowsVPCAndNonVPCInstanceMemberships :: Maybe Bool
+    , _ogEngineName                            :: Maybe Text
+    , _ogMajorEngineVersion                    :: Maybe Text
+    , _ogOptions                               :: Maybe [Option]
+    , _ogOptionGroupName                       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'OptionGroup' smart constructor.
 optionGroup :: OptionGroup
-optionGroup = OptionGroup'{_ogOptionGroupDescription = Nothing, _ogVPCId = Nothing, _ogAllowsVPCAndNonVPCInstanceMemberships = Nothing, _ogEngineName = Nothing, _ogMajorEngineVersion = Nothing, _ogOptions = Nothing, _ogOptionGroupName = Nothing};
+optionGroup =
+    OptionGroup'
+    { _ogOptionGroupDescription = Nothing
+    , _ogVPCId = Nothing
+    , _ogAllowsVPCAndNonVPCInstanceMemberships = Nothing
+    , _ogEngineName = Nothing
+    , _ogMajorEngineVersion = Nothing
+    , _ogOptions = Nothing
+    , _ogOptionGroupName = Nothing
+    }
 
 -- | Provides a description of the option group.
 ogOptionGroupDescription :: Lens' OptionGroup (Maybe Text)
@@ -2495,11 +2947,18 @@ instance FromXML OptionGroup where
 -- * 'ogmStatus'
 --
 -- * 'ogmOptionGroupName'
-data OptionGroupMembership = OptionGroupMembership'{_ogmStatus :: Maybe Text, _ogmOptionGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data OptionGroupMembership = OptionGroupMembership'
+    { _ogmStatus          :: Maybe Text
+    , _ogmOptionGroupName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'OptionGroupMembership' smart constructor.
 optionGroupMembership :: OptionGroupMembership
-optionGroupMembership = OptionGroupMembership'{_ogmStatus = Nothing, _ogmOptionGroupName = Nothing};
+optionGroupMembership =
+    OptionGroupMembership'
+    { _ogmStatus = Nothing
+    , _ogmOptionGroupName = Nothing
+    }
 
 -- | The status of the DB instance\'s option group membership (e.g. in-sync,
 -- pending, pending-maintenance, applying).
@@ -2542,11 +3001,36 @@ instance FromXML OptionGroupMembership where
 -- * 'ogoOptionsDependedOn'
 --
 -- * 'ogoDescription'
-data OptionGroupOption = OptionGroupOption'{_ogoMinimumRequiredMinorEngineVersion :: Maybe Text, _ogoPermanent :: Maybe Bool, _ogoPersistent :: Maybe Bool, _ogoEngineName :: Maybe Text, _ogoName :: Maybe Text, _ogoMajorEngineVersion :: Maybe Text, _ogoDefaultPort :: Maybe Int, _ogoOptionGroupOptionSettings :: Maybe [OptionGroupOptionSetting], _ogoPortRequired :: Maybe Bool, _ogoOptionsDependedOn :: Maybe [Text], _ogoDescription :: Maybe Text} deriving (Eq, Read, Show)
+data OptionGroupOption = OptionGroupOption'
+    { _ogoMinimumRequiredMinorEngineVersion :: Maybe Text
+    , _ogoPermanent                         :: Maybe Bool
+    , _ogoPersistent                        :: Maybe Bool
+    , _ogoEngineName                        :: Maybe Text
+    , _ogoName                              :: Maybe Text
+    , _ogoMajorEngineVersion                :: Maybe Text
+    , _ogoDefaultPort                       :: Maybe Int
+    , _ogoOptionGroupOptionSettings         :: Maybe [OptionGroupOptionSetting]
+    , _ogoPortRequired                      :: Maybe Bool
+    , _ogoOptionsDependedOn                 :: Maybe [Text]
+    , _ogoDescription                       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'OptionGroupOption' smart constructor.
 optionGroupOption :: OptionGroupOption
-optionGroupOption = OptionGroupOption'{_ogoMinimumRequiredMinorEngineVersion = Nothing, _ogoPermanent = Nothing, _ogoPersistent = Nothing, _ogoEngineName = Nothing, _ogoName = Nothing, _ogoMajorEngineVersion = Nothing, _ogoDefaultPort = Nothing, _ogoOptionGroupOptionSettings = Nothing, _ogoPortRequired = Nothing, _ogoOptionsDependedOn = Nothing, _ogoDescription = Nothing};
+optionGroupOption =
+    OptionGroupOption'
+    { _ogoMinimumRequiredMinorEngineVersion = Nothing
+    , _ogoPermanent = Nothing
+    , _ogoPersistent = Nothing
+    , _ogoEngineName = Nothing
+    , _ogoName = Nothing
+    , _ogoMajorEngineVersion = Nothing
+    , _ogoDefaultPort = Nothing
+    , _ogoOptionGroupOptionSettings = Nothing
+    , _ogoPortRequired = Nothing
+    , _ogoOptionsDependedOn = Nothing
+    , _ogoDescription = Nothing
+    }
 
 -- | The minimum required engine version for the option to be applied.
 ogoMinimumRequiredMinorEngineVersion :: Lens' OptionGroupOption (Maybe Text)
@@ -2637,11 +3121,26 @@ instance FromXML OptionGroupOption where
 -- * 'ogosAllowedValues'
 --
 -- * 'ogosSettingDescription'
-data OptionGroupOptionSetting = OptionGroupOptionSetting'{_ogosApplyType :: Maybe Text, _ogosSettingName :: Maybe Text, _ogosDefaultValue :: Maybe Text, _ogosIsModifiable :: Maybe Bool, _ogosAllowedValues :: Maybe Text, _ogosSettingDescription :: Maybe Text} deriving (Eq, Read, Show)
+data OptionGroupOptionSetting = OptionGroupOptionSetting'
+    { _ogosApplyType          :: Maybe Text
+    , _ogosSettingName        :: Maybe Text
+    , _ogosDefaultValue       :: Maybe Text
+    , _ogosIsModifiable       :: Maybe Bool
+    , _ogosAllowedValues      :: Maybe Text
+    , _ogosSettingDescription :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'OptionGroupOptionSetting' smart constructor.
 optionGroupOptionSetting :: OptionGroupOptionSetting
-optionGroupOptionSetting = OptionGroupOptionSetting'{_ogosApplyType = Nothing, _ogosSettingName = Nothing, _ogosDefaultValue = Nothing, _ogosIsModifiable = Nothing, _ogosAllowedValues = Nothing, _ogosSettingDescription = Nothing};
+optionGroupOptionSetting =
+    OptionGroupOptionSetting'
+    { _ogosApplyType = Nothing
+    , _ogosSettingName = Nothing
+    , _ogosDefaultValue = Nothing
+    , _ogosIsModifiable = Nothing
+    , _ogosAllowedValues = Nothing
+    , _ogosSettingDescription = Nothing
+    }
 
 -- | The DB engine specific parameter type for the option group option.
 ogosApplyType :: Lens' OptionGroupOptionSetting (Maybe Text)
@@ -2704,11 +3203,32 @@ instance FromXML OptionGroupOptionSetting where
 -- * 'osDataType'
 --
 -- * 'osDescription'
-data OptionSetting = OptionSetting'{_osIsCollection :: Maybe Bool, _osApplyType :: Maybe Text, _osValue :: Maybe Text, _osName :: Maybe Text, _osDefaultValue :: Maybe Text, _osIsModifiable :: Maybe Bool, _osAllowedValues :: Maybe Text, _osDataType :: Maybe Text, _osDescription :: Maybe Text} deriving (Eq, Read, Show)
+data OptionSetting = OptionSetting'
+    { _osIsCollection  :: Maybe Bool
+    , _osApplyType     :: Maybe Text
+    , _osValue         :: Maybe Text
+    , _osName          :: Maybe Text
+    , _osDefaultValue  :: Maybe Text
+    , _osIsModifiable  :: Maybe Bool
+    , _osAllowedValues :: Maybe Text
+    , _osDataType      :: Maybe Text
+    , _osDescription   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'OptionSetting' smart constructor.
 optionSetting :: OptionSetting
-optionSetting = OptionSetting'{_osIsCollection = Nothing, _osApplyType = Nothing, _osValue = Nothing, _osName = Nothing, _osDefaultValue = Nothing, _osIsModifiable = Nothing, _osAllowedValues = Nothing, _osDataType = Nothing, _osDescription = Nothing};
+optionSetting =
+    OptionSetting'
+    { _osIsCollection = Nothing
+    , _osApplyType = Nothing
+    , _osValue = Nothing
+    , _osName = Nothing
+    , _osDefaultValue = Nothing
+    , _osIsModifiable = Nothing
+    , _osAllowedValues = Nothing
+    , _osDataType = Nothing
+    , _osDescription = Nothing
+    }
 
 -- | Indicates if the option setting is part of a collection.
 osIsCollection :: Lens' OptionSetting (Maybe Bool)
@@ -2800,11 +3320,36 @@ instance ToQuery OptionSetting where
 -- * 'odioVPC'
 --
 -- * 'odioStorageType'
-data OrderableDBInstanceOption = OrderableDBInstanceOption'{_odioEngineVersion :: Maybe Text, _odioMultiAZCapable :: Maybe Bool, _odioEngine :: Maybe Text, _odioSupportsIOPS :: Maybe Bool, _odioDBInstanceClass :: Maybe Text, _odioLicenseModel :: Maybe Text, _odioAvailabilityZones :: Maybe [AvailabilityZone], _odioReadReplicaCapable :: Maybe Bool, _odioSupportsStorageEncryption :: Maybe Bool, _odioVPC :: Maybe Bool, _odioStorageType :: Maybe Text} deriving (Eq, Read, Show)
+data OrderableDBInstanceOption = OrderableDBInstanceOption'
+    { _odioEngineVersion             :: Maybe Text
+    , _odioMultiAZCapable            :: Maybe Bool
+    , _odioEngine                    :: Maybe Text
+    , _odioSupportsIOPS              :: Maybe Bool
+    , _odioDBInstanceClass           :: Maybe Text
+    , _odioLicenseModel              :: Maybe Text
+    , _odioAvailabilityZones         :: Maybe [AvailabilityZone]
+    , _odioReadReplicaCapable        :: Maybe Bool
+    , _odioSupportsStorageEncryption :: Maybe Bool
+    , _odioVPC                       :: Maybe Bool
+    , _odioStorageType               :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'OrderableDBInstanceOption' smart constructor.
 orderableDBInstanceOption :: OrderableDBInstanceOption
-orderableDBInstanceOption = OrderableDBInstanceOption'{_odioEngineVersion = Nothing, _odioMultiAZCapable = Nothing, _odioEngine = Nothing, _odioSupportsIOPS = Nothing, _odioDBInstanceClass = Nothing, _odioLicenseModel = Nothing, _odioAvailabilityZones = Nothing, _odioReadReplicaCapable = Nothing, _odioSupportsStorageEncryption = Nothing, _odioVPC = Nothing, _odioStorageType = Nothing};
+orderableDBInstanceOption =
+    OrderableDBInstanceOption'
+    { _odioEngineVersion = Nothing
+    , _odioMultiAZCapable = Nothing
+    , _odioEngine = Nothing
+    , _odioSupportsIOPS = Nothing
+    , _odioDBInstanceClass = Nothing
+    , _odioLicenseModel = Nothing
+    , _odioAvailabilityZones = Nothing
+    , _odioReadReplicaCapable = Nothing
+    , _odioSupportsStorageEncryption = Nothing
+    , _odioVPC = Nothing
+    , _odioStorageType = Nothing
+    }
 
 -- | The engine version of the orderable DB instance.
 odioEngineVersion :: Lens' OrderableDBInstanceOption (Maybe Text)
@@ -2895,11 +3440,34 @@ instance FromXML OrderableDBInstanceOption where
 -- * 'parParameterName'
 --
 -- * 'parDescription'
-data Parameter = Parameter'{_parApplyType :: Maybe Text, _parParameterValue :: Maybe Text, _parApplyMethod :: Maybe ApplyMethod, _parMinimumEngineVersion :: Maybe Text, _parSource :: Maybe Text, _parIsModifiable :: Maybe Bool, _parAllowedValues :: Maybe Text, _parDataType :: Maybe Text, _parParameterName :: Maybe Text, _parDescription :: Maybe Text} deriving (Eq, Read, Show)
+data Parameter = Parameter'
+    { _parApplyType            :: Maybe Text
+    , _parParameterValue       :: Maybe Text
+    , _parApplyMethod          :: Maybe ApplyMethod
+    , _parMinimumEngineVersion :: Maybe Text
+    , _parSource               :: Maybe Text
+    , _parIsModifiable         :: Maybe Bool
+    , _parAllowedValues        :: Maybe Text
+    , _parDataType             :: Maybe Text
+    , _parParameterName        :: Maybe Text
+    , _parDescription          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Parameter' smart constructor.
 parameter :: Parameter
-parameter = Parameter'{_parApplyType = Nothing, _parParameterValue = Nothing, _parApplyMethod = Nothing, _parMinimumEngineVersion = Nothing, _parSource = Nothing, _parIsModifiable = Nothing, _parAllowedValues = Nothing, _parDataType = Nothing, _parParameterName = Nothing, _parDescription = Nothing};
+parameter =
+    Parameter'
+    { _parApplyType = Nothing
+    , _parParameterValue = Nothing
+    , _parApplyMethod = Nothing
+    , _parMinimumEngineVersion = Nothing
+    , _parSource = Nothing
+    , _parIsModifiable = Nothing
+    , _parAllowedValues = Nothing
+    , _parDataType = Nothing
+    , _parParameterName = Nothing
+    , _parDescription = Nothing
+    }
 
 -- | Specifies the engine specific parameters type.
 parApplyType :: Lens' Parameter (Maybe Text)
@@ -2987,11 +3555,26 @@ instance ToQuery Parameter where
 -- * 'pmaCurrentApplyDate'
 --
 -- * 'pmaForcedApplyDate'
-data PendingMaintenanceAction = PendingMaintenanceAction'{_pmaAutoAppliedAfterDate :: Maybe ISO8601, _pmaAction :: Maybe Text, _pmaOptInStatus :: Maybe Text, _pmaDescription :: Maybe Text, _pmaCurrentApplyDate :: Maybe ISO8601, _pmaForcedApplyDate :: Maybe ISO8601} deriving (Eq, Read, Show)
+data PendingMaintenanceAction = PendingMaintenanceAction'
+    { _pmaAutoAppliedAfterDate :: Maybe ISO8601
+    , _pmaAction               :: Maybe Text
+    , _pmaOptInStatus          :: Maybe Text
+    , _pmaDescription          :: Maybe Text
+    , _pmaCurrentApplyDate     :: Maybe ISO8601
+    , _pmaForcedApplyDate      :: Maybe ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'PendingMaintenanceAction' smart constructor.
 pendingMaintenanceAction :: PendingMaintenanceAction
-pendingMaintenanceAction = PendingMaintenanceAction'{_pmaAutoAppliedAfterDate = Nothing, _pmaAction = Nothing, _pmaOptInStatus = Nothing, _pmaDescription = Nothing, _pmaCurrentApplyDate = Nothing, _pmaForcedApplyDate = Nothing};
+pendingMaintenanceAction =
+    PendingMaintenanceAction'
+    { _pmaAutoAppliedAfterDate = Nothing
+    , _pmaAction = Nothing
+    , _pmaOptInStatus = Nothing
+    , _pmaDescription = Nothing
+    , _pmaCurrentApplyDate = Nothing
+    , _pmaForcedApplyDate = Nothing
+    }
 
 -- | The date of the maintenance window when the action will be applied. The
 -- maintenance action will be applied to the resource during its first
@@ -3067,11 +3650,36 @@ instance FromXML PendingMaintenanceAction where
 -- * 'pmvPort'
 --
 -- * 'pmvStorageType'
-data PendingModifiedValues = PendingModifiedValues'{_pmvEngineVersion :: Maybe Text, _pmvMasterUserPassword :: Maybe Text, _pmvIOPS :: Maybe Int, _pmvDBInstanceClass :: Maybe Text, _pmvDBInstanceIdentifier :: Maybe Text, _pmvCACertificateIdentifier :: Maybe Text, _pmvBackupRetentionPeriod :: Maybe Int, _pmvMultiAZ :: Maybe Bool, _pmvAllocatedStorage :: Maybe Int, _pmvPort :: Maybe Int, _pmvStorageType :: Maybe Text} deriving (Eq, Read, Show)
+data PendingModifiedValues = PendingModifiedValues'
+    { _pmvEngineVersion           :: Maybe Text
+    , _pmvMasterUserPassword      :: Maybe Text
+    , _pmvIOPS                    :: Maybe Int
+    , _pmvDBInstanceClass         :: Maybe Text
+    , _pmvDBInstanceIdentifier    :: Maybe Text
+    , _pmvCACertificateIdentifier :: Maybe Text
+    , _pmvBackupRetentionPeriod   :: Maybe Int
+    , _pmvMultiAZ                 :: Maybe Bool
+    , _pmvAllocatedStorage        :: Maybe Int
+    , _pmvPort                    :: Maybe Int
+    , _pmvStorageType             :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PendingModifiedValues' smart constructor.
 pendingModifiedValues :: PendingModifiedValues
-pendingModifiedValues = PendingModifiedValues'{_pmvEngineVersion = Nothing, _pmvMasterUserPassword = Nothing, _pmvIOPS = Nothing, _pmvDBInstanceClass = Nothing, _pmvDBInstanceIdentifier = Nothing, _pmvCACertificateIdentifier = Nothing, _pmvBackupRetentionPeriod = Nothing, _pmvMultiAZ = Nothing, _pmvAllocatedStorage = Nothing, _pmvPort = Nothing, _pmvStorageType = Nothing};
+pendingModifiedValues =
+    PendingModifiedValues'
+    { _pmvEngineVersion = Nothing
+    , _pmvMasterUserPassword = Nothing
+    , _pmvIOPS = Nothing
+    , _pmvDBInstanceClass = Nothing
+    , _pmvDBInstanceIdentifier = Nothing
+    , _pmvCACertificateIdentifier = Nothing
+    , _pmvBackupRetentionPeriod = Nothing
+    , _pmvMultiAZ = Nothing
+    , _pmvAllocatedStorage = Nothing
+    , _pmvPort = Nothing
+    , _pmvStorageType = Nothing
+    }
 
 -- | Indicates the database engine version.
 pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
@@ -3150,11 +3758,18 @@ instance FromXML PendingModifiedValues where
 -- * 'rcRecurringChargeFrequency'
 --
 -- * 'rcRecurringChargeAmount'
-data RecurringCharge = RecurringCharge'{_rcRecurringChargeFrequency :: Maybe Text, _rcRecurringChargeAmount :: Maybe Double} deriving (Eq, Read, Show)
+data RecurringCharge = RecurringCharge'
+    { _rcRecurringChargeFrequency :: Maybe Text
+    , _rcRecurringChargeAmount    :: Maybe Double
+    } deriving (Eq,Read,Show)
 
 -- | 'RecurringCharge' smart constructor.
 recurringCharge :: RecurringCharge
-recurringCharge = RecurringCharge'{_rcRecurringChargeFrequency = Nothing, _rcRecurringChargeAmount = Nothing};
+recurringCharge =
+    RecurringCharge'
+    { _rcRecurringChargeFrequency = Nothing
+    , _rcRecurringChargeAmount = Nothing
+    }
 
 -- | The frequency of the recurring charge.
 rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
@@ -3205,11 +3820,42 @@ instance FromXML RecurringCharge where
 -- * 'rdiFixedPrice'
 --
 -- * 'rdiDuration'
-data ReservedDBInstance = ReservedDBInstance'{_rdiDBInstanceCount :: Maybe Int, _rdiState :: Maybe Text, _rdiCurrencyCode :: Maybe Text, _rdiProductDescription :: Maybe Text, _rdiStartTime :: Maybe ISO8601, _rdiReservedDBInstanceId :: Maybe Text, _rdiDBInstanceClass :: Maybe Text, _rdiMultiAZ :: Maybe Bool, _rdiReservedDBInstancesOfferingId :: Maybe Text, _rdiOfferingType :: Maybe Text, _rdiUsagePrice :: Maybe Double, _rdiRecurringCharges :: Maybe [RecurringCharge], _rdiFixedPrice :: Maybe Double, _rdiDuration :: Maybe Int} deriving (Eq, Read, Show)
+data ReservedDBInstance = ReservedDBInstance'
+    { _rdiDBInstanceCount               :: Maybe Int
+    , _rdiState                         :: Maybe Text
+    , _rdiCurrencyCode                  :: Maybe Text
+    , _rdiProductDescription            :: Maybe Text
+    , _rdiStartTime                     :: Maybe ISO8601
+    , _rdiReservedDBInstanceId          :: Maybe Text
+    , _rdiDBInstanceClass               :: Maybe Text
+    , _rdiMultiAZ                       :: Maybe Bool
+    , _rdiReservedDBInstancesOfferingId :: Maybe Text
+    , _rdiOfferingType                  :: Maybe Text
+    , _rdiUsagePrice                    :: Maybe Double
+    , _rdiRecurringCharges              :: Maybe [RecurringCharge]
+    , _rdiFixedPrice                    :: Maybe Double
+    , _rdiDuration                      :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ReservedDBInstance' smart constructor.
 reservedDBInstance :: ReservedDBInstance
-reservedDBInstance = ReservedDBInstance'{_rdiDBInstanceCount = Nothing, _rdiState = Nothing, _rdiCurrencyCode = Nothing, _rdiProductDescription = Nothing, _rdiStartTime = Nothing, _rdiReservedDBInstanceId = Nothing, _rdiDBInstanceClass = Nothing, _rdiMultiAZ = Nothing, _rdiReservedDBInstancesOfferingId = Nothing, _rdiOfferingType = Nothing, _rdiUsagePrice = Nothing, _rdiRecurringCharges = Nothing, _rdiFixedPrice = Nothing, _rdiDuration = Nothing};
+reservedDBInstance =
+    ReservedDBInstance'
+    { _rdiDBInstanceCount = Nothing
+    , _rdiState = Nothing
+    , _rdiCurrencyCode = Nothing
+    , _rdiProductDescription = Nothing
+    , _rdiStartTime = Nothing
+    , _rdiReservedDBInstanceId = Nothing
+    , _rdiDBInstanceClass = Nothing
+    , _rdiMultiAZ = Nothing
+    , _rdiReservedDBInstancesOfferingId = Nothing
+    , _rdiOfferingType = Nothing
+    , _rdiUsagePrice = Nothing
+    , _rdiRecurringCharges = Nothing
+    , _rdiFixedPrice = Nothing
+    , _rdiDuration = Nothing
+    }
 
 -- | The number of reserved DB instances.
 rdiDBInstanceCount :: Lens' ReservedDBInstance (Maybe Int)
@@ -3312,11 +3958,34 @@ instance FromXML ReservedDBInstance where
 -- * 'rdioFixedPrice'
 --
 -- * 'rdioDuration'
-data ReservedDBInstancesOffering = ReservedDBInstancesOffering'{_rdioCurrencyCode :: Maybe Text, _rdioProductDescription :: Maybe Text, _rdioDBInstanceClass :: Maybe Text, _rdioMultiAZ :: Maybe Bool, _rdioReservedDBInstancesOfferingId :: Maybe Text, _rdioOfferingType :: Maybe Text, _rdioUsagePrice :: Maybe Double, _rdioRecurringCharges :: Maybe [RecurringCharge], _rdioFixedPrice :: Maybe Double, _rdioDuration :: Maybe Int} deriving (Eq, Read, Show)
+data ReservedDBInstancesOffering = ReservedDBInstancesOffering'
+    { _rdioCurrencyCode                  :: Maybe Text
+    , _rdioProductDescription            :: Maybe Text
+    , _rdioDBInstanceClass               :: Maybe Text
+    , _rdioMultiAZ                       :: Maybe Bool
+    , _rdioReservedDBInstancesOfferingId :: Maybe Text
+    , _rdioOfferingType                  :: Maybe Text
+    , _rdioUsagePrice                    :: Maybe Double
+    , _rdioRecurringCharges              :: Maybe [RecurringCharge]
+    , _rdioFixedPrice                    :: Maybe Double
+    , _rdioDuration                      :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ReservedDBInstancesOffering' smart constructor.
 reservedDBInstancesOffering :: ReservedDBInstancesOffering
-reservedDBInstancesOffering = ReservedDBInstancesOffering'{_rdioCurrencyCode = Nothing, _rdioProductDescription = Nothing, _rdioDBInstanceClass = Nothing, _rdioMultiAZ = Nothing, _rdioReservedDBInstancesOfferingId = Nothing, _rdioOfferingType = Nothing, _rdioUsagePrice = Nothing, _rdioRecurringCharges = Nothing, _rdioFixedPrice = Nothing, _rdioDuration = Nothing};
+reservedDBInstancesOffering =
+    ReservedDBInstancesOffering'
+    { _rdioCurrencyCode = Nothing
+    , _rdioProductDescription = Nothing
+    , _rdioDBInstanceClass = Nothing
+    , _rdioMultiAZ = Nothing
+    , _rdioReservedDBInstancesOfferingId = Nothing
+    , _rdioOfferingType = Nothing
+    , _rdioUsagePrice = Nothing
+    , _rdioRecurringCharges = Nothing
+    , _rdioFixedPrice = Nothing
+    , _rdioDuration = Nothing
+    }
 
 -- | The currency code for the reserved DB instance offering.
 rdioCurrencyCode :: Lens' ReservedDBInstancesOffering (Maybe Text)
@@ -3383,11 +4052,18 @@ instance FromXML ReservedDBInstancesOffering where
 -- * 'rpmaPendingMaintenanceActionDetails'
 --
 -- * 'rpmaResourceIdentifier'
-data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'{_rpmaPendingMaintenanceActionDetails :: Maybe [PendingMaintenanceAction], _rpmaResourceIdentifier :: Maybe Text} deriving (Eq, Read, Show)
+data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
+    { _rpmaPendingMaintenanceActionDetails :: Maybe [PendingMaintenanceAction]
+    , _rpmaResourceIdentifier              :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ResourcePendingMaintenanceActions' smart constructor.
 resourcePendingMaintenanceActions :: ResourcePendingMaintenanceActions
-resourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'{_rpmaPendingMaintenanceActionDetails = Nothing, _rpmaResourceIdentifier = Nothing};
+resourcePendingMaintenanceActions =
+    ResourcePendingMaintenanceActions'
+    { _rpmaPendingMaintenanceActionDetails = Nothing
+    , _rpmaResourceIdentifier = Nothing
+    }
 
 -- | A list that provides details about the pending maintenance actions for
 -- the resource.
@@ -3418,11 +4094,20 @@ instance FromXML ResourcePendingMaintenanceActions
 -- * 'subSubnetIdentifier'
 --
 -- * 'subSubnetAvailabilityZone'
-data Subnet = Subnet'{_subSubnetStatus :: Maybe Text, _subSubnetIdentifier :: Maybe Text, _subSubnetAvailabilityZone :: Maybe AvailabilityZone} deriving (Eq, Read, Show)
+data Subnet = Subnet'
+    { _subSubnetStatus           :: Maybe Text
+    , _subSubnetIdentifier       :: Maybe Text
+    , _subSubnetAvailabilityZone :: Maybe AvailabilityZone
+    } deriving (Eq,Read,Show)
 
 -- | 'Subnet' smart constructor.
 subnet :: Subnet
-subnet = Subnet'{_subSubnetStatus = Nothing, _subSubnetIdentifier = Nothing, _subSubnetAvailabilityZone = Nothing};
+subnet =
+    Subnet'
+    { _subSubnetStatus = Nothing
+    , _subSubnetIdentifier = Nothing
+    , _subSubnetAvailabilityZone = Nothing
+    }
 
 -- | Specifies the status of the subnet.
 subSubnetStatus :: Lens' Subnet (Maybe Text)
@@ -3452,11 +4137,18 @@ instance FromXML Subnet where
 -- * 'tagValue'
 --
 -- * 'tagKey'
-data Tag = Tag'{_tagValue :: Maybe Text, _tagKey :: Maybe Text} deriving (Eq, Read, Show)
+data Tag = Tag'
+    { _tagValue :: Maybe Text
+    , _tagKey   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
-tag = Tag'{_tagValue = Nothing, _tagKey = Nothing};
+tag =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = Nothing
+    }
 
 -- | A value is the optional value of the tag. The string value can be from 1
 -- to 256 Unicode characters in length and cannot be prefixed with \"aws:\"
@@ -3492,11 +4184,18 @@ instance ToQuery Tag where
 -- * 'vsgmStatus'
 --
 -- * 'vsgmVPCSecurityGroupId'
-data VPCSecurityGroupMembership = VPCSecurityGroupMembership'{_vsgmStatus :: Maybe Text, _vsgmVPCSecurityGroupId :: Maybe Text} deriving (Eq, Read, Show)
+data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
+    { _vsgmStatus             :: Maybe Text
+    , _vsgmVPCSecurityGroupId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VPCSecurityGroupMembership' smart constructor.
 vpcSecurityGroupMembership :: VPCSecurityGroupMembership
-vpcSecurityGroupMembership = VPCSecurityGroupMembership'{_vsgmStatus = Nothing, _vsgmVPCSecurityGroupId = Nothing};
+vpcSecurityGroupMembership =
+    VPCSecurityGroupMembership'
+    { _vsgmStatus = Nothing
+    , _vsgmVPCSecurityGroupId = Nothing
+    }
 
 -- | The status of the VPC security group.
 vsgmStatus :: Lens' VPCSecurityGroupMembership (Maybe Text)

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.DeletePlatformApplication
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.SNS.DeletePlatformApplication
     , deletePlatformApplicationResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for DeletePlatformApplication action.
 --
@@ -46,11 +46,16 @@ import Network.AWS.SNS.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dpaPlatformApplicationARN'
-newtype DeletePlatformApplication = DeletePlatformApplication'{_dpaPlatformApplicationARN :: Text} deriving (Eq, Read, Show)
+newtype DeletePlatformApplication = DeletePlatformApplication'
+    { _dpaPlatformApplicationARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeletePlatformApplication' smart constructor.
 deletePlatformApplication :: Text -> DeletePlatformApplication
-deletePlatformApplication pPlatformApplicationARN = DeletePlatformApplication'{_dpaPlatformApplicationARN = pPlatformApplicationARN};
+deletePlatformApplication pPlatformApplicationARN =
+    DeletePlatformApplication'
+    { _dpaPlatformApplicationARN = pPlatformApplicationARN
+    }
 
 -- | PlatformApplicationArn of platform application object to delete.
 dpaPlatformApplicationARN :: Lens' DeletePlatformApplication Text
@@ -80,8 +85,10 @@ instance ToQuery DeletePlatformApplication where
                  _dpaPlatformApplicationARN]
 
 -- | /See:/ 'deletePlatformApplicationResponse' smart constructor.
-data DeletePlatformApplicationResponse = DeletePlatformApplicationResponse' deriving (Eq, Read, Show)
+data DeletePlatformApplicationResponse =
+    DeletePlatformApplicationResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeletePlatformApplicationResponse' smart constructor.
 deletePlatformApplicationResponse :: DeletePlatformApplicationResponse
-deletePlatformApplicationResponse = DeletePlatformApplicationResponse';
+deletePlatformApplicationResponse = DeletePlatformApplicationResponse'

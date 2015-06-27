@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.DescribeStackEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,14 +40,14 @@ module Network.AWS.CloudFormation.DescribeStackEvents
     -- ** Response lenses
     , dserNextToken
     , dserStackEvents
-    , dserStatusCode
+    , dserStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for DescribeStackEvents action.
 --
@@ -58,11 +58,18 @@ import Network.AWS.Response
 -- * 'dseNextToken'
 --
 -- * 'dseStackName'
-data DescribeStackEvents = DescribeStackEvents'{_dseNextToken :: Maybe Text, _dseStackName :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeStackEvents = DescribeStackEvents'
+    { _dseNextToken :: Maybe Text
+    , _dseStackName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackEvents' smart constructor.
 describeStackEvents :: DescribeStackEvents
-describeStackEvents = DescribeStackEvents'{_dseNextToken = Nothing, _dseStackName = Nothing};
+describeStackEvents =
+    DescribeStackEvents'
+    { _dseNextToken = Nothing
+    , _dseStackName = Nothing
+    }
 
 -- | String that identifies the start of the next list of events, if there is
 -- one.
@@ -127,12 +134,21 @@ instance ToQuery DescribeStackEvents where
 --
 -- * 'dserStackEvents'
 --
--- * 'dserStatusCode'
-data DescribeStackEventsResponse = DescribeStackEventsResponse'{_dserNextToken :: Maybe Text, _dserStackEvents :: Maybe [StackEvent], _dserStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dserStatus'
+data DescribeStackEventsResponse = DescribeStackEventsResponse'
+    { _dserNextToken   :: Maybe Text
+    , _dserStackEvents :: Maybe [StackEvent]
+    , _dserStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackEventsResponse' smart constructor.
 describeStackEventsResponse :: Int -> DescribeStackEventsResponse
-describeStackEventsResponse pStatusCode = DescribeStackEventsResponse'{_dserNextToken = Nothing, _dserStackEvents = Nothing, _dserStatusCode = pStatusCode};
+describeStackEventsResponse pStatus =
+    DescribeStackEventsResponse'
+    { _dserNextToken = Nothing
+    , _dserStackEvents = Nothing
+    , _dserStatus = pStatus
+    }
 
 -- | String that identifies the start of the next list of events, if there is
 -- one.
@@ -144,5 +160,5 @@ dserStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
 dserStackEvents = lens _dserStackEvents (\ s a -> s{_dserStackEvents = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dserStatusCode :: Lens' DescribeStackEventsResponse Int
-dserStatusCode = lens _dserStatusCode (\ s a -> s{_dserStatusCode = a});
+dserStatus :: Lens' DescribeStackEventsResponse Int
+dserStatus = lens _dserStatus (\ s a -> s{_dserStatus = a});

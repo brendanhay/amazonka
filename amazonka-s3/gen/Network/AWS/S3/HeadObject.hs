@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.HeadObject
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,13 +68,13 @@ module Network.AWS.S3.HeadObject
     , horContentDisposition
     , horServerSideEncryption
     , horContentType
-    , horStatusCode
+    , horStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'headObject' smart constructor.
 --
@@ -103,11 +103,38 @@ import Network.AWS.S3.Types
 -- * 'hoBucket'
 --
 -- * 'hoKey'
-data HeadObject = HeadObject'{_hoIfMatch :: Maybe Text, _hoVersionId :: Maybe ObjectVersionId, _hoSSECustomerAlgorithm :: Maybe Text, _hoSSECustomerKey :: Maybe (Sensitive Text), _hoRequestPayer :: Maybe RequestPayer, _hoIfModifiedSince :: Maybe RFC822, _hoRange :: Maybe Text, _hoIfUnmodifiedSince :: Maybe RFC822, _hoSSECustomerKeyMD5 :: Maybe Text, _hoIfNoneMatch :: Maybe Text, _hoBucket :: BucketName, _hoKey :: ObjectKey} deriving (Eq, Read, Show)
+data HeadObject = HeadObject'
+    { _hoIfMatch              :: Maybe Text
+    , _hoVersionId            :: Maybe ObjectVersionId
+    , _hoSSECustomerAlgorithm :: Maybe Text
+    , _hoSSECustomerKey       :: Maybe (Sensitive Text)
+    , _hoRequestPayer         :: Maybe RequestPayer
+    , _hoIfModifiedSince      :: Maybe RFC822
+    , _hoRange                :: Maybe Text
+    , _hoIfUnmodifiedSince    :: Maybe RFC822
+    , _hoSSECustomerKeyMD5    :: Maybe Text
+    , _hoIfNoneMatch          :: Maybe Text
+    , _hoBucket               :: BucketName
+    , _hoKey                  :: ObjectKey
+    } deriving (Eq,Read,Show)
 
 -- | 'HeadObject' smart constructor.
 headObject :: BucketName -> ObjectKey -> HeadObject
-headObject pBucket pKey = HeadObject'{_hoIfMatch = Nothing, _hoVersionId = Nothing, _hoSSECustomerAlgorithm = Nothing, _hoSSECustomerKey = Nothing, _hoRequestPayer = Nothing, _hoIfModifiedSince = Nothing, _hoRange = Nothing, _hoIfUnmodifiedSince = Nothing, _hoSSECustomerKeyMD5 = Nothing, _hoIfNoneMatch = Nothing, _hoBucket = pBucket, _hoKey = pKey};
+headObject pBucket pKey =
+    HeadObject'
+    { _hoIfMatch = Nothing
+    , _hoVersionId = Nothing
+    , _hoSSECustomerAlgorithm = Nothing
+    , _hoSSECustomerKey = Nothing
+    , _hoRequestPayer = Nothing
+    , _hoIfModifiedSince = Nothing
+    , _hoRange = Nothing
+    , _hoIfUnmodifiedSince = Nothing
+    , _hoSSECustomerKeyMD5 = Nothing
+    , _hoIfNoneMatch = Nothing
+    , _hoBucket = pBucket
+    , _hoKey = pKey
+    }
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
 -- specified, otherwise return a 412 (precondition failed).
@@ -281,12 +308,63 @@ instance ToQuery HeadObject where
 --
 -- * 'horContentType'
 --
--- * 'horStatusCode'
-data HeadObjectResponse = HeadObjectResponse'{_horVersionId :: Maybe ObjectVersionId, _horETag :: Maybe ETag, _horRequestCharged :: Maybe RequestCharged, _horContentLength :: Maybe Int, _horRestore :: Maybe Text, _horExpires :: Maybe RFC822, _horDeleteMarker :: Maybe Bool, _horExpiration :: Maybe Text, _horSSECustomerAlgorithm :: Maybe Text, _horMissingMeta :: Maybe Int, _horWebsiteRedirectLocation :: Maybe Text, _horAcceptRanges :: Maybe Text, _horContentEncoding :: Maybe Text, _horSSEKMSKeyId :: Maybe (Sensitive Text), _horSSECustomerKeyMD5 :: Maybe Text, _horMetadata :: Map Text Text, _horReplicationStatus :: Maybe ReplicationStatus, _horCacheControl :: Maybe Text, _horContentLanguage :: Maybe Text, _horLastModified :: Maybe RFC822, _horContentDisposition :: Maybe Text, _horServerSideEncryption :: Maybe ServerSideEncryption, _horContentType :: Maybe Text, _horStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'horStatus'
+data HeadObjectResponse = HeadObjectResponse'
+    { _horVersionId               :: Maybe ObjectVersionId
+    , _horETag                    :: Maybe ETag
+    , _horRequestCharged          :: Maybe RequestCharged
+    , _horContentLength           :: Maybe Int
+    , _horRestore                 :: Maybe Text
+    , _horExpires                 :: Maybe RFC822
+    , _horDeleteMarker            :: Maybe Bool
+    , _horExpiration              :: Maybe Text
+    , _horSSECustomerAlgorithm    :: Maybe Text
+    , _horMissingMeta             :: Maybe Int
+    , _horWebsiteRedirectLocation :: Maybe Text
+    , _horAcceptRanges            :: Maybe Text
+    , _horContentEncoding         :: Maybe Text
+    , _horSSEKMSKeyId             :: Maybe (Sensitive Text)
+    , _horSSECustomerKeyMD5       :: Maybe Text
+    , _horMetadata                :: Map Text Text
+    , _horReplicationStatus       :: Maybe ReplicationStatus
+    , _horCacheControl            :: Maybe Text
+    , _horContentLanguage         :: Maybe Text
+    , _horLastModified            :: Maybe RFC822
+    , _horContentDisposition      :: Maybe Text
+    , _horServerSideEncryption    :: Maybe ServerSideEncryption
+    , _horContentType             :: Maybe Text
+    , _horStatus                  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'HeadObjectResponse' smart constructor.
 headObjectResponse :: Int -> HeadObjectResponse
-headObjectResponse pStatusCode = HeadObjectResponse'{_horVersionId = Nothing, _horETag = Nothing, _horRequestCharged = Nothing, _horContentLength = Nothing, _horRestore = Nothing, _horExpires = Nothing, _horDeleteMarker = Nothing, _horExpiration = Nothing, _horSSECustomerAlgorithm = Nothing, _horMissingMeta = Nothing, _horWebsiteRedirectLocation = Nothing, _horAcceptRanges = Nothing, _horContentEncoding = Nothing, _horSSEKMSKeyId = Nothing, _horSSECustomerKeyMD5 = Nothing, _horMetadata = mempty, _horReplicationStatus = Nothing, _horCacheControl = Nothing, _horContentLanguage = Nothing, _horLastModified = Nothing, _horContentDisposition = Nothing, _horServerSideEncryption = Nothing, _horContentType = Nothing, _horStatusCode = pStatusCode};
+headObjectResponse pStatus =
+    HeadObjectResponse'
+    { _horVersionId = Nothing
+    , _horETag = Nothing
+    , _horRequestCharged = Nothing
+    , _horContentLength = Nothing
+    , _horRestore = Nothing
+    , _horExpires = Nothing
+    , _horDeleteMarker = Nothing
+    , _horExpiration = Nothing
+    , _horSSECustomerAlgorithm = Nothing
+    , _horMissingMeta = Nothing
+    , _horWebsiteRedirectLocation = Nothing
+    , _horAcceptRanges = Nothing
+    , _horContentEncoding = Nothing
+    , _horSSEKMSKeyId = Nothing
+    , _horSSECustomerKeyMD5 = Nothing
+    , _horMetadata = mempty
+    , _horReplicationStatus = Nothing
+    , _horCacheControl = Nothing
+    , _horContentLanguage = Nothing
+    , _horLastModified = Nothing
+    , _horContentDisposition = Nothing
+    , _horServerSideEncryption = Nothing
+    , _horContentType = Nothing
+    , _horStatus = pStatus
+    }
 
 -- | Version of the object.
 horVersionId :: Lens' HeadObjectResponse (Maybe ObjectVersionId)
@@ -402,5 +480,5 @@ horContentType :: Lens' HeadObjectResponse (Maybe Text)
 horContentType = lens _horContentType (\ s a -> s{_horContentType = a});
 
 -- | FIXME: Undocumented member.
-horStatusCode :: Lens' HeadObjectResponse Int
-horStatusCode = lens _horStatusCode (\ s a -> s{_horStatusCode = a});
+horStatus :: Lens' HeadObjectResponse Int
+horStatus = lens _horStatus (\ s a -> s{_horStatus = a});

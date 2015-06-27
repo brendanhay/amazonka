@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeleteGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,21 +33,26 @@ module Network.AWS.IAM.DeleteGroup
     , deleteGroupResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dgGroupName'
-newtype DeleteGroup = DeleteGroup'{_dgGroupName :: Text} deriving (Eq, Read, Show)
+newtype DeleteGroup = DeleteGroup'
+    { _dgGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteGroup' smart constructor.
 deleteGroup :: Text -> DeleteGroup
-deleteGroup pGroupName = DeleteGroup'{_dgGroupName = pGroupName};
+deleteGroup pGroupName =
+    DeleteGroup'
+    { _dgGroupName = pGroupName
+    }
 
 -- | The name of the group to delete.
 dgGroupName :: Lens' DeleteGroup Text
@@ -73,8 +78,10 @@ instance ToQuery DeleteGroup where
                "GroupName" =: _dgGroupName]
 
 -- | /See:/ 'deleteGroupResponse' smart constructor.
-data DeleteGroupResponse = DeleteGroupResponse' deriving (Eq, Read, Show)
+data DeleteGroupResponse =
+    DeleteGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteGroupResponse' smart constructor.
 deleteGroupResponse :: DeleteGroupResponse
-deleteGroupResponse = DeleteGroupResponse';
+deleteGroupResponse = DeleteGroupResponse'

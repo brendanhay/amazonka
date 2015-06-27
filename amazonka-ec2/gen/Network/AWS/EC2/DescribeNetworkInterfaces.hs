@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeNetworkInterfaces
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
     , describeNetworkInterfacesResponse
     -- ** Response lenses
     , dnirNetworkInterfaces
-    , dnirStatusCode
+    , dnirStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeNetworkInterfaces' smart constructor.
 --
@@ -51,11 +51,20 @@ import Network.AWS.Response
 -- * 'dFilters'
 --
 -- * 'dDryRun'
-data DescribeNetworkInterfaces = DescribeNetworkInterfaces'{_dNetworkInterfaceIds :: Maybe [Text], _dFilters :: Maybe [Filter], _dDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
+    { _dNetworkInterfaceIds :: Maybe [Text]
+    , _dFilters             :: Maybe [Filter]
+    , _dDryRun              :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeNetworkInterfaces' smart constructor.
 describeNetworkInterfaces :: DescribeNetworkInterfaces
-describeNetworkInterfaces = DescribeNetworkInterfaces'{_dNetworkInterfaceIds = Nothing, _dFilters = Nothing, _dDryRun = Nothing};
+describeNetworkInterfaces =
+    DescribeNetworkInterfaces'
+    { _dNetworkInterfaceIds = Nothing
+    , _dFilters = Nothing
+    , _dDryRun = Nothing
+    }
 
 -- | One or more network interface IDs.
 --
@@ -216,17 +225,24 @@ instance ToQuery DescribeNetworkInterfaces where
 --
 -- * 'dnirNetworkInterfaces'
 --
--- * 'dnirStatusCode'
-data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'{_dnirNetworkInterfaces :: Maybe [NetworkInterface], _dnirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dnirStatus'
+data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
+    { _dnirNetworkInterfaces :: Maybe [NetworkInterface]
+    , _dnirStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeNetworkInterfacesResponse' smart constructor.
 describeNetworkInterfacesResponse :: Int -> DescribeNetworkInterfacesResponse
-describeNetworkInterfacesResponse pStatusCode = DescribeNetworkInterfacesResponse'{_dnirNetworkInterfaces = Nothing, _dnirStatusCode = pStatusCode};
+describeNetworkInterfacesResponse pStatus =
+    DescribeNetworkInterfacesResponse'
+    { _dnirNetworkInterfaces = Nothing
+    , _dnirStatus = pStatus
+    }
 
 -- | Information about one or more network interfaces.
 dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
 dnirNetworkInterfaces = lens _dnirNetworkInterfaces (\ s a -> s{_dnirNetworkInterfaces = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dnirStatusCode :: Lens' DescribeNetworkInterfacesResponse Int
-dnirStatusCode = lens _dnirStatusCode (\ s a -> s{_dnirStatusCode = a});
+dnirStatus :: Lens' DescribeNetworkInterfacesResponse Int
+dnirStatus = lens _dnirStatus (\ s a -> s{_dnirStatus = a});

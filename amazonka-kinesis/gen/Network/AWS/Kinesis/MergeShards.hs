@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Kinesis.MergeShards
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,10 +73,10 @@ module Network.AWS.Kinesis.MergeShards
     , mergeShardsResponse
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @MergeShards@.
 --
@@ -89,11 +89,20 @@ import Network.AWS.Response
 -- * 'msShardToMerge'
 --
 -- * 'msAdjacentShardToMerge'
-data MergeShards = MergeShards'{_msStreamName :: Text, _msShardToMerge :: Text, _msAdjacentShardToMerge :: Text} deriving (Eq, Read, Show)
+data MergeShards = MergeShards'
+    { _msStreamName           :: Text
+    , _msShardToMerge         :: Text
+    , _msAdjacentShardToMerge :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'MergeShards' smart constructor.
 mergeShards :: Text -> Text -> Text -> MergeShards
-mergeShards pStreamName pShardToMerge pAdjacentShardToMerge = MergeShards'{_msStreamName = pStreamName, _msShardToMerge = pShardToMerge, _msAdjacentShardToMerge = pAdjacentShardToMerge};
+mergeShards pStreamName pShardToMerge pAdjacentShardToMerge =
+    MergeShards'
+    { _msStreamName = pStreamName
+    , _msShardToMerge = pShardToMerge
+    , _msAdjacentShardToMerge = pAdjacentShardToMerge
+    }
 
 -- | The name of the stream for the merge.
 msStreamName :: Lens' MergeShards Text
@@ -137,8 +146,10 @@ instance ToQuery MergeShards where
         toQuery = const mempty
 
 -- | /See:/ 'mergeShardsResponse' smart constructor.
-data MergeShardsResponse = MergeShardsResponse' deriving (Eq, Read, Show)
+data MergeShardsResponse =
+    MergeShardsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'MergeShardsResponse' smart constructor.
 mergeShardsResponse :: MergeShardsResponse
-mergeShardsResponse = MergeShardsResponse';
+mergeShardsResponse = MergeShardsResponse'

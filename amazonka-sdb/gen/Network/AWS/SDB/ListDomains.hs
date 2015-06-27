@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SDB.ListDomains
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,14 +40,14 @@ module Network.AWS.SDB.ListDomains
     -- ** Response lenses
     , ldrDomainNames
     , ldrNextToken
-    , ldrStatusCode
+    , ldrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SDB.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SDB.Types
 
 -- | /See:/ 'listDomains' smart constructor.
 --
@@ -56,11 +56,18 @@ import Network.AWS.SDB.Types
 -- * 'ldMaxNumberOfDomains'
 --
 -- * 'ldNextToken'
-data ListDomains = ListDomains'{_ldMaxNumberOfDomains :: Maybe Int, _ldNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data ListDomains = ListDomains'
+    { _ldMaxNumberOfDomains :: Maybe Int
+    , _ldNextToken          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDomains' smart constructor.
 listDomains :: ListDomains
-listDomains = ListDomains'{_ldMaxNumberOfDomains = Nothing, _ldNextToken = Nothing};
+listDomains =
+    ListDomains'
+    { _ldMaxNumberOfDomains = Nothing
+    , _ldNextToken = Nothing
+    }
 
 -- | The maximum number of domain names you want returned. The range is 1 to
 -- 100. The default setting is 100.
@@ -113,12 +120,21 @@ instance ToQuery ListDomains where
 --
 -- * 'ldrNextToken'
 --
--- * 'ldrStatusCode'
-data ListDomainsResponse = ListDomainsResponse'{_ldrDomainNames :: Maybe [Text], _ldrNextToken :: Maybe Text, _ldrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ldrStatus'
+data ListDomainsResponse = ListDomainsResponse'
+    { _ldrDomainNames :: Maybe [Text]
+    , _ldrNextToken   :: Maybe Text
+    , _ldrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: Int -> ListDomainsResponse
-listDomainsResponse pStatusCode = ListDomainsResponse'{_ldrDomainNames = Nothing, _ldrNextToken = Nothing, _ldrStatusCode = pStatusCode};
+listDomainsResponse pStatus =
+    ListDomainsResponse'
+    { _ldrDomainNames = Nothing
+    , _ldrNextToken = Nothing
+    , _ldrStatus = pStatus
+    }
 
 -- | A list of domain names that match the expression.
 ldrDomainNames :: Lens' ListDomainsResponse [Text]
@@ -130,5 +146,5 @@ ldrNextToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
 
 -- | FIXME: Undocumented member.
-ldrStatusCode :: Lens' ListDomainsResponse Int
-ldrStatusCode = lens _ldrStatusCode (\ s a -> s{_ldrStatusCode = a});
+ldrStatus :: Lens' ListDomainsResponse Int
+ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});

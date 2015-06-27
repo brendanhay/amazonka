@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.ListKeyPolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.KMS.ListKeyPolicies
     , lkprPolicyNames
     , lkprTruncated
     , lkprNextMarker
-    , lkprStatusCode
+    , lkprStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listKeyPolicies' smart constructor.
 --
@@ -53,11 +53,20 @@ import Network.AWS.Response
 -- * 'lkpLimit'
 --
 -- * 'lkpKeyId'
-data ListKeyPolicies = ListKeyPolicies'{_lkpMarker :: Maybe Text, _lkpLimit :: Maybe Nat, _lkpKeyId :: Text} deriving (Eq, Read, Show)
+data ListKeyPolicies = ListKeyPolicies'
+    { _lkpMarker :: Maybe Text
+    , _lkpLimit  :: Maybe Nat
+    , _lkpKeyId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListKeyPolicies' smart constructor.
 listKeyPolicies :: Text -> ListKeyPolicies
-listKeyPolicies pKeyId = ListKeyPolicies'{_lkpMarker = Nothing, _lkpLimit = Nothing, _lkpKeyId = pKeyId};
+listKeyPolicies pKeyId =
+    ListKeyPolicies'
+    { _lkpMarker = Nothing
+    , _lkpLimit = Nothing
+    , _lkpKeyId = pKeyId
+    }
 
 -- | Use this parameter only when paginating results, and only in a
 -- subsequent request after you\'ve received a response where the results
@@ -131,12 +140,23 @@ instance ToQuery ListKeyPolicies where
 --
 -- * 'lkprNextMarker'
 --
--- * 'lkprStatusCode'
-data ListKeyPoliciesResponse = ListKeyPoliciesResponse'{_lkprPolicyNames :: Maybe [Text], _lkprTruncated :: Maybe Bool, _lkprNextMarker :: Maybe Text, _lkprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lkprStatus'
+data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
+    { _lkprPolicyNames :: Maybe [Text]
+    , _lkprTruncated   :: Maybe Bool
+    , _lkprNextMarker  :: Maybe Text
+    , _lkprStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListKeyPoliciesResponse' smart constructor.
 listKeyPoliciesResponse :: Int -> ListKeyPoliciesResponse
-listKeyPoliciesResponse pStatusCode = ListKeyPoliciesResponse'{_lkprPolicyNames = Nothing, _lkprTruncated = Nothing, _lkprNextMarker = Nothing, _lkprStatusCode = pStatusCode};
+listKeyPoliciesResponse pStatus =
+    ListKeyPoliciesResponse'
+    { _lkprPolicyNames = Nothing
+    , _lkprTruncated = Nothing
+    , _lkprNextMarker = Nothing
+    , _lkprStatus = pStatus
+    }
 
 -- | A list of policy names. Currently, there is only one policy and it is
 -- named \"Default\".
@@ -157,5 +177,5 @@ lkprNextMarker :: Lens' ListKeyPoliciesResponse (Maybe Text)
 lkprNextMarker = lens _lkprNextMarker (\ s a -> s{_lkprNextMarker = a});
 
 -- | FIXME: Undocumented member.
-lkprStatusCode :: Lens' ListKeyPoliciesResponse Int
-lkprStatusCode = lens _lkprStatusCode (\ s a -> s{_lkprStatusCode = a});
+lkprStatus :: Lens' ListKeyPoliciesResponse Int
+lkprStatus = lens _lkprStatus (\ s a -> s{_lkprStatus = a});

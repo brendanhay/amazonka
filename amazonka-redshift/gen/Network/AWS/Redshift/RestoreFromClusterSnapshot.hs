@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.RestoreFromClusterSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,13 +62,13 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     , restoreFromClusterSnapshotResponse
     -- ** Response lenses
     , rfcsrCluster
-    , rfcsrStatusCode
+    , rfcsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -111,11 +111,50 @@ import Network.AWS.Response
 -- * 'rfcsClusterIdentifier'
 --
 -- * 'rfcsSnapshotIdentifier'
-data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'{_rfcsPubliclyAccessible :: Maybe Bool, _rfcsHSMConfigurationIdentifier :: Maybe Text, _rfcsSnapshotClusterIdentifier :: Maybe Text, _rfcsClusterSecurityGroups :: Maybe [Text], _rfcsAutomatedSnapshotRetentionPeriod :: Maybe Int, _rfcsHSMClientCertificateIdentifier :: Maybe Text, _rfcsClusterSubnetGroupName :: Maybe Text, _rfcsElasticIP :: Maybe Text, _rfcsPreferredMaintenanceWindow :: Maybe Text, _rfcsAvailabilityZone :: Maybe Text, _rfcsKMSKeyId :: Maybe Text, _rfcsVPCSecurityGroupIds :: Maybe [Text], _rfcsOwnerAccount :: Maybe Text, _rfcsAllowVersionUpgrade :: Maybe Bool, _rfcsClusterParameterGroupName :: Maybe Text, _rfcsPort :: Maybe Int, _rfcsClusterIdentifier :: Text, _rfcsSnapshotIdentifier :: Text} deriving (Eq, Read, Show)
+data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
+    { _rfcsPubliclyAccessible               :: Maybe Bool
+    , _rfcsHSMConfigurationIdentifier       :: Maybe Text
+    , _rfcsSnapshotClusterIdentifier        :: Maybe Text
+    , _rfcsClusterSecurityGroups            :: Maybe [Text]
+    , _rfcsAutomatedSnapshotRetentionPeriod :: Maybe Int
+    , _rfcsHSMClientCertificateIdentifier   :: Maybe Text
+    , _rfcsClusterSubnetGroupName           :: Maybe Text
+    , _rfcsElasticIP                        :: Maybe Text
+    , _rfcsPreferredMaintenanceWindow       :: Maybe Text
+    , _rfcsAvailabilityZone                 :: Maybe Text
+    , _rfcsKMSKeyId                         :: Maybe Text
+    , _rfcsVPCSecurityGroupIds              :: Maybe [Text]
+    , _rfcsOwnerAccount                     :: Maybe Text
+    , _rfcsAllowVersionUpgrade              :: Maybe Bool
+    , _rfcsClusterParameterGroupName        :: Maybe Text
+    , _rfcsPort                             :: Maybe Int
+    , _rfcsClusterIdentifier                :: Text
+    , _rfcsSnapshotIdentifier               :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RestoreFromClusterSnapshot' smart constructor.
 restoreFromClusterSnapshot :: Text -> Text -> RestoreFromClusterSnapshot
-restoreFromClusterSnapshot pClusterIdentifier pSnapshotIdentifier = RestoreFromClusterSnapshot'{_rfcsPubliclyAccessible = Nothing, _rfcsHSMConfigurationIdentifier = Nothing, _rfcsSnapshotClusterIdentifier = Nothing, _rfcsClusterSecurityGroups = Nothing, _rfcsAutomatedSnapshotRetentionPeriod = Nothing, _rfcsHSMClientCertificateIdentifier = Nothing, _rfcsClusterSubnetGroupName = Nothing, _rfcsElasticIP = Nothing, _rfcsPreferredMaintenanceWindow = Nothing, _rfcsAvailabilityZone = Nothing, _rfcsKMSKeyId = Nothing, _rfcsVPCSecurityGroupIds = Nothing, _rfcsOwnerAccount = Nothing, _rfcsAllowVersionUpgrade = Nothing, _rfcsClusterParameterGroupName = Nothing, _rfcsPort = Nothing, _rfcsClusterIdentifier = pClusterIdentifier, _rfcsSnapshotIdentifier = pSnapshotIdentifier};
+restoreFromClusterSnapshot pClusterIdentifier pSnapshotIdentifier =
+    RestoreFromClusterSnapshot'
+    { _rfcsPubliclyAccessible = Nothing
+    , _rfcsHSMConfigurationIdentifier = Nothing
+    , _rfcsSnapshotClusterIdentifier = Nothing
+    , _rfcsClusterSecurityGroups = Nothing
+    , _rfcsAutomatedSnapshotRetentionPeriod = Nothing
+    , _rfcsHSMClientCertificateIdentifier = Nothing
+    , _rfcsClusterSubnetGroupName = Nothing
+    , _rfcsElasticIP = Nothing
+    , _rfcsPreferredMaintenanceWindow = Nothing
+    , _rfcsAvailabilityZone = Nothing
+    , _rfcsKMSKeyId = Nothing
+    , _rfcsVPCSecurityGroupIds = Nothing
+    , _rfcsOwnerAccount = Nothing
+    , _rfcsAllowVersionUpgrade = Nothing
+    , _rfcsClusterParameterGroupName = Nothing
+    , _rfcsPort = Nothing
+    , _rfcsClusterIdentifier = pClusterIdentifier
+    , _rfcsSnapshotIdentifier = pSnapshotIdentifier
+    }
 
 -- | If @true@, the cluster can be accessed from a public network.
 rfcsPubliclyAccessible :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
@@ -326,17 +365,24 @@ instance ToQuery RestoreFromClusterSnapshot where
 --
 -- * 'rfcsrCluster'
 --
--- * 'rfcsrStatusCode'
-data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'{_rfcsrCluster :: Maybe Cluster, _rfcsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rfcsrStatus'
+data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'
+    { _rfcsrCluster :: Maybe Cluster
+    , _rfcsrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RestoreFromClusterSnapshotResponse' smart constructor.
 restoreFromClusterSnapshotResponse :: Int -> RestoreFromClusterSnapshotResponse
-restoreFromClusterSnapshotResponse pStatusCode = RestoreFromClusterSnapshotResponse'{_rfcsrCluster = Nothing, _rfcsrStatusCode = pStatusCode};
+restoreFromClusterSnapshotResponse pStatus =
+    RestoreFromClusterSnapshotResponse'
+    { _rfcsrCluster = Nothing
+    , _rfcsrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rfcsrCluster :: Lens' RestoreFromClusterSnapshotResponse (Maybe Cluster)
 rfcsrCluster = lens _rfcsrCluster (\ s a -> s{_rfcsrCluster = a});
 
 -- | FIXME: Undocumented member.
-rfcsrStatusCode :: Lens' RestoreFromClusterSnapshotResponse Int
-rfcsrStatusCode = lens _rfcsrStatusCode (\ s a -> s{_rfcsrStatusCode = a});
+rfcsrStatus :: Lens' RestoreFromClusterSnapshotResponse Int
+rfcsrStatus = lens _rfcsrStatus (\ s a -> s{_rfcsrStatus = a});

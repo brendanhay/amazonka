@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.ResetCache
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,24 +44,29 @@ module Network.AWS.StorageGateway.ResetCache
     , resetCacheResponse
     -- ** Response lenses
     , rcrGatewayARN
-    , rcrStatusCode
+    , rcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'resetCache' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rcGatewayARN'
-newtype ResetCache = ResetCache'{_rcGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype ResetCache = ResetCache'
+    { _rcGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ResetCache' smart constructor.
 resetCache :: Text -> ResetCache
-resetCache pGatewayARN = ResetCache'{_rcGatewayARN = pGatewayARN};
+resetCache pGatewayARN =
+    ResetCache'
+    { _rcGatewayARN = pGatewayARN
+    }
 
 -- | FIXME: Undocumented member.
 rcGatewayARN :: Lens' ResetCache Text
@@ -102,17 +107,24 @@ instance ToQuery ResetCache where
 --
 -- * 'rcrGatewayARN'
 --
--- * 'rcrStatusCode'
-data ResetCacheResponse = ResetCacheResponse'{_rcrGatewayARN :: Maybe Text, _rcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rcrStatus'
+data ResetCacheResponse = ResetCacheResponse'
+    { _rcrGatewayARN :: Maybe Text
+    , _rcrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ResetCacheResponse' smart constructor.
 resetCacheResponse :: Int -> ResetCacheResponse
-resetCacheResponse pStatusCode = ResetCacheResponse'{_rcrGatewayARN = Nothing, _rcrStatusCode = pStatusCode};
+resetCacheResponse pStatus =
+    ResetCacheResponse'
+    { _rcrGatewayARN = Nothing
+    , _rcrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rcrGatewayARN :: Lens' ResetCacheResponse (Maybe Text)
 rcrGatewayARN = lens _rcrGatewayARN (\ s a -> s{_rcrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-rcrStatusCode :: Lens' ResetCacheResponse Int
-rcrStatusCode = lens _rcrStatusCode (\ s a -> s{_rcrStatusCode = a});
+rcrStatus :: Lens' ResetCacheResponse Int
+rcrStatus = lens _rcrStatus (\ s a -> s{_rcrStatus = a});

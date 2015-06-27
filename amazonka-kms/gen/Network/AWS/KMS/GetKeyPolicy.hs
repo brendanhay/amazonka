@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.GetKeyPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.KMS.GetKeyPolicy
     , getKeyPolicyResponse
     -- ** Response lenses
     , gkprPolicy
-    , gkprStatusCode
+    , gkprStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getKeyPolicy' smart constructor.
 --
@@ -48,11 +48,18 @@ import Network.AWS.Response
 -- * 'gkpKeyId'
 --
 -- * 'gkpPolicyName'
-data GetKeyPolicy = GetKeyPolicy'{_gkpKeyId :: Text, _gkpPolicyName :: Text} deriving (Eq, Read, Show)
+data GetKeyPolicy = GetKeyPolicy'
+    { _gkpKeyId      :: Text
+    , _gkpPolicyName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetKeyPolicy' smart constructor.
 getKeyPolicy :: Text -> Text -> GetKeyPolicy
-getKeyPolicy pKeyId pPolicyName = GetKeyPolicy'{_gkpKeyId = pKeyId, _gkpPolicyName = pPolicyName};
+getKeyPolicy pKeyId pPolicyName =
+    GetKeyPolicy'
+    { _gkpKeyId = pKeyId
+    , _gkpPolicyName = pPolicyName
+    }
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier or the fully specified ARN to a key.
@@ -106,17 +113,24 @@ instance ToQuery GetKeyPolicy where
 --
 -- * 'gkprPolicy'
 --
--- * 'gkprStatusCode'
-data GetKeyPolicyResponse = GetKeyPolicyResponse'{_gkprPolicy :: Maybe Text, _gkprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gkprStatus'
+data GetKeyPolicyResponse = GetKeyPolicyResponse'
+    { _gkprPolicy :: Maybe Text
+    , _gkprStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetKeyPolicyResponse' smart constructor.
 getKeyPolicyResponse :: Int -> GetKeyPolicyResponse
-getKeyPolicyResponse pStatusCode = GetKeyPolicyResponse'{_gkprPolicy = Nothing, _gkprStatusCode = pStatusCode};
+getKeyPolicyResponse pStatus =
+    GetKeyPolicyResponse'
+    { _gkprPolicy = Nothing
+    , _gkprStatus = pStatus
+    }
 
 -- | A policy document in JSON format.
 gkprPolicy :: Lens' GetKeyPolicyResponse (Maybe Text)
 gkprPolicy = lens _gkprPolicy (\ s a -> s{_gkprPolicy = a});
 
 -- | FIXME: Undocumented member.
-gkprStatusCode :: Lens' GetKeyPolicyResponse Int
-gkprStatusCode = lens _gkprStatusCode (\ s a -> s{_gkprStatusCode = a});
+gkprStatus :: Lens' GetKeyPolicyResponse Int
+gkprStatus = lens _gkprStatus (\ s a -> s{_gkprStatus = a});

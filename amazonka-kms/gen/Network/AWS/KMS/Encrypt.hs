@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.Encrypt
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,13 +57,13 @@ module Network.AWS.KMS.Encrypt
     -- ** Response lenses
     , erKeyId
     , erCiphertextBlob
-    , erStatusCode
+    , erStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'encrypt' smart constructor.
 --
@@ -76,11 +76,22 @@ import Network.AWS.Response
 -- * 'encKeyId'
 --
 -- * 'encPlaintext'
-data Encrypt = Encrypt'{_encEncryptionContext :: Maybe (Map Text Text), _encGrantTokens :: Maybe [Text], _encKeyId :: Text, _encPlaintext :: Sensitive Base64} deriving (Eq, Read, Show)
+data Encrypt = Encrypt'
+    { _encEncryptionContext :: Maybe (Map Text Text)
+    , _encGrantTokens       :: Maybe [Text]
+    , _encKeyId             :: Text
+    , _encPlaintext         :: Sensitive Base64
+    } deriving (Eq,Read,Show)
 
 -- | 'Encrypt' smart constructor.
 encrypt :: Text -> Base64 -> Encrypt
-encrypt pKeyId pPlaintext = Encrypt'{_encEncryptionContext = Nothing, _encGrantTokens = Nothing, _encKeyId = pKeyId, _encPlaintext = _Sensitive # pPlaintext};
+encrypt pKeyId pPlaintext =
+    Encrypt'
+    { _encEncryptionContext = Nothing
+    , _encGrantTokens = Nothing
+    , _encKeyId = pKeyId
+    , _encPlaintext = _Sensitive # pPlaintext
+    }
 
 -- | Name\/value pair that specifies the encryption context to be used for
 -- authenticated encryption. If used here, the same value must be supplied
@@ -153,12 +164,21 @@ instance ToQuery Encrypt where
 --
 -- * 'erCiphertextBlob'
 --
--- * 'erStatusCode'
-data EncryptResponse = EncryptResponse'{_erKeyId :: Maybe Text, _erCiphertextBlob :: Maybe Base64, _erStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'erStatus'
+data EncryptResponse = EncryptResponse'
+    { _erKeyId          :: Maybe Text
+    , _erCiphertextBlob :: Maybe Base64
+    , _erStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'EncryptResponse' smart constructor.
 encryptResponse :: Int -> EncryptResponse
-encryptResponse pStatusCode = EncryptResponse'{_erKeyId = Nothing, _erCiphertextBlob = Nothing, _erStatusCode = pStatusCode};
+encryptResponse pStatus =
+    EncryptResponse'
+    { _erKeyId = Nothing
+    , _erCiphertextBlob = Nothing
+    , _erStatus = pStatus
+    }
 
 -- | The ID of the key used during encryption.
 erKeyId :: Lens' EncryptResponse (Maybe Text)
@@ -170,5 +190,5 @@ erCiphertextBlob :: Lens' EncryptResponse (Maybe Base64)
 erCiphertextBlob = lens _erCiphertextBlob (\ s a -> s{_erCiphertextBlob = a});
 
 -- | FIXME: Undocumented member.
-erStatusCode :: Lens' EncryptResponse Int
-erStatusCode = lens _erStatusCode (\ s a -> s{_erStatusCode = a});
+erStatus :: Lens' EncryptResponse Int
+erStatus = lens _erStatus (\ s a -> s{_erStatus = a});

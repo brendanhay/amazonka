@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateDeployment
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,13 +46,13 @@ module Network.AWS.OpsWorks.CreateDeployment
     , createDeploymentResponse
     -- ** Response lenses
     , cdrDeploymentId
-    , cdrStatusCode
+    , cdrStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createDeployment' smart constructor.
 --
@@ -69,11 +69,26 @@ import Network.AWS.Response
 -- * 'cdStackId'
 --
 -- * 'cdCommand'
-data CreateDeployment = CreateDeployment'{_cdCustomJSON :: Maybe Text, _cdAppId :: Maybe Text, _cdInstanceIds :: Maybe [Text], _cdComment :: Maybe Text, _cdStackId :: Text, _cdCommand :: DeploymentCommand} deriving (Eq, Read, Show)
+data CreateDeployment = CreateDeployment'
+    { _cdCustomJSON  :: Maybe Text
+    , _cdAppId       :: Maybe Text
+    , _cdInstanceIds :: Maybe [Text]
+    , _cdComment     :: Maybe Text
+    , _cdStackId     :: Text
+    , _cdCommand     :: DeploymentCommand
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDeployment' smart constructor.
 createDeployment :: Text -> DeploymentCommand -> CreateDeployment
-createDeployment pStackId pCommand = CreateDeployment'{_cdCustomJSON = Nothing, _cdAppId = Nothing, _cdInstanceIds = Nothing, _cdComment = Nothing, _cdStackId = pStackId, _cdCommand = pCommand};
+createDeployment pStackId pCommand =
+    CreateDeployment'
+    { _cdCustomJSON = Nothing
+    , _cdAppId = Nothing
+    , _cdInstanceIds = Nothing
+    , _cdComment = Nothing
+    , _cdStackId = pStackId
+    , _cdCommand = pCommand
+    }
 
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
@@ -150,12 +165,19 @@ instance ToQuery CreateDeployment where
 --
 -- * 'cdrDeploymentId'
 --
--- * 'cdrStatusCode'
-data CreateDeploymentResponse = CreateDeploymentResponse'{_cdrDeploymentId :: Maybe Text, _cdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdrStatus'
+data CreateDeploymentResponse = CreateDeploymentResponse'
+    { _cdrDeploymentId :: Maybe Text
+    , _cdrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDeploymentResponse' smart constructor.
 createDeploymentResponse :: Int -> CreateDeploymentResponse
-createDeploymentResponse pStatusCode = CreateDeploymentResponse'{_cdrDeploymentId = Nothing, _cdrStatusCode = pStatusCode};
+createDeploymentResponse pStatus =
+    CreateDeploymentResponse'
+    { _cdrDeploymentId = Nothing
+    , _cdrStatus = pStatus
+    }
 
 -- | The deployment ID, which can be used with other requests to identify the
 -- deployment.
@@ -163,5 +185,5 @@ cdrDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrDeploymentId = lens _cdrDeploymentId (\ s a -> s{_cdrDeploymentId = a});
 
 -- | FIXME: Undocumented member.
-cdrStatusCode :: Lens' CreateDeploymentResponse Int
-cdrStatusCode = lens _cdrStatusCode (\ s a -> s{_cdrStatusCode = a});
+cdrStatus :: Lens' CreateDeploymentResponse Int
+cdrStatus = lens _cdrStatus (\ s a -> s{_cdrStatus = a});

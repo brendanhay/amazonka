@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.SQS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -111,115 +110,155 @@ module Network.AWS.SQS.Types
     , smbreMD5OfMessageBody
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2012-11-05@ of the Amazon Simple Queue Service SDK.
 data SQS
 
 instance AWSService SQS where
     type Sg SQS = V4
-
     service = const svc
       where
-        svc :: Service SQS
-        svc = Service
-            { _svcAbbrev   = "SQS"
-            , _svcPrefix   = "sqs"
-            , _svcVersion  = "2012-11-05"
+        svc =
+            Service
+            { _svcAbbrev = "SQS"
+            , _svcPrefix = "sqs"
+            , _svcVersion = "2012-11-05"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "RequestThrottled" . hasStatus 403) e =
+              Just "request_limit_exceeded"
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The @Id@ of a batch entry in a batch request does not abide by the
 -- specification.
-_InvalidBatchEntryId :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidBatchEntryId = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.InvalidBatchEntryId";
+_InvalidBatchEntryId :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidBatchEntryId =
+    _ServiceError .
+    hasStatus 400 . hasCode "AWS.SimpleQueueService.InvalidBatchEntryId"
 
 -- | Batch request contains more number of entries than permissible.
-_TooManyEntriesInBatchRequest :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyEntriesInBatchRequest = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.TooManyEntriesInBatchRequest";
+_TooManyEntriesInBatchRequest :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyEntriesInBatchRequest =
+    _ServiceError .
+    hasStatus 400 .
+    hasCode "AWS.SimpleQueueService.TooManyEntriesInBatchRequest"
 
 -- | The attribute referred to does not exist.
-_InvalidAttributeName :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidAttributeName = _ServiceError . hasCode "InvalidAttributeName";
+_InvalidAttributeName :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidAttributeName = _ServiceError . hasCode "InvalidAttributeName"
 
 -- | You must wait 60 seconds after deleting a queue before you can create
 -- another with the same name.
-_QueueDeletedRecently :: AWSError a => Geting (First ServiceError) a ServiceError
-_QueueDeletedRecently = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.QueueDeletedRecently";
+_QueueDeletedRecently :: AWSError a => Getting (First ServiceError) a ServiceError
+_QueueDeletedRecently =
+    _ServiceError .
+    hasStatus 400 . hasCode "AWS.SimpleQueueService.QueueDeletedRecently"
 
 -- | The queue referred to does not exist.
-_QueueDoesNotExist :: AWSError a => Geting (First ServiceError) a ServiceError
-_QueueDoesNotExist = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.NonExistentQueue";
+_QueueDoesNotExist :: AWSError a => Getting (First ServiceError) a ServiceError
+_QueueDoesNotExist =
+    _ServiceError .
+    hasStatus 400 . hasCode "AWS.SimpleQueueService.NonExistentQueue"
 
 -- | Error code 400. Unsupported operation.
-_UnsupportedOperation :: AWSError a => Geting (First ServiceError) a ServiceError
-_UnsupportedOperation = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.UnsupportedOperation";
+_UnsupportedOperation :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnsupportedOperation =
+    _ServiceError .
+    hasStatus 400 . hasCode "AWS.SimpleQueueService.UnsupportedOperation"
 
 -- | The message contains characters outside the allowed set.
-_InvalidMessageContents :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidMessageContents = _ServiceError . hasCode "InvalidMessageContents";
+_InvalidMessageContents :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidMessageContents = _ServiceError . hasCode "InvalidMessageContents"
 
 -- | The length of all the messages put together is more than the limit.
-_BatchRequestTooLong :: AWSError a => Geting (First ServiceError) a ServiceError
-_BatchRequestTooLong = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.BatchRequestTooLong";
+_BatchRequestTooLong :: AWSError a => Getting (First ServiceError) a ServiceError
+_BatchRequestTooLong =
+    _ServiceError .
+    hasStatus 400 . hasCode "AWS.SimpleQueueService.BatchRequestTooLong"
 
 -- | The action that you requested would violate a limit. For example,
 -- ReceiveMessage returns this error if the maximum number of messages
 -- inflight has already been reached. AddPermission returns this error if
 -- the maximum number of permissions for the queue has already been
 -- reached.
-_OverLimit :: AWSError a => Geting (First ServiceError) a ServiceError
-_OverLimit = _ServiceError . hasStatus 403 . hasCode "OverLimit";
+_OverLimit :: AWSError a => Getting (First ServiceError) a ServiceError
+_OverLimit = _ServiceError . hasStatus 403 . hasCode "OverLimit"
 
 -- | Indicates that the specified queue previously received a @PurgeQueue@
 -- request within the last 60 seconds, the time it can take to delete the
 -- messages in the queue.
-_PurgeQueueInProgress :: AWSError a => Geting (First ServiceError) a ServiceError
-_PurgeQueueInProgress = _ServiceError . hasStatus 403 . hasCode "AWS.SimpleQueueService.PurgeQueueInProgress";
+_PurgeQueueInProgress :: AWSError a => Getting (First ServiceError) a ServiceError
+_PurgeQueueInProgress =
+    _ServiceError .
+    hasStatus 403 . hasCode "AWS.SimpleQueueService.PurgeQueueInProgress"
 
 -- | A queue already exists with this name. Amazon SQS returns this error
 -- only if the request includes attributes whose values differ from those
 -- of the existing queue.
-_QueueNameExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_QueueNameExists = _ServiceError . hasStatus 400 . hasCode "QueueAlreadyExists";
+_QueueNameExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_QueueNameExists = _ServiceError . hasStatus 400 . hasCode "QueueAlreadyExists"
 
 -- | The receipt handle is not valid for the current version.
-_InvalidIdFormat :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidIdFormat = _ServiceError . hasCode "InvalidIdFormat";
+_InvalidIdFormat :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidIdFormat = _ServiceError . hasCode "InvalidIdFormat"
 
 -- | The receipt handle provided is not valid.
-_ReceiptHandleIsInvalid :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReceiptHandleIsInvalid = _ServiceError . hasCode "ReceiptHandleIsInvalid";
+_ReceiptHandleIsInvalid :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReceiptHandleIsInvalid = _ServiceError . hasCode "ReceiptHandleIsInvalid"
 
 -- | Batch request does not contain an entry.
-_EmptyBatchRequest :: AWSError a => Geting (First ServiceError) a ServiceError
-_EmptyBatchRequest = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.EmptyBatchRequest";
+_EmptyBatchRequest :: AWSError a => Getting (First ServiceError) a ServiceError
+_EmptyBatchRequest =
+    _ServiceError .
+    hasStatus 400 . hasCode "AWS.SimpleQueueService.EmptyBatchRequest"
 
 -- | The message referred to is not in flight.
-_MessageNotInflight :: AWSError a => Geting (First ServiceError) a ServiceError
-_MessageNotInflight = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.MessageNotInflight";
+_MessageNotInflight :: AWSError a => Getting (First ServiceError) a ServiceError
+_MessageNotInflight =
+    _ServiceError .
+    hasStatus 400 . hasCode "AWS.SimpleQueueService.MessageNotInflight"
 
 -- | Two or more batch entries have the same @Id@ in the request.
-_BatchEntryIdsNotDistinct :: AWSError a => Geting (First ServiceError) a ServiceError
-_BatchEntryIdsNotDistinct = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.BatchEntryIdsNotDistinct";
+_BatchEntryIdsNotDistinct :: AWSError a => Getting (First ServiceError) a ServiceError
+_BatchEntryIdsNotDistinct =
+    _ServiceError .
+    hasStatus 400 . hasCode "AWS.SimpleQueueService.BatchEntryIdsNotDistinct"
 
-data QueueAttributeName = MessageRetentionPeriod | LastModifiedTimestamp | VisibilityTimeout | RedrivePolicy | ApproximateNumberOfMessagesDelayed | MaximumMessageSize | DelaySeconds | QueueARN | ApproximateNumberOfMessages | ReceiveMessageWaitTimeSeconds | Policy | CreatedTimestamp | ApproximateNumberOfMessagesNotVisible deriving (Eq, Ord, Read, Show, Enum, Generic)
+data QueueAttributeName
+    = MessageRetentionPeriod
+    | LastModifiedTimestamp
+    | VisibilityTimeout
+    | RedrivePolicy
+    | ApproximateNumberOfMessagesDelayed
+    | MaximumMessageSize
+    | DelaySeconds
+    | QueueARN
+    | ApproximateNumberOfMessages
+    | ReceiveMessageWaitTimeSeconds
+    | Policy
+    | CreatedTimestamp
+    | ApproximateNumberOfMessagesNotVisible
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText QueueAttributeName where
     parser = takeLowerText >>= \case
@@ -275,11 +314,22 @@ instance FromXML QueueAttributeName where
 -- * 'breeSenderFault'
 --
 -- * 'breeCode'
-data BatchResultErrorEntry = BatchResultErrorEntry'{_breeMessage :: Maybe Text, _breeId :: Text, _breeSenderFault :: Bool, _breeCode :: Text} deriving (Eq, Read, Show)
+data BatchResultErrorEntry = BatchResultErrorEntry'
+    { _breeMessage     :: Maybe Text
+    , _breeId          :: Text
+    , _breeSenderFault :: !Bool
+    , _breeCode        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'BatchResultErrorEntry' smart constructor.
 batchResultErrorEntry :: Text -> Bool -> Text -> BatchResultErrorEntry
-batchResultErrorEntry pId pSenderFault pCode = BatchResultErrorEntry'{_breeMessage = Nothing, _breeId = pId, _breeSenderFault = pSenderFault, _breeCode = pCode};
+batchResultErrorEntry pId pSenderFault pCode =
+    BatchResultErrorEntry'
+    { _breeMessage = Nothing
+    , _breeId = pId
+    , _breeSenderFault = pSenderFault
+    , _breeCode = pCode
+    }
 
 -- | A message explaining why the action failed on this entry.
 breeMessage :: Lens' BatchResultErrorEntry (Maybe Text)
@@ -327,11 +377,20 @@ instance FromXML BatchResultErrorEntry where
 -- * 'chaId'
 --
 -- * 'chaReceiptHandle'
-data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry'{_chaVisibilityTimeout :: Maybe Int, _chaId :: Text, _chaReceiptHandle :: Text} deriving (Eq, Read, Show)
+data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry'
+    { _chaVisibilityTimeout :: Maybe Int
+    , _chaId                :: Text
+    , _chaReceiptHandle     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ChangeMessageVisibilityBatchRequestEntry' smart constructor.
 changeMessageVisibilityBatchRequestEntry :: Text -> Text -> ChangeMessageVisibilityBatchRequestEntry
-changeMessageVisibilityBatchRequestEntry pId pReceiptHandle = ChangeMessageVisibilityBatchRequestEntry'{_chaVisibilityTimeout = Nothing, _chaId = pId, _chaReceiptHandle = pReceiptHandle};
+changeMessageVisibilityBatchRequestEntry pId pReceiptHandle =
+    ChangeMessageVisibilityBatchRequestEntry'
+    { _chaVisibilityTimeout = Nothing
+    , _chaId = pId
+    , _chaReceiptHandle = pReceiptHandle
+    }
 
 -- | The new value (in seconds) for the message\'s visibility timeout.
 chaVisibilityTimeout :: Lens' ChangeMessageVisibilityBatchRequestEntry (Maybe Int)
@@ -361,11 +420,16 @@ instance ToQuery
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cmvbreId'
-newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry'{_cmvbreId :: Text} deriving (Eq, Read, Show)
+newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry'
+    { _cmvbreId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ChangeMessageVisibilityBatchResultEntry' smart constructor.
 changeMessageVisibilityBatchResultEntry :: Text -> ChangeMessageVisibilityBatchResultEntry
-changeMessageVisibilityBatchResultEntry pId = ChangeMessageVisibilityBatchResultEntry'{_cmvbreId = pId};
+changeMessageVisibilityBatchResultEntry pId =
+    ChangeMessageVisibilityBatchResultEntry'
+    { _cmvbreId = pId
+    }
 
 -- | Represents a message whose visibility timeout has been changed
 -- successfully.
@@ -387,11 +451,18 @@ instance FromXML
 -- * 'dmbreId'
 --
 -- * 'dmbreReceiptHandle'
-data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'{_dmbreId :: Text, _dmbreReceiptHandle :: Text} deriving (Eq, Read, Show)
+data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'
+    { _dmbreId            :: Text
+    , _dmbreReceiptHandle :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteMessageBatchRequestEntry' smart constructor.
 deleteMessageBatchRequestEntry :: Text -> Text -> DeleteMessageBatchRequestEntry
-deleteMessageBatchRequestEntry pId pReceiptHandle = DeleteMessageBatchRequestEntry'{_dmbreId = pId, _dmbreReceiptHandle = pReceiptHandle};
+deleteMessageBatchRequestEntry pId pReceiptHandle =
+    DeleteMessageBatchRequestEntry'
+    { _dmbreId = pId
+    , _dmbreReceiptHandle = pReceiptHandle
+    }
 
 -- | An identifier for this particular receipt handle. This is used to
 -- communicate the result. Note that the @Id@s of a batch request need to
@@ -416,11 +487,16 @@ instance ToQuery DeleteMessageBatchRequestEntry where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delId'
-newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry'{_delId :: Text} deriving (Eq, Read, Show)
+newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry'
+    { _delId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteMessageBatchResultEntry' smart constructor.
 deleteMessageBatchResultEntry :: Text -> DeleteMessageBatchResultEntry
-deleteMessageBatchResultEntry pId = DeleteMessageBatchResultEntry'{_delId = pId};
+deleteMessageBatchResultEntry pId =
+    DeleteMessageBatchResultEntry'
+    { _delId = pId
+    }
 
 -- | Represents a successfully deleted message.
 delId :: Lens' DeleteMessageBatchResultEntry Text
@@ -449,11 +525,28 @@ instance FromXML DeleteMessageBatchResultEntry where
 -- * 'mesReceiptHandle'
 --
 -- * 'mesMD5OfMessageAttributes'
-data Message = Message'{_mesMessageAttributes :: Maybe (Map Text MessageAttributeValue), _mesMD5OfBody :: Maybe Text, _mesBody :: Maybe Text, _mesAttributes :: Maybe (Map QueueAttributeName Text), _mesMessageId :: Maybe Text, _mesReceiptHandle :: Maybe Text, _mesMD5OfMessageAttributes :: Maybe Text} deriving (Eq, Read, Show)
+data Message = Message'
+    { _mesMessageAttributes      :: Maybe (Map Text MessageAttributeValue)
+    , _mesMD5OfBody              :: Maybe Text
+    , _mesBody                   :: Maybe Text
+    , _mesAttributes             :: Maybe (Map QueueAttributeName Text)
+    , _mesMessageId              :: Maybe Text
+    , _mesReceiptHandle          :: Maybe Text
+    , _mesMD5OfMessageAttributes :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Message' smart constructor.
 message :: Message
-message = Message'{_mesMessageAttributes = Nothing, _mesMD5OfBody = Nothing, _mesBody = Nothing, _mesAttributes = Nothing, _mesMessageId = Nothing, _mesReceiptHandle = Nothing, _mesMD5OfMessageAttributes = Nothing};
+message =
+    Message'
+    { _mesMessageAttributes = Nothing
+    , _mesMD5OfBody = Nothing
+    , _mesBody = Nothing
+    , _mesAttributes = Nothing
+    , _mesMessageId = Nothing
+    , _mesReceiptHandle = Nothing
+    , _mesMD5OfMessageAttributes = Nothing
+    }
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see
@@ -531,11 +624,24 @@ instance FromXML Message where
 -- * 'mavBinaryListValues'
 --
 -- * 'mavDataType'
-data MessageAttributeValue = MessageAttributeValue'{_mavBinaryValue :: Maybe Base64, _mavStringListValues :: Maybe [Text], _mavStringValue :: Maybe Text, _mavBinaryListValues :: Maybe [Base64], _mavDataType :: Text} deriving (Eq, Read, Show)
+data MessageAttributeValue = MessageAttributeValue'
+    { _mavBinaryValue      :: Maybe Base64
+    , _mavStringListValues :: Maybe [Text]
+    , _mavStringValue      :: Maybe Text
+    , _mavBinaryListValues :: Maybe [Base64]
+    , _mavDataType         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'MessageAttributeValue' smart constructor.
 messageAttributeValue :: Text -> MessageAttributeValue
-messageAttributeValue pDataType = MessageAttributeValue'{_mavBinaryValue = Nothing, _mavStringListValues = Nothing, _mavStringValue = Nothing, _mavBinaryListValues = Nothing, _mavDataType = pDataType};
+messageAttributeValue pDataType =
+    MessageAttributeValue'
+    { _mavBinaryValue = Nothing
+    , _mavStringListValues = Nothing
+    , _mavStringValue = Nothing
+    , _mavBinaryListValues = Nothing
+    , _mavDataType = pDataType
+    }
 
 -- | Binary type attributes can store any binary data, for example,
 -- compressed data, encrypted data, or images.
@@ -603,11 +709,22 @@ instance ToQuery MessageAttributeValue where
 -- * 'senId'
 --
 -- * 'senMessageBody'
-data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'{_senMessageAttributes :: Maybe (Map Text MessageAttributeValue), _senDelaySeconds :: Maybe Int, _senId :: Text, _senMessageBody :: Text} deriving (Eq, Read, Show)
+data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
+    { _senMessageAttributes :: Maybe (Map Text MessageAttributeValue)
+    , _senDelaySeconds      :: Maybe Int
+    , _senId                :: Text
+    , _senMessageBody       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SendMessageBatchRequestEntry' smart constructor.
 sendMessageBatchRequestEntry :: Text -> Text -> SendMessageBatchRequestEntry
-sendMessageBatchRequestEntry pId pMessageBody = SendMessageBatchRequestEntry'{_senMessageAttributes = Nothing, _senDelaySeconds = Nothing, _senId = pId, _senMessageBody = pMessageBody};
+sendMessageBatchRequestEntry pId pMessageBody =
+    SendMessageBatchRequestEntry'
+    { _senMessageAttributes = Nothing
+    , _senDelaySeconds = Nothing
+    , _senId = pId
+    , _senMessageBody = pMessageBody
+    }
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see
@@ -652,11 +769,22 @@ instance ToQuery SendMessageBatchRequestEntry where
 -- * 'smbreMessageId'
 --
 -- * 'smbreMD5OfMessageBody'
-data SendMessageBatchResultEntry = SendMessageBatchResultEntry'{_smbreMD5OfMessageAttributes :: Maybe Text, _smbreId :: Text, _smbreMessageId :: Text, _smbreMD5OfMessageBody :: Text} deriving (Eq, Read, Show)
+data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
+    { _smbreMD5OfMessageAttributes :: Maybe Text
+    , _smbreId                     :: Text
+    , _smbreMessageId              :: Text
+    , _smbreMD5OfMessageBody       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SendMessageBatchResultEntry' smart constructor.
 sendMessageBatchResultEntry :: Text -> Text -> Text -> SendMessageBatchResultEntry
-sendMessageBatchResultEntry pId pMessageId pMD5OfMessageBody = SendMessageBatchResultEntry'{_smbreMD5OfMessageAttributes = Nothing, _smbreId = pId, _smbreMessageId = pMessageId, _smbreMD5OfMessageBody = pMD5OfMessageBody};
+sendMessageBatchResultEntry pId pMessageId pMD5OfMessageBody =
+    SendMessageBatchResultEntry'
+    { _smbreMD5OfMessageAttributes = Nothing
+    , _smbreId = pId
+    , _smbreMessageId = pMessageId
+    , _smbreMD5OfMessageBody = pMD5OfMessageBody
+    }
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. This can
 -- be used to verify that Amazon SQS received the message batch correctly.

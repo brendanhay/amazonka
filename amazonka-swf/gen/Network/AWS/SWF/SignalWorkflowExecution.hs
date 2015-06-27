@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.SignalWorkflowExecution
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -65,10 +65,10 @@ module Network.AWS.SWF.SignalWorkflowExecution
     , signalWorkflowExecutionResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'signalWorkflowExecution' smart constructor.
 --
@@ -83,11 +83,24 @@ import Network.AWS.SWF.Types
 -- * 'sweWorkflowId'
 --
 -- * 'sweSignalName'
-data SignalWorkflowExecution = SignalWorkflowExecution'{_sweInput :: Maybe Text, _sweRunId :: Maybe Text, _sweDomain :: Text, _sweWorkflowId :: Text, _sweSignalName :: Text} deriving (Eq, Read, Show)
+data SignalWorkflowExecution = SignalWorkflowExecution'
+    { _sweInput      :: Maybe Text
+    , _sweRunId      :: Maybe Text
+    , _sweDomain     :: Text
+    , _sweWorkflowId :: Text
+    , _sweSignalName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SignalWorkflowExecution' smart constructor.
 signalWorkflowExecution :: Text -> Text -> Text -> SignalWorkflowExecution
-signalWorkflowExecution pDomain pWorkflowId pSignalName = SignalWorkflowExecution'{_sweInput = Nothing, _sweRunId = Nothing, _sweDomain = pDomain, _sweWorkflowId = pWorkflowId, _sweSignalName = pSignalName};
+signalWorkflowExecution pDomain pWorkflowId pSignalName =
+    SignalWorkflowExecution'
+    { _sweInput = Nothing
+    , _sweRunId = Nothing
+    , _sweDomain = pDomain
+    , _sweWorkflowId = pWorkflowId
+    , _sweSignalName = pSignalName
+    }
 
 -- | Data to attach to the @WorkflowExecutionSignaled@ event in the target
 -- workflow execution\'s history.
@@ -144,8 +157,10 @@ instance ToQuery SignalWorkflowExecution where
         toQuery = const mempty
 
 -- | /See:/ 'signalWorkflowExecutionResponse' smart constructor.
-data SignalWorkflowExecutionResponse = SignalWorkflowExecutionResponse' deriving (Eq, Read, Show)
+data SignalWorkflowExecutionResponse =
+    SignalWorkflowExecutionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SignalWorkflowExecutionResponse' smart constructor.
 signalWorkflowExecutionResponse :: SignalWorkflowExecutionResponse
-signalWorkflowExecutionResponse = SignalWorkflowExecutionResponse';
+signalWorkflowExecutionResponse = SignalWorkflowExecutionResponse'

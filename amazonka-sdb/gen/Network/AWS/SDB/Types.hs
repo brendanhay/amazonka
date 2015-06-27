@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.SDB.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -83,108 +82,124 @@ module Network.AWS.SDB.Types
     , ucName
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V2
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V2
 
 -- | Version @2009-04-15@ of the Amazon SimpleDB SDK.
 data SDB
 
 instance AWSService SDB where
     type Sg SDB = V2
-
     service = const svc
       where
-        svc :: Service SDB
-        svc = Service
-            { _svcAbbrev   = "SDB"
-            , _svcPrefix   = "sdb"
-            , _svcVersion  = "2009-04-15"
+        svc =
+            Service
+            { _svcAbbrev = "SDB"
+            , _svcPrefix = "sdb"
+            , _svcVersion = "2009-04-15"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | Too many predicates exist in the query expression.
-_InvalidNumberValueTests :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNumberValueTests = _ServiceError . hasStatus 400 . hasCode "InvalidNumberValueTests";
+_InvalidNumberValueTests :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNumberValueTests =
+    _ServiceError . hasStatus 400 . hasCode "InvalidNumberValueTests"
 
 -- | The specified domain does not exist.
-_NoSuchDomain :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchDomain = _ServiceError . hasStatus 400 . hasCode "NoSuchDomain";
+_NoSuchDomain :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchDomain = _ServiceError . hasStatus 400 . hasCode "NoSuchDomain"
 
 -- | Too many attributes in this domain.
-_NumberDomainAttributesExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_NumberDomainAttributesExceeded = _ServiceError . hasStatus 409 . hasCode "NumberDomainAttributesExceeded";
+_NumberDomainAttributesExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberDomainAttributesExceeded =
+    _ServiceError . hasStatus 409 . hasCode "NumberDomainAttributesExceeded"
 
 -- | Too many items exist in a single call.
-_NumberSubmittedItemsExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_NumberSubmittedItemsExceeded = _ServiceError . hasStatus 409 . hasCode "NumberSubmittedItemsExceeded";
+_NumberSubmittedItemsExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberSubmittedItemsExceeded =
+    _ServiceError . hasStatus 409 . hasCode "NumberSubmittedItemsExceeded"
 
 -- | The specified attribute does not exist.
-_AttributeDoesNotExist :: AWSError a => Geting (First ServiceError) a ServiceError
-_AttributeDoesNotExist = _ServiceError . hasStatus 404 . hasCode "AttributeDoesNotExist";
+_AttributeDoesNotExist :: AWSError a => Getting (First ServiceError) a ServiceError
+_AttributeDoesNotExist =
+    _ServiceError . hasStatus 404 . hasCode "AttributeDoesNotExist"
 
 -- | The specified NextToken is not valid.
-_InvalidNextToken :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken";
+_InvalidNextToken :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
 -- | The request must contain the specified missing parameter.
-_MissingParameter :: AWSError a => Geting (First ServiceError) a ServiceError
-_MissingParameter = _ServiceError . hasStatus 400 . hasCode "MissingParameter";
+_MissingParameter :: AWSError a => Getting (First ServiceError) a ServiceError
+_MissingParameter = _ServiceError . hasStatus 400 . hasCode "MissingParameter"
 
 -- | The item name was specified more than once.
-_DuplicateItemName :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicateItemName = _ServiceError . hasStatus 400 . hasCode "DuplicateItemName";
+_DuplicateItemName :: AWSError a => Getting (First ServiceError) a ServiceError
+_DuplicateItemName =
+    _ServiceError . hasStatus 400 . hasCode "DuplicateItemName"
 
 -- | The value for a parameter is invalid.
-_InvalidParameterValue :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterValue = _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue";
+_InvalidParameterValue :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterValue =
+    _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue"
 
 -- | Too many attributes in this item.
-_NumberItemAttributesExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_NumberItemAttributesExceeded = _ServiceError . hasStatus 409 . hasCode "NumberItemAttributesExceeded";
+_NumberItemAttributesExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberItemAttributesExceeded =
+    _ServiceError . hasStatus 409 . hasCode "NumberItemAttributesExceeded"
 
 -- | A timeout occurred when attempting to query the specified domain with
 -- specified query expression.
-_RequestTimeout :: AWSError a => Geting (First ServiceError) a ServiceError
-_RequestTimeout = _ServiceError . hasStatus 408 . hasCode "RequestTimeout";
+_RequestTimeout :: AWSError a => Getting (First ServiceError) a ServiceError
+_RequestTimeout = _ServiceError . hasStatus 408 . hasCode "RequestTimeout"
 
 -- | Too many attributes requested.
-_TooManyRequestedAttributes :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyRequestedAttributes = _ServiceError . hasStatus 400 . hasCode "TooManyRequestedAttributes";
+_TooManyRequestedAttributes :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyRequestedAttributes =
+    _ServiceError . hasStatus 400 . hasCode "TooManyRequestedAttributes"
 
 -- | Too many predicates exist in the query expression.
-_InvalidNumberPredicates :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNumberPredicates = _ServiceError . hasStatus 400 . hasCode "InvalidNumberPredicates";
+_InvalidNumberPredicates :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNumberPredicates =
+    _ServiceError . hasStatus 400 . hasCode "InvalidNumberPredicates"
 
 -- | Too many domains exist per this account.
-_NumberDomainsExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_NumberDomainsExceeded = _ServiceError . hasStatus 409 . hasCode "NumberDomainsExceeded";
+_NumberDomainsExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberDomainsExceeded =
+    _ServiceError . hasStatus 409 . hasCode "NumberDomainsExceeded"
 
 -- | Too many attributes exist in a single call.
-_NumberSubmittedAttributesExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_NumberSubmittedAttributesExceeded = _ServiceError . hasStatus 409 . hasCode "NumberSubmittedAttributesExceeded";
+_NumberSubmittedAttributesExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberSubmittedAttributesExceeded =
+    _ServiceError . hasStatus 409 . hasCode "NumberSubmittedAttributesExceeded"
 
 -- | The specified query expression syntax is not valid.
-_InvalidQueryExpression :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidQueryExpression = _ServiceError . hasStatus 400 . hasCode "InvalidQueryExpression";
+_InvalidQueryExpression :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidQueryExpression =
+    _ServiceError . hasStatus 400 . hasCode "InvalidQueryExpression"
 
 -- | Too many bytes in this domain.
-_NumberDomainBytesExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_NumberDomainBytesExceeded = _ServiceError . hasStatus 409 . hasCode "NumberDomainBytesExceeded";
+_NumberDomainBytesExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberDomainBytesExceeded =
+    _ServiceError . hasStatus 409 . hasCode "NumberDomainBytesExceeded"
 
 -- |
 --
@@ -199,11 +214,22 @@ _NumberDomainBytesExceeded = _ServiceError . hasStatus 409 . hasCode "NumberDoma
 -- * 'attName'
 --
 -- * 'attValue'
-data Attribute = Attribute'{_attAlternateValueEncoding :: Maybe Text, _attAlternateNameEncoding :: Maybe Text, _attName :: Text, _attValue :: Text} deriving (Eq, Read, Show)
+data Attribute = Attribute'
+    { _attAlternateValueEncoding :: Maybe Text
+    , _attAlternateNameEncoding  :: Maybe Text
+    , _attName                   :: Text
+    , _attValue                  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Attribute' smart constructor.
 attribute :: Text -> Text -> Attribute
-attribute pName pValue = Attribute'{_attAlternateValueEncoding = Nothing, _attAlternateNameEncoding = Nothing, _attName = pName, _attValue = pValue};
+attribute pName pValue =
+    Attribute'
+    { _attAlternateValueEncoding = Nothing
+    , _attAlternateNameEncoding = Nothing
+    , _attName = pName
+    , _attValue = pValue
+    }
 
 -- |
 attAlternateValueEncoding :: Lens' Attribute (Maybe Text)
@@ -244,11 +270,18 @@ instance ToQuery Attribute where
 -- * 'diAttributes'
 --
 -- * 'diName'
-data DeletableItem = DeletableItem'{_diAttributes :: Maybe [Attribute], _diName :: Text} deriving (Eq, Read, Show)
+data DeletableItem = DeletableItem'
+    { _diAttributes :: Maybe [Attribute]
+    , _diName       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeletableItem' smart constructor.
 deletableItem :: Text -> DeletableItem
-deletableItem pName = DeletableItem'{_diAttributes = Nothing, _diName = pName};
+deletableItem pName =
+    DeletableItem'
+    { _diAttributes = Nothing
+    , _diName = pName
+    }
 
 -- | FIXME: Undocumented member.
 diAttributes :: Lens' DeletableItem [Attribute]
@@ -275,11 +308,20 @@ instance ToQuery DeletableItem where
 -- * 'iteName'
 --
 -- * 'iteAttributes'
-data Item = Item'{_iteAlternateNameEncoding :: Maybe Text, _iteName :: Text, _iteAttributes :: [Attribute]} deriving (Eq, Read, Show)
+data Item = Item'
+    { _iteAlternateNameEncoding :: Maybe Text
+    , _iteName                  :: Text
+    , _iteAttributes            :: [Attribute]
+    } deriving (Eq,Read,Show)
 
 -- | 'Item' smart constructor.
 item :: Text -> Item
-item pName = Item'{_iteAlternateNameEncoding = Nothing, _iteName = pName, _iteAttributes = mempty};
+item pName =
+    Item'
+    { _iteAlternateNameEncoding = Nothing
+    , _iteName = pName
+    , _iteAttributes = mempty
+    }
 
 -- |
 iteAlternateNameEncoding :: Lens' Item (Maybe Text)
@@ -310,11 +352,20 @@ instance FromXML Item where
 -- * 'raName'
 --
 -- * 'raValue'
-data ReplaceableAttribute = ReplaceableAttribute'{_raReplace :: Maybe Bool, _raName :: Text, _raValue :: Text} deriving (Eq, Read, Show)
+data ReplaceableAttribute = ReplaceableAttribute'
+    { _raReplace :: Maybe Bool
+    , _raName    :: Text
+    , _raValue   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReplaceableAttribute' smart constructor.
 replaceableAttribute :: Text -> Text -> ReplaceableAttribute
-replaceableAttribute pName pValue = ReplaceableAttribute'{_raReplace = Nothing, _raName = pName, _raValue = pValue};
+replaceableAttribute pName pValue =
+    ReplaceableAttribute'
+    { _raReplace = Nothing
+    , _raName = pName
+    , _raValue = pValue
+    }
 
 -- | A flag specifying whether or not to replace the attribute\/value pair or
 -- to add a new attribute\/value pair. The default setting is @false@.
@@ -344,11 +395,18 @@ instance ToQuery ReplaceableAttribute where
 -- * 'riName'
 --
 -- * 'riAttributes'
-data ReplaceableItem = ReplaceableItem'{_riName :: Text, _riAttributes :: [ReplaceableAttribute]} deriving (Eq, Read, Show)
+data ReplaceableItem = ReplaceableItem'
+    { _riName       :: Text
+    , _riAttributes :: [ReplaceableAttribute]
+    } deriving (Eq,Read,Show)
 
 -- | 'ReplaceableItem' smart constructor.
 replaceableItem :: Text -> ReplaceableItem
-replaceableItem pName = ReplaceableItem'{_riName = pName, _riAttributes = mempty};
+replaceableItem pName =
+    ReplaceableItem'
+    { _riName = pName
+    , _riAttributes = mempty
+    }
 
 -- | The name of the replaceable item.
 riName :: Lens' ReplaceableItem Text
@@ -379,11 +437,20 @@ instance ToQuery ReplaceableItem where
 -- * 'ucValue'
 --
 -- * 'ucName'
-data UpdateCondition = UpdateCondition'{_ucExists :: Maybe Bool, _ucValue :: Maybe Text, _ucName :: Maybe Text} deriving (Eq, Read, Show)
+data UpdateCondition = UpdateCondition'
+    { _ucExists :: Maybe Bool
+    , _ucValue  :: Maybe Text
+    , _ucName   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateCondition' smart constructor.
 updateCondition :: UpdateCondition
-updateCondition = UpdateCondition'{_ucExists = Nothing, _ucValue = Nothing, _ucName = Nothing};
+updateCondition =
+    UpdateCondition'
+    { _ucExists = Nothing
+    , _ucValue = Nothing
+    , _ucName = Nothing
+    }
 
 -- | A value specifying whether or not the specified attribute must exist
 -- with the specified value in order for the update condition to be

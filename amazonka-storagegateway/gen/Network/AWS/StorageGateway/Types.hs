@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.StorageGateway.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -154,49 +153,54 @@ module Network.AWS.StorageGateway.Types
     , vscsiaNetworkInterfacePort
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2013-06-30@ of the Amazon Storage Gateway SDK.
 data StorageGateway
 
 instance AWSService StorageGateway where
     type Sg StorageGateway = V4
-
     service = const svc
       where
-        svc :: Service StorageGateway
-        svc = Service
-            { _svcAbbrev   = "StorageGateway"
-            , _svcPrefix   = "storagegateway"
-            , _svcVersion  = "2013-06-30"
+        svc =
+            Service
+            { _svcAbbrev = "StorageGateway"
+            , _svcPrefix = "storagegateway"
+            , _svcVersion = "2013-06-30"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | An exception occurred because an invalid gateway request was issued to
 -- the service. See the error and message fields for more information.
-_InvalidGatewayRequestException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidGatewayRequestException = _ServiceError . hasStatus 400 . hasCode "InvalidGatewayRequestException";
+_InvalidGatewayRequestException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidGatewayRequestException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidGatewayRequestException"
 
 -- | An internal server error has occurred during the request. See the error
 -- and message fields for more information.
-_InternalServerError :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalServerError = _ServiceError . hasStatus 500 . hasCode "InternalServerError";
+_InternalServerError :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServerError =
+    _ServiceError . hasStatus 500 . hasCode "InternalServerError"
 
 -- | /See:/ 'cachediSCSIVolume' smart constructor.
 --
@@ -217,11 +221,30 @@ _InternalServerError = _ServiceError . hasStatus 500 . hasCode "InternalServerEr
 -- * 'cscsivVolumeId'
 --
 -- * 'cscsivVolumeType'
-data CachediSCSIVolume = CachediSCSIVolume'{_cscsivVolumeStatus :: Maybe Text, _cscsivVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes, _cscsivSourceSnapshotId :: Maybe Text, _cscsivVolumeARN :: Maybe Text, _cscsivVolumeProgress :: Maybe Double, _cscsivVolumeSizeInBytes :: Maybe Integer, _cscsivVolumeId :: Maybe Text, _cscsivVolumeType :: Maybe Text} deriving (Eq, Read, Show)
+data CachediSCSIVolume = CachediSCSIVolume'
+    { _cscsivVolumeStatus          :: Maybe Text
+    , _cscsivVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
+    , _cscsivSourceSnapshotId      :: Maybe Text
+    , _cscsivVolumeARN             :: Maybe Text
+    , _cscsivVolumeProgress        :: Maybe Double
+    , _cscsivVolumeSizeInBytes     :: Maybe Integer
+    , _cscsivVolumeId              :: Maybe Text
+    , _cscsivVolumeType            :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CachediSCSIVolume' smart constructor.
 cachediSCSIVolume :: CachediSCSIVolume
-cachediSCSIVolume = CachediSCSIVolume'{_cscsivVolumeStatus = Nothing, _cscsivVolumeiSCSIAttributes = Nothing, _cscsivSourceSnapshotId = Nothing, _cscsivVolumeARN = Nothing, _cscsivVolumeProgress = Nothing, _cscsivVolumeSizeInBytes = Nothing, _cscsivVolumeId = Nothing, _cscsivVolumeType = Nothing};
+cachediSCSIVolume =
+    CachediSCSIVolume'
+    { _cscsivVolumeStatus = Nothing
+    , _cscsivVolumeiSCSIAttributes = Nothing
+    , _cscsivSourceSnapshotId = Nothing
+    , _cscsivVolumeARN = Nothing
+    , _cscsivVolumeProgress = Nothing
+    , _cscsivVolumeSizeInBytes = Nothing
+    , _cscsivVolumeId = Nothing
+    , _cscsivVolumeType = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 cscsivVolumeStatus :: Lens' CachediSCSIVolume (Maybe Text)
@@ -283,11 +306,22 @@ instance FromJSON CachediSCSIVolume where
 -- * 'ciInitiatorName'
 --
 -- * 'ciSecretToAuthenticateTarget'
-data ChapInfo = ChapInfo'{_ciTargetARN :: Maybe Text, _ciSecretToAuthenticateInitiator :: Maybe Text, _ciInitiatorName :: Maybe Text, _ciSecretToAuthenticateTarget :: Maybe Text} deriving (Eq, Read, Show)
+data ChapInfo = ChapInfo'
+    { _ciTargetARN                     :: Maybe Text
+    , _ciSecretToAuthenticateInitiator :: Maybe Text
+    , _ciInitiatorName                 :: Maybe Text
+    , _ciSecretToAuthenticateTarget    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ChapInfo' smart constructor.
 chapInfo :: ChapInfo
-chapInfo = ChapInfo'{_ciTargetARN = Nothing, _ciSecretToAuthenticateInitiator = Nothing, _ciInitiatorName = Nothing, _ciSecretToAuthenticateTarget = Nothing};
+chapInfo =
+    ChapInfo'
+    { _ciTargetARN = Nothing
+    , _ciSecretToAuthenticateInitiator = Nothing
+    , _ciInitiatorName = Nothing
+    , _ciSecretToAuthenticateTarget = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the volume.
 --
@@ -333,11 +367,22 @@ instance FromJSON ChapInfo where
 -- * 'dscsiaNetworkInterfaceId'
 --
 -- * 'dscsiaNetworkInterfacePort'
-data DeviceiSCSIAttributes = DeviceiSCSIAttributes'{_dscsiaTargetARN :: Maybe Text, _dscsiaChapEnabled :: Maybe Bool, _dscsiaNetworkInterfaceId :: Maybe Text, _dscsiaNetworkInterfacePort :: Maybe Int} deriving (Eq, Read, Show)
+data DeviceiSCSIAttributes = DeviceiSCSIAttributes'
+    { _dscsiaTargetARN            :: Maybe Text
+    , _dscsiaChapEnabled          :: Maybe Bool
+    , _dscsiaNetworkInterfaceId   :: Maybe Text
+    , _dscsiaNetworkInterfacePort :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeviceiSCSIAttributes' smart constructor.
 deviceiSCSIAttributes :: DeviceiSCSIAttributes
-deviceiSCSIAttributes = DeviceiSCSIAttributes'{_dscsiaTargetARN = Nothing, _dscsiaChapEnabled = Nothing, _dscsiaNetworkInterfaceId = Nothing, _dscsiaNetworkInterfacePort = Nothing};
+deviceiSCSIAttributes =
+    DeviceiSCSIAttributes'
+    { _dscsiaTargetARN = Nothing
+    , _dscsiaChapEnabled = Nothing
+    , _dscsiaNetworkInterfaceId = Nothing
+    , _dscsiaNetworkInterfacePort = Nothing
+    }
 
 -- | Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI
 -- qualified name(iqn) of a tape drive or media changer target.
@@ -382,11 +427,28 @@ instance FromJSON DeviceiSCSIAttributes where
 -- * 'disDiskStatus'
 --
 -- * 'disDiskId'
-data Disk = Disk'{_disDiskAllocationResource :: Maybe Text, _disDiskAllocationType :: Maybe Text, _disDiskNode :: Maybe Text, _disDiskPath :: Maybe Text, _disDiskSizeInBytes :: Maybe Integer, _disDiskStatus :: Maybe Text, _disDiskId :: Maybe Text} deriving (Eq, Read, Show)
+data Disk = Disk'
+    { _disDiskAllocationResource :: Maybe Text
+    , _disDiskAllocationType     :: Maybe Text
+    , _disDiskNode               :: Maybe Text
+    , _disDiskPath               :: Maybe Text
+    , _disDiskSizeInBytes        :: Maybe Integer
+    , _disDiskStatus             :: Maybe Text
+    , _disDiskId                 :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Disk' smart constructor.
 disk :: Disk
-disk = Disk'{_disDiskAllocationResource = Nothing, _disDiskAllocationType = Nothing, _disDiskNode = Nothing, _disDiskPath = Nothing, _disDiskSizeInBytes = Nothing, _disDiskStatus = Nothing, _disDiskId = Nothing};
+disk =
+    Disk'
+    { _disDiskAllocationResource = Nothing
+    , _disDiskAllocationType = Nothing
+    , _disDiskNode = Nothing
+    , _disDiskPath = Nothing
+    , _disDiskSizeInBytes = Nothing
+    , _disDiskStatus = Nothing
+    , _disDiskId = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 disDiskAllocationResource :: Lens' Disk (Maybe Text)
@@ -438,11 +500,20 @@ instance FromJSON Disk where
 -- * 'giGatewayOperationalState'
 --
 -- * 'giGatewayType'
-data GatewayInfo = GatewayInfo'{_giGatewayARN :: Maybe Text, _giGatewayOperationalState :: Maybe Text, _giGatewayType :: Maybe Text} deriving (Eq, Read, Show)
+data GatewayInfo = GatewayInfo'
+    { _giGatewayARN              :: Maybe Text
+    , _giGatewayOperationalState :: Maybe Text
+    , _giGatewayType             :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GatewayInfo' smart constructor.
 gatewayInfo :: GatewayInfo
-gatewayInfo = GatewayInfo'{_giGatewayARN = Nothing, _giGatewayOperationalState = Nothing, _giGatewayType = Nothing};
+gatewayInfo =
+    GatewayInfo'
+    { _giGatewayARN = Nothing
+    , _giGatewayOperationalState = Nothing
+    , _giGatewayType = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 giGatewayARN :: Lens' GatewayInfo (Maybe Text)
@@ -476,11 +547,20 @@ instance FromJSON GatewayInfo where
 -- * 'niMACAddress'
 --
 -- * 'niIPv4Address'
-data NetworkInterface = NetworkInterface'{_niIPv6Address :: Maybe Text, _niMACAddress :: Maybe Text, _niIPv4Address :: Maybe Text} deriving (Eq, Read, Show)
+data NetworkInterface = NetworkInterface'
+    { _niIPv6Address :: Maybe Text
+    , _niMACAddress  :: Maybe Text
+    , _niIPv4Address :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'NetworkInterface' smart constructor.
 networkInterface :: NetworkInterface
-networkInterface = NetworkInterface'{_niIPv6Address = Nothing, _niMACAddress = Nothing, _niIPv4Address = Nothing};
+networkInterface =
+    NetworkInterface'
+    { _niIPv6Address = Nothing
+    , _niMACAddress = Nothing
+    , _niIPv4Address = Nothing
+    }
 
 -- | The Internet Protocol version 6 (IPv6) address of the interface.
 -- /Currently not supported/.
@@ -528,11 +608,34 @@ instance FromJSON NetworkInterface where
 -- * 'sscsivVolumeType'
 --
 -- * 'sscsivVolumeDiskId'
-data StorediSCSIVolume = StorediSCSIVolume'{_sscsivVolumeStatus :: Maybe Text, _sscsivVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes, _sscsivSourceSnapshotId :: Maybe Text, _sscsivPreservedExistingData :: Maybe Bool, _sscsivVolumeARN :: Maybe Text, _sscsivVolumeProgress :: Maybe Double, _sscsivVolumeSizeInBytes :: Maybe Integer, _sscsivVolumeId :: Maybe Text, _sscsivVolumeType :: Maybe Text, _sscsivVolumeDiskId :: Maybe Text} deriving (Eq, Read, Show)
+data StorediSCSIVolume = StorediSCSIVolume'
+    { _sscsivVolumeStatus          :: Maybe Text
+    , _sscsivVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
+    , _sscsivSourceSnapshotId      :: Maybe Text
+    , _sscsivPreservedExistingData :: Maybe Bool
+    , _sscsivVolumeARN             :: Maybe Text
+    , _sscsivVolumeProgress        :: Maybe Double
+    , _sscsivVolumeSizeInBytes     :: Maybe Integer
+    , _sscsivVolumeId              :: Maybe Text
+    , _sscsivVolumeType            :: Maybe Text
+    , _sscsivVolumeDiskId          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StorediSCSIVolume' smart constructor.
 storediSCSIVolume :: StorediSCSIVolume
-storediSCSIVolume = StorediSCSIVolume'{_sscsivVolumeStatus = Nothing, _sscsivVolumeiSCSIAttributes = Nothing, _sscsivSourceSnapshotId = Nothing, _sscsivPreservedExistingData = Nothing, _sscsivVolumeARN = Nothing, _sscsivVolumeProgress = Nothing, _sscsivVolumeSizeInBytes = Nothing, _sscsivVolumeId = Nothing, _sscsivVolumeType = Nothing, _sscsivVolumeDiskId = Nothing};
+storediSCSIVolume =
+    StorediSCSIVolume'
+    { _sscsivVolumeStatus = Nothing
+    , _sscsivVolumeiSCSIAttributes = Nothing
+    , _sscsivSourceSnapshotId = Nothing
+    , _sscsivPreservedExistingData = Nothing
+    , _sscsivVolumeARN = Nothing
+    , _sscsivVolumeProgress = Nothing
+    , _sscsivVolumeSizeInBytes = Nothing
+    , _sscsivVolumeId = Nothing
+    , _sscsivVolumeType = Nothing
+    , _sscsivVolumeDiskId = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 sscsivVolumeStatus :: Lens' StorediSCSIVolume (Maybe Text)
@@ -607,11 +710,26 @@ instance FromJSON StorediSCSIVolume where
 -- * 'tapTapeSizeInBytes'
 --
 -- * 'tapVTLDevice'
-data Tape = Tape'{_tapTapeBarcode :: Maybe Text, _tapTapeStatus :: Maybe Text, _tapProgress :: Maybe Double, _tapTapeARN :: Maybe Text, _tapTapeSizeInBytes :: Maybe Integer, _tapVTLDevice :: Maybe Text} deriving (Eq, Read, Show)
+data Tape = Tape'
+    { _tapTapeBarcode     :: Maybe Text
+    , _tapTapeStatus      :: Maybe Text
+    , _tapProgress        :: Maybe Double
+    , _tapTapeARN         :: Maybe Text
+    , _tapTapeSizeInBytes :: Maybe Integer
+    , _tapVTLDevice       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tape' smart constructor.
 tape :: Tape
-tape = Tape'{_tapTapeBarcode = Nothing, _tapTapeStatus = Nothing, _tapProgress = Nothing, _tapTapeARN = Nothing, _tapTapeSizeInBytes = Nothing, _tapVTLDevice = Nothing};
+tape =
+    Tape'
+    { _tapTapeBarcode = Nothing
+    , _tapTapeStatus = Nothing
+    , _tapProgress = Nothing
+    , _tapTapeARN = Nothing
+    , _tapTapeSizeInBytes = Nothing
+    , _tapVTLDevice = Nothing
+    }
 
 -- | The barcode that identifies a specific virtual tape.
 tapTapeBarcode :: Lens' Tape (Maybe Text)
@@ -670,11 +788,26 @@ instance FromJSON Tape where
 -- * 'taCompletionTime'
 --
 -- * 'taRetrievedTo'
-data TapeArchive = TapeArchive'{_taTapeBarcode :: Maybe Text, _taTapeStatus :: Maybe Text, _taTapeARN :: Maybe Text, _taTapeSizeInBytes :: Maybe Integer, _taCompletionTime :: Maybe POSIX, _taRetrievedTo :: Maybe Text} deriving (Eq, Read, Show)
+data TapeArchive = TapeArchive'
+    { _taTapeBarcode     :: Maybe Text
+    , _taTapeStatus      :: Maybe Text
+    , _taTapeARN         :: Maybe Text
+    , _taTapeSizeInBytes :: Maybe Integer
+    , _taCompletionTime  :: Maybe POSIX
+    , _taRetrievedTo     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'TapeArchive' smart constructor.
 tapeArchive :: TapeArchive
-tapeArchive = TapeArchive'{_taTapeBarcode = Nothing, _taTapeStatus = Nothing, _taTapeARN = Nothing, _taTapeSizeInBytes = Nothing, _taCompletionTime = Nothing, _taRetrievedTo = Nothing};
+tapeArchive =
+    TapeArchive'
+    { _taTapeBarcode = Nothing
+    , _taTapeStatus = Nothing
+    , _taTapeARN = Nothing
+    , _taTapeSizeInBytes = Nothing
+    , _taCompletionTime = Nothing
+    , _taRetrievedTo = Nothing
+    }
 
 -- | The barcode that identifies the archived virtual tape.
 taTapeBarcode :: Lens' TapeArchive (Maybe Text)
@@ -730,11 +863,22 @@ instance FromJSON TapeArchive where
 -- * 'trpiTapeARN'
 --
 -- * 'trpiTapeSizeInBytes'
-data TapeRecoveryPointInfo = TapeRecoveryPointInfo'{_trpiTapeStatus :: Maybe Text, _trpiTapeRecoveryPointTime :: Maybe POSIX, _trpiTapeARN :: Maybe Text, _trpiTapeSizeInBytes :: Maybe Integer} deriving (Eq, Read, Show)
+data TapeRecoveryPointInfo = TapeRecoveryPointInfo'
+    { _trpiTapeStatus            :: Maybe Text
+    , _trpiTapeRecoveryPointTime :: Maybe POSIX
+    , _trpiTapeARN               :: Maybe Text
+    , _trpiTapeSizeInBytes       :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'TapeRecoveryPointInfo' smart constructor.
 tapeRecoveryPointInfo :: TapeRecoveryPointInfo
-tapeRecoveryPointInfo = TapeRecoveryPointInfo'{_trpiTapeStatus = Nothing, _trpiTapeRecoveryPointTime = Nothing, _trpiTapeARN = Nothing, _trpiTapeSizeInBytes = Nothing};
+tapeRecoveryPointInfo =
+    TapeRecoveryPointInfo'
+    { _trpiTapeStatus = Nothing
+    , _trpiTapeRecoveryPointTime = Nothing
+    , _trpiTapeARN = Nothing
+    , _trpiTapeSizeInBytes = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 trpiTapeStatus :: Lens' TapeRecoveryPointInfo (Maybe Text)
@@ -781,11 +925,24 @@ instance FromJSON TapeRecoveryPointInfo where
 -- * 'vtldVTLDeviceType'
 --
 -- * 'vtldVTLDeviceProductIdentifier'
-data VTLDevice = VTLDevice'{_vtldDeviceiSCSIAttributes :: Maybe DeviceiSCSIAttributes, _vtldVTLDeviceVendor :: Maybe Text, _vtldVTLDeviceARN :: Maybe Text, _vtldVTLDeviceType :: Maybe Text, _vtldVTLDeviceProductIdentifier :: Maybe Text} deriving (Eq, Read, Show)
+data VTLDevice = VTLDevice'
+    { _vtldDeviceiSCSIAttributes      :: Maybe DeviceiSCSIAttributes
+    , _vtldVTLDeviceVendor            :: Maybe Text
+    , _vtldVTLDeviceARN               :: Maybe Text
+    , _vtldVTLDeviceType              :: Maybe Text
+    , _vtldVTLDeviceProductIdentifier :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VTLDevice' smart constructor.
 vTLDevice :: VTLDevice
-vTLDevice = VTLDevice'{_vtldDeviceiSCSIAttributes = Nothing, _vtldVTLDeviceVendor = Nothing, _vtldVTLDeviceARN = Nothing, _vtldVTLDeviceType = Nothing, _vtldVTLDeviceProductIdentifier = Nothing};
+vTLDevice =
+    VTLDevice'
+    { _vtldDeviceiSCSIAttributes = Nothing
+    , _vtldVTLDeviceVendor = Nothing
+    , _vtldVTLDeviceARN = Nothing
+    , _vtldVTLDeviceType = Nothing
+    , _vtldVTLDeviceProductIdentifier = Nothing
+    }
 
 -- | A list of iSCSI information about a VTL device.
 vtldDeviceiSCSIAttributes :: Lens' VTLDevice (Maybe DeviceiSCSIAttributes)
@@ -826,11 +983,18 @@ instance FromJSON VTLDevice where
 -- * 'viVolumeARN'
 --
 -- * 'viVolumeType'
-data VolumeInfo = VolumeInfo'{_viVolumeARN :: Maybe Text, _viVolumeType :: Maybe Text} deriving (Eq, Read, Show)
+data VolumeInfo = VolumeInfo'
+    { _viVolumeARN  :: Maybe Text
+    , _viVolumeType :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VolumeInfo' smart constructor.
 volumeInfo :: VolumeInfo
-volumeInfo = VolumeInfo'{_viVolumeARN = Nothing, _viVolumeType = Nothing};
+volumeInfo =
+    VolumeInfo'
+    { _viVolumeARN = Nothing
+    , _viVolumeType = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 viVolumeARN :: Lens' VolumeInfo (Maybe Text)
@@ -858,11 +1022,22 @@ instance FromJSON VolumeInfo where
 -- * 'vrpiVolumeSizeInBytes'
 --
 -- * 'vrpiVolumeUsageInBytes'
-data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'{_vrpiVolumeRecoveryPointTime :: Maybe Text, _vrpiVolumeARN :: Maybe Text, _vrpiVolumeSizeInBytes :: Maybe Integer, _vrpiVolumeUsageInBytes :: Maybe Integer} deriving (Eq, Read, Show)
+data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
+    { _vrpiVolumeRecoveryPointTime :: Maybe Text
+    , _vrpiVolumeARN               :: Maybe Text
+    , _vrpiVolumeSizeInBytes       :: Maybe Integer
+    , _vrpiVolumeUsageInBytes      :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'VolumeRecoveryPointInfo' smart constructor.
 volumeRecoveryPointInfo :: VolumeRecoveryPointInfo
-volumeRecoveryPointInfo = VolumeRecoveryPointInfo'{_vrpiVolumeRecoveryPointTime = Nothing, _vrpiVolumeARN = Nothing, _vrpiVolumeSizeInBytes = Nothing, _vrpiVolumeUsageInBytes = Nothing};
+volumeRecoveryPointInfo =
+    VolumeRecoveryPointInfo'
+    { _vrpiVolumeRecoveryPointTime = Nothing
+    , _vrpiVolumeARN = Nothing
+    , _vrpiVolumeSizeInBytes = Nothing
+    , _vrpiVolumeUsageInBytes = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 vrpiVolumeRecoveryPointTime :: Lens' VolumeRecoveryPointInfo (Maybe Text)
@@ -905,11 +1080,24 @@ instance FromJSON VolumeRecoveryPointInfo where
 -- * 'vscsiaNetworkInterfaceId'
 --
 -- * 'vscsiaNetworkInterfacePort'
-data VolumeiSCSIAttributes = VolumeiSCSIAttributes'{_vscsiaLunNumber :: Maybe Nat, _vscsiaTargetARN :: Maybe Text, _vscsiaChapEnabled :: Maybe Bool, _vscsiaNetworkInterfaceId :: Maybe Text, _vscsiaNetworkInterfacePort :: Maybe Int} deriving (Eq, Read, Show)
+data VolumeiSCSIAttributes = VolumeiSCSIAttributes'
+    { _vscsiaLunNumber            :: Maybe Nat
+    , _vscsiaTargetARN            :: Maybe Text
+    , _vscsiaChapEnabled          :: Maybe Bool
+    , _vscsiaNetworkInterfaceId   :: Maybe Text
+    , _vscsiaNetworkInterfacePort :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'VolumeiSCSIAttributes' smart constructor.
 volumeiSCSIAttributes :: VolumeiSCSIAttributes
-volumeiSCSIAttributes = VolumeiSCSIAttributes'{_vscsiaLunNumber = Nothing, _vscsiaTargetARN = Nothing, _vscsiaChapEnabled = Nothing, _vscsiaNetworkInterfaceId = Nothing, _vscsiaNetworkInterfacePort = Nothing};
+volumeiSCSIAttributes =
+    VolumeiSCSIAttributes'
+    { _vscsiaLunNumber = Nothing
+    , _vscsiaTargetARN = Nothing
+    , _vscsiaChapEnabled = Nothing
+    , _vscsiaNetworkInterfaceId = Nothing
+    , _vscsiaNetworkInterfacePort = Nothing
+    }
 
 -- | The logical disk number.
 vscsiaLunNumber :: Lens' VolumeiSCSIAttributes (Maybe Natural)

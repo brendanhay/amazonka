@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SSM.CreateAssociation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.SSM.CreateAssociation
     , createAssociationResponse
     -- ** Response lenses
     , carAssociationDescription
-    , carStatusCode
+    , carStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
 
 -- | /See:/ 'createAssociation' smart constructor.
 --
@@ -57,11 +57,18 @@ import Network.AWS.SSM.Types
 -- * 'caName'
 --
 -- * 'caInstanceId'
-data CreateAssociation = CreateAssociation'{_caName :: Text, _caInstanceId :: Text} deriving (Eq, Read, Show)
+data CreateAssociation = CreateAssociation'
+    { _caName       :: Text
+    , _caInstanceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAssociation' smart constructor.
 createAssociation :: Text -> Text -> CreateAssociation
-createAssociation pName pInstanceId = CreateAssociation'{_caName = pName, _caInstanceId = pInstanceId};
+createAssociation pName pInstanceId =
+    CreateAssociation'
+    { _caName = pName
+    , _caInstanceId = pInstanceId
+    }
 
 -- | The name of the configuration document.
 caName :: Lens' CreateAssociation Text
@@ -108,17 +115,24 @@ instance ToQuery CreateAssociation where
 --
 -- * 'carAssociationDescription'
 --
--- * 'carStatusCode'
-data CreateAssociationResponse = CreateAssociationResponse'{_carAssociationDescription :: Maybe AssociationDescription, _carStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'carStatus'
+data CreateAssociationResponse = CreateAssociationResponse'
+    { _carAssociationDescription :: Maybe AssociationDescription
+    , _carStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAssociationResponse' smart constructor.
 createAssociationResponse :: Int -> CreateAssociationResponse
-createAssociationResponse pStatusCode = CreateAssociationResponse'{_carAssociationDescription = Nothing, _carStatusCode = pStatusCode};
+createAssociationResponse pStatus =
+    CreateAssociationResponse'
+    { _carAssociationDescription = Nothing
+    , _carStatus = pStatus
+    }
 
 -- | Information about the association.
 carAssociationDescription :: Lens' CreateAssociationResponse (Maybe AssociationDescription)
 carAssociationDescription = lens _carAssociationDescription (\ s a -> s{_carAssociationDescription = a});
 
 -- | FIXME: Undocumented member.
-carStatusCode :: Lens' CreateAssociationResponse Int
-carStatusCode = lens _carStatusCode (\ s a -> s{_carStatusCode = a});
+carStatus :: Lens' CreateAssociationResponse Int
+carStatus = lens _carStatus (\ s a -> s{_carStatus = a});

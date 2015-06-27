@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.AssociateDHCPOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,10 +46,10 @@ module Network.AWS.EC2.AssociateDHCPOptions
     , associateDHCPOptionsResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'associateDHCPOptions' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'adoDHCPOptionsId'
 --
 -- * 'adoVPCId'
-data AssociateDHCPOptions = AssociateDHCPOptions'{_adoDryRun :: Maybe Bool, _adoDHCPOptionsId :: Text, _adoVPCId :: Text} deriving (Eq, Read, Show)
+data AssociateDHCPOptions = AssociateDHCPOptions'
+    { _adoDryRun        :: Maybe Bool
+    , _adoDHCPOptionsId :: Text
+    , _adoVPCId         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AssociateDHCPOptions' smart constructor.
 associateDHCPOptions :: Text -> Text -> AssociateDHCPOptions
-associateDHCPOptions pDHCPOptionsId pVPCId = AssociateDHCPOptions'{_adoDryRun = Nothing, _adoDHCPOptionsId = pDHCPOptionsId, _adoVPCId = pVPCId};
+associateDHCPOptions pDHCPOptionsId pVPCId =
+    AssociateDHCPOptions'
+    { _adoDryRun = Nothing
+    , _adoDHCPOptionsId = pDHCPOptionsId
+    , _adoVPCId = pVPCId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -105,8 +114,10 @@ instance ToQuery AssociateDHCPOptions where
                "VpcId" =: _adoVPCId]
 
 -- | /See:/ 'associateDHCPOptionsResponse' smart constructor.
-data AssociateDHCPOptionsResponse = AssociateDHCPOptionsResponse' deriving (Eq, Read, Show)
+data AssociateDHCPOptionsResponse =
+    AssociateDHCPOptionsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AssociateDHCPOptionsResponse' smart constructor.
 associateDHCPOptionsResponse :: AssociateDHCPOptionsResponse
-associateDHCPOptionsResponse = AssociateDHCPOptionsResponse';
+associateDHCPOptionsResponse = AssociateDHCPOptionsResponse'

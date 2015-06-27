@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBLogFiles
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,14 +39,14 @@ module Network.AWS.RDS.DescribeDBLogFiles
     -- ** Response lenses
     , ddlfrDescribeDBLogFiles
     , ddlfrMarker
-    , ddlfrStatusCode
+    , ddlfrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -67,11 +67,28 @@ import Network.AWS.Response
 -- * 'ddlfMarker'
 --
 -- * 'ddlfDBInstanceIdentifier'
-data DescribeDBLogFiles = DescribeDBLogFiles'{_ddlfFilenameContains :: Maybe Text, _ddlfFileSize :: Maybe Integer, _ddlfFileLastWritten :: Maybe Integer, _ddlfFilters :: Maybe [Filter], _ddlfMaxRecords :: Maybe Int, _ddlfMarker :: Maybe Text, _ddlfDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
+data DescribeDBLogFiles = DescribeDBLogFiles'
+    { _ddlfFilenameContains     :: Maybe Text
+    , _ddlfFileSize             :: Maybe Integer
+    , _ddlfFileLastWritten      :: Maybe Integer
+    , _ddlfFilters              :: Maybe [Filter]
+    , _ddlfMaxRecords           :: Maybe Int
+    , _ddlfMarker               :: Maybe Text
+    , _ddlfDBInstanceIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBLogFiles' smart constructor.
 describeDBLogFiles :: Text -> DescribeDBLogFiles
-describeDBLogFiles pDBInstanceIdentifier = DescribeDBLogFiles'{_ddlfFilenameContains = Nothing, _ddlfFileSize = Nothing, _ddlfFileLastWritten = Nothing, _ddlfFilters = Nothing, _ddlfMaxRecords = Nothing, _ddlfMarker = Nothing, _ddlfDBInstanceIdentifier = pDBInstanceIdentifier};
+describeDBLogFiles pDBInstanceIdentifier =
+    DescribeDBLogFiles'
+    { _ddlfFilenameContains = Nothing
+    , _ddlfFileSize = Nothing
+    , _ddlfFileLastWritten = Nothing
+    , _ddlfFilters = Nothing
+    , _ddlfMaxRecords = Nothing
+    , _ddlfMarker = Nothing
+    , _ddlfDBInstanceIdentifier = pDBInstanceIdentifier
+    }
 
 -- | Filters the available log files for log file names that contain the
 -- specified string.
@@ -167,12 +184,21 @@ instance ToQuery DescribeDBLogFiles where
 --
 -- * 'ddlfrMarker'
 --
--- * 'ddlfrStatusCode'
-data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'{_ddlfrDescribeDBLogFiles :: Maybe [DescribeDBLogFilesDetails], _ddlfrMarker :: Maybe Text, _ddlfrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddlfrStatus'
+data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
+    { _ddlfrDescribeDBLogFiles :: Maybe [DescribeDBLogFilesDetails]
+    , _ddlfrMarker             :: Maybe Text
+    , _ddlfrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBLogFilesResponse' smart constructor.
 describeDBLogFilesResponse :: Int -> DescribeDBLogFilesResponse
-describeDBLogFilesResponse pStatusCode = DescribeDBLogFilesResponse'{_ddlfrDescribeDBLogFiles = Nothing, _ddlfrMarker = Nothing, _ddlfrStatusCode = pStatusCode};
+describeDBLogFilesResponse pStatus =
+    DescribeDBLogFilesResponse'
+    { _ddlfrDescribeDBLogFiles = Nothing
+    , _ddlfrMarker = Nothing
+    , _ddlfrStatus = pStatus
+    }
 
 -- | The DB log files returned.
 ddlfrDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFilesDetails]
@@ -184,5 +210,5 @@ ddlfrMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
 ddlfrMarker = lens _ddlfrMarker (\ s a -> s{_ddlfrMarker = a});
 
 -- | FIXME: Undocumented member.
-ddlfrStatusCode :: Lens' DescribeDBLogFilesResponse Int
-ddlfrStatusCode = lens _ddlfrStatusCode (\ s a -> s{_ddlfrStatusCode = a});
+ddlfrStatus :: Lens' DescribeDBLogFilesResponse Int
+ddlfrStatus = lens _ddlfrStatus (\ s a -> s{_ddlfrStatus = a});

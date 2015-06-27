@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CreateApplication
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     , admApplication
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'caDescription'
 --
 -- * 'caApplicationName'
-data CreateApplication = CreateApplication'{_caDescription :: Maybe Text, _caApplicationName :: Text} deriving (Eq, Read, Show)
+data CreateApplication = CreateApplication'
+    { _caDescription     :: Maybe Text
+    , _caApplicationName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateApplication' smart constructor.
 createApplication :: Text -> CreateApplication
-createApplication pApplicationName = CreateApplication'{_caDescription = Nothing, _caApplicationName = pApplicationName};
+createApplication pApplicationName =
+    CreateApplication'
+    { _caDescription = Nothing
+    , _caApplicationName = pApplicationName
+    }
 
 -- | Describes the application.
 caDescription :: Lens' CreateApplication (Maybe Text)

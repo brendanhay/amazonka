@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.GetLogEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
     , glerNextBackwardToken
     , glerNextForwardToken
     , glerEvents
-    , glerStatusCode
+    , glerStatus
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getLogEvents' smart constructor.
 --
@@ -74,11 +74,28 @@ import Network.AWS.Response
 -- * 'gleLogGroupName'
 --
 -- * 'gleLogStreamName'
-data GetLogEvents = GetLogEvents'{_gleStartTime :: Maybe Nat, _gleStartFromHead :: Maybe Bool, _gleNextToken :: Maybe Text, _gleEndTime :: Maybe Nat, _gleLimit :: Maybe Nat, _gleLogGroupName :: Text, _gleLogStreamName :: Text} deriving (Eq, Read, Show)
+data GetLogEvents = GetLogEvents'
+    { _gleStartTime     :: Maybe Nat
+    , _gleStartFromHead :: Maybe Bool
+    , _gleNextToken     :: Maybe Text
+    , _gleEndTime       :: Maybe Nat
+    , _gleLimit         :: Maybe Nat
+    , _gleLogGroupName  :: Text
+    , _gleLogStreamName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetLogEvents' smart constructor.
 getLogEvents :: Text -> Text -> GetLogEvents
-getLogEvents pLogGroupName pLogStreamName = GetLogEvents'{_gleStartTime = Nothing, _gleStartFromHead = Nothing, _gleNextToken = Nothing, _gleEndTime = Nothing, _gleLimit = Nothing, _gleLogGroupName = pLogGroupName, _gleLogStreamName = pLogStreamName};
+getLogEvents pLogGroupName pLogStreamName =
+    GetLogEvents'
+    { _gleStartTime = Nothing
+    , _gleStartFromHead = Nothing
+    , _gleNextToken = Nothing
+    , _gleEndTime = Nothing
+    , _gleLimit = Nothing
+    , _gleLogGroupName = pLogGroupName
+    , _gleLogStreamName = pLogStreamName
+    }
 
 -- | FIXME: Undocumented member.
 gleStartTime :: Lens' GetLogEvents (Maybe Natural)
@@ -162,12 +179,23 @@ instance ToQuery GetLogEvents where
 --
 -- * 'glerEvents'
 --
--- * 'glerStatusCode'
-data GetLogEventsResponse = GetLogEventsResponse'{_glerNextBackwardToken :: Maybe Text, _glerNextForwardToken :: Maybe Text, _glerEvents :: Maybe [OutputLogEvent], _glerStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'glerStatus'
+data GetLogEventsResponse = GetLogEventsResponse'
+    { _glerNextBackwardToken :: Maybe Text
+    , _glerNextForwardToken  :: Maybe Text
+    , _glerEvents            :: Maybe [OutputLogEvent]
+    , _glerStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetLogEventsResponse' smart constructor.
 getLogEventsResponse :: Int -> GetLogEventsResponse
-getLogEventsResponse pStatusCode = GetLogEventsResponse'{_glerNextBackwardToken = Nothing, _glerNextForwardToken = Nothing, _glerEvents = Nothing, _glerStatusCode = pStatusCode};
+getLogEventsResponse pStatus =
+    GetLogEventsResponse'
+    { _glerNextBackwardToken = Nothing
+    , _glerNextForwardToken = Nothing
+    , _glerEvents = Nothing
+    , _glerStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 glerNextBackwardToken :: Lens' GetLogEventsResponse (Maybe Text)
@@ -182,5 +210,5 @@ glerEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
 glerEvents = lens _glerEvents (\ s a -> s{_glerEvents = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-glerStatusCode :: Lens' GetLogEventsResponse Int
-glerStatusCode = lens _glerStatusCode (\ s a -> s{_glerStatusCode = a});
+glerStatus :: Lens' GetLogEventsResponse Int
+glerStatus = lens _glerStatus (\ s a -> s{_glerStatus = a});

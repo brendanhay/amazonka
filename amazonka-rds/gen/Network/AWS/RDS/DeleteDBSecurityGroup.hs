@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.RDS.DeleteDBSecurityGroup
     , deleteDBSecurityGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddsgDBSecurityGroupName'
-newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup'{_ddsgDBSecurityGroupName :: Text} deriving (Eq, Read, Show)
+newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup'
+    { _ddsgDBSecurityGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDBSecurityGroup' smart constructor.
 deleteDBSecurityGroup :: Text -> DeleteDBSecurityGroup
-deleteDBSecurityGroup pDBSecurityGroupName = DeleteDBSecurityGroup'{_ddsgDBSecurityGroupName = pDBSecurityGroupName};
+deleteDBSecurityGroup pDBSecurityGroupName =
+    DeleteDBSecurityGroup'
+    { _ddsgDBSecurityGroupName = pDBSecurityGroupName
+    }
 
 -- | The name of the DB security group to delete.
 --
@@ -88,8 +93,10 @@ instance ToQuery DeleteDBSecurityGroup where
                "DBSecurityGroupName" =: _ddsgDBSecurityGroupName]
 
 -- | /See:/ 'deleteDBSecurityGroupResponse' smart constructor.
-data DeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse' deriving (Eq, Read, Show)
+data DeleteDBSecurityGroupResponse =
+    DeleteDBSecurityGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteDBSecurityGroupResponse' smart constructor.
 deleteDBSecurityGroupResponse :: DeleteDBSecurityGroupResponse
-deleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse';
+deleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse'

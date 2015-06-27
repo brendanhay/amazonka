@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,10 +32,10 @@ module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
     , deregisterOnPremisesInstanceResponse
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a deregister on-premises instance operation.
 --
@@ -44,11 +44,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dopiInstanceName'
-newtype DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'{_dopiInstanceName :: Text} deriving (Eq, Read, Show)
+newtype DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'
+    { _dopiInstanceName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeregisterOnPremisesInstance' smart constructor.
 deregisterOnPremisesInstance :: Text -> DeregisterOnPremisesInstance
-deregisterOnPremisesInstance pInstanceName = DeregisterOnPremisesInstance'{_dopiInstanceName = pInstanceName};
+deregisterOnPremisesInstance pInstanceName =
+    DeregisterOnPremisesInstance'
+    { _dopiInstanceName = pInstanceName
+    }
 
 -- | The name of the on-premises instance to deregister.
 dopiInstanceName :: Lens' DeregisterOnPremisesInstance Text
@@ -84,8 +89,10 @@ instance ToQuery DeregisterOnPremisesInstance where
         toQuery = const mempty
 
 -- | /See:/ 'deregisterOnPremisesInstanceResponse' smart constructor.
-data DeregisterOnPremisesInstanceResponse = DeregisterOnPremisesInstanceResponse' deriving (Eq, Read, Show)
+data DeregisterOnPremisesInstanceResponse =
+    DeregisterOnPremisesInstanceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeregisterOnPremisesInstanceResponse' smart constructor.
 deregisterOnPremisesInstanceResponse :: DeregisterOnPremisesInstanceResponse
-deregisterOnPremisesInstanceResponse = DeregisterOnPremisesInstanceResponse';
+deregisterOnPremisesInstanceResponse = DeregisterOnPremisesInstanceResponse'

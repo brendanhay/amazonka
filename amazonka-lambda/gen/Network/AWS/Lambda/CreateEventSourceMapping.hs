@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Lambda.CreateEventSourceMapping
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -64,10 +64,10 @@ module Network.AWS.Lambda.CreateEventSourceMapping
     , esmcLastModified
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createEventSourceMapping' smart constructor.
 --
@@ -82,11 +82,24 @@ import Network.AWS.Response
 -- * 'cesmFunctionName'
 --
 -- * 'cesmStartingPosition'
-data CreateEventSourceMapping = CreateEventSourceMapping'{_cesmEnabled :: Maybe Bool, _cesmBatchSize :: Maybe Nat, _cesmEventSourceARN :: Text, _cesmFunctionName :: Text, _cesmStartingPosition :: EventSourcePosition} deriving (Eq, Read, Show)
+data CreateEventSourceMapping = CreateEventSourceMapping'
+    { _cesmEnabled          :: Maybe Bool
+    , _cesmBatchSize        :: Maybe Nat
+    , _cesmEventSourceARN   :: Text
+    , _cesmFunctionName     :: Text
+    , _cesmStartingPosition :: EventSourcePosition
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateEventSourceMapping' smart constructor.
 createEventSourceMapping :: Text -> Text -> EventSourcePosition -> CreateEventSourceMapping
-createEventSourceMapping pEventSourceARN pFunctionName pStartingPosition = CreateEventSourceMapping'{_cesmEnabled = Nothing, _cesmBatchSize = Nothing, _cesmEventSourceARN = pEventSourceARN, _cesmFunctionName = pFunctionName, _cesmStartingPosition = pStartingPosition};
+createEventSourceMapping pEventSourceARN pFunctionName pStartingPosition =
+    CreateEventSourceMapping'
+    { _cesmEnabled = Nothing
+    , _cesmBatchSize = Nothing
+    , _cesmEventSourceARN = pEventSourceARN
+    , _cesmFunctionName = pFunctionName
+    , _cesmStartingPosition = pStartingPosition
+    }
 
 -- | Indicates whether AWS Lambda should begin polling the event source.
 cesmEnabled :: Lens' CreateEventSourceMapping (Maybe Bool)

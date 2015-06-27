@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListUserPolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,14 +46,14 @@ module Network.AWS.IAM.ListUserPolicies
     , luprMarker
     , luprIsTruncated
     , luprPolicyNames
-    , luprStatusCode
+    , luprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listUserPolicies' smart constructor.
 --
@@ -64,11 +64,20 @@ import Network.AWS.Response
 -- * 'lupMarker'
 --
 -- * 'lupUserName'
-data ListUserPolicies = ListUserPolicies'{_lupMaxItems :: Maybe Nat, _lupMarker :: Maybe Text, _lupUserName :: Text} deriving (Eq, Read, Show)
+data ListUserPolicies = ListUserPolicies'
+    { _lupMaxItems :: Maybe Nat
+    , _lupMarker   :: Maybe Text
+    , _lupUserName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListUserPolicies' smart constructor.
 listUserPolicies :: Text -> ListUserPolicies
-listUserPolicies pUserName = ListUserPolicies'{_lupMaxItems = Nothing, _lupMarker = Nothing, _lupUserName = pUserName};
+listUserPolicies pUserName =
+    ListUserPolicies'
+    { _lupMaxItems = Nothing
+    , _lupMarker = Nothing
+    , _lupUserName = pUserName
+    }
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- policy names you want in the response. If there are additional policy
@@ -135,12 +144,23 @@ instance ToQuery ListUserPolicies where
 --
 -- * 'luprPolicyNames'
 --
--- * 'luprStatusCode'
-data ListUserPoliciesResponse = ListUserPoliciesResponse'{_luprMarker :: Maybe Text, _luprIsTruncated :: Maybe Bool, _luprPolicyNames :: [Text], _luprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'luprStatus'
+data ListUserPoliciesResponse = ListUserPoliciesResponse'
+    { _luprMarker      :: Maybe Text
+    , _luprIsTruncated :: Maybe Bool
+    , _luprPolicyNames :: [Text]
+    , _luprStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListUserPoliciesResponse' smart constructor.
 listUserPoliciesResponse :: Int -> ListUserPoliciesResponse
-listUserPoliciesResponse pStatusCode = ListUserPoliciesResponse'{_luprMarker = Nothing, _luprIsTruncated = Nothing, _luprPolicyNames = mempty, _luprStatusCode = pStatusCode};
+listUserPoliciesResponse pStatus =
+    ListUserPoliciesResponse'
+    { _luprMarker = Nothing
+    , _luprIsTruncated = Nothing
+    , _luprPolicyNames = mempty
+    , _luprStatus = pStatus
+    }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -160,5 +180,5 @@ luprPolicyNames :: Lens' ListUserPoliciesResponse [Text]
 luprPolicyNames = lens _luprPolicyNames (\ s a -> s{_luprPolicyNames = a});
 
 -- | FIXME: Undocumented member.
-luprStatusCode :: Lens' ListUserPoliciesResponse Int
-luprStatusCode = lens _luprStatusCode (\ s a -> s{_luprStatusCode = a});
+luprStatus :: Lens' ListUserPoliciesResponse Int
+luprStatus = lens _luprStatus (\ s a -> s{_luprStatus = a});

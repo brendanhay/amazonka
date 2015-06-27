@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DetachUserPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.IAM.DetachUserPolicy
     , detachUserPolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachUserPolicy' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'detUserName'
 --
 -- * 'detPolicyARN'
-data DetachUserPolicy = DetachUserPolicy'{_detUserName :: Text, _detPolicyARN :: Text} deriving (Eq, Read, Show)
+data DetachUserPolicy = DetachUserPolicy'
+    { _detUserName  :: Text
+    , _detPolicyARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachUserPolicy' smart constructor.
 detachUserPolicy :: Text -> Text -> DetachUserPolicy
-detachUserPolicy pUserName pPolicyARN = DetachUserPolicy'{_detUserName = pUserName, _detPolicyARN = pPolicyARN};
+detachUserPolicy pUserName pPolicyARN =
+    DetachUserPolicy'
+    { _detUserName = pUserName
+    , _detPolicyARN = pPolicyARN
+    }
 
 -- | The name (friendly name, not ARN) of the user to detach the policy from.
 detUserName :: Lens' DetachUserPolicy Text
@@ -86,8 +93,10 @@ instance ToQuery DetachUserPolicy where
                "PolicyArn" =: _detPolicyARN]
 
 -- | /See:/ 'detachUserPolicyResponse' smart constructor.
-data DetachUserPolicyResponse = DetachUserPolicyResponse' deriving (Eq, Read, Show)
+data DetachUserPolicyResponse =
+    DetachUserPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DetachUserPolicyResponse' smart constructor.
 detachUserPolicyResponse :: DetachUserPolicyResponse
-detachUserPolicyResponse = DetachUserPolicyResponse';
+detachUserPolicyResponse = DetachUserPolicyResponse'

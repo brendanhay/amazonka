@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.DefineAnalysisScheme
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.CloudSearch.DefineAnalysisScheme
     , defineAnalysisSchemeResponse
     -- ** Response lenses
     , dasr1AnalysisScheme
-    , dasr1StatusCode
+    , dasr1Status
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DefineAnalysisScheme@ operation.
 -- Specifies the name of the domain you want to update and the analysis
@@ -56,11 +56,18 @@ import Network.AWS.Response
 -- * 'defiDomainName'
 --
 -- * 'defiAnalysisScheme'
-data DefineAnalysisScheme = DefineAnalysisScheme'{_defiDomainName :: Text, _defiAnalysisScheme :: AnalysisScheme} deriving (Eq, Read, Show)
+data DefineAnalysisScheme = DefineAnalysisScheme'
+    { _defiDomainName     :: Text
+    , _defiAnalysisScheme :: AnalysisScheme
+    } deriving (Eq,Read,Show)
 
 -- | 'DefineAnalysisScheme' smart constructor.
 defineAnalysisScheme :: Text -> AnalysisScheme -> DefineAnalysisScheme
-defineAnalysisScheme pDomainName pAnalysisScheme = DefineAnalysisScheme'{_defiDomainName = pDomainName, _defiAnalysisScheme = pAnalysisScheme};
+defineAnalysisScheme pDomainName pAnalysisScheme =
+    DefineAnalysisScheme'
+    { _defiDomainName = pDomainName
+    , _defiAnalysisScheme = pAnalysisScheme
+    }
 
 -- | FIXME: Undocumented member.
 defiDomainName :: Lens' DefineAnalysisScheme Text
@@ -104,17 +111,24 @@ instance ToQuery DefineAnalysisScheme where
 --
 -- * 'dasr1AnalysisScheme'
 --
--- * 'dasr1StatusCode'
-data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'{_dasr1AnalysisScheme :: AnalysisSchemeStatus, _dasr1StatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dasr1Status'
+data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
+    { _dasr1AnalysisScheme :: AnalysisSchemeStatus
+    , _dasr1Status         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DefineAnalysisSchemeResponse' smart constructor.
 defineAnalysisSchemeResponse :: AnalysisSchemeStatus -> Int -> DefineAnalysisSchemeResponse
-defineAnalysisSchemeResponse pAnalysisScheme pStatusCode = DefineAnalysisSchemeResponse'{_dasr1AnalysisScheme = pAnalysisScheme, _dasr1StatusCode = pStatusCode};
+defineAnalysisSchemeResponse pAnalysisScheme pStatus =
+    DefineAnalysisSchemeResponse'
+    { _dasr1AnalysisScheme = pAnalysisScheme
+    , _dasr1Status = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dasr1AnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
 dasr1AnalysisScheme = lens _dasr1AnalysisScheme (\ s a -> s{_dasr1AnalysisScheme = a});
 
 -- | FIXME: Undocumented member.
-dasr1StatusCode :: Lens' DefineAnalysisSchemeResponse Int
-dasr1StatusCode = lens _dasr1StatusCode (\ s a -> s{_dasr1StatusCode = a});
+dasr1Status :: Lens' DefineAnalysisSchemeResponse Int
+dasr1Status = lens _dasr1Status (\ s a -> s{_dasr1Status = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeleteSAMLProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,21 +39,26 @@ module Network.AWS.IAM.DeleteSAMLProvider
     , deleteSAMLProviderResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteSAMLProvider' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsamlpSAMLProviderARN'
-newtype DeleteSAMLProvider = DeleteSAMLProvider'{_dsamlpSAMLProviderARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteSAMLProvider = DeleteSAMLProvider'
+    { _dsamlpSAMLProviderARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteSAMLProvider' smart constructor.
 deleteSAMLProvider :: Text -> DeleteSAMLProvider
-deleteSAMLProvider pSAMLProviderARN = DeleteSAMLProvider'{_dsamlpSAMLProviderARN = pSAMLProviderARN};
+deleteSAMLProvider pSAMLProviderARN =
+    DeleteSAMLProvider'
+    { _dsamlpSAMLProviderARN = pSAMLProviderARN
+    }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
 dsamlpSAMLProviderARN :: Lens' DeleteSAMLProvider Text
@@ -80,8 +85,10 @@ instance ToQuery DeleteSAMLProvider where
                "SAMLProviderArn" =: _dsamlpSAMLProviderARN]
 
 -- | /See:/ 'deleteSAMLProviderResponse' smart constructor.
-data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse' deriving (Eq, Read, Show)
+data DeleteSAMLProviderResponse =
+    DeleteSAMLProviderResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteSAMLProviderResponse' smart constructor.
 deleteSAMLProviderResponse :: DeleteSAMLProviderResponse
-deleteSAMLProviderResponse = DeleteSAMLProviderResponse';
+deleteSAMLProviderResponse = DeleteSAMLProviderResponse'

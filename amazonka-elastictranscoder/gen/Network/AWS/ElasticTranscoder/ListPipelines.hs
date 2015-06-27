@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ListPipelines
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,14 +35,14 @@ module Network.AWS.ElasticTranscoder.ListPipelines
     -- ** Response lenses
     , lprNextPageToken
     , lprPipelines
-    , lprStatusCode
+    , lprStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @ListPipelineRequest@ structure.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'lpAscending'
 --
 -- * 'lpPageToken'
-data ListPipelines = ListPipelines'{_lpAscending :: Maybe Text, _lpPageToken :: Maybe Text} deriving (Eq, Read, Show)
+data ListPipelines = ListPipelines'
+    { _lpAscending :: Maybe Text
+    , _lpPageToken :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListPipelines' smart constructor.
 listPipelines :: ListPipelines
-listPipelines = ListPipelines'{_lpAscending = Nothing, _lpPageToken = Nothing};
+listPipelines =
+    ListPipelines'
+    { _lpAscending = Nothing
+    , _lpPageToken = Nothing
+    }
 
 -- | To list pipelines in chronological order by the date and time that they
 -- were created, enter @true@. To list pipelines in reverse chronological
@@ -112,12 +119,21 @@ instance ToQuery ListPipelines where
 --
 -- * 'lprPipelines'
 --
--- * 'lprStatusCode'
-data ListPipelinesResponse = ListPipelinesResponse'{_lprNextPageToken :: Maybe Text, _lprPipelines :: Maybe [Pipeline], _lprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lprStatus'
+data ListPipelinesResponse = ListPipelinesResponse'
+    { _lprNextPageToken :: Maybe Text
+    , _lprPipelines     :: Maybe [Pipeline]
+    , _lprStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListPipelinesResponse' smart constructor.
 listPipelinesResponse :: Int -> ListPipelinesResponse
-listPipelinesResponse pStatusCode = ListPipelinesResponse'{_lprNextPageToken = Nothing, _lprPipelines = Nothing, _lprStatusCode = pStatusCode};
+listPipelinesResponse pStatus =
+    ListPipelinesResponse'
+    { _lprNextPageToken = Nothing
+    , _lprPipelines = Nothing
+    , _lprStatus = pStatus
+    }
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the pipelines fit on one page or when you\'ve
@@ -131,5 +147,5 @@ lprPipelines :: Lens' ListPipelinesResponse [Pipeline]
 lprPipelines = lens _lprPipelines (\ s a -> s{_lprPipelines = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lprStatusCode :: Lens' ListPipelinesResponse Int
-lprStatusCode = lens _lprStatusCode (\ s a -> s{_lprStatusCode = a});
+lprStatus :: Lens' ListPipelinesResponse Int
+lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});

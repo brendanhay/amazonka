@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     , reportTaskRunnerHeartbeatResponse
     -- ** Response lenses
     , rtrhrTerminate
-    , rtrhrStatusCode
+    , rtrhrStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for ReportTaskRunnerHeartbeat.
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'rtrhWorkerGroup'
 --
 -- * 'rtrhTaskrunnerId'
-data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'{_rtrhHostname :: Maybe Text, _rtrhWorkerGroup :: Maybe Text, _rtrhTaskrunnerId :: Text} deriving (Eq, Read, Show)
+data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'
+    { _rtrhHostname     :: Maybe Text
+    , _rtrhWorkerGroup  :: Maybe Text
+    , _rtrhTaskrunnerId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReportTaskRunnerHeartbeat' smart constructor.
 reportTaskRunnerHeartbeat :: Text -> ReportTaskRunnerHeartbeat
-reportTaskRunnerHeartbeat pTaskrunnerId = ReportTaskRunnerHeartbeat'{_rtrhHostname = Nothing, _rtrhWorkerGroup = Nothing, _rtrhTaskrunnerId = pTaskrunnerId};
+reportTaskRunnerHeartbeat pTaskrunnerId =
+    ReportTaskRunnerHeartbeat'
+    { _rtrhHostname = Nothing
+    , _rtrhWorkerGroup = Nothing
+    , _rtrhTaskrunnerId = pTaskrunnerId
+    }
 
 -- | The public DNS name of the task runner.
 rtrhHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
@@ -126,17 +135,24 @@ instance ToQuery ReportTaskRunnerHeartbeat where
 --
 -- * 'rtrhrTerminate'
 --
--- * 'rtrhrStatusCode'
-data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'{_rtrhrTerminate :: Bool, _rtrhrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rtrhrStatus'
+data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'
+    { _rtrhrTerminate :: !Bool
+    , _rtrhrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ReportTaskRunnerHeartbeatResponse' smart constructor.
 reportTaskRunnerHeartbeatResponse :: Bool -> Int -> ReportTaskRunnerHeartbeatResponse
-reportTaskRunnerHeartbeatResponse pTerminate pStatusCode = ReportTaskRunnerHeartbeatResponse'{_rtrhrTerminate = pTerminate, _rtrhrStatusCode = pStatusCode};
+reportTaskRunnerHeartbeatResponse pTerminate pStatus =
+    ReportTaskRunnerHeartbeatResponse'
+    { _rtrhrTerminate = pTerminate
+    , _rtrhrStatus = pStatus
+    }
 
 -- | Indicates whether the calling task runner should terminate.
 rtrhrTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
 rtrhrTerminate = lens _rtrhrTerminate (\ s a -> s{_rtrhrTerminate = a});
 
 -- | FIXME: Undocumented member.
-rtrhrStatusCode :: Lens' ReportTaskRunnerHeartbeatResponse Int
-rtrhrStatusCode = lens _rtrhrStatusCode (\ s a -> s{_rtrhrStatusCode = a});
+rtrhrStatus :: Lens' ReportTaskRunnerHeartbeatResponse Int
+rtrhrStatus = lens _rtrhrStatus (\ s a -> s{_rtrhrStatus = a});

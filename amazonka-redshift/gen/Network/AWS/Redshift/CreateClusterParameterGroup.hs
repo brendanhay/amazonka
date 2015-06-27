@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.CreateClusterParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,13 +46,13 @@ module Network.AWS.Redshift.CreateClusterParameterGroup
     , createClusterParameterGroupResponse
     -- ** Response lenses
     , ccpgrClusterParameterGroup
-    , ccpgrStatusCode
+    , ccpgrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -67,11 +67,22 @@ import Network.AWS.Response
 -- * 'ccpgParameterGroupFamily'
 --
 -- * 'ccpgDescription'
-data CreateClusterParameterGroup = CreateClusterParameterGroup'{_ccpgTags :: Maybe [Tag], _ccpgParameterGroupName :: Text, _ccpgParameterGroupFamily :: Text, _ccpgDescription :: Text} deriving (Eq, Read, Show)
+data CreateClusterParameterGroup = CreateClusterParameterGroup'
+    { _ccpgTags                 :: Maybe [Tag]
+    , _ccpgParameterGroupName   :: Text
+    , _ccpgParameterGroupFamily :: Text
+    , _ccpgDescription          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterParameterGroup' smart constructor.
 createClusterParameterGroup :: Text -> Text -> Text -> CreateClusterParameterGroup
-createClusterParameterGroup pParameterGroupName pParameterGroupFamily pDescription = CreateClusterParameterGroup'{_ccpgTags = Nothing, _ccpgParameterGroupName = pParameterGroupName, _ccpgParameterGroupFamily = pParameterGroupFamily, _ccpgDescription = pDescription};
+createClusterParameterGroup pParameterGroupName pParameterGroupFamily pDescription =
+    CreateClusterParameterGroup'
+    { _ccpgTags = Nothing
+    , _ccpgParameterGroupName = pParameterGroupName
+    , _ccpgParameterGroupFamily = pParameterGroupFamily
+    , _ccpgDescription = pDescription
+    }
 
 -- | A list of tag instances.
 ccpgTags :: Lens' CreateClusterParameterGroup [Tag]
@@ -143,17 +154,24 @@ instance ToQuery CreateClusterParameterGroup where
 --
 -- * 'ccpgrClusterParameterGroup'
 --
--- * 'ccpgrStatusCode'
-data CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse'{_ccpgrClusterParameterGroup :: Maybe ClusterParameterGroup, _ccpgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ccpgrStatus'
+data CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse'
+    { _ccpgrClusterParameterGroup :: Maybe ClusterParameterGroup
+    , _ccpgrStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterParameterGroupResponse' smart constructor.
 createClusterParameterGroupResponse :: Int -> CreateClusterParameterGroupResponse
-createClusterParameterGroupResponse pStatusCode = CreateClusterParameterGroupResponse'{_ccpgrClusterParameterGroup = Nothing, _ccpgrStatusCode = pStatusCode};
+createClusterParameterGroupResponse pStatus =
+    CreateClusterParameterGroupResponse'
+    { _ccpgrClusterParameterGroup = Nothing
+    , _ccpgrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ccpgrClusterParameterGroup :: Lens' CreateClusterParameterGroupResponse (Maybe ClusterParameterGroup)
 ccpgrClusterParameterGroup = lens _ccpgrClusterParameterGroup (\ s a -> s{_ccpgrClusterParameterGroup = a});
 
 -- | FIXME: Undocumented member.
-ccpgrStatusCode :: Lens' CreateClusterParameterGroupResponse Int
-ccpgrStatusCode = lens _ccpgrStatusCode (\ s a -> s{_ccpgrStatusCode = a});
+ccpgrStatus :: Lens' CreateClusterParameterGroupResponse Int
+ccpgrStatus = lens _ccpgrStatus (\ s a -> s{_ccpgrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.ListTagsForResources
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.Route53.ListTagsForResources
     , listTagsForResourcesResponse
     -- ** Response lenses
     , lisResourceTagSets
-    , lisStatusCode
+    , lisStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | A complex type containing information about a request for a list of the
 -- tags that are associated with up to 10 specified resources.
@@ -51,11 +51,18 @@ import Network.AWS.Route53.Types
 -- * 'lisResourceType'
 --
 -- * 'lisResourceIds'
-data ListTagsForResources = ListTagsForResources'{_lisResourceType :: TagResourceType, _lisResourceIds :: List1 Text} deriving (Eq, Read, Show)
+data ListTagsForResources = ListTagsForResources'
+    { _lisResourceType :: TagResourceType
+    , _lisResourceIds  :: List1 Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForResources' smart constructor.
 listTagsForResources :: TagResourceType -> NonEmpty Text -> ListTagsForResources
-listTagsForResources pResourceType pResourceIds = ListTagsForResources'{_lisResourceType = pResourceType, _lisResourceIds = _List1 # pResourceIds};
+listTagsForResources pResourceType pResourceIds =
+    ListTagsForResources'
+    { _lisResourceType = pResourceType
+    , _lisResourceIds = _List1 # pResourceIds
+    }
 
 -- | The type of the resources.
 --
@@ -113,12 +120,19 @@ instance ToXML ListTagsForResources where
 --
 -- * 'lisResourceTagSets'
 --
--- * 'lisStatusCode'
-data ListTagsForResourcesResponse = ListTagsForResourcesResponse'{_lisResourceTagSets :: [ResourceTagSet], _lisStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lisStatus'
+data ListTagsForResourcesResponse = ListTagsForResourcesResponse'
+    { _lisResourceTagSets :: [ResourceTagSet]
+    , _lisStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForResourcesResponse' smart constructor.
 listTagsForResourcesResponse :: Int -> ListTagsForResourcesResponse
-listTagsForResourcesResponse pStatusCode = ListTagsForResourcesResponse'{_lisResourceTagSets = mempty, _lisStatusCode = pStatusCode};
+listTagsForResourcesResponse pStatus =
+    ListTagsForResourcesResponse'
+    { _lisResourceTagSets = mempty
+    , _lisStatus = pStatus
+    }
 
 -- | A list of @ResourceTagSet@s containing tags associated with the
 -- specified resources.
@@ -126,5 +140,5 @@ lisResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
 lisResourceTagSets = lens _lisResourceTagSets (\ s a -> s{_lisResourceTagSets = a});
 
 -- | FIXME: Undocumented member.
-lisStatusCode :: Lens' ListTagsForResourcesResponse Int
-lisStatusCode = lens _lisStatusCode (\ s a -> s{_lisStatusCode = a});
+lisStatus :: Lens' ListTagsForResourcesResponse Int
+lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});

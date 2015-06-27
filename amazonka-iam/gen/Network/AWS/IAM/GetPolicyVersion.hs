@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetPolicyVersion
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,13 +44,13 @@ module Network.AWS.IAM.GetPolicyVersion
     , getPolicyVersionResponse
     -- ** Response lenses
     , gpvrPolicyVersion
-    , gpvrStatusCode
+    , gpvrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getPolicyVersion' smart constructor.
 --
@@ -59,11 +59,18 @@ import Network.AWS.Response
 -- * 'gpvPolicyARN'
 --
 -- * 'gpvVersionId'
-data GetPolicyVersion = GetPolicyVersion'{_gpvPolicyARN :: Text, _gpvVersionId :: Text} deriving (Eq, Read, Show)
+data GetPolicyVersion = GetPolicyVersion'
+    { _gpvPolicyARN :: Text
+    , _gpvVersionId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetPolicyVersion' smart constructor.
 getPolicyVersion :: Text -> Text -> GetPolicyVersion
-getPolicyVersion pPolicyARN pVersionId = GetPolicyVersion'{_gpvPolicyARN = pPolicyARN, _gpvVersionId = pVersionId};
+getPolicyVersion pPolicyARN pVersionId =
+    GetPolicyVersion'
+    { _gpvPolicyARN = pPolicyARN
+    , _gpvVersionId = pVersionId
+    }
 
 -- | FIXME: Undocumented member.
 gpvPolicyARN :: Lens' GetPolicyVersion Text
@@ -105,12 +112,19 @@ instance ToQuery GetPolicyVersion where
 --
 -- * 'gpvrPolicyVersion'
 --
--- * 'gpvrStatusCode'
-data GetPolicyVersionResponse = GetPolicyVersionResponse'{_gpvrPolicyVersion :: Maybe PolicyVersion, _gpvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gpvrStatus'
+data GetPolicyVersionResponse = GetPolicyVersionResponse'
+    { _gpvrPolicyVersion :: Maybe PolicyVersion
+    , _gpvrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetPolicyVersionResponse' smart constructor.
 getPolicyVersionResponse :: Int -> GetPolicyVersionResponse
-getPolicyVersionResponse pStatusCode = GetPolicyVersionResponse'{_gpvrPolicyVersion = Nothing, _gpvrStatusCode = pStatusCode};
+getPolicyVersionResponse pStatus =
+    GetPolicyVersionResponse'
+    { _gpvrPolicyVersion = Nothing
+    , _gpvrStatus = pStatus
+    }
 
 -- | Information about the policy version.
 --
@@ -121,5 +135,5 @@ gpvrPolicyVersion :: Lens' GetPolicyVersionResponse (Maybe PolicyVersion)
 gpvrPolicyVersion = lens _gpvrPolicyVersion (\ s a -> s{_gpvrPolicyVersion = a});
 
 -- | FIXME: Undocumented member.
-gpvrStatusCode :: Lens' GetPolicyVersionResponse Int
-gpvrStatusCode = lens _gpvrStatusCode (\ s a -> s{_gpvrStatusCode = a});
+gpvrStatus :: Lens' GetPolicyVersionResponse Int
+gpvrStatus = lens _gpvrStatus (\ s a -> s{_gpvrStatus = a});

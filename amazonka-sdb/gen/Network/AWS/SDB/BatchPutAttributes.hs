@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SDB.BatchPutAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,10 +80,10 @@ module Network.AWS.SDB.BatchPutAttributes
     , batchPutAttributesResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SDB.Types
 
 -- | /See:/ 'batchPutAttributes' smart constructor.
 --
@@ -92,11 +92,18 @@ import Network.AWS.SDB.Types
 -- * 'bpaDomainName'
 --
 -- * 'bpaItems'
-data BatchPutAttributes = BatchPutAttributes'{_bpaDomainName :: Text, _bpaItems :: [ReplaceableItem]} deriving (Eq, Read, Show)
+data BatchPutAttributes = BatchPutAttributes'
+    { _bpaDomainName :: Text
+    , _bpaItems      :: [ReplaceableItem]
+    } deriving (Eq,Read,Show)
 
 -- | 'BatchPutAttributes' smart constructor.
 batchPutAttributes :: Text -> BatchPutAttributes
-batchPutAttributes pDomainName = BatchPutAttributes'{_bpaDomainName = pDomainName, _bpaItems = mempty};
+batchPutAttributes pDomainName =
+    BatchPutAttributes'
+    { _bpaDomainName = pDomainName
+    , _bpaItems = mempty
+    }
 
 -- | The name of the domain in which the attributes are being stored.
 bpaDomainName :: Lens' BatchPutAttributes Text
@@ -128,8 +135,10 @@ instance ToQuery BatchPutAttributes where
                toQueryList "Item" _bpaItems]
 
 -- | /See:/ 'batchPutAttributesResponse' smart constructor.
-data BatchPutAttributesResponse = BatchPutAttributesResponse' deriving (Eq, Read, Show)
+data BatchPutAttributesResponse =
+    BatchPutAttributesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'BatchPutAttributesResponse' smart constructor.
 batchPutAttributesResponse :: BatchPutAttributesResponse
-batchPutAttributesResponse = BatchPutAttributesResponse';
+batchPutAttributesResponse = BatchPutAttributesResponse'

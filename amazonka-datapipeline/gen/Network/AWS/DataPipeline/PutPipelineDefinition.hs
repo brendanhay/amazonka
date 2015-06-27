@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.PutPipelineDefinition
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,13 +51,13 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     , ppdrValidationErrors
     , ppdrValidationWarnings
     , ppdrErrored
-    , ppdrStatusCode
+    , ppdrStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for PutPipelineDefinition.
 --
@@ -72,11 +72,22 @@ import Network.AWS.Response
 -- * 'ppdPipelineId'
 --
 -- * 'ppdPipelineObjects'
-data PutPipelineDefinition = PutPipelineDefinition'{_ppdParameterObjects :: Maybe [ParameterObject], _ppdParameterValues :: Maybe [ParameterValue], _ppdPipelineId :: Text, _ppdPipelineObjects :: [PipelineObject]} deriving (Eq, Read, Show)
+data PutPipelineDefinition = PutPipelineDefinition'
+    { _ppdParameterObjects :: Maybe [ParameterObject]
+    , _ppdParameterValues  :: Maybe [ParameterValue]
+    , _ppdPipelineId       :: Text
+    , _ppdPipelineObjects  :: [PipelineObject]
+    } deriving (Eq,Read,Show)
 
 -- | 'PutPipelineDefinition' smart constructor.
 putPipelineDefinition :: Text -> PutPipelineDefinition
-putPipelineDefinition pPipelineId = PutPipelineDefinition'{_ppdParameterObjects = Nothing, _ppdParameterValues = Nothing, _ppdPipelineId = pPipelineId, _ppdPipelineObjects = mempty};
+putPipelineDefinition pPipelineId =
+    PutPipelineDefinition'
+    { _ppdParameterObjects = Nothing
+    , _ppdParameterValues = Nothing
+    , _ppdPipelineId = pPipelineId
+    , _ppdPipelineObjects = mempty
+    }
 
 -- | The parameter objects used with the pipeline.
 ppdParameterObjects :: Lens' PutPipelineDefinition [ParameterObject]
@@ -144,12 +155,23 @@ instance ToQuery PutPipelineDefinition where
 --
 -- * 'ppdrErrored'
 --
--- * 'ppdrStatusCode'
-data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'{_ppdrValidationErrors :: Maybe [ValidationError], _ppdrValidationWarnings :: Maybe [ValidationWarning], _ppdrErrored :: Bool, _ppdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ppdrStatus'
+data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
+    { _ppdrValidationErrors   :: Maybe [ValidationError]
+    , _ppdrValidationWarnings :: Maybe [ValidationWarning]
+    , _ppdrErrored            :: !Bool
+    , _ppdrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PutPipelineDefinitionResponse' smart constructor.
 putPipelineDefinitionResponse :: Bool -> Int -> PutPipelineDefinitionResponse
-putPipelineDefinitionResponse pErrored pStatusCode = PutPipelineDefinitionResponse'{_ppdrValidationErrors = Nothing, _ppdrValidationWarnings = Nothing, _ppdrErrored = pErrored, _ppdrStatusCode = pStatusCode};
+putPipelineDefinitionResponse pErrored pStatus =
+    PutPipelineDefinitionResponse'
+    { _ppdrValidationErrors = Nothing
+    , _ppdrValidationWarnings = Nothing
+    , _ppdrErrored = pErrored
+    , _ppdrStatus = pStatus
+    }
 
 -- | The validation errors that are associated with the objects defined in
 -- @pipelineObjects@.
@@ -169,5 +191,5 @@ ppdrErrored :: Lens' PutPipelineDefinitionResponse Bool
 ppdrErrored = lens _ppdrErrored (\ s a -> s{_ppdrErrored = a});
 
 -- | FIXME: Undocumented member.
-ppdrStatusCode :: Lens' PutPipelineDefinitionResponse Int
-ppdrStatusCode = lens _ppdrStatusCode (\ s a -> s{_ppdrStatusCode = a});
+ppdrStatus :: Lens' PutPipelineDefinitionResponse Int
+ppdrStatus = lens _ppdrStatus (\ s a -> s{_ppdrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DetachClassicLinkVPC
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.EC2.DetachClassicLinkVPC
     , detachClassicLinkVPCResponse
     -- ** Response lenses
     , dclvrReturn
-    , dclvrStatusCode
+    , dclvrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachClassicLinkVPC' smart constructor.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'dclvInstanceId'
 --
 -- * 'dclvVPCId'
-data DetachClassicLinkVPC = DetachClassicLinkVPC'{_dclvDryRun :: Maybe Bool, _dclvInstanceId :: Text, _dclvVPCId :: Text} deriving (Eq, Read, Show)
+data DetachClassicLinkVPC = DetachClassicLinkVPC'
+    { _dclvDryRun     :: Maybe Bool
+    , _dclvInstanceId :: Text
+    , _dclvVPCId      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachClassicLinkVPC' smart constructor.
 detachClassicLinkVPC :: Text -> Text -> DetachClassicLinkVPC
-detachClassicLinkVPC pInstanceId pVPCId = DetachClassicLinkVPC'{_dclvDryRun = Nothing, _dclvInstanceId = pInstanceId, _dclvVPCId = pVPCId};
+detachClassicLinkVPC pInstanceId pVPCId =
+    DetachClassicLinkVPC'
+    { _dclvDryRun = Nothing
+    , _dclvInstanceId = pInstanceId
+    , _dclvVPCId = pVPCId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -107,17 +116,24 @@ instance ToQuery DetachClassicLinkVPC where
 --
 -- * 'dclvrReturn'
 --
--- * 'dclvrStatusCode'
-data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'{_dclvrReturn :: Maybe Bool, _dclvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dclvrStatus'
+data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'
+    { _dclvrReturn :: Maybe Bool
+    , _dclvrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachClassicLinkVPCResponse' smart constructor.
 detachClassicLinkVPCResponse :: Int -> DetachClassicLinkVPCResponse
-detachClassicLinkVPCResponse pStatusCode = DetachClassicLinkVPCResponse'{_dclvrReturn = Nothing, _dclvrStatusCode = pStatusCode};
+detachClassicLinkVPCResponse pStatus =
+    DetachClassicLinkVPCResponse'
+    { _dclvrReturn = Nothing
+    , _dclvrStatus = pStatus
+    }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 dclvrReturn :: Lens' DetachClassicLinkVPCResponse (Maybe Bool)
 dclvrReturn = lens _dclvrReturn (\ s a -> s{_dclvrReturn = a});
 
 -- | FIXME: Undocumented member.
-dclvrStatusCode :: Lens' DetachClassicLinkVPCResponse Int
-dclvrStatusCode = lens _dclvrStatusCode (\ s a -> s{_dclvrStatusCode = a});
+dclvrStatus :: Lens' DetachClassicLinkVPCResponse Int
+dclvrStatus = lens _dclvrStatus (\ s a -> s{_dclvrStatus = a});

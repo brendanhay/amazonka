@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectoryService.CreateAlias
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.DirectoryService.CreateAlias
     -- ** Response lenses
     , carDirectoryId
     , carAlias
-    , carStatusCode
+    , carStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the CreateAlias operation.
 --
@@ -56,11 +56,18 @@ import Network.AWS.Response
 -- * 'caDirectoryId'
 --
 -- * 'caAlias'
-data CreateAlias = CreateAlias'{_caDirectoryId :: Text, _caAlias :: Text} deriving (Eq, Read, Show)
+data CreateAlias = CreateAlias'
+    { _caDirectoryId :: Text
+    , _caAlias       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAlias' smart constructor.
 createAlias :: Text -> Text -> CreateAlias
-createAlias pDirectoryId pAlias = CreateAlias'{_caDirectoryId = pDirectoryId, _caAlias = pAlias};
+createAlias pDirectoryId pAlias =
+    CreateAlias'
+    { _caDirectoryId = pDirectoryId
+    , _caAlias = pAlias
+    }
 
 -- | The identifier of the directory to create the alias for.
 caDirectoryId :: Lens' CreateAlias Text
@@ -116,12 +123,21 @@ instance ToQuery CreateAlias where
 --
 -- * 'carAlias'
 --
--- * 'carStatusCode'
-data CreateAliasResponse = CreateAliasResponse'{_carDirectoryId :: Maybe Text, _carAlias :: Maybe Text, _carStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'carStatus'
+data CreateAliasResponse = CreateAliasResponse'
+    { _carDirectoryId :: Maybe Text
+    , _carAlias       :: Maybe Text
+    , _carStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAliasResponse' smart constructor.
 createAliasResponse :: Int -> CreateAliasResponse
-createAliasResponse pStatusCode = CreateAliasResponse'{_carDirectoryId = Nothing, _carAlias = Nothing, _carStatusCode = pStatusCode};
+createAliasResponse pStatus =
+    CreateAliasResponse'
+    { _carDirectoryId = Nothing
+    , _carAlias = Nothing
+    , _carStatus = pStatus
+    }
 
 -- | The identifier of the directory.
 carDirectoryId :: Lens' CreateAliasResponse (Maybe Text)
@@ -132,5 +148,5 @@ carAlias :: Lens' CreateAliasResponse (Maybe Text)
 carAlias = lens _carAlias (\ s a -> s{_carAlias = a});
 
 -- | FIXME: Undocumented member.
-carStatusCode :: Lens' CreateAliasResponse Int
-carStatusCode = lens _carStatusCode (\ s a -> s{_carStatusCode = a});
+carStatus :: Lens' CreateAliasResponse Int
+carStatus = lens _carStatus (\ s a -> s{_carStatus = a});

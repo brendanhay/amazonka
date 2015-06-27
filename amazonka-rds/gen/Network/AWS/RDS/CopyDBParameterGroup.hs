@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.CopyDBParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.RDS.CopyDBParameterGroup
     , copyDBParameterGroupResponse
     -- ** Response lenses
     , copDBParameterGroup
-    , copStatusCode
+    , copStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -56,11 +56,22 @@ import Network.AWS.Response
 -- * 'cdpgTargetDBParameterGroupIdentifier'
 --
 -- * 'cdpgTargetDBParameterGroupDescription'
-data CopyDBParameterGroup = CopyDBParameterGroup'{_cdpgTags :: Maybe [Tag], _cdpgSourceDBParameterGroupIdentifier :: Text, _cdpgTargetDBParameterGroupIdentifier :: Text, _cdpgTargetDBParameterGroupDescription :: Text} deriving (Eq, Read, Show)
+data CopyDBParameterGroup = CopyDBParameterGroup'
+    { _cdpgTags                              :: Maybe [Tag]
+    , _cdpgSourceDBParameterGroupIdentifier  :: Text
+    , _cdpgTargetDBParameterGroupIdentifier  :: Text
+    , _cdpgTargetDBParameterGroupDescription :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyDBParameterGroup' smart constructor.
 copyDBParameterGroup :: Text -> Text -> Text -> CopyDBParameterGroup
-copyDBParameterGroup pSourceDBParameterGroupIdentifier pTargetDBParameterGroupIdentifier pTargetDBParameterGroupDescription = CopyDBParameterGroup'{_cdpgTags = Nothing, _cdpgSourceDBParameterGroupIdentifier = pSourceDBParameterGroupIdentifier, _cdpgTargetDBParameterGroupIdentifier = pTargetDBParameterGroupIdentifier, _cdpgTargetDBParameterGroupDescription = pTargetDBParameterGroupDescription};
+copyDBParameterGroup pSourceDBParameterGroupIdentifier pTargetDBParameterGroupIdentifier pTargetDBParameterGroupDescription =
+    CopyDBParameterGroup'
+    { _cdpgTags = Nothing
+    , _cdpgSourceDBParameterGroupIdentifier = pSourceDBParameterGroupIdentifier
+    , _cdpgTargetDBParameterGroupIdentifier = pTargetDBParameterGroupIdentifier
+    , _cdpgTargetDBParameterGroupDescription = pTargetDBParameterGroupDescription
+    }
 
 -- | FIXME: Undocumented member.
 cdpgTags :: Lens' CopyDBParameterGroup [Tag]
@@ -133,17 +144,24 @@ instance ToQuery CopyDBParameterGroup where
 --
 -- * 'copDBParameterGroup'
 --
--- * 'copStatusCode'
-data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'{_copDBParameterGroup :: Maybe DBParameterGroup, _copStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'copStatus'
+data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'
+    { _copDBParameterGroup :: Maybe DBParameterGroup
+    , _copStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyDBParameterGroupResponse' smart constructor.
 copyDBParameterGroupResponse :: Int -> CopyDBParameterGroupResponse
-copyDBParameterGroupResponse pStatusCode = CopyDBParameterGroupResponse'{_copDBParameterGroup = Nothing, _copStatusCode = pStatusCode};
+copyDBParameterGroupResponse pStatus =
+    CopyDBParameterGroupResponse'
+    { _copDBParameterGroup = Nothing
+    , _copStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 copDBParameterGroup :: Lens' CopyDBParameterGroupResponse (Maybe DBParameterGroup)
 copDBParameterGroup = lens _copDBParameterGroup (\ s a -> s{_copDBParameterGroup = a});
 
 -- | FIXME: Undocumented member.
-copStatusCode :: Lens' CopyDBParameterGroupResponse Int
-copStatusCode = lens _copStatusCode (\ s a -> s{_copStatusCode = a});
+copStatus :: Lens' CopyDBParameterGroupResponse Int
+copStatus = lens _copStatus (\ s a -> s{_copStatus = a});

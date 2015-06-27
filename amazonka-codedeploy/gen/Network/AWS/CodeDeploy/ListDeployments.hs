@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListDeployments
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.CodeDeploy.ListDeployments
     -- ** Response lenses
     , ldrNextToken
     , ldrDeployments
-    , ldrStatusCode
+    , ldrStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a list deployments operation.
 --
@@ -61,11 +61,24 @@ import Network.AWS.Response
 -- * 'ldApplicationName'
 --
 -- * 'ldDeploymentGroupName'
-data ListDeployments = ListDeployments'{_ldCreateTimeRange :: Maybe TimeRange, _ldNextToken :: Maybe Text, _ldIncludeOnlyStatuses :: Maybe [DeploymentStatus], _ldApplicationName :: Maybe Text, _ldDeploymentGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data ListDeployments = ListDeployments'
+    { _ldCreateTimeRange     :: Maybe TimeRange
+    , _ldNextToken           :: Maybe Text
+    , _ldIncludeOnlyStatuses :: Maybe [DeploymentStatus]
+    , _ldApplicationName     :: Maybe Text
+    , _ldDeploymentGroupName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDeployments' smart constructor.
 listDeployments :: ListDeployments
-listDeployments = ListDeployments'{_ldCreateTimeRange = Nothing, _ldNextToken = Nothing, _ldIncludeOnlyStatuses = Nothing, _ldApplicationName = Nothing, _ldDeploymentGroupName = Nothing};
+listDeployments =
+    ListDeployments'
+    { _ldCreateTimeRange = Nothing
+    , _ldNextToken = Nothing
+    , _ldIncludeOnlyStatuses = Nothing
+    , _ldApplicationName = Nothing
+    , _ldDeploymentGroupName = Nothing
+    }
 
 -- | A deployment creation start- and end-time range for returning a subset
 -- of the list of deployments.
@@ -144,12 +157,21 @@ instance ToQuery ListDeployments where
 --
 -- * 'ldrDeployments'
 --
--- * 'ldrStatusCode'
-data ListDeploymentsResponse = ListDeploymentsResponse'{_ldrNextToken :: Maybe Text, _ldrDeployments :: Maybe [Text], _ldrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ldrStatus'
+data ListDeploymentsResponse = ListDeploymentsResponse'
+    { _ldrNextToken   :: Maybe Text
+    , _ldrDeployments :: Maybe [Text]
+    , _ldrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDeploymentsResponse' smart constructor.
 listDeploymentsResponse :: Int -> ListDeploymentsResponse
-listDeploymentsResponse pStatusCode = ListDeploymentsResponse'{_ldrNextToken = Nothing, _ldrDeployments = Nothing, _ldrStatusCode = pStatusCode};
+listDeploymentsResponse pStatus =
+    ListDeploymentsResponse'
+    { _ldrNextToken = Nothing
+    , _ldrDeployments = Nothing
+    , _ldrStatus = pStatus
+    }
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -162,5 +184,5 @@ ldrDeployments :: Lens' ListDeploymentsResponse [Text]
 ldrDeployments = lens _ldrDeployments (\ s a -> s{_ldrDeployments = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldrStatusCode :: Lens' ListDeploymentsResponse Int
-ldrStatusCode = lens _ldrStatusCode (\ s a -> s{_ldrStatusCode = a});
+ldrStatus :: Lens' ListDeploymentsResponse Int
+ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});

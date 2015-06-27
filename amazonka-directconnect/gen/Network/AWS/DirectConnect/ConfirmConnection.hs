@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.ConfirmConnection
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.DirectConnect.ConfirmConnection
     , confirmConnectionResponse
     -- ** Response lenses
     , ccrConnectionState
-    , ccrStatusCode
+    , ccrStatus
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the ConfirmConnection operation.
 --
@@ -51,11 +51,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccConnectionId'
-newtype ConfirmConnection = ConfirmConnection'{_ccConnectionId :: Text} deriving (Eq, Read, Show)
+newtype ConfirmConnection = ConfirmConnection'
+    { _ccConnectionId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfirmConnection' smart constructor.
 confirmConnection :: Text -> ConfirmConnection
-confirmConnection pConnectionId = ConfirmConnection'{_ccConnectionId = pConnectionId};
+confirmConnection pConnectionId =
+    ConfirmConnection'
+    { _ccConnectionId = pConnectionId
+    }
 
 -- | FIXME: Undocumented member.
 ccConnectionId :: Lens' ConfirmConnection Text
@@ -98,17 +103,24 @@ instance ToQuery ConfirmConnection where
 --
 -- * 'ccrConnectionState'
 --
--- * 'ccrStatusCode'
-data ConfirmConnectionResponse = ConfirmConnectionResponse'{_ccrConnectionState :: Maybe ConnectionState, _ccrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ccrStatus'
+data ConfirmConnectionResponse = ConfirmConnectionResponse'
+    { _ccrConnectionState :: Maybe ConnectionState
+    , _ccrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfirmConnectionResponse' smart constructor.
 confirmConnectionResponse :: Int -> ConfirmConnectionResponse
-confirmConnectionResponse pStatusCode = ConfirmConnectionResponse'{_ccrConnectionState = Nothing, _ccrStatusCode = pStatusCode};
+confirmConnectionResponse pStatus =
+    ConfirmConnectionResponse'
+    { _ccrConnectionState = Nothing
+    , _ccrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ccrConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
 ccrConnectionState = lens _ccrConnectionState (\ s a -> s{_ccrConnectionState = a});
 
 -- | FIXME: Undocumented member.
-ccrStatusCode :: Lens' ConfirmConnectionResponse Int
-ccrStatusCode = lens _ccrStatusCode (\ s a -> s{_ccrStatusCode = a});
+ccrStatus :: Lens' ConfirmConnectionResponse Int
+ccrStatus = lens _ccrStatus (\ s a -> s{_ccrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CancelExportTask
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,21 +35,26 @@ module Network.AWS.EC2.CancelExportTask
     , cancelExportTaskResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'cancelExportTask' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cetExportTaskId'
-newtype CancelExportTask = CancelExportTask'{_cetExportTaskId :: Text} deriving (Eq, Read, Show)
+newtype CancelExportTask = CancelExportTask'
+    { _cetExportTaskId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelExportTask' smart constructor.
 cancelExportTask :: Text -> CancelExportTask
-cancelExportTask pExportTaskId = CancelExportTask'{_cetExportTaskId = pExportTaskId};
+cancelExportTask pExportTaskId =
+    CancelExportTask'
+    { _cetExportTaskId = pExportTaskId
+    }
 
 -- | The ID of the export task. This is the ID returned by
 -- @CreateInstanceExportTask@.
@@ -76,8 +81,10 @@ instance ToQuery CancelExportTask where
                "ExportTaskId" =: _cetExportTaskId]
 
 -- | /See:/ 'cancelExportTaskResponse' smart constructor.
-data CancelExportTaskResponse = CancelExportTaskResponse' deriving (Eq, Read, Show)
+data CancelExportTaskResponse =
+    CancelExportTaskResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CancelExportTaskResponse' smart constructor.
 cancelExportTaskResponse :: CancelExportTaskResponse
-cancelExportTaskResponse = CancelExportTaskResponse';
+cancelExportTaskResponse = CancelExportTaskResponse'

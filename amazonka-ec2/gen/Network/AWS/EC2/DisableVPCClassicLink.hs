@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DisableVPCClassicLink
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.EC2.DisableVPCClassicLink
     , disableVPCClassicLinkResponse
     -- ** Response lenses
     , disReturn
-    , disStatusCode
+    , disStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'disableVPCClassicLink' smart constructor.
 --
@@ -49,11 +49,18 @@ import Network.AWS.Response
 -- * 'disDryRun'
 --
 -- * 'disVPCId'
-data DisableVPCClassicLink = DisableVPCClassicLink'{_disDryRun :: Maybe Bool, _disVPCId :: Text} deriving (Eq, Read, Show)
+data DisableVPCClassicLink = DisableVPCClassicLink'
+    { _disDryRun :: Maybe Bool
+    , _disVPCId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableVPCClassicLink' smart constructor.
 disableVPCClassicLink :: Text -> DisableVPCClassicLink
-disableVPCClassicLink pVPCId = DisableVPCClassicLink'{_disDryRun = Nothing, _disVPCId = pVPCId};
+disableVPCClassicLink pVPCId =
+    DisableVPCClassicLink'
+    { _disDryRun = Nothing
+    , _disVPCId = pVPCId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -96,17 +103,24 @@ instance ToQuery DisableVPCClassicLink where
 --
 -- * 'disReturn'
 --
--- * 'disStatusCode'
-data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'{_disReturn :: Maybe Bool, _disStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'disStatus'
+data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'
+    { _disReturn :: Maybe Bool
+    , _disStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableVPCClassicLinkResponse' smart constructor.
 disableVPCClassicLinkResponse :: Int -> DisableVPCClassicLinkResponse
-disableVPCClassicLinkResponse pStatusCode = DisableVPCClassicLinkResponse'{_disReturn = Nothing, _disStatusCode = pStatusCode};
+disableVPCClassicLinkResponse pStatus =
+    DisableVPCClassicLinkResponse'
+    { _disReturn = Nothing
+    , _disStatus = pStatus
+    }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 disReturn :: Lens' DisableVPCClassicLinkResponse (Maybe Bool)
 disReturn = lens _disReturn (\ s a -> s{_disReturn = a});
 
 -- | FIXME: Undocumented member.
-disStatusCode :: Lens' DisableVPCClassicLinkResponse Int
-disStatusCode = lens _disStatusCode (\ s a -> s{_disStatusCode = a});
+disStatus :: Lens' DisableVPCClassicLinkResponse Int
+disStatus = lens _disStatus (\ s a -> s{_disStatus = a});

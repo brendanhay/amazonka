@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheSubnetGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,14 +37,14 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     -- ** Response lenses
     , dcsgrMarker
     , dcsgrCacheSubnetGroups
-    , dcsgrStatusCode
+    , dcsgrStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeCacheSubnetGroups/ action.
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'dcsgMaxRecords'
 --
 -- * 'dcsgMarker'
-data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups'{_dcsgCacheSubnetGroupName :: Maybe Text, _dcsgMaxRecords :: Maybe Int, _dcsgMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups'
+    { _dcsgCacheSubnetGroupName :: Maybe Text
+    , _dcsgMaxRecords           :: Maybe Int
+    , _dcsgMarker               :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheSubnetGroups' smart constructor.
 describeCacheSubnetGroups :: DescribeCacheSubnetGroups
-describeCacheSubnetGroups = DescribeCacheSubnetGroups'{_dcsgCacheSubnetGroupName = Nothing, _dcsgMaxRecords = Nothing, _dcsgMarker = Nothing};
+describeCacheSubnetGroups =
+    DescribeCacheSubnetGroups'
+    { _dcsgCacheSubnetGroupName = Nothing
+    , _dcsgMaxRecords = Nothing
+    , _dcsgMarker = Nothing
+    }
 
 -- | The name of the cache subnet group to return details for.
 dcsgCacheSubnetGroupName :: Lens' DescribeCacheSubnetGroups (Maybe Text)
@@ -131,12 +140,21 @@ instance ToQuery DescribeCacheSubnetGroups where
 --
 -- * 'dcsgrCacheSubnetGroups'
 --
--- * 'dcsgrStatusCode'
-data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'{_dcsgrMarker :: Maybe Text, _dcsgrCacheSubnetGroups :: Maybe [CacheSubnetGroup], _dcsgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcsgrStatus'
+data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
+    { _dcsgrMarker            :: Maybe Text
+    , _dcsgrCacheSubnetGroups :: Maybe [CacheSubnetGroup]
+    , _dcsgrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheSubnetGroupsResponse' smart constructor.
 describeCacheSubnetGroupsResponse :: Int -> DescribeCacheSubnetGroupsResponse
-describeCacheSubnetGroupsResponse pStatusCode = DescribeCacheSubnetGroupsResponse'{_dcsgrMarker = Nothing, _dcsgrCacheSubnetGroups = Nothing, _dcsgrStatusCode = pStatusCode};
+describeCacheSubnetGroupsResponse pStatus =
+    DescribeCacheSubnetGroupsResponse'
+    { _dcsgrMarker = Nothing
+    , _dcsgrCacheSubnetGroups = Nothing
+    , _dcsgrStatus = pStatus
+    }
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcsgrMarker :: Lens' DescribeCacheSubnetGroupsResponse (Maybe Text)
@@ -148,5 +166,5 @@ dcsgrCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGr
 dcsgrCacheSubnetGroups = lens _dcsgrCacheSubnetGroups (\ s a -> s{_dcsgrCacheSubnetGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcsgrStatusCode :: Lens' DescribeCacheSubnetGroupsResponse Int
-dcsgrStatusCode = lens _dcsgrStatusCode (\ s a -> s{_dcsgrStatusCode = a});
+dcsgrStatus :: Lens' DescribeCacheSubnetGroupsResponse Int
+dcsgrStatus = lens _dcsgrStatus (\ s a -> s{_dcsgrStatus = a});

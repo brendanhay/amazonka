@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.GetCognitoEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.CognitoSync.GetCognitoEvents
     , getCognitoEventsResponse
     -- ** Response lenses
     , gcerEvents
-    , gcerStatusCode
+    , gcerStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request for a list of the configured Cognito Events
 --
@@ -48,11 +48,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gceIdentityPoolId'
-newtype GetCognitoEvents = GetCognitoEvents'{_gceIdentityPoolId :: Text} deriving (Eq, Read, Show)
+newtype GetCognitoEvents = GetCognitoEvents'
+    { _gceIdentityPoolId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetCognitoEvents' smart constructor.
 getCognitoEvents :: Text -> GetCognitoEvents
-getCognitoEvents pIdentityPoolId = GetCognitoEvents'{_gceIdentityPoolId = pIdentityPoolId};
+getCognitoEvents pIdentityPoolId =
+    GetCognitoEvents'
+    { _gceIdentityPoolId = pIdentityPoolId
+    }
 
 -- | The Cognito Identity Pool ID for the request
 gceIdentityPoolId :: Lens' GetCognitoEvents Text
@@ -92,17 +97,24 @@ instance ToQuery GetCognitoEvents where
 --
 -- * 'gcerEvents'
 --
--- * 'gcerStatusCode'
-data GetCognitoEventsResponse = GetCognitoEventsResponse'{_gcerEvents :: Maybe (Map Text Text), _gcerStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gcerStatus'
+data GetCognitoEventsResponse = GetCognitoEventsResponse'
+    { _gcerEvents :: Maybe (Map Text Text)
+    , _gcerStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetCognitoEventsResponse' smart constructor.
 getCognitoEventsResponse :: Int -> GetCognitoEventsResponse
-getCognitoEventsResponse pStatusCode = GetCognitoEventsResponse'{_gcerEvents = Nothing, _gcerStatusCode = pStatusCode};
+getCognitoEventsResponse pStatus =
+    GetCognitoEventsResponse'
+    { _gcerEvents = Nothing
+    , _gcerStatus = pStatus
+    }
 
 -- | The Cognito Events returned from the GetCognitoEvents request
 gcerEvents :: Lens' GetCognitoEventsResponse (HashMap Text Text)
 gcerEvents = lens _gcerEvents (\ s a -> s{_gcerEvents = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gcerStatusCode :: Lens' GetCognitoEventsResponse Int
-gcerStatusCode = lens _gcerStatusCode (\ s a -> s{_gcerStatusCode = a});
+gcerStatus :: Lens' GetCognitoEventsResponse Int
+gcerStatus = lens _gcerStatus (\ s a -> s{_gcerStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SDB.Select
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,14 +47,14 @@ module Network.AWS.SDB.Select
     -- ** Response lenses
     , srItems
     , srNextToken
-    , srStatusCode
+    , srStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SDB.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SDB.Types
 
 -- | /See:/ 'select' smart constructor.
 --
@@ -65,11 +65,20 @@ import Network.AWS.SDB.Types
 -- * 'selNextToken'
 --
 -- * 'selSelectExpression'
-data Select = Select'{_selConsistentRead :: Maybe Bool, _selNextToken :: Maybe Text, _selSelectExpression :: Text} deriving (Eq, Read, Show)
+data Select = Select'
+    { _selConsistentRead   :: Maybe Bool
+    , _selNextToken        :: Maybe Text
+    , _selSelectExpression :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Select' smart constructor.
 select :: Text -> Select
-select pSelectExpression = Select'{_selConsistentRead = Nothing, _selNextToken = Nothing, _selSelectExpression = pSelectExpression};
+select pSelectExpression =
+    Select'
+    { _selConsistentRead = Nothing
+    , _selNextToken = Nothing
+    , _selSelectExpression = pSelectExpression
+    }
 
 -- | Determines whether or not strong consistency should be enforced when
 -- data is read from SimpleDB. If @true@, any data previously written to
@@ -129,12 +138,21 @@ instance ToQuery Select where
 --
 -- * 'srNextToken'
 --
--- * 'srStatusCode'
-data SelectResponse = SelectResponse'{_srItems :: Maybe [Item], _srNextToken :: Maybe Text, _srStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'srStatus'
+data SelectResponse = SelectResponse'
+    { _srItems     :: Maybe [Item]
+    , _srNextToken :: Maybe Text
+    , _srStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SelectResponse' smart constructor.
 selectResponse :: Int -> SelectResponse
-selectResponse pStatusCode = SelectResponse'{_srItems = Nothing, _srNextToken = Nothing, _srStatusCode = pStatusCode};
+selectResponse pStatus =
+    SelectResponse'
+    { _srItems = Nothing
+    , _srNextToken = Nothing
+    , _srStatus = pStatus
+    }
 
 -- | A list of items that match the select expression.
 srItems :: Lens' SelectResponse [Item]
@@ -147,5 +165,5 @@ srNextToken :: Lens' SelectResponse (Maybe Text)
 srNextToken = lens _srNextToken (\ s a -> s{_srNextToken = a});
 
 -- | FIXME: Undocumented member.
-srStatusCode :: Lens' SelectResponse Int
-srStatusCode = lens _srStatusCode (\ s a -> s{_srStatusCode = a});
+srStatus :: Lens' SelectResponse Int
+srStatus = lens _srStatus (\ s a -> s{_srStatus = a});

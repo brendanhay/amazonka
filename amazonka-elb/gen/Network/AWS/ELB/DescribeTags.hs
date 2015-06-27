@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.DescribeTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,29 @@ module Network.AWS.ELB.DescribeTags
     , describeTagsResponse
     -- ** Response lenses
     , dtrTagDescriptions
-    , dtrStatusCode
+    , dtrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeTags' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtLoadBalancerNames'
-newtype DescribeTags = DescribeTags'{_dtLoadBalancerNames :: List1 Text} deriving (Eq, Read, Show)
+newtype DescribeTags = DescribeTags'
+    { _dtLoadBalancerNames :: List1 Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: NonEmpty Text -> DescribeTags
-describeTags pLoadBalancerNames = DescribeTags'{_dtLoadBalancerNames = _List1 # pLoadBalancerNames};
+describeTags pLoadBalancerNames =
+    DescribeTags'
+    { _dtLoadBalancerNames = _List1 # pLoadBalancerNames
+    }
 
 -- | The names of the load balancers.
 dtLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
@@ -87,17 +92,24 @@ instance ToQuery DescribeTags where
 --
 -- * 'dtrTagDescriptions'
 --
--- * 'dtrStatusCode'
-data DescribeTagsResponse = DescribeTagsResponse'{_dtrTagDescriptions :: Maybe [TagDescription], _dtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtrStatus'
+data DescribeTagsResponse = DescribeTagsResponse'
+    { _dtrTagDescriptions :: Maybe [TagDescription]
+    , _dtrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
-describeTagsResponse pStatusCode = DescribeTagsResponse'{_dtrTagDescriptions = Nothing, _dtrStatusCode = pStatusCode};
+describeTagsResponse pStatus =
+    DescribeTagsResponse'
+    { _dtrTagDescriptions = Nothing
+    , _dtrStatus = pStatus
+    }
 
 -- | Information about the tags.
 dtrTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
 dtrTagDescriptions = lens _dtrTagDescriptions (\ s a -> s{_dtrTagDescriptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtrStatusCode :: Lens' DescribeTagsResponse Int
-dtrStatusCode = lens _dtrStatusCode (\ s a -> s{_dtrStatusCode = a});
+dtrStatus :: Lens' DescribeTagsResponse Int
+dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});

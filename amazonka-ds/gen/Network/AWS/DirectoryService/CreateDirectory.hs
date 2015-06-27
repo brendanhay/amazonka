@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectoryService.CreateDirectory
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.DirectoryService.CreateDirectory
     , createDirectoryResponse
     -- ** Response lenses
     , creDirectoryId
-    , creStatusCode
+    , creStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the CreateDirectory operation.
 --
@@ -62,11 +62,26 @@ import Network.AWS.Response
 -- * 'crePassword'
 --
 -- * 'creSize'
-data CreateDirectory = CreateDirectory'{_creShortName :: Maybe Text, _creVPCSettings :: Maybe DirectoryVPCSettings, _creDescription :: Maybe Text, _creName :: Text, _crePassword :: Sensitive Text, _creSize :: DirectorySize} deriving (Eq, Read, Show)
+data CreateDirectory = CreateDirectory'
+    { _creShortName   :: Maybe Text
+    , _creVPCSettings :: Maybe DirectoryVPCSettings
+    , _creDescription :: Maybe Text
+    , _creName        :: Text
+    , _crePassword    :: Sensitive Text
+    , _creSize        :: DirectorySize
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDirectory' smart constructor.
 createDirectory :: Text -> Text -> DirectorySize -> CreateDirectory
-createDirectory pName pPassword pSize = CreateDirectory'{_creShortName = Nothing, _creVPCSettings = Nothing, _creDescription = Nothing, _creName = pName, _crePassword = _Sensitive # pPassword, _creSize = pSize};
+createDirectory pName pPassword pSize =
+    CreateDirectory'
+    { _creShortName = Nothing
+    , _creVPCSettings = Nothing
+    , _creDescription = Nothing
+    , _creName = pName
+    , _crePassword = _Sensitive # pPassword
+    , _creSize = pSize
+    }
 
 -- | The short name of the directory, such as @CORP@.
 creShortName :: Lens' CreateDirectory (Maybe Text)
@@ -137,17 +152,24 @@ instance ToQuery CreateDirectory where
 --
 -- * 'creDirectoryId'
 --
--- * 'creStatusCode'
-data CreateDirectoryResponse = CreateDirectoryResponse'{_creDirectoryId :: Maybe Text, _creStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'creStatus'
+data CreateDirectoryResponse = CreateDirectoryResponse'
+    { _creDirectoryId :: Maybe Text
+    , _creStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDirectoryResponse' smart constructor.
 createDirectoryResponse :: Int -> CreateDirectoryResponse
-createDirectoryResponse pStatusCode = CreateDirectoryResponse'{_creDirectoryId = Nothing, _creStatusCode = pStatusCode};
+createDirectoryResponse pStatus =
+    CreateDirectoryResponse'
+    { _creDirectoryId = Nothing
+    , _creStatus = pStatus
+    }
 
 -- | The identifier of the directory that was created.
 creDirectoryId :: Lens' CreateDirectoryResponse (Maybe Text)
 creDirectoryId = lens _creDirectoryId (\ s a -> s{_creDirectoryId = a});
 
 -- | FIXME: Undocumented member.
-creStatusCode :: Lens' CreateDirectoryResponse Int
-creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});
+creStatus :: Lens' CreateDirectoryResponse Int
+creStatus = lens _creStatus (\ s a -> s{_creStatus = a});

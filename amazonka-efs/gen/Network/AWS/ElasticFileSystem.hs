@@ -15,16 +15,16 @@ module Network.AWS.ElasticFileSystem
     ( module Export
     ) where
 
-import Network.AWS.ElasticFileSystem.CreateFileSystem as Export
-import Network.AWS.ElasticFileSystem.CreateMountTarget as Export
-import Network.AWS.ElasticFileSystem.CreateTags as Export
-import Network.AWS.ElasticFileSystem.DeleteFileSystem as Export
-import Network.AWS.ElasticFileSystem.DeleteMountTarget as Export
-import Network.AWS.ElasticFileSystem.DeleteTags as Export
-import Network.AWS.ElasticFileSystem.DescribeFileSystems as Export
-import Network.AWS.ElasticFileSystem.DescribeMountTargetSecurityGroups as Export
-import Network.AWS.ElasticFileSystem.DescribeMountTargets as Export
-import Network.AWS.ElasticFileSystem.DescribeTags as Export
-import Network.AWS.ElasticFileSystem.ModifyMountTargetSecurityGroups as Export
-import Network.AWS.ElasticFileSystem.Types as Export
-import Network.AWS.ElasticFileSystem.Waiters as Export
+import           Network.AWS.ElasticFileSystem.CreateFileSystem                  as Export
+import           Network.AWS.ElasticFileSystem.CreateMountTarget                 as Export
+import           Network.AWS.ElasticFileSystem.CreateTags                        as Export
+import           Network.AWS.ElasticFileSystem.DeleteFileSystem                  as Export
+import           Network.AWS.ElasticFileSystem.DeleteMountTarget                 as Export
+import           Network.AWS.ElasticFileSystem.DeleteTags                        as Export
+import           Network.AWS.ElasticFileSystem.DescribeFileSystems               as Export
+import           Network.AWS.ElasticFileSystem.DescribeMountTargets              as Export
+import           Network.AWS.ElasticFileSystem.DescribeMountTargetSecurityGroups as Export
+import           Network.AWS.ElasticFileSystem.DescribeTags                      as Export
+import           Network.AWS.ElasticFileSystem.ModifyMountTargetSecurityGroups   as Export
+import           Network.AWS.ElasticFileSystem.Types                             as Export
+import           Network.AWS.ElasticFileSystem.Waiters                           as Export

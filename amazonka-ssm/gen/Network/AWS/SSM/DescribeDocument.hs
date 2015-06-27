@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SSM.DescribeDocument
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,29 @@ module Network.AWS.SSM.DescribeDocument
     , describeDocumentResponse
     -- ** Response lenses
     , desDocument
-    , desStatusCode
+    , desStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
 
 -- | /See:/ 'describeDocument' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddName'
-newtype DescribeDocument = DescribeDocument'{_ddName :: Text} deriving (Eq, Read, Show)
+newtype DescribeDocument = DescribeDocument'
+    { _ddName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDocument' smart constructor.
 describeDocument :: Text -> DescribeDocument
-describeDocument pName = DescribeDocument'{_ddName = pName};
+describeDocument pName =
+    DescribeDocument'
+    { _ddName = pName
+    }
 
 -- | The name of the configuration document.
 ddName :: Lens' DescribeDocument Text
@@ -90,17 +95,24 @@ instance ToQuery DescribeDocument where
 --
 -- * 'desDocument'
 --
--- * 'desStatusCode'
-data DescribeDocumentResponse = DescribeDocumentResponse'{_desDocument :: Maybe DocumentDescription, _desStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'desStatus'
+data DescribeDocumentResponse = DescribeDocumentResponse'
+    { _desDocument :: Maybe DocumentDescription
+    , _desStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDocumentResponse' smart constructor.
 describeDocumentResponse :: Int -> DescribeDocumentResponse
-describeDocumentResponse pStatusCode = DescribeDocumentResponse'{_desDocument = Nothing, _desStatusCode = pStatusCode};
+describeDocumentResponse pStatus =
+    DescribeDocumentResponse'
+    { _desDocument = Nothing
+    , _desStatus = pStatus
+    }
 
 -- | Information about the configuration document.
 desDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
 desDocument = lens _desDocument (\ s a -> s{_desDocument = a});
 
 -- | FIXME: Undocumented member.
-desStatusCode :: Lens' DescribeDocumentResponse Int
-desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});
+desStatus :: Lens' DescribeDocumentResponse Int
+desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

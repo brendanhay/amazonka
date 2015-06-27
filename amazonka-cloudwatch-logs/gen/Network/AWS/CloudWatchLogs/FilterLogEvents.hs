@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.FilterLogEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,13 +55,13 @@ module Network.AWS.CloudWatchLogs.FilterLogEvents
     , flerSearchedLogStreams
     , flerNextToken
     , flerEvents
-    , flerStatusCode
+    , flerStatus
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'filterLogEvents' smart constructor.
 --
@@ -82,11 +82,30 @@ import Network.AWS.Response
 -- * 'fleInterleaved'
 --
 -- * 'fleLogGroupName'
-data FilterLogEvents = FilterLogEvents'{_fleStartTime :: Maybe Nat, _fleLogStreamNames :: Maybe (List1 Text), _fleNextToken :: Maybe Text, _fleEndTime :: Maybe Nat, _fleLimit :: Maybe Nat, _fleFilterPattern :: Maybe Text, _fleInterleaved :: Maybe Bool, _fleLogGroupName :: Text} deriving (Eq, Read, Show)
+data FilterLogEvents = FilterLogEvents'
+    { _fleStartTime      :: Maybe Nat
+    , _fleLogStreamNames :: Maybe (List1 Text)
+    , _fleNextToken      :: Maybe Text
+    , _fleEndTime        :: Maybe Nat
+    , _fleLimit          :: Maybe Nat
+    , _fleFilterPattern  :: Maybe Text
+    , _fleInterleaved    :: Maybe Bool
+    , _fleLogGroupName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'FilterLogEvents' smart constructor.
 filterLogEvents :: Text -> FilterLogEvents
-filterLogEvents pLogGroupName = FilterLogEvents'{_fleStartTime = Nothing, _fleLogStreamNames = Nothing, _fleNextToken = Nothing, _fleEndTime = Nothing, _fleLimit = Nothing, _fleFilterPattern = Nothing, _fleInterleaved = Nothing, _fleLogGroupName = pLogGroupName};
+filterLogEvents pLogGroupName =
+    FilterLogEvents'
+    { _fleStartTime = Nothing
+    , _fleLogStreamNames = Nothing
+    , _fleNextToken = Nothing
+    , _fleEndTime = Nothing
+    , _fleLimit = Nothing
+    , _fleFilterPattern = Nothing
+    , _fleInterleaved = Nothing
+    , _fleLogGroupName = pLogGroupName
+    }
 
 -- | A unix timestamp indicating the start time of the range for the request.
 -- If provided, events with a timestamp prior to this time will not be
@@ -181,12 +200,23 @@ instance ToQuery FilterLogEvents where
 --
 -- * 'flerEvents'
 --
--- * 'flerStatusCode'
-data FilterLogEventsResponse = FilterLogEventsResponse'{_flerSearchedLogStreams :: Maybe [SearchedLogStream], _flerNextToken :: Maybe Text, _flerEvents :: Maybe [FilteredLogEvent], _flerStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'flerStatus'
+data FilterLogEventsResponse = FilterLogEventsResponse'
+    { _flerSearchedLogStreams :: Maybe [SearchedLogStream]
+    , _flerNextToken          :: Maybe Text
+    , _flerEvents             :: Maybe [FilteredLogEvent]
+    , _flerStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'FilterLogEventsResponse' smart constructor.
 filterLogEventsResponse :: Int -> FilterLogEventsResponse
-filterLogEventsResponse pStatusCode = FilterLogEventsResponse'{_flerSearchedLogStreams = Nothing, _flerNextToken = Nothing, _flerEvents = Nothing, _flerStatusCode = pStatusCode};
+filterLogEventsResponse pStatus =
+    FilterLogEventsResponse'
+    { _flerSearchedLogStreams = Nothing
+    , _flerNextToken = Nothing
+    , _flerEvents = Nothing
+    , _flerStatus = pStatus
+    }
 
 -- | A list of @SearchedLogStream@ objects indicating which log streams have
 -- been searched in this request and whether each has been searched
@@ -205,5 +235,5 @@ flerEvents :: Lens' FilterLogEventsResponse [FilteredLogEvent]
 flerEvents = lens _flerEvents (\ s a -> s{_flerEvents = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-flerStatusCode :: Lens' FilterLogEventsResponse Int
-flerStatusCode = lens _flerStatusCode (\ s a -> s{_flerStatusCode = a});
+flerStatus :: Lens' FilterLogEventsResponse Int
+flerStatus = lens _flerStatus (\ s a -> s{_flerStatus = a});

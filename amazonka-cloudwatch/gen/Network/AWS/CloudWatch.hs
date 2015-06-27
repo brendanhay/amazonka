@@ -64,16 +64,16 @@ module Network.AWS.CloudWatch
     ( module Export
     ) where
 
-import Network.AWS.CloudWatch.DeleteAlarms as Export
-import Network.AWS.CloudWatch.DescribeAlarmHistory as Export
-import Network.AWS.CloudWatch.DescribeAlarms as Export
-import Network.AWS.CloudWatch.DescribeAlarmsForMetric as Export
-import Network.AWS.CloudWatch.DisableAlarmActions as Export
-import Network.AWS.CloudWatch.EnableAlarmActions as Export
-import Network.AWS.CloudWatch.GetMetricStatistics as Export
-import Network.AWS.CloudWatch.ListMetrics as Export
-import Network.AWS.CloudWatch.PutMetricAlarm as Export
-import Network.AWS.CloudWatch.PutMetricData as Export
-import Network.AWS.CloudWatch.SetAlarmState as Export
-import Network.AWS.CloudWatch.Types as Export
-import Network.AWS.CloudWatch.Waiters as Export
+import           Network.AWS.CloudWatch.DeleteAlarms            as Export
+import           Network.AWS.CloudWatch.DescribeAlarmHistory    as Export
+import           Network.AWS.CloudWatch.DescribeAlarms          as Export
+import           Network.AWS.CloudWatch.DescribeAlarmsForMetric as Export
+import           Network.AWS.CloudWatch.DisableAlarmActions     as Export
+import           Network.AWS.CloudWatch.EnableAlarmActions      as Export
+import           Network.AWS.CloudWatch.GetMetricStatistics     as Export
+import           Network.AWS.CloudWatch.ListMetrics             as Export
+import           Network.AWS.CloudWatch.PutMetricAlarm          as Export
+import           Network.AWS.CloudWatch.PutMetricData           as Export
+import           Network.AWS.CloudWatch.SetAlarmState           as Export
+import           Network.AWS.CloudWatch.Types                   as Export
+import           Network.AWS.CloudWatch.Waiters                 as Export

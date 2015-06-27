@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,20 +30,22 @@ module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     , describeTerminationPolicyTypesResponse
     -- ** Response lenses
     , dtptrTerminationPolicyTypes
-    , dtptrStatusCode
+    , dtptrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeTerminationPolicyTypes' smart constructor.
-data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes' deriving (Eq, Read, Show)
+data DescribeTerminationPolicyTypes =
+    DescribeTerminationPolicyTypes'
+    deriving (Eq,Read,Show)
 
 -- | 'DescribeTerminationPolicyTypes' smart constructor.
 describeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
-describeTerminationPolicyTypes = DescribeTerminationPolicyTypes';
+describeTerminationPolicyTypes = DescribeTerminationPolicyTypes'
 
 instance AWSRequest DescribeTerminationPolicyTypes
          where
@@ -81,12 +83,19 @@ instance ToQuery DescribeTerminationPolicyTypes where
 --
 -- * 'dtptrTerminationPolicyTypes'
 --
--- * 'dtptrStatusCode'
-data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'{_dtptrTerminationPolicyTypes :: Maybe [Text], _dtptrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtptrStatus'
+data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
+    { _dtptrTerminationPolicyTypes :: Maybe [Text]
+    , _dtptrStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTerminationPolicyTypesResponse' smart constructor.
 describeTerminationPolicyTypesResponse :: Int -> DescribeTerminationPolicyTypesResponse
-describeTerminationPolicyTypesResponse pStatusCode = DescribeTerminationPolicyTypesResponse'{_dtptrTerminationPolicyTypes = Nothing, _dtptrStatusCode = pStatusCode};
+describeTerminationPolicyTypesResponse pStatus =
+    DescribeTerminationPolicyTypesResponse'
+    { _dtptrTerminationPolicyTypes = Nothing
+    , _dtptrStatus = pStatus
+    }
 
 -- | The termination policies supported by Auto Scaling (@OldestInstance@,
 -- @OldestLaunchConfiguration@, @NewestInstance@,
@@ -95,5 +104,5 @@ dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Tex
 dtptrTerminationPolicyTypes = lens _dtptrTerminationPolicyTypes (\ s a -> s{_dtptrTerminationPolicyTypes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtptrStatusCode :: Lens' DescribeTerminationPolicyTypesResponse Int
-dtptrStatusCode = lens _dtptrStatusCode (\ s a -> s{_dtptrStatusCode = a});
+dtptrStatus :: Lens' DescribeTerminationPolicyTypesResponse Int
+dtptrStatus = lens _dtptrStatus (\ s a -> s{_dtptrStatus = a});

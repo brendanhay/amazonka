@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.AttachInternetGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,10 +37,10 @@ module Network.AWS.EC2.AttachInternetGateway
     , attachInternetGatewayResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachInternetGateway' smart constructor.
 --
@@ -51,11 +51,20 @@ import Network.AWS.Response
 -- * 'aigInternetGatewayId'
 --
 -- * 'aigVPCId'
-data AttachInternetGateway = AttachInternetGateway'{_aigDryRun :: Maybe Bool, _aigInternetGatewayId :: Text, _aigVPCId :: Text} deriving (Eq, Read, Show)
+data AttachInternetGateway = AttachInternetGateway'
+    { _aigDryRun            :: Maybe Bool
+    , _aigInternetGatewayId :: Text
+    , _aigVPCId             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachInternetGateway' smart constructor.
 attachInternetGateway :: Text -> Text -> AttachInternetGateway
-attachInternetGateway pInternetGatewayId pVPCId = AttachInternetGateway'{_aigDryRun = Nothing, _aigInternetGatewayId = pInternetGatewayId, _aigVPCId = pVPCId};
+attachInternetGateway pInternetGatewayId pVPCId =
+    AttachInternetGateway'
+    { _aigDryRun = Nothing
+    , _aigInternetGatewayId = pInternetGatewayId
+    , _aigVPCId = pVPCId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -95,8 +104,10 @@ instance ToQuery AttachInternetGateway where
                "VpcId" =: _aigVPCId]
 
 -- | /See:/ 'attachInternetGatewayResponse' smart constructor.
-data AttachInternetGatewayResponse = AttachInternetGatewayResponse' deriving (Eq, Read, Show)
+data AttachInternetGatewayResponse =
+    AttachInternetGatewayResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AttachInternetGatewayResponse' smart constructor.
 attachInternetGatewayResponse :: AttachInternetGatewayResponse
-attachInternetGatewayResponse = AttachInternetGatewayResponse';
+attachInternetGatewayResponse = AttachInternetGatewayResponse'

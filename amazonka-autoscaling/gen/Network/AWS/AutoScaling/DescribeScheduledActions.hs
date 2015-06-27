@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeScheduledActions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,14 +40,14 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     -- ** Response lenses
     , dsarScheduledUpdateGroupActions
     , dsarNextToken
-    , dsarStatusCode
+    , dsarStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeScheduledActions' smart constructor.
 --
@@ -64,11 +64,26 @@ import Network.AWS.Response
 -- * 'desAutoScalingGroupName'
 --
 -- * 'desScheduledActionNames'
-data DescribeScheduledActions = DescribeScheduledActions'{_desStartTime :: Maybe ISO8601, _desNextToken :: Maybe Text, _desMaxRecords :: Maybe Int, _desEndTime :: Maybe ISO8601, _desAutoScalingGroupName :: Maybe Text, _desScheduledActionNames :: Maybe [Text]} deriving (Eq, Read, Show)
+data DescribeScheduledActions = DescribeScheduledActions'
+    { _desStartTime            :: Maybe ISO8601
+    , _desNextToken            :: Maybe Text
+    , _desMaxRecords           :: Maybe Int
+    , _desEndTime              :: Maybe ISO8601
+    , _desAutoScalingGroupName :: Maybe Text
+    , _desScheduledActionNames :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeScheduledActions' smart constructor.
 describeScheduledActions :: DescribeScheduledActions
-describeScheduledActions = DescribeScheduledActions'{_desStartTime = Nothing, _desNextToken = Nothing, _desMaxRecords = Nothing, _desEndTime = Nothing, _desAutoScalingGroupName = Nothing, _desScheduledActionNames = Nothing};
+describeScheduledActions =
+    DescribeScheduledActions'
+    { _desStartTime = Nothing
+    , _desNextToken = Nothing
+    , _desMaxRecords = Nothing
+    , _desEndTime = Nothing
+    , _desAutoScalingGroupName = Nothing
+    , _desScheduledActionNames = Nothing
+    }
 
 -- | The earliest scheduled start time to return. If scheduled action names
 -- are provided, this parameter is ignored.
@@ -155,12 +170,21 @@ instance ToQuery DescribeScheduledActions where
 --
 -- * 'dsarNextToken'
 --
--- * 'dsarStatusCode'
-data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'{_dsarScheduledUpdateGroupActions :: Maybe [ScheduledUpdateGroupAction], _dsarNextToken :: Maybe Text, _dsarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsarStatus'
+data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
+    { _dsarScheduledUpdateGroupActions :: Maybe [ScheduledUpdateGroupAction]
+    , _dsarNextToken                   :: Maybe Text
+    , _dsarStatus                      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeScheduledActionsResponse' smart constructor.
 describeScheduledActionsResponse :: Int -> DescribeScheduledActionsResponse
-describeScheduledActionsResponse pStatusCode = DescribeScheduledActionsResponse'{_dsarScheduledUpdateGroupActions = Nothing, _dsarNextToken = Nothing, _dsarStatusCode = pStatusCode};
+describeScheduledActionsResponse pStatus =
+    DescribeScheduledActionsResponse'
+    { _dsarScheduledUpdateGroupActions = Nothing
+    , _dsarNextToken = Nothing
+    , _dsarStatus = pStatus
+    }
 
 -- | The scheduled actions.
 dsarScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
@@ -172,5 +196,5 @@ dsarNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
 dsarNextToken = lens _dsarNextToken (\ s a -> s{_dsarNextToken = a});
 
 -- | FIXME: Undocumented member.
-dsarStatusCode :: Lens' DescribeScheduledActionsResponse Int
-dsarStatusCode = lens _dsarStatusCode (\ s a -> s{_dsarStatusCode = a});
+dsarStatus :: Lens' DescribeScheduledActionsResponse Int
+dsarStatus = lens _dsarStatus (\ s a -> s{_dsarStatus = a});

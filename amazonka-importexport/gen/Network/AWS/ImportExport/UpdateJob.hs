@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ImportExport.UpdateJob
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.ImportExport.UpdateJob
     , ujrSuccess
     , ujrWarningMessage
     , ujrArtifactList
-    , ujrStatusCode
+    , ujrStatus
     ) where
 
-import Network.AWS.ImportExport.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ImportExport.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input structure for the UpateJob operation.
 --
@@ -65,11 +65,24 @@ import Network.AWS.Response
 -- * 'ujJobType'
 --
 -- * 'ujValidateOnly'
-data UpdateJob = UpdateJob'{_ujAPIVersion :: Maybe Text, _ujJobId :: Text, _ujManifest :: Text, _ujJobType :: JobType, _ujValidateOnly :: Bool} deriving (Eq, Read, Show)
+data UpdateJob = UpdateJob'
+    { _ujAPIVersion   :: Maybe Text
+    , _ujJobId        :: Text
+    , _ujManifest     :: Text
+    , _ujJobType      :: JobType
+    , _ujValidateOnly :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateJob' smart constructor.
 updateJob :: Text -> Text -> JobType -> Bool -> UpdateJob
-updateJob pJobId pManifest pJobType pValidateOnly = UpdateJob'{_ujAPIVersion = Nothing, _ujJobId = pJobId, _ujManifest = pManifest, _ujJobType = pJobType, _ujValidateOnly = pValidateOnly};
+updateJob pJobId pManifest pJobType pValidateOnly =
+    UpdateJob'
+    { _ujAPIVersion = Nothing
+    , _ujJobId = pJobId
+    , _ujManifest = pManifest
+    , _ujJobType = pJobType
+    , _ujValidateOnly = pValidateOnly
+    }
 
 -- | FIXME: Undocumented member.
 ujAPIVersion :: Lens' UpdateJob (Maybe Text)
@@ -132,12 +145,23 @@ instance ToQuery UpdateJob where
 --
 -- * 'ujrArtifactList'
 --
--- * 'ujrStatusCode'
-data UpdateJobResponse = UpdateJobResponse'{_ujrSuccess :: Maybe Bool, _ujrWarningMessage :: Maybe Text, _ujrArtifactList :: Maybe [Artifact], _ujrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ujrStatus'
+data UpdateJobResponse = UpdateJobResponse'
+    { _ujrSuccess        :: Maybe Bool
+    , _ujrWarningMessage :: Maybe Text
+    , _ujrArtifactList   :: Maybe [Artifact]
+    , _ujrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateJobResponse' smart constructor.
 updateJobResponse :: Int -> UpdateJobResponse
-updateJobResponse pStatusCode = UpdateJobResponse'{_ujrSuccess = Nothing, _ujrWarningMessage = Nothing, _ujrArtifactList = Nothing, _ujrStatusCode = pStatusCode};
+updateJobResponse pStatus =
+    UpdateJobResponse'
+    { _ujrSuccess = Nothing
+    , _ujrWarningMessage = Nothing
+    , _ujrArtifactList = Nothing
+    , _ujrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ujrSuccess :: Lens' UpdateJobResponse (Maybe Bool)
@@ -152,5 +176,5 @@ ujrArtifactList :: Lens' UpdateJobResponse [Artifact]
 ujrArtifactList = lens _ujrArtifactList (\ s a -> s{_ujrArtifactList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ujrStatusCode :: Lens' UpdateJobResponse Int
-ujrStatusCode = lens _ujrStatusCode (\ s a -> s{_ujrStatusCode = a});
+ujrStatus :: Lens' UpdateJobResponse Int
+ujrStatus = lens _ujrStatus (\ s a -> s{_ujrStatus = a});

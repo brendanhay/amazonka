@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DetachLoadBalancers
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.AutoScaling.DetachLoadBalancers
     -- ** Response constructor
     , detachLoadBalancersResponse
     -- ** Response lenses
-    , detStatusCode
+    , detStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachLoadBalancers' smart constructor.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'detAutoScalingGroupName'
 --
 -- * 'detLoadBalancerNames'
-data DetachLoadBalancers = DetachLoadBalancers'{_detAutoScalingGroupName :: Maybe Text, _detLoadBalancerNames :: Maybe [Text]} deriving (Eq, Read, Show)
+data DetachLoadBalancers = DetachLoadBalancers'
+    { _detAutoScalingGroupName :: Maybe Text
+    , _detLoadBalancerNames    :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachLoadBalancers' smart constructor.
 detachLoadBalancers :: DetachLoadBalancers
-detachLoadBalancers = DetachLoadBalancers'{_detAutoScalingGroupName = Nothing, _detLoadBalancerNames = Nothing};
+detachLoadBalancers =
+    DetachLoadBalancers'
+    { _detAutoScalingGroupName = Nothing
+    , _detLoadBalancerNames = Nothing
+    }
 
 -- | The name of the group.
 detAutoScalingGroupName :: Lens' DetachLoadBalancers (Maybe Text)
@@ -97,13 +104,18 @@ instance ToQuery DetachLoadBalancers where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'detStatusCode'
-newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'{_detStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'detStatus'
+newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
+    { _detStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachLoadBalancersResponse' smart constructor.
 detachLoadBalancersResponse :: Int -> DetachLoadBalancersResponse
-detachLoadBalancersResponse pStatusCode = DetachLoadBalancersResponse'{_detStatusCode = pStatusCode};
+detachLoadBalancersResponse pStatus =
+    DetachLoadBalancersResponse'
+    { _detStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-detStatusCode :: Lens' DetachLoadBalancersResponse Int
-detStatusCode = lens _detStatusCode (\ s a -> s{_detStatusCode = a});
+detStatus :: Lens' DetachLoadBalancersResponse Int
+detStatus = lens _detStatus (\ s a -> s{_detStatus = a});

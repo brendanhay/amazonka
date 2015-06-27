@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.PollForDecisionTask
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -86,14 +86,14 @@ module Network.AWS.SWF.PollForDecisionTask
     , pfdtrWorkflowExecution
     , pfdtrWorkflowType
     , pfdtrEvents
-    , pfdtrStatusCode
+    , pfdtrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'pollForDecisionTask' smart constructor.
 --
@@ -110,11 +110,26 @@ import Network.AWS.SWF.Types
 -- * 'pfdtDomain'
 --
 -- * 'pfdtTaskList'
-data PollForDecisionTask = PollForDecisionTask'{_pfdtNextPageToken :: Maybe Text, _pfdtReverseOrder :: Maybe Bool, _pfdtIdentity :: Maybe Text, _pfdtMaximumPageSize :: Maybe Nat, _pfdtDomain :: Text, _pfdtTaskList :: TaskList} deriving (Eq, Read, Show)
+data PollForDecisionTask = PollForDecisionTask'
+    { _pfdtNextPageToken   :: Maybe Text
+    , _pfdtReverseOrder    :: Maybe Bool
+    , _pfdtIdentity        :: Maybe Text
+    , _pfdtMaximumPageSize :: Maybe Nat
+    , _pfdtDomain          :: Text
+    , _pfdtTaskList        :: TaskList
+    } deriving (Eq,Read,Show)
 
 -- | 'PollForDecisionTask' smart constructor.
 pollForDecisionTask :: Text -> TaskList -> PollForDecisionTask
-pollForDecisionTask pDomain pTaskList = PollForDecisionTask'{_pfdtNextPageToken = Nothing, _pfdtReverseOrder = Nothing, _pfdtIdentity = Nothing, _pfdtMaximumPageSize = Nothing, _pfdtDomain = pDomain, _pfdtTaskList = pTaskList};
+pollForDecisionTask pDomain pTaskList =
+    PollForDecisionTask'
+    { _pfdtNextPageToken = Nothing
+    , _pfdtReverseOrder = Nothing
+    , _pfdtIdentity = Nothing
+    , _pfdtMaximumPageSize = Nothing
+    , _pfdtDomain = pDomain
+    , _pfdtTaskList = pTaskList
+    }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -242,12 +257,31 @@ instance ToQuery PollForDecisionTask where
 --
 -- * 'pfdtrEvents'
 --
--- * 'pfdtrStatusCode'
-data PollForDecisionTaskResponse = PollForDecisionTaskResponse'{_pfdtrNextPageToken :: Maybe Text, _pfdtrPreviousStartedEventId :: Maybe Integer, _pfdtrTaskToken :: Text, _pfdtrStartedEventId :: Integer, _pfdtrWorkflowExecution :: WorkflowExecution, _pfdtrWorkflowType :: WorkflowType, _pfdtrEvents :: [HistoryEvent], _pfdtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'pfdtrStatus'
+data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
+    { _pfdtrNextPageToken          :: Maybe Text
+    , _pfdtrPreviousStartedEventId :: Maybe Integer
+    , _pfdtrTaskToken              :: Text
+    , _pfdtrStartedEventId         :: !Integer
+    , _pfdtrWorkflowExecution      :: WorkflowExecution
+    , _pfdtrWorkflowType           :: WorkflowType
+    , _pfdtrEvents                 :: [HistoryEvent]
+    , _pfdtrStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PollForDecisionTaskResponse' smart constructor.
 pollForDecisionTaskResponse :: Text -> Integer -> WorkflowExecution -> WorkflowType -> Int -> PollForDecisionTaskResponse
-pollForDecisionTaskResponse pTaskToken pStartedEventId pWorkflowExecution pWorkflowType pStatusCode = PollForDecisionTaskResponse'{_pfdtrNextPageToken = Nothing, _pfdtrPreviousStartedEventId = Nothing, _pfdtrTaskToken = pTaskToken, _pfdtrStartedEventId = pStartedEventId, _pfdtrWorkflowExecution = pWorkflowExecution, _pfdtrWorkflowType = pWorkflowType, _pfdtrEvents = mempty, _pfdtrStatusCode = pStatusCode};
+pollForDecisionTaskResponse pTaskToken pStartedEventId pWorkflowExecution pWorkflowType pStatus =
+    PollForDecisionTaskResponse'
+    { _pfdtrNextPageToken = Nothing
+    , _pfdtrPreviousStartedEventId = Nothing
+    , _pfdtrTaskToken = pTaskToken
+    , _pfdtrStartedEventId = pStartedEventId
+    , _pfdtrWorkflowExecution = pWorkflowExecution
+    , _pfdtrWorkflowType = pWorkflowType
+    , _pfdtrEvents = mempty
+    , _pfdtrStatus = pStatus
+    }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -291,5 +325,5 @@ pfdtrEvents :: Lens' PollForDecisionTaskResponse [HistoryEvent]
 pfdtrEvents = lens _pfdtrEvents (\ s a -> s{_pfdtrEvents = a});
 
 -- | FIXME: Undocumented member.
-pfdtrStatusCode :: Lens' PollForDecisionTaskResponse Int
-pfdtrStatusCode = lens _pfdtrStatusCode (\ s a -> s{_pfdtrStatusCode = a});
+pfdtrStatus :: Lens' PollForDecisionTaskResponse Int
+pfdtrStatus = lens _pfdtrStatus (\ s a -> s{_pfdtrStatus = a});

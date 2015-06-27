@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,13 +44,13 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     -- ** Response lenses
     , uprWarnings
     , uprPipeline
-    , uprStatusCode
+    , uprStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @UpdatePipelineRequest@ structure.
 --
@@ -73,11 +73,30 @@ import Network.AWS.Response
 -- * 'upNotifications'
 --
 -- * 'upId'
-data UpdatePipeline = UpdatePipeline'{_upInputBucket :: Maybe Text, _upContentConfig :: Maybe PipelineOutputConfig, _upRole :: Maybe Text, _upName :: Maybe Text, _upAWSKMSKeyARN :: Maybe Text, _upThumbnailConfig :: Maybe PipelineOutputConfig, _upNotifications :: Maybe Notifications, _upId :: Text} deriving (Eq, Read, Show)
+data UpdatePipeline = UpdatePipeline'
+    { _upInputBucket     :: Maybe Text
+    , _upContentConfig   :: Maybe PipelineOutputConfig
+    , _upRole            :: Maybe Text
+    , _upName            :: Maybe Text
+    , _upAWSKMSKeyARN    :: Maybe Text
+    , _upThumbnailConfig :: Maybe PipelineOutputConfig
+    , _upNotifications   :: Maybe Notifications
+    , _upId              :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdatePipeline' smart constructor.
 updatePipeline :: Text -> UpdatePipeline
-updatePipeline pId = UpdatePipeline'{_upInputBucket = Nothing, _upContentConfig = Nothing, _upRole = Nothing, _upName = Nothing, _upAWSKMSKeyARN = Nothing, _upThumbnailConfig = Nothing, _upNotifications = Nothing, _upId = pId};
+updatePipeline pId =
+    UpdatePipeline'
+    { _upInputBucket = Nothing
+    , _upContentConfig = Nothing
+    , _upRole = Nothing
+    , _upName = Nothing
+    , _upAWSKMSKeyARN = Nothing
+    , _upThumbnailConfig = Nothing
+    , _upNotifications = Nothing
+    , _upId = pId
+    }
 
 -- | The Amazon S3 bucket in which you saved the media files that you want to
 -- transcode and the graphics that you want to use as watermarks.
@@ -272,12 +291,21 @@ instance ToQuery UpdatePipeline where
 --
 -- * 'uprPipeline'
 --
--- * 'uprStatusCode'
-data UpdatePipelineResponse = UpdatePipelineResponse'{_uprWarnings :: Maybe [Warning], _uprPipeline :: Maybe Pipeline, _uprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'uprStatus'
+data UpdatePipelineResponse = UpdatePipelineResponse'
+    { _uprWarnings :: Maybe [Warning]
+    , _uprPipeline :: Maybe Pipeline
+    , _uprStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdatePipelineResponse' smart constructor.
 updatePipelineResponse :: Int -> UpdatePipelineResponse
-updatePipelineResponse pStatusCode = UpdatePipelineResponse'{_uprWarnings = Nothing, _uprPipeline = Nothing, _uprStatusCode = pStatusCode};
+updatePipelineResponse pStatus =
+    UpdatePipelineResponse'
+    { _uprWarnings = Nothing
+    , _uprPipeline = Nothing
+    , _uprStatus = pStatus
+    }
 
 -- | Elastic Transcoder returns a warning if the resources used by your
 -- pipeline are not in the same region as the pipeline.
@@ -293,5 +321,5 @@ uprPipeline :: Lens' UpdatePipelineResponse (Maybe Pipeline)
 uprPipeline = lens _uprPipeline (\ s a -> s{_uprPipeline = a});
 
 -- | FIXME: Undocumented member.
-uprStatusCode :: Lens' UpdatePipelineResponse Int
-uprStatusCode = lens _uprStatusCode (\ s a -> s{_uprStatusCode = a});
+uprStatus :: Lens' UpdatePipelineResponse Int
+uprStatus = lens _uprStatus (\ s a -> s{_uprStatus = a});

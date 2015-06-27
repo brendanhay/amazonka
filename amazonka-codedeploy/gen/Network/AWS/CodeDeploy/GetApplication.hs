@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetApplication
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.CodeDeploy.GetApplication
     , getApplicationResponse
     -- ** Response lenses
     , garApplication
-    , garStatusCode
+    , garStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a get application operation.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gaApplicationName'
-newtype GetApplication = GetApplication'{_gaApplicationName :: Text} deriving (Eq, Read, Show)
+newtype GetApplication = GetApplication'
+    { _gaApplicationName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetApplication' smart constructor.
 getApplication :: Text -> GetApplication
-getApplication pApplicationName = GetApplication'{_gaApplicationName = pApplicationName};
+getApplication pApplicationName =
+    GetApplication'
+    { _gaApplicationName = pApplicationName
+    }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
@@ -95,17 +100,24 @@ instance ToQuery GetApplication where
 --
 -- * 'garApplication'
 --
--- * 'garStatusCode'
-data GetApplicationResponse = GetApplicationResponse'{_garApplication :: Maybe ApplicationInfo, _garStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'garStatus'
+data GetApplicationResponse = GetApplicationResponse'
+    { _garApplication :: Maybe ApplicationInfo
+    , _garStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetApplicationResponse' smart constructor.
 getApplicationResponse :: Int -> GetApplicationResponse
-getApplicationResponse pStatusCode = GetApplicationResponse'{_garApplication = Nothing, _garStatusCode = pStatusCode};
+getApplicationResponse pStatus =
+    GetApplicationResponse'
+    { _garApplication = Nothing
+    , _garStatus = pStatus
+    }
 
 -- | Information about the application.
 garApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
 garApplication = lens _garApplication (\ s a -> s{_garApplication = a});
 
 -- | FIXME: Undocumented member.
-garStatusCode :: Lens' GetApplicationResponse Int
-garStatusCode = lens _garStatusCode (\ s a -> s{_garStatusCode = a});
+garStatus :: Lens' GetApplicationResponse Int
+garStatus = lens _garStatus (\ s a -> s{_garStatus = a});

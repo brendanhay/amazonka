@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.DeleteLoadBalancer
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,24 +40,29 @@ module Network.AWS.ELB.DeleteLoadBalancer
     -- ** Response constructor
     , deleteLoadBalancerResponse
     -- ** Response lenses
-    , delStatusCode
+    , delStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteLoadBalancer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlbLoadBalancerName'
-newtype DeleteLoadBalancer = DeleteLoadBalancer'{_dlbLoadBalancerName :: Text} deriving (Eq, Read, Show)
+newtype DeleteLoadBalancer = DeleteLoadBalancer'
+    { _dlbLoadBalancerName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLoadBalancer' smart constructor.
 deleteLoadBalancer :: Text -> DeleteLoadBalancer
-deleteLoadBalancer pLoadBalancerName = DeleteLoadBalancer'{_dlbLoadBalancerName = pLoadBalancerName};
+deleteLoadBalancer pLoadBalancerName =
+    DeleteLoadBalancer'
+    { _dlbLoadBalancerName = pLoadBalancerName
+    }
 
 -- | The name of the load balancer.
 dlbLoadBalancerName :: Lens' DeleteLoadBalancer Text
@@ -90,13 +95,18 @@ instance ToQuery DeleteLoadBalancer where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delStatusCode'
-newtype DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'{_delStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'delStatus'
+newtype DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
+    { _delStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLoadBalancerResponse' smart constructor.
 deleteLoadBalancerResponse :: Int -> DeleteLoadBalancerResponse
-deleteLoadBalancerResponse pStatusCode = DeleteLoadBalancerResponse'{_delStatusCode = pStatusCode};
+deleteLoadBalancerResponse pStatus =
+    DeleteLoadBalancerResponse'
+    { _delStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-delStatusCode :: Lens' DeleteLoadBalancerResponse Int
-delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});
+delStatus :: Lens' DeleteLoadBalancerResponse Int
+delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

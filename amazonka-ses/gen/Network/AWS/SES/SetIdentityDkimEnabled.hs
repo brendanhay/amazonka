@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SES.SetIdentityDkimEnabled
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,13 +48,13 @@ module Network.AWS.SES.SetIdentityDkimEnabled
     -- ** Response constructor
     , setIdentityDkimEnabledResponse
     -- ** Response lenses
-    , siderStatusCode
+    , siderStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SES.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
 -- | Represents a request instructing the service to enable or disable DKIM
 -- signing for an identity.
@@ -66,11 +66,18 @@ import Network.AWS.SES.Types
 -- * 'sideIdentity'
 --
 -- * 'sideDkimEnabled'
-data SetIdentityDkimEnabled = SetIdentityDkimEnabled'{_sideIdentity :: Text, _sideDkimEnabled :: Bool} deriving (Eq, Read, Show)
+data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
+    { _sideIdentity    :: Text
+    , _sideDkimEnabled :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'SetIdentityDkimEnabled' smart constructor.
 setIdentityDkimEnabled :: Text -> Bool -> SetIdentityDkimEnabled
-setIdentityDkimEnabled pIdentity pDkimEnabled = SetIdentityDkimEnabled'{_sideIdentity = pIdentity, _sideDkimEnabled = pDkimEnabled};
+setIdentityDkimEnabled pIdentity pDkimEnabled =
+    SetIdentityDkimEnabled'
+    { _sideIdentity = pIdentity
+    , _sideDkimEnabled = pDkimEnabled
+    }
 
 -- | The identity for which DKIM signing should be enabled or disabled.
 sideIdentity :: Lens' SetIdentityDkimEnabled Text
@@ -114,13 +121,18 @@ instance ToQuery SetIdentityDkimEnabled where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'siderStatusCode'
-newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'{_siderStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'siderStatus'
+newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
+    { _siderStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SetIdentityDkimEnabledResponse' smart constructor.
 setIdentityDkimEnabledResponse :: Int -> SetIdentityDkimEnabledResponse
-setIdentityDkimEnabledResponse pStatusCode = SetIdentityDkimEnabledResponse'{_siderStatusCode = pStatusCode};
+setIdentityDkimEnabledResponse pStatus =
+    SetIdentityDkimEnabledResponse'
+    { _siderStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-siderStatusCode :: Lens' SetIdentityDkimEnabledResponse Int
-siderStatusCode = lens _siderStatusCode (\ s a -> s{_siderStatusCode = a});
+siderStatus :: Lens' SetIdentityDkimEnabledResponse Int
+siderStatus = lens _siderStatus (\ s a -> s{_siderStatus = a});

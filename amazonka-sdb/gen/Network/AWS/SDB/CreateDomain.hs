@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SDB.CreateDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,21 +40,26 @@ module Network.AWS.SDB.CreateDomain
     , createDomainResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SDB.Types
 
 -- | /See:/ 'createDomain' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdDomainName'
-newtype CreateDomain = CreateDomain'{_cdDomainName :: Text} deriving (Eq, Read, Show)
+newtype CreateDomain = CreateDomain'
+    { _cdDomainName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDomain' smart constructor.
 createDomain :: Text -> CreateDomain
-createDomain pDomainName = CreateDomain'{_cdDomainName = pDomainName};
+createDomain pDomainName =
+    CreateDomain'
+    { _cdDomainName = pDomainName
+    }
 
 -- | The name of the domain to create. The name can range between 3 and 255
 -- characters and can contain the following characters: a-z, A-Z, 0-9,
@@ -82,8 +87,10 @@ instance ToQuery CreateDomain where
                "DomainName" =: _cdDomainName]
 
 -- | /See:/ 'createDomainResponse' smart constructor.
-data CreateDomainResponse = CreateDomainResponse' deriving (Eq, Read, Show)
+data CreateDomainResponse =
+    CreateDomainResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CreateDomainResponse' smart constructor.
 createDomainResponse :: CreateDomainResponse
-createDomainResponse = CreateDomainResponse';
+createDomainResponse = CreateDomainResponse'

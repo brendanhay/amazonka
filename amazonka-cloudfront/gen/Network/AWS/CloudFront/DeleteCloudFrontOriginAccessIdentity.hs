@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     , deleteCloudFrontOriginAccessIdentityResponse
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to delete a origin access identity.
 --
@@ -47,11 +47,18 @@ import Network.AWS.Response
 -- * 'dcfoaiIfMatch'
 --
 -- * 'dcfoaiId'
-data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity'{_dcfoaiIfMatch :: Maybe Text, _dcfoaiId :: Text} deriving (Eq, Read, Show)
+data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity'
+    { _dcfoaiIfMatch :: Maybe Text
+    , _dcfoaiId      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteCloudFrontOriginAccessIdentity' smart constructor.
 deleteCloudFrontOriginAccessIdentity :: Text -> DeleteCloudFrontOriginAccessIdentity
-deleteCloudFrontOriginAccessIdentity pId = DeleteCloudFrontOriginAccessIdentity'{_dcfoaiIfMatch = Nothing, _dcfoaiId = pId};
+deleteCloudFrontOriginAccessIdentity pId =
+    DeleteCloudFrontOriginAccessIdentity'
+    { _dcfoaiIfMatch = Nothing
+    , _dcfoaiId = pId
+    }
 
 -- | The value of the ETag header you received from a previous GET or PUT
 -- request. For example: E2QWRUHAPOMQZL.
@@ -90,8 +97,11 @@ instance ToQuery DeleteCloudFrontOriginAccessIdentity
         toQuery = const mempty
 
 -- | /See:/ 'deleteCloudFrontOriginAccessIdentityResponse' smart constructor.
-data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse' deriving (Eq, Read, Show)
+data DeleteCloudFrontOriginAccessIdentityResponse =
+    DeleteCloudFrontOriginAccessIdentityResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteCloudFrontOriginAccessIdentityResponse' smart constructor.
 deleteCloudFrontOriginAccessIdentityResponse :: DeleteCloudFrontOriginAccessIdentityResponse
-deleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse';
+deleteCloudFrontOriginAccessIdentityResponse =
+    DeleteCloudFrontOriginAccessIdentityResponse'

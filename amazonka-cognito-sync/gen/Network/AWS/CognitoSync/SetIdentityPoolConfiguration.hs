@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.SetIdentityPoolConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     , sipcrIdentityPoolId
     , sipcrCognitoStreams
     , sipcrPushSync
-    , sipcrStatusCode
+    , sipcrStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the SetIdentityPoolConfiguration operation.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'sipcPushSync'
 --
 -- * 'sipcIdentityPoolId'
-data SetIdentityPoolConfiguration = SetIdentityPoolConfiguration'{_sipcCognitoStreams :: Maybe CognitoStreams, _sipcPushSync :: Maybe PushSync, _sipcIdentityPoolId :: Text} deriving (Eq, Read, Show)
+data SetIdentityPoolConfiguration = SetIdentityPoolConfiguration'
+    { _sipcCognitoStreams :: Maybe CognitoStreams
+    , _sipcPushSync       :: Maybe PushSync
+    , _sipcIdentityPoolId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetIdentityPoolConfiguration' smart constructor.
 setIdentityPoolConfiguration :: Text -> SetIdentityPoolConfiguration
-setIdentityPoolConfiguration pIdentityPoolId = SetIdentityPoolConfiguration'{_sipcCognitoStreams = Nothing, _sipcPushSync = Nothing, _sipcIdentityPoolId = pIdentityPoolId};
+setIdentityPoolConfiguration pIdentityPoolId =
+    SetIdentityPoolConfiguration'
+    { _sipcCognitoStreams = Nothing
+    , _sipcPushSync = Nothing
+    , _sipcIdentityPoolId = pIdentityPoolId
+    }
 
 -- | Options to apply to this identity pool for Amazon Cognito streams.
 sipcCognitoStreams :: Lens' SetIdentityPoolConfiguration (Maybe CognitoStreams)
@@ -123,12 +132,23 @@ instance ToQuery SetIdentityPoolConfiguration where
 --
 -- * 'sipcrPushSync'
 --
--- * 'sipcrStatusCode'
-data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse'{_sipcrIdentityPoolId :: Maybe Text, _sipcrCognitoStreams :: Maybe CognitoStreams, _sipcrPushSync :: Maybe PushSync, _sipcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'sipcrStatus'
+data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse'
+    { _sipcrIdentityPoolId :: Maybe Text
+    , _sipcrCognitoStreams :: Maybe CognitoStreams
+    , _sipcrPushSync       :: Maybe PushSync
+    , _sipcrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SetIdentityPoolConfigurationResponse' smart constructor.
 setIdentityPoolConfigurationResponse :: Int -> SetIdentityPoolConfigurationResponse
-setIdentityPoolConfigurationResponse pStatusCode = SetIdentityPoolConfigurationResponse'{_sipcrIdentityPoolId = Nothing, _sipcrCognitoStreams = Nothing, _sipcrPushSync = Nothing, _sipcrStatusCode = pStatusCode};
+setIdentityPoolConfigurationResponse pStatus =
+    SetIdentityPoolConfigurationResponse'
+    { _sipcrIdentityPoolId = Nothing
+    , _sipcrCognitoStreams = Nothing
+    , _sipcrPushSync = Nothing
+    , _sipcrStatus = pStatus
+    }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -145,5 +165,5 @@ sipcrPushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
 sipcrPushSync = lens _sipcrPushSync (\ s a -> s{_sipcrPushSync = a});
 
 -- | FIXME: Undocumented member.
-sipcrStatusCode :: Lens' SetIdentityPoolConfigurationResponse Int
-sipcrStatusCode = lens _sipcrStatusCode (\ s a -> s{_sipcrStatusCode = a});
+sipcrStatus :: Lens' SetIdentityPoolConfigurationResponse Int
+sipcrStatus = lens _sipcrStatus (\ s a -> s{_sipcrStatus = a});

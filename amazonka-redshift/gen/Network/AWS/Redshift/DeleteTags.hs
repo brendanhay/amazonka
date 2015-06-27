@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DeleteTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.Redshift.DeleteTags
     , deleteTagsResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the output from the @DeleteTags@ action.
 --
@@ -48,11 +48,18 @@ import Network.AWS.Response
 -- * 'delResourceName'
 --
 -- * 'delTagKeys'
-data DeleteTags = DeleteTags'{_delResourceName :: Text, _delTagKeys :: [Text]} deriving (Eq, Read, Show)
+data DeleteTags = DeleteTags'
+    { _delResourceName :: Text
+    , _delTagKeys      :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: Text -> DeleteTags
-deleteTags pResourceName = DeleteTags'{_delResourceName = pResourceName, _delTagKeys = mempty};
+deleteTags pResourceName =
+    DeleteTags'
+    { _delResourceName = pResourceName
+    , _delTagKeys = mempty
+    }
 
 -- | The Amazon Resource Name (ARN) from which you want to remove the tag or
 -- tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
@@ -84,8 +91,10 @@ instance ToQuery DeleteTags where
                "TagKeys" =: toQueryList "TagKey" _delTagKeys]
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
-data DeleteTagsResponse = DeleteTagsResponse' deriving (Eq, Read, Show)
+data DeleteTagsResponse =
+    DeleteTagsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteTagsResponse' smart constructor.
 deleteTagsResponse :: DeleteTagsResponse
-deleteTagsResponse = DeleteTagsResponse';
+deleteTagsResponse = DeleteTagsResponse'

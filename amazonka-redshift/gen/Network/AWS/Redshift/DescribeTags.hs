@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -59,13 +59,13 @@ module Network.AWS.Redshift.DescribeTags
     -- ** Response lenses
     , dtrMarker
     , dtrTaggedResources
-    , dtrStatusCode
+    , dtrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the output from the @DescribeTags@ action.
 --
@@ -84,11 +84,26 @@ import Network.AWS.Response
 -- * 'dtMaxRecords'
 --
 -- * 'dtMarker'
-data DescribeTags = DescribeTags'{_dtResourceType :: Maybe Text, _dtTagValues :: Maybe [Text], _dtResourceName :: Maybe Text, _dtTagKeys :: Maybe [Text], _dtMaxRecords :: Maybe Int, _dtMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeTags = DescribeTags'
+    { _dtResourceType :: Maybe Text
+    , _dtTagValues    :: Maybe [Text]
+    , _dtResourceName :: Maybe Text
+    , _dtTagKeys      :: Maybe [Text]
+    , _dtMaxRecords   :: Maybe Int
+    , _dtMarker       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: DescribeTags
-describeTags = DescribeTags'{_dtResourceType = Nothing, _dtTagValues = Nothing, _dtResourceName = Nothing, _dtTagKeys = Nothing, _dtMaxRecords = Nothing, _dtMarker = Nothing};
+describeTags =
+    DescribeTags'
+    { _dtResourceType = Nothing
+    , _dtTagValues = Nothing
+    , _dtResourceName = Nothing
+    , _dtTagKeys = Nothing
+    , _dtMaxRecords = Nothing
+    , _dtMarker = Nothing
+    }
 
 -- | The type of resource with which you want to view tags. Valid resource
 -- types are:
@@ -192,12 +207,21 @@ instance ToQuery DescribeTags where
 --
 -- * 'dtrTaggedResources'
 --
--- * 'dtrStatusCode'
-data DescribeTagsResponse = DescribeTagsResponse'{_dtrMarker :: Maybe Text, _dtrTaggedResources :: Maybe [TaggedResource], _dtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtrStatus'
+data DescribeTagsResponse = DescribeTagsResponse'
+    { _dtrMarker          :: Maybe Text
+    , _dtrTaggedResources :: Maybe [TaggedResource]
+    , _dtrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
-describeTagsResponse pStatusCode = DescribeTagsResponse'{_dtrMarker = Nothing, _dtrTaggedResources = Nothing, _dtrStatusCode = pStatusCode};
+describeTagsResponse pStatus =
+    DescribeTagsResponse'
+    { _dtrMarker = Nothing
+    , _dtrTaggedResources = Nothing
+    , _dtrStatus = pStatus
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -213,5 +237,5 @@ dtrTaggedResources :: Lens' DescribeTagsResponse [TaggedResource]
 dtrTaggedResources = lens _dtrTaggedResources (\ s a -> s{_dtrTaggedResources = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtrStatusCode :: Lens' DescribeTagsResponse Int
-dtrStatusCode = lens _dtrStatusCode (\ s a -> s{_dtrStatusCode = a});
+dtrStatus :: Lens' DescribeTagsResponse Int
+dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});

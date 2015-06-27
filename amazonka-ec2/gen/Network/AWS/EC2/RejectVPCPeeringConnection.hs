@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.RejectVPCPeeringConnection
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.EC2.RejectVPCPeeringConnection
     , rejectVPCPeeringConnectionResponse
     -- ** Response lenses
     , rvpcrReturn
-    , rvpcrStatusCode
+    , rvpcrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'rejectVPCPeeringConnection' smart constructor.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'rvpcDryRun'
 --
 -- * 'rvpcVPCPeeringConnectionId'
-data RejectVPCPeeringConnection = RejectVPCPeeringConnection'{_rvpcDryRun :: Maybe Bool, _rvpcVPCPeeringConnectionId :: Text} deriving (Eq, Read, Show)
+data RejectVPCPeeringConnection = RejectVPCPeeringConnection'
+    { _rvpcDryRun                 :: Maybe Bool
+    , _rvpcVPCPeeringConnectionId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RejectVPCPeeringConnection' smart constructor.
 rejectVPCPeeringConnection :: Text -> RejectVPCPeeringConnection
-rejectVPCPeeringConnection pVPCPeeringConnectionId = RejectVPCPeeringConnection'{_rvpcDryRun = Nothing, _rvpcVPCPeeringConnectionId = pVPCPeeringConnectionId};
+rejectVPCPeeringConnection pVPCPeeringConnectionId =
+    RejectVPCPeeringConnection'
+    { _rvpcDryRun = Nothing
+    , _rvpcVPCPeeringConnectionId = pVPCPeeringConnectionId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -103,17 +110,24 @@ instance ToQuery RejectVPCPeeringConnection where
 --
 -- * 'rvpcrReturn'
 --
--- * 'rvpcrStatusCode'
-data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'{_rvpcrReturn :: Maybe Bool, _rvpcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rvpcrStatus'
+data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'
+    { _rvpcrReturn :: Maybe Bool
+    , _rvpcrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RejectVPCPeeringConnectionResponse' smart constructor.
 rejectVPCPeeringConnectionResponse :: Int -> RejectVPCPeeringConnectionResponse
-rejectVPCPeeringConnectionResponse pStatusCode = RejectVPCPeeringConnectionResponse'{_rvpcrReturn = Nothing, _rvpcrStatusCode = pStatusCode};
+rejectVPCPeeringConnectionResponse pStatus =
+    RejectVPCPeeringConnectionResponse'
+    { _rvpcrReturn = Nothing
+    , _rvpcrStatus = pStatus
+    }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 rvpcrReturn :: Lens' RejectVPCPeeringConnectionResponse (Maybe Bool)
 rvpcrReturn = lens _rvpcrReturn (\ s a -> s{_rvpcrReturn = a});
 
 -- | FIXME: Undocumented member.
-rvpcrStatusCode :: Lens' RejectVPCPeeringConnectionResponse Int
-rvpcrStatusCode = lens _rvpcrStatusCode (\ s a -> s{_rvpcrStatusCode = a});
+rvpcrStatus :: Lens' RejectVPCPeeringConnectionResponse Int
+rvpcrStatus = lens _rvpcrStatus (\ s a -> s{_rvpcrStatus = a});

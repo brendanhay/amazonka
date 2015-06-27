@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.ListClusters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,14 +34,14 @@ module Network.AWS.ECS.ListClusters
     -- ** Response lenses
     , lcrClusterARNs
     , lcrNextToken
-    , lcrStatusCode
+    , lcrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listClusters' smart constructor.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'lcNextToken'
 --
 -- * 'lcMaxResults'
-data ListClusters = ListClusters'{_lcNextToken :: Maybe Text, _lcMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data ListClusters = ListClusters'
+    { _lcNextToken  :: Maybe Text
+    , _lcMaxResults :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListClusters' smart constructor.
 listClusters :: ListClusters
-listClusters = ListClusters'{_lcNextToken = Nothing, _lcMaxResults = Nothing};
+listClusters =
+    ListClusters'
+    { _lcNextToken = Nothing
+    , _lcMaxResults = Nothing
+    }
 
 -- | The @nextToken@ value returned from a previous paginated @ListClusters@
 -- request where @maxResults@ was used and the results exceeded the value
@@ -124,12 +131,21 @@ instance ToQuery ListClusters where
 --
 -- * 'lcrNextToken'
 --
--- * 'lcrStatusCode'
-data ListClustersResponse = ListClustersResponse'{_lcrClusterARNs :: Maybe [Text], _lcrNextToken :: Maybe Text, _lcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lcrStatus'
+data ListClustersResponse = ListClustersResponse'
+    { _lcrClusterARNs :: Maybe [Text]
+    , _lcrNextToken   :: Maybe Text
+    , _lcrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListClustersResponse' smart constructor.
 listClustersResponse :: Int -> ListClustersResponse
-listClustersResponse pStatusCode = ListClustersResponse'{_lcrClusterARNs = Nothing, _lcrNextToken = Nothing, _lcrStatusCode = pStatusCode};
+listClustersResponse pStatus =
+    ListClustersResponse'
+    { _lcrClusterARNs = Nothing
+    , _lcrNextToken = Nothing
+    , _lcrStatus = pStatus
+    }
 
 -- | The list of full Amazon Resource Name (ARN) entries for each cluster
 -- associated with your account.
@@ -144,5 +160,5 @@ lcrNextToken :: Lens' ListClustersResponse (Maybe Text)
 lcrNextToken = lens _lcrNextToken (\ s a -> s{_lcrNextToken = a});
 
 -- | FIXME: Undocumented member.
-lcrStatusCode :: Lens' ListClustersResponse Int
-lcrStatusCode = lens _lcrStatusCode (\ s a -> s{_lcrStatusCode = a});
+lcrStatus :: Lens' ListClustersResponse Int
+lcrStatus = lens _lcrStatus (\ s a -> s{_lcrStatus = a});

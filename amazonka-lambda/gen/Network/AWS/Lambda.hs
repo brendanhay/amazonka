@@ -24,21 +24,21 @@ module Network.AWS.Lambda
     ( module Export
     ) where
 
-import Network.AWS.Lambda.AddPermission as Export
-import Network.AWS.Lambda.CreateEventSourceMapping as Export
-import Network.AWS.Lambda.CreateFunction as Export
-import Network.AWS.Lambda.DeleteEventSourceMapping as Export
-import Network.AWS.Lambda.DeleteFunction as Export
-import Network.AWS.Lambda.GetEventSourceMapping as Export
-import Network.AWS.Lambda.GetFunction as Export
-import Network.AWS.Lambda.GetFunctionConfiguration as Export
-import Network.AWS.Lambda.GetPolicy as Export
-import Network.AWS.Lambda.Invoke as Export
-import Network.AWS.Lambda.ListEventSourceMappings as Export
-import Network.AWS.Lambda.ListFunctions as Export
-import Network.AWS.Lambda.RemovePermission as Export
-import Network.AWS.Lambda.Types as Export
-import Network.AWS.Lambda.UpdateEventSourceMapping as Export
-import Network.AWS.Lambda.UpdateFunctionCode as Export
-import Network.AWS.Lambda.UpdateFunctionConfiguration as Export
-import Network.AWS.Lambda.Waiters as Export
+import           Network.AWS.Lambda.AddPermission               as Export
+import           Network.AWS.Lambda.CreateEventSourceMapping    as Export
+import           Network.AWS.Lambda.CreateFunction              as Export
+import           Network.AWS.Lambda.DeleteEventSourceMapping    as Export
+import           Network.AWS.Lambda.DeleteFunction              as Export
+import           Network.AWS.Lambda.GetEventSourceMapping       as Export
+import           Network.AWS.Lambda.GetFunction                 as Export
+import           Network.AWS.Lambda.GetFunctionConfiguration    as Export
+import           Network.AWS.Lambda.GetPolicy                   as Export
+import           Network.AWS.Lambda.Invoke                      as Export
+import           Network.AWS.Lambda.ListEventSourceMappings     as Export
+import           Network.AWS.Lambda.ListFunctions               as Export
+import           Network.AWS.Lambda.RemovePermission            as Export
+import           Network.AWS.Lambda.Types                       as Export
+import           Network.AWS.Lambda.UpdateEventSourceMapping    as Export
+import           Network.AWS.Lambda.UpdateFunctionCode          as Export
+import           Network.AWS.Lambda.UpdateFunctionConfiguration as Export
+import           Network.AWS.Lambda.Waiters                     as Export

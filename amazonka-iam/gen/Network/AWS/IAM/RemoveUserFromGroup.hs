@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.RemoveUserFromGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.IAM.RemoveUserFromGroup
     , removeUserFromGroupResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'removeUserFromGroup' smart constructor.
 --
@@ -45,11 +45,18 @@ import Network.AWS.Response
 -- * 'rufgGroupName'
 --
 -- * 'rufgUserName'
-data RemoveUserFromGroup = RemoveUserFromGroup'{_rufgGroupName :: Text, _rufgUserName :: Text} deriving (Eq, Read, Show)
+data RemoveUserFromGroup = RemoveUserFromGroup'
+    { _rufgGroupName :: Text
+    , _rufgUserName  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveUserFromGroup' smart constructor.
 removeUserFromGroup :: Text -> Text -> RemoveUserFromGroup
-removeUserFromGroup pGroupName pUserName = RemoveUserFromGroup'{_rufgGroupName = pGroupName, _rufgUserName = pUserName};
+removeUserFromGroup pGroupName pUserName =
+    RemoveUserFromGroup'
+    { _rufgGroupName = pGroupName
+    , _rufgUserName = pUserName
+    }
 
 -- | The name of the group to update.
 rufgGroupName :: Lens' RemoveUserFromGroup Text
@@ -81,8 +88,10 @@ instance ToQuery RemoveUserFromGroup where
                "UserName" =: _rufgUserName]
 
 -- | /See:/ 'removeUserFromGroupResponse' smart constructor.
-data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse' deriving (Eq, Read, Show)
+data RemoveUserFromGroupResponse =
+    RemoveUserFromGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RemoveUserFromGroupResponse' smart constructor.
 removeUserFromGroupResponse :: RemoveUserFromGroupResponse
-removeUserFromGroupResponse = RemoveUserFromGroupResponse';
+removeUserFromGroupResponse = RemoveUserFromGroupResponse'

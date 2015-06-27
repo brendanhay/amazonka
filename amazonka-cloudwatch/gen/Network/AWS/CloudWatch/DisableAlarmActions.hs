@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatch.DisableAlarmActions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.CloudWatch.DisableAlarmActions
     , disableAlarmActionsResponse
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -46,11 +46,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'daaAlarmNames'
-newtype DisableAlarmActions = DisableAlarmActions'{_daaAlarmNames :: [Text]} deriving (Eq, Read, Show)
+newtype DisableAlarmActions = DisableAlarmActions'
+    { _daaAlarmNames :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableAlarmActions' smart constructor.
 disableAlarmActions :: DisableAlarmActions
-disableAlarmActions = DisableAlarmActions'{_daaAlarmNames = mempty};
+disableAlarmActions =
+    DisableAlarmActions'
+    { _daaAlarmNames = mempty
+    }
 
 -- | The names of the alarms to disable actions for.
 daaAlarmNames :: Lens' DisableAlarmActions [Text]
@@ -77,8 +82,10 @@ instance ToQuery DisableAlarmActions where
                "AlarmNames" =: toQueryList "member" _daaAlarmNames]
 
 -- | /See:/ 'disableAlarmActionsResponse' smart constructor.
-data DisableAlarmActionsResponse = DisableAlarmActionsResponse' deriving (Eq, Read, Show)
+data DisableAlarmActionsResponse =
+    DisableAlarmActionsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DisableAlarmActionsResponse' smart constructor.
 disableAlarmActionsResponse :: DisableAlarmActionsResponse
-disableAlarmActionsResponse = DisableAlarmActionsResponse';
+disableAlarmActionsResponse = DisableAlarmActionsResponse'

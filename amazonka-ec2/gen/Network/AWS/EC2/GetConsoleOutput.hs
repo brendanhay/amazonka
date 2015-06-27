@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.GetConsoleOutput
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,13 +54,13 @@ module Network.AWS.EC2.GetConsoleOutput
     , gcorInstanceId
     , gcorOutput
     , gcorTimestamp
-    , gcorStatusCode
+    , gcorStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getConsoleOutput' smart constructor.
 --
@@ -69,11 +69,18 @@ import Network.AWS.Response
 -- * 'gcoDryRun'
 --
 -- * 'gcoInstanceId'
-data GetConsoleOutput = GetConsoleOutput'{_gcoDryRun :: Maybe Bool, _gcoInstanceId :: Text} deriving (Eq, Read, Show)
+data GetConsoleOutput = GetConsoleOutput'
+    { _gcoDryRun     :: Maybe Bool
+    , _gcoInstanceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetConsoleOutput' smart constructor.
 getConsoleOutput :: Text -> GetConsoleOutput
-getConsoleOutput pInstanceId = GetConsoleOutput'{_gcoDryRun = Nothing, _gcoInstanceId = pInstanceId};
+getConsoleOutput pInstanceId =
+    GetConsoleOutput'
+    { _gcoDryRun = Nothing
+    , _gcoInstanceId = pInstanceId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -122,12 +129,23 @@ instance ToQuery GetConsoleOutput where
 --
 -- * 'gcorTimestamp'
 --
--- * 'gcorStatusCode'
-data GetConsoleOutputResponse = GetConsoleOutputResponse'{_gcorInstanceId :: Maybe Text, _gcorOutput :: Maybe Text, _gcorTimestamp :: Maybe ISO8601, _gcorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gcorStatus'
+data GetConsoleOutputResponse = GetConsoleOutputResponse'
+    { _gcorInstanceId :: Maybe Text
+    , _gcorOutput     :: Maybe Text
+    , _gcorTimestamp  :: Maybe ISO8601
+    , _gcorStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetConsoleOutputResponse' smart constructor.
 getConsoleOutputResponse :: Int -> GetConsoleOutputResponse
-getConsoleOutputResponse pStatusCode = GetConsoleOutputResponse'{_gcorInstanceId = Nothing, _gcorOutput = Nothing, _gcorTimestamp = Nothing, _gcorStatusCode = pStatusCode};
+getConsoleOutputResponse pStatus =
+    GetConsoleOutputResponse'
+    { _gcorInstanceId = Nothing
+    , _gcorOutput = Nothing
+    , _gcorTimestamp = Nothing
+    , _gcorStatus = pStatus
+    }
 
 -- | The ID of the instance.
 gcorInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
@@ -142,5 +160,5 @@ gcorTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
 gcorTimestamp = lens _gcorTimestamp (\ s a -> s{_gcorTimestamp = a}) . mapping _Time;
 
 -- | FIXME: Undocumented member.
-gcorStatusCode :: Lens' GetConsoleOutputResponse Int
-gcorStatusCode = lens _gcorStatusCode (\ s a -> s{_gcorStatusCode = a});
+gcorStatus :: Lens' GetConsoleOutputResponse Int
+gcorStatus = lens _gcorStatus (\ s a -> s{_gcorStatus = a});

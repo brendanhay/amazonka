@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.CreateBucket
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.S3.CreateBucket
     , createBucketResponse
     -- ** Response lenses
     , cbrLocation
-    , cbrStatusCode
+    , cbrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'createBucket' smart constructor.
 --
@@ -66,11 +66,30 @@ import Network.AWS.S3.Types
 -- * 'cbACL'
 --
 -- * 'cbBucket'
-data CreateBucket = CreateBucket'{_cbGrantReadACP :: Maybe Text, _cbGrantWriteACP :: Maybe Text, _cbGrantRead :: Maybe Text, _cbGrantFullControl :: Maybe Text, _cbCreateBucketConfiguration :: Maybe CreateBucketConfiguration, _cbGrantWrite :: Maybe Text, _cbACL :: Maybe BucketCannedACL, _cbBucket :: BucketName} deriving (Eq, Read, Show)
+data CreateBucket = CreateBucket'
+    { _cbGrantReadACP              :: Maybe Text
+    , _cbGrantWriteACP             :: Maybe Text
+    , _cbGrantRead                 :: Maybe Text
+    , _cbGrantFullControl          :: Maybe Text
+    , _cbCreateBucketConfiguration :: Maybe CreateBucketConfiguration
+    , _cbGrantWrite                :: Maybe Text
+    , _cbACL                       :: Maybe BucketCannedACL
+    , _cbBucket                    :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateBucket' smart constructor.
 createBucket :: BucketName -> CreateBucket
-createBucket pBucket = CreateBucket'{_cbGrantReadACP = Nothing, _cbGrantWriteACP = Nothing, _cbGrantRead = Nothing, _cbGrantFullControl = Nothing, _cbCreateBucketConfiguration = Nothing, _cbGrantWrite = Nothing, _cbACL = Nothing, _cbBucket = pBucket};
+createBucket pBucket =
+    CreateBucket'
+    { _cbGrantReadACP = Nothing
+    , _cbGrantWriteACP = Nothing
+    , _cbGrantRead = Nothing
+    , _cbGrantFullControl = Nothing
+    , _cbCreateBucketConfiguration = Nothing
+    , _cbGrantWrite = Nothing
+    , _cbACL = Nothing
+    , _cbBucket = pBucket
+    }
 
 -- | Allows grantee to read the bucket ACL.
 cbGrantReadACP :: Lens' CreateBucket (Maybe Text)
@@ -146,17 +165,24 @@ instance ToQuery CreateBucket where
 --
 -- * 'cbrLocation'
 --
--- * 'cbrStatusCode'
-data CreateBucketResponse = CreateBucketResponse'{_cbrLocation :: Maybe Text, _cbrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cbrStatus'
+data CreateBucketResponse = CreateBucketResponse'
+    { _cbrLocation :: Maybe Text
+    , _cbrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateBucketResponse' smart constructor.
 createBucketResponse :: Int -> CreateBucketResponse
-createBucketResponse pStatusCode = CreateBucketResponse'{_cbrLocation = Nothing, _cbrStatusCode = pStatusCode};
+createBucketResponse pStatus =
+    CreateBucketResponse'
+    { _cbrLocation = Nothing
+    , _cbrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 cbrLocation :: Lens' CreateBucketResponse (Maybe Text)
 cbrLocation = lens _cbrLocation (\ s a -> s{_cbrLocation = a});
 
 -- | FIXME: Undocumented member.
-cbrStatusCode :: Lens' CreateBucketResponse Int
-cbrStatusCode = lens _cbrStatusCode (\ s a -> s{_cbrStatusCode = a});
+cbrStatus :: Lens' CreateBucketResponse Int
+cbrStatus = lens _cbrStatus (\ s a -> s{_cbrStatus = a});

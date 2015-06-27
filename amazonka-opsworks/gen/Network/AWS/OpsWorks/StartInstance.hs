@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.StartInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,21 +39,26 @@ module Network.AWS.OpsWorks.StartInstance
     , startInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'startInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'staInstanceId'
-newtype StartInstance = StartInstance'{_staInstanceId :: Text} deriving (Eq, Read, Show)
+newtype StartInstance = StartInstance'
+    { _staInstanceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StartInstance' smart constructor.
 startInstance :: Text -> StartInstance
-startInstance pInstanceId = StartInstance'{_staInstanceId = pInstanceId};
+startInstance pInstanceId =
+    StartInstance'
+    { _staInstanceId = pInstanceId
+    }
 
 -- | The instance ID.
 staInstanceId :: Lens' StartInstance Text
@@ -85,8 +90,10 @@ instance ToQuery StartInstance where
         toQuery = const mempty
 
 -- | /See:/ 'startInstanceResponse' smart constructor.
-data StartInstanceResponse = StartInstanceResponse' deriving (Eq, Read, Show)
+data StartInstanceResponse =
+    StartInstanceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'StartInstanceResponse' smart constructor.
 startInstanceResponse :: StartInstanceResponse
-startInstanceResponse = StartInstanceResponse';
+startInstanceResponse = StartInstanceResponse'

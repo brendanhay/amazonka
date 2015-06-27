@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeExportTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,29 @@ module Network.AWS.EC2.DescribeExportTasks
     , describeExportTasksResponse
     -- ** Response lenses
     , detrExportTasks
-    , detrStatusCode
+    , detrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeExportTasks' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'detExportTaskIds'
-newtype DescribeExportTasks = DescribeExportTasks'{_detExportTaskIds :: Maybe [Text]} deriving (Eq, Read, Show)
+newtype DescribeExportTasks = DescribeExportTasks'
+    { _detExportTaskIds :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeExportTasks' smart constructor.
 describeExportTasks :: DescribeExportTasks
-describeExportTasks = DescribeExportTasks'{_detExportTaskIds = Nothing};
+describeExportTasks =
+    DescribeExportTasks'
+    { _detExportTaskIds = Nothing
+    }
 
 -- | One or more export task IDs.
 detExportTaskIds :: Lens' DescribeExportTasks [Text]
@@ -87,17 +92,24 @@ instance ToQuery DescribeExportTasks where
 --
 -- * 'detrExportTasks'
 --
--- * 'detrStatusCode'
-data DescribeExportTasksResponse = DescribeExportTasksResponse'{_detrExportTasks :: Maybe [ExportTask], _detrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'detrStatus'
+data DescribeExportTasksResponse = DescribeExportTasksResponse'
+    { _detrExportTasks :: Maybe [ExportTask]
+    , _detrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeExportTasksResponse' smart constructor.
 describeExportTasksResponse :: Int -> DescribeExportTasksResponse
-describeExportTasksResponse pStatusCode = DescribeExportTasksResponse'{_detrExportTasks = Nothing, _detrStatusCode = pStatusCode};
+describeExportTasksResponse pStatus =
+    DescribeExportTasksResponse'
+    { _detrExportTasks = Nothing
+    , _detrStatus = pStatus
+    }
 
 -- | Information about the export tasks.
 detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrExportTasks = lens _detrExportTasks (\ s a -> s{_detrExportTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-detrStatusCode :: Lens' DescribeExportTasksResponse Int
-detrStatusCode = lens _detrStatusCode (\ s a -> s{_detrStatusCode = a});
+detrStatus :: Lens' DescribeExportTasksResponse Int
+detrStatus = lens _detrStatus (\ s a -> s{_detrStatus = a});

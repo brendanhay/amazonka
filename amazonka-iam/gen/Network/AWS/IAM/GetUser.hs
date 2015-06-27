@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetUser
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,24 +36,29 @@ module Network.AWS.IAM.GetUser
     , getUserResponse
     -- ** Response lenses
     , gurUser
-    , gurStatusCode
+    , gurStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getUser' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'guUserName'
-newtype GetUser = GetUser'{_guUserName :: Maybe Text} deriving (Eq, Read, Show)
+newtype GetUser = GetUser'
+    { _guUserName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetUser' smart constructor.
 getUser :: GetUser
-getUser = GetUser'{_guUserName = Nothing};
+getUser =
+    GetUser'
+    { _guUserName = Nothing
+    }
 
 -- | The name of the user to get information about.
 --
@@ -93,17 +98,24 @@ instance ToQuery GetUser where
 --
 -- * 'gurUser'
 --
--- * 'gurStatusCode'
-data GetUserResponse = GetUserResponse'{_gurUser :: User, _gurStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gurStatus'
+data GetUserResponse = GetUserResponse'
+    { _gurUser   :: User
+    , _gurStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetUserResponse' smart constructor.
 getUserResponse :: User -> Int -> GetUserResponse
-getUserResponse pUser pStatusCode = GetUserResponse'{_gurUser = pUser, _gurStatusCode = pStatusCode};
+getUserResponse pUser pStatus =
+    GetUserResponse'
+    { _gurUser = pUser
+    , _gurStatus = pStatus
+    }
 
 -- | Information about the user.
 gurUser :: Lens' GetUserResponse User
 gurUser = lens _gurUser (\ s a -> s{_gurUser = a});
 
 -- | FIXME: Undocumented member.
-gurStatusCode :: Lens' GetUserResponse Int
-gurStatusCode = lens _gurStatusCode (\ s a -> s{_gurStatusCode = a});
+gurStatus :: Lens' GetUserResponse Int
+gurStatus = lens _gurStatus (\ s a -> s{_gurStatus = a});

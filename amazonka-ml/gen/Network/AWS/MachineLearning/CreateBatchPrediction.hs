@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.CreateBatchPrediction
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,13 +50,13 @@ module Network.AWS.MachineLearning.CreateBatchPrediction
     , createBatchPredictionResponse
     -- ** Response lenses
     , cbprBatchPredictionId
-    , cbprStatusCode
+    , cbprStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createBatchPrediction' smart constructor.
 --
@@ -71,11 +71,24 @@ import Network.AWS.Response
 -- * 'cbpBatchPredictionDataSourceId'
 --
 -- * 'cbpOutputURI'
-data CreateBatchPrediction = CreateBatchPrediction'{_cbpBatchPredictionName :: Maybe Text, _cbpBatchPredictionId :: Text, _cbpMLModelId :: Text, _cbpBatchPredictionDataSourceId :: Text, _cbpOutputURI :: Text} deriving (Eq, Read, Show)
+data CreateBatchPrediction = CreateBatchPrediction'
+    { _cbpBatchPredictionName         :: Maybe Text
+    , _cbpBatchPredictionId           :: Text
+    , _cbpMLModelId                   :: Text
+    , _cbpBatchPredictionDataSourceId :: Text
+    , _cbpOutputURI                   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateBatchPrediction' smart constructor.
 createBatchPrediction :: Text -> Text -> Text -> Text -> CreateBatchPrediction
-createBatchPrediction pBatchPredictionId pMLModelId pBatchPredictionDataSourceId pOutputURI = CreateBatchPrediction'{_cbpBatchPredictionName = Nothing, _cbpBatchPredictionId = pBatchPredictionId, _cbpMLModelId = pMLModelId, _cbpBatchPredictionDataSourceId = pBatchPredictionDataSourceId, _cbpOutputURI = pOutputURI};
+createBatchPrediction pBatchPredictionId pMLModelId pBatchPredictionDataSourceId pOutputURI =
+    CreateBatchPrediction'
+    { _cbpBatchPredictionName = Nothing
+    , _cbpBatchPredictionId = pBatchPredictionId
+    , _cbpMLModelId = pMLModelId
+    , _cbpBatchPredictionDataSourceId = pBatchPredictionDataSourceId
+    , _cbpOutputURI = pOutputURI
+    }
 
 -- | A user-supplied name or description of the @BatchPrediction@.
 -- @BatchPredictionName@ can only use the UTF-8 character set.
@@ -157,12 +170,19 @@ instance ToQuery CreateBatchPrediction where
 --
 -- * 'cbprBatchPredictionId'
 --
--- * 'cbprStatusCode'
-data CreateBatchPredictionResponse = CreateBatchPredictionResponse'{_cbprBatchPredictionId :: Maybe Text, _cbprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cbprStatus'
+data CreateBatchPredictionResponse = CreateBatchPredictionResponse'
+    { _cbprBatchPredictionId :: Maybe Text
+    , _cbprStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateBatchPredictionResponse' smart constructor.
 createBatchPredictionResponse :: Int -> CreateBatchPredictionResponse
-createBatchPredictionResponse pStatusCode = CreateBatchPredictionResponse'{_cbprBatchPredictionId = Nothing, _cbprStatusCode = pStatusCode};
+createBatchPredictionResponse pStatus =
+    CreateBatchPredictionResponse'
+    { _cbprBatchPredictionId = Nothing
+    , _cbprStatus = pStatus
+    }
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@. This
 -- value is identical to the value of the @BatchPredictionId@ in the
@@ -171,5 +191,5 @@ cbprBatchPredictionId :: Lens' CreateBatchPredictionResponse (Maybe Text)
 cbprBatchPredictionId = lens _cbprBatchPredictionId (\ s a -> s{_cbprBatchPredictionId = a});
 
 -- | FIXME: Undocumented member.
-cbprStatusCode :: Lens' CreateBatchPredictionResponse Int
-cbprStatusCode = lens _cbprStatusCode (\ s a -> s{_cbprStatusCode = a});
+cbprStatus :: Lens' CreateBatchPredictionResponse Int
+cbprStatus = lens _cbprStatus (\ s a -> s{_cbprStatus = a});

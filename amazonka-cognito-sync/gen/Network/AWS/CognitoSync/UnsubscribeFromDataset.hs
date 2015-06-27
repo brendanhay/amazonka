@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.UnsubscribeFromDataset
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.CognitoSync.UnsubscribeFromDataset
     -- ** Response constructor
     , unsubscribeFromDatasetResponse
     -- ** Response lenses
-    , ufdrStatusCode
+    , ufdrStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to UnsubscribeFromDataset.
 --
@@ -56,11 +56,22 @@ import Network.AWS.Response
 -- * 'ufdDatasetName'
 --
 -- * 'ufdDeviceId'
-data UnsubscribeFromDataset = UnsubscribeFromDataset'{_ufdIdentityPoolId :: Text, _ufdIdentityId :: Text, _ufdDatasetName :: Text, _ufdDeviceId :: Text} deriving (Eq, Read, Show)
+data UnsubscribeFromDataset = UnsubscribeFromDataset'
+    { _ufdIdentityPoolId :: Text
+    , _ufdIdentityId     :: Text
+    , _ufdDatasetName    :: Text
+    , _ufdDeviceId       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UnsubscribeFromDataset' smart constructor.
 unsubscribeFromDataset :: Text -> Text -> Text -> Text -> UnsubscribeFromDataset
-unsubscribeFromDataset pIdentityPoolId pIdentityId pDatasetName pDeviceId = UnsubscribeFromDataset'{_ufdIdentityPoolId = pIdentityPoolId, _ufdIdentityId = pIdentityId, _ufdDatasetName = pDatasetName, _ufdDeviceId = pDeviceId};
+unsubscribeFromDataset pIdentityPoolId pIdentityId pDatasetName pDeviceId =
+    UnsubscribeFromDataset'
+    { _ufdIdentityPoolId = pIdentityPoolId
+    , _ufdIdentityId = pIdentityId
+    , _ufdDatasetName = pDatasetName
+    , _ufdDeviceId = pDeviceId
+    }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -115,13 +126,18 @@ instance ToQuery UnsubscribeFromDataset where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ufdrStatusCode'
-newtype UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'{_ufdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ufdrStatus'
+newtype UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'
+    { _ufdrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UnsubscribeFromDatasetResponse' smart constructor.
 unsubscribeFromDatasetResponse :: Int -> UnsubscribeFromDatasetResponse
-unsubscribeFromDatasetResponse pStatusCode = UnsubscribeFromDatasetResponse'{_ufdrStatusCode = pStatusCode};
+unsubscribeFromDatasetResponse pStatus =
+    UnsubscribeFromDatasetResponse'
+    { _ufdrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-ufdrStatusCode :: Lens' UnsubscribeFromDatasetResponse Int
-ufdrStatusCode = lens _ufdrStatusCode (\ s a -> s{_ufdrStatusCode = a});
+ufdrStatus :: Lens' UnsubscribeFromDatasetResponse Int
+ufdrStatus = lens _ufdrStatus (\ s a -> s{_ufdrStatus = a});

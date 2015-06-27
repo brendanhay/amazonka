@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListAccessKeys
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,14 +49,14 @@ module Network.AWS.IAM.ListAccessKeys
     , lakrMarker
     , lakrIsTruncated
     , lakrAccessKeyMetadata
-    , lakrStatusCode
+    , lakrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listAccessKeys' smart constructor.
 --
@@ -67,11 +67,20 @@ import Network.AWS.Response
 -- * 'lakMaxItems'
 --
 -- * 'lakMarker'
-data ListAccessKeys = ListAccessKeys'{_lakUserName :: Maybe Text, _lakMaxItems :: Maybe Nat, _lakMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListAccessKeys = ListAccessKeys'
+    { _lakUserName :: Maybe Text
+    , _lakMaxItems :: Maybe Nat
+    , _lakMarker   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAccessKeys' smart constructor.
 listAccessKeys :: ListAccessKeys
-listAccessKeys = ListAccessKeys'{_lakUserName = Nothing, _lakMaxItems = Nothing, _lakMarker = Nothing};
+listAccessKeys =
+    ListAccessKeys'
+    { _lakUserName = Nothing
+    , _lakMaxItems = Nothing
+    , _lakMarker = Nothing
+    }
 
 -- | The name of the user.
 lakUserName :: Lens' ListAccessKeys (Maybe Text)
@@ -138,12 +147,23 @@ instance ToQuery ListAccessKeys where
 --
 -- * 'lakrAccessKeyMetadata'
 --
--- * 'lakrStatusCode'
-data ListAccessKeysResponse = ListAccessKeysResponse'{_lakrMarker :: Maybe Text, _lakrIsTruncated :: Maybe Bool, _lakrAccessKeyMetadata :: [AccessKeyMetadata], _lakrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lakrStatus'
+data ListAccessKeysResponse = ListAccessKeysResponse'
+    { _lakrMarker            :: Maybe Text
+    , _lakrIsTruncated       :: Maybe Bool
+    , _lakrAccessKeyMetadata :: [AccessKeyMetadata]
+    , _lakrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAccessKeysResponse' smart constructor.
 listAccessKeysResponse :: Int -> ListAccessKeysResponse
-listAccessKeysResponse pStatusCode = ListAccessKeysResponse'{_lakrMarker = Nothing, _lakrIsTruncated = Nothing, _lakrAccessKeyMetadata = mempty, _lakrStatusCode = pStatusCode};
+listAccessKeysResponse pStatus =
+    ListAccessKeysResponse'
+    { _lakrMarker = Nothing
+    , _lakrIsTruncated = Nothing
+    , _lakrAccessKeyMetadata = mempty
+    , _lakrStatus = pStatus
+    }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -162,5 +182,5 @@ lakrAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
 lakrAccessKeyMetadata = lens _lakrAccessKeyMetadata (\ s a -> s{_lakrAccessKeyMetadata = a});
 
 -- | FIXME: Undocumented member.
-lakrStatusCode :: Lens' ListAccessKeysResponse Int
-lakrStatusCode = lens _lakrStatusCode (\ s a -> s{_lakrStatusCode = a});
+lakrStatus :: Lens' ListAccessKeysResponse Int
+lakrStatus = lens _lakrStatus (\ s a -> s{_lakrStatus = a});

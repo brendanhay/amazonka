@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.CopyDBSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.RDS.CopyDBSnapshot
     , copyDBSnapshotResponse
     -- ** Response lenses
     , cdsrDBSnapshot
-    , cdsrStatusCode
+    , cdsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'cdsSourceDBSnapshotIdentifier'
 --
 -- * 'cdsTargetDBSnapshotIdentifier'
-data CopyDBSnapshot = CopyDBSnapshot'{_cdsTags :: Maybe [Tag], _cdsSourceDBSnapshotIdentifier :: Text, _cdsTargetDBSnapshotIdentifier :: Text} deriving (Eq, Read, Show)
+data CopyDBSnapshot = CopyDBSnapshot'
+    { _cdsTags                       :: Maybe [Tag]
+    , _cdsSourceDBSnapshotIdentifier :: Text
+    , _cdsTargetDBSnapshotIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyDBSnapshot' smart constructor.
 copyDBSnapshot :: Text -> Text -> CopyDBSnapshot
-copyDBSnapshot pSourceDBSnapshotIdentifier pTargetDBSnapshotIdentifier = CopyDBSnapshot'{_cdsTags = Nothing, _cdsSourceDBSnapshotIdentifier = pSourceDBSnapshotIdentifier, _cdsTargetDBSnapshotIdentifier = pTargetDBSnapshotIdentifier};
+copyDBSnapshot pSourceDBSnapshotIdentifier pTargetDBSnapshotIdentifier =
+    CopyDBSnapshot'
+    { _cdsTags = Nothing
+    , _cdsSourceDBSnapshotIdentifier = pSourceDBSnapshotIdentifier
+    , _cdsTargetDBSnapshotIdentifier = pTargetDBSnapshotIdentifier
+    }
 
 -- | FIXME: Undocumented member.
 cdsTags :: Lens' CopyDBSnapshot [Tag]
@@ -128,17 +137,24 @@ instance ToQuery CopyDBSnapshot where
 --
 -- * 'cdsrDBSnapshot'
 --
--- * 'cdsrStatusCode'
-data CopyDBSnapshotResponse = CopyDBSnapshotResponse'{_cdsrDBSnapshot :: Maybe DBSnapshot, _cdsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdsrStatus'
+data CopyDBSnapshotResponse = CopyDBSnapshotResponse'
+    { _cdsrDBSnapshot :: Maybe DBSnapshot
+    , _cdsrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyDBSnapshotResponse' smart constructor.
 copyDBSnapshotResponse :: Int -> CopyDBSnapshotResponse
-copyDBSnapshotResponse pStatusCode = CopyDBSnapshotResponse'{_cdsrDBSnapshot = Nothing, _cdsrStatusCode = pStatusCode};
+copyDBSnapshotResponse pStatus =
+    CopyDBSnapshotResponse'
+    { _cdsrDBSnapshot = Nothing
+    , _cdsrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 cdsrDBSnapshot :: Lens' CopyDBSnapshotResponse (Maybe DBSnapshot)
 cdsrDBSnapshot = lens _cdsrDBSnapshot (\ s a -> s{_cdsrDBSnapshot = a});
 
 -- | FIXME: Undocumented member.
-cdsrStatusCode :: Lens' CopyDBSnapshotResponse Int
-cdsrStatusCode = lens _cdsrStatusCode (\ s a -> s{_cdsrStatusCode = a});
+cdsrStatus :: Lens' CopyDBSnapshotResponse Int
+cdsrStatus = lens _cdsrStatus (\ s a -> s{_cdsrStatus = a});

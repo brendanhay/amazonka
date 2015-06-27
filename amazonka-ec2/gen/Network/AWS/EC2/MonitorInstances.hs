@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.MonitorInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.EC2.MonitorInstances
     , monitorInstancesResponse
     -- ** Response lenses
     , mirInstanceMonitorings
-    , mirStatusCode
+    , mirStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'monitorInstances' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'miDryRun'
 --
 -- * 'miInstanceIds'
-data MonitorInstances = MonitorInstances'{_miDryRun :: Maybe Bool, _miInstanceIds :: [Text]} deriving (Eq, Read, Show)
+data MonitorInstances = MonitorInstances'
+    { _miDryRun      :: Maybe Bool
+    , _miInstanceIds :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'MonitorInstances' smart constructor.
 monitorInstances :: MonitorInstances
-monitorInstances = MonitorInstances'{_miDryRun = Nothing, _miInstanceIds = mempty};
+monitorInstances =
+    MonitorInstances'
+    { _miDryRun = Nothing
+    , _miInstanceIds = mempty
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -99,17 +106,24 @@ instance ToQuery MonitorInstances where
 --
 -- * 'mirInstanceMonitorings'
 --
--- * 'mirStatusCode'
-data MonitorInstancesResponse = MonitorInstancesResponse'{_mirInstanceMonitorings :: Maybe [InstanceMonitoring], _mirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'mirStatus'
+data MonitorInstancesResponse = MonitorInstancesResponse'
+    { _mirInstanceMonitorings :: Maybe [InstanceMonitoring]
+    , _mirStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'MonitorInstancesResponse' smart constructor.
 monitorInstancesResponse :: Int -> MonitorInstancesResponse
-monitorInstancesResponse pStatusCode = MonitorInstancesResponse'{_mirInstanceMonitorings = Nothing, _mirStatusCode = pStatusCode};
+monitorInstancesResponse pStatus =
+    MonitorInstancesResponse'
+    { _mirInstanceMonitorings = Nothing
+    , _mirStatus = pStatus
+    }
 
 -- | Monitoring information for one or more instances.
 mirInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirInstanceMonitorings = lens _mirInstanceMonitorings (\ s a -> s{_mirInstanceMonitorings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-mirStatusCode :: Lens' MonitorInstancesResponse Int
-mirStatusCode = lens _mirStatusCode (\ s a -> s{_mirStatusCode = a});
+mirStatus :: Lens' MonitorInstancesResponse Int
+mirStatus = lens _mirStatus (\ s a -> s{_mirStatus = a});

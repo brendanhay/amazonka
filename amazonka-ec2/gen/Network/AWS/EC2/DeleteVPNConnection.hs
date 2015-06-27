@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteVPNConnection
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,10 +43,10 @@ module Network.AWS.EC2.DeleteVPNConnection
     , deleteVPNConnectionResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteVPNConnection' smart constructor.
 --
@@ -55,11 +55,18 @@ import Network.AWS.Response
 -- * 'dvcDryRun'
 --
 -- * 'dvcVPNConnectionId'
-data DeleteVPNConnection = DeleteVPNConnection'{_dvcDryRun :: Maybe Bool, _dvcVPNConnectionId :: Text} deriving (Eq, Read, Show)
+data DeleteVPNConnection = DeleteVPNConnection'
+    { _dvcDryRun          :: Maybe Bool
+    , _dvcVPNConnectionId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVPNConnection' smart constructor.
 deleteVPNConnection :: Text -> DeleteVPNConnection
-deleteVPNConnection pVPNConnectionId = DeleteVPNConnection'{_dvcDryRun = Nothing, _dvcVPNConnectionId = pVPNConnectionId};
+deleteVPNConnection pVPNConnectionId =
+    DeleteVPNConnection'
+    { _dvcDryRun = Nothing
+    , _dvcVPNConnectionId = pVPNConnectionId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -94,8 +101,10 @@ instance ToQuery DeleteVPNConnection where
                "VpnConnectionId" =: _dvcVPNConnectionId]
 
 -- | /See:/ 'deleteVPNConnectionResponse' smart constructor.
-data DeleteVPNConnectionResponse = DeleteVPNConnectionResponse' deriving (Eq, Read, Show)
+data DeleteVPNConnectionResponse =
+    DeleteVPNConnectionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteVPNConnectionResponse' smart constructor.
 deleteVPNConnectionResponse :: DeleteVPNConnectionResponse
-deleteVPNConnectionResponse = DeleteVPNConnectionResponse';
+deleteVPNConnectionResponse = DeleteVPNConnectionResponse'

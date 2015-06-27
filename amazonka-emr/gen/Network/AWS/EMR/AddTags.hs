@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.AddTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.EMR.AddTags
     -- ** Response constructor
     , addTagsResponse
     -- ** Response lenses
-    , atrStatusCode
+    , atrStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This input identifies a cluster and a list of tags to attach.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'atResourceId'
 --
 -- * 'atTags'
-data AddTags = AddTags'{_atResourceId :: Text, _atTags :: [Tag]} deriving (Eq, Read, Show)
+data AddTags = AddTags'
+    { _atResourceId :: Text
+    , _atTags       :: [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'AddTags' smart constructor.
 addTags :: Text -> AddTags
-addTags pResourceId = AddTags'{_atResourceId = pResourceId, _atTags = mempty};
+addTags pResourceId =
+    AddTags'
+    { _atResourceId = pResourceId
+    , _atTags = mempty
+    }
 
 -- | The Amazon EMR resource identifier to which tags will be added. This
 -- value must be a cluster identifier.
@@ -104,13 +111,18 @@ instance ToQuery AddTags where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atrStatusCode'
-newtype AddTagsResponse = AddTagsResponse'{_atrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'atrStatus'
+newtype AddTagsResponse = AddTagsResponse'
+    { _atrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AddTagsResponse' smart constructor.
 addTagsResponse :: Int -> AddTagsResponse
-addTagsResponse pStatusCode = AddTagsResponse'{_atrStatusCode = pStatusCode};
+addTagsResponse pStatus =
+    AddTagsResponse'
+    { _atrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-atrStatusCode :: Lens' AddTagsResponse Int
-atrStatusCode = lens _atrStatusCode (\ s a -> s{_atrStatusCode = a});
+atrStatus :: Lens' AddTagsResponse Int
+atrStatus = lens _atrStatus (\ s a -> s{_atrStatus = a});

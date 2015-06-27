@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SES.GetIdentityDkimAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,13 +52,13 @@ module Network.AWS.SES.GetIdentityDkimAttributes
     , getIdentityDkimAttributesResponse
     -- ** Response lenses
     , gidarDkimAttributes
-    , gidarStatusCode
+    , gidarStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SES.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
 -- | Given a list of verified identities, describes their DKIM attributes.
 -- The DKIM attributes of an email address identity includes whether DKIM
@@ -72,11 +72,16 @@ import Network.AWS.SES.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gidaIdentities'
-newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes'{_gidaIdentities :: [Text]} deriving (Eq, Read, Show)
+newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes'
+    { _gidaIdentities :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityDkimAttributes' smart constructor.
 getIdentityDkimAttributes :: GetIdentityDkimAttributes
-getIdentityDkimAttributes = GetIdentityDkimAttributes'{_gidaIdentities = mempty};
+getIdentityDkimAttributes =
+    GetIdentityDkimAttributes'
+    { _gidaIdentities = mempty
+    }
 
 -- | A list of one or more verified identities - email addresses, domains, or
 -- both.
@@ -118,17 +123,24 @@ instance ToQuery GetIdentityDkimAttributes where
 --
 -- * 'gidarDkimAttributes'
 --
--- * 'gidarStatusCode'
-data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'{_gidarDkimAttributes :: Map Text IdentityDkimAttributes, _gidarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gidarStatus'
+data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
+    { _gidarDkimAttributes :: Map Text IdentityDkimAttributes
+    , _gidarStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityDkimAttributesResponse' smart constructor.
 getIdentityDkimAttributesResponse :: Int -> GetIdentityDkimAttributesResponse
-getIdentityDkimAttributesResponse pStatusCode = GetIdentityDkimAttributesResponse'{_gidarDkimAttributes = mempty, _gidarStatusCode = pStatusCode};
+getIdentityDkimAttributesResponse pStatus =
+    GetIdentityDkimAttributesResponse'
+    { _gidarDkimAttributes = mempty
+    , _gidarStatus = pStatus
+    }
 
 -- | The DKIM attributes for an email address or a domain.
 gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)
 gidarDkimAttributes = lens _gidarDkimAttributes (\ s a -> s{_gidarDkimAttributes = a}) . _Map;
 
 -- | FIXME: Undocumented member.
-gidarStatusCode :: Lens' GetIdentityDkimAttributesResponse Int
-gidarStatusCode = lens _gidarStatusCode (\ s a -> s{_gidarStatusCode = a});
+gidarStatus :: Lens' GetIdentityDkimAttributesResponse Int
+gidarStatus = lens _gidarStatus (\ s a -> s{_gidarStatus = a});

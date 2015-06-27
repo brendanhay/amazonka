@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,20 +31,22 @@ module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     -- ** Response lenses
     , lassrSolutionStacks
     , lassrSolutionStackDetails
-    , lassrStatusCode
+    , lassrStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listAvailableSolutionStacks' smart constructor.
-data ListAvailableSolutionStacks = ListAvailableSolutionStacks' deriving (Eq, Read, Show)
+data ListAvailableSolutionStacks =
+    ListAvailableSolutionStacks'
+    deriving (Eq,Read,Show)
 
 -- | 'ListAvailableSolutionStacks' smart constructor.
 listAvailableSolutionStacks :: ListAvailableSolutionStacks
-listAvailableSolutionStacks = ListAvailableSolutionStacks';
+listAvailableSolutionStacks = ListAvailableSolutionStacks'
 
 instance AWSRequest ListAvailableSolutionStacks where
         type Sv ListAvailableSolutionStacks =
@@ -88,12 +90,21 @@ instance ToQuery ListAvailableSolutionStacks where
 --
 -- * 'lassrSolutionStackDetails'
 --
--- * 'lassrStatusCode'
-data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'{_lassrSolutionStacks :: Maybe [Text], _lassrSolutionStackDetails :: Maybe [SolutionStackDescription], _lassrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lassrStatus'
+data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
+    { _lassrSolutionStacks       :: Maybe [Text]
+    , _lassrSolutionStackDetails :: Maybe [SolutionStackDescription]
+    , _lassrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAvailableSolutionStacksResponse' smart constructor.
 listAvailableSolutionStacksResponse :: Int -> ListAvailableSolutionStacksResponse
-listAvailableSolutionStacksResponse pStatusCode = ListAvailableSolutionStacksResponse'{_lassrSolutionStacks = Nothing, _lassrSolutionStackDetails = Nothing, _lassrStatusCode = pStatusCode};
+listAvailableSolutionStacksResponse pStatus =
+    ListAvailableSolutionStacksResponse'
+    { _lassrSolutionStacks = Nothing
+    , _lassrSolutionStackDetails = Nothing
+    , _lassrStatus = pStatus
+    }
 
 -- | A list of available solution stacks.
 lassrSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
@@ -104,5 +115,5 @@ lassrSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [Solution
 lassrSolutionStackDetails = lens _lassrSolutionStackDetails (\ s a -> s{_lassrSolutionStackDetails = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lassrStatusCode :: Lens' ListAvailableSolutionStacksResponse Int
-lassrStatusCode = lens _lassrStatusCode (\ s a -> s{_lassrStatusCode = a});
+lassrStatus :: Lens' ListAvailableSolutionStacksResponse Int
+lassrStatus = lens _lassrStatus (\ s a -> s{_lassrStatus = a});

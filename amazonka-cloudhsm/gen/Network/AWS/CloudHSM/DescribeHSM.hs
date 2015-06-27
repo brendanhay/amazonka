@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.DescribeHSM
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,7 +34,6 @@ module Network.AWS.CloudHSM.DescribeHSM
     , describeHSMResponse
     -- ** Response lenses
     , dhsmrIAMRoleARN
-    , dhsmrStatus
     , dhsmrEniId
     , dhsmrSubscriptionEndDate
     , dhsmrVPCId
@@ -54,13 +53,13 @@ module Network.AWS.CloudHSM.DescribeHSM
     , dhsmrHSMARN
     , dhsmrEniIP
     , dhsmrHSMType
-    , dhsmrStatusCode
+    , dhsmrStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the DescribeHsm action.
 --
@@ -71,11 +70,18 @@ import Network.AWS.Response
 -- * 'desHSMSerialNumber'
 --
 -- * 'desHSMARN'
-data DescribeHSM = DescribeHSM'{_desHSMSerialNumber :: Maybe Text, _desHSMARN :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeHSM = DescribeHSM'
+    { _desHSMSerialNumber :: Maybe Text
+    , _desHSMARN          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeHSM' smart constructor.
 describeHSM :: DescribeHSM
-describeHSM = DescribeHSM'{_desHSMSerialNumber = Nothing, _desHSMARN = Nothing};
+describeHSM =
+    DescribeHSM'
+    { _desHSMSerialNumber = Nothing
+    , _desHSMARN = Nothing
+    }
 
 -- | The serial number of the HSM. Either the /HsmArn/ or the
 -- /HsmSerialNumber/ parameter must be specified.
@@ -95,9 +101,8 @@ instance AWSRequest DescribeHSM where
           = receiveJSON
               (\ s h x ->
                  DescribeHSMResponse' <$>
-                   (x .?> "IamRoleArn") <*> (x .?> "Status") <*>
-                     (x .?> "EniId")
-                     <*> (x .?> "SubscriptionEndDate")
+                   (x .?> "IamRoleArn") <*> (x .?> "EniId") <*>
+                     (x .?> "SubscriptionEndDate")
                      <*> (x .?> "VpcId")
                      <*> (x .?> "SshKeyLastUpdated")
                      <*> (x .?> "ServerCertUri")
@@ -147,8 +152,6 @@ instance ToQuery DescribeHSM where
 --
 -- * 'dhsmrIAMRoleARN'
 --
--- * 'dhsmrStatus'
---
 -- * 'dhsmrEniId'
 --
 -- * 'dhsmrSubscriptionEndDate'
@@ -187,20 +190,61 @@ instance ToQuery DescribeHSM where
 --
 -- * 'dhsmrHSMType'
 --
--- * 'dhsmrStatusCode'
-data DescribeHSMResponse = DescribeHSMResponse'{_dhsmrIAMRoleARN :: Maybe Text, _dhsmrStatus :: Maybe HSMStatus, _dhsmrEniId :: Maybe Text, _dhsmrSubscriptionEndDate :: Maybe Text, _dhsmrVPCId :: Maybe Text, _dhsmrSSHKeyLastUpdated :: Maybe Text, _dhsmrServerCertURI :: Maybe Text, _dhsmrSubscriptionType :: Maybe SubscriptionType, _dhsmrStatusDetails :: Maybe Text, _dhsmrSSHPublicKey :: Maybe Text, _dhsmrSubnetId :: Maybe Text, _dhsmrPartitions :: Maybe [Text], _dhsmrAvailabilityZone :: Maybe Text, _dhsmrSubscriptionStartDate :: Maybe Text, _dhsmrServerCertLastUpdated :: Maybe Text, _dhsmrSoftwareVersion :: Maybe Text, _dhsmrSerialNumber :: Maybe Text, _dhsmrVendorName :: Maybe Text, _dhsmrHSMARN :: Maybe Text, _dhsmrEniIP :: Maybe Text, _dhsmrHSMType :: Maybe Text, _dhsmrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dhsmrStatus'
+data DescribeHSMResponse = DescribeHSMResponse'
+    { _dhsmrIAMRoleARN            :: Maybe Text
+    , _dhsmrEniId                 :: Maybe Text
+    , _dhsmrSubscriptionEndDate   :: Maybe Text
+    , _dhsmrVPCId                 :: Maybe Text
+    , _dhsmrSSHKeyLastUpdated     :: Maybe Text
+    , _dhsmrServerCertURI         :: Maybe Text
+    , _dhsmrSubscriptionType      :: Maybe SubscriptionType
+    , _dhsmrStatusDetails         :: Maybe Text
+    , _dhsmrSSHPublicKey          :: Maybe Text
+    , _dhsmrSubnetId              :: Maybe Text
+    , _dhsmrPartitions            :: Maybe [Text]
+    , _dhsmrAvailabilityZone      :: Maybe Text
+    , _dhsmrSubscriptionStartDate :: Maybe Text
+    , _dhsmrServerCertLastUpdated :: Maybe Text
+    , _dhsmrSoftwareVersion       :: Maybe Text
+    , _dhsmrSerialNumber          :: Maybe Text
+    , _dhsmrVendorName            :: Maybe Text
+    , _dhsmrHSMARN                :: Maybe Text
+    , _dhsmrEniIP                 :: Maybe Text
+    , _dhsmrHSMType               :: Maybe Text
+    , _dhsmrStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeHSMResponse' smart constructor.
 describeHSMResponse :: Int -> DescribeHSMResponse
-describeHSMResponse pStatusCode = DescribeHSMResponse'{_dhsmrIAMRoleARN = Nothing, _dhsmrStatus = Nothing, _dhsmrEniId = Nothing, _dhsmrSubscriptionEndDate = Nothing, _dhsmrVPCId = Nothing, _dhsmrSSHKeyLastUpdated = Nothing, _dhsmrServerCertURI = Nothing, _dhsmrSubscriptionType = Nothing, _dhsmrStatusDetails = Nothing, _dhsmrSSHPublicKey = Nothing, _dhsmrSubnetId = Nothing, _dhsmrPartitions = Nothing, _dhsmrAvailabilityZone = Nothing, _dhsmrSubscriptionStartDate = Nothing, _dhsmrServerCertLastUpdated = Nothing, _dhsmrSoftwareVersion = Nothing, _dhsmrSerialNumber = Nothing, _dhsmrVendorName = Nothing, _dhsmrHSMARN = Nothing, _dhsmrEniIP = Nothing, _dhsmrHSMType = Nothing, _dhsmrStatusCode = pStatusCode};
+describeHSMResponse pStatus =
+    DescribeHSMResponse'
+    { _dhsmrIAMRoleARN = Nothing
+    , _dhsmrEniId = Nothing
+    , _dhsmrSubscriptionEndDate = Nothing
+    , _dhsmrVPCId = Nothing
+    , _dhsmrSSHKeyLastUpdated = Nothing
+    , _dhsmrServerCertURI = Nothing
+    , _dhsmrSubscriptionType = Nothing
+    , _dhsmrStatusDetails = Nothing
+    , _dhsmrSSHPublicKey = Nothing
+    , _dhsmrSubnetId = Nothing
+    , _dhsmrPartitions = Nothing
+    , _dhsmrAvailabilityZone = Nothing
+    , _dhsmrSubscriptionStartDate = Nothing
+    , _dhsmrServerCertLastUpdated = Nothing
+    , _dhsmrSoftwareVersion = Nothing
+    , _dhsmrSerialNumber = Nothing
+    , _dhsmrVendorName = Nothing
+    , _dhsmrHSMARN = Nothing
+    , _dhsmrEniIP = Nothing
+    , _dhsmrHSMType = Nothing
+    , _dhsmrStatus = pStatus
+    }
 
 -- | The ARN of the IAM role assigned to the HSM.
 dhsmrIAMRoleARN :: Lens' DescribeHSMResponse (Maybe Text)
 dhsmrIAMRoleARN = lens _dhsmrIAMRoleARN (\ s a -> s{_dhsmrIAMRoleARN = a});
-
--- | The status of the HSM.
-dhsmrStatus :: Lens' DescribeHSMResponse (Maybe HSMStatus)
-dhsmrStatus = lens _dhsmrStatus (\ s a -> s{_dhsmrStatus = a});
 
 -- | The identifier of the elastic network interface (ENI) attached to the
 -- HSM.
@@ -280,5 +324,5 @@ dhsmrHSMType :: Lens' DescribeHSMResponse (Maybe Text)
 dhsmrHSMType = lens _dhsmrHSMType (\ s a -> s{_dhsmrHSMType = a});
 
 -- | FIXME: Undocumented member.
-dhsmrStatusCode :: Lens' DescribeHSMResponse Int
-dhsmrStatusCode = lens _dhsmrStatusCode (\ s a -> s{_dhsmrStatusCode = a});
+dhsmrStatus :: Lens' DescribeHSMResponse Int
+dhsmrStatus = lens _dhsmrStatus (\ s a -> s{_dhsmrStatus = a});

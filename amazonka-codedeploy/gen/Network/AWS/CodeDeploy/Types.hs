@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.CodeDeploy.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -297,285 +296,342 @@ module Network.AWS.CodeDeploy.Types
     , trEnd
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2014-10-06@ of the Amazon CodeDeploy SDK.
 data CodeDeploy
 
 instance AWSService CodeDeploy where
     type Sg CodeDeploy = V4
-
     service = const svc
       where
-        svc :: Service CodeDeploy
-        svc = Service
-            { _svcAbbrev   = "CodeDeploy"
-            , _svcPrefix   = "codedeploy"
-            , _svcVersion  = "2014-10-06"
+        svc =
+            Service
+            { _svcAbbrev = "CodeDeploy"
+            , _svcPrefix = "codedeploy"
+            , _svcVersion = "2014-10-06"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The specified time range was specified in an invalid format.
-_InvalidTimeRangeException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidTimeRangeException = _ServiceError . hasCode "InvalidTimeRangeException";
+_InvalidTimeRangeException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidTimeRangeException =
+    _ServiceError . hasCode "InvalidTimeRangeException"
 
 -- | The specified tag was specified in an invalid format.
-_InvalidTagException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidTagException = _ServiceError . hasCode "InvalidTagException";
+_InvalidTagException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidTagException = _ServiceError . hasCode "InvalidTagException"
 
 -- | The specified on-premises instance name is already registered.
-_InstanceNameAlreadyRegisteredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InstanceNameAlreadyRegisteredException = _ServiceError . hasCode "InstanceNameAlreadyRegisteredException";
+_InstanceNameAlreadyRegisteredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InstanceNameAlreadyRegisteredException =
+    _ServiceError . hasCode "InstanceNameAlreadyRegisteredException"
 
 -- | The IAM user ARN was specified in an invalid format.
-_InvalidIAMUserARNException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidIAMUserARNException = _ServiceError . hasCode "InvalidIamUserArnException";
+_InvalidIAMUserARNException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidIAMUserARNException =
+    _ServiceError . hasCode "InvalidIamUserArnException"
 
 -- | An IAM user ARN was not specified.
-_IAMUserARNRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_IAMUserARNRequiredException = _ServiceError . hasCode "IamUserArnRequiredException";
+_IAMUserARNRequiredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_IAMUserARNRequiredException =
+    _ServiceError . hasCode "IamUserArnRequiredException"
 
 -- | The deployment group name was specified in an invalid format.
-_InvalidDeploymentGroupNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDeploymentGroupNameException = _ServiceError . hasCode "InvalidDeploymentGroupNameException";
+_InvalidDeploymentGroupNameException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDeploymentGroupNameException =
+    _ServiceError . hasCode "InvalidDeploymentGroupNameException"
 
 -- | The description that was provided is too long.
-_DescriptionTooLongException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DescriptionTooLongException = _ServiceError . hasCode "DescriptionTooLongException";
+_DescriptionTooLongException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DescriptionTooLongException =
+    _ServiceError . hasCode "DescriptionTooLongException"
 
 -- | A deployment configuration with the specified name already exists with
 -- the applicable IAM user or AWS account.
-_DeploymentConfigAlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeploymentConfigAlreadyExistsException = _ServiceError . hasCode "DeploymentConfigAlreadyExistsException";
+_DeploymentConfigAlreadyExistsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeploymentConfigAlreadyExistsException =
+    _ServiceError . hasCode "DeploymentConfigAlreadyExistsException"
 
 -- | The deployment configurations limit was exceeded.
-_DeploymentConfigLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeploymentConfigLimitExceededException = _ServiceError . hasCode "DeploymentConfigLimitExceededException";
+_DeploymentConfigLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeploymentConfigLimitExceededException =
+    _ServiceError . hasCode "DeploymentConfigLimitExceededException"
 
 -- | The service role ARN was specified in an invalid format. Or, if an Auto
 -- Scaling group was specified, the specified service role does not grant
 -- the appropriate permissions to Auto Scaling.
-_InvalidRoleException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidRoleException = _ServiceError . hasCode "InvalidRoleException";
+_InvalidRoleException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRoleException = _ServiceError . hasCode "InvalidRoleException"
 
 -- | The specified deployment has not started.
-_DeploymentNotStartedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeploymentNotStartedException = _ServiceError . hasCode "DeploymentNotStartedException";
+_DeploymentNotStartedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeploymentNotStartedException =
+    _ServiceError . hasCode "DeploymentNotStartedException"
 
 -- | The role ID was not specified.
-_RoleRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_RoleRequiredException = _ServiceError . hasCode "RoleRequiredException";
+_RoleRequiredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_RoleRequiredException = _ServiceError . hasCode "RoleRequiredException"
 
 -- | The specified IAM user ARN is already registered with an on-premises
 -- instance.
-_IAMUserARNAlreadyRegisteredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_IAMUserARNAlreadyRegisteredException = _ServiceError . hasCode "IamUserArnAlreadyRegisteredException";
+_IAMUserARNAlreadyRegisteredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_IAMUserARNAlreadyRegisteredException =
+    _ServiceError . hasCode "IamUserArnAlreadyRegisteredException"
 
 -- | The number of allowed deployments was exceeded.
-_DeploymentLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeploymentLimitExceededException = _ServiceError . hasCode "DeploymentLimitExceededException";
+_DeploymentLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeploymentLimitExceededException =
+    _ServiceError . hasCode "DeploymentLimitExceededException"
 
 -- | The maximum number of allowed on-premises instances in a single call was
 -- exceeded.
-_InstanceLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InstanceLimitExceededException = _ServiceError . hasCode "InstanceLimitExceededException";
+_InstanceLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InstanceLimitExceededException =
+    _ServiceError . hasCode "InstanceLimitExceededException"
 
 -- | The Auto Scaling group was specified in an invalid format or does not
 -- exist.
-_InvalidAutoScalingGroupException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidAutoScalingGroupException = _ServiceError . hasCode "InvalidAutoScalingGroupException";
+_InvalidAutoScalingGroupException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidAutoScalingGroupException =
+    _ServiceError . hasCode "InvalidAutoScalingGroupException"
 
 -- | The application name was specified in an invalid format.
-_InvalidApplicationNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidApplicationNameException = _ServiceError . hasCode "InvalidApplicationNameException";
+_InvalidApplicationNameException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidApplicationNameException =
+    _ServiceError . hasCode "InvalidApplicationNameException"
 
 -- | The deployed state filter was specified in an invalid format.
-_InvalidDeployedStateFilterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDeployedStateFilterException = _ServiceError . hasCode "InvalidDeployedStateFilterException";
+_InvalidDeployedStateFilterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDeployedStateFilterException =
+    _ServiceError . hasCode "InvalidDeployedStateFilterException"
 
 -- | The minimum healthy instances value was specified in an invalid format.
-_InvalidMinimumHealthyHostValueException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidMinimumHealthyHostValueException = _ServiceError . hasCode "InvalidMinimumHealthyHostValueException";
+_InvalidMinimumHealthyHostValueException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidMinimumHealthyHostValueException =
+    _ServiceError . hasCode "InvalidMinimumHealthyHostValueException"
 
 -- | The application does not exist with the applicable IAM user or AWS
 -- account.
-_ApplicationDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ApplicationDoesNotExistException = _ServiceError . hasCode "ApplicationDoesNotExistException";
+_ApplicationDoesNotExistException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ApplicationDoesNotExistException =
+    _ServiceError . hasCode "ApplicationDoesNotExistException"
 
 -- | The specified tag filter was specified in an invalid format.
-_InvalidTagFilterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidTagFilterException = _ServiceError . hasCode "InvalidTagFilterException";
+_InvalidTagFilterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidTagFilterException =
+    _ServiceError . hasCode "InvalidTagFilterException"
 
 -- | A tag was not specified.
-_TagRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TagRequiredException = _ServiceError . hasCode "TagRequiredException";
+_TagRequiredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TagRequiredException = _ServiceError . hasCode "TagRequiredException"
 
 -- | The named revision does not exist with the applicable IAM user or AWS
 -- account.
-_RevisionDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
-_RevisionDoesNotExistException = _ServiceError . hasCode "RevisionDoesNotExistException";
+_RevisionDoesNotExistException :: AWSError a => Getting (First ServiceError) a ServiceError
+_RevisionDoesNotExistException =
+    _ServiceError . hasCode "RevisionDoesNotExistException"
 
 -- | The deployment group name was not specified.
-_DeploymentGroupNameRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeploymentGroupNameRequiredException = _ServiceError . hasCode "DeploymentGroupNameRequiredException";
+_DeploymentGroupNameRequiredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeploymentGroupNameRequiredException =
+    _ServiceError . hasCode "DeploymentGroupNameRequiredException"
 
 -- | The bucket name either doesn\'t exist or was specified in an invalid
 -- format.
-_InvalidBucketNameFilterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidBucketNameFilterException = _ServiceError . hasCode "InvalidBucketNameFilterException";
+_InvalidBucketNameFilterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidBucketNameFilterException =
+    _ServiceError . hasCode "InvalidBucketNameFilterException"
 
 -- | The deployment configuration does not exist with the applicable IAM user
 -- or AWS account.
-_DeploymentConfigDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeploymentConfigDoesNotExistException = _ServiceError . hasCode "DeploymentConfigDoesNotExistException";
+_DeploymentConfigDoesNotExistException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeploymentConfigDoesNotExistException =
+    _ServiceError . hasCode "DeploymentConfigDoesNotExistException"
 
 -- | The column name to sort by is either not present or was specified in an
 -- invalid format.
-_InvalidSortByException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSortByException = _ServiceError . hasCode "InvalidSortByException";
+_InvalidSortByException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSortByException = _ServiceError . hasCode "InvalidSortByException"
 
 -- | A bucket name is required but was not provided.
-_BucketNameFilterRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_BucketNameFilterRequiredException = _ServiceError . hasCode "BucketNameFilterRequiredException";
+_BucketNameFilterRequiredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_BucketNameFilterRequiredException =
+    _ServiceError . hasCode "BucketNameFilterRequiredException"
 
 -- | The deployment groups limit was exceeded.
-_DeploymentGroupLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeploymentGroupLimitExceededException = _ServiceError . hasCode "DeploymentGroupLimitExceededException";
+_DeploymentGroupLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeploymentGroupLimitExceededException =
+    _ServiceError . hasCode "DeploymentGroupLimitExceededException"
 
 -- | A deployment group with the specified name already exists with the
 -- applicable IAM user or AWS account.
-_DeploymentGroupAlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeploymentGroupAlreadyExistsException = _ServiceError . hasCode "DeploymentGroupAlreadyExistsException";
+_DeploymentGroupAlreadyExistsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeploymentGroupAlreadyExistsException =
+    _ServiceError . hasCode "DeploymentGroupAlreadyExistsException"
 
 -- | At least one of the deployment IDs was specified in an invalid format.
-_InvalidDeploymentIdException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDeploymentIdException = _ServiceError . hasCode "InvalidDeploymentIdException";
+_InvalidDeploymentIdException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDeploymentIdException =
+    _ServiceError . hasCode "InvalidDeploymentIdException"
 
 -- | The named deployment group does not exist with the applicable IAM user
 -- or AWS account.
-_DeploymentGroupDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeploymentGroupDoesNotExistException = _ServiceError . hasCode "DeploymentGroupDoesNotExistException";
+_DeploymentGroupDoesNotExistException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeploymentGroupDoesNotExistException =
+    _ServiceError . hasCode "DeploymentGroupDoesNotExistException"
 
 -- | At least one deployment ID must be specified.
-_DeploymentIdRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeploymentIdRequiredException = _ServiceError . hasCode "DeploymentIdRequiredException";
+_DeploymentIdRequiredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeploymentIdRequiredException =
+    _ServiceError . hasCode "DeploymentIdRequiredException"
 
 -- | The instance ID was not specified.
-_InstanceIdRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InstanceIdRequiredException = _ServiceError . hasCode "InstanceIdRequiredException";
+_InstanceIdRequiredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InstanceIdRequiredException =
+    _ServiceError . hasCode "InstanceIdRequiredException"
 
 -- | The deployment configuration name was not specified.
-_DeploymentConfigNameRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeploymentConfigNameRequiredException = _ServiceError . hasCode "DeploymentConfigNameRequiredException";
+_DeploymentConfigNameRequiredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeploymentConfigNameRequiredException =
+    _ServiceError . hasCode "DeploymentConfigNameRequiredException"
 
 -- | The deployment configuration name was specified in an invalid format.
-_InvalidDeploymentConfigNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDeploymentConfigNameException = _ServiceError . hasCode "InvalidDeploymentConfigNameException";
+_InvalidDeploymentConfigNameException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDeploymentConfigNameException =
+    _ServiceError . hasCode "InvalidDeploymentConfigNameException"
 
 -- | The sort order was specified in an invalid format.
-_InvalidSortOrderException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSortOrderException = _ServiceError . hasCode "InvalidSortOrderException";
+_InvalidSortOrderException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSortOrderException =
+    _ServiceError . hasCode "InvalidSortOrderException"
 
 -- | The next token was specified in an invalid format.
-_InvalidNextTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNextTokenException = _ServiceError . hasCode "InvalidNextTokenException";
+_InvalidNextTokenException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNextTokenException =
+    _ServiceError . hasCode "InvalidNextTokenException"
 
 -- | The revision was specified in an invalid format.
-_InvalidRevisionException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidRevisionException = _ServiceError . hasCode "InvalidRevisionException";
+_InvalidRevisionException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRevisionException = _ServiceError . hasCode "InvalidRevisionException"
 
 -- | The deployment is already completed.
-_DeploymentAlreadyCompletedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeploymentAlreadyCompletedException = _ServiceError . hasCode "DeploymentAlreadyCompletedException";
+_DeploymentAlreadyCompletedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeploymentAlreadyCompletedException =
+    _ServiceError . hasCode "DeploymentAlreadyCompletedException"
 
 -- | The revision ID was not specified.
-_RevisionRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_RevisionRequiredException = _ServiceError . hasCode "RevisionRequiredException";
+_RevisionRequiredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_RevisionRequiredException =
+    _ServiceError . hasCode "RevisionRequiredException"
 
 -- | The specified instance does not exist in the deployment group.
-_InstanceDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InstanceDoesNotExistException = _ServiceError . hasCode "InstanceDoesNotExistException";
+_InstanceDoesNotExistException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InstanceDoesNotExistException =
+    _ServiceError . hasCode "InstanceDoesNotExistException"
 
 -- | The deployment does not exist with the applicable IAM user or AWS
 -- account.
-_DeploymentDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeploymentDoesNotExistException = _ServiceError . hasCode "DeploymentDoesNotExistException";
+_DeploymentDoesNotExistException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeploymentDoesNotExistException =
+    _ServiceError . hasCode "DeploymentDoesNotExistException"
 
 -- | An on-premises instance name was not specified.
-_InstanceNameRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InstanceNameRequiredException = _ServiceError . hasCode "InstanceNameRequiredException";
+_InstanceNameRequiredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InstanceNameRequiredException =
+    _ServiceError . hasCode "InstanceNameRequiredException"
 
 -- | The deployment configuration is still in use.
-_DeploymentConfigInUseException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeploymentConfigInUseException = _ServiceError . hasCode "DeploymentConfigInUseException";
+_DeploymentConfigInUseException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DeploymentConfigInUseException =
+    _ServiceError . hasCode "DeploymentConfigInUseException"
 
 -- | The tag was specified in an invalid format.
-_InvalidEC2TagException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidEC2TagException = _ServiceError . hasCode "InvalidEC2TagException";
+_InvalidEC2TagException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidEC2TagException = _ServiceError . hasCode "InvalidEC2TagException"
 
 -- | The specified on-premises instance name was specified in an invalid
 -- format.
-_InvalidInstanceNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidInstanceNameException = _ServiceError . hasCode "InvalidInstanceNameException";
+_InvalidInstanceNameException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidInstanceNameException =
+    _ServiceError . hasCode "InvalidInstanceNameException"
 
 -- | The specified deployment status doesn\'t exist or cannot be determined.
-_InvalidDeploymentStatusException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDeploymentStatusException = _ServiceError . hasCode "InvalidDeploymentStatusException";
+_InvalidDeploymentStatusException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDeploymentStatusException =
+    _ServiceError . hasCode "InvalidDeploymentStatusException"
 
 -- | The registration status was specified in an invalid format.
-_InvalidRegistrationStatusException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidRegistrationStatusException = _ServiceError . hasCode "InvalidRegistrationStatusException";
+_InvalidRegistrationStatusException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRegistrationStatusException =
+    _ServiceError . hasCode "InvalidRegistrationStatusException"
 
 -- | The maximum allowed number of tags was exceeded.
-_TagLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TagLimitExceededException = _ServiceError . hasCode "TagLimitExceededException";
+_TagLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TagLimitExceededException =
+    _ServiceError . hasCode "TagLimitExceededException"
 
 -- | The specified on-premises instance is not registered.
-_InstanceNotRegisteredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InstanceNotRegisteredException = _ServiceError . hasCode "InstanceNotRegisteredException";
+_InstanceNotRegisteredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InstanceNotRegisteredException =
+    _ServiceError . hasCode "InstanceNotRegisteredException"
 
 -- | More applications were attempted to be created than were allowed.
-_ApplicationLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ApplicationLimitExceededException = _ServiceError . hasCode "ApplicationLimitExceededException";
+_ApplicationLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ApplicationLimitExceededException =
+    _ServiceError . hasCode "ApplicationLimitExceededException"
 
 -- | An invalid operation was detected.
-_InvalidOperationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidOperationException = _ServiceError . hasCode "InvalidOperationException";
+_InvalidOperationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidOperationException =
+    _ServiceError . hasCode "InvalidOperationException"
 
 -- | An application with the specified name already exists with the
 -- applicable IAM user or AWS account.
-_ApplicationAlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ApplicationAlreadyExistsException = _ServiceError . hasCode "ApplicationAlreadyExistsException";
+_ApplicationAlreadyExistsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ApplicationAlreadyExistsException =
+    _ServiceError . hasCode "ApplicationAlreadyExistsException"
 
 -- | The specified instance status does not exist.
-_InvalidInstanceStatusException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidInstanceStatusException = _ServiceError . hasCode "InvalidInstanceStatusException";
+_InvalidInstanceStatusException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidInstanceStatusException =
+    _ServiceError . hasCode "InvalidInstanceStatusException"
 
 -- | The minimum number of required application names was not specified.
-_ApplicationNameRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ApplicationNameRequiredException = _ServiceError . hasCode "ApplicationNameRequiredException";
+_ApplicationNameRequiredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ApplicationNameRequiredException =
+    _ServiceError . hasCode "ApplicationNameRequiredException"
 
 -- | The specified key prefix filter was specified in an invalid format.
-_InvalidKeyPrefixFilterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidKeyPrefixFilterException = _ServiceError . hasCode "InvalidKeyPrefixFilterException";
+_InvalidKeyPrefixFilterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidKeyPrefixFilterException =
+    _ServiceError . hasCode "InvalidKeyPrefixFilterException"
 
-data ApplicationRevisionSortBy = RegisterTime | FirstUsedTime | LastUsedTime deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ApplicationRevisionSortBy
+    = RegisterTime
+    | FirstUsedTime
+    | LastUsedTime
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ApplicationRevisionSortBy where
     parser = takeLowerText >>= \case
@@ -597,7 +653,11 @@ instance ToHeader ApplicationRevisionSortBy
 instance ToJSON ApplicationRevisionSortBy where
     toJSON = toJSONText
 
-data BundleType = Zip | TGZ | TAR deriving (Eq, Ord, Read, Show, Enum, Generic)
+data BundleType
+    = Zip
+    | TGZ
+    | TAR
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText BundleType where
     parser = takeLowerText >>= \case
@@ -622,7 +682,21 @@ instance ToJSON BundleType where
 instance FromJSON BundleType where
     parseJSON = parseJSONText "BundleType"
 
-data DeployErrorCode = Throttled | HealthConstraints | OverMaxInstances | HealthConstraintsInvalid | NOInstances | ApplicationMissing | RevisionMissing | InternalError | DeploymentGroupMissing | IAMRoleMissing | Timeout | NOEC2Subscription | IAMRolePermissions deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DeployErrorCode
+    = Throttled
+    | HealthConstraints
+    | OverMaxInstances
+    | HealthConstraintsInvalid
+    | NOInstances
+    | ApplicationMissing
+    | RevisionMissing
+    | InternalError
+    | DeploymentGroupMissing
+    | IAMRoleMissing
+    | Timeout
+    | NOEC2Subscription
+    | IAMRolePermissions
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DeployErrorCode where
     parser = takeLowerText >>= \case
@@ -664,7 +738,10 @@ instance ToHeader DeployErrorCode
 instance FromJSON DeployErrorCode where
     parseJSON = parseJSONText "DeployErrorCode"
 
-data DeploymentCreator = Autoscaling | User deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DeploymentCreator
+    = Autoscaling
+    | User
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DeploymentCreator where
     parser = takeLowerText >>= \case
@@ -684,7 +761,14 @@ instance ToHeader DeploymentCreator
 instance FromJSON DeploymentCreator where
     parseJSON = parseJSONText "DeploymentCreator"
 
-data DeploymentStatus = Queued | Created | Stopped | InProgress | Succeeded | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DeploymentStatus
+    = Queued
+    | Created
+    | Stopped
+    | InProgress
+    | Succeeded
+    | Failed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DeploymentStatus where
     parser = takeLowerText >>= \case
@@ -715,7 +799,11 @@ instance ToJSON DeploymentStatus where
 instance FromJSON DeploymentStatus where
     parseJSON = parseJSONText "DeploymentStatus"
 
-data EC2TagFilterType = KeyAndValue | ValueOnly | KeyOnly deriving (Eq, Ord, Read, Show, Enum, Generic)
+data EC2TagFilterType
+    = KeyAndValue
+    | ValueOnly
+    | KeyOnly
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText EC2TagFilterType where
     parser = takeLowerText >>= \case
@@ -740,7 +828,14 @@ instance ToJSON EC2TagFilterType where
 instance FromJSON EC2TagFilterType where
     parseJSON = parseJSONText "EC2TagFilterType"
 
-data InstanceStatus = ISInProgress | ISFailed | ISSucceeded | ISUnknown | ISSkipped | ISPending deriving (Eq, Ord, Read, Show, Enum, Generic)
+data InstanceStatus
+    = ISInProgress
+    | ISFailed
+    | ISSucceeded
+    | ISUnknown
+    | ISSkipped
+    | ISPending
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText InstanceStatus where
     parser = takeLowerText >>= \case
@@ -771,7 +866,14 @@ instance ToJSON InstanceStatus where
 instance FromJSON InstanceStatus where
     parseJSON = parseJSONText "InstanceStatus"
 
-data LifecycleErrorCode = UnknownError | ScriptMissing | Success | ScriptFailed | ScriptNotExecutable | ScriptTimedOut deriving (Eq, Ord, Read, Show, Enum, Generic)
+data LifecycleErrorCode
+    = UnknownError
+    | ScriptMissing
+    | Success
+    | ScriptFailed
+    | ScriptNotExecutable
+    | ScriptTimedOut
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText LifecycleErrorCode where
     parser = takeLowerText >>= \case
@@ -799,7 +901,14 @@ instance ToHeader LifecycleErrorCode
 instance FromJSON LifecycleErrorCode where
     parseJSON = parseJSONText "LifecycleErrorCode"
 
-data LifecycleEventStatus = LESInProgress | LESFailed | LESSucceeded | LESSkipped | LESUnknown | LESPending deriving (Eq, Ord, Read, Show, Enum, Generic)
+data LifecycleEventStatus
+    = LESInProgress
+    | LESFailed
+    | LESSucceeded
+    | LESSkipped
+    | LESUnknown
+    | LESPending
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText LifecycleEventStatus where
     parser = takeLowerText >>= \case
@@ -827,7 +936,11 @@ instance ToHeader LifecycleEventStatus
 instance FromJSON LifecycleEventStatus where
     parseJSON = parseJSONText "LifecycleEventStatus"
 
-data ListStateFilterAction = Include | Ignore | Exclude deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ListStateFilterAction
+    = Include
+    | Ignore
+    | Exclude
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ListStateFilterAction where
     parser = takeLowerText >>= \case
@@ -849,7 +962,10 @@ instance ToHeader ListStateFilterAction
 instance ToJSON ListStateFilterAction where
     toJSON = toJSONText
 
-data MinimumHealthyHostsType = FleetPercent | HostCount deriving (Eq, Ord, Read, Show, Enum, Generic)
+data MinimumHealthyHostsType
+    = FleetPercent
+    | HostCount
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText MinimumHealthyHostsType where
     parser = takeLowerText >>= \case
@@ -872,7 +988,10 @@ instance ToJSON MinimumHealthyHostsType where
 instance FromJSON MinimumHealthyHostsType where
     parseJSON = parseJSONText "MinimumHealthyHostsType"
 
-data RegistrationStatus = Registered | Deregistered deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RegistrationStatus
+    = Registered
+    | Deregistered
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText RegistrationStatus where
     parser = takeLowerText >>= \case
@@ -892,7 +1011,10 @@ instance ToHeader RegistrationStatus
 instance ToJSON RegistrationStatus where
     toJSON = toJSONText
 
-data RevisionLocationType = GitHub | S3 deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RevisionLocationType
+    = GitHub
+    | S3
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText RevisionLocationType where
     parser = takeLowerText >>= \case
@@ -915,7 +1037,10 @@ instance ToJSON RevisionLocationType where
 instance FromJSON RevisionLocationType where
     parseJSON = parseJSONText "RevisionLocationType"
 
-data SortOrder = Ascending | Descending deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SortOrder
+    = Ascending
+    | Descending
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SortOrder where
     parser = takeLowerText >>= \case
@@ -935,7 +1060,10 @@ instance ToHeader SortOrder
 instance ToJSON SortOrder where
     toJSON = toJSONText
 
-data StopStatus = SSSucceeded | SSPending deriving (Eq, Ord, Read, Show, Enum, Generic)
+data StopStatus
+    = SSSucceeded
+    | SSPending
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText StopStatus where
     parser = takeLowerText >>= \case
@@ -955,7 +1083,11 @@ instance ToHeader StopStatus
 instance FromJSON StopStatus where
     parseJSON = parseJSONText "StopStatus"
 
-data TagFilterType = TFTKeyAndValue | TFTValueOnly | TFTKeyOnly deriving (Eq, Ord, Read, Show, Enum, Generic)
+data TagFilterType
+    = TFTKeyAndValue
+    | TFTValueOnly
+    | TFTKeyOnly
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText TagFilterType where
     parser = takeLowerText >>= \case
@@ -993,11 +1125,22 @@ instance FromJSON TagFilterType where
 -- * 'aiApplicationName'
 --
 -- * 'aiCreateTime'
-data ApplicationInfo = ApplicationInfo'{_aiLinkedToGitHub :: Maybe Bool, _aiApplicationId :: Maybe Text, _aiApplicationName :: Maybe Text, _aiCreateTime :: Maybe POSIX} deriving (Eq, Read, Show)
+data ApplicationInfo = ApplicationInfo'
+    { _aiLinkedToGitHub  :: Maybe Bool
+    , _aiApplicationId   :: Maybe Text
+    , _aiApplicationName :: Maybe Text
+    , _aiCreateTime      :: Maybe POSIX
+    } deriving (Eq,Read,Show)
 
 -- | 'ApplicationInfo' smart constructor.
 applicationInfo :: ApplicationInfo
-applicationInfo = ApplicationInfo'{_aiLinkedToGitHub = Nothing, _aiApplicationId = Nothing, _aiApplicationName = Nothing, _aiCreateTime = Nothing};
+applicationInfo =
+    ApplicationInfo'
+    { _aiLinkedToGitHub = Nothing
+    , _aiApplicationId = Nothing
+    , _aiApplicationName = Nothing
+    , _aiCreateTime = Nothing
+    }
 
 -- | True if the user has authenticated with GitHub for the specified
 -- application; otherwise, false.
@@ -1034,11 +1177,18 @@ instance FromJSON ApplicationInfo where
 -- * 'asgHook'
 --
 -- * 'asgName'
-data AutoScalingGroup = AutoScalingGroup'{_asgHook :: Maybe Text, _asgName :: Maybe Text} deriving (Eq, Read, Show)
+data AutoScalingGroup = AutoScalingGroup'
+    { _asgHook :: Maybe Text
+    , _asgName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AutoScalingGroup' smart constructor.
 autoScalingGroup :: AutoScalingGroup
-autoScalingGroup = AutoScalingGroup'{_asgHook = Nothing, _asgName = Nothing};
+autoScalingGroup =
+    AutoScalingGroup'
+    { _asgHook = Nothing
+    , _asgName = Nothing
+    }
 
 -- | An Auto Scaling lifecycle event hook name.
 asgHook :: Lens' AutoScalingGroup (Maybe Text)
@@ -1068,11 +1218,22 @@ instance FromJSON AutoScalingGroup where
 -- * 'dciDeploymentConfigId'
 --
 -- * 'dciCreateTime'
-data DeploymentConfigInfo = DeploymentConfigInfo'{_dciDeploymentConfigName :: Maybe Text, _dciMinimumHealthyHosts :: Maybe MinimumHealthyHosts, _dciDeploymentConfigId :: Maybe Text, _dciCreateTime :: Maybe POSIX} deriving (Eq, Read, Show)
+data DeploymentConfigInfo = DeploymentConfigInfo'
+    { _dciDeploymentConfigName :: Maybe Text
+    , _dciMinimumHealthyHosts  :: Maybe MinimumHealthyHosts
+    , _dciDeploymentConfigId   :: Maybe Text
+    , _dciCreateTime           :: Maybe POSIX
+    } deriving (Eq,Read,Show)
 
 -- | 'DeploymentConfigInfo' smart constructor.
 deploymentConfigInfo :: DeploymentConfigInfo
-deploymentConfigInfo = DeploymentConfigInfo'{_dciDeploymentConfigName = Nothing, _dciMinimumHealthyHosts = Nothing, _dciDeploymentConfigId = Nothing, _dciCreateTime = Nothing};
+deploymentConfigInfo =
+    DeploymentConfigInfo'
+    { _dciDeploymentConfigName = Nothing
+    , _dciMinimumHealthyHosts = Nothing
+    , _dciDeploymentConfigId = Nothing
+    , _dciCreateTime = Nothing
+    }
 
 -- | The deployment configuration name.
 dciDeploymentConfigName :: Lens' DeploymentConfigInfo (Maybe Text)
@@ -1123,11 +1284,32 @@ instance FromJSON DeploymentConfigInfo where
 -- * 'dgiAutoScalingGroups'
 --
 -- * 'dgiDeploymentGroupName'
-data DeploymentGroupInfo = DeploymentGroupInfo'{_dgiServiceRoleARN :: Maybe Text, _dgiDeploymentConfigName :: Maybe Text, _dgiTargetRevision :: Maybe RevisionLocation, _dgiEc2TagFilters :: Maybe [EC2TagFilter], _dgiOnPremisesInstanceTagFilters :: Maybe [TagFilter], _dgiApplicationName :: Maybe Text, _dgiDeploymentGroupId :: Maybe Text, _dgiAutoScalingGroups :: Maybe [AutoScalingGroup], _dgiDeploymentGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data DeploymentGroupInfo = DeploymentGroupInfo'
+    { _dgiServiceRoleARN               :: Maybe Text
+    , _dgiDeploymentConfigName         :: Maybe Text
+    , _dgiTargetRevision               :: Maybe RevisionLocation
+    , _dgiEc2TagFilters                :: Maybe [EC2TagFilter]
+    , _dgiOnPremisesInstanceTagFilters :: Maybe [TagFilter]
+    , _dgiApplicationName              :: Maybe Text
+    , _dgiDeploymentGroupId            :: Maybe Text
+    , _dgiAutoScalingGroups            :: Maybe [AutoScalingGroup]
+    , _dgiDeploymentGroupName          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeploymentGroupInfo' smart constructor.
 deploymentGroupInfo :: DeploymentGroupInfo
-deploymentGroupInfo = DeploymentGroupInfo'{_dgiServiceRoleARN = Nothing, _dgiDeploymentConfigName = Nothing, _dgiTargetRevision = Nothing, _dgiEc2TagFilters = Nothing, _dgiOnPremisesInstanceTagFilters = Nothing, _dgiApplicationName = Nothing, _dgiDeploymentGroupId = Nothing, _dgiAutoScalingGroups = Nothing, _dgiDeploymentGroupName = Nothing};
+deploymentGroupInfo =
+    DeploymentGroupInfo'
+    { _dgiServiceRoleARN = Nothing
+    , _dgiDeploymentConfigName = Nothing
+    , _dgiTargetRevision = Nothing
+    , _dgiEc2TagFilters = Nothing
+    , _dgiOnPremisesInstanceTagFilters = Nothing
+    , _dgiApplicationName = Nothing
+    , _dgiDeploymentGroupId = Nothing
+    , _dgiAutoScalingGroups = Nothing
+    , _dgiDeploymentGroupName = Nothing
+    }
 
 -- | A service role ARN.
 dgiServiceRoleARN :: Lens' DeploymentGroupInfo (Maybe Text)
@@ -1214,11 +1396,42 @@ instance FromJSON DeploymentGroupInfo where
 -- * 'diDeploymentGroupName'
 --
 -- * 'diCreateTime'
-data DeploymentInfo = DeploymentInfo'{_diDeploymentId :: Maybe Text, _diCreator :: Maybe DeploymentCreator, _diStatus :: Maybe DeploymentStatus, _diDeploymentConfigName :: Maybe Text, _diStartTime :: Maybe POSIX, _diCompleteTime :: Maybe POSIX, _diErrorInformation :: Maybe ErrorInformation, _diDeploymentOverview :: Maybe DeploymentOverview, _diApplicationName :: Maybe Text, _diRevision :: Maybe RevisionLocation, _diDescription :: Maybe Text, _diIgnoreApplicationStopFailures :: Maybe Bool, _diDeploymentGroupName :: Maybe Text, _diCreateTime :: Maybe POSIX} deriving (Eq, Read, Show)
+data DeploymentInfo = DeploymentInfo'
+    { _diDeploymentId                  :: Maybe Text
+    , _diCreator                       :: Maybe DeploymentCreator
+    , _diStatus                        :: Maybe DeploymentStatus
+    , _diDeploymentConfigName          :: Maybe Text
+    , _diStartTime                     :: Maybe POSIX
+    , _diCompleteTime                  :: Maybe POSIX
+    , _diErrorInformation              :: Maybe ErrorInformation
+    , _diDeploymentOverview            :: Maybe DeploymentOverview
+    , _diApplicationName               :: Maybe Text
+    , _diRevision                      :: Maybe RevisionLocation
+    , _diDescription                   :: Maybe Text
+    , _diIgnoreApplicationStopFailures :: Maybe Bool
+    , _diDeploymentGroupName           :: Maybe Text
+    , _diCreateTime                    :: Maybe POSIX
+    } deriving (Eq,Read,Show)
 
 -- | 'DeploymentInfo' smart constructor.
 deploymentInfo :: DeploymentInfo
-deploymentInfo = DeploymentInfo'{_diDeploymentId = Nothing, _diCreator = Nothing, _diStatus = Nothing, _diDeploymentConfigName = Nothing, _diStartTime = Nothing, _diCompleteTime = Nothing, _diErrorInformation = Nothing, _diDeploymentOverview = Nothing, _diApplicationName = Nothing, _diRevision = Nothing, _diDescription = Nothing, _diIgnoreApplicationStopFailures = Nothing, _diDeploymentGroupName = Nothing, _diCreateTime = Nothing};
+deploymentInfo =
+    DeploymentInfo'
+    { _diDeploymentId = Nothing
+    , _diCreator = Nothing
+    , _diStatus = Nothing
+    , _diDeploymentConfigName = Nothing
+    , _diStartTime = Nothing
+    , _diCompleteTime = Nothing
+    , _diErrorInformation = Nothing
+    , _diDeploymentOverview = Nothing
+    , _diApplicationName = Nothing
+    , _diRevision = Nothing
+    , _diDescription = Nothing
+    , _diIgnoreApplicationStopFailures = Nothing
+    , _diDeploymentGroupName = Nothing
+    , _diCreateTime = Nothing
+    }
 
 -- | The deployment ID.
 diDeploymentId :: Lens' DeploymentInfo (Maybe Text)
@@ -1329,11 +1542,24 @@ instance FromJSON DeploymentInfo where
 -- * 'doSucceeded'
 --
 -- * 'doFailed'
-data DeploymentOverview = DeploymentOverview'{_doPending :: Maybe Integer, _doSkipped :: Maybe Integer, _doInProgress :: Maybe Integer, _doSucceeded :: Maybe Integer, _doFailed :: Maybe Integer} deriving (Eq, Read, Show)
+data DeploymentOverview = DeploymentOverview'
+    { _doPending    :: Maybe Integer
+    , _doSkipped    :: Maybe Integer
+    , _doInProgress :: Maybe Integer
+    , _doSucceeded  :: Maybe Integer
+    , _doFailed     :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'DeploymentOverview' smart constructor.
 deploymentOverview :: DeploymentOverview
-deploymentOverview = DeploymentOverview'{_doPending = Nothing, _doSkipped = Nothing, _doInProgress = Nothing, _doSucceeded = Nothing, _doFailed = Nothing};
+deploymentOverview =
+    DeploymentOverview'
+    { _doPending = Nothing
+    , _doSkipped = Nothing
+    , _doInProgress = Nothing
+    , _doSucceeded = Nothing
+    , _doFailed = Nothing
+    }
 
 -- | The number of instances that are pending in the deployment.
 doPending :: Lens' DeploymentOverview (Maybe Integer)
@@ -1379,11 +1605,22 @@ instance FromJSON DeploymentOverview where
 -- * 'diaScriptName'
 --
 -- * 'diaMessage'
-data Diagnostics = Diagnostics'{_diaLogTail :: Maybe Text, _diaErrorCode :: Maybe LifecycleErrorCode, _diaScriptName :: Maybe Text, _diaMessage :: Maybe Text} deriving (Eq, Read, Show)
+data Diagnostics = Diagnostics'
+    { _diaLogTail    :: Maybe Text
+    , _diaErrorCode  :: Maybe LifecycleErrorCode
+    , _diaScriptName :: Maybe Text
+    , _diaMessage    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Diagnostics' smart constructor.
 diagnostics :: Diagnostics
-diagnostics = Diagnostics'{_diaLogTail = Nothing, _diaErrorCode = Nothing, _diaScriptName = Nothing, _diaMessage = Nothing};
+diagnostics =
+    Diagnostics'
+    { _diaLogTail = Nothing
+    , _diaErrorCode = Nothing
+    , _diaScriptName = Nothing
+    , _diaMessage = Nothing
+    }
 
 -- | The last portion of the associated diagnostic log.
 diaLogTail :: Lens' Diagnostics (Maybe Text)
@@ -1432,11 +1669,20 @@ instance FromJSON Diagnostics where
 -- * 'etfKey'
 --
 -- * 'etfType'
-data EC2TagFilter = EC2TagFilter'{_etfValue :: Maybe Text, _etfKey :: Maybe Text, _etfType :: Maybe EC2TagFilterType} deriving (Eq, Read, Show)
+data EC2TagFilter = EC2TagFilter'
+    { _etfValue :: Maybe Text
+    , _etfKey   :: Maybe Text
+    , _etfType  :: Maybe EC2TagFilterType
+    } deriving (Eq,Read,Show)
 
 -- | 'EC2TagFilter' smart constructor.
 ec2TagFilter :: EC2TagFilter
-ec2TagFilter = EC2TagFilter'{_etfValue = Nothing, _etfKey = Nothing, _etfType = Nothing};
+ec2TagFilter =
+    EC2TagFilter'
+    { _etfValue = Nothing
+    , _etfKey = Nothing
+    , _etfType = Nothing
+    }
 
 -- | The tag filter value.
 etfValue :: Lens' EC2TagFilter (Maybe Text)
@@ -1476,11 +1722,18 @@ instance ToJSON EC2TagFilter where
 -- * 'eiCode'
 --
 -- * 'eiMessage'
-data ErrorInformation = ErrorInformation'{_eiCode :: Maybe DeployErrorCode, _eiMessage :: Maybe Text} deriving (Eq, Read, Show)
+data ErrorInformation = ErrorInformation'
+    { _eiCode    :: Maybe DeployErrorCode
+    , _eiMessage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ErrorInformation' smart constructor.
 errorInformation :: ErrorInformation
-errorInformation = ErrorInformation'{_eiCode = Nothing, _eiMessage = Nothing};
+errorInformation =
+    ErrorInformation'
+    { _eiCode = Nothing
+    , _eiMessage = Nothing
+    }
 
 -- | The error code:
 --
@@ -1540,11 +1793,24 @@ instance FromJSON ErrorInformation where
 -- * 'griLastUsedTime'
 --
 -- * 'griDescription'
-data GenericRevisionInfo = GenericRevisionInfo'{_griRegisterTime :: Maybe POSIX, _griFirstUsedTime :: Maybe POSIX, _griDeploymentGroups :: Maybe [Text], _griLastUsedTime :: Maybe POSIX, _griDescription :: Maybe Text} deriving (Eq, Read, Show)
+data GenericRevisionInfo = GenericRevisionInfo'
+    { _griRegisterTime     :: Maybe POSIX
+    , _griFirstUsedTime    :: Maybe POSIX
+    , _griDeploymentGroups :: Maybe [Text]
+    , _griLastUsedTime     :: Maybe POSIX
+    , _griDescription      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GenericRevisionInfo' smart constructor.
 genericRevisionInfo :: GenericRevisionInfo
-genericRevisionInfo = GenericRevisionInfo'{_griRegisterTime = Nothing, _griFirstUsedTime = Nothing, _griDeploymentGroups = Nothing, _griLastUsedTime = Nothing, _griDescription = Nothing};
+genericRevisionInfo =
+    GenericRevisionInfo'
+    { _griRegisterTime = Nothing
+    , _griFirstUsedTime = Nothing
+    , _griDeploymentGroups = Nothing
+    , _griLastUsedTime = Nothing
+    , _griDescription = Nothing
+    }
 
 -- | When the revision was registered with AWS CodeDeploy.
 griRegisterTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
@@ -1586,11 +1852,18 @@ instance FromJSON GenericRevisionInfo where
 -- * 'ghlCommitId'
 --
 -- * 'ghlRepository'
-data GitHubLocation = GitHubLocation'{_ghlCommitId :: Maybe Text, _ghlRepository :: Maybe Text} deriving (Eq, Read, Show)
+data GitHubLocation = GitHubLocation'
+    { _ghlCommitId   :: Maybe Text
+    , _ghlRepository :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GitHubLocation' smart constructor.
 gitHubLocation :: GitHubLocation
-gitHubLocation = GitHubLocation'{_ghlCommitId = Nothing, _ghlRepository = Nothing};
+gitHubLocation =
+    GitHubLocation'
+    { _ghlCommitId = Nothing
+    , _ghlRepository = Nothing
+    }
 
 -- | The SHA1 commit ID of the GitHub commit that references the that
 -- represents the bundled artifacts for the application revision.
@@ -1635,11 +1908,26 @@ instance ToJSON GitHubLocation where
 -- * 'iiInstanceName'
 --
 -- * 'iiTags'
-data InstanceInfo = InstanceInfo'{_iiInstanceARN :: Maybe Text, _iiRegisterTime :: Maybe POSIX, _iiDeregisterTime :: Maybe POSIX, _iiIamUserARN :: Maybe Text, _iiInstanceName :: Maybe Text, _iiTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data InstanceInfo = InstanceInfo'
+    { _iiInstanceARN    :: Maybe Text
+    , _iiRegisterTime   :: Maybe POSIX
+    , _iiDeregisterTime :: Maybe POSIX
+    , _iiIamUserARN     :: Maybe Text
+    , _iiInstanceName   :: Maybe Text
+    , _iiTags           :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceInfo' smart constructor.
 instanceInfo :: InstanceInfo
-instanceInfo = InstanceInfo'{_iiInstanceARN = Nothing, _iiRegisterTime = Nothing, _iiDeregisterTime = Nothing, _iiIamUserARN = Nothing, _iiInstanceName = Nothing, _iiTags = Nothing};
+instanceInfo =
+    InstanceInfo'
+    { _iiInstanceARN = Nothing
+    , _iiRegisterTime = Nothing
+    , _iiDeregisterTime = Nothing
+    , _iiIamUserARN = Nothing
+    , _iiInstanceName = Nothing
+    , _iiTags = Nothing
+    }
 
 -- | The ARN of the on-premises instance.
 iiInstanceARN :: Lens' InstanceInfo (Maybe Text)
@@ -1692,11 +1980,24 @@ instance FromJSON InstanceInfo where
 -- * 'isLastUpdatedAt'
 --
 -- * 'isLifecycleEvents'
-data InstanceSummary = InstanceSummary'{_isInstanceId :: Maybe Text, _isDeploymentId :: Maybe Text, _isStatus :: Maybe InstanceStatus, _isLastUpdatedAt :: Maybe POSIX, _isLifecycleEvents :: Maybe [LifecycleEvent]} deriving (Eq, Read, Show)
+data InstanceSummary = InstanceSummary'
+    { _isInstanceId      :: Maybe Text
+    , _isDeploymentId    :: Maybe Text
+    , _isStatus          :: Maybe InstanceStatus
+    , _isLastUpdatedAt   :: Maybe POSIX
+    , _isLifecycleEvents :: Maybe [LifecycleEvent]
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceSummary' smart constructor.
 instanceSummary :: InstanceSummary
-instanceSummary = InstanceSummary'{_isInstanceId = Nothing, _isDeploymentId = Nothing, _isStatus = Nothing, _isLastUpdatedAt = Nothing, _isLifecycleEvents = Nothing};
+instanceSummary =
+    InstanceSummary'
+    { _isInstanceId = Nothing
+    , _isDeploymentId = Nothing
+    , _isStatus = Nothing
+    , _isLastUpdatedAt = Nothing
+    , _isLifecycleEvents = Nothing
+    }
 
 -- | The instance ID.
 isInstanceId :: Lens' InstanceSummary (Maybe Text)
@@ -1750,11 +2051,24 @@ instance FromJSON InstanceSummary where
 -- * 'leDiagnostics'
 --
 -- * 'leEndTime'
-data LifecycleEvent = LifecycleEvent'{_leStatus :: Maybe LifecycleEventStatus, _leStartTime :: Maybe POSIX, _leLifecycleEventName :: Maybe Text, _leDiagnostics :: Maybe Diagnostics, _leEndTime :: Maybe POSIX} deriving (Eq, Read, Show)
+data LifecycleEvent = LifecycleEvent'
+    { _leStatus             :: Maybe LifecycleEventStatus
+    , _leStartTime          :: Maybe POSIX
+    , _leLifecycleEventName :: Maybe Text
+    , _leDiagnostics        :: Maybe Diagnostics
+    , _leEndTime            :: Maybe POSIX
+    } deriving (Eq,Read,Show)
 
 -- | 'LifecycleEvent' smart constructor.
 lifecycleEvent :: LifecycleEvent
-lifecycleEvent = LifecycleEvent'{_leStatus = Nothing, _leStartTime = Nothing, _leLifecycleEventName = Nothing, _leDiagnostics = Nothing, _leEndTime = Nothing};
+lifecycleEvent =
+    LifecycleEvent'
+    { _leStatus = Nothing
+    , _leStartTime = Nothing
+    , _leLifecycleEventName = Nothing
+    , _leDiagnostics = Nothing
+    , _leEndTime = Nothing
+    }
 
 -- | The deployment lifecycle event status:
 --
@@ -1803,11 +2117,18 @@ instance FromJSON LifecycleEvent where
 -- * 'mhhValue'
 --
 -- * 'mhhType'
-data MinimumHealthyHosts = MinimumHealthyHosts'{_mhhValue :: Maybe Int, _mhhType :: Maybe MinimumHealthyHostsType} deriving (Eq, Read, Show)
+data MinimumHealthyHosts = MinimumHealthyHosts'
+    { _mhhValue :: Maybe Int
+    , _mhhType  :: Maybe MinimumHealthyHostsType
+    } deriving (Eq,Read,Show)
 
 -- | 'MinimumHealthyHosts' smart constructor.
 minimumHealthyHosts :: MinimumHealthyHosts
-minimumHealthyHosts = MinimumHealthyHosts'{_mhhValue = Nothing, _mhhType = Nothing};
+minimumHealthyHosts =
+    MinimumHealthyHosts'
+    { _mhhValue = Nothing
+    , _mhhType = Nothing
+    }
 
 -- | The minimum healthy instances value.
 mhhValue :: Lens' MinimumHealthyHosts (Maybe Int)
@@ -1857,11 +2178,20 @@ instance ToJSON MinimumHealthyHosts where
 -- * 'rlS3Location'
 --
 -- * 'rlGitHubLocation'
-data RevisionLocation = RevisionLocation'{_rlRevisionType :: Maybe RevisionLocationType, _rlS3Location :: Maybe S3Location, _rlGitHubLocation :: Maybe GitHubLocation} deriving (Eq, Read, Show)
+data RevisionLocation = RevisionLocation'
+    { _rlRevisionType   :: Maybe RevisionLocationType
+    , _rlS3Location     :: Maybe S3Location
+    , _rlGitHubLocation :: Maybe GitHubLocation
+    } deriving (Eq,Read,Show)
 
 -- | 'RevisionLocation' smart constructor.
 revisionLocation :: RevisionLocation
-revisionLocation = RevisionLocation'{_rlRevisionType = Nothing, _rlS3Location = Nothing, _rlGitHubLocation = Nothing};
+revisionLocation =
+    RevisionLocation'
+    { _rlRevisionType = Nothing
+    , _rlS3Location = Nothing
+    , _rlGitHubLocation = Nothing
+    }
 
 -- | The application revision\'s type:
 --
@@ -1909,11 +2239,24 @@ instance ToJSON RevisionLocation where
 -- * 'slKey'
 --
 -- * 'slVersion'
-data S3Location = S3Location'{_slBundleType :: Maybe BundleType, _slETag :: Maybe Text, _slBucket :: Maybe Text, _slKey :: Maybe Text, _slVersion :: Maybe Text} deriving (Eq, Read, Show)
+data S3Location = S3Location'
+    { _slBundleType :: Maybe BundleType
+    , _slETag       :: Maybe Text
+    , _slBucket     :: Maybe Text
+    , _slKey        :: Maybe Text
+    , _slVersion    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'S3Location' smart constructor.
 s3Location :: S3Location
-s3Location = S3Location'{_slBundleType = Nothing, _slETag = Nothing, _slBucket = Nothing, _slKey = Nothing, _slVersion = Nothing};
+s3Location =
+    S3Location'
+    { _slBundleType = Nothing
+    , _slETag = Nothing
+    , _slBucket = Nothing
+    , _slKey = Nothing
+    , _slVersion = Nothing
+    }
 
 -- | The file type of the application revision. Must be one of the following:
 --
@@ -1975,11 +2318,18 @@ instance ToJSON S3Location where
 -- * 'tagValue'
 --
 -- * 'tagKey'
-data Tag = Tag'{_tagValue :: Maybe Text, _tagKey :: Maybe Text} deriving (Eq, Read, Show)
+data Tag = Tag'
+    { _tagValue :: Maybe Text
+    , _tagKey   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
-tag = Tag'{_tagValue = Nothing, _tagKey = Nothing};
+tag =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = Nothing
+    }
 
 -- | The tag\'s value.
 tagValue :: Lens' Tag (Maybe Text)
@@ -2009,11 +2359,20 @@ instance ToJSON Tag where
 -- * 'tfKey'
 --
 -- * 'tfType'
-data TagFilter = TagFilter'{_tfValue :: Maybe Text, _tfKey :: Maybe Text, _tfType :: Maybe TagFilterType} deriving (Eq, Read, Show)
+data TagFilter = TagFilter'
+    { _tfValue :: Maybe Text
+    , _tfKey   :: Maybe Text
+    , _tfType  :: Maybe TagFilterType
+    } deriving (Eq,Read,Show)
 
 -- | 'TagFilter' smart constructor.
 tagFilter :: TagFilter
-tagFilter = TagFilter'{_tfValue = Nothing, _tfKey = Nothing, _tfType = Nothing};
+tagFilter =
+    TagFilter'
+    { _tfValue = Nothing
+    , _tfKey = Nothing
+    , _tfType = Nothing
+    }
 
 -- | The on-premises instance tag filter value.
 tfValue :: Lens' TagFilter (Maybe Text)
@@ -2053,11 +2412,18 @@ instance ToJSON TagFilter where
 -- * 'trStart'
 --
 -- * 'trEnd'
-data TimeRange = TimeRange'{_trStart :: Maybe POSIX, _trEnd :: Maybe POSIX} deriving (Eq, Read, Show)
+data TimeRange = TimeRange'
+    { _trStart :: Maybe POSIX
+    , _trEnd   :: Maybe POSIX
+    } deriving (Eq,Read,Show)
 
 -- | 'TimeRange' smart constructor.
 timeRange :: TimeRange
-timeRange = TimeRange'{_trStart = Nothing, _trEnd = Nothing};
+timeRange =
+    TimeRange'
+    { _trStart = Nothing
+    , _trEnd = Nothing
+    }
 
 -- | The time range\'s start time.
 --

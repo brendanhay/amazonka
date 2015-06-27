@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.AddRoleToInstanceProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,10 +37,10 @@ module Network.AWS.IAM.AddRoleToInstanceProfile
     , addRoleToInstanceProfileResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'addRoleToInstanceProfile' smart constructor.
 --
@@ -49,11 +49,18 @@ import Network.AWS.Response
 -- * 'artipInstanceProfileName'
 --
 -- * 'artipRoleName'
-data AddRoleToInstanceProfile = AddRoleToInstanceProfile'{_artipInstanceProfileName :: Text, _artipRoleName :: Text} deriving (Eq, Read, Show)
+data AddRoleToInstanceProfile = AddRoleToInstanceProfile'
+    { _artipInstanceProfileName :: Text
+    , _artipRoleName            :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AddRoleToInstanceProfile' smart constructor.
 addRoleToInstanceProfile :: Text -> Text -> AddRoleToInstanceProfile
-addRoleToInstanceProfile pInstanceProfileName pRoleName = AddRoleToInstanceProfile'{_artipInstanceProfileName = pInstanceProfileName, _artipRoleName = pRoleName};
+addRoleToInstanceProfile pInstanceProfileName pRoleName =
+    AddRoleToInstanceProfile'
+    { _artipInstanceProfileName = pInstanceProfileName
+    , _artipRoleName = pRoleName
+    }
 
 -- | The name of the instance profile to update.
 artipInstanceProfileName :: Lens' AddRoleToInstanceProfile Text
@@ -87,8 +94,10 @@ instance ToQuery AddRoleToInstanceProfile where
                "RoleName" =: _artipRoleName]
 
 -- | /See:/ 'addRoleToInstanceProfileResponse' smart constructor.
-data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse' deriving (Eq, Read, Show)
+data AddRoleToInstanceProfileResponse =
+    AddRoleToInstanceProfileResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AddRoleToInstanceProfileResponse' smart constructor.
 addRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse
-addRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse';
+addRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse'

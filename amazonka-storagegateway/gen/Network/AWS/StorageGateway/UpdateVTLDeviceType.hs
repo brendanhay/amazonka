@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateVTLDeviceType
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.StorageGateway.UpdateVTLDeviceType
     , updateVTLDeviceTypeResponse
     -- ** Response lenses
     , uvtldtrVTLDeviceARN
-    , uvtldtrStatusCode
+    , uvtldtrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | UpdateVTLDeviceTypeInput
 --
@@ -53,11 +53,18 @@ import Network.AWS.StorageGateway.Types
 -- * 'uvtldtVTLDeviceARN'
 --
 -- * 'uvtldtDeviceType'
-data UpdateVTLDeviceType = UpdateVTLDeviceType'{_uvtldtVTLDeviceARN :: Text, _uvtldtDeviceType :: Text} deriving (Eq, Read, Show)
+data UpdateVTLDeviceType = UpdateVTLDeviceType'
+    { _uvtldtVTLDeviceARN :: Text
+    , _uvtldtDeviceType   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateVTLDeviceType' smart constructor.
 updateVTLDeviceType :: Text -> Text -> UpdateVTLDeviceType
-updateVTLDeviceType pVTLDeviceARN pDeviceType = UpdateVTLDeviceType'{_uvtldtVTLDeviceARN = pVTLDeviceARN, _uvtldtDeviceType = pDeviceType};
+updateVTLDeviceType pVTLDeviceARN pDeviceType =
+    UpdateVTLDeviceType'
+    { _uvtldtVTLDeviceARN = pVTLDeviceARN
+    , _uvtldtDeviceType = pDeviceType
+    }
 
 -- | The Amazon Resource Name (ARN) of the medium changer you want to select.
 uvtldtVTLDeviceARN :: Lens' UpdateVTLDeviceType Text
@@ -110,17 +117,24 @@ instance ToQuery UpdateVTLDeviceType where
 --
 -- * 'uvtldtrVTLDeviceARN'
 --
--- * 'uvtldtrStatusCode'
-data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'{_uvtldtrVTLDeviceARN :: Maybe Text, _uvtldtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'uvtldtrStatus'
+data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
+    { _uvtldtrVTLDeviceARN :: Maybe Text
+    , _uvtldtrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateVTLDeviceTypeResponse' smart constructor.
 updateVTLDeviceTypeResponse :: Int -> UpdateVTLDeviceTypeResponse
-updateVTLDeviceTypeResponse pStatusCode = UpdateVTLDeviceTypeResponse'{_uvtldtrVTLDeviceARN = Nothing, _uvtldtrStatusCode = pStatusCode};
+updateVTLDeviceTypeResponse pStatus =
+    UpdateVTLDeviceTypeResponse'
+    { _uvtldtrVTLDeviceARN = Nothing
+    , _uvtldtrStatus = pStatus
+    }
 
 -- | The Amazon Resource Name (ARN) of the medium changer you have selected.
 uvtldtrVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse (Maybe Text)
 uvtldtrVTLDeviceARN = lens _uvtldtrVTLDeviceARN (\ s a -> s{_uvtldtrVTLDeviceARN = a});
 
 -- | FIXME: Undocumented member.
-uvtldtrStatusCode :: Lens' UpdateVTLDeviceTypeResponse Int
-uvtldtrStatusCode = lens _uvtldtrStatusCode (\ s a -> s{_uvtldtrStatusCode = a});
+uvtldtrStatus :: Lens' UpdateVTLDeviceTypeResponse Int
+uvtldtrStatus = lens _uvtldtrStatus (\ s a -> s{_uvtldtrStatus = a});

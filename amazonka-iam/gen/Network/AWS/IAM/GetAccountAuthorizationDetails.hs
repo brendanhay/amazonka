@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetAccountAuthorizationDetails
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.IAM.GetAccountAuthorizationDetails
     , gaadrMarker
     , gaadrIsTruncated
     , gaadrPolicies
-    , gaadrStatusCode
+    , gaadrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getAccountAuthorizationDetails' smart constructor.
 --
@@ -62,11 +62,20 @@ import Network.AWS.Response
 -- * 'gaadMarker'
 --
 -- * 'gaadFilter'
-data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'{_gaadMaxItems :: Maybe Nat, _gaadMarker :: Maybe Text, _gaadFilter :: Maybe [EntityType]} deriving (Eq, Read, Show)
+data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
+    { _gaadMaxItems :: Maybe Nat
+    , _gaadMarker   :: Maybe Text
+    , _gaadFilter   :: Maybe [EntityType]
+    } deriving (Eq,Read,Show)
 
 -- | 'GetAccountAuthorizationDetails' smart constructor.
 getAccountAuthorizationDetails :: GetAccountAuthorizationDetails
-getAccountAuthorizationDetails = GetAccountAuthorizationDetails'{_gaadMaxItems = Nothing, _gaadMarker = Nothing, _gaadFilter = Nothing};
+getAccountAuthorizationDetails =
+    GetAccountAuthorizationDetails'
+    { _gaadMaxItems = Nothing
+    , _gaadMarker = Nothing
+    , _gaadFilter = Nothing
+    }
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -149,12 +158,29 @@ instance ToQuery GetAccountAuthorizationDetails where
 --
 -- * 'gaadrPolicies'
 --
--- * 'gaadrStatusCode'
-data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'{_gaadrRoleDetailList :: Maybe [RoleDetail], _gaadrGroupDetailList :: Maybe [GroupDetail], _gaadrUserDetailList :: Maybe [UserDetail], _gaadrMarker :: Maybe Text, _gaadrIsTruncated :: Maybe Bool, _gaadrPolicies :: Maybe [ManagedPolicyDetail], _gaadrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gaadrStatus'
+data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'
+    { _gaadrRoleDetailList  :: Maybe [RoleDetail]
+    , _gaadrGroupDetailList :: Maybe [GroupDetail]
+    , _gaadrUserDetailList  :: Maybe [UserDetail]
+    , _gaadrMarker          :: Maybe Text
+    , _gaadrIsTruncated     :: Maybe Bool
+    , _gaadrPolicies        :: Maybe [ManagedPolicyDetail]
+    , _gaadrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetAccountAuthorizationDetailsResponse' smart constructor.
 getAccountAuthorizationDetailsResponse :: Int -> GetAccountAuthorizationDetailsResponse
-getAccountAuthorizationDetailsResponse pStatusCode = GetAccountAuthorizationDetailsResponse'{_gaadrRoleDetailList = Nothing, _gaadrGroupDetailList = Nothing, _gaadrUserDetailList = Nothing, _gaadrMarker = Nothing, _gaadrIsTruncated = Nothing, _gaadrPolicies = Nothing, _gaadrStatusCode = pStatusCode};
+getAccountAuthorizationDetailsResponse pStatus =
+    GetAccountAuthorizationDetailsResponse'
+    { _gaadrRoleDetailList = Nothing
+    , _gaadrGroupDetailList = Nothing
+    , _gaadrUserDetailList = Nothing
+    , _gaadrMarker = Nothing
+    , _gaadrIsTruncated = Nothing
+    , _gaadrPolicies = Nothing
+    , _gaadrStatus = pStatus
+    }
 
 -- | A list containing information about IAM roles.
 gaadrRoleDetailList :: Lens' GetAccountAuthorizationDetailsResponse [RoleDetail]
@@ -185,5 +211,5 @@ gaadrPolicies :: Lens' GetAccountAuthorizationDetailsResponse [ManagedPolicyDeta
 gaadrPolicies = lens _gaadrPolicies (\ s a -> s{_gaadrPolicies = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gaadrStatusCode :: Lens' GetAccountAuthorizationDetailsResponse Int
-gaadrStatusCode = lens _gaadrStatusCode (\ s a -> s{_gaadrStatusCode = a});
+gaadrStatus :: Lens' GetAccountAuthorizationDetailsResponse Int
+gaadrStatus = lens _gaadrStatus (\ s a -> s{_gaadrStatus = a});

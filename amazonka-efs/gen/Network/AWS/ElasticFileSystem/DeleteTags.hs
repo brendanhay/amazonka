@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticFileSystem.DeleteTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,10 +41,10 @@ module Network.AWS.ElasticFileSystem.DeleteTags
     , deleteTagsResponse
     ) where
 
-import Network.AWS.ElasticFileSystem.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticFileSystem.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteTags' smart constructor.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'delFileSystemId'
 --
 -- * 'delTagKeys'
-data DeleteTags = DeleteTags'{_delFileSystemId :: Text, _delTagKeys :: [Text]} deriving (Eq, Read, Show)
+data DeleteTags = DeleteTags'
+    { _delFileSystemId :: Text
+    , _delTagKeys      :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: Text -> DeleteTags
-deleteTags pFileSystemId = DeleteTags'{_delFileSystemId = pFileSystemId, _delTagKeys = mempty};
+deleteTags pFileSystemId =
+    DeleteTags'
+    { _delFileSystemId = pFileSystemId
+    , _delTagKeys = mempty
+    }
 
 -- | String. The ID of the file system whose tags you want to delete.
 delFileSystemId :: Lens' DeleteTags Text
@@ -89,8 +96,10 @@ instance ToQuery DeleteTags where
         toQuery = const mempty
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
-data DeleteTagsResponse = DeleteTagsResponse' deriving (Eq, Read, Show)
+data DeleteTagsResponse =
+    DeleteTagsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteTagsResponse' smart constructor.
 deleteTagsResponse :: DeleteTagsResponse
-deleteTagsResponse = DeleteTagsResponse';
+deleteTagsResponse = DeleteTagsResponse'

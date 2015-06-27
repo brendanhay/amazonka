@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.ListMultipartUploads
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,14 +49,14 @@ module Network.AWS.S3.ListMultipartUploads
     , lmurIsTruncated
     , lmurNextUploadIdMarker
     , lmurDelimiter
-    , lmurStatusCode
+    , lmurStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'listMultipartUploads' smart constructor.
 --
@@ -75,11 +75,28 @@ import Network.AWS.S3.Types
 -- * 'lmuDelimiter'
 --
 -- * 'lmuBucket'
-data ListMultipartUploads = ListMultipartUploads'{_lmuKeyMarker :: Maybe Text, _lmuPrefix :: Maybe Text, _lmuEncodingType :: Maybe EncodingType, _lmuMaxUploads :: Maybe Int, _lmuUploadIdMarker :: Maybe Text, _lmuDelimiter :: Maybe Char, _lmuBucket :: BucketName} deriving (Eq, Read, Show)
+data ListMultipartUploads = ListMultipartUploads'
+    { _lmuKeyMarker      :: Maybe Text
+    , _lmuPrefix         :: Maybe Text
+    , _lmuEncodingType   :: Maybe EncodingType
+    , _lmuMaxUploads     :: Maybe Int
+    , _lmuUploadIdMarker :: Maybe Text
+    , _lmuDelimiter      :: Maybe Char
+    , _lmuBucket         :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'ListMultipartUploads' smart constructor.
 listMultipartUploads :: BucketName -> ListMultipartUploads
-listMultipartUploads pBucket = ListMultipartUploads'{_lmuKeyMarker = Nothing, _lmuPrefix = Nothing, _lmuEncodingType = Nothing, _lmuMaxUploads = Nothing, _lmuUploadIdMarker = Nothing, _lmuDelimiter = Nothing, _lmuBucket = pBucket};
+listMultipartUploads pBucket =
+    ListMultipartUploads'
+    { _lmuKeyMarker = Nothing
+    , _lmuPrefix = Nothing
+    , _lmuEncodingType = Nothing
+    , _lmuMaxUploads = Nothing
+    , _lmuUploadIdMarker = Nothing
+    , _lmuDelimiter = Nothing
+    , _lmuBucket = pBucket
+    }
 
 -- | Together with upload-id-marker, this parameter specifies the multipart
 -- upload after which listing should begin.
@@ -192,12 +209,41 @@ instance ToQuery ListMultipartUploads where
 --
 -- * 'lmurDelimiter'
 --
--- * 'lmurStatusCode'
-data ListMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurKeyMarker :: Maybe Text, _lmurPrefix :: Maybe Text, _lmurEncodingType :: Maybe EncodingType, _lmurCommonPrefixes :: Maybe [CommonPrefix], _lmurBucket :: Maybe BucketName, _lmurMaxUploads :: Maybe Int, _lmurUploadIdMarker :: Maybe Text, _lmurNextKeyMarker :: Maybe Text, _lmurUploads :: Maybe [MultipartUpload], _lmurIsTruncated :: Maybe Bool, _lmurNextUploadIdMarker :: Maybe Text, _lmurDelimiter :: Maybe Char, _lmurStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lmurStatus'
+data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
+    { _lmurKeyMarker          :: Maybe Text
+    , _lmurPrefix             :: Maybe Text
+    , _lmurEncodingType       :: Maybe EncodingType
+    , _lmurCommonPrefixes     :: Maybe [CommonPrefix]
+    , _lmurBucket             :: Maybe BucketName
+    , _lmurMaxUploads         :: Maybe Int
+    , _lmurUploadIdMarker     :: Maybe Text
+    , _lmurNextKeyMarker      :: Maybe Text
+    , _lmurUploads            :: Maybe [MultipartUpload]
+    , _lmurIsTruncated        :: Maybe Bool
+    , _lmurNextUploadIdMarker :: Maybe Text
+    , _lmurDelimiter          :: Maybe Char
+    , _lmurStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
 listMultipartUploadsResponse :: Int -> ListMultipartUploadsResponse
-listMultipartUploadsResponse pStatusCode = ListMultipartUploadsResponse'{_lmurKeyMarker = Nothing, _lmurPrefix = Nothing, _lmurEncodingType = Nothing, _lmurCommonPrefixes = Nothing, _lmurBucket = Nothing, _lmurMaxUploads = Nothing, _lmurUploadIdMarker = Nothing, _lmurNextKeyMarker = Nothing, _lmurUploads = Nothing, _lmurIsTruncated = Nothing, _lmurNextUploadIdMarker = Nothing, _lmurDelimiter = Nothing, _lmurStatusCode = pStatusCode};
+listMultipartUploadsResponse pStatus =
+    ListMultipartUploadsResponse'
+    { _lmurKeyMarker = Nothing
+    , _lmurPrefix = Nothing
+    , _lmurEncodingType = Nothing
+    , _lmurCommonPrefixes = Nothing
+    , _lmurBucket = Nothing
+    , _lmurMaxUploads = Nothing
+    , _lmurUploadIdMarker = Nothing
+    , _lmurNextKeyMarker = Nothing
+    , _lmurUploads = Nothing
+    , _lmurIsTruncated = Nothing
+    , _lmurNextUploadIdMarker = Nothing
+    , _lmurDelimiter = Nothing
+    , _lmurStatus = pStatus
+    }
 
 -- | The key at or after which the listing began.
 lmurKeyMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
@@ -257,5 +303,5 @@ lmurDelimiter :: Lens' ListMultipartUploadsResponse (Maybe Char)
 lmurDelimiter = lens _lmurDelimiter (\ s a -> s{_lmurDelimiter = a});
 
 -- | FIXME: Undocumented member.
-lmurStatusCode :: Lens' ListMultipartUploadsResponse Int
-lmurStatusCode = lens _lmurStatusCode (\ s a -> s{_lmurStatusCode = a});
+lmurStatus :: Lens' ListMultipartUploadsResponse Int
+lmurStatus = lens _lmurStatus (\ s a -> s{_lmurStatus = a});

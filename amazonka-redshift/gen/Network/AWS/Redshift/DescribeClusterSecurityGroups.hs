@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterSecurityGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,14 +53,14 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     -- ** Response lenses
     , dcsgr1ClusterSecurityGroups
     , dcsgr1Marker
-    , dcsgr1StatusCode
+    , dcsgr1Status
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | ???
 --
@@ -77,11 +77,24 @@ import Network.AWS.Response
 -- * 'dcsgMaxRecords'
 --
 -- * 'dcsgMarker'
-data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'{_dcsgTagValues :: Maybe [Text], _dcsgTagKeys :: Maybe [Text], _dcsgClusterSecurityGroupName :: Maybe Text, _dcsgMaxRecords :: Maybe Int, _dcsgMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
+    { _dcsgTagValues                :: Maybe [Text]
+    , _dcsgTagKeys                  :: Maybe [Text]
+    , _dcsgClusterSecurityGroupName :: Maybe Text
+    , _dcsgMaxRecords               :: Maybe Int
+    , _dcsgMarker                   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterSecurityGroups' smart constructor.
 describeClusterSecurityGroups :: DescribeClusterSecurityGroups
-describeClusterSecurityGroups = DescribeClusterSecurityGroups'{_dcsgTagValues = Nothing, _dcsgTagKeys = Nothing, _dcsgClusterSecurityGroupName = Nothing, _dcsgMaxRecords = Nothing, _dcsgMarker = Nothing};
+describeClusterSecurityGroups =
+    DescribeClusterSecurityGroups'
+    { _dcsgTagValues = Nothing
+    , _dcsgTagKeys = Nothing
+    , _dcsgClusterSecurityGroupName = Nothing
+    , _dcsgMaxRecords = Nothing
+    , _dcsgMarker = Nothing
+    }
 
 -- | A tag value or values for which you want to return all matching cluster
 -- security groups that are associated with the specified tag value or
@@ -189,12 +202,21 @@ instance ToQuery DescribeClusterSecurityGroups where
 --
 -- * 'dcsgr1Marker'
 --
--- * 'dcsgr1StatusCode'
-data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'{_dcsgr1ClusterSecurityGroups :: Maybe [ClusterSecurityGroup], _dcsgr1Marker :: Maybe Text, _dcsgr1StatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcsgr1Status'
+data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'
+    { _dcsgr1ClusterSecurityGroups :: Maybe [ClusterSecurityGroup]
+    , _dcsgr1Marker                :: Maybe Text
+    , _dcsgr1Status                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterSecurityGroupsResponse' smart constructor.
 describeClusterSecurityGroupsResponse :: Int -> DescribeClusterSecurityGroupsResponse
-describeClusterSecurityGroupsResponse pStatusCode = DescribeClusterSecurityGroupsResponse'{_dcsgr1ClusterSecurityGroups = Nothing, _dcsgr1Marker = Nothing, _dcsgr1StatusCode = pStatusCode};
+describeClusterSecurityGroupsResponse pStatus =
+    DescribeClusterSecurityGroupsResponse'
+    { _dcsgr1ClusterSecurityGroups = Nothing
+    , _dcsgr1Marker = Nothing
+    , _dcsgr1Status = pStatus
+    }
 
 -- | A list of ClusterSecurityGroup instances.
 dcsgr1ClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
@@ -210,5 +232,5 @@ dcsgr1Marker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
 dcsgr1Marker = lens _dcsgr1Marker (\ s a -> s{_dcsgr1Marker = a});
 
 -- | FIXME: Undocumented member.
-dcsgr1StatusCode :: Lens' DescribeClusterSecurityGroupsResponse Int
-dcsgr1StatusCode = lens _dcsgr1StatusCode (\ s a -> s{_dcsgr1StatusCode = a});
+dcsgr1Status :: Lens' DescribeClusterSecurityGroupsResponse Int
+dcsgr1Status = lens _dcsgr1Status (\ s a -> s{_dcsgr1Status = a});

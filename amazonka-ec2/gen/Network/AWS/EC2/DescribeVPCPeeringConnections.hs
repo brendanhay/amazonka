@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeVPCPeeringConnections
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.EC2.DescribeVPCPeeringConnections
     , describeVPCPeeringConnectionsResponse
     -- ** Response lenses
     , dvpcpcrVPCPeeringConnections
-    , dvpcpcrStatusCode
+    , dvpcpcrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVPCPeeringConnections' smart constructor.
 --
@@ -51,11 +51,20 @@ import Network.AWS.Response
 -- * 'dvpcpcVPCPeeringConnectionIds'
 --
 -- * 'dvpcpcDryRun'
-data DescribeVPCPeeringConnections = DescribeVPCPeeringConnections'{_dvpcpcFilters :: Maybe [Filter], _dvpcpcVPCPeeringConnectionIds :: Maybe [Text], _dvpcpcDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeVPCPeeringConnections = DescribeVPCPeeringConnections'
+    { _dvpcpcFilters                 :: Maybe [Filter]
+    , _dvpcpcVPCPeeringConnectionIds :: Maybe [Text]
+    , _dvpcpcDryRun                  :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCPeeringConnections' smart constructor.
 describeVPCPeeringConnections :: DescribeVPCPeeringConnections
-describeVPCPeeringConnections = DescribeVPCPeeringConnections'{_dvpcpcFilters = Nothing, _dvpcpcVPCPeeringConnectionIds = Nothing, _dvpcpcDryRun = Nothing};
+describeVPCPeeringConnections =
+    DescribeVPCPeeringConnections'
+    { _dvpcpcFilters = Nothing
+    , _dvpcpcVPCPeeringConnectionIds = Nothing
+    , _dvpcpcDryRun = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -154,17 +163,24 @@ instance ToQuery DescribeVPCPeeringConnections where
 --
 -- * 'dvpcpcrVPCPeeringConnections'
 --
--- * 'dvpcpcrStatusCode'
-data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'{_dvpcpcrVPCPeeringConnections :: Maybe [VPCPeeringConnection], _dvpcpcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dvpcpcrStatus'
+data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'
+    { _dvpcpcrVPCPeeringConnections :: Maybe [VPCPeeringConnection]
+    , _dvpcpcrStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCPeeringConnectionsResponse' smart constructor.
 describeVPCPeeringConnectionsResponse :: Int -> DescribeVPCPeeringConnectionsResponse
-describeVPCPeeringConnectionsResponse pStatusCode = DescribeVPCPeeringConnectionsResponse'{_dvpcpcrVPCPeeringConnections = Nothing, _dvpcpcrStatusCode = pStatusCode};
+describeVPCPeeringConnectionsResponse pStatus =
+    DescribeVPCPeeringConnectionsResponse'
+    { _dvpcpcrVPCPeeringConnections = Nothing
+    , _dvpcpcrStatus = pStatus
+    }
 
 -- | Information about the VPC peering connections.
 dvpcpcrVPCPeeringConnections :: Lens' DescribeVPCPeeringConnectionsResponse [VPCPeeringConnection]
 dvpcpcrVPCPeeringConnections = lens _dvpcpcrVPCPeeringConnections (\ s a -> s{_dvpcpcrVPCPeeringConnections = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvpcpcrStatusCode :: Lens' DescribeVPCPeeringConnectionsResponse Int
-dvpcpcrStatusCode = lens _dvpcpcrStatusCode (\ s a -> s{_dvpcpcrStatusCode = a});
+dvpcpcrStatus :: Lens' DescribeVPCPeeringConnectionsResponse Int
+dvpcpcrStatus = lens _dvpcpcrStatus (\ s a -> s{_dvpcpcrStatus = a});

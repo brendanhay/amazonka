@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudTrail.LookupEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,13 +51,13 @@ module Network.AWS.CloudTrail.LookupEvents
     -- ** Response lenses
     , lerNextToken
     , lerEvents
-    , lerStatusCode
+    , lerStatus
     ) where
 
-import Network.AWS.CloudTrail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains a request for LookupEvents.
 --
@@ -74,11 +74,24 @@ import Network.AWS.Response
 -- * 'leEndTime'
 --
 -- * 'leMaxResults'
-data LookupEvents = LookupEvents'{_leStartTime :: Maybe POSIX, _leLookupAttributes :: Maybe [LookupAttribute], _leNextToken :: Maybe Text, _leEndTime :: Maybe POSIX, _leMaxResults :: Maybe Nat} deriving (Eq, Read, Show)
+data LookupEvents = LookupEvents'
+    { _leStartTime        :: Maybe POSIX
+    , _leLookupAttributes :: Maybe [LookupAttribute]
+    , _leNextToken        :: Maybe Text
+    , _leEndTime          :: Maybe POSIX
+    , _leMaxResults       :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'LookupEvents' smart constructor.
 lookupEvents :: LookupEvents
-lookupEvents = LookupEvents'{_leStartTime = Nothing, _leLookupAttributes = Nothing, _leNextToken = Nothing, _leEndTime = Nothing, _leMaxResults = Nothing};
+lookupEvents =
+    LookupEvents'
+    { _leStartTime = Nothing
+    , _leLookupAttributes = Nothing
+    , _leNextToken = Nothing
+    , _leEndTime = Nothing
+    , _leMaxResults = Nothing
+    }
 
 -- | Specifies that only events that occur after or at the specified time are
 -- returned. If the specified start time is after the specified end time,
@@ -155,12 +168,21 @@ instance ToQuery LookupEvents where
 --
 -- * 'lerEvents'
 --
--- * 'lerStatusCode'
-data LookupEventsResponse = LookupEventsResponse'{_lerNextToken :: Maybe Text, _lerEvents :: Maybe [Event], _lerStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lerStatus'
+data LookupEventsResponse = LookupEventsResponse'
+    { _lerNextToken :: Maybe Text
+    , _lerEvents    :: Maybe [Event]
+    , _lerStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'LookupEventsResponse' smart constructor.
 lookupEventsResponse :: Int -> LookupEventsResponse
-lookupEventsResponse pStatusCode = LookupEventsResponse'{_lerNextToken = Nothing, _lerEvents = Nothing, _lerStatusCode = pStatusCode};
+lookupEventsResponse pStatus =
+    LookupEventsResponse'
+    { _lerNextToken = Nothing
+    , _lerEvents = Nothing
+    , _lerStatus = pStatus
+    }
 
 -- | The token to use to get the next page of results after a previous API
 -- call. If the token does not appear, there are no more results to return.
@@ -178,5 +200,5 @@ lerEvents :: Lens' LookupEventsResponse [Event]
 lerEvents = lens _lerEvents (\ s a -> s{_lerEvents = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lerStatusCode :: Lens' LookupEventsResponse Int
-lerStatusCode = lens _lerStatusCode (\ s a -> s{_lerStatusCode = a});
+lerStatus :: Lens' LookupEventsResponse Int
+lerStatus = lens _lerStatus (\ s a -> s{_lerStatus = a});

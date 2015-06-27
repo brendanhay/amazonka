@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.GetVaultNotifications
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,13 +52,13 @@ module Network.AWS.Glacier.GetVaultNotifications
     , getVaultNotificationsResponse
     -- ** Response lenses
     , gvnrVaultNotificationConfig
-    , gvnrStatusCode
+    , gvnrStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for retrieving the notification configuration set on an
 -- Amazon Glacier vault.
@@ -70,11 +70,18 @@ import Network.AWS.Response
 -- * 'gvnAccountId'
 --
 -- * 'gvnVaultName'
-data GetVaultNotifications = GetVaultNotifications'{_gvnAccountId :: Text, _gvnVaultName :: Text} deriving (Eq, Read, Show)
+data GetVaultNotifications = GetVaultNotifications'
+    { _gvnAccountId :: Text
+    , _gvnVaultName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetVaultNotifications' smart constructor.
 getVaultNotifications :: Text -> Text -> GetVaultNotifications
-getVaultNotifications pAccountId pVaultName = GetVaultNotifications'{_gvnAccountId = pAccountId, _gvnVaultName = pVaultName};
+getVaultNotifications pAccountId pVaultName =
+    GetVaultNotifications'
+    { _gvnAccountId = pAccountId
+    , _gvnVaultName = pVaultName
+    }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
@@ -120,17 +127,24 @@ instance ToQuery GetVaultNotifications where
 --
 -- * 'gvnrVaultNotificationConfig'
 --
--- * 'gvnrStatusCode'
-data GetVaultNotificationsResponse = GetVaultNotificationsResponse'{_gvnrVaultNotificationConfig :: Maybe VaultNotificationConfig, _gvnrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gvnrStatus'
+data GetVaultNotificationsResponse = GetVaultNotificationsResponse'
+    { _gvnrVaultNotificationConfig :: Maybe VaultNotificationConfig
+    , _gvnrStatus                  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetVaultNotificationsResponse' smart constructor.
 getVaultNotificationsResponse :: Int -> GetVaultNotificationsResponse
-getVaultNotificationsResponse pStatusCode = GetVaultNotificationsResponse'{_gvnrVaultNotificationConfig = Nothing, _gvnrStatusCode = pStatusCode};
+getVaultNotificationsResponse pStatus =
+    GetVaultNotificationsResponse'
+    { _gvnrVaultNotificationConfig = Nothing
+    , _gvnrStatus = pStatus
+    }
 
 -- | Returns the notification configuration set on the vault.
 gvnrVaultNotificationConfig :: Lens' GetVaultNotificationsResponse (Maybe VaultNotificationConfig)
 gvnrVaultNotificationConfig = lens _gvnrVaultNotificationConfig (\ s a -> s{_gvnrVaultNotificationConfig = a});
 
 -- | FIXME: Undocumented member.
-gvnrStatusCode :: Lens' GetVaultNotificationsResponse Int
-gvnrStatusCode = lens _gvnrStatusCode (\ s a -> s{_gvnrStatusCode = a});
+gvnrStatus :: Lens' GetVaultNotificationsResponse Int
+gvnrStatus = lens _gvnrStatus (\ s a -> s{_gvnrStatus = a});

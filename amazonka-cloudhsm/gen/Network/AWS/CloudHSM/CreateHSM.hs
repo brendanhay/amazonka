@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.CreateHSM
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.CloudHSM.CreateHSM
     , createHSMResponse
     -- ** Response lenses
     , creHSMARN
-    , creStatusCode
+    , creStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the CreateHsm action.
 --
@@ -70,11 +70,30 @@ import Network.AWS.Response
 -- * 'chIAMRoleARN'
 --
 -- * 'chSubscriptionType'
-data CreateHSM = CreateHSM'{_chClientToken :: Maybe Text, _chSyslogIP :: Maybe Text, _chExternalId :: Maybe Text, _chEniIP :: Maybe Text, _chSubnetId :: Text, _chSSHKey :: Text, _chIAMRoleARN :: Text, _chSubscriptionType :: SubscriptionType} deriving (Eq, Read, Show)
+data CreateHSM = CreateHSM'
+    { _chClientToken      :: Maybe Text
+    , _chSyslogIP         :: Maybe Text
+    , _chExternalId       :: Maybe Text
+    , _chEniIP            :: Maybe Text
+    , _chSubnetId         :: Text
+    , _chSSHKey           :: Text
+    , _chIAMRoleARN       :: Text
+    , _chSubscriptionType :: SubscriptionType
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateHSM' smart constructor.
 createHSM :: Text -> Text -> Text -> SubscriptionType -> CreateHSM
-createHSM pSubnetId pSSHKey pIAMRoleARN pSubscriptionType = CreateHSM'{_chClientToken = Nothing, _chSyslogIP = Nothing, _chExternalId = Nothing, _chEniIP = Nothing, _chSubnetId = pSubnetId, _chSSHKey = pSSHKey, _chIAMRoleARN = pIAMRoleARN, _chSubscriptionType = pSubscriptionType};
+createHSM pSubnetId pSSHKey pIAMRoleARN pSubscriptionType =
+    CreateHSM'
+    { _chClientToken = Nothing
+    , _chSyslogIP = Nothing
+    , _chExternalId = Nothing
+    , _chEniIP = Nothing
+    , _chSubnetId = pSubnetId
+    , _chSSHKey = pSSHKey
+    , _chIAMRoleARN = pIAMRoleARN
+    , _chSubscriptionType = pSubscriptionType
+    }
 
 -- | A user-defined token to ensure idempotence. Subsequent calls to this
 -- action with the same token will be ignored.
@@ -153,17 +172,24 @@ instance ToQuery CreateHSM where
 --
 -- * 'creHSMARN'
 --
--- * 'creStatusCode'
-data CreateHSMResponse = CreateHSMResponse'{_creHSMARN :: Maybe Text, _creStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'creStatus'
+data CreateHSMResponse = CreateHSMResponse'
+    { _creHSMARN :: Maybe Text
+    , _creStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateHSMResponse' smart constructor.
 createHSMResponse :: Int -> CreateHSMResponse
-createHSMResponse pStatusCode = CreateHSMResponse'{_creHSMARN = Nothing, _creStatusCode = pStatusCode};
+createHSMResponse pStatus =
+    CreateHSMResponse'
+    { _creHSMARN = Nothing
+    , _creStatus = pStatus
+    }
 
 -- | The ARN of the HSM.
 creHSMARN :: Lens' CreateHSMResponse (Maybe Text)
 creHSMARN = lens _creHSMARN (\ s a -> s{_creHSMARN = a});
 
 -- | FIXME: Undocumented member.
-creStatusCode :: Lens' CreateHSMResponse Int
-creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});
+creStatus :: Lens' CreateHSMResponse Int
+creStatus = lens _creStatus (\ s a -> s{_creStatus = a});

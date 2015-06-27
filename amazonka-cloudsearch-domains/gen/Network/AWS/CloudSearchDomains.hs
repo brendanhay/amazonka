@@ -26,8 +26,8 @@ module Network.AWS.CloudSearchDomains
     ( module Export
     ) where
 
-import Network.AWS.CloudSearchDomains.Search as Export
-import Network.AWS.CloudSearchDomains.Suggest as Export
-import Network.AWS.CloudSearchDomains.Types as Export
-import Network.AWS.CloudSearchDomains.UploadDocuments as Export
-import Network.AWS.CloudSearchDomains.Waiters as Export
+import           Network.AWS.CloudSearchDomains.Search          as Export
+import           Network.AWS.CloudSearchDomains.Suggest         as Export
+import           Network.AWS.CloudSearchDomains.Types           as Export
+import           Network.AWS.CloudSearchDomains.UploadDocuments as Export
+import           Network.AWS.CloudSearchDomains.Waiters         as Export

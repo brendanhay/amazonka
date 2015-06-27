@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.DiscoverPollEndpoint
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.ECS.DiscoverPollEndpoint
     -- ** Response lenses
     , dperTelemetryEndpoint
     , dperEndpoint
-    , dperStatusCode
+    , dperStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'discoverPollEndpoint' smart constructor.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'dpeCluster'
 --
 -- * 'dpeContainerInstance'
-data DiscoverPollEndpoint = DiscoverPollEndpoint'{_dpeCluster :: Maybe Text, _dpeContainerInstance :: Maybe Text} deriving (Eq, Read, Show)
+data DiscoverPollEndpoint = DiscoverPollEndpoint'
+    { _dpeCluster           :: Maybe Text
+    , _dpeContainerInstance :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DiscoverPollEndpoint' smart constructor.
 discoverPollEndpoint :: DiscoverPollEndpoint
-discoverPollEndpoint = DiscoverPollEndpoint'{_dpeCluster = Nothing, _dpeContainerInstance = Nothing};
+discoverPollEndpoint =
+    DiscoverPollEndpoint'
+    { _dpeCluster = Nothing
+    , _dpeContainerInstance = Nothing
+    }
 
 -- | The cluster that the container instance belongs to.
 dpeCluster :: Lens' DiscoverPollEndpoint (Maybe Text)
@@ -114,12 +121,21 @@ instance ToQuery DiscoverPollEndpoint where
 --
 -- * 'dperEndpoint'
 --
--- * 'dperStatusCode'
-data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'{_dperTelemetryEndpoint :: Maybe Text, _dperEndpoint :: Maybe Text, _dperStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dperStatus'
+data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
+    { _dperTelemetryEndpoint :: Maybe Text
+    , _dperEndpoint          :: Maybe Text
+    , _dperStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DiscoverPollEndpointResponse' smart constructor.
 discoverPollEndpointResponse :: Int -> DiscoverPollEndpointResponse
-discoverPollEndpointResponse pStatusCode = DiscoverPollEndpointResponse'{_dperTelemetryEndpoint = Nothing, _dperEndpoint = Nothing, _dperStatusCode = pStatusCode};
+discoverPollEndpointResponse pStatus =
+    DiscoverPollEndpointResponse'
+    { _dperTelemetryEndpoint = Nothing
+    , _dperEndpoint = Nothing
+    , _dperStatus = pStatus
+    }
 
 -- | The telemetry endpoint for the Amazon ECS agent.
 dperTelemetryEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
@@ -130,5 +146,5 @@ dperEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
 dperEndpoint = lens _dperEndpoint (\ s a -> s{_dperEndpoint = a});
 
 -- | FIXME: Undocumented member.
-dperStatusCode :: Lens' DiscoverPollEndpointResponse Int
-dperStatusCode = lens _dperStatusCode (\ s a -> s{_dperStatusCode = a});
+dperStatus :: Lens' DiscoverPollEndpointResponse Int
+dperStatus = lens _dperStatus (\ s a -> s{_dperStatus = a});

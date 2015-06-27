@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ImportInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.EC2.ImportInstance
     , importInstanceResponse
     -- ** Response lenses
     , iirConversionTask
-    , iirStatusCode
+    , iirStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'importInstance' smart constructor.
 --
@@ -63,11 +63,24 @@ import Network.AWS.Response
 -- * 'iiDescription'
 --
 -- * 'iiPlatform'
-data ImportInstance = ImportInstance'{_iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification, _iiDiskImages :: Maybe [DiskImage], _iiDryRun :: Maybe Bool, _iiDescription :: Maybe Text, _iiPlatform :: PlatformValues} deriving (Eq, Read, Show)
+data ImportInstance = ImportInstance'
+    { _iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
+    , _iiDiskImages          :: Maybe [DiskImage]
+    , _iiDryRun              :: Maybe Bool
+    , _iiDescription         :: Maybe Text
+    , _iiPlatform            :: PlatformValues
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportInstance' smart constructor.
 importInstance :: PlatformValues -> ImportInstance
-importInstance pPlatform = ImportInstance'{_iiLaunchSpecification = Nothing, _iiDiskImages = Nothing, _iiDryRun = Nothing, _iiDescription = Nothing, _iiPlatform = pPlatform};
+importInstance pPlatform =
+    ImportInstance'
+    { _iiLaunchSpecification = Nothing
+    , _iiDiskImages = Nothing
+    , _iiDryRun = Nothing
+    , _iiDescription = Nothing
+    , _iiPlatform = pPlatform
+    }
 
 -- | The launch specification.
 iiLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
@@ -125,17 +138,24 @@ instance ToQuery ImportInstance where
 --
 -- * 'iirConversionTask'
 --
--- * 'iirStatusCode'
-data ImportInstanceResponse = ImportInstanceResponse'{_iirConversionTask :: Maybe ConversionTask, _iirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'iirStatus'
+data ImportInstanceResponse = ImportInstanceResponse'
+    { _iirConversionTask :: Maybe ConversionTask
+    , _iirStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportInstanceResponse' smart constructor.
 importInstanceResponse :: Int -> ImportInstanceResponse
-importInstanceResponse pStatusCode = ImportInstanceResponse'{_iirConversionTask = Nothing, _iirStatusCode = pStatusCode};
+importInstanceResponse pStatus =
+    ImportInstanceResponse'
+    { _iirConversionTask = Nothing
+    , _iirStatus = pStatus
+    }
 
 -- | Information about the conversion task.
 iirConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
 iirConversionTask = lens _iirConversionTask (\ s a -> s{_iirConversionTask = a});
 
 -- | FIXME: Undocumented member.
-iirStatusCode :: Lens' ImportInstanceResponse Int
-iirStatusCode = lens _iirStatusCode (\ s a -> s{_iirStatusCode = a});
+iirStatus :: Lens' ImportInstanceResponse Int
+iirStatus = lens _iirStatus (\ s a -> s{_iirStatus = a});

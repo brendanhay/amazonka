@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.CreateDBSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.RDS.CreateDBSnapshot
     , createDBSnapshotResponse
     -- ** Response lenses
     , creDBSnapshot
-    , creStatusCode
+    , creStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'creDBSnapshotIdentifier'
 --
 -- * 'creDBInstanceIdentifier'
-data CreateDBSnapshot = CreateDBSnapshot'{_creTags :: Maybe [Tag], _creDBSnapshotIdentifier :: Text, _creDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
+data CreateDBSnapshot = CreateDBSnapshot'
+    { _creTags                 :: Maybe [Tag]
+    , _creDBSnapshotIdentifier :: Text
+    , _creDBInstanceIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDBSnapshot' smart constructor.
 createDBSnapshot :: Text -> Text -> CreateDBSnapshot
-createDBSnapshot pDBSnapshotIdentifier pDBInstanceIdentifier = CreateDBSnapshot'{_creTags = Nothing, _creDBSnapshotIdentifier = pDBSnapshotIdentifier, _creDBInstanceIdentifier = pDBInstanceIdentifier};
+createDBSnapshot pDBSnapshotIdentifier pDBInstanceIdentifier =
+    CreateDBSnapshot'
+    { _creTags = Nothing
+    , _creDBSnapshotIdentifier = pDBSnapshotIdentifier
+    , _creDBInstanceIdentifier = pDBInstanceIdentifier
+    }
 
 -- | FIXME: Undocumented member.
 creTags :: Lens' CreateDBSnapshot [Tag]
@@ -119,17 +128,24 @@ instance ToQuery CreateDBSnapshot where
 --
 -- * 'creDBSnapshot'
 --
--- * 'creStatusCode'
-data CreateDBSnapshotResponse = CreateDBSnapshotResponse'{_creDBSnapshot :: Maybe DBSnapshot, _creStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'creStatus'
+data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
+    { _creDBSnapshot :: Maybe DBSnapshot
+    , _creStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDBSnapshotResponse' smart constructor.
 createDBSnapshotResponse :: Int -> CreateDBSnapshotResponse
-createDBSnapshotResponse pStatusCode = CreateDBSnapshotResponse'{_creDBSnapshot = Nothing, _creStatusCode = pStatusCode};
+createDBSnapshotResponse pStatus =
+    CreateDBSnapshotResponse'
+    { _creDBSnapshot = Nothing
+    , _creStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 creDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
 creDBSnapshot = lens _creDBSnapshot (\ s a -> s{_creDBSnapshot = a});
 
 -- | FIXME: Undocumented member.
-creStatusCode :: Lens' CreateDBSnapshotResponse Int
-creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});
+creStatus :: Lens' CreateDBSnapshotResponse Int
+creStatus = lens _creStatus (\ s a -> s{_creStatus = a});

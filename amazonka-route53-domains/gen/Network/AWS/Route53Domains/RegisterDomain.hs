@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.RegisterDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,13 +63,13 @@ module Network.AWS.Route53Domains.RegisterDomain
     , registerDomainResponse
     -- ** Response lenses
     , rdrOperationId
-    , rdrStatusCode
+    , rdrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | The RegisterDomain request includes the following elements.
 --
@@ -96,11 +96,34 @@ import Network.AWS.Route53Domains.Types
 -- * 'rdRegistrantContact'
 --
 -- * 'rdTechContact'
-data RegisterDomain = RegisterDomain'{_rdPrivacyProtectTechContact :: Maybe Bool, _rdPrivacyProtectRegistrantContact :: Maybe Bool, _rdAutoRenew :: Maybe Bool, _rdPrivacyProtectAdminContact :: Maybe Bool, _rdIDNLangCode :: Maybe Text, _rdDomainName :: Text, _rdDurationInYears :: Nat, _rdAdminContact :: Sensitive ContactDetail, _rdRegistrantContact :: Sensitive ContactDetail, _rdTechContact :: Sensitive ContactDetail} deriving (Eq, Read, Show)
+data RegisterDomain = RegisterDomain'
+    { _rdPrivacyProtectTechContact       :: Maybe Bool
+    , _rdPrivacyProtectRegistrantContact :: Maybe Bool
+    , _rdAutoRenew                       :: Maybe Bool
+    , _rdPrivacyProtectAdminContact      :: Maybe Bool
+    , _rdIDNLangCode                     :: Maybe Text
+    , _rdDomainName                      :: Text
+    , _rdDurationInYears                 :: !Nat
+    , _rdAdminContact                    :: Sensitive ContactDetail
+    , _rdRegistrantContact               :: Sensitive ContactDetail
+    , _rdTechContact                     :: Sensitive ContactDetail
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterDomain' smart constructor.
 registerDomain :: Text -> Natural -> ContactDetail -> ContactDetail -> ContactDetail -> RegisterDomain
-registerDomain pDomainName pDurationInYears pAdminContact pRegistrantContact pTechContact = RegisterDomain'{_rdPrivacyProtectTechContact = Nothing, _rdPrivacyProtectRegistrantContact = Nothing, _rdAutoRenew = Nothing, _rdPrivacyProtectAdminContact = Nothing, _rdIDNLangCode = Nothing, _rdDomainName = pDomainName, _rdDurationInYears = _Nat # pDurationInYears, _rdAdminContact = _Sensitive # pAdminContact, _rdRegistrantContact = _Sensitive # pRegistrantContact, _rdTechContact = _Sensitive # pTechContact};
+registerDomain pDomainName pDurationInYears pAdminContact pRegistrantContact pTechContact =
+    RegisterDomain'
+    { _rdPrivacyProtectTechContact = Nothing
+    , _rdPrivacyProtectRegistrantContact = Nothing
+    , _rdAutoRenew = Nothing
+    , _rdPrivacyProtectAdminContact = Nothing
+    , _rdIDNLangCode = Nothing
+    , _rdDomainName = pDomainName
+    , _rdDurationInYears = _Nat # pDurationInYears
+    , _rdAdminContact = _Sensitive # pAdminContact
+    , _rdRegistrantContact = _Sensitive # pRegistrantContact
+    , _rdTechContact = _Sensitive # pTechContact
+    }
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS (\"who is\") queries will return contact
@@ -280,12 +303,19 @@ instance ToQuery RegisterDomain where
 --
 -- * 'rdrOperationId'
 --
--- * 'rdrStatusCode'
-data RegisterDomainResponse = RegisterDomainResponse'{_rdrOperationId :: Text, _rdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rdrStatus'
+data RegisterDomainResponse = RegisterDomainResponse'
+    { _rdrOperationId :: Text
+    , _rdrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterDomainResponse' smart constructor.
 registerDomainResponse :: Text -> Int -> RegisterDomainResponse
-registerDomainResponse pOperationId pStatusCode = RegisterDomainResponse'{_rdrOperationId = pOperationId, _rdrStatusCode = pStatusCode};
+registerDomainResponse pOperationId pStatus =
+    RegisterDomainResponse'
+    { _rdrOperationId = pOperationId
+    , _rdrStatus = pStatus
+    }
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -299,5 +329,5 @@ rdrOperationId :: Lens' RegisterDomainResponse Text
 rdrOperationId = lens _rdrOperationId (\ s a -> s{_rdrOperationId = a});
 
 -- | FIXME: Undocumented member.
-rdrStatusCode :: Lens' RegisterDomainResponse Int
-rdrStatusCode = lens _rdrStatusCode (\ s a -> s{_rdrStatusCode = a});
+rdrStatus :: Lens' RegisterDomainResponse Int
+rdrStatus = lens _rdrStatus (\ s a -> s{_rdrStatus = a});

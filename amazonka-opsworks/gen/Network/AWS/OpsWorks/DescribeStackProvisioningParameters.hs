@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeStackProvisioningParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,24 +39,29 @@ module Network.AWS.OpsWorks.DescribeStackProvisioningParameters
     -- ** Response lenses
     , dspprAgentInstallerURL
     , dspprParameters
-    , dspprStatusCode
+    , dspprStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeStackProvisioningParameters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsppStackId'
-newtype DescribeStackProvisioningParameters = DescribeStackProvisioningParameters'{_dsppStackId :: Text} deriving (Eq, Read, Show)
+newtype DescribeStackProvisioningParameters = DescribeStackProvisioningParameters'
+    { _dsppStackId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackProvisioningParameters' smart constructor.
 describeStackProvisioningParameters :: Text -> DescribeStackProvisioningParameters
-describeStackProvisioningParameters pStackId = DescribeStackProvisioningParameters'{_dsppStackId = pStackId};
+describeStackProvisioningParameters pStackId =
+    DescribeStackProvisioningParameters'
+    { _dsppStackId = pStackId
+    }
 
 -- | The stack ID
 dsppStackId :: Lens' DescribeStackProvisioningParameters Text
@@ -112,12 +117,21 @@ instance ToQuery DescribeStackProvisioningParameters
 --
 -- * 'dspprParameters'
 --
--- * 'dspprStatusCode'
-data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'{_dspprAgentInstallerURL :: Maybe Text, _dspprParameters :: Maybe (Map Text Text), _dspprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dspprStatus'
+data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'
+    { _dspprAgentInstallerURL :: Maybe Text
+    , _dspprParameters        :: Maybe (Map Text Text)
+    , _dspprStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackProvisioningParametersResponse' smart constructor.
 describeStackProvisioningParametersResponse :: Int -> DescribeStackProvisioningParametersResponse
-describeStackProvisioningParametersResponse pStatusCode = DescribeStackProvisioningParametersResponse'{_dspprAgentInstallerURL = Nothing, _dspprParameters = Nothing, _dspprStatusCode = pStatusCode};
+describeStackProvisioningParametersResponse pStatus =
+    DescribeStackProvisioningParametersResponse'
+    { _dspprAgentInstallerURL = Nothing
+    , _dspprParameters = Nothing
+    , _dspprStatus = pStatus
+    }
 
 -- | The AWS OpsWorks agent installer\'s URL.
 dspprAgentInstallerURL :: Lens' DescribeStackProvisioningParametersResponse (Maybe Text)
@@ -128,5 +142,5 @@ dspprParameters :: Lens' DescribeStackProvisioningParametersResponse (HashMap Te
 dspprParameters = lens _dspprParameters (\ s a -> s{_dspprParameters = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-dspprStatusCode :: Lens' DescribeStackProvisioningParametersResponse Int
-dspprStatusCode = lens _dspprStatusCode (\ s a -> s{_dspprStatusCode = a});
+dspprStatus :: Lens' DescribeStackProvisioningParametersResponse Int
+dspprStatus = lens _dspprStatus (\ s a -> s{_dspprStatus = a});

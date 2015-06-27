@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteCacheSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
     , deleteCacheSubnetGroupResponse
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DeleteCacheSubnetGroup/ action.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delCacheSubnetGroupName'
-newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup'{_delCacheSubnetGroupName :: Text} deriving (Eq, Read, Show)
+newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup'
+    { _delCacheSubnetGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteCacheSubnetGroup' smart constructor.
 deleteCacheSubnetGroup :: Text -> DeleteCacheSubnetGroup
-deleteCacheSubnetGroup pCacheSubnetGroupName = DeleteCacheSubnetGroup'{_delCacheSubnetGroupName = pCacheSubnetGroupName};
+deleteCacheSubnetGroup pCacheSubnetGroupName =
+    DeleteCacheSubnetGroup'
+    { _delCacheSubnetGroupName = pCacheSubnetGroupName
+    }
 
 -- | The name of the cache subnet group to delete.
 --
@@ -83,8 +88,10 @@ instance ToQuery DeleteCacheSubnetGroup where
                "CacheSubnetGroupName" =: _delCacheSubnetGroupName]
 
 -- | /See:/ 'deleteCacheSubnetGroupResponse' smart constructor.
-data DeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse' deriving (Eq, Read, Show)
+data DeleteCacheSubnetGroupResponse =
+    DeleteCacheSubnetGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteCacheSubnetGroupResponse' smart constructor.
 deleteCacheSubnetGroupResponse :: DeleteCacheSubnetGroupResponse
-deleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse';
+deleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse'

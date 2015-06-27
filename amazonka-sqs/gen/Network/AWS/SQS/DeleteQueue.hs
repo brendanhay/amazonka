@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.DeleteQueue
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,21 +49,26 @@ module Network.AWS.SQS.DeleteQueue
     , deleteQueueResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'deleteQueue' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dqQueueURL'
-newtype DeleteQueue = DeleteQueue'{_dqQueueURL :: Text} deriving (Eq, Read, Show)
+newtype DeleteQueue = DeleteQueue'
+    { _dqQueueURL :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteQueue' smart constructor.
 deleteQueue :: Text -> DeleteQueue
-deleteQueue pQueueURL = DeleteQueue'{_dqQueueURL = pQueueURL};
+deleteQueue pQueueURL =
+    DeleteQueue'
+    { _dqQueueURL = pQueueURL
+    }
 
 -- | The URL of the Amazon SQS queue to take action on.
 dqQueueURL :: Lens' DeleteQueue Text
@@ -89,8 +94,10 @@ instance ToQuery DeleteQueue where
                "QueueUrl" =: _dqQueueURL]
 
 -- | /See:/ 'deleteQueueResponse' smart constructor.
-data DeleteQueueResponse = DeleteQueueResponse' deriving (Eq, Read, Show)
+data DeleteQueueResponse =
+    DeleteQueueResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteQueueResponse' smart constructor.
 deleteQueueResponse :: DeleteQueueResponse
-deleteQueueResponse = DeleteQueueResponse';
+deleteQueueResponse = DeleteQueueResponse'

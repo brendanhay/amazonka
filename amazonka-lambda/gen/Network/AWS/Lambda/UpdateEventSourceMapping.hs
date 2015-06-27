@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Lambda.UpdateEventSourceMapping
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,10 +51,10 @@ module Network.AWS.Lambda.UpdateEventSourceMapping
     , esmcLastModified
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateEventSourceMapping' smart constructor.
 --
@@ -67,11 +67,22 @@ import Network.AWS.Response
 -- * 'uesmFunctionName'
 --
 -- * 'uesmUUID'
-data UpdateEventSourceMapping = UpdateEventSourceMapping'{_uesmEnabled :: Maybe Bool, _uesmBatchSize :: Maybe Nat, _uesmFunctionName :: Maybe Text, _uesmUUID :: Text} deriving (Eq, Read, Show)
+data UpdateEventSourceMapping = UpdateEventSourceMapping'
+    { _uesmEnabled      :: Maybe Bool
+    , _uesmBatchSize    :: Maybe Nat
+    , _uesmFunctionName :: Maybe Text
+    , _uesmUUID         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateEventSourceMapping' smart constructor.
 updateEventSourceMapping :: Text -> UpdateEventSourceMapping
-updateEventSourceMapping pUUID = UpdateEventSourceMapping'{_uesmEnabled = Nothing, _uesmBatchSize = Nothing, _uesmFunctionName = Nothing, _uesmUUID = pUUID};
+updateEventSourceMapping pUUID =
+    UpdateEventSourceMapping'
+    { _uesmEnabled = Nothing
+    , _uesmBatchSize = Nothing
+    , _uesmFunctionName = Nothing
+    , _uesmUUID = pUUID
+    }
 
 -- | Specifies whether AWS Lambda should actively poll the stream or not. If
 -- disabled, AWS Lambda will not poll the stream.

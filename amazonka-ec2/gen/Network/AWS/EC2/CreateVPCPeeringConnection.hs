@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateVPCPeeringConnection
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,13 +46,13 @@ module Network.AWS.EC2.CreateVPCPeeringConnection
     , createVPCPeeringConnectionResponse
     -- ** Response lenses
     , cvpcrVPCPeeringConnection
-    , cvpcrStatusCode
+    , cvpcrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createVPCPeeringConnection' smart constructor.
 --
@@ -65,11 +65,22 @@ import Network.AWS.Response
 -- * 'cvpcPeerOwnerId'
 --
 -- * 'cvpcDryRun'
-data CreateVPCPeeringConnection = CreateVPCPeeringConnection'{_cvpcPeerVPCId :: Maybe Text, _cvpcVPCId :: Maybe Text, _cvpcPeerOwnerId :: Maybe Text, _cvpcDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
+    { _cvpcPeerVPCId   :: Maybe Text
+    , _cvpcVPCId       :: Maybe Text
+    , _cvpcPeerOwnerId :: Maybe Text
+    , _cvpcDryRun      :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVPCPeeringConnection' smart constructor.
 createVPCPeeringConnection :: CreateVPCPeeringConnection
-createVPCPeeringConnection = CreateVPCPeeringConnection'{_cvpcPeerVPCId = Nothing, _cvpcVPCId = Nothing, _cvpcPeerOwnerId = Nothing, _cvpcDryRun = Nothing};
+createVPCPeeringConnection =
+    CreateVPCPeeringConnection'
+    { _cvpcPeerVPCId = Nothing
+    , _cvpcVPCId = Nothing
+    , _cvpcPeerOwnerId = Nothing
+    , _cvpcDryRun = Nothing
+    }
 
 -- | The ID of the VPC with which you are creating the VPC peering
 -- connection.
@@ -127,17 +138,24 @@ instance ToQuery CreateVPCPeeringConnection where
 --
 -- * 'cvpcrVPCPeeringConnection'
 --
--- * 'cvpcrStatusCode'
-data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'{_cvpcrVPCPeeringConnection :: Maybe VPCPeeringConnection, _cvpcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cvpcrStatus'
+data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
+    { _cvpcrVPCPeeringConnection :: Maybe VPCPeeringConnection
+    , _cvpcrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVPCPeeringConnectionResponse' smart constructor.
 createVPCPeeringConnectionResponse :: Int -> CreateVPCPeeringConnectionResponse
-createVPCPeeringConnectionResponse pStatusCode = CreateVPCPeeringConnectionResponse'{_cvpcrVPCPeeringConnection = Nothing, _cvpcrStatusCode = pStatusCode};
+createVPCPeeringConnectionResponse pStatus =
+    CreateVPCPeeringConnectionResponse'
+    { _cvpcrVPCPeeringConnection = Nothing
+    , _cvpcrStatus = pStatus
+    }
 
 -- | Information about the VPC peering connection.
 cvpcrVPCPeeringConnection :: Lens' CreateVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
 cvpcrVPCPeeringConnection = lens _cvpcrVPCPeeringConnection (\ s a -> s{_cvpcrVPCPeeringConnection = a});
 
 -- | FIXME: Undocumented member.
-cvpcrStatusCode :: Lens' CreateVPCPeeringConnectionResponse Int
-cvpcrStatusCode = lens _cvpcrStatusCode (\ s a -> s{_cvpcrStatusCode = a});
+cvpcrStatus :: Lens' CreateVPCPeeringConnectionResponse Int
+cvpcrStatus = lens _cvpcrStatus (\ s a -> s{_cvpcrStatus = a});

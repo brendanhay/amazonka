@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.SubmitTaskStateChange
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.ECS.SubmitTaskStateChange
     , submitTaskStateChangeResponse
     -- ** Response lenses
     , stscrAcknowledgment
-    , stscrStatusCode
+    , stscrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'submitTaskStateChange' smart constructor.
 --
@@ -57,11 +57,22 @@ import Network.AWS.Response
 -- * 'stscReason'
 --
 -- * 'stscTask'
-data SubmitTaskStateChange = SubmitTaskStateChange'{_stscStatus :: Maybe Text, _stscCluster :: Maybe Text, _stscReason :: Maybe Text, _stscTask :: Maybe Text} deriving (Eq, Read, Show)
+data SubmitTaskStateChange = SubmitTaskStateChange'
+    { _stscStatus  :: Maybe Text
+    , _stscCluster :: Maybe Text
+    , _stscReason  :: Maybe Text
+    , _stscTask    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SubmitTaskStateChange' smart constructor.
 submitTaskStateChange :: SubmitTaskStateChange
-submitTaskStateChange = SubmitTaskStateChange'{_stscStatus = Nothing, _stscCluster = Nothing, _stscReason = Nothing, _stscTask = Nothing};
+submitTaskStateChange =
+    SubmitTaskStateChange'
+    { _stscStatus = Nothing
+    , _stscCluster = Nothing
+    , _stscReason = Nothing
+    , _stscTask = Nothing
+    }
 
 -- | The status of the state change request.
 stscStatus :: Lens' SubmitTaskStateChange (Maybe Text)
@@ -120,17 +131,24 @@ instance ToQuery SubmitTaskStateChange where
 --
 -- * 'stscrAcknowledgment'
 --
--- * 'stscrStatusCode'
-data SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'{_stscrAcknowledgment :: Maybe Text, _stscrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'stscrStatus'
+data SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'
+    { _stscrAcknowledgment :: Maybe Text
+    , _stscrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SubmitTaskStateChangeResponse' smart constructor.
 submitTaskStateChangeResponse :: Int -> SubmitTaskStateChangeResponse
-submitTaskStateChangeResponse pStatusCode = SubmitTaskStateChangeResponse'{_stscrAcknowledgment = Nothing, _stscrStatusCode = pStatusCode};
+submitTaskStateChangeResponse pStatus =
+    SubmitTaskStateChangeResponse'
+    { _stscrAcknowledgment = Nothing
+    , _stscrStatus = pStatus
+    }
 
 -- | Acknowledgement of the state change.
 stscrAcknowledgment :: Lens' SubmitTaskStateChangeResponse (Maybe Text)
 stscrAcknowledgment = lens _stscrAcknowledgment (\ s a -> s{_stscrAcknowledgment = a});
 
 -- | FIXME: Undocumented member.
-stscrStatusCode :: Lens' SubmitTaskStateChangeResponse Int
-stscrStatusCode = lens _stscrStatusCode (\ s a -> s{_stscrStatusCode = a});
+stscrStatus :: Lens' SubmitTaskStateChangeResponse Int
+stscrStatus = lens _stscrStatus (\ s a -> s{_stscrStatus = a});

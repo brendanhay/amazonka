@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Config.StartConfigurationRecorder
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.Config.StartConfigurationRecorder
     , startConfigurationRecorderResponse
     ) where
 
-import Network.AWS.Config.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Config.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the StartConfigurationRecorder action.
 --
@@ -48,11 +48,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'staConfigurationRecorderName'
-newtype StartConfigurationRecorder = StartConfigurationRecorder'{_staConfigurationRecorderName :: Text} deriving (Eq, Read, Show)
+newtype StartConfigurationRecorder = StartConfigurationRecorder'
+    { _staConfigurationRecorderName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StartConfigurationRecorder' smart constructor.
 startConfigurationRecorder :: Text -> StartConfigurationRecorder
-startConfigurationRecorder pConfigurationRecorderName = StartConfigurationRecorder'{_staConfigurationRecorderName = pConfigurationRecorderName};
+startConfigurationRecorder pConfigurationRecorderName =
+    StartConfigurationRecorder'
+    { _staConfigurationRecorderName = pConfigurationRecorderName
+    }
 
 -- | The name of the recorder object that records each configuration change
 -- made to the resources.
@@ -90,8 +95,10 @@ instance ToQuery StartConfigurationRecorder where
         toQuery = const mempty
 
 -- | /See:/ 'startConfigurationRecorderResponse' smart constructor.
-data StartConfigurationRecorderResponse = StartConfigurationRecorderResponse' deriving (Eq, Read, Show)
+data StartConfigurationRecorderResponse =
+    StartConfigurationRecorderResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'StartConfigurationRecorderResponse' smart constructor.
 startConfigurationRecorderResponse :: StartConfigurationRecorderResponse
-startConfigurationRecorderResponse = StartConfigurationRecorderResponse';
+startConfigurationRecorderResponse = StartConfigurationRecorderResponse'

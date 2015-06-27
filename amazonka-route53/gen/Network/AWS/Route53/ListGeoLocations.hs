@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.ListGeoLocations
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,13 +54,13 @@ module Network.AWS.Route53.ListGeoLocations
     , lglrGeoLocationDetailsList
     , lglrIsTruncated
     , lglrMaxItems
-    , lglrStatusCode
+    , lglrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | The input for a ListGeoLocations request.
 --
@@ -75,11 +75,22 @@ import Network.AWS.Route53.Types
 -- * 'lglStartCountryCode'
 --
 -- * 'lglStartContinentCode'
-data ListGeoLocations = ListGeoLocations'{_lglStartSubdivisionCode :: Maybe Text, _lglMaxItems :: Maybe Text, _lglStartCountryCode :: Maybe Text, _lglStartContinentCode :: Maybe Text} deriving (Eq, Read, Show)
+data ListGeoLocations = ListGeoLocations'
+    { _lglStartSubdivisionCode :: Maybe Text
+    , _lglMaxItems             :: Maybe Text
+    , _lglStartCountryCode     :: Maybe Text
+    , _lglStartContinentCode   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGeoLocations' smart constructor.
 listGeoLocations :: ListGeoLocations
-listGeoLocations = ListGeoLocations'{_lglStartSubdivisionCode = Nothing, _lglMaxItems = Nothing, _lglStartCountryCode = Nothing, _lglStartContinentCode = Nothing};
+listGeoLocations =
+    ListGeoLocations'
+    { _lglStartSubdivisionCode = Nothing
+    , _lglMaxItems = Nothing
+    , _lglStartCountryCode = Nothing
+    , _lglStartContinentCode = Nothing
+    }
 
 -- | The first subdivision code in the lexicographic ordering of geo
 -- locations that you want the @ListGeoLocations@ request to list.
@@ -163,12 +174,29 @@ instance ToQuery ListGeoLocations where
 --
 -- * 'lglrMaxItems'
 --
--- * 'lglrStatusCode'
-data ListGeoLocationsResponse = ListGeoLocationsResponse'{_lglrNextContinentCode :: Maybe Text, _lglrNextCountryCode :: Maybe Text, _lglrNextSubdivisionCode :: Maybe Text, _lglrGeoLocationDetailsList :: [GeoLocationDetails], _lglrIsTruncated :: Bool, _lglrMaxItems :: Text, _lglrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lglrStatus'
+data ListGeoLocationsResponse = ListGeoLocationsResponse'
+    { _lglrNextContinentCode      :: Maybe Text
+    , _lglrNextCountryCode        :: Maybe Text
+    , _lglrNextSubdivisionCode    :: Maybe Text
+    , _lglrGeoLocationDetailsList :: [GeoLocationDetails]
+    , _lglrIsTruncated            :: !Bool
+    , _lglrMaxItems               :: Text
+    , _lglrStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGeoLocationsResponse' smart constructor.
 listGeoLocationsResponse :: Bool -> Text -> Int -> ListGeoLocationsResponse
-listGeoLocationsResponse pIsTruncated pMaxItems pStatusCode = ListGeoLocationsResponse'{_lglrNextContinentCode = Nothing, _lglrNextCountryCode = Nothing, _lglrNextSubdivisionCode = Nothing, _lglrGeoLocationDetailsList = mempty, _lglrIsTruncated = pIsTruncated, _lglrMaxItems = pMaxItems, _lglrStatusCode = pStatusCode};
+listGeoLocationsResponse pIsTruncated pMaxItems pStatus =
+    ListGeoLocationsResponse'
+    { _lglrNextContinentCode = Nothing
+    , _lglrNextCountryCode = Nothing
+    , _lglrNextSubdivisionCode = Nothing
+    , _lglrGeoLocationDetailsList = mempty
+    , _lglrIsTruncated = pIsTruncated
+    , _lglrMaxItems = pMaxItems
+    , _lglrStatus = pStatus
+    }
 
 -- | If the results were truncated, the continent code of the next geo
 -- location in the list. This element is present only if
@@ -213,5 +241,5 @@ lglrMaxItems :: Lens' ListGeoLocationsResponse Text
 lglrMaxItems = lens _lglrMaxItems (\ s a -> s{_lglrMaxItems = a});
 
 -- | FIXME: Undocumented member.
-lglrStatusCode :: Lens' ListGeoLocationsResponse Int
-lglrStatusCode = lens _lglrStatusCode (\ s a -> s{_lglrStatusCode = a});
+lglrStatus :: Lens' ListGeoLocationsResponse Int
+lglrStatus = lens _lglrStatus (\ s a -> s{_lglrStatus = a});

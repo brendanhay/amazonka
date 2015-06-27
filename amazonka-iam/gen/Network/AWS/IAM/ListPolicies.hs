@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListPolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,13 +52,13 @@ module Network.AWS.IAM.ListPolicies
     , lprMarker
     , lprIsTruncated
     , lprPolicies
-    , lprStatusCode
+    , lprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listPolicies' smart constructor.
 --
@@ -73,11 +73,24 @@ import Network.AWS.Response
 -- * 'lpMaxItems'
 --
 -- * 'lpMarker'
-data ListPolicies = ListPolicies'{_lpPathPrefix :: Maybe Text, _lpOnlyAttached :: Maybe Bool, _lpScope :: Maybe PolicyScopeType, _lpMaxItems :: Maybe Nat, _lpMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListPolicies = ListPolicies'
+    { _lpPathPrefix   :: Maybe Text
+    , _lpOnlyAttached :: Maybe Bool
+    , _lpScope        :: Maybe PolicyScopeType
+    , _lpMaxItems     :: Maybe Nat
+    , _lpMarker       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListPolicies' smart constructor.
 listPolicies :: ListPolicies
-listPolicies = ListPolicies'{_lpPathPrefix = Nothing, _lpOnlyAttached = Nothing, _lpScope = Nothing, _lpMaxItems = Nothing, _lpMarker = Nothing};
+listPolicies =
+    ListPolicies'
+    { _lpPathPrefix = Nothing
+    , _lpOnlyAttached = Nothing
+    , _lpScope = Nothing
+    , _lpMaxItems = Nothing
+    , _lpMarker = Nothing
+    }
 
 -- | The path prefix for filtering the results. This parameter is optional.
 -- If it is not included, it defaults to a slash (\/), listing all
@@ -161,12 +174,23 @@ instance ToQuery ListPolicies where
 --
 -- * 'lprPolicies'
 --
--- * 'lprStatusCode'
-data ListPoliciesResponse = ListPoliciesResponse'{_lprMarker :: Maybe Text, _lprIsTruncated :: Maybe Bool, _lprPolicies :: Maybe [Policy], _lprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lprStatus'
+data ListPoliciesResponse = ListPoliciesResponse'
+    { _lprMarker      :: Maybe Text
+    , _lprIsTruncated :: Maybe Bool
+    , _lprPolicies    :: Maybe [Policy]
+    , _lprStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListPoliciesResponse' smart constructor.
 listPoliciesResponse :: Int -> ListPoliciesResponse
-listPoliciesResponse pStatusCode = ListPoliciesResponse'{_lprMarker = Nothing, _lprIsTruncated = Nothing, _lprPolicies = Nothing, _lprStatusCode = pStatusCode};
+listPoliciesResponse pStatus =
+    ListPoliciesResponse'
+    { _lprMarker = Nothing
+    , _lprIsTruncated = Nothing
+    , _lprPolicies = Nothing
+    , _lprStatus = pStatus
+    }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -186,5 +210,5 @@ lprPolicies :: Lens' ListPoliciesResponse [Policy]
 lprPolicies = lens _lprPolicies (\ s a -> s{_lprPolicies = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lprStatusCode :: Lens' ListPoliciesResponse Int
-lprStatusCode = lens _lprStatusCode (\ s a -> s{_lprStatusCode = a});
+lprStatus :: Lens' ListPoliciesResponse Int
+lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});

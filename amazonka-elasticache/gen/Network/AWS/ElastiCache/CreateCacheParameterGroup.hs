@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateCacheParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     , createCacheParameterGroupResponse
     -- ** Response lenses
     , ccpgrCacheParameterGroup
-    , ccpgrStatusCode
+    , ccpgrStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /CreateCacheParameterGroup/ action.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'ccpgCacheParameterGroupFamily'
 --
 -- * 'ccpgDescription'
-data CreateCacheParameterGroup = CreateCacheParameterGroup'{_ccpgCacheParameterGroupName :: Text, _ccpgCacheParameterGroupFamily :: Text, _ccpgDescription :: Text} deriving (Eq, Read, Show)
+data CreateCacheParameterGroup = CreateCacheParameterGroup'
+    { _ccpgCacheParameterGroupName   :: Text
+    , _ccpgCacheParameterGroupFamily :: Text
+    , _ccpgDescription               :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCacheParameterGroup' smart constructor.
 createCacheParameterGroup :: Text -> Text -> Text -> CreateCacheParameterGroup
-createCacheParameterGroup pCacheParameterGroupName pCacheParameterGroupFamily pDescription = CreateCacheParameterGroup'{_ccpgCacheParameterGroupName = pCacheParameterGroupName, _ccpgCacheParameterGroupFamily = pCacheParameterGroupFamily, _ccpgDescription = pDescription};
+createCacheParameterGroup pCacheParameterGroupName pCacheParameterGroupFamily pDescription =
+    CreateCacheParameterGroup'
+    { _ccpgCacheParameterGroupName = pCacheParameterGroupName
+    , _ccpgCacheParameterGroupFamily = pCacheParameterGroupFamily
+    , _ccpgDescription = pDescription
+    }
 
 -- | A user-specified name for the cache parameter group.
 ccpgCacheParameterGroupName :: Lens' CreateCacheParameterGroup Text
@@ -112,17 +121,24 @@ instance ToQuery CreateCacheParameterGroup where
 --
 -- * 'ccpgrCacheParameterGroup'
 --
--- * 'ccpgrStatusCode'
-data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'{_ccpgrCacheParameterGroup :: Maybe CacheParameterGroup, _ccpgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ccpgrStatus'
+data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'
+    { _ccpgrCacheParameterGroup :: Maybe CacheParameterGroup
+    , _ccpgrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCacheParameterGroupResponse' smart constructor.
 createCacheParameterGroupResponse :: Int -> CreateCacheParameterGroupResponse
-createCacheParameterGroupResponse pStatusCode = CreateCacheParameterGroupResponse'{_ccpgrCacheParameterGroup = Nothing, _ccpgrStatusCode = pStatusCode};
+createCacheParameterGroupResponse pStatus =
+    CreateCacheParameterGroupResponse'
+    { _ccpgrCacheParameterGroup = Nothing
+    , _ccpgrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ccpgrCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe CacheParameterGroup)
 ccpgrCacheParameterGroup = lens _ccpgrCacheParameterGroup (\ s a -> s{_ccpgrCacheParameterGroup = a});
 
 -- | FIXME: Undocumented member.
-ccpgrStatusCode :: Lens' CreateCacheParameterGroupResponse Int
-ccpgrStatusCode = lens _ccpgrStatusCode (\ s a -> s{_ccpgrStatusCode = a});
+ccpgrStatus :: Lens' CreateCacheParameterGroupResponse Int
+ccpgrStatus = lens _ccpgrStatus (\ s a -> s{_ccpgrStatus = a});

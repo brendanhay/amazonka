@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteInternetGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.EC2.DeleteInternetGateway
     , deleteInternetGatewayResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteInternetGateway' smart constructor.
 --
@@ -46,11 +46,18 @@ import Network.AWS.Response
 -- * 'dig1DryRun'
 --
 -- * 'dig1InternetGatewayId'
-data DeleteInternetGateway = DeleteInternetGateway'{_dig1DryRun :: Maybe Bool, _dig1InternetGatewayId :: Text} deriving (Eq, Read, Show)
+data DeleteInternetGateway = DeleteInternetGateway'
+    { _dig1DryRun            :: Maybe Bool
+    , _dig1InternetGatewayId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteInternetGateway' smart constructor.
 deleteInternetGateway :: Text -> DeleteInternetGateway
-deleteInternetGateway pInternetGatewayId = DeleteInternetGateway'{_dig1DryRun = Nothing, _dig1InternetGatewayId = pInternetGatewayId};
+deleteInternetGateway pInternetGatewayId =
+    DeleteInternetGateway'
+    { _dig1DryRun = Nothing
+    , _dig1InternetGatewayId = pInternetGatewayId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -85,8 +92,10 @@ instance ToQuery DeleteInternetGateway where
                "InternetGatewayId" =: _dig1InternetGatewayId]
 
 -- | /See:/ 'deleteInternetGatewayResponse' smart constructor.
-data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse' deriving (Eq, Read, Show)
+data DeleteInternetGatewayResponse =
+    DeleteInternetGatewayResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteInternetGatewayResponse' smart constructor.
 deleteInternetGatewayResponse :: DeleteInternetGatewayResponse
-deleteInternetGatewayResponse = DeleteInternetGatewayResponse';
+deleteInternetGatewayResponse = DeleteInternetGatewayResponse'

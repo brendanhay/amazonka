@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.SendMessageBatch
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -64,13 +64,13 @@ module Network.AWS.SQS.SendMessageBatch
     -- ** Response lenses
     , smbrSuccessful
     , smbrFailed
-    , smbrStatusCode
+    , smbrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'sendMessageBatch' smart constructor.
 --
@@ -79,11 +79,18 @@ import Network.AWS.SQS.Types
 -- * 'smbQueueURL'
 --
 -- * 'smbEntries'
-data SendMessageBatch = SendMessageBatch'{_smbQueueURL :: Text, _smbEntries :: [SendMessageBatchRequestEntry]} deriving (Eq, Read, Show)
+data SendMessageBatch = SendMessageBatch'
+    { _smbQueueURL :: Text
+    , _smbEntries  :: [SendMessageBatchRequestEntry]
+    } deriving (Eq,Read,Show)
 
 -- | 'SendMessageBatch' smart constructor.
 sendMessageBatch :: Text -> SendMessageBatch
-sendMessageBatch pQueueURL = SendMessageBatch'{_smbQueueURL = pQueueURL, _smbEntries = mempty};
+sendMessageBatch pQueueURL =
+    SendMessageBatch'
+    { _smbQueueURL = pQueueURL
+    , _smbEntries = mempty
+    }
 
 -- | The URL of the Amazon SQS queue to take action on.
 smbQueueURL :: Lens' SendMessageBatch Text
@@ -132,12 +139,21 @@ instance ToQuery SendMessageBatch where
 --
 -- * 'smbrFailed'
 --
--- * 'smbrStatusCode'
-data SendMessageBatchResponse = SendMessageBatchResponse'{_smbrSuccessful :: [SendMessageBatchResultEntry], _smbrFailed :: [BatchResultErrorEntry], _smbrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'smbrStatus'
+data SendMessageBatchResponse = SendMessageBatchResponse'
+    { _smbrSuccessful :: [SendMessageBatchResultEntry]
+    , _smbrFailed     :: [BatchResultErrorEntry]
+    , _smbrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SendMessageBatchResponse' smart constructor.
 sendMessageBatchResponse :: Int -> SendMessageBatchResponse
-sendMessageBatchResponse pStatusCode = SendMessageBatchResponse'{_smbrSuccessful = mempty, _smbrFailed = mempty, _smbrStatusCode = pStatusCode};
+sendMessageBatchResponse pStatus =
+    SendMessageBatchResponse'
+    { _smbrSuccessful = mempty
+    , _smbrFailed = mempty
+    , _smbrStatus = pStatus
+    }
 
 -- | A list of SendMessageBatchResultEntry items.
 smbrSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
@@ -149,5 +165,5 @@ smbrFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 smbrFailed = lens _smbrFailed (\ s a -> s{_smbrFailed = a});
 
 -- | FIXME: Undocumented member.
-smbrStatusCode :: Lens' SendMessageBatchResponse Int
-smbrStatusCode = lens _smbrStatusCode (\ s a -> s{_smbrStatusCode = a});
+smbrStatus :: Lens' SendMessageBatchResponse Int
+smbrStatus = lens _smbrStatus (\ s a -> s{_smbrStatus = a});

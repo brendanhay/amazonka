@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.GetIdentityPoolRoles
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
     -- ** Response lenses
     , giprrRoles
     , giprrIdentityPoolId
-    , giprrStatusCode
+    , giprrStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the @GetIdentityPoolRoles@ action.
 --
@@ -50,11 +50,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'giprIdentityPoolId'
-newtype GetIdentityPoolRoles = GetIdentityPoolRoles'{_giprIdentityPoolId :: Text} deriving (Eq, Read, Show)
+newtype GetIdentityPoolRoles = GetIdentityPoolRoles'
+    { _giprIdentityPoolId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityPoolRoles' smart constructor.
 getIdentityPoolRoles :: Text -> GetIdentityPoolRoles
-getIdentityPoolRoles pIdentityPoolId = GetIdentityPoolRoles'{_giprIdentityPoolId = pIdentityPoolId};
+getIdentityPoolRoles pIdentityPoolId =
+    GetIdentityPoolRoles'
+    { _giprIdentityPoolId = pIdentityPoolId
+    }
 
 -- | An identity pool ID in the format REGION:GUID.
 giprIdentityPoolId :: Lens' GetIdentityPoolRoles Text
@@ -103,12 +108,21 @@ instance ToQuery GetIdentityPoolRoles where
 --
 -- * 'giprrIdentityPoolId'
 --
--- * 'giprrStatusCode'
-data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'{_giprrRoles :: Maybe (Map Text Text), _giprrIdentityPoolId :: Maybe Text, _giprrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'giprrStatus'
+data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
+    { _giprrRoles          :: Maybe (Map Text Text)
+    , _giprrIdentityPoolId :: Maybe Text
+    , _giprrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityPoolRolesResponse' smart constructor.
 getIdentityPoolRolesResponse :: Int -> GetIdentityPoolRolesResponse
-getIdentityPoolRolesResponse pStatusCode = GetIdentityPoolRolesResponse'{_giprrRoles = Nothing, _giprrIdentityPoolId = Nothing, _giprrStatusCode = pStatusCode};
+getIdentityPoolRolesResponse pStatus =
+    GetIdentityPoolRolesResponse'
+    { _giprrRoles = Nothing
+    , _giprrIdentityPoolId = Nothing
+    , _giprrStatus = pStatus
+    }
 
 -- | The map of roles associated with this pool. Currently only authenticated
 -- and unauthenticated roles are supported.
@@ -120,5 +134,5 @@ giprrIdentityPoolId :: Lens' GetIdentityPoolRolesResponse (Maybe Text)
 giprrIdentityPoolId = lens _giprrIdentityPoolId (\ s a -> s{_giprrIdentityPoolId = a});
 
 -- | FIXME: Undocumented member.
-giprrStatusCode :: Lens' GetIdentityPoolRolesResponse Int
-giprrStatusCode = lens _giprrStatusCode (\ s a -> s{_giprrStatusCode = a});
+giprrStatus :: Lens' GetIdentityPoolRolesResponse Int
+giprrStatus = lens _giprrStatus (\ s a -> s{_giprrStatus = a});

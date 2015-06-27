@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.CreatePlatformEndpoint
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,13 +50,13 @@ module Network.AWS.SNS.CreatePlatformEndpoint
     , createPlatformEndpointResponse
     -- ** Response lenses
     , cperEndpointARN
-    , cperStatusCode
+    , cperStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for CreatePlatformEndpoint action.
 --
@@ -71,11 +71,22 @@ import Network.AWS.SNS.Types
 -- * 'cpePlatformApplicationARN'
 --
 -- * 'cpeToken'
-data CreatePlatformEndpoint = CreatePlatformEndpoint'{_cpeCustomUserData :: Maybe Text, _cpeAttributes :: Maybe (Map Text Text), _cpePlatformApplicationARN :: Text, _cpeToken :: Text} deriving (Eq, Read, Show)
+data CreatePlatformEndpoint = CreatePlatformEndpoint'
+    { _cpeCustomUserData         :: Maybe Text
+    , _cpeAttributes             :: Maybe (Map Text Text)
+    , _cpePlatformApplicationARN :: Text
+    , _cpeToken                  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePlatformEndpoint' smart constructor.
 createPlatformEndpoint :: Text -> Text -> CreatePlatformEndpoint
-createPlatformEndpoint pPlatformApplicationARN pToken = CreatePlatformEndpoint'{_cpeCustomUserData = Nothing, _cpeAttributes = Nothing, _cpePlatformApplicationARN = pPlatformApplicationARN, _cpeToken = pToken};
+createPlatformEndpoint pPlatformApplicationARN pToken =
+    CreatePlatformEndpoint'
+    { _cpeCustomUserData = Nothing
+    , _cpeAttributes = Nothing
+    , _cpePlatformApplicationARN = pPlatformApplicationARN
+    , _cpeToken = pToken
+    }
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not
 -- use this data. The data must be in UTF-8 format and less than 2KB.
@@ -141,17 +152,24 @@ instance ToQuery CreatePlatformEndpoint where
 --
 -- * 'cperEndpointARN'
 --
--- * 'cperStatusCode'
-data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse'{_cperEndpointARN :: Maybe Text, _cperStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cperStatus'
+data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse'
+    { _cperEndpointARN :: Maybe Text
+    , _cperStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePlatformEndpointResponse' smart constructor.
 createPlatformEndpointResponse :: Int -> CreatePlatformEndpointResponse
-createPlatformEndpointResponse pStatusCode = CreatePlatformEndpointResponse'{_cperEndpointARN = Nothing, _cperStatusCode = pStatusCode};
+createPlatformEndpointResponse pStatus =
+    CreatePlatformEndpointResponse'
+    { _cperEndpointARN = Nothing
+    , _cperStatus = pStatus
+    }
 
 -- | EndpointArn returned from CreateEndpoint action.
 cperEndpointARN :: Lens' CreatePlatformEndpointResponse (Maybe Text)
 cperEndpointARN = lens _cperEndpointARN (\ s a -> s{_cperEndpointARN = a});
 
 -- | FIXME: Undocumented member.
-cperStatusCode :: Lens' CreatePlatformEndpointResponse Int
-cperStatusCode = lens _cperStatusCode (\ s a -> s{_cperStatusCode = a});
+cperStatus :: Lens' CreatePlatformEndpointResponse Int
+cperStatus = lens _cperStatus (\ s a -> s{_cperStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.PutUserPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,10 +52,10 @@ module Network.AWS.IAM.PutUserPolicy
     , putUserPolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putUserPolicy' smart constructor.
 --
@@ -66,11 +66,20 @@ import Network.AWS.Response
 -- * 'pupPolicyName'
 --
 -- * 'pupPolicyDocument'
-data PutUserPolicy = PutUserPolicy'{_pupUserName :: Text, _pupPolicyName :: Text, _pupPolicyDocument :: Text} deriving (Eq, Read, Show)
+data PutUserPolicy = PutUserPolicy'
+    { _pupUserName       :: Text
+    , _pupPolicyName     :: Text
+    , _pupPolicyDocument :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PutUserPolicy' smart constructor.
 putUserPolicy :: Text -> Text -> Text -> PutUserPolicy
-putUserPolicy pUserName pPolicyName pPolicyDocument = PutUserPolicy'{_pupUserName = pUserName, _pupPolicyName = pPolicyName, _pupPolicyDocument = pPolicyDocument};
+putUserPolicy pUserName pPolicyName pPolicyDocument =
+    PutUserPolicy'
+    { _pupUserName = pUserName
+    , _pupPolicyName = pPolicyName
+    , _pupPolicyDocument = pPolicyDocument
+    }
 
 -- | The name of the user to associate the policy with.
 pupUserName :: Lens' PutUserPolicy Text
@@ -106,8 +115,10 @@ instance ToQuery PutUserPolicy where
                "PolicyDocument" =: _pupPolicyDocument]
 
 -- | /See:/ 'putUserPolicyResponse' smart constructor.
-data PutUserPolicyResponse = PutUserPolicyResponse' deriving (Eq, Read, Show)
+data PutUserPolicyResponse =
+    PutUserPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutUserPolicyResponse' smart constructor.
 putUserPolicyResponse :: PutUserPolicyResponse
-putUserPolicyResponse = PutUserPolicyResponse';
+putUserPolicyResponse = PutUserPolicyResponse'

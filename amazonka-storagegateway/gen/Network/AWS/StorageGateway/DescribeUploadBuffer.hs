@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeUploadBuffer
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,24 +41,29 @@ module Network.AWS.StorageGateway.DescribeUploadBuffer
     , dubrGatewayARN
     , dubrDiskIds
     , dubrUploadBufferUsedInBytes
-    , dubrStatusCode
+    , dubrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'describeUploadBuffer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dubGatewayARN'
-newtype DescribeUploadBuffer = DescribeUploadBuffer'{_dubGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype DescribeUploadBuffer = DescribeUploadBuffer'
+    { _dubGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeUploadBuffer' smart constructor.
 describeUploadBuffer :: Text -> DescribeUploadBuffer
-describeUploadBuffer pGatewayARN = DescribeUploadBuffer'{_dubGatewayARN = pGatewayARN};
+describeUploadBuffer pGatewayARN =
+    DescribeUploadBuffer'
+    { _dubGatewayARN = pGatewayARN
+    }
 
 -- | FIXME: Undocumented member.
 dubGatewayARN :: Lens' DescribeUploadBuffer Text
@@ -111,12 +116,25 @@ instance ToQuery DescribeUploadBuffer where
 --
 -- * 'dubrUploadBufferUsedInBytes'
 --
--- * 'dubrStatusCode'
-data DescribeUploadBufferResponse = DescribeUploadBufferResponse'{_dubrUploadBufferAllocatedInBytes :: Maybe Integer, _dubrGatewayARN :: Maybe Text, _dubrDiskIds :: Maybe [Text], _dubrUploadBufferUsedInBytes :: Maybe Integer, _dubrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dubrStatus'
+data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
+    { _dubrUploadBufferAllocatedInBytes :: Maybe Integer
+    , _dubrGatewayARN                   :: Maybe Text
+    , _dubrDiskIds                      :: Maybe [Text]
+    , _dubrUploadBufferUsedInBytes      :: Maybe Integer
+    , _dubrStatus                       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeUploadBufferResponse' smart constructor.
 describeUploadBufferResponse :: Int -> DescribeUploadBufferResponse
-describeUploadBufferResponse pStatusCode = DescribeUploadBufferResponse'{_dubrUploadBufferAllocatedInBytes = Nothing, _dubrGatewayARN = Nothing, _dubrDiskIds = Nothing, _dubrUploadBufferUsedInBytes = Nothing, _dubrStatusCode = pStatusCode};
+describeUploadBufferResponse pStatus =
+    DescribeUploadBufferResponse'
+    { _dubrUploadBufferAllocatedInBytes = Nothing
+    , _dubrGatewayARN = Nothing
+    , _dubrDiskIds = Nothing
+    , _dubrUploadBufferUsedInBytes = Nothing
+    , _dubrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dubrUploadBufferAllocatedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
@@ -135,5 +153,5 @@ dubrUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer
 dubrUploadBufferUsedInBytes = lens _dubrUploadBufferUsedInBytes (\ s a -> s{_dubrUploadBufferUsedInBytes = a});
 
 -- | FIXME: Undocumented member.
-dubrStatusCode :: Lens' DescribeUploadBufferResponse Int
-dubrStatusCode = lens _dubrStatusCode (\ s a -> s{_dubrStatusCode = a});
+dubrStatus :: Lens' DescribeUploadBufferResponse Int
+dubrStatus = lens _dubrStatus (\ s a -> s{_dubrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeleteUserPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.IAM.DeleteUserPolicy
     , deleteUserPolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteUserPolicy' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'dupUserName'
 --
 -- * 'dupPolicyName'
-data DeleteUserPolicy = DeleteUserPolicy'{_dupUserName :: Text, _dupPolicyName :: Text} deriving (Eq, Read, Show)
+data DeleteUserPolicy = DeleteUserPolicy'
+    { _dupUserName   :: Text
+    , _dupPolicyName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteUserPolicy' smart constructor.
 deleteUserPolicy :: Text -> Text -> DeleteUserPolicy
-deleteUserPolicy pUserName pPolicyName = DeleteUserPolicy'{_dupUserName = pUserName, _dupPolicyName = pPolicyName};
+deleteUserPolicy pUserName pPolicyName =
+    DeleteUserPolicy'
+    { _dupUserName = pUserName
+    , _dupPolicyName = pPolicyName
+    }
 
 -- | The name (friendly name, not ARN) identifying the user that the policy
 -- is embedded in.
@@ -88,8 +95,10 @@ instance ToQuery DeleteUserPolicy where
                "PolicyName" =: _dupPolicyName]
 
 -- | /See:/ 'deleteUserPolicyResponse' smart constructor.
-data DeleteUserPolicyResponse = DeleteUserPolicyResponse' deriving (Eq, Read, Show)
+data DeleteUserPolicyResponse =
+    DeleteUserPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteUserPolicyResponse' smart constructor.
 deleteUserPolicyResponse :: DeleteUserPolicyResponse
-deleteUserPolicyResponse = DeleteUserPolicyResponse';
+deleteUserPolicyResponse = DeleteUserPolicyResponse'

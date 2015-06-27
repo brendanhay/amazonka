@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.GetBucketTagging
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,29 @@ module Network.AWS.S3.GetBucketTagging
     , getBucketTaggingResponse
     -- ** Response lenses
     , gbtrTagSet
-    , gbtrStatusCode
+    , gbtrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketTagging' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gbtBucket'
-newtype GetBucketTagging = GetBucketTagging'{_gbtBucket :: BucketName} deriving (Eq, Read, Show)
+newtype GetBucketTagging = GetBucketTagging'
+    { _gbtBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketTagging' smart constructor.
 getBucketTagging :: BucketName -> GetBucketTagging
-getBucketTagging pBucket = GetBucketTagging'{_gbtBucket = pBucket};
+getBucketTagging pBucket =
+    GetBucketTagging'
+    { _gbtBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 gbtBucket :: Lens' GetBucketTagging BucketName
@@ -82,17 +87,24 @@ instance ToQuery GetBucketTagging where
 --
 -- * 'gbtrTagSet'
 --
--- * 'gbtrStatusCode'
-data GetBucketTaggingResponse = GetBucketTaggingResponse'{_gbtrTagSet :: [Tag], _gbtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gbtrStatus'
+data GetBucketTaggingResponse = GetBucketTaggingResponse'
+    { _gbtrTagSet :: [Tag]
+    , _gbtrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketTaggingResponse' smart constructor.
 getBucketTaggingResponse :: Int -> GetBucketTaggingResponse
-getBucketTaggingResponse pStatusCode = GetBucketTaggingResponse'{_gbtrTagSet = mempty, _gbtrStatusCode = pStatusCode};
+getBucketTaggingResponse pStatus =
+    GetBucketTaggingResponse'
+    { _gbtrTagSet = mempty
+    , _gbtrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 gbtrTagSet :: Lens' GetBucketTaggingResponse [Tag]
 gbtrTagSet = lens _gbtrTagSet (\ s a -> s{_gbtrTagSet = a});
 
 -- | FIXME: Undocumented member.
-gbtrStatusCode :: Lens' GetBucketTaggingResponse Int
-gbtrStatusCode = lens _gbtrStatusCode (\ s a -> s{_gbtrStatusCode = a});
+gbtrStatus :: Lens' GetBucketTaggingResponse Int
+gbtrStatus = lens _gbtrStatus (\ s a -> s{_gbtrStatus = a});

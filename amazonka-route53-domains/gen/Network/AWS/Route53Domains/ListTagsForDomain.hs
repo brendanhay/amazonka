@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.ListTagsForDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.Route53Domains.ListTagsForDomain
     , listTagsForDomainResponse
     -- ** Response lenses
     , ltfdrTagList
-    , ltfdrStatusCode
+    , ltfdrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | The ListTagsForDomainRequest includes the following elements.
 --
@@ -51,11 +51,16 @@ import Network.AWS.Route53Domains.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ltfdDomainName'
-newtype ListTagsForDomain = ListTagsForDomain'{_ltfdDomainName :: Text} deriving (Eq, Read, Show)
+newtype ListTagsForDomain = ListTagsForDomain'
+    { _ltfdDomainName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForDomain' smart constructor.
 listTagsForDomain :: Text -> ListTagsForDomain
-listTagsForDomain pDomainName = ListTagsForDomain'{_ltfdDomainName = pDomainName};
+listTagsForDomain pDomainName =
+    ListTagsForDomain'
+    { _ltfdDomainName = pDomainName
+    }
 
 -- | The domain for which you want to get a list of tags.
 ltfdDomainName :: Lens' ListTagsForDomain Text
@@ -99,12 +104,19 @@ instance ToQuery ListTagsForDomain where
 --
 -- * 'ltfdrTagList'
 --
--- * 'ltfdrStatusCode'
-data ListTagsForDomainResponse = ListTagsForDomainResponse'{_ltfdrTagList :: [Tag], _ltfdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ltfdrStatus'
+data ListTagsForDomainResponse = ListTagsForDomainResponse'
+    { _ltfdrTagList :: [Tag]
+    , _ltfdrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForDomainResponse' smart constructor.
 listTagsForDomainResponse :: Int -> ListTagsForDomainResponse
-listTagsForDomainResponse pStatusCode = ListTagsForDomainResponse'{_ltfdrTagList = mempty, _ltfdrStatusCode = pStatusCode};
+listTagsForDomainResponse pStatus =
+    ListTagsForDomainResponse'
+    { _ltfdrTagList = mempty
+    , _ltfdrStatus = pStatus
+    }
 
 -- | A list of the tags that are associated with the specified domain.
 --
@@ -128,5 +140,5 @@ ltfdrTagList :: Lens' ListTagsForDomainResponse [Tag]
 ltfdrTagList = lens _ltfdrTagList (\ s a -> s{_ltfdrTagList = a});
 
 -- | FIXME: Undocumented member.
-ltfdrStatusCode :: Lens' ListTagsForDomainResponse Int
-ltfdrStatusCode = lens _ltfdrStatusCode (\ s a -> s{_ltfdrStatusCode = a});
+ltfdrStatus :: Lens' ListTagsForDomainResponse Int
+ltfdrStatus = lens _ltfdrStatus (\ s a -> s{_ltfdrStatus = a});

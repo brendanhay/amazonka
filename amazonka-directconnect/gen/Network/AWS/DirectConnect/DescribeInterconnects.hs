@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeInterconnects
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.DirectConnect.DescribeInterconnects
     , describeInterconnectsResponse
     -- ** Response lenses
     , dirInterconnects
-    , dirStatusCode
+    , dirStatus
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the DescribeInterconnects operation.
 --
@@ -50,11 +50,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'diInterconnectId'
-newtype DescribeInterconnects = DescribeInterconnects'{_diInterconnectId :: Maybe Text} deriving (Eq, Read, Show)
+newtype DescribeInterconnects = DescribeInterconnects'
+    { _diInterconnectId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInterconnects' smart constructor.
 describeInterconnects :: DescribeInterconnects
-describeInterconnects = DescribeInterconnects'{_diInterconnectId = Nothing};
+describeInterconnects =
+    DescribeInterconnects'
+    { _diInterconnectId = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 diInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
@@ -100,17 +105,24 @@ instance ToQuery DescribeInterconnects where
 --
 -- * 'dirInterconnects'
 --
--- * 'dirStatusCode'
-data DescribeInterconnectsResponse = DescribeInterconnectsResponse'{_dirInterconnects :: Maybe [Interconnect], _dirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dirStatus'
+data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
+    { _dirInterconnects :: Maybe [Interconnect]
+    , _dirStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInterconnectsResponse' smart constructor.
 describeInterconnectsResponse :: Int -> DescribeInterconnectsResponse
-describeInterconnectsResponse pStatusCode = DescribeInterconnectsResponse'{_dirInterconnects = Nothing, _dirStatusCode = pStatusCode};
+describeInterconnectsResponse pStatus =
+    DescribeInterconnectsResponse'
+    { _dirInterconnects = Nothing
+    , _dirStatus = pStatus
+    }
 
 -- | A list of interconnects.
 dirInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
 dirInterconnects = lens _dirInterconnects (\ s a -> s{_dirInterconnects = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dirStatusCode :: Lens' DescribeInterconnectsResponse Int
-dirStatusCode = lens _dirStatusCode (\ s a -> s{_dirStatusCode = a});
+dirStatus :: Lens' DescribeInterconnectsResponse Int
+dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});

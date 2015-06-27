@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.CreateTapes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.StorageGateway.CreateTapes
     , createTapesResponse
     -- ** Response lenses
     , ctrTapeARNs
-    , ctrStatusCode
+    , ctrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | CreateTapesInput
 --
@@ -64,11 +64,24 @@ import Network.AWS.StorageGateway.Types
 -- * 'ctNumTapesToCreate'
 --
 -- * 'ctTapeBarcodePrefix'
-data CreateTapes = CreateTapes'{_ctGatewayARN :: Text, _ctTapeSizeInBytes :: Integer, _ctClientToken :: Text, _ctNumTapesToCreate :: Nat, _ctTapeBarcodePrefix :: Text} deriving (Eq, Read, Show)
+data CreateTapes = CreateTapes'
+    { _ctGatewayARN        :: Text
+    , _ctTapeSizeInBytes   :: !Integer
+    , _ctClientToken       :: Text
+    , _ctNumTapesToCreate  :: !Nat
+    , _ctTapeBarcodePrefix :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateTapes' smart constructor.
 createTapes :: Text -> Integer -> Text -> Natural -> Text -> CreateTapes
-createTapes pGatewayARN pTapeSizeInBytes pClientToken pNumTapesToCreate pTapeBarcodePrefix = CreateTapes'{_ctGatewayARN = pGatewayARN, _ctTapeSizeInBytes = pTapeSizeInBytes, _ctClientToken = pClientToken, _ctNumTapesToCreate = _Nat # pNumTapesToCreate, _ctTapeBarcodePrefix = pTapeBarcodePrefix};
+createTapes pGatewayARN pTapeSizeInBytes pClientToken pNumTapesToCreate pTapeBarcodePrefix =
+    CreateTapes'
+    { _ctGatewayARN = pGatewayARN
+    , _ctTapeSizeInBytes = pTapeSizeInBytes
+    , _ctClientToken = pClientToken
+    , _ctNumTapesToCreate = _Nat # pNumTapesToCreate
+    , _ctTapeBarcodePrefix = pTapeBarcodePrefix
+    }
 
 -- | The unique Amazon Resource Name(ARN) that represents the gateway to
 -- associate the virtual tapes with. Use the ListGateways operation to
@@ -146,12 +159,19 @@ instance ToQuery CreateTapes where
 --
 -- * 'ctrTapeARNs'
 --
--- * 'ctrStatusCode'
-data CreateTapesResponse = CreateTapesResponse'{_ctrTapeARNs :: Maybe [Text], _ctrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ctrStatus'
+data CreateTapesResponse = CreateTapesResponse'
+    { _ctrTapeARNs :: Maybe [Text]
+    , _ctrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateTapesResponse' smart constructor.
 createTapesResponse :: Int -> CreateTapesResponse
-createTapesResponse pStatusCode = CreateTapesResponse'{_ctrTapeARNs = Nothing, _ctrStatusCode = pStatusCode};
+createTapesResponse pStatus =
+    CreateTapesResponse'
+    { _ctrTapeARNs = Nothing
+    , _ctrStatus = pStatus
+    }
 
 -- | A list of unique Amazon Resource Named (ARN) the represents the virtual
 -- tapes that were created.
@@ -159,5 +179,5 @@ ctrTapeARNs :: Lens' CreateTapesResponse [Text]
 ctrTapeARNs = lens _ctrTapeARNs (\ s a -> s{_ctrTapeARNs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ctrStatusCode :: Lens' CreateTapesResponse Int
-ctrStatusCode = lens _ctrStatusCode (\ s a -> s{_ctrStatusCode = a});
+ctrStatus :: Lens' CreateTapesResponse Int
+ctrStatus = lens _ctrStatus (\ s a -> s{_ctrStatus = a});

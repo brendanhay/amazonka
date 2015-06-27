@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.DynamoDB.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,11 +20,51 @@ module Network.AWS.DynamoDB.Types
     (
     -- * Service
       DynamoDB
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _ProvisionedThroughputExceededException
+    , _ConditionalCheckFailedException
+    , _ItemCollectionSizeLimitExceededException
+    , _InternalServerError
+    , _ResourceNotFoundException
+    , _ResourceInUseException
+    , _LimitExceededException
 
     -- * AttributeAction
     , AttributeAction (..)
+
+    -- * ComparisonOperator
+    , ComparisonOperator (..)
+
+    -- * ConditionalOperator
+    , ConditionalOperator (..)
+
+    -- * IndexStatus
+    , IndexStatus (..)
+
+    -- * KeyType
+    , KeyType (..)
+
+    -- * ProjectionType
+    , ProjectionType (..)
+
+    -- * ReturnConsumedCapacity
+    , ReturnConsumedCapacity (..)
+
+    -- * ReturnItemCollectionMetrics
+    , ReturnItemCollectionMetrics (..)
+
+    -- * ReturnValue
+    , ReturnValue (..)
+
+    -- * ScalarAttributeType
+    , ScalarAttributeType (..)
+
+    -- * Select
+    , Select (..)
+
+    -- * TableStatus
+    , TableStatus (..)
 
     -- * AttributeDefinition
     , AttributeDefinition
@@ -58,17 +97,11 @@ module Network.AWS.DynamoDB.Types
     , capacity
     , capCapacityUnits
 
-    -- * ComparisonOperator
-    , ComparisonOperator (..)
-
     -- * Condition
     , Condition
     , condition
     , conAttributeValueList
     , conComparisonOperator
-
-    -- * ConditionalOperator
-    , ConditionalOperator (..)
 
     -- * ConsumedCapacity
     , ConsumedCapacity
@@ -132,9 +165,6 @@ module Network.AWS.DynamoDB.Types
     , gsiuDelete
     , gsiuUpdate
 
-    -- * IndexStatus
-    , IndexStatus (..)
-
     -- * ItemCollectionMetrics
     , ItemCollectionMetrics
     , itemCollectionMetrics
@@ -146,9 +176,6 @@ module Network.AWS.DynamoDB.Types
     , keySchemaElement
     , kseAttributeName
     , kseKeyType
-
-    -- * KeyType
-    , KeyType (..)
 
     -- * KeysAndAttributes
     , KeysAndAttributes
@@ -181,9 +208,6 @@ module Network.AWS.DynamoDB.Types
     , proProjectionType
     , proNonKeyAttributes
 
-    -- * ProjectionType
-    , ProjectionType (..)
-
     -- * ProvisionedThroughput
     , ProvisionedThroughput
     , provisionedThroughput
@@ -204,21 +228,6 @@ module Network.AWS.DynamoDB.Types
     , putRequest
     , prItem
 
-    -- * ReturnConsumedCapacity
-    , ReturnConsumedCapacity (..)
-
-    -- * ReturnItemCollectionMetrics
-    , ReturnItemCollectionMetrics (..)
-
-    -- * ReturnValue
-    , ReturnValue (..)
-
-    -- * ScalarAttributeType
-    , ScalarAttributeType (..)
-
-    -- * Select
-    , Select (..)
-
     -- * TableDescription
     , TableDescription
     , tableDescription
@@ -233,9 +242,6 @@ module Network.AWS.DynamoDB.Types
     , tdItemCount
     , tdTableName
 
-    -- * TableStatus
-    , TableStatus (..)
-
     -- * UpdateGlobalSecondaryIndexAction
     , UpdateGlobalSecondaryIndexAction
     , updateGlobalSecondaryIndexAction
@@ -249,40 +255,104 @@ module Network.AWS.DynamoDB.Types
     , wrDeleteRequest
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2012-08-10@ of the Amazon DynamoDB SDK.
 data DynamoDB
 
 instance AWSService DynamoDB where
     type Sg DynamoDB = V4
-    type Er DynamoDB = JSONError
-
-    service = service'
+    service = const svc
       where
-        service' :: Service DynamoDB
-        service' = Service
-            { _svcAbbrev  = "DynamoDB"
-            , _svcPrefix  = "dynamodb"
+        svc =
+            Service
+            { _svcAbbrev = "DynamoDB"
+            , _svcPrefix = "dynamodb"
             , _svcVersion = "2012-08-10"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
+            }
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has
+               (hasCode "ProvisionedThroughputExceededException" .
+                hasStatus 400)
+               e =
+              Just "throughput_exceeded"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+-- | The request rate is too high, or the request is too large, for the
+-- available throughput to accommodate. The AWS SDKs automatically retry
+-- requests that receive this exception; therefore, your request will
+-- eventually succeed, unless the request is too large or your retry queue
+-- is too large to finish. Reduce the frequency of requests by using the
+-- strategies listed in
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries Error Retries and Exponential Backoff>
+-- in the /Amazon DynamoDB Developer Guide/.
+_ProvisionedThroughputExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ProvisionedThroughputExceededException =
+    _ServiceError . hasCode "ProvisionedThroughputExceededException"
 
-        retry :: Retry DynamoDB
-        retry = undefined
+-- | A condition specified in the operation could not be evaluated.
+_ConditionalCheckFailedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ConditionalCheckFailedException =
+    _ServiceError . hasCode "ConditionalCheckFailedException"
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | An item collection is too large. This exception is only returned for
+-- tables that have one or more local secondary indexes.
+_ItemCollectionSizeLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ItemCollectionSizeLimitExceededException =
+    _ServiceError . hasCode "ItemCollectionSizeLimitExceededException"
 
-data AttributeAction = Add | Put | Delete deriving (Eq, Ord, Read, Show, Enum, Generic)
+-- | An error occurred on the server side.
+_InternalServerError :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServerError = _ServiceError . hasCode "InternalServerError"
+
+-- | The operation tried to access a nonexistent table or index. The resource
+-- might not be specified correctly, or its status might not be @ACTIVE@.
+_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+    _ServiceError . hasCode "ResourceNotFoundException"
+
+-- | The operation conflicts with the resource\'s availability. For example,
+-- you attempted to recreate an existing table, or tried to delete a table
+-- currently in the @CREATING@ state.
+_ResourceInUseException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"
+
+-- | The number of concurrent table requests (cumulative number of tables in
+-- the @CREATING@, @DELETING@ or @UPDATING@ state) exceeds the maximum
+-- allowed of 10.
+--
+-- Also, for tables with secondary indexes, only one of those tables can be
+-- in the @CREATING@ state at any point in time. Do not attempt to create
+-- more than one such table simultaneously.
+--
+-- The total limit of tables in the @ACTIVE@ state is 250.
+_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+
+data AttributeAction
+    = Add
+    | Put
+    | Delete
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AttributeAction where
     parser = takeLowerText >>= \case
@@ -304,18 +374,363 @@ instance ToHeader AttributeAction
 instance ToJSON AttributeAction where
     toJSON = toJSONText
 
--- | /See:/ 'attributeDefinition' smart constructor.
+data ComparisonOperator
+    = GE
+    | EQ'
+    | NE
+    | Null
+    | NotContains
+    | GT'
+    | LT'
+    | IN
+    | Between
+    | Contains
+    | BeginsWith
+    | NotNull
+    | LE
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
+
+instance FromText ComparisonOperator where
+    parser = takeLowerText >>= \case
+        "BEGINS_WITH" -> pure BeginsWith
+        "BETWEEN" -> pure Between
+        "CONTAINS" -> pure Contains
+        "EQ" -> pure EQ'
+        "GE" -> pure GE
+        "GT" -> pure GT'
+        "IN" -> pure IN
+        "LE" -> pure LE
+        "LT" -> pure LT'
+        "NE" -> pure NE
+        "NOT_CONTAINS" -> pure NotContains
+        "NOT_NULL" -> pure NotNull
+        "NULL" -> pure Null
+        e -> fail ("Failure parsing ComparisonOperator from " ++ show e)
+
+instance ToText ComparisonOperator where
+    toText = \case
+        BeginsWith -> "BEGINS_WITH"
+        Between -> "BETWEEN"
+        Contains -> "CONTAINS"
+        EQ' -> "EQ"
+        GE -> "GE"
+        GT' -> "GT"
+        IN -> "IN"
+        LE -> "LE"
+        LT' -> "LT"
+        NE -> "NE"
+        NotContains -> "NOT_CONTAINS"
+        NotNull -> "NOT_NULL"
+        Null -> "NULL"
+
+instance Hashable ComparisonOperator
+instance ToQuery ComparisonOperator
+instance ToHeader ComparisonOperator
+
+instance ToJSON ComparisonOperator where
+    toJSON = toJSONText
+
+data ConditionalOperator
+    = And
+    | OR
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
+
+instance FromText ConditionalOperator where
+    parser = takeLowerText >>= \case
+        "AND" -> pure And
+        "OR" -> pure OR
+        e -> fail ("Failure parsing ConditionalOperator from " ++ show e)
+
+instance ToText ConditionalOperator where
+    toText = \case
+        And -> "AND"
+        OR -> "OR"
+
+instance Hashable ConditionalOperator
+instance ToQuery ConditionalOperator
+instance ToHeader ConditionalOperator
+
+instance ToJSON ConditionalOperator where
+    toJSON = toJSONText
+
+data IndexStatus
+    = ISUpdating
+    | ISDeleting
+    | ISCreating
+    | ISActive
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
+
+instance FromText IndexStatus where
+    parser = takeLowerText >>= \case
+        "ACTIVE" -> pure ISActive
+        "CREATING" -> pure ISCreating
+        "DELETING" -> pure ISDeleting
+        "UPDATING" -> pure ISUpdating
+        e -> fail ("Failure parsing IndexStatus from " ++ show e)
+
+instance ToText IndexStatus where
+    toText = \case
+        ISActive -> "ACTIVE"
+        ISCreating -> "CREATING"
+        ISDeleting -> "DELETING"
+        ISUpdating -> "UPDATING"
+
+instance Hashable IndexStatus
+instance ToQuery IndexStatus
+instance ToHeader IndexStatus
+
+instance FromJSON IndexStatus where
+    parseJSON = parseJSONText "IndexStatus"
+
+data KeyType
+    = Hash
+    | Range
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
+
+instance FromText KeyType where
+    parser = takeLowerText >>= \case
+        "HASH" -> pure Hash
+        "RANGE" -> pure Range
+        e -> fail ("Failure parsing KeyType from " ++ show e)
+
+instance ToText KeyType where
+    toText = \case
+        Hash -> "HASH"
+        Range -> "RANGE"
+
+instance Hashable KeyType
+instance ToQuery KeyType
+instance ToHeader KeyType
+
+instance ToJSON KeyType where
+    toJSON = toJSONText
+
+instance FromJSON KeyType where
+    parseJSON = parseJSONText "KeyType"
+
+data ProjectionType
+    = Include
+    | All
+    | KeysOnly
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
+
+instance FromText ProjectionType where
+    parser = takeLowerText >>= \case
+        "ALL" -> pure All
+        "INCLUDE" -> pure Include
+        "KEYS_ONLY" -> pure KeysOnly
+        e -> fail ("Failure parsing ProjectionType from " ++ show e)
+
+instance ToText ProjectionType where
+    toText = \case
+        All -> "ALL"
+        Include -> "INCLUDE"
+        KeysOnly -> "KEYS_ONLY"
+
+instance Hashable ProjectionType
+instance ToQuery ProjectionType
+instance ToHeader ProjectionType
+
+instance ToJSON ProjectionType where
+    toJSON = toJSONText
+
+instance FromJSON ProjectionType where
+    parseJSON = parseJSONText "ProjectionType"
+
+-- | A value that if set to @TOTAL@, the response includes /ConsumedCapacity/
+-- data for tables and indexes. If set to @INDEXES@, the response includes
+-- /ConsumedCapacity/ for indexes. If set to @NONE@ (the default),
+-- /ConsumedCapacity/ is not included in the response.
+data ReturnConsumedCapacity
+    = RCCNone
+    | RCCIndexes
+    | RCCTotal
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
+
+instance FromText ReturnConsumedCapacity where
+    parser = takeLowerText >>= \case
+        "INDEXES" -> pure RCCIndexes
+        "NONE" -> pure RCCNone
+        "TOTAL" -> pure RCCTotal
+        e -> fail ("Failure parsing ReturnConsumedCapacity from " ++ show e)
+
+instance ToText ReturnConsumedCapacity where
+    toText = \case
+        RCCIndexes -> "INDEXES"
+        RCCNone -> "NONE"
+        RCCTotal -> "TOTAL"
+
+instance Hashable ReturnConsumedCapacity
+instance ToQuery ReturnConsumedCapacity
+instance ToHeader ReturnConsumedCapacity
+
+instance ToJSON ReturnConsumedCapacity where
+    toJSON = toJSONText
+
+data ReturnItemCollectionMetrics
+    = RICMNone
+    | RICMSize
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
+
+instance FromText ReturnItemCollectionMetrics where
+    parser = takeLowerText >>= \case
+        "NONE" -> pure RICMNone
+        "SIZE" -> pure RICMSize
+        e -> fail ("Failure parsing ReturnItemCollectionMetrics from " ++ show e)
+
+instance ToText ReturnItemCollectionMetrics where
+    toText = \case
+        RICMNone -> "NONE"
+        RICMSize -> "SIZE"
+
+instance Hashable ReturnItemCollectionMetrics
+instance ToQuery ReturnItemCollectionMetrics
+instance ToHeader ReturnItemCollectionMetrics
+
+instance ToJSON ReturnItemCollectionMetrics where
+    toJSON = toJSONText
+
+data ReturnValue
+    = UpdatedOld
+    | None
+    | AllNew
+    | AllOld
+    | UpdatedNew
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
+
+instance FromText ReturnValue where
+    parser = takeLowerText >>= \case
+        "ALL_NEW" -> pure AllNew
+        "ALL_OLD" -> pure AllOld
+        "NONE" -> pure None
+        "UPDATED_NEW" -> pure UpdatedNew
+        "UPDATED_OLD" -> pure UpdatedOld
+        e -> fail ("Failure parsing ReturnValue from " ++ show e)
+
+instance ToText ReturnValue where
+    toText = \case
+        AllNew -> "ALL_NEW"
+        AllOld -> "ALL_OLD"
+        None -> "NONE"
+        UpdatedNew -> "UPDATED_NEW"
+        UpdatedOld -> "UPDATED_OLD"
+
+instance Hashable ReturnValue
+instance ToQuery ReturnValue
+instance ToHeader ReturnValue
+
+instance ToJSON ReturnValue where
+    toJSON = toJSONText
+
+data ScalarAttributeType
+    = N
+    | B
+    | S
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
+
+instance FromText ScalarAttributeType where
+    parser = takeLowerText >>= \case
+        "B" -> pure B
+        "N" -> pure N
+        "S" -> pure S
+        e -> fail ("Failure parsing ScalarAttributeType from " ++ show e)
+
+instance ToText ScalarAttributeType where
+    toText = \case
+        B -> "B"
+        N -> "N"
+        S -> "S"
+
+instance Hashable ScalarAttributeType
+instance ToQuery ScalarAttributeType
+instance ToHeader ScalarAttributeType
+
+instance ToJSON ScalarAttributeType where
+    toJSON = toJSONText
+
+instance FromJSON ScalarAttributeType where
+    parseJSON = parseJSONText "ScalarAttributeType"
+
+data Select
+    = Count
+    | AllAttributes
+    | SpecificAttributes
+    | AllProjectedAttributes
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
+
+instance FromText Select where
+    parser = takeLowerText >>= \case
+        "ALL_ATTRIBUTES" -> pure AllAttributes
+        "ALL_PROJECTED_ATTRIBUTES" -> pure AllProjectedAttributes
+        "COUNT" -> pure Count
+        "SPECIFIC_ATTRIBUTES" -> pure SpecificAttributes
+        e -> fail ("Failure parsing Select from " ++ show e)
+
+instance ToText Select where
+    toText = \case
+        AllAttributes -> "ALL_ATTRIBUTES"
+        AllProjectedAttributes -> "ALL_PROJECTED_ATTRIBUTES"
+        Count -> "COUNT"
+        SpecificAttributes -> "SPECIFIC_ATTRIBUTES"
+
+instance Hashable Select
+instance ToQuery Select
+instance ToHeader Select
+
+instance ToJSON Select where
+    toJSON = toJSONText
+
+data TableStatus
+    = Deleting
+    | Updating
+    | Creating
+    | Active
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
+
+instance FromText TableStatus where
+    parser = takeLowerText >>= \case
+        "ACTIVE" -> pure Active
+        "CREATING" -> pure Creating
+        "DELETING" -> pure Deleting
+        "UPDATING" -> pure Updating
+        e -> fail ("Failure parsing TableStatus from " ++ show e)
+
+instance ToText TableStatus where
+    toText = \case
+        Active -> "ACTIVE"
+        Creating -> "CREATING"
+        Deleting -> "DELETING"
+        Updating -> "UPDATING"
+
+instance Hashable TableStatus
+instance ToQuery TableStatus
+instance ToHeader TableStatus
+
+instance FromJSON TableStatus where
+    parseJSON = parseJSONText "TableStatus"
+
+-- | Represents an attribute for describing the key schema for the table and
+-- indexes.
+--
+-- /See:/ 'attributeDefinition' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'adAttributeName'
 --
 -- * 'adAttributeType'
-data AttributeDefinition = AttributeDefinition'{_adAttributeName :: Text, _adAttributeType :: ScalarAttributeType} deriving (Eq, Read, Show)
+data AttributeDefinition = AttributeDefinition'
+    { _adAttributeName :: Text
+    , _adAttributeType :: ScalarAttributeType
+    } deriving (Eq,Read,Show)
 
 -- | 'AttributeDefinition' smart constructor.
 attributeDefinition :: Text -> ScalarAttributeType -> AttributeDefinition
-attributeDefinition pAttributeName pAttributeType = AttributeDefinition'{_adAttributeName = pAttributeName, _adAttributeType = pAttributeType};
+attributeDefinition pAttributeName pAttributeType =
+    AttributeDefinition'
+    { _adAttributeName = pAttributeName
+    , _adAttributeType = pAttributeType
+    }
 
 -- | A name for the attribute.
 adAttributeName :: Lens' AttributeDefinition Text
@@ -338,7 +753,16 @@ instance ToJSON AttributeDefinition where
               ["AttributeName" .= _adAttributeName,
                "AttributeType" .= _adAttributeType]
 
--- | /See:/ 'attributeValue' smart constructor.
+-- | Represents the data for an attribute. You can set one, and only one, of
+-- the elements.
+--
+-- Each attribute in an item is a name-value pair. An attribute can be
+-- single-valued or multi-valued set. For example, a book item can have
+-- title and authors attributes. Each book has one title but can have many
+-- authors. The multi-valued attribute is a set; duplicate values are not
+-- allowed.
+--
+-- /See:/ 'attributeValue' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -361,23 +785,46 @@ instance ToJSON AttributeDefinition where
 -- * 'avS'
 --
 -- * 'avBOOL'
-data AttributeValue = AttributeValue'{_avL :: Maybe [AttributeValue], _avM :: Maybe (HashMap Text AttributeValue), _avNS :: Maybe [Text], _avNULL :: Maybe Bool, _avN :: Maybe Text, _avBS :: Maybe [Base64], _avB :: Maybe Base64, _avSS :: Maybe [Text], _avS :: Maybe Text, _avBOOL :: Maybe Bool} deriving (Eq, Read, Show)
+data AttributeValue = AttributeValue'
+    { _avL    :: Maybe [AttributeValue]
+    , _avM    :: Maybe (Map Text AttributeValue)
+    , _avNS   :: Maybe [Text]
+    , _avNULL :: Maybe Bool
+    , _avN    :: Maybe Text
+    , _avBS   :: Maybe [Base64]
+    , _avB    :: Maybe Base64
+    , _avSS   :: Maybe [Text]
+    , _avS    :: Maybe Text
+    , _avBOOL :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'AttributeValue' smart constructor.
 attributeValue :: AttributeValue
-attributeValue = AttributeValue'{_avL = Nothing, _avM = Nothing, _avNS = Nothing, _avNULL = Nothing, _avN = Nothing, _avBS = Nothing, _avB = Nothing, _avSS = Nothing, _avS = Nothing, _avBOOL = Nothing};
+attributeValue =
+    AttributeValue'
+    { _avL = Nothing
+    , _avM = Nothing
+    , _avNS = Nothing
+    , _avNULL = Nothing
+    , _avN = Nothing
+    , _avBS = Nothing
+    , _avB = Nothing
+    , _avSS = Nothing
+    , _avS = Nothing
+    , _avBOOL = Nothing
+    }
 
 -- | A List of attribute values.
-avL :: Lens' AttributeValue (Maybe [AttributeValue])
-avL = lens _avL (\ s a -> s{_avL = a});
+avL :: Lens' AttributeValue [AttributeValue]
+avL = lens _avL (\ s a -> s{_avL = a}) . _Default;
 
 -- | A Map of attribute values.
-avM :: Lens' AttributeValue (Maybe (HashMap Text AttributeValue))
-avM = lens _avM (\ s a -> s{_avM = a}) . mapping _Coerce;
+avM :: Lens' AttributeValue (HashMap Text AttributeValue)
+avM = lens _avM (\ s a -> s{_avM = a}) . _Default . _Map;
 
 -- | A Number Set data type.
-avNS :: Lens' AttributeValue (Maybe [Text])
-avNS = lens _avNS (\ s a -> s{_avNS = a});
+avNS :: Lens' AttributeValue [Text]
+avNS = lens _avNS (\ s a -> s{_avNS = a}) . _Default;
 
 -- | A Null data type.
 avNULL :: Lens' AttributeValue (Maybe Bool)
@@ -388,16 +835,16 @@ avN :: Lens' AttributeValue (Maybe Text)
 avN = lens _avN (\ s a -> s{_avN = a});
 
 -- | A Binary Set data type.
-avBS :: Lens' AttributeValue (Maybe [Base64])
-avBS = lens _avBS (\ s a -> s{_avBS = a});
+avBS :: Lens' AttributeValue [Base64]
+avBS = lens _avBS (\ s a -> s{_avBS = a}) . _Default;
 
 -- | A Binary data type.
 avB :: Lens' AttributeValue (Maybe Base64)
 avB = lens _avB (\ s a -> s{_avB = a});
 
 -- | A String Set data type.
-avSS :: Lens' AttributeValue (Maybe [Text])
-avSS = lens _avSS (\ s a -> s{_avSS = a});
+avSS :: Lens' AttributeValue [Text]
+avSS = lens _avSS (\ s a -> s{_avSS = a}) . _Default;
 
 -- | A String data type.
 avS :: Lens' AttributeValue (Maybe Text)
@@ -430,18 +877,37 @@ instance ToJSON AttributeValue where
                "B" .= _avB, "SS" .= _avSS, "S" .= _avS,
                "BOOL" .= _avBOOL]
 
--- | /See:/ 'attributeValueUpdate' smart constructor.
+-- | For the /UpdateItem/ operation, represents the attributes to be
+-- modified, the action to perform on each, and the new value for each.
+--
+-- You cannot use /UpdateItem/ to update any primary key attributes.
+-- Instead, you will need to delete the item, and then use /PutItem/ to
+-- create a new item with new attributes.
+--
+-- Attribute values cannot be null; string and binary type attributes must
+-- have lengths greater than zero; and set type attributes must not be
+-- empty. Requests with empty values will be rejected with a
+-- /ValidationException/ exception.
+--
+-- /See:/ 'attributeValueUpdate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'avuValue'
 --
 -- * 'avuAction'
-data AttributeValueUpdate = AttributeValueUpdate'{_avuValue :: Maybe AttributeValue, _avuAction :: Maybe AttributeAction} deriving (Eq, Read, Show)
+data AttributeValueUpdate = AttributeValueUpdate'
+    { _avuValue  :: Maybe AttributeValue
+    , _avuAction :: Maybe AttributeAction
+    } deriving (Eq,Read,Show)
 
 -- | 'AttributeValueUpdate' smart constructor.
 attributeValueUpdate :: AttributeValueUpdate
-attributeValueUpdate = AttributeValueUpdate'{_avuValue = Nothing, _avuAction = Nothing};
+attributeValueUpdate =
+    AttributeValueUpdate'
+    { _avuValue = Nothing
+    , _avuAction = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 avuValue :: Lens' AttributeValueUpdate (Maybe AttributeValue)
@@ -527,16 +993,24 @@ instance ToJSON AttributeValueUpdate where
           = object
               ["Value" .= _avuValue, "Action" .= _avuAction]
 
--- | /See:/ 'capacity' smart constructor.
+-- | Represents the amount of provisioned throughput capacity consumed on a
+-- table or an index.
+--
+-- /See:/ 'capacity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'capCapacityUnits'
-newtype Capacity = Capacity'{_capCapacityUnits :: Maybe Double} deriving (Eq, Read, Show)
+newtype Capacity = Capacity'
+    { _capCapacityUnits :: Maybe Double
+    } deriving (Eq,Read,Show)
 
 -- | 'Capacity' smart constructor.
 capacity :: Capacity
-capacity = Capacity'{_capCapacityUnits = Nothing};
+capacity =
+    Capacity'
+    { _capCapacityUnits = Nothing
+    }
 
 -- | The total number of capacity units consumed on a table or an index.
 capCapacityUnits :: Lens' Capacity (Maybe Double)
@@ -547,60 +1021,41 @@ instance FromJSON Capacity where
           = withObject "Capacity"
               (\ x -> Capacity' <$> (x .:? "CapacityUnits"))
 
-data ComparisonOperator = GE | EQ' | NE | Null | NotContains | GT' | LT' | IN | Between | Contains | BeginsWith | NotNull | LE deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ComparisonOperator where
-    parser = takeLowerText >>= \case
-        "BEGINS_WITH" -> pure BeginsWith
-        "BETWEEN" -> pure Between
-        "CONTAINS" -> pure Contains
-        "EQ" -> pure EQ'
-        "GE" -> pure GE
-        "GT" -> pure GT'
-        "IN" -> pure IN
-        "LE" -> pure LE
-        "LT" -> pure LT'
-        "NE" -> pure NE
-        "NOT_CONTAINS" -> pure NotContains
-        "NOT_NULL" -> pure NotNull
-        "NULL" -> pure Null
-        e -> fail ("Failure parsing ComparisonOperator from " ++ show e)
-
-instance ToText ComparisonOperator where
-    toText = \case
-        BeginsWith -> "BEGINS_WITH"
-        Between -> "BETWEEN"
-        Contains -> "CONTAINS"
-        EQ' -> "EQ"
-        GE -> "GE"
-        GT' -> "GT"
-        IN -> "IN"
-        LE -> "LE"
-        LT' -> "LT"
-        NE -> "NE"
-        NotContains -> "NOT_CONTAINS"
-        NotNull -> "NOT_NULL"
-        Null -> "NULL"
-
-instance Hashable ComparisonOperator
-instance ToQuery ComparisonOperator
-instance ToHeader ComparisonOperator
-
-instance ToJSON ComparisonOperator where
-    toJSON = toJSONText
-
--- | /See:/ 'condition' smart constructor.
+-- | Represents the selection criteria for a /Query/ or /Scan/ operation:
+--
+-- -   For a /Query/ operation, /Condition/ is used for specifying the
+--     /KeyConditions/ to use when querying a table or an index. For
+--     /KeyConditions/, only the following comparison operators are
+--     supported:
+--
+--     @EQ | LE | LT | GE | GT | BEGINS_WITH | BETWEEN@
+--
+--     /Condition/ is also used in a /QueryFilter/, which evaluates the
+--     query results and returns only the desired values.
+--
+-- -   For a /Scan/ operation, /Condition/ is used in a /ScanFilter/, which
+--     evaluates the scan results and returns only the desired values.
+--
+--
+-- /See:/ 'condition' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'conAttributeValueList'
 --
 -- * 'conComparisonOperator'
-data Condition = Condition'{_conAttributeValueList :: Maybe [AttributeValue], _conComparisonOperator :: ComparisonOperator} deriving (Eq, Read, Show)
+data Condition = Condition'
+    { _conAttributeValueList :: Maybe [AttributeValue]
+    , _conComparisonOperator :: ComparisonOperator
+    } deriving (Eq,Read,Show)
 
 -- | 'Condition' smart constructor.
 condition :: ComparisonOperator -> Condition
-condition pComparisonOperator = Condition'{_conAttributeValueList = Nothing, _conComparisonOperator = pComparisonOperator};
+condition pComparisonOperator =
+    Condition'
+    { _conAttributeValueList = Nothing
+    , _conComparisonOperator = pComparisonOperator
+    }
 
 -- | One or more values to evaluate against the supplied attribute. The
 -- number of values in the list depends on the /ComparisonOperator/ being
@@ -615,8 +1070,8 @@ condition pComparisonOperator = Condition'{_conAttributeValueList = Nothing, _co
 --
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned
 -- when it compares binary values.
-conAttributeValueList :: Lens' Condition (Maybe [AttributeValue])
-conAttributeValueList = lens _conAttributeValueList (\ s a -> s{_conAttributeValueList = a});
+conAttributeValueList :: Lens' Condition [AttributeValue]
+conAttributeValueList = lens _conAttributeValueList (\ s a -> s{_conAttributeValueList = a}) . _Default;
 
 -- | A comparator for evaluating attributes. For example, equals, greater
 -- than, less than, etc.
@@ -778,27 +1233,14 @@ instance ToJSON Condition where
               ["AttributeValueList" .= _conAttributeValueList,
                "ComparisonOperator" .= _conComparisonOperator]
 
-data ConditionalOperator = And | OR deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ConditionalOperator where
-    parser = takeLowerText >>= \case
-        "AND" -> pure And
-        "OR" -> pure OR
-        e -> fail ("Failure parsing ConditionalOperator from " ++ show e)
-
-instance ToText ConditionalOperator where
-    toText = \case
-        And -> "AND"
-        OR -> "OR"
-
-instance Hashable ConditionalOperator
-instance ToQuery ConditionalOperator
-instance ToHeader ConditionalOperator
-
-instance ToJSON ConditionalOperator where
-    toJSON = toJSONText
-
--- | /See:/ 'consumedCapacity' smart constructor.
+-- | The capacity units consumed by an operation. The data returned includes
+-- the total provisioned throughput consumed, along with statistics for the
+-- table and any indexes involved in the operation. /ConsumedCapacity/ is
+-- only returned if the request asked for it. For more information, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
+-- in the /Amazon DynamoDB Developer Guide/.
+--
+-- /See:/ 'consumedCapacity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -811,11 +1253,24 @@ instance ToJSON ConditionalOperator where
 -- * 'ccTable'
 --
 -- * 'ccTableName'
-data ConsumedCapacity = ConsumedCapacity'{_ccCapacityUnits :: Maybe Double, _ccGlobalSecondaryIndexes :: Maybe (HashMap Text Capacity), _ccLocalSecondaryIndexes :: Maybe (HashMap Text Capacity), _ccTable :: Maybe Capacity, _ccTableName :: Maybe Text} deriving (Eq, Read, Show)
+data ConsumedCapacity = ConsumedCapacity'
+    { _ccCapacityUnits          :: Maybe Double
+    , _ccGlobalSecondaryIndexes :: Maybe (Map Text Capacity)
+    , _ccLocalSecondaryIndexes  :: Maybe (Map Text Capacity)
+    , _ccTable                  :: Maybe Capacity
+    , _ccTableName              :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ConsumedCapacity' smart constructor.
 consumedCapacity :: ConsumedCapacity
-consumedCapacity = ConsumedCapacity'{_ccCapacityUnits = Nothing, _ccGlobalSecondaryIndexes = Nothing, _ccLocalSecondaryIndexes = Nothing, _ccTable = Nothing, _ccTableName = Nothing};
+consumedCapacity =
+    ConsumedCapacity'
+    { _ccCapacityUnits = Nothing
+    , _ccGlobalSecondaryIndexes = Nothing
+    , _ccLocalSecondaryIndexes = Nothing
+    , _ccTable = Nothing
+    , _ccTableName = Nothing
+    }
 
 -- | The total number of capacity units consumed by the operation.
 ccCapacityUnits :: Lens' ConsumedCapacity (Maybe Double)
@@ -823,13 +1278,13 @@ ccCapacityUnits = lens _ccCapacityUnits (\ s a -> s{_ccCapacityUnits = a});
 
 -- | The amount of throughput consumed on each global index affected by the
 -- operation.
-ccGlobalSecondaryIndexes :: Lens' ConsumedCapacity (Maybe (HashMap Text Capacity))
-ccGlobalSecondaryIndexes = lens _ccGlobalSecondaryIndexes (\ s a -> s{_ccGlobalSecondaryIndexes = a}) . mapping _Coerce;
+ccGlobalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
+ccGlobalSecondaryIndexes = lens _ccGlobalSecondaryIndexes (\ s a -> s{_ccGlobalSecondaryIndexes = a}) . _Default . _Map;
 
 -- | The amount of throughput consumed on each local index affected by the
 -- operation.
-ccLocalSecondaryIndexes :: Lens' ConsumedCapacity (Maybe (HashMap Text Capacity))
-ccLocalSecondaryIndexes = lens _ccLocalSecondaryIndexes (\ s a -> s{_ccLocalSecondaryIndexes = a}) . mapping _Coerce;
+ccLocalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
+ccLocalSecondaryIndexes = lens _ccLocalSecondaryIndexes (\ s a -> s{_ccLocalSecondaryIndexes = a}) . _Default . _Map;
 
 -- | The amount of throughput consumed on the table affected by the
 -- operation.
@@ -851,7 +1306,10 @@ instance FromJSON ConsumedCapacity where
                      <*> (x .:? "Table")
                      <*> (x .:? "TableName"))
 
--- | /See:/ 'createGlobalSecondaryIndexAction' smart constructor.
+-- | Represents a new global secondary index to be added to an existing
+-- table.
+--
+-- /See:/ 'createGlobalSecondaryIndexAction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -862,11 +1320,22 @@ instance FromJSON ConsumedCapacity where
 -- * 'cgsiaProjection'
 --
 -- * 'cgsiaProvisionedThroughput'
-data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'{_cgsiaIndexName :: Text, _cgsiaKeySchema :: List1 KeySchemaElement, _cgsiaProjection :: Projection, _cgsiaProvisionedThroughput :: ProvisionedThroughput} deriving (Eq, Read, Show)
+data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'
+    { _cgsiaIndexName             :: Text
+    , _cgsiaKeySchema             :: List1 KeySchemaElement
+    , _cgsiaProjection            :: Projection
+    , _cgsiaProvisionedThroughput :: ProvisionedThroughput
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateGlobalSecondaryIndexAction' smart constructor.
 createGlobalSecondaryIndexAction :: Text -> NonEmpty KeySchemaElement -> Projection -> ProvisionedThroughput -> CreateGlobalSecondaryIndexAction
-createGlobalSecondaryIndexAction pIndexName pKeySchema pProjection pProvisionedThroughput = CreateGlobalSecondaryIndexAction'{_cgsiaIndexName = pIndexName, _cgsiaKeySchema = _List1 # pKeySchema, _cgsiaProjection = pProjection, _cgsiaProvisionedThroughput = pProvisionedThroughput};
+createGlobalSecondaryIndexAction pIndexName pKeySchema pProjection pProvisionedThroughput =
+    CreateGlobalSecondaryIndexAction'
+    { _cgsiaIndexName = pIndexName
+    , _cgsiaKeySchema = _List1 # pKeySchema
+    , _cgsiaProjection = pProjection
+    , _cgsiaProvisionedThroughput = pProvisionedThroughput
+    }
 
 -- | The name of the global secondary index to be created.
 cgsiaIndexName :: Lens' CreateGlobalSecondaryIndexAction Text
@@ -894,16 +1363,24 @@ instance ToJSON CreateGlobalSecondaryIndexAction
                "ProvisionedThroughput" .=
                  _cgsiaProvisionedThroughput]
 
--- | /See:/ 'deleteGlobalSecondaryIndexAction' smart constructor.
+-- | Represents a global secondary index to be deleted from an existing
+-- table.
+--
+-- /See:/ 'deleteGlobalSecondaryIndexAction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dgsiaIndexName'
-newtype DeleteGlobalSecondaryIndexAction = DeleteGlobalSecondaryIndexAction'{_dgsiaIndexName :: Text} deriving (Eq, Read, Show)
+newtype DeleteGlobalSecondaryIndexAction = DeleteGlobalSecondaryIndexAction'
+    { _dgsiaIndexName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteGlobalSecondaryIndexAction' smart constructor.
 deleteGlobalSecondaryIndexAction :: Text -> DeleteGlobalSecondaryIndexAction
-deleteGlobalSecondaryIndexAction pIndexName = DeleteGlobalSecondaryIndexAction'{_dgsiaIndexName = pIndexName};
+deleteGlobalSecondaryIndexAction pIndexName =
+    DeleteGlobalSecondaryIndexAction'
+    { _dgsiaIndexName = pIndexName
+    }
 
 -- | The name of the global secondary index to be deleted.
 dgsiaIndexName :: Lens' DeleteGlobalSecondaryIndexAction Text
@@ -914,23 +1391,30 @@ instance ToJSON DeleteGlobalSecondaryIndexAction
         toJSON DeleteGlobalSecondaryIndexAction'{..}
           = object ["IndexName" .= _dgsiaIndexName]
 
--- | /See:/ 'deleteRequest' smart constructor.
+-- | Represents a request to perform a /DeleteItem/ operation on an item.
+--
+-- /See:/ 'deleteRequest' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drKey'
-newtype DeleteRequest = DeleteRequest'{_drKey :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
+newtype DeleteRequest = DeleteRequest'
+    { _drKey :: Map Text AttributeValue
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteRequest' smart constructor.
 deleteRequest :: DeleteRequest
-deleteRequest = DeleteRequest'{_drKey = mempty};
+deleteRequest =
+    DeleteRequest'
+    { _drKey = mempty
+    }
 
 -- | A map of attribute name to attribute values, representing the primary
 -- key of the item to delete. All of the table\'s primary key attributes
 -- must be specified, and their data types must match those of the table\'s
 -- key schema.
 drKey :: Lens' DeleteRequest (HashMap Text AttributeValue)
-drKey = lens _drKey (\ s a -> s{_drKey = a}) . _Coerce;
+drKey = lens _drKey (\ s a -> s{_drKey = a}) . _Map;
 
 instance FromJSON DeleteRequest where
         parseJSON
@@ -940,7 +1424,30 @@ instance FromJSON DeleteRequest where
 instance ToJSON DeleteRequest where
         toJSON DeleteRequest'{..} = object ["Key" .= _drKey]
 
--- | /See:/ 'expectedAttributeValue' smart constructor.
+-- | Represents a condition to be compared with an attribute value. This
+-- condition can be used with /DeleteItem/, /PutItem/ or /UpdateItem/
+-- operations; if the comparison evaluates to true, the operation succeeds;
+-- if not, the operation fails. You can use /ExpectedAttributeValue/ in one
+-- of two different ways:
+--
+-- -   Use /AttributeValueList/ to specify one or more values to compare
+--     against an attribute. Use /ComparisonOperator/ to specify how you
+--     want to perform the comparison. If the comparison evaluates to true,
+--     then the conditional operation succeeds.
+--
+-- -   Use /Value/ to specify a value that DynamoDB will compare against an
+--     attribute. If the values match, then /ExpectedAttributeValue/
+--     evaluates to true and the conditional operation succeeds.
+--     Optionally, you can also set /Exists/ to false, indicating that you
+--     /do not/ expect to find the attribute value in the table. In this
+--     case, the conditional operation succeeds only if the comparison
+--     evaluates to false.
+--
+-- /Value/ and /Exists/ are incompatible with /AttributeValueList/ and
+-- /ComparisonOperator/. Note that if you use both sets of parameters at
+-- once, DynamoDB will return a /ValidationException/ exception.
+--
+-- /See:/ 'expectedAttributeValue' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -951,11 +1458,22 @@ instance ToJSON DeleteRequest where
 -- * 'eavValue'
 --
 -- * 'eavComparisonOperator'
-data ExpectedAttributeValue = ExpectedAttributeValue'{_eavAttributeValueList :: Maybe [AttributeValue], _eavExists :: Maybe Bool, _eavValue :: Maybe AttributeValue, _eavComparisonOperator :: Maybe ComparisonOperator} deriving (Eq, Read, Show)
+data ExpectedAttributeValue = ExpectedAttributeValue'
+    { _eavAttributeValueList :: Maybe [AttributeValue]
+    , _eavExists             :: Maybe Bool
+    , _eavValue              :: Maybe AttributeValue
+    , _eavComparisonOperator :: Maybe ComparisonOperator
+    } deriving (Eq,Read,Show)
 
 -- | 'ExpectedAttributeValue' smart constructor.
 expectedAttributeValue :: ExpectedAttributeValue
-expectedAttributeValue = ExpectedAttributeValue'{_eavAttributeValueList = Nothing, _eavExists = Nothing, _eavValue = Nothing, _eavComparisonOperator = Nothing};
+expectedAttributeValue =
+    ExpectedAttributeValue'
+    { _eavAttributeValueList = Nothing
+    , _eavExists = Nothing
+    , _eavValue = Nothing
+    , _eavComparisonOperator = Nothing
+    }
 
 -- | One or more values to evaluate against the supplied attribute. The
 -- number of values in the list depends on the /ComparisonOperator/ being
@@ -974,8 +1492,8 @@ expectedAttributeValue = ExpectedAttributeValue'{_eavAttributeValueList = Nothin
 -- For information on specifying data types in JSON, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format>
 -- in the /Amazon DynamoDB Developer Guide/.
-eavAttributeValueList :: Lens' ExpectedAttributeValue (Maybe [AttributeValue])
-eavAttributeValueList = lens _eavAttributeValueList (\ s a -> s{_eavAttributeValueList = a});
+eavAttributeValueList :: Lens' ExpectedAttributeValue [AttributeValue]
+eavAttributeValueList = lens _eavAttributeValueList (\ s a -> s{_eavAttributeValueList = a}) . _Default;
 
 -- | Causes DynamoDB to evaluate the value before attempting a conditional
 -- operation:
@@ -1169,7 +1687,9 @@ instance ToJSON ExpectedAttributeValue where
                "Exists" .= _eavExists, "Value" .= _eavValue,
                "ComparisonOperator" .= _eavComparisonOperator]
 
--- | /See:/ 'globalSecondaryIndex' smart constructor.
+-- | Represents the properties of a global secondary index.
+--
+-- /See:/ 'globalSecondaryIndex' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1180,11 +1700,22 @@ instance ToJSON ExpectedAttributeValue where
 -- * 'gsiProjection'
 --
 -- * 'gsiProvisionedThroughput'
-data GlobalSecondaryIndex = GlobalSecondaryIndex'{_gsiIndexName :: Text, _gsiKeySchema :: List1 KeySchemaElement, _gsiProjection :: Projection, _gsiProvisionedThroughput :: ProvisionedThroughput} deriving (Eq, Read, Show)
+data GlobalSecondaryIndex = GlobalSecondaryIndex'
+    { _gsiIndexName             :: Text
+    , _gsiKeySchema             :: List1 KeySchemaElement
+    , _gsiProjection            :: Projection
+    , _gsiProvisionedThroughput :: ProvisionedThroughput
+    } deriving (Eq,Read,Show)
 
 -- | 'GlobalSecondaryIndex' smart constructor.
 globalSecondaryIndex :: Text -> NonEmpty KeySchemaElement -> Projection -> ProvisionedThroughput -> GlobalSecondaryIndex
-globalSecondaryIndex pIndexName pKeySchema pProjection pProvisionedThroughput = GlobalSecondaryIndex'{_gsiIndexName = pIndexName, _gsiKeySchema = _List1 # pKeySchema, _gsiProjection = pProjection, _gsiProvisionedThroughput = pProvisionedThroughput};
+globalSecondaryIndex pIndexName pKeySchema pProjection pProvisionedThroughput =
+    GlobalSecondaryIndex'
+    { _gsiIndexName = pIndexName
+    , _gsiKeySchema = _List1 # pKeySchema
+    , _gsiProjection = pProjection
+    , _gsiProvisionedThroughput = pProvisionedThroughput
+    }
 
 -- | The name of the global secondary index. The name must be unique among
 -- all other indexes on this table.
@@ -1212,7 +1743,9 @@ instance ToJSON GlobalSecondaryIndex where
                "Projection" .= _gsiProjection,
                "ProvisionedThroughput" .= _gsiProvisionedThroughput]
 
--- | /See:/ 'globalSecondaryIndexDescription' smart constructor.
+-- | Represents the properties of a global secondary index.
+--
+-- /See:/ 'globalSecondaryIndexDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1231,11 +1764,30 @@ instance ToJSON GlobalSecondaryIndex where
 -- * 'gsidItemCount'
 --
 -- * 'gsidIndexName'
-data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'{_gsidBackfilling :: Maybe Bool, _gsidProvisionedThroughput :: Maybe ProvisionedThroughputDescription, _gsidIndexStatus :: Maybe IndexStatus, _gsidIndexSizeBytes :: Maybe Integer, _gsidKeySchema :: Maybe (List1 KeySchemaElement), _gsidProjection :: Maybe Projection, _gsidItemCount :: Maybe Integer, _gsidIndexName :: Maybe Text} deriving (Eq, Read, Show)
+data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
+    { _gsidBackfilling           :: Maybe Bool
+    , _gsidProvisionedThroughput :: Maybe ProvisionedThroughputDescription
+    , _gsidIndexStatus           :: Maybe IndexStatus
+    , _gsidIndexSizeBytes        :: Maybe Integer
+    , _gsidKeySchema             :: Maybe (List1 KeySchemaElement)
+    , _gsidProjection            :: Maybe Projection
+    , _gsidItemCount             :: Maybe Integer
+    , _gsidIndexName             :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GlobalSecondaryIndexDescription' smart constructor.
 globalSecondaryIndexDescription :: GlobalSecondaryIndexDescription
-globalSecondaryIndexDescription = GlobalSecondaryIndexDescription'{_gsidBackfilling = Nothing, _gsidProvisionedThroughput = Nothing, _gsidIndexStatus = Nothing, _gsidIndexSizeBytes = Nothing, _gsidKeySchema = Nothing, _gsidProjection = Nothing, _gsidItemCount = Nothing, _gsidIndexName = Nothing};
+globalSecondaryIndexDescription =
+    GlobalSecondaryIndexDescription'
+    { _gsidBackfilling = Nothing
+    , _gsidProvisionedThroughput = Nothing
+    , _gsidIndexStatus = Nothing
+    , _gsidIndexSizeBytes = Nothing
+    , _gsidKeySchema = Nothing
+    , _gsidProjection = Nothing
+    , _gsidItemCount = Nothing
+    , _gsidIndexName = Nothing
+    }
 
 -- | Indicates whether the index is currently backfilling. /Backfilling/ is
 -- the process of reading items from the table and determining whether they
@@ -1306,7 +1858,18 @@ instance FromJSON GlobalSecondaryIndexDescription
                      <*> (x .:? "ItemCount")
                      <*> (x .:? "IndexName"))
 
--- | /See:/ 'globalSecondaryIndexUpdate' smart constructor.
+-- | Represents one of the following:
+--
+-- -   A new global secondary index to be added to an existing table.
+--
+-- -   New provisioned throughput parameters for an existing global
+--     secondary index.
+--
+-- -   An existing global secondary index to be removed from an existing
+--     table.
+--
+--
+-- /See:/ 'globalSecondaryIndexUpdate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1315,11 +1878,20 @@ instance FromJSON GlobalSecondaryIndexDescription
 -- * 'gsiuDelete'
 --
 -- * 'gsiuUpdate'
-data GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'{_gsiuCreate :: Maybe CreateGlobalSecondaryIndexAction, _gsiuDelete :: Maybe DeleteGlobalSecondaryIndexAction, _gsiuUpdate :: Maybe UpdateGlobalSecondaryIndexAction} deriving (Eq, Read, Show)
+data GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'
+    { _gsiuCreate :: Maybe CreateGlobalSecondaryIndexAction
+    , _gsiuDelete :: Maybe DeleteGlobalSecondaryIndexAction
+    , _gsiuUpdate :: Maybe UpdateGlobalSecondaryIndexAction
+    } deriving (Eq,Read,Show)
 
 -- | 'GlobalSecondaryIndexUpdate' smart constructor.
 globalSecondaryIndexUpdate :: GlobalSecondaryIndexUpdate
-globalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'{_gsiuCreate = Nothing, _gsiuDelete = Nothing, _gsiuUpdate = Nothing};
+globalSecondaryIndexUpdate =
+    GlobalSecondaryIndexUpdate'
+    { _gsiuCreate = Nothing
+    , _gsiuDelete = Nothing
+    , _gsiuUpdate = Nothing
+    }
 
 -- | The parameters required for creating a global secondary index on an
 -- existing table:
@@ -1352,47 +1924,35 @@ instance ToJSON GlobalSecondaryIndexUpdate where
               ["Create" .= _gsiuCreate, "Delete" .= _gsiuDelete,
                "Update" .= _gsiuUpdate]
 
-data IndexStatus = ISUpdating | ISDeleting | ISCreating | ISActive deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText IndexStatus where
-    parser = takeLowerText >>= \case
-        "ACTIVE" -> pure ISActive
-        "CREATING" -> pure ISCreating
-        "DELETING" -> pure ISDeleting
-        "UPDATING" -> pure ISUpdating
-        e -> fail ("Failure parsing IndexStatus from " ++ show e)
-
-instance ToText IndexStatus where
-    toText = \case
-        ISActive -> "ACTIVE"
-        ISCreating -> "CREATING"
-        ISDeleting -> "DELETING"
-        ISUpdating -> "UPDATING"
-
-instance Hashable IndexStatus
-instance ToQuery IndexStatus
-instance ToHeader IndexStatus
-
-instance FromJSON IndexStatus where
-    parseJSON = parseJSONText "IndexStatus"
-
--- | /See:/ 'itemCollectionMetrics' smart constructor.
+-- | Information about item collections, if any, that were affected by the
+-- operation. /ItemCollectionMetrics/ is only returned if the request asked
+-- for it. If the table does not have any local secondary indexes, this
+-- information is not returned in the response.
+--
+-- /See:/ 'itemCollectionMetrics' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'icmItemCollectionKey'
 --
 -- * 'icmSizeEstimateRangeGB'
-data ItemCollectionMetrics = ItemCollectionMetrics'{_icmItemCollectionKey :: Maybe (HashMap Text AttributeValue), _icmSizeEstimateRangeGB :: Maybe [Double]} deriving (Eq, Read, Show)
+data ItemCollectionMetrics = ItemCollectionMetrics'
+    { _icmItemCollectionKey   :: Maybe (Map Text AttributeValue)
+    , _icmSizeEstimateRangeGB :: Maybe [Double]
+    } deriving (Eq,Read,Show)
 
 -- | 'ItemCollectionMetrics' smart constructor.
 itemCollectionMetrics :: ItemCollectionMetrics
-itemCollectionMetrics = ItemCollectionMetrics'{_icmItemCollectionKey = Nothing, _icmSizeEstimateRangeGB = Nothing};
+itemCollectionMetrics =
+    ItemCollectionMetrics'
+    { _icmItemCollectionKey = Nothing
+    , _icmSizeEstimateRangeGB = Nothing
+    }
 
 -- | The hash key value of the item collection. This value is the same as the
 -- hash key of the item.
-icmItemCollectionKey :: Lens' ItemCollectionMetrics (Maybe (HashMap Text AttributeValue))
-icmItemCollectionKey = lens _icmItemCollectionKey (\ s a -> s{_icmItemCollectionKey = a}) . mapping _Coerce;
+icmItemCollectionKey :: Lens' ItemCollectionMetrics (HashMap Text AttributeValue)
+icmItemCollectionKey = lens _icmItemCollectionKey (\ s a -> s{_icmItemCollectionKey = a}) . _Default . _Map;
 
 -- | An estimate of item collection size, in gigabytes. This value is a
 -- two-element array containing a lower bound and an upper bound for the
@@ -1403,8 +1963,8 @@ icmItemCollectionKey = lens _icmItemCollectionKey (\ s a -> s{_icmItemCollection
 --
 -- The estimate is subject to change over time; therefore, do not rely on
 -- the precision or accuracy of the estimate.
-icmSizeEstimateRangeGB :: Lens' ItemCollectionMetrics (Maybe [Double])
-icmSizeEstimateRangeGB = lens _icmSizeEstimateRangeGB (\ s a -> s{_icmSizeEstimateRangeGB = a});
+icmSizeEstimateRangeGB :: Lens' ItemCollectionMetrics [Double]
+icmSizeEstimateRangeGB = lens _icmSizeEstimateRangeGB (\ s a -> s{_icmSizeEstimateRangeGB = a}) . _Default;
 
 instance FromJSON ItemCollectionMetrics where
         parseJSON
@@ -1414,18 +1974,35 @@ instance FromJSON ItemCollectionMetrics where
                    (x .:? "ItemCollectionKey" .!= mempty) <*>
                      (x .:? "SizeEstimateRangeGB" .!= mempty))
 
--- | /See:/ 'keySchemaElement' smart constructor.
+-- | Represents /a single element/ of a key schema. A key schema specifies
+-- the attributes that make up the primary key of a table, or the key
+-- attributes of an index.
+--
+-- A /KeySchemaElement/ represents exactly one attribute of the primary
+-- key. For example, a hash type primary key would be represented by one
+-- /KeySchemaElement/. A hash-and-range type primary key would require one
+-- /KeySchemaElement/ for the hash attribute, and another
+-- /KeySchemaElement/ for the range attribute.
+--
+-- /See:/ 'keySchemaElement' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'kseAttributeName'
 --
 -- * 'kseKeyType'
-data KeySchemaElement = KeySchemaElement'{_kseAttributeName :: Text, _kseKeyType :: KeyType} deriving (Eq, Read, Show)
+data KeySchemaElement = KeySchemaElement'
+    { _kseAttributeName :: Text
+    , _kseKeyType       :: KeyType
+    } deriving (Eq,Read,Show)
 
 -- | 'KeySchemaElement' smart constructor.
 keySchemaElement :: Text -> KeyType -> KeySchemaElement
-keySchemaElement pAttributeName pKeyType = KeySchemaElement'{_kseAttributeName = pAttributeName, _kseKeyType = pKeyType};
+keySchemaElement pAttributeName pKeyType =
+    KeySchemaElement'
+    { _kseAttributeName = pAttributeName
+    , _kseKeyType = pKeyType
+    }
 
 -- | The name of a key attribute.
 kseAttributeName :: Lens' KeySchemaElement Text
@@ -1449,30 +2026,15 @@ instance ToJSON KeySchemaElement where
               ["AttributeName" .= _kseAttributeName,
                "KeyType" .= _kseKeyType]
 
-data KeyType = Hash | Range deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText KeyType where
-    parser = takeLowerText >>= \case
-        "HASH" -> pure Hash
-        "RANGE" -> pure Range
-        e -> fail ("Failure parsing KeyType from " ++ show e)
-
-instance ToText KeyType where
-    toText = \case
-        Hash -> "HASH"
-        Range -> "RANGE"
-
-instance Hashable KeyType
-instance ToQuery KeyType
-instance ToHeader KeyType
-
-instance ToJSON KeyType where
-    toJSON = toJSONText
-
-instance FromJSON KeyType where
-    parseJSON = parseJSONText "KeyType"
-
--- | /See:/ 'keysAndAttributes' smart constructor.
+-- | Represents a set of primary keys and, for each key, the attributes to
+-- retrieve from the table.
+--
+-- For each primary key, you must provide /all/ of the key attributes. For
+-- example, with a hash type primary key, you only need to provide the hash
+-- attribute. For a hash-and-range type primary key, you must provide
+-- /both/ the hash attribute and the range attribute.
+--
+-- /See:/ 'keysAndAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1485,11 +2047,24 @@ instance FromJSON KeyType where
 -- * 'kaaAttributesToGet'
 --
 -- * 'kaaKeys'
-data KeysAndAttributes = KeysAndAttributes'{_kaaProjectionExpression :: Maybe Text, _kaaConsistentRead :: Maybe Bool, _kaaExpressionAttributeNames :: Maybe (HashMap Text Text), _kaaAttributesToGet :: Maybe (List1 Text), _kaaKeys :: List1 (HashMap Text AttributeValue)} deriving (Eq, Read, Show)
+data KeysAndAttributes = KeysAndAttributes'
+    { _kaaProjectionExpression     :: Maybe Text
+    , _kaaConsistentRead           :: Maybe Bool
+    , _kaaExpressionAttributeNames :: Maybe (Map Text Text)
+    , _kaaAttributesToGet          :: Maybe (List1 Text)
+    , _kaaKeys                     :: List1 (Map Text AttributeValue)
+    } deriving (Eq,Read,Show)
 
 -- | 'KeysAndAttributes' smart constructor.
 keysAndAttributes :: NonEmpty (HashMap Text AttributeValue) -> KeysAndAttributes
-keysAndAttributes pKeys = KeysAndAttributes'{_kaaProjectionExpression = Nothing, _kaaConsistentRead = Nothing, _kaaExpressionAttributeNames = Nothing, _kaaAttributesToGet = Nothing, _kaaKeys = _List1 # pKeys};
+keysAndAttributes pKeys =
+    KeysAndAttributes'
+    { _kaaProjectionExpression = Nothing
+    , _kaaConsistentRead = Nothing
+    , _kaaExpressionAttributeNames = Nothing
+    , _kaaAttributesToGet = Nothing
+    , _kaaKeys = _List1 # pKeys
+    }
 
 -- | A string that identifies one or more attributes to retrieve from the
 -- table. These attributes can include scalars, sets, or elements of a JSON
@@ -1551,8 +2126,8 @@ kaaConsistentRead = lens _kaaConsistentRead (\ s a -> s{_kaaConsistentRead = a})
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-kaaExpressionAttributeNames :: Lens' KeysAndAttributes (Maybe (HashMap Text Text))
-kaaExpressionAttributeNames = lens _kaaExpressionAttributeNames (\ s a -> s{_kaaExpressionAttributeNames = a}) . mapping _Coerce;
+kaaExpressionAttributeNames :: Lens' KeysAndAttributes (HashMap Text Text)
+kaaExpressionAttributeNames = lens _kaaExpressionAttributeNames (\ s a -> s{_kaaExpressionAttributeNames = a}) . _Default . _Map;
 
 -- | One or more attributes to retrieve from the table or index. If no
 -- attribute names are specified then all attributes will be returned. If
@@ -1587,7 +2162,9 @@ instance ToJSON KeysAndAttributes where
                "AttributesToGet" .= _kaaAttributesToGet,
                "Keys" .= _kaaKeys]
 
--- | /See:/ 'localSecondaryIndex' smart constructor.
+-- | Represents the properties of a local secondary index.
+--
+-- /See:/ 'localSecondaryIndex' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1596,11 +2173,20 @@ instance ToJSON KeysAndAttributes where
 -- * 'lsiKeySchema'
 --
 -- * 'lsiProjection'
-data LocalSecondaryIndex = LocalSecondaryIndex'{_lsiIndexName :: Text, _lsiKeySchema :: List1 KeySchemaElement, _lsiProjection :: Projection} deriving (Eq, Read, Show)
+data LocalSecondaryIndex = LocalSecondaryIndex'
+    { _lsiIndexName  :: Text
+    , _lsiKeySchema  :: List1 KeySchemaElement
+    , _lsiProjection :: Projection
+    } deriving (Eq,Read,Show)
 
 -- | 'LocalSecondaryIndex' smart constructor.
 localSecondaryIndex :: Text -> NonEmpty KeySchemaElement -> Projection -> LocalSecondaryIndex
-localSecondaryIndex pIndexName pKeySchema pProjection = LocalSecondaryIndex'{_lsiIndexName = pIndexName, _lsiKeySchema = _List1 # pKeySchema, _lsiProjection = pProjection};
+localSecondaryIndex pIndexName pKeySchema pProjection =
+    LocalSecondaryIndex'
+    { _lsiIndexName = pIndexName
+    , _lsiKeySchema = _List1 # pKeySchema
+    , _lsiProjection = pProjection
+    }
 
 -- | The name of the local secondary index. The name must be unique among all
 -- other indexes on this table.
@@ -1623,7 +2209,9 @@ instance ToJSON LocalSecondaryIndex where
                "KeySchema" .= _lsiKeySchema,
                "Projection" .= _lsiProjection]
 
--- | /See:/ 'localSecondaryIndexDescription' smart constructor.
+-- | Represents the properties of a local secondary index.
+--
+-- /See:/ 'localSecondaryIndexDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1636,11 +2224,24 @@ instance ToJSON LocalSecondaryIndex where
 -- * 'lsidItemCount'
 --
 -- * 'lsidIndexName'
-data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'{_lsidIndexSizeBytes :: Maybe Integer, _lsidKeySchema :: Maybe (List1 KeySchemaElement), _lsidProjection :: Maybe Projection, _lsidItemCount :: Maybe Integer, _lsidIndexName :: Maybe Text} deriving (Eq, Read, Show)
+data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'
+    { _lsidIndexSizeBytes :: Maybe Integer
+    , _lsidKeySchema      :: Maybe (List1 KeySchemaElement)
+    , _lsidProjection     :: Maybe Projection
+    , _lsidItemCount      :: Maybe Integer
+    , _lsidIndexName      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'LocalSecondaryIndexDescription' smart constructor.
 localSecondaryIndexDescription :: LocalSecondaryIndexDescription
-localSecondaryIndexDescription = LocalSecondaryIndexDescription'{_lsidIndexSizeBytes = Nothing, _lsidKeySchema = Nothing, _lsidProjection = Nothing, _lsidItemCount = Nothing, _lsidIndexName = Nothing};
+localSecondaryIndexDescription =
+    LocalSecondaryIndexDescription'
+    { _lsidIndexSizeBytes = Nothing
+    , _lsidKeySchema = Nothing
+    , _lsidProjection = Nothing
+    , _lsidItemCount = Nothing
+    , _lsidIndexName = Nothing
+    }
 
 -- | The total size of the specified index, in bytes. DynamoDB updates this
 -- value approximately every six hours. Recent changes might not be
@@ -1678,18 +2279,29 @@ instance FromJSON LocalSecondaryIndexDescription
                      <*> (x .:? "ItemCount")
                      <*> (x .:? "IndexName"))
 
--- | /See:/ 'projection' smart constructor.
+-- | Represents attributes that are copied (projected) from the table into an
+-- index. These are in addition to the primary key attributes and index key
+-- attributes, which are automatically projected.
+--
+-- /See:/ 'projection' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'proProjectionType'
 --
 -- * 'proNonKeyAttributes'
-data Projection = Projection'{_proProjectionType :: Maybe ProjectionType, _proNonKeyAttributes :: Maybe (List1 Text)} deriving (Eq, Read, Show)
+data Projection = Projection'
+    { _proProjectionType   :: Maybe ProjectionType
+    , _proNonKeyAttributes :: Maybe (List1 Text)
+    } deriving (Eq,Read,Show)
 
 -- | 'Projection' smart constructor.
 projection :: Projection
-projection = Projection'{_proProjectionType = Nothing, _proNonKeyAttributes = Nothing};
+projection =
+    Projection'
+    { _proProjectionType = Nothing
+    , _proNonKeyAttributes = Nothing
+    }
 
 -- | The set of attributes that are projected into the index:
 --
@@ -1729,43 +2341,32 @@ instance ToJSON Projection where
               ["ProjectionType" .= _proProjectionType,
                "NonKeyAttributes" .= _proNonKeyAttributes]
 
-data ProjectionType = Include | All | KeysOnly deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ProjectionType where
-    parser = takeLowerText >>= \case
-        "ALL" -> pure All
-        "INCLUDE" -> pure Include
-        "KEYS_ONLY" -> pure KeysOnly
-        e -> fail ("Failure parsing ProjectionType from " ++ show e)
-
-instance ToText ProjectionType where
-    toText = \case
-        All -> "ALL"
-        Include -> "INCLUDE"
-        KeysOnly -> "KEYS_ONLY"
-
-instance Hashable ProjectionType
-instance ToQuery ProjectionType
-instance ToHeader ProjectionType
-
-instance ToJSON ProjectionType where
-    toJSON = toJSONText
-
-instance FromJSON ProjectionType where
-    parseJSON = parseJSONText "ProjectionType"
-
--- | /See:/ 'provisionedThroughput' smart constructor.
+-- | Represents the provisioned throughput settings for a specified table or
+-- index. The settings can be modified using the /UpdateTable/ operation.
+--
+-- For current minimum and maximum provisioned throughput values, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits>
+-- in the /Amazon DynamoDB Developer Guide/.
+--
+-- /See:/ 'provisionedThroughput' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ptReadCapacityUnits'
 --
 -- * 'ptWriteCapacityUnits'
-data ProvisionedThroughput = ProvisionedThroughput'{_ptReadCapacityUnits :: Nat, _ptWriteCapacityUnits :: Nat} deriving (Eq, Read, Show)
+data ProvisionedThroughput = ProvisionedThroughput'
+    { _ptReadCapacityUnits  :: !Nat
+    , _ptWriteCapacityUnits :: !Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'ProvisionedThroughput' smart constructor.
 provisionedThroughput :: Natural -> Natural -> ProvisionedThroughput
-provisionedThroughput pReadCapacityUnits pWriteCapacityUnits = ProvisionedThroughput'{_ptReadCapacityUnits = _Nat # pReadCapacityUnits, _ptWriteCapacityUnits = _Nat # pWriteCapacityUnits};
+provisionedThroughput pReadCapacityUnits pWriteCapacityUnits =
+    ProvisionedThroughput'
+    { _ptReadCapacityUnits = _Nat # pReadCapacityUnits
+    , _ptWriteCapacityUnits = _Nat # pWriteCapacityUnits
+    }
 
 -- | The maximum number of strongly consistent reads consumed per second
 -- before DynamoDB returns a /ThrottlingException/. For more information,
@@ -1788,7 +2389,11 @@ instance ToJSON ProvisionedThroughput where
               ["ReadCapacityUnits" .= _ptReadCapacityUnits,
                "WriteCapacityUnits" .= _ptWriteCapacityUnits]
 
--- | /See:/ 'provisionedThroughputDescription' smart constructor.
+-- | Represents the provisioned throughput settings for the table, consisting
+-- of read and write capacity units, along with data about increases and
+-- decreases.
+--
+-- /See:/ 'provisionedThroughputDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1801,11 +2406,24 @@ instance ToJSON ProvisionedThroughput where
 -- * 'ptdNumberOfDecreasesToday'
 --
 -- * 'ptdLastIncreaseDateTime'
-data ProvisionedThroughputDescription = ProvisionedThroughputDescription'{_ptdReadCapacityUnits :: Maybe Nat, _ptdLastDecreaseDateTime :: Maybe POSIX, _ptdWriteCapacityUnits :: Maybe Nat, _ptdNumberOfDecreasesToday :: Maybe Nat, _ptdLastIncreaseDateTime :: Maybe POSIX} deriving (Eq, Read, Show)
+data ProvisionedThroughputDescription = ProvisionedThroughputDescription'
+    { _ptdReadCapacityUnits      :: Maybe Nat
+    , _ptdLastDecreaseDateTime   :: Maybe POSIX
+    , _ptdWriteCapacityUnits     :: Maybe Nat
+    , _ptdNumberOfDecreasesToday :: Maybe Nat
+    , _ptdLastIncreaseDateTime   :: Maybe POSIX
+    } deriving (Eq,Read,Show)
 
 -- | 'ProvisionedThroughputDescription' smart constructor.
 provisionedThroughputDescription :: ProvisionedThroughputDescription
-provisionedThroughputDescription = ProvisionedThroughputDescription'{_ptdReadCapacityUnits = Nothing, _ptdLastDecreaseDateTime = Nothing, _ptdWriteCapacityUnits = Nothing, _ptdNumberOfDecreasesToday = Nothing, _ptdLastIncreaseDateTime = Nothing};
+provisionedThroughputDescription =
+    ProvisionedThroughputDescription'
+    { _ptdReadCapacityUnits = Nothing
+    , _ptdLastDecreaseDateTime = Nothing
+    , _ptdWriteCapacityUnits = Nothing
+    , _ptdNumberOfDecreasesToday = Nothing
+    , _ptdLastIncreaseDateTime = Nothing
+    }
 
 -- | The maximum number of strongly consistent reads consumed per second
 -- before DynamoDB returns a /ThrottlingException/. Eventually consistent
@@ -1850,16 +2468,23 @@ instance FromJSON ProvisionedThroughputDescription
                      <*> (x .:? "NumberOfDecreasesToday")
                      <*> (x .:? "LastIncreaseDateTime"))
 
--- | /See:/ 'putRequest' smart constructor.
+-- | Represents a request to perform a /PutItem/ operation on an item.
+--
+-- /See:/ 'putRequest' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'prItem'
-newtype PutRequest = PutRequest'{_prItem :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
+newtype PutRequest = PutRequest'
+    { _prItem :: Map Text AttributeValue
+    } deriving (Eq,Read,Show)
 
 -- | 'PutRequest' smart constructor.
 putRequest :: PutRequest
-putRequest = PutRequest'{_prItem = mempty};
+putRequest =
+    PutRequest'
+    { _prItem = mempty
+    }
 
 -- | A map of attribute name to attribute values, representing the primary
 -- key of an item to be processed by /PutItem/. All of the table\'s primary
@@ -1868,7 +2493,7 @@ putRequest = PutRequest'{_prItem = mempty};
 -- which are part of an index key schema for the table, their types must
 -- match the index key schema.
 prItem :: Lens' PutRequest (HashMap Text AttributeValue)
-prItem = lens _prItem (\ s a -> s{_prItem = a}) . _Coerce;
+prItem = lens _prItem (\ s a -> s{_prItem = a}) . _Map;
 
 instance FromJSON PutRequest where
         parseJSON
@@ -1878,124 +2503,9 @@ instance FromJSON PutRequest where
 instance ToJSON PutRequest where
         toJSON PutRequest'{..} = object ["Item" .= _prItem]
 
-data ReturnConsumedCapacity = RCCNone | RCCIndexes | RCCTotal deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ReturnConsumedCapacity where
-    parser = takeLowerText >>= \case
-        "INDEXES" -> pure RCCIndexes
-        "NONE" -> pure RCCNone
-        "TOTAL" -> pure RCCTotal
-        e -> fail ("Failure parsing ReturnConsumedCapacity from " ++ show e)
-
-instance ToText ReturnConsumedCapacity where
-    toText = \case
-        RCCIndexes -> "INDEXES"
-        RCCNone -> "NONE"
-        RCCTotal -> "TOTAL"
-
-instance Hashable ReturnConsumedCapacity
-instance ToQuery ReturnConsumedCapacity
-instance ToHeader ReturnConsumedCapacity
-
-instance ToJSON ReturnConsumedCapacity where
-    toJSON = toJSONText
-
-data ReturnItemCollectionMetrics = RICMNone | RICMSize deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ReturnItemCollectionMetrics where
-    parser = takeLowerText >>= \case
-        "NONE" -> pure RICMNone
-        "SIZE" -> pure RICMSize
-        e -> fail ("Failure parsing ReturnItemCollectionMetrics from " ++ show e)
-
-instance ToText ReturnItemCollectionMetrics where
-    toText = \case
-        RICMNone -> "NONE"
-        RICMSize -> "SIZE"
-
-instance Hashable ReturnItemCollectionMetrics
-instance ToQuery ReturnItemCollectionMetrics
-instance ToHeader ReturnItemCollectionMetrics
-
-instance ToJSON ReturnItemCollectionMetrics where
-    toJSON = toJSONText
-
-data ReturnValue = UpdatedOld | None | AllNew | AllOld | UpdatedNew deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ReturnValue where
-    parser = takeLowerText >>= \case
-        "ALL_NEW" -> pure AllNew
-        "ALL_OLD" -> pure AllOld
-        "NONE" -> pure None
-        "UPDATED_NEW" -> pure UpdatedNew
-        "UPDATED_OLD" -> pure UpdatedOld
-        e -> fail ("Failure parsing ReturnValue from " ++ show e)
-
-instance ToText ReturnValue where
-    toText = \case
-        AllNew -> "ALL_NEW"
-        AllOld -> "ALL_OLD"
-        None -> "NONE"
-        UpdatedNew -> "UPDATED_NEW"
-        UpdatedOld -> "UPDATED_OLD"
-
-instance Hashable ReturnValue
-instance ToQuery ReturnValue
-instance ToHeader ReturnValue
-
-instance ToJSON ReturnValue where
-    toJSON = toJSONText
-
-data ScalarAttributeType = N | B | S deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ScalarAttributeType where
-    parser = takeLowerText >>= \case
-        "B" -> pure B
-        "N" -> pure N
-        "S" -> pure S
-        e -> fail ("Failure parsing ScalarAttributeType from " ++ show e)
-
-instance ToText ScalarAttributeType where
-    toText = \case
-        B -> "B"
-        N -> "N"
-        S -> "S"
-
-instance Hashable ScalarAttributeType
-instance ToQuery ScalarAttributeType
-instance ToHeader ScalarAttributeType
-
-instance ToJSON ScalarAttributeType where
-    toJSON = toJSONText
-
-instance FromJSON ScalarAttributeType where
-    parseJSON = parseJSONText "ScalarAttributeType"
-
-data Select = Count | AllAttributes | SpecificAttributes | AllProjectedAttributes deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText Select where
-    parser = takeLowerText >>= \case
-        "ALL_ATTRIBUTES" -> pure AllAttributes
-        "ALL_PROJECTED_ATTRIBUTES" -> pure AllProjectedAttributes
-        "COUNT" -> pure Count
-        "SPECIFIC_ATTRIBUTES" -> pure SpecificAttributes
-        e -> fail ("Failure parsing Select from " ++ show e)
-
-instance ToText Select where
-    toText = \case
-        AllAttributes -> "ALL_ATTRIBUTES"
-        AllProjectedAttributes -> "ALL_PROJECTED_ATTRIBUTES"
-        Count -> "COUNT"
-        SpecificAttributes -> "SPECIFIC_ATTRIBUTES"
-
-instance Hashable Select
-instance ToQuery Select
-instance ToHeader Select
-
-instance ToJSON Select where
-    toJSON = toJSONText
-
--- | /See:/ 'tableDescription' smart constructor.
+-- | Represents the properties of a table.
+--
+-- /See:/ 'tableDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2018,11 +2528,34 @@ instance ToJSON Select where
 -- * 'tdItemCount'
 --
 -- * 'tdTableName'
-data TableDescription = TableDescription'{_tdProvisionedThroughput :: Maybe ProvisionedThroughputDescription, _tdAttributeDefinitions :: Maybe [AttributeDefinition], _tdTableSizeBytes :: Maybe Integer, _tdTableStatus :: Maybe TableStatus, _tdKeySchema :: Maybe (List1 KeySchemaElement), _tdGlobalSecondaryIndexes :: Maybe [GlobalSecondaryIndexDescription], _tdLocalSecondaryIndexes :: Maybe [LocalSecondaryIndexDescription], _tdCreationDateTime :: Maybe POSIX, _tdItemCount :: Maybe Integer, _tdTableName :: Maybe Text} deriving (Eq, Read, Show)
+data TableDescription = TableDescription'
+    { _tdProvisionedThroughput  :: Maybe ProvisionedThroughputDescription
+    , _tdAttributeDefinitions   :: Maybe [AttributeDefinition]
+    , _tdTableSizeBytes         :: Maybe Integer
+    , _tdTableStatus            :: Maybe TableStatus
+    , _tdKeySchema              :: Maybe (List1 KeySchemaElement)
+    , _tdGlobalSecondaryIndexes :: Maybe [GlobalSecondaryIndexDescription]
+    , _tdLocalSecondaryIndexes  :: Maybe [LocalSecondaryIndexDescription]
+    , _tdCreationDateTime       :: Maybe POSIX
+    , _tdItemCount              :: Maybe Integer
+    , _tdTableName              :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'TableDescription' smart constructor.
 tableDescription :: TableDescription
-tableDescription = TableDescription'{_tdProvisionedThroughput = Nothing, _tdAttributeDefinitions = Nothing, _tdTableSizeBytes = Nothing, _tdTableStatus = Nothing, _tdKeySchema = Nothing, _tdGlobalSecondaryIndexes = Nothing, _tdLocalSecondaryIndexes = Nothing, _tdCreationDateTime = Nothing, _tdItemCount = Nothing, _tdTableName = Nothing};
+tableDescription =
+    TableDescription'
+    { _tdProvisionedThroughput = Nothing
+    , _tdAttributeDefinitions = Nothing
+    , _tdTableSizeBytes = Nothing
+    , _tdTableStatus = Nothing
+    , _tdKeySchema = Nothing
+    , _tdGlobalSecondaryIndexes = Nothing
+    , _tdLocalSecondaryIndexes = Nothing
+    , _tdCreationDateTime = Nothing
+    , _tdItemCount = Nothing
+    , _tdTableName = Nothing
+    }
 
 -- | The provisioned throughput settings for the table, consisting of read
 -- and write capacity units, along with data about increases and decreases.
@@ -2038,8 +2571,8 @@ tdProvisionedThroughput = lens _tdProvisionedThroughput (\ s a -> s{_tdProvision
 --
 -- -   /AttributeType/ - The data type for the attribute.
 --
-tdAttributeDefinitions :: Lens' TableDescription (Maybe [AttributeDefinition])
-tdAttributeDefinitions = lens _tdAttributeDefinitions (\ s a -> s{_tdAttributeDefinitions = a});
+tdAttributeDefinitions :: Lens' TableDescription [AttributeDefinition]
+tdAttributeDefinitions = lens _tdAttributeDefinitions (\ s a -> s{_tdAttributeDefinitions = a}) . _Default;
 
 -- | The total size of the specified table, in bytes. DynamoDB updates this
 -- value approximately every six hours. Recent changes might not be
@@ -2139,8 +2672,8 @@ tdKeySchema = lens _tdKeySchema (\ s a -> s{_tdKeySchema = a}) . mapping _List1;
 --
 -- If the table is in the @DELETING@ state, no information about indexes
 -- will be returned.
-tdGlobalSecondaryIndexes :: Lens' TableDescription (Maybe [GlobalSecondaryIndexDescription])
-tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalSecondaryIndexes = a});
+tdGlobalSecondaryIndexes :: Lens' TableDescription [GlobalSecondaryIndexDescription]
+tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalSecondaryIndexes = a}) . _Default;
 
 -- | Represents one or more local secondary indexes on the table. Each index
 -- is scoped to a given hash key value. Tables with one or more local
@@ -2189,8 +2722,8 @@ tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalS
 --
 -- If the table is in the @DELETING@ state, no information about indexes
 -- will be returned.
-tdLocalSecondaryIndexes :: Lens' TableDescription (Maybe [LocalSecondaryIndexDescription])
-tdLocalSecondaryIndexes = lens _tdLocalSecondaryIndexes (\ s a -> s{_tdLocalSecondaryIndexes = a});
+tdLocalSecondaryIndexes :: Lens' TableDescription [LocalSecondaryIndexDescription]
+tdLocalSecondaryIndexes = lens _tdLocalSecondaryIndexes (\ s a -> s{_tdLocalSecondaryIndexes = a}) . _Default;
 
 -- | The date and time when the table was created, in
 -- <http://www.epochconverter.com/ UNIX epoch time> format.
@@ -2223,42 +2756,28 @@ instance FromJSON TableDescription where
                      <*> (x .:? "ItemCount")
                      <*> (x .:? "TableName"))
 
-data TableStatus = Deleting | Updating | Creating | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText TableStatus where
-    parser = takeLowerText >>= \case
-        "ACTIVE" -> pure Active
-        "CREATING" -> pure Creating
-        "DELETING" -> pure Deleting
-        "UPDATING" -> pure Updating
-        e -> fail ("Failure parsing TableStatus from " ++ show e)
-
-instance ToText TableStatus where
-    toText = \case
-        Active -> "ACTIVE"
-        Creating -> "CREATING"
-        Deleting -> "DELETING"
-        Updating -> "UPDATING"
-
-instance Hashable TableStatus
-instance ToQuery TableStatus
-instance ToHeader TableStatus
-
-instance FromJSON TableStatus where
-    parseJSON = parseJSONText "TableStatus"
-
--- | /See:/ 'updateGlobalSecondaryIndexAction' smart constructor.
+-- | Represents the new provisioned throughput settings to be applied to a
+-- global secondary index.
+--
+-- /See:/ 'updateGlobalSecondaryIndexAction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ugsiaIndexName'
 --
 -- * 'ugsiaProvisionedThroughput'
-data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction'{_ugsiaIndexName :: Text, _ugsiaProvisionedThroughput :: ProvisionedThroughput} deriving (Eq, Read, Show)
+data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction'
+    { _ugsiaIndexName             :: Text
+    , _ugsiaProvisionedThroughput :: ProvisionedThroughput
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateGlobalSecondaryIndexAction' smart constructor.
 updateGlobalSecondaryIndexAction :: Text -> ProvisionedThroughput -> UpdateGlobalSecondaryIndexAction
-updateGlobalSecondaryIndexAction pIndexName pProvisionedThroughput = UpdateGlobalSecondaryIndexAction'{_ugsiaIndexName = pIndexName, _ugsiaProvisionedThroughput = pProvisionedThroughput};
+updateGlobalSecondaryIndexAction pIndexName pProvisionedThroughput =
+    UpdateGlobalSecondaryIndexAction'
+    { _ugsiaIndexName = pIndexName
+    , _ugsiaProvisionedThroughput = pProvisionedThroughput
+    }
 
 -- | The name of the global secondary index to be updated.
 ugsiaIndexName :: Lens' UpdateGlobalSecondaryIndexAction Text
@@ -2276,18 +2795,30 @@ instance ToJSON UpdateGlobalSecondaryIndexAction
                "ProvisionedThroughput" .=
                  _ugsiaProvisionedThroughput]
 
--- | /See:/ 'writeRequest' smart constructor.
+-- | Represents an operation to perform - either /DeleteItem/ or /PutItem/.
+-- You can only request one of these operations, not both, in a single
+-- /WriteRequest/. If you do need to perform both of these operations, you
+-- will need to provide two separate /WriteRequest/ objects.
+--
+-- /See:/ 'writeRequest' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'wrPutRequest'
 --
 -- * 'wrDeleteRequest'
-data WriteRequest = WriteRequest'{_wrPutRequest :: Maybe PutRequest, _wrDeleteRequest :: Maybe DeleteRequest} deriving (Eq, Read, Show)
+data WriteRequest = WriteRequest'
+    { _wrPutRequest    :: Maybe PutRequest
+    , _wrDeleteRequest :: Maybe DeleteRequest
+    } deriving (Eq,Read,Show)
 
 -- | 'WriteRequest' smart constructor.
 writeRequest :: WriteRequest
-writeRequest = WriteRequest'{_wrPutRequest = Nothing, _wrDeleteRequest = Nothing};
+writeRequest =
+    WriteRequest'
+    { _wrPutRequest = Nothing
+    , _wrDeleteRequest = Nothing
+    }
 
 -- | A request to perform a /PutItem/ operation.
 wrPutRequest :: Lens' WriteRequest (Maybe PutRequest)

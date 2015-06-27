@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeVPCs
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.EC2.DescribeVPCs
     , describeVPCsResponse
     -- ** Response lenses
     , dvrVPCs
-    , dvrStatusCode
+    , dvrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVPCs' smart constructor.
 --
@@ -51,11 +51,20 @@ import Network.AWS.Response
 -- * 'dv1VPCIds'
 --
 -- * 'dv1DryRun'
-data DescribeVPCs = DescribeVPCs'{_dv1Filters :: Maybe [Filter], _dv1VPCIds :: Maybe [Text], _dv1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeVPCs = DescribeVPCs'
+    { _dv1Filters :: Maybe [Filter]
+    , _dv1VPCIds  :: Maybe [Text]
+    , _dv1DryRun  :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCs' smart constructor.
 describeVPCs :: DescribeVPCs
-describeVPCs = DescribeVPCs'{_dv1Filters = Nothing, _dv1VPCIds = Nothing, _dv1DryRun = Nothing};
+describeVPCs =
+    DescribeVPCs'
+    { _dv1Filters = Nothing
+    , _dv1VPCIds = Nothing
+    , _dv1DryRun = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -134,17 +143,24 @@ instance ToQuery DescribeVPCs where
 --
 -- * 'dvrVPCs'
 --
--- * 'dvrStatusCode'
-data DescribeVPCsResponse = DescribeVPCsResponse'{_dvrVPCs :: Maybe [VPC], _dvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dvrStatus'
+data DescribeVPCsResponse = DescribeVPCsResponse'
+    { _dvrVPCs   :: Maybe [VPC]
+    , _dvrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCsResponse' smart constructor.
 describeVPCsResponse :: Int -> DescribeVPCsResponse
-describeVPCsResponse pStatusCode = DescribeVPCsResponse'{_dvrVPCs = Nothing, _dvrStatusCode = pStatusCode};
+describeVPCsResponse pStatus =
+    DescribeVPCsResponse'
+    { _dvrVPCs = Nothing
+    , _dvrStatus = pStatus
+    }
 
 -- | Information about one or more VPCs.
 dvrVPCs :: Lens' DescribeVPCsResponse [VPC]
 dvrVPCs = lens _dvrVPCs (\ s a -> s{_dvrVPCs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvrStatusCode :: Lens' DescribeVPCsResponse Int
-dvrStatusCode = lens _dvrStatusCode (\ s a -> s{_dvrStatusCode = a});
+dvrStatus :: Lens' DescribeVPCsResponse Int
+dvrStatus = lens _dvrStatus (\ s a -> s{_dvrStatus = a});

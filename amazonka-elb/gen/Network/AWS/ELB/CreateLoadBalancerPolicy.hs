@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.CreateLoadBalancerPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.ELB.CreateLoadBalancerPolicy
     -- ** Response constructor
     , createLoadBalancerPolicyResponse
     -- ** Response lenses
-    , clbprStatusCode
+    , clbprStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createLoadBalancerPolicy' smart constructor.
 --
@@ -58,11 +58,22 @@ import Network.AWS.Response
 -- * 'clbpPolicyName'
 --
 -- * 'clbpPolicyTypeName'
-data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'{_clbpPolicyAttributes :: Maybe [PolicyAttribute], _clbpLoadBalancerName :: Text, _clbpPolicyName :: Text, _clbpPolicyTypeName :: Text} deriving (Eq, Read, Show)
+data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'
+    { _clbpPolicyAttributes :: Maybe [PolicyAttribute]
+    , _clbpLoadBalancerName :: Text
+    , _clbpPolicyName       :: Text
+    , _clbpPolicyTypeName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLoadBalancerPolicy' smart constructor.
 createLoadBalancerPolicy :: Text -> Text -> Text -> CreateLoadBalancerPolicy
-createLoadBalancerPolicy pLoadBalancerName pPolicyName pPolicyTypeName = CreateLoadBalancerPolicy'{_clbpPolicyAttributes = Nothing, _clbpLoadBalancerName = pLoadBalancerName, _clbpPolicyName = pPolicyName, _clbpPolicyTypeName = pPolicyTypeName};
+createLoadBalancerPolicy pLoadBalancerName pPolicyName pPolicyTypeName =
+    CreateLoadBalancerPolicy'
+    { _clbpPolicyAttributes = Nothing
+    , _clbpLoadBalancerName = pLoadBalancerName
+    , _clbpPolicyName = pPolicyName
+    , _clbpPolicyTypeName = pPolicyTypeName
+    }
 
 -- | The attributes for the policy.
 clbpPolicyAttributes :: Lens' CreateLoadBalancerPolicy [PolicyAttribute]
@@ -116,13 +127,18 @@ instance ToQuery CreateLoadBalancerPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clbprStatusCode'
-newtype CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'{_clbprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'clbprStatus'
+newtype CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'
+    { _clbprStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLoadBalancerPolicyResponse' smart constructor.
 createLoadBalancerPolicyResponse :: Int -> CreateLoadBalancerPolicyResponse
-createLoadBalancerPolicyResponse pStatusCode = CreateLoadBalancerPolicyResponse'{_clbprStatusCode = pStatusCode};
+createLoadBalancerPolicyResponse pStatus =
+    CreateLoadBalancerPolicyResponse'
+    { _clbprStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-clbprStatusCode :: Lens' CreateLoadBalancerPolicyResponse Int
-clbprStatusCode = lens _clbprStatusCode (\ s a -> s{_clbprStatusCode = a});
+clbprStatus :: Lens' CreateLoadBalancerPolicyResponse Int
+clbprStatus = lens _clbprStatus (\ s a -> s{_clbprStatus = a});

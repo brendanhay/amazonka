@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.CreatePlatformApplication
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,13 +48,13 @@ module Network.AWS.SNS.CreatePlatformApplication
     , createPlatformApplicationResponse
     -- ** Response lenses
     , cparPlatformApplicationARN
-    , cparStatusCode
+    , cparStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for CreatePlatformApplication action.
 --
@@ -67,11 +67,20 @@ import Network.AWS.SNS.Types
 -- * 'cpaPlatform'
 --
 -- * 'cpaAttributes'
-data CreatePlatformApplication = CreatePlatformApplication'{_cpaName :: Text, _cpaPlatform :: Text, _cpaAttributes :: Map Text Text} deriving (Eq, Read, Show)
+data CreatePlatformApplication = CreatePlatformApplication'
+    { _cpaName       :: Text
+    , _cpaPlatform   :: Text
+    , _cpaAttributes :: Map Text Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePlatformApplication' smart constructor.
 createPlatformApplication :: Text -> Text -> CreatePlatformApplication
-createPlatformApplication pName pPlatform = CreatePlatformApplication'{_cpaName = pName, _cpaPlatform = pPlatform, _cpaAttributes = mempty};
+createPlatformApplication pName pPlatform =
+    CreatePlatformApplication'
+    { _cpaName = pName
+    , _cpaPlatform = pPlatform
+    , _cpaAttributes = mempty
+    }
 
 -- | Application names must be made up of only uppercase and lowercase ASCII
 -- letters, numbers, underscores, hyphens, and periods, and must be between
@@ -126,17 +135,24 @@ instance ToQuery CreatePlatformApplication where
 --
 -- * 'cparPlatformApplicationARN'
 --
--- * 'cparStatusCode'
-data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'{_cparPlatformApplicationARN :: Maybe Text, _cparStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cparStatus'
+data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
+    { _cparPlatformApplicationARN :: Maybe Text
+    , _cparStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePlatformApplicationResponse' smart constructor.
 createPlatformApplicationResponse :: Int -> CreatePlatformApplicationResponse
-createPlatformApplicationResponse pStatusCode = CreatePlatformApplicationResponse'{_cparPlatformApplicationARN = Nothing, _cparStatusCode = pStatusCode};
+createPlatformApplicationResponse pStatus =
+    CreatePlatformApplicationResponse'
+    { _cparPlatformApplicationARN = Nothing
+    , _cparStatus = pStatus
+    }
 
 -- | PlatformApplicationArn is returned.
 cparPlatformApplicationARN :: Lens' CreatePlatformApplicationResponse (Maybe Text)
 cparPlatformApplicationARN = lens _cparPlatformApplicationARN (\ s a -> s{_cparPlatformApplicationARN = a});
 
 -- | FIXME: Undocumented member.
-cparStatusCode :: Lens' CreatePlatformApplicationResponse Int
-cparStatusCode = lens _cparStatusCode (\ s a -> s{_cparStatusCode = a});
+cparStatus :: Lens' CreatePlatformApplicationResponse Int
+cparStatus = lens _cparStatus (\ s a -> s{_cparStatus = a});

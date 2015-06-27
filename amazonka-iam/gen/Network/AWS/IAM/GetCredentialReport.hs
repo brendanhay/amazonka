@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetCredentialReport
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,20 +35,22 @@ module Network.AWS.IAM.GetCredentialReport
     , getContent
     , getGeneratedTime
     , getReportFormat
-    , getStatusCode
+    , getStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getCredentialReport' smart constructor.
-data GetCredentialReport = GetCredentialReport' deriving (Eq, Read, Show)
+data GetCredentialReport =
+    GetCredentialReport'
+    deriving (Eq,Read,Show)
 
 -- | 'GetCredentialReport' smart constructor.
 getCredentialReport :: GetCredentialReport
-getCredentialReport = GetCredentialReport';
+getCredentialReport = GetCredentialReport'
 
 instance AWSRequest GetCredentialReport where
         type Sv GetCredentialReport = IAM
@@ -88,12 +90,23 @@ instance ToQuery GetCredentialReport where
 --
 -- * 'getReportFormat'
 --
--- * 'getStatusCode'
-data GetCredentialReportResponse = GetCredentialReportResponse'{_getContent :: Maybe Base64, _getGeneratedTime :: Maybe ISO8601, _getReportFormat :: Maybe ReportFormatType, _getStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'getStatus'
+data GetCredentialReportResponse = GetCredentialReportResponse'
+    { _getContent       :: Maybe Base64
+    , _getGeneratedTime :: Maybe ISO8601
+    , _getReportFormat  :: Maybe ReportFormatType
+    , _getStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetCredentialReportResponse' smart constructor.
 getCredentialReportResponse :: Int -> GetCredentialReportResponse
-getCredentialReportResponse pStatusCode = GetCredentialReportResponse'{_getContent = Nothing, _getGeneratedTime = Nothing, _getReportFormat = Nothing, _getStatusCode = pStatusCode};
+getCredentialReportResponse pStatus =
+    GetCredentialReportResponse'
+    { _getContent = Nothing
+    , _getGeneratedTime = Nothing
+    , _getReportFormat = Nothing
+    , _getStatus = pStatus
+    }
 
 -- | Contains the credential report. The report is Base64-encoded.
 getContent :: Lens' GetCredentialReportResponse (Maybe Base64)
@@ -109,5 +122,5 @@ getReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
 getReportFormat = lens _getReportFormat (\ s a -> s{_getReportFormat = a});
 
 -- | FIXME: Undocumented member.
-getStatusCode :: Lens' GetCredentialReportResponse Int
-getStatusCode = lens _getStatusCode (\ s a -> s{_getStatusCode = a});
+getStatus :: Lens' GetCredentialReportResponse Int
+getStatus = lens _getStatus (\ s a -> s{_getStatus = a});

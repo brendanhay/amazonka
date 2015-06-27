@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.RevokeGrant
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.KMS.RevokeGrant
     , revokeGrantResponse
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'revokeGrant' smart constructor.
 --
@@ -46,11 +46,18 @@ import Network.AWS.Response
 -- * 'revKeyId'
 --
 -- * 'revGrantId'
-data RevokeGrant = RevokeGrant'{_revKeyId :: Text, _revGrantId :: Text} deriving (Eq, Read, Show)
+data RevokeGrant = RevokeGrant'
+    { _revKeyId   :: Text
+    , _revGrantId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RevokeGrant' smart constructor.
 revokeGrant :: Text -> Text -> RevokeGrant
-revokeGrant pKeyId pGrantId = RevokeGrant'{_revKeyId = pKeyId, _revGrantId = pGrantId};
+revokeGrant pKeyId pGrantId =
+    RevokeGrant'
+    { _revKeyId = pKeyId
+    , _revGrantId = pGrantId
+    }
 
 -- | A unique identifier for the customer master key associated with the
 -- grant. This value can be a globally unique identifier or the fully
@@ -94,8 +101,10 @@ instance ToQuery RevokeGrant where
         toQuery = const mempty
 
 -- | /See:/ 'revokeGrantResponse' smart constructor.
-data RevokeGrantResponse = RevokeGrantResponse' deriving (Eq, Read, Show)
+data RevokeGrantResponse =
+    RevokeGrantResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RevokeGrantResponse' smart constructor.
 revokeGrantResponse :: RevokeGrantResponse
-revokeGrantResponse = RevokeGrantResponse';
+revokeGrantResponse = RevokeGrantResponse'

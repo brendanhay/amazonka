@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateVPNConnectionRoute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.EC2.CreateVPNConnectionRoute
     , createVPNConnectionRouteResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createVPNConnectionRoute' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'cvcrVPNConnectionId'
 --
 -- * 'cvcrDestinationCIDRBlock'
-data CreateVPNConnectionRoute = CreateVPNConnectionRoute'{_cvcrVPNConnectionId :: Text, _cvcrDestinationCIDRBlock :: Text} deriving (Eq, Read, Show)
+data CreateVPNConnectionRoute = CreateVPNConnectionRoute'
+    { _cvcrVPNConnectionId      :: Text
+    , _cvcrDestinationCIDRBlock :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVPNConnectionRoute' smart constructor.
 createVPNConnectionRoute :: Text -> Text -> CreateVPNConnectionRoute
-createVPNConnectionRoute pVPNConnectionId pDestinationCIDRBlock = CreateVPNConnectionRoute'{_cvcrVPNConnectionId = pVPNConnectionId, _cvcrDestinationCIDRBlock = pDestinationCIDRBlock};
+createVPNConnectionRoute pVPNConnectionId pDestinationCIDRBlock =
+    CreateVPNConnectionRoute'
+    { _cvcrVPNConnectionId = pVPNConnectionId
+    , _cvcrDestinationCIDRBlock = pDestinationCIDRBlock
+    }
 
 -- | The ID of the VPN connection.
 cvcrVPNConnectionId :: Lens' CreateVPNConnectionRoute Text
@@ -90,8 +97,10 @@ instance ToQuery CreateVPNConnectionRoute where
                "DestinationCidrBlock" =: _cvcrDestinationCIDRBlock]
 
 -- | /See:/ 'createVPNConnectionRouteResponse' smart constructor.
-data CreateVPNConnectionRouteResponse = CreateVPNConnectionRouteResponse' deriving (Eq, Read, Show)
+data CreateVPNConnectionRouteResponse =
+    CreateVPNConnectionRouteResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CreateVPNConnectionRouteResponse' smart constructor.
 createVPNConnectionRouteResponse :: CreateVPNConnectionRouteResponse
-createVPNConnectionRouteResponse = CreateVPNConnectionRouteResponse';
+createVPNConnectionRouteResponse = CreateVPNConnectionRouteResponse'

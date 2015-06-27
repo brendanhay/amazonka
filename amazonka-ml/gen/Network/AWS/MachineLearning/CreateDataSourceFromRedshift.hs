@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.CreateDataSourceFromRedshift
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,13 +69,13 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
     , createDataSourceFromRedshiftResponse
     -- ** Response lenses
     , cdsfrrDataSourceId
-    , cdsfrrStatusCode
+    , cdsfrrStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createDataSourceFromRedshift' smart constructor.
 --
@@ -90,11 +90,24 @@ import Network.AWS.Response
 -- * 'cdsfrDataSpec'
 --
 -- * 'cdsfrRoleARN'
-data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'{_cdsfrDataSourceName :: Maybe Text, _cdsfrComputeStatistics :: Maybe Bool, _cdsfrDataSourceId :: Text, _cdsfrDataSpec :: RedshiftDataSpec, _cdsfrRoleARN :: Text} deriving (Eq, Read, Show)
+data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
+    { _cdsfrDataSourceName    :: Maybe Text
+    , _cdsfrComputeStatistics :: Maybe Bool
+    , _cdsfrDataSourceId      :: Text
+    , _cdsfrDataSpec          :: RedshiftDataSpec
+    , _cdsfrRoleARN           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDataSourceFromRedshift' smart constructor.
 createDataSourceFromRedshift :: Text -> RedshiftDataSpec -> Text -> CreateDataSourceFromRedshift
-createDataSourceFromRedshift pDataSourceId pDataSpec pRoleARN = CreateDataSourceFromRedshift'{_cdsfrDataSourceName = Nothing, _cdsfrComputeStatistics = Nothing, _cdsfrDataSourceId = pDataSourceId, _cdsfrDataSpec = pDataSpec, _cdsfrRoleARN = pRoleARN};
+createDataSourceFromRedshift pDataSourceId pDataSpec pRoleARN =
+    CreateDataSourceFromRedshift'
+    { _cdsfrDataSourceName = Nothing
+    , _cdsfrComputeStatistics = Nothing
+    , _cdsfrDataSourceId = pDataSourceId
+    , _cdsfrDataSpec = pDataSpec
+    , _cdsfrRoleARN = pRoleARN
+    }
 
 -- | A user-supplied name or description of the @DataSource@.
 cdsfrDataSourceName :: Lens' CreateDataSourceFromRedshift (Maybe Text)
@@ -208,12 +221,19 @@ instance ToQuery CreateDataSourceFromRedshift where
 --
 -- * 'cdsfrrDataSourceId'
 --
--- * 'cdsfrrStatusCode'
-data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'{_cdsfrrDataSourceId :: Maybe Text, _cdsfrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdsfrrStatus'
+data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'
+    { _cdsfrrDataSourceId :: Maybe Text
+    , _cdsfrrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDataSourceFromRedshiftResponse' smart constructor.
 createDataSourceFromRedshiftResponse :: Int -> CreateDataSourceFromRedshiftResponse
-createDataSourceFromRedshiftResponse pStatusCode = CreateDataSourceFromRedshiftResponse'{_cdsfrrDataSourceId = Nothing, _cdsfrrStatusCode = pStatusCode};
+createDataSourceFromRedshiftResponse pStatus =
+    CreateDataSourceFromRedshiftResponse'
+    { _cdsfrrDataSourceId = Nothing
+    , _cdsfrrStatus = pStatus
+    }
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
@@ -221,5 +241,5 @@ cdsfrrDataSourceId :: Lens' CreateDataSourceFromRedshiftResponse (Maybe Text)
 cdsfrrDataSourceId = lens _cdsfrrDataSourceId (\ s a -> s{_cdsfrrDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-cdsfrrStatusCode :: Lens' CreateDataSourceFromRedshiftResponse Int
-cdsfrrStatusCode = lens _cdsfrrStatusCode (\ s a -> s{_cdsfrrStatusCode = a});
+cdsfrrStatus :: Lens' CreateDataSourceFromRedshiftResponse Int
+cdsfrrStatus = lens _cdsfrrStatus (\ s a -> s{_cdsfrrStatus = a});

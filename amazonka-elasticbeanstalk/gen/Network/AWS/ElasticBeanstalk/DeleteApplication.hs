@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteApplication
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,10 +37,10 @@ module Network.AWS.ElasticBeanstalk.DeleteApplication
     , deleteApplicationResponse
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'daTerminateEnvByForce'
 --
 -- * 'daApplicationName'
-data DeleteApplication = DeleteApplication'{_daTerminateEnvByForce :: Maybe Bool, _daApplicationName :: Text} deriving (Eq, Read, Show)
+data DeleteApplication = DeleteApplication'
+    { _daTerminateEnvByForce :: Maybe Bool
+    , _daApplicationName     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteApplication' smart constructor.
 deleteApplication :: Text -> DeleteApplication
-deleteApplication pApplicationName = DeleteApplication'{_daTerminateEnvByForce = Nothing, _daApplicationName = pApplicationName};
+deleteApplication pApplicationName =
+    DeleteApplication'
+    { _daTerminateEnvByForce = Nothing
+    , _daApplicationName = pApplicationName
+    }
 
 -- | When set to true, running environments will be terminated before
 -- deleting the application.
@@ -87,8 +94,10 @@ instance ToQuery DeleteApplication where
                "ApplicationName" =: _daApplicationName]
 
 -- | /See:/ 'deleteApplicationResponse' smart constructor.
-data DeleteApplicationResponse = DeleteApplicationResponse' deriving (Eq, Read, Show)
+data DeleteApplicationResponse =
+    DeleteApplicationResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteApplicationResponse' smart constructor.
 deleteApplicationResponse :: DeleteApplicationResponse
-deleteApplicationResponse = DeleteApplicationResponse';
+deleteApplicationResponse = DeleteApplicationResponse'

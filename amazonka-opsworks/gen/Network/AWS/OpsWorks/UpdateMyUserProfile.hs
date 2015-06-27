@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateMyUserProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,21 +37,26 @@ module Network.AWS.OpsWorks.UpdateMyUserProfile
     , updateMyUserProfileResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateMyUserProfile' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'umupSSHPublicKey'
-newtype UpdateMyUserProfile = UpdateMyUserProfile'{_umupSSHPublicKey :: Maybe Text} deriving (Eq, Read, Show)
+newtype UpdateMyUserProfile = UpdateMyUserProfile'
+    { _umupSSHPublicKey :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateMyUserProfile' smart constructor.
 updateMyUserProfile :: UpdateMyUserProfile
-updateMyUserProfile = UpdateMyUserProfile'{_umupSSHPublicKey = Nothing};
+updateMyUserProfile =
+    UpdateMyUserProfile'
+    { _umupSSHPublicKey = Nothing
+    }
 
 -- | The user\'s SSH public key.
 umupSSHPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
@@ -85,8 +90,10 @@ instance ToQuery UpdateMyUserProfile where
         toQuery = const mempty
 
 -- | /See:/ 'updateMyUserProfileResponse' smart constructor.
-data UpdateMyUserProfileResponse = UpdateMyUserProfileResponse' deriving (Eq, Read, Show)
+data UpdateMyUserProfileResponse =
+    UpdateMyUserProfileResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateMyUserProfileResponse' smart constructor.
 updateMyUserProfileResponse :: UpdateMyUserProfileResponse
-updateMyUserProfileResponse = UpdateMyUserProfileResponse';
+updateMyUserProfileResponse = UpdateMyUserProfileResponse'

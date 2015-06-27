@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.SetPermission
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,10 +43,10 @@ module Network.AWS.OpsWorks.SetPermission
     , setPermissionResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'setPermission' smart constructor.
 --
@@ -61,11 +61,24 @@ import Network.AWS.Response
 -- * 'spStackId'
 --
 -- * 'spIAMUserARN'
-data SetPermission = SetPermission'{_spAllowSudo :: Maybe Bool, _spLevel :: Maybe Text, _spAllowSSH :: Maybe Bool, _spStackId :: Text, _spIAMUserARN :: Text} deriving (Eq, Read, Show)
+data SetPermission = SetPermission'
+    { _spAllowSudo  :: Maybe Bool
+    , _spLevel      :: Maybe Text
+    , _spAllowSSH   :: Maybe Bool
+    , _spStackId    :: Text
+    , _spIAMUserARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetPermission' smart constructor.
 setPermission :: Text -> Text -> SetPermission
-setPermission pStackId pIAMUserARN = SetPermission'{_spAllowSudo = Nothing, _spLevel = Nothing, _spAllowSSH = Nothing, _spStackId = pStackId, _spIAMUserARN = pIAMUserARN};
+setPermission pStackId pIAMUserARN =
+    SetPermission'
+    { _spAllowSudo = Nothing
+    , _spLevel = Nothing
+    , _spAllowSSH = Nothing
+    , _spStackId = pStackId
+    , _spIAMUserARN = pIAMUserARN
+    }
 
 -- | The user is allowed to use __sudo__ to elevate privileges.
 spAllowSudo :: Lens' SetPermission (Maybe Bool)
@@ -127,8 +140,10 @@ instance ToQuery SetPermission where
         toQuery = const mempty
 
 -- | /See:/ 'setPermissionResponse' smart constructor.
-data SetPermissionResponse = SetPermissionResponse' deriving (Eq, Read, Show)
+data SetPermissionResponse =
+    SetPermissionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetPermissionResponse' smart constructor.
 setPermissionResponse :: SetPermissionResponse
-setPermissionResponse = SetPermissionResponse';
+setPermissionResponse = SetPermissionResponse'

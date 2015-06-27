@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.GetBucketLifecycle
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,29 @@ module Network.AWS.S3.GetBucketLifecycle
     , getBucketLifecycleResponse
     -- ** Response lenses
     , gblrRules
-    , gblrStatusCode
+    , gblrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketLifecycle' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'getBucket'
-newtype GetBucketLifecycle = GetBucketLifecycle'{_getBucket :: BucketName} deriving (Eq, Read, Show)
+newtype GetBucketLifecycle = GetBucketLifecycle'
+    { _getBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketLifecycle' smart constructor.
 getBucketLifecycle :: BucketName -> GetBucketLifecycle
-getBucketLifecycle pBucket = GetBucketLifecycle'{_getBucket = pBucket};
+getBucketLifecycle pBucket =
+    GetBucketLifecycle'
+    { _getBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 getBucket :: Lens' GetBucketLifecycle BucketName
@@ -83,17 +88,24 @@ instance ToQuery GetBucketLifecycle where
 --
 -- * 'gblrRules'
 --
--- * 'gblrStatusCode'
-data GetBucketLifecycleResponse = GetBucketLifecycleResponse'{_gblrRules :: Maybe [Rule], _gblrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gblrStatus'
+data GetBucketLifecycleResponse = GetBucketLifecycleResponse'
+    { _gblrRules  :: Maybe [Rule]
+    , _gblrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketLifecycleResponse' smart constructor.
 getBucketLifecycleResponse :: Int -> GetBucketLifecycleResponse
-getBucketLifecycleResponse pStatusCode = GetBucketLifecycleResponse'{_gblrRules = Nothing, _gblrStatusCode = pStatusCode};
+getBucketLifecycleResponse pStatus =
+    GetBucketLifecycleResponse'
+    { _gblrRules = Nothing
+    , _gblrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
 gblrRules = lens _gblrRules (\ s a -> s{_gblrRules = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gblrStatusCode :: Lens' GetBucketLifecycleResponse Int
-gblrStatusCode = lens _gblrStatusCode (\ s a -> s{_gblrStatusCode = a});
+gblrStatus :: Lens' GetBucketLifecycleResponse Int
+gblrStatus = lens _gblrStatus (\ s a -> s{_gblrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ModifyVPCEndpoint
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.EC2.ModifyVPCEndpoint
     , modifyVPCEndpointResponse
     -- ** Response lenses
     , mverReturn
-    , mverStatusCode
+    , mverStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyVPCEndpoint' smart constructor.
 --
@@ -62,11 +62,26 @@ import Network.AWS.Response
 -- * 'mveDryRun'
 --
 -- * 'mveVPCEndpointId'
-data ModifyVPCEndpoint = ModifyVPCEndpoint'{_mvePolicyDocument :: Maybe Text, _mveRemoveRouteTableIds :: Maybe [Text], _mveResetPolicy :: Maybe Bool, _mveAddRouteTableIds :: Maybe [Text], _mveDryRun :: Maybe Bool, _mveVPCEndpointId :: Text} deriving (Eq, Read, Show)
+data ModifyVPCEndpoint = ModifyVPCEndpoint'
+    { _mvePolicyDocument      :: Maybe Text
+    , _mveRemoveRouteTableIds :: Maybe [Text]
+    , _mveResetPolicy         :: Maybe Bool
+    , _mveAddRouteTableIds    :: Maybe [Text]
+    , _mveDryRun              :: Maybe Bool
+    , _mveVPCEndpointId       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyVPCEndpoint' smart constructor.
 modifyVPCEndpoint :: Text -> ModifyVPCEndpoint
-modifyVPCEndpoint pVPCEndpointId = ModifyVPCEndpoint'{_mvePolicyDocument = Nothing, _mveRemoveRouteTableIds = Nothing, _mveResetPolicy = Nothing, _mveAddRouteTableIds = Nothing, _mveDryRun = Nothing, _mveVPCEndpointId = pVPCEndpointId};
+modifyVPCEndpoint pVPCEndpointId =
+    ModifyVPCEndpoint'
+    { _mvePolicyDocument = Nothing
+    , _mveRemoveRouteTableIds = Nothing
+    , _mveResetPolicy = Nothing
+    , _mveAddRouteTableIds = Nothing
+    , _mveDryRun = Nothing
+    , _mveVPCEndpointId = pVPCEndpointId
+    }
 
 -- | A policy document to attach to the endpoint. The policy must be in valid
 -- JSON format.
@@ -133,17 +148,24 @@ instance ToQuery ModifyVPCEndpoint where
 --
 -- * 'mverReturn'
 --
--- * 'mverStatusCode'
-data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'{_mverReturn :: Maybe Bool, _mverStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'mverStatus'
+data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
+    { _mverReturn :: Maybe Bool
+    , _mverStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyVPCEndpointResponse' smart constructor.
 modifyVPCEndpointResponse :: Int -> ModifyVPCEndpointResponse
-modifyVPCEndpointResponse pStatusCode = ModifyVPCEndpointResponse'{_mverReturn = Nothing, _mverStatusCode = pStatusCode};
+modifyVPCEndpointResponse pStatus =
+    ModifyVPCEndpointResponse'
+    { _mverReturn = Nothing
+    , _mverStatus = pStatus
+    }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 mverReturn :: Lens' ModifyVPCEndpointResponse (Maybe Bool)
 mverReturn = lens _mverReturn (\ s a -> s{_mverReturn = a});
 
 -- | FIXME: Undocumented member.
-mverStatusCode :: Lens' ModifyVPCEndpointResponse Int
-mverStatusCode = lens _mverStatusCode (\ s a -> s{_mverStatusCode = a});
+mverStatus :: Lens' ModifyVPCEndpointResponse Int
+mverStatus = lens _mverStatus (\ s a -> s{_mverStatus = a});

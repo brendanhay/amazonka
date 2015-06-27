@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,14 +33,14 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     , listCloudFrontOriginAccessIdentitiesResponse
     -- ** Response lenses
     , lcfoairCloudFrontOriginAccessIdentityList
-    , lcfoairStatusCode
+    , lcfoairStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to list origin access identities.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'lcfoaiMaxItems'
 --
 -- * 'lcfoaiMarker'
-data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities'{_lcfoaiMaxItems :: Maybe Text, _lcfoaiMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities'
+    { _lcfoaiMaxItems :: Maybe Text
+    , _lcfoaiMarker   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListCloudFrontOriginAccessIdentities' smart constructor.
 listCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
-listCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities'{_lcfoaiMaxItems = Nothing, _lcfoaiMarker = Nothing};
+listCloudFrontOriginAccessIdentities =
+    ListCloudFrontOriginAccessIdentities'
+    { _lcfoaiMaxItems = Nothing
+    , _lcfoaiMarker = Nothing
+    }
 
 -- | The maximum number of origin access identities you want in the response
 -- body.
@@ -129,17 +136,24 @@ instance ToQuery ListCloudFrontOriginAccessIdentities
 --
 -- * 'lcfoairCloudFrontOriginAccessIdentityList'
 --
--- * 'lcfoairStatusCode'
-data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'{_lcfoairCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList, _lcfoairStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lcfoairStatus'
+data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'
+    { _lcfoairCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList
+    , _lcfoairStatus                             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListCloudFrontOriginAccessIdentitiesResponse' smart constructor.
 listCloudFrontOriginAccessIdentitiesResponse :: CloudFrontOriginAccessIdentityList -> Int -> ListCloudFrontOriginAccessIdentitiesResponse
-listCloudFrontOriginAccessIdentitiesResponse pCloudFrontOriginAccessIdentityList pStatusCode = ListCloudFrontOriginAccessIdentitiesResponse'{_lcfoairCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList, _lcfoairStatusCode = pStatusCode};
+listCloudFrontOriginAccessIdentitiesResponse pCloudFrontOriginAccessIdentityList pStatus =
+    ListCloudFrontOriginAccessIdentitiesResponse'
+    { _lcfoairCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList
+    , _lcfoairStatus = pStatus
+    }
 
 -- | The CloudFrontOriginAccessIdentityList type.
 lcfoairCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList
 lcfoairCloudFrontOriginAccessIdentityList = lens _lcfoairCloudFrontOriginAccessIdentityList (\ s a -> s{_lcfoairCloudFrontOriginAccessIdentityList = a});
 
 -- | FIXME: Undocumented member.
-lcfoairStatusCode :: Lens' ListCloudFrontOriginAccessIdentitiesResponse Int
-lcfoairStatusCode = lens _lcfoairStatusCode (\ s a -> s{_lcfoairStatusCode = a});
+lcfoairStatus :: Lens' ListCloudFrontOriginAccessIdentitiesResponse Int
+lcfoairStatus = lens _lcfoairStatus (\ s a -> s{_lcfoairStatus = a});

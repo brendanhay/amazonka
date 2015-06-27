@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeExpressions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.CloudSearch.DescribeExpressions
     , describeExpressionsResponse
     -- ** Response lenses
     , desExpressions
-    , desStatusCode
+    , desStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeDomains@ operation.
 -- Specifies the name of the domain you want to describe. To restrict the
@@ -63,11 +63,20 @@ import Network.AWS.Response
 -- * 'deExpressionNames'
 --
 -- * 'deDomainName'
-data DescribeExpressions = DescribeExpressions'{_deDeployed :: Maybe Bool, _deExpressionNames :: Maybe [Text], _deDomainName :: Text} deriving (Eq, Read, Show)
+data DescribeExpressions = DescribeExpressions'
+    { _deDeployed        :: Maybe Bool
+    , _deExpressionNames :: Maybe [Text]
+    , _deDomainName      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeExpressions' smart constructor.
 describeExpressions :: Text -> DescribeExpressions
-describeExpressions pDomainName = DescribeExpressions'{_deDeployed = Nothing, _deExpressionNames = Nothing, _deDomainName = pDomainName};
+describeExpressions pDomainName =
+    DescribeExpressions'
+    { _deDeployed = Nothing
+    , _deExpressionNames = Nothing
+    , _deDomainName = pDomainName
+    }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
@@ -122,17 +131,24 @@ instance ToQuery DescribeExpressions where
 --
 -- * 'desExpressions'
 --
--- * 'desStatusCode'
-data DescribeExpressionsResponse = DescribeExpressionsResponse'{_desExpressions :: [ExpressionStatus], _desStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'desStatus'
+data DescribeExpressionsResponse = DescribeExpressionsResponse'
+    { _desExpressions :: [ExpressionStatus]
+    , _desStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeExpressionsResponse' smart constructor.
 describeExpressionsResponse :: Int -> DescribeExpressionsResponse
-describeExpressionsResponse pStatusCode = DescribeExpressionsResponse'{_desExpressions = mempty, _desStatusCode = pStatusCode};
+describeExpressionsResponse pStatus =
+    DescribeExpressionsResponse'
+    { _desExpressions = mempty
+    , _desStatus = pStatus
+    }
 
 -- | The expressions configured for the domain.
 desExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
 desExpressions = lens _desExpressions (\ s a -> s{_desExpressions = a});
 
 -- | FIXME: Undocumented member.
-desStatusCode :: Lens' DescribeExpressionsResponse Int
-desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});
+desStatus :: Lens' DescribeExpressionsResponse Int
+desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

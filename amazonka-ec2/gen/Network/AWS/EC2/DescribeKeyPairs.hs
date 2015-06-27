@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeKeyPairs
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.EC2.DescribeKeyPairs
     , describeKeyPairsResponse
     -- ** Response lenses
     , dkprKeyPairs
-    , dkprStatusCode
+    , dkprStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeKeyPairs' smart constructor.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'dkp1KeyNames'
 --
 -- * 'dkp1DryRun'
-data DescribeKeyPairs = DescribeKeyPairs'{_dkp1Filters :: Maybe [Filter], _dkp1KeyNames :: Maybe [Text], _dkp1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeKeyPairs = DescribeKeyPairs'
+    { _dkp1Filters  :: Maybe [Filter]
+    , _dkp1KeyNames :: Maybe [Text]
+    , _dkp1DryRun   :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeKeyPairs' smart constructor.
 describeKeyPairs :: DescribeKeyPairs
-describeKeyPairs = DescribeKeyPairs'{_dkp1Filters = Nothing, _dkp1KeyNames = Nothing, _dkp1DryRun = Nothing};
+describeKeyPairs =
+    DescribeKeyPairs'
+    { _dkp1Filters = Nothing
+    , _dkp1KeyNames = Nothing
+    , _dkp1DryRun = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -115,17 +124,24 @@ instance ToQuery DescribeKeyPairs where
 --
 -- * 'dkprKeyPairs'
 --
--- * 'dkprStatusCode'
-data DescribeKeyPairsResponse = DescribeKeyPairsResponse'{_dkprKeyPairs :: Maybe [KeyPairInfo], _dkprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dkprStatus'
+data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
+    { _dkprKeyPairs :: Maybe [KeyPairInfo]
+    , _dkprStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeKeyPairsResponse' smart constructor.
 describeKeyPairsResponse :: Int -> DescribeKeyPairsResponse
-describeKeyPairsResponse pStatusCode = DescribeKeyPairsResponse'{_dkprKeyPairs = Nothing, _dkprStatusCode = pStatusCode};
+describeKeyPairsResponse pStatus =
+    DescribeKeyPairsResponse'
+    { _dkprKeyPairs = Nothing
+    , _dkprStatus = pStatus
+    }
 
 -- | Information about one or more key pairs.
 dkprKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
 dkprKeyPairs = lens _dkprKeyPairs (\ s a -> s{_dkprKeyPairs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dkprStatusCode :: Lens' DescribeKeyPairsResponse Int
-dkprStatusCode = lens _dkprStatusCode (\ s a -> s{_dkprStatusCode = a});
+dkprStatus :: Lens' DescribeKeyPairsResponse Int
+dkprStatus = lens _dkprStatus (\ s a -> s{_dkprStatus = a});

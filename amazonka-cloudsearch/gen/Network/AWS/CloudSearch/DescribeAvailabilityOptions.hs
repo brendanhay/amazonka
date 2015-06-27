@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeAvailabilityOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.CloudSearch.DescribeAvailabilityOptions
     , describeAvailabilityOptionsResponse
     -- ** Response lenses
     , daorAvailabilityOptions
-    , daorStatusCode
+    , daorStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeAvailabilityOptions@
 -- operation. Specifies the name of the domain you want to describe. To
@@ -58,11 +58,18 @@ import Network.AWS.Response
 -- * 'daoDeployed'
 --
 -- * 'daoDomainName'
-data DescribeAvailabilityOptions = DescribeAvailabilityOptions'{_daoDeployed :: Maybe Bool, _daoDomainName :: Text} deriving (Eq, Read, Show)
+data DescribeAvailabilityOptions = DescribeAvailabilityOptions'
+    { _daoDeployed   :: Maybe Bool
+    , _daoDomainName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAvailabilityOptions' smart constructor.
 describeAvailabilityOptions :: Text -> DescribeAvailabilityOptions
-describeAvailabilityOptions pDomainName = DescribeAvailabilityOptions'{_daoDeployed = Nothing, _daoDomainName = pDomainName};
+describeAvailabilityOptions pDomainName =
+    DescribeAvailabilityOptions'
+    { _daoDeployed = Nothing
+    , _daoDomainName = pDomainName
+    }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
@@ -111,12 +118,19 @@ instance ToQuery DescribeAvailabilityOptions where
 --
 -- * 'daorAvailabilityOptions'
 --
--- * 'daorStatusCode'
-data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'{_daorAvailabilityOptions :: Maybe AvailabilityOptionsStatus, _daorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'daorStatus'
+data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'
+    { _daorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
+    , _daorStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAvailabilityOptionsResponse' smart constructor.
 describeAvailabilityOptionsResponse :: Int -> DescribeAvailabilityOptionsResponse
-describeAvailabilityOptionsResponse pStatusCode = DescribeAvailabilityOptionsResponse'{_daorAvailabilityOptions = Nothing, _daorStatusCode = pStatusCode};
+describeAvailabilityOptionsResponse pStatus =
+    DescribeAvailabilityOptionsResponse'
+    { _daorAvailabilityOptions = Nothing
+    , _daorStatus = pStatus
+    }
 
 -- | The availability options configured for the domain. Indicates whether
 -- Multi-AZ is enabled for the domain.
@@ -124,5 +138,5 @@ daorAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe Avai
 daorAvailabilityOptions = lens _daorAvailabilityOptions (\ s a -> s{_daorAvailabilityOptions = a});
 
 -- | FIXME: Undocumented member.
-daorStatusCode :: Lens' DescribeAvailabilityOptionsResponse Int
-daorStatusCode = lens _daorStatusCode (\ s a -> s{_daorStatusCode = a});
+daorStatus :: Lens' DescribeAvailabilityOptionsResponse Int
+daorStatus = lens _daorStatus (\ s a -> s{_daorStatus = a});

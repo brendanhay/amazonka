@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.GetPlatformApplicationAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.SNS.GetPlatformApplicationAttributes
     , getPlatformApplicationAttributesResponse
     -- ** Response lenses
     , gpaarAttributes
-    , gpaarStatusCode
+    , gpaarStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for GetPlatformApplicationAttributes action.
 --
@@ -50,11 +50,16 @@ import Network.AWS.SNS.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gpaaPlatformApplicationARN'
-newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes'{_gpaaPlatformApplicationARN :: Text} deriving (Eq, Read, Show)
+newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes'
+    { _gpaaPlatformApplicationARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetPlatformApplicationAttributes' smart constructor.
 getPlatformApplicationAttributes :: Text -> GetPlatformApplicationAttributes
-getPlatformApplicationAttributes pPlatformApplicationARN = GetPlatformApplicationAttributes'{_gpaaPlatformApplicationARN = pPlatformApplicationARN};
+getPlatformApplicationAttributes pPlatformApplicationARN =
+    GetPlatformApplicationAttributes'
+    { _gpaaPlatformApplicationARN = pPlatformApplicationARN
+    }
 
 -- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.
 gpaaPlatformApplicationARN :: Lens' GetPlatformApplicationAttributes Text
@@ -101,12 +106,19 @@ instance ToQuery GetPlatformApplicationAttributes
 --
 -- * 'gpaarAttributes'
 --
--- * 'gpaarStatusCode'
-data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'{_gpaarAttributes :: Maybe (Map Text Text), _gpaarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gpaarStatus'
+data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'
+    { _gpaarAttributes :: Maybe (Map Text Text)
+    , _gpaarStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetPlatformApplicationAttributesResponse' smart constructor.
 getPlatformApplicationAttributesResponse :: Int -> GetPlatformApplicationAttributesResponse
-getPlatformApplicationAttributesResponse pStatusCode = GetPlatformApplicationAttributesResponse'{_gpaarAttributes = Nothing, _gpaarStatusCode = pStatusCode};
+getPlatformApplicationAttributesResponse pStatus =
+    GetPlatformApplicationAttributesResponse'
+    { _gpaarAttributes = Nothing
+    , _gpaarStatus = pStatus
+    }
 
 -- | Attributes include the following:
 --
@@ -123,5 +135,5 @@ gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text 
 gpaarAttributes = lens _gpaarAttributes (\ s a -> s{_gpaarAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gpaarStatusCode :: Lens' GetPlatformApplicationAttributesResponse Int
-gpaarStatusCode = lens _gpaarStatusCode (\ s a -> s{_gpaarStatusCode = a});
+gpaarStatus :: Lens' GetPlatformApplicationAttributesResponse Int
+gpaarStatus = lens _gpaarStatus (\ s a -> s{_gpaarStatus = a});

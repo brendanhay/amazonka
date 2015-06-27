@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.ListObjects
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,14 +48,14 @@ module Network.AWS.S3.ListObjects
     , lorMaxKeys
     , lorIsTruncated
     , lorDelimiter
-    , lorStatusCode
+    , lorStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'listObjects' smart constructor.
 --
@@ -72,11 +72,26 @@ import Network.AWS.S3.Types
 -- * 'loDelimiter'
 --
 -- * 'loBucket'
-data ListObjects = ListObjects'{_loPrefix :: Maybe Text, _loEncodingType :: Maybe EncodingType, _loMarker :: Maybe Text, _loMaxKeys :: Maybe Int, _loDelimiter :: Maybe Char, _loBucket :: BucketName} deriving (Eq, Read, Show)
+data ListObjects = ListObjects'
+    { _loPrefix       :: Maybe Text
+    , _loEncodingType :: Maybe EncodingType
+    , _loMarker       :: Maybe Text
+    , _loMaxKeys      :: Maybe Int
+    , _loDelimiter    :: Maybe Char
+    , _loBucket       :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'ListObjects' smart constructor.
 listObjects :: BucketName -> ListObjects
-listObjects pBucket = ListObjects'{_loPrefix = Nothing, _loEncodingType = Nothing, _loMarker = Nothing, _loMaxKeys = Nothing, _loDelimiter = Nothing, _loBucket = pBucket};
+listObjects pBucket =
+    ListObjects'
+    { _loPrefix = Nothing
+    , _loEncodingType = Nothing
+    , _loMarker = Nothing
+    , _loMaxKeys = Nothing
+    , _loDelimiter = Nothing
+    , _loBucket = pBucket
+    }
 
 -- | Limits the response to keys that begin with the specified prefix.
 loPrefix :: Lens' ListObjects (Maybe Text)
@@ -177,12 +192,37 @@ instance ToQuery ListObjects where
 --
 -- * 'lorDelimiter'
 --
--- * 'lorStatusCode'
-data ListObjectsResponse = ListObjectsResponse'{_lorContents :: Maybe [Object], _lorPrefix :: Maybe Text, _lorEncodingType :: Maybe EncodingType, _lorCommonPrefixes :: Maybe [CommonPrefix], _lorName :: Maybe BucketName, _lorMarker :: Maybe Text, _lorNextMarker :: Maybe Text, _lorMaxKeys :: Maybe Int, _lorIsTruncated :: Maybe Bool, _lorDelimiter :: Maybe Char, _lorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lorStatus'
+data ListObjectsResponse = ListObjectsResponse'
+    { _lorContents       :: Maybe [Object]
+    , _lorPrefix         :: Maybe Text
+    , _lorEncodingType   :: Maybe EncodingType
+    , _lorCommonPrefixes :: Maybe [CommonPrefix]
+    , _lorName           :: Maybe BucketName
+    , _lorMarker         :: Maybe Text
+    , _lorNextMarker     :: Maybe Text
+    , _lorMaxKeys        :: Maybe Int
+    , _lorIsTruncated    :: Maybe Bool
+    , _lorDelimiter      :: Maybe Char
+    , _lorStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListObjectsResponse' smart constructor.
 listObjectsResponse :: Int -> ListObjectsResponse
-listObjectsResponse pStatusCode = ListObjectsResponse'{_lorContents = Nothing, _lorPrefix = Nothing, _lorEncodingType = Nothing, _lorCommonPrefixes = Nothing, _lorName = Nothing, _lorMarker = Nothing, _lorNextMarker = Nothing, _lorMaxKeys = Nothing, _lorIsTruncated = Nothing, _lorDelimiter = Nothing, _lorStatusCode = pStatusCode};
+listObjectsResponse pStatus =
+    ListObjectsResponse'
+    { _lorContents = Nothing
+    , _lorPrefix = Nothing
+    , _lorEncodingType = Nothing
+    , _lorCommonPrefixes = Nothing
+    , _lorName = Nothing
+    , _lorMarker = Nothing
+    , _lorNextMarker = Nothing
+    , _lorMaxKeys = Nothing
+    , _lorIsTruncated = Nothing
+    , _lorDelimiter = Nothing
+    , _lorStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 lorContents :: Lens' ListObjectsResponse [Object]
@@ -233,5 +273,5 @@ lorDelimiter :: Lens' ListObjectsResponse (Maybe Char)
 lorDelimiter = lens _lorDelimiter (\ s a -> s{_lorDelimiter = a});
 
 -- | FIXME: Undocumented member.
-lorStatusCode :: Lens' ListObjectsResponse Int
-lorStatusCode = lens _lorStatusCode (\ s a -> s{_lorStatusCode = a});
+lorStatus :: Lens' ListObjectsResponse Int
+lorStatus = lens _lorStatus (\ s a -> s{_lorStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeReservedDBInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,14 +43,14 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     -- ** Response lenses
     , drdirReservedDBInstances
     , drdirMarker
-    , drdirStatusCode
+    , drdirStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -77,11 +77,34 @@ import Network.AWS.Response
 -- * 'drdiOfferingType'
 --
 -- * 'drdiDuration'
-data DescribeReservedDBInstances = DescribeReservedDBInstances'{_drdiProductDescription :: Maybe Text, _drdiFilters :: Maybe [Filter], _drdiReservedDBInstanceId :: Maybe Text, _drdiDBInstanceClass :: Maybe Text, _drdiMaxRecords :: Maybe Int, _drdiMultiAZ :: Maybe Bool, _drdiMarker :: Maybe Text, _drdiReservedDBInstancesOfferingId :: Maybe Text, _drdiOfferingType :: Maybe Text, _drdiDuration :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeReservedDBInstances = DescribeReservedDBInstances'
+    { _drdiProductDescription            :: Maybe Text
+    , _drdiFilters                       :: Maybe [Filter]
+    , _drdiReservedDBInstanceId          :: Maybe Text
+    , _drdiDBInstanceClass               :: Maybe Text
+    , _drdiMaxRecords                    :: Maybe Int
+    , _drdiMultiAZ                       :: Maybe Bool
+    , _drdiMarker                        :: Maybe Text
+    , _drdiReservedDBInstancesOfferingId :: Maybe Text
+    , _drdiOfferingType                  :: Maybe Text
+    , _drdiDuration                      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedDBInstances' smart constructor.
 describeReservedDBInstances :: DescribeReservedDBInstances
-describeReservedDBInstances = DescribeReservedDBInstances'{_drdiProductDescription = Nothing, _drdiFilters = Nothing, _drdiReservedDBInstanceId = Nothing, _drdiDBInstanceClass = Nothing, _drdiMaxRecords = Nothing, _drdiMultiAZ = Nothing, _drdiMarker = Nothing, _drdiReservedDBInstancesOfferingId = Nothing, _drdiOfferingType = Nothing, _drdiDuration = Nothing};
+describeReservedDBInstances =
+    DescribeReservedDBInstances'
+    { _drdiProductDescription = Nothing
+    , _drdiFilters = Nothing
+    , _drdiReservedDBInstanceId = Nothing
+    , _drdiDBInstanceClass = Nothing
+    , _drdiMaxRecords = Nothing
+    , _drdiMultiAZ = Nothing
+    , _drdiMarker = Nothing
+    , _drdiReservedDBInstancesOfferingId = Nothing
+    , _drdiOfferingType = Nothing
+    , _drdiDuration = Nothing
+    }
 
 -- | The product description filter value. Specify this parameter to show
 -- only those reservations matching the specified product description.
@@ -201,12 +224,21 @@ instance ToQuery DescribeReservedDBInstances where
 --
 -- * 'drdirMarker'
 --
--- * 'drdirStatusCode'
-data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'{_drdirReservedDBInstances :: Maybe [ReservedDBInstance], _drdirMarker :: Maybe Text, _drdirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'drdirStatus'
+data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'
+    { _drdirReservedDBInstances :: Maybe [ReservedDBInstance]
+    , _drdirMarker              :: Maybe Text
+    , _drdirStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedDBInstancesResponse' smart constructor.
 describeReservedDBInstancesResponse :: Int -> DescribeReservedDBInstancesResponse
-describeReservedDBInstancesResponse pStatusCode = DescribeReservedDBInstancesResponse'{_drdirReservedDBInstances = Nothing, _drdirMarker = Nothing, _drdirStatusCode = pStatusCode};
+describeReservedDBInstancesResponse pStatus =
+    DescribeReservedDBInstancesResponse'
+    { _drdirReservedDBInstances = Nothing
+    , _drdirMarker = Nothing
+    , _drdirStatus = pStatus
+    }
 
 -- | A list of reserved DB instances.
 drdirReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse [ReservedDBInstance]
@@ -219,5 +251,5 @@ drdirMarker :: Lens' DescribeReservedDBInstancesResponse (Maybe Text)
 drdirMarker = lens _drdirMarker (\ s a -> s{_drdirMarker = a});
 
 -- | FIXME: Undocumented member.
-drdirStatusCode :: Lens' DescribeReservedDBInstancesResponse Int
-drdirStatusCode = lens _drdirStatusCode (\ s a -> s{_drdirStatusCode = a});
+drdirStatus :: Lens' DescribeReservedDBInstancesResponse Int
+drdirStatus = lens _drdirStatus (\ s a -> s{_drdirStatus = a});

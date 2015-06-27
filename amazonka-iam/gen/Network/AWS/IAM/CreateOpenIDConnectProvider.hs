@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.CreateOpenIDConnectProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,13 +51,13 @@ module Network.AWS.IAM.CreateOpenIDConnectProvider
     , createOpenIDConnectProviderResponse
     -- ** Response lenses
     , coidcprOpenIDConnectProviderARN
-    , coidcprStatusCode
+    , coidcprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createOpenIDConnectProvider' smart constructor.
 --
@@ -68,11 +68,20 @@ import Network.AWS.Response
 -- * 'coidcpURL'
 --
 -- * 'coidcpThumbprintList'
-data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'{_coidcpClientIDList :: Maybe [Text], _coidcpURL :: Text, _coidcpThumbprintList :: [Text]} deriving (Eq, Read, Show)
+data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
+    { _coidcpClientIDList   :: Maybe [Text]
+    , _coidcpURL            :: Text
+    , _coidcpThumbprintList :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateOpenIDConnectProvider' smart constructor.
 createOpenIDConnectProvider :: Text -> CreateOpenIDConnectProvider
-createOpenIDConnectProvider pURL = CreateOpenIDConnectProvider'{_coidcpClientIDList = Nothing, _coidcpURL = pURL, _coidcpThumbprintList = mempty};
+createOpenIDConnectProvider pURL =
+    CreateOpenIDConnectProvider'
+    { _coidcpClientIDList = Nothing
+    , _coidcpURL = pURL
+    , _coidcpThumbprintList = mempty
+    }
 
 -- | A list of client IDs (also known as audiences). When a mobile or web app
 -- registers with an OpenID Connect provider, they establish a value that
@@ -168,12 +177,19 @@ instance ToQuery CreateOpenIDConnectProvider where
 --
 -- * 'coidcprOpenIDConnectProviderARN'
 --
--- * 'coidcprStatusCode'
-data CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse'{_coidcprOpenIDConnectProviderARN :: Maybe Text, _coidcprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'coidcprStatus'
+data CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse'
+    { _coidcprOpenIDConnectProviderARN :: Maybe Text
+    , _coidcprStatus                   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateOpenIDConnectProviderResponse' smart constructor.
 createOpenIDConnectProviderResponse :: Int -> CreateOpenIDConnectProviderResponse
-createOpenIDConnectProviderResponse pStatusCode = CreateOpenIDConnectProviderResponse'{_coidcprOpenIDConnectProviderARN = Nothing, _coidcprStatusCode = pStatusCode};
+createOpenIDConnectProviderResponse pStatus =
+    CreateOpenIDConnectProviderResponse'
+    { _coidcprOpenIDConnectProviderARN = Nothing
+    , _coidcprStatus = pStatus
+    }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider that
 -- was created. For more information, see OpenIDConnectProviderListEntry.
@@ -181,5 +197,5 @@ coidcprOpenIDConnectProviderARN :: Lens' CreateOpenIDConnectProviderResponse (Ma
 coidcprOpenIDConnectProviderARN = lens _coidcprOpenIDConnectProviderARN (\ s a -> s{_coidcprOpenIDConnectProviderARN = a});
 
 -- | FIXME: Undocumented member.
-coidcprStatusCode :: Lens' CreateOpenIDConnectProviderResponse Int
-coidcprStatusCode = lens _coidcprStatusCode (\ s a -> s{_coidcprStatusCode = a});
+coidcprStatus :: Lens' CreateOpenIDConnectProviderResponse Int
+coidcprStatus = lens _coidcprStatus (\ s a -> s{_coidcprStatus = a});

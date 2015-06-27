@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.DisableKey
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,21 +32,26 @@ module Network.AWS.KMS.DisableKey
     , disableKeyResponse
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'disableKey' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dkKeyId'
-newtype DisableKey = DisableKey'{_dkKeyId :: Text} deriving (Eq, Read, Show)
+newtype DisableKey = DisableKey'
+    { _dkKeyId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableKey' smart constructor.
 disableKey :: Text -> DisableKey
-disableKey pKeyId = DisableKey'{_dkKeyId = pKeyId};
+disableKey pKeyId =
+    DisableKey'
+    { _dkKeyId = pKeyId
+    }
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier or the fully specified ARN to a key.
@@ -83,8 +88,10 @@ instance ToQuery DisableKey where
         toQuery = const mempty
 
 -- | /See:/ 'disableKeyResponse' smart constructor.
-data DisableKeyResponse = DisableKeyResponse' deriving (Eq, Read, Show)
+data DisableKeyResponse =
+    DisableKeyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DisableKeyResponse' smart constructor.
 disableKeyResponse :: DisableKeyResponse
-disableKeyResponse = DisableKeyResponse';
+disableKeyResponse = DisableKeyResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeVPNConnections
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.EC2.DescribeVPNConnections
     , describeVPNConnectionsResponse
     -- ** Response lenses
     , dvcrVPNConnections
-    , dvcrStatusCode
+    , dvcrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVPNConnections' smart constructor.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'dvpncVPNConnectionIds'
 --
 -- * 'dvpncDryRun'
-data DescribeVPNConnections = DescribeVPNConnections'{_dvpncFilters :: Maybe [Filter], _dvpncVPNConnectionIds :: Maybe [Text], _dvpncDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeVPNConnections = DescribeVPNConnections'
+    { _dvpncFilters          :: Maybe [Filter]
+    , _dvpncVPNConnectionIds :: Maybe [Text]
+    , _dvpncDryRun           :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPNConnections' smart constructor.
 describeVPNConnections :: DescribeVPNConnections
-describeVPNConnections = DescribeVPNConnections'{_dvpncFilters = Nothing, _dvpncVPNConnectionIds = Nothing, _dvpncDryRun = Nothing};
+describeVPNConnections =
+    DescribeVPNConnections'
+    { _dvpncFilters = Nothing
+    , _dvpncVPNConnectionIds = Nothing
+    , _dvpncDryRun = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -156,17 +165,24 @@ instance ToQuery DescribeVPNConnections where
 --
 -- * 'dvcrVPNConnections'
 --
--- * 'dvcrStatusCode'
-data DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'{_dvcrVPNConnections :: Maybe [VPNConnection], _dvcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dvcrStatus'
+data DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'
+    { _dvcrVPNConnections :: Maybe [VPNConnection]
+    , _dvcrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPNConnectionsResponse' smart constructor.
 describeVPNConnectionsResponse :: Int -> DescribeVPNConnectionsResponse
-describeVPNConnectionsResponse pStatusCode = DescribeVPNConnectionsResponse'{_dvcrVPNConnections = Nothing, _dvcrStatusCode = pStatusCode};
+describeVPNConnectionsResponse pStatus =
+    DescribeVPNConnectionsResponse'
+    { _dvcrVPNConnections = Nothing
+    , _dvcrStatus = pStatus
+    }
 
 -- | Information about one or more VPN connections.
 dvcrVPNConnections :: Lens' DescribeVPNConnectionsResponse [VPNConnection]
 dvcrVPNConnections = lens _dvcrVPNConnections (\ s a -> s{_dvcrVPNConnections = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvcrStatusCode :: Lens' DescribeVPNConnectionsResponse Int
-dvcrStatusCode = lens _dvcrStatusCode (\ s a -> s{_dvcrStatusCode = a});
+dvcrStatus :: Lens' DescribeVPNConnectionsResponse Int
+dvcrStatus = lens _dvcrStatus (\ s a -> s{_dvcrStatus = a});

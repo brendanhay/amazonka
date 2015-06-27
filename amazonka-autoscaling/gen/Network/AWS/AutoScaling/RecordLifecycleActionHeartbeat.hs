@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,13 +54,13 @@ module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     -- ** Response constructor
     , recordLifecycleActionHeartbeatResponse
     -- ** Response lenses
-    , rlahrStatusCode
+    , rlahrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'recordLifecycleActionHeartbeat' smart constructor.
 --
@@ -71,11 +71,20 @@ import Network.AWS.Response
 -- * 'rlahAutoScalingGroupName'
 --
 -- * 'rlahLifecycleActionToken'
-data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'{_rlahLifecycleHookName :: Text, _rlahAutoScalingGroupName :: Text, _rlahLifecycleActionToken :: Text} deriving (Eq, Read, Show)
+data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
+    { _rlahLifecycleHookName    :: Text
+    , _rlahAutoScalingGroupName :: Text
+    , _rlahLifecycleActionToken :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RecordLifecycleActionHeartbeat' smart constructor.
 recordLifecycleActionHeartbeat :: Text -> Text -> Text -> RecordLifecycleActionHeartbeat
-recordLifecycleActionHeartbeat pLifecycleHookName pAutoScalingGroupName pLifecycleActionToken = RecordLifecycleActionHeartbeat'{_rlahLifecycleHookName = pLifecycleHookName, _rlahAutoScalingGroupName = pAutoScalingGroupName, _rlahLifecycleActionToken = pLifecycleActionToken};
+recordLifecycleActionHeartbeat pLifecycleHookName pAutoScalingGroupName pLifecycleActionToken =
+    RecordLifecycleActionHeartbeat'
+    { _rlahLifecycleHookName = pLifecycleHookName
+    , _rlahAutoScalingGroupName = pAutoScalingGroupName
+    , _rlahLifecycleActionToken = pLifecycleActionToken
+    }
 
 -- | The name of the lifecycle hook.
 rlahLifecycleHookName :: Lens' RecordLifecycleActionHeartbeat Text
@@ -125,13 +134,18 @@ instance ToQuery RecordLifecycleActionHeartbeat where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rlahrStatusCode'
-newtype RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse'{_rlahrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rlahrStatus'
+newtype RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse'
+    { _rlahrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RecordLifecycleActionHeartbeatResponse' smart constructor.
 recordLifecycleActionHeartbeatResponse :: Int -> RecordLifecycleActionHeartbeatResponse
-recordLifecycleActionHeartbeatResponse pStatusCode = RecordLifecycleActionHeartbeatResponse'{_rlahrStatusCode = pStatusCode};
+recordLifecycleActionHeartbeatResponse pStatus =
+    RecordLifecycleActionHeartbeatResponse'
+    { _rlahrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-rlahrStatusCode :: Lens' RecordLifecycleActionHeartbeatResponse Int
-rlahrStatusCode = lens _rlahrStatusCode (\ s a -> s{_rlahrStatusCode = a});
+rlahrStatus :: Lens' RecordLifecycleActionHeartbeatResponse Int
+rlahrStatus = lens _rlahrStatus (\ s a -> s{_rlahrStatus = a});

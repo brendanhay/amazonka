@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.CreateConnection
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,10 +54,10 @@ module Network.AWS.DirectConnect.CreateConnection
     , conConnectionState
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the CreateConnection operation.
 --
@@ -70,11 +70,20 @@ import Network.AWS.Response
 -- * 'ccBandwidth'
 --
 -- * 'ccConnectionName'
-data CreateConnection = CreateConnection'{_ccLocation :: Text, _ccBandwidth :: Text, _ccConnectionName :: Text} deriving (Eq, Read, Show)
+data CreateConnection = CreateConnection'
+    { _ccLocation       :: Text
+    , _ccBandwidth      :: Text
+    , _ccConnectionName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateConnection' smart constructor.
 createConnection :: Text -> Text -> Text -> CreateConnection
-createConnection pLocation pBandwidth pConnectionName = CreateConnection'{_ccLocation = pLocation, _ccBandwidth = pBandwidth, _ccConnectionName = pConnectionName};
+createConnection pLocation pBandwidth pConnectionName =
+    CreateConnection'
+    { _ccLocation = pLocation
+    , _ccBandwidth = pBandwidth
+    , _ccConnectionName = pConnectionName
+    }
 
 -- | FIXME: Undocumented member.
 ccLocation :: Lens' CreateConnection Text

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,13 +44,13 @@ module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     -- ** Response constructor
     , setIdentityFeedbackForwardingEnabledResponse
     -- ** Response lenses
-    , sifferStatusCode
+    , sifferStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SES.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
 -- | /See:/ 'setIdentityFeedbackForwardingEnabled' smart constructor.
 --
@@ -59,11 +59,18 @@ import Network.AWS.SES.Types
 -- * 'siffeIdentity'
 --
 -- * 'siffeForwardingEnabled'
-data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled'{_siffeIdentity :: Text, _siffeForwardingEnabled :: Bool} deriving (Eq, Read, Show)
+data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled'
+    { _siffeIdentity          :: Text
+    , _siffeForwardingEnabled :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'SetIdentityFeedbackForwardingEnabled' smart constructor.
 setIdentityFeedbackForwardingEnabled :: Text -> Bool -> SetIdentityFeedbackForwardingEnabled
-setIdentityFeedbackForwardingEnabled pIdentity pForwardingEnabled = SetIdentityFeedbackForwardingEnabled'{_siffeIdentity = pIdentity, _siffeForwardingEnabled = pForwardingEnabled};
+setIdentityFeedbackForwardingEnabled pIdentity pForwardingEnabled =
+    SetIdentityFeedbackForwardingEnabled'
+    { _siffeIdentity = pIdentity
+    , _siffeForwardingEnabled = pForwardingEnabled
+    }
 
 -- | The identity for which to set bounce and complaint notification
 -- forwarding. Examples: @user\@example.com@, @example.com@.
@@ -119,13 +126,18 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sifferStatusCode'
-newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'{_sifferStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'sifferStatus'
+newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
+    { _sifferStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SetIdentityFeedbackForwardingEnabledResponse' smart constructor.
 setIdentityFeedbackForwardingEnabledResponse :: Int -> SetIdentityFeedbackForwardingEnabledResponse
-setIdentityFeedbackForwardingEnabledResponse pStatusCode = SetIdentityFeedbackForwardingEnabledResponse'{_sifferStatusCode = pStatusCode};
+setIdentityFeedbackForwardingEnabledResponse pStatus =
+    SetIdentityFeedbackForwardingEnabledResponse'
+    { _sifferStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-sifferStatusCode :: Lens' SetIdentityFeedbackForwardingEnabledResponse Int
-sifferStatusCode = lens _sifferStatusCode (\ s a -> s{_sifferStatusCode = a});
+sifferStatus :: Lens' SetIdentityFeedbackForwardingEnabledResponse Int
+sifferStatus = lens _sifferStatus (\ s a -> s{_sifferStatus = a});

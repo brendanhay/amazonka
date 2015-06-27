@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.CreateHAPG
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.CloudHSM.CreateHAPG
     , createHAPGResponse
     -- ** Response lenses
     , chrHAPGARN
-    , chrStatusCode
+    , chrStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the CreateHapgRequest action.
 --
@@ -49,11 +49,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'chLabel'
-newtype CreateHAPG = CreateHAPG'{_chLabel :: Text} deriving (Eq, Read, Show)
+newtype CreateHAPG = CreateHAPG'
+    { _chLabel :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateHAPG' smart constructor.
 createHAPG :: Text -> CreateHAPG
-createHAPG pLabel = CreateHAPG'{_chLabel = pLabel};
+createHAPG pLabel =
+    CreateHAPG'
+    { _chLabel = pLabel
+    }
 
 -- | The label of the new high-availability partition group.
 chLabel :: Lens' CreateHAPG Text
@@ -95,17 +100,24 @@ instance ToQuery CreateHAPG where
 --
 -- * 'chrHAPGARN'
 --
--- * 'chrStatusCode'
-data CreateHAPGResponse = CreateHAPGResponse'{_chrHAPGARN :: Maybe Text, _chrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'chrStatus'
+data CreateHAPGResponse = CreateHAPGResponse'
+    { _chrHAPGARN :: Maybe Text
+    , _chrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateHAPGResponse' smart constructor.
 createHAPGResponse :: Int -> CreateHAPGResponse
-createHAPGResponse pStatusCode = CreateHAPGResponse'{_chrHAPGARN = Nothing, _chrStatusCode = pStatusCode};
+createHAPGResponse pStatus =
+    CreateHAPGResponse'
+    { _chrHAPGARN = Nothing
+    , _chrStatus = pStatus
+    }
 
 -- | The ARN of the high-availability partition group.
 chrHAPGARN :: Lens' CreateHAPGResponse (Maybe Text)
 chrHAPGARN = lens _chrHAPGARN (\ s a -> s{_chrHAPGARN = a});
 
 -- | FIXME: Undocumented member.
-chrStatusCode :: Lens' CreateHAPGResponse Int
-chrStatusCode = lens _chrStatusCode (\ s a -> s{_chrStatusCode = a});
+chrStatus :: Lens' CreateHAPGResponse Int
+chrStatus = lens _chrStatus (\ s a -> s{_chrStatus = a});

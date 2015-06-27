@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.CancelRetrieval
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.StorageGateway.CancelRetrieval
     , cancelRetrievalResponse
     -- ** Response lenses
     , crrTapeARN
-    , crrStatusCode
+    , crrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | CancelRetrievalInput
 --
@@ -52,11 +52,18 @@ import Network.AWS.StorageGateway.Types
 -- * 'crGatewayARN'
 --
 -- * 'crTapeARN'
-data CancelRetrieval = CancelRetrieval'{_crGatewayARN :: Text, _crTapeARN :: Text} deriving (Eq, Read, Show)
+data CancelRetrieval = CancelRetrieval'
+    { _crGatewayARN :: Text
+    , _crTapeARN    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelRetrieval' smart constructor.
 cancelRetrieval :: Text -> Text -> CancelRetrieval
-cancelRetrieval pGatewayARN pTapeARN = CancelRetrieval'{_crGatewayARN = pGatewayARN, _crTapeARN = pTapeARN};
+cancelRetrieval pGatewayARN pTapeARN =
+    CancelRetrieval'
+    { _crGatewayARN = pGatewayARN
+    , _crTapeARN = pTapeARN
+    }
 
 -- | FIXME: Undocumented member.
 crGatewayARN :: Lens' CancelRetrieval Text
@@ -107,12 +114,19 @@ instance ToQuery CancelRetrieval where
 --
 -- * 'crrTapeARN'
 --
--- * 'crrStatusCode'
-data CancelRetrievalResponse = CancelRetrievalResponse'{_crrTapeARN :: Maybe Text, _crrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'crrStatus'
+data CancelRetrievalResponse = CancelRetrievalResponse'
+    { _crrTapeARN :: Maybe Text
+    , _crrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelRetrievalResponse' smart constructor.
 cancelRetrievalResponse :: Int -> CancelRetrievalResponse
-cancelRetrievalResponse pStatusCode = CancelRetrievalResponse'{_crrTapeARN = Nothing, _crrStatusCode = pStatusCode};
+cancelRetrievalResponse pStatus =
+    CancelRetrievalResponse'
+    { _crrTapeARN = Nothing
+    , _crrStatus = pStatus
+    }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which retrieval
 -- was canceled.
@@ -120,5 +134,5 @@ crrTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
 crrTapeARN = lens _crrTapeARN (\ s a -> s{_crrTapeARN = a});
 
 -- | FIXME: Undocumented member.
-crrStatusCode :: Lens' CancelRetrievalResponse Int
-crrStatusCode = lens _crrStatusCode (\ s a -> s{_crrStatusCode = a});
+crrStatus :: Lens' CancelRetrievalResponse Int
+crrStatus = lens _crrStatus (\ s a -> s{_crrStatus = a});

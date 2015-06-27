@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,14 +47,14 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     -- ** Response lenses
     , derNextToken
     , derEvents
-    , derStatusCode
+    , derStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -83,11 +83,36 @@ import Network.AWS.Response
 -- * 'deApplicationName'
 --
 -- * 'deEnvironmentId'
-data DescribeEvents = DescribeEvents'{_deRequestId :: Maybe Text, _deTemplateName :: Maybe Text, _deStartTime :: Maybe ISO8601, _deSeverity :: Maybe EventSeverity, _deNextToken :: Maybe Text, _deVersionLabel :: Maybe Text, _deMaxRecords :: Maybe Nat, _deEnvironmentName :: Maybe Text, _deEndTime :: Maybe ISO8601, _deApplicationName :: Maybe Text, _deEnvironmentId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeEvents = DescribeEvents'
+    { _deRequestId       :: Maybe Text
+    , _deTemplateName    :: Maybe Text
+    , _deStartTime       :: Maybe ISO8601
+    , _deSeverity        :: Maybe EventSeverity
+    , _deNextToken       :: Maybe Text
+    , _deVersionLabel    :: Maybe Text
+    , _deMaxRecords      :: Maybe Nat
+    , _deEnvironmentName :: Maybe Text
+    , _deEndTime         :: Maybe ISO8601
+    , _deApplicationName :: Maybe Text
+    , _deEnvironmentId   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEvents' smart constructor.
 describeEvents :: DescribeEvents
-describeEvents = DescribeEvents'{_deRequestId = Nothing, _deTemplateName = Nothing, _deStartTime = Nothing, _deSeverity = Nothing, _deNextToken = Nothing, _deVersionLabel = Nothing, _deMaxRecords = Nothing, _deEnvironmentName = Nothing, _deEndTime = Nothing, _deApplicationName = Nothing, _deEnvironmentId = Nothing};
+describeEvents =
+    DescribeEvents'
+    { _deRequestId = Nothing
+    , _deTemplateName = Nothing
+    , _deStartTime = Nothing
+    , _deSeverity = Nothing
+    , _deNextToken = Nothing
+    , _deVersionLabel = Nothing
+    , _deMaxRecords = Nothing
+    , _deEnvironmentName = Nothing
+    , _deEndTime = Nothing
+    , _deApplicationName = Nothing
+    , _deEnvironmentId = Nothing
+    }
 
 -- | If specified, AWS Elastic Beanstalk restricts the described events to
 -- include only those associated with this request ID.
@@ -197,12 +222,21 @@ instance ToQuery DescribeEvents where
 --
 -- * 'derEvents'
 --
--- * 'derStatusCode'
-data DescribeEventsResponse = DescribeEventsResponse'{_derNextToken :: Maybe Text, _derEvents :: Maybe [EventDescription], _derStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'derStatus'
+data DescribeEventsResponse = DescribeEventsResponse'
+    { _derNextToken :: Maybe Text
+    , _derEvents    :: Maybe [EventDescription]
+    , _derStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEventsResponse' smart constructor.
 describeEventsResponse :: Int -> DescribeEventsResponse
-describeEventsResponse pStatusCode = DescribeEventsResponse'{_derNextToken = Nothing, _derEvents = Nothing, _derStatusCode = pStatusCode};
+describeEventsResponse pStatus =
+    DescribeEventsResponse'
+    { _derNextToken = Nothing
+    , _derEvents = Nothing
+    , _derStatus = pStatus
+    }
 
 -- | If returned, this indicates that there are more results to obtain. Use
 -- this token in the next DescribeEvents call to get the next batch of
@@ -215,5 +249,5 @@ derEvents :: Lens' DescribeEventsResponse [EventDescription]
 derEvents = lens _derEvents (\ s a -> s{_derEvents = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-derStatusCode :: Lens' DescribeEventsResponse Int
-derStatusCode = lens _derStatusCode (\ s a -> s{_derStatusCode = a});
+derStatus :: Lens' DescribeEventsResponse Int
+derStatus = lens _derStatus (\ s a -> s{_derStatus = a});

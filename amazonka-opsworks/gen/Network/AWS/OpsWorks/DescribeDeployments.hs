@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeDeployments
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.OpsWorks.DescribeDeployments
     , describeDeploymentsResponse
     -- ** Response lenses
     , ddrDeployments
-    , ddrStatusCode
+    , ddrStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeDeployments' smart constructor.
 --
@@ -59,11 +59,20 @@ import Network.AWS.Response
 -- * 'ddDeploymentIds'
 --
 -- * 'ddStackId'
-data DescribeDeployments = DescribeDeployments'{_ddAppId :: Maybe Text, _ddDeploymentIds :: Maybe [Text], _ddStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDeployments = DescribeDeployments'
+    { _ddAppId         :: Maybe Text
+    , _ddDeploymentIds :: Maybe [Text]
+    , _ddStackId       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDeployments' smart constructor.
 describeDeployments :: DescribeDeployments
-describeDeployments = DescribeDeployments'{_ddAppId = Nothing, _ddDeploymentIds = Nothing, _ddStackId = Nothing};
+describeDeployments =
+    DescribeDeployments'
+    { _ddAppId = Nothing
+    , _ddDeploymentIds = Nothing
+    , _ddStackId = Nothing
+    }
 
 -- | The app ID. If you include this parameter, @DescribeDeployments@ returns
 -- a description of the commands associated with the specified app.
@@ -125,17 +134,24 @@ instance ToQuery DescribeDeployments where
 --
 -- * 'ddrDeployments'
 --
--- * 'ddrStatusCode'
-data DescribeDeploymentsResponse = DescribeDeploymentsResponse'{_ddrDeployments :: Maybe [Deployment], _ddrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddrStatus'
+data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
+    { _ddrDeployments :: Maybe [Deployment]
+    , _ddrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDeploymentsResponse' smart constructor.
 describeDeploymentsResponse :: Int -> DescribeDeploymentsResponse
-describeDeploymentsResponse pStatusCode = DescribeDeploymentsResponse'{_ddrDeployments = Nothing, _ddrStatusCode = pStatusCode};
+describeDeploymentsResponse pStatus =
+    DescribeDeploymentsResponse'
+    { _ddrDeployments = Nothing
+    , _ddrStatus = pStatus
+    }
 
 -- | An array of @Deployment@ objects that describe the deployments.
 ddrDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
 ddrDeployments = lens _ddrDeployments (\ s a -> s{_ddrDeployments = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddrStatusCode :: Lens' DescribeDeploymentsResponse Int
-ddrStatusCode = lens _ddrStatusCode (\ s a -> s{_ddrStatusCode = a});
+ddrStatus :: Lens' DescribeDeploymentsResponse Int
+ddrStatus = lens _ddrStatus (\ s a -> s{_ddrStatus = a});

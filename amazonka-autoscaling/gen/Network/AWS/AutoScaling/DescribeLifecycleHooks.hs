@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeLifecycleHooks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.AutoScaling.DescribeLifecycleHooks
     , describeLifecycleHooksResponse
     -- ** Response lenses
     , dlhrLifecycleHooks
-    , dlhrStatusCode
+    , dlhrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLifecycleHooks' smart constructor.
 --
@@ -48,11 +48,18 @@ import Network.AWS.Response
 -- * 'dlhLifecycleHookNames'
 --
 -- * 'dlhAutoScalingGroupName'
-data DescribeLifecycleHooks = DescribeLifecycleHooks'{_dlhLifecycleHookNames :: Maybe [Text], _dlhAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data DescribeLifecycleHooks = DescribeLifecycleHooks'
+    { _dlhLifecycleHookNames   :: Maybe [Text]
+    , _dlhAutoScalingGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLifecycleHooks' smart constructor.
 describeLifecycleHooks :: Text -> DescribeLifecycleHooks
-describeLifecycleHooks pAutoScalingGroupName = DescribeLifecycleHooks'{_dlhLifecycleHookNames = Nothing, _dlhAutoScalingGroupName = pAutoScalingGroupName};
+describeLifecycleHooks pAutoScalingGroupName =
+    DescribeLifecycleHooks'
+    { _dlhLifecycleHookNames = Nothing
+    , _dlhAutoScalingGroupName = pAutoScalingGroupName
+    }
 
 -- | The names of one or more lifecycle hooks.
 dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
@@ -98,17 +105,24 @@ instance ToQuery DescribeLifecycleHooks where
 --
 -- * 'dlhrLifecycleHooks'
 --
--- * 'dlhrStatusCode'
-data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'{_dlhrLifecycleHooks :: Maybe [LifecycleHook], _dlhrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dlhrStatus'
+data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
+    { _dlhrLifecycleHooks :: Maybe [LifecycleHook]
+    , _dlhrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLifecycleHooksResponse' smart constructor.
 describeLifecycleHooksResponse :: Int -> DescribeLifecycleHooksResponse
-describeLifecycleHooksResponse pStatusCode = DescribeLifecycleHooksResponse'{_dlhrLifecycleHooks = Nothing, _dlhrStatusCode = pStatusCode};
+describeLifecycleHooksResponse pStatus =
+    DescribeLifecycleHooksResponse'
+    { _dlhrLifecycleHooks = Nothing
+    , _dlhrStatus = pStatus
+    }
 
 -- | The lifecycle hooks for the specified group.
 dlhrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
 dlhrLifecycleHooks = lens _dlhrLifecycleHooks (\ s a -> s{_dlhrLifecycleHooks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlhrStatusCode :: Lens' DescribeLifecycleHooksResponse Int
-dlhrStatusCode = lens _dlhrStatusCode (\ s a -> s{_dlhrStatusCode = a});
+dlhrStatus :: Lens' DescribeLifecycleHooksResponse Int
+dlhrStatus = lens _dlhrStatus (\ s a -> s{_dlhrStatus = a});

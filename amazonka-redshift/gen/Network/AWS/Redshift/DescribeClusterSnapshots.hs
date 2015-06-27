@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterSnapshots
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -58,14 +58,14 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     -- ** Response lenses
     , descSnapshots
     , descMarker
-    , descStatusCode
+    , descStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -92,11 +92,34 @@ import Network.AWS.Response
 -- * 'desMarker'
 --
 -- * 'desOwnerAccount'
-data DescribeClusterSnapshots = DescribeClusterSnapshots'{_desSnapshotIdentifier :: Maybe Text, _desTagValues :: Maybe [Text], _desStartTime :: Maybe ISO8601, _desTagKeys :: Maybe [Text], _desClusterIdentifier :: Maybe Text, _desSnapshotType :: Maybe Text, _desMaxRecords :: Maybe Int, _desEndTime :: Maybe ISO8601, _desMarker :: Maybe Text, _desOwnerAccount :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusterSnapshots = DescribeClusterSnapshots'
+    { _desSnapshotIdentifier :: Maybe Text
+    , _desTagValues          :: Maybe [Text]
+    , _desStartTime          :: Maybe ISO8601
+    , _desTagKeys            :: Maybe [Text]
+    , _desClusterIdentifier  :: Maybe Text
+    , _desSnapshotType       :: Maybe Text
+    , _desMaxRecords         :: Maybe Int
+    , _desEndTime            :: Maybe ISO8601
+    , _desMarker             :: Maybe Text
+    , _desOwnerAccount       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterSnapshots' smart constructor.
 describeClusterSnapshots :: DescribeClusterSnapshots
-describeClusterSnapshots = DescribeClusterSnapshots'{_desSnapshotIdentifier = Nothing, _desTagValues = Nothing, _desStartTime = Nothing, _desTagKeys = Nothing, _desClusterIdentifier = Nothing, _desSnapshotType = Nothing, _desMaxRecords = Nothing, _desEndTime = Nothing, _desMarker = Nothing, _desOwnerAccount = Nothing};
+describeClusterSnapshots =
+    DescribeClusterSnapshots'
+    { _desSnapshotIdentifier = Nothing
+    , _desTagValues = Nothing
+    , _desStartTime = Nothing
+    , _desTagKeys = Nothing
+    , _desClusterIdentifier = Nothing
+    , _desSnapshotType = Nothing
+    , _desMaxRecords = Nothing
+    , _desEndTime = Nothing
+    , _desMarker = Nothing
+    , _desOwnerAccount = Nothing
+    }
 
 -- | The snapshot identifier of the snapshot about which to return
 -- information.
@@ -234,12 +257,21 @@ instance ToQuery DescribeClusterSnapshots where
 --
 -- * 'descMarker'
 --
--- * 'descStatusCode'
-data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'{_descSnapshots :: Maybe [Snapshot], _descMarker :: Maybe Text, _descStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'descStatus'
+data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'
+    { _descSnapshots :: Maybe [Snapshot]
+    , _descMarker    :: Maybe Text
+    , _descStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterSnapshotsResponse' smart constructor.
 describeClusterSnapshotsResponse :: Int -> DescribeClusterSnapshotsResponse
-describeClusterSnapshotsResponse pStatusCode = DescribeClusterSnapshotsResponse'{_descSnapshots = Nothing, _descMarker = Nothing, _descStatusCode = pStatusCode};
+describeClusterSnapshotsResponse pStatus =
+    DescribeClusterSnapshotsResponse'
+    { _descSnapshots = Nothing
+    , _descMarker = Nothing
+    , _descStatus = pStatus
+    }
 
 -- | A list of Snapshot instances.
 descSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
@@ -255,5 +287,5 @@ descMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
 descMarker = lens _descMarker (\ s a -> s{_descMarker = a});
 
 -- | FIXME: Undocumented member.
-descStatusCode :: Lens' DescribeClusterSnapshotsResponse Int
-descStatusCode = lens _descStatusCode (\ s a -> s{_descStatusCode = a});
+descStatus :: Lens' DescribeClusterSnapshotsResponse Int
+descStatus = lens _descStatus (\ s a -> s{_descStatus = a});

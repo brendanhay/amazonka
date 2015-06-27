@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBSubnetGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,14 +41,14 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     -- ** Response lenses
     , ddsgrDBSubnetGroups
     , ddsgrMarker
-    , ddsgrStatusCode
+    , ddsgrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -63,11 +63,22 @@ import Network.AWS.Response
 -- * 'ddsgMaxRecords'
 --
 -- * 'ddsgMarker'
-data DescribeDBSubnetGroups = DescribeDBSubnetGroups'{_ddsgDBSubnetGroupName :: Maybe Text, _ddsgFilters :: Maybe [Filter], _ddsgMaxRecords :: Maybe Int, _ddsgMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
+    { _ddsgDBSubnetGroupName :: Maybe Text
+    , _ddsgFilters           :: Maybe [Filter]
+    , _ddsgMaxRecords        :: Maybe Int
+    , _ddsgMarker            :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBSubnetGroups' smart constructor.
 describeDBSubnetGroups :: DescribeDBSubnetGroups
-describeDBSubnetGroups = DescribeDBSubnetGroups'{_ddsgDBSubnetGroupName = Nothing, _ddsgFilters = Nothing, _ddsgMaxRecords = Nothing, _ddsgMarker = Nothing};
+describeDBSubnetGroups =
+    DescribeDBSubnetGroups'
+    { _ddsgDBSubnetGroupName = Nothing
+    , _ddsgFilters = Nothing
+    , _ddsgMaxRecords = Nothing
+    , _ddsgMarker = Nothing
+    }
 
 -- | The name of the DB subnet group to return details for.
 ddsgDBSubnetGroupName :: Lens' DescribeDBSubnetGroups (Maybe Text)
@@ -145,12 +156,21 @@ instance ToQuery DescribeDBSubnetGroups where
 --
 -- * 'ddsgrMarker'
 --
--- * 'ddsgrStatusCode'
-data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'{_ddsgrDBSubnetGroups :: Maybe [DBSubnetGroup], _ddsgrMarker :: Maybe Text, _ddsgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddsgrStatus'
+data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
+    { _ddsgrDBSubnetGroups :: Maybe [DBSubnetGroup]
+    , _ddsgrMarker         :: Maybe Text
+    , _ddsgrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBSubnetGroupsResponse' smart constructor.
 describeDBSubnetGroupsResponse :: Int -> DescribeDBSubnetGroupsResponse
-describeDBSubnetGroupsResponse pStatusCode = DescribeDBSubnetGroupsResponse'{_ddsgrDBSubnetGroups = Nothing, _ddsgrMarker = Nothing, _ddsgrStatusCode = pStatusCode};
+describeDBSubnetGroupsResponse pStatus =
+    DescribeDBSubnetGroupsResponse'
+    { _ddsgrDBSubnetGroups = Nothing
+    , _ddsgrMarker = Nothing
+    , _ddsgrStatus = pStatus
+    }
 
 -- | A list of DBSubnetGroup instances.
 ddsgrDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
@@ -163,5 +183,5 @@ ddsgrMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
 ddsgrMarker = lens _ddsgrMarker (\ s a -> s{_ddsgrMarker = a});
 
 -- | FIXME: Undocumented member.
-ddsgrStatusCode :: Lens' DescribeDBSubnetGroupsResponse Int
-ddsgrStatusCode = lens _ddsgrStatusCode (\ s a -> s{_ddsgrStatusCode = a});
+ddsgrStatus :: Lens' DescribeDBSubnetGroupsResponse Int
+ddsgrStatus = lens _ddsgrStatus (\ s a -> s{_ddsgrStatus = a});

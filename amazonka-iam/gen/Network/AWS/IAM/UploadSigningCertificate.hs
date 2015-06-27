@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.UploadSigningCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,13 +52,13 @@ module Network.AWS.IAM.UploadSigningCertificate
     , uploadSigningCertificateResponse
     -- ** Response lenses
     , uscrCertificate
-    , uscrStatusCode
+    , uscrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'uploadSigningCertificate' smart constructor.
 --
@@ -67,11 +67,18 @@ import Network.AWS.Response
 -- * 'uplUserName'
 --
 -- * 'uplCertificateBody'
-data UploadSigningCertificate = UploadSigningCertificate'{_uplUserName :: Maybe Text, _uplCertificateBody :: Text} deriving (Eq, Read, Show)
+data UploadSigningCertificate = UploadSigningCertificate'
+    { _uplUserName        :: Maybe Text
+    , _uplCertificateBody :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UploadSigningCertificate' smart constructor.
 uploadSigningCertificate :: Text -> UploadSigningCertificate
-uploadSigningCertificate pCertificateBody = UploadSigningCertificate'{_uplUserName = Nothing, _uplCertificateBody = pCertificateBody};
+uploadSigningCertificate pCertificateBody =
+    UploadSigningCertificate'
+    { _uplUserName = Nothing
+    , _uplCertificateBody = pCertificateBody
+    }
 
 -- | The name of the user the signing certificate is for.
 uplUserName :: Lens' UploadSigningCertificate (Maybe Text)
@@ -115,17 +122,24 @@ instance ToQuery UploadSigningCertificate where
 --
 -- * 'uscrCertificate'
 --
--- * 'uscrStatusCode'
-data UploadSigningCertificateResponse = UploadSigningCertificateResponse'{_uscrCertificate :: SigningCertificate, _uscrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'uscrStatus'
+data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
+    { _uscrCertificate :: SigningCertificate
+    , _uscrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UploadSigningCertificateResponse' smart constructor.
 uploadSigningCertificateResponse :: SigningCertificate -> Int -> UploadSigningCertificateResponse
-uploadSigningCertificateResponse pCertificate pStatusCode = UploadSigningCertificateResponse'{_uscrCertificate = pCertificate, _uscrStatusCode = pStatusCode};
+uploadSigningCertificateResponse pCertificate pStatus =
+    UploadSigningCertificateResponse'
+    { _uscrCertificate = pCertificate
+    , _uscrStatus = pStatus
+    }
 
 -- | Information about the certificate.
 uscrCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
 uscrCertificate = lens _uscrCertificate (\ s a -> s{_uscrCertificate = a});
 
 -- | FIXME: Undocumented member.
-uscrStatusCode :: Lens' UploadSigningCertificateResponse Int
-uscrStatusCode = lens _uscrStatusCode (\ s a -> s{_uscrStatusCode = a});
+uscrStatus :: Lens' UploadSigningCertificateResponse Int
+uscrStatus = lens _uscrStatus (\ s a -> s{_uscrStatus = a});

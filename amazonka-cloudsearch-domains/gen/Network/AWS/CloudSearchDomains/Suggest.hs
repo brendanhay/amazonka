@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearchDomains.Suggest
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,13 +53,12 @@ module Network.AWS.CloudSearchDomains.Suggest
     -- ** Response lenses
     , srSuggest
     , srStatus
-    , srStatusCode
     ) where
 
-import Network.AWS.CloudSearchDomains.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearchDomains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @Suggest@ request.
 --
@@ -72,11 +71,20 @@ import Network.AWS.Response
 -- * 'sugQuery'
 --
 -- * 'sugSuggester'
-data Suggest = Suggest'{_sugSize :: Maybe Integer, _sugQuery :: Text, _sugSuggester :: Text} deriving (Eq, Read, Show)
+data Suggest = Suggest'
+    { _sugSize      :: Maybe Integer
+    , _sugQuery     :: Text
+    , _sugSuggester :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Suggest' smart constructor.
 suggest :: Text -> Text -> Suggest
-suggest pQuery pSuggester = Suggest'{_sugSize = Nothing, _sugQuery = pQuery, _sugSuggester = pSuggester};
+suggest pQuery pSuggester =
+    Suggest'
+    { _sugSize = Nothing
+    , _sugQuery = pQuery
+    , _sugSuggester = pSuggester
+    }
 
 -- | Specifies the maximum number of suggestions to return.
 sugSize :: Lens' Suggest (Maybe Integer)
@@ -98,8 +106,7 @@ instance AWSRequest Suggest where
           = receiveJSON
               (\ s h x ->
                  SuggestResponse' <$>
-                   (x .?> "suggest") <*> (x .?> "status") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "suggest") <*> (pure (fromEnum s)))
 
 instance ToHeaders Suggest where
         toHeaders
@@ -127,23 +134,23 @@ instance ToQuery Suggest where
 -- * 'srSuggest'
 --
 -- * 'srStatus'
---
--- * 'srStatusCode'
-data SuggestResponse = SuggestResponse'{_srSuggest :: Maybe SuggestModel, _srStatus :: Maybe SuggestStatus, _srStatusCode :: Int} deriving (Eq, Read, Show)
+data SuggestResponse = SuggestResponse'
+    { _srSuggest :: Maybe SuggestModel
+    , _srStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SuggestResponse' smart constructor.
 suggestResponse :: Int -> SuggestResponse
-suggestResponse pStatusCode = SuggestResponse'{_srSuggest = Nothing, _srStatus = Nothing, _srStatusCode = pStatusCode};
+suggestResponse pStatus =
+    SuggestResponse'
+    { _srSuggest = Nothing
+    , _srStatus = pStatus
+    }
 
 -- | Container for the matching search suggestion information.
 srSuggest :: Lens' SuggestResponse (Maybe SuggestModel)
 srSuggest = lens _srSuggest (\ s a -> s{_srSuggest = a});
 
--- | The status of a @SuggestRequest@. Contains the resource ID (@rid@) and
--- how long it took to process the request (@timems@).
-srStatus :: Lens' SuggestResponse (Maybe SuggestStatus)
-srStatus = lens _srStatus (\ s a -> s{_srStatus = a});
-
 -- | FIXME: Undocumented member.
-srStatusCode :: Lens' SuggestResponse Int
-srStatusCode = lens _srStatusCode (\ s a -> s{_srStatusCode = a});
+srStatus :: Lens' SuggestResponse Int
+srStatus = lens _srStatus (\ s a -> s{_srStatus = a});

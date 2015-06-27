@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.DescribeIdentityPool
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,10 +42,10 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
     , ipAllowUnauthenticatedIdentities
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the DescribeIdentityPool action.
 --
@@ -54,11 +54,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dipIdentityPoolId'
-newtype DescribeIdentityPool = DescribeIdentityPool'{_dipIdentityPoolId :: Text} deriving (Eq, Read, Show)
+newtype DescribeIdentityPool = DescribeIdentityPool'
+    { _dipIdentityPoolId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeIdentityPool' smart constructor.
 describeIdentityPool :: Text -> DescribeIdentityPool
-describeIdentityPool pIdentityPoolId = DescribeIdentityPool'{_dipIdentityPoolId = pIdentityPoolId};
+describeIdentityPool pIdentityPoolId =
+    DescribeIdentityPool'
+    { _dipIdentityPoolId = pIdentityPoolId
+    }
 
 -- | An identity pool ID in the format REGION:GUID.
 dipIdentityPoolId :: Lens' DescribeIdentityPool Text

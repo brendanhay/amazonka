@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.S3.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -442,69 +441,80 @@ module Network.AWS.S3.Types
     , module Network.AWS.S3.Internal
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.S3.Internal
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.S3.Internal
+import           Network.AWS.Sign.V4
 
 -- | Version @2006-03-01@ of the Amazon Simple Storage Service SDK.
 data S3
 
 instance AWSService S3 where
     type Sg S3 = V4
-
     service = const svc
       where
-        svc :: Service S3
-        svc = Service
-            { _svcAbbrev   = "S3"
-            , _svcPrefix   = "s3"
-            , _svcVersion  = "2006-03-01"
+        svc =
+            Service
+            { _svcAbbrev = "S3"
+            , _svcPrefix = "s3"
+            , _svcVersion = "2006-03-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasCode "RequestTimeout" . hasStatus 400) e = Just "timeouts"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | This operation is not allowed against this storage tier
-_ObjectAlreadyInActiveTierError :: AWSError a => Geting (First ServiceError) a ServiceError
-_ObjectAlreadyInActiveTierError = _ServiceError . hasCode "ObjectAlreadyInActiveTierError";
+_ObjectAlreadyInActiveTierError :: AWSError a => Getting (First ServiceError) a ServiceError
+_ObjectAlreadyInActiveTierError =
+    _ServiceError . hasCode "ObjectAlreadyInActiveTierError"
 
 -- | The requested bucket name is not available. The bucket namespace is
 -- shared by all users of the system. Please select a different name and
 -- try again.
-_BucketAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_BucketAlreadyExists = _ServiceError . hasCode "BucketAlreadyExists";
+_BucketAlreadyExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_BucketAlreadyExists = _ServiceError . hasCode "BucketAlreadyExists"
 
 -- | The source object of the COPY operation is not in the active tier and is
 -- only stored in Amazon Glacier.
-_ObjectNotInActiveTierError :: AWSError a => Geting (First ServiceError) a ServiceError
-_ObjectNotInActiveTierError = _ServiceError . hasCode "ObjectNotInActiveTierError";
+_ObjectNotInActiveTierError :: AWSError a => Getting (First ServiceError) a ServiceError
+_ObjectNotInActiveTierError =
+    _ServiceError . hasCode "ObjectNotInActiveTierError"
 
 -- | The specified multipart upload does not exist.
-_NoSuchUpload :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchUpload = _ServiceError . hasCode "NoSuchUpload";
+_NoSuchUpload :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchUpload = _ServiceError . hasCode "NoSuchUpload"
 
 -- | The specified bucket does not exist.
-_NoSuchBucket :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchBucket = _ServiceError . hasCode "NoSuchBucket";
+_NoSuchBucket :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchBucket = _ServiceError . hasCode "NoSuchBucket"
 
 -- | The specified key does not exist.
-_NoSuchKey :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchKey = _ServiceError . hasCode "NoSuchKey";
+_NoSuchKey :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchKey = _ServiceError . hasCode "NoSuchKey"
 
-data BucketCannedACL = BCACannedAuthenticatedRead | BCACannedPrivate | BCACannedPublicReadWrite | BCACannedPublicRead deriving (Eq, Ord, Read, Show, Enum, Generic)
+data BucketCannedACL
+    = BCACannedAuthenticatedRead
+    | BCACannedPrivate
+    | BCACannedPublicReadWrite
+    | BCACannedPublicRead
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText BucketCannedACL where
     parser = takeLowerText >>= \case
@@ -528,7 +538,11 @@ instance ToHeader BucketCannedACL
 instance ToXML BucketCannedACL where
     toXML = toXMLText
 
-data BucketLogsPermission = FullControl | Read | Write deriving (Eq, Ord, Read, Show, Enum, Generic)
+data BucketLogsPermission
+    = FullControl
+    | Read
+    | Write
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText BucketLogsPermission where
     parser = takeLowerText >>= \case
@@ -553,7 +567,10 @@ instance FromXML BucketLogsPermission where
 instance ToXML BucketLogsPermission where
     toXML = toXMLText
 
-data BucketVersioningStatus = BVSSuspended | BVSEnabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+data BucketVersioningStatus
+    = BVSSuspended
+    | BVSEnabled
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText BucketVersioningStatus where
     parser = takeLowerText >>= \case
@@ -582,7 +599,9 @@ instance ToXML BucketVersioningStatus where
 -- such as characters with an ASCII value from 0 to 10. For characters that
 -- are not supported in XML 1.0, you can add this parameter to request that
 -- Amazon S3 encode the keys in the response.
-data EncodingType = URL deriving (Eq, Ord, Read, Show, Enum, Generic)
+data EncodingType =
+    URL
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText EncodingType where
     parser = takeLowerText >>= \case
@@ -604,7 +623,13 @@ instance ToXML EncodingType where
     toXML = toXMLText
 
 -- | Bucket event for which to send notifications.
-data Event = S3ObjectCreatedPut | S3ReducedRedundancyLostObject | S3ObjectCreatedPost | S3ObjectCreatedCopy | S3ObjectCreatedCompleteMultipartUpload deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Event
+    = S3ObjectCreatedPut
+    | S3ReducedRedundancyLostObject
+    | S3ObjectCreatedPost
+    | S3ObjectCreatedCopy
+    | S3ObjectCreatedCompleteMultipartUpload
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Event where
     parser = takeLowerText >>= \case
@@ -633,7 +658,10 @@ instance FromXML Event where
 instance ToXML Event where
     toXML = toXMLText
 
-data ExpirationStatus = ESDisabled | ESEnabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ExpirationStatus
+    = ESDisabled
+    | ESEnabled
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ExpirationStatus where
     parser = takeLowerText >>= \case
@@ -656,7 +684,10 @@ instance FromXML ExpirationStatus where
 instance ToXML ExpirationStatus where
     toXML = toXMLText
 
-data MFADelete = MDDisabled | MDEnabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+data MFADelete
+    = MDDisabled
+    | MDEnabled
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText MFADelete where
     parser = takeLowerText >>= \case
@@ -676,7 +707,10 @@ instance ToHeader MFADelete
 instance ToXML MFADelete where
     toXML = toXMLText
 
-data MFADeleteStatus = MDSEnabled | MDSDisabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+data MFADeleteStatus
+    = MDSEnabled
+    | MDSDisabled
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText MFADeleteStatus where
     parser = takeLowerText >>= \case
@@ -696,7 +730,10 @@ instance ToHeader MFADeleteStatus
 instance FromXML MFADeleteStatus where
     parseXML = parseXMLText "MFADeleteStatus"
 
-data MetadataDirective = Replace | Copy deriving (Eq, Ord, Read, Show, Enum, Generic)
+data MetadataDirective
+    = Replace
+    | Copy
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText MetadataDirective where
     parser = takeLowerText >>= \case
@@ -716,7 +753,14 @@ instance ToHeader MetadataDirective
 instance ToXML MetadataDirective where
     toXML = toXMLText
 
-data ObjectCannedACL = Private | BucketOwnerFullControl | BucketOwnerRead | PublicRead | AuthenticatedRead | PublicReadWrite deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ObjectCannedACL
+    = Private
+    | BucketOwnerFullControl
+    | BucketOwnerRead
+    | PublicRead
+    | AuthenticatedRead
+    | PublicReadWrite
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ObjectCannedACL where
     parser = takeLowerText >>= \case
@@ -744,7 +788,11 @@ instance ToHeader ObjectCannedACL
 instance ToXML ObjectCannedACL where
     toXML = toXMLText
 
-data ObjectStorageClass = OSCStandard | OSCReducedRedundancy | OSCGlacier deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ObjectStorageClass
+    = OSCStandard
+    | OSCReducedRedundancy
+    | OSCGlacier
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ObjectStorageClass where
     parser = takeLowerText >>= \case
@@ -766,7 +814,9 @@ instance ToHeader ObjectStorageClass
 instance FromXML ObjectStorageClass where
     parseXML = parseXMLText "ObjectStorageClass"
 
-data ObjectVersionStorageClass = OVSCStandard deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ObjectVersionStorageClass =
+    OVSCStandard
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ObjectVersionStorageClass where
     parser = takeLowerText >>= \case
@@ -784,7 +834,10 @@ instance ToHeader ObjectVersionStorageClass
 instance FromXML ObjectVersionStorageClass where
     parseXML = parseXMLText "ObjectVersionStorageClass"
 
-data Payer = BucketOwner | Requester deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Payer
+    = BucketOwner
+    | Requester
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Payer where
     parser = takeLowerText >>= \case
@@ -807,7 +860,13 @@ instance FromXML Payer where
 instance ToXML Payer where
     toXML = toXMLText
 
-data Permission = PerReadAcp | PerWrite | PerWriteAcp | PerFullControl | PerRead deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Permission
+    = PerReadAcp
+    | PerWrite
+    | PerWriteAcp
+    | PerFullControl
+    | PerRead
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Permission where
     parser = takeLowerText >>= \case
@@ -836,7 +895,10 @@ instance FromXML Permission where
 instance ToXML Permission where
     toXML = toXMLText
 
-data Protocol = HTTPS | HTTP deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Protocol
+    = HTTPS
+    | HTTP
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Protocol where
     parser = takeLowerText >>= \case
@@ -859,7 +921,10 @@ instance FromXML Protocol where
 instance ToXML Protocol where
     toXML = toXMLText
 
-data ReplicationRuleStatus = Enabled | Disabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ReplicationRuleStatus
+    = Enabled
+    | Disabled
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ReplicationRuleStatus where
     parser = takeLowerText >>= \case
@@ -882,7 +947,12 @@ instance FromXML ReplicationRuleStatus where
 instance ToXML ReplicationRuleStatus where
     toXML = toXMLText
 
-data ReplicationStatus = Pending | Replica | Failed | Complete deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ReplicationStatus
+    = Pending
+    | Replica
+    | Failed
+    | Complete
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ReplicationStatus where
     parser = takeLowerText >>= \case
@@ -908,7 +978,9 @@ instance FromXML ReplicationStatus where
 
 -- | If present, indicates that the requester was successfully charged for
 -- the request.
-data RequestCharged = RCRequester deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RequestCharged =
+    RCRequester
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText RequestCharged where
     parser = takeLowerText >>= \case
@@ -931,7 +1003,9 @@ instance FromXML RequestCharged where
 -- requests. Documentation on downloading objects from requester pays
 -- buckets can be found at
 -- http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/ObjectsinRequesterPaysBuckets.html
-data RequestPayer = RPRequester deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RequestPayer =
+    RPRequester
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText RequestPayer where
     parser = takeLowerText >>= \case
@@ -949,7 +1023,9 @@ instance ToHeader RequestPayer
 instance ToXML RequestPayer where
     toXML = toXMLText
 
-data ServerSideEncryption = AES256 deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ServerSideEncryption =
+    AES256
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ServerSideEncryption where
     parser = takeLowerText >>= \case
@@ -970,7 +1046,10 @@ instance FromXML ServerSideEncryption where
 instance ToXML ServerSideEncryption where
     toXML = toXMLText
 
-data StorageClass = Standard | ReducedRedundancy deriving (Eq, Ord, Read, Show, Enum, Generic)
+data StorageClass
+    = Standard
+    | ReducedRedundancy
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText StorageClass where
     parser = takeLowerText >>= \case
@@ -993,7 +1072,9 @@ instance FromXML StorageClass where
 instance ToXML StorageClass where
     toXML = toXMLText
 
-data TransitionStorageClass = Glacier deriving (Eq, Ord, Read, Show, Enum, Generic)
+data TransitionStorageClass =
+    Glacier
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText TransitionStorageClass where
     parser = takeLowerText >>= \case
@@ -1014,7 +1095,11 @@ instance FromXML TransitionStorageClass where
 instance ToXML TransitionStorageClass where
     toXML = toXMLText
 
-data Type = Group | CanonicalUser | AmazonCustomerByEmail deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Type
+    = Group
+    | CanonicalUser
+    | AmazonCustomerByEmail
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Type where
     parser = takeLowerText >>= \case
@@ -1046,11 +1131,18 @@ instance ToXML Type where
 -- * 'acpGrants'
 --
 -- * 'acpOwner'
-data AccessControlPolicy = AccessControlPolicy'{_acpGrants :: Maybe [Grant], _acpOwner :: Maybe Owner} deriving (Eq, Read, Show)
+data AccessControlPolicy = AccessControlPolicy'
+    { _acpGrants :: Maybe [Grant]
+    , _acpOwner  :: Maybe Owner
+    } deriving (Eq,Read,Show)
 
 -- | 'AccessControlPolicy' smart constructor.
 accessControlPolicy :: AccessControlPolicy
-accessControlPolicy = AccessControlPolicy'{_acpGrants = Nothing, _acpOwner = Nothing};
+accessControlPolicy =
+    AccessControlPolicy'
+    { _acpGrants = Nothing
+    , _acpOwner = Nothing
+    }
 
 -- | A list of grants.
 acpGrants :: Lens' AccessControlPolicy [Grant]
@@ -1074,11 +1166,18 @@ instance ToXML AccessControlPolicy where
 -- * 'bucCreationDate'
 --
 -- * 'bucName'
-data Bucket = Bucket'{_bucCreationDate :: RFC822, _bucName :: BucketName} deriving (Eq, Read, Show)
+data Bucket = Bucket'
+    { _bucCreationDate :: RFC822
+    , _bucName         :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'Bucket' smart constructor.
 bucket :: UTCTime -> BucketName -> Bucket
-bucket pCreationDate pName = Bucket'{_bucCreationDate = _Time # pCreationDate, _bucName = pName};
+bucket pCreationDate pName =
+    Bucket'
+    { _bucCreationDate = _Time # pCreationDate
+    , _bucName = pName
+    }
 
 -- | Date the bucket was created.
 bucCreationDate :: Lens' Bucket UTCTime
@@ -1097,11 +1196,16 @@ instance FromXML Bucket where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'blsLoggingEnabled'
-newtype BucketLoggingStatus = BucketLoggingStatus'{_blsLoggingEnabled :: Maybe LoggingEnabled} deriving (Eq, Read, Show)
+newtype BucketLoggingStatus = BucketLoggingStatus'
+    { _blsLoggingEnabled :: Maybe LoggingEnabled
+    } deriving (Eq,Read,Show)
 
 -- | 'BucketLoggingStatus' smart constructor.
 bucketLoggingStatus :: BucketLoggingStatus
-bucketLoggingStatus = BucketLoggingStatus'{_blsLoggingEnabled = Nothing};
+bucketLoggingStatus =
+    BucketLoggingStatus'
+    { _blsLoggingEnabled = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 blsLoggingEnabled :: Lens' BucketLoggingStatus (Maybe LoggingEnabled)
@@ -1116,11 +1220,16 @@ instance ToXML BucketLoggingStatus where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccCORSRules'
-newtype CORSConfiguration = CORSConfiguration'{_ccCORSRules :: Maybe [CORSRule]} deriving (Eq, Read, Show)
+newtype CORSConfiguration = CORSConfiguration'
+    { _ccCORSRules :: Maybe [CORSRule]
+    } deriving (Eq,Read,Show)
 
 -- | 'CORSConfiguration' smart constructor.
 corsConfiguration :: CORSConfiguration
-corsConfiguration = CORSConfiguration'{_ccCORSRules = Nothing};
+corsConfiguration =
+    CORSConfiguration'
+    { _ccCORSRules = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 ccCORSRules :: Lens' CORSConfiguration [CORSRule]
@@ -1144,11 +1253,24 @@ instance ToXML CORSConfiguration where
 -- * 'crAllowedOrigins'
 --
 -- * 'crExposeHeaders'
-data CORSRule = CORSRule'{_crAllowedMethods :: Maybe [Text], _crMaxAgeSeconds :: Maybe Int, _crAllowedHeaders :: Maybe [Text], _crAllowedOrigins :: Maybe [Text], _crExposeHeaders :: Maybe [Text]} deriving (Eq, Read, Show)
+data CORSRule = CORSRule'
+    { _crAllowedMethods :: Maybe [Text]
+    , _crMaxAgeSeconds  :: Maybe Int
+    , _crAllowedHeaders :: Maybe [Text]
+    , _crAllowedOrigins :: Maybe [Text]
+    , _crExposeHeaders  :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'CORSRule' smart constructor.
 corsRule :: CORSRule
-corsRule = CORSRule'{_crAllowedMethods = Nothing, _crMaxAgeSeconds = Nothing, _crAllowedHeaders = Nothing, _crAllowedOrigins = Nothing, _crExposeHeaders = Nothing};
+corsRule =
+    CORSRule'
+    { _crAllowedMethods = Nothing
+    , _crMaxAgeSeconds = Nothing
+    , _crAllowedHeaders = Nothing
+    , _crAllowedOrigins = Nothing
+    , _crExposeHeaders = Nothing
+    }
 
 -- | Identifies HTTP methods that the domain\/origin specified in the rule is
 -- allowed to execute.
@@ -1202,11 +1324,16 @@ instance ToXML CORSRule where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cpPrefix'
-newtype CommonPrefix = CommonPrefix'{_cpPrefix :: Maybe Text} deriving (Eq, Read, Show)
+newtype CommonPrefix = CommonPrefix'
+    { _cpPrefix :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CommonPrefix' smart constructor.
 commonPrefix :: CommonPrefix
-commonPrefix = CommonPrefix'{_cpPrefix = Nothing};
+commonPrefix =
+    CommonPrefix'
+    { _cpPrefix = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 cpPrefix :: Lens' CommonPrefix (Maybe Text)
@@ -1220,11 +1347,16 @@ instance FromXML CommonPrefix where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cmuParts'
-newtype CompletedMultipartUpload = CompletedMultipartUpload'{_cmuParts :: Maybe (List1 CompletedPart)} deriving (Eq, Read, Show)
+newtype CompletedMultipartUpload = CompletedMultipartUpload'
+    { _cmuParts :: Maybe (List1 CompletedPart)
+    } deriving (Eq,Read,Show)
 
 -- | 'CompletedMultipartUpload' smart constructor.
 completedMultipartUpload :: CompletedMultipartUpload
-completedMultipartUpload = CompletedMultipartUpload'{_cmuParts = Nothing};
+completedMultipartUpload =
+    CompletedMultipartUpload'
+    { _cmuParts = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 cmuParts :: Lens' CompletedMultipartUpload (Maybe (NonEmpty CompletedPart))
@@ -1241,11 +1373,18 @@ instance ToXML CompletedMultipartUpload where
 -- * 'cpPartNumber'
 --
 -- * 'cpETag'
-data CompletedPart = CompletedPart'{_cpPartNumber :: Int, _cpETag :: ETag} deriving (Eq, Read, Show)
+data CompletedPart = CompletedPart'
+    { _cpPartNumber :: !Int
+    , _cpETag       :: ETag
+    } deriving (Eq,Read,Show)
 
 -- | 'CompletedPart' smart constructor.
 completedPart :: Int -> ETag -> CompletedPart
-completedPart pPartNumber pETag = CompletedPart'{_cpPartNumber = pPartNumber, _cpETag = pETag};
+completedPart pPartNumber pETag =
+    CompletedPart'
+    { _cpPartNumber = pPartNumber
+    , _cpETag = pETag
+    }
 
 -- | Part number that identifies the part.
 cpPartNumber :: Lens' CompletedPart Int
@@ -1267,11 +1406,18 @@ instance ToXML CompletedPart where
 -- * 'conKeyPrefixEquals'
 --
 -- * 'conHTTPErrorCodeReturnedEquals'
-data Condition = Condition'{_conKeyPrefixEquals :: Maybe Text, _conHTTPErrorCodeReturnedEquals :: Maybe Text} deriving (Eq, Read, Show)
+data Condition = Condition'
+    { _conKeyPrefixEquals             :: Maybe Text
+    , _conHTTPErrorCodeReturnedEquals :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Condition' smart constructor.
 condition :: Condition
-condition = Condition'{_conKeyPrefixEquals = Nothing, _conHTTPErrorCodeReturnedEquals = Nothing};
+condition =
+    Condition'
+    { _conKeyPrefixEquals = Nothing
+    , _conHTTPErrorCodeReturnedEquals = Nothing
+    }
 
 -- | The object key name prefix when the redirect is applied. For example, to
 -- redirect requests for ExamplePage.html, the key prefix will be
@@ -1312,11 +1458,18 @@ instance ToXML Condition where
 -- * 'corETag'
 --
 -- * 'corLastModified'
-data CopyObjectResult = CopyObjectResult'{_corETag :: Maybe ETag, _corLastModified :: Maybe RFC822} deriving (Eq, Read, Show)
+data CopyObjectResult = CopyObjectResult'
+    { _corETag         :: Maybe ETag
+    , _corLastModified :: Maybe RFC822
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyObjectResult' smart constructor.
 copyObjectResult :: CopyObjectResult
-copyObjectResult = CopyObjectResult'{_corETag = Nothing, _corLastModified = Nothing};
+copyObjectResult =
+    CopyObjectResult'
+    { _corETag = Nothing
+    , _corLastModified = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 corETag :: Lens' CopyObjectResult (Maybe ETag)
@@ -1338,11 +1491,18 @@ instance FromXML CopyObjectResult where
 -- * 'cprETag'
 --
 -- * 'cprLastModified'
-data CopyPartResult = CopyPartResult'{_cprETag :: Maybe ETag, _cprLastModified :: Maybe RFC822} deriving (Eq, Read, Show)
+data CopyPartResult = CopyPartResult'
+    { _cprETag         :: Maybe ETag
+    , _cprLastModified :: Maybe RFC822
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyPartResult' smart constructor.
 copyPartResult :: CopyPartResult
-copyPartResult = CopyPartResult'{_cprETag = Nothing, _cprLastModified = Nothing};
+copyPartResult =
+    CopyPartResult'
+    { _cprETag = Nothing
+    , _cprLastModified = Nothing
+    }
 
 -- | Entity tag of the object.
 cprETag :: Lens' CopyPartResult (Maybe ETag)
@@ -1362,11 +1522,16 @@ instance FromXML CopyPartResult where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cbcLocationConstraint'
-newtype CreateBucketConfiguration = CreateBucketConfiguration'{_cbcLocationConstraint :: Maybe Region} deriving (Eq, Read, Show)
+newtype CreateBucketConfiguration = CreateBucketConfiguration'
+    { _cbcLocationConstraint :: Maybe Region
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateBucketConfiguration' smart constructor.
 createBucketConfiguration :: CreateBucketConfiguration
-createBucketConfiguration = CreateBucketConfiguration'{_cbcLocationConstraint = Nothing};
+createBucketConfiguration =
+    CreateBucketConfiguration'
+    { _cbcLocationConstraint = Nothing
+    }
 
 -- | Specifies the region where the bucket will be created. If you don\'t
 -- specify a region, the bucket will be created in US Standard.
@@ -1385,11 +1550,18 @@ instance ToXML CreateBucketConfiguration where
 -- * 'delQuiet'
 --
 -- * 'delObjects'
-data Delete = Delete'{_delQuiet :: Maybe Bool, _delObjects :: [ObjectIdentifier]} deriving (Eq, Read, Show)
+data Delete = Delete'
+    { _delQuiet   :: Maybe Bool
+    , _delObjects :: [ObjectIdentifier]
+    } deriving (Eq,Read,Show)
 
 -- | 'Delete' smart constructor.
 delete' :: Delete
-delete' = Delete'{_delQuiet = Nothing, _delObjects = mempty};
+delete' =
+    Delete'
+    { _delQuiet = Nothing
+    , _delObjects = mempty
+    }
 
 -- | Element to enable quiet mode for the request. When you add this element,
 -- you must set its value to true.
@@ -1419,11 +1591,24 @@ instance ToXML Delete where
 -- * 'dmeKey'
 --
 -- * 'dmeLastModified'
-data DeleteMarkerEntry = DeleteMarkerEntry'{_dmeVersionId :: Maybe ObjectVersionId, _dmeIsLatest :: Maybe Bool, _dmeOwner :: Maybe Owner, _dmeKey :: Maybe ObjectKey, _dmeLastModified :: Maybe RFC822} deriving (Eq, Read, Show)
+data DeleteMarkerEntry = DeleteMarkerEntry'
+    { _dmeVersionId    :: Maybe ObjectVersionId
+    , _dmeIsLatest     :: Maybe Bool
+    , _dmeOwner        :: Maybe Owner
+    , _dmeKey          :: Maybe ObjectKey
+    , _dmeLastModified :: Maybe RFC822
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteMarkerEntry' smart constructor.
 deleteMarkerEntry :: DeleteMarkerEntry
-deleteMarkerEntry = DeleteMarkerEntry'{_dmeVersionId = Nothing, _dmeIsLatest = Nothing, _dmeOwner = Nothing, _dmeKey = Nothing, _dmeLastModified = Nothing};
+deleteMarkerEntry =
+    DeleteMarkerEntry'
+    { _dmeVersionId = Nothing
+    , _dmeIsLatest = Nothing
+    , _dmeOwner = Nothing
+    , _dmeKey = Nothing
+    , _dmeLastModified = Nothing
+    }
 
 -- | Version ID of an object.
 dmeVersionId :: Lens' DeleteMarkerEntry (Maybe ObjectVersionId)
@@ -1465,11 +1650,22 @@ instance FromXML DeleteMarkerEntry where
 -- * 'delDeleteMarkerVersionId'
 --
 -- * 'delKey'
-data DeletedObject = DeletedObject'{_delVersionId :: Maybe ObjectVersionId, _delDeleteMarker :: Maybe Bool, _delDeleteMarkerVersionId :: Maybe Text, _delKey :: Maybe ObjectKey} deriving (Eq, Read, Show)
+data DeletedObject = DeletedObject'
+    { _delVersionId             :: Maybe ObjectVersionId
+    , _delDeleteMarker          :: Maybe Bool
+    , _delDeleteMarkerVersionId :: Maybe Text
+    , _delKey                   :: Maybe ObjectKey
+    } deriving (Eq,Read,Show)
 
 -- | 'DeletedObject' smart constructor.
 deletedObject :: DeletedObject
-deletedObject = DeletedObject'{_delVersionId = Nothing, _delDeleteMarker = Nothing, _delDeleteMarkerVersionId = Nothing, _delKey = Nothing};
+deletedObject =
+    DeletedObject'
+    { _delVersionId = Nothing
+    , _delDeleteMarker = Nothing
+    , _delDeleteMarkerVersionId = Nothing
+    , _delKey = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 delVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
@@ -1499,11 +1695,16 @@ instance FromXML DeletedObject where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'desBucket'
-newtype Destination = Destination'{_desBucket :: BucketName} deriving (Eq, Read, Show)
+newtype Destination = Destination'
+    { _desBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'Destination' smart constructor.
 destination :: BucketName -> Destination
-destination pBucket = Destination'{_desBucket = pBucket};
+destination pBucket =
+    Destination'
+    { _desBucket = pBucket
+    }
 
 -- | Amazon resource name (ARN) of the bucket where you want Amazon S3 to
 -- store replicas of the object identified by the rule.
@@ -1522,11 +1723,16 @@ instance ToXML Destination where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'edKey'
-newtype ErrorDocument = ErrorDocument'{_edKey :: ObjectKey} deriving (Eq, Read, Show)
+newtype ErrorDocument = ErrorDocument'
+    { _edKey :: ObjectKey
+    } deriving (Eq,Read,Show)
 
 -- | 'ErrorDocument' smart constructor.
 errorDocument :: ObjectKey -> ErrorDocument
-errorDocument pKey = ErrorDocument'{_edKey = pKey};
+errorDocument pKey =
+    ErrorDocument'
+    { _edKey = pKey
+    }
 
 -- | The object key name to use when a 4XX class error occurs.
 edKey :: Lens' ErrorDocument ObjectKey
@@ -1545,11 +1751,18 @@ instance ToXML ErrorDocument where
 -- * 'graPermission'
 --
 -- * 'graGrantee'
-data Grant = Grant'{_graPermission :: Maybe Permission, _graGrantee :: Maybe Grantee} deriving (Eq, Read, Show)
+data Grant = Grant'
+    { _graPermission :: Maybe Permission
+    , _graGrantee    :: Maybe Grantee
+    } deriving (Eq,Read,Show)
 
 -- | 'Grant' smart constructor.
 grant :: Grant
-grant = Grant'{_graPermission = Nothing, _graGrantee = Nothing};
+grant =
+    Grant'
+    { _graPermission = Nothing
+    , _graGrantee = Nothing
+    }
 
 -- | Specifies the permission given to the grantee.
 graPermission :: Lens' Grant (Maybe Permission)
@@ -1583,11 +1796,24 @@ instance ToXML Grant where
 -- * 'graDisplayName'
 --
 -- * 'graType'
-data Grantee = Grantee'{_graURI :: Maybe Text, _graEmailAddress :: Maybe Text, _graID :: Maybe Text, _graDisplayName :: Maybe Text, _graType :: Type} deriving (Eq, Read, Show)
+data Grantee = Grantee'
+    { _graURI          :: Maybe Text
+    , _graEmailAddress :: Maybe Text
+    , _graID           :: Maybe Text
+    , _graDisplayName  :: Maybe Text
+    , _graType         :: Type
+    } deriving (Eq,Read,Show)
 
 -- | 'Grantee' smart constructor.
 grantee :: Type -> Grantee
-grantee pType = Grantee'{_graURI = Nothing, _graEmailAddress = Nothing, _graID = Nothing, _graDisplayName = Nothing, _graType = pType};
+grantee pType =
+    Grantee'
+    { _graURI = Nothing
+    , _graEmailAddress = Nothing
+    , _graID = Nothing
+    , _graDisplayName = Nothing
+    , _graType = pType
+    }
 
 -- | URI of the grantee group.
 graURI :: Lens' Grantee (Maybe Text)
@@ -1630,11 +1856,16 @@ instance ToXML Grantee where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'idSuffix'
-newtype IndexDocument = IndexDocument'{_idSuffix :: Text} deriving (Eq, Read, Show)
+newtype IndexDocument = IndexDocument'
+    { _idSuffix :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'IndexDocument' smart constructor.
 indexDocument :: Text -> IndexDocument
-indexDocument pSuffix = IndexDocument'{_idSuffix = pSuffix};
+indexDocument pSuffix =
+    IndexDocument'
+    { _idSuffix = pSuffix
+    }
 
 -- | A suffix that is appended to a request that is for a directory on the
 -- website endpoint (e.g. if the suffix is index.html and you make a
@@ -1658,11 +1889,18 @@ instance ToXML IndexDocument where
 -- * 'iniID'
 --
 -- * 'iniDisplayName'
-data Initiator = Initiator'{_iniID :: Maybe Text, _iniDisplayName :: Maybe Text} deriving (Eq, Read, Show)
+data Initiator = Initiator'
+    { _iniID          :: Maybe Text
+    , _iniDisplayName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Initiator' smart constructor.
 initiator :: Initiator
-initiator = Initiator'{_iniID = Nothing, _iniDisplayName = Nothing};
+initiator =
+    Initiator'
+    { _iniID = Nothing
+    , _iniDisplayName = Nothing
+    }
 
 -- | If the principal is an AWS account, it provides the Canonical User ID.
 -- If the principal is an IAM User, it provides a user ARN value.
@@ -1689,11 +1927,20 @@ instance FromXML Initiator where
 -- * 'lfcLambdaFunctionARN'
 --
 -- * 'lfcEvents'
-data LambdaFunctionConfiguration = LambdaFunctionConfiguration'{_lfcId :: Maybe Text, _lfcLambdaFunctionARN :: Text, _lfcEvents :: [Event]} deriving (Eq, Read, Show)
+data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
+    { _lfcId                :: Maybe Text
+    , _lfcLambdaFunctionARN :: Text
+    , _lfcEvents            :: [Event]
+    } deriving (Eq,Read,Show)
 
 -- | 'LambdaFunctionConfiguration' smart constructor.
 lambdaFunctionConfiguration :: Text -> LambdaFunctionConfiguration
-lambdaFunctionConfiguration pLambdaFunctionARN = LambdaFunctionConfiguration'{_lfcId = Nothing, _lfcLambdaFunctionARN = pLambdaFunctionARN, _lfcEvents = mempty};
+lambdaFunctionConfiguration pLambdaFunctionARN =
+    LambdaFunctionConfiguration'
+    { _lfcId = Nothing
+    , _lfcLambdaFunctionARN = pLambdaFunctionARN
+    , _lfcEvents = mempty
+    }
 
 -- | FIXME: Undocumented member.
 lfcId :: Lens' LambdaFunctionConfiguration (Maybe Text)
@@ -1726,11 +1973,16 @@ instance ToXML LambdaFunctionConfiguration where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lcRules'
-newtype LifecycleConfiguration = LifecycleConfiguration'{_lcRules :: [Rule]} deriving (Eq, Read, Show)
+newtype LifecycleConfiguration = LifecycleConfiguration'
+    { _lcRules :: [Rule]
+    } deriving (Eq,Read,Show)
 
 -- | 'LifecycleConfiguration' smart constructor.
 lifecycleConfiguration :: LifecycleConfiguration
-lifecycleConfiguration = LifecycleConfiguration'{_lcRules = mempty};
+lifecycleConfiguration =
+    LifecycleConfiguration'
+    { _lcRules = mempty
+    }
 
 -- | FIXME: Undocumented member.
 lcRules :: Lens' LifecycleConfiguration [Rule]
@@ -1747,11 +1999,18 @@ instance ToXML LifecycleConfiguration where
 -- * 'leDays'
 --
 -- * 'leDate'
-data LifecycleExpiration = LifecycleExpiration'{_leDays :: Maybe Int, _leDate :: Maybe RFC822} deriving (Eq, Read, Show)
+data LifecycleExpiration = LifecycleExpiration'
+    { _leDays :: Maybe Int
+    , _leDate :: Maybe RFC822
+    } deriving (Eq,Read,Show)
 
 -- | 'LifecycleExpiration' smart constructor.
 lifecycleExpiration :: LifecycleExpiration
-lifecycleExpiration = LifecycleExpiration'{_leDays = Nothing, _leDate = Nothing};
+lifecycleExpiration =
+    LifecycleExpiration'
+    { _leDays = Nothing
+    , _leDate = Nothing
+    }
 
 -- | Indicates the lifetime, in days, of the objects that are subject to the
 -- rule. The value must be a non-zero positive integer.
@@ -1781,11 +2040,20 @@ instance ToXML LifecycleExpiration where
 -- * 'leTargetGrants'
 --
 -- * 'leTargetPrefix'
-data LoggingEnabled = LoggingEnabled'{_leTargetBucket :: Maybe Text, _leTargetGrants :: Maybe [TargetGrant], _leTargetPrefix :: Maybe Text} deriving (Eq, Read, Show)
+data LoggingEnabled = LoggingEnabled'
+    { _leTargetBucket :: Maybe Text
+    , _leTargetGrants :: Maybe [TargetGrant]
+    , _leTargetPrefix :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'LoggingEnabled' smart constructor.
 loggingEnabled :: LoggingEnabled
-loggingEnabled = LoggingEnabled'{_leTargetBucket = Nothing, _leTargetGrants = Nothing, _leTargetPrefix = Nothing};
+loggingEnabled =
+    LoggingEnabled'
+    { _leTargetBucket = Nothing
+    , _leTargetGrants = Nothing
+    , _leTargetPrefix = Nothing
+    }
 
 -- | Specifies the bucket where you want Amazon S3 to store server access
 -- logs. You can have your logs delivered to any bucket that you own,
@@ -1836,11 +2104,26 @@ instance ToXML LoggingEnabled where
 -- * 'muStorageClass'
 --
 -- * 'muUploadId'
-data MultipartUpload = MultipartUpload'{_muInitiated :: Maybe RFC822, _muInitiator :: Maybe Initiator, _muOwner :: Maybe Owner, _muKey :: Maybe ObjectKey, _muStorageClass :: Maybe StorageClass, _muUploadId :: Maybe Text} deriving (Eq, Read, Show)
+data MultipartUpload = MultipartUpload'
+    { _muInitiated    :: Maybe RFC822
+    , _muInitiator    :: Maybe Initiator
+    , _muOwner        :: Maybe Owner
+    , _muKey          :: Maybe ObjectKey
+    , _muStorageClass :: Maybe StorageClass
+    , _muUploadId     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'MultipartUpload' smart constructor.
 multipartUpload :: MultipartUpload
-multipartUpload = MultipartUpload'{_muInitiated = Nothing, _muInitiator = Nothing, _muOwner = Nothing, _muKey = Nothing, _muStorageClass = Nothing, _muUploadId = Nothing};
+multipartUpload =
+    MultipartUpload'
+    { _muInitiated = Nothing
+    , _muInitiator = Nothing
+    , _muOwner = Nothing
+    , _muKey = Nothing
+    , _muStorageClass = Nothing
+    , _muUploadId = Nothing
+    }
 
 -- | Date and time at which the multipart upload was initiated.
 muInitiated :: Lens' MultipartUpload (Maybe UTCTime)
@@ -1886,11 +2169,16 @@ instance FromXML MultipartUpload where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'nveNoncurrentDays'
-newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration'{_nveNoncurrentDays :: Int} deriving (Eq, Read, Show)
+newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration'
+    { _nveNoncurrentDays :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'NoncurrentVersionExpiration' smart constructor.
 noncurrentVersionExpiration :: Int -> NoncurrentVersionExpiration
-noncurrentVersionExpiration pNoncurrentDays = NoncurrentVersionExpiration'{_nveNoncurrentDays = pNoncurrentDays};
+noncurrentVersionExpiration pNoncurrentDays =
+    NoncurrentVersionExpiration'
+    { _nveNoncurrentDays = pNoncurrentDays
+    }
 
 -- | Specifies the number of days an object is noncurrent before Amazon S3
 -- can perform the associated action. For information about the noncurrent
@@ -1922,11 +2210,18 @@ instance ToXML NoncurrentVersionExpiration where
 -- * 'nvtNoncurrentDays'
 --
 -- * 'nvtStorageClass'
-data NoncurrentVersionTransition = NoncurrentVersionTransition'{_nvtNoncurrentDays :: Int, _nvtStorageClass :: TransitionStorageClass} deriving (Eq, Read, Show)
+data NoncurrentVersionTransition = NoncurrentVersionTransition'
+    { _nvtNoncurrentDays :: !Int
+    , _nvtStorageClass   :: TransitionStorageClass
+    } deriving (Eq,Read,Show)
 
 -- | 'NoncurrentVersionTransition' smart constructor.
 noncurrentVersionTransition :: Int -> TransitionStorageClass -> NoncurrentVersionTransition
-noncurrentVersionTransition pNoncurrentDays pStorageClass = NoncurrentVersionTransition'{_nvtNoncurrentDays = pNoncurrentDays, _nvtStorageClass = pStorageClass};
+noncurrentVersionTransition pNoncurrentDays pStorageClass =
+    NoncurrentVersionTransition'
+    { _nvtNoncurrentDays = pNoncurrentDays
+    , _nvtStorageClass = pStorageClass
+    }
 
 -- | Specifies the number of days an object is noncurrent before Amazon S3
 -- can perform the associated action. For information about the noncurrent
@@ -1963,11 +2258,20 @@ instance ToXML NoncurrentVersionTransition where
 -- * 'ncTopicConfigurations'
 --
 -- * 'ncLambdaFunctionConfigurations'
-data NotificationConfiguration = NotificationConfiguration'{_ncQueueConfigurations :: Maybe [QueueConfiguration], _ncTopicConfigurations :: Maybe [TopicConfiguration], _ncLambdaFunctionConfigurations :: Maybe [LambdaFunctionConfiguration]} deriving (Eq, Read, Show)
+data NotificationConfiguration = NotificationConfiguration'
+    { _ncQueueConfigurations          :: Maybe [QueueConfiguration]
+    , _ncTopicConfigurations          :: Maybe [TopicConfiguration]
+    , _ncLambdaFunctionConfigurations :: Maybe [LambdaFunctionConfiguration]
+    } deriving (Eq,Read,Show)
 
 -- | 'NotificationConfiguration' smart constructor.
 notificationConfiguration :: NotificationConfiguration
-notificationConfiguration = NotificationConfiguration'{_ncQueueConfigurations = Nothing, _ncTopicConfigurations = Nothing, _ncLambdaFunctionConfigurations = Nothing};
+notificationConfiguration =
+    NotificationConfiguration'
+    { _ncQueueConfigurations = Nothing
+    , _ncTopicConfigurations = Nothing
+    , _ncLambdaFunctionConfigurations = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 ncQueueConfigurations :: Lens' NotificationConfiguration [QueueConfiguration]
@@ -2017,11 +2321,26 @@ instance ToXML NotificationConfiguration where
 -- * 'objStorageClass'
 --
 -- * 'objLastModified'
-data Object = Object'{_objETag :: ETag, _objSize :: Int, _objOwner :: Owner, _objKey :: ObjectKey, _objStorageClass :: ObjectStorageClass, _objLastModified :: RFC822} deriving (Eq, Read, Show)
+data Object = Object'
+    { _objETag         :: ETag
+    , _objSize         :: !Int
+    , _objOwner        :: Owner
+    , _objKey          :: ObjectKey
+    , _objStorageClass :: ObjectStorageClass
+    , _objLastModified :: RFC822
+    } deriving (Eq,Read,Show)
 
 -- | 'Object' smart constructor.
 object' :: ETag -> Int -> Owner -> ObjectKey -> ObjectStorageClass -> UTCTime -> Object
-object' pETag pSize pOwner pKey pStorageClass pLastModified = Object'{_objETag = pETag, _objSize = pSize, _objOwner = pOwner, _objKey = pKey, _objStorageClass = pStorageClass, _objLastModified = _Time # pLastModified};
+object' pETag pSize pOwner pKey pStorageClass pLastModified =
+    Object'
+    { _objETag = pETag
+    , _objSize = pSize
+    , _objOwner = pOwner
+    , _objKey = pKey
+    , _objStorageClass = pStorageClass
+    , _objLastModified = _Time # pLastModified
+    }
 
 -- | FIXME: Undocumented member.
 objETag :: Lens' Object ETag
@@ -2062,11 +2381,18 @@ instance FromXML Object where
 -- * 'oiVersionId'
 --
 -- * 'oiKey'
-data ObjectIdentifier = ObjectIdentifier'{_oiVersionId :: Maybe ObjectVersionId, _oiKey :: ObjectKey} deriving (Eq, Read, Show)
+data ObjectIdentifier = ObjectIdentifier'
+    { _oiVersionId :: Maybe ObjectVersionId
+    , _oiKey       :: ObjectKey
+    } deriving (Eq,Read,Show)
 
 -- | 'ObjectIdentifier' smart constructor.
 objectIdentifier :: ObjectKey -> ObjectIdentifier
-objectIdentifier pKey = ObjectIdentifier'{_oiVersionId = Nothing, _oiKey = pKey};
+objectIdentifier pKey =
+    ObjectIdentifier'
+    { _oiVersionId = Nothing
+    , _oiKey = pKey
+    }
 
 -- | VersionId for the specific version of the object to delete.
 oiVersionId :: Lens' ObjectIdentifier (Maybe ObjectVersionId)
@@ -2100,11 +2426,30 @@ instance ToXML ObjectIdentifier where
 -- * 'ovStorageClass'
 --
 -- * 'ovLastModified'
-data ObjectVersion = ObjectVersion'{_ovVersionId :: Maybe ObjectVersionId, _ovETag :: Maybe ETag, _ovSize :: Maybe Int, _ovIsLatest :: Maybe Bool, _ovOwner :: Maybe Owner, _ovKey :: Maybe ObjectKey, _ovStorageClass :: Maybe ObjectVersionStorageClass, _ovLastModified :: Maybe RFC822} deriving (Eq, Read, Show)
+data ObjectVersion = ObjectVersion'
+    { _ovVersionId    :: Maybe ObjectVersionId
+    , _ovETag         :: Maybe ETag
+    , _ovSize         :: Maybe Int
+    , _ovIsLatest     :: Maybe Bool
+    , _ovOwner        :: Maybe Owner
+    , _ovKey          :: Maybe ObjectKey
+    , _ovStorageClass :: Maybe ObjectVersionStorageClass
+    , _ovLastModified :: Maybe RFC822
+    } deriving (Eq,Read,Show)
 
 -- | 'ObjectVersion' smart constructor.
 objectVersion :: ObjectVersion
-objectVersion = ObjectVersion'{_ovVersionId = Nothing, _ovETag = Nothing, _ovSize = Nothing, _ovIsLatest = Nothing, _ovOwner = Nothing, _ovKey = Nothing, _ovStorageClass = Nothing, _ovLastModified = Nothing};
+objectVersion =
+    ObjectVersion'
+    { _ovVersionId = Nothing
+    , _ovETag = Nothing
+    , _ovSize = Nothing
+    , _ovIsLatest = Nothing
+    , _ovOwner = Nothing
+    , _ovKey = Nothing
+    , _ovStorageClass = Nothing
+    , _ovLastModified = Nothing
+    }
 
 -- | Version ID of an object.
 ovVersionId :: Lens' ObjectVersion (Maybe ObjectVersionId)
@@ -2157,11 +2502,18 @@ instance FromXML ObjectVersion where
 -- * 'ownID'
 --
 -- * 'ownDisplayName'
-data Owner = Owner'{_ownID :: Maybe Text, _ownDisplayName :: Maybe Text} deriving (Eq, Read, Show)
+data Owner = Owner'
+    { _ownID          :: Maybe Text
+    , _ownDisplayName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Owner' smart constructor.
 owner :: Owner
-owner = Owner'{_ownID = Nothing, _ownDisplayName = Nothing};
+owner =
+    Owner'
+    { _ownID = Nothing
+    , _ownDisplayName = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 ownID :: Lens' Owner (Maybe Text)
@@ -2191,11 +2543,22 @@ instance ToXML Owner where
 -- * 'parPartNumber'
 --
 -- * 'parLastModified'
-data Part = Part'{_parETag :: Maybe ETag, _parSize :: Maybe Int, _parPartNumber :: Maybe Int, _parLastModified :: Maybe RFC822} deriving (Eq, Read, Show)
+data Part = Part'
+    { _parETag         :: Maybe ETag
+    , _parSize         :: Maybe Int
+    , _parPartNumber   :: Maybe Int
+    , _parLastModified :: Maybe RFC822
+    } deriving (Eq,Read,Show)
 
 -- | 'Part' smart constructor.
 part :: Part
-part = Part'{_parETag = Nothing, _parSize = Nothing, _parPartNumber = Nothing, _parLastModified = Nothing};
+part =
+    Part'
+    { _parETag = Nothing
+    , _parSize = Nothing
+    , _parPartNumber = Nothing
+    , _parLastModified = Nothing
+    }
 
 -- | Entity tag returned when the part was uploaded.
 parETag :: Lens' Part (Maybe ETag)
@@ -2232,11 +2595,20 @@ instance FromXML Part where
 -- * 'qcQueueARN'
 --
 -- * 'qcEvents'
-data QueueConfiguration = QueueConfiguration'{_qcId :: Maybe Text, _qcQueueARN :: Text, _qcEvents :: [Event]} deriving (Eq, Read, Show)
+data QueueConfiguration = QueueConfiguration'
+    { _qcId       :: Maybe Text
+    , _qcQueueARN :: Text
+    , _qcEvents   :: [Event]
+    } deriving (Eq,Read,Show)
 
 -- | 'QueueConfiguration' smart constructor.
 queueConfiguration :: Text -> QueueConfiguration
-queueConfiguration pQueueARN = QueueConfiguration'{_qcId = Nothing, _qcQueueARN = pQueueARN, _qcEvents = mempty};
+queueConfiguration pQueueARN =
+    QueueConfiguration'
+    { _qcId = Nothing
+    , _qcQueueARN = pQueueARN
+    , _qcEvents = mempty
+    }
 
 -- | FIXME: Undocumented member.
 qcId :: Lens' QueueConfiguration (Maybe Text)
@@ -2276,11 +2648,24 @@ instance ToXML QueueConfiguration where
 -- * 'redReplaceKeyWith'
 --
 -- * 'redReplaceKeyPrefixWith'
-data Redirect = Redirect'{_redHostName :: Maybe Text, _redProtocol :: Maybe Protocol, _redHTTPRedirectCode :: Maybe Text, _redReplaceKeyWith :: Maybe Text, _redReplaceKeyPrefixWith :: Maybe Text} deriving (Eq, Read, Show)
+data Redirect = Redirect'
+    { _redHostName             :: Maybe Text
+    , _redProtocol             :: Maybe Protocol
+    , _redHTTPRedirectCode     :: Maybe Text
+    , _redReplaceKeyWith       :: Maybe Text
+    , _redReplaceKeyPrefixWith :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Redirect' smart constructor.
 redirect :: Redirect
-redirect = Redirect'{_redHostName = Nothing, _redProtocol = Nothing, _redHTTPRedirectCode = Nothing, _redReplaceKeyWith = Nothing, _redReplaceKeyPrefixWith = Nothing};
+redirect =
+    Redirect'
+    { _redHostName = Nothing
+    , _redProtocol = Nothing
+    , _redHTTPRedirectCode = Nothing
+    , _redReplaceKeyWith = Nothing
+    , _redReplaceKeyPrefixWith = Nothing
+    }
 
 -- | The host name to use in the redirect request.
 redHostName :: Lens' Redirect (Maybe Text)
@@ -2335,11 +2720,18 @@ instance ToXML Redirect where
 -- * 'rartProtocol'
 --
 -- * 'rartHostName'
-data RedirectAllRequestsTo = RedirectAllRequestsTo'{_rartProtocol :: Maybe Protocol, _rartHostName :: Text} deriving (Eq, Read, Show)
+data RedirectAllRequestsTo = RedirectAllRequestsTo'
+    { _rartProtocol :: Maybe Protocol
+    , _rartHostName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RedirectAllRequestsTo' smart constructor.
 redirectAllRequestsTo :: Text -> RedirectAllRequestsTo
-redirectAllRequestsTo pHostName = RedirectAllRequestsTo'{_rartProtocol = Nothing, _rartHostName = pHostName};
+redirectAllRequestsTo pHostName =
+    RedirectAllRequestsTo'
+    { _rartProtocol = Nothing
+    , _rartHostName = pHostName
+    }
 
 -- | Protocol to use (http, https) when redirecting requests. The default is
 -- the protocol that is used in the original request.
@@ -2371,11 +2763,18 @@ instance ToXML RedirectAllRequestsTo where
 -- * 'rcRole'
 --
 -- * 'rcRules'
-data ReplicationConfiguration = ReplicationConfiguration'{_rcRole :: Text, _rcRules :: [ReplicationRule]} deriving (Eq, Read, Show)
+data ReplicationConfiguration = ReplicationConfiguration'
+    { _rcRole  :: Text
+    , _rcRules :: [ReplicationRule]
+    } deriving (Eq,Read,Show)
 
 -- | 'ReplicationConfiguration' smart constructor.
 replicationConfiguration :: Text -> ReplicationConfiguration
-replicationConfiguration pRole = ReplicationConfiguration'{_rcRole = pRole, _rcRules = mempty};
+replicationConfiguration pRole =
+    ReplicationConfiguration'
+    { _rcRole = pRole
+    , _rcRules = mempty
+    }
 
 -- | Amazon Resource Name (ARN) of an IAM role for Amazon S3 to assume when
 -- replicating the objects.
@@ -2409,11 +2808,22 @@ instance ToXML ReplicationConfiguration where
 -- * 'rrStatus'
 --
 -- * 'rrDestination'
-data ReplicationRule = ReplicationRule'{_rrID :: Maybe Text, _rrPrefix :: Text, _rrStatus :: ReplicationRuleStatus, _rrDestination :: Destination} deriving (Eq, Read, Show)
+data ReplicationRule = ReplicationRule'
+    { _rrID          :: Maybe Text
+    , _rrPrefix      :: Text
+    , _rrStatus      :: ReplicationRuleStatus
+    , _rrDestination :: Destination
+    } deriving (Eq,Read,Show)
 
 -- | 'ReplicationRule' smart constructor.
 replicationRule :: Text -> ReplicationRuleStatus -> Destination -> ReplicationRule
-replicationRule pPrefix pStatus pDestination = ReplicationRule'{_rrID = Nothing, _rrPrefix = pPrefix, _rrStatus = pStatus, _rrDestination = pDestination};
+replicationRule pPrefix pStatus pDestination =
+    ReplicationRule'
+    { _rrID = Nothing
+    , _rrPrefix = pPrefix
+    , _rrStatus = pStatus
+    , _rrDestination = pDestination
+    }
 
 -- | Unique identifier for the rule. The value cannot be longer than 255
 -- characters.
@@ -2452,11 +2862,16 @@ instance ToXML ReplicationRule where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rpcPayer'
-newtype RequestPaymentConfiguration = RequestPaymentConfiguration'{_rpcPayer :: Payer} deriving (Eq, Read, Show)
+newtype RequestPaymentConfiguration = RequestPaymentConfiguration'
+    { _rpcPayer :: Payer
+    } deriving (Eq,Read,Show)
 
 -- | 'RequestPaymentConfiguration' smart constructor.
 requestPaymentConfiguration :: Payer -> RequestPaymentConfiguration
-requestPaymentConfiguration pPayer = RequestPaymentConfiguration'{_rpcPayer = pPayer};
+requestPaymentConfiguration pPayer =
+    RequestPaymentConfiguration'
+    { _rpcPayer = pPayer
+    }
 
 -- | Specifies who pays for the download and request fees.
 rpcPayer :: Lens' RequestPaymentConfiguration Payer
@@ -2471,11 +2886,16 @@ instance ToXML RequestPaymentConfiguration where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rrDays'
-newtype RestoreRequest = RestoreRequest'{_rrDays :: Int} deriving (Eq, Read, Show)
+newtype RestoreRequest = RestoreRequest'
+    { _rrDays :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RestoreRequest' smart constructor.
 restoreRequest :: Int -> RestoreRequest
-restoreRequest pDays = RestoreRequest'{_rrDays = pDays};
+restoreRequest pDays =
+    RestoreRequest'
+    { _rrDays = pDays
+    }
 
 -- | Lifetime of the active copy in days
 rrDays :: Lens' RestoreRequest Int
@@ -2492,11 +2912,18 @@ instance ToXML RestoreRequest where
 -- * 'rrCondition'
 --
 -- * 'rrRedirect'
-data RoutingRule = RoutingRule'{_rrCondition :: Maybe Condition, _rrRedirect :: Redirect} deriving (Eq, Read, Show)
+data RoutingRule = RoutingRule'
+    { _rrCondition :: Maybe Condition
+    , _rrRedirect  :: Redirect
+    } deriving (Eq,Read,Show)
 
 -- | 'RoutingRule' smart constructor.
 routingRule :: Redirect -> RoutingRule
-routingRule pRedirect = RoutingRule'{_rrCondition = Nothing, _rrRedirect = pRedirect};
+routingRule pRedirect =
+    RoutingRule'
+    { _rrCondition = Nothing
+    , _rrRedirect = pRedirect
+    }
 
 -- | A container for describing a condition that must be met for the
 -- specified redirect to apply. For example, 1. If request is for pages in
@@ -2540,11 +2967,28 @@ instance ToXML RoutingRule where
 -- * 'rulPrefix'
 --
 -- * 'rulStatus'
-data Rule = Rule'{_rulNoncurrentVersionExpiration :: Maybe NoncurrentVersionExpiration, _rulTransition :: Maybe Transition, _rulExpiration :: Maybe LifecycleExpiration, _rulNoncurrentVersionTransition :: Maybe NoncurrentVersionTransition, _rulID :: Maybe Text, _rulPrefix :: Text, _rulStatus :: ExpirationStatus} deriving (Eq, Read, Show)
+data Rule = Rule'
+    { _rulNoncurrentVersionExpiration :: Maybe NoncurrentVersionExpiration
+    , _rulTransition                  :: Maybe Transition
+    , _rulExpiration                  :: Maybe LifecycleExpiration
+    , _rulNoncurrentVersionTransition :: Maybe NoncurrentVersionTransition
+    , _rulID                          :: Maybe Text
+    , _rulPrefix                      :: Text
+    , _rulStatus                      :: ExpirationStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'Rule' smart constructor.
 rule :: Text -> ExpirationStatus -> Rule
-rule pPrefix pStatus = Rule'{_rulNoncurrentVersionExpiration = Nothing, _rulTransition = Nothing, _rulExpiration = Nothing, _rulNoncurrentVersionTransition = Nothing, _rulID = Nothing, _rulPrefix = pPrefix, _rulStatus = pStatus};
+rule pPrefix pStatus =
+    Rule'
+    { _rulNoncurrentVersionExpiration = Nothing
+    , _rulTransition = Nothing
+    , _rulExpiration = Nothing
+    , _rulNoncurrentVersionTransition = Nothing
+    , _rulID = Nothing
+    , _rulPrefix = pPrefix
+    , _rulStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rulNoncurrentVersionExpiration :: Lens' Rule (Maybe NoncurrentVersionExpiration)
@@ -2610,11 +3054,22 @@ instance ToXML Rule where
 -- * 'sseCode'
 --
 -- * 'sseMessage'
-data S3ServiceError = S3ServiceError'{_sseVersionId :: Maybe ObjectVersionId, _sseKey :: Maybe ObjectKey, _sseCode :: Maybe Text, _sseMessage :: Maybe Text} deriving (Eq, Read, Show)
+data S3ServiceError = S3ServiceError'
+    { _sseVersionId :: Maybe ObjectVersionId
+    , _sseKey       :: Maybe ObjectKey
+    , _sseCode      :: Maybe Text
+    , _sseMessage   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'S3ServiceError' smart constructor.
 s3ServiceError :: S3ServiceError
-s3ServiceError = S3ServiceError'{_sseVersionId = Nothing, _sseKey = Nothing, _sseCode = Nothing, _sseMessage = Nothing};
+s3ServiceError =
+    S3ServiceError'
+    { _sseVersionId = Nothing
+    , _sseKey = Nothing
+    , _sseCode = Nothing
+    , _sseMessage = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 sseVersionId :: Lens' S3ServiceError (Maybe ObjectVersionId)
@@ -2646,11 +3101,18 @@ instance FromXML S3ServiceError where
 -- * 'tagKey'
 --
 -- * 'tagValue'
-data Tag = Tag'{_tagKey :: ObjectKey, _tagValue :: Text} deriving (Eq, Read, Show)
+data Tag = Tag'
+    { _tagKey   :: ObjectKey
+    , _tagValue :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
 tag :: ObjectKey -> Text -> Tag
-tag pKey pValue = Tag'{_tagKey = pKey, _tagValue = pValue};
+tag pKey pValue =
+    Tag'
+    { _tagKey = pKey
+    , _tagValue = pValue
+    }
 
 -- | Name of the tag.
 tagKey :: Lens' Tag ObjectKey
@@ -2672,11 +3134,16 @@ instance ToXML Tag where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'tagTagSet'
-newtype Tagging = Tagging'{_tagTagSet :: [Tag]} deriving (Eq, Read, Show)
+newtype Tagging = Tagging'
+    { _tagTagSet :: [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'Tagging' smart constructor.
 tagging :: Tagging
-tagging = Tagging'{_tagTagSet = mempty};
+tagging =
+    Tagging'
+    { _tagTagSet = mempty
+    }
 
 -- | FIXME: Undocumented member.
 tagTagSet :: Lens' Tagging [Tag]
@@ -2693,11 +3160,18 @@ instance ToXML Tagging where
 -- * 'tgPermission'
 --
 -- * 'tgGrantee'
-data TargetGrant = TargetGrant'{_tgPermission :: Maybe BucketLogsPermission, _tgGrantee :: Maybe Grantee} deriving (Eq, Read, Show)
+data TargetGrant = TargetGrant'
+    { _tgPermission :: Maybe BucketLogsPermission
+    , _tgGrantee    :: Maybe Grantee
+    } deriving (Eq,Read,Show)
 
 -- | 'TargetGrant' smart constructor.
 targetGrant :: TargetGrant
-targetGrant = TargetGrant'{_tgPermission = Nothing, _tgGrantee = Nothing};
+targetGrant =
+    TargetGrant'
+    { _tgPermission = Nothing
+    , _tgGrantee = Nothing
+    }
 
 -- | Logging permissions assigned to the Grantee for the bucket.
 tgPermission :: Lens' TargetGrant (Maybe BucketLogsPermission)
@@ -2731,11 +3205,20 @@ instance ToXML TargetGrant where
 -- * 'tcTopicARN'
 --
 -- * 'tcEvents'
-data TopicConfiguration = TopicConfiguration'{_tcId :: Maybe Text, _tcTopicARN :: Text, _tcEvents :: [Event]} deriving (Eq, Read, Show)
+data TopicConfiguration = TopicConfiguration'
+    { _tcId       :: Maybe Text
+    , _tcTopicARN :: Text
+    , _tcEvents   :: [Event]
+    } deriving (Eq,Read,Show)
 
 -- | 'TopicConfiguration' smart constructor.
 topicConfiguration :: Text -> TopicConfiguration
-topicConfiguration pTopicARN = TopicConfiguration'{_tcId = Nothing, _tcTopicARN = pTopicARN, _tcEvents = mempty};
+topicConfiguration pTopicARN =
+    TopicConfiguration'
+    { _tcId = Nothing
+    , _tcTopicARN = pTopicARN
+    , _tcEvents = mempty
+    }
 
 -- | FIXME: Undocumented member.
 tcId :: Lens' TopicConfiguration (Maybe Text)
@@ -2771,11 +3254,20 @@ instance ToXML TopicConfiguration where
 -- * 'traDate'
 --
 -- * 'traStorageClass'
-data Transition = Transition'{_traDays :: Maybe Int, _traDate :: Maybe RFC822, _traStorageClass :: Maybe TransitionStorageClass} deriving (Eq, Read, Show)
+data Transition = Transition'
+    { _traDays         :: Maybe Int
+    , _traDate         :: Maybe RFC822
+    , _traStorageClass :: Maybe TransitionStorageClass
+    } deriving (Eq,Read,Show)
 
 -- | 'Transition' smart constructor.
 transition :: Transition
-transition = Transition'{_traDays = Nothing, _traDate = Nothing, _traStorageClass = Nothing};
+transition =
+    Transition'
+    { _traDays = Nothing
+    , _traDate = Nothing
+    , _traStorageClass = Nothing
+    }
 
 -- | Indicates the lifetime, in days, of the objects that are subject to the
 -- rule. The value must be a non-zero positive integer.
@@ -2810,11 +3302,18 @@ instance ToXML Transition where
 -- * 'vcStatus'
 --
 -- * 'vcMFADelete'
-data VersioningConfiguration = VersioningConfiguration'{_vcStatus :: Maybe BucketVersioningStatus, _vcMFADelete :: Maybe MFADelete} deriving (Eq, Read, Show)
+data VersioningConfiguration = VersioningConfiguration'
+    { _vcStatus    :: Maybe BucketVersioningStatus
+    , _vcMFADelete :: Maybe MFADelete
+    } deriving (Eq,Read,Show)
 
 -- | 'VersioningConfiguration' smart constructor.
 versioningConfiguration :: VersioningConfiguration
-versioningConfiguration = VersioningConfiguration'{_vcStatus = Nothing, _vcMFADelete = Nothing};
+versioningConfiguration =
+    VersioningConfiguration'
+    { _vcStatus = Nothing
+    , _vcMFADelete = Nothing
+    }
 
 -- | The versioning state of the bucket.
 vcStatus :: Lens' VersioningConfiguration (Maybe BucketVersioningStatus)
@@ -2843,11 +3342,22 @@ instance ToXML VersioningConfiguration where
 -- * 'wcRoutingRules'
 --
 -- * 'wcIndexDocument'
-data WebsiteConfiguration = WebsiteConfiguration'{_wcRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo, _wcErrorDocument :: Maybe ErrorDocument, _wcRoutingRules :: Maybe [RoutingRule], _wcIndexDocument :: Maybe IndexDocument} deriving (Eq, Read, Show)
+data WebsiteConfiguration = WebsiteConfiguration'
+    { _wcRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
+    , _wcErrorDocument         :: Maybe ErrorDocument
+    , _wcRoutingRules          :: Maybe [RoutingRule]
+    , _wcIndexDocument         :: Maybe IndexDocument
+    } deriving (Eq,Read,Show)
 
 -- | 'WebsiteConfiguration' smart constructor.
 websiteConfiguration :: WebsiteConfiguration
-websiteConfiguration = WebsiteConfiguration'{_wcRedirectAllRequestsTo = Nothing, _wcErrorDocument = Nothing, _wcRoutingRules = Nothing, _wcIndexDocument = Nothing};
+websiteConfiguration =
+    WebsiteConfiguration'
+    { _wcRedirectAllRequestsTo = Nothing
+    , _wcErrorDocument = Nothing
+    , _wcRoutingRules = Nothing
+    , _wcIndexDocument = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 wcRedirectAllRequestsTo :: Lens' WebsiteConfiguration (Maybe RedirectAllRequestsTo)

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.CreateDistribution
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.CloudFront.CreateDistribution
     , cdrETag
     , cdrDistribution
     , cdrLocation
-    , cdrStatusCode
+    , cdrStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to create a new distribution.
 --
@@ -49,11 +49,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdDistributionConfig'
-newtype CreateDistribution = CreateDistribution'{_cdDistributionConfig :: DistributionConfig} deriving (Eq, Read, Show)
+newtype CreateDistribution = CreateDistribution'
+    { _cdDistributionConfig :: DistributionConfig
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDistribution' smart constructor.
 createDistribution :: DistributionConfig -> CreateDistribution
-createDistribution pDistributionConfig = CreateDistribution'{_cdDistributionConfig = pDistributionConfig};
+createDistribution pDistributionConfig =
+    CreateDistribution'
+    { _cdDistributionConfig = pDistributionConfig
+    }
 
 -- | The distribution\'s configuration information.
 cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
@@ -100,12 +105,23 @@ instance ToQuery CreateDistribution where
 --
 -- * 'cdrLocation'
 --
--- * 'cdrStatusCode'
-data CreateDistributionResponse = CreateDistributionResponse'{_cdrETag :: Maybe Text, _cdrDistribution :: Maybe Distribution, _cdrLocation :: Maybe Text, _cdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdrStatus'
+data CreateDistributionResponse = CreateDistributionResponse'
+    { _cdrETag         :: Maybe Text
+    , _cdrDistribution :: Maybe Distribution
+    , _cdrLocation     :: Maybe Text
+    , _cdrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDistributionResponse' smart constructor.
 createDistributionResponse :: Int -> CreateDistributionResponse
-createDistributionResponse pStatusCode = CreateDistributionResponse'{_cdrETag = Nothing, _cdrDistribution = Nothing, _cdrLocation = Nothing, _cdrStatusCode = pStatusCode};
+createDistributionResponse pStatus =
+    CreateDistributionResponse'
+    { _cdrETag = Nothing
+    , _cdrDistribution = Nothing
+    , _cdrLocation = Nothing
+    , _cdrStatus = pStatus
+    }
 
 -- | The current version of the distribution created.
 cdrETag :: Lens' CreateDistributionResponse (Maybe Text)
@@ -122,5 +138,5 @@ cdrLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdrLocation = lens _cdrLocation (\ s a -> s{_cdrLocation = a});
 
 -- | FIXME: Undocumented member.
-cdrStatusCode :: Lens' CreateDistributionResponse Int
-cdrStatusCode = lens _cdrStatusCode (\ s a -> s{_cdrStatusCode = a});
+cdrStatus :: Lens' CreateDistributionResponse Int
+cdrStatus = lens _cdrStatus (\ s a -> s{_cdrStatus = a});

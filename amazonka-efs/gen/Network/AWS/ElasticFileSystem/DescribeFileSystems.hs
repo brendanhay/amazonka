@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticFileSystem.DescribeFileSystems
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -64,13 +64,13 @@ module Network.AWS.ElasticFileSystem.DescribeFileSystems
     , dfsrFileSystems
     , dfsrMarker
     , dfsrNextMarker
-    , dfsrStatusCode
+    , dfsrStatus
     ) where
 
-import Network.AWS.ElasticFileSystem.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticFileSystem.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeFileSystems' smart constructor.
 --
@@ -83,11 +83,22 @@ import Network.AWS.Response
 -- * 'dfsCreationToken'
 --
 -- * 'dfsMarker'
-data DescribeFileSystems = DescribeFileSystems'{_dfsFileSystemId :: Maybe Text, _dfsMaxItems :: Maybe Nat, _dfsCreationToken :: Maybe Text, _dfsMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeFileSystems = DescribeFileSystems'
+    { _dfsFileSystemId  :: Maybe Text
+    , _dfsMaxItems      :: Maybe Nat
+    , _dfsCreationToken :: Maybe Text
+    , _dfsMarker        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeFileSystems' smart constructor.
 describeFileSystems :: DescribeFileSystems
-describeFileSystems = DescribeFileSystems'{_dfsFileSystemId = Nothing, _dfsMaxItems = Nothing, _dfsCreationToken = Nothing, _dfsMarker = Nothing};
+describeFileSystems =
+    DescribeFileSystems'
+    { _dfsFileSystemId = Nothing
+    , _dfsMaxItems = Nothing
+    , _dfsCreationToken = Nothing
+    , _dfsMarker = Nothing
+    }
 
 -- | Optional string. File system ID whose description you want to retrieve.
 dfsFileSystemId :: Lens' DescribeFileSystems (Maybe Text)
@@ -150,12 +161,23 @@ instance ToQuery DescribeFileSystems where
 --
 -- * 'dfsrNextMarker'
 --
--- * 'dfsrStatusCode'
-data DescribeFileSystemsResponse = DescribeFileSystemsResponse'{_dfsrFileSystems :: Maybe [FileSystemDescription], _dfsrMarker :: Maybe Text, _dfsrNextMarker :: Maybe Text, _dfsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dfsrStatus'
+data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
+    { _dfsrFileSystems :: Maybe [FileSystemDescription]
+    , _dfsrMarker      :: Maybe Text
+    , _dfsrNextMarker  :: Maybe Text
+    , _dfsrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeFileSystemsResponse' smart constructor.
 describeFileSystemsResponse :: Int -> DescribeFileSystemsResponse
-describeFileSystemsResponse pStatusCode = DescribeFileSystemsResponse'{_dfsrFileSystems = Nothing, _dfsrMarker = Nothing, _dfsrNextMarker = Nothing, _dfsrStatusCode = pStatusCode};
+describeFileSystemsResponse pStatus =
+    DescribeFileSystemsResponse'
+    { _dfsrFileSystems = Nothing
+    , _dfsrMarker = Nothing
+    , _dfsrNextMarker = Nothing
+    , _dfsrStatus = pStatus
+    }
 
 -- | An array of file system descriptions.
 dfsrFileSystems :: Lens' DescribeFileSystemsResponse [FileSystemDescription]
@@ -172,5 +194,5 @@ dfsrNextMarker :: Lens' DescribeFileSystemsResponse (Maybe Text)
 dfsrNextMarker = lens _dfsrNextMarker (\ s a -> s{_dfsrNextMarker = a});
 
 -- | FIXME: Undocumented member.
-dfsrStatusCode :: Lens' DescribeFileSystemsResponse Int
-dfsrStatusCode = lens _dfsrStatusCode (\ s a -> s{_dfsrStatusCode = a});
+dfsrStatus :: Lens' DescribeFileSystemsResponse Int
+dfsrStatus = lens _dfsrStatus (\ s a -> s{_dfsrStatus = a});

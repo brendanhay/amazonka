@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ImportImage
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,6 @@ module Network.AWS.EC2.ImportImage
     -- ** Response constructor
     , importImageResponse
     -- ** Response lenses
-    , iStatus
     , iHypervisor
     , iPlatform
     , iProgress
@@ -52,13 +51,13 @@ module Network.AWS.EC2.ImportImage
     , iImportTaskId
     , iArchitecture
     , iDescription
-    , iStatusCode
+    , iStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'importImage' smart constructor.
 --
@@ -83,11 +82,34 @@ import Network.AWS.Response
 -- * 'impClientData'
 --
 -- * 'impDiskContainers'
-data ImportImage = ImportImage'{_impHypervisor :: Maybe Text, _impPlatform :: Maybe Text, _impClientToken :: Maybe Text, _impLicenseType :: Maybe Text, _impRoleName :: Maybe Text, _impArchitecture :: Maybe Text, _impDryRun :: Maybe Bool, _impDescription :: Maybe Text, _impClientData :: Maybe ClientData, _impDiskContainers :: Maybe [ImageDiskContainer]} deriving (Eq, Read, Show)
+data ImportImage = ImportImage'
+    { _impHypervisor     :: Maybe Text
+    , _impPlatform       :: Maybe Text
+    , _impClientToken    :: Maybe Text
+    , _impLicenseType    :: Maybe Text
+    , _impRoleName       :: Maybe Text
+    , _impArchitecture   :: Maybe Text
+    , _impDryRun         :: Maybe Bool
+    , _impDescription    :: Maybe Text
+    , _impClientData     :: Maybe ClientData
+    , _impDiskContainers :: Maybe [ImageDiskContainer]
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportImage' smart constructor.
 importImage :: ImportImage
-importImage = ImportImage'{_impHypervisor = Nothing, _impPlatform = Nothing, _impClientToken = Nothing, _impLicenseType = Nothing, _impRoleName = Nothing, _impArchitecture = Nothing, _impDryRun = Nothing, _impDescription = Nothing, _impClientData = Nothing, _impDiskContainers = Nothing};
+importImage =
+    ImportImage'
+    { _impHypervisor = Nothing
+    , _impPlatform = Nothing
+    , _impClientToken = Nothing
+    , _impLicenseType = Nothing
+    , _impRoleName = Nothing
+    , _impArchitecture = Nothing
+    , _impDryRun = Nothing
+    , _impDescription = Nothing
+    , _impClientData = Nothing
+    , _impDiskContainers = Nothing
+    }
 
 -- | The target hypervisor platform.
 --
@@ -156,9 +178,8 @@ instance AWSRequest ImportImage where
           = receiveXML
               (\ s h x ->
                  ImportImageResponse' <$>
-                   (x .@? "status") <*> (x .@? "hypervisor") <*>
-                     (x .@? "platform")
-                     <*> (x .@? "progress")
+                   (x .@? "hypervisor") <*> (x .@? "platform") <*>
+                     (x .@? "progress")
                      <*> (x .@? "licenseType")
                      <*> (may (parseXMLList "item") x)
                      <*> (x .@? "statusMessage")
@@ -194,8 +215,6 @@ instance ToQuery ImportImage where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'iStatus'
---
 -- * 'iHypervisor'
 --
 -- * 'iPlatform'
@@ -216,16 +235,37 @@ instance ToQuery ImportImage where
 --
 -- * 'iDescription'
 --
--- * 'iStatusCode'
-data ImportImageResponse = ImportImageResponse'{_iStatus :: Maybe Text, _iHypervisor :: Maybe Text, _iPlatform :: Maybe Text, _iProgress :: Maybe Text, _iLicenseType :: Maybe Text, _iSnapshotDetails :: Maybe [SnapshotDetail], _iStatusMessage :: Maybe Text, _iImageId :: Maybe Text, _iImportTaskId :: Maybe Text, _iArchitecture :: Maybe Text, _iDescription :: Maybe Text, _iStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'iStatus'
+data ImportImageResponse = ImportImageResponse'
+    { _iHypervisor      :: Maybe Text
+    , _iPlatform        :: Maybe Text
+    , _iProgress        :: Maybe Text
+    , _iLicenseType     :: Maybe Text
+    , _iSnapshotDetails :: Maybe [SnapshotDetail]
+    , _iStatusMessage   :: Maybe Text
+    , _iImageId         :: Maybe Text
+    , _iImportTaskId    :: Maybe Text
+    , _iArchitecture    :: Maybe Text
+    , _iDescription     :: Maybe Text
+    , _iStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportImageResponse' smart constructor.
 importImageResponse :: Int -> ImportImageResponse
-importImageResponse pStatusCode = ImportImageResponse'{_iStatus = Nothing, _iHypervisor = Nothing, _iPlatform = Nothing, _iProgress = Nothing, _iLicenseType = Nothing, _iSnapshotDetails = Nothing, _iStatusMessage = Nothing, _iImageId = Nothing, _iImportTaskId = Nothing, _iArchitecture = Nothing, _iDescription = Nothing, _iStatusCode = pStatusCode};
-
--- | A brief status of the task.
-iStatus :: Lens' ImportImageResponse (Maybe Text)
-iStatus = lens _iStatus (\ s a -> s{_iStatus = a});
+importImageResponse pStatus =
+    ImportImageResponse'
+    { _iHypervisor = Nothing
+    , _iPlatform = Nothing
+    , _iProgress = Nothing
+    , _iLicenseType = Nothing
+    , _iSnapshotDetails = Nothing
+    , _iStatusMessage = Nothing
+    , _iImageId = Nothing
+    , _iImportTaskId = Nothing
+    , _iArchitecture = Nothing
+    , _iDescription = Nothing
+    , _iStatus = pStatus
+    }
 
 -- | The target hypervisor of the import task.
 iHypervisor :: Lens' ImportImageResponse (Maybe Text)
@@ -268,5 +308,5 @@ iDescription :: Lens' ImportImageResponse (Maybe Text)
 iDescription = lens _iDescription (\ s a -> s{_iDescription = a});
 
 -- | FIXME: Undocumented member.
-iStatusCode :: Lens' ImportImageResponse Int
-iStatusCode = lens _iStatusCode (\ s a -> s{_iStatusCode = a});
+iStatus :: Lens' ImportImageResponse Int
+iStatus = lens _iStatus (\ s a -> s{_iStatus = a});

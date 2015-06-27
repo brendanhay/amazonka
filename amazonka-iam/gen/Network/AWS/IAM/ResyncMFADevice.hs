@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ResyncMFADevice
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.IAM.ResyncMFADevice
     , resyncMFADeviceResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'resyncMFADevice' smart constructor.
 --
@@ -56,11 +56,22 @@ import Network.AWS.Response
 -- * 'rmdAuthenticationCode1'
 --
 -- * 'rmdAuthenticationCode2'
-data ResyncMFADevice = ResyncMFADevice'{_rmdUserName :: Text, _rmdSerialNumber :: Text, _rmdAuthenticationCode1 :: Text, _rmdAuthenticationCode2 :: Text} deriving (Eq, Read, Show)
+data ResyncMFADevice = ResyncMFADevice'
+    { _rmdUserName            :: Text
+    , _rmdSerialNumber        :: Text
+    , _rmdAuthenticationCode1 :: Text
+    , _rmdAuthenticationCode2 :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ResyncMFADevice' smart constructor.
 resyncMFADevice :: Text -> Text -> Text -> Text -> ResyncMFADevice
-resyncMFADevice pUserName pSerialNumber pAuthenticationCode1 pAuthenticationCode2 = ResyncMFADevice'{_rmdUserName = pUserName, _rmdSerialNumber = pSerialNumber, _rmdAuthenticationCode1 = pAuthenticationCode1, _rmdAuthenticationCode2 = pAuthenticationCode2};
+resyncMFADevice pUserName pSerialNumber pAuthenticationCode1 pAuthenticationCode2 =
+    ResyncMFADevice'
+    { _rmdUserName = pUserName
+    , _rmdSerialNumber = pSerialNumber
+    , _rmdAuthenticationCode1 = pAuthenticationCode1
+    , _rmdAuthenticationCode2 = pAuthenticationCode2
+    }
 
 -- | The name of the user whose MFA device you want to resynchronize.
 rmdUserName :: Lens' ResyncMFADevice Text
@@ -101,8 +112,10 @@ instance ToQuery ResyncMFADevice where
                "AuthenticationCode2" =: _rmdAuthenticationCode2]
 
 -- | /See:/ 'resyncMFADeviceResponse' smart constructor.
-data ResyncMFADeviceResponse = ResyncMFADeviceResponse' deriving (Eq, Read, Show)
+data ResyncMFADeviceResponse =
+    ResyncMFADeviceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ResyncMFADeviceResponse' smart constructor.
 resyncMFADeviceResponse :: ResyncMFADeviceResponse
-resyncMFADeviceResponse = ResyncMFADeviceResponse';
+resyncMFADeviceResponse = ResyncMFADeviceResponse'

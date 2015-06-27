@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DisassociateAddress
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,10 +43,10 @@ module Network.AWS.EC2.DisassociateAddress
     , disassociateAddressResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'disassociateAddress' smart constructor.
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'disaPublicIP'
 --
 -- * 'disaDryRun'
-data DisassociateAddress = DisassociateAddress'{_disaAssociationId :: Maybe Text, _disaPublicIP :: Maybe Text, _disaDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DisassociateAddress = DisassociateAddress'
+    { _disaAssociationId :: Maybe Text
+    , _disaPublicIP      :: Maybe Text
+    , _disaDryRun        :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DisassociateAddress' smart constructor.
 disassociateAddress :: DisassociateAddress
-disassociateAddress = DisassociateAddress'{_disaAssociationId = Nothing, _disaPublicIP = Nothing, _disaDryRun = Nothing};
+disassociateAddress =
+    DisassociateAddress'
+    { _disaAssociationId = Nothing
+    , _disaPublicIP = Nothing
+    , _disaDryRun = Nothing
+    }
 
 -- | [EC2-VPC] The association ID. Required for EC2-VPC.
 disaAssociationId :: Lens' DisassociateAddress (Maybe Text)
@@ -100,8 +109,10 @@ instance ToQuery DisassociateAddress where
                "PublicIp" =: _disaPublicIP, "DryRun" =: _disaDryRun]
 
 -- | /See:/ 'disassociateAddressResponse' smart constructor.
-data DisassociateAddressResponse = DisassociateAddressResponse' deriving (Eq, Read, Show)
+data DisassociateAddressResponse =
+    DisassociateAddressResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DisassociateAddressResponse' smart constructor.
 disassociateAddressResponse :: DisassociateAddressResponse
-disassociateAddressResponse = DisassociateAddressResponse';
+disassociateAddressResponse = DisassociateAddressResponse'

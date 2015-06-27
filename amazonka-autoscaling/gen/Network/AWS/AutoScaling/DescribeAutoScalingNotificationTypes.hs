@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,20 +30,22 @@ module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     , describeAutoScalingNotificationTypesResponse
     -- ** Response lenses
     , dasntrAutoScalingNotificationTypes
-    , dasntrStatusCode
+    , dasntrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAutoScalingNotificationTypes' smart constructor.
-data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes' deriving (Eq, Read, Show)
+data DescribeAutoScalingNotificationTypes =
+    DescribeAutoScalingNotificationTypes'
+    deriving (Eq,Read,Show)
 
 -- | 'DescribeAutoScalingNotificationTypes' smart constructor.
 describeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
-describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes';
+describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes'
 
 instance AWSRequest
          DescribeAutoScalingNotificationTypes where
@@ -85,12 +87,19 @@ instance ToQuery DescribeAutoScalingNotificationTypes
 --
 -- * 'dasntrAutoScalingNotificationTypes'
 --
--- * 'dasntrStatusCode'
-data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'{_dasntrAutoScalingNotificationTypes :: Maybe [Text], _dasntrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dasntrStatus'
+data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'
+    { _dasntrAutoScalingNotificationTypes :: Maybe [Text]
+    , _dasntrStatus                       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAutoScalingNotificationTypesResponse' smart constructor.
 describeAutoScalingNotificationTypesResponse :: Int -> DescribeAutoScalingNotificationTypesResponse
-describeAutoScalingNotificationTypesResponse pStatusCode = DescribeAutoScalingNotificationTypesResponse'{_dasntrAutoScalingNotificationTypes = Nothing, _dasntrStatusCode = pStatusCode};
+describeAutoScalingNotificationTypesResponse pStatus =
+    DescribeAutoScalingNotificationTypesResponse'
+    { _dasntrAutoScalingNotificationTypes = Nothing
+    , _dasntrStatus = pStatus
+    }
 
 -- | One or more of the following notification types:
 --
@@ -108,5 +117,5 @@ dasntrAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypes
 dasntrAutoScalingNotificationTypes = lens _dasntrAutoScalingNotificationTypes (\ s a -> s{_dasntrAutoScalingNotificationTypes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dasntrStatusCode :: Lens' DescribeAutoScalingNotificationTypesResponse Int
-dasntrStatusCode = lens _dasntrStatusCode (\ s a -> s{_dasntrStatusCode = a});
+dasntrStatus :: Lens' DescribeAutoScalingNotificationTypesResponse Int
+dasntrStatus = lens _dasntrStatus (\ s a -> s{_dasntrStatus = a});

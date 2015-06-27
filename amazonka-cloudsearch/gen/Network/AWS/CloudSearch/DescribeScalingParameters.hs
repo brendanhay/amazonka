@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeScalingParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.CloudSearch.DescribeScalingParameters
     , describeScalingParametersResponse
     -- ** Response lenses
     , dsprScalingParameters
-    , dsprStatusCode
+    , dsprStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeScalingParameters@
 -- operation. Specifies the name of the domain you want to describe.
@@ -52,11 +52,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dspDomainName'
-newtype DescribeScalingParameters = DescribeScalingParameters'{_dspDomainName :: Text} deriving (Eq, Read, Show)
+newtype DescribeScalingParameters = DescribeScalingParameters'
+    { _dspDomainName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeScalingParameters' smart constructor.
 describeScalingParameters :: Text -> DescribeScalingParameters
-describeScalingParameters pDomainName = DescribeScalingParameters'{_dspDomainName = pDomainName};
+describeScalingParameters pDomainName =
+    DescribeScalingParameters'
+    { _dspDomainName = pDomainName
+    }
 
 -- | FIXME: Undocumented member.
 dspDomainName :: Lens' DescribeScalingParameters Text
@@ -96,17 +101,24 @@ instance ToQuery DescribeScalingParameters where
 --
 -- * 'dsprScalingParameters'
 --
--- * 'dsprStatusCode'
-data DescribeScalingParametersResponse = DescribeScalingParametersResponse'{_dsprScalingParameters :: ScalingParametersStatus, _dsprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsprStatus'
+data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
+    { _dsprScalingParameters :: ScalingParametersStatus
+    , _dsprStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeScalingParametersResponse' smart constructor.
 describeScalingParametersResponse :: ScalingParametersStatus -> Int -> DescribeScalingParametersResponse
-describeScalingParametersResponse pScalingParameters pStatusCode = DescribeScalingParametersResponse'{_dsprScalingParameters = pScalingParameters, _dsprStatusCode = pStatusCode};
+describeScalingParametersResponse pScalingParameters pStatus =
+    DescribeScalingParametersResponse'
+    { _dsprScalingParameters = pScalingParameters
+    , _dsprStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dsprScalingParameters :: Lens' DescribeScalingParametersResponse ScalingParametersStatus
 dsprScalingParameters = lens _dsprScalingParameters (\ s a -> s{_dsprScalingParameters = a});
 
 -- | FIXME: Undocumented member.
-dsprStatusCode :: Lens' DescribeScalingParametersResponse Int
-dsprStatusCode = lens _dsprStatusCode (\ s a -> s{_dsprStatusCode = a});
+dsprStatus :: Lens' DescribeScalingParametersResponse Int
+dsprStatus = lens _dsprStatus (\ s a -> s{_dsprStatus = a});

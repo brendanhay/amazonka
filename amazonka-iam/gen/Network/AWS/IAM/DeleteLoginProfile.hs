@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeleteLoginProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,21 +40,26 @@ module Network.AWS.IAM.DeleteLoginProfile
     , deleteLoginProfileResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteLoginProfile' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlpUserName'
-newtype DeleteLoginProfile = DeleteLoginProfile'{_dlpUserName :: Text} deriving (Eq, Read, Show)
+newtype DeleteLoginProfile = DeleteLoginProfile'
+    { _dlpUserName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLoginProfile' smart constructor.
 deleteLoginProfile :: Text -> DeleteLoginProfile
-deleteLoginProfile pUserName = DeleteLoginProfile'{_dlpUserName = pUserName};
+deleteLoginProfile pUserName =
+    DeleteLoginProfile'
+    { _dlpUserName = pUserName
+    }
 
 -- | The name of the user whose password you want to delete.
 dlpUserName :: Lens' DeleteLoginProfile Text
@@ -81,8 +86,10 @@ instance ToQuery DeleteLoginProfile where
                "UserName" =: _dlpUserName]
 
 -- | /See:/ 'deleteLoginProfileResponse' smart constructor.
-data DeleteLoginProfileResponse = DeleteLoginProfileResponse' deriving (Eq, Read, Show)
+data DeleteLoginProfileResponse =
+    DeleteLoginProfileResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteLoginProfileResponse' smart constructor.
 deleteLoginProfileResponse :: DeleteLoginProfileResponse
-deleteLoginProfileResponse = DeleteLoginProfileResponse';
+deleteLoginProfileResponse = DeleteLoginProfileResponse'

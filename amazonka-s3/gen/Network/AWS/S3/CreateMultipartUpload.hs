@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.CreateMultipartUpload
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -66,13 +66,13 @@ module Network.AWS.S3.CreateMultipartUpload
     , cmurSSECustomerKeyMD5
     , cmurUploadId
     , cmurServerSideEncryption
-    , cmurStatusCode
+    , cmurStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'createMultipartUpload' smart constructor.
 --
@@ -121,11 +121,58 @@ import Network.AWS.S3.Types
 -- * 'cmuBucket'
 --
 -- * 'cmuKey'
-data CreateMultipartUpload = CreateMultipartUpload'{_cmuExpires :: Maybe RFC822, _cmuSSECustomerAlgorithm :: Maybe Text, _cmuGrantReadACP :: Maybe Text, _cmuSSECustomerKey :: Maybe (Sensitive Text), _cmuRequestPayer :: Maybe RequestPayer, _cmuGrantWriteACP :: Maybe Text, _cmuWebsiteRedirectLocation :: Maybe Text, _cmuGrantRead :: Maybe Text, _cmuStorageClass :: Maybe StorageClass, _cmuContentEncoding :: Maybe Text, _cmuSSEKMSKeyId :: Maybe (Sensitive Text), _cmuGrantFullControl :: Maybe Text, _cmuSSECustomerKeyMD5 :: Maybe Text, _cmuMetadata :: Map Text Text, _cmuCacheControl :: Maybe Text, _cmuContentLanguage :: Maybe Text, _cmuACL :: Maybe ObjectCannedACL, _cmuContentDisposition :: Maybe Text, _cmuServerSideEncryption :: Maybe ServerSideEncryption, _cmuContentType :: Maybe Text, _cmuBucket :: BucketName, _cmuKey :: ObjectKey} deriving (Eq, Read, Show)
+data CreateMultipartUpload = CreateMultipartUpload'
+    { _cmuExpires                 :: Maybe RFC822
+    , _cmuSSECustomerAlgorithm    :: Maybe Text
+    , _cmuGrantReadACP            :: Maybe Text
+    , _cmuSSECustomerKey          :: Maybe (Sensitive Text)
+    , _cmuRequestPayer            :: Maybe RequestPayer
+    , _cmuGrantWriteACP           :: Maybe Text
+    , _cmuWebsiteRedirectLocation :: Maybe Text
+    , _cmuGrantRead               :: Maybe Text
+    , _cmuStorageClass            :: Maybe StorageClass
+    , _cmuContentEncoding         :: Maybe Text
+    , _cmuSSEKMSKeyId             :: Maybe (Sensitive Text)
+    , _cmuGrantFullControl        :: Maybe Text
+    , _cmuSSECustomerKeyMD5       :: Maybe Text
+    , _cmuMetadata                :: Map Text Text
+    , _cmuCacheControl            :: Maybe Text
+    , _cmuContentLanguage         :: Maybe Text
+    , _cmuACL                     :: Maybe ObjectCannedACL
+    , _cmuContentDisposition      :: Maybe Text
+    , _cmuServerSideEncryption    :: Maybe ServerSideEncryption
+    , _cmuContentType             :: Maybe Text
+    , _cmuBucket                  :: BucketName
+    , _cmuKey                     :: ObjectKey
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateMultipartUpload' smart constructor.
 createMultipartUpload :: BucketName -> ObjectKey -> CreateMultipartUpload
-createMultipartUpload pBucket pKey = CreateMultipartUpload'{_cmuExpires = Nothing, _cmuSSECustomerAlgorithm = Nothing, _cmuGrantReadACP = Nothing, _cmuSSECustomerKey = Nothing, _cmuRequestPayer = Nothing, _cmuGrantWriteACP = Nothing, _cmuWebsiteRedirectLocation = Nothing, _cmuGrantRead = Nothing, _cmuStorageClass = Nothing, _cmuContentEncoding = Nothing, _cmuSSEKMSKeyId = Nothing, _cmuGrantFullControl = Nothing, _cmuSSECustomerKeyMD5 = Nothing, _cmuMetadata = mempty, _cmuCacheControl = Nothing, _cmuContentLanguage = Nothing, _cmuACL = Nothing, _cmuContentDisposition = Nothing, _cmuServerSideEncryption = Nothing, _cmuContentType = Nothing, _cmuBucket = pBucket, _cmuKey = pKey};
+createMultipartUpload pBucket pKey =
+    CreateMultipartUpload'
+    { _cmuExpires = Nothing
+    , _cmuSSECustomerAlgorithm = Nothing
+    , _cmuGrantReadACP = Nothing
+    , _cmuSSECustomerKey = Nothing
+    , _cmuRequestPayer = Nothing
+    , _cmuGrantWriteACP = Nothing
+    , _cmuWebsiteRedirectLocation = Nothing
+    , _cmuGrantRead = Nothing
+    , _cmuStorageClass = Nothing
+    , _cmuContentEncoding = Nothing
+    , _cmuSSEKMSKeyId = Nothing
+    , _cmuGrantFullControl = Nothing
+    , _cmuSSECustomerKeyMD5 = Nothing
+    , _cmuMetadata = mempty
+    , _cmuCacheControl = Nothing
+    , _cmuContentLanguage = Nothing
+    , _cmuACL = Nothing
+    , _cmuContentDisposition = Nothing
+    , _cmuServerSideEncryption = Nothing
+    , _cmuContentType = Nothing
+    , _cmuBucket = pBucket
+    , _cmuKey = pKey
+    }
 
 -- | The date and time at which the object is no longer cacheable.
 cmuExpires :: Lens' CreateMultipartUpload (Maybe UTCTime)
@@ -313,12 +360,33 @@ instance ToQuery CreateMultipartUpload where
 --
 -- * 'cmurServerSideEncryption'
 --
--- * 'cmurStatusCode'
-data CreateMultipartUploadResponse = CreateMultipartUploadResponse'{_cmurRequestCharged :: Maybe RequestCharged, _cmurSSECustomerAlgorithm :: Maybe Text, _cmurBucket :: Maybe BucketName, _cmurKey :: Maybe ObjectKey, _cmurSSEKMSKeyId :: Maybe (Sensitive Text), _cmurSSECustomerKeyMD5 :: Maybe Text, _cmurUploadId :: Maybe Text, _cmurServerSideEncryption :: Maybe ServerSideEncryption, _cmurStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cmurStatus'
+data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
+    { _cmurRequestCharged       :: Maybe RequestCharged
+    , _cmurSSECustomerAlgorithm :: Maybe Text
+    , _cmurBucket               :: Maybe BucketName
+    , _cmurKey                  :: Maybe ObjectKey
+    , _cmurSSEKMSKeyId          :: Maybe (Sensitive Text)
+    , _cmurSSECustomerKeyMD5    :: Maybe Text
+    , _cmurUploadId             :: Maybe Text
+    , _cmurServerSideEncryption :: Maybe ServerSideEncryption
+    , _cmurStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateMultipartUploadResponse' smart constructor.
 createMultipartUploadResponse :: Int -> CreateMultipartUploadResponse
-createMultipartUploadResponse pStatusCode = CreateMultipartUploadResponse'{_cmurRequestCharged = Nothing, _cmurSSECustomerAlgorithm = Nothing, _cmurBucket = Nothing, _cmurKey = Nothing, _cmurSSEKMSKeyId = Nothing, _cmurSSECustomerKeyMD5 = Nothing, _cmurUploadId = Nothing, _cmurServerSideEncryption = Nothing, _cmurStatusCode = pStatusCode};
+createMultipartUploadResponse pStatus =
+    CreateMultipartUploadResponse'
+    { _cmurRequestCharged = Nothing
+    , _cmurSSECustomerAlgorithm = Nothing
+    , _cmurBucket = Nothing
+    , _cmurKey = Nothing
+    , _cmurSSEKMSKeyId = Nothing
+    , _cmurSSECustomerKeyMD5 = Nothing
+    , _cmurUploadId = Nothing
+    , _cmurServerSideEncryption = Nothing
+    , _cmurStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 cmurRequestCharged :: Lens' CreateMultipartUploadResponse (Maybe RequestCharged)
@@ -359,5 +427,5 @@ cmurServerSideEncryption :: Lens' CreateMultipartUploadResponse (Maybe ServerSid
 cmurServerSideEncryption = lens _cmurServerSideEncryption (\ s a -> s{_cmurServerSideEncryption = a});
 
 -- | FIXME: Undocumented member.
-cmurStatusCode :: Lens' CreateMultipartUploadResponse Int
-cmurStatusCode = lens _cmurStatusCode (\ s a -> s{_cmurStatusCode = a});
+cmurStatus :: Lens' CreateMultipartUploadResponse Int
+cmurStatus = lens _cmurStatus (\ s a -> s{_cmurStatus = a});

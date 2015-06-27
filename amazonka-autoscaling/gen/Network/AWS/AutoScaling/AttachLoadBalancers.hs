@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.AttachLoadBalancers
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.AutoScaling.AttachLoadBalancers
     -- ** Response constructor
     , attachLoadBalancersResponse
     -- ** Response lenses
-    , albrStatusCode
+    , albrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachLoadBalancers' smart constructor.
 --
@@ -55,11 +55,18 @@ import Network.AWS.Response
 -- * 'albAutoScalingGroupName'
 --
 -- * 'albLoadBalancerNames'
-data AttachLoadBalancers = AttachLoadBalancers'{_albAutoScalingGroupName :: Maybe Text, _albLoadBalancerNames :: Maybe [Text]} deriving (Eq, Read, Show)
+data AttachLoadBalancers = AttachLoadBalancers'
+    { _albAutoScalingGroupName :: Maybe Text
+    , _albLoadBalancerNames    :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachLoadBalancers' smart constructor.
 attachLoadBalancers :: AttachLoadBalancers
-attachLoadBalancers = AttachLoadBalancers'{_albAutoScalingGroupName = Nothing, _albLoadBalancerNames = Nothing};
+attachLoadBalancers =
+    AttachLoadBalancers'
+    { _albAutoScalingGroupName = Nothing
+    , _albLoadBalancerNames = Nothing
+    }
 
 -- | The name of the group.
 albAutoScalingGroupName :: Lens' AttachLoadBalancers (Maybe Text)
@@ -99,13 +106,18 @@ instance ToQuery AttachLoadBalancers where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'albrStatusCode'
-newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'{_albrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'albrStatus'
+newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
+    { _albrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachLoadBalancersResponse' smart constructor.
 attachLoadBalancersResponse :: Int -> AttachLoadBalancersResponse
-attachLoadBalancersResponse pStatusCode = AttachLoadBalancersResponse'{_albrStatusCode = pStatusCode};
+attachLoadBalancersResponse pStatus =
+    AttachLoadBalancersResponse'
+    { _albrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-albrStatusCode :: Lens' AttachLoadBalancersResponse Int
-albrStatusCode = lens _albrStatusCode (\ s a -> s{_albrStatusCode = a});
+albrStatus :: Lens' AttachLoadBalancersResponse Int
+albrStatus = lens _albrStatus (\ s a -> s{_albrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateReservedInstancesListing
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -56,13 +56,13 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     , createReservedInstancesListingResponse
     -- ** Response lenses
     , cReservedInstancesListings
-    , cStatusCode
+    , cStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createReservedInstancesListing' smart constructor.
 --
@@ -75,11 +75,22 @@ import Network.AWS.Response
 -- * 'crilPriceSchedules'
 --
 -- * 'crilClientToken'
-data CreateReservedInstancesListing = CreateReservedInstancesListing'{_crilReservedInstancesId :: Text, _crilInstanceCount :: Int, _crilPriceSchedules :: [PriceScheduleSpecification], _crilClientToken :: Text} deriving (Eq, Read, Show)
+data CreateReservedInstancesListing = CreateReservedInstancesListing'
+    { _crilReservedInstancesId :: Text
+    , _crilInstanceCount       :: !Int
+    , _crilPriceSchedules      :: [PriceScheduleSpecification]
+    , _crilClientToken         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateReservedInstancesListing' smart constructor.
 createReservedInstancesListing :: Text -> Int -> Text -> CreateReservedInstancesListing
-createReservedInstancesListing pReservedInstancesId pInstanceCount pClientToken = CreateReservedInstancesListing'{_crilReservedInstancesId = pReservedInstancesId, _crilInstanceCount = pInstanceCount, _crilPriceSchedules = mempty, _crilClientToken = pClientToken};
+createReservedInstancesListing pReservedInstancesId pInstanceCount pClientToken =
+    CreateReservedInstancesListing'
+    { _crilReservedInstancesId = pReservedInstancesId
+    , _crilInstanceCount = pInstanceCount
+    , _crilPriceSchedules = mempty
+    , _crilClientToken = pClientToken
+    }
 
 -- | The ID of the active Reserved Instance.
 crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
@@ -141,17 +152,24 @@ instance ToQuery CreateReservedInstancesListing where
 --
 -- * 'cReservedInstancesListings'
 --
--- * 'cStatusCode'
-data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'{_cReservedInstancesListings :: Maybe [ReservedInstancesListing], _cStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cStatus'
+data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
+    { _cReservedInstancesListings :: Maybe [ReservedInstancesListing]
+    , _cStatus                    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateReservedInstancesListingResponse' smart constructor.
 createReservedInstancesListingResponse :: Int -> CreateReservedInstancesListingResponse
-createReservedInstancesListingResponse pStatusCode = CreateReservedInstancesListingResponse'{_cReservedInstancesListings = Nothing, _cStatusCode = pStatusCode};
+createReservedInstancesListingResponse pStatus =
+    CreateReservedInstancesListingResponse'
+    { _cReservedInstancesListings = Nothing
+    , _cStatus = pStatus
+    }
 
 -- | Information about the Reserved Instances listing.
 cReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
 cReservedInstancesListings = lens _cReservedInstancesListings (\ s a -> s{_cReservedInstancesListings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-cStatusCode :: Lens' CreateReservedInstancesListingResponse Int
-cStatusCode = lens _cStatusCode (\ s a -> s{_cStatusCode = a});
+cStatus :: Lens' CreateReservedInstancesListingResponse Int
+cStatus = lens _cStatus (\ s a -> s{_cStatus = a});

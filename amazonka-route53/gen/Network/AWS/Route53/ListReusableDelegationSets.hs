@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.ListReusableDelegationSets
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,13 +47,13 @@ module Network.AWS.Route53.ListReusableDelegationSets
     , lrdsrMarker
     , lrdsrIsTruncated
     , lrdsrMaxItems
-    , lrdsrStatusCode
+    , lrdsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | To retrieve a list of your reusable delegation sets, send a @GET@
 -- request to the @2013-04-01\/delegationset@ resource. The response to
@@ -74,11 +74,18 @@ import Network.AWS.Route53.Types
 -- * 'lrdsMaxItems'
 --
 -- * 'lrdsMarker'
-data ListReusableDelegationSets = ListReusableDelegationSets'{_lrdsMaxItems :: Maybe Text, _lrdsMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListReusableDelegationSets = ListReusableDelegationSets'
+    { _lrdsMaxItems :: Maybe Text
+    , _lrdsMarker   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListReusableDelegationSets' smart constructor.
 listReusableDelegationSets :: ListReusableDelegationSets
-listReusableDelegationSets = ListReusableDelegationSets'{_lrdsMaxItems = Nothing, _lrdsMarker = Nothing};
+listReusableDelegationSets =
+    ListReusableDelegationSets'
+    { _lrdsMaxItems = Nothing
+    , _lrdsMarker = Nothing
+    }
 
 -- | Specify the maximum number of reusable delegation sets to return per
 -- page of results.
@@ -136,12 +143,27 @@ instance ToQuery ListReusableDelegationSets where
 --
 -- * 'lrdsrMaxItems'
 --
--- * 'lrdsrStatusCode'
-data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'{_lrdsrNextMarker :: Maybe Text, _lrdsrDelegationSets :: [DelegationSet], _lrdsrMarker :: Text, _lrdsrIsTruncated :: Bool, _lrdsrMaxItems :: Text, _lrdsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lrdsrStatus'
+data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
+    { _lrdsrNextMarker     :: Maybe Text
+    , _lrdsrDelegationSets :: [DelegationSet]
+    , _lrdsrMarker         :: Text
+    , _lrdsrIsTruncated    :: !Bool
+    , _lrdsrMaxItems       :: Text
+    , _lrdsrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListReusableDelegationSetsResponse' smart constructor.
 listReusableDelegationSetsResponse :: Text -> Bool -> Text -> Int -> ListReusableDelegationSetsResponse
-listReusableDelegationSetsResponse pMarker pIsTruncated pMaxItems pStatusCode = ListReusableDelegationSetsResponse'{_lrdsrNextMarker = Nothing, _lrdsrDelegationSets = mempty, _lrdsrMarker = pMarker, _lrdsrIsTruncated = pIsTruncated, _lrdsrMaxItems = pMaxItems, _lrdsrStatusCode = pStatusCode};
+listReusableDelegationSetsResponse pMarker pIsTruncated pMaxItems pStatus =
+    ListReusableDelegationSetsResponse'
+    { _lrdsrNextMarker = Nothing
+    , _lrdsrDelegationSets = mempty
+    , _lrdsrMarker = pMarker
+    , _lrdsrIsTruncated = pIsTruncated
+    , _lrdsrMaxItems = pMaxItems
+    , _lrdsrStatus = pStatus
+    }
 
 -- | Indicates where to continue listing reusable delegation sets. If
 -- ListReusableDelegationSetsResponse$IsTruncated is @true@, make another
@@ -182,5 +204,5 @@ lrdsrMaxItems :: Lens' ListReusableDelegationSetsResponse Text
 lrdsrMaxItems = lens _lrdsrMaxItems (\ s a -> s{_lrdsrMaxItems = a});
 
 -- | FIXME: Undocumented member.
-lrdsrStatusCode :: Lens' ListReusableDelegationSetsResponse Int
-lrdsrStatusCode = lens _lrdsrStatusCode (\ s a -> s{_lrdsrStatusCode = a});
+lrdsrStatus :: Lens' ListReusableDelegationSetsResponse Int
+lrdsrStatus = lens _lrdsrStatus (\ s a -> s{_lrdsrStatus = a});

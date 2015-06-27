@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.DescribeIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.CognitoIdentity.DescribeIdentity
     , idIdentityId
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the @DescribeIdentity@ action.
 --
@@ -52,11 +52,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'diIdentityId'
-newtype DescribeIdentity = DescribeIdentity'{_diIdentityId :: Text} deriving (Eq, Read, Show)
+newtype DescribeIdentity = DescribeIdentity'
+    { _diIdentityId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeIdentity' smart constructor.
 describeIdentity :: Text -> DescribeIdentity
-describeIdentity pIdentityId = DescribeIdentity'{_diIdentityId = pIdentityId};
+describeIdentity pIdentityId =
+    DescribeIdentity'
+    { _diIdentityId = pIdentityId
+    }
 
 -- | A unique identifier in the format REGION:GUID.
 diIdentityId :: Lens' DescribeIdentity Text

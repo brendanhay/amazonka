@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeleteOpenIDConnectProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,21 +39,26 @@ module Network.AWS.IAM.DeleteOpenIDConnectProvider
     , deleteOpenIDConnectProviderResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteOpenIDConnectProvider' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'doidcpOpenIDConnectProviderARN'
-newtype DeleteOpenIDConnectProvider = DeleteOpenIDConnectProvider'{_doidcpOpenIDConnectProviderARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteOpenIDConnectProvider = DeleteOpenIDConnectProvider'
+    { _doidcpOpenIDConnectProviderARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteOpenIDConnectProvider' smart constructor.
 deleteOpenIDConnectProvider :: Text -> DeleteOpenIDConnectProvider
-deleteOpenIDConnectProvider pOpenIDConnectProviderARN = DeleteOpenIDConnectProvider'{_doidcpOpenIDConnectProviderARN = pOpenIDConnectProviderARN};
+deleteOpenIDConnectProvider pOpenIDConnectProviderARN =
+    DeleteOpenIDConnectProvider'
+    { _doidcpOpenIDConnectProviderARN = pOpenIDConnectProviderARN
+    }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider to
 -- delete. You can get a list of OpenID Connect provider ARNs by using the
@@ -85,8 +90,10 @@ instance ToQuery DeleteOpenIDConnectProvider where
                  _doidcpOpenIDConnectProviderARN]
 
 -- | /See:/ 'deleteOpenIDConnectProviderResponse' smart constructor.
-data DeleteOpenIDConnectProviderResponse = DeleteOpenIDConnectProviderResponse' deriving (Eq, Read, Show)
+data DeleteOpenIDConnectProviderResponse =
+    DeleteOpenIDConnectProviderResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteOpenIDConnectProviderResponse' smart constructor.
 deleteOpenIDConnectProviderResponse :: DeleteOpenIDConnectProviderResponse
-deleteOpenIDConnectProviderResponse = DeleteOpenIDConnectProviderResponse';
+deleteOpenIDConnectProviderResponse = DeleteOpenIDConnectProviderResponse'

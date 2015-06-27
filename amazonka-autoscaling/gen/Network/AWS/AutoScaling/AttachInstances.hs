@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.AttachInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,10 +37,10 @@ module Network.AWS.AutoScaling.AttachInstances
     , attachInstancesResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachInstances' smart constructor.
 --
@@ -49,11 +49,18 @@ import Network.AWS.Response
 -- * 'aiInstanceIds'
 --
 -- * 'aiAutoScalingGroupName'
-data AttachInstances = AttachInstances'{_aiInstanceIds :: Maybe [Text], _aiAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data AttachInstances = AttachInstances'
+    { _aiInstanceIds          :: Maybe [Text]
+    , _aiAutoScalingGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachInstances' smart constructor.
 attachInstances :: Text -> AttachInstances
-attachInstances pAutoScalingGroupName = AttachInstances'{_aiInstanceIds = Nothing, _aiAutoScalingGroupName = pAutoScalingGroupName};
+attachInstances pAutoScalingGroupName =
+    AttachInstances'
+    { _aiInstanceIds = Nothing
+    , _aiAutoScalingGroupName = pAutoScalingGroupName
+    }
 
 -- | One or more EC2 instance IDs.
 aiInstanceIds :: Lens' AttachInstances [Text]
@@ -85,8 +92,10 @@ instance ToQuery AttachInstances where
                "AutoScalingGroupName" =: _aiAutoScalingGroupName]
 
 -- | /See:/ 'attachInstancesResponse' smart constructor.
-data AttachInstancesResponse = AttachInstancesResponse' deriving (Eq, Read, Show)
+data AttachInstancesResponse =
+    AttachInstancesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AttachInstancesResponse' smart constructor.
 attachInstancesResponse :: AttachInstancesResponse
-attachInstancesResponse = AttachInstancesResponse';
+attachInstancesResponse = AttachInstancesResponse'

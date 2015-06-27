@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeLaunchConfigurations
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,14 +36,14 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     -- ** Response lenses
     , dlcrNextToken
     , dlcrLaunchConfigurations
-    , dlcrStatusCode
+    , dlcrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLaunchConfigurations' smart constructor.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'dlcNextToken'
 --
 -- * 'dlcMaxRecords'
-data DescribeLaunchConfigurations = DescribeLaunchConfigurations'{_dlcLaunchConfigurationNames :: Maybe [Text], _dlcNextToken :: Maybe Text, _dlcMaxRecords :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
+    { _dlcLaunchConfigurationNames :: Maybe [Text]
+    , _dlcNextToken                :: Maybe Text
+    , _dlcMaxRecords               :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLaunchConfigurations' smart constructor.
 describeLaunchConfigurations :: DescribeLaunchConfigurations
-describeLaunchConfigurations = DescribeLaunchConfigurations'{_dlcLaunchConfigurationNames = Nothing, _dlcNextToken = Nothing, _dlcMaxRecords = Nothing};
+describeLaunchConfigurations =
+    DescribeLaunchConfigurations'
+    { _dlcLaunchConfigurationNames = Nothing
+    , _dlcNextToken = Nothing
+    , _dlcMaxRecords = Nothing
+    }
 
 -- | The launch configuration names.
 dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
@@ -124,12 +133,21 @@ instance ToQuery DescribeLaunchConfigurations where
 --
 -- * 'dlcrLaunchConfigurations'
 --
--- * 'dlcrStatusCode'
-data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'{_dlcrNextToken :: Maybe Text, _dlcrLaunchConfigurations :: [LaunchConfiguration], _dlcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dlcrStatus'
+data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'
+    { _dlcrNextToken            :: Maybe Text
+    , _dlcrLaunchConfigurations :: [LaunchConfiguration]
+    , _dlcrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLaunchConfigurationsResponse' smart constructor.
 describeLaunchConfigurationsResponse :: Int -> DescribeLaunchConfigurationsResponse
-describeLaunchConfigurationsResponse pStatusCode = DescribeLaunchConfigurationsResponse'{_dlcrNextToken = Nothing, _dlcrLaunchConfigurations = mempty, _dlcrStatusCode = pStatusCode};
+describeLaunchConfigurationsResponse pStatus =
+    DescribeLaunchConfigurationsResponse'
+    { _dlcrNextToken = Nothing
+    , _dlcrLaunchConfigurations = mempty
+    , _dlcrStatus = pStatus
+    }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -141,5 +159,5 @@ dlcrLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchCo
 dlcrLaunchConfigurations = lens _dlcrLaunchConfigurations (\ s a -> s{_dlcrLaunchConfigurations = a});
 
 -- | FIXME: Undocumented member.
-dlcrStatusCode :: Lens' DescribeLaunchConfigurationsResponse Int
-dlcrStatusCode = lens _dlcrStatusCode (\ s a -> s{_dlcrStatusCode = a});
+dlcrStatus :: Lens' DescribeLaunchConfigurationsResponse Int
+dlcrStatus = lens _dlcrStatus (\ s a -> s{_dlcrStatus = a});

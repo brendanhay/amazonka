@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.RemoveTagsFromResource
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.RDS.RemoveTagsFromResource
     , removeTagsFromResourceResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'rtfrResourceName'
 --
 -- * 'rtfrTagKeys'
-data RemoveTagsFromResource = RemoveTagsFromResource'{_rtfrResourceName :: Text, _rtfrTagKeys :: [Text]} deriving (Eq, Read, Show)
+data RemoveTagsFromResource = RemoveTagsFromResource'
+    { _rtfrResourceName :: Text
+    , _rtfrTagKeys      :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveTagsFromResource' smart constructor.
 removeTagsFromResource :: Text -> RemoveTagsFromResource
-removeTagsFromResource pResourceName = RemoveTagsFromResource'{_rtfrResourceName = pResourceName, _rtfrTagKeys = mempty};
+removeTagsFromResource pResourceName =
+    RemoveTagsFromResource'
+    { _rtfrResourceName = pResourceName
+    , _rtfrTagKeys = mempty
+    }
 
 -- | The Amazon RDS resource the tags will be removed from. This value is an
 -- Amazon Resource Name (ARN). For information about creating an ARN, see
@@ -90,8 +97,10 @@ instance ToQuery RemoveTagsFromResource where
                "TagKeys" =: toQueryList "member" _rtfrTagKeys]
 
 -- | /See:/ 'removeTagsFromResourceResponse' smart constructor.
-data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse' deriving (Eq, Read, Show)
+data RemoveTagsFromResourceResponse =
+    RemoveTagsFromResourceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RemoveTagsFromResourceResponse' smart constructor.
 removeTagsFromResourceResponse :: RemoveTagsFromResourceResponse
-removeTagsFromResourceResponse = RemoveTagsFromResourceResponse';
+removeTagsFromResourceResponse = RemoveTagsFromResourceResponse'

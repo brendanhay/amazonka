@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.AttachRolePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,10 +45,10 @@ module Network.AWS.IAM.AttachRolePolicy
     , attachRolePolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachRolePolicy' smart constructor.
 --
@@ -57,11 +57,18 @@ import Network.AWS.Response
 -- * 'arpRoleName'
 --
 -- * 'arpPolicyARN'
-data AttachRolePolicy = AttachRolePolicy'{_arpRoleName :: Text, _arpPolicyARN :: Text} deriving (Eq, Read, Show)
+data AttachRolePolicy = AttachRolePolicy'
+    { _arpRoleName  :: Text
+    , _arpPolicyARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachRolePolicy' smart constructor.
 attachRolePolicy :: Text -> Text -> AttachRolePolicy
-attachRolePolicy pRoleName pPolicyARN = AttachRolePolicy'{_arpRoleName = pRoleName, _arpPolicyARN = pPolicyARN};
+attachRolePolicy pRoleName pPolicyARN =
+    AttachRolePolicy'
+    { _arpRoleName = pRoleName
+    , _arpPolicyARN = pPolicyARN
+    }
 
 -- | The name (friendly name, not ARN) of the role to attach the policy to.
 arpRoleName :: Lens' AttachRolePolicy Text
@@ -92,8 +99,10 @@ instance ToQuery AttachRolePolicy where
                "PolicyArn" =: _arpPolicyARN]
 
 -- | /See:/ 'attachRolePolicyResponse' smart constructor.
-data AttachRolePolicyResponse = AttachRolePolicyResponse' deriving (Eq, Read, Show)
+data AttachRolePolicyResponse =
+    AttachRolePolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AttachRolePolicyResponse' smart constructor.
 attachRolePolicyResponse :: AttachRolePolicyResponse
-attachRolePolicyResponse = AttachRolePolicyResponse';
+attachRolePolicyResponse = AttachRolePolicyResponse'

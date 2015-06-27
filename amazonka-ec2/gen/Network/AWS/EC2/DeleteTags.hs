@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DeleteTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.EC2.DeleteTags
     , deleteTagsResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteTags' smart constructor.
 --
@@ -53,11 +53,20 @@ import Network.AWS.Response
 -- * 'delTags'
 --
 -- * 'delResources'
-data DeleteTags = DeleteTags'{_delDryRun :: Maybe Bool, _delTags :: Maybe [Tag], _delResources :: [Text]} deriving (Eq, Read, Show)
+data DeleteTags = DeleteTags'
+    { _delDryRun    :: Maybe Bool
+    , _delTags      :: Maybe [Tag]
+    , _delResources :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: DeleteTags
-deleteTags = DeleteTags'{_delDryRun = Nothing, _delTags = Nothing, _delResources = mempty};
+deleteTags =
+    DeleteTags'
+    { _delDryRun = Nothing
+    , _delTags = Nothing
+    , _delResources = mempty
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -100,8 +109,10 @@ instance ToQuery DeleteTags where
                toQueryList "ResourceId" _delResources]
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
-data DeleteTagsResponse = DeleteTagsResponse' deriving (Eq, Read, Show)
+data DeleteTagsResponse =
+    DeleteTagsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteTagsResponse' smart constructor.
 deleteTagsResponse :: DeleteTagsResponse
-deleteTagsResponse = DeleteTagsResponse';
+deleteTagsResponse = DeleteTagsResponse'

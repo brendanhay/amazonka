@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,10 +55,10 @@ module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     , csdDescription
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The result message containing the options for the specified solution
 -- stack.
@@ -76,11 +76,24 @@ import Network.AWS.Response
 -- * 'uctApplicationName'
 --
 -- * 'uctTemplateName'
-data UpdateConfigurationTemplate = UpdateConfigurationTemplate'{_uctOptionsToRemove :: Maybe [OptionSpecification], _uctOptionSettings :: Maybe [ConfigurationOptionSetting], _uctDescription :: Maybe Text, _uctApplicationName :: Text, _uctTemplateName :: Text} deriving (Eq, Read, Show)
+data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
+    { _uctOptionsToRemove :: Maybe [OptionSpecification]
+    , _uctOptionSettings  :: Maybe [ConfigurationOptionSetting]
+    , _uctDescription     :: Maybe Text
+    , _uctApplicationName :: Text
+    , _uctTemplateName    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateConfigurationTemplate' smart constructor.
 updateConfigurationTemplate :: Text -> Text -> UpdateConfigurationTemplate
-updateConfigurationTemplate pApplicationName pTemplateName = UpdateConfigurationTemplate'{_uctOptionsToRemove = Nothing, _uctOptionSettings = Nothing, _uctDescription = Nothing, _uctApplicationName = pApplicationName, _uctTemplateName = pTemplateName};
+updateConfigurationTemplate pApplicationName pTemplateName =
+    UpdateConfigurationTemplate'
+    { _uctOptionsToRemove = Nothing
+    , _uctOptionSettings = Nothing
+    , _uctDescription = Nothing
+    , _uctApplicationName = pApplicationName
+    , _uctTemplateName = pTemplateName
+    }
 
 -- | A list of configuration options to remove from the configuration set.
 --

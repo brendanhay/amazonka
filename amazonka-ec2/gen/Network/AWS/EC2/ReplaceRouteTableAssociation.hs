@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ReplaceRouteTableAssociation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,13 +44,13 @@ module Network.AWS.EC2.ReplaceRouteTableAssociation
     , replaceRouteTableAssociationResponse
     -- ** Response lenses
     , rrtarNewAssociationId
-    , rrtarStatusCode
+    , rrtarStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'replaceRouteTableAssociation' smart constructor.
 --
@@ -61,11 +61,20 @@ import Network.AWS.Response
 -- * 'rrtaAssociationId'
 --
 -- * 'rrtaRouteTableId'
-data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'{_rrtaDryRun :: Maybe Bool, _rrtaAssociationId :: Text, _rrtaRouteTableId :: Text} deriving (Eq, Read, Show)
+data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'
+    { _rrtaDryRun        :: Maybe Bool
+    , _rrtaAssociationId :: Text
+    , _rrtaRouteTableId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReplaceRouteTableAssociation' smart constructor.
 replaceRouteTableAssociation :: Text -> Text -> ReplaceRouteTableAssociation
-replaceRouteTableAssociation pAssociationId pRouteTableId = ReplaceRouteTableAssociation'{_rrtaDryRun = Nothing, _rrtaAssociationId = pAssociationId, _rrtaRouteTableId = pRouteTableId};
+replaceRouteTableAssociation pAssociationId pRouteTableId =
+    ReplaceRouteTableAssociation'
+    { _rrtaDryRun = Nothing
+    , _rrtaAssociationId = pAssociationId
+    , _rrtaRouteTableId = pRouteTableId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -116,17 +125,24 @@ instance ToQuery ReplaceRouteTableAssociation where
 --
 -- * 'rrtarNewAssociationId'
 --
--- * 'rrtarStatusCode'
-data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'{_rrtarNewAssociationId :: Maybe Text, _rrtarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rrtarStatus'
+data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'
+    { _rrtarNewAssociationId :: Maybe Text
+    , _rrtarStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ReplaceRouteTableAssociationResponse' smart constructor.
 replaceRouteTableAssociationResponse :: Int -> ReplaceRouteTableAssociationResponse
-replaceRouteTableAssociationResponse pStatusCode = ReplaceRouteTableAssociationResponse'{_rrtarNewAssociationId = Nothing, _rrtarStatusCode = pStatusCode};
+replaceRouteTableAssociationResponse pStatus =
+    ReplaceRouteTableAssociationResponse'
+    { _rrtarNewAssociationId = Nothing
+    , _rrtarStatus = pStatus
+    }
 
 -- | The ID of the new association.
 rrtarNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
 rrtarNewAssociationId = lens _rrtarNewAssociationId (\ s a -> s{_rrtarNewAssociationId = a});
 
 -- | FIXME: Undocumented member.
-rrtarStatusCode :: Lens' ReplaceRouteTableAssociationResponse Int
-rrtarStatusCode = lens _rrtarStatusCode (\ s a -> s{_rrtarStatusCode = a});
+rrtarStatus :: Lens' ReplaceRouteTableAssociationResponse Int
+rrtarStatus = lens _rrtarStatus (\ s a -> s{_rrtarStatus = a});

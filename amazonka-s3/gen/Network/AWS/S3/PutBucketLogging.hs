@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.PutBucketLogging
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.S3.PutBucketLogging
     , putBucketLoggingResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'putBucketLogging' smart constructor.
 --
@@ -50,11 +50,20 @@ import Network.AWS.S3.Types
 -- * 'pblBucket'
 --
 -- * 'pblBucketLoggingStatus'
-data PutBucketLogging = PutBucketLogging'{_pblContentMD5 :: Maybe Text, _pblBucket :: BucketName, _pblBucketLoggingStatus :: BucketLoggingStatus} deriving (Eq, Read, Show)
+data PutBucketLogging = PutBucketLogging'
+    { _pblContentMD5          :: Maybe Text
+    , _pblBucket              :: BucketName
+    , _pblBucketLoggingStatus :: BucketLoggingStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'PutBucketLogging' smart constructor.
 putBucketLogging :: BucketName -> BucketLoggingStatus -> PutBucketLogging
-putBucketLogging pBucket pBucketLoggingStatus = PutBucketLogging'{_pblContentMD5 = Nothing, _pblBucket = pBucket, _pblBucketLoggingStatus = pBucketLoggingStatus};
+putBucketLogging pBucket pBucketLoggingStatus =
+    PutBucketLogging'
+    { _pblContentMD5 = Nothing
+    , _pblBucket = pBucket
+    , _pblBucketLoggingStatus = pBucketLoggingStatus
+    }
 
 -- | FIXME: Undocumented member.
 pblContentMD5 :: Lens' PutBucketLogging (Maybe Text)
@@ -93,8 +102,10 @@ instance ToQuery PutBucketLogging where
         toQuery = const (mconcat ["logging"])
 
 -- | /See:/ 'putBucketLoggingResponse' smart constructor.
-data PutBucketLoggingResponse = PutBucketLoggingResponse' deriving (Eq, Read, Show)
+data PutBucketLoggingResponse =
+    PutBucketLoggingResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutBucketLoggingResponse' smart constructor.
 putBucketLoggingResponse :: PutBucketLoggingResponse
-putBucketLoggingResponse = PutBucketLoggingResponse';
+putBucketLoggingResponse = PutBucketLoggingResponse'

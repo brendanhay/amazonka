@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeleteInstanceProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,21 +41,26 @@ module Network.AWS.IAM.DeleteInstanceProfile
     , deleteInstanceProfileResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteInstanceProfile' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dipInstanceProfileName'
-newtype DeleteInstanceProfile = DeleteInstanceProfile'{_dipInstanceProfileName :: Text} deriving (Eq, Read, Show)
+newtype DeleteInstanceProfile = DeleteInstanceProfile'
+    { _dipInstanceProfileName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteInstanceProfile' smart constructor.
 deleteInstanceProfile :: Text -> DeleteInstanceProfile
-deleteInstanceProfile pInstanceProfileName = DeleteInstanceProfile'{_dipInstanceProfileName = pInstanceProfileName};
+deleteInstanceProfile pInstanceProfileName =
+    DeleteInstanceProfile'
+    { _dipInstanceProfileName = pInstanceProfileName
+    }
 
 -- | The name of the instance profile to delete.
 dipInstanceProfileName :: Lens' DeleteInstanceProfile Text
@@ -82,8 +87,10 @@ instance ToQuery DeleteInstanceProfile where
                "InstanceProfileName" =: _dipInstanceProfileName]
 
 -- | /See:/ 'deleteInstanceProfileResponse' smart constructor.
-data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse' deriving (Eq, Read, Show)
+data DeleteInstanceProfileResponse =
+    DeleteInstanceProfileResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteInstanceProfileResponse' smart constructor.
 deleteInstanceProfileResponse :: DeleteInstanceProfileResponse
-deleteInstanceProfileResponse = DeleteInstanceProfileResponse';
+deleteInstanceProfileResponse = DeleteInstanceProfileResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SSM.CreateDocument
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.SSM.CreateDocument
     , createDocumentResponse
     -- ** Response lenses
     , cdrDocumentDescription
-    , cdrStatusCode
+    , cdrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
 
 -- | /See:/ 'createDocument' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.SSM.Types
 -- * 'cdContent'
 --
 -- * 'cdName'
-data CreateDocument = CreateDocument'{_cdContent :: Text, _cdName :: Text} deriving (Eq, Read, Show)
+data CreateDocument = CreateDocument'
+    { _cdContent :: Text
+    , _cdName    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDocument' smart constructor.
 createDocument :: Text -> Text -> CreateDocument
-createDocument pContent pName = CreateDocument'{_cdContent = pContent, _cdName = pName};
+createDocument pContent pName =
+    CreateDocument'
+    { _cdContent = pContent
+    , _cdName = pName
+    }
 
 -- | A valid JSON file. For more information about the contents of this file,
 -- see
@@ -103,17 +110,24 @@ instance ToQuery CreateDocument where
 --
 -- * 'cdrDocumentDescription'
 --
--- * 'cdrStatusCode'
-data CreateDocumentResponse = CreateDocumentResponse'{_cdrDocumentDescription :: Maybe DocumentDescription, _cdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdrStatus'
+data CreateDocumentResponse = CreateDocumentResponse'
+    { _cdrDocumentDescription :: Maybe DocumentDescription
+    , _cdrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDocumentResponse' smart constructor.
 createDocumentResponse :: Int -> CreateDocumentResponse
-createDocumentResponse pStatusCode = CreateDocumentResponse'{_cdrDocumentDescription = Nothing, _cdrStatusCode = pStatusCode};
+createDocumentResponse pStatus =
+    CreateDocumentResponse'
+    { _cdrDocumentDescription = Nothing
+    , _cdrStatus = pStatus
+    }
 
 -- | Information about the configuration document.
 cdrDocumentDescription :: Lens' CreateDocumentResponse (Maybe DocumentDescription)
 cdrDocumentDescription = lens _cdrDocumentDescription (\ s a -> s{_cdrDocumentDescription = a});
 
 -- | FIXME: Undocumented member.
-cdrStatusCode :: Lens' CreateDocumentResponse Int
-cdrStatusCode = lens _cdrStatusCode (\ s a -> s{_cdrStatusCode = a});
+cdrStatus :: Lens' CreateDocumentResponse Int
+cdrStatus = lens _cdrStatus (\ s a -> s{_cdrStatus = a});

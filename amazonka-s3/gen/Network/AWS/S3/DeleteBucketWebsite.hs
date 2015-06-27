@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketWebsite
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,21 +32,26 @@ module Network.AWS.S3.DeleteBucketWebsite
     , deleteBucketWebsiteResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'deleteBucketWebsite' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dbwBucket'
-newtype DeleteBucketWebsite = DeleteBucketWebsite'{_dbwBucket :: BucketName} deriving (Eq, Read, Show)
+newtype DeleteBucketWebsite = DeleteBucketWebsite'
+    { _dbwBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteBucketWebsite' smart constructor.
 deleteBucketWebsite :: BucketName -> DeleteBucketWebsite
-deleteBucketWebsite pBucket = DeleteBucketWebsite'{_dbwBucket = pBucket};
+deleteBucketWebsite pBucket =
+    DeleteBucketWebsite'
+    { _dbwBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 dbwBucket :: Lens' DeleteBucketWebsite BucketName
@@ -70,8 +75,10 @@ instance ToQuery DeleteBucketWebsite where
         toQuery = const (mconcat ["website"])
 
 -- | /See:/ 'deleteBucketWebsiteResponse' smart constructor.
-data DeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse' deriving (Eq, Read, Show)
+data DeleteBucketWebsiteResponse =
+    DeleteBucketWebsiteResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteBucketWebsiteResponse' smart constructor.
 deleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse
-deleteBucketWebsiteResponse = DeleteBucketWebsiteResponse';
+deleteBucketWebsiteResponse = DeleteBucketWebsiteResponse'

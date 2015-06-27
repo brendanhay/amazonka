@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ResetSnapshotAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,10 +38,10 @@ module Network.AWS.EC2.ResetSnapshotAttribute
     , resetSnapshotAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'resetSnapshotAttribute' smart constructor.
 --
@@ -52,11 +52,20 @@ import Network.AWS.Response
 -- * 'rsaSnapshotId'
 --
 -- * 'rsaAttribute'
-data ResetSnapshotAttribute = ResetSnapshotAttribute'{_rsaDryRun :: Maybe Bool, _rsaSnapshotId :: Text, _rsaAttribute :: SnapshotAttributeName} deriving (Eq, Read, Show)
+data ResetSnapshotAttribute = ResetSnapshotAttribute'
+    { _rsaDryRun     :: Maybe Bool
+    , _rsaSnapshotId :: Text
+    , _rsaAttribute  :: SnapshotAttributeName
+    } deriving (Eq,Read,Show)
 
 -- | 'ResetSnapshotAttribute' smart constructor.
 resetSnapshotAttribute :: Text -> SnapshotAttributeName -> ResetSnapshotAttribute
-resetSnapshotAttribute pSnapshotId pAttribute = ResetSnapshotAttribute'{_rsaDryRun = Nothing, _rsaSnapshotId = pSnapshotId, _rsaAttribute = pAttribute};
+resetSnapshotAttribute pSnapshotId pAttribute =
+    ResetSnapshotAttribute'
+    { _rsaDryRun = Nothing
+    , _rsaSnapshotId = pSnapshotId
+    , _rsaAttribute = pAttribute
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -99,8 +108,10 @@ instance ToQuery ResetSnapshotAttribute where
                "Attribute" =: _rsaAttribute]
 
 -- | /See:/ 'resetSnapshotAttributeResponse' smart constructor.
-data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse' deriving (Eq, Read, Show)
+data ResetSnapshotAttributeResponse =
+    ResetSnapshotAttributeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ResetSnapshotAttributeResponse' smart constructor.
 resetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse
-resetSnapshotAttributeResponse = ResetSnapshotAttributeResponse';
+resetSnapshotAttributeResponse = ResetSnapshotAttributeResponse'

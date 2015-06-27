@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CancelImportTask
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.EC2.CancelImportTask
     , citrState
     , citrImportTaskId
     , citrPreviousState
-    , citrStatusCode
+    , citrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'cancelImportTask' smart constructor.
 --
@@ -53,11 +53,20 @@ import Network.AWS.Response
 -- * 'citImportTaskId'
 --
 -- * 'citDryRun'
-data CancelImportTask = CancelImportTask'{_citCancelReason :: Maybe Text, _citImportTaskId :: Maybe Text, _citDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data CancelImportTask = CancelImportTask'
+    { _citCancelReason :: Maybe Text
+    , _citImportTaskId :: Maybe Text
+    , _citDryRun       :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelImportTask' smart constructor.
 cancelImportTask :: CancelImportTask
-cancelImportTask = CancelImportTask'{_citCancelReason = Nothing, _citImportTaskId = Nothing, _citDryRun = Nothing};
+cancelImportTask =
+    CancelImportTask'
+    { _citCancelReason = Nothing
+    , _citImportTaskId = Nothing
+    , _citDryRun = Nothing
+    }
 
 -- | The reason for canceling the task.
 citCancelReason :: Lens' CancelImportTask (Maybe Text)
@@ -111,12 +120,23 @@ instance ToQuery CancelImportTask where
 --
 -- * 'citrPreviousState'
 --
--- * 'citrStatusCode'
-data CancelImportTaskResponse = CancelImportTaskResponse'{_citrState :: Maybe Text, _citrImportTaskId :: Maybe Text, _citrPreviousState :: Maybe Text, _citrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'citrStatus'
+data CancelImportTaskResponse = CancelImportTaskResponse'
+    { _citrState         :: Maybe Text
+    , _citrImportTaskId  :: Maybe Text
+    , _citrPreviousState :: Maybe Text
+    , _citrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelImportTaskResponse' smart constructor.
 cancelImportTaskResponse :: Int -> CancelImportTaskResponse
-cancelImportTaskResponse pStatusCode = CancelImportTaskResponse'{_citrState = Nothing, _citrImportTaskId = Nothing, _citrPreviousState = Nothing, _citrStatusCode = pStatusCode};
+cancelImportTaskResponse pStatus =
+    CancelImportTaskResponse'
+    { _citrState = Nothing
+    , _citrImportTaskId = Nothing
+    , _citrPreviousState = Nothing
+    , _citrStatus = pStatus
+    }
 
 -- | The current state of the task being canceled.
 citrState :: Lens' CancelImportTaskResponse (Maybe Text)
@@ -131,5 +151,5 @@ citrPreviousState :: Lens' CancelImportTaskResponse (Maybe Text)
 citrPreviousState = lens _citrPreviousState (\ s a -> s{_citrPreviousState = a});
 
 -- | FIXME: Undocumented member.
-citrStatusCode :: Lens' CancelImportTaskResponse Int
-citrStatusCode = lens _citrStatusCode (\ s a -> s{_citrStatusCode = a});
+citrStatus :: Lens' CancelImportTaskResponse Int
+citrStatus = lens _citrStatus (\ s a -> s{_citrStatus = a});

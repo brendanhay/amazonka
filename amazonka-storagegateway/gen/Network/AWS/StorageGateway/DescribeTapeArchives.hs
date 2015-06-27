@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeTapeArchives
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,14 +40,14 @@ module Network.AWS.StorageGateway.DescribeTapeArchives
     -- ** Response lenses
     , dtarTapeArchives
     , dtarMarker
-    , dtarStatusCode
+    , dtarStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | DescribeTapeArchivesInput
 --
@@ -60,11 +60,20 @@ import Network.AWS.StorageGateway.Types
 -- * 'dtaLimit'
 --
 -- * 'dtaTapeARNs'
-data DescribeTapeArchives = DescribeTapeArchives'{_dtaMarker :: Maybe Text, _dtaLimit :: Maybe Nat, _dtaTapeARNs :: Maybe [Text]} deriving (Eq, Read, Show)
+data DescribeTapeArchives = DescribeTapeArchives'
+    { _dtaMarker   :: Maybe Text
+    , _dtaLimit    :: Maybe Nat
+    , _dtaTapeARNs :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTapeArchives' smart constructor.
 describeTapeArchives :: DescribeTapeArchives
-describeTapeArchives = DescribeTapeArchives'{_dtaMarker = Nothing, _dtaLimit = Nothing, _dtaTapeARNs = Nothing};
+describeTapeArchives =
+    DescribeTapeArchives'
+    { _dtaMarker = Nothing
+    , _dtaLimit = Nothing
+    , _dtaTapeARNs = Nothing
+    }
 
 -- | An opaque string that indicates the position at which to begin
 -- describing virtual tapes.
@@ -133,12 +142,21 @@ instance ToQuery DescribeTapeArchives where
 --
 -- * 'dtarMarker'
 --
--- * 'dtarStatusCode'
-data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'{_dtarTapeArchives :: Maybe [TapeArchive], _dtarMarker :: Maybe Text, _dtarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtarStatus'
+data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'
+    { _dtarTapeArchives :: Maybe [TapeArchive]
+    , _dtarMarker       :: Maybe Text
+    , _dtarStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTapeArchivesResponse' smart constructor.
 describeTapeArchivesResponse :: Int -> DescribeTapeArchivesResponse
-describeTapeArchivesResponse pStatusCode = DescribeTapeArchivesResponse'{_dtarTapeArchives = Nothing, _dtarMarker = Nothing, _dtarStatusCode = pStatusCode};
+describeTapeArchivesResponse pStatus =
+    DescribeTapeArchivesResponse'
+    { _dtarTapeArchives = Nothing
+    , _dtarMarker = Nothing
+    , _dtarStatus = pStatus
+    }
 
 -- | An array of virtual tape objects in the virtual tape shelf (VTS). The
 -- description includes of the Amazon Resource Name(ARN) of the virtual
@@ -157,5 +175,5 @@ dtarMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
 dtarMarker = lens _dtarMarker (\ s a -> s{_dtarMarker = a});
 
 -- | FIXME: Undocumented member.
-dtarStatusCode :: Lens' DescribeTapeArchivesResponse Int
-dtarStatusCode = lens _dtarStatusCode (\ s a -> s{_dtarStatusCode = a});
+dtarStatus :: Lens' DescribeTapeArchivesResponse Int
+dtarStatus = lens _dtarStatus (\ s a -> s{_dtarStatus = a});

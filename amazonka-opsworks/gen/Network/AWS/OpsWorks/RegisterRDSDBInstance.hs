@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.RegisterRDSDBInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,10 +41,10 @@ module Network.AWS.OpsWorks.RegisterRDSDBInstance
     , registerRDSDBInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'registerRDSDBInstance' smart constructor.
 --
@@ -57,11 +57,22 @@ import Network.AWS.Response
 -- * 'rrdiDBUser'
 --
 -- * 'rrdiDBPassword'
-data RegisterRDSDBInstance = RegisterRDSDBInstance'{_rrdiStackId :: Text, _rrdiRDSDBInstanceARN :: Text, _rrdiDBUser :: Text, _rrdiDBPassword :: Text} deriving (Eq, Read, Show)
+data RegisterRDSDBInstance = RegisterRDSDBInstance'
+    { _rrdiStackId          :: Text
+    , _rrdiRDSDBInstanceARN :: Text
+    , _rrdiDBUser           :: Text
+    , _rrdiDBPassword       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterRDSDBInstance' smart constructor.
 registerRDSDBInstance :: Text -> Text -> Text -> Text -> RegisterRDSDBInstance
-registerRDSDBInstance pStackId pRDSDBInstanceARN pDBUser pDBPassword = RegisterRDSDBInstance'{_rrdiStackId = pStackId, _rrdiRDSDBInstanceARN = pRDSDBInstanceARN, _rrdiDBUser = pDBUser, _rrdiDBPassword = pDBPassword};
+registerRDSDBInstance pStackId pRDSDBInstanceARN pDBUser pDBPassword =
+    RegisterRDSDBInstance'
+    { _rrdiStackId = pStackId
+    , _rrdiRDSDBInstanceARN = pRDSDBInstanceARN
+    , _rrdiDBUser = pDBUser
+    , _rrdiDBPassword = pDBPassword
+    }
 
 -- | The stack ID.
 rrdiStackId :: Lens' RegisterRDSDBInstance Text
@@ -111,8 +122,10 @@ instance ToQuery RegisterRDSDBInstance where
         toQuery = const mempty
 
 -- | /See:/ 'registerRDSDBInstanceResponse' smart constructor.
-data RegisterRDSDBInstanceResponse = RegisterRDSDBInstanceResponse' deriving (Eq, Read, Show)
+data RegisterRDSDBInstanceResponse =
+    RegisterRDSDBInstanceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RegisterRDSDBInstanceResponse' smart constructor.
 registerRDSDBInstanceResponse :: RegisterRDSDBInstanceResponse
-registerRDSDBInstanceResponse = RegisterRDSDBInstanceResponse';
+registerRDSDBInstanceResponse = RegisterRDSDBInstanceResponse'

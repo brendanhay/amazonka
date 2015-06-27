@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.SetTimeBasedAutoScaling
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,10 +41,10 @@ module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
     , setTimeBasedAutoScalingResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'setTimeBasedAutoScaling' smart constructor.
 --
@@ -53,11 +53,18 @@ import Network.AWS.Response
 -- * 'stbasAutoScalingSchedule'
 --
 -- * 'stbasInstanceId'
-data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling'{_stbasAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule, _stbasInstanceId :: Text} deriving (Eq, Read, Show)
+data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling'
+    { _stbasAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
+    , _stbasInstanceId          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetTimeBasedAutoScaling' smart constructor.
 setTimeBasedAutoScaling :: Text -> SetTimeBasedAutoScaling
-setTimeBasedAutoScaling pInstanceId = SetTimeBasedAutoScaling'{_stbasAutoScalingSchedule = Nothing, _stbasInstanceId = pInstanceId};
+setTimeBasedAutoScaling pInstanceId =
+    SetTimeBasedAutoScaling'
+    { _stbasAutoScalingSchedule = Nothing
+    , _stbasInstanceId = pInstanceId
+    }
 
 -- | An @AutoScalingSchedule@ with the instance schedule.
 stbasAutoScalingSchedule :: Lens' SetTimeBasedAutoScaling (Maybe WeeklyAutoScalingSchedule)
@@ -98,8 +105,10 @@ instance ToQuery SetTimeBasedAutoScaling where
         toQuery = const mempty
 
 -- | /See:/ 'setTimeBasedAutoScalingResponse' smart constructor.
-data SetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse' deriving (Eq, Read, Show)
+data SetTimeBasedAutoScalingResponse =
+    SetTimeBasedAutoScalingResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetTimeBasedAutoScalingResponse' smart constructor.
 setTimeBasedAutoScalingResponse :: SetTimeBasedAutoScalingResponse
-setTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse';
+setTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse'

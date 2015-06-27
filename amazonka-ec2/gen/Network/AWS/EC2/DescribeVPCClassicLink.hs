@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeVPCClassicLink
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.EC2.DescribeVPCClassicLink
     , describeVPCClassicLinkResponse
     -- ** Response lenses
     , dvclrVPCs
-    , dvclrStatusCode
+    , dvclrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVPCClassicLink' smart constructor.
 --
@@ -51,11 +51,20 @@ import Network.AWS.Response
 -- * 'dvclVPCIds'
 --
 -- * 'dvclDryRun'
-data DescribeVPCClassicLink = DescribeVPCClassicLink'{_dvclFilters :: Maybe [Filter], _dvclVPCIds :: Maybe [Text], _dvclDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeVPCClassicLink = DescribeVPCClassicLink'
+    { _dvclFilters :: Maybe [Filter]
+    , _dvclVPCIds  :: Maybe [Text]
+    , _dvclDryRun  :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCClassicLink' smart constructor.
 describeVPCClassicLink :: DescribeVPCClassicLink
-describeVPCClassicLink = DescribeVPCClassicLink'{_dvclFilters = Nothing, _dvclVPCIds = Nothing, _dvclDryRun = Nothing};
+describeVPCClassicLink =
+    DescribeVPCClassicLink'
+    { _dvclFilters = Nothing
+    , _dvclVPCIds = Nothing
+    , _dvclDryRun = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -124,17 +133,24 @@ instance ToQuery DescribeVPCClassicLink where
 --
 -- * 'dvclrVPCs'
 --
--- * 'dvclrStatusCode'
-data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'{_dvclrVPCs :: Maybe [VPCClassicLink], _dvclrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dvclrStatus'
+data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'
+    { _dvclrVPCs   :: Maybe [VPCClassicLink]
+    , _dvclrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCClassicLinkResponse' smart constructor.
 describeVPCClassicLinkResponse :: Int -> DescribeVPCClassicLinkResponse
-describeVPCClassicLinkResponse pStatusCode = DescribeVPCClassicLinkResponse'{_dvclrVPCs = Nothing, _dvclrStatusCode = pStatusCode};
+describeVPCClassicLinkResponse pStatus =
+    DescribeVPCClassicLinkResponse'
+    { _dvclrVPCs = Nothing
+    , _dvclrStatus = pStatus
+    }
 
 -- | The ClassicLink status of one or more VPCs.
 dvclrVPCs :: Lens' DescribeVPCClassicLinkResponse [VPCClassicLink]
 dvclrVPCs = lens _dvclrVPCs (\ s a -> s{_dvclrVPCs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvclrStatusCode :: Lens' DescribeVPCClassicLinkResponse Int
-dvclrStatusCode = lens _dvclrStatusCode (\ s a -> s{_dvclrStatusCode = a});
+dvclrStatus :: Lens' DescribeVPCClassicLinkResponse Int
+dvclrStatus = lens _dvclrStatus (\ s a -> s{_dvclrStatus = a});

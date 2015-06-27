@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.GetTemplate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.CloudFormation.GetTemplate
     , getTemplateResponse
     -- ** Response lenses
     , gtrTemplateBody
-    , gtrStatusCode
+    , gtrStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for a GetTemplate action.
 --
@@ -53,11 +53,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gtStackName'
-newtype GetTemplate = GetTemplate'{_gtStackName :: Text} deriving (Eq, Read, Show)
+newtype GetTemplate = GetTemplate'
+    { _gtStackName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetTemplate' smart constructor.
 getTemplate :: Text -> GetTemplate
-getTemplate pStackName = GetTemplate'{_gtStackName = pStackName};
+getTemplate pStackName =
+    GetTemplate'
+    { _gtStackName = pStackName
+    }
 
 -- | The name or the unique stack ID that is associated with the stack, which
 -- are not always interchangeable:
@@ -101,12 +106,19 @@ instance ToQuery GetTemplate where
 --
 -- * 'gtrTemplateBody'
 --
--- * 'gtrStatusCode'
-data GetTemplateResponse = GetTemplateResponse'{_gtrTemplateBody :: Maybe Text, _gtrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gtrStatus'
+data GetTemplateResponse = GetTemplateResponse'
+    { _gtrTemplateBody :: Maybe Text
+    , _gtrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetTemplateResponse' smart constructor.
 getTemplateResponse :: Int -> GetTemplateResponse
-getTemplateResponse pStatusCode = GetTemplateResponse'{_gtrTemplateBody = Nothing, _gtrStatusCode = pStatusCode};
+getTemplateResponse pStatus =
+    GetTemplateResponse'
+    { _gtrTemplateBody = Nothing
+    , _gtrStatus = pStatus
+    }
 
 -- | Structure containing the template body. (For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
@@ -115,5 +127,5 @@ gtrTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
 gtrTemplateBody = lens _gtrTemplateBody (\ s a -> s{_gtrTemplateBody = a});
 
 -- | FIXME: Undocumented member.
-gtrStatusCode :: Lens' GetTemplateResponse Int
-gtrStatusCode = lens _gtrStatusCode (\ s a -> s{_gtrStatusCode = a});
+gtrStatus :: Lens' GetTemplateResponse Int
+gtrStatus = lens _gtrStatus (\ s a -> s{_gtrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.DeleteRealtimeEndpoint
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,24 +33,29 @@ module Network.AWS.MachineLearning.DeleteRealtimeEndpoint
     -- ** Response lenses
     , drerRealtimeEndpointInfo
     , drerMLModelId
-    , drerStatusCode
+    , drerStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteRealtimeEndpoint' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dreMLModelId'
-newtype DeleteRealtimeEndpoint = DeleteRealtimeEndpoint'{_dreMLModelId :: Text} deriving (Eq, Read, Show)
+newtype DeleteRealtimeEndpoint = DeleteRealtimeEndpoint'
+    { _dreMLModelId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteRealtimeEndpoint' smart constructor.
 deleteRealtimeEndpoint :: Text -> DeleteRealtimeEndpoint
-deleteRealtimeEndpoint pMLModelId = DeleteRealtimeEndpoint'{_dreMLModelId = pMLModelId};
+deleteRealtimeEndpoint pMLModelId =
+    DeleteRealtimeEndpoint'
+    { _dreMLModelId = pMLModelId
+    }
 
 -- | The ID assigned to the @MLModel@ during creation.
 dreMLModelId :: Lens' DeleteRealtimeEndpoint Text
@@ -102,12 +107,21 @@ instance ToQuery DeleteRealtimeEndpoint where
 --
 -- * 'drerMLModelId'
 --
--- * 'drerStatusCode'
-data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'{_drerRealtimeEndpointInfo :: Maybe RealtimeEndpointInfo, _drerMLModelId :: Maybe Text, _drerStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'drerStatus'
+data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'
+    { _drerRealtimeEndpointInfo :: Maybe RealtimeEndpointInfo
+    , _drerMLModelId            :: Maybe Text
+    , _drerStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteRealtimeEndpointResponse' smart constructor.
 deleteRealtimeEndpointResponse :: Int -> DeleteRealtimeEndpointResponse
-deleteRealtimeEndpointResponse pStatusCode = DeleteRealtimeEndpointResponse'{_drerRealtimeEndpointInfo = Nothing, _drerMLModelId = Nothing, _drerStatusCode = pStatusCode};
+deleteRealtimeEndpointResponse pStatus =
+    DeleteRealtimeEndpointResponse'
+    { _drerRealtimeEndpointInfo = Nothing
+    , _drerMLModelId = Nothing
+    , _drerStatus = pStatus
+    }
 
 -- | The endpoint information of the @MLModel@
 drerRealtimeEndpointInfo :: Lens' DeleteRealtimeEndpointResponse (Maybe RealtimeEndpointInfo)
@@ -119,5 +133,5 @@ drerMLModelId :: Lens' DeleteRealtimeEndpointResponse (Maybe Text)
 drerMLModelId = lens _drerMLModelId (\ s a -> s{_drerMLModelId = a});
 
 -- | FIXME: Undocumented member.
-drerStatusCode :: Lens' DeleteRealtimeEndpointResponse Int
-drerStatusCode = lens _drerStatusCode (\ s a -> s{_drerStatusCode = a});
+drerStatus :: Lens' DeleteRealtimeEndpointResponse Int
+drerStatus = lens _drerStatus (\ s a -> s{_drerStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DetachElasticLoadBalancer
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     , detachElasticLoadBalancerResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachElasticLoadBalancer' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'delbElasticLoadBalancerName'
 --
 -- * 'delbLayerId'
-data DetachElasticLoadBalancer = DetachElasticLoadBalancer'{_delbElasticLoadBalancerName :: Text, _delbLayerId :: Text} deriving (Eq, Read, Show)
+data DetachElasticLoadBalancer = DetachElasticLoadBalancer'
+    { _delbElasticLoadBalancerName :: Text
+    , _delbLayerId                 :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachElasticLoadBalancer' smart constructor.
 detachElasticLoadBalancer :: Text -> Text -> DetachElasticLoadBalancer
-detachElasticLoadBalancer pElasticLoadBalancerName pLayerId = DetachElasticLoadBalancer'{_delbElasticLoadBalancerName = pElasticLoadBalancerName, _delbLayerId = pLayerId};
+detachElasticLoadBalancer pElasticLoadBalancerName pLayerId =
+    DetachElasticLoadBalancer'
+    { _delbElasticLoadBalancerName = pElasticLoadBalancerName
+    , _delbLayerId = pLayerId
+    }
 
 -- | The Elastic Load Balancing instance\'s name.
 delbElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer Text
@@ -98,8 +105,10 @@ instance ToQuery DetachElasticLoadBalancer where
         toQuery = const mempty
 
 -- | /See:/ 'detachElasticLoadBalancerResponse' smart constructor.
-data DetachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse' deriving (Eq, Read, Show)
+data DetachElasticLoadBalancerResponse =
+    DetachElasticLoadBalancerResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DetachElasticLoadBalancerResponse' smart constructor.
 detachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse
-detachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse';
+detachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse'

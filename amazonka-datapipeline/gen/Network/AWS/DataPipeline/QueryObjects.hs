@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.QueryObjects
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,14 +39,14 @@ module Network.AWS.DataPipeline.QueryObjects
     , qorHasMoreResults
     , qorIds
     , qorMarker
-    , qorStatusCode
+    , qorStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for QueryObjects.
 --
@@ -63,11 +63,24 @@ import Network.AWS.Response
 -- * 'qoPipelineId'
 --
 -- * 'qoSphere'
-data QueryObjects = QueryObjects'{_qoQuery :: Maybe Query, _qoMarker :: Maybe Text, _qoLimit :: Maybe Int, _qoPipelineId :: Text, _qoSphere :: Text} deriving (Eq, Read, Show)
+data QueryObjects = QueryObjects'
+    { _qoQuery      :: Maybe Query
+    , _qoMarker     :: Maybe Text
+    , _qoLimit      :: Maybe Int
+    , _qoPipelineId :: Text
+    , _qoSphere     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'QueryObjects' smart constructor.
 queryObjects :: Text -> Text -> QueryObjects
-queryObjects pPipelineId pSphere = QueryObjects'{_qoQuery = Nothing, _qoMarker = Nothing, _qoLimit = Nothing, _qoPipelineId = pPipelineId, _qoSphere = pSphere};
+queryObjects pPipelineId pSphere =
+    QueryObjects'
+    { _qoQuery = Nothing
+    , _qoMarker = Nothing
+    , _qoLimit = Nothing
+    , _qoPipelineId = pPipelineId
+    , _qoSphere = pSphere
+    }
 
 -- | The query that defines the objects to be returned. The @Query@ object
 -- can contain a maximum of ten selectors. The conditions in the query are
@@ -149,12 +162,23 @@ instance ToQuery QueryObjects where
 --
 -- * 'qorMarker'
 --
--- * 'qorStatusCode'
-data QueryObjectsResponse = QueryObjectsResponse'{_qorHasMoreResults :: Maybe Bool, _qorIds :: Maybe [Text], _qorMarker :: Maybe Text, _qorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'qorStatus'
+data QueryObjectsResponse = QueryObjectsResponse'
+    { _qorHasMoreResults :: Maybe Bool
+    , _qorIds            :: Maybe [Text]
+    , _qorMarker         :: Maybe Text
+    , _qorStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'QueryObjectsResponse' smart constructor.
 queryObjectsResponse :: Int -> QueryObjectsResponse
-queryObjectsResponse pStatusCode = QueryObjectsResponse'{_qorHasMoreResults = Nothing, _qorIds = Nothing, _qorMarker = Nothing, _qorStatusCode = pStatusCode};
+queryObjectsResponse pStatus =
+    QueryObjectsResponse'
+    { _qorHasMoreResults = Nothing
+    , _qorIds = Nothing
+    , _qorMarker = Nothing
+    , _qorStatus = pStatus
+    }
 
 -- | Indicates whether there are more results that can be obtained by a
 -- subsequent call.
@@ -172,5 +196,5 @@ qorMarker :: Lens' QueryObjectsResponse (Maybe Text)
 qorMarker = lens _qorMarker (\ s a -> s{_qorMarker = a});
 
 -- | FIXME: Undocumented member.
-qorStatusCode :: Lens' QueryObjectsResponse Int
-qorStatusCode = lens _qorStatusCode (\ s a -> s{_qorStatusCode = a});
+qorStatus :: Lens' QueryObjectsResponse Int
+qorStatus = lens _qorStatus (\ s a -> s{_qorStatus = a});

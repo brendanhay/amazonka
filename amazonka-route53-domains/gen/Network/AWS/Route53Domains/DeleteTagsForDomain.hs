@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.DeleteTagsForDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.Route53Domains.DeleteTagsForDomain
     -- ** Response constructor
     , deleteTagsForDomainResponse
     -- ** Response lenses
-    , dtfdrStatusCode
+    , dtfdrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | The DeleteTagsForDomainRequest includes the following elements.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Route53Domains.Types
 -- * 'dtfdDomainName'
 --
 -- * 'dtfdTagsToDelete'
-data DeleteTagsForDomain = DeleteTagsForDomain'{_dtfdDomainName :: Text, _dtfdTagsToDelete :: [Text]} deriving (Eq, Read, Show)
+data DeleteTagsForDomain = DeleteTagsForDomain'
+    { _dtfdDomainName   :: Text
+    , _dtfdTagsToDelete :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTagsForDomain' smart constructor.
 deleteTagsForDomain :: Text -> DeleteTagsForDomain
-deleteTagsForDomain pDomainName = DeleteTagsForDomain'{_dtfdDomainName = pDomainName, _dtfdTagsToDelete = mempty};
+deleteTagsForDomain pDomainName =
+    DeleteTagsForDomain'
+    { _dtfdDomainName = pDomainName
+    , _dtfdTagsToDelete = mempty
+    }
 
 -- | The domain for which you want to delete one or more tags.
 --
@@ -124,13 +131,18 @@ instance ToQuery DeleteTagsForDomain where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtfdrStatusCode'
-newtype DeleteTagsForDomainResponse = DeleteTagsForDomainResponse'{_dtfdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtfdrStatus'
+newtype DeleteTagsForDomainResponse = DeleteTagsForDomainResponse'
+    { _dtfdrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTagsForDomainResponse' smart constructor.
 deleteTagsForDomainResponse :: Int -> DeleteTagsForDomainResponse
-deleteTagsForDomainResponse pStatusCode = DeleteTagsForDomainResponse'{_dtfdrStatusCode = pStatusCode};
+deleteTagsForDomainResponse pStatus =
+    DeleteTagsForDomainResponse'
+    { _dtfdrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-dtfdrStatusCode :: Lens' DeleteTagsForDomainResponse Int
-dtfdrStatusCode = lens _dtfdrStatusCode (\ s a -> s{_dtfdrStatusCode = a});
+dtfdrStatus :: Lens' DeleteTagsForDomainResponse Int
+dtfdrStatus = lens _dtfdrStatus (\ s a -> s{_dtfdrStatus = a});

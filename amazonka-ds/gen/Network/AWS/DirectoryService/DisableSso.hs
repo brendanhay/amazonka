@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectoryService.DisableSso
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.DirectoryService.DisableSso
     -- ** Response constructor
     , disableSsoResponse
     -- ** Response lenses
-    , disStatusCode
+    , disStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the DisableSso operation.
 --
@@ -52,11 +52,20 @@ import Network.AWS.Response
 -- * 'disPassword'
 --
 -- * 'disDirectoryId'
-data DisableSso = DisableSso'{_disUserName :: Maybe Text, _disPassword :: Maybe (Sensitive Text), _disDirectoryId :: Text} deriving (Eq, Read, Show)
+data DisableSso = DisableSso'
+    { _disUserName    :: Maybe Text
+    , _disPassword    :: Maybe (Sensitive Text)
+    , _disDirectoryId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableSso' smart constructor.
 disableSso :: Text -> DisableSso
-disableSso pDirectoryId = DisableSso'{_disUserName = Nothing, _disPassword = Nothing, _disDirectoryId = pDirectoryId};
+disableSso pDirectoryId =
+    DisableSso'
+    { _disUserName = Nothing
+    , _disPassword = Nothing
+    , _disDirectoryId = pDirectoryId
+    }
 
 -- | The username of an alternate account to use to disable single-sign on.
 -- This is only used for AD Connector directories. This account must have
@@ -118,13 +127,18 @@ instance ToQuery DisableSso where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'disStatusCode'
-newtype DisableSsoResponse = DisableSsoResponse'{_disStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'disStatus'
+newtype DisableSsoResponse = DisableSsoResponse'
+    { _disStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableSsoResponse' smart constructor.
 disableSsoResponse :: Int -> DisableSsoResponse
-disableSsoResponse pStatusCode = DisableSsoResponse'{_disStatusCode = pStatusCode};
+disableSsoResponse pStatus =
+    DisableSsoResponse'
+    { _disStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-disStatusCode :: Lens' DisableSsoResponse Int
-disStatusCode = lens _disStatusCode (\ s a -> s{_disStatusCode = a});
+disStatus :: Lens' DisableSsoResponse Int
+disStatus = lens _disStatus (\ s a -> s{_disStatus = a});

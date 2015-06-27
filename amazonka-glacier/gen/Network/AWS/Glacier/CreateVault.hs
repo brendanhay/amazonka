@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.CreateVault
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,13 +57,13 @@ module Network.AWS.Glacier.CreateVault
     , createVaultResponse
     -- ** Response lenses
     , cvrLocation
-    , cvrStatusCode
+    , cvrStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options to create a vault.
 --
@@ -74,11 +74,18 @@ import Network.AWS.Response
 -- * 'cvAccountId'
 --
 -- * 'cvVaultName'
-data CreateVault = CreateVault'{_cvAccountId :: Text, _cvVaultName :: Text} deriving (Eq, Read, Show)
+data CreateVault = CreateVault'
+    { _cvAccountId :: Text
+    , _cvVaultName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVault' smart constructor.
 createVault :: Text -> Text -> CreateVault
-createVault pAccountId pVaultName = CreateVault'{_cvAccountId = pAccountId, _cvVaultName = pVaultName};
+createVault pAccountId pVaultName =
+    CreateVault'
+    { _cvAccountId = pAccountId
+    , _cvVaultName = pVaultName
+    }
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the
 -- AWS account ID associated with the credentials used to sign the request.
@@ -127,17 +134,24 @@ instance ToQuery CreateVault where
 --
 -- * 'cvrLocation'
 --
--- * 'cvrStatusCode'
-data CreateVaultResponse = CreateVaultResponse'{_cvrLocation :: Maybe Text, _cvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cvrStatus'
+data CreateVaultResponse = CreateVaultResponse'
+    { _cvrLocation :: Maybe Text
+    , _cvrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVaultResponse' smart constructor.
 createVaultResponse :: Int -> CreateVaultResponse
-createVaultResponse pStatusCode = CreateVaultResponse'{_cvrLocation = Nothing, _cvrStatusCode = pStatusCode};
+createVaultResponse pStatus =
+    CreateVaultResponse'
+    { _cvrLocation = Nothing
+    , _cvrStatus = pStatus
+    }
 
 -- | The URI of the vault that was created.
 cvrLocation :: Lens' CreateVaultResponse (Maybe Text)
 cvrLocation = lens _cvrLocation (\ s a -> s{_cvrLocation = a});
 
 -- | FIXME: Undocumented member.
-cvrStatusCode :: Lens' CreateVaultResponse Int
-cvrStatusCode = lens _cvrStatusCode (\ s a -> s{_cvrStatusCode = a});
+cvrStatus :: Lens' CreateVaultResponse Int
+cvrStatus = lens _cvrStatus (\ s a -> s{_cvrStatus = a});

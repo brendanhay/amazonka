@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     -- ** Response lenses
     , ucfoairETag
     , ucfoairCloudFrontOriginAccessIdentity
-    , ucfoairStatusCode
+    , ucfoairStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to update an origin access identity.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'ucfoaiCloudFrontOriginAccessIdentityConfig'
 --
 -- * 'ucfoaiId'
-data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity'{_ucfoaiIfMatch :: Maybe Text, _ucfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig, _ucfoaiId :: Text} deriving (Eq, Read, Show)
+data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity'
+    { _ucfoaiIfMatch                              :: Maybe Text
+    , _ucfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
+    , _ucfoaiId                                   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateCloudFrontOriginAccessIdentity' smart constructor.
 updateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -> Text -> UpdateCloudFrontOriginAccessIdentity
-updateCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig pId = UpdateCloudFrontOriginAccessIdentity'{_ucfoaiIfMatch = Nothing, _ucfoaiCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig, _ucfoaiId = pId};
+updateCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig pId =
+    UpdateCloudFrontOriginAccessIdentity'
+    { _ucfoaiIfMatch = Nothing
+    , _ucfoaiCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig
+    , _ucfoaiId = pId
+    }
 
 -- | The value of the ETag header you received when retrieving the
 -- identity\'s configuration. For example: E2QWRUHAPOMQZL.
@@ -122,12 +131,21 @@ instance ToQuery UpdateCloudFrontOriginAccessIdentity
 --
 -- * 'ucfoairCloudFrontOriginAccessIdentity'
 --
--- * 'ucfoairStatusCode'
-data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'{_ucfoairETag :: Maybe Text, _ucfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity, _ucfoairStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ucfoairStatus'
+data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'
+    { _ucfoairETag                           :: Maybe Text
+    , _ucfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
+    , _ucfoairStatus                         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateCloudFrontOriginAccessIdentityResponse' smart constructor.
 updateCloudFrontOriginAccessIdentityResponse :: Int -> UpdateCloudFrontOriginAccessIdentityResponse
-updateCloudFrontOriginAccessIdentityResponse pStatusCode = UpdateCloudFrontOriginAccessIdentityResponse'{_ucfoairETag = Nothing, _ucfoairCloudFrontOriginAccessIdentity = Nothing, _ucfoairStatusCode = pStatusCode};
+updateCloudFrontOriginAccessIdentityResponse pStatus =
+    UpdateCloudFrontOriginAccessIdentityResponse'
+    { _ucfoairETag = Nothing
+    , _ucfoairCloudFrontOriginAccessIdentity = Nothing
+    , _ucfoairStatus = pStatus
+    }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 ucfoairETag :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe Text)
@@ -138,5 +156,5 @@ ucfoairCloudFrontOriginAccessIdentity :: Lens' UpdateCloudFrontOriginAccessIdent
 ucfoairCloudFrontOriginAccessIdentity = lens _ucfoairCloudFrontOriginAccessIdentity (\ s a -> s{_ucfoairCloudFrontOriginAccessIdentity = a});
 
 -- | FIXME: Undocumented member.
-ucfoairStatusCode :: Lens' UpdateCloudFrontOriginAccessIdentityResponse Int
-ucfoairStatusCode = lens _ucfoairStatusCode (\ s a -> s{_ucfoairStatusCode = a});
+ucfoairStatus :: Lens' UpdateCloudFrontOriginAccessIdentityResponse Int
+ucfoairStatus = lens _ucfoairStatus (\ s a -> s{_ucfoairStatus = a});

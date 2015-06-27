@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Lambda.RemovePermission
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.Lambda.RemovePermission
     , removePermissionResponse
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'removePermission' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'rpFunctionName'
 --
 -- * 'rpStatementId'
-data RemovePermission = RemovePermission'{_rpFunctionName :: Text, _rpStatementId :: Text} deriving (Eq, Read, Show)
+data RemovePermission = RemovePermission'
+    { _rpFunctionName :: Text
+    , _rpStatementId  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RemovePermission' smart constructor.
 removePermission :: Text -> Text -> RemovePermission
-removePermission pFunctionName pStatementId = RemovePermission'{_rpFunctionName = pFunctionName, _rpStatementId = pStatementId};
+removePermission pFunctionName pStatementId =
+    RemovePermission'
+    { _rpFunctionName = pFunctionName
+    , _rpStatementId = pStatementId
+    }
 
 -- | Lambda function whose access policy you want to remove a permission
 -- from.
@@ -94,8 +101,10 @@ instance ToQuery RemovePermission where
         toQuery = const mempty
 
 -- | /See:/ 'removePermissionResponse' smart constructor.
-data RemovePermissionResponse = RemovePermissionResponse' deriving (Eq, Read, Show)
+data RemovePermissionResponse =
+    RemovePermissionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RemovePermissionResponse' smart constructor.
 removePermissionResponse :: RemovePermissionResponse
-removePermissionResponse = RemovePermissionResponse';
+removePermissionResponse = RemovePermissionResponse'

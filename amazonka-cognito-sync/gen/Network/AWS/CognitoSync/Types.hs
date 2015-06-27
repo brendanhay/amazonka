@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.CognitoSync.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -109,94 +108,114 @@ module Network.AWS.CognitoSync.Types
     , rpSyncCount
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2014-06-30@ of the Amazon Cognito Sync SDK.
 data CognitoSync
 
 instance AWSService CognitoSync where
     type Sg CognitoSync = V4
-
     service = const svc
       where
-        svc :: Service CognitoSync
-        svc = Service
-            { _svcAbbrev   = "CognitoSync"
-            , _svcPrefix   = "cognito-sync"
-            , _svcVersion  = "2014-06-30"
+        svc =
+            Service
+            { _svcAbbrev = "CognitoSync"
+            , _svcPrefix = "cognito-sync"
+            , _svcVersion = "2014-06-30"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | Thrown when a request parameter does not comply with the associated
 -- constraints.
-_InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterException = _ServiceError . hasStatus 400 . hasCode "InvalidParameter";
+_InvalidParameterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidParameter"
 
 -- | Thrown when a user is not authorized to access the requested resource.
-_NotAuthorizedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NotAuthorizedException = _ServiceError . hasStatus 403 . hasCode "NotAuthorizedError";
+_NotAuthorizedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NotAuthorizedException =
+    _ServiceError . hasStatus 403 . hasCode "NotAuthorizedError"
 
 -- | Indicates an internal service error.
-_InternalErrorException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalErrorException = _ServiceError . hasStatus 500 . hasCode "InternalError";
+_InternalErrorException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalErrorException =
+    _ServiceError . hasStatus 500 . hasCode "InternalError"
 
 -- | Prism for InvalidConfigurationException' errors.
-_InvalidConfigurationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidConfigurationException = _ServiceError . hasStatus 400 . hasCode "InvalidConfiguration";
+_InvalidConfigurationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidConfigurationException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidConfiguration"
 
 -- | An exception thrown when there is an IN_PROGRESS bulk publish operation
 -- for the given identity pool.
-_DuplicateRequestException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicateRequestException = _ServiceError . hasStatus 400 . hasCode "DuplicateRequest";
+_DuplicateRequestException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DuplicateRequestException =
+    _ServiceError . hasStatus 400 . hasCode "DuplicateRequest"
 
 -- | AWS Lambda throttled your account, please contact AWS Support
-_LambdaThrottledException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LambdaThrottledException = _ServiceError . hasStatus 429 . hasCode "LambdaThrottled";
+_LambdaThrottledException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LambdaThrottledException =
+    _ServiceError . hasStatus 429 . hasCode "LambdaThrottled"
 
 -- | An exception thrown when a bulk publish operation is requested less than
 -- 24 hours after a previous bulk publish operation completed successfully.
-_AlreadyStreamedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_AlreadyStreamedException = _ServiceError . hasStatus 400 . hasCode "AlreadyStreamed";
+_AlreadyStreamedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_AlreadyStreamedException =
+    _ServiceError . hasStatus 400 . hasCode "AlreadyStreamed"
 
 -- | The AWS Lambda function returned invalid output or an exception.
-_InvalidLambdaFunctionOutputException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidLambdaFunctionOutputException = _ServiceError . hasStatus 400 . hasCode "InvalidLambdaFunctionOutput";
+_InvalidLambdaFunctionOutputException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidLambdaFunctionOutputException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidLambdaFunctionOutput"
 
 -- | Thrown if the request is throttled.
-_TooManyRequestsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyRequestsException = _ServiceError . hasStatus 429 . hasCode "TooManyRequests";
+_TooManyRequestsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyRequestsException =
+    _ServiceError . hasStatus 429 . hasCode "TooManyRequests"
 
 -- | Thrown if an update can\'t be applied because the resource was changed
 -- by another call and this would result in a conflict.
-_ResourceConflictException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceConflictException = _ServiceError . hasStatus 409 . hasCode "ResourceConflict";
+_ResourceConflictException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceConflictException =
+    _ServiceError . hasStatus 409 . hasCode "ResourceConflict"
 
 -- | Thrown if the resource doesn\'t exist.
-_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _ServiceError . hasStatus 404 . hasCode "ResourceNotFound";
+_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+    _ServiceError . hasStatus 404 . hasCode "ResourceNotFound"
 
 -- | Thrown when the limit on the number of objects or operations has been
 -- exceeded.
-_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasStatus 400 . hasCode "LimitExceeded";
+_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException =
+    _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
 
-data BulkPublishStatus = NotStarted | INProgress | Succeeded | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data BulkPublishStatus
+    = NotStarted
+    | INProgress
+    | Succeeded
+    | Failed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText BulkPublishStatus where
     parser = takeLowerText >>= \case
@@ -220,7 +239,10 @@ instance ToHeader BulkPublishStatus
 instance FromJSON BulkPublishStatus where
     parseJSON = parseJSONText "BulkPublishStatus"
 
-data Operation = Replace | Remove deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Operation
+    = Replace
+    | Remove
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Operation where
     parser = takeLowerText >>= \case
@@ -240,7 +262,12 @@ instance ToHeader Operation
 instance ToJSON Operation where
     toJSON = toJSONText
 
-data Platform = GCM | APNS | ADM | APNSSandbox deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Platform
+    = GCM
+    | APNS
+    | ADM
+    | APNSSandbox
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Platform where
     parser = takeLowerText >>= \case
@@ -264,7 +291,10 @@ instance ToHeader Platform
 instance ToJSON Platform where
     toJSON = toJSONText
 
-data StreamingStatus = Enabled | Disabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+data StreamingStatus
+    = Enabled
+    | Disabled
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText StreamingStatus where
     parser = takeLowerText >>= \case
@@ -298,11 +328,20 @@ instance FromJSON StreamingStatus where
 -- * 'csStreamName'
 --
 -- * 'csRoleARN'
-data CognitoStreams = CognitoStreams'{_csStreamingStatus :: Maybe StreamingStatus, _csStreamName :: Maybe Text, _csRoleARN :: Maybe Text} deriving (Eq, Read, Show)
+data CognitoStreams = CognitoStreams'
+    { _csStreamingStatus :: Maybe StreamingStatus
+    , _csStreamName      :: Maybe Text
+    , _csRoleARN         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CognitoStreams' smart constructor.
 cognitoStreams :: CognitoStreams
-cognitoStreams = CognitoStreams'{_csStreamingStatus = Nothing, _csStreamName = Nothing, _csRoleARN = Nothing};
+cognitoStreams =
+    CognitoStreams'
+    { _csStreamingStatus = Nothing
+    , _csStreamName = Nothing
+    , _csRoleARN = Nothing
+    }
 
 -- | Status of the Cognito streams. Valid values are:
 --
@@ -362,11 +401,28 @@ instance ToJSON CognitoStreams where
 -- * 'datLastModifiedBy'
 --
 -- * 'datIdentityId'
-data Dataset = Dataset'{_datLastModifiedDate :: Maybe POSIX, _datNumRecords :: Maybe Integer, _datDataStorage :: Maybe Integer, _datDatasetName :: Maybe Text, _datCreationDate :: Maybe POSIX, _datLastModifiedBy :: Maybe Text, _datIdentityId :: Maybe Text} deriving (Eq, Read, Show)
+data Dataset = Dataset'
+    { _datLastModifiedDate :: Maybe POSIX
+    , _datNumRecords       :: Maybe Integer
+    , _datDataStorage      :: Maybe Integer
+    , _datDatasetName      :: Maybe Text
+    , _datCreationDate     :: Maybe POSIX
+    , _datLastModifiedBy   :: Maybe Text
+    , _datIdentityId       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Dataset' smart constructor.
 dataset :: Dataset
-dataset = Dataset'{_datLastModifiedDate = Nothing, _datNumRecords = Nothing, _datDataStorage = Nothing, _datDatasetName = Nothing, _datCreationDate = Nothing, _datLastModifiedBy = Nothing, _datIdentityId = Nothing};
+dataset =
+    Dataset'
+    { _datLastModifiedDate = Nothing
+    , _datNumRecords = Nothing
+    , _datDataStorage = Nothing
+    , _datDatasetName = Nothing
+    , _datCreationDate = Nothing
+    , _datLastModifiedBy = Nothing
+    , _datIdentityId = Nothing
+    }
 
 -- | Date when the dataset was last modified.
 datLastModifiedDate :: Lens' Dataset (Maybe UTCTime)
@@ -424,11 +480,22 @@ instance FromJSON Dataset where
 -- * 'ipuDataStorage'
 --
 -- * 'ipuSyncSessionsCount'
-data IdentityPoolUsage = IdentityPoolUsage'{_ipuLastModifiedDate :: Maybe POSIX, _ipuIdentityPoolId :: Maybe Text, _ipuDataStorage :: Maybe Integer, _ipuSyncSessionsCount :: Maybe Integer} deriving (Eq, Read, Show)
+data IdentityPoolUsage = IdentityPoolUsage'
+    { _ipuLastModifiedDate  :: Maybe POSIX
+    , _ipuIdentityPoolId    :: Maybe Text
+    , _ipuDataStorage       :: Maybe Integer
+    , _ipuSyncSessionsCount :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'IdentityPoolUsage' smart constructor.
 identityPoolUsage :: IdentityPoolUsage
-identityPoolUsage = IdentityPoolUsage'{_ipuLastModifiedDate = Nothing, _ipuIdentityPoolId = Nothing, _ipuDataStorage = Nothing, _ipuSyncSessionsCount = Nothing};
+identityPoolUsage =
+    IdentityPoolUsage'
+    { _ipuLastModifiedDate = Nothing
+    , _ipuIdentityPoolId = Nothing
+    , _ipuDataStorage = Nothing
+    , _ipuSyncSessionsCount = Nothing
+    }
 
 -- | Date on which the identity pool was last modified.
 ipuLastModifiedDate :: Lens' IdentityPoolUsage (Maybe UTCTime)
@@ -473,11 +540,24 @@ instance FromJSON IdentityPoolUsage where
 -- * 'iuDataStorage'
 --
 -- * 'iuIdentityId'
-data IdentityUsage = IdentityUsage'{_iuLastModifiedDate :: Maybe POSIX, _iuIdentityPoolId :: Maybe Text, _iuDatasetCount :: Maybe Int, _iuDataStorage :: Maybe Integer, _iuIdentityId :: Maybe Text} deriving (Eq, Read, Show)
+data IdentityUsage = IdentityUsage'
+    { _iuLastModifiedDate :: Maybe POSIX
+    , _iuIdentityPoolId   :: Maybe Text
+    , _iuDatasetCount     :: Maybe Int
+    , _iuDataStorage      :: Maybe Integer
+    , _iuIdentityId       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'IdentityUsage' smart constructor.
 identityUsage :: IdentityUsage
-identityUsage = IdentityUsage'{_iuLastModifiedDate = Nothing, _iuIdentityPoolId = Nothing, _iuDatasetCount = Nothing, _iuDataStorage = Nothing, _iuIdentityId = Nothing};
+identityUsage =
+    IdentityUsage'
+    { _iuLastModifiedDate = Nothing
+    , _iuIdentityPoolId = Nothing
+    , _iuDatasetCount = Nothing
+    , _iuDataStorage = Nothing
+    , _iuIdentityId = Nothing
+    }
 
 -- | Date on which the identity was last modified.
 iuLastModifiedDate :: Lens' IdentityUsage (Maybe UTCTime)
@@ -523,11 +603,18 @@ instance FromJSON IdentityUsage where
 -- * 'psApplicationARNs'
 --
 -- * 'psRoleARN'
-data PushSync = PushSync'{_psApplicationARNs :: Maybe [Text], _psRoleARN :: Maybe Text} deriving (Eq, Read, Show)
+data PushSync = PushSync'
+    { _psApplicationARNs :: Maybe [Text]
+    , _psRoleARN         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PushSync' smart constructor.
 pushSync :: PushSync
-pushSync = PushSync'{_psApplicationARNs = Nothing, _psRoleARN = Nothing};
+pushSync =
+    PushSync'
+    { _psApplicationARNs = Nothing
+    , _psRoleARN = Nothing
+    }
 
 -- | List of SNS platform application ARNs that could be used by clients.
 psApplicationARNs :: Lens' PushSync [Text]
@@ -569,11 +656,26 @@ instance ToJSON PushSync where
 -- * 'recKey'
 --
 -- * 'recLastModifiedBy'
-data Record = Record'{_recSyncCount :: Maybe Integer, _recLastModifiedDate :: Maybe POSIX, _recDeviceLastModifiedDate :: Maybe POSIX, _recValue :: Maybe Text, _recKey :: Maybe Text, _recLastModifiedBy :: Maybe Text} deriving (Eq, Read, Show)
+data Record = Record'
+    { _recSyncCount              :: Maybe Integer
+    , _recLastModifiedDate       :: Maybe POSIX
+    , _recDeviceLastModifiedDate :: Maybe POSIX
+    , _recValue                  :: Maybe Text
+    , _recKey                    :: Maybe Text
+    , _recLastModifiedBy         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Record' smart constructor.
 record :: Record
-record = Record'{_recSyncCount = Nothing, _recLastModifiedDate = Nothing, _recDeviceLastModifiedDate = Nothing, _recValue = Nothing, _recKey = Nothing, _recLastModifiedBy = Nothing};
+record =
+    Record'
+    { _recSyncCount = Nothing
+    , _recLastModifiedDate = Nothing
+    , _recDeviceLastModifiedDate = Nothing
+    , _recValue = Nothing
+    , _recKey = Nothing
+    , _recLastModifiedBy = Nothing
+    }
 
 -- | The server sync count for this record.
 recSyncCount :: Lens' Record (Maybe Integer)
@@ -625,11 +727,24 @@ instance FromJSON Record where
 -- * 'rpKey'
 --
 -- * 'rpSyncCount'
-data RecordPatch = RecordPatch'{_rpDeviceLastModifiedDate :: Maybe POSIX, _rpValue :: Maybe Text, _rpOp :: Operation, _rpKey :: Text, _rpSyncCount :: Integer} deriving (Eq, Read, Show)
+data RecordPatch = RecordPatch'
+    { _rpDeviceLastModifiedDate :: Maybe POSIX
+    , _rpValue                  :: Maybe Text
+    , _rpOp                     :: Operation
+    , _rpKey                    :: Text
+    , _rpSyncCount              :: !Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'RecordPatch' smart constructor.
 recordPatch :: Operation -> Text -> Integer -> RecordPatch
-recordPatch pOp pKey pSyncCount = RecordPatch'{_rpDeviceLastModifiedDate = Nothing, _rpValue = Nothing, _rpOp = pOp, _rpKey = pKey, _rpSyncCount = pSyncCount};
+recordPatch pOp pKey pSyncCount =
+    RecordPatch'
+    { _rpDeviceLastModifiedDate = Nothing
+    , _rpValue = Nothing
+    , _rpOp = pOp
+    , _rpKey = pKey
+    , _rpSyncCount = pSyncCount
+    }
 
 -- | The last modified date of the client device.
 rpDeviceLastModifiedDate :: Lens' RecordPatch (Maybe UTCTime)

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.GenerateRandom
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,29 @@ module Network.AWS.KMS.GenerateRandom
     , generateRandomResponse
     -- ** Response lenses
     , grrPlaintext
-    , grrStatusCode
+    , grrStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'generateRandom' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'grNumberOfBytes'
-newtype GenerateRandom = GenerateRandom'{_grNumberOfBytes :: Maybe Nat} deriving (Eq, Read, Show)
+newtype GenerateRandom = GenerateRandom'
+    { _grNumberOfBytes :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'GenerateRandom' smart constructor.
 generateRandom :: GenerateRandom
-generateRandom = GenerateRandom'{_grNumberOfBytes = Nothing};
+generateRandom =
+    GenerateRandom'
+    { _grNumberOfBytes = Nothing
+    }
 
 -- | Integer that contains the number of bytes to generate. Common values are
 -- 128, 256, 512, 1024 and so on. The current limit is 1024 bytes.
@@ -91,17 +96,24 @@ instance ToQuery GenerateRandom where
 --
 -- * 'grrPlaintext'
 --
--- * 'grrStatusCode'
-data GenerateRandomResponse = GenerateRandomResponse'{_grrPlaintext :: Maybe (Sensitive Base64), _grrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'grrStatus'
+data GenerateRandomResponse = GenerateRandomResponse'
+    { _grrPlaintext :: Maybe (Sensitive Base64)
+    , _grrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GenerateRandomResponse' smart constructor.
 generateRandomResponse :: Int -> GenerateRandomResponse
-generateRandomResponse pStatusCode = GenerateRandomResponse'{_grrPlaintext = Nothing, _grrStatusCode = pStatusCode};
+generateRandomResponse pStatus =
+    GenerateRandomResponse'
+    { _grrPlaintext = Nothing
+    , _grrStatus = pStatus
+    }
 
 -- | Plaintext that contains the unpredictable byte string.
 grrPlaintext :: Lens' GenerateRandomResponse (Maybe Base64)
 grrPlaintext = lens _grrPlaintext (\ s a -> s{_grrPlaintext = a}) . mapping _Sensitive;
 
 -- | FIXME: Undocumented member.
-grrStatusCode :: Lens' GenerateRandomResponse Int
-grrStatusCode = lens _grrStatusCode (\ s a -> s{_grrStatusCode = a});
+grrStatus :: Lens' GenerateRandomResponse Int
+grrStatus = lens _grrStatus (\ s a -> s{_grrStatus = a});

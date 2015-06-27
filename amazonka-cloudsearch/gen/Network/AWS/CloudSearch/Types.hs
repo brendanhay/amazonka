@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.CloudSearch.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -292,70 +291,84 @@ module Network.AWS.CloudSearch.Types
     , toDefaultValue
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2013-01-01@ of the Amazon CloudSearch SDK.
 data CloudSearch
 
 instance AWSService CloudSearch where
     type Sg CloudSearch = V4
-
     service = const svc
       where
-        svc :: Service CloudSearch
-        svc = Service
-            { _svcAbbrev   = "CloudSearch"
-            , _svcPrefix   = "cloudsearch"
-            , _svcVersion  = "2013-01-01"
+        svc =
+            Service
+            { _svcAbbrev = "CloudSearch"
+            , _svcPrefix = "cloudsearch"
+            , _svcVersion = "2013-01-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "BandwidthLimitExceeded" . hasStatus 509) e =
+              Just "request_limit_exceeded"
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | An error occurred while processing the request.
-_BaseException :: AWSError a => Geting (First ServiceError) a ServiceError
-_BaseException = _ServiceError . hasCode "BaseException";
+_BaseException :: AWSError a => Getting (First ServiceError) a ServiceError
+_BaseException = _ServiceError . hasCode "BaseException"
 
 -- | The request was rejected because it attempted an operation which is not
 -- enabled.
-_DisabledOperationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DisabledOperationException = _ServiceError . hasStatus 409 . hasCode "DisabledAction";
+_DisabledOperationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DisabledOperationException =
+    _ServiceError . hasStatus 409 . hasCode "DisabledAction"
 
 -- | An internal error occurred while processing the request. If this problem
 -- persists, report an issue from the
 -- <http://status.aws.amazon.com/ Service Health Dashboard>.
-_InternalException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalException = _ServiceError . hasStatus 500 . hasCode "InternalException";
+_InternalException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalException =
+    _ServiceError . hasStatus 500 . hasCode "InternalException"
 
 -- | The request was rejected because it specified an invalid type
 -- definition.
-_InvalidTypeException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidTypeException = _ServiceError . hasStatus 409 . hasCode "InvalidType";
+_InvalidTypeException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidTypeException = _ServiceError . hasStatus 409 . hasCode "InvalidType"
 
 -- | The request was rejected because it attempted to reference a resource
 -- that does not exist.
-_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _ServiceError . hasStatus 409 . hasCode "ResourceNotFound";
+_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+    _ServiceError . hasStatus 409 . hasCode "ResourceNotFound"
 
 -- | The request was rejected because a resource limit has already been met.
-_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasStatus 409 . hasCode "LimitExceeded";
+_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException =
+    _ServiceError . hasStatus 409 . hasCode "LimitExceeded"
 
-data AlgorithmicStemming = ASLight | ASNone | ASMinimal | ASFull deriving (Eq, Ord, Read, Show, Enum, Generic)
+data AlgorithmicStemming
+    = ASLight
+    | ASNone
+    | ASMinimal
+    | ASFull
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AlgorithmicStemming where
     parser = takeLowerText >>= \case
@@ -381,7 +394,43 @@ instance FromXML AlgorithmicStemming where
 
 -- | An <http://tools.ietf.org/html/rfc4646 IETF RFC 4646> language code or
 -- @mul@ for multiple languages.
-data AnalysisSchemeLanguage = Mul | KO | TH | RU | FA | LV | CA | RO | SV | HE | HU | AR | JA | GA | ES | DE | HI | EL | HY | ZHHant | NO | PT | FR | FI | NL | BG | ID | IT | DA | EU | CS | GL | EN | TR | ZHHans deriving (Eq, Ord, Read, Show, Enum, Generic)
+data AnalysisSchemeLanguage
+    = Mul
+    | KO
+    | TH
+    | RU
+    | FA
+    | LV
+    | CA
+    | RO
+    | SV
+    | HE
+    | HU
+    | AR
+    | JA
+    | GA
+    | ES
+    | DE
+    | HI
+    | EL
+    | HY
+    | ZHHant
+    | NO
+    | PT
+    | FR
+    | FI
+    | NL
+    | BG
+    | ID
+    | IT
+    | DA
+    | EU
+    | CS
+    | GL
+    | EN
+    | TR
+    | ZHHans
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AnalysisSchemeLanguage where
     parser = takeLowerText >>= \case
@@ -471,7 +520,19 @@ instance FromXML AnalysisSchemeLanguage where
 -- type. For more information about the supported field types, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields>
 -- in the /Amazon CloudSearch Developer Guide/.
-data IndexFieldType = Latlon | IntArray | LiteralArray | Double | Text | DoubleArray | Date | TextArray | DateArray | Int | Literal deriving (Eq, Ord, Read, Show, Enum, Generic)
+data IndexFieldType
+    = Latlon
+    | IntArray
+    | LiteralArray
+    | Double
+    | Text
+    | DoubleArray
+    | Date
+    | TextArray
+    | DateArray
+    | Int
+    | Literal
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText IndexFieldType where
     parser = takeLowerText >>= \case
@@ -521,7 +582,12 @@ instance FromXML IndexFieldType where
 --     domain\'s data and cannot be used to index the data. You must either
 --     modify the option value or update or remove the incompatible
 --     documents.
-data OptionState = FailedToValidate | Active | RequiresIndexDocuments | Processing deriving (Eq, Ord, Read, Show, Enum, Generic)
+data OptionState
+    = FailedToValidate
+    | Active
+    | RequiresIndexDocuments
+    | Processing
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText OptionState where
     parser = takeLowerText >>= \case
@@ -547,7 +613,16 @@ instance FromXML OptionState where
 
 -- | The instance type (such as @search.m1.small@) on which an index
 -- partition is hosted.
-data PartitionInstanceType = SearchM32XLarge | SearchM3Large | SearchM3Medium | SearchM22XLarge | SearchM2XLarge | SearchM1Large | SearchM1Small | SearchM3XLarge deriving (Eq, Ord, Read, Show, Enum, Generic)
+data PartitionInstanceType
+    = SearchM32XLarge
+    | SearchM3Large
+    | SearchM3Medium
+    | SearchM22XLarge
+    | SearchM2XLarge
+    | SearchM1Large
+    | SearchM1Small
+    | SearchM3XLarge
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText PartitionInstanceType where
     parser = takeLowerText >>= \case
@@ -579,7 +654,11 @@ instance ToHeader PartitionInstanceType
 instance FromXML PartitionInstanceType where
     parseXML = parseXMLText "PartitionInstanceType"
 
-data SuggesterFuzzyMatching = Low | None | High deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SuggesterFuzzyMatching
+    = Low
+    | None
+    | High
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SuggesterFuzzyMatching where
     parser = takeLowerText >>= \case
@@ -611,11 +690,18 @@ instance FromXML SuggesterFuzzyMatching where
 -- * 'apsOptions'
 --
 -- * 'apsStatus'
-data AccessPoliciesStatus = AccessPoliciesStatus'{_apsOptions :: Text, _apsStatus :: OptionStatus} deriving (Eq, Read, Show)
+data AccessPoliciesStatus = AccessPoliciesStatus'
+    { _apsOptions :: Text
+    , _apsStatus  :: OptionStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'AccessPoliciesStatus' smart constructor.
 accessPoliciesStatus :: Text -> OptionStatus -> AccessPoliciesStatus
-accessPoliciesStatus pOptions pStatus = AccessPoliciesStatus'{_apsOptions = pOptions, _apsStatus = pStatus};
+accessPoliciesStatus pOptions pStatus =
+    AccessPoliciesStatus'
+    { _apsOptions = pOptions
+    , _apsStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 apsOptions :: Lens' AccessPoliciesStatus Text
@@ -646,11 +732,24 @@ instance FromXML AccessPoliciesStatus where
 -- * 'aoSynonyms'
 --
 -- * 'aoJapaneseTokenizationDictionary'
-data AnalysisOptions = AnalysisOptions'{_aoAlgorithmicStemming :: Maybe AlgorithmicStemming, _aoStopwords :: Maybe Text, _aoStemmingDictionary :: Maybe Text, _aoSynonyms :: Maybe Text, _aoJapaneseTokenizationDictionary :: Maybe Text} deriving (Eq, Read, Show)
+data AnalysisOptions = AnalysisOptions'
+    { _aoAlgorithmicStemming            :: Maybe AlgorithmicStemming
+    , _aoStopwords                      :: Maybe Text
+    , _aoStemmingDictionary             :: Maybe Text
+    , _aoSynonyms                       :: Maybe Text
+    , _aoJapaneseTokenizationDictionary :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AnalysisOptions' smart constructor.
 analysisOptions :: AnalysisOptions
-analysisOptions = AnalysisOptions'{_aoAlgorithmicStemming = Nothing, _aoStopwords = Nothing, _aoStemmingDictionary = Nothing, _aoSynonyms = Nothing, _aoJapaneseTokenizationDictionary = Nothing};
+analysisOptions =
+    AnalysisOptions'
+    { _aoAlgorithmicStemming = Nothing
+    , _aoStopwords = Nothing
+    , _aoStemmingDictionary = Nothing
+    , _aoSynonyms = Nothing
+    , _aoJapaneseTokenizationDictionary = Nothing
+    }
 
 -- | The level of algorithmic stemming to perform: @none@, @minimal@,
 -- @light@, or @full@. The available levels vary depending on the language.
@@ -731,11 +830,20 @@ instance ToQuery AnalysisOptions where
 -- * 'asAnalysisSchemeName'
 --
 -- * 'asAnalysisSchemeLanguage'
-data AnalysisScheme = AnalysisScheme'{_asAnalysisOptions :: Maybe AnalysisOptions, _asAnalysisSchemeName :: Text, _asAnalysisSchemeLanguage :: AnalysisSchemeLanguage} deriving (Eq, Read, Show)
+data AnalysisScheme = AnalysisScheme'
+    { _asAnalysisOptions        :: Maybe AnalysisOptions
+    , _asAnalysisSchemeName     :: Text
+    , _asAnalysisSchemeLanguage :: AnalysisSchemeLanguage
+    } deriving (Eq,Read,Show)
 
 -- | 'AnalysisScheme' smart constructor.
 analysisScheme :: Text -> AnalysisSchemeLanguage -> AnalysisScheme
-analysisScheme pAnalysisSchemeName pAnalysisSchemeLanguage = AnalysisScheme'{_asAnalysisOptions = Nothing, _asAnalysisSchemeName = pAnalysisSchemeName, _asAnalysisSchemeLanguage = pAnalysisSchemeLanguage};
+analysisScheme pAnalysisSchemeName pAnalysisSchemeLanguage =
+    AnalysisScheme'
+    { _asAnalysisOptions = Nothing
+    , _asAnalysisSchemeName = pAnalysisSchemeName
+    , _asAnalysisSchemeLanguage = pAnalysisSchemeLanguage
+    }
 
 -- | FIXME: Undocumented member.
 asAnalysisOptions :: Lens' AnalysisScheme (Maybe AnalysisOptions)
@@ -773,11 +881,18 @@ instance ToQuery AnalysisScheme where
 -- * 'assOptions'
 --
 -- * 'assStatus'
-data AnalysisSchemeStatus = AnalysisSchemeStatus'{_assOptions :: AnalysisScheme, _assStatus :: OptionStatus} deriving (Eq, Read, Show)
+data AnalysisSchemeStatus = AnalysisSchemeStatus'
+    { _assOptions :: AnalysisScheme
+    , _assStatus  :: OptionStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'AnalysisSchemeStatus' smart constructor.
 analysisSchemeStatus :: AnalysisScheme -> OptionStatus -> AnalysisSchemeStatus
-analysisSchemeStatus pOptions pStatus = AnalysisSchemeStatus'{_assOptions = pOptions, _assStatus = pStatus};
+analysisSchemeStatus pOptions pStatus =
+    AnalysisSchemeStatus'
+    { _assOptions = pOptions
+    , _assStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 assOptions :: Lens' AnalysisSchemeStatus AnalysisScheme
@@ -801,11 +916,18 @@ instance FromXML AnalysisSchemeStatus where
 -- * 'aosOptions'
 --
 -- * 'aosStatus'
-data AvailabilityOptionsStatus = AvailabilityOptionsStatus'{_aosOptions :: Bool, _aosStatus :: OptionStatus} deriving (Eq, Read, Show)
+data AvailabilityOptionsStatus = AvailabilityOptionsStatus'
+    { _aosOptions :: !Bool
+    , _aosStatus  :: OptionStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'AvailabilityOptionsStatus' smart constructor.
 availabilityOptionsStatus :: Bool -> OptionStatus -> AvailabilityOptionsStatus
-availabilityOptionsStatus pOptions pStatus = AvailabilityOptionsStatus'{_aosOptions = pOptions, _aosStatus = pStatus};
+availabilityOptionsStatus pOptions pStatus =
+    AvailabilityOptionsStatus'
+    { _aosOptions = pOptions
+    , _aosStatus = pStatus
+    }
 
 -- | The availability options configured for the domain.
 aosOptions :: Lens' AvailabilityOptionsStatus Bool
@@ -837,11 +959,24 @@ instance FromXML AvailabilityOptionsStatus where
 -- * 'datSearchEnabled'
 --
 -- * 'datDefaultValue'
-data DateArrayOptions = DateArrayOptions'{_datSourceFields :: Maybe Text, _datReturnEnabled :: Maybe Bool, _datFacetEnabled :: Maybe Bool, _datSearchEnabled :: Maybe Bool, _datDefaultValue :: Maybe Text} deriving (Eq, Read, Show)
+data DateArrayOptions = DateArrayOptions'
+    { _datSourceFields  :: Maybe Text
+    , _datReturnEnabled :: Maybe Bool
+    , _datFacetEnabled  :: Maybe Bool
+    , _datSearchEnabled :: Maybe Bool
+    , _datDefaultValue  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DateArrayOptions' smart constructor.
 dateArrayOptions :: DateArrayOptions
-dateArrayOptions = DateArrayOptions'{_datSourceFields = Nothing, _datReturnEnabled = Nothing, _datFacetEnabled = Nothing, _datSearchEnabled = Nothing, _datDefaultValue = Nothing};
+dateArrayOptions =
+    DateArrayOptions'
+    { _datSourceFields = Nothing
+    , _datReturnEnabled = Nothing
+    , _datFacetEnabled = Nothing
+    , _datSearchEnabled = Nothing
+    , _datDefaultValue = Nothing
+    }
 
 -- | A list of source fields to map to the field.
 datSourceFields :: Lens' DateArrayOptions (Maybe Text)
@@ -901,11 +1036,26 @@ instance ToQuery DateArrayOptions where
 -- * 'doSortEnabled'
 --
 -- * 'doDefaultValue'
-data DateOptions = DateOptions'{_doSourceField :: Maybe Text, _doReturnEnabled :: Maybe Bool, _doFacetEnabled :: Maybe Bool, _doSearchEnabled :: Maybe Bool, _doSortEnabled :: Maybe Bool, _doDefaultValue :: Maybe Text} deriving (Eq, Read, Show)
+data DateOptions = DateOptions'
+    { _doSourceField   :: Maybe Text
+    , _doReturnEnabled :: Maybe Bool
+    , _doFacetEnabled  :: Maybe Bool
+    , _doSearchEnabled :: Maybe Bool
+    , _doSortEnabled   :: Maybe Bool
+    , _doDefaultValue  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DateOptions' smart constructor.
 dateOptions :: DateOptions
-dateOptions = DateOptions'{_doSourceField = Nothing, _doReturnEnabled = Nothing, _doFacetEnabled = Nothing, _doSearchEnabled = Nothing, _doSortEnabled = Nothing, _doDefaultValue = Nothing};
+dateOptions =
+    DateOptions'
+    { _doSourceField = Nothing
+    , _doReturnEnabled = Nothing
+    , _doFacetEnabled = Nothing
+    , _doSearchEnabled = Nothing
+    , _doSortEnabled = Nothing
+    , _doDefaultValue = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 doSourceField :: Lens' DateOptions (Maybe Text)
@@ -962,11 +1112,20 @@ instance ToQuery DateOptions where
 -- * 'dsoFuzzyMatching'
 --
 -- * 'dsoSourceField'
-data DocumentSuggesterOptions = DocumentSuggesterOptions'{_dsoSortExpression :: Maybe Text, _dsoFuzzyMatching :: Maybe SuggesterFuzzyMatching, _dsoSourceField :: Text} deriving (Eq, Read, Show)
+data DocumentSuggesterOptions = DocumentSuggesterOptions'
+    { _dsoSortExpression :: Maybe Text
+    , _dsoFuzzyMatching  :: Maybe SuggesterFuzzyMatching
+    , _dsoSourceField    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DocumentSuggesterOptions' smart constructor.
 documentSuggesterOptions :: Text -> DocumentSuggesterOptions
-documentSuggesterOptions pSourceField = DocumentSuggesterOptions'{_dsoSortExpression = Nothing, _dsoFuzzyMatching = Nothing, _dsoSourceField = pSourceField};
+documentSuggesterOptions pSourceField =
+    DocumentSuggesterOptions'
+    { _dsoSortExpression = Nothing
+    , _dsoFuzzyMatching = Nothing
+    , _dsoSourceField = pSourceField
+    }
 
 -- | An expression that computes a score for each suggestion to control how
 -- they are sorted. The scores are rounded to the nearest integer, with a
@@ -1035,11 +1194,40 @@ instance ToQuery DocumentSuggesterOptions where
 -- * 'dsDomainName'
 --
 -- * 'dsRequiresIndexDocuments'
-data DomainStatus = DomainStatus'{_dsSearchInstanceCount :: Maybe Nat, _dsSearchInstanceType :: Maybe Text, _dsARN :: Maybe Text, _dsDocService :: Maybe ServiceEndpoint, _dsCreated :: Maybe Bool, _dsSearchService :: Maybe ServiceEndpoint, _dsLimits :: Maybe Limits, _dsSearchPartitionCount :: Maybe Nat, _dsDeleted :: Maybe Bool, _dsProcessing :: Maybe Bool, _dsDomainId :: Text, _dsDomainName :: Text, _dsRequiresIndexDocuments :: Bool} deriving (Eq, Read, Show)
+data DomainStatus = DomainStatus'
+    { _dsSearchInstanceCount    :: Maybe Nat
+    , _dsSearchInstanceType     :: Maybe Text
+    , _dsARN                    :: Maybe Text
+    , _dsDocService             :: Maybe ServiceEndpoint
+    , _dsCreated                :: Maybe Bool
+    , _dsSearchService          :: Maybe ServiceEndpoint
+    , _dsLimits                 :: Maybe Limits
+    , _dsSearchPartitionCount   :: Maybe Nat
+    , _dsDeleted                :: Maybe Bool
+    , _dsProcessing             :: Maybe Bool
+    , _dsDomainId               :: Text
+    , _dsDomainName             :: Text
+    , _dsRequiresIndexDocuments :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DomainStatus' smart constructor.
 domainStatus :: Text -> Text -> Bool -> DomainStatus
-domainStatus pDomainId pDomainName pRequiresIndexDocuments = DomainStatus'{_dsSearchInstanceCount = Nothing, _dsSearchInstanceType = Nothing, _dsARN = Nothing, _dsDocService = Nothing, _dsCreated = Nothing, _dsSearchService = Nothing, _dsLimits = Nothing, _dsSearchPartitionCount = Nothing, _dsDeleted = Nothing, _dsProcessing = Nothing, _dsDomainId = pDomainId, _dsDomainName = pDomainName, _dsRequiresIndexDocuments = pRequiresIndexDocuments};
+domainStatus pDomainId pDomainName pRequiresIndexDocuments =
+    DomainStatus'
+    { _dsSearchInstanceCount = Nothing
+    , _dsSearchInstanceType = Nothing
+    , _dsARN = Nothing
+    , _dsDocService = Nothing
+    , _dsCreated = Nothing
+    , _dsSearchService = Nothing
+    , _dsLimits = Nothing
+    , _dsSearchPartitionCount = Nothing
+    , _dsDeleted = Nothing
+    , _dsProcessing = Nothing
+    , _dsDomainId = pDomainId
+    , _dsDomainName = pDomainName
+    , _dsRequiresIndexDocuments = pRequiresIndexDocuments
+    }
 
 -- | The number of search instances that are available to process search
 -- requests.
@@ -1137,11 +1325,24 @@ instance FromXML DomainStatus where
 -- * 'daoSearchEnabled'
 --
 -- * 'daoDefaultValue'
-data DoubleArrayOptions = DoubleArrayOptions'{_daoSourceFields :: Maybe Text, _daoReturnEnabled :: Maybe Bool, _daoFacetEnabled :: Maybe Bool, _daoSearchEnabled :: Maybe Bool, _daoDefaultValue :: Maybe Double} deriving (Eq, Read, Show)
+data DoubleArrayOptions = DoubleArrayOptions'
+    { _daoSourceFields  :: Maybe Text
+    , _daoReturnEnabled :: Maybe Bool
+    , _daoFacetEnabled  :: Maybe Bool
+    , _daoSearchEnabled :: Maybe Bool
+    , _daoDefaultValue  :: Maybe Double
+    } deriving (Eq,Read,Show)
 
 -- | 'DoubleArrayOptions' smart constructor.
 doubleArrayOptions :: DoubleArrayOptions
-doubleArrayOptions = DoubleArrayOptions'{_daoSourceFields = Nothing, _daoReturnEnabled = Nothing, _daoFacetEnabled = Nothing, _daoSearchEnabled = Nothing, _daoDefaultValue = Nothing};
+doubleArrayOptions =
+    DoubleArrayOptions'
+    { _daoSourceFields = Nothing
+    , _daoReturnEnabled = Nothing
+    , _daoFacetEnabled = Nothing
+    , _daoSearchEnabled = Nothing
+    , _daoDefaultValue = Nothing
+    }
 
 -- | A list of source fields to map to the field.
 daoSourceFields :: Lens' DoubleArrayOptions (Maybe Text)
@@ -1200,11 +1401,26 @@ instance ToQuery DoubleArrayOptions where
 -- * 'douSortEnabled'
 --
 -- * 'douDefaultValue'
-data DoubleOptions = DoubleOptions'{_douSourceField :: Maybe Text, _douReturnEnabled :: Maybe Bool, _douFacetEnabled :: Maybe Bool, _douSearchEnabled :: Maybe Bool, _douSortEnabled :: Maybe Bool, _douDefaultValue :: Maybe Double} deriving (Eq, Read, Show)
+data DoubleOptions = DoubleOptions'
+    { _douSourceField   :: Maybe Text
+    , _douReturnEnabled :: Maybe Bool
+    , _douFacetEnabled  :: Maybe Bool
+    , _douSearchEnabled :: Maybe Bool
+    , _douSortEnabled   :: Maybe Bool
+    , _douDefaultValue  :: Maybe Double
+    } deriving (Eq,Read,Show)
 
 -- | 'DoubleOptions' smart constructor.
 doubleOptions :: DoubleOptions
-doubleOptions = DoubleOptions'{_douSourceField = Nothing, _douReturnEnabled = Nothing, _douFacetEnabled = Nothing, _douSearchEnabled = Nothing, _douSortEnabled = Nothing, _douDefaultValue = Nothing};
+doubleOptions =
+    DoubleOptions'
+    { _douSourceField = Nothing
+    , _douReturnEnabled = Nothing
+    , _douFacetEnabled = Nothing
+    , _douSearchEnabled = Nothing
+    , _douSortEnabled = Nothing
+    , _douDefaultValue = Nothing
+    }
 
 -- | The name of the source field to map to the field.
 douSourceField :: Lens' DoubleOptions (Maybe Text)
@@ -1262,11 +1478,18 @@ instance ToQuery DoubleOptions where
 -- * 'expExpressionName'
 --
 -- * 'expExpressionValue'
-data Expression = Expression'{_expExpressionName :: Text, _expExpressionValue :: Text} deriving (Eq, Read, Show)
+data Expression = Expression'
+    { _expExpressionName  :: Text
+    , _expExpressionValue :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Expression' smart constructor.
 expression :: Text -> Text -> Expression
-expression pExpressionName pExpressionValue = Expression'{_expExpressionName = pExpressionName, _expExpressionValue = pExpressionValue};
+expression pExpressionName pExpressionValue =
+    Expression'
+    { _expExpressionName = pExpressionName
+    , _expExpressionValue = pExpressionValue
+    }
 
 -- | FIXME: Undocumented member.
 expExpressionName :: Lens' Expression Text
@@ -1296,11 +1519,18 @@ instance ToQuery Expression where
 -- * 'esOptions'
 --
 -- * 'esStatus'
-data ExpressionStatus = ExpressionStatus'{_esOptions :: Expression, _esStatus :: OptionStatus} deriving (Eq, Read, Show)
+data ExpressionStatus = ExpressionStatus'
+    { _esOptions :: Expression
+    , _esStatus  :: OptionStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'ExpressionStatus' smart constructor.
 expressionStatus :: Expression -> OptionStatus -> ExpressionStatus
-expressionStatus pOptions pStatus = ExpressionStatus'{_esOptions = pOptions, _esStatus = pStatus};
+expressionStatus pOptions pStatus =
+    ExpressionStatus'
+    { _esOptions = pOptions
+    , _esStatus = pStatus
+    }
 
 -- | The expression that is evaluated for sorting while processing a search
 -- request.
@@ -1348,11 +1578,40 @@ instance FromXML ExpressionStatus where
 -- * 'ifIndexFieldName'
 --
 -- * 'ifIndexFieldType'
-data IndexField = IndexField'{_ifDateOptions :: Maybe DateOptions, _ifTextArrayOptions :: Maybe TextArrayOptions, _ifDoubleArrayOptions :: Maybe DoubleArrayOptions, _ifDoubleOptions :: Maybe DoubleOptions, _ifTextOptions :: Maybe TextOptions, _ifLatLonOptions :: Maybe LatLonOptions, _ifIntArrayOptions :: Maybe IntArrayOptions, _ifLiteralArrayOptions :: Maybe LiteralArrayOptions, _ifDateArrayOptions :: Maybe DateArrayOptions, _ifLiteralOptions :: Maybe LiteralOptions, _ifIntOptions :: Maybe IntOptions, _ifIndexFieldName :: Text, _ifIndexFieldType :: IndexFieldType} deriving (Eq, Read, Show)
+data IndexField = IndexField'
+    { _ifDateOptions         :: Maybe DateOptions
+    , _ifTextArrayOptions    :: Maybe TextArrayOptions
+    , _ifDoubleArrayOptions  :: Maybe DoubleArrayOptions
+    , _ifDoubleOptions       :: Maybe DoubleOptions
+    , _ifTextOptions         :: Maybe TextOptions
+    , _ifLatLonOptions       :: Maybe LatLonOptions
+    , _ifIntArrayOptions     :: Maybe IntArrayOptions
+    , _ifLiteralArrayOptions :: Maybe LiteralArrayOptions
+    , _ifDateArrayOptions    :: Maybe DateArrayOptions
+    , _ifLiteralOptions      :: Maybe LiteralOptions
+    , _ifIntOptions          :: Maybe IntOptions
+    , _ifIndexFieldName      :: Text
+    , _ifIndexFieldType      :: IndexFieldType
+    } deriving (Eq,Read,Show)
 
 -- | 'IndexField' smart constructor.
 indexField :: Text -> IndexFieldType -> IndexField
-indexField pIndexFieldName pIndexFieldType = IndexField'{_ifDateOptions = Nothing, _ifTextArrayOptions = Nothing, _ifDoubleArrayOptions = Nothing, _ifDoubleOptions = Nothing, _ifTextOptions = Nothing, _ifLatLonOptions = Nothing, _ifIntArrayOptions = Nothing, _ifLiteralArrayOptions = Nothing, _ifDateArrayOptions = Nothing, _ifLiteralOptions = Nothing, _ifIntOptions = Nothing, _ifIndexFieldName = pIndexFieldName, _ifIndexFieldType = pIndexFieldType};
+indexField pIndexFieldName pIndexFieldType =
+    IndexField'
+    { _ifDateOptions = Nothing
+    , _ifTextArrayOptions = Nothing
+    , _ifDoubleArrayOptions = Nothing
+    , _ifDoubleOptions = Nothing
+    , _ifTextOptions = Nothing
+    , _ifLatLonOptions = Nothing
+    , _ifIntArrayOptions = Nothing
+    , _ifLiteralArrayOptions = Nothing
+    , _ifDateArrayOptions = Nothing
+    , _ifLiteralOptions = Nothing
+    , _ifIntOptions = Nothing
+    , _ifIndexFieldName = pIndexFieldName
+    , _ifIndexFieldType = pIndexFieldType
+    }
 
 -- | FIXME: Undocumented member.
 ifDateOptions :: Lens' IndexField (Maybe DateOptions)
@@ -1462,11 +1721,18 @@ instance ToQuery IndexField where
 -- * 'ifsOptions'
 --
 -- * 'ifsStatus'
-data IndexFieldStatus = IndexFieldStatus'{_ifsOptions :: IndexField, _ifsStatus :: OptionStatus} deriving (Eq, Read, Show)
+data IndexFieldStatus = IndexFieldStatus'
+    { _ifsOptions :: IndexField
+    , _ifsStatus  :: OptionStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'IndexFieldStatus' smart constructor.
 indexFieldStatus :: IndexField -> OptionStatus -> IndexFieldStatus
-indexFieldStatus pOptions pStatus = IndexFieldStatus'{_ifsOptions = pOptions, _ifsStatus = pStatus};
+indexFieldStatus pOptions pStatus =
+    IndexFieldStatus'
+    { _ifsOptions = pOptions
+    , _ifsStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ifsOptions :: Lens' IndexFieldStatus IndexField
@@ -1498,11 +1764,24 @@ instance FromXML IndexFieldStatus where
 -- * 'iaoSearchEnabled'
 --
 -- * 'iaoDefaultValue'
-data IntArrayOptions = IntArrayOptions'{_iaoSourceFields :: Maybe Text, _iaoReturnEnabled :: Maybe Bool, _iaoFacetEnabled :: Maybe Bool, _iaoSearchEnabled :: Maybe Bool, _iaoDefaultValue :: Maybe Integer} deriving (Eq, Read, Show)
+data IntArrayOptions = IntArrayOptions'
+    { _iaoSourceFields  :: Maybe Text
+    , _iaoReturnEnabled :: Maybe Bool
+    , _iaoFacetEnabled  :: Maybe Bool
+    , _iaoSearchEnabled :: Maybe Bool
+    , _iaoDefaultValue  :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'IntArrayOptions' smart constructor.
 intArrayOptions :: IntArrayOptions
-intArrayOptions = IntArrayOptions'{_iaoSourceFields = Nothing, _iaoReturnEnabled = Nothing, _iaoFacetEnabled = Nothing, _iaoSearchEnabled = Nothing, _iaoDefaultValue = Nothing};
+intArrayOptions =
+    IntArrayOptions'
+    { _iaoSourceFields = Nothing
+    , _iaoReturnEnabled = Nothing
+    , _iaoFacetEnabled = Nothing
+    , _iaoSearchEnabled = Nothing
+    , _iaoDefaultValue = Nothing
+    }
 
 -- | A list of source fields to map to the field.
 iaoSourceFields :: Lens' IntArrayOptions (Maybe Text)
@@ -1561,11 +1840,26 @@ instance ToQuery IntArrayOptions where
 -- * 'ioSortEnabled'
 --
 -- * 'ioDefaultValue'
-data IntOptions = IntOptions'{_ioSourceField :: Maybe Text, _ioReturnEnabled :: Maybe Bool, _ioFacetEnabled :: Maybe Bool, _ioSearchEnabled :: Maybe Bool, _ioSortEnabled :: Maybe Bool, _ioDefaultValue :: Maybe Integer} deriving (Eq, Read, Show)
+data IntOptions = IntOptions'
+    { _ioSourceField   :: Maybe Text
+    , _ioReturnEnabled :: Maybe Bool
+    , _ioFacetEnabled  :: Maybe Bool
+    , _ioSearchEnabled :: Maybe Bool
+    , _ioSortEnabled   :: Maybe Bool
+    , _ioDefaultValue  :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'IntOptions' smart constructor.
 intOptions :: IntOptions
-intOptions = IntOptions'{_ioSourceField = Nothing, _ioReturnEnabled = Nothing, _ioFacetEnabled = Nothing, _ioSearchEnabled = Nothing, _ioSortEnabled = Nothing, _ioDefaultValue = Nothing};
+intOptions =
+    IntOptions'
+    { _ioSourceField = Nothing
+    , _ioReturnEnabled = Nothing
+    , _ioFacetEnabled = Nothing
+    , _ioSearchEnabled = Nothing
+    , _ioSortEnabled = Nothing
+    , _ioDefaultValue = Nothing
+    }
 
 -- | The name of the source field to map to the field.
 ioSourceField :: Lens' IntOptions (Maybe Text)
@@ -1632,11 +1926,26 @@ instance ToQuery IntOptions where
 -- * 'lloSortEnabled'
 --
 -- * 'lloDefaultValue'
-data LatLonOptions = LatLonOptions'{_lloSourceField :: Maybe Text, _lloReturnEnabled :: Maybe Bool, _lloFacetEnabled :: Maybe Bool, _lloSearchEnabled :: Maybe Bool, _lloSortEnabled :: Maybe Bool, _lloDefaultValue :: Maybe Text} deriving (Eq, Read, Show)
+data LatLonOptions = LatLonOptions'
+    { _lloSourceField   :: Maybe Text
+    , _lloReturnEnabled :: Maybe Bool
+    , _lloFacetEnabled  :: Maybe Bool
+    , _lloSearchEnabled :: Maybe Bool
+    , _lloSortEnabled   :: Maybe Bool
+    , _lloDefaultValue  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'LatLonOptions' smart constructor.
 latLonOptions :: LatLonOptions
-latLonOptions = LatLonOptions'{_lloSourceField = Nothing, _lloReturnEnabled = Nothing, _lloFacetEnabled = Nothing, _lloSearchEnabled = Nothing, _lloSortEnabled = Nothing, _lloDefaultValue = Nothing};
+latLonOptions =
+    LatLonOptions'
+    { _lloSourceField = Nothing
+    , _lloReturnEnabled = Nothing
+    , _lloFacetEnabled = Nothing
+    , _lloSearchEnabled = Nothing
+    , _lloSortEnabled = Nothing
+    , _lloDefaultValue = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 lloSourceField :: Lens' LatLonOptions (Maybe Text)
@@ -1689,11 +1998,18 @@ instance ToQuery LatLonOptions where
 -- * 'limMaximumReplicationCount'
 --
 -- * 'limMaximumPartitionCount'
-data Limits = Limits'{_limMaximumReplicationCount :: Nat, _limMaximumPartitionCount :: Nat} deriving (Eq, Read, Show)
+data Limits = Limits'
+    { _limMaximumReplicationCount :: !Nat
+    , _limMaximumPartitionCount   :: !Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'Limits' smart constructor.
 limits :: Natural -> Natural -> Limits
-limits pMaximumReplicationCount pMaximumPartitionCount = Limits'{_limMaximumReplicationCount = _Nat # pMaximumReplicationCount, _limMaximumPartitionCount = _Nat # pMaximumPartitionCount};
+limits pMaximumReplicationCount pMaximumPartitionCount =
+    Limits'
+    { _limMaximumReplicationCount = _Nat # pMaximumReplicationCount
+    , _limMaximumPartitionCount = _Nat # pMaximumPartitionCount
+    }
 
 -- | FIXME: Undocumented member.
 limMaximumReplicationCount :: Lens' Limits Natural
@@ -1726,11 +2042,24 @@ instance FromXML Limits where
 -- * 'laoSearchEnabled'
 --
 -- * 'laoDefaultValue'
-data LiteralArrayOptions = LiteralArrayOptions'{_laoSourceFields :: Maybe Text, _laoReturnEnabled :: Maybe Bool, _laoFacetEnabled :: Maybe Bool, _laoSearchEnabled :: Maybe Bool, _laoDefaultValue :: Maybe Text} deriving (Eq, Read, Show)
+data LiteralArrayOptions = LiteralArrayOptions'
+    { _laoSourceFields  :: Maybe Text
+    , _laoReturnEnabled :: Maybe Bool
+    , _laoFacetEnabled  :: Maybe Bool
+    , _laoSearchEnabled :: Maybe Bool
+    , _laoDefaultValue  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'LiteralArrayOptions' smart constructor.
 literalArrayOptions :: LiteralArrayOptions
-literalArrayOptions = LiteralArrayOptions'{_laoSourceFields = Nothing, _laoReturnEnabled = Nothing, _laoFacetEnabled = Nothing, _laoSearchEnabled = Nothing, _laoDefaultValue = Nothing};
+literalArrayOptions =
+    LiteralArrayOptions'
+    { _laoSourceFields = Nothing
+    , _laoReturnEnabled = Nothing
+    , _laoFacetEnabled = Nothing
+    , _laoSearchEnabled = Nothing
+    , _laoDefaultValue = Nothing
+    }
 
 -- | A list of source fields to map to the field.
 laoSourceFields :: Lens' LiteralArrayOptions (Maybe Text)
@@ -1788,11 +2117,26 @@ instance ToQuery LiteralArrayOptions where
 -- * 'loSortEnabled'
 --
 -- * 'loDefaultValue'
-data LiteralOptions = LiteralOptions'{_loSourceField :: Maybe Text, _loReturnEnabled :: Maybe Bool, _loFacetEnabled :: Maybe Bool, _loSearchEnabled :: Maybe Bool, _loSortEnabled :: Maybe Bool, _loDefaultValue :: Maybe Text} deriving (Eq, Read, Show)
+data LiteralOptions = LiteralOptions'
+    { _loSourceField   :: Maybe Text
+    , _loReturnEnabled :: Maybe Bool
+    , _loFacetEnabled  :: Maybe Bool
+    , _loSearchEnabled :: Maybe Bool
+    , _loSortEnabled   :: Maybe Bool
+    , _loDefaultValue  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'LiteralOptions' smart constructor.
 literalOptions :: LiteralOptions
-literalOptions = LiteralOptions'{_loSourceField = Nothing, _loReturnEnabled = Nothing, _loFacetEnabled = Nothing, _loSearchEnabled = Nothing, _loSortEnabled = Nothing, _loDefaultValue = Nothing};
+literalOptions =
+    LiteralOptions'
+    { _loSourceField = Nothing
+    , _loReturnEnabled = Nothing
+    , _loFacetEnabled = Nothing
+    , _loSearchEnabled = Nothing
+    , _loSortEnabled = Nothing
+    , _loDefaultValue = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 loSourceField :: Lens' LiteralOptions (Maybe Text)
@@ -1853,11 +2197,24 @@ instance ToQuery LiteralOptions where
 -- * 'osUpdateDate'
 --
 -- * 'osState'
-data OptionStatus = OptionStatus'{_osPendingDeletion :: Maybe Bool, _osUpdateVersion :: Maybe Nat, _osCreationDate :: ISO8601, _osUpdateDate :: ISO8601, _osState :: OptionState} deriving (Eq, Read, Show)
+data OptionStatus = OptionStatus'
+    { _osPendingDeletion :: Maybe Bool
+    , _osUpdateVersion   :: Maybe Nat
+    , _osCreationDate    :: ISO8601
+    , _osUpdateDate      :: ISO8601
+    , _osState           :: OptionState
+    } deriving (Eq,Read,Show)
 
 -- | 'OptionStatus' smart constructor.
 optionStatus :: UTCTime -> UTCTime -> OptionState -> OptionStatus
-optionStatus pCreationDate pUpdateDate pState = OptionStatus'{_osPendingDeletion = Nothing, _osUpdateVersion = Nothing, _osCreationDate = _Time # pCreationDate, _osUpdateDate = _Time # pUpdateDate, _osState = pState};
+optionStatus pCreationDate pUpdateDate pState =
+    OptionStatus'
+    { _osPendingDeletion = Nothing
+    , _osUpdateVersion = Nothing
+    , _osCreationDate = _Time # pCreationDate
+    , _osUpdateDate = _Time # pUpdateDate
+    , _osState = pState
+    }
 
 -- | Indicates that the option will be deleted once processing is complete.
 osPendingDeletion :: Lens' OptionStatus (Maybe Bool)
@@ -1910,11 +2267,20 @@ instance FromXML OptionStatus where
 -- * 'spDesiredReplicationCount'
 --
 -- * 'spDesiredPartitionCount'
-data ScalingParameters = ScalingParameters'{_spDesiredInstanceType :: Maybe PartitionInstanceType, _spDesiredReplicationCount :: Maybe Nat, _spDesiredPartitionCount :: Maybe Nat} deriving (Eq, Read, Show)
+data ScalingParameters = ScalingParameters'
+    { _spDesiredInstanceType     :: Maybe PartitionInstanceType
+    , _spDesiredReplicationCount :: Maybe Nat
+    , _spDesiredPartitionCount   :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'ScalingParameters' smart constructor.
 scalingParameters :: ScalingParameters
-scalingParameters = ScalingParameters'{_spDesiredInstanceType = Nothing, _spDesiredReplicationCount = Nothing, _spDesiredPartitionCount = Nothing};
+scalingParameters =
+    ScalingParameters'
+    { _spDesiredInstanceType = Nothing
+    , _spDesiredReplicationCount = Nothing
+    , _spDesiredPartitionCount = Nothing
+    }
 
 -- | The instance type that you want to preconfigure for your domain. For
 -- example, @search.m1.small@.
@@ -1955,11 +2321,18 @@ instance ToQuery ScalingParameters where
 -- * 'spsOptions'
 --
 -- * 'spsStatus'
-data ScalingParametersStatus = ScalingParametersStatus'{_spsOptions :: ScalingParameters, _spsStatus :: OptionStatus} deriving (Eq, Read, Show)
+data ScalingParametersStatus = ScalingParametersStatus'
+    { _spsOptions :: ScalingParameters
+    , _spsStatus  :: OptionStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'ScalingParametersStatus' smart constructor.
 scalingParametersStatus :: ScalingParameters -> OptionStatus -> ScalingParametersStatus
-scalingParametersStatus pOptions pStatus = ScalingParametersStatus'{_spsOptions = pOptions, _spsStatus = pStatus};
+scalingParametersStatus pOptions pStatus =
+    ScalingParametersStatus'
+    { _spsOptions = pOptions
+    , _spsStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 spsOptions :: Lens' ScalingParametersStatus ScalingParameters
@@ -1981,11 +2354,16 @@ instance FromXML ScalingParametersStatus where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'seEndpoint'
-newtype ServiceEndpoint = ServiceEndpoint'{_seEndpoint :: Maybe Text} deriving (Eq, Read, Show)
+newtype ServiceEndpoint = ServiceEndpoint'
+    { _seEndpoint :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ServiceEndpoint' smart constructor.
 serviceEndpoint :: ServiceEndpoint
-serviceEndpoint = ServiceEndpoint'{_seEndpoint = Nothing};
+serviceEndpoint =
+    ServiceEndpoint'
+    { _seEndpoint = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 seEndpoint :: Lens' ServiceEndpoint (Maybe Text)
@@ -2006,11 +2384,18 @@ instance FromXML ServiceEndpoint where
 -- * 'sugSuggesterName'
 --
 -- * 'sugDocumentSuggesterOptions'
-data Suggester = Suggester'{_sugSuggesterName :: Text, _sugDocumentSuggesterOptions :: DocumentSuggesterOptions} deriving (Eq, Read, Show)
+data Suggester = Suggester'
+    { _sugSuggesterName            :: Text
+    , _sugDocumentSuggesterOptions :: DocumentSuggesterOptions
+    } deriving (Eq,Read,Show)
 
 -- | 'Suggester' smart constructor.
 suggester :: Text -> DocumentSuggesterOptions -> Suggester
-suggester pSuggesterName pDocumentSuggesterOptions = Suggester'{_sugSuggesterName = pSuggesterName, _sugDocumentSuggesterOptions = pDocumentSuggesterOptions};
+suggester pSuggesterName pDocumentSuggesterOptions =
+    Suggester'
+    { _sugSuggesterName = pSuggesterName
+    , _sugDocumentSuggesterOptions = pDocumentSuggesterOptions
+    }
 
 -- | FIXME: Undocumented member.
 sugSuggesterName :: Lens' Suggester Text
@@ -2042,11 +2427,18 @@ instance ToQuery Suggester where
 -- * 'ssOptions'
 --
 -- * 'ssStatus'
-data SuggesterStatus = SuggesterStatus'{_ssOptions :: Suggester, _ssStatus :: OptionStatus} deriving (Eq, Read, Show)
+data SuggesterStatus = SuggesterStatus'
+    { _ssOptions :: Suggester
+    , _ssStatus  :: OptionStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'SuggesterStatus' smart constructor.
 suggesterStatus :: Suggester -> OptionStatus -> SuggesterStatus
-suggesterStatus pOptions pStatus = SuggesterStatus'{_ssOptions = pOptions, _ssStatus = pStatus};
+suggesterStatus pOptions pStatus =
+    SuggesterStatus'
+    { _ssOptions = pOptions
+    , _ssStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ssOptions :: Lens' SuggesterStatus Suggester
@@ -2079,11 +2471,24 @@ instance FromXML SuggesterStatus where
 -- * 'taoHighlightEnabled'
 --
 -- * 'taoDefaultValue'
-data TextArrayOptions = TextArrayOptions'{_taoSourceFields :: Maybe Text, _taoReturnEnabled :: Maybe Bool, _taoAnalysisScheme :: Maybe Text, _taoHighlightEnabled :: Maybe Bool, _taoDefaultValue :: Maybe Text} deriving (Eq, Read, Show)
+data TextArrayOptions = TextArrayOptions'
+    { _taoSourceFields     :: Maybe Text
+    , _taoReturnEnabled    :: Maybe Bool
+    , _taoAnalysisScheme   :: Maybe Text
+    , _taoHighlightEnabled :: Maybe Bool
+    , _taoDefaultValue     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'TextArrayOptions' smart constructor.
 textArrayOptions :: TextArrayOptions
-textArrayOptions = TextArrayOptions'{_taoSourceFields = Nothing, _taoReturnEnabled = Nothing, _taoAnalysisScheme = Nothing, _taoHighlightEnabled = Nothing, _taoDefaultValue = Nothing};
+textArrayOptions =
+    TextArrayOptions'
+    { _taoSourceFields = Nothing
+    , _taoReturnEnabled = Nothing
+    , _taoAnalysisScheme = Nothing
+    , _taoHighlightEnabled = Nothing
+    , _taoDefaultValue = Nothing
+    }
 
 -- | A list of source fields to map to the field.
 taoSourceFields :: Lens' TextArrayOptions (Maybe Text)
@@ -2142,11 +2547,26 @@ instance ToQuery TextArrayOptions where
 -- * 'toSortEnabled'
 --
 -- * 'toDefaultValue'
-data TextOptions = TextOptions'{_toSourceField :: Maybe Text, _toReturnEnabled :: Maybe Bool, _toAnalysisScheme :: Maybe Text, _toHighlightEnabled :: Maybe Bool, _toSortEnabled :: Maybe Bool, _toDefaultValue :: Maybe Text} deriving (Eq, Read, Show)
+data TextOptions = TextOptions'
+    { _toSourceField      :: Maybe Text
+    , _toReturnEnabled    :: Maybe Bool
+    , _toAnalysisScheme   :: Maybe Text
+    , _toHighlightEnabled :: Maybe Bool
+    , _toSortEnabled      :: Maybe Bool
+    , _toDefaultValue     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'TextOptions' smart constructor.
 textOptions :: TextOptions
-textOptions = TextOptions'{_toSourceField = Nothing, _toReturnEnabled = Nothing, _toAnalysisScheme = Nothing, _toHighlightEnabled = Nothing, _toSortEnabled = Nothing, _toDefaultValue = Nothing};
+textOptions =
+    TextOptions'
+    { _toSourceField = Nothing
+    , _toReturnEnabled = Nothing
+    , _toAnalysisScheme = Nothing
+    , _toHighlightEnabled = Nothing
+    , _toSortEnabled = Nothing
+    , _toDefaultValue = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 toSourceField :: Lens' TextOptions (Maybe Text)

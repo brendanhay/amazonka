@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.DescribeMLModels
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,14 +44,14 @@ module Network.AWS.MachineLearning.DescribeMLModels
     -- ** Response lenses
     , descResults
     , descNextToken
-    , descStatusCode
+    , descStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeMLModels' smart constructor.
 --
@@ -78,11 +78,36 @@ import Network.AWS.Response
 -- * 'dmlmFilterVariable'
 --
 -- * 'dmlmLE'
-data DescribeMLModels = DescribeMLModels'{_dmlmEQ :: Maybe Text, _dmlmGE :: Maybe Text, _dmlmPrefix :: Maybe Text, _dmlmGT :: Maybe Text, _dmlmNE :: Maybe Text, _dmlmNextToken :: Maybe Text, _dmlmSortOrder :: Maybe SortOrder, _dmlmLimit :: Maybe Nat, _dmlmLT :: Maybe Text, _dmlmFilterVariable :: Maybe MLModelFilterVariable, _dmlmLE :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeMLModels = DescribeMLModels'
+    { _dmlmEQ             :: Maybe Text
+    , _dmlmGE             :: Maybe Text
+    , _dmlmPrefix         :: Maybe Text
+    , _dmlmGT             :: Maybe Text
+    , _dmlmNE             :: Maybe Text
+    , _dmlmNextToken      :: Maybe Text
+    , _dmlmSortOrder      :: Maybe SortOrder
+    , _dmlmLimit          :: Maybe Nat
+    , _dmlmLT             :: Maybe Text
+    , _dmlmFilterVariable :: Maybe MLModelFilterVariable
+    , _dmlmLE             :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMLModels' smart constructor.
 describeMLModels :: DescribeMLModels
-describeMLModels = DescribeMLModels'{_dmlmEQ = Nothing, _dmlmGE = Nothing, _dmlmPrefix = Nothing, _dmlmGT = Nothing, _dmlmNE = Nothing, _dmlmNextToken = Nothing, _dmlmSortOrder = Nothing, _dmlmLimit = Nothing, _dmlmLT = Nothing, _dmlmFilterVariable = Nothing, _dmlmLE = Nothing};
+describeMLModels =
+    DescribeMLModels'
+    { _dmlmEQ = Nothing
+    , _dmlmGE = Nothing
+    , _dmlmPrefix = Nothing
+    , _dmlmGT = Nothing
+    , _dmlmNE = Nothing
+    , _dmlmNextToken = Nothing
+    , _dmlmSortOrder = Nothing
+    , _dmlmLimit = Nothing
+    , _dmlmLT = Nothing
+    , _dmlmFilterVariable = Nothing
+    , _dmlmLE = Nothing
+    }
 
 -- | The equal to operator. The @MLModel@ results will have @FilterVariable@
 -- values that exactly match the value specified with @EQ@.
@@ -230,12 +255,21 @@ instance ToQuery DescribeMLModels where
 --
 -- * 'descNextToken'
 --
--- * 'descStatusCode'
-data DescribeMLModelsResponse = DescribeMLModelsResponse'{_descResults :: Maybe [MLModel], _descNextToken :: Maybe Text, _descStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'descStatus'
+data DescribeMLModelsResponse = DescribeMLModelsResponse'
+    { _descResults   :: Maybe [MLModel]
+    , _descNextToken :: Maybe Text
+    , _descStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMLModelsResponse' smart constructor.
 describeMLModelsResponse :: Int -> DescribeMLModelsResponse
-describeMLModelsResponse pStatusCode = DescribeMLModelsResponse'{_descResults = Nothing, _descNextToken = Nothing, _descStatusCode = pStatusCode};
+describeMLModelsResponse pStatus =
+    DescribeMLModelsResponse'
+    { _descResults = Nothing
+    , _descNextToken = Nothing
+    , _descStatus = pStatus
+    }
 
 -- | A list of MLModel that meet the search criteria.
 descResults :: Lens' DescribeMLModelsResponse [MLModel]
@@ -247,5 +281,5 @@ descNextToken :: Lens' DescribeMLModelsResponse (Maybe Text)
 descNextToken = lens _descNextToken (\ s a -> s{_descNextToken = a});
 
 -- | FIXME: Undocumented member.
-descStatusCode :: Lens' DescribeMLModelsResponse Int
-descStatusCode = lens _descStatusCode (\ s a -> s{_descStatusCode = a});
+descStatus :: Lens' DescribeMLModelsResponse Int
+descStatus = lens _descStatus (\ s a -> s{_descStatus = a});

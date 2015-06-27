@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.CreateInstanceProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.IAM.CreateInstanceProfile
     , createInstanceProfileResponse
     -- ** Response lenses
     , ciprInstanceProfile
-    , ciprStatusCode
+    , ciprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createInstanceProfile' smart constructor.
 --
@@ -55,11 +55,18 @@ import Network.AWS.Response
 -- * 'cipPath'
 --
 -- * 'cipInstanceProfileName'
-data CreateInstanceProfile = CreateInstanceProfile'{_cipPath :: Maybe Text, _cipInstanceProfileName :: Text} deriving (Eq, Read, Show)
+data CreateInstanceProfile = CreateInstanceProfile'
+    { _cipPath                :: Maybe Text
+    , _cipInstanceProfileName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateInstanceProfile' smart constructor.
 createInstanceProfile :: Text -> CreateInstanceProfile
-createInstanceProfile pInstanceProfileName = CreateInstanceProfile'{_cipPath = Nothing, _cipInstanceProfileName = pInstanceProfileName};
+createInstanceProfile pInstanceProfileName =
+    CreateInstanceProfile'
+    { _cipPath = Nothing
+    , _cipInstanceProfileName = pInstanceProfileName
+    }
 
 -- | The path to the instance profile. For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
@@ -107,17 +114,24 @@ instance ToQuery CreateInstanceProfile where
 --
 -- * 'ciprInstanceProfile'
 --
--- * 'ciprStatusCode'
-data CreateInstanceProfileResponse = CreateInstanceProfileResponse'{_ciprInstanceProfile :: InstanceProfile, _ciprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ciprStatus'
+data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
+    { _ciprInstanceProfile :: InstanceProfile
+    , _ciprStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateInstanceProfileResponse' smart constructor.
 createInstanceProfileResponse :: InstanceProfile -> Int -> CreateInstanceProfileResponse
-createInstanceProfileResponse pInstanceProfile pStatusCode = CreateInstanceProfileResponse'{_ciprInstanceProfile = pInstanceProfile, _ciprStatusCode = pStatusCode};
+createInstanceProfileResponse pInstanceProfile pStatus =
+    CreateInstanceProfileResponse'
+    { _ciprInstanceProfile = pInstanceProfile
+    , _ciprStatus = pStatus
+    }
 
 -- | Information about the instance profile.
 ciprInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
 ciprInstanceProfile = lens _ciprInstanceProfile (\ s a -> s{_ciprInstanceProfile = a});
 
 -- | FIXME: Undocumented member.
-ciprStatusCode :: Lens' CreateInstanceProfileResponse Int
-ciprStatusCode = lens _ciprStatusCode (\ s a -> s{_ciprStatusCode = a});
+ciprStatus :: Lens' CreateInstanceProfileResponse Int
+ciprStatus = lens _ciprStatus (\ s a -> s{_ciprStatus = a});

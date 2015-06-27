@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.CopySnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.ElastiCache.CopySnapshot
     , copySnapshotResponse
     -- ** Response lenses
     , csrSnapshot
-    , csrStatusCode
+    , csrStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /CopySnapshotMessage/ action.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'csSourceSnapshotName'
 --
 -- * 'csTargetSnapshotName'
-data CopySnapshot = CopySnapshot'{_csSourceSnapshotName :: Text, _csTargetSnapshotName :: Text} deriving (Eq, Read, Show)
+data CopySnapshot = CopySnapshot'
+    { _csSourceSnapshotName :: Text
+    , _csTargetSnapshotName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CopySnapshot' smart constructor.
 copySnapshot :: Text -> Text -> CopySnapshot
-copySnapshot pSourceSnapshotName pTargetSnapshotName = CopySnapshot'{_csSourceSnapshotName = pSourceSnapshotName, _csTargetSnapshotName = pTargetSnapshotName};
+copySnapshot pSourceSnapshotName pTargetSnapshotName =
+    CopySnapshot'
+    { _csSourceSnapshotName = pSourceSnapshotName
+    , _csTargetSnapshotName = pTargetSnapshotName
+    }
 
 -- | The name of an existing snapshot from which to copy.
 csSourceSnapshotName :: Lens' CopySnapshot Text
@@ -94,17 +101,24 @@ instance ToQuery CopySnapshot where
 --
 -- * 'csrSnapshot'
 --
--- * 'csrStatusCode'
-data CopySnapshotResponse = CopySnapshotResponse'{_csrSnapshot :: Maybe Snapshot, _csrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'csrStatus'
+data CopySnapshotResponse = CopySnapshotResponse'
+    { _csrSnapshot :: Maybe Snapshot
+    , _csrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CopySnapshotResponse' smart constructor.
 copySnapshotResponse :: Int -> CopySnapshotResponse
-copySnapshotResponse pStatusCode = CopySnapshotResponse'{_csrSnapshot = Nothing, _csrStatusCode = pStatusCode};
+copySnapshotResponse pStatus =
+    CopySnapshotResponse'
+    { _csrSnapshot = Nothing
+    , _csrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 csrSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
 csrSnapshot = lens _csrSnapshot (\ s a -> s{_csrSnapshot = a});
 
 -- | FIXME: Undocumented member.
-csrStatusCode :: Lens' CopySnapshotResponse Int
-csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});
+csrStatus :: Lens' CopySnapshotResponse Int
+csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateApp
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,13 +50,13 @@ module Network.AWS.OpsWorks.CreateApp
     , createAppResponse
     -- ** Response lenses
     , carAppId
-    , carStatusCode
+    , carStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createApp' smart constructor.
 --
@@ -85,11 +85,38 @@ import Network.AWS.Response
 -- * 'caName'
 --
 -- * 'caType'
-data CreateApp = CreateApp'{_caSSLConfiguration :: Maybe SSLConfiguration, _caShortname :: Maybe Text, _caEnableSSL :: Maybe Bool, _caEnvironment :: Maybe [EnvironmentVariable], _caDataSources :: Maybe [DataSource], _caAppSource :: Maybe Source, _caAttributes :: Maybe (Map AppAttributesKeys Text), _caDomains :: Maybe [Text], _caDescription :: Maybe Text, _caStackId :: Text, _caName :: Text, _caType :: AppType} deriving (Eq, Read, Show)
+data CreateApp = CreateApp'
+    { _caSSLConfiguration :: Maybe SSLConfiguration
+    , _caShortname        :: Maybe Text
+    , _caEnableSSL        :: Maybe Bool
+    , _caEnvironment      :: Maybe [EnvironmentVariable]
+    , _caDataSources      :: Maybe [DataSource]
+    , _caAppSource        :: Maybe Source
+    , _caAttributes       :: Maybe (Map AppAttributesKeys Text)
+    , _caDomains          :: Maybe [Text]
+    , _caDescription      :: Maybe Text
+    , _caStackId          :: Text
+    , _caName             :: Text
+    , _caType             :: AppType
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateApp' smart constructor.
 createApp :: Text -> Text -> AppType -> CreateApp
-createApp pStackId pName pType = CreateApp'{_caSSLConfiguration = Nothing, _caShortname = Nothing, _caEnableSSL = Nothing, _caEnvironment = Nothing, _caDataSources = Nothing, _caAppSource = Nothing, _caAttributes = Nothing, _caDomains = Nothing, _caDescription = Nothing, _caStackId = pStackId, _caName = pName, _caType = pType};
+createApp pStackId pName pType =
+    CreateApp'
+    { _caSSLConfiguration = Nothing
+    , _caShortname = Nothing
+    , _caEnableSSL = Nothing
+    , _caEnvironment = Nothing
+    , _caDataSources = Nothing
+    , _caAppSource = Nothing
+    , _caAttributes = Nothing
+    , _caDomains = Nothing
+    , _caDescription = Nothing
+    , _caStackId = pStackId
+    , _caName = pName
+    , _caType = pType
+    }
 
 -- | An @SslConfiguration@ object with the SSL configuration.
 caSSLConfiguration :: Lens' CreateApp (Maybe SSLConfiguration)
@@ -208,17 +235,24 @@ instance ToQuery CreateApp where
 --
 -- * 'carAppId'
 --
--- * 'carStatusCode'
-data CreateAppResponse = CreateAppResponse'{_carAppId :: Maybe Text, _carStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'carStatus'
+data CreateAppResponse = CreateAppResponse'
+    { _carAppId  :: Maybe Text
+    , _carStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAppResponse' smart constructor.
 createAppResponse :: Int -> CreateAppResponse
-createAppResponse pStatusCode = CreateAppResponse'{_carAppId = Nothing, _carStatusCode = pStatusCode};
+createAppResponse pStatus =
+    CreateAppResponse'
+    { _carAppId = Nothing
+    , _carStatus = pStatus
+    }
 
 -- | The app ID.
 carAppId :: Lens' CreateAppResponse (Maybe Text)
 carAppId = lens _carAppId (\ s a -> s{_carAppId = a});
 
 -- | FIXME: Undocumented member.
-carStatusCode :: Lens' CreateAppResponse Int
-carStatusCode = lens _carStatusCode (\ s a -> s{_carStatusCode = a});
+carStatus :: Lens' CreateAppResponse Int
+carStatus = lens _carStatus (\ s a -> s{_carStatus = a});

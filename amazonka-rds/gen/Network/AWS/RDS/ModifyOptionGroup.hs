@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.ModifyOptionGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.RDS.ModifyOptionGroup
     , modifyOptionGroupResponse
     -- ** Response lenses
     , mogrOptionGroup
-    , mogrStatusCode
+    , mogrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -56,11 +56,22 @@ import Network.AWS.Response
 -- * 'mogApplyImmediately'
 --
 -- * 'mogOptionGroupName'
-data ModifyOptionGroup = ModifyOptionGroup'{_mogOptionsToInclude :: Maybe [OptionConfiguration], _mogOptionsToRemove :: Maybe [Text], _mogApplyImmediately :: Maybe Bool, _mogOptionGroupName :: Text} deriving (Eq, Read, Show)
+data ModifyOptionGroup = ModifyOptionGroup'
+    { _mogOptionsToInclude :: Maybe [OptionConfiguration]
+    , _mogOptionsToRemove  :: Maybe [Text]
+    , _mogApplyImmediately :: Maybe Bool
+    , _mogOptionGroupName  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyOptionGroup' smart constructor.
 modifyOptionGroup :: Text -> ModifyOptionGroup
-modifyOptionGroup pOptionGroupName = ModifyOptionGroup'{_mogOptionsToInclude = Nothing, _mogOptionsToRemove = Nothing, _mogApplyImmediately = Nothing, _mogOptionGroupName = pOptionGroupName};
+modifyOptionGroup pOptionGroupName =
+    ModifyOptionGroup'
+    { _mogOptionsToInclude = Nothing
+    , _mogOptionsToRemove = Nothing
+    , _mogApplyImmediately = Nothing
+    , _mogOptionGroupName = pOptionGroupName
+    }
 
 -- | Options in this list are added to the option group or, if already
 -- present, the specified configuration is used to update the existing
@@ -124,17 +135,24 @@ instance ToQuery ModifyOptionGroup where
 --
 -- * 'mogrOptionGroup'
 --
--- * 'mogrStatusCode'
-data ModifyOptionGroupResponse = ModifyOptionGroupResponse'{_mogrOptionGroup :: Maybe OptionGroup, _mogrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'mogrStatus'
+data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
+    { _mogrOptionGroup :: Maybe OptionGroup
+    , _mogrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyOptionGroupResponse' smart constructor.
 modifyOptionGroupResponse :: Int -> ModifyOptionGroupResponse
-modifyOptionGroupResponse pStatusCode = ModifyOptionGroupResponse'{_mogrOptionGroup = Nothing, _mogrStatusCode = pStatusCode};
+modifyOptionGroupResponse pStatus =
+    ModifyOptionGroupResponse'
+    { _mogrOptionGroup = Nothing
+    , _mogrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 mogrOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
 mogrOptionGroup = lens _mogrOptionGroup (\ s a -> s{_mogrOptionGroup = a});
 
 -- | FIXME: Undocumented member.
-mogrStatusCode :: Lens' ModifyOptionGroupResponse Int
-mogrStatusCode = lens _mogrStatusCode (\ s a -> s{_mogrStatusCode = a});
+mogrStatus :: Lens' ModifyOptionGroupResponse Int
+mogrStatus = lens _mogrStatus (\ s a -> s{_mogrStatus = a});

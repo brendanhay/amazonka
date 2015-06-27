@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.GetBucketRequestPayment
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,29 @@ module Network.AWS.S3.GetBucketRequestPayment
     , getBucketRequestPaymentResponse
     -- ** Response lenses
     , gbrprPayer
-    , gbrprStatusCode
+    , gbrprStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketRequestPayment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gbrpBucket'
-newtype GetBucketRequestPayment = GetBucketRequestPayment'{_gbrpBucket :: BucketName} deriving (Eq, Read, Show)
+newtype GetBucketRequestPayment = GetBucketRequestPayment'
+    { _gbrpBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketRequestPayment' smart constructor.
 getBucketRequestPayment :: BucketName -> GetBucketRequestPayment
-getBucketRequestPayment pBucket = GetBucketRequestPayment'{_gbrpBucket = pBucket};
+getBucketRequestPayment pBucket =
+    GetBucketRequestPayment'
+    { _gbrpBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 gbrpBucket :: Lens' GetBucketRequestPayment BucketName
@@ -82,17 +87,24 @@ instance ToQuery GetBucketRequestPayment where
 --
 -- * 'gbrprPayer'
 --
--- * 'gbrprStatusCode'
-data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'{_gbrprPayer :: Maybe Payer, _gbrprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gbrprStatus'
+data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
+    { _gbrprPayer  :: Maybe Payer
+    , _gbrprStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketRequestPaymentResponse' smart constructor.
 getBucketRequestPaymentResponse :: Int -> GetBucketRequestPaymentResponse
-getBucketRequestPaymentResponse pStatusCode = GetBucketRequestPaymentResponse'{_gbrprPayer = Nothing, _gbrprStatusCode = pStatusCode};
+getBucketRequestPaymentResponse pStatus =
+    GetBucketRequestPaymentResponse'
+    { _gbrprPayer = Nothing
+    , _gbrprStatus = pStatus
+    }
 
 -- | Specifies who pays for the download and request fees.
 gbrprPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
 gbrprPayer = lens _gbrprPayer (\ s a -> s{_gbrprPayer = a});
 
 -- | FIXME: Undocumented member.
-gbrprStatusCode :: Lens' GetBucketRequestPaymentResponse Int
-gbrprStatusCode = lens _gbrprStatusCode (\ s a -> s{_gbrprStatusCode = a});
+gbrprStatus :: Lens' GetBucketRequestPaymentResponse Int
+gbrprStatus = lens _gbrprStatus (\ s a -> s{_gbrprStatus = a});

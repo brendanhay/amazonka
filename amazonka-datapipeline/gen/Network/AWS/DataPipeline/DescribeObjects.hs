@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.DescribeObjects
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,14 +39,14 @@ module Network.AWS.DataPipeline.DescribeObjects
     , dorHasMoreResults
     , dorMarker
     , dorPipelineObjects
-    , dorStatusCode
+    , dorStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeObjects.
 --
@@ -61,11 +61,22 @@ import Network.AWS.Response
 -- * 'doPipelineId'
 --
 -- * 'doObjectIds'
-data DescribeObjects = DescribeObjects'{_doEvaluateExpressions :: Maybe Bool, _doMarker :: Maybe Text, _doPipelineId :: Text, _doObjectIds :: [Text]} deriving (Eq, Read, Show)
+data DescribeObjects = DescribeObjects'
+    { _doEvaluateExpressions :: Maybe Bool
+    , _doMarker              :: Maybe Text
+    , _doPipelineId          :: Text
+    , _doObjectIds           :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeObjects' smart constructor.
 describeObjects :: Text -> DescribeObjects
-describeObjects pPipelineId = DescribeObjects'{_doEvaluateExpressions = Nothing, _doMarker = Nothing, _doPipelineId = pPipelineId, _doObjectIds = mempty};
+describeObjects pPipelineId =
+    DescribeObjects'
+    { _doEvaluateExpressions = Nothing
+    , _doMarker = Nothing
+    , _doPipelineId = pPipelineId
+    , _doObjectIds = mempty
+    }
 
 -- | Indicates whether any expressions in the object should be evaluated when
 -- the object descriptions are returned.
@@ -141,12 +152,23 @@ instance ToQuery DescribeObjects where
 --
 -- * 'dorPipelineObjects'
 --
--- * 'dorStatusCode'
-data DescribeObjectsResponse = DescribeObjectsResponse'{_dorHasMoreResults :: Maybe Bool, _dorMarker :: Maybe Text, _dorPipelineObjects :: [PipelineObject], _dorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dorStatus'
+data DescribeObjectsResponse = DescribeObjectsResponse'
+    { _dorHasMoreResults  :: Maybe Bool
+    , _dorMarker          :: Maybe Text
+    , _dorPipelineObjects :: [PipelineObject]
+    , _dorStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeObjectsResponse' smart constructor.
 describeObjectsResponse :: Int -> DescribeObjectsResponse
-describeObjectsResponse pStatusCode = DescribeObjectsResponse'{_dorHasMoreResults = Nothing, _dorMarker = Nothing, _dorPipelineObjects = mempty, _dorStatusCode = pStatusCode};
+describeObjectsResponse pStatus =
+    DescribeObjectsResponse'
+    { _dorHasMoreResults = Nothing
+    , _dorMarker = Nothing
+    , _dorPipelineObjects = mempty
+    , _dorStatus = pStatus
+    }
 
 -- | Indicates whether there are more results to return.
 dorHasMoreResults :: Lens' DescribeObjectsResponse (Maybe Bool)
@@ -163,5 +185,5 @@ dorPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
 dorPipelineObjects = lens _dorPipelineObjects (\ s a -> s{_dorPipelineObjects = a});
 
 -- | FIXME: Undocumented member.
-dorStatusCode :: Lens' DescribeObjectsResponse Int
-dorStatusCode = lens _dorStatusCode (\ s a -> s{_dorStatusCode = a});
+dorStatus :: Lens' DescribeObjectsResponse Int
+dorStatus = lens _dorStatus (\ s a -> s{_dorStatus = a});

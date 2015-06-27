@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.UpdateDeploymentGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , updateDeploymentGroupResponse
     -- ** Response lenses
     , udgrHooksNotCleanedUp
-    , udgrStatusCode
+    , udgrStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of an update deployment group operation.
 --
@@ -68,11 +68,30 @@ import Network.AWS.Response
 -- * 'udgApplicationName'
 --
 -- * 'udgCurrentDeploymentGroupName'
-data UpdateDeploymentGroup = UpdateDeploymentGroup'{_udgServiceRoleARN :: Maybe Text, _udgDeploymentConfigName :: Maybe Text, _udgEc2TagFilters :: Maybe [EC2TagFilter], _udgNewDeploymentGroupName :: Maybe Text, _udgOnPremisesInstanceTagFilters :: Maybe [TagFilter], _udgAutoScalingGroups :: Maybe [Text], _udgApplicationName :: Text, _udgCurrentDeploymentGroupName :: Text} deriving (Eq, Read, Show)
+data UpdateDeploymentGroup = UpdateDeploymentGroup'
+    { _udgServiceRoleARN               :: Maybe Text
+    , _udgDeploymentConfigName         :: Maybe Text
+    , _udgEc2TagFilters                :: Maybe [EC2TagFilter]
+    , _udgNewDeploymentGroupName       :: Maybe Text
+    , _udgOnPremisesInstanceTagFilters :: Maybe [TagFilter]
+    , _udgAutoScalingGroups            :: Maybe [Text]
+    , _udgApplicationName              :: Text
+    , _udgCurrentDeploymentGroupName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDeploymentGroup' smart constructor.
 updateDeploymentGroup :: Text -> Text -> UpdateDeploymentGroup
-updateDeploymentGroup pApplicationName pCurrentDeploymentGroupName = UpdateDeploymentGroup'{_udgServiceRoleARN = Nothing, _udgDeploymentConfigName = Nothing, _udgEc2TagFilters = Nothing, _udgNewDeploymentGroupName = Nothing, _udgOnPremisesInstanceTagFilters = Nothing, _udgAutoScalingGroups = Nothing, _udgApplicationName = pApplicationName, _udgCurrentDeploymentGroupName = pCurrentDeploymentGroupName};
+updateDeploymentGroup pApplicationName pCurrentDeploymentGroupName =
+    UpdateDeploymentGroup'
+    { _udgServiceRoleARN = Nothing
+    , _udgDeploymentConfigName = Nothing
+    , _udgEc2TagFilters = Nothing
+    , _udgNewDeploymentGroupName = Nothing
+    , _udgOnPremisesInstanceTagFilters = Nothing
+    , _udgAutoScalingGroups = Nothing
+    , _udgApplicationName = pApplicationName
+    , _udgCurrentDeploymentGroupName = pCurrentDeploymentGroupName
+    }
 
 -- | A replacement service role\'s ARN, if you want to change it.
 udgServiceRoleARN :: Lens' UpdateDeploymentGroup (Maybe Text)
@@ -161,12 +180,19 @@ instance ToQuery UpdateDeploymentGroup where
 --
 -- * 'udgrHooksNotCleanedUp'
 --
--- * 'udgrStatusCode'
-data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'{_udgrHooksNotCleanedUp :: Maybe [AutoScalingGroup], _udgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'udgrStatus'
+data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
+    { _udgrHooksNotCleanedUp :: Maybe [AutoScalingGroup]
+    , _udgrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDeploymentGroupResponse' smart constructor.
 updateDeploymentGroupResponse :: Int -> UpdateDeploymentGroupResponse
-updateDeploymentGroupResponse pStatusCode = UpdateDeploymentGroupResponse'{_udgrHooksNotCleanedUp = Nothing, _udgrStatusCode = pStatusCode};
+updateDeploymentGroupResponse pStatus =
+    UpdateDeploymentGroupResponse'
+    { _udgrHooksNotCleanedUp = Nothing
+    , _udgrStatus = pStatus
+    }
 
 -- | If the output contains no data, and the corresponding deployment group
 -- contained at least one Auto Scaling group, AWS CodeDeploy successfully
@@ -177,5 +203,5 @@ udgrHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
 udgrHooksNotCleanedUp = lens _udgrHooksNotCleanedUp (\ s a -> s{_udgrHooksNotCleanedUp = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-udgrStatusCode :: Lens' UpdateDeploymentGroupResponse Int
-udgrStatusCode = lens _udgrStatusCode (\ s a -> s{_udgrStatusCode = a});
+udgrStatus :: Lens' UpdateDeploymentGroupResponse Int
+udgrStatus = lens _udgrStatus (\ s a -> s{_udgrStatus = a});

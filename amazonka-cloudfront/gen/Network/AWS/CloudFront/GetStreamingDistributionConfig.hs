@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.GetStreamingDistributionConfig
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.CloudFront.GetStreamingDistributionConfig
     -- ** Response lenses
     , gsdcrStreamingDistributionConfig
     , gsdcrETag
-    , gsdcrStatusCode
+    , gsdcrStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | To request to get a streaming distribution configuration.
 --
@@ -48,11 +48,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gsdcId'
-newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig'{_gsdcId :: Text} deriving (Eq, Read, Show)
+newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig'
+    { _gsdcId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetStreamingDistributionConfig' smart constructor.
 getStreamingDistributionConfig :: Text -> GetStreamingDistributionConfig
-getStreamingDistributionConfig pId = GetStreamingDistributionConfig'{_gsdcId = pId};
+getStreamingDistributionConfig pId =
+    GetStreamingDistributionConfig'
+    { _gsdcId = pId
+    }
 
 -- | The streaming distribution\'s id.
 gsdcId :: Lens' GetStreamingDistributionConfig Text
@@ -95,12 +100,21 @@ instance ToQuery GetStreamingDistributionConfig where
 --
 -- * 'gsdcrETag'
 --
--- * 'gsdcrStatusCode'
-data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse'{_gsdcrStreamingDistributionConfig :: Maybe StreamingDistributionConfig, _gsdcrETag :: Maybe Text, _gsdcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gsdcrStatus'
+data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse'
+    { _gsdcrStreamingDistributionConfig :: Maybe StreamingDistributionConfig
+    , _gsdcrETag                        :: Maybe Text
+    , _gsdcrStatus                      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetStreamingDistributionConfigResponse' smart constructor.
 getStreamingDistributionConfigResponse :: Int -> GetStreamingDistributionConfigResponse
-getStreamingDistributionConfigResponse pStatusCode = GetStreamingDistributionConfigResponse'{_gsdcrStreamingDistributionConfig = Nothing, _gsdcrETag = Nothing, _gsdcrStatusCode = pStatusCode};
+getStreamingDistributionConfigResponse pStatus =
+    GetStreamingDistributionConfigResponse'
+    { _gsdcrStreamingDistributionConfig = Nothing
+    , _gsdcrETag = Nothing
+    , _gsdcrStatus = pStatus
+    }
 
 -- | The streaming distribution\'s configuration information.
 gsdcrStreamingDistributionConfig :: Lens' GetStreamingDistributionConfigResponse (Maybe StreamingDistributionConfig)
@@ -111,5 +125,5 @@ gsdcrETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
 gsdcrETag = lens _gsdcrETag (\ s a -> s{_gsdcrETag = a});
 
 -- | FIXME: Undocumented member.
-gsdcrStatusCode :: Lens' GetStreamingDistributionConfigResponse Int
-gsdcrStatusCode = lens _gsdcrStatusCode (\ s a -> s{_gsdcrStatusCode = a});
+gsdcrStatus :: Lens' GetStreamingDistributionConfigResponse Int
+gsdcrStatus = lens _gsdcrStatus (\ s a -> s{_gsdcrStatus = a});

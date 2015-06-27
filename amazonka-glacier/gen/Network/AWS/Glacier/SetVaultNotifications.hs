@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.SetVaultNotifications
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,10 +68,10 @@ module Network.AWS.Glacier.SetVaultNotifications
     , setVaultNotificationsResponse
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options to configure notifications that will be sent when
 -- specific events happen to a vault.
@@ -85,11 +85,20 @@ import Network.AWS.Response
 -- * 'svnAccountId'
 --
 -- * 'svnVaultName'
-data SetVaultNotifications = SetVaultNotifications'{_svnVaultNotificationConfig :: Maybe VaultNotificationConfig, _svnAccountId :: Text, _svnVaultName :: Text} deriving (Eq, Read, Show)
+data SetVaultNotifications = SetVaultNotifications'
+    { _svnVaultNotificationConfig :: Maybe VaultNotificationConfig
+    , _svnAccountId               :: Text
+    , _svnVaultName               :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetVaultNotifications' smart constructor.
 setVaultNotifications :: Text -> Text -> SetVaultNotifications
-setVaultNotifications pAccountId pVaultName = SetVaultNotifications'{_svnVaultNotificationConfig = Nothing, _svnAccountId = pAccountId, _svnVaultName = pVaultName};
+setVaultNotifications pAccountId pVaultName =
+    SetVaultNotifications'
+    { _svnVaultNotificationConfig = Nothing
+    , _svnAccountId = pAccountId
+    , _svnVaultName = pVaultName
+    }
 
 -- | Provides options for specifying notification configuration.
 svnVaultNotificationConfig :: Lens' SetVaultNotifications (Maybe VaultNotificationConfig)
@@ -133,8 +142,10 @@ instance ToQuery SetVaultNotifications where
         toQuery = const mempty
 
 -- | /See:/ 'setVaultNotificationsResponse' smart constructor.
-data SetVaultNotificationsResponse = SetVaultNotificationsResponse' deriving (Eq, Read, Show)
+data SetVaultNotificationsResponse =
+    SetVaultNotificationsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetVaultNotificationsResponse' smart constructor.
 setVaultNotificationsResponse :: SetVaultNotificationsResponse
-setVaultNotificationsResponse = SetVaultNotificationsResponse';
+setVaultNotificationsResponse = SetVaultNotificationsResponse'

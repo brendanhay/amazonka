@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.RegisterContainerInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.ECS.RegisterContainerInstance
     , registerContainerInstanceResponse
     -- ** Response lenses
     , rcirContainerInstance
-    , rcirStatusCode
+    , rcirStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'registerContainerInstance' smart constructor.
 --
@@ -61,11 +61,24 @@ import Network.AWS.Response
 -- * 'rciVersionInfo'
 --
 -- * 'rciTotalResources'
-data RegisterContainerInstance = RegisterContainerInstance'{_rciInstanceIdentityDocumentSignature :: Maybe Text, _rciCluster :: Maybe Text, _rciInstanceIdentityDocument :: Maybe Text, _rciVersionInfo :: Maybe VersionInfo, _rciTotalResources :: Maybe [Resource]} deriving (Eq, Read, Show)
+data RegisterContainerInstance = RegisterContainerInstance'
+    { _rciInstanceIdentityDocumentSignature :: Maybe Text
+    , _rciCluster                           :: Maybe Text
+    , _rciInstanceIdentityDocument          :: Maybe Text
+    , _rciVersionInfo                       :: Maybe VersionInfo
+    , _rciTotalResources                    :: Maybe [Resource]
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterContainerInstance' smart constructor.
 registerContainerInstance :: RegisterContainerInstance
-registerContainerInstance = RegisterContainerInstance'{_rciInstanceIdentityDocumentSignature = Nothing, _rciCluster = Nothing, _rciInstanceIdentityDocument = Nothing, _rciVersionInfo = Nothing, _rciTotalResources = Nothing};
+registerContainerInstance =
+    RegisterContainerInstance'
+    { _rciInstanceIdentityDocumentSignature = Nothing
+    , _rciCluster = Nothing
+    , _rciInstanceIdentityDocument = Nothing
+    , _rciVersionInfo = Nothing
+    , _rciTotalResources = Nothing
+    }
 
 -- | The instance identity document signature for the Amazon EC2 instance to
 -- register. This signature can be found by running the following command
@@ -140,17 +153,24 @@ instance ToQuery RegisterContainerInstance where
 --
 -- * 'rcirContainerInstance'
 --
--- * 'rcirStatusCode'
-data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'{_rcirContainerInstance :: Maybe ContainerInstance, _rcirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rcirStatus'
+data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
+    { _rcirContainerInstance :: Maybe ContainerInstance
+    , _rcirStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterContainerInstanceResponse' smart constructor.
 registerContainerInstanceResponse :: Int -> RegisterContainerInstanceResponse
-registerContainerInstanceResponse pStatusCode = RegisterContainerInstanceResponse'{_rcirContainerInstance = Nothing, _rcirStatusCode = pStatusCode};
+registerContainerInstanceResponse pStatus =
+    RegisterContainerInstanceResponse'
+    { _rcirContainerInstance = Nothing
+    , _rcirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rcirContainerInstance :: Lens' RegisterContainerInstanceResponse (Maybe ContainerInstance)
 rcirContainerInstance = lens _rcirContainerInstance (\ s a -> s{_rcirContainerInstance = a});
 
 -- | FIXME: Undocumented member.
-rcirStatusCode :: Lens' RegisterContainerInstanceResponse Int
-rcirStatusCode = lens _rcirStatusCode (\ s a -> s{_rcirStatusCode = a});
+rcirStatus :: Lens' RegisterContainerInstanceResponse Int
+rcirStatus = lens _rcirStatus (\ s a -> s{_rcirStatus = a});

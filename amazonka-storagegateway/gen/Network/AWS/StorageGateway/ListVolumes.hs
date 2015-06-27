@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.ListVolumes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,14 +46,14 @@ module Network.AWS.StorageGateway.ListVolumes
     , lvrGatewayARN
     , lvrMarker
     , lvrVolumeInfos
-    , lvrStatusCode
+    , lvrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object that contains one or more of the following fields:
 --
@@ -69,11 +69,20 @@ import Network.AWS.StorageGateway.Types
 -- * 'lvLimit'
 --
 -- * 'lvGatewayARN'
-data ListVolumes = ListVolumes'{_lvMarker :: Maybe Text, _lvLimit :: Maybe Nat, _lvGatewayARN :: Text} deriving (Eq, Read, Show)
+data ListVolumes = ListVolumes'
+    { _lvMarker     :: Maybe Text
+    , _lvLimit      :: Maybe Nat
+    , _lvGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListVolumes' smart constructor.
 listVolumes :: Text -> ListVolumes
-listVolumes pGatewayARN = ListVolumes'{_lvMarker = Nothing, _lvLimit = Nothing, _lvGatewayARN = pGatewayARN};
+listVolumes pGatewayARN =
+    ListVolumes'
+    { _lvMarker = Nothing
+    , _lvLimit = Nothing
+    , _lvGatewayARN = pGatewayARN
+    }
 
 -- | A string that indicates the position at which to begin the returned list
 -- of volumes. Obtain the marker from the response of a previous List iSCSI
@@ -140,12 +149,23 @@ instance ToQuery ListVolumes where
 --
 -- * 'lvrVolumeInfos'
 --
--- * 'lvrStatusCode'
-data ListVolumesResponse = ListVolumesResponse'{_lvrGatewayARN :: Maybe Text, _lvrMarker :: Maybe Text, _lvrVolumeInfos :: Maybe [VolumeInfo], _lvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lvrStatus'
+data ListVolumesResponse = ListVolumesResponse'
+    { _lvrGatewayARN  :: Maybe Text
+    , _lvrMarker      :: Maybe Text
+    , _lvrVolumeInfos :: Maybe [VolumeInfo]
+    , _lvrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListVolumesResponse' smart constructor.
 listVolumesResponse :: Int -> ListVolumesResponse
-listVolumesResponse pStatusCode = ListVolumesResponse'{_lvrGatewayARN = Nothing, _lvrMarker = Nothing, _lvrVolumeInfos = Nothing, _lvrStatusCode = pStatusCode};
+listVolumesResponse pStatus =
+    ListVolumesResponse'
+    { _lvrGatewayARN = Nothing
+    , _lvrMarker = Nothing
+    , _lvrVolumeInfos = Nothing
+    , _lvrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 lvrGatewayARN :: Lens' ListVolumesResponse (Maybe Text)
@@ -160,5 +180,5 @@ lvrVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
 lvrVolumeInfos = lens _lvrVolumeInfos (\ s a -> s{_lvrVolumeInfos = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lvrStatusCode :: Lens' ListVolumesResponse Int
-lvrStatusCode = lens _lvrStatusCode (\ s a -> s{_lvrStatusCode = a});
+lvrStatus :: Lens' ListVolumesResponse Int
+lvrStatus = lens _lvrStatus (\ s a -> s{_lvrStatus = a});

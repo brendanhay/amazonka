@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.RegisterVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.OpsWorks.RegisterVolume
     , registerVolumeResponse
     -- ** Response lenses
     , rvrVolumeId
-    , rvrStatusCode
+    , rvrStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'registerVolume' smart constructor.
 --
@@ -58,11 +58,18 @@ import Network.AWS.Response
 -- * 'rvEC2VolumeId'
 --
 -- * 'rvStackId'
-data RegisterVolume = RegisterVolume'{_rvEC2VolumeId :: Maybe Text, _rvStackId :: Text} deriving (Eq, Read, Show)
+data RegisterVolume = RegisterVolume'
+    { _rvEC2VolumeId :: Maybe Text
+    , _rvStackId     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterVolume' smart constructor.
 registerVolume :: Text -> RegisterVolume
-registerVolume pStackId = RegisterVolume'{_rvEC2VolumeId = Nothing, _rvStackId = pStackId};
+registerVolume pStackId =
+    RegisterVolume'
+    { _rvEC2VolumeId = Nothing
+    , _rvStackId = pStackId
+    }
 
 -- | The Amazon EBS volume ID.
 rvEC2VolumeId :: Lens' RegisterVolume (Maybe Text)
@@ -111,17 +118,24 @@ instance ToQuery RegisterVolume where
 --
 -- * 'rvrVolumeId'
 --
--- * 'rvrStatusCode'
-data RegisterVolumeResponse = RegisterVolumeResponse'{_rvrVolumeId :: Maybe Text, _rvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rvrStatus'
+data RegisterVolumeResponse = RegisterVolumeResponse'
+    { _rvrVolumeId :: Maybe Text
+    , _rvrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterVolumeResponse' smart constructor.
 registerVolumeResponse :: Int -> RegisterVolumeResponse
-registerVolumeResponse pStatusCode = RegisterVolumeResponse'{_rvrVolumeId = Nothing, _rvrStatusCode = pStatusCode};
+registerVolumeResponse pStatus =
+    RegisterVolumeResponse'
+    { _rvrVolumeId = Nothing
+    , _rvrStatus = pStatus
+    }
 
 -- | The volume ID.
 rvrVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
 rvrVolumeId = lens _rvrVolumeId (\ s a -> s{_rvrVolumeId = a});
 
 -- | FIXME: Undocumented member.
-rvrStatusCode :: Lens' RegisterVolumeResponse Int
-rvrStatusCode = lens _rvrStatusCode (\ s a -> s{_rvrStatusCode = a});
+rvrStatus :: Lens' RegisterVolumeResponse Int
+rvrStatus = lens _rvrStatus (\ s a -> s{_rvrStatus = a});

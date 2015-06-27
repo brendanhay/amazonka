@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DisableLogging
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.Redshift.DisableLogging
     , lsLastFailureMessage
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -52,11 +52,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlClusterIdentifier'
-newtype DisableLogging = DisableLogging'{_dlClusterIdentifier :: Text} deriving (Eq, Read, Show)
+newtype DisableLogging = DisableLogging'
+    { _dlClusterIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableLogging' smart constructor.
 disableLogging :: Text -> DisableLogging
-disableLogging pClusterIdentifier = DisableLogging'{_dlClusterIdentifier = pClusterIdentifier};
+disableLogging pClusterIdentifier =
+    DisableLogging'
+    { _dlClusterIdentifier = pClusterIdentifier
+    }
 
 -- | The identifier of the cluster on which logging is to be stopped.
 --

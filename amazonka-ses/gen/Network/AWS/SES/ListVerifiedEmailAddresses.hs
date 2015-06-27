@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SES.ListVerifiedEmailAddresses
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,20 +37,22 @@ module Network.AWS.SES.ListVerifiedEmailAddresses
     , listVerifiedEmailAddressesResponse
     -- ** Response lenses
     , lvearVerifiedEmailAddresses
-    , lvearStatusCode
+    , lvearStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SES.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
 -- | /See:/ 'listVerifiedEmailAddresses' smart constructor.
-data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses' deriving (Eq, Read, Show)
+data ListVerifiedEmailAddresses =
+    ListVerifiedEmailAddresses'
+    deriving (Eq,Read,Show)
 
 -- | 'ListVerifiedEmailAddresses' smart constructor.
 listVerifiedEmailAddresses :: ListVerifiedEmailAddresses
-listVerifiedEmailAddresses = ListVerifiedEmailAddresses';
+listVerifiedEmailAddresses = ListVerifiedEmailAddresses'
 
 instance AWSRequest ListVerifiedEmailAddresses where
         type Sv ListVerifiedEmailAddresses = SES
@@ -89,17 +91,24 @@ instance ToQuery ListVerifiedEmailAddresses where
 --
 -- * 'lvearVerifiedEmailAddresses'
 --
--- * 'lvearStatusCode'
-data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'{_lvearVerifiedEmailAddresses :: Maybe [Text], _lvearStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lvearStatus'
+data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
+    { _lvearVerifiedEmailAddresses :: Maybe [Text]
+    , _lvearStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListVerifiedEmailAddressesResponse' smart constructor.
 listVerifiedEmailAddressesResponse :: Int -> ListVerifiedEmailAddressesResponse
-listVerifiedEmailAddressesResponse pStatusCode = ListVerifiedEmailAddressesResponse'{_lvearVerifiedEmailAddresses = Nothing, _lvearStatusCode = pStatusCode};
+listVerifiedEmailAddressesResponse pStatus =
+    ListVerifiedEmailAddressesResponse'
+    { _lvearVerifiedEmailAddresses = Nothing
+    , _lvearStatus = pStatus
+    }
 
 -- | A list of email addresses that have been verified.
 lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
 lvearVerifiedEmailAddresses = lens _lvearVerifiedEmailAddresses (\ s a -> s{_lvearVerifiedEmailAddresses = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lvearStatusCode :: Lens' ListVerifiedEmailAddressesResponse Int
-lvearStatusCode = lens _lvearStatusCode (\ s a -> s{_lvearStatusCode = a});
+lvearStatus :: Lens' ListVerifiedEmailAddressesResponse Int
+lvearStatus = lens _lvearStatus (\ s a -> s{_lvearStatus = a});

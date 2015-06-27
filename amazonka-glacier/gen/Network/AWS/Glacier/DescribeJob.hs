@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.DescribeJob
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -74,10 +74,10 @@ module Network.AWS.Glacier.DescribeJob
     , gjdInventorySizeInBytes
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for retrieving a job description.
 --
@@ -90,11 +90,20 @@ import Network.AWS.Response
 -- * 'djVaultName'
 --
 -- * 'djJobId'
-data DescribeJob = DescribeJob'{_djAccountId :: Text, _djVaultName :: Text, _djJobId :: Text} deriving (Eq, Read, Show)
+data DescribeJob = DescribeJob'
+    { _djAccountId :: Text
+    , _djVaultName :: Text
+    , _djJobId     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeJob' smart constructor.
 describeJob :: Text -> Text -> Text -> DescribeJob
-describeJob pAccountId pVaultName pJobId = DescribeJob'{_djAccountId = pAccountId, _djVaultName = pVaultName, _djJobId = pJobId};
+describeJob pAccountId pVaultName pJobId =
+    DescribeJob'
+    { _djAccountId = pAccountId
+    , _djVaultName = pVaultName
+    , _djJobId = pJobId
+    }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single

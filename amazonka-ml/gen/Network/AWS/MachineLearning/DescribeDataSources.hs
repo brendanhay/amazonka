@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.DescribeDataSources
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,14 +44,14 @@ module Network.AWS.MachineLearning.DescribeDataSources
     -- ** Response lenses
     , dResults
     , dNextToken
-    , dStatusCode
+    , dStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeDataSources' smart constructor.
 --
@@ -78,11 +78,36 @@ import Network.AWS.Response
 -- * 'ddsFilterVariable'
 --
 -- * 'ddsLE'
-data DescribeDataSources = DescribeDataSources'{_ddsEQ :: Maybe Text, _ddsGE :: Maybe Text, _ddsPrefix :: Maybe Text, _ddsGT :: Maybe Text, _ddsNE :: Maybe Text, _ddsNextToken :: Maybe Text, _ddsSortOrder :: Maybe SortOrder, _ddsLimit :: Maybe Nat, _ddsLT :: Maybe Text, _ddsFilterVariable :: Maybe DataSourceFilterVariable, _ddsLE :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDataSources = DescribeDataSources'
+    { _ddsEQ             :: Maybe Text
+    , _ddsGE             :: Maybe Text
+    , _ddsPrefix         :: Maybe Text
+    , _ddsGT             :: Maybe Text
+    , _ddsNE             :: Maybe Text
+    , _ddsNextToken      :: Maybe Text
+    , _ddsSortOrder      :: Maybe SortOrder
+    , _ddsLimit          :: Maybe Nat
+    , _ddsLT             :: Maybe Text
+    , _ddsFilterVariable :: Maybe DataSourceFilterVariable
+    , _ddsLE             :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDataSources' smart constructor.
 describeDataSources :: DescribeDataSources
-describeDataSources = DescribeDataSources'{_ddsEQ = Nothing, _ddsGE = Nothing, _ddsPrefix = Nothing, _ddsGT = Nothing, _ddsNE = Nothing, _ddsNextToken = Nothing, _ddsSortOrder = Nothing, _ddsLimit = Nothing, _ddsLT = Nothing, _ddsFilterVariable = Nothing, _ddsLE = Nothing};
+describeDataSources =
+    DescribeDataSources'
+    { _ddsEQ = Nothing
+    , _ddsGE = Nothing
+    , _ddsPrefix = Nothing
+    , _ddsGT = Nothing
+    , _ddsNE = Nothing
+    , _ddsNextToken = Nothing
+    , _ddsSortOrder = Nothing
+    , _ddsLimit = Nothing
+    , _ddsLT = Nothing
+    , _ddsFilterVariable = Nothing
+    , _ddsLE = Nothing
+    }
 
 -- | The equal to operator. The @DataSource@ results will have
 -- @FilterVariable@ values that exactly match the value specified with
@@ -226,12 +251,21 @@ instance ToQuery DescribeDataSources where
 --
 -- * 'dNextToken'
 --
--- * 'dStatusCode'
-data DescribeDataSourcesResponse = DescribeDataSourcesResponse'{_dResults :: Maybe [DataSource], _dNextToken :: Maybe Text, _dStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dStatus'
+data DescribeDataSourcesResponse = DescribeDataSourcesResponse'
+    { _dResults   :: Maybe [DataSource]
+    , _dNextToken :: Maybe Text
+    , _dStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDataSourcesResponse' smart constructor.
 describeDataSourcesResponse :: Int -> DescribeDataSourcesResponse
-describeDataSourcesResponse pStatusCode = DescribeDataSourcesResponse'{_dResults = Nothing, _dNextToken = Nothing, _dStatusCode = pStatusCode};
+describeDataSourcesResponse pStatus =
+    DescribeDataSourcesResponse'
+    { _dResults = Nothing
+    , _dNextToken = Nothing
+    , _dStatus = pStatus
+    }
 
 -- | A list of @DataSource@ that meet the search criteria.
 dResults :: Lens' DescribeDataSourcesResponse [DataSource]
@@ -243,5 +277,5 @@ dNextToken :: Lens' DescribeDataSourcesResponse (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
 -- | FIXME: Undocumented member.
-dStatusCode :: Lens' DescribeDataSourcesResponse Int
-dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});
+dStatus :: Lens' DescribeDataSourcesResponse Int
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

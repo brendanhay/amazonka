@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.CreateAppCookieStickinessPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     -- ** Response constructor
     , createAppCookieStickinessPolicyResponse
     -- ** Response lenses
-    , cacsprStatusCode
+    , cacsprStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createAppCookieStickinessPolicy' smart constructor.
 --
@@ -66,11 +66,20 @@ import Network.AWS.Response
 -- * 'cacspPolicyName'
 --
 -- * 'cacspCookieName'
-data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'{_cacspLoadBalancerName :: Text, _cacspPolicyName :: Text, _cacspCookieName :: Text} deriving (Eq, Read, Show)
+data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
+    { _cacspLoadBalancerName :: Text
+    , _cacspPolicyName       :: Text
+    , _cacspCookieName       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAppCookieStickinessPolicy' smart constructor.
 createAppCookieStickinessPolicy :: Text -> Text -> Text -> CreateAppCookieStickinessPolicy
-createAppCookieStickinessPolicy pLoadBalancerName pPolicyName pCookieName = CreateAppCookieStickinessPolicy'{_cacspLoadBalancerName = pLoadBalancerName, _cacspPolicyName = pPolicyName, _cacspCookieName = pCookieName};
+createAppCookieStickinessPolicy pLoadBalancerName pPolicyName pCookieName =
+    CreateAppCookieStickinessPolicy'
+    { _cacspLoadBalancerName = pLoadBalancerName
+    , _cacspPolicyName = pPolicyName
+    , _cacspCookieName = pCookieName
+    }
 
 -- | The name of the load balancer.
 cacspLoadBalancerName :: Lens' CreateAppCookieStickinessPolicy Text
@@ -120,13 +129,18 @@ instance ToQuery CreateAppCookieStickinessPolicy
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cacsprStatusCode'
-newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse'{_cacsprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cacsprStatus'
+newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse'
+    { _cacsprStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAppCookieStickinessPolicyResponse' smart constructor.
 createAppCookieStickinessPolicyResponse :: Int -> CreateAppCookieStickinessPolicyResponse
-createAppCookieStickinessPolicyResponse pStatusCode = CreateAppCookieStickinessPolicyResponse'{_cacsprStatusCode = pStatusCode};
+createAppCookieStickinessPolicyResponse pStatus =
+    CreateAppCookieStickinessPolicyResponse'
+    { _cacsprStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-cacsprStatusCode :: Lens' CreateAppCookieStickinessPolicyResponse Int
-cacsprStatusCode = lens _cacsprStatusCode (\ s a -> s{_cacsprStatusCode = a});
+cacsprStatus :: Lens' CreateAppCookieStickinessPolicyResponse Int
+cacsprStatus = lens _cacsprStatus (\ s a -> s{_cacsprStatus = a});

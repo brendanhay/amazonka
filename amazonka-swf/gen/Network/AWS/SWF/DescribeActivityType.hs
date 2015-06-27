@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.DescribeActivityType
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -59,13 +59,13 @@ module Network.AWS.SWF.DescribeActivityType
     -- ** Response lenses
     , datrTypeInfo
     , datrConfiguration
-    , datrStatusCode
+    , datrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'describeActivityType' smart constructor.
 --
@@ -74,11 +74,18 @@ import Network.AWS.SWF.Types
 -- * 'datDomain'
 --
 -- * 'datActivityType'
-data DescribeActivityType = DescribeActivityType'{_datDomain :: Text, _datActivityType :: ActivityType} deriving (Eq, Read, Show)
+data DescribeActivityType = DescribeActivityType'
+    { _datDomain       :: Text
+    , _datActivityType :: ActivityType
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeActivityType' smart constructor.
 describeActivityType :: Text -> ActivityType -> DescribeActivityType
-describeActivityType pDomain pActivityType = DescribeActivityType'{_datDomain = pDomain, _datActivityType = pActivityType};
+describeActivityType pDomain pActivityType =
+    DescribeActivityType'
+    { _datDomain = pDomain
+    , _datActivityType = pActivityType
+    }
 
 -- | The name of the domain in which the activity type is registered.
 datDomain :: Lens' DescribeActivityType Text
@@ -134,12 +141,21 @@ instance ToQuery DescribeActivityType where
 --
 -- * 'datrConfiguration'
 --
--- * 'datrStatusCode'
-data DescribeActivityTypeResponse = DescribeActivityTypeResponse'{_datrTypeInfo :: ActivityTypeInfo, _datrConfiguration :: ActivityTypeConfiguration, _datrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'datrStatus'
+data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
+    { _datrTypeInfo      :: ActivityTypeInfo
+    , _datrConfiguration :: ActivityTypeConfiguration
+    , _datrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeActivityTypeResponse' smart constructor.
 describeActivityTypeResponse :: ActivityTypeInfo -> ActivityTypeConfiguration -> Int -> DescribeActivityTypeResponse
-describeActivityTypeResponse pTypeInfo pConfiguration pStatusCode = DescribeActivityTypeResponse'{_datrTypeInfo = pTypeInfo, _datrConfiguration = pConfiguration, _datrStatusCode = pStatusCode};
+describeActivityTypeResponse pTypeInfo pConfiguration pStatus =
+    DescribeActivityTypeResponse'
+    { _datrTypeInfo = pTypeInfo
+    , _datrConfiguration = pConfiguration
+    , _datrStatus = pStatus
+    }
 
 -- | General information about the activity type.
 --
@@ -159,5 +175,5 @@ datrConfiguration :: Lens' DescribeActivityTypeResponse ActivityTypeConfiguratio
 datrConfiguration = lens _datrConfiguration (\ s a -> s{_datrConfiguration = a});
 
 -- | FIXME: Undocumented member.
-datrStatusCode :: Lens' DescribeActivityTypeResponse Int
-datrStatusCode = lens _datrStatusCode (\ s a -> s{_datrStatusCode = a});
+datrStatus :: Lens' DescribeActivityTypeResponse Int
+datrStatus = lens _datrStatus (\ s a -> s{_datrStatus = a});

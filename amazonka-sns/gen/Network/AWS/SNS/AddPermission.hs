@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.AddPermission
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.SNS.AddPermission
     , addPermissionResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | /See:/ 'addPermission' smart constructor.
 --
@@ -52,11 +52,22 @@ import Network.AWS.SNS.Types
 -- * 'apAWSAccountId'
 --
 -- * 'apActionName'
-data AddPermission = AddPermission'{_apTopicARN :: Text, _apLabel :: Text, _apAWSAccountId :: [Text], _apActionName :: [Text]} deriving (Eq, Read, Show)
+data AddPermission = AddPermission'
+    { _apTopicARN     :: Text
+    , _apLabel        :: Text
+    , _apAWSAccountId :: [Text]
+    , _apActionName   :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'AddPermission' smart constructor.
 addPermission :: Text -> Text -> AddPermission
-addPermission pTopicARN pLabel = AddPermission'{_apTopicARN = pTopicARN, _apLabel = pLabel, _apAWSAccountId = mempty, _apActionName = mempty};
+addPermission pTopicARN pLabel =
+    AddPermission'
+    { _apTopicARN = pTopicARN
+    , _apLabel = pLabel
+    , _apAWSAccountId = mempty
+    , _apActionName = mempty
+    }
 
 -- | The ARN of the topic whose access control policy you wish to modify.
 apTopicARN :: Lens' AddPermission Text
@@ -101,8 +112,10 @@ instance ToQuery AddPermission where
                "ActionName" =: toQueryList "member" _apActionName]
 
 -- | /See:/ 'addPermissionResponse' smart constructor.
-data AddPermissionResponse = AddPermissionResponse' deriving (Eq, Read, Show)
+data AddPermissionResponse =
+    AddPermissionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AddPermissionResponse' smart constructor.
 addPermissionResponse :: AddPermissionResponse
-addPermissionResponse = AddPermissionResponse';
+addPermissionResponse = AddPermissionResponse'

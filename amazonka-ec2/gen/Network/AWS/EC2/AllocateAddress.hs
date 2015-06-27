@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.AllocateAddress
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.EC2.AllocateAddress
     , aarAllocationId
     , aarDomain
     , aarPublicIP
-    , aarStatusCode
+    , aarStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'allocateAddress' smart constructor.
 --
@@ -55,11 +55,18 @@ import Network.AWS.Response
 -- * 'aaDomain'
 --
 -- * 'aaDryRun'
-data AllocateAddress = AllocateAddress'{_aaDomain :: Maybe DomainType, _aaDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data AllocateAddress = AllocateAddress'
+    { _aaDomain :: Maybe DomainType
+    , _aaDryRun :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'AllocateAddress' smart constructor.
 allocateAddress :: AllocateAddress
-allocateAddress = AllocateAddress'{_aaDomain = Nothing, _aaDryRun = Nothing};
+allocateAddress =
+    AllocateAddress'
+    { _aaDomain = Nothing
+    , _aaDryRun = Nothing
+    }
 
 -- | Set to @vpc@ to allocate the address for use with instances in a VPC.
 --
@@ -109,12 +116,23 @@ instance ToQuery AllocateAddress where
 --
 -- * 'aarPublicIP'
 --
--- * 'aarStatusCode'
-data AllocateAddressResponse = AllocateAddressResponse'{_aarAllocationId :: Maybe Text, _aarDomain :: Maybe DomainType, _aarPublicIP :: Maybe Text, _aarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'aarStatus'
+data AllocateAddressResponse = AllocateAddressResponse'
+    { _aarAllocationId :: Maybe Text
+    , _aarDomain       :: Maybe DomainType
+    , _aarPublicIP     :: Maybe Text
+    , _aarStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AllocateAddressResponse' smart constructor.
 allocateAddressResponse :: Int -> AllocateAddressResponse
-allocateAddressResponse pStatusCode = AllocateAddressResponse'{_aarAllocationId = Nothing, _aarDomain = Nothing, _aarPublicIP = Nothing, _aarStatusCode = pStatusCode};
+allocateAddressResponse pStatus =
+    AllocateAddressResponse'
+    { _aarAllocationId = Nothing
+    , _aarDomain = Nothing
+    , _aarPublicIP = Nothing
+    , _aarStatus = pStatus
+    }
 
 -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
 -- Elastic IP address for use with instances in a VPC.
@@ -131,5 +149,5 @@ aarPublicIP :: Lens' AllocateAddressResponse (Maybe Text)
 aarPublicIP = lens _aarPublicIP (\ s a -> s{_aarPublicIP = a});
 
 -- | FIXME: Undocumented member.
-aarStatusCode :: Lens' AllocateAddressResponse Int
-aarStatusCode = lens _aarStatusCode (\ s a -> s{_aarStatusCode = a});
+aarStatus :: Lens' AllocateAddressResponse Int
+aarStatus = lens _aarStatus (\ s a -> s{_aarStatus = a});

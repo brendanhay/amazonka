@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListApplicationRevisions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
     -- ** Response lenses
     , larrNextToken
     , larrRevisions
-    , larrStatusCode
+    , larrStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a list application revisions operation.
 --
@@ -66,11 +66,28 @@ import Network.AWS.Response
 -- * 'lisSortBy'
 --
 -- * 'lisApplicationName'
-data ListApplicationRevisions = ListApplicationRevisions'{_lisS3KeyPrefix :: Maybe Text, _lisDeployed :: Maybe ListStateFilterAction, _lisNextToken :: Maybe Text, _lisSortOrder :: Maybe SortOrder, _lisS3Bucket :: Maybe Text, _lisSortBy :: Maybe ApplicationRevisionSortBy, _lisApplicationName :: Text} deriving (Eq, Read, Show)
+data ListApplicationRevisions = ListApplicationRevisions'
+    { _lisS3KeyPrefix     :: Maybe Text
+    , _lisDeployed        :: Maybe ListStateFilterAction
+    , _lisNextToken       :: Maybe Text
+    , _lisSortOrder       :: Maybe SortOrder
+    , _lisS3Bucket        :: Maybe Text
+    , _lisSortBy          :: Maybe ApplicationRevisionSortBy
+    , _lisApplicationName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListApplicationRevisions' smart constructor.
 listApplicationRevisions :: Text -> ListApplicationRevisions
-listApplicationRevisions pApplicationName = ListApplicationRevisions'{_lisS3KeyPrefix = Nothing, _lisDeployed = Nothing, _lisNextToken = Nothing, _lisSortOrder = Nothing, _lisS3Bucket = Nothing, _lisSortBy = Nothing, _lisApplicationName = pApplicationName};
+listApplicationRevisions pApplicationName =
+    ListApplicationRevisions'
+    { _lisS3KeyPrefix = Nothing
+    , _lisDeployed = Nothing
+    , _lisNextToken = Nothing
+    , _lisSortOrder = Nothing
+    , _lisS3Bucket = Nothing
+    , _lisSortBy = Nothing
+    , _lisApplicationName = pApplicationName
+    }
 
 -- | A specific key prefix for the set of Amazon S3 objects to limit the
 -- search for revisions.
@@ -180,12 +197,21 @@ instance ToQuery ListApplicationRevisions where
 --
 -- * 'larrRevisions'
 --
--- * 'larrStatusCode'
-data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'{_larrNextToken :: Maybe Text, _larrRevisions :: Maybe [RevisionLocation], _larrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'larrStatus'
+data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
+    { _larrNextToken :: Maybe Text
+    , _larrRevisions :: Maybe [RevisionLocation]
+    , _larrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListApplicationRevisionsResponse' smart constructor.
 listApplicationRevisionsResponse :: Int -> ListApplicationRevisionsResponse
-listApplicationRevisionsResponse pStatusCode = ListApplicationRevisionsResponse'{_larrNextToken = Nothing, _larrRevisions = Nothing, _larrStatusCode = pStatusCode};
+listApplicationRevisionsResponse pStatus =
+    ListApplicationRevisionsResponse'
+    { _larrNextToken = Nothing
+    , _larrRevisions = Nothing
+    , _larrStatus = pStatus
+    }
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -199,5 +225,5 @@ larrRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
 larrRevisions = lens _larrRevisions (\ s a -> s{_larrRevisions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-larrStatusCode :: Lens' ListApplicationRevisionsResponse Int
-larrStatusCode = lens _larrStatusCode (\ s a -> s{_larrStatusCode = a});
+larrStatus :: Lens' ListApplicationRevisionsResponse Int
+larrStatus = lens _larrStatus (\ s a -> s{_larrStatus = a});

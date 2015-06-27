@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.ListParts
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,14 +48,14 @@ module Network.AWS.S3.ListParts
     , lprIsTruncated
     , lprPartNumberMarker
     , lprUploadId
-    , lprStatusCode
+    , lprStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'listParts' smart constructor.
 --
@@ -72,11 +72,26 @@ import Network.AWS.S3.Types
 -- * 'lpKey'
 --
 -- * 'lpUploadId'
-data ListParts = ListParts'{_lpMaxParts :: Maybe Int, _lpRequestPayer :: Maybe RequestPayer, _lpPartNumberMarker :: Maybe Int, _lpBucket :: BucketName, _lpKey :: ObjectKey, _lpUploadId :: Text} deriving (Eq, Read, Show)
+data ListParts = ListParts'
+    { _lpMaxParts         :: Maybe Int
+    , _lpRequestPayer     :: Maybe RequestPayer
+    , _lpPartNumberMarker :: Maybe Int
+    , _lpBucket           :: BucketName
+    , _lpKey              :: ObjectKey
+    , _lpUploadId         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListParts' smart constructor.
 listParts :: BucketName -> ObjectKey -> Text -> ListParts
-listParts pBucket pKey pUploadId = ListParts'{_lpMaxParts = Nothing, _lpRequestPayer = Nothing, _lpPartNumberMarker = Nothing, _lpBucket = pBucket, _lpKey = pKey, _lpUploadId = pUploadId};
+listParts pBucket pKey pUploadId =
+    ListParts'
+    { _lpMaxParts = Nothing
+    , _lpRequestPayer = Nothing
+    , _lpPartNumberMarker = Nothing
+    , _lpBucket = pBucket
+    , _lpKey = pKey
+    , _lpUploadId = pUploadId
+    }
 
 -- | Sets the maximum number of parts to return.
 lpMaxParts :: Lens' ListParts (Maybe Int)
@@ -176,12 +191,41 @@ instance ToQuery ListParts where
 --
 -- * 'lprUploadId'
 --
--- * 'lprStatusCode'
-data ListPartsResponse = ListPartsResponse'{_lprParts :: Maybe [Part], _lprRequestCharged :: Maybe RequestCharged, _lprMaxParts :: Maybe Int, _lprInitiator :: Maybe Initiator, _lprBucket :: Maybe BucketName, _lprNextPartNumberMarker :: Maybe Int, _lprOwner :: Maybe Owner, _lprKey :: Maybe ObjectKey, _lprStorageClass :: Maybe StorageClass, _lprIsTruncated :: Maybe Bool, _lprPartNumberMarker :: Maybe Int, _lprUploadId :: Maybe Text, _lprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lprStatus'
+data ListPartsResponse = ListPartsResponse'
+    { _lprParts                :: Maybe [Part]
+    , _lprRequestCharged       :: Maybe RequestCharged
+    , _lprMaxParts             :: Maybe Int
+    , _lprInitiator            :: Maybe Initiator
+    , _lprBucket               :: Maybe BucketName
+    , _lprNextPartNumberMarker :: Maybe Int
+    , _lprOwner                :: Maybe Owner
+    , _lprKey                  :: Maybe ObjectKey
+    , _lprStorageClass         :: Maybe StorageClass
+    , _lprIsTruncated          :: Maybe Bool
+    , _lprPartNumberMarker     :: Maybe Int
+    , _lprUploadId             :: Maybe Text
+    , _lprStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListPartsResponse' smart constructor.
 listPartsResponse :: Int -> ListPartsResponse
-listPartsResponse pStatusCode = ListPartsResponse'{_lprParts = Nothing, _lprRequestCharged = Nothing, _lprMaxParts = Nothing, _lprInitiator = Nothing, _lprBucket = Nothing, _lprNextPartNumberMarker = Nothing, _lprOwner = Nothing, _lprKey = Nothing, _lprStorageClass = Nothing, _lprIsTruncated = Nothing, _lprPartNumberMarker = Nothing, _lprUploadId = Nothing, _lprStatusCode = pStatusCode};
+listPartsResponse pStatus =
+    ListPartsResponse'
+    { _lprParts = Nothing
+    , _lprRequestCharged = Nothing
+    , _lprMaxParts = Nothing
+    , _lprInitiator = Nothing
+    , _lprBucket = Nothing
+    , _lprNextPartNumberMarker = Nothing
+    , _lprOwner = Nothing
+    , _lprKey = Nothing
+    , _lprStorageClass = Nothing
+    , _lprIsTruncated = Nothing
+    , _lprPartNumberMarker = Nothing
+    , _lprUploadId = Nothing
+    , _lprStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 lprParts :: Lens' ListPartsResponse [Part]
@@ -234,5 +278,5 @@ lprUploadId :: Lens' ListPartsResponse (Maybe Text)
 lprUploadId = lens _lprUploadId (\ s a -> s{_lprUploadId = a});
 
 -- | FIXME: Undocumented member.
-lprStatusCode :: Lens' ListPartsResponse Int
-lprStatusCode = lens _lprStatusCode (\ s a -> s{_lprStatusCode = a});
+lprStatus :: Lens' ListPartsResponse Int
+lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});

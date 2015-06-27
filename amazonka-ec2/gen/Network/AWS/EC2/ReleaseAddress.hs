@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ReleaseAddress
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,10 +50,10 @@ module Network.AWS.EC2.ReleaseAddress
     , releaseAddressResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'releaseAddress' smart constructor.
 --
@@ -64,11 +64,20 @@ import Network.AWS.Response
 -- * 'raPublicIP'
 --
 -- * 'raDryRun'
-data ReleaseAddress = ReleaseAddress'{_raAllocationId :: Maybe Text, _raPublicIP :: Maybe Text, _raDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data ReleaseAddress = ReleaseAddress'
+    { _raAllocationId :: Maybe Text
+    , _raPublicIP     :: Maybe Text
+    , _raDryRun       :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'ReleaseAddress' smart constructor.
 releaseAddress :: ReleaseAddress
-releaseAddress = ReleaseAddress'{_raAllocationId = Nothing, _raPublicIP = Nothing, _raDryRun = Nothing};
+releaseAddress =
+    ReleaseAddress'
+    { _raAllocationId = Nothing
+    , _raPublicIP = Nothing
+    , _raDryRun = Nothing
+    }
 
 -- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
 raAllocationId :: Lens' ReleaseAddress (Maybe Text)
@@ -106,8 +115,10 @@ instance ToQuery ReleaseAddress where
                "PublicIp" =: _raPublicIP, "DryRun" =: _raDryRun]
 
 -- | /See:/ 'releaseAddressResponse' smart constructor.
-data ReleaseAddressResponse = ReleaseAddressResponse' deriving (Eq, Read, Show)
+data ReleaseAddressResponse =
+    ReleaseAddressResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ReleaseAddressResponse' smart constructor.
 releaseAddressResponse :: ReleaseAddressResponse
-releaseAddressResponse = ReleaseAddressResponse';
+releaseAddressResponse = ReleaseAddressResponse'

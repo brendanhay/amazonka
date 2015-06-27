@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeSpotFleetInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.EC2.DescribeSpotFleetInstances
     , dsfirNextToken
     , dsfirSpotFleetRequestId
     , dsfirActiveInstances
-    , dsfirStatusCode
+    , dsfirStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotFleetInstances.
 --
@@ -58,11 +58,22 @@ import Network.AWS.Response
 -- * 'dsfiMaxResults'
 --
 -- * 'dsfiSpotFleetRequestId'
-data DescribeSpotFleetInstances = DescribeSpotFleetInstances'{_dsfiNextToken :: Maybe Text, _dsfiDryRun :: Maybe Bool, _dsfiMaxResults :: Maybe Int, _dsfiSpotFleetRequestId :: Text} deriving (Eq, Read, Show)
+data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
+    { _dsfiNextToken          :: Maybe Text
+    , _dsfiDryRun             :: Maybe Bool
+    , _dsfiMaxResults         :: Maybe Int
+    , _dsfiSpotFleetRequestId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotFleetInstances' smart constructor.
 describeSpotFleetInstances :: Text -> DescribeSpotFleetInstances
-describeSpotFleetInstances pSpotFleetRequestId = DescribeSpotFleetInstances'{_dsfiNextToken = Nothing, _dsfiDryRun = Nothing, _dsfiMaxResults = Nothing, _dsfiSpotFleetRequestId = pSpotFleetRequestId};
+describeSpotFleetInstances pSpotFleetRequestId =
+    DescribeSpotFleetInstances'
+    { _dsfiNextToken = Nothing
+    , _dsfiDryRun = Nothing
+    , _dsfiMaxResults = Nothing
+    , _dsfiSpotFleetRequestId = pSpotFleetRequestId
+    }
 
 -- | The token for the next set of results.
 dsfiNextToken :: Lens' DescribeSpotFleetInstances (Maybe Text)
@@ -128,12 +139,23 @@ instance ToQuery DescribeSpotFleetInstances where
 --
 -- * 'dsfirActiveInstances'
 --
--- * 'dsfirStatusCode'
-data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'{_dsfirNextToken :: Maybe Text, _dsfirSpotFleetRequestId :: Text, _dsfirActiveInstances :: [ActiveInstance], _dsfirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsfirStatus'
+data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
+    { _dsfirNextToken          :: Maybe Text
+    , _dsfirSpotFleetRequestId :: Text
+    , _dsfirActiveInstances    :: [ActiveInstance]
+    , _dsfirStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotFleetInstancesResponse' smart constructor.
 describeSpotFleetInstancesResponse :: Text -> Int -> DescribeSpotFleetInstancesResponse
-describeSpotFleetInstancesResponse pSpotFleetRequestId pStatusCode = DescribeSpotFleetInstancesResponse'{_dsfirNextToken = Nothing, _dsfirSpotFleetRequestId = pSpotFleetRequestId, _dsfirActiveInstances = mempty, _dsfirStatusCode = pStatusCode};
+describeSpotFleetInstancesResponse pSpotFleetRequestId pStatus =
+    DescribeSpotFleetInstancesResponse'
+    { _dsfirNextToken = Nothing
+    , _dsfirSpotFleetRequestId = pSpotFleetRequestId
+    , _dsfirActiveInstances = mempty
+    , _dsfirStatus = pStatus
+    }
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
@@ -150,5 +172,5 @@ dsfirActiveInstances :: Lens' DescribeSpotFleetInstancesResponse [ActiveInstance
 dsfirActiveInstances = lens _dsfirActiveInstances (\ s a -> s{_dsfirActiveInstances = a});
 
 -- | FIXME: Undocumented member.
-dsfirStatusCode :: Lens' DescribeSpotFleetInstancesResponse Int
-dsfirStatusCode = lens _dsfirStatusCode (\ s a -> s{_dsfirStatusCode = a});
+dsfirStatus :: Lens' DescribeSpotFleetInstancesResponse Int
+dsfirStatus = lens _dsfirStatus (\ s a -> s{_dsfirStatus = a});

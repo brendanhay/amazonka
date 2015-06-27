@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.ResumeProcesses
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,10 +38,10 @@ module Network.AWS.AutoScaling.ResumeProcesses
     , resumeProcessesResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'resumeProcesses' smart constructor.
 --
@@ -50,11 +50,18 @@ import Network.AWS.Response
 -- * 'rpScalingProcesses'
 --
 -- * 'rpAutoScalingGroupName'
-data ResumeProcesses = ResumeProcesses'{_rpScalingProcesses :: Maybe [Text], _rpAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data ResumeProcesses = ResumeProcesses'
+    { _rpScalingProcesses     :: Maybe [Text]
+    , _rpAutoScalingGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ResumeProcesses' smart constructor.
 resumeProcesses :: Text -> ResumeProcesses
-resumeProcesses pAutoScalingGroupName = ResumeProcesses'{_rpScalingProcesses = Nothing, _rpAutoScalingGroupName = pAutoScalingGroupName};
+resumeProcesses pAutoScalingGroupName =
+    ResumeProcesses'
+    { _rpScalingProcesses = Nothing
+    , _rpAutoScalingGroupName = pAutoScalingGroupName
+    }
 
 -- | One or more of the following processes:
 --
@@ -104,8 +111,10 @@ instance ToQuery ResumeProcesses where
                "AutoScalingGroupName" =: _rpAutoScalingGroupName]
 
 -- | /See:/ 'resumeProcessesResponse' smart constructor.
-data ResumeProcessesResponse = ResumeProcessesResponse' deriving (Eq, Read, Show)
+data ResumeProcessesResponse =
+    ResumeProcessesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ResumeProcessesResponse' smart constructor.
 resumeProcessesResponse :: ResumeProcessesResponse
-resumeProcessesResponse = ResumeProcessesResponse';
+resumeProcessesResponse = ResumeProcessesResponse'

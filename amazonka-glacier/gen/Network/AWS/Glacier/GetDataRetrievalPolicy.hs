@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.GetDataRetrievalPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.Glacier.GetDataRetrievalPolicy
     , getDataRetrievalPolicyResponse
     -- ** Response lenses
     , gdrprPolicy
-    , gdrprStatusCode
+    , gdrprStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input for GetDataRetrievalPolicy.
 --
@@ -50,11 +50,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gdrpAccountId'
-newtype GetDataRetrievalPolicy = GetDataRetrievalPolicy'{_gdrpAccountId :: Text} deriving (Eq, Read, Show)
+newtype GetDataRetrievalPolicy = GetDataRetrievalPolicy'
+    { _gdrpAccountId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDataRetrievalPolicy' smart constructor.
 getDataRetrievalPolicy :: Text -> GetDataRetrievalPolicy
-getDataRetrievalPolicy pAccountId = GetDataRetrievalPolicy'{_gdrpAccountId = pAccountId};
+getDataRetrievalPolicy pAccountId =
+    GetDataRetrievalPolicy'
+    { _gdrpAccountId = pAccountId
+    }
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the
 -- AWS account ID associated with the credentials used to sign the request.
@@ -98,17 +103,24 @@ instance ToQuery GetDataRetrievalPolicy where
 --
 -- * 'gdrprPolicy'
 --
--- * 'gdrprStatusCode'
-data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'{_gdrprPolicy :: Maybe DataRetrievalPolicy, _gdrprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gdrprStatus'
+data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'
+    { _gdrprPolicy :: Maybe DataRetrievalPolicy
+    , _gdrprStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDataRetrievalPolicyResponse' smart constructor.
 getDataRetrievalPolicyResponse :: Int -> GetDataRetrievalPolicyResponse
-getDataRetrievalPolicyResponse pStatusCode = GetDataRetrievalPolicyResponse'{_gdrprPolicy = Nothing, _gdrprStatusCode = pStatusCode};
+getDataRetrievalPolicyResponse pStatus =
+    GetDataRetrievalPolicyResponse'
+    { _gdrprPolicy = Nothing
+    , _gdrprStatus = pStatus
+    }
 
 -- | Contains the returned data retrieval policy in JSON format.
 gdrprPolicy :: Lens' GetDataRetrievalPolicyResponse (Maybe DataRetrievalPolicy)
 gdrprPolicy = lens _gdrprPolicy (\ s a -> s{_gdrprPolicy = a});
 
 -- | FIXME: Undocumented member.
-gdrprStatusCode :: Lens' GetDataRetrievalPolicyResponse Int
-gdrprStatusCode = lens _gdrprStatusCode (\ s a -> s{_gdrprStatusCode = a});
+gdrprStatus :: Lens' GetDataRetrievalPolicyResponse Int
+gdrprStatus = lens _gdrprStatus (\ s a -> s{_gdrprStatus = a});

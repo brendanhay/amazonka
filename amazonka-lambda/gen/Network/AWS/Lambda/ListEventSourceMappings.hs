@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Lambda.ListEventSourceMappings
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,14 +45,14 @@ module Network.AWS.Lambda.ListEventSourceMappings
     -- ** Response lenses
     , lesmrEventSourceMappings
     , lesmrNextMarker
-    , lesmrStatusCode
+    , lesmrStatus
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listEventSourceMappings' smart constructor.
 --
@@ -65,11 +65,22 @@ import Network.AWS.Response
 -- * 'lesmMarker'
 --
 -- * 'lesmFunctionName'
-data ListEventSourceMappings = ListEventSourceMappings'{_lesmEventSourceARN :: Maybe Text, _lesmMaxItems :: Maybe Nat, _lesmMarker :: Maybe Text, _lesmFunctionName :: Maybe Text} deriving (Eq, Read, Show)
+data ListEventSourceMappings = ListEventSourceMappings'
+    { _lesmEventSourceARN :: Maybe Text
+    , _lesmMaxItems       :: Maybe Nat
+    , _lesmMarker         :: Maybe Text
+    , _lesmFunctionName   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListEventSourceMappings' smart constructor.
 listEventSourceMappings :: ListEventSourceMappings
-listEventSourceMappings = ListEventSourceMappings'{_lesmEventSourceARN = Nothing, _lesmMaxItems = Nothing, _lesmMarker = Nothing, _lesmFunctionName = Nothing};
+listEventSourceMappings =
+    ListEventSourceMappings'
+    { _lesmEventSourceARN = Nothing
+    , _lesmMaxItems = Nothing
+    , _lesmMarker = Nothing
+    , _lesmFunctionName = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream.
 lesmEventSourceARN :: Lens' ListEventSourceMappings (Maybe Text)
@@ -143,12 +154,21 @@ instance ToQuery ListEventSourceMappings where
 --
 -- * 'lesmrNextMarker'
 --
--- * 'lesmrStatusCode'
-data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'{_lesmrEventSourceMappings :: Maybe [EventSourceMappingConfiguration], _lesmrNextMarker :: Maybe Text, _lesmrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lesmrStatus'
+data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
+    { _lesmrEventSourceMappings :: Maybe [EventSourceMappingConfiguration]
+    , _lesmrNextMarker          :: Maybe Text
+    , _lesmrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListEventSourceMappingsResponse' smart constructor.
 listEventSourceMappingsResponse :: Int -> ListEventSourceMappingsResponse
-listEventSourceMappingsResponse pStatusCode = ListEventSourceMappingsResponse'{_lesmrEventSourceMappings = Nothing, _lesmrNextMarker = Nothing, _lesmrStatusCode = pStatusCode};
+listEventSourceMappingsResponse pStatus =
+    ListEventSourceMappingsResponse'
+    { _lesmrEventSourceMappings = Nothing
+    , _lesmrNextMarker = Nothing
+    , _lesmrStatus = pStatus
+    }
 
 -- | An array of @EventSourceMappingConfiguration@ objects.
 lesmrEventSourceMappings :: Lens' ListEventSourceMappingsResponse [EventSourceMappingConfiguration]
@@ -159,5 +179,5 @@ lesmrNextMarker :: Lens' ListEventSourceMappingsResponse (Maybe Text)
 lesmrNextMarker = lens _lesmrNextMarker (\ s a -> s{_lesmrNextMarker = a});
 
 -- | FIXME: Undocumented member.
-lesmrStatusCode :: Lens' ListEventSourceMappingsResponse Int
-lesmrStatusCode = lens _lesmrStatusCode (\ s a -> s{_lesmrStatusCode = a});
+lesmrStatus :: Lens' ListEventSourceMappingsResponse Int
+lesmrStatus = lens _lesmrStatus (\ s a -> s{_lesmrStatus = a});

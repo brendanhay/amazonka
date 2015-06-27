@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetAccountSummary
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,20 +35,22 @@ module Network.AWS.IAM.GetAccountSummary
     , getAccountSummaryResponse
     -- ** Response lenses
     , gasrSummaryMap
-    , gasrStatusCode
+    , gasrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getAccountSummary' smart constructor.
-data GetAccountSummary = GetAccountSummary' deriving (Eq, Read, Show)
+data GetAccountSummary =
+    GetAccountSummary'
+    deriving (Eq,Read,Show)
 
 -- | 'GetAccountSummary' smart constructor.
 getAccountSummary :: GetAccountSummary
-getAccountSummary = GetAccountSummary';
+getAccountSummary = GetAccountSummary'
 
 instance AWSRequest GetAccountSummary where
         type Sv GetAccountSummary = IAM
@@ -83,12 +85,19 @@ instance ToQuery GetAccountSummary where
 --
 -- * 'gasrSummaryMap'
 --
--- * 'gasrStatusCode'
-data GetAccountSummaryResponse = GetAccountSummaryResponse'{_gasrSummaryMap :: Maybe (Map SummaryKeyType Int), _gasrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gasrStatus'
+data GetAccountSummaryResponse = GetAccountSummaryResponse'
+    { _gasrSummaryMap :: Maybe (Map SummaryKeyType Int)
+    , _gasrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetAccountSummaryResponse' smart constructor.
 getAccountSummaryResponse :: Int -> GetAccountSummaryResponse
-getAccountSummaryResponse pStatusCode = GetAccountSummaryResponse'{_gasrSummaryMap = Nothing, _gasrStatusCode = pStatusCode};
+getAccountSummaryResponse pStatus =
+    GetAccountSummaryResponse'
+    { _gasrSummaryMap = Nothing
+    , _gasrStatus = pStatus
+    }
 
 -- | A set of key value pairs containing information about IAM entity usage
 -- and IAM quotas.
@@ -247,5 +256,5 @@ gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
 gasrSummaryMap = lens _gasrSummaryMap (\ s a -> s{_gasrSummaryMap = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gasrStatusCode :: Lens' GetAccountSummaryResponse Int
-gasrStatusCode = lens _gasrStatusCode (\ s a -> s{_gasrStatusCode = a});
+gasrStatus :: Lens' GetAccountSummaryResponse Int
+gasrStatus = lens _gasrStatus (\ s a -> s{_gasrStatus = a});

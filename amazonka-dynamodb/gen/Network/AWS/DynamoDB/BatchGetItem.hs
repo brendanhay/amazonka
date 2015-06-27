@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DynamoDB.BatchGetItem
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -88,25 +88,35 @@ module Network.AWS.DynamoDB.BatchGetItem
     , bgirUnprocessedKeys
     , bgirResponses
     , bgirConsumedCapacity
+    , bgirStatus
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
--- | /See:/ 'batchGetItem' smart constructor.
+-- | Represents the input of a /BatchGetItem/ operation.
+--
+-- /See:/ 'batchGetItem' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bgiReturnConsumedCapacity'
 --
 -- * 'bgiRequestItems'
-data BatchGetItem = BatchGetItem'{_bgiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _bgiRequestItems :: HashMap Text KeysAndAttributes} deriving (Eq, Read, Show)
+data BatchGetItem = BatchGetItem'
+    { _bgiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
+    , _bgiRequestItems           :: Map Text KeysAndAttributes
+    } deriving (Eq,Read,Show)
 
 -- | 'BatchGetItem' smart constructor.
 batchGetItem :: BatchGetItem
-batchGetItem = BatchGetItem'{_bgiReturnConsumedCapacity = Nothing, _bgiRequestItems = mempty};
+batchGetItem =
+    BatchGetItem'
+    { _bgiReturnConsumedCapacity = Nothing
+    , _bgiRequestItems = mempty
+    }
 
 -- | FIXME: Undocumented member.
 bgiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe ReturnConsumedCapacity)
@@ -203,7 +213,7 @@ bgiReturnConsumedCapacity = lens _bgiReturnConsumedCapacity (\ s a -> s{_bgiRetu
 --     application.
 --
 bgiRequestItems :: Lens' BatchGetItem (HashMap Text KeysAndAttributes)
-bgiRequestItems = lens _bgiRequestItems (\ s a -> s{_bgiRequestItems = a}) . _Coerce;
+bgiRequestItems = lens _bgiRequestItems (\ s a -> s{_bgiRequestItems = a}) . _Map;
 
 instance AWSRequest BatchGetItem where
         type Sv BatchGetItem = DynamoDB
@@ -215,7 +225,8 @@ instance AWSRequest BatchGetItem where
                  BatchGetItemResponse' <$>
                    (x .?> "UnprocessedKeys" .!@ mempty) <*>
                      (x .?> "Responses" .!@ mempty)
-                     <*> (x .?> "ConsumedCapacity" .!@ mempty))
+                     <*> (x .?> "ConsumedCapacity" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders BatchGetItem where
         toHeaders
@@ -239,7 +250,9 @@ instance ToPath BatchGetItem where
 instance ToQuery BatchGetItem where
         toQuery = const mempty
 
--- | /See:/ 'batchGetItemResponse' smart constructor.
+-- | Represents the output of a /BatchGetItem/ operation.
+--
+-- /See:/ 'batchGetItemResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -248,11 +261,24 @@ instance ToQuery BatchGetItem where
 -- * 'bgirResponses'
 --
 -- * 'bgirConsumedCapacity'
-data BatchGetItemResponse = BatchGetItemResponse'{_bgirUnprocessedKeys :: Maybe (HashMap Text KeysAndAttributes), _bgirResponses :: Maybe (HashMap Text [HashMap Text AttributeValue]), _bgirConsumedCapacity :: Maybe [ConsumedCapacity]} deriving (Eq, Read, Show)
+--
+-- * 'bgirStatus'
+data BatchGetItemResponse = BatchGetItemResponse'
+    { _bgirUnprocessedKeys  :: Maybe (Map Text KeysAndAttributes)
+    , _bgirResponses        :: Maybe (Map Text [Map Text AttributeValue])
+    , _bgirConsumedCapacity :: Maybe [ConsumedCapacity]
+    , _bgirStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'BatchGetItemResponse' smart constructor.
-batchGetItemResponse :: BatchGetItemResponse
-batchGetItemResponse = BatchGetItemResponse'{_bgirUnprocessedKeys = Nothing, _bgirResponses = Nothing, _bgirConsumedCapacity = Nothing};
+batchGetItemResponse :: Int -> BatchGetItemResponse
+batchGetItemResponse pStatus =
+    BatchGetItemResponse'
+    { _bgirUnprocessedKeys = Nothing
+    , _bgirResponses = Nothing
+    , _bgirConsumedCapacity = Nothing
+    , _bgirStatus = pStatus
+    }
 
 -- | A map of tables and their respective keys that were not processed with
 -- the current response. The /UnprocessedKeys/ value is in the same form as
@@ -275,14 +301,14 @@ batchGetItemResponse = BatchGetItemResponse'{_bgirUnprocessedKeys = Nothing, _bg
 --
 -- If there are no unprocessed keys remaining, the response contains an
 -- empty /UnprocessedKeys/ map.
-bgirUnprocessedKeys :: Lens' BatchGetItemResponse (Maybe (HashMap Text KeysAndAttributes))
-bgirUnprocessedKeys = lens _bgirUnprocessedKeys (\ s a -> s{_bgirUnprocessedKeys = a}) . mapping _Coerce;
+bgirUnprocessedKeys :: Lens' BatchGetItemResponse (HashMap Text KeysAndAttributes)
+bgirUnprocessedKeys = lens _bgirUnprocessedKeys (\ s a -> s{_bgirUnprocessedKeys = a}) . _Default . _Map;
 
 -- | A map of table name to a list of items. Each object in /Responses/
 -- consists of a table name, along with a map of attribute data consisting
 -- of the data type and attribute value.
-bgirResponses :: Lens' BatchGetItemResponse (Maybe (HashMap Text [HashMap Text AttributeValue]))
-bgirResponses = lens _bgirResponses (\ s a -> s{_bgirResponses = a}) . mapping _Coerce;
+bgirResponses :: Lens' BatchGetItemResponse (HashMap Text [HashMap Text AttributeValue])
+bgirResponses = lens _bgirResponses (\ s a -> s{_bgirResponses = a}) . _Default . _Map;
 
 -- | The read capacity units consumed by the operation.
 --
@@ -292,5 +318,9 @@ bgirResponses = lens _bgirResponses (\ s a -> s{_bgirResponses = a}) . mapping _
 --
 -- -   /CapacityUnits/ - The total number of capacity units consumed.
 --
-bgirConsumedCapacity :: Lens' BatchGetItemResponse (Maybe [ConsumedCapacity])
-bgirConsumedCapacity = lens _bgirConsumedCapacity (\ s a -> s{_bgirConsumedCapacity = a});
+bgirConsumedCapacity :: Lens' BatchGetItemResponse [ConsumedCapacity]
+bgirConsumedCapacity = lens _bgirConsumedCapacity (\ s a -> s{_bgirConsumedCapacity = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+bgirStatus :: Lens' BatchGetItemResponse Int
+bgirStatus = lens _bgirStatus (\ s a -> s{_bgirStatus = a});

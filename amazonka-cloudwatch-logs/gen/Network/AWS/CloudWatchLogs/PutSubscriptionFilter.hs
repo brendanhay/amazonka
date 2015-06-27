@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.PutSubscriptionFilter
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,10 +44,10 @@ module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
     , putSubscriptionFilterResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putSubscriptionFilter' smart constructor.
 --
@@ -62,11 +62,24 @@ import Network.AWS.Response
 -- * 'psfDestinationARN'
 --
 -- * 'psfRoleARN'
-data PutSubscriptionFilter = PutSubscriptionFilter'{_psfLogGroupName :: Text, _psfFilterName :: Text, _psfFilterPattern :: Text, _psfDestinationARN :: Text, _psfRoleARN :: Text} deriving (Eq, Read, Show)
+data PutSubscriptionFilter = PutSubscriptionFilter'
+    { _psfLogGroupName   :: Text
+    , _psfFilterName     :: Text
+    , _psfFilterPattern  :: Text
+    , _psfDestinationARN :: Text
+    , _psfRoleARN        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PutSubscriptionFilter' smart constructor.
 putSubscriptionFilter :: Text -> Text -> Text -> Text -> Text -> PutSubscriptionFilter
-putSubscriptionFilter pLogGroupName pFilterName pFilterPattern pDestinationARN pRoleARN = PutSubscriptionFilter'{_psfLogGroupName = pLogGroupName, _psfFilterName = pFilterName, _psfFilterPattern = pFilterPattern, _psfDestinationARN = pDestinationARN, _psfRoleARN = pRoleARN};
+putSubscriptionFilter pLogGroupName pFilterName pFilterPattern pDestinationARN pRoleARN =
+    PutSubscriptionFilter'
+    { _psfLogGroupName = pLogGroupName
+    , _psfFilterName = pFilterName
+    , _psfFilterPattern = pFilterPattern
+    , _psfDestinationARN = pDestinationARN
+    , _psfRoleARN = pRoleARN
+    }
 
 -- | The name of the log group to associate the subscription filter with.
 psfLogGroupName :: Lens' PutSubscriptionFilter Text
@@ -123,8 +136,10 @@ instance ToQuery PutSubscriptionFilter where
         toQuery = const mempty
 
 -- | /See:/ 'putSubscriptionFilterResponse' smart constructor.
-data PutSubscriptionFilterResponse = PutSubscriptionFilterResponse' deriving (Eq, Read, Show)
+data PutSubscriptionFilterResponse =
+    PutSubscriptionFilterResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutSubscriptionFilterResponse' smart constructor.
 putSubscriptionFilterResponse :: PutSubscriptionFilterResponse
-putSubscriptionFilterResponse = PutSubscriptionFilterResponse';
+putSubscriptionFilterResponse = PutSubscriptionFilterResponse'

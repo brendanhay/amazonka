@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeInstanceAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,13 +52,13 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     , desInstanceInitiatedShutdownBehavior
     , desProductCodes
     , desBlockDeviceMappings
-    , desStatusCode
+    , desStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeInstanceAttribute' smart constructor.
 --
@@ -69,11 +69,20 @@ import Network.AWS.Response
 -- * 'diaInstanceId'
 --
 -- * 'diaAttribute'
-data DescribeInstanceAttribute = DescribeInstanceAttribute'{_diaDryRun :: Maybe Bool, _diaInstanceId :: Text, _diaAttribute :: InstanceAttributeName} deriving (Eq, Read, Show)
+data DescribeInstanceAttribute = DescribeInstanceAttribute'
+    { _diaDryRun     :: Maybe Bool
+    , _diaInstanceId :: Text
+    , _diaAttribute  :: InstanceAttributeName
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstanceAttribute' smart constructor.
 describeInstanceAttribute :: Text -> InstanceAttributeName -> DescribeInstanceAttribute
-describeInstanceAttribute pInstanceId pAttribute = DescribeInstanceAttribute'{_diaDryRun = Nothing, _diaInstanceId = pInstanceId, _diaAttribute = pAttribute};
+describeInstanceAttribute pInstanceId pAttribute =
+    DescribeInstanceAttribute'
+    { _diaDryRun = Nothing
+    , _diaInstanceId = pInstanceId
+    , _diaAttribute = pAttribute
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -165,12 +174,45 @@ instance ToQuery DescribeInstanceAttribute where
 --
 -- * 'desBlockDeviceMappings'
 --
--- * 'desStatusCode'
-data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'{_desInstanceId :: Maybe Text, _desGroups :: Maybe [GroupIdentifier], _desSourceDestCheck :: Maybe AttributeBooleanValue, _desDisableAPITermination :: Maybe AttributeBooleanValue, _desRAMDiskId :: Maybe AttributeValue, _desKernelId :: Maybe AttributeValue, _desInstanceType :: Maybe AttributeValue, _desRootDeviceName :: Maybe AttributeValue, _desEBSOptimized :: Maybe AttributeBooleanValue, _desUserData :: Maybe AttributeValue, _desSRIOVNetSupport :: Maybe AttributeValue, _desInstanceInitiatedShutdownBehavior :: Maybe AttributeValue, _desProductCodes :: Maybe [ProductCode], _desBlockDeviceMappings :: Maybe [InstanceBlockDeviceMapping], _desStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'desStatus'
+data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
+    { _desInstanceId                        :: Maybe Text
+    , _desGroups                            :: Maybe [GroupIdentifier]
+    , _desSourceDestCheck                   :: Maybe AttributeBooleanValue
+    , _desDisableAPITermination             :: Maybe AttributeBooleanValue
+    , _desRAMDiskId                         :: Maybe AttributeValue
+    , _desKernelId                          :: Maybe AttributeValue
+    , _desInstanceType                      :: Maybe AttributeValue
+    , _desRootDeviceName                    :: Maybe AttributeValue
+    , _desEBSOptimized                      :: Maybe AttributeBooleanValue
+    , _desUserData                          :: Maybe AttributeValue
+    , _desSRIOVNetSupport                   :: Maybe AttributeValue
+    , _desInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
+    , _desProductCodes                      :: Maybe [ProductCode]
+    , _desBlockDeviceMappings               :: Maybe [InstanceBlockDeviceMapping]
+    , _desStatus                            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstanceAttributeResponse' smart constructor.
 describeInstanceAttributeResponse :: Int -> DescribeInstanceAttributeResponse
-describeInstanceAttributeResponse pStatusCode = DescribeInstanceAttributeResponse'{_desInstanceId = Nothing, _desGroups = Nothing, _desSourceDestCheck = Nothing, _desDisableAPITermination = Nothing, _desRAMDiskId = Nothing, _desKernelId = Nothing, _desInstanceType = Nothing, _desRootDeviceName = Nothing, _desEBSOptimized = Nothing, _desUserData = Nothing, _desSRIOVNetSupport = Nothing, _desInstanceInitiatedShutdownBehavior = Nothing, _desProductCodes = Nothing, _desBlockDeviceMappings = Nothing, _desStatusCode = pStatusCode};
+describeInstanceAttributeResponse pStatus =
+    DescribeInstanceAttributeResponse'
+    { _desInstanceId = Nothing
+    , _desGroups = Nothing
+    , _desSourceDestCheck = Nothing
+    , _desDisableAPITermination = Nothing
+    , _desRAMDiskId = Nothing
+    , _desKernelId = Nothing
+    , _desInstanceType = Nothing
+    , _desRootDeviceName = Nothing
+    , _desEBSOptimized = Nothing
+    , _desUserData = Nothing
+    , _desSRIOVNetSupport = Nothing
+    , _desInstanceInitiatedShutdownBehavior = Nothing
+    , _desProductCodes = Nothing
+    , _desBlockDeviceMappings = Nothing
+    , _desStatus = pStatus
+    }
 
 -- | The ID of the instance.
 desInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
@@ -235,5 +277,5 @@ desBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlock
 desBlockDeviceMappings = lens _desBlockDeviceMappings (\ s a -> s{_desBlockDeviceMappings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatusCode :: Lens' DescribeInstanceAttributeResponse Int
-desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});
+desStatus :: Lens' DescribeInstanceAttributeResponse Int
+desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.StartStack
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,21 +38,26 @@ module Network.AWS.OpsWorks.StartStack
     , startStackResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'startStack' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'sStackId'
-newtype StartStack = StartStack'{_sStackId :: Text} deriving (Eq, Read, Show)
+newtype StartStack = StartStack'
+    { _sStackId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StartStack' smart constructor.
 startStack :: Text -> StartStack
-startStack pStackId = StartStack'{_sStackId = pStackId};
+startStack pStackId =
+    StartStack'
+    { _sStackId = pStackId
+    }
 
 -- | The stack ID.
 sStackId :: Lens' StartStack Text
@@ -84,8 +89,10 @@ instance ToQuery StartStack where
         toQuery = const mempty
 
 -- | /See:/ 'startStackResponse' smart constructor.
-data StartStackResponse = StartStackResponse' deriving (Eq, Read, Show)
+data StartStackResponse =
+    StartStackResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'StartStackResponse' smart constructor.
 startStackResponse :: StartStackResponse
-startStackResponse = StartStackResponse';
+startStackResponse = StartStackResponse'

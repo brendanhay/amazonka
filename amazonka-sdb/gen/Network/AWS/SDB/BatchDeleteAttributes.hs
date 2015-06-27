@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SDB.BatchDeleteAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.SDB.BatchDeleteAttributes
     , batchDeleteAttributesResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SDB.Types
 
 -- | /See:/ 'batchDeleteAttributes' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.SDB.Types
 -- * 'bdaDomainName'
 --
 -- * 'bdaItems'
-data BatchDeleteAttributes = BatchDeleteAttributes'{_bdaDomainName :: Text, _bdaItems :: [DeletableItem]} deriving (Eq, Read, Show)
+data BatchDeleteAttributes = BatchDeleteAttributes'
+    { _bdaDomainName :: Text
+    , _bdaItems      :: [DeletableItem]
+    } deriving (Eq,Read,Show)
 
 -- | 'BatchDeleteAttributes' smart constructor.
 batchDeleteAttributes :: Text -> BatchDeleteAttributes
-batchDeleteAttributes pDomainName = BatchDeleteAttributes'{_bdaDomainName = pDomainName, _bdaItems = mempty};
+batchDeleteAttributes pDomainName =
+    BatchDeleteAttributes'
+    { _bdaDomainName = pDomainName
+    , _bdaItems = mempty
+    }
 
 -- | The name of the domain in which the attributes are being deleted.
 bdaDomainName :: Lens' BatchDeleteAttributes Text
@@ -88,8 +95,10 @@ instance ToQuery BatchDeleteAttributes where
                toQueryList "Item" _bdaItems]
 
 -- | /See:/ 'batchDeleteAttributesResponse' smart constructor.
-data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse' deriving (Eq, Read, Show)
+data BatchDeleteAttributesResponse =
+    BatchDeleteAttributesResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'BatchDeleteAttributesResponse' smart constructor.
 batchDeleteAttributesResponse :: BatchDeleteAttributesResponse
-batchDeleteAttributesResponse = BatchDeleteAttributesResponse';
+batchDeleteAttributesResponse = BatchDeleteAttributesResponse'

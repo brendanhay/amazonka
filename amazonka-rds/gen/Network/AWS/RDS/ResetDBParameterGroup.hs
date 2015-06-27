@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.ResetDBParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,10 +43,10 @@ module Network.AWS.RDS.ResetDBParameterGroup
     , dpgnmDBParameterGroupName
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -59,11 +59,20 @@ import Network.AWS.Response
 -- * 'rdpgParameters'
 --
 -- * 'rdpgDBParameterGroupName'
-data ResetDBParameterGroup = ResetDBParameterGroup'{_rdpgResetAllParameters :: Maybe Bool, _rdpgParameters :: Maybe [Parameter], _rdpgDBParameterGroupName :: Text} deriving (Eq, Read, Show)
+data ResetDBParameterGroup = ResetDBParameterGroup'
+    { _rdpgResetAllParameters   :: Maybe Bool
+    , _rdpgParameters           :: Maybe [Parameter]
+    , _rdpgDBParameterGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ResetDBParameterGroup' smart constructor.
 resetDBParameterGroup :: Text -> ResetDBParameterGroup
-resetDBParameterGroup pDBParameterGroupName = ResetDBParameterGroup'{_rdpgResetAllParameters = Nothing, _rdpgParameters = Nothing, _rdpgDBParameterGroupName = pDBParameterGroupName};
+resetDBParameterGroup pDBParameterGroupName =
+    ResetDBParameterGroup'
+    { _rdpgResetAllParameters = Nothing
+    , _rdpgParameters = Nothing
+    , _rdpgDBParameterGroupName = pDBParameterGroupName
+    }
 
 -- | Specifies whether (@true@) or not (@false@) to reset all parameters in
 -- the DB parameter group to default values.

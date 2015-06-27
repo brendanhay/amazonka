@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteLaunchConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,21 +36,26 @@ module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     , deleteLaunchConfigurationResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteLaunchConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlcLaunchConfigurationName'
-newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration'{_dlcLaunchConfigurationName :: Text} deriving (Eq, Read, Show)
+newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration'
+    { _dlcLaunchConfigurationName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLaunchConfiguration' smart constructor.
 deleteLaunchConfiguration :: Text -> DeleteLaunchConfiguration
-deleteLaunchConfiguration pLaunchConfigurationName = DeleteLaunchConfiguration'{_dlcLaunchConfigurationName = pLaunchConfigurationName};
+deleteLaunchConfiguration pLaunchConfigurationName =
+    DeleteLaunchConfiguration'
+    { _dlcLaunchConfigurationName = pLaunchConfigurationName
+    }
 
 -- | The name of the launch configuration.
 dlcLaunchConfigurationName :: Lens' DeleteLaunchConfiguration Text
@@ -80,8 +85,10 @@ instance ToQuery DeleteLaunchConfiguration where
                  _dlcLaunchConfigurationName]
 
 -- | /See:/ 'deleteLaunchConfigurationResponse' smart constructor.
-data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse' deriving (Eq, Read, Show)
+data DeleteLaunchConfigurationResponse =
+    DeleteLaunchConfigurationResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteLaunchConfigurationResponse' smart constructor.
 deleteLaunchConfigurationResponse :: DeleteLaunchConfigurationResponse
-deleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse';
+deleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse'

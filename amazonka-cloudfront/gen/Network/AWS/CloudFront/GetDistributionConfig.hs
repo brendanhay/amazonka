@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.GetDistributionConfig
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.CloudFront.GetDistributionConfig
     -- ** Response lenses
     , gdcrETag
     , gdcrDistributionConfig
-    , gdcrStatusCode
+    , gdcrStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to get a distribution configuration.
 --
@@ -48,11 +48,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gdcId'
-newtype GetDistributionConfig = GetDistributionConfig'{_gdcId :: Text} deriving (Eq, Read, Show)
+newtype GetDistributionConfig = GetDistributionConfig'
+    { _gdcId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDistributionConfig' smart constructor.
 getDistributionConfig :: Text -> GetDistributionConfig
-getDistributionConfig pId = GetDistributionConfig'{_gdcId = pId};
+getDistributionConfig pId =
+    GetDistributionConfig'
+    { _gdcId = pId
+    }
 
 -- | The distribution\'s id.
 gdcId :: Lens' GetDistributionConfig Text
@@ -92,12 +97,21 @@ instance ToQuery GetDistributionConfig where
 --
 -- * 'gdcrDistributionConfig'
 --
--- * 'gdcrStatusCode'
-data GetDistributionConfigResponse = GetDistributionConfigResponse'{_gdcrETag :: Maybe Text, _gdcrDistributionConfig :: Maybe DistributionConfig, _gdcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gdcrStatus'
+data GetDistributionConfigResponse = GetDistributionConfigResponse'
+    { _gdcrETag               :: Maybe Text
+    , _gdcrDistributionConfig :: Maybe DistributionConfig
+    , _gdcrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDistributionConfigResponse' smart constructor.
 getDistributionConfigResponse :: Int -> GetDistributionConfigResponse
-getDistributionConfigResponse pStatusCode = GetDistributionConfigResponse'{_gdcrETag = Nothing, _gdcrDistributionConfig = Nothing, _gdcrStatusCode = pStatusCode};
+getDistributionConfigResponse pStatus =
+    GetDistributionConfigResponse'
+    { _gdcrETag = Nothing
+    , _gdcrDistributionConfig = Nothing
+    , _gdcrStatus = pStatus
+    }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 gdcrETag :: Lens' GetDistributionConfigResponse (Maybe Text)
@@ -108,5 +122,5 @@ gdcrDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe Distributio
 gdcrDistributionConfig = lens _gdcrDistributionConfig (\ s a -> s{_gdcrDistributionConfig = a});
 
 -- | FIXME: Undocumented member.
-gdcrStatusCode :: Lens' GetDistributionConfigResponse Int
-gdcrStatusCode = lens _gdcrStatusCode (\ s a -> s{_gdcrStatusCode = a});
+gdcrStatus :: Lens' GetDistributionConfigResponse Int
+gdcrStatus = lens _gdcrStatus (\ s a -> s{_gdcrStatus = a});

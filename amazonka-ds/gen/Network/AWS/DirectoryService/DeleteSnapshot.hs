@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectoryService.DeleteSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.DirectoryService.DeleteSnapshot
     , deleteSnapshotResponse
     -- ** Response lenses
     , dsrSnapshotId
-    , dsrStatusCode
+    , dsrStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the DeleteSnapshot operation.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsSnapshotId'
-newtype DeleteSnapshot = DeleteSnapshot'{_dsSnapshotId :: Text} deriving (Eq, Read, Show)
+newtype DeleteSnapshot = DeleteSnapshot'
+    { _dsSnapshotId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteSnapshot' smart constructor.
 deleteSnapshot :: Text -> DeleteSnapshot
-deleteSnapshot pSnapshotId = DeleteSnapshot'{_dsSnapshotId = pSnapshotId};
+deleteSnapshot pSnapshotId =
+    DeleteSnapshot'
+    { _dsSnapshotId = pSnapshotId
+    }
 
 -- | The identifier of the directory snapshot to be deleted.
 dsSnapshotId :: Lens' DeleteSnapshot Text
@@ -95,17 +100,24 @@ instance ToQuery DeleteSnapshot where
 --
 -- * 'dsrSnapshotId'
 --
--- * 'dsrStatusCode'
-data DeleteSnapshotResponse = DeleteSnapshotResponse'{_dsrSnapshotId :: Maybe Text, _dsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsrStatus'
+data DeleteSnapshotResponse = DeleteSnapshotResponse'
+    { _dsrSnapshotId :: Maybe Text
+    , _dsrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteSnapshotResponse' smart constructor.
 deleteSnapshotResponse :: Int -> DeleteSnapshotResponse
-deleteSnapshotResponse pStatusCode = DeleteSnapshotResponse'{_dsrSnapshotId = Nothing, _dsrStatusCode = pStatusCode};
+deleteSnapshotResponse pStatus =
+    DeleteSnapshotResponse'
+    { _dsrSnapshotId = Nothing
+    , _dsrStatus = pStatus
+    }
 
 -- | The identifier of the directory snapshot that was deleted.
 dsrSnapshotId :: Lens' DeleteSnapshotResponse (Maybe Text)
 dsrSnapshotId = lens _dsrSnapshotId (\ s a -> s{_dsrSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-dsrStatusCode :: Lens' DeleteSnapshotResponse Int
-dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});
+dsrStatus :: Lens' DeleteSnapshotResponse Int
+dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

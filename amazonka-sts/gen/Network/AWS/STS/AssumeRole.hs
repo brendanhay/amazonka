@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.STS.AssumeRole
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -117,13 +117,13 @@ module Network.AWS.STS.AssumeRole
     , arrPackedPolicySize
     , arrCredentials
     , arrAssumedRoleUser
-    , arrStatusCode
+    , arrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.STS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.STS.Types
 
 -- | /See:/ 'assumeRole' smart constructor.
 --
@@ -142,11 +142,28 @@ import Network.AWS.STS.Types
 -- * 'arRoleARN'
 --
 -- * 'arRoleSessionName'
-data AssumeRole = AssumeRole'{_arTokenCode :: Maybe Text, _arDurationSeconds :: Maybe Nat, _arExternalId :: Maybe Text, _arPolicy :: Maybe Text, _arSerialNumber :: Maybe Text, _arRoleARN :: Text, _arRoleSessionName :: Text} deriving (Eq, Read, Show)
+data AssumeRole = AssumeRole'
+    { _arTokenCode       :: Maybe Text
+    , _arDurationSeconds :: Maybe Nat
+    , _arExternalId      :: Maybe Text
+    , _arPolicy          :: Maybe Text
+    , _arSerialNumber    :: Maybe Text
+    , _arRoleARN         :: Text
+    , _arRoleSessionName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AssumeRole' smart constructor.
 assumeRole :: Text -> Text -> AssumeRole
-assumeRole pRoleARN pRoleSessionName = AssumeRole'{_arTokenCode = Nothing, _arDurationSeconds = Nothing, _arExternalId = Nothing, _arPolicy = Nothing, _arSerialNumber = Nothing, _arRoleARN = pRoleARN, _arRoleSessionName = pRoleSessionName};
+assumeRole pRoleARN pRoleSessionName =
+    AssumeRole'
+    { _arTokenCode = Nothing
+    , _arDurationSeconds = Nothing
+    , _arExternalId = Nothing
+    , _arPolicy = Nothing
+    , _arSerialNumber = Nothing
+    , _arRoleARN = pRoleARN
+    , _arRoleSessionName = pRoleSessionName
+    }
 
 -- | The value provided by the MFA device, if the trust policy of the role
 -- being assumed requires MFA (that is, if the policy includes a condition
@@ -251,12 +268,23 @@ instance ToQuery AssumeRole where
 --
 -- * 'arrAssumedRoleUser'
 --
--- * 'arrStatusCode'
-data AssumeRoleResponse = AssumeRoleResponse'{_arrPackedPolicySize :: Maybe Nat, _arrCredentials :: Maybe Credentials, _arrAssumedRoleUser :: Maybe AssumedRoleUser, _arrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'arrStatus'
+data AssumeRoleResponse = AssumeRoleResponse'
+    { _arrPackedPolicySize :: Maybe Nat
+    , _arrCredentials      :: Maybe Credentials
+    , _arrAssumedRoleUser  :: Maybe AssumedRoleUser
+    , _arrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AssumeRoleResponse' smart constructor.
 assumeRoleResponse :: Int -> AssumeRoleResponse
-assumeRoleResponse pStatusCode = AssumeRoleResponse'{_arrPackedPolicySize = Nothing, _arrCredentials = Nothing, _arrAssumedRoleUser = Nothing, _arrStatusCode = pStatusCode};
+assumeRoleResponse pStatus =
+    AssumeRoleResponse'
+    { _arrPackedPolicySize = Nothing
+    , _arrCredentials = Nothing
+    , _arrAssumedRoleUser = Nothing
+    , _arrStatus = pStatus
+    }
 
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100
@@ -279,5 +307,5 @@ arrAssumedRoleUser :: Lens' AssumeRoleResponse (Maybe AssumedRoleUser)
 arrAssumedRoleUser = lens _arrAssumedRoleUser (\ s a -> s{_arrAssumedRoleUser = a});
 
 -- | FIXME: Undocumented member.
-arrStatusCode :: Lens' AssumeRoleResponse Int
-arrStatusCode = lens _arrStatusCode (\ s a -> s{_arrStatusCode = a});
+arrStatus :: Lens' AssumeRoleResponse Int
+arrStatus = lens _arrStatus (\ s a -> s{_arrStatus = a});

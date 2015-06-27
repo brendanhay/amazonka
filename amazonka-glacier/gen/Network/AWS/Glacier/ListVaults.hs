@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.ListVaults
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,13 +57,13 @@ module Network.AWS.Glacier.ListVaults
     -- ** Response lenses
     , lvrMarker
     , lvrVaultList
-    , lvrStatusCode
+    , lvrStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options to retrieve the vault list owned by the calling user\'s
 -- account. The list provides metadata information for each vault.
@@ -77,11 +77,20 @@ import Network.AWS.Response
 -- * 'lvLimit'
 --
 -- * 'lvAccountId'
-data ListVaults = ListVaults'{_lvMarker :: Maybe Text, _lvLimit :: Maybe Text, _lvAccountId :: Text} deriving (Eq, Read, Show)
+data ListVaults = ListVaults'
+    { _lvMarker    :: Maybe Text
+    , _lvLimit     :: Maybe Text
+    , _lvAccountId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListVaults' smart constructor.
 listVaults :: Text -> ListVaults
-listVaults pAccountId = ListVaults'{_lvMarker = Nothing, _lvLimit = Nothing, _lvAccountId = pAccountId};
+listVaults pAccountId =
+    ListVaults'
+    { _lvMarker = Nothing
+    , _lvLimit = Nothing
+    , _lvAccountId = pAccountId
+    }
 
 -- | A string used for pagination. The marker specifies the vault ARN after
 -- which the listing of vaults should begin.
@@ -136,12 +145,21 @@ instance ToQuery ListVaults where
 --
 -- * 'lvrVaultList'
 --
--- * 'lvrStatusCode'
-data ListVaultsResponse = ListVaultsResponse'{_lvrMarker :: Maybe Text, _lvrVaultList :: Maybe [DescribeVaultOutput], _lvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lvrStatus'
+data ListVaultsResponse = ListVaultsResponse'
+    { _lvrMarker    :: Maybe Text
+    , _lvrVaultList :: Maybe [DescribeVaultOutput]
+    , _lvrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListVaultsResponse' smart constructor.
 listVaultsResponse :: Int -> ListVaultsResponse
-listVaultsResponse pStatusCode = ListVaultsResponse'{_lvrMarker = Nothing, _lvrVaultList = Nothing, _lvrStatusCode = pStatusCode};
+listVaultsResponse pStatus =
+    ListVaultsResponse'
+    { _lvrMarker = Nothing
+    , _lvrVaultList = Nothing
+    , _lvrStatus = pStatus
+    }
 
 -- | The vault ARN at which to continue pagination of the results. You use
 -- the marker in another List Vaults request to obtain more vaults in the
@@ -154,5 +172,5 @@ lvrVaultList :: Lens' ListVaultsResponse [DescribeVaultOutput]
 lvrVaultList = lens _lvrVaultList (\ s a -> s{_lvrVaultList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lvrStatusCode :: Lens' ListVaultsResponse Int
-lvrStatusCode = lens _lvrStatusCode (\ s a -> s{_lvrStatusCode = a});
+lvrStatus :: Lens' ListVaultsResponse Int
+lvrStatus = lens _lvrStatus (\ s a -> s{_lvrStatus = a});

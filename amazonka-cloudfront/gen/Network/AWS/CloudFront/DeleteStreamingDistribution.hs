@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.DeleteStreamingDistribution
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
     , deleteStreamingDistributionResponse
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to delete a streaming distribution.
 --
@@ -47,11 +47,18 @@ import Network.AWS.Response
 -- * 'dsdIfMatch'
 --
 -- * 'dsdId'
-data DeleteStreamingDistribution = DeleteStreamingDistribution'{_dsdIfMatch :: Maybe Text, _dsdId :: Text} deriving (Eq, Read, Show)
+data DeleteStreamingDistribution = DeleteStreamingDistribution'
+    { _dsdIfMatch :: Maybe Text
+    , _dsdId      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteStreamingDistribution' smart constructor.
 deleteStreamingDistribution :: Text -> DeleteStreamingDistribution
-deleteStreamingDistribution pId = DeleteStreamingDistribution'{_dsdIfMatch = Nothing, _dsdId = pId};
+deleteStreamingDistribution pId =
+    DeleteStreamingDistribution'
+    { _dsdIfMatch = Nothing
+    , _dsdId = pId
+    }
 
 -- | The value of the ETag header you received when you disabled the
 -- streaming distribution. For example: E2QWRUHAPOMQZL.
@@ -84,8 +91,10 @@ instance ToQuery DeleteStreamingDistribution where
         toQuery = const mempty
 
 -- | /See:/ 'deleteStreamingDistributionResponse' smart constructor.
-data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse' deriving (Eq, Read, Show)
+data DeleteStreamingDistributionResponse =
+    DeleteStreamingDistributionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteStreamingDistributionResponse' smart constructor.
 deleteStreamingDistributionResponse :: DeleteStreamingDistributionResponse
-deleteStreamingDistributionResponse = DeleteStreamingDistributionResponse';
+deleteStreamingDistributionResponse = DeleteStreamingDistributionResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeConversionTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.EC2.DescribeConversionTasks
     , describeConversionTasksResponse
     -- ** Response lenses
     , dctrConversionTasks
-    , dctrStatusCode
+    , dctrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeConversionTasks' smart constructor.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'dctFilters'
 --
 -- * 'dctDryRun'
-data DescribeConversionTasks = DescribeConversionTasks'{_dctConversionTaskIds :: Maybe [Text], _dctFilters :: Maybe [Filter], _dctDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeConversionTasks = DescribeConversionTasks'
+    { _dctConversionTaskIds :: Maybe [Text]
+    , _dctFilters           :: Maybe [Filter]
+    , _dctDryRun            :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeConversionTasks' smart constructor.
 describeConversionTasks :: DescribeConversionTasks
-describeConversionTasks = DescribeConversionTasks'{_dctConversionTaskIds = Nothing, _dctFilters = Nothing, _dctDryRun = Nothing};
+describeConversionTasks =
+    DescribeConversionTasks'
+    { _dctConversionTaskIds = Nothing
+    , _dctFilters = Nothing
+    , _dctDryRun = Nothing
+    }
 
 -- | One or more conversion task IDs.
 dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
@@ -110,17 +119,24 @@ instance ToQuery DescribeConversionTasks where
 --
 -- * 'dctrConversionTasks'
 --
--- * 'dctrStatusCode'
-data DescribeConversionTasksResponse = DescribeConversionTasksResponse'{_dctrConversionTasks :: Maybe [ConversionTask], _dctrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dctrStatus'
+data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
+    { _dctrConversionTasks :: Maybe [ConversionTask]
+    , _dctrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeConversionTasksResponse' smart constructor.
 describeConversionTasksResponse :: Int -> DescribeConversionTasksResponse
-describeConversionTasksResponse pStatusCode = DescribeConversionTasksResponse'{_dctrConversionTasks = Nothing, _dctrStatusCode = pStatusCode};
+describeConversionTasksResponse pStatus =
+    DescribeConversionTasksResponse'
+    { _dctrConversionTasks = Nothing
+    , _dctrStatus = pStatus
+    }
 
 -- | Information about the conversion tasks.
 dctrConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
 dctrConversionTasks = lens _dctrConversionTasks (\ s a -> s{_dctrConversionTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dctrStatusCode :: Lens' DescribeConversionTasksResponse Int
-dctrStatusCode = lens _dctrStatusCode (\ s a -> s{_dctrStatusCode = a});
+dctrStatus :: Lens' DescribeConversionTasksResponse Int
+dctrStatus = lens _dctrStatus (\ s a -> s{_dctrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.DescribeStackResources
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,13 +53,13 @@ module Network.AWS.CloudFormation.DescribeStackResources
     , describeStackResourcesResponse
     -- ** Response lenses
     , desStackResources
-    , desStatusCode
+    , desStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for DescribeStackResources action.
 --
@@ -72,11 +72,20 @@ import Network.AWS.Response
 -- * 'dsrPhysicalResourceId'
 --
 -- * 'dsrStackName'
-data DescribeStackResources = DescribeStackResources'{_dsrLogicalResourceId :: Maybe Text, _dsrPhysicalResourceId :: Maybe Text, _dsrStackName :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeStackResources = DescribeStackResources'
+    { _dsrLogicalResourceId  :: Maybe Text
+    , _dsrPhysicalResourceId :: Maybe Text
+    , _dsrStackName          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackResources' smart constructor.
 describeStackResources :: DescribeStackResources
-describeStackResources = DescribeStackResources'{_dsrLogicalResourceId = Nothing, _dsrPhysicalResourceId = Nothing, _dsrStackName = Nothing};
+describeStackResources =
+    DescribeStackResources'
+    { _dsrLogicalResourceId = Nothing
+    , _dsrPhysicalResourceId = Nothing
+    , _dsrStackName = Nothing
+    }
 
 -- | The logical name of the resource as specified in the template.
 --
@@ -150,17 +159,24 @@ instance ToQuery DescribeStackResources where
 --
 -- * 'desStackResources'
 --
--- * 'desStatusCode'
-data DescribeStackResourcesResponse = DescribeStackResourcesResponse'{_desStackResources :: Maybe [StackResource], _desStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'desStatus'
+data DescribeStackResourcesResponse = DescribeStackResourcesResponse'
+    { _desStackResources :: Maybe [StackResource]
+    , _desStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackResourcesResponse' smart constructor.
 describeStackResourcesResponse :: Int -> DescribeStackResourcesResponse
-describeStackResourcesResponse pStatusCode = DescribeStackResourcesResponse'{_desStackResources = Nothing, _desStatusCode = pStatusCode};
+describeStackResourcesResponse pStatus =
+    DescribeStackResourcesResponse'
+    { _desStackResources = Nothing
+    , _desStatus = pStatus
+    }
 
 -- | A list of @StackResource@ structures.
 desStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
 desStackResources = lens _desStackResources (\ s a -> s{_desStackResources = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatusCode :: Lens' DescribeStackResourcesResponse Int
-desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});
+desStatus :: Lens' DescribeStackResourcesResponse Int
+desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

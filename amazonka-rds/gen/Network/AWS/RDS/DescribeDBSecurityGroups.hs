@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBSecurityGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,14 +38,14 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     -- ** Response lenses
     , ddbsgrDBSecurityGroups
     , ddbsgrMarker
-    , ddbsgrStatusCode
+    , ddbsgrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -60,11 +60,22 @@ import Network.AWS.Response
 -- * 'ddbsgMarker'
 --
 -- * 'ddbsgDBSecurityGroupName'
-data DescribeDBSecurityGroups = DescribeDBSecurityGroups'{_ddbsgFilters :: Maybe [Filter], _ddbsgMaxRecords :: Maybe Int, _ddbsgMarker :: Maybe Text, _ddbsgDBSecurityGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBSecurityGroups = DescribeDBSecurityGroups'
+    { _ddbsgFilters             :: Maybe [Filter]
+    , _ddbsgMaxRecords          :: Maybe Int
+    , _ddbsgMarker              :: Maybe Text
+    , _ddbsgDBSecurityGroupName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBSecurityGroups' smart constructor.
 describeDBSecurityGroups :: DescribeDBSecurityGroups
-describeDBSecurityGroups = DescribeDBSecurityGroups'{_ddbsgFilters = Nothing, _ddbsgMaxRecords = Nothing, _ddbsgMarker = Nothing, _ddbsgDBSecurityGroupName = Nothing};
+describeDBSecurityGroups =
+    DescribeDBSecurityGroups'
+    { _ddbsgFilters = Nothing
+    , _ddbsgMaxRecords = Nothing
+    , _ddbsgMarker = Nothing
+    , _ddbsgDBSecurityGroupName = Nothing
+    }
 
 -- | This parameter is not currently supported.
 ddbsgFilters :: Lens' DescribeDBSecurityGroups [Filter]
@@ -142,12 +153,21 @@ instance ToQuery DescribeDBSecurityGroups where
 --
 -- * 'ddbsgrMarker'
 --
--- * 'ddbsgrStatusCode'
-data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'{_ddbsgrDBSecurityGroups :: Maybe [DBSecurityGroup], _ddbsgrMarker :: Maybe Text, _ddbsgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddbsgrStatus'
+data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'
+    { _ddbsgrDBSecurityGroups :: Maybe [DBSecurityGroup]
+    , _ddbsgrMarker           :: Maybe Text
+    , _ddbsgrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBSecurityGroupsResponse' smart constructor.
 describeDBSecurityGroupsResponse :: Int -> DescribeDBSecurityGroupsResponse
-describeDBSecurityGroupsResponse pStatusCode = DescribeDBSecurityGroupsResponse'{_ddbsgrDBSecurityGroups = Nothing, _ddbsgrMarker = Nothing, _ddbsgrStatusCode = pStatusCode};
+describeDBSecurityGroupsResponse pStatus =
+    DescribeDBSecurityGroupsResponse'
+    { _ddbsgrDBSecurityGroups = Nothing
+    , _ddbsgrMarker = Nothing
+    , _ddbsgrStatus = pStatus
+    }
 
 -- | A list of DBSecurityGroup instances.
 ddbsgrDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
@@ -160,5 +180,5 @@ ddbsgrMarker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
 ddbsgrMarker = lens _ddbsgrMarker (\ s a -> s{_ddbsgrMarker = a});
 
 -- | FIXME: Undocumented member.
-ddbsgrStatusCode :: Lens' DescribeDBSecurityGroupsResponse Int
-ddbsgrStatusCode = lens _ddbsgrStatusCode (\ s a -> s{_ddbsgrStatusCode = a});
+ddbsgrStatus :: Lens' DescribeDBSecurityGroupsResponse Int
+ddbsgrStatus = lens _ddbsgrStatus (\ s a -> s{_ddbsgrStatus = a});

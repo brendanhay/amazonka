@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.GenerateDataKey
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,13 +71,13 @@ module Network.AWS.KMS.GenerateDataKey
     , gdkrKeyId
     , gdkrPlaintext
     , gdkrCiphertextBlob
-    , gdkrStatusCode
+    , gdkrStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'generateDataKey' smart constructor.
 --
@@ -92,11 +92,24 @@ import Network.AWS.Response
 -- * 'gdkGrantTokens'
 --
 -- * 'gdkKeyId'
-data GenerateDataKey = GenerateDataKey'{_gdkKeySpec :: Maybe DataKeySpec, _gdkEncryptionContext :: Maybe (Map Text Text), _gdkNumberOfBytes :: Maybe Nat, _gdkGrantTokens :: Maybe [Text], _gdkKeyId :: Text} deriving (Eq, Read, Show)
+data GenerateDataKey = GenerateDataKey'
+    { _gdkKeySpec           :: Maybe DataKeySpec
+    , _gdkEncryptionContext :: Maybe (Map Text Text)
+    , _gdkNumberOfBytes     :: Maybe Nat
+    , _gdkGrantTokens       :: Maybe [Text]
+    , _gdkKeyId             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GenerateDataKey' smart constructor.
 generateDataKey :: Text -> GenerateDataKey
-generateDataKey pKeyId = GenerateDataKey'{_gdkKeySpec = Nothing, _gdkEncryptionContext = Nothing, _gdkNumberOfBytes = Nothing, _gdkGrantTokens = Nothing, _gdkKeyId = pKeyId};
+generateDataKey pKeyId =
+    GenerateDataKey'
+    { _gdkKeySpec = Nothing
+    , _gdkEncryptionContext = Nothing
+    , _gdkNumberOfBytes = Nothing
+    , _gdkGrantTokens = Nothing
+    , _gdkKeyId = pKeyId
+    }
 
 -- | Value that identifies the encryption algorithm and key size to generate
 -- a data key for. Currently this can be AES_128 or AES_256.
@@ -181,12 +194,23 @@ instance ToQuery GenerateDataKey where
 --
 -- * 'gdkrCiphertextBlob'
 --
--- * 'gdkrStatusCode'
-data GenerateDataKeyResponse = GenerateDataKeyResponse'{_gdkrKeyId :: Maybe Text, _gdkrPlaintext :: Maybe (Sensitive Base64), _gdkrCiphertextBlob :: Maybe Base64, _gdkrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gdkrStatus'
+data GenerateDataKeyResponse = GenerateDataKeyResponse'
+    { _gdkrKeyId          :: Maybe Text
+    , _gdkrPlaintext      :: Maybe (Sensitive Base64)
+    , _gdkrCiphertextBlob :: Maybe Base64
+    , _gdkrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GenerateDataKeyResponse' smart constructor.
 generateDataKeyResponse :: Int -> GenerateDataKeyResponse
-generateDataKeyResponse pStatusCode = GenerateDataKeyResponse'{_gdkrKeyId = Nothing, _gdkrPlaintext = Nothing, _gdkrCiphertextBlob = Nothing, _gdkrStatusCode = pStatusCode};
+generateDataKeyResponse pStatus =
+    GenerateDataKeyResponse'
+    { _gdkrKeyId = Nothing
+    , _gdkrPlaintext = Nothing
+    , _gdkrCiphertextBlob = Nothing
+    , _gdkrStatus = pStatus
+    }
 
 -- | System generated unique identifier of the key to be used to decrypt the
 -- encrypted copy of the data key.
@@ -210,5 +234,5 @@ gdkrCiphertextBlob :: Lens' GenerateDataKeyResponse (Maybe Base64)
 gdkrCiphertextBlob = lens _gdkrCiphertextBlob (\ s a -> s{_gdkrCiphertextBlob = a});
 
 -- | FIXME: Undocumented member.
-gdkrStatusCode :: Lens' GenerateDataKeyResponse Int
-gdkrStatusCode = lens _gdkrStatusCode (\ s a -> s{_gdkrStatusCode = a});
+gdkrStatus :: Lens' GenerateDataKeyResponse Int
+gdkrStatus = lens _gdkrStatus (\ s a -> s{_gdkrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.AddTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.ELB.AddTags
     -- ** Response constructor
     , addTagsResponse
     -- ** Response lenses
-    , atrStatusCode
+    , atrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'addTags' smart constructor.
 --
@@ -56,11 +56,18 @@ import Network.AWS.Response
 -- * 'atLoadBalancerNames'
 --
 -- * 'atTags'
-data AddTags = AddTags'{_atLoadBalancerNames :: [Text], _atTags :: List1 Tag} deriving (Eq, Read, Show)
+data AddTags = AddTags'
+    { _atLoadBalancerNames :: [Text]
+    , _atTags              :: List1 Tag
+    } deriving (Eq,Read,Show)
 
 -- | 'AddTags' smart constructor.
 addTags :: NonEmpty Tag -> AddTags
-addTags pTags = AddTags'{_atLoadBalancerNames = mempty, _atTags = _List1 # pTags};
+addTags pTags =
+    AddTags'
+    { _atLoadBalancerNames = mempty
+    , _atTags = _List1 # pTags
+    }
 
 -- | The name of the load balancer. You can specify one load balancer only.
 atLoadBalancerNames :: Lens' AddTags [Text]
@@ -97,13 +104,18 @@ instance ToQuery AddTags where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atrStatusCode'
-newtype AddTagsResponse = AddTagsResponse'{_atrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'atrStatus'
+newtype AddTagsResponse = AddTagsResponse'
+    { _atrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AddTagsResponse' smart constructor.
 addTagsResponse :: Int -> AddTagsResponse
-addTagsResponse pStatusCode = AddTagsResponse'{_atrStatusCode = pStatusCode};
+addTagsResponse pStatus =
+    AddTagsResponse'
+    { _atrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-atrStatusCode :: Lens' AddTagsResponse Int
-atrStatusCode = lens _atrStatusCode (\ s a -> s{_atrStatusCode = a});
+atrStatus :: Lens' AddTagsResponse Int
+atrStatus = lens _atrStatus (\ s a -> s{_atrStatus = a});

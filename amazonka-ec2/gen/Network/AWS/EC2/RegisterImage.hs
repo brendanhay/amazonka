@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.RegisterImage
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,13 +63,13 @@ module Network.AWS.EC2.RegisterImage
     , registerImageResponse
     -- ** Response lenses
     , rirImageId
-    , rirStatusCode
+    , rirStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'registerImage' smart constructor.
 --
@@ -96,11 +96,36 @@ import Network.AWS.Response
 -- * 'riDescription'
 --
 -- * 'riName'
-data RegisterImage = RegisterImage'{_riVirtualizationType :: Maybe Text, _riImageLocation :: Maybe Text, _riRAMDiskId :: Maybe Text, _riKernelId :: Maybe Text, _riRootDeviceName :: Maybe Text, _riSRIOVNetSupport :: Maybe Text, _riArchitecture :: Maybe ArchitectureValues, _riBlockDeviceMappings :: Maybe [BlockDeviceMapping], _riDryRun :: Maybe Bool, _riDescription :: Maybe Text, _riName :: Text} deriving (Eq, Read, Show)
+data RegisterImage = RegisterImage'
+    { _riVirtualizationType  :: Maybe Text
+    , _riImageLocation       :: Maybe Text
+    , _riRAMDiskId           :: Maybe Text
+    , _riKernelId            :: Maybe Text
+    , _riRootDeviceName      :: Maybe Text
+    , _riSRIOVNetSupport     :: Maybe Text
+    , _riArchitecture        :: Maybe ArchitectureValues
+    , _riBlockDeviceMappings :: Maybe [BlockDeviceMapping]
+    , _riDryRun              :: Maybe Bool
+    , _riDescription         :: Maybe Text
+    , _riName                :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterImage' smart constructor.
 registerImage :: Text -> RegisterImage
-registerImage pName = RegisterImage'{_riVirtualizationType = Nothing, _riImageLocation = Nothing, _riRAMDiskId = Nothing, _riKernelId = Nothing, _riRootDeviceName = Nothing, _riSRIOVNetSupport = Nothing, _riArchitecture = Nothing, _riBlockDeviceMappings = Nothing, _riDryRun = Nothing, _riDescription = Nothing, _riName = pName};
+registerImage pName =
+    RegisterImage'
+    { _riVirtualizationType = Nothing
+    , _riImageLocation = Nothing
+    , _riRAMDiskId = Nothing
+    , _riKernelId = Nothing
+    , _riRootDeviceName = Nothing
+    , _riSRIOVNetSupport = Nothing
+    , _riArchitecture = Nothing
+    , _riBlockDeviceMappings = Nothing
+    , _riDryRun = Nothing
+    , _riDescription = Nothing
+    , _riName = pName
+    }
 
 -- | The type of virtualization.
 --
@@ -205,17 +230,24 @@ instance ToQuery RegisterImage where
 --
 -- * 'rirImageId'
 --
--- * 'rirStatusCode'
-data RegisterImageResponse = RegisterImageResponse'{_rirImageId :: Maybe Text, _rirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rirStatus'
+data RegisterImageResponse = RegisterImageResponse'
+    { _rirImageId :: Maybe Text
+    , _rirStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterImageResponse' smart constructor.
 registerImageResponse :: Int -> RegisterImageResponse
-registerImageResponse pStatusCode = RegisterImageResponse'{_rirImageId = Nothing, _rirStatusCode = pStatusCode};
+registerImageResponse pStatus =
+    RegisterImageResponse'
+    { _rirImageId = Nothing
+    , _rirStatus = pStatus
+    }
 
 -- | The ID of the newly registered AMI.
 rirImageId :: Lens' RegisterImageResponse (Maybe Text)
 rirImageId = lens _rirImageId (\ s a -> s{_rirImageId = a});
 
 -- | FIXME: Undocumented member.
-rirStatusCode :: Lens' RegisterImageResponse Int
-rirStatusCode = lens _rirStatusCode (\ s a -> s{_rirStatusCode = a});
+rirStatus :: Lens' RegisterImageResponse Int
+rirStatus = lens _rirStatus (\ s a -> s{_rirStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.BulkPublish
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.CognitoSync.BulkPublish
     , bulkPublishResponse
     -- ** Response lenses
     , bprIdentityPoolId
-    , bprStatusCode
+    , bprStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the BulkPublish operation.
 --
@@ -51,11 +51,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bpIdentityPoolId'
-newtype BulkPublish = BulkPublish'{_bpIdentityPoolId :: Text} deriving (Eq, Read, Show)
+newtype BulkPublish = BulkPublish'
+    { _bpIdentityPoolId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'BulkPublish' smart constructor.
 bulkPublish :: Text -> BulkPublish
-bulkPublish pIdentityPoolId = BulkPublish'{_bpIdentityPoolId = pIdentityPoolId};
+bulkPublish pIdentityPoolId =
+    BulkPublish'
+    { _bpIdentityPoolId = pIdentityPoolId
+    }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -100,12 +105,19 @@ instance ToQuery BulkPublish where
 --
 -- * 'bprIdentityPoolId'
 --
--- * 'bprStatusCode'
-data BulkPublishResponse = BulkPublishResponse'{_bprIdentityPoolId :: Maybe Text, _bprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'bprStatus'
+data BulkPublishResponse = BulkPublishResponse'
+    { _bprIdentityPoolId :: Maybe Text
+    , _bprStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'BulkPublishResponse' smart constructor.
 bulkPublishResponse :: Int -> BulkPublishResponse
-bulkPublishResponse pStatusCode = BulkPublishResponse'{_bprIdentityPoolId = Nothing, _bprStatusCode = pStatusCode};
+bulkPublishResponse pStatus =
+    BulkPublishResponse'
+    { _bprIdentityPoolId = Nothing
+    , _bprStatus = pStatus
+    }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -114,5 +126,5 @@ bprIdentityPoolId :: Lens' BulkPublishResponse (Maybe Text)
 bprIdentityPoolId = lens _bprIdentityPoolId (\ s a -> s{_bprIdentityPoolId = a});
 
 -- | FIXME: Undocumented member.
-bprStatusCode :: Lens' BulkPublishResponse Int
-bprStatusCode = lens _bprStatusCode (\ s a -> s{_bprStatusCode = a});
+bprStatus :: Lens' BulkPublishResponse Int
+bprStatus = lens _bprStatus (\ s a -> s{_bprStatus = a});

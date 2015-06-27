@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetOnPremisesInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.CodeDeploy.GetOnPremisesInstance
     , getOnPremisesInstanceResponse
     -- ** Response lenses
     , gopirInstanceInfo
-    , gopirStatusCode
+    , gopirStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a get on-premises instance operation.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gopiInstanceName'
-newtype GetOnPremisesInstance = GetOnPremisesInstance'{_gopiInstanceName :: Text} deriving (Eq, Read, Show)
+newtype GetOnPremisesInstance = GetOnPremisesInstance'
+    { _gopiInstanceName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetOnPremisesInstance' smart constructor.
 getOnPremisesInstance :: Text -> GetOnPremisesInstance
-getOnPremisesInstance pInstanceName = GetOnPremisesInstance'{_gopiInstanceName = pInstanceName};
+getOnPremisesInstance pInstanceName =
+    GetOnPremisesInstance'
+    { _gopiInstanceName = pInstanceName
+    }
 
 -- | The name of the on-premises instance to get information about
 gopiInstanceName :: Lens' GetOnPremisesInstance Text
@@ -96,17 +101,24 @@ instance ToQuery GetOnPremisesInstance where
 --
 -- * 'gopirInstanceInfo'
 --
--- * 'gopirStatusCode'
-data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'{_gopirInstanceInfo :: Maybe InstanceInfo, _gopirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gopirStatus'
+data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
+    { _gopirInstanceInfo :: Maybe InstanceInfo
+    , _gopirStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetOnPremisesInstanceResponse' smart constructor.
 getOnPremisesInstanceResponse :: Int -> GetOnPremisesInstanceResponse
-getOnPremisesInstanceResponse pStatusCode = GetOnPremisesInstanceResponse'{_gopirInstanceInfo = Nothing, _gopirStatusCode = pStatusCode};
+getOnPremisesInstanceResponse pStatus =
+    GetOnPremisesInstanceResponse'
+    { _gopirInstanceInfo = Nothing
+    , _gopirStatus = pStatus
+    }
 
 -- | Information about the on-premises instance.
 gopirInstanceInfo :: Lens' GetOnPremisesInstanceResponse (Maybe InstanceInfo)
 gopirInstanceInfo = lens _gopirInstanceInfo (\ s a -> s{_gopirInstanceInfo = a});
 
 -- | FIXME: Undocumented member.
-gopirStatusCode :: Lens' GetOnPremisesInstanceResponse Int
-gopirStatusCode = lens _gopirStatusCode (\ s a -> s{_gopirStatusCode = a});
+gopirStatus :: Lens' GetOnPremisesInstanceResponse Int
+gopirStatus = lens _gopirStatus (\ s a -> s{_gopirStatus = a});

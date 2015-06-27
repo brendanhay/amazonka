@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectoryService.RestoreFromSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.DirectoryService.RestoreFromSnapshot
     -- ** Response constructor
     , restoreFromSnapshotResponse
     -- ** Response lenses
-    , rfsrStatusCode
+    , rfsrStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | An object representing the inputs for the RestoreFromSnapshot operation.
 --
@@ -55,11 +55,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rfsSnapshotId'
-newtype RestoreFromSnapshot = RestoreFromSnapshot'{_rfsSnapshotId :: Text} deriving (Eq, Read, Show)
+newtype RestoreFromSnapshot = RestoreFromSnapshot'
+    { _rfsSnapshotId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RestoreFromSnapshot' smart constructor.
 restoreFromSnapshot :: Text -> RestoreFromSnapshot
-restoreFromSnapshot pSnapshotId = RestoreFromSnapshot'{_rfsSnapshotId = pSnapshotId};
+restoreFromSnapshot pSnapshotId =
+    RestoreFromSnapshot'
+    { _rfsSnapshotId = pSnapshotId
+    }
 
 -- | The identifier of the snapshot to restore from.
 rfsSnapshotId :: Lens' RestoreFromSnapshot Text
@@ -101,13 +106,18 @@ instance ToQuery RestoreFromSnapshot where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rfsrStatusCode'
-newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'{_rfsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rfsrStatus'
+newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
+    { _rfsrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RestoreFromSnapshotResponse' smart constructor.
 restoreFromSnapshotResponse :: Int -> RestoreFromSnapshotResponse
-restoreFromSnapshotResponse pStatusCode = RestoreFromSnapshotResponse'{_rfsrStatusCode = pStatusCode};
+restoreFromSnapshotResponse pStatus =
+    RestoreFromSnapshotResponse'
+    { _rfsrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-rfsrStatusCode :: Lens' RestoreFromSnapshotResponse Int
-rfsrStatusCode = lens _rfsrStatusCode (\ s a -> s{_rfsrStatusCode = a});
+rfsrStatus :: Lens' RestoreFromSnapshotResponse Int
+rfsrStatus = lens _rfsrStatus (\ s a -> s{_rfsrStatus = a});

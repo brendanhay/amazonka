@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.DeleteVaultAccessPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,10 +42,10 @@ module Network.AWS.Glacier.DeleteVaultAccessPolicy
     , deleteVaultAccessPolicyResponse
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | DeleteVaultAccessPolicy input.
 --
@@ -56,11 +56,18 @@ import Network.AWS.Response
 -- * 'dvapAccountId'
 --
 -- * 'dvapVaultName'
-data DeleteVaultAccessPolicy = DeleteVaultAccessPolicy'{_dvapAccountId :: Text, _dvapVaultName :: Text} deriving (Eq, Read, Show)
+data DeleteVaultAccessPolicy = DeleteVaultAccessPolicy'
+    { _dvapAccountId :: Text
+    , _dvapVaultName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVaultAccessPolicy' smart constructor.
 deleteVaultAccessPolicy :: Text -> Text -> DeleteVaultAccessPolicy
-deleteVaultAccessPolicy pAccountId pVaultName = DeleteVaultAccessPolicy'{_dvapAccountId = pAccountId, _dvapVaultName = pVaultName};
+deleteVaultAccessPolicy pAccountId pVaultName =
+    DeleteVaultAccessPolicy'
+    { _dvapAccountId = pAccountId
+    , _dvapVaultName = pVaultName
+    }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
@@ -95,8 +102,10 @@ instance ToQuery DeleteVaultAccessPolicy where
         toQuery = const mempty
 
 -- | /See:/ 'deleteVaultAccessPolicyResponse' smart constructor.
-data DeleteVaultAccessPolicyResponse = DeleteVaultAccessPolicyResponse' deriving (Eq, Read, Show)
+data DeleteVaultAccessPolicyResponse =
+    DeleteVaultAccessPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteVaultAccessPolicyResponse' smart constructor.
 deleteVaultAccessPolicyResponse :: DeleteVaultAccessPolicyResponse
-deleteVaultAccessPolicyResponse = DeleteVaultAccessPolicyResponse';
+deleteVaultAccessPolicyResponse = DeleteVaultAccessPolicyResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribePrefixLists
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.EC2.DescribePrefixLists
     -- ** Response lenses
     , dplrNextToken
     , dplrPrefixLists
-    , dplrStatusCode
+    , dplrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describePrefixLists' smart constructor.
 --
@@ -62,11 +62,24 @@ import Network.AWS.Response
 -- * 'dplDryRun'
 --
 -- * 'dplMaxResults'
-data DescribePrefixLists = DescribePrefixLists'{_dplFilters :: Maybe [Filter], _dplNextToken :: Maybe Text, _dplPrefixListIds :: Maybe [Text], _dplDryRun :: Maybe Bool, _dplMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribePrefixLists = DescribePrefixLists'
+    { _dplFilters       :: Maybe [Filter]
+    , _dplNextToken     :: Maybe Text
+    , _dplPrefixListIds :: Maybe [Text]
+    , _dplDryRun        :: Maybe Bool
+    , _dplMaxResults    :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribePrefixLists' smart constructor.
 describePrefixLists :: DescribePrefixLists
-describePrefixLists = DescribePrefixLists'{_dplFilters = Nothing, _dplNextToken = Nothing, _dplPrefixListIds = Nothing, _dplDryRun = Nothing, _dplMaxResults = Nothing};
+describePrefixLists =
+    DescribePrefixLists'
+    { _dplFilters = Nothing
+    , _dplNextToken = Nothing
+    , _dplPrefixListIds = Nothing
+    , _dplDryRun = Nothing
+    , _dplMaxResults = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -139,12 +152,21 @@ instance ToQuery DescribePrefixLists where
 --
 -- * 'dplrPrefixLists'
 --
--- * 'dplrStatusCode'
-data DescribePrefixListsResponse = DescribePrefixListsResponse'{_dplrNextToken :: Maybe Text, _dplrPrefixLists :: Maybe [PrefixList], _dplrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dplrStatus'
+data DescribePrefixListsResponse = DescribePrefixListsResponse'
+    { _dplrNextToken   :: Maybe Text
+    , _dplrPrefixLists :: Maybe [PrefixList]
+    , _dplrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribePrefixListsResponse' smart constructor.
 describePrefixListsResponse :: Int -> DescribePrefixListsResponse
-describePrefixListsResponse pStatusCode = DescribePrefixListsResponse'{_dplrNextToken = Nothing, _dplrPrefixLists = Nothing, _dplrStatusCode = pStatusCode};
+describePrefixListsResponse pStatus =
+    DescribePrefixListsResponse'
+    { _dplrNextToken = Nothing
+    , _dplrPrefixLists = Nothing
+    , _dplrStatus = pStatus
+    }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -156,5 +178,5 @@ dplrPrefixLists :: Lens' DescribePrefixListsResponse [PrefixList]
 dplrPrefixLists = lens _dplrPrefixLists (\ s a -> s{_dplrPrefixLists = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dplrStatusCode :: Lens' DescribePrefixListsResponse Int
-dplrStatusCode = lens _dplrStatusCode (\ s a -> s{_dplrStatusCode = a});
+dplrStatus :: Lens' DescribePrefixListsResponse Int
+dplrStatus = lens _dplrStatus (\ s a -> s{_dplrStatus = a});

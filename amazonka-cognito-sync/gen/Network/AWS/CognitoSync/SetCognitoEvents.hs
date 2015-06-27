@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.SetCognitoEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.CognitoSync.SetCognitoEvents
     , setCognitoEventsResponse
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to configure Cognito Events\"
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'sceIdentityPoolId'
 --
 -- * 'sceEvents'
-data SetCognitoEvents = SetCognitoEvents'{_sceIdentityPoolId :: Text, _sceEvents :: Map Text Text} deriving (Eq, Read, Show)
+data SetCognitoEvents = SetCognitoEvents'
+    { _sceIdentityPoolId :: Text
+    , _sceEvents         :: Map Text Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetCognitoEvents' smart constructor.
 setCognitoEvents :: Text -> SetCognitoEvents
-setCognitoEvents pIdentityPoolId = SetCognitoEvents'{_sceIdentityPoolId = pIdentityPoolId, _sceEvents = mempty};
+setCognitoEvents pIdentityPoolId =
+    SetCognitoEvents'
+    { _sceIdentityPoolId = pIdentityPoolId
+    , _sceEvents = mempty
+    }
 
 -- | The Cognito Identity Pool to use when configuring Cognito Events
 sceIdentityPoolId :: Lens' SetCognitoEvents Text
@@ -93,8 +100,10 @@ instance ToQuery SetCognitoEvents where
         toQuery = const mempty
 
 -- | /See:/ 'setCognitoEventsResponse' smart constructor.
-data SetCognitoEventsResponse = SetCognitoEventsResponse' deriving (Eq, Read, Show)
+data SetCognitoEventsResponse =
+    SetCognitoEventsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'SetCognitoEventsResponse' smart constructor.
 setCognitoEventsResponse :: SetCognitoEventsResponse
-setCognitoEventsResponse = SetCognitoEventsResponse';
+setCognitoEventsResponse = SetCognitoEventsResponse'

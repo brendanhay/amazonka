@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EMR.ModifyInstanceGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.EMR.ModifyInstanceGroups
     , modifyInstanceGroupsResponse
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Change the size of some instance groups.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'migInstanceGroups'
-newtype ModifyInstanceGroups = ModifyInstanceGroups'{_migInstanceGroups :: Maybe [InstanceGroupModifyConfig]} deriving (Eq, Read, Show)
+newtype ModifyInstanceGroups = ModifyInstanceGroups'
+    { _migInstanceGroups :: Maybe [InstanceGroupModifyConfig]
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyInstanceGroups' smart constructor.
 modifyInstanceGroups :: ModifyInstanceGroups
-modifyInstanceGroups = ModifyInstanceGroups'{_migInstanceGroups = Nothing};
+modifyInstanceGroups =
+    ModifyInstanceGroups'
+    { _migInstanceGroups = Nothing
+    }
 
 -- | Instance groups to change.
 migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
@@ -85,8 +90,10 @@ instance ToQuery ModifyInstanceGroups where
         toQuery = const mempty
 
 -- | /See:/ 'modifyInstanceGroupsResponse' smart constructor.
-data ModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse' deriving (Eq, Read, Show)
+data ModifyInstanceGroupsResponse =
+    ModifyInstanceGroupsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ModifyInstanceGroupsResponse' smart constructor.
 modifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse
-modifyInstanceGroupsResponse = ModifyInstanceGroupsResponse';
+modifyInstanceGroupsResponse = ModifyInstanceGroupsResponse'

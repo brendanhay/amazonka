@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.ModifyDBParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,10 +55,10 @@ module Network.AWS.RDS.ModifyDBParameterGroup
     , dpgnmDBParameterGroupName
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -69,11 +69,18 @@ import Network.AWS.Response
 -- * 'mdpgDBParameterGroupName'
 --
 -- * 'mdpgParameters'
-data ModifyDBParameterGroup = ModifyDBParameterGroup'{_mdpgDBParameterGroupName :: Text, _mdpgParameters :: [Parameter]} deriving (Eq, Read, Show)
+data ModifyDBParameterGroup = ModifyDBParameterGroup'
+    { _mdpgDBParameterGroupName :: Text
+    , _mdpgParameters           :: [Parameter]
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyDBParameterGroup' smart constructor.
 modifyDBParameterGroup :: Text -> ModifyDBParameterGroup
-modifyDBParameterGroup pDBParameterGroupName = ModifyDBParameterGroup'{_mdpgDBParameterGroupName = pDBParameterGroupName, _mdpgParameters = mempty};
+modifyDBParameterGroup pDBParameterGroupName =
+    ModifyDBParameterGroup'
+    { _mdpgDBParameterGroupName = pDBParameterGroupName
+    , _mdpgParameters = mempty
+    }
 
 -- | The name of the DB parameter group.
 --

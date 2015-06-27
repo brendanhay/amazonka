@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatch.DescribeAlarms
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,14 +41,14 @@ module Network.AWS.CloudWatch.DescribeAlarms
     -- ** Response lenses
     , darMetricAlarms
     , darNextToken
-    , darStatusCode
+    , darStatus
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAlarms' smart constructor.
 --
@@ -65,11 +65,26 @@ import Network.AWS.Response
 -- * 'daAlarmNames'
 --
 -- * 'daMaxRecords'
-data DescribeAlarms = DescribeAlarms'{_daAlarmNamePrefix :: Maybe Text, _daActionPrefix :: Maybe Text, _daNextToken :: Maybe Text, _daStateValue :: Maybe StateValue, _daAlarmNames :: Maybe [Text], _daMaxRecords :: Maybe Nat} deriving (Eq, Read, Show)
+data DescribeAlarms = DescribeAlarms'
+    { _daAlarmNamePrefix :: Maybe Text
+    , _daActionPrefix    :: Maybe Text
+    , _daNextToken       :: Maybe Text
+    , _daStateValue      :: Maybe StateValue
+    , _daAlarmNames      :: Maybe [Text]
+    , _daMaxRecords      :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAlarms' smart constructor.
 describeAlarms :: DescribeAlarms
-describeAlarms = DescribeAlarms'{_daAlarmNamePrefix = Nothing, _daActionPrefix = Nothing, _daNextToken = Nothing, _daStateValue = Nothing, _daAlarmNames = Nothing, _daMaxRecords = Nothing};
+describeAlarms =
+    DescribeAlarms'
+    { _daAlarmNamePrefix = Nothing
+    , _daActionPrefix = Nothing
+    , _daNextToken = Nothing
+    , _daStateValue = Nothing
+    , _daAlarmNames = Nothing
+    , _daMaxRecords = Nothing
+    }
 
 -- | The alarm name prefix. @AlarmNames@ cannot be specified if this
 -- parameter is specified.
@@ -146,12 +161,21 @@ instance ToQuery DescribeAlarms where
 --
 -- * 'darNextToken'
 --
--- * 'darStatusCode'
-data DescribeAlarmsResponse = DescribeAlarmsResponse'{_darMetricAlarms :: Maybe [MetricAlarm], _darNextToken :: Maybe Text, _darStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'darStatus'
+data DescribeAlarmsResponse = DescribeAlarmsResponse'
+    { _darMetricAlarms :: Maybe [MetricAlarm]
+    , _darNextToken    :: Maybe Text
+    , _darStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAlarmsResponse' smart constructor.
 describeAlarmsResponse :: Int -> DescribeAlarmsResponse
-describeAlarmsResponse pStatusCode = DescribeAlarmsResponse'{_darMetricAlarms = Nothing, _darNextToken = Nothing, _darStatusCode = pStatusCode};
+describeAlarmsResponse pStatus =
+    DescribeAlarmsResponse'
+    { _darMetricAlarms = Nothing
+    , _darNextToken = Nothing
+    , _darStatus = pStatus
+    }
 
 -- | A list of information for the specified alarms.
 darMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
@@ -162,5 +186,5 @@ darNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
 darNextToken = lens _darNextToken (\ s a -> s{_darNextToken = a});
 
 -- | FIXME: Undocumented member.
-darStatusCode :: Lens' DescribeAlarmsResponse Int
-darStatusCode = lens _darStatusCode (\ s a -> s{_darStatusCode = a});
+darStatus :: Lens' DescribeAlarmsResponse Int
+darStatus = lens _darStatus (\ s a -> s{_darStatus = a});

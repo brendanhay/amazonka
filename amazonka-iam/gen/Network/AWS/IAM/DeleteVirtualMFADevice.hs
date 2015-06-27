@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeleteVirtualMFADevice
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,21 +36,26 @@ module Network.AWS.IAM.DeleteVirtualMFADevice
     , deleteVirtualMFADeviceResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteVirtualMFADevice' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvmdSerialNumber'
-newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice'{_dvmdSerialNumber :: Text} deriving (Eq, Read, Show)
+newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice'
+    { _dvmdSerialNumber :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVirtualMFADevice' smart constructor.
 deleteVirtualMFADevice :: Text -> DeleteVirtualMFADevice
-deleteVirtualMFADevice pSerialNumber = DeleteVirtualMFADevice'{_dvmdSerialNumber = pSerialNumber};
+deleteVirtualMFADevice pSerialNumber =
+    DeleteVirtualMFADevice'
+    { _dvmdSerialNumber = pSerialNumber
+    }
 
 -- | The serial number that uniquely identifies the MFA device. For virtual
 -- MFA devices, the serial number is the same as the ARN.
@@ -80,8 +85,10 @@ instance ToQuery DeleteVirtualMFADevice where
                "SerialNumber" =: _dvmdSerialNumber]
 
 -- | /See:/ 'deleteVirtualMFADeviceResponse' smart constructor.
-data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse' deriving (Eq, Read, Show)
+data DeleteVirtualMFADeviceResponse =
+    DeleteVirtualMFADeviceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteVirtualMFADeviceResponse' smart constructor.
 deleteVirtualMFADeviceResponse :: DeleteVirtualMFADeviceResponse
-deleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse';
+deleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse'

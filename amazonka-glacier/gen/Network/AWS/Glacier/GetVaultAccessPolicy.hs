@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.GetVaultAccessPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.Glacier.GetVaultAccessPolicy
     , getVaultAccessPolicyResponse
     -- ** Response lenses
     , gvaprPolicy
-    , gvaprStatusCode
+    , gvaprStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input for GetVaultAccessPolicy.
 --
@@ -56,11 +56,18 @@ import Network.AWS.Response
 -- * 'gvapAccountId'
 --
 -- * 'gvapVaultName'
-data GetVaultAccessPolicy = GetVaultAccessPolicy'{_gvapAccountId :: Text, _gvapVaultName :: Text} deriving (Eq, Read, Show)
+data GetVaultAccessPolicy = GetVaultAccessPolicy'
+    { _gvapAccountId :: Text
+    , _gvapVaultName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetVaultAccessPolicy' smart constructor.
 getVaultAccessPolicy :: Text -> Text -> GetVaultAccessPolicy
-getVaultAccessPolicy pAccountId pVaultName = GetVaultAccessPolicy'{_gvapAccountId = pAccountId, _gvapVaultName = pVaultName};
+getVaultAccessPolicy pAccountId pVaultName =
+    GetVaultAccessPolicy'
+    { _gvapAccountId = pAccountId
+    , _gvapVaultName = pVaultName
+    }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
@@ -105,17 +112,24 @@ instance ToQuery GetVaultAccessPolicy where
 --
 -- * 'gvaprPolicy'
 --
--- * 'gvaprStatusCode'
-data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'{_gvaprPolicy :: Maybe VaultAccessPolicy, _gvaprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gvaprStatus'
+data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
+    { _gvaprPolicy :: Maybe VaultAccessPolicy
+    , _gvaprStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetVaultAccessPolicyResponse' smart constructor.
 getVaultAccessPolicyResponse :: Int -> GetVaultAccessPolicyResponse
-getVaultAccessPolicyResponse pStatusCode = GetVaultAccessPolicyResponse'{_gvaprPolicy = Nothing, _gvaprStatusCode = pStatusCode};
+getVaultAccessPolicyResponse pStatus =
+    GetVaultAccessPolicyResponse'
+    { _gvaprPolicy = Nothing
+    , _gvaprStatus = pStatus
+    }
 
 -- | Contains the returned vault access policy as a JSON string.
 gvaprPolicy :: Lens' GetVaultAccessPolicyResponse (Maybe VaultAccessPolicy)
 gvaprPolicy = lens _gvaprPolicy (\ s a -> s{_gvaprPolicy = a});
 
 -- | FIXME: Undocumented member.
-gvaprStatusCode :: Lens' GetVaultAccessPolicyResponse Int
-gvaprStatusCode = lens _gvaprStatusCode (\ s a -> s{_gvaprStatusCode = a});
+gvaprStatus :: Lens' GetVaultAccessPolicyResponse Int
+gvaprStatus = lens _gvaprStatus (\ s a -> s{_gvaprStatus = a});

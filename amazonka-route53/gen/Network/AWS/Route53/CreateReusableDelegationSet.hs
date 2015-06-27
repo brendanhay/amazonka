@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.CreateReusableDelegationSet
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.Route53.CreateReusableDelegationSet
     -- ** Response lenses
     , crdsrDelegationSet
     , crdsrLocation
-    , crdsrStatusCode
+    , crdsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | /See:/ 'createReusableDelegationSet' smart constructor.
 --
@@ -58,11 +58,18 @@ import Network.AWS.Route53.Types
 -- * 'crdsHostedZoneId'
 --
 -- * 'crdsCallerReference'
-data CreateReusableDelegationSet = CreateReusableDelegationSet'{_crdsHostedZoneId :: Maybe Text, _crdsCallerReference :: Text} deriving (Eq, Read, Show)
+data CreateReusableDelegationSet = CreateReusableDelegationSet'
+    { _crdsHostedZoneId    :: Maybe Text
+    , _crdsCallerReference :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateReusableDelegationSet' smart constructor.
 createReusableDelegationSet :: Text -> CreateReusableDelegationSet
-createReusableDelegationSet pCallerReference = CreateReusableDelegationSet'{_crdsHostedZoneId = Nothing, _crdsCallerReference = pCallerReference};
+createReusableDelegationSet pCallerReference =
+    CreateReusableDelegationSet'
+    { _crdsHostedZoneId = Nothing
+    , _crdsCallerReference = pCallerReference
+    }
 
 -- | The ID of the hosted zone whose delegation set you want to mark as
 -- reusable. It is an optional parameter.
@@ -122,12 +129,21 @@ instance ToXML CreateReusableDelegationSet where
 --
 -- * 'crdsrLocation'
 --
--- * 'crdsrStatusCode'
-data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'{_crdsrDelegationSet :: DelegationSet, _crdsrLocation :: Text, _crdsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'crdsrStatus'
+data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'
+    { _crdsrDelegationSet :: DelegationSet
+    , _crdsrLocation      :: Text
+    , _crdsrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateReusableDelegationSetResponse' smart constructor.
 createReusableDelegationSetResponse :: DelegationSet -> Text -> Int -> CreateReusableDelegationSetResponse
-createReusableDelegationSetResponse pDelegationSet pLocation pStatusCode = CreateReusableDelegationSetResponse'{_crdsrDelegationSet = pDelegationSet, _crdsrLocation = pLocation, _crdsrStatusCode = pStatusCode};
+createReusableDelegationSetResponse pDelegationSet pLocation pStatus =
+    CreateReusableDelegationSetResponse'
+    { _crdsrDelegationSet = pDelegationSet
+    , _crdsrLocation = pLocation
+    , _crdsrStatus = pStatus
+    }
 
 -- | A complex type that contains name server information.
 crdsrDelegationSet :: Lens' CreateReusableDelegationSetResponse DelegationSet
@@ -138,5 +154,5 @@ crdsrLocation :: Lens' CreateReusableDelegationSetResponse Text
 crdsrLocation = lens _crdsrLocation (\ s a -> s{_crdsrLocation = a});
 
 -- | FIXME: Undocumented member.
-crdsrStatusCode :: Lens' CreateReusableDelegationSetResponse Int
-crdsrStatusCode = lens _crdsrStatusCode (\ s a -> s{_crdsrStatusCode = a});
+crdsrStatus :: Lens' CreateReusableDelegationSetResponse Int
+crdsrStatus = lens _crdsrStatus (\ s a -> s{_crdsrStatus = a});

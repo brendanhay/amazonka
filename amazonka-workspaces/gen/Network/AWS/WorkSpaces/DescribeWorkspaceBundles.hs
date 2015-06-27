@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.WorkSpaces.DescribeWorkspaceBundles
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,13 +44,13 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
     -- ** Response lenses
     , dwbrBundles
     , dwbrNextToken
-    , dwbrStatusCode
+    , dwbrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.WorkSpaces.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.WorkSpaces.Types
 
 -- | Contains the inputs for the DescribeWorkspaceBundles operation.
 --
@@ -63,11 +63,20 @@ import Network.AWS.WorkSpaces.Types
 -- * 'dwbOwner'
 --
 -- * 'dwbNextToken'
-data DescribeWorkspaceBundles = DescribeWorkspaceBundles'{_dwbBundleIds :: Maybe (List1 Text), _dwbOwner :: Maybe Text, _dwbNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeWorkspaceBundles = DescribeWorkspaceBundles'
+    { _dwbBundleIds :: Maybe (List1 Text)
+    , _dwbOwner     :: Maybe Text
+    , _dwbNextToken :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkspaceBundles' smart constructor.
 describeWorkspaceBundles :: DescribeWorkspaceBundles
-describeWorkspaceBundles = DescribeWorkspaceBundles'{_dwbBundleIds = Nothing, _dwbOwner = Nothing, _dwbNextToken = Nothing};
+describeWorkspaceBundles =
+    DescribeWorkspaceBundles'
+    { _dwbBundleIds = Nothing
+    , _dwbOwner = Nothing
+    , _dwbNextToken = Nothing
+    }
 
 -- | An array of strings that contains the identifiers of the bundles to
 -- retrieve. This parameter cannot be combined with any other filter
@@ -135,12 +144,21 @@ instance ToQuery DescribeWorkspaceBundles where
 --
 -- * 'dwbrNextToken'
 --
--- * 'dwbrStatusCode'
-data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'{_dwbrBundles :: Maybe [WorkspaceBundle], _dwbrNextToken :: Maybe Text, _dwbrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dwbrStatus'
+data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
+    { _dwbrBundles   :: Maybe [WorkspaceBundle]
+    , _dwbrNextToken :: Maybe Text
+    , _dwbrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkspaceBundlesResponse' smart constructor.
 describeWorkspaceBundlesResponse :: Int -> DescribeWorkspaceBundlesResponse
-describeWorkspaceBundlesResponse pStatusCode = DescribeWorkspaceBundlesResponse'{_dwbrBundles = Nothing, _dwbrNextToken = Nothing, _dwbrStatusCode = pStatusCode};
+describeWorkspaceBundlesResponse pStatus =
+    DescribeWorkspaceBundlesResponse'
+    { _dwbrBundles = Nothing
+    , _dwbrNextToken = Nothing
+    , _dwbrStatus = pStatus
+    }
 
 -- | An array of structures that contain information about the bundles.
 dwbrBundles :: Lens' DescribeWorkspaceBundlesResponse [WorkspaceBundle]
@@ -154,5 +172,5 @@ dwbrNextToken :: Lens' DescribeWorkspaceBundlesResponse (Maybe Text)
 dwbrNextToken = lens _dwbrNextToken (\ s a -> s{_dwbrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dwbrStatusCode :: Lens' DescribeWorkspaceBundlesResponse Int
-dwbrStatusCode = lens _dwbrStatusCode (\ s a -> s{_dwbrStatusCode = a});
+dwbrStatus :: Lens' DescribeWorkspaceBundlesResponse Int
+dwbrStatus = lens _dwbrStatus (\ s a -> s{_dwbrStatus = a});

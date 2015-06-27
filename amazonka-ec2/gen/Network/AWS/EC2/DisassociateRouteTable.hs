@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DisassociateRouteTable
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.EC2.DisassociateRouteTable
     , disassociateRouteTableResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'disassociateRouteTable' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'drtDryRun'
 --
 -- * 'drtAssociationId'
-data DisassociateRouteTable = DisassociateRouteTable'{_drtDryRun :: Maybe Bool, _drtAssociationId :: Text} deriving (Eq, Read, Show)
+data DisassociateRouteTable = DisassociateRouteTable'
+    { _drtDryRun        :: Maybe Bool
+    , _drtAssociationId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DisassociateRouteTable' smart constructor.
 disassociateRouteTable :: Text -> DisassociateRouteTable
-disassociateRouteTable pAssociationId = DisassociateRouteTable'{_drtDryRun = Nothing, _drtAssociationId = pAssociationId};
+disassociateRouteTable pAssociationId =
+    DisassociateRouteTable'
+    { _drtDryRun = Nothing
+    , _drtAssociationId = pAssociationId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -93,8 +100,10 @@ instance ToQuery DisassociateRouteTable where
                "AssociationId" =: _drtAssociationId]
 
 -- | /See:/ 'disassociateRouteTableResponse' smart constructor.
-data DisassociateRouteTableResponse = DisassociateRouteTableResponse' deriving (Eq, Read, Show)
+data DisassociateRouteTableResponse =
+    DisassociateRouteTableResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DisassociateRouteTableResponse' smart constructor.
 disassociateRouteTableResponse :: DisassociateRouteTableResponse
-disassociateRouteTableResponse = DisassociateRouteTableResponse';
+disassociateRouteTableResponse = DisassociateRouteTableResponse'

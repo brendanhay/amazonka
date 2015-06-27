@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.DescribeIdentityUsage
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.CognitoSync.DescribeIdentityUsage
     , describeIdentityUsageResponse
     -- ** Response lenses
     , diurIdentityUsage
-    , diurStatusCode
+    , diurStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request for information about the usage of an identity pool.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'diuIdentityPoolId'
 --
 -- * 'diuIdentityId'
-data DescribeIdentityUsage = DescribeIdentityUsage'{_diuIdentityPoolId :: Text, _diuIdentityId :: Text} deriving (Eq, Read, Show)
+data DescribeIdentityUsage = DescribeIdentityUsage'
+    { _diuIdentityPoolId :: Text
+    , _diuIdentityId     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeIdentityUsage' smart constructor.
 describeIdentityUsage :: Text -> Text -> DescribeIdentityUsage
-describeIdentityUsage pIdentityPoolId pIdentityId = DescribeIdentityUsage'{_diuIdentityPoolId = pIdentityPoolId, _diuIdentityId = pIdentityId};
+describeIdentityUsage pIdentityPoolId pIdentityId =
+    DescribeIdentityUsage'
+    { _diuIdentityPoolId = pIdentityPoolId
+    , _diuIdentityId = pIdentityId
+    }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -107,17 +114,24 @@ instance ToQuery DescribeIdentityUsage where
 --
 -- * 'diurIdentityUsage'
 --
--- * 'diurStatusCode'
-data DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'{_diurIdentityUsage :: Maybe IdentityUsage, _diurStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'diurStatus'
+data DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'
+    { _diurIdentityUsage :: Maybe IdentityUsage
+    , _diurStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeIdentityUsageResponse' smart constructor.
 describeIdentityUsageResponse :: Int -> DescribeIdentityUsageResponse
-describeIdentityUsageResponse pStatusCode = DescribeIdentityUsageResponse'{_diurIdentityUsage = Nothing, _diurStatusCode = pStatusCode};
+describeIdentityUsageResponse pStatus =
+    DescribeIdentityUsageResponse'
+    { _diurIdentityUsage = Nothing
+    , _diurStatus = pStatus
+    }
 
 -- | Usage information for the identity.
 diurIdentityUsage :: Lens' DescribeIdentityUsageResponse (Maybe IdentityUsage)
 diurIdentityUsage = lens _diurIdentityUsage (\ s a -> s{_diurIdentityUsage = a});
 
 -- | FIXME: Undocumented member.
-diurStatusCode :: Lens' DescribeIdentityUsageResponse Int
-diurStatusCode = lens _diurStatusCode (\ s a -> s{_diurStatusCode = a});
+diurStatus :: Lens' DescribeIdentityUsageResponse Int
+diurStatus = lens _diurStatus (\ s a -> s{_diurStatus = a});

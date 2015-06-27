@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.RetrieveDomainAuthCode
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     , retrieveDomainAuthCodeResponse
     -- ** Response lenses
     , rdacrAuthCode
-    , rdacrStatusCode
+    , rdacrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | The RetrieveDomainAuthCode request includes the following element.
 --
@@ -48,11 +48,16 @@ import Network.AWS.Route53Domains.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rdacDomainName'
-newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode'{_rdacDomainName :: Text} deriving (Eq, Read, Show)
+newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode'
+    { _rdacDomainName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RetrieveDomainAuthCode' smart constructor.
 retrieveDomainAuthCode :: Text -> RetrieveDomainAuthCode
-retrieveDomainAuthCode pDomainName = RetrieveDomainAuthCode'{_rdacDomainName = pDomainName};
+retrieveDomainAuthCode pDomainName =
+    RetrieveDomainAuthCode'
+    { _rdacDomainName = pDomainName
+    }
 
 -- | The name of a domain.
 --
@@ -107,12 +112,19 @@ instance ToQuery RetrieveDomainAuthCode where
 --
 -- * 'rdacrAuthCode'
 --
--- * 'rdacrStatusCode'
-data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'{_rdacrAuthCode :: Sensitive Text, _rdacrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rdacrStatus'
+data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
+    { _rdacrAuthCode :: Sensitive Text
+    , _rdacrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RetrieveDomainAuthCodeResponse' smart constructor.
 retrieveDomainAuthCodeResponse :: Text -> Int -> RetrieveDomainAuthCodeResponse
-retrieveDomainAuthCodeResponse pAuthCode pStatusCode = RetrieveDomainAuthCodeResponse'{_rdacrAuthCode = _Sensitive # pAuthCode, _rdacrStatusCode = pStatusCode};
+retrieveDomainAuthCodeResponse pAuthCode pStatus =
+    RetrieveDomainAuthCodeResponse'
+    { _rdacrAuthCode = _Sensitive # pAuthCode
+    , _rdacrStatus = pStatus
+    }
 
 -- | The authorization code for the domain.
 --
@@ -121,5 +133,5 @@ rdacrAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
 rdacrAuthCode = lens _rdacrAuthCode (\ s a -> s{_rdacrAuthCode = a}) . _Sensitive;
 
 -- | FIXME: Undocumented member.
-rdacrStatusCode :: Lens' RetrieveDomainAuthCodeResponse Int
-rdacrStatusCode = lens _rdacrStatusCode (\ s a -> s{_rdacrStatusCode = a});
+rdacrStatus :: Lens' RetrieveDomainAuthCodeResponse Int
+rdacrStatus = lens _rdacrStatus (\ s a -> s{_rdacrStatus = a});

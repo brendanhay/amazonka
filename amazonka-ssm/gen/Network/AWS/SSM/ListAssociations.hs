@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SSM.ListAssociations
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.SSM.ListAssociations
     -- ** Response lenses
     , larNextToken
     , larAssociations
-    , larStatusCode
+    , larStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
 
 -- | /See:/ 'listAssociations' smart constructor.
 --
@@ -53,11 +53,20 @@ import Network.AWS.SSM.Types
 -- * 'laMaxResults'
 --
 -- * 'laAssociationFilterList'
-data ListAssociations = ListAssociations'{_laNextToken :: Maybe Text, _laMaxResults :: Maybe Nat, _laAssociationFilterList :: List1 AssociationFilter} deriving (Eq, Read, Show)
+data ListAssociations = ListAssociations'
+    { _laNextToken             :: Maybe Text
+    , _laMaxResults            :: Maybe Nat
+    , _laAssociationFilterList :: List1 AssociationFilter
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAssociations' smart constructor.
 listAssociations :: NonEmpty AssociationFilter -> ListAssociations
-listAssociations pAssociationFilterList = ListAssociations'{_laNextToken = Nothing, _laMaxResults = Nothing, _laAssociationFilterList = _List1 # pAssociationFilterList};
+listAssociations pAssociationFilterList =
+    ListAssociations'
+    { _laNextToken = Nothing
+    , _laMaxResults = Nothing
+    , _laAssociationFilterList = _List1 # pAssociationFilterList
+    }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -117,12 +126,21 @@ instance ToQuery ListAssociations where
 --
 -- * 'larAssociations'
 --
--- * 'larStatusCode'
-data ListAssociationsResponse = ListAssociationsResponse'{_larNextToken :: Maybe Text, _larAssociations :: Maybe [Association], _larStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'larStatus'
+data ListAssociationsResponse = ListAssociationsResponse'
+    { _larNextToken    :: Maybe Text
+    , _larAssociations :: Maybe [Association]
+    , _larStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAssociationsResponse' smart constructor.
 listAssociationsResponse :: Int -> ListAssociationsResponse
-listAssociationsResponse pStatusCode = ListAssociationsResponse'{_larNextToken = Nothing, _larAssociations = Nothing, _larStatusCode = pStatusCode};
+listAssociationsResponse pStatus =
+    ListAssociationsResponse'
+    { _larNextToken = Nothing
+    , _larAssociations = Nothing
+    , _larStatus = pStatus
+    }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -134,5 +152,5 @@ larAssociations :: Lens' ListAssociationsResponse [Association]
 larAssociations = lens _larAssociations (\ s a -> s{_larAssociations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-larStatusCode :: Lens' ListAssociationsResponse Int
-larStatusCode = lens _larStatusCode (\ s a -> s{_larStatusCode = a});
+larStatus :: Lens' ListAssociationsResponse Int
+larStatus = lens _larStatus (\ s a -> s{_larStatus = a});

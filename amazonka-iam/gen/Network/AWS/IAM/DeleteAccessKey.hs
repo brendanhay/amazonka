@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeleteAccessKey
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.IAM.DeleteAccessKey
     , deleteAccessKeyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteAccessKey' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'dakUserName'
 --
 -- * 'dakAccessKeyId'
-data DeleteAccessKey = DeleteAccessKey'{_dakUserName :: Maybe Text, _dakAccessKeyId :: Text} deriving (Eq, Read, Show)
+data DeleteAccessKey = DeleteAccessKey'
+    { _dakUserName    :: Maybe Text
+    , _dakAccessKeyId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteAccessKey' smart constructor.
 deleteAccessKey :: Text -> DeleteAccessKey
-deleteAccessKey pAccessKeyId = DeleteAccessKey'{_dakUserName = Nothing, _dakAccessKeyId = pAccessKeyId};
+deleteAccessKey pAccessKeyId =
+    DeleteAccessKey'
+    { _dakUserName = Nothing
+    , _dakAccessKeyId = pAccessKeyId
+    }
 
 -- | The name of the user whose key you want to delete.
 dakUserName :: Lens' DeleteAccessKey (Maybe Text)
@@ -87,8 +94,10 @@ instance ToQuery DeleteAccessKey where
                "AccessKeyId" =: _dakAccessKeyId]
 
 -- | /See:/ 'deleteAccessKeyResponse' smart constructor.
-data DeleteAccessKeyResponse = DeleteAccessKeyResponse' deriving (Eq, Read, Show)
+data DeleteAccessKeyResponse =
+    DeleteAccessKeyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteAccessKeyResponse' smart constructor.
 deleteAccessKeyResponse :: DeleteAccessKeyResponse
-deleteAccessKeyResponse = DeleteAccessKeyResponse';
+deleteAccessKeyResponse = DeleteAccessKeyResponse'

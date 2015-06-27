@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,13 +50,13 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     , authorizeDBSecurityGroupIngressResponse
     -- ** Response lenses
     , adsgirDBSecurityGroup
-    , adsgirStatusCode
+    , adsgirStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -73,11 +73,24 @@ import Network.AWS.Response
 -- * 'adsgiEC2SecurityGroupId'
 --
 -- * 'adsgiDBSecurityGroupName'
-data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'{_adsgiEC2SecurityGroupOwnerId :: Maybe Text, _adsgiEC2SecurityGroupName :: Maybe Text, _adsgiCIDRIP :: Maybe Text, _adsgiEC2SecurityGroupId :: Maybe Text, _adsgiDBSecurityGroupName :: Text} deriving (Eq, Read, Show)
+data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
+    { _adsgiEC2SecurityGroupOwnerId :: Maybe Text
+    , _adsgiEC2SecurityGroupName    :: Maybe Text
+    , _adsgiCIDRIP                  :: Maybe Text
+    , _adsgiEC2SecurityGroupId      :: Maybe Text
+    , _adsgiDBSecurityGroupName     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeDBSecurityGroupIngress' smart constructor.
 authorizeDBSecurityGroupIngress :: Text -> AuthorizeDBSecurityGroupIngress
-authorizeDBSecurityGroupIngress pDBSecurityGroupName = AuthorizeDBSecurityGroupIngress'{_adsgiEC2SecurityGroupOwnerId = Nothing, _adsgiEC2SecurityGroupName = Nothing, _adsgiCIDRIP = Nothing, _adsgiEC2SecurityGroupId = Nothing, _adsgiDBSecurityGroupName = pDBSecurityGroupName};
+authorizeDBSecurityGroupIngress pDBSecurityGroupName =
+    AuthorizeDBSecurityGroupIngress'
+    { _adsgiEC2SecurityGroupOwnerId = Nothing
+    , _adsgiEC2SecurityGroupName = Nothing
+    , _adsgiCIDRIP = Nothing
+    , _adsgiEC2SecurityGroupId = Nothing
+    , _adsgiDBSecurityGroupName = pDBSecurityGroupName
+    }
 
 -- | AWS Account Number of the owner of the EC2 security group specified in
 -- the EC2SecurityGroupName parameter. The AWS Access Key ID is not an
@@ -149,17 +162,24 @@ instance ToQuery AuthorizeDBSecurityGroupIngress
 --
 -- * 'adsgirDBSecurityGroup'
 --
--- * 'adsgirStatusCode'
-data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse'{_adsgirDBSecurityGroup :: Maybe DBSecurityGroup, _adsgirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'adsgirStatus'
+data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse'
+    { _adsgirDBSecurityGroup :: Maybe DBSecurityGroup
+    , _adsgirStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeDBSecurityGroupIngressResponse' smart constructor.
 authorizeDBSecurityGroupIngressResponse :: Int -> AuthorizeDBSecurityGroupIngressResponse
-authorizeDBSecurityGroupIngressResponse pStatusCode = AuthorizeDBSecurityGroupIngressResponse'{_adsgirDBSecurityGroup = Nothing, _adsgirStatusCode = pStatusCode};
+authorizeDBSecurityGroupIngressResponse pStatus =
+    AuthorizeDBSecurityGroupIngressResponse'
+    { _adsgirDBSecurityGroup = Nothing
+    , _adsgirStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 adsgirDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
 adsgirDBSecurityGroup = lens _adsgirDBSecurityGroup (\ s a -> s{_adsgirDBSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-adsgirStatusCode :: Lens' AuthorizeDBSecurityGroupIngressResponse Int
-adsgirStatusCode = lens _adsgirStatusCode (\ s a -> s{_adsgirStatusCode = a});
+adsgirStatus :: Lens' AuthorizeDBSecurityGroupIngressResponse Int
+adsgirStatus = lens _adsgirStatus (\ s a -> s{_adsgirStatus = a});

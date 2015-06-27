@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.ResetCacheParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,10 +40,10 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
     , cpgnmCacheParameterGroupName
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /ResetCacheParameterGroup/ action.
 --
@@ -56,11 +56,20 @@ import Network.AWS.Response
 -- * 'rcpgCacheParameterGroupName'
 --
 -- * 'rcpgParameterNameValues'
-data ResetCacheParameterGroup = ResetCacheParameterGroup'{_rcpgResetAllParameters :: Maybe Bool, _rcpgCacheParameterGroupName :: Text, _rcpgParameterNameValues :: [ParameterNameValue]} deriving (Eq, Read, Show)
+data ResetCacheParameterGroup = ResetCacheParameterGroup'
+    { _rcpgResetAllParameters      :: Maybe Bool
+    , _rcpgCacheParameterGroupName :: Text
+    , _rcpgParameterNameValues     :: [ParameterNameValue]
+    } deriving (Eq,Read,Show)
 
 -- | 'ResetCacheParameterGroup' smart constructor.
 resetCacheParameterGroup :: Text -> ResetCacheParameterGroup
-resetCacheParameterGroup pCacheParameterGroupName = ResetCacheParameterGroup'{_rcpgResetAllParameters = Nothing, _rcpgCacheParameterGroupName = pCacheParameterGroupName, _rcpgParameterNameValues = mempty};
+resetCacheParameterGroup pCacheParameterGroupName =
+    ResetCacheParameterGroup'
+    { _rcpgResetAllParameters = Nothing
+    , _rcpgCacheParameterGroupName = pCacheParameterGroupName
+    , _rcpgParameterNameValues = mempty
+    }
 
 -- | If /true/, all parameters in the cache parameter group will be reset to
 -- default values. If /false/, no such action occurs.

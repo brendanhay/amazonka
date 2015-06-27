@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.AcceptVPCPeeringConnection
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.EC2.AcceptVPCPeeringConnection
     , acceptVPCPeeringConnectionResponse
     -- ** Response lenses
     , avpcrVPCPeeringConnection
-    , avpcrStatusCode
+    , avpcrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'acceptVPCPeeringConnection' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'avpcVPCPeeringConnectionId'
 --
 -- * 'avpcDryRun'
-data AcceptVPCPeeringConnection = AcceptVPCPeeringConnection'{_avpcVPCPeeringConnectionId :: Maybe Text, _avpcDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data AcceptVPCPeeringConnection = AcceptVPCPeeringConnection'
+    { _avpcVPCPeeringConnectionId :: Maybe Text
+    , _avpcDryRun                 :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'AcceptVPCPeeringConnection' smart constructor.
 acceptVPCPeeringConnection :: AcceptVPCPeeringConnection
-acceptVPCPeeringConnection = AcceptVPCPeeringConnection'{_avpcVPCPeeringConnectionId = Nothing, _avpcDryRun = Nothing};
+acceptVPCPeeringConnection =
+    AcceptVPCPeeringConnection'
+    { _avpcVPCPeeringConnectionId = Nothing
+    , _avpcDryRun = Nothing
+    }
 
 -- | The ID of the VPC peering connection.
 avpcVPCPeeringConnectionId :: Lens' AcceptVPCPeeringConnection (Maybe Text)
@@ -103,17 +110,24 @@ instance ToQuery AcceptVPCPeeringConnection where
 --
 -- * 'avpcrVPCPeeringConnection'
 --
--- * 'avpcrStatusCode'
-data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'{_avpcrVPCPeeringConnection :: Maybe VPCPeeringConnection, _avpcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'avpcrStatus'
+data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'
+    { _avpcrVPCPeeringConnection :: Maybe VPCPeeringConnection
+    , _avpcrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AcceptVPCPeeringConnectionResponse' smart constructor.
 acceptVPCPeeringConnectionResponse :: Int -> AcceptVPCPeeringConnectionResponse
-acceptVPCPeeringConnectionResponse pStatusCode = AcceptVPCPeeringConnectionResponse'{_avpcrVPCPeeringConnection = Nothing, _avpcrStatusCode = pStatusCode};
+acceptVPCPeeringConnectionResponse pStatus =
+    AcceptVPCPeeringConnectionResponse'
+    { _avpcrVPCPeeringConnection = Nothing
+    , _avpcrStatus = pStatus
+    }
 
 -- | Information about the VPC peering connection.
 avpcrVPCPeeringConnection :: Lens' AcceptVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
 avpcrVPCPeeringConnection = lens _avpcrVPCPeeringConnection (\ s a -> s{_avpcrVPCPeeringConnection = a});
 
 -- | FIXME: Undocumented member.
-avpcrStatusCode :: Lens' AcceptVPCPeeringConnectionResponse Int
-avpcrStatusCode = lens _avpcrStatusCode (\ s a -> s{_avpcrStatusCode = a});
+avpcrStatus :: Lens' AcceptVPCPeeringConnectionResponse Int
+avpcrStatus = lens _avpcrStatus (\ s a -> s{_avpcrStatus = a});

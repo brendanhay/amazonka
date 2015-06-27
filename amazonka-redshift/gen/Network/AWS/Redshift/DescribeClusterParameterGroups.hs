@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterParameterGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,14 +55,14 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     -- ** Response lenses
     , dcpgrMarker
     , dcpgrParameterGroups
-    , dcpgrStatusCode
+    , dcpgrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -79,11 +79,24 @@ import Network.AWS.Response
 -- * 'dcpgMarker'
 --
 -- * 'dcpgParameterGroupName'
-data DescribeClusterParameterGroups = DescribeClusterParameterGroups'{_dcpgTagValues :: Maybe [Text], _dcpgTagKeys :: Maybe [Text], _dcpgMaxRecords :: Maybe Int, _dcpgMarker :: Maybe Text, _dcpgParameterGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusterParameterGroups = DescribeClusterParameterGroups'
+    { _dcpgTagValues          :: Maybe [Text]
+    , _dcpgTagKeys            :: Maybe [Text]
+    , _dcpgMaxRecords         :: Maybe Int
+    , _dcpgMarker             :: Maybe Text
+    , _dcpgParameterGroupName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterParameterGroups' smart constructor.
 describeClusterParameterGroups :: DescribeClusterParameterGroups
-describeClusterParameterGroups = DescribeClusterParameterGroups'{_dcpgTagValues = Nothing, _dcpgTagKeys = Nothing, _dcpgMaxRecords = Nothing, _dcpgMarker = Nothing, _dcpgParameterGroupName = Nothing};
+describeClusterParameterGroups =
+    DescribeClusterParameterGroups'
+    { _dcpgTagValues = Nothing
+    , _dcpgTagKeys = Nothing
+    , _dcpgMaxRecords = Nothing
+    , _dcpgMarker = Nothing
+    , _dcpgParameterGroupName = Nothing
+    }
 
 -- | A tag value or values for which you want to return all matching cluster
 -- parameter groups that are associated with the specified tag value or
@@ -188,12 +201,21 @@ instance ToQuery DescribeClusterParameterGroups where
 --
 -- * 'dcpgrParameterGroups'
 --
--- * 'dcpgrStatusCode'
-data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'{_dcpgrMarker :: Maybe Text, _dcpgrParameterGroups :: Maybe [ClusterParameterGroup], _dcpgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcpgrStatus'
+data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'
+    { _dcpgrMarker          :: Maybe Text
+    , _dcpgrParameterGroups :: Maybe [ClusterParameterGroup]
+    , _dcpgrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterParameterGroupsResponse' smart constructor.
 describeClusterParameterGroupsResponse :: Int -> DescribeClusterParameterGroupsResponse
-describeClusterParameterGroupsResponse pStatusCode = DescribeClusterParameterGroupsResponse'{_dcpgrMarker = Nothing, _dcpgrParameterGroups = Nothing, _dcpgrStatusCode = pStatusCode};
+describeClusterParameterGroupsResponse pStatus =
+    DescribeClusterParameterGroupsResponse'
+    { _dcpgrMarker = Nothing
+    , _dcpgrParameterGroups = Nothing
+    , _dcpgrStatus = pStatus
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -210,5 +232,5 @@ dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterPar
 dcpgrParameterGroups = lens _dcpgrParameterGroups (\ s a -> s{_dcpgrParameterGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcpgrStatusCode :: Lens' DescribeClusterParameterGroupsResponse Int
-dcpgrStatusCode = lens _dcpgrStatusCode (\ s a -> s{_dcpgrStatusCode = a});
+dcpgrStatus :: Lens' DescribeClusterParameterGroupsResponse Int
+dcpgrStatus = lens _dcpgrStatus (\ s a -> s{_dcpgrStatus = a});

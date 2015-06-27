@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.CreateLoadBalancer
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,13 +51,13 @@ module Network.AWS.ELB.CreateLoadBalancer
     , createLoadBalancerResponse
     -- ** Response lenses
     , clbrDNSName
-    , clbrStatusCode
+    , clbrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createLoadBalancer' smart constructor.
 --
@@ -76,11 +76,28 @@ import Network.AWS.Response
 -- * 'clbLoadBalancerName'
 --
 -- * 'clbListeners'
-data CreateLoadBalancer = CreateLoadBalancer'{_clbSecurityGroups :: Maybe [Text], _clbSubnets :: Maybe [Text], _clbAvailabilityZones :: Maybe [Text], _clbScheme :: Maybe Text, _clbTags :: Maybe (List1 Tag), _clbLoadBalancerName :: Text, _clbListeners :: [Listener]} deriving (Eq, Read, Show)
+data CreateLoadBalancer = CreateLoadBalancer'
+    { _clbSecurityGroups    :: Maybe [Text]
+    , _clbSubnets           :: Maybe [Text]
+    , _clbAvailabilityZones :: Maybe [Text]
+    , _clbScheme            :: Maybe Text
+    , _clbTags              :: Maybe (List1 Tag)
+    , _clbLoadBalancerName  :: Text
+    , _clbListeners         :: [Listener]
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLoadBalancer' smart constructor.
 createLoadBalancer :: Text -> CreateLoadBalancer
-createLoadBalancer pLoadBalancerName = CreateLoadBalancer'{_clbSecurityGroups = Nothing, _clbSubnets = Nothing, _clbAvailabilityZones = Nothing, _clbScheme = Nothing, _clbTags = Nothing, _clbLoadBalancerName = pLoadBalancerName, _clbListeners = mempty};
+createLoadBalancer pLoadBalancerName =
+    CreateLoadBalancer'
+    { _clbSecurityGroups = Nothing
+    , _clbSubnets = Nothing
+    , _clbAvailabilityZones = Nothing
+    , _clbScheme = Nothing
+    , _clbTags = Nothing
+    , _clbLoadBalancerName = pLoadBalancerName
+    , _clbListeners = mempty
+    }
 
 -- | The IDs of the security groups to assign to the load balancer.
 clbSecurityGroups :: Lens' CreateLoadBalancer [Text]
@@ -183,17 +200,24 @@ instance ToQuery CreateLoadBalancer where
 --
 -- * 'clbrDNSName'
 --
--- * 'clbrStatusCode'
-data CreateLoadBalancerResponse = CreateLoadBalancerResponse'{_clbrDNSName :: Maybe Text, _clbrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'clbrStatus'
+data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
+    { _clbrDNSName :: Maybe Text
+    , _clbrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLoadBalancerResponse' smart constructor.
 createLoadBalancerResponse :: Int -> CreateLoadBalancerResponse
-createLoadBalancerResponse pStatusCode = CreateLoadBalancerResponse'{_clbrDNSName = Nothing, _clbrStatusCode = pStatusCode};
+createLoadBalancerResponse pStatus =
+    CreateLoadBalancerResponse'
+    { _clbrDNSName = Nothing
+    , _clbrStatus = pStatus
+    }
 
 -- | The DNS name of the load balancer.
 clbrDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
 clbrDNSName = lens _clbrDNSName (\ s a -> s{_clbrDNSName = a});
 
 -- | FIXME: Undocumented member.
-clbrStatusCode :: Lens' CreateLoadBalancerResponse Int
-clbrStatusCode = lens _clbrStatusCode (\ s a -> s{_clbrStatusCode = a});
+clbrStatus :: Lens' CreateLoadBalancerResponse Int
+clbrStatus = lens _clbrStatus (\ s a -> s{_clbrStatus = a});

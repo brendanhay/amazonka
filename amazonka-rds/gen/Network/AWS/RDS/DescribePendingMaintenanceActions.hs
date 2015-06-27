@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribePendingMaintenanceActions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.RDS.DescribePendingMaintenanceActions
     -- ** Response lenses
     , dpmarPendingMaintenanceActions
     , dpmarMarker
-    , dpmarStatusCode
+    , dpmarStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -58,11 +58,22 @@ import Network.AWS.Response
 -- * 'dpmaMarker'
 --
 -- * 'dpmaResourceIdentifier'
-data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'{_dpmaFilters :: Maybe [Filter], _dpmaMaxRecords :: Maybe Int, _dpmaMarker :: Maybe Text, _dpmaResourceIdentifier :: Maybe Text} deriving (Eq, Read, Show)
+data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
+    { _dpmaFilters            :: Maybe [Filter]
+    , _dpmaMaxRecords         :: Maybe Int
+    , _dpmaMarker             :: Maybe Text
+    , _dpmaResourceIdentifier :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribePendingMaintenanceActions' smart constructor.
 describePendingMaintenanceActions :: DescribePendingMaintenanceActions
-describePendingMaintenanceActions = DescribePendingMaintenanceActions'{_dpmaFilters = Nothing, _dpmaMaxRecords = Nothing, _dpmaMarker = Nothing, _dpmaResourceIdentifier = Nothing};
+describePendingMaintenanceActions =
+    DescribePendingMaintenanceActions'
+    { _dpmaFilters = Nothing
+    , _dpmaMaxRecords = Nothing
+    , _dpmaMarker = Nothing
+    , _dpmaResourceIdentifier = Nothing
+    }
 
 -- | A filter that specifies one or more resources to return pending
 -- maintenance actions for.
@@ -146,12 +157,21 @@ instance ToQuery DescribePendingMaintenanceActions
 --
 -- * 'dpmarMarker'
 --
--- * 'dpmarStatusCode'
-data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'{_dpmarPendingMaintenanceActions :: Maybe [ResourcePendingMaintenanceActions], _dpmarMarker :: Maybe Text, _dpmarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dpmarStatus'
+data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'
+    { _dpmarPendingMaintenanceActions :: Maybe [ResourcePendingMaintenanceActions]
+    , _dpmarMarker                    :: Maybe Text
+    , _dpmarStatus                    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribePendingMaintenanceActionsResponse' smart constructor.
 describePendingMaintenanceActionsResponse :: Int -> DescribePendingMaintenanceActionsResponse
-describePendingMaintenanceActionsResponse pStatusCode = DescribePendingMaintenanceActionsResponse'{_dpmarPendingMaintenanceActions = Nothing, _dpmarMarker = Nothing, _dpmarStatusCode = pStatusCode};
+describePendingMaintenanceActionsResponse pStatus =
+    DescribePendingMaintenanceActionsResponse'
+    { _dpmarPendingMaintenanceActions = Nothing
+    , _dpmarMarker = Nothing
+    , _dpmarStatus = pStatus
+    }
 
 -- | A list of the pending maintenance actions for the resource.
 dpmarPendingMaintenanceActions :: Lens' DescribePendingMaintenanceActionsResponse [ResourcePendingMaintenanceActions]
@@ -165,5 +185,5 @@ dpmarMarker :: Lens' DescribePendingMaintenanceActionsResponse (Maybe Text)
 dpmarMarker = lens _dpmarMarker (\ s a -> s{_dpmarMarker = a});
 
 -- | FIXME: Undocumented member.
-dpmarStatusCode :: Lens' DescribePendingMaintenanceActionsResponse Int
-dpmarStatusCode = lens _dpmarStatusCode (\ s a -> s{_dpmarStatusCode = a});
+dpmarStatus :: Lens' DescribePendingMaintenanceActionsResponse Int
+dpmarStatus = lens _dpmarStatus (\ s a -> s{_dpmarStatus = a});

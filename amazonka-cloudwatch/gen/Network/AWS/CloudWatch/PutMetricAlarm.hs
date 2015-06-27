@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatch.PutMetricAlarm
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,10 +53,10 @@ module Network.AWS.CloudWatch.PutMetricAlarm
     , putMetricAlarmResponse
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putMetricAlarm' smart constructor.
 --
@@ -91,11 +91,44 @@ import Network.AWS.Response
 -- * 'pmaThreshold'
 --
 -- * 'pmaComparisonOperator'
-data PutMetricAlarm = PutMetricAlarm'{_pmaAlarmDescription :: Maybe Text, _pmaOKActions :: Maybe [Text], _pmaActionsEnabled :: Maybe Bool, _pmaInsufficientDataActions :: Maybe [Text], _pmaDimensions :: Maybe [Dimension], _pmaAlarmActions :: Maybe [Text], _pmaUnit :: Maybe StandardUnit, _pmaAlarmName :: Text, _pmaMetricName :: Text, _pmaNamespace :: Text, _pmaStatistic :: Statistic, _pmaPeriod :: Nat, _pmaEvaluationPeriods :: Nat, _pmaThreshold :: Double, _pmaComparisonOperator :: ComparisonOperator} deriving (Eq, Read, Show)
+data PutMetricAlarm = PutMetricAlarm'
+    { _pmaAlarmDescription        :: Maybe Text
+    , _pmaOKActions               :: Maybe [Text]
+    , _pmaActionsEnabled          :: Maybe Bool
+    , _pmaInsufficientDataActions :: Maybe [Text]
+    , _pmaDimensions              :: Maybe [Dimension]
+    , _pmaAlarmActions            :: Maybe [Text]
+    , _pmaUnit                    :: Maybe StandardUnit
+    , _pmaAlarmName               :: Text
+    , _pmaMetricName              :: Text
+    , _pmaNamespace               :: Text
+    , _pmaStatistic               :: Statistic
+    , _pmaPeriod                  :: !Nat
+    , _pmaEvaluationPeriods       :: !Nat
+    , _pmaThreshold               :: !Double
+    , _pmaComparisonOperator      :: ComparisonOperator
+    } deriving (Eq,Read,Show)
 
 -- | 'PutMetricAlarm' smart constructor.
 putMetricAlarm :: Text -> Text -> Text -> Statistic -> Natural -> Natural -> Double -> ComparisonOperator -> PutMetricAlarm
-putMetricAlarm pAlarmName pMetricName pNamespace pStatistic pPeriod pEvaluationPeriods pThreshold pComparisonOperator = PutMetricAlarm'{_pmaAlarmDescription = Nothing, _pmaOKActions = Nothing, _pmaActionsEnabled = Nothing, _pmaInsufficientDataActions = Nothing, _pmaDimensions = Nothing, _pmaAlarmActions = Nothing, _pmaUnit = Nothing, _pmaAlarmName = pAlarmName, _pmaMetricName = pMetricName, _pmaNamespace = pNamespace, _pmaStatistic = pStatistic, _pmaPeriod = _Nat # pPeriod, _pmaEvaluationPeriods = _Nat # pEvaluationPeriods, _pmaThreshold = pThreshold, _pmaComparisonOperator = pComparisonOperator};
+putMetricAlarm pAlarmName pMetricName pNamespace pStatistic pPeriod pEvaluationPeriods pThreshold pComparisonOperator =
+    PutMetricAlarm'
+    { _pmaAlarmDescription = Nothing
+    , _pmaOKActions = Nothing
+    , _pmaActionsEnabled = Nothing
+    , _pmaInsufficientDataActions = Nothing
+    , _pmaDimensions = Nothing
+    , _pmaAlarmActions = Nothing
+    , _pmaUnit = Nothing
+    , _pmaAlarmName = pAlarmName
+    , _pmaMetricName = pMetricName
+    , _pmaNamespace = pNamespace
+    , _pmaStatistic = pStatistic
+    , _pmaPeriod = _Nat # pPeriod
+    , _pmaEvaluationPeriods = _Nat # pEvaluationPeriods
+    , _pmaThreshold = pThreshold
+    , _pmaComparisonOperator = pComparisonOperator
+    }
 
 -- | The description for the alarm.
 pmaAlarmDescription :: Lens' PutMetricAlarm (Maybe Text)
@@ -209,8 +242,10 @@ instance ToQuery PutMetricAlarm where
                "ComparisonOperator" =: _pmaComparisonOperator]
 
 -- | /See:/ 'putMetricAlarmResponse' smart constructor.
-data PutMetricAlarmResponse = PutMetricAlarmResponse' deriving (Eq, Read, Show)
+data PutMetricAlarmResponse =
+    PutMetricAlarmResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutMetricAlarmResponse' smart constructor.
 putMetricAlarmResponse :: PutMetricAlarmResponse
-putMetricAlarmResponse = PutMetricAlarmResponse';
+putMetricAlarmResponse = PutMetricAlarmResponse'

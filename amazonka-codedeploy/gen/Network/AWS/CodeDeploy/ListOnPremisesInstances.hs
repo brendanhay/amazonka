@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListOnPremisesInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.CodeDeploy.ListOnPremisesInstances
     -- ** Response lenses
     , lopirNextToken
     , lopirInstanceNames
-    , lopirStatusCode
+    , lopirStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a list on-premises instances operation.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'lopiNextToken'
 --
 -- * 'lopiRegistrationStatus'
-data ListOnPremisesInstances = ListOnPremisesInstances'{_lopiTagFilters :: Maybe [TagFilter], _lopiNextToken :: Maybe Text, _lopiRegistrationStatus :: Maybe RegistrationStatus} deriving (Eq, Read, Show)
+data ListOnPremisesInstances = ListOnPremisesInstances'
+    { _lopiTagFilters         :: Maybe [TagFilter]
+    , _lopiNextToken          :: Maybe Text
+    , _lopiRegistrationStatus :: Maybe RegistrationStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'ListOnPremisesInstances' smart constructor.
 listOnPremisesInstances :: ListOnPremisesInstances
-listOnPremisesInstances = ListOnPremisesInstances'{_lopiTagFilters = Nothing, _lopiNextToken = Nothing, _lopiRegistrationStatus = Nothing};
+listOnPremisesInstances =
+    ListOnPremisesInstances'
+    { _lopiTagFilters = Nothing
+    , _lopiNextToken = Nothing
+    , _lopiRegistrationStatus = Nothing
+    }
 
 -- | The on-premises instance tags that will be used to restrict the
 -- corresponding on-premises instance names that are returned.
@@ -132,12 +141,21 @@ instance ToQuery ListOnPremisesInstances where
 --
 -- * 'lopirInstanceNames'
 --
--- * 'lopirStatusCode'
-data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'{_lopirNextToken :: Maybe Text, _lopirInstanceNames :: Maybe [Text], _lopirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lopirStatus'
+data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
+    { _lopirNextToken     :: Maybe Text
+    , _lopirInstanceNames :: Maybe [Text]
+    , _lopirStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListOnPremisesInstancesResponse' smart constructor.
 listOnPremisesInstancesResponse :: Int -> ListOnPremisesInstancesResponse
-listOnPremisesInstancesResponse pStatusCode = ListOnPremisesInstancesResponse'{_lopirNextToken = Nothing, _lopirInstanceNames = Nothing, _lopirStatusCode = pStatusCode};
+listOnPremisesInstancesResponse pStatus =
+    ListOnPremisesInstancesResponse'
+    { _lopirNextToken = Nothing
+    , _lopirInstanceNames = Nothing
+    , _lopirStatus = pStatus
+    }
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -151,5 +169,5 @@ lopirInstanceNames :: Lens' ListOnPremisesInstancesResponse [Text]
 lopirInstanceNames = lens _lopirInstanceNames (\ s a -> s{_lopirInstanceNames = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lopirStatusCode :: Lens' ListOnPremisesInstancesResponse Int
-lopirStatusCode = lens _lopirStatusCode (\ s a -> s{_lopirStatusCode = a});
+lopirStatus :: Lens' ListOnPremisesInstancesResponse Int
+lopirStatus = lens _lopirStatus (\ s a -> s{_lopirStatus = a});

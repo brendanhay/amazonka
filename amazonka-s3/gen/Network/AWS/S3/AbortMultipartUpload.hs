@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.AbortMultipartUpload
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.S3.AbortMultipartUpload
     , abortMultipartUploadResponse
     -- ** Response lenses
     , amurRequestCharged
-    , amurStatusCode
+    , amurStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'abortMultipartUpload' smart constructor.
 --
@@ -58,11 +58,22 @@ import Network.AWS.S3.Types
 -- * 'amuKey'
 --
 -- * 'amuUploadId'
-data AbortMultipartUpload = AbortMultipartUpload'{_amuRequestPayer :: Maybe RequestPayer, _amuBucket :: BucketName, _amuKey :: ObjectKey, _amuUploadId :: Text} deriving (Eq, Read, Show)
+data AbortMultipartUpload = AbortMultipartUpload'
+    { _amuRequestPayer :: Maybe RequestPayer
+    , _amuBucket       :: BucketName
+    , _amuKey          :: ObjectKey
+    , _amuUploadId     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AbortMultipartUpload' smart constructor.
 abortMultipartUpload :: BucketName -> ObjectKey -> Text -> AbortMultipartUpload
-abortMultipartUpload pBucket pKey pUploadId = AbortMultipartUpload'{_amuRequestPayer = Nothing, _amuBucket = pBucket, _amuKey = pKey, _amuUploadId = pUploadId};
+abortMultipartUpload pBucket pKey pUploadId =
+    AbortMultipartUpload'
+    { _amuRequestPayer = Nothing
+    , _amuBucket = pBucket
+    , _amuKey = pKey
+    , _amuUploadId = pUploadId
+    }
 
 -- | FIXME: Undocumented member.
 amuRequestPayer :: Lens' AbortMultipartUpload (Maybe RequestPayer)
@@ -111,17 +122,24 @@ instance ToQuery AbortMultipartUpload where
 --
 -- * 'amurRequestCharged'
 --
--- * 'amurStatusCode'
-data AbortMultipartUploadResponse = AbortMultipartUploadResponse'{_amurRequestCharged :: Maybe RequestCharged, _amurStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'amurStatus'
+data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
+    { _amurRequestCharged :: Maybe RequestCharged
+    , _amurStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AbortMultipartUploadResponse' smart constructor.
 abortMultipartUploadResponse :: Int -> AbortMultipartUploadResponse
-abortMultipartUploadResponse pStatusCode = AbortMultipartUploadResponse'{_amurRequestCharged = Nothing, _amurStatusCode = pStatusCode};
+abortMultipartUploadResponse pStatus =
+    AbortMultipartUploadResponse'
+    { _amurRequestCharged = Nothing
+    , _amurStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 amurRequestCharged :: Lens' AbortMultipartUploadResponse (Maybe RequestCharged)
 amurRequestCharged = lens _amurRequestCharged (\ s a -> s{_amurRequestCharged = a});
 
 -- | FIXME: Undocumented member.
-amurStatusCode :: Lens' AbortMultipartUploadResponse Int
-amurStatusCode = lens _amurStatusCode (\ s a -> s{_amurStatusCode = a});
+amurStatus :: Lens' AbortMultipartUploadResponse Int
+amurStatus = lens _amurStatus (\ s a -> s{_amurStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,14 +40,14 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     -- ** Response lenses
     , drcnorMarker
     , drcnorReservedCacheNodesOfferings
-    , drcnorStatusCode
+    , drcnorStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeReservedCacheNodesOfferings/ action.
 --
@@ -68,11 +68,28 @@ import Network.AWS.Response
 -- * 'drcnoDuration'
 --
 -- * 'drcnoReservedCacheNodesOfferingId'
-data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'{_drcnoCacheNodeType :: Maybe Text, _drcnoProductDescription :: Maybe Text, _drcnoMaxRecords :: Maybe Int, _drcnoMarker :: Maybe Text, _drcnoOfferingType :: Maybe Text, _drcnoDuration :: Maybe Text, _drcnoReservedCacheNodesOfferingId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
+    { _drcnoCacheNodeType                :: Maybe Text
+    , _drcnoProductDescription           :: Maybe Text
+    , _drcnoMaxRecords                   :: Maybe Int
+    , _drcnoMarker                       :: Maybe Text
+    , _drcnoOfferingType                 :: Maybe Text
+    , _drcnoDuration                     :: Maybe Text
+    , _drcnoReservedCacheNodesOfferingId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedCacheNodesOfferings' smart constructor.
 describeReservedCacheNodesOfferings :: DescribeReservedCacheNodesOfferings
-describeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'{_drcnoCacheNodeType = Nothing, _drcnoProductDescription = Nothing, _drcnoMaxRecords = Nothing, _drcnoMarker = Nothing, _drcnoOfferingType = Nothing, _drcnoDuration = Nothing, _drcnoReservedCacheNodesOfferingId = Nothing};
+describeReservedCacheNodesOfferings =
+    DescribeReservedCacheNodesOfferings'
+    { _drcnoCacheNodeType = Nothing
+    , _drcnoProductDescription = Nothing
+    , _drcnoMaxRecords = Nothing
+    , _drcnoMarker = Nothing
+    , _drcnoOfferingType = Nothing
+    , _drcnoDuration = Nothing
+    , _drcnoReservedCacheNodesOfferingId = Nothing
+    }
 
 -- | The cache node type filter value. Use this parameter to show only the
 -- available offerings matching the specified cache node type.
@@ -215,12 +232,21 @@ instance ToQuery DescribeReservedCacheNodesOfferings
 --
 -- * 'drcnorReservedCacheNodesOfferings'
 --
--- * 'drcnorStatusCode'
-data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse'{_drcnorMarker :: Maybe Text, _drcnorReservedCacheNodesOfferings :: Maybe [ReservedCacheNodesOffering], _drcnorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'drcnorStatus'
+data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse'
+    { _drcnorMarker                      :: Maybe Text
+    , _drcnorReservedCacheNodesOfferings :: Maybe [ReservedCacheNodesOffering]
+    , _drcnorStatus                      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedCacheNodesOfferingsResponse' smart constructor.
 describeReservedCacheNodesOfferingsResponse :: Int -> DescribeReservedCacheNodesOfferingsResponse
-describeReservedCacheNodesOfferingsResponse pStatusCode = DescribeReservedCacheNodesOfferingsResponse'{_drcnorMarker = Nothing, _drcnorReservedCacheNodesOfferings = Nothing, _drcnorStatusCode = pStatusCode};
+describeReservedCacheNodesOfferingsResponse pStatus =
+    DescribeReservedCacheNodesOfferingsResponse'
+    { _drcnorMarker = Nothing
+    , _drcnorReservedCacheNodesOfferings = Nothing
+    , _drcnorStatus = pStatus
+    }
 
 -- | Provides an identifier to allow retrieval of paginated results.
 drcnorMarker :: Lens' DescribeReservedCacheNodesOfferingsResponse (Maybe Text)
@@ -232,5 +258,5 @@ drcnorReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsRe
 drcnorReservedCacheNodesOfferings = lens _drcnorReservedCacheNodesOfferings (\ s a -> s{_drcnorReservedCacheNodesOfferings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drcnorStatusCode :: Lens' DescribeReservedCacheNodesOfferingsResponse Int
-drcnorStatusCode = lens _drcnorStatusCode (\ s a -> s{_drcnorStatusCode = a});
+drcnorStatus :: Lens' DescribeReservedCacheNodesOfferingsResponse Int
+drcnorStatus = lens _drcnorStatus (\ s a -> s{_drcnorStatus = a});

@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Route53.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -216,106 +215,116 @@ module Network.AWS.Route53.Types
     , module Network.AWS.Route53.Internal
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Route53.Internal
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Route53.Internal
+import           Network.AWS.Sign.V4
 
 -- | Version @2013-04-01@ of the Amazon Route 53 SDK.
 data Route53
 
 instance AWSService Route53 where
     type Sg Route53 = V4
-
     service = const svc
       where
-        svc :: Service Route53
-        svc = Service
-            { _svcAbbrev   = "Route53"
-            , _svcPrefix   = "route53"
-            , _svcVersion  = "2013-04-01"
+        svc =
+            Service
+            { _svcAbbrev = "Route53"
+            , _svcPrefix = "route53"
+            , _svcVersion = "2013-04-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | Prism for HealthCheckVersionMismatch' errors.
-_HealthCheckVersionMismatch :: AWSError a => Geting (First ServiceError) a ServiceError
-_HealthCheckVersionMismatch = _ServiceError . hasStatus 409 . hasCode "HealthCheckVersionMismatch";
+_HealthCheckVersionMismatch :: AWSError a => Getting (First ServiceError) a ServiceError
+_HealthCheckVersionMismatch =
+    _ServiceError . hasStatus 409 . hasCode "HealthCheckVersionMismatch"
 
 -- | Some value specified in the request is invalid or the XML document is
 -- malformed.
-_InvalidInput :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidInput = _ServiceError . hasStatus 400 . hasCode "InvalidInput";
+_InvalidInput :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidInput = _ServiceError . hasStatus 400 . hasCode "InvalidInput"
 
 -- | The hosted zone contains resource record sets in addition to the default
 -- NS and SOA resource record sets. Before you can delete the hosted zone,
 -- you must delete the additional resource record sets.
-_HostedZoneNotEmpty :: AWSError a => Geting (First ServiceError) a ServiceError
-_HostedZoneNotEmpty = _ServiceError . hasStatus 400 . hasCode "HostedZoneNotEmpty";
+_HostedZoneNotEmpty :: AWSError a => Getting (First ServiceError) a ServiceError
+_HostedZoneNotEmpty =
+    _ServiceError . hasStatus 400 . hasCode "HostedZoneNotEmpty"
 
 -- | At least one of the specified arguments is invalid.
-_InvalidArgument :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidArgument = _ServiceError . hasCode "InvalidArgument";
+_InvalidArgument :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidArgument = _ServiceError . hasCode "InvalidArgument"
 
 -- | The specified delegation set has already been marked as reusable.
-_DelegationSetAlreadyReusable :: AWSError a => Geting (First ServiceError) a ServiceError
-_DelegationSetAlreadyReusable = _ServiceError . hasCode "DelegationSetAlreadyReusable";
+_DelegationSetAlreadyReusable :: AWSError a => Getting (First ServiceError) a ServiceError
+_DelegationSetAlreadyReusable =
+    _ServiceError . hasCode "DelegationSetAlreadyReusable"
 
 -- | The request was rejected because Route 53 was still processing a prior
 -- request.
-_PriorRequestNotComplete :: AWSError a => Geting (First ServiceError) a ServiceError
-_PriorRequestNotComplete = _ServiceError . hasStatus 400 . hasCode "PriorRequestNotComplete";
+_PriorRequestNotComplete :: AWSError a => Getting (First ServiceError) a ServiceError
+_PriorRequestNotComplete =
+    _ServiceError . hasStatus 400 . hasCode "PriorRequestNotComplete"
 
 -- | This error contains a list of one or more error messages. Each error
 -- message indicates one error in the change batch. For more information,
 -- see
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html#example_Errors Example InvalidChangeBatch Errors>.
-_InvalidChangeBatch :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidChangeBatch = _ServiceError . hasCode "InvalidChangeBatch";
+_InvalidChangeBatch :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidChangeBatch = _ServiceError . hasCode "InvalidChangeBatch"
 
 -- | This error indicates that the specified domain name is not valid.
-_InvalidDomainName :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDomainName = _ServiceError . hasStatus 400 . hasCode "InvalidDomainName";
+_InvalidDomainName :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDomainName =
+    _ServiceError . hasStatus 400 . hasCode "InvalidDomainName"
 
 -- | The specified delegation set has not been marked as reusable.
-_DelegationSetNotReusable :: AWSError a => Geting (First ServiceError) a ServiceError
-_DelegationSetNotReusable = _ServiceError . hasCode "DelegationSetNotReusable";
+_DelegationSetNotReusable :: AWSError a => Getting (First ServiceError) a ServiceError
+_DelegationSetNotReusable = _ServiceError . hasCode "DelegationSetNotReusable"
 
 -- | The health check you are trying to create already exists. Route 53
 -- returns this error when a health check has already been created with the
 -- specified @CallerReference@.
-_HealthCheckAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_HealthCheckAlreadyExists = _ServiceError . hasStatus 409 . hasCode "HealthCheckAlreadyExists";
+_HealthCheckAlreadyExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_HealthCheckAlreadyExists =
+    _ServiceError . hasStatus 409 . hasCode "HealthCheckAlreadyExists"
 
 -- | The specified HostedZone cannot be found.
-_HostedZoneNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
-_HostedZoneNotFound = _ServiceError . hasCode "HostedZoneNotFound";
+_HostedZoneNotFound :: AWSError a => Getting (First ServiceError) a ServiceError
+_HostedZoneNotFound = _ServiceError . hasCode "HostedZoneNotFound"
 
 -- | The specified delegation contains associated hosted zones which must be
 -- deleted before the reusable delegation set can be deleted.
-_DelegationSetInUse :: AWSError a => Geting (First ServiceError) a ServiceError
-_DelegationSetInUse = _ServiceError . hasCode "DelegationSetInUse";
+_DelegationSetInUse :: AWSError a => Getting (First ServiceError) a ServiceError
+_DelegationSetInUse = _ServiceError . hasCode "DelegationSetInUse"
 
 -- | The specified delegation set does not exist.
-_NoSuchDelegationSet :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchDelegationSet = _ServiceError . hasCode "NoSuchDelegationSet";
+_NoSuchDelegationSet :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchDelegationSet = _ServiceError . hasCode "NoSuchDelegationSet"
 
 -- | The geo location you are trying to get does not exist.
-_NoSuchGeoLocation :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchGeoLocation = _ServiceError . hasStatus 404 . hasCode "NoSuchGeoLocation";
+_NoSuchGeoLocation :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchGeoLocation =
+    _ServiceError . hasStatus 404 . hasCode "NoSuchGeoLocation"
 
 -- | Route 53 allows some duplicate domain names, but there is a maximum
 -- number of duplicate names. This error indicates that you have reached
@@ -323,89 +332,103 @@ _NoSuchGeoLocation = _ServiceError . hasStatus 404 . hasCode "NoSuchGeoLocation"
 -- name and Route 53 generates this error, you can request an increase to
 -- the limit on the <http://aws.amazon.com/route53-request/ Contact Us>
 -- page.
-_DelegationSetNotAvailable :: AWSError a => Geting (First ServiceError) a ServiceError
-_DelegationSetNotAvailable = _ServiceError . hasCode "DelegationSetNotAvailable";
+_DelegationSetNotAvailable :: AWSError a => Getting (First ServiceError) a ServiceError
+_DelegationSetNotAvailable =
+    _ServiceError . hasCode "DelegationSetNotAvailable"
 
 -- | The VPC you specified is not currently associated with the hosted zone.
-_VPCAssociationNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
-_VPCAssociationNotFound = _ServiceError . hasStatus 404 . hasCode "VPCAssociationNotFound";
+_VPCAssociationNotFound :: AWSError a => Getting (First ServiceError) a ServiceError
+_VPCAssociationNotFound =
+    _ServiceError . hasStatus 404 . hasCode "VPCAssociationNotFound"
 
 -- | Prism for ThrottlingException' errors.
-_ThrottlingException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ThrottlingException = _ServiceError . hasStatus 400 . hasCode "ThrottlingException";
+_ThrottlingException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ThrottlingException =
+    _ServiceError . hasStatus 400 . hasCode "ThrottlingException"
 
 -- | Prism for NoSuchChange' errors.
-_NoSuchChange :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchChange = _ServiceError . hasStatus 404 . hasCode "NoSuchChange";
+_NoSuchChange :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchChange = _ServiceError . hasStatus 404 . hasCode "NoSuchChange"
 
 -- | The limits specified for a resource have been exceeded.
-_LimitsExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitsExceeded = _ServiceError . hasCode "LimitsExceeded";
+_LimitsExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitsExceeded = _ServiceError . hasCode "LimitsExceeded"
 
 -- | The resource you are trying to access is unsupported on this Route 53
 -- endpoint. Please consider using a newer endpoint or a tool that does so.
-_IncompatibleVersion :: AWSError a => Geting (First ServiceError) a ServiceError
-_IncompatibleVersion = _ServiceError . hasStatus 400 . hasCode "IncompatibleVersion";
+_IncompatibleVersion :: AWSError a => Getting (First ServiceError) a ServiceError
+_IncompatibleVersion =
+    _ServiceError . hasStatus 400 . hasCode "IncompatibleVersion"
 
 -- | Prism for NoSuchHostedZone' errors.
-_NoSuchHostedZone :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchHostedZone = _ServiceError . hasStatus 404 . hasCode "NoSuchHostedZone";
+_NoSuchHostedZone :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchHostedZone = _ServiceError . hasStatus 404 . hasCode "NoSuchHostedZone"
 
 -- | This error indicates that you\'ve reached the maximum number of hosted
 -- zones that can be created for the current AWS account. You can request
 -- an increase to the limit on the
 -- <http://aws.amazon.com/route53-request/ Contact Us> page.
-_TooManyHostedZones :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyHostedZones = _ServiceError . hasStatus 400 . hasCode "TooManyHostedZones";
+_TooManyHostedZones :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyHostedZones =
+    _ServiceError . hasStatus 400 . hasCode "TooManyHostedZones"
 
 -- | The hosted zone you are trying to associate VPC with doesn\'t have any
 -- VPC association. Route 53 currently doesn\'t support associate a VPC
 -- with a public hosted zone.
-_PublicZoneVPCAssociation :: AWSError a => Geting (First ServiceError) a ServiceError
-_PublicZoneVPCAssociation = _ServiceError . hasStatus 400 . hasCode "PublicZoneVPCAssociation";
+_PublicZoneVPCAssociation :: AWSError a => Getting (First ServiceError) a ServiceError
+_PublicZoneVPCAssociation =
+    _ServiceError . hasStatus 400 . hasCode "PublicZoneVPCAssociation"
 
 -- | Prism for ConflictingDomainExists' errors.
-_ConflictingDomainExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_ConflictingDomainExists = _ServiceError . hasCode "ConflictingDomainExists";
+_ConflictingDomainExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_ConflictingDomainExists = _ServiceError . hasCode "ConflictingDomainExists"
 
 -- | The VPC you are trying to disassociate from the hosted zone is the last
 -- the VPC that is associated with the hosted zone. Route 53 currently
 -- doesn\'t support disassociate the last VPC from the hosted zone.
-_LastVPCAssociation :: AWSError a => Geting (First ServiceError) a ServiceError
-_LastVPCAssociation = _ServiceError . hasStatus 400 . hasCode "LastVPCAssociation";
+_LastVPCAssociation :: AWSError a => Getting (First ServiceError) a ServiceError
+_LastVPCAssociation =
+    _ServiceError . hasStatus 400 . hasCode "LastVPCAssociation"
 
 -- | There are resource records associated with this health check. Before you
 -- can delete the health check, you must disassociate it from the resource
 -- record sets.
-_HealthCheckInUse :: AWSError a => Geting (First ServiceError) a ServiceError
-_HealthCheckInUse = _ServiceError . hasStatus 400 . hasCode "HealthCheckInUse";
+_HealthCheckInUse :: AWSError a => Getting (First ServiceError) a ServiceError
+_HealthCheckInUse = _ServiceError . hasStatus 400 . hasCode "HealthCheckInUse"
 
 -- | A delegation set with the same owner and caller reference combination
 -- has already been created.
-_DelegationSetAlreadyCreated :: AWSError a => Geting (First ServiceError) a ServiceError
-_DelegationSetAlreadyCreated = _ServiceError . hasCode "DelegationSetAlreadyCreated";
+_DelegationSetAlreadyCreated :: AWSError a => Getting (First ServiceError) a ServiceError
+_DelegationSetAlreadyCreated =
+    _ServiceError . hasCode "DelegationSetAlreadyCreated"
 
 -- | Prism for TooManyHealthChecks' errors.
-_TooManyHealthChecks :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyHealthChecks = _ServiceError . hasCode "TooManyHealthChecks";
+_TooManyHealthChecks :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyHealthChecks = _ServiceError . hasCode "TooManyHealthChecks"
 
 -- | The health check you are trying to get or delete does not exist.
-_NoSuchHealthCheck :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchHealthCheck = _ServiceError . hasStatus 404 . hasCode "NoSuchHealthCheck";
+_NoSuchHealthCheck :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchHealthCheck =
+    _ServiceError . hasStatus 404 . hasCode "NoSuchHealthCheck"
 
 -- | The hosted zone you are trying to create already exists. Route 53
 -- returns this error when a hosted zone has already been created with the
 -- specified @CallerReference@.
-_HostedZoneAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_HostedZoneAlreadyExists = _ServiceError . hasStatus 409 . hasCode "HostedZoneAlreadyExists";
+_HostedZoneAlreadyExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_HostedZoneAlreadyExists =
+    _ServiceError . hasStatus 409 . hasCode "HostedZoneAlreadyExists"
 
 -- | The hosted zone you are trying to create for your VPC_ID does not belong
 -- to you. Route 53 returns this error when the VPC specified by @VPCId@
 -- does not belong to you.
-_InvalidVPCId :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidVPCId = _ServiceError . hasStatus 400 . hasCode "InvalidVPCId";
+_InvalidVPCId :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidVPCId = _ServiceError . hasStatus 400 . hasCode "InvalidVPCId"
 
-data ChangeAction = Create | Upsert | Delete deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ChangeAction
+    = Create
+    | Upsert
+    | Delete
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ChangeAction where
     parser = takeLowerText >>= \case
@@ -427,7 +450,10 @@ instance ToHeader ChangeAction
 instance ToXML ChangeAction where
     toXML = toXMLText
 
-data ChangeStatus = Pending | Insync deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ChangeStatus
+    = Pending
+    | Insync
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ChangeStatus where
     parser = takeLowerText >>= \case
@@ -447,7 +473,10 @@ instance ToHeader ChangeStatus
 instance FromXML ChangeStatus where
     parseXML = parseXMLText "ChangeStatus"
 
-data Failover = Secondary | Primary deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Failover
+    = Secondary
+    | Primary
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Failover where
     parser = takeLowerText >>= \case
@@ -470,7 +499,13 @@ instance FromXML Failover where
 instance ToXML Failover where
     toXML = toXMLText
 
-data HealthCheckType = HTTPS | TCP | HTTPSStrMatch | HTTP | HTTPStrMatch deriving (Eq, Ord, Read, Show, Enum, Generic)
+data HealthCheckType
+    = HTTPS
+    | TCP
+    | HTTPSStrMatch
+    | HTTP
+    | HTTPStrMatch
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText HealthCheckType where
     parser = takeLowerText >>= \case
@@ -499,7 +534,18 @@ instance FromXML HealthCheckType where
 instance ToXML HealthCheckType where
     toXML = toXMLText
 
-data RecordType = Cname | Srv | MX | NS | Aaaa | A | Spf | Soa | Txt | Ptr deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RecordType
+    = Cname
+    | Srv
+    | MX
+    | NS
+    | Aaaa
+    | A
+    | Spf
+    | Soa
+    | Txt
+    | Ptr
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText RecordType where
     parser = takeLowerText >>= \case
@@ -538,7 +584,10 @@ instance FromXML RecordType where
 instance ToXML RecordType where
     toXML = toXMLText
 
-data TagResourceType = Healthcheck | Hostedzone deriving (Eq, Ord, Read, Show, Enum, Generic)
+data TagResourceType
+    = Healthcheck
+    | Hostedzone
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText TagResourceType where
     parser = takeLowerText >>= \case
@@ -561,7 +610,18 @@ instance FromXML TagResourceType where
 instance ToXML TagResourceType where
     toXML = toXMLText
 
-data VPCRegion = APNortheast1 | SAEast1 | CNNorth1 | USWest2 | EUWest1 | USEast1 | USWest1 | EUCentral1 | APSoutheast2 | APSoutheast1 deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VPCRegion
+    = APNortheast1
+    | SAEast1
+    | CNNorth1
+    | USWest2
+    | EUWest1
+    | USEast1
+    | USWest1
+    | EUCentral1
+    | APSoutheast2
+    | APSoutheast1
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VPCRegion where
     parser = takeLowerText >>= \case
@@ -618,11 +678,20 @@ instance ToXML VPCRegion where
 -- * 'atDNSName'
 --
 -- * 'atEvaluateTargetHealth'
-data AliasTarget = AliasTarget'{_atHostedZoneId :: Text, _atDNSName :: Text, _atEvaluateTargetHealth :: Bool} deriving (Eq, Read, Show)
+data AliasTarget = AliasTarget'
+    { _atHostedZoneId         :: Text
+    , _atDNSName              :: Text
+    , _atEvaluateTargetHealth :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'AliasTarget' smart constructor.
 aliasTarget :: Text -> Text -> Bool -> AliasTarget
-aliasTarget pHostedZoneId pDNSName pEvaluateTargetHealth = AliasTarget'{_atHostedZoneId = pHostedZoneId, _atDNSName = pDNSName, _atEvaluateTargetHealth = pEvaluateTargetHealth};
+aliasTarget pHostedZoneId pDNSName pEvaluateTargetHealth =
+    AliasTarget'
+    { _atHostedZoneId = pHostedZoneId
+    , _atDNSName = pDNSName
+    , _atEvaluateTargetHealth = pEvaluateTargetHealth
+    }
 
 -- | /Alias resource record sets only:/ The value of the hosted zone ID for
 -- the AWS resource.
@@ -682,11 +751,18 @@ instance ToXML AliasTarget where
 -- * 'chaAction'
 --
 -- * 'chaResourceRecordSet'
-data Change = Change'{_chaAction :: ChangeAction, _chaResourceRecordSet :: ResourceRecordSet} deriving (Eq, Read, Show)
+data Change = Change'
+    { _chaAction            :: ChangeAction
+    , _chaResourceRecordSet :: ResourceRecordSet
+    } deriving (Eq,Read,Show)
 
 -- | 'Change' smart constructor.
 change :: ChangeAction -> ResourceRecordSet -> Change
-change pAction pResourceRecordSet = Change'{_chaAction = pAction, _chaResourceRecordSet = pResourceRecordSet};
+change pAction pResourceRecordSet =
+    Change'
+    { _chaAction = pAction
+    , _chaResourceRecordSet = pResourceRecordSet
+    }
 
 -- | The action to perform.
 --
@@ -714,11 +790,18 @@ instance ToXML Change where
 -- * 'cbComment'
 --
 -- * 'cbChanges'
-data ChangeBatch = ChangeBatch'{_cbComment :: Maybe Text, _cbChanges :: List1 Change} deriving (Eq, Read, Show)
+data ChangeBatch = ChangeBatch'
+    { _cbComment :: Maybe Text
+    , _cbChanges :: List1 Change
+    } deriving (Eq,Read,Show)
 
 -- | 'ChangeBatch' smart constructor.
 changeBatch :: NonEmpty Change -> ChangeBatch
-changeBatch pChanges = ChangeBatch'{_cbComment = Nothing, _cbChanges = _List1 # pChanges};
+changeBatch pChanges =
+    ChangeBatch'
+    { _cbComment = Nothing
+    , _cbChanges = _List1 # pChanges
+    }
 
 -- | /Optional:/ Any comments you want to include about a change batch
 -- request.
@@ -753,11 +836,22 @@ instance ToXML ChangeBatch where
 -- * 'ciStatus'
 --
 -- * 'ciSubmittedAt'
-data ChangeInfo = ChangeInfo'{_ciComment :: Maybe Text, _ciId :: Text, _ciStatus :: ChangeStatus, _ciSubmittedAt :: ISO8601} deriving (Eq, Read, Show)
+data ChangeInfo = ChangeInfo'
+    { _ciComment     :: Maybe Text
+    , _ciId          :: Text
+    , _ciStatus      :: ChangeStatus
+    , _ciSubmittedAt :: ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'ChangeInfo' smart constructor.
 changeInfo :: Text -> ChangeStatus -> UTCTime -> ChangeInfo
-changeInfo pId pStatus pSubmittedAt = ChangeInfo'{_ciComment = Nothing, _ciId = pId, _ciStatus = pStatus, _ciSubmittedAt = _Time # pSubmittedAt};
+changeInfo pId pStatus pSubmittedAt =
+    ChangeInfo'
+    { _ciComment = Nothing
+    , _ciId = pId
+    , _ciStatus = pStatus
+    , _ciSubmittedAt = _Time # pSubmittedAt
+    }
 
 -- | A complex type that describes change information about changes made to
 -- your hosted zone.
@@ -804,11 +898,20 @@ instance FromXML ChangeInfo where
 -- * 'dsCallerReference'
 --
 -- * 'dsNameServers'
-data DelegationSet = DelegationSet'{_dsId :: Maybe Text, _dsCallerReference :: Maybe Text, _dsNameServers :: List1 Text} deriving (Eq, Read, Show)
+data DelegationSet = DelegationSet'
+    { _dsId              :: Maybe Text
+    , _dsCallerReference :: Maybe Text
+    , _dsNameServers     :: List1 Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DelegationSet' smart constructor.
 delegationSet :: NonEmpty Text -> DelegationSet
-delegationSet pNameServers = DelegationSet'{_dsId = Nothing, _dsCallerReference = Nothing, _dsNameServers = _List1 # pNameServers};
+delegationSet pNameServers =
+    DelegationSet'
+    { _dsId = Nothing
+    , _dsCallerReference = Nothing
+    , _dsNameServers = _List1 # pNameServers
+    }
 
 -- | FIXME: Undocumented member.
 dsId :: Lens' DelegationSet (Maybe Text)
@@ -843,11 +946,20 @@ instance FromXML DelegationSet where
 -- * 'glCountryCode'
 --
 -- * 'glContinentCode'
-data GeoLocation = GeoLocation'{_glSubdivisionCode :: Maybe Text, _glCountryCode :: Maybe Text, _glContinentCode :: Maybe Text} deriving (Eq, Read, Show)
+data GeoLocation = GeoLocation'
+    { _glSubdivisionCode :: Maybe Text
+    , _glCountryCode     :: Maybe Text
+    , _glContinentCode   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GeoLocation' smart constructor.
 geoLocation :: GeoLocation
-geoLocation = GeoLocation'{_glSubdivisionCode = Nothing, _glCountryCode = Nothing, _glContinentCode = Nothing};
+geoLocation =
+    GeoLocation'
+    { _glSubdivisionCode = Nothing
+    , _glCountryCode = Nothing
+    , _glContinentCode = Nothing
+    }
 
 -- | The code for a country\'s subdivision (e.g., a province of Canada). A
 -- subdivision code is only valid with the appropriate country code.
@@ -906,11 +1018,26 @@ instance ToXML GeoLocation where
 -- * 'gldContinentCode'
 --
 -- * 'gldContinentName'
-data GeoLocationDetails = GeoLocationDetails'{_gldSubdivisionName :: Maybe Text, _gldSubdivisionCode :: Maybe Text, _gldCountryName :: Maybe Text, _gldCountryCode :: Maybe Text, _gldContinentCode :: Maybe Text, _gldContinentName :: Maybe Text} deriving (Eq, Read, Show)
+data GeoLocationDetails = GeoLocationDetails'
+    { _gldSubdivisionName :: Maybe Text
+    , _gldSubdivisionCode :: Maybe Text
+    , _gldCountryName     :: Maybe Text
+    , _gldCountryCode     :: Maybe Text
+    , _gldContinentCode   :: Maybe Text
+    , _gldContinentName   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GeoLocationDetails' smart constructor.
 geoLocationDetails :: GeoLocationDetails
-geoLocationDetails = GeoLocationDetails'{_gldSubdivisionName = Nothing, _gldSubdivisionCode = Nothing, _gldCountryName = Nothing, _gldCountryCode = Nothing, _gldContinentCode = Nothing, _gldContinentName = Nothing};
+geoLocationDetails =
+    GeoLocationDetails'
+    { _gldSubdivisionName = Nothing
+    , _gldSubdivisionCode = Nothing
+    , _gldCountryName = Nothing
+    , _gldCountryCode = Nothing
+    , _gldContinentCode = Nothing
+    , _gldContinentName = Nothing
+    }
 
 -- | The name of the subdivision. This element is only present if
 -- @SubdivisionCode@ is also present.
@@ -970,11 +1097,22 @@ instance FromXML GeoLocationDetails where
 -- * 'hcHealthCheckConfig'
 --
 -- * 'hcHealthCheckVersion'
-data HealthCheck = HealthCheck'{_hcId :: Text, _hcCallerReference :: Text, _hcHealthCheckConfig :: HealthCheckConfig, _hcHealthCheckVersion :: Nat} deriving (Eq, Read, Show)
+data HealthCheck = HealthCheck'
+    { _hcId                 :: Text
+    , _hcCallerReference    :: Text
+    , _hcHealthCheckConfig  :: HealthCheckConfig
+    , _hcHealthCheckVersion :: !Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'HealthCheck' smart constructor.
 healthCheck :: Text -> Text -> HealthCheckConfig -> Natural -> HealthCheck
-healthCheck pId pCallerReference pHealthCheckConfig pHealthCheckVersion = HealthCheck'{_hcId = pId, _hcCallerReference = pCallerReference, _hcHealthCheckConfig = pHealthCheckConfig, _hcHealthCheckVersion = _Nat # pHealthCheckVersion};
+healthCheck pId pCallerReference pHealthCheckConfig pHealthCheckVersion =
+    HealthCheck'
+    { _hcId = pId
+    , _hcCallerReference = pCallerReference
+    , _hcHealthCheckConfig = pHealthCheckConfig
+    , _hcHealthCheckVersion = _Nat # pHealthCheckVersion
+    }
 
 -- | The ID of the specified health check.
 hcId :: Lens' HealthCheck Text
@@ -1022,11 +1160,30 @@ instance FromXML HealthCheck where
 -- * 'hccPort'
 --
 -- * 'hccType'
-data HealthCheckConfig = HealthCheckConfig'{_hccIPAddress :: Maybe Text, _hccFailureThreshold :: Maybe Nat, _hccSearchString :: Maybe Text, _hccResourcePath :: Maybe Text, _hccFullyQualifiedDomainName :: Maybe Text, _hccRequestInterval :: Maybe Nat, _hccPort :: Maybe Nat, _hccType :: HealthCheckType} deriving (Eq, Read, Show)
+data HealthCheckConfig = HealthCheckConfig'
+    { _hccIPAddress                :: Maybe Text
+    , _hccFailureThreshold         :: Maybe Nat
+    , _hccSearchString             :: Maybe Text
+    , _hccResourcePath             :: Maybe Text
+    , _hccFullyQualifiedDomainName :: Maybe Text
+    , _hccRequestInterval          :: Maybe Nat
+    , _hccPort                     :: Maybe Nat
+    , _hccType                     :: HealthCheckType
+    } deriving (Eq,Read,Show)
 
 -- | 'HealthCheckConfig' smart constructor.
 healthCheckConfig :: HealthCheckType -> HealthCheckConfig
-healthCheckConfig pType = HealthCheckConfig'{_hccIPAddress = Nothing, _hccFailureThreshold = Nothing, _hccSearchString = Nothing, _hccResourcePath = Nothing, _hccFullyQualifiedDomainName = Nothing, _hccRequestInterval = Nothing, _hccPort = Nothing, _hccType = pType};
+healthCheckConfig pType =
+    HealthCheckConfig'
+    { _hccIPAddress = Nothing
+    , _hccFailureThreshold = Nothing
+    , _hccSearchString = Nothing
+    , _hccResourcePath = Nothing
+    , _hccFullyQualifiedDomainName = Nothing
+    , _hccRequestInterval = Nothing
+    , _hccPort = Nothing
+    , _hccType = pType
+    }
 
 -- | IP Address of the instance being checked.
 hccIPAddress :: Lens' HealthCheckConfig (Maybe Text)
@@ -1111,11 +1268,18 @@ instance ToXML HealthCheckConfig where
 -- * 'hcoIPAddress'
 --
 -- * 'hcoStatusReport'
-data HealthCheckObservation = HealthCheckObservation'{_hcoIPAddress :: Maybe Text, _hcoStatusReport :: Maybe StatusReport} deriving (Eq, Read, Show)
+data HealthCheckObservation = HealthCheckObservation'
+    { _hcoIPAddress    :: Maybe Text
+    , _hcoStatusReport :: Maybe StatusReport
+    } deriving (Eq,Read,Show)
 
 -- | 'HealthCheckObservation' smart constructor.
 healthCheckObservation :: HealthCheckObservation
-healthCheckObservation = HealthCheckObservation'{_hcoIPAddress = Nothing, _hcoStatusReport = Nothing};
+healthCheckObservation =
+    HealthCheckObservation'
+    { _hcoIPAddress = Nothing
+    , _hcoStatusReport = Nothing
+    }
 
 -- | The IP address of the Route 53 health checker that performed the health
 -- check.
@@ -1147,11 +1311,24 @@ instance FromXML HealthCheckObservation where
 -- * 'hzName'
 --
 -- * 'hzCallerReference'
-data HostedZone = HostedZone'{_hzConfig :: Maybe HostedZoneConfig, _hzResourceRecordSetCount :: Maybe Integer, _hzId :: Text, _hzName :: Text, _hzCallerReference :: Text} deriving (Eq, Read, Show)
+data HostedZone = HostedZone'
+    { _hzConfig                 :: Maybe HostedZoneConfig
+    , _hzResourceRecordSetCount :: Maybe Integer
+    , _hzId                     :: Text
+    , _hzName                   :: Text
+    , _hzCallerReference        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'HostedZone' smart constructor.
 hostedZone :: Text -> Text -> Text -> HostedZone
-hostedZone pId pName pCallerReference = HostedZone'{_hzConfig = Nothing, _hzResourceRecordSetCount = Nothing, _hzId = pId, _hzName = pName, _hzCallerReference = pCallerReference};
+hostedZone pId pName pCallerReference =
+    HostedZone'
+    { _hzConfig = Nothing
+    , _hzResourceRecordSetCount = Nothing
+    , _hzId = pId
+    , _hzName = pName
+    , _hzCallerReference = pCallerReference
+    }
 
 -- | A complex type that contains the @Comment@ element.
 hzConfig :: Lens' HostedZone (Maybe HostedZoneConfig)
@@ -1200,11 +1377,18 @@ instance FromXML HostedZone where
 -- * 'hzcPrivateZone'
 --
 -- * 'hzcComment'
-data HostedZoneConfig = HostedZoneConfig'{_hzcPrivateZone :: Maybe Bool, _hzcComment :: Maybe Text} deriving (Eq, Read, Show)
+data HostedZoneConfig = HostedZoneConfig'
+    { _hzcPrivateZone :: Maybe Bool
+    , _hzcComment     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'HostedZoneConfig' smart constructor.
 hostedZoneConfig :: HostedZoneConfig
-hostedZoneConfig = HostedZoneConfig'{_hzcPrivateZone = Nothing, _hzcComment = Nothing};
+hostedZoneConfig =
+    HostedZoneConfig'
+    { _hzcPrivateZone = Nothing
+    , _hzcComment = Nothing
+    }
 
 -- | A value that indicates whether this is a private hosted zone. The value
 -- is returned in the response; do not specify it in the request.
@@ -1236,11 +1420,16 @@ instance ToXML HostedZoneConfig where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rrValue'
-newtype ResourceRecord = ResourceRecord'{_rrValue :: Text} deriving (Eq, Read, Show)
+newtype ResourceRecord = ResourceRecord'
+    { _rrValue :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ResourceRecord' smart constructor.
 resourceRecord :: Text -> ResourceRecord
-resourceRecord pValue = ResourceRecord'{_rrValue = pValue};
+resourceRecord pValue =
+    ResourceRecord'
+    { _rrValue = pValue
+    }
 
 -- | The value of the @Value@ element for the current resource record set.
 rrValue :: Lens' ResourceRecord Text
@@ -1281,11 +1470,36 @@ instance ToXML ResourceRecord where
 -- * 'rrsType'
 --
 -- * 'rrsResourceRecords'
-data ResourceRecordSet = ResourceRecordSet'{_rrsTTL :: Maybe Nat, _rrsAliasTarget :: Maybe AliasTarget, _rrsWeight :: Maybe Nat, _rrsSetIdentifier :: Maybe Text, _rrsFailover :: Maybe Failover, _rrsHealthCheckId :: Maybe Text, _rrsRegion :: Maybe Region, _rrsGeoLocation :: Maybe GeoLocation, _rrsName :: Text, _rrsType :: RecordType, _rrsResourceRecords :: List1 ResourceRecord} deriving (Eq, Read, Show)
+data ResourceRecordSet = ResourceRecordSet'
+    { _rrsTTL             :: Maybe Nat
+    , _rrsAliasTarget     :: Maybe AliasTarget
+    , _rrsWeight          :: Maybe Nat
+    , _rrsSetIdentifier   :: Maybe Text
+    , _rrsFailover        :: Maybe Failover
+    , _rrsHealthCheckId   :: Maybe Text
+    , _rrsRegion          :: Maybe Region
+    , _rrsGeoLocation     :: Maybe GeoLocation
+    , _rrsName            :: Text
+    , _rrsType            :: RecordType
+    , _rrsResourceRecords :: List1 ResourceRecord
+    } deriving (Eq,Read,Show)
 
 -- | 'ResourceRecordSet' smart constructor.
 resourceRecordSet :: Text -> RecordType -> NonEmpty ResourceRecord -> ResourceRecordSet
-resourceRecordSet pName pType pResourceRecords = ResourceRecordSet'{_rrsTTL = Nothing, _rrsAliasTarget = Nothing, _rrsWeight = Nothing, _rrsSetIdentifier = Nothing, _rrsFailover = Nothing, _rrsHealthCheckId = Nothing, _rrsRegion = Nothing, _rrsGeoLocation = Nothing, _rrsName = pName, _rrsType = pType, _rrsResourceRecords = _List1 # pResourceRecords};
+resourceRecordSet pName pType pResourceRecords =
+    ResourceRecordSet'
+    { _rrsTTL = Nothing
+    , _rrsAliasTarget = Nothing
+    , _rrsWeight = Nothing
+    , _rrsSetIdentifier = Nothing
+    , _rrsFailover = Nothing
+    , _rrsHealthCheckId = Nothing
+    , _rrsRegion = Nothing
+    , _rrsGeoLocation = Nothing
+    , _rrsName = pName
+    , _rrsType = pType
+    , _rrsResourceRecords = _List1 # pResourceRecords
+    }
 
 -- | The cache time to live for the current resource record set.
 rrsTTL :: Lens' ResourceRecordSet (Maybe Natural)
@@ -1401,11 +1615,20 @@ instance ToXML ResourceRecordSet where
 -- * 'rtsResourceType'
 --
 -- * 'rtsTags'
-data ResourceTagSet = ResourceTagSet'{_rtsResourceId :: Maybe Text, _rtsResourceType :: Maybe TagResourceType, _rtsTags :: Maybe (List1 Tag)} deriving (Eq, Read, Show)
+data ResourceTagSet = ResourceTagSet'
+    { _rtsResourceId   :: Maybe Text
+    , _rtsResourceType :: Maybe TagResourceType
+    , _rtsTags         :: Maybe (List1 Tag)
+    } deriving (Eq,Read,Show)
 
 -- | 'ResourceTagSet' smart constructor.
 resourceTagSet :: ResourceTagSet
-resourceTagSet = ResourceTagSet'{_rtsResourceId = Nothing, _rtsResourceType = Nothing, _rtsTags = Nothing};
+resourceTagSet =
+    ResourceTagSet'
+    { _rtsResourceId = Nothing
+    , _rtsResourceType = Nothing
+    , _rtsTags = Nothing
+    }
 
 -- | The ID for the specified resource.
 rtsResourceId :: Lens' ResourceTagSet (Maybe Text)
@@ -1440,11 +1663,18 @@ instance FromXML ResourceTagSet where
 -- * 'srStatus'
 --
 -- * 'srCheckedTime'
-data StatusReport = StatusReport'{_srStatus :: Maybe Text, _srCheckedTime :: Maybe ISO8601} deriving (Eq, Read, Show)
+data StatusReport = StatusReport'
+    { _srStatus      :: Maybe Text
+    , _srCheckedTime :: Maybe ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'StatusReport' smart constructor.
 statusReport :: StatusReport
-statusReport = StatusReport'{_srStatus = Nothing, _srCheckedTime = Nothing};
+statusReport =
+    StatusReport'
+    { _srStatus = Nothing
+    , _srCheckedTime = Nothing
+    }
 
 -- | The observed health check status.
 srStatus :: Lens' StatusReport (Maybe Text)
@@ -1472,11 +1702,18 @@ instance FromXML StatusReport where
 -- * 'tagValue'
 --
 -- * 'tagKey'
-data Tag = Tag'{_tagValue :: Maybe Text, _tagKey :: Maybe Text} deriving (Eq, Read, Show)
+data Tag = Tag'
+    { _tagValue :: Maybe Text
+    , _tagKey   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
-tag = Tag'{_tagValue = Nothing, _tagKey = Nothing};
+tag =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = Nothing
+    }
 
 -- | The value for a @Tag@.
 tagValue :: Lens' Tag (Maybe Text)
@@ -1501,11 +1738,18 @@ instance ToXML Tag where
 -- * 'vpcVPCRegion'
 --
 -- * 'vpcVPCId'
-data VPC = VPC'{_vpcVPCRegion :: Maybe VPCRegion, _vpcVPCId :: Maybe Text} deriving (Eq, Read, Show)
+data VPC = VPC'
+    { _vpcVPCRegion :: Maybe VPCRegion
+    , _vpcVPCId     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VPC' smart constructor.
 vpc :: VPC
-vpc = VPC'{_vpcVPCRegion = Nothing, _vpcVPCId = Nothing};
+vpc =
+    VPC'
+    { _vpcVPCRegion = Nothing
+    , _vpcVPCId = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 vpcVPCRegion :: Lens' VPC (Maybe VPCRegion)

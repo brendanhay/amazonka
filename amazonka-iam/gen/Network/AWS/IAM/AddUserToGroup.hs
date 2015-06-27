@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.AddUserToGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.IAM.AddUserToGroup
     , addUserToGroupResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'addUserToGroup' smart constructor.
 --
@@ -45,11 +45,18 @@ import Network.AWS.Response
 -- * 'autgGroupName'
 --
 -- * 'autgUserName'
-data AddUserToGroup = AddUserToGroup'{_autgGroupName :: Text, _autgUserName :: Text} deriving (Eq, Read, Show)
+data AddUserToGroup = AddUserToGroup'
+    { _autgGroupName :: Text
+    , _autgUserName  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AddUserToGroup' smart constructor.
 addUserToGroup :: Text -> Text -> AddUserToGroup
-addUserToGroup pGroupName pUserName = AddUserToGroup'{_autgGroupName = pGroupName, _autgUserName = pUserName};
+addUserToGroup pGroupName pUserName =
+    AddUserToGroup'
+    { _autgGroupName = pGroupName
+    , _autgUserName = pUserName
+    }
 
 -- | The name of the group to update.
 autgGroupName :: Lens' AddUserToGroup Text
@@ -80,8 +87,10 @@ instance ToQuery AddUserToGroup where
                "UserName" =: _autgUserName]
 
 -- | /See:/ 'addUserToGroupResponse' smart constructor.
-data AddUserToGroupResponse = AddUserToGroupResponse' deriving (Eq, Read, Show)
+data AddUserToGroupResponse =
+    AddUserToGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AddUserToGroupResponse' smart constructor.
 addUserToGroupResponse :: AddUserToGroupResponse
-addUserToGroupResponse = AddUserToGroupResponse';
+addUserToGroupResponse = AddUserToGroupResponse'

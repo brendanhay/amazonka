@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Glacier.UploadMultipartPart
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -84,13 +84,13 @@ module Network.AWS.Glacier.UploadMultipartPart
     , uploadMultipartPartResponse
     -- ** Response lenses
     , umprChecksum
-    , umprStatusCode
+    , umprStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options to upload a part of an archive in a multipart upload
 -- operation.
@@ -110,11 +110,26 @@ import Network.AWS.Response
 -- * 'umpUploadId'
 --
 -- * 'umpBody'
-data UploadMultipartPart = UploadMultipartPart'{_umpChecksum :: Maybe Text, _umpRange :: Maybe Text, _umpAccountId :: Text, _umpVaultName :: Text, _umpUploadId :: Text, _umpBody :: RqBody} deriving Show
+data UploadMultipartPart = UploadMultipartPart'
+    { _umpChecksum  :: Maybe Text
+    , _umpRange     :: Maybe Text
+    , _umpAccountId :: Text
+    , _umpVaultName :: Text
+    , _umpUploadId  :: Text
+    , _umpBody      :: RqBody
+    } deriving (Show)
 
 -- | 'UploadMultipartPart' smart constructor.
 uploadMultipartPart :: Text -> Text -> Text -> RqBody -> UploadMultipartPart
-uploadMultipartPart pAccountId pVaultName pUploadId pBody = UploadMultipartPart'{_umpChecksum = Nothing, _umpRange = Nothing, _umpAccountId = pAccountId, _umpVaultName = pVaultName, _umpUploadId = pUploadId, _umpBody = pBody};
+uploadMultipartPart pAccountId pVaultName pUploadId pBody =
+    UploadMultipartPart'
+    { _umpChecksum = Nothing
+    , _umpRange = Nothing
+    , _umpAccountId = pAccountId
+    , _umpVaultName = pVaultName
+    , _umpUploadId = pUploadId
+    , _umpBody = pBody
+    }
 
 -- | The SHA256 tree hash of the data being uploaded.
 umpChecksum :: Lens' UploadMultipartPart (Maybe Text)
@@ -186,17 +201,24 @@ instance ToQuery UploadMultipartPart where
 --
 -- * 'umprChecksum'
 --
--- * 'umprStatusCode'
-data UploadMultipartPartResponse = UploadMultipartPartResponse'{_umprChecksum :: Maybe Text, _umprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'umprStatus'
+data UploadMultipartPartResponse = UploadMultipartPartResponse'
+    { _umprChecksum :: Maybe Text
+    , _umprStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UploadMultipartPartResponse' smart constructor.
 uploadMultipartPartResponse :: Int -> UploadMultipartPartResponse
-uploadMultipartPartResponse pStatusCode = UploadMultipartPartResponse'{_umprChecksum = Nothing, _umprStatusCode = pStatusCode};
+uploadMultipartPartResponse pStatus =
+    UploadMultipartPartResponse'
+    { _umprChecksum = Nothing
+    , _umprStatus = pStatus
+    }
 
 -- | The SHA256 tree hash that Amazon Glacier computed for the uploaded part.
 umprChecksum :: Lens' UploadMultipartPartResponse (Maybe Text)
 umprChecksum = lens _umprChecksum (\ s a -> s{_umprChecksum = a});
 
 -- | FIXME: Undocumented member.
-umprStatusCode :: Lens' UploadMultipartPartResponse Int
-umprStatusCode = lens _umprStatusCode (\ s a -> s{_umprStatusCode = a});
+umprStatus :: Lens' UploadMultipartPartResponse Int
+umprStatus = lens _umprStatus (\ s a -> s{_umprStatus = a});

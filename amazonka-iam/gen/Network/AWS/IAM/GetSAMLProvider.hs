@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.GetSAMLProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,24 +38,29 @@ module Network.AWS.IAM.GetSAMLProvider
     , gsamlprCreateDate
     , gsamlprValidUntil
     , gsamlprSAMLMetadataDocument
-    , gsamlprStatusCode
+    , gsamlprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getSAMLProvider' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gsamlpSAMLProviderARN'
-newtype GetSAMLProvider = GetSAMLProvider'{_gsamlpSAMLProviderARN :: Text} deriving (Eq, Read, Show)
+newtype GetSAMLProvider = GetSAMLProvider'
+    { _gsamlpSAMLProviderARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetSAMLProvider' smart constructor.
 getSAMLProvider :: Text -> GetSAMLProvider
-getSAMLProvider pSAMLProviderARN = GetSAMLProvider'{_gsamlpSAMLProviderARN = pSAMLProviderARN};
+getSAMLProvider pSAMLProviderARN =
+    GetSAMLProvider'
+    { _gsamlpSAMLProviderARN = pSAMLProviderARN
+    }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to get information
 -- about.
@@ -99,12 +104,23 @@ instance ToQuery GetSAMLProvider where
 --
 -- * 'gsamlprSAMLMetadataDocument'
 --
--- * 'gsamlprStatusCode'
-data GetSAMLProviderResponse = GetSAMLProviderResponse'{_gsamlprCreateDate :: Maybe ISO8601, _gsamlprValidUntil :: Maybe ISO8601, _gsamlprSAMLMetadataDocument :: Maybe Text, _gsamlprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gsamlprStatus'
+data GetSAMLProviderResponse = GetSAMLProviderResponse'
+    { _gsamlprCreateDate           :: Maybe ISO8601
+    , _gsamlprValidUntil           :: Maybe ISO8601
+    , _gsamlprSAMLMetadataDocument :: Maybe Text
+    , _gsamlprStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetSAMLProviderResponse' smart constructor.
 getSAMLProviderResponse :: Int -> GetSAMLProviderResponse
-getSAMLProviderResponse pStatusCode = GetSAMLProviderResponse'{_gsamlprCreateDate = Nothing, _gsamlprValidUntil = Nothing, _gsamlprSAMLMetadataDocument = Nothing, _gsamlprStatusCode = pStatusCode};
+getSAMLProviderResponse pStatus =
+    GetSAMLProviderResponse'
+    { _gsamlprCreateDate = Nothing
+    , _gsamlprValidUntil = Nothing
+    , _gsamlprSAMLMetadataDocument = Nothing
+    , _gsamlprStatus = pStatus
+    }
 
 -- | The date and time when the SAML provider was created.
 gsamlprCreateDate :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
@@ -120,5 +136,5 @@ gsamlprSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
 gsamlprSAMLMetadataDocument = lens _gsamlprSAMLMetadataDocument (\ s a -> s{_gsamlprSAMLMetadataDocument = a});
 
 -- | FIXME: Undocumented member.
-gsamlprStatusCode :: Lens' GetSAMLProviderResponse Int
-gsamlprStatusCode = lens _gsamlprStatusCode (\ s a -> s{_gsamlprStatusCode = a});
+gsamlprStatus :: Lens' GetSAMLProviderResponse Int
+gsamlprStatus = lens _gsamlprStatus (\ s a -> s{_gsamlprStatus = a});

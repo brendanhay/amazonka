@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.DescribePipelines
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.DataPipeline.DescribePipelines
     , describePipelinesResponse
     -- ** Response lenses
     , dprPipelineDescriptionList
-    , dprStatusCode
+    , dprStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DescribePipelines.
 --
@@ -56,11 +56,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dpPipelineIds'
-newtype DescribePipelines = DescribePipelines'{_dpPipelineIds :: [Text]} deriving (Eq, Read, Show)
+newtype DescribePipelines = DescribePipelines'
+    { _dpPipelineIds :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribePipelines' smart constructor.
 describePipelines :: DescribePipelines
-describePipelines = DescribePipelines'{_dpPipelineIds = mempty};
+describePipelines =
+    DescribePipelines'
+    { _dpPipelineIds = mempty
+    }
 
 -- | The IDs of the pipelines to describe. You can pass as many as 25
 -- identifiers in a single call. To obtain pipeline IDs, call
@@ -106,17 +111,24 @@ instance ToQuery DescribePipelines where
 --
 -- * 'dprPipelineDescriptionList'
 --
--- * 'dprStatusCode'
-data DescribePipelinesResponse = DescribePipelinesResponse'{_dprPipelineDescriptionList :: [PipelineDescription], _dprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dprStatus'
+data DescribePipelinesResponse = DescribePipelinesResponse'
+    { _dprPipelineDescriptionList :: [PipelineDescription]
+    , _dprStatus                  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribePipelinesResponse' smart constructor.
 describePipelinesResponse :: Int -> DescribePipelinesResponse
-describePipelinesResponse pStatusCode = DescribePipelinesResponse'{_dprPipelineDescriptionList = mempty, _dprStatusCode = pStatusCode};
+describePipelinesResponse pStatus =
+    DescribePipelinesResponse'
+    { _dprPipelineDescriptionList = mempty
+    , _dprStatus = pStatus
+    }
 
 -- | An array of descriptions for the specified pipelines.
 dprPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
 dprPipelineDescriptionList = lens _dprPipelineDescriptionList (\ s a -> s{_dprPipelineDescriptionList = a});
 
 -- | FIXME: Undocumented member.
-dprStatusCode :: Lens' DescribePipelinesResponse Int
-dprStatusCode = lens _dprStatusCode (\ s a -> s{_dprStatusCode = a});
+dprStatus :: Lens' DescribePipelinesResponse Int
+dprStatus = lens _dprStatus (\ s a -> s{_dprStatus = a});

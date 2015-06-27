@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DynamoDB.UpdateTable
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,14 +54,17 @@ module Network.AWS.DynamoDB.UpdateTable
     , updateTableResponse
     -- ** Response lenses
     , utrTableDescription
+    , utrStatus
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
--- | /See:/ 'updateTable' smart constructor.
+-- | Represents the input of an /UpdateTable/ operation.
+--
+-- /See:/ 'updateTable' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -72,11 +75,22 @@ import Network.AWS.DynamoDB.Types
 -- * 'utGlobalSecondaryIndexUpdates'
 --
 -- * 'utTableName'
-data UpdateTable = UpdateTable'{_utProvisionedThroughput :: Maybe ProvisionedThroughput, _utAttributeDefinitions :: Maybe [AttributeDefinition], _utGlobalSecondaryIndexUpdates :: Maybe [GlobalSecondaryIndexUpdate], _utTableName :: Text} deriving (Eq, Read, Show)
+data UpdateTable = UpdateTable'
+    { _utProvisionedThroughput       :: Maybe ProvisionedThroughput
+    , _utAttributeDefinitions        :: Maybe [AttributeDefinition]
+    , _utGlobalSecondaryIndexUpdates :: Maybe [GlobalSecondaryIndexUpdate]
+    , _utTableName                   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateTable' smart constructor.
 updateTable :: Text -> UpdateTable
-updateTable pTableName = UpdateTable'{_utProvisionedThroughput = Nothing, _utAttributeDefinitions = Nothing, _utGlobalSecondaryIndexUpdates = Nothing, _utTableName = pTableName};
+updateTable pTableName =
+    UpdateTable'
+    { _utProvisionedThroughput = Nothing
+    , _utAttributeDefinitions = Nothing
+    , _utGlobalSecondaryIndexUpdates = Nothing
+    , _utTableName = pTableName
+    }
 
 -- | FIXME: Undocumented member.
 utProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
@@ -85,8 +99,8 @@ utProvisionedThroughput = lens _utProvisionedThroughput (\ s a -> s{_utProvision
 -- | An array of attributes that describe the key schema for the table and
 -- indexes. If you are adding a new global secondary index to the table,
 -- /AttributeDefinitions/ must include the key element(s) of the new index.
-utAttributeDefinitions :: Lens' UpdateTable (Maybe [AttributeDefinition])
-utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDefinitions = a});
+utAttributeDefinitions :: Lens' UpdateTable [AttributeDefinition]
+utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDefinitions = a}) . _Default;
 
 -- | An array of one or more global secondary indexes for the table. For each
 -- index in the array, you can request one action:
@@ -98,8 +112,8 @@ utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDe
 --
 -- -   /Delete/ - remove a global secondary index from the table.
 --
-utGlobalSecondaryIndexUpdates :: Lens' UpdateTable (Maybe [GlobalSecondaryIndexUpdate])
-utGlobalSecondaryIndexUpdates = lens _utGlobalSecondaryIndexUpdates (\ s a -> s{_utGlobalSecondaryIndexUpdates = a});
+utGlobalSecondaryIndexUpdates :: Lens' UpdateTable [GlobalSecondaryIndexUpdate]
+utGlobalSecondaryIndexUpdates = lens _utGlobalSecondaryIndexUpdates (\ s a -> s{_utGlobalSecondaryIndexUpdates = a}) . _Default;
 
 -- | The name of the table to be updated.
 utTableName :: Lens' UpdateTable Text
@@ -112,7 +126,8 @@ instance AWSRequest UpdateTable where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateTableResponse' <$> (x .?> "TableDescription"))
+                 UpdateTableResponse' <$>
+                   (x .?> "TableDescription") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateTable where
         toHeaders
@@ -138,17 +153,32 @@ instance ToPath UpdateTable where
 instance ToQuery UpdateTable where
         toQuery = const mempty
 
--- | /See:/ 'updateTableResponse' smart constructor.
+-- | Represents the output of an /UpdateTable/ operation.
+--
+-- /See:/ 'updateTableResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'utrTableDescription'
-newtype UpdateTableResponse = UpdateTableResponse'{_utrTableDescription :: Maybe TableDescription} deriving (Eq, Read, Show)
+--
+-- * 'utrStatus'
+data UpdateTableResponse = UpdateTableResponse'
+    { _utrTableDescription :: Maybe TableDescription
+    , _utrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateTableResponse' smart constructor.
-updateTableResponse :: UpdateTableResponse
-updateTableResponse = UpdateTableResponse'{_utrTableDescription = Nothing};
+updateTableResponse :: Int -> UpdateTableResponse
+updateTableResponse pStatus =
+    UpdateTableResponse'
+    { _utrTableDescription = Nothing
+    , _utrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 utrTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
 utrTableDescription = lens _utrTableDescription (\ s a -> s{_utrTableDescription = a});
+
+-- | FIXME: Undocumented member.
+utrStatus :: Lens' UpdateTableResponse Int
+utrStatus = lens _utrStatus (\ s a -> s{_utrStatus = a});

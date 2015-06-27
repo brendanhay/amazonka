@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DeleteInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,10 +44,10 @@ module Network.AWS.OpsWorks.DeleteInstance
     , deleteInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteInstance' smart constructor.
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'diDeleteElasticIP'
 --
 -- * 'diInstanceId'
-data DeleteInstance = DeleteInstance'{_diDeleteVolumes :: Maybe Bool, _diDeleteElasticIP :: Maybe Bool, _diInstanceId :: Text} deriving (Eq, Read, Show)
+data DeleteInstance = DeleteInstance'
+    { _diDeleteVolumes   :: Maybe Bool
+    , _diDeleteElasticIP :: Maybe Bool
+    , _diInstanceId      :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteInstance' smart constructor.
 deleteInstance :: Text -> DeleteInstance
-deleteInstance pInstanceId = DeleteInstance'{_diDeleteVolumes = Nothing, _diDeleteElasticIP = Nothing, _diInstanceId = pInstanceId};
+deleteInstance pInstanceId =
+    DeleteInstance'
+    { _diDeleteVolumes = Nothing
+    , _diDeleteElasticIP = Nothing
+    , _diInstanceId = pInstanceId
+    }
 
 -- | Whether to delete the instance\'s Amazon EBS volumes.
 diDeleteVolumes :: Lens' DeleteInstance (Maybe Bool)
@@ -105,8 +114,10 @@ instance ToQuery DeleteInstance where
         toQuery = const mempty
 
 -- | /See:/ 'deleteInstanceResponse' smart constructor.
-data DeleteInstanceResponse = DeleteInstanceResponse' deriving (Eq, Read, Show)
+data DeleteInstanceResponse =
+    DeleteInstanceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteInstanceResponse' smart constructor.
 deleteInstanceResponse :: DeleteInstanceResponse
-deleteInstanceResponse = DeleteInstanceResponse';
+deleteInstanceResponse = DeleteInstanceResponse'

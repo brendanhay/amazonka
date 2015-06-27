@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,10 +37,10 @@ module Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider
     , removeClientIDFromOpenIDConnectProviderResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'removeClientIDFromOpenIDConnectProvider' smart constructor.
 --
@@ -49,11 +49,18 @@ import Network.AWS.Response
 -- * 'rcidfoidcpOpenIDConnectProviderARN'
 --
 -- * 'rcidfoidcpClientID'
-data RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectProvider'{_rcidfoidcpOpenIDConnectProviderARN :: Text, _rcidfoidcpClientID :: Text} deriving (Eq, Read, Show)
+data RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectProvider'
+    { _rcidfoidcpOpenIDConnectProviderARN :: Text
+    , _rcidfoidcpClientID                 :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveClientIDFromOpenIDConnectProvider' smart constructor.
 removeClientIDFromOpenIDConnectProvider :: Text -> Text -> RemoveClientIDFromOpenIDConnectProvider
-removeClientIDFromOpenIDConnectProvider pOpenIDConnectProviderARN pClientID = RemoveClientIDFromOpenIDConnectProvider'{_rcidfoidcpOpenIDConnectProviderARN = pOpenIDConnectProviderARN, _rcidfoidcpClientID = pClientID};
+removeClientIDFromOpenIDConnectProvider pOpenIDConnectProviderARN pClientID =
+    RemoveClientIDFromOpenIDConnectProvider'
+    { _rcidfoidcpOpenIDConnectProviderARN = pOpenIDConnectProviderARN
+    , _rcidfoidcpClientID = pClientID
+    }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to remove the client ID from. You can get a list of OIDC provider ARNs
@@ -98,8 +105,11 @@ instance ToQuery
                "ClientID" =: _rcidfoidcpClientID]
 
 -- | /See:/ 'removeClientIDFromOpenIDConnectProviderResponse' smart constructor.
-data RemoveClientIDFromOpenIDConnectProviderResponse = RemoveClientIDFromOpenIDConnectProviderResponse' deriving (Eq, Read, Show)
+data RemoveClientIDFromOpenIDConnectProviderResponse =
+    RemoveClientIDFromOpenIDConnectProviderResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RemoveClientIDFromOpenIDConnectProviderResponse' smart constructor.
 removeClientIDFromOpenIDConnectProviderResponse :: RemoveClientIDFromOpenIDConnectProviderResponse
-removeClientIDFromOpenIDConnectProviderResponse = RemoveClientIDFromOpenIDConnectProviderResponse';
+removeClientIDFromOpenIDConnectProviderResponse =
+    RemoveClientIDFromOpenIDConnectProviderResponse'

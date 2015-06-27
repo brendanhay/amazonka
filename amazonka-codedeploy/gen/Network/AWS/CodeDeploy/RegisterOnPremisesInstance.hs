@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.RegisterOnPremisesInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
     , registerOnPremisesInstanceResponse
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of register on-premises instance operation.
 --
@@ -47,11 +47,18 @@ import Network.AWS.Response
 -- * 'ropiInstanceName'
 --
 -- * 'ropiIamUserARN'
-data RegisterOnPremisesInstance = RegisterOnPremisesInstance'{_ropiInstanceName :: Text, _ropiIamUserARN :: Text} deriving (Eq, Read, Show)
+data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
+    { _ropiInstanceName :: Text
+    , _ropiIamUserARN   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterOnPremisesInstance' smart constructor.
 registerOnPremisesInstance :: Text -> Text -> RegisterOnPremisesInstance
-registerOnPremisesInstance pInstanceName pIamUserARN = RegisterOnPremisesInstance'{_ropiInstanceName = pInstanceName, _ropiIamUserARN = pIamUserARN};
+registerOnPremisesInstance pInstanceName pIamUserARN =
+    RegisterOnPremisesInstance'
+    { _ropiInstanceName = pInstanceName
+    , _ropiIamUserARN = pIamUserARN
+    }
 
 -- | The name of the on-premises instance to register.
 ropiInstanceName :: Lens' RegisterOnPremisesInstance Text
@@ -92,8 +99,10 @@ instance ToQuery RegisterOnPremisesInstance where
         toQuery = const mempty
 
 -- | /See:/ 'registerOnPremisesInstanceResponse' smart constructor.
-data RegisterOnPremisesInstanceResponse = RegisterOnPremisesInstanceResponse' deriving (Eq, Read, Show)
+data RegisterOnPremisesInstanceResponse =
+    RegisterOnPremisesInstanceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RegisterOnPremisesInstanceResponse' smart constructor.
 registerOnPremisesInstanceResponse :: RegisterOnPremisesInstanceResponse
-registerOnPremisesInstanceResponse = RegisterOnPremisesInstanceResponse';
+registerOnPremisesInstanceResponse = RegisterOnPremisesInstanceResponse'

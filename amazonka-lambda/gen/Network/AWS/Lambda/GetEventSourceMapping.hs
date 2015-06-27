@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Lambda.GetEventSourceMapping
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,21 +45,26 @@ module Network.AWS.Lambda.GetEventSourceMapping
     , esmcLastModified
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getEventSourceMapping' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gesmUUID'
-newtype GetEventSourceMapping = GetEventSourceMapping'{_gesmUUID :: Text} deriving (Eq, Read, Show)
+newtype GetEventSourceMapping = GetEventSourceMapping'
+    { _gesmUUID :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetEventSourceMapping' smart constructor.
 getEventSourceMapping :: Text -> GetEventSourceMapping
-getEventSourceMapping pUUID = GetEventSourceMapping'{_gesmUUID = pUUID};
+getEventSourceMapping pUUID =
+    GetEventSourceMapping'
+    { _gesmUUID = pUUID
+    }
 
 -- | The AWS Lambda assigned ID of the event source mapping.
 gesmUUID :: Lens' GetEventSourceMapping Text

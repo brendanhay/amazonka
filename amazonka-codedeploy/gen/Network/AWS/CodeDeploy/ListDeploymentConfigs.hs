@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentConfigs
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.CodeDeploy.ListDeploymentConfigs
     -- ** Response lenses
     , ldcrNextToken
     , ldcrDeploymentConfigsList
-    , ldcrStatusCode
+    , ldcrStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a list deployment configurations operation.
 --
@@ -49,11 +49,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ldcNextToken'
-newtype ListDeploymentConfigs = ListDeploymentConfigs'{_ldcNextToken :: Maybe Text} deriving (Eq, Read, Show)
+newtype ListDeploymentConfigs = ListDeploymentConfigs'
+    { _ldcNextToken :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDeploymentConfigs' smart constructor.
 listDeploymentConfigs :: ListDeploymentConfigs
-listDeploymentConfigs = ListDeploymentConfigs'{_ldcNextToken = Nothing};
+listDeploymentConfigs =
+    ListDeploymentConfigs'
+    { _ldcNextToken = Nothing
+    }
 
 -- | An identifier that was returned from the previous list deployment
 -- configurations call, which can be used to return the next set of
@@ -104,12 +109,21 @@ instance ToQuery ListDeploymentConfigs where
 --
 -- * 'ldcrDeploymentConfigsList'
 --
--- * 'ldcrStatusCode'
-data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'{_ldcrNextToken :: Maybe Text, _ldcrDeploymentConfigsList :: Maybe [Text], _ldcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ldcrStatus'
+data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
+    { _ldcrNextToken             :: Maybe Text
+    , _ldcrDeploymentConfigsList :: Maybe [Text]
+    , _ldcrStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDeploymentConfigsResponse' smart constructor.
 listDeploymentConfigsResponse :: Int -> ListDeploymentConfigsResponse
-listDeploymentConfigsResponse pStatusCode = ListDeploymentConfigsResponse'{_ldcrNextToken = Nothing, _ldcrDeploymentConfigsList = Nothing, _ldcrStatusCode = pStatusCode};
+listDeploymentConfigsResponse pStatus =
+    ListDeploymentConfigsResponse'
+    { _ldcrNextToken = Nothing
+    , _ldcrDeploymentConfigsList = Nothing
+    , _ldcrStatus = pStatus
+    }
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -124,5 +138,5 @@ ldcrDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
 ldcrDeploymentConfigsList = lens _ldcrDeploymentConfigsList (\ s a -> s{_ldcrDeploymentConfigsList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldcrStatusCode :: Lens' ListDeploymentConfigsResponse Int
-ldcrStatusCode = lens _ldcrStatusCode (\ s a -> s{_ldcrStatusCode = a});
+ldcrStatus :: Lens' ListDeploymentConfigsResponse Int
+ldcrStatus = lens _ldcrStatus (\ s a -> s{_ldcrStatus = a});

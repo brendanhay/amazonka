@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ECS.RegisterTaskDefinition
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.ECS.RegisterTaskDefinition
     , registerTaskDefinitionResponse
     -- ** Response lenses
     , rtdrTaskDefinition
-    , rtdrStatusCode
+    , rtdrStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'registerTaskDefinition' smart constructor.
 --
@@ -56,11 +56,20 @@ import Network.AWS.Response
 -- * 'rtdFamily'
 --
 -- * 'rtdContainerDefinitions'
-data RegisterTaskDefinition = RegisterTaskDefinition'{_rtdVolumes :: Maybe [Volume], _rtdFamily :: Text, _rtdContainerDefinitions :: [ContainerDefinition]} deriving (Eq, Read, Show)
+data RegisterTaskDefinition = RegisterTaskDefinition'
+    { _rtdVolumes              :: Maybe [Volume]
+    , _rtdFamily               :: Text
+    , _rtdContainerDefinitions :: [ContainerDefinition]
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterTaskDefinition' smart constructor.
 registerTaskDefinition :: Text -> RegisterTaskDefinition
-registerTaskDefinition pFamily = RegisterTaskDefinition'{_rtdVolumes = Nothing, _rtdFamily = pFamily, _rtdContainerDefinitions = mempty};
+registerTaskDefinition pFamily =
+    RegisterTaskDefinition'
+    { _rtdVolumes = Nothing
+    , _rtdFamily = pFamily
+    , _rtdContainerDefinitions = mempty
+    }
 
 -- | A list of volume definitions in JSON format that containers in your task
 -- may use.
@@ -119,17 +128,24 @@ instance ToQuery RegisterTaskDefinition where
 --
 -- * 'rtdrTaskDefinition'
 --
--- * 'rtdrStatusCode'
-data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'{_rtdrTaskDefinition :: Maybe TaskDefinition, _rtdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rtdrStatus'
+data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
+    { _rtdrTaskDefinition :: Maybe TaskDefinition
+    , _rtdrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterTaskDefinitionResponse' smart constructor.
 registerTaskDefinitionResponse :: Int -> RegisterTaskDefinitionResponse
-registerTaskDefinitionResponse pStatusCode = RegisterTaskDefinitionResponse'{_rtdrTaskDefinition = Nothing, _rtdrStatusCode = pStatusCode};
+registerTaskDefinitionResponse pStatus =
+    RegisterTaskDefinitionResponse'
+    { _rtdrTaskDefinition = Nothing
+    , _rtdrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 rtdrTaskDefinition :: Lens' RegisterTaskDefinitionResponse (Maybe TaskDefinition)
 rtdrTaskDefinition = lens _rtdrTaskDefinition (\ s a -> s{_rtdrTaskDefinition = a});
 
 -- | FIXME: Undocumented member.
-rtdrStatusCode :: Lens' RegisterTaskDefinitionResponse Int
-rtdrStatusCode = lens _rtdrStatusCode (\ s a -> s{_rtdrStatusCode = a});
+rtdrStatus :: Lens' RegisterTaskDefinitionResponse Int
+rtdrStatus = lens _rtdrStatus (\ s a -> s{_rtdrStatus = a});

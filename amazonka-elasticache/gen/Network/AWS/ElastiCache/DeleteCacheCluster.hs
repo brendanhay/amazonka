@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteCacheCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.ElastiCache.DeleteCacheCluster
     , deleteCacheClusterResponse
     -- ** Response lenses
     , dccrCacheCluster
-    , dccrStatusCode
+    , dccrStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DeleteCacheCluster/ action.
 --
@@ -57,11 +57,18 @@ import Network.AWS.Response
 -- * 'dccFinalSnapshotIdentifier'
 --
 -- * 'dccCacheClusterId'
-data DeleteCacheCluster = DeleteCacheCluster'{_dccFinalSnapshotIdentifier :: Maybe Text, _dccCacheClusterId :: Text} deriving (Eq, Read, Show)
+data DeleteCacheCluster = DeleteCacheCluster'
+    { _dccFinalSnapshotIdentifier :: Maybe Text
+    , _dccCacheClusterId          :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteCacheCluster' smart constructor.
 deleteCacheCluster :: Text -> DeleteCacheCluster
-deleteCacheCluster pCacheClusterId = DeleteCacheCluster'{_dccFinalSnapshotIdentifier = Nothing, _dccCacheClusterId = pCacheClusterId};
+deleteCacheCluster pCacheClusterId =
+    DeleteCacheCluster'
+    { _dccFinalSnapshotIdentifier = Nothing
+    , _dccCacheClusterId = pCacheClusterId
+    }
 
 -- | The user-supplied name of a final cache cluster snapshot. This is the
 -- unique name that identifies the snapshot. ElastiCache creates the
@@ -106,17 +113,24 @@ instance ToQuery DeleteCacheCluster where
 --
 -- * 'dccrCacheCluster'
 --
--- * 'dccrStatusCode'
-data DeleteCacheClusterResponse = DeleteCacheClusterResponse'{_dccrCacheCluster :: Maybe CacheCluster, _dccrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dccrStatus'
+data DeleteCacheClusterResponse = DeleteCacheClusterResponse'
+    { _dccrCacheCluster :: Maybe CacheCluster
+    , _dccrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteCacheClusterResponse' smart constructor.
 deleteCacheClusterResponse :: Int -> DeleteCacheClusterResponse
-deleteCacheClusterResponse pStatusCode = DeleteCacheClusterResponse'{_dccrCacheCluster = Nothing, _dccrStatusCode = pStatusCode};
+deleteCacheClusterResponse pStatus =
+    DeleteCacheClusterResponse'
+    { _dccrCacheCluster = Nothing
+    , _dccrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dccrCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
 dccrCacheCluster = lens _dccrCacheCluster (\ s a -> s{_dccrCacheCluster = a});
 
 -- | FIXME: Undocumented member.
-dccrStatusCode :: Lens' DeleteCacheClusterResponse Int
-dccrStatusCode = lens _dccrStatusCode (\ s a -> s{_dccrStatusCode = a});
+dccrStatus :: Lens' DeleteCacheClusterResponse Int
+dccrStatus = lens _dccrStatus (\ s a -> s{_dccrStatus = a});

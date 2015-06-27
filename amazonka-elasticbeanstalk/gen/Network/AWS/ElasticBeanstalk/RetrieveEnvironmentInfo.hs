@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     , retrieveEnvironmentInfoResponse
     -- ** Response lenses
     , reirEnvironmentInfo
-    , reirStatusCode
+    , reirStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'retEnvironmentId'
 --
 -- * 'retInfoType'
-data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo'{_retEnvironmentName :: Maybe Text, _retEnvironmentId :: Maybe Text, _retInfoType :: EnvironmentInfoType} deriving (Eq, Read, Show)
+data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo'
+    { _retEnvironmentName :: Maybe Text
+    , _retEnvironmentId   :: Maybe Text
+    , _retInfoType        :: EnvironmentInfoType
+    } deriving (Eq,Read,Show)
 
 -- | 'RetrieveEnvironmentInfo' smart constructor.
 retrieveEnvironmentInfo :: EnvironmentInfoType -> RetrieveEnvironmentInfo
-retrieveEnvironmentInfo pInfoType = RetrieveEnvironmentInfo'{_retEnvironmentName = Nothing, _retEnvironmentId = Nothing, _retInfoType = pInfoType};
+retrieveEnvironmentInfo pInfoType =
+    RetrieveEnvironmentInfo'
+    { _retEnvironmentName = Nothing
+    , _retEnvironmentId = Nothing
+    , _retInfoType = pInfoType
+    }
 
 -- | The name of the data\'s environment.
 --
@@ -128,17 +137,24 @@ instance ToQuery RetrieveEnvironmentInfo where
 --
 -- * 'reirEnvironmentInfo'
 --
--- * 'reirStatusCode'
-data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'{_reirEnvironmentInfo :: Maybe [EnvironmentInfoDescription], _reirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'reirStatus'
+data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'
+    { _reirEnvironmentInfo :: Maybe [EnvironmentInfoDescription]
+    , _reirStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RetrieveEnvironmentInfoResponse' smart constructor.
 retrieveEnvironmentInfoResponse :: Int -> RetrieveEnvironmentInfoResponse
-retrieveEnvironmentInfoResponse pStatusCode = RetrieveEnvironmentInfoResponse'{_reirEnvironmentInfo = Nothing, _reirStatusCode = pStatusCode};
+retrieveEnvironmentInfoResponse pStatus =
+    RetrieveEnvironmentInfoResponse'
+    { _reirEnvironmentInfo = Nothing
+    , _reirStatus = pStatus
+    }
 
 -- | The EnvironmentInfoDescription of the environment.
 reirEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
 reirEnvironmentInfo = lens _reirEnvironmentInfo (\ s a -> s{_reirEnvironmentInfo = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-reirStatusCode :: Lens' RetrieveEnvironmentInfoResponse Int
-reirStatusCode = lens _reirStatusCode (\ s a -> s{_reirStatusCode = a});
+reirStatus :: Lens' RetrieveEnvironmentInfoResponse Int
+reirStatus = lens _reirStatus (\ s a -> s{_reirStatus = a});

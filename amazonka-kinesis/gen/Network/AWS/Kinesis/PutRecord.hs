@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Kinesis.PutRecord
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -78,13 +78,13 @@ module Network.AWS.Kinesis.PutRecord
     -- ** Response lenses
     , prrShardId
     , prrSequenceNumber
-    , prrStatusCode
+    , prrStatus
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @PutRecord@.
 --
@@ -101,11 +101,24 @@ import Network.AWS.Response
 -- * 'prData'
 --
 -- * 'prPartitionKey'
-data PutRecord = PutRecord'{_prExplicitHashKey :: Maybe Text, _prSequenceNumberForOrdering :: Maybe Text, _prStreamName :: Text, _prData :: Base64, _prPartitionKey :: Text} deriving (Eq, Read, Show)
+data PutRecord = PutRecord'
+    { _prExplicitHashKey           :: Maybe Text
+    , _prSequenceNumberForOrdering :: Maybe Text
+    , _prStreamName                :: Text
+    , _prData                      :: Base64
+    , _prPartitionKey              :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PutRecord' smart constructor.
 putRecord :: Text -> Base64 -> Text -> PutRecord
-putRecord pStreamName pData pPartitionKey = PutRecord'{_prExplicitHashKey = Nothing, _prSequenceNumberForOrdering = Nothing, _prStreamName = pStreamName, _prData = pData, _prPartitionKey = pPartitionKey};
+putRecord pStreamName pData pPartitionKey =
+    PutRecord'
+    { _prExplicitHashKey = Nothing
+    , _prSequenceNumberForOrdering = Nothing
+    , _prStreamName = pStreamName
+    , _prData = pData
+    , _prPartitionKey = pPartitionKey
+    }
 
 -- | The hash value used to explicitly determine the shard the data record is
 -- assigned to by overriding the partition key hash.
@@ -188,12 +201,21 @@ instance ToQuery PutRecord where
 --
 -- * 'prrSequenceNumber'
 --
--- * 'prrStatusCode'
-data PutRecordResponse = PutRecordResponse'{_prrShardId :: Text, _prrSequenceNumber :: Text, _prrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'prrStatus'
+data PutRecordResponse = PutRecordResponse'
+    { _prrShardId        :: Text
+    , _prrSequenceNumber :: Text
+    , _prrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PutRecordResponse' smart constructor.
 putRecordResponse :: Text -> Text -> Int -> PutRecordResponse
-putRecordResponse pShardId pSequenceNumber pStatusCode = PutRecordResponse'{_prrShardId = pShardId, _prrSequenceNumber = pSequenceNumber, _prrStatusCode = pStatusCode};
+putRecordResponse pShardId pSequenceNumber pStatus =
+    PutRecordResponse'
+    { _prrShardId = pShardId
+    , _prrSequenceNumber = pSequenceNumber
+    , _prrStatus = pStatus
+    }
 
 -- | The shard ID of the shard where the data record was placed.
 prrShardId :: Lens' PutRecordResponse Text
@@ -207,5 +229,5 @@ prrSequenceNumber :: Lens' PutRecordResponse Text
 prrSequenceNumber = lens _prrSequenceNumber (\ s a -> s{_prrSequenceNumber = a});
 
 -- | FIXME: Undocumented member.
-prrStatusCode :: Lens' PutRecordResponse Int
-prrStatusCode = lens _prrStatusCode (\ s a -> s{_prrStatusCode = a});
+prrStatus :: Lens' PutRecordResponse Int
+prrStatus = lens _prrStatus (\ s a -> s{_prrStatus = a});

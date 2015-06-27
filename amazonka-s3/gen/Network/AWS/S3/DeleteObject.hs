@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.DeleteObject
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.S3.DeleteObject
     , dorVersionId
     , dorRequestCharged
     , dorDeleteMarker
-    , dorStatusCode
+    , dorStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'deleteObject' smart constructor.
 --
@@ -61,11 +61,24 @@ import Network.AWS.S3.Types
 -- * 'doBucket'
 --
 -- * 'doKey'
-data DeleteObject = DeleteObject'{_doVersionId :: Maybe ObjectVersionId, _doMFA :: Maybe Text, _doRequestPayer :: Maybe RequestPayer, _doBucket :: BucketName, _doKey :: ObjectKey} deriving (Eq, Read, Show)
+data DeleteObject = DeleteObject'
+    { _doVersionId    :: Maybe ObjectVersionId
+    , _doMFA          :: Maybe Text
+    , _doRequestPayer :: Maybe RequestPayer
+    , _doBucket       :: BucketName
+    , _doKey          :: ObjectKey
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteObject' smart constructor.
 deleteObject :: BucketName -> ObjectKey -> DeleteObject
-deleteObject pBucket pKey = DeleteObject'{_doVersionId = Nothing, _doMFA = Nothing, _doRequestPayer = Nothing, _doBucket = pBucket, _doKey = pKey};
+deleteObject pBucket pKey =
+    DeleteObject'
+    { _doVersionId = Nothing
+    , _doMFA = Nothing
+    , _doRequestPayer = Nothing
+    , _doBucket = pBucket
+    , _doKey = pKey
+    }
 
 -- | VersionId used to reference a specific version of the object.
 doVersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
@@ -125,12 +138,23 @@ instance ToQuery DeleteObject where
 --
 -- * 'dorDeleteMarker'
 --
--- * 'dorStatusCode'
-data DeleteObjectResponse = DeleteObjectResponse'{_dorVersionId :: Maybe ObjectVersionId, _dorRequestCharged :: Maybe RequestCharged, _dorDeleteMarker :: Maybe Bool, _dorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dorStatus'
+data DeleteObjectResponse = DeleteObjectResponse'
+    { _dorVersionId      :: Maybe ObjectVersionId
+    , _dorRequestCharged :: Maybe RequestCharged
+    , _dorDeleteMarker   :: Maybe Bool
+    , _dorStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteObjectResponse' smart constructor.
 deleteObjectResponse :: Int -> DeleteObjectResponse
-deleteObjectResponse pStatusCode = DeleteObjectResponse'{_dorVersionId = Nothing, _dorRequestCharged = Nothing, _dorDeleteMarker = Nothing, _dorStatusCode = pStatusCode};
+deleteObjectResponse pStatus =
+    DeleteObjectResponse'
+    { _dorVersionId = Nothing
+    , _dorRequestCharged = Nothing
+    , _dorDeleteMarker = Nothing
+    , _dorStatus = pStatus
+    }
 
 -- | Returns the version ID of the delete marker created as a result of the
 -- DELETE operation.
@@ -147,5 +171,5 @@ dorDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
 dorDeleteMarker = lens _dorDeleteMarker (\ s a -> s{_dorDeleteMarker = a});
 
 -- | FIXME: Undocumented member.
-dorStatusCode :: Lens' DeleteObjectResponse Int
-dorStatusCode = lens _dorStatusCode (\ s a -> s{_dorStatusCode = a});
+dorStatus :: Lens' DeleteObjectResponse Int
+dorStatus = lens _dorStatus (\ s a -> s{_dorStatus = a});

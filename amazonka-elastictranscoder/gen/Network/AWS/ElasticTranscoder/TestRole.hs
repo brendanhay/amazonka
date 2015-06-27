@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.TestRole
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.ElasticTranscoder.TestRole
     -- ** Response lenses
     , trrSuccess
     , trrMessages
-    , trrStatusCode
+    , trrStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @TestRoleRequest@ structure.
 --
@@ -64,11 +64,22 @@ import Network.AWS.Response
 -- * 'trOutputBucket'
 --
 -- * 'trTopics'
-data TestRole = TestRole'{_trRole :: Text, _trInputBucket :: Text, _trOutputBucket :: Text, _trTopics :: [Text]} deriving (Eq, Read, Show)
+data TestRole = TestRole'
+    { _trRole         :: Text
+    , _trInputBucket  :: Text
+    , _trOutputBucket :: Text
+    , _trTopics       :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'TestRole' smart constructor.
 testRole :: Text -> Text -> Text -> TestRole
-testRole pRole pInputBucket pOutputBucket = TestRole'{_trRole = pRole, _trInputBucket = pInputBucket, _trOutputBucket = pOutputBucket, _trTopics = mempty};
+testRole pRole pInputBucket pOutputBucket =
+    TestRole'
+    { _trRole = pRole
+    , _trInputBucket = pInputBucket
+    , _trOutputBucket = pOutputBucket
+    , _trTopics = mempty
+    }
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to test.
@@ -127,12 +138,21 @@ instance ToQuery TestRole where
 --
 -- * 'trrMessages'
 --
--- * 'trrStatusCode'
-data TestRoleResponse = TestRoleResponse'{_trrSuccess :: Maybe Text, _trrMessages :: Maybe [Text], _trrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'trrStatus'
+data TestRoleResponse = TestRoleResponse'
+    { _trrSuccess  :: Maybe Text
+    , _trrMessages :: Maybe [Text]
+    , _trrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'TestRoleResponse' smart constructor.
 testRoleResponse :: Int -> TestRoleResponse
-testRoleResponse pStatusCode = TestRoleResponse'{_trrSuccess = Nothing, _trrMessages = Nothing, _trrStatusCode = pStatusCode};
+testRoleResponse pStatus =
+    TestRoleResponse'
+    { _trrSuccess = Nothing
+    , _trrMessages = Nothing
+    , _trrStatus = pStatus
+    }
 
 -- | If the operation is successful, this value is @true@; otherwise, the
 -- value is @false@.
@@ -145,5 +165,5 @@ trrMessages :: Lens' TestRoleResponse [Text]
 trrMessages = lens _trrMessages (\ s a -> s{_trrMessages = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-trrStatusCode :: Lens' TestRoleResponse Int
-trrStatusCode = lens _trrStatusCode (\ s a -> s{_trrStatusCode = a});
+trrStatus :: Lens' TestRoleResponse Int
+trrStatus = lens _trrStatus (\ s a -> s{_trrStatus = a});

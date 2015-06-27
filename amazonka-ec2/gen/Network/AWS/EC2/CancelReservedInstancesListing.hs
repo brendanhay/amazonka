@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CancelReservedInstancesListing
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,24 +37,29 @@ module Network.AWS.EC2.CancelReservedInstancesListing
     , cancelReservedInstancesListingResponse
     -- ** Response lenses
     , crilrReservedInstancesListings
-    , crilrStatusCode
+    , crilrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'cancelReservedInstancesListing' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'crilReservedInstancesListingId'
-newtype CancelReservedInstancesListing = CancelReservedInstancesListing'{_crilReservedInstancesListingId :: Text} deriving (Eq, Read, Show)
+newtype CancelReservedInstancesListing = CancelReservedInstancesListing'
+    { _crilReservedInstancesListingId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelReservedInstancesListing' smart constructor.
 cancelReservedInstancesListing :: Text -> CancelReservedInstancesListing
-cancelReservedInstancesListing pReservedInstancesListingId = CancelReservedInstancesListing'{_crilReservedInstancesListingId = pReservedInstancesListingId};
+cancelReservedInstancesListing pReservedInstancesListingId =
+    CancelReservedInstancesListing'
+    { _crilReservedInstancesListingId = pReservedInstancesListingId
+    }
 
 -- | The ID of the Reserved Instance listing.
 crilReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
@@ -95,17 +100,24 @@ instance ToQuery CancelReservedInstancesListing where
 --
 -- * 'crilrReservedInstancesListings'
 --
--- * 'crilrStatusCode'
-data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'{_crilrReservedInstancesListings :: Maybe [ReservedInstancesListing], _crilrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'crilrStatus'
+data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'
+    { _crilrReservedInstancesListings :: Maybe [ReservedInstancesListing]
+    , _crilrStatus                    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelReservedInstancesListingResponse' smart constructor.
 cancelReservedInstancesListingResponse :: Int -> CancelReservedInstancesListingResponse
-cancelReservedInstancesListingResponse pStatusCode = CancelReservedInstancesListingResponse'{_crilrReservedInstancesListings = Nothing, _crilrStatusCode = pStatusCode};
+cancelReservedInstancesListingResponse pStatus =
+    CancelReservedInstancesListingResponse'
+    { _crilrReservedInstancesListings = Nothing
+    , _crilrStatus = pStatus
+    }
 
 -- | The Reserved Instance listing.
 crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
 crilrReservedInstancesListings = lens _crilrReservedInstancesListings (\ s a -> s{_crilrReservedInstancesListings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-crilrStatusCode :: Lens' CancelReservedInstancesListingResponse Int
-crilrStatusCode = lens _crilrStatusCode (\ s a -> s{_crilrStatusCode = a});
+crilrStatus :: Lens' CancelReservedInstancesListingResponse Int
+crilrStatus = lens _crilrStatus (\ s a -> s{_crilrStatus = a});

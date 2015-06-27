@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SSM.DeleteDocument
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,24 +34,29 @@ module Network.AWS.SSM.DeleteDocument
     -- ** Response constructor
     , deleteDocumentResponse
     -- ** Response lenses
-    , ddrStatusCode
+    , ddrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
 
 -- | /See:/ 'deleteDocument' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dName'
-newtype DeleteDocument = DeleteDocument'{_dName :: Text} deriving (Eq, Read, Show)
+newtype DeleteDocument = DeleteDocument'
+    { _dName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDocument' smart constructor.
 deleteDocument :: Text -> DeleteDocument
-deleteDocument pName = DeleteDocument'{_dName = pName};
+deleteDocument pName =
+    DeleteDocument'
+    { _dName = pName
+    }
 
 -- | The name of the configuration document.
 dName :: Lens' DeleteDocument Text
@@ -89,13 +94,18 @@ instance ToQuery DeleteDocument where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrStatusCode'
-newtype DeleteDocumentResponse = DeleteDocumentResponse'{_ddrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddrStatus'
+newtype DeleteDocumentResponse = DeleteDocumentResponse'
+    { _ddrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDocumentResponse' smart constructor.
 deleteDocumentResponse :: Int -> DeleteDocumentResponse
-deleteDocumentResponse pStatusCode = DeleteDocumentResponse'{_ddrStatusCode = pStatusCode};
+deleteDocumentResponse pStatus =
+    DeleteDocumentResponse'
+    { _ddrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-ddrStatusCode :: Lens' DeleteDocumentResponse Int
-ddrStatusCode = lens _ddrStatusCode (\ s a -> s{_ddrStatusCode = a});
+ddrStatus :: Lens' DeleteDocumentResponse Int
+ddrStatus = lens _ddrStatus (\ s a -> s{_ddrStatus = a});

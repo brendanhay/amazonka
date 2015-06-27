@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,13 +46,13 @@ module Network.AWS.StorageGateway.DeleteVolume
     , deleteVolumeResponse
     -- ** Response lenses
     , dvrVolumeARN
-    , dvrStatusCode
+    , dvrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the DeleteVolumeInput$VolumeARN to delete.
 --
@@ -61,11 +61,16 @@ import Network.AWS.StorageGateway.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvVolumeARN'
-newtype DeleteVolume = DeleteVolume'{_dvVolumeARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteVolume = DeleteVolume'
+    { _dvVolumeARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVolume' smart constructor.
 deleteVolume :: Text -> DeleteVolume
-deleteVolume pVolumeARN = DeleteVolume'{_dvVolumeARN = pVolumeARN};
+deleteVolume pVolumeARN =
+    DeleteVolume'
+    { _dvVolumeARN = pVolumeARN
+    }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
@@ -110,12 +115,19 @@ instance ToQuery DeleteVolume where
 --
 -- * 'dvrVolumeARN'
 --
--- * 'dvrStatusCode'
-data DeleteVolumeResponse = DeleteVolumeResponse'{_dvrVolumeARN :: Maybe Text, _dvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dvrStatus'
+data DeleteVolumeResponse = DeleteVolumeResponse'
+    { _dvrVolumeARN :: Maybe Text
+    , _dvrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVolumeResponse' smart constructor.
 deleteVolumeResponse :: Int -> DeleteVolumeResponse
-deleteVolumeResponse pStatusCode = DeleteVolumeResponse'{_dvrVolumeARN = Nothing, _dvrStatusCode = pStatusCode};
+deleteVolumeResponse pStatus =
+    DeleteVolumeResponse'
+    { _dvrVolumeARN = Nothing
+    , _dvrStatus = pStatus
+    }
 
 -- | The Amazon Resource Name (ARN) of the storage volume that was deleted.
 -- It is the same ARN you provided in the request.
@@ -123,5 +135,5 @@ dvrVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
 dvrVolumeARN = lens _dvrVolumeARN (\ s a -> s{_dvrVolumeARN = a});
 
 -- | FIXME: Undocumented member.
-dvrStatusCode :: Lens' DeleteVolumeResponse Int
-dvrStatusCode = lens _dvrStatusCode (\ s a -> s{_dvrStatusCode = a});
+dvrStatus :: Lens' DeleteVolumeResponse Int
+dvrStatus = lens _dvrStatus (\ s a -> s{_dvrStatus = a});

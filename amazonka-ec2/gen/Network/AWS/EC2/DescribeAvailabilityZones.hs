@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeAvailabilityZones
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     , describeAvailabilityZonesResponse
     -- ** Response lenses
     , dazrAvailabilityZones
-    , dazrStatusCode
+    , dazrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAvailabilityZones' smart constructor.
 --
@@ -59,11 +59,20 @@ import Network.AWS.Response
 -- * 'dazFilters'
 --
 -- * 'dazDryRun'
-data DescribeAvailabilityZones = DescribeAvailabilityZones'{_dazZoneNames :: Maybe [Text], _dazFilters :: Maybe [Filter], _dazDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeAvailabilityZones = DescribeAvailabilityZones'
+    { _dazZoneNames :: Maybe [Text]
+    , _dazFilters   :: Maybe [Filter]
+    , _dazDryRun    :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAvailabilityZones' smart constructor.
 describeAvailabilityZones :: DescribeAvailabilityZones
-describeAvailabilityZones = DescribeAvailabilityZones'{_dazZoneNames = Nothing, _dazFilters = Nothing, _dazDryRun = Nothing};
+describeAvailabilityZones =
+    DescribeAvailabilityZones'
+    { _dazZoneNames = Nothing
+    , _dazFilters = Nothing
+    , _dazDryRun = Nothing
+    }
 
 -- | The names of one or more Availability Zones.
 dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
@@ -126,17 +135,24 @@ instance ToQuery DescribeAvailabilityZones where
 --
 -- * 'dazrAvailabilityZones'
 --
--- * 'dazrStatusCode'
-data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'{_dazrAvailabilityZones :: Maybe [AvailabilityZone], _dazrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dazrStatus'
+data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
+    { _dazrAvailabilityZones :: Maybe [AvailabilityZone]
+    , _dazrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAvailabilityZonesResponse' smart constructor.
 describeAvailabilityZonesResponse :: Int -> DescribeAvailabilityZonesResponse
-describeAvailabilityZonesResponse pStatusCode = DescribeAvailabilityZonesResponse'{_dazrAvailabilityZones = Nothing, _dazrStatusCode = pStatusCode};
+describeAvailabilityZonesResponse pStatus =
+    DescribeAvailabilityZonesResponse'
+    { _dazrAvailabilityZones = Nothing
+    , _dazrStatus = pStatus
+    }
 
 -- | Information about one or more Availability Zones.
 dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
 dazrAvailabilityZones = lens _dazrAvailabilityZones (\ s a -> s{_dazrAvailabilityZones = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dazrStatusCode :: Lens' DescribeAvailabilityZonesResponse Int
-dazrStatusCode = lens _dazrStatusCode (\ s a -> s{_dazrStatusCode = a});
+dazrStatus :: Lens' DescribeAvailabilityZonesResponse Int
+dazrStatus = lens _dazrStatus (\ s a -> s{_dazrStatus = a});

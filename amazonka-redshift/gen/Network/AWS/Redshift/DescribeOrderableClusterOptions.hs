@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeOrderableClusterOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,14 +45,14 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
     -- ** Response lenses
     , docorMarker
     , docorOrderableClusterOptions
-    , docorStatusCode
+    , docorStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -67,11 +67,22 @@ import Network.AWS.Response
 -- * 'docoClusterVersion'
 --
 -- * 'docoNodeType'
-data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'{_docoMaxRecords :: Maybe Int, _docoMarker :: Maybe Text, _docoClusterVersion :: Maybe Text, _docoNodeType :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
+    { _docoMaxRecords     :: Maybe Int
+    , _docoMarker         :: Maybe Text
+    , _docoClusterVersion :: Maybe Text
+    , _docoNodeType       :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeOrderableClusterOptions' smart constructor.
 describeOrderableClusterOptions :: DescribeOrderableClusterOptions
-describeOrderableClusterOptions = DescribeOrderableClusterOptions'{_docoMaxRecords = Nothing, _docoMarker = Nothing, _docoClusterVersion = Nothing, _docoNodeType = Nothing};
+describeOrderableClusterOptions =
+    DescribeOrderableClusterOptions'
+    { _docoMaxRecords = Nothing
+    , _docoMarker = Nothing
+    , _docoClusterVersion = Nothing
+    , _docoNodeType = Nothing
+    }
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -163,12 +174,21 @@ instance ToQuery DescribeOrderableClusterOptions
 --
 -- * 'docorOrderableClusterOptions'
 --
--- * 'docorStatusCode'
-data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'{_docorMarker :: Maybe Text, _docorOrderableClusterOptions :: Maybe [OrderableClusterOption], _docorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'docorStatus'
+data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'
+    { _docorMarker                  :: Maybe Text
+    , _docorOrderableClusterOptions :: Maybe [OrderableClusterOption]
+    , _docorStatus                  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeOrderableClusterOptionsResponse' smart constructor.
 describeOrderableClusterOptionsResponse :: Int -> DescribeOrderableClusterOptionsResponse
-describeOrderableClusterOptionsResponse pStatusCode = DescribeOrderableClusterOptionsResponse'{_docorMarker = Nothing, _docorOrderableClusterOptions = Nothing, _docorStatusCode = pStatusCode};
+describeOrderableClusterOptionsResponse pStatus =
+    DescribeOrderableClusterOptionsResponse'
+    { _docorMarker = Nothing
+    , _docorOrderableClusterOptions = Nothing
+    , _docorStatus = pStatus
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -185,5 +205,5 @@ docorOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [O
 docorOrderableClusterOptions = lens _docorOrderableClusterOptions (\ s a -> s{_docorOrderableClusterOptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-docorStatusCode :: Lens' DescribeOrderableClusterOptionsResponse Int
-docorStatusCode = lens _docorStatusCode (\ s a -> s{_docorStatusCode = a});
+docorStatus :: Lens' DescribeOrderableClusterOptionsResponse Int
+docorStatus = lens _docorStatus (\ s a -> s{_docorStatus = a});

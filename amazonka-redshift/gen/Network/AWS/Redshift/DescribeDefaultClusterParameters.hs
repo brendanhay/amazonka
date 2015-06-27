@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeDefaultClusterParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,14 +39,14 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
     , describeDefaultClusterParametersResponse
     -- ** Response lenses
     , ddcprDefaultClusterParameters
-    , ddcprStatusCode
+    , ddcprStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -59,11 +59,20 @@ import Network.AWS.Response
 -- * 'ddcpMarker'
 --
 -- * 'ddcpParameterGroupFamily'
-data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'{_ddcpMaxRecords :: Maybe Int, _ddcpMarker :: Maybe Text, _ddcpParameterGroupFamily :: Text} deriving (Eq, Read, Show)
+data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
+    { _ddcpMaxRecords           :: Maybe Int
+    , _ddcpMarker               :: Maybe Text
+    , _ddcpParameterGroupFamily :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDefaultClusterParameters' smart constructor.
 describeDefaultClusterParameters :: Text -> DescribeDefaultClusterParameters
-describeDefaultClusterParameters pParameterGroupFamily = DescribeDefaultClusterParameters'{_ddcpMaxRecords = Nothing, _ddcpMarker = Nothing, _ddcpParameterGroupFamily = pParameterGroupFamily};
+describeDefaultClusterParameters pParameterGroupFamily =
+    DescribeDefaultClusterParameters'
+    { _ddcpMaxRecords = Nothing
+    , _ddcpMarker = Nothing
+    , _ddcpParameterGroupFamily = pParameterGroupFamily
+    }
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -146,17 +155,24 @@ instance ToQuery DescribeDefaultClusterParameters
 --
 -- * 'ddcprDefaultClusterParameters'
 --
--- * 'ddcprStatusCode'
-data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'{_ddcprDefaultClusterParameters :: DefaultClusterParameters, _ddcprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddcprStatus'
+data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'
+    { _ddcprDefaultClusterParameters :: DefaultClusterParameters
+    , _ddcprStatus                   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDefaultClusterParametersResponse' smart constructor.
 describeDefaultClusterParametersResponse :: DefaultClusterParameters -> Int -> DescribeDefaultClusterParametersResponse
-describeDefaultClusterParametersResponse pDefaultClusterParameters pStatusCode = DescribeDefaultClusterParametersResponse'{_ddcprDefaultClusterParameters = pDefaultClusterParameters, _ddcprStatusCode = pStatusCode};
+describeDefaultClusterParametersResponse pDefaultClusterParameters pStatus =
+    DescribeDefaultClusterParametersResponse'
+    { _ddcprDefaultClusterParameters = pDefaultClusterParameters
+    , _ddcprStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
 ddcprDefaultClusterParameters = lens _ddcprDefaultClusterParameters (\ s a -> s{_ddcprDefaultClusterParameters = a});
 
 -- | FIXME: Undocumented member.
-ddcprStatusCode :: Lens' DescribeDefaultClusterParametersResponse Int
-ddcprStatusCode = lens _ddcprStatusCode (\ s a -> s{_ddcprStatusCode = a});
+ddcprStatus :: Lens' DescribeDefaultClusterParametersResponse Int
+ddcprStatus = lens _ddcprStatus (\ s a -> s{_ddcprStatus = a});

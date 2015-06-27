@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateImage
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,13 +48,13 @@ module Network.AWS.EC2.CreateImage
     , createImageResponse
     -- ** Response lenses
     , cirImageId
-    , cirStatusCode
+    , cirStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createImage' smart constructor.
 --
@@ -71,11 +71,26 @@ import Network.AWS.Response
 -- * 'ci1InstanceId'
 --
 -- * 'ci1Name'
-data CreateImage = CreateImage'{_ci1NoReboot :: Maybe Bool, _ci1BlockDeviceMappings :: Maybe [BlockDeviceMapping], _ci1DryRun :: Maybe Bool, _ci1Description :: Maybe Text, _ci1InstanceId :: Text, _ci1Name :: Text} deriving (Eq, Read, Show)
+data CreateImage = CreateImage'
+    { _ci1NoReboot            :: Maybe Bool
+    , _ci1BlockDeviceMappings :: Maybe [BlockDeviceMapping]
+    , _ci1DryRun              :: Maybe Bool
+    , _ci1Description         :: Maybe Text
+    , _ci1InstanceId          :: Text
+    , _ci1Name                :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateImage' smart constructor.
 createImage :: Text -> Text -> CreateImage
-createImage pInstanceId pName = CreateImage'{_ci1NoReboot = Nothing, _ci1BlockDeviceMappings = Nothing, _ci1DryRun = Nothing, _ci1Description = Nothing, _ci1InstanceId = pInstanceId, _ci1Name = pName};
+createImage pInstanceId pName =
+    CreateImage'
+    { _ci1NoReboot = Nothing
+    , _ci1BlockDeviceMappings = Nothing
+    , _ci1DryRun = Nothing
+    , _ci1Description = Nothing
+    , _ci1InstanceId = pInstanceId
+    , _ci1Name = pName
+    }
 
 -- | By default, this parameter is set to @false@, which means Amazon EC2
 -- attempts to shut down the instance cleanly before image creation and
@@ -148,17 +163,24 @@ instance ToQuery CreateImage where
 --
 -- * 'cirImageId'
 --
--- * 'cirStatusCode'
-data CreateImageResponse = CreateImageResponse'{_cirImageId :: Maybe Text, _cirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cirStatus'
+data CreateImageResponse = CreateImageResponse'
+    { _cirImageId :: Maybe Text
+    , _cirStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateImageResponse' smart constructor.
 createImageResponse :: Int -> CreateImageResponse
-createImageResponse pStatusCode = CreateImageResponse'{_cirImageId = Nothing, _cirStatusCode = pStatusCode};
+createImageResponse pStatus =
+    CreateImageResponse'
+    { _cirImageId = Nothing
+    , _cirStatus = pStatus
+    }
 
 -- | The ID of the new AMI.
 cirImageId :: Lens' CreateImageResponse (Maybe Text)
 cirImageId = lens _cirImageId (\ s a -> s{_cirImageId = a});
 
 -- | FIXME: Undocumented member.
-cirStatusCode :: Lens' CreateImageResponse Int
-cirStatusCode = lens _cirStatusCode (\ s a -> s{_cirStatusCode = a});
+cirStatus :: Lens' CreateImageResponse Int
+cirStatus = lens _cirStatus (\ s a -> s{_cirStatus = a});

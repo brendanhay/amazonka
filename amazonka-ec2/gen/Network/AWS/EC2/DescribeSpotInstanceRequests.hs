@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeSpotInstanceRequests
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,13 +47,13 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
     , describeSpotInstanceRequestsResponse
     -- ** Response lenses
     , dsirrSpotInstanceRequests
-    , dsirrStatusCode
+    , dsirrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotInstanceRequests.
 --
@@ -66,11 +66,20 @@ import Network.AWS.Response
 -- * 'dsirSpotInstanceRequestIds'
 --
 -- * 'dsirDryRun'
-data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'{_dsirFilters :: Maybe [Filter], _dsirSpotInstanceRequestIds :: Maybe [Text], _dsirDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
+    { _dsirFilters                :: Maybe [Filter]
+    , _dsirSpotInstanceRequestIds :: Maybe [Text]
+    , _dsirDryRun                 :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotInstanceRequests' smart constructor.
 describeSpotInstanceRequests :: DescribeSpotInstanceRequests
-describeSpotInstanceRequests = DescribeSpotInstanceRequests'{_dsirFilters = Nothing, _dsirSpotInstanceRequestIds = Nothing, _dsirDryRun = Nothing};
+describeSpotInstanceRequests =
+    DescribeSpotInstanceRequests'
+    { _dsirFilters = Nothing
+    , _dsirSpotInstanceRequestIds = Nothing
+    , _dsirDryRun = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -244,17 +253,24 @@ instance ToQuery DescribeSpotInstanceRequests where
 --
 -- * 'dsirrSpotInstanceRequests'
 --
--- * 'dsirrStatusCode'
-data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'{_dsirrSpotInstanceRequests :: Maybe [SpotInstanceRequest], _dsirrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsirrStatus'
+data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'
+    { _dsirrSpotInstanceRequests :: Maybe [SpotInstanceRequest]
+    , _dsirrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotInstanceRequestsResponse' smart constructor.
 describeSpotInstanceRequestsResponse :: Int -> DescribeSpotInstanceRequestsResponse
-describeSpotInstanceRequestsResponse pStatusCode = DescribeSpotInstanceRequestsResponse'{_dsirrSpotInstanceRequests = Nothing, _dsirrStatusCode = pStatusCode};
+describeSpotInstanceRequestsResponse pStatus =
+    DescribeSpotInstanceRequestsResponse'
+    { _dsirrSpotInstanceRequests = Nothing
+    , _dsirrStatus = pStatus
+    }
 
 -- | One or more Spot Instance requests.
 dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
 dsirrSpotInstanceRequests = lens _dsirrSpotInstanceRequests (\ s a -> s{_dsirrSpotInstanceRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsirrStatusCode :: Lens' DescribeSpotInstanceRequestsResponse Int
-dsirrStatusCode = lens _dsirrStatusCode (\ s a -> s{_dsirrStatusCode = a});
+dsirrStatus :: Lens' DescribeSpotInstanceRequestsResponse Int
+dsirrStatus = lens _dsirrStatus (\ s a -> s{_dsirrStatus = a});

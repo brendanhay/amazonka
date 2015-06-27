@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.DeleteHAPG
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,12 @@ module Network.AWS.CloudHSM.DeleteHAPG
     , deleteHAPGResponse
     -- ** Response lenses
     , dhrStatus
-    , dhrStatusCode
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the DeleteHapg action.
 --
@@ -47,11 +46,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dhHAPGARN'
-newtype DeleteHAPG = DeleteHAPG'{_dhHAPGARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteHAPG = DeleteHAPG'
+    { _dhHAPGARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteHAPG' smart constructor.
 deleteHAPG :: Text -> DeleteHAPG
-deleteHAPG pHAPGARN = DeleteHAPG'{_dhHAPGARN = pHAPGARN};
+deleteHAPG pHAPGARN =
+    DeleteHAPG'
+    { _dhHAPGARN = pHAPGARN
+    }
 
 -- | The ARN of the high-availability partition group to delete.
 dhHAPGARN :: Lens' DeleteHAPG Text
@@ -64,8 +68,7 @@ instance AWSRequest DeleteHAPG where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteHAPGResponse' <$>
-                   (x .:> "Status") <*> (pure (fromEnum s)))
+                 DeleteHAPGResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeleteHAPG where
         toHeaders
@@ -93,18 +96,17 @@ instance ToQuery DeleteHAPG where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dhrStatus'
---
--- * 'dhrStatusCode'
-data DeleteHAPGResponse = DeleteHAPGResponse'{_dhrStatus :: Text, _dhrStatusCode :: Int} deriving (Eq, Read, Show)
+newtype DeleteHAPGResponse = DeleteHAPGResponse'
+    { _dhrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteHAPGResponse' smart constructor.
-deleteHAPGResponse :: Text -> Int -> DeleteHAPGResponse
-deleteHAPGResponse pStatus pStatusCode = DeleteHAPGResponse'{_dhrStatus = pStatus, _dhrStatusCode = pStatusCode};
-
--- | The status of the action.
-dhrStatus :: Lens' DeleteHAPGResponse Text
-dhrStatus = lens _dhrStatus (\ s a -> s{_dhrStatus = a});
+deleteHAPGResponse :: Int -> DeleteHAPGResponse
+deleteHAPGResponse pStatus =
+    DeleteHAPGResponse'
+    { _dhrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-dhrStatusCode :: Lens' DeleteHAPGResponse Int
-dhrStatusCode = lens _dhrStatusCode (\ s a -> s{_dhrStatusCode = a});
+dhrStatus :: Lens' DeleteHAPGResponse Int
+dhrStatus = lens _dhrStatus (\ s a -> s{_dhrStatus = a});

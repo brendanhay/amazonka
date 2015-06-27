@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,29 @@ module Network.AWS.ELB.DescribeLoadBalancerAttributes
     , describeLoadBalancerAttributesResponse
     -- ** Response lenses
     , dlbarLoadBalancerAttributes
-    , dlbarStatusCode
+    , dlbarStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancerAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlbaLoadBalancerName'
-newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes'{_dlbaLoadBalancerName :: Text} deriving (Eq, Read, Show)
+newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes'
+    { _dlbaLoadBalancerName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancerAttributes' smart constructor.
 describeLoadBalancerAttributes :: Text -> DescribeLoadBalancerAttributes
-describeLoadBalancerAttributes pLoadBalancerName = DescribeLoadBalancerAttributes'{_dlbaLoadBalancerName = pLoadBalancerName};
+describeLoadBalancerAttributes pLoadBalancerName =
+    DescribeLoadBalancerAttributes'
+    { _dlbaLoadBalancerName = pLoadBalancerName
+    }
 
 -- | The name of the load balancer.
 dlbaLoadBalancerName :: Lens' DescribeLoadBalancerAttributes Text
@@ -90,17 +95,24 @@ instance ToQuery DescribeLoadBalancerAttributes where
 --
 -- * 'dlbarLoadBalancerAttributes'
 --
--- * 'dlbarStatusCode'
-data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'{_dlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes, _dlbarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dlbarStatus'
+data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'
+    { _dlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
+    , _dlbarStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancerAttributesResponse' smart constructor.
 describeLoadBalancerAttributesResponse :: Int -> DescribeLoadBalancerAttributesResponse
-describeLoadBalancerAttributesResponse pStatusCode = DescribeLoadBalancerAttributesResponse'{_dlbarLoadBalancerAttributes = Nothing, _dlbarStatusCode = pStatusCode};
+describeLoadBalancerAttributesResponse pStatus =
+    DescribeLoadBalancerAttributesResponse'
+    { _dlbarLoadBalancerAttributes = Nothing
+    , _dlbarStatus = pStatus
+    }
 
 -- | Information about the load balancer attributes.
 dlbarLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
 dlbarLoadBalancerAttributes = lens _dlbarLoadBalancerAttributes (\ s a -> s{_dlbarLoadBalancerAttributes = a});
 
 -- | FIXME: Undocumented member.
-dlbarStatusCode :: Lens' DescribeLoadBalancerAttributesResponse Int
-dlbarStatusCode = lens _dlbarStatusCode (\ s a -> s{_dlbarStatusCode = a});
+dlbarStatus :: Lens' DescribeLoadBalancerAttributesResponse Int
+dlbarStatus = lens _dlbarStatus (\ s a -> s{_dlbarStatus = a});

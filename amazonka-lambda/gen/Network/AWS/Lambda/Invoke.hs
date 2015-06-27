@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Lambda.Invoke
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,10 +44,10 @@ module Network.AWS.Lambda.Invoke
     , irStatusCode
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'invoke' smart constructor.
 --
@@ -62,11 +62,24 @@ import Network.AWS.Response
 -- * 'invClientContext'
 --
 -- * 'invFunctionName'
-data Invoke = Invoke'{_invInvocationType :: Maybe InvocationType, _invPayload :: Maybe Base64, _invLogType :: Maybe LogType, _invClientContext :: Maybe Text, _invFunctionName :: Text} deriving (Eq, Read, Show)
+data Invoke = Invoke'
+    { _invInvocationType :: Maybe InvocationType
+    , _invPayload        :: Maybe Base64
+    , _invLogType        :: Maybe LogType
+    , _invClientContext  :: Maybe Text
+    , _invFunctionName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Invoke' smart constructor.
 invoke :: Text -> Invoke
-invoke pFunctionName = Invoke'{_invInvocationType = Nothing, _invPayload = Nothing, _invLogType = Nothing, _invClientContext = Nothing, _invFunctionName = pFunctionName};
+invoke pFunctionName =
+    Invoke'
+    { _invInvocationType = Nothing
+    , _invPayload = Nothing
+    , _invLogType = Nothing
+    , _invClientContext = Nothing
+    , _invFunctionName = pFunctionName
+    }
 
 -- | By default, the @Invoke@ API assumes \"RequestResponse\" invocation
 -- type. You can optionally request asynchronous execution by specifying
@@ -161,11 +174,22 @@ instance ToQuery Invoke where
 -- * 'irPayload'
 --
 -- * 'irStatusCode'
-data InvokeResponse = InvokeResponse'{_irFunctionError :: Maybe Text, _irLogResult :: Maybe Text, _irPayload :: Maybe Base64, _irStatusCode :: Int} deriving (Eq, Read, Show)
+data InvokeResponse = InvokeResponse'
+    { _irFunctionError :: Maybe Text
+    , _irLogResult     :: Maybe Text
+    , _irPayload       :: Maybe Base64
+    , _irStatusCode    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'InvokeResponse' smart constructor.
 invokeResponse :: Int -> InvokeResponse
-invokeResponse pStatusCode = InvokeResponse'{_irFunctionError = Nothing, _irLogResult = Nothing, _irPayload = Nothing, _irStatusCode = pStatusCode};
+invokeResponse pStatusCode =
+    InvokeResponse'
+    { _irFunctionError = Nothing
+    , _irLogResult = Nothing
+    , _irPayload = Nothing
+    , _irStatusCode = pStatusCode
+    }
 
 -- | Indicates whether an error occurred while executing the Lambda function.
 -- If an error occurred this field will have one of two values; @Handled@

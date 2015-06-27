@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.GetOpenIdToken
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.CognitoIdentity.GetOpenIdToken
     -- ** Response lenses
     , goitrToken
     , goitrIdentityId
-    , goitrStatusCode
+    , goitrStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the GetOpenIdToken action.
 --
@@ -57,11 +57,18 @@ import Network.AWS.Response
 -- * 'goitLogins'
 --
 -- * 'goitIdentityId'
-data GetOpenIdToken = GetOpenIdToken'{_goitLogins :: Maybe (Map Text Text), _goitIdentityId :: Text} deriving (Eq, Read, Show)
+data GetOpenIdToken = GetOpenIdToken'
+    { _goitLogins     :: Maybe (Map Text Text)
+    , _goitIdentityId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetOpenIdToken' smart constructor.
 getOpenIdToken :: Text -> GetOpenIdToken
-getOpenIdToken pIdentityId = GetOpenIdToken'{_goitLogins = Nothing, _goitIdentityId = pIdentityId};
+getOpenIdToken pIdentityId =
+    GetOpenIdToken'
+    { _goitLogins = Nothing
+    , _goitIdentityId = pIdentityId
+    }
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens. When using graph.facebook.com and www.amazon.com, supply the
@@ -118,12 +125,21 @@ instance ToQuery GetOpenIdToken where
 --
 -- * 'goitrIdentityId'
 --
--- * 'goitrStatusCode'
-data GetOpenIdTokenResponse = GetOpenIdTokenResponse'{_goitrToken :: Maybe Text, _goitrIdentityId :: Maybe Text, _goitrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'goitrStatus'
+data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
+    { _goitrToken      :: Maybe Text
+    , _goitrIdentityId :: Maybe Text
+    , _goitrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetOpenIdTokenResponse' smart constructor.
 getOpenIdTokenResponse :: Int -> GetOpenIdTokenResponse
-getOpenIdTokenResponse pStatusCode = GetOpenIdTokenResponse'{_goitrToken = Nothing, _goitrIdentityId = Nothing, _goitrStatusCode = pStatusCode};
+getOpenIdTokenResponse pStatus =
+    GetOpenIdTokenResponse'
+    { _goitrToken = Nothing
+    , _goitrIdentityId = Nothing
+    , _goitrStatus = pStatus
+    }
 
 -- | An OpenID token, valid for 15 minutes.
 goitrToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
@@ -135,5 +151,5 @@ goitrIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
 goitrIdentityId = lens _goitrIdentityId (\ s a -> s{_goitrIdentityId = a});
 
 -- | FIXME: Undocumented member.
-goitrStatusCode :: Lens' GetOpenIdTokenResponse Int
-goitrStatusCode = lens _goitrStatusCode (\ s a -> s{_goitrStatusCode = a});
+goitrStatus :: Lens' GetOpenIdTokenResponse Int
+goitrStatus = lens _goitrStatus (\ s a -> s{_goitrStatus = a});

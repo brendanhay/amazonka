@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     , confirmPublicVirtualInterfaceResponse
     -- ** Response lenses
     , conVirtualInterfaceState
-    , conStatusCode
+    , conStatus
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the ConfirmPublicVirtualInterface
 -- operation.
@@ -53,11 +53,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'conVirtualInterfaceId'
-newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'{_conVirtualInterfaceId :: Text} deriving (Eq, Read, Show)
+newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'
+    { _conVirtualInterfaceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfirmPublicVirtualInterface' smart constructor.
 confirmPublicVirtualInterface :: Text -> ConfirmPublicVirtualInterface
-confirmPublicVirtualInterface pVirtualInterfaceId = ConfirmPublicVirtualInterface'{_conVirtualInterfaceId = pVirtualInterfaceId};
+confirmPublicVirtualInterface pVirtualInterfaceId =
+    ConfirmPublicVirtualInterface'
+    { _conVirtualInterfaceId = pVirtualInterfaceId
+    }
 
 -- | FIXME: Undocumented member.
 conVirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface Text
@@ -106,17 +111,24 @@ instance ToQuery ConfirmPublicVirtualInterface where
 --
 -- * 'conVirtualInterfaceState'
 --
--- * 'conStatusCode'
-data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'{_conVirtualInterfaceState :: Maybe VirtualInterfaceState, _conStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'conStatus'
+data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'
+    { _conVirtualInterfaceState :: Maybe VirtualInterfaceState
+    , _conStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfirmPublicVirtualInterfaceResponse' smart constructor.
 confirmPublicVirtualInterfaceResponse :: Int -> ConfirmPublicVirtualInterfaceResponse
-confirmPublicVirtualInterfaceResponse pStatusCode = ConfirmPublicVirtualInterfaceResponse'{_conVirtualInterfaceState = Nothing, _conStatusCode = pStatusCode};
+confirmPublicVirtualInterfaceResponse pStatus =
+    ConfirmPublicVirtualInterfaceResponse'
+    { _conVirtualInterfaceState = Nothing
+    , _conStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 conVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 conVirtualInterfaceState = lens _conVirtualInterfaceState (\ s a -> s{_conVirtualInterfaceState = a});
 
 -- | FIXME: Undocumented member.
-conStatusCode :: Lens' ConfirmPublicVirtualInterfaceResponse Int
-conStatusCode = lens _conStatusCode (\ s a -> s{_conStatusCode = a});
+conStatus :: Lens' ConfirmPublicVirtualInterfaceResponse Int
+conStatus = lens _conStatus (\ s a -> s{_conStatus = a});

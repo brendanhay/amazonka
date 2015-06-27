@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteChapCredentials
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.StorageGateway.DeleteChapCredentials
     -- ** Response lenses
     , delTargetARN
     , delInitiatorName
-    , delStatusCode
+    , delStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -55,11 +55,18 @@ import Network.AWS.StorageGateway.Types
 -- * 'dTargetARN'
 --
 -- * 'dInitiatorName'
-data DeleteChapCredentials = DeleteChapCredentials'{_dTargetARN :: Text, _dInitiatorName :: Text} deriving (Eq, Read, Show)
+data DeleteChapCredentials = DeleteChapCredentials'
+    { _dTargetARN     :: Text
+    , _dInitiatorName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteChapCredentials' smart constructor.
 deleteChapCredentials :: Text -> Text -> DeleteChapCredentials
-deleteChapCredentials pTargetARN pInitiatorName = DeleteChapCredentials'{_dTargetARN = pTargetARN, _dInitiatorName = pInitiatorName};
+deleteChapCredentials pTargetARN pInitiatorName =
+    DeleteChapCredentials'
+    { _dTargetARN = pTargetARN
+    , _dInitiatorName = pInitiatorName
+    }
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
@@ -115,12 +122,21 @@ instance ToQuery DeleteChapCredentials where
 --
 -- * 'delInitiatorName'
 --
--- * 'delStatusCode'
-data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'{_delTargetARN :: Maybe Text, _delInitiatorName :: Maybe Text, _delStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'delStatus'
+data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
+    { _delTargetARN     :: Maybe Text
+    , _delInitiatorName :: Maybe Text
+    , _delStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteChapCredentialsResponse' smart constructor.
 deleteChapCredentialsResponse :: Int -> DeleteChapCredentialsResponse
-deleteChapCredentialsResponse pStatusCode = DeleteChapCredentialsResponse'{_delTargetARN = Nothing, _delInitiatorName = Nothing, _delStatusCode = pStatusCode};
+deleteChapCredentialsResponse pStatus =
+    DeleteChapCredentialsResponse'
+    { _delTargetARN = Nothing
+    , _delInitiatorName = Nothing
+    , _delStatus = pStatus
+    }
 
 -- | The Amazon Resource Name (ARN) of the target.
 delTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
@@ -131,5 +147,5 @@ delInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
 delInitiatorName = lens _delInitiatorName (\ s a -> s{_delInitiatorName = a});
 
 -- | FIXME: Undocumented member.
-delStatusCode :: Lens' DeleteChapCredentialsResponse Int
-delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});
+delStatus :: Lens' DeleteChapCredentialsResponse Int
+delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.AddCache
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.StorageGateway.AddCache
     , addCacheResponse
     -- ** Response lenses
     , acrGatewayARN
-    , acrStatusCode
+    , acrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'addCache' smart constructor.
 --
@@ -55,11 +55,18 @@ import Network.AWS.StorageGateway.Types
 -- * 'acGatewayARN'
 --
 -- * 'acDiskIds'
-data AddCache = AddCache'{_acGatewayARN :: Text, _acDiskIds :: [Text]} deriving (Eq, Read, Show)
+data AddCache = AddCache'
+    { _acGatewayARN :: Text
+    , _acDiskIds    :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'AddCache' smart constructor.
 addCache :: Text -> AddCache
-addCache pGatewayARN = AddCache'{_acGatewayARN = pGatewayARN, _acDiskIds = mempty};
+addCache pGatewayARN =
+    AddCache'
+    { _acGatewayARN = pGatewayARN
+    , _acDiskIds = mempty
+    }
 
 -- | FIXME: Undocumented member.
 acGatewayARN :: Lens' AddCache Text
@@ -106,17 +113,24 @@ instance ToQuery AddCache where
 --
 -- * 'acrGatewayARN'
 --
--- * 'acrStatusCode'
-data AddCacheResponse = AddCacheResponse'{_acrGatewayARN :: Maybe Text, _acrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'acrStatus'
+data AddCacheResponse = AddCacheResponse'
+    { _acrGatewayARN :: Maybe Text
+    , _acrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AddCacheResponse' smart constructor.
 addCacheResponse :: Int -> AddCacheResponse
-addCacheResponse pStatusCode = AddCacheResponse'{_acrGatewayARN = Nothing, _acrStatusCode = pStatusCode};
+addCacheResponse pStatus =
+    AddCacheResponse'
+    { _acrGatewayARN = Nothing
+    , _acrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 acrGatewayARN :: Lens' AddCacheResponse (Maybe Text)
 acrGatewayARN = lens _acrGatewayARN (\ s a -> s{_acrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-acrStatusCode :: Lens' AddCacheResponse Int
-acrStatusCode = lens _acrStatusCode (\ s a -> s{_acrStatusCode = a});
+acrStatus :: Lens' AddCacheResponse Int
+acrStatus = lens _acrStatus (\ s a -> s{_acrStatus = a});

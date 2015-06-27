@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribePermissions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.OpsWorks.DescribePermissions
     , describePermissionsResponse
     -- ** Response lenses
     , dprPermissions
-    , dprStatusCode
+    , dprStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describePermissions' smart constructor.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'dpIAMUserARN'
 --
 -- * 'dpStackId'
-data DescribePermissions = DescribePermissions'{_dpIAMUserARN :: Maybe Text, _dpStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribePermissions = DescribePermissions'
+    { _dpIAMUserARN :: Maybe Text
+    , _dpStackId    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribePermissions' smart constructor.
 describePermissions :: DescribePermissions
-describePermissions = DescribePermissions'{_dpIAMUserARN = Nothing, _dpStackId = Nothing};
+describePermissions =
+    DescribePermissions'
+    { _dpIAMUserARN = Nothing
+    , _dpStackId = Nothing
+    }
 
 -- | The user\'s IAM ARN. For more information about IAM ARNs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
@@ -111,12 +118,19 @@ instance ToQuery DescribePermissions where
 --
 -- * 'dprPermissions'
 --
--- * 'dprStatusCode'
-data DescribePermissionsResponse = DescribePermissionsResponse'{_dprPermissions :: Maybe [Permission], _dprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dprStatus'
+data DescribePermissionsResponse = DescribePermissionsResponse'
+    { _dprPermissions :: Maybe [Permission]
+    , _dprStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribePermissionsResponse' smart constructor.
 describePermissionsResponse :: Int -> DescribePermissionsResponse
-describePermissionsResponse pStatusCode = DescribePermissionsResponse'{_dprPermissions = Nothing, _dprStatusCode = pStatusCode};
+describePermissionsResponse pStatus =
+    DescribePermissionsResponse'
+    { _dprPermissions = Nothing
+    , _dprStatus = pStatus
+    }
 
 -- | An array of @Permission@ objects that describe the stack permissions.
 --
@@ -132,5 +146,5 @@ dprPermissions :: Lens' DescribePermissionsResponse [Permission]
 dprPermissions = lens _dprPermissions (\ s a -> s{_dprPermissions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dprStatusCode :: Lens' DescribePermissionsResponse Int
-dprStatusCode = lens _dprStatusCode (\ s a -> s{_dprStatusCode = a});
+dprStatus :: Lens' DescribePermissionsResponse Int
+dprStatus = lens _dprStatus (\ s a -> s{_dprStatus = a});

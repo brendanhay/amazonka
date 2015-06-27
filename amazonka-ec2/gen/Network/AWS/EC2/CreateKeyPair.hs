@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateKeyPair
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.EC2.CreateKeyPair
     , ckprKeyName
     , ckprKeyFingerprint
     , ckprKeyMaterial
-    , ckprStatusCode
+    , ckprStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createKeyPair' smart constructor.
 --
@@ -64,11 +64,18 @@ import Network.AWS.Response
 -- * 'ckpDryRun'
 --
 -- * 'ckpKeyName'
-data CreateKeyPair = CreateKeyPair'{_ckpDryRun :: Maybe Bool, _ckpKeyName :: Text} deriving (Eq, Read, Show)
+data CreateKeyPair = CreateKeyPair'
+    { _ckpDryRun  :: Maybe Bool
+    , _ckpKeyName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateKeyPair' smart constructor.
 createKeyPair :: Text -> CreateKeyPair
-createKeyPair pKeyName = CreateKeyPair'{_ckpDryRun = Nothing, _ckpKeyName = pKeyName};
+createKeyPair pKeyName =
+    CreateKeyPair'
+    { _ckpDryRun = Nothing
+    , _ckpKeyName = pKeyName
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -120,12 +127,23 @@ instance ToQuery CreateKeyPair where
 --
 -- * 'ckprKeyMaterial'
 --
--- * 'ckprStatusCode'
-data CreateKeyPairResponse = CreateKeyPairResponse'{_ckprKeyName :: Text, _ckprKeyFingerprint :: Text, _ckprKeyMaterial :: Text, _ckprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ckprStatus'
+data CreateKeyPairResponse = CreateKeyPairResponse'
+    { _ckprKeyName        :: Text
+    , _ckprKeyFingerprint :: Text
+    , _ckprKeyMaterial    :: Text
+    , _ckprStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateKeyPairResponse' smart constructor.
 createKeyPairResponse :: Text -> Text -> Text -> Int -> CreateKeyPairResponse
-createKeyPairResponse pKeyName pKeyFingerprint pKeyMaterial pStatusCode = CreateKeyPairResponse'{_ckprKeyName = pKeyName, _ckprKeyFingerprint = pKeyFingerprint, _ckprKeyMaterial = pKeyMaterial, _ckprStatusCode = pStatusCode};
+createKeyPairResponse pKeyName pKeyFingerprint pKeyMaterial pStatus =
+    CreateKeyPairResponse'
+    { _ckprKeyName = pKeyName
+    , _ckprKeyFingerprint = pKeyFingerprint
+    , _ckprKeyMaterial = pKeyMaterial
+    , _ckprStatus = pStatus
+    }
 
 -- | The name of the key pair.
 ckprKeyName :: Lens' CreateKeyPairResponse Text
@@ -140,5 +158,5 @@ ckprKeyMaterial :: Lens' CreateKeyPairResponse Text
 ckprKeyMaterial = lens _ckprKeyMaterial (\ s a -> s{_ckprKeyMaterial = a});
 
 -- | FIXME: Undocumented member.
-ckprStatusCode :: Lens' CreateKeyPairResponse Int
-ckprStatusCode = lens _ckprStatusCode (\ s a -> s{_ckprStatusCode = a});
+ckprStatus :: Lens' CreateKeyPairResponse Int
+ckprStatus = lens _ckprStatus (\ s a -> s{_ckprStatus = a});

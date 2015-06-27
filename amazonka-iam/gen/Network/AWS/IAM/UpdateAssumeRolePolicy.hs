@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.UpdateAssumeRolePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.IAM.UpdateAssumeRolePolicy
     , updateAssumeRolePolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateAssumeRolePolicy' smart constructor.
 --
@@ -47,11 +47,18 @@ import Network.AWS.Response
 -- * 'uarpRoleName'
 --
 -- * 'uarpPolicyDocument'
-data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'{_uarpRoleName :: Text, _uarpPolicyDocument :: Text} deriving (Eq, Read, Show)
+data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
+    { _uarpRoleName       :: Text
+    , _uarpPolicyDocument :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateAssumeRolePolicy' smart constructor.
 updateAssumeRolePolicy :: Text -> Text -> UpdateAssumeRolePolicy
-updateAssumeRolePolicy pRoleName pPolicyDocument = UpdateAssumeRolePolicy'{_uarpRoleName = pRoleName, _uarpPolicyDocument = pPolicyDocument};
+updateAssumeRolePolicy pRoleName pPolicyDocument =
+    UpdateAssumeRolePolicy'
+    { _uarpRoleName = pRoleName
+    , _uarpPolicyDocument = pPolicyDocument
+    }
 
 -- | The name of the role to update.
 uarpRoleName :: Lens' UpdateAssumeRolePolicy Text
@@ -85,8 +92,10 @@ instance ToQuery UpdateAssumeRolePolicy where
                "PolicyDocument" =: _uarpPolicyDocument]
 
 -- | /See:/ 'updateAssumeRolePolicyResponse' smart constructor.
-data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse' deriving (Eq, Read, Show)
+data UpdateAssumeRolePolicyResponse =
+    UpdateAssumeRolePolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateAssumeRolePolicyResponse' smart constructor.
 updateAssumeRolePolicyResponse :: UpdateAssumeRolePolicyResponse
-updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse';
+updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse'

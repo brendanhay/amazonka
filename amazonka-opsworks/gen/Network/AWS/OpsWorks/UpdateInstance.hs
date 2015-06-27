@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,10 +48,10 @@ module Network.AWS.OpsWorks.UpdateInstance
     , updateInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateInstance' smart constructor.
 --
@@ -78,11 +78,36 @@ import Network.AWS.Response
 -- * 'uiAMIId'
 --
 -- * 'uiInstanceId'
-data UpdateInstance = UpdateInstance'{_uiInstallUpdatesOnBoot :: Maybe Bool, _uiHostname :: Maybe Text, _uiSSHKeyName :: Maybe Text, _uiInstanceType :: Maybe Text, _uiEBSOptimized :: Maybe Bool, _uiOS :: Maybe Text, _uiAutoScalingType :: Maybe AutoScalingType, _uiLayerIds :: Maybe [Text], _uiArchitecture :: Maybe Architecture, _uiAMIId :: Maybe Text, _uiInstanceId :: Text} deriving (Eq, Read, Show)
+data UpdateInstance = UpdateInstance'
+    { _uiInstallUpdatesOnBoot :: Maybe Bool
+    , _uiHostname             :: Maybe Text
+    , _uiSSHKeyName           :: Maybe Text
+    , _uiInstanceType         :: Maybe Text
+    , _uiEBSOptimized         :: Maybe Bool
+    , _uiOS                   :: Maybe Text
+    , _uiAutoScalingType      :: Maybe AutoScalingType
+    , _uiLayerIds             :: Maybe [Text]
+    , _uiArchitecture         :: Maybe Architecture
+    , _uiAMIId                :: Maybe Text
+    , _uiInstanceId           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateInstance' smart constructor.
 updateInstance :: Text -> UpdateInstance
-updateInstance pInstanceId = UpdateInstance'{_uiInstallUpdatesOnBoot = Nothing, _uiHostname = Nothing, _uiSSHKeyName = Nothing, _uiInstanceType = Nothing, _uiEBSOptimized = Nothing, _uiOS = Nothing, _uiAutoScalingType = Nothing, _uiLayerIds = Nothing, _uiArchitecture = Nothing, _uiAMIId = Nothing, _uiInstanceId = pInstanceId};
+updateInstance pInstanceId =
+    UpdateInstance'
+    { _uiInstallUpdatesOnBoot = Nothing
+    , _uiHostname = Nothing
+    , _uiSSHKeyName = Nothing
+    , _uiInstanceType = Nothing
+    , _uiEBSOptimized = Nothing
+    , _uiOS = Nothing
+    , _uiAutoScalingType = Nothing
+    , _uiLayerIds = Nothing
+    , _uiArchitecture = Nothing
+    , _uiAMIId = Nothing
+    , _uiInstanceId = pInstanceId
+    }
 
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. To control when updates are
@@ -202,8 +227,10 @@ instance ToQuery UpdateInstance where
         toQuery = const mempty
 
 -- | /See:/ 'updateInstanceResponse' smart constructor.
-data UpdateInstanceResponse = UpdateInstanceResponse' deriving (Eq, Read, Show)
+data UpdateInstanceResponse =
+    UpdateInstanceResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateInstanceResponse' smart constructor.
 updateInstanceResponse :: UpdateInstanceResponse
-updateInstanceResponse = UpdateInstanceResponse';
+updateInstanceResponse = UpdateInstanceResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeWorkingStorage
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,13 +45,13 @@ module Network.AWS.StorageGateway.DescribeWorkingStorage
     , dwsrDiskIds
     , dwsrWorkingStorageAllocatedInBytes
     , dwsrWorkingStorageUsedInBytes
-    , dwsrStatusCode
+    , dwsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the of the gateway.
 --
@@ -60,11 +60,16 @@ import Network.AWS.StorageGateway.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dwsGatewayARN'
-newtype DescribeWorkingStorage = DescribeWorkingStorage'{_dwsGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype DescribeWorkingStorage = DescribeWorkingStorage'
+    { _dwsGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkingStorage' smart constructor.
 describeWorkingStorage :: Text -> DescribeWorkingStorage
-describeWorkingStorage pGatewayARN = DescribeWorkingStorage'{_dwsGatewayARN = pGatewayARN};
+describeWorkingStorage pGatewayARN =
+    DescribeWorkingStorage'
+    { _dwsGatewayARN = pGatewayARN
+    }
 
 -- | FIXME: Undocumented member.
 dwsGatewayARN :: Lens' DescribeWorkingStorage Text
@@ -118,12 +123,25 @@ instance ToQuery DescribeWorkingStorage where
 --
 -- * 'dwsrWorkingStorageUsedInBytes'
 --
--- * 'dwsrStatusCode'
-data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'{_dwsrGatewayARN :: Maybe Text, _dwsrDiskIds :: Maybe [Text], _dwsrWorkingStorageAllocatedInBytes :: Maybe Integer, _dwsrWorkingStorageUsedInBytes :: Maybe Integer, _dwsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dwsrStatus'
+data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
+    { _dwsrGatewayARN                     :: Maybe Text
+    , _dwsrDiskIds                        :: Maybe [Text]
+    , _dwsrWorkingStorageAllocatedInBytes :: Maybe Integer
+    , _dwsrWorkingStorageUsedInBytes      :: Maybe Integer
+    , _dwsrStatus                         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkingStorageResponse' smart constructor.
 describeWorkingStorageResponse :: Int -> DescribeWorkingStorageResponse
-describeWorkingStorageResponse pStatusCode = DescribeWorkingStorageResponse'{_dwsrGatewayARN = Nothing, _dwsrDiskIds = Nothing, _dwsrWorkingStorageAllocatedInBytes = Nothing, _dwsrWorkingStorageUsedInBytes = Nothing, _dwsrStatusCode = pStatusCode};
+describeWorkingStorageResponse pStatus =
+    DescribeWorkingStorageResponse'
+    { _dwsrGatewayARN = Nothing
+    , _dwsrDiskIds = Nothing
+    , _dwsrWorkingStorageAllocatedInBytes = Nothing
+    , _dwsrWorkingStorageUsedInBytes = Nothing
+    , _dwsrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dwsrGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
@@ -147,5 +165,5 @@ dwsrWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Int
 dwsrWorkingStorageUsedInBytes = lens _dwsrWorkingStorageUsedInBytes (\ s a -> s{_dwsrWorkingStorageUsedInBytes = a});
 
 -- | FIXME: Undocumented member.
-dwsrStatusCode :: Lens' DescribeWorkingStorageResponse Int
-dwsrStatusCode = lens _dwsrStatusCode (\ s a -> s{_dwsrStatusCode = a});
+dwsrStatus :: Lens' DescribeWorkingStorageResponse Int
+dwsrStatus = lens _dwsrStatus (\ s a -> s{_dwsrStatus = a});

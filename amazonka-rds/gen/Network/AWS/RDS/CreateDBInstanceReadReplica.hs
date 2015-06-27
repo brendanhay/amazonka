@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.CreateDBInstanceReadReplica
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,13 +51,13 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     , createDBInstanceReadReplicaResponse
     -- ** Response lenses
     , cdirrrDBInstance
-    , cdirrrStatusCode
+    , cdirrrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createDBInstanceReadReplica' smart constructor.
 --
@@ -86,11 +86,38 @@ import Network.AWS.Response
 -- * 'cdirrDBInstanceIdentifier'
 --
 -- * 'cdirrSourceDBInstanceIdentifier'
-data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'{_cdirrAutoMinorVersionUpgrade :: Maybe Bool, _cdirrPubliclyAccessible :: Maybe Bool, _cdirrDBSubnetGroupName :: Maybe Text, _cdirrIOPS :: Maybe Int, _cdirrDBInstanceClass :: Maybe Text, _cdirrAvailabilityZone :: Maybe Text, _cdirrOptionGroupName :: Maybe Text, _cdirrTags :: Maybe [Tag], _cdirrPort :: Maybe Int, _cdirrStorageType :: Maybe Text, _cdirrDBInstanceIdentifier :: Text, _cdirrSourceDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
+data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
+    { _cdirrAutoMinorVersionUpgrade    :: Maybe Bool
+    , _cdirrPubliclyAccessible         :: Maybe Bool
+    , _cdirrDBSubnetGroupName          :: Maybe Text
+    , _cdirrIOPS                       :: Maybe Int
+    , _cdirrDBInstanceClass            :: Maybe Text
+    , _cdirrAvailabilityZone           :: Maybe Text
+    , _cdirrOptionGroupName            :: Maybe Text
+    , _cdirrTags                       :: Maybe [Tag]
+    , _cdirrPort                       :: Maybe Int
+    , _cdirrStorageType                :: Maybe Text
+    , _cdirrDBInstanceIdentifier       :: Text
+    , _cdirrSourceDBInstanceIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDBInstanceReadReplica' smart constructor.
 createDBInstanceReadReplica :: Text -> Text -> CreateDBInstanceReadReplica
-createDBInstanceReadReplica pDBInstanceIdentifier pSourceDBInstanceIdentifier = CreateDBInstanceReadReplica'{_cdirrAutoMinorVersionUpgrade = Nothing, _cdirrPubliclyAccessible = Nothing, _cdirrDBSubnetGroupName = Nothing, _cdirrIOPS = Nothing, _cdirrDBInstanceClass = Nothing, _cdirrAvailabilityZone = Nothing, _cdirrOptionGroupName = Nothing, _cdirrTags = Nothing, _cdirrPort = Nothing, _cdirrStorageType = Nothing, _cdirrDBInstanceIdentifier = pDBInstanceIdentifier, _cdirrSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier};
+createDBInstanceReadReplica pDBInstanceIdentifier pSourceDBInstanceIdentifier =
+    CreateDBInstanceReadReplica'
+    { _cdirrAutoMinorVersionUpgrade = Nothing
+    , _cdirrPubliclyAccessible = Nothing
+    , _cdirrDBSubnetGroupName = Nothing
+    , _cdirrIOPS = Nothing
+    , _cdirrDBInstanceClass = Nothing
+    , _cdirrAvailabilityZone = Nothing
+    , _cdirrOptionGroupName = Nothing
+    , _cdirrTags = Nothing
+    , _cdirrPort = Nothing
+    , _cdirrStorageType = Nothing
+    , _cdirrDBInstanceIdentifier = pDBInstanceIdentifier
+    , _cdirrSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier
+    }
 
 -- | Indicates that minor engine upgrades will be applied automatically to
 -- the Read Replica during the maintenance window.
@@ -265,17 +292,24 @@ instance ToQuery CreateDBInstanceReadReplica where
 --
 -- * 'cdirrrDBInstance'
 --
--- * 'cdirrrStatusCode'
-data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'{_cdirrrDBInstance :: Maybe DBInstance, _cdirrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdirrrStatus'
+data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'
+    { _cdirrrDBInstance :: Maybe DBInstance
+    , _cdirrrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDBInstanceReadReplicaResponse' smart constructor.
 createDBInstanceReadReplicaResponse :: Int -> CreateDBInstanceReadReplicaResponse
-createDBInstanceReadReplicaResponse pStatusCode = CreateDBInstanceReadReplicaResponse'{_cdirrrDBInstance = Nothing, _cdirrrStatusCode = pStatusCode};
+createDBInstanceReadReplicaResponse pStatus =
+    CreateDBInstanceReadReplicaResponse'
+    { _cdirrrDBInstance = Nothing
+    , _cdirrrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 cdirrrDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance)
 cdirrrDBInstance = lens _cdirrrDBInstance (\ s a -> s{_cdirrrDBInstance = a});
 
 -- | FIXME: Undocumented member.
-cdirrrStatusCode :: Lens' CreateDBInstanceReadReplicaResponse Int
-cdirrrStatusCode = lens _cdirrrStatusCode (\ s a -> s{_cdirrrStatusCode = a});
+cdirrrStatus :: Lens' CreateDBInstanceReadReplicaResponse Int
+cdirrrStatus = lens _cdirrrStatus (\ s a -> s{_cdirrrStatus = a});

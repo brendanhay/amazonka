@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Config.PutConfigurationRecorder
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,10 +39,10 @@ module Network.AWS.Config.PutConfigurationRecorder
     , putConfigurationRecorderResponse
     ) where
 
-import Network.AWS.Config.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Config.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the PutConfigurationRecorder action.
 --
@@ -51,11 +51,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'pcrConfigurationRecorder'
-newtype PutConfigurationRecorder = PutConfigurationRecorder'{_pcrConfigurationRecorder :: ConfigurationRecorder} deriving (Eq, Read, Show)
+newtype PutConfigurationRecorder = PutConfigurationRecorder'
+    { _pcrConfigurationRecorder :: ConfigurationRecorder
+    } deriving (Eq,Read,Show)
 
 -- | 'PutConfigurationRecorder' smart constructor.
 putConfigurationRecorder :: ConfigurationRecorder -> PutConfigurationRecorder
-putConfigurationRecorder pConfigurationRecorder = PutConfigurationRecorder'{_pcrConfigurationRecorder = pConfigurationRecorder};
+putConfigurationRecorder pConfigurationRecorder =
+    PutConfigurationRecorder'
+    { _pcrConfigurationRecorder = pConfigurationRecorder
+    }
 
 -- | The configuration recorder object that records each configuration change
 -- made to the resources.
@@ -93,8 +98,10 @@ instance ToQuery PutConfigurationRecorder where
         toQuery = const mempty
 
 -- | /See:/ 'putConfigurationRecorderResponse' smart constructor.
-data PutConfigurationRecorderResponse = PutConfigurationRecorderResponse' deriving (Eq, Read, Show)
+data PutConfigurationRecorderResponse =
+    PutConfigurationRecorderResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutConfigurationRecorderResponse' smart constructor.
 putConfigurationRecorderResponse :: PutConfigurationRecorderResponse
-putConfigurationRecorderResponse = PutConfigurationRecorderResponse';
+putConfigurationRecorderResponse = PutConfigurationRecorderResponse'

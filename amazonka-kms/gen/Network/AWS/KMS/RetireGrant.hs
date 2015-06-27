@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.RetireGrant
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,10 +47,10 @@ module Network.AWS.KMS.RetireGrant
     , retireGrantResponse
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'retireGrant' smart constructor.
 --
@@ -61,11 +61,20 @@ import Network.AWS.Response
 -- * 'rgGrantId'
 --
 -- * 'rgGrantToken'
-data RetireGrant = RetireGrant'{_rgKeyId :: Maybe Text, _rgGrantId :: Maybe Text, _rgGrantToken :: Maybe Text} deriving (Eq, Read, Show)
+data RetireGrant = RetireGrant'
+    { _rgKeyId      :: Maybe Text
+    , _rgGrantId    :: Maybe Text
+    , _rgGrantToken :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RetireGrant' smart constructor.
 retireGrant :: RetireGrant
-retireGrant = RetireGrant'{_rgKeyId = Nothing, _rgGrantId = Nothing, _rgGrantToken = Nothing};
+retireGrant =
+    RetireGrant'
+    { _rgKeyId = Nothing
+    , _rgGrantId = Nothing
+    , _rgGrantToken = Nothing
+    }
 
 -- | A unique identifier for the customer master key associated with the
 -- grant. This value can be a globally unique identifier or a fully
@@ -118,8 +127,10 @@ instance ToQuery RetireGrant where
         toQuery = const mempty
 
 -- | /See:/ 'retireGrantResponse' smart constructor.
-data RetireGrantResponse = RetireGrantResponse' deriving (Eq, Read, Show)
+data RetireGrantResponse =
+    RetireGrantResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RetireGrantResponse' smart constructor.
 retireGrantResponse :: RetireGrantResponse
-retireGrantResponse = RetireGrantResponse';
+retireGrantResponse = RetireGrantResponse'

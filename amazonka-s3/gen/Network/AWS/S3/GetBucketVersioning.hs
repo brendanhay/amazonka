@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.GetBucketVersioning
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,26 +31,30 @@ module Network.AWS.S3.GetBucketVersioning
     -- ** Response constructor
     , getBucketVersioningResponse
     -- ** Response lenses
-    , gbvrStatus
     , gbvrMFADelete
-    , gbvrStatusCode
+    , gbvrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketVersioning' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gbvBucket'
-newtype GetBucketVersioning = GetBucketVersioning'{_gbvBucket :: BucketName} deriving (Eq, Read, Show)
+newtype GetBucketVersioning = GetBucketVersioning'
+    { _gbvBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketVersioning' smart constructor.
 getBucketVersioning :: BucketName -> GetBucketVersioning
-getBucketVersioning pBucket = GetBucketVersioning'{_gbvBucket = pBucket};
+getBucketVersioning pBucket =
+    GetBucketVersioning'
+    { _gbvBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 gbvBucket :: Lens' GetBucketVersioning BucketName
@@ -65,8 +69,7 @@ instance AWSRequest GetBucketVersioning where
           = receiveXML
               (\ s h x ->
                  GetBucketVersioningResponse' <$>
-                   (x .@? "Status") <*> (x .@? "MfaDelete") <*>
-                     (pure (fromEnum s)))
+                   (x .@? "MfaDelete") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetBucketVersioning where
         toHeaders = const mempty
@@ -82,20 +85,21 @@ instance ToQuery GetBucketVersioning where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbvrStatus'
---
 -- * 'gbvrMFADelete'
 --
--- * 'gbvrStatusCode'
-data GetBucketVersioningResponse = GetBucketVersioningResponse'{_gbvrStatus :: Maybe BucketVersioningStatus, _gbvrMFADelete :: Maybe MFADeleteStatus, _gbvrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gbvrStatus'
+data GetBucketVersioningResponse = GetBucketVersioningResponse'
+    { _gbvrMFADelete :: Maybe MFADeleteStatus
+    , _gbvrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketVersioningResponse' smart constructor.
 getBucketVersioningResponse :: Int -> GetBucketVersioningResponse
-getBucketVersioningResponse pStatusCode = GetBucketVersioningResponse'{_gbvrStatus = Nothing, _gbvrMFADelete = Nothing, _gbvrStatusCode = pStatusCode};
-
--- | The versioning state of the bucket.
-gbvrStatus :: Lens' GetBucketVersioningResponse (Maybe BucketVersioningStatus)
-gbvrStatus = lens _gbvrStatus (\ s a -> s{_gbvrStatus = a});
+getBucketVersioningResponse pStatus =
+    GetBucketVersioningResponse'
+    { _gbvrMFADelete = Nothing
+    , _gbvrStatus = pStatus
+    }
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
@@ -105,5 +109,5 @@ gbvrMFADelete :: Lens' GetBucketVersioningResponse (Maybe MFADeleteStatus)
 gbvrMFADelete = lens _gbvrMFADelete (\ s a -> s{_gbvrMFADelete = a});
 
 -- | FIXME: Undocumented member.
-gbvrStatusCode :: Lens' GetBucketVersioningResponse Int
-gbvrStatusCode = lens _gbvrStatusCode (\ s a -> s{_gbvrStatusCode = a});
+gbvrStatus :: Lens' GetBucketVersioningResponse Int
+gbvrStatus = lens _gbvrStatus (\ s a -> s{_gbvrStatus = a});

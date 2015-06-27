@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.ExecutePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.AutoScaling.ExecutePolicy
     , executePolicyResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'executePolicy' smart constructor.
 --
@@ -48,11 +48,20 @@ import Network.AWS.Response
 -- * 'epAutoScalingGroupName'
 --
 -- * 'epPolicyName'
-data ExecutePolicy = ExecutePolicy'{_epHonorCooldown :: Maybe Bool, _epAutoScalingGroupName :: Maybe Text, _epPolicyName :: Text} deriving (Eq, Read, Show)
+data ExecutePolicy = ExecutePolicy'
+    { _epHonorCooldown        :: Maybe Bool
+    , _epAutoScalingGroupName :: Maybe Text
+    , _epPolicyName           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ExecutePolicy' smart constructor.
 executePolicy :: Text -> ExecutePolicy
-executePolicy pPolicyName = ExecutePolicy'{_epHonorCooldown = Nothing, _epAutoScalingGroupName = Nothing, _epPolicyName = pPolicyName};
+executePolicy pPolicyName =
+    ExecutePolicy'
+    { _epHonorCooldown = Nothing
+    , _epAutoScalingGroupName = Nothing
+    , _epPolicyName = pPolicyName
+    }
 
 -- | Set to @True@ if you want Auto Scaling to wait for the cooldown period
 -- associated with the Auto Scaling group to complete before executing the
@@ -98,8 +107,10 @@ instance ToQuery ExecutePolicy where
                "PolicyName" =: _epPolicyName]
 
 -- | /See:/ 'executePolicyResponse' smart constructor.
-data ExecutePolicyResponse = ExecutePolicyResponse' deriving (Eq, Read, Show)
+data ExecutePolicyResponse =
+    ExecutePolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ExecutePolicyResponse' smart constructor.
 executePolicyResponse :: ExecutePolicyResponse
-executePolicyResponse = ExecutePolicyResponse';
+executePolicyResponse = ExecutePolicyResponse'

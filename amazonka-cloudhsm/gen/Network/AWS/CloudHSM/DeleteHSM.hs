@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.DeleteHSM
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,12 @@ module Network.AWS.CloudHSM.DeleteHSM
     , deleteHSMResponse
     -- ** Response lenses
     , delStatus
-    , delStatusCode
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the DeleteHsm action.
 --
@@ -48,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dhHSMARN'
-newtype DeleteHSM = DeleteHSM'{_dhHSMARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteHSM = DeleteHSM'
+    { _dhHSMARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteHSM' smart constructor.
 deleteHSM :: Text -> DeleteHSM
-deleteHSM pHSMARN = DeleteHSM'{_dhHSMARN = pHSMARN};
+deleteHSM pHSMARN =
+    DeleteHSM'
+    { _dhHSMARN = pHSMARN
+    }
 
 -- | The ARN of the HSM to delete.
 dhHSMARN :: Lens' DeleteHSM Text
@@ -65,8 +69,7 @@ instance AWSRequest DeleteHSM where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteHSMResponse' <$>
-                   (x .:> "Status") <*> (pure (fromEnum s)))
+                 DeleteHSMResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeleteHSM where
         toHeaders
@@ -94,18 +97,17 @@ instance ToQuery DeleteHSM where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delStatus'
---
--- * 'delStatusCode'
-data DeleteHSMResponse = DeleteHSMResponse'{_delStatus :: Text, _delStatusCode :: Int} deriving (Eq, Read, Show)
+newtype DeleteHSMResponse = DeleteHSMResponse'
+    { _delStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteHSMResponse' smart constructor.
-deleteHSMResponse :: Text -> Int -> DeleteHSMResponse
-deleteHSMResponse pStatus pStatusCode = DeleteHSMResponse'{_delStatus = pStatus, _delStatusCode = pStatusCode};
-
--- | The status of the action.
-delStatus :: Lens' DeleteHSMResponse Text
-delStatus = lens _delStatus (\ s a -> s{_delStatus = a});
+deleteHSMResponse :: Int -> DeleteHSMResponse
+deleteHSMResponse pStatus =
+    DeleteHSMResponse'
+    { _delStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-delStatusCode :: Lens' DeleteHSMResponse Int
-delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});
+delStatus :: Lens' DeleteHSMResponse Int
+delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

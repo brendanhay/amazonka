@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.UpdateStack
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,13 +54,13 @@ module Network.AWS.CloudFormation.UpdateStack
     , updateStackResponse
     -- ** Response lenses
     , usrStackId
-    , usrStatusCode
+    , usrStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for UpdateStack action.
 --
@@ -89,11 +89,36 @@ import Network.AWS.Response
 -- * 'usCapabilities'
 --
 -- * 'usStackName'
-data UpdateStack = UpdateStack'{_usUsePreviousTemplate :: Maybe Bool, _usNotificationARNs :: Maybe [Text], _usStackPolicyBody :: Maybe Text, _usStackPolicyDuringUpdateBody :: Maybe Text, _usStackPolicyDuringUpdateURL :: Maybe Text, _usParameters :: Maybe [Parameter], _usStackPolicyURL :: Maybe Text, _usTemplateBody :: Maybe Text, _usTemplateURL :: Maybe Text, _usCapabilities :: Maybe [Capability], _usStackName :: Text} deriving (Eq, Read, Show)
+data UpdateStack = UpdateStack'
+    { _usUsePreviousTemplate         :: Maybe Bool
+    , _usNotificationARNs            :: Maybe [Text]
+    , _usStackPolicyBody             :: Maybe Text
+    , _usStackPolicyDuringUpdateBody :: Maybe Text
+    , _usStackPolicyDuringUpdateURL  :: Maybe Text
+    , _usParameters                  :: Maybe [Parameter]
+    , _usStackPolicyURL              :: Maybe Text
+    , _usTemplateBody                :: Maybe Text
+    , _usTemplateURL                 :: Maybe Text
+    , _usCapabilities                :: Maybe [Capability]
+    , _usStackName                   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateStack' smart constructor.
 updateStack :: Text -> UpdateStack
-updateStack pStackName = UpdateStack'{_usUsePreviousTemplate = Nothing, _usNotificationARNs = Nothing, _usStackPolicyBody = Nothing, _usStackPolicyDuringUpdateBody = Nothing, _usStackPolicyDuringUpdateURL = Nothing, _usParameters = Nothing, _usStackPolicyURL = Nothing, _usTemplateBody = Nothing, _usTemplateURL = Nothing, _usCapabilities = Nothing, _usStackName = pStackName};
+updateStack pStackName =
+    UpdateStack'
+    { _usUsePreviousTemplate = Nothing
+    , _usNotificationARNs = Nothing
+    , _usStackPolicyBody = Nothing
+    , _usStackPolicyDuringUpdateBody = Nothing
+    , _usStackPolicyDuringUpdateURL = Nothing
+    , _usParameters = Nothing
+    , _usStackPolicyURL = Nothing
+    , _usTemplateBody = Nothing
+    , _usTemplateURL = Nothing
+    , _usCapabilities = Nothing
+    , _usStackName = pStackName
+    }
 
 -- | Reuse the existing template that is associated with the stack that you
 -- are updating.
@@ -250,17 +275,24 @@ instance ToQuery UpdateStack where
 --
 -- * 'usrStackId'
 --
--- * 'usrStatusCode'
-data UpdateStackResponse = UpdateStackResponse'{_usrStackId :: Maybe Text, _usrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'usrStatus'
+data UpdateStackResponse = UpdateStackResponse'
+    { _usrStackId :: Maybe Text
+    , _usrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateStackResponse' smart constructor.
 updateStackResponse :: Int -> UpdateStackResponse
-updateStackResponse pStatusCode = UpdateStackResponse'{_usrStackId = Nothing, _usrStatusCode = pStatusCode};
+updateStackResponse pStatus =
+    UpdateStackResponse'
+    { _usrStackId = Nothing
+    , _usrStatus = pStatus
+    }
 
 -- | Unique identifier of the stack.
 usrStackId :: Lens' UpdateStackResponse (Maybe Text)
 usrStackId = lens _usrStackId (\ s a -> s{_usrStackId = a});
 
 -- | FIXME: Undocumented member.
-usrStatusCode :: Lens' UpdateStackResponse Int
-usrStatusCode = lens _usrStatusCode (\ s a -> s{_usrStatusCode = a});
+usrStatus :: Lens' UpdateStackResponse Int
+usrStatus = lens _usrStatus (\ s a -> s{_usrStatus = a});

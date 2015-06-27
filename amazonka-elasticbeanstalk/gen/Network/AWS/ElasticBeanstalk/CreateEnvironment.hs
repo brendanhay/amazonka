@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CreateEnvironment
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -60,10 +60,10 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     , envDescription
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -92,11 +92,36 @@ import Network.AWS.Response
 -- * 'ceApplicationName'
 --
 -- * 'ceEnvironmentName'
-data CreateEnvironment = CreateEnvironment'{_ceCNAMEPrefix :: Maybe Text, _ceTemplateName :: Maybe Text, _ceOptionsToRemove :: Maybe [OptionSpecification], _ceOptionSettings :: Maybe [ConfigurationOptionSetting], _ceVersionLabel :: Maybe Text, _ceTier :: Maybe EnvironmentTier, _ceSolutionStackName :: Maybe Text, _ceDescription :: Maybe Text, _ceTags :: Maybe [Tag], _ceApplicationName :: Text, _ceEnvironmentName :: Text} deriving (Eq, Read, Show)
+data CreateEnvironment = CreateEnvironment'
+    { _ceCNAMEPrefix       :: Maybe Text
+    , _ceTemplateName      :: Maybe Text
+    , _ceOptionsToRemove   :: Maybe [OptionSpecification]
+    , _ceOptionSettings    :: Maybe [ConfigurationOptionSetting]
+    , _ceVersionLabel      :: Maybe Text
+    , _ceTier              :: Maybe EnvironmentTier
+    , _ceSolutionStackName :: Maybe Text
+    , _ceDescription       :: Maybe Text
+    , _ceTags              :: Maybe [Tag]
+    , _ceApplicationName   :: Text
+    , _ceEnvironmentName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateEnvironment' smart constructor.
 createEnvironment :: Text -> Text -> CreateEnvironment
-createEnvironment pApplicationName pEnvironmentName = CreateEnvironment'{_ceCNAMEPrefix = Nothing, _ceTemplateName = Nothing, _ceOptionsToRemove = Nothing, _ceOptionSettings = Nothing, _ceVersionLabel = Nothing, _ceTier = Nothing, _ceSolutionStackName = Nothing, _ceDescription = Nothing, _ceTags = Nothing, _ceApplicationName = pApplicationName, _ceEnvironmentName = pEnvironmentName};
+createEnvironment pApplicationName pEnvironmentName =
+    CreateEnvironment'
+    { _ceCNAMEPrefix = Nothing
+    , _ceTemplateName = Nothing
+    , _ceOptionsToRemove = Nothing
+    , _ceOptionSettings = Nothing
+    , _ceVersionLabel = Nothing
+    , _ceTier = Nothing
+    , _ceSolutionStackName = Nothing
+    , _ceDescription = Nothing
+    , _ceTags = Nothing
+    , _ceApplicationName = pApplicationName
+    , _ceEnvironmentName = pEnvironmentName
+    }
 
 -- | If specified, the environment attempts to use this value as the prefix
 -- for the CNAME. If not specified, the CNAME is generated automatically by

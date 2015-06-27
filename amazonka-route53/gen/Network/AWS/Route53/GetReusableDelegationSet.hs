@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.GetReusableDelegationSet
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.Route53.GetReusableDelegationSet
     , getReusableDelegationSetResponse
     -- ** Response lenses
     , grdsrDelegationSet
-    , grdsrStatusCode
+    , grdsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | The input for a GetReusableDelegationSet request.
 --
@@ -48,11 +48,16 @@ import Network.AWS.Route53.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'grdsId'
-newtype GetReusableDelegationSet = GetReusableDelegationSet'{_grdsId :: Text} deriving (Eq, Read, Show)
+newtype GetReusableDelegationSet = GetReusableDelegationSet'
+    { _grdsId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetReusableDelegationSet' smart constructor.
 getReusableDelegationSet :: Text -> GetReusableDelegationSet
-getReusableDelegationSet pId = GetReusableDelegationSet'{_grdsId = pId};
+getReusableDelegationSet pId =
+    GetReusableDelegationSet'
+    { _grdsId = pId
+    }
 
 -- | The ID of the reusable delegation set for which you want to get a list
 -- of the name server.
@@ -90,12 +95,19 @@ instance ToQuery GetReusableDelegationSet where
 --
 -- * 'grdsrDelegationSet'
 --
--- * 'grdsrStatusCode'
-data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'{_grdsrDelegationSet :: DelegationSet, _grdsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'grdsrStatus'
+data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
+    { _grdsrDelegationSet :: DelegationSet
+    , _grdsrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetReusableDelegationSetResponse' smart constructor.
 getReusableDelegationSetResponse :: DelegationSet -> Int -> GetReusableDelegationSetResponse
-getReusableDelegationSetResponse pDelegationSet pStatusCode = GetReusableDelegationSetResponse'{_grdsrDelegationSet = pDelegationSet, _grdsrStatusCode = pStatusCode};
+getReusableDelegationSetResponse pDelegationSet pStatus =
+    GetReusableDelegationSetResponse'
+    { _grdsrDelegationSet = pDelegationSet
+    , _grdsrStatus = pStatus
+    }
 
 -- | A complex type that contains the information about the nameservers for
 -- the specified delegation set ID.
@@ -103,5 +115,5 @@ grdsrDelegationSet :: Lens' GetReusableDelegationSetResponse DelegationSet
 grdsrDelegationSet = lens _grdsrDelegationSet (\ s a -> s{_grdsrDelegationSet = a});
 
 -- | FIXME: Undocumented member.
-grdsrStatusCode :: Lens' GetReusableDelegationSetResponse Int
-grdsrStatusCode = lens _grdsrStatusCode (\ s a -> s{_grdsrStatusCode = a});
+grdsrStatus :: Lens' GetReusableDelegationSetResponse Int
+grdsrStatus = lens _grdsrStatus (\ s a -> s{_grdsrStatus = a});

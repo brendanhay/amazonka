@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.MachineLearning.UpdateEvaluation
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.MachineLearning.UpdateEvaluation
     , updateEvaluationResponse
     -- ** Response lenses
     , uerEvaluationId
-    , uerStatusCode
+    , uerStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateEvaluation' smart constructor.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'ueEvaluationId'
 --
 -- * 'ueEvaluationName'
-data UpdateEvaluation = UpdateEvaluation'{_ueEvaluationId :: Text, _ueEvaluationName :: Text} deriving (Eq, Read, Show)
+data UpdateEvaluation = UpdateEvaluation'
+    { _ueEvaluationId   :: Text
+    , _ueEvaluationName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateEvaluation' smart constructor.
 updateEvaluation :: Text -> Text -> UpdateEvaluation
-updateEvaluation pEvaluationId pEvaluationName = UpdateEvaluation'{_ueEvaluationId = pEvaluationId, _ueEvaluationName = pEvaluationName};
+updateEvaluation pEvaluationId pEvaluationName =
+    UpdateEvaluation'
+    { _ueEvaluationId = pEvaluationId
+    , _ueEvaluationName = pEvaluationName
+    }
 
 -- | The ID assigned to the @Evaluation@ during creation.
 ueEvaluationId :: Lens' UpdateEvaluation Text
@@ -107,12 +114,19 @@ instance ToQuery UpdateEvaluation where
 --
 -- * 'uerEvaluationId'
 --
--- * 'uerStatusCode'
-data UpdateEvaluationResponse = UpdateEvaluationResponse'{_uerEvaluationId :: Maybe Text, _uerStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'uerStatus'
+data UpdateEvaluationResponse = UpdateEvaluationResponse'
+    { _uerEvaluationId :: Maybe Text
+    , _uerStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateEvaluationResponse' smart constructor.
 updateEvaluationResponse :: Int -> UpdateEvaluationResponse
-updateEvaluationResponse pStatusCode = UpdateEvaluationResponse'{_uerEvaluationId = Nothing, _uerStatusCode = pStatusCode};
+updateEvaluationResponse pStatus =
+    UpdateEvaluationResponse'
+    { _uerEvaluationId = Nothing
+    , _uerStatus = pStatus
+    }
 
 -- | The ID assigned to the @Evaluation@ during creation. This value should
 -- be identical to the value of the @Evaluation@ in the request.
@@ -120,5 +134,5 @@ uerEvaluationId :: Lens' UpdateEvaluationResponse (Maybe Text)
 uerEvaluationId = lens _uerEvaluationId (\ s a -> s{_uerEvaluationId = a});
 
 -- | FIXME: Undocumented member.
-uerStatusCode :: Lens' UpdateEvaluationResponse Int
-uerStatusCode = lens _uerStatusCode (\ s a -> s{_uerStatusCode = a});
+uerStatus :: Lens' UpdateEvaluationResponse Int
+uerStatus = lens _uerStatus (\ s a -> s{_uerStatus = a});

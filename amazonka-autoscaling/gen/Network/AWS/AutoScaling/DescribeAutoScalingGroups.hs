@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,14 +36,14 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     -- ** Response lenses
     , dasgrNextToken
     , dasgrAutoScalingGroups
-    , dasgrStatusCode
+    , dasgrStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAutoScalingGroups' smart constructor.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'dasgNextToken'
 --
 -- * 'dasgMaxRecords'
-data DescribeAutoScalingGroups = DescribeAutoScalingGroups'{_dasgAutoScalingGroupNames :: Maybe [Text], _dasgNextToken :: Maybe Text, _dasgMaxRecords :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
+    { _dasgAutoScalingGroupNames :: Maybe [Text]
+    , _dasgNextToken             :: Maybe Text
+    , _dasgMaxRecords            :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAutoScalingGroups' smart constructor.
 describeAutoScalingGroups :: DescribeAutoScalingGroups
-describeAutoScalingGroups = DescribeAutoScalingGroups'{_dasgAutoScalingGroupNames = Nothing, _dasgNextToken = Nothing, _dasgMaxRecords = Nothing};
+describeAutoScalingGroups =
+    DescribeAutoScalingGroups'
+    { _dasgAutoScalingGroupNames = Nothing
+    , _dasgNextToken = Nothing
+    , _dasgMaxRecords = Nothing
+    }
 
 -- | The group names.
 dasgAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
@@ -121,12 +130,21 @@ instance ToQuery DescribeAutoScalingGroups where
 --
 -- * 'dasgrAutoScalingGroups'
 --
--- * 'dasgrStatusCode'
-data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'{_dasgrNextToken :: Maybe Text, _dasgrAutoScalingGroups :: [AutoScalingGroup], _dasgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dasgrStatus'
+data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
+    { _dasgrNextToken         :: Maybe Text
+    , _dasgrAutoScalingGroups :: [AutoScalingGroup]
+    , _dasgrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAutoScalingGroupsResponse' smart constructor.
 describeAutoScalingGroupsResponse :: Int -> DescribeAutoScalingGroupsResponse
-describeAutoScalingGroupsResponse pStatusCode = DescribeAutoScalingGroupsResponse'{_dasgrNextToken = Nothing, _dasgrAutoScalingGroups = mempty, _dasgrStatusCode = pStatusCode};
+describeAutoScalingGroupsResponse pStatus =
+    DescribeAutoScalingGroupsResponse'
+    { _dasgrNextToken = Nothing
+    , _dasgrAutoScalingGroups = mempty
+    , _dasgrStatus = pStatus
+    }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -138,5 +156,5 @@ dasgrAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGr
 dasgrAutoScalingGroups = lens _dasgrAutoScalingGroups (\ s a -> s{_dasgrAutoScalingGroups = a});
 
 -- | FIXME: Undocumented member.
-dasgrStatusCode :: Lens' DescribeAutoScalingGroupsResponse Int
-dasgrStatusCode = lens _dasgrStatusCode (\ s a -> s{_dasgrStatusCode = a});
+dasgrStatus :: Lens' DescribeAutoScalingGroupsResponse Int
+dasgrStatus = lens _dasgrStatus (\ s a -> s{_dasgrStatus = a});

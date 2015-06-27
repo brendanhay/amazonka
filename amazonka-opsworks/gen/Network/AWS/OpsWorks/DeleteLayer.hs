@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.DeleteLayer
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,21 +41,26 @@ module Network.AWS.OpsWorks.DeleteLayer
     , deleteLayerResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteLayer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlLayerId'
-newtype DeleteLayer = DeleteLayer'{_dlLayerId :: Text} deriving (Eq, Read, Show)
+newtype DeleteLayer = DeleteLayer'
+    { _dlLayerId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLayer' smart constructor.
 deleteLayer :: Text -> DeleteLayer
-deleteLayer pLayerId = DeleteLayer'{_dlLayerId = pLayerId};
+deleteLayer pLayerId =
+    DeleteLayer'
+    { _dlLayerId = pLayerId
+    }
 
 -- | The layer ID.
 dlLayerId :: Lens' DeleteLayer Text
@@ -87,8 +92,10 @@ instance ToQuery DeleteLayer where
         toQuery = const mempty
 
 -- | /See:/ 'deleteLayerResponse' smart constructor.
-data DeleteLayerResponse = DeleteLayerResponse' deriving (Eq, Read, Show)
+data DeleteLayerResponse =
+    DeleteLayerResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteLayerResponse' smart constructor.
 deleteLayerResponse :: DeleteLayerResponse
-deleteLayerResponse = DeleteLayerResponse';
+deleteLayerResponse = DeleteLayerResponse'

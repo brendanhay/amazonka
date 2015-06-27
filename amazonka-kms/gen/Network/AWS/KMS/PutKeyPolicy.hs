@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.KMS.PutKeyPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.KMS.PutKeyPolicy
     , putKeyPolicyResponse
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putKeyPolicy' smart constructor.
 --
@@ -48,11 +48,20 @@ import Network.AWS.Response
 -- * 'pkpPolicyName'
 --
 -- * 'pkpPolicy'
-data PutKeyPolicy = PutKeyPolicy'{_pkpKeyId :: Text, _pkpPolicyName :: Text, _pkpPolicy :: Text} deriving (Eq, Read, Show)
+data PutKeyPolicy = PutKeyPolicy'
+    { _pkpKeyId      :: Text
+    , _pkpPolicyName :: Text
+    , _pkpPolicy     :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PutKeyPolicy' smart constructor.
 putKeyPolicy :: Text -> Text -> Text -> PutKeyPolicy
-putKeyPolicy pKeyId pPolicyName pPolicy = PutKeyPolicy'{_pkpKeyId = pKeyId, _pkpPolicyName = pPolicyName, _pkpPolicy = pPolicy};
+putKeyPolicy pKeyId pPolicyName pPolicy =
+    PutKeyPolicy'
+    { _pkpKeyId = pKeyId
+    , _pkpPolicyName = pPolicyName
+    , _pkpPolicy = pPolicy
+    }
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier or the fully specified ARN to a key.
@@ -102,8 +111,10 @@ instance ToQuery PutKeyPolicy where
         toQuery = const mempty
 
 -- | /See:/ 'putKeyPolicyResponse' smart constructor.
-data PutKeyPolicyResponse = PutKeyPolicyResponse' deriving (Eq, Read, Show)
+data PutKeyPolicyResponse =
+    PutKeyPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutKeyPolicyResponse' smart constructor.
 putKeyPolicyResponse :: PutKeyPolicyResponse
-putKeyPolicyResponse = PutKeyPolicyResponse';
+putKeyPolicyResponse = PutKeyPolicyResponse'

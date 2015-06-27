@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.CreateDeployment
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.CodeDeploy.CreateDeployment
     , createDeploymentResponse
     -- ** Response lenses
     , cdrDeploymentId
-    , cdrStatusCode
+    , cdrStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a create deployment operation.
 --
@@ -62,11 +62,26 @@ import Network.AWS.Response
 -- * 'cdDeploymentGroupName'
 --
 -- * 'cdApplicationName'
-data CreateDeployment = CreateDeployment'{_cdDeploymentConfigName :: Maybe Text, _cdRevision :: Maybe RevisionLocation, _cdDescription :: Maybe Text, _cdIgnoreApplicationStopFailures :: Maybe Bool, _cdDeploymentGroupName :: Maybe Text, _cdApplicationName :: Text} deriving (Eq, Read, Show)
+data CreateDeployment = CreateDeployment'
+    { _cdDeploymentConfigName          :: Maybe Text
+    , _cdRevision                      :: Maybe RevisionLocation
+    , _cdDescription                   :: Maybe Text
+    , _cdIgnoreApplicationStopFailures :: Maybe Bool
+    , _cdDeploymentGroupName           :: Maybe Text
+    , _cdApplicationName               :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDeployment' smart constructor.
 createDeployment :: Text -> CreateDeployment
-createDeployment pApplicationName = CreateDeployment'{_cdDeploymentConfigName = Nothing, _cdRevision = Nothing, _cdDescription = Nothing, _cdIgnoreApplicationStopFailures = Nothing, _cdDeploymentGroupName = Nothing, _cdApplicationName = pApplicationName};
+createDeployment pApplicationName =
+    CreateDeployment'
+    { _cdDeploymentConfigName = Nothing
+    , _cdRevision = Nothing
+    , _cdDescription = Nothing
+    , _cdIgnoreApplicationStopFailures = Nothing
+    , _cdDeploymentGroupName = Nothing
+    , _cdApplicationName = pApplicationName
+    }
 
 -- | The name of an existing deployment configuration associated with the
 -- applicable IAM user or AWS account.
@@ -154,17 +169,24 @@ instance ToQuery CreateDeployment where
 --
 -- * 'cdrDeploymentId'
 --
--- * 'cdrStatusCode'
-data CreateDeploymentResponse = CreateDeploymentResponse'{_cdrDeploymentId :: Maybe Text, _cdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cdrStatus'
+data CreateDeploymentResponse = CreateDeploymentResponse'
+    { _cdrDeploymentId :: Maybe Text
+    , _cdrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDeploymentResponse' smart constructor.
 createDeploymentResponse :: Int -> CreateDeploymentResponse
-createDeploymentResponse pStatusCode = CreateDeploymentResponse'{_cdrDeploymentId = Nothing, _cdrStatusCode = pStatusCode};
+createDeploymentResponse pStatus =
+    CreateDeploymentResponse'
+    { _cdrDeploymentId = Nothing
+    , _cdrStatus = pStatus
+    }
 
 -- | A unique deployment ID.
 cdrDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrDeploymentId = lens _cdrDeploymentId (\ s a -> s{_cdrDeploymentId = a});
 
 -- | FIXME: Undocumented member.
-cdrStatusCode :: Lens' CreateDeploymentResponse Int
-cdrStatusCode = lens _cdrStatusCode (\ s a -> s{_cdrStatusCode = a});
+cdrStatus :: Lens' CreateDeploymentResponse Int
+cdrStatus = lens _cdrStatus (\ s a -> s{_cdrStatus = a});

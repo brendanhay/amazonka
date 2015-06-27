@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     , retrieveTapeRecoveryPointResponse
     -- ** Response lenses
     , rtrprTapeARN
-    , rtrprStatusCode
+    , rtrprStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | RetrieveTapeRecoveryPointInput
 --
@@ -58,11 +58,18 @@ import Network.AWS.StorageGateway.Types
 -- * 'rtrpTapeARN'
 --
 -- * 'rtrpGatewayARN'
-data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint'{_rtrpTapeARN :: Text, _rtrpGatewayARN :: Text} deriving (Eq, Read, Show)
+data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint'
+    { _rtrpTapeARN    :: Text
+    , _rtrpGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RetrieveTapeRecoveryPoint' smart constructor.
 retrieveTapeRecoveryPoint :: Text -> Text -> RetrieveTapeRecoveryPoint
-retrieveTapeRecoveryPoint pTapeARN pGatewayARN = RetrieveTapeRecoveryPoint'{_rtrpTapeARN = pTapeARN, _rtrpGatewayARN = pGatewayARN};
+retrieveTapeRecoveryPoint pTapeARN pGatewayARN =
+    RetrieveTapeRecoveryPoint'
+    { _rtrpTapeARN = pTapeARN
+    , _rtrpGatewayARN = pGatewayARN
+    }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which you want to
 -- retrieve the recovery point.
@@ -114,12 +121,19 @@ instance ToQuery RetrieveTapeRecoveryPoint where
 --
 -- * 'rtrprTapeARN'
 --
--- * 'rtrprStatusCode'
-data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'{_rtrprTapeARN :: Maybe Text, _rtrprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'rtrprStatus'
+data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'
+    { _rtrprTapeARN :: Maybe Text
+    , _rtrprStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RetrieveTapeRecoveryPointResponse' smart constructor.
 retrieveTapeRecoveryPointResponse :: Int -> RetrieveTapeRecoveryPointResponse
-retrieveTapeRecoveryPointResponse pStatusCode = RetrieveTapeRecoveryPointResponse'{_rtrprTapeARN = Nothing, _rtrprStatusCode = pStatusCode};
+retrieveTapeRecoveryPointResponse pStatus =
+    RetrieveTapeRecoveryPointResponse'
+    { _rtrprTapeARN = Nothing
+    , _rtrprStatus = pStatus
+    }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which the
 -- recovery point was retrieved.
@@ -127,5 +141,5 @@ rtrprTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprTapeARN = lens _rtrprTapeARN (\ s a -> s{_rtrprTapeARN = a});
 
 -- | FIXME: Undocumented member.
-rtrprStatusCode :: Lens' RetrieveTapeRecoveryPointResponse Int
-rtrprStatusCode = lens _rtrprStatusCode (\ s a -> s{_rtrprStatusCode = a});
+rtrprStatus :: Lens' RetrieveTapeRecoveryPointResponse Int
+rtrprStatus = lens _rtrprStatus (\ s a -> s{_rtrprStatus = a});

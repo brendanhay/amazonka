@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,14 +36,14 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     -- ** Response lenses
     , dasirNextToken
     , dasirAutoScalingInstances
-    , dasirStatusCode
+    , dasirStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAutoScalingInstances' smart constructor.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'dasiInstanceIds'
 --
 -- * 'dasiMaxRecords'
-data DescribeAutoScalingInstances = DescribeAutoScalingInstances'{_dasiNextToken :: Maybe Text, _dasiInstanceIds :: Maybe [Text], _dasiMaxRecords :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
+    { _dasiNextToken   :: Maybe Text
+    , _dasiInstanceIds :: Maybe [Text]
+    , _dasiMaxRecords  :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAutoScalingInstances' smart constructor.
 describeAutoScalingInstances :: DescribeAutoScalingInstances
-describeAutoScalingInstances = DescribeAutoScalingInstances'{_dasiNextToken = Nothing, _dasiInstanceIds = Nothing, _dasiMaxRecords = Nothing};
+describeAutoScalingInstances =
+    DescribeAutoScalingInstances'
+    { _dasiNextToken = Nothing
+    , _dasiInstanceIds = Nothing
+    , _dasiMaxRecords = Nothing
+    }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -123,12 +132,21 @@ instance ToQuery DescribeAutoScalingInstances where
 --
 -- * 'dasirAutoScalingInstances'
 --
--- * 'dasirStatusCode'
-data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'{_dasirNextToken :: Maybe Text, _dasirAutoScalingInstances :: Maybe [AutoScalingInstanceDetails], _dasirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dasirStatus'
+data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'
+    { _dasirNextToken            :: Maybe Text
+    , _dasirAutoScalingInstances :: Maybe [AutoScalingInstanceDetails]
+    , _dasirStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAutoScalingInstancesResponse' smart constructor.
 describeAutoScalingInstancesResponse :: Int -> DescribeAutoScalingInstancesResponse
-describeAutoScalingInstancesResponse pStatusCode = DescribeAutoScalingInstancesResponse'{_dasirNextToken = Nothing, _dasirAutoScalingInstances = Nothing, _dasirStatusCode = pStatusCode};
+describeAutoScalingInstancesResponse pStatus =
+    DescribeAutoScalingInstancesResponse'
+    { _dasirNextToken = Nothing
+    , _dasirAutoScalingInstances = Nothing
+    , _dasirStatus = pStatus
+    }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -140,5 +158,5 @@ dasirAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoSca
 dasirAutoScalingInstances = lens _dasirAutoScalingInstances (\ s a -> s{_dasirAutoScalingInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dasirStatusCode :: Lens' DescribeAutoScalingInstancesResponse Int
-dasirStatusCode = lens _dasirStatusCode (\ s a -> s{_dasirStatusCode = a});
+dasirStatus :: Lens' DescribeAutoScalingInstancesResponse Int
+dasirStatus = lens _dasirStatus (\ s a -> s{_dasirStatus = a});

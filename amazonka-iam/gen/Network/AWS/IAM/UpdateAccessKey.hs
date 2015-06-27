@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.UpdateAccessKey
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,10 +46,10 @@ module Network.AWS.IAM.UpdateAccessKey
     , updateAccessKeyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateAccessKey' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'uakAccessKeyId'
 --
 -- * 'uakStatus'
-data UpdateAccessKey = UpdateAccessKey'{_uakUserName :: Maybe Text, _uakAccessKeyId :: Text, _uakStatus :: StatusType} deriving (Eq, Read, Show)
+data UpdateAccessKey = UpdateAccessKey'
+    { _uakUserName    :: Maybe Text
+    , _uakAccessKeyId :: Text
+    , _uakStatus      :: StatusType
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateAccessKey' smart constructor.
 updateAccessKey :: Text -> StatusType -> UpdateAccessKey
-updateAccessKey pAccessKeyId pStatus = UpdateAccessKey'{_uakUserName = Nothing, _uakAccessKeyId = pAccessKeyId, _uakStatus = pStatus};
+updateAccessKey pAccessKeyId pStatus =
+    UpdateAccessKey'
+    { _uakUserName = Nothing
+    , _uakAccessKeyId = pAccessKeyId
+    , _uakStatus = pStatus
+    }
 
 -- | The name of the user whose key you want to update.
 uakUserName :: Lens' UpdateAccessKey (Maybe Text)
@@ -102,8 +111,10 @@ instance ToQuery UpdateAccessKey where
                "Status" =: _uakStatus]
 
 -- | /See:/ 'updateAccessKeyResponse' smart constructor.
-data UpdateAccessKeyResponse = UpdateAccessKeyResponse' deriving (Eq, Read, Show)
+data UpdateAccessKeyResponse =
+    UpdateAccessKeyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateAccessKeyResponse' smart constructor.
 updateAccessKeyResponse :: UpdateAccessKeyResponse
-updateAccessKeyResponse = UpdateAccessKeyResponse';
+updateAccessKeyResponse = UpdateAccessKeyResponse'

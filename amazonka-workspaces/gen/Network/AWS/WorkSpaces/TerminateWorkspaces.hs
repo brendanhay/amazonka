@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.WorkSpaces.TerminateWorkspaces
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.WorkSpaces.TerminateWorkspaces
     , terminateWorkspacesResponse
     -- ** Response lenses
     , twrFailedRequests
-    , twrStatusCode
+    , twrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.WorkSpaces.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.WorkSpaces.Types
 
 -- | Contains the inputs for the TerminateWorkspaces operation.
 --
@@ -57,11 +57,16 @@ import Network.AWS.WorkSpaces.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'twTerminateWorkspaceRequests'
-newtype TerminateWorkspaces = TerminateWorkspaces'{_twTerminateWorkspaceRequests :: List1 TerminateRequest} deriving (Eq, Read, Show)
+newtype TerminateWorkspaces = TerminateWorkspaces'
+    { _twTerminateWorkspaceRequests :: List1 TerminateRequest
+    } deriving (Eq,Read,Show)
 
 -- | 'TerminateWorkspaces' smart constructor.
 terminateWorkspaces :: NonEmpty TerminateRequest -> TerminateWorkspaces
-terminateWorkspaces pTerminateWorkspaceRequests = TerminateWorkspaces'{_twTerminateWorkspaceRequests = _List1 # pTerminateWorkspaceRequests};
+terminateWorkspaces pTerminateWorkspaceRequests =
+    TerminateWorkspaces'
+    { _twTerminateWorkspaceRequests = _List1 # pTerminateWorkspaceRequests
+    }
 
 -- | An array of structures that specify the WorkSpaces to terminate.
 twTerminateWorkspaceRequests :: Lens' TerminateWorkspaces (NonEmpty TerminateRequest)
@@ -109,12 +114,19 @@ instance ToQuery TerminateWorkspaces where
 --
 -- * 'twrFailedRequests'
 --
--- * 'twrStatusCode'
-data TerminateWorkspacesResponse = TerminateWorkspacesResponse'{_twrFailedRequests :: Maybe [FailedWorkspaceChangeRequest], _twrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'twrStatus'
+data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
+    { _twrFailedRequests :: Maybe [FailedWorkspaceChangeRequest]
+    , _twrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'TerminateWorkspacesResponse' smart constructor.
 terminateWorkspacesResponse :: Int -> TerminateWorkspacesResponse
-terminateWorkspacesResponse pStatusCode = TerminateWorkspacesResponse'{_twrFailedRequests = Nothing, _twrStatusCode = pStatusCode};
+terminateWorkspacesResponse pStatus =
+    TerminateWorkspacesResponse'
+    { _twrFailedRequests = Nothing
+    , _twrStatus = pStatus
+    }
 
 -- | An array of structures that represent any WorkSpaces that could not be
 -- terminated.
@@ -122,5 +134,5 @@ twrFailedRequests :: Lens' TerminateWorkspacesResponse [FailedWorkspaceChangeReq
 twrFailedRequests = lens _twrFailedRequests (\ s a -> s{_twrFailedRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-twrStatusCode :: Lens' TerminateWorkspacesResponse Int
-twrStatusCode = lens _twrStatusCode (\ s a -> s{_twrStatusCode = a});
+twrStatus :: Lens' TerminateWorkspacesResponse Int
+twrStatus = lens _twrStatus (\ s a -> s{_twrStatus = a});

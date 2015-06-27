@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.ELB.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -223,122 +222,143 @@ module Network.AWS.ELB.Types
     , tkoKey
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2012-06-01@ of the Amazon Elastic Load Balancing SDK.
 data ELB
 
 instance AWSService ELB where
     type Sg ELB = V4
-
     service = const svc
       where
-        svc :: Service ELB
-        svc = Service
-            { _svcAbbrev   = "ELB"
-            , _svcPrefix   = "elasticloadbalancing"
-            , _svcVersion  = "2012-06-01"
+        svc =
+            Service
+            { _svcAbbrev = "ELB"
+            , _svcPrefix = "elasticloadbalancing"
+            , _svcVersion = "2012-06-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | One or more of the specified policies do not exist.
-_PolicyNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PolicyNotFoundException = _ServiceError . hasStatus 400 . hasCode "PolicyNotFound";
+_PolicyNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PolicyNotFoundException =
+    _ServiceError . hasStatus 400 . hasCode "PolicyNotFound"
 
 -- | The specified load balancer does not exist.
-_AccessPointNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_AccessPointNotFoundException = _ServiceError . hasStatus 400 . hasCode "LoadBalancerNotFound";
+_AccessPointNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_AccessPointNotFoundException =
+    _ServiceError . hasStatus 400 . hasCode "LoadBalancerNotFound"
 
 -- | A policy with the specified name already exists for this load balancer.
-_DuplicatePolicyNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicatePolicyNameException = _ServiceError . hasStatus 400 . hasCode "DuplicatePolicyName";
+_DuplicatePolicyNameException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DuplicatePolicyNameException =
+    _ServiceError . hasStatus 400 . hasCode "DuplicatePolicyName"
 
 -- | The requested configuration change is not valid.
-_InvalidConfigurationRequestException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidConfigurationRequestException = _ServiceError . hasStatus 409 . hasCode "InvalidConfigurationRequest";
+_InvalidConfigurationRequestException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidConfigurationRequestException =
+    _ServiceError . hasStatus 409 . hasCode "InvalidConfigurationRequest"
 
 -- | One or more of the specified subnets do not exist.
-_SubnetNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubnetNotFoundException = _ServiceError . hasStatus 400 . hasCode "SubnetNotFound";
+_SubnetNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubnetNotFoundException =
+    _ServiceError . hasStatus 400 . hasCode "SubnetNotFound"
 
 -- | The specified load balancer attribute does not exist.
-_LoadBalancerAttributeNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LoadBalancerAttributeNotFoundException = _ServiceError . hasStatus 400 . hasCode "LoadBalancerAttributeNotFound";
+_LoadBalancerAttributeNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LoadBalancerAttributeNotFoundException =
+    _ServiceError . hasStatus 400 . hasCode "LoadBalancerAttributeNotFound"
 
 -- | The specified VPC has no associated Internet gateway.
-_InvalidSubnetException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSubnetException = _ServiceError . hasStatus 400 . hasCode "InvalidSubnet";
+_InvalidSubnetException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSubnetException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidSubnet"
 
 -- | A tag key was specified more than once.
-_DuplicateTagKeysException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicateTagKeysException = _ServiceError . hasStatus 400 . hasCode "DuplicateTagKeys";
+_DuplicateTagKeysException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DuplicateTagKeysException =
+    _ServiceError . hasStatus 400 . hasCode "DuplicateTagKeys"
 
 -- | A listener already exists for the specified @LoadBalancerName@ and
 -- @LoadBalancerPort@, but with a different @InstancePort@, @Protocol@, or
 -- @SSLCertificateId@.
-_DuplicateListenerException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicateListenerException = _ServiceError . hasStatus 400 . hasCode "DuplicateListener";
+_DuplicateListenerException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DuplicateListenerException =
+    _ServiceError . hasStatus 400 . hasCode "DuplicateListener"
 
 -- | The quota for the number of tags that can be assigned to a load balancer
 -- has been reached.
-_TooManyTagsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyTagsException = _ServiceError . hasStatus 400 . hasCode "TooManyTags";
+_TooManyTagsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyTagsException = _ServiceError . hasStatus 400 . hasCode "TooManyTags"
 
 -- | One or more of the specified policy types do not exist.
-_PolicyTypeNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PolicyTypeNotFoundException = _ServiceError . hasStatus 400 . hasCode "PolicyTypeNotFound";
+_PolicyTypeNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PolicyTypeNotFoundException =
+    _ServiceError . hasStatus 400 . hasCode "PolicyTypeNotFound"
 
 -- | The specified load balancer name already exists for this account.
-_DuplicateAccessPointNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicateAccessPointNameException = _ServiceError . hasStatus 400 . hasCode "DuplicateLoadBalancerName";
+_DuplicateAccessPointNameException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DuplicateAccessPointNameException =
+    _ServiceError . hasStatus 400 . hasCode "DuplicateLoadBalancerName"
 
 -- | One or more of the specified security groups do not exist.
-_InvalidSecurityGroupException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSecurityGroupException = _ServiceError . hasStatus 400 . hasCode "InvalidSecurityGroup";
+_InvalidSecurityGroupException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSecurityGroupException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidSecurityGroup"
 
 -- | The load balancer does not have a listener configured at the specified
 -- port.
-_ListenerNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ListenerNotFoundException = _ServiceError . hasStatus 400 . hasCode "ListenerNotFound";
+_ListenerNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ListenerNotFoundException =
+    _ServiceError . hasStatus 400 . hasCode "ListenerNotFound"
 
 -- | The specified endpoint is not valid.
-_InvalidEndPointException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidEndPointException = _ServiceError . hasStatus 400 . hasCode "InvalidInstance";
+_InvalidEndPointException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidEndPointException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidInstance"
 
 -- | The quota for the number of load balancers has been reached.
-_TooManyAccessPointsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyAccessPointsException = _ServiceError . hasStatus 400 . hasCode "TooManyLoadBalancers";
+_TooManyAccessPointsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyAccessPointsException =
+    _ServiceError . hasStatus 400 . hasCode "TooManyLoadBalancers"
 
 -- | The specified value for the schema is not valid. You can only specify a
 -- scheme for load balancers in a VPC.
-_InvalidSchemeException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSchemeException = _ServiceError . hasStatus 400 . hasCode "InvalidScheme";
+_InvalidSchemeException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSchemeException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidScheme"
 
 -- | The quota for the number of policies for this load balancer has been
 -- reached.
-_TooManyPoliciesException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyPoliciesException = _ServiceError . hasStatus 400 . hasCode "TooManyPolicies";
+_TooManyPoliciesException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyPoliciesException =
+    _ServiceError . hasStatus 400 . hasCode "TooManyPolicies"
 
 -- | The specified SSL ID does not refer to a valid SSL certificate in AWS
 -- Identity and Access Management (IAM).
-_CertificateNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_CertificateNotFoundException = _ServiceError . hasStatus 400 . hasCode "CertificateNotFound";
+_CertificateNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_CertificateNotFoundException =
+    _ServiceError . hasStatus 400 . hasCode "CertificateNotFound"
 
 -- | Information about the @AccessLog@ attribute.
 --
@@ -353,11 +373,22 @@ _CertificateNotFoundException = _ServiceError . hasStatus 400 . hasCode "Certifi
 -- * 'alS3BucketName'
 --
 -- * 'alEnabled'
-data AccessLog = AccessLog'{_alEmitInterval :: Maybe Int, _alS3BucketPrefix :: Maybe Text, _alS3BucketName :: Maybe Text, _alEnabled :: Bool} deriving (Eq, Read, Show)
+data AccessLog = AccessLog'
+    { _alEmitInterval   :: Maybe Int
+    , _alS3BucketPrefix :: Maybe Text
+    , _alS3BucketName   :: Maybe Text
+    , _alEnabled        :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'AccessLog' smart constructor.
 accessLog :: Bool -> AccessLog
-accessLog pEnabled = AccessLog'{_alEmitInterval = Nothing, _alS3BucketPrefix = Nothing, _alS3BucketName = Nothing, _alEnabled = pEnabled};
+accessLog pEnabled =
+    AccessLog'
+    { _alEmitInterval = Nothing
+    , _alS3BucketPrefix = Nothing
+    , _alS3BucketName = Nothing
+    , _alEnabled = pEnabled
+    }
 
 -- | The interval for publishing the access logs. You can specify an interval
 -- of either 5 minutes or 60 minutes.
@@ -404,11 +435,18 @@ instance ToQuery AccessLog where
 -- * 'aaValue'
 --
 -- * 'aaKey'
-data AdditionalAttribute = AdditionalAttribute'{_aaValue :: Maybe Text, _aaKey :: Maybe Text} deriving (Eq, Read, Show)
+data AdditionalAttribute = AdditionalAttribute'
+    { _aaValue :: Maybe Text
+    , _aaKey   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AdditionalAttribute' smart constructor.
 additionalAttribute :: AdditionalAttribute
-additionalAttribute = AdditionalAttribute'{_aaValue = Nothing, _aaKey = Nothing};
+additionalAttribute =
+    AdditionalAttribute'
+    { _aaValue = Nothing
+    , _aaKey = Nothing
+    }
 
 -- | This parameter is reserved.
 aaValue :: Lens' AdditionalAttribute (Maybe Text)
@@ -437,11 +475,18 @@ instance ToQuery AdditionalAttribute where
 -- * 'acspPolicyName'
 --
 -- * 'acspCookieName'
-data AppCookieStickinessPolicy = AppCookieStickinessPolicy'{_acspPolicyName :: Maybe Text, _acspCookieName :: Maybe Text} deriving (Eq, Read, Show)
+data AppCookieStickinessPolicy = AppCookieStickinessPolicy'
+    { _acspPolicyName :: Maybe Text
+    , _acspCookieName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AppCookieStickinessPolicy' smart constructor.
 appCookieStickinessPolicy :: AppCookieStickinessPolicy
-appCookieStickinessPolicy = AppCookieStickinessPolicy'{_acspPolicyName = Nothing, _acspCookieName = Nothing};
+appCookieStickinessPolicy =
+    AppCookieStickinessPolicy'
+    { _acspPolicyName = Nothing
+    , _acspCookieName = Nothing
+    }
 
 -- | The mnemonic name for the policy being created. The name must be unique
 -- within a set of policies for this load balancer.
@@ -466,11 +511,18 @@ instance FromXML AppCookieStickinessPolicy where
 -- * 'bsdPolicyNames'
 --
 -- * 'bsdInstancePort'
-data BackendServerDescription = BackendServerDescription'{_bsdPolicyNames :: Maybe [Text], _bsdInstancePort :: Maybe Nat} deriving (Eq, Read, Show)
+data BackendServerDescription = BackendServerDescription'
+    { _bsdPolicyNames  :: Maybe [Text]
+    , _bsdInstancePort :: Maybe Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'BackendServerDescription' smart constructor.
 backendServerDescription :: BackendServerDescription
-backendServerDescription = BackendServerDescription'{_bsdPolicyNames = Nothing, _bsdInstancePort = Nothing};
+backendServerDescription =
+    BackendServerDescription'
+    { _bsdPolicyNames = Nothing
+    , _bsdInstancePort = Nothing
+    }
 
 -- | The names of the policies enabled for the back-end server.
 bsdPolicyNames :: Lens' BackendServerDescription [Text]
@@ -496,11 +548,18 @@ instance FromXML BackendServerDescription where
 -- * 'cdTimeout'
 --
 -- * 'cdEnabled'
-data ConnectionDraining = ConnectionDraining'{_cdTimeout :: Maybe Int, _cdEnabled :: Bool} deriving (Eq, Read, Show)
+data ConnectionDraining = ConnectionDraining'
+    { _cdTimeout :: Maybe Int
+    , _cdEnabled :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'ConnectionDraining' smart constructor.
 connectionDraining :: Bool -> ConnectionDraining
-connectionDraining pEnabled = ConnectionDraining'{_cdTimeout = Nothing, _cdEnabled = pEnabled};
+connectionDraining pEnabled =
+    ConnectionDraining'
+    { _cdTimeout = Nothing
+    , _cdEnabled = pEnabled
+    }
 
 -- | The maximum time, in seconds, to keep the existing connections open
 -- before deregistering the instances.
@@ -528,11 +587,16 @@ instance ToQuery ConnectionDraining where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csIdleTimeout'
-newtype ConnectionSettings = ConnectionSettings'{_csIdleTimeout :: Nat} deriving (Eq, Read, Show)
+newtype ConnectionSettings = ConnectionSettings'
+    { _csIdleTimeout :: Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'ConnectionSettings' smart constructor.
 connectionSettings :: Natural -> ConnectionSettings
-connectionSettings pIdleTimeout = ConnectionSettings'{_csIdleTimeout = _Nat # pIdleTimeout};
+connectionSettings pIdleTimeout =
+    ConnectionSettings'
+    { _csIdleTimeout = _Nat # pIdleTimeout
+    }
 
 -- | The time, in seconds, that the connection is allowed to be idle (no data
 -- has been sent over the connection) before it is closed by the load
@@ -555,11 +619,16 @@ instance ToQuery ConnectionSettings where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'czlbEnabled'
-newtype CrossZoneLoadBalancing = CrossZoneLoadBalancing'{_czlbEnabled :: Bool} deriving (Eq, Read, Show)
+newtype CrossZoneLoadBalancing = CrossZoneLoadBalancing'
+    { _czlbEnabled :: Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'CrossZoneLoadBalancing' smart constructor.
 crossZoneLoadBalancing :: Bool -> CrossZoneLoadBalancing
-crossZoneLoadBalancing pEnabled = CrossZoneLoadBalancing'{_czlbEnabled = pEnabled};
+crossZoneLoadBalancing pEnabled =
+    CrossZoneLoadBalancing'
+    { _czlbEnabled = pEnabled
+    }
 
 -- | Specifies whether cross-zone load balancing is enabled for the load
 -- balancer.
@@ -589,11 +658,24 @@ instance ToQuery CrossZoneLoadBalancing where
 -- * 'hcUnhealthyThreshold'
 --
 -- * 'hcHealthyThreshold'
-data HealthCheck = HealthCheck'{_hcTarget :: Text, _hcInterval :: Nat, _hcTimeout :: Nat, _hcUnhealthyThreshold :: Nat, _hcHealthyThreshold :: Nat} deriving (Eq, Read, Show)
+data HealthCheck = HealthCheck'
+    { _hcTarget             :: Text
+    , _hcInterval           :: !Nat
+    , _hcTimeout            :: !Nat
+    , _hcUnhealthyThreshold :: !Nat
+    , _hcHealthyThreshold   :: !Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'HealthCheck' smart constructor.
 healthCheck :: Text -> Natural -> Natural -> Natural -> Natural -> HealthCheck
-healthCheck pTarget pInterval pTimeout pUnhealthyThreshold pHealthyThreshold = HealthCheck'{_hcTarget = pTarget, _hcInterval = _Nat # pInterval, _hcTimeout = _Nat # pTimeout, _hcUnhealthyThreshold = _Nat # pUnhealthyThreshold, _hcHealthyThreshold = _Nat # pHealthyThreshold};
+healthCheck pTarget pInterval pTimeout pUnhealthyThreshold pHealthyThreshold =
+    HealthCheck'
+    { _hcTarget = pTarget
+    , _hcInterval = _Nat # pInterval
+    , _hcTimeout = _Nat # pTimeout
+    , _hcUnhealthyThreshold = _Nat # pUnhealthyThreshold
+    , _hcHealthyThreshold = _Nat # pHealthyThreshold
+    }
 
 -- | The instance being checked. The protocol is either TCP, HTTP, HTTPS, or
 -- SSL. The range of valid ports is one (1) through 65535.
@@ -661,11 +743,16 @@ instance ToQuery HealthCheck where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'insInstanceId'
-newtype Instance = Instance'{_insInstanceId :: Maybe Text} deriving (Eq, Read, Show)
+newtype Instance = Instance'
+    { _insInstanceId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Instance' smart constructor.
 instance' :: Instance
-instance' = Instance'{_insInstanceId = Nothing};
+instance' =
+    Instance'
+    { _insInstanceId = Nothing
+    }
 
 -- | The ID of the instance.
 insInstanceId :: Lens' Instance (Maybe Text)
@@ -691,11 +778,22 @@ instance ToQuery Instance where
 -- * 'isReasonCode'
 --
 -- * 'isDescription'
-data InstanceState = InstanceState'{_isInstanceId :: Maybe Text, _isState :: Maybe Text, _isReasonCode :: Maybe Text, _isDescription :: Maybe Text} deriving (Eq, Read, Show)
+data InstanceState = InstanceState'
+    { _isInstanceId  :: Maybe Text
+    , _isState       :: Maybe Text
+    , _isReasonCode  :: Maybe Text
+    , _isDescription :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceState' smart constructor.
 instanceState :: InstanceState
-instanceState = InstanceState'{_isInstanceId = Nothing, _isState = Nothing, _isReasonCode = Nothing, _isDescription = Nothing};
+instanceState =
+    InstanceState'
+    { _isInstanceId = Nothing
+    , _isState = Nothing
+    , _isReasonCode = Nothing
+    , _isDescription = Nothing
+    }
 
 -- | The ID of the instance.
 isInstanceId :: Lens' InstanceState (Maybe Text)
@@ -760,11 +858,18 @@ instance FromXML InstanceState where
 -- * 'lbcspPolicyName'
 --
 -- * 'lbcspCookieExpirationPeriod'
-data LBCookieStickinessPolicy = LBCookieStickinessPolicy'{_lbcspPolicyName :: Maybe Text, _lbcspCookieExpirationPeriod :: Maybe Integer} deriving (Eq, Read, Show)
+data LBCookieStickinessPolicy = LBCookieStickinessPolicy'
+    { _lbcspPolicyName             :: Maybe Text
+    , _lbcspCookieExpirationPeriod :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'LBCookieStickinessPolicy' smart constructor.
 lBCookieStickinessPolicy :: LBCookieStickinessPolicy
-lBCookieStickinessPolicy = LBCookieStickinessPolicy'{_lbcspPolicyName = Nothing, _lbcspCookieExpirationPeriod = Nothing};
+lBCookieStickinessPolicy =
+    LBCookieStickinessPolicy'
+    { _lbcspPolicyName = Nothing
+    , _lbcspCookieExpirationPeriod = Nothing
+    }
 
 -- | The name for the policy being created. The name must be unique within
 -- the set of policies for this load balancer.
@@ -803,11 +908,24 @@ instance FromXML LBCookieStickinessPolicy where
 -- * 'lisLoadBalancerPort'
 --
 -- * 'lisInstancePort'
-data Listener = Listener'{_lisInstanceProtocol :: Maybe Text, _lisSSLCertificateId :: Maybe Text, _lisProtocol :: Text, _lisLoadBalancerPort :: Int, _lisInstancePort :: Nat} deriving (Eq, Read, Show)
+data Listener = Listener'
+    { _lisInstanceProtocol :: Maybe Text
+    , _lisSSLCertificateId :: Maybe Text
+    , _lisProtocol         :: Text
+    , _lisLoadBalancerPort :: !Int
+    , _lisInstancePort     :: !Nat
+    } deriving (Eq,Read,Show)
 
 -- | 'Listener' smart constructor.
 listener :: Text -> Int -> Natural -> Listener
-listener pProtocol pLoadBalancerPort pInstancePort = Listener'{_lisInstanceProtocol = Nothing, _lisSSLCertificateId = Nothing, _lisProtocol = pProtocol, _lisLoadBalancerPort = pLoadBalancerPort, _lisInstancePort = _Nat # pInstancePort};
+listener pProtocol pLoadBalancerPort pInstancePort =
+    Listener'
+    { _lisInstanceProtocol = Nothing
+    , _lisSSLCertificateId = Nothing
+    , _lisProtocol = pProtocol
+    , _lisLoadBalancerPort = pLoadBalancerPort
+    , _lisInstancePort = _Nat # pInstancePort
+    }
 
 -- | The protocol to use for routing traffic to back-end instances: HTTP,
 -- HTTPS, TCP, or SSL.
@@ -870,11 +988,18 @@ instance ToQuery Listener where
 -- * 'ldPolicyNames'
 --
 -- * 'ldListener'
-data ListenerDescription = ListenerDescription'{_ldPolicyNames :: Maybe [Text], _ldListener :: Maybe Listener} deriving (Eq, Read, Show)
+data ListenerDescription = ListenerDescription'
+    { _ldPolicyNames :: Maybe [Text]
+    , _ldListener    :: Maybe Listener
+    } deriving (Eq,Read,Show)
 
 -- | 'ListenerDescription' smart constructor.
 listenerDescription :: ListenerDescription
-listenerDescription = ListenerDescription'{_ldPolicyNames = Nothing, _ldListener = Nothing};
+listenerDescription =
+    ListenerDescription'
+    { _ldPolicyNames = Nothing
+    , _ldListener = Nothing
+    }
 
 -- | The policies. If there are no policies enabled, the list is empty.
 ldPolicyNames :: Lens' ListenerDescription [Text]
@@ -906,11 +1031,24 @@ instance FromXML ListenerDescription where
 -- * 'lbaConnectionSettings'
 --
 -- * 'lbaConnectionDraining'
-data LoadBalancerAttributes = LoadBalancerAttributes'{_lbaCrossZoneLoadBalancing :: Maybe CrossZoneLoadBalancing, _lbaAccessLog :: Maybe AccessLog, _lbaAdditionalAttributes :: Maybe [AdditionalAttribute], _lbaConnectionSettings :: Maybe ConnectionSettings, _lbaConnectionDraining :: Maybe ConnectionDraining} deriving (Eq, Read, Show)
+data LoadBalancerAttributes = LoadBalancerAttributes'
+    { _lbaCrossZoneLoadBalancing :: Maybe CrossZoneLoadBalancing
+    , _lbaAccessLog              :: Maybe AccessLog
+    , _lbaAdditionalAttributes   :: Maybe [AdditionalAttribute]
+    , _lbaConnectionSettings     :: Maybe ConnectionSettings
+    , _lbaConnectionDraining     :: Maybe ConnectionDraining
+    } deriving (Eq,Read,Show)
 
 -- | 'LoadBalancerAttributes' smart constructor.
 loadBalancerAttributes :: LoadBalancerAttributes
-loadBalancerAttributes = LoadBalancerAttributes'{_lbaCrossZoneLoadBalancing = Nothing, _lbaAccessLog = Nothing, _lbaAdditionalAttributes = Nothing, _lbaConnectionSettings = Nothing, _lbaConnectionDraining = Nothing};
+loadBalancerAttributes =
+    LoadBalancerAttributes'
+    { _lbaCrossZoneLoadBalancing = Nothing
+    , _lbaAccessLog = Nothing
+    , _lbaAdditionalAttributes = Nothing
+    , _lbaConnectionSettings = Nothing
+    , _lbaConnectionDraining = Nothing
+    }
 
 -- | If enabled, the load balancer routes the request traffic evenly across
 -- all back-end instances regardless of the Availability Zones.
@@ -1016,11 +1154,46 @@ instance ToQuery LoadBalancerAttributes where
 -- * 'lbdDNSName'
 --
 -- * 'lbdPolicies'
-data LoadBalancerDescription = LoadBalancerDescription'{_lbdSourceSecurityGroup :: Maybe SourceSecurityGroup, _lbdHealthCheck :: Maybe HealthCheck, _lbdCanonicalHostedZoneName :: Maybe Text, _lbdSecurityGroups :: Maybe [Text], _lbdLoadBalancerName :: Maybe Text, _lbdCreatedTime :: Maybe ISO8601, _lbdVPCId :: Maybe Text, _lbdSubnets :: Maybe [Text], _lbdAvailabilityZones :: Maybe [Text], _lbdBackendServerDescriptions :: Maybe [BackendServerDescription], _lbdCanonicalHostedZoneNameID :: Maybe Text, _lbdInstances :: Maybe [Instance], _lbdScheme :: Maybe Text, _lbdListenerDescriptions :: Maybe [ListenerDescription], _lbdDNSName :: Maybe Text, _lbdPolicies :: Maybe Policies} deriving (Eq, Read, Show)
+data LoadBalancerDescription = LoadBalancerDescription'
+    { _lbdSourceSecurityGroup       :: Maybe SourceSecurityGroup
+    , _lbdHealthCheck               :: Maybe HealthCheck
+    , _lbdCanonicalHostedZoneName   :: Maybe Text
+    , _lbdSecurityGroups            :: Maybe [Text]
+    , _lbdLoadBalancerName          :: Maybe Text
+    , _lbdCreatedTime               :: Maybe ISO8601
+    , _lbdVPCId                     :: Maybe Text
+    , _lbdSubnets                   :: Maybe [Text]
+    , _lbdAvailabilityZones         :: Maybe [Text]
+    , _lbdBackendServerDescriptions :: Maybe [BackendServerDescription]
+    , _lbdCanonicalHostedZoneNameID :: Maybe Text
+    , _lbdInstances                 :: Maybe [Instance]
+    , _lbdScheme                    :: Maybe Text
+    , _lbdListenerDescriptions      :: Maybe [ListenerDescription]
+    , _lbdDNSName                   :: Maybe Text
+    , _lbdPolicies                  :: Maybe Policies
+    } deriving (Eq,Read,Show)
 
 -- | 'LoadBalancerDescription' smart constructor.
 loadBalancerDescription :: LoadBalancerDescription
-loadBalancerDescription = LoadBalancerDescription'{_lbdSourceSecurityGroup = Nothing, _lbdHealthCheck = Nothing, _lbdCanonicalHostedZoneName = Nothing, _lbdSecurityGroups = Nothing, _lbdLoadBalancerName = Nothing, _lbdCreatedTime = Nothing, _lbdVPCId = Nothing, _lbdSubnets = Nothing, _lbdAvailabilityZones = Nothing, _lbdBackendServerDescriptions = Nothing, _lbdCanonicalHostedZoneNameID = Nothing, _lbdInstances = Nothing, _lbdScheme = Nothing, _lbdListenerDescriptions = Nothing, _lbdDNSName = Nothing, _lbdPolicies = Nothing};
+loadBalancerDescription =
+    LoadBalancerDescription'
+    { _lbdSourceSecurityGroup = Nothing
+    , _lbdHealthCheck = Nothing
+    , _lbdCanonicalHostedZoneName = Nothing
+    , _lbdSecurityGroups = Nothing
+    , _lbdLoadBalancerName = Nothing
+    , _lbdCreatedTime = Nothing
+    , _lbdVPCId = Nothing
+    , _lbdSubnets = Nothing
+    , _lbdAvailabilityZones = Nothing
+    , _lbdBackendServerDescriptions = Nothing
+    , _lbdCanonicalHostedZoneNameID = Nothing
+    , _lbdInstances = Nothing
+    , _lbdScheme = Nothing
+    , _lbdListenerDescriptions = Nothing
+    , _lbdDNSName = Nothing
+    , _lbdPolicies = Nothing
+    }
 
 -- | The security group that you can use as part of your inbound rules for
 -- your load balancer\'s back-end application instances. To only allow
@@ -1145,11 +1318,20 @@ instance FromXML LoadBalancerDescription where
 -- * 'polLBCookieStickinessPolicies'
 --
 -- * 'polAppCookieStickinessPolicies'
-data Policies = Policies'{_polOtherPolicies :: Maybe [Text], _polLBCookieStickinessPolicies :: Maybe [LBCookieStickinessPolicy], _polAppCookieStickinessPolicies :: Maybe [AppCookieStickinessPolicy]} deriving (Eq, Read, Show)
+data Policies = Policies'
+    { _polOtherPolicies               :: Maybe [Text]
+    , _polLBCookieStickinessPolicies  :: Maybe [LBCookieStickinessPolicy]
+    , _polAppCookieStickinessPolicies :: Maybe [AppCookieStickinessPolicy]
+    } deriving (Eq,Read,Show)
 
 -- | 'Policies' smart constructor.
 policies :: Policies
-policies = Policies'{_polOtherPolicies = Nothing, _polLBCookieStickinessPolicies = Nothing, _polAppCookieStickinessPolicies = Nothing};
+policies =
+    Policies'
+    { _polOtherPolicies = Nothing
+    , _polLBCookieStickinessPolicies = Nothing
+    , _polAppCookieStickinessPolicies = Nothing
+    }
 
 -- | The policies other than the stickiness policies.
 polOtherPolicies :: Lens' Policies [Text]
@@ -1184,11 +1366,18 @@ instance FromXML Policies where
 -- * 'paAttributeValue'
 --
 -- * 'paAttributeName'
-data PolicyAttribute = PolicyAttribute'{_paAttributeValue :: Maybe Text, _paAttributeName :: Maybe Text} deriving (Eq, Read, Show)
+data PolicyAttribute = PolicyAttribute'
+    { _paAttributeValue :: Maybe Text
+    , _paAttributeName  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PolicyAttribute' smart constructor.
 policyAttribute :: PolicyAttribute
-policyAttribute = PolicyAttribute'{_paAttributeValue = Nothing, _paAttributeName = Nothing};
+policyAttribute =
+    PolicyAttribute'
+    { _paAttributeValue = Nothing
+    , _paAttributeName = Nothing
+    }
 
 -- | The value of the attribute.
 paAttributeValue :: Lens' PolicyAttribute (Maybe Text)
@@ -1213,11 +1402,18 @@ instance ToQuery PolicyAttribute where
 -- * 'padAttributeValue'
 --
 -- * 'padAttributeName'
-data PolicyAttributeDescription = PolicyAttributeDescription'{_padAttributeValue :: Maybe Text, _padAttributeName :: Maybe Text} deriving (Eq, Read, Show)
+data PolicyAttributeDescription = PolicyAttributeDescription'
+    { _padAttributeValue :: Maybe Text
+    , _padAttributeName  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PolicyAttributeDescription' smart constructor.
 policyAttributeDescription :: PolicyAttributeDescription
-policyAttributeDescription = PolicyAttributeDescription'{_padAttributeValue = Nothing, _padAttributeName = Nothing};
+policyAttributeDescription =
+    PolicyAttributeDescription'
+    { _padAttributeValue = Nothing
+    , _padAttributeName = Nothing
+    }
 
 -- | The value of the attribute.
 padAttributeValue :: Lens' PolicyAttributeDescription (Maybe Text)
@@ -1247,11 +1443,24 @@ instance FromXML PolicyAttributeDescription where
 -- * 'patdAttributeName'
 --
 -- * 'patdDescription'
-data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription'{_patdAttributeType :: Maybe Text, _patdCardinality :: Maybe Text, _patdDefaultValue :: Maybe Text, _patdAttributeName :: Maybe Text, _patdDescription :: Maybe Text} deriving (Eq, Read, Show)
+data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription'
+    { _patdAttributeType :: Maybe Text
+    , _patdCardinality   :: Maybe Text
+    , _patdDefaultValue  :: Maybe Text
+    , _patdAttributeName :: Maybe Text
+    , _patdDescription   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PolicyAttributeTypeDescription' smart constructor.
 policyAttributeTypeDescription :: PolicyAttributeTypeDescription
-policyAttributeTypeDescription = PolicyAttributeTypeDescription'{_patdAttributeType = Nothing, _patdCardinality = Nothing, _patdDefaultValue = Nothing, _patdAttributeName = Nothing, _patdDescription = Nothing};
+policyAttributeTypeDescription =
+    PolicyAttributeTypeDescription'
+    { _patdAttributeType = Nothing
+    , _patdCardinality = Nothing
+    , _patdDefaultValue = Nothing
+    , _patdAttributeName = Nothing
+    , _patdDescription = Nothing
+    }
 
 -- | The type of the attribute. For example, @Boolean@ or @Integer@.
 patdAttributeType :: Lens' PolicyAttributeTypeDescription (Maybe Text)
@@ -1299,11 +1508,20 @@ instance FromXML PolicyAttributeTypeDescription where
 -- * 'pdPolicyAttributeDescriptions'
 --
 -- * 'pdPolicyTypeName'
-data PolicyDescription = PolicyDescription'{_pdPolicyName :: Maybe Text, _pdPolicyAttributeDescriptions :: Maybe [PolicyAttributeDescription], _pdPolicyTypeName :: Maybe Text} deriving (Eq, Read, Show)
+data PolicyDescription = PolicyDescription'
+    { _pdPolicyName                  :: Maybe Text
+    , _pdPolicyAttributeDescriptions :: Maybe [PolicyAttributeDescription]
+    , _pdPolicyTypeName              :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PolicyDescription' smart constructor.
 policyDescription :: PolicyDescription
-policyDescription = PolicyDescription'{_pdPolicyName = Nothing, _pdPolicyAttributeDescriptions = Nothing, _pdPolicyTypeName = Nothing};
+policyDescription =
+    PolicyDescription'
+    { _pdPolicyName = Nothing
+    , _pdPolicyAttributeDescriptions = Nothing
+    , _pdPolicyTypeName = Nothing
+    }
 
 -- | The name of the policy.
 pdPolicyName :: Lens' PolicyDescription (Maybe Text)
@@ -1336,11 +1554,20 @@ instance FromXML PolicyDescription where
 -- * 'ptdDescription'
 --
 -- * 'ptdPolicyAttributeTypeDescriptions'
-data PolicyTypeDescription = PolicyTypeDescription'{_ptdPolicyTypeName :: Maybe Text, _ptdDescription :: Maybe Text, _ptdPolicyAttributeTypeDescriptions :: Maybe [PolicyAttributeTypeDescription]} deriving (Eq, Read, Show)
+data PolicyTypeDescription = PolicyTypeDescription'
+    { _ptdPolicyTypeName                  :: Maybe Text
+    , _ptdDescription                     :: Maybe Text
+    , _ptdPolicyAttributeTypeDescriptions :: Maybe [PolicyAttributeTypeDescription]
+    } deriving (Eq,Read,Show)
 
 -- | 'PolicyTypeDescription' smart constructor.
 policyTypeDescription :: PolicyTypeDescription
-policyTypeDescription = PolicyTypeDescription'{_ptdPolicyTypeName = Nothing, _ptdDescription = Nothing, _ptdPolicyAttributeTypeDescriptions = Nothing};
+policyTypeDescription =
+    PolicyTypeDescription'
+    { _ptdPolicyTypeName = Nothing
+    , _ptdDescription = Nothing
+    , _ptdPolicyAttributeTypeDescriptions = Nothing
+    }
 
 -- | The name of the policy type.
 ptdPolicyTypeName :: Lens' PolicyTypeDescription (Maybe Text)
@@ -1372,11 +1599,18 @@ instance FromXML PolicyTypeDescription where
 -- * 'ssgOwnerAlias'
 --
 -- * 'ssgGroupName'
-data SourceSecurityGroup = SourceSecurityGroup'{_ssgOwnerAlias :: Maybe Text, _ssgGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data SourceSecurityGroup = SourceSecurityGroup'
+    { _ssgOwnerAlias :: Maybe Text
+    , _ssgGroupName  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SourceSecurityGroup' smart constructor.
 sourceSecurityGroup :: SourceSecurityGroup
-sourceSecurityGroup = SourceSecurityGroup'{_ssgOwnerAlias = Nothing, _ssgGroupName = Nothing};
+sourceSecurityGroup =
+    SourceSecurityGroup'
+    { _ssgOwnerAlias = Nothing
+    , _ssgGroupName = Nothing
+    }
 
 -- | The owner of the security group.
 ssgOwnerAlias :: Lens' SourceSecurityGroup (Maybe Text)
@@ -1400,11 +1634,18 @@ instance FromXML SourceSecurityGroup where
 -- * 'tagValue'
 --
 -- * 'tagKey'
-data Tag = Tag'{_tagValue :: Maybe Text, _tagKey :: Text} deriving (Eq, Read, Show)
+data Tag = Tag'
+    { _tagValue :: Maybe Text
+    , _tagKey   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Tag
-tag pKey = Tag'{_tagValue = Nothing, _tagKey = pKey};
+tag pKey =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = pKey
+    }
 
 -- | The value of the tag.
 tagValue :: Lens' Tag (Maybe Text)
@@ -1431,11 +1672,18 @@ instance ToQuery Tag where
 -- * 'tdLoadBalancerName'
 --
 -- * 'tdTags'
-data TagDescription = TagDescription'{_tdLoadBalancerName :: Maybe Text, _tdTags :: Maybe (List1 Tag)} deriving (Eq, Read, Show)
+data TagDescription = TagDescription'
+    { _tdLoadBalancerName :: Maybe Text
+    , _tdTags             :: Maybe (List1 Tag)
+    } deriving (Eq,Read,Show)
 
 -- | 'TagDescription' smart constructor.
 tagDescription :: TagDescription
-tagDescription = TagDescription'{_tdLoadBalancerName = Nothing, _tdTags = Nothing};
+tagDescription =
+    TagDescription'
+    { _tdLoadBalancerName = Nothing
+    , _tdTags = Nothing
+    }
 
 -- | The name of the load balancer.
 tdLoadBalancerName :: Lens' TagDescription (Maybe Text)
@@ -1459,11 +1707,16 @@ instance FromXML TagDescription where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'tkoKey'
-newtype TagKeyOnly = TagKeyOnly'{_tkoKey :: Maybe Text} deriving (Eq, Read, Show)
+newtype TagKeyOnly = TagKeyOnly'
+    { _tkoKey :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'TagKeyOnly' smart constructor.
 tagKeyOnly :: TagKeyOnly
-tagKeyOnly = TagKeyOnly'{_tkoKey = Nothing};
+tagKeyOnly =
+    TagKeyOnly'
+    { _tkoKey = Nothing
+    }
 
 -- | The name of the key.
 tkoKey :: Lens' TagKeyOnly (Maybe Text)

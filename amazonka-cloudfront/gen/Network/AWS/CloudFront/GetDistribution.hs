@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.GetDistribution
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.CloudFront.GetDistribution
     -- ** Response lenses
     , gdrETag
     , gdrDistribution
-    , gdrStatusCode
+    , gdrStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to get a distribution\'s information.
 --
@@ -48,11 +48,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gdId'
-newtype GetDistribution = GetDistribution'{_gdId :: Text} deriving (Eq, Read, Show)
+newtype GetDistribution = GetDistribution'
+    { _gdId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDistribution' smart constructor.
 getDistribution :: Text -> GetDistribution
-getDistribution pId = GetDistribution'{_gdId = pId};
+getDistribution pId =
+    GetDistribution'
+    { _gdId = pId
+    }
 
 -- | The distribution\'s id.
 gdId :: Lens' GetDistribution Text
@@ -89,12 +94,21 @@ instance ToQuery GetDistribution where
 --
 -- * 'gdrDistribution'
 --
--- * 'gdrStatusCode'
-data GetDistributionResponse = GetDistributionResponse'{_gdrETag :: Maybe Text, _gdrDistribution :: Maybe Distribution, _gdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gdrStatus'
+data GetDistributionResponse = GetDistributionResponse'
+    { _gdrETag         :: Maybe Text
+    , _gdrDistribution :: Maybe Distribution
+    , _gdrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDistributionResponse' smart constructor.
 getDistributionResponse :: Int -> GetDistributionResponse
-getDistributionResponse pStatusCode = GetDistributionResponse'{_gdrETag = Nothing, _gdrDistribution = Nothing, _gdrStatusCode = pStatusCode};
+getDistributionResponse pStatus =
+    GetDistributionResponse'
+    { _gdrETag = Nothing
+    , _gdrDistribution = Nothing
+    , _gdrStatus = pStatus
+    }
 
 -- | The current version of the distribution\'s information. For example:
 -- E2QWRUHAPOMQZL.
@@ -106,5 +120,5 @@ gdrDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
 gdrDistribution = lens _gdrDistribution (\ s a -> s{_gdrDistribution = a});
 
 -- | FIXME: Undocumented member.
-gdrStatusCode :: Lens' GetDistributionResponse Int
-gdrStatusCode = lens _gdrStatusCode (\ s a -> s{_gdrStatusCode = a});
+gdrStatus :: Lens' GetDistributionResponse Int
+gdrStatus = lens _gdrStatus (\ s a -> s{_gdrStatus = a});

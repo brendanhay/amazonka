@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBEngineVersions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,14 +40,14 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     -- ** Response lenses
     , ddevrMarker
     , ddevrDBEngineVersions
-    , ddevrStatusCode
+    , ddevrStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeDBEngineVersions' smart constructor.
 --
@@ -68,11 +68,30 @@ import Network.AWS.Response
 -- * 'ddevMaxRecords'
 --
 -- * 'ddevMarker'
-data DescribeDBEngineVersions = DescribeDBEngineVersions'{_ddevEngineVersion :: Maybe Text, _ddevDefaultOnly :: Maybe Bool, _ddevFilters :: Maybe [Filter], _ddevEngine :: Maybe Text, _ddevDBParameterGroupFamily :: Maybe Text, _ddevListSupportedCharacterSets :: Maybe Bool, _ddevMaxRecords :: Maybe Int, _ddevMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBEngineVersions = DescribeDBEngineVersions'
+    { _ddevEngineVersion              :: Maybe Text
+    , _ddevDefaultOnly                :: Maybe Bool
+    , _ddevFilters                    :: Maybe [Filter]
+    , _ddevEngine                     :: Maybe Text
+    , _ddevDBParameterGroupFamily     :: Maybe Text
+    , _ddevListSupportedCharacterSets :: Maybe Bool
+    , _ddevMaxRecords                 :: Maybe Int
+    , _ddevMarker                     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBEngineVersions' smart constructor.
 describeDBEngineVersions :: DescribeDBEngineVersions
-describeDBEngineVersions = DescribeDBEngineVersions'{_ddevEngineVersion = Nothing, _ddevDefaultOnly = Nothing, _ddevFilters = Nothing, _ddevEngine = Nothing, _ddevDBParameterGroupFamily = Nothing, _ddevListSupportedCharacterSets = Nothing, _ddevMaxRecords = Nothing, _ddevMarker = Nothing};
+describeDBEngineVersions =
+    DescribeDBEngineVersions'
+    { _ddevEngineVersion = Nothing
+    , _ddevDefaultOnly = Nothing
+    , _ddevFilters = Nothing
+    , _ddevEngine = Nothing
+    , _ddevDBParameterGroupFamily = Nothing
+    , _ddevListSupportedCharacterSets = Nothing
+    , _ddevMaxRecords = Nothing
+    , _ddevMarker = Nothing
+    }
 
 -- | The database engine version to return.
 --
@@ -182,12 +201,21 @@ instance ToQuery DescribeDBEngineVersions where
 --
 -- * 'ddevrDBEngineVersions'
 --
--- * 'ddevrStatusCode'
-data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'{_ddevrMarker :: Maybe Text, _ddevrDBEngineVersions :: Maybe [DBEngineVersion], _ddevrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddevrStatus'
+data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'
+    { _ddevrMarker           :: Maybe Text
+    , _ddevrDBEngineVersions :: Maybe [DBEngineVersion]
+    , _ddevrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBEngineVersionsResponse' smart constructor.
 describeDBEngineVersionsResponse :: Int -> DescribeDBEngineVersionsResponse
-describeDBEngineVersionsResponse pStatusCode = DescribeDBEngineVersionsResponse'{_ddevrMarker = Nothing, _ddevrDBEngineVersions = Nothing, _ddevrStatusCode = pStatusCode};
+describeDBEngineVersionsResponse pStatus =
+    DescribeDBEngineVersionsResponse'
+    { _ddevrMarker = Nothing
+    , _ddevrDBEngineVersions = Nothing
+    , _ddevrStatus = pStatus
+    }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -200,5 +228,5 @@ ddevrDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion
 ddevrDBEngineVersions = lens _ddevrDBEngineVersions (\ s a -> s{_ddevrDBEngineVersions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddevrStatusCode :: Lens' DescribeDBEngineVersionsResponse Int
-ddevrStatusCode = lens _ddevrStatusCode (\ s a -> s{_ddevrStatusCode = a});
+ddevrStatus :: Lens' DescribeDBEngineVersionsResponse Int
+ddevrStatus = lens _ddevrStatus (\ s a -> s{_ddevrStatus = a});

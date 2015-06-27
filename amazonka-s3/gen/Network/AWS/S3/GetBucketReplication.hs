@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.GetBucketReplication
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,24 +32,29 @@ module Network.AWS.S3.GetBucketReplication
     , getBucketReplicationResponse
     -- ** Response lenses
     , gbrrReplicationConfiguration
-    , gbrrStatusCode
+    , gbrrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketReplication' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gbrBucket'
-newtype GetBucketReplication = GetBucketReplication'{_gbrBucket :: BucketName} deriving (Eq, Read, Show)
+newtype GetBucketReplication = GetBucketReplication'
+    { _gbrBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketReplication' smart constructor.
 getBucketReplication :: BucketName -> GetBucketReplication
-getBucketReplication pBucket = GetBucketReplication'{_gbrBucket = pBucket};
+getBucketReplication pBucket =
+    GetBucketReplication'
+    { _gbrBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 gbrBucket :: Lens' GetBucketReplication BucketName
@@ -83,17 +88,24 @@ instance ToQuery GetBucketReplication where
 --
 -- * 'gbrrReplicationConfiguration'
 --
--- * 'gbrrStatusCode'
-data GetBucketReplicationResponse = GetBucketReplicationResponse'{_gbrrReplicationConfiguration :: Maybe ReplicationConfiguration, _gbrrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gbrrStatus'
+data GetBucketReplicationResponse = GetBucketReplicationResponse'
+    { _gbrrReplicationConfiguration :: Maybe ReplicationConfiguration
+    , _gbrrStatus                   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketReplicationResponse' smart constructor.
 getBucketReplicationResponse :: Int -> GetBucketReplicationResponse
-getBucketReplicationResponse pStatusCode = GetBucketReplicationResponse'{_gbrrReplicationConfiguration = Nothing, _gbrrStatusCode = pStatusCode};
+getBucketReplicationResponse pStatus =
+    GetBucketReplicationResponse'
+    { _gbrrReplicationConfiguration = Nothing
+    , _gbrrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 gbrrReplicationConfiguration :: Lens' GetBucketReplicationResponse (Maybe ReplicationConfiguration)
 gbrrReplicationConfiguration = lens _gbrrReplicationConfiguration (\ s a -> s{_gbrrReplicationConfiguration = a});
 
 -- | FIXME: Undocumented member.
-gbrrStatusCode :: Lens' GetBucketReplicationResponse Int
-gbrrStatusCode = lens _gbrrStatusCode (\ s a -> s{_gbrrStatusCode = a});
+gbrrStatus :: Lens' GetBucketReplicationResponse Int
+gbrrStatus = lens _gbrrStatus (\ s a -> s{_gbrrStatus = a});

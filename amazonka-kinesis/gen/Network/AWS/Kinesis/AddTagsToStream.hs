@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Kinesis.AddTagsToStream
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,10 +37,10 @@ module Network.AWS.Kinesis.AddTagsToStream
     , addTagsToStreamResponse
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @AddTagsToStream@.
 --
@@ -51,11 +51,18 @@ import Network.AWS.Response
 -- * 'attsStreamName'
 --
 -- * 'attsTags'
-data AddTagsToStream = AddTagsToStream'{_attsStreamName :: Text, _attsTags :: Map Text Text} deriving (Eq, Read, Show)
+data AddTagsToStream = AddTagsToStream'
+    { _attsStreamName :: Text
+    , _attsTags       :: Map Text Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AddTagsToStream' smart constructor.
 addTagsToStream :: Text -> AddTagsToStream
-addTagsToStream pStreamName = AddTagsToStream'{_attsStreamName = pStreamName, _attsTags = mempty};
+addTagsToStream pStreamName =
+    AddTagsToStream'
+    { _attsStreamName = pStreamName
+    , _attsTags = mempty
+    }
 
 -- | The name of the stream.
 attsStreamName :: Lens' AddTagsToStream Text
@@ -93,8 +100,10 @@ instance ToQuery AddTagsToStream where
         toQuery = const mempty
 
 -- | /See:/ 'addTagsToStreamResponse' smart constructor.
-data AddTagsToStreamResponse = AddTagsToStreamResponse' deriving (Eq, Read, Show)
+data AddTagsToStreamResponse =
+    AddTagsToStreamResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AddTagsToStreamResponse' smart constructor.
 addTagsToStreamResponse :: AddTagsToStreamResponse
-addTagsToStreamResponse = AddTagsToStreamResponse';
+addTagsToStreamResponse = AddTagsToStreamResponse'

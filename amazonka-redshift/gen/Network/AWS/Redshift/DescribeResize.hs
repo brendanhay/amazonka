@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeResize
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,6 @@ module Network.AWS.Redshift.DescribeResize
     , describeResizeResponse
     -- ** Response lenses
     , drrEstimatedTimeToCompletionInSeconds
-    , drrStatus
     , drrImportTablesNotStarted
     , drrAvgResizeRateInMegaBytesPerSecond
     , drrTargetNumberOfNodes
@@ -50,13 +49,13 @@ module Network.AWS.Redshift.DescribeResize
     , drrTotalResizeDataInMegaBytes
     , drrElapsedTimeInSeconds
     , drrTargetClusterType
-    , drrStatusCode
+    , drrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -65,11 +64,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drClusterIdentifier'
-newtype DescribeResize = DescribeResize'{_drClusterIdentifier :: Text} deriving (Eq, Read, Show)
+newtype DescribeResize = DescribeResize'
+    { _drClusterIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeResize' smart constructor.
 describeResize :: Text -> DescribeResize
-describeResize pClusterIdentifier = DescribeResize'{_drClusterIdentifier = pClusterIdentifier};
+describeResize pClusterIdentifier =
+    DescribeResize'
+    { _drClusterIdentifier = pClusterIdentifier
+    }
 
 -- | The unique identifier of a cluster whose resize progress you are
 -- requesting. This parameter is case-sensitive.
@@ -88,8 +92,6 @@ instance AWSRequest DescribeResize where
               (\ s h x ->
                  DescribeResizeResponse' <$>
                    (x .@? "EstimatedTimeToCompletionInSeconds") <*>
-                     (x .@? "Status")
-                     <*>
                      (x .@? "ImportTablesNotStarted" .!@ mempty >>=
                         may (parseXMLList "member"))
                      <*> (x .@? "AvgResizeRateInMegaBytesPerSecond")
@@ -128,8 +130,6 @@ instance ToQuery DescribeResize where
 --
 -- * 'drrEstimatedTimeToCompletionInSeconds'
 --
--- * 'drrStatus'
---
 -- * 'drrImportTablesNotStarted'
 --
 -- * 'drrAvgResizeRateInMegaBytesPerSecond'
@@ -150,12 +150,39 @@ instance ToQuery DescribeResize where
 --
 -- * 'drrTargetClusterType'
 --
--- * 'drrStatusCode'
-data DescribeResizeResponse = DescribeResizeResponse'{_drrEstimatedTimeToCompletionInSeconds :: Maybe Integer, _drrStatus :: Maybe Text, _drrImportTablesNotStarted :: Maybe [Text], _drrAvgResizeRateInMegaBytesPerSecond :: Maybe Double, _drrTargetNumberOfNodes :: Maybe Int, _drrTargetNodeType :: Maybe Text, _drrImportTablesInProgress :: Maybe [Text], _drrImportTablesCompleted :: Maybe [Text], _drrProgressInMegaBytes :: Maybe Integer, _drrTotalResizeDataInMegaBytes :: Maybe Integer, _drrElapsedTimeInSeconds :: Maybe Integer, _drrTargetClusterType :: Maybe Text, _drrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'drrStatus'
+data DescribeResizeResponse = DescribeResizeResponse'
+    { _drrEstimatedTimeToCompletionInSeconds :: Maybe Integer
+    , _drrImportTablesNotStarted             :: Maybe [Text]
+    , _drrAvgResizeRateInMegaBytesPerSecond  :: Maybe Double
+    , _drrTargetNumberOfNodes                :: Maybe Int
+    , _drrTargetNodeType                     :: Maybe Text
+    , _drrImportTablesInProgress             :: Maybe [Text]
+    , _drrImportTablesCompleted              :: Maybe [Text]
+    , _drrProgressInMegaBytes                :: Maybe Integer
+    , _drrTotalResizeDataInMegaBytes         :: Maybe Integer
+    , _drrElapsedTimeInSeconds               :: Maybe Integer
+    , _drrTargetClusterType                  :: Maybe Text
+    , _drrStatus                             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeResizeResponse' smart constructor.
 describeResizeResponse :: Int -> DescribeResizeResponse
-describeResizeResponse pStatusCode = DescribeResizeResponse'{_drrEstimatedTimeToCompletionInSeconds = Nothing, _drrStatus = Nothing, _drrImportTablesNotStarted = Nothing, _drrAvgResizeRateInMegaBytesPerSecond = Nothing, _drrTargetNumberOfNodes = Nothing, _drrTargetNodeType = Nothing, _drrImportTablesInProgress = Nothing, _drrImportTablesCompleted = Nothing, _drrProgressInMegaBytes = Nothing, _drrTotalResizeDataInMegaBytes = Nothing, _drrElapsedTimeInSeconds = Nothing, _drrTargetClusterType = Nothing, _drrStatusCode = pStatusCode};
+describeResizeResponse pStatus =
+    DescribeResizeResponse'
+    { _drrEstimatedTimeToCompletionInSeconds = Nothing
+    , _drrImportTablesNotStarted = Nothing
+    , _drrAvgResizeRateInMegaBytesPerSecond = Nothing
+    , _drrTargetNumberOfNodes = Nothing
+    , _drrTargetNodeType = Nothing
+    , _drrImportTablesInProgress = Nothing
+    , _drrImportTablesCompleted = Nothing
+    , _drrProgressInMegaBytes = Nothing
+    , _drrTotalResizeDataInMegaBytes = Nothing
+    , _drrElapsedTimeInSeconds = Nothing
+    , _drrTargetClusterType = Nothing
+    , _drrStatus = pStatus
+    }
 
 -- | The estimated time remaining, in seconds, until the resize operation is
 -- complete. This value is calculated based on the average resize rate and
@@ -163,12 +190,6 @@ describeResizeResponse pStatusCode = DescribeResizeResponse'{_drrEstimatedTimeTo
 -- operation is complete, this value will be 0.
 drrEstimatedTimeToCompletionInSeconds :: Lens' DescribeResizeResponse (Maybe Integer)
 drrEstimatedTimeToCompletionInSeconds = lens _drrEstimatedTimeToCompletionInSeconds (\ s a -> s{_drrEstimatedTimeToCompletionInSeconds = a});
-
--- | The status of the resize operation.
---
--- Valid Values: @NONE@ | @IN_PROGRESS@ | @FAILED@ | @SUCCEEDED@
-drrStatus :: Lens' DescribeResizeResponse (Maybe Text)
-drrStatus = lens _drrStatus (\ s a -> s{_drrStatus = a});
 
 -- | The names of tables that have not been yet imported.
 --
@@ -231,5 +252,5 @@ drrTargetClusterType :: Lens' DescribeResizeResponse (Maybe Text)
 drrTargetClusterType = lens _drrTargetClusterType (\ s a -> s{_drrTargetClusterType = a});
 
 -- | FIXME: Undocumented member.
-drrStatusCode :: Lens' DescribeResizeResponse Int
-drrStatusCode = lens _drrStatusCode (\ s a -> s{_drrStatusCode = a});
+drrStatus :: Lens' DescribeResizeResponse Int
+drrStatus = lens _drrStatus (\ s a -> s{_drrStatus = a});

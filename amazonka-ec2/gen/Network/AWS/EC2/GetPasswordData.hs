@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.GetPasswordData
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.EC2.GetPasswordData
     , gpdrInstanceId
     , gpdrPasswordData
     , gpdrTimestamp
-    , gpdrStatusCode
+    , gpdrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getPasswordData' smart constructor.
 --
@@ -64,11 +64,18 @@ import Network.AWS.Response
 -- * 'gpdDryRun'
 --
 -- * 'gpdInstanceId'
-data GetPasswordData = GetPasswordData'{_gpdDryRun :: Maybe Bool, _gpdInstanceId :: Text} deriving (Eq, Read, Show)
+data GetPasswordData = GetPasswordData'
+    { _gpdDryRun     :: Maybe Bool
+    , _gpdInstanceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetPasswordData' smart constructor.
 getPasswordData :: Text -> GetPasswordData
-getPasswordData pInstanceId = GetPasswordData'{_gpdDryRun = Nothing, _gpdInstanceId = pInstanceId};
+getPasswordData pInstanceId =
+    GetPasswordData'
+    { _gpdDryRun = Nothing
+    , _gpdInstanceId = pInstanceId
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -117,12 +124,23 @@ instance ToQuery GetPasswordData where
 --
 -- * 'gpdrTimestamp'
 --
--- * 'gpdrStatusCode'
-data GetPasswordDataResponse = GetPasswordDataResponse'{_gpdrInstanceId :: Text, _gpdrPasswordData :: Text, _gpdrTimestamp :: ISO8601, _gpdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gpdrStatus'
+data GetPasswordDataResponse = GetPasswordDataResponse'
+    { _gpdrInstanceId   :: Text
+    , _gpdrPasswordData :: Text
+    , _gpdrTimestamp    :: ISO8601
+    , _gpdrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetPasswordDataResponse' smart constructor.
 getPasswordDataResponse :: Text -> Text -> UTCTime -> Int -> GetPasswordDataResponse
-getPasswordDataResponse pInstanceId pPasswordData pTimestamp pStatusCode = GetPasswordDataResponse'{_gpdrInstanceId = pInstanceId, _gpdrPasswordData = pPasswordData, _gpdrTimestamp = _Time # pTimestamp, _gpdrStatusCode = pStatusCode};
+getPasswordDataResponse pInstanceId pPasswordData pTimestamp pStatus =
+    GetPasswordDataResponse'
+    { _gpdrInstanceId = pInstanceId
+    , _gpdrPasswordData = pPasswordData
+    , _gpdrTimestamp = _Time # pTimestamp
+    , _gpdrStatus = pStatus
+    }
 
 -- | The ID of the Windows instance.
 gpdrInstanceId :: Lens' GetPasswordDataResponse Text
@@ -137,5 +155,5 @@ gpdrTimestamp :: Lens' GetPasswordDataResponse UTCTime
 gpdrTimestamp = lens _gpdrTimestamp (\ s a -> s{_gpdrTimestamp = a}) . _Time;
 
 -- | FIXME: Undocumented member.
-gpdrStatusCode :: Lens' GetPasswordDataResponse Int
-gpdrStatusCode = lens _gpdrStatusCode (\ s a -> s{_gpdrStatusCode = a});
+gpdrStatus :: Lens' GetPasswordDataResponse Int
+gpdrStatus = lens _gpdrStatus (\ s a -> s{_gpdrStatus = a});

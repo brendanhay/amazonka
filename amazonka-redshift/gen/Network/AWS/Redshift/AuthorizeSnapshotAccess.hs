@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.AuthorizeSnapshotAccess
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.Redshift.AuthorizeSnapshotAccess
     , authorizeSnapshotAccessResponse
     -- ** Response lenses
     , asarSnapshot
-    , asarStatusCode
+    , asarStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'asaSnapshotIdentifier'
 --
 -- * 'asaAccountWithRestoreAccess'
-data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'{_asaSnapshotClusterIdentifier :: Maybe Text, _asaSnapshotIdentifier :: Text, _asaAccountWithRestoreAccess :: Text} deriving (Eq, Read, Show)
+data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
+    { _asaSnapshotClusterIdentifier :: Maybe Text
+    , _asaSnapshotIdentifier        :: Text
+    , _asaAccountWithRestoreAccess  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeSnapshotAccess' smart constructor.
 authorizeSnapshotAccess :: Text -> Text -> AuthorizeSnapshotAccess
-authorizeSnapshotAccess pSnapshotIdentifier pAccountWithRestoreAccess = AuthorizeSnapshotAccess'{_asaSnapshotClusterIdentifier = Nothing, _asaSnapshotIdentifier = pSnapshotIdentifier, _asaAccountWithRestoreAccess = pAccountWithRestoreAccess};
+authorizeSnapshotAccess pSnapshotIdentifier pAccountWithRestoreAccess =
+    AuthorizeSnapshotAccess'
+    { _asaSnapshotClusterIdentifier = Nothing
+    , _asaSnapshotIdentifier = pSnapshotIdentifier
+    , _asaAccountWithRestoreAccess = pAccountWithRestoreAccess
+    }
 
 -- | The identifier of the cluster the snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
@@ -115,17 +124,24 @@ instance ToQuery AuthorizeSnapshotAccess where
 --
 -- * 'asarSnapshot'
 --
--- * 'asarStatusCode'
-data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'{_asarSnapshot :: Maybe Snapshot, _asarStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'asarStatus'
+data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
+    { _asarSnapshot :: Maybe Snapshot
+    , _asarStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeSnapshotAccessResponse' smart constructor.
 authorizeSnapshotAccessResponse :: Int -> AuthorizeSnapshotAccessResponse
-authorizeSnapshotAccessResponse pStatusCode = AuthorizeSnapshotAccessResponse'{_asarSnapshot = Nothing, _asarStatusCode = pStatusCode};
+authorizeSnapshotAccessResponse pStatus =
+    AuthorizeSnapshotAccessResponse'
+    { _asarSnapshot = Nothing
+    , _asarStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 asarSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
 asarSnapshot = lens _asarSnapshot (\ s a -> s{_asarSnapshot = a});
 
 -- | FIXME: Undocumented member.
-asarStatusCode :: Lens' AuthorizeSnapshotAccessResponse Int
-asarStatusCode = lens _asarStatusCode (\ s a -> s{_asarStatusCode = a});
+asarStatus :: Lens' AuthorizeSnapshotAccessResponse Int
+asarStatus = lens _asarStatus (\ s a -> s{_asarStatus = a});

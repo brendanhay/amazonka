@@ -31,15 +31,15 @@ module Network.AWS.SDB
     ( module Export
     ) where
 
-import Network.AWS.SDB.BatchDeleteAttributes as Export
-import Network.AWS.SDB.BatchPutAttributes as Export
-import Network.AWS.SDB.CreateDomain as Export
-import Network.AWS.SDB.DeleteAttributes as Export
-import Network.AWS.SDB.DeleteDomain as Export
-import Network.AWS.SDB.DomainMetadata as Export
-import Network.AWS.SDB.GetAttributes as Export
-import Network.AWS.SDB.ListDomains as Export
-import Network.AWS.SDB.PutAttributes as Export
-import Network.AWS.SDB.Select as Export
-import Network.AWS.SDB.Types as Export
-import Network.AWS.SDB.Waiters as Export
+import           Network.AWS.SDB.BatchDeleteAttributes as Export
+import           Network.AWS.SDB.BatchPutAttributes    as Export
+import           Network.AWS.SDB.CreateDomain          as Export
+import           Network.AWS.SDB.DeleteAttributes      as Export
+import           Network.AWS.SDB.DeleteDomain          as Export
+import           Network.AWS.SDB.DomainMetadata        as Export
+import           Network.AWS.SDB.GetAttributes         as Export
+import           Network.AWS.SDB.ListDomains           as Export
+import           Network.AWS.SDB.PutAttributes         as Export
+import           Network.AWS.SDB.Select                as Export
+import           Network.AWS.SDB.Types                 as Export
+import           Network.AWS.SDB.Waiters               as Export

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.CountClosedWorkflowExecutions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,10 +70,10 @@ module Network.AWS.SWF.CountClosedWorkflowExecutions
     , wecCount
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'countClosedWorkflowExecutions' smart constructor.
 --
@@ -92,11 +92,28 @@ import Network.AWS.SWF.Types
 -- * 'ccweStartTimeFilter'
 --
 -- * 'ccweDomain'
-data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions'{_ccweCloseStatusFilter :: Maybe CloseStatusFilter, _ccweExecutionFilter :: Maybe WorkflowExecutionFilter, _ccweTypeFilter :: Maybe WorkflowTypeFilter, _ccweCloseTimeFilter :: Maybe ExecutionTimeFilter, _ccweTagFilter :: Maybe TagFilter, _ccweStartTimeFilter :: Maybe ExecutionTimeFilter, _ccweDomain :: Text} deriving (Eq, Read, Show)
+data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions'
+    { _ccweCloseStatusFilter :: Maybe CloseStatusFilter
+    , _ccweExecutionFilter   :: Maybe WorkflowExecutionFilter
+    , _ccweTypeFilter        :: Maybe WorkflowTypeFilter
+    , _ccweCloseTimeFilter   :: Maybe ExecutionTimeFilter
+    , _ccweTagFilter         :: Maybe TagFilter
+    , _ccweStartTimeFilter   :: Maybe ExecutionTimeFilter
+    , _ccweDomain            :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CountClosedWorkflowExecutions' smart constructor.
 countClosedWorkflowExecutions :: Text -> CountClosedWorkflowExecutions
-countClosedWorkflowExecutions pDomain = CountClosedWorkflowExecutions'{_ccweCloseStatusFilter = Nothing, _ccweExecutionFilter = Nothing, _ccweTypeFilter = Nothing, _ccweCloseTimeFilter = Nothing, _ccweTagFilter = Nothing, _ccweStartTimeFilter = Nothing, _ccweDomain = pDomain};
+countClosedWorkflowExecutions pDomain =
+    CountClosedWorkflowExecutions'
+    { _ccweCloseStatusFilter = Nothing
+    , _ccweExecutionFilter = Nothing
+    , _ccweTypeFilter = Nothing
+    , _ccweCloseTimeFilter = Nothing
+    , _ccweTagFilter = Nothing
+    , _ccweStartTimeFilter = Nothing
+    , _ccweDomain = pDomain
+    }
 
 -- | If specified, only workflow executions that match this close status are
 -- counted. This filter has an affect only if @executionStatus@ is

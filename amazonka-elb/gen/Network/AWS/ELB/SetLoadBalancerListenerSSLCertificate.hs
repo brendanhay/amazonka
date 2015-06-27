@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     -- ** Response constructor
     , setLoadBalancerListenerSSLCertificateResponse
     -- ** Response lenses
-    , slblscrStatusCode
+    , slblscrStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'setLoadBalancerListenerSSLCertificate' smart constructor.
 --
@@ -56,11 +56,20 @@ import Network.AWS.Response
 -- * 'slblscLoadBalancerPort'
 --
 -- * 'slblscSSLCertificateId'
-data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate'{_slblscLoadBalancerName :: Text, _slblscLoadBalancerPort :: Int, _slblscSSLCertificateId :: Text} deriving (Eq, Read, Show)
+data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate'
+    { _slblscLoadBalancerName :: Text
+    , _slblscLoadBalancerPort :: !Int
+    , _slblscSSLCertificateId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SetLoadBalancerListenerSSLCertificate' smart constructor.
 setLoadBalancerListenerSSLCertificate :: Text -> Int -> Text -> SetLoadBalancerListenerSSLCertificate
-setLoadBalancerListenerSSLCertificate pLoadBalancerName pLoadBalancerPort pSSLCertificateId = SetLoadBalancerListenerSSLCertificate'{_slblscLoadBalancerName = pLoadBalancerName, _slblscLoadBalancerPort = pLoadBalancerPort, _slblscSSLCertificateId = pSSLCertificateId};
+setLoadBalancerListenerSSLCertificate pLoadBalancerName pLoadBalancerPort pSSLCertificateId =
+    SetLoadBalancerListenerSSLCertificate'
+    { _slblscLoadBalancerName = pLoadBalancerName
+    , _slblscLoadBalancerPort = pLoadBalancerPort
+    , _slblscSSLCertificateId = pSSLCertificateId
+    }
 
 -- | The name of the load balancer.
 slblscLoadBalancerName :: Lens' SetLoadBalancerListenerSSLCertificate Text
@@ -111,13 +120,18 @@ instance ToQuery
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'slblscrStatusCode'
-newtype SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse'{_slblscrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'slblscrStatus'
+newtype SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse'
+    { _slblscrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SetLoadBalancerListenerSSLCertificateResponse' smart constructor.
 setLoadBalancerListenerSSLCertificateResponse :: Int -> SetLoadBalancerListenerSSLCertificateResponse
-setLoadBalancerListenerSSLCertificateResponse pStatusCode = SetLoadBalancerListenerSSLCertificateResponse'{_slblscrStatusCode = pStatusCode};
+setLoadBalancerListenerSSLCertificateResponse pStatus =
+    SetLoadBalancerListenerSSLCertificateResponse'
+    { _slblscrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-slblscrStatusCode :: Lens' SetLoadBalancerListenerSSLCertificateResponse Int
-slblscrStatusCode = lens _slblscrStatusCode (\ s a -> s{_slblscrStatusCode = a});
+slblscrStatus :: Lens' SetLoadBalancerListenerSSLCertificateResponse Int
+slblscrStatus = lens _slblscrStatus (\ s a -> s{_slblscrStatus = a});

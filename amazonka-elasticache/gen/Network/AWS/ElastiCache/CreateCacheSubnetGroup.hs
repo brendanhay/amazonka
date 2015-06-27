@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateCacheSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     , createCacheSubnetGroupResponse
     -- ** Response lenses
     , creCacheSubnetGroup
-    , creStatusCode
+    , creStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /CreateCacheSubnetGroup/ action.
 --
@@ -56,11 +56,20 @@ import Network.AWS.Response
 -- * 'ccsgCacheSubnetGroupDescription'
 --
 -- * 'ccsgSubnetIds'
-data CreateCacheSubnetGroup = CreateCacheSubnetGroup'{_ccsgCacheSubnetGroupName :: Text, _ccsgCacheSubnetGroupDescription :: Text, _ccsgSubnetIds :: [Text]} deriving (Eq, Read, Show)
+data CreateCacheSubnetGroup = CreateCacheSubnetGroup'
+    { _ccsgCacheSubnetGroupName        :: Text
+    , _ccsgCacheSubnetGroupDescription :: Text
+    , _ccsgSubnetIds                   :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCacheSubnetGroup' smart constructor.
 createCacheSubnetGroup :: Text -> Text -> CreateCacheSubnetGroup
-createCacheSubnetGroup pCacheSubnetGroupName pCacheSubnetGroupDescription = CreateCacheSubnetGroup'{_ccsgCacheSubnetGroupName = pCacheSubnetGroupName, _ccsgCacheSubnetGroupDescription = pCacheSubnetGroupDescription, _ccsgSubnetIds = mempty};
+createCacheSubnetGroup pCacheSubnetGroupName pCacheSubnetGroupDescription =
+    CreateCacheSubnetGroup'
+    { _ccsgCacheSubnetGroupName = pCacheSubnetGroupName
+    , _ccsgCacheSubnetGroupDescription = pCacheSubnetGroupDescription
+    , _ccsgSubnetIds = mempty
+    }
 
 -- | A name for the cache subnet group. This value is stored as a lowercase
 -- string.
@@ -115,17 +124,24 @@ instance ToQuery CreateCacheSubnetGroup where
 --
 -- * 'creCacheSubnetGroup'
 --
--- * 'creStatusCode'
-data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'{_creCacheSubnetGroup :: Maybe CacheSubnetGroup, _creStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'creStatus'
+data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
+    { _creCacheSubnetGroup :: Maybe CacheSubnetGroup
+    , _creStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCacheSubnetGroupResponse' smart constructor.
 createCacheSubnetGroupResponse :: Int -> CreateCacheSubnetGroupResponse
-createCacheSubnetGroupResponse pStatusCode = CreateCacheSubnetGroupResponse'{_creCacheSubnetGroup = Nothing, _creStatusCode = pStatusCode};
+createCacheSubnetGroupResponse pStatus =
+    CreateCacheSubnetGroupResponse'
+    { _creCacheSubnetGroup = Nothing
+    , _creStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 creCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
 creCacheSubnetGroup = lens _creCacheSubnetGroup (\ s a -> s{_creCacheSubnetGroup = a});
 
 -- | FIXME: Undocumented member.
-creStatusCode :: Lens' CreateCacheSubnetGroupResponse Int
-creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});
+creStatus :: Lens' CreateCacheSubnetGroupResponse Int
+creStatus = lens _creStatus (\ s a -> s{_creStatus = a});

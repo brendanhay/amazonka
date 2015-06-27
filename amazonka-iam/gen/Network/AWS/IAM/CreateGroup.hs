@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.CreateGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.IAM.CreateGroup
     , createGroupResponse
     -- ** Response lenses
     , cgrGroup
-    , cgrStatusCode
+    , cgrStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createGroup' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'cgPath'
 --
 -- * 'cgGroupName'
-data CreateGroup = CreateGroup'{_cgPath :: Maybe Text, _cgGroupName :: Text} deriving (Eq, Read, Show)
+data CreateGroup = CreateGroup'
+    { _cgPath      :: Maybe Text
+    , _cgGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateGroup' smart constructor.
 createGroup :: Text -> CreateGroup
-createGroup pGroupName = CreateGroup'{_cgPath = Nothing, _cgGroupName = pGroupName};
+createGroup pGroupName =
+    CreateGroup'
+    { _cgPath = Nothing
+    , _cgGroupName = pGroupName
+    }
 
 -- | The path to the group. For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
@@ -102,17 +109,24 @@ instance ToQuery CreateGroup where
 --
 -- * 'cgrGroup'
 --
--- * 'cgrStatusCode'
-data CreateGroupResponse = CreateGroupResponse'{_cgrGroup :: Group, _cgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cgrStatus'
+data CreateGroupResponse = CreateGroupResponse'
+    { _cgrGroup  :: Group
+    , _cgrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateGroupResponse' smart constructor.
 createGroupResponse :: Group -> Int -> CreateGroupResponse
-createGroupResponse pGroup pStatusCode = CreateGroupResponse'{_cgrGroup = pGroup, _cgrStatusCode = pStatusCode};
+createGroupResponse pGroup pStatus =
+    CreateGroupResponse'
+    { _cgrGroup = pGroup
+    , _cgrStatus = pStatus
+    }
 
 -- | Information about the group.
 cgrGroup :: Lens' CreateGroupResponse Group
 cgrGroup = lens _cgrGroup (\ s a -> s{_cgrGroup = a});
 
 -- | FIXME: Undocumented member.
-cgrStatusCode :: Lens' CreateGroupResponse Int
-cgrStatusCode = lens _cgrStatusCode (\ s a -> s{_cgrStatusCode = a});
+cgrStatus :: Lens' CreateGroupResponse Int
+cgrStatus = lens _cgrStatus (\ s a -> s{_cgrStatus = a});

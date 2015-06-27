@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.CreateCachediSCSIVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,13 +51,13 @@ module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     -- ** Response lenses
     , ccscsivrTargetARN
     , ccscsivrVolumeARN
-    , ccscsivrStatusCode
+    , ccscsivrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'createCachediSCSIVolume' smart constructor.
 --
@@ -74,11 +74,26 @@ import Network.AWS.StorageGateway.Types
 -- * 'ccscsivNetworkInterfaceId'
 --
 -- * 'ccscsivClientToken'
-data CreateCachediSCSIVolume = CreateCachediSCSIVolume'{_ccscsivSnapshotId :: Maybe Text, _ccscsivGatewayARN :: Text, _ccscsivVolumeSizeInBytes :: Integer, _ccscsivTargetName :: Text, _ccscsivNetworkInterfaceId :: Text, _ccscsivClientToken :: Text} deriving (Eq, Read, Show)
+data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
+    { _ccscsivSnapshotId         :: Maybe Text
+    , _ccscsivGatewayARN         :: Text
+    , _ccscsivVolumeSizeInBytes  :: !Integer
+    , _ccscsivTargetName         :: Text
+    , _ccscsivNetworkInterfaceId :: Text
+    , _ccscsivClientToken        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCachediSCSIVolume' smart constructor.
 createCachediSCSIVolume :: Text -> Integer -> Text -> Text -> Text -> CreateCachediSCSIVolume
-createCachediSCSIVolume pGatewayARN pVolumeSizeInBytes pTargetName pNetworkInterfaceId pClientToken = CreateCachediSCSIVolume'{_ccscsivSnapshotId = Nothing, _ccscsivGatewayARN = pGatewayARN, _ccscsivVolumeSizeInBytes = pVolumeSizeInBytes, _ccscsivTargetName = pTargetName, _ccscsivNetworkInterfaceId = pNetworkInterfaceId, _ccscsivClientToken = pClientToken};
+createCachediSCSIVolume pGatewayARN pVolumeSizeInBytes pTargetName pNetworkInterfaceId pClientToken =
+    CreateCachediSCSIVolume'
+    { _ccscsivSnapshotId = Nothing
+    , _ccscsivGatewayARN = pGatewayARN
+    , _ccscsivVolumeSizeInBytes = pVolumeSizeInBytes
+    , _ccscsivTargetName = pTargetName
+    , _ccscsivNetworkInterfaceId = pNetworkInterfaceId
+    , _ccscsivClientToken = pClientToken
+    }
 
 -- | FIXME: Undocumented member.
 ccscsivSnapshotId :: Lens' CreateCachediSCSIVolume (Maybe Text)
@@ -150,12 +165,21 @@ instance ToQuery CreateCachediSCSIVolume where
 --
 -- * 'ccscsivrVolumeARN'
 --
--- * 'ccscsivrStatusCode'
-data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'{_ccscsivrTargetARN :: Maybe Text, _ccscsivrVolumeARN :: Maybe Text, _ccscsivrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ccscsivrStatus'
+data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'
+    { _ccscsivrTargetARN :: Maybe Text
+    , _ccscsivrVolumeARN :: Maybe Text
+    , _ccscsivrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCachediSCSIVolumeResponse' smart constructor.
 createCachediSCSIVolumeResponse :: Int -> CreateCachediSCSIVolumeResponse
-createCachediSCSIVolumeResponse pStatusCode = CreateCachediSCSIVolumeResponse'{_ccscsivrTargetARN = Nothing, _ccscsivrVolumeARN = Nothing, _ccscsivrStatusCode = pStatusCode};
+createCachediSCSIVolumeResponse pStatus =
+    CreateCachediSCSIVolumeResponse'
+    { _ccscsivrTargetARN = Nothing
+    , _ccscsivrVolumeARN = Nothing
+    , _ccscsivrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ccscsivrTargetARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
@@ -166,5 +190,5 @@ ccscsivrVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrVolumeARN = lens _ccscsivrVolumeARN (\ s a -> s{_ccscsivrVolumeARN = a});
 
 -- | FIXME: Undocumented member.
-ccscsivrStatusCode :: Lens' CreateCachediSCSIVolumeResponse Int
-ccscsivrStatusCode = lens _ccscsivrStatusCode (\ s a -> s{_ccscsivrStatusCode = a});
+ccscsivrStatus :: Lens' CreateCachediSCSIVolumeResponse Int
+ccscsivrStatus = lens _ccscsivrStatus (\ s a -> s{_ccscsivrStatus = a});

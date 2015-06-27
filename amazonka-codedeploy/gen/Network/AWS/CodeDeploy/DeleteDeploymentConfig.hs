@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.DeleteDeploymentConfig
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.CodeDeploy.DeleteDeploymentConfig
     , deleteDeploymentConfigResponse
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a delete deployment configuration operation.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddcDeploymentConfigName'
-newtype DeleteDeploymentConfig = DeleteDeploymentConfig'{_ddcDeploymentConfigName :: Text} deriving (Eq, Read, Show)
+newtype DeleteDeploymentConfig = DeleteDeploymentConfig'
+    { _ddcDeploymentConfigName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDeploymentConfig' smart constructor.
 deleteDeploymentConfig :: Text -> DeleteDeploymentConfig
-deleteDeploymentConfig pDeploymentConfigName = DeleteDeploymentConfig'{_ddcDeploymentConfigName = pDeploymentConfigName};
+deleteDeploymentConfig pDeploymentConfigName =
+    DeleteDeploymentConfig'
+    { _ddcDeploymentConfigName = pDeploymentConfigName
+    }
 
 -- | The name of an existing deployment configuration associated with the
 -- applicable IAM user or AWS account.
@@ -88,8 +93,10 @@ instance ToQuery DeleteDeploymentConfig where
         toQuery = const mempty
 
 -- | /See:/ 'deleteDeploymentConfigResponse' smart constructor.
-data DeleteDeploymentConfigResponse = DeleteDeploymentConfigResponse' deriving (Eq, Read, Show)
+data DeleteDeploymentConfigResponse =
+    DeleteDeploymentConfigResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteDeploymentConfigResponse' smart constructor.
 deleteDeploymentConfigResponse :: DeleteDeploymentConfigResponse
-deleteDeploymentConfigResponse = DeleteDeploymentConfigResponse';
+deleteDeploymentConfigResponse = DeleteDeploymentConfigResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ImportExport.CreateJob
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,13 +46,13 @@ module Network.AWS.ImportExport.CreateJob
     , cjrSignatureFileContents
     , cjrWarningMessage
     , cjrArtifactList
-    , cjrStatusCode
+    , cjrStatus
     ) where
 
-import Network.AWS.ImportExport.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ImportExport.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input structure for the CreateJob operation.
 --
@@ -69,11 +69,24 @@ import Network.AWS.Response
 -- * 'cjManifest'
 --
 -- * 'cjValidateOnly'
-data CreateJob = CreateJob'{_cjAPIVersion :: Maybe Text, _cjManifestAddendum :: Maybe Text, _cjJobType :: JobType, _cjManifest :: Text, _cjValidateOnly :: Bool} deriving (Eq, Read, Show)
+data CreateJob = CreateJob'
+    { _cjAPIVersion       :: Maybe Text
+    , _cjManifestAddendum :: Maybe Text
+    , _cjJobType          :: JobType
+    , _cjManifest         :: Text
+    , _cjValidateOnly     :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateJob' smart constructor.
 createJob :: JobType -> Text -> Bool -> CreateJob
-createJob pJobType pManifest pValidateOnly = CreateJob'{_cjAPIVersion = Nothing, _cjManifestAddendum = Nothing, _cjJobType = pJobType, _cjManifest = pManifest, _cjValidateOnly = pValidateOnly};
+createJob pJobType pManifest pValidateOnly =
+    CreateJob'
+    { _cjAPIVersion = Nothing
+    , _cjManifestAddendum = Nothing
+    , _cjJobType = pJobType
+    , _cjManifest = pManifest
+    , _cjValidateOnly = pValidateOnly
+    }
 
 -- | FIXME: Undocumented member.
 cjAPIVersion :: Lens' CreateJob (Maybe Text)
@@ -147,12 +160,29 @@ instance ToQuery CreateJob where
 --
 -- * 'cjrArtifactList'
 --
--- * 'cjrStatusCode'
-data CreateJobResponse = CreateJobResponse'{_cjrSignature :: Maybe Text, _cjrJobType :: Maybe JobType, _cjrJobId :: Maybe Text, _cjrSignatureFileContents :: Maybe Text, _cjrWarningMessage :: Maybe Text, _cjrArtifactList :: Maybe [Artifact], _cjrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cjrStatus'
+data CreateJobResponse = CreateJobResponse'
+    { _cjrSignature             :: Maybe Text
+    , _cjrJobType               :: Maybe JobType
+    , _cjrJobId                 :: Maybe Text
+    , _cjrSignatureFileContents :: Maybe Text
+    , _cjrWarningMessage        :: Maybe Text
+    , _cjrArtifactList          :: Maybe [Artifact]
+    , _cjrStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateJobResponse' smart constructor.
 createJobResponse :: Int -> CreateJobResponse
-createJobResponse pStatusCode = CreateJobResponse'{_cjrSignature = Nothing, _cjrJobType = Nothing, _cjrJobId = Nothing, _cjrSignatureFileContents = Nothing, _cjrWarningMessage = Nothing, _cjrArtifactList = Nothing, _cjrStatusCode = pStatusCode};
+createJobResponse pStatus =
+    CreateJobResponse'
+    { _cjrSignature = Nothing
+    , _cjrJobType = Nothing
+    , _cjrJobId = Nothing
+    , _cjrSignatureFileContents = Nothing
+    , _cjrWarningMessage = Nothing
+    , _cjrArtifactList = Nothing
+    , _cjrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 cjrSignature :: Lens' CreateJobResponse (Maybe Text)
@@ -179,5 +209,5 @@ cjrArtifactList :: Lens' CreateJobResponse [Artifact]
 cjrArtifactList = lens _cjrArtifactList (\ s a -> s{_cjrArtifactList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-cjrStatusCode :: Lens' CreateJobResponse Int
-cjrStatusCode = lens _cjrStatusCode (\ s a -> s{_cjrStatusCode = a});
+cjrStatus :: Lens' CreateJobResponse Int
+cjrStatus = lens _cjrStatus (\ s a -> s{_cjrStatus = a});

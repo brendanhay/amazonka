@@ -15,6 +15,6 @@
 
 module Network.AWS.CloudWatch.Waiters where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter

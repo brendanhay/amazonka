@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,14 +42,14 @@ module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     , dtrprTapeRecoveryPointInfos
     , dtrprGatewayARN
     , dtrprMarker
-    , dtrprStatusCode
+    , dtrprStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | DescribeTapeRecoveryPointsInput
 --
@@ -62,11 +62,20 @@ import Network.AWS.StorageGateway.Types
 -- * 'dtrpLimit'
 --
 -- * 'dtrpGatewayARN'
-data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'{_dtrpMarker :: Maybe Text, _dtrpLimit :: Maybe Nat, _dtrpGatewayARN :: Text} deriving (Eq, Read, Show)
+data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
+    { _dtrpMarker     :: Maybe Text
+    , _dtrpLimit      :: Maybe Nat
+    , _dtrpGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTapeRecoveryPoints' smart constructor.
 describeTapeRecoveryPoints :: Text -> DescribeTapeRecoveryPoints
-describeTapeRecoveryPoints pGatewayARN = DescribeTapeRecoveryPoints'{_dtrpMarker = Nothing, _dtrpLimit = Nothing, _dtrpGatewayARN = pGatewayARN};
+describeTapeRecoveryPoints pGatewayARN =
+    DescribeTapeRecoveryPoints'
+    { _dtrpMarker = Nothing
+    , _dtrpLimit = Nothing
+    , _dtrpGatewayARN = pGatewayARN
+    }
 
 -- | An opaque string that indicates the position at which to begin
 -- describing the virtual tape recovery points.
@@ -137,12 +146,23 @@ instance ToQuery DescribeTapeRecoveryPoints where
 --
 -- * 'dtrprMarker'
 --
--- * 'dtrprStatusCode'
-data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'{_dtrprTapeRecoveryPointInfos :: Maybe [TapeRecoveryPointInfo], _dtrprGatewayARN :: Maybe Text, _dtrprMarker :: Maybe Text, _dtrprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dtrprStatus'
+data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
+    { _dtrprTapeRecoveryPointInfos :: Maybe [TapeRecoveryPointInfo]
+    , _dtrprGatewayARN             :: Maybe Text
+    , _dtrprMarker                 :: Maybe Text
+    , _dtrprStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTapeRecoveryPointsResponse' smart constructor.
 describeTapeRecoveryPointsResponse :: Int -> DescribeTapeRecoveryPointsResponse
-describeTapeRecoveryPointsResponse pStatusCode = DescribeTapeRecoveryPointsResponse'{_dtrprTapeRecoveryPointInfos = Nothing, _dtrprGatewayARN = Nothing, _dtrprMarker = Nothing, _dtrprStatusCode = pStatusCode};
+describeTapeRecoveryPointsResponse pStatus =
+    DescribeTapeRecoveryPointsResponse'
+    { _dtrprTapeRecoveryPointInfos = Nothing
+    , _dtrprGatewayARN = Nothing
+    , _dtrprMarker = Nothing
+    , _dtrprStatus = pStatus
+    }
 
 -- | An array of TapeRecoveryPointInfos that are available for the specified
 -- gateway.
@@ -163,5 +183,5 @@ dtrprMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
 dtrprMarker = lens _dtrprMarker (\ s a -> s{_dtrprMarker = a});
 
 -- | FIXME: Undocumented member.
-dtrprStatusCode :: Lens' DescribeTapeRecoveryPointsResponse Int
-dtrprStatusCode = lens _dtrprStatusCode (\ s a -> s{_dtrprStatusCode = a});
+dtrprStatus :: Lens' DescribeTapeRecoveryPointsResponse Int
+dtrprStatus = lens _dtrprStatus (\ s a -> s{_dtrprStatus = a});

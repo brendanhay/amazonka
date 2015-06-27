@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Kinesis.ListTagsForStream
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.Kinesis.ListTagsForStream
     -- ** Response lenses
     , ltfsrTags
     , ltfsrHasMoreTags
-    , ltfsrStatusCode
+    , ltfsrStatus
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @ListTagsForStream@.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'ltfsExclusiveStartTagKey'
 --
 -- * 'ltfsStreamName'
-data ListTagsForStream = ListTagsForStream'{_ltfsLimit :: Maybe Nat, _ltfsExclusiveStartTagKey :: Maybe Text, _ltfsStreamName :: Text} deriving (Eq, Read, Show)
+data ListTagsForStream = ListTagsForStream'
+    { _ltfsLimit                :: Maybe Nat
+    , _ltfsExclusiveStartTagKey :: Maybe Text
+    , _ltfsStreamName           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForStream' smart constructor.
 listTagsForStream :: Text -> ListTagsForStream
-listTagsForStream pStreamName = ListTagsForStream'{_ltfsLimit = Nothing, _ltfsExclusiveStartTagKey = Nothing, _ltfsStreamName = pStreamName};
+listTagsForStream pStreamName =
+    ListTagsForStream'
+    { _ltfsLimit = Nothing
+    , _ltfsExclusiveStartTagKey = Nothing
+    , _ltfsStreamName = pStreamName
+    }
 
 -- | The number of tags to return. If this number is less than the total
 -- number of tags associated with the stream, @HasMoreTags@ is set to
@@ -120,12 +129,21 @@ instance ToQuery ListTagsForStream where
 --
 -- * 'ltfsrHasMoreTags'
 --
--- * 'ltfsrStatusCode'
-data ListTagsForStreamResponse = ListTagsForStreamResponse'{_ltfsrTags :: [Tag], _ltfsrHasMoreTags :: Bool, _ltfsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ltfsrStatus'
+data ListTagsForStreamResponse = ListTagsForStreamResponse'
+    { _ltfsrTags        :: [Tag]
+    , _ltfsrHasMoreTags :: !Bool
+    , _ltfsrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForStreamResponse' smart constructor.
 listTagsForStreamResponse :: Bool -> Int -> ListTagsForStreamResponse
-listTagsForStreamResponse pHasMoreTags pStatusCode = ListTagsForStreamResponse'{_ltfsrTags = mempty, _ltfsrHasMoreTags = pHasMoreTags, _ltfsrStatusCode = pStatusCode};
+listTagsForStreamResponse pHasMoreTags pStatus =
+    ListTagsForStreamResponse'
+    { _ltfsrTags = mempty
+    , _ltfsrHasMoreTags = pHasMoreTags
+    , _ltfsrStatus = pStatus
+    }
 
 -- | A list of tags associated with @StreamName@, starting with the first tag
 -- after @ExclusiveStartTagKey@ and up to the specified @Limit@.
@@ -138,5 +156,5 @@ ltfsrHasMoreTags :: Lens' ListTagsForStreamResponse Bool
 ltfsrHasMoreTags = lens _ltfsrHasMoreTags (\ s a -> s{_ltfsrHasMoreTags = a});
 
 -- | FIXME: Undocumented member.
-ltfsrStatusCode :: Lens' ListTagsForStreamResponse Int
-ltfsrStatusCode = lens _ltfsrStatusCode (\ s a -> s{_ltfsrStatusCode = a});
+ltfsrStatus :: Lens' ListTagsForStreamResponse Int
+ltfsrStatus = lens _ltfsrStatus (\ s a -> s{_ltfsrStatus = a});

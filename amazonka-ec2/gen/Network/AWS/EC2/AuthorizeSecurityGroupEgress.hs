@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.AuthorizeSecurityGroupEgress
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,10 +61,10 @@ module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     , authorizeSecurityGroupEgressResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'authorizeSecurityGroupEgress' smart constructor.
 --
@@ -87,11 +87,32 @@ import Network.AWS.Response
 -- * 'asgeDryRun'
 --
 -- * 'asgeGroupId'
-data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'{_asgeFromPort :: Maybe Int, _asgeIPPermissions :: Maybe [IPPermission], _asgeIPProtocol :: Maybe Text, _asgeToPort :: Maybe Int, _asgeCIDRIP :: Maybe Text, _asgeSourceSecurityGroupOwnerId :: Maybe Text, _asgeSourceSecurityGroupName :: Maybe Text, _asgeDryRun :: Maybe Bool, _asgeGroupId :: Text} deriving (Eq, Read, Show)
+data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
+    { _asgeFromPort                   :: Maybe Int
+    , _asgeIPPermissions              :: Maybe [IPPermission]
+    , _asgeIPProtocol                 :: Maybe Text
+    , _asgeToPort                     :: Maybe Int
+    , _asgeCIDRIP                     :: Maybe Text
+    , _asgeSourceSecurityGroupOwnerId :: Maybe Text
+    , _asgeSourceSecurityGroupName    :: Maybe Text
+    , _asgeDryRun                     :: Maybe Bool
+    , _asgeGroupId                    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeSecurityGroupEgress' smart constructor.
 authorizeSecurityGroupEgress :: Text -> AuthorizeSecurityGroupEgress
-authorizeSecurityGroupEgress pGroupId = AuthorizeSecurityGroupEgress'{_asgeFromPort = Nothing, _asgeIPPermissions = Nothing, _asgeIPProtocol = Nothing, _asgeToPort = Nothing, _asgeCIDRIP = Nothing, _asgeSourceSecurityGroupOwnerId = Nothing, _asgeSourceSecurityGroupName = Nothing, _asgeDryRun = Nothing, _asgeGroupId = pGroupId};
+authorizeSecurityGroupEgress pGroupId =
+    AuthorizeSecurityGroupEgress'
+    { _asgeFromPort = Nothing
+    , _asgeIPPermissions = Nothing
+    , _asgeIPProtocol = Nothing
+    , _asgeToPort = Nothing
+    , _asgeCIDRIP = Nothing
+    , _asgeSourceSecurityGroupOwnerId = Nothing
+    , _asgeSourceSecurityGroupName = Nothing
+    , _asgeDryRun = Nothing
+    , _asgeGroupId = pGroupId
+    }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use @-1@ to specify all ICMP types.
@@ -174,8 +195,10 @@ instance ToQuery AuthorizeSecurityGroupEgress where
                "DryRun" =: _asgeDryRun, "GroupId" =: _asgeGroupId]
 
 -- | /See:/ 'authorizeSecurityGroupEgressResponse' smart constructor.
-data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse' deriving (Eq, Read, Show)
+data AuthorizeSecurityGroupEgressResponse =
+    AuthorizeSecurityGroupEgressResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'AuthorizeSecurityGroupEgressResponse' smart constructor.
 authorizeSecurityGroupEgressResponse :: AuthorizeSecurityGroupEgressResponse
-authorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse';
+authorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53Domains.DisableDomainAutoRenew
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,24 +37,29 @@ module Network.AWS.Route53Domains.DisableDomainAutoRenew
     -- ** Response constructor
     , disableDomainAutoRenewResponse
     -- ** Response lenses
-    , ddarrStatusCode
+    , ddarrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53Domains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
 -- | /See:/ 'disableDomainAutoRenew' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddarDomainName'
-newtype DisableDomainAutoRenew = DisableDomainAutoRenew'{_ddarDomainName :: Text} deriving (Eq, Read, Show)
+newtype DisableDomainAutoRenew = DisableDomainAutoRenew'
+    { _ddarDomainName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableDomainAutoRenew' smart constructor.
 disableDomainAutoRenew :: Text -> DisableDomainAutoRenew
-disableDomainAutoRenew pDomainName = DisableDomainAutoRenew'{_ddarDomainName = pDomainName};
+disableDomainAutoRenew pDomainName =
+    DisableDomainAutoRenew'
+    { _ddarDomainName = pDomainName
+    }
 
 -- | FIXME: Undocumented member.
 ddarDomainName :: Lens' DisableDomainAutoRenew Text
@@ -95,13 +100,18 @@ instance ToQuery DisableDomainAutoRenew where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddarrStatusCode'
-newtype DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'{_ddarrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ddarrStatus'
+newtype DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'
+    { _ddarrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableDomainAutoRenewResponse' smart constructor.
 disableDomainAutoRenewResponse :: Int -> DisableDomainAutoRenewResponse
-disableDomainAutoRenewResponse pStatusCode = DisableDomainAutoRenewResponse'{_ddarrStatusCode = pStatusCode};
+disableDomainAutoRenewResponse pStatus =
+    DisableDomainAutoRenewResponse'
+    { _ddarrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-ddarrStatusCode :: Lens' DisableDomainAutoRenewResponse Int
-ddarrStatusCode = lens _ddarrStatusCode (\ s a -> s{_ddarrStatusCode = a});
+ddarrStatus :: Lens' DisableDomainAutoRenewResponse Int
+ddarrStatus = lens _ddarrStatus (\ s a -> s{_ddarrStatus = a});

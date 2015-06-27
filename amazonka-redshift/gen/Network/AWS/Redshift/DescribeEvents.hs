@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DescribeEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,14 +43,14 @@ module Network.AWS.Redshift.DescribeEvents
     -- ** Response lenses
     , derEvents
     , derMarker
-    , derStatusCode
+    , derStatus
     ) where
 
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -71,11 +71,28 @@ import Network.AWS.Response
 -- * 'deMarker'
 --
 -- * 'deDuration'
-data DescribeEvents = DescribeEvents'{_deStartTime :: Maybe ISO8601, _deSourceType :: Maybe SourceType, _deSourceIdentifier :: Maybe Text, _deMaxRecords :: Maybe Int, _deEndTime :: Maybe ISO8601, _deMarker :: Maybe Text, _deDuration :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeEvents = DescribeEvents'
+    { _deStartTime        :: Maybe ISO8601
+    , _deSourceType       :: Maybe SourceType
+    , _deSourceIdentifier :: Maybe Text
+    , _deMaxRecords       :: Maybe Int
+    , _deEndTime          :: Maybe ISO8601
+    , _deMarker           :: Maybe Text
+    , _deDuration         :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEvents' smart constructor.
 describeEvents :: DescribeEvents
-describeEvents = DescribeEvents'{_deStartTime = Nothing, _deSourceType = Nothing, _deSourceIdentifier = Nothing, _deMaxRecords = Nothing, _deEndTime = Nothing, _deMarker = Nothing, _deDuration = Nothing};
+describeEvents =
+    DescribeEvents'
+    { _deStartTime = Nothing
+    , _deSourceType = Nothing
+    , _deSourceIdentifier = Nothing
+    , _deMaxRecords = Nothing
+    , _deEndTime = Nothing
+    , _deMarker = Nothing
+    , _deDuration = Nothing
+    }
 
 -- | The beginning of the time interval to retrieve events for, specified in
 -- ISO 8601 format. For more information about ISO 8601, go to the
@@ -205,12 +222,21 @@ instance ToQuery DescribeEvents where
 --
 -- * 'derMarker'
 --
--- * 'derStatusCode'
-data DescribeEventsResponse = DescribeEventsResponse'{_derEvents :: Maybe [Event], _derMarker :: Maybe Text, _derStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'derStatus'
+data DescribeEventsResponse = DescribeEventsResponse'
+    { _derEvents :: Maybe [Event]
+    , _derMarker :: Maybe Text
+    , _derStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEventsResponse' smart constructor.
 describeEventsResponse :: Int -> DescribeEventsResponse
-describeEventsResponse pStatusCode = DescribeEventsResponse'{_derEvents = Nothing, _derMarker = Nothing, _derStatusCode = pStatusCode};
+describeEventsResponse pStatus =
+    DescribeEventsResponse'
+    { _derEvents = Nothing
+    , _derMarker = Nothing
+    , _derStatus = pStatus
+    }
 
 -- | A list of Event instances.
 derEvents :: Lens' DescribeEventsResponse [Event]
@@ -226,5 +252,5 @@ derMarker :: Lens' DescribeEventsResponse (Maybe Text)
 derMarker = lens _derMarker (\ s a -> s{_derMarker = a});
 
 -- | FIXME: Undocumented member.
-derStatusCode :: Lens' DescribeEventsResponse Int
-derStatusCode = lens _derStatusCode (\ s a -> s{_derStatusCode = a});
+derStatus :: Lens' DescribeEventsResponse Int
+derStatus = lens _derStatus (\ s a -> s{_derStatus = a});

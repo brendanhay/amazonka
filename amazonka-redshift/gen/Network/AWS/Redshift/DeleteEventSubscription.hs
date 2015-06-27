@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DeleteEventSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,10 +32,10 @@ module Network.AWS.Redshift.DeleteEventSubscription
     , deleteEventSubscriptionResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -44,11 +44,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'desSubscriptionName'
-newtype DeleteEventSubscription = DeleteEventSubscription'{_desSubscriptionName :: Text} deriving (Eq, Read, Show)
+newtype DeleteEventSubscription = DeleteEventSubscription'
+    { _desSubscriptionName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteEventSubscription' smart constructor.
 deleteEventSubscription :: Text -> DeleteEventSubscription
-deleteEventSubscription pSubscriptionName = DeleteEventSubscription'{_desSubscriptionName = pSubscriptionName};
+deleteEventSubscription pSubscriptionName =
+    DeleteEventSubscription'
+    { _desSubscriptionName = pSubscriptionName
+    }
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- deleted.
@@ -78,8 +83,10 @@ instance ToQuery DeleteEventSubscription where
                "SubscriptionName" =: _desSubscriptionName]
 
 -- | /See:/ 'deleteEventSubscriptionResponse' smart constructor.
-data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse' deriving (Eq, Read, Show)
+data DeleteEventSubscriptionResponse =
+    DeleteEventSubscriptionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteEventSubscriptionResponse' smart constructor.
 deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
-deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse';
+deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'

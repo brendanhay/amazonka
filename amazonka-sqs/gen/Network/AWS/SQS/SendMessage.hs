@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.SendMessage
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.SQS.SendMessage
     , smrMessageId
     , smrMD5OfMessageBody
     , smrMD5OfMessageAttributes
-    , smrStatusCode
+    , smrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'sendMessage' smart constructor.
 --
@@ -68,11 +68,22 @@ import Network.AWS.SQS.Types
 -- * 'smQueueURL'
 --
 -- * 'smMessageBody'
-data SendMessage = SendMessage'{_smMessageAttributes :: Maybe (Map Text MessageAttributeValue), _smDelaySeconds :: Maybe Int, _smQueueURL :: Text, _smMessageBody :: Text} deriving (Eq, Read, Show)
+data SendMessage = SendMessage'
+    { _smMessageAttributes :: Maybe (Map Text MessageAttributeValue)
+    , _smDelaySeconds      :: Maybe Int
+    , _smQueueURL          :: Text
+    , _smMessageBody       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SendMessage' smart constructor.
 sendMessage :: Text -> Text -> SendMessage
-sendMessage pQueueURL pMessageBody = SendMessage'{_smMessageAttributes = Nothing, _smDelaySeconds = Nothing, _smQueueURL = pQueueURL, _smMessageBody = pMessageBody};
+sendMessage pQueueURL pMessageBody =
+    SendMessage'
+    { _smMessageAttributes = Nothing
+    , _smDelaySeconds = Nothing
+    , _smQueueURL = pQueueURL
+    , _smMessageBody = pMessageBody
+    }
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see
@@ -138,12 +149,23 @@ instance ToQuery SendMessage where
 --
 -- * 'smrMD5OfMessageAttributes'
 --
--- * 'smrStatusCode'
-data SendMessageResponse = SendMessageResponse'{_smrMessageId :: Maybe Text, _smrMD5OfMessageBody :: Maybe Text, _smrMD5OfMessageAttributes :: Maybe Text, _smrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'smrStatus'
+data SendMessageResponse = SendMessageResponse'
+    { _smrMessageId              :: Maybe Text
+    , _smrMD5OfMessageBody       :: Maybe Text
+    , _smrMD5OfMessageAttributes :: Maybe Text
+    , _smrStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SendMessageResponse' smart constructor.
 sendMessageResponse :: Int -> SendMessageResponse
-sendMessageResponse pStatusCode = SendMessageResponse'{_smrMessageId = Nothing, _smrMD5OfMessageBody = Nothing, _smrMD5OfMessageAttributes = Nothing, _smrStatusCode = pStatusCode};
+sendMessageResponse pStatus =
+    SendMessageResponse'
+    { _smrMessageId = Nothing
+    , _smrMD5OfMessageBody = Nothing
+    , _smrMD5OfMessageAttributes = Nothing
+    , _smrStatus = pStatus
+    }
 
 -- | An element containing the message ID of the message sent to the queue.
 -- For more information, see
@@ -167,5 +189,5 @@ smrMD5OfMessageAttributes :: Lens' SendMessageResponse (Maybe Text)
 smrMD5OfMessageAttributes = lens _smrMD5OfMessageAttributes (\ s a -> s{_smrMD5OfMessageAttributes = a});
 
 -- | FIXME: Undocumented member.
-smrStatusCode :: Lens' SendMessageResponse Int
-smrStatusCode = lens _smrStatusCode (\ s a -> s{_smrStatusCode = a});
+smrStatus :: Lens' SendMessageResponse Int
+smrStatus = lens _smrStatus (\ s a -> s{_smrStatus = a});

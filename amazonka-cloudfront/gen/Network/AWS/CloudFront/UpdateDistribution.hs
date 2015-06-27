@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFront.UpdateDistribution
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.CloudFront.UpdateDistribution
     -- ** Response lenses
     , udrETag
     , udrDistribution
-    , udrStatusCode
+    , udrStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to update a distribution.
 --
@@ -54,11 +54,20 @@ import Network.AWS.Response
 -- * 'udDistributionConfig'
 --
 -- * 'udId'
-data UpdateDistribution = UpdateDistribution'{_udIfMatch :: Maybe Text, _udDistributionConfig :: DistributionConfig, _udId :: Text} deriving (Eq, Read, Show)
+data UpdateDistribution = UpdateDistribution'
+    { _udIfMatch            :: Maybe Text
+    , _udDistributionConfig :: DistributionConfig
+    , _udId                 :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDistribution' smart constructor.
 updateDistribution :: DistributionConfig -> Text -> UpdateDistribution
-updateDistribution pDistributionConfig pId = UpdateDistribution'{_udIfMatch = Nothing, _udDistributionConfig = pDistributionConfig, _udId = pId};
+updateDistribution pDistributionConfig pId =
+    UpdateDistribution'
+    { _udIfMatch = Nothing
+    , _udDistributionConfig = pDistributionConfig
+    , _udId = pId
+    }
 
 -- | The value of the ETag header you received when retrieving the
 -- distribution\'s configuration. For example: E2QWRUHAPOMQZL.
@@ -115,12 +124,21 @@ instance ToQuery UpdateDistribution where
 --
 -- * 'udrDistribution'
 --
--- * 'udrStatusCode'
-data UpdateDistributionResponse = UpdateDistributionResponse'{_udrETag :: Maybe Text, _udrDistribution :: Maybe Distribution, _udrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'udrStatus'
+data UpdateDistributionResponse = UpdateDistributionResponse'
+    { _udrETag         :: Maybe Text
+    , _udrDistribution :: Maybe Distribution
+    , _udrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDistributionResponse' smart constructor.
 updateDistributionResponse :: Int -> UpdateDistributionResponse
-updateDistributionResponse pStatusCode = UpdateDistributionResponse'{_udrETag = Nothing, _udrDistribution = Nothing, _udrStatusCode = pStatusCode};
+updateDistributionResponse pStatus =
+    UpdateDistributionResponse'
+    { _udrETag = Nothing
+    , _udrDistribution = Nothing
+    , _udrStatus = pStatus
+    }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 udrETag :: Lens' UpdateDistributionResponse (Maybe Text)
@@ -131,5 +149,5 @@ udrDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
 udrDistribution = lens _udrDistribution (\ s a -> s{_udrDistribution = a});
 
 -- | FIXME: Undocumented member.
-udrStatusCode :: Lens' UpdateDistributionResponse Int
-udrStatusCode = lens _udrStatusCode (\ s a -> s{_udrStatusCode = a});
+udrStatus :: Lens' UpdateDistributionResponse Int
+udrStatus = lens _udrStatus (\ s a -> s{_udrStatus = a});

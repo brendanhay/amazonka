@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.RDS.DeleteOptionGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,10 +32,10 @@ module Network.AWS.RDS.DeleteOptionGroup
     , deleteOptionGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -44,11 +44,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delOptionGroupName'
-newtype DeleteOptionGroup = DeleteOptionGroup'{_delOptionGroupName :: Text} deriving (Eq, Read, Show)
+newtype DeleteOptionGroup = DeleteOptionGroup'
+    { _delOptionGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteOptionGroup' smart constructor.
 deleteOptionGroup :: Text -> DeleteOptionGroup
-deleteOptionGroup pOptionGroupName = DeleteOptionGroup'{_delOptionGroupName = pOptionGroupName};
+deleteOptionGroup pOptionGroupName =
+    DeleteOptionGroup'
+    { _delOptionGroupName = pOptionGroupName
+    }
 
 -- | The name of the option group to be deleted.
 --
@@ -76,8 +81,10 @@ instance ToQuery DeleteOptionGroup where
                "OptionGroupName" =: _delOptionGroupName]
 
 -- | /See:/ 'deleteOptionGroupResponse' smart constructor.
-data DeleteOptionGroupResponse = DeleteOptionGroupResponse' deriving (Eq, Read, Show)
+data DeleteOptionGroupResponse =
+    DeleteOptionGroupResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteOptionGroupResponse' smart constructor.
 deleteOptionGroupResponse :: DeleteOptionGroupResponse
-deleteOptionGroupResponse = DeleteOptionGroupResponse';
+deleteOptionGroupResponse = DeleteOptionGroupResponse'

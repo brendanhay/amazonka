@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.RemovePermission
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,10 +34,10 @@ module Network.AWS.SQS.RemovePermission
     , removePermissionResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'removePermission' smart constructor.
 --
@@ -46,11 +46,18 @@ import Network.AWS.SQS.Types
 -- * 'rpQueueURL'
 --
 -- * 'rpLabel'
-data RemovePermission = RemovePermission'{_rpQueueURL :: Text, _rpLabel :: Text} deriving (Eq, Read, Show)
+data RemovePermission = RemovePermission'
+    { _rpQueueURL :: Text
+    , _rpLabel    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RemovePermission' smart constructor.
 removePermission :: Text -> Text -> RemovePermission
-removePermission pQueueURL pLabel = RemovePermission'{_rpQueueURL = pQueueURL, _rpLabel = pLabel};
+removePermission pQueueURL pLabel =
+    RemovePermission'
+    { _rpQueueURL = pQueueURL
+    , _rpLabel = pLabel
+    }
 
 -- | The URL of the Amazon SQS queue to take action on.
 rpQueueURL :: Lens' RemovePermission Text
@@ -81,8 +88,10 @@ instance ToQuery RemovePermission where
                "QueueUrl" =: _rpQueueURL, "Label" =: _rpLabel]
 
 -- | /See:/ 'removePermissionResponse' smart constructor.
-data RemovePermissionResponse = RemovePermissionResponse' deriving (Eq, Read, Show)
+data RemovePermissionResponse =
+    RemovePermissionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RemovePermissionResponse' smart constructor.
 removePermissionResponse :: RemovePermissionResponse
-removePermissionResponse = RemovePermissionResponse';
+removePermissionResponse = RemovePermissionResponse'

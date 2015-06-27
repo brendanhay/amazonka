@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.CreateHSMClientCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,13 +43,13 @@ module Network.AWS.Redshift.CreateHSMClientCertificate
     , createHSMClientCertificateResponse
     -- ** Response lenses
     , chccrHSMClientCertificate
-    , chccrStatusCode
+    , chccrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -60,11 +60,18 @@ import Network.AWS.Response
 -- * 'chccTags'
 --
 -- * 'chccHSMClientCertificateIdentifier'
-data CreateHSMClientCertificate = CreateHSMClientCertificate'{_chccTags :: Maybe [Tag], _chccHSMClientCertificateIdentifier :: Text} deriving (Eq, Read, Show)
+data CreateHSMClientCertificate = CreateHSMClientCertificate'
+    { _chccTags                           :: Maybe [Tag]
+    , _chccHSMClientCertificateIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateHSMClientCertificate' smart constructor.
 createHSMClientCertificate :: Text -> CreateHSMClientCertificate
-createHSMClientCertificate pHSMClientCertificateIdentifier = CreateHSMClientCertificate'{_chccTags = Nothing, _chccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier};
+createHSMClientCertificate pHSMClientCertificateIdentifier =
+    CreateHSMClientCertificate'
+    { _chccTags = Nothing
+    , _chccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier
+    }
 
 -- | A list of tag instances.
 chccTags :: Lens' CreateHSMClientCertificate [Tag]
@@ -111,17 +118,24 @@ instance ToQuery CreateHSMClientCertificate where
 --
 -- * 'chccrHSMClientCertificate'
 --
--- * 'chccrStatusCode'
-data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'{_chccrHSMClientCertificate :: Maybe HSMClientCertificate, _chccrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'chccrStatus'
+data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'
+    { _chccrHSMClientCertificate :: Maybe HSMClientCertificate
+    , _chccrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateHSMClientCertificateResponse' smart constructor.
 createHSMClientCertificateResponse :: Int -> CreateHSMClientCertificateResponse
-createHSMClientCertificateResponse pStatusCode = CreateHSMClientCertificateResponse'{_chccrHSMClientCertificate = Nothing, _chccrStatusCode = pStatusCode};
+createHSMClientCertificateResponse pStatus =
+    CreateHSMClientCertificateResponse'
+    { _chccrHSMClientCertificate = Nothing
+    , _chccrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 chccrHSMClientCertificate :: Lens' CreateHSMClientCertificateResponse (Maybe HSMClientCertificate)
 chccrHSMClientCertificate = lens _chccrHSMClientCertificate (\ s a -> s{_chccrHSMClientCertificate = a});
 
 -- | FIXME: Undocumented member.
-chccrStatusCode :: Lens' CreateHSMClientCertificateResponse Int
-chccrStatusCode = lens _chccrStatusCode (\ s a -> s{_chccrStatusCode = a});
+chccrStatus :: Lens' CreateHSMClientCertificateResponse Int
+chccrStatus = lens _chccrStatus (\ s a -> s{_chccrStatus = a});

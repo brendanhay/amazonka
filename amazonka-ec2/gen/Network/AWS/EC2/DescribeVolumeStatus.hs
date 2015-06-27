@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeVolumeStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -75,14 +75,14 @@ module Network.AWS.EC2.DescribeVolumeStatus
     -- ** Response lenses
     , dvsrNextToken
     , dvsrVolumeStatuses
-    , dvsrStatusCode
+    , dvsrStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVolumeStatus' smart constructor.
 --
@@ -97,11 +97,24 @@ import Network.AWS.Response
 -- * 'dvsDryRun'
 --
 -- * 'dvsMaxResults'
-data DescribeVolumeStatus = DescribeVolumeStatus'{_dvsFilters :: Maybe [Filter], _dvsVolumeIds :: Maybe [Text], _dvsNextToken :: Maybe Text, _dvsDryRun :: Maybe Bool, _dvsMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeVolumeStatus = DescribeVolumeStatus'
+    { _dvsFilters    :: Maybe [Filter]
+    , _dvsVolumeIds  :: Maybe [Text]
+    , _dvsNextToken  :: Maybe Text
+    , _dvsDryRun     :: Maybe Bool
+    , _dvsMaxResults :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVolumeStatus' smart constructor.
 describeVolumeStatus :: DescribeVolumeStatus
-describeVolumeStatus = DescribeVolumeStatus'{_dvsFilters = Nothing, _dvsVolumeIds = Nothing, _dvsNextToken = Nothing, _dvsDryRun = Nothing, _dvsMaxResults = Nothing};
+describeVolumeStatus =
+    DescribeVolumeStatus'
+    { _dvsFilters = Nothing
+    , _dvsVolumeIds = Nothing
+    , _dvsNextToken = Nothing
+    , _dvsDryRun = Nothing
+    , _dvsMaxResults = Nothing
+    }
 
 -- | One or more filters.
 --
@@ -215,12 +228,21 @@ instance ToQuery DescribeVolumeStatus where
 --
 -- * 'dvsrVolumeStatuses'
 --
--- * 'dvsrStatusCode'
-data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'{_dvsrNextToken :: Maybe Text, _dvsrVolumeStatuses :: Maybe [VolumeStatusItem], _dvsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dvsrStatus'
+data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
+    { _dvsrNextToken      :: Maybe Text
+    , _dvsrVolumeStatuses :: Maybe [VolumeStatusItem]
+    , _dvsrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVolumeStatusResponse' smart constructor.
 describeVolumeStatusResponse :: Int -> DescribeVolumeStatusResponse
-describeVolumeStatusResponse pStatusCode = DescribeVolumeStatusResponse'{_dvsrNextToken = Nothing, _dvsrVolumeStatuses = Nothing, _dvsrStatusCode = pStatusCode};
+describeVolumeStatusResponse pStatus =
+    DescribeVolumeStatusResponse'
+    { _dvsrNextToken = Nothing
+    , _dvsrVolumeStatuses = Nothing
+    , _dvsrStatus = pStatus
+    }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -232,5 +254,5 @@ dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
 dvsrVolumeStatuses = lens _dvsrVolumeStatuses (\ s a -> s{_dvsrVolumeStatuses = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvsrStatusCode :: Lens' DescribeVolumeStatusResponse Int
-dvsrStatusCode = lens _dvsrStatusCode (\ s a -> s{_dvsrStatusCode = a});
+dvsrStatus :: Lens' DescribeVolumeStatusResponse Int
+dvsrStatus = lens _dvsrStatus (\ s a -> s{_dvsrStatus = a});

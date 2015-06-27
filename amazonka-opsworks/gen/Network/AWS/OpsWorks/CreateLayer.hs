@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateLayer
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,13 +61,13 @@ module Network.AWS.OpsWorks.CreateLayer
     , createLayerResponse
     -- ** Response lenses
     , clrLayerId
-    , clrStatusCode
+    , clrStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createLayer' smart constructor.
 --
@@ -104,11 +104,46 @@ import Network.AWS.Response
 -- * 'clName'
 --
 -- * 'clShortname'
-data CreateLayer = CreateLayer'{_clCustomInstanceProfileARN :: Maybe Text, _clInstallUpdatesOnBoot :: Maybe Bool, _clCustomSecurityGroupIds :: Maybe [Text], _clLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration, _clCustomRecipes :: Maybe Recipes, _clVolumeConfigurations :: Maybe [VolumeConfiguration], _clEnableAutoHealing :: Maybe Bool, _clPackages :: Maybe [Text], _clAttributes :: Maybe (Map LayerAttributesKeys Text), _clAutoAssignPublicIPs :: Maybe Bool, _clUseEBSOptimizedInstances :: Maybe Bool, _clAutoAssignElasticIPs :: Maybe Bool, _clStackId :: Text, _clType :: LayerType, _clName :: Text, _clShortname :: Text} deriving (Eq, Read, Show)
+data CreateLayer = CreateLayer'
+    { _clCustomInstanceProfileARN    :: Maybe Text
+    , _clInstallUpdatesOnBoot        :: Maybe Bool
+    , _clCustomSecurityGroupIds      :: Maybe [Text]
+    , _clLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration
+    , _clCustomRecipes               :: Maybe Recipes
+    , _clVolumeConfigurations        :: Maybe [VolumeConfiguration]
+    , _clEnableAutoHealing           :: Maybe Bool
+    , _clPackages                    :: Maybe [Text]
+    , _clAttributes                  :: Maybe (Map LayerAttributesKeys Text)
+    , _clAutoAssignPublicIPs         :: Maybe Bool
+    , _clUseEBSOptimizedInstances    :: Maybe Bool
+    , _clAutoAssignElasticIPs        :: Maybe Bool
+    , _clStackId                     :: Text
+    , _clType                        :: LayerType
+    , _clName                        :: Text
+    , _clShortname                   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLayer' smart constructor.
 createLayer :: Text -> LayerType -> Text -> Text -> CreateLayer
-createLayer pStackId pType pName pShortname = CreateLayer'{_clCustomInstanceProfileARN = Nothing, _clInstallUpdatesOnBoot = Nothing, _clCustomSecurityGroupIds = Nothing, _clLifecycleEventConfiguration = Nothing, _clCustomRecipes = Nothing, _clVolumeConfigurations = Nothing, _clEnableAutoHealing = Nothing, _clPackages = Nothing, _clAttributes = Nothing, _clAutoAssignPublicIPs = Nothing, _clUseEBSOptimizedInstances = Nothing, _clAutoAssignElasticIPs = Nothing, _clStackId = pStackId, _clType = pType, _clName = pName, _clShortname = pShortname};
+createLayer pStackId pType pName pShortname =
+    CreateLayer'
+    { _clCustomInstanceProfileARN = Nothing
+    , _clInstallUpdatesOnBoot = Nothing
+    , _clCustomSecurityGroupIds = Nothing
+    , _clLifecycleEventConfiguration = Nothing
+    , _clCustomRecipes = Nothing
+    , _clVolumeConfigurations = Nothing
+    , _clEnableAutoHealing = Nothing
+    , _clPackages = Nothing
+    , _clAttributes = Nothing
+    , _clAutoAssignPublicIPs = Nothing
+    , _clUseEBSOptimizedInstances = Nothing
+    , _clAutoAssignElasticIPs = Nothing
+    , _clStackId = pStackId
+    , _clType = pType
+    , _clName = pName
+    , _clShortname = pShortname
+    }
 
 -- | The ARN of an IAM profile that to be used for the layer\'s EC2
 -- instances. For more information about IAM ARNs, see
@@ -257,17 +292,24 @@ instance ToQuery CreateLayer where
 --
 -- * 'clrLayerId'
 --
--- * 'clrStatusCode'
-data CreateLayerResponse = CreateLayerResponse'{_clrLayerId :: Maybe Text, _clrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'clrStatus'
+data CreateLayerResponse = CreateLayerResponse'
+    { _clrLayerId :: Maybe Text
+    , _clrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLayerResponse' smart constructor.
 createLayerResponse :: Int -> CreateLayerResponse
-createLayerResponse pStatusCode = CreateLayerResponse'{_clrLayerId = Nothing, _clrStatusCode = pStatusCode};
+createLayerResponse pStatus =
+    CreateLayerResponse'
+    { _clrLayerId = Nothing
+    , _clrStatus = pStatus
+    }
 
 -- | The layer ID.
 clrLayerId :: Lens' CreateLayerResponse (Maybe Text)
 clrLayerId = lens _clrLayerId (\ s a -> s{_clrLayerId = a});
 
 -- | FIXME: Undocumented member.
-clrStatusCode :: Lens' CreateLayerResponse Int
-clrStatusCode = lens _clrStatusCode (\ s a -> s{_clrStatusCode = a});
+clrStatus :: Lens' CreateLayerResponse Int
+clrStatus = lens _clrStatus (\ s a -> s{_clrStatus = a});

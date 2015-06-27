@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ResetNetworkInterfaceAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     , resetNetworkInterfaceAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'resetNetworkInterfaceAttribute' smart constructor.
 --
@@ -49,11 +49,20 @@ import Network.AWS.Response
 -- * 'rniaDryRun'
 --
 -- * 'rniaNetworkInterfaceId'
-data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'{_rniaSourceDestCheck :: Maybe Text, _rniaDryRun :: Maybe Bool, _rniaNetworkInterfaceId :: Text} deriving (Eq, Read, Show)
+data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
+    { _rniaSourceDestCheck    :: Maybe Text
+    , _rniaDryRun             :: Maybe Bool
+    , _rniaNetworkInterfaceId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ResetNetworkInterfaceAttribute' smart constructor.
 resetNetworkInterfaceAttribute :: Text -> ResetNetworkInterfaceAttribute
-resetNetworkInterfaceAttribute pNetworkInterfaceId = ResetNetworkInterfaceAttribute'{_rniaSourceDestCheck = Nothing, _rniaDryRun = Nothing, _rniaNetworkInterfaceId = pNetworkInterfaceId};
+resetNetworkInterfaceAttribute pNetworkInterfaceId =
+    ResetNetworkInterfaceAttribute'
+    { _rniaSourceDestCheck = Nothing
+    , _rniaDryRun = Nothing
+    , _rniaNetworkInterfaceId = pNetworkInterfaceId
+    }
 
 -- | The source\/destination checking attribute. Resets the value to @true@.
 rniaSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
@@ -97,8 +106,11 @@ instance ToQuery ResetNetworkInterfaceAttribute where
                "NetworkInterfaceId" =: _rniaNetworkInterfaceId]
 
 -- | /See:/ 'resetNetworkInterfaceAttributeResponse' smart constructor.
-data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse' deriving (Eq, Read, Show)
+data ResetNetworkInterfaceAttributeResponse =
+    ResetNetworkInterfaceAttributeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ResetNetworkInterfaceAttributeResponse' smart constructor.
 resetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse
-resetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse';
+resetNetworkInterfaceAttributeResponse =
+    ResetNetworkInterfaceAttributeResponse'

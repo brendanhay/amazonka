@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.ElastiCache.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -373,126 +372,147 @@ module Network.AWS.ElastiCache.Types
     , tlmTagList
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2015-02-02@ of the Amazon ElastiCache SDK.
 data ElastiCache
 
 instance AWSService ElastiCache where
     type Sg ElastiCache = V4
-
     service = const svc
       where
-        svc :: Service ElastiCache
-        svc = Service
-            { _svcAbbrev   = "ElastiCache"
-            , _svcPrefix   = "elasticache"
-            , _svcVersion  = "2015-02-02"
+        svc =
+            Service
+            { _svcAbbrev = "ElastiCache"
+            , _svcPrefix = "elasticache"
+            , _svcVersion = "2015-02-02"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The requested cache subnet group name is already in use by an existing
 -- cache subnet group.
-_CacheSubnetGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_CacheSubnetGroupAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "CacheSubnetGroupAlreadyExists";
+_CacheSubnetGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_CacheSubnetGroupAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "CacheSubnetGroupAlreadyExists"
 
 -- | The requested cache subnet group is currently in use.
-_CacheSubnetGroupInUse :: AWSError a => Geting (First ServiceError) a ServiceError
-_CacheSubnetGroupInUse = _ServiceError . hasStatus 400 . hasCode "CacheSubnetGroupInUse";
+_CacheSubnetGroupInUse :: AWSError a => Getting (First ServiceError) a ServiceError
+_CacheSubnetGroupInUse =
+    _ServiceError . hasStatus 400 . hasCode "CacheSubnetGroupInUse"
 
 -- | The requested cache security group name does not refer to an existing
 -- cache security group.
-_CacheSecurityGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_CacheSecurityGroupNotFoundFault = _ServiceError . hasStatus 404 . hasCode "CacheSecurityGroupNotFound";
+_CacheSecurityGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_CacheSecurityGroupNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "CacheSecurityGroupNotFound"
 
 -- | You already have a reservation with the given identifier.
-_ReservedCacheNodeAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedCacheNodeAlreadyExistsFault = _ServiceError . hasStatus 404 . hasCode "ReservedCacheNodeAlreadyExists";
+_ReservedCacheNodeAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedCacheNodeAlreadyExistsFault =
+    _ServiceError . hasStatus 404 . hasCode "ReservedCacheNodeAlreadyExists"
 
 -- | The specified Amazon EC2 security group is already authorized for the
 -- specified cache security group.
-_AuthorizationAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_AuthorizationAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AuthorizationAlreadyExists";
+_AuthorizationAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_AuthorizationAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "AuthorizationAlreadyExists"
 
 -- | The request cannot be processed because it would exceed the user\'s
 -- cache node quota.
-_ReservedCacheNodeQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedCacheNodeQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "ReservedCacheNodeQuotaExceeded";
+_ReservedCacheNodeQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedCacheNodeQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "ReservedCacheNodeQuotaExceeded"
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of cache subnet groups.
-_CacheSubnetGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_CacheSubnetGroupQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "CacheSubnetGroupQuotaExceeded";
+_CacheSubnetGroupQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_CacheSubnetGroupQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "CacheSubnetGroupQuotaExceeded"
 
 -- | The specified replication group does not exist.
-_ReplicationGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReplicationGroupNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ReplicationGroupNotFoundFault";
+_ReplicationGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReplicationGroupNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "ReplicationGroupNotFoundFault"
 
 -- | The requested cache node offering does not exist.
-_ReservedCacheNodesOfferingNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedCacheNodesOfferingNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ReservedCacheNodesOfferingNotFound";
+_ReservedCacheNodesOfferingNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedCacheNodesOfferingNotFoundFault =
+    _ServiceError .
+    hasStatus 404 . hasCode "ReservedCacheNodesOfferingNotFound"
 
 -- | The request cannot be processed because it would cause the resource to
 -- have more than the allowed number of tags. The maximum number of tags
 -- permitted on a resource is 10.
-_TagQuotaPerResourceExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_TagQuotaPerResourceExceeded = _ServiceError . hasStatus 400 . hasCode "TagQuotaPerResourceExceeded";
+_TagQuotaPerResourceExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_TagQuotaPerResourceExceeded =
+    _ServiceError . hasStatus 400 . hasCode "TagQuotaPerResourceExceeded"
 
 -- | An invalid subnet identifier was specified.
-_InvalidSubnet :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSubnet = _ServiceError . hasStatus 400 . hasCode "InvalidSubnet";
+_InvalidSubnet :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSubnet = _ServiceError . hasStatus 400 . hasCode "InvalidSubnet"
 
 -- | The requested snapshot name does not refer to an existing snapshot.
-_SnapshotNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SnapshotNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SnapshotNotFoundFault";
+_SnapshotNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "SnapshotNotFoundFault"
 
 -- | The requested cache node type is not available in the specified
 -- Availability Zone.
-_InsufficientCacheClusterCapacityFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InsufficientCacheClusterCapacityFault = _ServiceError . hasStatus 400 . hasCode "InsufficientCacheClusterCapacity";
+_InsufficientCacheClusterCapacityFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientCacheClusterCapacityFault =
+    _ServiceError . hasStatus 400 . hasCode "InsufficientCacheClusterCapacity"
 
 -- | The current state of the snapshot does not allow the requested action to
 -- occur.
-_InvalidSnapshotStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSnapshotStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidSnapshotState";
+_InvalidSnapshotStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSnapshotStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidSnapshotState"
 
 -- | You already have a snapshot with the given name.
-_SnapshotAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SnapshotAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "SnapshotAlreadyExistsFault";
+_SnapshotAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "SnapshotAlreadyExistsFault"
 
 -- | The requested tag was not found on this resource.
-_TagNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_TagNotFoundFault = _ServiceError . hasStatus 404 . hasCode "TagNotFound";
+_TagNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_TagNotFoundFault = _ServiceError . hasStatus 404 . hasCode "TagNotFound"
 
 -- | The request cannot be processed because it would exceed the maximum
 -- number of snapshots.
-_SnapshotQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SnapshotQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "SnapshotQuotaExceededFault";
+_SnapshotQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "SnapshotQuotaExceededFault"
 
 -- | A cache parameter group with the requested name already exists.
-_CacheParameterGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_CacheParameterGroupAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "CacheParameterGroupAlreadyExists";
+_CacheParameterGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_CacheParameterGroupAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "CacheParameterGroupAlreadyExists"
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of cache nodes in a single cache cluster.
-_NodeQuotaForClusterExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_NodeQuotaForClusterExceededFault = _ServiceError . hasStatus 400 . hasCode "NodeQuotaForClusterExceeded";
+_NodeQuotaForClusterExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_NodeQuotaForClusterExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "NodeQuotaForClusterExceeded"
 
 -- | You attempted one of the following actions:
 --
@@ -503,109 +523,133 @@ _NodeQuotaForClusterExceededFault = _ServiceError . hasStatus 400 . hasCode "Nod
 --     rather than Redis.
 --
 -- Neither of these are supported by ElastiCache.
-_SnapshotFeatureNotSupportedFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SnapshotFeatureNotSupportedFault = _ServiceError . hasStatus 400 . hasCode "SnapshotFeatureNotSupportedFault";
+_SnapshotFeatureNotSupportedFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotFeatureNotSupportedFault =
+    _ServiceError . hasStatus 400 . hasCode "SnapshotFeatureNotSupportedFault"
 
 -- | The requested cache subnet group name does not refer to an existing
 -- cache subnet group.
-_CacheSubnetGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_CacheSubnetGroupNotFoundFault = _ServiceError . hasStatus 400 . hasCode "CacheSubnetGroupNotFoundFault";
+_CacheSubnetGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_CacheSubnetGroupNotFoundFault =
+    _ServiceError . hasStatus 400 . hasCode "CacheSubnetGroupNotFoundFault"
 
 -- | The requested reserved cache node was not found.
-_ReservedCacheNodeNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedCacheNodeNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ReservedCacheNodeNotFound";
+_ReservedCacheNodeNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedCacheNodeNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "ReservedCacheNodeNotFound"
 
 -- | The value for a parameter is invalid.
-_InvalidParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterValueException = _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue";
+_InvalidParameterValueException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterValueException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue"
 
 -- | The VPC network is in an invalid state.
-_InvalidVPCNetworkStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidVPCNetworkStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidVPCNetworkStateFault";
+_InvalidVPCNetworkStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidVPCNetworkStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidVPCNetworkStateFault"
 
 -- | The requested cache cluster ID does not refer to an existing cache
 -- cluster.
-_CacheClusterNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_CacheClusterNotFoundFault = _ServiceError . hasStatus 404 . hasCode "CacheClusterNotFound";
+_CacheClusterNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_CacheClusterNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "CacheClusterNotFound"
 
 -- | The requested replication group is not in the /available/ state.
-_InvalidReplicationGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidReplicationGroupStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidReplicationGroupState";
+_InvalidReplicationGroupStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidReplicationGroupStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidReplicationGroupState"
 
 -- | The specified replication group already exists.
-_ReplicationGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReplicationGroupAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "ReplicationGroupAlreadyExists";
+_ReplicationGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReplicationGroupAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "ReplicationGroupAlreadyExists"
 
 -- | The requested subnet is being used by another cache subnet group.
-_SubnetInUse :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubnetInUse = _ServiceError . hasStatus 400 . hasCode "SubnetInUse";
+_SubnetInUse :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubnetInUse = _ServiceError . hasStatus 400 . hasCode "SubnetInUse"
 
 -- | You already have a cache cluster with the given identifier.
-_CacheClusterAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_CacheClusterAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "CacheClusterAlreadyExists";
+_CacheClusterAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_CacheClusterAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "CacheClusterAlreadyExists"
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of cache clusters per customer.
-_ClusterQuotaForCustomerExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ClusterQuotaForCustomerExceededFault = _ServiceError . hasStatus 400 . hasCode "ClusterQuotaForCustomerExceeded";
+_ClusterQuotaForCustomerExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterQuotaForCustomerExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "ClusterQuotaForCustomerExceeded"
 
 -- | The specified Amazon EC2 security group is not authorized for the
 -- specified cache security group.
-_AuthorizationNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_AuthorizationNotFoundFault = _ServiceError . hasStatus 404 . hasCode "AuthorizationNotFound";
+_AuthorizationNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_AuthorizationNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "AuthorizationNotFound"
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of cache security groups.
-_CacheSecurityGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_CacheSecurityGroupQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "QuotaExceeded.CacheSecurityGroup";
+_CacheSecurityGroupQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_CacheSecurityGroupQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "QuotaExceeded.CacheSecurityGroup"
 
 -- | The requested cache cluster is not in the /available/ state.
-_InvalidCacheClusterStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidCacheClusterStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidCacheClusterState";
+_InvalidCacheClusterStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidCacheClusterStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidCacheClusterState"
 
 -- | The request cannot be processed because it would exceed the maximum
 -- number of cache security groups.
-_CacheParameterGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_CacheParameterGroupQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "CacheParameterGroupQuotaExceeded";
+_CacheParameterGroupQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_CacheParameterGroupQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "CacheParameterGroupQuotaExceeded"
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of cache nodes per customer.
-_NodeQuotaForCustomerExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_NodeQuotaForCustomerExceededFault = _ServiceError . hasStatus 400 . hasCode "NodeQuotaForCustomerExceeded";
+_NodeQuotaForCustomerExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_NodeQuotaForCustomerExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "NodeQuotaForCustomerExceeded"
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of subnets in a cache subnet group.
-_CacheSubnetQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_CacheSubnetQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "CacheSubnetQuotaExceededFault";
+_CacheSubnetQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_CacheSubnetQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "CacheSubnetQuotaExceededFault"
 
 -- | The requested cache parameter group name does not refer to an existing
 -- cache parameter group.
-_CacheParameterGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_CacheParameterGroupNotFoundFault = _ServiceError . hasStatus 404 . hasCode "CacheParameterGroupNotFound";
+_CacheParameterGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_CacheParameterGroupNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "CacheParameterGroupNotFound"
 
 -- | Two or more incompatible parameters were specified.
-_InvalidParameterCombinationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterCombinationException = _ServiceError . hasStatus 400 . hasCode "InvalidParameterCombination";
+_InvalidParameterCombinationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterCombinationException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidParameterCombination"
 
 -- | The requested Amazon Resource Name (ARN) does not refer to an existing
 -- resource.
-_InvalidARNFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidARNFault = _ServiceError . hasStatus 400 . hasCode "InvalidARN";
+_InvalidARNFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidARNFault = _ServiceError . hasStatus 400 . hasCode "InvalidARN"
 
 -- | The current state of the cache parameter group does not allow the
 -- requested action to occur.
-_InvalidCacheParameterGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidCacheParameterGroupStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidCacheParameterGroupState";
+_InvalidCacheParameterGroupStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidCacheParameterGroupStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidCacheParameterGroupState"
 
 -- | A cache security group with the specified name already exists.
-_CacheSecurityGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_CacheSecurityGroupAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "CacheSecurityGroupAlreadyExists";
+_CacheSecurityGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_CacheSecurityGroupAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "CacheSecurityGroupAlreadyExists"
 
 -- | The current state of the cache security group does not allow deletion.
-_InvalidCacheSecurityGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidCacheSecurityGroupStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidCacheSecurityGroupState";
+_InvalidCacheSecurityGroupStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidCacheSecurityGroupStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidCacheSecurityGroupState"
 
-data AZMode = SingleAZ | CrossAZ deriving (Eq, Ord, Read, Show, Enum, Generic)
+data AZMode
+    = SingleAZ
+    | CrossAZ
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AZMode where
     parser = takeLowerText >>= \case
@@ -622,7 +666,12 @@ instance Hashable AZMode
 instance ToQuery AZMode
 instance ToHeader AZMode
 
-data AutomaticFailoverStatus = AFSEnabling | AFSDisabled | AFSDisabling | AFSEnabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+data AutomaticFailoverStatus
+    = AFSEnabling
+    | AFSDisabled
+    | AFSDisabling
+    | AFSEnabled
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AutomaticFailoverStatus where
     parser = takeLowerText >>= \case
@@ -646,7 +695,10 @@ instance ToHeader AutomaticFailoverStatus
 instance FromXML AutomaticFailoverStatus where
     parseXML = parseXMLText "AutomaticFailoverStatus"
 
-data PendingAutomaticFailoverStatus = Enabled | Disabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+data PendingAutomaticFailoverStatus
+    = Enabled
+    | Disabled
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText PendingAutomaticFailoverStatus where
     parser = takeLowerText >>= \case
@@ -666,7 +718,12 @@ instance ToHeader PendingAutomaticFailoverStatus
 instance FromXML PendingAutomaticFailoverStatus where
     parseXML = parseXMLText "PendingAutomaticFailoverStatus"
 
-data SourceType = CacheSubnetGroup | CacheCluster | CacheParameterGroup | CacheSecurityGroup deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SourceType
+    = CacheSubnetGroup
+    | CacheCluster
+    | CacheParameterGroup
+    | CacheSecurityGroup
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
@@ -697,11 +754,16 @@ instance FromXML SourceType where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'azName'
-newtype AvailabilityZone = AvailabilityZone'{_azName :: Maybe Text} deriving (Eq, Read, Show)
+newtype AvailabilityZone = AvailabilityZone'
+    { _azName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AvailabilityZone' smart constructor.
 availabilityZone :: AvailabilityZone
-availabilityZone = AvailabilityZone'{_azName = Nothing};
+availabilityZone =
+    AvailabilityZone'
+    { _azName = Nothing
+    }
 
 -- | The name of the Availability Zone.
 azName :: Lens' AvailabilityZone (Maybe Text)
@@ -759,11 +821,58 @@ instance FromXML AvailabilityZone where
 -- * 'ccPendingModifiedValues'
 --
 -- * 'ccNumCacheNodes'
-data CacheCluster = CacheCluster'{_ccCacheNodeType :: Maybe Text, _ccEngineVersion :: Maybe Text, _ccCacheNodes :: Maybe [CacheNode], _ccCacheClusterCreateTime :: Maybe ISO8601, _ccAutoMinorVersionUpgrade :: Maybe Bool, _ccSecurityGroups :: Maybe [SecurityGroupMembership], _ccNotificationConfiguration :: Maybe NotificationConfiguration, _ccSnapshotWindow :: Maybe Text, _ccCacheClusterId :: Maybe Text, _ccConfigurationEndpoint :: Maybe Endpoint, _ccEngine :: Maybe Text, _ccCacheSecurityGroups :: Maybe [CacheSecurityGroupMembership], _ccClientDownloadLandingPage :: Maybe Text, _ccPreferredMaintenanceWindow :: Maybe Text, _ccCacheSubnetGroupName :: Maybe Text, _ccCacheClusterStatus :: Maybe Text, _ccPreferredAvailabilityZone :: Maybe Text, _ccCacheParameterGroup :: Maybe CacheParameterGroupStatus, _ccSnapshotRetentionLimit :: Maybe Int, _ccReplicationGroupId :: Maybe Text, _ccPendingModifiedValues :: Maybe PendingModifiedValues, _ccNumCacheNodes :: Maybe Int} deriving (Eq, Read, Show)
+data CacheCluster = CacheCluster'
+    { _ccCacheNodeType              :: Maybe Text
+    , _ccEngineVersion              :: Maybe Text
+    , _ccCacheNodes                 :: Maybe [CacheNode]
+    , _ccCacheClusterCreateTime     :: Maybe ISO8601
+    , _ccAutoMinorVersionUpgrade    :: Maybe Bool
+    , _ccSecurityGroups             :: Maybe [SecurityGroupMembership]
+    , _ccNotificationConfiguration  :: Maybe NotificationConfiguration
+    , _ccSnapshotWindow             :: Maybe Text
+    , _ccCacheClusterId             :: Maybe Text
+    , _ccConfigurationEndpoint      :: Maybe Endpoint
+    , _ccEngine                     :: Maybe Text
+    , _ccCacheSecurityGroups        :: Maybe [CacheSecurityGroupMembership]
+    , _ccClientDownloadLandingPage  :: Maybe Text
+    , _ccPreferredMaintenanceWindow :: Maybe Text
+    , _ccCacheSubnetGroupName       :: Maybe Text
+    , _ccCacheClusterStatus         :: Maybe Text
+    , _ccPreferredAvailabilityZone  :: Maybe Text
+    , _ccCacheParameterGroup        :: Maybe CacheParameterGroupStatus
+    , _ccSnapshotRetentionLimit     :: Maybe Int
+    , _ccReplicationGroupId         :: Maybe Text
+    , _ccPendingModifiedValues      :: Maybe PendingModifiedValues
+    , _ccNumCacheNodes              :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CacheCluster' smart constructor.
 cacheCluster :: CacheCluster
-cacheCluster = CacheCluster'{_ccCacheNodeType = Nothing, _ccEngineVersion = Nothing, _ccCacheNodes = Nothing, _ccCacheClusterCreateTime = Nothing, _ccAutoMinorVersionUpgrade = Nothing, _ccSecurityGroups = Nothing, _ccNotificationConfiguration = Nothing, _ccSnapshotWindow = Nothing, _ccCacheClusterId = Nothing, _ccConfigurationEndpoint = Nothing, _ccEngine = Nothing, _ccCacheSecurityGroups = Nothing, _ccClientDownloadLandingPage = Nothing, _ccPreferredMaintenanceWindow = Nothing, _ccCacheSubnetGroupName = Nothing, _ccCacheClusterStatus = Nothing, _ccPreferredAvailabilityZone = Nothing, _ccCacheParameterGroup = Nothing, _ccSnapshotRetentionLimit = Nothing, _ccReplicationGroupId = Nothing, _ccPendingModifiedValues = Nothing, _ccNumCacheNodes = Nothing};
+cacheCluster =
+    CacheCluster'
+    { _ccCacheNodeType = Nothing
+    , _ccEngineVersion = Nothing
+    , _ccCacheNodes = Nothing
+    , _ccCacheClusterCreateTime = Nothing
+    , _ccAutoMinorVersionUpgrade = Nothing
+    , _ccSecurityGroups = Nothing
+    , _ccNotificationConfiguration = Nothing
+    , _ccSnapshotWindow = Nothing
+    , _ccCacheClusterId = Nothing
+    , _ccConfigurationEndpoint = Nothing
+    , _ccEngine = Nothing
+    , _ccCacheSecurityGroups = Nothing
+    , _ccClientDownloadLandingPage = Nothing
+    , _ccPreferredMaintenanceWindow = Nothing
+    , _ccCacheSubnetGroupName = Nothing
+    , _ccCacheClusterStatus = Nothing
+    , _ccPreferredAvailabilityZone = Nothing
+    , _ccCacheParameterGroup = Nothing
+    , _ccSnapshotRetentionLimit = Nothing
+    , _ccReplicationGroupId = Nothing
+    , _ccPendingModifiedValues = Nothing
+    , _ccNumCacheNodes = Nothing
+    }
 
 -- | The name of the compute and memory capacity node type for the cache
 -- cluster.
@@ -968,11 +1077,24 @@ instance FromXML CacheCluster where
 -- * 'cevCacheEngineVersionDescription'
 --
 -- * 'cevEngine'
-data CacheEngineVersion = CacheEngineVersion'{_cevCacheEngineDescription :: Maybe Text, _cevCacheParameterGroupFamily :: Maybe Text, _cevEngineVersion :: Maybe Text, _cevCacheEngineVersionDescription :: Maybe Text, _cevEngine :: Maybe Text} deriving (Eq, Read, Show)
+data CacheEngineVersion = CacheEngineVersion'
+    { _cevCacheEngineDescription        :: Maybe Text
+    , _cevCacheParameterGroupFamily     :: Maybe Text
+    , _cevEngineVersion                 :: Maybe Text
+    , _cevCacheEngineVersionDescription :: Maybe Text
+    , _cevEngine                        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CacheEngineVersion' smart constructor.
 cacheEngineVersion :: CacheEngineVersion
-cacheEngineVersion = CacheEngineVersion'{_cevCacheEngineDescription = Nothing, _cevCacheParameterGroupFamily = Nothing, _cevEngineVersion = Nothing, _cevCacheEngineVersionDescription = Nothing, _cevEngine = Nothing};
+cacheEngineVersion =
+    CacheEngineVersion'
+    { _cevCacheEngineDescription = Nothing
+    , _cevCacheParameterGroupFamily = Nothing
+    , _cevEngineVersion = Nothing
+    , _cevCacheEngineVersionDescription = Nothing
+    , _cevEngine = Nothing
+    }
 
 -- | The description of the cache engine.
 cevCacheEngineDescription :: Lens' CacheEngineVersion (Maybe Text)
@@ -1055,11 +1177,28 @@ instance FromXML CacheEngineVersion where
 -- * 'cnCacheNodeStatus'
 --
 -- * 'cnEndpoint'
-data CacheNode = CacheNode'{_cnSourceCacheNodeId :: Maybe Text, _cnParameterGroupStatus :: Maybe Text, _cnCacheNodeCreateTime :: Maybe ISO8601, _cnCustomerAvailabilityZone :: Maybe Text, _cnCacheNodeId :: Maybe Text, _cnCacheNodeStatus :: Maybe Text, _cnEndpoint :: Maybe Endpoint} deriving (Eq, Read, Show)
+data CacheNode = CacheNode'
+    { _cnSourceCacheNodeId        :: Maybe Text
+    , _cnParameterGroupStatus     :: Maybe Text
+    , _cnCacheNodeCreateTime      :: Maybe ISO8601
+    , _cnCustomerAvailabilityZone :: Maybe Text
+    , _cnCacheNodeId              :: Maybe Text
+    , _cnCacheNodeStatus          :: Maybe Text
+    , _cnEndpoint                 :: Maybe Endpoint
+    } deriving (Eq,Read,Show)
 
 -- | 'CacheNode' smart constructor.
 cacheNode :: CacheNode
-cacheNode = CacheNode'{_cnSourceCacheNodeId = Nothing, _cnParameterGroupStatus = Nothing, _cnCacheNodeCreateTime = Nothing, _cnCustomerAvailabilityZone = Nothing, _cnCacheNodeId = Nothing, _cnCacheNodeStatus = Nothing, _cnEndpoint = Nothing};
+cacheNode =
+    CacheNode'
+    { _cnSourceCacheNodeId = Nothing
+    , _cnParameterGroupStatus = Nothing
+    , _cnCacheNodeCreateTime = Nothing
+    , _cnCustomerAvailabilityZone = Nothing
+    , _cnCacheNodeId = Nothing
+    , _cnCacheNodeStatus = Nothing
+    , _cnEndpoint = Nothing
+    }
 
 -- | The ID of the primary node to which this read replica node is
 -- synchronized. If this field is empty, then this node is not associated
@@ -1128,11 +1267,30 @@ instance FromXML CacheNode where
 -- * 'cntspParameterName'
 --
 -- * 'cntspDescription'
-data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'{_cntspCacheNodeTypeSpecificValues :: Maybe [CacheNodeTypeSpecificValue], _cntspMinimumEngineVersion :: Maybe Text, _cntspSource :: Maybe Text, _cntspIsModifiable :: Maybe Bool, _cntspAllowedValues :: Maybe Text, _cntspDataType :: Maybe Text, _cntspParameterName :: Maybe Text, _cntspDescription :: Maybe Text} deriving (Eq, Read, Show)
+data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'
+    { _cntspCacheNodeTypeSpecificValues :: Maybe [CacheNodeTypeSpecificValue]
+    , _cntspMinimumEngineVersion        :: Maybe Text
+    , _cntspSource                      :: Maybe Text
+    , _cntspIsModifiable                :: Maybe Bool
+    , _cntspAllowedValues               :: Maybe Text
+    , _cntspDataType                    :: Maybe Text
+    , _cntspParameterName               :: Maybe Text
+    , _cntspDescription                 :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CacheNodeTypeSpecificParameter' smart constructor.
 cacheNodeTypeSpecificParameter :: CacheNodeTypeSpecificParameter
-cacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'{_cntspCacheNodeTypeSpecificValues = Nothing, _cntspMinimumEngineVersion = Nothing, _cntspSource = Nothing, _cntspIsModifiable = Nothing, _cntspAllowedValues = Nothing, _cntspDataType = Nothing, _cntspParameterName = Nothing, _cntspDescription = Nothing};
+cacheNodeTypeSpecificParameter =
+    CacheNodeTypeSpecificParameter'
+    { _cntspCacheNodeTypeSpecificValues = Nothing
+    , _cntspMinimumEngineVersion = Nothing
+    , _cntspSource = Nothing
+    , _cntspIsModifiable = Nothing
+    , _cntspAllowedValues = Nothing
+    , _cntspDataType = Nothing
+    , _cntspParameterName = Nothing
+    , _cntspDescription = Nothing
+    }
 
 -- | A list of cache node types and their corresponding values for this
 -- parameter.
@@ -1191,11 +1349,18 @@ instance FromXML CacheNodeTypeSpecificParameter where
 -- * 'cntsvCacheNodeType'
 --
 -- * 'cntsvValue'
-data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue'{_cntsvCacheNodeType :: Maybe Text, _cntsvValue :: Maybe Text} deriving (Eq, Read, Show)
+data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue'
+    { _cntsvCacheNodeType :: Maybe Text
+    , _cntsvValue         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CacheNodeTypeSpecificValue' smart constructor.
 cacheNodeTypeSpecificValue :: CacheNodeTypeSpecificValue
-cacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue'{_cntsvCacheNodeType = Nothing, _cntsvValue = Nothing};
+cacheNodeTypeSpecificValue =
+    CacheNodeTypeSpecificValue'
+    { _cntsvCacheNodeType = Nothing
+    , _cntsvValue = Nothing
+    }
 
 -- | The cache node type for which this value applies.
 cntsvCacheNodeType :: Lens' CacheNodeTypeSpecificValue (Maybe Text)
@@ -1221,11 +1386,20 @@ instance FromXML CacheNodeTypeSpecificValue where
 -- * 'cpgCacheParameterGroupName'
 --
 -- * 'cpgDescription'
-data CacheParameterGroup = CacheParameterGroup'{_cpgCacheParameterGroupFamily :: Maybe Text, _cpgCacheParameterGroupName :: Maybe Text, _cpgDescription :: Maybe Text} deriving (Eq, Read, Show)
+data CacheParameterGroup = CacheParameterGroup'
+    { _cpgCacheParameterGroupFamily :: Maybe Text
+    , _cpgCacheParameterGroupName   :: Maybe Text
+    , _cpgDescription               :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CacheParameterGroup' smart constructor.
 cacheParameterGroup :: CacheParameterGroup
-cacheParameterGroup = CacheParameterGroup'{_cpgCacheParameterGroupFamily = Nothing, _cpgCacheParameterGroupName = Nothing, _cpgDescription = Nothing};
+cacheParameterGroup =
+    CacheParameterGroup'
+    { _cpgCacheParameterGroupFamily = Nothing
+    , _cpgCacheParameterGroupName = Nothing
+    , _cpgDescription = Nothing
+    }
 
 -- | The name of the cache parameter group family that this cache parameter
 -- group is compatible with.
@@ -1257,11 +1431,16 @@ instance FromXML CacheParameterGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cpgnmCacheParameterGroupName'
-newtype CacheParameterGroupNameMessage = CacheParameterGroupNameMessage'{_cpgnmCacheParameterGroupName :: Maybe Text} deriving (Eq, Read, Show)
+newtype CacheParameterGroupNameMessage = CacheParameterGroupNameMessage'
+    { _cpgnmCacheParameterGroupName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CacheParameterGroupNameMessage' smart constructor.
 cacheParameterGroupNameMessage :: CacheParameterGroupNameMessage
-cacheParameterGroupNameMessage = CacheParameterGroupNameMessage'{_cpgnmCacheParameterGroupName = Nothing};
+cacheParameterGroupNameMessage =
+    CacheParameterGroupNameMessage'
+    { _cpgnmCacheParameterGroupName = Nothing
+    }
 
 -- | The name of the cache parameter group.
 cpgnmCacheParameterGroupName :: Lens' CacheParameterGroupNameMessage (Maybe Text)
@@ -1283,11 +1462,20 @@ instance FromXML CacheParameterGroupNameMessage where
 -- * 'cpgsCacheNodeIdsToReboot'
 --
 -- * 'cpgsParameterApplyStatus'
-data CacheParameterGroupStatus = CacheParameterGroupStatus'{_cpgsCacheParameterGroupName :: Maybe Text, _cpgsCacheNodeIdsToReboot :: Maybe [Text], _cpgsParameterApplyStatus :: Maybe Text} deriving (Eq, Read, Show)
+data CacheParameterGroupStatus = CacheParameterGroupStatus'
+    { _cpgsCacheParameterGroupName :: Maybe Text
+    , _cpgsCacheNodeIdsToReboot    :: Maybe [Text]
+    , _cpgsParameterApplyStatus    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CacheParameterGroupStatus' smart constructor.
 cacheParameterGroupStatus :: CacheParameterGroupStatus
-cacheParameterGroupStatus = CacheParameterGroupStatus'{_cpgsCacheParameterGroupName = Nothing, _cpgsCacheNodeIdsToReboot = Nothing, _cpgsParameterApplyStatus = Nothing};
+cacheParameterGroupStatus =
+    CacheParameterGroupStatus'
+    { _cpgsCacheParameterGroupName = Nothing
+    , _cpgsCacheNodeIdsToReboot = Nothing
+    , _cpgsParameterApplyStatus = Nothing
+    }
 
 -- | The name of the cache parameter group.
 cpgsCacheParameterGroupName :: Lens' CacheParameterGroupStatus (Maybe Text)
@@ -1328,11 +1516,22 @@ instance FromXML CacheParameterGroupStatus where
 -- * 'csgEC2SecurityGroups'
 --
 -- * 'csgDescription'
-data CacheSecurityGroup = CacheSecurityGroup'{_csgCacheSecurityGroupName :: Maybe Text, _csgOwnerId :: Maybe Text, _csgEC2SecurityGroups :: Maybe [EC2SecurityGroup], _csgDescription :: Maybe Text} deriving (Eq, Read, Show)
+data CacheSecurityGroup = CacheSecurityGroup'
+    { _csgCacheSecurityGroupName :: Maybe Text
+    , _csgOwnerId                :: Maybe Text
+    , _csgEC2SecurityGroups      :: Maybe [EC2SecurityGroup]
+    , _csgDescription            :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CacheSecurityGroup' smart constructor.
 cacheSecurityGroup :: CacheSecurityGroup
-cacheSecurityGroup = CacheSecurityGroup'{_csgCacheSecurityGroupName = Nothing, _csgOwnerId = Nothing, _csgEC2SecurityGroups = Nothing, _csgDescription = Nothing};
+cacheSecurityGroup =
+    CacheSecurityGroup'
+    { _csgCacheSecurityGroupName = Nothing
+    , _csgOwnerId = Nothing
+    , _csgEC2SecurityGroups = Nothing
+    , _csgDescription = Nothing
+    }
 
 -- | The name of the cache security group.
 csgCacheSecurityGroupName :: Lens' CacheSecurityGroup (Maybe Text)
@@ -1371,11 +1570,18 @@ instance FromXML CacheSecurityGroup where
 -- * 'csgmStatus'
 --
 -- * 'csgmCacheSecurityGroupName'
-data CacheSecurityGroupMembership = CacheSecurityGroupMembership'{_csgmStatus :: Maybe Text, _csgmCacheSecurityGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data CacheSecurityGroupMembership = CacheSecurityGroupMembership'
+    { _csgmStatus                 :: Maybe Text
+    , _csgmCacheSecurityGroupName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CacheSecurityGroupMembership' smart constructor.
 cacheSecurityGroupMembership :: CacheSecurityGroupMembership
-cacheSecurityGroupMembership = CacheSecurityGroupMembership'{_csgmStatus = Nothing, _csgmCacheSecurityGroupName = Nothing};
+cacheSecurityGroupMembership =
+    CacheSecurityGroupMembership'
+    { _csgmStatus = Nothing
+    , _csgmCacheSecurityGroupName = Nothing
+    }
 
 -- | The membership status in the cache security group. The status changes
 -- when a cache security group is modified, or when the cache security
@@ -1408,11 +1614,22 @@ instance FromXML CacheSecurityGroupMembership where
 -- * 'csgCacheSubnetGroupName'
 --
 -- * 'csgCacheSubnetGroupDescription'
-data CacheSubnetGroup = CacheSubnetGroup'{_csgVPCId :: Maybe Text, _csgSubnets :: Maybe [Subnet], _csgCacheSubnetGroupName :: Maybe Text, _csgCacheSubnetGroupDescription :: Maybe Text} deriving (Eq, Read, Show)
+data CacheSubnetGroup = CacheSubnetGroup'
+    { _csgVPCId                       :: Maybe Text
+    , _csgSubnets                     :: Maybe [Subnet]
+    , _csgCacheSubnetGroupName        :: Maybe Text
+    , _csgCacheSubnetGroupDescription :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CacheSubnetGroup' smart constructor.
 cacheSubnetGroup :: CacheSubnetGroup
-cacheSubnetGroup = CacheSubnetGroup'{_csgVPCId = Nothing, _csgSubnets = Nothing, _csgCacheSubnetGroupName = Nothing, _csgCacheSubnetGroupDescription = Nothing};
+cacheSubnetGroup =
+    CacheSubnetGroup'
+    { _csgVPCId = Nothing
+    , _csgSubnets = Nothing
+    , _csgCacheSubnetGroupName = Nothing
+    , _csgCacheSubnetGroupDescription = Nothing
+    }
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 -- group.
@@ -1452,11 +1669,20 @@ instance FromXML CacheSubnetGroup where
 -- * 'esgEC2SecurityGroupOwnerId'
 --
 -- * 'esgEC2SecurityGroupName'
-data EC2SecurityGroup = EC2SecurityGroup'{_esgStatus :: Maybe Text, _esgEC2SecurityGroupOwnerId :: Maybe Text, _esgEC2SecurityGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data EC2SecurityGroup = EC2SecurityGroup'
+    { _esgStatus                  :: Maybe Text
+    , _esgEC2SecurityGroupOwnerId :: Maybe Text
+    , _esgEC2SecurityGroupName    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EC2SecurityGroup' smart constructor.
 ec2SecurityGroup :: EC2SecurityGroup
-ec2SecurityGroup = EC2SecurityGroup'{_esgStatus = Nothing, _esgEC2SecurityGroupOwnerId = Nothing, _esgEC2SecurityGroupName = Nothing};
+ec2SecurityGroup =
+    EC2SecurityGroup'
+    { _esgStatus = Nothing
+    , _esgEC2SecurityGroupOwnerId = Nothing
+    , _esgEC2SecurityGroupName = Nothing
+    }
 
 -- | The status of the Amazon EC2 security group.
 esgStatus :: Lens' EC2SecurityGroup (Maybe Text)
@@ -1487,11 +1713,18 @@ instance FromXML EC2SecurityGroup where
 -- * 'endAddress'
 --
 -- * 'endPort'
-data Endpoint = Endpoint'{_endAddress :: Maybe Text, _endPort :: Maybe Int} deriving (Eq, Read, Show)
+data Endpoint = Endpoint'
+    { _endAddress :: Maybe Text
+    , _endPort    :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'Endpoint' smart constructor.
 endpoint :: Endpoint
-endpoint = Endpoint'{_endAddress = Nothing, _endPort = Nothing};
+endpoint =
+    Endpoint'
+    { _endAddress = Nothing
+    , _endPort = Nothing
+    }
 
 -- | The DNS hostname of the cache node.
 endAddress :: Lens' Endpoint (Maybe Text)
@@ -1518,11 +1751,22 @@ instance FromXML Endpoint where
 -- * 'edParameters'
 --
 -- * 'edMarker'
-data EngineDefaults = EngineDefaults'{_edCacheParameterGroupFamily :: Maybe Text, _edCacheNodeTypeSpecificParameters :: Maybe [CacheNodeTypeSpecificParameter], _edParameters :: Maybe [Parameter], _edMarker :: Maybe Text} deriving (Eq, Read, Show)
+data EngineDefaults = EngineDefaults'
+    { _edCacheParameterGroupFamily       :: Maybe Text
+    , _edCacheNodeTypeSpecificParameters :: Maybe [CacheNodeTypeSpecificParameter]
+    , _edParameters                      :: Maybe [Parameter]
+    , _edMarker                          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EngineDefaults' smart constructor.
 engineDefaults :: EngineDefaults
-engineDefaults = EngineDefaults'{_edCacheParameterGroupFamily = Nothing, _edCacheNodeTypeSpecificParameters = Nothing, _edParameters = Nothing, _edMarker = Nothing};
+engineDefaults =
+    EngineDefaults'
+    { _edCacheParameterGroupFamily = Nothing
+    , _edCacheNodeTypeSpecificParameters = Nothing
+    , _edParameters = Nothing
+    , _edMarker = Nothing
+    }
 
 -- | Specifies the name of the cache parameter group family to which the
 -- engine default parameters apply.
@@ -1569,11 +1813,22 @@ instance FromXML EngineDefaults where
 -- * 'eveDate'
 --
 -- * 'eveMessage'
-data Event = Event'{_eveSourceType :: Maybe SourceType, _eveSourceIdentifier :: Maybe Text, _eveDate :: Maybe ISO8601, _eveMessage :: Maybe Text} deriving (Eq, Read, Show)
+data Event = Event'
+    { _eveSourceType       :: Maybe SourceType
+    , _eveSourceIdentifier :: Maybe Text
+    , _eveDate             :: Maybe ISO8601
+    , _eveMessage          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Event' smart constructor.
 event :: Event
-event = Event'{_eveSourceType = Nothing, _eveSourceIdentifier = Nothing, _eveDate = Nothing, _eveMessage = Nothing};
+event =
+    Event'
+    { _eveSourceType = Nothing
+    , _eveSourceIdentifier = Nothing
+    , _eveDate = Nothing
+    , _eveMessage = Nothing
+    }
 
 -- | Specifies the origin of this event - a cache cluster, a parameter group,
 -- a security group, etc.
@@ -1614,11 +1869,22 @@ instance FromXML Event where
 -- * 'ngNodeGroupMembers'
 --
 -- * 'ngNodeGroupId'
-data NodeGroup = NodeGroup'{_ngStatus :: Maybe Text, _ngPrimaryEndpoint :: Maybe Endpoint, _ngNodeGroupMembers :: Maybe [NodeGroupMember], _ngNodeGroupId :: Maybe Text} deriving (Eq, Read, Show)
+data NodeGroup = NodeGroup'
+    { _ngStatus           :: Maybe Text
+    , _ngPrimaryEndpoint  :: Maybe Endpoint
+    , _ngNodeGroupMembers :: Maybe [NodeGroupMember]
+    , _ngNodeGroupId      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'NodeGroup' smart constructor.
 nodeGroup :: NodeGroup
-nodeGroup = NodeGroup'{_ngStatus = Nothing, _ngPrimaryEndpoint = Nothing, _ngNodeGroupMembers = Nothing, _ngNodeGroupId = Nothing};
+nodeGroup =
+    NodeGroup'
+    { _ngStatus = Nothing
+    , _ngPrimaryEndpoint = Nothing
+    , _ngNodeGroupMembers = Nothing
+    , _ngNodeGroupId = Nothing
+    }
 
 -- | The current state of this replication group - /creating/, /available/,
 -- etc.
@@ -1662,11 +1928,24 @@ instance FromXML NodeGroup where
 -- * 'ngmCurrentRole'
 --
 -- * 'ngmReadEndpoint'
-data NodeGroupMember = NodeGroupMember'{_ngmCacheClusterId :: Maybe Text, _ngmCacheNodeId :: Maybe Text, _ngmPreferredAvailabilityZone :: Maybe Text, _ngmCurrentRole :: Maybe Text, _ngmReadEndpoint :: Maybe Endpoint} deriving (Eq, Read, Show)
+data NodeGroupMember = NodeGroupMember'
+    { _ngmCacheClusterId            :: Maybe Text
+    , _ngmCacheNodeId               :: Maybe Text
+    , _ngmPreferredAvailabilityZone :: Maybe Text
+    , _ngmCurrentRole               :: Maybe Text
+    , _ngmReadEndpoint              :: Maybe Endpoint
+    } deriving (Eq,Read,Show)
 
 -- | 'NodeGroupMember' smart constructor.
 nodeGroupMember :: NodeGroupMember
-nodeGroupMember = NodeGroupMember'{_ngmCacheClusterId = Nothing, _ngmCacheNodeId = Nothing, _ngmPreferredAvailabilityZone = Nothing, _ngmCurrentRole = Nothing, _ngmReadEndpoint = Nothing};
+nodeGroupMember =
+    NodeGroupMember'
+    { _ngmCacheClusterId = Nothing
+    , _ngmCacheNodeId = Nothing
+    , _ngmPreferredAvailabilityZone = Nothing
+    , _ngmCurrentRole = Nothing
+    , _ngmReadEndpoint = Nothing
+    }
 
 -- | The ID of the cache cluster to which the node belongs.
 ngmCacheClusterId :: Lens' NodeGroupMember (Maybe Text)
@@ -1711,11 +1990,22 @@ instance FromXML NodeGroupMember where
 -- * 'nsSnapshotCreateTime'
 --
 -- * 'nsCacheSize'
-data NodeSnapshot = NodeSnapshot'{_nsCacheNodeCreateTime :: Maybe ISO8601, _nsCacheNodeId :: Maybe Text, _nsSnapshotCreateTime :: Maybe ISO8601, _nsCacheSize :: Maybe Text} deriving (Eq, Read, Show)
+data NodeSnapshot = NodeSnapshot'
+    { _nsCacheNodeCreateTime :: Maybe ISO8601
+    , _nsCacheNodeId         :: Maybe Text
+    , _nsSnapshotCreateTime  :: Maybe ISO8601
+    , _nsCacheSize           :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'NodeSnapshot' smart constructor.
 nodeSnapshot :: NodeSnapshot
-nodeSnapshot = NodeSnapshot'{_nsCacheNodeCreateTime = Nothing, _nsCacheNodeId = Nothing, _nsSnapshotCreateTime = Nothing, _nsCacheSize = Nothing};
+nodeSnapshot =
+    NodeSnapshot'
+    { _nsCacheNodeCreateTime = Nothing
+    , _nsCacheNodeId = Nothing
+    , _nsSnapshotCreateTime = Nothing
+    , _nsCacheSize = Nothing
+    }
 
 -- | The date and time when the cache node was created in the source cache
 -- cluster.
@@ -1754,11 +2044,18 @@ instance FromXML NodeSnapshot where
 -- * 'ncTopicStatus'
 --
 -- * 'ncTopicARN'
-data NotificationConfiguration = NotificationConfiguration'{_ncTopicStatus :: Maybe Text, _ncTopicARN :: Maybe Text} deriving (Eq, Read, Show)
+data NotificationConfiguration = NotificationConfiguration'
+    { _ncTopicStatus :: Maybe Text
+    , _ncTopicARN    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'NotificationConfiguration' smart constructor.
 notificationConfiguration :: NotificationConfiguration
-notificationConfiguration = NotificationConfiguration'{_ncTopicStatus = Nothing, _ncTopicARN = Nothing};
+notificationConfiguration =
+    NotificationConfiguration'
+    { _ncTopicStatus = Nothing
+    , _ncTopicARN = Nothing
+    }
 
 -- | The current state of the topic.
 ncTopicStatus :: Lens' NotificationConfiguration (Maybe Text)
@@ -1795,11 +2092,30 @@ instance FromXML NotificationConfiguration where
 -- * 'parParameterName'
 --
 -- * 'parDescription'
-data Parameter = Parameter'{_parParameterValue :: Maybe Text, _parMinimumEngineVersion :: Maybe Text, _parSource :: Maybe Text, _parIsModifiable :: Maybe Bool, _parAllowedValues :: Maybe Text, _parDataType :: Maybe Text, _parParameterName :: Maybe Text, _parDescription :: Maybe Text} deriving (Eq, Read, Show)
+data Parameter = Parameter'
+    { _parParameterValue       :: Maybe Text
+    , _parMinimumEngineVersion :: Maybe Text
+    , _parSource               :: Maybe Text
+    , _parIsModifiable         :: Maybe Bool
+    , _parAllowedValues        :: Maybe Text
+    , _parDataType             :: Maybe Text
+    , _parParameterName        :: Maybe Text
+    , _parDescription          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Parameter' smart constructor.
 parameter :: Parameter
-parameter = Parameter'{_parParameterValue = Nothing, _parMinimumEngineVersion = Nothing, _parSource = Nothing, _parIsModifiable = Nothing, _parAllowedValues = Nothing, _parDataType = Nothing, _parParameterName = Nothing, _parDescription = Nothing};
+parameter =
+    Parameter'
+    { _parParameterValue = Nothing
+    , _parMinimumEngineVersion = Nothing
+    , _parSource = Nothing
+    , _parIsModifiable = Nothing
+    , _parAllowedValues = Nothing
+    , _parDataType = Nothing
+    , _parParameterName = Nothing
+    , _parDescription = Nothing
+    }
 
 -- | The value of the parameter.
 parParameterValue :: Lens' Parameter (Maybe Text)
@@ -1857,11 +2173,18 @@ instance FromXML Parameter where
 -- * 'pnvParameterValue'
 --
 -- * 'pnvParameterName'
-data ParameterNameValue = ParameterNameValue'{_pnvParameterValue :: Maybe Text, _pnvParameterName :: Maybe Text} deriving (Eq, Read, Show)
+data ParameterNameValue = ParameterNameValue'
+    { _pnvParameterValue :: Maybe Text
+    , _pnvParameterName  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ParameterNameValue' smart constructor.
 parameterNameValue :: ParameterNameValue
-parameterNameValue = ParameterNameValue'{_pnvParameterValue = Nothing, _pnvParameterName = Nothing};
+parameterNameValue =
+    ParameterNameValue'
+    { _pnvParameterValue = Nothing
+    , _pnvParameterName = Nothing
+    }
 
 -- | The value of the parameter.
 pnvParameterValue :: Lens' ParameterNameValue (Maybe Text)
@@ -1889,11 +2212,20 @@ instance ToQuery ParameterNameValue where
 -- * 'pmvCacheNodeIdsToRemove'
 --
 -- * 'pmvNumCacheNodes'
-data PendingModifiedValues = PendingModifiedValues'{_pmvEngineVersion :: Maybe Text, _pmvCacheNodeIdsToRemove :: Maybe [Text], _pmvNumCacheNodes :: Maybe Int} deriving (Eq, Read, Show)
+data PendingModifiedValues = PendingModifiedValues'
+    { _pmvEngineVersion        :: Maybe Text
+    , _pmvCacheNodeIdsToRemove :: Maybe [Text]
+    , _pmvNumCacheNodes        :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PendingModifiedValues' smart constructor.
 pendingModifiedValues :: PendingModifiedValues
-pendingModifiedValues = PendingModifiedValues'{_pmvEngineVersion = Nothing, _pmvCacheNodeIdsToRemove = Nothing, _pmvNumCacheNodes = Nothing};
+pendingModifiedValues =
+    PendingModifiedValues'
+    { _pmvEngineVersion = Nothing
+    , _pmvCacheNodeIdsToRemove = Nothing
+    , _pmvNumCacheNodes = Nothing
+    }
 
 -- | The new cache engine version that the cache cluster will run.
 pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
@@ -1930,11 +2262,18 @@ instance FromXML PendingModifiedValues where
 -- * 'rcRecurringChargeFrequency'
 --
 -- * 'rcRecurringChargeAmount'
-data RecurringCharge = RecurringCharge'{_rcRecurringChargeFrequency :: Maybe Text, _rcRecurringChargeAmount :: Maybe Double} deriving (Eq, Read, Show)
+data RecurringCharge = RecurringCharge'
+    { _rcRecurringChargeFrequency :: Maybe Text
+    , _rcRecurringChargeAmount    :: Maybe Double
+    } deriving (Eq,Read,Show)
 
 -- | 'RecurringCharge' smart constructor.
 recurringCharge :: RecurringCharge
-recurringCharge = RecurringCharge'{_rcRecurringChargeFrequency = Nothing, _rcRecurringChargeAmount = Nothing};
+recurringCharge =
+    RecurringCharge'
+    { _rcRecurringChargeFrequency = Nothing
+    , _rcRecurringChargeAmount = Nothing
+    }
 
 -- | The frequency of the recurring charge.
 rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
@@ -1971,11 +2310,30 @@ instance FromXML RecurringCharge where
 -- * 'rgDescription'
 --
 -- * 'rgAutomaticFailover'
-data ReplicationGroup = ReplicationGroup'{_rgNodeGroups :: Maybe [NodeGroup], _rgStatus :: Maybe Text, _rgSnapshottingClusterId :: Maybe Text, _rgMemberClusters :: Maybe [Text], _rgReplicationGroupId :: Maybe Text, _rgPendingModifiedValues :: Maybe ReplicationGroupPendingModifiedValues, _rgDescription :: Maybe Text, _rgAutomaticFailover :: Maybe AutomaticFailoverStatus} deriving (Eq, Read, Show)
+data ReplicationGroup = ReplicationGroup'
+    { _rgNodeGroups            :: Maybe [NodeGroup]
+    , _rgStatus                :: Maybe Text
+    , _rgSnapshottingClusterId :: Maybe Text
+    , _rgMemberClusters        :: Maybe [Text]
+    , _rgReplicationGroupId    :: Maybe Text
+    , _rgPendingModifiedValues :: Maybe ReplicationGroupPendingModifiedValues
+    , _rgDescription           :: Maybe Text
+    , _rgAutomaticFailover     :: Maybe AutomaticFailoverStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'ReplicationGroup' smart constructor.
 replicationGroup :: ReplicationGroup
-replicationGroup = ReplicationGroup'{_rgNodeGroups = Nothing, _rgStatus = Nothing, _rgSnapshottingClusterId = Nothing, _rgMemberClusters = Nothing, _rgReplicationGroupId = Nothing, _rgPendingModifiedValues = Nothing, _rgDescription = Nothing, _rgAutomaticFailover = Nothing};
+replicationGroup =
+    ReplicationGroup'
+    { _rgNodeGroups = Nothing
+    , _rgStatus = Nothing
+    , _rgSnapshottingClusterId = Nothing
+    , _rgMemberClusters = Nothing
+    , _rgReplicationGroupId = Nothing
+    , _rgPendingModifiedValues = Nothing
+    , _rgDescription = Nothing
+    , _rgAutomaticFailover = Nothing
+    }
 
 -- | A single element list with information about the nodes in the
 -- replication group.
@@ -2044,11 +2402,18 @@ instance FromXML ReplicationGroup where
 -- * 'rgpmvPrimaryClusterId'
 --
 -- * 'rgpmvAutomaticFailoverStatus'
-data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues'{_rgpmvPrimaryClusterId :: Maybe Text, _rgpmvAutomaticFailoverStatus :: Maybe PendingAutomaticFailoverStatus} deriving (Eq, Read, Show)
+data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues'
+    { _rgpmvPrimaryClusterId        :: Maybe Text
+    , _rgpmvAutomaticFailoverStatus :: Maybe PendingAutomaticFailoverStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'ReplicationGroupPendingModifiedValues' smart constructor.
 replicationGroupPendingModifiedValues :: ReplicationGroupPendingModifiedValues
-replicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues'{_rgpmvPrimaryClusterId = Nothing, _rgpmvAutomaticFailoverStatus = Nothing};
+replicationGroupPendingModifiedValues =
+    ReplicationGroupPendingModifiedValues'
+    { _rgpmvPrimaryClusterId = Nothing
+    , _rgpmvAutomaticFailoverStatus = Nothing
+    }
 
 -- | The primary cluster ID which will be applied immediately (if
 -- @--apply-immediately@ was specified), or during the next maintenance
@@ -2101,11 +2466,38 @@ instance FromXML
 -- * 'rcnDuration'
 --
 -- * 'rcnReservedCacheNodesOfferingId'
-data ReservedCacheNode = ReservedCacheNode'{_rcnCacheNodeType :: Maybe Text, _rcnState :: Maybe Text, _rcnProductDescription :: Maybe Text, _rcnStartTime :: Maybe ISO8601, _rcnCacheNodeCount :: Maybe Int, _rcnReservedCacheNodeId :: Maybe Text, _rcnOfferingType :: Maybe Text, _rcnUsagePrice :: Maybe Double, _rcnRecurringCharges :: Maybe [RecurringCharge], _rcnFixedPrice :: Maybe Double, _rcnDuration :: Maybe Int, _rcnReservedCacheNodesOfferingId :: Maybe Text} deriving (Eq, Read, Show)
+data ReservedCacheNode = ReservedCacheNode'
+    { _rcnCacheNodeType                :: Maybe Text
+    , _rcnState                        :: Maybe Text
+    , _rcnProductDescription           :: Maybe Text
+    , _rcnStartTime                    :: Maybe ISO8601
+    , _rcnCacheNodeCount               :: Maybe Int
+    , _rcnReservedCacheNodeId          :: Maybe Text
+    , _rcnOfferingType                 :: Maybe Text
+    , _rcnUsagePrice                   :: Maybe Double
+    , _rcnRecurringCharges             :: Maybe [RecurringCharge]
+    , _rcnFixedPrice                   :: Maybe Double
+    , _rcnDuration                     :: Maybe Int
+    , _rcnReservedCacheNodesOfferingId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReservedCacheNode' smart constructor.
 reservedCacheNode :: ReservedCacheNode
-reservedCacheNode = ReservedCacheNode'{_rcnCacheNodeType = Nothing, _rcnState = Nothing, _rcnProductDescription = Nothing, _rcnStartTime = Nothing, _rcnCacheNodeCount = Nothing, _rcnReservedCacheNodeId = Nothing, _rcnOfferingType = Nothing, _rcnUsagePrice = Nothing, _rcnRecurringCharges = Nothing, _rcnFixedPrice = Nothing, _rcnDuration = Nothing, _rcnReservedCacheNodesOfferingId = Nothing};
+reservedCacheNode =
+    ReservedCacheNode'
+    { _rcnCacheNodeType = Nothing
+    , _rcnState = Nothing
+    , _rcnProductDescription = Nothing
+    , _rcnStartTime = Nothing
+    , _rcnCacheNodeCount = Nothing
+    , _rcnReservedCacheNodeId = Nothing
+    , _rcnOfferingType = Nothing
+    , _rcnUsagePrice = Nothing
+    , _rcnRecurringCharges = Nothing
+    , _rcnFixedPrice = Nothing
+    , _rcnDuration = Nothing
+    , _rcnReservedCacheNodesOfferingId = Nothing
+    }
 
 -- | The cache node type for the reserved cache nodes.
 --
@@ -2223,11 +2615,30 @@ instance FromXML ReservedCacheNode where
 -- * 'rcnoDuration'
 --
 -- * 'rcnoReservedCacheNodesOfferingId'
-data ReservedCacheNodesOffering = ReservedCacheNodesOffering'{_rcnoCacheNodeType :: Maybe Text, _rcnoProductDescription :: Maybe Text, _rcnoOfferingType :: Maybe Text, _rcnoUsagePrice :: Maybe Double, _rcnoRecurringCharges :: Maybe [RecurringCharge], _rcnoFixedPrice :: Maybe Double, _rcnoDuration :: Maybe Int, _rcnoReservedCacheNodesOfferingId :: Maybe Text} deriving (Eq, Read, Show)
+data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
+    { _rcnoCacheNodeType                :: Maybe Text
+    , _rcnoProductDescription           :: Maybe Text
+    , _rcnoOfferingType                 :: Maybe Text
+    , _rcnoUsagePrice                   :: Maybe Double
+    , _rcnoRecurringCharges             :: Maybe [RecurringCharge]
+    , _rcnoFixedPrice                   :: Maybe Double
+    , _rcnoDuration                     :: Maybe Int
+    , _rcnoReservedCacheNodesOfferingId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReservedCacheNodesOffering' smart constructor.
 reservedCacheNodesOffering :: ReservedCacheNodesOffering
-reservedCacheNodesOffering = ReservedCacheNodesOffering'{_rcnoCacheNodeType = Nothing, _rcnoProductDescription = Nothing, _rcnoOfferingType = Nothing, _rcnoUsagePrice = Nothing, _rcnoRecurringCharges = Nothing, _rcnoFixedPrice = Nothing, _rcnoDuration = Nothing, _rcnoReservedCacheNodesOfferingId = Nothing};
+reservedCacheNodesOffering =
+    ReservedCacheNodesOffering'
+    { _rcnoCacheNodeType = Nothing
+    , _rcnoProductDescription = Nothing
+    , _rcnoOfferingType = Nothing
+    , _rcnoUsagePrice = Nothing
+    , _rcnoRecurringCharges = Nothing
+    , _rcnoFixedPrice = Nothing
+    , _rcnoDuration = Nothing
+    , _rcnoReservedCacheNodesOfferingId = Nothing
+    }
 
 -- | The cache node type for the reserved cache node.
 --
@@ -2314,11 +2725,18 @@ instance FromXML ReservedCacheNodesOffering where
 -- * 'sgmStatus'
 --
 -- * 'sgmSecurityGroupId'
-data SecurityGroupMembership = SecurityGroupMembership'{_sgmStatus :: Maybe Text, _sgmSecurityGroupId :: Maybe Text} deriving (Eq, Read, Show)
+data SecurityGroupMembership = SecurityGroupMembership'
+    { _sgmStatus          :: Maybe Text
+    , _sgmSecurityGroupId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SecurityGroupMembership' smart constructor.
 securityGroupMembership :: SecurityGroupMembership
-securityGroupMembership = SecurityGroupMembership'{_sgmStatus = Nothing, _sgmSecurityGroupId = Nothing};
+securityGroupMembership =
+    SecurityGroupMembership'
+    { _sgmStatus = Nothing
+    , _sgmSecurityGroupId = Nothing
+    }
 
 -- | The status of the cache security group membership. The status changes
 -- whenever a cache security group is modified, or when the cache security
@@ -2381,11 +2799,54 @@ instance FromXML SecurityGroupMembership where
 -- * 'snaNumCacheNodes'
 --
 -- * 'snaPort'
-data Snapshot = Snapshot'{_snaCacheNodeType :: Maybe Text, _snaEngineVersion :: Maybe Text, _snaCacheClusterCreateTime :: Maybe ISO8601, _snaAutoMinorVersionUpgrade :: Maybe Bool, _snaCacheParameterGroupName :: Maybe Text, _snaSnapshotStatus :: Maybe Text, _snaSnapshotWindow :: Maybe Text, _snaVPCId :: Maybe Text, _snaCacheClusterId :: Maybe Text, _snaEngine :: Maybe Text, _snaPreferredMaintenanceWindow :: Maybe Text, _snaTopicARN :: Maybe Text, _snaCacheSubnetGroupName :: Maybe Text, _snaNodeSnapshots :: Maybe [NodeSnapshot], _snaPreferredAvailabilityZone :: Maybe Text, _snaSnapshotRetentionLimit :: Maybe Int, _snaSnapshotName :: Maybe Text, _snaSnapshotSource :: Maybe Text, _snaNumCacheNodes :: Maybe Int, _snaPort :: Maybe Int} deriving (Eq, Read, Show)
+data Snapshot = Snapshot'
+    { _snaCacheNodeType              :: Maybe Text
+    , _snaEngineVersion              :: Maybe Text
+    , _snaCacheClusterCreateTime     :: Maybe ISO8601
+    , _snaAutoMinorVersionUpgrade    :: Maybe Bool
+    , _snaCacheParameterGroupName    :: Maybe Text
+    , _snaSnapshotStatus             :: Maybe Text
+    , _snaSnapshotWindow             :: Maybe Text
+    , _snaVPCId                      :: Maybe Text
+    , _snaCacheClusterId             :: Maybe Text
+    , _snaEngine                     :: Maybe Text
+    , _snaPreferredMaintenanceWindow :: Maybe Text
+    , _snaTopicARN                   :: Maybe Text
+    , _snaCacheSubnetGroupName       :: Maybe Text
+    , _snaNodeSnapshots              :: Maybe [NodeSnapshot]
+    , _snaPreferredAvailabilityZone  :: Maybe Text
+    , _snaSnapshotRetentionLimit     :: Maybe Int
+    , _snaSnapshotName               :: Maybe Text
+    , _snaSnapshotSource             :: Maybe Text
+    , _snaNumCacheNodes              :: Maybe Int
+    , _snaPort                       :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Snapshot
-snapshot = Snapshot'{_snaCacheNodeType = Nothing, _snaEngineVersion = Nothing, _snaCacheClusterCreateTime = Nothing, _snaAutoMinorVersionUpgrade = Nothing, _snaCacheParameterGroupName = Nothing, _snaSnapshotStatus = Nothing, _snaSnapshotWindow = Nothing, _snaVPCId = Nothing, _snaCacheClusterId = Nothing, _snaEngine = Nothing, _snaPreferredMaintenanceWindow = Nothing, _snaTopicARN = Nothing, _snaCacheSubnetGroupName = Nothing, _snaNodeSnapshots = Nothing, _snaPreferredAvailabilityZone = Nothing, _snaSnapshotRetentionLimit = Nothing, _snaSnapshotName = Nothing, _snaSnapshotSource = Nothing, _snaNumCacheNodes = Nothing, _snaPort = Nothing};
+snapshot =
+    Snapshot'
+    { _snaCacheNodeType = Nothing
+    , _snaEngineVersion = Nothing
+    , _snaCacheClusterCreateTime = Nothing
+    , _snaAutoMinorVersionUpgrade = Nothing
+    , _snaCacheParameterGroupName = Nothing
+    , _snaSnapshotStatus = Nothing
+    , _snaSnapshotWindow = Nothing
+    , _snaVPCId = Nothing
+    , _snaCacheClusterId = Nothing
+    , _snaEngine = Nothing
+    , _snaPreferredMaintenanceWindow = Nothing
+    , _snaTopicARN = Nothing
+    , _snaCacheSubnetGroupName = Nothing
+    , _snaNodeSnapshots = Nothing
+    , _snaPreferredAvailabilityZone = Nothing
+    , _snaSnapshotRetentionLimit = Nothing
+    , _snaSnapshotName = Nothing
+    , _snaSnapshotSource = Nothing
+    , _snaNumCacheNodes = Nothing
+    , _snaPort = Nothing
+    }
 
 -- | The name of the compute and memory capacity node type for the source
 -- cache cluster.
@@ -2571,11 +3032,18 @@ instance FromXML Snapshot where
 -- * 'subSubnetIdentifier'
 --
 -- * 'subSubnetAvailabilityZone'
-data Subnet = Subnet'{_subSubnetIdentifier :: Maybe Text, _subSubnetAvailabilityZone :: Maybe AvailabilityZone} deriving (Eq, Read, Show)
+data Subnet = Subnet'
+    { _subSubnetIdentifier       :: Maybe Text
+    , _subSubnetAvailabilityZone :: Maybe AvailabilityZone
+    } deriving (Eq,Read,Show)
 
 -- | 'Subnet' smart constructor.
 subnet :: Subnet
-subnet = Subnet'{_subSubnetIdentifier = Nothing, _subSubnetAvailabilityZone = Nothing};
+subnet =
+    Subnet'
+    { _subSubnetIdentifier = Nothing
+    , _subSubnetAvailabilityZone = Nothing
+    }
 
 -- | The unique identifier for the subnet.
 subSubnetIdentifier :: Lens' Subnet (Maybe Text)
@@ -2602,11 +3070,18 @@ instance FromXML Subnet where
 -- * 'tagValue'
 --
 -- * 'tagKey'
-data Tag = Tag'{_tagValue :: Maybe Text, _tagKey :: Maybe Text} deriving (Eq, Read, Show)
+data Tag = Tag'
+    { _tagValue :: Maybe Text
+    , _tagKey   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
-tag = Tag'{_tagValue = Nothing, _tagKey = Nothing};
+tag =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = Nothing
+    }
 
 -- | The tag\'s value. May not be null.
 tagValue :: Lens' Tag (Maybe Text)
@@ -2632,11 +3107,16 @@ instance ToQuery Tag where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'tlmTagList'
-newtype TagListMessage = TagListMessage'{_tlmTagList :: Maybe [Tag]} deriving (Eq, Read, Show)
+newtype TagListMessage = TagListMessage'
+    { _tlmTagList :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'TagListMessage' smart constructor.
 tagListMessage :: TagListMessage
-tagListMessage = TagListMessage'{_tlmTagList = Nothing};
+tagListMessage =
+    TagListMessage'
+    { _tlmTagList = Nothing
+    }
 
 -- | A list of cost allocation tags as key-value pairs.
 tlmTagList :: Lens' TagListMessage [Tag]

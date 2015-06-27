@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.AddWorkingStorage
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,13 +44,13 @@ module Network.AWS.StorageGateway.AddWorkingStorage
     , addWorkingStorageResponse
     -- ** Response lenses
     , awsrGatewayARN
-    , awsrStatusCode
+    , awsrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -63,11 +63,18 @@ import Network.AWS.StorageGateway.Types
 -- * 'awsGatewayARN'
 --
 -- * 'awsDiskIds'
-data AddWorkingStorage = AddWorkingStorage'{_awsGatewayARN :: Text, _awsDiskIds :: [Text]} deriving (Eq, Read, Show)
+data AddWorkingStorage = AddWorkingStorage'
+    { _awsGatewayARN :: Text
+    , _awsDiskIds    :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'AddWorkingStorage' smart constructor.
 addWorkingStorage :: Text -> AddWorkingStorage
-addWorkingStorage pGatewayARN = AddWorkingStorage'{_awsGatewayARN = pGatewayARN, _awsDiskIds = mempty};
+addWorkingStorage pGatewayARN =
+    AddWorkingStorage'
+    { _awsGatewayARN = pGatewayARN
+    , _awsDiskIds = mempty
+    }
 
 -- | FIXME: Undocumented member.
 awsGatewayARN :: Lens' AddWorkingStorage Text
@@ -120,17 +127,24 @@ instance ToQuery AddWorkingStorage where
 --
 -- * 'awsrGatewayARN'
 --
--- * 'awsrStatusCode'
-data AddWorkingStorageResponse = AddWorkingStorageResponse'{_awsrGatewayARN :: Maybe Text, _awsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'awsrStatus'
+data AddWorkingStorageResponse = AddWorkingStorageResponse'
+    { _awsrGatewayARN :: Maybe Text
+    , _awsrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AddWorkingStorageResponse' smart constructor.
 addWorkingStorageResponse :: Int -> AddWorkingStorageResponse
-addWorkingStorageResponse pStatusCode = AddWorkingStorageResponse'{_awsrGatewayARN = Nothing, _awsrStatusCode = pStatusCode};
+addWorkingStorageResponse pStatus =
+    AddWorkingStorageResponse'
+    { _awsrGatewayARN = Nothing
+    , _awsrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 awsrGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
 awsrGatewayARN = lens _awsrGatewayARN (\ s a -> s{_awsrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-awsrStatusCode :: Lens' AddWorkingStorageResponse Int
-awsrStatusCode = lens _awsrStatusCode (\ s a -> s{_awsrStatusCode = a});
+awsrStatus :: Lens' AddWorkingStorageResponse Int
+awsrStatus = lens _awsrStatus (\ s a -> s{_awsrStatus = a});

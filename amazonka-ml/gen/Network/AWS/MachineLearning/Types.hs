@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.MachineLearning.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -226,75 +225,87 @@ module Network.AWS.MachineLearning.Types
     , sdsDataLocationS3
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2014-12-12@ of the Amazon Machine Learning SDK.
 data MachineLearning
 
 instance AWSService MachineLearning where
     type Sg MachineLearning = V4
-
     service = const svc
       where
-        svc :: Service MachineLearning
-        svc = Service
-            { _svcAbbrev   = "MachineLearning"
-            , _svcPrefix   = "machinelearning"
-            , _svcVersion  = "2014-12-12"
+        svc =
+            Service
+            { _svcAbbrev = "MachineLearning"
+            , _svcPrefix = "machinelearning"
+            , _svcVersion = "2014-12-12"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | An error on the server occurred when trying to process a request.
-_InternalServerException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalServerException = _ServiceError . hasStatus 500 . hasCode "InternalServerException";
+_InternalServerException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServerException =
+    _ServiceError . hasStatus 500 . hasCode "InternalServerException"
 
 -- | An error on the client occurred. Typically, the cause is an invalid
 -- input value.
-_InvalidInputException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidInputException = _ServiceError . hasStatus 400 . hasCode "InvalidInputException";
+_InvalidInputException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidInputException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidInputException"
 
 -- | A second request to use or change an object was not allowed. This can
 -- result from retrying a request using a parameter that was not present in
 -- the original request.
-_IdempotentParameterMismatchException :: AWSError a => Geting (First ServiceError) a ServiceError
-_IdempotentParameterMismatchException = _ServiceError . hasStatus 400 . hasCode "IdempotentParameterMismatchException";
+_IdempotentParameterMismatchException :: AWSError a => Getting (First ServiceError) a ServiceError
+_IdempotentParameterMismatchException =
+    _ServiceError .
+    hasStatus 400 . hasCode "IdempotentParameterMismatchException"
 
 -- | The exception is thrown when a predict request is made to an unmounted
 -- @MLModel@.
-_PredictorNotMountedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PredictorNotMountedException = _ServiceError . hasStatus 400 . hasCode "PredictorNotMountedException";
+_PredictorNotMountedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PredictorNotMountedException =
+    _ServiceError . hasStatus 400 . hasCode "PredictorNotMountedException"
 
 -- | A specified resource cannot be located.
-_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException";
+_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+    _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
 -- | The subscriber exceeded the maximum number of operations. This exception
 -- can occur when listing objects such as @DataSource@.
-_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasStatus 417 . hasCode "LimitExceededException";
+_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException =
+    _ServiceError . hasStatus 417 . hasCode "LimitExceededException"
 
 -- | The function used to train a @MLModel@. Training choices supported by
 -- Amazon ML include the following:
 --
 -- -   SGD - Stochastic Gradient Descent.
 -- -   RandomForest - Random forest of decision trees.
-data Algorithm = Sgd deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Algorithm =
+    Sgd
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Algorithm where
     parser = takeLowerText >>= \case
@@ -329,7 +340,16 @@ instance FromJSON Algorithm where
 -- -   @DataURI@ - Sets the search criteria to the data file(s) used in the
 --     @BatchPrediction@. The URL can identify either a file or an Amazon
 --     Simple Storage Service (Amazon S3) bucket or directory.
-data BatchPredictionFilterVariable = BatchDataSourceId | BatchMLModelId | BatchIAMUser | BatchStatus | BatchCreatedAt | BatchDataURI | BatchName | BatchLastUpdatedAt deriving (Eq, Ord, Read, Show, Enum, Generic)
+data BatchPredictionFilterVariable
+    = BatchDataSourceId
+    | BatchMLModelId
+    | BatchIAMUser
+    | BatchStatus
+    | BatchCreatedAt
+    | BatchDataURI
+    | BatchName
+    | BatchLastUpdatedAt
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText BatchPredictionFilterVariable where
     parser = takeLowerText >>= \case
@@ -377,7 +397,14 @@ instance ToJSON BatchPredictionFilterVariable where
 -- Note
 --
 -- The variable names should match the variable names in the @DataSource@.
-data DataSourceFilterVariable = DSFVDataStatus | DSFVDataDATALOCATIONS3 | DSFVDataCreatedAt | DSFVDataLastUpdatedAt | DSFVDataName | DSFVDataIAMUser deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DataSourceFilterVariable
+    = DSFVDataStatus
+    | DSFVDataDATALOCATIONS3
+    | DSFVDataCreatedAt
+    | DSFVDataLastUpdatedAt
+    | DSFVDataName
+    | DSFVDataIAMUser
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DataSourceFilterVariable where
     parser = takeLowerText >>= \case
@@ -408,7 +435,10 @@ instance ToJSON DataSourceFilterVariable where
 -- | Contains the key values of @DetailsMap@: PredictiveModelType - Indicates
 -- the type of the @MLModel@. Algorithm - Indicates the algorithm was used
 -- for the @MLModel@.
-data DetailsAttributes = Algorithm | PredictiveModelType deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DetailsAttributes
+    = Algorithm
+    | PredictiveModelType
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DetailsAttributes where
     parser = takeLowerText >>= \case
@@ -435,7 +465,13 @@ instance FromJSON DetailsAttributes where
 -- -   FAILED
 -- -   COMPLETED
 -- -   DELETED
-data EntityStatus = Pending | Inprogress | Deleted | Completed | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data EntityStatus
+    = Pending
+    | Inprogress
+    | Deleted
+    | Completed
+    | Failed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText EntityStatus where
     parser = takeLowerText >>= \case
@@ -477,7 +513,16 @@ instance FromJSON EntityStatus where
 -- -   @DataUri@ - Sets the search criteria to the data file(s) used in
 --     evaluation. The URL can identify either a file or an Amazon Simple
 --     Storage Service (Amazon S3) bucket or directory.
-data EvaluationFilterVariable = EFVEvalStatus | EFVEvalDataURI | EFVEvalDataSourceId | EFVEvalCreatedAt | EFVEvalName | EFVEvalIAMUser | EFVEvalMLModelId | EFVEvalLastUpdatedAt deriving (Eq, Ord, Read, Show, Enum, Generic)
+data EvaluationFilterVariable
+    = EFVEvalStatus
+    | EFVEvalDataURI
+    | EFVEvalDataSourceId
+    | EFVEvalCreatedAt
+    | EFVEvalName
+    | EFVEvalIAMUser
+    | EFVEvalMLModelId
+    | EFVEvalLastUpdatedAt
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText EvaluationFilterVariable where
     parser = takeLowerText >>= \case
@@ -509,7 +554,18 @@ instance ToHeader EvaluationFilterVariable
 instance ToJSON EvaluationFilterVariable where
     toJSON = toJSONText
 
-data MLModelFilterVariable = MLMFVRealtimeEndpointStatus | MLMFVMLModelType | MLMFVTrainingDataURI | MLMFVStatus | MLMFVIAMUser | MLMFVCreatedAt | MLMFVTrainingDataSourceId | MLMFVAlgorithm | MLMFVName | MLMFVLastUpdatedAt deriving (Eq, Ord, Read, Show, Enum, Generic)
+data MLModelFilterVariable
+    = MLMFVRealtimeEndpointStatus
+    | MLMFVMLModelType
+    | MLMFVTrainingDataURI
+    | MLMFVStatus
+    | MLMFVIAMUser
+    | MLMFVCreatedAt
+    | MLMFVTrainingDataSourceId
+    | MLMFVAlgorithm
+    | MLMFVName
+    | MLMFVLastUpdatedAt
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText MLModelFilterVariable where
     parser = takeLowerText >>= \case
@@ -545,7 +601,11 @@ instance ToHeader MLModelFilterVariable
 instance ToJSON MLModelFilterVariable where
     toJSON = toJSONText
 
-data MLModelType = Multiclass | Regression | Binary deriving (Eq, Ord, Read, Show, Enum, Generic)
+data MLModelType
+    = Multiclass
+    | Regression
+    | Binary
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText MLModelType where
     parser = takeLowerText >>= \case
@@ -570,7 +630,12 @@ instance ToJSON MLModelType where
 instance FromJSON MLModelType where
     parseJSON = parseJSONText "MLModelType"
 
-data RealtimeEndpointStatus = RESUpdating | RESReady | RESFailed | RESNone deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RealtimeEndpointStatus
+    = RESUpdating
+    | RESReady
+    | RESFailed
+    | RESNone
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText RealtimeEndpointStatus where
     parser = takeLowerText >>= \case
@@ -599,7 +664,10 @@ instance FromJSON RealtimeEndpointStatus where
 --
 -- -   @asc@ - Present the information in ascending order (from A-Z).
 -- -   @dsc@ - Present the information in descending order (from Z-A).
-data SortOrder = Dsc | Asc deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SortOrder
+    = Dsc
+    | Asc
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SortOrder where
     parser = takeLowerText >>= \case
@@ -649,11 +717,36 @@ instance ToJSON SortOrder where
 -- * 'bpMessage'
 --
 -- * 'bpOutputURI'
-data BatchPrediction = BatchPrediction'{_bpStatus :: Maybe EntityStatus, _bpLastUpdatedAt :: Maybe POSIX, _bpCreatedAt :: Maybe POSIX, _bpInputDataLocationS3 :: Maybe Text, _bpMLModelId :: Maybe Text, _bpBatchPredictionDataSourceId :: Maybe Text, _bpBatchPredictionId :: Maybe Text, _bpName :: Maybe Text, _bpCreatedByIAMUser :: Maybe Text, _bpMessage :: Maybe Text, _bpOutputURI :: Maybe Text} deriving (Eq, Read, Show)
+data BatchPrediction = BatchPrediction'
+    { _bpStatus                      :: Maybe EntityStatus
+    , _bpLastUpdatedAt               :: Maybe POSIX
+    , _bpCreatedAt                   :: Maybe POSIX
+    , _bpInputDataLocationS3         :: Maybe Text
+    , _bpMLModelId                   :: Maybe Text
+    , _bpBatchPredictionDataSourceId :: Maybe Text
+    , _bpBatchPredictionId           :: Maybe Text
+    , _bpName                        :: Maybe Text
+    , _bpCreatedByIAMUser            :: Maybe Text
+    , _bpMessage                     :: Maybe Text
+    , _bpOutputURI                   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'BatchPrediction' smart constructor.
 batchPrediction :: BatchPrediction
-batchPrediction = BatchPrediction'{_bpStatus = Nothing, _bpLastUpdatedAt = Nothing, _bpCreatedAt = Nothing, _bpInputDataLocationS3 = Nothing, _bpMLModelId = Nothing, _bpBatchPredictionDataSourceId = Nothing, _bpBatchPredictionId = Nothing, _bpName = Nothing, _bpCreatedByIAMUser = Nothing, _bpMessage = Nothing, _bpOutputURI = Nothing};
+batchPrediction =
+    BatchPrediction'
+    { _bpStatus = Nothing
+    , _bpLastUpdatedAt = Nothing
+    , _bpCreatedAt = Nothing
+    , _bpInputDataLocationS3 = Nothing
+    , _bpMLModelId = Nothing
+    , _bpBatchPredictionDataSourceId = Nothing
+    , _bpBatchPredictionId = Nothing
+    , _bpName = Nothing
+    , _bpCreatedByIAMUser = Nothing
+    , _bpMessage = Nothing
+    , _bpOutputURI = Nothing
+    }
 
 -- | The status of the @BatchPrediction@. This element can have one of the
 -- following values:
@@ -775,11 +868,44 @@ instance FromJSON BatchPrediction where
 -- * 'dsRoleARN'
 --
 -- * 'dsDataRearrangement'
-data DataSource = DataSource'{_dsStatus :: Maybe EntityStatus, _dsNumberOfFiles :: Maybe Integer, _dsLastUpdatedAt :: Maybe POSIX, _dsCreatedAt :: Maybe POSIX, _dsRDSMetadata :: Maybe RDSMetadata, _dsDataSourceId :: Maybe Text, _dsDataSizeInBytes :: Maybe Integer, _dsName :: Maybe Text, _dsCreatedByIAMUser :: Maybe Text, _dsDataLocationS3 :: Maybe Text, _dsComputeStatistics :: Maybe Bool, _dsMessage :: Maybe Text, _dsRedshiftMetadata :: Maybe RedshiftMetadata, _dsRoleARN :: Maybe Text, _dsDataRearrangement :: Maybe Text} deriving (Eq, Read, Show)
+data DataSource = DataSource'
+    { _dsStatus            :: Maybe EntityStatus
+    , _dsNumberOfFiles     :: Maybe Integer
+    , _dsLastUpdatedAt     :: Maybe POSIX
+    , _dsCreatedAt         :: Maybe POSIX
+    , _dsRDSMetadata       :: Maybe RDSMetadata
+    , _dsDataSourceId      :: Maybe Text
+    , _dsDataSizeInBytes   :: Maybe Integer
+    , _dsName              :: Maybe Text
+    , _dsCreatedByIAMUser  :: Maybe Text
+    , _dsDataLocationS3    :: Maybe Text
+    , _dsComputeStatistics :: Maybe Bool
+    , _dsMessage           :: Maybe Text
+    , _dsRedshiftMetadata  :: Maybe RedshiftMetadata
+    , _dsRoleARN           :: Maybe Text
+    , _dsDataRearrangement :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DataSource' smart constructor.
 dataSource :: DataSource
-dataSource = DataSource'{_dsStatus = Nothing, _dsNumberOfFiles = Nothing, _dsLastUpdatedAt = Nothing, _dsCreatedAt = Nothing, _dsRDSMetadata = Nothing, _dsDataSourceId = Nothing, _dsDataSizeInBytes = Nothing, _dsName = Nothing, _dsCreatedByIAMUser = Nothing, _dsDataLocationS3 = Nothing, _dsComputeStatistics = Nothing, _dsMessage = Nothing, _dsRedshiftMetadata = Nothing, _dsRoleARN = Nothing, _dsDataRearrangement = Nothing};
+dataSource =
+    DataSource'
+    { _dsStatus = Nothing
+    , _dsNumberOfFiles = Nothing
+    , _dsLastUpdatedAt = Nothing
+    , _dsCreatedAt = Nothing
+    , _dsRDSMetadata = Nothing
+    , _dsDataSourceId = Nothing
+    , _dsDataSizeInBytes = Nothing
+    , _dsName = Nothing
+    , _dsCreatedByIAMUser = Nothing
+    , _dsDataLocationS3 = Nothing
+    , _dsComputeStatistics = Nothing
+    , _dsMessage = Nothing
+    , _dsRedshiftMetadata = Nothing
+    , _dsRoleARN = Nothing
+    , _dsDataRearrangement = Nothing
+    }
 
 -- | The current status of the @DataSource@. This element can have one of the
 -- following values:
@@ -909,11 +1035,36 @@ instance FromJSON DataSource where
 -- * 'evaEvaluationId'
 --
 -- * 'evaEvaluationDataSourceId'
-data Evaluation = Evaluation'{_evaStatus :: Maybe EntityStatus, _evaPerformanceMetrics :: Maybe PerformanceMetrics, _evaLastUpdatedAt :: Maybe POSIX, _evaCreatedAt :: Maybe POSIX, _evaInputDataLocationS3 :: Maybe Text, _evaMLModelId :: Maybe Text, _evaName :: Maybe Text, _evaCreatedByIAMUser :: Maybe Text, _evaMessage :: Maybe Text, _evaEvaluationId :: Maybe Text, _evaEvaluationDataSourceId :: Maybe Text} deriving (Eq, Read, Show)
+data Evaluation = Evaluation'
+    { _evaStatus                 :: Maybe EntityStatus
+    , _evaPerformanceMetrics     :: Maybe PerformanceMetrics
+    , _evaLastUpdatedAt          :: Maybe POSIX
+    , _evaCreatedAt              :: Maybe POSIX
+    , _evaInputDataLocationS3    :: Maybe Text
+    , _evaMLModelId              :: Maybe Text
+    , _evaName                   :: Maybe Text
+    , _evaCreatedByIAMUser       :: Maybe Text
+    , _evaMessage                :: Maybe Text
+    , _evaEvaluationId           :: Maybe Text
+    , _evaEvaluationDataSourceId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Evaluation' smart constructor.
 evaluation :: Evaluation
-evaluation = Evaluation'{_evaStatus = Nothing, _evaPerformanceMetrics = Nothing, _evaLastUpdatedAt = Nothing, _evaCreatedAt = Nothing, _evaInputDataLocationS3 = Nothing, _evaMLModelId = Nothing, _evaName = Nothing, _evaCreatedByIAMUser = Nothing, _evaMessage = Nothing, _evaEvaluationId = Nothing, _evaEvaluationDataSourceId = Nothing};
+evaluation =
+    Evaluation'
+    { _evaStatus = Nothing
+    , _evaPerformanceMetrics = Nothing
+    , _evaLastUpdatedAt = Nothing
+    , _evaCreatedAt = Nothing
+    , _evaInputDataLocationS3 = Nothing
+    , _evaMLModelId = Nothing
+    , _evaName = Nothing
+    , _evaCreatedByIAMUser = Nothing
+    , _evaMessage = Nothing
+    , _evaEvaluationId = Nothing
+    , _evaEvaluationDataSourceId = Nothing
+    }
 
 -- | The status of the evaluation. This element can have one of the following
 -- values:
@@ -1045,11 +1196,46 @@ instance FromJSON Evaluation where
 -- * 'mlmMessage'
 --
 -- * 'mlmMLModelType'
-data MLModel = MLModel'{_mlmStatus :: Maybe EntityStatus, _mlmTrainingParameters :: Maybe (Map Text Text), _mlmLastUpdatedAt :: Maybe POSIX, _mlmCreatedAt :: Maybe POSIX, _mlmScoreThresholdLastUpdatedAt :: Maybe POSIX, _mlmInputDataLocationS3 :: Maybe Text, _mlmSizeInBytes :: Maybe Integer, _mlmMLModelId :: Maybe Text, _mlmScoreThreshold :: Maybe Double, _mlmName :: Maybe Text, _mlmAlgorithm :: Maybe Algorithm, _mlmCreatedByIAMUser :: Maybe Text, _mlmEndpointInfo :: Maybe RealtimeEndpointInfo, _mlmTrainingDataSourceId :: Maybe Text, _mlmMessage :: Maybe Text, _mlmMLModelType :: Maybe MLModelType} deriving (Eq, Read, Show)
+data MLModel = MLModel'
+    { _mlmStatus                      :: Maybe EntityStatus
+    , _mlmTrainingParameters          :: Maybe (Map Text Text)
+    , _mlmLastUpdatedAt               :: Maybe POSIX
+    , _mlmCreatedAt                   :: Maybe POSIX
+    , _mlmScoreThresholdLastUpdatedAt :: Maybe POSIX
+    , _mlmInputDataLocationS3         :: Maybe Text
+    , _mlmSizeInBytes                 :: Maybe Integer
+    , _mlmMLModelId                   :: Maybe Text
+    , _mlmScoreThreshold              :: Maybe Double
+    , _mlmName                        :: Maybe Text
+    , _mlmAlgorithm                   :: Maybe Algorithm
+    , _mlmCreatedByIAMUser            :: Maybe Text
+    , _mlmEndpointInfo                :: Maybe RealtimeEndpointInfo
+    , _mlmTrainingDataSourceId        :: Maybe Text
+    , _mlmMessage                     :: Maybe Text
+    , _mlmMLModelType                 :: Maybe MLModelType
+    } deriving (Eq,Read,Show)
 
 -- | 'MLModel' smart constructor.
 mLModel :: MLModel
-mLModel = MLModel'{_mlmStatus = Nothing, _mlmTrainingParameters = Nothing, _mlmLastUpdatedAt = Nothing, _mlmCreatedAt = Nothing, _mlmScoreThresholdLastUpdatedAt = Nothing, _mlmInputDataLocationS3 = Nothing, _mlmSizeInBytes = Nothing, _mlmMLModelId = Nothing, _mlmScoreThreshold = Nothing, _mlmName = Nothing, _mlmAlgorithm = Nothing, _mlmCreatedByIAMUser = Nothing, _mlmEndpointInfo = Nothing, _mlmTrainingDataSourceId = Nothing, _mlmMessage = Nothing, _mlmMLModelType = Nothing};
+mLModel =
+    MLModel'
+    { _mlmStatus = Nothing
+    , _mlmTrainingParameters = Nothing
+    , _mlmLastUpdatedAt = Nothing
+    , _mlmCreatedAt = Nothing
+    , _mlmScoreThresholdLastUpdatedAt = Nothing
+    , _mlmInputDataLocationS3 = Nothing
+    , _mlmSizeInBytes = Nothing
+    , _mlmMLModelId = Nothing
+    , _mlmScoreThreshold = Nothing
+    , _mlmName = Nothing
+    , _mlmAlgorithm = Nothing
+    , _mlmCreatedByIAMUser = Nothing
+    , _mlmEndpointInfo = Nothing
+    , _mlmTrainingDataSourceId = Nothing
+    , _mlmMessage = Nothing
+    , _mlmMLModelType = Nothing
+    }
 
 -- | The current status of an @MLModel@. This element can have one of the
 -- following values:
@@ -1223,11 +1409,16 @@ instance FromJSON MLModel where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'pmProperties'
-newtype PerformanceMetrics = PerformanceMetrics'{_pmProperties :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
+newtype PerformanceMetrics = PerformanceMetrics'
+    { _pmProperties :: Maybe (Map Text Text)
+    } deriving (Eq,Read,Show)
 
 -- | 'PerformanceMetrics' smart constructor.
 performanceMetrics :: PerformanceMetrics
-performanceMetrics = PerformanceMetrics'{_pmProperties = Nothing};
+performanceMetrics =
+    PerformanceMetrics'
+    { _pmProperties = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 pmProperties :: Lens' PerformanceMetrics (HashMap Text Text)
@@ -1266,11 +1457,22 @@ instance FromJSON PerformanceMetrics where
 -- * 'prePredictedScores'
 --
 -- * 'preDetails'
-data Prediction = Prediction'{_prePredictedValue :: Maybe Double, _prePredictedLabel :: Maybe Text, _prePredictedScores :: Maybe (Map Text Double), _preDetails :: Maybe (Map DetailsAttributes Text)} deriving (Eq, Read, Show)
+data Prediction = Prediction'
+    { _prePredictedValue  :: Maybe Double
+    , _prePredictedLabel  :: Maybe Text
+    , _prePredictedScores :: Maybe (Map Text Double)
+    , _preDetails         :: Maybe (Map DetailsAttributes Text)
+    } deriving (Eq,Read,Show)
 
 -- | 'Prediction' smart constructor.
 prediction :: Prediction
-prediction = Prediction'{_prePredictedValue = Nothing, _prePredictedLabel = Nothing, _prePredictedScores = Nothing, _preDetails = Nothing};
+prediction =
+    Prediction'
+    { _prePredictedValue = Nothing
+    , _prePredictedLabel = Nothing
+    , _prePredictedScores = Nothing
+    , _preDetails = Nothing
+    }
 
 -- | The prediction value for REGRESSION @MLModel@.
 prePredictedValue :: Lens' Prediction (Maybe Double)
@@ -1325,11 +1527,36 @@ instance FromJSON Prediction where
 -- * 'rdsdsSubnetId'
 --
 -- * 'rdsdsSecurityGroupIds'
-data RDSDataSpec = RDSDataSpec'{_rdsdsDataSchemaURI :: Maybe Text, _rdsdsDataSchema :: Maybe Text, _rdsdsDataRearrangement :: Maybe Text, _rdsdsDatabaseInformation :: RDSDatabase, _rdsdsSelectSqlQuery :: Text, _rdsdsDatabaseCredentials :: RDSDatabaseCredentials, _rdsdsS3StagingLocation :: Text, _rdsdsResourceRole :: Text, _rdsdsServiceRole :: Text, _rdsdsSubnetId :: Text, _rdsdsSecurityGroupIds :: [Text]} deriving (Eq, Read, Show)
+data RDSDataSpec = RDSDataSpec'
+    { _rdsdsDataSchemaURI       :: Maybe Text
+    , _rdsdsDataSchema          :: Maybe Text
+    , _rdsdsDataRearrangement   :: Maybe Text
+    , _rdsdsDatabaseInformation :: RDSDatabase
+    , _rdsdsSelectSqlQuery      :: Text
+    , _rdsdsDatabaseCredentials :: RDSDatabaseCredentials
+    , _rdsdsS3StagingLocation   :: Text
+    , _rdsdsResourceRole        :: Text
+    , _rdsdsServiceRole         :: Text
+    , _rdsdsSubnetId            :: Text
+    , _rdsdsSecurityGroupIds    :: [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'RDSDataSpec' smart constructor.
 rdsDataSpec :: RDSDatabase -> Text -> RDSDatabaseCredentials -> Text -> Text -> Text -> Text -> RDSDataSpec
-rdsDataSpec pDatabaseInformation pSelectSqlQuery pDatabaseCredentials pS3StagingLocation pResourceRole pServiceRole pSubnetId = RDSDataSpec'{_rdsdsDataSchemaURI = Nothing, _rdsdsDataSchema = Nothing, _rdsdsDataRearrangement = Nothing, _rdsdsDatabaseInformation = pDatabaseInformation, _rdsdsSelectSqlQuery = pSelectSqlQuery, _rdsdsDatabaseCredentials = pDatabaseCredentials, _rdsdsS3StagingLocation = pS3StagingLocation, _rdsdsResourceRole = pResourceRole, _rdsdsServiceRole = pServiceRole, _rdsdsSubnetId = pSubnetId, _rdsdsSecurityGroupIds = mempty};
+rdsDataSpec pDatabaseInformation pSelectSqlQuery pDatabaseCredentials pS3StagingLocation pResourceRole pServiceRole pSubnetId =
+    RDSDataSpec'
+    { _rdsdsDataSchemaURI = Nothing
+    , _rdsdsDataSchema = Nothing
+    , _rdsdsDataRearrangement = Nothing
+    , _rdsdsDatabaseInformation = pDatabaseInformation
+    , _rdsdsSelectSqlQuery = pSelectSqlQuery
+    , _rdsdsDatabaseCredentials = pDatabaseCredentials
+    , _rdsdsS3StagingLocation = pS3StagingLocation
+    , _rdsdsResourceRole = pResourceRole
+    , _rdsdsServiceRole = pServiceRole
+    , _rdsdsSubnetId = pSubnetId
+    , _rdsdsSecurityGroupIds = mempty
+    }
 
 -- | The Amazon S3 location of the @DataSchema@.
 rdsdsDataSchemaURI :: Lens' RDSDataSpec (Maybe Text)
@@ -1421,11 +1648,18 @@ instance ToJSON RDSDataSpec where
 -- * 'rdsInstanceIdentifier'
 --
 -- * 'rdsDatabaseName'
-data RDSDatabase = RDSDatabase'{_rdsInstanceIdentifier :: Text, _rdsDatabaseName :: Text} deriving (Eq, Read, Show)
+data RDSDatabase = RDSDatabase'
+    { _rdsInstanceIdentifier :: Text
+    , _rdsDatabaseName       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RDSDatabase' smart constructor.
 rdsDatabase :: Text -> Text -> RDSDatabase
-rdsDatabase pInstanceIdentifier pDatabaseName = RDSDatabase'{_rdsInstanceIdentifier = pInstanceIdentifier, _rdsDatabaseName = pDatabaseName};
+rdsDatabase pInstanceIdentifier pDatabaseName =
+    RDSDatabase'
+    { _rdsInstanceIdentifier = pInstanceIdentifier
+    , _rdsDatabaseName = pDatabaseName
+    }
 
 -- | The ID of an RDS DB instance.
 rdsInstanceIdentifier :: Lens' RDSDatabase Text
@@ -1458,11 +1692,18 @@ instance ToJSON RDSDatabase where
 -- * 'rdsUsername'
 --
 -- * 'rdsPassword'
-data RDSDatabaseCredentials = RDSDatabaseCredentials'{_rdsUsername :: Text, _rdsPassword :: Text} deriving (Eq, Read, Show)
+data RDSDatabaseCredentials = RDSDatabaseCredentials'
+    { _rdsUsername :: Text
+    , _rdsPassword :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RDSDatabaseCredentials' smart constructor.
 rdsDatabaseCredentials :: Text -> Text -> RDSDatabaseCredentials
-rdsDatabaseCredentials pUsername pPassword = RDSDatabaseCredentials'{_rdsUsername = pUsername, _rdsPassword = pPassword};
+rdsDatabaseCredentials pUsername pPassword =
+    RDSDatabaseCredentials'
+    { _rdsUsername = pUsername
+    , _rdsPassword = pPassword
+    }
 
 -- | FIXME: Undocumented member.
 rdsUsername :: Lens' RDSDatabaseCredentials Text
@@ -1495,11 +1736,26 @@ instance ToJSON RDSDatabaseCredentials where
 -- * 'rmResourceRole'
 --
 -- * 'rmServiceRole'
-data RDSMetadata = RDSMetadata'{_rmSelectSqlQuery :: Maybe Text, _rmDataPipelineId :: Maybe Text, _rmDatabase :: Maybe RDSDatabase, _rmDatabaseUserName :: Maybe Text, _rmResourceRole :: Maybe Text, _rmServiceRole :: Maybe Text} deriving (Eq, Read, Show)
+data RDSMetadata = RDSMetadata'
+    { _rmSelectSqlQuery   :: Maybe Text
+    , _rmDataPipelineId   :: Maybe Text
+    , _rmDatabase         :: Maybe RDSDatabase
+    , _rmDatabaseUserName :: Maybe Text
+    , _rmResourceRole     :: Maybe Text
+    , _rmServiceRole      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RDSMetadata' smart constructor.
 rdsMetadata :: RDSMetadata
-rdsMetadata = RDSMetadata'{_rmSelectSqlQuery = Nothing, _rmDataPipelineId = Nothing, _rmDatabase = Nothing, _rmDatabaseUserName = Nothing, _rmResourceRole = Nothing, _rmServiceRole = Nothing};
+rdsMetadata =
+    RDSMetadata'
+    { _rmSelectSqlQuery = Nothing
+    , _rmDataPipelineId = Nothing
+    , _rmDatabase = Nothing
+    , _rmDatabaseUserName = Nothing
+    , _rmResourceRole = Nothing
+    , _rmServiceRole = Nothing
+    }
 
 -- | The SQL query that is supplied during CreateDataSourceFromRDS. Returns
 -- only if @Verbose@ is true in @GetDataSourceInput@.
@@ -1560,11 +1816,22 @@ instance FromJSON RDSMetadata where
 -- * 'reiEndpointStatus'
 --
 -- * 'reiPeakRequestsPerSecond'
-data RealtimeEndpointInfo = RealtimeEndpointInfo'{_reiCreatedAt :: Maybe POSIX, _reiEndpointURL :: Maybe Text, _reiEndpointStatus :: Maybe RealtimeEndpointStatus, _reiPeakRequestsPerSecond :: Maybe Int} deriving (Eq, Read, Show)
+data RealtimeEndpointInfo = RealtimeEndpointInfo'
+    { _reiCreatedAt             :: Maybe POSIX
+    , _reiEndpointURL           :: Maybe Text
+    , _reiEndpointStatus        :: Maybe RealtimeEndpointStatus
+    , _reiPeakRequestsPerSecond :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RealtimeEndpointInfo' smart constructor.
 realtimeEndpointInfo :: RealtimeEndpointInfo
-realtimeEndpointInfo = RealtimeEndpointInfo'{_reiCreatedAt = Nothing, _reiEndpointURL = Nothing, _reiEndpointStatus = Nothing, _reiPeakRequestsPerSecond = Nothing};
+realtimeEndpointInfo =
+    RealtimeEndpointInfo'
+    { _reiCreatedAt = Nothing
+    , _reiEndpointURL = Nothing
+    , _reiEndpointStatus = Nothing
+    , _reiPeakRequestsPerSecond = Nothing
+    }
 
 -- | The time that the request to create the real-time endpoint for the
 -- @MLModel@ was received. The time is expressed in epoch time.
@@ -1623,11 +1890,28 @@ instance FromJSON RealtimeEndpointInfo where
 -- * 'redDatabaseCredentials'
 --
 -- * 'redS3StagingLocation'
-data RedshiftDataSpec = RedshiftDataSpec'{_redDataSchemaURI :: Maybe Text, _redDataSchema :: Maybe Text, _redDataRearrangement :: Maybe Text, _redDatabaseInformation :: RedshiftDatabase, _redSelectSqlQuery :: Text, _redDatabaseCredentials :: RedshiftDatabaseCredentials, _redS3StagingLocation :: Text} deriving (Eq, Read, Show)
+data RedshiftDataSpec = RedshiftDataSpec'
+    { _redDataSchemaURI       :: Maybe Text
+    , _redDataSchema          :: Maybe Text
+    , _redDataRearrangement   :: Maybe Text
+    , _redDatabaseInformation :: RedshiftDatabase
+    , _redSelectSqlQuery      :: Text
+    , _redDatabaseCredentials :: RedshiftDatabaseCredentials
+    , _redS3StagingLocation   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RedshiftDataSpec' smart constructor.
 redshiftDataSpec :: RedshiftDatabase -> Text -> RedshiftDatabaseCredentials -> Text -> RedshiftDataSpec
-redshiftDataSpec pDatabaseInformation pSelectSqlQuery pDatabaseCredentials pS3StagingLocation = RedshiftDataSpec'{_redDataSchemaURI = Nothing, _redDataSchema = Nothing, _redDataRearrangement = Nothing, _redDatabaseInformation = pDatabaseInformation, _redSelectSqlQuery = pSelectSqlQuery, _redDatabaseCredentials = pDatabaseCredentials, _redS3StagingLocation = pS3StagingLocation};
+redshiftDataSpec pDatabaseInformation pSelectSqlQuery pDatabaseCredentials pS3StagingLocation =
+    RedshiftDataSpec'
+    { _redDataSchemaURI = Nothing
+    , _redDataSchema = Nothing
+    , _redDataRearrangement = Nothing
+    , _redDatabaseInformation = pDatabaseInformation
+    , _redSelectSqlQuery = pSelectSqlQuery
+    , _redDatabaseCredentials = pDatabaseCredentials
+    , _redS3StagingLocation = pS3StagingLocation
+    }
 
 -- | Describes the schema location for an Amazon Redshift @DataSource@.
 redDataSchemaURI :: Lens' RedshiftDataSpec (Maybe Text)
@@ -1682,11 +1966,18 @@ instance ToJSON RedshiftDataSpec where
 -- * 'rdDatabaseName'
 --
 -- * 'rdClusterIdentifier'
-data RedshiftDatabase = RedshiftDatabase'{_rdDatabaseName :: Text, _rdClusterIdentifier :: Text} deriving (Eq, Read, Show)
+data RedshiftDatabase = RedshiftDatabase'
+    { _rdDatabaseName      :: Text
+    , _rdClusterIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RedshiftDatabase' smart constructor.
 redshiftDatabase :: Text -> Text -> RedshiftDatabase
-redshiftDatabase pDatabaseName pClusterIdentifier = RedshiftDatabase'{_rdDatabaseName = pDatabaseName, _rdClusterIdentifier = pClusterIdentifier};
+redshiftDatabase pDatabaseName pClusterIdentifier =
+    RedshiftDatabase'
+    { _rdDatabaseName = pDatabaseName
+    , _rdClusterIdentifier = pClusterIdentifier
+    }
 
 -- | FIXME: Undocumented member.
 rdDatabaseName :: Lens' RedshiftDatabase Text
@@ -1719,11 +2010,18 @@ instance ToJSON RedshiftDatabase where
 -- * 'rdcUsername'
 --
 -- * 'rdcPassword'
-data RedshiftDatabaseCredentials = RedshiftDatabaseCredentials'{_rdcUsername :: Text, _rdcPassword :: Text} deriving (Eq, Read, Show)
+data RedshiftDatabaseCredentials = RedshiftDatabaseCredentials'
+    { _rdcUsername :: Text
+    , _rdcPassword :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RedshiftDatabaseCredentials' smart constructor.
 redshiftDatabaseCredentials :: Text -> Text -> RedshiftDatabaseCredentials
-redshiftDatabaseCredentials pUsername pPassword = RedshiftDatabaseCredentials'{_rdcUsername = pUsername, _rdcPassword = pPassword};
+redshiftDatabaseCredentials pUsername pPassword =
+    RedshiftDatabaseCredentials'
+    { _rdcUsername = pUsername
+    , _rdcPassword = pPassword
+    }
 
 -- | FIXME: Undocumented member.
 rdcUsername :: Lens' RedshiftDatabaseCredentials Text
@@ -1750,11 +2048,20 @@ instance ToJSON RedshiftDatabaseCredentials where
 -- * 'rRedshiftDatabase'
 --
 -- * 'rDatabaseUserName'
-data RedshiftMetadata = RedshiftMetadata'{_rSelectSqlQuery :: Maybe Text, _rRedshiftDatabase :: Maybe RedshiftDatabase, _rDatabaseUserName :: Maybe Text} deriving (Eq, Read, Show)
+data RedshiftMetadata = RedshiftMetadata'
+    { _rSelectSqlQuery   :: Maybe Text
+    , _rRedshiftDatabase :: Maybe RedshiftDatabase
+    , _rDatabaseUserName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RedshiftMetadata' smart constructor.
 redshiftMetadata :: RedshiftMetadata
-redshiftMetadata = RedshiftMetadata'{_rSelectSqlQuery = Nothing, _rRedshiftDatabase = Nothing, _rDatabaseUserName = Nothing};
+redshiftMetadata =
+    RedshiftMetadata'
+    { _rSelectSqlQuery = Nothing
+    , _rRedshiftDatabase = Nothing
+    , _rDatabaseUserName = Nothing
+    }
 
 -- | The SQL query that is specified during CreateDataSourceFromRedshift.
 -- Returns only if @Verbose@ is true in GetDataSourceInput.
@@ -1791,11 +2098,22 @@ instance FromJSON RedshiftMetadata where
 -- * 'sdsDataRearrangement'
 --
 -- * 'sdsDataLocationS3'
-data S3DataSpec = S3DataSpec'{_sdsDataSchema :: Maybe Text, _sdsDataSchemaLocationS3 :: Maybe Text, _sdsDataRearrangement :: Maybe Text, _sdsDataLocationS3 :: Text} deriving (Eq, Read, Show)
+data S3DataSpec = S3DataSpec'
+    { _sdsDataSchema           :: Maybe Text
+    , _sdsDataSchemaLocationS3 :: Maybe Text
+    , _sdsDataRearrangement    :: Maybe Text
+    , _sdsDataLocationS3       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'S3DataSpec' smart constructor.
 s3DataSpec :: Text -> S3DataSpec
-s3DataSpec pDataLocationS3 = S3DataSpec'{_sdsDataSchema = Nothing, _sdsDataSchemaLocationS3 = Nothing, _sdsDataRearrangement = Nothing, _sdsDataLocationS3 = pDataLocationS3};
+s3DataSpec pDataLocationS3 =
+    S3DataSpec'
+    { _sdsDataSchema = Nothing
+    , _sdsDataSchemaLocationS3 = Nothing
+    , _sdsDataRearrangement = Nothing
+    , _sdsDataLocationS3 = pDataLocationS3
+    }
 
 -- | Describes the schema for an Amazon S3 @DataSource@.
 sdsDataSchema :: Lens' S3DataSpec (Maybe Text)

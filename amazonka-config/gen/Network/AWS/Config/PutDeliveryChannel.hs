@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Config.PutDeliveryChannel
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,10 +42,10 @@ module Network.AWS.Config.PutDeliveryChannel
     , putDeliveryChannelResponse
     ) where
 
-import Network.AWS.Config.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Config.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the PutDeliveryChannel action.
 --
@@ -54,11 +54,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'pdcDeliveryChannel'
-newtype PutDeliveryChannel = PutDeliveryChannel'{_pdcDeliveryChannel :: DeliveryChannel} deriving (Eq, Read, Show)
+newtype PutDeliveryChannel = PutDeliveryChannel'
+    { _pdcDeliveryChannel :: DeliveryChannel
+    } deriving (Eq,Read,Show)
 
 -- | 'PutDeliveryChannel' smart constructor.
 putDeliveryChannel :: DeliveryChannel -> PutDeliveryChannel
-putDeliveryChannel pDeliveryChannel = PutDeliveryChannel'{_pdcDeliveryChannel = pDeliveryChannel};
+putDeliveryChannel pDeliveryChannel =
+    PutDeliveryChannel'
+    { _pdcDeliveryChannel = pDeliveryChannel
+    }
 
 -- | The configuration delivery channel object that delivers the
 -- configuration information to an Amazon S3 bucket, and to an Amazon SNS
@@ -94,8 +99,10 @@ instance ToQuery PutDeliveryChannel where
         toQuery = const mempty
 
 -- | /See:/ 'putDeliveryChannelResponse' smart constructor.
-data PutDeliveryChannelResponse = PutDeliveryChannelResponse' deriving (Eq, Read, Show)
+data PutDeliveryChannelResponse =
+    PutDeliveryChannelResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutDeliveryChannelResponse' smart constructor.
 putDeliveryChannelResponse :: PutDeliveryChannelResponse
-putDeliveryChannelResponse = PutDeliveryChannelResponse';
+putDeliveryChannelResponse = PutDeliveryChannelResponse'

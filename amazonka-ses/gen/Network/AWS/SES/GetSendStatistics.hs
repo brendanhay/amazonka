@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SES.GetSendStatistics
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,20 +36,22 @@ module Network.AWS.SES.GetSendStatistics
     , getSendStatisticsResponse
     -- ** Response lenses
     , gssrSendDataPoints
-    , gssrStatusCode
+    , gssrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SES.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
 -- | /See:/ 'getSendStatistics' smart constructor.
-data GetSendStatistics = GetSendStatistics' deriving (Eq, Read, Show)
+data GetSendStatistics =
+    GetSendStatistics'
+    deriving (Eq,Read,Show)
 
 -- | 'GetSendStatistics' smart constructor.
 getSendStatistics :: GetSendStatistics
-getSendStatistics = GetSendStatistics';
+getSendStatistics = GetSendStatistics'
 
 instance AWSRequest GetSendStatistics where
         type Sv GetSendStatistics = SES
@@ -86,17 +88,24 @@ instance ToQuery GetSendStatistics where
 --
 -- * 'gssrSendDataPoints'
 --
--- * 'gssrStatusCode'
-data GetSendStatisticsResponse = GetSendStatisticsResponse'{_gssrSendDataPoints :: Maybe [SendDataPoint], _gssrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gssrStatus'
+data GetSendStatisticsResponse = GetSendStatisticsResponse'
+    { _gssrSendDataPoints :: Maybe [SendDataPoint]
+    , _gssrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetSendStatisticsResponse' smart constructor.
 getSendStatisticsResponse :: Int -> GetSendStatisticsResponse
-getSendStatisticsResponse pStatusCode = GetSendStatisticsResponse'{_gssrSendDataPoints = Nothing, _gssrStatusCode = pStatusCode};
+getSendStatisticsResponse pStatus =
+    GetSendStatisticsResponse'
+    { _gssrSendDataPoints = Nothing
+    , _gssrStatus = pStatus
+    }
 
 -- | A list of data points, each of which represents 15 minutes of activity.
 gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrSendDataPoints = lens _gssrSendDataPoints (\ s a -> s{_gssrSendDataPoints = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gssrStatusCode :: Lens' GetSendStatisticsResponse Int
-gssrStatusCode = lens _gssrStatusCode (\ s a -> s{_gssrStatusCode = a});
+gssrStatus :: Lens' GetSendStatisticsResponse Int
+gssrStatus = lens _gssrStatus (\ s a -> s{_gssrStatus = a});

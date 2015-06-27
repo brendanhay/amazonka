@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticFileSystem.DeleteMountTarget
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,21 +57,26 @@ module Network.AWS.ElasticFileSystem.DeleteMountTarget
     , deleteMountTargetResponse
     ) where
 
-import Network.AWS.ElasticFileSystem.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticFileSystem.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteMountTarget' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dmtMountTargetId'
-newtype DeleteMountTarget = DeleteMountTarget'{_dmtMountTargetId :: Text} deriving (Eq, Read, Show)
+newtype DeleteMountTarget = DeleteMountTarget'
+    { _dmtMountTargetId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteMountTarget' smart constructor.
 deleteMountTarget :: Text -> DeleteMountTarget
-deleteMountTarget pMountTargetId = DeleteMountTarget'{_dmtMountTargetId = pMountTargetId};
+deleteMountTarget pMountTargetId =
+    DeleteMountTarget'
+    { _dmtMountTargetId = pMountTargetId
+    }
 
 -- | String. The ID of the mount target to delete.
 dmtMountTargetId :: Lens' DeleteMountTarget Text
@@ -96,8 +101,10 @@ instance ToQuery DeleteMountTarget where
         toQuery = const mempty
 
 -- | /See:/ 'deleteMountTargetResponse' smart constructor.
-data DeleteMountTargetResponse = DeleteMountTargetResponse' deriving (Eq, Read, Show)
+data DeleteMountTargetResponse =
+    DeleteMountTargetResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteMountTargetResponse' smart constructor.
 deleteMountTargetResponse :: DeleteMountTargetResponse
-deleteMountTargetResponse = DeleteMountTargetResponse';
+deleteMountTargetResponse = DeleteMountTargetResponse'

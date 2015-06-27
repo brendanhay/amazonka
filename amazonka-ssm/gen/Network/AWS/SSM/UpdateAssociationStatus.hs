@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SSM.UpdateAssociationStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.SSM.UpdateAssociationStatus
     , updateAssociationStatusResponse
     -- ** Response lenses
     , uasrAssociationDescription
-    , uasrStatusCode
+    , uasrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
 
 -- | /See:/ 'updateAssociationStatus' smart constructor.
 --
@@ -52,11 +52,20 @@ import Network.AWS.SSM.Types
 -- * 'uasInstanceId'
 --
 -- * 'uasAssociationStatus'
-data UpdateAssociationStatus = UpdateAssociationStatus'{_uasName :: Text, _uasInstanceId :: Text, _uasAssociationStatus :: AssociationStatus} deriving (Eq, Read, Show)
+data UpdateAssociationStatus = UpdateAssociationStatus'
+    { _uasName              :: Text
+    , _uasInstanceId        :: Text
+    , _uasAssociationStatus :: AssociationStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateAssociationStatus' smart constructor.
 updateAssociationStatus :: Text -> Text -> AssociationStatus -> UpdateAssociationStatus
-updateAssociationStatus pName pInstanceId pAssociationStatus = UpdateAssociationStatus'{_uasName = pName, _uasInstanceId = pInstanceId, _uasAssociationStatus = pAssociationStatus};
+updateAssociationStatus pName pInstanceId pAssociationStatus =
+    UpdateAssociationStatus'
+    { _uasName = pName
+    , _uasInstanceId = pInstanceId
+    , _uasAssociationStatus = pAssociationStatus
+    }
 
 -- | The name of the configuration document.
 uasName :: Lens' UpdateAssociationStatus Text
@@ -109,17 +118,24 @@ instance ToQuery UpdateAssociationStatus where
 --
 -- * 'uasrAssociationDescription'
 --
--- * 'uasrStatusCode'
-data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'{_uasrAssociationDescription :: Maybe AssociationDescription, _uasrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'uasrStatus'
+data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
+    { _uasrAssociationDescription :: Maybe AssociationDescription
+    , _uasrStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateAssociationStatusResponse' smart constructor.
 updateAssociationStatusResponse :: Int -> UpdateAssociationStatusResponse
-updateAssociationStatusResponse pStatusCode = UpdateAssociationStatusResponse'{_uasrAssociationDescription = Nothing, _uasrStatusCode = pStatusCode};
+updateAssociationStatusResponse pStatus =
+    UpdateAssociationStatusResponse'
+    { _uasrAssociationDescription = Nothing
+    , _uasrStatus = pStatus
+    }
 
 -- | Information about the association.
 uasrAssociationDescription :: Lens' UpdateAssociationStatusResponse (Maybe AssociationDescription)
 uasrAssociationDescription = lens _uasrAssociationDescription (\ s a -> s{_uasrAssociationDescription = a});
 
 -- | FIXME: Undocumented member.
-uasrStatusCode :: Lens' UpdateAssociationStatusResponse Int
-uasrStatusCode = lens _uasrStatusCode (\ s a -> s{_uasrStatusCode = a});
+uasrStatus :: Lens' UpdateAssociationStatusResponse Int
+uasrStatus = lens _uasrStatus (\ s a -> s{_uasrStatus = a});

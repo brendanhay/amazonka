@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeletePolicyVersion
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,10 +42,10 @@ module Network.AWS.IAM.DeletePolicyVersion
     , deletePolicyVersionResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deletePolicyVersion' smart constructor.
 --
@@ -54,11 +54,18 @@ import Network.AWS.Response
 -- * 'dpvPolicyARN'
 --
 -- * 'dpvVersionId'
-data DeletePolicyVersion = DeletePolicyVersion'{_dpvPolicyARN :: Text, _dpvVersionId :: Text} deriving (Eq, Read, Show)
+data DeletePolicyVersion = DeletePolicyVersion'
+    { _dpvPolicyARN :: Text
+    , _dpvVersionId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeletePolicyVersion' smart constructor.
 deletePolicyVersion :: Text -> Text -> DeletePolicyVersion
-deletePolicyVersion pPolicyARN pVersionId = DeletePolicyVersion'{_dpvPolicyARN = pPolicyARN, _dpvVersionId = pVersionId};
+deletePolicyVersion pPolicyARN pVersionId =
+    DeletePolicyVersion'
+    { _dpvPolicyARN = pPolicyARN
+    , _dpvVersionId = pVersionId
+    }
 
 -- | FIXME: Undocumented member.
 dpvPolicyARN :: Lens' DeletePolicyVersion Text
@@ -94,8 +101,10 @@ instance ToQuery DeletePolicyVersion where
                "VersionId" =: _dpvVersionId]
 
 -- | /See:/ 'deletePolicyVersionResponse' smart constructor.
-data DeletePolicyVersionResponse = DeletePolicyVersionResponse' deriving (Eq, Read, Show)
+data DeletePolicyVersionResponse =
+    DeletePolicyVersionResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeletePolicyVersionResponse' smart constructor.
 deletePolicyVersionResponse :: DeletePolicyVersionResponse
-deletePolicyVersionResponse = DeletePolicyVersionResponse';
+deletePolicyVersionResponse = DeletePolicyVersionResponse'

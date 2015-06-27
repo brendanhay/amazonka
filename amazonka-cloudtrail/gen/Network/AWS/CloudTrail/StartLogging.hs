@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudTrail.StartLogging
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,13 +31,13 @@ module Network.AWS.CloudTrail.StartLogging
     -- ** Response constructor
     , startLoggingResponse
     -- ** Response lenses
-    , staStatusCode
+    , staStatus
     ) where
 
-import Network.AWS.CloudTrail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to CloudTrail to start logging AWS API calls for an account.
 --
@@ -46,11 +46,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'staName'
-newtype StartLogging = StartLogging'{_staName :: Text} deriving (Eq, Read, Show)
+newtype StartLogging = StartLogging'
+    { _staName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StartLogging' smart constructor.
 startLogging :: Text -> StartLogging
-startLogging pName = StartLogging'{_staName = pName};
+startLogging pName =
+    StartLogging'
+    { _staName = pName
+    }
 
 -- | The name of the trail for which CloudTrail logs AWS API calls.
 staName :: Lens' StartLogging Text
@@ -92,13 +97,18 @@ instance ToQuery StartLogging where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'staStatusCode'
-newtype StartLoggingResponse = StartLoggingResponse'{_staStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'staStatus'
+newtype StartLoggingResponse = StartLoggingResponse'
+    { _staStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'StartLoggingResponse' smart constructor.
 startLoggingResponse :: Int -> StartLoggingResponse
-startLoggingResponse pStatusCode = StartLoggingResponse'{_staStatusCode = pStatusCode};
+startLoggingResponse pStatus =
+    StartLoggingResponse'
+    { _staStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-staStatusCode :: Lens' StartLoggingResponse Int
-staStatusCode = lens _staStatusCode (\ s a -> s{_staStatusCode = a});
+staStatus :: Lens' StartLoggingResponse Int
+staStatus = lens _staStatus (\ s a -> s{_staStatus = a});

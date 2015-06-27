@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Config.GetResourceConfigHistory
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,13 +49,13 @@ module Network.AWS.Config.GetResourceConfigHistory
     -- ** Response lenses
     , grchrNextToken
     , grchrConfigurationItems
-    , grchrStatusCode
+    , grchrStatus
     ) where
 
-import Network.AWS.Config.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Config.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the GetResourceConfigHistory action.
 --
@@ -76,11 +76,28 @@ import Network.AWS.Response
 -- * 'grchResourceType'
 --
 -- * 'grchResourceId'
-data GetResourceConfigHistory = GetResourceConfigHistory'{_grchChronologicalOrder :: Maybe ChronologicalOrder, _grchNextToken :: Maybe Text, _grchLimit :: Maybe Nat, _grchLaterTime :: Maybe POSIX, _grchEarlierTime :: Maybe POSIX, _grchResourceType :: ResourceType, _grchResourceId :: Text} deriving (Eq, Read, Show)
+data GetResourceConfigHistory = GetResourceConfigHistory'
+    { _grchChronologicalOrder :: Maybe ChronologicalOrder
+    , _grchNextToken          :: Maybe Text
+    , _grchLimit              :: Maybe Nat
+    , _grchLaterTime          :: Maybe POSIX
+    , _grchEarlierTime        :: Maybe POSIX
+    , _grchResourceType       :: ResourceType
+    , _grchResourceId         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetResourceConfigHistory' smart constructor.
 getResourceConfigHistory :: ResourceType -> Text -> GetResourceConfigHistory
-getResourceConfigHistory pResourceType pResourceId = GetResourceConfigHistory'{_grchChronologicalOrder = Nothing, _grchNextToken = Nothing, _grchLimit = Nothing, _grchLaterTime = Nothing, _grchEarlierTime = Nothing, _grchResourceType = pResourceType, _grchResourceId = pResourceId};
+getResourceConfigHistory pResourceType pResourceId =
+    GetResourceConfigHistory'
+    { _grchChronologicalOrder = Nothing
+    , _grchNextToken = Nothing
+    , _grchLimit = Nothing
+    , _grchLaterTime = Nothing
+    , _grchEarlierTime = Nothing
+    , _grchResourceType = pResourceType
+    , _grchResourceId = pResourceId
+    }
 
 -- | The chronological order for configuration items listed. By default the
 -- results are listed in reverse chronological order.
@@ -164,12 +181,21 @@ instance ToQuery GetResourceConfigHistory where
 --
 -- * 'grchrConfigurationItems'
 --
--- * 'grchrStatusCode'
-data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'{_grchrNextToken :: Maybe Text, _grchrConfigurationItems :: Maybe [ConfigurationItem], _grchrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'grchrStatus'
+data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'
+    { _grchrNextToken          :: Maybe Text
+    , _grchrConfigurationItems :: Maybe [ConfigurationItem]
+    , _grchrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetResourceConfigHistoryResponse' smart constructor.
 getResourceConfigHistoryResponse :: Int -> GetResourceConfigHistoryResponse
-getResourceConfigHistoryResponse pStatusCode = GetResourceConfigHistoryResponse'{_grchrNextToken = Nothing, _grchrConfigurationItems = Nothing, _grchrStatusCode = pStatusCode};
+getResourceConfigHistoryResponse pStatus =
+    GetResourceConfigHistoryResponse'
+    { _grchrNextToken = Nothing
+    , _grchrConfigurationItems = Nothing
+    , _grchrStatus = pStatus
+    }
 
 -- | A token used for pagination of results.
 grchrNextToken :: Lens' GetResourceConfigHistoryResponse (Maybe Text)
@@ -180,5 +206,5 @@ grchrConfigurationItems :: Lens' GetResourceConfigHistoryResponse [Configuration
 grchrConfigurationItems = lens _grchrConfigurationItems (\ s a -> s{_grchrConfigurationItems = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-grchrStatusCode :: Lens' GetResourceConfigHistoryResponse Int
-grchrStatusCode = lens _grchrStatusCode (\ s a -> s{_grchrStatusCode = a});
+grchrStatus :: Lens' GetResourceConfigHistoryResponse Int
+grchrStatus = lens _grchrStatus (\ s a -> s{_grchrStatus = a});

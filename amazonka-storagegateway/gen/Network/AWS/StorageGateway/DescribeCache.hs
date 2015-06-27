@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeCache
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,24 +42,29 @@ module Network.AWS.StorageGateway.DescribeCache
     , dcrCacheMissPercentage
     , dcrCacheAllocatedInBytes
     , dcrCacheDirtyPercentage
-    , dcrStatusCode
+    , dcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.StorageGateway.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'describeCache' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcGatewayARN'
-newtype DescribeCache = DescribeCache'{_dcGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype DescribeCache = DescribeCache'
+    { _dcGatewayARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCache' smart constructor.
 describeCache :: Text -> DescribeCache
-describeCache pGatewayARN = DescribeCache'{_dcGatewayARN = pGatewayARN};
+describeCache pGatewayARN =
+    DescribeCache'
+    { _dcGatewayARN = pGatewayARN
+    }
 
 -- | FIXME: Undocumented member.
 dcGatewayARN :: Lens' DescribeCache Text
@@ -119,12 +124,31 @@ instance ToQuery DescribeCache where
 --
 -- * 'dcrCacheDirtyPercentage'
 --
--- * 'dcrStatusCode'
-data DescribeCacheResponse = DescribeCacheResponse'{_dcrGatewayARN :: Maybe Text, _dcrDiskIds :: Maybe [Text], _dcrCacheUsedPercentage :: Maybe Double, _dcrCacheHitPercentage :: Maybe Double, _dcrCacheMissPercentage :: Maybe Double, _dcrCacheAllocatedInBytes :: Maybe Integer, _dcrCacheDirtyPercentage :: Maybe Double, _dcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcrStatus'
+data DescribeCacheResponse = DescribeCacheResponse'
+    { _dcrGatewayARN            :: Maybe Text
+    , _dcrDiskIds               :: Maybe [Text]
+    , _dcrCacheUsedPercentage   :: Maybe Double
+    , _dcrCacheHitPercentage    :: Maybe Double
+    , _dcrCacheMissPercentage   :: Maybe Double
+    , _dcrCacheAllocatedInBytes :: Maybe Integer
+    , _dcrCacheDirtyPercentage  :: Maybe Double
+    , _dcrStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheResponse' smart constructor.
 describeCacheResponse :: Int -> DescribeCacheResponse
-describeCacheResponse pStatusCode = DescribeCacheResponse'{_dcrGatewayARN = Nothing, _dcrDiskIds = Nothing, _dcrCacheUsedPercentage = Nothing, _dcrCacheHitPercentage = Nothing, _dcrCacheMissPercentage = Nothing, _dcrCacheAllocatedInBytes = Nothing, _dcrCacheDirtyPercentage = Nothing, _dcrStatusCode = pStatusCode};
+describeCacheResponse pStatus =
+    DescribeCacheResponse'
+    { _dcrGatewayARN = Nothing
+    , _dcrDiskIds = Nothing
+    , _dcrCacheUsedPercentage = Nothing
+    , _dcrCacheHitPercentage = Nothing
+    , _dcrCacheMissPercentage = Nothing
+    , _dcrCacheAllocatedInBytes = Nothing
+    , _dcrCacheDirtyPercentage = Nothing
+    , _dcrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dcrGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
@@ -155,5 +179,5 @@ dcrCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcrCacheDirtyPercentage = lens _dcrCacheDirtyPercentage (\ s a -> s{_dcrCacheDirtyPercentage = a});
 
 -- | FIXME: Undocumented member.
-dcrStatusCode :: Lens' DescribeCacheResponse Int
-dcrStatusCode = lens _dcrStatusCode (\ s a -> s{_dcrStatusCode = a});
+dcrStatus :: Lens' DescribeCacheResponse Int
+dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});

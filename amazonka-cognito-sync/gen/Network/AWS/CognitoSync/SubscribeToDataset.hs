@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoSync.SubscribeToDataset
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,13 +35,13 @@ module Network.AWS.CognitoSync.SubscribeToDataset
     -- ** Response constructor
     , subscribeToDatasetResponse
     -- ** Response lenses
-    , stdrStatusCode
+    , stdrStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to SubscribeToDatasetRequest.
 --
@@ -56,11 +56,22 @@ import Network.AWS.Response
 -- * 'stdDatasetName'
 --
 -- * 'stdDeviceId'
-data SubscribeToDataset = SubscribeToDataset'{_stdIdentityPoolId :: Text, _stdIdentityId :: Text, _stdDatasetName :: Text, _stdDeviceId :: Text} deriving (Eq, Read, Show)
+data SubscribeToDataset = SubscribeToDataset'
+    { _stdIdentityPoolId :: Text
+    , _stdIdentityId     :: Text
+    , _stdDatasetName    :: Text
+    , _stdDeviceId       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SubscribeToDataset' smart constructor.
 subscribeToDataset :: Text -> Text -> Text -> Text -> SubscribeToDataset
-subscribeToDataset pIdentityPoolId pIdentityId pDatasetName pDeviceId = SubscribeToDataset'{_stdIdentityPoolId = pIdentityPoolId, _stdIdentityId = pIdentityId, _stdDatasetName = pDatasetName, _stdDeviceId = pDeviceId};
+subscribeToDataset pIdentityPoolId pIdentityId pDatasetName pDeviceId =
+    SubscribeToDataset'
+    { _stdIdentityPoolId = pIdentityPoolId
+    , _stdIdentityId = pIdentityId
+    , _stdDatasetName = pDatasetName
+    , _stdDeviceId = pDeviceId
+    }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -117,13 +128,18 @@ instance ToQuery SubscribeToDataset where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'stdrStatusCode'
-newtype SubscribeToDatasetResponse = SubscribeToDatasetResponse'{_stdrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'stdrStatus'
+newtype SubscribeToDatasetResponse = SubscribeToDatasetResponse'
+    { _stdrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SubscribeToDatasetResponse' smart constructor.
 subscribeToDatasetResponse :: Int -> SubscribeToDatasetResponse
-subscribeToDatasetResponse pStatusCode = SubscribeToDatasetResponse'{_stdrStatusCode = pStatusCode};
+subscribeToDatasetResponse pStatus =
+    SubscribeToDatasetResponse'
+    { _stdrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
-stdrStatusCode :: Lens' SubscribeToDatasetResponse Int
-stdrStatusCode = lens _stdrStatusCode (\ s a -> s{_stdrStatusCode = a});
+stdrStatus :: Lens' SubscribeToDatasetResponse Int
+stdrStatus = lens _stdrStatus (\ s a -> s{_stdrStatus = a});

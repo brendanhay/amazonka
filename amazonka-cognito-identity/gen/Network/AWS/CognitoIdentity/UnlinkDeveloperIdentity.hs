@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,10 +41,10 @@ module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
     , unlinkDeveloperIdentityResponse
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the @UnlinkDeveloperIdentity@ action.
 --
@@ -59,11 +59,22 @@ import Network.AWS.Response
 -- * 'udiDeveloperProviderName'
 --
 -- * 'udiDeveloperUserIdentifier'
-data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity'{_udiIdentityId :: Text, _udiIdentityPoolId :: Text, _udiDeveloperProviderName :: Text, _udiDeveloperUserIdentifier :: Text} deriving (Eq, Read, Show)
+data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity'
+    { _udiIdentityId              :: Text
+    , _udiIdentityPoolId          :: Text
+    , _udiDeveloperProviderName   :: Text
+    , _udiDeveloperUserIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UnlinkDeveloperIdentity' smart constructor.
 unlinkDeveloperIdentity :: Text -> Text -> Text -> Text -> UnlinkDeveloperIdentity
-unlinkDeveloperIdentity pIdentityId pIdentityPoolId pDeveloperProviderName pDeveloperUserIdentifier = UnlinkDeveloperIdentity'{_udiIdentityId = pIdentityId, _udiIdentityPoolId = pIdentityPoolId, _udiDeveloperProviderName = pDeveloperProviderName, _udiDeveloperUserIdentifier = pDeveloperUserIdentifier};
+unlinkDeveloperIdentity pIdentityId pIdentityPoolId pDeveloperProviderName pDeveloperUserIdentifier =
+    UnlinkDeveloperIdentity'
+    { _udiIdentityId = pIdentityId
+    , _udiIdentityPoolId = pIdentityPoolId
+    , _udiDeveloperProviderName = pDeveloperProviderName
+    , _udiDeveloperUserIdentifier = pDeveloperUserIdentifier
+    }
 
 -- | A unique identifier in the format REGION:GUID.
 udiIdentityId :: Lens' UnlinkDeveloperIdentity Text
@@ -116,8 +127,10 @@ instance ToQuery UnlinkDeveloperIdentity where
         toQuery = const mempty
 
 -- | /See:/ 'unlinkDeveloperIdentityResponse' smart constructor.
-data UnlinkDeveloperIdentityResponse = UnlinkDeveloperIdentityResponse' deriving (Eq, Read, Show)
+data UnlinkDeveloperIdentityResponse =
+    UnlinkDeveloperIdentityResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UnlinkDeveloperIdentityResponse' smart constructor.
 unlinkDeveloperIdentityResponse :: UnlinkDeveloperIdentityResponse
-unlinkDeveloperIdentityResponse = UnlinkDeveloperIdentityResponse';
+unlinkDeveloperIdentityResponse = UnlinkDeveloperIdentityResponse'

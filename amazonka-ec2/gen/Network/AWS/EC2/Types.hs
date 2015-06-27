@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.EC2.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -1635,41 +1634,49 @@ module Network.AWS.EC2.Types
     , vsiVolumeId
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2015-04-15@ of the Amazon Elastic Compute Cloud SDK.
 data EC2
 
 instance AWSService EC2 where
     type Sg EC2 = V4
-
     service = const svc
       where
-        svc :: Service EC2
-        svc = Service
-            { _svcAbbrev   = "EC2"
-            , _svcPrefix   = "ec2"
-            , _svcVersion  = "2015-04-15"
+        svc =
+            Service
+            { _svcAbbrev = "EC2"
+            , _svcPrefix = "ec2"
+            , _svcVersion = "2015-04-15"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseXMLError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
+        check e
+          | has (hasCode "RequestLimitExceeded" . hasStatus 503) e =
+              Just "request_limit_exceeded"
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
-
-data AccountAttributeName = SupportedPlatforms | DefaultVPC deriving (Eq, Ord, Read, Show, Enum, Generic)
+data AccountAttributeName
+    = SupportedPlatforms
+    | DefaultVPC
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AccountAttributeName where
     parser = takeLowerText >>= \case
@@ -1686,7 +1693,11 @@ instance Hashable AccountAttributeName
 instance ToQuery AccountAttributeName
 instance ToHeader AccountAttributeName
 
-data AddressStatus = MoveInProgress | InVPC | InClassic deriving (Eq, Ord, Read, Show, Enum, Generic)
+data AddressStatus
+    = MoveInProgress
+    | InVPC
+    | InClassic
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AddressStatus where
     parser = takeLowerText >>= \case
@@ -1708,7 +1719,10 @@ instance ToHeader AddressStatus
 instance FromXML AddressStatus where
     parseXML = parseXMLText "AddressStatus"
 
-data ArchitectureValues = I386 | X8664 deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ArchitectureValues
+    = I386
+    | X8664
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ArchitectureValues where
     parser = takeLowerText >>= \case
@@ -1728,7 +1742,12 @@ instance ToHeader ArchitectureValues
 instance FromXML ArchitectureValues where
     parseXML = parseXMLText "ArchitectureValues"
 
-data AttachmentStatus = Detached | Detaching | Attached | Attaching deriving (Eq, Ord, Read, Show, Enum, Generic)
+data AttachmentStatus
+    = Detached
+    | Detaching
+    | Attached
+    | Attaching
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AttachmentStatus where
     parser = takeLowerText >>= \case
@@ -1752,7 +1771,9 @@ instance ToHeader AttachmentStatus
 instance FromXML AttachmentStatus where
     parseXML = parseXMLText "AttachmentStatus"
 
-data AvailabilityZoneState = AZSAvailable deriving (Eq, Ord, Read, Show, Enum, Generic)
+data AvailabilityZoneState =
+    AZSAvailable
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText AvailabilityZoneState where
     parser = takeLowerText >>= \case
@@ -1770,7 +1791,14 @@ instance ToHeader AvailabilityZoneState
 instance FromXML AvailabilityZoneState where
     parseXML = parseXMLText "AvailabilityZoneState"
 
-data BatchState = BSCancelled | BSSubmitted | BSFailed | BSActive | BSCancelledRunning | BSCancelledTerminating deriving (Eq, Ord, Read, Show, Enum, Generic)
+data BatchState
+    = BSCancelled
+    | BSSubmitted
+    | BSFailed
+    | BSActive
+    | BSCancelledRunning
+    | BSCancelledTerminating
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText BatchState where
     parser = takeLowerText >>= \case
@@ -1798,7 +1826,15 @@ instance ToHeader BatchState
 instance FromXML BatchState where
     parseXML = parseXMLText "BatchState"
 
-data BundleTaskState = BTSComplete | BTSStoring | BTSPending | BTSWaitingForShutdown | BTSBundling | BTSCancelling | BTSFailed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data BundleTaskState
+    = BTSComplete
+    | BTSStoring
+    | BTSPending
+    | BTSWaitingForShutdown
+    | BTSBundling
+    | BTSCancelling
+    | BTSFailed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText BundleTaskState where
     parser = takeLowerText >>= \case
@@ -1828,7 +1864,12 @@ instance ToHeader BundleTaskState
 instance FromXML BundleTaskState where
     parseXML = parseXMLText "BundleTaskState"
 
-data CancelBatchErrorCode = FleetRequestNotInCancellableState | FleetRequestIdMalformed | UnexpectedError | FleetRequestIdDoesNotExist deriving (Eq, Ord, Read, Show, Enum, Generic)
+data CancelBatchErrorCode
+    = FleetRequestNotInCancellableState
+    | FleetRequestIdMalformed
+    | UnexpectedError
+    | FleetRequestIdDoesNotExist
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText CancelBatchErrorCode where
     parser = takeLowerText >>= \case
@@ -1852,7 +1893,13 @@ instance ToHeader CancelBatchErrorCode
 instance FromXML CancelBatchErrorCode where
     parseXML = parseXMLText "CancelBatchErrorCode"
 
-data CancelSpotInstanceRequestState = CSIRSClosed | CSIRSActive | CSIRSOpen | CSIRSCompleted | CSIRSCancelled deriving (Eq, Ord, Read, Show, Enum, Generic)
+data CancelSpotInstanceRequestState
+    = CSIRSClosed
+    | CSIRSActive
+    | CSIRSOpen
+    | CSIRSCompleted
+    | CSIRSCancelled
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText CancelSpotInstanceRequestState where
     parser = takeLowerText >>= \case
@@ -1878,7 +1925,9 @@ instance ToHeader CancelSpotInstanceRequestState
 instance FromXML CancelSpotInstanceRequestState where
     parseXML = parseXMLText "CancelSpotInstanceRequestState"
 
-data ContainerFormat = Ova deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ContainerFormat =
+    Ova
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ContainerFormat where
     parser = takeLowerText >>= \case
@@ -1896,7 +1945,12 @@ instance ToHeader ContainerFormat
 instance FromXML ContainerFormat where
     parseXML = parseXMLText "ContainerFormat"
 
-data ConversionTaskState = CTSCancelled | CTSActive | CTSCancelling | CTSCompleted deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ConversionTaskState
+    = CTSCancelled
+    | CTSActive
+    | CTSCancelling
+    | CTSCompleted
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ConversionTaskState where
     parser = takeLowerText >>= \case
@@ -1920,7 +1974,9 @@ instance ToHeader ConversionTaskState
 instance FromXML ConversionTaskState where
     parseXML = parseXMLText "ConversionTaskState"
 
-data CurrencyCodeValues = Usd deriving (Eq, Ord, Read, Show, Enum, Generic)
+data CurrencyCodeValues =
+    Usd
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText CurrencyCodeValues where
     parser = takeLowerText >>= \case
@@ -1938,7 +1994,10 @@ instance ToHeader CurrencyCodeValues
 instance FromXML CurrencyCodeValues where
     parseXML = parseXMLText "CurrencyCodeValues"
 
-data DatafeedSubscriptionState = DSSInactive | DSSActive deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DatafeedSubscriptionState
+    = DSSInactive
+    | DSSActive
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DatafeedSubscriptionState where
     parser = takeLowerText >>= \case
@@ -1958,7 +2017,10 @@ instance ToHeader DatafeedSubscriptionState
 instance FromXML DatafeedSubscriptionState where
     parseXML = parseXMLText "DatafeedSubscriptionState"
 
-data DeviceType = InstanceStore | EBS deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DeviceType
+    = InstanceStore
+    | EBS
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DeviceType where
     parser = takeLowerText >>= \case
@@ -1978,7 +2040,11 @@ instance ToHeader DeviceType
 instance FromXML DeviceType where
     parseXML = parseXMLText "DeviceType"
 
-data DiskImageFormat = Raw | VHD | VMDK deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DiskImageFormat
+    = Raw
+    | VHD
+    | VMDK
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DiskImageFormat where
     parser = takeLowerText >>= \case
@@ -2000,7 +2066,10 @@ instance ToHeader DiskImageFormat
 instance FromXML DiskImageFormat where
     parseXML = parseXMLText "DiskImageFormat"
 
-data DomainType = DTStandard | DTVPC deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DomainType
+    = DTStandard
+    | DTVPC
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DomainType where
     parser = takeLowerText >>= \case
@@ -2020,7 +2089,13 @@ instance ToHeader DomainType
 instance FromXML DomainType where
     parseXML = parseXMLText "DomainType"
 
-data EventCode = InstanceReboot | InstanceRetirement | InstanceStop | SystemReboot | SystemMaintenance deriving (Eq, Ord, Read, Show, Enum, Generic)
+data EventCode
+    = InstanceReboot
+    | InstanceRetirement
+    | InstanceStop
+    | SystemReboot
+    | SystemMaintenance
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText EventCode where
     parser = takeLowerText >>= \case
@@ -2046,18 +2121,22 @@ instance ToHeader EventCode
 instance FromXML EventCode where
     parseXML = parseXMLText "EventCode"
 
-data EventType = InstanceChange | Error | FleetRequestChange deriving (Eq, Ord, Read, Show, Enum, Generic)
+data EventType
+    = Error'
+    | InstanceChange
+    | FleetRequestChange
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText EventType where
     parser = takeLowerText >>= \case
-        "error" -> pure Error
+        "error" -> pure Error'
         "fleetRequestChange" -> pure FleetRequestChange
         "instanceChange" -> pure InstanceChange
         e -> fail ("Failure parsing EventType from " ++ show e)
 
 instance ToText EventType where
     toText = \case
-        Error -> "error"
+        Error' -> "error"
         FleetRequestChange -> "fleetRequestChange"
         InstanceChange -> "instanceChange"
 
@@ -2068,7 +2147,11 @@ instance ToHeader EventType
 instance FromXML EventType where
     parseXML = parseXMLText "EventType"
 
-data ExportEnvironment = Citrix | Microsoft | VMware deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ExportEnvironment
+    = Citrix
+    | Microsoft
+    | VMware
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ExportEnvironment where
     parser = takeLowerText >>= \case
@@ -2090,7 +2173,12 @@ instance ToHeader ExportEnvironment
 instance FromXML ExportEnvironment where
     parseXML = parseXMLText "ExportEnvironment"
 
-data ExportTaskState = ETSCompleted | ETSCancelled | ETSCancelling | ETSActive deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ExportTaskState
+    = ETSCompleted
+    | ETSCancelled
+    | ETSCancelling
+    | ETSActive
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ExportTaskState where
     parser = takeLowerText >>= \case
@@ -2114,7 +2202,11 @@ instance ToHeader ExportTaskState
 instance FromXML ExportTaskState where
     parseXML = parseXMLText "ExportTaskState"
 
-data FlowLogsResourceType = FLRTSubnet | FLRTNetworkInterface | FLRTVPC deriving (Eq, Ord, Read, Show, Enum, Generic)
+data FlowLogsResourceType
+    = FLRTSubnet
+    | FLRTNetworkInterface
+    | FLRTVPC
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText FlowLogsResourceType where
     parser = takeLowerText >>= \case
@@ -2133,7 +2225,9 @@ instance Hashable FlowLogsResourceType
 instance ToQuery FlowLogsResourceType
 instance ToHeader FlowLogsResourceType
 
-data GatewayType = IPsec1 deriving (Eq, Ord, Read, Show, Enum, Generic)
+data GatewayType =
+    IPsec1
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText GatewayType where
     parser = takeLowerText >>= \case
@@ -2151,7 +2245,10 @@ instance ToHeader GatewayType
 instance FromXML GatewayType where
     parseXML = parseXMLText "GatewayType"
 
-data HypervisorType = Xen | Ovm deriving (Eq, Ord, Read, Show, Enum, Generic)
+data HypervisorType
+    = Xen
+    | Ovm
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText HypervisorType where
     parser = takeLowerText >>= \case
@@ -2171,7 +2268,15 @@ instance ToHeader HypervisorType
 instance FromXML HypervisorType where
     parseXML = parseXMLText "HypervisorType"
 
-data ImageAttributeName = BlockDeviceMapping | RAMDisk | Kernel | LaunchPermission | SRIOVNetSupport | ProductCodes | Description deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ImageAttributeName
+    = BlockDeviceMapping
+    | RAMDisk
+    | Kernel
+    | LaunchPermission
+    | SRIOVNetSupport
+    | ProductCodes
+    | Description
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ImageAttributeName where
     parser = takeLowerText >>= \case
@@ -2198,13 +2303,21 @@ instance Hashable ImageAttributeName
 instance ToQuery ImageAttributeName
 instance ToHeader ImageAttributeName
 
-data ImageState = ISAvailable | ISDeregistered | ISFailed | ISError | ISPending | ISInvalid | ISTransient deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ImageState
+    = ISAvailable
+    | ISDeregistered
+    | ISFailed
+    | ISError'
+    | ISPending
+    | ISInvalid
+    | ISTransient
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ImageState where
     parser = takeLowerText >>= \case
         "available" -> pure ISAvailable
         "deregistered" -> pure ISDeregistered
-        "error" -> pure ISError
+        "error" -> pure ISError'
         "failed" -> pure ISFailed
         "invalid" -> pure ISInvalid
         "pending" -> pure ISPending
@@ -2215,7 +2328,7 @@ instance ToText ImageState where
     toText = \case
         ISAvailable -> "available"
         ISDeregistered -> "deregistered"
-        ISError -> "error"
+        ISError' -> "error"
         ISFailed -> "failed"
         ISInvalid -> "invalid"
         ISPending -> "pending"
@@ -2228,7 +2341,11 @@ instance ToHeader ImageState
 instance FromXML ImageState where
     parseXML = parseXMLText "ImageState"
 
-data ImageTypeValues = ITVKernel | ITVMachine | ITVRAMDisk deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ImageTypeValues
+    = ITVKernel
+    | ITVMachine
+    | ITVRAMDisk
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ImageTypeValues where
     parser = takeLowerText >>= \case
@@ -2250,7 +2367,21 @@ instance ToHeader ImageTypeValues
 instance FromXML ImageTypeValues where
     parseXML = parseXMLText "ImageTypeValues"
 
-data InstanceAttributeName = IANInstanceInitiatedShutdownBehavior | IANProductCodes | IANGroupSet | IANDisableAPITermination | IANSRIOVNetSupport | IANRootDeviceName | IANUserData | IANEBSOptimized | IANInstanceType | IANRAMDisk | IANKernel | IANBlockDeviceMapping | IANSourceDestCheck deriving (Eq, Ord, Read, Show, Enum, Generic)
+data InstanceAttributeName
+    = IANInstanceInitiatedShutdownBehavior
+    | IANProductCodes
+    | IANGroupSet
+    | IANDisableAPITermination
+    | IANSRIOVNetSupport
+    | IANRootDeviceName
+    | IANUserData
+    | IANEBSOptimized
+    | IANInstanceType
+    | IANRAMDisk
+    | IANKernel
+    | IANBlockDeviceMapping
+    | IANSourceDestCheck
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText InstanceAttributeName where
     parser = takeLowerText >>= \case
@@ -2289,7 +2420,9 @@ instance Hashable InstanceAttributeName
 instance ToQuery InstanceAttributeName
 instance ToHeader InstanceAttributeName
 
-data InstanceLifecycleType = Spot deriving (Eq, Ord, Read, Show, Enum, Generic)
+data InstanceLifecycleType =
+    Spot
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText InstanceLifecycleType where
     parser = takeLowerText >>= \case
@@ -2307,7 +2440,14 @@ instance ToHeader InstanceLifecycleType
 instance FromXML InstanceLifecycleType where
     parseXML = parseXMLText "InstanceLifecycleType"
 
-data InstanceStateName = ISNStopped | ISNPending | ISNStopping | ISNShuttingDown | ISNRunning | ISNTerminated deriving (Eq, Ord, Read, Show, Enum, Generic)
+data InstanceStateName
+    = ISNStopped
+    | ISNPending
+    | ISNStopping
+    | ISNShuttingDown
+    | ISNRunning
+    | ISNTerminated
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText InstanceStateName where
     parser = takeLowerText >>= \case
@@ -2335,7 +2475,60 @@ instance ToHeader InstanceStateName
 instance FromXML InstanceStateName where
     parseXML = parseXMLText "InstanceStateName"
 
-data InstanceType = I22XLarge | D24XLarge | CC28XLarge | C1Medium | C48XLarge | C4XLarge | I24XLarge | C4Large | C3XLarge | CR18XLarge | M410XLarge | C42XLarge | CC14XLarge | D28XLarge | M3Large | M3Medium | T2Medium | M24XLarge | R32XLarge | M42XLarge | M1XLarge | M32XLarge | D22XLarge | T2Small | CG14XLarge | R3Large | M4XLarge | M4Large | T2Micro | R3XLarge | R38XLarge | HS18XLarge | C1XLarge | T1Micro | C32XLarge | G22XLarge | M2XLarge | C3Large | C38XLarge | R34XLarge | M44XLarge | M22XLarge | D2XLarge | M1Small | M3XLarge | I2XLarge | C44XLarge | I28XLarge | HI14XLarge | C34XLarge | M1Large | M1Medium deriving (Eq, Ord, Read, Show, Enum, Generic)
+data InstanceType
+    = I22XLarge
+    | D24XLarge
+    | CC28XLarge
+    | C1Medium
+    | C48XLarge
+    | C4XLarge
+    | I24XLarge
+    | C4Large
+    | C3XLarge
+    | CR18XLarge
+    | M410XLarge
+    | C42XLarge
+    | CC14XLarge
+    | D28XLarge
+    | M3Large
+    | M3Medium
+    | T2Medium
+    | M24XLarge
+    | R32XLarge
+    | M42XLarge
+    | M1XLarge
+    | M32XLarge
+    | D22XLarge
+    | T2Small
+    | CG14XLarge
+    | R3Large
+    | M4XLarge
+    | M4Large
+    | T2Micro
+    | R3XLarge
+    | R38XLarge
+    | HS18XLarge
+    | C1XLarge
+    | T1Micro
+    | C32XLarge
+    | G22XLarge
+    | M2XLarge
+    | C3Large
+    | C38XLarge
+    | R34XLarge
+    | M44XLarge
+    | M22XLarge
+    | D2XLarge
+    | M1Small
+    | M3XLarge
+    | I2XLarge
+    | C44XLarge
+    | I28XLarge
+    | HI14XLarge
+    | C34XLarge
+    | M1Large
+    | M1Medium
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText InstanceType where
     parser = takeLowerText >>= \case
@@ -2455,7 +2648,12 @@ instance ToHeader InstanceType
 instance FromXML InstanceType where
     parseXML = parseXMLText "InstanceType"
 
-data ListingState = LisAvailable | LisCancelled | LisSold | LisPending deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ListingState
+    = LisAvailable
+    | LisCancelled
+    | LisSold
+    | LisPending
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ListingState where
     parser = takeLowerText >>= \case
@@ -2479,7 +2677,12 @@ instance ToHeader ListingState
 instance FromXML ListingState where
     parseXML = parseXMLText "ListingState"
 
-data ListingStatus = LSPending | LSActive | LSCancelled | LSClosed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ListingStatus
+    = LSPending
+    | LSActive
+    | LSCancelled
+    | LSClosed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ListingStatus where
     parser = takeLowerText >>= \case
@@ -2503,7 +2706,12 @@ instance ToHeader ListingStatus
 instance FromXML ListingStatus where
     parseXML = parseXMLText "ListingStatus"
 
-data MonitoringState = MSDisabling | MSEnabled | MSPending | MSDisabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+data MonitoringState
+    = MSDisabling
+    | MSEnabled
+    | MSPending
+    | MSDisabled
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText MonitoringState where
     parser = takeLowerText >>= \case
@@ -2527,7 +2735,10 @@ instance ToHeader MonitoringState
 instance FromXML MonitoringState where
     parseXML = parseXMLText "MonitoringState"
 
-data MoveStatus = RestoringToClassic | MovingToVPC deriving (Eq, Ord, Read, Show, Enum, Generic)
+data MoveStatus
+    = RestoringToClassic
+    | MovingToVPC
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText MoveStatus where
     parser = takeLowerText >>= \case
@@ -2547,7 +2758,12 @@ instance ToHeader MoveStatus
 instance FromXML MoveStatus where
     parseXML = parseXMLText "MoveStatus"
 
-data NetworkInterfaceAttribute = NIAGroupSet | NIAAttachment | NIADescription | NIASourceDestCheck deriving (Eq, Ord, Read, Show, Enum, Generic)
+data NetworkInterfaceAttribute
+    = NIAGroupSet
+    | NIAAttachment
+    | NIADescription
+    | NIASourceDestCheck
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText NetworkInterfaceAttribute where
     parser = takeLowerText >>= \case
@@ -2568,7 +2784,12 @@ instance Hashable NetworkInterfaceAttribute
 instance ToQuery NetworkInterfaceAttribute
 instance ToHeader NetworkInterfaceAttribute
 
-data NetworkInterfaceStatus = NISINUse | NISAttaching | NISAvailable | NISDetaching deriving (Eq, Ord, Read, Show, Enum, Generic)
+data NetworkInterfaceStatus
+    = NISINUse
+    | NISAttaching
+    | NISAvailable
+    | NISDetaching
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText NetworkInterfaceStatus where
     parser = takeLowerText >>= \case
@@ -2592,7 +2813,14 @@ instance ToHeader NetworkInterfaceStatus
 instance FromXML NetworkInterfaceStatus where
     parseXML = parseXMLText "NetworkInterfaceStatus"
 
-data OfferingTypeValues = MediumUtilization | NOUpfront | AllUpfront | HeavyUtilization | LightUtilization | PartialUpfront deriving (Eq, Ord, Read, Show, Enum, Generic)
+data OfferingTypeValues
+    = MediumUtilization
+    | NOUpfront
+    | AllUpfront
+    | HeavyUtilization
+    | LightUtilization
+    | PartialUpfront
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText OfferingTypeValues where
     parser = takeLowerText >>= \case
@@ -2620,7 +2848,9 @@ instance ToHeader OfferingTypeValues
 instance FromXML OfferingTypeValues where
     parseXML = parseXMLText "OfferingTypeValues"
 
-data PermissionGroup = PGAll deriving (Eq, Ord, Read, Show, Enum, Generic)
+data PermissionGroup =
+    PGAll
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText PermissionGroup where
     parser = takeLowerText >>= \case
@@ -2638,7 +2868,12 @@ instance ToHeader PermissionGroup
 instance FromXML PermissionGroup where
     parseXML = parseXMLText "PermissionGroup"
 
-data PlacementGroupState = PGSDeleting | PGSPending | PGSAvailable | PGSDeleted deriving (Eq, Ord, Read, Show, Enum, Generic)
+data PlacementGroupState
+    = PGSDeleting
+    | PGSPending
+    | PGSAvailable
+    | PGSDeleted
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText PlacementGroupState where
     parser = takeLowerText >>= \case
@@ -2662,7 +2897,9 @@ instance ToHeader PlacementGroupState
 instance FromXML PlacementGroupState where
     parseXML = parseXMLText "PlacementGroupState"
 
-data PlacementStrategy = Cluster deriving (Eq, Ord, Read, Show, Enum, Generic)
+data PlacementStrategy =
+    Cluster
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText PlacementStrategy where
     parser = takeLowerText >>= \case
@@ -2680,7 +2917,9 @@ instance ToHeader PlacementStrategy
 instance FromXML PlacementStrategy where
     parseXML = parseXMLText "PlacementStrategy"
 
-data PlatformValues = PVWindows deriving (Eq, Ord, Read, Show, Enum, Generic)
+data PlatformValues =
+    PVWindows
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText PlatformValues where
     parser = takeLowerText >>= \case
@@ -2698,7 +2937,10 @@ instance ToHeader PlatformValues
 instance FromXML PlatformValues where
     parseXML = parseXMLText "PlatformValues"
 
-data ProductCodeValues = Marketplace | Devpay deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ProductCodeValues
+    = Marketplace
+    | Devpay
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ProductCodeValues where
     parser = takeLowerText >>= \case
@@ -2718,7 +2960,12 @@ instance ToHeader ProductCodeValues
 instance FromXML ProductCodeValues where
     parseXML = parseXMLText "ProductCodeValues"
 
-data RIProductDescription = WindowsAmazonVPC | LinuxUnix | LinuxUnixAmazonVPC | Windows deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RIProductDescription
+    = WindowsAmazonVPC
+    | LinuxUnix
+    | LinuxUnixAmazonVPC
+    | Windows
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText RIProductDescription where
     parser = takeLowerText >>= \case
@@ -2742,7 +2989,9 @@ instance ToHeader RIProductDescription
 instance FromXML RIProductDescription where
     parseXML = parseXMLText "RIProductDescription"
 
-data RecurringChargeFrequency = Hourly deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RecurringChargeFrequency =
+    Hourly
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText RecurringChargeFrequency where
     parser = takeLowerText >>= \case
@@ -2760,7 +3009,17 @@ instance ToHeader RecurringChargeFrequency
 instance FromXML RecurringChargeFrequency where
     parseXML = parseXMLText "RecurringChargeFrequency"
 
-data ReportInstanceReasonCodes = PerformanceOther | Other | Unresponsive | NotAcceptingCredentials | InstanceStuckINState | PerformanceNetwork | PerformanceInstanceStore | PerformanceEBSVolume | PasswordNotAvailable deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ReportInstanceReasonCodes
+    = PerformanceOther
+    | Other
+    | Unresponsive
+    | NotAcceptingCredentials
+    | InstanceStuckINState
+    | PerformanceNetwork
+    | PerformanceInstanceStore
+    | PerformanceEBSVolume
+    | PasswordNotAvailable
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ReportInstanceReasonCodes where
     parser = takeLowerText >>= \case
@@ -2791,7 +3050,10 @@ instance Hashable ReportInstanceReasonCodes
 instance ToQuery ReportInstanceReasonCodes
 instance ToHeader ReportInstanceReasonCodes
 
-data ReportStatusType = OK | Impaired deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ReportStatusType
+    = OK
+    | Impaired
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ReportStatusType where
     parser = takeLowerText >>= \case
@@ -2808,7 +3070,12 @@ instance Hashable ReportStatusType
 instance ToQuery ReportStatusType
 instance ToHeader ReportStatusType
 
-data ReservedInstanceState = PaymentPending | Retired | Active | PaymentFailed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ReservedInstanceState
+    = PaymentPending
+    | Retired
+    | Active
+    | PaymentFailed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ReservedInstanceState where
     parser = takeLowerText >>= \case
@@ -2832,7 +3099,9 @@ instance ToHeader ReservedInstanceState
 instance FromXML ReservedInstanceState where
     parseXML = parseXMLText "ReservedInstanceState"
 
-data ResetImageAttributeName = RIANLaunchPermission deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ResetImageAttributeName =
+    RIANLaunchPermission
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ResetImageAttributeName where
     parser = takeLowerText >>= \case
@@ -2847,7 +3116,25 @@ instance Hashable ResetImageAttributeName
 instance ToQuery ResetImageAttributeName
 instance ToHeader ResetImageAttributeName
 
-data ResourceType = Snapshot | DHCPOptions | Image | Volume | NetworkInterface | Subnet | SecurityGroup | CustomerGateway | RouteTable | VPC | NetworkACL | VPNGateway | InternetGateway | SpotInstancesRequest | VPNConnection | ReservedInstances | Instance deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ResourceType
+    = Snapshot
+    | DHCPOptions
+    | Image
+    | Volume
+    | NetworkInterface
+    | Subnet
+    | SecurityGroup
+    | CustomerGateway
+    | RouteTable
+    | VPC
+    | NetworkACL
+    | VPNGateway
+    | InternetGateway
+    | SpotInstancesRequest
+    | VPNConnection
+    | ReservedInstances
+    | Instance
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case
@@ -2897,7 +3184,11 @@ instance ToHeader ResourceType
 instance FromXML ResourceType where
     parseXML = parseXMLText "ResourceType"
 
-data RouteOrigin = CreateRouteTable | CreateRoute | EnableVGWRoutePropagation deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RouteOrigin
+    = CreateRouteTable
+    | CreateRoute
+    | EnableVGWRoutePropagation
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText RouteOrigin where
     parser = takeLowerText >>= \case
@@ -2919,7 +3210,10 @@ instance ToHeader RouteOrigin
 instance FromXML RouteOrigin where
     parseXML = parseXMLText "RouteOrigin"
 
-data RouteState = RSActive | RSBlackhole deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RouteState
+    = RSActive
+    | RSBlackhole
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText RouteState where
     parser = takeLowerText >>= \case
@@ -2939,7 +3233,10 @@ instance ToHeader RouteState
 instance FromXML RouteState where
     parseXML = parseXMLText "RouteState"
 
-data RuleAction = Allow | Deny deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RuleAction
+    = Allow
+    | Deny
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText RuleAction where
     parser = takeLowerText >>= \case
@@ -2959,7 +3256,10 @@ instance ToHeader RuleAction
 instance FromXML RuleAction where
     parseXML = parseXMLText "RuleAction"
 
-data ShutdownBehavior = Stop | Terminate deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ShutdownBehavior
+    = Stop
+    | Terminate
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ShutdownBehavior where
     parser = takeLowerText >>= \case
@@ -2976,7 +3276,10 @@ instance Hashable ShutdownBehavior
 instance ToQuery ShutdownBehavior
 instance ToHeader ShutdownBehavior
 
-data SnapshotAttributeName = SANProductCodes | SANCreateVolumePermission deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SnapshotAttributeName
+    = SANProductCodes
+    | SANCreateVolumePermission
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SnapshotAttributeName where
     parser = takeLowerText >>= \case
@@ -2993,19 +3296,23 @@ instance Hashable SnapshotAttributeName
 instance ToQuery SnapshotAttributeName
 instance ToHeader SnapshotAttributeName
 
-data SnapshotState = SSCompleted | SSPending | SSError deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SnapshotState
+    = SSCompleted
+    | SSError'
+    | SSPending
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SnapshotState where
     parser = takeLowerText >>= \case
         "completed" -> pure SSCompleted
-        "error" -> pure SSError
+        "error" -> pure SSError'
         "pending" -> pure SSPending
         e -> fail ("Failure parsing SnapshotState from " ++ show e)
 
 instance ToText SnapshotState where
     toText = \case
         SSCompleted -> "completed"
-        SSError -> "error"
+        SSError' -> "error"
         SSPending -> "pending"
 
 instance Hashable SnapshotState
@@ -3015,7 +3322,13 @@ instance ToHeader SnapshotState
 instance FromXML SnapshotState where
     parseXML = parseXMLText "SnapshotState"
 
-data SpotInstanceState = SISCancelled | SISClosed | SISFailed | SISActive | SISOpen deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SpotInstanceState
+    = SISCancelled
+    | SISClosed
+    | SISFailed
+    | SISActive
+    | SISOpen
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SpotInstanceState where
     parser = takeLowerText >>= \case
@@ -3041,7 +3354,10 @@ instance ToHeader SpotInstanceState
 instance FromXML SpotInstanceState where
     parseXML = parseXMLText "SpotInstanceState"
 
-data SpotInstanceType = Persistent | OneTime deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SpotInstanceType
+    = Persistent
+    | OneTime
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SpotInstanceType where
     parser = takeLowerText >>= \case
@@ -3061,7 +3377,12 @@ instance ToHeader SpotInstanceType
 instance FromXML SpotInstanceType where
     parseXML = parseXMLText "SpotInstanceType"
 
-data State = Deleting | Pending | Deleted | Available deriving (Eq, Ord, Read, Show, Enum, Generic)
+data State
+    = Deleting
+    | Pending
+    | Deleted
+    | Available
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText State where
     parser = takeLowerText >>= \case
@@ -3085,7 +3406,9 @@ instance ToHeader State
 instance FromXML State where
     parseXML = parseXMLText "State"
 
-data StatusName = Reachability deriving (Eq, Ord, Read, Show, Enum, Generic)
+data StatusName =
+    Reachability
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText StatusName where
     parser = takeLowerText >>= \case
@@ -3103,7 +3426,12 @@ instance ToHeader StatusName
 instance FromXML StatusName where
     parseXML = parseXMLText "StatusName"
 
-data StatusType = InsufficientData | Passed | Initializing | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data StatusType
+    = InsufficientData
+    | Passed
+    | Initializing
+    | Failed
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText StatusType where
     parser = takeLowerText >>= \case
@@ -3127,7 +3455,10 @@ instance ToHeader StatusType
 instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
 
-data SubnetState = SubPending | SubAvailable deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SubnetState
+    = SubPending
+    | SubAvailable
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SubnetState where
     parser = takeLowerText >>= \case
@@ -3147,7 +3478,13 @@ instance ToHeader SubnetState
 instance FromXML SubnetState where
     parseXML = parseXMLText "SubnetState"
 
-data SummaryStatus = SSInitializing | SSNotApplicable | SSOK | SSImpaired | SSInsufficientData deriving (Eq, Ord, Read, Show, Enum, Generic)
+data SummaryStatus
+    = SSInitializing
+    | SSNotApplicable
+    | SSOK
+    | SSImpaired
+    | SSInsufficientData
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText SummaryStatus where
     parser = takeLowerText >>= \case
@@ -3173,7 +3510,10 @@ instance ToHeader SummaryStatus
 instance FromXML SummaryStatus where
     parseXML = parseXMLText "SummaryStatus"
 
-data TelemetryStatus = Down | UP deriving (Eq, Ord, Read, Show, Enum, Generic)
+data TelemetryStatus
+    = Down
+    | UP
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText TelemetryStatus where
     parser = takeLowerText >>= \case
@@ -3193,7 +3533,10 @@ instance ToHeader TelemetryStatus
 instance FromXML TelemetryStatus where
     parseXML = parseXMLText "TelemetryStatus"
 
-data Tenancy = Default | Dedicated deriving (Eq, Ord, Read, Show, Enum, Generic)
+data Tenancy
+    = Default
+    | Dedicated
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Tenancy where
     parser = takeLowerText >>= \case
@@ -3213,7 +3556,11 @@ instance ToHeader Tenancy
 instance FromXML Tenancy where
     parseXML = parseXMLText "Tenancy"
 
-data TrafficType = Reject | Accept | All deriving (Eq, Ord, Read, Show, Enum, Generic)
+data TrafficType
+    = Reject
+    | Accept
+    | All
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText TrafficType where
     parser = takeLowerText >>= \case
@@ -3235,7 +3582,10 @@ instance ToHeader TrafficType
 instance FromXML TrafficType where
     parseXML = parseXMLText "TrafficType"
 
-data VPCAttributeName = EnableDNSHostnames | EnableDNSSupport deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VPCAttributeName
+    = EnableDNSHostnames
+    | EnableDNSSupport
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VPCAttributeName where
     parser = takeLowerText >>= \case
@@ -3252,7 +3602,10 @@ instance Hashable VPCAttributeName
 instance ToQuery VPCAttributeName
 instance ToHeader VPCAttributeName
 
-data VPCState = VpcPending | VpcAvailable deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VPCState
+    = VpcPending
+    | VpcAvailable
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VPCState where
     parser = takeLowerText >>= \case
@@ -3272,7 +3625,12 @@ instance ToHeader VPCState
 instance FromXML VPCState where
     parseXML = parseXMLText "VPCState"
 
-data VPNState = VSPending | VSAvailable | VSDeleted | VSDeleting deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VPNState
+    = VSPending
+    | VSAvailable
+    | VSDeleted
+    | VSDeleting
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VPNState where
     parser = takeLowerText >>= \case
@@ -3296,7 +3654,9 @@ instance ToHeader VPNState
 instance FromXML VPNState where
     parseXML = parseXMLText "VPNState"
 
-data VPNStaticRouteSource = Static deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VPNStaticRouteSource =
+    Static
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VPNStaticRouteSource where
     parser = takeLowerText >>= \case
@@ -3314,7 +3674,10 @@ instance ToHeader VPNStaticRouteSource
 instance FromXML VPNStaticRouteSource where
     parseXML = parseXMLText "VPNStaticRouteSource"
 
-data VirtualizationType = Paravirtual | HVM deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VirtualizationType
+    = Paravirtual
+    | HVM
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VirtualizationType where
     parser = takeLowerText >>= \case
@@ -3334,7 +3697,12 @@ instance ToHeader VirtualizationType
 instance FromXML VirtualizationType where
     parseXML = parseXMLText "VirtualizationType"
 
-data VolumeAttachmentState = VASAttached | VASAttaching | VASDetached | VASDetaching deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VolumeAttachmentState
+    = VASAttached
+    | VASAttaching
+    | VASDetached
+    | VASDetaching
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VolumeAttachmentState where
     parser = takeLowerText >>= \case
@@ -3358,7 +3726,10 @@ instance ToHeader VolumeAttachmentState
 instance FromXML VolumeAttachmentState where
     parseXML = parseXMLText "VolumeAttachmentState"
 
-data VolumeAttributeName = VANProductCodes | VANAutoEnableIO deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VolumeAttributeName
+    = VANProductCodes
+    | VANAutoEnableIO
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VolumeAttributeName where
     parser = takeLowerText >>= \case
@@ -3375,7 +3746,14 @@ instance Hashable VolumeAttributeName
 instance ToQuery VolumeAttributeName
 instance ToHeader VolumeAttributeName
 
-data VolumeState = VolCreating | VolAvailable | VolDeleted | VolDeleting | VolError | VolINUse deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VolumeState
+    = VolCreating
+    | VolAvailable
+    | VolError'
+    | VolDeleted
+    | VolDeleting
+    | VolINUse
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VolumeState where
     parser = takeLowerText >>= \case
@@ -3383,7 +3761,7 @@ instance FromText VolumeState where
         "creating" -> pure VolCreating
         "deleted" -> pure VolDeleted
         "deleting" -> pure VolDeleting
-        "error" -> pure VolError
+        "error" -> pure VolError'
         "in-use" -> pure VolINUse
         e -> fail ("Failure parsing VolumeState from " ++ show e)
 
@@ -3393,7 +3771,7 @@ instance ToText VolumeState where
         VolCreating -> "creating"
         VolDeleted -> "deleted"
         VolDeleting -> "deleting"
-        VolError -> "error"
+        VolError' -> "error"
         VolINUse -> "in-use"
 
 instance Hashable VolumeState
@@ -3403,7 +3781,11 @@ instance ToHeader VolumeState
 instance FromXML VolumeState where
     parseXML = parseXMLText "VolumeState"
 
-data VolumeStatusInfoStatus = VSISInsufficientData | VSISImpaired | VSISOK deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VolumeStatusInfoStatus
+    = VSISInsufficientData
+    | VSISImpaired
+    | VSISOK
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VolumeStatusInfoStatus where
     parser = takeLowerText >>= \case
@@ -3425,7 +3807,10 @@ instance ToHeader VolumeStatusInfoStatus
 instance FromXML VolumeStatusInfoStatus where
     parseXML = parseXMLText "VolumeStatusInfoStatus"
 
-data VolumeStatusName = IOPerformance | IOEnabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VolumeStatusName
+    = IOPerformance
+    | IOEnabled
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VolumeStatusName where
     parser = takeLowerText >>= \case
@@ -3445,7 +3830,11 @@ instance ToHeader VolumeStatusName
 instance FromXML VolumeStatusName where
     parseXML = parseXMLText "VolumeStatusName"
 
-data VolumeType = Standard | IO1 | GP2 deriving (Eq, Ord, Read, Show, Enum, Generic)
+data VolumeType
+    = Standard
+    | IO1
+    | GP2
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText VolumeType where
     parser = takeLowerText >>= \case
@@ -3476,11 +3865,18 @@ instance FromXML VolumeType where
 -- * 'aaAttributeValues'
 --
 -- * 'aaAttributeName'
-data AccountAttribute = AccountAttribute'{_aaAttributeValues :: Maybe [AccountAttributeValue], _aaAttributeName :: Maybe Text} deriving (Eq, Read, Show)
+data AccountAttribute = AccountAttribute'
+    { _aaAttributeValues :: Maybe [AccountAttributeValue]
+    , _aaAttributeName   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AccountAttribute' smart constructor.
 accountAttribute :: AccountAttribute
-accountAttribute = AccountAttribute'{_aaAttributeValues = Nothing, _aaAttributeName = Nothing};
+accountAttribute =
+    AccountAttribute'
+    { _aaAttributeValues = Nothing
+    , _aaAttributeName = Nothing
+    }
 
 -- | One or more values for the account attribute.
 aaAttributeValues :: Lens' AccountAttribute [AccountAttributeValue]
@@ -3503,11 +3899,16 @@ instance FromXML AccountAttribute where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'aavAttributeValue'
-newtype AccountAttributeValue = AccountAttributeValue'{_aavAttributeValue :: Maybe Text} deriving (Eq, Read, Show)
+newtype AccountAttributeValue = AccountAttributeValue'
+    { _aavAttributeValue :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AccountAttributeValue' smart constructor.
 accountAttributeValue :: AccountAttributeValue
-accountAttributeValue = AccountAttributeValue'{_aavAttributeValue = Nothing};
+accountAttributeValue =
+    AccountAttributeValue'
+    { _aavAttributeValue = Nothing
+    }
 
 -- | The value of the attribute.
 aavAttributeValue :: Lens' AccountAttributeValue (Maybe Text)
@@ -3528,11 +3929,20 @@ instance FromXML AccountAttributeValue where
 -- * 'aiInstanceType'
 --
 -- * 'aiSpotInstanceRequestId'
-data ActiveInstance = ActiveInstance'{_aiInstanceId :: Maybe Text, _aiInstanceType :: Maybe Text, _aiSpotInstanceRequestId :: Maybe Text} deriving (Eq, Read, Show)
+data ActiveInstance = ActiveInstance'
+    { _aiInstanceId            :: Maybe Text
+    , _aiInstanceType          :: Maybe Text
+    , _aiSpotInstanceRequestId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ActiveInstance' smart constructor.
 activeInstance :: ActiveInstance
-activeInstance = ActiveInstance'{_aiInstanceId = Nothing, _aiInstanceType = Nothing, _aiSpotInstanceRequestId = Nothing};
+activeInstance =
+    ActiveInstance'
+    { _aiInstanceId = Nothing
+    , _aiInstanceType = Nothing
+    , _aiSpotInstanceRequestId = Nothing
+    }
 
 -- | The ID of the instance.
 aiInstanceId :: Lens' ActiveInstance (Maybe Text)
@@ -3573,11 +3983,30 @@ instance FromXML ActiveInstance where
 -- * 'addPrivateIPAddress'
 --
 -- * 'addPublicIP'
-data Address = Address'{_addInstanceId :: Maybe Text, _addAssociationId :: Maybe Text, _addNetworkInterfaceOwnerId :: Maybe Text, _addAllocationId :: Maybe Text, _addDomain :: Maybe DomainType, _addNetworkInterfaceId :: Maybe Text, _addPrivateIPAddress :: Maybe Text, _addPublicIP :: Maybe Text} deriving (Eq, Read, Show)
+data Address = Address'
+    { _addInstanceId              :: Maybe Text
+    , _addAssociationId           :: Maybe Text
+    , _addNetworkInterfaceOwnerId :: Maybe Text
+    , _addAllocationId            :: Maybe Text
+    , _addDomain                  :: Maybe DomainType
+    , _addNetworkInterfaceId      :: Maybe Text
+    , _addPrivateIPAddress        :: Maybe Text
+    , _addPublicIP                :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Address' smart constructor.
 address :: Address
-address = Address'{_addInstanceId = Nothing, _addAssociationId = Nothing, _addNetworkInterfaceOwnerId = Nothing, _addAllocationId = Nothing, _addDomain = Nothing, _addNetworkInterfaceId = Nothing, _addPrivateIPAddress = Nothing, _addPublicIP = Nothing};
+address =
+    Address'
+    { _addInstanceId = Nothing
+    , _addAssociationId = Nothing
+    , _addNetworkInterfaceOwnerId = Nothing
+    , _addAllocationId = Nothing
+    , _addDomain = Nothing
+    , _addNetworkInterfaceId = Nothing
+    , _addPrivateIPAddress = Nothing
+    , _addPublicIP = Nothing
+    }
 
 -- | The ID of the instance that the address is associated with (if any).
 addInstanceId :: Lens' Address (Maybe Text)
@@ -3631,11 +4060,16 @@ instance FromXML Address where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'abvValue'
-newtype AttributeBooleanValue = AttributeBooleanValue'{_abvValue :: Maybe Bool} deriving (Eq, Read, Show)
+newtype AttributeBooleanValue = AttributeBooleanValue'
+    { _abvValue :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'AttributeBooleanValue' smart constructor.
 attributeBooleanValue :: AttributeBooleanValue
-attributeBooleanValue = AttributeBooleanValue'{_abvValue = Nothing};
+attributeBooleanValue =
+    AttributeBooleanValue'
+    { _abvValue = Nothing
+    }
 
 -- | Valid values are @true@ or @false@.
 abvValue :: Lens' AttributeBooleanValue (Maybe Bool)
@@ -3656,11 +4090,16 @@ instance ToQuery AttributeBooleanValue where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'avValue'
-newtype AttributeValue = AttributeValue'{_avValue :: Maybe Text} deriving (Eq, Read, Show)
+newtype AttributeValue = AttributeValue'
+    { _avValue :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AttributeValue' smart constructor.
 attributeValue :: AttributeValue
-attributeValue = AttributeValue'{_avValue = Nothing};
+attributeValue =
+    AttributeValue'
+    { _avValue = Nothing
+    }
 
 -- | Valid values are case-sensitive and vary by action.
 avValue :: Lens' AttributeValue (Maybe Text)
@@ -3686,11 +4125,22 @@ instance ToQuery AttributeValue where
 -- * 'azZoneName'
 --
 -- * 'azMessages'
-data AvailabilityZone = AvailabilityZone'{_azRegionName :: Maybe Text, _azState :: Maybe AvailabilityZoneState, _azZoneName :: Maybe Text, _azMessages :: Maybe [AvailabilityZoneMessage]} deriving (Eq, Read, Show)
+data AvailabilityZone = AvailabilityZone'
+    { _azRegionName :: Maybe Text
+    , _azState      :: Maybe AvailabilityZoneState
+    , _azZoneName   :: Maybe Text
+    , _azMessages   :: Maybe [AvailabilityZoneMessage]
+    } deriving (Eq,Read,Show)
 
 -- | 'AvailabilityZone' smart constructor.
 availabilityZone :: AvailabilityZone
-availabilityZone = AvailabilityZone'{_azRegionName = Nothing, _azState = Nothing, _azZoneName = Nothing, _azMessages = Nothing};
+availabilityZone =
+    AvailabilityZone'
+    { _azRegionName = Nothing
+    , _azState = Nothing
+    , _azZoneName = Nothing
+    , _azMessages = Nothing
+    }
 
 -- | The name of the region.
 azRegionName :: Lens' AvailabilityZone (Maybe Text)
@@ -3723,11 +4173,16 @@ instance FromXML AvailabilityZone where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'azmMessage'
-newtype AvailabilityZoneMessage = AvailabilityZoneMessage'{_azmMessage :: Maybe Text} deriving (Eq, Read, Show)
+newtype AvailabilityZoneMessage = AvailabilityZoneMessage'
+    { _azmMessage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'AvailabilityZoneMessage' smart constructor.
 availabilityZoneMessage :: AvailabilityZoneMessage
-availabilityZoneMessage = AvailabilityZoneMessage'{_azmMessage = Nothing};
+availabilityZoneMessage =
+    AvailabilityZoneMessage'
+    { _azmMessage = Nothing
+    }
 
 -- | The message about the Availability Zone.
 azmMessage :: Lens' AvailabilityZoneMessage (Maybe Text)
@@ -3742,11 +4197,16 @@ instance FromXML AvailabilityZoneMessage where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bavValue'
-newtype BlobAttributeValue = BlobAttributeValue'{_bavValue :: Maybe Base64} deriving (Eq, Read, Show)
+newtype BlobAttributeValue = BlobAttributeValue'
+    { _bavValue :: Maybe Base64
+    } deriving (Eq,Read,Show)
 
 -- | 'BlobAttributeValue' smart constructor.
 blobAttributeValue :: BlobAttributeValue
-blobAttributeValue = BlobAttributeValue'{_bavValue = Nothing};
+blobAttributeValue =
+    BlobAttributeValue'
+    { _bavValue = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 bavValue :: Lens' BlobAttributeValue (Maybe Base64)
@@ -3769,11 +4229,22 @@ instance ToQuery BlobAttributeValue where
 -- * 'bdmEBS'
 --
 -- * 'bdmDeviceName'
-data BlockDeviceMapping = BlockDeviceMapping'{_bdmVirtualName :: Maybe Text, _bdmNoDevice :: Maybe Text, _bdmEBS :: Maybe EBSBlockDevice, _bdmDeviceName :: Text} deriving (Eq, Read, Show)
+data BlockDeviceMapping = BlockDeviceMapping'
+    { _bdmVirtualName :: Maybe Text
+    , _bdmNoDevice    :: Maybe Text
+    , _bdmEBS         :: Maybe EBSBlockDevice
+    , _bdmDeviceName  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'BlockDeviceMapping' smart constructor.
 blockDeviceMapping :: Text -> BlockDeviceMapping
-blockDeviceMapping pDeviceName = BlockDeviceMapping'{_bdmVirtualName = Nothing, _bdmNoDevice = Nothing, _bdmEBS = Nothing, _bdmDeviceName = pDeviceName};
+blockDeviceMapping pDeviceName =
+    BlockDeviceMapping'
+    { _bdmVirtualName = Nothing
+    , _bdmNoDevice = Nothing
+    , _bdmEBS = Nothing
+    , _bdmDeviceName = pDeviceName
+    }
 
 -- | The virtual device name (@ephemeral@N). Instance store volumes are
 -- numbered starting from 0. An instance type with 2 available instance
@@ -3838,11 +4309,30 @@ instance ToQuery BlockDeviceMapping where
 -- * 'btStorage'
 --
 -- * 'btUpdateTime'
-data BundleTask = BundleTask'{_btBundleTaskError :: Maybe BundleTaskError, _btBundleId :: Text, _btInstanceId :: Text, _btProgress :: Text, _btStartTime :: ISO8601, _btState :: BundleTaskState, _btStorage :: Storage, _btUpdateTime :: ISO8601} deriving (Eq, Read, Show)
+data BundleTask = BundleTask'
+    { _btBundleTaskError :: Maybe BundleTaskError
+    , _btBundleId        :: Text
+    , _btInstanceId      :: Text
+    , _btProgress        :: Text
+    , _btStartTime       :: ISO8601
+    , _btState           :: BundleTaskState
+    , _btStorage         :: Storage
+    , _btUpdateTime      :: ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'BundleTask' smart constructor.
 bundleTask :: Text -> Text -> Text -> UTCTime -> BundleTaskState -> Storage -> UTCTime -> BundleTask
-bundleTask pBundleId pInstanceId pProgress pStartTime pState pStorage pUpdateTime = BundleTask'{_btBundleTaskError = Nothing, _btBundleId = pBundleId, _btInstanceId = pInstanceId, _btProgress = pProgress, _btStartTime = _Time # pStartTime, _btState = pState, _btStorage = pStorage, _btUpdateTime = _Time # pUpdateTime};
+bundleTask pBundleId pInstanceId pProgress pStartTime pState pStorage pUpdateTime =
+    BundleTask'
+    { _btBundleTaskError = Nothing
+    , _btBundleId = pBundleId
+    , _btInstanceId = pInstanceId
+    , _btProgress = pProgress
+    , _btStartTime = _Time # pStartTime
+    , _btState = pState
+    , _btStorage = pStorage
+    , _btUpdateTime = _Time # pUpdateTime
+    }
 
 -- | If the task fails, a description of the error.
 btBundleTaskError :: Lens' BundleTask (Maybe BundleTaskError)
@@ -3896,11 +4386,18 @@ instance FromXML BundleTask where
 -- * 'bteCode'
 --
 -- * 'bteMessage'
-data BundleTaskError = BundleTaskError'{_bteCode :: Maybe Text, _bteMessage :: Maybe Text} deriving (Eq, Read, Show)
+data BundleTaskError = BundleTaskError'
+    { _bteCode    :: Maybe Text
+    , _bteMessage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'BundleTaskError' smart constructor.
 bundleTaskError :: BundleTaskError
-bundleTaskError = BundleTaskError'{_bteCode = Nothing, _bteMessage = Nothing};
+bundleTaskError =
+    BundleTaskError'
+    { _bteCode = Nothing
+    , _bteMessage = Nothing
+    }
 
 -- | The error code.
 bteCode :: Lens' BundleTaskError (Maybe Text)
@@ -3924,11 +4421,18 @@ instance FromXML BundleTaskError where
 -- * 'csfreCode'
 --
 -- * 'csfreMessage'
-data CancelSpotFleetRequestsError = CancelSpotFleetRequestsError'{_csfreCode :: CancelBatchErrorCode, _csfreMessage :: Text} deriving (Eq, Read, Show)
+data CancelSpotFleetRequestsError = CancelSpotFleetRequestsError'
+    { _csfreCode    :: CancelBatchErrorCode
+    , _csfreMessage :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelSpotFleetRequestsError' smart constructor.
 cancelSpotFleetRequestsError :: CancelBatchErrorCode -> Text -> CancelSpotFleetRequestsError
-cancelSpotFleetRequestsError pCode pMessage = CancelSpotFleetRequestsError'{_csfreCode = pCode, _csfreMessage = pMessage};
+cancelSpotFleetRequestsError pCode pMessage =
+    CancelSpotFleetRequestsError'
+    { _csfreCode = pCode
+    , _csfreMessage = pMessage
+    }
 
 -- | The error code.
 csfreCode :: Lens' CancelSpotFleetRequestsError CancelBatchErrorCode
@@ -3952,11 +4456,18 @@ instance FromXML CancelSpotFleetRequestsError where
 -- * 'csfreiSpotFleetRequestId'
 --
 -- * 'csfreiError'
-data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem'{_csfreiSpotFleetRequestId :: Text, _csfreiError :: CancelSpotFleetRequestsError} deriving (Eq, Read, Show)
+data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem'
+    { _csfreiSpotFleetRequestId :: Text
+    , _csfreiError              :: CancelSpotFleetRequestsError
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelSpotFleetRequestsErrorItem' smart constructor.
 cancelSpotFleetRequestsErrorItem :: Text -> CancelSpotFleetRequestsError -> CancelSpotFleetRequestsErrorItem
-cancelSpotFleetRequestsErrorItem pSpotFleetRequestId pError = CancelSpotFleetRequestsErrorItem'{_csfreiSpotFleetRequestId = pSpotFleetRequestId, _csfreiError = pError};
+cancelSpotFleetRequestsErrorItem pSpotFleetRequestId pError =
+    CancelSpotFleetRequestsErrorItem'
+    { _csfreiSpotFleetRequestId = pSpotFleetRequestId
+    , _csfreiError = pError
+    }
 
 -- | The ID of the Spot fleet request.
 csfreiSpotFleetRequestId :: Lens' CancelSpotFleetRequestsErrorItem Text
@@ -3983,11 +4494,20 @@ instance FromXML CancelSpotFleetRequestsErrorItem
 -- * 'csfrsiCurrentSpotFleetRequestState'
 --
 -- * 'csfrsiPreviousSpotFleetRequestState'
-data CancelSpotFleetRequestsSuccessItem = CancelSpotFleetRequestsSuccessItem'{_csfrsiSpotFleetRequestId :: Text, _csfrsiCurrentSpotFleetRequestState :: BatchState, _csfrsiPreviousSpotFleetRequestState :: BatchState} deriving (Eq, Read, Show)
+data CancelSpotFleetRequestsSuccessItem = CancelSpotFleetRequestsSuccessItem'
+    { _csfrsiSpotFleetRequestId            :: Text
+    , _csfrsiCurrentSpotFleetRequestState  :: BatchState
+    , _csfrsiPreviousSpotFleetRequestState :: BatchState
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelSpotFleetRequestsSuccessItem' smart constructor.
 cancelSpotFleetRequestsSuccessItem :: Text -> BatchState -> BatchState -> CancelSpotFleetRequestsSuccessItem
-cancelSpotFleetRequestsSuccessItem pSpotFleetRequestId pCurrentSpotFleetRequestState pPreviousSpotFleetRequestState = CancelSpotFleetRequestsSuccessItem'{_csfrsiSpotFleetRequestId = pSpotFleetRequestId, _csfrsiCurrentSpotFleetRequestState = pCurrentSpotFleetRequestState, _csfrsiPreviousSpotFleetRequestState = pPreviousSpotFleetRequestState};
+cancelSpotFleetRequestsSuccessItem pSpotFleetRequestId pCurrentSpotFleetRequestState pPreviousSpotFleetRequestState =
+    CancelSpotFleetRequestsSuccessItem'
+    { _csfrsiSpotFleetRequestId = pSpotFleetRequestId
+    , _csfrsiCurrentSpotFleetRequestState = pCurrentSpotFleetRequestState
+    , _csfrsiPreviousSpotFleetRequestState = pPreviousSpotFleetRequestState
+    }
 
 -- | The ID of the Spot fleet request.
 csfrsiSpotFleetRequestId :: Lens' CancelSpotFleetRequestsSuccessItem Text
@@ -4018,11 +4538,18 @@ instance FromXML CancelSpotFleetRequestsSuccessItem
 -- * 'csirState'
 --
 -- * 'csirSpotInstanceRequestId'
-data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest'{_csirState :: Maybe CancelSpotInstanceRequestState, _csirSpotInstanceRequestId :: Maybe Text} deriving (Eq, Read, Show)
+data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest'
+    { _csirState                 :: Maybe CancelSpotInstanceRequestState
+    , _csirSpotInstanceRequestId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelledSpotInstanceRequest' smart constructor.
 cancelledSpotInstanceRequest :: CancelledSpotInstanceRequest
-cancelledSpotInstanceRequest = CancelledSpotInstanceRequest'{_csirState = Nothing, _csirSpotInstanceRequestId = Nothing};
+cancelledSpotInstanceRequest =
+    CancelledSpotInstanceRequest'
+    { _csirState = Nothing
+    , _csirSpotInstanceRequestId = Nothing
+    }
 
 -- | The state of the Spot Instance request.
 csirState :: Lens' CancelledSpotInstanceRequest (Maybe CancelSpotInstanceRequestState)
@@ -4050,11 +4577,22 @@ instance FromXML CancelledSpotInstanceRequest where
 -- * 'cliVPCId'
 --
 -- * 'cliTags'
-data ClassicLinkInstance = ClassicLinkInstance'{_cliInstanceId :: Maybe Text, _cliGroups :: Maybe [GroupIdentifier], _cliVPCId :: Maybe Text, _cliTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data ClassicLinkInstance = ClassicLinkInstance'
+    { _cliInstanceId :: Maybe Text
+    , _cliGroups     :: Maybe [GroupIdentifier]
+    , _cliVPCId      :: Maybe Text
+    , _cliTags       :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'ClassicLinkInstance' smart constructor.
 classicLinkInstance :: ClassicLinkInstance
-classicLinkInstance = ClassicLinkInstance'{_cliInstanceId = Nothing, _cliGroups = Nothing, _cliVPCId = Nothing, _cliTags = Nothing};
+classicLinkInstance =
+    ClassicLinkInstance'
+    { _cliInstanceId = Nothing
+    , _cliGroups = Nothing
+    , _cliVPCId = Nothing
+    , _cliTags = Nothing
+    }
 
 -- | The ID of the instance.
 cliInstanceId :: Lens' ClassicLinkInstance (Maybe Text)
@@ -4093,11 +4631,22 @@ instance FromXML ClassicLinkInstance where
 -- * 'cdUploadEnd'
 --
 -- * 'cdComment'
-data ClientData = ClientData'{_cdUploadStart :: Maybe ISO8601, _cdUploadSize :: Maybe Double, _cdUploadEnd :: Maybe ISO8601, _cdComment :: Maybe Text} deriving (Eq, Read, Show)
+data ClientData = ClientData'
+    { _cdUploadStart :: Maybe ISO8601
+    , _cdUploadSize  :: Maybe Double
+    , _cdUploadEnd   :: Maybe ISO8601
+    , _cdComment     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ClientData' smart constructor.
 clientData :: ClientData
-clientData = ClientData'{_cdUploadStart = Nothing, _cdUploadSize = Nothing, _cdUploadEnd = Nothing, _cdComment = Nothing};
+clientData =
+    ClientData'
+    { _cdUploadStart = Nothing
+    , _cdUploadSize = Nothing
+    , _cdUploadEnd = Nothing
+    , _cdComment = Nothing
+    }
 
 -- | The time that the disk upload starts.
 cdUploadStart :: Lens' ClientData (Maybe UTCTime)
@@ -4141,11 +4690,28 @@ instance ToQuery ClientData where
 -- * 'ctConversionTaskId'
 --
 -- * 'ctState'
-data ConversionTask = ConversionTask'{_ctImportInstance :: Maybe ImportInstanceTaskDetails, _ctStatusMessage :: Maybe Text, _ctImportVolume :: Maybe ImportVolumeTaskDetails, _ctExpirationTime :: Maybe Text, _ctTags :: Maybe [Tag], _ctConversionTaskId :: Text, _ctState :: ConversionTaskState} deriving (Eq, Read, Show)
+data ConversionTask = ConversionTask'
+    { _ctImportInstance   :: Maybe ImportInstanceTaskDetails
+    , _ctStatusMessage    :: Maybe Text
+    , _ctImportVolume     :: Maybe ImportVolumeTaskDetails
+    , _ctExpirationTime   :: Maybe Text
+    , _ctTags             :: Maybe [Tag]
+    , _ctConversionTaskId :: Text
+    , _ctState            :: ConversionTaskState
+    } deriving (Eq,Read,Show)
 
 -- | 'ConversionTask' smart constructor.
 conversionTask :: Text -> ConversionTaskState -> ConversionTask
-conversionTask pConversionTaskId pState = ConversionTask'{_ctImportInstance = Nothing, _ctStatusMessage = Nothing, _ctImportVolume = Nothing, _ctExpirationTime = Nothing, _ctTags = Nothing, _ctConversionTaskId = pConversionTaskId, _ctState = pState};
+conversionTask pConversionTaskId pState =
+    ConversionTask'
+    { _ctImportInstance = Nothing
+    , _ctStatusMessage = Nothing
+    , _ctImportVolume = Nothing
+    , _ctExpirationTime = Nothing
+    , _ctTags = Nothing
+    , _ctConversionTaskId = pConversionTaskId
+    , _ctState = pState
+    }
 
 -- | If the task is for importing an instance, this contains information
 -- about the import instance task.
@@ -4198,11 +4764,18 @@ instance FromXML ConversionTask where
 -- * 'cvpGroup'
 --
 -- * 'cvpUserId'
-data CreateVolumePermission = CreateVolumePermission'{_cvpGroup :: Maybe PermissionGroup, _cvpUserId :: Maybe Text} deriving (Eq, Read, Show)
+data CreateVolumePermission = CreateVolumePermission'
+    { _cvpGroup  :: Maybe PermissionGroup
+    , _cvpUserId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVolumePermission' smart constructor.
 createVolumePermission :: CreateVolumePermission
-createVolumePermission = CreateVolumePermission'{_cvpGroup = Nothing, _cvpUserId = Nothing};
+createVolumePermission =
+    CreateVolumePermission'
+    { _cvpGroup = Nothing
+    , _cvpUserId = Nothing
+    }
 
 -- | The specific group that is to be added or removed from a volume\'s list
 -- of create volume permissions.
@@ -4233,11 +4806,18 @@ instance ToQuery CreateVolumePermission where
 -- * 'cvpmRemove'
 --
 -- * 'cvpmAdd'
-data CreateVolumePermissionModifications = CreateVolumePermissionModifications'{_cvpmRemove :: Maybe [CreateVolumePermission], _cvpmAdd :: Maybe [CreateVolumePermission]} deriving (Eq, Read, Show)
+data CreateVolumePermissionModifications = CreateVolumePermissionModifications'
+    { _cvpmRemove :: Maybe [CreateVolumePermission]
+    , _cvpmAdd    :: Maybe [CreateVolumePermission]
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVolumePermissionModifications' smart constructor.
 createVolumePermissionModifications :: CreateVolumePermissionModifications
-createVolumePermissionModifications = CreateVolumePermissionModifications'{_cvpmRemove = Nothing, _cvpmAdd = Nothing};
+createVolumePermissionModifications =
+    CreateVolumePermissionModifications'
+    { _cvpmRemove = Nothing
+    , _cvpmAdd = Nothing
+    }
 
 -- | Removes a specific AWS account ID or group from a volume\'s list of
 -- create volume permissions.
@@ -4273,11 +4853,26 @@ instance ToQuery CreateVolumePermissionModifications
 -- * 'cgState'
 --
 -- * 'cgType'
-data CustomerGateway = CustomerGateway'{_cgTags :: Maybe [Tag], _cgBGPASN :: Text, _cgCustomerGatewayId :: Text, _cgIPAddress :: Text, _cgState :: Text, _cgType :: Text} deriving (Eq, Read, Show)
+data CustomerGateway = CustomerGateway'
+    { _cgTags              :: Maybe [Tag]
+    , _cgBGPASN            :: Text
+    , _cgCustomerGatewayId :: Text
+    , _cgIPAddress         :: Text
+    , _cgState             :: Text
+    , _cgType              :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CustomerGateway' smart constructor.
 customerGateway :: Text -> Text -> Text -> Text -> Text -> CustomerGateway
-customerGateway pBGPASN pCustomerGatewayId pIPAddress pState pType = CustomerGateway'{_cgTags = Nothing, _cgBGPASN = pBGPASN, _cgCustomerGatewayId = pCustomerGatewayId, _cgIPAddress = pIPAddress, _cgState = pState, _cgType = pType};
+customerGateway pBGPASN pCustomerGatewayId pIPAddress pState pType =
+    CustomerGateway'
+    { _cgTags = Nothing
+    , _cgBGPASN = pBGPASN
+    , _cgCustomerGatewayId = pCustomerGatewayId
+    , _cgIPAddress = pIPAddress
+    , _cgState = pState
+    , _cgType = pType
+    }
 
 -- | Any tags assigned to the customer gateway.
 cgTags :: Lens' CustomerGateway [Tag]
@@ -4324,11 +4919,18 @@ instance FromXML CustomerGateway where
 -- * 'dcValues'
 --
 -- * 'dcKey'
-data DHCPConfiguration = DHCPConfiguration'{_dcValues :: Maybe [AttributeValue], _dcKey :: Maybe Text} deriving (Eq, Read, Show)
+data DHCPConfiguration = DHCPConfiguration'
+    { _dcValues :: Maybe [AttributeValue]
+    , _dcKey    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DHCPConfiguration' smart constructor.
 dhcpConfiguration :: DHCPConfiguration
-dhcpConfiguration = DHCPConfiguration'{_dcValues = Nothing, _dcKey = Nothing};
+dhcpConfiguration =
+    DHCPConfiguration'
+    { _dcValues = Nothing
+    , _dcKey = Nothing
+    }
 
 -- | One or more values for the DHCP option.
 dcValues :: Lens' DHCPConfiguration [AttributeValue]
@@ -4354,11 +4956,20 @@ instance FromXML DHCPConfiguration where
 -- * 'doDHCPOptionsId'
 --
 -- * 'doTags'
-data DHCPOptions = DHCPOptions'{_doDHCPConfigurations :: Maybe [DHCPConfiguration], _doDHCPOptionsId :: Maybe Text, _doTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data DHCPOptions = DHCPOptions'
+    { _doDHCPConfigurations :: Maybe [DHCPConfiguration]
+    , _doDHCPOptionsId      :: Maybe Text
+    , _doTags               :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'DHCPOptions' smart constructor.
 dhcpOptions :: DHCPOptions
-dhcpOptions = DHCPOptions'{_doDHCPConfigurations = Nothing, _doDHCPOptionsId = Nothing, _doTags = Nothing};
+dhcpOptions =
+    DHCPOptions'
+    { _doDHCPConfigurations = Nothing
+    , _doDHCPOptionsId = Nothing
+    , _doTags = Nothing
+    }
 
 -- | One or more DHCP options in the set.
 doDHCPConfigurations :: Lens' DHCPOptions [DHCPConfiguration]
@@ -4390,11 +5001,20 @@ instance FromXML DHCPOptions where
 -- * 'diVolume'
 --
 -- * 'diDescription'
-data DiskImage = DiskImage'{_diImage :: Maybe DiskImageDetail, _diVolume :: Maybe VolumeDetail, _diDescription :: Maybe Text} deriving (Eq, Read, Show)
+data DiskImage = DiskImage'
+    { _diImage       :: Maybe DiskImageDetail
+    , _diVolume      :: Maybe VolumeDetail
+    , _diDescription :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DiskImage' smart constructor.
 diskImage :: DiskImage
-diskImage = DiskImage'{_diImage = Nothing, _diVolume = Nothing, _diDescription = Nothing};
+diskImage =
+    DiskImage'
+    { _diImage = Nothing
+    , _diVolume = Nothing
+    , _diDescription = Nothing
+    }
 
 -- | Information about the disk image.
 diImage :: Lens' DiskImage (Maybe DiskImageDetail)
@@ -4427,11 +5047,22 @@ instance ToQuery DiskImage where
 -- * 'disSize'
 --
 -- * 'disImportManifestURL'
-data DiskImageDescription = DiskImageDescription'{_disChecksum :: Maybe Text, _disFormat :: DiskImageFormat, _disSize :: Integer, _disImportManifestURL :: Text} deriving (Eq, Read, Show)
+data DiskImageDescription = DiskImageDescription'
+    { _disChecksum          :: Maybe Text
+    , _disFormat            :: DiskImageFormat
+    , _disSize              :: !Integer
+    , _disImportManifestURL :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DiskImageDescription' smart constructor.
 diskImageDescription :: DiskImageFormat -> Integer -> Text -> DiskImageDescription
-diskImageDescription pFormat pSize pImportManifestURL = DiskImageDescription'{_disChecksum = Nothing, _disFormat = pFormat, _disSize = pSize, _disImportManifestURL = pImportManifestURL};
+diskImageDescription pFormat pSize pImportManifestURL =
+    DiskImageDescription'
+    { _disChecksum = Nothing
+    , _disFormat = pFormat
+    , _disSize = pSize
+    , _disImportManifestURL = pImportManifestURL
+    }
 
 -- | The checksum computed for the disk image.
 disChecksum :: Lens' DiskImageDescription (Maybe Text)
@@ -4471,11 +5102,20 @@ instance FromXML DiskImageDescription where
 -- * 'didBytes'
 --
 -- * 'didImportManifestURL'
-data DiskImageDetail = DiskImageDetail'{_didFormat :: DiskImageFormat, _didBytes :: Integer, _didImportManifestURL :: Text} deriving (Eq, Read, Show)
+data DiskImageDetail = DiskImageDetail'
+    { _didFormat            :: DiskImageFormat
+    , _didBytes             :: !Integer
+    , _didImportManifestURL :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DiskImageDetail' smart constructor.
 diskImageDetail :: DiskImageFormat -> Integer -> Text -> DiskImageDetail
-diskImageDetail pFormat pBytes pImportManifestURL = DiskImageDetail'{_didFormat = pFormat, _didBytes = pBytes, _didImportManifestURL = pImportManifestURL};
+diskImageDetail pFormat pBytes pImportManifestURL =
+    DiskImageDetail'
+    { _didFormat = pFormat
+    , _didBytes = pBytes
+    , _didImportManifestURL = pImportManifestURL
+    }
 
 -- | The disk image format.
 didFormat :: Lens' DiskImageDetail DiskImageFormat
@@ -4509,11 +5149,18 @@ instance ToQuery DiskImageDetail where
 -- * 'divdSize'
 --
 -- * 'divdId'
-data DiskImageVolumeDescription = DiskImageVolumeDescription'{_divdSize :: Maybe Integer, _divdId :: Text} deriving (Eq, Read, Show)
+data DiskImageVolumeDescription = DiskImageVolumeDescription'
+    { _divdSize :: Maybe Integer
+    , _divdId   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DiskImageVolumeDescription' smart constructor.
 diskImageVolumeDescription :: Text -> DiskImageVolumeDescription
-diskImageVolumeDescription pId = DiskImageVolumeDescription'{_divdSize = Nothing, _divdId = pId};
+diskImageVolumeDescription pId =
+    DiskImageVolumeDescription'
+    { _divdSize = Nothing
+    , _divdId = pId
+    }
 
 -- | The size of the volume, in GiB.
 divdSize :: Lens' DiskImageVolumeDescription (Maybe Integer)
@@ -4545,11 +5192,26 @@ instance FromXML DiskImageVolumeDescription where
 -- * 'ebdVolumeType'
 --
 -- * 'ebdSnapshotId'
-data EBSBlockDevice = EBSBlockDevice'{_ebdDeleteOnTermination :: Maybe Bool, _ebdVolumeSize :: Maybe Int, _ebdIOPS :: Maybe Int, _ebdEncrypted :: Maybe Bool, _ebdVolumeType :: Maybe VolumeType, _ebdSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
+data EBSBlockDevice = EBSBlockDevice'
+    { _ebdDeleteOnTermination :: Maybe Bool
+    , _ebdVolumeSize          :: Maybe Int
+    , _ebdIOPS                :: Maybe Int
+    , _ebdEncrypted           :: Maybe Bool
+    , _ebdVolumeType          :: Maybe VolumeType
+    , _ebdSnapshotId          :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EBSBlockDevice' smart constructor.
 ebsBlockDevice :: EBSBlockDevice
-ebsBlockDevice = EBSBlockDevice'{_ebdDeleteOnTermination = Nothing, _ebdVolumeSize = Nothing, _ebdIOPS = Nothing, _ebdEncrypted = Nothing, _ebdVolumeType = Nothing, _ebdSnapshotId = Nothing};
+ebsBlockDevice =
+    EBSBlockDevice'
+    { _ebdDeleteOnTermination = Nothing
+    , _ebdVolumeSize = Nothing
+    , _ebdIOPS = Nothing
+    , _ebdEncrypted = Nothing
+    , _ebdVolumeType = Nothing
+    , _ebdSnapshotId = Nothing
+    }
 
 -- | Indicates whether the EBS volume is deleted on instance termination.
 ebdDeleteOnTermination :: Lens' EBSBlockDevice (Maybe Bool)
@@ -4635,11 +5297,22 @@ instance ToQuery EBSBlockDevice where
 -- * 'eibdVolumeId'
 --
 -- * 'eibdAttachTime'
-data EBSInstanceBlockDevice = EBSInstanceBlockDevice'{_eibdDeleteOnTermination :: Maybe Bool, _eibdStatus :: Maybe AttachmentStatus, _eibdVolumeId :: Maybe Text, _eibdAttachTime :: Maybe ISO8601} deriving (Eq, Read, Show)
+data EBSInstanceBlockDevice = EBSInstanceBlockDevice'
+    { _eibdDeleteOnTermination :: Maybe Bool
+    , _eibdStatus              :: Maybe AttachmentStatus
+    , _eibdVolumeId            :: Maybe Text
+    , _eibdAttachTime          :: Maybe ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'EBSInstanceBlockDevice' smart constructor.
 ebsInstanceBlockDevice :: EBSInstanceBlockDevice
-ebsInstanceBlockDevice = EBSInstanceBlockDevice'{_eibdDeleteOnTermination = Nothing, _eibdStatus = Nothing, _eibdVolumeId = Nothing, _eibdAttachTime = Nothing};
+ebsInstanceBlockDevice =
+    EBSInstanceBlockDevice'
+    { _eibdDeleteOnTermination = Nothing
+    , _eibdStatus = Nothing
+    , _eibdVolumeId = Nothing
+    , _eibdAttachTime = Nothing
+    }
 
 -- | Indicates whether the volume is deleted on instance termination.
 eibdDeleteOnTermination :: Lens' EBSInstanceBlockDevice (Maybe Bool)
@@ -4671,11 +5344,18 @@ instance FromXML EBSInstanceBlockDevice where
 -- * 'eibdsDeleteOnTermination'
 --
 -- * 'eibdsVolumeId'
-data EBSInstanceBlockDeviceSpecification = EBSInstanceBlockDeviceSpecification'{_eibdsDeleteOnTermination :: Maybe Bool, _eibdsVolumeId :: Maybe Text} deriving (Eq, Read, Show)
+data EBSInstanceBlockDeviceSpecification = EBSInstanceBlockDeviceSpecification'
+    { _eibdsDeleteOnTermination :: Maybe Bool
+    , _eibdsVolumeId            :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EBSInstanceBlockDeviceSpecification' smart constructor.
 ebsInstanceBlockDeviceSpecification :: EBSInstanceBlockDeviceSpecification
-ebsInstanceBlockDeviceSpecification = EBSInstanceBlockDeviceSpecification'{_eibdsDeleteOnTermination = Nothing, _eibdsVolumeId = Nothing};
+ebsInstanceBlockDeviceSpecification =
+    EBSInstanceBlockDeviceSpecification'
+    { _eibdsDeleteOnTermination = Nothing
+    , _eibdsVolumeId = Nothing
+    }
 
 -- | Indicates whether the volume is deleted on instance termination.
 eibdsDeleteOnTermination :: Lens' EBSInstanceBlockDeviceSpecification (Maybe Bool)
@@ -4703,11 +5383,20 @@ instance ToQuery EBSInstanceBlockDeviceSpecification
 -- * 'eiEventDescription'
 --
 -- * 'eiEventSubType'
-data EventInformation = EventInformation'{_eiInstanceId :: Maybe Text, _eiEventDescription :: Maybe Text, _eiEventSubType :: Maybe Text} deriving (Eq, Read, Show)
+data EventInformation = EventInformation'
+    { _eiInstanceId       :: Maybe Text
+    , _eiEventDescription :: Maybe Text
+    , _eiEventSubType     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'EventInformation' smart constructor.
 eventInformation :: EventInformation
-eventInformation = EventInformation'{_eiInstanceId = Nothing, _eiEventDescription = Nothing, _eiEventSubType = Nothing};
+eventInformation =
+    EventInformation'
+    { _eiInstanceId = Nothing
+    , _eiEventDescription = Nothing
+    , _eiEventSubType = Nothing
+    }
 
 -- | The ID of the instance. This information is available only for
 -- @instanceChange@ events.
@@ -4788,11 +5477,26 @@ instance FromXML EventInformation where
 -- * 'etState'
 --
 -- * 'etStatusMessage'
-data ExportTask = ExportTask'{_etDescription :: Text, _etExportTaskId :: Text, _etExportToS3Task :: ExportToS3Task, _etInstanceExportDetails :: InstanceExportDetails, _etState :: ExportTaskState, _etStatusMessage :: Text} deriving (Eq, Read, Show)
+data ExportTask = ExportTask'
+    { _etDescription           :: Text
+    , _etExportTaskId          :: Text
+    , _etExportToS3Task        :: ExportToS3Task
+    , _etInstanceExportDetails :: InstanceExportDetails
+    , _etState                 :: ExportTaskState
+    , _etStatusMessage         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ExportTask' smart constructor.
 exportTask :: Text -> Text -> ExportToS3Task -> InstanceExportDetails -> ExportTaskState -> Text -> ExportTask
-exportTask pDescription pExportTaskId pExportToS3Task pInstanceExportDetails pState pStatusMessage = ExportTask'{_etDescription = pDescription, _etExportTaskId = pExportTaskId, _etExportToS3Task = pExportToS3Task, _etInstanceExportDetails = pInstanceExportDetails, _etState = pState, _etStatusMessage = pStatusMessage};
+exportTask pDescription pExportTaskId pExportToS3Task pInstanceExportDetails pState pStatusMessage =
+    ExportTask'
+    { _etDescription = pDescription
+    , _etExportTaskId = pExportTaskId
+    , _etExportToS3Task = pExportToS3Task
+    , _etInstanceExportDetails = pInstanceExportDetails
+    , _etState = pState
+    , _etStatusMessage = pStatusMessage
+    }
 
 -- | A description of the resource being exported.
 etDescription :: Lens' ExportTask Text
@@ -4840,11 +5544,22 @@ instance FromXML ExportTask where
 -- * 'etstS3Bucket'
 --
 -- * 'etstDiskImageFormat'
-data ExportToS3Task = ExportToS3Task'{_etstS3Key :: Maybe Text, _etstContainerFormat :: Maybe ContainerFormat, _etstS3Bucket :: Maybe Text, _etstDiskImageFormat :: Maybe DiskImageFormat} deriving (Eq, Read, Show)
+data ExportToS3Task = ExportToS3Task'
+    { _etstS3Key           :: Maybe Text
+    , _etstContainerFormat :: Maybe ContainerFormat
+    , _etstS3Bucket        :: Maybe Text
+    , _etstDiskImageFormat :: Maybe DiskImageFormat
+    } deriving (Eq,Read,Show)
 
 -- | 'ExportToS3Task' smart constructor.
 exportToS3Task :: ExportToS3Task
-exportToS3Task = ExportToS3Task'{_etstS3Key = Nothing, _etstContainerFormat = Nothing, _etstS3Bucket = Nothing, _etstDiskImageFormat = Nothing};
+exportToS3Task =
+    ExportToS3Task'
+    { _etstS3Key = Nothing
+    , _etstContainerFormat = Nothing
+    , _etstS3Bucket = Nothing
+    , _etstDiskImageFormat = Nothing
+    }
 
 -- | The encryption key for your S3 bucket.
 etstS3Key :: Lens' ExportToS3Task (Maybe Text)
@@ -4885,11 +5600,22 @@ instance FromXML ExportToS3Task where
 -- * 'etstsS3Bucket'
 --
 -- * 'etstsDiskImageFormat'
-data ExportToS3TaskSpecification = ExportToS3TaskSpecification'{_etstsContainerFormat :: Maybe ContainerFormat, _etstsS3Prefix :: Maybe Text, _etstsS3Bucket :: Maybe Text, _etstsDiskImageFormat :: Maybe DiskImageFormat} deriving (Eq, Read, Show)
+data ExportToS3TaskSpecification = ExportToS3TaskSpecification'
+    { _etstsContainerFormat :: Maybe ContainerFormat
+    , _etstsS3Prefix        :: Maybe Text
+    , _etstsS3Bucket        :: Maybe Text
+    , _etstsDiskImageFormat :: Maybe DiskImageFormat
+    } deriving (Eq,Read,Show)
 
 -- | 'ExportToS3TaskSpecification' smart constructor.
 exportToS3TaskSpecification :: ExportToS3TaskSpecification
-exportToS3TaskSpecification = ExportToS3TaskSpecification'{_etstsContainerFormat = Nothing, _etstsS3Prefix = Nothing, _etstsS3Bucket = Nothing, _etstsDiskImageFormat = Nothing};
+exportToS3TaskSpecification =
+    ExportToS3TaskSpecification'
+    { _etstsContainerFormat = Nothing
+    , _etstsS3Prefix = Nothing
+    , _etstsS3Bucket = Nothing
+    , _etstsDiskImageFormat = Nothing
+    }
 
 -- | The container format used to combine disk images with metadata (such as
 -- OVF). If absent, only the disk image is exported.
@@ -4930,11 +5656,18 @@ instance ToQuery ExportToS3TaskSpecification where
 -- * 'filValues'
 --
 -- * 'filName'
-data Filter = Filter'{_filValues :: Maybe [Text], _filName :: Text} deriving (Eq, Read, Show)
+data Filter = Filter'
+    { _filValues :: Maybe [Text]
+    , _filName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Filter' smart constructor.
 filter' :: Text -> Filter
-filter' pName = Filter'{_filValues = Nothing, _filName = pName};
+filter' pName =
+    Filter'
+    { _filValues = Nothing
+    , _filName = pName
+    }
 
 -- | One or more filter values. Filter values are case-sensitive.
 filValues :: Lens' Filter [Text]
@@ -4973,11 +5706,32 @@ instance ToQuery Filter where
 -- * 'flLogGroupName'
 --
 -- * 'flFlowLogId'
-data FlowLog = FlowLog'{_flCreationTime :: Maybe ISO8601, _flResourceId :: Maybe Text, _flFlowLogStatus :: Maybe Text, _flTrafficType :: Maybe TrafficType, _flDeliverLogsStatus :: Maybe Text, _flDeliverLogsErrorMessage :: Maybe Text, _flDeliverLogsPermissionARN :: Maybe Text, _flLogGroupName :: Maybe Text, _flFlowLogId :: Maybe Text} deriving (Eq, Read, Show)
+data FlowLog = FlowLog'
+    { _flCreationTime             :: Maybe ISO8601
+    , _flResourceId               :: Maybe Text
+    , _flFlowLogStatus            :: Maybe Text
+    , _flTrafficType              :: Maybe TrafficType
+    , _flDeliverLogsStatus        :: Maybe Text
+    , _flDeliverLogsErrorMessage  :: Maybe Text
+    , _flDeliverLogsPermissionARN :: Maybe Text
+    , _flLogGroupName             :: Maybe Text
+    , _flFlowLogId                :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'FlowLog' smart constructor.
 flowLog :: FlowLog
-flowLog = FlowLog'{_flCreationTime = Nothing, _flResourceId = Nothing, _flFlowLogStatus = Nothing, _flTrafficType = Nothing, _flDeliverLogsStatus = Nothing, _flDeliverLogsErrorMessage = Nothing, _flDeliverLogsPermissionARN = Nothing, _flLogGroupName = Nothing, _flFlowLogId = Nothing};
+flowLog =
+    FlowLog'
+    { _flCreationTime = Nothing
+    , _flResourceId = Nothing
+    , _flFlowLogStatus = Nothing
+    , _flTrafficType = Nothing
+    , _flDeliverLogsStatus = Nothing
+    , _flDeliverLogsErrorMessage = Nothing
+    , _flDeliverLogsPermissionARN = Nothing
+    , _flLogGroupName = Nothing
+    , _flFlowLogId = Nothing
+    }
 
 -- | The date and time the flow log was created.
 flCreationTime :: Lens' FlowLog (Maybe UTCTime)
@@ -5040,11 +5794,18 @@ instance FromXML FlowLog where
 -- * 'giGroupId'
 --
 -- * 'giGroupName'
-data GroupIdentifier = GroupIdentifier'{_giGroupId :: Maybe Text, _giGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data GroupIdentifier = GroupIdentifier'
+    { _giGroupId   :: Maybe Text
+    , _giGroupName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GroupIdentifier' smart constructor.
 groupIdentifier :: GroupIdentifier
-groupIdentifier = GroupIdentifier'{_giGroupId = Nothing, _giGroupName = Nothing};
+groupIdentifier =
+    GroupIdentifier'
+    { _giGroupId = Nothing
+    , _giGroupName = Nothing
+    }
 
 -- | The ID of the security group.
 giGroupId :: Lens' GroupIdentifier (Maybe Text)
@@ -5076,11 +5837,20 @@ instance ToQuery GroupIdentifier where
 -- * 'hrEventType'
 --
 -- * 'hrEventInformation'
-data HistoryRecord = HistoryRecord'{_hrTimestamp :: ISO8601, _hrEventType :: EventType, _hrEventInformation :: EventInformation} deriving (Eq, Read, Show)
+data HistoryRecord = HistoryRecord'
+    { _hrTimestamp        :: ISO8601
+    , _hrEventType        :: EventType
+    , _hrEventInformation :: EventInformation
+    } deriving (Eq,Read,Show)
 
 -- | 'HistoryRecord' smart constructor.
 historyRecord :: UTCTime -> EventType -> EventInformation -> HistoryRecord
-historyRecord pTimestamp pEventType pEventInformation = HistoryRecord'{_hrTimestamp = _Time # pTimestamp, _hrEventType = pEventType, _hrEventInformation = pEventInformation};
+historyRecord pTimestamp pEventType pEventInformation =
+    HistoryRecord'
+    { _hrTimestamp = _Time # pTimestamp
+    , _hrEventType = pEventType
+    , _hrEventInformation = pEventInformation
+    }
 
 -- | The date and time of the event, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
@@ -5119,11 +5889,18 @@ instance FromXML HistoryRecord where
 -- * 'iapARN'
 --
 -- * 'iapId'
-data IAMInstanceProfile = IAMInstanceProfile'{_iapARN :: Maybe Text, _iapId :: Maybe Text} deriving (Eq, Read, Show)
+data IAMInstanceProfile = IAMInstanceProfile'
+    { _iapARN :: Maybe Text
+    , _iapId  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'IAMInstanceProfile' smart constructor.
 iamInstanceProfile :: IAMInstanceProfile
-iamInstanceProfile = IAMInstanceProfile'{_iapARN = Nothing, _iapId = Nothing};
+iamInstanceProfile =
+    IAMInstanceProfile'
+    { _iapARN = Nothing
+    , _iapId = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
 iapARN :: Lens' IAMInstanceProfile (Maybe Text)
@@ -5147,11 +5924,18 @@ instance FromXML IAMInstanceProfile where
 -- * 'iapsARN'
 --
 -- * 'iapsName'
-data IAMInstanceProfileSpecification = IAMInstanceProfileSpecification'{_iapsARN :: Maybe Text, _iapsName :: Maybe Text} deriving (Eq, Read, Show)
+data IAMInstanceProfileSpecification = IAMInstanceProfileSpecification'
+    { _iapsARN  :: Maybe Text
+    , _iapsName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'IAMInstanceProfileSpecification' smart constructor.
 iamInstanceProfileSpecification :: IAMInstanceProfileSpecification
-iamInstanceProfileSpecification = IAMInstanceProfileSpecification'{_iapsARN = Nothing, _iapsName = Nothing};
+iamInstanceProfileSpecification =
+    IAMInstanceProfileSpecification'
+    { _iapsARN = Nothing
+    , _iapsName = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
 iapsARN :: Lens' IAMInstanceProfileSpecification (Maybe Text)
@@ -5181,11 +5965,18 @@ instance ToQuery IAMInstanceProfileSpecification
 -- * 'itcCode'
 --
 -- * 'itcType'
-data ICMPTypeCode = ICMPTypeCode'{_itcCode :: Maybe Int, _itcType :: Maybe Int} deriving (Eq, Read, Show)
+data ICMPTypeCode = ICMPTypeCode'
+    { _itcCode :: Maybe Int
+    , _itcType :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ICMPTypeCode' smart constructor.
 icmpTypeCode :: ICMPTypeCode
-icmpTypeCode = ICMPTypeCode'{_itcCode = Nothing, _itcType = Nothing};
+icmpTypeCode =
+    ICMPTypeCode'
+    { _itcCode = Nothing
+    , _itcType = Nothing
+    }
 
 -- | The ICMP type. A value of -1 means all types.
 itcCode :: Lens' ICMPTypeCode (Maybe Int)
@@ -5221,11 +6012,26 @@ instance ToQuery ICMPTypeCode where
 -- * 'ipIPRanges'
 --
 -- * 'ipIPProtocol'
-data IPPermission = IPPermission'{_ipFromPort :: Maybe Int, _ipUserIdGroupPairs :: Maybe [UserIdGroupPair], _ipPrefixListIds :: Maybe [PrefixListId], _ipToPort :: Maybe Int, _ipIPRanges :: Maybe [IPRange], _ipIPProtocol :: Text} deriving (Eq, Read, Show)
+data IPPermission = IPPermission'
+    { _ipFromPort         :: Maybe Int
+    , _ipUserIdGroupPairs :: Maybe [UserIdGroupPair]
+    , _ipPrefixListIds    :: Maybe [PrefixListId]
+    , _ipToPort           :: Maybe Int
+    , _ipIPRanges         :: Maybe [IPRange]
+    , _ipIPProtocol       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'IPPermission' smart constructor.
 ipPermission :: Text -> IPPermission
-ipPermission pIPProtocol = IPPermission'{_ipFromPort = Nothing, _ipUserIdGroupPairs = Nothing, _ipPrefixListIds = Nothing, _ipToPort = Nothing, _ipIPRanges = Nothing, _ipIPProtocol = pIPProtocol};
+ipPermission pIPProtocol =
+    IPPermission'
+    { _ipFromPort = Nothing
+    , _ipUserIdGroupPairs = Nothing
+    , _ipPrefixListIds = Nothing
+    , _ipToPort = Nothing
+    , _ipIPRanges = Nothing
+    , _ipIPProtocol = pIPProtocol
+    }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. A value of @-1@ indicates all ICMP types.
@@ -5291,11 +6097,16 @@ instance ToQuery IPPermission where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'irCIDRIP'
-newtype IPRange = IPRange'{_irCIDRIP :: Text} deriving (Eq, Read, Show)
+newtype IPRange = IPRange'
+    { _irCIDRIP :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'IPRange' smart constructor.
 ipRange :: Text -> IPRange
-ipRange pCIDRIP = IPRange'{_irCIDRIP = pCIDRIP};
+ipRange pCIDRIP =
+    IPRange'
+    { _irCIDRIP = pCIDRIP
+    }
 
 -- | The CIDR range. You can either specify a CIDR range or a source security
 -- group, not both.
@@ -5360,11 +6171,60 @@ instance ToQuery IPRange where
 -- * 'imaVirtualizationType'
 --
 -- * 'imaHypervisor'
-data Image = Image'{_imaPlatform :: Maybe PlatformValues, _imaImageOwnerAlias :: Maybe Text, _imaRAMDiskId :: Maybe Text, _imaKernelId :: Maybe Text, _imaRootDeviceName :: Maybe Text, _imaSRIOVNetSupport :: Maybe Text, _imaName :: Maybe Text, _imaCreationDate :: Maybe Text, _imaProductCodes :: Maybe [ProductCode], _imaStateReason :: Maybe StateReason, _imaBlockDeviceMappings :: Maybe [BlockDeviceMapping], _imaDescription :: Maybe Text, _imaTags :: Maybe [Tag], _imaImageId :: Text, _imaImageLocation :: Text, _imaState :: ImageState, _imaOwnerId :: Text, _imaPublic :: Bool, _imaArchitecture :: ArchitectureValues, _imaImageType :: ImageTypeValues, _imaRootDeviceType :: DeviceType, _imaVirtualizationType :: VirtualizationType, _imaHypervisor :: HypervisorType} deriving (Eq, Read, Show)
+data Image = Image'
+    { _imaPlatform            :: Maybe PlatformValues
+    , _imaImageOwnerAlias     :: Maybe Text
+    , _imaRAMDiskId           :: Maybe Text
+    , _imaKernelId            :: Maybe Text
+    , _imaRootDeviceName      :: Maybe Text
+    , _imaSRIOVNetSupport     :: Maybe Text
+    , _imaName                :: Maybe Text
+    , _imaCreationDate        :: Maybe Text
+    , _imaProductCodes        :: Maybe [ProductCode]
+    , _imaStateReason         :: Maybe StateReason
+    , _imaBlockDeviceMappings :: Maybe [BlockDeviceMapping]
+    , _imaDescription         :: Maybe Text
+    , _imaTags                :: Maybe [Tag]
+    , _imaImageId             :: Text
+    , _imaImageLocation       :: Text
+    , _imaState               :: ImageState
+    , _imaOwnerId             :: Text
+    , _imaPublic              :: !Bool
+    , _imaArchitecture        :: ArchitectureValues
+    , _imaImageType           :: ImageTypeValues
+    , _imaRootDeviceType      :: DeviceType
+    , _imaVirtualizationType  :: VirtualizationType
+    , _imaHypervisor          :: HypervisorType
+    } deriving (Eq,Read,Show)
 
 -- | 'Image' smart constructor.
 image :: Text -> Text -> ImageState -> Text -> Bool -> ArchitectureValues -> ImageTypeValues -> DeviceType -> VirtualizationType -> HypervisorType -> Image
-image pImageId pImageLocation pState pOwnerId pPublic pArchitecture pImageType pRootDeviceType pVirtualizationType pHypervisor = Image'{_imaPlatform = Nothing, _imaImageOwnerAlias = Nothing, _imaRAMDiskId = Nothing, _imaKernelId = Nothing, _imaRootDeviceName = Nothing, _imaSRIOVNetSupport = Nothing, _imaName = Nothing, _imaCreationDate = Nothing, _imaProductCodes = Nothing, _imaStateReason = Nothing, _imaBlockDeviceMappings = Nothing, _imaDescription = Nothing, _imaTags = Nothing, _imaImageId = pImageId, _imaImageLocation = pImageLocation, _imaState = pState, _imaOwnerId = pOwnerId, _imaPublic = pPublic, _imaArchitecture = pArchitecture, _imaImageType = pImageType, _imaRootDeviceType = pRootDeviceType, _imaVirtualizationType = pVirtualizationType, _imaHypervisor = pHypervisor};
+image pImageId pImageLocation pState pOwnerId pPublic pArchitecture pImageType pRootDeviceType pVirtualizationType pHypervisor =
+    Image'
+    { _imaPlatform = Nothing
+    , _imaImageOwnerAlias = Nothing
+    , _imaRAMDiskId = Nothing
+    , _imaKernelId = Nothing
+    , _imaRootDeviceName = Nothing
+    , _imaSRIOVNetSupport = Nothing
+    , _imaName = Nothing
+    , _imaCreationDate = Nothing
+    , _imaProductCodes = Nothing
+    , _imaStateReason = Nothing
+    , _imaBlockDeviceMappings = Nothing
+    , _imaDescription = Nothing
+    , _imaTags = Nothing
+    , _imaImageId = pImageId
+    , _imaImageLocation = pImageLocation
+    , _imaState = pState
+    , _imaOwnerId = pOwnerId
+    , _imaPublic = pPublic
+    , _imaArchitecture = pArchitecture
+    , _imaImageType = pImageType
+    , _imaRootDeviceType = pRootDeviceType
+    , _imaVirtualizationType = pVirtualizationType
+    , _imaHypervisor = pHypervisor
+    }
 
 -- | The value is @Windows@ for Windows AMIs; otherwise blank.
 imaPlatform :: Lens' Image (Maybe PlatformValues)
@@ -5509,11 +6369,26 @@ instance FromXML Image where
 -- * 'idcDescription'
 --
 -- * 'idcSnapshotId'
-data ImageDiskContainer = ImageDiskContainer'{_idcURL :: Maybe Text, _idcFormat :: Maybe Text, _idcDeviceName :: Maybe Text, _idcUserBucket :: Maybe UserBucket, _idcDescription :: Maybe Text, _idcSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
+data ImageDiskContainer = ImageDiskContainer'
+    { _idcURL         :: Maybe Text
+    , _idcFormat      :: Maybe Text
+    , _idcDeviceName  :: Maybe Text
+    , _idcUserBucket  :: Maybe UserBucket
+    , _idcDescription :: Maybe Text
+    , _idcSnapshotId  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ImageDiskContainer' smart constructor.
 imageDiskContainer :: ImageDiskContainer
-imageDiskContainer = ImageDiskContainer'{_idcURL = Nothing, _idcFormat = Nothing, _idcDeviceName = Nothing, _idcUserBucket = Nothing, _idcDescription = Nothing, _idcSnapshotId = Nothing};
+imageDiskContainer =
+    ImageDiskContainer'
+    { _idcURL = Nothing
+    , _idcFormat = Nothing
+    , _idcDeviceName = Nothing
+    , _idcUserBucket = Nothing
+    , _idcDescription = Nothing
+    , _idcSnapshotId = Nothing
+    }
 
 -- | The URL to the Amazon S3-based disk image being imported. The URL can
 -- either be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..)
@@ -5578,11 +6453,36 @@ instance ToQuery ImageDiskContainer where
 -- * 'iitArchitecture'
 --
 -- * 'iitDescription'
-data ImportImageTask = ImportImageTask'{_iitStatus :: Maybe Text, _iitHypervisor :: Maybe Text, _iitPlatform :: Maybe Text, _iitProgress :: Maybe Text, _iitLicenseType :: Maybe Text, _iitSnapshotDetails :: Maybe [SnapshotDetail], _iitStatusMessage :: Maybe Text, _iitImageId :: Maybe Text, _iitImportTaskId :: Maybe Text, _iitArchitecture :: Maybe Text, _iitDescription :: Maybe Text} deriving (Eq, Read, Show)
+data ImportImageTask = ImportImageTask'
+    { _iitStatus          :: Maybe Text
+    , _iitHypervisor      :: Maybe Text
+    , _iitPlatform        :: Maybe Text
+    , _iitProgress        :: Maybe Text
+    , _iitLicenseType     :: Maybe Text
+    , _iitSnapshotDetails :: Maybe [SnapshotDetail]
+    , _iitStatusMessage   :: Maybe Text
+    , _iitImageId         :: Maybe Text
+    , _iitImportTaskId    :: Maybe Text
+    , _iitArchitecture    :: Maybe Text
+    , _iitDescription     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportImageTask' smart constructor.
 importImageTask :: ImportImageTask
-importImageTask = ImportImageTask'{_iitStatus = Nothing, _iitHypervisor = Nothing, _iitPlatform = Nothing, _iitProgress = Nothing, _iitLicenseType = Nothing, _iitSnapshotDetails = Nothing, _iitStatusMessage = Nothing, _iitImageId = Nothing, _iitImportTaskId = Nothing, _iitArchitecture = Nothing, _iitDescription = Nothing};
+importImageTask =
+    ImportImageTask'
+    { _iitStatus = Nothing
+    , _iitHypervisor = Nothing
+    , _iitPlatform = Nothing
+    , _iitProgress = Nothing
+    , _iitLicenseType = Nothing
+    , _iitSnapshotDetails = Nothing
+    , _iitStatusMessage = Nothing
+    , _iitImageId = Nothing
+    , _iitImportTaskId = Nothing
+    , _iitArchitecture = Nothing
+    , _iitDescription = Nothing
+    }
 
 -- | A brief status for the import image task.
 iitStatus :: Lens' ImportImageTask (Maybe Text)
@@ -5674,11 +6574,36 @@ instance FromXML ImportImageTask where
 -- * 'iilsArchitecture'
 --
 -- * 'iilsPlacement'
-data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'{_iilsAdditionalInfo :: Maybe Text, _iilsGroupNames :: Maybe [Text], _iilsSubnetId :: Maybe Text, _iilsGroupIds :: Maybe [Text], _iilsInstanceType :: Maybe InstanceType, _iilsUserData :: Maybe UserData, _iilsMonitoring :: Maybe Bool, _iilsInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior, _iilsPrivateIPAddress :: Maybe Text, _iilsArchitecture :: Maybe ArchitectureValues, _iilsPlacement :: Maybe Placement} deriving (Eq, Read, Show)
+data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'
+    { _iilsAdditionalInfo                    :: Maybe Text
+    , _iilsGroupNames                        :: Maybe [Text]
+    , _iilsSubnetId                          :: Maybe Text
+    , _iilsGroupIds                          :: Maybe [Text]
+    , _iilsInstanceType                      :: Maybe InstanceType
+    , _iilsUserData                          :: Maybe UserData
+    , _iilsMonitoring                        :: Maybe Bool
+    , _iilsInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior
+    , _iilsPrivateIPAddress                  :: Maybe Text
+    , _iilsArchitecture                      :: Maybe ArchitectureValues
+    , _iilsPlacement                         :: Maybe Placement
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportInstanceLaunchSpecification' smart constructor.
 importInstanceLaunchSpecification :: ImportInstanceLaunchSpecification
-importInstanceLaunchSpecification = ImportInstanceLaunchSpecification'{_iilsAdditionalInfo = Nothing, _iilsGroupNames = Nothing, _iilsSubnetId = Nothing, _iilsGroupIds = Nothing, _iilsInstanceType = Nothing, _iilsUserData = Nothing, _iilsMonitoring = Nothing, _iilsInstanceInitiatedShutdownBehavior = Nothing, _iilsPrivateIPAddress = Nothing, _iilsArchitecture = Nothing, _iilsPlacement = Nothing};
+importInstanceLaunchSpecification =
+    ImportInstanceLaunchSpecification'
+    { _iilsAdditionalInfo = Nothing
+    , _iilsGroupNames = Nothing
+    , _iilsSubnetId = Nothing
+    , _iilsGroupIds = Nothing
+    , _iilsInstanceType = Nothing
+    , _iilsUserData = Nothing
+    , _iilsMonitoring = Nothing
+    , _iilsInstanceInitiatedShutdownBehavior = Nothing
+    , _iilsPrivateIPAddress = Nothing
+    , _iilsArchitecture = Nothing
+    , _iilsPlacement = Nothing
+    }
 
 -- | Reserved.
 iilsAdditionalInfo :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
@@ -5762,11 +6687,22 @@ instance ToQuery ImportInstanceLaunchSpecification
 -- * 'iitdDescription'
 --
 -- * 'iitdVolumes'
-data ImportInstanceTaskDetails = ImportInstanceTaskDetails'{_iitdInstanceId :: Maybe Text, _iitdPlatform :: Maybe PlatformValues, _iitdDescription :: Maybe Text, _iitdVolumes :: [ImportInstanceVolumeDetailItem]} deriving (Eq, Read, Show)
+data ImportInstanceTaskDetails = ImportInstanceTaskDetails'
+    { _iitdInstanceId  :: Maybe Text
+    , _iitdPlatform    :: Maybe PlatformValues
+    , _iitdDescription :: Maybe Text
+    , _iitdVolumes     :: [ImportInstanceVolumeDetailItem]
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportInstanceTaskDetails' smart constructor.
 importInstanceTaskDetails :: ImportInstanceTaskDetails
-importInstanceTaskDetails = ImportInstanceTaskDetails'{_iitdInstanceId = Nothing, _iitdPlatform = Nothing, _iitdDescription = Nothing, _iitdVolumes = mempty};
+importInstanceTaskDetails =
+    ImportInstanceTaskDetails'
+    { _iitdInstanceId = Nothing
+    , _iitdPlatform = Nothing
+    , _iitdDescription = Nothing
+    , _iitdVolumes = mempty
+    }
 
 -- | The ID of the instance.
 iitdInstanceId :: Lens' ImportInstanceTaskDetails (Maybe Text)
@@ -5810,11 +6746,28 @@ instance FromXML ImportInstanceTaskDetails where
 -- * 'iivdiVolume'
 --
 -- * 'iivdiStatus'
-data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'{_iivdiStatusMessage :: Maybe Text, _iivdiDescription :: Maybe Text, _iivdiBytesConverted :: Integer, _iivdiAvailabilityZone :: Text, _iivdiImage :: DiskImageDescription, _iivdiVolume :: DiskImageVolumeDescription, _iivdiStatus :: Text} deriving (Eq, Read, Show)
+data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
+    { _iivdiStatusMessage    :: Maybe Text
+    , _iivdiDescription      :: Maybe Text
+    , _iivdiBytesConverted   :: !Integer
+    , _iivdiAvailabilityZone :: Text
+    , _iivdiImage            :: DiskImageDescription
+    , _iivdiVolume           :: DiskImageVolumeDescription
+    , _iivdiStatus           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportInstanceVolumeDetailItem' smart constructor.
 importInstanceVolumeDetailItem :: Integer -> Text -> DiskImageDescription -> DiskImageVolumeDescription -> Text -> ImportInstanceVolumeDetailItem
-importInstanceVolumeDetailItem pBytesConverted pAvailabilityZone pImage pVolume pStatus = ImportInstanceVolumeDetailItem'{_iivdiStatusMessage = Nothing, _iivdiDescription = Nothing, _iivdiBytesConverted = pBytesConverted, _iivdiAvailabilityZone = pAvailabilityZone, _iivdiImage = pImage, _iivdiVolume = pVolume, _iivdiStatus = pStatus};
+importInstanceVolumeDetailItem pBytesConverted pAvailabilityZone pImage pVolume pStatus =
+    ImportInstanceVolumeDetailItem'
+    { _iivdiStatusMessage = Nothing
+    , _iivdiDescription = Nothing
+    , _iivdiBytesConverted = pBytesConverted
+    , _iivdiAvailabilityZone = pAvailabilityZone
+    , _iivdiImage = pImage
+    , _iivdiVolume = pVolume
+    , _iivdiStatus = pStatus
+    }
 
 -- | The status information or errors related to the disk image.
 iivdiStatusMessage :: Lens' ImportInstanceVolumeDetailItem (Maybe Text)
@@ -5865,11 +6818,20 @@ instance FromXML ImportInstanceVolumeDetailItem where
 -- * 'istImportTaskId'
 --
 -- * 'istDescription'
-data ImportSnapshotTask = ImportSnapshotTask'{_istSnapshotTaskDetail :: Maybe SnapshotTaskDetail, _istImportTaskId :: Maybe Text, _istDescription :: Maybe Text} deriving (Eq, Read, Show)
+data ImportSnapshotTask = ImportSnapshotTask'
+    { _istSnapshotTaskDetail :: Maybe SnapshotTaskDetail
+    , _istImportTaskId       :: Maybe Text
+    , _istDescription        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportSnapshotTask' smart constructor.
 importSnapshotTask :: ImportSnapshotTask
-importSnapshotTask = ImportSnapshotTask'{_istSnapshotTaskDetail = Nothing, _istImportTaskId = Nothing, _istDescription = Nothing};
+importSnapshotTask =
+    ImportSnapshotTask'
+    { _istSnapshotTaskDetail = Nothing
+    , _istImportTaskId = Nothing
+    , _istDescription = Nothing
+    }
 
 -- | Describes an import snapshot task.
 istSnapshotTaskDetail :: Lens' ImportSnapshotTask (Maybe SnapshotTaskDetail)
@@ -5905,11 +6867,24 @@ instance FromXML ImportSnapshotTask where
 -- * 'ivtdImage'
 --
 -- * 'ivtdVolume'
-data ImportVolumeTaskDetails = ImportVolumeTaskDetails'{_ivtdDescription :: Maybe Text, _ivtdBytesConverted :: Integer, _ivtdAvailabilityZone :: Text, _ivtdImage :: DiskImageDescription, _ivtdVolume :: DiskImageVolumeDescription} deriving (Eq, Read, Show)
+data ImportVolumeTaskDetails = ImportVolumeTaskDetails'
+    { _ivtdDescription      :: Maybe Text
+    , _ivtdBytesConverted   :: !Integer
+    , _ivtdAvailabilityZone :: Text
+    , _ivtdImage            :: DiskImageDescription
+    , _ivtdVolume           :: DiskImageVolumeDescription
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportVolumeTaskDetails' smart constructor.
 importVolumeTaskDetails :: Integer -> Text -> DiskImageDescription -> DiskImageVolumeDescription -> ImportVolumeTaskDetails
-importVolumeTaskDetails pBytesConverted pAvailabilityZone pImage pVolume = ImportVolumeTaskDetails'{_ivtdDescription = Nothing, _ivtdBytesConverted = pBytesConverted, _ivtdAvailabilityZone = pAvailabilityZone, _ivtdImage = pImage, _ivtdVolume = pVolume};
+importVolumeTaskDetails pBytesConverted pAvailabilityZone pImage pVolume =
+    ImportVolumeTaskDetails'
+    { _ivtdDescription = Nothing
+    , _ivtdBytesConverted = pBytesConverted
+    , _ivtdAvailabilityZone = pAvailabilityZone
+    , _ivtdImage = pImage
+    , _ivtdVolume = pVolume
+    }
 
 -- | The description you provided when starting the import volume task.
 ivtdDescription :: Lens' ImportVolumeTaskDetails (Maybe Text)
@@ -6018,11 +6993,88 @@ instance FromXML ImportVolumeTaskDetails where
 -- * 'insEBSOptimized'
 --
 -- * 'insState'
-data Instance = Instance'{_insPublicDNSName :: Maybe Text, _insPlatform :: Maybe PlatformValues, _insSecurityGroups :: Maybe [GroupIdentifier], _insClientToken :: Maybe Text, _insSourceDestCheck :: Maybe Bool, _insVPCId :: Maybe Text, _insNetworkInterfaces :: Maybe [InstanceNetworkInterface], _insKeyName :: Maybe Text, _insRAMDiskId :: Maybe Text, _insKernelId :: Maybe Text, _insSubnetId :: Maybe Text, _insRootDeviceName :: Maybe Text, _insSRIOVNetSupport :: Maybe Text, _insStateTransitionReason :: Maybe Text, _insIAMInstanceProfile :: Maybe IAMInstanceProfile, _insInstanceLifecycle :: Maybe InstanceLifecycleType, _insPrivateIPAddress :: Maybe Text, _insProductCodes :: Maybe [ProductCode], _insSpotInstanceRequestId :: Maybe Text, _insPrivateDNSName :: Maybe Text, _insStateReason :: Maybe StateReason, _insBlockDeviceMappings :: Maybe [InstanceBlockDeviceMapping], _insPublicIPAddress :: Maybe Text, _insTags :: Maybe [Tag], _insInstanceId :: Text, _insImageId :: Text, _insAMILaunchIndex :: Int, _insInstanceType :: InstanceType, _insLaunchTime :: ISO8601, _insPlacement :: Placement, _insMonitoring :: Monitoring, _insArchitecture :: ArchitectureValues, _insRootDeviceType :: DeviceType, _insVirtualizationType :: VirtualizationType, _insHypervisor :: HypervisorType, _insEBSOptimized :: Bool, _insState :: InstanceState} deriving (Eq, Read, Show)
+data Instance = Instance'
+    { _insPublicDNSName         :: Maybe Text
+    , _insPlatform              :: Maybe PlatformValues
+    , _insSecurityGroups        :: Maybe [GroupIdentifier]
+    , _insClientToken           :: Maybe Text
+    , _insSourceDestCheck       :: Maybe Bool
+    , _insVPCId                 :: Maybe Text
+    , _insNetworkInterfaces     :: Maybe [InstanceNetworkInterface]
+    , _insKeyName               :: Maybe Text
+    , _insRAMDiskId             :: Maybe Text
+    , _insKernelId              :: Maybe Text
+    , _insSubnetId              :: Maybe Text
+    , _insRootDeviceName        :: Maybe Text
+    , _insSRIOVNetSupport       :: Maybe Text
+    , _insStateTransitionReason :: Maybe Text
+    , _insIAMInstanceProfile    :: Maybe IAMInstanceProfile
+    , _insInstanceLifecycle     :: Maybe InstanceLifecycleType
+    , _insPrivateIPAddress      :: Maybe Text
+    , _insProductCodes          :: Maybe [ProductCode]
+    , _insSpotInstanceRequestId :: Maybe Text
+    , _insPrivateDNSName        :: Maybe Text
+    , _insStateReason           :: Maybe StateReason
+    , _insBlockDeviceMappings   :: Maybe [InstanceBlockDeviceMapping]
+    , _insPublicIPAddress       :: Maybe Text
+    , _insTags                  :: Maybe [Tag]
+    , _insInstanceId            :: Text
+    , _insImageId               :: Text
+    , _insAMILaunchIndex        :: !Int
+    , _insInstanceType          :: InstanceType
+    , _insLaunchTime            :: ISO8601
+    , _insPlacement             :: Placement
+    , _insMonitoring            :: Monitoring
+    , _insArchitecture          :: ArchitectureValues
+    , _insRootDeviceType        :: DeviceType
+    , _insVirtualizationType    :: VirtualizationType
+    , _insHypervisor            :: HypervisorType
+    , _insEBSOptimized          :: !Bool
+    , _insState                 :: InstanceState
+    } deriving (Eq,Read,Show)
 
 -- | 'Instance' smart constructor.
 instance' :: Text -> Text -> Int -> InstanceType -> UTCTime -> Placement -> Monitoring -> ArchitectureValues -> DeviceType -> VirtualizationType -> HypervisorType -> Bool -> InstanceState -> Instance
-instance' pInstanceId pImageId pAMILaunchIndex pInstanceType pLaunchTime pPlacement pMonitoring pArchitecture pRootDeviceType pVirtualizationType pHypervisor pEBSOptimized pState = Instance'{_insPublicDNSName = Nothing, _insPlatform = Nothing, _insSecurityGroups = Nothing, _insClientToken = Nothing, _insSourceDestCheck = Nothing, _insVPCId = Nothing, _insNetworkInterfaces = Nothing, _insKeyName = Nothing, _insRAMDiskId = Nothing, _insKernelId = Nothing, _insSubnetId = Nothing, _insRootDeviceName = Nothing, _insSRIOVNetSupport = Nothing, _insStateTransitionReason = Nothing, _insIAMInstanceProfile = Nothing, _insInstanceLifecycle = Nothing, _insPrivateIPAddress = Nothing, _insProductCodes = Nothing, _insSpotInstanceRequestId = Nothing, _insPrivateDNSName = Nothing, _insStateReason = Nothing, _insBlockDeviceMappings = Nothing, _insPublicIPAddress = Nothing, _insTags = Nothing, _insInstanceId = pInstanceId, _insImageId = pImageId, _insAMILaunchIndex = pAMILaunchIndex, _insInstanceType = pInstanceType, _insLaunchTime = _Time # pLaunchTime, _insPlacement = pPlacement, _insMonitoring = pMonitoring, _insArchitecture = pArchitecture, _insRootDeviceType = pRootDeviceType, _insVirtualizationType = pVirtualizationType, _insHypervisor = pHypervisor, _insEBSOptimized = pEBSOptimized, _insState = pState};
+instance' pInstanceId pImageId pAMILaunchIndex pInstanceType pLaunchTime pPlacement pMonitoring pArchitecture pRootDeviceType pVirtualizationType pHypervisor pEBSOptimized pState =
+    Instance'
+    { _insPublicDNSName = Nothing
+    , _insPlatform = Nothing
+    , _insSecurityGroups = Nothing
+    , _insClientToken = Nothing
+    , _insSourceDestCheck = Nothing
+    , _insVPCId = Nothing
+    , _insNetworkInterfaces = Nothing
+    , _insKeyName = Nothing
+    , _insRAMDiskId = Nothing
+    , _insKernelId = Nothing
+    , _insSubnetId = Nothing
+    , _insRootDeviceName = Nothing
+    , _insSRIOVNetSupport = Nothing
+    , _insStateTransitionReason = Nothing
+    , _insIAMInstanceProfile = Nothing
+    , _insInstanceLifecycle = Nothing
+    , _insPrivateIPAddress = Nothing
+    , _insProductCodes = Nothing
+    , _insSpotInstanceRequestId = Nothing
+    , _insPrivateDNSName = Nothing
+    , _insStateReason = Nothing
+    , _insBlockDeviceMappings = Nothing
+    , _insPublicIPAddress = Nothing
+    , _insTags = Nothing
+    , _insInstanceId = pInstanceId
+    , _insImageId = pImageId
+    , _insAMILaunchIndex = pAMILaunchIndex
+    , _insInstanceType = pInstanceType
+    , _insLaunchTime = _Time # pLaunchTime
+    , _insPlacement = pPlacement
+    , _insMonitoring = pMonitoring
+    , _insArchitecture = pArchitecture
+    , _insRootDeviceType = pRootDeviceType
+    , _insVirtualizationType = pVirtualizationType
+    , _insHypervisor = pHypervisor
+    , _insEBSOptimized = pEBSOptimized
+    , _insState = pState
+    }
 
 -- | The public DNS name assigned to the instance. This name is not available
 -- until the instance enters the @running@ state.
@@ -6238,11 +7290,18 @@ instance FromXML Instance where
 -- * 'ibdmEBS'
 --
 -- * 'ibdmDeviceName'
-data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping'{_ibdmEBS :: Maybe EBSInstanceBlockDevice, _ibdmDeviceName :: Maybe Text} deriving (Eq, Read, Show)
+data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping'
+    { _ibdmEBS        :: Maybe EBSInstanceBlockDevice
+    , _ibdmDeviceName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceBlockDeviceMapping' smart constructor.
 instanceBlockDeviceMapping :: InstanceBlockDeviceMapping
-instanceBlockDeviceMapping = InstanceBlockDeviceMapping'{_ibdmEBS = Nothing, _ibdmDeviceName = Nothing};
+instanceBlockDeviceMapping =
+    InstanceBlockDeviceMapping'
+    { _ibdmEBS = Nothing
+    , _ibdmDeviceName = Nothing
+    }
 
 -- | Parameters used to automatically set up EBS volumes when the instance is
 -- launched.
@@ -6272,11 +7331,22 @@ instance FromXML InstanceBlockDeviceMapping where
 -- * 'ibdmsEBS'
 --
 -- * 'ibdmsDeviceName'
-data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification'{_ibdmsVirtualName :: Maybe Text, _ibdmsNoDevice :: Maybe Text, _ibdmsEBS :: Maybe EBSInstanceBlockDeviceSpecification, _ibdmsDeviceName :: Maybe Text} deriving (Eq, Read, Show)
+data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification'
+    { _ibdmsVirtualName :: Maybe Text
+    , _ibdmsNoDevice    :: Maybe Text
+    , _ibdmsEBS         :: Maybe EBSInstanceBlockDeviceSpecification
+    , _ibdmsDeviceName  :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceBlockDeviceMappingSpecification' smart constructor.
 instanceBlockDeviceMappingSpecification :: InstanceBlockDeviceMappingSpecification
-instanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification'{_ibdmsVirtualName = Nothing, _ibdmsNoDevice = Nothing, _ibdmsEBS = Nothing, _ibdmsDeviceName = Nothing};
+instanceBlockDeviceMappingSpecification =
+    InstanceBlockDeviceMappingSpecification'
+    { _ibdmsVirtualName = Nothing
+    , _ibdmsNoDevice = Nothing
+    , _ibdmsEBS = Nothing
+    , _ibdmsDeviceName = Nothing
+    }
 
 -- | The virtual device name.
 ibdmsVirtualName :: Lens' InstanceBlockDeviceMappingSpecification (Maybe Text)
@@ -6313,11 +7383,18 @@ instance ToQuery
 -- * 'icState'
 --
 -- * 'icInstanceCount'
-data InstanceCount = InstanceCount'{_icState :: Maybe ListingState, _icInstanceCount :: Maybe Int} deriving (Eq, Read, Show)
+data InstanceCount = InstanceCount'
+    { _icState         :: Maybe ListingState
+    , _icInstanceCount :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceCount' smart constructor.
 instanceCount :: InstanceCount
-instanceCount = InstanceCount'{_icState = Nothing, _icInstanceCount = Nothing};
+instanceCount =
+    InstanceCount'
+    { _icState = Nothing
+    , _icInstanceCount = Nothing
+    }
 
 -- | The states of the listed Reserved Instances.
 icState :: Lens' InstanceCount (Maybe ListingState)
@@ -6342,11 +7419,18 @@ instance FromXML InstanceCount where
 -- * 'iedInstanceId'
 --
 -- * 'iedTargetEnvironment'
-data InstanceExportDetails = InstanceExportDetails'{_iedInstanceId :: Maybe Text, _iedTargetEnvironment :: Maybe ExportEnvironment} deriving (Eq, Read, Show)
+data InstanceExportDetails = InstanceExportDetails'
+    { _iedInstanceId        :: Maybe Text
+    , _iedTargetEnvironment :: Maybe ExportEnvironment
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceExportDetails' smart constructor.
 instanceExportDetails :: InstanceExportDetails
-instanceExportDetails = InstanceExportDetails'{_iedInstanceId = Nothing, _iedTargetEnvironment = Nothing};
+instanceExportDetails =
+    InstanceExportDetails'
+    { _iedInstanceId = Nothing
+    , _iedTargetEnvironment = Nothing
+    }
 
 -- | The ID of the resource being exported.
 iedInstanceId :: Lens' InstanceExportDetails (Maybe Text)
@@ -6370,11 +7454,18 @@ instance FromXML InstanceExportDetails where
 -- * 'imInstanceId'
 --
 -- * 'imMonitoring'
-data InstanceMonitoring = InstanceMonitoring'{_imInstanceId :: Maybe Text, _imMonitoring :: Maybe Monitoring} deriving (Eq, Read, Show)
+data InstanceMonitoring = InstanceMonitoring'
+    { _imInstanceId :: Maybe Text
+    , _imMonitoring :: Maybe Monitoring
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceMonitoring' smart constructor.
 instanceMonitoring :: InstanceMonitoring
-instanceMonitoring = InstanceMonitoring'{_imInstanceId = Nothing, _imMonitoring = Nothing};
+instanceMonitoring =
+    InstanceMonitoring'
+    { _imInstanceId = Nothing
+    , _imMonitoring = Nothing
+    }
 
 -- | The ID of the instance.
 imInstanceId :: Lens' InstanceMonitoring (Maybe Text)
@@ -6422,11 +7513,42 @@ instance FromXML InstanceMonitoring where
 -- * 'iniDescription'
 --
 -- * 'iniAssociation'
-data InstanceNetworkInterface = InstanceNetworkInterface'{_iniPrivateIPAddresses :: Maybe [InstancePrivateIPAddress], _iniStatus :: Maybe NetworkInterfaceStatus, _iniGroups :: Maybe [GroupIdentifier], _iniSourceDestCheck :: Maybe Bool, _iniVPCId :: Maybe Text, _iniNetworkInterfaceId :: Maybe Text, _iniSubnetId :: Maybe Text, _iniAttachment :: Maybe InstanceNetworkInterfaceAttachment, _iniMACAddress :: Maybe Text, _iniOwnerId :: Maybe Text, _iniPrivateIPAddress :: Maybe Text, _iniPrivateDNSName :: Maybe Text, _iniDescription :: Maybe Text, _iniAssociation :: Maybe InstanceNetworkInterfaceAssociation} deriving (Eq, Read, Show)
+data InstanceNetworkInterface = InstanceNetworkInterface'
+    { _iniPrivateIPAddresses :: Maybe [InstancePrivateIPAddress]
+    , _iniStatus             :: Maybe NetworkInterfaceStatus
+    , _iniGroups             :: Maybe [GroupIdentifier]
+    , _iniSourceDestCheck    :: Maybe Bool
+    , _iniVPCId              :: Maybe Text
+    , _iniNetworkInterfaceId :: Maybe Text
+    , _iniSubnetId           :: Maybe Text
+    , _iniAttachment         :: Maybe InstanceNetworkInterfaceAttachment
+    , _iniMACAddress         :: Maybe Text
+    , _iniOwnerId            :: Maybe Text
+    , _iniPrivateIPAddress   :: Maybe Text
+    , _iniPrivateDNSName     :: Maybe Text
+    , _iniDescription        :: Maybe Text
+    , _iniAssociation        :: Maybe InstanceNetworkInterfaceAssociation
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceNetworkInterface' smart constructor.
 instanceNetworkInterface :: InstanceNetworkInterface
-instanceNetworkInterface = InstanceNetworkInterface'{_iniPrivateIPAddresses = Nothing, _iniStatus = Nothing, _iniGroups = Nothing, _iniSourceDestCheck = Nothing, _iniVPCId = Nothing, _iniNetworkInterfaceId = Nothing, _iniSubnetId = Nothing, _iniAttachment = Nothing, _iniMACAddress = Nothing, _iniOwnerId = Nothing, _iniPrivateIPAddress = Nothing, _iniPrivateDNSName = Nothing, _iniDescription = Nothing, _iniAssociation = Nothing};
+instanceNetworkInterface =
+    InstanceNetworkInterface'
+    { _iniPrivateIPAddresses = Nothing
+    , _iniStatus = Nothing
+    , _iniGroups = Nothing
+    , _iniSourceDestCheck = Nothing
+    , _iniVPCId = Nothing
+    , _iniNetworkInterfaceId = Nothing
+    , _iniSubnetId = Nothing
+    , _iniAttachment = Nothing
+    , _iniMACAddress = Nothing
+    , _iniOwnerId = Nothing
+    , _iniPrivateIPAddress = Nothing
+    , _iniPrivateDNSName = Nothing
+    , _iniDescription = Nothing
+    , _iniAssociation = Nothing
+    }
 
 -- | The private IP addresses associated with the network interface.
 iniPrivateIPAddresses :: Lens' InstanceNetworkInterface [InstancePrivateIPAddress]
@@ -6514,11 +7636,20 @@ instance FromXML InstanceNetworkInterface where
 -- * 'iniaIPOwnerId'
 --
 -- * 'iniaPublicIP'
-data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation'{_iniaPublicDNSName :: Maybe Text, _iniaIPOwnerId :: Maybe Text, _iniaPublicIP :: Maybe Text} deriving (Eq, Read, Show)
+data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation'
+    { _iniaPublicDNSName :: Maybe Text
+    , _iniaIPOwnerId     :: Maybe Text
+    , _iniaPublicIP      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceNetworkInterfaceAssociation' smart constructor.
 instanceNetworkInterfaceAssociation :: InstanceNetworkInterfaceAssociation
-instanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation'{_iniaPublicDNSName = Nothing, _iniaIPOwnerId = Nothing, _iniaPublicIP = Nothing};
+instanceNetworkInterfaceAssociation =
+    InstanceNetworkInterfaceAssociation'
+    { _iniaPublicDNSName = Nothing
+    , _iniaIPOwnerId = Nothing
+    , _iniaPublicIP = Nothing
+    }
 
 -- | The public DNS name.
 iniaPublicDNSName :: Lens' InstanceNetworkInterfaceAssociation (Maybe Text)
@@ -6555,11 +7686,24 @@ instance FromXML InstanceNetworkInterfaceAssociation
 -- * 'iniaAttachTime'
 --
 -- * 'iniaDeviceIndex'
-data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment'{_iniaDeleteOnTermination :: Maybe Bool, _iniaStatus :: Maybe AttachmentStatus, _iniaAttachmentId :: Maybe Text, _iniaAttachTime :: Maybe ISO8601, _iniaDeviceIndex :: Maybe Int} deriving (Eq, Read, Show)
+data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment'
+    { _iniaDeleteOnTermination :: Maybe Bool
+    , _iniaStatus              :: Maybe AttachmentStatus
+    , _iniaAttachmentId        :: Maybe Text
+    , _iniaAttachTime          :: Maybe ISO8601
+    , _iniaDeviceIndex         :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceNetworkInterfaceAttachment' smart constructor.
 instanceNetworkInterfaceAttachment :: InstanceNetworkInterfaceAttachment
-instanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment'{_iniaDeleteOnTermination = Nothing, _iniaStatus = Nothing, _iniaAttachmentId = Nothing, _iniaAttachTime = Nothing, _iniaDeviceIndex = Nothing};
+instanceNetworkInterfaceAttachment =
+    InstanceNetworkInterfaceAttachment'
+    { _iniaDeleteOnTermination = Nothing
+    , _iniaStatus = Nothing
+    , _iniaAttachmentId = Nothing
+    , _iniaAttachTime = Nothing
+    , _iniaDeviceIndex = Nothing
+    }
 
 -- | Indicates whether the network interface is deleted when the instance is
 -- terminated.
@@ -6617,11 +7761,34 @@ instance FromXML InstanceNetworkInterfaceAttachment
 -- * 'inisDeviceIndex'
 --
 -- * 'inisDescription'
-data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification'{_inisPrivateIPAddresses :: Maybe [PrivateIPAddressSpecification], _inisDeleteOnTermination :: Maybe Bool, _inisGroups :: Maybe [Text], _inisAssociatePublicIPAddress :: Maybe Bool, _inisNetworkInterfaceId :: Maybe Text, _inisSubnetId :: Maybe Text, _inisPrivateIPAddress :: Maybe Text, _inisSecondaryPrivateIPAddressCount :: Maybe Int, _inisDeviceIndex :: Maybe Int, _inisDescription :: Maybe Text} deriving (Eq, Read, Show)
+data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification'
+    { _inisPrivateIPAddresses             :: Maybe [PrivateIPAddressSpecification]
+    , _inisDeleteOnTermination            :: Maybe Bool
+    , _inisGroups                         :: Maybe [Text]
+    , _inisAssociatePublicIPAddress       :: Maybe Bool
+    , _inisNetworkInterfaceId             :: Maybe Text
+    , _inisSubnetId                       :: Maybe Text
+    , _inisPrivateIPAddress               :: Maybe Text
+    , _inisSecondaryPrivateIPAddressCount :: Maybe Int
+    , _inisDeviceIndex                    :: Maybe Int
+    , _inisDescription                    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceNetworkInterfaceSpecification' smart constructor.
 instanceNetworkInterfaceSpecification :: InstanceNetworkInterfaceSpecification
-instanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification'{_inisPrivateIPAddresses = Nothing, _inisDeleteOnTermination = Nothing, _inisGroups = Nothing, _inisAssociatePublicIPAddress = Nothing, _inisNetworkInterfaceId = Nothing, _inisSubnetId = Nothing, _inisPrivateIPAddress = Nothing, _inisSecondaryPrivateIPAddressCount = Nothing, _inisDeviceIndex = Nothing, _inisDescription = Nothing};
+instanceNetworkInterfaceSpecification =
+    InstanceNetworkInterfaceSpecification'
+    { _inisPrivateIPAddresses = Nothing
+    , _inisDeleteOnTermination = Nothing
+    , _inisGroups = Nothing
+    , _inisAssociatePublicIPAddress = Nothing
+    , _inisNetworkInterfaceId = Nothing
+    , _inisSubnetId = Nothing
+    , _inisPrivateIPAddress = Nothing
+    , _inisSecondaryPrivateIPAddressCount = Nothing
+    , _inisDeviceIndex = Nothing
+    , _inisDescription = Nothing
+    }
 
 -- | One or more private IP addresses to assign to the network interface.
 -- Only one private IP address can be designated as primary.
@@ -6726,11 +7893,22 @@ instance ToQuery
 -- * 'ipiaPrivateDNSName'
 --
 -- * 'ipiaAssociation'
-data InstancePrivateIPAddress = InstancePrivateIPAddress'{_ipiaPrimary :: Maybe Bool, _ipiaPrivateIPAddress :: Maybe Text, _ipiaPrivateDNSName :: Maybe Text, _ipiaAssociation :: Maybe InstanceNetworkInterfaceAssociation} deriving (Eq, Read, Show)
+data InstancePrivateIPAddress = InstancePrivateIPAddress'
+    { _ipiaPrimary          :: Maybe Bool
+    , _ipiaPrivateIPAddress :: Maybe Text
+    , _ipiaPrivateDNSName   :: Maybe Text
+    , _ipiaAssociation      :: Maybe InstanceNetworkInterfaceAssociation
+    } deriving (Eq,Read,Show)
 
 -- | 'InstancePrivateIPAddress' smart constructor.
 instancePrivateIPAddress :: InstancePrivateIPAddress
-instancePrivateIPAddress = InstancePrivateIPAddress'{_ipiaPrimary = Nothing, _ipiaPrivateIPAddress = Nothing, _ipiaPrivateDNSName = Nothing, _ipiaAssociation = Nothing};
+instancePrivateIPAddress =
+    InstancePrivateIPAddress'
+    { _ipiaPrimary = Nothing
+    , _ipiaPrivateIPAddress = Nothing
+    , _ipiaPrivateDNSName = Nothing
+    , _ipiaAssociation = Nothing
+    }
 
 -- | Indicates whether this IP address is the primary private IP address of
 -- the network interface.
@@ -6766,11 +7944,18 @@ instance FromXML InstancePrivateIPAddress where
 -- * 'isName'
 --
 -- * 'isCode'
-data InstanceState = InstanceState'{_isName :: InstanceStateName, _isCode :: Int} deriving (Eq, Read, Show)
+data InstanceState = InstanceState'
+    { _isName :: InstanceStateName
+    , _isCode :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceState' smart constructor.
 instanceState :: InstanceStateName -> Int -> InstanceState
-instanceState pName pCode = InstanceState'{_isName = pName, _isCode = pCode};
+instanceState pName pCode =
+    InstanceState'
+    { _isName = pName
+    , _isCode = pCode
+    }
 
 -- | The current state of the instance.
 isName :: Lens' InstanceState InstanceStateName
@@ -6809,11 +7994,20 @@ instance FromXML InstanceState where
 -- * 'iscCurrentState'
 --
 -- * 'iscPreviousState'
-data InstanceStateChange = InstanceStateChange'{_iscInstanceId :: Maybe Text, _iscCurrentState :: Maybe InstanceState, _iscPreviousState :: Maybe InstanceState} deriving (Eq, Read, Show)
+data InstanceStateChange = InstanceStateChange'
+    { _iscInstanceId    :: Maybe Text
+    , _iscCurrentState  :: Maybe InstanceState
+    , _iscPreviousState :: Maybe InstanceState
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceStateChange' smart constructor.
 instanceStateChange :: InstanceStateChange
-instanceStateChange = InstanceStateChange'{_iscInstanceId = Nothing, _iscCurrentState = Nothing, _iscPreviousState = Nothing};
+instanceStateChange =
+    InstanceStateChange'
+    { _iscInstanceId = Nothing
+    , _iscCurrentState = Nothing
+    , _iscPreviousState = Nothing
+    }
 
 -- | The ID of the instance.
 iscInstanceId :: Lens' InstanceStateChange (Maybe Text)
@@ -6850,11 +8044,26 @@ instance FromXML InstanceStateChange where
 -- * 'isInstanceStatus'
 --
 -- * 'isInstanceState'
-data InstanceStatus = InstanceStatus'{_isInstanceId :: Maybe Text, _isSystemStatus :: Maybe InstanceStatusSummary, _isAvailabilityZone :: Maybe Text, _isEvents :: Maybe [InstanceStatusEvent], _isInstanceStatus :: Maybe InstanceStatusSummary, _isInstanceState :: Maybe InstanceState} deriving (Eq, Read, Show)
+data InstanceStatus = InstanceStatus'
+    { _isInstanceId       :: Maybe Text
+    , _isSystemStatus     :: Maybe InstanceStatusSummary
+    , _isAvailabilityZone :: Maybe Text
+    , _isEvents           :: Maybe [InstanceStatusEvent]
+    , _isInstanceStatus   :: Maybe InstanceStatusSummary
+    , _isInstanceState    :: Maybe InstanceState
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceStatus' smart constructor.
 instanceStatus :: InstanceStatus
-instanceStatus = InstanceStatus'{_isInstanceId = Nothing, _isSystemStatus = Nothing, _isAvailabilityZone = Nothing, _isEvents = Nothing, _isInstanceStatus = Nothing, _isInstanceState = Nothing};
+instanceStatus =
+    InstanceStatus'
+    { _isInstanceId = Nothing
+    , _isSystemStatus = Nothing
+    , _isAvailabilityZone = Nothing
+    , _isEvents = Nothing
+    , _isInstanceStatus = Nothing
+    , _isInstanceState = Nothing
+    }
 
 -- | The ID of the instance.
 isInstanceId :: Lens' InstanceStatus (Maybe Text)
@@ -6904,11 +8113,20 @@ instance FromXML InstanceStatus where
 -- * 'isdImpairedSince'
 --
 -- * 'isdName'
-data InstanceStatusDetails = InstanceStatusDetails'{_isdStatus :: Maybe StatusType, _isdImpairedSince :: Maybe ISO8601, _isdName :: Maybe StatusName} deriving (Eq, Read, Show)
+data InstanceStatusDetails = InstanceStatusDetails'
+    { _isdStatus        :: Maybe StatusType
+    , _isdImpairedSince :: Maybe ISO8601
+    , _isdName          :: Maybe StatusName
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceStatusDetails' smart constructor.
 instanceStatusDetails :: InstanceStatusDetails
-instanceStatusDetails = InstanceStatusDetails'{_isdStatus = Nothing, _isdImpairedSince = Nothing, _isdName = Nothing};
+instanceStatusDetails =
+    InstanceStatusDetails'
+    { _isdStatus = Nothing
+    , _isdImpairedSince = Nothing
+    , _isdName = Nothing
+    }
 
 -- | The status.
 isdStatus :: Lens' InstanceStatusDetails (Maybe StatusType)
@@ -6942,11 +8160,22 @@ instance FromXML InstanceStatusDetails where
 -- * 'iseDescription'
 --
 -- * 'iseNotAfter'
-data InstanceStatusEvent = InstanceStatusEvent'{_iseNotBefore :: Maybe ISO8601, _iseCode :: Maybe EventCode, _iseDescription :: Maybe Text, _iseNotAfter :: Maybe ISO8601} deriving (Eq, Read, Show)
+data InstanceStatusEvent = InstanceStatusEvent'
+    { _iseNotBefore   :: Maybe ISO8601
+    , _iseCode        :: Maybe EventCode
+    , _iseDescription :: Maybe Text
+    , _iseNotAfter    :: Maybe ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceStatusEvent' smart constructor.
 instanceStatusEvent :: InstanceStatusEvent
-instanceStatusEvent = InstanceStatusEvent'{_iseNotBefore = Nothing, _iseCode = Nothing, _iseDescription = Nothing, _iseNotAfter = Nothing};
+instanceStatusEvent =
+    InstanceStatusEvent'
+    { _iseNotBefore = Nothing
+    , _iseCode = Nothing
+    , _iseDescription = Nothing
+    , _iseNotAfter = Nothing
+    }
 
 -- | The earliest scheduled start time for the event.
 iseNotBefore :: Lens' InstanceStatusEvent (Maybe UTCTime)
@@ -6984,11 +8213,18 @@ instance FromXML InstanceStatusEvent where
 -- * 'issDetails'
 --
 -- * 'issStatus'
-data InstanceStatusSummary = InstanceStatusSummary'{_issDetails :: Maybe [InstanceStatusDetails], _issStatus :: SummaryStatus} deriving (Eq, Read, Show)
+data InstanceStatusSummary = InstanceStatusSummary'
+    { _issDetails :: Maybe [InstanceStatusDetails]
+    , _issStatus  :: SummaryStatus
+    } deriving (Eq,Read,Show)
 
 -- | 'InstanceStatusSummary' smart constructor.
 instanceStatusSummary :: SummaryStatus -> InstanceStatusSummary
-instanceStatusSummary pStatus = InstanceStatusSummary'{_issDetails = Nothing, _issStatus = pStatus};
+instanceStatusSummary pStatus =
+    InstanceStatusSummary'
+    { _issDetails = Nothing
+    , _issStatus = pStatus
+    }
 
 -- | The system instance health or application instance health.
 issDetails :: Lens' InstanceStatusSummary [InstanceStatusDetails]
@@ -7014,11 +8250,20 @@ instance FromXML InstanceStatusSummary where
 -- * 'igTags'
 --
 -- * 'igInternetGatewayId'
-data InternetGateway = InternetGateway'{_igAttachments :: Maybe [InternetGatewayAttachment], _igTags :: Maybe [Tag], _igInternetGatewayId :: Text} deriving (Eq, Read, Show)
+data InternetGateway = InternetGateway'
+    { _igAttachments       :: Maybe [InternetGatewayAttachment]
+    , _igTags              :: Maybe [Tag]
+    , _igInternetGatewayId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InternetGateway' smart constructor.
 internetGateway :: Text -> InternetGateway
-internetGateway pInternetGatewayId = InternetGateway'{_igAttachments = Nothing, _igTags = Nothing, _igInternetGatewayId = pInternetGatewayId};
+internetGateway pInternetGatewayId =
+    InternetGateway'
+    { _igAttachments = Nothing
+    , _igTags = Nothing
+    , _igInternetGatewayId = pInternetGatewayId
+    }
 
 -- | Any VPCs attached to the Internet gateway.
 igAttachments :: Lens' InternetGateway [InternetGatewayAttachment]
@@ -7048,11 +8293,18 @@ instance FromXML InternetGateway where
 -- * 'igaState'
 --
 -- * 'igaVPCId'
-data InternetGatewayAttachment = InternetGatewayAttachment'{_igaState :: AttachmentStatus, _igaVPCId :: Text} deriving (Eq, Read, Show)
+data InternetGatewayAttachment = InternetGatewayAttachment'
+    { _igaState :: AttachmentStatus
+    , _igaVPCId :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'InternetGatewayAttachment' smart constructor.
 internetGatewayAttachment :: AttachmentStatus -> Text -> InternetGatewayAttachment
-internetGatewayAttachment pState pVPCId = InternetGatewayAttachment'{_igaState = pState, _igaVPCId = pVPCId};
+internetGatewayAttachment pState pVPCId =
+    InternetGatewayAttachment'
+    { _igaState = pState
+    , _igaVPCId = pVPCId
+    }
 
 -- | The current state of the attachment.
 igaState :: Lens' InternetGatewayAttachment AttachmentStatus
@@ -7076,11 +8328,18 @@ instance FromXML InternetGatewayAttachment where
 -- * 'kpiKeyFingerprint'
 --
 -- * 'kpiKeyName'
-data KeyPairInfo = KeyPairInfo'{_kpiKeyFingerprint :: Maybe Text, _kpiKeyName :: Maybe Text} deriving (Eq, Read, Show)
+data KeyPairInfo = KeyPairInfo'
+    { _kpiKeyFingerprint :: Maybe Text
+    , _kpiKeyName        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'KeyPairInfo' smart constructor.
 keyPairInfo :: KeyPairInfo
-keyPairInfo = KeyPairInfo'{_kpiKeyFingerprint = Nothing, _kpiKeyName = Nothing};
+keyPairInfo =
+    KeyPairInfo'
+    { _kpiKeyFingerprint = Nothing
+    , _kpiKeyName = Nothing
+    }
 
 -- | If you used CreateKeyPair to create the key pair, this is the SHA-1
 -- digest of the DER encoded private key. If you used ImportKeyPair to
@@ -7107,11 +8366,18 @@ instance FromXML KeyPairInfo where
 -- * 'lpGroup'
 --
 -- * 'lpUserId'
-data LaunchPermission = LaunchPermission'{_lpGroup :: Maybe PermissionGroup, _lpUserId :: Maybe Text} deriving (Eq, Read, Show)
+data LaunchPermission = LaunchPermission'
+    { _lpGroup  :: Maybe PermissionGroup
+    , _lpUserId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'LaunchPermission' smart constructor.
 launchPermission :: LaunchPermission
-launchPermission = LaunchPermission'{_lpGroup = Nothing, _lpUserId = Nothing};
+launchPermission =
+    LaunchPermission'
+    { _lpGroup = Nothing
+    , _lpUserId = Nothing
+    }
 
 -- | The name of the group.
 lpGroup :: Lens' LaunchPermission (Maybe PermissionGroup)
@@ -7140,11 +8406,18 @@ instance ToQuery LaunchPermission where
 -- * 'lpmRemove'
 --
 -- * 'lpmAdd'
-data LaunchPermissionModifications = LaunchPermissionModifications'{_lpmRemove :: Maybe [LaunchPermission], _lpmAdd :: Maybe [LaunchPermission]} deriving (Eq, Read, Show)
+data LaunchPermissionModifications = LaunchPermissionModifications'
+    { _lpmRemove :: Maybe [LaunchPermission]
+    , _lpmAdd    :: Maybe [LaunchPermission]
+    } deriving (Eq,Read,Show)
 
 -- | 'LaunchPermissionModifications' smart constructor.
 launchPermissionModifications :: LaunchPermissionModifications
-launchPermissionModifications = LaunchPermissionModifications'{_lpmRemove = Nothing, _lpmAdd = Nothing};
+launchPermissionModifications =
+    LaunchPermissionModifications'
+    { _lpmRemove = Nothing
+    , _lpmAdd = Nothing
+    }
 
 -- | The AWS account ID to remove from the list of launch permissions for the
 -- AMI.
@@ -7196,11 +8469,44 @@ instance ToQuery LaunchPermissionModifications where
 -- * 'lsAddressingType'
 --
 -- * 'lsPlacement'
-data LaunchSpecification = LaunchSpecification'{_lsSecurityGroups :: Maybe [GroupIdentifier], _lsNetworkInterfaces :: Maybe [InstanceNetworkInterfaceSpecification], _lsKeyName :: Maybe Text, _lsRAMDiskId :: Maybe Text, _lsKernelId :: Maybe Text, _lsSubnetId :: Maybe Text, _lsInstanceType :: Maybe InstanceType, _lsEBSOptimized :: Maybe Bool, _lsUserData :: Maybe Text, _lsMonitoring :: Maybe RunInstancesMonitoringEnabled, _lsIAMInstanceProfile :: Maybe IAMInstanceProfileSpecification, _lsImageId :: Maybe Text, _lsBlockDeviceMappings :: Maybe [BlockDeviceMapping], _lsAddressingType :: Maybe Text, _lsPlacement :: Maybe SpotPlacement} deriving (Eq, Read, Show)
+data LaunchSpecification = LaunchSpecification'
+    { _lsSecurityGroups      :: Maybe [GroupIdentifier]
+    , _lsNetworkInterfaces   :: Maybe [InstanceNetworkInterfaceSpecification]
+    , _lsKeyName             :: Maybe Text
+    , _lsRAMDiskId           :: Maybe Text
+    , _lsKernelId            :: Maybe Text
+    , _lsSubnetId            :: Maybe Text
+    , _lsInstanceType        :: Maybe InstanceType
+    , _lsEBSOptimized        :: Maybe Bool
+    , _lsUserData            :: Maybe Text
+    , _lsMonitoring          :: Maybe RunInstancesMonitoringEnabled
+    , _lsIAMInstanceProfile  :: Maybe IAMInstanceProfileSpecification
+    , _lsImageId             :: Maybe Text
+    , _lsBlockDeviceMappings :: Maybe [BlockDeviceMapping]
+    , _lsAddressingType      :: Maybe Text
+    , _lsPlacement           :: Maybe SpotPlacement
+    } deriving (Eq,Read,Show)
 
 -- | 'LaunchSpecification' smart constructor.
 launchSpecification :: LaunchSpecification
-launchSpecification = LaunchSpecification'{_lsSecurityGroups = Nothing, _lsNetworkInterfaces = Nothing, _lsKeyName = Nothing, _lsRAMDiskId = Nothing, _lsKernelId = Nothing, _lsSubnetId = Nothing, _lsInstanceType = Nothing, _lsEBSOptimized = Nothing, _lsUserData = Nothing, _lsMonitoring = Nothing, _lsIAMInstanceProfile = Nothing, _lsImageId = Nothing, _lsBlockDeviceMappings = Nothing, _lsAddressingType = Nothing, _lsPlacement = Nothing};
+launchSpecification =
+    LaunchSpecification'
+    { _lsSecurityGroups = Nothing
+    , _lsNetworkInterfaces = Nothing
+    , _lsKeyName = Nothing
+    , _lsRAMDiskId = Nothing
+    , _lsKernelId = Nothing
+    , _lsSubnetId = Nothing
+    , _lsInstanceType = Nothing
+    , _lsEBSOptimized = Nothing
+    , _lsUserData = Nothing
+    , _lsMonitoring = Nothing
+    , _lsIAMInstanceProfile = Nothing
+    , _lsImageId = Nothing
+    , _lsBlockDeviceMappings = Nothing
+    , _lsAddressingType = Nothing
+    , _lsPlacement = Nothing
+    }
 
 -- | One or more security groups. To request an instance in a nondefault VPC,
 -- you must specify the ID of the security group. To request an instance in
@@ -7316,11 +8622,16 @@ instance ToQuery LaunchSpecification where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'monState'
-newtype Monitoring = Monitoring'{_monState :: Maybe MonitoringState} deriving (Eq, Read, Show)
+newtype Monitoring = Monitoring'
+    { _monState :: Maybe MonitoringState
+    } deriving (Eq,Read,Show)
 
 -- | 'Monitoring' smart constructor.
 monitoring :: Monitoring
-monitoring = Monitoring'{_monState = Nothing};
+monitoring =
+    Monitoring'
+    { _monState = Nothing
+    }
 
 -- | Indicates whether monitoring is enabled for the instance.
 monState :: Lens' Monitoring (Maybe MonitoringState)
@@ -7338,11 +8649,18 @@ instance FromXML Monitoring where
 -- * 'masMoveStatus'
 --
 -- * 'masPublicIP'
-data MovingAddressStatus = MovingAddressStatus'{_masMoveStatus :: Maybe MoveStatus, _masPublicIP :: Maybe Text} deriving (Eq, Read, Show)
+data MovingAddressStatus = MovingAddressStatus'
+    { _masMoveStatus :: Maybe MoveStatus
+    , _masPublicIP   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'MovingAddressStatus' smart constructor.
 movingAddressStatus :: MovingAddressStatus
-movingAddressStatus = MovingAddressStatus'{_masMoveStatus = Nothing, _masPublicIP = Nothing};
+movingAddressStatus =
+    MovingAddressStatus'
+    { _masMoveStatus = Nothing
+    , _masPublicIP = Nothing
+    }
 
 -- | The status of the Elastic IP address that\'s being moved to the EC2-VPC
 -- platform, or restored to the EC2-Classic platform.
@@ -7375,11 +8693,26 @@ instance FromXML MovingAddressStatus where
 -- * 'naIsDefault'
 --
 -- * 'naTags'
-data NetworkACL = NetworkACL'{_naEntries :: Maybe [NetworkACLEntry], _naNetworkACLId :: Maybe Text, _naVPCId :: Maybe Text, _naAssociations :: Maybe [NetworkACLAssociation], _naIsDefault :: Maybe Bool, _naTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data NetworkACL = NetworkACL'
+    { _naEntries      :: Maybe [NetworkACLEntry]
+    , _naNetworkACLId :: Maybe Text
+    , _naVPCId        :: Maybe Text
+    , _naAssociations :: Maybe [NetworkACLAssociation]
+    , _naIsDefault    :: Maybe Bool
+    , _naTags         :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'NetworkACL' smart constructor.
 networkACL :: NetworkACL
-networkACL = NetworkACL'{_naEntries = Nothing, _naNetworkACLId = Nothing, _naVPCId = Nothing, _naAssociations = Nothing, _naIsDefault = Nothing, _naTags = Nothing};
+networkACL =
+    NetworkACL'
+    { _naEntries = Nothing
+    , _naNetworkACLId = Nothing
+    , _naVPCId = Nothing
+    , _naAssociations = Nothing
+    , _naIsDefault = Nothing
+    , _naTags = Nothing
+    }
 
 -- | One or more entries (rules) in the network ACL.
 naEntries :: Lens' NetworkACL [NetworkACLEntry]
@@ -7426,11 +8759,20 @@ instance FromXML NetworkACL where
 -- * 'naaSubnetId'
 --
 -- * 'naaNetworkACLAssociationId'
-data NetworkACLAssociation = NetworkACLAssociation'{_naaNetworkACLId :: Maybe Text, _naaSubnetId :: Maybe Text, _naaNetworkACLAssociationId :: Maybe Text} deriving (Eq, Read, Show)
+data NetworkACLAssociation = NetworkACLAssociation'
+    { _naaNetworkACLId            :: Maybe Text
+    , _naaSubnetId                :: Maybe Text
+    , _naaNetworkACLAssociationId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'NetworkACLAssociation' smart constructor.
 networkACLAssociation :: NetworkACLAssociation
-networkACLAssociation = NetworkACLAssociation'{_naaNetworkACLId = Nothing, _naaSubnetId = Nothing, _naaNetworkACLAssociationId = Nothing};
+networkACLAssociation =
+    NetworkACLAssociation'
+    { _naaNetworkACLId = Nothing
+    , _naaSubnetId = Nothing
+    , _naaNetworkACLAssociationId = Nothing
+    }
 
 -- | The ID of the network ACL.
 naaNetworkACLId :: Lens' NetworkACLAssociation (Maybe Text)
@@ -7469,11 +8811,28 @@ instance FromXML NetworkACLAssociation where
 -- * 'naeCIDRBlock'
 --
 -- * 'naeEgress'
-data NetworkACLEntry = NetworkACLEntry'{_naeICMPTypeCode :: Maybe ICMPTypeCode, _naeRuleNumber :: Maybe Int, _naeRuleAction :: Maybe RuleAction, _naeProtocol :: Maybe Text, _naePortRange :: Maybe PortRange, _naeCIDRBlock :: Maybe Text, _naeEgress :: Maybe Bool} deriving (Eq, Read, Show)
+data NetworkACLEntry = NetworkACLEntry'
+    { _naeICMPTypeCode :: Maybe ICMPTypeCode
+    , _naeRuleNumber   :: Maybe Int
+    , _naeRuleAction   :: Maybe RuleAction
+    , _naeProtocol     :: Maybe Text
+    , _naePortRange    :: Maybe PortRange
+    , _naeCIDRBlock    :: Maybe Text
+    , _naeEgress       :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'NetworkACLEntry' smart constructor.
 networkACLEntry :: NetworkACLEntry
-networkACLEntry = NetworkACLEntry'{_naeICMPTypeCode = Nothing, _naeRuleNumber = Nothing, _naeRuleAction = Nothing, _naeProtocol = Nothing, _naePortRange = Nothing, _naeCIDRBlock = Nothing, _naeEgress = Nothing};
+networkACLEntry =
+    NetworkACLEntry'
+    { _naeICMPTypeCode = Nothing
+    , _naeRuleNumber = Nothing
+    , _naeRuleAction = Nothing
+    , _naeProtocol = Nothing
+    , _naePortRange = Nothing
+    , _naeCIDRBlock = Nothing
+    , _naeEgress = Nothing
+    }
 
 -- | ICMP protocol: The ICMP type and code.
 naeICMPTypeCode :: Lens' NetworkACLEntry (Maybe ICMPTypeCode)
@@ -7556,11 +8915,50 @@ instance FromXML NetworkACLEntry where
 -- * 'niDescription'
 --
 -- * 'niAssociation'
-data NetworkInterface = NetworkInterface'{_niPrivateIPAddresses :: Maybe [NetworkInterfacePrivateIPAddress], _niStatus :: Maybe NetworkInterfaceStatus, _niGroups :: Maybe [GroupIdentifier], _niSourceDestCheck :: Maybe Bool, _niTagSet :: Maybe [Tag], _niVPCId :: Maybe Text, _niRequesterManaged :: Maybe Bool, _niNetworkInterfaceId :: Maybe Text, _niSubnetId :: Maybe Text, _niAttachment :: Maybe NetworkInterfaceAttachment, _niMACAddress :: Maybe Text, _niOwnerId :: Maybe Text, _niAvailabilityZone :: Maybe Text, _niPrivateIPAddress :: Maybe Text, _niPrivateDNSName :: Maybe Text, _niRequesterId :: Maybe Text, _niDescription :: Maybe Text, _niAssociation :: Maybe NetworkInterfaceAssociation} deriving (Eq, Read, Show)
+data NetworkInterface = NetworkInterface'
+    { _niPrivateIPAddresses :: Maybe [NetworkInterfacePrivateIPAddress]
+    , _niStatus             :: Maybe NetworkInterfaceStatus
+    , _niGroups             :: Maybe [GroupIdentifier]
+    , _niSourceDestCheck    :: Maybe Bool
+    , _niTagSet             :: Maybe [Tag]
+    , _niVPCId              :: Maybe Text
+    , _niRequesterManaged   :: Maybe Bool
+    , _niNetworkInterfaceId :: Maybe Text
+    , _niSubnetId           :: Maybe Text
+    , _niAttachment         :: Maybe NetworkInterfaceAttachment
+    , _niMACAddress         :: Maybe Text
+    , _niOwnerId            :: Maybe Text
+    , _niAvailabilityZone   :: Maybe Text
+    , _niPrivateIPAddress   :: Maybe Text
+    , _niPrivateDNSName     :: Maybe Text
+    , _niRequesterId        :: Maybe Text
+    , _niDescription        :: Maybe Text
+    , _niAssociation        :: Maybe NetworkInterfaceAssociation
+    } deriving (Eq,Read,Show)
 
 -- | 'NetworkInterface' smart constructor.
 networkInterface :: NetworkInterface
-networkInterface = NetworkInterface'{_niPrivateIPAddresses = Nothing, _niStatus = Nothing, _niGroups = Nothing, _niSourceDestCheck = Nothing, _niTagSet = Nothing, _niVPCId = Nothing, _niRequesterManaged = Nothing, _niNetworkInterfaceId = Nothing, _niSubnetId = Nothing, _niAttachment = Nothing, _niMACAddress = Nothing, _niOwnerId = Nothing, _niAvailabilityZone = Nothing, _niPrivateIPAddress = Nothing, _niPrivateDNSName = Nothing, _niRequesterId = Nothing, _niDescription = Nothing, _niAssociation = Nothing};
+networkInterface =
+    NetworkInterface'
+    { _niPrivateIPAddresses = Nothing
+    , _niStatus = Nothing
+    , _niGroups = Nothing
+    , _niSourceDestCheck = Nothing
+    , _niTagSet = Nothing
+    , _niVPCId = Nothing
+    , _niRequesterManaged = Nothing
+    , _niNetworkInterfaceId = Nothing
+    , _niSubnetId = Nothing
+    , _niAttachment = Nothing
+    , _niMACAddress = Nothing
+    , _niOwnerId = Nothing
+    , _niAvailabilityZone = Nothing
+    , _niPrivateIPAddress = Nothing
+    , _niPrivateDNSName = Nothing
+    , _niRequesterId = Nothing
+    , _niDescription = Nothing
+    , _niAssociation = Nothing
+    }
 
 -- | The private IP addresses associated with the network interface.
 niPrivateIPAddresses :: Lens' NetworkInterface [NetworkInterfacePrivateIPAddress]
@@ -7672,11 +9070,24 @@ instance FromXML NetworkInterface where
 -- * 'niaIPOwnerId'
 --
 -- * 'niaPublicIP'
-data NetworkInterfaceAssociation = NetworkInterfaceAssociation'{_niaAssociationId :: Maybe Text, _niaPublicDNSName :: Maybe Text, _niaAllocationId :: Maybe Text, _niaIPOwnerId :: Maybe Text, _niaPublicIP :: Maybe Text} deriving (Eq, Read, Show)
+data NetworkInterfaceAssociation = NetworkInterfaceAssociation'
+    { _niaAssociationId :: Maybe Text
+    , _niaPublicDNSName :: Maybe Text
+    , _niaAllocationId  :: Maybe Text
+    , _niaIPOwnerId     :: Maybe Text
+    , _niaPublicIP      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'NetworkInterfaceAssociation' smart constructor.
 networkInterfaceAssociation :: NetworkInterfaceAssociation
-networkInterfaceAssociation = NetworkInterfaceAssociation'{_niaAssociationId = Nothing, _niaPublicDNSName = Nothing, _niaAllocationId = Nothing, _niaIPOwnerId = Nothing, _niaPublicIP = Nothing};
+networkInterfaceAssociation =
+    NetworkInterfaceAssociation'
+    { _niaAssociationId = Nothing
+    , _niaPublicDNSName = Nothing
+    , _niaAllocationId = Nothing
+    , _niaIPOwnerId = Nothing
+    , _niaPublicIP = Nothing
+    }
 
 -- | The association ID.
 niaAssociationId :: Lens' NetworkInterfaceAssociation (Maybe Text)
@@ -7725,11 +9136,28 @@ instance FromXML NetworkInterfaceAssociation where
 -- * 'niaAttachTime'
 --
 -- * 'niaDeviceIndex'
-data NetworkInterfaceAttachment = NetworkInterfaceAttachment'{_niaInstanceId :: Maybe Text, _niaDeleteOnTermination :: Maybe Bool, _niaStatus :: Maybe AttachmentStatus, _niaAttachmentId :: Maybe Text, _niaInstanceOwnerId :: Maybe Text, _niaAttachTime :: Maybe ISO8601, _niaDeviceIndex :: Maybe Int} deriving (Eq, Read, Show)
+data NetworkInterfaceAttachment = NetworkInterfaceAttachment'
+    { _niaInstanceId          :: Maybe Text
+    , _niaDeleteOnTermination :: Maybe Bool
+    , _niaStatus              :: Maybe AttachmentStatus
+    , _niaAttachmentId        :: Maybe Text
+    , _niaInstanceOwnerId     :: Maybe Text
+    , _niaAttachTime          :: Maybe ISO8601
+    , _niaDeviceIndex         :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'NetworkInterfaceAttachment' smart constructor.
 networkInterfaceAttachment :: NetworkInterfaceAttachment
-networkInterfaceAttachment = NetworkInterfaceAttachment'{_niaInstanceId = Nothing, _niaDeleteOnTermination = Nothing, _niaStatus = Nothing, _niaAttachmentId = Nothing, _niaInstanceOwnerId = Nothing, _niaAttachTime = Nothing, _niaDeviceIndex = Nothing};
+networkInterfaceAttachment =
+    NetworkInterfaceAttachment'
+    { _niaInstanceId = Nothing
+    , _niaDeleteOnTermination = Nothing
+    , _niaStatus = Nothing
+    , _niaAttachmentId = Nothing
+    , _niaInstanceOwnerId = Nothing
+    , _niaAttachTime = Nothing
+    , _niaDeviceIndex = Nothing
+    }
 
 -- | The ID of the instance.
 niaInstanceId :: Lens' NetworkInterfaceAttachment (Maybe Text)
@@ -7780,11 +9208,18 @@ instance FromXML NetworkInterfaceAttachment where
 -- * 'niacDeleteOnTermination'
 --
 -- * 'niacAttachmentId'
-data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges'{_niacDeleteOnTermination :: Maybe Bool, _niacAttachmentId :: Maybe Text} deriving (Eq, Read, Show)
+data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges'
+    { _niacDeleteOnTermination :: Maybe Bool
+    , _niacAttachmentId        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'NetworkInterfaceAttachmentChanges' smart constructor.
 networkInterfaceAttachmentChanges :: NetworkInterfaceAttachmentChanges
-networkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges'{_niacDeleteOnTermination = Nothing, _niacAttachmentId = Nothing};
+networkInterfaceAttachmentChanges =
+    NetworkInterfaceAttachmentChanges'
+    { _niacDeleteOnTermination = Nothing
+    , _niacAttachmentId = Nothing
+    }
 
 -- | Indicates whether the network interface is deleted when the instance is
 -- terminated.
@@ -7815,11 +9250,22 @@ instance ToQuery NetworkInterfaceAttachmentChanges
 -- * 'nipiaPrivateDNSName'
 --
 -- * 'nipiaAssociation'
-data NetworkInterfacePrivateIPAddress = NetworkInterfacePrivateIPAddress'{_nipiaPrimary :: Maybe Bool, _nipiaPrivateIPAddress :: Maybe Text, _nipiaPrivateDNSName :: Maybe Text, _nipiaAssociation :: Maybe NetworkInterfaceAssociation} deriving (Eq, Read, Show)
+data NetworkInterfacePrivateIPAddress = NetworkInterfacePrivateIPAddress'
+    { _nipiaPrimary          :: Maybe Bool
+    , _nipiaPrivateIPAddress :: Maybe Text
+    , _nipiaPrivateDNSName   :: Maybe Text
+    , _nipiaAssociation      :: Maybe NetworkInterfaceAssociation
+    } deriving (Eq,Read,Show)
 
 -- | 'NetworkInterfacePrivateIPAddress' smart constructor.
 networkInterfacePrivateIPAddress :: NetworkInterfacePrivateIPAddress
-networkInterfacePrivateIPAddress = NetworkInterfacePrivateIPAddress'{_nipiaPrimary = Nothing, _nipiaPrivateIPAddress = Nothing, _nipiaPrivateDNSName = Nothing, _nipiaAssociation = Nothing};
+networkInterfacePrivateIPAddress =
+    NetworkInterfacePrivateIPAddress'
+    { _nipiaPrimary = Nothing
+    , _nipiaPrivateIPAddress = Nothing
+    , _nipiaPrivateDNSName = Nothing
+    , _nipiaAssociation = Nothing
+    }
 
 -- | Indicates whether this IP address is the primary private IP address of
 -- the network interface.
@@ -7854,11 +9300,18 @@ instance FromXML NetworkInterfacePrivateIPAddress
 -- * 'ndcValues'
 --
 -- * 'ndcKey'
-data NewDHCPConfiguration = NewDHCPConfiguration'{_ndcValues :: Maybe [Text], _ndcKey :: Maybe Text} deriving (Eq, Read, Show)
+data NewDHCPConfiguration = NewDHCPConfiguration'
+    { _ndcValues :: Maybe [Text]
+    , _ndcKey    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'NewDHCPConfiguration' smart constructor.
 newDHCPConfiguration :: NewDHCPConfiguration
-newDHCPConfiguration = NewDHCPConfiguration'{_ndcValues = Nothing, _ndcKey = Nothing};
+newDHCPConfiguration =
+    NewDHCPConfiguration'
+    { _ndcValues = Nothing
+    , _ndcKey = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 ndcValues :: Lens' NewDHCPConfiguration [Text]
@@ -7885,11 +9338,20 @@ instance ToQuery NewDHCPConfiguration where
 -- * 'plaTenancy'
 --
 -- * 'plaGroupName'
-data Placement = Placement'{_plaAvailabilityZone :: Maybe Text, _plaTenancy :: Maybe Tenancy, _plaGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data Placement = Placement'
+    { _plaAvailabilityZone :: Maybe Text
+    , _plaTenancy          :: Maybe Tenancy
+    , _plaGroupName        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Placement' smart constructor.
 placement :: Placement
-placement = Placement'{_plaAvailabilityZone = Nothing, _plaTenancy = Nothing, _plaGroupName = Nothing};
+placement =
+    Placement'
+    { _plaAvailabilityZone = Nothing
+    , _plaTenancy = Nothing
+    , _plaGroupName = Nothing
+    }
 
 -- | The Availability Zone of the instance.
 plaAvailabilityZone :: Lens' Placement (Maybe Text)
@@ -7929,11 +9391,20 @@ instance ToQuery Placement where
 -- * 'pgStrategy'
 --
 -- * 'pgGroupName'
-data PlacementGroup = PlacementGroup'{_pgState :: Maybe PlacementGroupState, _pgStrategy :: Maybe PlacementStrategy, _pgGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data PlacementGroup = PlacementGroup'
+    { _pgState     :: Maybe PlacementGroupState
+    , _pgStrategy  :: Maybe PlacementStrategy
+    , _pgGroupName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PlacementGroup' smart constructor.
 placementGroup :: PlacementGroup
-placementGroup = PlacementGroup'{_pgState = Nothing, _pgStrategy = Nothing, _pgGroupName = Nothing};
+placementGroup =
+    PlacementGroup'
+    { _pgState = Nothing
+    , _pgStrategy = Nothing
+    , _pgGroupName = Nothing
+    }
 
 -- | The state of the placement group.
 pgState :: Lens' PlacementGroup (Maybe PlacementGroupState)
@@ -7962,11 +9433,18 @@ instance FromXML PlacementGroup where
 -- * 'prTo'
 --
 -- * 'prFrom'
-data PortRange = PortRange'{_prTo :: Maybe Int, _prFrom :: Maybe Int} deriving (Eq, Read, Show)
+data PortRange = PortRange'
+    { _prTo   :: Maybe Int
+    , _prFrom :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PortRange' smart constructor.
 portRange :: PortRange
-portRange = PortRange'{_prTo = Nothing, _prFrom = Nothing};
+portRange =
+    PortRange'
+    { _prTo = Nothing
+    , _prFrom = Nothing
+    }
 
 -- | The last port in the range.
 prTo :: Lens' PortRange (Maybe Int)
@@ -7995,11 +9473,20 @@ instance ToQuery PortRange where
 -- * 'plPrefixListId'
 --
 -- * 'plPrefixListName'
-data PrefixList = PrefixList'{_plCIDRs :: Maybe [Text], _plPrefixListId :: Maybe Text, _plPrefixListName :: Maybe Text} deriving (Eq, Read, Show)
+data PrefixList = PrefixList'
+    { _plCIDRs          :: Maybe [Text]
+    , _plPrefixListId   :: Maybe Text
+    , _plPrefixListName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PrefixList' smart constructor.
 prefixList :: PrefixList
-prefixList = PrefixList'{_plCIDRs = Nothing, _plPrefixListId = Nothing, _plPrefixListName = Nothing};
+prefixList =
+    PrefixList'
+    { _plCIDRs = Nothing
+    , _plPrefixListId = Nothing
+    , _plPrefixListName = Nothing
+    }
 
 -- | The IP address range of the AWS service.
 plCIDRs :: Lens' PrefixList [Text]
@@ -8027,11 +9514,16 @@ instance FromXML PrefixList where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'pliPrefixListId'
-newtype PrefixListId = PrefixListId'{_pliPrefixListId :: Maybe Text} deriving (Eq, Read, Show)
+newtype PrefixListId = PrefixListId'
+    { _pliPrefixListId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PrefixListId' smart constructor.
 prefixListId :: PrefixListId
-prefixListId = PrefixListId'{_pliPrefixListId = Nothing};
+prefixListId =
+    PrefixListId'
+    { _pliPrefixListId = Nothing
+    }
 
 -- | The ID of the prefix.
 pliPrefixListId :: Lens' PrefixListId (Maybe Text)
@@ -8057,11 +9549,22 @@ instance ToQuery PrefixListId where
 -- * 'psActive'
 --
 -- * 'psPrice'
-data PriceSchedule = PriceSchedule'{_psCurrencyCode :: Maybe CurrencyCodeValues, _psTerm :: Maybe Integer, _psActive :: Maybe Bool, _psPrice :: Maybe Double} deriving (Eq, Read, Show)
+data PriceSchedule = PriceSchedule'
+    { _psCurrencyCode :: Maybe CurrencyCodeValues
+    , _psTerm         :: Maybe Integer
+    , _psActive       :: Maybe Bool
+    , _psPrice        :: Maybe Double
+    } deriving (Eq,Read,Show)
 
 -- | 'PriceSchedule' smart constructor.
 priceSchedule :: PriceSchedule
-priceSchedule = PriceSchedule'{_psCurrencyCode = Nothing, _psTerm = Nothing, _psActive = Nothing, _psPrice = Nothing};
+priceSchedule =
+    PriceSchedule'
+    { _psCurrencyCode = Nothing
+    , _psTerm = Nothing
+    , _psActive = Nothing
+    , _psPrice = Nothing
+    }
 
 -- | The currency for transacting the Reserved Instance resale. At this time,
 -- the only supported currency is @USD@.
@@ -8108,11 +9611,20 @@ instance FromXML PriceSchedule where
 -- * 'pssTerm'
 --
 -- * 'pssPrice'
-data PriceScheduleSpecification = PriceScheduleSpecification'{_pssCurrencyCode :: Maybe CurrencyCodeValues, _pssTerm :: Maybe Integer, _pssPrice :: Maybe Double} deriving (Eq, Read, Show)
+data PriceScheduleSpecification = PriceScheduleSpecification'
+    { _pssCurrencyCode :: Maybe CurrencyCodeValues
+    , _pssTerm         :: Maybe Integer
+    , _pssPrice        :: Maybe Double
+    } deriving (Eq,Read,Show)
 
 -- | 'PriceScheduleSpecification' smart constructor.
 priceScheduleSpecification :: PriceScheduleSpecification
-priceScheduleSpecification = PriceScheduleSpecification'{_pssCurrencyCode = Nothing, _pssTerm = Nothing, _pssPrice = Nothing};
+priceScheduleSpecification =
+    PriceScheduleSpecification'
+    { _pssCurrencyCode = Nothing
+    , _pssTerm = Nothing
+    , _pssPrice = Nothing
+    }
 
 -- | The currency for transacting the Reserved Instance resale. At this time,
 -- the only supported currency is @USD@.
@@ -8143,11 +9655,18 @@ instance ToQuery PriceScheduleSpecification where
 -- * 'pdCount'
 --
 -- * 'pdPrice'
-data PricingDetail = PricingDetail'{_pdCount :: Maybe Int, _pdPrice :: Maybe Double} deriving (Eq, Read, Show)
+data PricingDetail = PricingDetail'
+    { _pdCount :: Maybe Int
+    , _pdPrice :: Maybe Double
+    } deriving (Eq,Read,Show)
 
 -- | 'PricingDetail' smart constructor.
 pricingDetail :: PricingDetail
-pricingDetail = PricingDetail'{_pdCount = Nothing, _pdPrice = Nothing};
+pricingDetail =
+    PricingDetail'
+    { _pdCount = Nothing
+    , _pdPrice = Nothing
+    }
 
 -- | The number of instances available for the price.
 pdCount :: Lens' PricingDetail (Maybe Int)
@@ -8171,11 +9690,18 @@ instance FromXML PricingDetail where
 -- * 'piasPrimary'
 --
 -- * 'piasPrivateIPAddress'
-data PrivateIPAddressSpecification = PrivateIPAddressSpecification'{_piasPrimary :: Maybe Bool, _piasPrivateIPAddress :: Text} deriving (Eq, Read, Show)
+data PrivateIPAddressSpecification = PrivateIPAddressSpecification'
+    { _piasPrimary          :: Maybe Bool
+    , _piasPrivateIPAddress :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PrivateIPAddressSpecification' smart constructor.
 privateIPAddressSpecification :: Text -> PrivateIPAddressSpecification
-privateIPAddressSpecification pPrivateIPAddress = PrivateIPAddressSpecification'{_piasPrimary = Nothing, _piasPrivateIPAddress = pPrivateIPAddress};
+privateIPAddressSpecification pPrivateIPAddress =
+    PrivateIPAddressSpecification'
+    { _piasPrimary = Nothing
+    , _piasPrivateIPAddress = pPrivateIPAddress
+    }
 
 -- | Indicates whether the private IP address is the primary private IP
 -- address. Only one IP address can be designated as primary.
@@ -8206,11 +9732,18 @@ instance ToQuery PrivateIPAddressSpecification where
 -- * 'pcProductCodeType'
 --
 -- * 'pcProductCodeId'
-data ProductCode = ProductCode'{_pcProductCodeType :: Maybe ProductCodeValues, _pcProductCodeId :: Maybe Text} deriving (Eq, Read, Show)
+data ProductCode = ProductCode'
+    { _pcProductCodeType :: Maybe ProductCodeValues
+    , _pcProductCodeId   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ProductCode' smart constructor.
 productCode :: ProductCode
-productCode = ProductCode'{_pcProductCodeType = Nothing, _pcProductCodeId = Nothing};
+productCode =
+    ProductCode'
+    { _pcProductCodeType = Nothing
+    , _pcProductCodeId = Nothing
+    }
 
 -- | The type of product code.
 pcProductCodeType :: Lens' ProductCode (Maybe ProductCodeValues)
@@ -8232,11 +9765,16 @@ instance FromXML ProductCode where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'pvGatewayId'
-newtype PropagatingVGW = PropagatingVGW'{_pvGatewayId :: Maybe Text} deriving (Eq, Read, Show)
+newtype PropagatingVGW = PropagatingVGW'
+    { _pvGatewayId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'PropagatingVGW' smart constructor.
 propagatingVGW :: PropagatingVGW
-propagatingVGW = PropagatingVGW'{_pvGatewayId = Nothing};
+propagatingVGW =
+    PropagatingVGW'
+    { _pvGatewayId = Nothing
+    }
 
 -- | The ID of the virtual private gateway (VGW).
 pvGatewayId :: Lens' PropagatingVGW (Maybe Text)
@@ -8254,11 +9792,18 @@ instance FromXML PropagatingVGW where
 -- * 'rcFrequency'
 --
 -- * 'rcAmount'
-data RecurringCharge = RecurringCharge'{_rcFrequency :: Maybe RecurringChargeFrequency, _rcAmount :: Maybe Double} deriving (Eq, Read, Show)
+data RecurringCharge = RecurringCharge'
+    { _rcFrequency :: Maybe RecurringChargeFrequency
+    , _rcAmount    :: Maybe Double
+    } deriving (Eq,Read,Show)
 
 -- | 'RecurringCharge' smart constructor.
 recurringCharge :: RecurringCharge
-recurringCharge = RecurringCharge'{_rcFrequency = Nothing, _rcAmount = Nothing};
+recurringCharge =
+    RecurringCharge'
+    { _rcFrequency = Nothing
+    , _rcAmount = Nothing
+    }
 
 -- | The frequency of the recurring charge.
 rcFrequency :: Lens' RecurringCharge (Maybe RecurringChargeFrequency)
@@ -8282,11 +9827,18 @@ instance FromXML RecurringCharge where
 -- * 'riRegionName'
 --
 -- * 'riEndpoint'
-data RegionInfo = RegionInfo'{_riRegionName :: Maybe Text, _riEndpoint :: Maybe Text} deriving (Eq, Read, Show)
+data RegionInfo = RegionInfo'
+    { _riRegionName :: Maybe Text
+    , _riEndpoint   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RegionInfo' smart constructor.
 regionInfo :: RegionInfo
-regionInfo = RegionInfo'{_riRegionName = Nothing, _riEndpoint = Nothing};
+regionInfo =
+    RegionInfo'
+    { _riRegionName = Nothing
+    , _riEndpoint = Nothing
+    }
 
 -- | The name of the region.
 riRegionName :: Lens' RegionInfo (Maybe Text)
@@ -8338,11 +9890,46 @@ instance FromXML RegionInfo where
 -- * 'rslsAddressingType'
 --
 -- * 'rslsPlacement'
-data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'{_rslsSecurityGroupIds :: Maybe [Text], _rslsSecurityGroups :: Maybe [Text], _rslsNetworkInterfaces :: Maybe [InstanceNetworkInterfaceSpecification], _rslsKeyName :: Maybe Text, _rslsRAMDiskId :: Maybe Text, _rslsKernelId :: Maybe Text, _rslsSubnetId :: Maybe Text, _rslsInstanceType :: Maybe InstanceType, _rslsEBSOptimized :: Maybe Bool, _rslsUserData :: Maybe Text, _rslsMonitoring :: Maybe RunInstancesMonitoringEnabled, _rslsIAMInstanceProfile :: Maybe IAMInstanceProfileSpecification, _rslsImageId :: Maybe Text, _rslsBlockDeviceMappings :: Maybe [BlockDeviceMapping], _rslsAddressingType :: Maybe Text, _rslsPlacement :: Maybe SpotPlacement} deriving (Eq, Read, Show)
+data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
+    { _rslsSecurityGroupIds    :: Maybe [Text]
+    , _rslsSecurityGroups      :: Maybe [Text]
+    , _rslsNetworkInterfaces   :: Maybe [InstanceNetworkInterfaceSpecification]
+    , _rslsKeyName             :: Maybe Text
+    , _rslsRAMDiskId           :: Maybe Text
+    , _rslsKernelId            :: Maybe Text
+    , _rslsSubnetId            :: Maybe Text
+    , _rslsInstanceType        :: Maybe InstanceType
+    , _rslsEBSOptimized        :: Maybe Bool
+    , _rslsUserData            :: Maybe Text
+    , _rslsMonitoring          :: Maybe RunInstancesMonitoringEnabled
+    , _rslsIAMInstanceProfile  :: Maybe IAMInstanceProfileSpecification
+    , _rslsImageId             :: Maybe Text
+    , _rslsBlockDeviceMappings :: Maybe [BlockDeviceMapping]
+    , _rslsAddressingType      :: Maybe Text
+    , _rslsPlacement           :: Maybe SpotPlacement
+    } deriving (Eq,Read,Show)
 
 -- | 'RequestSpotLaunchSpecification' smart constructor.
 requestSpotLaunchSpecification :: RequestSpotLaunchSpecification
-requestSpotLaunchSpecification = RequestSpotLaunchSpecification'{_rslsSecurityGroupIds = Nothing, _rslsSecurityGroups = Nothing, _rslsNetworkInterfaces = Nothing, _rslsKeyName = Nothing, _rslsRAMDiskId = Nothing, _rslsKernelId = Nothing, _rslsSubnetId = Nothing, _rslsInstanceType = Nothing, _rslsEBSOptimized = Nothing, _rslsUserData = Nothing, _rslsMonitoring = Nothing, _rslsIAMInstanceProfile = Nothing, _rslsImageId = Nothing, _rslsBlockDeviceMappings = Nothing, _rslsAddressingType = Nothing, _rslsPlacement = Nothing};
+requestSpotLaunchSpecification =
+    RequestSpotLaunchSpecification'
+    { _rslsSecurityGroupIds = Nothing
+    , _rslsSecurityGroups = Nothing
+    , _rslsNetworkInterfaces = Nothing
+    , _rslsKeyName = Nothing
+    , _rslsRAMDiskId = Nothing
+    , _rslsKernelId = Nothing
+    , _rslsSubnetId = Nothing
+    , _rslsInstanceType = Nothing
+    , _rslsEBSOptimized = Nothing
+    , _rslsUserData = Nothing
+    , _rslsMonitoring = Nothing
+    , _rslsIAMInstanceProfile = Nothing
+    , _rslsImageId = Nothing
+    , _rslsBlockDeviceMappings = Nothing
+    , _rslsAddressingType = Nothing
+    , _rslsPlacement = Nothing
+    }
 
 -- | FIXME: Undocumented member.
 rslsSecurityGroupIds :: Lens' RequestSpotLaunchSpecification [Text]
@@ -8452,11 +10039,24 @@ instance ToQuery RequestSpotLaunchSpecification where
 -- * 'resReservationId'
 --
 -- * 'resOwnerId'
-data Reservation = Reservation'{_resGroups :: Maybe [GroupIdentifier], _resInstances :: Maybe [Instance], _resRequesterId :: Maybe Text, _resReservationId :: Text, _resOwnerId :: Text} deriving (Eq, Read, Show)
+data Reservation = Reservation'
+    { _resGroups        :: Maybe [GroupIdentifier]
+    , _resInstances     :: Maybe [Instance]
+    , _resRequesterId   :: Maybe Text
+    , _resReservationId :: Text
+    , _resOwnerId       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Reservation' smart constructor.
 reservation :: Text -> Text -> Reservation
-reservation pReservationId pOwnerId = Reservation'{_resGroups = Nothing, _resInstances = Nothing, _resRequesterId = Nothing, _resReservationId = pReservationId, _resOwnerId = pOwnerId};
+reservation pReservationId pOwnerId =
+    Reservation'
+    { _resGroups = Nothing
+    , _resInstances = Nothing
+    , _resRequesterId = Nothing
+    , _resReservationId = pReservationId
+    , _resOwnerId = pOwnerId
+    }
 
 -- | One or more security groups.
 resGroups :: Lens' Reservation [GroupIdentifier]
@@ -8497,11 +10097,18 @@ instance FromXML Reservation where
 -- * 'rilpAmount'
 --
 -- * 'rilpCurrencyCode'
-data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice'{_rilpAmount :: Maybe Double, _rilpCurrencyCode :: Maybe CurrencyCodeValues} deriving (Eq, Read, Show)
+data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice'
+    { _rilpAmount       :: Maybe Double
+    , _rilpCurrencyCode :: Maybe CurrencyCodeValues
+    } deriving (Eq,Read,Show)
 
 -- | 'ReservedInstanceLimitPrice' smart constructor.
 reservedInstanceLimitPrice :: ReservedInstanceLimitPrice
-reservedInstanceLimitPrice = ReservedInstanceLimitPrice'{_rilpAmount = Nothing, _rilpCurrencyCode = Nothing};
+reservedInstanceLimitPrice =
+    ReservedInstanceLimitPrice'
+    { _rilpAmount = Nothing
+    , _rilpCurrencyCode = Nothing
+    }
 
 -- | Used for Reserved Instance Marketplace offerings. Specifies the limit
 -- price on the total order (instanceCount * price).
@@ -8556,11 +10163,46 @@ instance ToQuery ReservedInstanceLimitPrice where
 -- * 'riDuration'
 --
 -- * 'riTags'
-data ReservedInstances = ReservedInstances'{_riState :: Maybe ReservedInstanceState, _riCurrencyCode :: Maybe CurrencyCodeValues, _riInstanceCount :: Maybe Int, _riProductDescription :: Maybe RIProductDescription, _riStart :: Maybe ISO8601, _riInstanceType :: Maybe InstanceType, _riAvailabilityZone :: Maybe Text, _riEnd :: Maybe ISO8601, _riOfferingType :: Maybe OfferingTypeValues, _riUsagePrice :: Maybe Double, _riRecurringCharges :: Maybe [RecurringCharge], _riInstanceTenancy :: Maybe Tenancy, _riFixedPrice :: Maybe Double, _riReservedInstancesId :: Maybe Text, _riDuration :: Maybe Integer, _riTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data ReservedInstances = ReservedInstances'
+    { _riState               :: Maybe ReservedInstanceState
+    , _riCurrencyCode        :: Maybe CurrencyCodeValues
+    , _riInstanceCount       :: Maybe Int
+    , _riProductDescription  :: Maybe RIProductDescription
+    , _riStart               :: Maybe ISO8601
+    , _riInstanceType        :: Maybe InstanceType
+    , _riAvailabilityZone    :: Maybe Text
+    , _riEnd                 :: Maybe ISO8601
+    , _riOfferingType        :: Maybe OfferingTypeValues
+    , _riUsagePrice          :: Maybe Double
+    , _riRecurringCharges    :: Maybe [RecurringCharge]
+    , _riInstanceTenancy     :: Maybe Tenancy
+    , _riFixedPrice          :: Maybe Double
+    , _riReservedInstancesId :: Maybe Text
+    , _riDuration            :: Maybe Integer
+    , _riTags                :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'ReservedInstances' smart constructor.
 reservedInstances :: ReservedInstances
-reservedInstances = ReservedInstances'{_riState = Nothing, _riCurrencyCode = Nothing, _riInstanceCount = Nothing, _riProductDescription = Nothing, _riStart = Nothing, _riInstanceType = Nothing, _riAvailabilityZone = Nothing, _riEnd = Nothing, _riOfferingType = Nothing, _riUsagePrice = Nothing, _riRecurringCharges = Nothing, _riInstanceTenancy = Nothing, _riFixedPrice = Nothing, _riReservedInstancesId = Nothing, _riDuration = Nothing, _riTags = Nothing};
+reservedInstances =
+    ReservedInstances'
+    { _riState = Nothing
+    , _riCurrencyCode = Nothing
+    , _riInstanceCount = Nothing
+    , _riProductDescription = Nothing
+    , _riStart = Nothing
+    , _riInstanceType = Nothing
+    , _riAvailabilityZone = Nothing
+    , _riEnd = Nothing
+    , _riOfferingType = Nothing
+    , _riUsagePrice = Nothing
+    , _riRecurringCharges = Nothing
+    , _riInstanceTenancy = Nothing
+    , _riFixedPrice = Nothing
+    , _riReservedInstancesId = Nothing
+    , _riDuration = Nothing
+    , _riTags = Nothing
+    }
 
 -- | The state of the Reserved Instance purchase.
 riState :: Lens' ReservedInstances (Maybe ReservedInstanceState)
@@ -8661,11 +10303,22 @@ instance FromXML ReservedInstances where
 -- * 'ricInstanceType'
 --
 -- * 'ricAvailabilityZone'
-data ReservedInstancesConfiguration = ReservedInstancesConfiguration'{_ricPlatform :: Maybe Text, _ricInstanceCount :: Maybe Int, _ricInstanceType :: Maybe InstanceType, _ricAvailabilityZone :: Maybe Text} deriving (Eq, Read, Show)
+data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
+    { _ricPlatform         :: Maybe Text
+    , _ricInstanceCount    :: Maybe Int
+    , _ricInstanceType     :: Maybe InstanceType
+    , _ricAvailabilityZone :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReservedInstancesConfiguration' smart constructor.
 reservedInstancesConfiguration :: ReservedInstancesConfiguration
-reservedInstancesConfiguration = ReservedInstancesConfiguration'{_ricPlatform = Nothing, _ricInstanceCount = Nothing, _ricInstanceType = Nothing, _ricAvailabilityZone = Nothing};
+reservedInstancesConfiguration =
+    ReservedInstancesConfiguration'
+    { _ricPlatform = Nothing
+    , _ricInstanceCount = Nothing
+    , _ricInstanceType = Nothing
+    , _ricAvailabilityZone = Nothing
+    }
 
 -- | The network platform of the modified Reserved Instances, which is either
 -- EC2-Classic or EC2-VPC.
@@ -8706,11 +10359,16 @@ instance ToQuery ReservedInstancesConfiguration where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'riiReservedInstancesId'
-newtype ReservedInstancesId = ReservedInstancesId'{_riiReservedInstancesId :: Maybe Text} deriving (Eq, Read, Show)
+newtype ReservedInstancesId = ReservedInstancesId'
+    { _riiReservedInstancesId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ReservedInstancesId' smart constructor.
 reservedInstancesId :: ReservedInstancesId
-reservedInstancesId = ReservedInstancesId'{_riiReservedInstancesId = Nothing};
+reservedInstancesId =
+    ReservedInstancesId'
+    { _riiReservedInstancesId = Nothing
+    }
 
 -- | The ID of the Reserved Instance.
 riiReservedInstancesId :: Lens' ReservedInstancesId (Maybe Text)
@@ -8746,11 +10404,34 @@ instance FromXML ReservedInstancesId where
 -- * 'rilReservedInstancesListingId'
 --
 -- * 'rilTags'
-data ReservedInstancesListing = ReservedInstancesListing'{_rilStatus :: Maybe ListingStatus, _rilClientToken :: Maybe Text, _rilUpdateDate :: Maybe ISO8601, _rilCreateDate :: Maybe ISO8601, _rilPriceSchedules :: Maybe [PriceSchedule], _rilStatusMessage :: Maybe Text, _rilReservedInstancesId :: Maybe Text, _rilInstanceCounts :: Maybe [InstanceCount], _rilReservedInstancesListingId :: Maybe Text, _rilTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data ReservedInstancesListing = ReservedInstancesListing'
+    { _rilStatus                     :: Maybe ListingStatus
+    , _rilClientToken                :: Maybe Text
+    , _rilUpdateDate                 :: Maybe ISO8601
+    , _rilCreateDate                 :: Maybe ISO8601
+    , _rilPriceSchedules             :: Maybe [PriceSchedule]
+    , _rilStatusMessage              :: Maybe Text
+    , _rilReservedInstancesId        :: Maybe Text
+    , _rilInstanceCounts             :: Maybe [InstanceCount]
+    , _rilReservedInstancesListingId :: Maybe Text
+    , _rilTags                       :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'ReservedInstancesListing' smart constructor.
 reservedInstancesListing :: ReservedInstancesListing
-reservedInstancesListing = ReservedInstancesListing'{_rilStatus = Nothing, _rilClientToken = Nothing, _rilUpdateDate = Nothing, _rilCreateDate = Nothing, _rilPriceSchedules = Nothing, _rilStatusMessage = Nothing, _rilReservedInstancesId = Nothing, _rilInstanceCounts = Nothing, _rilReservedInstancesListingId = Nothing, _rilTags = Nothing};
+reservedInstancesListing =
+    ReservedInstancesListing'
+    { _rilStatus = Nothing
+    , _rilClientToken = Nothing
+    , _rilUpdateDate = Nothing
+    , _rilCreateDate = Nothing
+    , _rilPriceSchedules = Nothing
+    , _rilStatusMessage = Nothing
+    , _rilReservedInstancesId = Nothing
+    , _rilInstanceCounts = Nothing
+    , _rilReservedInstancesListingId = Nothing
+    , _rilTags = Nothing
+    }
 
 -- | The status of the Reserved Instance listing.
 rilStatus :: Lens' ReservedInstancesListing (Maybe ListingStatus)
@@ -8831,11 +10512,32 @@ instance FromXML ReservedInstancesListing where
 -- * 'rimReservedInstancesModificationId'
 --
 -- * 'rimReservedInstancesIds'
-data ReservedInstancesModification = ReservedInstancesModification'{_rimModificationResults :: Maybe [ReservedInstancesModificationResult], _rimStatus :: Maybe Text, _rimClientToken :: Maybe Text, _rimUpdateDate :: Maybe ISO8601, _rimCreateDate :: Maybe ISO8601, _rimEffectiveDate :: Maybe ISO8601, _rimStatusMessage :: Maybe Text, _rimReservedInstancesModificationId :: Maybe Text, _rimReservedInstancesIds :: Maybe [ReservedInstancesId]} deriving (Eq, Read, Show)
+data ReservedInstancesModification = ReservedInstancesModification'
+    { _rimModificationResults             :: Maybe [ReservedInstancesModificationResult]
+    , _rimStatus                          :: Maybe Text
+    , _rimClientToken                     :: Maybe Text
+    , _rimUpdateDate                      :: Maybe ISO8601
+    , _rimCreateDate                      :: Maybe ISO8601
+    , _rimEffectiveDate                   :: Maybe ISO8601
+    , _rimStatusMessage                   :: Maybe Text
+    , _rimReservedInstancesModificationId :: Maybe Text
+    , _rimReservedInstancesIds            :: Maybe [ReservedInstancesId]
+    } deriving (Eq,Read,Show)
 
 -- | 'ReservedInstancesModification' smart constructor.
 reservedInstancesModification :: ReservedInstancesModification
-reservedInstancesModification = ReservedInstancesModification'{_rimModificationResults = Nothing, _rimStatus = Nothing, _rimClientToken = Nothing, _rimUpdateDate = Nothing, _rimCreateDate = Nothing, _rimEffectiveDate = Nothing, _rimStatusMessage = Nothing, _rimReservedInstancesModificationId = Nothing, _rimReservedInstancesIds = Nothing};
+reservedInstancesModification =
+    ReservedInstancesModification'
+    { _rimModificationResults = Nothing
+    , _rimStatus = Nothing
+    , _rimClientToken = Nothing
+    , _rimUpdateDate = Nothing
+    , _rimCreateDate = Nothing
+    , _rimEffectiveDate = Nothing
+    , _rimStatusMessage = Nothing
+    , _rimReservedInstancesModificationId = Nothing
+    , _rimReservedInstancesIds = Nothing
+    }
 
 -- | Contains target configurations along with their corresponding new
 -- Reserved Instance IDs.
@@ -8895,11 +10597,18 @@ instance FromXML ReservedInstancesModification where
 -- * 'rimrReservedInstancesId'
 --
 -- * 'rimrTargetConfiguration'
-data ReservedInstancesModificationResult = ReservedInstancesModificationResult'{_rimrReservedInstancesId :: Maybe Text, _rimrTargetConfiguration :: Maybe ReservedInstancesConfiguration} deriving (Eq, Read, Show)
+data ReservedInstancesModificationResult = ReservedInstancesModificationResult'
+    { _rimrReservedInstancesId :: Maybe Text
+    , _rimrTargetConfiguration :: Maybe ReservedInstancesConfiguration
+    } deriving (Eq,Read,Show)
 
 -- | 'ReservedInstancesModificationResult' smart constructor.
 reservedInstancesModificationResult :: ReservedInstancesModificationResult
-reservedInstancesModificationResult = ReservedInstancesModificationResult'{_rimrReservedInstancesId = Nothing, _rimrTargetConfiguration = Nothing};
+reservedInstancesModificationResult =
+    ReservedInstancesModificationResult'
+    { _rimrReservedInstancesId = Nothing
+    , _rimrTargetConfiguration = Nothing
+    }
 
 -- | The ID for the Reserved Instances that were created as part of the
 -- modification request. This field is only available when the modification
@@ -8950,11 +10659,40 @@ instance FromXML ReservedInstancesModificationResult
 -- * 'rioFixedPrice'
 --
 -- * 'rioDuration'
-data ReservedInstancesOffering = ReservedInstancesOffering'{_rioMarketplace :: Maybe Bool, _rioCurrencyCode :: Maybe CurrencyCodeValues, _rioProductDescription :: Maybe RIProductDescription, _rioInstanceType :: Maybe InstanceType, _rioAvailabilityZone :: Maybe Text, _rioPricingDetails :: Maybe [PricingDetail], _rioOfferingType :: Maybe OfferingTypeValues, _rioUsagePrice :: Maybe Double, _rioRecurringCharges :: Maybe [RecurringCharge], _rioReservedInstancesOfferingId :: Maybe Text, _rioInstanceTenancy :: Maybe Tenancy, _rioFixedPrice :: Maybe Double, _rioDuration :: Maybe Integer} deriving (Eq, Read, Show)
+data ReservedInstancesOffering = ReservedInstancesOffering'
+    { _rioMarketplace                 :: Maybe Bool
+    , _rioCurrencyCode                :: Maybe CurrencyCodeValues
+    , _rioProductDescription          :: Maybe RIProductDescription
+    , _rioInstanceType                :: Maybe InstanceType
+    , _rioAvailabilityZone            :: Maybe Text
+    , _rioPricingDetails              :: Maybe [PricingDetail]
+    , _rioOfferingType                :: Maybe OfferingTypeValues
+    , _rioUsagePrice                  :: Maybe Double
+    , _rioRecurringCharges            :: Maybe [RecurringCharge]
+    , _rioReservedInstancesOfferingId :: Maybe Text
+    , _rioInstanceTenancy             :: Maybe Tenancy
+    , _rioFixedPrice                  :: Maybe Double
+    , _rioDuration                    :: Maybe Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'ReservedInstancesOffering' smart constructor.
 reservedInstancesOffering :: ReservedInstancesOffering
-reservedInstancesOffering = ReservedInstancesOffering'{_rioMarketplace = Nothing, _rioCurrencyCode = Nothing, _rioProductDescription = Nothing, _rioInstanceType = Nothing, _rioAvailabilityZone = Nothing, _rioPricingDetails = Nothing, _rioOfferingType = Nothing, _rioUsagePrice = Nothing, _rioRecurringCharges = Nothing, _rioReservedInstancesOfferingId = Nothing, _rioInstanceTenancy = Nothing, _rioFixedPrice = Nothing, _rioDuration = Nothing};
+reservedInstancesOffering =
+    ReservedInstancesOffering'
+    { _rioMarketplace = Nothing
+    , _rioCurrencyCode = Nothing
+    , _rioProductDescription = Nothing
+    , _rioInstanceType = Nothing
+    , _rioAvailabilityZone = Nothing
+    , _rioPricingDetails = Nothing
+    , _rioOfferingType = Nothing
+    , _rioUsagePrice = Nothing
+    , _rioRecurringCharges = Nothing
+    , _rioReservedInstancesOfferingId = Nothing
+    , _rioInstanceTenancy = Nothing
+    , _rioFixedPrice = Nothing
+    , _rioDuration = Nothing
+    }
 
 -- | Indicates whether the offering is available through the Reserved
 -- Instance Marketplace (resale) or AWS. If it\'s a Reserved Instance
@@ -9051,11 +10789,32 @@ instance FromXML ReservedInstancesOffering where
 -- * 'rouDestinationPrefixListId'
 --
 -- * 'rouDestinationCIDRBlock'
-data Route = Route'{_rouInstanceId :: Maybe Text, _rouOrigin :: Maybe RouteOrigin, _rouVPCPeeringConnectionId :: Maybe Text, _rouState :: Maybe RouteState, _rouNetworkInterfaceId :: Maybe Text, _rouGatewayId :: Maybe Text, _rouInstanceOwnerId :: Maybe Text, _rouDestinationPrefixListId :: Maybe Text, _rouDestinationCIDRBlock :: Maybe Text} deriving (Eq, Read, Show)
+data Route = Route'
+    { _rouInstanceId              :: Maybe Text
+    , _rouOrigin                  :: Maybe RouteOrigin
+    , _rouVPCPeeringConnectionId  :: Maybe Text
+    , _rouState                   :: Maybe RouteState
+    , _rouNetworkInterfaceId      :: Maybe Text
+    , _rouGatewayId               :: Maybe Text
+    , _rouInstanceOwnerId         :: Maybe Text
+    , _rouDestinationPrefixListId :: Maybe Text
+    , _rouDestinationCIDRBlock    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Route' smart constructor.
 route :: Route
-route = Route'{_rouInstanceId = Nothing, _rouOrigin = Nothing, _rouVPCPeeringConnectionId = Nothing, _rouState = Nothing, _rouNetworkInterfaceId = Nothing, _rouGatewayId = Nothing, _rouInstanceOwnerId = Nothing, _rouDestinationPrefixListId = Nothing, _rouDestinationCIDRBlock = Nothing};
+route =
+    Route'
+    { _rouInstanceId = Nothing
+    , _rouOrigin = Nothing
+    , _rouVPCPeeringConnectionId = Nothing
+    , _rouState = Nothing
+    , _rouNetworkInterfaceId = Nothing
+    , _rouGatewayId = Nothing
+    , _rouInstanceOwnerId = Nothing
+    , _rouDestinationPrefixListId = Nothing
+    , _rouDestinationCIDRBlock = Nothing
+    }
 
 -- | The ID of a NAT instance in your VPC.
 rouInstanceId :: Lens' Route (Maybe Text)
@@ -9132,11 +10891,26 @@ instance FromXML Route where
 -- * 'rtAssociations'
 --
 -- * 'rtTags'
-data RouteTable = RouteTable'{_rtRoutes :: Maybe [Route], _rtRouteTableId :: Maybe Text, _rtVPCId :: Maybe Text, _rtPropagatingVGWs :: Maybe [PropagatingVGW], _rtAssociations :: Maybe [RouteTableAssociation], _rtTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data RouteTable = RouteTable'
+    { _rtRoutes          :: Maybe [Route]
+    , _rtRouteTableId    :: Maybe Text
+    , _rtVPCId           :: Maybe Text
+    , _rtPropagatingVGWs :: Maybe [PropagatingVGW]
+    , _rtAssociations    :: Maybe [RouteTableAssociation]
+    , _rtTags            :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'RouteTable' smart constructor.
 routeTable :: RouteTable
-routeTable = RouteTable'{_rtRoutes = Nothing, _rtRouteTableId = Nothing, _rtVPCId = Nothing, _rtPropagatingVGWs = Nothing, _rtAssociations = Nothing, _rtTags = Nothing};
+routeTable =
+    RouteTable'
+    { _rtRoutes = Nothing
+    , _rtRouteTableId = Nothing
+    , _rtVPCId = Nothing
+    , _rtPropagatingVGWs = Nothing
+    , _rtAssociations = Nothing
+    , _rtTags = Nothing
+    }
 
 -- | The routes in the route table.
 rtRoutes :: Lens' RouteTable [Route]
@@ -9185,11 +10959,22 @@ instance FromXML RouteTable where
 -- * 'rtaMain'
 --
 -- * 'rtaSubnetId'
-data RouteTableAssociation = RouteTableAssociation'{_rtaRouteTableId :: Maybe Text, _rtaRouteTableAssociationId :: Maybe Text, _rtaMain :: Maybe Bool, _rtaSubnetId :: Maybe Text} deriving (Eq, Read, Show)
+data RouteTableAssociation = RouteTableAssociation'
+    { _rtaRouteTableId            :: Maybe Text
+    , _rtaRouteTableAssociationId :: Maybe Text
+    , _rtaMain                    :: Maybe Bool
+    , _rtaSubnetId                :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RouteTableAssociation' smart constructor.
 routeTableAssociation :: RouteTableAssociation
-routeTableAssociation = RouteTableAssociation'{_rtaRouteTableId = Nothing, _rtaRouteTableAssociationId = Nothing, _rtaMain = Nothing, _rtaSubnetId = Nothing};
+routeTableAssociation =
+    RouteTableAssociation'
+    { _rtaRouteTableId = Nothing
+    , _rtaRouteTableAssociationId = Nothing
+    , _rtaMain = Nothing
+    , _rtaSubnetId = Nothing
+    }
 
 -- | The ID of the route table.
 rtaRouteTableId :: Lens' RouteTableAssociation (Maybe Text)
@@ -9222,11 +11007,16 @@ instance FromXML RouteTableAssociation where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rimeEnabled'
-newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled'{_rimeEnabled :: Bool} deriving (Eq, Read, Show)
+newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled'
+    { _rimeEnabled :: Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'RunInstancesMonitoringEnabled' smart constructor.
 runInstancesMonitoringEnabled :: Bool -> RunInstancesMonitoringEnabled
-runInstancesMonitoringEnabled pEnabled = RunInstancesMonitoringEnabled'{_rimeEnabled = pEnabled};
+runInstancesMonitoringEnabled pEnabled =
+    RunInstancesMonitoringEnabled'
+    { _rimeEnabled = pEnabled
+    }
 
 -- | Indicates whether monitoring is enabled for the instance.
 rimeEnabled :: Lens' RunInstancesMonitoringEnabled Bool
@@ -9256,11 +11046,24 @@ instance ToQuery RunInstancesMonitoringEnabled where
 -- * 'ssUploadPolicySignature'
 --
 -- * 'ssAWSAccessKeyId'
-data S3Storage = S3Storage'{_ssPrefix :: Maybe Text, _ssUploadPolicy :: Maybe Base64, _ssBucket :: Maybe Text, _ssUploadPolicySignature :: Maybe Text, _ssAWSAccessKeyId :: Maybe Text} deriving (Eq, Read, Show)
+data S3Storage = S3Storage'
+    { _ssPrefix                :: Maybe Text
+    , _ssUploadPolicy          :: Maybe Base64
+    , _ssBucket                :: Maybe Text
+    , _ssUploadPolicySignature :: Maybe Text
+    , _ssAWSAccessKeyId        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'S3Storage' smart constructor.
 s3Storage :: S3Storage
-s3Storage = S3Storage'{_ssPrefix = Nothing, _ssUploadPolicy = Nothing, _ssBucket = Nothing, _ssUploadPolicySignature = Nothing, _ssAWSAccessKeyId = Nothing};
+s3Storage =
+    S3Storage'
+    { _ssPrefix = Nothing
+    , _ssUploadPolicy = Nothing
+    , _ssBucket = Nothing
+    , _ssUploadPolicySignature = Nothing
+    , _ssAWSAccessKeyId = Nothing
+    }
 
 -- | The beginning of the file name of the AMI.
 ssPrefix :: Lens' S3Storage (Maybe Text)
@@ -9326,11 +11129,30 @@ instance ToQuery S3Storage where
 -- * 'sgGroupName'
 --
 -- * 'sgDescription'
-data SecurityGroup = SecurityGroup'{_sgVPCId :: Maybe Text, _sgIPPermissions :: Maybe [IPPermission], _sgIPPermissionsEgress :: Maybe [IPPermission], _sgTags :: Maybe [Tag], _sgOwnerId :: Text, _sgGroupId :: Text, _sgGroupName :: Text, _sgDescription :: Text} deriving (Eq, Read, Show)
+data SecurityGroup = SecurityGroup'
+    { _sgVPCId               :: Maybe Text
+    , _sgIPPermissions       :: Maybe [IPPermission]
+    , _sgIPPermissionsEgress :: Maybe [IPPermission]
+    , _sgTags                :: Maybe [Tag]
+    , _sgOwnerId             :: Text
+    , _sgGroupId             :: Text
+    , _sgGroupName           :: Text
+    , _sgDescription         :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SecurityGroup' smart constructor.
 securityGroup :: Text -> Text -> Text -> Text -> SecurityGroup
-securityGroup pOwnerId pGroupId pGroupName pDescription = SecurityGroup'{_sgVPCId = Nothing, _sgIPPermissions = Nothing, _sgIPPermissionsEgress = Nothing, _sgTags = Nothing, _sgOwnerId = pOwnerId, _sgGroupId = pGroupId, _sgGroupName = pGroupName, _sgDescription = pDescription};
+securityGroup pOwnerId pGroupId pGroupName pDescription =
+    SecurityGroup'
+    { _sgVPCId = Nothing
+    , _sgIPPermissions = Nothing
+    , _sgIPPermissionsEgress = Nothing
+    , _sgTags = Nothing
+    , _sgOwnerId = pOwnerId
+    , _sgGroupId = pGroupId
+    , _sgGroupName = pGroupName
+    , _sgDescription = pDescription
+    }
 
 -- | [EC2-VPC] The ID of the VPC for the security group.
 sgVPCId :: Lens' SecurityGroup (Maybe Text)
@@ -9404,11 +11226,38 @@ instance FromXML SecurityGroup where
 -- * 'snaState'
 --
 -- * 'snaEncrypted'
-data Snapshot = Snapshot'{_snaOwnerAlias :: Maybe Text, _snaKMSKeyId :: Maybe Text, _snaTags :: Maybe [Tag], _snaSnapshotId :: Text, _snaOwnerId :: Text, _snaVolumeId :: Text, _snaVolumeSize :: Int, _snaDescription :: Text, _snaStartTime :: ISO8601, _snaProgress :: Text, _snaState :: SnapshotState, _snaEncrypted :: Bool} deriving (Eq, Read, Show)
+data Snapshot = Snapshot'
+    { _snaOwnerAlias  :: Maybe Text
+    , _snaKMSKeyId    :: Maybe Text
+    , _snaTags        :: Maybe [Tag]
+    , _snaSnapshotId  :: Text
+    , _snaOwnerId     :: Text
+    , _snaVolumeId    :: Text
+    , _snaVolumeSize  :: !Int
+    , _snaDescription :: Text
+    , _snaStartTime   :: ISO8601
+    , _snaProgress    :: Text
+    , _snaState       :: SnapshotState
+    , _snaEncrypted   :: !Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Text -> Text -> Text -> Int -> Text -> UTCTime -> Text -> SnapshotState -> Bool -> Snapshot
-snapshot pSnapshotId pOwnerId pVolumeId pVolumeSize pDescription pStartTime pProgress pState pEncrypted = Snapshot'{_snaOwnerAlias = Nothing, _snaKMSKeyId = Nothing, _snaTags = Nothing, _snaSnapshotId = pSnapshotId, _snaOwnerId = pOwnerId, _snaVolumeId = pVolumeId, _snaVolumeSize = pVolumeSize, _snaDescription = pDescription, _snaStartTime = _Time # pStartTime, _snaProgress = pProgress, _snaState = pState, _snaEncrypted = pEncrypted};
+snapshot pSnapshotId pOwnerId pVolumeId pVolumeSize pDescription pStartTime pProgress pState pEncrypted =
+    Snapshot'
+    { _snaOwnerAlias = Nothing
+    , _snaKMSKeyId = Nothing
+    , _snaTags = Nothing
+    , _snaSnapshotId = pSnapshotId
+    , _snaOwnerId = pOwnerId
+    , _snaVolumeId = pVolumeId
+    , _snaVolumeSize = pVolumeSize
+    , _snaDescription = pDescription
+    , _snaStartTime = _Time # pStartTime
+    , _snaProgress = pProgress
+    , _snaState = pState
+    , _snaEncrypted = pEncrypted
+    }
 
 -- | The AWS account alias (for example, @amazon@, @self@) or AWS account ID
 -- that owns the snapshot.
@@ -9500,11 +11349,34 @@ instance FromXML Snapshot where
 -- * 'sdDescription'
 --
 -- * 'sdSnapshotId'
-data SnapshotDetail = SnapshotDetail'{_sdStatus :: Maybe Text, _sdProgress :: Maybe Text, _sdURL :: Maybe Text, _sdFormat :: Maybe Text, _sdDeviceName :: Maybe Text, _sdUserBucket :: Maybe UserBucketDetails, _sdDiskImageSize :: Maybe Double, _sdStatusMessage :: Maybe Text, _sdDescription :: Maybe Text, _sdSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
+data SnapshotDetail = SnapshotDetail'
+    { _sdStatus        :: Maybe Text
+    , _sdProgress      :: Maybe Text
+    , _sdURL           :: Maybe Text
+    , _sdFormat        :: Maybe Text
+    , _sdDeviceName    :: Maybe Text
+    , _sdUserBucket    :: Maybe UserBucketDetails
+    , _sdDiskImageSize :: Maybe Double
+    , _sdStatusMessage :: Maybe Text
+    , _sdDescription   :: Maybe Text
+    , _sdSnapshotId    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SnapshotDetail' smart constructor.
 snapshotDetail :: SnapshotDetail
-snapshotDetail = SnapshotDetail'{_sdStatus = Nothing, _sdProgress = Nothing, _sdURL = Nothing, _sdFormat = Nothing, _sdDeviceName = Nothing, _sdUserBucket = Nothing, _sdDiskImageSize = Nothing, _sdStatusMessage = Nothing, _sdDescription = Nothing, _sdSnapshotId = Nothing};
+snapshotDetail =
+    SnapshotDetail'
+    { _sdStatus = Nothing
+    , _sdProgress = Nothing
+    , _sdURL = Nothing
+    , _sdFormat = Nothing
+    , _sdDeviceName = Nothing
+    , _sdUserBucket = Nothing
+    , _sdDiskImageSize = Nothing
+    , _sdStatusMessage = Nothing
+    , _sdDescription = Nothing
+    , _sdSnapshotId = Nothing
+    }
 
 -- | A brief status of the snapshot creation.
 sdStatus :: Lens' SnapshotDetail (Maybe Text)
@@ -9572,11 +11444,22 @@ instance FromXML SnapshotDetail where
 -- * 'sdcUserBucket'
 --
 -- * 'sdcDescription'
-data SnapshotDiskContainer = SnapshotDiskContainer'{_sdcURL :: Maybe Text, _sdcFormat :: Maybe Text, _sdcUserBucket :: Maybe UserBucket, _sdcDescription :: Maybe Text} deriving (Eq, Read, Show)
+data SnapshotDiskContainer = SnapshotDiskContainer'
+    { _sdcURL         :: Maybe Text
+    , _sdcFormat      :: Maybe Text
+    , _sdcUserBucket  :: Maybe UserBucket
+    , _sdcDescription :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SnapshotDiskContainer' smart constructor.
 snapshotDiskContainer :: SnapshotDiskContainer
-snapshotDiskContainer = SnapshotDiskContainer'{_sdcURL = Nothing, _sdcFormat = Nothing, _sdcUserBucket = Nothing, _sdcDescription = Nothing};
+snapshotDiskContainer =
+    SnapshotDiskContainer'
+    { _sdcURL = Nothing
+    , _sdcFormat = Nothing
+    , _sdcUserBucket = Nothing
+    , _sdcDescription = Nothing
+    }
 
 -- | The URL to the Amazon S3-based disk image being imported. It can either
 -- be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..).
@@ -9627,11 +11510,32 @@ instance ToQuery SnapshotDiskContainer where
 -- * 'stdDescription'
 --
 -- * 'stdSnapshotId'
-data SnapshotTaskDetail = SnapshotTaskDetail'{_stdStatus :: Maybe Text, _stdProgress :: Maybe Text, _stdURL :: Maybe Text, _stdFormat :: Maybe Text, _stdUserBucket :: Maybe UserBucketDetails, _stdDiskImageSize :: Maybe Double, _stdStatusMessage :: Maybe Text, _stdDescription :: Maybe Text, _stdSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
+data SnapshotTaskDetail = SnapshotTaskDetail'
+    { _stdStatus        :: Maybe Text
+    , _stdProgress      :: Maybe Text
+    , _stdURL           :: Maybe Text
+    , _stdFormat        :: Maybe Text
+    , _stdUserBucket    :: Maybe UserBucketDetails
+    , _stdDiskImageSize :: Maybe Double
+    , _stdStatusMessage :: Maybe Text
+    , _stdDescription   :: Maybe Text
+    , _stdSnapshotId    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SnapshotTaskDetail' smart constructor.
 snapshotTaskDetail :: SnapshotTaskDetail
-snapshotTaskDetail = SnapshotTaskDetail'{_stdStatus = Nothing, _stdProgress = Nothing, _stdURL = Nothing, _stdFormat = Nothing, _stdUserBucket = Nothing, _stdDiskImageSize = Nothing, _stdStatusMessage = Nothing, _stdDescription = Nothing, _stdSnapshotId = Nothing};
+snapshotTaskDetail =
+    SnapshotTaskDetail'
+    { _stdStatus = Nothing
+    , _stdProgress = Nothing
+    , _stdURL = Nothing
+    , _stdFormat = Nothing
+    , _stdUserBucket = Nothing
+    , _stdDiskImageSize = Nothing
+    , _stdStatusMessage = Nothing
+    , _stdDescription = Nothing
+    , _stdSnapshotId = Nothing
+    }
 
 -- | A brief status for the import snapshot task.
 stdStatus :: Lens' SnapshotTaskDetail (Maybe Text)
@@ -9696,11 +11600,24 @@ instance FromXML SnapshotTaskDetail where
 -- * 'sdsOwnerId'
 --
 -- * 'sdsFault'
-data SpotDatafeedSubscription = SpotDatafeedSubscription'{_sdsState :: Maybe DatafeedSubscriptionState, _sdsPrefix :: Maybe Text, _sdsBucket :: Maybe Text, _sdsOwnerId :: Maybe Text, _sdsFault :: Maybe SpotInstanceStateFault} deriving (Eq, Read, Show)
+data SpotDatafeedSubscription = SpotDatafeedSubscription'
+    { _sdsState   :: Maybe DatafeedSubscriptionState
+    , _sdsPrefix  :: Maybe Text
+    , _sdsBucket  :: Maybe Text
+    , _sdsOwnerId :: Maybe Text
+    , _sdsFault   :: Maybe SpotInstanceStateFault
+    } deriving (Eq,Read,Show)
 
 -- | 'SpotDatafeedSubscription' smart constructor.
 spotDatafeedSubscription :: SpotDatafeedSubscription
-spotDatafeedSubscription = SpotDatafeedSubscription'{_sdsState = Nothing, _sdsPrefix = Nothing, _sdsBucket = Nothing, _sdsOwnerId = Nothing, _sdsFault = Nothing};
+spotDatafeedSubscription =
+    SpotDatafeedSubscription'
+    { _sdsState = Nothing
+    , _sdsPrefix = Nothing
+    , _sdsBucket = Nothing
+    , _sdsOwnerId = Nothing
+    , _sdsFault = Nothing
+    }
 
 -- | The state of the Spot Instance data feed subscription.
 sdsState :: Lens' SpotDatafeedSubscription (Maybe DatafeedSubscriptionState)
@@ -9741,11 +11658,20 @@ instance FromXML SpotDatafeedSubscription where
 -- * 'sfrcSpotFleetRequestState'
 --
 -- * 'sfrcSpotFleetRequestConfig'
-data SpotFleetRequestConfig = SpotFleetRequestConfig'{_sfrcSpotFleetRequestId :: Text, _sfrcSpotFleetRequestState :: BatchState, _sfrcSpotFleetRequestConfig :: SpotFleetRequestConfigData} deriving (Eq, Read, Show)
+data SpotFleetRequestConfig = SpotFleetRequestConfig'
+    { _sfrcSpotFleetRequestId     :: Text
+    , _sfrcSpotFleetRequestState  :: BatchState
+    , _sfrcSpotFleetRequestConfig :: SpotFleetRequestConfigData
+    } deriving (Eq,Read,Show)
 
 -- | 'SpotFleetRequestConfig' smart constructor.
 spotFleetRequestConfig :: Text -> BatchState -> SpotFleetRequestConfigData -> SpotFleetRequestConfig
-spotFleetRequestConfig pSpotFleetRequestId pSpotFleetRequestState pSpotFleetRequestConfig = SpotFleetRequestConfig'{_sfrcSpotFleetRequestId = pSpotFleetRequestId, _sfrcSpotFleetRequestState = pSpotFleetRequestState, _sfrcSpotFleetRequestConfig = pSpotFleetRequestConfig};
+spotFleetRequestConfig pSpotFleetRequestId pSpotFleetRequestState pSpotFleetRequestConfig =
+    SpotFleetRequestConfig'
+    { _sfrcSpotFleetRequestId = pSpotFleetRequestId
+    , _sfrcSpotFleetRequestState = pSpotFleetRequestState
+    , _sfrcSpotFleetRequestConfig = pSpotFleetRequestConfig
+    }
 
 -- | The ID of the Spot fleet request.
 sfrcSpotFleetRequestId :: Lens' SpotFleetRequestConfig Text
@@ -9787,11 +11713,30 @@ instance FromXML SpotFleetRequestConfig where
 -- * 'sfrcdIAMFleetRole'
 --
 -- * 'sfrcdLaunchSpecifications'
-data SpotFleetRequestConfigData = SpotFleetRequestConfigData'{_sfrcdClientToken :: Maybe Text, _sfrcdValidUntil :: Maybe ISO8601, _sfrcdTerminateInstancesWithExpiration :: Maybe Bool, _sfrcdValidFrom :: Maybe ISO8601, _sfrcdSpotPrice :: Text, _sfrcdTargetCapacity :: Int, _sfrcdIAMFleetRole :: Text, _sfrcdLaunchSpecifications :: List1 LaunchSpecification} deriving (Eq, Read, Show)
+data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
+    { _sfrcdClientToken                      :: Maybe Text
+    , _sfrcdValidUntil                       :: Maybe ISO8601
+    , _sfrcdTerminateInstancesWithExpiration :: Maybe Bool
+    , _sfrcdValidFrom                        :: Maybe ISO8601
+    , _sfrcdSpotPrice                        :: Text
+    , _sfrcdTargetCapacity                   :: !Int
+    , _sfrcdIAMFleetRole                     :: Text
+    , _sfrcdLaunchSpecifications             :: List1 LaunchSpecification
+    } deriving (Eq,Read,Show)
 
 -- | 'SpotFleetRequestConfigData' smart constructor.
 spotFleetRequestConfigData :: Text -> Int -> Text -> NonEmpty LaunchSpecification -> SpotFleetRequestConfigData
-spotFleetRequestConfigData pSpotPrice pTargetCapacity pIAMFleetRole pLaunchSpecifications = SpotFleetRequestConfigData'{_sfrcdClientToken = Nothing, _sfrcdValidUntil = Nothing, _sfrcdTerminateInstancesWithExpiration = Nothing, _sfrcdValidFrom = Nothing, _sfrcdSpotPrice = pSpotPrice, _sfrcdTargetCapacity = pTargetCapacity, _sfrcdIAMFleetRole = pIAMFleetRole, _sfrcdLaunchSpecifications = _List1 # pLaunchSpecifications};
+spotFleetRequestConfigData pSpotPrice pTargetCapacity pIAMFleetRole pLaunchSpecifications =
+    SpotFleetRequestConfigData'
+    { _sfrcdClientToken = Nothing
+    , _sfrcdValidUntil = Nothing
+    , _sfrcdTerminateInstancesWithExpiration = Nothing
+    , _sfrcdValidFrom = Nothing
+    , _sfrcdSpotPrice = pSpotPrice
+    , _sfrcdTargetCapacity = pTargetCapacity
+    , _sfrcdIAMFleetRole = pIAMFleetRole
+    , _sfrcdLaunchSpecifications = _List1 # pLaunchSpecifications
+    }
 
 -- | A unique, case-sensitive identifier you provide to ensure idempotency of
 -- your listings. This helps avoid duplicate listings. For more
@@ -9898,11 +11843,46 @@ instance ToQuery SpotFleetRequestConfigData where
 -- * 'sirTags'
 --
 -- * 'sirCreateTime'
-data SpotInstanceRequest = SpotInstanceRequest'{_sirInstanceId :: Maybe Text, _sirStatus :: Maybe SpotInstanceStatus, _sirState :: Maybe SpotInstanceState, _sirProductDescription :: Maybe RIProductDescription, _sirSpotPrice :: Maybe Text, _sirAvailabilityZoneGroup :: Maybe Text, _sirLaunchSpecification :: Maybe LaunchSpecification, _sirLaunchedAvailabilityZone :: Maybe Text, _sirValidUntil :: Maybe ISO8601, _sirFault :: Maybe SpotInstanceStateFault, _sirLaunchGroup :: Maybe Text, _sirSpotInstanceRequestId :: Maybe Text, _sirType :: Maybe SpotInstanceType, _sirValidFrom :: Maybe ISO8601, _sirTags :: Maybe [Tag], _sirCreateTime :: Maybe ISO8601} deriving (Eq, Read, Show)
+data SpotInstanceRequest = SpotInstanceRequest'
+    { _sirInstanceId               :: Maybe Text
+    , _sirStatus                   :: Maybe SpotInstanceStatus
+    , _sirState                    :: Maybe SpotInstanceState
+    , _sirProductDescription       :: Maybe RIProductDescription
+    , _sirSpotPrice                :: Maybe Text
+    , _sirAvailabilityZoneGroup    :: Maybe Text
+    , _sirLaunchSpecification      :: Maybe LaunchSpecification
+    , _sirLaunchedAvailabilityZone :: Maybe Text
+    , _sirValidUntil               :: Maybe ISO8601
+    , _sirFault                    :: Maybe SpotInstanceStateFault
+    , _sirLaunchGroup              :: Maybe Text
+    , _sirSpotInstanceRequestId    :: Maybe Text
+    , _sirType                     :: Maybe SpotInstanceType
+    , _sirValidFrom                :: Maybe ISO8601
+    , _sirTags                     :: Maybe [Tag]
+    , _sirCreateTime               :: Maybe ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'SpotInstanceRequest' smart constructor.
 spotInstanceRequest :: SpotInstanceRequest
-spotInstanceRequest = SpotInstanceRequest'{_sirInstanceId = Nothing, _sirStatus = Nothing, _sirState = Nothing, _sirProductDescription = Nothing, _sirSpotPrice = Nothing, _sirAvailabilityZoneGroup = Nothing, _sirLaunchSpecification = Nothing, _sirLaunchedAvailabilityZone = Nothing, _sirValidUntil = Nothing, _sirFault = Nothing, _sirLaunchGroup = Nothing, _sirSpotInstanceRequestId = Nothing, _sirType = Nothing, _sirValidFrom = Nothing, _sirTags = Nothing, _sirCreateTime = Nothing};
+spotInstanceRequest =
+    SpotInstanceRequest'
+    { _sirInstanceId = Nothing
+    , _sirStatus = Nothing
+    , _sirState = Nothing
+    , _sirProductDescription = Nothing
+    , _sirSpotPrice = Nothing
+    , _sirAvailabilityZoneGroup = Nothing
+    , _sirLaunchSpecification = Nothing
+    , _sirLaunchedAvailabilityZone = Nothing
+    , _sirValidUntil = Nothing
+    , _sirFault = Nothing
+    , _sirLaunchGroup = Nothing
+    , _sirSpotInstanceRequestId = Nothing
+    , _sirType = Nothing
+    , _sirValidFrom = Nothing
+    , _sirTags = Nothing
+    , _sirCreateTime = Nothing
+    }
 
 -- | The instance ID, if an instance has been launched to fulfill the Spot
 -- Instance request.
@@ -10014,11 +11994,18 @@ instance FromXML SpotInstanceRequest where
 -- * 'sisfCode'
 --
 -- * 'sisfMessage'
-data SpotInstanceStateFault = SpotInstanceStateFault'{_sisfCode :: Maybe Text, _sisfMessage :: Maybe Text} deriving (Eq, Read, Show)
+data SpotInstanceStateFault = SpotInstanceStateFault'
+    { _sisfCode    :: Maybe Text
+    , _sisfMessage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SpotInstanceStateFault' smart constructor.
 spotInstanceStateFault :: SpotInstanceStateFault
-spotInstanceStateFault = SpotInstanceStateFault'{_sisfCode = Nothing, _sisfMessage = Nothing};
+spotInstanceStateFault =
+    SpotInstanceStateFault'
+    { _sisfCode = Nothing
+    , _sisfMessage = Nothing
+    }
 
 -- | The reason code for the Spot Instance state change.
 sisfCode :: Lens' SpotInstanceStateFault (Maybe Text)
@@ -10044,11 +12031,20 @@ instance FromXML SpotInstanceStateFault where
 -- * 'sisCode'
 --
 -- * 'sisMessage'
-data SpotInstanceStatus = SpotInstanceStatus'{_sisUpdateTime :: Maybe ISO8601, _sisCode :: Maybe Text, _sisMessage :: Maybe Text} deriving (Eq, Read, Show)
+data SpotInstanceStatus = SpotInstanceStatus'
+    { _sisUpdateTime :: Maybe ISO8601
+    , _sisCode       :: Maybe Text
+    , _sisMessage    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SpotInstanceStatus' smart constructor.
 spotInstanceStatus :: SpotInstanceStatus
-spotInstanceStatus = SpotInstanceStatus'{_sisUpdateTime = Nothing, _sisCode = Nothing, _sisMessage = Nothing};
+spotInstanceStatus =
+    SpotInstanceStatus'
+    { _sisUpdateTime = Nothing
+    , _sisCode = Nothing
+    , _sisMessage = Nothing
+    }
 
 -- | The date and time of the most recent status update, in UTC format (for
 -- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
@@ -10078,11 +12074,18 @@ instance FromXML SpotInstanceStatus where
 -- * 'spAvailabilityZone'
 --
 -- * 'spGroupName'
-data SpotPlacement = SpotPlacement'{_spAvailabilityZone :: Maybe Text, _spGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data SpotPlacement = SpotPlacement'
+    { _spAvailabilityZone :: Maybe Text
+    , _spGroupName        :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'SpotPlacement' smart constructor.
 spotPlacement :: SpotPlacement
-spotPlacement = SpotPlacement'{_spAvailabilityZone = Nothing, _spGroupName = Nothing};
+spotPlacement =
+    SpotPlacement'
+    { _spAvailabilityZone = Nothing
+    , _spGroupName = Nothing
+    }
 
 -- | The Availability Zone.
 spAvailabilityZone :: Lens' SpotPlacement (Maybe Text)
@@ -10119,11 +12122,24 @@ instance ToQuery SpotPlacement where
 -- * 'spoAvailabilityZone'
 --
 -- * 'spoTimestamp'
-data SpotPrice = SpotPrice'{_spoProductDescription :: Maybe RIProductDescription, _spoSpotPrice :: Maybe Text, _spoInstanceType :: Maybe InstanceType, _spoAvailabilityZone :: Maybe Text, _spoTimestamp :: Maybe ISO8601} deriving (Eq, Read, Show)
+data SpotPrice = SpotPrice'
+    { _spoProductDescription :: Maybe RIProductDescription
+    , _spoSpotPrice          :: Maybe Text
+    , _spoInstanceType       :: Maybe InstanceType
+    , _spoAvailabilityZone   :: Maybe Text
+    , _spoTimestamp          :: Maybe ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'SpotPrice' smart constructor.
 spotPrice :: SpotPrice
-spotPrice = SpotPrice'{_spoProductDescription = Nothing, _spoSpotPrice = Nothing, _spoInstanceType = Nothing, _spoAvailabilityZone = Nothing, _spoTimestamp = Nothing};
+spotPrice =
+    SpotPrice'
+    { _spoProductDescription = Nothing
+    , _spoSpotPrice = Nothing
+    , _spoInstanceType = Nothing
+    , _spoAvailabilityZone = Nothing
+    , _spoTimestamp = Nothing
+    }
 
 -- | A general description of the AMI.
 spoProductDescription :: Lens' SpotPrice (Maybe RIProductDescription)
@@ -10163,11 +12179,18 @@ instance FromXML SpotPrice where
 -- * 'srCode'
 --
 -- * 'srMessage'
-data StateReason = StateReason'{_srCode :: Maybe Text, _srMessage :: Maybe Text} deriving (Eq, Read, Show)
+data StateReason = StateReason'
+    { _srCode    :: Maybe Text
+    , _srMessage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'StateReason' smart constructor.
 stateReason :: StateReason
-stateReason = StateReason'{_srCode = Nothing, _srMessage = Nothing};
+stateReason =
+    StateReason'
+    { _srCode = Nothing
+    , _srMessage = Nothing
+    }
 
 -- | The reason code for the state change.
 srCode :: Lens' StateReason (Maybe Text)
@@ -10213,11 +12236,16 @@ instance FromXML StateReason where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'stoS3'
-newtype Storage = Storage'{_stoS3 :: Maybe S3Storage} deriving (Eq, Read, Show)
+newtype Storage = Storage'
+    { _stoS3 :: Maybe S3Storage
+    } deriving (Eq,Read,Show)
 
 -- | 'Storage' smart constructor.
 storage :: Storage
-storage = Storage'{_stoS3 = Nothing};
+storage =
+    Storage'
+    { _stoS3 = Nothing
+    }
 
 -- | An Amazon S3 storage location.
 stoS3 :: Lens' Storage (Maybe S3Storage)
@@ -10252,11 +12280,32 @@ instance ToQuery Storage where
 -- * 'subSubnetId'
 --
 -- * 'subVPCId'
-data Subnet = Subnet'{_subTags :: Maybe [Tag], _subAvailabilityZone :: Text, _subAvailableIPAddressCount :: Int, _subCIDRBlock :: Text, _subDefaultForAz :: Bool, _subMapPublicIPOnLaunch :: Bool, _subState :: SubnetState, _subSubnetId :: Text, _subVPCId :: Text} deriving (Eq, Read, Show)
+data Subnet = Subnet'
+    { _subTags                    :: Maybe [Tag]
+    , _subAvailabilityZone        :: Text
+    , _subAvailableIPAddressCount :: !Int
+    , _subCIDRBlock               :: Text
+    , _subDefaultForAz            :: !Bool
+    , _subMapPublicIPOnLaunch     :: !Bool
+    , _subState                   :: SubnetState
+    , _subSubnetId                :: Text
+    , _subVPCId                   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Subnet' smart constructor.
 subnet :: Text -> Int -> Text -> Bool -> Bool -> SubnetState -> Text -> Text -> Subnet
-subnet pAvailabilityZone pAvailableIPAddressCount pCIDRBlock pDefaultForAz pMapPublicIPOnLaunch pState pSubnetId pVPCId = Subnet'{_subTags = Nothing, _subAvailabilityZone = pAvailabilityZone, _subAvailableIPAddressCount = pAvailableIPAddressCount, _subCIDRBlock = pCIDRBlock, _subDefaultForAz = pDefaultForAz, _subMapPublicIPOnLaunch = pMapPublicIPOnLaunch, _subState = pState, _subSubnetId = pSubnetId, _subVPCId = pVPCId};
+subnet pAvailabilityZone pAvailableIPAddressCount pCIDRBlock pDefaultForAz pMapPublicIPOnLaunch pState pSubnetId pVPCId =
+    Subnet'
+    { _subTags = Nothing
+    , _subAvailabilityZone = pAvailabilityZone
+    , _subAvailableIPAddressCount = pAvailableIPAddressCount
+    , _subCIDRBlock = pCIDRBlock
+    , _subDefaultForAz = pDefaultForAz
+    , _subMapPublicIPOnLaunch = pMapPublicIPOnLaunch
+    , _subState = pState
+    , _subSubnetId = pSubnetId
+    , _subVPCId = pVPCId
+    }
 
 -- | Any tags assigned to the subnet.
 subTags :: Lens' Subnet [Tag]
@@ -10318,11 +12367,18 @@ instance FromXML Subnet where
 -- * 'tagKey'
 --
 -- * 'tagValue'
-data Tag = Tag'{_tagKey :: Text, _tagValue :: Text} deriving (Eq, Read, Show)
+data Tag = Tag'
+    { _tagKey   :: Text
+    , _tagValue :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Text -> Tag
-tag pKey pValue = Tag'{_tagKey = pKey, _tagValue = pValue};
+tag pKey pValue =
+    Tag'
+    { _tagKey = pKey
+    , _tagValue = pValue
+    }
 
 -- | The key of the tag.
 --
@@ -10358,11 +12414,22 @@ instance ToQuery Tag where
 -- * 'tdKey'
 --
 -- * 'tdValue'
-data TagDescription = TagDescription'{_tdResourceId :: Text, _tdResourceType :: ResourceType, _tdKey :: Text, _tdValue :: Text} deriving (Eq, Read, Show)
+data TagDescription = TagDescription'
+    { _tdResourceId   :: Text
+    , _tdResourceType :: ResourceType
+    , _tdKey          :: Text
+    , _tdValue        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'TagDescription' smart constructor.
 tagDescription :: Text -> ResourceType -> Text -> Text -> TagDescription
-tagDescription pResourceId pResourceType pKey pValue = TagDescription'{_tdResourceId = pResourceId, _tdResourceType = pResourceType, _tdKey = pKey, _tdValue = pValue};
+tagDescription pResourceId pResourceType pKey pValue =
+    TagDescription'
+    { _tdResourceId = pResourceId
+    , _tdResourceType = pResourceType
+    , _tdKey = pKey
+    , _tdValue = pValue
+    }
 
 -- | The ID of the resource. For example, @ami-1a2b3c4d@.
 tdResourceId :: Lens' TagDescription Text
@@ -10397,11 +12464,18 @@ instance FromXML TagDescription where
 -- * 'uiResourceId'
 --
 -- * 'uiError'
-data UnsuccessfulItem = UnsuccessfulItem'{_uiResourceId :: Maybe Text, _uiError :: UnsuccessfulItemError} deriving (Eq, Read, Show)
+data UnsuccessfulItem = UnsuccessfulItem'
+    { _uiResourceId :: Maybe Text
+    , _uiError      :: UnsuccessfulItemError
+    } deriving (Eq,Read,Show)
 
 -- | 'UnsuccessfulItem' smart constructor.
 unsuccessfulItem :: UnsuccessfulItemError -> UnsuccessfulItem
-unsuccessfulItem pError = UnsuccessfulItem'{_uiResourceId = Nothing, _uiError = pError};
+unsuccessfulItem pError =
+    UnsuccessfulItem'
+    { _uiResourceId = Nothing
+    , _uiError = pError
+    }
 
 -- | The ID of the resource.
 uiResourceId :: Lens' UnsuccessfulItem (Maybe Text)
@@ -10427,11 +12501,18 @@ instance FromXML UnsuccessfulItem where
 -- * 'uieCode'
 --
 -- * 'uieMessage'
-data UnsuccessfulItemError = UnsuccessfulItemError'{_uieCode :: Text, _uieMessage :: Text} deriving (Eq, Read, Show)
+data UnsuccessfulItemError = UnsuccessfulItemError'
+    { _uieCode    :: Text
+    , _uieMessage :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UnsuccessfulItemError' smart constructor.
 unsuccessfulItemError :: Text -> Text -> UnsuccessfulItemError
-unsuccessfulItemError pCode pMessage = UnsuccessfulItemError'{_uieCode = pCode, _uieMessage = pMessage};
+unsuccessfulItemError pCode pMessage =
+    UnsuccessfulItemError'
+    { _uieCode = pCode
+    , _uieMessage = pMessage
+    }
 
 -- | The error code.
 uieCode :: Lens' UnsuccessfulItemError Text
@@ -10455,11 +12536,18 @@ instance FromXML UnsuccessfulItemError where
 -- * 'ubS3Key'
 --
 -- * 'ubS3Bucket'
-data UserBucket = UserBucket'{_ubS3Key :: Maybe Text, _ubS3Bucket :: Maybe Text} deriving (Eq, Read, Show)
+data UserBucket = UserBucket'
+    { _ubS3Key    :: Maybe Text
+    , _ubS3Bucket :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UserBucket' smart constructor.
 userBucket :: UserBucket
-userBucket = UserBucket'{_ubS3Key = Nothing, _ubS3Bucket = Nothing};
+userBucket =
+    UserBucket'
+    { _ubS3Key = Nothing
+    , _ubS3Bucket = Nothing
+    }
 
 -- | The key for the disk image.
 ubS3Key :: Lens' UserBucket (Maybe Text)
@@ -10483,11 +12571,18 @@ instance ToQuery UserBucket where
 -- * 'ubdS3Key'
 --
 -- * 'ubdS3Bucket'
-data UserBucketDetails = UserBucketDetails'{_ubdS3Key :: Maybe Text, _ubdS3Bucket :: Maybe Text} deriving (Eq, Read, Show)
+data UserBucketDetails = UserBucketDetails'
+    { _ubdS3Key    :: Maybe Text
+    , _ubdS3Bucket :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UserBucketDetails' smart constructor.
 userBucketDetails :: UserBucketDetails
-userBucketDetails = UserBucketDetails'{_ubdS3Key = Nothing, _ubdS3Bucket = Nothing};
+userBucketDetails =
+    UserBucketDetails'
+    { _ubdS3Key = Nothing
+    , _ubdS3Bucket = Nothing
+    }
 
 -- | The key from which the disk image was created.
 ubdS3Key :: Lens' UserBucketDetails (Maybe Text)
@@ -10509,11 +12604,16 @@ instance FromXML UserBucketDetails where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'udData'
-newtype UserData = UserData'{_udData :: Maybe Text} deriving (Eq, Read, Show)
+newtype UserData = UserData'
+    { _udData :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UserData' smart constructor.
 userData :: UserData
-userData = UserData'{_udData = Nothing};
+userData =
+    UserData'
+    { _udData = Nothing
+    }
 
 -- | The Base64-encoded MIME user data for the instance.
 udData :: Lens' UserData (Maybe Text)
@@ -10533,11 +12633,20 @@ instance ToQuery UserData where
 -- * 'uigpGroupId'
 --
 -- * 'uigpGroupName'
-data UserIdGroupPair = UserIdGroupPair'{_uigpUserId :: Maybe Text, _uigpGroupId :: Maybe Text, _uigpGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data UserIdGroupPair = UserIdGroupPair'
+    { _uigpUserId    :: Maybe Text
+    , _uigpGroupId   :: Maybe Text
+    , _uigpGroupName :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UserIdGroupPair' smart constructor.
 userIdGroupPair :: UserIdGroupPair
-userIdGroupPair = UserIdGroupPair'{_uigpUserId = Nothing, _uigpGroupId = Nothing, _uigpGroupName = Nothing};
+userIdGroupPair =
+    UserIdGroupPair'
+    { _uigpUserId = Nothing
+    , _uigpGroupId = Nothing
+    , _uigpGroupName = Nothing
+    }
 
 -- | The ID of an AWS account. EC2-Classic only.
 uigpUserId :: Lens' UserIdGroupPair (Maybe Text)
@@ -10580,11 +12689,24 @@ instance ToQuery UserIdGroupPair where
 -- * 'vtAcceptedRouteCount'
 --
 -- * 'vtStatusMessage'
-data VGWTelemetry = VGWTelemetry'{_vtStatus :: Maybe TelemetryStatus, _vtOutsideIPAddress :: Maybe Text, _vtLastStatusChange :: Maybe ISO8601, _vtAcceptedRouteCount :: Maybe Int, _vtStatusMessage :: Maybe Text} deriving (Eq, Read, Show)
+data VGWTelemetry = VGWTelemetry'
+    { _vtStatus             :: Maybe TelemetryStatus
+    , _vtOutsideIPAddress   :: Maybe Text
+    , _vtLastStatusChange   :: Maybe ISO8601
+    , _vtAcceptedRouteCount :: Maybe Int
+    , _vtStatusMessage      :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VGWTelemetry' smart constructor.
 vgwTelemetry :: VGWTelemetry
-vgwTelemetry = VGWTelemetry'{_vtStatus = Nothing, _vtOutsideIPAddress = Nothing, _vtLastStatusChange = Nothing, _vtAcceptedRouteCount = Nothing, _vtStatusMessage = Nothing};
+vgwTelemetry =
+    VGWTelemetry'
+    { _vtStatus = Nothing
+    , _vtOutsideIPAddress = Nothing
+    , _vtLastStatusChange = Nothing
+    , _vtAcceptedRouteCount = Nothing
+    , _vtStatusMessage = Nothing
+    }
 
 -- | The status of the VPN tunnel.
 vtStatus :: Lens' VGWTelemetry (Maybe TelemetryStatus)
@@ -10634,11 +12756,28 @@ instance FromXML VGWTelemetry where
 -- * 'vpcState'
 --
 -- * 'vpcVPCId'
-data VPC = VPC'{_vpcTags :: Maybe [Tag], _vpcCIDRBlock :: Text, _vpcDHCPOptionsId :: Text, _vpcInstanceTenancy :: Tenancy, _vpcIsDefault :: Bool, _vpcState :: VPCState, _vpcVPCId :: Text} deriving (Eq, Read, Show)
+data VPC = VPC'
+    { _vpcTags            :: Maybe [Tag]
+    , _vpcCIDRBlock       :: Text
+    , _vpcDHCPOptionsId   :: Text
+    , _vpcInstanceTenancy :: Tenancy
+    , _vpcIsDefault       :: !Bool
+    , _vpcState           :: VPCState
+    , _vpcVPCId           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VPC' smart constructor.
 vpc :: Text -> Text -> Tenancy -> Bool -> VPCState -> Text -> VPC
-vpc pCIDRBlock pDHCPOptionsId pInstanceTenancy pIsDefault pState pVPCId = VPC'{_vpcTags = Nothing, _vpcCIDRBlock = pCIDRBlock, _vpcDHCPOptionsId = pDHCPOptionsId, _vpcInstanceTenancy = pInstanceTenancy, _vpcIsDefault = pIsDefault, _vpcState = pState, _vpcVPCId = pVPCId};
+vpc pCIDRBlock pDHCPOptionsId pInstanceTenancy pIsDefault pState pVPCId =
+    VPC'
+    { _vpcTags = Nothing
+    , _vpcCIDRBlock = pCIDRBlock
+    , _vpcDHCPOptionsId = pDHCPOptionsId
+    , _vpcInstanceTenancy = pInstanceTenancy
+    , _vpcIsDefault = pIsDefault
+    , _vpcState = pState
+    , _vpcVPCId = pVPCId
+    }
 
 -- | Any tags assigned to the VPC.
 vpcTags :: Lens' VPC [Tag]
@@ -10688,11 +12827,18 @@ instance FromXML VPC where
 -- * 'vaState'
 --
 -- * 'vaVPCId'
-data VPCAttachment = VPCAttachment'{_vaState :: Maybe AttachmentStatus, _vaVPCId :: Maybe Text} deriving (Eq, Read, Show)
+data VPCAttachment = VPCAttachment'
+    { _vaState :: Maybe AttachmentStatus
+    , _vaVPCId :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VPCAttachment' smart constructor.
 vpcAttachment :: VPCAttachment
-vpcAttachment = VPCAttachment'{_vaState = Nothing, _vaVPCId = Nothing};
+vpcAttachment =
+    VPCAttachment'
+    { _vaState = Nothing
+    , _vaVPCId = Nothing
+    }
 
 -- | The current state of the attachment.
 vaState :: Lens' VPCAttachment (Maybe AttachmentStatus)
@@ -10718,11 +12864,20 @@ instance FromXML VPCAttachment where
 -- * 'vclTags'
 --
 -- * 'vclClassicLinkEnabled'
-data VPCClassicLink = VPCClassicLink'{_vclVPCId :: Maybe Text, _vclTags :: Maybe [Tag], _vclClassicLinkEnabled :: Maybe Bool} deriving (Eq, Read, Show)
+data VPCClassicLink = VPCClassicLink'
+    { _vclVPCId              :: Maybe Text
+    , _vclTags               :: Maybe [Tag]
+    , _vclClassicLinkEnabled :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'VPCClassicLink' smart constructor.
 vpcClassicLink :: VPCClassicLink
-vpcClassicLink = VPCClassicLink'{_vclVPCId = Nothing, _vclTags = Nothing, _vclClassicLinkEnabled = Nothing};
+vpcClassicLink =
+    VPCClassicLink'
+    { _vclVPCId = Nothing
+    , _vclTags = Nothing
+    , _vclClassicLinkEnabled = Nothing
+    }
 
 -- | The ID of the VPC.
 vclVPCId :: Lens' VPCClassicLink (Maybe Text)
@@ -10761,11 +12916,28 @@ instance FromXML VPCClassicLink where
 -- * 'veVPCEndpointId'
 --
 -- * 'veRouteTableIds'
-data VPCEndpoint = VPCEndpoint'{_vePolicyDocument :: Maybe Text, _veState :: Maybe State, _veVPCId :: Maybe Text, _veCreationTimestamp :: Maybe ISO8601, _veServiceName :: Maybe Text, _veVPCEndpointId :: Maybe Text, _veRouteTableIds :: Maybe [Text]} deriving (Eq, Read, Show)
+data VPCEndpoint = VPCEndpoint'
+    { _vePolicyDocument    :: Maybe Text
+    , _veState             :: Maybe State
+    , _veVPCId             :: Maybe Text
+    , _veCreationTimestamp :: Maybe ISO8601
+    , _veServiceName       :: Maybe Text
+    , _veVPCEndpointId     :: Maybe Text
+    , _veRouteTableIds     :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'VPCEndpoint' smart constructor.
 vpcEndpoint :: VPCEndpoint
-vpcEndpoint = VPCEndpoint'{_vePolicyDocument = Nothing, _veState = Nothing, _veVPCId = Nothing, _veCreationTimestamp = Nothing, _veServiceName = Nothing, _veVPCEndpointId = Nothing, _veRouteTableIds = Nothing};
+vpcEndpoint =
+    VPCEndpoint'
+    { _vePolicyDocument = Nothing
+    , _veState = Nothing
+    , _veVPCId = Nothing
+    , _veCreationTimestamp = Nothing
+    , _veServiceName = Nothing
+    , _veVPCEndpointId = Nothing
+    , _veRouteTableIds = Nothing
+    }
 
 -- | The policy document associated with the endpoint.
 vePolicyDocument :: Lens' VPCEndpoint (Maybe Text)
@@ -10822,11 +12994,26 @@ instance FromXML VPCEndpoint where
 -- * 'vExpirationTime'
 --
 -- * 'vTags'
-data VPCPeeringConnection = VPCPeeringConnection'{_vStatus :: Maybe VPCPeeringConnectionStateReason, _vVPCPeeringConnectionId :: Maybe Text, _vAccepterVPCInfo :: Maybe VPCPeeringConnectionVPCInfo, _vRequesterVPCInfo :: Maybe VPCPeeringConnectionVPCInfo, _vExpirationTime :: Maybe ISO8601, _vTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data VPCPeeringConnection = VPCPeeringConnection'
+    { _vStatus                 :: Maybe VPCPeeringConnectionStateReason
+    , _vVPCPeeringConnectionId :: Maybe Text
+    , _vAccepterVPCInfo        :: Maybe VPCPeeringConnectionVPCInfo
+    , _vRequesterVPCInfo       :: Maybe VPCPeeringConnectionVPCInfo
+    , _vExpirationTime         :: Maybe ISO8601
+    , _vTags                   :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'VPCPeeringConnection' smart constructor.
 vpcPeeringConnection :: VPCPeeringConnection
-vpcPeeringConnection = VPCPeeringConnection'{_vStatus = Nothing, _vVPCPeeringConnectionId = Nothing, _vAccepterVPCInfo = Nothing, _vRequesterVPCInfo = Nothing, _vExpirationTime = Nothing, _vTags = Nothing};
+vpcPeeringConnection =
+    VPCPeeringConnection'
+    { _vStatus = Nothing
+    , _vVPCPeeringConnectionId = Nothing
+    , _vAccepterVPCInfo = Nothing
+    , _vRequesterVPCInfo = Nothing
+    , _vExpirationTime = Nothing
+    , _vTags = Nothing
+    }
 
 -- | The status of the VPC peering connection.
 vStatus :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionStateReason)
@@ -10870,11 +13057,18 @@ instance FromXML VPCPeeringConnection where
 -- * 'vpcsrCode'
 --
 -- * 'vpcsrMessage'
-data VPCPeeringConnectionStateReason = VPCPeeringConnectionStateReason'{_vpcsrCode :: Maybe Text, _vpcsrMessage :: Maybe Text} deriving (Eq, Read, Show)
+data VPCPeeringConnectionStateReason = VPCPeeringConnectionStateReason'
+    { _vpcsrCode    :: Maybe Text
+    , _vpcsrMessage :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VPCPeeringConnectionStateReason' smart constructor.
 vpcPeeringConnectionStateReason :: VPCPeeringConnectionStateReason
-vpcPeeringConnectionStateReason = VPCPeeringConnectionStateReason'{_vpcsrCode = Nothing, _vpcsrMessage = Nothing};
+vpcPeeringConnectionStateReason =
+    VPCPeeringConnectionStateReason'
+    { _vpcsrCode = Nothing
+    , _vpcsrMessage = Nothing
+    }
 
 -- | The status of the VPC peering connection.
 vpcsrCode :: Lens' VPCPeeringConnectionStateReason (Maybe Text)
@@ -10902,11 +13096,20 @@ instance FromXML VPCPeeringConnectionStateReason
 -- * 'vpcviOwnerId'
 --
 -- * 'vpcviCIDRBlock'
-data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'{_vpcviVPCId :: Maybe Text, _vpcviOwnerId :: Maybe Text, _vpcviCIDRBlock :: Maybe Text} deriving (Eq, Read, Show)
+data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'
+    { _vpcviVPCId     :: Maybe Text
+    , _vpcviOwnerId   :: Maybe Text
+    , _vpcviCIDRBlock :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VPCPeeringConnectionVPCInfo' smart constructor.
 vpcPeeringConnectionVPCInfo :: VPCPeeringConnectionVPCInfo
-vpcPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'{_vpcviVPCId = Nothing, _vpcviOwnerId = Nothing, _vpcviCIDRBlock = Nothing};
+vpcPeeringConnectionVPCInfo =
+    VPCPeeringConnectionVPCInfo'
+    { _vpcviVPCId = Nothing
+    , _vpcviOwnerId = Nothing
+    , _vpcviCIDRBlock = Nothing
+    }
 
 -- | The ID of the VPC.
 vpcviVPCId :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
@@ -10951,11 +13154,34 @@ instance FromXML VPCPeeringConnectionVPCInfo where
 -- * 'vcState'
 --
 -- * 'vcType'
-data VPNConnection = VPNConnection'{_vcRoutes :: Maybe [VPNStaticRoute], _vcVPNGatewayId :: Maybe Text, _vcOptions :: Maybe VPNConnectionOptions, _vcVGWTelemetry :: Maybe [VGWTelemetry], _vcTags :: Maybe [Tag], _vcVPNConnectionId :: Text, _vcCustomerGatewayId :: Text, _vcCustomerGatewayConfiguration :: Text, _vcState :: VPNState, _vcType :: GatewayType} deriving (Eq, Read, Show)
+data VPNConnection = VPNConnection'
+    { _vcRoutes                       :: Maybe [VPNStaticRoute]
+    , _vcVPNGatewayId                 :: Maybe Text
+    , _vcOptions                      :: Maybe VPNConnectionOptions
+    , _vcVGWTelemetry                 :: Maybe [VGWTelemetry]
+    , _vcTags                         :: Maybe [Tag]
+    , _vcVPNConnectionId              :: Text
+    , _vcCustomerGatewayId            :: Text
+    , _vcCustomerGatewayConfiguration :: Text
+    , _vcState                        :: VPNState
+    , _vcType                         :: GatewayType
+    } deriving (Eq,Read,Show)
 
 -- | 'VPNConnection' smart constructor.
 vpnConnection :: Text -> Text -> Text -> VPNState -> GatewayType -> VPNConnection
-vpnConnection pVPNConnectionId pCustomerGatewayId pCustomerGatewayConfiguration pState pType = VPNConnection'{_vcRoutes = Nothing, _vcVPNGatewayId = Nothing, _vcOptions = Nothing, _vcVGWTelemetry = Nothing, _vcTags = Nothing, _vcVPNConnectionId = pVPNConnectionId, _vcCustomerGatewayId = pCustomerGatewayId, _vcCustomerGatewayConfiguration = pCustomerGatewayConfiguration, _vcState = pState, _vcType = pType};
+vpnConnection pVPNConnectionId pCustomerGatewayId pCustomerGatewayConfiguration pState pType =
+    VPNConnection'
+    { _vcRoutes = Nothing
+    , _vcVPNGatewayId = Nothing
+    , _vcOptions = Nothing
+    , _vcVGWTelemetry = Nothing
+    , _vcTags = Nothing
+    , _vcVPNConnectionId = pVPNConnectionId
+    , _vcCustomerGatewayId = pCustomerGatewayId
+    , _vcCustomerGatewayConfiguration = pCustomerGatewayConfiguration
+    , _vcState = pState
+    , _vcType = pType
+    }
 
 -- | The static routes associated with the VPN connection.
 vcRoutes :: Lens' VPNConnection [VPNStaticRoute]
@@ -11023,11 +13249,16 @@ instance FromXML VPNConnection where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'vcoStaticRoutesOnly'
-newtype VPNConnectionOptions = VPNConnectionOptions'{_vcoStaticRoutesOnly :: Maybe Bool} deriving (Eq, Read, Show)
+newtype VPNConnectionOptions = VPNConnectionOptions'
+    { _vcoStaticRoutesOnly :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'VPNConnectionOptions' smart constructor.
 vpnConnectionOptions :: VPNConnectionOptions
-vpnConnectionOptions = VPNConnectionOptions'{_vcoStaticRoutesOnly = Nothing};
+vpnConnectionOptions =
+    VPNConnectionOptions'
+    { _vcoStaticRoutesOnly = Nothing
+    }
 
 -- | Indicates whether the VPN connection uses static routes only. Static
 -- routes must be used for devices that don\'t support BGP.
@@ -11046,11 +13277,16 @@ instance FromXML VPNConnectionOptions where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'vcosStaticRoutesOnly'
-newtype VPNConnectionOptionsSpecification = VPNConnectionOptionsSpecification'{_vcosStaticRoutesOnly :: Maybe Bool} deriving (Eq, Read, Show)
+newtype VPNConnectionOptionsSpecification = VPNConnectionOptionsSpecification'
+    { _vcosStaticRoutesOnly :: Maybe Bool
+    } deriving (Eq,Read,Show)
 
 -- | 'VPNConnectionOptionsSpecification' smart constructor.
 vpnConnectionOptionsSpecification :: VPNConnectionOptionsSpecification
-vpnConnectionOptionsSpecification = VPNConnectionOptionsSpecification'{_vcosStaticRoutesOnly = Nothing};
+vpnConnectionOptionsSpecification =
+    VPNConnectionOptionsSpecification'
+    { _vcosStaticRoutesOnly = Nothing
+    }
 
 -- | Indicates whether the VPN connection uses static routes only. Static
 -- routes must be used for devices that don\'t support BGP.
@@ -11080,11 +13316,26 @@ instance ToQuery VPNConnectionOptionsSpecification
 -- * 'vgType'
 --
 -- * 'vgTags'
-data VPNGateway = VPNGateway'{_vgVPCAttachments :: Maybe [VPCAttachment], _vgState :: Maybe VPNState, _vgVPNGatewayId :: Maybe Text, _vgAvailabilityZone :: Maybe Text, _vgType :: Maybe GatewayType, _vgTags :: Maybe [Tag]} deriving (Eq, Read, Show)
+data VPNGateway = VPNGateway'
+    { _vgVPCAttachments   :: Maybe [VPCAttachment]
+    , _vgState            :: Maybe VPNState
+    , _vgVPNGatewayId     :: Maybe Text
+    , _vgAvailabilityZone :: Maybe Text
+    , _vgType             :: Maybe GatewayType
+    , _vgTags             :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'VPNGateway' smart constructor.
 vpnGateway :: VPNGateway
-vpnGateway = VPNGateway'{_vgVPCAttachments = Nothing, _vgState = Nothing, _vgVPNGatewayId = Nothing, _vgAvailabilityZone = Nothing, _vgType = Nothing, _vgTags = Nothing};
+vpnGateway =
+    VPNGateway'
+    { _vgVPCAttachments = Nothing
+    , _vgState = Nothing
+    , _vgVPNGatewayId = Nothing
+    , _vgAvailabilityZone = Nothing
+    , _vgType = Nothing
+    , _vgTags = Nothing
+    }
 
 -- | Any VPCs attached to the virtual private gateway.
 vgVPCAttachments :: Lens' VPNGateway [VPCAttachment]
@@ -11130,11 +13381,20 @@ instance FromXML VPNGateway where
 -- * 'vsrSource'
 --
 -- * 'vsrDestinationCIDRBlock'
-data VPNStaticRoute = VPNStaticRoute'{_vsrState :: Maybe VPNState, _vsrSource :: Maybe VPNStaticRouteSource, _vsrDestinationCIDRBlock :: Maybe Text} deriving (Eq, Read, Show)
+data VPNStaticRoute = VPNStaticRoute'
+    { _vsrState                :: Maybe VPNState
+    , _vsrSource               :: Maybe VPNStaticRouteSource
+    , _vsrDestinationCIDRBlock :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VPNStaticRoute' smart constructor.
 vpnStaticRoute :: VPNStaticRoute
-vpnStaticRoute = VPNStaticRoute'{_vsrState = Nothing, _vsrSource = Nothing, _vsrDestinationCIDRBlock = Nothing};
+vpnStaticRoute =
+    VPNStaticRoute'
+    { _vsrState = Nothing
+    , _vsrSource = Nothing
+    , _vsrDestinationCIDRBlock = Nothing
+    }
 
 -- | The current state of the static route.
 vsrState :: Lens' VPNStaticRoute (Maybe VPNState)
@@ -11184,11 +13444,38 @@ instance FromXML VPNStaticRoute where
 -- * 'volVolumeId'
 --
 -- * 'volVolumeType'
-data Volume = Volume'{_volAttachments :: Maybe [VolumeAttachment], _volIOPS :: Maybe Int, _volKMSKeyId :: Maybe Text, _volTags :: Maybe [Tag], _volAvailabilityZone :: Text, _volCreateTime :: ISO8601, _volEncrypted :: Bool, _volSize :: Int, _volSnapshotId :: Text, _volState :: VolumeState, _volVolumeId :: Text, _volVolumeType :: VolumeType} deriving (Eq, Read, Show)
+data Volume = Volume'
+    { _volAttachments      :: Maybe [VolumeAttachment]
+    , _volIOPS             :: Maybe Int
+    , _volKMSKeyId         :: Maybe Text
+    , _volTags             :: Maybe [Tag]
+    , _volAvailabilityZone :: Text
+    , _volCreateTime       :: ISO8601
+    , _volEncrypted        :: !Bool
+    , _volSize             :: !Int
+    , _volSnapshotId       :: Text
+    , _volState            :: VolumeState
+    , _volVolumeId         :: Text
+    , _volVolumeType       :: VolumeType
+    } deriving (Eq,Read,Show)
 
 -- | 'Volume' smart constructor.
 volume :: Text -> UTCTime -> Bool -> Int -> Text -> VolumeState -> Text -> VolumeType -> Volume
-volume pAvailabilityZone pCreateTime pEncrypted pSize pSnapshotId pState pVolumeId pVolumeType = Volume'{_volAttachments = Nothing, _volIOPS = Nothing, _volKMSKeyId = Nothing, _volTags = Nothing, _volAvailabilityZone = pAvailabilityZone, _volCreateTime = _Time # pCreateTime, _volEncrypted = pEncrypted, _volSize = pSize, _volSnapshotId = pSnapshotId, _volState = pState, _volVolumeId = pVolumeId, _volVolumeType = pVolumeType};
+volume pAvailabilityZone pCreateTime pEncrypted pSize pSnapshotId pState pVolumeId pVolumeType =
+    Volume'
+    { _volAttachments = Nothing
+    , _volIOPS = Nothing
+    , _volKMSKeyId = Nothing
+    , _volTags = Nothing
+    , _volAvailabilityZone = pAvailabilityZone
+    , _volCreateTime = _Time # pCreateTime
+    , _volEncrypted = pEncrypted
+    , _volSize = pSize
+    , _volSnapshotId = pSnapshotId
+    , _volState = pState
+    , _volVolumeId = pVolumeId
+    , _volVolumeType = pVolumeType
+    }
 
 -- | Information about the volume attachments.
 volAttachments :: Lens' Volume [VolumeAttachment]
@@ -11288,11 +13575,26 @@ instance FromXML Volume where
 -- * 'vVolumeId'
 --
 -- * 'vAttachTime'
-data VolumeAttachment = VolumeAttachment'{_vInstanceId :: Maybe Text, _vDeleteOnTermination :: Maybe Bool, _vState :: Maybe VolumeAttachmentState, _vDevice :: Maybe Text, _vVolumeId :: Maybe Text, _vAttachTime :: Maybe ISO8601} deriving (Eq, Read, Show)
+data VolumeAttachment = VolumeAttachment'
+    { _vInstanceId          :: Maybe Text
+    , _vDeleteOnTermination :: Maybe Bool
+    , _vState               :: Maybe VolumeAttachmentState
+    , _vDevice              :: Maybe Text
+    , _vVolumeId            :: Maybe Text
+    , _vAttachTime          :: Maybe ISO8601
+    } deriving (Eq,Read,Show)
 
 -- | 'VolumeAttachment' smart constructor.
 volumeAttachment :: VolumeAttachment
-volumeAttachment = VolumeAttachment'{_vInstanceId = Nothing, _vDeleteOnTermination = Nothing, _vState = Nothing, _vDevice = Nothing, _vVolumeId = Nothing, _vAttachTime = Nothing};
+volumeAttachment =
+    VolumeAttachment'
+    { _vInstanceId = Nothing
+    , _vDeleteOnTermination = Nothing
+    , _vState = Nothing
+    , _vDevice = Nothing
+    , _vVolumeId = Nothing
+    , _vAttachTime = Nothing
+    }
 
 -- | The ID of the instance.
 vInstanceId :: Lens' VolumeAttachment (Maybe Text)
@@ -11335,11 +13637,16 @@ instance FromXML VolumeAttachment where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'vdSize'
-newtype VolumeDetail = VolumeDetail'{_vdSize :: Integer} deriving (Eq, Read, Show)
+newtype VolumeDetail = VolumeDetail'
+    { _vdSize :: Integer
+    } deriving (Eq,Read,Show)
 
 -- | 'VolumeDetail' smart constructor.
 volumeDetail :: Integer -> VolumeDetail
-volumeDetail pSize = VolumeDetail'{_vdSize = pSize};
+volumeDetail pSize =
+    VolumeDetail'
+    { _vdSize = pSize
+    }
 
 -- | The size of the volume, in GiB.
 vdSize :: Lens' VolumeDetail Integer
@@ -11362,11 +13669,22 @@ instance ToQuery VolumeDetail where
 -- * 'vsaDescription'
 --
 -- * 'vsaEventId'
-data VolumeStatusAction = VolumeStatusAction'{_vsaEventType :: Maybe Text, _vsaCode :: Maybe Text, _vsaDescription :: Maybe Text, _vsaEventId :: Maybe Text} deriving (Eq, Read, Show)
+data VolumeStatusAction = VolumeStatusAction'
+    { _vsaEventType   :: Maybe Text
+    , _vsaCode        :: Maybe Text
+    , _vsaDescription :: Maybe Text
+    , _vsaEventId     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VolumeStatusAction' smart constructor.
 volumeStatusAction :: VolumeStatusAction
-volumeStatusAction = VolumeStatusAction'{_vsaEventType = Nothing, _vsaCode = Nothing, _vsaDescription = Nothing, _vsaEventId = Nothing};
+volumeStatusAction =
+    VolumeStatusAction'
+    { _vsaEventType = Nothing
+    , _vsaCode = Nothing
+    , _vsaDescription = Nothing
+    , _vsaEventId = Nothing
+    }
 
 -- | The event type associated with this operation.
 vsaEventType :: Lens' VolumeStatusAction (Maybe Text)
@@ -11400,11 +13718,18 @@ instance FromXML VolumeStatusAction where
 -- * 'vsdStatus'
 --
 -- * 'vsdName'
-data VolumeStatusDetails = VolumeStatusDetails'{_vsdStatus :: Maybe Text, _vsdName :: Maybe VolumeStatusName} deriving (Eq, Read, Show)
+data VolumeStatusDetails = VolumeStatusDetails'
+    { _vsdStatus :: Maybe Text
+    , _vsdName   :: Maybe VolumeStatusName
+    } deriving (Eq,Read,Show)
 
 -- | 'VolumeStatusDetails' smart constructor.
 volumeStatusDetails :: VolumeStatusDetails
-volumeStatusDetails = VolumeStatusDetails'{_vsdStatus = Nothing, _vsdName = Nothing};
+volumeStatusDetails =
+    VolumeStatusDetails'
+    { _vsdStatus = Nothing
+    , _vsdName = Nothing
+    }
 
 -- | The intended status of the volume status.
 vsdStatus :: Lens' VolumeStatusDetails (Maybe Text)
@@ -11434,11 +13759,24 @@ instance FromXML VolumeStatusDetails where
 -- * 'vseNotAfter'
 --
 -- * 'vseEventId'
-data VolumeStatusEvent = VolumeStatusEvent'{_vseNotBefore :: Maybe ISO8601, _vseEventType :: Maybe Text, _vseDescription :: Maybe Text, _vseNotAfter :: Maybe ISO8601, _vseEventId :: Maybe Text} deriving (Eq, Read, Show)
+data VolumeStatusEvent = VolumeStatusEvent'
+    { _vseNotBefore   :: Maybe ISO8601
+    , _vseEventType   :: Maybe Text
+    , _vseDescription :: Maybe Text
+    , _vseNotAfter    :: Maybe ISO8601
+    , _vseEventId     :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VolumeStatusEvent' smart constructor.
 volumeStatusEvent :: VolumeStatusEvent
-volumeStatusEvent = VolumeStatusEvent'{_vseNotBefore = Nothing, _vseEventType = Nothing, _vseDescription = Nothing, _vseNotAfter = Nothing, _vseEventId = Nothing};
+volumeStatusEvent =
+    VolumeStatusEvent'
+    { _vseNotBefore = Nothing
+    , _vseEventType = Nothing
+    , _vseDescription = Nothing
+    , _vseNotAfter = Nothing
+    , _vseEventId = Nothing
+    }
 
 -- | The earliest start time of the event.
 vseNotBefore :: Lens' VolumeStatusEvent (Maybe UTCTime)
@@ -11477,11 +13815,18 @@ instance FromXML VolumeStatusEvent where
 -- * 'vsiStatus'
 --
 -- * 'vsiDetails'
-data VolumeStatusInfo = VolumeStatusInfo'{_vsiStatus :: Maybe VolumeStatusInfoStatus, _vsiDetails :: Maybe [VolumeStatusDetails]} deriving (Eq, Read, Show)
+data VolumeStatusInfo = VolumeStatusInfo'
+    { _vsiStatus  :: Maybe VolumeStatusInfoStatus
+    , _vsiDetails :: Maybe [VolumeStatusDetails]
+    } deriving (Eq,Read,Show)
 
 -- | 'VolumeStatusInfo' smart constructor.
 volumeStatusInfo :: VolumeStatusInfo
-volumeStatusInfo = VolumeStatusInfo'{_vsiStatus = Nothing, _vsiDetails = Nothing};
+volumeStatusInfo =
+    VolumeStatusInfo'
+    { _vsiStatus = Nothing
+    , _vsiDetails = Nothing
+    }
 
 -- | The status of the volume.
 vsiStatus :: Lens' VolumeStatusInfo (Maybe VolumeStatusInfoStatus)
@@ -11511,11 +13856,24 @@ instance FromXML VolumeStatusInfo where
 -- * 'vsiEvents'
 --
 -- * 'vsiVolumeId'
-data VolumeStatusItem = VolumeStatusItem'{_vsiVolumeStatus :: Maybe VolumeStatusInfo, _vsiActions :: Maybe [VolumeStatusAction], _vsiAvailabilityZone :: Maybe Text, _vsiEvents :: Maybe [VolumeStatusEvent], _vsiVolumeId :: Maybe Text} deriving (Eq, Read, Show)
+data VolumeStatusItem = VolumeStatusItem'
+    { _vsiVolumeStatus     :: Maybe VolumeStatusInfo
+    , _vsiActions          :: Maybe [VolumeStatusAction]
+    , _vsiAvailabilityZone :: Maybe Text
+    , _vsiEvents           :: Maybe [VolumeStatusEvent]
+    , _vsiVolumeId         :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'VolumeStatusItem' smart constructor.
 volumeStatusItem :: VolumeStatusItem
-volumeStatusItem = VolumeStatusItem'{_vsiVolumeStatus = Nothing, _vsiActions = Nothing, _vsiAvailabilityZone = Nothing, _vsiEvents = Nothing, _vsiVolumeId = Nothing};
+volumeStatusItem =
+    VolumeStatusItem'
+    { _vsiVolumeStatus = Nothing
+    , _vsiActions = Nothing
+    , _vsiAvailabilityZone = Nothing
+    , _vsiEvents = Nothing
+    , _vsiVolumeId = Nothing
+    }
 
 -- | The volume status.
 vsiVolumeStatus :: Lens' VolumeStatusItem (Maybe VolumeStatusInfo)

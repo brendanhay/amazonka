@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElasticFileSystem.CreateMountTarget
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -142,10 +142,10 @@ module Network.AWS.ElasticFileSystem.CreateMountTarget
     , mtdLifeCycleState
     ) where
 
-import Network.AWS.ElasticFileSystem.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticFileSystem.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createMountTarget' smart constructor.
 --
@@ -158,11 +158,22 @@ import Network.AWS.Response
 -- * 'cmtFileSystemId'
 --
 -- * 'cmtSubnetId'
-data CreateMountTarget = CreateMountTarget'{_cmtIPAddress :: Maybe Text, _cmtSecurityGroups :: Maybe [Text], _cmtFileSystemId :: Text, _cmtSubnetId :: Text} deriving (Eq, Read, Show)
+data CreateMountTarget = CreateMountTarget'
+    { _cmtIPAddress      :: Maybe Text
+    , _cmtSecurityGroups :: Maybe [Text]
+    , _cmtFileSystemId   :: Text
+    , _cmtSubnetId       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateMountTarget' smart constructor.
 createMountTarget :: Text -> Text -> CreateMountTarget
-createMountTarget pFileSystemId pSubnetId = CreateMountTarget'{_cmtIPAddress = Nothing, _cmtSecurityGroups = Nothing, _cmtFileSystemId = pFileSystemId, _cmtSubnetId = pSubnetId};
+createMountTarget pFileSystemId pSubnetId =
+    CreateMountTarget'
+    { _cmtIPAddress = Nothing
+    , _cmtSecurityGroups = Nothing
+    , _cmtFileSystemId = pFileSystemId
+    , _cmtSubnetId = pSubnetId
+    }
 
 -- | A valid IPv4 address within the address range of the specified subnet.
 cmtIPAddress :: Lens' CreateMountTarget (Maybe Text)

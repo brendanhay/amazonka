@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Route53Domains.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -101,70 +100,82 @@ module Network.AWS.Route53Domains.Types
     , tagKey
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2014-05-15@ of the Amazon Route 53 Domains SDK.
 data Route53Domains
 
 instance AWSService Route53Domains where
     type Sg Route53Domains = V4
-
     service = const svc
       where
-        svc :: Service Route53Domains
-        svc = Service
-            { _svcAbbrev   = "Route53Domains"
-            , _svcPrefix   = "route53domains"
-            , _svcVersion  = "2014-05-15"
+        svc =
+            Service
+            { _svcAbbrev = "Route53Domains"
+            , _svcPrefix = "route53domains"
+            , _svcVersion = "2014-05-15"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout  = 80000000
-            , _svcStatus   = statusSuccess
-            , _svcError    = parseJSONError
-            , _svcRetry    = retry
+            , _svcTimeout = 80000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        retry :: Retry
-        retry = Exponential
-            { _retryBase     = 0
-            , _retryGrowth   = 0
-            , _retryAttempts = 0
-            , _retryCheck    = check
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
+            , _retryAttempts = 5
+            , _retryCheck = check
             }
-
-        check :: ServiceError -> Bool
-        check ServiceError'{..} = error "FIXME: Retry check not implemented."
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
 -- | The requested item is not acceptable. For example, for an OperationId it
 -- may refer to the ID of an operation that is already completed. For a
 -- domain name, it may not be a valid domain name or belong to the
 -- requester account.
-_InvalidInput :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidInput = _ServiceError . hasStatus 400 . hasCode "InvalidInput";
+_InvalidInput :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidInput = _ServiceError . hasStatus 400 . hasCode "InvalidInput"
 
 -- | The number of operations or jobs running exceeded the allowed threshold
 -- for the account.
-_OperationLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_OperationLimitExceeded = _ServiceError . hasStatus 400 . hasCode "OperationLimitExceeded";
+_OperationLimitExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_OperationLimitExceeded =
+    _ServiceError . hasStatus 400 . hasCode "OperationLimitExceeded"
 
 -- | The number of domains has exceeded the allowed threshold for the
 -- account.
-_DomainLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_DomainLimitExceeded = _ServiceError . hasStatus 400 . hasCode "DomainLimitExceeded";
+_DomainLimitExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_DomainLimitExceeded =
+    _ServiceError . hasStatus 400 . hasCode "DomainLimitExceeded"
 
 -- | Amazon Route 53 does not support this top-level domain.
-_UnsupportedTLD :: AWSError a => Geting (First ServiceError) a ServiceError
-_UnsupportedTLD = _ServiceError . hasStatus 400 . hasCode "UnsupportedTLD";
+_UnsupportedTLD :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnsupportedTLD = _ServiceError . hasStatus 400 . hasCode "UnsupportedTLD"
 
 -- | The top-level domain does not support this operation.
-_TLDRulesViolation :: AWSError a => Geting (First ServiceError) a ServiceError
-_TLDRulesViolation = _ServiceError . hasStatus 400 . hasCode "TLDRulesViolation";
+_TLDRulesViolation :: AWSError a => Getting (First ServiceError) a ServiceError
+_TLDRulesViolation =
+    _ServiceError . hasStatus 400 . hasCode "TLDRulesViolation"
 
 -- | The request is already in progress for the domain.
-_DuplicateRequest :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicateRequest = _ServiceError . hasStatus 400 . hasCode "DuplicateRequest";
+_DuplicateRequest :: AWSError a => Getting (First ServiceError) a ServiceError
+_DuplicateRequest = _ServiceError . hasStatus 400 . hasCode "DuplicateRequest"
 
-data ContactType = Person | Company | Reseller | Association | PublicBody deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ContactType
+    = Person
+    | Company
+    | Reseller
+    | Association
+    | PublicBody
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ContactType where
     parser = takeLowerText >>= \case
@@ -193,7 +204,237 @@ instance ToJSON ContactType where
 instance FromJSON ContactType where
     parseJSON = parseJSONText "ContactType"
 
-data CountryCode = NR | CG | TH | WS | IM | FJ | AU | UA | PL | MY | AE | SG | HT | BN | PG | JM | MR | VA | UZ | AN | RU | GH | BE | SL | CL | TC | NI | ZM | LK | PW | LV | UG | AS | GE | HR | BH | SA | EG | GU | KY | CA | TN | KI | OM | JP | MO | CV | MH | FK | ZW | AT | RO | PM | MX | SV | AD | GB | BO | HU | GR | CF | KN | NC | IL | LA | TT | CK | TD | ME | IQ | MU | BR | AI | BB | SK | NU | KH | TO | NE | ZA | MN | FM | AR | DO | PK | BY | GD | BI | GA | BL | SE | EC | GQ | TZ | NP | KM | TJ | LB | CU | MK | LR | AW | DJ | PN | ES | DZ | US | AG | DE | MT | PA | VG | BS | SZ | RS | GN | KR | NO | CZ | MD | PT | MA | AM | UY | BF | SO | YE | KW | NZ | CO | KG | FR | IE | GT' | TK | NA | LT' | LC | IN | FI | LS | DK | MZ | VI | ST | ER | AF | BM | SD | CD | TV | CI | NL | CY | PR | MG | IS | MW | SY | GM | SI | YT | SN | BG | CN | ID | LI | IT | LY | PE | JO | MP | BW | VC | AL | RW | VN | BZ | BJ | SC | EE | QA | GW | CC | TL | MM | AQ | PH | CX | MF | IR | AZ | MV | VE | HK | GL | BA | SH | VU | KP | TW | CH | TG | KE | MC | PF | MS | BT | HN | AO | GI | SM | BD | GY | TR | CM | TM | NG | CR | PY | ML | FO | WF | LU | DM | SR | ET | SB | KZ deriving (Eq, Ord, Read, Show, Enum, Generic)
+data CountryCode
+    = NR
+    | CG
+    | TH
+    | WS
+    | IM
+    | FJ
+    | AU
+    | UA
+    | PL
+    | MY
+    | AE
+    | SG
+    | HT
+    | BN
+    | PG
+    | JM
+    | MR
+    | VA
+    | UZ
+    | AN
+    | RU
+    | GH
+    | BE
+    | SL
+    | CL
+    | TC
+    | NI
+    | ZM
+    | LK
+    | PW
+    | LV
+    | UG
+    | AS
+    | GE
+    | HR
+    | BH
+    | SA
+    | EG
+    | GU
+    | KY
+    | CA
+    | TN
+    | KI
+    | OM
+    | JP
+    | MO
+    | CV
+    | MH
+    | FK
+    | ZW
+    | AT
+    | RO
+    | PM
+    | MX
+    | SV
+    | AD
+    | GB
+    | BO
+    | HU
+    | GR
+    | CF
+    | KN
+    | NC
+    | IL
+    | LA
+    | TT
+    | CK
+    | TD
+    | ME
+    | IQ
+    | MU
+    | BR
+    | AI
+    | BB
+    | SK
+    | NU
+    | KH
+    | TO
+    | NE
+    | ZA
+    | MN
+    | FM
+    | AR
+    | DO
+    | PK
+    | BY
+    | GD
+    | BI
+    | GA
+    | BL
+    | SE
+    | EC
+    | GQ
+    | TZ
+    | NP
+    | KM
+    | TJ
+    | LB
+    | CU
+    | MK
+    | LR
+    | AW
+    | DJ
+    | PN
+    | ES
+    | DZ
+    | US
+    | AG
+    | DE
+    | MT
+    | PA
+    | VG
+    | BS
+    | SZ
+    | RS
+    | GN
+    | KR
+    | NO
+    | CZ
+    | MD
+    | PT
+    | MA
+    | AM
+    | UY
+    | BF
+    | SO
+    | YE
+    | KW
+    | NZ
+    | CO
+    | KG
+    | FR
+    | IE
+    | GT'
+    | TK
+    | NA
+    | LT'
+    | LC
+    | IN
+    | FI
+    | LS
+    | DK
+    | MZ
+    | VI
+    | ST
+    | ER
+    | AF
+    | BM
+    | SD
+    | CD
+    | TV
+    | CI
+    | NL
+    | CY
+    | PR
+    | MG
+    | IS
+    | MW
+    | SY
+    | GM
+    | SI
+    | YT
+    | SN
+    | BG
+    | CN
+    | ID
+    | LI
+    | IT
+    | LY
+    | PE
+    | JO
+    | MP
+    | BW
+    | VC
+    | AL
+    | RW
+    | VN
+    | BZ
+    | BJ
+    | SC
+    | EE
+    | QA
+    | GW
+    | CC
+    | TL
+    | MM
+    | AQ
+    | PH
+    | CX
+    | MF
+    | IR
+    | AZ
+    | MV
+    | VE
+    | HK
+    | GL
+    | BA
+    | SH
+    | VU
+    | KP
+    | TW
+    | CH
+    | TG
+    | KE
+    | MC
+    | PF
+    | MS
+    | BT
+    | HN
+    | AO
+    | GI
+    | SM
+    | BD
+    | GY
+    | TR
+    | CM
+    | TM
+    | NG
+    | CR
+    | PY
+    | ML
+    | FO
+    | WF
+    | LU
+    | DM
+    | SR
+    | ET
+    | SB
+    | KZ
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText CountryCode where
     parser = takeLowerText >>= \case
@@ -670,7 +911,16 @@ instance ToJSON CountryCode where
 instance FromJSON CountryCode where
     parseJSON = parseJSONText "CountryCode"
 
-data DomainAvailability = DontKnow | UnavailableRestricted | AvailableReserved | AvailablePreorder | Reserved | Unavailable | UnavailablePremium | Available deriving (Eq, Ord, Read, Show, Enum, Generic)
+data DomainAvailability
+    = DontKnow
+    | UnavailableRestricted
+    | AvailableReserved
+    | AvailablePreorder
+    | Reserved
+    | Unavailable
+    | UnavailablePremium
+    | Available
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DomainAvailability where
     parser = takeLowerText >>= \case
@@ -702,7 +952,28 @@ instance ToHeader DomainAvailability
 instance FromJSON DomainAvailability where
     parseJSON = parseJSONText "DomainAvailability"
 
-data ExtraParamName = DocumentNumber | ESIdentificationType | RUPassportData | SGIDNumber | FIBusinessNumber | AUIDNumber | ESLegalForm | BirthDateINYyyyMMDD | CALegalType | AUIDType | BirthDepartment | ESIdentification | DunsNumber | BirthCity | ITPin | BirthCountry | VatNumber | BrandNumber | SEIDNumber | FIIDNumber deriving (Eq, Ord, Read, Show, Enum, Generic)
+data ExtraParamName
+    = DocumentNumber
+    | ESIdentificationType
+    | RUPassportData
+    | SGIDNumber
+    | FIBusinessNumber
+    | AUIDNumber
+    | ESLegalForm
+    | BirthDateINYyyyMMDD
+    | CALegalType
+    | AUIDType
+    | BirthDepartment
+    | ESIdentification
+    | DunsNumber
+    | BirthCity
+    | ITPin
+    | BirthCountry
+    | VatNumber
+    | BrandNumber
+    | SEIDNumber
+    | FIIDNumber
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText ExtraParamName where
     parser = takeLowerText >>= \case
@@ -761,11 +1032,17 @@ instance ToJSON ExtraParamName where
 instance FromJSON ExtraParamName where
     parseJSON = parseJSONText "ExtraParamName"
 
-data OperationStatus = Error | Successful | INProgress | Failed | Submitted deriving (Eq, Ord, Read, Show, Enum, Generic)
+data OperationStatus
+    = Error'
+    | Successful
+    | INProgress
+    | Failed
+    | Submitted
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText OperationStatus where
     parser = takeLowerText >>= \case
-        "ERROR" -> pure Error
+        "ERROR" -> pure Error'
         "FAILED" -> pure Failed
         "IN_PROGRESS" -> pure INProgress
         "SUBMITTED" -> pure Submitted
@@ -774,7 +1051,7 @@ instance FromText OperationStatus where
 
 instance ToText OperationStatus where
     toText = \case
-        Error -> "ERROR"
+        Error' -> "ERROR"
         Failed -> "FAILED"
         INProgress -> "IN_PROGRESS"
         Submitted -> "SUBMITTED"
@@ -787,7 +1064,15 @@ instance ToHeader OperationStatus
 instance FromJSON OperationStatus where
     parseJSON = parseJSONText "OperationStatus"
 
-data OperationType = TransferINDomain | ChangePrivacyProtection | UpdateDomainContact | RegisterDomain | UpdateNameserver | DomainLock | DeleteDomain deriving (Eq, Ord, Read, Show, Enum, Generic)
+data OperationType
+    = TransferINDomain
+    | ChangePrivacyProtection
+    | UpdateDomainContact
+    | RegisterDomain
+    | UpdateNameserver
+    | DomainLock
+    | DeleteDomain
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText OperationType where
     parser = takeLowerText >>= \case
@@ -850,11 +1135,42 @@ instance FromJSON OperationType where
 -- * 'cdCountryCode'
 --
 -- * 'cdContactType'
-data ContactDetail = ContactDetail'{_cdOrganizationName :: Maybe Text, _cdEmail :: Maybe Text, _cdFax :: Maybe Text, _cdState :: Maybe Text, _cdLastName :: Maybe Text, _cdExtraParams :: Maybe [ExtraParam], _cdZipCode :: Maybe Text, _cdAddressLine1 :: Maybe Text, _cdCity :: Maybe Text, _cdPhoneNumber :: Maybe Text, _cdAddressLine2 :: Maybe Text, _cdFirstName :: Maybe Text, _cdCountryCode :: Maybe CountryCode, _cdContactType :: Maybe ContactType} deriving (Eq, Read, Show)
+data ContactDetail = ContactDetail'
+    { _cdOrganizationName :: Maybe Text
+    , _cdEmail            :: Maybe Text
+    , _cdFax              :: Maybe Text
+    , _cdState            :: Maybe Text
+    , _cdLastName         :: Maybe Text
+    , _cdExtraParams      :: Maybe [ExtraParam]
+    , _cdZipCode          :: Maybe Text
+    , _cdAddressLine1     :: Maybe Text
+    , _cdCity             :: Maybe Text
+    , _cdPhoneNumber      :: Maybe Text
+    , _cdAddressLine2     :: Maybe Text
+    , _cdFirstName        :: Maybe Text
+    , _cdCountryCode      :: Maybe CountryCode
+    , _cdContactType      :: Maybe ContactType
+    } deriving (Eq,Read,Show)
 
 -- | 'ContactDetail' smart constructor.
 contactDetail :: ContactDetail
-contactDetail = ContactDetail'{_cdOrganizationName = Nothing, _cdEmail = Nothing, _cdFax = Nothing, _cdState = Nothing, _cdLastName = Nothing, _cdExtraParams = Nothing, _cdZipCode = Nothing, _cdAddressLine1 = Nothing, _cdCity = Nothing, _cdPhoneNumber = Nothing, _cdAddressLine2 = Nothing, _cdFirstName = Nothing, _cdCountryCode = Nothing, _cdContactType = Nothing};
+contactDetail =
+    ContactDetail'
+    { _cdOrganizationName = Nothing
+    , _cdEmail = Nothing
+    , _cdFax = Nothing
+    , _cdState = Nothing
+    , _cdLastName = Nothing
+    , _cdExtraParams = Nothing
+    , _cdZipCode = Nothing
+    , _cdAddressLine1 = Nothing
+    , _cdCity = Nothing
+    , _cdPhoneNumber = Nothing
+    , _cdAddressLine2 = Nothing
+    , _cdFirstName = Nothing
+    , _cdCountryCode = Nothing
+    , _cdContactType = Nothing
+    }
 
 -- | Name of the organization for contact types other than @PERSON@.
 --
@@ -1107,11 +1423,22 @@ instance ToJSON ContactDetail where
 -- * 'dsAutoRenew'
 --
 -- * 'dsDomainName'
-data DomainSummary = DomainSummary'{_dsExpiry :: Maybe POSIX, _dsTransferLock :: Maybe Bool, _dsAutoRenew :: Maybe Bool, _dsDomainName :: Text} deriving (Eq, Read, Show)
+data DomainSummary = DomainSummary'
+    { _dsExpiry       :: Maybe POSIX
+    , _dsTransferLock :: Maybe Bool
+    , _dsAutoRenew    :: Maybe Bool
+    , _dsDomainName   :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DomainSummary' smart constructor.
 domainSummary :: Text -> DomainSummary
-domainSummary pDomainName = DomainSummary'{_dsExpiry = Nothing, _dsTransferLock = Nothing, _dsAutoRenew = Nothing, _dsDomainName = pDomainName};
+domainSummary pDomainName =
+    DomainSummary'
+    { _dsExpiry = Nothing
+    , _dsTransferLock = Nothing
+    , _dsAutoRenew = Nothing
+    , _dsDomainName = pDomainName
+    }
 
 -- | Expiration date of the domain in Coordinated Universal Time (UTC).
 --
@@ -1160,11 +1487,18 @@ instance FromJSON DomainSummary where
 -- * 'epName'
 --
 -- * 'epValue'
-data ExtraParam = ExtraParam'{_epName :: ExtraParamName, _epValue :: Text} deriving (Eq, Read, Show)
+data ExtraParam = ExtraParam'
+    { _epName  :: ExtraParamName
+    , _epValue :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ExtraParam' smart constructor.
 extraParam :: ExtraParamName -> Text -> ExtraParam
-extraParam pName pValue = ExtraParam'{_epName = pName, _epValue = pValue};
+extraParam pName pValue =
+    ExtraParam'
+    { _epName = pName
+    , _epValue = pValue
+    }
 
 -- | Name of the additional parameter required by the top-level domain.
 --
@@ -1219,11 +1553,18 @@ instance ToJSON ExtraParam where
 -- * 'namGlueIPs'
 --
 -- * 'namName'
-data Nameserver = Nameserver'{_namGlueIPs :: Maybe [Text], _namName :: Text} deriving (Eq, Read, Show)
+data Nameserver = Nameserver'
+    { _namGlueIPs :: Maybe [Text]
+    , _namName    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Nameserver' smart constructor.
 nameserver :: Text -> Nameserver
-nameserver pName = Nameserver'{_namGlueIPs = Nothing, _namName = pName};
+nameserver pName =
+    Nameserver'
+    { _namGlueIPs = Nothing
+    , _namName = pName
+    }
 
 -- | Glue IP address of a name server entry. Glue IP addresses are required
 -- only when the name of the name server is a subdomain of the domain. For
@@ -1274,11 +1615,22 @@ instance ToJSON Nameserver where
 -- * 'osType'
 --
 -- * 'osSubmittedDate'
-data OperationSummary = OperationSummary'{_osOperationId :: Text, _osStatus :: OperationStatus, _osType :: OperationType, _osSubmittedDate :: POSIX} deriving (Eq, Read, Show)
+data OperationSummary = OperationSummary'
+    { _osOperationId   :: Text
+    , _osStatus        :: OperationStatus
+    , _osType          :: OperationType
+    , _osSubmittedDate :: POSIX
+    } deriving (Eq,Read,Show)
 
 -- | 'OperationSummary' smart constructor.
 operationSummary :: Text -> OperationStatus -> OperationType -> UTCTime -> OperationSummary
-operationSummary pOperationId pStatus pType pSubmittedDate = OperationSummary'{_osOperationId = pOperationId, _osStatus = pStatus, _osType = pType, _osSubmittedDate = _Time # pSubmittedDate};
+operationSummary pOperationId pStatus pType pSubmittedDate =
+    OperationSummary'
+    { _osOperationId = pOperationId
+    , _osStatus = pStatus
+    , _osType = pType
+    , _osSubmittedDate = _Time # pSubmittedDate
+    }
 
 -- | Identifier returned to track the requested action.
 --
@@ -1324,11 +1676,18 @@ instance FromJSON OperationSummary where
 -- * 'tagValue'
 --
 -- * 'tagKey'
-data Tag = Tag'{_tagValue :: Maybe Text, _tagKey :: Maybe Text} deriving (Eq, Read, Show)
+data Tag = Tag'
+    { _tagValue :: Maybe Text
+    , _tagKey   :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
-tag = Tag'{_tagValue = Nothing, _tagKey = Nothing};
+tag =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = Nothing
+    }
 
 -- | The value of a tag.
 --

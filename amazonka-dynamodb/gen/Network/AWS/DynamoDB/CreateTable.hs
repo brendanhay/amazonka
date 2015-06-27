@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DynamoDB.CreateTable
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,14 +54,17 @@ module Network.AWS.DynamoDB.CreateTable
     , createTableResponse
     -- ** Response lenses
     , ctrTableDescription
+    , ctrStatus
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
--- | /See:/ 'createTable' smart constructor.
+-- | Represents the input of a /CreateTable/ operation.
+--
+-- /See:/ 'createTable' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -76,11 +79,26 @@ import Network.AWS.DynamoDB.Types
 -- * 'ctKeySchema'
 --
 -- * 'ctProvisionedThroughput'
-data CreateTable = CreateTable'{_ctGlobalSecondaryIndexes :: Maybe [GlobalSecondaryIndex], _ctLocalSecondaryIndexes :: Maybe [LocalSecondaryIndex], _ctAttributeDefinitions :: [AttributeDefinition], _ctTableName :: Text, _ctKeySchema :: List1 KeySchemaElement, _ctProvisionedThroughput :: ProvisionedThroughput} deriving (Eq, Read, Show)
+data CreateTable = CreateTable'
+    { _ctGlobalSecondaryIndexes :: Maybe [GlobalSecondaryIndex]
+    , _ctLocalSecondaryIndexes  :: Maybe [LocalSecondaryIndex]
+    , _ctAttributeDefinitions   :: [AttributeDefinition]
+    , _ctTableName              :: Text
+    , _ctKeySchema              :: List1 KeySchemaElement
+    , _ctProvisionedThroughput  :: ProvisionedThroughput
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateTable' smart constructor.
 createTable :: Text -> NonEmpty KeySchemaElement -> ProvisionedThroughput -> CreateTable
-createTable pTableName pKeySchema pProvisionedThroughput = CreateTable'{_ctGlobalSecondaryIndexes = Nothing, _ctLocalSecondaryIndexes = Nothing, _ctAttributeDefinitions = mempty, _ctTableName = pTableName, _ctKeySchema = _List1 # pKeySchema, _ctProvisionedThroughput = pProvisionedThroughput};
+createTable pTableName pKeySchema pProvisionedThroughput =
+    CreateTable'
+    { _ctGlobalSecondaryIndexes = Nothing
+    , _ctLocalSecondaryIndexes = Nothing
+    , _ctAttributeDefinitions = mempty
+    , _ctTableName = pTableName
+    , _ctKeySchema = _List1 # pKeySchema
+    , _ctProvisionedThroughput = pProvisionedThroughput
+    }
 
 -- | One or more global secondary indexes (the maximum is five) to be created
 -- on the table. Each global secondary index in the array includes the
@@ -120,8 +138,8 @@ createTable pTableName pKeySchema pProvisionedThroughput = CreateTable'{_ctGloba
 --     the global secondary index, consisting of read and write capacity
 --     units.
 --
-ctGlobalSecondaryIndexes :: Lens' CreateTable (Maybe [GlobalSecondaryIndex])
-ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalSecondaryIndexes = a});
+ctGlobalSecondaryIndexes :: Lens' CreateTable [GlobalSecondaryIndex]
+ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalSecondaryIndexes = a}) . _Default;
 
 -- | One or more local secondary indexes (the maximum is five) to be created
 -- on the table. Each index is scoped to a given hash key value. There is a
@@ -161,8 +179,8 @@ ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalS
 --         project the same attribute into two different indexes, this
 --         counts as two distinct attributes when determining the total.
 --
-ctLocalSecondaryIndexes :: Lens' CreateTable (Maybe [LocalSecondaryIndex])
-ctLocalSecondaryIndexes = lens _ctLocalSecondaryIndexes (\ s a -> s{_ctLocalSecondaryIndexes = a});
+ctLocalSecondaryIndexes :: Lens' CreateTable [LocalSecondaryIndex]
+ctLocalSecondaryIndexes = lens _ctLocalSecondaryIndexes (\ s a -> s{_ctLocalSecondaryIndexes = a}) . _Default;
 
 -- | An array of attributes that describe the key schema for the table and
 -- indexes.
@@ -211,7 +229,8 @@ instance AWSRequest CreateTable where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateTableResponse' <$> (x .?> "TableDescription"))
+                 CreateTableResponse' <$>
+                   (x .?> "TableDescription") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateTable where
         toHeaders
@@ -239,17 +258,32 @@ instance ToPath CreateTable where
 instance ToQuery CreateTable where
         toQuery = const mempty
 
--- | /See:/ 'createTableResponse' smart constructor.
+-- | Represents the output of a /CreateTable/ operation.
+--
+-- /See:/ 'createTableResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ctrTableDescription'
-newtype CreateTableResponse = CreateTableResponse'{_ctrTableDescription :: Maybe TableDescription} deriving (Eq, Read, Show)
+--
+-- * 'ctrStatus'
+data CreateTableResponse = CreateTableResponse'
+    { _ctrTableDescription :: Maybe TableDescription
+    , _ctrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateTableResponse' smart constructor.
-createTableResponse :: CreateTableResponse
-createTableResponse = CreateTableResponse'{_ctrTableDescription = Nothing};
+createTableResponse :: Int -> CreateTableResponse
+createTableResponse pStatus =
+    CreateTableResponse'
+    { _ctrTableDescription = Nothing
+    , _ctrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ctrTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
 ctrTableDescription = lens _ctrTableDescription (\ s a -> s{_ctrTableDescription = a});
+
+-- | FIXME: Undocumented member.
+ctrStatus :: Lens' CreateTableResponse Int
+ctrStatus = lens _ctrStatus (\ s a -> s{_ctrStatus = a});

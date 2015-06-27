@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.GetCheckerIPRanges
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,22 +34,24 @@ module Network.AWS.Route53.GetCheckerIPRanges
     , getCheckerIPRangesResponse
     -- ** Response lenses
     , gcirrCheckerIPRanges
-    , gcirrStatusCode
+    , gcirrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | Empty request.
 --
 -- /See:/ 'getCheckerIPRanges' smart constructor.
-data GetCheckerIPRanges = GetCheckerIPRanges' deriving (Eq, Read, Show)
+data GetCheckerIPRanges =
+    GetCheckerIPRanges'
+    deriving (Eq,Read,Show)
 
 -- | 'GetCheckerIPRanges' smart constructor.
 getCheckerIPRanges :: GetCheckerIPRanges
-getCheckerIPRanges = GetCheckerIPRanges';
+getCheckerIPRanges = GetCheckerIPRanges'
 
 instance AWSRequest GetCheckerIPRanges where
         type Sv GetCheckerIPRanges = Route53
@@ -81,12 +83,19 @@ instance ToQuery GetCheckerIPRanges where
 --
 -- * 'gcirrCheckerIPRanges'
 --
--- * 'gcirrStatusCode'
-data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'{_gcirrCheckerIPRanges :: [Text], _gcirrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gcirrStatus'
+data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
+    { _gcirrCheckerIPRanges :: [Text]
+    , _gcirrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetCheckerIPRangesResponse' smart constructor.
 getCheckerIPRangesResponse :: Int -> GetCheckerIPRangesResponse
-getCheckerIPRangesResponse pStatusCode = GetCheckerIPRangesResponse'{_gcirrCheckerIPRanges = mempty, _gcirrStatusCode = pStatusCode};
+getCheckerIPRangesResponse pStatus =
+    GetCheckerIPRangesResponse'
+    { _gcirrCheckerIPRanges = mempty
+    , _gcirrStatus = pStatus
+    }
 
 -- | A complex type that contains sorted list of IP ranges in CIDR format for
 -- Amazon Route 53 health checkers.
@@ -94,5 +103,5 @@ gcirrCheckerIPRanges :: Lens' GetCheckerIPRangesResponse [Text]
 gcirrCheckerIPRanges = lens _gcirrCheckerIPRanges (\ s a -> s{_gcirrCheckerIPRanges = a});
 
 -- | FIXME: Undocumented member.
-gcirrStatusCode :: Lens' GetCheckerIPRangesResponse Int
-gcirrStatusCode = lens _gcirrStatusCode (\ s a -> s{_gcirrStatusCode = a});
+gcirrStatus :: Lens' GetCheckerIPRangesResponse Int
+gcirrStatus = lens _gcirrStatus (\ s a -> s{_gcirrStatus = a});

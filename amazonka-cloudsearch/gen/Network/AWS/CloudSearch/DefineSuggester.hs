@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearch.DefineSuggester
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.CloudSearch.DefineSuggester
     , defineSuggesterResponse
     -- ** Response lenses
     , dsrSuggester
-    , dsrStatusCode
+    , dsrStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DefineSuggester@ operation.
 -- Specifies the name of the domain you want to update and the suggester
@@ -58,11 +58,18 @@ import Network.AWS.Response
 -- * 'dDomainName'
 --
 -- * 'dSuggester'
-data DefineSuggester = DefineSuggester'{_dDomainName :: Text, _dSuggester :: Suggester} deriving (Eq, Read, Show)
+data DefineSuggester = DefineSuggester'
+    { _dDomainName :: Text
+    , _dSuggester  :: Suggester
+    } deriving (Eq,Read,Show)
 
 -- | 'DefineSuggester' smart constructor.
 defineSuggester :: Text -> Suggester -> DefineSuggester
-defineSuggester pDomainName pSuggester = DefineSuggester'{_dDomainName = pDomainName, _dSuggester = pSuggester};
+defineSuggester pDomainName pSuggester =
+    DefineSuggester'
+    { _dDomainName = pDomainName
+    , _dSuggester = pSuggester
+    }
 
 -- | FIXME: Undocumented member.
 dDomainName :: Lens' DefineSuggester Text
@@ -105,17 +112,24 @@ instance ToQuery DefineSuggester where
 --
 -- * 'dsrSuggester'
 --
--- * 'dsrStatusCode'
-data DefineSuggesterResponse = DefineSuggesterResponse'{_dsrSuggester :: SuggesterStatus, _dsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dsrStatus'
+data DefineSuggesterResponse = DefineSuggesterResponse'
+    { _dsrSuggester :: SuggesterStatus
+    , _dsrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DefineSuggesterResponse' smart constructor.
 defineSuggesterResponse :: SuggesterStatus -> Int -> DefineSuggesterResponse
-defineSuggesterResponse pSuggester pStatusCode = DefineSuggesterResponse'{_dsrSuggester = pSuggester, _dsrStatusCode = pStatusCode};
+defineSuggesterResponse pSuggester pStatus =
+    DefineSuggesterResponse'
+    { _dsrSuggester = pSuggester
+    , _dsrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dsrSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
 dsrSuggester = lens _dsrSuggester (\ s a -> s{_dsrSuggester = a});
 
 -- | FIXME: Undocumented member.
-dsrStatusCode :: Lens' DefineSuggesterResponse Int
-dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});
+dsrStatus :: Lens' DefineSuggesterResponse Int
+dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

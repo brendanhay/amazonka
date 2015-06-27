@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SQS.ListQueues
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,24 +35,29 @@ module Network.AWS.SQS.ListQueues
     , listQueuesResponse
     -- ** Response lenses
     , lqrQueueURLs
-    , lqrStatusCode
+    , lqrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SQS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
 -- | /See:/ 'listQueues' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lqQueueNamePrefix'
-newtype ListQueues = ListQueues'{_lqQueueNamePrefix :: Maybe Text} deriving (Eq, Read, Show)
+newtype ListQueues = ListQueues'
+    { _lqQueueNamePrefix :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ListQueues' smart constructor.
 listQueues :: ListQueues
-listQueues = ListQueues'{_lqQueueNamePrefix = Nothing};
+listQueues =
+    ListQueues'
+    { _lqQueueNamePrefix = Nothing
+    }
 
 -- | A string to use for filtering the list results. Only those queues whose
 -- name begins with the specified string are returned.
@@ -91,17 +96,24 @@ instance ToQuery ListQueues where
 --
 -- * 'lqrQueueURLs'
 --
--- * 'lqrStatusCode'
-data ListQueuesResponse = ListQueuesResponse'{_lqrQueueURLs :: Maybe [Text], _lqrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'lqrStatus'
+data ListQueuesResponse = ListQueuesResponse'
+    { _lqrQueueURLs :: Maybe [Text]
+    , _lqrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListQueuesResponse' smart constructor.
 listQueuesResponse :: Int -> ListQueuesResponse
-listQueuesResponse pStatusCode = ListQueuesResponse'{_lqrQueueURLs = Nothing, _lqrStatusCode = pStatusCode};
+listQueuesResponse pStatus =
+    ListQueuesResponse'
+    { _lqrQueueURLs = Nothing
+    , _lqrStatus = pStatus
+    }
 
 -- | A list of queue URLs, up to 1000 entries.
 lqrQueueURLs :: Lens' ListQueuesResponse [Text]
 lqrQueueURLs = lens _lqrQueueURLs (\ s a -> s{_lqrQueueURLs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lqrStatusCode :: Lens' ListQueuesResponse Int
-lqrStatusCode = lens _lqrStatusCode (\ s a -> s{_lqrStatusCode = a});
+lqrStatus :: Lens' ListQueuesResponse Int
+lqrStatus = lens _lqrStatus (\ s a -> s{_lqrStatus = a});

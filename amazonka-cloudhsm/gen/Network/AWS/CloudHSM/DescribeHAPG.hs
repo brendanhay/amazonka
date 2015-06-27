@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.DescribeHAPG
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,13 +40,13 @@ module Network.AWS.CloudHSM.DescribeHAPG
     , desPartitionSerialList
     , desHAPGARN
     , desLabel
-    , desStatusCode
+    , desStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the DescribeHapg action.
 --
@@ -55,11 +55,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dHAPGARN'
-newtype DescribeHAPG = DescribeHAPG'{_dHAPGARN :: Text} deriving (Eq, Read, Show)
+newtype DescribeHAPG = DescribeHAPG'
+    { _dHAPGARN :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeHAPG' smart constructor.
 describeHAPG :: Text -> DescribeHAPG
-describeHAPG pHAPGARN = DescribeHAPG'{_dHAPGARN = pHAPGARN};
+describeHAPG pHAPGARN =
+    DescribeHAPG'
+    { _dHAPGARN = pHAPGARN
+    }
 
 -- | The ARN of the high-availability partition group to describe.
 dHAPGARN :: Lens' DescribeHAPG Text
@@ -127,12 +132,35 @@ instance ToQuery DescribeHAPG where
 --
 -- * 'desLabel'
 --
--- * 'desStatusCode'
-data DescribeHAPGResponse = DescribeHAPGResponse'{_desState :: Maybe CloudHSMObjectState, _desLastModifiedTimestamp :: Maybe Text, _desHSMsPendingRegistration :: Maybe [Text], _desHAPGSerial :: Maybe Text, _desHSMsPendingDeletion :: Maybe [Text], _desHSMsLastActionFailed :: Maybe [Text], _desPartitionSerialList :: Maybe [Text], _desHAPGARN :: Maybe Text, _desLabel :: Maybe Text, _desStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'desStatus'
+data DescribeHAPGResponse = DescribeHAPGResponse'
+    { _desState                   :: Maybe CloudHSMObjectState
+    , _desLastModifiedTimestamp   :: Maybe Text
+    , _desHSMsPendingRegistration :: Maybe [Text]
+    , _desHAPGSerial              :: Maybe Text
+    , _desHSMsPendingDeletion     :: Maybe [Text]
+    , _desHSMsLastActionFailed    :: Maybe [Text]
+    , _desPartitionSerialList     :: Maybe [Text]
+    , _desHAPGARN                 :: Maybe Text
+    , _desLabel                   :: Maybe Text
+    , _desStatus                  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeHAPGResponse' smart constructor.
 describeHAPGResponse :: Int -> DescribeHAPGResponse
-describeHAPGResponse pStatusCode = DescribeHAPGResponse'{_desState = Nothing, _desLastModifiedTimestamp = Nothing, _desHSMsPendingRegistration = Nothing, _desHAPGSerial = Nothing, _desHSMsPendingDeletion = Nothing, _desHSMsLastActionFailed = Nothing, _desPartitionSerialList = Nothing, _desHAPGARN = Nothing, _desLabel = Nothing, _desStatusCode = pStatusCode};
+describeHAPGResponse pStatus =
+    DescribeHAPGResponse'
+    { _desState = Nothing
+    , _desLastModifiedTimestamp = Nothing
+    , _desHSMsPendingRegistration = Nothing
+    , _desHAPGSerial = Nothing
+    , _desHSMsPendingDeletion = Nothing
+    , _desHSMsLastActionFailed = Nothing
+    , _desPartitionSerialList = Nothing
+    , _desHAPGARN = Nothing
+    , _desLabel = Nothing
+    , _desStatus = pStatus
+    }
 
 -- | The state of the high-availability partition group.
 desState :: Lens' DescribeHAPGResponse (Maybe CloudHSMObjectState)
@@ -173,5 +201,5 @@ desLabel :: Lens' DescribeHAPGResponse (Maybe Text)
 desLabel = lens _desLabel (\ s a -> s{_desLabel = a});
 
 -- | FIXME: Undocumented member.
-desStatusCode :: Lens' DescribeHAPGResponse Int
-desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});
+desStatus :: Lens' DescribeHAPGResponse Int
+desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

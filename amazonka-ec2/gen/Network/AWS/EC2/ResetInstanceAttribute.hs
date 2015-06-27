@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.ResetInstanceAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,10 +43,10 @@ module Network.AWS.EC2.ResetInstanceAttribute
     , resetInstanceAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'resetInstanceAttribute' smart constructor.
 --
@@ -57,11 +57,20 @@ import Network.AWS.Response
 -- * 'riaInstanceId'
 --
 -- * 'riaAttribute'
-data ResetInstanceAttribute = ResetInstanceAttribute'{_riaDryRun :: Maybe Bool, _riaInstanceId :: Text, _riaAttribute :: InstanceAttributeName} deriving (Eq, Read, Show)
+data ResetInstanceAttribute = ResetInstanceAttribute'
+    { _riaDryRun     :: Maybe Bool
+    , _riaInstanceId :: Text
+    , _riaAttribute  :: InstanceAttributeName
+    } deriving (Eq,Read,Show)
 
 -- | 'ResetInstanceAttribute' smart constructor.
 resetInstanceAttribute :: Text -> InstanceAttributeName -> ResetInstanceAttribute
-resetInstanceAttribute pInstanceId pAttribute = ResetInstanceAttribute'{_riaDryRun = Nothing, _riaInstanceId = pInstanceId, _riaAttribute = pAttribute};
+resetInstanceAttribute pInstanceId pAttribute =
+    ResetInstanceAttribute'
+    { _riaDryRun = Nothing
+    , _riaInstanceId = pInstanceId
+    , _riaAttribute = pAttribute
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -103,8 +112,10 @@ instance ToQuery ResetInstanceAttribute where
                "Attribute" =: _riaAttribute]
 
 -- | /See:/ 'resetInstanceAttributeResponse' smart constructor.
-data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse' deriving (Eq, Read, Show)
+data ResetInstanceAttributeResponse =
+    ResetInstanceAttributeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'ResetInstanceAttributeResponse' smart constructor.
 resetInstanceAttributeResponse :: ResetInstanceAttributeResponse
-resetInstanceAttributeResponse = ResetInstanceAttributeResponse';
+resetInstanceAttributeResponse = ResetInstanceAttributeResponse'

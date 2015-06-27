@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SWF.RegisterActivityType
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,10 +69,10 @@ module Network.AWS.SWF.RegisterActivityType
     , registerActivityTypeResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SWF.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
 
 -- | /See:/ 'registerActivityType' smart constructor.
 --
@@ -97,11 +97,34 @@ import Network.AWS.SWF.Types
 -- * 'ratName'
 --
 -- * 'ratVersion'
-data RegisterActivityType = RegisterActivityType'{_ratDefaultTaskScheduleToStartTimeout :: Maybe Text, _ratDefaultTaskList :: Maybe TaskList, _ratDefaultTaskPriority :: Maybe Text, _ratDefaultTaskHeartbeatTimeout :: Maybe Text, _ratDefaultTaskScheduleToCloseTimeout :: Maybe Text, _ratDefaultTaskStartToCloseTimeout :: Maybe Text, _ratDescription :: Maybe Text, _ratDomain :: Text, _ratName :: Text, _ratVersion :: Text} deriving (Eq, Read, Show)
+data RegisterActivityType = RegisterActivityType'
+    { _ratDefaultTaskScheduleToStartTimeout :: Maybe Text
+    , _ratDefaultTaskList                   :: Maybe TaskList
+    , _ratDefaultTaskPriority               :: Maybe Text
+    , _ratDefaultTaskHeartbeatTimeout       :: Maybe Text
+    , _ratDefaultTaskScheduleToCloseTimeout :: Maybe Text
+    , _ratDefaultTaskStartToCloseTimeout    :: Maybe Text
+    , _ratDescription                       :: Maybe Text
+    , _ratDomain                            :: Text
+    , _ratName                              :: Text
+    , _ratVersion                           :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterActivityType' smart constructor.
 registerActivityType :: Text -> Text -> Text -> RegisterActivityType
-registerActivityType pDomain pName pVersion = RegisterActivityType'{_ratDefaultTaskScheduleToStartTimeout = Nothing, _ratDefaultTaskList = Nothing, _ratDefaultTaskPriority = Nothing, _ratDefaultTaskHeartbeatTimeout = Nothing, _ratDefaultTaskScheduleToCloseTimeout = Nothing, _ratDefaultTaskStartToCloseTimeout = Nothing, _ratDescription = Nothing, _ratDomain = pDomain, _ratName = pName, _ratVersion = pVersion};
+registerActivityType pDomain pName pVersion =
+    RegisterActivityType'
+    { _ratDefaultTaskScheduleToStartTimeout = Nothing
+    , _ratDefaultTaskList = Nothing
+    , _ratDefaultTaskPriority = Nothing
+    , _ratDefaultTaskHeartbeatTimeout = Nothing
+    , _ratDefaultTaskScheduleToCloseTimeout = Nothing
+    , _ratDefaultTaskStartToCloseTimeout = Nothing
+    , _ratDescription = Nothing
+    , _ratDomain = pDomain
+    , _ratName = pName
+    , _ratVersion = pVersion
+    }
 
 -- | If set, specifies the default maximum duration that a task of this
 -- activity type can wait before being assigned to a worker. This default
@@ -234,8 +257,10 @@ instance ToQuery RegisterActivityType where
         toQuery = const mempty
 
 -- | /See:/ 'registerActivityTypeResponse' smart constructor.
-data RegisterActivityTypeResponse = RegisterActivityTypeResponse' deriving (Eq, Read, Show)
+data RegisterActivityTypeResponse =
+    RegisterActivityTypeResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'RegisterActivityTypeResponse' smart constructor.
 registerActivityTypeResponse :: RegisterActivityTypeResponse
-registerActivityTypeResponse = RegisterActivityTypeResponse';
+registerActivityTypeResponse = RegisterActivityTypeResponse'

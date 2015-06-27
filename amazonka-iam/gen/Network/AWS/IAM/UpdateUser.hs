@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.UpdateUser
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,10 +46,10 @@ module Network.AWS.IAM.UpdateUser
     , updateUserResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateUser' smart constructor.
 --
@@ -60,11 +60,20 @@ import Network.AWS.Response
 -- * 'uuNewPath'
 --
 -- * 'uuUserName'
-data UpdateUser = UpdateUser'{_uuNewUserName :: Maybe Text, _uuNewPath :: Maybe Text, _uuUserName :: Text} deriving (Eq, Read, Show)
+data UpdateUser = UpdateUser'
+    { _uuNewUserName :: Maybe Text
+    , _uuNewPath     :: Maybe Text
+    , _uuUserName    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateUser' smart constructor.
 updateUser :: Text -> UpdateUser
-updateUser pUserName = UpdateUser'{_uuNewUserName = Nothing, _uuNewPath = Nothing, _uuUserName = pUserName};
+updateUser pUserName =
+    UpdateUser'
+    { _uuNewUserName = Nothing
+    , _uuNewPath = Nothing
+    , _uuUserName = pUserName
+    }
 
 -- | New name for the user. Include this parameter only if you\'re changing
 -- the user\'s name.
@@ -102,8 +111,10 @@ instance ToQuery UpdateUser where
                "NewPath" =: _uuNewPath, "UserName" =: _uuUserName]
 
 -- | /See:/ 'updateUserResponse' smart constructor.
-data UpdateUserResponse = UpdateUserResponse' deriving (Eq, Read, Show)
+data UpdateUserResponse =
+    UpdateUserResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateUserResponse' smart constructor.
 updateUserResponse :: UpdateUserResponse
-updateUserResponse = UpdateUserResponse';
+updateUserResponse = UpdateUserResponse'

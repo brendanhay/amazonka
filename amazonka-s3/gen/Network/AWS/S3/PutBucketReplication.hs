@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.PutBucketReplication
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,10 +35,10 @@ module Network.AWS.S3.PutBucketReplication
     , putBucketReplicationResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'putBucketReplication' smart constructor.
 --
@@ -49,11 +49,20 @@ import Network.AWS.S3.Types
 -- * 'pbrBucket'
 --
 -- * 'pbrReplicationConfiguration'
-data PutBucketReplication = PutBucketReplication'{_pbrContentMD5 :: Maybe Text, _pbrBucket :: BucketName, _pbrReplicationConfiguration :: ReplicationConfiguration} deriving (Eq, Read, Show)
+data PutBucketReplication = PutBucketReplication'
+    { _pbrContentMD5               :: Maybe Text
+    , _pbrBucket                   :: BucketName
+    , _pbrReplicationConfiguration :: ReplicationConfiguration
+    } deriving (Eq,Read,Show)
 
 -- | 'PutBucketReplication' smart constructor.
 putBucketReplication :: BucketName -> ReplicationConfiguration -> PutBucketReplication
-putBucketReplication pBucket pReplicationConfiguration = PutBucketReplication'{_pbrContentMD5 = Nothing, _pbrBucket = pBucket, _pbrReplicationConfiguration = pReplicationConfiguration};
+putBucketReplication pBucket pReplicationConfiguration =
+    PutBucketReplication'
+    { _pbrContentMD5 = Nothing
+    , _pbrBucket = pBucket
+    , _pbrReplicationConfiguration = pReplicationConfiguration
+    }
 
 -- | FIXME: Undocumented member.
 pbrContentMD5 :: Lens' PutBucketReplication (Maybe Text)
@@ -93,8 +102,10 @@ instance ToQuery PutBucketReplication where
         toQuery = const (mconcat ["replication"])
 
 -- | /See:/ 'putBucketReplicationResponse' smart constructor.
-data PutBucketReplicationResponse = PutBucketReplicationResponse' deriving (Eq, Read, Show)
+data PutBucketReplicationResponse =
+    PutBucketReplicationResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'PutBucketReplicationResponse' smart constructor.
 putBucketReplicationResponse :: PutBucketReplicationResponse
-putBucketReplicationResponse = PutBucketReplicationResponse';
+putBucketReplicationResponse = PutBucketReplicationResponse'

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesOfferings
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,14 +54,14 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     -- ** Response lenses
     , driorNextToken
     , driorReservedInstancesOfferings
-    , driorStatusCode
+    , driorStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeReservedInstancesOfferings' smart constructor.
 --
@@ -94,11 +94,42 @@ import Network.AWS.Response
 -- * 'drioMaxResults'
 --
 -- * 'drioMaxInstanceCount'
-data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'{_drioMaxDuration :: Maybe Integer, _drioProductDescription :: Maybe RIProductDescription, _drioIncludeMarketplace :: Maybe Bool, _drioFilters :: Maybe [Filter], _drioInstanceType :: Maybe InstanceType, _drioNextToken :: Maybe Text, _drioMinDuration :: Maybe Integer, _drioAvailabilityZone :: Maybe Text, _drioOfferingType :: Maybe OfferingTypeValues, _drioReservedInstancesOfferingIds :: Maybe [Text], _drioInstanceTenancy :: Maybe Tenancy, _drioDryRun :: Maybe Bool, _drioMaxResults :: Maybe Int, _drioMaxInstanceCount :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
+    { _drioMaxDuration                  :: Maybe Integer
+    , _drioProductDescription           :: Maybe RIProductDescription
+    , _drioIncludeMarketplace           :: Maybe Bool
+    , _drioFilters                      :: Maybe [Filter]
+    , _drioInstanceType                 :: Maybe InstanceType
+    , _drioNextToken                    :: Maybe Text
+    , _drioMinDuration                  :: Maybe Integer
+    , _drioAvailabilityZone             :: Maybe Text
+    , _drioOfferingType                 :: Maybe OfferingTypeValues
+    , _drioReservedInstancesOfferingIds :: Maybe [Text]
+    , _drioInstanceTenancy              :: Maybe Tenancy
+    , _drioDryRun                       :: Maybe Bool
+    , _drioMaxResults                   :: Maybe Int
+    , _drioMaxInstanceCount             :: Maybe Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedInstancesOfferings' smart constructor.
 describeReservedInstancesOfferings :: DescribeReservedInstancesOfferings
-describeReservedInstancesOfferings = DescribeReservedInstancesOfferings'{_drioMaxDuration = Nothing, _drioProductDescription = Nothing, _drioIncludeMarketplace = Nothing, _drioFilters = Nothing, _drioInstanceType = Nothing, _drioNextToken = Nothing, _drioMinDuration = Nothing, _drioAvailabilityZone = Nothing, _drioOfferingType = Nothing, _drioReservedInstancesOfferingIds = Nothing, _drioInstanceTenancy = Nothing, _drioDryRun = Nothing, _drioMaxResults = Nothing, _drioMaxInstanceCount = Nothing};
+describeReservedInstancesOfferings =
+    DescribeReservedInstancesOfferings'
+    { _drioMaxDuration = Nothing
+    , _drioProductDescription = Nothing
+    , _drioIncludeMarketplace = Nothing
+    , _drioFilters = Nothing
+    , _drioInstanceType = Nothing
+    , _drioNextToken = Nothing
+    , _drioMinDuration = Nothing
+    , _drioAvailabilityZone = Nothing
+    , _drioOfferingType = Nothing
+    , _drioReservedInstancesOfferingIds = Nothing
+    , _drioInstanceTenancy = Nothing
+    , _drioDryRun = Nothing
+    , _drioMaxResults = Nothing
+    , _drioMaxInstanceCount = Nothing
+    }
 
 -- | The maximum duration (in seconds) to filter when searching for
 -- offerings.
@@ -280,12 +311,21 @@ instance ToQuery DescribeReservedInstancesOfferings
 --
 -- * 'driorReservedInstancesOfferings'
 --
--- * 'driorStatusCode'
-data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'{_driorNextToken :: Maybe Text, _driorReservedInstancesOfferings :: Maybe [ReservedInstancesOffering], _driorStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'driorStatus'
+data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'
+    { _driorNextToken                  :: Maybe Text
+    , _driorReservedInstancesOfferings :: Maybe [ReservedInstancesOffering]
+    , _driorStatus                     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedInstancesOfferingsResponse' smart constructor.
 describeReservedInstancesOfferingsResponse :: Int -> DescribeReservedInstancesOfferingsResponse
-describeReservedInstancesOfferingsResponse pStatusCode = DescribeReservedInstancesOfferingsResponse'{_driorNextToken = Nothing, _driorReservedInstancesOfferings = Nothing, _driorStatusCode = pStatusCode};
+describeReservedInstancesOfferingsResponse pStatus =
+    DescribeReservedInstancesOfferingsResponse'
+    { _driorNextToken = Nothing
+    , _driorReservedInstancesOfferings = Nothing
+    , _driorStatus = pStatus
+    }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -297,5 +337,5 @@ driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsRespo
 driorReservedInstancesOfferings = lens _driorReservedInstancesOfferings (\ s a -> s{_driorReservedInstancesOfferings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-driorStatusCode :: Lens' DescribeReservedInstancesOfferingsResponse Int
-driorStatusCode = lens _driorStatusCode (\ s a -> s{_driorStatusCode = a});
+driorStatus :: Lens' DescribeReservedInstancesOfferingsResponse Int
+driorStatus = lens _driorStatus (\ s a -> s{_driorStatus = a});

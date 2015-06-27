@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatch.DescribeAlarmsForMetric
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,13 +38,13 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     , describeAlarmsForMetricResponse
     -- ** Response lenses
     , dafmrMetricAlarms
-    , dafmrStatusCode
+    , dafmrStatus
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAlarmsForMetric' smart constructor.
 --
@@ -61,11 +61,26 @@ import Network.AWS.Response
 -- * 'dafmMetricName'
 --
 -- * 'dafmNamespace'
-data DescribeAlarmsForMetric = DescribeAlarmsForMetric'{_dafmPeriod :: Maybe Nat, _dafmDimensions :: Maybe [Dimension], _dafmStatistic :: Maybe Statistic, _dafmUnit :: Maybe StandardUnit, _dafmMetricName :: Text, _dafmNamespace :: Text} deriving (Eq, Read, Show)
+data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
+    { _dafmPeriod     :: Maybe Nat
+    , _dafmDimensions :: Maybe [Dimension]
+    , _dafmStatistic  :: Maybe Statistic
+    , _dafmUnit       :: Maybe StandardUnit
+    , _dafmMetricName :: Text
+    , _dafmNamespace  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAlarmsForMetric' smart constructor.
 describeAlarmsForMetric :: Text -> Text -> DescribeAlarmsForMetric
-describeAlarmsForMetric pMetricName pNamespace = DescribeAlarmsForMetric'{_dafmPeriod = Nothing, _dafmDimensions = Nothing, _dafmStatistic = Nothing, _dafmUnit = Nothing, _dafmMetricName = pMetricName, _dafmNamespace = pNamespace};
+describeAlarmsForMetric pMetricName pNamespace =
+    DescribeAlarmsForMetric'
+    { _dafmPeriod = Nothing
+    , _dafmDimensions = Nothing
+    , _dafmStatistic = Nothing
+    , _dafmUnit = Nothing
+    , _dafmMetricName = pMetricName
+    , _dafmNamespace = pNamespace
+    }
 
 -- | The period in seconds over which the statistic is applied.
 dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Natural)
@@ -131,17 +146,24 @@ instance ToQuery DescribeAlarmsForMetric where
 --
 -- * 'dafmrMetricAlarms'
 --
--- * 'dafmrStatusCode'
-data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'{_dafmrMetricAlarms :: Maybe [MetricAlarm], _dafmrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dafmrStatus'
+data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
+    { _dafmrMetricAlarms :: Maybe [MetricAlarm]
+    , _dafmrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAlarmsForMetricResponse' smart constructor.
 describeAlarmsForMetricResponse :: Int -> DescribeAlarmsForMetricResponse
-describeAlarmsForMetricResponse pStatusCode = DescribeAlarmsForMetricResponse'{_dafmrMetricAlarms = Nothing, _dafmrStatusCode = pStatusCode};
+describeAlarmsForMetricResponse pStatus =
+    DescribeAlarmsForMetricResponse'
+    { _dafmrMetricAlarms = Nothing
+    , _dafmrStatus = pStatus
+    }
 
 -- | A list of information for each alarm with the specified metric.
 dafmrMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
 dafmrMetricAlarms = lens _dafmrMetricAlarms (\ s a -> s{_dafmrMetricAlarms = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dafmrStatusCode :: Lens' DescribeAlarmsForMetricResponse Int
-dafmrStatusCode = lens _dafmrStatusCode (\ s a -> s{_dafmrStatusCode = a});
+dafmrStatus :: Lens' DescribeAlarmsForMetricResponse Int
+dafmrStatus = lens _dafmrStatus (\ s a -> s{_dafmrStatus = a});

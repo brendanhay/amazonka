@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Route53.GetHostedZoneCount
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,23 +31,25 @@ module Network.AWS.Route53.GetHostedZoneCount
     , getHostedZoneCountResponse
     -- ** Response lenses
     , ghzcrHostedZoneCount
-    , ghzcrStatusCode
+    , ghzcrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.Route53.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
 -- | To retrieve a count of all your hosted zones, send a @GET@ request to
 -- the @2013-04-01\/hostedzonecount@ resource.
 --
 -- /See:/ 'getHostedZoneCount' smart constructor.
-data GetHostedZoneCount = GetHostedZoneCount' deriving (Eq, Read, Show)
+data GetHostedZoneCount =
+    GetHostedZoneCount'
+    deriving (Eq,Read,Show)
 
 -- | 'GetHostedZoneCount' smart constructor.
 getHostedZoneCount :: GetHostedZoneCount
-getHostedZoneCount = GetHostedZoneCount';
+getHostedZoneCount = GetHostedZoneCount'
 
 instance AWSRequest GetHostedZoneCount where
         type Sv GetHostedZoneCount = Route53
@@ -78,17 +80,24 @@ instance ToQuery GetHostedZoneCount where
 --
 -- * 'ghzcrHostedZoneCount'
 --
--- * 'ghzcrStatusCode'
-data GetHostedZoneCountResponse = GetHostedZoneCountResponse'{_ghzcrHostedZoneCount :: Integer, _ghzcrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ghzcrStatus'
+data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
+    { _ghzcrHostedZoneCount :: !Integer
+    , _ghzcrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetHostedZoneCountResponse' smart constructor.
 getHostedZoneCountResponse :: Integer -> Int -> GetHostedZoneCountResponse
-getHostedZoneCountResponse pHostedZoneCount pStatusCode = GetHostedZoneCountResponse'{_ghzcrHostedZoneCount = pHostedZoneCount, _ghzcrStatusCode = pStatusCode};
+getHostedZoneCountResponse pHostedZoneCount pStatus =
+    GetHostedZoneCountResponse'
+    { _ghzcrHostedZoneCount = pHostedZoneCount
+    , _ghzcrStatus = pStatus
+    }
 
 -- | The number of hosted zones associated with the current AWS account.
 ghzcrHostedZoneCount :: Lens' GetHostedZoneCountResponse Integer
 ghzcrHostedZoneCount = lens _ghzcrHostedZoneCount (\ s a -> s{_ghzcrHostedZoneCount = a});
 
 -- | FIXME: Undocumented member.
-ghzcrStatusCode :: Lens' GetHostedZoneCountResponse Int
-ghzcrStatusCode = lens _ghzcrStatusCode (\ s a -> s{_ghzcrStatusCode = a});
+ghzcrStatus :: Lens' GetHostedZoneCountResponse Int
+ghzcrStatus = lens _ghzcrStatus (\ s a -> s{_ghzcrStatus = a});

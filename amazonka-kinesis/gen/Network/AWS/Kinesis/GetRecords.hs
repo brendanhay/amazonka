@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Kinesis.GetRecords
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -82,13 +82,13 @@ module Network.AWS.Kinesis.GetRecords
     , grrMillisBehindLatest
     , grrNextShardIterator
     , grrRecords
-    , grrStatusCode
+    , grrStatus
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for GetRecords.
 --
@@ -99,11 +99,18 @@ import Network.AWS.Response
 -- * 'grLimit'
 --
 -- * 'grShardIterator'
-data GetRecords = GetRecords'{_grLimit :: Maybe Nat, _grShardIterator :: Text} deriving (Eq, Read, Show)
+data GetRecords = GetRecords'
+    { _grLimit         :: Maybe Nat
+    , _grShardIterator :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetRecords' smart constructor.
 getRecords :: Text -> GetRecords
-getRecords pShardIterator = GetRecords'{_grLimit = Nothing, _grShardIterator = pShardIterator};
+getRecords pShardIterator =
+    GetRecords'
+    { _grLimit = Nothing
+    , _grShardIterator = pShardIterator
+    }
 
 -- | The maximum number of records to return. Specify a value of up to
 -- 10,000. If you specify a value that is greater than 10,000, GetRecords
@@ -163,12 +170,23 @@ instance ToQuery GetRecords where
 --
 -- * 'grrRecords'
 --
--- * 'grrStatusCode'
-data GetRecordsResponse = GetRecordsResponse'{_grrMillisBehindLatest :: Maybe Nat, _grrNextShardIterator :: Maybe Text, _grrRecords :: [Record], _grrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'grrStatus'
+data GetRecordsResponse = GetRecordsResponse'
+    { _grrMillisBehindLatest :: Maybe Nat
+    , _grrNextShardIterator  :: Maybe Text
+    , _grrRecords            :: [Record]
+    , _grrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetRecordsResponse' smart constructor.
 getRecordsResponse :: Int -> GetRecordsResponse
-getRecordsResponse pStatusCode = GetRecordsResponse'{_grrMillisBehindLatest = Nothing, _grrNextShardIterator = Nothing, _grrRecords = mempty, _grrStatusCode = pStatusCode};
+getRecordsResponse pStatus =
+    GetRecordsResponse'
+    { _grrMillisBehindLatest = Nothing
+    , _grrNextShardIterator = Nothing
+    , _grrRecords = mempty
+    , _grrStatus = pStatus
+    }
 
 -- | The number of milliseconds the GetRecords response is from the tip of
 -- the stream, indicating how far behind current time the consumer is. A
@@ -188,5 +206,5 @@ grrRecords :: Lens' GetRecordsResponse [Record]
 grrRecords = lens _grrRecords (\ s a -> s{_grrRecords = a});
 
 -- | FIXME: Undocumented member.
-grrStatusCode :: Lens' GetRecordsResponse Int
-grrStatusCode = lens _grrStatusCode (\ s a -> s{_grrStatusCode = a});
+grrStatus :: Lens' GetRecordsResponse Int
+grrStatus = lens _grrStatus (\ s a -> s{_grrStatus = a});

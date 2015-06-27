@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.UpdateApplication
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,10 +33,10 @@ module Network.AWS.CodeDeploy.UpdateApplication
     , updateApplicationResponse
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of an update application operation.
 --
@@ -47,11 +47,18 @@ import Network.AWS.Response
 -- * 'uaNewApplicationName'
 --
 -- * 'uaApplicationName'
-data UpdateApplication = UpdateApplication'{_uaNewApplicationName :: Maybe Text, _uaApplicationName :: Maybe Text} deriving (Eq, Read, Show)
+data UpdateApplication = UpdateApplication'
+    { _uaNewApplicationName :: Maybe Text
+    , _uaApplicationName    :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateApplication' smart constructor.
 updateApplication :: UpdateApplication
-updateApplication = UpdateApplication'{_uaNewApplicationName = Nothing, _uaApplicationName = Nothing};
+updateApplication =
+    UpdateApplication'
+    { _uaNewApplicationName = Nothing
+    , _uaApplicationName = Nothing
+    }
 
 -- | The new name that you want to change the application to.
 uaNewApplicationName :: Lens' UpdateApplication (Maybe Text)
@@ -90,8 +97,10 @@ instance ToQuery UpdateApplication where
         toQuery = const mempty
 
 -- | /See:/ 'updateApplicationResponse' smart constructor.
-data UpdateApplicationResponse = UpdateApplicationResponse' deriving (Eq, Read, Show)
+data UpdateApplicationResponse =
+    UpdateApplicationResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'UpdateApplicationResponse' smart constructor.
 updateApplicationResponse :: UpdateApplicationResponse
-updateApplicationResponse = UpdateApplicationResponse';
+updateApplicationResponse = UpdateApplicationResponse'

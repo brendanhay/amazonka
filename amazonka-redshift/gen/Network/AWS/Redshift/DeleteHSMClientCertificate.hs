@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.DeleteHSMClientCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,10 +32,10 @@ module Network.AWS.Redshift.DeleteHSMClientCertificate
     , deleteHSMClientCertificateResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -44,11 +44,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delHSMClientCertificateIdentifier'
-newtype DeleteHSMClientCertificate = DeleteHSMClientCertificate'{_delHSMClientCertificateIdentifier :: Text} deriving (Eq, Read, Show)
+newtype DeleteHSMClientCertificate = DeleteHSMClientCertificate'
+    { _delHSMClientCertificateIdentifier :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteHSMClientCertificate' smart constructor.
 deleteHSMClientCertificate :: Text -> DeleteHSMClientCertificate
-deleteHSMClientCertificate pHSMClientCertificateIdentifier = DeleteHSMClientCertificate'{_delHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier};
+deleteHSMClientCertificate pHSMClientCertificateIdentifier =
+    DeleteHSMClientCertificate'
+    { _delHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier
+    }
 
 -- | The identifier of the HSM client certificate to be deleted.
 delHSMClientCertificateIdentifier :: Lens' DeleteHSMClientCertificate Text
@@ -78,8 +83,10 @@ instance ToQuery DeleteHSMClientCertificate where
                  _delHSMClientCertificateIdentifier]
 
 -- | /See:/ 'deleteHSMClientCertificateResponse' smart constructor.
-data DeleteHSMClientCertificateResponse = DeleteHSMClientCertificateResponse' deriving (Eq, Read, Show)
+data DeleteHSMClientCertificateResponse =
+    DeleteHSMClientCertificateResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteHSMClientCertificateResponse' smart constructor.
 deleteHSMClientCertificateResponse :: DeleteHSMClientCertificateResponse
-deleteHSMClientCertificateResponse = DeleteHSMClientCertificateResponse';
+deleteHSMClientCertificateResponse = DeleteHSMClientCertificateResponse'

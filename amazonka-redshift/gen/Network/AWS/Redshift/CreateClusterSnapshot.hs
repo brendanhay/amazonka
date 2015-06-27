@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Redshift.CreateClusterSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,13 +39,13 @@ module Network.AWS.Redshift.CreateClusterSnapshot
     , createClusterSnapshotResponse
     -- ** Response lenses
     , cSnapshot
-    , cStatusCode
+    , cStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -58,11 +58,20 @@ import Network.AWS.Response
 -- * 'ccsSnapshotIdentifier'
 --
 -- * 'ccsClusterIdentifier'
-data CreateClusterSnapshot = CreateClusterSnapshot'{_ccsTags :: Maybe [Tag], _ccsSnapshotIdentifier :: Text, _ccsClusterIdentifier :: Text} deriving (Eq, Read, Show)
+data CreateClusterSnapshot = CreateClusterSnapshot'
+    { _ccsTags               :: Maybe [Tag]
+    , _ccsSnapshotIdentifier :: Text
+    , _ccsClusterIdentifier  :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterSnapshot' smart constructor.
 createClusterSnapshot :: Text -> Text -> CreateClusterSnapshot
-createClusterSnapshot pSnapshotIdentifier pClusterIdentifier = CreateClusterSnapshot'{_ccsTags = Nothing, _ccsSnapshotIdentifier = pSnapshotIdentifier, _ccsClusterIdentifier = pClusterIdentifier};
+createClusterSnapshot pSnapshotIdentifier pClusterIdentifier =
+    CreateClusterSnapshot'
+    { _ccsTags = Nothing
+    , _ccsSnapshotIdentifier = pSnapshotIdentifier
+    , _ccsClusterIdentifier = pClusterIdentifier
+    }
 
 -- | A list of tag instances.
 ccsTags :: Lens' CreateClusterSnapshot [Tag]
@@ -118,17 +127,24 @@ instance ToQuery CreateClusterSnapshot where
 --
 -- * 'cSnapshot'
 --
--- * 'cStatusCode'
-data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'{_cSnapshot :: Maybe Snapshot, _cStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cStatus'
+data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'
+    { _cSnapshot :: Maybe Snapshot
+    , _cStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterSnapshotResponse' smart constructor.
 createClusterSnapshotResponse :: Int -> CreateClusterSnapshotResponse
-createClusterSnapshotResponse pStatusCode = CreateClusterSnapshotResponse'{_cSnapshot = Nothing, _cStatusCode = pStatusCode};
+createClusterSnapshotResponse pStatus =
+    CreateClusterSnapshotResponse'
+    { _cSnapshot = Nothing
+    , _cStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 cSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
 cSnapshot = lens _cSnapshot (\ s a -> s{_cSnapshot = a});
 
 -- | FIXME: Undocumented member.
-cStatusCode :: Lens' CreateClusterSnapshotResponse Int
-cStatusCode = lens _cStatusCode (\ s a -> s{_cStatusCode = a});
+cStatus :: Lens' CreateClusterSnapshotResponse Int
+cStatus = lens _cStatus (\ s a -> s{_cStatus = a});

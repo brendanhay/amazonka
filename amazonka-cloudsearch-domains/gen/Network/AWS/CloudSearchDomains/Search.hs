@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudSearchDomains.Search
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -67,16 +67,15 @@ module Network.AWS.CloudSearchDomains.Search
     -- ** Response constructor
     , searchResponse
     -- ** Response lenses
-    , seaStatus
     , seaFacets
     , seaHits
-    , seaStatusCode
+    , seaStatus
     ) where
 
-import Network.AWS.CloudSearchDomains.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearchDomains.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @Search@ request.
 --
@@ -109,11 +108,40 @@ import Network.AWS.Response
 -- * 'seaPartial'
 --
 -- * 'seaQuery'
-data Search = Search'{_seaExpr :: Maybe Text, _seaCursor :: Maybe Text, _seaFilterQuery :: Maybe Text, _seaReturn :: Maybe Text, _seaQueryOptions :: Maybe Text, _seaQueryParser :: Maybe QueryParser, _seaSize :: Maybe Integer, _seaStart :: Maybe Integer, _seaHighlight :: Maybe Text, _seaSort :: Maybe Text, _seaFacet :: Maybe Text, _seaPartial :: Maybe Bool, _seaQuery :: Text} deriving (Eq, Read, Show)
+data Search = Search'
+    { _seaExpr         :: Maybe Text
+    , _seaCursor       :: Maybe Text
+    , _seaFilterQuery  :: Maybe Text
+    , _seaReturn       :: Maybe Text
+    , _seaQueryOptions :: Maybe Text
+    , _seaQueryParser  :: Maybe QueryParser
+    , _seaSize         :: Maybe Integer
+    , _seaStart        :: Maybe Integer
+    , _seaHighlight    :: Maybe Text
+    , _seaSort         :: Maybe Text
+    , _seaFacet        :: Maybe Text
+    , _seaPartial      :: Maybe Bool
+    , _seaQuery        :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'Search' smart constructor.
 search :: Text -> Search
-search pQuery = Search'{_seaExpr = Nothing, _seaCursor = Nothing, _seaFilterQuery = Nothing, _seaReturn = Nothing, _seaQueryOptions = Nothing, _seaQueryParser = Nothing, _seaSize = Nothing, _seaStart = Nothing, _seaHighlight = Nothing, _seaSort = Nothing, _seaFacet = Nothing, _seaPartial = Nothing, _seaQuery = pQuery};
+search pQuery =
+    Search'
+    { _seaExpr = Nothing
+    , _seaCursor = Nothing
+    , _seaFilterQuery = Nothing
+    , _seaReturn = Nothing
+    , _seaQueryOptions = Nothing
+    , _seaQueryParser = Nothing
+    , _seaSize = Nothing
+    , _seaStart = Nothing
+    , _seaHighlight = Nothing
+    , _seaSort = Nothing
+    , _seaFacet = Nothing
+    , _seaPartial = Nothing
+    , _seaQuery = pQuery
+    }
 
 -- | Defines one or more numeric expressions that can be used to sort results
 -- or specify search or filter criteria. You can also specify expressions
@@ -459,9 +487,8 @@ instance AWSRequest Search where
           = receiveJSON
               (\ s h x ->
                  SearchResponse' <$>
-                   (x .?> "status") <*> (x .?> "facets" .!@ mempty) <*>
-                     (x .?> "hits")
-                     <*> (pure (fromEnum s)))
+                   (x .?> "facets" .!@ mempty) <*> (x .?> "hits") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders Search where
         toHeaders
@@ -493,22 +520,25 @@ instance ToQuery Search where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'seaStatus'
---
 -- * 'seaFacets'
 --
 -- * 'seaHits'
 --
--- * 'seaStatusCode'
-data SearchResponse = SearchResponse'{_seaStatus :: Maybe SearchStatus, _seaFacets :: Maybe (Map Text BucketInfo), _seaHits :: Maybe Hits, _seaStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'seaStatus'
+data SearchResponse = SearchResponse'
+    { _seaFacets :: Maybe (Map Text BucketInfo)
+    , _seaHits   :: Maybe Hits
+    , _seaStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SearchResponse' smart constructor.
 searchResponse :: Int -> SearchResponse
-searchResponse pStatusCode = SearchResponse'{_seaStatus = Nothing, _seaFacets = Nothing, _seaHits = Nothing, _seaStatusCode = pStatusCode};
-
--- | The status information returned for the search request.
-seaStatus :: Lens' SearchResponse (Maybe SearchStatus)
-seaStatus = lens _seaStatus (\ s a -> s{_seaStatus = a});
+searchResponse pStatus =
+    SearchResponse'
+    { _seaFacets = Nothing
+    , _seaHits = Nothing
+    , _seaStatus = pStatus
+    }
 
 -- | The requested facet information.
 seaFacets :: Lens' SearchResponse (HashMap Text BucketInfo)
@@ -519,5 +549,5 @@ seaHits :: Lens' SearchResponse (Maybe Hits)
 seaHits = lens _seaHits (\ s a -> s{_seaHits = a});
 
 -- | FIXME: Undocumented member.
-seaStatusCode :: Lens' SearchResponse Int
-seaStatusCode = lens _seaStatusCode (\ s a -> s{_seaStatusCode = a});
+seaStatus :: Lens' SearchResponse Int
+seaStatus = lens _seaStatus (\ s a -> s{_seaStatus = a});

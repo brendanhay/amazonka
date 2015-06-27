@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.CancelUpdateStack
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +36,10 @@ module Network.AWS.CloudFormation.CancelUpdateStack
     , cancelUpdateStackResponse
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for CancelUpdateStack action.
 --
@@ -48,11 +48,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cusStackName'
-newtype CancelUpdateStack = CancelUpdateStack'{_cusStackName :: Text} deriving (Eq, Read, Show)
+newtype CancelUpdateStack = CancelUpdateStack'
+    { _cusStackName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelUpdateStack' smart constructor.
 cancelUpdateStack :: Text -> CancelUpdateStack
-cancelUpdateStack pStackName = CancelUpdateStack'{_cusStackName = pStackName};
+cancelUpdateStack pStackName =
+    CancelUpdateStack'
+    { _cusStackName = pStackName
+    }
 
 -- | The name or the unique stack ID that is associated with the stack.
 cusStackName :: Lens' CancelUpdateStack Text
@@ -78,8 +83,10 @@ instance ToQuery CancelUpdateStack where
                "StackName" =: _cusStackName]
 
 -- | /See:/ 'cancelUpdateStackResponse' smart constructor.
-data CancelUpdateStackResponse = CancelUpdateStackResponse' deriving (Eq, Read, Show)
+data CancelUpdateStackResponse =
+    CancelUpdateStackResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CancelUpdateStackResponse' smart constructor.
 cancelUpdateStackResponse :: CancelUpdateStackResponse
-cancelUpdateStackResponse = CancelUpdateStackResponse';
+cancelUpdateStackResponse = CancelUpdateStackResponse'

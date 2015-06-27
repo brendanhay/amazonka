@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.DeleteServerCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,21 +43,26 @@ module Network.AWS.IAM.DeleteServerCertificate
     , deleteServerCertificateResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteServerCertificate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dscServerCertificateName'
-newtype DeleteServerCertificate = DeleteServerCertificate'{_dscServerCertificateName :: Text} deriving (Eq, Read, Show)
+newtype DeleteServerCertificate = DeleteServerCertificate'
+    { _dscServerCertificateName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteServerCertificate' smart constructor.
 deleteServerCertificate :: Text -> DeleteServerCertificate
-deleteServerCertificate pServerCertificateName = DeleteServerCertificate'{_dscServerCertificateName = pServerCertificateName};
+deleteServerCertificate pServerCertificateName =
+    DeleteServerCertificate'
+    { _dscServerCertificateName = pServerCertificateName
+    }
 
 -- | The name of the server certificate you want to delete.
 dscServerCertificateName :: Lens' DeleteServerCertificate Text
@@ -86,8 +91,10 @@ instance ToQuery DeleteServerCertificate where
                "ServerCertificateName" =: _dscServerCertificateName]
 
 -- | /See:/ 'deleteServerCertificateResponse' smart constructor.
-data DeleteServerCertificateResponse = DeleteServerCertificateResponse' deriving (Eq, Read, Show)
+data DeleteServerCertificateResponse =
+    DeleteServerCertificateResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteServerCertificateResponse' smart constructor.
 deleteServerCertificateResponse :: DeleteServerCertificateResponse
-deleteServerCertificateResponse = DeleteServerCertificateResponse';
+deleteServerCertificateResponse = DeleteServerCertificateResponse'

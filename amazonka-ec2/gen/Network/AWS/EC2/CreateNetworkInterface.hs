@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.EC2.CreateNetworkInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,13 +42,13 @@ module Network.AWS.EC2.CreateNetworkInterface
     , createNetworkInterfaceResponse
     -- ** Response lenses
     , cnirNetworkInterface
-    , cnirStatusCode
+    , cnirStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createNetworkInterface' smart constructor.
 --
@@ -67,11 +67,28 @@ import Network.AWS.Response
 -- * 'cniDescription'
 --
 -- * 'cniSubnetId'
-data CreateNetworkInterface = CreateNetworkInterface'{_cniPrivateIPAddresses :: Maybe [PrivateIPAddressSpecification], _cniGroups :: Maybe [Text], _cniPrivateIPAddress :: Maybe Text, _cniSecondaryPrivateIPAddressCount :: Maybe Int, _cniDryRun :: Maybe Bool, _cniDescription :: Maybe Text, _cniSubnetId :: Text} deriving (Eq, Read, Show)
+data CreateNetworkInterface = CreateNetworkInterface'
+    { _cniPrivateIPAddresses             :: Maybe [PrivateIPAddressSpecification]
+    , _cniGroups                         :: Maybe [Text]
+    , _cniPrivateIPAddress               :: Maybe Text
+    , _cniSecondaryPrivateIPAddressCount :: Maybe Int
+    , _cniDryRun                         :: Maybe Bool
+    , _cniDescription                    :: Maybe Text
+    , _cniSubnetId                       :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateNetworkInterface' smart constructor.
 createNetworkInterface :: Text -> CreateNetworkInterface
-createNetworkInterface pSubnetId = CreateNetworkInterface'{_cniPrivateIPAddresses = Nothing, _cniGroups = Nothing, _cniPrivateIPAddress = Nothing, _cniSecondaryPrivateIPAddressCount = Nothing, _cniDryRun = Nothing, _cniDescription = Nothing, _cniSubnetId = pSubnetId};
+createNetworkInterface pSubnetId =
+    CreateNetworkInterface'
+    { _cniPrivateIPAddresses = Nothing
+    , _cniGroups = Nothing
+    , _cniPrivateIPAddress = Nothing
+    , _cniSecondaryPrivateIPAddressCount = Nothing
+    , _cniDryRun = Nothing
+    , _cniDescription = Nothing
+    , _cniSubnetId = pSubnetId
+    }
 
 -- | One or more private IP addresses.
 cniPrivateIPAddresses :: Lens' CreateNetworkInterface [PrivateIPAddressSpecification]
@@ -157,17 +174,24 @@ instance ToQuery CreateNetworkInterface where
 --
 -- * 'cnirNetworkInterface'
 --
--- * 'cnirStatusCode'
-data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'{_cnirNetworkInterface :: Maybe NetworkInterface, _cnirStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cnirStatus'
+data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
+    { _cnirNetworkInterface :: Maybe NetworkInterface
+    , _cnirStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateNetworkInterfaceResponse' smart constructor.
 createNetworkInterfaceResponse :: Int -> CreateNetworkInterfaceResponse
-createNetworkInterfaceResponse pStatusCode = CreateNetworkInterfaceResponse'{_cnirNetworkInterface = Nothing, _cnirStatusCode = pStatusCode};
+createNetworkInterfaceResponse pStatus =
+    CreateNetworkInterfaceResponse'
+    { _cnirNetworkInterface = Nothing
+    , _cnirStatus = pStatus
+    }
 
 -- | Information about the network interface.
 cnirNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)
 cnirNetworkInterface = lens _cnirNetworkInterface (\ s a -> s{_cnirNetworkInterface = a});
 
 -- | FIXME: Undocumented member.
-cnirStatusCode :: Lens' CreateNetworkInterfaceResponse Int
-cnirStatusCode = lens _cnirStatusCode (\ s a -> s{_cnirStatusCode = a});
+cnirStatus :: Lens' CreateNetworkInterfaceResponse Int
+cnirStatus = lens _cnirStatus (\ s a -> s{_cnirStatus = a});

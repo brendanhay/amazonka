@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Config.DescribeConfigurationRecorderStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.Config.DescribeConfigurationRecorderStatus
     , describeConfigurationRecorderStatusResponse
     -- ** Response lenses
     , dcrsrConfigurationRecordersStatus
-    , dcrsrStatusCode
+    , dcrsrStatus
     ) where
 
-import Network.AWS.Config.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Config.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the DescribeConfigurationRecorderStatus action.
 --
@@ -51,11 +51,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcrsConfigurationRecorderNames'
-newtype DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'{_dcrsConfigurationRecorderNames :: Maybe [Text]} deriving (Eq, Read, Show)
+newtype DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'
+    { _dcrsConfigurationRecorderNames :: Maybe [Text]
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeConfigurationRecorderStatus' smart constructor.
 describeConfigurationRecorderStatus :: DescribeConfigurationRecorderStatus
-describeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'{_dcrsConfigurationRecorderNames = Nothing};
+describeConfigurationRecorderStatus =
+    DescribeConfigurationRecorderStatus'
+    { _dcrsConfigurationRecorderNames = Nothing
+    }
 
 -- | The name(s) of the configuration recorder. If the name is not specified,
 -- the action returns the current status of all the configuration recorders
@@ -111,17 +116,24 @@ instance ToQuery DescribeConfigurationRecorderStatus
 --
 -- * 'dcrsrConfigurationRecordersStatus'
 --
--- * 'dcrsrStatusCode'
-data DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'{_dcrsrConfigurationRecordersStatus :: Maybe [ConfigurationRecorderStatus], _dcrsrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dcrsrStatus'
+data DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'
+    { _dcrsrConfigurationRecordersStatus :: Maybe [ConfigurationRecorderStatus]
+    , _dcrsrStatus                       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeConfigurationRecorderStatusResponse' smart constructor.
 describeConfigurationRecorderStatusResponse :: Int -> DescribeConfigurationRecorderStatusResponse
-describeConfigurationRecorderStatusResponse pStatusCode = DescribeConfigurationRecorderStatusResponse'{_dcrsrConfigurationRecordersStatus = Nothing, _dcrsrStatusCode = pStatusCode};
+describeConfigurationRecorderStatusResponse pStatus =
+    DescribeConfigurationRecorderStatusResponse'
+    { _dcrsrConfigurationRecordersStatus = Nothing
+    , _dcrsrStatus = pStatus
+    }
 
 -- | A list that contains status of the specified recorders.
 dcrsrConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse [ConfigurationRecorderStatus]
 dcrsrConfigurationRecordersStatus = lens _dcrsrConfigurationRecordersStatus (\ s a -> s{_dcrsrConfigurationRecordersStatus = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrsrStatusCode :: Lens' DescribeConfigurationRecorderStatusResponse Int
-dcrsrStatusCode = lens _dcrsrStatusCode (\ s a -> s{_dcrsrStatusCode = a});
+dcrsrStatus :: Lens' DescribeConfigurationRecorderStatusResponse Int
+dcrsrStatus = lens _dcrsrStatus (\ s a -> s{_dcrsrStatus = a});

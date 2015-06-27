@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.ModifyHAPG
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +34,13 @@ module Network.AWS.CloudHSM.ModifyHAPG
     , modifyHAPGResponse
     -- ** Response lenses
     , mhrHAPGARN
-    , mhrStatusCode
+    , mhrStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyHAPG' smart constructor.
 --
@@ -51,11 +51,20 @@ import Network.AWS.Response
 -- * 'mhLabel'
 --
 -- * 'mhHAPGARN'
-data ModifyHAPG = ModifyHAPG'{_mhPartitionSerialList :: Maybe [Text], _mhLabel :: Maybe Text, _mhHAPGARN :: Text} deriving (Eq, Read, Show)
+data ModifyHAPG = ModifyHAPG'
+    { _mhPartitionSerialList :: Maybe [Text]
+    , _mhLabel               :: Maybe Text
+    , _mhHAPGARN             :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyHAPG' smart constructor.
 modifyHAPG :: Text -> ModifyHAPG
-modifyHAPG pHAPGARN = ModifyHAPG'{_mhPartitionSerialList = Nothing, _mhLabel = Nothing, _mhHAPGARN = pHAPGARN};
+modifyHAPG pHAPGARN =
+    ModifyHAPG'
+    { _mhPartitionSerialList = Nothing
+    , _mhLabel = Nothing
+    , _mhHAPGARN = pHAPGARN
+    }
 
 -- | The list of partition serial numbers to make members of the
 -- high-availability partition group.
@@ -107,17 +116,24 @@ instance ToQuery ModifyHAPG where
 --
 -- * 'mhrHAPGARN'
 --
--- * 'mhrStatusCode'
-data ModifyHAPGResponse = ModifyHAPGResponse'{_mhrHAPGARN :: Maybe Text, _mhrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'mhrStatus'
+data ModifyHAPGResponse = ModifyHAPGResponse'
+    { _mhrHAPGARN :: Maybe Text
+    , _mhrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyHAPGResponse' smart constructor.
 modifyHAPGResponse :: Int -> ModifyHAPGResponse
-modifyHAPGResponse pStatusCode = ModifyHAPGResponse'{_mhrHAPGARN = Nothing, _mhrStatusCode = pStatusCode};
+modifyHAPGResponse pStatus =
+    ModifyHAPGResponse'
+    { _mhrHAPGARN = Nothing
+    , _mhrStatus = pStatus
+    }
 
 -- | The ARN of the high-availability partition group.
 mhrHAPGARN :: Lens' ModifyHAPGResponse (Maybe Text)
 mhrHAPGARN = lens _mhrHAPGARN (\ s a -> s{_mhrHAPGARN = a});
 
 -- | FIXME: Undocumented member.
-mhrStatusCode :: Lens' ModifyHAPGResponse Int
-mhrStatusCode = lens _mhrStatusCode (\ s a -> s{_mhrStatusCode = a});
+mhrStatus :: Lens' ModifyHAPGResponse Int
+mhrStatus = lens _mhrStatus (\ s a -> s{_mhrStatus = a});

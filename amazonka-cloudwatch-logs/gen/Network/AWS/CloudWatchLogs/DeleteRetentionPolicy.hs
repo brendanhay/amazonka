@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,21 +34,26 @@ module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
     , deleteRetentionPolicyResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteRetentionPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drpLogGroupName'
-newtype DeleteRetentionPolicy = DeleteRetentionPolicy'{_drpLogGroupName :: Text} deriving (Eq, Read, Show)
+newtype DeleteRetentionPolicy = DeleteRetentionPolicy'
+    { _drpLogGroupName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteRetentionPolicy' smart constructor.
 deleteRetentionPolicy :: Text -> DeleteRetentionPolicy
-deleteRetentionPolicy pLogGroupName = DeleteRetentionPolicy'{_drpLogGroupName = pLogGroupName};
+deleteRetentionPolicy pLogGroupName =
+    DeleteRetentionPolicy'
+    { _drpLogGroupName = pLogGroupName
+    }
 
 -- | The name of the log group that is associated with the retention policy
 -- to delete.
@@ -83,8 +88,10 @@ instance ToQuery DeleteRetentionPolicy where
         toQuery = const mempty
 
 -- | /See:/ 'deleteRetentionPolicyResponse' smart constructor.
-data DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse' deriving (Eq, Read, Show)
+data DeleteRetentionPolicyResponse =
+    DeleteRetentionPolicyResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteRetentionPolicyResponse' smart constructor.
 deleteRetentionPolicyResponse :: DeleteRetentionPolicyResponse
-deleteRetentionPolicyResponse = DeleteRetentionPolicyResponse';
+deleteRetentionPolicyResponse = DeleteRetentionPolicyResponse'

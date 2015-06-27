@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudFormation.GetStackPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,13 +33,13 @@ module Network.AWS.CloudFormation.GetStackPolicy
     , getStackPolicyResponse
     -- ** Response lenses
     , gsprStackPolicyBody
-    , gsprStatusCode
+    , gsprStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the GetStackPolicy action.
 --
@@ -48,11 +48,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gspStackName'
-newtype GetStackPolicy = GetStackPolicy'{_gspStackName :: Text} deriving (Eq, Read, Show)
+newtype GetStackPolicy = GetStackPolicy'
+    { _gspStackName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'GetStackPolicy' smart constructor.
 getStackPolicy :: Text -> GetStackPolicy
-getStackPolicy pStackName = GetStackPolicy'{_gspStackName = pStackName};
+getStackPolicy pStackName =
+    GetStackPolicy'
+    { _gspStackName = pStackName
+    }
 
 -- | The name or unique stack ID that is associated with the stack whose
 -- policy you want to get.
@@ -90,12 +95,19 @@ instance ToQuery GetStackPolicy where
 --
 -- * 'gsprStackPolicyBody'
 --
--- * 'gsprStatusCode'
-data GetStackPolicyResponse = GetStackPolicyResponse'{_gsprStackPolicyBody :: Maybe Text, _gsprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'gsprStatus'
+data GetStackPolicyResponse = GetStackPolicyResponse'
+    { _gsprStackPolicyBody :: Maybe Text
+    , _gsprStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetStackPolicyResponse' smart constructor.
 getStackPolicyResponse :: Int -> GetStackPolicyResponse
-getStackPolicyResponse pStatusCode = GetStackPolicyResponse'{_gsprStackPolicyBody = Nothing, _gsprStatusCode = pStatusCode};
+getStackPolicyResponse pStatus =
+    GetStackPolicyResponse'
+    { _gsprStackPolicyBody = Nothing
+    , _gsprStatus = pStatus
+    }
 
 -- | Structure containing the stack policy body. (For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
@@ -104,5 +116,5 @@ gsprStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gsprStackPolicyBody = lens _gsprStackPolicyBody (\ s a -> s{_gsprStackPolicyBody = a});
 
 -- | FIXME: Undocumented member.
-gsprStatusCode :: Lens' GetStackPolicyResponse Int
-gsprStatusCode = lens _gsprStatusCode (\ s a -> s{_gsprStatusCode = a});
+gsprStatus :: Lens' GetStackPolicyResponse Int
+gsprStatus = lens _gsprStatus (\ s a -> s{_gsprStatus = a});

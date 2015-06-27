@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateCacheSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,13 +41,13 @@ module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     , createCacheSecurityGroupResponse
     -- ** Response lenses
     , ccsgrCacheSecurityGroup
-    , ccsgrStatusCode
+    , ccsgrStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /CreateCacheSecurityGroup/ action.
 --
@@ -58,11 +58,18 @@ import Network.AWS.Response
 -- * 'ccsgCacheSecurityGroupName'
 --
 -- * 'ccsgDescription'
-data CreateCacheSecurityGroup = CreateCacheSecurityGroup'{_ccsgCacheSecurityGroupName :: Text, _ccsgDescription :: Text} deriving (Eq, Read, Show)
+data CreateCacheSecurityGroup = CreateCacheSecurityGroup'
+    { _ccsgCacheSecurityGroupName :: Text
+    , _ccsgDescription            :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCacheSecurityGroup' smart constructor.
 createCacheSecurityGroup :: Text -> Text -> CreateCacheSecurityGroup
-createCacheSecurityGroup pCacheSecurityGroupName pDescription = CreateCacheSecurityGroup'{_ccsgCacheSecurityGroupName = pCacheSecurityGroupName, _ccsgDescription = pDescription};
+createCacheSecurityGroup pCacheSecurityGroupName pDescription =
+    CreateCacheSecurityGroup'
+    { _ccsgCacheSecurityGroupName = pCacheSecurityGroupName
+    , _ccsgDescription = pDescription
+    }
 
 -- | A name for the cache security group. This value is stored as a lowercase
 -- string.
@@ -111,17 +118,24 @@ instance ToQuery CreateCacheSecurityGroup where
 --
 -- * 'ccsgrCacheSecurityGroup'
 --
--- * 'ccsgrStatusCode'
-data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'{_ccsgrCacheSecurityGroup :: Maybe CacheSecurityGroup, _ccsgrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ccsgrStatus'
+data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'
+    { _ccsgrCacheSecurityGroup :: Maybe CacheSecurityGroup
+    , _ccsgrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCacheSecurityGroupResponse' smart constructor.
 createCacheSecurityGroupResponse :: Int -> CreateCacheSecurityGroupResponse
-createCacheSecurityGroupResponse pStatusCode = CreateCacheSecurityGroupResponse'{_ccsgrCacheSecurityGroup = Nothing, _ccsgrStatusCode = pStatusCode};
+createCacheSecurityGroupResponse pStatus =
+    CreateCacheSecurityGroupResponse'
+    { _ccsgrCacheSecurityGroup = Nothing
+    , _ccsgrStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 ccsgrCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheSecurityGroup)
 ccsgrCacheSecurityGroup = lens _ccsgrCacheSecurityGroup (\ s a -> s{_ccsgrCacheSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-ccsgrStatusCode :: Lens' CreateCacheSecurityGroupResponse Int
-ccsgrStatusCode = lens _ccsgrStatusCode (\ s a -> s{_ccsgrStatusCode = a});
+ccsgrStatus :: Lens' CreateCacheSecurityGroupResponse Int
+ccsgrStatus = lens _ccsgrStatus (\ s a -> s{_ccsgrStatus = a});

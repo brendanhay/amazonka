@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.SNS.CreateTopic
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.SNS.CreateTopic
     , createTopicResponse
     -- ** Response lenses
     , ctrTopicARN
-    , ctrStatusCode
+    , ctrStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.SNS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
 -- | Input for CreateTopic action.
 --
@@ -52,11 +52,16 @@ import Network.AWS.SNS.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ctName'
-newtype CreateTopic = CreateTopic'{_ctName :: Text} deriving (Eq, Read, Show)
+newtype CreateTopic = CreateTopic'
+    { _ctName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateTopic' smart constructor.
 createTopic :: Text -> CreateTopic
-createTopic pName = CreateTopic'{_ctName = pName};
+createTopic pName =
+    CreateTopic'
+    { _ctName = pName
+    }
 
 -- | The name of the topic you want to create.
 --
@@ -97,17 +102,24 @@ instance ToQuery CreateTopic where
 --
 -- * 'ctrTopicARN'
 --
--- * 'ctrStatusCode'
-data CreateTopicResponse = CreateTopicResponse'{_ctrTopicARN :: Maybe Text, _ctrStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'ctrStatus'
+data CreateTopicResponse = CreateTopicResponse'
+    { _ctrTopicARN :: Maybe Text
+    , _ctrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateTopicResponse' smart constructor.
 createTopicResponse :: Int -> CreateTopicResponse
-createTopicResponse pStatusCode = CreateTopicResponse'{_ctrTopicARN = Nothing, _ctrStatusCode = pStatusCode};
+createTopicResponse pStatus =
+    CreateTopicResponse'
+    { _ctrTopicARN = Nothing
+    , _ctrStatus = pStatus
+    }
 
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
 ctrTopicARN :: Lens' CreateTopicResponse (Maybe Text)
 ctrTopicARN = lens _ctrTopicARN (\ s a -> s{_ctrTopicARN = a});
 
 -- | FIXME: Undocumented member.
-ctrStatusCode :: Lens' CreateTopicResponse Int
-ctrStatusCode = lens _ctrStatusCode (\ s a -> s{_ctrStatusCode = a});
+ctrStatus :: Lens' CreateTopicResponse Int
+ctrStatus = lens _ctrStatus (\ s a -> s{_ctrStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CloudHSM.DescribeLunaClient
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,13 +37,13 @@ module Network.AWS.CloudHSM.DescribeLunaClient
     , dLastModifiedTimestamp
     , dCertificate
     , dLabel
-    , dStatusCode
+    , dStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLunaClient' smart constructor.
 --
@@ -52,11 +52,18 @@ import Network.AWS.Response
 -- * 'dlcClientARN'
 --
 -- * 'dlcCertificateFingerprint'
-data DescribeLunaClient = DescribeLunaClient'{_dlcClientARN :: Maybe Text, _dlcCertificateFingerprint :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeLunaClient = DescribeLunaClient'
+    { _dlcClientARN              :: Maybe Text
+    , _dlcCertificateFingerprint :: Maybe Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLunaClient' smart constructor.
 describeLunaClient :: DescribeLunaClient
-describeLunaClient = DescribeLunaClient'{_dlcClientARN = Nothing, _dlcCertificateFingerprint = Nothing};
+describeLunaClient =
+    DescribeLunaClient'
+    { _dlcClientARN = Nothing
+    , _dlcCertificateFingerprint = Nothing
+    }
 
 -- | The ARN of the client.
 dlcClientARN :: Lens' DescribeLunaClient (Maybe Text)
@@ -119,12 +126,27 @@ instance ToQuery DescribeLunaClient where
 --
 -- * 'dLabel'
 --
--- * 'dStatusCode'
-data DescribeLunaClientResponse = DescribeLunaClientResponse'{_dClientARN :: Maybe Text, _dCertificateFingerprint :: Maybe Text, _dLastModifiedTimestamp :: Maybe Text, _dCertificate :: Maybe Text, _dLabel :: Maybe Text, _dStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dStatus'
+data DescribeLunaClientResponse = DescribeLunaClientResponse'
+    { _dClientARN              :: Maybe Text
+    , _dCertificateFingerprint :: Maybe Text
+    , _dLastModifiedTimestamp  :: Maybe Text
+    , _dCertificate            :: Maybe Text
+    , _dLabel                  :: Maybe Text
+    , _dStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLunaClientResponse' smart constructor.
 describeLunaClientResponse :: Int -> DescribeLunaClientResponse
-describeLunaClientResponse pStatusCode = DescribeLunaClientResponse'{_dClientARN = Nothing, _dCertificateFingerprint = Nothing, _dLastModifiedTimestamp = Nothing, _dCertificate = Nothing, _dLabel = Nothing, _dStatusCode = pStatusCode};
+describeLunaClientResponse pStatus =
+    DescribeLunaClientResponse'
+    { _dClientARN = Nothing
+    , _dCertificateFingerprint = Nothing
+    , _dLastModifiedTimestamp = Nothing
+    , _dCertificate = Nothing
+    , _dLabel = Nothing
+    , _dStatus = pStatus
+    }
 
 -- | The ARN of the client.
 dClientARN :: Lens' DescribeLunaClientResponse (Maybe Text)
@@ -147,5 +169,5 @@ dLabel :: Lens' DescribeLunaClientResponse (Maybe Text)
 dLabel = lens _dLabel (\ s a -> s{_dLabel = a});
 
 -- | FIXME: Undocumented member.
-dStatusCode :: Lens' DescribeLunaClientResponse Int
-dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});
+dStatus :: Lens' DescribeLunaClientResponse Int
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.AutoScaling.CreateOrUpdateTags
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,21 +47,26 @@ module Network.AWS.AutoScaling.CreateOrUpdateTags
     , createOrUpdateTagsResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createOrUpdateTags' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'coutTags'
-newtype CreateOrUpdateTags = CreateOrUpdateTags'{_coutTags :: [Tag]} deriving (Eq, Read, Show)
+newtype CreateOrUpdateTags = CreateOrUpdateTags'
+    { _coutTags :: [Tag]
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateOrUpdateTags' smart constructor.
 createOrUpdateTags :: CreateOrUpdateTags
-createOrUpdateTags = CreateOrUpdateTags'{_coutTags = mempty};
+createOrUpdateTags =
+    CreateOrUpdateTags'
+    { _coutTags = mempty
+    }
 
 -- | One or more tags.
 coutTags :: Lens' CreateOrUpdateTags [Tag]
@@ -88,8 +93,10 @@ instance ToQuery CreateOrUpdateTags where
                "Tags" =: toQueryList "member" _coutTags]
 
 -- | /See:/ 'createOrUpdateTagsResponse' smart constructor.
-data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse' deriving (Eq, Read, Show)
+data CreateOrUpdateTagsResponse =
+    CreateOrUpdateTagsResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'CreateOrUpdateTagsResponse' smart constructor.
 createOrUpdateTagsResponse :: CreateOrUpdateTagsResponse
-createOrUpdateTagsResponse = CreateOrUpdateTagsResponse';
+createOrUpdateTagsResponse = CreateOrUpdateTagsResponse'

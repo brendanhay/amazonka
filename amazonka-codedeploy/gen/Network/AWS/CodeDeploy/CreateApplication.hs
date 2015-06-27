@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.CodeDeploy.CreateApplication
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -32,13 +32,13 @@ module Network.AWS.CodeDeploy.CreateApplication
     , createApplicationResponse
     -- ** Response lenses
     , carApplicationId
-    , carStatusCode
+    , carStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a create application operation.
 --
@@ -47,11 +47,16 @@ import Network.AWS.Response
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'caApplicationName'
-newtype CreateApplication = CreateApplication'{_caApplicationName :: Text} deriving (Eq, Read, Show)
+newtype CreateApplication = CreateApplication'
+    { _caApplicationName :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateApplication' smart constructor.
 createApplication :: Text -> CreateApplication
-createApplication pApplicationName = CreateApplication'{_caApplicationName = pApplicationName};
+createApplication pApplicationName =
+    CreateApplication'
+    { _caApplicationName = pApplicationName
+    }
 
 -- | The name of the application. This name must be unique with the
 -- applicable IAM user or AWS account.
@@ -96,17 +101,24 @@ instance ToQuery CreateApplication where
 --
 -- * 'carApplicationId'
 --
--- * 'carStatusCode'
-data CreateApplicationResponse = CreateApplicationResponse'{_carApplicationId :: Maybe Text, _carStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'carStatus'
+data CreateApplicationResponse = CreateApplicationResponse'
+    { _carApplicationId :: Maybe Text
+    , _carStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateApplicationResponse' smart constructor.
 createApplicationResponse :: Int -> CreateApplicationResponse
-createApplicationResponse pStatusCode = CreateApplicationResponse'{_carApplicationId = Nothing, _carStatusCode = pStatusCode};
+createApplicationResponse pStatus =
+    CreateApplicationResponse'
+    { _carApplicationId = Nothing
+    , _carStatus = pStatus
+    }
 
 -- | A unique application ID.
 carApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
 carApplicationId = lens _carApplicationId (\ s a -> s{_carApplicationId = a});
 
 -- | FIXME: Undocumented member.
-carStatusCode :: Lens' CreateApplicationResponse Int
-carStatusCode = lens _carStatusCode (\ s a -> s{_carStatusCode = a});
+carStatus :: Lens' CreateApplicationResponse Int
+carStatus = lens _carStatus (\ s a -> s{_carStatus = a});

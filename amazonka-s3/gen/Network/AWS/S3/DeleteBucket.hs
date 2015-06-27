@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.S3.DeleteBucket
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,21 +34,26 @@ module Network.AWS.S3.DeleteBucket
     , deleteBucketResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
-import Network.AWS.S3.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
 -- | /See:/ 'deleteBucket' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dbBucket'
-newtype DeleteBucket = DeleteBucket'{_dbBucket :: BucketName} deriving (Eq, Read, Show)
+newtype DeleteBucket = DeleteBucket'
+    { _dbBucket :: BucketName
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteBucket' smart constructor.
 deleteBucket :: BucketName -> DeleteBucket
-deleteBucket pBucket = DeleteBucket'{_dbBucket = pBucket};
+deleteBucket pBucket =
+    DeleteBucket'
+    { _dbBucket = pBucket
+    }
 
 -- | FIXME: Undocumented member.
 dbBucket :: Lens' DeleteBucket BucketName
@@ -71,8 +76,10 @@ instance ToQuery DeleteBucket where
         toQuery = const mempty
 
 -- | /See:/ 'deleteBucketResponse' smart constructor.
-data DeleteBucketResponse = DeleteBucketResponse' deriving (Eq, Read, Show)
+data DeleteBucketResponse =
+    DeleteBucketResponse'
+    deriving (Eq,Read,Show)
 
 -- | 'DeleteBucketResponse' smart constructor.
 deleteBucketResponse :: DeleteBucketResponse
-deleteBucketResponse = DeleteBucketResponse';
+deleteBucketResponse = DeleteBucketResponse'

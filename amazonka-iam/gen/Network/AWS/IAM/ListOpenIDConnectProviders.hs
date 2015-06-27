@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.IAM.ListOpenIDConnectProviders
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,20 +30,22 @@ module Network.AWS.IAM.ListOpenIDConnectProviders
     , listOpenIDConnectProvidersResponse
     -- ** Response lenses
     , loidcprOpenIDConnectProviderList
-    , loidcprStatusCode
+    , loidcprStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listOpenIDConnectProviders' smart constructor.
-data ListOpenIDConnectProviders = ListOpenIDConnectProviders' deriving (Eq, Read, Show)
+data ListOpenIDConnectProviders =
+    ListOpenIDConnectProviders'
+    deriving (Eq,Read,Show)
 
 -- | 'ListOpenIDConnectProviders' smart constructor.
 listOpenIDConnectProviders :: ListOpenIDConnectProviders
-listOpenIDConnectProviders = ListOpenIDConnectProviders';
+listOpenIDConnectProviders = ListOpenIDConnectProviders'
 
 instance AWSRequest ListOpenIDConnectProviders where
         type Sv ListOpenIDConnectProviders = IAM
@@ -82,17 +84,24 @@ instance ToQuery ListOpenIDConnectProviders where
 --
 -- * 'loidcprOpenIDConnectProviderList'
 --
--- * 'loidcprStatusCode'
-data ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'{_loidcprOpenIDConnectProviderList :: Maybe [OpenIDConnectProviderListEntry], _loidcprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'loidcprStatus'
+data ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'
+    { _loidcprOpenIDConnectProviderList :: Maybe [OpenIDConnectProviderListEntry]
+    , _loidcprStatus                    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListOpenIDConnectProvidersResponse' smart constructor.
 listOpenIDConnectProvidersResponse :: Int -> ListOpenIDConnectProvidersResponse
-listOpenIDConnectProvidersResponse pStatusCode = ListOpenIDConnectProvidersResponse'{_loidcprOpenIDConnectProviderList = Nothing, _loidcprStatusCode = pStatusCode};
+listOpenIDConnectProvidersResponse pStatus =
+    ListOpenIDConnectProvidersResponse'
+    { _loidcprOpenIDConnectProviderList = Nothing
+    , _loidcprStatus = pStatus
+    }
 
 -- | The list of IAM OpenID Connect providers in the AWS account.
 loidcprOpenIDConnectProviderList :: Lens' ListOpenIDConnectProvidersResponse [OpenIDConnectProviderListEntry]
 loidcprOpenIDConnectProviderList = lens _loidcprOpenIDConnectProviderList (\ s a -> s{_loidcprOpenIDConnectProviderList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-loidcprStatusCode :: Lens' ListOpenIDConnectProvidersResponse Int
-loidcprStatusCode = lens _loidcprStatusCode (\ s a -> s{_loidcprStatusCode = a});
+loidcprStatus :: Lens' ListOpenIDConnectProvidersResponse Int
+loidcprStatus = lens _loidcprStatus (\ s a -> s{_loidcprStatus = a});

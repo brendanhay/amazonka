@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.DataPipeline.CreatePipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,13 +36,13 @@ module Network.AWS.DataPipeline.CreatePipeline
     , createPipelineResponse
     -- ** Response lenses
     , cprPipelineId
-    , cprStatusCode
+    , cprStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for CreatePipeline.
 --
@@ -57,11 +57,22 @@ import Network.AWS.Response
 -- * 'cpName'
 --
 -- * 'cpUniqueId'
-data CreatePipeline = CreatePipeline'{_cpDescription :: Maybe Text, _cpTags :: Maybe [Tag], _cpName :: Text, _cpUniqueId :: Text} deriving (Eq, Read, Show)
+data CreatePipeline = CreatePipeline'
+    { _cpDescription :: Maybe Text
+    , _cpTags        :: Maybe [Tag]
+    , _cpName        :: Text
+    , _cpUniqueId    :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePipeline' smart constructor.
 createPipeline :: Text -> Text -> CreatePipeline
-createPipeline pName pUniqueId = CreatePipeline'{_cpDescription = Nothing, _cpTags = Nothing, _cpName = pName, _cpUniqueId = pUniqueId};
+createPipeline pName pUniqueId =
+    CreatePipeline'
+    { _cpDescription = Nothing
+    , _cpTags = Nothing
+    , _cpName = pName
+    , _cpUniqueId = pUniqueId
+    }
 
 -- | The description for the pipeline.
 cpDescription :: Lens' CreatePipeline (Maybe Text)
@@ -134,12 +145,19 @@ instance ToQuery CreatePipeline where
 --
 -- * 'cprPipelineId'
 --
--- * 'cprStatusCode'
-data CreatePipelineResponse = CreatePipelineResponse'{_cprPipelineId :: Text, _cprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'cprStatus'
+data CreatePipelineResponse = CreatePipelineResponse'
+    { _cprPipelineId :: Text
+    , _cprStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePipelineResponse' smart constructor.
 createPipelineResponse :: Text -> Int -> CreatePipelineResponse
-createPipelineResponse pPipelineId pStatusCode = CreatePipelineResponse'{_cprPipelineId = pPipelineId, _cprStatusCode = pStatusCode};
+createPipelineResponse pPipelineId pStatus =
+    CreatePipelineResponse'
+    { _cprPipelineId = pPipelineId
+    , _cprStatus = pStatus
+    }
 
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. For
 -- example, @df-06372391ZG65EXAMPLE@.
@@ -147,5 +165,5 @@ cprPipelineId :: Lens' CreatePipelineResponse Text
 cprPipelineId = lens _cprPipelineId (\ s a -> s{_cprPipelineId = a});
 
 -- | FIXME: Undocumented member.
-cprStatusCode :: Lens' CreatePipelineResponse Int
-cprStatusCode = lens _cprStatusCode (\ s a -> s{_cprStatusCode = a});
+cprStatus :: Lens' CreatePipelineResponse Int
+cprStatus = lens _cprStatus (\ s a -> s{_cprStatus = a});

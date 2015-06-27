@@ -1,6 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeEngineDefaultParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,14 +35,14 @@ module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     , describeEngineDefaultParametersResponse
     -- ** Response lenses
     , dedprEngineDefaults
-    , dedprStatusCode
+    , dedprStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeEngineDefaultParameters/ action.
 --
@@ -55,11 +55,20 @@ import Network.AWS.Response
 -- * 'dedpMarker'
 --
 -- * 'dedpCacheParameterGroupFamily'
-data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'{_dedpMaxRecords :: Maybe Int, _dedpMarker :: Maybe Text, _dedpCacheParameterGroupFamily :: Text} deriving (Eq, Read, Show)
+data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
+    { _dedpMaxRecords                :: Maybe Int
+    , _dedpMarker                    :: Maybe Text
+    , _dedpCacheParameterGroupFamily :: Text
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEngineDefaultParameters' smart constructor.
 describeEngineDefaultParameters :: Text -> DescribeEngineDefaultParameters
-describeEngineDefaultParameters pCacheParameterGroupFamily = DescribeEngineDefaultParameters'{_dedpMaxRecords = Nothing, _dedpMarker = Nothing, _dedpCacheParameterGroupFamily = pCacheParameterGroupFamily};
+describeEngineDefaultParameters pCacheParameterGroupFamily =
+    DescribeEngineDefaultParameters'
+    { _dedpMaxRecords = Nothing
+    , _dedpMarker = Nothing
+    , _dedpCacheParameterGroupFamily = pCacheParameterGroupFamily
+    }
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
@@ -133,17 +142,24 @@ instance ToQuery DescribeEngineDefaultParameters
 --
 -- * 'dedprEngineDefaults'
 --
--- * 'dedprStatusCode'
-data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'{_dedprEngineDefaults :: EngineDefaults, _dedprStatusCode :: Int} deriving (Eq, Read, Show)
+-- * 'dedprStatus'
+data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
+    { _dedprEngineDefaults :: EngineDefaults
+    , _dedprStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEngineDefaultParametersResponse' smart constructor.
 describeEngineDefaultParametersResponse :: EngineDefaults -> Int -> DescribeEngineDefaultParametersResponse
-describeEngineDefaultParametersResponse pEngineDefaults pStatusCode = DescribeEngineDefaultParametersResponse'{_dedprEngineDefaults = pEngineDefaults, _dedprStatusCode = pStatusCode};
+describeEngineDefaultParametersResponse pEngineDefaults pStatus =
+    DescribeEngineDefaultParametersResponse'
+    { _dedprEngineDefaults = pEngineDefaults
+    , _dedprStatus = pStatus
+    }
 
 -- | FIXME: Undocumented member.
 dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
 dedprEngineDefaults = lens _dedprEngineDefaults (\ s a -> s{_dedprEngineDefaults = a});
 
 -- | FIXME: Undocumented member.
-dedprStatusCode :: Lens' DescribeEngineDefaultParametersResponse Int
-dedprStatusCode = lens _dedprStatusCode (\ s a -> s{_dedprStatusCode = a});
+dedprStatus :: Lens' DescribeEngineDefaultParametersResponse Int
+dedprStatus = lens _dedprStatus (\ s a -> s{_dedprStatus = a});

@@ -16,6 +16,8 @@
 
 -- | Creates a clone of a specified stack. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html Clone a Stack>.
+-- By default, all parameters are set to the values used by the parent
+-- stack.
 --
 -- __Required Permissions__: To use this action, an IAM user must have an
 -- attached policy that explicitly grants permissions. For more information
@@ -35,6 +37,7 @@ module Network.AWS.OpsWorks.CloneStack
     , cloDefaultRootDeviceType
     , cloChefConfiguration
     , cloVPCId
+    , cloAgentVersion
     , cloDefaultSSHKeyName
     , cloCustomJSON
     , cloClonePermissions
@@ -80,6 +83,8 @@ import           Network.AWS.Response
 --
 -- * 'cloVPCId'
 --
+-- * 'cloAgentVersion'
+--
 -- * 'cloDefaultSSHKeyName'
 --
 -- * 'cloCustomJSON'
@@ -117,6 +122,7 @@ data CloneStack = CloneStack'
     , _cloDefaultRootDeviceType     :: Maybe RootDeviceType
     , _cloChefConfiguration         :: Maybe ChefConfiguration
     , _cloVPCId                     :: Maybe Text
+    , _cloAgentVersion              :: Maybe Text
     , _cloDefaultSSHKeyName         :: Maybe Text
     , _cloCustomJSON                :: Maybe Text
     , _cloClonePermissions          :: Maybe Bool
@@ -144,6 +150,7 @@ cloneStack pSourceStackId pServiceRoleARN =
     , _cloDefaultRootDeviceType = Nothing
     , _cloChefConfiguration = Nothing
     , _cloVPCId = Nothing
+    , _cloAgentVersion = Nothing
     , _cloDefaultSSHKeyName = Nothing
     , _cloCustomJSON = Nothing
     , _cloClonePermissions = Nothing
@@ -214,6 +221,26 @@ cloChefConfiguration = lens _cloChefConfiguration (\ s a -> s{_cloChefConfigurat
 cloVPCId :: Lens' CloneStack (Maybe Text)
 cloVPCId = lens _cloVPCId (\ s a -> s{_cloVPCId = a});
 
+-- | The default AWS OpsWorks agent version. You have the following options:
+--
+-- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks
+--     automatically installs new agent versions on the stack\'s instances
+--     as soon as they are available.
+-- -   Fixed version - Set this parameter to your preferred agent version.
+--     To update the agent version, you must edit the stack configuration
+--     and specify a new version. AWS OpsWorks then automatically installs
+--     that version on the stack\'s instances.
+--
+-- The default setting is @LATEST@. To specify an agent version, you must
+-- use the complete version number, not the abbreviated number shown on the
+-- console. For a list of available agent version numbers, call
+-- DescribeAgentVersions.
+--
+-- You can also specify an agent version when you create or update an
+-- instance, which overrides the stack\'s default setting.
+cloAgentVersion :: Lens' CloneStack (Maybe Text)
+cloAgentVersion = lens _cloAgentVersion (\ s a -> s{_cloAgentVersion = a});
+
 -- | A default Amazon EC2 key pair name. The default value is none. If you
 -- specify a key pair name, AWS OpsWorks installs the public key on the
 -- instance and you can use the private key with an SSH client to log in to
@@ -230,7 +257,7 @@ cloDefaultSSHKeyName = lens _cloDefaultSSHKeyName (\ s a -> s{_cloDefaultSSHKeyN
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
 -- should be in the following format and must escape characters such as
--- \'\"\'.:
+-- \'\"\':
 --
 -- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
 --
@@ -287,13 +314,20 @@ cloUseOpsworksSecurityGroups = lens _cloUseOpsworksSecurityGroups (\ s a -> s{_c
 -- | The stack\'s operating system, which must be set to one of the
 -- following.
 --
--- -   Standard Linux operating systems: an Amazon Linux version such as
---     @Amazon Linux 2014.09@, @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
--- -   Custom Linux AMIs: @Custom@. You specify the custom AMI you want to
---     use when you create instances.
--- -   Microsoft Windows Server 2012 R2.
+-- -   A supported Linux operating system: An Amazon Linux version, such as
+--     @Amazon Linux 2015.03@, @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
+-- -   @Microsoft Windows Server 2012 R2 Base@.
+-- -   A custom AMI: @Custom@. You specify the custom AMI you want to use
+--     when you create instances. For more information on how to use custom
+--     AMIs with OpsWorks, see
+--     <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
 --
--- The default option is the current Amazon Linux version.
+-- The default option is the parent stack\'s operating system. For more
+-- information on the supported operating systems, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.
+--
+-- You can specify a different Linux operating system for the cloned stack,
+-- but you cannot change from Linux to Windows or Windows to Linux.
 cloDefaultOS :: Lens' CloneStack (Maybe Text)
 cloDefaultOS = lens _cloDefaultOS (\ s a -> s{_cloDefaultOS = a});
 
@@ -321,9 +355,9 @@ cloDefaultSubnetId = lens _cloDefaultSubnetId (\ s a -> s{_cloDefaultSubnetId = 
 cloRegion :: Lens' CloneStack (Maybe Text)
 cloRegion = lens _cloRegion (\ s a -> s{_cloRegion = a});
 
--- | The configuration manager. When you clone a stack we recommend that you
--- use the configuration manager to specify the Chef version, 0.9, 11.4, or
--- 11.10. The default value is currently 11.4.
+-- | The configuration manager. When you clone a Linux stack we recommend
+-- that you use the configuration manager to specify the Chef version: 0.9,
+-- 11.4, or 11.10. The default value is currently 11.10.
 cloConfigurationManager :: Lens' CloneStack (Maybe StackConfigurationManager)
 cloConfigurationManager = lens _cloConfigurationManager (\ s a -> s{_cloConfigurationManager = a});
 
@@ -397,6 +431,7 @@ instance ToJSON CloneStack where
                "DefaultRootDeviceType" .= _cloDefaultRootDeviceType,
                "ChefConfiguration" .= _cloChefConfiguration,
                "VpcId" .= _cloVPCId,
+               "AgentVersion" .= _cloAgentVersion,
                "DefaultSshKeyName" .= _cloDefaultSSHKeyName,
                "CustomJson" .= _cloCustomJSON,
                "ClonePermissions" .= _cloClonePermissions,

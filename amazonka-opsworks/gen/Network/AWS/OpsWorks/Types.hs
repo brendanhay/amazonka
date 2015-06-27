@@ -61,6 +61,12 @@ module Network.AWS.OpsWorks.Types
     -- * VolumeType
     , VolumeType (..)
 
+    -- * AgentVersion
+    , AgentVersion
+    , agentVersion
+    , avVersion
+    , avConfigurationManager
+
     -- * App
     , App
     , app
@@ -198,10 +204,12 @@ module Network.AWS.OpsWorks.Types
     , insSecurityGroupIds
     , insSSHHostRsaKeyFingerprint
     , insInstanceProfileARN
+    , insPlatform
     , insHostname
     , insCreatedAt
     , insSSHKeyName
     , insEC2InstanceId
+    , insAgentVersion
     , insRootDeviceVolumeId
     , insSubnetId
     , insInstanceType
@@ -396,6 +404,7 @@ module Network.AWS.OpsWorks.Types
     , staCreatedAt
     , staChefConfiguration
     , staVPCId
+    , staAgentVersion
     , staDefaultSSHKeyName
     , staCustomJSON
     , staCustomCookbooksSource
@@ -656,6 +665,7 @@ instance FromJSON AutoScalingType where
 
 data DeploymentCommandName
     = ExecuteRecipes
+    | Setup
     | Start
     | UpdateCustomCookbooks
     | InstallDependencies
@@ -664,16 +674,19 @@ data DeploymentCommandName
     | Restart
     | Stop
     | UpdateDependencies
+    | Configure
     | Deploy
     deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText DeploymentCommandName where
     parser = takeLowerText >>= \case
+        "configure" -> pure Configure
         "deploy" -> pure Deploy
         "execute_recipes" -> pure ExecuteRecipes
         "install_dependencies" -> pure InstallDependencies
         "restart" -> pure Restart
         "rollback" -> pure Rollback
+        "setup" -> pure Setup
         "start" -> pure Start
         "stop" -> pure Stop
         "undeploy" -> pure Undeploy
@@ -683,11 +696,13 @@ instance FromText DeploymentCommandName where
 
 instance ToText DeploymentCommandName where
     toText = \case
+        Configure -> "configure"
         Deploy -> "deploy"
         ExecuteRecipes -> "execute_recipes"
         InstallDependencies -> "install_dependencies"
         Restart -> "restart"
         Rollback -> "rollback"
+        Setup -> "setup"
         Start -> "start"
         Stop -> "stop"
         Undeploy -> "undeploy"
@@ -978,6 +993,43 @@ instance ToJSON VolumeType where
 
 instance FromJSON VolumeType where
     parseJSON = parseJSONText "VolumeType"
+
+-- | Describes an agent version.
+--
+-- /See:/ 'agentVersion' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'avVersion'
+--
+-- * 'avConfigurationManager'
+data AgentVersion = AgentVersion'
+    { _avVersion              :: Maybe Text
+    , _avConfigurationManager :: Maybe StackConfigurationManager
+    } deriving (Eq,Read,Show)
+
+-- | 'AgentVersion' smart constructor.
+agentVersion :: AgentVersion
+agentVersion =
+    AgentVersion'
+    { _avVersion = Nothing
+    , _avConfigurationManager = Nothing
+    }
+
+-- | The agent version.
+avVersion :: Lens' AgentVersion (Maybe Text)
+avVersion = lens _avVersion (\ s a -> s{_avVersion = a});
+
+-- | The configuration manager.
+avConfigurationManager :: Lens' AgentVersion (Maybe StackConfigurationManager)
+avConfigurationManager = lens _avConfigurationManager (\ s a -> s{_avConfigurationManager = a});
+
+instance FromJSON AgentVersion where
+        parseJSON
+          = withObject "AgentVersion"
+              (\ x ->
+                 AgentVersion' <$>
+                   (x .:? "Version") <*> (x .:? "ConfigurationManager"))
 
 -- | A description of the app.
 --
@@ -1628,7 +1680,7 @@ depCreatedAt = lens _depCreatedAt (\ s a -> s{_depCreatedAt = a});
 -- | A string that contains user-defined custom JSON. It can be used to
 -- override the corresponding default stack configuration attribute values
 -- for stack or to pass data to recipes. The string should be in the
--- following format and must escape characters such as \'\"\'.:
+-- following format and must escape characters such as \'\"\':
 --
 -- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
 --
@@ -2102,6 +2154,8 @@ instance ToJSON EnvironmentVariable where
 --
 -- * 'insInstanceProfileARN'
 --
+-- * 'insPlatform'
+--
 -- * 'insHostname'
 --
 -- * 'insCreatedAt'
@@ -2109,6 +2163,8 @@ instance ToJSON EnvironmentVariable where
 -- * 'insSSHKeyName'
 --
 -- * 'insEC2InstanceId'
+--
+-- * 'insAgentVersion'
 --
 -- * 'insRootDeviceVolumeId'
 --
@@ -2162,10 +2218,12 @@ data Instance = Instance'
     , _insSecurityGroupIds         :: Maybe [Text]
     , _insSSHHostRsaKeyFingerprint :: Maybe Text
     , _insInstanceProfileARN       :: Maybe Text
+    , _insPlatform                 :: Maybe Text
     , _insHostname                 :: Maybe Text
     , _insCreatedAt                :: Maybe Text
     , _insSSHKeyName               :: Maybe Text
     , _insEC2InstanceId            :: Maybe Text
+    , _insAgentVersion             :: Maybe Text
     , _insRootDeviceVolumeId       :: Maybe Text
     , _insSubnetId                 :: Maybe Text
     , _insInstanceType             :: Maybe Text
@@ -2203,10 +2261,12 @@ instance' =
     , _insSecurityGroupIds = Nothing
     , _insSSHHostRsaKeyFingerprint = Nothing
     , _insInstanceProfileARN = Nothing
+    , _insPlatform = Nothing
     , _insHostname = Nothing
     , _insCreatedAt = Nothing
     , _insSSHKeyName = Nothing
     , _insEC2InstanceId = Nothing
+    , _insAgentVersion = Nothing
     , _insRootDeviceVolumeId = Nothing
     , _insSubnetId = Nothing
     , _insInstanceType = Nothing
@@ -2234,14 +2294,14 @@ instance' =
 insInstanceId :: Lens' Instance (Maybe Text)
 insInstanceId = lens _insInstanceId (\ s a -> s{_insInstanceId = a});
 
--- | The instance private IP address.
+-- | The instance\'s private IP address.
 insPrivateIP :: Lens' Instance (Maybe Text)
 insPrivateIP = lens _insPrivateIP (\ s a -> s{_insPrivateIP = a});
 
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. If this value is set to
 -- @false@, you must then update your instances manually by using
--- CreateDeployment to run the @update_dependencies@ stack command or
+-- CreateDeployment to run the @update_dependencies@ stack command or by
 -- manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the
 -- instances.
 --
@@ -2273,11 +2333,11 @@ insReportedAgentVersion = lens _insReportedAgentVersion (\ s a -> s{_insReported
 insStatus :: Lens' Instance (Maybe Text)
 insStatus = lens _insStatus (\ s a -> s{_insStatus = a});
 
--- | The instance private DNS name.
+-- | The The instance\'s private DNS name.
 insPrivateDNS :: Lens' Instance (Maybe Text)
 insPrivateDNS = lens _insPrivateDNS (\ s a -> s{_insPrivateDNS = a});
 
--- | The instance\'s virtualization type, @paravirtual@ or @hvm@.
+-- | The instance\'s virtualization type: @paravirtual@ or @hvm@.
 insVirtualizationType :: Lens' Instance (Maybe VirtualizationType)
 insVirtualizationType = lens _insVirtualizationType (\ s a -> s{_insVirtualizationType = a});
 
@@ -2295,6 +2355,10 @@ insSSHHostRsaKeyFingerprint = lens _insSSHHostRsaKeyFingerprint (\ s a -> s{_ins
 insInstanceProfileARN :: Lens' Instance (Maybe Text)
 insInstanceProfileARN = lens _insInstanceProfileARN (\ s a -> s{_insInstanceProfileARN = a});
 
+-- | The instance\'s platform.
+insPlatform :: Lens' Instance (Maybe Text)
+insPlatform = lens _insPlatform (\ s a -> s{_insPlatform = a});
+
 -- | The instance host name.
 insHostname :: Lens' Instance (Maybe Text)
 insHostname = lens _insHostname (\ s a -> s{_insHostname = a});
@@ -2303,7 +2367,7 @@ insHostname = lens _insHostname (\ s a -> s{_insHostname = a});
 insCreatedAt :: Lens' Instance (Maybe Text)
 insCreatedAt = lens _insCreatedAt (\ s a -> s{_insCreatedAt = a});
 
--- | The instance\'s Amazon EC2 key pair name.
+-- | The instance\'s Amazon EC2 key-pair name.
 insSSHKeyName :: Lens' Instance (Maybe Text)
 insSSHKeyName = lens _insSSHKeyName (\ s a -> s{_insSSHKeyName = a});
 
@@ -2311,25 +2375,27 @@ insSSHKeyName = lens _insSSHKeyName (\ s a -> s{_insSSHKeyName = a});
 insEC2InstanceId :: Lens' Instance (Maybe Text)
 insEC2InstanceId = lens _insEC2InstanceId (\ s a -> s{_insEC2InstanceId = a});
 
+-- | The agent version. This parameter is set to @INHERIT@ if the instance
+-- inherits the default stack setting or to a a version number for a fixed
+-- agent version.
+insAgentVersion :: Lens' Instance (Maybe Text)
+insAgentVersion = lens _insAgentVersion (\ s a -> s{_insAgentVersion = a});
+
 -- | The root device volume ID.
 insRootDeviceVolumeId :: Lens' Instance (Maybe Text)
 insRootDeviceVolumeId = lens _insRootDeviceVolumeId (\ s a -> s{_insRootDeviceVolumeId = a});
 
--- | The instance\'s subnet ID, if the stack is running in a VPC.
+-- | The instance\'s subnet ID; applicable only if the stack is running in a
+-- VPC.
 insSubnetId :: Lens' Instance (Maybe Text)
 insSubnetId = lens _insSubnetId (\ s a -> s{_insSubnetId = a});
 
--- | The instance type. AWS OpsWorks supports all instance types except
--- Cluster Compute, Cluster GPU, and High Memory Cluster. For more
--- information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
--- The parameter values that specify the various types are in the API Name
--- column of the Available Instance Types table.
+-- | The instance type, such as @t2.micro@.
 insInstanceType :: Lens' Instance (Maybe Text)
 insInstanceType = lens _insInstanceType (\ s a -> s{_insInstanceType = a});
 
 -- | For registered instances, the infrastructure class: @ec2@ or
--- @on-premises@
+-- @on-premises@.
 insInfrastructureClass :: Lens' Instance (Maybe Text)
 insInfrastructureClass = lens _insInfrastructureClass (\ s a -> s{_insInfrastructureClass = a});
 
@@ -2337,7 +2403,7 @@ insInfrastructureClass = lens _insInfrastructureClass (\ s a -> s{_insInfrastruc
 insEBSOptimized :: Lens' Instance (Maybe Bool)
 insEBSOptimized = lens _insEBSOptimized (\ s a -> s{_insEBSOptimized = a});
 
--- | The SSH key\'s DSA fingerprint.
+-- | The SSH key\'s Deep Security Agent (DSA) fingerprint.
 insSSHHostDsaKeyFingerprint :: Lens' Instance (Maybe Text)
 insSSHHostDsaKeyFingerprint = lens _insSSHHostDsaKeyFingerprint (\ s a -> s{_insSSHHostDsaKeyFingerprint = a});
 
@@ -2368,7 +2434,7 @@ insAutoScalingType = lens _insAutoScalingType (\ s a -> s{_insAutoScalingType = 
 insLayerIds :: Lens' Instance [Text]
 insLayerIds = lens _insLayerIds (\ s a -> s{_insLayerIds = a}) . _Default;
 
--- | The instance architecture, \"i386\" or \"x86_64\".
+-- | The instance architecture: \"i386\" or \"x86_64\".
 insArchitecture :: Lens' Instance (Maybe Architecture)
 insArchitecture = lens _insArchitecture (\ s a -> s{_insArchitecture = a});
 
@@ -2380,10 +2446,9 @@ insPublicDNS = lens _insPublicDNS (\ s a -> s{_insPublicDNS = a});
 insPublicIP :: Lens' Instance (Maybe Text)
 insPublicIP = lens _insPublicIP (\ s a -> s{_insPublicIP = a});
 
--- | A custom AMI ID to be used to create the instance. The AMI should be
--- based on one of the standard AWS OpsWorks APIs: Amazon Linux, Ubuntu
--- 12.04 LTS, or Ubuntu 14.04 LTS. For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances.html Instances>
+-- | A custom AMI ID to be used to create the instance. For more information,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Instances>
 insAMIId :: Lens' Instance (Maybe Text)
 insAMIId = lens _insAMIId (\ s a -> s{_insAMIId = a});
 
@@ -2423,10 +2488,12 @@ instance FromJSON Instance where
                      <*> (x .:? "SecurityGroupIds" .!= mempty)
                      <*> (x .:? "SshHostRsaKeyFingerprint")
                      <*> (x .:? "InstanceProfileArn")
+                     <*> (x .:? "Platform")
                      <*> (x .:? "Hostname")
                      <*> (x .:? "CreatedAt")
                      <*> (x .:? "SshKeyName")
                      <*> (x .:? "Ec2InstanceId")
+                     <*> (x .:? "AgentVersion")
                      <*> (x .:? "RootDeviceVolumeId")
                      <*> (x .:? "SubnetId")
                      <*> (x .:? "InstanceType")
@@ -3309,7 +3376,7 @@ instance FromJSON RDSDBInstance where
                      <*> (x .:? "StackId")
                      <*> (x .:? "DbPassword"))
 
--- | AWS OpsWorks supports five lifecycle events, __setup__,
+-- | AWS OpsWorks supports five lifecycle events: __setup__,
 -- __configuration__, __deploy__, __undeploy__, and __shutdown__. For each
 -- layer, AWS OpsWorks runs a set of standard recipes for each event. In
 -- addition, you can provide custom recipes for any or all layers and
@@ -3796,6 +3863,8 @@ instance ToJSON Source where
 --
 -- * 'staVPCId'
 --
+-- * 'staAgentVersion'
+--
 -- * 'staDefaultSSHKeyName'
 --
 -- * 'staCustomJSON'
@@ -3831,6 +3900,7 @@ data Stack = Stack'
     , _staCreatedAt                 :: Maybe Text
     , _staChefConfiguration         :: Maybe ChefConfiguration
     , _staVPCId                     :: Maybe Text
+    , _staAgentVersion              :: Maybe Text
     , _staDefaultSSHKeyName         :: Maybe Text
     , _staCustomJSON                :: Maybe Text
     , _staCustomCookbooksSource     :: Maybe Source
@@ -3858,6 +3928,7 @@ stack =
     , _staCreatedAt = Nothing
     , _staChefConfiguration = Nothing
     , _staVPCId = Nothing
+    , _staAgentVersion = Nothing
     , _staDefaultSSHKeyName = Nothing
     , _staCustomJSON = Nothing
     , _staCustomCookbooksSource = Nothing
@@ -3895,7 +3966,7 @@ staARN = lens _staARN (\ s a -> s{_staARN = a});
 staDefaultRootDeviceType :: Lens' Stack (Maybe RootDeviceType)
 staDefaultRootDeviceType = lens _staDefaultRootDeviceType (\ s a -> s{_staDefaultRootDeviceType = a});
 
--- | Date when the stack was created.
+-- | The date when the stack was created.
 staCreatedAt :: Lens' Stack (Maybe Text)
 staCreatedAt = lens _staCreatedAt (\ s a -> s{_staCreatedAt = a});
 
@@ -3905,19 +3976,25 @@ staCreatedAt = lens _staCreatedAt (\ s a -> s{_staCreatedAt = a});
 staChefConfiguration :: Lens' Stack (Maybe ChefConfiguration)
 staChefConfiguration = lens _staChefConfiguration (\ s a -> s{_staChefConfiguration = a});
 
--- | The VPC ID, if the stack is running in a VPC.
+-- | The VPC ID; applicable only if the stack is running in a VPC.
 staVPCId :: Lens' Stack (Maybe Text)
 staVPCId = lens _staVPCId (\ s a -> s{_staVPCId = a});
+
+-- | The agent version. This parameter is set to @LATEST@ for auto-update. or
+-- a version number for a fixed agent version.
+staAgentVersion :: Lens' Stack (Maybe Text)
+staAgentVersion = lens _staAgentVersion (\ s a -> s{_staAgentVersion = a});
 
 -- | A default Amazon EC2 key pair for the stack\'s instances. You can
 -- override this value when you create or update an instance.
 staDefaultSSHKeyName :: Lens' Stack (Maybe Text)
 staDefaultSSHKeyName = lens _staDefaultSSHKeyName (\ s a -> s{_staDefaultSSHKeyName = a});
 
--- | A string that contains user-defined, custom JSON. It can be used to
--- override the corresponding default stack configuration JSON values or to
--- pass data to recipes. The string should be in the following format and
--- must escape characters such as \'\"\'.:
+-- | A JSON object that contains user-defined attributes to be added to the
+-- stack configuration and deployment attributes. You can use custom JSON
+-- to override the corresponding default stack configuration attribute
+-- values or to pass data to recipes. The string should be in the following
+-- format and must escape characters such as \'\"\':
 --
 -- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
 --
@@ -3956,7 +4033,7 @@ staAttributes = lens _staAttributes (\ s a -> s{_staAttributes = a}) . _Default 
 staUseCustomCookbooks :: Lens' Stack (Maybe Bool)
 staUseCustomCookbooks = lens _staUseCustomCookbooks (\ s a -> s{_staUseCustomCookbooks = a});
 
--- | The default subnet ID, if the stack is running in a VPC.
+-- | The default subnet ID; applicable only if the stack is running in a VPC.
 staDefaultSubnetId :: Lens' Stack (Maybe Text)
 staDefaultSubnetId = lens _staDefaultSubnetId (\ s a -> s{_staDefaultSubnetId = a});
 
@@ -3990,6 +4067,7 @@ instance FromJSON Stack where
                      <*> (x .:? "CreatedAt")
                      <*> (x .:? "ChefConfiguration")
                      <*> (x .:? "VpcId")
+                     <*> (x .:? "AgentVersion")
                      <*> (x .:? "DefaultSshKeyName")
                      <*> (x .:? "CustomJson")
                      <*> (x .:? "CustomCookbooksSource")

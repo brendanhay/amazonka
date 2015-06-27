@@ -20,7 +20,7 @@
 -- parameter group family name. You can optionally specify a name to
 -- retrieve the description of a specific parameter group.
 --
--- For more information about managing parameter groups, go to
+-- For more information about parameters and parameter groups, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --

@@ -80,7 +80,7 @@ instance AWSRequest CreateStreamingDistribution where
 instance ToElement CreateStreamingDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2014-11-06/}StreamingDistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2015-04-17/}StreamingDistributionConfig"
               .
               _csdStreamingDistributionConfig
 
@@ -88,7 +88,7 @@ instance ToHeaders CreateStreamingDistribution where
         toHeaders = const mempty
 
 instance ToPath CreateStreamingDistribution where
-        toPath = const "/2014-11-06/streaming-distribution"
+        toPath = const "/2015-04-17/streaming-distribution"
 
 instance ToQuery CreateStreamingDistribution where
         toQuery = const mempty

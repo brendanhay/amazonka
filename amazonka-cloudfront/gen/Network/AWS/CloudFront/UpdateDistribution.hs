@@ -97,7 +97,7 @@ instance AWSRequest UpdateDistribution where
 instance ToElement UpdateDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2014-11-06/}DistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2015-04-17/}DistributionConfig"
               .
               _udDistributionConfig
 
@@ -108,7 +108,7 @@ instance ToHeaders UpdateDistribution where
 instance ToPath UpdateDistribution where
         toPath UpdateDistribution'{..}
           = mconcat
-              ["/2014-11-06/distribution/", toText _udId,
+              ["/2015-04-17/distribution/", toText _udId,
                "/config"]
 
 instance ToQuery UpdateDistribution where

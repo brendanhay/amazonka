@@ -93,7 +93,7 @@ createDeployment pStackId pCommand =
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
 -- should be in the following format and must escape characters such as
--- \'\"\'.:
+-- \'\"\':
 --
 -- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
 --

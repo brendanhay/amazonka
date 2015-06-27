@@ -19,9 +19,9 @@
 -- credentials used to make this API call need to have access to the
 -- identity data.
 --
--- DescribeDataset can be called with temporary user credentials provided
--- by Cognito Identity or with developer credentials. You should use
--- Cognito Identity credentials to make this API call.
+-- This API can be called with temporary user credentials provided by
+-- Cognito Identity or with developer credentials. You should use Cognito
+-- Identity credentials to make this API call.
 --
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeDataset.html>
 module Network.AWS.CognitoSync.DescribeDataset

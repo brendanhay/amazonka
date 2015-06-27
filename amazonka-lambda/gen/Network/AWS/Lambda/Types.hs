@@ -23,10 +23,13 @@ module Network.AWS.Lambda.Types
 
     -- * Errors
     , _PolicyLengthExceededException
+    , _UnsupportedMediaTypeException
     , _InvalidRequestContentException
     , _InvalidParameterValueException
+    , _RequestTooLargeException
     , _TooManyRequestsException
     , _ServiceException
+    , _CodeStorageExceededException
     , _ResourceConflictException
     , _ResourceNotFoundException
 
@@ -125,6 +128,11 @@ _PolicyLengthExceededException :: AWSError a => Getting (First ServiceError) a S
 _PolicyLengthExceededException =
     _ServiceError . hasStatus 400 . hasCode "PolicyLengthExceededException"
 
+-- | Prism for UnsupportedMediaTypeException' errors.
+_UnsupportedMediaTypeException :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnsupportedMediaTypeException =
+    _ServiceError . hasStatus 415 . hasCode "UnsupportedMediaTypeException"
+
 -- | The request body could not be parsed as JSON.
 _InvalidRequestContentException :: AWSError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestContentException =
@@ -138,6 +146,11 @@ _InvalidParameterValueException :: AWSError a => Getting (First ServiceError) a 
 _InvalidParameterValueException =
     _ServiceError . hasStatus 400 . hasCode "InvalidParameterValueException"
 
+-- | Prism for RequestTooLargeException' errors.
+_RequestTooLargeException :: AWSError a => Getting (First ServiceError) a ServiceError
+_RequestTooLargeException =
+    _ServiceError . hasStatus 413 . hasCode "RequestTooLargeException"
+
 -- | Prism for TooManyRequestsException' errors.
 _TooManyRequestsException :: AWSError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException =
@@ -146,6 +159,11 @@ _TooManyRequestsException =
 -- | The AWS Lambda service encountered an internal error.
 _ServiceException :: AWSError a => Getting (First ServiceError) a ServiceError
 _ServiceException = _ServiceError . hasStatus 500 . hasCode "ServiceException"
+
+-- | Prism for CodeStorageExceededException' errors.
+_CodeStorageExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_CodeStorageExceededException =
+    _ServiceError . hasStatus 400 . hasCode "CodeStorageExceededException"
 
 -- | The resource already exists.
 _ResourceConflictException :: AWSError a => Getting (First ServiceError) a ServiceError
@@ -230,17 +248,20 @@ instance ToHeader LogType
 instance ToJSON LogType where
     toJSON = toJSONText
 
-data Runtime =
-    Nodejs
+data Runtime
+    = JAVA8
+    | Nodejs
     deriving (Eq,Ord,Read,Show,Enum,Generic)
 
 instance FromText Runtime where
     parser = takeLowerText >>= \case
+        "java8" -> pure JAVA8
         "nodejs" -> pure Nodejs
         e -> fail ("Failure parsing Runtime from " ++ show e)
 
 instance ToText Runtime where
     toText = \case
+        JAVA8 -> "java8"
         Nodejs -> "nodejs"
 
 instance Hashable Runtime

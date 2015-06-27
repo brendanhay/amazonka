@@ -92,8 +92,8 @@ addPermission pFunctionName pStatementId pAction pPrincipal =
     , _apPrincipal = pPrincipal
     }
 
--- | The AWS account ID (without a hyphen) of the source owner. If the
--- @SourceArn@ identifies a bucket, then this is the bucket owner\'s
+-- | The AWS account ID (without a hyphen) of the source owner. For example,
+-- if the @SourceArn@ identifies a bucket, then this is the bucket owner\'s
 -- account ID. You can use this additional condition to ensure the bucket
 -- you specify is owned by a specific account (it is possible the bucket
 -- owner deleted the bucket and some other AWS account created the bucket).

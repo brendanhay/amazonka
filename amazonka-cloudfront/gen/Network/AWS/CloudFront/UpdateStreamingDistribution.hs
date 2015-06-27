@@ -97,7 +97,7 @@ instance AWSRequest UpdateStreamingDistribution where
 instance ToElement UpdateStreamingDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2014-11-06/}StreamingDistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2015-04-17/}StreamingDistributionConfig"
               .
               _usdStreamingDistributionConfig
 
@@ -108,7 +108,7 @@ instance ToHeaders UpdateStreamingDistribution where
 instance ToPath UpdateStreamingDistribution where
         toPath UpdateStreamingDistribution'{..}
           = mconcat
-              ["/2014-11-06/streaming-distribution/",
+              ["/2015-04-17/streaming-distribution/",
                toText _usdId, "/config"]
 
 instance ToQuery UpdateStreamingDistribution where

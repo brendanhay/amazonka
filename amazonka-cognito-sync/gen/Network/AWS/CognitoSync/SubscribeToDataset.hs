@@ -17,6 +17,9 @@
 -- | Subscribes to receive notifications when a dataset is modified by
 -- another device.
 --
+-- This API can only be called with temporary credentials provided by
+-- Cognito Identity. You cannot call this API with developer credentials.
+--
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_SubscribeToDataset.html>
 module Network.AWS.CognitoSync.SubscribeToDataset
     (

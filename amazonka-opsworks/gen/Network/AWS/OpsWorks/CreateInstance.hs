@@ -35,6 +35,7 @@ module Network.AWS.OpsWorks.CreateInstance
     , ciVirtualizationType
     , ciHostname
     , ciSSHKeyName
+    , ciAgentVersion
     , ciSubnetId
     , ciEBSOptimized
     , ciOS
@@ -74,6 +75,8 @@ import           Network.AWS.Response
 --
 -- * 'ciSSHKeyName'
 --
+-- * 'ciAgentVersion'
+--
 -- * 'ciSubnetId'
 --
 -- * 'ciEBSOptimized'
@@ -102,6 +105,7 @@ data CreateInstance = CreateInstance'
     , _ciVirtualizationType   :: Maybe Text
     , _ciHostname             :: Maybe Text
     , _ciSSHKeyName           :: Maybe Text
+    , _ciAgentVersion         :: Maybe Text
     , _ciSubnetId             :: Maybe Text
     , _ciEBSOptimized         :: Maybe Bool
     , _ciOS                   :: Maybe Text
@@ -124,6 +128,7 @@ createInstance pStackId pInstanceType =
     , _ciVirtualizationType = Nothing
     , _ciHostname = Nothing
     , _ciSSHKeyName = Nothing
+    , _ciAgentVersion = Nothing
     , _ciSubnetId = Nothing
     , _ciEBSOptimized = Nothing
     , _ciOS = Nothing
@@ -142,7 +147,7 @@ createInstance pStackId pInstanceType =
 -- instance boots. The default value is @true@. To control when updates are
 -- installed, set this value to @false@. You must then update your
 -- instances manually by using CreateDeployment to run the
--- @update_dependencies@ stack command or manually running @yum@ (Amazon
+-- @update_dependencies@ stack command or by manually running @yum@ (Amazon
 -- Linux) or @apt-get@ (Ubuntu) on the instances.
 --
 -- We strongly recommend using the default value of @true@ to ensure that
@@ -158,9 +163,24 @@ ciVirtualizationType = lens _ciVirtualizationType (\ s a -> s{_ciVirtualizationT
 ciHostname :: Lens' CreateInstance (Maybe Text)
 ciHostname = lens _ciHostname (\ s a -> s{_ciHostname = a});
 
--- | The instance\'s Amazon EC2 key pair name.
+-- | The instance\'s Amazon EC2 key-pair name.
 ciSSHKeyName :: Lens' CreateInstance (Maybe Text)
 ciSSHKeyName = lens _ciSSHKeyName (\ s a -> s{_ciSSHKeyName = a});
+
+-- | The default AWS OpsWorks agent version. You have the following options:
+--
+-- -   @INHERIT@ - Use the stack\'s default agent version setting.
+-- -   /version_number/ - Use the specified agent version. This value
+--     overrides the stack\'s default setting. To update the agent version,
+--     edit the instance configuration and specify a new version. AWS
+--     OpsWorks then automatically installs that version on the instance.
+--
+-- The default setting is @INHERIT@. To specify an agent version, you must
+-- use the complete version number, not the abbreviated number shown on the
+-- console. For a list of available agent version numbers, call
+-- DescribeAgentVersions.
+ciAgentVersion :: Lens' CreateInstance (Maybe Text)
+ciAgentVersion = lens _ciAgentVersion (\ s a -> s{_ciAgentVersion = a});
 
 -- | The ID of the instance\'s subnet. If the stack is running in a VPC, you
 -- can use this parameter to override the stack\'s default subnet ID value
@@ -175,20 +195,20 @@ ciEBSOptimized = lens _ciEBSOptimized (\ s a -> s{_ciEBSOptimized = a});
 -- | The instance\'s operating system, which must be set to one of the
 -- following.
 --
--- For Windows stacks: Microsoft Windows Server 2012 R2.
+-- -   A supported Linux operating system: An Amazon Linux version, such as
+--     @Amazon Linux 2015.03@, @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
+-- -   @Microsoft Windows Server 2012 R2 Base@.
+-- -   A custom AMI: @Custom@.
 --
--- For Linux stacks:
---
--- -   Standard operating systems: an Amazon Linux version such as
---     @Amazon Linux 2014.09@, @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
--- -   Custom AMIs: @Custom@
+-- For more information on the supported operating systems, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.
 --
 -- The default option is the current Amazon Linux version. If you set this
 -- parameter to @Custom@, you must use the CreateInstance action\'s AmiId
 -- parameter to specify the custom AMI that you want to use. For more
--- information on the standard operating systems, see
+-- information on the supported operating systems, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems>For
--- more information on how to use custom AMIs with OpsWorks, see
+-- more information on how to use custom AMIs with AWS OpsWorks, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
 ciOS :: Lens' CreateInstance (Maybe Text)
 ciOS = lens _ciOS (\ s a -> s{_ciOS = a});
@@ -211,9 +231,9 @@ ciArchitecture :: Lens' CreateInstance (Maybe Architecture)
 ciArchitecture = lens _ciArchitecture (\ s a -> s{_ciArchitecture = a});
 
 -- | A custom AMI ID to be used to create the instance. The AMI should be
--- based on one of the standard AWS OpsWorks AMIs: Amazon Linux, Ubuntu
--- 12.04 LTS, or Ubuntu 14.04 LTS. For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances.html Instances>.
+-- based on one of the supported operating systems. For more information,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
 --
 -- If you specify a custom AMI, you must set @Os@ to @Custom@.
 ciAMIId :: Lens' CreateInstance (Maybe Text)
@@ -234,16 +254,17 @@ ciRootDeviceType = lens _ciRootDeviceType (\ s a -> s{_ciRootDeviceType = a});
 ciStackId :: Lens' CreateInstance Text
 ciStackId = lens _ciStackId (\ s a -> s{_ciStackId = a});
 
--- | An array that contains the instance layer IDs.
+-- | An array that contains the instance\'s layer IDs.
 ciLayerIds :: Lens' CreateInstance [Text]
 ciLayerIds = lens _ciLayerIds (\ s a -> s{_ciLayerIds = a});
 
--- | The instance type. AWS OpsWorks supports all instance types except
--- Cluster Compute, Cluster GPU, and High Memory Cluster. For more
--- information, see
+-- | The instance type, such as @t2.micro@. For a list of supported instance
+-- types, open the stack in the console, choose __Instances__, and choose
+-- __+ Instance__. The __Size__ list contains the currently supported
+-- types. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
 -- The parameter values that you use to specify the various types are in
--- the API Name column of the Available Instance Types table.
+-- the __API Name__ column of the __Available Instance Types__ table.
 ciInstanceType :: Lens' CreateInstance Text
 ciInstanceType = lens _ciInstanceType (\ s a -> s{_ciInstanceType = a});
 
@@ -273,6 +294,7 @@ instance ToJSON CreateInstance where
                "VirtualizationType" .= _ciVirtualizationType,
                "Hostname" .= _ciHostname,
                "SshKeyName" .= _ciSSHKeyName,
+               "AgentVersion" .= _ciAgentVersion,
                "SubnetId" .= _ciSubnetId,
                "EbsOptimized" .= _ciEBSOptimized, "Os" .= _ciOS,
                "AvailabilityZone" .= _ciAvailabilityZone,

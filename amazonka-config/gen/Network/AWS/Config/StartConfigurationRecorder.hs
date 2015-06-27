@@ -14,8 +14,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Starts recording configurations of all the resources associated with the
--- account.
+-- | Starts recording configurations of the AWS resources you have selected
+-- to record in your AWS account.
 --
 -- You must have created at least one delivery channel to successfully
 -- start the configuration recorder.

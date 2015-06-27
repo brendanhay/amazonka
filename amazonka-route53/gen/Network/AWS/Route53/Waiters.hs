@@ -16,5 +16,18 @@
 module Network.AWS.Route53.Waiters where
 
 import           Network.AWS.Prelude
+import           Network.AWS.Route53.GetChange
 import           Network.AWS.Route53.Types
 import           Network.AWS.Waiter
+
+resourceRecordSetsChanged :: Wait GetChange
+resourceRecordSetsChanged =
+    Wait
+    { _waitName = "ResourceRecordSetsChanged"
+    , _waitAttempts = 60
+    , _waitDelay = 30
+    , _waitAcceptors = [ matchAll
+                             "INSYNC"
+                             AcceptSuccess
+                             (gcrChangeInfo . ciStatus . to toText)]
+    }

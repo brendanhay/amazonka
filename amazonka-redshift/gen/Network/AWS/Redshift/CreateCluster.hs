@@ -403,8 +403,8 @@ ccClusterIdentifier = lens _ccClusterIdentifier (\ s a -> s{_ccClusterIdentifier
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- Valid Values: @dw1.xlarge@ | @dw1.8xlarge@ | @dw2.large@ |
--- @dw2.8xlarge@.
+-- Valid Values: @ds1.xlarge@ | @ds1.8xlarge@ | @ds2.xlarge@ |
+-- @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@.
 ccNodeType :: Lens' CreateCluster Text
 ccNodeType = lens _ccNodeType (\ s a -> s{_ccNodeType = a});
 

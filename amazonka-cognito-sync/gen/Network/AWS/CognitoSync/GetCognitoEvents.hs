@@ -15,7 +15,11 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Gets the events and the corresponding Lambda functions associated with
--- an identity pool
+-- an identity pool.
+--
+-- This API can only be called with developer credentials. You cannot call
+-- this API with the temporary user credentials provided by Cognito
+-- Identity.
 --
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_GetCognitoEvents.html>
 module Network.AWS.CognitoSync.GetCognitoEvents

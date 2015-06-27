@@ -43,6 +43,7 @@ module Network.AWS.CloudFront.Types
     , _NoSuchOrigin
     , _NoSuchInvalidation
     , _StreamingDistributionNotDisabled
+    , _InvalidTTLOrder
     , _TooManyStreamingDistributionCNAMEs
     , _TooManyDistributions
     , _InvalidRequiredProtocol
@@ -62,6 +63,7 @@ module Network.AWS.CloudFront.Types
     , _TooManyOrigins
     , _CloudFrontOriginAccessIdentityAlreadyExists
     , _InvalidRelativePath
+    , _InvalidMinimumProtocolVersion
     , _AccessDenied
     , _NoSuchDistribution
     , _InvalidViewerCertificate
@@ -117,7 +119,9 @@ module Network.AWS.CloudFront.Types
     , CacheBehavior
     , cacheBehavior
     , cbAllowedMethods
+    , cbMaxTTL
     , cbSmoothStreaming
+    , cbDefaultTTL
     , cbPathPattern
     , cbTargetOriginId
     , cbForwardedValues
@@ -204,7 +208,9 @@ module Network.AWS.CloudFront.Types
     , DefaultCacheBehavior
     , defaultCacheBehavior
     , dcbAllowedMethods
+    , dcbMaxTTL
     , dcbSmoothStreaming
+    , dcbDefaultTTL
     , dcbTargetOriginId
     , dcbForwardedValues
     , dcbTrustedSigners
@@ -447,7 +453,7 @@ module Network.AWS.CloudFront.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2014-11-06@ of the Amazon CloudFront SDK.
+-- | Version @2015-04-17@ of the Amazon CloudFront SDK.
 data CloudFront
 
 instance AWSService CloudFront where
@@ -458,7 +464,7 @@ instance AWSService CloudFront where
             Service
             { _svcAbbrev = "CloudFront"
             , _svcPrefix = "cloudfront"
-            , _svcVersion = "2014-11-06"
+            , _svcVersion = "2015-04-17"
             , _svcEndpoint = defaultEndpoint svc
             , _svcTimeout = 80000000
             , _svcStatus = statusSuccess
@@ -593,6 +599,10 @@ _StreamingDistributionNotDisabled :: AWSError a => Getting (First ServiceError) 
 _StreamingDistributionNotDisabled =
     _ServiceError . hasStatus 409 . hasCode "StreamingDistributionNotDisabled"
 
+-- | Prism for InvalidTTLOrder' errors.
+_InvalidTTLOrder :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidTTLOrder = _ServiceError . hasStatus 400 . hasCode "InvalidTTLOrder"
+
 -- | Prism for TooManyStreamingDistributionCNAMEs' errors.
 _TooManyStreamingDistributionCNAMEs :: AWSError a => Getting (First ServiceError) a ServiceError
 _TooManyStreamingDistributionCNAMEs =
@@ -699,6 +709,11 @@ _CloudFrontOriginAccessIdentityAlreadyExists =
 _InvalidRelativePath :: AWSError a => Getting (First ServiceError) a ServiceError
 _InvalidRelativePath =
     _ServiceError . hasStatus 400 . hasCode "InvalidRelativePath"
+
+-- | Prism for InvalidMinimumProtocolVersion' errors.
+_InvalidMinimumProtocolVersion :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidMinimumProtocolVersion =
+    _ServiceError . hasStatus 400 . hasCode "InvalidMinimumProtocolVersion"
 
 -- | Access denied.
 _AccessDenied :: AWSError a => Getting (First ServiceError) a ServiceError
@@ -1151,7 +1166,11 @@ instance ToXML AllowedMethods where
 --
 -- * 'cbAllowedMethods'
 --
+-- * 'cbMaxTTL'
+--
 -- * 'cbSmoothStreaming'
+--
+-- * 'cbDefaultTTL'
 --
 -- * 'cbPathPattern'
 --
@@ -1166,7 +1185,9 @@ instance ToXML AllowedMethods where
 -- * 'cbMinTTL'
 data CacheBehavior = CacheBehavior'
     { _cbAllowedMethods       :: Maybe AllowedMethods
+    , _cbMaxTTL               :: Maybe Integer
     , _cbSmoothStreaming      :: Maybe Bool
+    , _cbDefaultTTL           :: Maybe Integer
     , _cbPathPattern          :: Text
     , _cbTargetOriginId       :: Text
     , _cbForwardedValues      :: ForwardedValues
@@ -1180,7 +1201,9 @@ cacheBehavior :: Text -> Text -> ForwardedValues -> TrustedSigners -> ViewerProt
 cacheBehavior pPathPattern pTargetOriginId pForwardedValues pTrustedSigners pViewerProtocolPolicy pMinTTL =
     CacheBehavior'
     { _cbAllowedMethods = Nothing
+    , _cbMaxTTL = Nothing
     , _cbSmoothStreaming = Nothing
+    , _cbDefaultTTL = Nothing
     , _cbPathPattern = pPathPattern
     , _cbTargetOriginId = pTargetOriginId
     , _cbForwardedValues = pForwardedValues
@@ -1193,11 +1216,31 @@ cacheBehavior pPathPattern pTargetOriginId pForwardedValues pTrustedSigners pVie
 cbAllowedMethods :: Lens' CacheBehavior (Maybe AllowedMethods)
 cbAllowedMethods = lens _cbAllowedMethods (\ s a -> s{_cbAllowedMethods = a});
 
+-- | The maximum amount of time (in seconds) that an object is in a
+-- CloudFront cache before CloudFront forwards another request to your
+-- origin to determine whether the object has been updated. The value that
+-- you specify applies only when your origin adds HTTP headers such as
+-- Cache-Control max-age, Cache-Control s-maxage, and Expires to objects.
+-- You can specify a value from 0 to 3,153,600,000 seconds (100 years).
+cbMaxTTL :: Lens' CacheBehavior (Maybe Integer)
+cbMaxTTL = lens _cbMaxTTL (\ s a -> s{_cbMaxTTL = a});
+
 -- | Indicates whether you want to distribute media files in Microsoft Smooth
 -- Streaming format using the origin that is associated with this cache
 -- behavior. If so, specify true; if not, specify false.
 cbSmoothStreaming :: Lens' CacheBehavior (Maybe Bool)
 cbSmoothStreaming = lens _cbSmoothStreaming (\ s a -> s{_cbSmoothStreaming = a});
+
+-- | If you don\'t configure your origin to add a Cache-Control max-age
+-- directive or an Expires header, DefaultTTL is the default amount of time
+-- (in seconds) that an object is in a CloudFront cache before CloudFront
+-- forwards another request to your origin to determine whether the object
+-- has been updated. The value that you specify applies only when your
+-- origin does not add HTTP headers such as Cache-Control max-age,
+-- Cache-Control s-maxage, and Expires to objects. You can specify a value
+-- from 0 to 3,153,600,000 seconds (100 years).
+cbDefaultTTL :: Lens' CacheBehavior (Maybe Integer)
+cbDefaultTTL = lens _cbDefaultTTL (\ s a -> s{_cbDefaultTTL = a});
 
 -- | The pattern (for example, images\/*.jpg) that specifies which requests
 -- you want this cache behavior to apply to. When CloudFront receives an
@@ -1257,8 +1300,9 @@ cbMinTTL = lens _cbMinTTL (\ s a -> s{_cbMinTTL = a});
 instance FromXML CacheBehavior where
         parseXML x
           = CacheBehavior' <$>
-              (x .@? "AllowedMethods") <*>
+              (x .@? "AllowedMethods") <*> (x .@? "MaxTTL") <*>
                 (x .@? "SmoothStreaming")
+                <*> (x .@? "DefaultTTL")
                 <*> (x .@ "PathPattern")
                 <*> (x .@ "TargetOriginId")
                 <*> (x .@ "ForwardedValues")
@@ -1270,7 +1314,9 @@ instance ToXML CacheBehavior where
         toXML CacheBehavior'{..}
           = mconcat
               ["AllowedMethods" @= _cbAllowedMethods,
+               "MaxTTL" @= _cbMaxTTL,
                "SmoothStreaming" @= _cbSmoothStreaming,
+               "DefaultTTL" @= _cbDefaultTTL,
                "PathPattern" @= _cbPathPattern,
                "TargetOriginId" @= _cbTargetOriginId,
                "ForwardedValues" @= _cbForwardedValues,
@@ -1893,7 +1939,11 @@ instance ToXML CustomOriginConfig where
 --
 -- * 'dcbAllowedMethods'
 --
+-- * 'dcbMaxTTL'
+--
 -- * 'dcbSmoothStreaming'
+--
+-- * 'dcbDefaultTTL'
 --
 -- * 'dcbTargetOriginId'
 --
@@ -1906,7 +1956,9 @@ instance ToXML CustomOriginConfig where
 -- * 'dcbMinTTL'
 data DefaultCacheBehavior = DefaultCacheBehavior'
     { _dcbAllowedMethods       :: Maybe AllowedMethods
+    , _dcbMaxTTL               :: Maybe Integer
     , _dcbSmoothStreaming      :: Maybe Bool
+    , _dcbDefaultTTL           :: Maybe Integer
     , _dcbTargetOriginId       :: Text
     , _dcbForwardedValues      :: ForwardedValues
     , _dcbTrustedSigners       :: TrustedSigners
@@ -1919,7 +1971,9 @@ defaultCacheBehavior :: Text -> ForwardedValues -> TrustedSigners -> ViewerProto
 defaultCacheBehavior pTargetOriginId pForwardedValues pTrustedSigners pViewerProtocolPolicy pMinTTL =
     DefaultCacheBehavior'
     { _dcbAllowedMethods = Nothing
+    , _dcbMaxTTL = Nothing
     , _dcbSmoothStreaming = Nothing
+    , _dcbDefaultTTL = Nothing
     , _dcbTargetOriginId = pTargetOriginId
     , _dcbForwardedValues = pForwardedValues
     , _dcbTrustedSigners = pTrustedSigners
@@ -1931,11 +1985,31 @@ defaultCacheBehavior pTargetOriginId pForwardedValues pTrustedSigners pViewerPro
 dcbAllowedMethods :: Lens' DefaultCacheBehavior (Maybe AllowedMethods)
 dcbAllowedMethods = lens _dcbAllowedMethods (\ s a -> s{_dcbAllowedMethods = a});
 
+-- | The maximum amount of time (in seconds) that an object is in a
+-- CloudFront cache before CloudFront forwards another request to your
+-- origin to determine whether the object has been updated. The value that
+-- you specify applies only when your origin adds HTTP headers such as
+-- Cache-Control max-age, Cache-Control s-maxage, and Expires to objects.
+-- You can specify a value from 0 to 3,153,600,000 seconds (100 years).
+dcbMaxTTL :: Lens' DefaultCacheBehavior (Maybe Integer)
+dcbMaxTTL = lens _dcbMaxTTL (\ s a -> s{_dcbMaxTTL = a});
+
 -- | Indicates whether you want to distribute media files in Microsoft Smooth
 -- Streaming format using the origin that is associated with this cache
 -- behavior. If so, specify true; if not, specify false.
 dcbSmoothStreaming :: Lens' DefaultCacheBehavior (Maybe Bool)
 dcbSmoothStreaming = lens _dcbSmoothStreaming (\ s a -> s{_dcbSmoothStreaming = a});
+
+-- | If you don\'t configure your origin to add a Cache-Control max-age
+-- directive or an Expires header, DefaultTTL is the default amount of time
+-- (in seconds) that an object is in a CloudFront cache before CloudFront
+-- forwards another request to your origin to determine whether the object
+-- has been updated. The value that you specify applies only when your
+-- origin does not add HTTP headers such as Cache-Control max-age,
+-- Cache-Control s-maxage, and Expires to objects. You can specify a value
+-- from 0 to 3,153,600,000 seconds (100 years).
+dcbDefaultTTL :: Lens' DefaultCacheBehavior (Maybe Integer)
+dcbDefaultTTL = lens _dcbDefaultTTL (\ s a -> s{_dcbDefaultTTL = a});
 
 -- | The value of ID for the origin that you want CloudFront to route
 -- requests to when a request matches the path pattern either for a cache
@@ -1984,8 +2058,9 @@ dcbMinTTL = lens _dcbMinTTL (\ s a -> s{_dcbMinTTL = a});
 instance FromXML DefaultCacheBehavior where
         parseXML x
           = DefaultCacheBehavior' <$>
-              (x .@? "AllowedMethods") <*>
+              (x .@? "AllowedMethods") <*> (x .@? "MaxTTL") <*>
                 (x .@? "SmoothStreaming")
+                <*> (x .@? "DefaultTTL")
                 <*> (x .@ "TargetOriginId")
                 <*> (x .@ "ForwardedValues")
                 <*> (x .@ "TrustedSigners")
@@ -1996,7 +2071,9 @@ instance ToXML DefaultCacheBehavior where
         toXML DefaultCacheBehavior'{..}
           = mconcat
               ["AllowedMethods" @= _dcbAllowedMethods,
+               "MaxTTL" @= _dcbMaxTTL,
                "SmoothStreaming" @= _dcbSmoothStreaming,
+               "DefaultTTL" @= _dcbDefaultTTL,
                "TargetOriginId" @= _dcbTargetOriginId,
                "ForwardedValues" @= _dcbForwardedValues,
                "TrustedSigners" @= _dcbTrustedSigners,

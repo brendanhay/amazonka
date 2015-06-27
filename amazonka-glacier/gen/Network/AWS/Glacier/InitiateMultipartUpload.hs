@@ -118,10 +118,10 @@ imuPartSize = lens _imuPartSize (\ s a -> s{_imuPartSize = a});
 
 -- | The archive description that you are uploading in parts.
 --
--- The part size must be a megabyte (1024 KB) multiplied by a power of
--- 2—for example, 1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608
--- (8 MB), and so on. The minimum allowable part size is 1 MB, and the
--- maximum is 4 GB (4096 MB).
+-- The part size must be a megabyte (1024 KB) multiplied by a power of 2,
+-- for example 1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8
+-- MB), and so on. The minimum allowable part size is 1 MB, and the maximum
+-- is 4 GB (4096 MB).
 imuArchiveDescription :: Lens' InitiateMultipartUpload (Maybe Text)
 imuArchiveDescription = lens _imuArchiveDescription (\ s a -> s{_imuArchiveDescription = a});
 
@@ -169,7 +169,7 @@ instance ToPath InitiateMultipartUpload where
 instance ToQuery InitiateMultipartUpload where
         toQuery = const mempty
 
--- | Contains the Amazon Glacier response to your request.
+-- | The Amazon Glacier response to your request.
 --
 -- /See:/ 'initiateMultipartUploadResponse' smart constructor.
 --

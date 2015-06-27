@@ -25,7 +25,7 @@ resources. An AWS resource can be an Amazon Compute Cloud (Amazon EC2)
 instance, an Elastic Block Store (EBS) volume, an Elastic network
 Interface (ENI), or a security group. For a complete list of resources
 currently supported by AWS Config, see
-<http://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html Supported AWS Resources>.
+<http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resources>.
 
 You can access and manage AWS Config through the AWS Management Console,
 the AWS Command Line Interface (AWS CLI), the AWS Config API, or the AWS

@@ -24,6 +24,7 @@ module Network.AWS.Config.Types
     -- * Errors
     , _ValidationException
     , _InvalidTimeRangeException
+    , _InvalidRecordingGroupException
     , _InvalidSNSTopicARNException
     , _InvalidRoleException
     , _LastDeliveryChannelDeleteFailedException
@@ -98,6 +99,7 @@ module Network.AWS.Config.Types
     , ConfigurationRecorder
     , configurationRecorder
     , crName
+    , crRecordingGroup
     , crRoleARN
 
     -- * ConfigurationRecorderStatus
@@ -127,6 +129,12 @@ module Network.AWS.Config.Types
     , dcsConfigSnapshotDeliveryInfo
     , dcsConfigHistoryDeliveryInfo
     , dcsName
+
+    -- * RecordingGroup
+    , RecordingGroup
+    , recordingGroup
+    , rgAllSupported
+    , rgResourceTypes
 
     -- * Relationship
     , Relationship
@@ -182,6 +190,13 @@ _ValidationException = _ServiceError . hasCode "ValidationException"
 _InvalidTimeRangeException :: AWSError a => Getting (First ServiceError) a ServiceError
 _InvalidTimeRangeException =
     _ServiceError . hasCode "InvalidTimeRangeException"
+
+-- | AWS Config throws an exception if the recording group does not contain a
+-- valid list of resource types. Invalid values could also be incorrectly
+-- formatted.
+_InvalidRecordingGroupException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRecordingGroupException =
+    _ServiceError . hasCode "InvalidRecordingGroupException"
 
 -- | The specified Amazon SNS topic does not exist.
 _InvalidSNSTopicARNException :: AWSError a => Getting (First ServiceError) a ServiceError
@@ -546,6 +561,11 @@ csdiLastStatusChangeTime :: Lens' ConfigStreamDeliveryInfo (Maybe UTCTime)
 csdiLastStatusChangeTime = lens _csdiLastStatusChangeTime (\ s a -> s{_csdiLastStatusChangeTime = a}) . mapping _Time;
 
 -- | Status of the last attempted delivery.
+--
+-- __Note__ Providing an SNS topic on a
+-- <http://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel>
+-- for AWS Config is optional. If the SNS delivery is turned off, the last
+-- status will be __Not_Applicable__.
 csdiLastStatus :: Lens' ConfigStreamDeliveryInfo (Maybe DeliveryStatus)
 csdiLastStatus = lens _csdiLastStatus (\ s a -> s{_csdiLastStatus = a});
 
@@ -742,10 +762,13 @@ instance FromJSON ConfigurationItem where
 --
 -- * 'crName'
 --
+-- * 'crRecordingGroup'
+--
 -- * 'crRoleARN'
 data ConfigurationRecorder = ConfigurationRecorder'
-    { _crName    :: Maybe Text
-    , _crRoleARN :: Maybe Text
+    { _crName           :: Maybe Text
+    , _crRecordingGroup :: Maybe RecordingGroup
+    , _crRoleARN        :: Maybe Text
     } deriving (Eq,Read,Show)
 
 -- | 'ConfigurationRecorder' smart constructor.
@@ -753,6 +776,7 @@ configurationRecorder :: ConfigurationRecorder
 configurationRecorder =
     ConfigurationRecorder'
     { _crName = Nothing
+    , _crRecordingGroup = Nothing
     , _crRoleARN = Nothing
     }
 
@@ -761,6 +785,12 @@ configurationRecorder =
 -- cannot change the assigned name.
 crName :: Lens' ConfigurationRecorder (Maybe Text)
 crName = lens _crName (\ s a -> s{_crName = a});
+
+-- | The recording group specifies either to record configurations for all
+-- supported resources or to provide a list of resource types to record.
+-- The list of resource types must be a subset of supported resource types.
+crRecordingGroup :: Lens' ConfigurationRecorder (Maybe RecordingGroup)
+crRecordingGroup = lens _crRecordingGroup (\ s a -> s{_crRecordingGroup = a});
 
 -- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS
 -- resources associated with the account.
@@ -772,11 +802,15 @@ instance FromJSON ConfigurationRecorder where
           = withObject "ConfigurationRecorder"
               (\ x ->
                  ConfigurationRecorder' <$>
-                   (x .:? "name") <*> (x .:? "roleARN"))
+                   (x .:? "name") <*> (x .:? "recordingGroup") <*>
+                     (x .:? "roleARN"))
 
 instance ToJSON ConfigurationRecorder where
         toJSON ConfigurationRecorder'{..}
-          = object ["name" .= _crName, "roleARN" .= _crRoleARN]
+          = object
+              ["name" .= _crName,
+               "recordingGroup" .= _crRecordingGroup,
+               "roleARN" .= _crRoleARN]
 
 -- | The current status of the configuration recorder.
 --
@@ -997,6 +1031,63 @@ instance FromJSON DeliveryChannelStatus where
                      <*> (x .:? "configHistoryDeliveryInfo")
                      <*> (x .:? "name"))
 
+-- | The group of AWS resource types that AWS Config records when starting
+-- the configuration recorder.
+--
+-- __recordingGroup__ can have one and only one parameter. Choose either
+-- __allSupported__ or __resourceTypes__.
+--
+-- /See:/ 'recordingGroup' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rgAllSupported'
+--
+-- * 'rgResourceTypes'
+data RecordingGroup = RecordingGroup'
+    { _rgAllSupported  :: Maybe Bool
+    , _rgResourceTypes :: Maybe [ResourceType]
+    } deriving (Eq,Read,Show)
+
+-- | 'RecordingGroup' smart constructor.
+recordingGroup :: RecordingGroup
+recordingGroup =
+    RecordingGroup'
+    { _rgAllSupported = Nothing
+    , _rgResourceTypes = Nothing
+    }
+
+-- | Records all supported resource types in the recording group. For a list
+-- of supported resource types, see
+-- <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported resource types>.
+-- If you specify __allSupported__, you cannot enumerate a list of
+-- __resourceTypes__.
+rgAllSupported :: Lens' RecordingGroup (Maybe Bool)
+rgAllSupported = lens _rgAllSupported (\ s a -> s{_rgAllSupported = a});
+
+-- | A comma-separated list of strings representing valid AWS resource types
+-- (e.g., @AWS::EC2::Instance@ or @AWS::CloudTrail::Trail@).
+-- __resourceTypes__ is only valid if you have chosen not to select
+-- __allSupported__. For a list of valid __resourceTypes__ values, see the
+-- __resourceType Value__ column in the following topic:
+-- <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resource Types>.
+rgResourceTypes :: Lens' RecordingGroup [ResourceType]
+rgResourceTypes = lens _rgResourceTypes (\ s a -> s{_rgResourceTypes = a}) . _Default;
+
+instance FromJSON RecordingGroup where
+        parseJSON
+          = withObject "RecordingGroup"
+              (\ x ->
+                 RecordingGroup' <$>
+                   (x .:? "allSupported") <*>
+                     (x .:? "resourceTypes" .!= mempty))
+
+instance ToJSON RecordingGroup where
+        toJSON RecordingGroup'{..}
+          = object
+              ["allSupported" .= _rgAllSupported,
+               "resourceTypes" .= _rgResourceTypes]
+
 -- | The relationship of the related resource to the main resource.
 --
 -- /See:/ 'relationship' smart constructor.
@@ -1023,7 +1114,7 @@ relationship =
     , _relRelationshipName = Nothing
     }
 
--- | The resource ID of the related resource (for example, @sg-xxxxxx@.
+-- | The resource ID of the related resource (for example, @sg-xxxxxx@).
 relResourceId :: Lens' Relationship (Maybe Text)
 relResourceId = lens _relResourceId (\ s a -> s{_relResourceId = a});
 

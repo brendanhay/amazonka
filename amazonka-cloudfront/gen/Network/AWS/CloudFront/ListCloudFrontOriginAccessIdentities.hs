@@ -37,7 +37,6 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     ) where
 
 import           Network.AWS.CloudFront.Types
-import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -77,26 +76,6 @@ lcfoaiMaxItems = lens _lcfoaiMaxItems (\ s a -> s{_lcfoaiMaxItems = a});
 lcfoaiMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
 lcfoaiMarker = lens _lcfoaiMarker (\ s a -> s{_lcfoaiMarker = a});
 
-instance AWSPager
-         ListCloudFrontOriginAccessIdentities where
-        page rq rs
-          | stop
-              (rs ^.
-                 lcfoairCloudFrontOriginAccessIdentityList .
-                   cfoailIsTruncated)
-            = Nothing
-          | isNothing
-              (rs ^?
-                 lcfoairCloudFrontOriginAccessIdentityList .
-                   cfoailNextMarker . _Just)
-            = Nothing
-          | otherwise =
-            Just $ rq &
-              lcfoaiMarker .~
-                rs ^?
-                  lcfoairCloudFrontOriginAccessIdentityList .
-                    cfoailNextMarker . _Just
-
 instance AWSRequest
          ListCloudFrontOriginAccessIdentities where
         type Sv ListCloudFrontOriginAccessIdentities =
@@ -119,7 +98,7 @@ instance ToPath ListCloudFrontOriginAccessIdentities
          where
         toPath
           = const
-              "/2014-11-06/origin-access-identity/cloudfront"
+              "/2015-04-17/origin-access-identity/cloudfront"
 
 instance ToQuery ListCloudFrontOriginAccessIdentities
          where

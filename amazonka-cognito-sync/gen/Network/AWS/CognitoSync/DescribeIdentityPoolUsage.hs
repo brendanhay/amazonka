@@ -17,9 +17,9 @@
 -- | Gets usage details (for example, data storage) about a particular
 -- identity pool.
 --
--- DescribeIdentityPoolUsage can only be called with developer credentials.
--- You cannot make this API call with the temporary user credentials
--- provided by Cognito Identity.
+-- This API can only be called with developer credentials. You cannot call
+-- this API with the temporary user credentials provided by Cognito
+-- Identity.
 --
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeIdentityPoolUsage.html>
 module Network.AWS.CognitoSync.DescribeIdentityPoolUsage

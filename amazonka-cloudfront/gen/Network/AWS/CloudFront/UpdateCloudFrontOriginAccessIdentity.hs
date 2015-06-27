@@ -101,7 +101,7 @@ instance ToElement
          UpdateCloudFrontOriginAccessIdentity where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2014-11-06/}CloudFrontOriginAccessIdentityConfig"
+              "{http://cloudfront.amazonaws.com/doc/2015-04-17/}CloudFrontOriginAccessIdentityConfig"
               .
               _ucfoaiCloudFrontOriginAccessIdentityConfig
 
@@ -114,7 +114,7 @@ instance ToPath UpdateCloudFrontOriginAccessIdentity
          where
         toPath UpdateCloudFrontOriginAccessIdentity'{..}
           = mconcat
-              ["/2014-11-06/origin-access-identity/cloudfront/",
+              ["/2015-04-17/origin-access-identity/cloudfront/",
                toText _ucfoaiId, "/config"]
 
 instance ToQuery UpdateCloudFrontOriginAccessIdentity

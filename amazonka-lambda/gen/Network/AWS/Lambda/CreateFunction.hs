@@ -140,7 +140,7 @@ cfFunctionName :: Lens' CreateFunction Text
 cfFunctionName = lens _cfFunctionName (\ s a -> s{_cfFunctionName = a});
 
 -- | The runtime environment for the Lambda function you are uploading.
--- Currently, Lambda supports only \"nodejs\" as the runtime.
+-- Currently, Lambda supports \"java\" and \"nodejs\" as the runtime.
 cfRuntime :: Lens' CreateFunction Runtime
 cfRuntime = lens _cfRuntime (\ s a -> s{_cfRuntime = a});
 
@@ -152,11 +152,14 @@ cfRole :: Lens' CreateFunction Text
 cfRole = lens _cfRole (\ s a -> s{_cfRole = a});
 
 -- | The function within your code that Lambda calls to begin execution. For
--- Node.js, it is the /module-name/./export/ value in your function.
+-- Node.js, it is the /module-name/./export/ value in your function. For
+-- Java, it can be @package.class-name::handler@ or @package.class-name@.
+-- For more information, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html Lambda Function Handler (Java)>.
 cfHandler :: Lens' CreateFunction Text
 cfHandler = lens _cfHandler (\ s a -> s{_cfHandler = a});
 
--- | A structure that includes ZipFile.
+-- | The code for the Lambda function.
 cfCode :: Lens' CreateFunction FunctionCode
 cfCode = lens _cfCode (\ s a -> s{_cfCode = a});
 

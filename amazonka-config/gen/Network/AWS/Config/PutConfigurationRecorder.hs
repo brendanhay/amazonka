@@ -14,14 +14,18 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a new configuration recorder to record the resource
+-- | Creates a new configuration recorder to record the selected resource
 -- configurations.
 --
--- You can use this action to change the role (@roleARN@) of an existing
--- recorder. To change the role, call the action on the existing
--- configuration recorder and specify a role.
+-- You can use this action to change the role @roleARN@ and\/or the
+-- @recordingGroup@ of an existing recorder. To change the role, call the
+-- action on the existing configuration recorder and specify a role.
 --
 -- Currently, you can specify only one configuration recorder per account.
+--
+-- If @ConfigurationRecorder@ does not have the __recordingGroup__
+-- parameter specified, the default is to record all supported resource
+-- types.
 --
 -- <http://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html>
 module Network.AWS.Config.PutConfigurationRecorder

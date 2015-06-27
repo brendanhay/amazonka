@@ -81,7 +81,7 @@ instance ToHeaders GetStreamingDistribution where
 instance ToPath GetStreamingDistribution where
         toPath GetStreamingDistribution'{..}
           = mconcat
-              ["/2014-11-06/streaming-distribution/",
+              ["/2015-04-17/streaming-distribution/",
                toText _gsdId]
 
 instance ToQuery GetStreamingDistribution where

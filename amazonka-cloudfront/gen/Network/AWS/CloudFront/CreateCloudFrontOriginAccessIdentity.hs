@@ -83,7 +83,7 @@ instance ToElement
          CreateCloudFrontOriginAccessIdentity where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2014-11-06/}CloudFrontOriginAccessIdentityConfig"
+              "{http://cloudfront.amazonaws.com/doc/2015-04-17/}CloudFrontOriginAccessIdentityConfig"
               .
               _ccfoaiCloudFrontOriginAccessIdentityConfig
 
@@ -95,7 +95,7 @@ instance ToPath CreateCloudFrontOriginAccessIdentity
          where
         toPath
           = const
-              "/2014-11-06/origin-access-identity/cloudfront"
+              "/2015-04-17/origin-access-identity/cloudfront"
 
 instance ToQuery CreateCloudFrontOriginAccessIdentity
          where

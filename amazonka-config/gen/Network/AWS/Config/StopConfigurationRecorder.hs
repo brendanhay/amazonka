@@ -14,8 +14,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Stops recording configurations of all the resources associated with the
--- account.
+-- | Stops recording configurations of the AWS resources you have selected to
+-- record in your AWS account.
 --
 -- <http://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html>
 module Network.AWS.Config.StopConfigurationRecorder

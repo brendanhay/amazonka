@@ -80,7 +80,7 @@ instance AWSRequest CreateDistribution where
 instance ToElement CreateDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2014-11-06/}DistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2015-04-17/}DistributionConfig"
               .
               _cdDistributionConfig
 
@@ -88,7 +88,7 @@ instance ToHeaders CreateDistribution where
         toHeaders = const mempty
 
 instance ToPath CreateDistribution where
-        toPath = const "/2014-11-06/distribution"
+        toPath = const "/2015-04-17/distribution"
 
 instance ToQuery CreateDistribution where
         toQuery = const mempty

@@ -30,6 +30,7 @@ module Network.AWS.CognitoSync.Types
     , _LambdaThrottledException
     , _AlreadyStreamedException
     , _InvalidLambdaFunctionOutputException
+    , _ConcurrentModificationException
     , _TooManyRequestsException
     , _ResourceConflictException
     , _ResourceNotFoundException
@@ -187,6 +188,11 @@ _AlreadyStreamedException =
 _InvalidLambdaFunctionOutputException :: AWSError a => Getting (First ServiceError) a ServiceError
 _InvalidLambdaFunctionOutputException =
     _ServiceError . hasStatus 400 . hasCode "InvalidLambdaFunctionOutput"
+
+-- | Thrown if there are parallel requests to modify a resource.
+_ConcurrentModificationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ConcurrentModificationException =
+    _ServiceError . hasStatus 400 . hasCode "ConcurrentModification"
 
 -- | Thrown if the request is throttled.
 _TooManyRequestsException :: AWSError a => Getting (First ServiceError) a ServiceError

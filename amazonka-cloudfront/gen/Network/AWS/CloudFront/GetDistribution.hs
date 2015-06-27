@@ -79,7 +79,7 @@ instance ToHeaders GetDistribution where
 
 instance ToPath GetDistribution where
         toPath GetDistribution'{..}
-          = mconcat ["/2014-11-06/distribution/", toText _gdId]
+          = mconcat ["/2015-04-17/distribution/", toText _gdId]
 
 instance ToQuery GetDistribution where
         toQuery = const mempty

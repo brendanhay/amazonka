@@ -17,7 +17,7 @@
 -- | Returns a list of parameter settings for the specified parameter group
 -- family.
 --
--- For more information about managing parameter groups, go to
+-- For more information about parameters and parameter groups, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --

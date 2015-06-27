@@ -19,7 +19,7 @@
 -- with will no longer report the merge. Any subsequent operation on this
 -- dataset will result in a ResourceNotFoundException.
 --
--- DeleteDataset can be called with temporary user credentials provided by
+-- This API can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials.
 --
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DeleteDataset.html>

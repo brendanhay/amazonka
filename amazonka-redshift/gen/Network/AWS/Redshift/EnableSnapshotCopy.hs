@@ -26,6 +26,7 @@ module Network.AWS.Redshift.EnableSnapshotCopy
     , enableSnapshotCopy
     -- ** Request lenses
     , escRetentionPeriod
+    , escSnapshotCopyGrantName
     , escClusterIdentifier
     , escDestinationRegion
 
@@ -51,13 +52,16 @@ import           Network.AWS.Response
 --
 -- * 'escRetentionPeriod'
 --
+-- * 'escSnapshotCopyGrantName'
+--
 -- * 'escClusterIdentifier'
 --
 -- * 'escDestinationRegion'
 data EnableSnapshotCopy = EnableSnapshotCopy'
-    { _escRetentionPeriod   :: Maybe Int
-    , _escClusterIdentifier :: Text
-    , _escDestinationRegion :: Text
+    { _escRetentionPeriod       :: Maybe Int
+    , _escSnapshotCopyGrantName :: Maybe Text
+    , _escClusterIdentifier     :: Text
+    , _escDestinationRegion     :: Text
     } deriving (Eq,Read,Show)
 
 -- | 'EnableSnapshotCopy' smart constructor.
@@ -65,6 +69,7 @@ enableSnapshotCopy :: Text -> Text -> EnableSnapshotCopy
 enableSnapshotCopy pClusterIdentifier pDestinationRegion =
     EnableSnapshotCopy'
     { _escRetentionPeriod = Nothing
+    , _escSnapshotCopyGrantName = Nothing
     , _escClusterIdentifier = pClusterIdentifier
     , _escDestinationRegion = pDestinationRegion
     }
@@ -77,6 +82,11 @@ enableSnapshotCopy pClusterIdentifier pDestinationRegion =
 -- Constraints: Must be at least 1 and no more than 35.
 escRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Int)
 escRetentionPeriod = lens _escRetentionPeriod (\ s a -> s{_escRetentionPeriod = a});
+
+-- | The name of the snapshot copy grant to use when snapshots of an AWS
+-- KMS-encrypted cluster are copied to the destination region.
+escSnapshotCopyGrantName :: Lens' EnableSnapshotCopy (Maybe Text)
+escSnapshotCopyGrantName = lens _escSnapshotCopyGrantName (\ s a -> s{_escSnapshotCopyGrantName = a});
 
 -- | The unique identifier of the source cluster to copy snapshots from.
 --
@@ -117,6 +127,7 @@ instance ToQuery EnableSnapshotCopy where
               ["Action" =: ("EnableSnapshotCopy" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "RetentionPeriod" =: _escRetentionPeriod,
+               "SnapshotCopyGrantName" =: _escSnapshotCopyGrantName,
                "ClusterIdentifier" =: _escClusterIdentifier,
                "DestinationRegion" =: _escDestinationRegion]
 

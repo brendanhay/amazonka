@@ -31,20 +31,20 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Network.AWS.ElasticFileSystem
-        , Network.AWS.ElasticFileSystem.CreateFileSystem
-        , Network.AWS.ElasticFileSystem.CreateMountTarget
-        , Network.AWS.ElasticFileSystem.CreateTags
-        , Network.AWS.ElasticFileSystem.DeleteFileSystem
-        , Network.AWS.ElasticFileSystem.DeleteMountTarget
-        , Network.AWS.ElasticFileSystem.DeleteTags
-        , Network.AWS.ElasticFileSystem.DescribeFileSystems
-        , Network.AWS.ElasticFileSystem.DescribeMountTargetSecurityGroups
-        , Network.AWS.ElasticFileSystem.DescribeMountTargets
-        , Network.AWS.ElasticFileSystem.DescribeTags
-        , Network.AWS.ElasticFileSystem.ModifyMountTargetSecurityGroups
-        , Network.AWS.ElasticFileSystem.Types
-        , Network.AWS.ElasticFileSystem.Waiters
+          Network.AWS.EFS
+        , Network.AWS.EFS.CreateFileSystem
+        , Network.AWS.EFS.CreateMountTarget
+        , Network.AWS.EFS.CreateTags
+        , Network.AWS.EFS.DeleteFileSystem
+        , Network.AWS.EFS.DeleteMountTarget
+        , Network.AWS.EFS.DeleteTags
+        , Network.AWS.EFS.DescribeFileSystems
+        , Network.AWS.EFS.DescribeMountTargetSecurityGroups
+        , Network.AWS.EFS.DescribeMountTargets
+        , Network.AWS.EFS.DescribeTags
+        , Network.AWS.EFS.ModifyMountTargetSecurityGroups
+        , Network.AWS.EFS.Types
+        , Network.AWS.EFS.Waiters
 
     other-modules:
 

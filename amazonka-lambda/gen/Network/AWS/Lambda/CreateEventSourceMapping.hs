@@ -101,7 +101,8 @@ createEventSourceMapping pEventSourceARN pFunctionName pStartingPosition =
     , _cesmStartingPosition = pStartingPosition
     }
 
--- | Indicates whether AWS Lambda should begin polling the event source.
+-- | Indicates whether AWS Lambda should begin polling the event source, the
+-- default is not enabled.
 cesmEnabled :: Lens' CreateEventSourceMapping (Maybe Bool)
 cesmEnabled = lens _cesmEnabled (\ s a -> s{_cesmEnabled = a});
 

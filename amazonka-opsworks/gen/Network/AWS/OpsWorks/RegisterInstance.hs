@@ -22,7 +22,8 @@
 -- AWS OpsWorks agent on the instance and registering the instance with the
 -- stack. @RegisterInstance@ handles only the second step. You should
 -- instead use the AWS CLI @register@ command, which performs the entire
--- registration operation.
+-- registration operation. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html Registering an Instance with an AWS OpsWorks Stack>.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a
 -- Manage permissions level for the stack or an attached policy that

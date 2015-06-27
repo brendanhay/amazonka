@@ -33,6 +33,7 @@ module Network.AWS.OpsWorks.CreateStack
     , csDefaultRootDeviceType
     , csChefConfiguration
     , csVPCId
+    , csAgentVersion
     , csDefaultSSHKeyName
     , csCustomJSON
     , csCustomCookbooksSource
@@ -73,6 +74,8 @@ import           Network.AWS.Response
 --
 -- * 'csVPCId'
 --
+-- * 'csAgentVersion'
+--
 -- * 'csDefaultSSHKeyName'
 --
 -- * 'csCustomJSON'
@@ -106,6 +109,7 @@ data CreateStack = CreateStack'
     { _csDefaultRootDeviceType     :: Maybe RootDeviceType
     , _csChefConfiguration         :: Maybe ChefConfiguration
     , _csVPCId                     :: Maybe Text
+    , _csAgentVersion              :: Maybe Text
     , _csDefaultSSHKeyName         :: Maybe Text
     , _csCustomJSON                :: Maybe Text
     , _csCustomCookbooksSource     :: Maybe Source
@@ -130,6 +134,7 @@ createStack pName pRegion pServiceRoleARN pDefaultInstanceProfileARN =
     { _csDefaultRootDeviceType = Nothing
     , _csChefConfiguration = Nothing
     , _csVPCId = Nothing
+    , _csAgentVersion = Nothing
     , _csDefaultSSHKeyName = Nothing
     , _csCustomJSON = Nothing
     , _csCustomCookbooksSource = Nothing
@@ -147,7 +152,7 @@ createStack pName pRegion pServiceRoleARN pDefaultInstanceProfileARN =
     , _csDefaultInstanceProfileARN = pDefaultInstanceProfileARN
     }
 
--- | The default root device type. This value is used by default for all
+-- | The default root device type. This value is the default for all
 -- instances in the stack, but you can override it when you create an
 -- instance. The default option is @instance-store@. For more information,
 -- see
@@ -162,12 +167,12 @@ csDefaultRootDeviceType = lens _csDefaultRootDeviceType (\ s a -> s{_csDefaultRo
 csChefConfiguration :: Lens' CreateStack (Maybe ChefConfiguration)
 csChefConfiguration = lens _csChefConfiguration (\ s a -> s{_csChefConfiguration = a});
 
--- | The ID of the VPC that the stack is to be launched into. It must be in
--- the specified region. All instances are launched into this VPC, and you
+-- | The ID of the VPC that the stack is to be launched into. The VPC must be
+-- in the stack\'s region. All instances are launched into this VPC. You
 -- cannot change the ID later.
 --
--- -   If your account supports EC2 Classic, the default value is no VPC.
--- -   If your account does not support EC2 Classic, the default value is
+-- -   If your account supports EC2-Classic, the default value is @no VPC@.
+-- -   If your account does not support EC2-Classic, the default value is
 --     the default VPC for the specified region.
 --
 -- If the VPC ID corresponds to a default VPC and you have specified either
@@ -185,10 +190,30 @@ csChefConfiguration = lens _csChefConfiguration (\ s a -> s{_csChefConfiguration
 --
 -- For more information on how to use AWS OpsWorks with a VPC, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
--- For more information on default VPC and EC2 Classic, see
+-- For more information on default VPC and EC2-Classic, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
 csVPCId :: Lens' CreateStack (Maybe Text)
 csVPCId = lens _csVPCId (\ s a -> s{_csVPCId = a});
+
+-- | The default AWS OpsWorks agent version. You have the following options:
+--
+-- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks
+--     automatically installs new agent versions on the stack\'s instances
+--     as soon as they are available.
+-- -   Fixed version - Set this parameter to your preferred agent version.
+--     To update the agent version, you must edit the stack configuration
+--     and specify a new version. AWS OpsWorks then automatically installs
+--     that version on the stack\'s instances.
+--
+-- The default setting is @LATEST@. To specify an agent version, you must
+-- use the complete version number, not the abbreviated number shown on the
+-- console. For a list of available agent version numbers, call
+-- DescribeAgentVersions.
+--
+-- You can also specify an agent version when you create or update an
+-- instance, which overrides the stack\'s default setting.
+csAgentVersion :: Lens' CreateStack (Maybe Text)
+csAgentVersion = lens _csAgentVersion (\ s a -> s{_csAgentVersion = a});
 
 -- | A default Amazon EC2 key pair name. The default value is none. If you
 -- specify a key pair name, AWS OpsWorks installs the public key on the
@@ -204,9 +229,9 @@ csDefaultSSHKeyName :: Lens' CreateStack (Maybe Text)
 csDefaultSSHKeyName = lens _csDefaultSSHKeyName (\ s a -> s{_csDefaultSSHKeyName = a});
 
 -- | A string that contains user-defined, custom JSON. It can be used to
--- override the corresponding default stack configuration attribute values,
--- or to pass data to recipes. The string should be in the following format
--- and must escape characters such as \'\"\'.:
+-- override the corresponding default stack configuration attribute values
+-- or to pass data to recipes. The string should be in the following escape
+-- characters such as \'\"\':
 --
 -- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
 --
@@ -239,7 +264,7 @@ csDefaultAvailabilityZone = lens _csDefaultAvailabilityZone (\ s a -> s{_csDefau
 -- -   True - AWS OpsWorks automatically associates the appropriate
 --     built-in security group with each layer (default setting). You can
 --     associate additional security groups with a layer after you create
---     it but you cannot delete the built-in security group.
+--     it, but you cannot delete the built-in security group.
 -- -   False - AWS OpsWorks does not associate built-in security groups
 --     with layers. You must create appropriate EC2 security groups and
 --     associate a security group with each layer that you create. However,
@@ -252,20 +277,24 @@ csDefaultAvailabilityZone = lens _csDefaultAvailabilityZone (\ s a -> s{_csDefau
 csUseOpsworksSecurityGroups :: Lens' CreateStack (Maybe Bool)
 csUseOpsworksSecurityGroups = lens _csUseOpsworksSecurityGroups (\ s a -> s{_csUseOpsworksSecurityGroups = a});
 
--- | The stack\'s operating system, which must be set to one of the
--- following.
+-- | The stack\'s default operating system, which is installed on every
+-- instance unless you specify a different operating system when you create
+-- the instance. You can specify one of the following.
 --
--- -   Standard Linux operating systems: an Amazon Linux version such as
---     @Amazon Linux 2014.09@, @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
--- -   Custom Linux AMIs: @Custom@. You specify the custom AMI you want to
---     use when you create instances.
--- -   Microsoft Windows Server 2012 R2.
+-- -   A supported Linux operating system: An Amazon Linux version, such as
+--     @Amazon Linux 2015.03@, @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
+-- -   @Microsoft Windows Server 2012 R2 Base@.
+-- -   A custom AMI: @Custom@. You specify the custom AMI you want to use
+--     when you create instances. For more information, see
+--     <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
 --
--- The default option is the current Amazon Linux version.
+-- The default option is the current Amazon Linux version. For more
+-- information on the supported operating systems, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.
 csDefaultOS :: Lens' CreateStack (Maybe Text)
 csDefaultOS = lens _csDefaultOS (\ s a -> s{_csDefaultOS = a});
 
--- | One or more user-defined key\/value pairs to be added to the stack
+-- | One or more user-defined key-value pairs to be added to the stack
 -- attributes.
 csAttributes :: Lens' CreateStack (HashMap StackAttributesKeys Text)
 csAttributes = lens _csAttributes (\ s a -> s{_csAttributes = a}) . _Default . _Map;
@@ -284,13 +313,13 @@ csDefaultSubnetId :: Lens' CreateStack (Maybe Text)
 csDefaultSubnetId = lens _csDefaultSubnetId (\ s a -> s{_csDefaultSubnetId = a});
 
 -- | The configuration manager. When you clone a stack we recommend that you
--- use the configuration manager to specify the Chef version, 0.9, 11.4, or
+-- use the configuration manager to specify the Chef version: 0.9, 11.4, or
 -- 11.10. The default value is currently 11.4.
 csConfigurationManager :: Lens' CreateStack (Maybe StackConfigurationManager)
 csConfigurationManager = lens _csConfigurationManager (\ s a -> s{_csConfigurationManager = a});
 
--- | The stack\'s host name theme, with spaces are replaced by underscores.
--- The theme is used to generate host names for the stack\'s instances. By
+-- | The stack\'s host name theme, with spaces replaced by underscores. The
+-- theme is used to generate host names for the stack\'s instances. By
 -- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
 -- names by appending integers to the layer\'s short name. The other themes
 -- are:
@@ -316,13 +345,13 @@ csHostnameTheme = lens _csHostnameTheme (\ s a -> s{_csHostnameTheme = a});
 csName :: Lens' CreateStack Text
 csName = lens _csName (\ s a -> s{_csName = a});
 
--- | The stack AWS region, such as \"us-east-1\". For more information about
--- Amazon regions, see
+-- | The stack\'s AWS region, such as \"us-east-1\". For more information
+-- about Amazon regions, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
 csRegion :: Lens' CreateStack Text
 csRegion = lens _csRegion (\ s a -> s{_csRegion = a});
 
--- | The stack AWS Identity and Access Management (IAM) role, which allows
+-- | The stack\'s AWS Identity and Access Management (IAM) role, which allows
 -- AWS OpsWorks to work with AWS resources on your behalf. You must set
 -- this parameter to the Amazon Resource Name (ARN) for an existing IAM
 -- role. For more information about IAM ARNs, see
@@ -330,8 +359,9 @@ csRegion = lens _csRegion (\ s a -> s{_csRegion = a});
 csServiceRoleARN :: Lens' CreateStack Text
 csServiceRoleARN = lens _csServiceRoleARN (\ s a -> s{_csServiceRoleARN = a});
 
--- | The ARN of an IAM profile that is the default profile for all of the
--- stack\'s EC2 instances. For more information about IAM ARNs, see
+-- | The Amazon Resource Name (ARN) of an IAM profile that is the default
+-- profile for all of the stack\'s EC2 instances. For more information
+-- about IAM ARNs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
 csDefaultInstanceProfileARN :: Lens' CreateStack Text
 csDefaultInstanceProfileARN = lens _csDefaultInstanceProfileARN (\ s a -> s{_csDefaultInstanceProfileARN = a});
@@ -361,6 +391,7 @@ instance ToJSON CreateStack where
               ["DefaultRootDeviceType" .= _csDefaultRootDeviceType,
                "ChefConfiguration" .= _csChefConfiguration,
                "VpcId" .= _csVPCId,
+               "AgentVersion" .= _csAgentVersion,
                "DefaultSshKeyName" .= _csDefaultSSHKeyName,
                "CustomJson" .= _csCustomJSON,
                "CustomCookbooksSource" .= _csCustomCookbooksSource,

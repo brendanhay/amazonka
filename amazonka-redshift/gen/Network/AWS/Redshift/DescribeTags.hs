@@ -117,6 +117,7 @@ describeTags =
 -- -   HSM connection
 -- -   HSM certificate
 -- -   Parameter group
+-- -   Snapshot copy grant
 --
 -- For more information about Amazon Redshift resource types and
 -- constructing ARNs, go to

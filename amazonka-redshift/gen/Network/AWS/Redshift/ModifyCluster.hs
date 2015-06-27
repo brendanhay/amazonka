@@ -276,7 +276,8 @@ mcNewClusterIdentifier = lens _mcNewClusterIdentifier (\ s a -> s{_mcNewClusterI
 -- currently in use, a new cluster parameter group in the cluster parameter
 -- group family for the new version must be specified. The new cluster
 -- parameter group can be the default for that cluster parameter group
--- family. For more information about managing parameter groups, go to
+-- family. For more information about parameters and parameter groups, go
+-- to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
@@ -295,8 +296,8 @@ mcClusterVersion = lens _mcClusterVersion (\ s a -> s{_mcClusterVersion = a});
 -- complete, the original access permissions for the cluster are restored.
 -- You can use DescribeResize to track the progress of the resize request.
 --
--- Valid Values: @ dw1.xlarge@ | @dw1.8xlarge@ | @dw2.large@ |
--- @dw2.8xlarge@.
+-- Valid Values: @ ds1.xlarge@ | @ds1.8xlarge@ | @ ds2.xlarge@ |
+-- @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@.
 mcNodeType :: Lens' ModifyCluster (Maybe Text)
 mcNodeType = lens _mcNodeType (\ s a -> s{_mcNodeType = a});
 

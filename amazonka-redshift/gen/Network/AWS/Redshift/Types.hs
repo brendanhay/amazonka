@@ -22,6 +22,7 @@ module Network.AWS.Redshift.Types
       Redshift
 
     -- * Errors
+    , _LimitExceededFault
     , _ClusterSecurityGroupQuotaExceededFault
     , _CopyToRegionDisabledFault
     , _AuthorizationQuotaExceededFault
@@ -44,6 +45,7 @@ module Network.AWS.Redshift.Types
     , _SnapshotCopyAlreadyDisabledFault
     , _ClusterParameterGroupNotFoundFault
     , _HSMClientCertificateQuotaExceededFault
+    , _SnapshotCopyGrantQuotaExceededFault
     , _SnapshotCopyAlreadyEnabledFault
     , _ClusterParameterGroupAlreadyExistsFault
     , _NumberOfNodesPerClusterLimitExceededFault
@@ -52,8 +54,10 @@ module Network.AWS.Redshift.Types
     , _ClusterParameterGroupQuotaExceededFault
     , _SNSTopicARNNotFoundFault
     , _HSMClientCertificateNotFoundFault
+    , _SnapshotCopyGrantAlreadyExistsFault
     , _ClusterNotFoundFault
     , _SNSNoAuthorizationFault
+    , _SnapshotCopyGrantNotFoundFault
     , _InvalidClusterStateFault
     , _InsufficientClusterCapacityFault
     , _HSMConfigurationQuotaExceededFault
@@ -65,6 +69,7 @@ module Network.AWS.Redshift.Types
     , _ClusterSubnetGroupNotFoundFault
     , _BucketNotFoundFault
     , _InvalidSubscriptionStateFault
+    , _UnsupportedOperationFault
     , _AuthorizationNotFoundFault
     , _InvalidClusterSubnetGroupStateFault
     , _InvalidClusterSnapshotStateFault
@@ -80,6 +85,7 @@ module Network.AWS.Redshift.Types
     , _ReservedNodeQuotaExceededFault
     , _SubscriptionEventIdNotFoundFault
     , _ResourceNotFoundFault
+    , _InvalidSnapshotCopyGrantStateFault
     , _InvalidRestoreFault
     , _UnknownSnapshotCopyRegionFault
     , _AccessToSnapshotDeniedFault
@@ -95,6 +101,9 @@ module Network.AWS.Redshift.Types
     , _ClusterSubnetGroupQuotaExceededFault
     , _SubscriptionSeverityNotFoundFault
     , _UnauthorizedOperation
+
+    -- * ParameterApplyType
+    , ParameterApplyType (..)
 
     -- * SourceType
     , SourceType (..)
@@ -168,8 +177,16 @@ module Network.AWS.Redshift.Types
     -- * ClusterParameterGroupStatus
     , ClusterParameterGroupStatus
     , clusterParameterGroupStatus
+    , cpgsClusterParameterStatusList
     , cpgsParameterApplyStatus
     , cpgsParameterGroupName
+
+    -- * ClusterParameterStatus
+    , ClusterParameterStatus
+    , clusterParameterStatus
+    , cpsParameterApplyErrorDescription
+    , cpsParameterName
+    , cpsParameterApplyStatus
 
     -- * ClusterSecurityGroup
     , ClusterSecurityGroup
@@ -191,6 +208,7 @@ module Network.AWS.Redshift.Types
     , clusterSnapshotCopyStatus
     , cscsRetentionPeriod
     , cscsDestinationRegion
+    , cscsSnapshotCopyGrantName
 
     -- * ClusterSubnetGroup
     , ClusterSubnetGroup
@@ -327,6 +345,7 @@ module Network.AWS.Redshift.Types
     -- * Parameter
     , Parameter
     , parameter
+    , parApplyType
     , parParameterValue
     , parMinimumEngineVersion
     , parSource
@@ -394,6 +413,7 @@ module Network.AWS.Redshift.Types
     -- * Snapshot
     , Snapshot
     , snapshot
+    , snaRestorableNodeTypes
     , snaStatus
     , snaAccountsWithRestoreAccess
     , snaSnapshotIdentifier
@@ -421,6 +441,13 @@ module Network.AWS.Redshift.Types
     , snaTags
     , snaActualIncrementalBackupSizeInMegaBytes
     , snaPort
+
+    -- * SnapshotCopyGrant
+    , SnapshotCopyGrant
+    , snapshotCopyGrant
+    , scgKMSKeyId
+    , scgSnapshotCopyGrantName
+    , scgTags
 
     -- * Subnet
     , Subnet
@@ -485,6 +512,11 @@ instance AWSService Redshift where
           | has (hasStatus 500) e = Just "general_server_error"
           | has (hasStatus 509) e = Just "limit_exceeded"
           | otherwise = Nothing
+
+-- | The encryption key has exceeded its grant limit in AWS KMS.
+_LimitExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "LimitExceededFault"
 
 -- | The request would result in the user exceeding the allowed number of
 -- cluster security groups. For information about increasing your quota, go
@@ -622,6 +654,13 @@ _HSMClientCertificateQuotaExceededFault =
     _ServiceError .
     hasStatus 400 . hasCode "HsmClientCertificateQuotaExceededFault"
 
+-- | The AWS account has exceeded the maximum number of snapshot copy grants
+-- in this region.
+_SnapshotCopyGrantQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotCopyGrantQuotaExceededFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "SnapshotCopyGrantQuotaExceededFault"
+
 -- | The cluster already has cross-region snapshot copy enabled.
 _SnapshotCopyAlreadyEnabledFault :: AWSError a => Getting (First ServiceError) a ServiceError
 _SnapshotCopyAlreadyEnabledFault =
@@ -671,6 +710,13 @@ _HSMClientCertificateNotFoundFault :: AWSError a => Getting (First ServiceError)
 _HSMClientCertificateNotFoundFault =
     _ServiceError . hasStatus 400 . hasCode "HsmClientCertificateNotFoundFault"
 
+-- | The snapshot copy grant can\'t be created because a grant with the same
+-- name already exists.
+_SnapshotCopyGrantAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotCopyGrantAlreadyExistsFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "SnapshotCopyGrantAlreadyExistsFault"
+
 -- | The /ClusterIdentifier/ parameter does not refer to an existing cluster.
 _ClusterNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
 _ClusterNotFoundFault =
@@ -680,6 +726,13 @@ _ClusterNotFoundFault =
 _SNSNoAuthorizationFault :: AWSError a => Getting (First ServiceError) a ServiceError
 _SNSNoAuthorizationFault =
     _ServiceError . hasStatus 400 . hasCode "SNSNoAuthorization"
+
+-- | The specified snapshot copy grant can\'t be found. Make sure that the
+-- name is typed correctly and that the grant exists in the destination
+-- region.
+_SnapshotCopyGrantNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotCopyGrantNotFoundFault =
+    _ServiceError . hasStatus 400 . hasCode "SnapshotCopyGrantNotFoundFault"
 
 -- | The specified cluster is not in the @available@ state.
 _InvalidClusterStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
@@ -745,6 +798,11 @@ _BucketNotFoundFault =
 _InvalidSubscriptionStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
 _InvalidSubscriptionStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidSubscriptionStateFault"
+
+-- | The requested operation isn\'t supported.
+_UnsupportedOperationFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnsupportedOperationFault =
+    _ServiceError . hasStatus 400 . hasCode "UnsupportedOperation"
 
 -- | The specified CIDR IP range or EC2 security group is not authorized for
 -- the specified cluster security group.
@@ -833,6 +891,13 @@ _SubscriptionEventIdNotFoundFault =
 _ResourceNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundFault"
+
+-- | The snapshot copy grant can\'t be deleted because it is used by one or
+-- more clusters.
+_InvalidSnapshotCopyGrantStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSnapshotCopyGrantStateFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "InvalidSnapshotCopyGrantStateFault"
 
 -- | The restore is invalid.
 _InvalidRestoreFault :: AWSError a => Getting (First ServiceError) a ServiceError
@@ -924,6 +989,29 @@ _SubscriptionSeverityNotFoundFault =
 _UnauthorizedOperation :: AWSError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedOperation =
     _ServiceError . hasStatus 400 . hasCode "UnauthorizedOperation"
+
+data ParameterApplyType
+    = Dynamic
+    | Static
+    deriving (Eq,Ord,Read,Show,Enum,Generic)
+
+instance FromText ParameterApplyType where
+    parser = takeLowerText >>= \case
+        "dynamic" -> pure Dynamic
+        "static" -> pure Static
+        e -> fail ("Failure parsing ParameterApplyType from " ++ show e)
+
+instance ToText ParameterApplyType where
+    toText = \case
+        Dynamic -> "dynamic"
+        Static -> "static"
+
+instance Hashable ParameterApplyType
+instance ToQuery ParameterApplyType
+instance ToHeader ParameterApplyType
+
+instance FromXML ParameterApplyType where
+    parseXML = parseXMLText "ParameterApplyType"
 
 data SourceType
     = ClusterParameterGroup
@@ -1217,7 +1305,7 @@ cluClusterPublicKey :: Lens' Cluster (Maybe Text)
 cluClusterPublicKey = lens _cluClusterPublicKey (\ s a -> s{_cluClusterPublicKey = a});
 
 -- | The list of cluster parameter groups that are associated with this
--- cluster.
+-- cluster. Each parameter group in the list is returned with its status.
 cluClusterParameterGroups :: Lens' Cluster [ClusterParameterGroupStatus]
 cluClusterParameterGroups = lens _cluClusterParameterGroups (\ s a -> s{_cluClusterParameterGroups = a}) . _Default;
 
@@ -1487,21 +1575,33 @@ instance FromXML ClusterParameterGroupNameMessage
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'cpgsClusterParameterStatusList'
+--
 -- * 'cpgsParameterApplyStatus'
 --
 -- * 'cpgsParameterGroupName'
 data ClusterParameterGroupStatus = ClusterParameterGroupStatus'
-    { _cpgsParameterApplyStatus :: Maybe Text
-    , _cpgsParameterGroupName   :: Maybe Text
+    { _cpgsClusterParameterStatusList :: Maybe [ClusterParameterStatus]
+    , _cpgsParameterApplyStatus       :: Maybe Text
+    , _cpgsParameterGroupName         :: Maybe Text
     } deriving (Eq,Read,Show)
 
 -- | 'ClusterParameterGroupStatus' smart constructor.
 clusterParameterGroupStatus :: ClusterParameterGroupStatus
 clusterParameterGroupStatus =
     ClusterParameterGroupStatus'
-    { _cpgsParameterApplyStatus = Nothing
+    { _cpgsClusterParameterStatusList = Nothing
+    , _cpgsParameterApplyStatus = Nothing
     , _cpgsParameterGroupName = Nothing
     }
+
+-- | The list of parameter statuses.
+--
+-- For more information about parameters and parameter groups, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
+-- in the /Amazon Redshift Cluster Management Guide/.
+cpgsClusterParameterStatusList :: Lens' ClusterParameterGroupStatus [ClusterParameterStatus]
+cpgsClusterParameterStatusList = lens _cpgsClusterParameterStatusList (\ s a -> s{_cpgsClusterParameterStatusList = a}) . _Default;
 
 -- | The status of parameter updates.
 cpgsParameterApplyStatus :: Lens' ClusterParameterGroupStatus (Maybe Text)
@@ -1514,8 +1614,73 @@ cpgsParameterGroupName = lens _cpgsParameterGroupName (\ s a -> s{_cpgsParameter
 instance FromXML ClusterParameterGroupStatus where
         parseXML x
           = ClusterParameterGroupStatus' <$>
-              (x .@? "ParameterApplyStatus") <*>
-                (x .@? "ParameterGroupName")
+              (x .@? "ClusterParameterStatusList" .!@ mempty >>=
+                 may (parseXMLList "member"))
+                <*> (x .@? "ParameterApplyStatus")
+                <*> (x .@? "ParameterGroupName")
+
+-- | Describes the status of a parameter group.
+--
+-- /See:/ 'clusterParameterStatus' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cpsParameterApplyErrorDescription'
+--
+-- * 'cpsParameterName'
+--
+-- * 'cpsParameterApplyStatus'
+data ClusterParameterStatus = ClusterParameterStatus'
+    { _cpsParameterApplyErrorDescription :: Maybe Text
+    , _cpsParameterName                  :: Maybe Text
+    , _cpsParameterApplyStatus           :: Maybe Text
+    } deriving (Eq,Read,Show)
+
+-- | 'ClusterParameterStatus' smart constructor.
+clusterParameterStatus :: ClusterParameterStatus
+clusterParameterStatus =
+    ClusterParameterStatus'
+    { _cpsParameterApplyErrorDescription = Nothing
+    , _cpsParameterName = Nothing
+    , _cpsParameterApplyStatus = Nothing
+    }
+
+-- | The error that prevented the parameter from being applied to the
+-- database.
+cpsParameterApplyErrorDescription :: Lens' ClusterParameterStatus (Maybe Text)
+cpsParameterApplyErrorDescription = lens _cpsParameterApplyErrorDescription (\ s a -> s{_cpsParameterApplyErrorDescription = a});
+
+-- | The name of the parameter.
+cpsParameterName :: Lens' ClusterParameterStatus (Maybe Text)
+cpsParameterName = lens _cpsParameterName (\ s a -> s{_cpsParameterName = a});
+
+-- | The status of the parameter that indicates whether the parameter is in
+-- sync with the database, waiting for a cluster reboot, or encountered an
+-- error when being applied.
+--
+-- The following are possible statuses and descriptions.
+--
+-- -   @in-sync@: The parameter value is in sync with the database.
+-- -   @pending-reboot@: The parameter value will be applied after the
+--     cluster reboots.
+-- -   @applying@: The parameter value is being applied to the database.
+-- -   @invalid-parameter@: Cannot apply the parameter value because it has
+--     an invalid value or syntax.
+-- -   @apply-deferred@: The parameter contains static property changes.
+--     The changes are deferred until the cluster reboots.
+-- -   @apply-error@: Cannot connect to the cluster. The parameter change
+--     will be applied after the cluster reboots.
+-- -   @unknown-error@: Cannot apply the parameter change right now. The
+--     change will be applied after the cluster reboots.
+cpsParameterApplyStatus :: Lens' ClusterParameterStatus (Maybe Text)
+cpsParameterApplyStatus = lens _cpsParameterApplyStatus (\ s a -> s{_cpsParameterApplyStatus = a});
+
+instance FromXML ClusterParameterStatus where
+        parseXML x
+          = ClusterParameterStatus' <$>
+              (x .@? "ParameterApplyErrorDescription") <*>
+                (x .@? "ParameterName")
+                <*> (x .@? "ParameterApplyStatus")
 
 -- | Describes a security group.
 --
@@ -1634,9 +1799,12 @@ instance FromXML ClusterSecurityGroupMembership where
 -- * 'cscsRetentionPeriod'
 --
 -- * 'cscsDestinationRegion'
+--
+-- * 'cscsSnapshotCopyGrantName'
 data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'
-    { _cscsRetentionPeriod   :: Maybe Integer
-    , _cscsDestinationRegion :: Maybe Text
+    { _cscsRetentionPeriod       :: Maybe Integer
+    , _cscsDestinationRegion     :: Maybe Text
+    , _cscsSnapshotCopyGrantName :: Maybe Text
     } deriving (Eq,Read,Show)
 
 -- | 'ClusterSnapshotCopyStatus' smart constructor.
@@ -1645,6 +1813,7 @@ clusterSnapshotCopyStatus =
     ClusterSnapshotCopyStatus'
     { _cscsRetentionPeriod = Nothing
     , _cscsDestinationRegion = Nothing
+    , _cscsSnapshotCopyGrantName = Nothing
     }
 
 -- | The number of days that automated snapshots are retained in the
@@ -1657,11 +1826,16 @@ cscsRetentionPeriod = lens _cscsRetentionPeriod (\ s a -> s{_cscsRetentionPeriod
 cscsDestinationRegion :: Lens' ClusterSnapshotCopyStatus (Maybe Text)
 cscsDestinationRegion = lens _cscsDestinationRegion (\ s a -> s{_cscsDestinationRegion = a});
 
+-- | The name of the snapshot copy grant.
+cscsSnapshotCopyGrantName :: Lens' ClusterSnapshotCopyStatus (Maybe Text)
+cscsSnapshotCopyGrantName = lens _cscsSnapshotCopyGrantName (\ s a -> s{_cscsSnapshotCopyGrantName = a});
+
 instance FromXML ClusterSnapshotCopyStatus where
         parseXML x
           = ClusterSnapshotCopyStatus' <$>
               (x .@? "RetentionPeriod") <*>
                 (x .@? "DestinationRegion")
+                <*> (x .@? "SnapshotCopyGrantName")
 
 -- | Describes a subnet group.
 --
@@ -2024,6 +2198,8 @@ eveDate :: Lens' Event (Maybe UTCTime)
 eveDate = lens _eveDate (\ s a -> s{_eveDate = a}) . mapping _Time;
 
 -- | A list of the event categories.
+--
+-- Values: Configuration, Management, Monitoring, Security
 eveEventCategories :: Lens' Event [Text]
 eveEventCategories = lens _eveEventCategories (\ s a -> s{_eveEventCategories = a}) . _Default;
 
@@ -2626,6 +2802,8 @@ instance FromXML OrderableClusterOption where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'parApplyType'
+--
 -- * 'parParameterValue'
 --
 -- * 'parMinimumEngineVersion'
@@ -2642,7 +2820,8 @@ instance FromXML OrderableClusterOption where
 --
 -- * 'parDescription'
 data Parameter = Parameter'
-    { _parParameterValue       :: Maybe Text
+    { _parApplyType            :: Maybe ParameterApplyType
+    , _parParameterValue       :: Maybe Text
     , _parMinimumEngineVersion :: Maybe Text
     , _parSource               :: Maybe Text
     , _parIsModifiable         :: Maybe Bool
@@ -2656,7 +2835,8 @@ data Parameter = Parameter'
 parameter :: Parameter
 parameter =
     Parameter'
-    { _parParameterValue = Nothing
+    { _parApplyType = Nothing
+    , _parParameterValue = Nothing
     , _parMinimumEngineVersion = Nothing
     , _parSource = Nothing
     , _parIsModifiable = Nothing
@@ -2665,6 +2845,10 @@ parameter =
     , _parParameterName = Nothing
     , _parDescription = Nothing
     }
+
+-- | Specifies how to apply the parameter. Supported value: @static@.
+parApplyType :: Lens' Parameter (Maybe ParameterApplyType)
+parApplyType = lens _parApplyType (\ s a -> s{_parApplyType = a});
 
 -- | The value of the parameter.
 parParameterValue :: Lens' Parameter (Maybe Text)
@@ -2703,7 +2887,7 @@ parDescription = lens _parDescription (\ s a -> s{_parDescription = a});
 instance FromXML Parameter where
         parseXML x
           = Parameter' <$>
-              (x .@? "ParameterValue") <*>
+              (x .@? "ApplyType") <*> (x .@? "ParameterValue") <*>
                 (x .@? "MinimumEngineVersion")
                 <*> (x .@? "Source")
                 <*> (x .@? "IsModifiable")
@@ -2715,7 +2899,8 @@ instance FromXML Parameter where
 instance ToQuery Parameter where
         toQuery Parameter'{..}
           = mconcat
-              ["ParameterValue" =: _parParameterValue,
+              ["ApplyType" =: _parApplyType,
+               "ParameterValue" =: _parParameterValue,
                "MinimumEngineVersion" =: _parMinimumEngineVersion,
                "Source" =: _parSource,
                "IsModifiable" =: _parIsModifiable,
@@ -2846,7 +3031,9 @@ instance FromXML RecurringCharge where
               (x .@? "RecurringChargeFrequency") <*>
                 (x .@? "RecurringChargeAmount")
 
--- | Describes a reserved node.
+-- | Describes a reserved node. You can call the
+-- DescribeReservedNodeOfferings API to obtain the available reserved node
+-- offerings.
 --
 -- /See:/ 'reservedNode' smart constructor.
 --
@@ -2946,7 +3133,7 @@ rnReservedNodeId = lens _rnReservedNodeId (\ s a -> s{_rnReservedNodeId = a});
 rnOfferingType :: Lens' ReservedNode (Maybe Text)
 rnOfferingType = lens _rnOfferingType (\ s a -> s{_rnOfferingType = a});
 
--- | The hourly rate Amazon Redshift charge you for this reserved node.
+-- | The hourly rate Amazon Redshift charges you for this reserved node.
 rnUsagePrice :: Lens' ReservedNode (Maybe Double)
 rnUsagePrice = lens _rnUsagePrice (\ s a -> s{_rnUsagePrice = a});
 
@@ -2958,7 +3145,7 @@ rnNodeType = lens _rnNodeType (\ s a -> s{_rnNodeType = a});
 rnRecurringCharges :: Lens' ReservedNode [RecurringCharge]
 rnRecurringCharges = lens _rnRecurringCharges (\ s a -> s{_rnRecurringCharges = a}) . _Default;
 
--- | The fixed cost Amazon Redshift charged you for this reserved node.
+-- | The fixed cost Amazon Redshift charges you for this reserved node.
 rnFixedPrice :: Lens' ReservedNode (Maybe Double)
 rnFixedPrice = lens _rnFixedPrice (\ s a -> s{_rnFixedPrice = a});
 
@@ -3164,6 +3351,8 @@ instance FromXML RestoreStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'snaRestorableNodeTypes'
+--
 -- * 'snaStatus'
 --
 -- * 'snaAccountsWithRestoreAccess'
@@ -3218,7 +3407,8 @@ instance FromXML RestoreStatus where
 --
 -- * 'snaPort'
 data Snapshot = Snapshot'
-    { _snaStatus                                 :: Maybe Text
+    { _snaRestorableNodeTypes                    :: Maybe [Text]
+    , _snaStatus                                 :: Maybe Text
     , _snaAccountsWithRestoreAccess              :: Maybe [AccountWithRestoreAccess]
     , _snaSnapshotIdentifier                     :: Maybe Text
     , _snaEncryptedWithHSM                       :: Maybe Bool
@@ -3251,7 +3441,8 @@ data Snapshot = Snapshot'
 snapshot :: Snapshot
 snapshot =
     Snapshot'
-    { _snaStatus = Nothing
+    { _snaRestorableNodeTypes = Nothing
+    , _snaStatus = Nothing
     , _snaAccountsWithRestoreAccess = Nothing
     , _snaSnapshotIdentifier = Nothing
     , _snaEncryptedWithHSM = Nothing
@@ -3279,6 +3470,11 @@ snapshot =
     , _snaActualIncrementalBackupSizeInMegaBytes = Nothing
     , _snaPort = Nothing
     }
+
+-- | The list of node types that this cluster snapshot is able to restore
+-- into.
+snaRestorableNodeTypes :: Lens' Snapshot [Text]
+snaRestorableNodeTypes = lens _snaRestorableNodeTypes (\ s a -> s{_snaRestorableNodeTypes = a}) . _Default;
 
 -- | The snapshot status. The value of the status depends on the API
 -- operation used.
@@ -3416,7 +3612,10 @@ snaPort = lens _snaPort (\ s a -> s{_snaPort = a});
 instance FromXML Snapshot where
         parseXML x
           = Snapshot' <$>
-              (x .@? "Status") <*>
+              (x .@? "RestorableNodeTypes" .!@ mempty >>=
+                 may (parseXMLList "NodeType"))
+                <*> (x .@? "Status")
+                <*>
                 (x .@? "AccountsWithRestoreAccess" .!@ mempty >>=
                    may (parseXMLList "AccountWithRestoreAccess"))
                 <*> (x .@? "SnapshotIdentifier")
@@ -3446,6 +3645,60 @@ instance FromXML Snapshot where
                    may (parseXMLList "Tag"))
                 <*> (x .@? "ActualIncrementalBackupSizeInMegaBytes")
                 <*> (x .@? "Port")
+
+-- | The snapshot copy grant that grants Amazon Redshift permission to
+-- encrypt copied snapshots with the specified customer master key (CMK)
+-- from AWS KMS in the destination region.
+--
+-- For more information about managing snapshot copy grants, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption>
+-- in the /Amazon Redshift Cluster Management Guide/.
+--
+-- /See:/ 'snapshotCopyGrant' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'scgKMSKeyId'
+--
+-- * 'scgSnapshotCopyGrantName'
+--
+-- * 'scgTags'
+data SnapshotCopyGrant = SnapshotCopyGrant'
+    { _scgKMSKeyId              :: Maybe Text
+    , _scgSnapshotCopyGrantName :: Maybe Text
+    , _scgTags                  :: Maybe [Tag]
+    } deriving (Eq,Read,Show)
+
+-- | 'SnapshotCopyGrant' smart constructor.
+snapshotCopyGrant :: SnapshotCopyGrant
+snapshotCopyGrant =
+    SnapshotCopyGrant'
+    { _scgKMSKeyId = Nothing
+    , _scgSnapshotCopyGrantName = Nothing
+    , _scgTags = Nothing
+    }
+
+-- | The unique identifier of the customer master key (CMK) in AWS KMS to
+-- which Amazon Redshift is granted permission.
+scgKMSKeyId :: Lens' SnapshotCopyGrant (Maybe Text)
+scgKMSKeyId = lens _scgKMSKeyId (\ s a -> s{_scgKMSKeyId = a});
+
+-- | The name of the snapshot copy grant.
+scgSnapshotCopyGrantName :: Lens' SnapshotCopyGrant (Maybe Text)
+scgSnapshotCopyGrantName = lens _scgSnapshotCopyGrantName (\ s a -> s{_scgSnapshotCopyGrantName = a});
+
+-- | A list of tag instances.
+scgTags :: Lens' SnapshotCopyGrant [Tag]
+scgTags = lens _scgTags (\ s a -> s{_scgTags = a}) . _Default;
+
+instance FromXML SnapshotCopyGrant where
+        parseXML x
+          = SnapshotCopyGrant' <$>
+              (x .@? "KmsKeyId") <*>
+                (x .@? "SnapshotCopyGrantName")
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "Tag"))
 
 -- | Describes a subnet.
 --

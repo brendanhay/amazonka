@@ -19,6 +19,10 @@
 -- key\/values pairs are not updated. To remove a key value pair, pass a
 -- empty value for the particular key.
 --
+-- This API can only be called with developer credentials. You cannot call
+-- this API with the temporary user credentials provided by Cognito
+-- Identity.
+--
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_SetCognitoEvents.html>
 module Network.AWS.CognitoSync.SetCognitoEvents
     (

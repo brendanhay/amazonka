@@ -37,7 +37,6 @@ module Network.AWS.CloudFront.ListDistributions
     ) where
 
 import           Network.AWS.CloudFront.Types
-import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -76,18 +75,6 @@ ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
 ldMarker :: Lens' ListDistributions (Maybe Text)
 ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
 
-instance AWSPager ListDistributions where
-        page rq rs
-          | stop (rs ^. ldrDistributionList . dlIsTruncated) =
-            Nothing
-          | isNothing
-              (rs ^? ldrDistributionList . dlNextMarker . _Just)
-            = Nothing
-          | otherwise =
-            Just $ rq &
-              ldMarker .~
-                rs ^? ldrDistributionList . dlNextMarker . _Just
-
 instance AWSRequest ListDistributions where
         type Sv ListDistributions = CloudFront
         type Rs ListDistributions = ListDistributionsResponse
@@ -102,7 +89,7 @@ instance ToHeaders ListDistributions where
         toHeaders = const mempty
 
 instance ToPath ListDistributions where
-        toPath = const "/2014-11-06/distribution"
+        toPath = const "/2015-04-17/distribution"
 
 instance ToQuery ListDistributions where
         toQuery ListDistributions'{..}

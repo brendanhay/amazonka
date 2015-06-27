@@ -474,6 +474,7 @@ instance AWSService S3 where
           | has (hasCode "ThrottlingException" . hasStatus 400) e =
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasCode "BadDigest" . hasStatus 400) e = Just "contentmd5"
           | has (hasStatus 503) e = Just "service_unavailable"
           | has (hasCode "RequestTimeout" . hasStatus 400) e = Just "timeouts"
           | has (hasStatus 500) e = Just "general_server_error"

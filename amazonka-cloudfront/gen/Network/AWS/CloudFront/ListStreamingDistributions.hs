@@ -37,7 +37,6 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     ) where
 
 import           Network.AWS.CloudFront.Types
-import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -77,23 +76,6 @@ lsdMaxItems = lens _lsdMaxItems (\ s a -> s{_lsdMaxItems = a});
 lsdMarker :: Lens' ListStreamingDistributions (Maybe Text)
 lsdMarker = lens _lsdMarker (\ s a -> s{_lsdMarker = a});
 
-instance AWSPager ListStreamingDistributions where
-        page rq rs
-          | stop
-              (rs ^.
-                 lsdrStreamingDistributionList . sdlIsTruncated)
-            = Nothing
-          | isNothing
-              (rs ^?
-                 lsdrStreamingDistributionList .
-                   sdlNextMarker . _Just)
-            = Nothing
-          | otherwise =
-            Just $ rq &
-              lsdMarker .~
-                rs ^?
-                  lsdrStreamingDistributionList . sdlNextMarker . _Just
-
 instance AWSRequest ListStreamingDistributions where
         type Sv ListStreamingDistributions = CloudFront
         type Rs ListStreamingDistributions =
@@ -110,7 +92,7 @@ instance ToHeaders ListStreamingDistributions where
         toHeaders = const mempty
 
 instance ToPath ListStreamingDistributions where
-        toPath = const "/2014-11-06/streaming-distribution"
+        toPath = const "/2015-04-17/streaming-distribution"
 
 instance ToQuery ListStreamingDistributions where
         toQuery ListStreamingDistributions'{..}

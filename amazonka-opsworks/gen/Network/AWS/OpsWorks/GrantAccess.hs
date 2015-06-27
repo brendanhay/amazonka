@@ -14,7 +14,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | This API can be used only with Windows stacks.
+-- | This action can be used only with Windows stacks.
 --
 -- Grants RDP access to a Windows instance for a specified time period.
 --

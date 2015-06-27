@@ -38,7 +38,6 @@ module Network.AWS.CloudFront.ListInvalidations
     ) where
 
 import           Network.AWS.CloudFront.Types
-import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -88,18 +87,6 @@ liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
 liDistributionId :: Lens' ListInvalidations Text
 liDistributionId = lens _liDistributionId (\ s a -> s{_liDistributionId = a});
 
-instance AWSPager ListInvalidations where
-        page rq rs
-          | stop (rs ^. lirInvalidationList . ilIsTruncated) =
-            Nothing
-          | isNothing
-              (rs ^? lirInvalidationList . ilNextMarker . _Just)
-            = Nothing
-          | otherwise =
-            Just $ rq &
-              liMarker .~
-                rs ^? lirInvalidationList . ilNextMarker . _Just
-
 instance AWSRequest ListInvalidations where
         type Sv ListInvalidations = CloudFront
         type Rs ListInvalidations = ListInvalidationsResponse
@@ -116,7 +103,7 @@ instance ToHeaders ListInvalidations where
 instance ToPath ListInvalidations where
         toPath ListInvalidations'{..}
           = mconcat
-              ["/2014-11-06/distribution/",
+              ["/2015-04-17/distribution/",
                toText _liDistributionId, "/invalidation"]
 
 instance ToQuery ListInvalidations where

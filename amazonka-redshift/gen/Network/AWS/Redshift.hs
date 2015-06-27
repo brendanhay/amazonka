@@ -52,6 +52,7 @@ import           Network.AWS.Redshift.CreateClusterSubnetGroup             as Ex
 import           Network.AWS.Redshift.CreateEventSubscription              as Export
 import           Network.AWS.Redshift.CreateHSMClientCertificate           as Export
 import           Network.AWS.Redshift.CreateHSMConfiguration               as Export
+import           Network.AWS.Redshift.CreateSnapshotCopyGrant              as Export
 import           Network.AWS.Redshift.CreateTags                           as Export
 import           Network.AWS.Redshift.DeleteCluster                        as Export
 import           Network.AWS.Redshift.DeleteClusterParameterGroup          as Export
@@ -61,6 +62,7 @@ import           Network.AWS.Redshift.DeleteClusterSubnetGroup             as Ex
 import           Network.AWS.Redshift.DeleteEventSubscription              as Export
 import           Network.AWS.Redshift.DeleteHSMClientCertificate           as Export
 import           Network.AWS.Redshift.DeleteHSMConfiguration               as Export
+import           Network.AWS.Redshift.DeleteSnapshotCopyGrant              as Export
 import           Network.AWS.Redshift.DeleteTags                           as Export
 import           Network.AWS.Redshift.DescribeClusterParameterGroups       as Export
 import           Network.AWS.Redshift.DescribeClusterParameters            as Export
@@ -80,6 +82,7 @@ import           Network.AWS.Redshift.DescribeOrderableClusterOptions      as Ex
 import           Network.AWS.Redshift.DescribeReservedNodeOfferings        as Export
 import           Network.AWS.Redshift.DescribeReservedNodes                as Export
 import           Network.AWS.Redshift.DescribeResize                       as Export
+import           Network.AWS.Redshift.DescribeSnapshotCopyGrants           as Export
 import           Network.AWS.Redshift.DescribeTags                         as Export
 import           Network.AWS.Redshift.DisableLogging                       as Export
 import           Network.AWS.Redshift.DisableSnapshotCopy                  as Export

@@ -73,11 +73,11 @@ ctResourceName :: Lens' CreateTags Text
 ctResourceName = lens _ctResourceName (\ s a -> s{_ctResourceName = a});
 
 -- | One or more name\/value pairs to add as tags to the specified resource.
--- Each tag name is passed in with the parameter @tag-key@ and the
--- corresponding value is passed in with the parameter @tag-value@. The
--- @tag-key@ and @tag-value@ parameters are separated by a colon (:).
--- Separate multiple tags with a space. For example,
--- @--tags \"tag-key\"=\"owner\":\"tag-value\"=\"admin\" \"tag-key\"=\"environment\":\"tag-value\"=\"test\" \"tag-key\"=\"version\":\"tag-value\"=\"1.0\"@.
+-- Each tag name is passed in with the parameter @Key@ and the
+-- corresponding value is passed in with the parameter @Value@. The @Key@
+-- and @Value@ parameters are separated by a comma (,). Separate multiple
+-- tags with a space. For example,
+-- @--tags \"Key\"=\"owner\",\"Value\"=\"admin\" \"Key\"=\"environment\",\"Value\"=\"test\" \"Key\"=\"version\",\"Value\"=\"1.0\"@.
 ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\ s a -> s{_ctTags = a});
 

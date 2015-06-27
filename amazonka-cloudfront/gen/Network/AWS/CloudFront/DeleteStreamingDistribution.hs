@@ -84,7 +84,7 @@ instance ToHeaders DeleteStreamingDistribution where
 instance ToPath DeleteStreamingDistribution where
         toPath DeleteStreamingDistribution'{..}
           = mconcat
-              ["/2014-11-06/streaming-distribution/",
+              ["/2015-04-17/streaming-distribution/",
                toText _dsdId]
 
 instance ToQuery DeleteStreamingDistribution where

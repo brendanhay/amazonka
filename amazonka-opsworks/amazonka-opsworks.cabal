@@ -97,6 +97,7 @@ library
         , Network.AWS.OpsWorks.DeregisterInstance
         , Network.AWS.OpsWorks.DeregisterRDSDBInstance
         , Network.AWS.OpsWorks.DeregisterVolume
+        , Network.AWS.OpsWorks.DescribeAgentVersions
         , Network.AWS.OpsWorks.DescribeApps
         , Network.AWS.OpsWorks.DescribeCommands
         , Network.AWS.OpsWorks.DescribeDeployments

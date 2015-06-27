@@ -95,7 +95,7 @@ spAllowSudo = lens _spAllowSudo (\ s a -> s{_spAllowSudo = a});
 --
 -- For more information on the permissions associated with these levels,
 -- see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 spLevel :: Lens' SetPermission (Maybe Text)
 spLevel = lens _spLevel (\ s a -> s{_spLevel = a});
 

@@ -16,6 +16,10 @@
 
 -- | Gets the configuration settings of an identity pool.
 --
+-- This API can only be called with developer credentials. You cannot call
+-- this API with the temporary user credentials provided by Cognito
+-- Identity.
+--
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_GetIdentityPoolConfiguration.html>
 module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     (

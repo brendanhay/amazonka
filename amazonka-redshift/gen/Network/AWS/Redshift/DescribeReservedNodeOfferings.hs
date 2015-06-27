@@ -22,7 +22,7 @@
 -- in you call to PurchaseReservedNodeOffering to reserve one or more nodes
 -- for your Amazon Redshift cluster.
 --
--- For more information about managing parameter groups, go to
+-- For more information about reserved node offerings, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html Purchasing Reserved Nodes>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
@@ -54,7 +54,7 @@ import           Network.AWS.Redshift.Types
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | to be provided.
+-- |
 --
 -- /See:/ 'describeReservedNodeOfferings' smart constructor.
 --

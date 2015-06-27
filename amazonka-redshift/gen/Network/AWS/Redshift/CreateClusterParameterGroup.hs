@@ -23,7 +23,7 @@
 --
 -- Parameters in the parameter group define specific behavior that applies
 -- to the databases you create on the cluster. For more information about
--- managing parameter groups, go to
+-- parameters and parameter groups, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --

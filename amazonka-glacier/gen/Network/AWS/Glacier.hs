@@ -50,6 +50,7 @@ module Network.AWS.Glacier
     ) where
 
 import           Network.AWS.Glacier.AbortMultipartUpload     as Export
+import           Network.AWS.Glacier.AddTagsToVault           as Export
 import           Network.AWS.Glacier.CompleteMultipartUpload  as Export
 import           Network.AWS.Glacier.CreateVault              as Export
 import           Network.AWS.Glacier.DeleteArchive            as Export
@@ -67,7 +68,9 @@ import           Network.AWS.Glacier.InitiateMultipartUpload  as Export
 import           Network.AWS.Glacier.ListJobs                 as Export
 import           Network.AWS.Glacier.ListMultipartUploads     as Export
 import           Network.AWS.Glacier.ListParts                as Export
+import           Network.AWS.Glacier.ListTagsForVault         as Export
 import           Network.AWS.Glacier.ListVaults               as Export
+import           Network.AWS.Glacier.RemoveTagsFromVault      as Export
 import           Network.AWS.Glacier.SetDataRetrievalPolicy   as Export
 import           Network.AWS.Glacier.SetVaultAccessPolicy     as Export
 import           Network.AWS.Glacier.SetVaultNotifications    as Export

@@ -15,7 +15,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | This operation deletes the access policy associated with the specified
--- vault. The operation is eventually consistent—that is, it might take
+-- vault. The operation is eventually consistent; that is, it might take
 -- some time for Amazon Glacier to completely remove the access policy, and
 -- you might still see the effect of the policy for a short time after you
 -- send the delete request.

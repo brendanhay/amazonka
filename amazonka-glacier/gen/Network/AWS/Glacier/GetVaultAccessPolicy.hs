@@ -15,7 +15,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | This operation retrieves the @access-policy@ subresource set on the
--- vault—for more information on setting this subresource, see
+-- vault; for more information on setting this subresource, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html Set Vault Access Policy (PUT access-policy)>.
 -- If there is no access policy set on the vault, the operation returns a
 -- @404 Not found@ error. For more information about vault access policies,

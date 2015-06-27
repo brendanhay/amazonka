@@ -87,7 +87,7 @@ instance AWSRequest CreateInvalidation where
 instance ToElement CreateInvalidation where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2014-11-06/}InvalidationBatch"
+              "{http://cloudfront.amazonaws.com/doc/2015-04-17/}InvalidationBatch"
               .
               _ciInvalidationBatch
 
@@ -97,7 +97,7 @@ instance ToHeaders CreateInvalidation where
 instance ToPath CreateInvalidation where
         toPath CreateInvalidation'{..}
           = mconcat
-              ["/2014-11-06/distribution/",
+              ["/2015-04-17/distribution/",
                toText _ciDistributionId, "/invalidation"]
 
 instance ToQuery CreateInvalidation where

@@ -14,13 +14,15 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a new cluster from a snapshot. Amazon Redshift creates the
--- resulting cluster with the same configuration as the original cluster
--- from which the snapshot was created, except that the new cluster is
--- created with the default cluster security and parameter group. After
--- Amazon Redshift creates the cluster you can use the ModifyCluster API to
--- associate a different security group and different parameter group with
--- the restored cluster.
+-- | Creates a new cluster from a snapshot. By default, Amazon Redshift
+-- creates the resulting cluster with the same configuration as the
+-- original cluster from which the snapshot was created, except that the
+-- new cluster is created with the default cluster security and parameter
+-- groups. After Amazon Redshift creates the cluster, you can use the
+-- ModifyCluster API to associate a different security group and different
+-- parameter group with the restored cluster. If you are using a DS node
+-- type, you can also choose to change to another DS node type of the same
+-- size during restore.
 --
 -- If you restore a cluster into a VPC, you must provide a cluster subnet
 -- group where you want the cluster restored.
@@ -50,6 +52,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     , rfcsKMSKeyId
     , rfcsVPCSecurityGroupIds
     , rfcsOwnerAccount
+    , rfcsNodeType
     , rfcsAllowVersionUpgrade
     , rfcsClusterParameterGroupName
     , rfcsPort
@@ -102,6 +105,8 @@ import           Network.AWS.Response
 --
 -- * 'rfcsOwnerAccount'
 --
+-- * 'rfcsNodeType'
+--
 -- * 'rfcsAllowVersionUpgrade'
 --
 -- * 'rfcsClusterParameterGroupName'
@@ -125,6 +130,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     , _rfcsKMSKeyId                         :: Maybe Text
     , _rfcsVPCSecurityGroupIds              :: Maybe [Text]
     , _rfcsOwnerAccount                     :: Maybe Text
+    , _rfcsNodeType                         :: Maybe Text
     , _rfcsAllowVersionUpgrade              :: Maybe Bool
     , _rfcsClusterParameterGroupName        :: Maybe Text
     , _rfcsPort                             :: Maybe Int
@@ -149,6 +155,7 @@ restoreFromClusterSnapshot pClusterIdentifier pSnapshotIdentifier =
     , _rfcsKMSKeyId = Nothing
     , _rfcsVPCSecurityGroupIds = Nothing
     , _rfcsOwnerAccount = Nothing
+    , _rfcsNodeType = Nothing
     , _rfcsAllowVersionUpgrade = Nothing
     , _rfcsClusterParameterGroupName = Nothing
     , _rfcsPort = Nothing
@@ -254,6 +261,21 @@ rfcsVPCSecurityGroupIds = lens _rfcsVPCSecurityGroupIds (\ s a -> s{_rfcsVPCSecu
 rfcsOwnerAccount :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsOwnerAccount = lens _rfcsOwnerAccount (\ s a -> s{_rfcsOwnerAccount = a});
 
+-- | The node type that the restored cluster will be provisioned with.
+--
+-- Default: The node type of the cluster from which the snapshot was taken.
+-- You can modify this if you are using any DS node type. In that case, you
+-- can choose to restore into another DS node type of the same size. For
+-- example, you can restore ds1.8xlarge into ds2.8xlarge, or ds2.xlarge
+-- into ds1.xlarge. If you have a DC instance type, you must restore into
+-- that same instance type and size. In other words, you can only restore a
+-- dc1.large instance type into another dc1.large instance type. For more
+-- information about node types, see
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes About Clusters and Nodes>
+-- in the /Amazon Redshift Cluster Management Guide/
+rfcsNodeType :: Lens' RestoreFromClusterSnapshot (Maybe Text)
+rfcsNodeType = lens _rfcsNodeType (\ s a -> s{_rfcsNodeType = a});
+
 -- | If @true@, major version upgrades can be applied during the maintenance
 -- window to the Amazon Redshift engine that is running on the cluster.
 --
@@ -352,6 +374,7 @@ instance ToQuery RestoreFromClusterSnapshot where
                    (toQueryList "VpcSecurityGroupId" <$>
                       _rfcsVPCSecurityGroupIds),
                "OwnerAccount" =: _rfcsOwnerAccount,
+               "NodeType" =: _rfcsNodeType,
                "AllowVersionUpgrade" =: _rfcsAllowVersionUpgrade,
                "ClusterParameterGroupName" =:
                  _rfcsClusterParameterGroupName,

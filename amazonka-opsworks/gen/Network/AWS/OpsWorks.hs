@@ -80,6 +80,7 @@ import           Network.AWS.OpsWorks.DeregisterElasticIP                 as Exp
 import           Network.AWS.OpsWorks.DeregisterInstance                  as Export
 import           Network.AWS.OpsWorks.DeregisterRDSDBInstance             as Export
 import           Network.AWS.OpsWorks.DeregisterVolume                    as Export
+import           Network.AWS.OpsWorks.DescribeAgentVersions               as Export
 import           Network.AWS.OpsWorks.DescribeApps                        as Export
 import           Network.AWS.OpsWorks.DescribeCommands                    as Export
 import           Network.AWS.OpsWorks.DescribeDeployments                 as Export

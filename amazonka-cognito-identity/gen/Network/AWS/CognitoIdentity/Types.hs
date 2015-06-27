@@ -27,6 +27,7 @@ module Network.AWS.CognitoIdentity.Types
     , _NotAuthorizedException
     , _InternalErrorException
     , _ExternalServiceException
+    , _ConcurrentModificationException
     , _TooManyRequestsException
     , _ResourceConflictException
     , _DeveloperUserAlreadyRegisteredException
@@ -139,6 +140,11 @@ _InternalErrorException = _ServiceError . hasCode "InternalErrorException"
 _ExternalServiceException :: AWSError a => Getting (First ServiceError) a ServiceError
 _ExternalServiceException =
     _ServiceError . hasStatus 400 . hasCode "ExternalServiceException"
+
+-- | Thrown if there are parallel requests to modify a resource.
+_ConcurrentModificationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ConcurrentModificationException =
+    _ServiceError . hasStatus 400 . hasCode "ConcurrentModificationException"
 
 -- | Thrown when a request is throttled.
 _TooManyRequestsException :: AWSError a => Getting (First ServiceError) a ServiceError

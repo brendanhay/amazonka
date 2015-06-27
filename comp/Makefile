@@ -1,6 +1,5 @@
 SHELL     := /usr/bin/env bash
 TOP       := ..
-DEPS      := vendor/botocore
 MODEL_DIR := model
 OUT_DIR   := ..
 
@@ -90,7 +89,7 @@ format:
 build: $(MODEL_DIR)
 	stack build amazonka-gen
 
-install: $(MODEL_DIR) build
+install: build
 	stack install
 
 clean:
@@ -98,10 +97,10 @@ clean:
 	rm -rf $(MODEL_DIR)
 
 full-clean: clean
-	rm -rf $(DEPS)
+	rm -rf vendor
+
+$(MODEL_DIR): vendor/botocore
+	cp -rf vendor/botocore/botocore/data $@
 
 vendor/botocore:
 	git clone git@github.com:boto/botocore $@
-
-$(MODEL_DIR):
-	cp -rf vendor/botocore/botocore/data $@

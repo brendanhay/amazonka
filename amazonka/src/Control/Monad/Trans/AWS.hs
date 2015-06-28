@@ -55,7 +55,12 @@ import           Network.HTTP.Conduit         hiding (Request, Response)
 
 -- $usage
 --
--- newtype App a = App
+-- The requirements for this to fulfill the constraints are that it can
+-- specialise to:
+--
+-- (MonadReader r m, AWSEnv r) -- For some reader with environment 'r', a lens exists to obtain the AWS specific Env out of 'r'.
+-- (MonadError  e m, AWSEnv e) -- For some error 'e', a prism exists to obtain the AWS specific Error out of 'e'.
+-- newtype MyApp a = MyApp
 --     { unApp :: ExceptT MyErr (ReaderT MyEnv (ResourceT IO)) a
 --     } deriving ( Functor
 --                , Applicative
@@ -69,17 +74,22 @@ import           Network.HTTP.Conduit         hiding (Request, Response)
 --                , MonadResource
 --                )
 --
--- runApp :: MyEnv -> App a -> IO (Either MyErr a)
+-- runApp :: MyEnv -> MyApp a -> IO (Either MyErr a)
 -- runApp e m = runResourceT $ runReaderT (runExceptT (unApp m)) e
 --
+-- A custom application environment for whatever Monad stack you're using.
 -- data MyEnv = MyEnv
 --     { _config :: Int
 --     , _env    :: Env
 --     }
 --
+-- This class adds a lens pointing to the Network.AWS.Env in the user's
+-- custom MyEnv type.
 -- instance AWSEnv MyEnv where
 --     env f s = f (_env s) <&> \a -> s { _env = a }
 --
+-- A custom error for whatever application, containing a single constructor
+-- that wraps the AWS errors.
 -- data MyErr where
 --     EndpointDisabled :: MyErr
 --     EndpointNotFound :: Text  -> MyErr
@@ -87,19 +97,20 @@ import           Network.HTTP.Conduit         hiding (Request, Response)
 --     NoToken          :: Text  -> MyErr
 --     ReadError        :: Text  -> String -> MyErr
 --     InvalidArn       :: Text  -> String -> MyErr
+--     -- The actual Network.AWS.Types.Error is embedd here:
 --     GeneralError     :: Error -> MyErr
 --
+-- This class adds a prism to point to the Network.AWS.Types.Error
+-- in the user's custom MyErr type.
 -- instance AWSError MyErr where
 --     _Error = prism
 --         GeneralError
 --         (\case GeneralError e -> Right e
 --                x              -> Left  x)
 --
--- catching _ServiceError $ Amazon (send Bar)
---   :: (ServiceError -> Amazon Bar) -> Amazon Bar
---
--- runAmazon (undefined :: Env) $ Amazon (send Bar)
---   :: IO (Either Err Foo)
+-- Control.Monad.Error.Lens can be used to catch AWS specific errors
+-- catching _ServiceError $ MyApp (send Bar)
+--   :: (ServiceError -> MyApp Bar) -> MyApp Bar
 
 -- | A convenient alias that specialises the common constraints in this module.
 type AWST m = ExceptT Error (ReaderT Env m)

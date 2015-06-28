@@ -45,30 +45,14 @@ import           Test.Tasty
 import           Test.Tasty.Golden
 import           Test.Tasty.HUnit
 
--- For requests, responses, and types (all separately)
--- render a haskell module per service that has the basic test
--- plumbing for each case, but don't generate actual usage.
-
--- Just let the warnings percolate about unused functions and
--- then implement them as needed by dropping the actual example
--- files into the right locations.
-
--- For the actual request/responses, use 'undefined' where
--- the actual value would go. For types, assume you can bijectively
--- de/serialise from the example file.
-
--- FIXME: make test pathing more robust.
-fixtures :: FilePath
-fixtures = "fixture"
-
 resp :: (AWSRequest a, Eq (Rs a), Show (Rs a))
      => FilePath
-     -> Testname
+     -> TestName
      -> Proxy a
      -> Rs a
      -> TestTree
 resp f n p e = testCase n $ do
-    a <- LBS.readFile (fixtures </> f) >>= mockResponse p
+    a <- LBS.readFile f >>= mockResponse p
     Right e @=? a
 
 mockResponse :: forall a. (AWSService (Sv a), AWSRequest a)

@@ -46,12 +46,12 @@ import           Test.Tasty.Golden
 import           Test.Tasty.HUnit
 
 resp :: (AWSRequest a, Eq (Rs a), Show (Rs a))
-     => FilePath
-     -> TestName
+     => TestName
+     -> FilePath
      -> Proxy a
      -> Rs a
      -> TestTree
-resp f n p e = testCase n $ do
+resp n f p e = testCase n $ do
     a <- LBS.readFile f >>= mockResponse p
     Right e @=? a
 

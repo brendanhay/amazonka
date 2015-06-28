@@ -1,5 +1,3 @@
-{-# LANGUAGE TemplateHaskell #-}
-
 -- Module      : Main
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -28,9 +26,10 @@ import           Test.Tasty
 main :: IO ()
 main = defaultMain $ testGroup "amazonka"
     [ testGroup "tests"
-        [
+        [ SQS.tests
         ]
 
     , testGroup "fixtures"
-        [ SQS.tests
+        [ SQS.fixtures
         ]
+    ]

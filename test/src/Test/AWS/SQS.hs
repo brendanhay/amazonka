@@ -1,3 +1,5 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 -- Module      : Test.AWS.SQS
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -9,21 +11,24 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.SQS
-     ( fixtures
+     ( tests
+     , fixtures
      ) where
 
-import           Data.Proxy
-import           Network.AWS.Prelude
 import           Network.AWS.SQS
-import           Test.AWS.Fixture
 import           Test.AWS.Gen.SQS
 import           Test.Tasty
+
+tests :: TestTree
+tests = testGroup "SQS"
+    [
+    ]
 
 fixtures :: TestTree
 fixtures = testGroup "SQS"
     [ testGroup "response"
         [ getQueueURLResponseTest $
-            getQueueURLResponse 200
+            getQueueURLResponse "url" 200
 
         -- , purgeQueueResponseTest $
         --     purgeQueueResponse

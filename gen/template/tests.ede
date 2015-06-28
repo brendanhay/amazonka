@@ -1,0 +1,24 @@
+{% include "_include/license.ede" %}
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+module {{ moduleName }} where
+
+import Data.Proxy
+import Test.AWS.Fixture
+{% for import in moduleImports %}
+import {{ import.value }}
+{% endfor %}
+
+tests :: TestTree
+tests = testGroup "{{ serviceAbbrev }}"
+    [ testGroup "response deserialisation"
+      {% for op in operations %}
+        {% if op.first %}[{%else%},{% endif %} resp "{{ op.value.input.name }}"
+            "{{ serviceAbbrev }}/{{ op.value.output.name }}.gen"
+            (Proxy :: Proxy {{ op.value.input.name }})
+            ({{ op.value.output.constructor }} undefined)
+
+      {% endfor %}
+        ]
+    ]

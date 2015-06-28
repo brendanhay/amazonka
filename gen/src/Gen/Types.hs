@@ -32,25 +32,9 @@ module Gen.Types
     , module Types
     ) where
 
-import           Gen.Text
-import           Gen.TH
-import           Gen.Types.Ann        as Types
-import           Gen.Types.Data       as Types
-import           Gen.Types.Help       as Types
-import           Gen.Types.Id         as Types
-import           Gen.Types.Map        as Types
-import           Gen.Types.Notation   as Types
-import           Gen.Types.NS         as Types
-import           Gen.Types.Orphans    ()
-import           Gen.Types.Pager      as Types
-import           Gen.Types.Retry      as Types
-import           Gen.Types.Service    as Types
-import           Gen.Types.URI        as Types
-import           Gen.Types.Waiter     as Types
 import           Control.Error
 import           Control.Lens              hiding ((.=))
 import           Data.Aeson
-import           Data.Bifunctor
 import           Data.List                 (nub, sort, sortOn)
 import           Data.Monoid               hiding (Product, Sum)
 import           Data.Ord
@@ -61,6 +45,21 @@ import qualified Data.Text.Lazy.Builder    as Build
 import           Data.Time
 import qualified Filesystem.Path.CurrentOS as Path
 import           Formatting
+import           Gen.Text
+import           Gen.TH
+import           Gen.Types.Ann             as Types
+import           Gen.Types.Data            as Types
+import           Gen.Types.Help            as Types
+import           Gen.Types.Id              as Types
+import           Gen.Types.Map             as Types
+import           Gen.Types.Notation        as Types
+import           Gen.Types.NS              as Types
+import           Gen.Types.Orphans         ()
+import           Gen.Types.Pager           as Types
+import           Gen.Types.Retry           as Types
+import           Gen.Types.Service         as Types
+import           Gen.Types.URI             as Types
+import           Gen.Types.Waiter          as Types
 import           GHC.Generics              (Generic)
 import           GHC.TypeLits
 import           Text.EDE                  (Template)
@@ -194,15 +193,27 @@ instance ToJSON Library where
             , "operationModules" .= sort (l ^.  operationModules)
             , "exposedModules"   .= sort (l ^.  exposedModules)
             , "otherModules"     .= sort (l ^.  otherModules)
-            , "shapes"           .= sort (l ^.. shapes  . each) --  & kvTraversal %~ first (^. typeId))
+            , "shapes"           .= sort (l ^.. shapes  . each)
             , "waiters"          .= (l ^.. waiters . each)
-            , "serviceInstance"  .= (l ^. instance')
+            , "serviceInstance"  .= (l ^.  instance')
+            , "operations"       .= map f (l ^.. operations . each)
             ]
+          where
+            f v = object
+                [ "input"  .= g (v ^. inputName)
+                , "output" .= g (v ^. outputName)
+                ]
 
-libraryNS, typesNS, waitersNS :: Getter Library NS
+            g n = object
+                [ "name"        .= (n ^. typeId)
+                , "constructor" .= (n ^. smartCtorId)
+                ]
+
+libraryNS, typesNS, waitersNS, testsNS :: Getter Library NS
 libraryNS = serviceAbbrev . to (mappend "Network.AWS" . mkNS)
 typesNS   = libraryNS . to (<> "Types")
 waitersNS = libraryNS . to (<> "Waiters")
+testsNS   = serviceAbbrev . to (mappend "Test" . mkNS)
 
 otherModules, exposedModules :: Getter Library [NS]
 otherModules   = to (\l -> l ^. operationModules <> l ^. typeModules)
@@ -224,6 +235,7 @@ data Templates = Templates
     , exampleStackTemplate    :: Template
     , operationTemplate       :: Template
     , typesTemplate           :: Template
+    , testsTemplate           :: Template
     }
 
 data Model = Model

@@ -104,7 +104,7 @@ receive f Service{..} _ = either (return . Left . HTTPError) go
         let s = responseStatus  rs
             h = responseHeaders rs
             x = responseBody    rs
-        if _svcStatus s
+        if not (_svcStatus s)
             then Left . _svcError _svcAbbrev s h <$> sinkLBS x
             else do
                 y <- f s h x

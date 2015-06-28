@@ -13,16 +13,11 @@
 module Test.AWS.Util where
 
 import           Data.Aeson
+import qualified Data.Text                 as Text
 import           Language.Haskell.TH
 import           Language.Haskell.TH.Quote
 import           Network.AWS.Prelude
 import           Test.Tasty.HUnit
-
-newtype Entries a = Entries a
-    deriving (Eq, Show)
-
-instance FromXML a => FromXML (Entries a) where
-    parseXML x = Entries <$> x .@ "Entries"
 
 assertXML :: (FromXML a, Show a, Eq a) => LazyByteString -> a -> Assertion
 assertXML s x = (decodeXML s >>= parseXML) @?= Right x

@@ -12,16 +12,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.Import
-    ( operationImports
-    , typeImports
-    , waiterImports
-    ) where
+module Gen.Import where
 
-import           Gen.Types
 import           Control.Lens
-import           Data.List      (sort)
+import           Data.List    (sort)
 import           Data.Maybe
+import           Gen.Types
 
 operationImports :: Library -> Operation Identity SData a -> [NS]
 operationImports l o = sort $
@@ -51,3 +47,6 @@ signatureImport :: Signature -> NS
 signatureImport = \case
     V2 -> "Network.AWS.Sign.V2"
     _  -> "Network.AWS.Sign.V4"
+
+testImports :: Library -> [NS]
+testImports l = sort ["Network.AWS.Prelude", l ^. libraryNS]

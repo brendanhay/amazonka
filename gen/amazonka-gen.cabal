@@ -33,6 +33,7 @@ executable amazonka-gen
         , Gen.AST.TypeOf
         , Gen.Formatting
         , Gen.IO
+        , Gen.Import
         , Gen.JSON
         , Gen.Protocol
         , Gen.TH

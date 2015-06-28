@@ -21,12 +21,10 @@
 module Gen.Tree
     ( root
     , fold
-    , populate
+    , tests
+    , library
     ) where
 
-import           Gen.Import
-import qualified Gen.JSON             as JS
-import           Gen.Types
 import           Control.Error
 import           Control.Lens              (each, (^.), (^..))
 import           Control.Monad
@@ -37,6 +35,9 @@ import           Data.Monoid
 import           Data.Text                 (Text)
 import qualified Data.Text.Lazy            as LText
 import           Filesystem.Path.CurrentOS hiding (root)
+import           Gen.Import
+import qualified Gen.JSON                  as JS
+import           Gen.Types
 import           Prelude                   hiding (mod)
 import           System.Directory.Tree     hiding (file)
 import           Text.EDE                  hiding (render)
@@ -59,11 +60,29 @@ fold h g f (p :/ t) = (p :/) <$> go (decodeString p) t
           where
             d = x </> decodeString n
 
-populate :: Path
-         -> Templates
-         -> Library
-         -> Either Error (AnchoredDirTree LText.Text)
-populate d Templates{..} l = ((encodeString d :/) . dir lib) <$> layout
+tests :: Path
+      -> Templates
+      -> Library
+      -> Either Error (AnchoredDirTree LText.Text)
+tests d Templates{..} l = (encodeString d :/) . dir "test" <$> layout
+  where
+    layout :: Either Error [DirTree LText.Text]
+    layout = traverse sequenceA
+        [ dir "gen"
+            [ dir "Test"
+                [ mod (l ^. testsNS) (testImports l) testsTemplate
+                ]
+            ]
+        ]
+
+    mod :: NS -> [NS] -> Template -> DirTree (Either Error LText.Text)
+    mod n is t = module' n is t . pure $ toJSON l
+
+library :: Path
+        -> Templates
+        -> Library
+        -> Either Error (AnchoredDirTree LText.Text)
+library d Templates{..} l = (encodeString d :/) . dir lib <$> layout
   where
     layout :: Either Error [DirTree LText.Text]
     layout = traverse sequenceA

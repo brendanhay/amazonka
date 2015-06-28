@@ -16,8 +16,6 @@
 
 module Gen.AST.Cofree where
 
-import           Gen.Formatting
-import           Gen.Types
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
@@ -25,7 +23,8 @@ import           Control.Lens
 import           Control.Monad.Except
 import           Control.Monad.State
 import qualified Data.HashMap.Strict    as Map
-import           Debug.Trace
+import           Gen.Formatting
+import           Gen.Types
 
 newtype Fix f = Fix (f (Fix f))
 

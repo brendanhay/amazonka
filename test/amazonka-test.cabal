@@ -18,20 +18,13 @@ library
 test-suite tests
     type:              exitcode-stdio-1.0
     default-language:  Haskell2010
-    hs-source-dirs:    src
+    hs-source-dirs:    src gen
     main-is:           Main.hs
 
     ghc-options:       -Wall -threaded
 
     other-modules:
-          Test.AWS.Data.Numeric
-        , Test.AWS.Data.Time
-        , Test.AWS.Protocol.EC2
-        , Test.AWS.Protocol.JSON
-        , Test.AWS.Protocol.Query
-        , Test.AWS.Protocol.RestJSON
-        , Test.AWS.Protocol.RestXML
-        , Test.AWS.Util
+          Test.AWS.Fixture
 
     build-depends:
           aeson

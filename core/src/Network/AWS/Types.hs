@@ -94,6 +94,7 @@ import           Data.Conduit
 import           Data.Hashable
 import           Data.IORef
 import           Data.Monoid
+import           Data.Proxy
 import           Data.String
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
@@ -103,14 +104,14 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
+import           Network.AWS.Error
+import           Network.AWS.Logger
 import           Network.HTTP.Client          hiding (Request, Response, Proxy)
 import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 import           Network.HTTP.Types.Status    (Status)
 import           Text.XML                     (def)
-import Network.AWS.Logger
-import           Network.AWS.Error
 
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request
@@ -241,7 +242,7 @@ class AWSSigner (Sg a) => AWSService a where
     -- | The default signing algorithm for the service.
     type Sg a :: *
 
-    service :: Sv p ~ a => p -> Service a
+    service :: Sv p ~ a => Proxy p -> Service a
 
 -- | Specify how a request can be de/serialised.
 class AWSService (Sv a) => AWSRequest a where

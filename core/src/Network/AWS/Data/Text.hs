@@ -27,7 +27,7 @@ module Network.AWS.Data.Text
 import           Control.Applicative
 import           "cryptohash" Crypto.Hash
 import           Data.Attoparsec.Text              (Parser)
-import qualified Data.Attoparsec.Text              as AText
+import qualified Data.Attoparsec.Text              as A
 import           Data.ByteString                   (ByteString)
 import           Data.CaseInsensitive              (CI)
 import qualified Data.CaseInsensitive              as CI
@@ -48,40 +48,40 @@ import           Network.HTTP.Types
 import           Numeric.Natural
 
 fromText :: FromText a => Text -> Either String a
-fromText = AText.parseOnly parser
+fromText = A.parseOnly parser
 
 takeLowerText :: Parser Text
-takeLowerText = Text.toLower <$> AText.takeText
+takeLowerText = Text.toLower <$> A.takeText
 
 matchCI :: Text -> a -> Parser a
-matchCI x y = AText.asciiCI x <* AText.endOfInput >> return y
+matchCI x y = A.asciiCI x <* A.endOfInput >> return y
 
 class FromText a where
     parser :: Parser a
 
 instance FromText Text where
-   parser = AText.takeText
+    parser = A.takeText
 
 instance FromText ByteString where
-   parser = Text.encodeUtf8 <$> AText.takeText
+    parser = Text.encodeUtf8 <$> A.takeText
 
 instance FromText Char where
-    parser = AText.anyChar <* AText.endOfInput
+    parser = A.anyChar <* A.endOfInput
 
 instance FromText Int where
-    parser = AText.signed AText.decimal <* AText.endOfInput
+    parser = A.signed A.decimal <* A.endOfInput
 
 instance FromText Integer where
-    parser = AText.signed AText.decimal <* AText.endOfInput
+    parser = A.signed A.decimal <* A.endOfInput
 
 instance FromText Scientific where
-    parser = AText.signed AText.scientific <* AText.endOfInput
+    parser = A.signed A.scientific <* A.endOfInput
 
 instance FromText Natural where
-    parser = AText.decimal <* AText.endOfInput
+    parser = A.decimal <* A.endOfInput
 
 instance FromText Double where
-    parser = AText.signed AText.rational <* AText.endOfInput
+    parser = A.signed A.rational <* A.endOfInput
 
 instance FromText Bool where
     parser = matchCI "false" False <|> matchCI "true" True

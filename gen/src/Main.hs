@@ -162,6 +162,7 @@ main = do
             <*> load "example/stack.ede"
             <*> load "operation.ede"
             <*> load "types.ede"
+            <*> load "tests.ede"
             <*  lift done
 
         r <- JS.required _optRetry
@@ -192,7 +193,10 @@ main = do
 
             lib <- hoistEither (AST.rewrite _optVersions cfg api)
 
-            dir <- hoistEither (Tree.populate _optOutput tmpl lib)
+            dir <- hoistEither (Tree.library _optOutput tmpl lib)
+                >>= Tree.fold (failure string . show) createDir writeLTFile
+
+            _   <- hoistEither (Tree.tests _optOutput tmpl lib)
                 >>= Tree.fold (failure string . show) createDir writeLTFile
 
             say ("Successfully rendered " % stext % "-" % semver % " package")

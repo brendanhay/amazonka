@@ -16,14 +16,6 @@
 
 module Gen.Types.Data where
 
-import           Gen.Text
-import           Gen.TH
-import           Gen.Types.Ann
-import           Gen.Types.Help
-import           Gen.Types.Id
-import           Gen.Types.Map
-import           Gen.Types.NS
-import           Gen.Types.URI
 import           Control.Error
 import           Control.Lens              hiding ((.=))
 import           Data.Aeson
@@ -41,6 +33,14 @@ import qualified Data.Text.Lazy.Builder    as Build
 import           Data.Time
 import qualified Filesystem.Path.CurrentOS as Path
 import           Formatting
+import           Gen.Text
+import           Gen.TH
+import           Gen.Types.Ann
+import           Gen.Types.Help
+import           Gen.Types.Id
+import           Gen.Types.Map
+import           Gen.Types.NS
+import           Gen.Types.URI
 import           GHC.Generics              (Generic)
 import           GHC.TypeLits
 import           Text.EDE                  (Template)
@@ -133,6 +133,12 @@ instance ToJSON SData where
         Prod s p  is -> object (prodToJSON s p  is)
         Sum  s st is -> object (sumToJSON  s st is)
         Fun  f       -> toJSON f
+
+instance HasId SData where
+    identifier = \case
+        Prod _ p _         -> mkId (_prodName p)
+        Sum  _ s _         -> mkId (_sumName  s)
+        Fun (Fun' n _ _ _) -> mkId n
 
 data WData = WData
     { _waitOpName :: Id

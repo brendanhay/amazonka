@@ -208,114 +208,114 @@ createInterconnectTest = undefined
 
 describeInterconnectsResponseTest :: DescribeInterconnectsResponse -> TestTree
 describeInterconnectsResponseTest = resp
-    "DescribeInterconnects"
+    "DescribeInterconnectsResponse"
     "fixture/DirectConnect/DescribeInterconnectsResponse"
     (Proxy :: Proxy DescribeInterconnects)
 
 connectionTest :: Connection -> TestTree
 connectionTest = resp
-    "DeleteConnection"
+    "Connection"
     "fixture/DirectConnect/Connection"
     (Proxy :: Proxy DeleteConnection)
 
 connectionTest :: Connection -> TestTree
 connectionTest = resp
-    "CreateConnection"
+    "Connection"
     "fixture/DirectConnect/Connection"
     (Proxy :: Proxy CreateConnection)
 
 connectionsTest :: Connections -> TestTree
 connectionsTest = resp
-    "DescribeConnections"
+    "Connections"
     "fixture/DirectConnect/Connections"
     (Proxy :: Proxy DescribeConnections)
 
 deleteInterconnectResponseTest :: DeleteInterconnectResponse -> TestTree
 deleteInterconnectResponseTest = resp
-    "DeleteInterconnect"
+    "DeleteInterconnectResponse"
     "fixture/DirectConnect/DeleteInterconnectResponse"
     (Proxy :: Proxy DeleteInterconnect)
 
 confirmPrivateVirtualInterfaceResponseTest :: ConfirmPrivateVirtualInterfaceResponse -> TestTree
 confirmPrivateVirtualInterfaceResponseTest = resp
-    "ConfirmPrivateVirtualInterface"
+    "ConfirmPrivateVirtualInterfaceResponse"
     "fixture/DirectConnect/ConfirmPrivateVirtualInterfaceResponse"
     (Proxy :: Proxy ConfirmPrivateVirtualInterface)
 
 connectionsTest :: Connections -> TestTree
 connectionsTest = resp
-    "DescribeConnectionsOnInterconnect"
+    "Connections"
     "fixture/DirectConnect/Connections"
     (Proxy :: Proxy DescribeConnectionsOnInterconnect)
 
 describeLocationsResponseTest :: DescribeLocationsResponse -> TestTree
 describeLocationsResponseTest = resp
-    "DescribeLocations"
+    "DescribeLocationsResponse"
     "fixture/DirectConnect/DescribeLocationsResponse"
     (Proxy :: Proxy DescribeLocations)
 
 virtualInterfaceTest :: VirtualInterface -> TestTree
 virtualInterfaceTest = resp
-    "CreatePublicVirtualInterface"
+    "VirtualInterface"
     "fixture/DirectConnect/VirtualInterface"
     (Proxy :: Proxy CreatePublicVirtualInterface)
 
 virtualInterfaceTest :: VirtualInterface -> TestTree
 virtualInterfaceTest = resp
-    "AllocatePrivateVirtualInterface"
+    "VirtualInterface"
     "fixture/DirectConnect/VirtualInterface"
     (Proxy :: Proxy AllocatePrivateVirtualInterface)
 
 confirmConnectionResponseTest :: ConfirmConnectionResponse -> TestTree
 confirmConnectionResponseTest = resp
-    "ConfirmConnection"
+    "ConfirmConnectionResponse"
     "fixture/DirectConnect/ConfirmConnectionResponse"
     (Proxy :: Proxy ConfirmConnection)
 
 describeVirtualGatewaysResponseTest :: DescribeVirtualGatewaysResponse -> TestTree
 describeVirtualGatewaysResponseTest = resp
-    "DescribeVirtualGateways"
+    "DescribeVirtualGatewaysResponse"
     "fixture/DirectConnect/DescribeVirtualGatewaysResponse"
     (Proxy :: Proxy DescribeVirtualGateways)
 
 confirmPublicVirtualInterfaceResponseTest :: ConfirmPublicVirtualInterfaceResponse -> TestTree
 confirmPublicVirtualInterfaceResponseTest = resp
-    "ConfirmPublicVirtualInterface"
+    "ConfirmPublicVirtualInterfaceResponse"
     "fixture/DirectConnect/ConfirmPublicVirtualInterfaceResponse"
     (Proxy :: Proxy ConfirmPublicVirtualInterface)
 
 describeVirtualInterfacesResponseTest :: DescribeVirtualInterfacesResponse -> TestTree
 describeVirtualInterfacesResponseTest = resp
-    "DescribeVirtualInterfaces"
+    "DescribeVirtualInterfacesResponse"
     "fixture/DirectConnect/DescribeVirtualInterfacesResponse"
     (Proxy :: Proxy DescribeVirtualInterfaces)
 
 virtualInterfaceTest :: VirtualInterface -> TestTree
 virtualInterfaceTest = resp
-    "CreatePrivateVirtualInterface"
+    "VirtualInterface"
     "fixture/DirectConnect/VirtualInterface"
     (Proxy :: Proxy CreatePrivateVirtualInterface)
 
 deleteVirtualInterfaceResponseTest :: DeleteVirtualInterfaceResponse -> TestTree
 deleteVirtualInterfaceResponseTest = resp
-    "DeleteVirtualInterface"
+    "DeleteVirtualInterfaceResponse"
     "fixture/DirectConnect/DeleteVirtualInterfaceResponse"
     (Proxy :: Proxy DeleteVirtualInterface)
 
 virtualInterfaceTest :: VirtualInterface -> TestTree
 virtualInterfaceTest = resp
-    "AllocatePublicVirtualInterface"
+    "VirtualInterface"
     "fixture/DirectConnect/VirtualInterface"
     (Proxy :: Proxy AllocatePublicVirtualInterface)
 
 connectionTest :: Connection -> TestTree
 connectionTest = resp
-    "AllocateConnectionOnInterconnect"
+    "Connection"
     "fixture/DirectConnect/Connection"
     (Proxy :: Proxy AllocateConnectionOnInterconnect)
 
 interconnectTest :: Interconnect -> TestTree
 interconnectTest = resp
-    "CreateInterconnect"
+    "Interconnect"
     "fixture/DirectConnect/Interconnect"
     (Proxy :: Proxy CreateInterconnect)

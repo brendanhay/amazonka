@@ -136,66 +136,66 @@ createAssociationBatchTest = undefined
 
 describeDocumentResponseTest :: DescribeDocumentResponse -> TestTree
 describeDocumentResponseTest = resp
-    "DescribeDocument"
+    "DescribeDocumentResponse"
     "fixture/SSM/DescribeDocumentResponse"
     (Proxy :: Proxy DescribeDocument)
 
 createAssociationResponseTest :: CreateAssociationResponse -> TestTree
 createAssociationResponseTest = resp
-    "CreateAssociation"
+    "CreateAssociationResponse"
     "fixture/SSM/CreateAssociationResponse"
     (Proxy :: Proxy CreateAssociation)
 
 createDocumentResponseTest :: CreateDocumentResponse -> TestTree
 createDocumentResponseTest = resp
-    "CreateDocument"
+    "CreateDocumentResponse"
     "fixture/SSM/CreateDocumentResponse"
     (Proxy :: Proxy CreateDocument)
 
 listDocumentsResponseTest :: ListDocumentsResponse -> TestTree
 listDocumentsResponseTest = resp
-    "ListDocuments"
+    "ListDocumentsResponse"
     "fixture/SSM/ListDocumentsResponse"
     (Proxy :: Proxy ListDocuments)
 
 getDocumentResponseTest :: GetDocumentResponse -> TestTree
 getDocumentResponseTest = resp
-    "GetDocument"
+    "GetDocumentResponse"
     "fixture/SSM/GetDocumentResponse"
     (Proxy :: Proxy GetDocument)
 
 describeAssociationResponseTest :: DescribeAssociationResponse -> TestTree
 describeAssociationResponseTest = resp
-    "DescribeAssociation"
+    "DescribeAssociationResponse"
     "fixture/SSM/DescribeAssociationResponse"
     (Proxy :: Proxy DescribeAssociation)
 
 updateAssociationStatusResponseTest :: UpdateAssociationStatusResponse -> TestTree
 updateAssociationStatusResponseTest = resp
-    "UpdateAssociationStatus"
+    "UpdateAssociationStatusResponse"
     "fixture/SSM/UpdateAssociationStatusResponse"
     (Proxy :: Proxy UpdateAssociationStatus)
 
 deleteAssociationResponseTest :: DeleteAssociationResponse -> TestTree
 deleteAssociationResponseTest = resp
-    "DeleteAssociation"
+    "DeleteAssociationResponse"
     "fixture/SSM/DeleteAssociationResponse"
     (Proxy :: Proxy DeleteAssociation)
 
 listAssociationsResponseTest :: ListAssociationsResponse -> TestTree
 listAssociationsResponseTest = resp
-    "ListAssociations"
+    "ListAssociationsResponse"
     "fixture/SSM/ListAssociationsResponse"
     (Proxy :: Proxy ListAssociations)
 
 deleteDocumentResponseTest :: DeleteDocumentResponse -> TestTree
 deleteDocumentResponseTest = resp
-    "DeleteDocument"
+    "DeleteDocumentResponse"
     "fixture/SSM/DeleteDocumentResponse"
     (Proxy :: Proxy DeleteDocument)
 
 createAssociationBatchResponseTest :: CreateAssociationBatchResponse -> TestTree
 createAssociationBatchResponseTest = resp
-    "CreateAssociationBatch"
+    "CreateAssociationBatchResponse"
     "fixture/SSM/CreateAssociationBatchResponse"
     (Proxy :: Proxy CreateAssociationBatch)

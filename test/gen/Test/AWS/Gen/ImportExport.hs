@@ -91,36 +91,36 @@ cancelJobTest = undefined
 
 getShippingLabelResponseTest :: GetShippingLabelResponse -> TestTree
 getShippingLabelResponseTest = resp
-    "GetShippingLabel"
+    "GetShippingLabelResponse"
     "fixture/ImportExport/GetShippingLabelResponse"
     (Proxy :: Proxy GetShippingLabel)
 
 createJobResponseTest :: CreateJobResponse -> TestTree
 createJobResponseTest = resp
-    "CreateJob"
+    "CreateJobResponse"
     "fixture/ImportExport/CreateJobResponse"
     (Proxy :: Proxy CreateJob)
 
 listJobsResponseTest :: ListJobsResponse -> TestTree
 listJobsResponseTest = resp
-    "ListJobs"
+    "ListJobsResponse"
     "fixture/ImportExport/ListJobsResponse"
     (Proxy :: Proxy ListJobs)
 
 updateJobResponseTest :: UpdateJobResponse -> TestTree
 updateJobResponseTest = resp
-    "UpdateJob"
+    "UpdateJobResponse"
     "fixture/ImportExport/UpdateJobResponse"
     (Proxy :: Proxy UpdateJob)
 
 getStatusResponseTest :: GetStatusResponse -> TestTree
 getStatusResponseTest = resp
-    "GetStatus"
+    "GetStatusResponse"
     "fixture/ImportExport/GetStatusResponse"
     (Proxy :: Proxy GetStatus)
 
 cancelJobResponseTest :: CancelJobResponse -> TestTree
 cancelJobResponseTest = resp
-    "CancelJob"
+    "CancelJobResponse"
     "fixture/ImportExport/CancelJobResponse"
     (Proxy :: Proxy CancelJob)

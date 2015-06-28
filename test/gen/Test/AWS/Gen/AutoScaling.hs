@@ -469,288 +469,288 @@ describeAdjustmentTypesTest = undefined
 
 describeMetricCollectionTypesResponseTest :: DescribeMetricCollectionTypesResponse -> TestTree
 describeMetricCollectionTypesResponseTest = resp
-    "DescribeMetricCollectionTypes"
+    "DescribeMetricCollectionTypesResponse"
     "fixture/AutoScaling/DescribeMetricCollectionTypesResponse"
     (Proxy :: Proxy DescribeMetricCollectionTypes)
 
 putScalingPolicyResponseTest :: PutScalingPolicyResponse -> TestTree
 putScalingPolicyResponseTest = resp
-    "PutScalingPolicy"
+    "PutScalingPolicyResponse"
     "fixture/AutoScaling/PutScalingPolicyResponse"
     (Proxy :: Proxy PutScalingPolicy)
 
 deleteNotificationConfigurationResponseTest :: DeleteNotificationConfigurationResponse -> TestTree
 deleteNotificationConfigurationResponseTest = resp
-    "DeleteNotificationConfiguration"
+    "DeleteNotificationConfigurationResponse"
     "fixture/AutoScaling/DeleteNotificationConfigurationResponse"
     (Proxy :: Proxy DeleteNotificationConfiguration)
 
 describeTagsResponseTest :: DescribeTagsResponse -> TestTree
 describeTagsResponseTest = resp
-    "DescribeTags"
+    "DescribeTagsResponse"
     "fixture/AutoScaling/DescribeTagsResponse"
     (Proxy :: Proxy DescribeTags)
 
 deleteLaunchConfigurationResponseTest :: DeleteLaunchConfigurationResponse -> TestTree
 deleteLaunchConfigurationResponseTest = resp
-    "DeleteLaunchConfiguration"
+    "DeleteLaunchConfigurationResponse"
     "fixture/AutoScaling/DeleteLaunchConfigurationResponse"
     (Proxy :: Proxy DeleteLaunchConfiguration)
 
 describeLoadBalancersResponseTest :: DescribeLoadBalancersResponse -> TestTree
 describeLoadBalancersResponseTest = resp
-    "DescribeLoadBalancers"
+    "DescribeLoadBalancersResponse"
     "fixture/AutoScaling/DescribeLoadBalancersResponse"
     (Proxy :: Proxy DescribeLoadBalancers)
 
 putNotificationConfigurationResponseTest :: PutNotificationConfigurationResponse -> TestTree
 putNotificationConfigurationResponseTest = resp
-    "PutNotificationConfiguration"
+    "PutNotificationConfigurationResponse"
     "fixture/AutoScaling/PutNotificationConfigurationResponse"
     (Proxy :: Proxy PutNotificationConfiguration)
 
 setInstanceHealthResponseTest :: SetInstanceHealthResponse -> TestTree
 setInstanceHealthResponseTest = resp
-    "SetInstanceHealth"
+    "SetInstanceHealthResponse"
     "fixture/AutoScaling/SetInstanceHealthResponse"
     (Proxy :: Proxy SetInstanceHealth)
 
 enterStandbyResponseTest :: EnterStandbyResponse -> TestTree
 enterStandbyResponseTest = resp
-    "EnterStandby"
+    "EnterStandbyResponse"
     "fixture/AutoScaling/EnterStandbyResponse"
     (Proxy :: Proxy EnterStandby)
 
 suspendProcessesResponseTest :: SuspendProcessesResponse -> TestTree
 suspendProcessesResponseTest = resp
-    "SuspendProcesses"
+    "SuspendProcessesResponse"
     "fixture/AutoScaling/SuspendProcessesResponse"
     (Proxy :: Proxy SuspendProcesses)
 
 exitStandbyResponseTest :: ExitStandbyResponse -> TestTree
 exitStandbyResponseTest = resp
-    "ExitStandby"
+    "ExitStandbyResponse"
     "fixture/AutoScaling/ExitStandbyResponse"
     (Proxy :: Proxy ExitStandby)
 
 describeTerminationPolicyTypesResponseTest :: DescribeTerminationPolicyTypesResponse -> TestTree
 describeTerminationPolicyTypesResponseTest = resp
-    "DescribeTerminationPolicyTypes"
+    "DescribeTerminationPolicyTypesResponse"
     "fixture/AutoScaling/DescribeTerminationPolicyTypesResponse"
     (Proxy :: Proxy DescribeTerminationPolicyTypes)
 
 describeAutoScalingInstancesResponseTest :: DescribeAutoScalingInstancesResponse -> TestTree
 describeAutoScalingInstancesResponseTest = resp
-    "DescribeAutoScalingInstances"
+    "DescribeAutoScalingInstancesResponse"
     "fixture/AutoScaling/DescribeAutoScalingInstancesResponse"
     (Proxy :: Proxy DescribeAutoScalingInstances)
 
 detachInstancesResponseTest :: DetachInstancesResponse -> TestTree
 detachInstancesResponseTest = resp
-    "DetachInstances"
+    "DetachInstancesResponse"
     "fixture/AutoScaling/DetachInstancesResponse"
     (Proxy :: Proxy DetachInstances)
 
 disableMetricsCollectionResponseTest :: DisableMetricsCollectionResponse -> TestTree
 disableMetricsCollectionResponseTest = resp
-    "DisableMetricsCollection"
+    "DisableMetricsCollectionResponse"
     "fixture/AutoScaling/DisableMetricsCollectionResponse"
     (Proxy :: Proxy DisableMetricsCollection)
 
 recordLifecycleActionHeartbeatResponseTest :: RecordLifecycleActionHeartbeatResponse -> TestTree
 recordLifecycleActionHeartbeatResponseTest = resp
-    "RecordLifecycleActionHeartbeat"
+    "RecordLifecycleActionHeartbeatResponse"
     "fixture/AutoScaling/RecordLifecycleActionHeartbeatResponse"
     (Proxy :: Proxy RecordLifecycleActionHeartbeat)
 
 deleteTagsResponseTest :: DeleteTagsResponse -> TestTree
 deleteTagsResponseTest = resp
-    "DeleteTags"
+    "DeleteTagsResponse"
     "fixture/AutoScaling/DeleteTagsResponse"
     (Proxy :: Proxy DeleteTags)
 
 describeScalingProcessTypesResponseTest :: DescribeScalingProcessTypesResponse -> TestTree
 describeScalingProcessTypesResponseTest = resp
-    "DescribeScalingProcessTypes"
+    "DescribeScalingProcessTypesResponse"
     "fixture/AutoScaling/DescribeScalingProcessTypesResponse"
     (Proxy :: Proxy DescribeScalingProcessTypes)
 
 enableMetricsCollectionResponseTest :: EnableMetricsCollectionResponse -> TestTree
 enableMetricsCollectionResponseTest = resp
-    "EnableMetricsCollection"
+    "EnableMetricsCollectionResponse"
     "fixture/AutoScaling/EnableMetricsCollectionResponse"
     (Proxy :: Proxy EnableMetricsCollection)
 
 describeLifecycleHooksResponseTest :: DescribeLifecycleHooksResponse -> TestTree
 describeLifecycleHooksResponseTest = resp
-    "DescribeLifecycleHooks"
+    "DescribeLifecycleHooksResponse"
     "fixture/AutoScaling/DescribeLifecycleHooksResponse"
     (Proxy :: Proxy DescribeLifecycleHooks)
 
 describeAutoScalingGroupsResponseTest :: DescribeAutoScalingGroupsResponse -> TestTree
 describeAutoScalingGroupsResponseTest = resp
-    "DescribeAutoScalingGroups"
+    "DescribeAutoScalingGroupsResponse"
     "fixture/AutoScaling/DescribeAutoScalingGroupsResponse"
     (Proxy :: Proxy DescribeAutoScalingGroups)
 
 setDesiredCapacityResponseTest :: SetDesiredCapacityResponse -> TestTree
 setDesiredCapacityResponseTest = resp
-    "SetDesiredCapacity"
+    "SetDesiredCapacityResponse"
     "fixture/AutoScaling/SetDesiredCapacityResponse"
     (Proxy :: Proxy SetDesiredCapacity)
 
 detachLoadBalancersResponseTest :: DetachLoadBalancersResponse -> TestTree
 detachLoadBalancersResponseTest = resp
-    "DetachLoadBalancers"
+    "DetachLoadBalancersResponse"
     "fixture/AutoScaling/DetachLoadBalancersResponse"
     (Proxy :: Proxy DetachLoadBalancers)
 
 deleteScheduledActionResponseTest :: DeleteScheduledActionResponse -> TestTree
 deleteScheduledActionResponseTest = resp
-    "DeleteScheduledAction"
+    "DeleteScheduledActionResponse"
     "fixture/AutoScaling/DeleteScheduledActionResponse"
     (Proxy :: Proxy DeleteScheduledAction)
 
 createOrUpdateTagsResponseTest :: CreateOrUpdateTagsResponse -> TestTree
 createOrUpdateTagsResponseTest = resp
-    "CreateOrUpdateTags"
+    "CreateOrUpdateTagsResponse"
     "fixture/AutoScaling/CreateOrUpdateTagsResponse"
     (Proxy :: Proxy CreateOrUpdateTags)
 
 deletePolicyResponseTest :: DeletePolicyResponse -> TestTree
 deletePolicyResponseTest = resp
-    "DeletePolicy"
+    "DeletePolicyResponse"
     "fixture/AutoScaling/DeletePolicyResponse"
     (Proxy :: Proxy DeletePolicy)
 
 describeAutoScalingNotificationTypesResponseTest :: DescribeAutoScalingNotificationTypesResponse -> TestTree
 describeAutoScalingNotificationTypesResponseTest = resp
-    "DescribeAutoScalingNotificationTypes"
+    "DescribeAutoScalingNotificationTypesResponse"
     "fixture/AutoScaling/DescribeAutoScalingNotificationTypesResponse"
     (Proxy :: Proxy DescribeAutoScalingNotificationTypes)
 
 completeLifecycleActionResponseTest :: CompleteLifecycleActionResponse -> TestTree
 completeLifecycleActionResponseTest = resp
-    "CompleteLifecycleAction"
+    "CompleteLifecycleActionResponse"
     "fixture/AutoScaling/CompleteLifecycleActionResponse"
     (Proxy :: Proxy CompleteLifecycleAction)
 
 attachInstancesResponseTest :: AttachInstancesResponse -> TestTree
 attachInstancesResponseTest = resp
-    "AttachInstances"
+    "AttachInstancesResponse"
     "fixture/AutoScaling/AttachInstancesResponse"
     (Proxy :: Proxy AttachInstances)
 
 describeScheduledActionsResponseTest :: DescribeScheduledActionsResponse -> TestTree
 describeScheduledActionsResponseTest = resp
-    "DescribeScheduledActions"
+    "DescribeScheduledActionsResponse"
     "fixture/AutoScaling/DescribeScheduledActionsResponse"
     (Proxy :: Proxy DescribeScheduledActions)
 
 deleteAutoScalingGroupResponseTest :: DeleteAutoScalingGroupResponse -> TestTree
 deleteAutoScalingGroupResponseTest = resp
-    "DeleteAutoScalingGroup"
+    "DeleteAutoScalingGroupResponse"
     "fixture/AutoScaling/DeleteAutoScalingGroupResponse"
     (Proxy :: Proxy DeleteAutoScalingGroup)
 
 putLifecycleHookResponseTest :: PutLifecycleHookResponse -> TestTree
 putLifecycleHookResponseTest = resp
-    "PutLifecycleHook"
+    "PutLifecycleHookResponse"
     "fixture/AutoScaling/PutLifecycleHookResponse"
     (Proxy :: Proxy PutLifecycleHook)
 
 updateAutoScalingGroupResponseTest :: UpdateAutoScalingGroupResponse -> TestTree
 updateAutoScalingGroupResponseTest = resp
-    "UpdateAutoScalingGroup"
+    "UpdateAutoScalingGroupResponse"
     "fixture/AutoScaling/UpdateAutoScalingGroupResponse"
     (Proxy :: Proxy UpdateAutoScalingGroup)
 
 deleteLifecycleHookResponseTest :: DeleteLifecycleHookResponse -> TestTree
 deleteLifecycleHookResponseTest = resp
-    "DeleteLifecycleHook"
+    "DeleteLifecycleHookResponse"
     "fixture/AutoScaling/DeleteLifecycleHookResponse"
     (Proxy :: Proxy DeleteLifecycleHook)
 
 resumeProcessesResponseTest :: ResumeProcessesResponse -> TestTree
 resumeProcessesResponseTest = resp
-    "ResumeProcesses"
+    "ResumeProcessesResponse"
     "fixture/AutoScaling/ResumeProcessesResponse"
     (Proxy :: Proxy ResumeProcesses)
 
 executePolicyResponseTest :: ExecutePolicyResponse -> TestTree
 executePolicyResponseTest = resp
-    "ExecutePolicy"
+    "ExecutePolicyResponse"
     "fixture/AutoScaling/ExecutePolicyResponse"
     (Proxy :: Proxy ExecutePolicy)
 
 terminateInstanceInAutoScalingGroupResponseTest :: TerminateInstanceInAutoScalingGroupResponse -> TestTree
 terminateInstanceInAutoScalingGroupResponseTest = resp
-    "TerminateInstanceInAutoScalingGroup"
+    "TerminateInstanceInAutoScalingGroupResponse"
     "fixture/AutoScaling/TerminateInstanceInAutoScalingGroupResponse"
     (Proxy :: Proxy TerminateInstanceInAutoScalingGroup)
 
 describeAccountLimitsResponseTest :: DescribeAccountLimitsResponse -> TestTree
 describeAccountLimitsResponseTest = resp
-    "DescribeAccountLimits"
+    "DescribeAccountLimitsResponse"
     "fixture/AutoScaling/DescribeAccountLimitsResponse"
     (Proxy :: Proxy DescribeAccountLimits)
 
 attachLoadBalancersResponseTest :: AttachLoadBalancersResponse -> TestTree
 attachLoadBalancersResponseTest = resp
-    "AttachLoadBalancers"
+    "AttachLoadBalancersResponse"
     "fixture/AutoScaling/AttachLoadBalancersResponse"
     (Proxy :: Proxy AttachLoadBalancers)
 
 putScheduledUpdateGroupActionResponseTest :: PutScheduledUpdateGroupActionResponse -> TestTree
 putScheduledUpdateGroupActionResponseTest = resp
-    "PutScheduledUpdateGroupAction"
+    "PutScheduledUpdateGroupActionResponse"
     "fixture/AutoScaling/PutScheduledUpdateGroupActionResponse"
     (Proxy :: Proxy PutScheduledUpdateGroupAction)
 
 describePoliciesResponseTest :: DescribePoliciesResponse -> TestTree
 describePoliciesResponseTest = resp
-    "DescribePolicies"
+    "DescribePoliciesResponse"
     "fixture/AutoScaling/DescribePoliciesResponse"
     (Proxy :: Proxy DescribePolicies)
 
 describeNotificationConfigurationsResponseTest :: DescribeNotificationConfigurationsResponse -> TestTree
 describeNotificationConfigurationsResponseTest = resp
-    "DescribeNotificationConfigurations"
+    "DescribeNotificationConfigurationsResponse"
     "fixture/AutoScaling/DescribeNotificationConfigurationsResponse"
     (Proxy :: Proxy DescribeNotificationConfigurations)
 
 describeLaunchConfigurationsResponseTest :: DescribeLaunchConfigurationsResponse -> TestTree
 describeLaunchConfigurationsResponseTest = resp
-    "DescribeLaunchConfigurations"
+    "DescribeLaunchConfigurationsResponse"
     "fixture/AutoScaling/DescribeLaunchConfigurationsResponse"
     (Proxy :: Proxy DescribeLaunchConfigurations)
 
 describeLifecycleHookTypesResponseTest :: DescribeLifecycleHookTypesResponse -> TestTree
 describeLifecycleHookTypesResponseTest = resp
-    "DescribeLifecycleHookTypes"
+    "DescribeLifecycleHookTypesResponse"
     "fixture/AutoScaling/DescribeLifecycleHookTypesResponse"
     (Proxy :: Proxy DescribeLifecycleHookTypes)
 
 describeScalingActivitiesResponseTest :: DescribeScalingActivitiesResponse -> TestTree
 describeScalingActivitiesResponseTest = resp
-    "DescribeScalingActivities"
+    "DescribeScalingActivitiesResponse"
     "fixture/AutoScaling/DescribeScalingActivitiesResponse"
     (Proxy :: Proxy DescribeScalingActivities)
 
 createAutoScalingGroupResponseTest :: CreateAutoScalingGroupResponse -> TestTree
 createAutoScalingGroupResponseTest = resp
-    "CreateAutoScalingGroup"
+    "CreateAutoScalingGroupResponse"
     "fixture/AutoScaling/CreateAutoScalingGroupResponse"
     (Proxy :: Proxy CreateAutoScalingGroup)
 
 createLaunchConfigurationResponseTest :: CreateLaunchConfigurationResponse -> TestTree
 createLaunchConfigurationResponseTest = resp
-    "CreateLaunchConfiguration"
+    "CreateLaunchConfigurationResponse"
     "fixture/AutoScaling/CreateLaunchConfigurationResponse"
     (Proxy :: Proxy CreateLaunchConfiguration)
 
 describeAdjustmentTypesResponseTest :: DescribeAdjustmentTypesResponse -> TestTree
 describeAdjustmentTypesResponseTest = resp
-    "DescribeAdjustmentTypes"
+    "DescribeAdjustmentTypesResponse"
     "fixture/AutoScaling/DescribeAdjustmentTypesResponse"
     (Proxy :: Proxy DescribeAdjustmentTypes)

@@ -64,18 +64,18 @@ searchTest = undefined
 
 suggestResponseTest :: SuggestResponse -> TestTree
 suggestResponseTest = resp
-    "Suggest"
+    "SuggestResponse"
     "fixture/CloudSearchDomains/SuggestResponse"
     (Proxy :: Proxy Suggest)
 
 uploadDocumentsResponseTest :: UploadDocumentsResponse -> TestTree
 uploadDocumentsResponseTest = resp
-    "UploadDocuments"
+    "UploadDocumentsResponse"
     "fixture/CloudSearchDomains/UploadDocumentsResponse"
     (Proxy :: Proxy UploadDocuments)
 
 searchResponseTest :: SearchResponse -> TestTree
 searchResponseTest = resp
-    "Search"
+    "SearchResponse"
     "fixture/CloudSearchDomains/SearchResponse"
     (Proxy :: Proxy Search)

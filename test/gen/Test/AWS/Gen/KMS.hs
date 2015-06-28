@@ -271,156 +271,156 @@ getKeyPolicyTest = undefined
 
 disableKeyRotationResponseTest :: DisableKeyRotationResponse -> TestTree
 disableKeyRotationResponseTest = resp
-    "DisableKeyRotation"
+    "DisableKeyRotationResponse"
     "fixture/KMS/DisableKeyRotationResponse"
     (Proxy :: Proxy DisableKeyRotation)
 
 generateDataKeyWithoutPlaintextResponseTest :: GenerateDataKeyWithoutPlaintextResponse -> TestTree
 generateDataKeyWithoutPlaintextResponseTest = resp
-    "GenerateDataKeyWithoutPlaintext"
+    "GenerateDataKeyWithoutPlaintextResponse"
     "fixture/KMS/GenerateDataKeyWithoutPlaintextResponse"
     (Proxy :: Proxy GenerateDataKeyWithoutPlaintext)
 
 listGrantsResponseTest :: ListGrantsResponse -> TestTree
 listGrantsResponseTest = resp
-    "ListGrants"
+    "ListGrantsResponse"
     "fixture/KMS/ListGrantsResponse"
     (Proxy :: Proxy ListGrants)
 
 encryptResponseTest :: EncryptResponse -> TestTree
 encryptResponseTest = resp
-    "Encrypt"
+    "EncryptResponse"
     "fixture/KMS/EncryptResponse"
     (Proxy :: Proxy Encrypt)
 
 enableKeyRotationResponseTest :: EnableKeyRotationResponse -> TestTree
 enableKeyRotationResponseTest = resp
-    "EnableKeyRotation"
+    "EnableKeyRotationResponse"
     "fixture/KMS/EnableKeyRotationResponse"
     (Proxy :: Proxy EnableKeyRotation)
 
 createGrantResponseTest :: CreateGrantResponse -> TestTree
 createGrantResponseTest = resp
-    "CreateGrant"
+    "CreateGrantResponse"
     "fixture/KMS/CreateGrantResponse"
     (Proxy :: Proxy CreateGrant)
 
 createAliasResponseTest :: CreateAliasResponse -> TestTree
 createAliasResponseTest = resp
-    "CreateAlias"
+    "CreateAliasResponse"
     "fixture/KMS/CreateAliasResponse"
     (Proxy :: Proxy CreateAlias)
 
 listAliasesResponseTest :: ListAliasesResponse -> TestTree
 listAliasesResponseTest = resp
-    "ListAliases"
+    "ListAliasesResponse"
     "fixture/KMS/ListAliasesResponse"
     (Proxy :: Proxy ListAliases)
 
 generateRandomResponseTest :: GenerateRandomResponse -> TestTree
 generateRandomResponseTest = resp
-    "GenerateRandom"
+    "GenerateRandomResponse"
     "fixture/KMS/GenerateRandomResponse"
     (Proxy :: Proxy GenerateRandom)
 
 disableKeyResponseTest :: DisableKeyResponse -> TestTree
 disableKeyResponseTest = resp
-    "DisableKey"
+    "DisableKeyResponse"
     "fixture/KMS/DisableKeyResponse"
     (Proxy :: Proxy DisableKey)
 
 createKeyResponseTest :: CreateKeyResponse -> TestTree
 createKeyResponseTest = resp
-    "CreateKey"
+    "CreateKeyResponse"
     "fixture/KMS/CreateKeyResponse"
     (Proxy :: Proxy CreateKey)
 
 retireGrantResponseTest :: RetireGrantResponse -> TestTree
 retireGrantResponseTest = resp
-    "RetireGrant"
+    "RetireGrantResponse"
     "fixture/KMS/RetireGrantResponse"
     (Proxy :: Proxy RetireGrant)
 
 listKeysResponseTest :: ListKeysResponse -> TestTree
 listKeysResponseTest = resp
-    "ListKeys"
+    "ListKeysResponse"
     "fixture/KMS/ListKeysResponse"
     (Proxy :: Proxy ListKeys)
 
 getKeyRotationStatusResponseTest :: GetKeyRotationStatusResponse -> TestTree
 getKeyRotationStatusResponseTest = resp
-    "GetKeyRotationStatus"
+    "GetKeyRotationStatusResponse"
     "fixture/KMS/GetKeyRotationStatusResponse"
     (Proxy :: Proxy GetKeyRotationStatus)
 
 generateDataKeyResponseTest :: GenerateDataKeyResponse -> TestTree
 generateDataKeyResponseTest = resp
-    "GenerateDataKey"
+    "GenerateDataKeyResponse"
     "fixture/KMS/GenerateDataKeyResponse"
     (Proxy :: Proxy GenerateDataKey)
 
 deleteAliasResponseTest :: DeleteAliasResponse -> TestTree
 deleteAliasResponseTest = resp
-    "DeleteAlias"
+    "DeleteAliasResponse"
     "fixture/KMS/DeleteAliasResponse"
     (Proxy :: Proxy DeleteAlias)
 
 updateAliasResponseTest :: UpdateAliasResponse -> TestTree
 updateAliasResponseTest = resp
-    "UpdateAlias"
+    "UpdateAliasResponse"
     "fixture/KMS/UpdateAliasResponse"
     (Proxy :: Proxy UpdateAlias)
 
 describeKeyResponseTest :: DescribeKeyResponse -> TestTree
 describeKeyResponseTest = resp
-    "DescribeKey"
+    "DescribeKeyResponse"
     "fixture/KMS/DescribeKeyResponse"
     (Proxy :: Proxy DescribeKey)
 
 decryptResponseTest :: DecryptResponse -> TestTree
 decryptResponseTest = resp
-    "Decrypt"
+    "DecryptResponse"
     "fixture/KMS/DecryptResponse"
     (Proxy :: Proxy Decrypt)
 
 updateKeyDescriptionResponseTest :: UpdateKeyDescriptionResponse -> TestTree
 updateKeyDescriptionResponseTest = resp
-    "UpdateKeyDescription"
+    "UpdateKeyDescriptionResponse"
     "fixture/KMS/UpdateKeyDescriptionResponse"
     (Proxy :: Proxy UpdateKeyDescription)
 
 reEncryptResponseTest :: ReEncryptResponse -> TestTree
 reEncryptResponseTest = resp
-    "ReEncrypt"
+    "ReEncryptResponse"
     "fixture/KMS/ReEncryptResponse"
     (Proxy :: Proxy ReEncrypt)
 
 listKeyPoliciesResponseTest :: ListKeyPoliciesResponse -> TestTree
 listKeyPoliciesResponseTest = resp
-    "ListKeyPolicies"
+    "ListKeyPoliciesResponse"
     "fixture/KMS/ListKeyPoliciesResponse"
     (Proxy :: Proxy ListKeyPolicies)
 
 enableKeyResponseTest :: EnableKeyResponse -> TestTree
 enableKeyResponseTest = resp
-    "EnableKey"
+    "EnableKeyResponse"
     "fixture/KMS/EnableKeyResponse"
     (Proxy :: Proxy EnableKey)
 
 putKeyPolicyResponseTest :: PutKeyPolicyResponse -> TestTree
 putKeyPolicyResponseTest = resp
-    "PutKeyPolicy"
+    "PutKeyPolicyResponse"
     "fixture/KMS/PutKeyPolicyResponse"
     (Proxy :: Proxy PutKeyPolicy)
 
 revokeGrantResponseTest :: RevokeGrantResponse -> TestTree
 revokeGrantResponseTest = resp
-    "RevokeGrant"
+    "RevokeGrantResponse"
     "fixture/KMS/RevokeGrantResponse"
     (Proxy :: Proxy RevokeGrant)
 
 getKeyPolicyResponseTest :: GetKeyPolicyResponse -> TestTree
 getKeyPolicyResponseTest = resp
-    "GetKeyPolicy"
+    "GetKeyPolicyResponse"
     "fixture/KMS/GetKeyPolicyResponse"
     (Proxy :: Proxy GetKeyPolicy)

@@ -505,312 +505,312 @@ uploadPartCopyTest = undefined
 
 putBucketRequestPaymentResponseTest :: PutBucketRequestPaymentResponse -> TestTree
 putBucketRequestPaymentResponseTest = resp
-    "PutBucketRequestPayment"
+    "PutBucketRequestPaymentResponse"
     "fixture/S3/PutBucketRequestPaymentResponse"
     (Proxy :: Proxy PutBucketRequestPayment)
 
 putObjectResponseTest :: PutObjectResponse -> TestTree
 putObjectResponseTest = resp
-    "PutObject"
+    "PutObjectResponse"
     "fixture/S3/PutObjectResponse"
     (Proxy :: Proxy PutObject)
 
 putBucketLoggingResponseTest :: PutBucketLoggingResponse -> TestTree
 putBucketLoggingResponseTest = resp
-    "PutBucketLogging"
+    "PutBucketLoggingResponse"
     "fixture/S3/PutBucketLoggingResponse"
     (Proxy :: Proxy PutBucketLogging)
 
 deleteObjectResponseTest :: DeleteObjectResponse -> TestTree
 deleteObjectResponseTest = resp
-    "DeleteObject"
+    "DeleteObjectResponse"
     "fixture/S3/DeleteObjectResponse"
     (Proxy :: Proxy DeleteObject)
 
 deleteBucketResponseTest :: DeleteBucketResponse -> TestTree
 deleteBucketResponseTest = resp
-    "DeleteBucket"
+    "DeleteBucketResponse"
     "fixture/S3/DeleteBucketResponse"
     (Proxy :: Proxy DeleteBucket)
 
 listBucketsResponseTest :: ListBucketsResponse -> TestTree
 listBucketsResponseTest = resp
-    "ListBuckets"
+    "ListBucketsResponse"
     "fixture/S3/ListBucketsResponse"
     (Proxy :: Proxy ListBuckets)
 
 createBucketResponseTest :: CreateBucketResponse -> TestTree
 createBucketResponseTest = resp
-    "CreateBucket"
+    "CreateBucketResponse"
     "fixture/S3/CreateBucketResponse"
     (Proxy :: Proxy CreateBucket)
 
 putBucketTaggingResponseTest :: PutBucketTaggingResponse -> TestTree
 putBucketTaggingResponseTest = resp
-    "PutBucketTagging"
+    "PutBucketTaggingResponse"
     "fixture/S3/PutBucketTaggingResponse"
     (Proxy :: Proxy PutBucketTagging)
 
 deleteBucketTaggingResponseTest :: DeleteBucketTaggingResponse -> TestTree
 deleteBucketTaggingResponseTest = resp
-    "DeleteBucketTagging"
+    "DeleteBucketTaggingResponse"
     "fixture/S3/DeleteBucketTaggingResponse"
     (Proxy :: Proxy DeleteBucketTagging)
 
 putObjectACLResponseTest :: PutObjectACLResponse -> TestTree
 putObjectACLResponseTest = resp
-    "PutObjectACL"
+    "PutObjectACLResponse"
     "fixture/S3/PutObjectACLResponse"
     (Proxy :: Proxy PutObjectACL)
 
 notificationConfigurationTest :: NotificationConfiguration -> TestTree
 notificationConfigurationTest = resp
-    "GetBucketNotificationConfiguration"
+    "NotificationConfiguration"
     "fixture/S3/NotificationConfiguration"
     (Proxy :: Proxy GetBucketNotificationConfiguration)
 
 getBucketLocationResponseTest :: GetBucketLocationResponse -> TestTree
 getBucketLocationResponseTest = resp
-    "GetBucketLocation"
+    "GetBucketLocationResponse"
     "fixture/S3/GetBucketLocationResponse"
     (Proxy :: Proxy GetBucketLocation)
 
 putBucketReplicationResponseTest :: PutBucketReplicationResponse -> TestTree
 putBucketReplicationResponseTest = resp
-    "PutBucketReplication"
+    "PutBucketReplicationResponse"
     "fixture/S3/PutBucketReplicationResponse"
     (Proxy :: Proxy PutBucketReplication)
 
 getBucketWebsiteResponseTest :: GetBucketWebsiteResponse -> TestTree
 getBucketWebsiteResponseTest = resp
-    "GetBucketWebsite"
+    "GetBucketWebsiteResponse"
     "fixture/S3/GetBucketWebsiteResponse"
     (Proxy :: Proxy GetBucketWebsite)
 
 getObjectResponseTest :: GetObjectResponse -> TestTree
 getObjectResponseTest = resp
-    "GetObject"
+    "GetObjectResponse"
     "fixture/S3/GetObjectResponse"
     (Proxy :: Proxy GetObject)
 
 deleteBucketReplicationResponseTest :: DeleteBucketReplicationResponse -> TestTree
 deleteBucketReplicationResponseTest = resp
-    "DeleteBucketReplication"
+    "DeleteBucketReplicationResponse"
     "fixture/S3/DeleteBucketReplicationResponse"
     (Proxy :: Proxy DeleteBucketReplication)
 
 getBucketRequestPaymentResponseTest :: GetBucketRequestPaymentResponse -> TestTree
 getBucketRequestPaymentResponseTest = resp
-    "GetBucketRequestPayment"
+    "GetBucketRequestPaymentResponse"
     "fixture/S3/GetBucketRequestPaymentResponse"
     (Proxy :: Proxy GetBucketRequestPayment)
 
 listObjectVersionsResponseTest :: ListObjectVersionsResponse -> TestTree
 listObjectVersionsResponseTest = resp
-    "ListObjectVersions"
+    "ListObjectVersionsResponse"
     "fixture/S3/ListObjectVersionsResponse"
     (Proxy :: Proxy ListObjectVersions)
 
 getBucketLifecycleResponseTest :: GetBucketLifecycleResponse -> TestTree
 getBucketLifecycleResponseTest = resp
-    "GetBucketLifecycle"
+    "GetBucketLifecycleResponse"
     "fixture/S3/GetBucketLifecycleResponse"
     (Proxy :: Proxy GetBucketLifecycle)
 
 headBucketResponseTest :: HeadBucketResponse -> TestTree
 headBucketResponseTest = resp
-    "HeadBucket"
+    "HeadBucketResponse"
     "fixture/S3/HeadBucketResponse"
     (Proxy :: Proxy HeadBucket)
 
 putBucketLifecycleResponseTest :: PutBucketLifecycleResponse -> TestTree
 putBucketLifecycleResponseTest = resp
-    "PutBucketLifecycle"
+    "PutBucketLifecycleResponse"
     "fixture/S3/PutBucketLifecycleResponse"
     (Proxy :: Proxy PutBucketLifecycle)
 
 createMultipartUploadResponseTest :: CreateMultipartUploadResponse -> TestTree
 createMultipartUploadResponseTest = resp
-    "CreateMultipartUpload"
+    "CreateMultipartUploadResponse"
     "fixture/S3/CreateMultipartUploadResponse"
     (Proxy :: Proxy CreateMultipartUpload)
 
 deleteBucketLifecycleResponseTest :: DeleteBucketLifecycleResponse -> TestTree
 deleteBucketLifecycleResponseTest = resp
-    "DeleteBucketLifecycle"
+    "DeleteBucketLifecycleResponse"
     "fixture/S3/DeleteBucketLifecycleResponse"
     (Proxy :: Proxy DeleteBucketLifecycle)
 
 getBucketReplicationResponseTest :: GetBucketReplicationResponse -> TestTree
 getBucketReplicationResponseTest = resp
-    "GetBucketReplication"
+    "GetBucketReplicationResponse"
     "fixture/S3/GetBucketReplicationResponse"
     (Proxy :: Proxy GetBucketReplication)
 
 putBucketWebsiteResponseTest :: PutBucketWebsiteResponse -> TestTree
 putBucketWebsiteResponseTest = resp
-    "PutBucketWebsite"
+    "PutBucketWebsiteResponse"
     "fixture/S3/PutBucketWebsiteResponse"
     (Proxy :: Proxy PutBucketWebsite)
 
 completeMultipartUploadResponseTest :: CompleteMultipartUploadResponse -> TestTree
 completeMultipartUploadResponseTest = resp
-    "CompleteMultipartUpload"
+    "CompleteMultipartUploadResponse"
     "fixture/S3/CompleteMultipartUploadResponse"
     (Proxy :: Proxy CompleteMultipartUpload)
 
 uploadPartResponseTest :: UploadPartResponse -> TestTree
 uploadPartResponseTest = resp
-    "UploadPart"
+    "UploadPartResponse"
     "fixture/S3/UploadPartResponse"
     (Proxy :: Proxy UploadPart)
 
 listMultipartUploadsResponseTest :: ListMultipartUploadsResponse -> TestTree
 listMultipartUploadsResponseTest = resp
-    "ListMultipartUploads"
+    "ListMultipartUploadsResponse"
     "fixture/S3/ListMultipartUploadsResponse"
     (Proxy :: Proxy ListMultipartUploads)
 
 deleteBucketWebsiteResponseTest :: DeleteBucketWebsiteResponse -> TestTree
 deleteBucketWebsiteResponseTest = resp
-    "DeleteBucketWebsite"
+    "DeleteBucketWebsiteResponse"
     "fixture/S3/DeleteBucketWebsiteResponse"
     (Proxy :: Proxy DeleteBucketWebsite)
 
 listObjectsResponseTest :: ListObjectsResponse -> TestTree
 listObjectsResponseTest = resp
-    "ListObjects"
+    "ListObjectsResponse"
     "fixture/S3/ListObjectsResponse"
     (Proxy :: Proxy ListObjects)
 
 deleteObjectsResponseTest :: DeleteObjectsResponse -> TestTree
 deleteObjectsResponseTest = resp
-    "DeleteObjects"
+    "DeleteObjectsResponse"
     "fixture/S3/DeleteObjectsResponse"
     (Proxy :: Proxy DeleteObjects)
 
 putBucketPolicyResponseTest :: PutBucketPolicyResponse -> TestTree
 putBucketPolicyResponseTest = resp
-    "PutBucketPolicy"
+    "PutBucketPolicyResponse"
     "fixture/S3/PutBucketPolicyResponse"
     (Proxy :: Proxy PutBucketPolicy)
 
 deleteBucketPolicyResponseTest :: DeleteBucketPolicyResponse -> TestTree
 deleteBucketPolicyResponseTest = resp
-    "DeleteBucketPolicy"
+    "DeleteBucketPolicyResponse"
     "fixture/S3/DeleteBucketPolicyResponse"
     (Proxy :: Proxy DeleteBucketPolicy)
 
 abortMultipartUploadResponseTest :: AbortMultipartUploadResponse -> TestTree
 abortMultipartUploadResponseTest = resp
-    "AbortMultipartUpload"
+    "AbortMultipartUploadResponse"
     "fixture/S3/AbortMultipartUploadResponse"
     (Proxy :: Proxy AbortMultipartUpload)
 
 getObjectTorrentResponseTest :: GetObjectTorrentResponse -> TestTree
 getObjectTorrentResponseTest = resp
-    "GetObjectTorrent"
+    "GetObjectTorrentResponse"
     "fixture/S3/GetObjectTorrentResponse"
     (Proxy :: Proxy GetObjectTorrent)
 
 putBucketCORSResponseTest :: PutBucketCORSResponse -> TestTree
 putBucketCORSResponseTest = resp
-    "PutBucketCORS"
+    "PutBucketCORSResponse"
     "fixture/S3/PutBucketCORSResponse"
     (Proxy :: Proxy PutBucketCORS)
 
 deleteBucketCORSResponseTest :: DeleteBucketCORSResponse -> TestTree
 deleteBucketCORSResponseTest = resp
-    "DeleteBucketCORS"
+    "DeleteBucketCORSResponse"
     "fixture/S3/DeleteBucketCORSResponse"
     (Proxy :: Proxy DeleteBucketCORS)
 
 getBucketVersioningResponseTest :: GetBucketVersioningResponse -> TestTree
 getBucketVersioningResponseTest = resp
-    "GetBucketVersioning"
+    "GetBucketVersioningResponse"
     "fixture/S3/GetBucketVersioningResponse"
     (Proxy :: Proxy GetBucketVersioning)
 
 putBucketNotificationConfigurationResponseTest :: PutBucketNotificationConfigurationResponse -> TestTree
 putBucketNotificationConfigurationResponseTest = resp
-    "PutBucketNotificationConfiguration"
+    "PutBucketNotificationConfigurationResponse"
     "fixture/S3/PutBucketNotificationConfigurationResponse"
     (Proxy :: Proxy PutBucketNotificationConfiguration)
 
 getBucketTaggingResponseTest :: GetBucketTaggingResponse -> TestTree
 getBucketTaggingResponseTest = resp
-    "GetBucketTagging"
+    "GetBucketTaggingResponse"
     "fixture/S3/GetBucketTaggingResponse"
     (Proxy :: Proxy GetBucketTagging)
 
 headObjectResponseTest :: HeadObjectResponse -> TestTree
 headObjectResponseTest = resp
-    "HeadObject"
+    "HeadObjectResponse"
     "fixture/S3/HeadObjectResponse"
     (Proxy :: Proxy HeadObject)
 
 putBucketVersioningResponseTest :: PutBucketVersioningResponse -> TestTree
 putBucketVersioningResponseTest = resp
-    "PutBucketVersioning"
+    "PutBucketVersioningResponse"
     "fixture/S3/PutBucketVersioningResponse"
     (Proxy :: Proxy PutBucketVersioning)
 
 getObjectACLResponseTest :: GetObjectACLResponse -> TestTree
 getObjectACLResponseTest = resp
-    "GetObjectACL"
+    "GetObjectACLResponse"
     "fixture/S3/GetObjectACLResponse"
     (Proxy :: Proxy GetObjectACL)
 
 restoreObjectResponseTest :: RestoreObjectResponse -> TestTree
 restoreObjectResponseTest = resp
-    "RestoreObject"
+    "RestoreObjectResponse"
     "fixture/S3/RestoreObjectResponse"
     (Proxy :: Proxy RestoreObject)
 
 getBucketCORSResponseTest :: GetBucketCORSResponse -> TestTree
 getBucketCORSResponseTest = resp
-    "GetBucketCORS"
+    "GetBucketCORSResponse"
     "fixture/S3/GetBucketCORSResponse"
     (Proxy :: Proxy GetBucketCORS)
 
 copyObjectResponseTest :: CopyObjectResponse -> TestTree
 copyObjectResponseTest = resp
-    "CopyObject"
+    "CopyObjectResponse"
     "fixture/S3/CopyObjectResponse"
     (Proxy :: Proxy CopyObject)
 
 getBucketPolicyResponseTest :: GetBucketPolicyResponse -> TestTree
 getBucketPolicyResponseTest = resp
-    "GetBucketPolicy"
+    "GetBucketPolicyResponse"
     "fixture/S3/GetBucketPolicyResponse"
     (Proxy :: Proxy GetBucketPolicy)
 
 getBucketLoggingResponseTest :: GetBucketLoggingResponse -> TestTree
 getBucketLoggingResponseTest = resp
-    "GetBucketLogging"
+    "GetBucketLoggingResponse"
     "fixture/S3/GetBucketLoggingResponse"
     (Proxy :: Proxy GetBucketLogging)
 
 listPartsResponseTest :: ListPartsResponse -> TestTree
 listPartsResponseTest = resp
-    "ListParts"
+    "ListPartsResponse"
     "fixture/S3/ListPartsResponse"
     (Proxy :: Proxy ListParts)
 
 getBucketACLResponseTest :: GetBucketACLResponse -> TestTree
 getBucketACLResponseTest = resp
-    "GetBucketACL"
+    "GetBucketACLResponse"
     "fixture/S3/GetBucketACLResponse"
     (Proxy :: Proxy GetBucketACL)
 
 putBucketACLResponseTest :: PutBucketACLResponse -> TestTree
 putBucketACLResponseTest = resp
-    "PutBucketACL"
+    "PutBucketACLResponse"
     "fixture/S3/PutBucketACLResponse"
     (Proxy :: Proxy PutBucketACL)
 
 uploadPartCopyResponseTest :: UploadPartCopyResponse -> TestTree
 uploadPartCopyResponseTest = resp
-    "UploadPartCopy"
+    "UploadPartCopyResponse"
     "fixture/S3/UploadPartCopyResponse"
     (Proxy :: Proxy UploadPartCopy)

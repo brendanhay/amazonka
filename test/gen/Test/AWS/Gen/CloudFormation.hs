@@ -190,102 +190,102 @@ describeStackResourceTest = undefined
 
 deleteStackResponseTest :: DeleteStackResponse -> TestTree
 deleteStackResponseTest = resp
-    "DeleteStack"
+    "DeleteStackResponse"
     "fixture/CloudFormation/DeleteStackResponse"
     (Proxy :: Proxy DeleteStack)
 
 updateStackResponseTest :: UpdateStackResponse -> TestTree
 updateStackResponseTest = resp
-    "UpdateStack"
+    "UpdateStackResponse"
     "fixture/CloudFormation/UpdateStackResponse"
     (Proxy :: Proxy UpdateStack)
 
 getTemplateSummaryResponseTest :: GetTemplateSummaryResponse -> TestTree
 getTemplateSummaryResponseTest = resp
-    "GetTemplateSummary"
+    "GetTemplateSummaryResponse"
     "fixture/CloudFormation/GetTemplateSummaryResponse"
     (Proxy :: Proxy GetTemplateSummary)
 
 listStackResourcesResponseTest :: ListStackResourcesResponse -> TestTree
 listStackResourcesResponseTest = resp
-    "ListStackResources"
+    "ListStackResourcesResponse"
     "fixture/CloudFormation/ListStackResourcesResponse"
     (Proxy :: Proxy ListStackResources)
 
 describeStacksResponseTest :: DescribeStacksResponse -> TestTree
 describeStacksResponseTest = resp
-    "DescribeStacks"
+    "DescribeStacksResponse"
     "fixture/CloudFormation/DescribeStacksResponse"
     (Proxy :: Proxy DescribeStacks)
 
 getStackPolicyResponseTest :: GetStackPolicyResponse -> TestTree
 getStackPolicyResponseTest = resp
-    "GetStackPolicy"
+    "GetStackPolicyResponse"
     "fixture/CloudFormation/GetStackPolicyResponse"
     (Proxy :: Proxy GetStackPolicy)
 
 validateTemplateResponseTest :: ValidateTemplateResponse -> TestTree
 validateTemplateResponseTest = resp
-    "ValidateTemplate"
+    "ValidateTemplateResponse"
     "fixture/CloudFormation/ValidateTemplateResponse"
     (Proxy :: Proxy ValidateTemplate)
 
 cancelUpdateStackResponseTest :: CancelUpdateStackResponse -> TestTree
 cancelUpdateStackResponseTest = resp
-    "CancelUpdateStack"
+    "CancelUpdateStackResponse"
     "fixture/CloudFormation/CancelUpdateStackResponse"
     (Proxy :: Proxy CancelUpdateStack)
 
 setStackPolicyResponseTest :: SetStackPolicyResponse -> TestTree
 setStackPolicyResponseTest = resp
-    "SetStackPolicy"
+    "SetStackPolicyResponse"
     "fixture/CloudFormation/SetStackPolicyResponse"
     (Proxy :: Proxy SetStackPolicy)
 
 describeStackEventsResponseTest :: DescribeStackEventsResponse -> TestTree
 describeStackEventsResponseTest = resp
-    "DescribeStackEvents"
+    "DescribeStackEventsResponse"
     "fixture/CloudFormation/DescribeStackEventsResponse"
     (Proxy :: Proxy DescribeStackEvents)
 
 signalResourceResponseTest :: SignalResourceResponse -> TestTree
 signalResourceResponseTest = resp
-    "SignalResource"
+    "SignalResourceResponse"
     "fixture/CloudFormation/SignalResourceResponse"
     (Proxy :: Proxy SignalResource)
 
 listStacksResponseTest :: ListStacksResponse -> TestTree
 listStacksResponseTest = resp
-    "ListStacks"
+    "ListStacksResponse"
     "fixture/CloudFormation/ListStacksResponse"
     (Proxy :: Proxy ListStacks)
 
 createStackResponseTest :: CreateStackResponse -> TestTree
 createStackResponseTest = resp
-    "CreateStack"
+    "CreateStackResponse"
     "fixture/CloudFormation/CreateStackResponse"
     (Proxy :: Proxy CreateStack)
 
 describeStackResourcesResponseTest :: DescribeStackResourcesResponse -> TestTree
 describeStackResourcesResponseTest = resp
-    "DescribeStackResources"
+    "DescribeStackResourcesResponse"
     "fixture/CloudFormation/DescribeStackResourcesResponse"
     (Proxy :: Proxy DescribeStackResources)
 
 estimateTemplateCostResponseTest :: EstimateTemplateCostResponse -> TestTree
 estimateTemplateCostResponseTest = resp
-    "EstimateTemplateCost"
+    "EstimateTemplateCostResponse"
     "fixture/CloudFormation/EstimateTemplateCostResponse"
     (Proxy :: Proxy EstimateTemplateCost)
 
 getTemplateResponseTest :: GetTemplateResponse -> TestTree
 getTemplateResponseTest = resp
-    "GetTemplate"
+    "GetTemplateResponse"
     "fixture/CloudFormation/GetTemplateResponse"
     (Proxy :: Proxy GetTemplate)
 
 describeStackResourceResponseTest :: DescribeStackResourceResponse -> TestTree
 describeStackResourceResponseTest = resp
-    "DescribeStackResource"
+    "DescribeStackResourceResponse"
     "fixture/CloudFormation/DescribeStackResourceResponse"
     (Proxy :: Proxy DescribeStackResource)

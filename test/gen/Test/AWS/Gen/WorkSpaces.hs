@@ -100,42 +100,42 @@ describeWorkspacesTest = undefined
 
 describeWorkspaceDirectoriesResponseTest :: DescribeWorkspaceDirectoriesResponse -> TestTree
 describeWorkspaceDirectoriesResponseTest = resp
-    "DescribeWorkspaceDirectories"
+    "DescribeWorkspaceDirectoriesResponse"
     "fixture/WorkSpaces/DescribeWorkspaceDirectoriesResponse"
     (Proxy :: Proxy DescribeWorkspaceDirectories)
 
 describeWorkspaceBundlesResponseTest :: DescribeWorkspaceBundlesResponse -> TestTree
 describeWorkspaceBundlesResponseTest = resp
-    "DescribeWorkspaceBundles"
+    "DescribeWorkspaceBundlesResponse"
     "fixture/WorkSpaces/DescribeWorkspaceBundlesResponse"
     (Proxy :: Proxy DescribeWorkspaceBundles)
 
 rebuildWorkspacesResponseTest :: RebuildWorkspacesResponse -> TestTree
 rebuildWorkspacesResponseTest = resp
-    "RebuildWorkspaces"
+    "RebuildWorkspacesResponse"
     "fixture/WorkSpaces/RebuildWorkspacesResponse"
     (Proxy :: Proxy RebuildWorkspaces)
 
 rebootWorkspacesResponseTest :: RebootWorkspacesResponse -> TestTree
 rebootWorkspacesResponseTest = resp
-    "RebootWorkspaces"
+    "RebootWorkspacesResponse"
     "fixture/WorkSpaces/RebootWorkspacesResponse"
     (Proxy :: Proxy RebootWorkspaces)
 
 terminateWorkspacesResponseTest :: TerminateWorkspacesResponse -> TestTree
 terminateWorkspacesResponseTest = resp
-    "TerminateWorkspaces"
+    "TerminateWorkspacesResponse"
     "fixture/WorkSpaces/TerminateWorkspacesResponse"
     (Proxy :: Proxy TerminateWorkspaces)
 
 createWorkspacesResponseTest :: CreateWorkspacesResponse -> TestTree
 createWorkspacesResponseTest = resp
-    "CreateWorkspaces"
+    "CreateWorkspacesResponse"
     "fixture/WorkSpaces/CreateWorkspacesResponse"
     (Proxy :: Proxy CreateWorkspaces)
 
 describeWorkspacesResponseTest :: DescribeWorkspacesResponse -> TestTree
 describeWorkspacesResponseTest = resp
-    "DescribeWorkspaces"
+    "DescribeWorkspacesResponse"
     "fixture/WorkSpaces/DescribeWorkspacesResponse"
     (Proxy :: Proxy DescribeWorkspaces)

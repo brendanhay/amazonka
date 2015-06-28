@@ -181,96 +181,96 @@ getPolicyTest = undefined
 
 functionConfigurationTest :: FunctionConfiguration -> TestTree
 functionConfigurationTest = resp
-    "GetFunctionConfiguration"
+    "FunctionConfiguration"
     "fixture/Lambda/FunctionConfiguration"
     (Proxy :: Proxy GetFunctionConfiguration)
 
 eventSourceMappingConfigurationTest :: EventSourceMappingConfiguration -> TestTree
 eventSourceMappingConfigurationTest = resp
-    "UpdateEventSourceMapping"
+    "EventSourceMappingConfiguration"
     "fixture/Lambda/EventSourceMappingConfiguration"
     (Proxy :: Proxy UpdateEventSourceMapping)
 
 eventSourceMappingConfigurationTest :: EventSourceMappingConfiguration -> TestTree
 eventSourceMappingConfigurationTest = resp
-    "DeleteEventSourceMapping"
+    "EventSourceMappingConfiguration"
     "fixture/Lambda/EventSourceMappingConfiguration"
     (Proxy :: Proxy DeleteEventSourceMapping)
 
 removePermissionResponseTest :: RemovePermissionResponse -> TestTree
 removePermissionResponseTest = resp
-    "RemovePermission"
+    "RemovePermissionResponse"
     "fixture/Lambda/RemovePermissionResponse"
     (Proxy :: Proxy RemovePermission)
 
 invokeResponseTest :: InvokeResponse -> TestTree
 invokeResponseTest = resp
-    "Invoke"
+    "InvokeResponse"
     "fixture/Lambda/InvokeResponse"
     (Proxy :: Proxy Invoke)
 
 eventSourceMappingConfigurationTest :: EventSourceMappingConfiguration -> TestTree
 eventSourceMappingConfigurationTest = resp
-    "GetEventSourceMapping"
+    "EventSourceMappingConfiguration"
     "fixture/Lambda/EventSourceMappingConfiguration"
     (Proxy :: Proxy GetEventSourceMapping)
 
 functionConfigurationTest :: FunctionConfiguration -> TestTree
 functionConfigurationTest = resp
-    "CreateFunction"
+    "FunctionConfiguration"
     "fixture/Lambda/FunctionConfiguration"
     (Proxy :: Proxy CreateFunction)
 
 eventSourceMappingConfigurationTest :: EventSourceMappingConfiguration -> TestTree
 eventSourceMappingConfigurationTest = resp
-    "CreateEventSourceMapping"
+    "EventSourceMappingConfiguration"
     "fixture/Lambda/EventSourceMappingConfiguration"
     (Proxy :: Proxy CreateEventSourceMapping)
 
 getFunctionResponseTest :: GetFunctionResponse -> TestTree
 getFunctionResponseTest = resp
-    "GetFunction"
+    "GetFunctionResponse"
     "fixture/Lambda/GetFunctionResponse"
     (Proxy :: Proxy GetFunction)
 
 listEventSourceMappingsResponseTest :: ListEventSourceMappingsResponse -> TestTree
 listEventSourceMappingsResponseTest = resp
-    "ListEventSourceMappings"
+    "ListEventSourceMappingsResponse"
     "fixture/Lambda/ListEventSourceMappingsResponse"
     (Proxy :: Proxy ListEventSourceMappings)
 
 addPermissionResponseTest :: AddPermissionResponse -> TestTree
 addPermissionResponseTest = resp
-    "AddPermission"
+    "AddPermissionResponse"
     "fixture/Lambda/AddPermissionResponse"
     (Proxy :: Proxy AddPermission)
 
 deleteFunctionResponseTest :: DeleteFunctionResponse -> TestTree
 deleteFunctionResponseTest = resp
-    "DeleteFunction"
+    "DeleteFunctionResponse"
     "fixture/Lambda/DeleteFunctionResponse"
     (Proxy :: Proxy DeleteFunction)
 
 functionConfigurationTest :: FunctionConfiguration -> TestTree
 functionConfigurationTest = resp
-    "UpdateFunctionConfiguration"
+    "FunctionConfiguration"
     "fixture/Lambda/FunctionConfiguration"
     (Proxy :: Proxy UpdateFunctionConfiguration)
 
 listFunctionsResponseTest :: ListFunctionsResponse -> TestTree
 listFunctionsResponseTest = resp
-    "ListFunctions"
+    "ListFunctionsResponse"
     "fixture/Lambda/ListFunctionsResponse"
     (Proxy :: Proxy ListFunctions)
 
 functionConfigurationTest :: FunctionConfiguration -> TestTree
 functionConfigurationTest = resp
-    "UpdateFunctionCode"
+    "FunctionConfiguration"
     "fixture/Lambda/FunctionConfiguration"
     (Proxy :: Proxy UpdateFunctionCode)
 
 getPolicyResponseTest :: GetPolicyResponse -> TestTree
 getPolicyResponseTest = resp
-    "GetPolicy"
+    "GetPolicyResponse"
     "fixture/Lambda/GetPolicyResponse"
     (Proxy :: Proxy GetPolicy)

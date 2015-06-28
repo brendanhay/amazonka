@@ -190,102 +190,102 @@ sendMessageBatchTest = undefined
 
 getQueueURLResponseTest :: GetQueueURLResponse -> TestTree
 getQueueURLResponseTest = resp
-    "GetQueueURL"
+    "GetQueueURLResponse"
     "fixture/SQS/GetQueueURLResponse"
     (Proxy :: Proxy GetQueueURL)
 
 purgeQueueResponseTest :: PurgeQueueResponse -> TestTree
 purgeQueueResponseTest = resp
-    "PurgeQueue"
+    "PurgeQueueResponse"
     "fixture/SQS/PurgeQueueResponse"
     (Proxy :: Proxy PurgeQueue)
 
 sendMessageResponseTest :: SendMessageResponse -> TestTree
 sendMessageResponseTest = resp
-    "SendMessage"
+    "SendMessageResponse"
     "fixture/SQS/SendMessageResponse"
     (Proxy :: Proxy SendMessage)
 
 changeMessageVisibilityBatchResponseTest :: ChangeMessageVisibilityBatchResponse -> TestTree
 changeMessageVisibilityBatchResponseTest = resp
-    "ChangeMessageVisibilityBatch"
+    "ChangeMessageVisibilityBatchResponse"
     "fixture/SQS/ChangeMessageVisibilityBatchResponse"
     (Proxy :: Proxy ChangeMessageVisibilityBatch)
 
 removePermissionResponseTest :: RemovePermissionResponse -> TestTree
 removePermissionResponseTest = resp
-    "RemovePermission"
+    "RemovePermissionResponse"
     "fixture/SQS/RemovePermissionResponse"
     (Proxy :: Proxy RemovePermission)
 
 getQueueAttributesResponseTest :: GetQueueAttributesResponse -> TestTree
 getQueueAttributesResponseTest = resp
-    "GetQueueAttributes"
+    "GetQueueAttributesResponse"
     "fixture/SQS/GetQueueAttributesResponse"
     (Proxy :: Proxy GetQueueAttributes)
 
 listQueuesResponseTest :: ListQueuesResponse -> TestTree
 listQueuesResponseTest = resp
-    "ListQueues"
+    "ListQueuesResponse"
     "fixture/SQS/ListQueuesResponse"
     (Proxy :: Proxy ListQueues)
 
 receiveMessageResponseTest :: ReceiveMessageResponse -> TestTree
 receiveMessageResponseTest = resp
-    "ReceiveMessage"
+    "ReceiveMessageResponse"
     "fixture/SQS/ReceiveMessageResponse"
     (Proxy :: Proxy ReceiveMessage)
 
 deleteQueueResponseTest :: DeleteQueueResponse -> TestTree
 deleteQueueResponseTest = resp
-    "DeleteQueue"
+    "DeleteQueueResponse"
     "fixture/SQS/DeleteQueueResponse"
     (Proxy :: Proxy DeleteQueue)
 
 deleteMessageBatchResponseTest :: DeleteMessageBatchResponse -> TestTree
 deleteMessageBatchResponseTest = resp
-    "DeleteMessageBatch"
+    "DeleteMessageBatchResponse"
     "fixture/SQS/DeleteMessageBatchResponse"
     (Proxy :: Proxy DeleteMessageBatch)
 
 setQueueAttributesResponseTest :: SetQueueAttributesResponse -> TestTree
 setQueueAttributesResponseTest = resp
-    "SetQueueAttributes"
+    "SetQueueAttributesResponse"
     "fixture/SQS/SetQueueAttributesResponse"
     (Proxy :: Proxy SetQueueAttributes)
 
 listDeadLetterSourceQueuesResponseTest :: ListDeadLetterSourceQueuesResponse -> TestTree
 listDeadLetterSourceQueuesResponseTest = resp
-    "ListDeadLetterSourceQueues"
+    "ListDeadLetterSourceQueuesResponse"
     "fixture/SQS/ListDeadLetterSourceQueuesResponse"
     (Proxy :: Proxy ListDeadLetterSourceQueues)
 
 addPermissionResponseTest :: AddPermissionResponse -> TestTree
 addPermissionResponseTest = resp
-    "AddPermission"
+    "AddPermissionResponse"
     "fixture/SQS/AddPermissionResponse"
     (Proxy :: Proxy AddPermission)
 
 deleteMessageResponseTest :: DeleteMessageResponse -> TestTree
 deleteMessageResponseTest = resp
-    "DeleteMessage"
+    "DeleteMessageResponse"
     "fixture/SQS/DeleteMessageResponse"
     (Proxy :: Proxy DeleteMessage)
 
 createQueueResponseTest :: CreateQueueResponse -> TestTree
 createQueueResponseTest = resp
-    "CreateQueue"
+    "CreateQueueResponse"
     "fixture/SQS/CreateQueueResponse"
     (Proxy :: Proxy CreateQueue)
 
 changeMessageVisibilityResponseTest :: ChangeMessageVisibilityResponse -> TestTree
 changeMessageVisibilityResponseTest = resp
-    "ChangeMessageVisibility"
+    "ChangeMessageVisibilityResponse"
     "fixture/SQS/ChangeMessageVisibilityResponse"
     (Proxy :: Proxy ChangeMessageVisibility)
 
 sendMessageBatchResponseTest :: SendMessageBatchResponse -> TestTree
 sendMessageBatchResponseTest = resp
-    "SendMessageBatch"
+    "SendMessageBatchResponse"
     "fixture/SQS/SendMessageBatchResponse"
     (Proxy :: Proxy SendMessageBatch)

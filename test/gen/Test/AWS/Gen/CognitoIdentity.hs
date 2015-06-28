@@ -199,108 +199,108 @@ mergeDeveloperIdentitiesTest = undefined
 
 getOpenIdTokenResponseTest :: GetOpenIdTokenResponse -> TestTree
 getOpenIdTokenResponseTest = resp
-    "GetOpenIdToken"
+    "GetOpenIdTokenResponse"
     "fixture/CognitoIdentity/GetOpenIdTokenResponse"
     (Proxy :: Proxy GetOpenIdToken)
 
 identityPoolTest :: IdentityPool -> TestTree
 identityPoolTest = resp
-    "DescribeIdentityPool"
+    "IdentityPool"
     "fixture/CognitoIdentity/IdentityPool"
     (Proxy :: Proxy DescribeIdentityPool)
 
 getOpenIdTokenForDeveloperIdentityResponseTest :: GetOpenIdTokenForDeveloperIdentityResponse -> TestTree
 getOpenIdTokenForDeveloperIdentityResponseTest = resp
-    "GetOpenIdTokenForDeveloperIdentity"
+    "GetOpenIdTokenForDeveloperIdentityResponse"
     "fixture/CognitoIdentity/GetOpenIdTokenForDeveloperIdentityResponse"
     (Proxy :: Proxy GetOpenIdTokenForDeveloperIdentity)
 
 unlinkDeveloperIdentityResponseTest :: UnlinkDeveloperIdentityResponse -> TestTree
 unlinkDeveloperIdentityResponseTest = resp
-    "UnlinkDeveloperIdentity"
+    "UnlinkDeveloperIdentityResponse"
     "fixture/CognitoIdentity/UnlinkDeveloperIdentityResponse"
     (Proxy :: Proxy UnlinkDeveloperIdentity)
 
 getCredentialsForIdentityResponseTest :: GetCredentialsForIdentityResponse -> TestTree
 getCredentialsForIdentityResponseTest = resp
-    "GetCredentialsForIdentity"
+    "GetCredentialsForIdentityResponse"
     "fixture/CognitoIdentity/GetCredentialsForIdentityResponse"
     (Proxy :: Proxy GetCredentialsForIdentity)
 
 listIdentityPoolsResponseTest :: ListIdentityPoolsResponse -> TestTree
 listIdentityPoolsResponseTest = resp
-    "ListIdentityPools"
+    "ListIdentityPoolsResponse"
     "fixture/CognitoIdentity/ListIdentityPoolsResponse"
     (Proxy :: Proxy ListIdentityPools)
 
 getIdentityPoolRolesResponseTest :: GetIdentityPoolRolesResponse -> TestTree
 getIdentityPoolRolesResponseTest = resp
-    "GetIdentityPoolRoles"
+    "GetIdentityPoolRolesResponse"
     "fixture/CognitoIdentity/GetIdentityPoolRolesResponse"
     (Proxy :: Proxy GetIdentityPoolRoles)
 
 deleteIdentityPoolResponseTest :: DeleteIdentityPoolResponse -> TestTree
 deleteIdentityPoolResponseTest = resp
-    "DeleteIdentityPool"
+    "DeleteIdentityPoolResponse"
     "fixture/CognitoIdentity/DeleteIdentityPoolResponse"
     (Proxy :: Proxy DeleteIdentityPool)
 
 identityPoolTest :: IdentityPool -> TestTree
 identityPoolTest = resp
-    "UpdateIdentityPool"
+    "IdentityPool"
     "fixture/CognitoIdentity/IdentityPool"
     (Proxy :: Proxy UpdateIdentityPool)
 
 getIdResponseTest :: GetIdResponse -> TestTree
 getIdResponseTest = resp
-    "GetId"
+    "GetIdResponse"
     "fixture/CognitoIdentity/GetIdResponse"
     (Proxy :: Proxy GetId)
 
 deleteIdentitiesResponseTest :: DeleteIdentitiesResponse -> TestTree
 deleteIdentitiesResponseTest = resp
-    "DeleteIdentities"
+    "DeleteIdentitiesResponse"
     "fixture/CognitoIdentity/DeleteIdentitiesResponse"
     (Proxy :: Proxy DeleteIdentities)
 
 setIdentityPoolRolesResponseTest :: SetIdentityPoolRolesResponse -> TestTree
 setIdentityPoolRolesResponseTest = resp
-    "SetIdentityPoolRoles"
+    "SetIdentityPoolRolesResponse"
     "fixture/CognitoIdentity/SetIdentityPoolRolesResponse"
     (Proxy :: Proxy SetIdentityPoolRoles)
 
 listIdentitiesResponseTest :: ListIdentitiesResponse -> TestTree
 listIdentitiesResponseTest = resp
-    "ListIdentities"
+    "ListIdentitiesResponse"
     "fixture/CognitoIdentity/ListIdentitiesResponse"
     (Proxy :: Proxy ListIdentities)
 
 lookupDeveloperIdentityResponseTest :: LookupDeveloperIdentityResponse -> TestTree
 lookupDeveloperIdentityResponseTest = resp
-    "LookupDeveloperIdentity"
+    "LookupDeveloperIdentityResponse"
     "fixture/CognitoIdentity/LookupDeveloperIdentityResponse"
     (Proxy :: Proxy LookupDeveloperIdentity)
 
 unlinkIdentityResponseTest :: UnlinkIdentityResponse -> TestTree
 unlinkIdentityResponseTest = resp
-    "UnlinkIdentity"
+    "UnlinkIdentityResponse"
     "fixture/CognitoIdentity/UnlinkIdentityResponse"
     (Proxy :: Proxy UnlinkIdentity)
 
 identityDescriptionTest :: IdentityDescription -> TestTree
 identityDescriptionTest = resp
-    "DescribeIdentity"
+    "IdentityDescription"
     "fixture/CognitoIdentity/IdentityDescription"
     (Proxy :: Proxy DescribeIdentity)
 
 identityPoolTest :: IdentityPool -> TestTree
 identityPoolTest = resp
-    "CreateIdentityPool"
+    "IdentityPool"
     "fixture/CognitoIdentity/IdentityPool"
     (Proxy :: Proxy CreateIdentityPool)
 
 mergeDeveloperIdentitiesResponseTest :: MergeDeveloperIdentitiesResponse -> TestTree
 mergeDeveloperIdentitiesResponseTest = resp
-    "MergeDeveloperIdentities"
+    "MergeDeveloperIdentitiesResponse"
     "fixture/CognitoIdentity/MergeDeveloperIdentitiesResponse"
     (Proxy :: Proxy MergeDeveloperIdentities)

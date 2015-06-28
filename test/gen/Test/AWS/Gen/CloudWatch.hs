@@ -136,66 +136,66 @@ putMetricAlarmTest = undefined
 
 enableAlarmActionsResponseTest :: EnableAlarmActionsResponse -> TestTree
 enableAlarmActionsResponseTest = resp
-    "EnableAlarmActions"
+    "EnableAlarmActionsResponse"
     "fixture/CloudWatch/EnableAlarmActionsResponse"
     (Proxy :: Proxy EnableAlarmActions)
 
 putMetricDataResponseTest :: PutMetricDataResponse -> TestTree
 putMetricDataResponseTest = resp
-    "PutMetricData"
+    "PutMetricDataResponse"
     "fixture/CloudWatch/PutMetricDataResponse"
     (Proxy :: Proxy PutMetricData)
 
 describeAlarmsResponseTest :: DescribeAlarmsResponse -> TestTree
 describeAlarmsResponseTest = resp
-    "DescribeAlarms"
+    "DescribeAlarmsResponse"
     "fixture/CloudWatch/DescribeAlarmsResponse"
     (Proxy :: Proxy DescribeAlarms)
 
 listMetricsResponseTest :: ListMetricsResponse -> TestTree
 listMetricsResponseTest = resp
-    "ListMetrics"
+    "ListMetricsResponse"
     "fixture/CloudWatch/ListMetricsResponse"
     (Proxy :: Proxy ListMetrics)
 
 deleteAlarmsResponseTest :: DeleteAlarmsResponse -> TestTree
 deleteAlarmsResponseTest = resp
-    "DeleteAlarms"
+    "DeleteAlarmsResponse"
     "fixture/CloudWatch/DeleteAlarmsResponse"
     (Proxy :: Proxy DeleteAlarms)
 
 describeAlarmHistoryResponseTest :: DescribeAlarmHistoryResponse -> TestTree
 describeAlarmHistoryResponseTest = resp
-    "DescribeAlarmHistory"
+    "DescribeAlarmHistoryResponse"
     "fixture/CloudWatch/DescribeAlarmHistoryResponse"
     (Proxy :: Proxy DescribeAlarmHistory)
 
 getMetricStatisticsResponseTest :: GetMetricStatisticsResponse -> TestTree
 getMetricStatisticsResponseTest = resp
-    "GetMetricStatistics"
+    "GetMetricStatisticsResponse"
     "fixture/CloudWatch/GetMetricStatisticsResponse"
     (Proxy :: Proxy GetMetricStatistics)
 
 disableAlarmActionsResponseTest :: DisableAlarmActionsResponse -> TestTree
 disableAlarmActionsResponseTest = resp
-    "DisableAlarmActions"
+    "DisableAlarmActionsResponse"
     "fixture/CloudWatch/DisableAlarmActionsResponse"
     (Proxy :: Proxy DisableAlarmActions)
 
 describeAlarmsForMetricResponseTest :: DescribeAlarmsForMetricResponse -> TestTree
 describeAlarmsForMetricResponseTest = resp
-    "DescribeAlarmsForMetric"
+    "DescribeAlarmsForMetricResponse"
     "fixture/CloudWatch/DescribeAlarmsForMetricResponse"
     (Proxy :: Proxy DescribeAlarmsForMetric)
 
 setAlarmStateResponseTest :: SetAlarmStateResponse -> TestTree
 setAlarmStateResponseTest = resp
-    "SetAlarmState"
+    "SetAlarmStateResponse"
     "fixture/CloudWatch/SetAlarmStateResponse"
     (Proxy :: Proxy SetAlarmState)
 
 putMetricAlarmResponseTest :: PutMetricAlarmResponse -> TestTree
 putMetricAlarmResponseTest = resp
-    "PutMetricAlarm"
+    "PutMetricAlarmResponse"
     "fixture/CloudWatch/PutMetricAlarmResponse"
     (Proxy :: Proxy PutMetricAlarm)

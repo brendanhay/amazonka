@@ -262,150 +262,150 @@ publishTest = undefined
 
 deleteEndpointResponseTest :: DeleteEndpointResponse -> TestTree
 deleteEndpointResponseTest = resp
-    "DeleteEndpoint"
+    "DeleteEndpointResponse"
     "fixture/SNS/DeleteEndpointResponse"
     (Proxy :: Proxy DeleteEndpoint)
 
 removePermissionResponseTest :: RemovePermissionResponse -> TestTree
 removePermissionResponseTest = resp
-    "RemovePermission"
+    "RemovePermissionResponse"
     "fixture/SNS/RemovePermissionResponse"
     (Proxy :: Proxy RemovePermission)
 
 setPlatformApplicationAttributesResponseTest :: SetPlatformApplicationAttributesResponse -> TestTree
 setPlatformApplicationAttributesResponseTest = resp
-    "SetPlatformApplicationAttributes"
+    "SetPlatformApplicationAttributesResponse"
     "fixture/SNS/SetPlatformApplicationAttributesResponse"
     (Proxy :: Proxy SetPlatformApplicationAttributes)
 
 createPlatformEndpointResponseTest :: CreatePlatformEndpointResponse -> TestTree
 createPlatformEndpointResponseTest = resp
-    "CreatePlatformEndpoint"
+    "CreatePlatformEndpointResponse"
     "fixture/SNS/CreatePlatformEndpointResponse"
     (Proxy :: Proxy CreatePlatformEndpoint)
 
 listSubscriptionsByTopicResponseTest :: ListSubscriptionsByTopicResponse -> TestTree
 listSubscriptionsByTopicResponseTest = resp
-    "ListSubscriptionsByTopic"
+    "ListSubscriptionsByTopicResponse"
     "fixture/SNS/ListSubscriptionsByTopicResponse"
     (Proxy :: Proxy ListSubscriptionsByTopic)
 
 getTopicAttributesResponseTest :: GetTopicAttributesResponse -> TestTree
 getTopicAttributesResponseTest = resp
-    "GetTopicAttributes"
+    "GetTopicAttributesResponse"
     "fixture/SNS/GetTopicAttributesResponse"
     (Proxy :: Proxy GetTopicAttributes)
 
 deleteTopicResponseTest :: DeleteTopicResponse -> TestTree
 deleteTopicResponseTest = resp
-    "DeleteTopic"
+    "DeleteTopicResponse"
     "fixture/SNS/DeleteTopicResponse"
     (Proxy :: Proxy DeleteTopic)
 
 listTopicsResponseTest :: ListTopicsResponse -> TestTree
 listTopicsResponseTest = resp
-    "ListTopics"
+    "ListTopicsResponse"
     "fixture/SNS/ListTopicsResponse"
     (Proxy :: Proxy ListTopics)
 
 createPlatformApplicationResponseTest :: CreatePlatformApplicationResponse -> TestTree
 createPlatformApplicationResponseTest = resp
-    "CreatePlatformApplication"
+    "CreatePlatformApplicationResponse"
     "fixture/SNS/CreatePlatformApplicationResponse"
     (Proxy :: Proxy CreatePlatformApplication)
 
 listEndpointsByPlatformApplicationResponseTest :: ListEndpointsByPlatformApplicationResponse -> TestTree
 listEndpointsByPlatformApplicationResponseTest = resp
-    "ListEndpointsByPlatformApplication"
+    "ListEndpointsByPlatformApplicationResponse"
     "fixture/SNS/ListEndpointsByPlatformApplicationResponse"
     (Proxy :: Proxy ListEndpointsByPlatformApplication)
 
 getPlatformApplicationAttributesResponseTest :: GetPlatformApplicationAttributesResponse -> TestTree
 getPlatformApplicationAttributesResponseTest = resp
-    "GetPlatformApplicationAttributes"
+    "GetPlatformApplicationAttributesResponse"
     "fixture/SNS/GetPlatformApplicationAttributesResponse"
     (Proxy :: Proxy GetPlatformApplicationAttributes)
 
 deletePlatformApplicationResponseTest :: DeletePlatformApplicationResponse -> TestTree
 deletePlatformApplicationResponseTest = resp
-    "DeletePlatformApplication"
+    "DeletePlatformApplicationResponse"
     "fixture/SNS/DeletePlatformApplicationResponse"
     (Proxy :: Proxy DeletePlatformApplication)
 
 listPlatformApplicationsResponseTest :: ListPlatformApplicationsResponse -> TestTree
 listPlatformApplicationsResponseTest = resp
-    "ListPlatformApplications"
+    "ListPlatformApplicationsResponse"
     "fixture/SNS/ListPlatformApplicationsResponse"
     (Proxy :: Proxy ListPlatformApplications)
 
 setTopicAttributesResponseTest :: SetTopicAttributesResponse -> TestTree
 setTopicAttributesResponseTest = resp
-    "SetTopicAttributes"
+    "SetTopicAttributesResponse"
     "fixture/SNS/SetTopicAttributesResponse"
     (Proxy :: Proxy SetTopicAttributes)
 
 getEndpointAttributesResponseTest :: GetEndpointAttributesResponse -> TestTree
 getEndpointAttributesResponseTest = resp
-    "GetEndpointAttributes"
+    "GetEndpointAttributesResponse"
     "fixture/SNS/GetEndpointAttributesResponse"
     (Proxy :: Proxy GetEndpointAttributes)
 
 addPermissionResponseTest :: AddPermissionResponse -> TestTree
 addPermissionResponseTest = resp
-    "AddPermission"
+    "AddPermissionResponse"
     "fixture/SNS/AddPermissionResponse"
     (Proxy :: Proxy AddPermission)
 
 getSubscriptionAttributesResponseTest :: GetSubscriptionAttributesResponse -> TestTree
 getSubscriptionAttributesResponseTest = resp
-    "GetSubscriptionAttributes"
+    "GetSubscriptionAttributesResponse"
     "fixture/SNS/GetSubscriptionAttributesResponse"
     (Proxy :: Proxy GetSubscriptionAttributes)
 
 listSubscriptionsResponseTest :: ListSubscriptionsResponse -> TestTree
 listSubscriptionsResponseTest = resp
-    "ListSubscriptions"
+    "ListSubscriptionsResponse"
     "fixture/SNS/ListSubscriptionsResponse"
     (Proxy :: Proxy ListSubscriptions)
 
 createTopicResponseTest :: CreateTopicResponse -> TestTree
 createTopicResponseTest = resp
-    "CreateTopic"
+    "CreateTopicResponse"
     "fixture/SNS/CreateTopicResponse"
     (Proxy :: Proxy CreateTopic)
 
 subscribeResponseTest :: SubscribeResponse -> TestTree
 subscribeResponseTest = resp
-    "Subscribe"
+    "SubscribeResponse"
     "fixture/SNS/SubscribeResponse"
     (Proxy :: Proxy Subscribe)
 
 unsubscribeResponseTest :: UnsubscribeResponse -> TestTree
 unsubscribeResponseTest = resp
-    "Unsubscribe"
+    "UnsubscribeResponse"
     "fixture/SNS/UnsubscribeResponse"
     (Proxy :: Proxy Unsubscribe)
 
 setEndpointAttributesResponseTest :: SetEndpointAttributesResponse -> TestTree
 setEndpointAttributesResponseTest = resp
-    "SetEndpointAttributes"
+    "SetEndpointAttributesResponse"
     "fixture/SNS/SetEndpointAttributesResponse"
     (Proxy :: Proxy SetEndpointAttributes)
 
 setSubscriptionAttributesResponseTest :: SetSubscriptionAttributesResponse -> TestTree
 setSubscriptionAttributesResponseTest = resp
-    "SetSubscriptionAttributes"
+    "SetSubscriptionAttributesResponse"
     "fixture/SNS/SetSubscriptionAttributesResponse"
     (Proxy :: Proxy SetSubscriptionAttributes)
 
 confirmSubscriptionResponseTest :: ConfirmSubscriptionResponse -> TestTree
 confirmSubscriptionResponseTest = resp
-    "ConfirmSubscription"
+    "ConfirmSubscriptionResponse"
     "fixture/SNS/ConfirmSubscriptionResponse"
     (Proxy :: Proxy ConfirmSubscription)
 
 publishResponseTest :: PublishResponse -> TestTree
 publishResponseTest = resp
-    "Publish"
+    "PublishResponse"
     "fixture/SNS/PublishResponse"
     (Proxy :: Proxy Publish)

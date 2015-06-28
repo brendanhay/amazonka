@@ -559,348 +559,348 @@ describeDBSecurityGroupsTest = undefined
 
 describeDBEngineVersionsResponseTest :: DescribeDBEngineVersionsResponse -> TestTree
 describeDBEngineVersionsResponseTest = resp
-    "DescribeDBEngineVersions"
+    "DescribeDBEngineVersionsResponse"
     "fixture/RDS/DescribeDBEngineVersionsResponse"
     (Proxy :: Proxy DescribeDBEngineVersions)
 
 promoteReadReplicaResponseTest :: PromoteReadReplicaResponse -> TestTree
 promoteReadReplicaResponseTest = resp
-    "PromoteReadReplica"
+    "PromoteReadReplicaResponse"
     "fixture/RDS/PromoteReadReplicaResponse"
     (Proxy :: Proxy PromoteReadReplica)
 
 modifyEventSubscriptionResponseTest :: ModifyEventSubscriptionResponse -> TestTree
 modifyEventSubscriptionResponseTest = resp
-    "ModifyEventSubscription"
+    "ModifyEventSubscriptionResponse"
     "fixture/RDS/ModifyEventSubscriptionResponse"
     (Proxy :: Proxy ModifyEventSubscription)
 
 copyDBSnapshotResponseTest :: CopyDBSnapshotResponse -> TestTree
 copyDBSnapshotResponseTest = resp
-    "CopyDBSnapshot"
+    "CopyDBSnapshotResponse"
     "fixture/RDS/CopyDBSnapshotResponse"
     (Proxy :: Proxy CopyDBSnapshot)
 
 addSourceIdentifierToSubscriptionResponseTest :: AddSourceIdentifierToSubscriptionResponse -> TestTree
 addSourceIdentifierToSubscriptionResponseTest = resp
-    "AddSourceIdentifierToSubscription"
+    "AddSourceIdentifierToSubscriptionResponse"
     "fixture/RDS/AddSourceIdentifierToSubscriptionResponse"
     (Proxy :: Proxy AddSourceIdentifierToSubscription)
 
 modifyDBInstanceResponseTest :: ModifyDBInstanceResponse -> TestTree
 modifyDBInstanceResponseTest = resp
-    "ModifyDBInstance"
+    "ModifyDBInstanceResponse"
     "fixture/RDS/ModifyDBInstanceResponse"
     (Proxy :: Proxy ModifyDBInstance)
 
 describeEventsResponseTest :: DescribeEventsResponse -> TestTree
 describeEventsResponseTest = resp
-    "DescribeEvents"
+    "DescribeEventsResponse"
     "fixture/RDS/DescribeEventsResponse"
     (Proxy :: Proxy DescribeEvents)
 
 describeEngineDefaultParametersResponseTest :: DescribeEngineDefaultParametersResponse -> TestTree
 describeEngineDefaultParametersResponseTest = resp
-    "DescribeEngineDefaultParameters"
+    "DescribeEngineDefaultParametersResponse"
     "fixture/RDS/DescribeEngineDefaultParametersResponse"
     (Proxy :: Proxy DescribeEngineDefaultParameters)
 
 modifyDBSubnetGroupResponseTest :: ModifyDBSubnetGroupResponse -> TestTree
 modifyDBSubnetGroupResponseTest = resp
-    "ModifyDBSubnetGroup"
+    "ModifyDBSubnetGroupResponse"
     "fixture/RDS/ModifyDBSubnetGroupResponse"
     (Proxy :: Proxy ModifyDBSubnetGroup)
 
 describeDBLogFilesResponseTest :: DescribeDBLogFilesResponse -> TestTree
 describeDBLogFilesResponseTest = resp
-    "DescribeDBLogFiles"
+    "DescribeDBLogFilesResponse"
     "fixture/RDS/DescribeDBLogFilesResponse"
     (Proxy :: Proxy DescribeDBLogFiles)
 
 listTagsForResourceResponseTest :: ListTagsForResourceResponse -> TestTree
 listTagsForResourceResponseTest = resp
-    "ListTagsForResource"
+    "ListTagsForResourceResponse"
     "fixture/RDS/ListTagsForResourceResponse"
     (Proxy :: Proxy ListTagsForResource)
 
 describeOptionGroupsResponseTest :: DescribeOptionGroupsResponse -> TestTree
 describeOptionGroupsResponseTest = resp
-    "DescribeOptionGroups"
+    "DescribeOptionGroupsResponse"
     "fixture/RDS/DescribeOptionGroupsResponse"
     (Proxy :: Proxy DescribeOptionGroups)
 
 removeSourceIdentifierFromSubscriptionResponseTest :: RemoveSourceIdentifierFromSubscriptionResponse -> TestTree
 removeSourceIdentifierFromSubscriptionResponseTest = resp
-    "RemoveSourceIdentifierFromSubscription"
+    "RemoveSourceIdentifierFromSubscriptionResponse"
     "fixture/RDS/RemoveSourceIdentifierFromSubscriptionResponse"
     (Proxy :: Proxy RemoveSourceIdentifierFromSubscription)
 
 copyDBParameterGroupResponseTest :: CopyDBParameterGroupResponse -> TestTree
 copyDBParameterGroupResponseTest = resp
-    "CopyDBParameterGroup"
+    "CopyDBParameterGroupResponse"
     "fixture/RDS/CopyDBParameterGroupResponse"
     (Proxy :: Proxy CopyDBParameterGroup)
 
 describeReservedDBInstancesResponseTest :: DescribeReservedDBInstancesResponse -> TestTree
 describeReservedDBInstancesResponseTest = resp
-    "DescribeReservedDBInstances"
+    "DescribeReservedDBInstancesResponse"
     "fixture/RDS/DescribeReservedDBInstancesResponse"
     (Proxy :: Proxy DescribeReservedDBInstances)
 
 deleteOptionGroupResponseTest :: DeleteOptionGroupResponse -> TestTree
 deleteOptionGroupResponseTest = resp
-    "DeleteOptionGroup"
+    "DeleteOptionGroupResponse"
     "fixture/RDS/DeleteOptionGroupResponse"
     (Proxy :: Proxy DeleteOptionGroup)
 
 createEventSubscriptionResponseTest :: CreateEventSubscriptionResponse -> TestTree
 createEventSubscriptionResponseTest = resp
-    "CreateEventSubscription"
+    "CreateEventSubscriptionResponse"
     "fixture/RDS/CreateEventSubscriptionResponse"
     (Proxy :: Proxy CreateEventSubscription)
 
 removeTagsFromResourceResponseTest :: RemoveTagsFromResourceResponse -> TestTree
 removeTagsFromResourceResponseTest = resp
-    "RemoveTagsFromResource"
+    "RemoveTagsFromResourceResponse"
     "fixture/RDS/RemoveTagsFromResourceResponse"
     (Proxy :: Proxy RemoveTagsFromResource)
 
 createDBInstanceResponseTest :: CreateDBInstanceResponse -> TestTree
 createDBInstanceResponseTest = resp
-    "CreateDBInstance"
+    "CreateDBInstanceResponse"
     "fixture/RDS/CreateDBInstanceResponse"
     (Proxy :: Proxy CreateDBInstance)
 
 restoreDBInstanceFromDBSnapshotResponseTest :: RestoreDBInstanceFromDBSnapshotResponse -> TestTree
 restoreDBInstanceFromDBSnapshotResponseTest = resp
-    "RestoreDBInstanceFromDBSnapshot"
+    "RestoreDBInstanceFromDBSnapshotResponse"
     "fixture/RDS/RestoreDBInstanceFromDBSnapshotResponse"
     (Proxy :: Proxy RestoreDBInstanceFromDBSnapshot)
 
 authorizeDBSecurityGroupIngressResponseTest :: AuthorizeDBSecurityGroupIngressResponse -> TestTree
 authorizeDBSecurityGroupIngressResponseTest = resp
-    "AuthorizeDBSecurityGroupIngress"
+    "AuthorizeDBSecurityGroupIngressResponse"
     "fixture/RDS/AuthorizeDBSecurityGroupIngressResponse"
     (Proxy :: Proxy AuthorizeDBSecurityGroupIngress)
 
 purchaseReservedDBInstancesOfferingResponseTest :: PurchaseReservedDBInstancesOfferingResponse -> TestTree
 purchaseReservedDBInstancesOfferingResponseTest = resp
-    "PurchaseReservedDBInstancesOffering"
+    "PurchaseReservedDBInstancesOfferingResponse"
     "fixture/RDS/PurchaseReservedDBInstancesOfferingResponse"
     (Proxy :: Proxy PurchaseReservedDBInstancesOffering)
 
 describeCertificatesResponseTest :: DescribeCertificatesResponse -> TestTree
 describeCertificatesResponseTest = resp
-    "DescribeCertificates"
+    "DescribeCertificatesResponse"
     "fixture/RDS/DescribeCertificatesResponse"
     (Proxy :: Proxy DescribeCertificates)
 
 createDBSnapshotResponseTest :: CreateDBSnapshotResponse -> TestTree
 createDBSnapshotResponseTest = resp
-    "CreateDBSnapshot"
+    "CreateDBSnapshotResponse"
     "fixture/RDS/CreateDBSnapshotResponse"
     (Proxy :: Proxy CreateDBSnapshot)
 
 deleteEventSubscriptionResponseTest :: DeleteEventSubscriptionResponse -> TestTree
 deleteEventSubscriptionResponseTest = resp
-    "DeleteEventSubscription"
+    "DeleteEventSubscriptionResponse"
     "fixture/RDS/DeleteEventSubscriptionResponse"
     (Proxy :: Proxy DeleteEventSubscription)
 
 describeDBParameterGroupsResponseTest :: DescribeDBParameterGroupsResponse -> TestTree
 describeDBParameterGroupsResponseTest = resp
-    "DescribeDBParameterGroups"
+    "DescribeDBParameterGroupsResponse"
     "fixture/RDS/DescribeDBParameterGroupsResponse"
     (Proxy :: Proxy DescribeDBParameterGroups)
 
 describeOrderableDBInstanceOptionsResponseTest :: DescribeOrderableDBInstanceOptionsResponse -> TestTree
 describeOrderableDBInstanceOptionsResponseTest = resp
-    "DescribeOrderableDBInstanceOptions"
+    "DescribeOrderableDBInstanceOptionsResponse"
     "fixture/RDS/DescribeOrderableDBInstanceOptionsResponse"
     (Proxy :: Proxy DescribeOrderableDBInstanceOptions)
 
 describeEventSubscriptionsResponseTest :: DescribeEventSubscriptionsResponse -> TestTree
 describeEventSubscriptionsResponseTest = resp
-    "DescribeEventSubscriptions"
+    "DescribeEventSubscriptionsResponse"
     "fixture/RDS/DescribeEventSubscriptionsResponse"
     (Proxy :: Proxy DescribeEventSubscriptions)
 
 addTagsToResourceResponseTest :: AddTagsToResourceResponse -> TestTree
 addTagsToResourceResponseTest = resp
-    "AddTagsToResource"
+    "AddTagsToResourceResponse"
     "fixture/RDS/AddTagsToResourceResponse"
     (Proxy :: Proxy AddTagsToResource)
 
 describeOptionGroupOptionsResponseTest :: DescribeOptionGroupOptionsResponse -> TestTree
 describeOptionGroupOptionsResponseTest = resp
-    "DescribeOptionGroupOptions"
+    "DescribeOptionGroupOptionsResponse"
     "fixture/RDS/DescribeOptionGroupOptionsResponse"
     (Proxy :: Proxy DescribeOptionGroupOptions)
 
 describeDBParametersResponseTest :: DescribeDBParametersResponse -> TestTree
 describeDBParametersResponseTest = resp
-    "DescribeDBParameters"
+    "DescribeDBParametersResponse"
     "fixture/RDS/DescribeDBParametersResponse"
     (Proxy :: Proxy DescribeDBParameters)
 
 describeDBSnapshotsResponseTest :: DescribeDBSnapshotsResponse -> TestTree
 describeDBSnapshotsResponseTest = resp
-    "DescribeDBSnapshots"
+    "DescribeDBSnapshotsResponse"
     "fixture/RDS/DescribeDBSnapshotsResponse"
     (Proxy :: Proxy DescribeDBSnapshots)
 
 describeDBSubnetGroupsResponseTest :: DescribeDBSubnetGroupsResponse -> TestTree
 describeDBSubnetGroupsResponseTest = resp
-    "DescribeDBSubnetGroups"
+    "DescribeDBSubnetGroupsResponse"
     "fixture/RDS/DescribeDBSubnetGroupsResponse"
     (Proxy :: Proxy DescribeDBSubnetGroups)
 
 createDBParameterGroupResponseTest :: CreateDBParameterGroupResponse -> TestTree
 createDBParameterGroupResponseTest = resp
-    "CreateDBParameterGroup"
+    "CreateDBParameterGroupResponse"
     "fixture/RDS/CreateDBParameterGroupResponse"
     (Proxy :: Proxy CreateDBParameterGroup)
 
 modifyOptionGroupResponseTest :: ModifyOptionGroupResponse -> TestTree
 modifyOptionGroupResponseTest = resp
-    "ModifyOptionGroup"
+    "ModifyOptionGroupResponse"
     "fixture/RDS/ModifyOptionGroupResponse"
     (Proxy :: Proxy ModifyOptionGroup)
 
 describeEventCategoriesResponseTest :: DescribeEventCategoriesResponse -> TestTree
 describeEventCategoriesResponseTest = resp
-    "DescribeEventCategories"
+    "DescribeEventCategoriesResponse"
     "fixture/RDS/DescribeEventCategoriesResponse"
     (Proxy :: Proxy DescribeEventCategories)
 
 describePendingMaintenanceActionsResponseTest :: DescribePendingMaintenanceActionsResponse -> TestTree
 describePendingMaintenanceActionsResponseTest = resp
-    "DescribePendingMaintenanceActions"
+    "DescribePendingMaintenanceActionsResponse"
     "fixture/RDS/DescribePendingMaintenanceActionsResponse"
     (Proxy :: Proxy DescribePendingMaintenanceActions)
 
 restoreDBInstanceToPointInTimeResponseTest :: RestoreDBInstanceToPointInTimeResponse -> TestTree
 restoreDBInstanceToPointInTimeResponseTest = resp
-    "RestoreDBInstanceToPointInTime"
+    "RestoreDBInstanceToPointInTimeResponse"
     "fixture/RDS/RestoreDBInstanceToPointInTimeResponse"
     (Proxy :: Proxy RestoreDBInstanceToPointInTime)
 
 dbParameterGroupNameMessageTest :: DBParameterGroupNameMessage -> TestTree
 dbParameterGroupNameMessageTest = resp
-    "ResetDBParameterGroup"
+    "DBParameterGroupNameMessage"
     "fixture/RDS/DBParameterGroupNameMessage"
     (Proxy :: Proxy ResetDBParameterGroup)
 
 dbParameterGroupNameMessageTest :: DBParameterGroupNameMessage -> TestTree
 dbParameterGroupNameMessageTest = resp
-    "ModifyDBParameterGroup"
+    "DBParameterGroupNameMessage"
     "fixture/RDS/DBParameterGroupNameMessage"
     (Proxy :: Proxy ModifyDBParameterGroup)
 
 createOptionGroupResponseTest :: CreateOptionGroupResponse -> TestTree
 createOptionGroupResponseTest = resp
-    "CreateOptionGroup"
+    "CreateOptionGroupResponse"
     "fixture/RDS/CreateOptionGroupResponse"
     (Proxy :: Proxy CreateOptionGroup)
 
 applyPendingMaintenanceActionResponseTest :: ApplyPendingMaintenanceActionResponse -> TestTree
 applyPendingMaintenanceActionResponseTest = resp
-    "ApplyPendingMaintenanceAction"
+    "ApplyPendingMaintenanceActionResponse"
     "fixture/RDS/ApplyPendingMaintenanceActionResponse"
     (Proxy :: Proxy ApplyPendingMaintenanceAction)
 
 revokeDBSecurityGroupIngressResponseTest :: RevokeDBSecurityGroupIngressResponse -> TestTree
 revokeDBSecurityGroupIngressResponseTest = resp
-    "RevokeDBSecurityGroupIngress"
+    "RevokeDBSecurityGroupIngressResponse"
     "fixture/RDS/RevokeDBSecurityGroupIngressResponse"
     (Proxy :: Proxy RevokeDBSecurityGroupIngress)
 
 deleteDBSnapshotResponseTest :: DeleteDBSnapshotResponse -> TestTree
 deleteDBSnapshotResponseTest = resp
-    "DeleteDBSnapshot"
+    "DeleteDBSnapshotResponse"
     "fixture/RDS/DeleteDBSnapshotResponse"
     (Proxy :: Proxy DeleteDBSnapshot)
 
 createDBSecurityGroupResponseTest :: CreateDBSecurityGroupResponse -> TestTree
 createDBSecurityGroupResponseTest = resp
-    "CreateDBSecurityGroup"
+    "CreateDBSecurityGroupResponse"
     "fixture/RDS/CreateDBSecurityGroupResponse"
     (Proxy :: Proxy CreateDBSecurityGroup)
 
 deleteDBSubnetGroupResponseTest :: DeleteDBSubnetGroupResponse -> TestTree
 deleteDBSubnetGroupResponseTest = resp
-    "DeleteDBSubnetGroup"
+    "DeleteDBSubnetGroupResponse"
     "fixture/RDS/DeleteDBSubnetGroupResponse"
     (Proxy :: Proxy DeleteDBSubnetGroup)
 
 describeAccountAttributesResponseTest :: DescribeAccountAttributesResponse -> TestTree
 describeAccountAttributesResponseTest = resp
-    "DescribeAccountAttributes"
+    "DescribeAccountAttributesResponse"
     "fixture/RDS/DescribeAccountAttributesResponse"
     (Proxy :: Proxy DescribeAccountAttributes)
 
 deleteDBSecurityGroupResponseTest :: DeleteDBSecurityGroupResponse -> TestTree
 deleteDBSecurityGroupResponseTest = resp
-    "DeleteDBSecurityGroup"
+    "DeleteDBSecurityGroupResponse"
     "fixture/RDS/DeleteDBSecurityGroupResponse"
     (Proxy :: Proxy DeleteDBSecurityGroup)
 
 rebootDBInstanceResponseTest :: RebootDBInstanceResponse -> TestTree
 rebootDBInstanceResponseTest = resp
-    "RebootDBInstance"
+    "RebootDBInstanceResponse"
     "fixture/RDS/RebootDBInstanceResponse"
     (Proxy :: Proxy RebootDBInstance)
 
 createDBSubnetGroupResponseTest :: CreateDBSubnetGroupResponse -> TestTree
 createDBSubnetGroupResponseTest = resp
-    "CreateDBSubnetGroup"
+    "CreateDBSubnetGroupResponse"
     "fixture/RDS/CreateDBSubnetGroupResponse"
     (Proxy :: Proxy CreateDBSubnetGroup)
 
 describeReservedDBInstancesOfferingsResponseTest :: DescribeReservedDBInstancesOfferingsResponse -> TestTree
 describeReservedDBInstancesOfferingsResponseTest = resp
-    "DescribeReservedDBInstancesOfferings"
+    "DescribeReservedDBInstancesOfferingsResponse"
     "fixture/RDS/DescribeReservedDBInstancesOfferingsResponse"
     (Proxy :: Proxy DescribeReservedDBInstancesOfferings)
 
 deleteDBInstanceResponseTest :: DeleteDBInstanceResponse -> TestTree
 deleteDBInstanceResponseTest = resp
-    "DeleteDBInstance"
+    "DeleteDBInstanceResponse"
     "fixture/RDS/DeleteDBInstanceResponse"
     (Proxy :: Proxy DeleteDBInstance)
 
 describeDBInstancesResponseTest :: DescribeDBInstancesResponse -> TestTree
 describeDBInstancesResponseTest = resp
-    "DescribeDBInstances"
+    "DescribeDBInstancesResponse"
     "fixture/RDS/DescribeDBInstancesResponse"
     (Proxy :: Proxy DescribeDBInstances)
 
 copyOptionGroupResponseTest :: CopyOptionGroupResponse -> TestTree
 copyOptionGroupResponseTest = resp
-    "CopyOptionGroup"
+    "CopyOptionGroupResponse"
     "fixture/RDS/CopyOptionGroupResponse"
     (Proxy :: Proxy CopyOptionGroup)
 
 downloadDBLogFilePortionResponseTest :: DownloadDBLogFilePortionResponse -> TestTree
 downloadDBLogFilePortionResponseTest = resp
-    "DownloadDBLogFilePortion"
+    "DownloadDBLogFilePortionResponse"
     "fixture/RDS/DownloadDBLogFilePortionResponse"
     (Proxy :: Proxy DownloadDBLogFilePortion)
 
 createDBInstanceReadReplicaResponseTest :: CreateDBInstanceReadReplicaResponse -> TestTree
 createDBInstanceReadReplicaResponseTest = resp
-    "CreateDBInstanceReadReplica"
+    "CreateDBInstanceReadReplicaResponse"
     "fixture/RDS/CreateDBInstanceReadReplicaResponse"
     (Proxy :: Proxy CreateDBInstanceReadReplica)
 
 deleteDBParameterGroupResponseTest :: DeleteDBParameterGroupResponse -> TestTree
 deleteDBParameterGroupResponseTest = resp
-    "DeleteDBParameterGroup"
+    "DeleteDBParameterGroupResponse"
     "fixture/RDS/DeleteDBParameterGroupResponse"
     (Proxy :: Proxy DeleteDBParameterGroup)
 
 describeDBSecurityGroupsResponseTest :: DescribeDBSecurityGroupsResponse -> TestTree
 describeDBSecurityGroupsResponseTest = resp
-    "DescribeDBSecurityGroups"
+    "DescribeDBSecurityGroupsResponse"
     "fixture/RDS/DescribeDBSecurityGroupsResponse"
     (Proxy :: Proxy DescribeDBSecurityGroups)

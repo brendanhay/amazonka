@@ -154,78 +154,78 @@ describeStreamTest = undefined
 
 putRecordResponseTest :: PutRecordResponse -> TestTree
 putRecordResponseTest = resp
-    "PutRecord"
+    "PutRecordResponse"
     "fixture/Kinesis/PutRecordResponse"
     (Proxy :: Proxy PutRecord)
 
 mergeShardsResponseTest :: MergeShardsResponse -> TestTree
 mergeShardsResponseTest = resp
-    "MergeShards"
+    "MergeShardsResponse"
     "fixture/Kinesis/MergeShardsResponse"
     (Proxy :: Proxy MergeShards)
 
 getRecordsResponseTest :: GetRecordsResponse -> TestTree
 getRecordsResponseTest = resp
-    "GetRecords"
+    "GetRecordsResponse"
     "fixture/Kinesis/GetRecordsResponse"
     (Proxy :: Proxy GetRecords)
 
 getShardIteratorResponseTest :: GetShardIteratorResponse -> TestTree
 getShardIteratorResponseTest = resp
-    "GetShardIterator"
+    "GetShardIteratorResponse"
     "fixture/Kinesis/GetShardIteratorResponse"
     (Proxy :: Proxy GetShardIterator)
 
 listTagsForStreamResponseTest :: ListTagsForStreamResponse -> TestTree
 listTagsForStreamResponseTest = resp
-    "ListTagsForStream"
+    "ListTagsForStreamResponse"
     "fixture/Kinesis/ListTagsForStreamResponse"
     (Proxy :: Proxy ListTagsForStream)
 
 addTagsToStreamResponseTest :: AddTagsToStreamResponse -> TestTree
 addTagsToStreamResponseTest = resp
-    "AddTagsToStream"
+    "AddTagsToStreamResponse"
     "fixture/Kinesis/AddTagsToStreamResponse"
     (Proxy :: Proxy AddTagsToStream)
 
 putRecordsResponseTest :: PutRecordsResponse -> TestTree
 putRecordsResponseTest = resp
-    "PutRecords"
+    "PutRecordsResponse"
     "fixture/Kinesis/PutRecordsResponse"
     (Proxy :: Proxy PutRecords)
 
 deleteStreamResponseTest :: DeleteStreamResponse -> TestTree
 deleteStreamResponseTest = resp
-    "DeleteStream"
+    "DeleteStreamResponse"
     "fixture/Kinesis/DeleteStreamResponse"
     (Proxy :: Proxy DeleteStream)
 
 removeTagsFromStreamResponseTest :: RemoveTagsFromStreamResponse -> TestTree
 removeTagsFromStreamResponseTest = resp
-    "RemoveTagsFromStream"
+    "RemoveTagsFromStreamResponse"
     "fixture/Kinesis/RemoveTagsFromStreamResponse"
     (Proxy :: Proxy RemoveTagsFromStream)
 
 listStreamsResponseTest :: ListStreamsResponse -> TestTree
 listStreamsResponseTest = resp
-    "ListStreams"
+    "ListStreamsResponse"
     "fixture/Kinesis/ListStreamsResponse"
     (Proxy :: Proxy ListStreams)
 
 createStreamResponseTest :: CreateStreamResponse -> TestTree
 createStreamResponseTest = resp
-    "CreateStream"
+    "CreateStreamResponse"
     "fixture/Kinesis/CreateStreamResponse"
     (Proxy :: Proxy CreateStream)
 
 splitShardResponseTest :: SplitShardResponse -> TestTree
 splitShardResponseTest = resp
-    "SplitShard"
+    "SplitShardResponse"
     "fixture/Kinesis/SplitShardResponse"
     (Proxy :: Proxy SplitShard)
 
 describeStreamResponseTest :: DescribeStreamResponse -> TestTree
 describeStreamResponseTest = resp
-    "DescribeStream"
+    "DescribeStreamResponse"
     "fixture/Kinesis/DescribeStreamResponse"
     (Proxy :: Proxy DescribeStream)

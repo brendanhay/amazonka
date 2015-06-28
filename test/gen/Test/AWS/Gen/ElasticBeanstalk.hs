@@ -307,180 +307,180 @@ createEnvironmentTest = undefined
 
 describeApplicationsResponseTest :: DescribeApplicationsResponse -> TestTree
 describeApplicationsResponseTest = resp
-    "DescribeApplications"
+    "DescribeApplicationsResponse"
     "fixture/ElasticBeanstalk/DescribeApplicationsResponse"
     (Proxy :: Proxy DescribeApplications)
 
 applicationVersionDescriptionMessageTest :: ApplicationVersionDescriptionMessage -> TestTree
 applicationVersionDescriptionMessageTest = resp
-    "CreateApplicationVersion"
+    "ApplicationVersionDescriptionMessage"
     "fixture/ElasticBeanstalk/ApplicationVersionDescriptionMessage"
     (Proxy :: Proxy CreateApplicationVersion)
 
 environmentDescriptionTest :: EnvironmentDescription -> TestTree
 environmentDescriptionTest = resp
-    "UpdateEnvironment"
+    "EnvironmentDescription"
     "fixture/ElasticBeanstalk/EnvironmentDescription"
     (Proxy :: Proxy UpdateEnvironment)
 
 environmentDescriptionTest :: EnvironmentDescription -> TestTree
 environmentDescriptionTest = resp
-    "TerminateEnvironment"
+    "EnvironmentDescription"
     "fixture/ElasticBeanstalk/EnvironmentDescription"
     (Proxy :: Proxy TerminateEnvironment)
 
 describeEventsResponseTest :: DescribeEventsResponse -> TestTree
 describeEventsResponseTest = resp
-    "DescribeEvents"
+    "DescribeEventsResponse"
     "fixture/ElasticBeanstalk/DescribeEventsResponse"
     (Proxy :: Proxy DescribeEvents)
 
 requestEnvironmentInfoResponseTest :: RequestEnvironmentInfoResponse -> TestTree
 requestEnvironmentInfoResponseTest = resp
-    "RequestEnvironmentInfo"
+    "RequestEnvironmentInfoResponse"
     "fixture/ElasticBeanstalk/RequestEnvironmentInfoResponse"
     (Proxy :: Proxy RequestEnvironmentInfo)
 
 retrieveEnvironmentInfoResponseTest :: RetrieveEnvironmentInfoResponse -> TestTree
 retrieveEnvironmentInfoResponseTest = resp
-    "RetrieveEnvironmentInfo"
+    "RetrieveEnvironmentInfoResponse"
     "fixture/ElasticBeanstalk/RetrieveEnvironmentInfoResponse"
     (Proxy :: Proxy RetrieveEnvironmentInfo)
 
 deleteApplicationResponseTest :: DeleteApplicationResponse -> TestTree
 deleteApplicationResponseTest = resp
-    "DeleteApplication"
+    "DeleteApplicationResponse"
     "fixture/ElasticBeanstalk/DeleteApplicationResponse"
     (Proxy :: Proxy DeleteApplication)
 
 applicationDescriptionMessageTest :: ApplicationDescriptionMessage -> TestTree
 applicationDescriptionMessageTest = resp
-    "UpdateApplication"
+    "ApplicationDescriptionMessage"
     "fixture/ElasticBeanstalk/ApplicationDescriptionMessage"
     (Proxy :: Proxy UpdateApplication)
 
 applicationDescriptionMessageTest :: ApplicationDescriptionMessage -> TestTree
 applicationDescriptionMessageTest = resp
-    "CreateApplication"
+    "ApplicationDescriptionMessage"
     "fixture/ElasticBeanstalk/ApplicationDescriptionMessage"
     (Proxy :: Proxy CreateApplication)
 
 abortEnvironmentUpdateResponseTest :: AbortEnvironmentUpdateResponse -> TestTree
 abortEnvironmentUpdateResponseTest = resp
-    "AbortEnvironmentUpdate"
+    "AbortEnvironmentUpdateResponse"
     "fixture/ElasticBeanstalk/AbortEnvironmentUpdateResponse"
     (Proxy :: Proxy AbortEnvironmentUpdate)
 
 deleteApplicationVersionResponseTest :: DeleteApplicationVersionResponse -> TestTree
 deleteApplicationVersionResponseTest = resp
-    "DeleteApplicationVersion"
+    "DeleteApplicationVersionResponse"
     "fixture/ElasticBeanstalk/DeleteApplicationVersionResponse"
     (Proxy :: Proxy DeleteApplicationVersion)
 
 applicationVersionDescriptionMessageTest :: ApplicationVersionDescriptionMessage -> TestTree
 applicationVersionDescriptionMessageTest = resp
-    "UpdateApplicationVersion"
+    "ApplicationVersionDescriptionMessage"
     "fixture/ElasticBeanstalk/ApplicationVersionDescriptionMessage"
     (Proxy :: Proxy UpdateApplicationVersion)
 
 describeEnvironmentResourcesResponseTest :: DescribeEnvironmentResourcesResponse -> TestTree
 describeEnvironmentResourcesResponseTest = resp
-    "DescribeEnvironmentResources"
+    "DescribeEnvironmentResourcesResponse"
     "fixture/ElasticBeanstalk/DescribeEnvironmentResourcesResponse"
     (Proxy :: Proxy DescribeEnvironmentResources)
 
 deleteConfigurationTemplateResponseTest :: DeleteConfigurationTemplateResponse -> TestTree
 deleteConfigurationTemplateResponseTest = resp
-    "DeleteConfigurationTemplate"
+    "DeleteConfigurationTemplateResponse"
     "fixture/ElasticBeanstalk/DeleteConfigurationTemplateResponse"
     (Proxy :: Proxy DeleteConfigurationTemplate)
 
 configurationSettingsDescriptionTest :: ConfigurationSettingsDescription -> TestTree
 configurationSettingsDescriptionTest = resp
-    "UpdateConfigurationTemplate"
+    "ConfigurationSettingsDescription"
     "fixture/ElasticBeanstalk/ConfigurationSettingsDescription"
     (Proxy :: Proxy UpdateConfigurationTemplate)
 
 rebuildEnvironmentResponseTest :: RebuildEnvironmentResponse -> TestTree
 rebuildEnvironmentResponseTest = resp
-    "RebuildEnvironment"
+    "RebuildEnvironmentResponse"
     "fixture/ElasticBeanstalk/RebuildEnvironmentResponse"
     (Proxy :: Proxy RebuildEnvironment)
 
 deleteEnvironmentConfigurationResponseTest :: DeleteEnvironmentConfigurationResponse -> TestTree
 deleteEnvironmentConfigurationResponseTest = resp
-    "DeleteEnvironmentConfiguration"
+    "DeleteEnvironmentConfigurationResponse"
     "fixture/ElasticBeanstalk/DeleteEnvironmentConfigurationResponse"
     (Proxy :: Proxy DeleteEnvironmentConfiguration)
 
 configurationSettingsDescriptionTest :: ConfigurationSettingsDescription -> TestTree
 configurationSettingsDescriptionTest = resp
-    "CreateConfigurationTemplate"
+    "ConfigurationSettingsDescription"
     "fixture/ElasticBeanstalk/ConfigurationSettingsDescription"
     (Proxy :: Proxy CreateConfigurationTemplate)
 
 listAvailableSolutionStacksResponseTest :: ListAvailableSolutionStacksResponse -> TestTree
 listAvailableSolutionStacksResponseTest = resp
-    "ListAvailableSolutionStacks"
+    "ListAvailableSolutionStacksResponse"
     "fixture/ElasticBeanstalk/ListAvailableSolutionStacksResponse"
     (Proxy :: Proxy ListAvailableSolutionStacks)
 
 swapEnvironmentCNAMEsResponseTest :: SwapEnvironmentCNAMEsResponse -> TestTree
 swapEnvironmentCNAMEsResponseTest = resp
-    "SwapEnvironmentCNAMEs"
+    "SwapEnvironmentCNAMEsResponse"
     "fixture/ElasticBeanstalk/SwapEnvironmentCNAMEsResponse"
     (Proxy :: Proxy SwapEnvironmentCNAMEs)
 
 describeConfigurationOptionsResponseTest :: DescribeConfigurationOptionsResponse -> TestTree
 describeConfigurationOptionsResponseTest = resp
-    "DescribeConfigurationOptions"
+    "DescribeConfigurationOptionsResponse"
     "fixture/ElasticBeanstalk/DescribeConfigurationOptionsResponse"
     (Proxy :: Proxy DescribeConfigurationOptions)
 
 describeConfigurationSettingsResponseTest :: DescribeConfigurationSettingsResponse -> TestTree
 describeConfigurationSettingsResponseTest = resp
-    "DescribeConfigurationSettings"
+    "DescribeConfigurationSettingsResponse"
     "fixture/ElasticBeanstalk/DescribeConfigurationSettingsResponse"
     (Proxy :: Proxy DescribeConfigurationSettings)
 
 createStorageLocationResponseTest :: CreateStorageLocationResponse -> TestTree
 createStorageLocationResponseTest = resp
-    "CreateStorageLocation"
+    "CreateStorageLocationResponse"
     "fixture/ElasticBeanstalk/CreateStorageLocationResponse"
     (Proxy :: Proxy CreateStorageLocation)
 
 describeEnvironmentsResponseTest :: DescribeEnvironmentsResponse -> TestTree
 describeEnvironmentsResponseTest = resp
-    "DescribeEnvironments"
+    "DescribeEnvironmentsResponse"
     "fixture/ElasticBeanstalk/DescribeEnvironmentsResponse"
     (Proxy :: Proxy DescribeEnvironments)
 
 restartAppServerResponseTest :: RestartAppServerResponse -> TestTree
 restartAppServerResponseTest = resp
-    "RestartAppServer"
+    "RestartAppServerResponse"
     "fixture/ElasticBeanstalk/RestartAppServerResponse"
     (Proxy :: Proxy RestartAppServer)
 
 validateConfigurationSettingsResponseTest :: ValidateConfigurationSettingsResponse -> TestTree
 validateConfigurationSettingsResponseTest = resp
-    "ValidateConfigurationSettings"
+    "ValidateConfigurationSettingsResponse"
     "fixture/ElasticBeanstalk/ValidateConfigurationSettingsResponse"
     (Proxy :: Proxy ValidateConfigurationSettings)
 
 describeApplicationVersionsResponseTest :: DescribeApplicationVersionsResponse -> TestTree
 describeApplicationVersionsResponseTest = resp
-    "DescribeApplicationVersions"
+    "DescribeApplicationVersionsResponse"
     "fixture/ElasticBeanstalk/DescribeApplicationVersionsResponse"
     (Proxy :: Proxy DescribeApplicationVersions)
 
 checkDNSAvailabilityResponseTest :: CheckDNSAvailabilityResponse -> TestTree
 checkDNSAvailabilityResponseTest = resp
-    "CheckDNSAvailability"
+    "CheckDNSAvailabilityResponse"
     "fixture/ElasticBeanstalk/CheckDNSAvailabilityResponse"
     (Proxy :: Proxy CheckDNSAvailability)
 
 environmentDescriptionTest :: EnvironmentDescription -> TestTree
 environmentDescriptionTest = resp
-    "CreateEnvironment"
+    "EnvironmentDescription"
     "fixture/ElasticBeanstalk/EnvironmentDescription"
     (Proxy :: Proxy CreateEnvironment)

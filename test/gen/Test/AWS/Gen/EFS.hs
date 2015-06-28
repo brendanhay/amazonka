@@ -136,66 +136,66 @@ createMountTargetTest = undefined
 
 describeTagsResponseTest :: DescribeTagsResponse -> TestTree
 describeTagsResponseTest = resp
-    "DescribeTags"
+    "DescribeTagsResponse"
     "fixture/EFS/DescribeTagsResponse"
     (Proxy :: Proxy DescribeTags)
 
 describeMountTargetsResponseTest :: DescribeMountTargetsResponse -> TestTree
 describeMountTargetsResponseTest = resp
-    "DescribeMountTargets"
+    "DescribeMountTargetsResponse"
     "fixture/EFS/DescribeMountTargetsResponse"
     (Proxy :: Proxy DescribeMountTargets)
 
 deleteMountTargetResponseTest :: DeleteMountTargetResponse -> TestTree
 deleteMountTargetResponseTest = resp
-    "DeleteMountTarget"
+    "DeleteMountTargetResponse"
     "fixture/EFS/DeleteMountTargetResponse"
     (Proxy :: Proxy DeleteMountTarget)
 
 createTagsResponseTest :: CreateTagsResponse -> TestTree
 createTagsResponseTest = resp
-    "CreateTags"
+    "CreateTagsResponse"
     "fixture/EFS/CreateTagsResponse"
     (Proxy :: Proxy CreateTags)
 
 describeFileSystemsResponseTest :: DescribeFileSystemsResponse -> TestTree
 describeFileSystemsResponseTest = resp
-    "DescribeFileSystems"
+    "DescribeFileSystemsResponse"
     "fixture/EFS/DescribeFileSystemsResponse"
     (Proxy :: Proxy DescribeFileSystems)
 
 deleteTagsResponseTest :: DeleteTagsResponse -> TestTree
 deleteTagsResponseTest = resp
-    "DeleteTags"
+    "DeleteTagsResponse"
     "fixture/EFS/DeleteTagsResponse"
     (Proxy :: Proxy DeleteTags)
 
 describeMountTargetSecurityGroupsResponseTest :: DescribeMountTargetSecurityGroupsResponse -> TestTree
 describeMountTargetSecurityGroupsResponseTest = resp
-    "DescribeMountTargetSecurityGroups"
+    "DescribeMountTargetSecurityGroupsResponse"
     "fixture/EFS/DescribeMountTargetSecurityGroupsResponse"
     (Proxy :: Proxy DescribeMountTargetSecurityGroups)
 
 modifyMountTargetSecurityGroupsResponseTest :: ModifyMountTargetSecurityGroupsResponse -> TestTree
 modifyMountTargetSecurityGroupsResponseTest = resp
-    "ModifyMountTargetSecurityGroups"
+    "ModifyMountTargetSecurityGroupsResponse"
     "fixture/EFS/ModifyMountTargetSecurityGroupsResponse"
     (Proxy :: Proxy ModifyMountTargetSecurityGroups)
 
 fileSystemDescriptionTest :: FileSystemDescription -> TestTree
 fileSystemDescriptionTest = resp
-    "CreateFileSystem"
+    "FileSystemDescription"
     "fixture/EFS/FileSystemDescription"
     (Proxy :: Proxy CreateFileSystem)
 
 deleteFileSystemResponseTest :: DeleteFileSystemResponse -> TestTree
 deleteFileSystemResponseTest = resp
-    "DeleteFileSystem"
+    "DeleteFileSystemResponse"
     "fixture/EFS/DeleteFileSystemResponse"
     (Proxy :: Proxy DeleteFileSystem)
 
 mountTargetDescriptionTest :: MountTargetDescription -> TestTree
 mountTargetDescriptionTest = resp
-    "CreateMountTarget"
+    "MountTargetDescription"
     "fixture/EFS/MountTargetDescription"
     (Proxy :: Proxy CreateMountTarget)

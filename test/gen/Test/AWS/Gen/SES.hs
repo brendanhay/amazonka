@@ -199,108 +199,108 @@ setIdentityNotificationTopicTest = undefined
 
 getSendQuotaResponseTest :: GetSendQuotaResponse -> TestTree
 getSendQuotaResponseTest = resp
-    "GetSendQuota"
+    "GetSendQuotaResponse"
     "fixture/SES/GetSendQuotaResponse"
     (Proxy :: Proxy GetSendQuota)
 
 setIdentityDkimEnabledResponseTest :: SetIdentityDkimEnabledResponse -> TestTree
 setIdentityDkimEnabledResponseTest = resp
-    "SetIdentityDkimEnabled"
+    "SetIdentityDkimEnabledResponse"
     "fixture/SES/SetIdentityDkimEnabledResponse"
     (Proxy :: Proxy SetIdentityDkimEnabled)
 
 getIdentityNotificationAttributesResponseTest :: GetIdentityNotificationAttributesResponse -> TestTree
 getIdentityNotificationAttributesResponseTest = resp
-    "GetIdentityNotificationAttributes"
+    "GetIdentityNotificationAttributesResponse"
     "fixture/SES/GetIdentityNotificationAttributesResponse"
     (Proxy :: Proxy GetIdentityNotificationAttributes)
 
 setIdentityFeedbackForwardingEnabledResponseTest :: SetIdentityFeedbackForwardingEnabledResponse -> TestTree
 setIdentityFeedbackForwardingEnabledResponseTest = resp
-    "SetIdentityFeedbackForwardingEnabled"
+    "SetIdentityFeedbackForwardingEnabledResponse"
     "fixture/SES/SetIdentityFeedbackForwardingEnabledResponse"
     (Proxy :: Proxy SetIdentityFeedbackForwardingEnabled)
 
 getIdentityVerificationAttributesResponseTest :: GetIdentityVerificationAttributesResponse -> TestTree
 getIdentityVerificationAttributesResponseTest = resp
-    "GetIdentityVerificationAttributes"
+    "GetIdentityVerificationAttributesResponse"
     "fixture/SES/GetIdentityVerificationAttributesResponse"
     (Proxy :: Proxy GetIdentityVerificationAttributes)
 
 verifyDomainIdentityResponseTest :: VerifyDomainIdentityResponse -> TestTree
 verifyDomainIdentityResponseTest = resp
-    "VerifyDomainIdentity"
+    "VerifyDomainIdentityResponse"
     "fixture/SES/VerifyDomainIdentityResponse"
     (Proxy :: Proxy VerifyDomainIdentity)
 
 verifyDomainDkimResponseTest :: VerifyDomainDkimResponse -> TestTree
 verifyDomainDkimResponseTest = resp
-    "VerifyDomainDkim"
+    "VerifyDomainDkimResponse"
     "fixture/SES/VerifyDomainDkimResponse"
     (Proxy :: Proxy VerifyDomainDkim)
 
 sendRawEmailResponseTest :: SendRawEmailResponse -> TestTree
 sendRawEmailResponseTest = resp
-    "SendRawEmail"
+    "SendRawEmailResponse"
     "fixture/SES/SendRawEmailResponse"
     (Proxy :: Proxy SendRawEmail)
 
 getIdentityDkimAttributesResponseTest :: GetIdentityDkimAttributesResponse -> TestTree
 getIdentityDkimAttributesResponseTest = resp
-    "GetIdentityDkimAttributes"
+    "GetIdentityDkimAttributesResponse"
     "fixture/SES/GetIdentityDkimAttributesResponse"
     (Proxy :: Proxy GetIdentityDkimAttributes)
 
 deleteIdentityResponseTest :: DeleteIdentityResponse -> TestTree
 deleteIdentityResponseTest = resp
-    "DeleteIdentity"
+    "DeleteIdentityResponse"
     "fixture/SES/DeleteIdentityResponse"
     (Proxy :: Proxy DeleteIdentity)
 
 getSendStatisticsResponseTest :: GetSendStatisticsResponse -> TestTree
 getSendStatisticsResponseTest = resp
-    "GetSendStatistics"
+    "GetSendStatisticsResponse"
     "fixture/SES/GetSendStatisticsResponse"
     (Proxy :: Proxy GetSendStatistics)
 
 listIdentitiesResponseTest :: ListIdentitiesResponse -> TestTree
 listIdentitiesResponseTest = resp
-    "ListIdentities"
+    "ListIdentitiesResponse"
     "fixture/SES/ListIdentitiesResponse"
     (Proxy :: Proxy ListIdentities)
 
 deleteVerifiedEmailAddressResponseTest :: DeleteVerifiedEmailAddressResponse -> TestTree
 deleteVerifiedEmailAddressResponseTest = resp
-    "DeleteVerifiedEmailAddress"
+    "DeleteVerifiedEmailAddressResponse"
     "fixture/SES/DeleteVerifiedEmailAddressResponse"
     (Proxy :: Proxy DeleteVerifiedEmailAddress)
 
 verifyEmailAddressResponseTest :: VerifyEmailAddressResponse -> TestTree
 verifyEmailAddressResponseTest = resp
-    "VerifyEmailAddress"
+    "VerifyEmailAddressResponse"
     "fixture/SES/VerifyEmailAddressResponse"
     (Proxy :: Proxy VerifyEmailAddress)
 
 verifyEmailIdentityResponseTest :: VerifyEmailIdentityResponse -> TestTree
 verifyEmailIdentityResponseTest = resp
-    "VerifyEmailIdentity"
+    "VerifyEmailIdentityResponse"
     "fixture/SES/VerifyEmailIdentityResponse"
     (Proxy :: Proxy VerifyEmailIdentity)
 
 sendEmailResponseTest :: SendEmailResponse -> TestTree
 sendEmailResponseTest = resp
-    "SendEmail"
+    "SendEmailResponse"
     "fixture/SES/SendEmailResponse"
     (Proxy :: Proxy SendEmail)
 
 listVerifiedEmailAddressesResponseTest :: ListVerifiedEmailAddressesResponse -> TestTree
 listVerifiedEmailAddressesResponseTest = resp
-    "ListVerifiedEmailAddresses"
+    "ListVerifiedEmailAddressesResponse"
     "fixture/SES/ListVerifiedEmailAddressesResponse"
     (Proxy :: Proxy ListVerifiedEmailAddresses)
 
 setIdentityNotificationTopicResponseTest :: SetIdentityNotificationTopicResponse -> TestTree
 setIdentityNotificationTopicResponseTest = resp
-    "SetIdentityNotificationTopic"
+    "SetIdentityNotificationTopicResponse"
     "fixture/SES/SetIdentityNotificationTopicResponse"
     (Proxy :: Proxy SetIdentityNotificationTopic)

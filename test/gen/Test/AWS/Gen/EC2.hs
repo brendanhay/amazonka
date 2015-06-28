@@ -1675,1092 +1675,1092 @@ describeRouteTablesTest = undefined
 
 detachNetworkInterfaceResponseTest :: DetachNetworkInterfaceResponse -> TestTree
 detachNetworkInterfaceResponseTest = resp
-    "DetachNetworkInterface"
+    "DetachNetworkInterfaceResponse"
     "fixture/EC2/DetachNetworkInterfaceResponse"
     (Proxy :: Proxy DetachNetworkInterface)
 
 deleteVPCEndpointsResponseTest :: DeleteVPCEndpointsResponse -> TestTree
 deleteVPCEndpointsResponseTest = resp
-    "DeleteVPCEndpoints"
+    "DeleteVPCEndpointsResponse"
     "fixture/EC2/DeleteVPCEndpointsResponse"
     (Proxy :: Proxy DeleteVPCEndpoints)
 
 deleteKeyPairResponseTest :: DeleteKeyPairResponse -> TestTree
 deleteKeyPairResponseTest = resp
-    "DeleteKeyPair"
+    "DeleteKeyPairResponse"
     "fixture/EC2/DeleteKeyPairResponse"
     (Proxy :: Proxy DeleteKeyPair)
 
 deleteFlowLogsResponseTest :: DeleteFlowLogsResponse -> TestTree
 deleteFlowLogsResponseTest = resp
-    "DeleteFlowLogs"
+    "DeleteFlowLogsResponse"
     "fixture/EC2/DeleteFlowLogsResponse"
     (Proxy :: Proxy DeleteFlowLogs)
 
 describeTagsResponseTest :: DescribeTagsResponse -> TestTree
 describeTagsResponseTest = resp
-    "DescribeTags"
+    "DescribeTagsResponse"
     "fixture/EC2/DescribeTagsResponse"
     (Proxy :: Proxy DescribeTags)
 
 revokeSecurityGroupEgressResponseTest :: RevokeSecurityGroupEgressResponse -> TestTree
 revokeSecurityGroupEgressResponseTest = resp
-    "RevokeSecurityGroupEgress"
+    "RevokeSecurityGroupEgressResponse"
     "fixture/EC2/RevokeSecurityGroupEgressResponse"
     (Proxy :: Proxy RevokeSecurityGroupEgress)
 
 createVPNGatewayResponseTest :: CreateVPNGatewayResponse -> TestTree
 createVPNGatewayResponseTest = resp
-    "CreateVPNGateway"
+    "CreateVPNGatewayResponse"
     "fixture/EC2/CreateVPNGatewayResponse"
     (Proxy :: Proxy CreateVPNGateway)
 
 detachInternetGatewayResponseTest :: DetachInternetGatewayResponse -> TestTree
 detachInternetGatewayResponseTest = resp
-    "DetachInternetGateway"
+    "DetachInternetGatewayResponse"
     "fixture/EC2/DetachInternetGatewayResponse"
     (Proxy :: Proxy DetachInternetGateway)
 
 createNetworkACLResponseTest :: CreateNetworkACLResponse -> TestTree
 createNetworkACLResponseTest = resp
-    "CreateNetworkACL"
+    "CreateNetworkACLResponse"
     "fixture/EC2/CreateNetworkACLResponse"
     (Proxy :: Proxy CreateNetworkACL)
 
 importInstanceResponseTest :: ImportInstanceResponse -> TestTree
 importInstanceResponseTest = resp
-    "ImportInstance"
+    "ImportInstanceResponse"
     "fixture/EC2/ImportInstanceResponse"
     (Proxy :: Proxy ImportInstance)
 
 describeVPCClassicLinkResponseTest :: DescribeVPCClassicLinkResponse -> TestTree
 describeVPCClassicLinkResponseTest = resp
-    "DescribeVPCClassicLink"
+    "DescribeVPCClassicLinkResponse"
     "fixture/EC2/DescribeVPCClassicLinkResponse"
     (Proxy :: Proxy DescribeVPCClassicLink)
 
 deleteVPNConnectionResponseTest :: DeleteVPNConnectionResponse -> TestTree
 deleteVPNConnectionResponseTest = resp
-    "DeleteVPNConnection"
+    "DeleteVPNConnectionResponse"
     "fixture/EC2/DeleteVPNConnectionResponse"
     (Proxy :: Proxy DeleteVPNConnection)
 
 authorizeSecurityGroupEgressResponseTest :: AuthorizeSecurityGroupEgressResponse -> TestTree
 authorizeSecurityGroupEgressResponseTest = resp
-    "AuthorizeSecurityGroupEgress"
+    "AuthorizeSecurityGroupEgressResponse"
     "fixture/EC2/AuthorizeSecurityGroupEgressResponse"
     (Proxy :: Proxy AuthorizeSecurityGroupEgress)
 
 describeBundleTasksResponseTest :: DescribeBundleTasksResponse -> TestTree
 describeBundleTasksResponseTest = resp
-    "DescribeBundleTasks"
+    "DescribeBundleTasksResponse"
     "fixture/EC2/DescribeBundleTasksResponse"
     (Proxy :: Proxy DescribeBundleTasks)
 
 createInternetGatewayResponseTest :: CreateInternetGatewayResponse -> TestTree
 createInternetGatewayResponseTest = resp
-    "CreateInternetGateway"
+    "CreateInternetGatewayResponse"
     "fixture/EC2/CreateInternetGatewayResponse"
     (Proxy :: Proxy CreateInternetGateway)
 
 releaseAddressResponseTest :: ReleaseAddressResponse -> TestTree
 releaseAddressResponseTest = resp
-    "ReleaseAddress"
+    "ReleaseAddressResponse"
     "fixture/EC2/ReleaseAddressResponse"
     (Proxy :: Proxy ReleaseAddress)
 
 cancelBundleTaskResponseTest :: CancelBundleTaskResponse -> TestTree
 cancelBundleTaskResponseTest = resp
-    "CancelBundleTask"
+    "CancelBundleTaskResponse"
     "fixture/EC2/CancelBundleTaskResponse"
     (Proxy :: Proxy CancelBundleTask)
 
 modifyNetworkInterfaceAttributeResponseTest :: ModifyNetworkInterfaceAttributeResponse -> TestTree
 modifyNetworkInterfaceAttributeResponseTest = resp
-    "ModifyNetworkInterfaceAttribute"
+    "ModifyNetworkInterfaceAttributeResponse"
     "fixture/EC2/ModifyNetworkInterfaceAttributeResponse"
     (Proxy :: Proxy ModifyNetworkInterfaceAttribute)
 
 modifySubnetAttributeResponseTest :: ModifySubnetAttributeResponse -> TestTree
 modifySubnetAttributeResponseTest = resp
-    "ModifySubnetAttribute"
+    "ModifySubnetAttributeResponse"
     "fixture/EC2/ModifySubnetAttributeResponse"
     (Proxy :: Proxy ModifySubnetAttribute)
 
 deregisterImageResponseTest :: DeregisterImageResponse -> TestTree
 deregisterImageResponseTest = resp
-    "DeregisterImage"
+    "DeregisterImageResponse"
     "fixture/EC2/DeregisterImageResponse"
     (Proxy :: Proxy DeregisterImage)
 
 volumeAttachmentTest :: VolumeAttachment -> TestTree
 volumeAttachmentTest = resp
-    "DetachVolume"
+    "VolumeAttachment"
     "fixture/EC2/VolumeAttachment"
     (Proxy :: Proxy DetachVolume)
 
 cancelReservedInstancesListingResponseTest :: CancelReservedInstancesListingResponse -> TestTree
 cancelReservedInstancesListingResponseTest = resp
-    "CancelReservedInstancesListing"
+    "CancelReservedInstancesListingResponse"
     "fixture/EC2/CancelReservedInstancesListingResponse"
     (Proxy :: Proxy CancelReservedInstancesListing)
 
 attachClassicLinkVPCResponseTest :: AttachClassicLinkVPCResponse -> TestTree
 attachClassicLinkVPCResponseTest = resp
-    "AttachClassicLinkVPC"
+    "AttachClassicLinkVPCResponse"
     "fixture/EC2/AttachClassicLinkVPCResponse"
     (Proxy :: Proxy AttachClassicLinkVPC)
 
 cancelSpotFleetRequestsResponseTest :: CancelSpotFleetRequestsResponse -> TestTree
 cancelSpotFleetRequestsResponseTest = resp
-    "CancelSpotFleetRequests"
+    "CancelSpotFleetRequestsResponse"
     "fixture/EC2/CancelSpotFleetRequestsResponse"
     (Proxy :: Proxy CancelSpotFleetRequests)
 
 describeDHCPOptionsResponseTest :: DescribeDHCPOptionsResponse -> TestTree
 describeDHCPOptionsResponseTest = resp
-    "DescribeDHCPOptions"
+    "DescribeDHCPOptionsResponse"
     "fixture/EC2/DescribeDHCPOptionsResponse"
     (Proxy :: Proxy DescribeDHCPOptions)
 
 describeSpotPriceHistoryResponseTest :: DescribeSpotPriceHistoryResponse -> TestTree
 describeSpotPriceHistoryResponseTest = resp
-    "DescribeSpotPriceHistory"
+    "DescribeSpotPriceHistoryResponse"
     "fixture/EC2/DescribeSpotPriceHistoryResponse"
     (Proxy :: Proxy DescribeSpotPriceHistory)
 
 stopInstancesResponseTest :: StopInstancesResponse -> TestTree
 stopInstancesResponseTest = resp
-    "StopInstances"
+    "StopInstancesResponse"
     "fixture/EC2/StopInstancesResponse"
     (Proxy :: Proxy StopInstances)
 
 importImageResponseTest :: ImportImageResponse -> TestTree
 importImageResponseTest = resp
-    "ImportImage"
+    "ImportImageResponse"
     "fixture/EC2/ImportImageResponse"
     (Proxy :: Proxy ImportImage)
 
 deleteNetworkACLEntryResponseTest :: DeleteNetworkACLEntryResponse -> TestTree
 deleteNetworkACLEntryResponseTest = resp
-    "DeleteNetworkACLEntry"
+    "DeleteNetworkACLEntryResponse"
     "fixture/EC2/DeleteNetworkACLEntryResponse"
     (Proxy :: Proxy DeleteNetworkACLEntry)
 
 disableVPCClassicLinkResponseTest :: DisableVPCClassicLinkResponse -> TestTree
 disableVPCClassicLinkResponseTest = resp
-    "DisableVPCClassicLink"
+    "DisableVPCClassicLinkResponse"
     "fixture/EC2/DisableVPCClassicLinkResponse"
     (Proxy :: Proxy DisableVPCClassicLink)
 
 authorizeSecurityGroupIngressResponseTest :: AuthorizeSecurityGroupIngressResponse -> TestTree
 authorizeSecurityGroupIngressResponseTest = resp
-    "AuthorizeSecurityGroupIngress"
+    "AuthorizeSecurityGroupIngressResponse"
     "fixture/EC2/AuthorizeSecurityGroupIngressResponse"
     (Proxy :: Proxy AuthorizeSecurityGroupIngress)
 
 bundleInstanceResponseTest :: BundleInstanceResponse -> TestTree
 bundleInstanceResponseTest = resp
-    "BundleInstance"
+    "BundleInstanceResponse"
     "fixture/EC2/BundleInstanceResponse"
     (Proxy :: Proxy BundleInstance)
 
 describeVPCEndpointServicesResponseTest :: DescribeVPCEndpointServicesResponse -> TestTree
 describeVPCEndpointServicesResponseTest = resp
-    "DescribeVPCEndpointServices"
+    "DescribeVPCEndpointServicesResponse"
     "fixture/EC2/DescribeVPCEndpointServicesResponse"
     (Proxy :: Proxy DescribeVPCEndpointServices)
 
 replaceNetworkACLAssociationResponseTest :: ReplaceNetworkACLAssociationResponse -> TestTree
 replaceNetworkACLAssociationResponseTest = resp
-    "ReplaceNetworkACLAssociation"
+    "ReplaceNetworkACLAssociationResponse"
     "fixture/EC2/ReplaceNetworkACLAssociationResponse"
     (Proxy :: Proxy ReplaceNetworkACLAssociation)
 
 createVPCPeeringConnectionResponseTest :: CreateVPCPeeringConnectionResponse -> TestTree
 createVPCPeeringConnectionResponseTest = resp
-    "CreateVPCPeeringConnection"
+    "CreateVPCPeeringConnectionResponse"
     "fixture/EC2/CreateVPCPeeringConnectionResponse"
     (Proxy :: Proxy CreateVPCPeeringConnection)
 
 resetSnapshotAttributeResponseTest :: ResetSnapshotAttributeResponse -> TestTree
 resetSnapshotAttributeResponseTest = resp
-    "ResetSnapshotAttribute"
+    "ResetSnapshotAttributeResponse"
     "fixture/EC2/ResetSnapshotAttributeResponse"
     (Proxy :: Proxy ResetSnapshotAttribute)
 
 describeAddressesResponseTest :: DescribeAddressesResponse -> TestTree
 describeAddressesResponseTest = resp
-    "DescribeAddresses"
+    "DescribeAddressesResponse"
     "fixture/EC2/DescribeAddressesResponse"
     (Proxy :: Proxy DescribeAddresses)
 
 describeInternetGatewaysResponseTest :: DescribeInternetGatewaysResponse -> TestTree
 describeInternetGatewaysResponseTest = resp
-    "DescribeInternetGateways"
+    "DescribeInternetGatewaysResponse"
     "fixture/EC2/DescribeInternetGatewaysResponse"
     (Proxy :: Proxy DescribeInternetGateways)
 
 replaceRouteResponseTest :: ReplaceRouteResponse -> TestTree
 replaceRouteResponseTest = resp
-    "ReplaceRoute"
+    "ReplaceRouteResponse"
     "fixture/EC2/ReplaceRouteResponse"
     (Proxy :: Proxy ReplaceRoute)
 
 createTagsResponseTest :: CreateTagsResponse -> TestTree
 createTagsResponseTest = resp
-    "CreateTags"
+    "CreateTagsResponse"
     "fixture/EC2/CreateTagsResponse"
     (Proxy :: Proxy CreateTags)
 
 describeSubnetsResponseTest :: DescribeSubnetsResponse -> TestTree
 describeSubnetsResponseTest = resp
-    "DescribeSubnets"
+    "DescribeSubnetsResponse"
     "fixture/EC2/DescribeSubnetsResponse"
     (Proxy :: Proxy DescribeSubnets)
 
 describeNetworkInterfacesResponseTest :: DescribeNetworkInterfacesResponse -> TestTree
 describeNetworkInterfacesResponseTest = resp
-    "DescribeNetworkInterfaces"
+    "DescribeNetworkInterfacesResponse"
     "fixture/EC2/DescribeNetworkInterfacesResponse"
     (Proxy :: Proxy DescribeNetworkInterfaces)
 
 purchaseReservedInstancesOfferingResponseTest :: PurchaseReservedInstancesOfferingResponse -> TestTree
 purchaseReservedInstancesOfferingResponseTest = resp
-    "PurchaseReservedInstancesOffering"
+    "PurchaseReservedInstancesOfferingResponse"
     "fixture/EC2/PurchaseReservedInstancesOfferingResponse"
     (Proxy :: Proxy PurchaseReservedInstancesOffering)
 
 describeSnapshotAttributeResponseTest :: DescribeSnapshotAttributeResponse -> TestTree
 describeSnapshotAttributeResponseTest = resp
-    "DescribeSnapshotAttribute"
+    "DescribeSnapshotAttributeResponse"
     "fixture/EC2/DescribeSnapshotAttributeResponse"
     (Proxy :: Proxy DescribeSnapshotAttribute)
 
 createCustomerGatewayResponseTest :: CreateCustomerGatewayResponse -> TestTree
 createCustomerGatewayResponseTest = resp
-    "CreateCustomerGateway"
+    "CreateCustomerGatewayResponse"
     "fixture/EC2/CreateCustomerGatewayResponse"
     (Proxy :: Proxy CreateCustomerGateway)
 
 attachInternetGatewayResponseTest :: AttachInternetGatewayResponse -> TestTree
 attachInternetGatewayResponseTest = resp
-    "AttachInternetGateway"
+    "AttachInternetGatewayResponse"
     "fixture/EC2/AttachInternetGatewayResponse"
     (Proxy :: Proxy AttachInternetGateway)
 
 deleteTagsResponseTest :: DeleteTagsResponse -> TestTree
 deleteTagsResponseTest = resp
-    "DeleteTags"
+    "DeleteTagsResponse"
     "fixture/EC2/DeleteTagsResponse"
     (Proxy :: Proxy DeleteTags)
 
 replaceNetworkACLEntryResponseTest :: ReplaceNetworkACLEntryResponse -> TestTree
 replaceNetworkACLEntryResponseTest = resp
-    "ReplaceNetworkACLEntry"
+    "ReplaceNetworkACLEntryResponse"
     "fixture/EC2/ReplaceNetworkACLEntryResponse"
     (Proxy :: Proxy ReplaceNetworkACLEntry)
 
 resetInstanceAttributeResponseTest :: ResetInstanceAttributeResponse -> TestTree
 resetInstanceAttributeResponseTest = resp
-    "ResetInstanceAttribute"
+    "ResetInstanceAttributeResponse"
     "fixture/EC2/ResetInstanceAttributeResponse"
     (Proxy :: Proxy ResetInstanceAttribute)
 
 deleteRouteResponseTest :: DeleteRouteResponse -> TestTree
 deleteRouteResponseTest = resp
-    "DeleteRoute"
+    "DeleteRouteResponse"
     "fixture/EC2/DeleteRouteResponse"
     (Proxy :: Proxy DeleteRoute)
 
 describeVPNConnectionsResponseTest :: DescribeVPNConnectionsResponse -> TestTree
 describeVPNConnectionsResponseTest = resp
-    "DescribeVPNConnections"
+    "DescribeVPNConnectionsResponse"
     "fixture/EC2/DescribeVPNConnectionsResponse"
     (Proxy :: Proxy DescribeVPNConnections)
 
 describeFlowLogsResponseTest :: DescribeFlowLogsResponse -> TestTree
 describeFlowLogsResponseTest = resp
-    "DescribeFlowLogs"
+    "DescribeFlowLogsResponse"
     "fixture/EC2/DescribeFlowLogsResponse"
     (Proxy :: Proxy DescribeFlowLogs)
 
 deleteSecurityGroupResponseTest :: DeleteSecurityGroupResponse -> TestTree
 deleteSecurityGroupResponseTest = resp
-    "DeleteSecurityGroup"
+    "DeleteSecurityGroupResponse"
     "fixture/EC2/DeleteSecurityGroupResponse"
     (Proxy :: Proxy DeleteSecurityGroup)
 
 describeReservedInstancesOfferingsResponseTest :: DescribeReservedInstancesOfferingsResponse -> TestTree
 describeReservedInstancesOfferingsResponseTest = resp
-    "DescribeReservedInstancesOfferings"
+    "DescribeReservedInstancesOfferingsResponse"
     "fixture/EC2/DescribeReservedInstancesOfferingsResponse"
     (Proxy :: Proxy DescribeReservedInstancesOfferings)
 
 deleteVPCPeeringConnectionResponseTest :: DeleteVPCPeeringConnectionResponse -> TestTree
 deleteVPCPeeringConnectionResponseTest = resp
-    "DeleteVPCPeeringConnection"
+    "DeleteVPCPeeringConnectionResponse"
     "fixture/EC2/DeleteVPCPeeringConnectionResponse"
     (Proxy :: Proxy DeleteVPCPeeringConnection)
 
 describeVPCEndpointsResponseTest :: DescribeVPCEndpointsResponse -> TestTree
 describeVPCEndpointsResponseTest = resp
-    "DescribeVPCEndpoints"
+    "DescribeVPCEndpointsResponse"
     "fixture/EC2/DescribeVPCEndpointsResponse"
     (Proxy :: Proxy DescribeVPCEndpoints)
 
 describeInstanceAttributeResponseTest :: DescribeInstanceAttributeResponse -> TestTree
 describeInstanceAttributeResponseTest = resp
-    "DescribeInstanceAttribute"
+    "DescribeInstanceAttributeResponse"
     "fixture/EC2/DescribeInstanceAttributeResponse"
     (Proxy :: Proxy DescribeInstanceAttribute)
 
 confirmProductInstanceResponseTest :: ConfirmProductInstanceResponse -> TestTree
 confirmProductInstanceResponseTest = resp
-    "ConfirmProductInstance"
+    "ConfirmProductInstanceResponse"
     "fixture/EC2/ConfirmProductInstanceResponse"
     (Proxy :: Proxy ConfirmProductInstance)
 
 importKeyPairResponseTest :: ImportKeyPairResponse -> TestTree
 importKeyPairResponseTest = resp
-    "ImportKeyPair"
+    "ImportKeyPairResponse"
     "fixture/EC2/ImportKeyPairResponse"
     (Proxy :: Proxy ImportKeyPair)
 
 attachNetworkInterfaceResponseTest :: AttachNetworkInterfaceResponse -> TestTree
 attachNetworkInterfaceResponseTest = resp
-    "AttachNetworkInterface"
+    "AttachNetworkInterfaceResponse"
     "fixture/EC2/AttachNetworkInterfaceResponse"
     (Proxy :: Proxy AttachNetworkInterface)
 
 describeInstanceStatusResponseTest :: DescribeInstanceStatusResponse -> TestTree
 describeInstanceStatusResponseTest = resp
-    "DescribeInstanceStatus"
+    "DescribeInstanceStatusResponse"
     "fixture/EC2/DescribeInstanceStatusResponse"
     (Proxy :: Proxy DescribeInstanceStatus)
 
 cancelConversionTaskResponseTest :: CancelConversionTaskResponse -> TestTree
 cancelConversionTaskResponseTest = resp
-    "CancelConversionTask"
+    "CancelConversionTaskResponse"
     "fixture/EC2/CancelConversionTaskResponse"
     (Proxy :: Proxy CancelConversionTask)
 
 reportInstanceStatusResponseTest :: ReportInstanceStatusResponse -> TestTree
 reportInstanceStatusResponseTest = resp
-    "ReportInstanceStatus"
+    "ReportInstanceStatusResponse"
     "fixture/EC2/ReportInstanceStatusResponse"
     (Proxy :: Proxy ReportInstanceStatus)
 
 associateDHCPOptionsResponseTest :: AssociateDHCPOptionsResponse -> TestTree
 associateDHCPOptionsResponseTest = resp
-    "AssociateDHCPOptions"
+    "AssociateDHCPOptionsResponse"
     "fixture/EC2/AssociateDHCPOptionsResponse"
     (Proxy :: Proxy AssociateDHCPOptions)
 
 describeVPCsResponseTest :: DescribeVPCsResponse -> TestTree
 describeVPCsResponseTest = resp
-    "DescribeVPCs"
+    "DescribeVPCsResponse"
     "fixture/EC2/DescribeVPCsResponse"
     (Proxy :: Proxy DescribeVPCs)
 
 requestSpotInstancesResponseTest :: RequestSpotInstancesResponse -> TestTree
 requestSpotInstancesResponseTest = resp
-    "RequestSpotInstances"
+    "RequestSpotInstancesResponse"
     "fixture/EC2/RequestSpotInstancesResponse"
     (Proxy :: Proxy RequestSpotInstances)
 
 modifyImageAttributeResponseTest :: ModifyImageAttributeResponse -> TestTree
 modifyImageAttributeResponseTest = resp
-    "ModifyImageAttribute"
+    "ModifyImageAttributeResponse"
     "fixture/EC2/ModifyImageAttributeResponse"
     (Proxy :: Proxy ModifyImageAttribute)
 
 describeReservedInstancesResponseTest :: DescribeReservedInstancesResponse -> TestTree
 describeReservedInstancesResponseTest = resp
-    "DescribeReservedInstances"
+    "DescribeReservedInstancesResponse"
     "fixture/EC2/DescribeReservedInstancesResponse"
     (Proxy :: Proxy DescribeReservedInstances)
 
 allocateAddressResponseTest :: AllocateAddressResponse -> TestTree
 allocateAddressResponseTest = resp
-    "AllocateAddress"
+    "AllocateAddressResponse"
     "fixture/EC2/AllocateAddressResponse"
     (Proxy :: Proxy AllocateAddress)
 
 reservationTest :: Reservation -> TestTree
 reservationTest = resp
-    "RunInstances"
+    "Reservation"
     "fixture/EC2/Reservation"
     (Proxy :: Proxy RunInstances)
 
 createRouteTableResponseTest :: CreateRouteTableResponse -> TestTree
 createRouteTableResponseTest = resp
-    "CreateRouteTable"
+    "CreateRouteTableResponse"
     "fixture/EC2/CreateRouteTableResponse"
     (Proxy :: Proxy CreateRouteTable)
 
 volumeAttachmentTest :: VolumeAttachment -> TestTree
 volumeAttachmentTest = resp
-    "AttachVolume"
+    "VolumeAttachment"
     "fixture/EC2/VolumeAttachment"
     (Proxy :: Proxy AttachVolume)
 
 describeConversionTasksResponseTest :: DescribeConversionTasksResponse -> TestTree
 describeConversionTasksResponseTest = resp
-    "DescribeConversionTasks"
+    "DescribeConversionTasksResponse"
     "fixture/EC2/DescribeConversionTasksResponse"
     (Proxy :: Proxy DescribeConversionTasks)
 
 rejectVPCPeeringConnectionResponseTest :: RejectVPCPeeringConnectionResponse -> TestTree
 rejectVPCPeeringConnectionResponseTest = resp
-    "RejectVPCPeeringConnection"
+    "RejectVPCPeeringConnectionResponse"
     "fixture/EC2/RejectVPCPeeringConnectionResponse"
     (Proxy :: Proxy RejectVPCPeeringConnection)
 
 revokeSecurityGroupIngressResponseTest :: RevokeSecurityGroupIngressResponse -> TestTree
 revokeSecurityGroupIngressResponseTest = resp
-    "RevokeSecurityGroupIngress"
+    "RevokeSecurityGroupIngressResponse"
     "fixture/EC2/RevokeSecurityGroupIngressResponse"
     (Proxy :: Proxy RevokeSecurityGroupIngress)
 
 describeVolumesResponseTest :: DescribeVolumesResponse -> TestTree
 describeVolumesResponseTest = resp
-    "DescribeVolumes"
+    "DescribeVolumesResponse"
     "fixture/EC2/DescribeVolumesResponse"
     (Proxy :: Proxy DescribeVolumes)
 
 deleteVPNConnectionRouteResponseTest :: DeleteVPNConnectionRouteResponse -> TestTree
 deleteVPNConnectionRouteResponseTest = resp
-    "DeleteVPNConnectionRoute"
+    "DeleteVPNConnectionRouteResponse"
     "fixture/EC2/DeleteVPNConnectionRouteResponse"
     (Proxy :: Proxy DeleteVPNConnectionRoute)
 
 modifyReservedInstancesResponseTest :: ModifyReservedInstancesResponse -> TestTree
 modifyReservedInstancesResponseTest = resp
-    "ModifyReservedInstances"
+    "ModifyReservedInstancesResponse"
     "fixture/EC2/ModifyReservedInstancesResponse"
     (Proxy :: Proxy ModifyReservedInstances)
 
 registerImageResponseTest :: RegisterImageResponse -> TestTree
 registerImageResponseTest = resp
-    "RegisterImage"
+    "RegisterImageResponse"
     "fixture/EC2/RegisterImageResponse"
     (Proxy :: Proxy RegisterImage)
 
 modifyVPCEndpointResponseTest :: ModifyVPCEndpointResponse -> TestTree
 modifyVPCEndpointResponseTest = resp
-    "ModifyVPCEndpoint"
+    "ModifyVPCEndpointResponse"
     "fixture/EC2/ModifyVPCEndpointResponse"
     (Proxy :: Proxy ModifyVPCEndpoint)
 
 deleteVPNGatewayResponseTest :: DeleteVPNGatewayResponse -> TestTree
 deleteVPNGatewayResponseTest = resp
-    "DeleteVPNGateway"
+    "DeleteVPNGatewayResponse"
     "fixture/EC2/DeleteVPNGatewayResponse"
     (Proxy :: Proxy DeleteVPNGateway)
 
 createVPCResponseTest :: CreateVPCResponse -> TestTree
 createVPCResponseTest = resp
-    "CreateVPC"
+    "CreateVPCResponse"
     "fixture/EC2/CreateVPCResponse"
     (Proxy :: Proxy CreateVPC)
 
 describeMovingAddressesResponseTest :: DescribeMovingAddressesResponse -> TestTree
 describeMovingAddressesResponseTest = resp
-    "DescribeMovingAddresses"
+    "DescribeMovingAddressesResponse"
     "fixture/EC2/DescribeMovingAddressesResponse"
     (Proxy :: Proxy DescribeMovingAddresses)
 
 describeVolumeAttributeResponseTest :: DescribeVolumeAttributeResponse -> TestTree
 describeVolumeAttributeResponseTest = resp
-    "DescribeVolumeAttribute"
+    "DescribeVolumeAttributeResponse"
     "fixture/EC2/DescribeVolumeAttributeResponse"
     (Proxy :: Proxy DescribeVolumeAttribute)
 
 moveAddressToVPCResponseTest :: MoveAddressToVPCResponse -> TestTree
 moveAddressToVPCResponseTest = resp
-    "MoveAddressToVPC"
+    "MoveAddressToVPCResponse"
     "fixture/EC2/MoveAddressToVPCResponse"
     (Proxy :: Proxy MoveAddressToVPC)
 
 getPasswordDataResponseTest :: GetPasswordDataResponse -> TestTree
 getPasswordDataResponseTest = resp
-    "GetPasswordData"
+    "GetPasswordDataResponse"
     "fixture/EC2/GetPasswordDataResponse"
     (Proxy :: Proxy GetPasswordData)
 
 createFlowLogsResponseTest :: CreateFlowLogsResponse -> TestTree
 createFlowLogsResponseTest = resp
-    "CreateFlowLogs"
+    "CreateFlowLogsResponse"
     "fixture/EC2/CreateFlowLogsResponse"
     (Proxy :: Proxy CreateFlowLogs)
 
 describeImportImageTasksResponseTest :: DescribeImportImageTasksResponse -> TestTree
 describeImportImageTasksResponseTest = resp
-    "DescribeImportImageTasks"
+    "DescribeImportImageTasksResponse"
     "fixture/EC2/DescribeImportImageTasksResponse"
     (Proxy :: Proxy DescribeImportImageTasks)
 
 deleteNetworkACLResponseTest :: DeleteNetworkACLResponse -> TestTree
 deleteNetworkACLResponseTest = resp
-    "DeleteNetworkACL"
+    "DeleteNetworkACLResponse"
     "fixture/EC2/DeleteNetworkACLResponse"
     (Proxy :: Proxy DeleteNetworkACL)
 
 describeSpotFleetRequestsResponseTest :: DescribeSpotFleetRequestsResponse -> TestTree
 describeSpotFleetRequestsResponseTest = resp
-    "DescribeSpotFleetRequests"
+    "DescribeSpotFleetRequestsResponse"
     "fixture/EC2/DescribeSpotFleetRequestsResponse"
     (Proxy :: Proxy DescribeSpotFleetRequests)
 
 copySnapshotResponseTest :: CopySnapshotResponse -> TestTree
 copySnapshotResponseTest = resp
-    "CopySnapshot"
+    "CopySnapshotResponse"
     "fixture/EC2/CopySnapshotResponse"
     (Proxy :: Proxy CopySnapshot)
 
 modifyVolumeAttributeResponseTest :: ModifyVolumeAttributeResponse -> TestTree
 modifyVolumeAttributeResponseTest = resp
-    "ModifyVolumeAttribute"
+    "ModifyVolumeAttributeResponse"
     "fixture/EC2/ModifyVolumeAttributeResponse"
     (Proxy :: Proxy ModifyVolumeAttribute)
 
 describeVPCAttributeResponseTest :: DescribeVPCAttributeResponse -> TestTree
 describeVPCAttributeResponseTest = resp
-    "DescribeVPCAttribute"
+    "DescribeVPCAttributeResponse"
     "fixture/EC2/DescribeVPCAttributeResponse"
     (Proxy :: Proxy DescribeVPCAttribute)
 
 volumeTest :: Volume -> TestTree
 volumeTest = resp
-    "CreateVolume"
+    "Volume"
     "fixture/EC2/Volume"
     (Proxy :: Proxy CreateVolume)
 
 disassociateAddressResponseTest :: DisassociateAddressResponse -> TestTree
 disassociateAddressResponseTest = resp
-    "DisassociateAddress"
+    "DisassociateAddressResponse"
     "fixture/EC2/DisassociateAddressResponse"
     (Proxy :: Proxy DisassociateAddress)
 
 deleteVPCResponseTest :: DeleteVPCResponse -> TestTree
 deleteVPCResponseTest = resp
-    "DeleteVPC"
+    "DeleteVPCResponse"
     "fixture/EC2/DeleteVPCResponse"
     (Proxy :: Proxy DeleteVPC)
 
 describePrefixListsResponseTest :: DescribePrefixListsResponse -> TestTree
 describePrefixListsResponseTest = resp
-    "DescribePrefixLists"
+    "DescribePrefixListsResponse"
     "fixture/EC2/DescribePrefixListsResponse"
     (Proxy :: Proxy DescribePrefixLists)
 
 createInstanceExportTaskResponseTest :: CreateInstanceExportTaskResponse -> TestTree
 createInstanceExportTaskResponseTest = resp
-    "CreateInstanceExportTask"
+    "CreateInstanceExportTaskResponse"
     "fixture/EC2/CreateInstanceExportTaskResponse"
     (Proxy :: Proxy CreateInstanceExportTask)
 
 describeSpotDatafeedSubscriptionResponseTest :: DescribeSpotDatafeedSubscriptionResponse -> TestTree
 describeSpotDatafeedSubscriptionResponseTest = resp
-    "DescribeSpotDatafeedSubscription"
+    "DescribeSpotDatafeedSubscriptionResponse"
     "fixture/EC2/DescribeSpotDatafeedSubscriptionResponse"
     (Proxy :: Proxy DescribeSpotDatafeedSubscription)
 
 detachVPNGatewayResponseTest :: DetachVPNGatewayResponse -> TestTree
 detachVPNGatewayResponseTest = resp
-    "DetachVPNGateway"
+    "DetachVPNGatewayResponse"
     "fixture/EC2/DetachVPNGatewayResponse"
     (Proxy :: Proxy DetachVPNGateway)
 
 describeExportTasksResponseTest :: DescribeExportTasksResponse -> TestTree
 describeExportTasksResponseTest = resp
-    "DescribeExportTasks"
+    "DescribeExportTasksResponse"
     "fixture/EC2/DescribeExportTasksResponse"
     (Proxy :: Proxy DescribeExportTasks)
 
 deletePlacementGroupResponseTest :: DeletePlacementGroupResponse -> TestTree
 deletePlacementGroupResponseTest = resp
-    "DeletePlacementGroup"
+    "DeletePlacementGroupResponse"
     "fixture/EC2/DeletePlacementGroupResponse"
     (Proxy :: Proxy DeletePlacementGroup)
 
 createSubnetResponseTest :: CreateSubnetResponse -> TestTree
 createSubnetResponseTest = resp
-    "CreateSubnet"
+    "CreateSubnetResponse"
     "fixture/EC2/CreateSubnetResponse"
     (Proxy :: Proxy CreateSubnet)
 
 enableVolumeIOResponseTest :: EnableVolumeIOResponse -> TestTree
 enableVolumeIOResponseTest = resp
-    "EnableVolumeIO"
+    "EnableVolumeIOResponse"
     "fixture/EC2/EnableVolumeIOResponse"
     (Proxy :: Proxy EnableVolumeIO)
 
 cancelExportTaskResponseTest :: CancelExportTaskResponse -> TestTree
 cancelExportTaskResponseTest = resp
-    "CancelExportTask"
+    "CancelExportTaskResponse"
     "fixture/EC2/CancelExportTaskResponse"
     (Proxy :: Proxy CancelExportTask)
 
 requestSpotFleetResponseTest :: RequestSpotFleetResponse -> TestTree
 requestSpotFleetResponseTest = resp
-    "RequestSpotFleet"
+    "RequestSpotFleetResponse"
     "fixture/EC2/RequestSpotFleetResponse"
     (Proxy :: Proxy RequestSpotFleet)
 
 describeInstancesResponseTest :: DescribeInstancesResponse -> TestTree
 describeInstancesResponseTest = resp
-    "DescribeInstances"
+    "DescribeInstancesResponse"
     "fixture/EC2/DescribeInstancesResponse"
     (Proxy :: Proxy DescribeInstances)
 
 describeSecurityGroupsResponseTest :: DescribeSecurityGroupsResponse -> TestTree
 describeSecurityGroupsResponseTest = resp
-    "DescribeSecurityGroups"
+    "DescribeSecurityGroupsResponse"
     "fixture/EC2/DescribeSecurityGroupsResponse"
     (Proxy :: Proxy DescribeSecurityGroups)
 
 describeVPCPeeringConnectionsResponseTest :: DescribeVPCPeeringConnectionsResponse -> TestTree
 describeVPCPeeringConnectionsResponseTest = resp
-    "DescribeVPCPeeringConnections"
+    "DescribeVPCPeeringConnectionsResponse"
     "fixture/EC2/DescribeVPCPeeringConnectionsResponse"
     (Proxy :: Proxy DescribeVPCPeeringConnections)
 
 createNetworkInterfaceResponseTest :: CreateNetworkInterfaceResponse -> TestTree
 createNetworkInterfaceResponseTest = resp
-    "CreateNetworkInterface"
+    "CreateNetworkInterfaceResponse"
     "fixture/EC2/CreateNetworkInterfaceResponse"
     (Proxy :: Proxy CreateNetworkInterface)
 
 associateAddressResponseTest :: AssociateAddressResponse -> TestTree
 associateAddressResponseTest = resp
-    "AssociateAddress"
+    "AssociateAddressResponse"
     "fixture/EC2/AssociateAddressResponse"
     (Proxy :: Proxy AssociateAddress)
 
 startInstancesResponseTest :: StartInstancesResponse -> TestTree
 startInstancesResponseTest = resp
-    "StartInstances"
+    "StartInstancesResponse"
     "fixture/EC2/StartInstancesResponse"
     (Proxy :: Proxy StartInstances)
 
 describeCustomerGatewaysResponseTest :: DescribeCustomerGatewaysResponse -> TestTree
 describeCustomerGatewaysResponseTest = resp
-    "DescribeCustomerGateways"
+    "DescribeCustomerGatewaysResponse"
     "fixture/EC2/DescribeCustomerGatewaysResponse"
     (Proxy :: Proxy DescribeCustomerGateways)
 
 resetNetworkInterfaceAttributeResponseTest :: ResetNetworkInterfaceAttributeResponse -> TestTree
 resetNetworkInterfaceAttributeResponseTest = resp
-    "ResetNetworkInterfaceAttribute"
+    "ResetNetworkInterfaceAttributeResponse"
     "fixture/EC2/ResetNetworkInterfaceAttributeResponse"
     (Proxy :: Proxy ResetNetworkInterfaceAttribute)
 
 createVPNConnectionResponseTest :: CreateVPNConnectionResponse -> TestTree
 createVPNConnectionResponseTest = resp
-    "CreateVPNConnection"
+    "CreateVPNConnectionResponse"
     "fixture/EC2/CreateVPNConnectionResponse"
     (Proxy :: Proxy CreateVPNConnection)
 
 describeSnapshotsResponseTest :: DescribeSnapshotsResponse -> TestTree
 describeSnapshotsResponseTest = resp
-    "DescribeSnapshots"
+    "DescribeSnapshotsResponse"
     "fixture/EC2/DescribeSnapshotsResponse"
     (Proxy :: Proxy DescribeSnapshots)
 
 createPlacementGroupResponseTest :: CreatePlacementGroupResponse -> TestTree
 createPlacementGroupResponseTest = resp
-    "CreatePlacementGroup"
+    "CreatePlacementGroupResponse"
     "fixture/EC2/CreatePlacementGroupResponse"
     (Proxy :: Proxy CreatePlacementGroup)
 
 replaceRouteTableAssociationResponseTest :: ReplaceRouteTableAssociationResponse -> TestTree
 replaceRouteTableAssociationResponseTest = resp
-    "ReplaceRouteTableAssociation"
+    "ReplaceRouteTableAssociationResponse"
     "fixture/EC2/ReplaceRouteTableAssociationResponse"
     (Proxy :: Proxy ReplaceRouteTableAssociation)
 
 describeNetworkInterfaceAttributeResponseTest :: DescribeNetworkInterfaceAttributeResponse -> TestTree
 describeNetworkInterfaceAttributeResponseTest = resp
-    "DescribeNetworkInterfaceAttribute"
+    "DescribeNetworkInterfaceAttributeResponse"
     "fixture/EC2/DescribeNetworkInterfaceAttributeResponse"
     (Proxy :: Proxy DescribeNetworkInterfaceAttribute)
 
 describeReservedInstancesListingsResponseTest :: DescribeReservedInstancesListingsResponse -> TestTree
 describeReservedInstancesListingsResponseTest = resp
-    "DescribeReservedInstancesListings"
+    "DescribeReservedInstancesListingsResponse"
     "fixture/EC2/DescribeReservedInstancesListingsResponse"
     (Proxy :: Proxy DescribeReservedInstancesListings)
 
 deleteNetworkInterfaceResponseTest :: DeleteNetworkInterfaceResponse -> TestTree
 deleteNetworkInterfaceResponseTest = resp
-    "DeleteNetworkInterface"
+    "DeleteNetworkInterfaceResponse"
     "fixture/EC2/DeleteNetworkInterfaceResponse"
     (Proxy :: Proxy DeleteNetworkInterface)
 
 deleteInternetGatewayResponseTest :: DeleteInternetGatewayResponse -> TestTree
 deleteInternetGatewayResponseTest = resp
-    "DeleteInternetGateway"
+    "DeleteInternetGatewayResponse"
     "fixture/EC2/DeleteInternetGatewayResponse"
     (Proxy :: Proxy DeleteInternetGateway)
 
 deleteSubnetResponseTest :: DeleteSubnetResponse -> TestTree
 deleteSubnetResponseTest = resp
-    "DeleteSubnet"
+    "DeleteSubnetResponse"
     "fixture/EC2/DeleteSubnetResponse"
     (Proxy :: Proxy DeleteSubnet)
 
 createVPCEndpointResponseTest :: CreateVPCEndpointResponse -> TestTree
 createVPCEndpointResponseTest = resp
-    "CreateVPCEndpoint"
+    "CreateVPCEndpointResponse"
     "fixture/EC2/CreateVPCEndpointResponse"
     (Proxy :: Proxy CreateVPCEndpoint)
 
 describeImportSnapshotTasksResponseTest :: DescribeImportSnapshotTasksResponse -> TestTree
 describeImportSnapshotTasksResponseTest = resp
-    "DescribeImportSnapshotTasks"
+    "DescribeImportSnapshotTasksResponse"
     "fixture/EC2/DescribeImportSnapshotTasksResponse"
     (Proxy :: Proxy DescribeImportSnapshotTasks)
 
 copyImageResponseTest :: CopyImageResponse -> TestTree
 copyImageResponseTest = resp
-    "CopyImage"
+    "CopyImageResponse"
     "fixture/EC2/CopyImageResponse"
     (Proxy :: Proxy CopyImage)
 
 disassociateRouteTableResponseTest :: DisassociateRouteTableResponse -> TestTree
 disassociateRouteTableResponseTest = resp
-    "DisassociateRouteTable"
+    "DisassociateRouteTableResponse"
     "fixture/EC2/DisassociateRouteTableResponse"
     (Proxy :: Proxy DisassociateRouteTable)
 
 unmonitorInstancesResponseTest :: UnmonitorInstancesResponse -> TestTree
 unmonitorInstancesResponseTest = resp
-    "UnmonitorInstances"
+    "UnmonitorInstancesResponse"
     "fixture/EC2/UnmonitorInstancesResponse"
     (Proxy :: Proxy UnmonitorInstances)
 
 importVolumeResponseTest :: ImportVolumeResponse -> TestTree
 importVolumeResponseTest = resp
-    "ImportVolume"
+    "ImportVolumeResponse"
     "fixture/EC2/ImportVolumeResponse"
     (Proxy :: Proxy ImportVolume)
 
 disableVGWRoutePropagationResponseTest :: DisableVGWRoutePropagationResponse -> TestTree
 disableVGWRoutePropagationResponseTest = resp
-    "DisableVGWRoutePropagation"
+    "DisableVGWRoutePropagationResponse"
     "fixture/EC2/DisableVGWRoutePropagationResponse"
     (Proxy :: Proxy DisableVGWRoutePropagation)
 
 createSpotDatafeedSubscriptionResponseTest :: CreateSpotDatafeedSubscriptionResponse -> TestTree
 createSpotDatafeedSubscriptionResponseTest = resp
-    "CreateSpotDatafeedSubscription"
+    "CreateSpotDatafeedSubscriptionResponse"
     "fixture/EC2/CreateSpotDatafeedSubscriptionResponse"
     (Proxy :: Proxy CreateSpotDatafeedSubscription)
 
 assignPrivateIPAddressesResponseTest :: AssignPrivateIPAddressesResponse -> TestTree
 assignPrivateIPAddressesResponseTest = resp
-    "AssignPrivateIPAddresses"
+    "AssignPrivateIPAddressesResponse"
     "fixture/EC2/AssignPrivateIPAddressesResponse"
     (Proxy :: Proxy AssignPrivateIPAddresses)
 
 deleteSnapshotResponseTest :: DeleteSnapshotResponse -> TestTree
 deleteSnapshotResponseTest = resp
-    "DeleteSnapshot"
+    "DeleteSnapshotResponse"
     "fixture/EC2/DeleteSnapshotResponse"
     (Proxy :: Proxy DeleteSnapshot)
 
 deleteCustomerGatewayResponseTest :: DeleteCustomerGatewayResponse -> TestTree
 deleteCustomerGatewayResponseTest = resp
-    "DeleteCustomerGateway"
+    "DeleteCustomerGatewayResponse"
     "fixture/EC2/DeleteCustomerGatewayResponse"
     (Proxy :: Proxy DeleteCustomerGateway)
 
 modifyInstanceAttributeResponseTest :: ModifyInstanceAttributeResponse -> TestTree
 modifyInstanceAttributeResponseTest = resp
-    "ModifyInstanceAttribute"
+    "ModifyInstanceAttributeResponse"
     "fixture/EC2/ModifyInstanceAttributeResponse"
     (Proxy :: Proxy ModifyInstanceAttribute)
 
 createSecurityGroupResponseTest :: CreateSecurityGroupResponse -> TestTree
 createSecurityGroupResponseTest = resp
-    "CreateSecurityGroup"
+    "CreateSecurityGroupResponse"
     "fixture/EC2/CreateSecurityGroupResponse"
     (Proxy :: Proxy CreateSecurityGroup)
 
 cancelSpotInstanceRequestsResponseTest :: CancelSpotInstanceRequestsResponse -> TestTree
 cancelSpotInstanceRequestsResponseTest = resp
-    "CancelSpotInstanceRequests"
+    "CancelSpotInstanceRequestsResponse"
     "fixture/EC2/CancelSpotInstanceRequestsResponse"
     (Proxy :: Proxy CancelSpotInstanceRequests)
 
 createRouteResponseTest :: CreateRouteResponse -> TestTree
 createRouteResponseTest = resp
-    "CreateRoute"
+    "CreateRouteResponse"
     "fixture/EC2/CreateRouteResponse"
     (Proxy :: Proxy CreateRoute)
 
 createNetworkACLEntryResponseTest :: CreateNetworkACLEntryResponse -> TestTree
 createNetworkACLEntryResponseTest = resp
-    "CreateNetworkACLEntry"
+    "CreateNetworkACLEntryResponse"
     "fixture/EC2/CreateNetworkACLEntryResponse"
     (Proxy :: Proxy CreateNetworkACLEntry)
 
 modifySnapshotAttributeResponseTest :: ModifySnapshotAttributeResponse -> TestTree
 modifySnapshotAttributeResponseTest = resp
-    "ModifySnapshotAttribute"
+    "ModifySnapshotAttributeResponse"
     "fixture/EC2/ModifySnapshotAttributeResponse"
     (Proxy :: Proxy ModifySnapshotAttribute)
 
 enableVGWRoutePropagationResponseTest :: EnableVGWRoutePropagationResponse -> TestTree
 enableVGWRoutePropagationResponseTest = resp
-    "EnableVGWRoutePropagation"
+    "EnableVGWRoutePropagationResponse"
     "fixture/EC2/EnableVGWRoutePropagationResponse"
     (Proxy :: Proxy EnableVGWRoutePropagation)
 
 snapshotTest :: Snapshot -> TestTree
 snapshotTest = resp
-    "CreateSnapshot"
+    "Snapshot"
     "fixture/EC2/Snapshot"
     (Proxy :: Proxy CreateSnapshot)
 
 describeSpotFleetRequestHistoryResponseTest :: DescribeSpotFleetRequestHistoryResponse -> TestTree
 describeSpotFleetRequestHistoryResponseTest = resp
-    "DescribeSpotFleetRequestHistory"
+    "DescribeSpotFleetRequestHistoryResponse"
     "fixture/EC2/DescribeSpotFleetRequestHistoryResponse"
     (Proxy :: Proxy DescribeSpotFleetRequestHistory)
 
 deleteSpotDatafeedSubscriptionResponseTest :: DeleteSpotDatafeedSubscriptionResponse -> TestTree
 deleteSpotDatafeedSubscriptionResponseTest = resp
-    "DeleteSpotDatafeedSubscription"
+    "DeleteSpotDatafeedSubscriptionResponse"
     "fixture/EC2/DeleteSpotDatafeedSubscriptionResponse"
     (Proxy :: Proxy DeleteSpotDatafeedSubscription)
 
 describePlacementGroupsResponseTest :: DescribePlacementGroupsResponse -> TestTree
 describePlacementGroupsResponseTest = resp
-    "DescribePlacementGroups"
+    "DescribePlacementGroupsResponse"
     "fixture/EC2/DescribePlacementGroupsResponse"
     (Proxy :: Proxy DescribePlacementGroups)
 
 createReservedInstancesListingResponseTest :: CreateReservedInstancesListingResponse -> TestTree
 createReservedInstancesListingResponseTest = resp
-    "CreateReservedInstancesListing"
+    "CreateReservedInstancesListingResponse"
     "fixture/EC2/CreateReservedInstancesListingResponse"
     (Proxy :: Proxy CreateReservedInstancesListing)
 
 enableVPCClassicLinkResponseTest :: EnableVPCClassicLinkResponse -> TestTree
 enableVPCClassicLinkResponseTest = resp
-    "EnableVPCClassicLink"
+    "EnableVPCClassicLinkResponse"
     "fixture/EC2/EnableVPCClassicLinkResponse"
     (Proxy :: Proxy EnableVPCClassicLink)
 
 describeKeyPairsResponseTest :: DescribeKeyPairsResponse -> TestTree
 describeKeyPairsResponseTest = resp
-    "DescribeKeyPairs"
+    "DescribeKeyPairsResponse"
     "fixture/EC2/DescribeKeyPairsResponse"
     (Proxy :: Proxy DescribeKeyPairs)
 
 rebootInstancesResponseTest :: RebootInstancesResponse -> TestTree
 rebootInstancesResponseTest = resp
-    "RebootInstances"
+    "RebootInstancesResponse"
     "fixture/EC2/RebootInstancesResponse"
     (Proxy :: Proxy RebootInstances)
 
 attachVPNGatewayResponseTest :: AttachVPNGatewayResponse -> TestTree
 attachVPNGatewayResponseTest = resp
-    "AttachVPNGateway"
+    "AttachVPNGatewayResponse"
     "fixture/EC2/AttachVPNGatewayResponse"
     (Proxy :: Proxy AttachVPNGateway)
 
 createVPNConnectionRouteResponseTest :: CreateVPNConnectionRouteResponse -> TestTree
 createVPNConnectionRouteResponseTest = resp
-    "CreateVPNConnectionRoute"
+    "CreateVPNConnectionRouteResponse"
     "fixture/EC2/CreateVPNConnectionRouteResponse"
     (Proxy :: Proxy CreateVPNConnectionRoute)
 
 describeClassicLinkInstancesResponseTest :: DescribeClassicLinkInstancesResponse -> TestTree
 describeClassicLinkInstancesResponseTest = resp
-    "DescribeClassicLinkInstances"
+    "DescribeClassicLinkInstancesResponse"
     "fixture/EC2/DescribeClassicLinkInstancesResponse"
     (Proxy :: Proxy DescribeClassicLinkInstances)
 
 terminateInstancesResponseTest :: TerminateInstancesResponse -> TestTree
 terminateInstancesResponseTest = resp
-    "TerminateInstances"
+    "TerminateInstancesResponse"
     "fixture/EC2/TerminateInstancesResponse"
     (Proxy :: Proxy TerminateInstances)
 
 createDHCPOptionsResponseTest :: CreateDHCPOptionsResponse -> TestTree
 createDHCPOptionsResponseTest = resp
-    "CreateDHCPOptions"
+    "CreateDHCPOptionsResponse"
     "fixture/EC2/CreateDHCPOptionsResponse"
     (Proxy :: Proxy CreateDHCPOptions)
 
 associateRouteTableResponseTest :: AssociateRouteTableResponse -> TestTree
 associateRouteTableResponseTest = resp
-    "AssociateRouteTable"
+    "AssociateRouteTableResponse"
     "fixture/EC2/AssociateRouteTableResponse"
     (Proxy :: Proxy AssociateRouteTable)
 
 createImageResponseTest :: CreateImageResponse -> TestTree
 createImageResponseTest = resp
-    "CreateImage"
+    "CreateImageResponse"
     "fixture/EC2/CreateImageResponse"
     (Proxy :: Proxy CreateImage)
 
 describeAccountAttributesResponseTest :: DescribeAccountAttributesResponse -> TestTree
 describeAccountAttributesResponseTest = resp
-    "DescribeAccountAttributes"
+    "DescribeAccountAttributesResponse"
     "fixture/EC2/DescribeAccountAttributesResponse"
     (Proxy :: Proxy DescribeAccountAttributes)
 
 resetImageAttributeResponseTest :: ResetImageAttributeResponse -> TestTree
 resetImageAttributeResponseTest = resp
-    "ResetImageAttribute"
+    "ResetImageAttributeResponse"
     "fixture/EC2/ResetImageAttributeResponse"
     (Proxy :: Proxy ResetImageAttribute)
 
 describeNetworkACLsResponseTest :: DescribeNetworkACLsResponse -> TestTree
 describeNetworkACLsResponseTest = resp
-    "DescribeNetworkACLs"
+    "DescribeNetworkACLsResponse"
     "fixture/EC2/DescribeNetworkACLsResponse"
     (Proxy :: Proxy DescribeNetworkACLs)
 
 cancelImportTaskResponseTest :: CancelImportTaskResponse -> TestTree
 cancelImportTaskResponseTest = resp
-    "CancelImportTask"
+    "CancelImportTaskResponse"
     "fixture/EC2/CancelImportTaskResponse"
     (Proxy :: Proxy CancelImportTask)
 
 getConsoleOutputResponseTest :: GetConsoleOutputResponse -> TestTree
 getConsoleOutputResponseTest = resp
-    "GetConsoleOutput"
+    "GetConsoleOutputResponse"
     "fixture/EC2/GetConsoleOutputResponse"
     (Proxy :: Proxy GetConsoleOutput)
 
 unassignPrivateIPAddressesResponseTest :: UnassignPrivateIPAddressesResponse -> TestTree
 unassignPrivateIPAddressesResponseTest = resp
-    "UnassignPrivateIPAddresses"
+    "UnassignPrivateIPAddressesResponse"
     "fixture/EC2/UnassignPrivateIPAddressesResponse"
     (Proxy :: Proxy UnassignPrivateIPAddresses)
 
 deleteRouteTableResponseTest :: DeleteRouteTableResponse -> TestTree
 deleteRouteTableResponseTest = resp
-    "DeleteRouteTable"
+    "DeleteRouteTableResponse"
     "fixture/EC2/DeleteRouteTableResponse"
     (Proxy :: Proxy DeleteRouteTable)
 
 describeImageAttributeResponseTest :: DescribeImageAttributeResponse -> TestTree
 describeImageAttributeResponseTest = resp
-    "DescribeImageAttribute"
+    "DescribeImageAttributeResponse"
     "fixture/EC2/DescribeImageAttributeResponse"
     (Proxy :: Proxy DescribeImageAttribute)
 
 deleteDHCPOptionsResponseTest :: DeleteDHCPOptionsResponse -> TestTree
 deleteDHCPOptionsResponseTest = resp
-    "DeleteDHCPOptions"
+    "DeleteDHCPOptionsResponse"
     "fixture/EC2/DeleteDHCPOptionsResponse"
     (Proxy :: Proxy DeleteDHCPOptions)
 
 describeVPNGatewaysResponseTest :: DescribeVPNGatewaysResponse -> TestTree
 describeVPNGatewaysResponseTest = resp
-    "DescribeVPNGateways"
+    "DescribeVPNGatewaysResponse"
     "fixture/EC2/DescribeVPNGatewaysResponse"
     (Proxy :: Proxy DescribeVPNGateways)
 
 detachClassicLinkVPCResponseTest :: DetachClassicLinkVPCResponse -> TestTree
 detachClassicLinkVPCResponseTest = resp
-    "DetachClassicLinkVPC"
+    "DetachClassicLinkVPCResponse"
     "fixture/EC2/DetachClassicLinkVPCResponse"
     (Proxy :: Proxy DetachClassicLinkVPC)
 
 describeReservedInstancesModificationsResponseTest :: DescribeReservedInstancesModificationsResponse -> TestTree
 describeReservedInstancesModificationsResponseTest = resp
-    "DescribeReservedInstancesModifications"
+    "DescribeReservedInstancesModificationsResponse"
     "fixture/EC2/DescribeReservedInstancesModificationsResponse"
     (Proxy :: Proxy DescribeReservedInstancesModifications)
 
 describeSpotInstanceRequestsResponseTest :: DescribeSpotInstanceRequestsResponse -> TestTree
 describeSpotInstanceRequestsResponseTest = resp
-    "DescribeSpotInstanceRequests"
+    "DescribeSpotInstanceRequestsResponse"
     "fixture/EC2/DescribeSpotInstanceRequestsResponse"
     (Proxy :: Proxy DescribeSpotInstanceRequests)
 
 monitorInstancesResponseTest :: MonitorInstancesResponse -> TestTree
 monitorInstancesResponseTest = resp
-    "MonitorInstances"
+    "MonitorInstancesResponse"
     "fixture/EC2/MonitorInstancesResponse"
     (Proxy :: Proxy MonitorInstances)
 
 describeRegionsResponseTest :: DescribeRegionsResponse -> TestTree
 describeRegionsResponseTest = resp
-    "DescribeRegions"
+    "DescribeRegionsResponse"
     "fixture/EC2/DescribeRegionsResponse"
     (Proxy :: Proxy DescribeRegions)
 
 modifyVPCAttributeResponseTest :: ModifyVPCAttributeResponse -> TestTree
 modifyVPCAttributeResponseTest = resp
-    "ModifyVPCAttribute"
+    "ModifyVPCAttributeResponse"
     "fixture/EC2/ModifyVPCAttributeResponse"
     (Proxy :: Proxy ModifyVPCAttribute)
 
 describeSpotFleetInstancesResponseTest :: DescribeSpotFleetInstancesResponse -> TestTree
 describeSpotFleetInstancesResponseTest = resp
-    "DescribeSpotFleetInstances"
+    "DescribeSpotFleetInstancesResponse"
     "fixture/EC2/DescribeSpotFleetInstancesResponse"
     (Proxy :: Proxy DescribeSpotFleetInstances)
 
 describeVolumeStatusResponseTest :: DescribeVolumeStatusResponse -> TestTree
 describeVolumeStatusResponseTest = resp
-    "DescribeVolumeStatus"
+    "DescribeVolumeStatusResponse"
     "fixture/EC2/DescribeVolumeStatusResponse"
     (Proxy :: Proxy DescribeVolumeStatus)
 
 deleteVolumeResponseTest :: DeleteVolumeResponse -> TestTree
 deleteVolumeResponseTest = resp
-    "DeleteVolume"
+    "DeleteVolumeResponse"
     "fixture/EC2/DeleteVolumeResponse"
     (Proxy :: Proxy DeleteVolume)
 
 describeImagesResponseTest :: DescribeImagesResponse -> TestTree
 describeImagesResponseTest = resp
-    "DescribeImages"
+    "DescribeImagesResponse"
     "fixture/EC2/DescribeImagesResponse"
     (Proxy :: Proxy DescribeImages)
 
 createKeyPairResponseTest :: CreateKeyPairResponse -> TestTree
 createKeyPairResponseTest = resp
-    "CreateKeyPair"
+    "CreateKeyPairResponse"
     "fixture/EC2/CreateKeyPairResponse"
     (Proxy :: Proxy CreateKeyPair)
 
 restoreAddressToClassicResponseTest :: RestoreAddressToClassicResponse -> TestTree
 restoreAddressToClassicResponseTest = resp
-    "RestoreAddressToClassic"
+    "RestoreAddressToClassicResponse"
     "fixture/EC2/RestoreAddressToClassicResponse"
     (Proxy :: Proxy RestoreAddressToClassic)
 
 describeAvailabilityZonesResponseTest :: DescribeAvailabilityZonesResponse -> TestTree
 describeAvailabilityZonesResponseTest = resp
-    "DescribeAvailabilityZones"
+    "DescribeAvailabilityZonesResponse"
     "fixture/EC2/DescribeAvailabilityZonesResponse"
     (Proxy :: Proxy DescribeAvailabilityZones)
 
 importSnapshotResponseTest :: ImportSnapshotResponse -> TestTree
 importSnapshotResponseTest = resp
-    "ImportSnapshot"
+    "ImportSnapshotResponse"
     "fixture/EC2/ImportSnapshotResponse"
     (Proxy :: Proxy ImportSnapshot)
 
 acceptVPCPeeringConnectionResponseTest :: AcceptVPCPeeringConnectionResponse -> TestTree
 acceptVPCPeeringConnectionResponseTest = resp
-    "AcceptVPCPeeringConnection"
+    "AcceptVPCPeeringConnectionResponse"
     "fixture/EC2/AcceptVPCPeeringConnectionResponse"
     (Proxy :: Proxy AcceptVPCPeeringConnection)
 
 describeRouteTablesResponseTest :: DescribeRouteTablesResponse -> TestTree
 describeRouteTablesResponseTest = resp
-    "DescribeRouteTables"
+    "DescribeRouteTablesResponse"
     "fixture/EC2/DescribeRouteTablesResponse"
     (Proxy :: Proxy DescribeRouteTables)

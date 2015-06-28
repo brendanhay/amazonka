@@ -262,150 +262,150 @@ describeDataSourcesTest = undefined
 
 deleteDataSourceResponseTest :: DeleteDataSourceResponse -> TestTree
 deleteDataSourceResponseTest = resp
-    "DeleteDataSource"
+    "DeleteDataSourceResponse"
     "fixture/MachineLearning/DeleteDataSourceResponse"
     (Proxy :: Proxy DeleteDataSource)
 
 updateDataSourceResponseTest :: UpdateDataSourceResponse -> TestTree
 updateDataSourceResponseTest = resp
-    "UpdateDataSource"
+    "UpdateDataSourceResponse"
     "fixture/MachineLearning/UpdateDataSourceResponse"
     (Proxy :: Proxy UpdateDataSource)
 
 createDataSourceFromRedshiftResponseTest :: CreateDataSourceFromRedshiftResponse -> TestTree
 createDataSourceFromRedshiftResponseTest = resp
-    "CreateDataSourceFromRedshift"
+    "CreateDataSourceFromRedshiftResponse"
     "fixture/MachineLearning/CreateDataSourceFromRedshiftResponse"
     (Proxy :: Proxy CreateDataSourceFromRedshift)
 
 createDataSourceFromSResponseTest :: CreateDataSourceFromSResponse -> TestTree
 createDataSourceFromSResponseTest = resp
-    "CreateDataSourceFromS"
+    "CreateDataSourceFromSResponse"
     "fixture/MachineLearning/CreateDataSourceFromSResponse"
     (Proxy :: Proxy CreateDataSourceFromS)
 
 createMLModelResponseTest :: CreateMLModelResponse -> TestTree
 createMLModelResponseTest = resp
-    "CreateMLModel"
+    "CreateMLModelResponse"
     "fixture/MachineLearning/CreateMLModelResponse"
     (Proxy :: Proxy CreateMLModel)
 
 deleteBatchPredictionResponseTest :: DeleteBatchPredictionResponse -> TestTree
 deleteBatchPredictionResponseTest = resp
-    "DeleteBatchPrediction"
+    "DeleteBatchPredictionResponse"
     "fixture/MachineLearning/DeleteBatchPredictionResponse"
     (Proxy :: Proxy DeleteBatchPrediction)
 
 updateBatchPredictionResponseTest :: UpdateBatchPredictionResponse -> TestTree
 updateBatchPredictionResponseTest = resp
-    "UpdateBatchPrediction"
+    "UpdateBatchPredictionResponse"
     "fixture/MachineLearning/UpdateBatchPredictionResponse"
     (Proxy :: Proxy UpdateBatchPrediction)
 
 getMLModelResponseTest :: GetMLModelResponse -> TestTree
 getMLModelResponseTest = resp
-    "GetMLModel"
+    "GetMLModelResponse"
     "fixture/MachineLearning/GetMLModelResponse"
     (Proxy :: Proxy GetMLModel)
 
 getDataSourceResponseTest :: GetDataSourceResponse -> TestTree
 getDataSourceResponseTest = resp
-    "GetDataSource"
+    "GetDataSourceResponse"
     "fixture/MachineLearning/GetDataSourceResponse"
     (Proxy :: Proxy GetDataSource)
 
 deleteMLModelResponseTest :: DeleteMLModelResponse -> TestTree
 deleteMLModelResponseTest = resp
-    "DeleteMLModel"
+    "DeleteMLModelResponse"
     "fixture/MachineLearning/DeleteMLModelResponse"
     (Proxy :: Proxy DeleteMLModel)
 
 updateMLModelResponseTest :: UpdateMLModelResponse -> TestTree
 updateMLModelResponseTest = resp
-    "UpdateMLModel"
+    "UpdateMLModelResponse"
     "fixture/MachineLearning/UpdateMLModelResponse"
     (Proxy :: Proxy UpdateMLModel)
 
 describeBatchPredictionsResponseTest :: DescribeBatchPredictionsResponse -> TestTree
 describeBatchPredictionsResponseTest = resp
-    "DescribeBatchPredictions"
+    "DescribeBatchPredictionsResponse"
     "fixture/MachineLearning/DescribeBatchPredictionsResponse"
     (Proxy :: Proxy DescribeBatchPredictions)
 
 updateEvaluationResponseTest :: UpdateEvaluationResponse -> TestTree
 updateEvaluationResponseTest = resp
-    "UpdateEvaluation"
+    "UpdateEvaluationResponse"
     "fixture/MachineLearning/UpdateEvaluationResponse"
     (Proxy :: Proxy UpdateEvaluation)
 
 deleteEvaluationResponseTest :: DeleteEvaluationResponse -> TestTree
 deleteEvaluationResponseTest = resp
-    "DeleteEvaluation"
+    "DeleteEvaluationResponse"
     "fixture/MachineLearning/DeleteEvaluationResponse"
     (Proxy :: Proxy DeleteEvaluation)
 
 getBatchPredictionResponseTest :: GetBatchPredictionResponse -> TestTree
 getBatchPredictionResponseTest = resp
-    "GetBatchPrediction"
+    "GetBatchPredictionResponse"
     "fixture/MachineLearning/GetBatchPredictionResponse"
     (Proxy :: Proxy GetBatchPrediction)
 
 createEvaluationResponseTest :: CreateEvaluationResponse -> TestTree
 createEvaluationResponseTest = resp
-    "CreateEvaluation"
+    "CreateEvaluationResponse"
     "fixture/MachineLearning/CreateEvaluationResponse"
     (Proxy :: Proxy CreateEvaluation)
 
 createDataSourceFromRDSResponseTest :: CreateDataSourceFromRDSResponse -> TestTree
 createDataSourceFromRDSResponseTest = resp
-    "CreateDataSourceFromRDS"
+    "CreateDataSourceFromRDSResponse"
     "fixture/MachineLearning/CreateDataSourceFromRDSResponse"
     (Proxy :: Proxy CreateDataSourceFromRDS)
 
 createBatchPredictionResponseTest :: CreateBatchPredictionResponse -> TestTree
 createBatchPredictionResponseTest = resp
-    "CreateBatchPrediction"
+    "CreateBatchPredictionResponse"
     "fixture/MachineLearning/CreateBatchPredictionResponse"
     (Proxy :: Proxy CreateBatchPrediction)
 
 predictResponseTest :: PredictResponse -> TestTree
 predictResponseTest = resp
-    "Predict"
+    "PredictResponse"
     "fixture/MachineLearning/PredictResponse"
     (Proxy :: Proxy Predict)
 
 deleteRealtimeEndpointResponseTest :: DeleteRealtimeEndpointResponse -> TestTree
 deleteRealtimeEndpointResponseTest = resp
-    "DeleteRealtimeEndpoint"
+    "DeleteRealtimeEndpointResponse"
     "fixture/MachineLearning/DeleteRealtimeEndpointResponse"
     (Proxy :: Proxy DeleteRealtimeEndpoint)
 
 describeEvaluationsResponseTest :: DescribeEvaluationsResponse -> TestTree
 describeEvaluationsResponseTest = resp
-    "DescribeEvaluations"
+    "DescribeEvaluationsResponse"
     "fixture/MachineLearning/DescribeEvaluationsResponse"
     (Proxy :: Proxy DescribeEvaluations)
 
 getEvaluationResponseTest :: GetEvaluationResponse -> TestTree
 getEvaluationResponseTest = resp
-    "GetEvaluation"
+    "GetEvaluationResponse"
     "fixture/MachineLearning/GetEvaluationResponse"
     (Proxy :: Proxy GetEvaluation)
 
 createRealtimeEndpointResponseTest :: CreateRealtimeEndpointResponse -> TestTree
 createRealtimeEndpointResponseTest = resp
-    "CreateRealtimeEndpoint"
+    "CreateRealtimeEndpointResponse"
     "fixture/MachineLearning/CreateRealtimeEndpointResponse"
     (Proxy :: Proxy CreateRealtimeEndpoint)
 
 describeMLModelsResponseTest :: DescribeMLModelsResponse -> TestTree
 describeMLModelsResponseTest = resp
-    "DescribeMLModels"
+    "DescribeMLModelsResponse"
     "fixture/MachineLearning/DescribeMLModelsResponse"
     (Proxy :: Proxy DescribeMLModels)
 
 describeDataSourcesResponseTest :: DescribeDataSourcesResponse -> TestTree
 describeDataSourcesResponseTest = resp
-    "DescribeDataSources"
+    "DescribeDataSourcesResponse"
     "fixture/MachineLearning/DescribeDataSourcesResponse"
     (Proxy :: Proxy DescribeDataSources)

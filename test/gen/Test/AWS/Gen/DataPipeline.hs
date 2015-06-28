@@ -208,114 +208,114 @@ validatePipelineDefinitionTest = undefined
 
 describePipelinesResponseTest :: DescribePipelinesResponse -> TestTree
 describePipelinesResponseTest = resp
-    "DescribePipelines"
+    "DescribePipelinesResponse"
     "fixture/DataPipeline/DescribePipelinesResponse"
     (Proxy :: Proxy DescribePipelines)
 
 queryObjectsResponseTest :: QueryObjectsResponse -> TestTree
 queryObjectsResponseTest = resp
-    "QueryObjects"
+    "QueryObjectsResponse"
     "fixture/DataPipeline/QueryObjectsResponse"
     (Proxy :: Proxy QueryObjects)
 
 removeTagsResponseTest :: RemoveTagsResponse -> TestTree
 removeTagsResponseTest = resp
-    "RemoveTags"
+    "RemoveTagsResponse"
     "fixture/DataPipeline/RemoveTagsResponse"
     (Proxy :: Proxy RemoveTags)
 
 deletePipelineResponseTest :: DeletePipelineResponse -> TestTree
 deletePipelineResponseTest = resp
-    "DeletePipeline"
+    "DeletePipelineResponse"
     "fixture/DataPipeline/DeletePipelineResponse"
     (Proxy :: Proxy DeletePipeline)
 
 listPipelinesResponseTest :: ListPipelinesResponse -> TestTree
 listPipelinesResponseTest = resp
-    "ListPipelines"
+    "ListPipelinesResponse"
     "fixture/DataPipeline/ListPipelinesResponse"
     (Proxy :: Proxy ListPipelines)
 
 getPipelineDefinitionResponseTest :: GetPipelineDefinitionResponse -> TestTree
 getPipelineDefinitionResponseTest = resp
-    "GetPipelineDefinition"
+    "GetPipelineDefinitionResponse"
     "fixture/DataPipeline/GetPipelineDefinitionResponse"
     (Proxy :: Proxy GetPipelineDefinition)
 
 pollForTaskResponseTest :: PollForTaskResponse -> TestTree
 pollForTaskResponseTest = resp
-    "PollForTask"
+    "PollForTaskResponse"
     "fixture/DataPipeline/PollForTaskResponse"
     (Proxy :: Proxy PollForTask)
 
 evaluateExpressionResponseTest :: EvaluateExpressionResponse -> TestTree
 evaluateExpressionResponseTest = resp
-    "EvaluateExpression"
+    "EvaluateExpressionResponse"
     "fixture/DataPipeline/EvaluateExpressionResponse"
     (Proxy :: Proxy EvaluateExpression)
 
 deactivatePipelineResponseTest :: DeactivatePipelineResponse -> TestTree
 deactivatePipelineResponseTest = resp
-    "DeactivatePipeline"
+    "DeactivatePipelineResponse"
     "fixture/DataPipeline/DeactivatePipelineResponse"
     (Proxy :: Proxy DeactivatePipeline)
 
 addTagsResponseTest :: AddTagsResponse -> TestTree
 addTagsResponseTest = resp
-    "AddTags"
+    "AddTagsResponse"
     "fixture/DataPipeline/AddTagsResponse"
     (Proxy :: Proxy AddTags)
 
 describeObjectsResponseTest :: DescribeObjectsResponse -> TestTree
 describeObjectsResponseTest = resp
-    "DescribeObjects"
+    "DescribeObjectsResponse"
     "fixture/DataPipeline/DescribeObjectsResponse"
     (Proxy :: Proxy DescribeObjects)
 
 reportTaskRunnerHeartbeatResponseTest :: ReportTaskRunnerHeartbeatResponse -> TestTree
 reportTaskRunnerHeartbeatResponseTest = resp
-    "ReportTaskRunnerHeartbeat"
+    "ReportTaskRunnerHeartbeatResponse"
     "fixture/DataPipeline/ReportTaskRunnerHeartbeatResponse"
     (Proxy :: Proxy ReportTaskRunnerHeartbeat)
 
 activatePipelineResponseTest :: ActivatePipelineResponse -> TestTree
 activatePipelineResponseTest = resp
-    "ActivatePipeline"
+    "ActivatePipelineResponse"
     "fixture/DataPipeline/ActivatePipelineResponse"
     (Proxy :: Proxy ActivatePipeline)
 
 setTaskStatusResponseTest :: SetTaskStatusResponse -> TestTree
 setTaskStatusResponseTest = resp
-    "SetTaskStatus"
+    "SetTaskStatusResponse"
     "fixture/DataPipeline/SetTaskStatusResponse"
     (Proxy :: Proxy SetTaskStatus)
 
 reportTaskProgressResponseTest :: ReportTaskProgressResponse -> TestTree
 reportTaskProgressResponseTest = resp
-    "ReportTaskProgress"
+    "ReportTaskProgressResponse"
     "fixture/DataPipeline/ReportTaskProgressResponse"
     (Proxy :: Proxy ReportTaskProgress)
 
 createPipelineResponseTest :: CreatePipelineResponse -> TestTree
 createPipelineResponseTest = resp
-    "CreatePipeline"
+    "CreatePipelineResponse"
     "fixture/DataPipeline/CreatePipelineResponse"
     (Proxy :: Proxy CreatePipeline)
 
 setStatusResponseTest :: SetStatusResponse -> TestTree
 setStatusResponseTest = resp
-    "SetStatus"
+    "SetStatusResponse"
     "fixture/DataPipeline/SetStatusResponse"
     (Proxy :: Proxy SetStatus)
 
 putPipelineDefinitionResponseTest :: PutPipelineDefinitionResponse -> TestTree
 putPipelineDefinitionResponseTest = resp
-    "PutPipelineDefinition"
+    "PutPipelineDefinitionResponse"
     "fixture/DataPipeline/PutPipelineDefinitionResponse"
     (Proxy :: Proxy PutPipelineDefinition)
 
 validatePipelineDefinitionResponseTest :: ValidatePipelineDefinitionResponse -> TestTree
 validatePipelineDefinitionResponseTest = resp
-    "ValidatePipelineDefinition"
+    "ValidatePipelineDefinitionResponse"
     "fixture/DataPipeline/ValidatePipelineDefinitionResponse"
     (Proxy :: Proxy ValidatePipelineDefinition)

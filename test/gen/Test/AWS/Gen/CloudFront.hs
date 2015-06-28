@@ -226,126 +226,126 @@ listDistributionsTest = undefined
 
 deleteStreamingDistributionResponseTest :: DeleteStreamingDistributionResponse -> TestTree
 deleteStreamingDistributionResponseTest = resp
-    "DeleteStreamingDistribution"
+    "DeleteStreamingDistributionResponse"
     "fixture/CloudFront/DeleteStreamingDistributionResponse"
     (Proxy :: Proxy DeleteStreamingDistribution)
 
 updateStreamingDistributionResponseTest :: UpdateStreamingDistributionResponse -> TestTree
 updateStreamingDistributionResponseTest = resp
-    "UpdateStreamingDistribution"
+    "UpdateStreamingDistributionResponse"
     "fixture/CloudFront/UpdateStreamingDistributionResponse"
     (Proxy :: Proxy UpdateStreamingDistribution)
 
 createDistributionResponseTest :: CreateDistributionResponse -> TestTree
 createDistributionResponseTest = resp
-    "CreateDistribution"
+    "CreateDistributionResponse"
     "fixture/CloudFront/CreateDistributionResponse"
     (Proxy :: Proxy CreateDistribution)
 
 getDistributionConfigResponseTest :: GetDistributionConfigResponse -> TestTree
 getDistributionConfigResponseTest = resp
-    "GetDistributionConfig"
+    "GetDistributionConfigResponse"
     "fixture/CloudFront/GetDistributionConfigResponse"
     (Proxy :: Proxy GetDistributionConfig)
 
 getDistributionResponseTest :: GetDistributionResponse -> TestTree
 getDistributionResponseTest = resp
-    "GetDistribution"
+    "GetDistributionResponse"
     "fixture/CloudFront/GetDistributionResponse"
     (Proxy :: Proxy GetDistribution)
 
 deleteCloudFrontOriginAccessIdentityResponseTest :: DeleteCloudFrontOriginAccessIdentityResponse -> TestTree
 deleteCloudFrontOriginAccessIdentityResponseTest = resp
-    "DeleteCloudFrontOriginAccessIdentity"
+    "DeleteCloudFrontOriginAccessIdentityResponse"
     "fixture/CloudFront/DeleteCloudFrontOriginAccessIdentityResponse"
     (Proxy :: Proxy DeleteCloudFrontOriginAccessIdentity)
 
 updateCloudFrontOriginAccessIdentityResponseTest :: UpdateCloudFrontOriginAccessIdentityResponse -> TestTree
 updateCloudFrontOriginAccessIdentityResponseTest = resp
-    "UpdateCloudFrontOriginAccessIdentity"
+    "UpdateCloudFrontOriginAccessIdentityResponse"
     "fixture/CloudFront/UpdateCloudFrontOriginAccessIdentityResponse"
     (Proxy :: Proxy UpdateCloudFrontOriginAccessIdentity)
 
 listStreamingDistributionsResponseTest :: ListStreamingDistributionsResponse -> TestTree
 listStreamingDistributionsResponseTest = resp
-    "ListStreamingDistributions"
+    "ListStreamingDistributionsResponse"
     "fixture/CloudFront/ListStreamingDistributionsResponse"
     (Proxy :: Proxy ListStreamingDistributions)
 
 getStreamingDistributionConfigResponseTest :: GetStreamingDistributionConfigResponse -> TestTree
 getStreamingDistributionConfigResponseTest = resp
-    "GetStreamingDistributionConfig"
+    "GetStreamingDistributionConfigResponse"
     "fixture/CloudFront/GetStreamingDistributionConfigResponse"
     (Proxy :: Proxy GetStreamingDistributionConfig)
 
 getCloudFrontOriginAccessIdentityConfigResponseTest :: GetCloudFrontOriginAccessIdentityConfigResponse -> TestTree
 getCloudFrontOriginAccessIdentityConfigResponseTest = resp
-    "GetCloudFrontOriginAccessIdentityConfig"
+    "GetCloudFrontOriginAccessIdentityConfigResponse"
     "fixture/CloudFront/GetCloudFrontOriginAccessIdentityConfigResponse"
     (Proxy :: Proxy GetCloudFrontOriginAccessIdentityConfig)
 
 createStreamingDistributionResponseTest :: CreateStreamingDistributionResponse -> TestTree
 createStreamingDistributionResponseTest = resp
-    "CreateStreamingDistribution"
+    "CreateStreamingDistributionResponse"
     "fixture/CloudFront/CreateStreamingDistributionResponse"
     (Proxy :: Proxy CreateStreamingDistribution)
 
 createCloudFrontOriginAccessIdentityResponseTest :: CreateCloudFrontOriginAccessIdentityResponse -> TestTree
 createCloudFrontOriginAccessIdentityResponseTest = resp
-    "CreateCloudFrontOriginAccessIdentity"
+    "CreateCloudFrontOriginAccessIdentityResponse"
     "fixture/CloudFront/CreateCloudFrontOriginAccessIdentityResponse"
     (Proxy :: Proxy CreateCloudFrontOriginAccessIdentity)
 
 listCloudFrontOriginAccessIdentitiesResponseTest :: ListCloudFrontOriginAccessIdentitiesResponse -> TestTree
 listCloudFrontOriginAccessIdentitiesResponseTest = resp
-    "ListCloudFrontOriginAccessIdentities"
+    "ListCloudFrontOriginAccessIdentitiesResponse"
     "fixture/CloudFront/ListCloudFrontOriginAccessIdentitiesResponse"
     (Proxy :: Proxy ListCloudFrontOriginAccessIdentities)
 
 getInvalidationResponseTest :: GetInvalidationResponse -> TestTree
 getInvalidationResponseTest = resp
-    "GetInvalidation"
+    "GetInvalidationResponse"
     "fixture/CloudFront/GetInvalidationResponse"
     (Proxy :: Proxy GetInvalidation)
 
 listInvalidationsResponseTest :: ListInvalidationsResponse -> TestTree
 listInvalidationsResponseTest = resp
-    "ListInvalidations"
+    "ListInvalidationsResponse"
     "fixture/CloudFront/ListInvalidationsResponse"
     (Proxy :: Proxy ListInvalidations)
 
 getStreamingDistributionResponseTest :: GetStreamingDistributionResponse -> TestTree
 getStreamingDistributionResponseTest = resp
-    "GetStreamingDistribution"
+    "GetStreamingDistributionResponse"
     "fixture/CloudFront/GetStreamingDistributionResponse"
     (Proxy :: Proxy GetStreamingDistribution)
 
 getCloudFrontOriginAccessIdentityResponseTest :: GetCloudFrontOriginAccessIdentityResponse -> TestTree
 getCloudFrontOriginAccessIdentityResponseTest = resp
-    "GetCloudFrontOriginAccessIdentity"
+    "GetCloudFrontOriginAccessIdentityResponse"
     "fixture/CloudFront/GetCloudFrontOriginAccessIdentityResponse"
     (Proxy :: Proxy GetCloudFrontOriginAccessIdentity)
 
 createInvalidationResponseTest :: CreateInvalidationResponse -> TestTree
 createInvalidationResponseTest = resp
-    "CreateInvalidation"
+    "CreateInvalidationResponse"
     "fixture/CloudFront/CreateInvalidationResponse"
     (Proxy :: Proxy CreateInvalidation)
 
 updateDistributionResponseTest :: UpdateDistributionResponse -> TestTree
 updateDistributionResponseTest = resp
-    "UpdateDistribution"
+    "UpdateDistributionResponse"
     "fixture/CloudFront/UpdateDistributionResponse"
     (Proxy :: Proxy UpdateDistribution)
 
 deleteDistributionResponseTest :: DeleteDistributionResponse -> TestTree
 deleteDistributionResponseTest = resp
-    "DeleteDistribution"
+    "DeleteDistributionResponse"
     "fixture/CloudFront/DeleteDistributionResponse"
     (Proxy :: Proxy DeleteDistribution)
 
 listDistributionsResponseTest :: ListDistributionsResponse -> TestTree
 listDistributionsResponseTest = resp
-    "ListDistributions"
+    "ListDistributionsResponse"
     "fixture/CloudFront/ListDistributionsResponse"
     (Proxy :: Proxy ListDistributions)

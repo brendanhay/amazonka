@@ -163,84 +163,84 @@ addCommunicationToCaseTest = undefined
 
 refreshTrustedAdvisorCheckResponseTest :: RefreshTrustedAdvisorCheckResponse -> TestTree
 refreshTrustedAdvisorCheckResponseTest = resp
-    "RefreshTrustedAdvisorCheck"
+    "RefreshTrustedAdvisorCheckResponse"
     "fixture/Support/RefreshTrustedAdvisorCheckResponse"
     (Proxy :: Proxy RefreshTrustedAdvisorCheck)
 
 describeCasesResponseTest :: DescribeCasesResponse -> TestTree
 describeCasesResponseTest = resp
-    "DescribeCases"
+    "DescribeCasesResponse"
     "fixture/Support/DescribeCasesResponse"
     (Proxy :: Proxy DescribeCases)
 
 describeTrustedAdvisorCheckRefreshStatusesResponseTest :: DescribeTrustedAdvisorCheckRefreshStatusesResponse -> TestTree
 describeTrustedAdvisorCheckRefreshStatusesResponseTest = resp
-    "DescribeTrustedAdvisorCheckRefreshStatuses"
+    "DescribeTrustedAdvisorCheckRefreshStatusesResponse"
     "fixture/Support/DescribeTrustedAdvisorCheckRefreshStatusesResponse"
     (Proxy :: Proxy DescribeTrustedAdvisorCheckRefreshStatuses)
 
 createCaseResponseTest :: CreateCaseResponse -> TestTree
 createCaseResponseTest = resp
-    "CreateCase"
+    "CreateCaseResponse"
     "fixture/Support/CreateCaseResponse"
     (Proxy :: Proxy CreateCase)
 
 describeTrustedAdvisorCheckSummariesResponseTest :: DescribeTrustedAdvisorCheckSummariesResponse -> TestTree
 describeTrustedAdvisorCheckSummariesResponseTest = resp
-    "DescribeTrustedAdvisorCheckSummaries"
+    "DescribeTrustedAdvisorCheckSummariesResponse"
     "fixture/Support/DescribeTrustedAdvisorCheckSummariesResponse"
     (Proxy :: Proxy DescribeTrustedAdvisorCheckSummaries)
 
 resolveCaseResponseTest :: ResolveCaseResponse -> TestTree
 resolveCaseResponseTest = resp
-    "ResolveCase"
+    "ResolveCaseResponse"
     "fixture/Support/ResolveCaseResponse"
     (Proxy :: Proxy ResolveCase)
 
 describeSeverityLevelsResponseTest :: DescribeSeverityLevelsResponse -> TestTree
 describeSeverityLevelsResponseTest = resp
-    "DescribeSeverityLevels"
+    "DescribeSeverityLevelsResponse"
     "fixture/Support/DescribeSeverityLevelsResponse"
     (Proxy :: Proxy DescribeSeverityLevels)
 
 describeTrustedAdvisorChecksResponseTest :: DescribeTrustedAdvisorChecksResponse -> TestTree
 describeTrustedAdvisorChecksResponseTest = resp
-    "DescribeTrustedAdvisorChecks"
+    "DescribeTrustedAdvisorChecksResponse"
     "fixture/Support/DescribeTrustedAdvisorChecksResponse"
     (Proxy :: Proxy DescribeTrustedAdvisorChecks)
 
 describeAttachmentResponseTest :: DescribeAttachmentResponse -> TestTree
 describeAttachmentResponseTest = resp
-    "DescribeAttachment"
+    "DescribeAttachmentResponse"
     "fixture/Support/DescribeAttachmentResponse"
     (Proxy :: Proxy DescribeAttachment)
 
 addAttachmentsToSetResponseTest :: AddAttachmentsToSetResponse -> TestTree
 addAttachmentsToSetResponseTest = resp
-    "AddAttachmentsToSet"
+    "AddAttachmentsToSetResponse"
     "fixture/Support/AddAttachmentsToSetResponse"
     (Proxy :: Proxy AddAttachmentsToSet)
 
 describeTrustedAdvisorCheckResultResponseTest :: DescribeTrustedAdvisorCheckResultResponse -> TestTree
 describeTrustedAdvisorCheckResultResponseTest = resp
-    "DescribeTrustedAdvisorCheckResult"
+    "DescribeTrustedAdvisorCheckResultResponse"
     "fixture/Support/DescribeTrustedAdvisorCheckResultResponse"
     (Proxy :: Proxy DescribeTrustedAdvisorCheckResult)
 
 describeServicesResponseTest :: DescribeServicesResponse -> TestTree
 describeServicesResponseTest = resp
-    "DescribeServices"
+    "DescribeServicesResponse"
     "fixture/Support/DescribeServicesResponse"
     (Proxy :: Proxy DescribeServices)
 
 describeCommunicationsResponseTest :: DescribeCommunicationsResponse -> TestTree
 describeCommunicationsResponseTest = resp
-    "DescribeCommunications"
+    "DescribeCommunicationsResponse"
     "fixture/Support/DescribeCommunicationsResponse"
     (Proxy :: Proxy DescribeCommunications)
 
 addCommunicationToCaseResponseTest :: AddCommunicationToCaseResponse -> TestTree
 addCommunicationToCaseResponseTest = resp
-    "AddCommunicationToCase"
+    "AddCommunicationToCaseResponse"
     "fixture/Support/AddCommunicationToCaseResponse"
     (Proxy :: Proxy AddCommunicationToCase)

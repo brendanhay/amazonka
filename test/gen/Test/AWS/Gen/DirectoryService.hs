@@ -190,102 +190,102 @@ updateRadiusTest = undefined
 
 getSnapshotLimitsResponseTest :: GetSnapshotLimitsResponse -> TestTree
 getSnapshotLimitsResponseTest = resp
-    "GetSnapshotLimits"
+    "GetSnapshotLimitsResponse"
     "fixture/DirectoryService/GetSnapshotLimitsResponse"
     (Proxy :: Proxy GetSnapshotLimits)
 
 connectDirectoryResponseTest :: ConnectDirectoryResponse -> TestTree
 connectDirectoryResponseTest = resp
-    "ConnectDirectory"
+    "ConnectDirectoryResponse"
     "fixture/DirectoryService/ConnectDirectoryResponse"
     (Proxy :: Proxy ConnectDirectory)
 
 describeDirectoriesResponseTest :: DescribeDirectoriesResponse -> TestTree
 describeDirectoriesResponseTest = resp
-    "DescribeDirectories"
+    "DescribeDirectoriesResponse"
     "fixture/DirectoryService/DescribeDirectoriesResponse"
     (Proxy :: Proxy DescribeDirectories)
 
 createAliasResponseTest :: CreateAliasResponse -> TestTree
 createAliasResponseTest = resp
-    "CreateAlias"
+    "CreateAliasResponse"
     "fixture/DirectoryService/CreateAliasResponse"
     (Proxy :: Proxy CreateAlias)
 
 createDirectoryResponseTest :: CreateDirectoryResponse -> TestTree
 createDirectoryResponseTest = resp
-    "CreateDirectory"
+    "CreateDirectoryResponse"
     "fixture/DirectoryService/CreateDirectoryResponse"
     (Proxy :: Proxy CreateDirectory)
 
 enableSsoResponseTest :: EnableSsoResponse -> TestTree
 enableSsoResponseTest = resp
-    "EnableSso"
+    "EnableSsoResponse"
     "fixture/DirectoryService/EnableSsoResponse"
     (Proxy :: Proxy EnableSso)
 
 enableRadiusResponseTest :: EnableRadiusResponse -> TestTree
 enableRadiusResponseTest = resp
-    "EnableRadius"
+    "EnableRadiusResponse"
     "fixture/DirectoryService/EnableRadiusResponse"
     (Proxy :: Proxy EnableRadius)
 
 disableRadiusResponseTest :: DisableRadiusResponse -> TestTree
 disableRadiusResponseTest = resp
-    "DisableRadius"
+    "DisableRadiusResponse"
     "fixture/DirectoryService/DisableRadiusResponse"
     (Proxy :: Proxy DisableRadius)
 
 describeSnapshotsResponseTest :: DescribeSnapshotsResponse -> TestTree
 describeSnapshotsResponseTest = resp
-    "DescribeSnapshots"
+    "DescribeSnapshotsResponse"
     "fixture/DirectoryService/DescribeSnapshotsResponse"
     (Proxy :: Proxy DescribeSnapshots)
 
 restoreFromSnapshotResponseTest :: RestoreFromSnapshotResponse -> TestTree
 restoreFromSnapshotResponseTest = resp
-    "RestoreFromSnapshot"
+    "RestoreFromSnapshotResponse"
     "fixture/DirectoryService/RestoreFromSnapshotResponse"
     (Proxy :: Proxy RestoreFromSnapshot)
 
 deleteSnapshotResponseTest :: DeleteSnapshotResponse -> TestTree
 deleteSnapshotResponseTest = resp
-    "DeleteSnapshot"
+    "DeleteSnapshotResponse"
     "fixture/DirectoryService/DeleteSnapshotResponse"
     (Proxy :: Proxy DeleteSnapshot)
 
 createSnapshotResponseTest :: CreateSnapshotResponse -> TestTree
 createSnapshotResponseTest = resp
-    "CreateSnapshot"
+    "CreateSnapshotResponse"
     "fixture/DirectoryService/CreateSnapshotResponse"
     (Proxy :: Proxy CreateSnapshot)
 
 deleteDirectoryResponseTest :: DeleteDirectoryResponse -> TestTree
 deleteDirectoryResponseTest = resp
-    "DeleteDirectory"
+    "DeleteDirectoryResponse"
     "fixture/DirectoryService/DeleteDirectoryResponse"
     (Proxy :: Proxy DeleteDirectory)
 
 disableSsoResponseTest :: DisableSsoResponse -> TestTree
 disableSsoResponseTest = resp
-    "DisableSso"
+    "DisableSsoResponse"
     "fixture/DirectoryService/DisableSsoResponse"
     (Proxy :: Proxy DisableSso)
 
 createComputerResponseTest :: CreateComputerResponse -> TestTree
 createComputerResponseTest = resp
-    "CreateComputer"
+    "CreateComputerResponse"
     "fixture/DirectoryService/CreateComputerResponse"
     (Proxy :: Proxy CreateComputer)
 
 getDirectoryLimitsResponseTest :: GetDirectoryLimitsResponse -> TestTree
 getDirectoryLimitsResponseTest = resp
-    "GetDirectoryLimits"
+    "GetDirectoryLimitsResponse"
     "fixture/DirectoryService/GetDirectoryLimitsResponse"
     (Proxy :: Proxy GetDirectoryLimits)
 
 updateRadiusResponseTest :: UpdateRadiusResponse -> TestTree
 updateRadiusResponseTest = resp
-    "UpdateRadius"
+    "UpdateRadiusResponse"
     "fixture/DirectoryService/UpdateRadiusResponse"
     (Proxy :: Proxy UpdateRadius)

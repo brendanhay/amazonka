@@ -154,78 +154,78 @@ createTableTest = undefined
 
 updateItemResponseTest :: UpdateItemResponse -> TestTree
 updateItemResponseTest = resp
-    "UpdateItem"
+    "UpdateItemResponse"
     "fixture/DynamoDB/UpdateItemResponse"
     (Proxy :: Proxy UpdateItem)
 
 deleteItemResponseTest :: DeleteItemResponse -> TestTree
 deleteItemResponseTest = resp
-    "DeleteItem"
+    "DeleteItemResponse"
     "fixture/DynamoDB/DeleteItemResponse"
     (Proxy :: Proxy DeleteItem)
 
 putItemResponseTest :: PutItemResponse -> TestTree
 putItemResponseTest = resp
-    "PutItem"
+    "PutItemResponse"
     "fixture/DynamoDB/PutItemResponse"
     (Proxy :: Proxy PutItem)
 
 deleteTableResponseTest :: DeleteTableResponse -> TestTree
 deleteTableResponseTest = resp
-    "DeleteTable"
+    "DeleteTableResponse"
     "fixture/DynamoDB/DeleteTableResponse"
     (Proxy :: Proxy DeleteTable)
 
 updateTableResponseTest :: UpdateTableResponse -> TestTree
 updateTableResponseTest = resp
-    "UpdateTable"
+    "UpdateTableResponse"
     "fixture/DynamoDB/UpdateTableResponse"
     (Proxy :: Proxy UpdateTable)
 
 batchGetItemResponseTest :: BatchGetItemResponse -> TestTree
 batchGetItemResponseTest = resp
-    "BatchGetItem"
+    "BatchGetItemResponse"
     "fixture/DynamoDB/BatchGetItemResponse"
     (Proxy :: Proxy BatchGetItem)
 
 describeTableResponseTest :: DescribeTableResponse -> TestTree
 describeTableResponseTest = resp
-    "DescribeTable"
+    "DescribeTableResponse"
     "fixture/DynamoDB/DescribeTableResponse"
     (Proxy :: Proxy DescribeTable)
 
 getItemResponseTest :: GetItemResponse -> TestTree
 getItemResponseTest = resp
-    "GetItem"
+    "GetItemResponse"
     "fixture/DynamoDB/GetItemResponse"
     (Proxy :: Proxy GetItem)
 
 batchWriteItemResponseTest :: BatchWriteItemResponse -> TestTree
 batchWriteItemResponseTest = resp
-    "BatchWriteItem"
+    "BatchWriteItemResponse"
     "fixture/DynamoDB/BatchWriteItemResponse"
     (Proxy :: Proxy BatchWriteItem)
 
 scanResponseTest :: ScanResponse -> TestTree
 scanResponseTest = resp
-    "Scan"
+    "ScanResponse"
     "fixture/DynamoDB/ScanResponse"
     (Proxy :: Proxy Scan)
 
 listTablesResponseTest :: ListTablesResponse -> TestTree
 listTablesResponseTest = resp
-    "ListTables"
+    "ListTablesResponse"
     "fixture/DynamoDB/ListTablesResponse"
     (Proxy :: Proxy ListTables)
 
 queryResponseTest :: QueryResponse -> TestTree
 queryResponseTest = resp
-    "Query"
+    "QueryResponse"
     "fixture/DynamoDB/QueryResponse"
     (Proxy :: Proxy Query)
 
 createTableResponseTest :: CreateTableResponse -> TestTree
 createTableResponseTest = resp
-    "CreateTable"
+    "CreateTableResponse"
     "fixture/DynamoDB/CreateTableResponse"
     (Proxy :: Proxy CreateTable)

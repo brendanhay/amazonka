@@ -190,102 +190,102 @@ cancelJobTest = undefined
 
 deletePresetResponseTest :: DeletePresetResponse -> TestTree
 deletePresetResponseTest = resp
-    "DeletePreset"
+    "DeletePresetResponse"
     "fixture/ElasticTranscoder/DeletePresetResponse"
     (Proxy :: Proxy DeletePreset)
 
 listJobsByPipelineResponseTest :: ListJobsByPipelineResponse -> TestTree
 listJobsByPipelineResponseTest = resp
-    "ListJobsByPipeline"
+    "ListJobsByPipelineResponse"
     "fixture/ElasticTranscoder/ListJobsByPipelineResponse"
     (Proxy :: Proxy ListJobsByPipeline)
 
 updatePipelineStatusResponseTest :: UpdatePipelineStatusResponse -> TestTree
 updatePipelineStatusResponseTest = resp
-    "UpdatePipelineStatus"
+    "UpdatePipelineStatusResponse"
     "fixture/ElasticTranscoder/UpdatePipelineStatusResponse"
     (Proxy :: Proxy UpdatePipelineStatus)
 
 testRoleResponseTest :: TestRoleResponse -> TestTree
 testRoleResponseTest = resp
-    "TestRole"
+    "TestRoleResponse"
     "fixture/ElasticTranscoder/TestRoleResponse"
     (Proxy :: Proxy TestRole)
 
 updatePipelineResponseTest :: UpdatePipelineResponse -> TestTree
 updatePipelineResponseTest = resp
-    "UpdatePipeline"
+    "UpdatePipelineResponse"
     "fixture/ElasticTranscoder/UpdatePipelineResponse"
     (Proxy :: Proxy UpdatePipeline)
 
 deletePipelineResponseTest :: DeletePipelineResponse -> TestTree
 deletePipelineResponseTest = resp
-    "DeletePipeline"
+    "DeletePipelineResponse"
     "fixture/ElasticTranscoder/DeletePipelineResponse"
     (Proxy :: Proxy DeletePipeline)
 
 createJobResponseTest :: CreateJobResponse -> TestTree
 createJobResponseTest = resp
-    "CreateJob"
+    "CreateJobResponse"
     "fixture/ElasticTranscoder/CreateJobResponse"
     (Proxy :: Proxy CreateJob)
 
 listPipelinesResponseTest :: ListPipelinesResponse -> TestTree
 listPipelinesResponseTest = resp
-    "ListPipelines"
+    "ListPipelinesResponse"
     "fixture/ElasticTranscoder/ListPipelinesResponse"
     (Proxy :: Proxy ListPipelines)
 
 createPresetResponseTest :: CreatePresetResponse -> TestTree
 createPresetResponseTest = resp
-    "CreatePreset"
+    "CreatePresetResponse"
     "fixture/ElasticTranscoder/CreatePresetResponse"
     (Proxy :: Proxy CreatePreset)
 
 listPresetsResponseTest :: ListPresetsResponse -> TestTree
 listPresetsResponseTest = resp
-    "ListPresets"
+    "ListPresetsResponse"
     "fixture/ElasticTranscoder/ListPresetsResponse"
     (Proxy :: Proxy ListPresets)
 
 readPresetResponseTest :: ReadPresetResponse -> TestTree
 readPresetResponseTest = resp
-    "ReadPreset"
+    "ReadPresetResponse"
     "fixture/ElasticTranscoder/ReadPresetResponse"
     (Proxy :: Proxy ReadPreset)
 
 updatePipelineNotificationsResponseTest :: UpdatePipelineNotificationsResponse -> TestTree
 updatePipelineNotificationsResponseTest = resp
-    "UpdatePipelineNotifications"
+    "UpdatePipelineNotificationsResponse"
     "fixture/ElasticTranscoder/UpdatePipelineNotificationsResponse"
     (Proxy :: Proxy UpdatePipelineNotifications)
 
 readJobResponseTest :: ReadJobResponse -> TestTree
 readJobResponseTest = resp
-    "ReadJob"
+    "ReadJobResponse"
     "fixture/ElasticTranscoder/ReadJobResponse"
     (Proxy :: Proxy ReadJob)
 
 readPipelineResponseTest :: ReadPipelineResponse -> TestTree
 readPipelineResponseTest = resp
-    "ReadPipeline"
+    "ReadPipelineResponse"
     "fixture/ElasticTranscoder/ReadPipelineResponse"
     (Proxy :: Proxy ReadPipeline)
 
 createPipelineResponseTest :: CreatePipelineResponse -> TestTree
 createPipelineResponseTest = resp
-    "CreatePipeline"
+    "CreatePipelineResponse"
     "fixture/ElasticTranscoder/CreatePipelineResponse"
     (Proxy :: Proxy CreatePipeline)
 
 listJobsByStatusResponseTest :: ListJobsByStatusResponse -> TestTree
 listJobsByStatusResponseTest = resp
-    "ListJobsByStatus"
+    "ListJobsByStatusResponse"
     "fixture/ElasticTranscoder/ListJobsByStatusResponse"
     (Proxy :: Proxy ListJobsByStatus)
 
 cancelJobResponseTest :: CancelJobResponse -> TestTree
 cancelJobResponseTest = resp
-    "CancelJob"
+    "CancelJobResponse"
     "fixture/ElasticTranscoder/CancelJobResponse"
     (Proxy :: Proxy CancelJob)

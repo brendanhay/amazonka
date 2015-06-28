@@ -109,48 +109,48 @@ startLoggingTest = undefined
 
 describeTrailsResponseTest :: DescribeTrailsResponse -> TestTree
 describeTrailsResponseTest = resp
-    "DescribeTrails"
+    "DescribeTrailsResponse"
     "fixture/CloudTrail/DescribeTrailsResponse"
     (Proxy :: Proxy DescribeTrails)
 
 lookupEventsResponseTest :: LookupEventsResponse -> TestTree
 lookupEventsResponseTest = resp
-    "LookupEvents"
+    "LookupEventsResponse"
     "fixture/CloudTrail/LookupEventsResponse"
     (Proxy :: Proxy LookupEvents)
 
 stopLoggingResponseTest :: StopLoggingResponse -> TestTree
 stopLoggingResponseTest = resp
-    "StopLogging"
+    "StopLoggingResponse"
     "fixture/CloudTrail/StopLoggingResponse"
     (Proxy :: Proxy StopLogging)
 
 deleteTrailResponseTest :: DeleteTrailResponse -> TestTree
 deleteTrailResponseTest = resp
-    "DeleteTrail"
+    "DeleteTrailResponse"
     "fixture/CloudTrail/DeleteTrailResponse"
     (Proxy :: Proxy DeleteTrail)
 
 updateTrailResponseTest :: UpdateTrailResponse -> TestTree
 updateTrailResponseTest = resp
-    "UpdateTrail"
+    "UpdateTrailResponse"
     "fixture/CloudTrail/UpdateTrailResponse"
     (Proxy :: Proxy UpdateTrail)
 
 createTrailResponseTest :: CreateTrailResponse -> TestTree
 createTrailResponseTest = resp
-    "CreateTrail"
+    "CreateTrailResponse"
     "fixture/CloudTrail/CreateTrailResponse"
     (Proxy :: Proxy CreateTrail)
 
 getTrailStatusResponseTest :: GetTrailStatusResponse -> TestTree
 getTrailStatusResponseTest = resp
-    "GetTrailStatus"
+    "GetTrailStatusResponse"
     "fixture/CloudTrail/GetTrailStatusResponse"
     (Proxy :: Proxy GetTrailStatus)
 
 startLoggingResponseTest :: StartLoggingResponse -> TestTree
 startLoggingResponseTest = resp
-    "StartLogging"
+    "StartLoggingResponse"
     "fixture/CloudTrail/StartLoggingResponse"
     (Proxy :: Proxy StartLogging)

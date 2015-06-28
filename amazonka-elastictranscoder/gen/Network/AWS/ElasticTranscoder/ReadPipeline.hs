@@ -99,7 +99,7 @@ data ReadPipelineResponse = ReadPipelineResponse'
     { _reaWarnings :: !(Maybe [Warning])
     , _reaPipeline :: !(Maybe Pipeline)
     , _reaStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ReadPipelineResponse' smart constructor.
 readPipelineResponse :: Status -> ReadPipelineResponse

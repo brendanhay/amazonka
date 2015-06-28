@@ -120,7 +120,7 @@ instance ToQuery UpdateGatewaySoftwareNow where
 data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
     { _ugsnrGatewayARN :: !(Maybe Text)
     , _ugsnrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateGatewaySoftwareNowResponse' smart constructor.
 updateGatewaySoftwareNowResponse :: Status -> UpdateGatewaySoftwareNowResponse

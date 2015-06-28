@@ -134,7 +134,7 @@ instance ToQuery DeleteTagsForDomain where
 -- * 'dtfdrStatus'
 newtype DeleteTagsForDomainResponse = DeleteTagsForDomainResponse'
     { _dtfdrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteTagsForDomainResponse' smart constructor.
 deleteTagsForDomainResponse :: Status -> DeleteTagsForDomainResponse

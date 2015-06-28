@@ -140,7 +140,7 @@ data ListJobsByPipelineResponse = ListJobsByPipelineResponse'
     { _ljbprNextPageToken :: !(Maybe Text)
     , _ljbprJobs          :: !(Maybe [Job'])
     , _ljbprStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListJobsByPipelineResponse' smart constructor.
 listJobsByPipelineResponse :: Status -> ListJobsByPipelineResponse

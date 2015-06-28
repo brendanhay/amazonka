@@ -147,7 +147,7 @@ data CreateSnapshotResponse = CreateSnapshotResponse'
     { _csrVolumeARN  :: !(Maybe Text)
     , _csrSnapshotId :: !(Maybe Text)
     , _csrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Status -> CreateSnapshotResponse

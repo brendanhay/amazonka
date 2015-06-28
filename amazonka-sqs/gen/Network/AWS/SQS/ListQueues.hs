@@ -99,7 +99,7 @@ instance ToQuery ListQueues where
 data ListQueuesResponse = ListQueuesResponse'
     { _lqrQueueURLs :: !(Maybe [Text])
     , _lqrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListQueuesResponse' smart constructor.
 listQueuesResponse :: Status -> ListQueuesResponse

@@ -134,7 +134,7 @@ data DescribeCacheResponse = DescribeCacheResponse'
     , _dcrCacheAllocatedInBytes :: !(Maybe Integer)
     , _dcrCacheDirtyPercentage  :: !(Maybe Double)
     , _dcrStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeCacheResponse' smart constructor.
 describeCacheResponse :: Status -> DescribeCacheResponse

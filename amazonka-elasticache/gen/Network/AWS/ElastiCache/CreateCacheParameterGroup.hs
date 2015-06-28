@@ -124,7 +124,7 @@ instance ToQuery CreateCacheParameterGroup where
 data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'
     { _ccpgrCacheParameterGroup :: !(Maybe CacheParameterGroup)
     , _ccpgrStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateCacheParameterGroupResponse' smart constructor.
 createCacheParameterGroupResponse :: Status -> CreateCacheParameterGroupResponse

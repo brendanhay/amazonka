@@ -109,7 +109,7 @@ instance ToQuery AttachLoadBalancers where
 -- * 'albrStatus'
 newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
     { _albrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AttachLoadBalancersResponse' smart constructor.
 attachLoadBalancersResponse :: Status -> AttachLoadBalancersResponse

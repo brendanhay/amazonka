@@ -205,7 +205,7 @@ data ListActivityTypesResponse = ListActivityTypesResponse'
     { _latrNextPageToken :: !(Maybe Text)
     , _latrTypeInfos     :: ![ActivityTypeInfo]
     , _latrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListActivityTypesResponse' smart constructor.
 listActivityTypesResponse :: Status -> ListActivityTypesResponse

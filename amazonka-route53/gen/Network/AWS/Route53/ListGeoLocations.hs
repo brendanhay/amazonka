@@ -183,7 +183,7 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse'
     , _lglrIsTruncated            :: !Bool
     , _lglrMaxItems               :: !Text
     , _lglrStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListGeoLocationsResponse' smart constructor.
 listGeoLocationsResponse :: Bool -> Text -> Status -> ListGeoLocationsResponse

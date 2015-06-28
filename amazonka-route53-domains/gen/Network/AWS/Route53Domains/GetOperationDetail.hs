@@ -134,7 +134,7 @@ data GetOperationDetailResponse = GetOperationDetailResponse'
     , _godrType          :: !(Maybe OperationType)
     , _godrMessage       :: !(Maybe Text)
     , _godrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetOperationDetailResponse' smart constructor.
 getOperationDetailResponse :: Status -> GetOperationDetailResponse

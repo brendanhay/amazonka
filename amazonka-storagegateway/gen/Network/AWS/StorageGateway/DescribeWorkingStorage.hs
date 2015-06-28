@@ -130,7 +130,7 @@ data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
     , _dwsrWorkingStorageAllocatedInBytes :: !(Maybe Integer)
     , _dwsrWorkingStorageUsedInBytes      :: !(Maybe Integer)
     , _dwsrStatus                         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeWorkingStorageResponse' smart constructor.
 describeWorkingStorageResponse :: Status -> DescribeWorkingStorageResponse

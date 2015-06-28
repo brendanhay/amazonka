@@ -131,7 +131,7 @@ instance ToQuery ApplyPendingMaintenanceAction where
 data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'
     { _apmarResourcePendingMaintenanceActions :: !(Maybe ResourcePendingMaintenanceActions)
     , _apmarStatus                            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ApplyPendingMaintenanceActionResponse' smart constructor.
 applyPendingMaintenanceActionResponse :: Status -> ApplyPendingMaintenanceActionResponse

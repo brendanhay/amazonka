@@ -110,7 +110,7 @@ instance ToQuery GetPlatformApplicationAttributes
 data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'
     { _gpaarAttributes :: !(Maybe (Map Text Text))
     , _gpaarStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetPlatformApplicationAttributesResponse' smart constructor.
 getPlatformApplicationAttributesResponse :: Status -> GetPlatformApplicationAttributesResponse

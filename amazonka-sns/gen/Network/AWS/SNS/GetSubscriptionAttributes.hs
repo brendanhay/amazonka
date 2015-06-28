@@ -101,7 +101,7 @@ instance ToQuery GetSubscriptionAttributes where
 data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
     { _gsarAttributes :: !(Maybe (Map Text Text))
     , _gsarStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetSubscriptionAttributesResponse' smart constructor.
 getSubscriptionAttributesResponse :: Status -> GetSubscriptionAttributesResponse

@@ -138,7 +138,7 @@ instance ToQuery CreatePlatformApplication where
 data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
     { _cparPlatformApplicationARN :: !(Maybe Text)
     , _cparStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreatePlatformApplicationResponse' smart constructor.
 createPlatformApplicationResponse :: Status -> CreatePlatformApplicationResponse

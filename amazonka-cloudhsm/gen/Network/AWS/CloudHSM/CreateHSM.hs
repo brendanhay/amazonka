@@ -175,7 +175,7 @@ instance ToQuery CreateHSM where
 data CreateHSMResponse = CreateHSMResponse'
     { _creHSMARN :: !(Maybe Text)
     , _creStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateHSMResponse' smart constructor.
 createHSMResponse :: Status -> CreateHSMResponse

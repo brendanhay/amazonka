@@ -118,7 +118,7 @@ instance ToQuery CancelRetrieval where
 data CancelRetrievalResponse = CancelRetrievalResponse'
     { _crrTapeARN :: !(Maybe Text)
     , _crrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CancelRetrievalResponse' smart constructor.
 cancelRetrievalResponse :: Status -> CancelRetrievalResponse

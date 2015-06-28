@@ -152,7 +152,7 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
     , _lisIsTruncated  :: !(Maybe Bool)
     , _lisCertificates :: ![SigningCertificate]
     , _lisStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListSigningCertificatesResponse' smart constructor.
 listSigningCertificatesResponse :: Status -> ListSigningCertificatesResponse

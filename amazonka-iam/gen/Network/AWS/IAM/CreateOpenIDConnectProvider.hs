@@ -180,7 +180,7 @@ instance ToQuery CreateOpenIDConnectProvider where
 data CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse'
     { _coidcprOpenIDConnectProviderARN :: !(Maybe Text)
     , _coidcprStatus                   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateOpenIDConnectProviderResponse' smart constructor.
 createOpenIDConnectProviderResponse :: Status -> CreateOpenIDConnectProviderResponse

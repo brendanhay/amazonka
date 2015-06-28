@@ -57,7 +57,7 @@ data PutBucketRequestPayment = PutBucketRequestPayment'
     { _pbrpContentMD5                  :: !(Maybe Text)
     , _pbrpBucket                      :: !BucketName
     , _pbrpRequestPaymentConfiguration :: !RequestPaymentConfiguration
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutBucketRequestPayment' smart constructor.
 putBucketRequestPayment :: BucketName -> RequestPaymentConfiguration -> PutBucketRequestPayment

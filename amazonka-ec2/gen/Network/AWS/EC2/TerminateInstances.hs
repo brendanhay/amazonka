@@ -130,7 +130,7 @@ instance ToQuery TerminateInstances where
 data TerminateInstancesResponse = TerminateInstancesResponse'
     { _tirTerminatingInstances :: !(Maybe [InstanceStateChange])
     , _tirStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'TerminateInstancesResponse' smart constructor.
 terminateInstancesResponse :: Status -> TerminateInstancesResponse

@@ -124,7 +124,7 @@ data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
     , _dbrlrAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
     , _dbrlrAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
     , _dbrlrStatus                               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeBandwidthRateLimitResponse' smart constructor.
 describeBandwidthRateLimitResponse :: Status -> DescribeBandwidthRateLimitResponse

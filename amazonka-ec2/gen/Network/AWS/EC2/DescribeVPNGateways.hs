@@ -156,7 +156,7 @@ instance ToQuery DescribeVPNGateways where
 data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
     { _dvgrVPNGateways :: !(Maybe [VPNGateway])
     , _dvgrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeVPNGatewaysResponse' smart constructor.
 describeVPNGatewaysResponse :: Status -> DescribeVPNGatewaysResponse

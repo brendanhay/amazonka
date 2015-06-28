@@ -144,7 +144,7 @@ data DescribeHAPGResponse = DescribeHAPGResponse'
     , _desHAPGARN                 :: !(Maybe Text)
     , _desLabel                   :: !(Maybe Text)
     , _desStatus                  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeHAPGResponse' smart constructor.
 describeHAPGResponse :: Status -> DescribeHAPGResponse

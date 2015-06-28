@@ -143,7 +143,7 @@ data TestRoleResponse = TestRoleResponse'
     { _trrSuccess  :: !(Maybe Text)
     , _trrMessages :: !(Maybe [Text])
     , _trrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'TestRoleResponse' smart constructor.
 testRoleResponse :: Status -> TestRoleResponse

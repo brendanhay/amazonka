@@ -135,7 +135,7 @@ instance ToQuery SubmitTaskStateChange where
 data SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'
     { _stscrAcknowledgment :: !(Maybe Text)
     , _stscrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SubmitTaskStateChangeResponse' smart constructor.
 submitTaskStateChangeResponse :: Status -> SubmitTaskStateChangeResponse

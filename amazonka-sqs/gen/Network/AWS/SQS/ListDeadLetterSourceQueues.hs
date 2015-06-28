@@ -102,7 +102,7 @@ instance ToQuery ListDeadLetterSourceQueues where
 data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'
     { _ldlsqrQueueURLs :: ![Text]
     , _ldlsqrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListDeadLetterSourceQueuesResponse' smart constructor.
 listDeadLetterSourceQueuesResponse :: Status -> ListDeadLetterSourceQueuesResponse

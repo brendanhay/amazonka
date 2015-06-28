@@ -122,7 +122,7 @@ instance ToQuery RegisterVolume where
 data RegisterVolumeResponse = RegisterVolumeResponse'
     { _rvrVolumeId :: !(Maybe Text)
     , _rvrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RegisterVolumeResponse' smart constructor.
 registerVolumeResponse :: Status -> RegisterVolumeResponse

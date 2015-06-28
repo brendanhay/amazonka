@@ -103,7 +103,7 @@ instance ToQuery DeleteLoadBalancerPolicy where
 -- * 'dStatus'
 newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
     { _dStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteLoadBalancerPolicyResponse' smart constructor.
 deleteLoadBalancerPolicyResponse :: Status -> DeleteLoadBalancerPolicyResponse

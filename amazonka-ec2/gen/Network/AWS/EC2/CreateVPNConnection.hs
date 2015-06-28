@@ -156,7 +156,7 @@ instance ToQuery CreateVPNConnection where
 data CreateVPNConnectionResponse = CreateVPNConnectionResponse'
     { _cvcrVPNConnection :: !(Maybe VPNConnection)
     , _cvcrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateVPNConnectionResponse' smart constructor.
 createVPNConnectionResponse :: Status -> CreateVPNConnectionResponse

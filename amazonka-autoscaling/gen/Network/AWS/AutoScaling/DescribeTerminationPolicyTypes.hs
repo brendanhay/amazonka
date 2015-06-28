@@ -87,7 +87,7 @@ instance ToQuery DescribeTerminationPolicyTypes where
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
     { _dtptrTerminationPolicyTypes :: !(Maybe [Text])
     , _dtptrStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeTerminationPolicyTypesResponse' smart constructor.
 describeTerminationPolicyTypesResponse :: Status -> DescribeTerminationPolicyTypesResponse

@@ -113,7 +113,7 @@ instance ToQuery DeleteExpression where
 data DeleteExpressionResponse = DeleteExpressionResponse'
     { _delExpression :: !ExpressionStatus
     , _delStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteExpressionResponse' smart constructor.
 deleteExpressionResponse :: ExpressionStatus -> Status -> DeleteExpressionResponse

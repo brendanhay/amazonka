@@ -529,7 +529,7 @@ data SearchResponse = SearchResponse'
     { _seaFacets :: !(Maybe (Map Text BucketInfo))
     , _seaHits   :: !(Maybe Hits)
     , _seaStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SearchResponse' smart constructor.
 searchResponse :: Status -> SearchResponse

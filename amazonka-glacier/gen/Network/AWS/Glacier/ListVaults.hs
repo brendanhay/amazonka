@@ -150,7 +150,7 @@ data ListVaultsResponse = ListVaultsResponse'
     { _lvrMarker    :: !(Maybe Text)
     , _lvrVaultList :: !(Maybe [DescribeVaultOutput])
     , _lvrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListVaultsResponse' smart constructor.
 listVaultsResponse :: Status -> ListVaultsResponse

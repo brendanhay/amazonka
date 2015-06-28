@@ -131,7 +131,7 @@ data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
     , _gbpdrFailureMessage          :: !(Maybe Text)
     , _gbpdrBulkPublishStatus       :: !(Maybe BulkPublishStatus)
     , _gbpdrStatus                  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBulkPublishDetailsResponse' smart constructor.
 getBulkPublishDetailsResponse :: Status -> GetBulkPublishDetailsResponse

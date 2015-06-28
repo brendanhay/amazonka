@@ -110,7 +110,7 @@ data GetHostedZoneResponse = GetHostedZoneResponse'
     , _ghzrDelegationSet :: !(Maybe DelegationSet)
     , _ghzrHostedZone    :: !HostedZone
     , _ghzrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetHostedZoneResponse' smart constructor.
 getHostedZoneResponse :: HostedZone -> Status -> GetHostedZoneResponse

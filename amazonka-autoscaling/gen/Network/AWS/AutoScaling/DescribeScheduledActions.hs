@@ -175,7 +175,7 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
     { _dsarScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
     , _dsarNextToken                   :: !(Maybe Text)
     , _dsarStatus                      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeScheduledActionsResponse' smart constructor.
 describeScheduledActionsResponse :: Status -> DescribeScheduledActionsResponse

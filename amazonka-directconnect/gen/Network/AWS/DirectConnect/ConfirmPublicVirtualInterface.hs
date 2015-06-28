@@ -114,7 +114,7 @@ instance ToQuery ConfirmPublicVirtualInterface where
 data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'
     { _conVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
     , _conStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ConfirmPublicVirtualInterfaceResponse' smart constructor.
 confirmPublicVirtualInterfaceResponse :: Status -> ConfirmPublicVirtualInterfaceResponse

@@ -119,7 +119,7 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
     , _ccfoairLocation                       :: !(Maybe Text)
     , _ccfoairCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
     , _ccfoairStatus                         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateCloudFrontOriginAccessIdentityResponse' smart constructor.
 createCloudFrontOriginAccessIdentityResponse :: Status -> CreateCloudFrontOriginAccessIdentityResponse

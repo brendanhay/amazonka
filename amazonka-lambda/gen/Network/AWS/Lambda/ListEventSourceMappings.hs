@@ -159,7 +159,7 @@ data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
     { _lesmrEventSourceMappings :: !(Maybe [EventSourceMappingConfiguration])
     , _lesmrNextMarker          :: !(Maybe Text)
     , _lesmrStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListEventSourceMappingsResponse' smart constructor.
 listEventSourceMappingsResponse :: Status -> ListEventSourceMappingsResponse

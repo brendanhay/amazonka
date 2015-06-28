@@ -128,7 +128,7 @@ data GetRolePolicyResponse = GetRolePolicyResponse'
     , _grprPolicyName     :: !Text
     , _grprPolicyDocument :: !Text
     , _grprStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetRolePolicyResponse' smart constructor.
 getRolePolicyResponse :: Text -> Text -> Text -> Status -> GetRolePolicyResponse

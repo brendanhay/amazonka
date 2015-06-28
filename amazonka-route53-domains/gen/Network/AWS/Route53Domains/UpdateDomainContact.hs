@@ -177,7 +177,7 @@ instance ToQuery UpdateDomainContact where
 data UpdateDomainContactResponse = UpdateDomainContactResponse'
     { _udcrOperationId :: !Text
     , _udcrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateDomainContactResponse' smart constructor.
 updateDomainContactResponse :: Text -> Status -> UpdateDomainContactResponse

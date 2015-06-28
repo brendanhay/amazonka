@@ -130,7 +130,7 @@ instance ToQuery CreateVirtualMFADevice where
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
     { _cvmdrVirtualMFADevice :: !VirtualMFADevice
     , _cvmdrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateVirtualMFADeviceResponse' smart constructor.
 createVirtualMFADeviceResponse :: VirtualMFADevice -> Status -> CreateVirtualMFADeviceResponse

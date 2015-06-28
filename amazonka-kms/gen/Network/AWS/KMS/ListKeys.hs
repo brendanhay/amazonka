@@ -124,7 +124,7 @@ data ListKeysResponse = ListKeysResponse'
     , _lkrKeys       :: !(Maybe [KeyListEntry])
     , _lkrNextMarker :: !(Maybe Text)
     , _lkrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListKeysResponse' smart constructor.
 listKeysResponse :: Status -> ListKeysResponse

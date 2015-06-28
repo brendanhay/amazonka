@@ -155,7 +155,7 @@ instance ToQuery DescribeCustomerGateways where
 data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
     { _dcgrCustomerGateways :: !(Maybe [CustomerGateway])
     , _dcgrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeCustomerGatewaysResponse' smart constructor.
 describeCustomerGatewaysResponse :: Status -> DescribeCustomerGatewaysResponse

@@ -89,7 +89,7 @@ instance ToQuery ListAvailableZones where
 data ListAvailableZonesResponse = ListAvailableZonesResponse'
     { _lazrAZList :: !(Maybe [Text])
     , _lazrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListAvailableZonesResponse' smart constructor.
 listAvailableZonesResponse :: Status -> ListAvailableZonesResponse

@@ -169,7 +169,7 @@ data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextRe
     { _gdkwprKeyId          :: !(Maybe Text)
     , _gdkwprCiphertextBlob :: !(Maybe Base64)
     , _gdkwprStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GenerateDataKeyWithoutPlaintextResponse' smart constructor.
 generateDataKeyWithoutPlaintextResponse :: Status -> GenerateDataKeyWithoutPlaintextResponse

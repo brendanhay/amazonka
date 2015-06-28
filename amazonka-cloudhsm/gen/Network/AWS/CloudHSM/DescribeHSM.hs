@@ -213,7 +213,7 @@ data DescribeHSMResponse = DescribeHSMResponse'
     , _dhsmrEniIP                 :: !(Maybe Text)
     , _dhsmrHSMType               :: !(Maybe Text)
     , _dhsmrStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeHSMResponse' smart constructor.
 describeHSMResponse :: Status -> DescribeHSMResponse

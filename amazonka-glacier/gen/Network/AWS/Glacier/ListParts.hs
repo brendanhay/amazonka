@@ -203,7 +203,7 @@ data ListPartsResponse = ListPartsResponse'
     , _lprMarker             :: !(Maybe Text)
     , _lprCreationDate       :: !(Maybe Text)
     , _lprStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListPartsResponse' smart constructor.
 listPartsResponse :: Status -> ListPartsResponse

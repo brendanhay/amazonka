@@ -109,7 +109,7 @@ instance ToQuery ConfigureHealthCheck where
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
     { _chcrHealthCheck :: !(Maybe HealthCheck)
     , _chcrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ConfigureHealthCheckResponse' smart constructor.
 configureHealthCheckResponse :: Status -> ConfigureHealthCheckResponse

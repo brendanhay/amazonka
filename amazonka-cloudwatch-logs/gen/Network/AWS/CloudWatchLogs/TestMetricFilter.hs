@@ -112,7 +112,7 @@ instance ToQuery TestMetricFilter where
 data TestMetricFilterResponse = TestMetricFilterResponse'
     { _tmfrMatches :: !(Maybe [MetricFilterMatchRecord])
     , _tmfrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'TestMetricFilterResponse' smart constructor.
 testMetricFilterResponse :: Status -> TestMetricFilterResponse

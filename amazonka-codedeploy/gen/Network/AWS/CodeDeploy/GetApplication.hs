@@ -104,7 +104,7 @@ instance ToQuery GetApplication where
 data GetApplicationResponse = GetApplicationResponse'
     { _garApplication :: !(Maybe ApplicationInfo)
     , _garStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetApplicationResponse' smart constructor.
 getApplicationResponse :: Status -> GetApplicationResponse

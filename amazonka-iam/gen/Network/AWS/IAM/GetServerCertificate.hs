@@ -97,7 +97,7 @@ instance ToQuery GetServerCertificate where
 data GetServerCertificateResponse = GetServerCertificateResponse'
     { _gscrServerCertificate :: !ServerCertificate
     , _gscrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetServerCertificateResponse' smart constructor.
 getServerCertificateResponse :: ServerCertificate -> Status -> GetServerCertificateResponse

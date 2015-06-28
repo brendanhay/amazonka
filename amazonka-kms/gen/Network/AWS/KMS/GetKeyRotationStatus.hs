@@ -107,7 +107,7 @@ instance ToQuery GetKeyRotationStatus where
 data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
     { _gkrsrKeyRotationEnabled :: !(Maybe Bool)
     , _gkrsrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetKeyRotationStatusResponse' smart constructor.
 getKeyRotationStatusResponse :: Status -> GetKeyRotationStatusResponse

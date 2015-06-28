@@ -94,7 +94,7 @@ instance ToQuery DeleteLunaClient where
 -- * 'dlcrStatus'
 newtype DeleteLunaClientResponse = DeleteLunaClientResponse'
     { _dlcrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteLunaClientResponse' smart constructor.
 deleteLunaClientResponse :: Status -> DeleteLunaClientResponse

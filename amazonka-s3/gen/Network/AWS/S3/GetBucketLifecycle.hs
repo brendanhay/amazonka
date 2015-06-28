@@ -47,7 +47,7 @@ import           Network.AWS.S3.Types
 -- * 'getBucket'
 newtype GetBucketLifecycle = GetBucketLifecycle'
     { _getBucket :: BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketLifecycle' smart constructor.
 getBucketLifecycle :: BucketName -> GetBucketLifecycle
@@ -91,7 +91,7 @@ instance ToQuery GetBucketLifecycle where
 data GetBucketLifecycleResponse = GetBucketLifecycleResponse'
     { _gblrRules  :: !(Maybe [Rule])
     , _gblrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketLifecycleResponse' smart constructor.
 getBucketLifecycleResponse :: Status -> GetBucketLifecycleResponse

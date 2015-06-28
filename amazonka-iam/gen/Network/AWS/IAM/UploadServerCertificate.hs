@@ -167,7 +167,7 @@ instance ToQuery UploadServerCertificate where
 data UploadServerCertificateResponse = UploadServerCertificateResponse'
     { _uplServerCertificateMetadata :: !(Maybe ServerCertificateMetadata)
     , _uplStatus                    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UploadServerCertificateResponse' smart constructor.
 uploadServerCertificateResponse :: Status -> UploadServerCertificateResponse

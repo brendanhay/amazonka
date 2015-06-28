@@ -128,7 +128,7 @@ instance ToQuery AttachNetworkInterface where
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
     { _anirAttachmentId :: !(Maybe Text)
     , _anirStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AttachNetworkInterfaceResponse' smart constructor.
 attachNetworkInterfaceResponse :: Status -> AttachNetworkInterfaceResponse

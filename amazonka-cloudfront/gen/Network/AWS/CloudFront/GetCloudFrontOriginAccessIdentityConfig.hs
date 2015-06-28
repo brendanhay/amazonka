@@ -108,7 +108,7 @@ data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccess
     { _gcfoaicrCloudFrontOriginAccessIdentityConfig :: !(Maybe CloudFrontOriginAccessIdentityConfig)
     , _gcfoaicrETag                                 :: !(Maybe Text)
     , _gcfoaicrStatus                               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetCloudFrontOriginAccessIdentityConfigResponse' smart constructor.
 getCloudFrontOriginAccessIdentityConfigResponse :: Status -> GetCloudFrontOriginAccessIdentityConfigResponse

@@ -149,7 +149,7 @@ data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
     { _dwbrBundles   :: !(Maybe [WorkspaceBundle])
     , _dwbrNextToken :: !(Maybe Text)
     , _dwbrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeWorkspaceBundlesResponse' smart constructor.
 describeWorkspaceBundlesResponse :: Status -> DescribeWorkspaceBundlesResponse

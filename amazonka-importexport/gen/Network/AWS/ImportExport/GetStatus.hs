@@ -187,7 +187,7 @@ data GetStatusResponse = GetStatusResponse'
     , _gsrProgressMessage       :: !(Maybe Text)
     , _gsrLocationMessage       :: !(Maybe Text)
     , _gsrStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetStatusResponse' smart constructor.
 getStatusResponse :: Status -> GetStatusResponse

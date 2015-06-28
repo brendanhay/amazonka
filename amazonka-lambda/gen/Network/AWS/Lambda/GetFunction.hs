@@ -115,7 +115,7 @@ data GetFunctionResponse = GetFunctionResponse'
     { _gfrCode          :: !(Maybe FunctionCodeLocation)
     , _gfrConfiguration :: !(Maybe FunctionConfiguration)
     , _gfrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetFunctionResponse' smart constructor.
 getFunctionResponse :: Status -> GetFunctionResponse

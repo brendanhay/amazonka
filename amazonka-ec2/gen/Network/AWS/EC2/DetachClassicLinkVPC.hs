@@ -120,7 +120,7 @@ instance ToQuery DetachClassicLinkVPC where
 data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'
     { _dclvrReturn :: !(Maybe Bool)
     , _dclvrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DetachClassicLinkVPCResponse' smart constructor.
 detachClassicLinkVPCResponse :: Status -> DetachClassicLinkVPCResponse

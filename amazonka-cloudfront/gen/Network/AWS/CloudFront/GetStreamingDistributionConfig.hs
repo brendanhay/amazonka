@@ -105,7 +105,7 @@ data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResp
     { _gsdcrStreamingDistributionConfig :: !(Maybe StreamingDistributionConfig)
     , _gsdcrETag                        :: !(Maybe Text)
     , _gsdcrStatus                      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetStreamingDistributionConfigResponse' smart constructor.
 getStreamingDistributionConfigResponse :: Status -> GetStreamingDistributionConfigResponse

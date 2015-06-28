@@ -155,7 +155,7 @@ instance ToQuery UpdateSnapshotSchedule where
 data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
     { _ussrVolumeARN :: !(Maybe Text)
     , _ussrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateSnapshotScheduleResponse' smart constructor.
 updateSnapshotScheduleResponse :: Status -> UpdateSnapshotScheduleResponse

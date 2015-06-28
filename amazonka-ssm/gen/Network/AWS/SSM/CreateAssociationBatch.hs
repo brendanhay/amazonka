@@ -115,7 +115,7 @@ data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
     { _cabrSuccessful :: !(Maybe [AssociationDescription])
     , _cabrFailed     :: !(Maybe [FailedCreateAssociation])
     , _cabrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateAssociationBatchResponse' smart constructor.
 createAssociationBatchResponse :: Status -> CreateAssociationBatchResponse

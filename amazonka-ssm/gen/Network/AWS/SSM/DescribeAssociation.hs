@@ -111,7 +111,7 @@ instance ToQuery DescribeAssociation where
 data DescribeAssociationResponse = DescribeAssociationResponse'
     { _darAssociationDescription :: !(Maybe AssociationDescription)
     , _darStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeAssociationResponse' smart constructor.
 describeAssociationResponse :: Status -> DescribeAssociationResponse

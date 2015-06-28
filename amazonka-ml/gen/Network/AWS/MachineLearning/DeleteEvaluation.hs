@@ -114,7 +114,7 @@ instance ToQuery DeleteEvaluation where
 data DeleteEvaluationResponse = DeleteEvaluationResponse'
     { _derEvaluationId :: !(Maybe Text)
     , _derStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteEvaluationResponse' smart constructor.
 deleteEvaluationResponse :: Status -> DeleteEvaluationResponse

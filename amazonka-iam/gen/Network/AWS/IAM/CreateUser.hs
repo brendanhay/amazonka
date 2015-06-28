@@ -113,7 +113,7 @@ instance ToQuery CreateUser where
 data CreateUserResponse = CreateUserResponse'
     { _curUser   :: !(Maybe User)
     , _curStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateUserResponse' smart constructor.
 createUserResponse :: Status -> CreateUserResponse

@@ -122,7 +122,7 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
     { _diflbrInstances :: !(Maybe [Instance])
     , _diflbrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeregisterInstancesFromLoadBalancerResponse' smart constructor.
 deregisterInstancesFromLoadBalancerResponse :: Status -> DeregisterInstancesFromLoadBalancerResponse

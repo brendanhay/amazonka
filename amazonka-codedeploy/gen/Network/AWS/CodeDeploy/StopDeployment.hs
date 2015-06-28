@@ -103,7 +103,7 @@ instance ToQuery StopDeployment where
 data StopDeploymentResponse = StopDeploymentResponse'
     { _sdrStatusMessage :: !(Maybe Text)
     , _sdrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'StopDeploymentResponse' smart constructor.
 stopDeploymentResponse :: Status -> StopDeploymentResponse

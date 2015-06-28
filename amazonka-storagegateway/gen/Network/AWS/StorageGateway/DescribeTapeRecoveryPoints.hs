@@ -152,7 +152,7 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
     , _dtrprGatewayARN             :: !(Maybe Text)
     , _dtrprMarker                 :: !(Maybe Text)
     , _dtrprStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeTapeRecoveryPointsResponse' smart constructor.
 describeTapeRecoveryPointsResponse :: Status -> DescribeTapeRecoveryPointsResponse

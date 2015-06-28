@@ -48,7 +48,7 @@ import           Network.AWS.S3.Types
 -- * 'gbaBucket'
 newtype GetBucketACL = GetBucketACL'
     { _gbaBucket :: BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketACL' smart constructor.
 getBucketACL :: BucketName -> GetBucketACL
@@ -97,7 +97,7 @@ data GetBucketACLResponse = GetBucketACLResponse'
     { _gbarGrants :: !(Maybe [Grant])
     , _gbarOwner  :: !(Maybe Owner)
     , _gbarStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketACLResponse' smart constructor.
 getBucketACLResponse :: Status -> GetBucketACLResponse

@@ -127,7 +127,7 @@ data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
     { _delTargetARN     :: !(Maybe Text)
     , _delInitiatorName :: !(Maybe Text)
     , _delStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteChapCredentialsResponse' smart constructor.
 deleteChapCredentialsResponse :: Status -> DeleteChapCredentialsResponse

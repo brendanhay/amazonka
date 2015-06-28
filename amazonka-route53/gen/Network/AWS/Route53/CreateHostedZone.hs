@@ -206,7 +206,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse'
     , _chzrDelegationSet :: !DelegationSet
     , _chzrLocation      :: !Text
     , _chzrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateHostedZoneResponse' smart constructor.
 createHostedZoneResponse :: HostedZone -> ChangeInfo -> DelegationSet -> Text -> Status -> CreateHostedZoneResponse

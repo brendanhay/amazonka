@@ -179,7 +179,7 @@ instance ToQuery RegisterInstance where
 data RegisterInstanceResponse = RegisterInstanceResponse'
     { _rirInstanceId :: !(Maybe Text)
     , _rirStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RegisterInstanceResponse' smart constructor.
 registerInstanceResponse :: Status -> RegisterInstanceResponse

@@ -145,7 +145,7 @@ data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
     { _diitrImportImageTasks :: !(Maybe [ImportImageTask])
     , _diitrNextToken        :: !(Maybe Text)
     , _diitrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeImportImageTasksResponse' smart constructor.
 describeImportImageTasksResponse :: Status -> DescribeImportImageTasksResponse

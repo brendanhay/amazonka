@@ -150,7 +150,7 @@ data ListDatasetsResponse = ListDatasetsResponse'
     , _ldrNextToken :: !(Maybe Text)
     , _ldrDatasets  :: !(Maybe [Dataset])
     , _ldrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListDatasetsResponse' smart constructor.
 listDatasetsResponse :: Status -> ListDatasetsResponse

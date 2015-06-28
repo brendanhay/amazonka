@@ -87,7 +87,7 @@ instance ToQuery DescribeLocations where
 data DescribeLocationsResponse = DescribeLocationsResponse'
     { _dlrLocations :: !(Maybe [Location])
     , _dlrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeLocationsResponse' smart constructor.
 describeLocationsResponse :: Status -> DescribeLocationsResponse

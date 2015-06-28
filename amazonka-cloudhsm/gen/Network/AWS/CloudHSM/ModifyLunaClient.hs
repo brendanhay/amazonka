@@ -114,7 +114,7 @@ instance ToQuery ModifyLunaClient where
 data ModifyLunaClientResponse = ModifyLunaClientResponse'
     { _mlcrClientARN :: !(Maybe Text)
     , _mlcrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifyLunaClientResponse' smart constructor.
 modifyLunaClientResponse :: Status -> ModifyLunaClientResponse

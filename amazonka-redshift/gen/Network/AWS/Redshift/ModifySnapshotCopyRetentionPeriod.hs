@@ -126,7 +126,7 @@ instance ToQuery ModifySnapshotCopyRetentionPeriod
 data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse'
     { _mscrprCluster :: !(Maybe Cluster)
     , _mscrprStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifySnapshotCopyRetentionPeriodResponse' smart constructor.
 modifySnapshotCopyRetentionPeriodResponse :: Status -> ModifySnapshotCopyRetentionPeriodResponse

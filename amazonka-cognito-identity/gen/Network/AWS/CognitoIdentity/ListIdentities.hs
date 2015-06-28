@@ -149,7 +149,7 @@ data ListIdentitiesResponse = ListIdentitiesResponse'
     , _lirNextToken      :: !(Maybe Text)
     , _lirIdentities     :: !(Maybe [IdentityDescription])
     , _lirStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListIdentitiesResponse' smart constructor.
 listIdentitiesResponse :: Status -> ListIdentitiesResponse

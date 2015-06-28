@@ -161,7 +161,7 @@ data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
     , _ppdrValidationWarnings :: !(Maybe [ValidationWarning])
     , _ppdrErrored            :: !Bool
     , _ppdrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutPipelineDefinitionResponse' smart constructor.
 putPipelineDefinitionResponse :: Bool -> Status -> PutPipelineDefinitionResponse

@@ -153,7 +153,7 @@ instance ToQuery MergeDeveloperIdentities where
 data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'
     { _mdirIdentityId :: !(Maybe Text)
     , _mdirStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'MergeDeveloperIdentitiesResponse' smart constructor.
 mergeDeveloperIdentitiesResponse :: Status -> MergeDeveloperIdentitiesResponse

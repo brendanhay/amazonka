@@ -206,7 +206,7 @@ data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResp
     { _dcpgrMarker          :: !(Maybe Text)
     , _dcpgrParameterGroups :: !(Maybe [ClusterParameterGroup])
     , _dcpgrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeClusterParameterGroupsResponse' smart constructor.
 describeClusterParameterGroupsResponse :: Status -> DescribeClusterParameterGroupsResponse

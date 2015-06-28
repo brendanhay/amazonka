@@ -137,7 +137,7 @@ data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     { _dasirNextToken            :: !(Maybe Text)
     , _dasirAutoScalingInstances :: !(Maybe [AutoScalingInstanceDetails])
     , _dasirStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeAutoScalingInstancesResponse' smart constructor.
 describeAutoScalingInstancesResponse :: Status -> DescribeAutoScalingInstancesResponse

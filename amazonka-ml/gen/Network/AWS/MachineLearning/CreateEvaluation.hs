@@ -159,7 +159,7 @@ instance ToQuery CreateEvaluation where
 data CreateEvaluationResponse = CreateEvaluationResponse'
     { _cerEvaluationId :: !(Maybe Text)
     , _cerStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateEvaluationResponse' smart constructor.
 createEvaluationResponse :: Status -> CreateEvaluationResponse

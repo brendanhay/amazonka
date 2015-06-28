@@ -104,7 +104,7 @@ instance ToQuery CreateDomain where
 data CreateDomainResponse = CreateDomainResponse'
     { _cdrDomainStatus :: !(Maybe DomainStatus)
     , _cdrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDomainResponse' smart constructor.
 createDomainResponse :: Status -> CreateDomainResponse

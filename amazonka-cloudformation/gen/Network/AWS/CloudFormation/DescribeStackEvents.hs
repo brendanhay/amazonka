@@ -139,7 +139,7 @@ data DescribeStackEventsResponse = DescribeStackEventsResponse'
     { _dserNextToken   :: !(Maybe Text)
     , _dserStackEvents :: !(Maybe [StackEvent])
     , _dserStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeStackEventsResponse' smart constructor.
 describeStackEventsResponse :: Status -> DescribeStackEventsResponse

@@ -120,7 +120,7 @@ instance ToXML UpdateHostedZoneComment where
 data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
     { _uhzcrHostedZone :: !HostedZone
     , _uhzcrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateHostedZoneCommentResponse' smart constructor.
 updateHostedZoneCommentResponse :: HostedZone -> Status -> UpdateHostedZoneCommentResponse

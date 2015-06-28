@@ -52,7 +52,7 @@ data PutBucketWebsite = PutBucketWebsite'
     { _pbwContentMD5           :: !(Maybe Text)
     , _pbwBucket               :: !BucketName
     , _pbwWebsiteConfiguration :: !WebsiteConfiguration
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutBucketWebsite' smart constructor.
 putBucketWebsite :: BucketName -> WebsiteConfiguration -> PutBucketWebsite

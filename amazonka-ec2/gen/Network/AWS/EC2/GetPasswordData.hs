@@ -130,7 +130,7 @@ data GetPasswordDataResponse = GetPasswordDataResponse'
     , _gpdrPasswordData :: !Text
     , _gpdrTimestamp    :: !ISO8601
     , _gpdrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetPasswordDataResponse' smart constructor.
 getPasswordDataResponse :: Text -> Text -> UTCTime -> Status -> GetPasswordDataResponse

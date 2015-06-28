@@ -207,7 +207,7 @@ data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOpt
     { _dodiorOrderableDBInstanceOptions :: !(Maybe [OrderableDBInstanceOption])
     , _dodiorMarker                     :: !(Maybe Text)
     , _dodiorStatus                     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeOrderableDBInstanceOptionsResponse' smart constructor.
 describeOrderableDBInstanceOptionsResponse :: Status -> DescribeOrderableDBInstanceOptionsResponse

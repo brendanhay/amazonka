@@ -103,7 +103,7 @@ instance ToQuery DeleteDomain where
 data DeleteDomainResponse = DeleteDomainResponse'
     { _ddrDomainStatus :: !(Maybe DomainStatus)
     , _ddrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteDomainResponse' smart constructor.
 deleteDomainResponse :: Status -> DeleteDomainResponse

@@ -121,7 +121,7 @@ instance ToQuery UpdateVTLDeviceType where
 data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
     { _uvtldtrVTLDeviceARN :: !(Maybe Text)
     , _uvtldtrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateVTLDeviceTypeResponse' smart constructor.
 updateVTLDeviceTypeResponse :: Status -> UpdateVTLDeviceTypeResponse

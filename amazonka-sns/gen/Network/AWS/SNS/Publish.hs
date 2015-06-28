@@ -213,7 +213,7 @@ instance ToQuery Publish where
 data PublishResponse = PublishResponse'
     { _prMessageId :: !(Maybe Text)
     , _prStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PublishResponse' smart constructor.
 publishResponse :: Status -> PublishResponse

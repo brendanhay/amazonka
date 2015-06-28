@@ -132,7 +132,7 @@ data GetConfigResponse = GetConfigResponse'
     , _gcrConfigCred :: !(Maybe Text)
     , _gcrConfigType :: !(Maybe Text)
     , _gcrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetConfigResponse' smart constructor.
 getConfigResponse :: Status -> GetConfigResponse

@@ -188,7 +188,7 @@ instance ToQuery AddPermission where
 data AddPermissionResponse = AddPermissionResponse'
     { _aprStatement :: !(Maybe Text)
     , _aprStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AddPermissionResponse' smart constructor.
 addPermissionResponse :: Status -> AddPermissionResponse

@@ -116,7 +116,7 @@ instance ToQuery UpdateServiceAccessPolicies where
 data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
     { _usaprAccessPolicies :: !AccessPoliciesStatus
     , _usaprStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateServiceAccessPoliciesResponse' smart constructor.
 updateServiceAccessPoliciesResponse :: AccessPoliciesStatus -> Status -> UpdateServiceAccessPoliciesResponse

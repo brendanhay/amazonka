@@ -235,7 +235,7 @@ instance ToQuery CreateMLModel where
 data CreateMLModelResponse = CreateMLModelResponse'
     { _cmlmrMLModelId :: !(Maybe Text)
     , _cmlmrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateMLModelResponse' smart constructor.
 createMLModelResponse :: Status -> CreateMLModelResponse

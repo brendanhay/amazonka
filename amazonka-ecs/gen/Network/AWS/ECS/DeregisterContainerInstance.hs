@@ -133,7 +133,7 @@ instance ToQuery DeregisterContainerInstance where
 data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
     { _dcirContainerInstance :: !(Maybe ContainerInstance)
     , _dcirStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeregisterContainerInstanceResponse' smart constructor.
 deregisterContainerInstanceResponse :: Status -> DeregisterContainerInstanceResponse

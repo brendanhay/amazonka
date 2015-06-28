@@ -166,7 +166,7 @@ data DescribeAlarmsResponse = DescribeAlarmsResponse'
     { _darMetricAlarms :: !(Maybe [MetricAlarm])
     , _darNextToken    :: !(Maybe Text)
     , _darStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeAlarmsResponse' smart constructor.
 describeAlarmsResponse :: Status -> DescribeAlarmsResponse

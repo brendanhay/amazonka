@@ -155,7 +155,7 @@ instance ToQuery CreateCustomerGateway where
 data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
     { _ccgrCustomerGateway :: !(Maybe CustomerGateway)
     , _ccgrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateCustomerGatewayResponse' smart constructor.
 createCustomerGatewayResponse :: Status -> CreateCustomerGatewayResponse

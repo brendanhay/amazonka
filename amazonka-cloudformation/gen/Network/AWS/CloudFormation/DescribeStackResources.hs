@@ -163,7 +163,7 @@ instance ToQuery DescribeStackResources where
 data DescribeStackResourcesResponse = DescribeStackResourcesResponse'
     { _desStackResources :: !(Maybe [StackResource])
     , _desStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeStackResourcesResponse' smart constructor.
 describeStackResourcesResponse :: Status -> DescribeStackResourcesResponse

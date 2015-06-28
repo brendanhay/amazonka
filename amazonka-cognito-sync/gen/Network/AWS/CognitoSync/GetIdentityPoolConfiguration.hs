@@ -118,7 +118,7 @@ data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
     , _gipcrCognitoStreams :: !(Maybe CognitoStreams)
     , _gipcrPushSync       :: !(Maybe PushSync)
     , _gipcrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetIdentityPoolConfigurationResponse' smart constructor.
 getIdentityPoolConfigurationResponse :: Status -> GetIdentityPoolConfigurationResponse

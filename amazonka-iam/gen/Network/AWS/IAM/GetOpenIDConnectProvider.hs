@@ -118,7 +118,7 @@ data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
     , _goidcprThumbprintList :: !(Maybe [Text])
     , _goidcprClientIDList   :: !(Maybe [Text])
     , _goidcprStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetOpenIDConnectProviderResponse' smart constructor.
 getOpenIDConnectProviderResponse :: Status -> GetOpenIDConnectProviderResponse

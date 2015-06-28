@@ -184,7 +184,7 @@ data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'
     , _lefprMarker       :: !(Maybe Text)
     , _lefprIsTruncated  :: !(Maybe Bool)
     , _lefprStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListEntitiesForPolicyResponse' smart constructor.
 listEntitiesForPolicyResponse :: Status -> ListEntitiesForPolicyResponse

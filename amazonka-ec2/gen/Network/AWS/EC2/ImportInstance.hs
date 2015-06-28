@@ -142,7 +142,7 @@ instance ToQuery ImportInstance where
 data ImportInstanceResponse = ImportInstanceResponse'
     { _iirConversionTask :: !(Maybe ConversionTask)
     , _iirStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ImportInstanceResponse' smart constructor.
 importInstanceResponse :: Status -> ImportInstanceResponse

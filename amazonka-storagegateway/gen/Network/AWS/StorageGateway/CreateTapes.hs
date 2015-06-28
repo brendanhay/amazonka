@@ -162,7 +162,7 @@ instance ToQuery CreateTapes where
 data CreateTapesResponse = CreateTapesResponse'
     { _ctrTapeARNs :: !(Maybe [Text])
     , _ctrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateTapesResponse' smart constructor.
 createTapesResponse :: Status -> CreateTapesResponse

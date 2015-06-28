@@ -108,7 +108,7 @@ instance ToQuery ListVolumeInitiators where
 data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
     { _lvirInitiators :: !(Maybe [Text])
     , _lvirStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListVolumeInitiatorsResponse' smart constructor.
 listVolumeInitiatorsResponse :: Status -> ListVolumeInitiatorsResponse

@@ -146,7 +146,7 @@ data ListMFADevicesResponse = ListMFADevicesResponse'
     , _lmdrIsTruncated :: !(Maybe Bool)
     , _lmdrMFADevices  :: ![MFADevice]
     , _lmdrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListMFADevicesResponse' smart constructor.
 listMFADevicesResponse :: Status -> ListMFADevicesResponse

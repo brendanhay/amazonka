@@ -136,7 +136,7 @@ data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccess
     { _ucfoairETag                           :: !(Maybe Text)
     , _ucfoairCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
     , _ucfoairStatus                         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateCloudFrontOriginAccessIdentityResponse' smart constructor.
 updateCloudFrontOriginAccessIdentityResponse :: Status -> UpdateCloudFrontOriginAccessIdentityResponse

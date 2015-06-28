@@ -151,7 +151,7 @@ data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
     , _lrdsrIsTruncated    :: !Bool
     , _lrdsrMaxItems       :: !Text
     , _lrdsrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListReusableDelegationSetsResponse' smart constructor.
 listReusableDelegationSetsResponse :: Text -> Bool -> Text -> Status -> ListReusableDelegationSetsResponse

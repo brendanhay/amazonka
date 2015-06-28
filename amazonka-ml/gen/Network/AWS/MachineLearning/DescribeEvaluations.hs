@@ -260,7 +260,7 @@ data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
     { _der1Results   :: !(Maybe [Evaluation])
     , _der1NextToken :: !(Maybe Text)
     , _der1Status    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeEvaluationsResponse' smart constructor.
 describeEvaluationsResponse :: Status -> DescribeEvaluationsResponse

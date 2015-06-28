@@ -124,7 +124,7 @@ instance ToXML ListTagsForResources where
 data ListTagsForResourcesResponse = ListTagsForResourcesResponse'
     { _lisResourceTagSets :: ![ResourceTagSet]
     , _lisStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListTagsForResourcesResponse' smart constructor.
 listTagsForResourcesResponse :: Status -> ListTagsForResourcesResponse

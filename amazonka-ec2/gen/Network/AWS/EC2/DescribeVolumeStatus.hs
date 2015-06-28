@@ -233,7 +233,7 @@ data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
     { _dvsrNextToken      :: !(Maybe Text)
     , _dvsrVolumeStatuses :: !(Maybe [VolumeStatusItem])
     , _dvsrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeVolumeStatusResponse' smart constructor.
 describeVolumeStatusResponse :: Status -> DescribeVolumeStatusResponse

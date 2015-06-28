@@ -175,7 +175,7 @@ instance ToQuery SendRawEmail where
 data SendRawEmailResponse = SendRawEmailResponse'
     { _srerMessageId :: !Text
     , _srerStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SendRawEmailResponse' smart constructor.
 sendRawEmailResponse :: Text -> Status -> SendRawEmailResponse

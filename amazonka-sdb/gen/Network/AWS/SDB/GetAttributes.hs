@@ -134,7 +134,7 @@ instance ToQuery GetAttributes where
 data GetAttributesResponse = GetAttributesResponse'
     { _garAttributes :: !(Maybe [Attribute])
     , _garStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetAttributesResponse' smart constructor.
 getAttributesResponse :: Status -> GetAttributesResponse

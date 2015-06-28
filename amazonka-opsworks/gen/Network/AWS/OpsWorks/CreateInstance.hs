@@ -324,7 +324,7 @@ instance ToQuery CreateInstance where
 data CreateInstanceResponse = CreateInstanceResponse'
     { _cirInstanceId :: !(Maybe Text)
     , _cirStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateInstanceResponse' smart constructor.
 createInstanceResponse :: Status -> CreateInstanceResponse

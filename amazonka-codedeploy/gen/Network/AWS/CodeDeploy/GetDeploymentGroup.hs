@@ -117,7 +117,7 @@ instance ToQuery GetDeploymentGroup where
 data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
     { _gdgrDeploymentGroupInfo :: !(Maybe DeploymentGroupInfo)
     , _gdgrStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetDeploymentGroupResponse' smart constructor.
 getDeploymentGroupResponse :: Status -> GetDeploymentGroupResponse

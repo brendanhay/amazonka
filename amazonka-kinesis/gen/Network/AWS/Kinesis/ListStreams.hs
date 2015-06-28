@@ -147,7 +147,7 @@ data ListStreamsResponse = ListStreamsResponse'
     { _lsrStreamNames    :: ![Text]
     , _lsrHasMoreStreams :: !Bool
     , _lsrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListStreamsResponse' smart constructor.
 listStreamsResponse :: Bool -> Status -> ListStreamsResponse

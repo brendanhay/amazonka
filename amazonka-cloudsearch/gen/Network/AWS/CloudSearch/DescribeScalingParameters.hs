@@ -105,7 +105,7 @@ instance ToQuery DescribeScalingParameters where
 data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
     { _dsprScalingParameters :: !ScalingParametersStatus
     , _dsprStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeScalingParametersResponse' smart constructor.
 describeScalingParametersResponse :: ScalingParametersStatus -> Status -> DescribeScalingParametersResponse

@@ -430,7 +430,7 @@ instance ToQuery ModifyCacheCluster where
 data ModifyCacheClusterResponse = ModifyCacheClusterResponse'
     { _mccrCacheCluster :: !(Maybe CacheCluster)
     , _mccrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifyCacheClusterResponse' smart constructor.
 modifyCacheClusterResponse :: Status -> ModifyCacheClusterResponse

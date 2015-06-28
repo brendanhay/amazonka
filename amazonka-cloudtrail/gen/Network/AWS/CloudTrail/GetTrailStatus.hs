@@ -148,7 +148,7 @@ data GetTrailStatusResponse = GetTrailStatusResponse'
     , _gtsrLatestNotificationTime            :: !(Maybe POSIX)
     , _gtsrStopLoggingTime                   :: !(Maybe POSIX)
     , _gtsrStatus                            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetTrailStatusResponse' smart constructor.
 getTrailStatusResponse :: Status -> GetTrailStatusResponse

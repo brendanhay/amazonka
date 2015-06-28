@@ -119,7 +119,7 @@ instance ToQuery ListCloudFrontOriginAccessIdentities
 data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'
     { _lcfoairCloudFrontOriginAccessIdentityList :: !CloudFrontOriginAccessIdentityList
     , _lcfoairStatus                             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListCloudFrontOriginAccessIdentitiesResponse' smart constructor.
 listCloudFrontOriginAccessIdentitiesResponse :: CloudFrontOriginAccessIdentityList -> Status -> ListCloudFrontOriginAccessIdentitiesResponse

@@ -109,7 +109,7 @@ instance ToQuery DeleteIdentities where
 data DeleteIdentitiesResponse = DeleteIdentitiesResponse'
     { _dirUnprocessedIdentityIds :: !(Maybe [UnprocessedIdentityId])
     , _dirStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteIdentitiesResponse' smart constructor.
 deleteIdentitiesResponse :: Status -> DeleteIdentitiesResponse

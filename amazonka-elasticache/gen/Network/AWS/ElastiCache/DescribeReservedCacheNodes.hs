@@ -238,7 +238,7 @@ data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse'
     { _drcnrMarker             :: !(Maybe Text)
     , _drcnrReservedCacheNodes :: !(Maybe [ReservedCacheNode])
     , _drcnrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeReservedCacheNodesResponse' smart constructor.
 describeReservedCacheNodesResponse :: Status -> DescribeReservedCacheNodesResponse

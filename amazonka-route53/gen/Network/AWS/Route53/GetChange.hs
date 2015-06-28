@@ -104,7 +104,7 @@ instance ToQuery GetChange where
 data GetChangeResponse = GetChangeResponse'
     { _gcrChangeInfo :: !ChangeInfo
     , _gcrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetChangeResponse' smart constructor.
 getChangeResponse :: ChangeInfo -> Status -> GetChangeResponse

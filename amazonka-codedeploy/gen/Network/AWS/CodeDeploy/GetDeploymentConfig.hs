@@ -107,7 +107,7 @@ instance ToQuery GetDeploymentConfig where
 data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
     { _gdcrDeploymentConfigInfo :: !(Maybe DeploymentConfigInfo)
     , _gdcrStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetDeploymentConfigResponse' smart constructor.
 getDeploymentConfigResponse :: Status -> GetDeploymentConfigResponse

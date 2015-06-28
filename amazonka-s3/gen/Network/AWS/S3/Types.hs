@@ -1170,7 +1170,7 @@ instance ToXML AccessControlPolicy where
 data Bucket = Bucket'
     { _bucCreationDate :: !RFC822
     , _bucName         :: !BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'Bucket' smart constructor.
 bucket :: UTCTime -> BucketName -> Bucket
@@ -1350,7 +1350,7 @@ instance FromXML CommonPrefix where
 -- * 'cmuParts'
 newtype CompletedMultipartUpload = CompletedMultipartUpload'
     { _cmuParts :: Maybe (List1 CompletedPart)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CompletedMultipartUpload' smart constructor.
 completedMultipartUpload :: CompletedMultipartUpload
@@ -1377,7 +1377,7 @@ instance ToXML CompletedMultipartUpload where
 data CompletedPart = CompletedPart'
     { _cpPartNumber :: !Int
     , _cpETag       :: !ETag
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CompletedPart' smart constructor.
 completedPart :: Int -> ETag -> CompletedPart
@@ -1462,7 +1462,7 @@ instance ToXML Condition where
 data CopyObjectResult = CopyObjectResult'
     { _corETag         :: !(Maybe ETag)
     , _corLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CopyObjectResult' smart constructor.
 copyObjectResult :: CopyObjectResult
@@ -1495,7 +1495,7 @@ instance FromXML CopyObjectResult where
 data CopyPartResult = CopyPartResult'
     { _cprETag         :: !(Maybe ETag)
     , _cprLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CopyPartResult' smart constructor.
 copyPartResult :: CopyPartResult
@@ -1525,7 +1525,7 @@ instance FromXML CopyPartResult where
 -- * 'cbcLocationConstraint'
 newtype CreateBucketConfiguration = CreateBucketConfiguration'
     { _cbcLocationConstraint :: Maybe Region
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateBucketConfiguration' smart constructor.
 createBucketConfiguration :: CreateBucketConfiguration
@@ -1554,7 +1554,7 @@ instance ToXML CreateBucketConfiguration where
 data Delete = Delete'
     { _delQuiet   :: !(Maybe Bool)
     , _delObjects :: ![ObjectIdentifier]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'Delete' smart constructor.
 delete' :: Delete
@@ -1598,7 +1598,7 @@ data DeleteMarkerEntry = DeleteMarkerEntry'
     , _dmeOwner        :: !(Maybe Owner)
     , _dmeKey          :: !(Maybe ObjectKey)
     , _dmeLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteMarkerEntry' smart constructor.
 deleteMarkerEntry :: DeleteMarkerEntry
@@ -1656,7 +1656,7 @@ data DeletedObject = DeletedObject'
     , _delDeleteMarker          :: !(Maybe Bool)
     , _delDeleteMarkerVersionId :: !(Maybe Text)
     , _delKey                   :: !(Maybe ObjectKey)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeletedObject' smart constructor.
 deletedObject :: DeletedObject
@@ -1698,7 +1698,7 @@ instance FromXML DeletedObject where
 -- * 'desBucket'
 newtype Destination = Destination'
     { _desBucket :: BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'Destination' smart constructor.
 destination :: BucketName -> Destination
@@ -1726,7 +1726,7 @@ instance ToXML Destination where
 -- * 'edKey'
 newtype ErrorDocument = ErrorDocument'
     { _edKey :: ObjectKey
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ErrorDocument' smart constructor.
 errorDocument :: ObjectKey -> ErrorDocument
@@ -2112,7 +2112,7 @@ data MultipartUpload = MultipartUpload'
     , _muKey          :: !(Maybe ObjectKey)
     , _muStorageClass :: !(Maybe StorageClass)
     , _muUploadId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'MultipartUpload' smart constructor.
 multipartUpload :: MultipartUpload
@@ -2329,7 +2329,7 @@ data Object = Object'
     , _objKey          :: !ObjectKey
     , _objStorageClass :: !ObjectStorageClass
     , _objLastModified :: !RFC822
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'Object' smart constructor.
 object' :: ETag -> Int -> Owner -> ObjectKey -> ObjectStorageClass -> UTCTime -> Object
@@ -2385,7 +2385,7 @@ instance FromXML Object where
 data ObjectIdentifier = ObjectIdentifier'
     { _oiVersionId :: !(Maybe ObjectVersionId)
     , _oiKey       :: !ObjectKey
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ObjectIdentifier' smart constructor.
 objectIdentifier :: ObjectKey -> ObjectIdentifier
@@ -2436,7 +2436,7 @@ data ObjectVersion = ObjectVersion'
     , _ovKey          :: !(Maybe ObjectKey)
     , _ovStorageClass :: !(Maybe ObjectVersionStorageClass)
     , _ovLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ObjectVersion' smart constructor.
 objectVersion :: ObjectVersion
@@ -2549,7 +2549,7 @@ data Part = Part'
     , _parSize         :: !(Maybe Int)
     , _parPartNumber   :: !(Maybe Int)
     , _parLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'Part' smart constructor.
 part :: Part
@@ -2767,7 +2767,7 @@ instance ToXML RedirectAllRequestsTo where
 data ReplicationConfiguration = ReplicationConfiguration'
     { _rcRole  :: !Text
     , _rcRules :: ![ReplicationRule]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ReplicationConfiguration' smart constructor.
 replicationConfiguration :: Text -> ReplicationConfiguration
@@ -2814,7 +2814,7 @@ data ReplicationRule = ReplicationRule'
     , _rrPrefix      :: !Text
     , _rrStatus      :: !ReplicationRuleStatus
     , _rrDestination :: !Destination
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ReplicationRule' smart constructor.
 replicationRule :: Text -> ReplicationRuleStatus -> Destination -> ReplicationRule
@@ -3060,7 +3060,7 @@ data S3ServiceError = S3ServiceError'
     , _sseKey       :: !(Maybe ObjectKey)
     , _sseCode      :: !(Maybe Text)
     , _sseMessage   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'S3ServiceError' smart constructor.
 s3ServiceError :: S3ServiceError
@@ -3105,7 +3105,7 @@ instance FromXML S3ServiceError where
 data Tag = Tag'
     { _tagKey   :: !ObjectKey
     , _tagValue :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'Tag' smart constructor.
 tag :: ObjectKey -> Text -> Tag
@@ -3137,7 +3137,7 @@ instance ToXML Tag where
 -- * 'tagTagSet'
 newtype Tagging = Tagging'
     { _tagTagSet :: [Tag]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'Tagging' smart constructor.
 tagging :: Tagging
@@ -3348,7 +3348,7 @@ data WebsiteConfiguration = WebsiteConfiguration'
     , _wcErrorDocument         :: !(Maybe ErrorDocument)
     , _wcRoutingRules          :: !(Maybe [RoutingRule])
     , _wcIndexDocument         :: !(Maybe IndexDocument)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'WebsiteConfiguration' smart constructor.
 websiteConfiguration :: WebsiteConfiguration

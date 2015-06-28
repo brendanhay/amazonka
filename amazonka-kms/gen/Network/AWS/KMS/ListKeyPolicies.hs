@@ -146,7 +146,7 @@ data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
     , _lkprTruncated   :: !(Maybe Bool)
     , _lkprNextMarker  :: !(Maybe Text)
     , _lkprStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListKeyPoliciesResponse' smart constructor.
 listKeyPoliciesResponse :: Status -> ListKeyPoliciesResponse

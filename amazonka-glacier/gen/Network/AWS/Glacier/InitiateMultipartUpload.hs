@@ -184,7 +184,7 @@ data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
     { _imurLocation :: !(Maybe Text)
     , _imurUploadId :: !(Maybe Text)
     , _imurStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'InitiateMultipartUploadResponse' smart constructor.
 initiateMultipartUploadResponse :: Status -> InitiateMultipartUploadResponse

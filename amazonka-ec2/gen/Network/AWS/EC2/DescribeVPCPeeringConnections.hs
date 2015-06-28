@@ -166,7 +166,7 @@ instance ToQuery DescribeVPCPeeringConnections where
 data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'
     { _dvpcpcrVPCPeeringConnections :: !(Maybe [VPCPeeringConnection])
     , _dvpcpcrStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeVPCPeeringConnectionsResponse' smart constructor.
 describeVPCPeeringConnectionsResponse :: Status -> DescribeVPCPeeringConnectionsResponse

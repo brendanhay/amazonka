@@ -185,7 +185,7 @@ instance ToQuery ModifyEventSubscription where
 data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'
     { _mesrEventSubscription :: !(Maybe EventSubscription)
     , _mesrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifyEventSubscriptionResponse' smart constructor.
 modifyEventSubscriptionResponse :: Status -> ModifyEventSubscriptionResponse

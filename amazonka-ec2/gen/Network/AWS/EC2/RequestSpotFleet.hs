@@ -115,7 +115,7 @@ instance ToQuery RequestSpotFleet where
 data RequestSpotFleetResponse = RequestSpotFleetResponse'
     { _rsfrSpotFleetRequestId :: !Text
     , _rsfrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RequestSpotFleetResponse' smart constructor.
 requestSpotFleetResponse :: Text -> Status -> RequestSpotFleetResponse

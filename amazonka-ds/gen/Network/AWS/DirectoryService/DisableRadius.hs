@@ -99,7 +99,7 @@ instance ToQuery DisableRadius where
 -- * 'drrStatus'
 newtype DisableRadiusResponse = DisableRadiusResponse'
     { _drrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DisableRadiusResponse' smart constructor.
 disableRadiusResponse :: Status -> DisableRadiusResponse

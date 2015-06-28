@@ -139,7 +139,7 @@ instance ToQuery ModifyOptionGroup where
 data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
     { _mogrOptionGroup :: !(Maybe OptionGroup)
     , _mogrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifyOptionGroupResponse' smart constructor.
 modifyOptionGroupResponse :: Status -> ModifyOptionGroupResponse

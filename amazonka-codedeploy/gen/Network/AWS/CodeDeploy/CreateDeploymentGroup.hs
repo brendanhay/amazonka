@@ -204,7 +204,7 @@ instance ToQuery CreateDeploymentGroup where
 data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
     { _cdgrDeploymentGroupId :: !(Maybe Text)
     , _cdgrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDeploymentGroupResponse' smart constructor.
 createDeploymentGroupResponse :: Status -> CreateDeploymentGroupResponse

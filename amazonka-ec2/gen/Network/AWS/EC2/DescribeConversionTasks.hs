@@ -122,7 +122,7 @@ instance ToQuery DescribeConversionTasks where
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
     { _dctrConversionTasks :: !(Maybe [ConversionTask])
     , _dctrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeConversionTasksResponse' smart constructor.
 describeConversionTasksResponse :: Status -> DescribeConversionTasksResponse

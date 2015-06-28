@@ -123,7 +123,7 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
     , _dubrDiskIds                      :: !(Maybe [Text])
     , _dubrUploadBufferUsedInBytes      :: !(Maybe Integer)
     , _dubrStatus                       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeUploadBufferResponse' smart constructor.
 describeUploadBufferResponse :: Status -> DescribeUploadBufferResponse

@@ -108,7 +108,7 @@ instance ToQuery GetHealthCheckLastFailureReason
 data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'
     { _ghclfrrHealthCheckObservations :: ![HealthCheckObservation]
     , _ghclfrrStatus                  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetHealthCheckLastFailureReasonResponse' smart constructor.
 getHealthCheckLastFailureReasonResponse :: Status -> GetHealthCheckLastFailureReasonResponse

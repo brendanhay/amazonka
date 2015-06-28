@@ -150,7 +150,7 @@ data ListInstancesResponse = ListInstancesResponse'
     { _lirInstances :: !(Maybe [Instance])
     , _lirMarker    :: !(Maybe Text)
     , _lirStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListInstancesResponse' smart constructor.
 listInstancesResponse :: Status -> ListInstancesResponse

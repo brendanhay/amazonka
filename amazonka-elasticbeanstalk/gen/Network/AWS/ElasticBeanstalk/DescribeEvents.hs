@@ -227,7 +227,7 @@ data DescribeEventsResponse = DescribeEventsResponse'
     { _derNextToken :: !(Maybe Text)
     , _derEvents    :: !(Maybe [EventDescription])
     , _derStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeEventsResponse' smart constructor.
 describeEventsResponse :: Status -> DescribeEventsResponse

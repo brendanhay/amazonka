@@ -112,7 +112,7 @@ instance ToQuery DeleteVPCPeeringConnection where
 data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
     { _dvpcrReturn :: !(Maybe Bool)
     , _dvpcrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteVPCPeeringConnectionResponse' smart constructor.
 deleteVPCPeeringConnectionResponse :: Status -> DeleteVPCPeeringConnectionResponse

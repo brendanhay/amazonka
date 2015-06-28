@@ -103,7 +103,7 @@ instance ToQuery CancelReservedInstancesListing where
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'
     { _crilrReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _crilrStatus                    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CancelReservedInstancesListingResponse' smart constructor.
 cancelReservedInstancesListingResponse :: Status -> CancelReservedInstancesListingResponse

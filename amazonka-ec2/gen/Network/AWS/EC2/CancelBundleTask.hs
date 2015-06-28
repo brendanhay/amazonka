@@ -106,7 +106,7 @@ instance ToQuery CancelBundleTask where
 data CancelBundleTaskResponse = CancelBundleTaskResponse'
     { _cbtrBundleTask :: !(Maybe BundleTask)
     , _cbtrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CancelBundleTaskResponse' smart constructor.
 cancelBundleTaskResponse :: Status -> CancelBundleTaskResponse

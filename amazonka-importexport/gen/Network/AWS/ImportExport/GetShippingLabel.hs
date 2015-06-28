@@ -208,7 +208,7 @@ data GetShippingLabelResponse = GetShippingLabelResponse'
     { _gslrShippingLabelURL :: !(Maybe Text)
     , _gslrWarning          :: !(Maybe Text)
     , _gslrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetShippingLabelResponse' smart constructor.
 getShippingLabelResponse :: Status -> GetShippingLabelResponse

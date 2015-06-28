@@ -152,7 +152,7 @@ instance ToQuery CopyClusterSnapshot where
 data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'
     { _ccsrSnapshot :: !(Maybe Snapshot)
     , _ccsrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CopyClusterSnapshotResponse' smart constructor.
 copyClusterSnapshotResponse :: Status -> CopyClusterSnapshotResponse

@@ -125,7 +125,7 @@ data GetUserPolicyResponse = GetUserPolicyResponse'
     , _guprPolicyName     :: !Text
     , _guprPolicyDocument :: !Text
     , _guprStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetUserPolicyResponse' smart constructor.
 getUserPolicyResponse :: Text -> Text -> Text -> Status -> GetUserPolicyResponse

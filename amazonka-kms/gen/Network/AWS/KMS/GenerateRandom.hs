@@ -100,7 +100,7 @@ instance ToQuery GenerateRandom where
 data GenerateRandomResponse = GenerateRandomResponse'
     { _grrPlaintext :: !(Maybe (Sensitive Base64))
     , _grrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GenerateRandomResponse' smart constructor.
 generateRandomResponse :: Status -> GenerateRandomResponse

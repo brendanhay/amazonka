@@ -84,7 +84,7 @@ data ListObjectVersions = ListObjectVersions'
     , _lovMaxKeys         :: !(Maybe Int)
     , _lovDelimiter       :: !(Maybe Char)
     , _lovBucket          :: !BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListObjectVersions' smart constructor.
 listObjectVersions :: BucketName -> ListObjectVersions
@@ -224,7 +224,7 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
     , _lovrIsTruncated         :: !(Maybe Bool)
     , _lovrDelimiter           :: !(Maybe Char)
     , _lovrStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListObjectVersionsResponse' smart constructor.
 listObjectVersionsResponse :: Status -> ListObjectVersionsResponse

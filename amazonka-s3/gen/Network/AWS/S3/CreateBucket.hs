@@ -75,7 +75,7 @@ data CreateBucket = CreateBucket'
     , _cbGrantWrite                :: !(Maybe Text)
     , _cbACL                       :: !(Maybe BucketCannedACL)
     , _cbBucket                    :: !BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateBucket' smart constructor.
 createBucket :: BucketName -> CreateBucket
@@ -169,7 +169,7 @@ instance ToQuery CreateBucket where
 data CreateBucketResponse = CreateBucketResponse'
     { _cbrLocation :: !(Maybe Text)
     , _cbrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateBucketResponse' smart constructor.
 createBucketResponse :: Status -> CreateBucketResponse

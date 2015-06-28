@@ -175,7 +175,7 @@ instance ToQuery CreateService where
 data CreateServiceResponse = CreateServiceResponse'
     { _csrService :: !(Maybe ContainerService)
     , _csrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateServiceResponse' smart constructor.
 createServiceResponse :: Status -> CreateServiceResponse

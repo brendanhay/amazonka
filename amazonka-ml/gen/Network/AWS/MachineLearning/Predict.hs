@@ -126,7 +126,7 @@ instance ToQuery Predict where
 data PredictResponse = PredictResponse'
     { _prPrediction :: !(Maybe Prediction)
     , _prStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PredictResponse' smart constructor.
 predictResponse :: Status -> PredictResponse

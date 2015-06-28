@@ -170,7 +170,7 @@ data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'
     { _dcvrClusterVersions :: !(Maybe [ClusterVersion])
     , _dcvrMarker          :: !(Maybe Text)
     , _dcvrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeClusterVersionsResponse' smart constructor.
 describeClusterVersionsResponse :: Status -> DescribeClusterVersionsResponse

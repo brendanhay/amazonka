@@ -116,7 +116,7 @@ instance ToQuery DetachLoadBalancerFromSubnets where
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'
     { _dlbfsrSubnets :: !(Maybe [Text])
     , _dlbfsrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DetachLoadBalancerFromSubnetsResponse' smart constructor.
 detachLoadBalancerFromSubnetsResponse :: Status -> DetachLoadBalancerFromSubnetsResponse

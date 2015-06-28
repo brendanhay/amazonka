@@ -254,7 +254,7 @@ data InitiateJobResponse = InitiateJobResponse'
     { _ijrJobId    :: !(Maybe Text)
     , _ijrLocation :: !(Maybe Text)
     , _ijrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'InitiateJobResponse' smart constructor.
 initiateJobResponse :: Status -> InitiateJobResponse

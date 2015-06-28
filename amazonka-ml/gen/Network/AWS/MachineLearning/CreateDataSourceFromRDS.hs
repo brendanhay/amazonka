@@ -220,7 +220,7 @@ instance ToQuery CreateDataSourceFromRDS where
 data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'
     { _cDataSourceId :: !(Maybe Text)
     , _cStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDataSourceFromRDSResponse' smart constructor.
 createDataSourceFromRDSResponse :: Status -> CreateDataSourceFromRDSResponse

@@ -121,7 +121,7 @@ instance ToQuery CreateLoginProfile where
 data CreateLoginProfileResponse = CreateLoginProfileResponse'
     { _clprLoginProfile :: !LoginProfile
     , _clprStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateLoginProfileResponse' smart constructor.
 createLoginProfileResponse :: LoginProfile -> Status -> CreateLoginProfileResponse

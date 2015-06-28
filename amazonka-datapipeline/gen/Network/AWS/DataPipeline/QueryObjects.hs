@@ -168,7 +168,7 @@ data QueryObjectsResponse = QueryObjectsResponse'
     , _qorIds            :: !(Maybe [Text])
     , _qorMarker         :: !(Maybe Text)
     , _qorStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'QueryObjectsResponse' smart constructor.
 queryObjectsResponse :: Status -> QueryObjectsResponse

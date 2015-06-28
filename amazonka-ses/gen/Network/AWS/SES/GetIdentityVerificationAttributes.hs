@@ -112,7 +112,7 @@ instance ToQuery GetIdentityVerificationAttributes
 data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
     { _givarVerificationAttributes :: !(Map Text IdentityVerificationAttributes)
     , _givarStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetIdentityVerificationAttributesResponse' smart constructor.
 getIdentityVerificationAttributesResponse :: Status -> GetIdentityVerificationAttributesResponse

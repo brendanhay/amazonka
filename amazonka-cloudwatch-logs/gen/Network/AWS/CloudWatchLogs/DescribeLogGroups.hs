@@ -138,7 +138,7 @@ data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
     { _dlgrLogGroups :: !(Maybe [LogGroup])
     , _dlgrNextToken :: !(Maybe Text)
     , _dlgrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeLogGroupsResponse' smart constructor.
 describeLogGroupsResponse :: Status -> DescribeLogGroupsResponse

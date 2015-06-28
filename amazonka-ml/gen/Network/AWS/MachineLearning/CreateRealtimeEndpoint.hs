@@ -117,7 +117,7 @@ data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'
     { _crerRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
     , _crerMLModelId            :: !(Maybe Text)
     , _crerStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateRealtimeEndpointResponse' smart constructor.
 createRealtimeEndpointResponse :: Status -> CreateRealtimeEndpointResponse

@@ -158,7 +158,7 @@ instance ToQuery DeleteCluster where
 data DeleteClusterResponse = DeleteClusterResponse'
     { _delCluster :: !(Maybe Cluster)
     , _delStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteClusterResponse' smart constructor.
 deleteClusterResponse :: Status -> DeleteClusterResponse

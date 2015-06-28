@@ -86,7 +86,7 @@ instance ToQuery GetAccountPasswordPolicy where
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
     { _gapprPasswordPolicy :: !PasswordPolicy
     , _gapprStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetAccountPasswordPolicyResponse' smart constructor.
 getAccountPasswordPolicyResponse :: PasswordPolicy -> Status -> GetAccountPasswordPolicyResponse

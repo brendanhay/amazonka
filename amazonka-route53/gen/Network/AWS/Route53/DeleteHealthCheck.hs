@@ -101,7 +101,7 @@ instance ToQuery DeleteHealthCheck where
 -- * 'dhcrStatus'
 newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'
     { _dhcrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteHealthCheckResponse' smart constructor.
 deleteHealthCheckResponse :: Status -> DeleteHealthCheckResponse

@@ -147,7 +147,7 @@ data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
     { _dflr1NextToken :: !(Maybe Text)
     , _dflr1FlowLogs  :: !(Maybe [FlowLog])
     , _dflr1Status    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeFlowLogsResponse' smart constructor.
 describeFlowLogsResponse :: Status -> DescribeFlowLogsResponse

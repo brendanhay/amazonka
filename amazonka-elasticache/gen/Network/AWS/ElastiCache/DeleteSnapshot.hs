@@ -97,7 +97,7 @@ instance ToQuery DeleteSnapshot where
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
     { _dsrSnapshot :: !(Maybe Snapshot)
     , _dsrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteSnapshotResponse' smart constructor.
 deleteSnapshotResponse :: Status -> DeleteSnapshotResponse

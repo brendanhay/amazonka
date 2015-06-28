@@ -120,7 +120,7 @@ instance ToQuery UpdateScalingParameters where
 data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
     { _usprScalingParameters :: !ScalingParametersStatus
     , _usprStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateScalingParametersResponse' smart constructor.
 updateScalingParametersResponse :: ScalingParametersStatus -> Status -> UpdateScalingParametersResponse

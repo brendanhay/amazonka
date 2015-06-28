@@ -186,7 +186,7 @@ data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'
     { _grchrNextToken          :: !(Maybe Text)
     , _grchrConfigurationItems :: !(Maybe [ConfigurationItem])
     , _grchrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetResourceConfigHistoryResponse' smart constructor.
 getResourceConfigHistoryResponse :: Status -> GetResourceConfigHistoryResponse

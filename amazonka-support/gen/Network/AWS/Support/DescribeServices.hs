@@ -129,7 +129,7 @@ instance ToQuery DescribeServices where
 data DescribeServicesResponse = DescribeServicesResponse'
     { _dsrServices :: !(Maybe [SupportService])
     , _dsrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeServicesResponse' smart constructor.
 describeServicesResponse :: Status -> DescribeServicesResponse

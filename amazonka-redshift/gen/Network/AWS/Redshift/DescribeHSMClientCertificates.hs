@@ -200,7 +200,7 @@ data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesRespon
     { _dhccrMarker                :: !(Maybe Text)
     , _dhccrHSMClientCertificates :: !(Maybe [HSMClientCertificate])
     , _dhccrStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeHSMClientCertificatesResponse' smart constructor.
 describeHSMClientCertificatesResponse :: Status -> DescribeHSMClientCertificatesResponse

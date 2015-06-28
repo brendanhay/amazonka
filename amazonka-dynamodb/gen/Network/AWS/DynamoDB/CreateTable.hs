@@ -270,7 +270,7 @@ instance ToQuery CreateTable where
 data CreateTableResponse = CreateTableResponse'
     { _ctrTableDescription :: !(Maybe TableDescription)
     , _ctrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateTableResponse' smart constructor.
 createTableResponse :: Status -> CreateTableResponse

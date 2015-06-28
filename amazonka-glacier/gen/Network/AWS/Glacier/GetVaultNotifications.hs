@@ -130,7 +130,7 @@ instance ToQuery GetVaultNotifications where
 data GetVaultNotificationsResponse = GetVaultNotificationsResponse'
     { _gvnrVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
     , _gvnrStatus                  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetVaultNotificationsResponse' smart constructor.
 getVaultNotificationsResponse :: Status -> GetVaultNotificationsResponse

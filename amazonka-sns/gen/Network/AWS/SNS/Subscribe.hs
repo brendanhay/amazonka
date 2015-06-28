@@ -142,7 +142,7 @@ instance ToQuery Subscribe where
 data SubscribeResponse = SubscribeResponse'
     { _srSubscriptionARN :: !(Maybe Text)
     , _srStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SubscribeResponse' smart constructor.
 subscribeResponse :: Status -> SubscribeResponse

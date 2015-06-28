@@ -164,7 +164,7 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
     , _dcprParameters                      :: !(Maybe [Parameter])
     , _dcprMarker                          :: !(Maybe Text)
     , _dcprStatus                          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeCacheParametersResponse' smart constructor.
 describeCacheParametersResponse :: Status -> DescribeCacheParametersResponse

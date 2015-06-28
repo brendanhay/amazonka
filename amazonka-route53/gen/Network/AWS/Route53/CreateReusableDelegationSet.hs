@@ -134,7 +134,7 @@ data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'
     { _crdsrDelegationSet :: !DelegationSet
     , _crdsrLocation      :: !Text
     , _crdsrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateReusableDelegationSetResponse' smart constructor.
 createReusableDelegationSetResponse :: DelegationSet -> Text -> Status -> CreateReusableDelegationSetResponse

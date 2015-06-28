@@ -226,7 +226,7 @@ instance ToQuery ReceiveMessage where
 data ReceiveMessageResponse = ReceiveMessageResponse'
     { _rmrMessages :: !(Maybe [Message])
     , _rmrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ReceiveMessageResponse' smart constructor.
 receiveMessageResponse :: Status -> ReceiveMessageResponse

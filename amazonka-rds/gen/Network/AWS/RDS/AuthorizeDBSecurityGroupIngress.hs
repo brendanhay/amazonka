@@ -166,7 +166,7 @@ instance ToQuery AuthorizeDBSecurityGroupIngress
 data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse'
     { _adsgirDBSecurityGroup :: !(Maybe DBSecurityGroup)
     , _adsgirStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AuthorizeDBSecurityGroupIngressResponse' smart constructor.
 authorizeDBSecurityGroupIngressResponse :: Status -> AuthorizeDBSecurityGroupIngressResponse

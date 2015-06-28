@@ -115,7 +115,7 @@ instance ToQuery AttachLoadBalancerToSubnets where
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
     { _albtsrSubnets :: !(Maybe [Text])
     , _albtsrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AttachLoadBalancerToSubnetsResponse' smart constructor.
 attachLoadBalancerToSubnetsResponse :: Status -> AttachLoadBalancerToSubnetsResponse

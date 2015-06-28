@@ -129,7 +129,7 @@ data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'
     { _csfrrSuccessfulFleetRequests   :: !(Maybe [CancelSpotFleetRequestsSuccessItem])
     , _csfrrUnsuccessfulFleetRequests :: !(Maybe [CancelSpotFleetRequestsErrorItem])
     , _csfrrStatus                    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CancelSpotFleetRequestsResponse' smart constructor.
 cancelSpotFleetRequestsResponse :: Status -> CancelSpotFleetRequestsResponse

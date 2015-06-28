@@ -149,7 +149,7 @@ data ListRolesResponse = ListRolesResponse'
     , _lrrIsTruncated :: !(Maybe Bool)
     , _lrrRoles       :: ![Role]
     , _lrrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListRolesResponse' smart constructor.
 listRolesResponse :: Status -> ListRolesResponse

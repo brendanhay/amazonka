@@ -123,7 +123,7 @@ instance ToQuery
 -- * 'slblscrStatus'
 newtype SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse'
     { _slblscrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SetLoadBalancerListenerSSLCertificateResponse' smart constructor.
 setLoadBalancerListenerSSLCertificateResponse :: Status -> SetLoadBalancerListenerSSLCertificateResponse

@@ -109,7 +109,7 @@ instance ToQuery DescribeLifecycleHooks where
 data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
     { _dlhrLifecycleHooks :: !(Maybe [LifecycleHook])
     , _dlhrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeLifecycleHooksResponse' smart constructor.
 describeLifecycleHooksResponse :: Status -> DescribeLifecycleHooksResponse

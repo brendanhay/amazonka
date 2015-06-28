@@ -103,7 +103,7 @@ instance ToQuery GetEndpointAttributes where
 data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
     { _gearAttributes :: !(Maybe (Map Text Text))
     , _gearStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetEndpointAttributesResponse' smart constructor.
 getEndpointAttributesResponse :: Status -> GetEndpointAttributesResponse

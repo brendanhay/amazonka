@@ -157,7 +157,7 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
     , _dwerExecutionConfiguration      :: !WorkflowExecutionConfiguration
     , _dwerOpenCounts                  :: !WorkflowExecutionOpenCounts
     , _dwerStatus                      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeWorkflowExecutionResponse' smart constructor.
 describeWorkflowExecutionResponse :: WorkflowExecutionInfo -> WorkflowExecutionConfiguration -> WorkflowExecutionOpenCounts -> Status -> DescribeWorkflowExecutionResponse

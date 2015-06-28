@@ -132,7 +132,7 @@ data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse
     { _dwdrDirectories :: !(Maybe [WorkspaceDirectory])
     , _dwdrNextToken   :: !(Maybe Text)
     , _dwdrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeWorkspaceDirectoriesResponse' smart constructor.
 describeWorkspaceDirectoriesResponse :: Status -> DescribeWorkspaceDirectoriesResponse

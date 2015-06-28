@@ -118,7 +118,7 @@ data CreateInvalidationResponse = CreateInvalidationResponse'
     { _cirInvalidation :: !(Maybe Invalidation)
     , _cirLocation     :: !(Maybe Text)
     , _cirStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateInvalidationResponse' smart constructor.
 createInvalidationResponse :: Status -> CreateInvalidationResponse

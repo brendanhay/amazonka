@@ -262,7 +262,7 @@ data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'
     { _descSnapshots :: !(Maybe [Snapshot])
     , _descMarker    :: !(Maybe Text)
     , _descStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeClusterSnapshotsResponse' smart constructor.
 describeClusterSnapshotsResponse :: Status -> DescribeClusterSnapshotsResponse

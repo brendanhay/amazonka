@@ -116,7 +116,7 @@ instance ToQuery RetrieveDomainAuthCode where
 data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
     { _rdacrAuthCode :: !(Sensitive Text)
     , _rdacrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RetrieveDomainAuthCodeResponse' smart constructor.
 retrieveDomainAuthCodeResponse :: Text -> Status -> RetrieveDomainAuthCodeResponse

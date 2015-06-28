@@ -141,7 +141,7 @@ data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
     { _dsfrrNextToken               :: !(Maybe Text)
     , _dsfrrSpotFleetRequestConfigs :: ![SpotFleetRequestConfig]
     , _dsfrrStatus                  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeSpotFleetRequestsResponse' smart constructor.
 describeSpotFleetRequestsResponse :: Status -> DescribeSpotFleetRequestsResponse

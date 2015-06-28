@@ -210,7 +210,7 @@ instance ToXML UpdateHealthCheck where
 data UpdateHealthCheckResponse = UpdateHealthCheckResponse'
     { _uhcrHealthCheck :: !HealthCheck
     , _uhcrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateHealthCheckResponse' smart constructor.
 updateHealthCheckResponse :: HealthCheck -> Status -> UpdateHealthCheckResponse

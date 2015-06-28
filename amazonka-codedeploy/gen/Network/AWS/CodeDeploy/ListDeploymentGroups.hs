@@ -130,7 +130,7 @@ data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
     , _ldgrApplicationName  :: !(Maybe Text)
     , _ldgrDeploymentGroups :: !(Maybe [Text])
     , _ldgrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListDeploymentGroupsResponse' smart constructor.
 listDeploymentGroupsResponse :: Status -> ListDeploymentGroupsResponse

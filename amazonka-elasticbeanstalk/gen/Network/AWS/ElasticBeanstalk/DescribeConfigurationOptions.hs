@@ -160,7 +160,7 @@ data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
     { _dcorOptions           :: !(Maybe [ConfigurationOptionDescription])
     , _dcorSolutionStackName :: !(Maybe Text)
     , _dcorStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeConfigurationOptionsResponse' smart constructor.
 describeConfigurationOptionsResponse :: Status -> DescribeConfigurationOptionsResponse

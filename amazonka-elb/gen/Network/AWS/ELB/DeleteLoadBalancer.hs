@@ -97,7 +97,7 @@ instance ToQuery DeleteLoadBalancer where
 -- * 'delStatus'
 newtype DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
     { _delStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteLoadBalancerResponse' smart constructor.
 deleteLoadBalancerResponse :: Status -> DeleteLoadBalancerResponse

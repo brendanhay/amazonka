@@ -157,7 +157,7 @@ data DescribePrefixListsResponse = DescribePrefixListsResponse'
     { _dplrNextToken   :: !(Maybe Text)
     , _dplrPrefixLists :: !(Maybe [PrefixList])
     , _dplrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribePrefixListsResponse' smart constructor.
 describePrefixListsResponse :: Status -> DescribePrefixListsResponse

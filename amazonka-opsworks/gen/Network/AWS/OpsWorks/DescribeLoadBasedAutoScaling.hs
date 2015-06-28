@@ -114,7 +114,7 @@ instance ToQuery DescribeLoadBasedAutoScaling where
 data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'
     { _dlbasrLoadBasedAutoScalingConfigurations :: !(Maybe [LoadBasedAutoScalingConfiguration])
     , _dlbasrStatus                             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeLoadBasedAutoScalingResponse' smart constructor.
 describeLoadBasedAutoScalingResponse :: Status -> DescribeLoadBasedAutoScalingResponse

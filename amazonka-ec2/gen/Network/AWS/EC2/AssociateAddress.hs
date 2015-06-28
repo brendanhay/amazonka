@@ -184,7 +184,7 @@ instance ToQuery AssociateAddress where
 data AssociateAddressResponse = AssociateAddressResponse'
     { _assAssociationId :: !(Maybe Text)
     , _assStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AssociateAddressResponse' smart constructor.
 associateAddressResponse :: Status -> AssociateAddressResponse

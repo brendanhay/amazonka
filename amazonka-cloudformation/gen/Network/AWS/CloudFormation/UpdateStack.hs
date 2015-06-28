@@ -279,7 +279,7 @@ instance ToQuery UpdateStack where
 data UpdateStackResponse = UpdateStackResponse'
     { _usrStackId :: !(Maybe Text)
     , _usrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateStackResponse' smart constructor.
 updateStackResponse :: Status -> UpdateStackResponse

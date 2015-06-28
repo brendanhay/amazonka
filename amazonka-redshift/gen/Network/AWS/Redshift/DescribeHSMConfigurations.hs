@@ -196,7 +196,7 @@ data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'
     { _dhcrMarker            :: !(Maybe Text)
     , _dhcrHSMConfigurations :: !(Maybe [HSMConfiguration])
     , _dhcrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeHSMConfigurationsResponse' smart constructor.
 describeHSMConfigurationsResponse :: Status -> DescribeHSMConfigurationsResponse

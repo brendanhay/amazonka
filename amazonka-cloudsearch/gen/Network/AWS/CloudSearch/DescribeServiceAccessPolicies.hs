@@ -122,7 +122,7 @@ instance ToQuery DescribeServiceAccessPolicies where
 data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'
     { _dsaprAccessPolicies :: !AccessPoliciesStatus
     , _dsaprStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeServiceAccessPoliciesResponse' smart constructor.
 describeServiceAccessPoliciesResponse :: AccessPoliciesStatus -> Status -> DescribeServiceAccessPoliciesResponse

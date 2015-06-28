@@ -112,7 +112,7 @@ instance ToQuery UpdateRadius where
 -- * 'urrStatus'
 newtype UpdateRadiusResponse = UpdateRadiusResponse'
     { _urrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateRadiusResponse' smart constructor.
 updateRadiusResponse :: Status -> UpdateRadiusResponse

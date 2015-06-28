@@ -103,7 +103,7 @@ instance ToQuery DescribeApplications where
 data DescribeApplicationsResponse = DescribeApplicationsResponse'
     { _darApplications :: !(Maybe [ApplicationDescription])
     , _darStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeApplicationsResponse' smart constructor.
 describeApplicationsResponse :: Status -> DescribeApplicationsResponse

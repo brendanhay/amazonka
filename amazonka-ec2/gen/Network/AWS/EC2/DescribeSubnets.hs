@@ -158,7 +158,7 @@ instance ToQuery DescribeSubnets where
 data DescribeSubnetsResponse = DescribeSubnetsResponse'
     { _dsrSubnets :: !(Maybe [Subnet])
     , _dsrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeSubnetsResponse' smart constructor.
 describeSubnetsResponse :: Status -> DescribeSubnetsResponse

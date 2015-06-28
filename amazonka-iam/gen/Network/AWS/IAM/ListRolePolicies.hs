@@ -151,7 +151,7 @@ data ListRolePoliciesResponse = ListRolePoliciesResponse'
     , _lrprIsTruncated :: !(Maybe Bool)
     , _lrprPolicyNames :: ![Text]
     , _lrprStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListRolePoliciesResponse' smart constructor.
 listRolePoliciesResponse :: Status -> ListRolePoliciesResponse

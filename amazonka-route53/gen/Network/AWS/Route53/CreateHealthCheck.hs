@@ -135,7 +135,7 @@ data CreateHealthCheckResponse = CreateHealthCheckResponse'
     { _chcrHealthCheck :: !HealthCheck
     , _chcrLocation    :: !Text
     , _chcrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateHealthCheckResponse' smart constructor.
 createHealthCheckResponse :: HealthCheck -> Text -> Status -> CreateHealthCheckResponse

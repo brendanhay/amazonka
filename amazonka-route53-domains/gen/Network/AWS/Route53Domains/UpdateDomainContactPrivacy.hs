@@ -190,7 +190,7 @@ instance ToQuery UpdateDomainContactPrivacy where
 data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
     { _udcprOperationId :: !Text
     , _udcprStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateDomainContactPrivacyResponse' smart constructor.
 updateDomainContactPrivacyResponse :: Text -> Status -> UpdateDomainContactPrivacyResponse

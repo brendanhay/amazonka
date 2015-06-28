@@ -139,7 +139,7 @@ instance ToQuery ReportTaskRunnerHeartbeat where
 data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'
     { _rtrhrTerminate :: !Bool
     , _rtrhrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ReportTaskRunnerHeartbeatResponse' smart constructor.
 reportTaskRunnerHeartbeatResponse :: Bool -> Status -> ReportTaskRunnerHeartbeatResponse

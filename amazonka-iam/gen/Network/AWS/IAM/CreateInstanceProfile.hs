@@ -118,7 +118,7 @@ instance ToQuery CreateInstanceProfile where
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
     { _ciprInstanceProfile :: !InstanceProfile
     , _ciprStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateInstanceProfileResponse' smart constructor.
 createInstanceProfileResponse :: InstanceProfile -> Status -> CreateInstanceProfileResponse

@@ -227,7 +227,7 @@ data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesO
     { _drdiorMarker                       :: !(Maybe Text)
     , _drdiorReservedDBInstancesOfferings :: !(Maybe [ReservedDBInstancesOffering])
     , _drdiorStatus                       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeReservedDBInstancesOfferingsResponse' smart constructor.
 describeReservedDBInstancesOfferingsResponse :: Status -> DescribeReservedDBInstancesOfferingsResponse

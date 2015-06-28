@@ -206,7 +206,7 @@ data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'
     { _ddevrMarker           :: !(Maybe Text)
     , _ddevrDBEngineVersions :: !(Maybe [DBEngineVersion])
     , _ddevrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDBEngineVersionsResponse' smart constructor.
 describeDBEngineVersionsResponse :: Status -> DescribeDBEngineVersionsResponse

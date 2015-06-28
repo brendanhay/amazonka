@@ -108,7 +108,7 @@ instance ToQuery CreateLoadBalancerListeners where
 -- * 'clblrStatus'
 newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'
     { _clblrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateLoadBalancerListenersResponse' smart constructor.
 createLoadBalancerListenersResponse :: Status -> CreateLoadBalancerListenersResponse

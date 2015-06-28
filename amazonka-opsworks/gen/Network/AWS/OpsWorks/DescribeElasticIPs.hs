@@ -139,7 +139,7 @@ instance ToQuery DescribeElasticIPs where
 data DescribeElasticIPsResponse = DescribeElasticIPsResponse'
     { _deirElasticIPs :: !(Maybe [ElasticIP])
     , _deirStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeElasticIPsResponse' smart constructor.
 describeElasticIPsResponse :: Status -> DescribeElasticIPsResponse

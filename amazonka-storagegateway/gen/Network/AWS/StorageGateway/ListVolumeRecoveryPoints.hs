@@ -114,7 +114,7 @@ data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
     { _lvrprVolumeRecoveryPointInfos :: !(Maybe [VolumeRecoveryPointInfo])
     , _lvrprGatewayARN               :: !(Maybe Text)
     , _lvrprStatus                   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListVolumeRecoveryPointsResponse' smart constructor.
 listVolumeRecoveryPointsResponse :: Status -> ListVolumeRecoveryPointsResponse

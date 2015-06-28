@@ -110,7 +110,7 @@ instance ToQuery DeleteAssociation where
 -- * 'delStatus'
 newtype DeleteAssociationResponse = DeleteAssociationResponse'
     { _delStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteAssociationResponse' smart constructor.
 deleteAssociationResponse :: Status -> DeleteAssociationResponse

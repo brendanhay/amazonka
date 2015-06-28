@@ -234,7 +234,7 @@ data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
     { _dsphrNextToken        :: !(Maybe Text)
     , _dsphrSpotPriceHistory :: !(Maybe [SpotPrice])
     , _dsphrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeSpotPriceHistoryResponse' smart constructor.
 describeSpotPriceHistoryResponse :: Status -> DescribeSpotPriceHistoryResponse

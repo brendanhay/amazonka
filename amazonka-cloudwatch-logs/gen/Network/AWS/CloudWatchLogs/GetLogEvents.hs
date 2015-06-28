@@ -185,7 +185,7 @@ data GetLogEventsResponse = GetLogEventsResponse'
     , _glerNextForwardToken  :: !(Maybe Text)
     , _glerEvents            :: !(Maybe [OutputLogEvent])
     , _glerStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetLogEventsResponse' smart constructor.
 getLogEventsResponse :: Status -> GetLogEventsResponse

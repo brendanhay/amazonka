@@ -146,7 +146,7 @@ instance ToQuery DescribeEngineDefaultParameters
 data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
     { _dedprEngineDefaults :: !EngineDefaults
     , _dedprStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeEngineDefaultParametersResponse' smart constructor.
 describeEngineDefaultParametersResponse :: EngineDefaults -> Status -> DescribeEngineDefaultParametersResponse

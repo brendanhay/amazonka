@@ -153,7 +153,7 @@ data ListAccessKeysResponse = ListAccessKeysResponse'
     , _lakrIsTruncated       :: !(Maybe Bool)
     , _lakrAccessKeyMetadata :: ![AccessKeyMetadata]
     , _lakrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListAccessKeysResponse' smart constructor.
 listAccessKeysResponse :: Status -> ListAccessKeysResponse

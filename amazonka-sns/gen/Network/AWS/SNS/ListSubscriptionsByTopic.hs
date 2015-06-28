@@ -128,7 +128,7 @@ data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'
     { _lsbtrNextToken     :: !(Maybe Text)
     , _lsbtrSubscriptions :: !(Maybe [Subscription])
     , _lsbtrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListSubscriptionsByTopicResponse' smart constructor.
 listSubscriptionsByTopicResponse :: Status -> ListSubscriptionsByTopicResponse

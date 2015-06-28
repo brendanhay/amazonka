@@ -134,7 +134,7 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress
 data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'
     { _acsgirCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
     , _acsgirStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AuthorizeCacheSecurityGroupIngressResponse' smart constructor.
 authorizeCacheSecurityGroupIngressResponse :: Status -> AuthorizeCacheSecurityGroupIngressResponse

@@ -143,7 +143,7 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
     , _dgirGatewayType                :: !(Maybe Text)
     , _dgirGatewayTimezone            :: !(Maybe Text)
     , _dgirStatus                     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeGatewayInformationResponse' smart constructor.
 describeGatewayInformationResponse :: Status -> DescribeGatewayInformationResponse

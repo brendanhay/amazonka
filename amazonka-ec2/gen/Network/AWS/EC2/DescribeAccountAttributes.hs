@@ -129,7 +129,7 @@ instance ToQuery DescribeAccountAttributes where
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
     { _daarAccountAttributes :: !(Maybe [AccountAttribute])
     , _daarStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeAccountAttributesResponse' smart constructor.
 describeAccountAttributesResponse :: Status -> DescribeAccountAttributesResponse

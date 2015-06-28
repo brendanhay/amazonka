@@ -212,7 +212,7 @@ data ListTasksResponse = ListTasksResponse'
     { _ltrNextToken :: !(Maybe Text)
     , _ltrTaskARNs  :: !(Maybe [Text])
     , _ltrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListTasksResponse' smart constructor.
 listTasksResponse :: Status -> ListTasksResponse

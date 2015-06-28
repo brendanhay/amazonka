@@ -76,7 +76,7 @@ data PutBucketACL = PutBucketACL'
     , _pbaGrantWrite          :: !(Maybe Text)
     , _pbaACL                 :: !(Maybe BucketCannedACL)
     , _pbaBucket              :: !BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutBucketACL' smart constructor.
 putBucketACL :: BucketName -> PutBucketACL

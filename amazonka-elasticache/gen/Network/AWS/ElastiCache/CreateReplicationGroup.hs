@@ -472,7 +472,7 @@ instance ToQuery CreateReplicationGroup where
 data CreateReplicationGroupResponse = CreateReplicationGroupResponse'
     { _crgrReplicationGroup :: !(Maybe ReplicationGroup)
     , _crgrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateReplicationGroupResponse' smart constructor.
 createReplicationGroupResponse :: Status -> CreateReplicationGroupResponse

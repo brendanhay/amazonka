@@ -133,7 +133,7 @@ instance ToQuery ConfirmPrivateVirtualInterface where
 data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'
     { _cpvirVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
     , _cpvirStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ConfirmPrivateVirtualInterfaceResponse' smart constructor.
 confirmPrivateVirtualInterfaceResponse :: Status -> ConfirmPrivateVirtualInterfaceResponse

@@ -145,7 +145,7 @@ data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
     { _dcsgrMarker            :: !(Maybe Text)
     , _dcsgrCacheSubnetGroups :: !(Maybe [CacheSubnetGroup])
     , _dcsgrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeCacheSubnetGroupsResponse' smart constructor.
 describeCacheSubnetGroupsResponse :: Status -> DescribeCacheSubnetGroupsResponse

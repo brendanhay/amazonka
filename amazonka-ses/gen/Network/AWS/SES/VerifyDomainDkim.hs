@@ -116,7 +116,7 @@ instance ToQuery VerifyDomainDkim where
 data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
     { _vddrDkimTokens :: ![Text]
     , _vddrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'VerifyDomainDkimResponse' smart constructor.
 verifyDomainDkimResponse :: Status -> VerifyDomainDkimResponse

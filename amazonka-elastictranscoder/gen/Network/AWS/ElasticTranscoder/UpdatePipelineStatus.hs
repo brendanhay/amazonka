@@ -120,7 +120,7 @@ instance ToQuery UpdatePipelineStatus where
 data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
     { _upsrPipeline :: !(Maybe Pipeline)
     , _upsrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdatePipelineStatusResponse' smart constructor.
 updatePipelineStatusResponse :: Status -> UpdatePipelineStatusResponse

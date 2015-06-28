@@ -117,7 +117,7 @@ instance ToQuery UpdateContainerAgent where
 data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
     { _ucarContainerInstance :: !(Maybe ContainerInstance)
     , _ucarStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateContainerAgentResponse' smart constructor.
 updateContainerAgentResponse :: Status -> UpdateContainerAgentResponse

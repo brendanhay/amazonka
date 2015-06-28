@@ -150,7 +150,7 @@ instance ToQuery CreateComputer where
 data CreateComputerResponse = CreateComputerResponse'
     { _ccrComputer :: !(Maybe Computer)
     , _ccrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateComputerResponse' smart constructor.
 createComputerResponse :: Status -> CreateComputerResponse

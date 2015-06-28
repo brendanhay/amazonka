@@ -118,7 +118,7 @@ instance ToQuery AttachVPNGateway where
 data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
     { _avgrVPCAttachment :: !(Maybe VPCAttachment)
     , _avgrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AttachVPNGatewayResponse' smart constructor.
 attachVPNGatewayResponse :: Status -> AttachVPNGatewayResponse

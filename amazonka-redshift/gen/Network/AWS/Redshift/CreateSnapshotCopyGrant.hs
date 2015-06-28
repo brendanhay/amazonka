@@ -135,7 +135,7 @@ instance ToQuery CreateSnapshotCopyGrant where
 data CreateSnapshotCopyGrantResponse = CreateSnapshotCopyGrantResponse'
     { _cscgrSnapshotCopyGrant :: !(Maybe SnapshotCopyGrant)
     , _cscgrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateSnapshotCopyGrantResponse' smart constructor.
 createSnapshotCopyGrantResponse :: Status -> CreateSnapshotCopyGrantResponse

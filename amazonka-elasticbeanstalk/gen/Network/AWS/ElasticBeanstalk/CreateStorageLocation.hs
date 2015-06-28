@@ -85,7 +85,7 @@ instance ToQuery CreateStorageLocation where
 data CreateStorageLocationResponse = CreateStorageLocationResponse'
     { _cslrS3Bucket :: !(Maybe Text)
     , _cslrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateStorageLocationResponse' smart constructor.
 createStorageLocationResponse :: Status -> CreateStorageLocationResponse

@@ -147,7 +147,7 @@ instance ToQuery CopyOptionGroup where
 data CopyOptionGroupResponse = CopyOptionGroupResponse'
     { _cogrOptionGroup :: !(Maybe OptionGroup)
     , _cogrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CopyOptionGroupResponse' smart constructor.
 copyOptionGroupResponse :: Status -> CopyOptionGroupResponse

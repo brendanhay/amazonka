@@ -115,7 +115,7 @@ data ListSubscriptionsResponse = ListSubscriptionsResponse'
     { _lsrNextToken     :: !(Maybe Text)
     , _lsrSubscriptions :: !(Maybe [Subscription])
     , _lsrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListSubscriptionsResponse' smart constructor.
 listSubscriptionsResponse :: Status -> ListSubscriptionsResponse

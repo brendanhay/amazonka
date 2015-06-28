@@ -145,7 +145,7 @@ data ListStepsResponse = ListStepsResponse'
     { _lsrSteps  :: !(Maybe [StepSummary])
     , _lsrMarker :: !(Maybe Text)
     , _lsrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListStepsResponse' smart constructor.
 listStepsResponse :: Status -> ListStepsResponse

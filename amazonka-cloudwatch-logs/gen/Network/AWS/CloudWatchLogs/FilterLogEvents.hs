@@ -206,7 +206,7 @@ data FilterLogEventsResponse = FilterLogEventsResponse'
     , _flerNextToken          :: !(Maybe Text)
     , _flerEvents             :: !(Maybe [FilteredLogEvent])
     , _flerStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'FilterLogEventsResponse' smart constructor.
 filterLogEventsResponse :: Status -> FilterLogEventsResponse

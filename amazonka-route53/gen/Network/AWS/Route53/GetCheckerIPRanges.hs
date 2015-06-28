@@ -87,7 +87,7 @@ instance ToQuery GetCheckerIPRanges where
 data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
     { _gcirrCheckerIPRanges :: ![Text]
     , _gcirrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetCheckerIPRangesResponse' smart constructor.
 getCheckerIPRangesResponse :: Status -> GetCheckerIPRangesResponse

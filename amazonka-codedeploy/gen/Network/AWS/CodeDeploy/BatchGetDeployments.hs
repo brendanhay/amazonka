@@ -106,7 +106,7 @@ instance ToQuery BatchGetDeployments where
 data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
     { _bgdrDeploymentsInfo :: !(Maybe [DeploymentInfo])
     , _bgdrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'BatchGetDeploymentsResponse' smart constructor.
 batchGetDeploymentsResponse :: Status -> BatchGetDeploymentsResponse

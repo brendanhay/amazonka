@@ -154,7 +154,7 @@ data PutLogEventsResponse = PutLogEventsResponse'
     { _plerRejectedLogEventsInfo :: !(Maybe RejectedLogEventsInfo)
     , _plerNextSequenceToken     :: !(Maybe Text)
     , _plerStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutLogEventsResponse' smart constructor.
 putLogEventsResponse :: Status -> PutLogEventsResponse

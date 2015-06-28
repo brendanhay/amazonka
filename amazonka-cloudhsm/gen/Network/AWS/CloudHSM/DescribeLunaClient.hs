@@ -134,7 +134,7 @@ data DescribeLunaClientResponse = DescribeLunaClientResponse'
     , _dCertificate            :: !(Maybe Text)
     , _dLabel                  :: !(Maybe Text)
     , _dStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeLunaClientResponse' smart constructor.
 describeLunaClientResponse :: Status -> DescribeLunaClientResponse

@@ -178,7 +178,7 @@ instance ToQuery DescribeNetworkACLs where
 data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'
     { _dnarNetworkACLs :: !(Maybe [NetworkACL])
     , _dnarStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeNetworkACLsResponse' smart constructor.
 describeNetworkACLsResponse :: Status -> DescribeNetworkACLsResponse

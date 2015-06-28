@@ -122,7 +122,7 @@ instance ToQuery PurchaseReservedNodeOffering where
 data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'
     { _prnorReservedNode :: !(Maybe ReservedNode)
     , _prnorStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PurchaseReservedNodeOfferingResponse' smart constructor.
 purchaseReservedNodeOfferingResponse :: Status -> PurchaseReservedNodeOfferingResponse

@@ -160,7 +160,7 @@ data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
     , _lagprMarker           :: !(Maybe Text)
     , _lagprIsTruncated      :: !(Maybe Bool)
     , _lagprStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListAttachedGroupPoliciesResponse' smart constructor.
 listAttachedGroupPoliciesResponse :: Status -> ListAttachedGroupPoliciesResponse

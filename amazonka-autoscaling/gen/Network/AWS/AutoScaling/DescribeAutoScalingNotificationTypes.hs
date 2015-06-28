@@ -91,7 +91,7 @@ instance ToQuery DescribeAutoScalingNotificationTypes
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'
     { _dasntrAutoScalingNotificationTypes :: !(Maybe [Text])
     , _dasntrStatus                       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeAutoScalingNotificationTypesResponse' smart constructor.
 describeAutoScalingNotificationTypesResponse :: Status -> DescribeAutoScalingNotificationTypesResponse

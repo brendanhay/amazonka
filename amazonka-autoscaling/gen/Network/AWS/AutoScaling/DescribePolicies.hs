@@ -143,7 +143,7 @@ data DescribePoliciesResponse = DescribePoliciesResponse'
     { _dprNextToken       :: !(Maybe Text)
     , _dprScalingPolicies :: !(Maybe [ScalingPolicy])
     , _dprStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribePoliciesResponse' smart constructor.
 describePoliciesResponse :: Status -> DescribePoliciesResponse

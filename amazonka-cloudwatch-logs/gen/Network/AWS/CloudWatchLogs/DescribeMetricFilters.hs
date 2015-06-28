@@ -149,7 +149,7 @@ data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
     { _dmfrNextToken     :: !(Maybe Text)
     , _dmfrMetricFilters :: !(Maybe [MetricFilter])
     , _dmfrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeMetricFiltersResponse' smart constructor.
 describeMetricFiltersResponse :: Status -> DescribeMetricFiltersResponse

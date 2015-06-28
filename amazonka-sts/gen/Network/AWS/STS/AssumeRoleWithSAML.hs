@@ -252,7 +252,7 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
     , _arwsamlrAssumedRoleUser  :: !(Maybe AssumedRoleUser)
     , _arwsamlrIssuer           :: !(Maybe Text)
     , _arwsamlrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AssumeRoleWithSAMLResponse' smart constructor.
 assumeRoleWithSAMLResponse :: Status -> AssumeRoleWithSAMLResponse

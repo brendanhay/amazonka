@@ -99,7 +99,7 @@ instance ToQuery DescribeDocument where
 data DescribeDocumentResponse = DescribeDocumentResponse'
     { _desDocument :: !(Maybe DocumentDescription)
     , _desStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDocumentResponse' smart constructor.
 describeDocumentResponse :: Status -> DescribeDocumentResponse

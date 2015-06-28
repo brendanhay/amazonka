@@ -160,7 +160,7 @@ data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
     , _larprMarker           :: !(Maybe Text)
     , _larprIsTruncated      :: !(Maybe Bool)
     , _larprStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListAttachedRolePoliciesResponse' smart constructor.
 listAttachedRolePoliciesResponse :: Status -> ListAttachedRolePoliciesResponse

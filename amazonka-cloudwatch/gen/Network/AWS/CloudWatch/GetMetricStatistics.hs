@@ -211,7 +211,7 @@ data GetMetricStatisticsResponse = GetMetricStatisticsResponse'
     { _gmsrDatapoints :: !(Maybe [Datapoint])
     , _gmsrLabel      :: !(Maybe Text)
     , _gmsrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetMetricStatisticsResponse' smart constructor.
 getMetricStatisticsResponse :: Status -> GetMetricStatisticsResponse

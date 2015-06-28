@@ -128,7 +128,7 @@ instance ToQuery AuthorizeSnapshotAccess where
 data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
     { _asarSnapshot :: !(Maybe Snapshot)
     , _asarStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AuthorizeSnapshotAccessResponse' smart constructor.
 authorizeSnapshotAccessResponse :: Status -> AuthorizeSnapshotAccessResponse

@@ -125,7 +125,7 @@ data ListPresetsResponse = ListPresetsResponse'
     { _lisNextPageToken :: !(Maybe Text)
     , _lisPresets       :: !(Maybe [Preset])
     , _lisStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListPresetsResponse' smart constructor.
 listPresetsResponse :: Status -> ListPresetsResponse

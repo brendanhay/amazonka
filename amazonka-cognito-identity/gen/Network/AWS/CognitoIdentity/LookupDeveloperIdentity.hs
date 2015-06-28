@@ -175,7 +175,7 @@ data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'
     , _ldirIdentityId                  :: !(Maybe Text)
     , _ldirDeveloperUserIdentifierList :: !(Maybe [Text])
     , _ldirStatus                      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'LookupDeveloperIdentityResponse' smart constructor.
 lookupDeveloperIdentityResponse :: Status -> LookupDeveloperIdentityResponse

@@ -120,7 +120,7 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'
     { _asgtlbrSecurityGroups :: !(Maybe [Text])
     , _asgtlbrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ApplySecurityGroupsToLoadBalancerResponse' smart constructor.
 applySecurityGroupsToLoadBalancerResponse :: Status -> ApplySecurityGroupsToLoadBalancerResponse

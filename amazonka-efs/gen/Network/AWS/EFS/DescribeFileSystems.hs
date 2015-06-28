@@ -167,7 +167,7 @@ data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
     , _dfsrMarker      :: !(Maybe Text)
     , _dfsrNextMarker  :: !(Maybe Text)
     , _dfsrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeFileSystemsResponse' smart constructor.
 describeFileSystemsResponse :: Status -> DescribeFileSystemsResponse

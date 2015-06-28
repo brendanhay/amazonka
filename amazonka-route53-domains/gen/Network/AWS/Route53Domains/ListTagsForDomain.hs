@@ -108,7 +108,7 @@ instance ToQuery ListTagsForDomain where
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
     { _ltfdrTagList :: ![Tag]
     , _ltfdrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListTagsForDomainResponse' smart constructor.
 listTagsForDomainResponse :: Status -> ListTagsForDomainResponse

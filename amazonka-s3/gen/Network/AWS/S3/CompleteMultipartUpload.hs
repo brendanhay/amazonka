@@ -71,7 +71,7 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
     , _comBucket          :: !BucketName
     , _comKey             :: !ObjectKey
     , _comUploadId        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CompleteMultipartUpload' smart constructor.
 completeMultipartUpload :: BucketName -> ObjectKey -> Text -> CompleteMultipartUpload
@@ -178,7 +178,7 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
     , _cSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _cServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _cStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CompleteMultipartUploadResponse' smart constructor.
 completeMultipartUploadResponse :: Status -> CompleteMultipartUploadResponse

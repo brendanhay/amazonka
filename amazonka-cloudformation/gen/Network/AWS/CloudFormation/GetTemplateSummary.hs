@@ -177,7 +177,7 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
     , _gtsrCapabilities       :: !(Maybe [Capability])
     , _gtsrDescription        :: !(Maybe Text)
     , _gtsrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetTemplateSummaryResponse' smart constructor.
 getTemplateSummaryResponse :: Status -> GetTemplateSummaryResponse

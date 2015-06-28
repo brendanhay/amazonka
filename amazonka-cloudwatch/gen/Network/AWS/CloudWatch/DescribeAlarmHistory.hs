@@ -164,7 +164,7 @@ data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
     { _dahrAlarmHistoryItems :: !(Maybe [AlarmHistoryItem])
     , _dahrNextToken         :: !(Maybe Text)
     , _dahrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeAlarmHistoryResponse' smart constructor.
 describeAlarmHistoryResponse :: Status -> DescribeAlarmHistoryResponse

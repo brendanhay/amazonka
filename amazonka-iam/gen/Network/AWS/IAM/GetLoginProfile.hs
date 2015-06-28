@@ -97,7 +97,7 @@ instance ToQuery GetLoginProfile where
 data GetLoginProfileResponse = GetLoginProfileResponse'
     { _glprLoginProfile :: !LoginProfile
     , _glprStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetLoginProfileResponse' smart constructor.
 getLoginProfileResponse :: LoginProfile -> Status -> GetLoginProfileResponse

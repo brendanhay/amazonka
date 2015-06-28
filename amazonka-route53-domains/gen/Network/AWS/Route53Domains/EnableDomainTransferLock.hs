@@ -119,7 +119,7 @@ instance ToQuery EnableDomainTransferLock where
 data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'
     { _edtlrOperationId :: !Text
     , _edtlrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'EnableDomainTransferLockResponse' smart constructor.
 enableDomainTransferLockResponse :: Text -> Status -> EnableDomainTransferLockResponse

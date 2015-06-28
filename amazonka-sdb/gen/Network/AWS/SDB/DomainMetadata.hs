@@ -126,7 +126,7 @@ data DomainMetadataResponse = DomainMetadataResponse'
     , _dmrTimestamp                :: !(Maybe Int)
     , _dmrItemCount                :: !(Maybe Int)
     , _dmrStatus                   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DomainMetadataResponse' smart constructor.
 domainMetadataResponse :: Status -> DomainMetadataResponse

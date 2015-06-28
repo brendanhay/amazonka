@@ -165,7 +165,7 @@ data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
     , _dvtldrVTLDevices :: !(Maybe [VTLDevice])
     , _dvtldrMarker     :: !(Maybe Text)
     , _dvtldrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeVTLDevicesResponse' smart constructor.
 describeVTLDevicesResponse :: Status -> DescribeVTLDevicesResponse

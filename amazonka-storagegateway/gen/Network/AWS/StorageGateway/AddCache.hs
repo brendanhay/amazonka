@@ -117,7 +117,7 @@ instance ToQuery AddCache where
 data AddCacheResponse = AddCacheResponse'
     { _acrGatewayARN :: !(Maybe Text)
     , _acrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AddCacheResponse' smart constructor.
 addCacheResponse :: Status -> AddCacheResponse

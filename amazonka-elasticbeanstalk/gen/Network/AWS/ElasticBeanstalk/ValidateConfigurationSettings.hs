@@ -146,7 +146,7 @@ instance ToQuery ValidateConfigurationSettings where
 data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'
     { _vcsrMessages :: !(Maybe [ValidationMessage])
     , _vcsrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ValidateConfigurationSettingsResponse' smart constructor.
 validateConfigurationSettingsResponse :: Status -> ValidateConfigurationSettingsResponse

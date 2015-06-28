@@ -121,7 +121,7 @@ instance ToQuery UpdateAvailabilityOptions where
 data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'
     { _uaorAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
     , _uaorStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateAvailabilityOptionsResponse' smart constructor.
 updateAvailabilityOptionsResponse :: Status -> UpdateAvailabilityOptionsResponse

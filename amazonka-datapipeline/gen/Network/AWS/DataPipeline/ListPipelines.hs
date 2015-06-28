@@ -124,7 +124,7 @@ data ListPipelinesResponse = ListPipelinesResponse'
     , _lprMarker         :: !(Maybe Text)
     , _lprPipelineIdList :: ![PipelineIdName]
     , _lprStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListPipelinesResponse' smart constructor.
 listPipelinesResponse :: Status -> ListPipelinesResponse

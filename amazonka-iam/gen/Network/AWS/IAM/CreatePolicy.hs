@@ -147,7 +147,7 @@ instance ToQuery CreatePolicy where
 data CreatePolicyResponse = CreatePolicyResponse'
     { _cprPolicy :: !(Maybe Policy)
     , _cprStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreatePolicyResponse' smart constructor.
 createPolicyResponse :: Status -> CreatePolicyResponse

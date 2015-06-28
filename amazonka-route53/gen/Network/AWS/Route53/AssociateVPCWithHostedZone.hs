@@ -139,7 +139,7 @@ instance ToXML AssociateVPCWithHostedZone where
 data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'
     { _avwhzrChangeInfo :: !ChangeInfo
     , _avwhzrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AssociateVPCWithHostedZoneResponse' smart constructor.
 associateVPCWithHostedZoneResponse :: ChangeInfo -> Status -> AssociateVPCWithHostedZoneResponse

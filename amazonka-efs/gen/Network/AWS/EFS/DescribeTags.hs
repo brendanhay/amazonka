@@ -130,7 +130,7 @@ data DescribeTagsResponse = DescribeTagsResponse'
     , _dtrNextMarker :: !(Maybe Text)
     , _dtrTags       :: ![Tag]
     , _dtrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Status -> DescribeTagsResponse

@@ -117,7 +117,7 @@ instance ToQuery
 data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse'
     { _rsifsrEventSubscription :: !(Maybe EventSubscription)
     , _rsifsrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RemoveSourceIdentifierFromSubscriptionResponse' smart constructor.
 removeSourceIdentifierFromSubscriptionResponse :: Status -> RemoveSourceIdentifierFromSubscriptionResponse

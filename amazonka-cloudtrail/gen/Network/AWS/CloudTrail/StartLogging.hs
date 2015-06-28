@@ -99,7 +99,7 @@ instance ToQuery StartLogging where
 -- * 'staStatus'
 newtype StartLoggingResponse = StartLoggingResponse'
     { _staStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'StartLoggingResponse' smart constructor.
 startLoggingResponse :: Status -> StartLoggingResponse

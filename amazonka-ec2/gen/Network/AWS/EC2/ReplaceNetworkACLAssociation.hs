@@ -124,7 +124,7 @@ instance ToQuery ReplaceNetworkACLAssociation where
 data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'
     { _rnaarNewAssociationId :: !(Maybe Text)
     , _rnaarStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ReplaceNetworkACLAssociationResponse' smart constructor.
 replaceNetworkACLAssociationResponse :: Status -> ReplaceNetworkACLAssociationResponse

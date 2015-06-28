@@ -147,7 +147,7 @@ data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
     { _dcsgr1CacheSecurityGroups :: !(Maybe [CacheSecurityGroup])
     , _dcsgr1Marker              :: !(Maybe Text)
     , _dcsgr1Status              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeCacheSecurityGroupsResponse' smart constructor.
 describeCacheSecurityGroupsResponse :: Status -> DescribeCacheSecurityGroupsResponse

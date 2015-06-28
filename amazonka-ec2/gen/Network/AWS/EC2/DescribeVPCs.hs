@@ -146,7 +146,7 @@ instance ToQuery DescribeVPCs where
 data DescribeVPCsResponse = DescribeVPCsResponse'
     { _dvrVPCs   :: !(Maybe [VPC])
     , _dvrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeVPCsResponse' smart constructor.
 describeVPCsResponse :: Status -> DescribeVPCsResponse

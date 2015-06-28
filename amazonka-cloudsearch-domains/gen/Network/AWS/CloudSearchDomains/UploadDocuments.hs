@@ -148,7 +148,7 @@ data UploadDocumentsResponse = UploadDocumentsResponse'
     , _udrWarnings :: !(Maybe [DocumentServiceWarning])
     , _udrDeletes  :: !(Maybe Integer)
     , _udrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UploadDocumentsResponse' smart constructor.
 uploadDocumentsResponse :: Status -> UploadDocumentsResponse

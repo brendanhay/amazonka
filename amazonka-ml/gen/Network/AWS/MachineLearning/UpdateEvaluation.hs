@@ -118,7 +118,7 @@ instance ToQuery UpdateEvaluation where
 data UpdateEvaluationResponse = UpdateEvaluationResponse'
     { _uerEvaluationId :: !(Maybe Text)
     , _uerStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateEvaluationResponse' smart constructor.
 updateEvaluationResponse :: Status -> UpdateEvaluationResponse

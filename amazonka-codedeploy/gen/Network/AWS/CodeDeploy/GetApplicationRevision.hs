@@ -127,7 +127,7 @@ data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
     , _garrApplicationName :: !(Maybe Text)
     , _garrRevision        :: !(Maybe RevisionLocation)
     , _garrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetApplicationRevisionResponse' smart constructor.
 getApplicationRevisionResponse :: Status -> GetApplicationRevisionResponse

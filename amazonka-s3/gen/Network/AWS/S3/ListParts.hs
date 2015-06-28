@@ -79,7 +79,7 @@ data ListParts = ListParts'
     , _lpBucket           :: !BucketName
     , _lpKey              :: !ObjectKey
     , _lpUploadId         :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListParts' smart constructor.
 listParts :: BucketName -> ObjectKey -> Text -> ListParts
@@ -206,7 +206,7 @@ data ListPartsResponse = ListPartsResponse'
     , _lprPartNumberMarker     :: !(Maybe Int)
     , _lprUploadId             :: !(Maybe Text)
     , _lprStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListPartsResponse' smart constructor.
 listPartsResponse :: Status -> ListPartsResponse

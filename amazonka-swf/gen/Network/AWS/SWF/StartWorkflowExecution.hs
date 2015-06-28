@@ -307,7 +307,7 @@ instance ToQuery StartWorkflowExecution where
 data StartWorkflowExecutionResponse = StartWorkflowExecutionResponse'
     { _swerRunId  :: !(Maybe Text)
     , _swerStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'StartWorkflowExecutionResponse' smart constructor.
 startWorkflowExecutionResponse :: Status -> StartWorkflowExecutionResponse

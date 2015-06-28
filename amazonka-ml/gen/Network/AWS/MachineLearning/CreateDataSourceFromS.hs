@@ -191,7 +191,7 @@ instance ToQuery CreateDataSourceFromS where
 data CreateDataSourceFromSResponse = CreateDataSourceFromSResponse'
     { _cdsfsrDataSourceId :: !(Maybe Text)
     , _cdsfsrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDataSourceFromSResponse' smart constructor.
 createDataSourceFromSResponse :: Status -> CreateDataSourceFromSResponse

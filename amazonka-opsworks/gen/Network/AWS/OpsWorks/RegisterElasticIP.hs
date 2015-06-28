@@ -123,7 +123,7 @@ instance ToQuery RegisterElasticIP where
 data RegisterElasticIPResponse = RegisterElasticIPResponse'
     { _reirElasticIP :: !(Maybe Text)
     , _reirStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RegisterElasticIPResponse' smart constructor.
 registerElasticIPResponse :: Status -> RegisterElasticIPResponse

@@ -136,7 +136,7 @@ data ListStackResourcesResponse = ListStackResourcesResponse'
     { _lsrrNextToken              :: !(Maybe Text)
     , _lsrrStackResourceSummaries :: !(Maybe [StackResourceSummary])
     , _lsrrStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListStackResourcesResponse' smart constructor.
 listStackResourcesResponse :: Status -> ListStackResourcesResponse

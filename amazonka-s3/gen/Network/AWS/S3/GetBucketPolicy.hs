@@ -47,7 +47,7 @@ import           Network.AWS.S3.Types
 -- * 'gbpBucket'
 newtype GetBucketPolicy = GetBucketPolicy'
     { _gbpBucket :: BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketPolicy' smart constructor.
 getBucketPolicy :: BucketName -> GetBucketPolicy
@@ -90,7 +90,7 @@ instance ToQuery GetBucketPolicy where
 data GetBucketPolicyResponse = GetBucketPolicyResponse'
     { _gbprPolicy :: !(Maybe Text)
     , _gbprStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketPolicyResponse' smart constructor.
 getBucketPolicyResponse :: Status -> GetBucketPolicyResponse

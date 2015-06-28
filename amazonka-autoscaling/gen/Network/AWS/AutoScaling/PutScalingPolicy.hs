@@ -165,7 +165,7 @@ instance ToQuery PutScalingPolicy where
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
     { _psprPolicyARN :: !(Maybe Text)
     , _psprStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutScalingPolicyResponse' smart constructor.
 putScalingPolicyResponse :: Status -> PutScalingPolicyResponse

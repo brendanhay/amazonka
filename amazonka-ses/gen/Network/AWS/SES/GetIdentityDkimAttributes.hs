@@ -127,7 +127,7 @@ instance ToQuery GetIdentityDkimAttributes where
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
     { _gidarDkimAttributes :: !(Map Text IdentityDkimAttributes)
     , _gidarStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetIdentityDkimAttributesResponse' smart constructor.
 getIdentityDkimAttributesResponse :: Status -> GetIdentityDkimAttributesResponse

@@ -95,7 +95,7 @@ instance ToQuery DescribeExportTasks where
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
     { _detrExportTasks :: !(Maybe [ExportTask])
     , _detrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeExportTasksResponse' smart constructor.
 describeExportTasksResponse :: Status -> DescribeExportTasksResponse

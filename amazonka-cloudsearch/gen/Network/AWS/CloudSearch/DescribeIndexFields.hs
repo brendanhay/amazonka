@@ -134,7 +134,7 @@ instance ToQuery DescribeIndexFields where
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
     { _difr1IndexFields :: ![IndexFieldStatus]
     , _difr1Status      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeIndexFieldsResponse' smart constructor.
 describeIndexFieldsResponse :: Status -> DescribeIndexFieldsResponse

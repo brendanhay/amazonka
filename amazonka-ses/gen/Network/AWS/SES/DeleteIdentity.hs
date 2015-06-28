@@ -97,7 +97,7 @@ instance ToQuery DeleteIdentity where
 -- * 'dirStatus'
 newtype DeleteIdentityResponse = DeleteIdentityResponse'
     { _dirStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteIdentityResponse' smart constructor.
 deleteIdentityResponse :: Status -> DeleteIdentityResponse

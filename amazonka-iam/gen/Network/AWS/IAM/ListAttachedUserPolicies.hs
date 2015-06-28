@@ -160,7 +160,7 @@ data ListAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'
     , _lauprMarker           :: !(Maybe Text)
     , _lauprIsTruncated      :: !(Maybe Bool)
     , _lauprStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListAttachedUserPoliciesResponse' smart constructor.
 listAttachedUserPoliciesResponse :: Status -> ListAttachedUserPoliciesResponse

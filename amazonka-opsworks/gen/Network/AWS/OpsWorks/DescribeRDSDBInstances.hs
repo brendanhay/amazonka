@@ -121,7 +121,7 @@ instance ToQuery DescribeRDSDBInstances where
 data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'
     { _drdirRDSDBInstances :: !(Maybe [RDSDBInstance])
     , _drdirStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeRDSDBInstancesResponse' smart constructor.
 describeRDSDBInstancesResponse :: Status -> DescribeRDSDBInstancesResponse

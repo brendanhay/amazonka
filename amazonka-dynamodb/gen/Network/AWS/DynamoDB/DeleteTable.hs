@@ -118,7 +118,7 @@ instance ToQuery DeleteTable where
 data DeleteTableResponse = DeleteTableResponse'
     { _dtrTableDescription :: !(Maybe TableDescription)
     , _dtrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteTableResponse' smart constructor.
 deleteTableResponse :: Status -> DeleteTableResponse

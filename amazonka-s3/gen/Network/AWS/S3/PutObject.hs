@@ -396,7 +396,7 @@ data PutObjectResponse = PutObjectResponse'
     , _porSSECustomerKeyMD5    :: !(Maybe Text)
     , _porServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _porStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutObjectResponse' smart constructor.
 putObjectResponse :: Status -> PutObjectResponse

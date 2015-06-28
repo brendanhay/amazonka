@@ -125,7 +125,7 @@ data ListDomainsResponse = ListDomainsResponse'
     { _ldrDomainNames :: !(Maybe [Text])
     , _ldrNextToken   :: !(Maybe Text)
     , _ldrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: Status -> ListDomainsResponse

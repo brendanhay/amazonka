@@ -113,7 +113,7 @@ instance ToQuery AcceptVPCPeeringConnection where
 data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'
     { _avpcrVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
     , _avpcrStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AcceptVPCPeeringConnectionResponse' smart constructor.
 acceptVPCPeeringConnectionResponse :: Status -> AcceptVPCPeeringConnectionResponse

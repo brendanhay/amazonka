@@ -134,7 +134,7 @@ instance ToQuery DescribeInstances where
 data DescribeInstancesResponse = DescribeInstancesResponse'
     { _dirInstances :: !(Maybe [Instance])
     , _dirStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeInstancesResponse' smart constructor.
 describeInstancesResponse :: Status -> DescribeInstancesResponse

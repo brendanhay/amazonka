@@ -108,7 +108,7 @@ instance ToQuery DescribeUserProfiles where
 data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
     { _duprUserProfiles :: !(Maybe [UserProfile])
     , _duprStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeUserProfilesResponse' smart constructor.
 describeUserProfilesResponse :: Status -> DescribeUserProfilesResponse

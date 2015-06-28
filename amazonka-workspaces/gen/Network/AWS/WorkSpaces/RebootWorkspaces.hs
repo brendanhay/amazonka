@@ -111,7 +111,7 @@ instance ToQuery RebootWorkspaces where
 data RebootWorkspacesResponse = RebootWorkspacesResponse'
     { _rebFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
     , _rebStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RebootWorkspacesResponse' smart constructor.
 rebootWorkspacesResponse :: Status -> RebootWorkspacesResponse

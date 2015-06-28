@@ -135,7 +135,7 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse'
     , _gcorOutput     :: !(Maybe Text)
     , _gcorTimestamp  :: !(Maybe ISO8601)
     , _gcorStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetConsoleOutputResponse' smart constructor.
 getConsoleOutputResponse :: Status -> GetConsoleOutputResponse

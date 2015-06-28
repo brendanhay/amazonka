@@ -132,7 +132,7 @@ data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
     { _lbarBootstrapActions :: !(Maybe [Command])
     , _lbarMarker           :: !(Maybe Text)
     , _lbarStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListBootstrapActionsResponse' smart constructor.
 listBootstrapActionsResponse :: Status -> ListBootstrapActionsResponse

@@ -179,7 +179,7 @@ data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
     , _lhzbnrIsTruncated      :: !Bool
     , _lhzbnrMaxItems         :: !Text
     , _lhzbnrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListHostedZonesByNameResponse' smart constructor.
 listHostedZonesByNameResponse :: Bool -> Text -> Status -> ListHostedZonesByNameResponse

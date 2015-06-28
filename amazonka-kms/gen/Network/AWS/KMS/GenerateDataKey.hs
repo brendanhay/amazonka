@@ -200,7 +200,7 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse'
     , _gdkrPlaintext      :: !(Maybe (Sensitive Base64))
     , _gdkrCiphertextBlob :: !(Maybe Base64)
     , _gdkrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GenerateDataKeyResponse' smart constructor.
 generateDataKeyResponse :: Status -> GenerateDataKeyResponse

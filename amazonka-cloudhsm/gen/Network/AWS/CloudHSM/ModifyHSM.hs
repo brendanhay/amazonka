@@ -152,7 +152,7 @@ instance ToQuery ModifyHSM where
 data ModifyHSMResponse = ModifyHSMResponse'
     { _modHSMARN :: !(Maybe Text)
     , _modStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifyHSMResponse' smart constructor.
 modifyHSMResponse :: Status -> ModifyHSMResponse

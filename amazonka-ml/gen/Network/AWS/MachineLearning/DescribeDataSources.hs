@@ -256,7 +256,7 @@ data DescribeDataSourcesResponse = DescribeDataSourcesResponse'
     { _dResults   :: !(Maybe [DataSource])
     , _dNextToken :: !(Maybe Text)
     , _dStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDataSourcesResponse' smart constructor.
 describeDataSourcesResponse :: Status -> DescribeDataSourcesResponse

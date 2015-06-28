@@ -108,7 +108,7 @@ instance ToQuery DescribeSpotDatafeedSubscription
 data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'
     { _dsdsrSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
     , _dsdsrStatus                   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeSpotDatafeedSubscriptionResponse' smart constructor.
 describeSpotDatafeedSubscriptionResponse :: Status -> DescribeSpotDatafeedSubscriptionResponse

@@ -150,7 +150,7 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
     { _dNextToken  :: !(Maybe Text)
     , _dActivities :: ![Activity]
     , _dStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeScalingActivitiesResponse' smart constructor.
 describeScalingActivitiesResponse :: Status -> DescribeScalingActivitiesResponse

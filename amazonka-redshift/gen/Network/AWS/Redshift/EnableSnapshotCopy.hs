@@ -141,7 +141,7 @@ instance ToQuery EnableSnapshotCopy where
 data EnableSnapshotCopyResponse = EnableSnapshotCopyResponse'
     { _escrCluster :: !(Maybe Cluster)
     , _escrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'EnableSnapshotCopyResponse' smart constructor.
 enableSnapshotCopyResponse :: Status -> EnableSnapshotCopyResponse

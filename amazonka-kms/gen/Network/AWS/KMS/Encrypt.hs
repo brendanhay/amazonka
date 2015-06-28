@@ -169,7 +169,7 @@ data EncryptResponse = EncryptResponse'
     { _erKeyId          :: !(Maybe Text)
     , _erCiphertextBlob :: !(Maybe Base64)
     , _erStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'EncryptResponse' smart constructor.
 encryptResponse :: Status -> EncryptResponse

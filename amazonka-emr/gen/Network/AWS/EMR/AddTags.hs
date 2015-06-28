@@ -114,7 +114,7 @@ instance ToQuery AddTags where
 -- * 'atrStatus'
 newtype AddTagsResponse = AddTagsResponse'
     { _atrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AddTagsResponse' smart constructor.
 addTagsResponse :: Status -> AddTagsResponse

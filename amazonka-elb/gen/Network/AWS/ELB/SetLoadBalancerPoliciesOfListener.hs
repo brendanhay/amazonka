@@ -120,7 +120,7 @@ instance ToQuery SetLoadBalancerPoliciesOfListener
 -- * 'slbpolrStatus'
 newtype SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse'
     { _slbpolrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SetLoadBalancerPoliciesOfListenerResponse' smart constructor.
 setLoadBalancerPoliciesOfListenerResponse :: Status -> SetLoadBalancerPoliciesOfListenerResponse

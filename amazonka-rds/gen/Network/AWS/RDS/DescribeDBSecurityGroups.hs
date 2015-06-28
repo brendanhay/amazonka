@@ -158,7 +158,7 @@ data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'
     { _ddbsgrDBSecurityGroups :: !(Maybe [DBSecurityGroup])
     , _ddbsgrMarker           :: !(Maybe Text)
     , _ddbsgrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDBSecurityGroupsResponse' smart constructor.
 describeDBSecurityGroupsResponse :: Status -> DescribeDBSecurityGroupsResponse

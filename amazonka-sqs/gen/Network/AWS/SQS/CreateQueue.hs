@@ -162,7 +162,7 @@ instance ToQuery CreateQueue where
 data CreateQueueResponse = CreateQueueResponse'
     { _cqrQueueURL :: !(Maybe Text)
     , _cqrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateQueueResponse' smart constructor.
 createQueueResponse :: Status -> CreateQueueResponse

@@ -110,7 +110,7 @@ instance ToQuery DescribeChapCredentials where
 data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'
     { _dccrChapCredentials :: !(Maybe [ChapInfo])
     , _dccrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeChapCredentialsResponse' smart constructor.
 describeChapCredentialsResponse :: Status -> DescribeChapCredentialsResponse

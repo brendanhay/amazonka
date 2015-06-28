@@ -184,7 +184,7 @@ instance ToQuery DescribeSecurityGroups where
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
     { _dsgrSecurityGroups :: !(Maybe [SecurityGroup])
     , _dsgrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeSecurityGroupsResponse' smart constructor.
 describeSecurityGroupsResponse :: Status -> DescribeSecurityGroupsResponse

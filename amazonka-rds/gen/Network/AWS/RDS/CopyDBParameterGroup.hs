@@ -148,7 +148,7 @@ instance ToQuery CopyDBParameterGroup where
 data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'
     { _copDBParameterGroup :: !(Maybe DBParameterGroup)
     , _copStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CopyDBParameterGroupResponse' smart constructor.
 copyDBParameterGroupResponse :: Status -> CopyDBParameterGroupResponse

@@ -106,7 +106,7 @@ instance ToQuery GetInvalidation where
 data GetInvalidationResponse = GetInvalidationResponse'
     { _girInvalidation :: !(Maybe Invalidation)
     , _girStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetInvalidationResponse' smart constructor.
 getInvalidationResponse :: Status -> GetInvalidationResponse

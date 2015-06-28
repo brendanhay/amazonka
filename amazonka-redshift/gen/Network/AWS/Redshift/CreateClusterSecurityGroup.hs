@@ -134,7 +134,7 @@ instance ToQuery CreateClusterSecurityGroup where
 data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'
     { _creClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
     , _creStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateClusterSecurityGroupResponse' smart constructor.
 createClusterSecurityGroupResponse :: Status -> CreateClusterSecurityGroupResponse

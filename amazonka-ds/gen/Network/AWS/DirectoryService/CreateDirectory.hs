@@ -156,7 +156,7 @@ instance ToQuery CreateDirectory where
 data CreateDirectoryResponse = CreateDirectoryResponse'
     { _creDirectoryId :: !(Maybe Text)
     , _creStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDirectoryResponse' smart constructor.
 createDirectoryResponse :: Status -> CreateDirectoryResponse

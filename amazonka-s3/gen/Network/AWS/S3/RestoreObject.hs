@@ -63,7 +63,7 @@ data RestoreObject = RestoreObject'
     , _roRestoreRequest :: !(Maybe RestoreRequest)
     , _roBucket         :: !BucketName
     , _roKey            :: !ObjectKey
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RestoreObject' smart constructor.
 restoreObject :: BucketName -> ObjectKey -> RestoreObject
@@ -135,7 +135,7 @@ instance ToQuery RestoreObject where
 data RestoreObjectResponse = RestoreObjectResponse'
     { _rorRequestCharged :: !(Maybe RequestCharged)
     , _rorStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RestoreObjectResponse' smart constructor.
 restoreObjectResponse :: Status -> RestoreObjectResponse

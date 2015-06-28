@@ -161,7 +161,7 @@ data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsRespon
     { _drnorReservedNodeOfferings :: !(Maybe [ReservedNodeOffering])
     , _drnorMarker                :: !(Maybe Text)
     , _drnorStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeReservedNodeOfferingsResponse' smart constructor.
 describeReservedNodeOfferingsResponse :: Status -> DescribeReservedNodeOfferingsResponse

@@ -164,7 +164,7 @@ data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
     { _ddpgrMarker            :: !(Maybe Text)
     , _ddpgrDBParameterGroups :: !(Maybe [DBParameterGroup])
     , _ddpgrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDBParameterGroupsResponse' smart constructor.
 describeDBParameterGroupsResponse :: Status -> DescribeDBParameterGroupsResponse

@@ -482,7 +482,7 @@ instance ToQuery CreateCacheCluster where
 data CreateCacheClusterResponse = CreateCacheClusterResponse'
     { _cccrCacheCluster :: !(Maybe CacheCluster)
     , _cccrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateCacheClusterResponse' smart constructor.
 createCacheClusterResponse :: Status -> CreateCacheClusterResponse

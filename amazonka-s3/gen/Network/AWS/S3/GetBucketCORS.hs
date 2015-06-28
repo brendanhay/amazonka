@@ -47,7 +47,7 @@ import           Network.AWS.S3.Types
 -- * 'gbcBucket'
 newtype GetBucketCORS = GetBucketCORS'
     { _gbcBucket :: BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketCORS' smart constructor.
 getBucketCORS :: BucketName -> GetBucketCORS
@@ -90,7 +90,7 @@ instance ToQuery GetBucketCORS where
 data GetBucketCORSResponse = GetBucketCORSResponse'
     { _gbcrCORSRules :: !(Maybe [CORSRule])
     , _gbcrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketCORSResponse' smart constructor.
 getBucketCORSResponse :: Status -> GetBucketCORSResponse

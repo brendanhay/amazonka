@@ -111,7 +111,7 @@ instance ToQuery ResetCache where
 data ResetCacheResponse = ResetCacheResponse'
     { _rcrGatewayARN :: !(Maybe Text)
     , _rcrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ResetCacheResponse' smart constructor.
 resetCacheResponse :: Status -> ResetCacheResponse

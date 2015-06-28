@@ -96,7 +96,7 @@ data GetCredentialReportResponse = GetCredentialReportResponse'
     , _getGeneratedTime :: !(Maybe ISO8601)
     , _getReportFormat  :: !(Maybe ReportFormatType)
     , _getStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetCredentialReportResponse' smart constructor.
 getCredentialReportResponse :: Status -> GetCredentialReportResponse

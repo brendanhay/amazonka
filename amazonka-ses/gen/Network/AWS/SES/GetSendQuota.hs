@@ -95,7 +95,7 @@ data GetSendQuotaResponse = GetSendQuotaResponse'
     , _gsqrSentLast24Hours :: !(Maybe Double)
     , _gsqrMax24HourSend   :: !(Maybe Double)
     , _gsqrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetSendQuotaResponse' smart constructor.
 getSendQuotaResponse :: Status -> GetSendQuotaResponse

@@ -142,7 +142,7 @@ data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse
     , _sipcrCognitoStreams :: !(Maybe CognitoStreams)
     , _sipcrPushSync       :: !(Maybe PushSync)
     , _sipcrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SetIdentityPoolConfigurationResponse' smart constructor.
 setIdentityPoolConfigurationResponse :: Status -> SetIdentityPoolConfigurationResponse

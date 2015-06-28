@@ -111,7 +111,7 @@ instance ToQuery StopTask where
 data StopTaskResponse = StopTaskResponse'
     { _stoTask   :: !(Maybe Task)
     , _stoStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'StopTaskResponse' smart constructor.
 stopTaskResponse :: Status -> StopTaskResponse

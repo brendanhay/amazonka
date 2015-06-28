@@ -130,7 +130,7 @@ data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
     { _dvesrServiceNames :: !(Maybe [Text])
     , _dvesrNextToken    :: !(Maybe Text)
     , _dvesrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeVPCEndpointServicesResponse' smart constructor.
 describeVPCEndpointServicesResponse :: Status -> DescribeVPCEndpointServicesResponse

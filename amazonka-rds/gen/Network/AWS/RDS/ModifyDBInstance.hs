@@ -592,7 +592,7 @@ instance ToQuery ModifyDBInstance where
 data ModifyDBInstanceResponse = ModifyDBInstanceResponse'
     { _mdirDBInstance :: !(Maybe DBInstance)
     , _mdirStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifyDBInstanceResponse' smart constructor.
 modifyDBInstanceResponse :: Status -> ModifyDBInstanceResponse

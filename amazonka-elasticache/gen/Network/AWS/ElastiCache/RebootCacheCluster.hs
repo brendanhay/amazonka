@@ -120,7 +120,7 @@ instance ToQuery RebootCacheCluster where
 data RebootCacheClusterResponse = RebootCacheClusterResponse'
     { _rccrCacheCluster :: !(Maybe CacheCluster)
     , _rccrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RebootCacheClusterResponse' smart constructor.
 rebootCacheClusterResponse :: Status -> RebootCacheClusterResponse

@@ -114,7 +114,7 @@ instance ToQuery DescribeTrustedAdvisorCheckSummaries
 data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'
     { _dtacsrSummaries :: ![TrustedAdvisorCheckSummary]
     , _dtacsrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeTrustedAdvisorCheckSummariesResponse' smart constructor.
 describeTrustedAdvisorCheckSummariesResponse :: Status -> DescribeTrustedAdvisorCheckSummariesResponse

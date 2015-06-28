@@ -85,7 +85,7 @@ instance ToQuery DescribeLifecycleHookTypes where
 data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
     { _dlhtrLifecycleHookTypes :: !(Maybe [Text])
     , _dlhtrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeLifecycleHookTypesResponse' smart constructor.
 describeLifecycleHookTypesResponse :: Status -> DescribeLifecycleHookTypesResponse

@@ -333,7 +333,7 @@ instance ToQuery ModifyReplicationGroup where
 data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
     { _mrgrReplicationGroup :: !(Maybe ReplicationGroup)
     , _mrgrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifyReplicationGroupResponse' smart constructor.
 modifyReplicationGroupResponse :: Status -> ModifyReplicationGroupResponse

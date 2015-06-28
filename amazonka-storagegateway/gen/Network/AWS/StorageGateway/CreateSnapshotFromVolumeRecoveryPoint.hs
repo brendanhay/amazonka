@@ -148,7 +148,7 @@ data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRec
     , _csfvrprVolumeARN               :: !(Maybe Text)
     , _csfvrprSnapshotId              :: !(Maybe Text)
     , _csfvrprStatus                  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateSnapshotFromVolumeRecoveryPointResponse' smart constructor.
 createSnapshotFromVolumeRecoveryPointResponse :: Status -> CreateSnapshotFromVolumeRecoveryPointResponse

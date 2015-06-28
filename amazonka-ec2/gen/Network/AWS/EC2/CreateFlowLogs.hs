@@ -167,7 +167,7 @@ data CreateFlowLogsResponse = CreateFlowLogsResponse'
     , _cflrClientToken  :: !(Maybe Text)
     , _cflrFlowLogIds   :: !(Maybe [Text])
     , _cflrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateFlowLogsResponse' smart constructor.
 createFlowLogsResponse :: Status -> CreateFlowLogsResponse

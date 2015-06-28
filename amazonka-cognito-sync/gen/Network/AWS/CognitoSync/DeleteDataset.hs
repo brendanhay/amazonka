@@ -130,7 +130,7 @@ instance ToQuery DeleteDataset where
 data DeleteDatasetResponse = DeleteDatasetResponse'
     { _delDataset :: !(Maybe Dataset)
     , _delStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteDatasetResponse' smart constructor.
 deleteDatasetResponse :: Status -> DeleteDatasetResponse

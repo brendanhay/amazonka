@@ -161,7 +161,7 @@ data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
     { _ddsgrDBSubnetGroups :: !(Maybe [DBSubnetGroup])
     , _ddsgrMarker         :: !(Maybe Text)
     , _ddsgrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDBSubnetGroupsResponse' smart constructor.
 describeDBSubnetGroupsResponse :: Status -> DescribeDBSubnetGroupsResponse

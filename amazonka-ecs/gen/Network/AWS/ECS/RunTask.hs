@@ -173,7 +173,7 @@ data RunTaskResponse = RunTaskResponse'
     { _rtrFailures :: !(Maybe [Failure])
     , _rtrTasks    :: !(Maybe [Task])
     , _rtrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RunTaskResponse' smart constructor.
 runTaskResponse :: Status -> RunTaskResponse

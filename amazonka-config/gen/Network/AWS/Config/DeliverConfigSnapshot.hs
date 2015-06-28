@@ -116,7 +116,7 @@ instance ToQuery DeliverConfigSnapshot where
 data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
     { _dcsrConfigSnapshotId :: !(Maybe Text)
     , _dcsrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeliverConfigSnapshotResponse' smart constructor.
 deliverConfigSnapshotResponse :: Status -> DeliverConfigSnapshotResponse

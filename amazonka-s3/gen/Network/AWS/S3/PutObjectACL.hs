@@ -88,7 +88,7 @@ data PutObjectACL = PutObjectACL'
     , _poaACL                 :: !(Maybe ObjectCannedACL)
     , _poaBucket              :: !BucketName
     , _poaKey                 :: !ObjectKey
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutObjectACL' smart constructor.
 putObjectACL :: BucketName -> ObjectKey -> PutObjectACL
@@ -200,7 +200,7 @@ instance ToQuery PutObjectACL where
 data PutObjectACLResponse = PutObjectACLResponse'
     { _poarRequestCharged :: !(Maybe RequestCharged)
     , _poarStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutObjectACLResponse' smart constructor.
 putObjectACLResponse :: Status -> PutObjectACLResponse

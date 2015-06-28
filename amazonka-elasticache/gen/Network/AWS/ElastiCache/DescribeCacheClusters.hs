@@ -177,7 +177,7 @@ data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
     { _dCacheClusters :: !(Maybe [CacheCluster])
     , _dMarker        :: !(Maybe Text)
     , _dStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeCacheClustersResponse' smart constructor.
 describeCacheClustersResponse :: Status -> DescribeCacheClustersResponse

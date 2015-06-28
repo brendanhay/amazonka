@@ -119,7 +119,7 @@ instance ToQuery DeleteBandwidthRateLimit where
 data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'
     { _deleGatewayARN :: !(Maybe Text)
     , _deleStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteBandwidthRateLimitResponse' smart constructor.
 deleteBandwidthRateLimitResponse :: Status -> DeleteBandwidthRateLimitResponse

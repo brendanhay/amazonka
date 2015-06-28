@@ -133,7 +133,7 @@ instance ToQuery DescribePlacementGroups where
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
     { _dpgrPlacementGroups :: !(Maybe [PlacementGroup])
     , _dpgrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribePlacementGroupsResponse' smart constructor.
 describePlacementGroupsResponse :: Status -> DescribePlacementGroupsResponse

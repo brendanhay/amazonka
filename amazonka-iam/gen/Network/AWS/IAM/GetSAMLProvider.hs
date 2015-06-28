@@ -110,7 +110,7 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse'
     , _gsamlprValidUntil           :: !(Maybe ISO8601)
     , _gsamlprSAMLMetadataDocument :: !(Maybe Text)
     , _gsamlprStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetSAMLProviderResponse' smart constructor.
 getSAMLProviderResponse :: Status -> GetSAMLProviderResponse

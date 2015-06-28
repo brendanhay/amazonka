@@ -168,7 +168,7 @@ data ListHostedZonesResponse = ListHostedZonesResponse'
     , _lhzrIsTruncated :: !Bool
     , _lhzrMaxItems    :: !Text
     , _lhzrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListHostedZonesResponse' smart constructor.
 listHostedZonesResponse :: Text -> Bool -> Text -> Status -> ListHostedZonesResponse

@@ -112,7 +112,7 @@ instance ToQuery DeleteSuggester where
 data DeleteSuggesterResponse = DeleteSuggesterResponse'
     { _deleSuggester :: !SuggesterStatus
     , _deleStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteSuggesterResponse' smart constructor.
 deleteSuggesterResponse :: SuggesterStatus -> Status -> DeleteSuggesterResponse

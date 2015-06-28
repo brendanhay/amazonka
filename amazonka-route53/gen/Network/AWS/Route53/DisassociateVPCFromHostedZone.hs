@@ -141,7 +141,7 @@ instance ToXML DisassociateVPCFromHostedZone where
 data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse'
     { _dvfhzrChangeInfo :: !ChangeInfo
     , _dvfhzrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DisassociateVPCFromHostedZoneResponse' smart constructor.
 disassociateVPCFromHostedZoneResponse :: ChangeInfo -> Status -> DisassociateVPCFromHostedZoneResponse

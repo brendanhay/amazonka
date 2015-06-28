@@ -134,7 +134,7 @@ instance ToQuery CreateVPC where
 data CreateVPCResponse = CreateVPCResponse'
     { _cvrVPC    :: !(Maybe VPC)
     , _cvrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateVPCResponse' smart constructor.
 createVPCResponse :: Status -> CreateVPCResponse

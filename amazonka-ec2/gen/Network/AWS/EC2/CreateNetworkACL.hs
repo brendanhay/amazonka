@@ -111,7 +111,7 @@ instance ToQuery CreateNetworkACL where
 data CreateNetworkACLResponse = CreateNetworkACLResponse'
     { _cnarNetworkACL :: !(Maybe NetworkACL)
     , _cnarStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateNetworkACLResponse' smart constructor.
 createNetworkACLResponse :: Status -> CreateNetworkACLResponse

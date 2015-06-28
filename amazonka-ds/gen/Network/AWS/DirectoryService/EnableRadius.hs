@@ -111,7 +111,7 @@ instance ToQuery EnableRadius where
 -- * 'errStatus'
 newtype EnableRadiusResponse = EnableRadiusResponse'
     { _errStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'EnableRadiusResponse' smart constructor.
 enableRadiusResponse :: Status -> EnableRadiusResponse

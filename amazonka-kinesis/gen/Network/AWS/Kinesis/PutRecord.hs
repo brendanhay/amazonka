@@ -206,7 +206,7 @@ data PutRecordResponse = PutRecordResponse'
     { _prrShardId        :: !Text
     , _prrSequenceNumber :: !Text
     , _prrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutRecordResponse' smart constructor.
 putRecordResponse :: Text -> Text -> Status -> PutRecordResponse

@@ -130,7 +130,7 @@ data ListDocumentsResponse = ListDocumentsResponse'
     { _ldrDocumentIdentifiers :: !(Maybe [DocumentIdentifier])
     , _ldrNextToken           :: !(Maybe Text)
     , _ldrStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListDocumentsResponse' smart constructor.
 listDocumentsResponse :: Status -> ListDocumentsResponse

@@ -179,7 +179,7 @@ data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsRe
     { _docorMarker                  :: !(Maybe Text)
     , _docorOrderableClusterOptions :: !(Maybe [OrderableClusterOption])
     , _docorStatus                  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeOrderableClusterOptionsResponse' smart constructor.
 describeOrderableClusterOptionsResponse :: Status -> DescribeOrderableClusterOptionsResponse

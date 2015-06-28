@@ -192,7 +192,7 @@ data DescribeEventsResponse = DescribeEventsResponse'
     { _derEvents :: !(Maybe [Event])
     , _derMarker :: !(Maybe Text)
     , _derStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeEventsResponse' smart constructor.
 describeEventsResponse :: Status -> DescribeEventsResponse

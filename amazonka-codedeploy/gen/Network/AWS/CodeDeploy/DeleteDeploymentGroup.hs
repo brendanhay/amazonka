@@ -117,7 +117,7 @@ instance ToQuery DeleteDeploymentGroup where
 data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
     { _ddgrHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
     , _ddgrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteDeploymentGroupResponse' smart constructor.
 deleteDeploymentGroupResponse :: Status -> DeleteDeploymentGroupResponse

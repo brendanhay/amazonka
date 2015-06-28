@@ -146,7 +146,7 @@ data DescribeReservedNodesResponse = DescribeReservedNodesResponse'
     { _drnrReservedNodes :: !(Maybe [ReservedNode])
     , _drnrMarker        :: !(Maybe Text)
     , _drnrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeReservedNodesResponse' smart constructor.
 describeReservedNodesResponse :: Status -> DescribeReservedNodesResponse

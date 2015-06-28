@@ -144,7 +144,7 @@ data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
     { _distrNextToken           :: !(Maybe Text)
     , _distrImportSnapshotTasks :: !(Maybe [ImportSnapshotTask])
     , _distrStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeImportSnapshotTasksResponse' smart constructor.
 describeImportSnapshotTasksResponse :: Status -> DescribeImportSnapshotTasksResponse

@@ -228,7 +228,7 @@ instance ToQuery DescribeNetworkInterfaces where
 data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
     { _dnirNetworkInterfaces :: !(Maybe [NetworkInterface])
     , _dnirStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeNetworkInterfacesResponse' smart constructor.
 describeNetworkInterfacesResponse :: Status -> DescribeNetworkInterfacesResponse

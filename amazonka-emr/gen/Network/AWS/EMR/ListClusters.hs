@@ -152,7 +152,7 @@ data ListClustersResponse = ListClustersResponse'
     { _lcrMarker   :: !(Maybe Text)
     , _lcrClusters :: !(Maybe [ClusterSummary])
     , _lcrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListClustersResponse' smart constructor.
 listClustersResponse :: Status -> ListClustersResponse

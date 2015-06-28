@@ -174,7 +174,7 @@ data StartTaskResponse = StartTaskResponse'
     { _strFailures :: !(Maybe [Failure])
     , _strTasks    :: !(Maybe [Task])
     , _strStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'StartTaskResponse' smart constructor.
 startTaskResponse :: Status -> StartTaskResponse

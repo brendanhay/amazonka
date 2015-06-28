@@ -52,7 +52,7 @@ data PutBucketCORS = PutBucketCORS'
     { _pbcContentMD5        :: !(Maybe Text)
     , _pbcCORSConfiguration :: !(Maybe CORSConfiguration)
     , _pbcBucket            :: !BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutBucketCORS' smart constructor.
 putBucketCORS :: BucketName -> PutBucketCORS

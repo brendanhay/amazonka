@@ -139,7 +139,7 @@ instance ToQuery CreateSAMLProvider where
 data CreateSAMLProviderResponse = CreateSAMLProviderResponse'
     { _csamlprSAMLProviderARN :: !(Maybe Text)
     , _csamlprStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateSAMLProviderResponse' smart constructor.
 createSAMLProviderResponse :: Status -> CreateSAMLProviderResponse

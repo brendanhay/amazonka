@@ -201,7 +201,7 @@ data GetMLModelResponse = GetMLModelResponse'
     , _gmlmrMessage                     :: !(Maybe Text)
     , _gmlmrMLModelType                 :: !(Maybe MLModelType)
     , _gmlmrStatus                      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetMLModelResponse' smart constructor.
 getMLModelResponse :: Status -> GetMLModelResponse

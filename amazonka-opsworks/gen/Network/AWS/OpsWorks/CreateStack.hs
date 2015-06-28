@@ -428,7 +428,7 @@ instance ToQuery CreateStack where
 data CreateStackResponse = CreateStackResponse'
     { _creStackId :: !(Maybe Text)
     , _creStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateStackResponse' smart constructor.
 createStackResponse :: Status -> CreateStackResponse

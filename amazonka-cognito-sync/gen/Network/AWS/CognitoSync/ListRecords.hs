@@ -213,7 +213,7 @@ data ListRecordsResponse = ListRecordsResponse'
     , _lrrLastModifiedBy                        :: !(Maybe Text)
     , _lrrDatasetSyncCount                      :: !(Maybe Integer)
     , _lrrStatus                                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListRecordsResponse' smart constructor.
 listRecordsResponse :: Status -> ListRecordsResponse

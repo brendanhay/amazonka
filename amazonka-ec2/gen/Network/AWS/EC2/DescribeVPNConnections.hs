@@ -168,7 +168,7 @@ instance ToQuery DescribeVPNConnections where
 data DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'
     { _dvcrVPNConnections :: !(Maybe [VPNConnection])
     , _dvcrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeVPNConnectionsResponse' smart constructor.
 describeVPNConnectionsResponse :: Status -> DescribeVPNConnectionsResponse

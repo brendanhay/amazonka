@@ -119,7 +119,7 @@ instance ToQuery DeleteVolume where
 data DeleteVolumeResponse = DeleteVolumeResponse'
     { _dvrVolumeARN :: !(Maybe Text)
     , _dvrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteVolumeResponse' smart constructor.
 deleteVolumeResponse :: Status -> DeleteVolumeResponse

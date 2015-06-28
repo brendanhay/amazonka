@@ -167,7 +167,7 @@ instance ToQuery CreateImage where
 data CreateImageResponse = CreateImageResponse'
     { _cirImageId :: !(Maybe Text)
     , _cirStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateImageResponse' smart constructor.
 createImageResponse :: Status -> CreateImageResponse

@@ -157,7 +157,7 @@ data DescribeTapesResponse = DescribeTapesResponse'
     { _desMarker :: !(Maybe Text)
     , _desTapes  :: !(Maybe [Tape])
     , _desStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeTapesResponse' smart constructor.
 describeTapesResponse :: Status -> DescribeTapesResponse

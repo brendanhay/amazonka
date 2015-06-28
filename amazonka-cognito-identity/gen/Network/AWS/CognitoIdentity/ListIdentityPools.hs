@@ -123,7 +123,7 @@ data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
     { _liprIdentityPools :: !(Maybe [IdentityPoolShortDescription])
     , _liprNextToken     :: !(Maybe Text)
     , _liprStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListIdentityPoolsResponse' smart constructor.
 listIdentityPoolsResponse :: Status -> ListIdentityPoolsResponse

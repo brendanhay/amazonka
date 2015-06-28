@@ -135,7 +135,7 @@ instance ToQuery DescribeExpressions where
 data DescribeExpressionsResponse = DescribeExpressionsResponse'
     { _desExpressions :: ![ExpressionStatus]
     , _desStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeExpressionsResponse' smart constructor.
 describeExpressionsResponse :: Status -> DescribeExpressionsResponse

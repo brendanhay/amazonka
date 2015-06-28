@@ -120,7 +120,7 @@ instance ToQuery DescribeEnvironmentResources where
 data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'
     { _derrEnvironmentResources :: !(Maybe EnvironmentResourceDescription)
     , _derrStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeEnvironmentResourcesResponse' smart constructor.
 describeEnvironmentResourcesResponse :: Status -> DescribeEnvironmentResourcesResponse

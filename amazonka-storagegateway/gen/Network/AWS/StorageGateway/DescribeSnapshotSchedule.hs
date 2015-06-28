@@ -127,7 +127,7 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
     , _dssrTimezone          :: !(Maybe Text)
     , _dssrDescription       :: !(Maybe Text)
     , _dssrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeSnapshotScheduleResponse' smart constructor.
 describeSnapshotScheduleResponse :: Status -> DescribeSnapshotScheduleResponse

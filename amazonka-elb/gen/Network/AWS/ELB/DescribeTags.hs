@@ -96,7 +96,7 @@ instance ToQuery DescribeTags where
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrTagDescriptions :: !(Maybe [TagDescription])
     , _dtrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Status -> DescribeTagsResponse

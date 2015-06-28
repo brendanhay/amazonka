@@ -132,7 +132,7 @@ instance ToQuery CreateDBSnapshot where
 data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
     { _creDBSnapshot :: !(Maybe DBSnapshot)
     , _creStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDBSnapshotResponse' smart constructor.
 createDBSnapshotResponse :: Status -> CreateDBSnapshotResponse

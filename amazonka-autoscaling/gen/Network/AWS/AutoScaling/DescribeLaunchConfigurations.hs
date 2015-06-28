@@ -138,7 +138,7 @@ data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
     { _dlcrNextToken            :: !(Maybe Text)
     , _dlcrLaunchConfigurations :: ![LaunchConfiguration]
     , _dlcrStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeLaunchConfigurationsResponse' smart constructor.
 describeLaunchConfigurationsResponse :: Status -> DescribeLaunchConfigurationsResponse

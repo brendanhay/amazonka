@@ -109,7 +109,7 @@ instance ToQuery DeleteVPCEndpoints where
 data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
     { _dverUnsuccessful :: !(Maybe [UnsuccessfulItem])
     , _dverStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteVPCEndpointsResponse' smart constructor.
 deleteVPCEndpointsResponse :: Status -> DeleteVPCEndpointsResponse

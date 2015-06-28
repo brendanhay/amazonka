@@ -120,7 +120,7 @@ instance ToQuery ModifyHAPG where
 data ModifyHAPGResponse = ModifyHAPGResponse'
     { _mhrHAPGARN :: !(Maybe Text)
     , _mhrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifyHAPGResponse' smart constructor.
 modifyHAPGResponse :: Status -> ModifyHAPGResponse

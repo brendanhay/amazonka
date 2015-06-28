@@ -106,7 +106,7 @@ instance ToQuery DescribeTrails where
 data DescribeTrailsResponse = DescribeTrailsResponse'
     { _dtrTrailList :: !(Maybe [Trail])
     , _dtrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeTrailsResponse' smart constructor.
 describeTrailsResponse :: Status -> DescribeTrailsResponse

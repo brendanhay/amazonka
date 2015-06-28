@@ -380,7 +380,7 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
 data RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse'
     { _rdifdsrDBInstance :: !(Maybe DBInstance)
     , _rdifdsrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RestoreDBInstanceFromDBSnapshotResponse' smart constructor.
 restoreDBInstanceFromDBSnapshotResponse :: Status -> RestoreDBInstanceFromDBSnapshotResponse

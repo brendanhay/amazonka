@@ -136,7 +136,7 @@ instance ToQuery StartInstances where
 data StartInstancesResponse = StartInstancesResponse'
     { _staStartingInstances :: !(Maybe [InstanceStateChange])
     , _staStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'StartInstancesResponse' smart constructor.
 startInstancesResponse :: Status -> StartInstancesResponse

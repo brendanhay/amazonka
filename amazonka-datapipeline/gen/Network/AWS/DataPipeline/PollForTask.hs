@@ -150,7 +150,7 @@ instance ToQuery PollForTask where
 data PollForTaskResponse = PollForTaskResponse'
     { _pftrTaskObject :: !(Maybe TaskObject)
     , _pftrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PollForTaskResponse' smart constructor.
 pollForTaskResponse :: Status -> PollForTaskResponse

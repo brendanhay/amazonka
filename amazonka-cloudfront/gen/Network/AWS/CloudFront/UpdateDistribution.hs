@@ -129,7 +129,7 @@ data UpdateDistributionResponse = UpdateDistributionResponse'
     { _udrETag         :: !(Maybe Text)
     , _udrDistribution :: !(Maybe Distribution)
     , _udrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateDistributionResponse' smart constructor.
 updateDistributionResponse :: Status -> UpdateDistributionResponse

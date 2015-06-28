@@ -136,7 +136,7 @@ instance ToQuery GetId where
 data GetIdResponse = GetIdResponse'
     { _girIdentityId :: !(Maybe Text)
     , _girStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetIdResponse' smart constructor.
 getIdResponse :: Status -> GetIdResponse

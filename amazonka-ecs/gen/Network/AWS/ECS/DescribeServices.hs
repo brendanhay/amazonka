@@ -117,7 +117,7 @@ data DescribeServicesResponse = DescribeServicesResponse'
     { _dFailures :: !(Maybe [Failure])
     , _dServices :: !(Maybe [ContainerService])
     , _dStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeServicesResponse' smart constructor.
 describeServicesResponse :: Status -> DescribeServicesResponse

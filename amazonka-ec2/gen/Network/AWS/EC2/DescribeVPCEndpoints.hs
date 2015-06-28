@@ -159,7 +159,7 @@ data DescribeVPCEndpointsResponse = DescribeVPCEndpointsResponse'
     { _dNextToken    :: !(Maybe Text)
     , _dVPCEndpoints :: !(Maybe [VPCEndpoint])
     , _dStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeVPCEndpointsResponse' smart constructor.
 describeVPCEndpointsResponse :: Status -> DescribeVPCEndpointsResponse

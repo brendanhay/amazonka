@@ -136,7 +136,7 @@ data ListClustersResponse = ListClustersResponse'
     { _lcrClusterARNs :: !(Maybe [Text])
     , _lcrNextToken   :: !(Maybe Text)
     , _lcrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListClustersResponse' smart constructor.
 listClustersResponse :: Status -> ListClustersResponse

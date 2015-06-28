@@ -107,7 +107,7 @@ instance ToQuery ConfirmConnection where
 data ConfirmConnectionResponse = ConfirmConnectionResponse'
     { _ccrConnectionState :: !(Maybe ConnectionState)
     , _ccrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ConfirmConnectionResponse' smart constructor.
 confirmConnectionResponse :: Status -> ConfirmConnectionResponse

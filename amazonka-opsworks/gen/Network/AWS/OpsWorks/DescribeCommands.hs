@@ -136,7 +136,7 @@ instance ToQuery DescribeCommands where
 data DescribeCommandsResponse = DescribeCommandsResponse'
     { _dcrCommands :: !(Maybe [Command])
     , _dcrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeCommandsResponse' smart constructor.
 describeCommandsResponse :: Status -> DescribeCommandsResponse

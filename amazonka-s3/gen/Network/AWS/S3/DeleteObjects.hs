@@ -62,7 +62,7 @@ data DeleteObjects = DeleteObjects'
     , _delRequestPayer :: !(Maybe RequestPayer)
     , _delBucket       :: !BucketName
     , _delDelete       :: !Delete
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteObjects' smart constructor.
 deleteObjects :: BucketName -> Delete -> DeleteObjects
@@ -140,7 +140,7 @@ data DeleteObjectsResponse = DeleteObjectsResponse'
     , _delDeleted        :: !(Maybe [DeletedObject])
     , _delErrors         :: !(Maybe [S3ServiceError])
     , _delStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteObjectsResponse' smart constructor.
 deleteObjectsResponse :: Status -> DeleteObjectsResponse

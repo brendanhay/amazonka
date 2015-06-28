@@ -102,7 +102,7 @@ instance ToQuery DeleteLoadBalancerListeners where
 -- * 'dlblrStatus'
 newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse'
     { _dlblrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteLoadBalancerListenersResponse' smart constructor.
 deleteLoadBalancerListenersResponse :: Status -> DeleteLoadBalancerListenersResponse

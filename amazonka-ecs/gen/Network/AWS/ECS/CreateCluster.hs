@@ -105,7 +105,7 @@ instance ToQuery CreateCluster where
 data CreateClusterResponse = CreateClusterResponse'
     { _ccrCluster :: !(Maybe Cluster)
     , _ccrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateClusterResponse' smart constructor.
 createClusterResponse :: Status -> CreateClusterResponse

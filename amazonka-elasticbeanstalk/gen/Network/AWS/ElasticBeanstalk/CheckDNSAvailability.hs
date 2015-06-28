@@ -103,7 +103,7 @@ data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
     { _cdarFullyQualifiedCNAME :: !(Maybe Text)
     , _cdarAvailable           :: !(Maybe Bool)
     , _cdarStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CheckDNSAvailabilityResponse' smart constructor.
 checkDNSAvailabilityResponse :: Status -> CheckDNSAvailabilityResponse

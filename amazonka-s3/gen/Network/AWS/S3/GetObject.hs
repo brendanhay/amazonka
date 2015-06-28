@@ -138,7 +138,7 @@ data GetObject = GetObject'
     , _goIfNoneMatch                :: !(Maybe Text)
     , _goBucket                     :: !BucketName
     , _goKey                        :: !ObjectKey
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetObject' smart constructor.
 getObject :: BucketName -> ObjectKey -> GetObject

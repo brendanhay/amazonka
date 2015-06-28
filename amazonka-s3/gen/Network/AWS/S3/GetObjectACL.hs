@@ -61,7 +61,7 @@ data GetObjectACL = GetObjectACL'
     , _goaRequestPayer :: !(Maybe RequestPayer)
     , _goaBucket       :: !BucketName
     , _goaKey          :: !ObjectKey
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetObjectACL' smart constructor.
 getObjectACL :: BucketName -> ObjectKey -> GetObjectACL
@@ -132,7 +132,7 @@ data GetObjectACLResponse = GetObjectACLResponse'
     , _goarGrants         :: !(Maybe [Grant])
     , _goarOwner          :: !(Maybe Owner)
     , _goarStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetObjectACLResponse' smart constructor.
 getObjectACLResponse :: Status -> GetObjectACLResponse

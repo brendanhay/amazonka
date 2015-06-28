@@ -107,7 +107,7 @@ instance ToQuery DescribeIdentityPoolUsage where
 data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'
     { _dipurIdentityPoolUsage :: !(Maybe IdentityPoolUsage)
     , _dipurStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeIdentityPoolUsageResponse' smart constructor.
 describeIdentityPoolUsageResponse :: Status -> DescribeIdentityPoolUsageResponse

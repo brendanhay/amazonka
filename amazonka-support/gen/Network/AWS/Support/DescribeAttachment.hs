@@ -109,7 +109,7 @@ instance ToQuery DescribeAttachment where
 data DescribeAttachmentResponse = DescribeAttachmentResponse'
     { _darAttachment :: !(Maybe Attachment)
     , _darStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeAttachmentResponse' smart constructor.
 describeAttachmentResponse :: Status -> DescribeAttachmentResponse

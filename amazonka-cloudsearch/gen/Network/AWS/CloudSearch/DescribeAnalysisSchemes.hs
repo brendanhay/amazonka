@@ -136,7 +136,7 @@ instance ToQuery DescribeAnalysisSchemes where
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
     { _dasrAnalysisSchemes :: ![AnalysisSchemeStatus]
     , _dasrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeAnalysisSchemesResponse' smart constructor.
 describeAnalysisSchemesResponse :: Status -> DescribeAnalysisSchemesResponse

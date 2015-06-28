@@ -109,7 +109,7 @@ instance ToQuery DescribeCachediSCSIVolumes where
 data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'
     { _dcscsivrCachediSCSIVolumes :: !(Maybe [CachediSCSIVolume])
     , _dcscsivrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeCachediSCSIVolumesResponse' smart constructor.
 describeCachediSCSIVolumesResponse :: Status -> DescribeCachediSCSIVolumesResponse

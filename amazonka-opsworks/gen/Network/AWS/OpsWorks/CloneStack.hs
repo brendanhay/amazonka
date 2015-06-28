@@ -469,7 +469,7 @@ instance ToQuery CloneStack where
 data CloneStackResponse = CloneStackResponse'
     { _csrStackId :: !(Maybe Text)
     , _csrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CloneStackResponse' smart constructor.
 cloneStackResponse :: Status -> CloneStackResponse

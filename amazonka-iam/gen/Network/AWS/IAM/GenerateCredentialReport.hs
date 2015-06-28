@@ -92,7 +92,7 @@ data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
     { _gcrrState       :: !(Maybe ReportStateType)
     , _gcrrDescription :: !(Maybe Text)
     , _gcrrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GenerateCredentialReportResponse' smart constructor.
 generateCredentialReportResponse :: Status -> GenerateCredentialReportResponse

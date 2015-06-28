@@ -103,7 +103,7 @@ instance ToQuery StopLogging where
 -- * 'slrStatus'
 newtype StopLoggingResponse = StopLoggingResponse'
     { _slrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'StopLoggingResponse' smart constructor.
 stopLoggingResponse :: Status -> StopLoggingResponse

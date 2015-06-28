@@ -102,7 +102,7 @@ data GetStreamingDistributionResponse = GetStreamingDistributionResponse'
     { _gsdrETag                  :: !(Maybe Text)
     , _gsdrStreamingDistribution :: !(Maybe StreamingDistribution)
     , _gsdrStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetStreamingDistributionResponse' smart constructor.
 getStreamingDistributionResponse :: Status -> GetStreamingDistributionResponse

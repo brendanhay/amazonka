@@ -149,7 +149,7 @@ data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
     , _vpdrValidationWarnings :: !(Maybe [ValidationWarning])
     , _vpdrErrored            :: !Bool
     , _vpdrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ValidatePipelineDefinitionResponse' smart constructor.
 validatePipelineDefinitionResponse :: Bool -> Status -> ValidatePipelineDefinitionResponse

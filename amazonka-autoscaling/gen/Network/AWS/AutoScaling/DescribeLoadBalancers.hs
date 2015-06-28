@@ -122,7 +122,7 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
     { _dlbrLoadBalancers :: !(Maybe [LoadBalancerState])
     , _dlbrNextToken     :: !(Maybe Text)
     , _dlbrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeLoadBalancersResponse' smart constructor.
 describeLoadBalancersResponse :: Status -> DescribeLoadBalancersResponse

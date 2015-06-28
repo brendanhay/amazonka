@@ -129,7 +129,7 @@ instance ToQuery CheckDomainAvailability where
 data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
     { _cdarAvailability :: !DomainAvailability
     , _cdarStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CheckDomainAvailabilityResponse' smart constructor.
 checkDomainAvailabilityResponse :: DomainAvailability -> Status -> CheckDomainAvailabilityResponse

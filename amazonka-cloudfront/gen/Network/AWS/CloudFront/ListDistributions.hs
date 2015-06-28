@@ -108,7 +108,7 @@ instance ToQuery ListDistributions where
 data ListDistributionsResponse = ListDistributionsResponse'
     { _ldrDistributionList :: !DistributionList
     , _ldrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListDistributionsResponse' smart constructor.
 listDistributionsResponse :: DistributionList -> Status -> ListDistributionsResponse

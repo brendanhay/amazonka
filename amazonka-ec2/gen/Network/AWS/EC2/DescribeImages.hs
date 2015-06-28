@@ -230,7 +230,7 @@ instance ToQuery DescribeImages where
 data DescribeImagesResponse = DescribeImagesResponse'
     { _descImages :: !(Maybe [Image])
     , _descStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeImagesResponse' smart constructor.
 describeImagesResponse :: Status -> DescribeImagesResponse

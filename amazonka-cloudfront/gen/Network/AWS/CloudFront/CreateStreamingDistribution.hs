@@ -111,7 +111,7 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
     , _csdrLocation              :: !(Maybe Text)
     , _csdrStreamingDistribution :: !(Maybe StreamingDistribution)
     , _csdrStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateStreamingDistributionResponse' smart constructor.
 createStreamingDistributionResponse :: Status -> CreateStreamingDistributionResponse

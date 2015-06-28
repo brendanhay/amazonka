@@ -105,7 +105,7 @@ instance ToQuery EnableDomainAutoRenew where
 -- * 'edarrStatus'
 newtype EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse'
     { _edarrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'EnableDomainAutoRenewResponse' smart constructor.
 enableDomainAutoRenewResponse :: Status -> EnableDomainAutoRenewResponse

@@ -129,7 +129,7 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled
 -- * 'sifferStatus'
 newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
     { _sifferStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SetIdentityFeedbackForwardingEnabledResponse' smart constructor.
 setIdentityFeedbackForwardingEnabledResponse :: Status -> SetIdentityFeedbackForwardingEnabledResponse

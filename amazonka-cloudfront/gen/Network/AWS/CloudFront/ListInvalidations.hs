@@ -123,7 +123,7 @@ instance ToQuery ListInvalidations where
 data ListInvalidationsResponse = ListInvalidationsResponse'
     { _lirInvalidationList :: !InvalidationList
     , _lirStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListInvalidationsResponse' smart constructor.
 listInvalidationsResponse :: InvalidationList -> Status -> ListInvalidationsResponse

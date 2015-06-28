@@ -274,7 +274,7 @@ data AssumeRoleResponse = AssumeRoleResponse'
     , _arrCredentials      :: !(Maybe Credentials)
     , _arrAssumedRoleUser  :: !(Maybe AssumedRoleUser)
     , _arrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AssumeRoleResponse' smart constructor.
 assumeRoleResponse :: Status -> AssumeRoleResponse

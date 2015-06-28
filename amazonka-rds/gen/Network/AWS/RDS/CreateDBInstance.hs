@@ -837,7 +837,7 @@ instance ToQuery CreateDBInstance where
 data CreateDBInstanceResponse = CreateDBInstanceResponse'
     { _cdirDBInstance :: !(Maybe DBInstance)
     , _cdirStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDBInstanceResponse' smart constructor.
 createDBInstanceResponse :: Status -> CreateDBInstanceResponse

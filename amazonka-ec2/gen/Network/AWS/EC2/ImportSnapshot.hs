@@ -157,7 +157,7 @@ data ImportSnapshotResponse = ImportSnapshotResponse'
     , _isrImportTaskId       :: !(Maybe Text)
     , _isrDescription        :: !(Maybe Text)
     , _isrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ImportSnapshotResponse' smart constructor.
 importSnapshotResponse :: Status -> ImportSnapshotResponse

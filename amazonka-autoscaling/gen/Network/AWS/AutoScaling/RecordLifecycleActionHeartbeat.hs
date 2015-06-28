@@ -136,7 +136,7 @@ instance ToQuery RecordLifecycleActionHeartbeat where
 -- * 'rlahrStatus'
 newtype RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse'
     { _rlahrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RecordLifecycleActionHeartbeatResponse' smart constructor.
 recordLifecycleActionHeartbeatResponse :: Status -> RecordLifecycleActionHeartbeatResponse

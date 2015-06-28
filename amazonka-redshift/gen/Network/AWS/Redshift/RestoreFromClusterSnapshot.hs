@@ -392,7 +392,7 @@ instance ToQuery RestoreFromClusterSnapshot where
 data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'
     { _rfcsrCluster :: !(Maybe Cluster)
     , _rfcsrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RestoreFromClusterSnapshotResponse' smart constructor.
 restoreFromClusterSnapshotResponse :: Status -> RestoreFromClusterSnapshotResponse

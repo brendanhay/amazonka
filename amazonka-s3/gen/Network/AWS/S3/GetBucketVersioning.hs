@@ -47,7 +47,7 @@ import           Network.AWS.S3.Types
 -- * 'gbvBucket'
 newtype GetBucketVersioning = GetBucketVersioning'
     { _gbvBucket :: BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketVersioning' smart constructor.
 getBucketVersioning :: BucketName -> GetBucketVersioning
@@ -91,7 +91,7 @@ instance ToQuery GetBucketVersioning where
 data GetBucketVersioningResponse = GetBucketVersioningResponse'
     { _gbvrMFADelete :: !(Maybe MFADeleteStatus)
     , _gbvrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketVersioningResponse' smart constructor.
 getBucketVersioningResponse :: Status -> GetBucketVersioningResponse

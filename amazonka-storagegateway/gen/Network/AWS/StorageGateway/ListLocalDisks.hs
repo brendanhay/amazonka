@@ -116,7 +116,7 @@ data ListLocalDisksResponse = ListLocalDisksResponse'
     { _lldrGatewayARN :: !(Maybe Text)
     , _lldrDisks      :: !(Maybe [Disk])
     , _lldrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListLocalDisksResponse' smart constructor.
 listLocalDisksResponse :: Status -> ListLocalDisksResponse

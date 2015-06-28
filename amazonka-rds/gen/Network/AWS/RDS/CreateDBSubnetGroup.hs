@@ -135,7 +135,7 @@ instance ToQuery CreateDBSubnetGroup where
 data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'
     { _cdsgrDBSubnetGroup :: !(Maybe DBSubnetGroup)
     , _cdsgrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDBSubnetGroupResponse' smart constructor.
 createDBSubnetGroupResponse :: Status -> CreateDBSubnetGroupResponse

@@ -107,7 +107,7 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'
     { _dlbptrPolicyTypeDescriptions :: !(Maybe [PolicyTypeDescription])
     , _dlbptrStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeLoadBalancerPolicyTypesResponse' smart constructor.
 describeLoadBalancerPolicyTypesResponse :: Status -> DescribeLoadBalancerPolicyTypesResponse

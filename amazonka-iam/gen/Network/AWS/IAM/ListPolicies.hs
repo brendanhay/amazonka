@@ -180,7 +180,7 @@ data ListPoliciesResponse = ListPoliciesResponse'
     , _lprIsTruncated :: !(Maybe Bool)
     , _lprPolicies    :: !(Maybe [Policy])
     , _lprStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListPoliciesResponse' smart constructor.
 listPoliciesResponse :: Status -> ListPoliciesResponse

@@ -140,7 +140,7 @@ instance ToQuery ImportVolume where
 data ImportVolumeResponse = ImportVolumeResponse'
     { _ivrConversionTask :: !(Maybe ConversionTask)
     , _ivrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ImportVolumeResponse' smart constructor.
 importVolumeResponse :: Status -> ImportVolumeResponse

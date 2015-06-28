@@ -106,7 +106,7 @@ instance ToQuery BatchGetApplications where
 data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
     { _bgarApplicationsInfo :: !(Maybe [ApplicationInfo])
     , _bgarStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'BatchGetApplicationsResponse' smart constructor.
 batchGetApplicationsResponse :: Status -> BatchGetApplicationsResponse

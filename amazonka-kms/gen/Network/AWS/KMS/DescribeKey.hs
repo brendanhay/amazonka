@@ -109,7 +109,7 @@ instance ToQuery DescribeKey where
 data DescribeKeyResponse = DescribeKeyResponse'
     { _dkrKeyMetadata :: !(Maybe KeyMetadata)
     , _dkrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeKeyResponse' smart constructor.
 describeKeyResponse :: Status -> DescribeKeyResponse

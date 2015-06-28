@@ -148,7 +148,7 @@ data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'
     { _ldirNextToken     :: !(Maybe Text)
     , _ldirInstancesList :: !(Maybe [Text])
     , _ldirStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListDeploymentInstancesResponse' smart constructor.
 listDeploymentInstancesResponse :: Status -> ListDeploymentInstancesResponse

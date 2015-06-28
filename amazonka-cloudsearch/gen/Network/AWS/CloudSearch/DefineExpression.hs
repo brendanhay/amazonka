@@ -114,7 +114,7 @@ instance ToQuery DefineExpression where
 data DefineExpressionResponse = DefineExpressionResponse'
     { _derExpression :: !ExpressionStatus
     , _derStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DefineExpressionResponse' smart constructor.
 defineExpressionResponse :: ExpressionStatus -> Status -> DefineExpressionResponse

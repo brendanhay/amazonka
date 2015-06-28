@@ -116,7 +116,7 @@ instance ToQuery DeactivatePipeline where
 -- * 'deaStatus'
 newtype DeactivatePipelineResponse = DeactivatePipelineResponse'
     { _deaStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeactivatePipelineResponse' smart constructor.
 deactivatePipelineResponse :: Status -> DeactivatePipelineResponse

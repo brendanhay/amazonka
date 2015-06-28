@@ -84,7 +84,7 @@ instance ToQuery GetHostedZoneCount where
 data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
     { _ghzcrHostedZoneCount :: !Integer
     , _ghzcrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetHostedZoneCountResponse' smart constructor.
 getHostedZoneCountResponse :: Integer -> Status -> GetHostedZoneCountResponse

@@ -109,7 +109,7 @@ instance ToQuery DeleteDataSource where
 data DeleteDataSourceResponse = DeleteDataSourceResponse'
     { _ddsrDataSourceId :: !(Maybe Text)
     , _ddsrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteDataSourceResponse' smart constructor.
 deleteDataSourceResponse :: Status -> DeleteDataSourceResponse

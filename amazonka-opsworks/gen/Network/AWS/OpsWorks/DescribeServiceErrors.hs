@@ -135,7 +135,7 @@ instance ToQuery DescribeServiceErrors where
 data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'
     { _dserServiceErrors :: !(Maybe [ServiceError'])
     , _dserStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeServiceErrorsResponse' smart constructor.
 describeServiceErrorsResponse :: Status -> DescribeServiceErrorsResponse

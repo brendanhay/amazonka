@@ -134,7 +134,7 @@ data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
     { _aatsrExpiryTime      :: !(Maybe Text)
     , _aatsrAttachmentSetId :: !(Maybe Text)
     , _aatsrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AddAttachmentsToSetResponse' smart constructor.
 addAttachmentsToSetResponse :: Status -> AddAttachmentsToSetResponse

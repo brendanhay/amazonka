@@ -151,7 +151,7 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse'
     , _lscrIsTruncated                   :: !(Maybe Bool)
     , _lscrServerCertificateMetadataList :: ![ServerCertificateMetadata]
     , _lscrStatus                        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListServerCertificatesResponse' smart constructor.
 listServerCertificatesResponse :: Status -> ListServerCertificatesResponse

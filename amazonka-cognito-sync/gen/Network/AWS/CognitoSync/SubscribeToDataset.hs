@@ -133,7 +133,7 @@ instance ToQuery SubscribeToDataset where
 -- * 'stdrStatus'
 newtype SubscribeToDatasetResponse = SubscribeToDatasetResponse'
     { _stdrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SubscribeToDatasetResponse' smart constructor.
 subscribeToDatasetResponse :: Status -> SubscribeToDatasetResponse

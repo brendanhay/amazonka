@@ -97,7 +97,7 @@ instance ToQuery DeleteHAPG where
 -- * 'dhrStatus'
 newtype DeleteHAPGResponse = DeleteHAPGResponse'
     { _dhrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteHAPGResponse' smart constructor.
 deleteHAPGResponse :: Status -> DeleteHAPGResponse

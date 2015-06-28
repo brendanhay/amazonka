@@ -160,7 +160,7 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
     , _diarBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _diarDescription         :: !(Maybe AttributeValue)
     , _diarStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeImageAttributeResponse' smart constructor.
 describeImageAttributeResponse :: Status -> DescribeImageAttributeResponse

@@ -153,7 +153,7 @@ data DescribeCertificatesResponse = DescribeCertificatesResponse'
     { _dcrCertificates :: !(Maybe [Certificate])
     , _dcrMarker       :: !(Maybe Text)
     , _dcrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeCertificatesResponse' smart constructor.
 describeCertificatesResponse :: Status -> DescribeCertificatesResponse

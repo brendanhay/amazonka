@@ -193,7 +193,7 @@ data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'
     { _dcsgrClusterSubnetGroups :: !(Maybe [ClusterSubnetGroup])
     , _dcsgrMarker              :: !(Maybe Text)
     , _dcsgrStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeClusterSubnetGroupsResponse' smart constructor.
 describeClusterSubnetGroupsResponse :: Status -> DescribeClusterSubnetGroupsResponse

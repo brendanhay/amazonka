@@ -133,7 +133,7 @@ data CreateKeyPairResponse = CreateKeyPairResponse'
     , _ckprKeyFingerprint :: !Text
     , _ckprKeyMaterial    :: !Text
     , _ckprStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateKeyPairResponse' smart constructor.
 createKeyPairResponse :: Text -> Text -> Text -> Status -> CreateKeyPairResponse

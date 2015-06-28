@@ -156,7 +156,7 @@ data GetBatchPredictionResponse = GetBatchPredictionResponse'
     , _gbprMessage                     :: !(Maybe Text)
     , _gbprOutputURI                   :: !(Maybe Text)
     , _gbprStatus                      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBatchPredictionResponse' smart constructor.
 getBatchPredictionResponse :: Status -> GetBatchPredictionResponse

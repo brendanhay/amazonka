@@ -105,7 +105,7 @@ instance ToQuery DeleteTapeArchive where
 data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'
     { _dtar1TapeARN :: !(Maybe Text)
     , _dtar1Status  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteTapeArchiveResponse' smart constructor.
 deleteTapeArchiveResponse :: Status -> DeleteTapeArchiveResponse

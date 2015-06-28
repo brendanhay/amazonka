@@ -307,7 +307,7 @@ instance ToQuery RegisterDomain where
 data RegisterDomainResponse = RegisterDomainResponse'
     { _rdrOperationId :: !Text
     , _rdrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RegisterDomainResponse' smart constructor.
 registerDomainResponse :: Text -> Status -> RegisterDomainResponse

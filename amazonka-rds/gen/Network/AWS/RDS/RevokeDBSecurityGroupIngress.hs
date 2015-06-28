@@ -156,7 +156,7 @@ instance ToQuery RevokeDBSecurityGroupIngress where
 data RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse'
     { _rdsgirDBSecurityGroup :: !(Maybe DBSecurityGroup)
     , _rdsgirStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RevokeDBSecurityGroupIngressResponse' smart constructor.
 revokeDBSecurityGroupIngressResponse :: Status -> RevokeDBSecurityGroupIngressResponse

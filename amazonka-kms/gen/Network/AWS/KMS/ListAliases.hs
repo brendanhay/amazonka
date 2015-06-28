@@ -124,7 +124,7 @@ data ListAliasesResponse = ListAliasesResponse'
     , _larAliases    :: !(Maybe [AliasListEntry])
     , _larNextMarker :: !(Maybe Text)
     , _larStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListAliasesResponse' smart constructor.
 listAliasesResponse :: Status -> ListAliasesResponse

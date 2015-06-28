@@ -117,7 +117,7 @@ instance ToQuery GrantAccess where
 data GrantAccessResponse = GrantAccessResponse'
     { _garTemporaryCredential :: !(Maybe TemporaryCredential)
     , _garStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GrantAccessResponse' smart constructor.
 grantAccessResponse :: Status -> GrantAccessResponse

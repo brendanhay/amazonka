@@ -151,7 +151,7 @@ data UpdateJobResponse = UpdateJobResponse'
     , _ujrWarningMessage :: !(Maybe Text)
     , _ujrArtifactList   :: !(Maybe [Artifact])
     , _ujrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateJobResponse' smart constructor.
 updateJobResponse :: Status -> UpdateJobResponse

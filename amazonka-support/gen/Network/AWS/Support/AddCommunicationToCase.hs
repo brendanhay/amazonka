@@ -149,7 +149,7 @@ instance ToQuery AddCommunicationToCase where
 data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
     { _actcrResult :: !(Maybe Bool)
     , _actcrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AddCommunicationToCaseResponse' smart constructor.
 addCommunicationToCaseResponse :: Status -> AddCommunicationToCaseResponse

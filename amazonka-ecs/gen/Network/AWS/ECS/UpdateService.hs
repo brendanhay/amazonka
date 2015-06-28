@@ -154,7 +154,7 @@ instance ToQuery UpdateService where
 data UpdateServiceResponse = UpdateServiceResponse'
     { _usrService :: !(Maybe ContainerService)
     , _usrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateServiceResponse' smart constructor.
 updateServiceResponse :: Status -> UpdateServiceResponse

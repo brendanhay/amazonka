@@ -149,7 +149,7 @@ data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
     , _lvmdrIsTruncated       :: !(Maybe Bool)
     , _lvmdrVirtualMFADevices :: ![VirtualMFADevice]
     , _lvmdrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListVirtualMFADevicesResponse' smart constructor.
 listVirtualMFADevicesResponse :: Status -> ListVirtualMFADevicesResponse

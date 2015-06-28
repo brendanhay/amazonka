@@ -138,7 +138,7 @@ data ListJobsResponse = ListJobsResponse'
     { _ljrJobs        :: !(Maybe [Job])
     , _ljrIsTruncated :: !(Maybe Bool)
     , _ljrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListJobsResponse' smart constructor.
 listJobsResponse :: Status -> ListJobsResponse

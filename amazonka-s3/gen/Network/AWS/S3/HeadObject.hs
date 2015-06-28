@@ -116,7 +116,7 @@ data HeadObject = HeadObject'
     , _hoIfNoneMatch          :: !(Maybe Text)
     , _hoBucket               :: !BucketName
     , _hoKey                  :: !ObjectKey
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'HeadObject' smart constructor.
 headObject :: BucketName -> ObjectKey -> HeadObject
@@ -334,7 +334,7 @@ data HeadObjectResponse = HeadObjectResponse'
     , _horServerSideEncryption    :: !(Maybe ServerSideEncryption)
     , _horContentType             :: !(Maybe Text)
     , _horStatus                  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'HeadObjectResponse' smart constructor.
 headObjectResponse :: Status -> HeadObjectResponse

@@ -132,7 +132,7 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
     , _dvarVolumeId     :: !(Maybe Text)
     , _dvarAutoEnableIO :: !(Maybe AttributeBooleanValue)
     , _dvarStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeVolumeAttributeResponse' smart constructor.
 describeVolumeAttributeResponse :: Status -> DescribeVolumeAttributeResponse

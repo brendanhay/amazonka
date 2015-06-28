@@ -117,7 +117,7 @@ data UploadPartCopy = UploadPartCopy'
     , _upcKey                            :: !ObjectKey
     , _upcPartNumber                     :: !Int
     , _upcUploadId                       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UploadPartCopy' smart constructor.
 uploadPartCopy :: BucketName -> Text -> ObjectKey -> Int -> Text -> UploadPartCopy
@@ -318,7 +318,7 @@ data UploadPartCopyResponse = UploadPartCopyResponse'
     , _upcrSSECustomerKeyMD5    :: !(Maybe Text)
     , _upcrServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _upcrStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UploadPartCopyResponse' smart constructor.
 uploadPartCopyResponse :: Status -> UploadPartCopyResponse

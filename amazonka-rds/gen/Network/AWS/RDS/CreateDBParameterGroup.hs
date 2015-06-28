@@ -160,7 +160,7 @@ instance ToQuery CreateDBParameterGroup where
 data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'
     { _cdpgrDBParameterGroup :: !(Maybe DBParameterGroup)
     , _cdpgrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDBParameterGroupResponse' smart constructor.
 createDBParameterGroupResponse :: Status -> CreateDBParameterGroupResponse

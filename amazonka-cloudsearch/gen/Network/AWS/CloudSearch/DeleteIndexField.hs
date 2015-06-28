@@ -113,7 +113,7 @@ instance ToQuery DeleteIndexField where
 data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
     { _difrIndexField :: !IndexFieldStatus
     , _difrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteIndexFieldResponse' smart constructor.
 deleteIndexFieldResponse :: IndexFieldStatus -> Status -> DeleteIndexFieldResponse

@@ -104,7 +104,7 @@ instance ToQuery GetSnapshotLimits where
 data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
     { _gslrSnapshotLimits :: !(Maybe SnapshotLimits)
     , _gslrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetSnapshotLimitsResponse' smart constructor.
 getSnapshotLimitsResponse :: Status -> GetSnapshotLimitsResponse

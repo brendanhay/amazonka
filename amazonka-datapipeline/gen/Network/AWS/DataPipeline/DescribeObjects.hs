@@ -158,7 +158,7 @@ data DescribeObjectsResponse = DescribeObjectsResponse'
     , _dorMarker          :: !(Maybe Text)
     , _dorPipelineObjects :: ![PipelineObject]
     , _dorStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeObjectsResponse' smart constructor.
 describeObjectsResponse :: Status -> DescribeObjectsResponse

@@ -128,7 +128,7 @@ data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
     , _dvpcarEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
     , _dvpcarVPCId              :: !(Maybe Text)
     , _dvpcarStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeVPCAttributeResponse' smart constructor.
 describeVPCAttributeResponse :: Status -> DescribeVPCAttributeResponse

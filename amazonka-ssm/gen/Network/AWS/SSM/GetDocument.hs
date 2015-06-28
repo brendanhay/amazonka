@@ -102,7 +102,7 @@ data GetDocumentResponse = GetDocumentResponse'
     { _gdrContent :: !(Maybe Text)
     , _gdrName    :: !(Maybe Text)
     , _gdrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetDocumentResponse' smart constructor.
 getDocumentResponse :: Status -> GetDocumentResponse

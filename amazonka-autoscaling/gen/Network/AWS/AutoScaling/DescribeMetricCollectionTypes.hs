@@ -98,7 +98,7 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
     { _dmctrMetrics       :: !(Maybe [MetricCollectionType])
     , _dmctrGranularities :: !(Maybe [MetricGranularityType])
     , _dmctrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeMetricCollectionTypesResponse' smart constructor.
 describeMetricCollectionTypesResponse :: Status -> DescribeMetricCollectionTypesResponse

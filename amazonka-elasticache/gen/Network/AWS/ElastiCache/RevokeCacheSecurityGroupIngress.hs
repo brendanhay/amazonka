@@ -127,7 +127,7 @@ instance ToQuery RevokeCacheSecurityGroupIngress
 data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse'
     { _rcsgirCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
     , _rcsgirStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RevokeCacheSecurityGroupIngressResponse' smart constructor.
 revokeCacheSecurityGroupIngressResponse :: Status -> RevokeCacheSecurityGroupIngressResponse

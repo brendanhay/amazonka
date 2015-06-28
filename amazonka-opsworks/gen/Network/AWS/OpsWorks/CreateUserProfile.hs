@@ -144,7 +144,7 @@ instance ToQuery CreateUserProfile where
 data CreateUserProfileResponse = CreateUserProfileResponse'
     { _cuprIAMUserARN :: !(Maybe Text)
     , _cuprStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateUserProfileResponse' smart constructor.
 createUserProfileResponse :: Status -> CreateUserProfileResponse

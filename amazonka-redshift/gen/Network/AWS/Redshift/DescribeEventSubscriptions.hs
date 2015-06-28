@@ -151,7 +151,7 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
     { _desrEventSubscriptionsList :: !(Maybe [EventSubscription])
     , _desrMarker                 :: !(Maybe Text)
     , _desrStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeEventSubscriptionsResponse' smart constructor.
 describeEventSubscriptionsResponse :: Status -> DescribeEventSubscriptionsResponse

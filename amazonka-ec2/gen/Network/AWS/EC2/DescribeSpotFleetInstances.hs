@@ -145,7 +145,7 @@ data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
     , _dsfirSpotFleetRequestId :: !Text
     , _dsfirActiveInstances    :: ![ActiveInstance]
     , _dsfirStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeSpotFleetInstancesResponse' smart constructor.
 describeSpotFleetInstancesResponse :: Text -> Status -> DescribeSpotFleetInstancesResponse

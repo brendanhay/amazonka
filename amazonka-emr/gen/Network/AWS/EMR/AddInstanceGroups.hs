@@ -120,7 +120,7 @@ data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
     { _aigrJobFlowId        :: !(Maybe Text)
     , _aigrInstanceGroupIds :: !(Maybe [Text])
     , _aigrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AddInstanceGroupsResponse' smart constructor.
 addInstanceGroupsResponse :: Status -> AddInstanceGroupsResponse

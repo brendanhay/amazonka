@@ -110,7 +110,7 @@ instance ToQuery ListStreamingDistributions where
 data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
     { _lsdrStreamingDistributionList :: !StreamingDistributionList
     , _lsdrStatus                    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListStreamingDistributionsResponse' smart constructor.
 listStreamingDistributionsResponse :: StreamingDistributionList -> Status -> ListStreamingDistributionsResponse

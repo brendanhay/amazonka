@@ -104,7 +104,7 @@ instance ToQuery GetHealthCheckStatus where
 data GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'
     { _ghcsrHealthCheckObservations :: ![HealthCheckObservation]
     , _ghcsrStatus                  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetHealthCheckStatusResponse' smart constructor.
 getHealthCheckStatusResponse :: Status -> GetHealthCheckStatusResponse

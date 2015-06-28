@@ -170,7 +170,7 @@ data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'
     { _ccscsivrTargetARN :: !(Maybe Text)
     , _ccscsivrVolumeARN :: !(Maybe Text)
     , _ccscsivrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateCachediSCSIVolumeResponse' smart constructor.
 createCachediSCSIVolumeResponse :: Status -> CreateCachediSCSIVolumeResponse

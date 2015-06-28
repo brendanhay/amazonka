@@ -129,7 +129,7 @@ instance ToQuery DisableSso where
 -- * 'disStatus'
 newtype DisableSsoResponse = DisableSsoResponse'
     { _disStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DisableSsoResponse' smart constructor.
 disableSsoResponse :: Status -> DisableSsoResponse

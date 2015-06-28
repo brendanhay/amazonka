@@ -109,7 +109,7 @@ instance ToQuery MonitorInstances where
 data MonitorInstancesResponse = MonitorInstancesResponse'
     { _mirInstanceMonitorings :: !(Maybe [InstanceMonitoring])
     , _mirStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'MonitorInstancesResponse' smart constructor.
 monitorInstancesResponse :: Status -> MonitorInstancesResponse

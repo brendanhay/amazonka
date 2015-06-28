@@ -164,7 +164,7 @@ data DescribeResizeResponse = DescribeResizeResponse'
     , _drrElapsedTimeInSeconds               :: !(Maybe Integer)
     , _drrTargetClusterType                  :: !(Maybe Text)
     , _drrStatus                             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeResizeResponse' smart constructor.
 describeResizeResponse :: Status -> DescribeResizeResponse

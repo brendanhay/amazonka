@@ -126,7 +126,7 @@ data DescribeDomainResponse = DescribeDomainResponse'
     { _ddrDomainInfo    :: !DomainInfo
     , _ddrConfiguration :: !DomainConfiguration
     , _ddrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDomainResponse' smart constructor.
 describeDomainResponse :: DomainInfo -> DomainConfiguration -> Status -> DescribeDomainResponse

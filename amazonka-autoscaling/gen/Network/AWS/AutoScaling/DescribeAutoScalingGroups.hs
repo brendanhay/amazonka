@@ -135,7 +135,7 @@ data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
     { _dasgrNextToken         :: !(Maybe Text)
     , _dasgrAutoScalingGroups :: ![AutoScalingGroup]
     , _dasgrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeAutoScalingGroupsResponse' smart constructor.
 describeAutoScalingGroupsResponse :: Status -> DescribeAutoScalingGroupsResponse

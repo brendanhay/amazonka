@@ -183,7 +183,7 @@ data CreateGrantResponse = CreateGrantResponse'
     { _cgrGrantId    :: !(Maybe Text)
     , _cgrGrantToken :: !(Maybe Text)
     , _cgrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateGrantResponse' smart constructor.
 createGrantResponse :: Status -> CreateGrantResponse

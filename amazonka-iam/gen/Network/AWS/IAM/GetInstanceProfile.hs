@@ -101,7 +101,7 @@ instance ToQuery GetInstanceProfile where
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
     { _giprInstanceProfile :: !InstanceProfile
     , _giprStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetInstanceProfileResponse' smart constructor.
 getInstanceProfileResponse :: InstanceProfile -> Status -> GetInstanceProfileResponse

@@ -143,7 +143,7 @@ instance ToQuery UpdateBandwidthRateLimit where
 data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'
     { _ubrlrGatewayARN :: !(Maybe Text)
     , _ubrlrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateBandwidthRateLimitResponse' smart constructor.
 updateBandwidthRateLimitResponse :: Status -> UpdateBandwidthRateLimitResponse

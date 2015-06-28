@@ -164,7 +164,7 @@ data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
     { _uccrTargetARN     :: !(Maybe Text)
     , _uccrInitiatorName :: !(Maybe Text)
     , _uccrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateChapCredentialsResponse' smart constructor.
 updateChapCredentialsResponse :: Status -> UpdateChapCredentialsResponse

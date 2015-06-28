@@ -81,7 +81,7 @@ data GetItem = GetItem'
     , _giReturnConsumedCapacity   :: !(Maybe ReturnConsumedCapacity)
     , _giTableName                :: !Text
     , _giKey                      :: !(Map Text AttributeValue)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetItem' smart constructor.
 getItem :: Text -> GetItem
@@ -247,7 +247,7 @@ data GetItemResponse = GetItemResponse'
     { _girConsumedCapacity :: !(Maybe ConsumedCapacity)
     , _girItem             :: !(Maybe (Map Text AttributeValue))
     , _girStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetItemResponse' smart constructor.
 getItemResponse :: Status -> GetItemResponse

@@ -111,7 +111,7 @@ instance ToQuery DescribeTable where
 data DescribeTableResponse = DescribeTableResponse'
     { _desTable  :: !(Maybe TableDescription)
     , _desStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeTableResponse' smart constructor.
 describeTableResponse :: Status -> DescribeTableResponse

@@ -97,7 +97,7 @@ instance ToQuery DeleteEventSubscription where
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
     { _delEventSubscription :: !(Maybe EventSubscription)
     , _delStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteEventSubscriptionResponse' smart constructor.
 deleteEventSubscriptionResponse :: Status -> DeleteEventSubscriptionResponse

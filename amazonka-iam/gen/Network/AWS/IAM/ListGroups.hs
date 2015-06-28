@@ -146,7 +146,7 @@ data ListGroupsResponse = ListGroupsResponse'
     , _lgrIsTruncated :: !(Maybe Bool)
     , _lgrGroups      :: ![Group]
     , _lgrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListGroupsResponse' smart constructor.
 listGroupsResponse :: Status -> ListGroupsResponse

@@ -109,7 +109,7 @@ instance ToQuery DeleteHostedZone where
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
     { _dhzrChangeInfo :: !ChangeInfo
     , _dhzrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteHostedZoneResponse' smart constructor.
 deleteHostedZoneResponse :: ChangeInfo -> Status -> DeleteHostedZoneResponse

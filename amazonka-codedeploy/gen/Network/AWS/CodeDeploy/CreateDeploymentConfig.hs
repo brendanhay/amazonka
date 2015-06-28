@@ -133,7 +133,7 @@ instance ToQuery CreateDeploymentConfig where
 data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'
     { _cdcrDeploymentConfigId :: !(Maybe Text)
     , _cdcrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDeploymentConfigResponse' smart constructor.
 createDeploymentConfigResponse :: Status -> CreateDeploymentConfigResponse

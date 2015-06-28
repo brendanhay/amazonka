@@ -85,7 +85,7 @@ instance ToQuery ListDomainNames where
 data ListDomainNamesResponse = ListDomainNamesResponse'
     { _ldnrDomainNames :: !(Maybe (Map Text Text))
     , _ldnrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListDomainNamesResponse' smart constructor.
 listDomainNamesResponse :: Status -> ListDomainNamesResponse

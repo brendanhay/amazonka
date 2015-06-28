@@ -112,7 +112,7 @@ data ListLunaClientsResponse = ListLunaClientsResponse'
     { _llcrNextToken  :: !(Maybe Text)
     , _llcrClientList :: ![Text]
     , _llcrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListLunaClientsResponse' smart constructor.
 listLunaClientsResponse :: Status -> ListLunaClientsResponse

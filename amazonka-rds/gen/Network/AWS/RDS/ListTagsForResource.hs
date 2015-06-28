@@ -116,7 +116,7 @@ instance ToQuery ListTagsForResource where
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
     { _ltfrrTagList :: !(Maybe [Tag])
     , _ltfrrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListTagsForResourceResponse' smart constructor.
 listTagsForResourceResponse :: Status -> ListTagsForResourceResponse

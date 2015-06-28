@@ -270,7 +270,7 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
     { _dsr1NextToken :: !(Maybe Text)
     , _dsr1Snapshots :: !(Maybe [Snapshot])
     , _dsr1Status    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Status -> DescribeSnapshotsResponse

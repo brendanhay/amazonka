@@ -127,7 +127,7 @@ instance ToQuery AddSourceIdentifierToSubscription
 data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'
     { _asitsrEventSubscription :: !(Maybe EventSubscription)
     , _asitsrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AddSourceIdentifierToSubscriptionResponse' smart constructor.
 addSourceIdentifierToSubscriptionResponse :: Status -> AddSourceIdentifierToSubscriptionResponse

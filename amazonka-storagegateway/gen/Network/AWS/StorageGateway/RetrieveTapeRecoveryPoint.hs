@@ -125,7 +125,7 @@ instance ToQuery RetrieveTapeRecoveryPoint where
 data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'
     { _rtrprTapeARN :: !(Maybe Text)
     , _rtrprStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RetrieveTapeRecoveryPointResponse' smart constructor.
 retrieveTapeRecoveryPointResponse :: Status -> RetrieveTapeRecoveryPointResponse

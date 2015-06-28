@@ -105,7 +105,7 @@ instance ToQuery CreateApplication where
 data CreateApplicationResponse = CreateApplicationResponse'
     { _carApplicationId :: !(Maybe Text)
     , _carStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateApplicationResponse' smart constructor.
 createApplicationResponse :: Status -> CreateApplicationResponse

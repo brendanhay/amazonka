@@ -143,7 +143,7 @@ data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplica
     { _lebparNextToken :: !(Maybe Text)
     , _lebparEndpoints :: !(Maybe [Endpoint])
     , _lebparStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListEndpointsByPlatformApplicationResponse' smart constructor.
 listEndpointsByPlatformApplicationResponse :: Status -> ListEndpointsByPlatformApplicationResponse

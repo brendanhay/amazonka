@@ -109,7 +109,7 @@ instance ToQuery RefreshTrustedAdvisorCheck where
 -- * 'rtacrStatus'
 newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'
     { _rtacrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RefreshTrustedAdvisorCheckResponse' smart constructor.
 refreshTrustedAdvisorCheckResponse :: Status -> RefreshTrustedAdvisorCheckResponse

@@ -147,7 +147,7 @@ data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'
     { _dtarTapeArchives :: !(Maybe [TapeArchive])
     , _dtarMarker       :: !(Maybe Text)
     , _dtarStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeTapeArchivesResponse' smart constructor.
 describeTapeArchivesResponse :: Status -> DescribeTapeArchivesResponse

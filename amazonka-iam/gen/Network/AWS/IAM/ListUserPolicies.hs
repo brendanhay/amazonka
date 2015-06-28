@@ -150,7 +150,7 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse'
     , _luprIsTruncated :: !(Maybe Bool)
     , _luprPolicyNames :: ![Text]
     , _luprStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListUserPoliciesResponse' smart constructor.
 listUserPoliciesResponse :: Status -> ListUserPoliciesResponse

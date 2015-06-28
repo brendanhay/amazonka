@@ -181,7 +181,7 @@ data DescribeSnapshotCopyGrantsResponse = DescribeSnapshotCopyGrantsResponse'
     { _dscgrSnapshotCopyGrants :: !(Maybe [SnapshotCopyGrant])
     , _dscgrMarker             :: !(Maybe Text)
     , _dscgrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeSnapshotCopyGrantsResponse' smart constructor.
 describeSnapshotCopyGrantsResponse :: Status -> DescribeSnapshotCopyGrantsResponse

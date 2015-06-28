@@ -137,7 +137,7 @@ instance ToQuery RegisterDevice where
 data RegisterDeviceResponse = RegisterDeviceResponse'
     { _rdrDeviceId :: !(Maybe Text)
     , _rdrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RegisterDeviceResponse' smart constructor.
 registerDeviceResponse :: Status -> RegisterDeviceResponse

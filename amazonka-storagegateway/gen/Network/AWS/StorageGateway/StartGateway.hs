@@ -116,7 +116,7 @@ instance ToQuery StartGateway where
 data StartGatewayResponse = StartGatewayResponse'
     { _staGatewayARN :: !(Maybe Text)
     , _staStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'StartGatewayResponse' smart constructor.
 startGatewayResponse :: Status -> StartGatewayResponse

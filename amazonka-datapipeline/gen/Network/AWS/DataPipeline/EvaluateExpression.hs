@@ -127,7 +127,7 @@ instance ToQuery EvaluateExpression where
 data EvaluateExpressionResponse = EvaluateExpressionResponse'
     { _eerEvaluatedExpression :: !Text
     , _eerStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'EvaluateExpressionResponse' smart constructor.
 evaluateExpressionResponse :: Text -> Status -> EvaluateExpressionResponse

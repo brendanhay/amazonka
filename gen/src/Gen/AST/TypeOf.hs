@@ -20,13 +20,13 @@ module Gen.AST.TypeOf
     , typeDefault
     ) where
 
-import           Gen.Types
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding (enum, mapping, (??))
 import           Data.Foldable          (foldr')
 import qualified Data.HashSet           as Set
 import           Data.List              (intersect)
 import           Data.Monoid
+import           Gen.Types
 
 class TypeOf a where
     typeOf :: a -> TType
@@ -58,7 +58,7 @@ instance HasId a => TypeOf (Shape a) where
             Blob | streaming i -> TStream
             l                  -> TLit l
 
-        ptr = uniq . mappend base . Set.toList
+        ptr = uniq . mappend [DEq, DShow] . Set.toList
 
         struct st
             | streaming st = [DShow]

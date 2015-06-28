@@ -154,7 +154,7 @@ instance ToQuery CreateSubnet where
 data CreateSubnetResponse = CreateSubnetResponse'
     { _creSubnet :: !(Maybe Subnet)
     , _creStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateSubnetResponse' smart constructor.
 createSubnetResponse :: Status -> CreateSubnetResponse

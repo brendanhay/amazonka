@@ -179,7 +179,7 @@ instance ToQuery CreateJob where
 data CreateJobResponse = CreateJobResponse'
     { _cjrJob    :: !(Maybe Job')
     , _cjrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateJobResponse' smart constructor.
 createJobResponse :: Status -> CreateJobResponse

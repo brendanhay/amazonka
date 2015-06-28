@@ -114,7 +114,7 @@ data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
     { _ldcrNextToken             :: !(Maybe Text)
     , _ldcrDeploymentConfigsList :: !(Maybe [Text])
     , _ldcrStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListDeploymentConfigsResponse' smart constructor.
 listDeploymentConfigsResponse :: Status -> ListDeploymentConfigsResponse

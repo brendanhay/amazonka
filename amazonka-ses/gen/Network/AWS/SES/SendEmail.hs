@@ -180,7 +180,7 @@ instance ToQuery SendEmail where
 data SendEmailResponse = SendEmailResponse'
     { _serMessageId :: !Text
     , _serStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SendEmailResponse' smart constructor.
 sendEmailResponse :: Text -> Status -> SendEmailResponse

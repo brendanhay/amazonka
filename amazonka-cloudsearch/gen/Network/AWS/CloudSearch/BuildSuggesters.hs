@@ -103,7 +103,7 @@ instance ToQuery BuildSuggesters where
 data BuildSuggestersResponse = BuildSuggestersResponse'
     { _bsrFieldNames :: !(Maybe [Text])
     , _bsrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'BuildSuggestersResponse' smart constructor.
 buildSuggestersResponse :: Status -> BuildSuggestersResponse

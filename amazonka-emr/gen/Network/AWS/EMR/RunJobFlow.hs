@@ -289,7 +289,7 @@ instance ToQuery RunJobFlow where
 data RunJobFlowResponse = RunJobFlowResponse'
     { _rjfrJobFlowId :: !(Maybe Text)
     , _rjfrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RunJobFlowResponse' smart constructor.
 runJobFlowResponse :: Status -> RunJobFlowResponse

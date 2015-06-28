@@ -126,7 +126,7 @@ data CancelImportTaskResponse = CancelImportTaskResponse'
     , _citrImportTaskId  :: !(Maybe Text)
     , _citrPreviousState :: !(Maybe Text)
     , _citrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CancelImportTaskResponse' smart constructor.
 cancelImportTaskResponse :: Status -> CancelImportTaskResponse

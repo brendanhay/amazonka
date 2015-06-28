@@ -130,7 +130,7 @@ data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
     { _goitrToken      :: !(Maybe Text)
     , _goitrIdentityId :: !(Maybe Text)
     , _goitrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetOpenIdTokenResponse' smart constructor.
 getOpenIdTokenResponse :: Status -> GetOpenIdTokenResponse

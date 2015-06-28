@@ -148,7 +148,7 @@ data ListUsersResponse = ListUsersResponse'
     , _lurIsTruncated :: !(Maybe Bool)
     , _lurUsers       :: ![User]
     , _lurStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListUsersResponse' smart constructor.
 listUsersResponse :: Status -> ListUsersResponse

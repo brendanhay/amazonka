@@ -138,7 +138,7 @@ instance ToQuery CreateVault where
 data CreateVaultResponse = CreateVaultResponse'
     { _cvrLocation :: !(Maybe Text)
     , _cvrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateVaultResponse' smart constructor.
 createVaultResponse :: Status -> CreateVaultResponse

@@ -155,7 +155,7 @@ data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
     { _dmarMovingAddressStatuses :: !(Maybe [MovingAddressStatus])
     , _dmarNextToken             :: !(Maybe Text)
     , _dmarStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeMovingAddressesResponse' smart constructor.
 describeMovingAddressesResponse :: Status -> DescribeMovingAddressesResponse

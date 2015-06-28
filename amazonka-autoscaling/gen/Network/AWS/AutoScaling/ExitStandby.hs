@@ -110,7 +110,7 @@ instance ToQuery ExitStandby where
 data ExitStandbyResponse = ExitStandbyResponse'
     { _exiActivities :: !(Maybe [Activity])
     , _exiStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ExitStandbyResponse' smart constructor.
 exitStandbyResponse :: Status -> ExitStandbyResponse

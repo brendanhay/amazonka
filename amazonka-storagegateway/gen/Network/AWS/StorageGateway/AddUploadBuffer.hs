@@ -117,7 +117,7 @@ instance ToQuery AddUploadBuffer where
 data AddUploadBufferResponse = AddUploadBufferResponse'
     { _aubrGatewayARN :: !(Maybe Text)
     , _aubrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AddUploadBufferResponse' smart constructor.
 addUploadBufferResponse :: Status -> AddUploadBufferResponse

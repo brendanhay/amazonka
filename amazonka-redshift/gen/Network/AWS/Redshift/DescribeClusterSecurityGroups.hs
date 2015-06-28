@@ -207,7 +207,7 @@ data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsRespon
     { _dcsgr1ClusterSecurityGroups :: !(Maybe [ClusterSecurityGroup])
     , _dcsgr1Marker                :: !(Maybe Text)
     , _dcsgr1Status                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeClusterSecurityGroupsResponse' smart constructor.
 describeClusterSecurityGroupsResponse :: Status -> DescribeClusterSecurityGroupsResponse

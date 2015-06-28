@@ -124,7 +124,7 @@ instance ToQuery DeleteClusterSnapshot where
 data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'
     { _dcsrSnapshot :: !(Maybe Snapshot)
     , _dcsrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteClusterSnapshotResponse' smart constructor.
 deleteClusterSnapshotResponse :: Status -> DeleteClusterSnapshotResponse

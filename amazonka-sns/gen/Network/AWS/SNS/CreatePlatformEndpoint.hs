@@ -156,7 +156,7 @@ instance ToQuery CreatePlatformEndpoint where
 data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse'
     { _cperEndpointARN :: !(Maybe Text)
     , _cperStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreatePlatformEndpointResponse' smart constructor.
 createPlatformEndpointResponse :: Status -> CreatePlatformEndpointResponse

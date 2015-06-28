@@ -121,7 +121,7 @@ instance ToQuery DescribePermissions where
 data DescribePermissionsResponse = DescribePermissionsResponse'
     { _dprPermissions :: !(Maybe [Permission])
     , _dprStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribePermissionsResponse' smart constructor.
 describePermissionsResponse :: Status -> DescribePermissionsResponse

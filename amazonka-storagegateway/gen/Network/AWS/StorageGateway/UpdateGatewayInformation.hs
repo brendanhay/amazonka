@@ -126,7 +126,7 @@ instance ToQuery UpdateGatewayInformation where
 data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
     { _ugirGatewayARN :: !(Maybe Text)
     , _ugirStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateGatewayInformationResponse' smart constructor.
 updateGatewayInformationResponse :: Status -> UpdateGatewayInformationResponse

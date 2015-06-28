@@ -156,7 +156,7 @@ instance ToQuery GetQueueAttributes where
 data GetQueueAttributesResponse = GetQueueAttributesResponse'
     { _gqarAttributes :: !(Maybe (Map QueueAttributeName Text))
     , _gqarStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetQueueAttributesResponse' smart constructor.
 getQueueAttributesResponse :: Status -> GetQueueAttributesResponse

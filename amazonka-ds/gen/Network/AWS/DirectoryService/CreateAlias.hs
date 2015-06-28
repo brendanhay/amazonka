@@ -128,7 +128,7 @@ data CreateAliasResponse = CreateAliasResponse'
     { _carDirectoryId :: !(Maybe Text)
     , _carAlias       :: !(Maybe Text)
     , _carStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateAliasResponse' smart constructor.
 createAliasResponse :: Status -> CreateAliasResponse

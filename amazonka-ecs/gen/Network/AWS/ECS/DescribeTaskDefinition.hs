@@ -109,7 +109,7 @@ instance ToQuery DescribeTaskDefinition where
 data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
     { _descTaskDefinition :: !(Maybe TaskDefinition)
     , _descStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeTaskDefinitionResponse' smart constructor.
 describeTaskDefinitionResponse :: Status -> DescribeTaskDefinitionResponse

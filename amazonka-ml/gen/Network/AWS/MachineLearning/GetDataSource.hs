@@ -198,7 +198,7 @@ data GetDataSourceResponse = GetDataSourceResponse'
     , _gdsrRoleARN           :: !(Maybe Text)
     , _gdsrDataRearrangement :: !(Maybe Text)
     , _gdsrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetDataSourceResponse' smart constructor.
 getDataSourceResponse :: Status -> GetDataSourceResponse

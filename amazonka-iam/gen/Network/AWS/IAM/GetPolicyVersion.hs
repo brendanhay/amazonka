@@ -116,7 +116,7 @@ instance ToQuery GetPolicyVersion where
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
     { _gpvrPolicyVersion :: !(Maybe PolicyVersion)
     , _gpvrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetPolicyVersionResponse' smart constructor.
 getPolicyVersionResponse :: Status -> GetPolicyVersionResponse

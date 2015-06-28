@@ -118,7 +118,7 @@ instance ToQuery DefineIndexField where
 data DefineIndexFieldResponse = DefineIndexFieldResponse'
     { _defIndexField :: !IndexFieldStatus
     , _defStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DefineIndexFieldResponse' smart constructor.
 defineIndexFieldResponse :: IndexFieldStatus -> Status -> DefineIndexFieldResponse

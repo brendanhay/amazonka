@@ -402,7 +402,7 @@ instance ToQuery RestoreDBInstanceToPointInTime where
 data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'
     { _rditpitrDBInstance :: !(Maybe DBInstance)
     , _rditpitrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RestoreDBInstanceToPointInTimeResponse' smart constructor.
 restoreDBInstanceToPointInTimeResponse :: Status -> RestoreDBInstanceToPointInTimeResponse

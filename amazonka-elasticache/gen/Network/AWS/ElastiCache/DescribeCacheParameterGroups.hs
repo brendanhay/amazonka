@@ -148,7 +148,7 @@ data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
     { _dcpgrCacheParameterGroups :: !(Maybe [CacheParameterGroup])
     , _dcpgrMarker               :: !(Maybe Text)
     , _dcpgrStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeCacheParameterGroupsResponse' smart constructor.
 describeCacheParameterGroupsResponse :: Status -> DescribeCacheParameterGroupsResponse

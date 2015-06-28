@@ -119,7 +119,7 @@ data DescribeTasksResponse = DescribeTasksResponse'
     { _dtrFailures :: !(Maybe [Failure])
     , _dtrTasks    :: !(Maybe [Task])
     , _dtrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeTasksResponse' smart constructor.
 describeTasksResponse :: Status -> DescribeTasksResponse

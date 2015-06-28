@@ -174,7 +174,7 @@ data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
     { _dcrNextToken      :: !(Maybe Text)
     , _dcrCommunications :: !(Maybe [Communication])
     , _dcrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeCommunicationsResponse' smart constructor.
 describeCommunicationsResponse :: Status -> DescribeCommunicationsResponse

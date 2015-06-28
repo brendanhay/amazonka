@@ -124,7 +124,7 @@ data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'
     { _lparPlatformApplications :: !(Maybe [PlatformApplication])
     , _lparNextToken            :: !(Maybe Text)
     , _lparStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListPlatformApplicationsResponse' smart constructor.
 listPlatformApplicationsResponse :: Status -> ListPlatformApplicationsResponse

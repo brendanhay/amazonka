@@ -131,7 +131,7 @@ instance ToQuery UnsubscribeFromDataset where
 -- * 'ufdrStatus'
 newtype UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'
     { _ufdrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UnsubscribeFromDatasetResponse' smart constructor.
 unsubscribeFromDatasetResponse :: Status -> UnsubscribeFromDatasetResponse

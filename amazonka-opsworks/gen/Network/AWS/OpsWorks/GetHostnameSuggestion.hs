@@ -115,7 +115,7 @@ data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
     { _ghsrHostname :: !(Maybe Text)
     , _ghsrLayerId  :: !(Maybe Text)
     , _ghsrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetHostnameSuggestionResponse' smart constructor.
 getHostnameSuggestionResponse :: Status -> GetHostnameSuggestionResponse

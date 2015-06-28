@@ -169,7 +169,7 @@ instance ToQuery UpdateTagsForDomain where
 -- * 'utfdrStatus'
 newtype UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'
     { _utfdrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateTagsForDomainResponse' smart constructor.
 updateTagsForDomainResponse :: Status -> UpdateTagsForDomainResponse

@@ -157,7 +157,7 @@ instance ToQuery RegisterContainerInstance where
 data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
     { _rcirContainerInstance :: !(Maybe ContainerInstance)
     , _rcirStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RegisterContainerInstanceResponse' smart constructor.
 registerContainerInstanceResponse :: Status -> RegisterContainerInstanceResponse

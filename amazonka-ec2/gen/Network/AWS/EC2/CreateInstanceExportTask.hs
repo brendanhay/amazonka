@@ -131,7 +131,7 @@ instance ToQuery CreateInstanceExportTask where
 data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
     { _cietrExportTask :: !(Maybe ExportTask)
     , _cietrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateInstanceExportTaskResponse' smart constructor.
 createInstanceExportTaskResponse :: Status -> CreateInstanceExportTaskResponse

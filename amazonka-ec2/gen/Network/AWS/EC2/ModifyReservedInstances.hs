@@ -126,7 +126,7 @@ instance ToQuery ModifyReservedInstances where
 data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
     { _mrirReservedInstancesModificationId :: !(Maybe Text)
     , _mrirStatus                          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifyReservedInstancesResponse' smart constructor.
 modifyReservedInstancesResponse :: Status -> ModifyReservedInstancesResponse

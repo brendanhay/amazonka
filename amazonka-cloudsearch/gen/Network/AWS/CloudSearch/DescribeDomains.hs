@@ -111,7 +111,7 @@ instance ToQuery DescribeDomains where
 data DescribeDomainsResponse = DescribeDomainsResponse'
     { _descDomainStatusList :: ![DomainStatus]
     , _descStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDomainsResponse' smart constructor.
 describeDomainsResponse :: Status -> DescribeDomainsResponse

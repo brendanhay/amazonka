@@ -162,7 +162,7 @@ data ListDeploymentsResponse = ListDeploymentsResponse'
     { _ldrNextToken   :: !(Maybe Text)
     , _ldrDeployments :: !(Maybe [Text])
     , _ldrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListDeploymentsResponse' smart constructor.
 listDeploymentsResponse :: Status -> ListDeploymentsResponse

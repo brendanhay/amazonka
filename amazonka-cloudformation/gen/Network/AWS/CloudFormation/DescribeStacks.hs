@@ -131,7 +131,7 @@ data DescribeStacksResponse = DescribeStacksResponse'
     { _dsrNextToken :: !(Maybe Text)
     , _dsrStacks    :: !(Maybe [Stack])
     , _dsrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeStacksResponse' smart constructor.
 describeStacksResponse :: Status -> DescribeStacksResponse

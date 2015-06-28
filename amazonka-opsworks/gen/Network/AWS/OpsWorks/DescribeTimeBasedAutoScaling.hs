@@ -115,7 +115,7 @@ instance ToQuery DescribeTimeBasedAutoScaling where
 data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'
     { _dtbasrTimeBasedAutoScalingConfigurations :: !(Maybe [TimeBasedAutoScalingConfiguration])
     , _dtbasrStatus                             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeTimeBasedAutoScalingResponse' smart constructor.
 describeTimeBasedAutoScalingResponse :: Status -> DescribeTimeBasedAutoScalingResponse

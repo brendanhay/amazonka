@@ -177,7 +177,7 @@ data ReEncryptResponse = ReEncryptResponse'
     , _rerKeyId          :: !(Maybe Text)
     , _rerCiphertextBlob :: !(Maybe Base64)
     , _rerStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ReEncryptResponse' smart constructor.
 reEncryptResponse :: Status -> ReEncryptResponse

@@ -181,7 +181,7 @@ data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'
     { _ltdrTaskDefinitionARNs :: !(Maybe [Text])
     , _ltdrNextToken          :: !(Maybe Text)
     , _ltdrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListTaskDefinitionsResponse' smart constructor.
 listTaskDefinitionsResponse :: Status -> ListTaskDefinitionsResponse

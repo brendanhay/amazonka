@@ -122,7 +122,7 @@ instance ToQuery CreateCacheSecurityGroup where
 data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'
     { _ccsgrCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
     , _ccsgrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateCacheSecurityGroupResponse' smart constructor.
 createCacheSecurityGroupResponse :: Status -> CreateCacheSecurityGroupResponse

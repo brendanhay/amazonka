@@ -204,7 +204,7 @@ data ListJobsResponse = ListJobsResponse'
     { _ljrMarker  :: !(Maybe Text)
     , _ljrJobList :: !(Maybe [GlacierJobDescription])
     , _ljrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListJobsResponse' smart constructor.
 listJobsResponse :: Status -> ListJobsResponse

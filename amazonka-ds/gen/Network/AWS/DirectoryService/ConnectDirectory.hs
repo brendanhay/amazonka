@@ -155,7 +155,7 @@ instance ToQuery ConnectDirectory where
 data ConnectDirectoryResponse = ConnectDirectoryResponse'
     { _cdrDirectoryId :: !(Maybe Text)
     , _cdrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ConnectDirectoryResponse' smart constructor.
 connectDirectoryResponse :: Status -> ConnectDirectoryResponse

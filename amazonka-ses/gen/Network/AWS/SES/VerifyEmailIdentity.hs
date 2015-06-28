@@ -98,7 +98,7 @@ instance ToQuery VerifyEmailIdentity where
 -- * 'veirStatus'
 newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
     { _veirStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'VerifyEmailIdentityResponse' smart constructor.
 verifyEmailIdentityResponse :: Status -> VerifyEmailIdentityResponse

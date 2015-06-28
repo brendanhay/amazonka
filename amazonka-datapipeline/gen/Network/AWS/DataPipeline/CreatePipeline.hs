@@ -149,7 +149,7 @@ instance ToQuery CreatePipeline where
 data CreatePipelineResponse = CreatePipelineResponse'
     { _cprPipelineId :: !Text
     , _cprStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreatePipelineResponse' smart constructor.
 createPipelineResponse :: Text -> Status -> CreatePipelineResponse

@@ -107,7 +107,7 @@ instance ToQuery DisableVPCClassicLink where
 data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'
     { _disReturn :: !(Maybe Bool)
     , _disStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DisableVPCClassicLinkResponse' smart constructor.
 disableVPCClassicLinkResponse :: Status -> DisableVPCClassicLinkResponse

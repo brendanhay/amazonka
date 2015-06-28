@@ -191,7 +191,7 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
     , _desProductCodes                      :: !(Maybe [ProductCode])
     , _desBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMapping])
     , _desStatus                            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeInstanceAttributeResponse' smart constructor.
 describeInstanceAttributeResponse :: Status -> DescribeInstanceAttributeResponse

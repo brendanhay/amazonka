@@ -83,7 +83,7 @@ data ListMultipartUploads = ListMultipartUploads'
     , _lmuUploadIdMarker :: !(Maybe Text)
     , _lmuDelimiter      :: !(Maybe Char)
     , _lmuBucket         :: !BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListMultipartUploads' smart constructor.
 listMultipartUploads :: BucketName -> ListMultipartUploads
@@ -224,7 +224,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
     , _lmurNextUploadIdMarker :: !(Maybe Text)
     , _lmurDelimiter          :: !(Maybe Char)
     , _lmurStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
 listMultipartUploadsResponse :: Status -> ListMultipartUploadsResponse

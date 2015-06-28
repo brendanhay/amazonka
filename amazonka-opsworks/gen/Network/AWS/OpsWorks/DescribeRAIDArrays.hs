@@ -135,7 +135,7 @@ instance ToQuery DescribeRAIDArrays where
 data DescribeRAIDArraysResponse = DescribeRAIDArraysResponse'
     { _drarRAIDArrays :: !(Maybe [RAIDArray])
     , _drarStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeRAIDArraysResponse' smart constructor.
 describeRAIDArraysResponse :: Status -> DescribeRAIDArraysResponse

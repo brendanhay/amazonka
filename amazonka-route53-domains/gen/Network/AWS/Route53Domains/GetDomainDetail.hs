@@ -215,7 +215,7 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
     , _gddrRegistrantContact :: !(Sensitive ContactDetail)
     , _gddrTechContact       :: !(Sensitive ContactDetail)
     , _gddrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetDomainDetailResponse' smart constructor.
 getDomainDetailResponse :: Text -> ContactDetail -> ContactDetail -> ContactDetail -> Status -> GetDomainDetailResponse

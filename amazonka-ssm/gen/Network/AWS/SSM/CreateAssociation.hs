@@ -118,7 +118,7 @@ instance ToQuery CreateAssociation where
 data CreateAssociationResponse = CreateAssociationResponse'
     { _carAssociationDescription :: !(Maybe AssociationDescription)
     , _carStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateAssociationResponse' smart constructor.
 createAssociationResponse :: Status -> CreateAssociationResponse

@@ -106,7 +106,7 @@ instance ToQuery CreateTopic where
 data CreateTopicResponse = CreateTopicResponse'
     { _ctrTopicARN :: !(Maybe Text)
     , _ctrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateTopicResponse' smart constructor.
 createTopicResponse :: Status -> CreateTopicResponse

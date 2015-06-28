@@ -130,7 +130,7 @@ instance ToQuery
 -- * 'slbpfbsrStatus'
 newtype SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse'
     { _slbpfbsrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SetLoadBalancerPoliciesForBackendServerResponse' smart constructor.
 setLoadBalancerPoliciesForBackendServerResponse :: Status -> SetLoadBalancerPoliciesForBackendServerResponse

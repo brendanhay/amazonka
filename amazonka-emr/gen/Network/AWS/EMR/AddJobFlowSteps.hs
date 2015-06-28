@@ -139,7 +139,7 @@ instance ToQuery AddJobFlowSteps where
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
     { _ajfsrStepIds :: !(Maybe [Text])
     , _ajfsrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AddJobFlowStepsResponse' smart constructor.
 addJobFlowStepsResponse :: Status -> AddJobFlowStepsResponse

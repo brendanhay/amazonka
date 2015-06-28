@@ -129,7 +129,7 @@ data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
     { _usdrETag                  :: !(Maybe Text)
     , _usdrStreamingDistribution :: !(Maybe StreamingDistribution)
     , _usdrStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateStreamingDistributionResponse' smart constructor.
 updateStreamingDistributionResponse :: Status -> UpdateStreamingDistributionResponse

@@ -153,7 +153,7 @@ instance ToQuery StopInstances where
 data StopInstancesResponse = StopInstancesResponse'
     { _stoStoppingInstances :: !(Maybe [InstanceStateChange])
     , _stoStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'StopInstancesResponse' smart constructor.
 stopInstancesResponse :: Status -> StopInstancesResponse

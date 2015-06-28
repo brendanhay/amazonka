@@ -115,7 +115,7 @@ instance ToQuery UpdateSAMLProvider where
 data UpdateSAMLProviderResponse = UpdateSAMLProviderResponse'
     { _usamlprSAMLProviderARN :: !(Maybe Text)
     , _usamlprStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateSAMLProviderResponse' smart constructor.
 updateSAMLProviderResponse :: Status -> UpdateSAMLProviderResponse

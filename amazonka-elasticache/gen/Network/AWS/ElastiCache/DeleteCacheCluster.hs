@@ -117,7 +117,7 @@ instance ToQuery DeleteCacheCluster where
 data DeleteCacheClusterResponse = DeleteCacheClusterResponse'
     { _dccrCacheCluster :: !(Maybe CacheCluster)
     , _dccrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteCacheClusterResponse' smart constructor.
 deleteCacheClusterResponse :: Status -> DeleteCacheClusterResponse

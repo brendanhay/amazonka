@@ -110,7 +110,7 @@ data ListHAPGsResponse = ListHAPGsResponse'
     { _lhrNextToken :: !(Maybe Text)
     , _lhrHAPGList  :: ![Text]
     , _lhrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListHAPGsResponse' smart constructor.
 listHAPGsResponse :: Status -> ListHAPGsResponse

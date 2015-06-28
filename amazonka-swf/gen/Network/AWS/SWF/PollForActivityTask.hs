@@ -188,7 +188,7 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse'
     , _pfatrWorkflowExecution :: !WorkflowExecution
     , _pfatrActivityType      :: !ActivityType
     , _pfatrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PollForActivityTaskResponse' smart constructor.
 pollForActivityTaskResponse :: Text -> Text -> Integer -> WorkflowExecution -> ActivityType -> Status -> PollForActivityTaskResponse

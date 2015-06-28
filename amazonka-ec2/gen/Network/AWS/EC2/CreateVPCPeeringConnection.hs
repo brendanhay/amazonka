@@ -141,7 +141,7 @@ instance ToQuery CreateVPCPeeringConnection where
 data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
     { _cvpcrVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
     , _cvpcrStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateVPCPeeringConnectionResponse' smart constructor.
 createVPCPeeringConnectionResponse :: Status -> CreateVPCPeeringConnectionResponse

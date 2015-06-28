@@ -121,7 +121,7 @@ instance ToQuery DescribeLayers where
 data DescribeLayersResponse = DescribeLayersResponse'
     { _dlrLayers :: !(Maybe [Layer])
     , _dlrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeLayersResponse' smart constructor.
 describeLayersResponse :: Status -> DescribeLayersResponse

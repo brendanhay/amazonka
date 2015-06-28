@@ -260,7 +260,7 @@ data DescribeMLModelsResponse = DescribeMLModelsResponse'
     { _descResults   :: !(Maybe [MLModel])
     , _descNextToken :: !(Maybe Text)
     , _descStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeMLModelsResponse' smart constructor.
 describeMLModelsResponse :: Status -> DescribeMLModelsResponse

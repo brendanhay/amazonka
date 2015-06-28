@@ -186,7 +186,7 @@ data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'
     { _dcevrCacheEngineVersions :: !(Maybe [CacheEngineVersion])
     , _dcevrMarker              :: !(Maybe Text)
     , _dcevrStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeCacheEngineVersionsResponse' smart constructor.
 describeCacheEngineVersionsResponse :: Status -> DescribeCacheEngineVersionsResponse

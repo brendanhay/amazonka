@@ -117,7 +117,7 @@ instance ToQuery TerminateWorkspaces where
 data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
     { _twrFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
     , _twrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'TerminateWorkspacesResponse' smart constructor.
 terminateWorkspacesResponse :: Status -> TerminateWorkspacesResponse

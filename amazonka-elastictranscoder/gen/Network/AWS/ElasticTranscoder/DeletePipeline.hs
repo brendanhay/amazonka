@@ -92,7 +92,7 @@ instance ToQuery DeletePipeline where
 -- * 'delStatus'
 newtype DeletePipelineResponse = DeletePipelineResponse'
     { _delStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeletePipelineResponse' smart constructor.
 deletePipelineResponse :: Status -> DeletePipelineResponse

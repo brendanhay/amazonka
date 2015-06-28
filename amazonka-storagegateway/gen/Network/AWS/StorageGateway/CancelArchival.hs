@@ -117,7 +117,7 @@ instance ToQuery CancelArchival where
 data CancelArchivalResponse = CancelArchivalResponse'
     { _carTapeARN :: !(Maybe Text)
     , _carStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CancelArchivalResponse' smart constructor.
 cancelArchivalResponse :: Status -> CancelArchivalResponse

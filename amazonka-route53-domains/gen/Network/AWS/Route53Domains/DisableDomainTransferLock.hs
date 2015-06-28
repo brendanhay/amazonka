@@ -121,7 +121,7 @@ instance ToQuery DisableDomainTransferLock where
 data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
     { _ddtlrOperationId :: !Text
     , _ddtlrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DisableDomainTransferLockResponse' smart constructor.
 disableDomainTransferLockResponse :: Text -> Status -> DisableDomainTransferLockResponse

@@ -156,7 +156,7 @@ instance ToQuery CopyImage where
 data CopyImageResponse = CopyImageResponse'
     { _copImageId :: !(Maybe Text)
     , _copStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CopyImageResponse' smart constructor.
 copyImageResponse :: Status -> CopyImageResponse

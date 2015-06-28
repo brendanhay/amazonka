@@ -184,7 +184,7 @@ data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryRe
     , _dsfrhrLastEvaluatedTime  :: !ISO8601
     , _dsfrhrHistoryRecords     :: ![HistoryRecord]
     , _dsfrhrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeSpotFleetRequestHistoryResponse' smart constructor.
 describeSpotFleetRequestHistoryResponse :: Text -> UTCTime -> UTCTime -> Status -> DescribeSpotFleetRequestHistoryResponse

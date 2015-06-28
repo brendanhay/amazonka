@@ -150,7 +150,7 @@ data ListContainerInstancesResponse = ListContainerInstancesResponse'
     { _lcirContainerInstanceARNs :: !(Maybe [Text])
     , _lcirNextToken             :: !(Maybe Text)
     , _lcirStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListContainerInstancesResponse' smart constructor.
 listContainerInstancesResponse :: Status -> ListContainerInstancesResponse

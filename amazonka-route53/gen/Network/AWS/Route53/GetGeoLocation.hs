@@ -133,7 +133,7 @@ instance ToQuery GetGeoLocation where
 data GetGeoLocationResponse = GetGeoLocationResponse'
     { _gglrGeoLocationDetails :: !GeoLocationDetails
     , _gglrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetGeoLocationResponse' smart constructor.
 getGeoLocationResponse :: GeoLocationDetails -> Status -> GetGeoLocationResponse

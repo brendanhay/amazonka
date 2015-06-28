@@ -153,7 +153,7 @@ instance ToQuery DeleteDBInstance where
 data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
     { _ddirDBInstance :: !(Maybe DBInstance)
     , _ddirStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteDBInstanceResponse' smart constructor.
 deleteDBInstanceResponse :: Status -> DeleteDBInstanceResponse

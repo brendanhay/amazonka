@@ -163,7 +163,7 @@ data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
     { _desDBInstances :: !(Maybe [DBInstance])
     , _desMarker      :: !(Maybe Text)
     , _desStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDBInstancesResponse' smart constructor.
 describeDBInstancesResponse :: Status -> DescribeDBInstancesResponse

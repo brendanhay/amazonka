@@ -153,7 +153,7 @@ instance ToQuery SetTaskStatus where
 -- * 'stsrStatus'
 newtype SetTaskStatusResponse = SetTaskStatusResponse'
     { _stsrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SetTaskStatusResponse' smart constructor.
 setTaskStatusResponse :: Status -> SetTaskStatusResponse

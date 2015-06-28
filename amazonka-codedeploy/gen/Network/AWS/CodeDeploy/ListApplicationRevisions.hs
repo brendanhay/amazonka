@@ -202,7 +202,7 @@ data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
     { _larrNextToken :: !(Maybe Text)
     , _larrRevisions :: !(Maybe [RevisionLocation])
     , _larrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListApplicationRevisionsResponse' smart constructor.
 listApplicationRevisionsResponse :: Status -> ListApplicationRevisionsResponse

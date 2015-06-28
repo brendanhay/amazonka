@@ -116,7 +116,7 @@ instance ToQuery DefineSuggester where
 data DefineSuggesterResponse = DefineSuggesterResponse'
     { _dsrSuggester :: !SuggesterStatus
     , _dsrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DefineSuggesterResponse' smart constructor.
 defineSuggesterResponse :: SuggesterStatus -> Status -> DefineSuggesterResponse

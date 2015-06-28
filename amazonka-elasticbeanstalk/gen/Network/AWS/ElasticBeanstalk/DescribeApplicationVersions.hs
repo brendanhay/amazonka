@@ -116,7 +116,7 @@ instance ToQuery DescribeApplicationVersions where
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
     { _davrApplicationVersions :: !(Maybe [ApplicationVersionDescription])
     , _davrStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeApplicationVersionsResponse' smart constructor.
 describeApplicationVersionsResponse :: Status -> DescribeApplicationVersionsResponse

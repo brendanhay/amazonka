@@ -133,7 +133,7 @@ instance ToQuery SetIdentityNotificationTopic where
 -- * 'sintrStatus'
 newtype SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'
     { _sintrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SetIdentityNotificationTopicResponse' smart constructor.
 setIdentityNotificationTopicResponse :: Status -> SetIdentityNotificationTopicResponse

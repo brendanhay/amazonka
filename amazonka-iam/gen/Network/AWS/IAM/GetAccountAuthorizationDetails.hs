@@ -167,7 +167,7 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
     , _gaadrIsTruncated     :: !(Maybe Bool)
     , _gaadrPolicies        :: !(Maybe [ManagedPolicyDetail])
     , _gaadrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetAccountAuthorizationDetailsResponse' smart constructor.
 getAccountAuthorizationDetailsResponse :: Status -> GetAccountAuthorizationDetailsResponse

@@ -146,7 +146,7 @@ instance ToQuery CreateOptionGroup where
 data CreateOptionGroupResponse = CreateOptionGroupResponse'
     { _creaOptionGroup :: !(Maybe OptionGroup)
     , _creaStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateOptionGroupResponse' smart constructor.
 createOptionGroupResponse :: Status -> CreateOptionGroupResponse

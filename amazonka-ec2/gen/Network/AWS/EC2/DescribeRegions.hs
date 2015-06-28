@@ -126,7 +126,7 @@ instance ToQuery DescribeRegions where
 data DescribeRegionsResponse = DescribeRegionsResponse'
     { _drrRegions :: !(Maybe [RegionInfo])
     , _drrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeRegionsResponse' smart constructor.
 describeRegionsResponse :: Status -> DescribeRegionsResponse

@@ -136,7 +136,7 @@ instance ToQuery DescribeVPCClassicLink where
 data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'
     { _dvclrVPCs   :: !(Maybe [VPCClassicLink])
     , _dvclrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeVPCClassicLinkResponse' smart constructor.
 describeVPCClassicLinkResponse :: Status -> DescribeVPCClassicLinkResponse

@@ -296,7 +296,7 @@ instance ToQuery CreateLayer where
 data CreateLayerResponse = CreateLayerResponse'
     { _clrLayerId :: !(Maybe Text)
     , _clrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateLayerResponse' smart constructor.
 createLayerResponse :: Status -> CreateLayerResponse

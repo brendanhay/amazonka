@@ -176,7 +176,7 @@ data GetRecordsResponse = GetRecordsResponse'
     , _grrNextShardIterator  :: !(Maybe Text)
     , _grrRecords            :: ![Record]
     , _grrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetRecordsResponse' smart constructor.
 getRecordsResponse :: Status -> GetRecordsResponse

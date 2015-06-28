@@ -120,7 +120,7 @@ instance ToQuery UpdateBatchPrediction where
 data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
     { _ubprBatchPredictionId :: !(Maybe Text)
     , _ubprStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateBatchPredictionResponse' smart constructor.
 updateBatchPredictionResponse :: Status -> UpdateBatchPredictionResponse

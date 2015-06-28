@@ -225,7 +225,7 @@ instance ToQuery CreateEventSubscription where
 data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'
     { _cesrEventSubscription :: !(Maybe EventSubscription)
     , _cesrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateEventSubscriptionResponse' smart constructor.
 createEventSubscriptionResponse :: Status -> CreateEventSubscriptionResponse

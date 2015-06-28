@@ -340,7 +340,7 @@ instance ToQuery TransferDomain where
 data TransferDomainResponse = TransferDomainResponse'
     { _tdrOperationId :: !Text
     , _tdrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'TransferDomainResponse' smart constructor.
 transferDomainResponse :: Text -> Status -> TransferDomainResponse

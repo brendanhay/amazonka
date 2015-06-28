@@ -98,7 +98,7 @@ instance ToQuery DeleteTrail where
 -- * 'delStatus'
 newtype DeleteTrailResponse = DeleteTrailResponse'
     { _delStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteTrailResponse' smart constructor.
 deleteTrailResponse :: Status -> DeleteTrailResponse

@@ -198,7 +198,7 @@ data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'
     { _gwehrNextPageToken :: !(Maybe Text)
     , _gwehrEvents        :: ![HistoryEvent]
     , _gwehrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetWorkflowExecutionHistoryResponse' smart constructor.
 getWorkflowExecutionHistoryResponse :: Status -> GetWorkflowExecutionHistoryResponse

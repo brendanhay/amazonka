@@ -122,7 +122,7 @@ data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningPara
     { _dspprAgentInstallerURL :: !(Maybe Text)
     , _dspprParameters        :: !(Maybe (Map Text Text))
     , _dspprStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeStackProvisioningParametersResponse' smart constructor.
 describeStackProvisioningParametersResponse :: Status -> DescribeStackProvisioningParametersResponse

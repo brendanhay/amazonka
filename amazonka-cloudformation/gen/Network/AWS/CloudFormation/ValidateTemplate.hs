@@ -139,7 +139,7 @@ data ValidateTemplateResponse = ValidateTemplateResponse'
     , _vtrCapabilities       :: !(Maybe [Capability])
     , _vtrDescription        :: !(Maybe Text)
     , _vtrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ValidateTemplateResponse' smart constructor.
 validateTemplateResponse :: Status -> ValidateTemplateResponse

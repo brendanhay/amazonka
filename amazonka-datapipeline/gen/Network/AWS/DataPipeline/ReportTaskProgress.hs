@@ -127,7 +127,7 @@ instance ToQuery ReportTaskProgress where
 data ReportTaskProgressResponse = ReportTaskProgressResponse'
     { _rtprCanceled :: !Bool
     , _rtprStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ReportTaskProgressResponse' smart constructor.
 reportTaskProgressResponse :: Bool -> Status -> ReportTaskProgressResponse

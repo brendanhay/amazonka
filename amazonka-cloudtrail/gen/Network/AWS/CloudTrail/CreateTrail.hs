@@ -207,7 +207,7 @@ data CreateTrailResponse = CreateTrailResponse'
     , _ctrCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _ctrS3BucketName               :: !(Maybe Text)
     , _ctrStatus                     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateTrailResponse' smart constructor.
 createTrailResponse :: Status -> CreateTrailResponse

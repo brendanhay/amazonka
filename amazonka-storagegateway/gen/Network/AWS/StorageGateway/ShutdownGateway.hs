@@ -127,7 +127,7 @@ instance ToQuery ShutdownGateway where
 data ShutdownGatewayResponse = ShutdownGatewayResponse'
     { _sgrGatewayARN :: !(Maybe Text)
     , _sgrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ShutdownGatewayResponse' smart constructor.
 shutdownGatewayResponse :: Status -> ShutdownGatewayResponse

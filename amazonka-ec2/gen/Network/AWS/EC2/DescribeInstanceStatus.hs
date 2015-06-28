@@ -238,7 +238,7 @@ data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
     { _disrInstanceStatuses :: !(Maybe [InstanceStatus])
     , _disrNextToken        :: !(Maybe Text)
     , _disrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeInstanceStatusResponse' smart constructor.
 describeInstanceStatusResponse :: Status -> DescribeInstanceStatusResponse

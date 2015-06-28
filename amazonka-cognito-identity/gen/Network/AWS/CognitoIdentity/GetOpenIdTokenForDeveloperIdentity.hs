@@ -181,7 +181,7 @@ data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIden
     { _goitfdirToken      :: !(Maybe Text)
     , _goitfdirIdentityId :: !(Maybe Text)
     , _goitfdirStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetOpenIdTokenForDeveloperIdentityResponse' smart constructor.
 getOpenIdTokenForDeveloperIdentityResponse :: Status -> GetOpenIdTokenForDeveloperIdentityResponse

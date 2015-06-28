@@ -112,7 +112,7 @@ instance ToQuery CreateAccessKey where
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
     { _cakrAccessKey :: !AccessKey
     , _cakrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateAccessKeyResponse' smart constructor.
 createAccessKeyResponse :: AccessKey -> Status -> CreateAccessKeyResponse

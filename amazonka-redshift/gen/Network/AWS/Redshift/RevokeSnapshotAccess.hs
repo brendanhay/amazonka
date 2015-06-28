@@ -128,7 +128,7 @@ instance ToQuery RevokeSnapshotAccess where
 data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
     { _rsarSnapshot :: !(Maybe Snapshot)
     , _rsarStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RevokeSnapshotAccessResponse' smart constructor.
 revokeSnapshotAccessResponse :: Status -> RevokeSnapshotAccessResponse

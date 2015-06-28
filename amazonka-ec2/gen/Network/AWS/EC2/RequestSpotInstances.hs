@@ -236,7 +236,7 @@ instance ToQuery RequestSpotInstances where
 data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
     { _rsirSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
     , _rsirStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RequestSpotInstancesResponse' smart constructor.
 requestSpotInstancesResponse :: Status -> RequestSpotInstancesResponse

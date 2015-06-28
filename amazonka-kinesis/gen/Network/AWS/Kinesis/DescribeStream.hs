@@ -161,7 +161,7 @@ instance ToQuery DescribeStream where
 data DescribeStreamResponse = DescribeStreamResponse'
     { _dsrStreamDescription :: !StreamDescription
     , _dsrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeStreamResponse' smart constructor.
 describeStreamResponse :: StreamDescription -> Status -> DescribeStreamResponse

@@ -113,7 +113,7 @@ instance ToQuery DescribeStep where
 data DescribeStepResponse = DescribeStepResponse'
     { _dsrStep   :: !(Maybe Step)
     , _dsrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeStepResponse' smart constructor.
 describeStepResponse :: Status -> DescribeStepResponse

@@ -136,7 +136,7 @@ data ListTablesResponse = ListTablesResponse'
     { _ltrLastEvaluatedTableName :: !(Maybe Text)
     , _ltrTableNames             :: !(Maybe [Text])
     , _ltrStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListTablesResponse' smart constructor.
 listTablesResponse :: Status -> ListTablesResponse

@@ -113,7 +113,7 @@ instance ToQuery CreateDocument where
 data CreateDocumentResponse = CreateDocumentResponse'
     { _cdrDocumentDescription :: !(Maybe DocumentDescription)
     , _cdrStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDocumentResponse' smart constructor.
 createDocumentResponse :: Status -> CreateDocumentResponse

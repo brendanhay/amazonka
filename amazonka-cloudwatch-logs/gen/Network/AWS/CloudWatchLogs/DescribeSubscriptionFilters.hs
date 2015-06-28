@@ -146,7 +146,7 @@ data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
     { _dsfrSubscriptionFilters :: !(Maybe [SubscriptionFilter])
     , _dsfrNextToken           :: !(Maybe Text)
     , _dsfrStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeSubscriptionFiltersResponse' smart constructor.
 describeSubscriptionFiltersResponse :: Status -> DescribeSubscriptionFiltersResponse

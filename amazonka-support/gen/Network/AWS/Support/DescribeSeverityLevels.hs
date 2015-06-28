@@ -109,7 +109,7 @@ instance ToQuery DescribeSeverityLevels where
 data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
     { _dslrSeverityLevels :: !(Maybe [SeverityLevel])
     , _dslrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeSeverityLevelsResponse' smart constructor.
 describeSeverityLevelsResponse :: Status -> DescribeSeverityLevelsResponse

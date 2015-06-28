@@ -129,7 +129,7 @@ data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
     { _dmbrSuccessful :: ![DeleteMessageBatchResultEntry]
     , _dmbrFailed     :: ![BatchResultErrorEntry]
     , _dmbrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteMessageBatchResponse' smart constructor.
 deleteMessageBatchResponse :: Status -> DeleteMessageBatchResponse

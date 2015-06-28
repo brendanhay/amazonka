@@ -174,7 +174,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
     { _lmurUploadsList :: !(Maybe [UploadListElement])
     , _lmurMarker      :: !(Maybe Text)
     , _lmurStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
 listMultipartUploadsResponse :: Status -> ListMultipartUploadsResponse

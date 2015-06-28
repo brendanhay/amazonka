@@ -152,7 +152,7 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
     , _liprIsTruncated      :: !(Maybe Bool)
     , _liprInstanceProfiles :: ![InstanceProfile]
     , _liprStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListInstanceProfilesResponse' smart constructor.
 listInstanceProfilesResponse :: Status -> ListInstanceProfilesResponse

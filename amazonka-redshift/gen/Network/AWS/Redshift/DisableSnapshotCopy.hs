@@ -106,7 +106,7 @@ instance ToQuery DisableSnapshotCopy where
 data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
     { _dscrCluster :: !(Maybe Cluster)
     , _dscrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DisableSnapshotCopyResponse' smart constructor.
 disableSnapshotCopyResponse :: Status -> DisableSnapshotCopyResponse

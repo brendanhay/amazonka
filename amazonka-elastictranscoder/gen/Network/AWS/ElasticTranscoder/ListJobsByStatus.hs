@@ -137,7 +137,7 @@ data ListJobsByStatusResponse = ListJobsByStatusResponse'
     { _ljbsrNextPageToken :: !(Maybe Text)
     , _ljbsrJobs          :: !(Maybe [Job'])
     , _ljbsrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListJobsByStatusResponse' smart constructor.
 listJobsByStatusResponse :: Status -> ListJobsByStatusResponse

@@ -112,7 +112,7 @@ data CreateWorkspacesResponse = CreateWorkspacesResponse'
     { _cwrFailedRequests  :: !(Maybe [FailedCreateWorkspaceRequest])
     , _cwrPendingRequests :: !(Maybe [Workspace])
     , _cwrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateWorkspacesResponse' smart constructor.
 createWorkspacesResponse :: Status -> CreateWorkspacesResponse

@@ -95,7 +95,7 @@ instance ToQuery ReadPreset where
 data ReadPresetResponse = ReadPresetResponse'
     { _rprPreset :: !(Maybe Preset)
     , _rprStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ReadPresetResponse' smart constructor.
 readPresetResponse :: Status -> ReadPresetResponse

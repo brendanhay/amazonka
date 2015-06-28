@@ -162,7 +162,7 @@ data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActio
     { _dpmarPendingMaintenanceActions :: !(Maybe [ResourcePendingMaintenanceActions])
     , _dpmarMarker                    :: !(Maybe Text)
     , _dpmarStatus                    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribePendingMaintenanceActionsResponse' smart constructor.
 describePendingMaintenanceActionsResponse :: Status -> DescribePendingMaintenanceActionsResponse

@@ -99,7 +99,7 @@ instance ToQuery GetRole where
 data GetRoleResponse = GetRoleResponse'
     { _grrRole   :: !Role
     , _grrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetRoleResponse' smart constructor.
 getRoleResponse :: Role -> Status -> GetRoleResponse

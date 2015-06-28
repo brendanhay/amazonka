@@ -125,7 +125,7 @@ instance ToQuery ConfirmSubscription where
 data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'
     { _csrSubscriptionARN :: !(Maybe Text)
     , _csrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ConfirmSubscriptionResponse' smart constructor.
 confirmSubscriptionResponse :: Status -> ConfirmSubscriptionResponse

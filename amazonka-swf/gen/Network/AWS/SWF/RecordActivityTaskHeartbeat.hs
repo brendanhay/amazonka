@@ -166,7 +166,7 @@ instance ToQuery RecordActivityTaskHeartbeat where
 data RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse'
     { _rathrCancelRequested :: !Bool
     , _rathrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RecordActivityTaskHeartbeatResponse' smart constructor.
 recordActivityTaskHeartbeatResponse :: Bool -> Status -> RecordActivityTaskHeartbeatResponse

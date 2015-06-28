@@ -116,7 +116,7 @@ instance ToQuery GetDeploymentInstance where
 data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'
     { _gdirInstanceSummary :: !(Maybe InstanceSummary)
     , _gdirStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetDeploymentInstanceResponse' smart constructor.
 getDeploymentInstanceResponse :: Status -> GetDeploymentInstanceResponse

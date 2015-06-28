@@ -148,7 +148,7 @@ data ListOperationsResponse = ListOperationsResponse'
     { _lorNextPageMarker :: !(Maybe Text)
     , _lorOperations     :: ![OperationSummary]
     , _lorStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListOperationsResponse' smart constructor.
 listOperationsResponse :: Status -> ListOperationsResponse

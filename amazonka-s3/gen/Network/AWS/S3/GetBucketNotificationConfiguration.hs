@@ -48,7 +48,7 @@ import           Network.AWS.S3.Types
 -- * 'gbncBucket'
 newtype GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
     { _gbncBucket :: BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketNotificationConfiguration' smart constructor.
 getBucketNotificationConfiguration :: BucketName -> GetBucketNotificationConfiguration

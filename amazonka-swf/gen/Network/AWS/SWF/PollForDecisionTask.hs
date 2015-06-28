@@ -267,7 +267,7 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
     , _pfdtrWorkflowType           :: !WorkflowType
     , _pfdtrEvents                 :: ![HistoryEvent]
     , _pfdtrStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PollForDecisionTaskResponse' smart constructor.
 pollForDecisionTaskResponse :: Text -> Integer -> WorkflowExecution -> WorkflowType -> Status -> PollForDecisionTaskResponse

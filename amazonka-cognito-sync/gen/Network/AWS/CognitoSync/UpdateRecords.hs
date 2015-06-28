@@ -188,7 +188,7 @@ instance ToQuery UpdateRecords where
 data UpdateRecordsResponse = UpdateRecordsResponse'
     { _urrRecords :: !(Maybe [Record])
     , _urrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateRecordsResponse' smart constructor.
 updateRecordsResponse :: Status -> UpdateRecordsResponse

@@ -96,7 +96,7 @@ instance ToQuery DeleteDocument where
 -- * 'ddrStatus'
 newtype DeleteDocumentResponse = DeleteDocumentResponse'
     { _ddrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteDocumentResponse' smart constructor.
 deleteDocumentResponse :: Status -> DeleteDocumentResponse

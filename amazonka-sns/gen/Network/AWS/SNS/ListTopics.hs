@@ -113,7 +113,7 @@ data ListTopicsResponse = ListTopicsResponse'
     { _ltrTopics    :: !(Maybe [Topic])
     , _ltrNextToken :: !(Maybe Text)
     , _ltrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListTopicsResponse' smart constructor.
 listTopicsResponse :: Status -> ListTopicsResponse

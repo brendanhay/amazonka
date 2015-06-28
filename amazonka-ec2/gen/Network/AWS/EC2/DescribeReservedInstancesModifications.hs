@@ -181,7 +181,7 @@ data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesM
     { _drimrNextToken                      :: !(Maybe Text)
     , _drimrReservedInstancesModifications :: !(Maybe [ReservedInstancesModification])
     , _drimrStatus                         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeReservedInstancesModificationsResponse' smart constructor.
 describeReservedInstancesModificationsResponse :: Status -> DescribeReservedInstancesModificationsResponse

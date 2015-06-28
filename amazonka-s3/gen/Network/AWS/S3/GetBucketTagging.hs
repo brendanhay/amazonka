@@ -47,7 +47,7 @@ import           Network.AWS.S3.Types
 -- * 'gbtBucket'
 newtype GetBucketTagging = GetBucketTagging'
     { _gbtBucket :: BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketTagging' smart constructor.
 getBucketTagging :: BucketName -> GetBucketTagging
@@ -91,7 +91,7 @@ instance ToQuery GetBucketTagging where
 data GetBucketTaggingResponse = GetBucketTaggingResponse'
     { _gbtrTagSet :: ![Tag]
     , _gbtrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketTaggingResponse' smart constructor.
 getBucketTaggingResponse :: Status -> GetBucketTaggingResponse

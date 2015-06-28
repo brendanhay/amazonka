@@ -113,7 +113,7 @@ data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
     { _giprrRoles          :: !(Maybe (Map Text Text))
     , _giprrIdentityPoolId :: !(Maybe Text)
     , _giprrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetIdentityPoolRolesResponse' smart constructor.
 getIdentityPoolRolesResponse :: Status -> GetIdentityPoolRolesResponse

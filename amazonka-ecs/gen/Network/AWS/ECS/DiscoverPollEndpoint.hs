@@ -126,7 +126,7 @@ data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
     { _dperTelemetryEndpoint :: !(Maybe Text)
     , _dperEndpoint          :: !(Maybe Text)
     , _dperStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DiscoverPollEndpointResponse' smart constructor.
 discoverPollEndpointResponse :: Status -> DiscoverPollEndpointResponse

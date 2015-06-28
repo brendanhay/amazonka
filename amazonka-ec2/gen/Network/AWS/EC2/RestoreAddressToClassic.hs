@@ -110,7 +110,7 @@ instance ToQuery RestoreAddressToClassic where
 data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
     { _ratcrPublicIP :: !(Maybe Text)
     , _ratcrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RestoreAddressToClassicResponse' smart constructor.
 restoreAddressToClassicResponse :: Status -> RestoreAddressToClassicResponse

@@ -234,7 +234,7 @@ instance ToQuery RegisterImage where
 data RegisterImageResponse = RegisterImageResponse'
     { _rirImageId :: !(Maybe Text)
     , _rirStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RegisterImageResponse' smart constructor.
 registerImageResponse :: Status -> RegisterImageResponse

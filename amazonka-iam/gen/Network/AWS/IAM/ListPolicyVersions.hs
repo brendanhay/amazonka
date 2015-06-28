@@ -139,7 +139,7 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
     , _lpvrMarker      :: !(Maybe Text)
     , _lpvrIsTruncated :: !(Maybe Bool)
     , _lpvrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListPolicyVersionsResponse' smart constructor.
 listPolicyVersionsResponse :: Status -> ListPolicyVersionsResponse

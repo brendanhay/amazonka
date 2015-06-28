@@ -204,7 +204,7 @@ instance ToQuery CreateLoadBalancer where
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
     { _clbrDNSName :: !(Maybe Text)
     , _clbrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateLoadBalancerResponse' smart constructor.
 createLoadBalancerResponse :: Status -> CreateLoadBalancerResponse

@@ -144,7 +144,7 @@ instance ToQuery DescribeInternetGateways where
 data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'
     { _digrInternetGateways :: !(Maybe [InternetGateway])
     , _digrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeInternetGatewaysResponse' smart constructor.
 describeInternetGatewaysResponse :: Status -> DescribeInternetGatewaysResponse

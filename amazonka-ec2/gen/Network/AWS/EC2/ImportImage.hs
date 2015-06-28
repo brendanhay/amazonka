@@ -248,7 +248,7 @@ data ImportImageResponse = ImportImageResponse'
     , _iArchitecture    :: !(Maybe Text)
     , _iDescription     :: !(Maybe Text)
     , _iStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ImportImageResponse' smart constructor.
 importImageResponse :: Status -> ImportImageResponse

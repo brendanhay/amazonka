@@ -113,7 +113,7 @@ data ListHSMsResponse = ListHSMsResponse'
     { _lisNextToken :: !(Maybe Text)
     , _lisHSMList   :: !(Maybe [Text])
     , _lisStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListHSMsResponse' smart constructor.
 listHSMsResponse :: Status -> ListHSMsResponse

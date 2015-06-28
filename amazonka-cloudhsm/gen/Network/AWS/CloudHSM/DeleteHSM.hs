@@ -98,7 +98,7 @@ instance ToQuery DeleteHSM where
 -- * 'delStatus'
 newtype DeleteHSMResponse = DeleteHSMResponse'
     { _delStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteHSMResponse' smart constructor.
 deleteHSMResponse :: Status -> DeleteHSMResponse

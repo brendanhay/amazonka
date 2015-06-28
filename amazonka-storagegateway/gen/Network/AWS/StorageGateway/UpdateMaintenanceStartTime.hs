@@ -147,7 +147,7 @@ instance ToQuery UpdateMaintenanceStartTime where
 data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'
     { _umstrGatewayARN :: !(Maybe Text)
     , _umstrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateMaintenanceStartTimeResponse' smart constructor.
 updateMaintenanceStartTimeResponse :: Status -> UpdateMaintenanceStartTimeResponse

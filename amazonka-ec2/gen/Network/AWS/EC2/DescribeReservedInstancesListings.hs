@@ -154,7 +154,7 @@ instance ToQuery DescribeReservedInstancesListings
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'
     { _drilrReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _drilrStatus                    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeReservedInstancesListingsResponse' smart constructor.
 describeReservedInstancesListingsResponse :: Status -> DescribeReservedInstancesListingsResponse

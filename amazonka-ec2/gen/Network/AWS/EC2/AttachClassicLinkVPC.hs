@@ -141,7 +141,7 @@ instance ToQuery AttachClassicLinkVPC where
 data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
     { _aclvrReturn :: !(Maybe Bool)
     , _aclvrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AttachClassicLinkVPCResponse' smart constructor.
 attachClassicLinkVPCResponse :: Status -> AttachClassicLinkVPCResponse

@@ -129,7 +129,7 @@ instance ToQuery CreateDBSecurityGroup where
 data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'
     { _cDBSecurityGroup :: !(Maybe DBSecurityGroup)
     , _cStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDBSecurityGroupResponse' smart constructor.
 createDBSecurityGroupResponse :: Status -> CreateDBSecurityGroupResponse

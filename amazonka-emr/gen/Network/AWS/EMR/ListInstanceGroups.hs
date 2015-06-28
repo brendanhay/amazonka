@@ -130,7 +130,7 @@ data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
     { _ligrMarker         :: !(Maybe Text)
     , _ligrInstanceGroups :: !(Maybe [InstanceGroup])
     , _ligrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListInstanceGroupsResponse' smart constructor.
 listInstanceGroupsResponse :: Status -> ListInstanceGroupsResponse

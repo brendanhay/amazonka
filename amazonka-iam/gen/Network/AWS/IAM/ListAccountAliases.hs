@@ -137,7 +137,7 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse'
     , _laarIsTruncated    :: !(Maybe Bool)
     , _laarAccountAliases :: ![Text]
     , _laarStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListAccountAliasesResponse' smart constructor.
 listAccountAliasesResponse :: Status -> ListAccountAliasesResponse

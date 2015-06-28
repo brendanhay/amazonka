@@ -112,7 +112,7 @@ instance ToQuery ListTagsForVault where
 data ListTagsForVaultResponse = ListTagsForVaultResponse'
     { _ltfvrTags   :: !(Maybe (Map Text Text))
     , _ltfvrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListTagsForVaultResponse' smart constructor.
 listTagsForVaultResponse :: Status -> ListTagsForVaultResponse

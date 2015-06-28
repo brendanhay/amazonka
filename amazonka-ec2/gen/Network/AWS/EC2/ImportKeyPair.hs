@@ -129,7 +129,7 @@ data ImportKeyPairResponse = ImportKeyPairResponse'
     { _ikprKeyFingerprint :: !(Maybe Text)
     , _ikprKeyName        :: !(Maybe Text)
     , _ikprStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ImportKeyPairResponse' smart constructor.
 importKeyPairResponse :: Status -> ImportKeyPairResponse

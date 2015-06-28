@@ -107,7 +107,7 @@ instance ToQuery DescribeMountTargetSecurityGroups
 data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'
     { _dmtsgrSecurityGroups :: ![Text]
     , _dmtsgrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeMountTargetSecurityGroupsResponse' smart constructor.
 describeMountTargetSecurityGroupsResponse :: Status -> DescribeMountTargetSecurityGroupsResponse

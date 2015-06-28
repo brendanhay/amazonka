@@ -131,7 +131,7 @@ instance ToQuery AddWorkingStorage where
 data AddWorkingStorageResponse = AddWorkingStorageResponse'
     { _awsrGatewayARN :: !(Maybe Text)
     , _awsrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AddWorkingStorageResponse' smart constructor.
 addWorkingStorageResponse :: Status -> AddWorkingStorageResponse

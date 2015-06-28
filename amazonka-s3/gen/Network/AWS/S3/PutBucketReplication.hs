@@ -53,7 +53,7 @@ data PutBucketReplication = PutBucketReplication'
     { _pbrContentMD5               :: !(Maybe Text)
     , _pbrBucket                   :: !BucketName
     , _pbrReplicationConfiguration :: !ReplicationConfiguration
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutBucketReplication' smart constructor.
 putBucketReplication :: BucketName -> ReplicationConfiguration -> PutBucketReplication

@@ -136,7 +136,7 @@ instance ToQuery CreateLBCookieStickinessPolicy where
 -- * 'clbcsprStatus'
 newtype CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse'
     { _clbcsprStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateLBCookieStickinessPolicyResponse' smart constructor.
 createLBCookieStickinessPolicyResponse :: Status -> CreateLBCookieStickinessPolicyResponse

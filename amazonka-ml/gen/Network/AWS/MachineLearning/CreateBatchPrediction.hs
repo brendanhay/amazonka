@@ -174,7 +174,7 @@ instance ToQuery CreateBatchPrediction where
 data CreateBatchPredictionResponse = CreateBatchPredictionResponse'
     { _cbprBatchPredictionId :: !(Maybe Text)
     , _cbprStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateBatchPredictionResponse' smart constructor.
 createBatchPredictionResponse :: Status -> CreateBatchPredictionResponse

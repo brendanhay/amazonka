@@ -156,7 +156,7 @@ data GetEvaluationResponse = GetEvaluationResponse'
     , _gerEvaluationId           :: !(Maybe Text)
     , _gerEvaluationDataSourceId :: !(Maybe Text)
     , _gerStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetEvaluationResponse' smart constructor.
 getEvaluationResponse :: Status -> GetEvaluationResponse

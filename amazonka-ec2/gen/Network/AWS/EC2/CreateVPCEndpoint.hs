@@ -164,7 +164,7 @@ data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
     { _cverClientToken :: !(Maybe Text)
     , _cverVPCEndpoint :: !(Maybe VPCEndpoint)
     , _cverStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateVPCEndpointResponse' smart constructor.
 createVPCEndpointResponse :: Status -> CreateVPCEndpointResponse

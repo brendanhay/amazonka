@@ -125,7 +125,7 @@ instance ToQuery ModifyDBSubnetGroup where
 data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'
     { _mdsgrDBSubnetGroup :: !(Maybe DBSubnetGroup)
     , _mdsgrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifyDBSubnetGroupResponse' smart constructor.
 modifyDBSubnetGroupResponse :: Status -> ModifyDBSubnetGroupResponse

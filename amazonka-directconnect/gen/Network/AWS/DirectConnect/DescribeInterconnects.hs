@@ -108,7 +108,7 @@ instance ToQuery DescribeInterconnects where
 data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
     { _dirInterconnects :: !(Maybe [Interconnect])
     , _dirStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeInterconnectsResponse' smart constructor.
 describeInterconnectsResponse :: Status -> DescribeInterconnectsResponse

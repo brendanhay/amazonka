@@ -67,7 +67,7 @@ data DeleteObject = DeleteObject'
     , _doRequestPayer :: !(Maybe RequestPayer)
     , _doBucket       :: !BucketName
     , _doKey          :: !ObjectKey
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteObject' smart constructor.
 deleteObject :: BucketName -> ObjectKey -> DeleteObject
@@ -144,7 +144,7 @@ data DeleteObjectResponse = DeleteObjectResponse'
     , _dorRequestCharged :: !(Maybe RequestCharged)
     , _dorDeleteMarker   :: !(Maybe Bool)
     , _dorStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteObjectResponse' smart constructor.
 deleteObjectResponse :: Status -> DeleteObjectResponse

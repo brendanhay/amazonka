@@ -113,7 +113,7 @@ data ListApplicationsResponse = ListApplicationsResponse'
     { _larNextToken    :: !(Maybe Text)
     , _larApplications :: !(Maybe [Text])
     , _larStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListApplicationsResponse' smart constructor.
 listApplicationsResponse :: Status -> ListApplicationsResponse

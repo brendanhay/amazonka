@@ -144,7 +144,7 @@ data Query = Query'
     , _queExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
     , _queIndexName                 :: !(Maybe Text)
     , _queTableName                 :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'Query' smart constructor.
 query :: Text -> Query
@@ -768,7 +768,7 @@ data QueryResponse = QueryResponse'
     , _qrItems            :: !(Maybe [Map Text AttributeValue])
     , _qrConsumedCapacity :: !(Maybe ConsumedCapacity)
     , _qrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'QueryResponse' smart constructor.
 queryResponse :: Status -> QueryResponse

@@ -125,7 +125,7 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse'
     , _ggprPolicyName     :: !Text
     , _ggprPolicyDocument :: !Text
     , _ggprStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetGroupPolicyResponse' smart constructor.
 getGroupPolicyResponse :: Text -> Text -> Text -> Status -> GetGroupPolicyResponse

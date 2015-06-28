@@ -152,7 +152,7 @@ data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
     { _ddrDirectoryDescriptions :: !(Maybe [DirectoryDescription])
     , _ddrNextToken             :: !(Maybe Text)
     , _ddrStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDirectoriesResponse' smart constructor.
 describeDirectoriesResponse :: Status -> DescribeDirectoriesResponse

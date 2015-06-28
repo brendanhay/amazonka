@@ -121,7 +121,7 @@ instance ToQuery DescribeAvailabilityOptions where
 data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'
     { _daorAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
     , _daorStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeAvailabilityOptionsResponse' smart constructor.
 describeAvailabilityOptionsResponse :: Status -> DescribeAvailabilityOptionsResponse

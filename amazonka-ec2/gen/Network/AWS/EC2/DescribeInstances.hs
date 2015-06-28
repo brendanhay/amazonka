@@ -411,7 +411,7 @@ data DescribeInstancesResponse = DescribeInstancesResponse'
     { _dirNextToken    :: !(Maybe Text)
     , _dirReservations :: !(Maybe [Reservation])
     , _dirStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeInstancesResponse' smart constructor.
 describeInstancesResponse :: Status -> DescribeInstancesResponse

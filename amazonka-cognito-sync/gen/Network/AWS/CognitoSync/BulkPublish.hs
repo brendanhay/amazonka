@@ -113,7 +113,7 @@ instance ToQuery BulkPublish where
 data BulkPublishResponse = BulkPublishResponse'
     { _bprIdentityPoolId :: !(Maybe Text)
     , _bprStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'BulkPublishResponse' smart constructor.
 bulkPublishResponse :: Status -> BulkPublishResponse

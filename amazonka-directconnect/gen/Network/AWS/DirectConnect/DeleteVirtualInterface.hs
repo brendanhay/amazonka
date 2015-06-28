@@ -106,7 +106,7 @@ instance ToQuery DeleteVirtualInterface where
 data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
     { _dvirVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
     , _dvirStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteVirtualInterfaceResponse' smart constructor.
 deleteVirtualInterfaceResponse :: Status -> DeleteVirtualInterfaceResponse

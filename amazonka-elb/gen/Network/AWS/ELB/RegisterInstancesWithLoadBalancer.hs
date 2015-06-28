@@ -142,7 +142,7 @@ instance ToQuery RegisterInstancesWithLoadBalancer
 data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'
     { _riwlbrInstances :: !(Maybe [Instance])
     , _riwlbrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RegisterInstancesWithLoadBalancerResponse' smart constructor.
 registerInstancesWithLoadBalancerResponse :: Status -> RegisterInstancesWithLoadBalancerResponse

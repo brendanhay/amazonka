@@ -152,7 +152,7 @@ instance ToQuery ModifyVPCEndpoint where
 data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
     { _mverReturn :: !(Maybe Bool)
     , _mverStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifyVPCEndpointResponse' smart constructor.
 modifyVPCEndpointResponse :: Status -> ModifyVPCEndpointResponse

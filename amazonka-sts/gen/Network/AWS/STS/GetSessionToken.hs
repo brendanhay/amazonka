@@ -167,7 +167,7 @@ instance ToQuery GetSessionToken where
 data GetSessionTokenResponse = GetSessionTokenResponse'
     { _gstrCredentials :: !(Maybe Credentials)
     , _gstrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetSessionTokenResponse' smart constructor.
 getSessionTokenResponse :: Status -> GetSessionTokenResponse

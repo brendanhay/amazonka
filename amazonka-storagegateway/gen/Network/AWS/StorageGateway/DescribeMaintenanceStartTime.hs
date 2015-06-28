@@ -126,7 +126,7 @@ data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
     , _dmstrTimezone     :: !(Maybe Text)
     , _dmstrDayOfWeek    :: !(Maybe Nat)
     , _dmstrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeMaintenanceStartTimeResponse' smart constructor.
 describeMaintenanceStartTimeResponse :: Status -> DescribeMaintenanceStartTimeResponse

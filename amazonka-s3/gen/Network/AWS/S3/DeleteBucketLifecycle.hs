@@ -44,7 +44,7 @@ import           Network.AWS.S3.Types
 -- * 'dblBucket'
 newtype DeleteBucketLifecycle = DeleteBucketLifecycle'
     { _dblBucket :: BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteBucketLifecycle' smart constructor.
 deleteBucketLifecycle :: BucketName -> DeleteBucketLifecycle

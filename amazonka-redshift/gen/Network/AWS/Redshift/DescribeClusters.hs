@@ -196,7 +196,7 @@ data DescribeClustersResponse = DescribeClustersResponse'
     { _dcrMarker   :: !(Maybe Text)
     , _dcrClusters :: !(Maybe [Cluster])
     , _dcrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeClustersResponse' smart constructor.
 describeClustersResponse :: Status -> DescribeClustersResponse

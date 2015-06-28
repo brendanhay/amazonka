@@ -215,7 +215,7 @@ data DescribeVolumesResponse = DescribeVolumesResponse'
     { _dvr1NextToken :: !(Maybe Text)
     , _dvr1Volumes   :: !(Maybe [Volume])
     , _dvr1Status    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeVolumesResponse' smart constructor.
 describeVolumesResponse :: Status -> DescribeVolumesResponse

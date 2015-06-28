@@ -125,7 +125,7 @@ instance ToQuery EnterStandby where
 data EnterStandbyResponse = EnterStandbyResponse'
     { _esrActivities :: !(Maybe [Activity])
     , _esrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'EnterStandbyResponse' smart constructor.
 enterStandbyResponse :: Status -> EnterStandbyResponse

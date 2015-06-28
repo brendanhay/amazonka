@@ -100,7 +100,7 @@ instance ToQuery RotateEncryptionKey where
 data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
     { _rekrCluster :: !(Maybe Cluster)
     , _rekrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RotateEncryptionKeyResponse' smart constructor.
 rotateEncryptionKeyResponse :: Status -> RotateEncryptionKeyResponse

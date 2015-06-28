@@ -150,7 +150,7 @@ instance ToQuery DescribeAlarmsForMetric where
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
     { _dafmrMetricAlarms :: !(Maybe [MetricAlarm])
     , _dafmrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeAlarmsForMetricResponse' smart constructor.
 describeAlarmsForMetricResponse :: Status -> DescribeAlarmsForMetricResponse

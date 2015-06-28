@@ -139,7 +139,7 @@ data ListGatewaysResponse = ListGatewaysResponse'
     { _lgrMarker   :: !(Maybe Text)
     , _lgrGateways :: !(Maybe [GatewayInfo])
     , _lgrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListGatewaysResponse' smart constructor.
 listGatewaysResponse :: Status -> ListGatewaysResponse

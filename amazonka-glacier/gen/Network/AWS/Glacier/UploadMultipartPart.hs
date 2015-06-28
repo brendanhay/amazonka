@@ -204,7 +204,7 @@ instance ToQuery UploadMultipartPart where
 data UploadMultipartPartResponse = UploadMultipartPartResponse'
     { _umprChecksum :: !(Maybe Text)
     , _umprStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UploadMultipartPartResponse' smart constructor.
 uploadMultipartPartResponse :: Status -> UploadMultipartPartResponse

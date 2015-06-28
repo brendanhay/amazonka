@@ -87,7 +87,7 @@ instance ToQuery ListSAMLProviders where
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
     { _lsamlprSAMLProviderList :: !(Maybe [SAMLProviderListEntry])
     , _lsamlprStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListSAMLProvidersResponse' smart constructor.
 listSAMLProvidersResponse :: Status -> ListSAMLProvidersResponse

@@ -112,7 +112,7 @@ instance ToQuery CreateGroup where
 data CreateGroupResponse = CreateGroupResponse'
     { _cgrGroup  :: !Group
     , _cgrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateGroupResponse' smart constructor.
 createGroupResponse :: Group -> Status -> CreateGroupResponse

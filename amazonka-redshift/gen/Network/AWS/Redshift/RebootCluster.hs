@@ -102,7 +102,7 @@ instance ToQuery RebootCluster where
 data RebootClusterResponse = RebootClusterResponse'
     { _rcrCluster :: !(Maybe Cluster)
     , _rcrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RebootClusterResponse' smart constructor.
 rebootClusterResponse :: Status -> RebootClusterResponse

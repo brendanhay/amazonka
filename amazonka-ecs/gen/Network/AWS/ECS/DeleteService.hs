@@ -110,7 +110,7 @@ instance ToQuery DeleteService where
 data DeleteServiceResponse = DeleteServiceResponse'
     { _dsrService :: !(Maybe ContainerService)
     , _dsrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteServiceResponse' smart constructor.
 deleteServiceResponse :: Status -> DeleteServiceResponse

@@ -138,7 +138,7 @@ data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
     { _cmvbrSuccessful :: ![ChangeMessageVisibilityBatchResultEntry]
     , _cmvbrFailed     :: ![BatchResultErrorEntry]
     , _cmvbrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ChangeMessageVisibilityBatchResponse' smart constructor.
 changeMessageVisibilityBatchResponse :: Status -> ChangeMessageVisibilityBatchResponse

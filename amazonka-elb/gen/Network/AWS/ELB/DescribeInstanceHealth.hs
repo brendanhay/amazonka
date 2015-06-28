@@ -111,7 +111,7 @@ instance ToQuery DescribeInstanceHealth where
 data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
     { _dihrInstanceStates :: !(Maybe [InstanceState])
     , _dihrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeInstanceHealthResponse' smart constructor.
 describeInstanceHealthResponse :: Status -> DescribeInstanceHealthResponse

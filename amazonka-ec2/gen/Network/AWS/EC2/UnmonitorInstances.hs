@@ -110,7 +110,7 @@ instance ToQuery UnmonitorInstances where
 data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
     { _uirInstanceMonitorings :: !(Maybe [InstanceMonitoring])
     , _uirStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UnmonitorInstancesResponse' smart constructor.
 unmonitorInstancesResponse :: Status -> UnmonitorInstancesResponse

@@ -169,7 +169,7 @@ data CreateJobResponse = CreateJobResponse'
     , _cjrWarningMessage        :: !(Maybe Text)
     , _cjrArtifactList          :: !(Maybe [Artifact])
     , _cjrStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateJobResponse' smart constructor.
 createJobResponse :: Status -> CreateJobResponse

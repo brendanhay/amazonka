@@ -94,7 +94,7 @@ instance ToQuery ReadJob where
 data ReadJobResponse = ReadJobResponse'
     { _rjrJob    :: !Job'
     , _rjrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ReadJobResponse' smart constructor.
 readJobResponse :: Job' -> Status -> ReadJobResponse

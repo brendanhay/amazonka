@@ -155,7 +155,7 @@ instance ToQuery CreateReservedInstancesListing where
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
     { _cReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _cStatus                    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateReservedInstancesListingResponse' smart constructor.
 createReservedInstancesListingResponse :: Status -> CreateReservedInstancesListingResponse

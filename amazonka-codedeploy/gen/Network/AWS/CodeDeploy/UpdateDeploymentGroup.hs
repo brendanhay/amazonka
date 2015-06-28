@@ -183,7 +183,7 @@ instance ToQuery UpdateDeploymentGroup where
 data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
     { _udgrHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
     , _udgrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateDeploymentGroupResponse' smart constructor.
 updateDeploymentGroupResponse :: Status -> UpdateDeploymentGroupResponse

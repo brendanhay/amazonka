@@ -157,7 +157,7 @@ instance ToQuery CreateClusterParameterGroup where
 data CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse'
     { _ccpgrClusterParameterGroup :: !(Maybe ClusterParameterGroup)
     , _ccpgrStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateClusterParameterGroupResponse' smart constructor.
 createClusterParameterGroupResponse :: Status -> CreateClusterParameterGroupResponse

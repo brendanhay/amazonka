@@ -130,7 +130,7 @@ data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
     , _lipurNextToken          :: !(Maybe Text)
     , _lipurMaxResults         :: !(Maybe Int)
     , _lipurStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListIdentityPoolUsageResponse' smart constructor.
 listIdentityPoolUsageResponse :: Status -> ListIdentityPoolUsageResponse

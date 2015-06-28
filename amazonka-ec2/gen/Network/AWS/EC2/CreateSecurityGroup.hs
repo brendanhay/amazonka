@@ -168,7 +168,7 @@ instance ToQuery CreateSecurityGroup where
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse'
     { _csgrGroupId :: !Text
     , _csgrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateSecurityGroupResponse' smart constructor.
 createSecurityGroupResponse :: Text -> Status -> CreateSecurityGroupResponse

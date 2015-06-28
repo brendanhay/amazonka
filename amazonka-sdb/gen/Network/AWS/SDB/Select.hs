@@ -143,7 +143,7 @@ data SelectResponse = SelectResponse'
     { _srItems     :: !(Maybe [Item])
     , _srNextToken :: !(Maybe Text)
     , _srStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SelectResponse' smart constructor.
 selectResponse :: Status -> SelectResponse

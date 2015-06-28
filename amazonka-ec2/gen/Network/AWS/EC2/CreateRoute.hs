@@ -197,7 +197,7 @@ data CreateRouteResponse = CreateRouteResponse'
     { _crrReturn      :: !(Maybe Bool)
     , _crrClientToken :: !(Maybe Text)
     , _crrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateRouteResponse' smart constructor.
 createRouteResponse :: Status -> CreateRouteResponse

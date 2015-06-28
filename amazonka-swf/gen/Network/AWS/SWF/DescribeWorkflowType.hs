@@ -144,7 +144,7 @@ data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
     { _dwtrTypeInfo      :: !WorkflowTypeInfo
     , _dwtrConfiguration :: !WorkflowTypeConfiguration
     , _dwtrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeWorkflowTypeResponse' smart constructor.
 describeWorkflowTypeResponse :: WorkflowTypeInfo -> WorkflowTypeConfiguration -> Status -> DescribeWorkflowTypeResponse

@@ -137,7 +137,7 @@ instance ToQuery DescribeDeployments where
 data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
     { _ddrDeployments :: !(Maybe [Deployment])
     , _ddrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDeploymentsResponse' smart constructor.
 describeDeploymentsResponse :: Status -> DescribeDeploymentsResponse

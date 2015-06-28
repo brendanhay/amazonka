@@ -122,7 +122,7 @@ data AllocateAddressResponse = AllocateAddressResponse'
     , _aarDomain       :: !(Maybe DomainType)
     , _aarPublicIP     :: !(Maybe Text)
     , _aarStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AllocateAddressResponse' smart constructor.
 allocateAddressResponse :: Status -> AllocateAddressResponse

@@ -149,7 +149,7 @@ instance ToQuery PurchaseReservedInstancesOffering
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'
     { _priorReservedInstancesId :: !(Maybe Text)
     , _priorStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PurchaseReservedInstancesOfferingResponse' smart constructor.
 purchaseReservedInstancesOfferingResponse :: Status -> PurchaseReservedInstancesOfferingResponse

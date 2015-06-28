@@ -111,7 +111,7 @@ instance ToQuery DeleteSnapshotSchedule where
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
     { _dssr1VolumeARN :: !(Maybe Text)
     , _dssr1Status    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteSnapshotScheduleResponse' smart constructor.
 deleteSnapshotScheduleResponse :: Status -> DeleteSnapshotScheduleResponse

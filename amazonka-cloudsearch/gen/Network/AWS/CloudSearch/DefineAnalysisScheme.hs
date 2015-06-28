@@ -115,7 +115,7 @@ instance ToQuery DefineAnalysisScheme where
 data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
     { _dasr1AnalysisScheme :: !AnalysisSchemeStatus
     , _dasr1Status         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DefineAnalysisSchemeResponse' smart constructor.
 defineAnalysisSchemeResponse :: AnalysisSchemeStatus -> Status -> DefineAnalysisSchemeResponse

@@ -150,7 +150,7 @@ instance ToQuery RevokeClusterSecurityGroupIngress
 data RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse'
     { _rcsgirClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
     , _rcsgirStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RevokeClusterSecurityGroupIngressResponse' smart constructor.
 revokeClusterSecurityGroupIngressResponse :: Status -> RevokeClusterSecurityGroupIngressResponse

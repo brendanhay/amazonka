@@ -129,7 +129,7 @@ instance ToQuery CreateLoadBalancerPolicy where
 -- * 'clbprStatus'
 newtype CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'
     { _clbprStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateLoadBalancerPolicyResponse' smart constructor.
 createLoadBalancerPolicyResponse :: Status -> CreateLoadBalancerPolicyResponse

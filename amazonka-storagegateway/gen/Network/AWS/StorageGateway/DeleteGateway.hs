@@ -121,7 +121,7 @@ instance ToQuery DeleteGateway where
 data DeleteGatewayResponse = DeleteGatewayResponse'
     { _dgrGatewayARN :: !(Maybe Text)
     , _dgrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteGatewayResponse' smart constructor.
 deleteGatewayResponse :: Status -> DeleteGatewayResponse

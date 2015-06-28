@@ -125,7 +125,7 @@ data ListFunctionsResponse = ListFunctionsResponse'
     { _lfrNextMarker :: !(Maybe Text)
     , _lfrFunctions  :: !(Maybe [FunctionConfiguration])
     , _lfrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListFunctionsResponse' smart constructor.
 listFunctionsResponse :: Status -> ListFunctionsResponse

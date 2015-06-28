@@ -155,7 +155,7 @@ data ListVolumesResponse = ListVolumesResponse'
     , _lvrMarker      :: !(Maybe Text)
     , _lvrVolumeInfos :: !(Maybe [VolumeInfo])
     , _lvrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListVolumesResponse' smart constructor.
 listVolumesResponse :: Status -> ListVolumesResponse

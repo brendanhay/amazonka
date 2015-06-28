@@ -338,7 +338,7 @@ data CreatePipelineResponse = CreatePipelineResponse'
     { _creWarnings :: !(Maybe [Warning])
     , _crePipeline :: !(Maybe Pipeline)
     , _creStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreatePipelineResponse' smart constructor.
 createPipelineResponse :: Status -> CreatePipelineResponse

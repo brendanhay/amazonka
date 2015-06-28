@@ -114,7 +114,7 @@ instance ToQuery EnableVPCClassicLink where
 data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'
     { _evclrReturn :: !(Maybe Bool)
     , _evclrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'EnableVPCClassicLinkResponse' smart constructor.
 enableVPCClassicLinkResponse :: Status -> EnableVPCClassicLinkResponse

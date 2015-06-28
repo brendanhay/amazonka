@@ -148,7 +148,7 @@ instance ToQuery PromoteReadReplica where
 data PromoteReadReplicaResponse = PromoteReadReplicaResponse'
     { _prrrDBInstance :: !(Maybe DBInstance)
     , _prrrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PromoteReadReplicaResponse' smart constructor.
 promoteReadReplicaResponse :: Status -> PromoteReadReplicaResponse

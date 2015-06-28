@@ -146,7 +146,7 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
     { _datrTypeInfo      :: !ActivityTypeInfo
     , _datrConfiguration :: !ActivityTypeConfiguration
     , _datrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeActivityTypeResponse' smart constructor.
 describeActivityTypeResponse :: ActivityTypeInfo -> ActivityTypeConfiguration -> Status -> DescribeActivityTypeResponse

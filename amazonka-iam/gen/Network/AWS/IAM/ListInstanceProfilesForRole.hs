@@ -151,7 +151,7 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
     , _lipfrrIsTruncated      :: !(Maybe Bool)
     , _lipfrrInstanceProfiles :: ![InstanceProfile]
     , _lipfrrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListInstanceProfilesForRoleResponse' smart constructor.
 listInstanceProfilesForRoleResponse :: Status -> ListInstanceProfilesForRoleResponse

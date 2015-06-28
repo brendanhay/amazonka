@@ -141,7 +141,7 @@ instance ToXML ChangeTagsForResource where
 -- * 'ctfrrStatus'
 newtype ChangeTagsForResourceResponse = ChangeTagsForResourceResponse'
     { _ctfrrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ChangeTagsForResourceResponse' smart constructor.
 changeTagsForResourceResponse :: Status -> ChangeTagsForResourceResponse

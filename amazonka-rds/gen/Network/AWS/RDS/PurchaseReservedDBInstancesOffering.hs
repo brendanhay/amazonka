@@ -140,7 +140,7 @@ instance ToQuery PurchaseReservedDBInstancesOffering
 data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse'
     { _prdiorReservedDBInstance :: !(Maybe ReservedDBInstance)
     , _prdiorStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PurchaseReservedDBInstancesOfferingResponse' smart constructor.
 purchaseReservedDBInstancesOfferingResponse :: Status -> PurchaseReservedDBInstancesOfferingResponse

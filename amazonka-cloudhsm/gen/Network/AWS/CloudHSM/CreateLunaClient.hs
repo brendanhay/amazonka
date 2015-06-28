@@ -116,7 +116,7 @@ instance ToQuery CreateLunaClient where
 data CreateLunaClientResponse = CreateLunaClientResponse'
     { _clcrClientARN :: !(Maybe Text)
     , _clcrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateLunaClientResponse' smart constructor.
 createLunaClientResponse :: Status -> CreateLunaClientResponse

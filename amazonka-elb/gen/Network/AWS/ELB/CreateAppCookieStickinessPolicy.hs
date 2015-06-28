@@ -132,7 +132,7 @@ instance ToQuery CreateAppCookieStickinessPolicy
 -- * 'cacsprStatus'
 newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse'
     { _cacsprStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateAppCookieStickinessPolicyResponse' smart constructor.
 createAppCookieStickinessPolicyResponse :: Status -> CreateAppCookieStickinessPolicyResponse

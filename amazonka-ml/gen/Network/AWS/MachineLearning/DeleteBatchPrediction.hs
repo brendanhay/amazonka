@@ -117,7 +117,7 @@ instance ToQuery DeleteBatchPrediction where
 data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'
     { _dbprBatchPredictionId :: !(Maybe Text)
     , _dbprStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteBatchPredictionResponse' smart constructor.
 deleteBatchPredictionResponse :: Status -> DeleteBatchPredictionResponse

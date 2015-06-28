@@ -188,7 +188,7 @@ instance ToQuery GetShardIterator where
 data GetShardIteratorResponse = GetShardIteratorResponse'
     { _gsirShardIterator :: !(Maybe Text)
     , _gsirStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetShardIteratorResponse' smart constructor.
 getShardIteratorResponse :: Status -> GetShardIteratorResponse

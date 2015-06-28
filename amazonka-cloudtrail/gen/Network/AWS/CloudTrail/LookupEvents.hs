@@ -173,7 +173,7 @@ data LookupEventsResponse = LookupEventsResponse'
     { _lerNextToken :: !(Maybe Text)
     , _lerEvents    :: !(Maybe [Event])
     , _lerStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'LookupEventsResponse' smart constructor.
 lookupEventsResponse :: Status -> LookupEventsResponse

@@ -225,7 +225,7 @@ instance ToQuery CreateDataSourceFromRedshift where
 data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'
     { _cdsfrrDataSourceId :: !(Maybe Text)
     , _cdsfrrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDataSourceFromRedshiftResponse' smart constructor.
 createDataSourceFromRedshiftResponse :: Status -> CreateDataSourceFromRedshiftResponse

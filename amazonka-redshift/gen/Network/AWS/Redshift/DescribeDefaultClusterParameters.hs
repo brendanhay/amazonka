@@ -158,7 +158,7 @@ instance ToQuery DescribeDefaultClusterParameters
 data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'
     { _ddcprDefaultClusterParameters :: !DefaultClusterParameters
     , _ddcprStatus                   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDefaultClusterParametersResponse' smart constructor.
 describeDefaultClusterParametersResponse :: DefaultClusterParameters -> Status -> DescribeDefaultClusterParametersResponse

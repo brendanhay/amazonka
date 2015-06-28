@@ -150,7 +150,7 @@ instance ToQuery DescribeConfigurationSettings where
 data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'
     { _dcsrConfigurationSettings :: !(Maybe [ConfigurationSettingsDescription])
     , _dcsrStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeConfigurationSettingsResponse' smart constructor.
 describeConfigurationSettingsResponse :: Status -> DescribeConfigurationSettingsResponse

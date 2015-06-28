@@ -158,7 +158,7 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress
 data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse'
     { _acsgirClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
     , _acsgirStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AuthorizeClusterSecurityGroupIngressResponse' smart constructor.
 authorizeClusterSecurityGroupIngressResponse :: Status -> AuthorizeClusterSecurityGroupIngressResponse

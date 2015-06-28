@@ -111,7 +111,7 @@ data CreateDistributionResponse = CreateDistributionResponse'
     , _cdrDistribution :: !(Maybe Distribution)
     , _cdrLocation     :: !(Maybe Text)
     , _cdrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDistributionResponse' smart constructor.
 createDistributionResponse :: Status -> CreateDistributionResponse

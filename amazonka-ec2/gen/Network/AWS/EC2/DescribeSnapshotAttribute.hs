@@ -134,7 +134,7 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
     , _dsarProductCodes            :: !(Maybe [ProductCode])
     , _dsarSnapshotId              :: !(Maybe Text)
     , _dsarStatus                  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeSnapshotAttributeResponse' smart constructor.
 describeSnapshotAttributeResponse :: Status -> DescribeSnapshotAttributeResponse

@@ -172,7 +172,7 @@ data DescribeDBParametersResponse = DescribeDBParametersResponse'
     { _ddprParameters :: !(Maybe [Parameter])
     , _ddprMarker     :: !(Maybe Text)
     , _ddprStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDBParametersResponse' smart constructor.
 describeDBParametersResponse :: Status -> DescribeDBParametersResponse

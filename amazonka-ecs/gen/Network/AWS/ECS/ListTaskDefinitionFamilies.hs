@@ -153,7 +153,7 @@ data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'
     { _ltdfrFamilies  :: !(Maybe [Text])
     , _ltdfrNextToken :: !(Maybe Text)
     , _ltdfrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListTaskDefinitionFamiliesResponse' smart constructor.
 listTaskDefinitionFamiliesResponse :: Status -> ListTaskDefinitionFamiliesResponse

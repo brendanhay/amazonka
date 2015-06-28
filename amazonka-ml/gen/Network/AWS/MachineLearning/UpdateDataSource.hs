@@ -119,7 +119,7 @@ instance ToQuery UpdateDataSource where
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
     { _udsrDataSourceId :: !(Maybe Text)
     , _udsrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateDataSourceResponse' smart constructor.
 updateDataSourceResponse :: Status -> UpdateDataSourceResponse

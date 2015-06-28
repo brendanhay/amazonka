@@ -227,7 +227,7 @@ data GetFederationTokenResponse = GetFederationTokenResponse'
     , _gftrCredentials      :: !(Maybe Credentials)
     , _gftrFederatedUser    :: !(Maybe FederatedUser)
     , _gftrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetFederationTokenResponse' smart constructor.
 getFederationTokenResponse :: Status -> GetFederationTokenResponse

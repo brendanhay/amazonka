@@ -136,7 +136,7 @@ instance ToQuery Suggest where
 data SuggestResponse = SuggestResponse'
     { _srSuggest :: !(Maybe SuggestModel)
     , _srStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SuggestResponse' smart constructor.
 suggestResponse :: Status -> SuggestResponse

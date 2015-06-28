@@ -150,7 +150,7 @@ instance ToQuery UpdateDomainNameservers where
 data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
     { _udnrOperationId :: !Text
     , _udnrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateDomainNameserversResponse' smart constructor.
 updateDomainNameserversResponse :: Text -> Status -> UpdateDomainNameserversResponse

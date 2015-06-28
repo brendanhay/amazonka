@@ -107,7 +107,7 @@ instance ToQuery GetDataRetrievalPolicy where
 data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'
     { _gdrprPolicy :: !(Maybe DataRetrievalPolicy)
     , _gdrprStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetDataRetrievalPolicyResponse' smart constructor.
 getDataRetrievalPolicyResponse :: Status -> GetDataRetrievalPolicyResponse

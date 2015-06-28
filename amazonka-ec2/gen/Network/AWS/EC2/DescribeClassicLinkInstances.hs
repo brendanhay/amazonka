@@ -179,7 +179,7 @@ data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse
     { _dclirNextToken :: !(Maybe Text)
     , _dclirInstances :: !(Maybe [ClassicLinkInstance])
     , _dclirStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeClassicLinkInstancesResponse' smart constructor.
 describeClassicLinkInstancesResponse :: Status -> DescribeClassicLinkInstancesResponse

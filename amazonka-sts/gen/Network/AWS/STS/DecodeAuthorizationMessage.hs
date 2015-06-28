@@ -128,7 +128,7 @@ instance ToQuery DecodeAuthorizationMessage where
 data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'
     { _damrDecodedMessage :: !(Maybe Text)
     , _damrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DecodeAuthorizationMessageResponse' smart constructor.
 decodeAuthorizationMessageResponse :: Status -> DecodeAuthorizationMessageResponse

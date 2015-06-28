@@ -131,7 +131,7 @@ instance ToQuery PurchaseReservedCacheNodesOffering
 data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'
     { _prcnorReservedCacheNode :: !(Maybe ReservedCacheNode)
     , _prcnorStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PurchaseReservedCacheNodesOfferingResponse' smart constructor.
 purchaseReservedCacheNodesOfferingResponse :: Status -> PurchaseReservedCacheNodesOfferingResponse

@@ -165,7 +165,7 @@ instance ToQuery UpdateTable where
 data UpdateTableResponse = UpdateTableResponse'
     { _utrTableDescription :: !(Maybe TableDescription)
     , _utrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateTableResponse' smart constructor.
 updateTableResponse :: Status -> UpdateTableResponse

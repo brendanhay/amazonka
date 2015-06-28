@@ -138,7 +138,7 @@ instance ToQuery DescribeAvailabilityZones where
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
     { _dazrAvailabilityZones :: !(Maybe [AvailabilityZone])
     , _dazrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeAvailabilityZonesResponse' smart constructor.
 describeAvailabilityZonesResponse :: Status -> DescribeAvailabilityZonesResponse

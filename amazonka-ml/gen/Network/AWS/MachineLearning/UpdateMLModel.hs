@@ -133,7 +133,7 @@ instance ToQuery UpdateMLModel where
 data UpdateMLModelResponse = UpdateMLModelResponse'
     { _umlmrMLModelId :: !(Maybe Text)
     , _umlmrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateMLModelResponse' smart constructor.
 updateMLModelResponse :: Status -> UpdateMLModelResponse

@@ -262,7 +262,7 @@ data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
     { _desResults   :: !(Maybe [BatchPrediction])
     , _desNextToken :: !(Maybe Text)
     , _desStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeBatchPredictionsResponse' smart constructor.
 describeBatchPredictionsResponse :: Status -> DescribeBatchPredictionsResponse

@@ -89,7 +89,7 @@ instance ToQuery GetAccountSummary where
 data GetAccountSummaryResponse = GetAccountSummaryResponse'
     { _gasrSummaryMap :: !(Maybe (Map SummaryKeyType Int))
     , _gasrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetAccountSummaryResponse' smart constructor.
 getAccountSummaryResponse :: Status -> GetAccountSummaryResponse

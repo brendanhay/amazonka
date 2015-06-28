@@ -53,7 +53,7 @@ data PutBucketLifecycle = PutBucketLifecycle'
     { _putContentMD5             :: !(Maybe Text)
     , _putLifecycleConfiguration :: !(Maybe LifecycleConfiguration)
     , _putBucket                 :: !BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutBucketLifecycle' smart constructor.
 putBucketLifecycle :: BucketName -> PutBucketLifecycle

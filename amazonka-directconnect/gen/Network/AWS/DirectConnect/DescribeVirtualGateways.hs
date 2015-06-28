@@ -95,7 +95,7 @@ instance ToQuery DescribeVirtualGateways where
 data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
     { _dvgrVirtualGateways :: !(Maybe [VirtualGateway])
     , _dvgrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeVirtualGatewaysResponse' smart constructor.
 describeVirtualGatewaysResponse :: Status -> DescribeVirtualGatewaysResponse

@@ -155,7 +155,7 @@ data SendMessageResponse = SendMessageResponse'
     , _smrMD5OfMessageBody       :: !(Maybe Text)
     , _smrMD5OfMessageAttributes :: !(Maybe Text)
     , _smrStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SendMessageResponse' smart constructor.
 sendMessageResponse :: Status -> SendMessageResponse

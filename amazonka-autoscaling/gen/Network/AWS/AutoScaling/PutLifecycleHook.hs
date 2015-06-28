@@ -222,7 +222,7 @@ instance ToQuery PutLifecycleHook where
 -- * 'plhrStatus'
 newtype PutLifecycleHookResponse = PutLifecycleHookResponse'
     { _plhrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutLifecycleHookResponse' smart constructor.
 putLifecycleHookResponse :: Status -> PutLifecycleHookResponse

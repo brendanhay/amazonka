@@ -107,7 +107,7 @@ instance ToQuery DetachLoadBalancers where
 -- * 'detStatus'
 newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
     { _detStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DetachLoadBalancersResponse' smart constructor.
 detachLoadBalancersResponse :: Status -> DetachLoadBalancersResponse

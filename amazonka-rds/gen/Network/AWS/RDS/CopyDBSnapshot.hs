@@ -141,7 +141,7 @@ instance ToQuery CopyDBSnapshot where
 data CopyDBSnapshotResponse = CopyDBSnapshotResponse'
     { _cdsrDBSnapshot :: !(Maybe DBSnapshot)
     , _cdsrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CopyDBSnapshotResponse' smart constructor.
 copyDBSnapshotResponse :: Status -> CopyDBSnapshotResponse

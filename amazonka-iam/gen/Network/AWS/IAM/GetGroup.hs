@@ -145,7 +145,7 @@ data GetGroupResponse = GetGroupResponse'
     , _ggrGroup       :: !Group
     , _ggrUsers       :: ![User]
     , _ggrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetGroupResponse' smart constructor.
 getGroupResponse :: Group -> Status -> GetGroupResponse

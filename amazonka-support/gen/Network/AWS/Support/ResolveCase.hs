@@ -110,7 +110,7 @@ data ResolveCaseResponse = ResolveCaseResponse'
     { _rcrInitialCaseStatus :: !(Maybe Text)
     , _rcrFinalCaseStatus   :: !(Maybe Text)
     , _rcrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ResolveCaseResponse' smart constructor.
 resolveCaseResponse :: Status -> ResolveCaseResponse

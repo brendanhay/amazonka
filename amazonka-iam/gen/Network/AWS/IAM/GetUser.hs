@@ -101,7 +101,7 @@ instance ToQuery GetUser where
 data GetUserResponse = GetUserResponse'
     { _gurUser   :: !User
     , _gurStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetUserResponse' smart constructor.
 getUserResponse :: User -> Status -> GetUserResponse

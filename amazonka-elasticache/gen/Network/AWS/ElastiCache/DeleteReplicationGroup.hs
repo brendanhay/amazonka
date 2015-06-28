@@ -131,7 +131,7 @@ instance ToQuery DeleteReplicationGroup where
 data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
     { _delReplicationGroup :: !(Maybe ReplicationGroup)
     , _delStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteReplicationGroupResponse' smart constructor.
 deleteReplicationGroupResponse :: Status -> DeleteReplicationGroupResponse

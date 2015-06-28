@@ -47,7 +47,7 @@ import           Network.AWS.S3.Types
 -- * 'gbrpBucket'
 newtype GetBucketRequestPayment = GetBucketRequestPayment'
     { _gbrpBucket :: BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketRequestPayment' smart constructor.
 getBucketRequestPayment :: BucketName -> GetBucketRequestPayment
@@ -91,7 +91,7 @@ instance ToQuery GetBucketRequestPayment where
 data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
     { _gbrprPayer  :: !(Maybe Payer)
     , _gbrprStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketRequestPaymentResponse' smart constructor.
 getBucketRequestPaymentResponse :: Status -> GetBucketRequestPaymentResponse

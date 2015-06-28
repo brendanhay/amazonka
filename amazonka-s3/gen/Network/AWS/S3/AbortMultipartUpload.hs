@@ -63,7 +63,7 @@ data AbortMultipartUpload = AbortMultipartUpload'
     , _amuBucket       :: !BucketName
     , _amuKey          :: !ObjectKey
     , _amuUploadId     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AbortMultipartUpload' smart constructor.
 abortMultipartUpload :: BucketName -> ObjectKey -> Text -> AbortMultipartUpload
@@ -125,7 +125,7 @@ instance ToQuery AbortMultipartUpload where
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
     { _amurRequestCharged :: !(Maybe RequestCharged)
     , _amurStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AbortMultipartUploadResponse' smart constructor.
 abortMultipartUploadResponse :: Status -> AbortMultipartUploadResponse

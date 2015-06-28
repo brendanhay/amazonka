@@ -128,7 +128,7 @@ data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
     { _mlbarLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
     , _mlbarLoadBalancerName       :: !(Maybe Text)
     , _mlbarStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifyLoadBalancerAttributesResponse' smart constructor.
 modifyLoadBalancerAttributesResponse :: Status -> ModifyLoadBalancerAttributesResponse

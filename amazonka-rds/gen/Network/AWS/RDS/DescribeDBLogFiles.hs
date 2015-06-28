@@ -189,7 +189,7 @@ data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
     { _ddlfrDescribeDBLogFiles :: !(Maybe [DescribeDBLogFilesDetails])
     , _ddlfrMarker             :: !(Maybe Text)
     , _ddlfrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDBLogFilesResponse' smart constructor.
 describeDBLogFilesResponse :: Status -> DescribeDBLogFilesResponse

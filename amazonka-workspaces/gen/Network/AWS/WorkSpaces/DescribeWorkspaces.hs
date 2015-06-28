@@ -182,7 +182,7 @@ data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
     { _dwrNextToken  :: !(Maybe Text)
     , _dwrWorkspaces :: !(Maybe [Workspace])
     , _dwrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeWorkspacesResponse' smart constructor.
 describeWorkspacesResponse :: Status -> DescribeWorkspacesResponse

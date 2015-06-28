@@ -256,7 +256,7 @@ instance ToQuery DescribeSpotInstanceRequests where
 data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'
     { _dsirrSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
     , _dsirrStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeSpotInstanceRequestsResponse' smart constructor.
 describeSpotInstanceRequestsResponse :: Status -> DescribeSpotInstanceRequestsResponse

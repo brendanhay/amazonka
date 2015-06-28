@@ -121,7 +121,7 @@ instance ToQuery CreateVPNGateway where
 data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
     { _cvgrVPNGateway :: !(Maybe VPNGateway)
     , _cvgrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateVPNGatewayResponse' smart constructor.
 createVPNGatewayResponse :: Status -> CreateVPNGatewayResponse

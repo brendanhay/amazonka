@@ -84,7 +84,7 @@ data ListBucketsResponse = ListBucketsResponse'
     { _lbrBuckets :: !(Maybe [Bucket])
     , _lbrOwner   :: !(Maybe Owner)
     , _lbrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListBucketsResponse' smart constructor.
 listBucketsResponse :: Status -> ListBucketsResponse

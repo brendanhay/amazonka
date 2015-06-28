@@ -238,7 +238,7 @@ instance ToQuery CreateCase where
 data CreateCaseResponse = CreateCaseResponse'
     { _ccrCaseId :: !(Maybe Text)
     , _ccrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateCaseResponse' smart constructor.
 createCaseResponse :: Status -> CreateCaseResponse

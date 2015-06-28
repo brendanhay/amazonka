@@ -796,7 +796,7 @@ data AttributeValue = AttributeValue'
     , _avSS   :: !(Maybe [Text])
     , _avS    :: !(Maybe Text)
     , _avBOOL :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AttributeValue' smart constructor.
 attributeValue :: AttributeValue
@@ -899,7 +899,7 @@ instance ToJSON AttributeValue where
 data AttributeValueUpdate = AttributeValueUpdate'
     { _avuValue  :: !(Maybe AttributeValue)
     , _avuAction :: !(Maybe AttributeAction)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AttributeValueUpdate' smart constructor.
 attributeValueUpdate :: AttributeValueUpdate
@@ -1047,7 +1047,7 @@ instance FromJSON Capacity where
 data Condition = Condition'
     { _conAttributeValueList :: !(Maybe [AttributeValue])
     , _conComparisonOperator :: !ComparisonOperator
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'Condition' smart constructor.
 condition :: ComparisonOperator -> Condition
@@ -1400,7 +1400,7 @@ instance ToJSON DeleteGlobalSecondaryIndexAction
 -- * 'drKey'
 newtype DeleteRequest = DeleteRequest'
     { _drKey :: Map Text AttributeValue
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteRequest' smart constructor.
 deleteRequest :: DeleteRequest
@@ -1463,7 +1463,7 @@ data ExpectedAttributeValue = ExpectedAttributeValue'
     , _eavExists             :: !(Maybe Bool)
     , _eavValue              :: !(Maybe AttributeValue)
     , _eavComparisonOperator :: !(Maybe ComparisonOperator)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ExpectedAttributeValue' smart constructor.
 expectedAttributeValue :: ExpectedAttributeValue
@@ -1939,7 +1939,7 @@ instance ToJSON GlobalSecondaryIndexUpdate where
 data ItemCollectionMetrics = ItemCollectionMetrics'
     { _icmItemCollectionKey   :: !(Maybe (Map Text AttributeValue))
     , _icmSizeEstimateRangeGB :: !(Maybe [Double])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ItemCollectionMetrics' smart constructor.
 itemCollectionMetrics :: ItemCollectionMetrics
@@ -2053,7 +2053,7 @@ data KeysAndAttributes = KeysAndAttributes'
     , _kaaExpressionAttributeNames :: !(Maybe (Map Text Text))
     , _kaaAttributesToGet          :: !(Maybe (List1 Text))
     , _kaaKeys                     :: !(List1 (Map Text AttributeValue))
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'KeysAndAttributes' smart constructor.
 keysAndAttributes :: NonEmpty (HashMap Text AttributeValue) -> KeysAndAttributes
@@ -2477,7 +2477,7 @@ instance FromJSON ProvisionedThroughputDescription
 -- * 'prItem'
 newtype PutRequest = PutRequest'
     { _prItem :: Map Text AttributeValue
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutRequest' smart constructor.
 putRequest :: PutRequest
@@ -2810,7 +2810,7 @@ instance ToJSON UpdateGlobalSecondaryIndexAction
 data WriteRequest = WriteRequest'
     { _wrPutRequest    :: !(Maybe PutRequest)
     , _wrDeleteRequest :: !(Maybe DeleteRequest)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'WriteRequest' smart constructor.
 writeRequest :: WriteRequest

@@ -127,7 +127,7 @@ instance ToQuery CreateKey where
 data CreateKeyResponse = CreateKeyResponse'
     { _ckrKeyMetadata :: !(Maybe KeyMetadata)
     , _ckrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateKeyResponse' smart constructor.
 createKeyResponse :: Status -> CreateKeyResponse

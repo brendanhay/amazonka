@@ -99,7 +99,7 @@ instance ToQuery GetReusableDelegationSet where
 data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
     { _grdsrDelegationSet :: !DelegationSet
     , _grdsrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetReusableDelegationSetResponse' smart constructor.
 getReusableDelegationSetResponse :: DelegationSet -> Status -> GetReusableDelegationSetResponse

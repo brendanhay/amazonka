@@ -125,7 +125,7 @@ instance ToQuery AssociateRouteTable where
 data AssociateRouteTableResponse = AssociateRouteTableResponse'
     { _artrAssociationId :: !(Maybe Text)
     , _artrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AssociateRouteTableResponse' smart constructor.
 associateRouteTableResponse :: Status -> AssociateRouteTableResponse

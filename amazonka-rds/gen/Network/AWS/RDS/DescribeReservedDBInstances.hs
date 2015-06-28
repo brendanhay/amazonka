@@ -229,7 +229,7 @@ data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'
     { _drdirReservedDBInstances :: !(Maybe [ReservedDBInstance])
     , _drdirMarker              :: !(Maybe Text)
     , _drdirStatus              :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeReservedDBInstancesResponse' smart constructor.
 describeReservedDBInstancesResponse :: Status -> DescribeReservedDBInstancesResponse

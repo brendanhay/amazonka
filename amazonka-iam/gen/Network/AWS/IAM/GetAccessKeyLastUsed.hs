@@ -106,7 +106,7 @@ data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
     { _gaklurUserName          :: !(Maybe Text)
     , _gaklurAccessKeyLastUsed :: !(Maybe AccessKeyLastUsed)
     , _gaklurStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetAccessKeyLastUsedResponse' smart constructor.
 getAccessKeyLastUsedResponse :: Status -> GetAccessKeyLastUsedResponse

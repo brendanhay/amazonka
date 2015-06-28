@@ -95,7 +95,7 @@ instance ToQuery ListVerifiedEmailAddresses where
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
     { _lvearVerifiedEmailAddresses :: !(Maybe [Text])
     , _lvearStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListVerifiedEmailAddressesResponse' smart constructor.
 listVerifiedEmailAddressesResponse :: Status -> ListVerifiedEmailAddressesResponse

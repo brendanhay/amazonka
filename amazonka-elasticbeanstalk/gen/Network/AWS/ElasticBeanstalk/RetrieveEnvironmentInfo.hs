@@ -141,7 +141,7 @@ instance ToQuery RetrieveEnvironmentInfo where
 data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'
     { _reirEnvironmentInfo :: !(Maybe [EnvironmentInfoDescription])
     , _reirStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RetrieveEnvironmentInfoResponse' smart constructor.
 retrieveEnvironmentInfoResponse :: Status -> RetrieveEnvironmentInfoResponse

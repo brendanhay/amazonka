@@ -178,7 +178,7 @@ instance ToQuery CreateNetworkInterface where
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
     { _cnirNetworkInterface :: !(Maybe NetworkInterface)
     , _cnirStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateNetworkInterfaceResponse' smart constructor.
 createNetworkInterfaceResponse :: Status -> CreateNetworkInterfaceResponse

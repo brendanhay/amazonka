@@ -134,7 +134,7 @@ data ListStacksResponse = ListStacksResponse'
     { _lisStackSummaries :: !(Maybe [StackSummary])
     , _lisNextToken      :: !(Maybe Text)
     , _lisStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListStacksResponse' smart constructor.
 listStacksResponse :: Status -> ListStacksResponse

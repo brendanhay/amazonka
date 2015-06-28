@@ -124,7 +124,7 @@ instance ToQuery DetachInstances where
 data DetachInstancesResponse = DetachInstancesResponse'
     { _dirActivities :: !(Maybe [Activity])
     , _dirStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DetachInstancesResponse' smart constructor.
 detachInstancesResponse :: Status -> DetachInstancesResponse

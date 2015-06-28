@@ -111,7 +111,7 @@ instance ToQuery MoveAddressToVPC where
 data MoveAddressToVPCResponse = MoveAddressToVPCResponse'
     { _matvrAllocationId :: !(Maybe Text)
     , _matvrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'MoveAddressToVPCResponse' smart constructor.
 moveAddressToVPCResponse :: Status -> MoveAddressToVPCResponse

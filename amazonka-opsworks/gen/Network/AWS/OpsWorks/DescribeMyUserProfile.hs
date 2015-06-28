@@ -94,7 +94,7 @@ instance ToQuery DescribeMyUserProfile where
 data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
     { _dmuprUserProfile :: !(Maybe SelfUserProfile)
     , _dmuprStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeMyUserProfileResponse' smart constructor.
 describeMyUserProfileResponse :: Status -> DescribeMyUserProfileResponse

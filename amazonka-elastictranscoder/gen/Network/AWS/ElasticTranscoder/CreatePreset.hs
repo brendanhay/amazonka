@@ -170,7 +170,7 @@ data CreatePresetResponse = CreatePresetResponse'
     { _cprWarning :: !(Maybe Text)
     , _cprPreset  :: !(Maybe Preset)
     , _cprStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreatePresetResponse' smart constructor.
 createPresetResponse :: Status -> CreatePresetResponse

@@ -130,7 +130,7 @@ data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
     , _gpdrParameterObjects :: !(Maybe [ParameterObject])
     , _gpdrParameterValues  :: !(Maybe [ParameterValue])
     , _gpdrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetPipelineDefinitionResponse' smart constructor.
 getPipelineDefinitionResponse :: Status -> GetPipelineDefinitionResponse

@@ -241,7 +241,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
     , _lrrsrIsTruncated          :: !Bool
     , _lrrsrMaxItems             :: !Text
     , _lrrsrStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListResourceRecordSetsResponse' smart constructor.
 listResourceRecordSetsResponse :: Bool -> Text -> Status -> ListResourceRecordSetsResponse

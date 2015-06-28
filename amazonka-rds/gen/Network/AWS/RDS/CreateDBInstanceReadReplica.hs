@@ -296,7 +296,7 @@ instance ToQuery CreateDBInstanceReadReplica where
 data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'
     { _cdirrrDBInstance :: !(Maybe DBInstance)
     , _cdirrrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDBInstanceReadReplicaResponse' smart constructor.
 createDBInstanceReadReplicaResponse :: Status -> CreateDBInstanceReadReplicaResponse

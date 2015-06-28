@@ -129,7 +129,7 @@ instance ToQuery EnableSso where
 -- * 'esrStatus'
 newtype EnableSsoResponse = EnableSsoResponse'
     { _esrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'EnableSsoResponse' smart constructor.
 enableSsoResponse :: Status -> EnableSsoResponse

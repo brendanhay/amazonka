@@ -148,7 +148,7 @@ instance ToQuery DescribeBundleTasks where
 data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
     { _dbtrBundleTasks :: !(Maybe [BundleTask])
     , _dbtrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeBundleTasksResponse' smart constructor.
 describeBundleTasksResponse :: Status -> DescribeBundleTasksResponse

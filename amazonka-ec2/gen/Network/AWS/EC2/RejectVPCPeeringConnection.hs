@@ -114,7 +114,7 @@ instance ToQuery RejectVPCPeeringConnection where
 data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'
     { _rvpcrReturn :: !(Maybe Bool)
     , _rvpcrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RejectVPCPeeringConnectionResponse' smart constructor.
 rejectVPCPeeringConnectionResponse :: Status -> RejectVPCPeeringConnectionResponse

@@ -148,7 +148,7 @@ data ListServicesResponse = ListServicesResponse'
     { _lsrServiceARNs :: !(Maybe [Text])
     , _lsrNextToken   :: !(Maybe Text)
     , _lsrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListServicesResponse' smart constructor.
 listServicesResponse :: Status -> ListServicesResponse

@@ -118,7 +118,7 @@ instance ToQuery GetQueueURL where
 data GetQueueURLResponse = GetQueueURLResponse'
     { _gqurQueueURL :: !Text
     , _gqurStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetQueueURLResponse' smart constructor.
 getQueueURLResponse :: Text -> Status -> GetQueueURLResponse

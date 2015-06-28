@@ -132,7 +132,7 @@ instance ToQuery DescribeDataset where
 data DescribeDatasetResponse = DescribeDatasetResponse'
     { _ddrDataset :: !(Maybe Dataset)
     , _ddrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDatasetResponse' smart constructor.
 describeDatasetResponse :: Status -> DescribeDatasetResponse

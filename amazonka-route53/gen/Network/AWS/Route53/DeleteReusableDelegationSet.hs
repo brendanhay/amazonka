@@ -100,7 +100,7 @@ instance ToQuery DeleteReusableDelegationSet where
 -- * 'drdsrStatus'
 newtype DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse'
     { _drdsrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteReusableDelegationSetResponse' smart constructor.
 deleteReusableDelegationSetResponse :: Status -> DeleteReusableDelegationSetResponse

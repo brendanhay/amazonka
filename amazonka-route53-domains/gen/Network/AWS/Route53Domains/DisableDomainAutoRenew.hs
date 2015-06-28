@@ -102,7 +102,7 @@ instance ToQuery DisableDomainAutoRenew where
 -- * 'ddarrStatus'
 newtype DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'
     { _ddarrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DisableDomainAutoRenewResponse' smart constructor.
 disableDomainAutoRenewResponse :: Status -> DisableDomainAutoRenewResponse

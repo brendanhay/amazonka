@@ -96,7 +96,7 @@ instance ToQuery CancelJob where
 -- * 'canStatus'
 newtype CancelJobResponse = CancelJobResponse'
     { _canStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CancelJobResponse' smart constructor.
 cancelJobResponse :: Status -> CancelJobResponse

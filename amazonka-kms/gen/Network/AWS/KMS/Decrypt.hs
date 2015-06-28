@@ -142,7 +142,7 @@ data DecryptResponse = DecryptResponse'
     { _drKeyId     :: !(Maybe Text)
     , _drPlaintext :: !(Maybe (Sensitive Base64))
     , _drStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DecryptResponse' smart constructor.
 decryptResponse :: Status -> DecryptResponse

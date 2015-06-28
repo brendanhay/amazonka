@@ -146,7 +146,7 @@ data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
     { _lopirNextToken     :: !(Maybe Text)
     , _lopirInstanceNames :: !(Maybe [Text])
     , _lopirStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListOnPremisesInstancesResponse' smart constructor.
 listOnPremisesInstancesResponse :: Status -> ListOnPremisesInstancesResponse

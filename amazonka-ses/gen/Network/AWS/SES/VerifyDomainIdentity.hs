@@ -101,7 +101,7 @@ instance ToQuery VerifyDomainIdentity where
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
     { _vdirVerificationToken :: !Text
     , _vdirStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'VerifyDomainIdentityResponse' smart constructor.
 verifyDomainIdentityResponse :: Text -> Status -> VerifyDomainIdentityResponse

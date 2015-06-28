@@ -98,7 +98,7 @@ instance ToQuery DescribeLoadBalancerAttributes where
 data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'
     { _dlbarLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
     , _dlbarStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeLoadBalancerAttributesResponse' smart constructor.
 describeLoadBalancerAttributesResponse :: Status -> DescribeLoadBalancerAttributesResponse

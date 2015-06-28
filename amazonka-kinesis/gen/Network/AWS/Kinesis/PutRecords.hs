@@ -177,7 +177,7 @@ data PutRecordsResponse = PutRecordsResponse'
     { _pFailedRecordCount :: !(Maybe Nat)
     , _pRecords           :: !(List1 PutRecordsResultEntry)
     , _pStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'PutRecordsResponse' smart constructor.
 putRecordsResponse :: NonEmpty PutRecordsResultEntry -> Status -> PutRecordsResponse

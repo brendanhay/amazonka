@@ -179,7 +179,7 @@ instance ToQuery CopySnapshot where
 data CopySnapshotResponse = CopySnapshotResponse'
     { _csrSnapshotId :: !(Maybe Text)
     , _csrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CopySnapshotResponse' smart constructor.
 copySnapshotResponse :: Status -> CopySnapshotResponse

@@ -128,7 +128,7 @@ instance ToQuery DescribeVirtualInterfaces where
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
     { _desVirtualInterfaces :: !(Maybe [VirtualInterface])
     , _desStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeVirtualInterfacesResponse' smart constructor.
 describeVirtualInterfacesResponse :: Status -> DescribeVirtualInterfacesResponse

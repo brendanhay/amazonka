@@ -121,7 +121,7 @@ instance ToQuery ConfirmProductInstance where
 data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
     { _cpirOwnerId :: !(Maybe Text)
     , _cpirStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ConfirmProductInstanceResponse' smart constructor.
 confirmProductInstanceResponse :: Status -> ConfirmProductInstanceResponse

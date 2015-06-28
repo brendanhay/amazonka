@@ -195,7 +195,7 @@ data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
     { _ddsrMarker      :: !(Maybe Text)
     , _ddsrDBSnapshots :: !(Maybe [DBSnapshot])
     , _ddsrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDBSnapshotsResponse' smart constructor.
 describeDBSnapshotsResponse :: Status -> DescribeDBSnapshotsResponse

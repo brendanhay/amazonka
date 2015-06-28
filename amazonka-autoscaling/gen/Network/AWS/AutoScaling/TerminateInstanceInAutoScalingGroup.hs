@@ -118,7 +118,7 @@ instance ToQuery TerminateInstanceInAutoScalingGroup
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
     { _tiiasgrActivity :: !(Maybe Activity)
     , _tiiasgrStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'TerminateInstanceInAutoScalingGroupResponse' smart constructor.
 terminateInstanceInAutoScalingGroupResponse :: Status -> TerminateInstanceInAutoScalingGroupResponse

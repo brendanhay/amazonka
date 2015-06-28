@@ -142,7 +142,7 @@ data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurat
     { _dncrNextToken                  :: !(Maybe Text)
     , _dncrNotificationConfigurations :: ![NotificationConfiguration]
     , _dncrStatus                     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeNotificationConfigurationsResponse' smart constructor.
 describeNotificationConfigurationsResponse :: Status -> DescribeNotificationConfigurationsResponse

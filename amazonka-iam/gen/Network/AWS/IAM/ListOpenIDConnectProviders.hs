@@ -88,7 +88,7 @@ instance ToQuery ListOpenIDConnectProviders where
 data ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'
     { _loidcprOpenIDConnectProviderList :: !(Maybe [OpenIDConnectProviderListEntry])
     , _loidcprStatus                    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListOpenIDConnectProvidersResponse' smart constructor.
 listOpenIDConnectProvidersResponse :: Status -> ListOpenIDConnectProvidersResponse

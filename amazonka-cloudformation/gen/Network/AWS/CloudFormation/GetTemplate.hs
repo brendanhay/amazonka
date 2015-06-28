@@ -110,7 +110,7 @@ instance ToQuery GetTemplate where
 data GetTemplateResponse = GetTemplateResponse'
     { _gtrTemplateBody :: !(Maybe Text)
     , _gtrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetTemplateResponse' smart constructor.
 getTemplateResponse :: Status -> GetTemplateResponse

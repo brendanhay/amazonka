@@ -99,7 +99,7 @@ instance ToQuery RemoveTags where
 -- * 'rtrStatus'
 newtype RemoveTagsResponse = RemoveTagsResponse'
     { _rtrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RemoveTagsResponse' smart constructor.
 removeTagsResponse :: Status -> RemoveTagsResponse

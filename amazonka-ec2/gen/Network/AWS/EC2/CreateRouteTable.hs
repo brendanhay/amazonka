@@ -110,7 +110,7 @@ instance ToQuery CreateRouteTable where
 data CreateRouteTableResponse = CreateRouteTableResponse'
     { _crtrRouteTable :: !(Maybe RouteTable)
     , _crtrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateRouteTableResponse' smart constructor.
 createRouteTableResponse :: Status -> CreateRouteTableResponse

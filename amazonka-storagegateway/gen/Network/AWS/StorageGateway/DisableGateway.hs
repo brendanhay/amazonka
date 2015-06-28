@@ -111,7 +111,7 @@ instance ToQuery DisableGateway where
 data DisableGatewayResponse = DisableGatewayResponse'
     { _dGatewayARN :: !(Maybe Text)
     , _dStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DisableGatewayResponse' smart constructor.
 disableGatewayResponse :: Status -> DisableGatewayResponse

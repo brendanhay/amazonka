@@ -127,7 +127,7 @@ instance ToQuery DescribeKeyPairs where
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
     { _dkprKeyPairs :: !(Maybe [KeyPairInfo])
     , _dkprStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeKeyPairsResponse' smart constructor.
 describeKeyPairsResponse :: Status -> DescribeKeyPairsResponse

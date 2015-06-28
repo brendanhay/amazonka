@@ -108,7 +108,7 @@ instance ToQuery CancelJob where
 data CancelJobResponse = CancelJobResponse'
     { _canSuccess :: !(Maybe Bool)
     , _canStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CancelJobResponse' smart constructor.
 cancelJobResponse :: Status -> CancelJobResponse

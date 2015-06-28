@@ -101,7 +101,7 @@ data DeleteItem = DeleteItem'
     , _diExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
     , _diTableName                   :: !Text
     , _diKey                         :: !(Map Text AttributeValue)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteItem' smart constructor.
 deleteItem :: Text -> DeleteItem
@@ -552,7 +552,7 @@ data DeleteItemResponse = DeleteItemResponse'
     , _dirItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
     , _dirAttributes            :: !(Maybe (Map Text AttributeValue))
     , _dirStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteItemResponse' smart constructor.
 deleteItemResponse :: Status -> DeleteItemResponse

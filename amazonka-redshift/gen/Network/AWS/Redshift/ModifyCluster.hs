@@ -383,7 +383,7 @@ instance ToQuery ModifyCluster where
 data ModifyClusterResponse = ModifyClusterResponse'
     { _mcrCluster :: !(Maybe Cluster)
     , _mcrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifyClusterResponse' smart constructor.
 modifyClusterResponse :: Status -> ModifyClusterResponse

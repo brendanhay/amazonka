@@ -122,7 +122,7 @@ instance ToQuery CancelSpotInstanceRequests where
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
     { _csirrCancelledSpotInstanceRequests :: !(Maybe [CancelledSpotInstanceRequest])
     , _csirrStatus                        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CancelSpotInstanceRequestsResponse' smart constructor.
 cancelSpotInstanceRequestsResponse :: Status -> CancelSpotInstanceRequestsResponse

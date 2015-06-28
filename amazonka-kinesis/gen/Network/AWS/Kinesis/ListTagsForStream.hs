@@ -134,7 +134,7 @@ data ListTagsForStreamResponse = ListTagsForStreamResponse'
     { _ltfsrTags        :: ![Tag]
     , _ltfsrHasMoreTags :: !Bool
     , _ltfsrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListTagsForStreamResponse' smart constructor.
 listTagsForStreamResponse :: Bool -> Status -> ListTagsForStreamResponse

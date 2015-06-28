@@ -112,7 +112,7 @@ data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'
     { _drerRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
     , _drerMLModelId            :: !(Maybe Text)
     , _drerStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteRealtimeEndpointResponse' smart constructor.
 deleteRealtimeEndpointResponse :: Status -> DeleteRealtimeEndpointResponse

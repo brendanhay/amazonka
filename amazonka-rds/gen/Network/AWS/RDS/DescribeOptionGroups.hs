@@ -177,7 +177,7 @@ data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
     { _dogrMarker           :: !(Maybe Text)
     , _dogrOptionGroupsList :: !(Maybe [OptionGroup])
     , _dogrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeOptionGroupsResponse' smart constructor.
 describeOptionGroupsResponse :: Status -> DescribeOptionGroupsResponse

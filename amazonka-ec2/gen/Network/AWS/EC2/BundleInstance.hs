@@ -133,7 +133,7 @@ instance ToQuery BundleInstance where
 data BundleInstanceResponse = BundleInstanceResponse'
     { _birBundleTask :: !(Maybe BundleTask)
     , _birStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'BundleInstanceResponse' smart constructor.
 bundleInstanceResponse :: Status -> BundleInstanceResponse

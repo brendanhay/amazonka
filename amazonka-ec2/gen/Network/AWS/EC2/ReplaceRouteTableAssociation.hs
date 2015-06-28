@@ -129,7 +129,7 @@ instance ToQuery ReplaceRouteTableAssociation where
 data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'
     { _rrtarNewAssociationId :: !(Maybe Text)
     , _rrtarStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ReplaceRouteTableAssociationResponse' smart constructor.
 replaceRouteTableAssociationResponse :: Status -> ReplaceRouteTableAssociationResponse

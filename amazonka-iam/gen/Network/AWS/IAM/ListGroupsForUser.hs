@@ -142,7 +142,7 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse'
     , _lgfurIsTruncated :: !(Maybe Bool)
     , _lgfurGroups      :: ![Group]
     , _lgfurStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListGroupsForUserResponse' smart constructor.
 listGroupsForUserResponse :: Status -> ListGroupsForUserResponse

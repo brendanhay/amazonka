@@ -316,7 +316,7 @@ data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOffer
     { _driorNextToken                  :: !(Maybe Text)
     , _driorReservedInstancesOfferings :: !(Maybe [ReservedInstancesOffering])
     , _driorStatus                     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeReservedInstancesOfferingsResponse' smart constructor.
 describeReservedInstancesOfferingsResponse :: Status -> DescribeReservedInstancesOfferingsResponse

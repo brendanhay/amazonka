@@ -132,7 +132,7 @@ instance ToQuery EstimateTemplateCost where
 data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
     { _etcrURL    :: !(Maybe Text)
     , _etcrStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'EstimateTemplateCostResponse' smart constructor.
 estimateTemplateCostResponse :: Status -> EstimateTemplateCostResponse

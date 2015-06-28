@@ -219,7 +219,7 @@ data DescribeCasesResponse = DescribeCasesResponse'
     { _desCases     :: !(Maybe [CaseDetails])
     , _desNextToken :: !(Maybe Text)
     , _desStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeCasesResponse' smart constructor.
 describeCasesResponse :: Status -> DescribeCasesResponse

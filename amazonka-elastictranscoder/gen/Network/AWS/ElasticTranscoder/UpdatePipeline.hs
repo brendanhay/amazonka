@@ -296,7 +296,7 @@ data UpdatePipelineResponse = UpdatePipelineResponse'
     { _uprWarnings :: !(Maybe [Warning])
     , _uprPipeline :: !(Maybe Pipeline)
     , _uprStatus   :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdatePipelineResponse' smart constructor.
 updatePipelineResponse :: Status -> UpdatePipelineResponse

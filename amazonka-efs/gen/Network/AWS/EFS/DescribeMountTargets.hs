@@ -130,7 +130,7 @@ data DescribeMountTargetsResponse = DescribeMountTargetsResponse'
     , _dmtrMarker       :: !(Maybe Text)
     , _dmtrNextMarker   :: !(Maybe Text)
     , _dmtrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeMountTargetsResponse' smart constructor.
 describeMountTargetsResponse :: Status -> DescribeMountTargetsResponse

@@ -127,7 +127,7 @@ instance ToQuery ModifyCacheSubnetGroup where
 data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'
     { _mcsgrCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
     , _mcsgrStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifyCacheSubnetGroupResponse' smart constructor.
 modifyCacheSubnetGroupResponse :: Status -> ModifyCacheSubnetGroupResponse

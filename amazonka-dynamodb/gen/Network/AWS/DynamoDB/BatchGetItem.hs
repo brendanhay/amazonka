@@ -108,7 +108,7 @@ import           Network.AWS.Response
 data BatchGetItem = BatchGetItem'
     { _bgiReturnConsumedCapacity :: !(Maybe ReturnConsumedCapacity)
     , _bgiRequestItems           :: !(Map Text KeysAndAttributes)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'BatchGetItem' smart constructor.
 batchGetItem :: BatchGetItem
@@ -268,7 +268,7 @@ data BatchGetItemResponse = BatchGetItemResponse'
     , _bgirResponses        :: !(Maybe (Map Text [Map Text AttributeValue]))
     , _bgirConsumedCapacity :: !(Maybe [ConsumedCapacity])
     , _bgirStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'BatchGetItemResponse' smart constructor.
 batchGetItemResponse :: Status -> BatchGetItemResponse

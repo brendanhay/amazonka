@@ -113,7 +113,7 @@ instance ToQuery DescribeDeliveryChannelStatus where
 data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'
     { _ddcsrDeliveryChannelsStatus :: !(Maybe [DeliveryChannelStatus])
     , _ddcsrStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeDeliveryChannelStatusResponse' smart constructor.
 describeDeliveryChannelStatusResponse :: Status -> DescribeDeliveryChannelStatusResponse

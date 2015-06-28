@@ -144,7 +144,7 @@ data CreateMultipartUpload = CreateMultipartUpload'
     , _cmuContentType             :: !(Maybe Text)
     , _cmuBucket                  :: !BucketName
     , _cmuKey                     :: !ObjectKey
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateMultipartUpload' smart constructor.
 createMultipartUpload :: BucketName -> ObjectKey -> CreateMultipartUpload
@@ -371,7 +371,7 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
     , _cmurUploadId             :: !(Maybe Text)
     , _cmurServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _cmurStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateMultipartUploadResponse' smart constructor.
 createMultipartUploadResponse :: Status -> CreateMultipartUploadResponse

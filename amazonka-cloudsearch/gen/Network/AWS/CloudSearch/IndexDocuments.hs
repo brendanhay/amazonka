@@ -103,7 +103,7 @@ instance ToQuery IndexDocuments where
 data IndexDocumentsResponse = IndexDocumentsResponse'
     { _idrFieldNames :: !(Maybe [Text])
     , _idrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'IndexDocumentsResponse' smart constructor.
 indexDocumentsResponse :: Status -> IndexDocumentsResponse

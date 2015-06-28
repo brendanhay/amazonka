@@ -93,7 +93,7 @@ instance ToQuery DeletePreset where
 -- * 'dprStatus'
 newtype DeletePresetResponse = DeletePresetResponse'
     { _dprStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeletePresetResponse' smart constructor.
 deletePresetResponse :: Status -> DeletePresetResponse

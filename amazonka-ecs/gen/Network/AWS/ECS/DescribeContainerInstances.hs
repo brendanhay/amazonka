@@ -123,7 +123,7 @@ data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
     { _desFailures           :: !(Maybe [Failure])
     , _desContainerInstances :: !(Maybe [ContainerInstance])
     , _desStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeContainerInstancesResponse' smart constructor.
 describeContainerInstancesResponse :: Status -> DescribeContainerInstancesResponse

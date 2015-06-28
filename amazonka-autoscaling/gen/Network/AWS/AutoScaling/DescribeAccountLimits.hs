@@ -91,7 +91,7 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
     { _dalrMaxNumberOfLaunchConfigurations :: !(Maybe Int)
     , _dalrMaxNumberOfAutoScalingGroups    :: !(Maybe Int)
     , _dalrStatus                          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeAccountLimitsResponse' smart constructor.
 describeAccountLimitsResponse :: Status -> DescribeAccountLimitsResponse

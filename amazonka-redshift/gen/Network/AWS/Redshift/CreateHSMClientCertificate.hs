@@ -121,7 +121,7 @@ instance ToQuery CreateHSMClientCertificate where
 data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'
     { _chccrHSMClientCertificate :: !(Maybe HSMClientCertificate)
     , _chccrStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateHSMClientCertificateResponse' smart constructor.
 createHSMClientCertificateResponse :: Status -> CreateHSMClientCertificateResponse

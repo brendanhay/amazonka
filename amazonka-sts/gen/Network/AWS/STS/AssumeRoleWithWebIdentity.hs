@@ -280,7 +280,7 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
     , _arwwirAssumedRoleUser             :: !(Maybe AssumedRoleUser)
     , _arwwirProvider                    :: !(Maybe Text)
     , _arwwirStatus                      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'AssumeRoleWithWebIdentityResponse' smart constructor.
 assumeRoleWithWebIdentityResponse :: Status -> AssumeRoleWithWebIdentityResponse

@@ -204,7 +204,7 @@ data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
     , _csscsivrVolumeARN         :: !(Maybe Text)
     , _csscsivrVolumeSizeInBytes :: !(Maybe Integer)
     , _csscsivrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateStorediSCSIVolumeResponse' smart constructor.
 createStorediSCSIVolumeResponse :: Status -> CreateStorediSCSIVolumeResponse

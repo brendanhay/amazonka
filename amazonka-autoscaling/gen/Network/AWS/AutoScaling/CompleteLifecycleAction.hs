@@ -144,7 +144,7 @@ instance ToQuery CompleteLifecycleAction where
 -- * 'clarStatus'
 newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
     { _clarStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CompleteLifecycleActionResponse' smart constructor.
 completeLifecycleActionResponse :: Status -> CompleteLifecycleActionResponse

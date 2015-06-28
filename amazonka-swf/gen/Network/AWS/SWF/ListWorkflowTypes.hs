@@ -203,7 +203,7 @@ data ListWorkflowTypesResponse = ListWorkflowTypesResponse'
     { _lwtrNextPageToken :: !(Maybe Text)
     , _lwtrTypeInfos     :: ![WorkflowTypeInfo]
     , _lwtrStatus        :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListWorkflowTypesResponse' smart constructor.
 listWorkflowTypesResponse :: Status -> ListWorkflowTypesResponse

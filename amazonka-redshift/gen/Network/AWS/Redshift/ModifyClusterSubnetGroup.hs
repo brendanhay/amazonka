@@ -122,7 +122,7 @@ instance ToQuery ModifyClusterSubnetGroup where
 data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'
     { _mcsgrClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
     , _mcsgrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ModifyClusterSubnetGroupResponse' smart constructor.
 modifyClusterSubnetGroupResponse :: Status -> ModifyClusterSubnetGroupResponse

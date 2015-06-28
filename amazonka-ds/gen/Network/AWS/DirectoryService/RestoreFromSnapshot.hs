@@ -109,7 +109,7 @@ instance ToQuery RestoreFromSnapshot where
 -- * 'rfsrStatus'
 newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
     { _rfsrStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RestoreFromSnapshotResponse' smart constructor.
 restoreFromSnapshotResponse :: Status -> RestoreFromSnapshotResponse

@@ -102,7 +102,7 @@ data GetDistributionConfigResponse = GetDistributionConfigResponse'
     { _gdcrETag               :: !(Maybe Text)
     , _gdcrDistributionConfig :: !(Maybe DistributionConfig)
     , _gdcrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetDistributionConfigResponse' smart constructor.
 getDistributionConfigResponse :: Status -> GetDistributionConfigResponse

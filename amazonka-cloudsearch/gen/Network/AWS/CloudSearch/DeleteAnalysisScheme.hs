@@ -113,7 +113,7 @@ instance ToQuery DeleteAnalysisScheme where
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
     { _dAnalysisScheme :: !AnalysisSchemeStatus
     , _dStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteAnalysisSchemeResponse' smart constructor.
 deleteAnalysisSchemeResponse :: AnalysisSchemeStatus -> Status -> DeleteAnalysisSchemeResponse

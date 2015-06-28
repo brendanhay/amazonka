@@ -212,7 +212,7 @@ instance ToQuery ActivateGateway where
 data ActivateGatewayResponse = ActivateGatewayResponse'
     { _agrGatewayARN :: !(Maybe Text)
     , _agrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ActivateGatewayResponse' smart constructor.
 activateGatewayResponse :: Status -> ActivateGatewayResponse

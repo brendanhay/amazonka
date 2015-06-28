@@ -131,7 +131,7 @@ data ListAssociationsResponse = ListAssociationsResponse'
     { _larNextToken    :: !(Maybe Text)
     , _larAssociations :: !(Maybe [Association])
     , _larStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListAssociationsResponse' smart constructor.
 listAssociationsResponse :: Status -> ListAssociationsResponse

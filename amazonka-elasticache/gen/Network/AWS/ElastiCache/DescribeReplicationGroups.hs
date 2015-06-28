@@ -150,7 +150,7 @@ data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
     { _drgrMarker            :: !(Maybe Text)
     , _drgrReplicationGroups :: !(Maybe [ReplicationGroup])
     , _drgrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeReplicationGroupsResponse' smart constructor.
 describeReplicationGroupsResponse :: Status -> DescribeReplicationGroupsResponse

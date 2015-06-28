@@ -132,7 +132,7 @@ instance ToQuery RegisterTaskDefinition where
 data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
     { _rtdrTaskDefinition :: !(Maybe TaskDefinition)
     , _rtdrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RegisterTaskDefinitionResponse' smart constructor.
 registerTaskDefinitionResponse :: Status -> RegisterTaskDefinitionResponse

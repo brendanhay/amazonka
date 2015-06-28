@@ -144,7 +144,7 @@ instance ToQuery CreateDHCPOptions where
 data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'
     { _cdorDHCPOptions :: !(Maybe DHCPOptions)
     , _cdorStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateDHCPOptionsResponse' smart constructor.
 createDHCPOptionsResponse :: Status -> CreateDHCPOptionsResponse

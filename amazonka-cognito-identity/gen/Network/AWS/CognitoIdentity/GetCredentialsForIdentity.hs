@@ -128,7 +128,7 @@ data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
     { _gcfirCredentials :: !(Maybe Credentials)
     , _gcfirIdentityId  :: !(Maybe Text)
     , _gcfirStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetCredentialsForIdentityResponse' smart constructor.
 getCredentialsForIdentityResponse :: Status -> GetCredentialsForIdentityResponse

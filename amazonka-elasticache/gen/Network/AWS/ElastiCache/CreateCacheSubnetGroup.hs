@@ -128,7 +128,7 @@ instance ToQuery CreateCacheSubnetGroup where
 data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
     { _creCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
     , _creStatus           :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateCacheSubnetGroupResponse' smart constructor.
 createCacheSubnetGroupResponse :: Status -> CreateCacheSubnetGroupResponse

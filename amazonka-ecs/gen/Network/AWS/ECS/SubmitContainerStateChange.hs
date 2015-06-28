@@ -165,7 +165,7 @@ instance ToQuery SubmitContainerStateChange where
 data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
     { _scscrAcknowledgment :: !(Maybe Text)
     , _scscrStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SubmitContainerStateChangeResponse' smart constructor.
 submitContainerStateChangeResponse :: Status -> SubmitContainerStateChangeResponse

@@ -144,7 +144,7 @@ data ListMetricsResponse = ListMetricsResponse'
     { _lmrMetrics   :: !(Maybe [Metric])
     , _lmrNextToken :: !(Maybe Text)
     , _lmrStatus    :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListMetricsResponse' smart constructor.
 listMetricsResponse :: Status -> ListMetricsResponse

@@ -134,7 +134,7 @@ instance ToQuery DescribeSuggesters where
 data DescribeSuggestersResponse = DescribeSuggestersResponse'
     { _dsr1Suggesters :: ![SuggesterStatus]
     , _dsr1Status     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeSuggestersResponse' smart constructor.
 describeSuggestersResponse :: Status -> DescribeSuggestersResponse

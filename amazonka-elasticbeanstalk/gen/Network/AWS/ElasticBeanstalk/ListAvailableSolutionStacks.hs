@@ -95,7 +95,7 @@ data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
     { _lassrSolutionStacks       :: !(Maybe [Text])
     , _lassrSolutionStackDetails :: !(Maybe [SolutionStackDescription])
     , _lassrStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListAvailableSolutionStacksResponse' smart constructor.
 listAvailableSolutionStacksResponse :: Status -> ListAvailableSolutionStacksResponse

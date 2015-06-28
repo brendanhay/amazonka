@@ -10,9 +10,7 @@
 
 module Main (main) where
 
-import           Data.Proxy
-import qualified Test.AWS.Fixture as Fixture
-import qualified Test.AWS.SQS     as SQS
+import qualified Test.AWS.SQS as SQS
 import           Test.Tasty
 
 -- NOTE:

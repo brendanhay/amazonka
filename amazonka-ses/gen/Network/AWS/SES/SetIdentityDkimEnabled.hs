@@ -123,7 +123,7 @@ instance ToQuery SetIdentityDkimEnabled where
 -- * 'siderStatus'
 newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
     { _siderStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SetIdentityDkimEnabledResponse' smart constructor.
 setIdentityDkimEnabledResponse :: Status -> SetIdentityDkimEnabledResponse

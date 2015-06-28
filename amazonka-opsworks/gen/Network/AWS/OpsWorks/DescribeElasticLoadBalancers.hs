@@ -126,7 +126,7 @@ instance ToQuery DescribeElasticLoadBalancers where
 data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'
     { _delbrElasticLoadBalancers :: !(Maybe [ElasticLoadBalancer])
     , _delbrStatus               :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeElasticLoadBalancersResponse' smart constructor.
 describeElasticLoadBalancersResponse :: Status -> DescribeElasticLoadBalancersResponse

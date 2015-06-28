@@ -176,7 +176,7 @@ data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
     { _dlsrNextToken  :: !(Maybe Text)
     , _dlsrLogStreams :: !(Maybe [LogStream])
     , _dlsrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeLogStreamsResponse' smart constructor.
 describeLogStreamsResponse :: Status -> DescribeLogStreamsResponse

@@ -121,7 +121,7 @@ instance ToQuery UpdateAssociationStatus where
 data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
     { _uasrAssociationDescription :: !(Maybe AssociationDescription)
     , _uasrStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateAssociationStatusResponse' smart constructor.
 updateAssociationStatusResponse :: Status -> UpdateAssociationStatusResponse

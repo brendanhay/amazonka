@@ -83,7 +83,7 @@ import           Network.AWS.Route53.Types
 data ChangeResourceRecordSets = ChangeResourceRecordSets'
     { _crrsHostedZoneId :: !Text
     , _crrsChangeBatch  :: !ChangeBatch
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ChangeResourceRecordSets' smart constructor.
 changeResourceRecordSets :: Text -> ChangeBatch -> ChangeResourceRecordSets
@@ -147,7 +147,7 @@ instance ToXML ChangeResourceRecordSets where
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
     { _crrsrChangeInfo :: !ChangeInfo
     , _crrsrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ChangeResourceRecordSetsResponse' smart constructor.
 changeResourceRecordSetsResponse :: ChangeInfo -> Status -> ChangeResourceRecordSetsResponse

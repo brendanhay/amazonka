@@ -144,7 +144,7 @@ data SendMessageBatchResponse = SendMessageBatchResponse'
     { _smbrSuccessful :: ![SendMessageBatchResultEntry]
     , _smbrFailed     :: ![BatchResultErrorEntry]
     , _smbrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'SendMessageBatchResponse' smart constructor.
 sendMessageBatchResponse :: Status -> SendMessageBatchResponse

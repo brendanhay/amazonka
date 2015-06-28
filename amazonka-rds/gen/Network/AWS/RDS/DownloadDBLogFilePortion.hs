@@ -179,7 +179,7 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
     , _ddlfprAdditionalDataPending :: !(Maybe Bool)
     , _ddlfprMarker                :: !(Maybe Text)
     , _ddlfprStatus                :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DownloadDBLogFilePortionResponse' smart constructor.
 downloadDBLogFilePortionResponse :: Status -> DownloadDBLogFilePortionResponse

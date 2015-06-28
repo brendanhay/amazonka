@@ -84,7 +84,7 @@ instance ToQuery DescribeAdjustmentTypes where
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
     { _datrAdjustmentTypes :: !(Maybe [AdjustmentType])
     , _datrStatus          :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeAdjustmentTypesResponse' smart constructor.
 describeAdjustmentTypesResponse :: Status -> DescribeAdjustmentTypesResponse

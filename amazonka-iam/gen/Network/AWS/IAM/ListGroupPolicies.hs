@@ -151,7 +151,7 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
     , _lgprIsTruncated :: !(Maybe Bool)
     , _lgprPolicyNames :: ![Text]
     , _lgprStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListGroupPoliciesResponse' smart constructor.
 listGroupPoliciesResponse :: Status -> ListGroupPoliciesResponse

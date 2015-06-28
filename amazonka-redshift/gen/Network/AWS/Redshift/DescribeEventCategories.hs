@@ -107,7 +107,7 @@ instance ToQuery DescribeEventCategories where
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
     { _decrEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
     , _decrStatus                 :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeEventCategoriesResponse' smart constructor.
 describeEventCategoriesResponse :: Status -> DescribeEventCategoriesResponse

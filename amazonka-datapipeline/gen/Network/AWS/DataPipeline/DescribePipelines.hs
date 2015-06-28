@@ -115,7 +115,7 @@ instance ToQuery DescribePipelines where
 data DescribePipelinesResponse = DescribePipelinesResponse'
     { _dprPipelineDescriptionList :: ![PipelineDescription]
     , _dprStatus                  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribePipelinesResponse' smart constructor.
 describePipelinesResponse :: Status -> DescribePipelinesResponse

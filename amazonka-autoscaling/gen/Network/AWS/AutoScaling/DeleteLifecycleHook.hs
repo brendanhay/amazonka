@@ -103,7 +103,7 @@ instance ToQuery DeleteLifecycleHook where
 -- * 'delStatus'
 newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
     { _delStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DeleteLifecycleHookResponse' smart constructor.
 deleteLifecycleHookResponse :: Status -> DeleteLifecycleHookResponse

@@ -146,7 +146,7 @@ instance ToQuery CreateClusterSubnetGroup where
 data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'
     { _ccsgrClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
     , _ccsgrStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateClusterSubnetGroupResponse' smart constructor.
 createClusterSubnetGroupResponse :: Status -> CreateClusterSubnetGroupResponse

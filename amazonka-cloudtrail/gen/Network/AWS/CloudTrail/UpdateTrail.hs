@@ -210,7 +210,7 @@ data UpdateTrailResponse = UpdateTrailResponse'
     , _utrCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _utrS3BucketName               :: !(Maybe Text)
     , _utrStatus                     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UpdateTrailResponse' smart constructor.
 updateTrailResponse :: Status -> UpdateTrailResponse

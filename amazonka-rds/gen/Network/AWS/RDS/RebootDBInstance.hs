@@ -132,7 +132,7 @@ instance ToQuery RebootDBInstance where
 data RebootDBInstanceResponse = RebootDBInstanceResponse'
     { _rdirDBInstance :: !(Maybe DBInstance)
     , _rdirStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RebootDBInstanceResponse' smart constructor.
 rebootDBInstanceResponse :: Status -> RebootDBInstanceResponse

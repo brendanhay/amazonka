@@ -141,7 +141,7 @@ data ListGrantsResponse = ListGrantsResponse'
     , _lgrGrants     :: !(Maybe [GrantListEntry])
     , _lgrNextMarker :: !(Maybe Text)
     , _lgrStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListGrantsResponse' smart constructor.
 listGrantsResponse :: Status -> ListGrantsResponse

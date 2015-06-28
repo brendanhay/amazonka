@@ -116,7 +116,7 @@ instance ToQuery GetVaultAccessPolicy where
 data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
     { _gvaprPolicy :: !(Maybe VaultAccessPolicy)
     , _gvaprStatus :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetVaultAccessPolicyResponse' smart constructor.
 getVaultAccessPolicyResponse :: Status -> GetVaultAccessPolicyResponse

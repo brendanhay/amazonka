@@ -123,7 +123,7 @@ instance ToQuery
 data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'
     { _eazflbrAvailabilityZones :: !(Maybe [Text])
     , _eazflbrStatus            :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'EnableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 enableAvailabilityZonesForLoadBalancerResponse :: Status -> EnableAvailabilityZonesForLoadBalancerResponse

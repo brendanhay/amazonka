@@ -126,7 +126,7 @@ instance ToQuery UploadSigningCertificate where
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
     { _uscrCertificate :: !SigningCertificate
     , _uscrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'UploadSigningCertificateResponse' smart constructor.
 uploadSigningCertificateResponse :: SigningCertificate -> Status -> UploadSigningCertificateResponse

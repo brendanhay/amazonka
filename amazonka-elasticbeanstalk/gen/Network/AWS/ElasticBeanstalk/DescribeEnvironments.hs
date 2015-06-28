@@ -164,7 +164,7 @@ instance ToQuery DescribeEnvironments where
 data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
     { _desEnvironments :: !(Maybe [EnvironmentDescription])
     , _desStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeEnvironmentsResponse' smart constructor.
 describeEnvironmentsResponse :: Status -> DescribeEnvironmentsResponse

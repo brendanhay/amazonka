@@ -172,7 +172,7 @@ data DescribeClusterParametersResponse = DescribeClusterParametersResponse'
     { _dcprParameters :: !(Maybe [Parameter])
     , _dcprMarker     :: !(Maybe Text)
     , _dcprStatus     :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeClusterParametersResponse' smart constructor.
 describeClusterParametersResponse :: Status -> DescribeClusterParametersResponse

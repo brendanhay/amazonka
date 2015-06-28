@@ -155,7 +155,7 @@ data ListHealthChecksResponse = ListHealthChecksResponse'
     , _lhcrIsTruncated  :: !Bool
     , _lhcrMaxItems     :: !Text
     , _lhcrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ListHealthChecksResponse' smart constructor.
 listHealthChecksResponse :: Text -> Bool -> Text -> Status -> ListHealthChecksResponse

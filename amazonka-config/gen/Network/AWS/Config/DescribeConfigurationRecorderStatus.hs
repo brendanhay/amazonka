@@ -120,7 +120,7 @@ instance ToQuery DescribeConfigurationRecorderStatus
 data DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'
     { _dcrsrConfigurationRecordersStatus :: !(Maybe [ConfigurationRecorderStatus])
     , _dcrsrStatus                       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeConfigurationRecorderStatusResponse' smart constructor.
 describeConfigurationRecorderStatusResponse :: Status -> DescribeConfigurationRecorderStatusResponse

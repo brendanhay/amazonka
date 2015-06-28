@@ -99,7 +99,7 @@ data GetDistributionResponse = GetDistributionResponse'
     { _gdrETag         :: !(Maybe Text)
     , _gdrDistribution :: !(Maybe Distribution)
     , _gdrStatus       :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetDistributionResponse' smart constructor.
 getDistributionResponse :: Status -> GetDistributionResponse

@@ -144,7 +144,7 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
     , _dniarAttachment         :: !(Maybe NetworkInterfaceAttachment)
     , _dniarDescription        :: !(Maybe AttributeValue)
     , _dniarStatus             :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeNetworkInterfaceAttributeResponse' smart constructor.
 describeNetworkInterfaceAttributeResponse :: Status -> DescribeNetworkInterfaceAttributeResponse

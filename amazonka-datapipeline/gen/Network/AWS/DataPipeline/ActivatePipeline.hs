@@ -126,7 +126,7 @@ instance ToQuery ActivatePipeline where
 -- * 'aprStatus'
 newtype ActivatePipelineResponse = ActivatePipelineResponse'
     { _aprStatus :: Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'ActivatePipelineResponse' smart constructor.
 activatePipelineResponse :: Status -> ActivatePipelineResponse

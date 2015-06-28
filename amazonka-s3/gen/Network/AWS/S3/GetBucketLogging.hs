@@ -48,7 +48,7 @@ import           Network.AWS.S3.Types
 -- * 'gBucket'
 newtype GetBucketLogging = GetBucketLogging'
     { _gBucket :: BucketName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketLogging' smart constructor.
 getBucketLogging :: BucketName -> GetBucketLogging
@@ -91,7 +91,7 @@ instance ToQuery GetBucketLogging where
 data GetBucketLoggingResponse = GetBucketLoggingResponse'
     { _getLoggingEnabled :: !(Maybe LoggingEnabled)
     , _getStatus         :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'GetBucketLoggingResponse' smart constructor.
 getBucketLoggingResponse :: Status -> GetBucketLoggingResponse

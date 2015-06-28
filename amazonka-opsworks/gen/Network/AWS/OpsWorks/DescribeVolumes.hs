@@ -145,7 +145,7 @@ instance ToQuery DescribeVolumes where
 data DescribeVolumesResponse = DescribeVolumesResponse'
     { _dvrVolumes :: !(Maybe [Volume])
     , _dvrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeVolumesResponse' smart constructor.
 describeVolumesResponse :: Status -> DescribeVolumesResponse

@@ -104,7 +104,7 @@ instance ToQuery CreateHAPG where
 data CreateHAPGResponse = CreateHAPGResponse'
     { _chrHAPGARN :: !(Maybe Text)
     , _chrStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'CreateHAPGResponse' smart constructor.
 createHAPGResponse :: Status -> CreateHAPGResponse

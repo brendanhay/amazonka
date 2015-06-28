@@ -129,7 +129,7 @@ instance ToQuery RetrieveTapeArchive where
 data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'
     { _rtarTapeARN :: !(Maybe Text)
     , _rtarStatus  :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'RetrieveTapeArchiveResponse' smart constructor.
 retrieveTapeArchiveResponse :: Status -> RetrieveTapeArchiveResponse

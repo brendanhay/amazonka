@@ -182,7 +182,7 @@ instance ToQuery DescribeRouteTables where
 data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
     { _drtrRouteTables :: !(Maybe [RouteTable])
     , _drtrStatus      :: !Status
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Show)
 
 -- | 'DescribeRouteTablesResponse' smart constructor.
 describeRouteTablesResponse :: Status -> DescribeRouteTablesResponse

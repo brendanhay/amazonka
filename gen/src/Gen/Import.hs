@@ -49,4 +49,4 @@ signatureImport = \case
     _  -> "Network.AWS.Sign.V4"
 
 testImports :: Library -> [NS]
-testImports l = sort ["Network.AWS.Prelude", l ^. libraryNS]
+testImports l = [l ^. libraryNS]

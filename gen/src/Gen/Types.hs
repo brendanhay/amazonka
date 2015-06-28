@@ -213,7 +213,7 @@ libraryNS, typesNS, waitersNS, testsNS :: Getter Library NS
 libraryNS = serviceAbbrev . to (mappend "Network.AWS" . mkNS)
 typesNS   = libraryNS . to (<> "Types")
 waitersNS = libraryNS . to (<> "Waiters")
-testsNS   = serviceAbbrev . to (mappend "Test" . mkNS)
+testsNS   = serviceAbbrev . to (mappend "Test.AWS.Gen" . mkNS)
 
 otherModules, exposedModules :: Getter Library [NS]
 otherModules   = to (\l -> l ^. operationModules <> l ^. typeModules)

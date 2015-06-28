@@ -69,7 +69,7 @@ instance AWSRequest GenerateRandom where
           = receiveJSON
               (\ s h x ->
                  GenerateRandomResponse' <$>
-                   (x .?> "Plaintext") <*> (pure (fromEnum s)))
+                   (x .?> "Plaintext") <*> (pure s))
 
 instance ToHeaders GenerateRandom where
         toHeaders
@@ -99,11 +99,11 @@ instance ToQuery GenerateRandom where
 -- * 'grrStatus'
 data GenerateRandomResponse = GenerateRandomResponse'
     { _grrPlaintext :: !(Maybe (Sensitive Base64))
-    , _grrStatus    :: !Int
+    , _grrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GenerateRandomResponse' smart constructor.
-generateRandomResponse :: Int -> GenerateRandomResponse
+generateRandomResponse :: Status -> GenerateRandomResponse
 generateRandomResponse pStatus =
     GenerateRandomResponse'
     { _grrPlaintext = Nothing
@@ -115,5 +115,5 @@ grrPlaintext :: Lens' GenerateRandomResponse (Maybe Base64)
 grrPlaintext = lens _grrPlaintext (\ s a -> s{_grrPlaintext = a}) . mapping _Sensitive;
 
 -- | FIXME: Undocumented member.
-grrStatus :: Lens' GenerateRandomResponse Int
+grrStatus :: Lens' GenerateRandomResponse Status
 grrStatus = lens _grrStatus (\ s a -> s{_grrStatus = a});

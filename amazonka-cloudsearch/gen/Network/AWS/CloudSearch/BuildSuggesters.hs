@@ -75,7 +75,7 @@ instance AWSRequest BuildSuggesters where
                  BuildSuggestersResponse' <$>
                    (x .@? "FieldNames" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders BuildSuggesters where
         toHeaders = const mempty
@@ -102,11 +102,11 @@ instance ToQuery BuildSuggesters where
 -- * 'bsrStatus'
 data BuildSuggestersResponse = BuildSuggestersResponse'
     { _bsrFieldNames :: !(Maybe [Text])
-    , _bsrStatus     :: !Int
+    , _bsrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'BuildSuggestersResponse' smart constructor.
-buildSuggestersResponse :: Int -> BuildSuggestersResponse
+buildSuggestersResponse :: Status -> BuildSuggestersResponse
 buildSuggestersResponse pStatus =
     BuildSuggestersResponse'
     { _bsrFieldNames = Nothing
@@ -118,5 +118,5 @@ bsrFieldNames :: Lens' BuildSuggestersResponse [Text]
 bsrFieldNames = lens _bsrFieldNames (\ s a -> s{_bsrFieldNames = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-bsrStatus :: Lens' BuildSuggestersResponse Int
+bsrStatus :: Lens' BuildSuggestersResponse Status
 bsrStatus = lens _bsrStatus (\ s a -> s{_bsrStatus = a});

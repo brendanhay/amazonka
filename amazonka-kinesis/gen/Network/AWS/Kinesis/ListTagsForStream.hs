@@ -95,7 +95,7 @@ instance AWSRequest ListTagsForStream where
               (\ s h x ->
                  ListTagsForStreamResponse' <$>
                    (x .?> "Tags" .!@ mempty) <*> (x .:> "HasMoreTags")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListTagsForStream where
         toHeaders
@@ -133,11 +133,11 @@ instance ToQuery ListTagsForStream where
 data ListTagsForStreamResponse = ListTagsForStreamResponse'
     { _ltfsrTags        :: ![Tag]
     , _ltfsrHasMoreTags :: !Bool
-    , _ltfsrStatus      :: !Int
+    , _ltfsrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForStreamResponse' smart constructor.
-listTagsForStreamResponse :: Bool -> Int -> ListTagsForStreamResponse
+listTagsForStreamResponse :: Bool -> Status -> ListTagsForStreamResponse
 listTagsForStreamResponse pHasMoreTags pStatus =
     ListTagsForStreamResponse'
     { _ltfsrTags = mempty
@@ -156,5 +156,5 @@ ltfsrHasMoreTags :: Lens' ListTagsForStreamResponse Bool
 ltfsrHasMoreTags = lens _ltfsrHasMoreTags (\ s a -> s{_ltfsrHasMoreTags = a});
 
 -- | FIXME: Undocumented member.
-ltfsrStatus :: Lens' ListTagsForStreamResponse Int
+ltfsrStatus :: Lens' ListTagsForStreamResponse Status
 ltfsrStatus = lens _ltfsrStatus (\ s a -> s{_ltfsrStatus = a});

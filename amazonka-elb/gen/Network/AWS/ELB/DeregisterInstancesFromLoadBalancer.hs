@@ -91,7 +91,7 @@ instance AWSRequest
                  DeregisterInstancesFromLoadBalancerResponse' <$>
                    (x .@? "Instances" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders
          DeregisterInstancesFromLoadBalancer where
@@ -121,11 +121,11 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
 -- * 'diflbrStatus'
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
     { _diflbrInstances :: !(Maybe [Instance])
-    , _diflbrStatus    :: !Int
+    , _diflbrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeregisterInstancesFromLoadBalancerResponse' smart constructor.
-deregisterInstancesFromLoadBalancerResponse :: Int -> DeregisterInstancesFromLoadBalancerResponse
+deregisterInstancesFromLoadBalancerResponse :: Status -> DeregisterInstancesFromLoadBalancerResponse
 deregisterInstancesFromLoadBalancerResponse pStatus =
     DeregisterInstancesFromLoadBalancerResponse'
     { _diflbrInstances = Nothing
@@ -137,5 +137,5 @@ diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
 diflbrInstances = lens _diflbrInstances (\ s a -> s{_diflbrInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-diflbrStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
+diflbrStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Status
 diflbrStatus = lens _diflbrStatus (\ s a -> s{_diflbrStatus = a});

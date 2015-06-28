@@ -98,7 +98,7 @@ instance AWSRequest GetPasswordData where
                  GetPasswordDataResponse' <$>
                    (x .@ "instanceId") <*> (x .@ "passwordData") <*>
                      (x .@ "timestamp")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetPasswordData where
         toHeaders = const mempty
@@ -129,11 +129,11 @@ data GetPasswordDataResponse = GetPasswordDataResponse'
     { _gpdrInstanceId   :: !Text
     , _gpdrPasswordData :: !Text
     , _gpdrTimestamp    :: !ISO8601
-    , _gpdrStatus       :: !Int
+    , _gpdrStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetPasswordDataResponse' smart constructor.
-getPasswordDataResponse :: Text -> Text -> UTCTime -> Int -> GetPasswordDataResponse
+getPasswordDataResponse :: Text -> Text -> UTCTime -> Status -> GetPasswordDataResponse
 getPasswordDataResponse pInstanceId pPasswordData pTimestamp pStatus =
     GetPasswordDataResponse'
     { _gpdrInstanceId = pInstanceId
@@ -155,5 +155,5 @@ gpdrTimestamp :: Lens' GetPasswordDataResponse UTCTime
 gpdrTimestamp = lens _gpdrTimestamp (\ s a -> s{_gpdrTimestamp = a}) . _Time;
 
 -- | FIXME: Undocumented member.
-gpdrStatus :: Lens' GetPasswordDataResponse Int
+gpdrStatus :: Lens' GetPasswordDataResponse Status
 gpdrStatus = lens _gpdrStatus (\ s a -> s{_gpdrStatus = a});

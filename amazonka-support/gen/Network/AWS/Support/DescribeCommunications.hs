@@ -133,7 +133,7 @@ instance AWSRequest DescribeCommunications where
                  DescribeCommunicationsResponse' <$>
                    (x .?> "nextToken") <*>
                      (x .?> "communications" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeCommunications where
         toHeaders
@@ -173,11 +173,11 @@ instance ToQuery DescribeCommunications where
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
     { _dcrNextToken      :: !(Maybe Text)
     , _dcrCommunications :: !(Maybe [Communication])
-    , _dcrStatus         :: !Int
+    , _dcrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeCommunicationsResponse' smart constructor.
-describeCommunicationsResponse :: Int -> DescribeCommunicationsResponse
+describeCommunicationsResponse :: Status -> DescribeCommunicationsResponse
 describeCommunicationsResponse pStatus =
     DescribeCommunicationsResponse'
     { _dcrNextToken = Nothing
@@ -194,5 +194,5 @@ dcrCommunications :: Lens' DescribeCommunicationsResponse [Communication]
 dcrCommunications = lens _dcrCommunications (\ s a -> s{_dcrCommunications = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrStatus :: Lens' DescribeCommunicationsResponse Int
+dcrStatus :: Lens' DescribeCommunicationsResponse Status
 dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});

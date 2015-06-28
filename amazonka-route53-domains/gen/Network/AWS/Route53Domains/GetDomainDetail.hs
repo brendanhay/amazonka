@@ -121,7 +121,7 @@ instance AWSRequest GetDomainDetail where
                      <*> (x .:> "AdminContact")
                      <*> (x .:> "RegistrantContact")
                      <*> (x .:> "TechContact")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetDomainDetail where
         toHeaders
@@ -214,11 +214,11 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
     , _gddrAdminContact      :: !(Sensitive ContactDetail)
     , _gddrRegistrantContact :: !(Sensitive ContactDetail)
     , _gddrTechContact       :: !(Sensitive ContactDetail)
-    , _gddrStatus            :: !Int
+    , _gddrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetDomainDetailResponse' smart constructor.
-getDomainDetailResponse :: Text -> ContactDetail -> ContactDetail -> ContactDetail -> Int -> GetDomainDetailResponse
+getDomainDetailResponse :: Text -> ContactDetail -> ContactDetail -> ContactDetail -> Status -> GetDomainDetailResponse
 getDomainDetailResponse pDomainName pAdminContact pRegistrantContact pTechContact pStatus =
     GetDomainDetailResponse'
     { _gddrTechPrivacy = Nothing
@@ -406,5 +406,5 @@ gddrTechContact :: Lens' GetDomainDetailResponse ContactDetail
 gddrTechContact = lens _gddrTechContact (\ s a -> s{_gddrTechContact = a}) . _Sensitive;
 
 -- | FIXME: Undocumented member.
-gddrStatus :: Lens' GetDomainDetailResponse Int
+gddrStatus :: Lens' GetDomainDetailResponse Status
 gddrStatus = lens _gddrStatus (\ s a -> s{_gddrStatus = a});

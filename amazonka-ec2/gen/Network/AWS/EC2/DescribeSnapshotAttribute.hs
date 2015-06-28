@@ -100,7 +100,7 @@ instance AWSRequest DescribeSnapshotAttribute where
                    (may (parseXMLList "item") x) <*>
                      (may (parseXMLList "item") x)
                      <*> (x .@? "snapshotId")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeSnapshotAttribute where
         toHeaders = const mempty
@@ -133,11 +133,11 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
     { _dsarCreateVolumePermissions :: !(Maybe [CreateVolumePermission])
     , _dsarProductCodes            :: !(Maybe [ProductCode])
     , _dsarSnapshotId              :: !(Maybe Text)
-    , _dsarStatus                  :: !Int
+    , _dsarStatus                  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshotAttributeResponse' smart constructor.
-describeSnapshotAttributeResponse :: Int -> DescribeSnapshotAttributeResponse
+describeSnapshotAttributeResponse :: Status -> DescribeSnapshotAttributeResponse
 describeSnapshotAttributeResponse pStatus =
     DescribeSnapshotAttributeResponse'
     { _dsarCreateVolumePermissions = Nothing
@@ -159,5 +159,5 @@ dsarSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
 dsarSnapshotId = lens _dsarSnapshotId (\ s a -> s{_dsarSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-dsarStatus :: Lens' DescribeSnapshotAttributeResponse Int
+dsarStatus :: Lens' DescribeSnapshotAttributeResponse Status
 dsarStatus = lens _dsarStatus (\ s a -> s{_dsarStatus = a});

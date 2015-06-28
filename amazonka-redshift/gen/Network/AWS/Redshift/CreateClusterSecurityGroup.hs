@@ -105,8 +105,7 @@ instance AWSRequest CreateClusterSecurityGroup where
               "CreateClusterSecurityGroupResult"
               (\ s h x ->
                  CreateClusterSecurityGroupResponse' <$>
-                   (x .@? "ClusterSecurityGroup") <*>
-                     (pure (fromEnum s)))
+                   (x .@? "ClusterSecurityGroup") <*> (pure s))
 
 instance ToHeaders CreateClusterSecurityGroup where
         toHeaders = const mempty
@@ -134,11 +133,11 @@ instance ToQuery CreateClusterSecurityGroup where
 -- * 'creStatus'
 data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'
     { _creClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
-    , _creStatus               :: !Int
+    , _creStatus               :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterSecurityGroupResponse' smart constructor.
-createClusterSecurityGroupResponse :: Int -> CreateClusterSecurityGroupResponse
+createClusterSecurityGroupResponse :: Status -> CreateClusterSecurityGroupResponse
 createClusterSecurityGroupResponse pStatus =
     CreateClusterSecurityGroupResponse'
     { _creClusterSecurityGroup = Nothing
@@ -150,5 +149,5 @@ creClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe Clust
 creClusterSecurityGroup = lens _creClusterSecurityGroup (\ s a -> s{_creClusterSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-creStatus :: Lens' CreateClusterSecurityGroupResponse Int
+creStatus :: Lens' CreateClusterSecurityGroupResponse Status
 creStatus = lens _creStatus (\ s a -> s{_creStatus = a});

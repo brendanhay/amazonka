@@ -279,7 +279,7 @@ instance AWSRequest ModifyReplicationGroup where
           = receiveXMLWrapper "ModifyReplicationGroupResult"
               (\ s h x ->
                  ModifyReplicationGroupResponse' <$>
-                   (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
+                   (x .@? "ReplicationGroup") <*> (pure s))
 
 instance ToHeaders ModifyReplicationGroup where
         toHeaders = const mempty
@@ -332,11 +332,11 @@ instance ToQuery ModifyReplicationGroup where
 -- * 'mrgrStatus'
 data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
     { _mrgrReplicationGroup :: !(Maybe ReplicationGroup)
-    , _mrgrStatus           :: !Int
+    , _mrgrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyReplicationGroupResponse' smart constructor.
-modifyReplicationGroupResponse :: Int -> ModifyReplicationGroupResponse
+modifyReplicationGroupResponse :: Status -> ModifyReplicationGroupResponse
 modifyReplicationGroupResponse pStatus =
     ModifyReplicationGroupResponse'
     { _mrgrReplicationGroup = Nothing
@@ -348,5 +348,5 @@ mrgrReplicationGroup :: Lens' ModifyReplicationGroupResponse (Maybe ReplicationG
 mrgrReplicationGroup = lens _mrgrReplicationGroup (\ s a -> s{_mrgrReplicationGroup = a});
 
 -- | FIXME: Undocumented member.
-mrgrStatus :: Lens' ModifyReplicationGroupResponse Int
+mrgrStatus :: Lens' ModifyReplicationGroupResponse Status
 mrgrStatus = lens _mrgrStatus (\ s a -> s{_mrgrStatus = a});

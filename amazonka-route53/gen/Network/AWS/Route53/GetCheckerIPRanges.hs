@@ -64,7 +64,7 @@ instance AWSRequest GetCheckerIPRanges where
                  GetCheckerIPRangesResponse' <$>
                    (x .@? "CheckerIpRanges" .!@ mempty >>=
                       parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetCheckerIPRanges where
         toHeaders = const mempty
@@ -86,11 +86,11 @@ instance ToQuery GetCheckerIPRanges where
 -- * 'gcirrStatus'
 data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
     { _gcirrCheckerIPRanges :: ![Text]
-    , _gcirrStatus          :: !Int
+    , _gcirrStatus          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetCheckerIPRangesResponse' smart constructor.
-getCheckerIPRangesResponse :: Int -> GetCheckerIPRangesResponse
+getCheckerIPRangesResponse :: Status -> GetCheckerIPRangesResponse
 getCheckerIPRangesResponse pStatus =
     GetCheckerIPRangesResponse'
     { _gcirrCheckerIPRanges = mempty
@@ -103,5 +103,5 @@ gcirrCheckerIPRanges :: Lens' GetCheckerIPRangesResponse [Text]
 gcirrCheckerIPRanges = lens _gcirrCheckerIPRanges (\ s a -> s{_gcirrCheckerIPRanges = a});
 
 -- | FIXME: Undocumented member.
-gcirrStatus :: Lens' GetCheckerIPRangesResponse Int
+gcirrStatus :: Lens' GetCheckerIPRangesResponse Status
 gcirrStatus = lens _gcirrStatus (\ s a -> s{_gcirrStatus = a});

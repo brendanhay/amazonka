@@ -74,7 +74,7 @@ instance AWSRequest VerifyDomainIdentity where
           = receiveXMLWrapper "VerifyDomainIdentityResult"
               (\ s h x ->
                  VerifyDomainIdentityResponse' <$>
-                   (x .@ "VerificationToken") <*> (pure (fromEnum s)))
+                   (x .@ "VerificationToken") <*> (pure s))
 
 instance ToHeaders VerifyDomainIdentity where
         toHeaders = const mempty
@@ -100,11 +100,11 @@ instance ToQuery VerifyDomainIdentity where
 -- * 'vdirStatus'
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
     { _vdirVerificationToken :: !Text
-    , _vdirStatus            :: !Int
+    , _vdirStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'VerifyDomainIdentityResponse' smart constructor.
-verifyDomainIdentityResponse :: Text -> Int -> VerifyDomainIdentityResponse
+verifyDomainIdentityResponse :: Text -> Status -> VerifyDomainIdentityResponse
 verifyDomainIdentityResponse pVerificationToken pStatus =
     VerifyDomainIdentityResponse'
     { _vdirVerificationToken = pVerificationToken
@@ -117,5 +117,5 @@ vdirVerificationToken :: Lens' VerifyDomainIdentityResponse Text
 vdirVerificationToken = lens _vdirVerificationToken (\ s a -> s{_vdirVerificationToken = a});
 
 -- | FIXME: Undocumented member.
-vdirStatus :: Lens' VerifyDomainIdentityResponse Int
+vdirStatus :: Lens' VerifyDomainIdentityResponse Status
 vdirStatus = lens _vdirStatus (\ s a -> s{_vdirStatus = a});

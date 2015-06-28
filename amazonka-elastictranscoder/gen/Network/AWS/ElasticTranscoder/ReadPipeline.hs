@@ -72,7 +72,7 @@ instance AWSRequest ReadPipeline where
               (\ s h x ->
                  ReadPipelineResponse' <$>
                    (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ReadPipeline where
         toHeaders = const mempty
@@ -98,11 +98,11 @@ instance ToQuery ReadPipeline where
 data ReadPipelineResponse = ReadPipelineResponse'
     { _reaWarnings :: !(Maybe [Warning])
     , _reaPipeline :: !(Maybe Pipeline)
-    , _reaStatus   :: !Int
+    , _reaStatus   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ReadPipelineResponse' smart constructor.
-readPipelineResponse :: Int -> ReadPipelineResponse
+readPipelineResponse :: Status -> ReadPipelineResponse
 readPipelineResponse pStatus =
     ReadPipelineResponse'
     { _reaWarnings = Nothing
@@ -125,5 +125,5 @@ reaPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
 reaPipeline = lens _reaPipeline (\ s a -> s{_reaPipeline = a});
 
 -- | FIXME: Undocumented member.
-reaStatus :: Lens' ReadPipelineResponse Int
+reaStatus :: Lens' ReadPipelineResponse Status
 reaStatus = lens _reaStatus (\ s a -> s{_reaStatus = a});

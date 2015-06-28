@@ -82,7 +82,7 @@ instance AWSRequest GetIdentityPoolConfiguration
                  GetIdentityPoolConfigurationResponse' <$>
                    (x .?> "IdentityPoolId") <*> (x .?> "CognitoStreams")
                      <*> (x .?> "PushSync")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetIdentityPoolConfiguration where
         toHeaders
@@ -117,11 +117,11 @@ data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
     { _gipcrIdentityPoolId :: !(Maybe Text)
     , _gipcrCognitoStreams :: !(Maybe CognitoStreams)
     , _gipcrPushSync       :: !(Maybe PushSync)
-    , _gipcrStatus         :: !Int
+    , _gipcrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityPoolConfigurationResponse' smart constructor.
-getIdentityPoolConfigurationResponse :: Int -> GetIdentityPoolConfigurationResponse
+getIdentityPoolConfigurationResponse :: Status -> GetIdentityPoolConfigurationResponse
 getIdentityPoolConfigurationResponse pStatus =
     GetIdentityPoolConfigurationResponse'
     { _gipcrIdentityPoolId = Nothing
@@ -145,5 +145,5 @@ gipcrPushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
 gipcrPushSync = lens _gipcrPushSync (\ s a -> s{_gipcrPushSync = a});
 
 -- | FIXME: Undocumented member.
-gipcrStatus :: Lens' GetIdentityPoolConfigurationResponse Int
+gipcrStatus :: Lens' GetIdentityPoolConfigurationResponse Status
 gipcrStatus = lens _gipcrStatus (\ s a -> s{_gipcrStatus = a});

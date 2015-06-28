@@ -179,7 +179,7 @@ instance AWSRequest Publish where
           = receiveXMLWrapper "PublishResult"
               (\ s h x ->
                  PublishResponse' <$>
-                   (x .@? "MessageId") <*> (pure (fromEnum s)))
+                   (x .@? "MessageId") <*> (pure s))
 
 instance ToHeaders Publish where
         toHeaders = const mempty
@@ -212,11 +212,11 @@ instance ToQuery Publish where
 -- * 'prStatus'
 data PublishResponse = PublishResponse'
     { _prMessageId :: !(Maybe Text)
-    , _prStatus    :: !Int
+    , _prStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'PublishResponse' smart constructor.
-publishResponse :: Int -> PublishResponse
+publishResponse :: Status -> PublishResponse
 publishResponse pStatus =
     PublishResponse'
     { _prMessageId = Nothing
@@ -230,5 +230,5 @@ prMessageId :: Lens' PublishResponse (Maybe Text)
 prMessageId = lens _prMessageId (\ s a -> s{_prMessageId = a});
 
 -- | FIXME: Undocumented member.
-prStatus :: Lens' PublishResponse Int
+prStatus :: Lens' PublishResponse Status
 prStatus = lens _prStatus (\ s a -> s{_prStatus = a});

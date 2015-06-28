@@ -101,7 +101,7 @@ instance AWSRequest DescribeNetworkInterfaceAttribute
                      <*> (x .@? "networkInterfaceId")
                      <*> (x .@? "attachment")
                      <*> (x .@? "description")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeNetworkInterfaceAttribute
          where
@@ -143,11 +143,11 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
     , _dniarNetworkInterfaceId :: !(Maybe Text)
     , _dniarAttachment         :: !(Maybe NetworkInterfaceAttachment)
     , _dniarDescription        :: !(Maybe AttributeValue)
-    , _dniarStatus             :: !Int
+    , _dniarStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeNetworkInterfaceAttributeResponse' smart constructor.
-describeNetworkInterfaceAttributeResponse :: Int -> DescribeNetworkInterfaceAttributeResponse
+describeNetworkInterfaceAttributeResponse :: Status -> DescribeNetworkInterfaceAttributeResponse
 describeNetworkInterfaceAttributeResponse pStatus =
     DescribeNetworkInterfaceAttributeResponse'
     { _dniarGroups = Nothing
@@ -179,5 +179,5 @@ dniarDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Attri
 dniarDescription = lens _dniarDescription (\ s a -> s{_dniarDescription = a});
 
 -- | FIXME: Undocumented member.
-dniarStatus :: Lens' DescribeNetworkInterfaceAttributeResponse Int
+dniarStatus :: Lens' DescribeNetworkInterfaceAttributeResponse Status
 dniarStatus = lens _dniarStatus (\ s a -> s{_dniarStatus = a});

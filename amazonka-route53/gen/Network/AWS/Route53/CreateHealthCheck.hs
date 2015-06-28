@@ -97,7 +97,7 @@ instance AWSRequest CreateHealthCheck where
               (\ s h x ->
                  CreateHealthCheckResponse' <$>
                    (x .@ "HealthCheck") <*> (h .# "Location") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToElement CreateHealthCheck where
         toElement
@@ -134,11 +134,11 @@ instance ToXML CreateHealthCheck where
 data CreateHealthCheckResponse = CreateHealthCheckResponse'
     { _chcrHealthCheck :: !HealthCheck
     , _chcrLocation    :: !Text
-    , _chcrStatus      :: !Int
+    , _chcrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateHealthCheckResponse' smart constructor.
-createHealthCheckResponse :: HealthCheck -> Text -> Int -> CreateHealthCheckResponse
+createHealthCheckResponse :: HealthCheck -> Text -> Status -> CreateHealthCheckResponse
 createHealthCheckResponse pHealthCheck pLocation pStatus =
     CreateHealthCheckResponse'
     { _chcrHealthCheck = pHealthCheck
@@ -156,5 +156,5 @@ chcrLocation :: Lens' CreateHealthCheckResponse Text
 chcrLocation = lens _chcrLocation (\ s a -> s{_chcrLocation = a});
 
 -- | FIXME: Undocumented member.
-chcrStatus :: Lens' CreateHealthCheckResponse Int
+chcrStatus :: Lens' CreateHealthCheckResponse Status
 chcrStatus = lens _chcrStatus (\ s a -> s{_chcrStatus = a});

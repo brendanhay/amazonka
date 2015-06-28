@@ -82,7 +82,7 @@ instance AWSRequest DetachLoadBalancers where
         response
           = receiveXMLWrapper "DetachLoadBalancersResult"
               (\ s h x ->
-                 DetachLoadBalancersResponse' <$> (pure (fromEnum s)))
+                 DetachLoadBalancersResponse' <$> (pure s))
 
 instance ToHeaders DetachLoadBalancers where
         toHeaders = const mempty
@@ -106,16 +106,16 @@ instance ToQuery DetachLoadBalancers where
 --
 -- * 'detStatus'
 newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
-    { _detStatus :: Int
+    { _detStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'DetachLoadBalancersResponse' smart constructor.
-detachLoadBalancersResponse :: Int -> DetachLoadBalancersResponse
+detachLoadBalancersResponse :: Status -> DetachLoadBalancersResponse
 detachLoadBalancersResponse pStatus =
     DetachLoadBalancersResponse'
     { _detStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-detStatus :: Lens' DetachLoadBalancersResponse Int
+detStatus :: Lens' DetachLoadBalancersResponse Status
 detStatus = lens _detStatus (\ s a -> s{_detStatus = a});

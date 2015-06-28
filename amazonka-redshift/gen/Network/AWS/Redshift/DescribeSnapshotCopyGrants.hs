@@ -143,7 +143,7 @@ instance AWSRequest DescribeSnapshotCopyGrants where
                    (x .@? "SnapshotCopyGrants" .!@ mempty >>=
                       may (parseXMLList "SnapshotCopyGrant"))
                      <*> (x .@? "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeSnapshotCopyGrants where
         toHeaders = const mempty
@@ -180,11 +180,11 @@ instance ToQuery DescribeSnapshotCopyGrants where
 data DescribeSnapshotCopyGrantsResponse = DescribeSnapshotCopyGrantsResponse'
     { _dscgrSnapshotCopyGrants :: !(Maybe [SnapshotCopyGrant])
     , _dscgrMarker             :: !(Maybe Text)
-    , _dscgrStatus             :: !Int
+    , _dscgrStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshotCopyGrantsResponse' smart constructor.
-describeSnapshotCopyGrantsResponse :: Int -> DescribeSnapshotCopyGrantsResponse
+describeSnapshotCopyGrantsResponse :: Status -> DescribeSnapshotCopyGrantsResponse
 describeSnapshotCopyGrantsResponse pStatus =
     DescribeSnapshotCopyGrantsResponse'
     { _dscgrSnapshotCopyGrants = Nothing
@@ -209,5 +209,5 @@ dscgrMarker :: Lens' DescribeSnapshotCopyGrantsResponse (Maybe Text)
 dscgrMarker = lens _dscgrMarker (\ s a -> s{_dscgrMarker = a});
 
 -- | FIXME: Undocumented member.
-dscgrStatus :: Lens' DescribeSnapshotCopyGrantsResponse Int
+dscgrStatus :: Lens' DescribeSnapshotCopyGrantsResponse Status
 dscgrStatus = lens _dscgrStatus (\ s a -> s{_dscgrStatus = a});

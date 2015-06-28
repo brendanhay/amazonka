@@ -59,7 +59,7 @@ instance AWSRequest ListOpenIDConnectProviders where
                  ListOpenIDConnectProvidersResponse' <$>
                    (x .@? "OpenIDConnectProviderList" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListOpenIDConnectProviders where
         toHeaders = const mempty
@@ -87,11 +87,11 @@ instance ToQuery ListOpenIDConnectProviders where
 -- * 'loidcprStatus'
 data ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'
     { _loidcprOpenIDConnectProviderList :: !(Maybe [OpenIDConnectProviderListEntry])
-    , _loidcprStatus                    :: !Int
+    , _loidcprStatus                    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListOpenIDConnectProvidersResponse' smart constructor.
-listOpenIDConnectProvidersResponse :: Int -> ListOpenIDConnectProvidersResponse
+listOpenIDConnectProvidersResponse :: Status -> ListOpenIDConnectProvidersResponse
 listOpenIDConnectProvidersResponse pStatus =
     ListOpenIDConnectProvidersResponse'
     { _loidcprOpenIDConnectProviderList = Nothing
@@ -103,5 +103,5 @@ loidcprOpenIDConnectProviderList :: Lens' ListOpenIDConnectProvidersResponse [Op
 loidcprOpenIDConnectProviderList = lens _loidcprOpenIDConnectProviderList (\ s a -> s{_loidcprOpenIDConnectProviderList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-loidcprStatus :: Lens' ListOpenIDConnectProvidersResponse Int
+loidcprStatus :: Lens' ListOpenIDConnectProvidersResponse Status
 loidcprStatus = lens _loidcprStatus (\ s a -> s{_loidcprStatus = a});

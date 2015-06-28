@@ -162,7 +162,7 @@ instance AWSRequest CreateRoute where
               (\ s h x ->
                  CreateRouteResponse' <$>
                    (x .@? "return") <*> (x .@? "clientToken") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders CreateRoute where
         toHeaders = const mempty
@@ -196,11 +196,11 @@ instance ToQuery CreateRoute where
 data CreateRouteResponse = CreateRouteResponse'
     { _crrReturn      :: !(Maybe Bool)
     , _crrClientToken :: !(Maybe Text)
-    , _crrStatus      :: !Int
+    , _crrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateRouteResponse' smart constructor.
-createRouteResponse :: Int -> CreateRouteResponse
+createRouteResponse :: Status -> CreateRouteResponse
 createRouteResponse pStatus =
     CreateRouteResponse'
     { _crrReturn = Nothing
@@ -218,5 +218,5 @@ crrClientToken :: Lens' CreateRouteResponse (Maybe Text)
 crrClientToken = lens _crrClientToken (\ s a -> s{_crrClientToken = a});
 
 -- | FIXME: Undocumented member.
-crrStatus :: Lens' CreateRouteResponse Int
+crrStatus :: Lens' CreateRouteResponse Status
 crrStatus = lens _crrStatus (\ s a -> s{_crrStatus = a});

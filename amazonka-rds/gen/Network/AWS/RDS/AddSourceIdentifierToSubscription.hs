@@ -97,7 +97,7 @@ instance AWSRequest AddSourceIdentifierToSubscription
               "AddSourceIdentifierToSubscriptionResult"
               (\ s h x ->
                  AddSourceIdentifierToSubscriptionResponse' <$>
-                   (x .@? "EventSubscription") <*> (pure (fromEnum s)))
+                   (x .@? "EventSubscription") <*> (pure s))
 
 instance ToHeaders AddSourceIdentifierToSubscription
          where
@@ -126,11 +126,11 @@ instance ToQuery AddSourceIdentifierToSubscription
 -- * 'asitsrStatus'
 data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'
     { _asitsrEventSubscription :: !(Maybe EventSubscription)
-    , _asitsrStatus            :: !Int
+    , _asitsrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'AddSourceIdentifierToSubscriptionResponse' smart constructor.
-addSourceIdentifierToSubscriptionResponse :: Int -> AddSourceIdentifierToSubscriptionResponse
+addSourceIdentifierToSubscriptionResponse :: Status -> AddSourceIdentifierToSubscriptionResponse
 addSourceIdentifierToSubscriptionResponse pStatus =
     AddSourceIdentifierToSubscriptionResponse'
     { _asitsrEventSubscription = Nothing
@@ -142,5 +142,5 @@ asitsrEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Mayb
 asitsrEventSubscription = lens _asitsrEventSubscription (\ s a -> s{_asitsrEventSubscription = a});
 
 -- | FIXME: Undocumented member.
-asitsrStatus :: Lens' AddSourceIdentifierToSubscriptionResponse Int
+asitsrStatus :: Lens' AddSourceIdentifierToSubscriptionResponse Status
 asitsrStatus = lens _asitsrStatus (\ s a -> s{_asitsrStatus = a});

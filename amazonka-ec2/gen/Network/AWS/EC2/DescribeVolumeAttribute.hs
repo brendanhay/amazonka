@@ -99,7 +99,7 @@ instance AWSRequest DescribeVolumeAttribute where
                  DescribeVolumeAttributeResponse' <$>
                    (may (parseXMLList "item") x) <*> (x .@? "volumeId")
                      <*> (x .@? "autoEnableIO")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeVolumeAttribute where
         toHeaders = const mempty
@@ -131,11 +131,11 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
     { _dvarProductCodes :: !(Maybe [ProductCode])
     , _dvarVolumeId     :: !(Maybe Text)
     , _dvarAutoEnableIO :: !(Maybe AttributeBooleanValue)
-    , _dvarStatus       :: !Int
+    , _dvarStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVolumeAttributeResponse' smart constructor.
-describeVolumeAttributeResponse :: Int -> DescribeVolumeAttributeResponse
+describeVolumeAttributeResponse :: Status -> DescribeVolumeAttributeResponse
 describeVolumeAttributeResponse pStatus =
     DescribeVolumeAttributeResponse'
     { _dvarProductCodes = Nothing
@@ -157,5 +157,5 @@ dvarAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBoolea
 dvarAutoEnableIO = lens _dvarAutoEnableIO (\ s a -> s{_dvarAutoEnableIO = a});
 
 -- | FIXME: Undocumented member.
-dvarStatus :: Lens' DescribeVolumeAttributeResponse Int
+dvarStatus :: Lens' DescribeVolumeAttributeResponse Status
 dvarStatus = lens _dvarStatus (\ s a -> s{_dvarStatus = a});

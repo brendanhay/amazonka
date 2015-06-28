@@ -94,7 +94,7 @@ instance AWSRequest GetRolePolicy where
                  GetRolePolicyResponse' <$>
                    (x .@ "RoleName") <*> (x .@ "PolicyName") <*>
                      (x .@ "PolicyDocument")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetRolePolicy where
         toHeaders = const mempty
@@ -127,11 +127,11 @@ data GetRolePolicyResponse = GetRolePolicyResponse'
     { _grprRoleName       :: !Text
     , _grprPolicyName     :: !Text
     , _grprPolicyDocument :: !Text
-    , _grprStatus         :: !Int
+    , _grprStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetRolePolicyResponse' smart constructor.
-getRolePolicyResponse :: Text -> Text -> Text -> Int -> GetRolePolicyResponse
+getRolePolicyResponse :: Text -> Text -> Text -> Status -> GetRolePolicyResponse
 getRolePolicyResponse pRoleName pPolicyName pPolicyDocument pStatus =
     GetRolePolicyResponse'
     { _grprRoleName = pRoleName
@@ -153,5 +153,5 @@ grprPolicyDocument :: Lens' GetRolePolicyResponse Text
 grprPolicyDocument = lens _grprPolicyDocument (\ s a -> s{_grprPolicyDocument = a});
 
 -- | FIXME: Undocumented member.
-grprStatus :: Lens' GetRolePolicyResponse Int
+grprStatus :: Lens' GetRolePolicyResponse Status
 grprStatus = lens _grprStatus (\ s a -> s{_grprStatus = a});

@@ -261,7 +261,7 @@ instance AWSRequest StartWorkflowExecution where
           = receiveJSON
               (\ s h x ->
                  StartWorkflowExecutionResponse' <$>
-                   (x .?> "runId") <*> (pure (fromEnum s)))
+                   (x .?> "runId") <*> (pure s))
 
 instance ToHeaders StartWorkflowExecution where
         toHeaders
@@ -306,11 +306,11 @@ instance ToQuery StartWorkflowExecution where
 -- * 'swerStatus'
 data StartWorkflowExecutionResponse = StartWorkflowExecutionResponse'
     { _swerRunId  :: !(Maybe Text)
-    , _swerStatus :: !Int
+    , _swerStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'StartWorkflowExecutionResponse' smart constructor.
-startWorkflowExecutionResponse :: Int -> StartWorkflowExecutionResponse
+startWorkflowExecutionResponse :: Status -> StartWorkflowExecutionResponse
 startWorkflowExecutionResponse pStatus =
     StartWorkflowExecutionResponse'
     { _swerRunId = Nothing
@@ -324,5 +324,5 @@ swerRunId :: Lens' StartWorkflowExecutionResponse (Maybe Text)
 swerRunId = lens _swerRunId (\ s a -> s{_swerRunId = a});
 
 -- | FIXME: Undocumented member.
-swerStatus :: Lens' StartWorkflowExecutionResponse Int
+swerStatus :: Lens' StartWorkflowExecutionResponse Status
 swerStatus = lens _swerStatus (\ s a -> s{_swerStatus = a});

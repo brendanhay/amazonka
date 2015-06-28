@@ -84,8 +84,7 @@ instance AWSRequest UnmonitorInstances where
           = receiveXML
               (\ s h x ->
                  UnmonitorInstancesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders UnmonitorInstances where
         toHeaders = const mempty
@@ -110,11 +109,11 @@ instance ToQuery UnmonitorInstances where
 -- * 'uirStatus'
 data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
     { _uirInstanceMonitorings :: !(Maybe [InstanceMonitoring])
-    , _uirStatus              :: !Int
+    , _uirStatus              :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UnmonitorInstancesResponse' smart constructor.
-unmonitorInstancesResponse :: Int -> UnmonitorInstancesResponse
+unmonitorInstancesResponse :: Status -> UnmonitorInstancesResponse
 unmonitorInstancesResponse pStatus =
     UnmonitorInstancesResponse'
     { _uirInstanceMonitorings = Nothing
@@ -126,5 +125,5 @@ uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uirInstanceMonitorings = lens _uirInstanceMonitorings (\ s a -> s{_uirInstanceMonitorings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-uirStatus :: Lens' UnmonitorInstancesResponse Int
+uirStatus :: Lens' UnmonitorInstancesResponse Status
 uirStatus = lens _uirStatus (\ s a -> s{_uirStatus = a});

@@ -121,7 +121,7 @@ instance AWSRequest UpdateChapCredentials where
               (\ s h x ->
                  UpdateChapCredentialsResponse' <$>
                    (x .?> "TargetARN") <*> (x .?> "InitiatorName") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders UpdateChapCredentials where
         toHeaders
@@ -163,11 +163,11 @@ instance ToQuery UpdateChapCredentials where
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
     { _uccrTargetARN     :: !(Maybe Text)
     , _uccrInitiatorName :: !(Maybe Text)
-    , _uccrStatus        :: !Int
+    , _uccrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateChapCredentialsResponse' smart constructor.
-updateChapCredentialsResponse :: Int -> UpdateChapCredentialsResponse
+updateChapCredentialsResponse :: Status -> UpdateChapCredentialsResponse
 updateChapCredentialsResponse pStatus =
     UpdateChapCredentialsResponse'
     { _uccrTargetARN = Nothing
@@ -186,5 +186,5 @@ uccrInitiatorName :: Lens' UpdateChapCredentialsResponse (Maybe Text)
 uccrInitiatorName = lens _uccrInitiatorName (\ s a -> s{_uccrInitiatorName = a});
 
 -- | FIXME: Undocumented member.
-uccrStatus :: Lens' UpdateChapCredentialsResponse Int
+uccrStatus :: Lens' UpdateChapCredentialsResponse Status
 uccrStatus = lens _uccrStatus (\ s a -> s{_uccrStatus = a});

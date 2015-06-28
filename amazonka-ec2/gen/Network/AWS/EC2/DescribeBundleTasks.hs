@@ -121,8 +121,7 @@ instance AWSRequest DescribeBundleTasks where
           = receiveXML
               (\ s h x ->
                  DescribeBundleTasksResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders DescribeBundleTasks where
         toHeaders = const mempty
@@ -148,11 +147,11 @@ instance ToQuery DescribeBundleTasks where
 -- * 'dbtrStatus'
 data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
     { _dbtrBundleTasks :: !(Maybe [BundleTask])
-    , _dbtrStatus      :: !Int
+    , _dbtrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeBundleTasksResponse' smart constructor.
-describeBundleTasksResponse :: Int -> DescribeBundleTasksResponse
+describeBundleTasksResponse :: Status -> DescribeBundleTasksResponse
 describeBundleTasksResponse pStatus =
     DescribeBundleTasksResponse'
     { _dbtrBundleTasks = Nothing
@@ -164,5 +163,5 @@ dbtrBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
 dbtrBundleTasks = lens _dbtrBundleTasks (\ s a -> s{_dbtrBundleTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dbtrStatus :: Lens' DescribeBundleTasksResponse Int
+dbtrStatus :: Lens' DescribeBundleTasksResponse Status
 dbtrStatus = lens _dbtrStatus (\ s a -> s{_dbtrStatus = a});

@@ -84,8 +84,7 @@ instance AWSRequest CreateLoadBalancerListeners where
           = receiveXMLWrapper
               "CreateLoadBalancerListenersResult"
               (\ s h x ->
-                 CreateLoadBalancerListenersResponse' <$>
-                   (pure (fromEnum s)))
+                 CreateLoadBalancerListenersResponse' <$> (pure s))
 
 instance ToHeaders CreateLoadBalancerListeners where
         toHeaders = const mempty
@@ -108,16 +107,16 @@ instance ToQuery CreateLoadBalancerListeners where
 --
 -- * 'clblrStatus'
 newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'
-    { _clblrStatus :: Int
+    { _clblrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateLoadBalancerListenersResponse' smart constructor.
-createLoadBalancerListenersResponse :: Int -> CreateLoadBalancerListenersResponse
+createLoadBalancerListenersResponse :: Status -> CreateLoadBalancerListenersResponse
 createLoadBalancerListenersResponse pStatus =
     CreateLoadBalancerListenersResponse'
     { _clblrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-clblrStatus :: Lens' CreateLoadBalancerListenersResponse Int
+clblrStatus :: Lens' CreateLoadBalancerListenersResponse Status
 clblrStatus = lens _clblrStatus (\ s a -> s{_clblrStatus = a});

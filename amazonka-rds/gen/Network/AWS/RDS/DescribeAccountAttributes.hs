@@ -65,7 +65,7 @@ instance AWSRequest DescribeAccountAttributes where
                  DescribeAccountAttributesResponse' <$>
                    (x .@? "AccountQuotas" .!@ mempty >>=
                       may (parseXMLList "AccountQuota"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeAccountAttributes where
         toHeaders = const mempty
@@ -92,11 +92,11 @@ instance ToQuery DescribeAccountAttributes where
 -- * 'daarStatus'
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
     { _daarAccountQuotas :: !(Maybe [AccountQuota])
-    , _daarStatus        :: !Int
+    , _daarStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAccountAttributesResponse' smart constructor.
-describeAccountAttributesResponse :: Int -> DescribeAccountAttributesResponse
+describeAccountAttributesResponse :: Status -> DescribeAccountAttributesResponse
 describeAccountAttributesResponse pStatus =
     DescribeAccountAttributesResponse'
     { _daarAccountQuotas = Nothing
@@ -110,5 +110,5 @@ daarAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
 daarAccountQuotas = lens _daarAccountQuotas (\ s a -> s{_daarAccountQuotas = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-daarStatus :: Lens' DescribeAccountAttributesResponse Int
+daarStatus :: Lens' DescribeAccountAttributesResponse Status
 daarStatus = lens _daarStatus (\ s a -> s{_daarStatus = a});

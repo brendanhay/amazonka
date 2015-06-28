@@ -229,7 +229,7 @@ instance AWSRequest CreateStack where
           = receiveXMLWrapper "CreateStackResult"
               (\ s h x ->
                  CreateStackResponse' <$>
-                   (x .@? "StackId") <*> (pure (fromEnum s)))
+                   (x .@? "StackId") <*> (pure s))
 
 instance ToHeaders CreateStack where
         toHeaders = const mempty
@@ -270,11 +270,11 @@ instance ToQuery CreateStack where
 -- * 'csrStatus'
 data CreateStackResponse = CreateStackResponse'
     { _csrStackId :: !(Maybe Text)
-    , _csrStatus  :: !Int
+    , _csrStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateStackResponse' smart constructor.
-createStackResponse :: Int -> CreateStackResponse
+createStackResponse :: Status -> CreateStackResponse
 createStackResponse pStatus =
     CreateStackResponse'
     { _csrStackId = Nothing
@@ -286,5 +286,5 @@ csrStackId :: Lens' CreateStackResponse (Maybe Text)
 csrStackId = lens _csrStackId (\ s a -> s{_csrStackId = a});
 
 -- | FIXME: Undocumented member.
-csrStatus :: Lens' CreateStackResponse Int
+csrStatus :: Lens' CreateStackResponse Status
 csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});

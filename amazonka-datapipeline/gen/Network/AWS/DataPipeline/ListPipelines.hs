@@ -85,7 +85,7 @@ instance AWSRequest ListPipelines where
                  ListPipelinesResponse' <$>
                    (x .?> "hasMoreResults") <*> (x .?> "marker") <*>
                      (x .?> "pipelineIdList" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListPipelines where
         toHeaders
@@ -123,11 +123,11 @@ data ListPipelinesResponse = ListPipelinesResponse'
     { _lprHasMoreResults :: !(Maybe Bool)
     , _lprMarker         :: !(Maybe Text)
     , _lprPipelineIdList :: ![PipelineIdName]
-    , _lprStatus         :: !Int
+    , _lprStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListPipelinesResponse' smart constructor.
-listPipelinesResponse :: Int -> ListPipelinesResponse
+listPipelinesResponse :: Status -> ListPipelinesResponse
 listPipelinesResponse pStatus =
     ListPipelinesResponse'
     { _lprHasMoreResults = Nothing
@@ -154,5 +154,5 @@ lprPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
 lprPipelineIdList = lens _lprPipelineIdList (\ s a -> s{_lprPipelineIdList = a});
 
 -- | FIXME: Undocumented member.
-lprStatus :: Lens' ListPipelinesResponse Int
+lprStatus :: Lens' ListPipelinesResponse Status
 lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});

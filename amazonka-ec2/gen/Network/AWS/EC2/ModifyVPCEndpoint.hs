@@ -120,7 +120,7 @@ instance AWSRequest ModifyVPCEndpoint where
           = receiveXML
               (\ s h x ->
                  ModifyVPCEndpointResponse' <$>
-                   (x .@? "return") <*> (pure (fromEnum s)))
+                   (x .@? "return") <*> (pure s))
 
 instance ToHeaders ModifyVPCEndpoint where
         toHeaders = const mempty
@@ -151,11 +151,11 @@ instance ToQuery ModifyVPCEndpoint where
 -- * 'mverStatus'
 data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
     { _mverReturn :: !(Maybe Bool)
-    , _mverStatus :: !Int
+    , _mverStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyVPCEndpointResponse' smart constructor.
-modifyVPCEndpointResponse :: Int -> ModifyVPCEndpointResponse
+modifyVPCEndpointResponse :: Status -> ModifyVPCEndpointResponse
 modifyVPCEndpointResponse pStatus =
     ModifyVPCEndpointResponse'
     { _mverReturn = Nothing
@@ -167,5 +167,5 @@ mverReturn :: Lens' ModifyVPCEndpointResponse (Maybe Bool)
 mverReturn = lens _mverReturn (\ s a -> s{_mverReturn = a});
 
 -- | FIXME: Undocumented member.
-mverStatus :: Lens' ModifyVPCEndpointResponse Int
+mverStatus :: Lens' ModifyVPCEndpointResponse Status
 mverStatus = lens _mverStatus (\ s a -> s{_mverStatus = a});

@@ -93,7 +93,7 @@ instance AWSRequest ListBootstrapActions where
                  ListBootstrapActionsResponse' <$>
                    (x .?> "BootstrapActions" .!@ mempty) <*>
                      (x .?> "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListBootstrapActions where
         toHeaders
@@ -131,11 +131,11 @@ instance ToQuery ListBootstrapActions where
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
     { _lbarBootstrapActions :: !(Maybe [Command])
     , _lbarMarker           :: !(Maybe Text)
-    , _lbarStatus           :: !Int
+    , _lbarStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListBootstrapActionsResponse' smart constructor.
-listBootstrapActionsResponse :: Int -> ListBootstrapActionsResponse
+listBootstrapActionsResponse :: Status -> ListBootstrapActionsResponse
 listBootstrapActionsResponse pStatus =
     ListBootstrapActionsResponse'
     { _lbarBootstrapActions = Nothing
@@ -153,5 +153,5 @@ lbarMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
 lbarMarker = lens _lbarMarker (\ s a -> s{_lbarMarker = a});
 
 -- | FIXME: Undocumented member.
-lbarStatus :: Lens' ListBootstrapActionsResponse Int
+lbarStatus :: Lens' ListBootstrapActionsResponse Status
 lbarStatus = lens _lbarStatus (\ s a -> s{_lbarStatus = a});

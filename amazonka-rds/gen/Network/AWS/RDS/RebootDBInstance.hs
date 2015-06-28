@@ -106,7 +106,7 @@ instance AWSRequest RebootDBInstance where
           = receiveXMLWrapper "RebootDBInstanceResult"
               (\ s h x ->
                  RebootDBInstanceResponse' <$>
-                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
+                   (x .@? "DBInstance") <*> (pure s))
 
 instance ToHeaders RebootDBInstance where
         toHeaders = const mempty
@@ -131,11 +131,11 @@ instance ToQuery RebootDBInstance where
 -- * 'rdirStatus'
 data RebootDBInstanceResponse = RebootDBInstanceResponse'
     { _rdirDBInstance :: !(Maybe DBInstance)
-    , _rdirStatus     :: !Int
+    , _rdirStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'RebootDBInstanceResponse' smart constructor.
-rebootDBInstanceResponse :: Int -> RebootDBInstanceResponse
+rebootDBInstanceResponse :: Status -> RebootDBInstanceResponse
 rebootDBInstanceResponse pStatus =
     RebootDBInstanceResponse'
     { _rdirDBInstance = Nothing
@@ -147,5 +147,5 @@ rdirDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
 rdirDBInstance = lens _rdirDBInstance (\ s a -> s{_rdirDBInstance = a});
 
 -- | FIXME: Undocumented member.
-rdirStatus :: Lens' RebootDBInstanceResponse Int
+rdirStatus :: Lens' RebootDBInstanceResponse Status
 rdirStatus = lens _rdirStatus (\ s a -> s{_rdirStatus = a});

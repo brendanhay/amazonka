@@ -113,7 +113,7 @@ instance AWSRequest ListDomains where
                  ListDomainsResponse' <$>
                    (x .?> "NextPageMarker") <*>
                      (x .?> "Domains" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListDomains where
         toHeaders
@@ -150,11 +150,11 @@ instance ToQuery ListDomains where
 data ListDomainsResponse = ListDomainsResponse'
     { _ldrNextPageMarker :: !(Maybe Text)
     , _ldrDomains        :: ![DomainSummary]
-    , _ldrStatus         :: !Int
+    , _ldrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListDomainsResponse' smart constructor.
-listDomainsResponse :: Int -> ListDomainsResponse
+listDomainsResponse :: Status -> ListDomainsResponse
 listDomainsResponse pStatus =
     ListDomainsResponse'
     { _ldrNextPageMarker = Nothing
@@ -181,5 +181,5 @@ ldrDomains :: Lens' ListDomainsResponse [DomainSummary]
 ldrDomains = lens _ldrDomains (\ s a -> s{_ldrDomains = a});
 
 -- | FIXME: Undocumented member.
-ldrStatus :: Lens' ListDomainsResponse Int
+ldrStatus :: Lens' ListDomainsResponse Status
 ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});

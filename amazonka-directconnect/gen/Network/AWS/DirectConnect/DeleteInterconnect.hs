@@ -71,7 +71,7 @@ instance AWSRequest DeleteInterconnect where
           = receiveJSON
               (\ s h x ->
                  DeleteInterconnectResponse' <$>
-                   (x .?> "interconnectState") <*> (pure (fromEnum s)))
+                   (x .?> "interconnectState") <*> (pure s))
 
 instance ToHeaders DeleteInterconnect where
         toHeaders
@@ -103,11 +103,11 @@ instance ToQuery DeleteInterconnect where
 -- * 'delStatus'
 data DeleteInterconnectResponse = DeleteInterconnectResponse'
     { _delInterconnectState :: !(Maybe InterconnectState)
-    , _delStatus            :: !Int
+    , _delStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteInterconnectResponse' smart constructor.
-deleteInterconnectResponse :: Int -> DeleteInterconnectResponse
+deleteInterconnectResponse :: Status -> DeleteInterconnectResponse
 deleteInterconnectResponse pStatus =
     DeleteInterconnectResponse'
     { _delInterconnectState = Nothing
@@ -119,5 +119,5 @@ delInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectStat
 delInterconnectState = lens _delInterconnectState (\ s a -> s{_delInterconnectState = a});
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteInterconnectResponse Int
+delStatus :: Lens' DeleteInterconnectResponse Status
 delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

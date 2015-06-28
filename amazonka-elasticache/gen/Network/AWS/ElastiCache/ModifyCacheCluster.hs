@@ -373,7 +373,7 @@ instance AWSRequest ModifyCacheCluster where
           = receiveXMLWrapper "ModifyCacheClusterResult"
               (\ s h x ->
                  ModifyCacheClusterResponse' <$>
-                   (x .@? "CacheCluster") <*> (pure (fromEnum s)))
+                   (x .@? "CacheCluster") <*> (pure s))
 
 instance ToHeaders ModifyCacheCluster where
         toHeaders = const mempty
@@ -429,11 +429,11 @@ instance ToQuery ModifyCacheCluster where
 -- * 'mccrStatus'
 data ModifyCacheClusterResponse = ModifyCacheClusterResponse'
     { _mccrCacheCluster :: !(Maybe CacheCluster)
-    , _mccrStatus       :: !Int
+    , _mccrStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyCacheClusterResponse' smart constructor.
-modifyCacheClusterResponse :: Int -> ModifyCacheClusterResponse
+modifyCacheClusterResponse :: Status -> ModifyCacheClusterResponse
 modifyCacheClusterResponse pStatus =
     ModifyCacheClusterResponse'
     { _mccrCacheCluster = Nothing
@@ -445,5 +445,5 @@ mccrCacheCluster :: Lens' ModifyCacheClusterResponse (Maybe CacheCluster)
 mccrCacheCluster = lens _mccrCacheCluster (\ s a -> s{_mccrCacheCluster = a});
 
 -- | FIXME: Undocumented member.
-mccrStatus :: Lens' ModifyCacheClusterResponse Int
+mccrStatus :: Lens' ModifyCacheClusterResponse Status
 mccrStatus = lens _mccrStatus (\ s a -> s{_mccrStatus = a});

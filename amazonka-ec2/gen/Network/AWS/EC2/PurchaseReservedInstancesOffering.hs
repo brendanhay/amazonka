@@ -116,8 +116,7 @@ instance AWSRequest PurchaseReservedInstancesOffering
           = receiveXML
               (\ s h x ->
                  PurchaseReservedInstancesOfferingResponse' <$>
-                   (x .@? "reservedInstancesId") <*>
-                     (pure (fromEnum s)))
+                   (x .@? "reservedInstancesId") <*> (pure s))
 
 instance ToHeaders PurchaseReservedInstancesOffering
          where
@@ -149,11 +148,11 @@ instance ToQuery PurchaseReservedInstancesOffering
 -- * 'priorStatus'
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'
     { _priorReservedInstancesId :: !(Maybe Text)
-    , _priorStatus              :: !Int
+    , _priorStatus              :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'PurchaseReservedInstancesOfferingResponse' smart constructor.
-purchaseReservedInstancesOfferingResponse :: Int -> PurchaseReservedInstancesOfferingResponse
+purchaseReservedInstancesOfferingResponse :: Status -> PurchaseReservedInstancesOfferingResponse
 purchaseReservedInstancesOfferingResponse pStatus =
     PurchaseReservedInstancesOfferingResponse'
     { _priorReservedInstancesId = Nothing
@@ -165,5 +164,5 @@ priorReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (May
 priorReservedInstancesId = lens _priorReservedInstancesId (\ s a -> s{_priorReservedInstancesId = a});
 
 -- | FIXME: Undocumented member.
-priorStatus :: Lens' PurchaseReservedInstancesOfferingResponse Int
+priorStatus :: Lens' PurchaseReservedInstancesOfferingResponse Status
 priorStatus = lens _priorStatus (\ s a -> s{_priorStatus = a});

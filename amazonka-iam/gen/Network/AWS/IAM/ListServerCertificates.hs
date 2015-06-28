@@ -116,7 +116,7 @@ instance AWSRequest ListServerCertificates where
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "ServerCertificateMetadataList" .!@ mempty >>=
                         parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListServerCertificates where
         toHeaders = const mempty
@@ -150,11 +150,11 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse'
     { _lscrMarker                        :: !(Maybe Text)
     , _lscrIsTruncated                   :: !(Maybe Bool)
     , _lscrServerCertificateMetadataList :: ![ServerCertificateMetadata]
-    , _lscrStatus                        :: !Int
+    , _lscrStatus                        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListServerCertificatesResponse' smart constructor.
-listServerCertificatesResponse :: Int -> ListServerCertificatesResponse
+listServerCertificatesResponse :: Status -> ListServerCertificatesResponse
 listServerCertificatesResponse pStatus =
     ListServerCertificatesResponse'
     { _lscrMarker = Nothing
@@ -181,5 +181,5 @@ lscrServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [Serve
 lscrServerCertificateMetadataList = lens _lscrServerCertificateMetadataList (\ s a -> s{_lscrServerCertificateMetadataList = a});
 
 -- | FIXME: Undocumented member.
-lscrStatus :: Lens' ListServerCertificatesResponse Int
+lscrStatus :: Lens' ListServerCertificatesResponse Status
 lscrStatus = lens _lscrStatus (\ s a -> s{_lscrStatus = a});

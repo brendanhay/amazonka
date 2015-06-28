@@ -83,7 +83,7 @@ instance AWSRequest GetTemplate where
           = receiveXMLWrapper "GetTemplateResult"
               (\ s h x ->
                  GetTemplateResponse' <$>
-                   (x .@? "TemplateBody") <*> (pure (fromEnum s)))
+                   (x .@? "TemplateBody") <*> (pure s))
 
 instance ToHeaders GetTemplate where
         toHeaders = const mempty
@@ -109,11 +109,11 @@ instance ToQuery GetTemplate where
 -- * 'gtrStatus'
 data GetTemplateResponse = GetTemplateResponse'
     { _gtrTemplateBody :: !(Maybe Text)
-    , _gtrStatus       :: !Int
+    , _gtrStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetTemplateResponse' smart constructor.
-getTemplateResponse :: Int -> GetTemplateResponse
+getTemplateResponse :: Status -> GetTemplateResponse
 getTemplateResponse pStatus =
     GetTemplateResponse'
     { _gtrTemplateBody = Nothing
@@ -127,5 +127,5 @@ gtrTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
 gtrTemplateBody = lens _gtrTemplateBody (\ s a -> s{_gtrTemplateBody = a});
 
 -- | FIXME: Undocumented member.
-gtrStatus :: Lens' GetTemplateResponse Int
+gtrStatus :: Lens' GetTemplateResponse Status
 gtrStatus = lens _gtrStatus (\ s a -> s{_gtrStatus = a});

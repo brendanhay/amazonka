@@ -95,7 +95,7 @@ instance AWSRequest CreateVPNGateway where
           = receiveXML
               (\ s h x ->
                  CreateVPNGatewayResponse' <$>
-                   (x .@? "vpnGateway") <*> (pure (fromEnum s)))
+                   (x .@? "vpnGateway") <*> (pure s))
 
 instance ToHeaders CreateVPNGateway where
         toHeaders = const mempty
@@ -120,11 +120,11 @@ instance ToQuery CreateVPNGateway where
 -- * 'cvgrStatus'
 data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
     { _cvgrVPNGateway :: !(Maybe VPNGateway)
-    , _cvgrStatus     :: !Int
+    , _cvgrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateVPNGatewayResponse' smart constructor.
-createVPNGatewayResponse :: Int -> CreateVPNGatewayResponse
+createVPNGatewayResponse :: Status -> CreateVPNGatewayResponse
 createVPNGatewayResponse pStatus =
     CreateVPNGatewayResponse'
     { _cvgrVPNGateway = Nothing
@@ -136,5 +136,5 @@ cvgrVPNGateway :: Lens' CreateVPNGatewayResponse (Maybe VPNGateway)
 cvgrVPNGateway = lens _cvgrVPNGateway (\ s a -> s{_cvgrVPNGateway = a});
 
 -- | FIXME: Undocumented member.
-cvgrStatus :: Lens' CreateVPNGatewayResponse Int
+cvgrStatus :: Lens' CreateVPNGatewayResponse Status
 cvgrStatus = lens _cvgrStatus (\ s a -> s{_cvgrStatus = a});

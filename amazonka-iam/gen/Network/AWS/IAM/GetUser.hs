@@ -74,8 +74,7 @@ instance AWSRequest GetUser where
         response
           = receiveXMLWrapper "GetUserResult"
               (\ s h x ->
-                 GetUserResponse' <$>
-                   (x .@ "User") <*> (pure (fromEnum s)))
+                 GetUserResponse' <$> (x .@ "User") <*> (pure s))
 
 instance ToHeaders GetUser where
         toHeaders = const mempty
@@ -101,11 +100,11 @@ instance ToQuery GetUser where
 -- * 'gurStatus'
 data GetUserResponse = GetUserResponse'
     { _gurUser   :: !User
-    , _gurStatus :: !Int
+    , _gurStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetUserResponse' smart constructor.
-getUserResponse :: User -> Int -> GetUserResponse
+getUserResponse :: User -> Status -> GetUserResponse
 getUserResponse pUser pStatus =
     GetUserResponse'
     { _gurUser = pUser
@@ -117,5 +116,5 @@ gurUser :: Lens' GetUserResponse User
 gurUser = lens _gurUser (\ s a -> s{_gurUser = a});
 
 -- | FIXME: Undocumented member.
-gurStatus :: Lens' GetUserResponse Int
+gurStatus :: Lens' GetUserResponse Status
 gurStatus = lens _gurStatus (\ s a -> s{_gurStatus = a});

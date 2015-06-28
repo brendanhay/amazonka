@@ -72,8 +72,7 @@ instance AWSRequest ListQueues where
           = receiveXMLWrapper "ListQueuesResult"
               (\ s h x ->
                  ListQueuesResponse' <$>
-                   (may (parseXMLList "QueueUrl") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "QueueUrl") x) <*> (pure s))
 
 instance ToHeaders ListQueues where
         toHeaders = const mempty
@@ -99,11 +98,11 @@ instance ToQuery ListQueues where
 -- * 'lqrStatus'
 data ListQueuesResponse = ListQueuesResponse'
     { _lqrQueueURLs :: !(Maybe [Text])
-    , _lqrStatus    :: !Int
+    , _lqrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListQueuesResponse' smart constructor.
-listQueuesResponse :: Int -> ListQueuesResponse
+listQueuesResponse :: Status -> ListQueuesResponse
 listQueuesResponse pStatus =
     ListQueuesResponse'
     { _lqrQueueURLs = Nothing
@@ -115,5 +114,5 @@ lqrQueueURLs :: Lens' ListQueuesResponse [Text]
 lqrQueueURLs = lens _lqrQueueURLs (\ s a -> s{_lqrQueueURLs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lqrStatus :: Lens' ListQueuesResponse Int
+lqrStatus :: Lens' ListQueuesResponse Status
 lqrStatus = lens _lqrStatus (\ s a -> s{_lqrStatus = a});

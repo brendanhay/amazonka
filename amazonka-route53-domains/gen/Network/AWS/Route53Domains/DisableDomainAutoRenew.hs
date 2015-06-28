@@ -73,8 +73,7 @@ instance AWSRequest DisableDomainAutoRenew where
         response
           = receiveJSON
               (\ s h x ->
-                 DisableDomainAutoRenewResponse' <$>
-                   (pure (fromEnum s)))
+                 DisableDomainAutoRenewResponse' <$> (pure s))
 
 instance ToHeaders DisableDomainAutoRenew where
         toHeaders
@@ -102,16 +101,16 @@ instance ToQuery DisableDomainAutoRenew where
 --
 -- * 'ddarrStatus'
 newtype DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'
-    { _ddarrStatus :: Int
+    { _ddarrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'DisableDomainAutoRenewResponse' smart constructor.
-disableDomainAutoRenewResponse :: Int -> DisableDomainAutoRenewResponse
+disableDomainAutoRenewResponse :: Status -> DisableDomainAutoRenewResponse
 disableDomainAutoRenewResponse pStatus =
     DisableDomainAutoRenewResponse'
     { _ddarrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ddarrStatus :: Lens' DisableDomainAutoRenewResponse Int
+ddarrStatus :: Lens' DisableDomainAutoRenewResponse Status
 ddarrStatus = lens _ddarrStatus (\ s a -> s{_ddarrStatus = a});

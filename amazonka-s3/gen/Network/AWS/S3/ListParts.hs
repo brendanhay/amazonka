@@ -146,7 +146,7 @@ instance AWSRequest ListParts where
                      <*> (x .@? "IsTruncated")
                      <*> (x .@? "PartNumberMarker")
                      <*> (x .@? "UploadId")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListParts where
         toHeaders ListParts'{..}
@@ -205,11 +205,11 @@ data ListPartsResponse = ListPartsResponse'
     , _lprIsTruncated          :: !(Maybe Bool)
     , _lprPartNumberMarker     :: !(Maybe Int)
     , _lprUploadId             :: !(Maybe Text)
-    , _lprStatus               :: !Int
+    , _lprStatus               :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListPartsResponse' smart constructor.
-listPartsResponse :: Int -> ListPartsResponse
+listPartsResponse :: Status -> ListPartsResponse
 listPartsResponse pStatus =
     ListPartsResponse'
     { _lprParts = Nothing
@@ -278,5 +278,5 @@ lprUploadId :: Lens' ListPartsResponse (Maybe Text)
 lprUploadId = lens _lprUploadId (\ s a -> s{_lprUploadId = a});
 
 -- | FIXME: Undocumented member.
-lprStatus :: Lens' ListPartsResponse Int
+lprStatus :: Lens' ListPartsResponse Status
 lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});

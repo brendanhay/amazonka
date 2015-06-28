@@ -111,7 +111,7 @@ instance AWSRequest DescribePolicies where
                    (x .@? "NextToken") <*>
                      (x .@? "ScalingPolicies" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribePolicies where
         toHeaders = const mempty
@@ -142,11 +142,11 @@ instance ToQuery DescribePolicies where
 data DescribePoliciesResponse = DescribePoliciesResponse'
     { _dprNextToken       :: !(Maybe Text)
     , _dprScalingPolicies :: !(Maybe [ScalingPolicy])
-    , _dprStatus          :: !Int
+    , _dprStatus          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribePoliciesResponse' smart constructor.
-describePoliciesResponse :: Int -> DescribePoliciesResponse
+describePoliciesResponse :: Status -> DescribePoliciesResponse
 describePoliciesResponse pStatus =
     DescribePoliciesResponse'
     { _dprNextToken = Nothing
@@ -164,5 +164,5 @@ dprScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
 dprScalingPolicies = lens _dprScalingPolicies (\ s a -> s{_dprScalingPolicies = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dprStatus :: Lens' DescribePoliciesResponse Int
+dprStatus :: Lens' DescribePoliciesResponse Status
 dprStatus = lens _dprStatus (\ s a -> s{_dprStatus = a});

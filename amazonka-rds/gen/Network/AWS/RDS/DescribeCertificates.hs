@@ -120,7 +120,7 @@ instance AWSRequest DescribeCertificates where
                    (x .@? "Certificates" .!@ mempty >>=
                       may (parseXMLList "Certificate"))
                      <*> (x .@? "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeCertificates where
         toHeaders = const mempty
@@ -152,11 +152,11 @@ instance ToQuery DescribeCertificates where
 data DescribeCertificatesResponse = DescribeCertificatesResponse'
     { _dcrCertificates :: !(Maybe [Certificate])
     , _dcrMarker       :: !(Maybe Text)
-    , _dcrStatus       :: !Int
+    , _dcrStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeCertificatesResponse' smart constructor.
-describeCertificatesResponse :: Int -> DescribeCertificatesResponse
+describeCertificatesResponse :: Status -> DescribeCertificatesResponse
 describeCertificatesResponse pStatus =
     DescribeCertificatesResponse'
     { _dcrCertificates = Nothing
@@ -175,5 +175,5 @@ dcrMarker :: Lens' DescribeCertificatesResponse (Maybe Text)
 dcrMarker = lens _dcrMarker (\ s a -> s{_dcrMarker = a});
 
 -- | FIXME: Undocumented member.
-dcrStatus :: Lens' DescribeCertificatesResponse Int
+dcrStatus :: Lens' DescribeCertificatesResponse Status
 dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});

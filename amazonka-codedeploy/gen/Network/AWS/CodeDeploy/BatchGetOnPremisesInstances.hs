@@ -71,8 +71,7 @@ instance AWSRequest BatchGetOnPremisesInstances where
           = receiveJSON
               (\ s h x ->
                  BatchGetOnPremisesInstancesResponse' <$>
-                   (x .?> "instanceInfos" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+                   (x .?> "instanceInfos" .!@ mempty) <*> (pure s))
 
 instance ToHeaders BatchGetOnPremisesInstances where
         toHeaders
@@ -105,11 +104,11 @@ instance ToQuery BatchGetOnPremisesInstances where
 -- * 'bgopirStatus'
 data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'
     { _bgopirInstanceInfos :: !(Maybe [InstanceInfo])
-    , _bgopirStatus        :: !Int
+    , _bgopirStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'BatchGetOnPremisesInstancesResponse' smart constructor.
-batchGetOnPremisesInstancesResponse :: Int -> BatchGetOnPremisesInstancesResponse
+batchGetOnPremisesInstancesResponse :: Status -> BatchGetOnPremisesInstancesResponse
 batchGetOnPremisesInstancesResponse pStatus =
     BatchGetOnPremisesInstancesResponse'
     { _bgopirInstanceInfos = Nothing
@@ -121,5 +120,5 @@ bgopirInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse [InstanceInfo]
 bgopirInstanceInfos = lens _bgopirInstanceInfos (\ s a -> s{_bgopirInstanceInfos = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-bgopirStatus :: Lens' BatchGetOnPremisesInstancesResponse Int
+bgopirStatus :: Lens' BatchGetOnPremisesInstancesResponse Status
 bgopirStatus = lens _bgopirStatus (\ s a -> s{_bgopirStatus = a});

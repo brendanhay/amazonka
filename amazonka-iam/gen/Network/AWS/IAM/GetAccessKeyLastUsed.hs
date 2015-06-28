@@ -74,7 +74,7 @@ instance AWSRequest GetAccessKeyLastUsed where
               (\ s h x ->
                  GetAccessKeyLastUsedResponse' <$>
                    (x .@? "UserName") <*> (x .@? "AccessKeyLastUsed")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetAccessKeyLastUsed where
         toHeaders = const mempty
@@ -105,11 +105,11 @@ instance ToQuery GetAccessKeyLastUsed where
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
     { _gaklurUserName          :: !(Maybe Text)
     , _gaklurAccessKeyLastUsed :: !(Maybe AccessKeyLastUsed)
-    , _gaklurStatus            :: !Int
+    , _gaklurStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetAccessKeyLastUsedResponse' smart constructor.
-getAccessKeyLastUsedResponse :: Int -> GetAccessKeyLastUsedResponse
+getAccessKeyLastUsedResponse :: Status -> GetAccessKeyLastUsedResponse
 getAccessKeyLastUsedResponse pStatus =
     GetAccessKeyLastUsedResponse'
     { _gaklurUserName = Nothing
@@ -126,5 +126,5 @@ gaklurAccessKeyLastUsed :: Lens' GetAccessKeyLastUsedResponse (Maybe AccessKeyLa
 gaklurAccessKeyLastUsed = lens _gaklurAccessKeyLastUsed (\ s a -> s{_gaklurAccessKeyLastUsed = a});
 
 -- | FIXME: Undocumented member.
-gaklurStatus :: Lens' GetAccessKeyLastUsedResponse Int
+gaklurStatus :: Lens' GetAccessKeyLastUsedResponse Status
 gaklurStatus = lens _gaklurStatus (\ s a -> s{_gaklurStatus = a});

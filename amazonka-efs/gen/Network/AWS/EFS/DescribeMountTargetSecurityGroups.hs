@@ -80,8 +80,7 @@ instance AWSRequest DescribeMountTargetSecurityGroups
           = receiveJSON
               (\ s h x ->
                  DescribeMountTargetSecurityGroupsResponse' <$>
-                   (x .?> "SecurityGroups" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+                   (x .?> "SecurityGroups" .!@ mempty) <*> (pure s))
 
 instance ToHeaders DescribeMountTargetSecurityGroups
          where
@@ -107,11 +106,11 @@ instance ToQuery DescribeMountTargetSecurityGroups
 -- * 'dmtsgrStatus'
 data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'
     { _dmtsgrSecurityGroups :: ![Text]
-    , _dmtsgrStatus         :: !Int
+    , _dmtsgrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeMountTargetSecurityGroupsResponse' smart constructor.
-describeMountTargetSecurityGroupsResponse :: Int -> DescribeMountTargetSecurityGroupsResponse
+describeMountTargetSecurityGroupsResponse :: Status -> DescribeMountTargetSecurityGroupsResponse
 describeMountTargetSecurityGroupsResponse pStatus =
     DescribeMountTargetSecurityGroupsResponse'
     { _dmtsgrSecurityGroups = mempty
@@ -123,5 +122,5 @@ dmtsgrSecurityGroups :: Lens' DescribeMountTargetSecurityGroupsResponse [Text]
 dmtsgrSecurityGroups = lens _dmtsgrSecurityGroups (\ s a -> s{_dmtsgrSecurityGroups = a});
 
 -- | FIXME: Undocumented member.
-dmtsgrStatus :: Lens' DescribeMountTargetSecurityGroupsResponse Int
+dmtsgrStatus :: Lens' DescribeMountTargetSecurityGroupsResponse Status
 dmtsgrStatus = lens _dmtsgrStatus (\ s a -> s{_dmtsgrStatus = a});

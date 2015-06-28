@@ -103,7 +103,7 @@ instance AWSRequest DescribeAnalysisSchemes where
                  DescribeAnalysisSchemesResponse' <$>
                    (x .@? "AnalysisSchemes" .!@ mempty >>=
                       parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeAnalysisSchemes where
         toHeaders = const mempty
@@ -135,11 +135,11 @@ instance ToQuery DescribeAnalysisSchemes where
 -- * 'dasrStatus'
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
     { _dasrAnalysisSchemes :: ![AnalysisSchemeStatus]
-    , _dasrStatus          :: !Int
+    , _dasrStatus          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAnalysisSchemesResponse' smart constructor.
-describeAnalysisSchemesResponse :: Int -> DescribeAnalysisSchemesResponse
+describeAnalysisSchemesResponse :: Status -> DescribeAnalysisSchemesResponse
 describeAnalysisSchemesResponse pStatus =
     DescribeAnalysisSchemesResponse'
     { _dasrAnalysisSchemes = mempty
@@ -151,5 +151,5 @@ dasrAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStat
 dasrAnalysisSchemes = lens _dasrAnalysisSchemes (\ s a -> s{_dasrAnalysisSchemes = a});
 
 -- | FIXME: Undocumented member.
-dasrStatus :: Lens' DescribeAnalysisSchemesResponse Int
+dasrStatus :: Lens' DescribeAnalysisSchemesResponse Status
 dasrStatus = lens _dasrStatus (\ s a -> s{_dasrStatus = a});

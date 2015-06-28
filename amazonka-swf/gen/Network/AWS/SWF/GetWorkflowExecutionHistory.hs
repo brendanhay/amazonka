@@ -154,7 +154,7 @@ instance AWSRequest GetWorkflowExecutionHistory where
                  GetWorkflowExecutionHistoryResponse' <$>
                    (x .?> "nextPageToken") <*>
                      (x .?> "events" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetWorkflowExecutionHistory where
         toHeaders
@@ -197,11 +197,11 @@ instance ToQuery GetWorkflowExecutionHistory where
 data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'
     { _gwehrNextPageToken :: !(Maybe Text)
     , _gwehrEvents        :: ![HistoryEvent]
-    , _gwehrStatus        :: !Int
+    , _gwehrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetWorkflowExecutionHistoryResponse' smart constructor.
-getWorkflowExecutionHistoryResponse :: Int -> GetWorkflowExecutionHistoryResponse
+getWorkflowExecutionHistoryResponse :: Status -> GetWorkflowExecutionHistoryResponse
 getWorkflowExecutionHistoryResponse pStatus =
     GetWorkflowExecutionHistoryResponse'
     { _gwehrNextPageToken = Nothing
@@ -224,5 +224,5 @@ gwehrEvents :: Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
 gwehrEvents = lens _gwehrEvents (\ s a -> s{_gwehrEvents = a});
 
 -- | FIXME: Undocumented member.
-gwehrStatus :: Lens' GetWorkflowExecutionHistoryResponse Int
+gwehrStatus :: Lens' GetWorkflowExecutionHistoryResponse Status
 gwehrStatus = lens _gwehrStatus (\ s a -> s{_gwehrStatus = a});

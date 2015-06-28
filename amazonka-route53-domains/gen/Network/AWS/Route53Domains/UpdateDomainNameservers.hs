@@ -113,7 +113,7 @@ instance AWSRequest UpdateDomainNameservers where
           = receiveJSON
               (\ s h x ->
                  UpdateDomainNameserversResponse' <$>
-                   (x .:> "OperationId") <*> (pure (fromEnum s)))
+                   (x .:> "OperationId") <*> (pure s))
 
 instance ToHeaders UpdateDomainNameservers where
         toHeaders
@@ -149,11 +149,11 @@ instance ToQuery UpdateDomainNameservers where
 -- * 'udnrStatus'
 data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
     { _udnrOperationId :: !Text
-    , _udnrStatus      :: !Int
+    , _udnrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateDomainNameserversResponse' smart constructor.
-updateDomainNameserversResponse :: Text -> Int -> UpdateDomainNameserversResponse
+updateDomainNameserversResponse :: Text -> Status -> UpdateDomainNameserversResponse
 updateDomainNameserversResponse pOperationId pStatus =
     UpdateDomainNameserversResponse'
     { _udnrOperationId = pOperationId
@@ -172,5 +172,5 @@ udnrOperationId :: Lens' UpdateDomainNameserversResponse Text
 udnrOperationId = lens _udnrOperationId (\ s a -> s{_udnrOperationId = a});
 
 -- | FIXME: Undocumented member.
-udnrStatus :: Lens' UpdateDomainNameserversResponse Int
+udnrStatus :: Lens' UpdateDomainNameserversResponse Status
 udnrStatus = lens _udnrStatus (\ s a -> s{_udnrStatus = a});

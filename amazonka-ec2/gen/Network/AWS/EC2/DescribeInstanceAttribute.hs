@@ -122,7 +122,7 @@ instance AWSRequest DescribeInstanceAttribute where
                      <*> (x .@? "instanceInitiatedShutdownBehavior")
                      <*> (may (parseXMLList "item") x)
                      <*> (may (parseXMLList "item") x)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeInstanceAttribute where
         toHeaders = const mempty
@@ -190,11 +190,11 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
     , _desInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
     , _desProductCodes                      :: !(Maybe [ProductCode])
     , _desBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMapping])
-    , _desStatus                            :: !Int
+    , _desStatus                            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstanceAttributeResponse' smart constructor.
-describeInstanceAttributeResponse :: Int -> DescribeInstanceAttributeResponse
+describeInstanceAttributeResponse :: Status -> DescribeInstanceAttributeResponse
 describeInstanceAttributeResponse pStatus =
     DescribeInstanceAttributeResponse'
     { _desInstanceId = Nothing
@@ -277,5 +277,5 @@ desBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlock
 desBlockDeviceMappings = lens _desBlockDeviceMappings (\ s a -> s{_desBlockDeviceMappings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeInstanceAttributeResponse Int
+desStatus :: Lens' DescribeInstanceAttributeResponse Status
 desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

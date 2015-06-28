@@ -111,7 +111,7 @@ instance AWSRequest ListClusters where
               (\ s h x ->
                  ListClustersResponse' <$>
                    (x .?> "Marker") <*> (x .?> "Clusters" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListClusters where
         toHeaders
@@ -151,11 +151,11 @@ instance ToQuery ListClusters where
 data ListClustersResponse = ListClustersResponse'
     { _lcrMarker   :: !(Maybe Text)
     , _lcrClusters :: !(Maybe [ClusterSummary])
-    , _lcrStatus   :: !Int
+    , _lcrStatus   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListClustersResponse' smart constructor.
-listClustersResponse :: Int -> ListClustersResponse
+listClustersResponse :: Status -> ListClustersResponse
 listClustersResponse pStatus =
     ListClustersResponse'
     { _lcrMarker = Nothing
@@ -172,5 +172,5 @@ lcrClusters :: Lens' ListClustersResponse [ClusterSummary]
 lcrClusters = lens _lcrClusters (\ s a -> s{_lcrClusters = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lcrStatus :: Lens' ListClustersResponse Int
+lcrStatus :: Lens' ListClustersResponse Status
 lcrStatus = lens _lcrStatus (\ s a -> s{_lcrStatus = a});

@@ -79,7 +79,7 @@ instance AWSRequest GetHealthCheckLastFailureReason
                  GetHealthCheckLastFailureReasonResponse' <$>
                    (x .@? "HealthCheckObservations" .!@ mempty >>=
                       parseXMLList "HealthCheckObservation")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetHealthCheckLastFailureReason
          where
@@ -107,11 +107,11 @@ instance ToQuery GetHealthCheckLastFailureReason
 -- * 'ghclfrrStatus'
 data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'
     { _ghclfrrHealthCheckObservations :: ![HealthCheckObservation]
-    , _ghclfrrStatus                  :: !Int
+    , _ghclfrrStatus                  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetHealthCheckLastFailureReasonResponse' smart constructor.
-getHealthCheckLastFailureReasonResponse :: Int -> GetHealthCheckLastFailureReasonResponse
+getHealthCheckLastFailureReasonResponse :: Status -> GetHealthCheckLastFailureReasonResponse
 getHealthCheckLastFailureReasonResponse pStatus =
     GetHealthCheckLastFailureReasonResponse'
     { _ghclfrrHealthCheckObservations = mempty
@@ -124,5 +124,5 @@ ghclfrrHealthCheckObservations :: Lens' GetHealthCheckLastFailureReasonResponse 
 ghclfrrHealthCheckObservations = lens _ghclfrrHealthCheckObservations (\ s a -> s{_ghclfrrHealthCheckObservations = a});
 
 -- | FIXME: Undocumented member.
-ghclfrrStatus :: Lens' GetHealthCheckLastFailureReasonResponse Int
+ghclfrrStatus :: Lens' GetHealthCheckLastFailureReasonResponse Status
 ghclfrrStatus = lens _ghclfrrStatus (\ s a -> s{_ghclfrrStatus = a});

@@ -127,7 +127,7 @@ instance AWSRequest GenerateDataKeyWithoutPlaintext
               (\ s h x ->
                  GenerateDataKeyWithoutPlaintextResponse' <$>
                    (x .?> "KeyId") <*> (x .?> "CiphertextBlob") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders GenerateDataKeyWithoutPlaintext
          where
@@ -168,11 +168,11 @@ instance ToQuery GenerateDataKeyWithoutPlaintext
 data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse'
     { _gdkwprKeyId          :: !(Maybe Text)
     , _gdkwprCiphertextBlob :: !(Maybe Base64)
-    , _gdkwprStatus         :: !Int
+    , _gdkwprStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GenerateDataKeyWithoutPlaintextResponse' smart constructor.
-generateDataKeyWithoutPlaintextResponse :: Int -> GenerateDataKeyWithoutPlaintextResponse
+generateDataKeyWithoutPlaintextResponse :: Status -> GenerateDataKeyWithoutPlaintextResponse
 generateDataKeyWithoutPlaintextResponse pStatus =
     GenerateDataKeyWithoutPlaintextResponse'
     { _gdkwprKeyId = Nothing
@@ -195,5 +195,5 @@ gdkwprCiphertextBlob :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe Bas
 gdkwprCiphertextBlob = lens _gdkwprCiphertextBlob (\ s a -> s{_gdkwprCiphertextBlob = a});
 
 -- | FIXME: Undocumented member.
-gdkwprStatus :: Lens' GenerateDataKeyWithoutPlaintextResponse Int
+gdkwprStatus :: Lens' GenerateDataKeyWithoutPlaintextResponse Status
 gdkwprStatus = lens _gdkwprStatus (\ s a -> s{_gdkwprStatus = a});

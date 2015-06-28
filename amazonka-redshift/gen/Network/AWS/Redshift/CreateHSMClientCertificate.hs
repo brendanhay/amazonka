@@ -93,8 +93,7 @@ instance AWSRequest CreateHSMClientCertificate where
               "CreateHsmClientCertificateResult"
               (\ s h x ->
                  CreateHSMClientCertificateResponse' <$>
-                   (x .@? "HsmClientCertificate") <*>
-                     (pure (fromEnum s)))
+                   (x .@? "HsmClientCertificate") <*> (pure s))
 
 instance ToHeaders CreateHSMClientCertificate where
         toHeaders = const mempty
@@ -121,11 +120,11 @@ instance ToQuery CreateHSMClientCertificate where
 -- * 'chccrStatus'
 data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'
     { _chccrHSMClientCertificate :: !(Maybe HSMClientCertificate)
-    , _chccrStatus               :: !Int
+    , _chccrStatus               :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateHSMClientCertificateResponse' smart constructor.
-createHSMClientCertificateResponse :: Int -> CreateHSMClientCertificateResponse
+createHSMClientCertificateResponse :: Status -> CreateHSMClientCertificateResponse
 createHSMClientCertificateResponse pStatus =
     CreateHSMClientCertificateResponse'
     { _chccrHSMClientCertificate = Nothing
@@ -137,5 +136,5 @@ chccrHSMClientCertificate :: Lens' CreateHSMClientCertificateResponse (Maybe HSM
 chccrHSMClientCertificate = lens _chccrHSMClientCertificate (\ s a -> s{_chccrHSMClientCertificate = a});
 
 -- | FIXME: Undocumented member.
-chccrStatus :: Lens' CreateHSMClientCertificateResponse Int
+chccrStatus :: Lens' CreateHSMClientCertificateResponse Status
 chccrStatus = lens _chccrStatus (\ s a -> s{_chccrStatus = a});

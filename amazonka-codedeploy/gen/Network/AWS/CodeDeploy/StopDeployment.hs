@@ -70,7 +70,7 @@ instance AWSRequest StopDeployment where
           = receiveJSON
               (\ s h x ->
                  StopDeploymentResponse' <$>
-                   (x .?> "statusMessage") <*> (pure (fromEnum s)))
+                   (x .?> "statusMessage") <*> (pure s))
 
 instance ToHeaders StopDeployment where
         toHeaders
@@ -102,11 +102,11 @@ instance ToQuery StopDeployment where
 -- * 'sdrStatus'
 data StopDeploymentResponse = StopDeploymentResponse'
     { _sdrStatusMessage :: !(Maybe Text)
-    , _sdrStatus        :: !Int
+    , _sdrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'StopDeploymentResponse' smart constructor.
-stopDeploymentResponse :: Int -> StopDeploymentResponse
+stopDeploymentResponse :: Status -> StopDeploymentResponse
 stopDeploymentResponse pStatus =
     StopDeploymentResponse'
     { _sdrStatusMessage = Nothing
@@ -118,5 +118,5 @@ sdrStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)
 sdrStatusMessage = lens _sdrStatusMessage (\ s a -> s{_sdrStatusMessage = a});
 
 -- | FIXME: Undocumented member.
-sdrStatus :: Lens' StopDeploymentResponse Int
+sdrStatus :: Lens' StopDeploymentResponse Status
 sdrStatus = lens _sdrStatus (\ s a -> s{_sdrStatus = a});

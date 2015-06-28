@@ -135,8 +135,7 @@ instance AWSRequest DescribeVPCPeeringConnections
           = receiveXML
               (\ s h x ->
                  DescribeVPCPeeringConnectionsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders DescribeVPCPeeringConnections
          where
@@ -166,11 +165,11 @@ instance ToQuery DescribeVPCPeeringConnections where
 -- * 'dvpcpcrStatus'
 data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'
     { _dvpcpcrVPCPeeringConnections :: !(Maybe [VPCPeeringConnection])
-    , _dvpcpcrStatus                :: !Int
+    , _dvpcpcrStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCPeeringConnectionsResponse' smart constructor.
-describeVPCPeeringConnectionsResponse :: Int -> DescribeVPCPeeringConnectionsResponse
+describeVPCPeeringConnectionsResponse :: Status -> DescribeVPCPeeringConnectionsResponse
 describeVPCPeeringConnectionsResponse pStatus =
     DescribeVPCPeeringConnectionsResponse'
     { _dvpcpcrVPCPeeringConnections = Nothing
@@ -182,5 +181,5 @@ dvpcpcrVPCPeeringConnections :: Lens' DescribeVPCPeeringConnectionsResponse [VPC
 dvpcpcrVPCPeeringConnections = lens _dvpcpcrVPCPeeringConnections (\ s a -> s{_dvpcpcrVPCPeeringConnections = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvpcpcrStatus :: Lens' DescribeVPCPeeringConnectionsResponse Int
+dvpcpcrStatus :: Lens' DescribeVPCPeeringConnectionsResponse Status
 dvpcpcrStatus = lens _dvpcpcrStatus (\ s a -> s{_dvpcpcrStatus = a});

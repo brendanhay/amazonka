@@ -115,7 +115,7 @@ instance AWSRequest ListVirtualMFADevices where
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "VirtualMFADevices" .!@ mempty >>=
                         parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListVirtualMFADevices where
         toHeaders = const mempty
@@ -148,11 +148,11 @@ data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
     { _lvmdrMarker            :: !(Maybe Text)
     , _lvmdrIsTruncated       :: !(Maybe Bool)
     , _lvmdrVirtualMFADevices :: ![VirtualMFADevice]
-    , _lvmdrStatus            :: !Int
+    , _lvmdrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListVirtualMFADevicesResponse' smart constructor.
-listVirtualMFADevicesResponse :: Int -> ListVirtualMFADevicesResponse
+listVirtualMFADevicesResponse :: Status -> ListVirtualMFADevicesResponse
 listVirtualMFADevicesResponse pStatus =
     ListVirtualMFADevicesResponse'
     { _lvmdrMarker = Nothing
@@ -179,5 +179,5 @@ lvmdrVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevice]
 lvmdrVirtualMFADevices = lens _lvmdrVirtualMFADevices (\ s a -> s{_lvmdrVirtualMFADevices = a});
 
 -- | FIXME: Undocumented member.
-lvmdrStatus :: Lens' ListVirtualMFADevicesResponse Int
+lvmdrStatus :: Lens' ListVirtualMFADevicesResponse Status
 lvmdrStatus = lens _lvmdrStatus (\ s a -> s{_lvmdrStatus = a});

@@ -86,7 +86,7 @@ instance AWSRequest RequestSpotFleet where
           = receiveXML
               (\ s h x ->
                  RequestSpotFleetResponse' <$>
-                   (x .@ "spotFleetRequestId") <*> (pure (fromEnum s)))
+                   (x .@ "spotFleetRequestId") <*> (pure s))
 
 instance ToHeaders RequestSpotFleet where
         toHeaders = const mempty
@@ -114,11 +114,11 @@ instance ToQuery RequestSpotFleet where
 -- * 'rsfrStatus'
 data RequestSpotFleetResponse = RequestSpotFleetResponse'
     { _rsfrSpotFleetRequestId :: !Text
-    , _rsfrStatus             :: !Int
+    , _rsfrStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'RequestSpotFleetResponse' smart constructor.
-requestSpotFleetResponse :: Text -> Int -> RequestSpotFleetResponse
+requestSpotFleetResponse :: Text -> Status -> RequestSpotFleetResponse
 requestSpotFleetResponse pSpotFleetRequestId pStatus =
     RequestSpotFleetResponse'
     { _rsfrSpotFleetRequestId = pSpotFleetRequestId
@@ -130,5 +130,5 @@ rsfrSpotFleetRequestId :: Lens' RequestSpotFleetResponse Text
 rsfrSpotFleetRequestId = lens _rsfrSpotFleetRequestId (\ s a -> s{_rsfrSpotFleetRequestId = a});
 
 -- | FIXME: Undocumented member.
-rsfrStatus :: Lens' RequestSpotFleetResponse Int
+rsfrStatus :: Lens' RequestSpotFleetResponse Status
 rsfrStatus = lens _rsfrStatus (\ s a -> s{_rsfrStatus = a});

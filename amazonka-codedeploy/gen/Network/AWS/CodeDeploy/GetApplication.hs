@@ -71,7 +71,7 @@ instance AWSRequest GetApplication where
           = receiveJSON
               (\ s h x ->
                  GetApplicationResponse' <$>
-                   (x .?> "application") <*> (pure (fromEnum s)))
+                   (x .?> "application") <*> (pure s))
 
 instance ToHeaders GetApplication where
         toHeaders
@@ -103,11 +103,11 @@ instance ToQuery GetApplication where
 -- * 'garStatus'
 data GetApplicationResponse = GetApplicationResponse'
     { _garApplication :: !(Maybe ApplicationInfo)
-    , _garStatus      :: !Int
+    , _garStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetApplicationResponse' smart constructor.
-getApplicationResponse :: Int -> GetApplicationResponse
+getApplicationResponse :: Status -> GetApplicationResponse
 getApplicationResponse pStatus =
     GetApplicationResponse'
     { _garApplication = Nothing
@@ -119,5 +119,5 @@ garApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
 garApplication = lens _garApplication (\ s a -> s{_garApplication = a});
 
 -- | FIXME: Undocumented member.
-garStatus :: Lens' GetApplicationResponse Int
+garStatus :: Lens' GetApplicationResponse Status
 garStatus = lens _garStatus (\ s a -> s{_garStatus = a});

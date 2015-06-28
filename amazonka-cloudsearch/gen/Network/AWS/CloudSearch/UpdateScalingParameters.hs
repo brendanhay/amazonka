@@ -90,7 +90,7 @@ instance AWSRequest UpdateScalingParameters where
           = receiveXMLWrapper "UpdateScalingParametersResult"
               (\ s h x ->
                  UpdateScalingParametersResponse' <$>
-                   (x .@ "ScalingParameters") <*> (pure (fromEnum s)))
+                   (x .@ "ScalingParameters") <*> (pure s))
 
 instance ToHeaders UpdateScalingParameters where
         toHeaders = const mempty
@@ -119,11 +119,11 @@ instance ToQuery UpdateScalingParameters where
 -- * 'usprStatus'
 data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
     { _usprScalingParameters :: !ScalingParametersStatus
-    , _usprStatus            :: !Int
+    , _usprStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateScalingParametersResponse' smart constructor.
-updateScalingParametersResponse :: ScalingParametersStatus -> Int -> UpdateScalingParametersResponse
+updateScalingParametersResponse :: ScalingParametersStatus -> Status -> UpdateScalingParametersResponse
 updateScalingParametersResponse pScalingParameters pStatus =
     UpdateScalingParametersResponse'
     { _usprScalingParameters = pScalingParameters
@@ -135,5 +135,5 @@ usprScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParameters
 usprScalingParameters = lens _usprScalingParameters (\ s a -> s{_usprScalingParameters = a});
 
 -- | FIXME: Undocumented member.
-usprStatus :: Lens' UpdateScalingParametersResponse Int
+usprStatus :: Lens' UpdateScalingParametersResponse Status
 usprStatus = lens _usprStatus (\ s a -> s{_usprStatus = a});

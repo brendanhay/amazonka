@@ -95,7 +95,7 @@ instance AWSRequest UpdateMLModel where
           = receiveJSON
               (\ s h x ->
                  UpdateMLModelResponse' <$>
-                   (x .?> "MLModelId") <*> (pure (fromEnum s)))
+                   (x .?> "MLModelId") <*> (pure s))
 
 instance ToHeaders UpdateMLModel where
         toHeaders
@@ -132,11 +132,11 @@ instance ToQuery UpdateMLModel where
 -- * 'umlmrStatus'
 data UpdateMLModelResponse = UpdateMLModelResponse'
     { _umlmrMLModelId :: !(Maybe Text)
-    , _umlmrStatus    :: !Int
+    , _umlmrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateMLModelResponse' smart constructor.
-updateMLModelResponse :: Int -> UpdateMLModelResponse
+updateMLModelResponse :: Status -> UpdateMLModelResponse
 updateMLModelResponse pStatus =
     UpdateMLModelResponse'
     { _umlmrMLModelId = Nothing
@@ -149,5 +149,5 @@ umlmrMLModelId :: Lens' UpdateMLModelResponse (Maybe Text)
 umlmrMLModelId = lens _umlmrMLModelId (\ s a -> s{_umlmrMLModelId = a});
 
 -- | FIXME: Undocumented member.
-umlmrStatus :: Lens' UpdateMLModelResponse Int
+umlmrStatus :: Lens' UpdateMLModelResponse Status
 umlmrStatus = lens _umlmrStatus (\ s a -> s{_umlmrStatus = a});

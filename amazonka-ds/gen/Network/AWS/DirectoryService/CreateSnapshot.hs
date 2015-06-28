@@ -81,7 +81,7 @@ instance AWSRequest CreateSnapshot where
           = receiveJSON
               (\ s h x ->
                  CreateSnapshotResponse' <$>
-                   (x .?> "SnapshotId") <*> (pure (fromEnum s)))
+                   (x .?> "SnapshotId") <*> (pure s))
 
 instance ToHeaders CreateSnapshot where
         toHeaders
@@ -115,11 +115,11 @@ instance ToQuery CreateSnapshot where
 -- * 'csrStatus'
 data CreateSnapshotResponse = CreateSnapshotResponse'
     { _csrSnapshotId :: !(Maybe Text)
-    , _csrStatus     :: !Int
+    , _csrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshotResponse' smart constructor.
-createSnapshotResponse :: Int -> CreateSnapshotResponse
+createSnapshotResponse :: Status -> CreateSnapshotResponse
 createSnapshotResponse pStatus =
     CreateSnapshotResponse'
     { _csrSnapshotId = Nothing
@@ -131,5 +131,5 @@ csrSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\ s a -> s{_csrSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-csrStatus :: Lens' CreateSnapshotResponse Int
+csrStatus :: Lens' CreateSnapshotResponse Status
 csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});

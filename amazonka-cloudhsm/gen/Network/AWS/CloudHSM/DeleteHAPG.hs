@@ -67,8 +67,7 @@ instance AWSRequest DeleteHAPG where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x ->
-                 DeleteHAPGResponse' <$> (pure (fromEnum s)))
+              (\ s h x -> DeleteHAPGResponse' <$> (pure s))
 
 instance ToHeaders DeleteHAPG where
         toHeaders
@@ -97,16 +96,16 @@ instance ToQuery DeleteHAPG where
 --
 -- * 'dhrStatus'
 newtype DeleteHAPGResponse = DeleteHAPGResponse'
-    { _dhrStatus :: Int
+    { _dhrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteHAPGResponse' smart constructor.
-deleteHAPGResponse :: Int -> DeleteHAPGResponse
+deleteHAPGResponse :: Status -> DeleteHAPGResponse
 deleteHAPGResponse pStatus =
     DeleteHAPGResponse'
     { _dhrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dhrStatus :: Lens' DeleteHAPGResponse Int
+dhrStatus :: Lens' DeleteHAPGResponse Status
 dhrStatus = lens _dhrStatus (\ s a -> s{_dhrStatus = a});

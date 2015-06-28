@@ -82,7 +82,7 @@ instance AWSRequest DeregisterTaskDefinition where
           = receiveJSON
               (\ s h x ->
                  DeregisterTaskDefinitionResponse' <$>
-                   (x .?> "taskDefinition") <*> (pure (fromEnum s)))
+                   (x .?> "taskDefinition") <*> (pure s))
 
 instance ToHeaders DeregisterTaskDefinition where
         toHeaders
@@ -113,11 +113,11 @@ instance ToQuery DeregisterTaskDefinition where
 -- * 'dtdrStatus'
 data DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'
     { _dtdrTaskDefinition :: !(Maybe TaskDefinition)
-    , _dtdrStatus         :: !Int
+    , _dtdrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeregisterTaskDefinitionResponse' smart constructor.
-deregisterTaskDefinitionResponse :: Int -> DeregisterTaskDefinitionResponse
+deregisterTaskDefinitionResponse :: Status -> DeregisterTaskDefinitionResponse
 deregisterTaskDefinitionResponse pStatus =
     DeregisterTaskDefinitionResponse'
     { _dtdrTaskDefinition = Nothing
@@ -129,5 +129,5 @@ dtdrTaskDefinition :: Lens' DeregisterTaskDefinitionResponse (Maybe TaskDefiniti
 dtdrTaskDefinition = lens _dtdrTaskDefinition (\ s a -> s{_dtdrTaskDefinition = a});
 
 -- | FIXME: Undocumented member.
-dtdrStatus :: Lens' DeregisterTaskDefinitionResponse Int
+dtdrStatus :: Lens' DeregisterTaskDefinitionResponse Status
 dtdrStatus = lens _dtdrStatus (\ s a -> s{_dtdrStatus = a});

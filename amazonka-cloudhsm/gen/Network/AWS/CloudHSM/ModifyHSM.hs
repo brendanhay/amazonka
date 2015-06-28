@@ -115,8 +115,7 @@ instance AWSRequest ModifyHSM where
         response
           = receiveJSON
               (\ s h x ->
-                 ModifyHSMResponse' <$>
-                   (x .?> "HsmArn") <*> (pure (fromEnum s)))
+                 ModifyHSMResponse' <$> (x .?> "HsmArn") <*> (pure s))
 
 instance ToHeaders ModifyHSM where
         toHeaders
@@ -152,11 +151,11 @@ instance ToQuery ModifyHSM where
 -- * 'modStatus'
 data ModifyHSMResponse = ModifyHSMResponse'
     { _modHSMARN :: !(Maybe Text)
-    , _modStatus :: !Int
+    , _modStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyHSMResponse' smart constructor.
-modifyHSMResponse :: Int -> ModifyHSMResponse
+modifyHSMResponse :: Status -> ModifyHSMResponse
 modifyHSMResponse pStatus =
     ModifyHSMResponse'
     { _modHSMARN = Nothing
@@ -168,5 +167,5 @@ modHSMARN :: Lens' ModifyHSMResponse (Maybe Text)
 modHSMARN = lens _modHSMARN (\ s a -> s{_modHSMARN = a});
 
 -- | FIXME: Undocumented member.
-modStatus :: Lens' ModifyHSMResponse Int
+modStatus :: Lens' ModifyHSMResponse Status
 modStatus = lens _modStatus (\ s a -> s{_modStatus = a});

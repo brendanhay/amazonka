@@ -77,7 +77,7 @@ instance AWSRequest GetBucketWebsite where
                      (x .@? "RoutingRules" .!@ mempty >>=
                         may (parseXMLList "RoutingRule"))
                      <*> (x .@? "IndexDocument")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetBucketWebsite where
         toHeaders = const mempty
@@ -107,11 +107,11 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
     , _gbwrErrorDocument         :: !(Maybe ErrorDocument)
     , _gbwrRoutingRules          :: !(Maybe [RoutingRule])
     , _gbwrIndexDocument         :: !(Maybe IndexDocument)
-    , _gbwrStatus                :: !Int
+    , _gbwrStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetBucketWebsiteResponse' smart constructor.
-getBucketWebsiteResponse :: Int -> GetBucketWebsiteResponse
+getBucketWebsiteResponse :: Status -> GetBucketWebsiteResponse
 getBucketWebsiteResponse pStatus =
     GetBucketWebsiteResponse'
     { _gbwrRedirectAllRequestsTo = Nothing
@@ -138,5 +138,5 @@ gbwrIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
 gbwrIndexDocument = lens _gbwrIndexDocument (\ s a -> s{_gbwrIndexDocument = a});
 
 -- | FIXME: Undocumented member.
-gbwrStatus :: Lens' GetBucketWebsiteResponse Int
+gbwrStatus :: Lens' GetBucketWebsiteResponse Status
 gbwrStatus = lens _gbwrStatus (\ s a -> s{_gbwrStatus = a});

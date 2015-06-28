@@ -77,7 +77,7 @@ instance AWSRequest DescribeDeliveryChannelStatus
               (\ s h x ->
                  DescribeDeliveryChannelStatusResponse' <$>
                    (x .?> "DeliveryChannelsStatus" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders DescribeDeliveryChannelStatus
          where
@@ -112,11 +112,11 @@ instance ToQuery DescribeDeliveryChannelStatus where
 -- * 'ddcsrStatus'
 data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'
     { _ddcsrDeliveryChannelsStatus :: !(Maybe [DeliveryChannelStatus])
-    , _ddcsrStatus                 :: !Int
+    , _ddcsrStatus                 :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDeliveryChannelStatusResponse' smart constructor.
-describeDeliveryChannelStatusResponse :: Int -> DescribeDeliveryChannelStatusResponse
+describeDeliveryChannelStatusResponse :: Status -> DescribeDeliveryChannelStatusResponse
 describeDeliveryChannelStatusResponse pStatus =
     DescribeDeliveryChannelStatusResponse'
     { _ddcsrDeliveryChannelsStatus = Nothing
@@ -128,5 +128,5 @@ ddcsrDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse [Deli
 ddcsrDeliveryChannelsStatus = lens _ddcsrDeliveryChannelsStatus (\ s a -> s{_ddcsrDeliveryChannelsStatus = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddcsrStatus :: Lens' DescribeDeliveryChannelStatusResponse Int
+ddcsrStatus :: Lens' DescribeDeliveryChannelStatusResponse Status
 ddcsrStatus = lens _ddcsrStatus (\ s a -> s{_ddcsrStatus = a});

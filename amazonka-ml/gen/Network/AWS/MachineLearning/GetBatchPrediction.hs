@@ -90,7 +90,7 @@ instance AWSRequest GetBatchPrediction where
                      <*> (x .?> "LogUri")
                      <*> (x .?> "Message")
                      <*> (x .?> "OutputUri")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetBatchPrediction where
         toHeaders
@@ -155,11 +155,11 @@ data GetBatchPredictionResponse = GetBatchPredictionResponse'
     , _gbprLogURI                      :: !(Maybe Text)
     , _gbprMessage                     :: !(Maybe Text)
     , _gbprOutputURI                   :: !(Maybe Text)
-    , _gbprStatus                      :: !Int
+    , _gbprStatus                      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetBatchPredictionResponse' smart constructor.
-getBatchPredictionResponse :: Int -> GetBatchPredictionResponse
+getBatchPredictionResponse :: Status -> GetBatchPredictionResponse
 getBatchPredictionResponse pStatus =
     GetBatchPredictionResponse'
     { _gbprLastUpdatedAt = Nothing
@@ -232,5 +232,5 @@ gbprOutputURI :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprOutputURI = lens _gbprOutputURI (\ s a -> s{_gbprOutputURI = a});
 
 -- | FIXME: Undocumented member.
-gbprStatus :: Lens' GetBatchPredictionResponse Int
+gbprStatus :: Lens' GetBatchPredictionResponse Status
 gbprStatus = lens _gbprStatus (\ s a -> s{_gbprStatus = a});

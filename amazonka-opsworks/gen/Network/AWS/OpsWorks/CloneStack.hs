@@ -411,7 +411,7 @@ instance AWSRequest CloneStack where
           = receiveJSON
               (\ s h x ->
                  CloneStackResponse' <$>
-                   (x .?> "StackId") <*> (pure (fromEnum s)))
+                   (x .?> "StackId") <*> (pure s))
 
 instance ToHeaders CloneStack where
         toHeaders
@@ -468,11 +468,11 @@ instance ToQuery CloneStack where
 -- * 'csrStatus'
 data CloneStackResponse = CloneStackResponse'
     { _csrStackId :: !(Maybe Text)
-    , _csrStatus  :: !Int
+    , _csrStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CloneStackResponse' smart constructor.
-cloneStackResponse :: Int -> CloneStackResponse
+cloneStackResponse :: Status -> CloneStackResponse
 cloneStackResponse pStatus =
     CloneStackResponse'
     { _csrStackId = Nothing
@@ -484,5 +484,5 @@ csrStackId :: Lens' CloneStackResponse (Maybe Text)
 csrStackId = lens _csrStackId (\ s a -> s{_csrStackId = a});
 
 -- | FIXME: Undocumented member.
-csrStatus :: Lens' CloneStackResponse Int
+csrStatus :: Lens' CloneStackResponse Status
 csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});

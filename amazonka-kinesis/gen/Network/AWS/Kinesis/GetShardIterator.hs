@@ -150,7 +150,7 @@ instance AWSRequest GetShardIterator where
           = receiveJSON
               (\ s h x ->
                  GetShardIteratorResponse' <$>
-                   (x .?> "ShardIterator") <*> (pure (fromEnum s)))
+                   (x .?> "ShardIterator") <*> (pure s))
 
 instance ToHeaders GetShardIterator where
         toHeaders
@@ -187,11 +187,11 @@ instance ToQuery GetShardIterator where
 -- * 'gsirStatus'
 data GetShardIteratorResponse = GetShardIteratorResponse'
     { _gsirShardIterator :: !(Maybe Text)
-    , _gsirStatus        :: !Int
+    , _gsirStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetShardIteratorResponse' smart constructor.
-getShardIteratorResponse :: Int -> GetShardIteratorResponse
+getShardIteratorResponse :: Status -> GetShardIteratorResponse
 getShardIteratorResponse pStatus =
     GetShardIteratorResponse'
     { _gsirShardIterator = Nothing
@@ -205,5 +205,5 @@ gsirShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
 gsirShardIterator = lens _gsirShardIterator (\ s a -> s{_gsirShardIterator = a});
 
 -- | FIXME: Undocumented member.
-gsirStatus :: Lens' GetShardIteratorResponse Int
+gsirStatus :: Lens' GetShardIteratorResponse Status
 gsirStatus = lens _gsirStatus (\ s a -> s{_gsirStatus = a});

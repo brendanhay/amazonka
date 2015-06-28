@@ -98,7 +98,7 @@ instance AWSRequest AuthorizeSnapshotAccess where
           = receiveXMLWrapper "AuthorizeSnapshotAccessResult"
               (\ s h x ->
                  AuthorizeSnapshotAccessResponse' <$>
-                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
+                   (x .@? "Snapshot") <*> (pure s))
 
 instance ToHeaders AuthorizeSnapshotAccess where
         toHeaders = const mempty
@@ -127,11 +127,11 @@ instance ToQuery AuthorizeSnapshotAccess where
 -- * 'asarStatus'
 data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
     { _asarSnapshot :: !(Maybe Snapshot)
-    , _asarStatus   :: !Int
+    , _asarStatus   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeSnapshotAccessResponse' smart constructor.
-authorizeSnapshotAccessResponse :: Int -> AuthorizeSnapshotAccessResponse
+authorizeSnapshotAccessResponse :: Status -> AuthorizeSnapshotAccessResponse
 authorizeSnapshotAccessResponse pStatus =
     AuthorizeSnapshotAccessResponse'
     { _asarSnapshot = Nothing
@@ -143,5 +143,5 @@ asarSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
 asarSnapshot = lens _asarSnapshot (\ s a -> s{_asarSnapshot = a});
 
 -- | FIXME: Undocumented member.
-asarStatus :: Lens' AuthorizeSnapshotAccessResponse Int
+asarStatus :: Lens' AuthorizeSnapshotAccessResponse Status
 asarStatus = lens _asarStatus (\ s a -> s{_asarStatus = a});

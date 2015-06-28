@@ -84,7 +84,7 @@ instance AWSRequest DescribeBandwidthRateLimit where
                    (x .?> "GatewayARN") <*>
                      (x .?> "AverageUploadRateLimitInBitsPerSec")
                      <*> (x .?> "AverageDownloadRateLimitInBitsPerSec")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeBandwidthRateLimit where
         toHeaders
@@ -123,11 +123,11 @@ data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
     { _dbrlrGatewayARN                           :: !(Maybe Text)
     , _dbrlrAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
     , _dbrlrAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
-    , _dbrlrStatus                               :: !Int
+    , _dbrlrStatus                               :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeBandwidthRateLimitResponse' smart constructor.
-describeBandwidthRateLimitResponse :: Int -> DescribeBandwidthRateLimitResponse
+describeBandwidthRateLimitResponse :: Status -> DescribeBandwidthRateLimitResponse
 describeBandwidthRateLimitResponse pStatus =
     DescribeBandwidthRateLimitResponse'
     { _dbrlrGatewayARN = Nothing
@@ -151,5 +151,5 @@ dbrlrAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitRes
 dbrlrAverageDownloadRateLimitInBitsPerSec = lens _dbrlrAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_dbrlrAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
-dbrlrStatus :: Lens' DescribeBandwidthRateLimitResponse Int
+dbrlrStatus :: Lens' DescribeBandwidthRateLimitResponse Status
 dbrlrStatus = lens _dbrlrStatus (\ s a -> s{_dbrlrStatus = a});

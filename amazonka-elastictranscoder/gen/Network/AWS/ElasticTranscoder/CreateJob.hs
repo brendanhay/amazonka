@@ -147,8 +147,7 @@ instance AWSRequest CreateJob where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateJobResponse' <$>
-                   (x .?> "Job") <*> (pure (fromEnum s)))
+                 CreateJobResponse' <$> (x .?> "Job") <*> (pure s))
 
 instance ToHeaders CreateJob where
         toHeaders = const mempty
@@ -179,11 +178,11 @@ instance ToQuery CreateJob where
 -- * 'cjrStatus'
 data CreateJobResponse = CreateJobResponse'
     { _cjrJob    :: !(Maybe Job')
-    , _cjrStatus :: !Int
+    , _cjrStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateJobResponse' smart constructor.
-createJobResponse :: Int -> CreateJobResponse
+createJobResponse :: Status -> CreateJobResponse
 createJobResponse pStatus =
     CreateJobResponse'
     { _cjrJob = Nothing
@@ -196,5 +195,5 @@ cjrJob :: Lens' CreateJobResponse (Maybe Job')
 cjrJob = lens _cjrJob (\ s a -> s{_cjrJob = a});
 
 -- | FIXME: Undocumented member.
-cjrStatus :: Lens' CreateJobResponse Int
+cjrStatus :: Lens' CreateJobResponse Status
 cjrStatus = lens _cjrStatus (\ s a -> s{_cjrStatus = a});

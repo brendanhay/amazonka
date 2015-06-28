@@ -80,7 +80,7 @@ instance AWSRequest GetDeploymentInstance where
           = receiveJSON
               (\ s h x ->
                  GetDeploymentInstanceResponse' <$>
-                   (x .?> "instanceSummary") <*> (pure (fromEnum s)))
+                   (x .?> "instanceSummary") <*> (pure s))
 
 instance ToHeaders GetDeploymentInstance where
         toHeaders
@@ -115,11 +115,11 @@ instance ToQuery GetDeploymentInstance where
 -- * 'gdirStatus'
 data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'
     { _gdirInstanceSummary :: !(Maybe InstanceSummary)
-    , _gdirStatus          :: !Int
+    , _gdirStatus          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetDeploymentInstanceResponse' smart constructor.
-getDeploymentInstanceResponse :: Int -> GetDeploymentInstanceResponse
+getDeploymentInstanceResponse :: Status -> GetDeploymentInstanceResponse
 getDeploymentInstanceResponse pStatus =
     GetDeploymentInstanceResponse'
     { _gdirInstanceSummary = Nothing
@@ -131,5 +131,5 @@ gdirInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSummar
 gdirInstanceSummary = lens _gdirInstanceSummary (\ s a -> s{_gdirInstanceSummary = a});
 
 -- | FIXME: Undocumented member.
-gdirStatus :: Lens' GetDeploymentInstanceResponse Int
+gdirStatus :: Lens' GetDeploymentInstanceResponse Status
 gdirStatus = lens _gdirStatus (\ s a -> s{_gdirStatus = a});

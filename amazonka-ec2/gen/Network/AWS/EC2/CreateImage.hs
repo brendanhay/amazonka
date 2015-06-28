@@ -136,7 +136,7 @@ instance AWSRequest CreateImage where
           = receiveXML
               (\ s h x ->
                  CreateImageResponse' <$>
-                   (x .@? "imageId") <*> (pure (fromEnum s)))
+                   (x .@? "imageId") <*> (pure s))
 
 instance ToHeaders CreateImage where
         toHeaders = const mempty
@@ -166,11 +166,11 @@ instance ToQuery CreateImage where
 -- * 'cirStatus'
 data CreateImageResponse = CreateImageResponse'
     { _cirImageId :: !(Maybe Text)
-    , _cirStatus  :: !Int
+    , _cirStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateImageResponse' smart constructor.
-createImageResponse :: Int -> CreateImageResponse
+createImageResponse :: Status -> CreateImageResponse
 createImageResponse pStatus =
     CreateImageResponse'
     { _cirImageId = Nothing
@@ -182,5 +182,5 @@ cirImageId :: Lens' CreateImageResponse (Maybe Text)
 cirImageId = lens _cirImageId (\ s a -> s{_cirImageId = a});
 
 -- | FIXME: Undocumented member.
-cirStatus :: Lens' CreateImageResponse Int
+cirStatus :: Lens' CreateImageResponse Status
 cirStatus = lens _cirStatus (\ s a -> s{_cirStatus = a});

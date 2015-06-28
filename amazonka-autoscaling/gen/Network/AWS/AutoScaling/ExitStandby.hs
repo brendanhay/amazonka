@@ -83,7 +83,7 @@ instance AWSRequest ExitStandby where
                  ExitStandbyResponse' <$>
                    (x .@? "Activities" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ExitStandby where
         toHeaders = const mempty
@@ -109,11 +109,11 @@ instance ToQuery ExitStandby where
 -- * 'exiStatus'
 data ExitStandbyResponse = ExitStandbyResponse'
     { _exiActivities :: !(Maybe [Activity])
-    , _exiStatus     :: !Int
+    , _exiStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ExitStandbyResponse' smart constructor.
-exitStandbyResponse :: Int -> ExitStandbyResponse
+exitStandbyResponse :: Status -> ExitStandbyResponse
 exitStandbyResponse pStatus =
     ExitStandbyResponse'
     { _exiActivities = Nothing
@@ -125,5 +125,5 @@ exiActivities :: Lens' ExitStandbyResponse [Activity]
 exiActivities = lens _exiActivities (\ s a -> s{_exiActivities = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-exiStatus :: Lens' ExitStandbyResponse Int
+exiStatus :: Lens' ExitStandbyResponse Status
 exiStatus = lens _exiStatus (\ s a -> s{_exiStatus = a});

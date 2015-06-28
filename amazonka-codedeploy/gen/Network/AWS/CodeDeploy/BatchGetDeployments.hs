@@ -72,8 +72,7 @@ instance AWSRequest BatchGetDeployments where
           = receiveJSON
               (\ s h x ->
                  BatchGetDeploymentsResponse' <$>
-                   (x .?> "deploymentsInfo" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+                   (x .?> "deploymentsInfo" .!@ mempty) <*> (pure s))
 
 instance ToHeaders BatchGetDeployments where
         toHeaders
@@ -106,11 +105,11 @@ instance ToQuery BatchGetDeployments where
 -- * 'bgdrStatus'
 data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
     { _bgdrDeploymentsInfo :: !(Maybe [DeploymentInfo])
-    , _bgdrStatus          :: !Int
+    , _bgdrStatus          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'BatchGetDeploymentsResponse' smart constructor.
-batchGetDeploymentsResponse :: Int -> BatchGetDeploymentsResponse
+batchGetDeploymentsResponse :: Status -> BatchGetDeploymentsResponse
 batchGetDeploymentsResponse pStatus =
     BatchGetDeploymentsResponse'
     { _bgdrDeploymentsInfo = Nothing
@@ -122,5 +121,5 @@ bgdrDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
 bgdrDeploymentsInfo = lens _bgdrDeploymentsInfo (\ s a -> s{_bgdrDeploymentsInfo = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-bgdrStatus :: Lens' BatchGetDeploymentsResponse Int
+bgdrStatus :: Lens' BatchGetDeploymentsResponse Status
 bgdrStatus = lens _bgdrStatus (\ s a -> s{_bgdrStatus = a});

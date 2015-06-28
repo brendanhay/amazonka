@@ -83,7 +83,7 @@ instance AWSRequest AddUploadBuffer where
           = receiveJSON
               (\ s h x ->
                  AddUploadBufferResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+                   (x .?> "GatewayARN") <*> (pure s))
 
 instance ToHeaders AddUploadBuffer where
         toHeaders
@@ -116,11 +116,11 @@ instance ToQuery AddUploadBuffer where
 -- * 'aubrStatus'
 data AddUploadBufferResponse = AddUploadBufferResponse'
     { _aubrGatewayARN :: !(Maybe Text)
-    , _aubrStatus     :: !Int
+    , _aubrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'AddUploadBufferResponse' smart constructor.
-addUploadBufferResponse :: Int -> AddUploadBufferResponse
+addUploadBufferResponse :: Status -> AddUploadBufferResponse
 addUploadBufferResponse pStatus =
     AddUploadBufferResponse'
     { _aubrGatewayARN = Nothing
@@ -132,5 +132,5 @@ aubrGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
 aubrGatewayARN = lens _aubrGatewayARN (\ s a -> s{_aubrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-aubrStatus :: Lens' AddUploadBufferResponse Int
+aubrStatus :: Lens' AddUploadBufferResponse Status
 aubrStatus = lens _aubrStatus (\ s a -> s{_aubrStatus = a});

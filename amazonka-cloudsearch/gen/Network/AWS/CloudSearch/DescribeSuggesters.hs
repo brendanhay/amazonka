@@ -103,7 +103,7 @@ instance AWSRequest DescribeSuggesters where
                  DescribeSuggestersResponse' <$>
                    (x .@? "Suggesters" .!@ mempty >>=
                       parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeSuggesters where
         toHeaders = const mempty
@@ -133,11 +133,11 @@ instance ToQuery DescribeSuggesters where
 -- * 'dsr1Status'
 data DescribeSuggestersResponse = DescribeSuggestersResponse'
     { _dsr1Suggesters :: ![SuggesterStatus]
-    , _dsr1Status     :: !Int
+    , _dsr1Status     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSuggestersResponse' smart constructor.
-describeSuggestersResponse :: Int -> DescribeSuggestersResponse
+describeSuggestersResponse :: Status -> DescribeSuggestersResponse
 describeSuggestersResponse pStatus =
     DescribeSuggestersResponse'
     { _dsr1Suggesters = mempty
@@ -149,5 +149,5 @@ dsr1Suggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
 dsr1Suggesters = lens _dsr1Suggesters (\ s a -> s{_dsr1Suggesters = a});
 
 -- | FIXME: Undocumented member.
-dsr1Status :: Lens' DescribeSuggestersResponse Int
+dsr1Status :: Lens' DescribeSuggestersResponse Status
 dsr1Status = lens _dsr1Status (\ s a -> s{_dsr1Status = a});

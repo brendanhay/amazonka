@@ -83,7 +83,7 @@ instance AWSRequest DomainMetadata where
                      <*> (x .@? "AttributeNamesSizeBytes")
                      <*> (x .@? "Timestamp")
                      <*> (x .@? "ItemCount")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DomainMetadata where
         toHeaders = const mempty
@@ -125,11 +125,11 @@ data DomainMetadataResponse = DomainMetadataResponse'
     , _dmrAttributeNamesSizeBytes  :: !(Maybe Integer)
     , _dmrTimestamp                :: !(Maybe Int)
     , _dmrItemCount                :: !(Maybe Int)
-    , _dmrStatus                   :: !Int
+    , _dmrStatus                   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DomainMetadataResponse' smart constructor.
-domainMetadataResponse :: Int -> DomainMetadataResponse
+domainMetadataResponse :: Status -> DomainMetadataResponse
 domainMetadataResponse pStatus =
     DomainMetadataResponse'
     { _dmrItemNamesSizeBytes = Nothing
@@ -171,5 +171,5 @@ dmrItemCount :: Lens' DomainMetadataResponse (Maybe Int)
 dmrItemCount = lens _dmrItemCount (\ s a -> s{_dmrItemCount = a});
 
 -- | FIXME: Undocumented member.
-dmrStatus :: Lens' DomainMetadataResponse Int
+dmrStatus :: Lens' DomainMetadataResponse Status
 dmrStatus = lens _dmrStatus (\ s a -> s{_dmrStatus = a});

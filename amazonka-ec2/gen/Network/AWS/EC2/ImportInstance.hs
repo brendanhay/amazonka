@@ -113,7 +113,7 @@ instance AWSRequest ImportInstance where
           = receiveXML
               (\ s h x ->
                  ImportInstanceResponse' <$>
-                   (x .@? "conversionTask") <*> (pure (fromEnum s)))
+                   (x .@? "conversionTask") <*> (pure s))
 
 instance ToHeaders ImportInstance where
         toHeaders = const mempty
@@ -141,11 +141,11 @@ instance ToQuery ImportInstance where
 -- * 'iirStatus'
 data ImportInstanceResponse = ImportInstanceResponse'
     { _iirConversionTask :: !(Maybe ConversionTask)
-    , _iirStatus         :: !Int
+    , _iirStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ImportInstanceResponse' smart constructor.
-importInstanceResponse :: Int -> ImportInstanceResponse
+importInstanceResponse :: Status -> ImportInstanceResponse
 importInstanceResponse pStatus =
     ImportInstanceResponse'
     { _iirConversionTask = Nothing
@@ -157,5 +157,5 @@ iirConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
 iirConversionTask = lens _iirConversionTask (\ s a -> s{_iirConversionTask = a});
 
 -- | FIXME: Undocumented member.
-iirStatus :: Lens' ImportInstanceResponse Int
+iirStatus :: Lens' ImportInstanceResponse Status
 iirStatus = lens _iirStatus (\ s a -> s{_iirStatus = a});

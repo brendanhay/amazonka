@@ -88,7 +88,7 @@ instance AWSRequest VerifyDomainDkim where
                  VerifyDomainDkimResponse' <$>
                    (x .@? "DkimTokens" .!@ mempty >>=
                       parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders VerifyDomainDkim where
         toHeaders = const mempty
@@ -115,11 +115,11 @@ instance ToQuery VerifyDomainDkim where
 -- * 'vddrStatus'
 data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
     { _vddrDkimTokens :: ![Text]
-    , _vddrStatus     :: !Int
+    , _vddrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'VerifyDomainDkimResponse' smart constructor.
-verifyDomainDkimResponse :: Int -> VerifyDomainDkimResponse
+verifyDomainDkimResponse :: Status -> VerifyDomainDkimResponse
 verifyDomainDkimResponse pStatus =
     VerifyDomainDkimResponse'
     { _vddrDkimTokens = mempty
@@ -143,5 +143,5 @@ vddrDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
 vddrDkimTokens = lens _vddrDkimTokens (\ s a -> s{_vddrDkimTokens = a});
 
 -- | FIXME: Undocumented member.
-vddrStatus :: Lens' VerifyDomainDkimResponse Int
+vddrStatus :: Lens' VerifyDomainDkimResponse Status
 vddrStatus = lens _vddrStatus (\ s a -> s{_vddrStatus = a});

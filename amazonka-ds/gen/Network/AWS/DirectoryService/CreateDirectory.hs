@@ -118,7 +118,7 @@ instance AWSRequest CreateDirectory where
           = receiveJSON
               (\ s h x ->
                  CreateDirectoryResponse' <$>
-                   (x .?> "DirectoryId") <*> (pure (fromEnum s)))
+                   (x .?> "DirectoryId") <*> (pure s))
 
 instance ToHeaders CreateDirectory where
         toHeaders
@@ -155,11 +155,11 @@ instance ToQuery CreateDirectory where
 -- * 'creStatus'
 data CreateDirectoryResponse = CreateDirectoryResponse'
     { _creDirectoryId :: !(Maybe Text)
-    , _creStatus      :: !Int
+    , _creStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDirectoryResponse' smart constructor.
-createDirectoryResponse :: Int -> CreateDirectoryResponse
+createDirectoryResponse :: Status -> CreateDirectoryResponse
 createDirectoryResponse pStatus =
     CreateDirectoryResponse'
     { _creDirectoryId = Nothing
@@ -171,5 +171,5 @@ creDirectoryId :: Lens' CreateDirectoryResponse (Maybe Text)
 creDirectoryId = lens _creDirectoryId (\ s a -> s{_creDirectoryId = a});
 
 -- | FIXME: Undocumented member.
-creStatus :: Lens' CreateDirectoryResponse Int
+creStatus :: Lens' CreateDirectoryResponse Status
 creStatus = lens _creStatus (\ s a -> s{_creStatus = a});

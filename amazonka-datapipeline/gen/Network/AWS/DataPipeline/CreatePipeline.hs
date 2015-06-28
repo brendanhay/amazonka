@@ -114,7 +114,7 @@ instance AWSRequest CreatePipeline where
           = receiveJSON
               (\ s h x ->
                  CreatePipelineResponse' <$>
-                   (x .:> "pipelineId") <*> (pure (fromEnum s)))
+                   (x .:> "pipelineId") <*> (pure s))
 
 instance ToHeaders CreatePipeline where
         toHeaders
@@ -148,11 +148,11 @@ instance ToQuery CreatePipeline where
 -- * 'cprStatus'
 data CreatePipelineResponse = CreatePipelineResponse'
     { _cprPipelineId :: !Text
-    , _cprStatus     :: !Int
+    , _cprStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreatePipelineResponse' smart constructor.
-createPipelineResponse :: Text -> Int -> CreatePipelineResponse
+createPipelineResponse :: Text -> Status -> CreatePipelineResponse
 createPipelineResponse pPipelineId pStatus =
     CreatePipelineResponse'
     { _cprPipelineId = pPipelineId
@@ -165,5 +165,5 @@ cprPipelineId :: Lens' CreatePipelineResponse Text
 cprPipelineId = lens _cprPipelineId (\ s a -> s{_cprPipelineId = a});
 
 -- | FIXME: Undocumented member.
-cprStatus :: Lens' CreatePipelineResponse Int
+cprStatus :: Lens' CreatePipelineResponse Status
 cprStatus = lens _cprStatus (\ s a -> s{_cprStatus = a});

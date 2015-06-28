@@ -96,7 +96,7 @@ instance AWSRequest ReplaceNetworkACLAssociation
           = receiveXML
               (\ s h x ->
                  ReplaceNetworkACLAssociationResponse' <$>
-                   (x .@? "newAssociationId") <*> (pure (fromEnum s)))
+                   (x .@? "newAssociationId") <*> (pure s))
 
 instance ToHeaders ReplaceNetworkACLAssociation where
         toHeaders = const mempty
@@ -123,11 +123,11 @@ instance ToQuery ReplaceNetworkACLAssociation where
 -- * 'rnaarStatus'
 data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'
     { _rnaarNewAssociationId :: !(Maybe Text)
-    , _rnaarStatus           :: !Int
+    , _rnaarStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ReplaceNetworkACLAssociationResponse' smart constructor.
-replaceNetworkACLAssociationResponse :: Int -> ReplaceNetworkACLAssociationResponse
+replaceNetworkACLAssociationResponse :: Status -> ReplaceNetworkACLAssociationResponse
 replaceNetworkACLAssociationResponse pStatus =
     ReplaceNetworkACLAssociationResponse'
     { _rnaarNewAssociationId = Nothing
@@ -139,5 +139,5 @@ rnaarNewAssociationId :: Lens' ReplaceNetworkACLAssociationResponse (Maybe Text)
 rnaarNewAssociationId = lens _rnaarNewAssociationId (\ s a -> s{_rnaarNewAssociationId = a});
 
 -- | FIXME: Undocumented member.
-rnaarStatus :: Lens' ReplaceNetworkACLAssociationResponse Int
+rnaarStatus :: Lens' ReplaceNetworkACLAssociationResponse Status
 rnaarStatus = lens _rnaarStatus (\ s a -> s{_rnaarStatus = a});

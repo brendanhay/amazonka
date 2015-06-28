@@ -129,7 +129,7 @@ instance AWSRequest DeleteCluster where
           = receiveXMLWrapper "DeleteClusterResult"
               (\ s h x ->
                  DeleteClusterResponse' <$>
-                   (x .@? "Cluster") <*> (pure (fromEnum s)))
+                   (x .@? "Cluster") <*> (pure s))
 
 instance ToHeaders DeleteCluster where
         toHeaders = const mempty
@@ -157,11 +157,11 @@ instance ToQuery DeleteCluster where
 -- * 'delStatus'
 data DeleteClusterResponse = DeleteClusterResponse'
     { _delCluster :: !(Maybe Cluster)
-    , _delStatus  :: !Int
+    , _delStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteClusterResponse' smart constructor.
-deleteClusterResponse :: Int -> DeleteClusterResponse
+deleteClusterResponse :: Status -> DeleteClusterResponse
 deleteClusterResponse pStatus =
     DeleteClusterResponse'
     { _delCluster = Nothing
@@ -173,5 +173,5 @@ delCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 delCluster = lens _delCluster (\ s a -> s{_delCluster = a});
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteClusterResponse Int
+delStatus :: Lens' DeleteClusterResponse Status
 delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

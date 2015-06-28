@@ -182,7 +182,7 @@ instance AWSRequest
                    (x .@? "Marker") <*>
                      (x .@? "ReservedDBInstancesOfferings" .!@ mempty >>=
                         may (parseXMLList "ReservedDBInstancesOffering"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders
          DescribeReservedDBInstancesOfferings where
@@ -226,11 +226,11 @@ instance ToQuery DescribeReservedDBInstancesOfferings
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'
     { _drdiorMarker                       :: !(Maybe Text)
     , _drdiorReservedDBInstancesOfferings :: !(Maybe [ReservedDBInstancesOffering])
-    , _drdiorStatus                       :: !Int
+    , _drdiorStatus                       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedDBInstancesOfferingsResponse' smart constructor.
-describeReservedDBInstancesOfferingsResponse :: Int -> DescribeReservedDBInstancesOfferingsResponse
+describeReservedDBInstancesOfferingsResponse :: Status -> DescribeReservedDBInstancesOfferingsResponse
 describeReservedDBInstancesOfferingsResponse pStatus =
     DescribeReservedDBInstancesOfferingsResponse'
     { _drdiorMarker = Nothing
@@ -249,5 +249,5 @@ drdiorReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferings
 drdiorReservedDBInstancesOfferings = lens _drdiorReservedDBInstancesOfferings (\ s a -> s{_drdiorReservedDBInstancesOfferings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drdiorStatus :: Lens' DescribeReservedDBInstancesOfferingsResponse Int
+drdiorStatus :: Lens' DescribeReservedDBInstancesOfferingsResponse Status
 drdiorStatus = lens _drdiorStatus (\ s a -> s{_drdiorStatus = a});

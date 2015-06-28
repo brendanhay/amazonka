@@ -78,8 +78,7 @@ instance AWSRequest RefreshTrustedAdvisorCheck where
         response
           = receiveJSON
               (\ s h x ->
-                 RefreshTrustedAdvisorCheckResponse' <$>
-                   (pure (fromEnum s)))
+                 RefreshTrustedAdvisorCheckResponse' <$> (pure s))
 
 instance ToHeaders RefreshTrustedAdvisorCheck where
         toHeaders
@@ -109,16 +108,16 @@ instance ToQuery RefreshTrustedAdvisorCheck where
 --
 -- * 'rtacrStatus'
 newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'
-    { _rtacrStatus :: Int
+    { _rtacrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'RefreshTrustedAdvisorCheckResponse' smart constructor.
-refreshTrustedAdvisorCheckResponse :: Int -> RefreshTrustedAdvisorCheckResponse
+refreshTrustedAdvisorCheckResponse :: Status -> RefreshTrustedAdvisorCheckResponse
 refreshTrustedAdvisorCheckResponse pStatus =
     RefreshTrustedAdvisorCheckResponse'
     { _rtacrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rtacrStatus :: Lens' RefreshTrustedAdvisorCheckResponse Int
+rtacrStatus :: Lens' RefreshTrustedAdvisorCheckResponse Status
 rtacrStatus = lens _rtacrStatus (\ s a -> s{_rtacrStatus = a});

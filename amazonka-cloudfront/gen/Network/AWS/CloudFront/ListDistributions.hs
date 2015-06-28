@@ -83,7 +83,7 @@ instance AWSRequest ListDistributions where
           = receiveXML
               (\ s h x ->
                  ListDistributionsResponse' <$>
-                   (x .@ "DistributionList") <*> (pure (fromEnum s)))
+                   (x .@ "DistributionList") <*> (pure s))
 
 instance ToHeaders ListDistributions where
         toHeaders = const mempty
@@ -107,11 +107,11 @@ instance ToQuery ListDistributions where
 -- * 'ldrStatus'
 data ListDistributionsResponse = ListDistributionsResponse'
     { _ldrDistributionList :: !DistributionList
-    , _ldrStatus           :: !Int
+    , _ldrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListDistributionsResponse' smart constructor.
-listDistributionsResponse :: DistributionList -> Int -> ListDistributionsResponse
+listDistributionsResponse :: DistributionList -> Status -> ListDistributionsResponse
 listDistributionsResponse pDistributionList pStatus =
     ListDistributionsResponse'
     { _ldrDistributionList = pDistributionList
@@ -123,5 +123,5 @@ ldrDistributionList :: Lens' ListDistributionsResponse DistributionList
 ldrDistributionList = lens _ldrDistributionList (\ s a -> s{_ldrDistributionList = a});
 
 -- | FIXME: Undocumented member.
-ldrStatus :: Lens' ListDistributionsResponse Int
+ldrStatus :: Lens' ListDistributionsResponse Status
 ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});

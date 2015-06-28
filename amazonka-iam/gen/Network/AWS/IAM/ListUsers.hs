@@ -114,7 +114,7 @@ instance AWSRequest ListUsers where
                  ListUsersResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "Users" .!@ mempty >>= parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListUsers where
         toHeaders = const mempty
@@ -147,11 +147,11 @@ data ListUsersResponse = ListUsersResponse'
     { _lurMarker      :: !(Maybe Text)
     , _lurIsTruncated :: !(Maybe Bool)
     , _lurUsers       :: ![User]
-    , _lurStatus      :: !Int
+    , _lurStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListUsersResponse' smart constructor.
-listUsersResponse :: Int -> ListUsersResponse
+listUsersResponse :: Status -> ListUsersResponse
 listUsersResponse pStatus =
     ListUsersResponse'
     { _lurMarker = Nothing
@@ -177,5 +177,5 @@ lurUsers :: Lens' ListUsersResponse [User]
 lurUsers = lens _lurUsers (\ s a -> s{_lurUsers = a});
 
 -- | FIXME: Undocumented member.
-lurStatus :: Lens' ListUsersResponse Int
+lurStatus :: Lens' ListUsersResponse Status
 lurStatus = lens _lurStatus (\ s a -> s{_lurStatus = a});

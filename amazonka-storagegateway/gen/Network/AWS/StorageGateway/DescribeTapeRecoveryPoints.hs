@@ -110,7 +110,7 @@ instance AWSRequest DescribeTapeRecoveryPoints where
                    (x .?> "TapeRecoveryPointInfos" .!@ mempty) <*>
                      (x .?> "GatewayARN")
                      <*> (x .?> "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeTapeRecoveryPoints where
         toHeaders
@@ -151,11 +151,11 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
     { _dtrprTapeRecoveryPointInfos :: !(Maybe [TapeRecoveryPointInfo])
     , _dtrprGatewayARN             :: !(Maybe Text)
     , _dtrprMarker                 :: !(Maybe Text)
-    , _dtrprStatus                 :: !Int
+    , _dtrprStatus                 :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeTapeRecoveryPointsResponse' smart constructor.
-describeTapeRecoveryPointsResponse :: Int -> DescribeTapeRecoveryPointsResponse
+describeTapeRecoveryPointsResponse :: Status -> DescribeTapeRecoveryPointsResponse
 describeTapeRecoveryPointsResponse pStatus =
     DescribeTapeRecoveryPointsResponse'
     { _dtrprTapeRecoveryPointInfos = Nothing
@@ -183,5 +183,5 @@ dtrprMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
 dtrprMarker = lens _dtrprMarker (\ s a -> s{_dtrprMarker = a});
 
 -- | FIXME: Undocumented member.
-dtrprStatus :: Lens' DescribeTapeRecoveryPointsResponse Int
+dtrprStatus :: Lens' DescribeTapeRecoveryPointsResponse Status
 dtrprStatus = lens _dtrprStatus (\ s a -> s{_dtrprStatus = a});

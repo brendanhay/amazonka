@@ -82,7 +82,7 @@ instance AWSRequest DisableVPCClassicLink where
           = receiveXML
               (\ s h x ->
                  DisableVPCClassicLinkResponse' <$>
-                   (x .@? "return") <*> (pure (fromEnum s)))
+                   (x .@? "return") <*> (pure s))
 
 instance ToHeaders DisableVPCClassicLink where
         toHeaders = const mempty
@@ -106,11 +106,11 @@ instance ToQuery DisableVPCClassicLink where
 -- * 'disStatus'
 data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'
     { _disReturn :: !(Maybe Bool)
-    , _disStatus :: !Int
+    , _disStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DisableVPCClassicLinkResponse' smart constructor.
-disableVPCClassicLinkResponse :: Int -> DisableVPCClassicLinkResponse
+disableVPCClassicLinkResponse :: Status -> DisableVPCClassicLinkResponse
 disableVPCClassicLinkResponse pStatus =
     DisableVPCClassicLinkResponse'
     { _disReturn = Nothing
@@ -122,5 +122,5 @@ disReturn :: Lens' DisableVPCClassicLinkResponse (Maybe Bool)
 disReturn = lens _disReturn (\ s a -> s{_disReturn = a});
 
 -- | FIXME: Undocumented member.
-disStatus :: Lens' DisableVPCClassicLinkResponse Int
+disStatus :: Lens' DisableVPCClassicLinkResponse Status
 disStatus = lens _disStatus (\ s a -> s{_disStatus = a});

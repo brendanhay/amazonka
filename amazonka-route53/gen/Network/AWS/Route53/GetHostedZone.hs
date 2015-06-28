@@ -80,7 +80,7 @@ instance AWSRequest GetHostedZone where
                       may (parseXMLList1 "VPC"))
                      <*> (x .@? "DelegationSet")
                      <*> (x .@ "HostedZone")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetHostedZone where
         toHeaders = const mempty
@@ -109,11 +109,11 @@ data GetHostedZoneResponse = GetHostedZoneResponse'
     { _ghzrVPCs          :: !(Maybe (List1 VPC))
     , _ghzrDelegationSet :: !(Maybe DelegationSet)
     , _ghzrHostedZone    :: !HostedZone
-    , _ghzrStatus        :: !Int
+    , _ghzrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetHostedZoneResponse' smart constructor.
-getHostedZoneResponse :: HostedZone -> Int -> GetHostedZoneResponse
+getHostedZoneResponse :: HostedZone -> Status -> GetHostedZoneResponse
 getHostedZoneResponse pHostedZone pStatus =
     GetHostedZoneResponse'
     { _ghzrVPCs = Nothing
@@ -138,5 +138,5 @@ ghzrHostedZone :: Lens' GetHostedZoneResponse HostedZone
 ghzrHostedZone = lens _ghzrHostedZone (\ s a -> s{_ghzrHostedZone = a});
 
 -- | FIXME: Undocumented member.
-ghzrStatus :: Lens' GetHostedZoneResponse Int
+ghzrStatus :: Lens' GetHostedZoneResponse Status
 ghzrStatus = lens _ghzrStatus (\ s a -> s{_ghzrStatus = a});

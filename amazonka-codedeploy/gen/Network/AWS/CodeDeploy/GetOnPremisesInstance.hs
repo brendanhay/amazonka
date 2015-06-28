@@ -71,7 +71,7 @@ instance AWSRequest GetOnPremisesInstance where
           = receiveJSON
               (\ s h x ->
                  GetOnPremisesInstanceResponse' <$>
-                   (x .?> "instanceInfo") <*> (pure (fromEnum s)))
+                   (x .?> "instanceInfo") <*> (pure s))
 
 instance ToHeaders GetOnPremisesInstance where
         toHeaders
@@ -104,11 +104,11 @@ instance ToQuery GetOnPremisesInstance where
 -- * 'gopirStatus'
 data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
     { _gopirInstanceInfo :: !(Maybe InstanceInfo)
-    , _gopirStatus       :: !Int
+    , _gopirStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetOnPremisesInstanceResponse' smart constructor.
-getOnPremisesInstanceResponse :: Int -> GetOnPremisesInstanceResponse
+getOnPremisesInstanceResponse :: Status -> GetOnPremisesInstanceResponse
 getOnPremisesInstanceResponse pStatus =
     GetOnPremisesInstanceResponse'
     { _gopirInstanceInfo = Nothing
@@ -120,5 +120,5 @@ gopirInstanceInfo :: Lens' GetOnPremisesInstanceResponse (Maybe InstanceInfo)
 gopirInstanceInfo = lens _gopirInstanceInfo (\ s a -> s{_gopirInstanceInfo = a});
 
 -- | FIXME: Undocumented member.
-gopirStatus :: Lens' GetOnPremisesInstanceResponse Int
+gopirStatus :: Lens' GetOnPremisesInstanceResponse Status
 gopirStatus = lens _gopirStatus (\ s a -> s{_gopirStatus = a});

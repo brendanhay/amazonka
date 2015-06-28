@@ -124,7 +124,7 @@ instance AWSRequest DescribeEngineDefaultParameters
               "DescribeEngineDefaultParametersResult"
               (\ s h x ->
                  DescribeEngineDefaultParametersResponse' <$>
-                   (x .@ "EngineDefaults") <*> (pure (fromEnum s)))
+                   (x .@ "EngineDefaults") <*> (pure s))
 
 instance ToHeaders DescribeEngineDefaultParameters
          where
@@ -156,11 +156,11 @@ instance ToQuery DescribeEngineDefaultParameters
 -- * 'dedprStatus'
 data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
     { _dedprEngineDefaults :: !EngineDefaults
-    , _dedprStatus         :: !Int
+    , _dedprStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeEngineDefaultParametersResponse' smart constructor.
-describeEngineDefaultParametersResponse :: EngineDefaults -> Int -> DescribeEngineDefaultParametersResponse
+describeEngineDefaultParametersResponse :: EngineDefaults -> Status -> DescribeEngineDefaultParametersResponse
 describeEngineDefaultParametersResponse pEngineDefaults pStatus =
     DescribeEngineDefaultParametersResponse'
     { _dedprEngineDefaults = pEngineDefaults
@@ -172,5 +172,5 @@ dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefau
 dedprEngineDefaults = lens _dedprEngineDefaults (\ s a -> s{_dedprEngineDefaults = a});
 
 -- | FIXME: Undocumented member.
-dedprStatus :: Lens' DescribeEngineDefaultParametersResponse Int
+dedprStatus :: Lens' DescribeEngineDefaultParametersResponse Status
 dedprStatus = lens _dedprStatus (\ s a -> s{_dedprStatus = a});

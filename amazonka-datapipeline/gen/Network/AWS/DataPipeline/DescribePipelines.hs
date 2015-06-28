@@ -82,7 +82,7 @@ instance AWSRequest DescribePipelines where
               (\ s h x ->
                  DescribePipelinesResponse' <$>
                    (x .?> "pipelineDescriptionList" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders DescribePipelines where
         toHeaders
@@ -114,11 +114,11 @@ instance ToQuery DescribePipelines where
 -- * 'dprStatus'
 data DescribePipelinesResponse = DescribePipelinesResponse'
     { _dprPipelineDescriptionList :: ![PipelineDescription]
-    , _dprStatus                  :: !Int
+    , _dprStatus                  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribePipelinesResponse' smart constructor.
-describePipelinesResponse :: Int -> DescribePipelinesResponse
+describePipelinesResponse :: Status -> DescribePipelinesResponse
 describePipelinesResponse pStatus =
     DescribePipelinesResponse'
     { _dprPipelineDescriptionList = mempty
@@ -130,5 +130,5 @@ dprPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescripti
 dprPipelineDescriptionList = lens _dprPipelineDescriptionList (\ s a -> s{_dprPipelineDescriptionList = a});
 
 -- | FIXME: Undocumented member.
-dprStatus :: Lens' DescribePipelinesResponse Int
+dprStatus :: Lens' DescribePipelinesResponse Status
 dprStatus = lens _dprStatus (\ s a -> s{_dprStatus = a});

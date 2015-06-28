@@ -110,7 +110,7 @@ instance AWSRequest ListOperations where
                  ListOperationsResponse' <$>
                    (x .?> "NextPageMarker") <*>
                      (x .?> "Operations" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListOperations where
         toHeaders
@@ -147,11 +147,11 @@ instance ToQuery ListOperations where
 data ListOperationsResponse = ListOperationsResponse'
     { _lorNextPageMarker :: !(Maybe Text)
     , _lorOperations     :: ![OperationSummary]
-    , _lorStatus         :: !Int
+    , _lorStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListOperationsResponse' smart constructor.
-listOperationsResponse :: Int -> ListOperationsResponse
+listOperationsResponse :: Status -> ListOperationsResponse
 listOperationsResponse pStatus =
     ListOperationsResponse'
     { _lorNextPageMarker = Nothing
@@ -178,5 +178,5 @@ lorOperations :: Lens' ListOperationsResponse [OperationSummary]
 lorOperations = lens _lorOperations (\ s a -> s{_lorOperations = a});
 
 -- | FIXME: Undocumented member.
-lorStatus :: Lens' ListOperationsResponse Int
+lorStatus :: Lens' ListOperationsResponse Status
 lorStatus = lens _lorStatus (\ s a -> s{_lorStatus = a});

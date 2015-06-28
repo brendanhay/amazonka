@@ -86,8 +86,7 @@ instance AWSRequest CreateAssociation where
           = receiveJSON
               (\ s h x ->
                  CreateAssociationResponse' <$>
-                   (x .?> "AssociationDescription") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "AssociationDescription") <*> (pure s))
 
 instance ToHeaders CreateAssociation where
         toHeaders
@@ -118,11 +117,11 @@ instance ToQuery CreateAssociation where
 -- * 'carStatus'
 data CreateAssociationResponse = CreateAssociationResponse'
     { _carAssociationDescription :: !(Maybe AssociationDescription)
-    , _carStatus                 :: !Int
+    , _carStatus                 :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateAssociationResponse' smart constructor.
-createAssociationResponse :: Int -> CreateAssociationResponse
+createAssociationResponse :: Status -> CreateAssociationResponse
 createAssociationResponse pStatus =
     CreateAssociationResponse'
     { _carAssociationDescription = Nothing
@@ -134,5 +133,5 @@ carAssociationDescription :: Lens' CreateAssociationResponse (Maybe AssociationD
 carAssociationDescription = lens _carAssociationDescription (\ s a -> s{_carAssociationDescription = a});
 
 -- | FIXME: Undocumented member.
-carStatus :: Lens' CreateAssociationResponse Int
+carStatus :: Lens' CreateAssociationResponse Status
 carStatus = lens _carStatus (\ s a -> s{_carStatus = a});

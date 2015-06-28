@@ -63,7 +63,7 @@ instance AWSRequest GetCredentialReport where
                  GetCredentialReportResponse' <$>
                    (x .@? "Content") <*> (x .@? "GeneratedTime") <*>
                      (x .@? "ReportFormat")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetCredentialReport where
         toHeaders = const mempty
@@ -95,11 +95,11 @@ data GetCredentialReportResponse = GetCredentialReportResponse'
     { _getContent       :: !(Maybe Base64)
     , _getGeneratedTime :: !(Maybe ISO8601)
     , _getReportFormat  :: !(Maybe ReportFormatType)
-    , _getStatus        :: !Int
+    , _getStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetCredentialReportResponse' smart constructor.
-getCredentialReportResponse :: Int -> GetCredentialReportResponse
+getCredentialReportResponse :: Status -> GetCredentialReportResponse
 getCredentialReportResponse pStatus =
     GetCredentialReportResponse'
     { _getContent = Nothing
@@ -122,5 +122,5 @@ getReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
 getReportFormat = lens _getReportFormat (\ s a -> s{_getReportFormat = a});
 
 -- | FIXME: Undocumented member.
-getStatus :: Lens' GetCredentialReportResponse Int
+getStatus :: Lens' GetCredentialReportResponse Status
 getStatus = lens _getStatus (\ s a -> s{_getStatus = a});

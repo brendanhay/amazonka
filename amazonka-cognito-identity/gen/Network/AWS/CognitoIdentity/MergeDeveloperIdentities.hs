@@ -114,7 +114,7 @@ instance AWSRequest MergeDeveloperIdentities where
           = receiveJSON
               (\ s h x ->
                  MergeDeveloperIdentitiesResponse' <$>
-                   (x .?> "IdentityId") <*> (pure (fromEnum s)))
+                   (x .?> "IdentityId") <*> (pure s))
 
 instance ToHeaders MergeDeveloperIdentities where
         toHeaders
@@ -152,11 +152,11 @@ instance ToQuery MergeDeveloperIdentities where
 -- * 'mdirStatus'
 data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'
     { _mdirIdentityId :: !(Maybe Text)
-    , _mdirStatus     :: !Int
+    , _mdirStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'MergeDeveloperIdentitiesResponse' smart constructor.
-mergeDeveloperIdentitiesResponse :: Int -> MergeDeveloperIdentitiesResponse
+mergeDeveloperIdentitiesResponse :: Status -> MergeDeveloperIdentitiesResponse
 mergeDeveloperIdentitiesResponse pStatus =
     MergeDeveloperIdentitiesResponse'
     { _mdirIdentityId = Nothing
@@ -168,5 +168,5 @@ mdirIdentityId :: Lens' MergeDeveloperIdentitiesResponse (Maybe Text)
 mdirIdentityId = lens _mdirIdentityId (\ s a -> s{_mdirIdentityId = a});
 
 -- | FIXME: Undocumented member.
-mdirStatus :: Lens' MergeDeveloperIdentitiesResponse Int
+mdirStatus :: Lens' MergeDeveloperIdentitiesResponse Status
 mdirStatus = lens _mdirStatus (\ s a -> s{_mdirStatus = a});

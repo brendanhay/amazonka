@@ -95,7 +95,7 @@ instance AWSRequest ListPipelines where
                  ListPipelinesResponse' <$>
                    (x .?> "NextPageToken") <*>
                      (x .?> "Pipelines" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListPipelines where
         toHeaders = const mempty
@@ -123,11 +123,11 @@ instance ToQuery ListPipelines where
 data ListPipelinesResponse = ListPipelinesResponse'
     { _lprNextPageToken :: !(Maybe Text)
     , _lprPipelines     :: !(Maybe [Pipeline])
-    , _lprStatus        :: !Int
+    , _lprStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListPipelinesResponse' smart constructor.
-listPipelinesResponse :: Int -> ListPipelinesResponse
+listPipelinesResponse :: Status -> ListPipelinesResponse
 listPipelinesResponse pStatus =
     ListPipelinesResponse'
     { _lprNextPageToken = Nothing
@@ -147,5 +147,5 @@ lprPipelines :: Lens' ListPipelinesResponse [Pipeline]
 lprPipelines = lens _lprPipelines (\ s a -> s{_lprPipelines = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lprStatus :: Lens' ListPipelinesResponse Int
+lprStatus :: Lens' ListPipelinesResponse Status
 lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});

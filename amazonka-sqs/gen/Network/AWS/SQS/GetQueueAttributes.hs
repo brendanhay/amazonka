@@ -127,7 +127,7 @@ instance AWSRequest GetQueueAttributes where
               (\ s h x ->
                  GetQueueAttributesResponse' <$>
                    (may (parseXMLMap "Attribute" "Name" "Value") x) <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders GetQueueAttributes where
         toHeaders = const mempty
@@ -155,11 +155,11 @@ instance ToQuery GetQueueAttributes where
 -- * 'gqarStatus'
 data GetQueueAttributesResponse = GetQueueAttributesResponse'
     { _gqarAttributes :: !(Maybe (Map QueueAttributeName Text))
-    , _gqarStatus     :: !Int
+    , _gqarStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetQueueAttributesResponse' smart constructor.
-getQueueAttributesResponse :: Int -> GetQueueAttributesResponse
+getQueueAttributesResponse :: Status -> GetQueueAttributesResponse
 getQueueAttributesResponse pStatus =
     GetQueueAttributesResponse'
     { _gqarAttributes = Nothing
@@ -171,5 +171,5 @@ gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap QueueAttributeName T
 gqarAttributes = lens _gqarAttributes (\ s a -> s{_gqarAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gqarStatus :: Lens' GetQueueAttributesResponse Int
+gqarStatus :: Lens' GetQueueAttributesResponse Status
 gqarStatus = lens _gqarStatus (\ s a -> s{_gqarStatus = a});

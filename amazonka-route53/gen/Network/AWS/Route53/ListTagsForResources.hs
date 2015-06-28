@@ -88,7 +88,7 @@ instance AWSRequest ListTagsForResources where
                  ListTagsForResourcesResponse' <$>
                    (x .@? "ResourceTagSets" .!@ mempty >>=
                       parseXMLList "ResourceTagSet")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToElement ListTagsForResources where
         toElement
@@ -123,11 +123,11 @@ instance ToXML ListTagsForResources where
 -- * 'lisStatus'
 data ListTagsForResourcesResponse = ListTagsForResourcesResponse'
     { _lisResourceTagSets :: ![ResourceTagSet]
-    , _lisStatus          :: !Int
+    , _lisStatus          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForResourcesResponse' smart constructor.
-listTagsForResourcesResponse :: Int -> ListTagsForResourcesResponse
+listTagsForResourcesResponse :: Status -> ListTagsForResourcesResponse
 listTagsForResourcesResponse pStatus =
     ListTagsForResourcesResponse'
     { _lisResourceTagSets = mempty
@@ -140,5 +140,5 @@ lisResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
 lisResourceTagSets = lens _lisResourceTagSets (\ s a -> s{_lisResourceTagSets = a});
 
 -- | FIXME: Undocumented member.
-lisStatus :: Lens' ListTagsForResourcesResponse Int
+lisStatus :: Lens' ListTagsForResourcesResponse Status
 lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});

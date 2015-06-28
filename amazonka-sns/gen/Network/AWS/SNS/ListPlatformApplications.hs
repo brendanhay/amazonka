@@ -93,7 +93,7 @@ instance AWSRequest ListPlatformApplications where
                    (x .@? "PlatformApplications" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "NextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListPlatformApplications where
         toHeaders = const mempty
@@ -123,11 +123,11 @@ instance ToQuery ListPlatformApplications where
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'
     { _lparPlatformApplications :: !(Maybe [PlatformApplication])
     , _lparNextToken            :: !(Maybe Text)
-    , _lparStatus               :: !Int
+    , _lparStatus               :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListPlatformApplicationsResponse' smart constructor.
-listPlatformApplicationsResponse :: Int -> ListPlatformApplicationsResponse
+listPlatformApplicationsResponse :: Status -> ListPlatformApplicationsResponse
 listPlatformApplicationsResponse pStatus =
     ListPlatformApplicationsResponse'
     { _lparPlatformApplications = Nothing
@@ -146,5 +146,5 @@ lparNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
 lparNextToken = lens _lparNextToken (\ s a -> s{_lparNextToken = a});
 
 -- | FIXME: Undocumented member.
-lparStatus :: Lens' ListPlatformApplicationsResponse Int
+lparStatus :: Lens' ListPlatformApplicationsResponse Status
 lparStatus = lens _lparStatus (\ s a -> s{_lparStatus = a});

@@ -91,7 +91,7 @@ instance AWSRequest SetLoadBalancerPoliciesOfListener
               "SetLoadBalancerPoliciesOfListenerResult"
               (\ s h x ->
                  SetLoadBalancerPoliciesOfListenerResponse' <$>
-                   (pure (fromEnum s)))
+                   (pure s))
 
 instance ToHeaders SetLoadBalancerPoliciesOfListener
          where
@@ -119,16 +119,16 @@ instance ToQuery SetLoadBalancerPoliciesOfListener
 --
 -- * 'slbpolrStatus'
 newtype SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse'
-    { _slbpolrStatus :: Int
+    { _slbpolrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'SetLoadBalancerPoliciesOfListenerResponse' smart constructor.
-setLoadBalancerPoliciesOfListenerResponse :: Int -> SetLoadBalancerPoliciesOfListenerResponse
+setLoadBalancerPoliciesOfListenerResponse :: Status -> SetLoadBalancerPoliciesOfListenerResponse
 setLoadBalancerPoliciesOfListenerResponse pStatus =
     SetLoadBalancerPoliciesOfListenerResponse'
     { _slbpolrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-slbpolrStatus :: Lens' SetLoadBalancerPoliciesOfListenerResponse Int
+slbpolrStatus :: Lens' SetLoadBalancerPoliciesOfListenerResponse Status
 slbpolrStatus = lens _slbpolrStatus (\ s a -> s{_slbpolrStatus = a});

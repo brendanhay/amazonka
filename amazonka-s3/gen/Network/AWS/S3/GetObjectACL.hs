@@ -101,7 +101,7 @@ instance AWSRequest GetObjectACL where
                      (x .@? "AccessControlList" .!@ mempty >>=
                         may (parseXMLList "Grant"))
                      <*> (x .@? "Owner")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetObjectACL where
         toHeaders GetObjectACL'{..}
@@ -131,11 +131,11 @@ data GetObjectACLResponse = GetObjectACLResponse'
     { _goarRequestCharged :: !(Maybe RequestCharged)
     , _goarGrants         :: !(Maybe [Grant])
     , _goarOwner          :: !(Maybe Owner)
-    , _goarStatus         :: !Int
+    , _goarStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetObjectACLResponse' smart constructor.
-getObjectACLResponse :: Int -> GetObjectACLResponse
+getObjectACLResponse :: Status -> GetObjectACLResponse
 getObjectACLResponse pStatus =
     GetObjectACLResponse'
     { _goarRequestCharged = Nothing
@@ -157,5 +157,5 @@ goarOwner :: Lens' GetObjectACLResponse (Maybe Owner)
 goarOwner = lens _goarOwner (\ s a -> s{_goarOwner = a});
 
 -- | FIXME: Undocumented member.
-goarStatus :: Lens' GetObjectACLResponse Int
+goarStatus :: Lens' GetObjectACLResponse Status
 goarStatus = lens _goarStatus (\ s a -> s{_goarStatus = a});

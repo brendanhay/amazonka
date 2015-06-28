@@ -488,7 +488,7 @@ instance AWSRequest Search where
               (\ s h x ->
                  SearchResponse' <$>
                    (x .?> "facets" .!@ mempty) <*> (x .?> "hits") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders Search where
         toHeaders
@@ -528,11 +528,11 @@ instance ToQuery Search where
 data SearchResponse = SearchResponse'
     { _seaFacets :: !(Maybe (Map Text BucketInfo))
     , _seaHits   :: !(Maybe Hits)
-    , _seaStatus :: !Int
+    , _seaStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'SearchResponse' smart constructor.
-searchResponse :: Int -> SearchResponse
+searchResponse :: Status -> SearchResponse
 searchResponse pStatus =
     SearchResponse'
     { _seaFacets = Nothing
@@ -549,5 +549,5 @@ seaHits :: Lens' SearchResponse (Maybe Hits)
 seaHits = lens _seaHits (\ s a -> s{_seaHits = a});
 
 -- | FIXME: Undocumented member.
-seaStatus :: Lens' SearchResponse Int
+seaStatus :: Lens' SearchResponse Status
 seaStatus = lens _seaStatus (\ s a -> s{_seaStatus = a});

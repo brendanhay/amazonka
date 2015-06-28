@@ -99,8 +99,7 @@ instance AWSRequest CreateRole where
         response
           = receiveXMLWrapper "CreateRoleResult"
               (\ s h x ->
-                 CreateRoleResponse' <$>
-                   (x .@ "Role") <*> (pure (fromEnum s)))
+                 CreateRoleResponse' <$> (x .@ "Role") <*> (pure s))
 
 instance ToHeaders CreateRole where
         toHeaders = const mempty
@@ -128,11 +127,11 @@ instance ToQuery CreateRole where
 -- * 'crrStatus'
 data CreateRoleResponse = CreateRoleResponse'
     { _crrRole   :: !Role
-    , _crrStatus :: !Int
+    , _crrStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateRoleResponse' smart constructor.
-createRoleResponse :: Role -> Int -> CreateRoleResponse
+createRoleResponse :: Role -> Status -> CreateRoleResponse
 createRoleResponse pRole pStatus =
     CreateRoleResponse'
     { _crrRole = pRole
@@ -144,5 +143,5 @@ crrRole :: Lens' CreateRoleResponse Role
 crrRole = lens _crrRole (\ s a -> s{_crrRole = a});
 
 -- | FIXME: Undocumented member.
-crrStatus :: Lens' CreateRoleResponse Int
+crrStatus :: Lens' CreateRoleResponse Status
 crrStatus = lens _crrStatus (\ s a -> s{_crrStatus = a});

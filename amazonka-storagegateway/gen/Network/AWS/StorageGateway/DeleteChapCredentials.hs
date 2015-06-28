@@ -88,7 +88,7 @@ instance AWSRequest DeleteChapCredentials where
               (\ s h x ->
                  DeleteChapCredentialsResponse' <$>
                    (x .?> "TargetARN") <*> (x .?> "InitiatorName") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders DeleteChapCredentials where
         toHeaders
@@ -126,11 +126,11 @@ instance ToQuery DeleteChapCredentials where
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
     { _delTargetARN     :: !(Maybe Text)
     , _delInitiatorName :: !(Maybe Text)
-    , _delStatus        :: !Int
+    , _delStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteChapCredentialsResponse' smart constructor.
-deleteChapCredentialsResponse :: Int -> DeleteChapCredentialsResponse
+deleteChapCredentialsResponse :: Status -> DeleteChapCredentialsResponse
 deleteChapCredentialsResponse pStatus =
     DeleteChapCredentialsResponse'
     { _delTargetARN = Nothing
@@ -147,5 +147,5 @@ delInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
 delInitiatorName = lens _delInitiatorName (\ s a -> s{_delInitiatorName = a});
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteChapCredentialsResponse Int
+delStatus :: Lens' DeleteChapCredentialsResponse Status
 delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

@@ -112,7 +112,7 @@ instance AWSRequest ListContainerInstances where
                  ListContainerInstancesResponse' <$>
                    (x .?> "containerInstanceArns" .!@ mempty) <*>
                      (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListContainerInstances where
         toHeaders
@@ -149,11 +149,11 @@ instance ToQuery ListContainerInstances where
 data ListContainerInstancesResponse = ListContainerInstancesResponse'
     { _lcirContainerInstanceARNs :: !(Maybe [Text])
     , _lcirNextToken             :: !(Maybe Text)
-    , _lcirStatus                :: !Int
+    , _lcirStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListContainerInstancesResponse' smart constructor.
-listContainerInstancesResponse :: Int -> ListContainerInstancesResponse
+listContainerInstancesResponse :: Status -> ListContainerInstancesResponse
 listContainerInstancesResponse pStatus =
     ListContainerInstancesResponse'
     { _lcirContainerInstanceARNs = Nothing
@@ -174,5 +174,5 @@ lcirNextToken :: Lens' ListContainerInstancesResponse (Maybe Text)
 lcirNextToken = lens _lcirNextToken (\ s a -> s{_lcirNextToken = a});
 
 -- | FIXME: Undocumented member.
-lcirStatus :: Lens' ListContainerInstancesResponse Int
+lcirStatus :: Lens' ListContainerInstancesResponse Status
 lcirStatus = lens _lcirStatus (\ s a -> s{_lcirStatus = a});

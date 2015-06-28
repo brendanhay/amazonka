@@ -99,7 +99,7 @@ instance AWSRequest RevokeSnapshotAccess where
           = receiveXMLWrapper "RevokeSnapshotAccessResult"
               (\ s h x ->
                  RevokeSnapshotAccessResponse' <$>
-                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
+                   (x .@? "Snapshot") <*> (pure s))
 
 instance ToHeaders RevokeSnapshotAccess where
         toHeaders = const mempty
@@ -127,11 +127,11 @@ instance ToQuery RevokeSnapshotAccess where
 -- * 'rsarStatus'
 data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
     { _rsarSnapshot :: !(Maybe Snapshot)
-    , _rsarStatus   :: !Int
+    , _rsarStatus   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'RevokeSnapshotAccessResponse' smart constructor.
-revokeSnapshotAccessResponse :: Int -> RevokeSnapshotAccessResponse
+revokeSnapshotAccessResponse :: Status -> RevokeSnapshotAccessResponse
 revokeSnapshotAccessResponse pStatus =
     RevokeSnapshotAccessResponse'
     { _rsarSnapshot = Nothing
@@ -143,5 +143,5 @@ rsarSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
 rsarSnapshot = lens _rsarSnapshot (\ s a -> s{_rsarSnapshot = a});
 
 -- | FIXME: Undocumented member.
-rsarStatus :: Lens' RevokeSnapshotAccessResponse Int
+rsarStatus :: Lens' RevokeSnapshotAccessResponse Status
 rsarStatus = lens _rsarStatus (\ s a -> s{_rsarStatus = a});

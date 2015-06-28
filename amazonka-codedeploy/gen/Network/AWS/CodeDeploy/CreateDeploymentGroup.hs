@@ -162,7 +162,7 @@ instance AWSRequest CreateDeploymentGroup where
           = receiveJSON
               (\ s h x ->
                  CreateDeploymentGroupResponse' <$>
-                   (x .?> "deploymentGroupId") <*> (pure (fromEnum s)))
+                   (x .?> "deploymentGroupId") <*> (pure s))
 
 instance ToHeaders CreateDeploymentGroup where
         toHeaders
@@ -203,11 +203,11 @@ instance ToQuery CreateDeploymentGroup where
 -- * 'cdgrStatus'
 data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
     { _cdgrDeploymentGroupId :: !(Maybe Text)
-    , _cdgrStatus            :: !Int
+    , _cdgrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDeploymentGroupResponse' smart constructor.
-createDeploymentGroupResponse :: Int -> CreateDeploymentGroupResponse
+createDeploymentGroupResponse :: Status -> CreateDeploymentGroupResponse
 createDeploymentGroupResponse pStatus =
     CreateDeploymentGroupResponse'
     { _cdgrDeploymentGroupId = Nothing
@@ -219,5 +219,5 @@ cdgrDeploymentGroupId :: Lens' CreateDeploymentGroupResponse (Maybe Text)
 cdgrDeploymentGroupId = lens _cdgrDeploymentGroupId (\ s a -> s{_cdgrDeploymentGroupId = a});
 
 -- | FIXME: Undocumented member.
-cdgrStatus :: Lens' CreateDeploymentGroupResponse Int
+cdgrStatus :: Lens' CreateDeploymentGroupResponse Status
 cdgrStatus = lens _cdgrStatus (\ s a -> s{_cdgrStatus = a});

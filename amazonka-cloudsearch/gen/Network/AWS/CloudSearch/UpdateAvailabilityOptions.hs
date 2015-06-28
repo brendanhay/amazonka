@@ -91,8 +91,7 @@ instance AWSRequest UpdateAvailabilityOptions where
           = receiveXMLWrapper "UpdateAvailabilityOptionsResult"
               (\ s h x ->
                  UpdateAvailabilityOptionsResponse' <$>
-                   (x .@? "AvailabilityOptions") <*>
-                     (pure (fromEnum s)))
+                   (x .@? "AvailabilityOptions") <*> (pure s))
 
 instance ToHeaders UpdateAvailabilityOptions where
         toHeaders = const mempty
@@ -121,11 +120,11 @@ instance ToQuery UpdateAvailabilityOptions where
 -- * 'uaorStatus'
 data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'
     { _uaorAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
-    , _uaorStatus              :: !Int
+    , _uaorStatus              :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateAvailabilityOptionsResponse' smart constructor.
-updateAvailabilityOptionsResponse :: Int -> UpdateAvailabilityOptionsResponse
+updateAvailabilityOptionsResponse :: Status -> UpdateAvailabilityOptionsResponse
 updateAvailabilityOptionsResponse pStatus =
     UpdateAvailabilityOptionsResponse'
     { _uaorAvailabilityOptions = Nothing
@@ -138,5 +137,5 @@ uaorAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe Availa
 uaorAvailabilityOptions = lens _uaorAvailabilityOptions (\ s a -> s{_uaorAvailabilityOptions = a});
 
 -- | FIXME: Undocumented member.
-uaorStatus :: Lens' UpdateAvailabilityOptionsResponse Int
+uaorStatus :: Lens' UpdateAvailabilityOptionsResponse Status
 uaorStatus = lens _uaorStatus (\ s a -> s{_uaorStatus = a});

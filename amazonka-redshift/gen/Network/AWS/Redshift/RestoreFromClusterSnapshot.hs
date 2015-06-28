@@ -335,7 +335,7 @@ instance AWSRequest RestoreFromClusterSnapshot where
               "RestoreFromClusterSnapshotResult"
               (\ s h x ->
                  RestoreFromClusterSnapshotResponse' <$>
-                   (x .@? "Cluster") <*> (pure (fromEnum s)))
+                   (x .@? "Cluster") <*> (pure s))
 
 instance ToHeaders RestoreFromClusterSnapshot where
         toHeaders = const mempty
@@ -391,11 +391,11 @@ instance ToQuery RestoreFromClusterSnapshot where
 -- * 'rfcsrStatus'
 data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'
     { _rfcsrCluster :: !(Maybe Cluster)
-    , _rfcsrStatus  :: !Int
+    , _rfcsrStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'RestoreFromClusterSnapshotResponse' smart constructor.
-restoreFromClusterSnapshotResponse :: Int -> RestoreFromClusterSnapshotResponse
+restoreFromClusterSnapshotResponse :: Status -> RestoreFromClusterSnapshotResponse
 restoreFromClusterSnapshotResponse pStatus =
     RestoreFromClusterSnapshotResponse'
     { _rfcsrCluster = Nothing
@@ -407,5 +407,5 @@ rfcsrCluster :: Lens' RestoreFromClusterSnapshotResponse (Maybe Cluster)
 rfcsrCluster = lens _rfcsrCluster (\ s a -> s{_rfcsrCluster = a});
 
 -- | FIXME: Undocumented member.
-rfcsrStatus :: Lens' RestoreFromClusterSnapshotResponse Int
+rfcsrStatus :: Lens' RestoreFromClusterSnapshotResponse Status
 rfcsrStatus = lens _rfcsrStatus (\ s a -> s{_rfcsrStatus = a});

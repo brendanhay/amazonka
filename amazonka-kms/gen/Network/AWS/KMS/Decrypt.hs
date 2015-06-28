@@ -105,8 +105,7 @@ instance AWSRequest Decrypt where
           = receiveJSON
               (\ s h x ->
                  DecryptResponse' <$>
-                   (x .?> "KeyId") <*> (x .?> "Plaintext") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "KeyId") <*> (x .?> "Plaintext") <*> (pure s))
 
 instance ToHeaders Decrypt where
         toHeaders
@@ -142,11 +141,11 @@ instance ToQuery Decrypt where
 data DecryptResponse = DecryptResponse'
     { _drKeyId     :: !(Maybe Text)
     , _drPlaintext :: !(Maybe (Sensitive Base64))
-    , _drStatus    :: !Int
+    , _drStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DecryptResponse' smart constructor.
-decryptResponse :: Int -> DecryptResponse
+decryptResponse :: Status -> DecryptResponse
 decryptResponse pStatus =
     DecryptResponse'
     { _drKeyId = Nothing
@@ -165,5 +164,5 @@ drPlaintext :: Lens' DecryptResponse (Maybe Base64)
 drPlaintext = lens _drPlaintext (\ s a -> s{_drPlaintext = a}) . mapping _Sensitive;
 
 -- | FIXME: Undocumented member.
-drStatus :: Lens' DecryptResponse Int
+drStatus :: Lens' DecryptResponse Status
 drStatus = lens _drStatus (\ s a -> s{_drStatus = a});

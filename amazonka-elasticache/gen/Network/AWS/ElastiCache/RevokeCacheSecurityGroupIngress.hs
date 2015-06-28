@@ -95,7 +95,7 @@ instance AWSRequest RevokeCacheSecurityGroupIngress
               "RevokeCacheSecurityGroupIngressResult"
               (\ s h x ->
                  RevokeCacheSecurityGroupIngressResponse' <$>
-                   (x .@? "CacheSecurityGroup") <*> (pure (fromEnum s)))
+                   (x .@? "CacheSecurityGroup") <*> (pure s))
 
 instance ToHeaders RevokeCacheSecurityGroupIngress
          where
@@ -126,11 +126,11 @@ instance ToQuery RevokeCacheSecurityGroupIngress
 -- * 'rcsgirStatus'
 data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse'
     { _rcsgirCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
-    , _rcsgirStatus             :: !Int
+    , _rcsgirStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'RevokeCacheSecurityGroupIngressResponse' smart constructor.
-revokeCacheSecurityGroupIngressResponse :: Int -> RevokeCacheSecurityGroupIngressResponse
+revokeCacheSecurityGroupIngressResponse :: Status -> RevokeCacheSecurityGroupIngressResponse
 revokeCacheSecurityGroupIngressResponse pStatus =
     RevokeCacheSecurityGroupIngressResponse'
     { _rcsgirCacheSecurityGroup = Nothing
@@ -142,5 +142,5 @@ rcsgirCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Maybe
 rcsgirCacheSecurityGroup = lens _rcsgirCacheSecurityGroup (\ s a -> s{_rcsgirCacheSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-rcsgirStatus :: Lens' RevokeCacheSecurityGroupIngressResponse Int
+rcsgirStatus :: Lens' RevokeCacheSecurityGroupIngressResponse Status
 rcsgirStatus = lens _rcsgirStatus (\ s a -> s{_rcsgirStatus = a});

@@ -87,7 +87,7 @@ instance AWSRequest DisableDomainTransferLock where
           = receiveJSON
               (\ s h x ->
                  DisableDomainTransferLockResponse' <$>
-                   (x .:> "OperationId") <*> (pure (fromEnum s)))
+                   (x .:> "OperationId") <*> (pure s))
 
 instance ToHeaders DisableDomainTransferLock where
         toHeaders
@@ -120,11 +120,11 @@ instance ToQuery DisableDomainTransferLock where
 -- * 'ddtlrStatus'
 data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
     { _ddtlrOperationId :: !Text
-    , _ddtlrStatus      :: !Int
+    , _ddtlrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DisableDomainTransferLockResponse' smart constructor.
-disableDomainTransferLockResponse :: Text -> Int -> DisableDomainTransferLockResponse
+disableDomainTransferLockResponse :: Text -> Status -> DisableDomainTransferLockResponse
 disableDomainTransferLockResponse pOperationId pStatus =
     DisableDomainTransferLockResponse'
     { _ddtlrOperationId = pOperationId
@@ -143,5 +143,5 @@ ddtlrOperationId :: Lens' DisableDomainTransferLockResponse Text
 ddtlrOperationId = lens _ddtlrOperationId (\ s a -> s{_ddtlrOperationId = a});
 
 -- | FIXME: Undocumented member.
-ddtlrStatus :: Lens' DisableDomainTransferLockResponse Int
+ddtlrStatus :: Lens' DisableDomainTransferLockResponse Status
 ddtlrStatus = lens _ddtlrStatus (\ s a -> s{_ddtlrStatus = a});

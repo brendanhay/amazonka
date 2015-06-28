@@ -99,7 +99,7 @@ instance AWSRequest AssociateRouteTable where
           = receiveXML
               (\ s h x ->
                  AssociateRouteTableResponse' <$>
-                   (x .@? "associationId") <*> (pure (fromEnum s)))
+                   (x .@? "associationId") <*> (pure s))
 
 instance ToHeaders AssociateRouteTable where
         toHeaders = const mempty
@@ -124,11 +124,11 @@ instance ToQuery AssociateRouteTable where
 -- * 'artrStatus'
 data AssociateRouteTableResponse = AssociateRouteTableResponse'
     { _artrAssociationId :: !(Maybe Text)
-    , _artrStatus        :: !Int
+    , _artrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'AssociateRouteTableResponse' smart constructor.
-associateRouteTableResponse :: Int -> AssociateRouteTableResponse
+associateRouteTableResponse :: Status -> AssociateRouteTableResponse
 associateRouteTableResponse pStatus =
     AssociateRouteTableResponse'
     { _artrAssociationId = Nothing
@@ -140,5 +140,5 @@ artrAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
 artrAssociationId = lens _artrAssociationId (\ s a -> s{_artrAssociationId = a});
 
 -- | FIXME: Undocumented member.
-artrStatus :: Lens' AssociateRouteTableResponse Int
+artrStatus :: Lens' AssociateRouteTableResponse Status
 artrStatus = lens _artrStatus (\ s a -> s{_artrStatus = a});

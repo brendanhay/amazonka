@@ -60,7 +60,7 @@ instance AWSRequest DescribeScalingProcessTypes where
                  DescribeScalingProcessTypesResponse' <$>
                    (x .@? "Processes" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeScalingProcessTypes where
         toHeaders = const mempty
@@ -85,11 +85,11 @@ instance ToQuery DescribeScalingProcessTypes where
 -- * 'dsptrStatus'
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
     { _dsptrProcesses :: !(Maybe [ProcessType])
-    , _dsptrStatus    :: !Int
+    , _dsptrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeScalingProcessTypesResponse' smart constructor.
-describeScalingProcessTypesResponse :: Int -> DescribeScalingProcessTypesResponse
+describeScalingProcessTypesResponse :: Status -> DescribeScalingProcessTypesResponse
 describeScalingProcessTypesResponse pStatus =
     DescribeScalingProcessTypesResponse'
     { _dsptrProcesses = Nothing
@@ -101,5 +101,5 @@ dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
 dsptrProcesses = lens _dsptrProcesses (\ s a -> s{_dsptrProcesses = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsptrStatus :: Lens' DescribeScalingProcessTypesResponse Int
+dsptrStatus :: Lens' DescribeScalingProcessTypesResponse Status
 dsptrStatus = lens _dsptrStatus (\ s a -> s{_dsptrStatus = a});

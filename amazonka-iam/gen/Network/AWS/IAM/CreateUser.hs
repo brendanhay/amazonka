@@ -86,8 +86,7 @@ instance AWSRequest CreateUser where
         response
           = receiveXMLWrapper "CreateUserResult"
               (\ s h x ->
-                 CreateUserResponse' <$>
-                   (x .@? "User") <*> (pure (fromEnum s)))
+                 CreateUserResponse' <$> (x .@? "User") <*> (pure s))
 
 instance ToHeaders CreateUser where
         toHeaders = const mempty
@@ -113,11 +112,11 @@ instance ToQuery CreateUser where
 -- * 'curStatus'
 data CreateUserResponse = CreateUserResponse'
     { _curUser   :: !(Maybe User)
-    , _curStatus :: !Int
+    , _curStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateUserResponse' smart constructor.
-createUserResponse :: Int -> CreateUserResponse
+createUserResponse :: Status -> CreateUserResponse
 createUserResponse pStatus =
     CreateUserResponse'
     { _curUser = Nothing
@@ -129,5 +128,5 @@ curUser :: Lens' CreateUserResponse (Maybe User)
 curUser = lens _curUser (\ s a -> s{_curUser = a});
 
 -- | FIXME: Undocumented member.
-curStatus :: Lens' CreateUserResponse Int
+curStatus :: Lens' CreateUserResponse Status
 curStatus = lens _curStatus (\ s a -> s{_curStatus = a});

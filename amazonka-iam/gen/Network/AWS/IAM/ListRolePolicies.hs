@@ -117,7 +117,7 @@ instance AWSRequest ListRolePolicies where
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "PolicyNames" .!@ mempty >>=
                         parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListRolePolicies where
         toHeaders = const mempty
@@ -150,11 +150,11 @@ data ListRolePoliciesResponse = ListRolePoliciesResponse'
     { _lrprMarker      :: !(Maybe Text)
     , _lrprIsTruncated :: !(Maybe Bool)
     , _lrprPolicyNames :: ![Text]
-    , _lrprStatus      :: !Int
+    , _lrprStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListRolePoliciesResponse' smart constructor.
-listRolePoliciesResponse :: Int -> ListRolePoliciesResponse
+listRolePoliciesResponse :: Status -> ListRolePoliciesResponse
 listRolePoliciesResponse pStatus =
     ListRolePoliciesResponse'
     { _lrprMarker = Nothing
@@ -181,5 +181,5 @@ lrprPolicyNames :: Lens' ListRolePoliciesResponse [Text]
 lrprPolicyNames = lens _lrprPolicyNames (\ s a -> s{_lrprPolicyNames = a});
 
 -- | FIXME: Undocumented member.
-lrprStatus :: Lens' ListRolePoliciesResponse Int
+lrprStatus :: Lens' ListRolePoliciesResponse Status
 lrprStatus = lens _lrprStatus (\ s a -> s{_lrprStatus = a});

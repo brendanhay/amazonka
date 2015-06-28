@@ -76,7 +76,7 @@ instance AWSRequest DeleteEvaluation where
           = receiveJSON
               (\ s h x ->
                  DeleteEvaluationResponse' <$>
-                   (x .?> "EvaluationId") <*> (pure (fromEnum s)))
+                   (x .?> "EvaluationId") <*> (pure s))
 
 instance ToHeaders DeleteEvaluation where
         toHeaders
@@ -113,11 +113,11 @@ instance ToQuery DeleteEvaluation where
 -- * 'derStatus'
 data DeleteEvaluationResponse = DeleteEvaluationResponse'
     { _derEvaluationId :: !(Maybe Text)
-    , _derStatus       :: !Int
+    , _derStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteEvaluationResponse' smart constructor.
-deleteEvaluationResponse :: Int -> DeleteEvaluationResponse
+deleteEvaluationResponse :: Status -> DeleteEvaluationResponse
 deleteEvaluationResponse pStatus =
     DeleteEvaluationResponse'
     { _derEvaluationId = Nothing
@@ -130,5 +130,5 @@ derEvaluationId :: Lens' DeleteEvaluationResponse (Maybe Text)
 derEvaluationId = lens _derEvaluationId (\ s a -> s{_derEvaluationId = a});
 
 -- | FIXME: Undocumented member.
-derStatus :: Lens' DeleteEvaluationResponse Int
+derStatus :: Lens' DeleteEvaluationResponse Status
 derStatus = lens _derStatus (\ s a -> s{_derStatus = a});

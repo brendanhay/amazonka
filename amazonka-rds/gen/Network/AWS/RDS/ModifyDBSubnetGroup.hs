@@ -96,7 +96,7 @@ instance AWSRequest ModifyDBSubnetGroup where
           = receiveXMLWrapper "ModifyDBSubnetGroupResult"
               (\ s h x ->
                  ModifyDBSubnetGroupResponse' <$>
-                   (x .@? "DBSubnetGroup") <*> (pure (fromEnum s)))
+                   (x .@? "DBSubnetGroup") <*> (pure s))
 
 instance ToHeaders ModifyDBSubnetGroup where
         toHeaders = const mempty
@@ -124,11 +124,11 @@ instance ToQuery ModifyDBSubnetGroup where
 -- * 'mdsgrStatus'
 data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'
     { _mdsgrDBSubnetGroup :: !(Maybe DBSubnetGroup)
-    , _mdsgrStatus        :: !Int
+    , _mdsgrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyDBSubnetGroupResponse' smart constructor.
-modifyDBSubnetGroupResponse :: Int -> ModifyDBSubnetGroupResponse
+modifyDBSubnetGroupResponse :: Status -> ModifyDBSubnetGroupResponse
 modifyDBSubnetGroupResponse pStatus =
     ModifyDBSubnetGroupResponse'
     { _mdsgrDBSubnetGroup = Nothing
@@ -140,5 +140,5 @@ mdsgrDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
 mdsgrDBSubnetGroup = lens _mdsgrDBSubnetGroup (\ s a -> s{_mdsgrDBSubnetGroup = a});
 
 -- | FIXME: Undocumented member.
-mdsgrStatus :: Lens' ModifyDBSubnetGroupResponse Int
+mdsgrStatus :: Lens' ModifyDBSubnetGroupResponse Status
 mdsgrStatus = lens _mdsgrStatus (\ s a -> s{_mdsgrStatus = a});

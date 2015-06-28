@@ -127,7 +127,7 @@ instance AWSRequest UpdateTable where
           = receiveJSON
               (\ s h x ->
                  UpdateTableResponse' <$>
-                   (x .?> "TableDescription") <*> (pure (fromEnum s)))
+                   (x .?> "TableDescription") <*> (pure s))
 
 instance ToHeaders UpdateTable where
         toHeaders
@@ -164,11 +164,11 @@ instance ToQuery UpdateTable where
 -- * 'utrStatus'
 data UpdateTableResponse = UpdateTableResponse'
     { _utrTableDescription :: !(Maybe TableDescription)
-    , _utrStatus           :: !Int
+    , _utrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateTableResponse' smart constructor.
-updateTableResponse :: Int -> UpdateTableResponse
+updateTableResponse :: Status -> UpdateTableResponse
 updateTableResponse pStatus =
     UpdateTableResponse'
     { _utrTableDescription = Nothing
@@ -180,5 +180,5 @@ utrTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
 utrTableDescription = lens _utrTableDescription (\ s a -> s{_utrTableDescription = a});
 
 -- | FIXME: Undocumented member.
-utrStatus :: Lens' UpdateTableResponse Int
+utrStatus :: Lens' UpdateTableResponse Status
 utrStatus = lens _utrStatus (\ s a -> s{_utrStatus = a});

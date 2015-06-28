@@ -128,8 +128,7 @@ instance AWSRequest CreateClusterParameterGroup where
               "CreateClusterParameterGroupResult"
               (\ s h x ->
                  CreateClusterParameterGroupResponse' <$>
-                   (x .@? "ClusterParameterGroup") <*>
-                     (pure (fromEnum s)))
+                   (x .@? "ClusterParameterGroup") <*> (pure s))
 
 instance ToHeaders CreateClusterParameterGroup where
         toHeaders = const mempty
@@ -157,11 +156,11 @@ instance ToQuery CreateClusterParameterGroup where
 -- * 'ccpgrStatus'
 data CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse'
     { _ccpgrClusterParameterGroup :: !(Maybe ClusterParameterGroup)
-    , _ccpgrStatus                :: !Int
+    , _ccpgrStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterParameterGroupResponse' smart constructor.
-createClusterParameterGroupResponse :: Int -> CreateClusterParameterGroupResponse
+createClusterParameterGroupResponse :: Status -> CreateClusterParameterGroupResponse
 createClusterParameterGroupResponse pStatus =
     CreateClusterParameterGroupResponse'
     { _ccpgrClusterParameterGroup = Nothing
@@ -173,5 +172,5 @@ ccpgrClusterParameterGroup :: Lens' CreateClusterParameterGroupResponse (Maybe C
 ccpgrClusterParameterGroup = lens _ccpgrClusterParameterGroup (\ s a -> s{_ccpgrClusterParameterGroup = a});
 
 -- | FIXME: Undocumented member.
-ccpgrStatus :: Lens' CreateClusterParameterGroupResponse Int
+ccpgrStatus :: Lens' CreateClusterParameterGroupResponse Status
 ccpgrStatus = lens _ccpgrStatus (\ s a -> s{_ccpgrStatus = a});

@@ -60,7 +60,7 @@ instance AWSRequest GetHostedZoneCount where
           = receiveXML
               (\ s h x ->
                  GetHostedZoneCountResponse' <$>
-                   (x .@ "HostedZoneCount") <*> (pure (fromEnum s)))
+                   (x .@ "HostedZoneCount") <*> (pure s))
 
 instance ToHeaders GetHostedZoneCount where
         toHeaders = const mempty
@@ -83,11 +83,11 @@ instance ToQuery GetHostedZoneCount where
 -- * 'ghzcrStatus'
 data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
     { _ghzcrHostedZoneCount :: !Integer
-    , _ghzcrStatus          :: !Int
+    , _ghzcrStatus          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetHostedZoneCountResponse' smart constructor.
-getHostedZoneCountResponse :: Integer -> Int -> GetHostedZoneCountResponse
+getHostedZoneCountResponse :: Integer -> Status -> GetHostedZoneCountResponse
 getHostedZoneCountResponse pHostedZoneCount pStatus =
     GetHostedZoneCountResponse'
     { _ghzcrHostedZoneCount = pHostedZoneCount
@@ -99,5 +99,5 @@ ghzcrHostedZoneCount :: Lens' GetHostedZoneCountResponse Integer
 ghzcrHostedZoneCount = lens _ghzcrHostedZoneCount (\ s a -> s{_ghzcrHostedZoneCount = a});
 
 -- | FIXME: Undocumented member.
-ghzcrStatus :: Lens' GetHostedZoneCountResponse Int
+ghzcrStatus :: Lens' GetHostedZoneCountResponse Status
 ghzcrStatus = lens _ghzcrStatus (\ s a -> s{_ghzcrStatus = a});

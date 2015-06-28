@@ -112,7 +112,7 @@ instance AWSRequest ListMFADevices where
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "MFADevices" .!@ mempty >>=
                         parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListMFADevices where
         toHeaders = const mempty
@@ -145,11 +145,11 @@ data ListMFADevicesResponse = ListMFADevicesResponse'
     { _lmdrMarker      :: !(Maybe Text)
     , _lmdrIsTruncated :: !(Maybe Bool)
     , _lmdrMFADevices  :: ![MFADevice]
-    , _lmdrStatus      :: !Int
+    , _lmdrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListMFADevicesResponse' smart constructor.
-listMFADevicesResponse :: Int -> ListMFADevicesResponse
+listMFADevicesResponse :: Status -> ListMFADevicesResponse
 listMFADevicesResponse pStatus =
     ListMFADevicesResponse'
     { _lmdrMarker = Nothing
@@ -176,5 +176,5 @@ lmdrMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
 lmdrMFADevices = lens _lmdrMFADevices (\ s a -> s{_lmdrMFADevices = a});
 
 -- | FIXME: Undocumented member.
-lmdrStatus :: Lens' ListMFADevicesResponse Int
+lmdrStatus :: Lens' ListMFADevicesResponse Status
 lmdrStatus = lens _lmdrStatus (\ s a -> s{_lmdrStatus = a});

@@ -122,7 +122,7 @@ instance AWSRequest ImportSnapshot where
                    (x .@? "snapshotTaskDetail") <*>
                      (x .@? "importTaskId")
                      <*> (x .@? "description")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ImportSnapshot where
         toHeaders = const mempty
@@ -156,11 +156,11 @@ data ImportSnapshotResponse = ImportSnapshotResponse'
     { _isrSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
     , _isrImportTaskId       :: !(Maybe Text)
     , _isrDescription        :: !(Maybe Text)
-    , _isrStatus             :: !Int
+    , _isrStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ImportSnapshotResponse' smart constructor.
-importSnapshotResponse :: Int -> ImportSnapshotResponse
+importSnapshotResponse :: Status -> ImportSnapshotResponse
 importSnapshotResponse pStatus =
     ImportSnapshotResponse'
     { _isrSnapshotTaskDetail = Nothing
@@ -182,5 +182,5 @@ isrDescription :: Lens' ImportSnapshotResponse (Maybe Text)
 isrDescription = lens _isrDescription (\ s a -> s{_isrDescription = a});
 
 -- | FIXME: Undocumented member.
-isrStatus :: Lens' ImportSnapshotResponse Int
+isrStatus :: Lens' ImportSnapshotResponse Status
 isrStatus = lens _isrStatus (\ s a -> s{_isrStatus = a});

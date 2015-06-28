@@ -144,7 +144,7 @@ instance AWSRequest
               (\ s h x ->
                  DescribeReservedInstancesModificationsResponse' <$>
                    (x .@? "nextToken") <*> (may (parseXMLList "item") x)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders
          DescribeReservedInstancesModifications where
@@ -180,11 +180,11 @@ instance ToQuery
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'
     { _drimrNextToken                      :: !(Maybe Text)
     , _drimrReservedInstancesModifications :: !(Maybe [ReservedInstancesModification])
-    , _drimrStatus                         :: !Int
+    , _drimrStatus                         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedInstancesModificationsResponse' smart constructor.
-describeReservedInstancesModificationsResponse :: Int -> DescribeReservedInstancesModificationsResponse
+describeReservedInstancesModificationsResponse :: Status -> DescribeReservedInstancesModificationsResponse
 describeReservedInstancesModificationsResponse pStatus =
     DescribeReservedInstancesModificationsResponse'
     { _drimrNextToken = Nothing
@@ -202,5 +202,5 @@ drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificati
 drimrReservedInstancesModifications = lens _drimrReservedInstancesModifications (\ s a -> s{_drimrReservedInstancesModifications = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drimrStatus :: Lens' DescribeReservedInstancesModificationsResponse Int
+drimrStatus :: Lens' DescribeReservedInstancesModificationsResponse Status
 drimrStatus = lens _drimrStatus (\ s a -> s{_drimrStatus = a});

@@ -89,7 +89,7 @@ instance AWSRequest CreateAlias where
               (\ s h x ->
                  CreateAliasResponse' <$>
                    (x .?> "DirectoryId") <*> (x .?> "Alias") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders CreateAlias where
         toHeaders
@@ -127,11 +127,11 @@ instance ToQuery CreateAlias where
 data CreateAliasResponse = CreateAliasResponse'
     { _carDirectoryId :: !(Maybe Text)
     , _carAlias       :: !(Maybe Text)
-    , _carStatus      :: !Int
+    , _carStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateAliasResponse' smart constructor.
-createAliasResponse :: Int -> CreateAliasResponse
+createAliasResponse :: Status -> CreateAliasResponse
 createAliasResponse pStatus =
     CreateAliasResponse'
     { _carDirectoryId = Nothing
@@ -148,5 +148,5 @@ carAlias :: Lens' CreateAliasResponse (Maybe Text)
 carAlias = lens _carAlias (\ s a -> s{_carAlias = a});
 
 -- | FIXME: Undocumented member.
-carStatus :: Lens' CreateAliasResponse Int
+carStatus :: Lens' CreateAliasResponse Status
 carStatus = lens _carStatus (\ s a -> s{_carStatus = a});

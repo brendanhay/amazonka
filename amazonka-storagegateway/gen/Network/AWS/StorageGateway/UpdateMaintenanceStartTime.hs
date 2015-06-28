@@ -108,7 +108,7 @@ instance AWSRequest UpdateMaintenanceStartTime where
           = receiveJSON
               (\ s h x ->
                  UpdateMaintenanceStartTimeResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+                   (x .?> "GatewayARN") <*> (pure s))
 
 instance ToHeaders UpdateMaintenanceStartTime where
         toHeaders
@@ -146,11 +146,11 @@ instance ToQuery UpdateMaintenanceStartTime where
 -- * 'umstrStatus'
 data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'
     { _umstrGatewayARN :: !(Maybe Text)
-    , _umstrStatus     :: !Int
+    , _umstrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateMaintenanceStartTimeResponse' smart constructor.
-updateMaintenanceStartTimeResponse :: Int -> UpdateMaintenanceStartTimeResponse
+updateMaintenanceStartTimeResponse :: Status -> UpdateMaintenanceStartTimeResponse
 updateMaintenanceStartTimeResponse pStatus =
     UpdateMaintenanceStartTimeResponse'
     { _umstrGatewayARN = Nothing
@@ -162,5 +162,5 @@ umstrGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse (Maybe Text)
 umstrGatewayARN = lens _umstrGatewayARN (\ s a -> s{_umstrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-umstrStatus :: Lens' UpdateMaintenanceStartTimeResponse Int
+umstrStatus :: Lens' UpdateMaintenanceStartTimeResponse Status
 umstrStatus = lens _umstrStatus (\ s a -> s{_umstrStatus = a});

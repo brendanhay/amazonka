@@ -776,7 +776,7 @@ instance AWSRequest CreateDBInstance where
           = receiveXMLWrapper "CreateDBInstanceResult"
               (\ s h x ->
                  CreateDBInstanceResponse' <$>
-                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
+                   (x .@? "DBInstance") <*> (pure s))
 
 instance ToHeaders CreateDBInstance where
         toHeaders = const mempty
@@ -836,11 +836,11 @@ instance ToQuery CreateDBInstance where
 -- * 'cdirStatus'
 data CreateDBInstanceResponse = CreateDBInstanceResponse'
     { _cdirDBInstance :: !(Maybe DBInstance)
-    , _cdirStatus     :: !Int
+    , _cdirStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDBInstanceResponse' smart constructor.
-createDBInstanceResponse :: Int -> CreateDBInstanceResponse
+createDBInstanceResponse :: Status -> CreateDBInstanceResponse
 createDBInstanceResponse pStatus =
     CreateDBInstanceResponse'
     { _cdirDBInstance = Nothing
@@ -852,5 +852,5 @@ cdirDBInstance :: Lens' CreateDBInstanceResponse (Maybe DBInstance)
 cdirDBInstance = lens _cdirDBInstance (\ s a -> s{_cdirDBInstance = a});
 
 -- | FIXME: Undocumented member.
-cdirStatus :: Lens' CreateDBInstanceResponse Int
+cdirStatus :: Lens' CreateDBInstanceResponse Status
 cdirStatus = lens _cdirStatus (\ s a -> s{_cdirStatus = a});

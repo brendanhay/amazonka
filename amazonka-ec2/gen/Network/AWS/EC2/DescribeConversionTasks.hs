@@ -93,8 +93,7 @@ instance AWSRequest DescribeConversionTasks where
           = receiveXML
               (\ s h x ->
                  DescribeConversionTasksResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders DescribeConversionTasks where
         toHeaders = const mempty
@@ -122,11 +121,11 @@ instance ToQuery DescribeConversionTasks where
 -- * 'dctrStatus'
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
     { _dctrConversionTasks :: !(Maybe [ConversionTask])
-    , _dctrStatus          :: !Int
+    , _dctrStatus          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeConversionTasksResponse' smart constructor.
-describeConversionTasksResponse :: Int -> DescribeConversionTasksResponse
+describeConversionTasksResponse :: Status -> DescribeConversionTasksResponse
 describeConversionTasksResponse pStatus =
     DescribeConversionTasksResponse'
     { _dctrConversionTasks = Nothing
@@ -138,5 +137,5 @@ dctrConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
 dctrConversionTasks = lens _dctrConversionTasks (\ s a -> s{_dctrConversionTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dctrStatus :: Lens' DescribeConversionTasksResponse Int
+dctrStatus :: Lens' DescribeConversionTasksResponse Status
 dctrStatus = lens _dctrStatus (\ s a -> s{_dctrStatus = a});

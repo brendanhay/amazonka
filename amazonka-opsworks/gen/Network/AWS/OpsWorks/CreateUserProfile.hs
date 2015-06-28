@@ -106,7 +106,7 @@ instance AWSRequest CreateUserProfile where
           = receiveJSON
               (\ s h x ->
                  CreateUserProfileResponse' <$>
-                   (x .?> "IamUserArn") <*> (pure (fromEnum s)))
+                   (x .?> "IamUserArn") <*> (pure s))
 
 instance ToHeaders CreateUserProfile where
         toHeaders
@@ -143,11 +143,11 @@ instance ToQuery CreateUserProfile where
 -- * 'cuprStatus'
 data CreateUserProfileResponse = CreateUserProfileResponse'
     { _cuprIAMUserARN :: !(Maybe Text)
-    , _cuprStatus     :: !Int
+    , _cuprStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateUserProfileResponse' smart constructor.
-createUserProfileResponse :: Int -> CreateUserProfileResponse
+createUserProfileResponse :: Status -> CreateUserProfileResponse
 createUserProfileResponse pStatus =
     CreateUserProfileResponse'
     { _cuprIAMUserARN = Nothing
@@ -159,5 +159,5 @@ cuprIAMUserARN :: Lens' CreateUserProfileResponse (Maybe Text)
 cuprIAMUserARN = lens _cuprIAMUserARN (\ s a -> s{_cuprIAMUserARN = a});
 
 -- | FIXME: Undocumented member.
-cuprStatus :: Lens' CreateUserProfileResponse Int
+cuprStatus :: Lens' CreateUserProfileResponse Status
 cuprStatus = lens _cuprStatus (\ s a -> s{_cuprStatus = a});

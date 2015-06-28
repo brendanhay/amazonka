@@ -110,7 +110,7 @@ instance AWSRequest RetrieveEnvironmentInfo where
                  RetrieveEnvironmentInfoResponse' <$>
                    (x .@? "EnvironmentInfo" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders RetrieveEnvironmentInfo where
         toHeaders = const mempty
@@ -140,11 +140,11 @@ instance ToQuery RetrieveEnvironmentInfo where
 -- * 'reirStatus'
 data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'
     { _reirEnvironmentInfo :: !(Maybe [EnvironmentInfoDescription])
-    , _reirStatus          :: !Int
+    , _reirStatus          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'RetrieveEnvironmentInfoResponse' smart constructor.
-retrieveEnvironmentInfoResponse :: Int -> RetrieveEnvironmentInfoResponse
+retrieveEnvironmentInfoResponse :: Status -> RetrieveEnvironmentInfoResponse
 retrieveEnvironmentInfoResponse pStatus =
     RetrieveEnvironmentInfoResponse'
     { _reirEnvironmentInfo = Nothing
@@ -156,5 +156,5 @@ reirEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDes
 reirEnvironmentInfo = lens _reirEnvironmentInfo (\ s a -> s{_reirEnvironmentInfo = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-reirStatus :: Lens' RetrieveEnvironmentInfoResponse Int
+reirStatus :: Lens' RetrieveEnvironmentInfoResponse Status
 reirStatus = lens _reirStatus (\ s a -> s{_reirStatus = a});

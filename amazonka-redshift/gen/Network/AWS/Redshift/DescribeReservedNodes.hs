@@ -114,7 +114,7 @@ instance AWSRequest DescribeReservedNodes where
                    (x .@? "ReservedNodes" .!@ mempty >>=
                       may (parseXMLList "ReservedNode"))
                      <*> (x .@? "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeReservedNodes where
         toHeaders = const mempty
@@ -145,11 +145,11 @@ instance ToQuery DescribeReservedNodes where
 data DescribeReservedNodesResponse = DescribeReservedNodesResponse'
     { _drnrReservedNodes :: !(Maybe [ReservedNode])
     , _drnrMarker        :: !(Maybe Text)
-    , _drnrStatus        :: !Int
+    , _drnrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedNodesResponse' smart constructor.
-describeReservedNodesResponse :: Int -> DescribeReservedNodesResponse
+describeReservedNodesResponse :: Status -> DescribeReservedNodesResponse
 describeReservedNodesResponse pStatus =
     DescribeReservedNodesResponse'
     { _drnrReservedNodes = Nothing
@@ -171,5 +171,5 @@ drnrMarker :: Lens' DescribeReservedNodesResponse (Maybe Text)
 drnrMarker = lens _drnrMarker (\ s a -> s{_drnrMarker = a});
 
 -- | FIXME: Undocumented member.
-drnrStatus :: Lens' DescribeReservedNodesResponse Int
+drnrStatus :: Lens' DescribeReservedNodesResponse Status
 drnrStatus = lens _drnrStatus (\ s a -> s{_drnrStatus = a});

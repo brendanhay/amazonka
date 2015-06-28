@@ -84,7 +84,7 @@ instance AWSRequest RestoreAddressToClassic where
           = receiveXML
               (\ s h x ->
                  RestoreAddressToClassicResponse' <$>
-                   (x .@? "publicIp") <*> (pure (fromEnum s)))
+                   (x .@? "publicIp") <*> (pure s))
 
 instance ToHeaders RestoreAddressToClassic where
         toHeaders = const mempty
@@ -109,11 +109,11 @@ instance ToQuery RestoreAddressToClassic where
 -- * 'ratcrStatus'
 data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
     { _ratcrPublicIP :: !(Maybe Text)
-    , _ratcrStatus   :: !Int
+    , _ratcrStatus   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'RestoreAddressToClassicResponse' smart constructor.
-restoreAddressToClassicResponse :: Int -> RestoreAddressToClassicResponse
+restoreAddressToClassicResponse :: Status -> RestoreAddressToClassicResponse
 restoreAddressToClassicResponse pStatus =
     RestoreAddressToClassicResponse'
     { _ratcrPublicIP = Nothing
@@ -125,5 +125,5 @@ ratcrPublicIP :: Lens' RestoreAddressToClassicResponse (Maybe Text)
 ratcrPublicIP = lens _ratcrPublicIP (\ s a -> s{_ratcrPublicIP = a});
 
 -- | FIXME: Undocumented member.
-ratcrStatus :: Lens' RestoreAddressToClassicResponse Int
+ratcrStatus :: Lens' RestoreAddressToClassicResponse Status
 ratcrStatus = lens _ratcrStatus (\ s a -> s{_ratcrStatus = a});

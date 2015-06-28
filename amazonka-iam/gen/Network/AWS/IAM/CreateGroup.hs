@@ -85,8 +85,7 @@ instance AWSRequest CreateGroup where
         response
           = receiveXMLWrapper "CreateGroupResult"
               (\ s h x ->
-                 CreateGroupResponse' <$>
-                   (x .@ "Group") <*> (pure (fromEnum s)))
+                 CreateGroupResponse' <$> (x .@ "Group") <*> (pure s))
 
 instance ToHeaders CreateGroup where
         toHeaders = const mempty
@@ -112,11 +111,11 @@ instance ToQuery CreateGroup where
 -- * 'cgrStatus'
 data CreateGroupResponse = CreateGroupResponse'
     { _cgrGroup  :: !Group
-    , _cgrStatus :: !Int
+    , _cgrStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateGroupResponse' smart constructor.
-createGroupResponse :: Group -> Int -> CreateGroupResponse
+createGroupResponse :: Group -> Status -> CreateGroupResponse
 createGroupResponse pGroup pStatus =
     CreateGroupResponse'
     { _cgrGroup = pGroup
@@ -128,5 +127,5 @@ cgrGroup :: Lens' CreateGroupResponse Group
 cgrGroup = lens _cgrGroup (\ s a -> s{_cgrGroup = a});
 
 -- | FIXME: Undocumented member.
-cgrStatus :: Lens' CreateGroupResponse Int
+cgrStatus :: Lens' CreateGroupResponse Status
 cgrStatus = lens _cgrStatus (\ s a -> s{_cgrStatus = a});

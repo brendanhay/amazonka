@@ -89,7 +89,7 @@ instance AWSRequest DescribeDomain where
               (\ s h x ->
                  DescribeDomainResponse' <$>
                    (x .:> "domainInfo") <*> (x .:> "configuration") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders DescribeDomain where
         toHeaders
@@ -125,11 +125,11 @@ instance ToQuery DescribeDomain where
 data DescribeDomainResponse = DescribeDomainResponse'
     { _ddrDomainInfo    :: !DomainInfo
     , _ddrConfiguration :: !DomainConfiguration
-    , _ddrStatus        :: !Int
+    , _ddrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDomainResponse' smart constructor.
-describeDomainResponse :: DomainInfo -> DomainConfiguration -> Int -> DescribeDomainResponse
+describeDomainResponse :: DomainInfo -> DomainConfiguration -> Status -> DescribeDomainResponse
 describeDomainResponse pDomainInfo pConfiguration pStatus =
     DescribeDomainResponse'
     { _ddrDomainInfo = pDomainInfo
@@ -146,5 +146,5 @@ ddrConfiguration :: Lens' DescribeDomainResponse DomainConfiguration
 ddrConfiguration = lens _ddrConfiguration (\ s a -> s{_ddrConfiguration = a});
 
 -- | FIXME: Undocumented member.
-ddrStatus :: Lens' DescribeDomainResponse Int
+ddrStatus :: Lens' DescribeDomainResponse Status
 ddrStatus = lens _ddrStatus (\ s a -> s{_ddrStatus = a});

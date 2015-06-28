@@ -125,7 +125,7 @@ instance AWSRequest DescribePrefixLists where
               (\ s h x ->
                  DescribePrefixListsResponse' <$>
                    (x .@? "nextToken") <*> (may (parseXMLList "item") x)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribePrefixLists where
         toHeaders = const mempty
@@ -156,11 +156,11 @@ instance ToQuery DescribePrefixLists where
 data DescribePrefixListsResponse = DescribePrefixListsResponse'
     { _dplrNextToken   :: !(Maybe Text)
     , _dplrPrefixLists :: !(Maybe [PrefixList])
-    , _dplrStatus      :: !Int
+    , _dplrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribePrefixListsResponse' smart constructor.
-describePrefixListsResponse :: Int -> DescribePrefixListsResponse
+describePrefixListsResponse :: Status -> DescribePrefixListsResponse
 describePrefixListsResponse pStatus =
     DescribePrefixListsResponse'
     { _dplrNextToken = Nothing
@@ -178,5 +178,5 @@ dplrPrefixLists :: Lens' DescribePrefixListsResponse [PrefixList]
 dplrPrefixLists = lens _dplrPrefixLists (\ s a -> s{_dplrPrefixLists = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dplrStatus :: Lens' DescribePrefixListsResponse Int
+dplrStatus :: Lens' DescribePrefixListsResponse Status
 dplrStatus = lens _dplrStatus (\ s a -> s{_dplrStatus = a});

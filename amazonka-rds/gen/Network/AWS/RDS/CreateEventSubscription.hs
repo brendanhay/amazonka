@@ -176,7 +176,7 @@ instance AWSRequest CreateEventSubscription where
           = receiveXMLWrapper "CreateEventSubscriptionResult"
               (\ s h x ->
                  CreateEventSubscriptionResponse' <$>
-                   (x .@? "EventSubscription") <*> (pure (fromEnum s)))
+                   (x .@? "EventSubscription") <*> (pure s))
 
 instance ToHeaders CreateEventSubscription where
         toHeaders = const mempty
@@ -211,11 +211,11 @@ instance ToQuery CreateEventSubscription where
 -- * 'cesrStatus'
 data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'
     { _cesrEventSubscription :: !(Maybe EventSubscription)
-    , _cesrStatus            :: !Int
+    , _cesrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateEventSubscriptionResponse' smart constructor.
-createEventSubscriptionResponse :: Int -> CreateEventSubscriptionResponse
+createEventSubscriptionResponse :: Status -> CreateEventSubscriptionResponse
 createEventSubscriptionResponse pStatus =
     CreateEventSubscriptionResponse'
     { _cesrEventSubscription = Nothing
@@ -227,5 +227,5 @@ cesrEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubsc
 cesrEventSubscription = lens _cesrEventSubscription (\ s a -> s{_cesrEventSubscription = a});
 
 -- | FIXME: Undocumented member.
-cesrStatus :: Lens' CreateEventSubscriptionResponse Int
+cesrStatus :: Lens' CreateEventSubscriptionResponse Status
 cesrStatus = lens _cesrStatus (\ s a -> s{_cesrStatus = a});

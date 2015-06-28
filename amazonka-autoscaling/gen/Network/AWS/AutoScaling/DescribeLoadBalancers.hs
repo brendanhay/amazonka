@@ -92,7 +92,7 @@ instance AWSRequest DescribeLoadBalancers where
                    (x .@? "LoadBalancers" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "NextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeLoadBalancers where
         toHeaders = const mempty
@@ -121,11 +121,11 @@ instance ToQuery DescribeLoadBalancers where
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
     { _dlbrLoadBalancers :: !(Maybe [LoadBalancerState])
     , _dlbrNextToken     :: !(Maybe Text)
-    , _dlbrStatus        :: !Int
+    , _dlbrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancersResponse' smart constructor.
-describeLoadBalancersResponse :: Int -> DescribeLoadBalancersResponse
+describeLoadBalancersResponse :: Status -> DescribeLoadBalancersResponse
 describeLoadBalancersResponse pStatus =
     DescribeLoadBalancersResponse'
     { _dlbrLoadBalancers = Nothing
@@ -143,5 +143,5 @@ dlbrNextToken :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrNextToken = lens _dlbrNextToken (\ s a -> s{_dlbrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dlbrStatus :: Lens' DescribeLoadBalancersResponse Int
+dlbrStatus :: Lens' DescribeLoadBalancersResponse Status
 dlbrStatus = lens _dlbrStatus (\ s a -> s{_dlbrStatus = a});

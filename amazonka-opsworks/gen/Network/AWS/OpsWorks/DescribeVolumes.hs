@@ -108,7 +108,7 @@ instance AWSRequest DescribeVolumes where
           = receiveJSON
               (\ s h x ->
                  DescribeVolumesResponse' <$>
-                   (x .?> "Volumes" .!@ mempty) <*> (pure (fromEnum s)))
+                   (x .?> "Volumes" .!@ mempty) <*> (pure s))
 
 instance ToHeaders DescribeVolumes where
         toHeaders
@@ -144,11 +144,11 @@ instance ToQuery DescribeVolumes where
 -- * 'dvrStatus'
 data DescribeVolumesResponse = DescribeVolumesResponse'
     { _dvrVolumes :: !(Maybe [Volume])
-    , _dvrStatus  :: !Int
+    , _dvrStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVolumesResponse' smart constructor.
-describeVolumesResponse :: Int -> DescribeVolumesResponse
+describeVolumesResponse :: Status -> DescribeVolumesResponse
 describeVolumesResponse pStatus =
     DescribeVolumesResponse'
     { _dvrVolumes = Nothing
@@ -160,5 +160,5 @@ dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrVolumes = lens _dvrVolumes (\ s a -> s{_dvrVolumes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvrStatus :: Lens' DescribeVolumesResponse Int
+dvrStatus :: Lens' DescribeVolumesResponse Status
 dvrStatus = lens _dvrStatus (\ s a -> s{_dvrStatus = a});

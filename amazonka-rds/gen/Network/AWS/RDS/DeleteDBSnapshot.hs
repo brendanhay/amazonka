@@ -76,7 +76,7 @@ instance AWSRequest DeleteDBSnapshot where
           = receiveXMLWrapper "DeleteDBSnapshotResult"
               (\ s h x ->
                  DeleteDBSnapshotResponse' <$>
-                   (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
+                   (x .@? "DBSnapshot") <*> (pure s))
 
 instance ToHeaders DeleteDBSnapshot where
         toHeaders = const mempty
@@ -100,11 +100,11 @@ instance ToQuery DeleteDBSnapshot where
 -- * 'dStatus'
 data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'
     { _dDBSnapshot :: !(Maybe DBSnapshot)
-    , _dStatus     :: !Int
+    , _dStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteDBSnapshotResponse' smart constructor.
-deleteDBSnapshotResponse :: Int -> DeleteDBSnapshotResponse
+deleteDBSnapshotResponse :: Status -> DeleteDBSnapshotResponse
 deleteDBSnapshotResponse pStatus =
     DeleteDBSnapshotResponse'
     { _dDBSnapshot = Nothing
@@ -116,5 +116,5 @@ dDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
 dDBSnapshot = lens _dDBSnapshot (\ s a -> s{_dDBSnapshot = a});
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DeleteDBSnapshotResponse Int
+dStatus :: Lens' DeleteDBSnapshotResponse Status
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

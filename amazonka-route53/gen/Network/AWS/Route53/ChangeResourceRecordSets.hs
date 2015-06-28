@@ -112,7 +112,7 @@ instance AWSRequest ChangeResourceRecordSets where
           = receiveXML
               (\ s h x ->
                  ChangeResourceRecordSetsResponse' <$>
-                   (x .@ "ChangeInfo") <*> (pure (fromEnum s)))
+                   (x .@ "ChangeInfo") <*> (pure s))
 
 instance ToElement ChangeResourceRecordSets where
         toElement
@@ -146,11 +146,11 @@ instance ToXML ChangeResourceRecordSets where
 -- * 'crrsrStatus'
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
     { _crrsrChangeInfo :: !ChangeInfo
-    , _crrsrStatus     :: !Int
+    , _crrsrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ChangeResourceRecordSetsResponse' smart constructor.
-changeResourceRecordSetsResponse :: ChangeInfo -> Int -> ChangeResourceRecordSetsResponse
+changeResourceRecordSetsResponse :: ChangeInfo -> Status -> ChangeResourceRecordSetsResponse
 changeResourceRecordSetsResponse pChangeInfo pStatus =
     ChangeResourceRecordSetsResponse'
     { _crrsrChangeInfo = pChangeInfo
@@ -166,5 +166,5 @@ crrsrChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrChangeInfo = lens _crrsrChangeInfo (\ s a -> s{_crrsrChangeInfo = a});
 
 -- | FIXME: Undocumented member.
-crrsrStatus :: Lens' ChangeResourceRecordSetsResponse Int
+crrsrStatus :: Lens' ChangeResourceRecordSetsResponse Status
 crrsrStatus = lens _crrsrStatus (\ s a -> s{_crrsrStatus = a});

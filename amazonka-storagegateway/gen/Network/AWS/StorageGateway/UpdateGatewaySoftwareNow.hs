@@ -86,7 +86,7 @@ instance AWSRequest UpdateGatewaySoftwareNow where
           = receiveJSON
               (\ s h x ->
                  UpdateGatewaySoftwareNowResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+                   (x .?> "GatewayARN") <*> (pure s))
 
 instance ToHeaders UpdateGatewaySoftwareNow where
         toHeaders
@@ -119,11 +119,11 @@ instance ToQuery UpdateGatewaySoftwareNow where
 -- * 'ugsnrStatus'
 data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
     { _ugsnrGatewayARN :: !(Maybe Text)
-    , _ugsnrStatus     :: !Int
+    , _ugsnrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateGatewaySoftwareNowResponse' smart constructor.
-updateGatewaySoftwareNowResponse :: Int -> UpdateGatewaySoftwareNowResponse
+updateGatewaySoftwareNowResponse :: Status -> UpdateGatewaySoftwareNowResponse
 updateGatewaySoftwareNowResponse pStatus =
     UpdateGatewaySoftwareNowResponse'
     { _ugsnrGatewayARN = Nothing
@@ -135,5 +135,5 @@ ugsnrGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
 ugsnrGatewayARN = lens _ugsnrGatewayARN (\ s a -> s{_ugsnrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-ugsnrStatus :: Lens' UpdateGatewaySoftwareNowResponse Int
+ugsnrStatus :: Lens' UpdateGatewaySoftwareNowResponse Status
 ugsnrStatus = lens _ugsnrStatus (\ s a -> s{_ugsnrStatus = a});

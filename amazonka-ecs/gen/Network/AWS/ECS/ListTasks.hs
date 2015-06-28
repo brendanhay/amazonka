@@ -170,7 +170,7 @@ instance AWSRequest ListTasks where
               (\ s h x ->
                  ListTasksResponse' <$>
                    (x .?> "nextToken") <*> (x .?> "taskArns" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListTasks where
         toHeaders
@@ -211,11 +211,11 @@ instance ToQuery ListTasks where
 data ListTasksResponse = ListTasksResponse'
     { _ltrNextToken :: !(Maybe Text)
     , _ltrTaskARNs  :: !(Maybe [Text])
-    , _ltrStatus    :: !Int
+    , _ltrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListTasksResponse' smart constructor.
-listTasksResponse :: Int -> ListTasksResponse
+listTasksResponse :: Status -> ListTasksResponse
 listTasksResponse pStatus =
     ListTasksResponse'
     { _ltrNextToken = Nothing
@@ -236,5 +236,5 @@ ltrTaskARNs :: Lens' ListTasksResponse [Text]
 ltrTaskARNs = lens _ltrTaskARNs (\ s a -> s{_ltrTaskARNs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ltrStatus :: Lens' ListTasksResponse Int
+ltrStatus :: Lens' ListTasksResponse Status
 ltrStatus = lens _ltrStatus (\ s a -> s{_ltrStatus = a});

@@ -113,8 +113,7 @@ instance AWSRequest CreateVPCPeeringConnection where
           = receiveXML
               (\ s h x ->
                  CreateVPCPeeringConnectionResponse' <$>
-                   (x .@? "vpcPeeringConnection") <*>
-                     (pure (fromEnum s)))
+                   (x .@? "vpcPeeringConnection") <*> (pure s))
 
 instance ToHeaders CreateVPCPeeringConnection where
         toHeaders = const mempty
@@ -141,11 +140,11 @@ instance ToQuery CreateVPCPeeringConnection where
 -- * 'cvpcrStatus'
 data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
     { _cvpcrVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
-    , _cvpcrStatus               :: !Int
+    , _cvpcrStatus               :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateVPCPeeringConnectionResponse' smart constructor.
-createVPCPeeringConnectionResponse :: Int -> CreateVPCPeeringConnectionResponse
+createVPCPeeringConnectionResponse :: Status -> CreateVPCPeeringConnectionResponse
 createVPCPeeringConnectionResponse pStatus =
     CreateVPCPeeringConnectionResponse'
     { _cvpcrVPCPeeringConnection = Nothing
@@ -157,5 +156,5 @@ cvpcrVPCPeeringConnection :: Lens' CreateVPCPeeringConnectionResponse (Maybe VPC
 cvpcrVPCPeeringConnection = lens _cvpcrVPCPeeringConnection (\ s a -> s{_cvpcrVPCPeeringConnection = a});
 
 -- | FIXME: Undocumented member.
-cvpcrStatus :: Lens' CreateVPCPeeringConnectionResponse Int
+cvpcrStatus :: Lens' CreateVPCPeeringConnectionResponse Status
 cvpcrStatus = lens _cvpcrStatus (\ s a -> s{_cvpcrStatus = a});

@@ -122,7 +122,7 @@ instance AWSRequest DescribeDBSecurityGroups where
                    (x .@? "DBSecurityGroups" .!@ mempty >>=
                       may (parseXMLList "DBSecurityGroup"))
                      <*> (x .@? "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeDBSecurityGroups where
         toHeaders = const mempty
@@ -157,11 +157,11 @@ instance ToQuery DescribeDBSecurityGroups where
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'
     { _ddbsgrDBSecurityGroups :: !(Maybe [DBSecurityGroup])
     , _ddbsgrMarker           :: !(Maybe Text)
-    , _ddbsgrStatus           :: !Int
+    , _ddbsgrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBSecurityGroupsResponse' smart constructor.
-describeDBSecurityGroupsResponse :: Int -> DescribeDBSecurityGroupsResponse
+describeDBSecurityGroupsResponse :: Status -> DescribeDBSecurityGroupsResponse
 describeDBSecurityGroupsResponse pStatus =
     DescribeDBSecurityGroupsResponse'
     { _ddbsgrDBSecurityGroups = Nothing
@@ -180,5 +180,5 @@ ddbsgrMarker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
 ddbsgrMarker = lens _ddbsgrMarker (\ s a -> s{_ddbsgrMarker = a});
 
 -- | FIXME: Undocumented member.
-ddbsgrStatus :: Lens' DescribeDBSecurityGroupsResponse Int
+ddbsgrStatus :: Lens' DescribeDBSecurityGroupsResponse Status
 ddbsgrStatus = lens _ddbsgrStatus (\ s a -> s{_ddbsgrStatus = a});

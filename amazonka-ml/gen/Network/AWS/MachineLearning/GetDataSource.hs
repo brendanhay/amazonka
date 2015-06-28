@@ -117,7 +117,7 @@ instance AWSRequest GetDataSource where
                      <*> (x .?> "RedshiftMetadata")
                      <*> (x .?> "RoleARN")
                      <*> (x .?> "DataRearrangement")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetDataSource where
         toHeaders
@@ -197,11 +197,11 @@ data GetDataSourceResponse = GetDataSourceResponse'
     , _gdsrRedshiftMetadata  :: !(Maybe RedshiftMetadata)
     , _gdsrRoleARN           :: !(Maybe Text)
     , _gdsrDataRearrangement :: !(Maybe Text)
-    , _gdsrStatus            :: !Int
+    , _gdsrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetDataSourceResponse' smart constructor.
-getDataSourceResponse :: Int -> GetDataSourceResponse
+getDataSourceResponse :: Status -> GetDataSourceResponse
 getDataSourceResponse pStatus =
     GetDataSourceResponse'
     { _gdsrNumberOfFiles = Nothing
@@ -302,5 +302,5 @@ gdsrDataRearrangement :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrDataRearrangement = lens _gdsrDataRearrangement (\ s a -> s{_gdsrDataRearrangement = a});
 
 -- | FIXME: Undocumented member.
-gdsrStatus :: Lens' GetDataSourceResponse Int
+gdsrStatus :: Lens' GetDataSourceResponse Status
 gdsrStatus = lens _gdsrStatus (\ s a -> s{_gdsrStatus = a});

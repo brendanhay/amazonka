@@ -91,7 +91,7 @@ instance AWSRequest GetOpenIdToken where
               (\ s h x ->
                  GetOpenIdTokenResponse' <$>
                    (x .?> "Token") <*> (x .?> "IdentityId") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders GetOpenIdToken where
         toHeaders
@@ -129,11 +129,11 @@ instance ToQuery GetOpenIdToken where
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
     { _goitrToken      :: !(Maybe Text)
     , _goitrIdentityId :: !(Maybe Text)
-    , _goitrStatus     :: !Int
+    , _goitrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetOpenIdTokenResponse' smart constructor.
-getOpenIdTokenResponse :: Int -> GetOpenIdTokenResponse
+getOpenIdTokenResponse :: Status -> GetOpenIdTokenResponse
 getOpenIdTokenResponse pStatus =
     GetOpenIdTokenResponse'
     { _goitrToken = Nothing
@@ -151,5 +151,5 @@ goitrIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
 goitrIdentityId = lens _goitrIdentityId (\ s a -> s{_goitrIdentityId = a});
 
 -- | FIXME: Undocumented member.
-goitrStatus :: Lens' GetOpenIdTokenResponse Int
+goitrStatus :: Lens' GetOpenIdTokenResponse Status
 goitrStatus = lens _goitrStatus (\ s a -> s{_goitrStatus = a});

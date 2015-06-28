@@ -105,8 +105,7 @@ instance AWSRequest GetAttributes where
           = receiveXMLWrapper "GetAttributesResult"
               (\ s h x ->
                  GetAttributesResponse' <$>
-                   (may (parseXMLList "Attribute") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "Attribute") x) <*> (pure s))
 
 instance ToHeaders GetAttributes where
         toHeaders = const mempty
@@ -134,11 +133,11 @@ instance ToQuery GetAttributes where
 -- * 'garStatus'
 data GetAttributesResponse = GetAttributesResponse'
     { _garAttributes :: !(Maybe [Attribute])
-    , _garStatus     :: !Int
+    , _garStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetAttributesResponse' smart constructor.
-getAttributesResponse :: Int -> GetAttributesResponse
+getAttributesResponse :: Status -> GetAttributesResponse
 getAttributesResponse pStatus =
     GetAttributesResponse'
     { _garAttributes = Nothing
@@ -150,5 +149,5 @@ garAttributes :: Lens' GetAttributesResponse [Attribute]
 garAttributes = lens _garAttributes (\ s a -> s{_garAttributes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-garStatus :: Lens' GetAttributesResponse Int
+garStatus :: Lens' GetAttributesResponse Status
 garStatus = lens _garStatus (\ s a -> s{_garStatus = a});

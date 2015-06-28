@@ -161,8 +161,7 @@ instance AWSRequest DescribeReservedInstances where
           = receiveXML
               (\ s h x ->
                  DescribeReservedInstancesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders DescribeReservedInstances where
         toHeaders = const mempty
@@ -192,11 +191,11 @@ instance ToQuery DescribeReservedInstances where
 -- * 'drirStatus'
 data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'
     { _drirReservedInstances :: !(Maybe [ReservedInstances])
-    , _drirStatus            :: !Int
+    , _drirStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedInstancesResponse' smart constructor.
-describeReservedInstancesResponse :: Int -> DescribeReservedInstancesResponse
+describeReservedInstancesResponse :: Status -> DescribeReservedInstancesResponse
 describeReservedInstancesResponse pStatus =
     DescribeReservedInstancesResponse'
     { _drirReservedInstances = Nothing
@@ -208,5 +207,5 @@ drirReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstan
 drirReservedInstances = lens _drirReservedInstances (\ s a -> s{_drirReservedInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drirStatus :: Lens' DescribeReservedInstancesResponse Int
+drirStatus :: Lens' DescribeReservedInstancesResponse Status
 drirStatus = lens _drirStatus (\ s a -> s{_drirStatus = a});

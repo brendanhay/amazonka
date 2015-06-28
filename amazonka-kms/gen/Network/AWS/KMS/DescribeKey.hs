@@ -78,7 +78,7 @@ instance AWSRequest DescribeKey where
           = receiveJSON
               (\ s h x ->
                  DescribeKeyResponse' <$>
-                   (x .?> "KeyMetadata") <*> (pure (fromEnum s)))
+                   (x .?> "KeyMetadata") <*> (pure s))
 
 instance ToHeaders DescribeKey where
         toHeaders
@@ -108,11 +108,11 @@ instance ToQuery DescribeKey where
 -- * 'dkrStatus'
 data DescribeKeyResponse = DescribeKeyResponse'
     { _dkrKeyMetadata :: !(Maybe KeyMetadata)
-    , _dkrStatus      :: !Int
+    , _dkrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeKeyResponse' smart constructor.
-describeKeyResponse :: Int -> DescribeKeyResponse
+describeKeyResponse :: Status -> DescribeKeyResponse
 describeKeyResponse pStatus =
     DescribeKeyResponse'
     { _dkrKeyMetadata = Nothing
@@ -124,5 +124,5 @@ dkrKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
 dkrKeyMetadata = lens _dkrKeyMetadata (\ s a -> s{_dkrKeyMetadata = a});
 
 -- | FIXME: Undocumented member.
-dkrStatus :: Lens' DescribeKeyResponse Int
+dkrStatus :: Lens' DescribeKeyResponse Status
 dkrStatus = lens _dkrStatus (\ s a -> s{_dkrStatus = a});

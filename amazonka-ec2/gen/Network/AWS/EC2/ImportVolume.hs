@@ -112,7 +112,7 @@ instance AWSRequest ImportVolume where
           = receiveXML
               (\ s h x ->
                  ImportVolumeResponse' <$>
-                   (x .@? "conversionTask") <*> (pure (fromEnum s)))
+                   (x .@? "conversionTask") <*> (pure s))
 
 instance ToHeaders ImportVolume where
         toHeaders = const mempty
@@ -139,11 +139,11 @@ instance ToQuery ImportVolume where
 -- * 'ivrStatus'
 data ImportVolumeResponse = ImportVolumeResponse'
     { _ivrConversionTask :: !(Maybe ConversionTask)
-    , _ivrStatus         :: !Int
+    , _ivrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ImportVolumeResponse' smart constructor.
-importVolumeResponse :: Int -> ImportVolumeResponse
+importVolumeResponse :: Status -> ImportVolumeResponse
 importVolumeResponse pStatus =
     ImportVolumeResponse'
     { _ivrConversionTask = Nothing
@@ -155,5 +155,5 @@ ivrConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
 ivrConversionTask = lens _ivrConversionTask (\ s a -> s{_ivrConversionTask = a});
 
 -- | FIXME: Undocumented member.
-ivrStatus :: Lens' ImportVolumeResponse Int
+ivrStatus :: Lens' ImportVolumeResponse Status
 ivrStatus = lens _ivrStatus (\ s a -> s{_ivrStatus = a});

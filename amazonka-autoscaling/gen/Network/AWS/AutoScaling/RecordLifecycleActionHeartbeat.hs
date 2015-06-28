@@ -110,8 +110,7 @@ instance AWSRequest RecordLifecycleActionHeartbeat
           = receiveXMLWrapper
               "RecordLifecycleActionHeartbeatResult"
               (\ s h x ->
-                 RecordLifecycleActionHeartbeatResponse' <$>
-                   (pure (fromEnum s)))
+                 RecordLifecycleActionHeartbeatResponse' <$> (pure s))
 
 instance ToHeaders RecordLifecycleActionHeartbeat
          where
@@ -136,16 +135,16 @@ instance ToQuery RecordLifecycleActionHeartbeat where
 --
 -- * 'rlahrStatus'
 newtype RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse'
-    { _rlahrStatus :: Int
+    { _rlahrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'RecordLifecycleActionHeartbeatResponse' smart constructor.
-recordLifecycleActionHeartbeatResponse :: Int -> RecordLifecycleActionHeartbeatResponse
+recordLifecycleActionHeartbeatResponse :: Status -> RecordLifecycleActionHeartbeatResponse
 recordLifecycleActionHeartbeatResponse pStatus =
     RecordLifecycleActionHeartbeatResponse'
     { _rlahrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rlahrStatus :: Lens' RecordLifecycleActionHeartbeatResponse Int
+rlahrStatus :: Lens' RecordLifecycleActionHeartbeatResponse Status
 rlahrStatus = lens _rlahrStatus (\ s a -> s{_rlahrStatus = a});

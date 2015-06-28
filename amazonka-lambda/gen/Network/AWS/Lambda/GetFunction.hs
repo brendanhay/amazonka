@@ -85,7 +85,7 @@ instance AWSRequest GetFunction where
               (\ s h x ->
                  GetFunctionResponse' <$>
                    (x .?> "Code") <*> (x .?> "Configuration") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders GetFunction where
         toHeaders = const mempty
@@ -114,11 +114,11 @@ instance ToQuery GetFunction where
 data GetFunctionResponse = GetFunctionResponse'
     { _gfrCode          :: !(Maybe FunctionCodeLocation)
     , _gfrConfiguration :: !(Maybe FunctionConfiguration)
-    , _gfrStatus        :: !Int
+    , _gfrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetFunctionResponse' smart constructor.
-getFunctionResponse :: Int -> GetFunctionResponse
+getFunctionResponse :: Status -> GetFunctionResponse
 getFunctionResponse pStatus =
     GetFunctionResponse'
     { _gfrCode = Nothing
@@ -135,5 +135,5 @@ gfrConfiguration :: Lens' GetFunctionResponse (Maybe FunctionConfiguration)
 gfrConfiguration = lens _gfrConfiguration (\ s a -> s{_gfrConfiguration = a});
 
 -- | FIXME: Undocumented member.
-gfrStatus :: Lens' GetFunctionResponse Int
+gfrStatus :: Lens' GetFunctionResponse Status
 gfrStatus = lens _gfrStatus (\ s a -> s{_gfrStatus = a});

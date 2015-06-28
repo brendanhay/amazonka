@@ -83,8 +83,7 @@ instance AWSRequest DeleteVPCEndpoints where
           = receiveXML
               (\ s h x ->
                  DeleteVPCEndpointsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders DeleteVPCEndpoints where
         toHeaders = const mempty
@@ -109,11 +108,11 @@ instance ToQuery DeleteVPCEndpoints where
 -- * 'dverStatus'
 data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
     { _dverUnsuccessful :: !(Maybe [UnsuccessfulItem])
-    , _dverStatus       :: !Int
+    , _dverStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteVPCEndpointsResponse' smart constructor.
-deleteVPCEndpointsResponse :: Int -> DeleteVPCEndpointsResponse
+deleteVPCEndpointsResponse :: Status -> DeleteVPCEndpointsResponse
 deleteVPCEndpointsResponse pStatus =
     DeleteVPCEndpointsResponse'
     { _dverUnsuccessful = Nothing
@@ -125,5 +124,5 @@ dverUnsuccessful :: Lens' DeleteVPCEndpointsResponse [UnsuccessfulItem]
 dverUnsuccessful = lens _dverUnsuccessful (\ s a -> s{_dverUnsuccessful = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dverStatus :: Lens' DeleteVPCEndpointsResponse Int
+dverStatus :: Lens' DeleteVPCEndpointsResponse Status
 dverStatus = lens _dverStatus (\ s a -> s{_dverStatus = a});

@@ -77,7 +77,7 @@ instance AWSRequest DisableGateway where
           = receiveJSON
               (\ s h x ->
                  DisableGatewayResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+                   (x .?> "GatewayARN") <*> (pure s))
 
 instance ToHeaders DisableGateway where
         toHeaders
@@ -110,11 +110,11 @@ instance ToQuery DisableGateway where
 -- * 'dStatus'
 data DisableGatewayResponse = DisableGatewayResponse'
     { _dGatewayARN :: !(Maybe Text)
-    , _dStatus     :: !Int
+    , _dStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DisableGatewayResponse' smart constructor.
-disableGatewayResponse :: Int -> DisableGatewayResponse
+disableGatewayResponse :: Status -> DisableGatewayResponse
 disableGatewayResponse pStatus =
     DisableGatewayResponse'
     { _dGatewayARN = Nothing
@@ -126,5 +126,5 @@ dGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 dGatewayARN = lens _dGatewayARN (\ s a -> s{_dGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DisableGatewayResponse Int
+dStatus :: Lens' DisableGatewayResponse Status
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

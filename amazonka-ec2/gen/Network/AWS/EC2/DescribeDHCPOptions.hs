@@ -117,8 +117,7 @@ instance AWSRequest DescribeDHCPOptions where
           = receiveXML
               (\ s h x ->
                  DescribeDHCPOptionsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders DescribeDHCPOptions where
         toHeaders = const mempty
@@ -145,11 +144,11 @@ instance ToQuery DescribeDHCPOptions where
 -- * 'ddorStatus'
 data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'
     { _ddorDHCPOptions :: !(Maybe [DHCPOptions])
-    , _ddorStatus      :: !Int
+    , _ddorStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDHCPOptionsResponse' smart constructor.
-describeDHCPOptionsResponse :: Int -> DescribeDHCPOptionsResponse
+describeDHCPOptionsResponse :: Status -> DescribeDHCPOptionsResponse
 describeDHCPOptionsResponse pStatus =
     DescribeDHCPOptionsResponse'
     { _ddorDHCPOptions = Nothing
@@ -161,5 +160,5 @@ ddorDHCPOptions :: Lens' DescribeDHCPOptionsResponse [DHCPOptions]
 ddorDHCPOptions = lens _ddorDHCPOptions (\ s a -> s{_ddorDHCPOptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddorStatus :: Lens' DescribeDHCPOptionsResponse Int
+ddorStatus :: Lens' DescribeDHCPOptionsResponse Status
 ddorStatus = lens _ddorStatus (\ s a -> s{_ddorStatus = a});

@@ -97,7 +97,7 @@ instance AWSRequest UploadSigningCertificate where
           = receiveXMLWrapper "UploadSigningCertificateResult"
               (\ s h x ->
                  UploadSigningCertificateResponse' <$>
-                   (x .@ "Certificate") <*> (pure (fromEnum s)))
+                   (x .@ "Certificate") <*> (pure s))
 
 instance ToHeaders UploadSigningCertificate where
         toHeaders = const mempty
@@ -125,11 +125,11 @@ instance ToQuery UploadSigningCertificate where
 -- * 'uscrStatus'
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
     { _uscrCertificate :: !SigningCertificate
-    , _uscrStatus      :: !Int
+    , _uscrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UploadSigningCertificateResponse' smart constructor.
-uploadSigningCertificateResponse :: SigningCertificate -> Int -> UploadSigningCertificateResponse
+uploadSigningCertificateResponse :: SigningCertificate -> Status -> UploadSigningCertificateResponse
 uploadSigningCertificateResponse pCertificate pStatus =
     UploadSigningCertificateResponse'
     { _uscrCertificate = pCertificate
@@ -141,5 +141,5 @@ uscrCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
 uscrCertificate = lens _uscrCertificate (\ s a -> s{_uscrCertificate = a});
 
 -- | FIXME: Undocumented member.
-uscrStatus :: Lens' UploadSigningCertificateResponse Int
+uscrStatus :: Lens' UploadSigningCertificateResponse Status
 uscrStatus = lens _uscrStatus (\ s a -> s{_uscrStatus = a});

@@ -79,7 +79,7 @@ instance AWSRequest GetInvalidation where
           = receiveXML
               (\ s h x ->
                  GetInvalidationResponse' <$>
-                   (x .@? "Invalidation") <*> (pure (fromEnum s)))
+                   (x .@? "Invalidation") <*> (pure s))
 
 instance ToHeaders GetInvalidation where
         toHeaders = const mempty
@@ -105,11 +105,11 @@ instance ToQuery GetInvalidation where
 -- * 'girStatus'
 data GetInvalidationResponse = GetInvalidationResponse'
     { _girInvalidation :: !(Maybe Invalidation)
-    , _girStatus       :: !Int
+    , _girStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetInvalidationResponse' smart constructor.
-getInvalidationResponse :: Int -> GetInvalidationResponse
+getInvalidationResponse :: Status -> GetInvalidationResponse
 getInvalidationResponse pStatus =
     GetInvalidationResponse'
     { _girInvalidation = Nothing
@@ -121,5 +121,5 @@ girInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
 girInvalidation = lens _girInvalidation (\ s a -> s{_girInvalidation = a});
 
 -- | FIXME: Undocumented member.
-girStatus :: Lens' GetInvalidationResponse Int
+girStatus :: Lens' GetInvalidationResponse Status
 girStatus = lens _girStatus (\ s a -> s{_girStatus = a});

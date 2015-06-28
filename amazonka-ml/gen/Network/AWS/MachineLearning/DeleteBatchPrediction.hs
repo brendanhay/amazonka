@@ -78,7 +78,7 @@ instance AWSRequest DeleteBatchPrediction where
           = receiveJSON
               (\ s h x ->
                  DeleteBatchPredictionResponse' <$>
-                   (x .?> "BatchPredictionId") <*> (pure (fromEnum s)))
+                   (x .?> "BatchPredictionId") <*> (pure s))
 
 instance ToHeaders DeleteBatchPrediction where
         toHeaders
@@ -116,11 +116,11 @@ instance ToQuery DeleteBatchPrediction where
 -- * 'dbprStatus'
 data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'
     { _dbprBatchPredictionId :: !(Maybe Text)
-    , _dbprStatus            :: !Int
+    , _dbprStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteBatchPredictionResponse' smart constructor.
-deleteBatchPredictionResponse :: Int -> DeleteBatchPredictionResponse
+deleteBatchPredictionResponse :: Status -> DeleteBatchPredictionResponse
 deleteBatchPredictionResponse pStatus =
     DeleteBatchPredictionResponse'
     { _dbprBatchPredictionId = Nothing
@@ -134,5 +134,5 @@ dbprBatchPredictionId :: Lens' DeleteBatchPredictionResponse (Maybe Text)
 dbprBatchPredictionId = lens _dbprBatchPredictionId (\ s a -> s{_dbprBatchPredictionId = a});
 
 -- | FIXME: Undocumented member.
-dbprStatus :: Lens' DeleteBatchPredictionResponse Int
+dbprStatus :: Lens' DeleteBatchPredictionResponse Status
 dbprStatus = lens _dbprStatus (\ s a -> s{_dbprStatus = a});

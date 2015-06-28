@@ -77,8 +77,7 @@ instance AWSRequest DeleteLoadBalancerListeners where
           = receiveXMLWrapper
               "DeleteLoadBalancerListenersResult"
               (\ s h x ->
-                 DeleteLoadBalancerListenersResponse' <$>
-                   (pure (fromEnum s)))
+                 DeleteLoadBalancerListenersResponse' <$> (pure s))
 
 instance ToHeaders DeleteLoadBalancerListeners where
         toHeaders = const mempty
@@ -102,16 +101,16 @@ instance ToQuery DeleteLoadBalancerListeners where
 --
 -- * 'dlblrStatus'
 newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse'
-    { _dlblrStatus :: Int
+    { _dlblrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteLoadBalancerListenersResponse' smart constructor.
-deleteLoadBalancerListenersResponse :: Int -> DeleteLoadBalancerListenersResponse
+deleteLoadBalancerListenersResponse :: Status -> DeleteLoadBalancerListenersResponse
 deleteLoadBalancerListenersResponse pStatus =
     DeleteLoadBalancerListenersResponse'
     { _dlblrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dlblrStatus :: Lens' DeleteLoadBalancerListenersResponse Int
+dlblrStatus :: Lens' DeleteLoadBalancerListenersResponse Status
 dlblrStatus = lens _dlblrStatus (\ s a -> s{_dlblrStatus = a});

@@ -113,7 +113,7 @@ instance AWSRequest ValidateConfigurationSettings
                  ValidateConfigurationSettingsResponse' <$>
                    (x .@? "Messages" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ValidateConfigurationSettings
          where
@@ -145,11 +145,11 @@ instance ToQuery ValidateConfigurationSettings where
 -- * 'vcsrStatus'
 data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'
     { _vcsrMessages :: !(Maybe [ValidationMessage])
-    , _vcsrStatus   :: !Int
+    , _vcsrStatus   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ValidateConfigurationSettingsResponse' smart constructor.
-validateConfigurationSettingsResponse :: Int -> ValidateConfigurationSettingsResponse
+validateConfigurationSettingsResponse :: Status -> ValidateConfigurationSettingsResponse
 validateConfigurationSettingsResponse pStatus =
     ValidateConfigurationSettingsResponse'
     { _vcsrMessages = Nothing
@@ -161,5 +161,5 @@ vcsrMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
 vcsrMessages = lens _vcsrMessages (\ s a -> s{_vcsrMessages = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-vcsrStatus :: Lens' ValidateConfigurationSettingsResponse Int
+vcsrStatus :: Lens' ValidateConfigurationSettingsResponse Status
 vcsrStatus = lens _vcsrStatus (\ s a -> s{_vcsrStatus = a});

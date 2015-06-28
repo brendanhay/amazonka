@@ -76,7 +76,7 @@ instance AWSRequest ListHAPGs where
               (\ s h x ->
                  ListHAPGsResponse' <$>
                    (x .?> "NextToken") <*> (x .?> "HapgList" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListHAPGs where
         toHeaders
@@ -109,11 +109,11 @@ instance ToQuery ListHAPGs where
 data ListHAPGsResponse = ListHAPGsResponse'
     { _lhrNextToken :: !(Maybe Text)
     , _lhrHAPGList  :: ![Text]
-    , _lhrStatus    :: !Int
+    , _lhrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListHAPGsResponse' smart constructor.
-listHAPGsResponse :: Int -> ListHAPGsResponse
+listHAPGsResponse :: Status -> ListHAPGsResponse
 listHAPGsResponse pStatus =
     ListHAPGsResponse'
     { _lhrNextToken = Nothing
@@ -131,5 +131,5 @@ lhrHAPGList :: Lens' ListHAPGsResponse [Text]
 lhrHAPGList = lens _lhrHAPGList (\ s a -> s{_lhrHAPGList = a});
 
 -- | FIXME: Undocumented member.
-lhrStatus :: Lens' ListHAPGsResponse Int
+lhrStatus :: Lens' ListHAPGsResponse Status
 lhrStatus = lens _lhrStatus (\ s a -> s{_lhrStatus = a});

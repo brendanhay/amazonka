@@ -138,7 +138,7 @@ instance AWSRequest UpdateTagsForDomain where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateTagsForDomainResponse' <$> (pure (fromEnum s)))
+                 UpdateTagsForDomainResponse' <$> (pure s))
 
 instance ToHeaders UpdateTagsForDomain where
         toHeaders
@@ -168,16 +168,16 @@ instance ToQuery UpdateTagsForDomain where
 --
 -- * 'utfdrStatus'
 newtype UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'
-    { _utfdrStatus :: Int
+    { _utfdrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateTagsForDomainResponse' smart constructor.
-updateTagsForDomainResponse :: Int -> UpdateTagsForDomainResponse
+updateTagsForDomainResponse :: Status -> UpdateTagsForDomainResponse
 updateTagsForDomainResponse pStatus =
     UpdateTagsForDomainResponse'
     { _utfdrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-utfdrStatus :: Lens' UpdateTagsForDomainResponse Int
+utfdrStatus :: Lens' UpdateTagsForDomainResponse Status
 utfdrStatus = lens _utfdrStatus (\ s a -> s{_utfdrStatus = a});

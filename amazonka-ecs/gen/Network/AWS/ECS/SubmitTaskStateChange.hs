@@ -101,7 +101,7 @@ instance AWSRequest SubmitTaskStateChange where
           = receiveJSON
               (\ s h x ->
                  SubmitTaskStateChangeResponse' <$>
-                   (x .?> "acknowledgment") <*> (pure (fromEnum s)))
+                   (x .?> "acknowledgment") <*> (pure s))
 
 instance ToHeaders SubmitTaskStateChange where
         toHeaders
@@ -134,11 +134,11 @@ instance ToQuery SubmitTaskStateChange where
 -- * 'stscrStatus'
 data SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'
     { _stscrAcknowledgment :: !(Maybe Text)
-    , _stscrStatus         :: !Int
+    , _stscrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'SubmitTaskStateChangeResponse' smart constructor.
-submitTaskStateChangeResponse :: Int -> SubmitTaskStateChangeResponse
+submitTaskStateChangeResponse :: Status -> SubmitTaskStateChangeResponse
 submitTaskStateChangeResponse pStatus =
     SubmitTaskStateChangeResponse'
     { _stscrAcknowledgment = Nothing
@@ -150,5 +150,5 @@ stscrAcknowledgment :: Lens' SubmitTaskStateChangeResponse (Maybe Text)
 stscrAcknowledgment = lens _stscrAcknowledgment (\ s a -> s{_stscrAcknowledgment = a});
 
 -- | FIXME: Undocumented member.
-stscrStatus :: Lens' SubmitTaskStateChangeResponse Int
+stscrStatus :: Lens' SubmitTaskStateChangeResponse Status
 stscrStatus = lens _stscrStatus (\ s a -> s{_stscrStatus = a});

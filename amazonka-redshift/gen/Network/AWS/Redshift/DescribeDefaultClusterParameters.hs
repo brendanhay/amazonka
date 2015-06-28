@@ -127,8 +127,7 @@ instance AWSRequest DescribeDefaultClusterParameters
               "DescribeDefaultClusterParametersResult"
               (\ s h x ->
                  DescribeDefaultClusterParametersResponse' <$>
-                   (x .@ "DefaultClusterParameters") <*>
-                     (pure (fromEnum s)))
+                   (x .@ "DefaultClusterParameters") <*> (pure s))
 
 instance ToHeaders DescribeDefaultClusterParameters
          where
@@ -158,11 +157,11 @@ instance ToQuery DescribeDefaultClusterParameters
 -- * 'ddcprStatus'
 data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'
     { _ddcprDefaultClusterParameters :: !DefaultClusterParameters
-    , _ddcprStatus                   :: !Int
+    , _ddcprStatus                   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDefaultClusterParametersResponse' smart constructor.
-describeDefaultClusterParametersResponse :: DefaultClusterParameters -> Int -> DescribeDefaultClusterParametersResponse
+describeDefaultClusterParametersResponse :: DefaultClusterParameters -> Status -> DescribeDefaultClusterParametersResponse
 describeDefaultClusterParametersResponse pDefaultClusterParameters pStatus =
     DescribeDefaultClusterParametersResponse'
     { _ddcprDefaultClusterParameters = pDefaultClusterParameters
@@ -174,5 +173,5 @@ ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse 
 ddcprDefaultClusterParameters = lens _ddcprDefaultClusterParameters (\ s a -> s{_ddcprDefaultClusterParameters = a});
 
 -- | FIXME: Undocumented member.
-ddcprStatus :: Lens' DescribeDefaultClusterParametersResponse Int
+ddcprStatus :: Lens' DescribeDefaultClusterParametersResponse Status
 ddcprStatus = lens _ddcprStatus (\ s a -> s{_ddcprStatus = a});

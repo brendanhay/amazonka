@@ -129,7 +129,7 @@ instance AWSRequest DescribeAlarmHistory where
                    (x .@? "AlarmHistoryItems" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "NextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeAlarmHistory where
         toHeaders = const mempty
@@ -163,11 +163,11 @@ instance ToQuery DescribeAlarmHistory where
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
     { _dahrAlarmHistoryItems :: !(Maybe [AlarmHistoryItem])
     , _dahrNextToken         :: !(Maybe Text)
-    , _dahrStatus            :: !Int
+    , _dahrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAlarmHistoryResponse' smart constructor.
-describeAlarmHistoryResponse :: Int -> DescribeAlarmHistoryResponse
+describeAlarmHistoryResponse :: Status -> DescribeAlarmHistoryResponse
 describeAlarmHistoryResponse pStatus =
     DescribeAlarmHistoryResponse'
     { _dahrAlarmHistoryItems = Nothing
@@ -184,5 +184,5 @@ dahrNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
 dahrNextToken = lens _dahrNextToken (\ s a -> s{_dahrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dahrStatus :: Lens' DescribeAlarmHistoryResponse Int
+dahrStatus :: Lens' DescribeAlarmHistoryResponse Status
 dahrStatus = lens _dahrStatus (\ s a -> s{_dahrStatus = a});

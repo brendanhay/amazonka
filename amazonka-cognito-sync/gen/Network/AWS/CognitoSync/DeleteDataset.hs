@@ -99,7 +99,7 @@ instance AWSRequest DeleteDataset where
           = receiveJSON
               (\ s h x ->
                  DeleteDatasetResponse' <$>
-                   (x .?> "Dataset") <*> (pure (fromEnum s)))
+                   (x .?> "Dataset") <*> (pure s))
 
 instance ToHeaders DeleteDataset where
         toHeaders
@@ -129,11 +129,11 @@ instance ToQuery DeleteDataset where
 -- * 'delStatus'
 data DeleteDatasetResponse = DeleteDatasetResponse'
     { _delDataset :: !(Maybe Dataset)
-    , _delStatus  :: !Int
+    , _delStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteDatasetResponse' smart constructor.
-deleteDatasetResponse :: Int -> DeleteDatasetResponse
+deleteDatasetResponse :: Status -> DeleteDatasetResponse
 deleteDatasetResponse pStatus =
     DeleteDatasetResponse'
     { _delDataset = Nothing
@@ -149,5 +149,5 @@ delDataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
 delDataset = lens _delDataset (\ s a -> s{_delDataset = a});
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteDatasetResponse Int
+delStatus :: Lens' DeleteDatasetResponse Status
 delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

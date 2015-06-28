@@ -122,7 +122,7 @@ instance AWSRequest DescribeVTLDevices where
                    (x .?> "GatewayARN") <*>
                      (x .?> "VTLDevices" .!@ mempty)
                      <*> (x .?> "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeVTLDevices where
         toHeaders
@@ -164,11 +164,11 @@ data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
     { _dvtldrGatewayARN :: !(Maybe Text)
     , _dvtldrVTLDevices :: !(Maybe [VTLDevice])
     , _dvtldrMarker     :: !(Maybe Text)
-    , _dvtldrStatus     :: !Int
+    , _dvtldrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVTLDevicesResponse' smart constructor.
-describeVTLDevicesResponse :: Int -> DescribeVTLDevicesResponse
+describeVTLDevicesResponse :: Status -> DescribeVTLDevicesResponse
 describeVTLDevicesResponse pStatus =
     DescribeVTLDevicesResponse'
     { _dvtldrGatewayARN = Nothing
@@ -195,5 +195,5 @@ dvtldrMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
 dvtldrMarker = lens _dvtldrMarker (\ s a -> s{_dvtldrMarker = a});
 
 -- | FIXME: Undocumented member.
-dvtldrStatus :: Lens' DescribeVTLDevicesResponse Int
+dvtldrStatus :: Lens' DescribeVTLDevicesResponse Status
 dvtldrStatus = lens _dvtldrStatus (\ s a -> s{_dvtldrStatus = a});

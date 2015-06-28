@@ -100,7 +100,7 @@ instance AWSRequest SetIdentityPoolConfiguration
                  SetIdentityPoolConfigurationResponse' <$>
                    (x .?> "IdentityPoolId") <*> (x .?> "CognitoStreams")
                      <*> (x .?> "PushSync")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders SetIdentityPoolConfiguration where
         toHeaders
@@ -141,11 +141,11 @@ data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse
     { _sipcrIdentityPoolId :: !(Maybe Text)
     , _sipcrCognitoStreams :: !(Maybe CognitoStreams)
     , _sipcrPushSync       :: !(Maybe PushSync)
-    , _sipcrStatus         :: !Int
+    , _sipcrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'SetIdentityPoolConfigurationResponse' smart constructor.
-setIdentityPoolConfigurationResponse :: Int -> SetIdentityPoolConfigurationResponse
+setIdentityPoolConfigurationResponse :: Status -> SetIdentityPoolConfigurationResponse
 setIdentityPoolConfigurationResponse pStatus =
     SetIdentityPoolConfigurationResponse'
     { _sipcrIdentityPoolId = Nothing
@@ -169,5 +169,5 @@ sipcrPushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
 sipcrPushSync = lens _sipcrPushSync (\ s a -> s{_sipcrPushSync = a});
 
 -- | FIXME: Undocumented member.
-sipcrStatus :: Lens' SetIdentityPoolConfigurationResponse Int
+sipcrStatus :: Lens' SetIdentityPoolConfigurationResponse Status
 sipcrStatus = lens _sipcrStatus (\ s a -> s{_sipcrStatus = a});

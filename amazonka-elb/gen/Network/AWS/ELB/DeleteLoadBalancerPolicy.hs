@@ -79,8 +79,7 @@ instance AWSRequest DeleteLoadBalancerPolicy where
         response
           = receiveXMLWrapper "DeleteLoadBalancerPolicyResult"
               (\ s h x ->
-                 DeleteLoadBalancerPolicyResponse' <$>
-                   (pure (fromEnum s)))
+                 DeleteLoadBalancerPolicyResponse' <$> (pure s))
 
 instance ToHeaders DeleteLoadBalancerPolicy where
         toHeaders = const mempty
@@ -103,16 +102,16 @@ instance ToQuery DeleteLoadBalancerPolicy where
 --
 -- * 'dStatus'
 newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
-    { _dStatus :: Int
+    { _dStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteLoadBalancerPolicyResponse' smart constructor.
-deleteLoadBalancerPolicyResponse :: Int -> DeleteLoadBalancerPolicyResponse
+deleteLoadBalancerPolicyResponse :: Status -> DeleteLoadBalancerPolicyResponse
 deleteLoadBalancerPolicyResponse pStatus =
     DeleteLoadBalancerPolicyResponse'
     { _dStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DeleteLoadBalancerPolicyResponse Int
+dStatus :: Lens' DeleteLoadBalancerPolicyResponse Status
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

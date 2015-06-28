@@ -60,7 +60,7 @@ instance AWSRequest ListSAMLProviders where
                  ListSAMLProvidersResponse' <$>
                    (x .@? "SAMLProviderList" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListSAMLProviders where
         toHeaders = const mempty
@@ -86,11 +86,11 @@ instance ToQuery ListSAMLProviders where
 -- * 'lsamlprStatus'
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
     { _lsamlprSAMLProviderList :: !(Maybe [SAMLProviderListEntry])
-    , _lsamlprStatus           :: !Int
+    , _lsamlprStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListSAMLProvidersResponse' smart constructor.
-listSAMLProvidersResponse :: Int -> ListSAMLProvidersResponse
+listSAMLProvidersResponse :: Status -> ListSAMLProvidersResponse
 listSAMLProvidersResponse pStatus =
     ListSAMLProvidersResponse'
     { _lsamlprSAMLProviderList = Nothing
@@ -102,5 +102,5 @@ lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntr
 lsamlprSAMLProviderList = lens _lsamlprSAMLProviderList (\ s a -> s{_lsamlprSAMLProviderList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lsamlprStatus :: Lens' ListSAMLProvidersResponse Int
+lsamlprStatus :: Lens' ListSAMLProvidersResponse Status
 lsamlprStatus = lens _lsamlprStatus (\ s a -> s{_lsamlprStatus = a});

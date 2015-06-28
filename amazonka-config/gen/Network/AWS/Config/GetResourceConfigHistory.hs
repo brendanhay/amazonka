@@ -143,7 +143,7 @@ instance AWSRequest GetResourceConfigHistory where
                  GetResourceConfigHistoryResponse' <$>
                    (x .?> "nextToken") <*>
                      (x .?> "configurationItems" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetResourceConfigHistory where
         toHeaders
@@ -185,11 +185,11 @@ instance ToQuery GetResourceConfigHistory where
 data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'
     { _grchrNextToken          :: !(Maybe Text)
     , _grchrConfigurationItems :: !(Maybe [ConfigurationItem])
-    , _grchrStatus             :: !Int
+    , _grchrStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetResourceConfigHistoryResponse' smart constructor.
-getResourceConfigHistoryResponse :: Int -> GetResourceConfigHistoryResponse
+getResourceConfigHistoryResponse :: Status -> GetResourceConfigHistoryResponse
 getResourceConfigHistoryResponse pStatus =
     GetResourceConfigHistoryResponse'
     { _grchrNextToken = Nothing
@@ -206,5 +206,5 @@ grchrConfigurationItems :: Lens' GetResourceConfigHistoryResponse [Configuration
 grchrConfigurationItems = lens _grchrConfigurationItems (\ s a -> s{_grchrConfigurationItems = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-grchrStatus :: Lens' GetResourceConfigHistoryResponse Int
+grchrStatus :: Lens' GetResourceConfigHistoryResponse Status
 grchrStatus = lens _grchrStatus (\ s a -> s{_grchrStatus = a});

@@ -118,7 +118,7 @@ instance AWSRequest ListHealthChecks where
                      <*> (x .@ "Marker")
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListHealthChecks where
         toHeaders = const mempty
@@ -154,11 +154,11 @@ data ListHealthChecksResponse = ListHealthChecksResponse'
     , _lhcrMarker       :: !Text
     , _lhcrIsTruncated  :: !Bool
     , _lhcrMaxItems     :: !Text
-    , _lhcrStatus       :: !Int
+    , _lhcrStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListHealthChecksResponse' smart constructor.
-listHealthChecksResponse :: Text -> Bool -> Text -> Int -> ListHealthChecksResponse
+listHealthChecksResponse :: Text -> Bool -> Text -> Status -> ListHealthChecksResponse
 listHealthChecksResponse pMarker pIsTruncated pMaxItems pStatus =
     ListHealthChecksResponse'
     { _lhcrNextMarker = Nothing
@@ -205,5 +205,5 @@ lhcrMaxItems :: Lens' ListHealthChecksResponse Text
 lhcrMaxItems = lens _lhcrMaxItems (\ s a -> s{_lhcrMaxItems = a});
 
 -- | FIXME: Undocumented member.
-lhcrStatus :: Lens' ListHealthChecksResponse Int
+lhcrStatus :: Lens' ListHealthChecksResponse Status
 lhcrStatus = lens _lhcrStatus (\ s a -> s{_lhcrStatus = a});

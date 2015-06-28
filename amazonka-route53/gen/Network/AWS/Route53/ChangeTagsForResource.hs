@@ -105,8 +105,7 @@ instance AWSRequest ChangeTagsForResource where
         response
           = receiveXML
               (\ s h x ->
-                 ChangeTagsForResourceResponse' <$>
-                   (pure (fromEnum s)))
+                 ChangeTagsForResourceResponse' <$> (pure s))
 
 instance ToElement ChangeTagsForResource where
         toElement
@@ -141,16 +140,16 @@ instance ToXML ChangeTagsForResource where
 --
 -- * 'ctfrrStatus'
 newtype ChangeTagsForResourceResponse = ChangeTagsForResourceResponse'
-    { _ctfrrStatus :: Int
+    { _ctfrrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'ChangeTagsForResourceResponse' smart constructor.
-changeTagsForResourceResponse :: Int -> ChangeTagsForResourceResponse
+changeTagsForResourceResponse :: Status -> ChangeTagsForResourceResponse
 changeTagsForResourceResponse pStatus =
     ChangeTagsForResourceResponse'
     { _ctfrrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ctfrrStatus :: Lens' ChangeTagsForResourceResponse Int
+ctfrrStatus :: Lens' ChangeTagsForResourceResponse Status
 ctfrrStatus = lens _ctfrrStatus (\ s a -> s{_ctfrrStatus = a});

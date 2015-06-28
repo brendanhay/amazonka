@@ -174,7 +174,7 @@ instance AWSRequest CreateDataSourceFromRDS where
           = receiveJSON
               (\ s h x ->
                  CreateDataSourceFromRDSResponse' <$>
-                   (x .?> "DataSourceId") <*> (pure (fromEnum s)))
+                   (x .?> "DataSourceId") <*> (pure s))
 
 instance ToHeaders CreateDataSourceFromRDS where
         toHeaders
@@ -219,11 +219,11 @@ instance ToQuery CreateDataSourceFromRDS where
 -- * 'cStatus'
 data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'
     { _cDataSourceId :: !(Maybe Text)
-    , _cStatus       :: !Int
+    , _cStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDataSourceFromRDSResponse' smart constructor.
-createDataSourceFromRDSResponse :: Int -> CreateDataSourceFromRDSResponse
+createDataSourceFromRDSResponse :: Status -> CreateDataSourceFromRDSResponse
 createDataSourceFromRDSResponse pStatus =
     CreateDataSourceFromRDSResponse'
     { _cDataSourceId = Nothing
@@ -236,5 +236,5 @@ cDataSourceId :: Lens' CreateDataSourceFromRDSResponse (Maybe Text)
 cDataSourceId = lens _cDataSourceId (\ s a -> s{_cDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-cStatus :: Lens' CreateDataSourceFromRDSResponse Int
+cStatus :: Lens' CreateDataSourceFromRDSResponse Status
 cStatus = lens _cStatus (\ s a -> s{_cStatus = a});

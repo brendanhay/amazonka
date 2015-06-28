@@ -73,7 +73,7 @@ instance AWSRequest GetReusableDelegationSet where
           = receiveXML
               (\ s h x ->
                  GetReusableDelegationSetResponse' <$>
-                   (x .@ "DelegationSet") <*> (pure (fromEnum s)))
+                   (x .@ "DelegationSet") <*> (pure s))
 
 instance ToHeaders GetReusableDelegationSet where
         toHeaders = const mempty
@@ -98,11 +98,11 @@ instance ToQuery GetReusableDelegationSet where
 -- * 'grdsrStatus'
 data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
     { _grdsrDelegationSet :: !DelegationSet
-    , _grdsrStatus        :: !Int
+    , _grdsrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetReusableDelegationSetResponse' smart constructor.
-getReusableDelegationSetResponse :: DelegationSet -> Int -> GetReusableDelegationSetResponse
+getReusableDelegationSetResponse :: DelegationSet -> Status -> GetReusableDelegationSetResponse
 getReusableDelegationSetResponse pDelegationSet pStatus =
     GetReusableDelegationSetResponse'
     { _grdsrDelegationSet = pDelegationSet
@@ -115,5 +115,5 @@ grdsrDelegationSet :: Lens' GetReusableDelegationSetResponse DelegationSet
 grdsrDelegationSet = lens _grdsrDelegationSet (\ s a -> s{_grdsrDelegationSet = a});
 
 -- | FIXME: Undocumented member.
-grdsrStatus :: Lens' GetReusableDelegationSetResponse Int
+grdsrStatus :: Lens' GetReusableDelegationSetResponse Status
 grdsrStatus = lens _grdsrStatus (\ s a -> s{_grdsrStatus = a});

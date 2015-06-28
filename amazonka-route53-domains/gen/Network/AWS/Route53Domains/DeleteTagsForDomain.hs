@@ -103,7 +103,7 @@ instance AWSRequest DeleteTagsForDomain where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteTagsForDomainResponse' <$> (pure (fromEnum s)))
+                 DeleteTagsForDomainResponse' <$> (pure s))
 
 instance ToHeaders DeleteTagsForDomain where
         toHeaders
@@ -133,16 +133,16 @@ instance ToQuery DeleteTagsForDomain where
 --
 -- * 'dtfdrStatus'
 newtype DeleteTagsForDomainResponse = DeleteTagsForDomainResponse'
-    { _dtfdrStatus :: Int
+    { _dtfdrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteTagsForDomainResponse' smart constructor.
-deleteTagsForDomainResponse :: Int -> DeleteTagsForDomainResponse
+deleteTagsForDomainResponse :: Status -> DeleteTagsForDomainResponse
 deleteTagsForDomainResponse pStatus =
     DeleteTagsForDomainResponse'
     { _dtfdrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dtfdrStatus :: Lens' DeleteTagsForDomainResponse Int
+dtfdrStatus :: Lens' DeleteTagsForDomainResponse Status
 dtfdrStatus = lens _dtfdrStatus (\ s a -> s{_dtfdrStatus = a});

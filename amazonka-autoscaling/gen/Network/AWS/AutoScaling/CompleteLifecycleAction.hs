@@ -118,8 +118,7 @@ instance AWSRequest CompleteLifecycleAction where
         response
           = receiveXMLWrapper "CompleteLifecycleActionResult"
               (\ s h x ->
-                 CompleteLifecycleActionResponse' <$>
-                   (pure (fromEnum s)))
+                 CompleteLifecycleActionResponse' <$> (pure s))
 
 instance ToHeaders CompleteLifecycleAction where
         toHeaders = const mempty
@@ -144,16 +143,16 @@ instance ToQuery CompleteLifecycleAction where
 --
 -- * 'clarStatus'
 newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
-    { _clarStatus :: Int
+    { _clarStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'CompleteLifecycleActionResponse' smart constructor.
-completeLifecycleActionResponse :: Int -> CompleteLifecycleActionResponse
+completeLifecycleActionResponse :: Status -> CompleteLifecycleActionResponse
 completeLifecycleActionResponse pStatus =
     CompleteLifecycleActionResponse'
     { _clarStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-clarStatus :: Lens' CompleteLifecycleActionResponse Int
+clarStatus :: Lens' CompleteLifecycleActionResponse Status
 clarStatus = lens _clarStatus (\ s a -> s{_clarStatus = a});

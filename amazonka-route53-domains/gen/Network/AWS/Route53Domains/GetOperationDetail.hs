@@ -88,7 +88,7 @@ instance AWSRequest GetOperationDetail where
                      (x .?> "OperationId")
                      <*> (x .?> "Type")
                      <*> (x .?> "Message")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetOperationDetail where
         toHeaders
@@ -133,11 +133,11 @@ data GetOperationDetailResponse = GetOperationDetailResponse'
     , _godrOperationId   :: !(Maybe Text)
     , _godrType          :: !(Maybe OperationType)
     , _godrMessage       :: !(Maybe Text)
-    , _godrStatus        :: !Int
+    , _godrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetOperationDetailResponse' smart constructor.
-getOperationDetailResponse :: Int -> GetOperationDetailResponse
+getOperationDetailResponse :: Status -> GetOperationDetailResponse
 getOperationDetailResponse pStatus =
     GetOperationDetailResponse'
     { _godrSubmittedDate = Nothing
@@ -177,5 +177,5 @@ godrMessage :: Lens' GetOperationDetailResponse (Maybe Text)
 godrMessage = lens _godrMessage (\ s a -> s{_godrMessage = a});
 
 -- | FIXME: Undocumented member.
-godrStatus :: Lens' GetOperationDetailResponse Int
+godrStatus :: Lens' GetOperationDetailResponse Status
 godrStatus = lens _godrStatus (\ s a -> s{_godrStatus = a});

@@ -110,7 +110,7 @@ instance AWSRequest DescribeWorkspaceBundles where
               (\ s h x ->
                  DescribeWorkspaceBundlesResponse' <$>
                    (x .?> "Bundles" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeWorkspaceBundles where
         toHeaders
@@ -148,11 +148,11 @@ instance ToQuery DescribeWorkspaceBundles where
 data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
     { _dwbrBundles   :: !(Maybe [WorkspaceBundle])
     , _dwbrNextToken :: !(Maybe Text)
-    , _dwbrStatus    :: !Int
+    , _dwbrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkspaceBundlesResponse' smart constructor.
-describeWorkspaceBundlesResponse :: Int -> DescribeWorkspaceBundlesResponse
+describeWorkspaceBundlesResponse :: Status -> DescribeWorkspaceBundlesResponse
 describeWorkspaceBundlesResponse pStatus =
     DescribeWorkspaceBundlesResponse'
     { _dwbrBundles = Nothing
@@ -172,5 +172,5 @@ dwbrNextToken :: Lens' DescribeWorkspaceBundlesResponse (Maybe Text)
 dwbrNextToken = lens _dwbrNextToken (\ s a -> s{_dwbrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dwbrStatus :: Lens' DescribeWorkspaceBundlesResponse Int
+dwbrStatus :: Lens' DescribeWorkspaceBundlesResponse Status
 dwbrStatus = lens _dwbrStatus (\ s a -> s{_dwbrStatus = a});

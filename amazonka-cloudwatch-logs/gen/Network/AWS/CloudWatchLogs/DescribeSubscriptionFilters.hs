@@ -108,7 +108,7 @@ instance AWSRequest DescribeSubscriptionFilters where
                  DescribeSubscriptionFiltersResponse' <$>
                    (x .?> "subscriptionFilters" .!@ mempty) <*>
                      (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeSubscriptionFilters where
         toHeaders
@@ -145,11 +145,11 @@ instance ToQuery DescribeSubscriptionFilters where
 data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
     { _dsfrSubscriptionFilters :: !(Maybe [SubscriptionFilter])
     , _dsfrNextToken           :: !(Maybe Text)
-    , _dsfrStatus              :: !Int
+    , _dsfrStatus              :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSubscriptionFiltersResponse' smart constructor.
-describeSubscriptionFiltersResponse :: Int -> DescribeSubscriptionFiltersResponse
+describeSubscriptionFiltersResponse :: Status -> DescribeSubscriptionFiltersResponse
 describeSubscriptionFiltersResponse pStatus =
     DescribeSubscriptionFiltersResponse'
     { _dsfrSubscriptionFilters = Nothing
@@ -166,5 +166,5 @@ dsfrNextToken :: Lens' DescribeSubscriptionFiltersResponse (Maybe Text)
 dsfrNextToken = lens _dsfrNextToken (\ s a -> s{_dsfrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dsfrStatus :: Lens' DescribeSubscriptionFiltersResponse Int
+dsfrStatus :: Lens' DescribeSubscriptionFiltersResponse Status
 dsfrStatus = lens _dsfrStatus (\ s a -> s{_dsfrStatus = a});

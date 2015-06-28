@@ -114,7 +114,7 @@ instance AWSRequest ListInstanceProfilesForRole where
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "InstanceProfiles" .!@ mempty >>=
                         parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListInstanceProfilesForRole where
         toHeaders = const mempty
@@ -150,11 +150,11 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
     { _lipfrrMarker           :: !(Maybe Text)
     , _lipfrrIsTruncated      :: !(Maybe Bool)
     , _lipfrrInstanceProfiles :: ![InstanceProfile]
-    , _lipfrrStatus           :: !Int
+    , _lipfrrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListInstanceProfilesForRoleResponse' smart constructor.
-listInstanceProfilesForRoleResponse :: Int -> ListInstanceProfilesForRoleResponse
+listInstanceProfilesForRoleResponse :: Status -> ListInstanceProfilesForRoleResponse
 listInstanceProfilesForRoleResponse pStatus =
     ListInstanceProfilesForRoleResponse'
     { _lipfrrMarker = Nothing
@@ -181,5 +181,5 @@ lipfrrInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstancePro
 lipfrrInstanceProfiles = lens _lipfrrInstanceProfiles (\ s a -> s{_lipfrrInstanceProfiles = a});
 
 -- | FIXME: Undocumented member.
-lipfrrStatus :: Lens' ListInstanceProfilesForRoleResponse Int
+lipfrrStatus :: Lens' ListInstanceProfilesForRoleResponse Status
 lipfrrStatus = lens _lipfrrStatus (\ s a -> s{_lipfrrStatus = a});

@@ -103,7 +103,7 @@ instance AWSRequest DescribeExpressions where
                  DescribeExpressionsResponse' <$>
                    (x .@? "Expressions" .!@ mempty >>=
                       parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeExpressions where
         toHeaders = const mempty
@@ -134,11 +134,11 @@ instance ToQuery DescribeExpressions where
 -- * 'desStatus'
 data DescribeExpressionsResponse = DescribeExpressionsResponse'
     { _desExpressions :: ![ExpressionStatus]
-    , _desStatus      :: !Int
+    , _desStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeExpressionsResponse' smart constructor.
-describeExpressionsResponse :: Int -> DescribeExpressionsResponse
+describeExpressionsResponse :: Status -> DescribeExpressionsResponse
 describeExpressionsResponse pStatus =
     DescribeExpressionsResponse'
     { _desExpressions = mempty
@@ -150,5 +150,5 @@ desExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
 desExpressions = lens _desExpressions (\ s a -> s{_desExpressions = a});
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeExpressionsResponse Int
+desStatus :: Lens' DescribeExpressionsResponse Status
 desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

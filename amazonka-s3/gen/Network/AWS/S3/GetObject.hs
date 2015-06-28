@@ -284,7 +284,7 @@ instance AWSRequest GetObject where
                      <*> (h .#? "Content-Disposition")
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (h .#? "Content-Type")
-                     <*> (pure (fromEnum s))
+                     <*> (pure s)
                      <*> (pure x))
 
 instance ToHeaders GetObject where
@@ -398,12 +398,12 @@ data GetObjectResponse = GetObjectResponse'
     , _gorContentDisposition      :: !(Maybe Text)
     , _gorServerSideEncryption    :: !(Maybe ServerSideEncryption)
     , _gorContentType             :: !(Maybe Text)
-    , _gorStatus                  :: !Int
+    , _gorStatus                  :: !Status
     , _gorBody                    :: !RsBody
     } deriving (Show)
 
 -- | 'GetObjectResponse' smart constructor.
-getObjectResponse :: Int -> RsBody -> GetObjectResponse
+getObjectResponse :: Status -> RsBody -> GetObjectResponse
 getObjectResponse pStatus pBody =
     GetObjectResponse'
     { _gorVersionId = Nothing
@@ -547,7 +547,7 @@ gorContentType :: Lens' GetObjectResponse (Maybe Text)
 gorContentType = lens _gorContentType (\ s a -> s{_gorContentType = a});
 
 -- | FIXME: Undocumented member.
-gorStatus :: Lens' GetObjectResponse Int
+gorStatus :: Lens' GetObjectResponse Status
 gorStatus = lens _gorStatus (\ s a -> s{_gorStatus = a});
 
 -- | Object data.

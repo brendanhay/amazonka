@@ -221,7 +221,7 @@ instance AWSRequest InitiateJob where
               (\ s h x ->
                  InitiateJobResponse' <$>
                    (h .#? "x-amz-job-id") <*> (h .#? "Location") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders InitiateJob where
         toHeaders = const mempty
@@ -253,11 +253,11 @@ instance ToQuery InitiateJob where
 data InitiateJobResponse = InitiateJobResponse'
     { _ijrJobId    :: !(Maybe Text)
     , _ijrLocation :: !(Maybe Text)
-    , _ijrStatus   :: !Int
+    , _ijrStatus   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'InitiateJobResponse' smart constructor.
-initiateJobResponse :: Int -> InitiateJobResponse
+initiateJobResponse :: Status -> InitiateJobResponse
 initiateJobResponse pStatus =
     InitiateJobResponse'
     { _ijrJobId = Nothing
@@ -274,5 +274,5 @@ ijrLocation :: Lens' InitiateJobResponse (Maybe Text)
 ijrLocation = lens _ijrLocation (\ s a -> s{_ijrLocation = a});
 
 -- | FIXME: Undocumented member.
-ijrStatus :: Lens' InitiateJobResponse Int
+ijrStatus :: Lens' InitiateJobResponse Status
 ijrStatus = lens _ijrStatus (\ s a -> s{_ijrStatus = a});

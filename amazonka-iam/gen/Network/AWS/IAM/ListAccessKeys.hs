@@ -119,7 +119,7 @@ instance AWSRequest ListAccessKeys where
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "AccessKeyMetadata" .!@ mempty >>=
                         parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListAccessKeys where
         toHeaders = const mempty
@@ -152,11 +152,11 @@ data ListAccessKeysResponse = ListAccessKeysResponse'
     { _lakrMarker            :: !(Maybe Text)
     , _lakrIsTruncated       :: !(Maybe Bool)
     , _lakrAccessKeyMetadata :: ![AccessKeyMetadata]
-    , _lakrStatus            :: !Int
+    , _lakrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListAccessKeysResponse' smart constructor.
-listAccessKeysResponse :: Int -> ListAccessKeysResponse
+listAccessKeysResponse :: Status -> ListAccessKeysResponse
 listAccessKeysResponse pStatus =
     ListAccessKeysResponse'
     { _lakrMarker = Nothing
@@ -182,5 +182,5 @@ lakrAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
 lakrAccessKeyMetadata = lens _lakrAccessKeyMetadata (\ s a -> s{_lakrAccessKeyMetadata = a});
 
 -- | FIXME: Undocumented member.
-lakrStatus :: Lens' ListAccessKeysResponse Int
+lakrStatus :: Lens' ListAccessKeysResponse Status
 lakrStatus = lens _lakrStatus (\ s a -> s{_lakrStatus = a});

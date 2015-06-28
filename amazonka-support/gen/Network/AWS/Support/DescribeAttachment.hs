@@ -74,7 +74,7 @@ instance AWSRequest DescribeAttachment where
           = receiveJSON
               (\ s h x ->
                  DescribeAttachmentResponse' <$>
-                   (x .?> "attachment") <*> (pure (fromEnum s)))
+                   (x .?> "attachment") <*> (pure s))
 
 instance ToHeaders DescribeAttachment where
         toHeaders
@@ -108,11 +108,11 @@ instance ToQuery DescribeAttachment where
 -- * 'darStatus'
 data DescribeAttachmentResponse = DescribeAttachmentResponse'
     { _darAttachment :: !(Maybe Attachment)
-    , _darStatus     :: !Int
+    , _darStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAttachmentResponse' smart constructor.
-describeAttachmentResponse :: Int -> DescribeAttachmentResponse
+describeAttachmentResponse :: Status -> DescribeAttachmentResponse
 describeAttachmentResponse pStatus =
     DescribeAttachmentResponse'
     { _darAttachment = Nothing
@@ -124,5 +124,5 @@ darAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
 darAttachment = lens _darAttachment (\ s a -> s{_darAttachment = a});
 
 -- | FIXME: Undocumented member.
-darStatus :: Lens' DescribeAttachmentResponse Int
+darStatus :: Lens' DescribeAttachmentResponse Status
 darStatus = lens _darStatus (\ s a -> s{_darStatus = a});

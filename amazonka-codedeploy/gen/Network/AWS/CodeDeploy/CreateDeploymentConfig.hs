@@ -97,7 +97,7 @@ instance AWSRequest CreateDeploymentConfig where
           = receiveJSON
               (\ s h x ->
                  CreateDeploymentConfigResponse' <$>
-                   (x .?> "deploymentConfigId") <*> (pure (fromEnum s)))
+                   (x .?> "deploymentConfigId") <*> (pure s))
 
 instance ToHeaders CreateDeploymentConfig where
         toHeaders
@@ -132,11 +132,11 @@ instance ToQuery CreateDeploymentConfig where
 -- * 'cdcrStatus'
 data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'
     { _cdcrDeploymentConfigId :: !(Maybe Text)
-    , _cdcrStatus             :: !Int
+    , _cdcrStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDeploymentConfigResponse' smart constructor.
-createDeploymentConfigResponse :: Int -> CreateDeploymentConfigResponse
+createDeploymentConfigResponse :: Status -> CreateDeploymentConfigResponse
 createDeploymentConfigResponse pStatus =
     CreateDeploymentConfigResponse'
     { _cdcrDeploymentConfigId = Nothing
@@ -148,5 +148,5 @@ cdcrDeploymentConfigId :: Lens' CreateDeploymentConfigResponse (Maybe Text)
 cdcrDeploymentConfigId = lens _cdcrDeploymentConfigId (\ s a -> s{_cdcrDeploymentConfigId = a});
 
 -- | FIXME: Undocumented member.
-cdcrStatus :: Lens' CreateDeploymentConfigResponse Int
+cdcrStatus :: Lens' CreateDeploymentConfigResponse Status
 cdcrStatus = lens _cdcrStatus (\ s a -> s{_cdcrStatus = a});

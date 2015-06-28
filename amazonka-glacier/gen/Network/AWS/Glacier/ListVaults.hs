@@ -121,7 +121,7 @@ instance AWSRequest ListVaults where
               (\ s h x ->
                  ListVaultsResponse' <$>
                    (x .?> "Marker") <*> (x .?> "VaultList" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListVaults where
         toHeaders = const mempty
@@ -149,11 +149,11 @@ instance ToQuery ListVaults where
 data ListVaultsResponse = ListVaultsResponse'
     { _lvrMarker    :: !(Maybe Text)
     , _lvrVaultList :: !(Maybe [DescribeVaultOutput])
-    , _lvrStatus    :: !Int
+    , _lvrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListVaultsResponse' smart constructor.
-listVaultsResponse :: Int -> ListVaultsResponse
+listVaultsResponse :: Status -> ListVaultsResponse
 listVaultsResponse pStatus =
     ListVaultsResponse'
     { _lvrMarker = Nothing
@@ -172,5 +172,5 @@ lvrVaultList :: Lens' ListVaultsResponse [DescribeVaultOutput]
 lvrVaultList = lens _lvrVaultList (\ s a -> s{_lvrVaultList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lvrStatus :: Lens' ListVaultsResponse Int
+lvrStatus :: Lens' ListVaultsResponse Status
 lvrStatus = lens _lvrStatus (\ s a -> s{_lvrStatus = a});

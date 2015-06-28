@@ -85,8 +85,7 @@ instance AWSRequest DescribePermissions where
           = receiveJSON
               (\ s h x ->
                  DescribePermissionsResponse' <$>
-                   (x .?> "Permissions" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+                   (x .?> "Permissions" .!@ mempty) <*> (pure s))
 
 instance ToHeaders DescribePermissions where
         toHeaders
@@ -121,11 +120,11 @@ instance ToQuery DescribePermissions where
 -- * 'dprStatus'
 data DescribePermissionsResponse = DescribePermissionsResponse'
     { _dprPermissions :: !(Maybe [Permission])
-    , _dprStatus      :: !Int
+    , _dprStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribePermissionsResponse' smart constructor.
-describePermissionsResponse :: Int -> DescribePermissionsResponse
+describePermissionsResponse :: Status -> DescribePermissionsResponse
 describePermissionsResponse pStatus =
     DescribePermissionsResponse'
     { _dprPermissions = Nothing
@@ -146,5 +145,5 @@ dprPermissions :: Lens' DescribePermissionsResponse [Permission]
 dprPermissions = lens _dprPermissions (\ s a -> s{_dprPermissions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dprStatus :: Lens' DescribePermissionsResponse Int
+dprStatus :: Lens' DescribePermissionsResponse Status
 dprStatus = lens _dprStatus (\ s a -> s{_dprStatus = a});

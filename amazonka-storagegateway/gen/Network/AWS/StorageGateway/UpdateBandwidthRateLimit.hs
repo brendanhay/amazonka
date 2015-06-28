@@ -103,7 +103,7 @@ instance AWSRequest UpdateBandwidthRateLimit where
           = receiveJSON
               (\ s h x ->
                  UpdateBandwidthRateLimitResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+                   (x .?> "GatewayARN") <*> (pure s))
 
 instance ToHeaders UpdateBandwidthRateLimit where
         toHeaders
@@ -142,11 +142,11 @@ instance ToQuery UpdateBandwidthRateLimit where
 -- * 'ubrlrStatus'
 data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'
     { _ubrlrGatewayARN :: !(Maybe Text)
-    , _ubrlrStatus     :: !Int
+    , _ubrlrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateBandwidthRateLimitResponse' smart constructor.
-updateBandwidthRateLimitResponse :: Int -> UpdateBandwidthRateLimitResponse
+updateBandwidthRateLimitResponse :: Status -> UpdateBandwidthRateLimitResponse
 updateBandwidthRateLimitResponse pStatus =
     UpdateBandwidthRateLimitResponse'
     { _ubrlrGatewayARN = Nothing
@@ -158,5 +158,5 @@ ubrlrGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
 ubrlrGatewayARN = lens _ubrlrGatewayARN (\ s a -> s{_ubrlrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-ubrlrStatus :: Lens' UpdateBandwidthRateLimitResponse Int
+ubrlrStatus :: Lens' UpdateBandwidthRateLimitResponse Status
 ubrlrStatus = lens _ubrlrStatus (\ s a -> s{_ubrlrStatus = a});

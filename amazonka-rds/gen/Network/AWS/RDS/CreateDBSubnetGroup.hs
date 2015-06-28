@@ -105,7 +105,7 @@ instance AWSRequest CreateDBSubnetGroup where
           = receiveXMLWrapper "CreateDBSubnetGroupResult"
               (\ s h x ->
                  CreateDBSubnetGroupResponse' <$>
-                   (x .@? "DBSubnetGroup") <*> (pure (fromEnum s)))
+                   (x .@? "DBSubnetGroup") <*> (pure s))
 
 instance ToHeaders CreateDBSubnetGroup where
         toHeaders = const mempty
@@ -134,11 +134,11 @@ instance ToQuery CreateDBSubnetGroup where
 -- * 'cdsgrStatus'
 data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'
     { _cdsgrDBSubnetGroup :: !(Maybe DBSubnetGroup)
-    , _cdsgrStatus        :: !Int
+    , _cdsgrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDBSubnetGroupResponse' smart constructor.
-createDBSubnetGroupResponse :: Int -> CreateDBSubnetGroupResponse
+createDBSubnetGroupResponse :: Status -> CreateDBSubnetGroupResponse
 createDBSubnetGroupResponse pStatus =
     CreateDBSubnetGroupResponse'
     { _cdsgrDBSubnetGroup = Nothing
@@ -150,5 +150,5 @@ cdsgrDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
 cdsgrDBSubnetGroup = lens _cdsgrDBSubnetGroup (\ s a -> s{_cdsgrDBSubnetGroup = a});
 
 -- | FIXME: Undocumented member.
-cdsgrStatus :: Lens' CreateDBSubnetGroupResponse Int
+cdsgrStatus :: Lens' CreateDBSubnetGroupResponse Status
 cdsgrStatus = lens _cdsgrStatus (\ s a -> s{_cdsgrStatus = a});

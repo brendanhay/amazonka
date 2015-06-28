@@ -76,7 +76,7 @@ instance AWSRequest DescribeStackSummary where
           = receiveJSON
               (\ s h x ->
                  DescribeStackSummaryResponse' <$>
-                   (x .?> "StackSummary") <*> (pure (fromEnum s)))
+                   (x .?> "StackSummary") <*> (pure s))
 
 instance ToHeaders DescribeStackSummary where
         toHeaders
@@ -109,11 +109,11 @@ instance ToQuery DescribeStackSummary where
 -- * 'dssrStatus'
 data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
     { _dssrStackSummary :: !(Maybe StackSummary)
-    , _dssrStatus       :: !Int
+    , _dssrStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackSummaryResponse' smart constructor.
-describeStackSummaryResponse :: Int -> DescribeStackSummaryResponse
+describeStackSummaryResponse :: Status -> DescribeStackSummaryResponse
 describeStackSummaryResponse pStatus =
     DescribeStackSummaryResponse'
     { _dssrStackSummary = Nothing
@@ -125,5 +125,5 @@ dssrStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
 dssrStackSummary = lens _dssrStackSummary (\ s a -> s{_dssrStackSummary = a});
 
 -- | FIXME: Undocumented member.
-dssrStatus :: Lens' DescribeStackSummaryResponse Int
+dssrStatus :: Lens' DescribeStackSummaryResponse Status
 dssrStatus = lens _dssrStatus (\ s a -> s{_dssrStatus = a});

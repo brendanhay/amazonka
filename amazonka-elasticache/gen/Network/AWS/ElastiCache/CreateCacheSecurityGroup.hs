@@ -94,7 +94,7 @@ instance AWSRequest CreateCacheSecurityGroup where
           = receiveXMLWrapper "CreateCacheSecurityGroupResult"
               (\ s h x ->
                  CreateCacheSecurityGroupResponse' <$>
-                   (x .@? "CacheSecurityGroup") <*> (pure (fromEnum s)))
+                   (x .@? "CacheSecurityGroup") <*> (pure s))
 
 instance ToHeaders CreateCacheSecurityGroup where
         toHeaders = const mempty
@@ -121,11 +121,11 @@ instance ToQuery CreateCacheSecurityGroup where
 -- * 'ccsgrStatus'
 data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'
     { _ccsgrCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
-    , _ccsgrStatus             :: !Int
+    , _ccsgrStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateCacheSecurityGroupResponse' smart constructor.
-createCacheSecurityGroupResponse :: Int -> CreateCacheSecurityGroupResponse
+createCacheSecurityGroupResponse :: Status -> CreateCacheSecurityGroupResponse
 createCacheSecurityGroupResponse pStatus =
     CreateCacheSecurityGroupResponse'
     { _ccsgrCacheSecurityGroup = Nothing
@@ -137,5 +137,5 @@ ccsgrCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheSe
 ccsgrCacheSecurityGroup = lens _ccsgrCacheSecurityGroup (\ s a -> s{_ccsgrCacheSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-ccsgrStatus :: Lens' CreateCacheSecurityGroupResponse Int
+ccsgrStatus :: Lens' CreateCacheSecurityGroupResponse Status
 ccsgrStatus = lens _ccsgrStatus (\ s a -> s{_ccsgrStatus = a});

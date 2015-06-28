@@ -74,7 +74,7 @@ instance AWSRequest ListTagsForDomain where
           = receiveJSON
               (\ s h x ->
                  ListTagsForDomainResponse' <$>
-                   (x .?> "TagList" .!@ mempty) <*> (pure (fromEnum s)))
+                   (x .?> "TagList" .!@ mempty) <*> (pure s))
 
 instance ToHeaders ListTagsForDomain where
         toHeaders
@@ -107,11 +107,11 @@ instance ToQuery ListTagsForDomain where
 -- * 'ltfdrStatus'
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
     { _ltfdrTagList :: ![Tag]
-    , _ltfdrStatus  :: !Int
+    , _ltfdrStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForDomainResponse' smart constructor.
-listTagsForDomainResponse :: Int -> ListTagsForDomainResponse
+listTagsForDomainResponse :: Status -> ListTagsForDomainResponse
 listTagsForDomainResponse pStatus =
     ListTagsForDomainResponse'
     { _ltfdrTagList = mempty
@@ -140,5 +140,5 @@ ltfdrTagList :: Lens' ListTagsForDomainResponse [Tag]
 ltfdrTagList = lens _ltfdrTagList (\ s a -> s{_ltfdrTagList = a});
 
 -- | FIXME: Undocumented member.
-ltfdrStatus :: Lens' ListTagsForDomainResponse Int
+ltfdrStatus :: Lens' ListTagsForDomainResponse Status
 ltfdrStatus = lens _ltfdrStatus (\ s a -> s{_ltfdrStatus = a});

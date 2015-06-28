@@ -93,7 +93,7 @@ instance AWSRequest ReportTaskProgress where
           = receiveJSON
               (\ s h x ->
                  ReportTaskProgressResponse' <$>
-                   (x .:> "canceled") <*> (pure (fromEnum s)))
+                   (x .:> "canceled") <*> (pure s))
 
 instance ToHeaders ReportTaskProgress where
         toHeaders
@@ -126,11 +126,11 @@ instance ToQuery ReportTaskProgress where
 -- * 'rtprStatus'
 data ReportTaskProgressResponse = ReportTaskProgressResponse'
     { _rtprCanceled :: !Bool
-    , _rtprStatus   :: !Int
+    , _rtprStatus   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ReportTaskProgressResponse' smart constructor.
-reportTaskProgressResponse :: Bool -> Int -> ReportTaskProgressResponse
+reportTaskProgressResponse :: Bool -> Status -> ReportTaskProgressResponse
 reportTaskProgressResponse pCanceled pStatus =
     ReportTaskProgressResponse'
     { _rtprCanceled = pCanceled
@@ -143,5 +143,5 @@ rtprCanceled :: Lens' ReportTaskProgressResponse Bool
 rtprCanceled = lens _rtprCanceled (\ s a -> s{_rtprCanceled = a});
 
 -- | FIXME: Undocumented member.
-rtprStatus :: Lens' ReportTaskProgressResponse Int
+rtprStatus :: Lens' ReportTaskProgressResponse Status
 rtprStatus = lens _rtprStatus (\ s a -> s{_rtprStatus = a});

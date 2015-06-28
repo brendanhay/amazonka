@@ -132,7 +132,7 @@ instance AWSRequest LookupEvents where
               (\ s h x ->
                  LookupEventsResponse' <$>
                    (x .?> "NextToken") <*> (x .?> "Events" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders LookupEvents where
         toHeaders
@@ -172,11 +172,11 @@ instance ToQuery LookupEvents where
 data LookupEventsResponse = LookupEventsResponse'
     { _lerNextToken :: !(Maybe Text)
     , _lerEvents    :: !(Maybe [Event])
-    , _lerStatus    :: !Int
+    , _lerStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'LookupEventsResponse' smart constructor.
-lookupEventsResponse :: Int -> LookupEventsResponse
+lookupEventsResponse :: Status -> LookupEventsResponse
 lookupEventsResponse pStatus =
     LookupEventsResponse'
     { _lerNextToken = Nothing
@@ -200,5 +200,5 @@ lerEvents :: Lens' LookupEventsResponse [Event]
 lerEvents = lens _lerEvents (\ s a -> s{_lerEvents = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lerStatus :: Lens' LookupEventsResponse Int
+lerStatus :: Lens' LookupEventsResponse Status
 lerStatus = lens _lerStatus (\ s a -> s{_lerStatus = a});

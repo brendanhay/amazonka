@@ -110,7 +110,7 @@ instance AWSRequest DescribeImportSnapshotTasks where
               (\ s h x ->
                  DescribeImportSnapshotTasksResponse' <$>
                    (x .@? "nextToken") <*> (may (parseXMLList "item") x)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeImportSnapshotTasks where
         toHeaders = const mempty
@@ -143,11 +143,11 @@ instance ToQuery DescribeImportSnapshotTasks where
 data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
     { _distrNextToken           :: !(Maybe Text)
     , _distrImportSnapshotTasks :: !(Maybe [ImportSnapshotTask])
-    , _distrStatus              :: !Int
+    , _distrStatus              :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeImportSnapshotTasksResponse' smart constructor.
-describeImportSnapshotTasksResponse :: Int -> DescribeImportSnapshotTasksResponse
+describeImportSnapshotTasksResponse :: Status -> DescribeImportSnapshotTasksResponse
 describeImportSnapshotTasksResponse pStatus =
     DescribeImportSnapshotTasksResponse'
     { _distrNextToken = Nothing
@@ -166,5 +166,5 @@ distrImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse [ImportSna
 distrImportSnapshotTasks = lens _distrImportSnapshotTasks (\ s a -> s{_distrImportSnapshotTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-distrStatus :: Lens' DescribeImportSnapshotTasksResponse Int
+distrStatus :: Lens' DescribeImportSnapshotTasksResponse Status
 distrStatus = lens _distrStatus (\ s a -> s{_distrStatus = a});

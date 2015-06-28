@@ -85,8 +85,7 @@ instance AWSRequest ListStreamingDistributions where
           = receiveXML
               (\ s h x ->
                  ListStreamingDistributionsResponse' <$>
-                   (x .@ "StreamingDistributionList") <*>
-                     (pure (fromEnum s)))
+                   (x .@ "StreamingDistributionList") <*> (pure s))
 
 instance ToHeaders ListStreamingDistributions where
         toHeaders = const mempty
@@ -110,11 +109,11 @@ instance ToQuery ListStreamingDistributions where
 -- * 'lsdrStatus'
 data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
     { _lsdrStreamingDistributionList :: !StreamingDistributionList
-    , _lsdrStatus                    :: !Int
+    , _lsdrStatus                    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListStreamingDistributionsResponse' smart constructor.
-listStreamingDistributionsResponse :: StreamingDistributionList -> Int -> ListStreamingDistributionsResponse
+listStreamingDistributionsResponse :: StreamingDistributionList -> Status -> ListStreamingDistributionsResponse
 listStreamingDistributionsResponse pStreamingDistributionList pStatus =
     ListStreamingDistributionsResponse'
     { _lsdrStreamingDistributionList = pStreamingDistributionList
@@ -126,5 +125,5 @@ lsdrStreamingDistributionList :: Lens' ListStreamingDistributionsResponse Stream
 lsdrStreamingDistributionList = lens _lsdrStreamingDistributionList (\ s a -> s{_lsdrStreamingDistributionList = a});
 
 -- | FIXME: Undocumented member.
-lsdrStatus :: Lens' ListStreamingDistributionsResponse Int
+lsdrStatus :: Lens' ListStreamingDistributionsResponse Status
 lsdrStatus = lens _lsdrStatus (\ s a -> s{_lsdrStatus = a});

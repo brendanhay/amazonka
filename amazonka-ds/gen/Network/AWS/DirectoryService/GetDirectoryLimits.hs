@@ -58,7 +58,7 @@ instance AWSRequest GetDirectoryLimits where
           = receiveJSON
               (\ s h x ->
                  GetDirectoryLimitsResponse' <$>
-                   (x .?> "DirectoryLimits") <*> (pure (fromEnum s)))
+                   (x .?> "DirectoryLimits") <*> (pure s))
 
 instance ToHeaders GetDirectoryLimits where
         toHeaders
@@ -90,11 +90,11 @@ instance ToQuery GetDirectoryLimits where
 -- * 'gdlrStatus'
 data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
     { _gdlrDirectoryLimits :: !(Maybe DirectoryLimits)
-    , _gdlrStatus          :: !Int
+    , _gdlrStatus          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetDirectoryLimitsResponse' smart constructor.
-getDirectoryLimitsResponse :: Int -> GetDirectoryLimitsResponse
+getDirectoryLimitsResponse :: Status -> GetDirectoryLimitsResponse
 getDirectoryLimitsResponse pStatus =
     GetDirectoryLimitsResponse'
     { _gdlrDirectoryLimits = Nothing
@@ -107,5 +107,5 @@ gdlrDirectoryLimits :: Lens' GetDirectoryLimitsResponse (Maybe DirectoryLimits)
 gdlrDirectoryLimits = lens _gdlrDirectoryLimits (\ s a -> s{_gdlrDirectoryLimits = a});
 
 -- | FIXME: Undocumented member.
-gdlrStatus :: Lens' GetDirectoryLimitsResponse Int
+gdlrStatus :: Lens' GetDirectoryLimitsResponse Status
 gdlrStatus = lens _gdlrStatus (\ s a -> s{_gdlrStatus = a});

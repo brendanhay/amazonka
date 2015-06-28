@@ -104,8 +104,7 @@ instance AWSRequest DescribePlacementGroups where
           = receiveXML
               (\ s h x ->
                  DescribePlacementGroupsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders DescribePlacementGroups where
         toHeaders = const mempty
@@ -133,11 +132,11 @@ instance ToQuery DescribePlacementGroups where
 -- * 'dpgrStatus'
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
     { _dpgrPlacementGroups :: !(Maybe [PlacementGroup])
-    , _dpgrStatus          :: !Int
+    , _dpgrStatus          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribePlacementGroupsResponse' smart constructor.
-describePlacementGroupsResponse :: Int -> DescribePlacementGroupsResponse
+describePlacementGroupsResponse :: Status -> DescribePlacementGroupsResponse
 describePlacementGroupsResponse pStatus =
     DescribePlacementGroupsResponse'
     { _dpgrPlacementGroups = Nothing
@@ -149,5 +148,5 @@ dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgrPlacementGroups = lens _dpgrPlacementGroups (\ s a -> s{_dpgrPlacementGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dpgrStatus :: Lens' DescribePlacementGroupsResponse Int
+dpgrStatus :: Lens' DescribePlacementGroupsResponse Status
 dpgrStatus = lens _dpgrStatus (\ s a -> s{_dpgrStatus = a});

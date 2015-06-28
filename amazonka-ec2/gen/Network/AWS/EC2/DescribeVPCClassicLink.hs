@@ -108,8 +108,7 @@ instance AWSRequest DescribeVPCClassicLink where
           = receiveXML
               (\ s h x ->
                  DescribeVPCClassicLinkResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders DescribeVPCClassicLink where
         toHeaders = const mempty
@@ -136,11 +135,11 @@ instance ToQuery DescribeVPCClassicLink where
 -- * 'dvclrStatus'
 data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'
     { _dvclrVPCs   :: !(Maybe [VPCClassicLink])
-    , _dvclrStatus :: !Int
+    , _dvclrStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCClassicLinkResponse' smart constructor.
-describeVPCClassicLinkResponse :: Int -> DescribeVPCClassicLinkResponse
+describeVPCClassicLinkResponse :: Status -> DescribeVPCClassicLinkResponse
 describeVPCClassicLinkResponse pStatus =
     DescribeVPCClassicLinkResponse'
     { _dvclrVPCs = Nothing
@@ -152,5 +151,5 @@ dvclrVPCs :: Lens' DescribeVPCClassicLinkResponse [VPCClassicLink]
 dvclrVPCs = lens _dvclrVPCs (\ s a -> s{_dvclrVPCs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvclrStatus :: Lens' DescribeVPCClassicLinkResponse Int
+dvclrStatus :: Lens' DescribeVPCClassicLinkResponse Status
 dvclrStatus = lens _dvclrStatus (\ s a -> s{_dvclrStatus = a});

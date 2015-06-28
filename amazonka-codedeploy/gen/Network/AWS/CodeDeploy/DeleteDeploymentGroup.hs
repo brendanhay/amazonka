@@ -81,8 +81,7 @@ instance AWSRequest DeleteDeploymentGroup where
           = receiveJSON
               (\ s h x ->
                  DeleteDeploymentGroupResponse' <$>
-                   (x .?> "hooksNotCleanedUp" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+                   (x .?> "hooksNotCleanedUp" .!@ mempty) <*> (pure s))
 
 instance ToHeaders DeleteDeploymentGroup where
         toHeaders
@@ -117,11 +116,11 @@ instance ToQuery DeleteDeploymentGroup where
 -- * 'ddgrStatus'
 data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
     { _ddgrHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
-    , _ddgrStatus            :: !Int
+    , _ddgrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteDeploymentGroupResponse' smart constructor.
-deleteDeploymentGroupResponse :: Int -> DeleteDeploymentGroupResponse
+deleteDeploymentGroupResponse :: Status -> DeleteDeploymentGroupResponse
 deleteDeploymentGroupResponse pStatus =
     DeleteDeploymentGroupResponse'
     { _ddgrHooksNotCleanedUp = Nothing
@@ -138,5 +137,5 @@ ddgrHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
 ddgrHooksNotCleanedUp = lens _ddgrHooksNotCleanedUp (\ s a -> s{_ddgrHooksNotCleanedUp = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddgrStatus :: Lens' DeleteDeploymentGroupResponse Int
+ddgrStatus :: Lens' DeleteDeploymentGroupResponse Status
 ddgrStatus = lens _ddgrStatus (\ s a -> s{_ddgrStatus = a});

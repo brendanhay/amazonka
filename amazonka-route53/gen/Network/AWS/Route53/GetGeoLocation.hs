@@ -106,7 +106,7 @@ instance AWSRequest GetGeoLocation where
           = receiveXML
               (\ s h x ->
                  GetGeoLocationResponse' <$>
-                   (x .@ "GeoLocationDetails") <*> (pure (fromEnum s)))
+                   (x .@ "GeoLocationDetails") <*> (pure s))
 
 instance ToHeaders GetGeoLocation where
         toHeaders = const mempty
@@ -132,11 +132,11 @@ instance ToQuery GetGeoLocation where
 -- * 'gglrStatus'
 data GetGeoLocationResponse = GetGeoLocationResponse'
     { _gglrGeoLocationDetails :: !GeoLocationDetails
-    , _gglrStatus             :: !Int
+    , _gglrStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetGeoLocationResponse' smart constructor.
-getGeoLocationResponse :: GeoLocationDetails -> Int -> GetGeoLocationResponse
+getGeoLocationResponse :: GeoLocationDetails -> Status -> GetGeoLocationResponse
 getGeoLocationResponse pGeoLocationDetails pStatus =
     GetGeoLocationResponse'
     { _gglrGeoLocationDetails = pGeoLocationDetails
@@ -149,5 +149,5 @@ gglrGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
 gglrGeoLocationDetails = lens _gglrGeoLocationDetails (\ s a -> s{_gglrGeoLocationDetails = a});
 
 -- | FIXME: Undocumented member.
-gglrStatus :: Lens' GetGeoLocationResponse Int
+gglrStatus :: Lens' GetGeoLocationResponse Status
 gglrStatus = lens _gglrStatus (\ s a -> s{_gglrStatus = a});

@@ -194,7 +194,7 @@ instance AWSRequest ListResourceRecordSets where
                         parseXMLList "ResourceRecordSet")
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListResourceRecordSets where
         toHeaders = const mempty
@@ -240,11 +240,11 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
     , _lrrsrResourceRecordSets   :: ![ResourceRecordSet]
     , _lrrsrIsTruncated          :: !Bool
     , _lrrsrMaxItems             :: !Text
-    , _lrrsrStatus               :: !Int
+    , _lrrsrStatus               :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListResourceRecordSetsResponse' smart constructor.
-listResourceRecordSetsResponse :: Bool -> Text -> Int -> ListResourceRecordSetsResponse
+listResourceRecordSetsResponse :: Bool -> Text -> Status -> ListResourceRecordSetsResponse
 listResourceRecordSetsResponse pIsTruncated pMaxItems pStatus =
     ListResourceRecordSetsResponse'
     { _lrrsrNextRecordType = Nothing
@@ -294,5 +294,5 @@ lrrsrMaxItems :: Lens' ListResourceRecordSetsResponse Text
 lrrsrMaxItems = lens _lrrsrMaxItems (\ s a -> s{_lrrsrMaxItems = a});
 
 -- | FIXME: Undocumented member.
-lrrsrStatus :: Lens' ListResourceRecordSetsResponse Int
+lrrsrStatus :: Lens' ListResourceRecordSetsResponse Status
 lrrsrStatus = lens _lrrsrStatus (\ s a -> s{_lrrsrStatus = a});

@@ -165,7 +165,7 @@ instance AWSRequest PutRecord where
               (\ s h x ->
                  PutRecordResponse' <$>
                    (x .:> "ShardId") <*> (x .:> "SequenceNumber") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders PutRecord where
         toHeaders
@@ -205,11 +205,11 @@ instance ToQuery PutRecord where
 data PutRecordResponse = PutRecordResponse'
     { _prrShardId        :: !Text
     , _prrSequenceNumber :: !Text
-    , _prrStatus         :: !Int
+    , _prrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'PutRecordResponse' smart constructor.
-putRecordResponse :: Text -> Text -> Int -> PutRecordResponse
+putRecordResponse :: Text -> Text -> Status -> PutRecordResponse
 putRecordResponse pShardId pSequenceNumber pStatus =
     PutRecordResponse'
     { _prrShardId = pShardId
@@ -229,5 +229,5 @@ prrSequenceNumber :: Lens' PutRecordResponse Text
 prrSequenceNumber = lens _prrSequenceNumber (\ s a -> s{_prrSequenceNumber = a});
 
 -- | FIXME: Undocumented member.
-prrStatus :: Lens' PutRecordResponse Int
+prrStatus :: Lens' PutRecordResponse Status
 prrStatus = lens _prrStatus (\ s a -> s{_prrStatus = a});

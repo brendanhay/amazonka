@@ -75,7 +75,7 @@ instance AWSRequest CreateStreamingDistribution where
                  CreateStreamingDistributionResponse' <$>
                    (h .#? "ETag") <*> (h .#? "Location") <*>
                      (x .@? "StreamingDistribution")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToElement CreateStreamingDistribution where
         toElement
@@ -110,11 +110,11 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
     { _csdrETag                  :: !(Maybe Text)
     , _csdrLocation              :: !(Maybe Text)
     , _csdrStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _csdrStatus                :: !Int
+    , _csdrStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateStreamingDistributionResponse' smart constructor.
-createStreamingDistributionResponse :: Int -> CreateStreamingDistributionResponse
+createStreamingDistributionResponse :: Status -> CreateStreamingDistributionResponse
 createStreamingDistributionResponse pStatus =
     CreateStreamingDistributionResponse'
     { _csdrETag = Nothing
@@ -138,5 +138,5 @@ csdrStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe St
 csdrStreamingDistribution = lens _csdrStreamingDistribution (\ s a -> s{_csdrStreamingDistribution = a});
 
 -- | FIXME: Undocumented member.
-csdrStatus :: Lens' CreateStreamingDistributionResponse Int
+csdrStatus :: Lens' CreateStreamingDistributionResponse Status
 csdrStatus = lens _csdrStatus (\ s a -> s{_csdrStatus = a});

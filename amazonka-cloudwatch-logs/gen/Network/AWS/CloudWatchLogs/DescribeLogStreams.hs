@@ -136,7 +136,7 @@ instance AWSRequest DescribeLogStreams where
                  DescribeLogStreamsResponse' <$>
                    (x .?> "nextToken") <*>
                      (x .?> "logStreams" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeLogStreams where
         toHeaders
@@ -175,11 +175,11 @@ instance ToQuery DescribeLogStreams where
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
     { _dlsrNextToken  :: !(Maybe Text)
     , _dlsrLogStreams :: !(Maybe [LogStream])
-    , _dlsrStatus     :: !Int
+    , _dlsrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeLogStreamsResponse' smart constructor.
-describeLogStreamsResponse :: Int -> DescribeLogStreamsResponse
+describeLogStreamsResponse :: Status -> DescribeLogStreamsResponse
 describeLogStreamsResponse pStatus =
     DescribeLogStreamsResponse'
     { _dlsrNextToken = Nothing
@@ -196,5 +196,5 @@ dlsrLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
 dlsrLogStreams = lens _dlsrLogStreams (\ s a -> s{_dlsrLogStreams = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlsrStatus :: Lens' DescribeLogStreamsResponse Int
+dlsrStatus :: Lens' DescribeLogStreamsResponse Status
 dlsrStatus = lens _dlsrStatus (\ s a -> s{_dlsrStatus = a});

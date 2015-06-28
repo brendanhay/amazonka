@@ -82,7 +82,7 @@ instance AWSRequest CreateInvalidation where
               (\ s h x ->
                  CreateInvalidationResponse' <$>
                    (x .@? "Invalidation") <*> (h .#? "Location") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToElement CreateInvalidation where
         toElement
@@ -117,11 +117,11 @@ instance ToQuery CreateInvalidation where
 data CreateInvalidationResponse = CreateInvalidationResponse'
     { _cirInvalidation :: !(Maybe Invalidation)
     , _cirLocation     :: !(Maybe Text)
-    , _cirStatus       :: !Int
+    , _cirStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateInvalidationResponse' smart constructor.
-createInvalidationResponse :: Int -> CreateInvalidationResponse
+createInvalidationResponse :: Status -> CreateInvalidationResponse
 createInvalidationResponse pStatus =
     CreateInvalidationResponse'
     { _cirInvalidation = Nothing
@@ -139,5 +139,5 @@ cirLocation :: Lens' CreateInvalidationResponse (Maybe Text)
 cirLocation = lens _cirLocation (\ s a -> s{_cirLocation = a});
 
 -- | FIXME: Undocumented member.
-cirStatus :: Lens' CreateInvalidationResponse Int
+cirStatus :: Lens' CreateInvalidationResponse Status
 cirStatus = lens _cirStatus (\ s a -> s{_cirStatus = a});

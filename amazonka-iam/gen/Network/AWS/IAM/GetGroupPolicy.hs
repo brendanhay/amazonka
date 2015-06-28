@@ -91,7 +91,7 @@ instance AWSRequest GetGroupPolicy where
                  GetGroupPolicyResponse' <$>
                    (x .@ "GroupName") <*> (x .@ "PolicyName") <*>
                      (x .@ "PolicyDocument")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetGroupPolicy where
         toHeaders = const mempty
@@ -124,11 +124,11 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse'
     { _ggprGroupName      :: !Text
     , _ggprPolicyName     :: !Text
     , _ggprPolicyDocument :: !Text
-    , _ggprStatus         :: !Int
+    , _ggprStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetGroupPolicyResponse' smart constructor.
-getGroupPolicyResponse :: Text -> Text -> Text -> Int -> GetGroupPolicyResponse
+getGroupPolicyResponse :: Text -> Text -> Text -> Status -> GetGroupPolicyResponse
 getGroupPolicyResponse pGroupName pPolicyName pPolicyDocument pStatus =
     GetGroupPolicyResponse'
     { _ggprGroupName = pGroupName
@@ -150,5 +150,5 @@ ggprPolicyDocument :: Lens' GetGroupPolicyResponse Text
 ggprPolicyDocument = lens _ggprPolicyDocument (\ s a -> s{_ggprPolicyDocument = a});
 
 -- | FIXME: Undocumented member.
-ggprStatus :: Lens' GetGroupPolicyResponse Int
+ggprStatus :: Lens' GetGroupPolicyResponse Status
 ggprStatus = lens _ggprStatus (\ s a -> s{_ggprStatus = a});

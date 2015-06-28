@@ -95,7 +95,7 @@ instance AWSRequest ListInvalidations where
           = receiveXML
               (\ s h x ->
                  ListInvalidationsResponse' <$>
-                   (x .@ "InvalidationList") <*> (pure (fromEnum s)))
+                   (x .@ "InvalidationList") <*> (pure s))
 
 instance ToHeaders ListInvalidations where
         toHeaders = const mempty
@@ -122,11 +122,11 @@ instance ToQuery ListInvalidations where
 -- * 'lirStatus'
 data ListInvalidationsResponse = ListInvalidationsResponse'
     { _lirInvalidationList :: !InvalidationList
-    , _lirStatus           :: !Int
+    , _lirStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListInvalidationsResponse' smart constructor.
-listInvalidationsResponse :: InvalidationList -> Int -> ListInvalidationsResponse
+listInvalidationsResponse :: InvalidationList -> Status -> ListInvalidationsResponse
 listInvalidationsResponse pInvalidationList pStatus =
     ListInvalidationsResponse'
     { _lirInvalidationList = pInvalidationList
@@ -138,5 +138,5 @@ lirInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
 lirInvalidationList = lens _lirInvalidationList (\ s a -> s{_lirInvalidationList = a});
 
 -- | FIXME: Undocumented member.
-lirStatus :: Lens' ListInvalidationsResponse Int
+lirStatus :: Lens' ListInvalidationsResponse Status
 lirStatus = lens _lirStatus (\ s a -> s{_lirStatus = a});

@@ -117,7 +117,7 @@ instance AWSRequest ListSigningCertificates where
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "Certificates" .!@ mempty >>=
                         parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListSigningCertificates where
         toHeaders = const mempty
@@ -151,11 +151,11 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
     { _lisMarker       :: !(Maybe Text)
     , _lisIsTruncated  :: !(Maybe Bool)
     , _lisCertificates :: ![SigningCertificate]
-    , _lisStatus       :: !Int
+    , _lisStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListSigningCertificatesResponse' smart constructor.
-listSigningCertificatesResponse :: Int -> ListSigningCertificatesResponse
+listSigningCertificatesResponse :: Status -> ListSigningCertificatesResponse
 listSigningCertificatesResponse pStatus =
     ListSigningCertificatesResponse'
     { _lisMarker = Nothing
@@ -182,5 +182,5 @@ lisCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
 lisCertificates = lens _lisCertificates (\ s a -> s{_lisCertificates = a});
 
 -- | FIXME: Undocumented member.
-lisStatus :: Lens' ListSigningCertificatesResponse Int
+lisStatus :: Lens' ListSigningCertificatesResponse Status
 lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});

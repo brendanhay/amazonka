@@ -78,8 +78,7 @@ instance AWSRequest ConfirmPublicVirtualInterface
           = receiveJSON
               (\ s h x ->
                  ConfirmPublicVirtualInterfaceResponse' <$>
-                   (x .?> "virtualInterfaceState") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "virtualInterfaceState") <*> (pure s))
 
 instance ToHeaders ConfirmPublicVirtualInterface
          where
@@ -114,11 +113,11 @@ instance ToQuery ConfirmPublicVirtualInterface where
 -- * 'conStatus'
 data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'
     { _conVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _conStatus                :: !Int
+    , _conStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ConfirmPublicVirtualInterfaceResponse' smart constructor.
-confirmPublicVirtualInterfaceResponse :: Int -> ConfirmPublicVirtualInterfaceResponse
+confirmPublicVirtualInterfaceResponse :: Status -> ConfirmPublicVirtualInterfaceResponse
 confirmPublicVirtualInterfaceResponse pStatus =
     ConfirmPublicVirtualInterfaceResponse'
     { _conVirtualInterfaceState = Nothing
@@ -130,5 +129,5 @@ conVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe V
 conVirtualInterfaceState = lens _conVirtualInterfaceState (\ s a -> s{_conVirtualInterfaceState = a});
 
 -- | FIXME: Undocumented member.
-conStatus :: Lens' ConfirmPublicVirtualInterfaceResponse Int
+conStatus :: Lens' ConfirmPublicVirtualInterfaceResponse Status
 conStatus = lens _conStatus (\ s a -> s{_conStatus = a});

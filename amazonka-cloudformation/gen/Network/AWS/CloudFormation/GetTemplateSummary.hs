@@ -133,7 +133,7 @@ instance AWSRequest GetTemplateSummary where
                      (x .@? "Capabilities" .!@ mempty >>=
                         may (parseXMLList "member"))
                      <*> (x .@? "Description")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetTemplateSummary where
         toHeaders = const mempty
@@ -176,11 +176,11 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
     , _gtsrMetadata           :: !(Maybe Text)
     , _gtsrCapabilities       :: !(Maybe [Capability])
     , _gtsrDescription        :: !(Maybe Text)
-    , _gtsrStatus             :: !Int
+    , _gtsrStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetTemplateSummaryResponse' smart constructor.
-getTemplateSummaryResponse :: Int -> GetTemplateSummaryResponse
+getTemplateSummaryResponse :: Status -> GetTemplateSummaryResponse
 getTemplateSummaryResponse pStatus =
     GetTemplateSummaryResponse'
     { _gtsrVersion = Nothing
@@ -225,5 +225,5 @@ gtsrDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrDescription = lens _gtsrDescription (\ s a -> s{_gtsrDescription = a});
 
 -- | FIXME: Undocumented member.
-gtsrStatus :: Lens' GetTemplateSummaryResponse Int
+gtsrStatus :: Lens' GetTemplateSummaryResponse Status
 gtsrStatus = lens _gtsrStatus (\ s a -> s{_gtsrStatus = a});

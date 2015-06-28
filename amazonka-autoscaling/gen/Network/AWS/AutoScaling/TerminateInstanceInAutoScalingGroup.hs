@@ -86,7 +86,7 @@ instance AWSRequest
               "TerminateInstanceInAutoScalingGroupResult"
               (\ s h x ->
                  TerminateInstanceInAutoScalingGroupResponse' <$>
-                   (x .@? "Activity") <*> (pure (fromEnum s)))
+                   (x .@? "Activity") <*> (pure s))
 
 instance ToHeaders
          TerminateInstanceInAutoScalingGroup where
@@ -117,11 +117,11 @@ instance ToQuery TerminateInstanceInAutoScalingGroup
 -- * 'tiiasgrStatus'
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
     { _tiiasgrActivity :: !(Maybe Activity)
-    , _tiiasgrStatus   :: !Int
+    , _tiiasgrStatus   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'TerminateInstanceInAutoScalingGroupResponse' smart constructor.
-terminateInstanceInAutoScalingGroupResponse :: Int -> TerminateInstanceInAutoScalingGroupResponse
+terminateInstanceInAutoScalingGroupResponse :: Status -> TerminateInstanceInAutoScalingGroupResponse
 terminateInstanceInAutoScalingGroupResponse pStatus =
     TerminateInstanceInAutoScalingGroupResponse'
     { _tiiasgrActivity = Nothing
@@ -133,5 +133,5 @@ tiiasgrActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Acti
 tiiasgrActivity = lens _tiiasgrActivity (\ s a -> s{_tiiasgrActivity = a});
 
 -- | FIXME: Undocumented member.
-tiiasgrStatus :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
+tiiasgrStatus :: Lens' TerminateInstanceInAutoScalingGroupResponse Status
 tiiasgrStatus = lens _tiiasgrStatus (\ s a -> s{_tiiasgrStatus = a});

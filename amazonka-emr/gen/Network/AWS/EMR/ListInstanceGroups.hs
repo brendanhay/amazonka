@@ -91,7 +91,7 @@ instance AWSRequest ListInstanceGroups where
                  ListInstanceGroupsResponse' <$>
                    (x .?> "Marker") <*>
                      (x .?> "InstanceGroups" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListInstanceGroups where
         toHeaders
@@ -129,11 +129,11 @@ instance ToQuery ListInstanceGroups where
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
     { _ligrMarker         :: !(Maybe Text)
     , _ligrInstanceGroups :: !(Maybe [InstanceGroup])
-    , _ligrStatus         :: !Int
+    , _ligrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListInstanceGroupsResponse' smart constructor.
-listInstanceGroupsResponse :: Int -> ListInstanceGroupsResponse
+listInstanceGroupsResponse :: Status -> ListInstanceGroupsResponse
 listInstanceGroupsResponse pStatus =
     ListInstanceGroupsResponse'
     { _ligrMarker = Nothing
@@ -150,5 +150,5 @@ ligrInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
 ligrInstanceGroups = lens _ligrInstanceGroups (\ s a -> s{_ligrInstanceGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ligrStatus :: Lens' ListInstanceGroupsResponse Int
+ligrStatus :: Lens' ListInstanceGroupsResponse Status
 ligrStatus = lens _ligrStatus (\ s a -> s{_ligrStatus = a});

@@ -57,7 +57,7 @@ instance AWSRequest ListDomainNames where
                  ListDomainNamesResponse' <$>
                    (x .@? "DomainNames" .!@ mempty >>=
                       may (parseXMLMap "entry" "key" "value"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListDomainNames where
         toHeaders = const mempty
@@ -84,11 +84,11 @@ instance ToQuery ListDomainNames where
 -- * 'ldnrStatus'
 data ListDomainNamesResponse = ListDomainNamesResponse'
     { _ldnrDomainNames :: !(Maybe (Map Text Text))
-    , _ldnrStatus      :: !Int
+    , _ldnrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListDomainNamesResponse' smart constructor.
-listDomainNamesResponse :: Int -> ListDomainNamesResponse
+listDomainNamesResponse :: Status -> ListDomainNamesResponse
 listDomainNamesResponse pStatus =
     ListDomainNamesResponse'
     { _ldnrDomainNames = Nothing
@@ -100,5 +100,5 @@ ldnrDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
 ldnrDomainNames = lens _ldnrDomainNames (\ s a -> s{_ldnrDomainNames = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-ldnrStatus :: Lens' ListDomainNamesResponse Int
+ldnrStatus :: Lens' ListDomainNamesResponse Status
 ldnrStatus = lens _ldnrStatus (\ s a -> s{_ldnrStatus = a});

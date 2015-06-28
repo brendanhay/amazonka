@@ -60,7 +60,7 @@ instance AWSRequest DescribeTerminationPolicyTypes
                  DescribeTerminationPolicyTypesResponse' <$>
                    (x .@? "TerminationPolicyTypes" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeTerminationPolicyTypes
          where
@@ -86,11 +86,11 @@ instance ToQuery DescribeTerminationPolicyTypes where
 -- * 'dtptrStatus'
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
     { _dtptrTerminationPolicyTypes :: !(Maybe [Text])
-    , _dtptrStatus                 :: !Int
+    , _dtptrStatus                 :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeTerminationPolicyTypesResponse' smart constructor.
-describeTerminationPolicyTypesResponse :: Int -> DescribeTerminationPolicyTypesResponse
+describeTerminationPolicyTypesResponse :: Status -> DescribeTerminationPolicyTypesResponse
 describeTerminationPolicyTypesResponse pStatus =
     DescribeTerminationPolicyTypesResponse'
     { _dtptrTerminationPolicyTypes = Nothing
@@ -104,5 +104,5 @@ dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Tex
 dtptrTerminationPolicyTypes = lens _dtptrTerminationPolicyTypes (\ s a -> s{_dtptrTerminationPolicyTypes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtptrStatus :: Lens' DescribeTerminationPolicyTypesResponse Int
+dtptrStatus :: Lens' DescribeTerminationPolicyTypesResponse Status
 dtptrStatus = lens _dtptrStatus (\ s a -> s{_dtptrStatus = a});

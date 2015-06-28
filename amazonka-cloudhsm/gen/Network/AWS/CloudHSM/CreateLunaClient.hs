@@ -80,7 +80,7 @@ instance AWSRequest CreateLunaClient where
           = receiveJSON
               (\ s h x ->
                  CreateLunaClientResponse' <$>
-                   (x .?> "ClientArn") <*> (pure (fromEnum s)))
+                   (x .?> "ClientArn") <*> (pure s))
 
 instance ToHeaders CreateLunaClient where
         toHeaders
@@ -115,11 +115,11 @@ instance ToQuery CreateLunaClient where
 -- * 'clcrStatus'
 data CreateLunaClientResponse = CreateLunaClientResponse'
     { _clcrClientARN :: !(Maybe Text)
-    , _clcrStatus    :: !Int
+    , _clcrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateLunaClientResponse' smart constructor.
-createLunaClientResponse :: Int -> CreateLunaClientResponse
+createLunaClientResponse :: Status -> CreateLunaClientResponse
 createLunaClientResponse pStatus =
     CreateLunaClientResponse'
     { _clcrClientARN = Nothing
@@ -131,5 +131,5 @@ clcrClientARN :: Lens' CreateLunaClientResponse (Maybe Text)
 clcrClientARN = lens _clcrClientARN (\ s a -> s{_clcrClientARN = a});
 
 -- | FIXME: Undocumented member.
-clcrStatus :: Lens' CreateLunaClientResponse Int
+clcrStatus :: Lens' CreateLunaClientResponse Status
 clcrStatus = lens _clcrStatus (\ s a -> s{_clcrStatus = a});

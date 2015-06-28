@@ -80,7 +80,7 @@ instance AWSRequest GetDataRetrievalPolicy where
           = receiveJSON
               (\ s h x ->
                  GetDataRetrievalPolicyResponse' <$>
-                   (x .?> "Policy") <*> (pure (fromEnum s)))
+                   (x .?> "Policy") <*> (pure s))
 
 instance ToHeaders GetDataRetrievalPolicy where
         toHeaders = const mempty
@@ -106,11 +106,11 @@ instance ToQuery GetDataRetrievalPolicy where
 -- * 'gdrprStatus'
 data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'
     { _gdrprPolicy :: !(Maybe DataRetrievalPolicy)
-    , _gdrprStatus :: !Int
+    , _gdrprStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetDataRetrievalPolicyResponse' smart constructor.
-getDataRetrievalPolicyResponse :: Int -> GetDataRetrievalPolicyResponse
+getDataRetrievalPolicyResponse :: Status -> GetDataRetrievalPolicyResponse
 getDataRetrievalPolicyResponse pStatus =
     GetDataRetrievalPolicyResponse'
     { _gdrprPolicy = Nothing
@@ -122,5 +122,5 @@ gdrprPolicy :: Lens' GetDataRetrievalPolicyResponse (Maybe DataRetrievalPolicy)
 gdrprPolicy = lens _gdrprPolicy (\ s a -> s{_gdrprPolicy = a});
 
 -- | FIXME: Undocumented member.
-gdrprStatus :: Lens' GetDataRetrievalPolicyResponse Int
+gdrprStatus :: Lens' GetDataRetrievalPolicyResponse Status
 gdrprStatus = lens _gdrprStatus (\ s a -> s{_gdrprStatus = a});

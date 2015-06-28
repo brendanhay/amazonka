@@ -130,7 +130,7 @@ instance AWSRequest ListHostedZones where
                      <*> (x .@ "Marker")
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListHostedZones where
         toHeaders = const mempty
@@ -167,11 +167,11 @@ data ListHostedZonesResponse = ListHostedZonesResponse'
     , _lhzrMarker      :: !Text
     , _lhzrIsTruncated :: !Bool
     , _lhzrMaxItems    :: !Text
-    , _lhzrStatus      :: !Int
+    , _lhzrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListHostedZonesResponse' smart constructor.
-listHostedZonesResponse :: Text -> Bool -> Text -> Int -> ListHostedZonesResponse
+listHostedZonesResponse :: Text -> Bool -> Text -> Status -> ListHostedZonesResponse
 listHostedZonesResponse pMarker pIsTruncated pMaxItems pStatus =
     ListHostedZonesResponse'
     { _lhzrNextMarker = Nothing
@@ -218,5 +218,5 @@ lhzrMaxItems :: Lens' ListHostedZonesResponse Text
 lhzrMaxItems = lens _lhzrMaxItems (\ s a -> s{_lhzrMaxItems = a});
 
 -- | FIXME: Undocumented member.
-lhzrStatus :: Lens' ListHostedZonesResponse Int
+lhzrStatus :: Lens' ListHostedZonesResponse Status
 lhzrStatus = lens _lhzrStatus (\ s a -> s{_lhzrStatus = a});

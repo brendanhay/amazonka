@@ -94,7 +94,7 @@ instance AWSRequest AddWorkingStorage where
           = receiveJSON
               (\ s h x ->
                  AddWorkingStorageResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+                   (x .?> "GatewayARN") <*> (pure s))
 
 instance ToHeaders AddWorkingStorage where
         toHeaders
@@ -130,11 +130,11 @@ instance ToQuery AddWorkingStorage where
 -- * 'awsrStatus'
 data AddWorkingStorageResponse = AddWorkingStorageResponse'
     { _awsrGatewayARN :: !(Maybe Text)
-    , _awsrStatus     :: !Int
+    , _awsrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'AddWorkingStorageResponse' smart constructor.
-addWorkingStorageResponse :: Int -> AddWorkingStorageResponse
+addWorkingStorageResponse :: Status -> AddWorkingStorageResponse
 addWorkingStorageResponse pStatus =
     AddWorkingStorageResponse'
     { _awsrGatewayARN = Nothing
@@ -146,5 +146,5 @@ awsrGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
 awsrGatewayARN = lens _awsrGatewayARN (\ s a -> s{_awsrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-awsrStatus :: Lens' AddWorkingStorageResponse Int
+awsrStatus :: Lens' AddWorkingStorageResponse Status
 awsrStatus = lens _awsrStatus (\ s a -> s{_awsrStatus = a});

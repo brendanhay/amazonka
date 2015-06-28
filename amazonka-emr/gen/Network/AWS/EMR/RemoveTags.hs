@@ -83,8 +83,7 @@ instance AWSRequest RemoveTags where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x ->
-                 RemoveTagsResponse' <$> (pure (fromEnum s)))
+              (\ s h x -> RemoveTagsResponse' <$> (pure s))
 
 instance ToHeaders RemoveTags where
         toHeaders
@@ -115,16 +114,16 @@ instance ToQuery RemoveTags where
 --
 -- * 'rtrStatus'
 newtype RemoveTagsResponse = RemoveTagsResponse'
-    { _rtrStatus :: Int
+    { _rtrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'RemoveTagsResponse' smart constructor.
-removeTagsResponse :: Int -> RemoveTagsResponse
+removeTagsResponse :: Status -> RemoveTagsResponse
 removeTagsResponse pStatus =
     RemoveTagsResponse'
     { _rtrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rtrStatus :: Lens' RemoveTagsResponse Int
+rtrStatus :: Lens' RemoveTagsResponse Status
 rtrStatus = lens _rtrStatus (\ s a -> s{_rtrStatus = a});

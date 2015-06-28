@@ -191,8 +191,7 @@ instance AWSRequest ReceiveMessage where
           = receiveXMLWrapper "ReceiveMessageResult"
               (\ s h x ->
                  ReceiveMessageResponse' <$>
-                   (may (parseXMLList "Message") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "Message") x) <*> (pure s))
 
 instance ToHeaders ReceiveMessage where
         toHeaders = const mempty
@@ -226,11 +225,11 @@ instance ToQuery ReceiveMessage where
 -- * 'rmrStatus'
 data ReceiveMessageResponse = ReceiveMessageResponse'
     { _rmrMessages :: !(Maybe [Message])
-    , _rmrStatus   :: !Int
+    , _rmrStatus   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ReceiveMessageResponse' smart constructor.
-receiveMessageResponse :: Int -> ReceiveMessageResponse
+receiveMessageResponse :: Status -> ReceiveMessageResponse
 receiveMessageResponse pStatus =
     ReceiveMessageResponse'
     { _rmrMessages = Nothing
@@ -242,5 +241,5 @@ rmrMessages :: Lens' ReceiveMessageResponse [Message]
 rmrMessages = lens _rmrMessages (\ s a -> s{_rmrMessages = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-rmrStatus :: Lens' ReceiveMessageResponse Int
+rmrStatus :: Lens' ReceiveMessageResponse Status
 rmrStatus = lens _rmrStatus (\ s a -> s{_rmrStatus = a});

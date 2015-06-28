@@ -108,7 +108,7 @@ instance AWSRequest GetGroup where
                      (x .@ "Group")
                      <*>
                      (x .@? "Users" .!@ mempty >>= parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetGroup where
         toHeaders = const mempty
@@ -144,11 +144,11 @@ data GetGroupResponse = GetGroupResponse'
     , _ggrIsTruncated :: !(Maybe Bool)
     , _ggrGroup       :: !Group
     , _ggrUsers       :: ![User]
-    , _ggrStatus      :: !Int
+    , _ggrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetGroupResponse' smart constructor.
-getGroupResponse :: Group -> Int -> GetGroupResponse
+getGroupResponse :: Group -> Status -> GetGroupResponse
 getGroupResponse pGroup pStatus =
     GetGroupResponse'
     { _ggrMarker = Nothing
@@ -180,5 +180,5 @@ ggrUsers :: Lens' GetGroupResponse [User]
 ggrUsers = lens _ggrUsers (\ s a -> s{_ggrUsers = a});
 
 -- | FIXME: Undocumented member.
-ggrStatus :: Lens' GetGroupResponse Int
+ggrStatus :: Lens' GetGroupResponse Status
 ggrStatus = lens _ggrStatus (\ s a -> s{_ggrStatus = a});

@@ -72,7 +72,7 @@ instance AWSRequest GetBucketACL where
                    (x .@? "AccessControlList" .!@ mempty >>=
                       may (parseXMLList "Grant"))
                      <*> (x .@? "Owner")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetBucketACL where
         toHeaders = const mempty
@@ -96,11 +96,11 @@ instance ToQuery GetBucketACL where
 data GetBucketACLResponse = GetBucketACLResponse'
     { _gbarGrants :: !(Maybe [Grant])
     , _gbarOwner  :: !(Maybe Owner)
-    , _gbarStatus :: !Int
+    , _gbarStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetBucketACLResponse' smart constructor.
-getBucketACLResponse :: Int -> GetBucketACLResponse
+getBucketACLResponse :: Status -> GetBucketACLResponse
 getBucketACLResponse pStatus =
     GetBucketACLResponse'
     { _gbarGrants = Nothing
@@ -117,5 +117,5 @@ gbarOwner :: Lens' GetBucketACLResponse (Maybe Owner)
 gbarOwner = lens _gbarOwner (\ s a -> s{_gbarOwner = a});
 
 -- | FIXME: Undocumented member.
-gbarStatus :: Lens' GetBucketACLResponse Int
+gbarStatus :: Lens' GetBucketACLResponse Status
 gbarStatus = lens _gbarStatus (\ s a -> s{_gbarStatus = a});

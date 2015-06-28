@@ -85,7 +85,7 @@ instance AWSRequest UpdateVTLDeviceType where
           = receiveJSON
               (\ s h x ->
                  UpdateVTLDeviceTypeResponse' <$>
-                   (x .?> "VTLDeviceARN") <*> (pure (fromEnum s)))
+                   (x .?> "VTLDeviceARN") <*> (pure s))
 
 instance ToHeaders UpdateVTLDeviceType where
         toHeaders
@@ -120,11 +120,11 @@ instance ToQuery UpdateVTLDeviceType where
 -- * 'uvtldtrStatus'
 data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
     { _uvtldtrVTLDeviceARN :: !(Maybe Text)
-    , _uvtldtrStatus       :: !Int
+    , _uvtldtrStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateVTLDeviceTypeResponse' smart constructor.
-updateVTLDeviceTypeResponse :: Int -> UpdateVTLDeviceTypeResponse
+updateVTLDeviceTypeResponse :: Status -> UpdateVTLDeviceTypeResponse
 updateVTLDeviceTypeResponse pStatus =
     UpdateVTLDeviceTypeResponse'
     { _uvtldtrVTLDeviceARN = Nothing
@@ -136,5 +136,5 @@ uvtldtrVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse (Maybe Text)
 uvtldtrVTLDeviceARN = lens _uvtldtrVTLDeviceARN (\ s a -> s{_uvtldtrVTLDeviceARN = a});
 
 -- | FIXME: Undocumented member.
-uvtldtrStatus :: Lens' UpdateVTLDeviceTypeResponse Int
+uvtldtrStatus :: Lens' UpdateVTLDeviceTypeResponse Status
 uvtldtrStatus = lens _uvtldtrStatus (\ s a -> s{_uvtldtrStatus = a});

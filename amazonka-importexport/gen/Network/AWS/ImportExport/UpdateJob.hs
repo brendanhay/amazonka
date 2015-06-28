@@ -115,7 +115,7 @@ instance AWSRequest UpdateJob where
                    (x .@? "Success") <*> (x .@? "WarningMessage") <*>
                      (x .@? "ArtifactList" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders UpdateJob where
         toHeaders = const mempty
@@ -150,11 +150,11 @@ data UpdateJobResponse = UpdateJobResponse'
     { _ujrSuccess        :: !(Maybe Bool)
     , _ujrWarningMessage :: !(Maybe Text)
     , _ujrArtifactList   :: !(Maybe [Artifact])
-    , _ujrStatus         :: !Int
+    , _ujrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateJobResponse' smart constructor.
-updateJobResponse :: Int -> UpdateJobResponse
+updateJobResponse :: Status -> UpdateJobResponse
 updateJobResponse pStatus =
     UpdateJobResponse'
     { _ujrSuccess = Nothing
@@ -176,5 +176,5 @@ ujrArtifactList :: Lens' UpdateJobResponse [Artifact]
 ujrArtifactList = lens _ujrArtifactList (\ s a -> s{_ujrArtifactList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ujrStatus :: Lens' UpdateJobResponse Int
+ujrStatus :: Lens' UpdateJobResponse Status
 ujrStatus = lens _ujrStatus (\ s a -> s{_ujrStatus = a});

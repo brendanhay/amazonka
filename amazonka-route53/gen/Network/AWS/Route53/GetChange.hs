@@ -80,7 +80,7 @@ instance AWSRequest GetChange where
           = receiveXML
               (\ s h x ->
                  GetChangeResponse' <$>
-                   (x .@ "ChangeInfo") <*> (pure (fromEnum s)))
+                   (x .@ "ChangeInfo") <*> (pure s))
 
 instance ToHeaders GetChange where
         toHeaders = const mempty
@@ -103,11 +103,11 @@ instance ToQuery GetChange where
 -- * 'gcrStatus'
 data GetChangeResponse = GetChangeResponse'
     { _gcrChangeInfo :: !ChangeInfo
-    , _gcrStatus     :: !Int
+    , _gcrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetChangeResponse' smart constructor.
-getChangeResponse :: ChangeInfo -> Int -> GetChangeResponse
+getChangeResponse :: ChangeInfo -> Status -> GetChangeResponse
 getChangeResponse pChangeInfo pStatus =
     GetChangeResponse'
     { _gcrChangeInfo = pChangeInfo
@@ -121,5 +121,5 @@ gcrChangeInfo :: Lens' GetChangeResponse ChangeInfo
 gcrChangeInfo = lens _gcrChangeInfo (\ s a -> s{_gcrChangeInfo = a});
 
 -- | FIXME: Undocumented member.
-gcrStatus :: Lens' GetChangeResponse Int
+gcrStatus :: Lens' GetChangeResponse Status
 gcrStatus = lens _gcrStatus (\ s a -> s{_gcrStatus = a});

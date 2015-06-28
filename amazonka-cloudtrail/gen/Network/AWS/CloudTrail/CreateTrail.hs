@@ -146,7 +146,7 @@ instance AWSRequest CreateTrail where
                      <*> (x .?> "IncludeGlobalServiceEvents")
                      <*> (x .?> "CloudWatchLogsRoleArn")
                      <*> (x .?> "S3BucketName")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders CreateTrail where
         toHeaders
@@ -206,11 +206,11 @@ data CreateTrailResponse = CreateTrailResponse'
     , _ctrIncludeGlobalServiceEvents :: !(Maybe Bool)
     , _ctrCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _ctrS3BucketName               :: !(Maybe Text)
-    , _ctrStatus                     :: !Int
+    , _ctrStatus                     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateTrailResponse' smart constructor.
-createTrailResponse :: Int -> CreateTrailResponse
+createTrailResponse :: Status -> CreateTrailResponse
 createTrailResponse pStatus =
     CreateTrailResponse'
     { _ctrS3KeyPrefix = Nothing
@@ -258,5 +258,5 @@ ctrS3BucketName :: Lens' CreateTrailResponse (Maybe Text)
 ctrS3BucketName = lens _ctrS3BucketName (\ s a -> s{_ctrS3BucketName = a});
 
 -- | FIXME: Undocumented member.
-ctrStatus :: Lens' CreateTrailResponse Int
+ctrStatus :: Lens' CreateTrailResponse Status
 ctrStatus = lens _ctrStatus (\ s a -> s{_ctrStatus = a});

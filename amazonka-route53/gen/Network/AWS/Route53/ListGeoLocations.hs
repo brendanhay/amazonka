@@ -139,7 +139,7 @@ instance AWSRequest ListGeoLocations where
                         parseXMLList "GeoLocationDetails")
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListGeoLocations where
         toHeaders = const mempty
@@ -182,11 +182,11 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse'
     , _lglrGeoLocationDetailsList :: ![GeoLocationDetails]
     , _lglrIsTruncated            :: !Bool
     , _lglrMaxItems               :: !Text
-    , _lglrStatus                 :: !Int
+    , _lglrStatus                 :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListGeoLocationsResponse' smart constructor.
-listGeoLocationsResponse :: Bool -> Text -> Int -> ListGeoLocationsResponse
+listGeoLocationsResponse :: Bool -> Text -> Status -> ListGeoLocationsResponse
 listGeoLocationsResponse pIsTruncated pMaxItems pStatus =
     ListGeoLocationsResponse'
     { _lglrNextContinentCode = Nothing
@@ -241,5 +241,5 @@ lglrMaxItems :: Lens' ListGeoLocationsResponse Text
 lglrMaxItems = lens _lglrMaxItems (\ s a -> s{_lglrMaxItems = a});
 
 -- | FIXME: Undocumented member.
-lglrStatus :: Lens' ListGeoLocationsResponse Int
+lglrStatus :: Lens' ListGeoLocationsResponse Status
 lglrStatus = lens _lglrStatus (\ s a -> s{_lglrStatus = a});

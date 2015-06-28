@@ -131,7 +131,7 @@ instance AWSRequest CreateVPCEndpoint where
               (\ s h x ->
                  CreateVPCEndpointResponse' <$>
                    (x .@? "clientToken") <*> (x .@? "vpcEndpoint") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders CreateVPCEndpoint where
         toHeaders = const mempty
@@ -163,11 +163,11 @@ instance ToQuery CreateVPCEndpoint where
 data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
     { _cverClientToken :: !(Maybe Text)
     , _cverVPCEndpoint :: !(Maybe VPCEndpoint)
-    , _cverStatus      :: !Int
+    , _cverStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateVPCEndpointResponse' smart constructor.
-createVPCEndpointResponse :: Int -> CreateVPCEndpointResponse
+createVPCEndpointResponse :: Status -> CreateVPCEndpointResponse
 createVPCEndpointResponse pStatus =
     CreateVPCEndpointResponse'
     { _cverClientToken = Nothing
@@ -185,5 +185,5 @@ cverVPCEndpoint :: Lens' CreateVPCEndpointResponse (Maybe VPCEndpoint)
 cverVPCEndpoint = lens _cverVPCEndpoint (\ s a -> s{_cverVPCEndpoint = a});
 
 -- | FIXME: Undocumented member.
-cverStatus :: Lens' CreateVPCEndpointResponse Int
+cverStatus :: Lens' CreateVPCEndpointResponse Status
 cverStatus = lens _cverStatus (\ s a -> s{_cverStatus = a});

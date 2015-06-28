@@ -133,7 +133,7 @@ instance AWSRequest ReEncrypt where
                  ReEncryptResponse' <$>
                    (x .?> "SourceKeyId") <*> (x .?> "KeyId") <*>
                      (x .?> "CiphertextBlob")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ReEncrypt where
         toHeaders
@@ -176,11 +176,11 @@ data ReEncryptResponse = ReEncryptResponse'
     { _rerSourceKeyId    :: !(Maybe Text)
     , _rerKeyId          :: !(Maybe Text)
     , _rerCiphertextBlob :: !(Maybe Base64)
-    , _rerStatus         :: !Int
+    , _rerStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ReEncryptResponse' smart constructor.
-reEncryptResponse :: Int -> ReEncryptResponse
+reEncryptResponse :: Status -> ReEncryptResponse
 reEncryptResponse pStatus =
     ReEncryptResponse'
     { _rerSourceKeyId = Nothing
@@ -203,5 +203,5 @@ rerCiphertextBlob :: Lens' ReEncryptResponse (Maybe Base64)
 rerCiphertextBlob = lens _rerCiphertextBlob (\ s a -> s{_rerCiphertextBlob = a});
 
 -- | FIXME: Undocumented member.
-rerStatus :: Lens' ReEncryptResponse Int
+rerStatus :: Lens' ReEncryptResponse Status
 rerStatus = lens _rerStatus (\ s a -> s{_rerStatus = a});

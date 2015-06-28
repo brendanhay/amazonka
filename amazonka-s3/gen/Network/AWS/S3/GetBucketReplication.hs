@@ -69,8 +69,7 @@ instance AWSRequest GetBucketReplication where
           = receiveXML
               (\ s h x ->
                  GetBucketReplicationResponse' <$>
-                   (x .@? "ReplicationConfiguration") <*>
-                     (pure (fromEnum s)))
+                   (x .@? "ReplicationConfiguration") <*> (pure s))
 
 instance ToHeaders GetBucketReplication where
         toHeaders = const mempty
@@ -91,11 +90,11 @@ instance ToQuery GetBucketReplication where
 -- * 'gbrrStatus'
 data GetBucketReplicationResponse = GetBucketReplicationResponse'
     { _gbrrReplicationConfiguration :: !(Maybe ReplicationConfiguration)
-    , _gbrrStatus                   :: !Int
+    , _gbrrStatus                   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetBucketReplicationResponse' smart constructor.
-getBucketReplicationResponse :: Int -> GetBucketReplicationResponse
+getBucketReplicationResponse :: Status -> GetBucketReplicationResponse
 getBucketReplicationResponse pStatus =
     GetBucketReplicationResponse'
     { _gbrrReplicationConfiguration = Nothing
@@ -107,5 +106,5 @@ gbrrReplicationConfiguration :: Lens' GetBucketReplicationResponse (Maybe Replic
 gbrrReplicationConfiguration = lens _gbrrReplicationConfiguration (\ s a -> s{_gbrrReplicationConfiguration = a});
 
 -- | FIXME: Undocumented member.
-gbrrStatus :: Lens' GetBucketReplicationResponse Int
+gbrrStatus :: Lens' GetBucketReplicationResponse Status
 gbrrStatus = lens _gbrrStatus (\ s a -> s{_gbrrStatus = a});

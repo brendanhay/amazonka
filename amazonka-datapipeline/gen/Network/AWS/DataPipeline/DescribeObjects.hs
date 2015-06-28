@@ -116,7 +116,7 @@ instance AWSRequest DescribeObjects where
                  DescribeObjectsResponse' <$>
                    (x .?> "hasMoreResults") <*> (x .?> "marker") <*>
                      (x .?> "pipelineObjects" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeObjects where
         toHeaders
@@ -157,11 +157,11 @@ data DescribeObjectsResponse = DescribeObjectsResponse'
     { _dorHasMoreResults  :: !(Maybe Bool)
     , _dorMarker          :: !(Maybe Text)
     , _dorPipelineObjects :: ![PipelineObject]
-    , _dorStatus          :: !Int
+    , _dorStatus          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeObjectsResponse' smart constructor.
-describeObjectsResponse :: Int -> DescribeObjectsResponse
+describeObjectsResponse :: Status -> DescribeObjectsResponse
 describeObjectsResponse pStatus =
     DescribeObjectsResponse'
     { _dorHasMoreResults = Nothing
@@ -185,5 +185,5 @@ dorPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
 dorPipelineObjects = lens _dorPipelineObjects (\ s a -> s{_dorPipelineObjects = a});
 
 -- | FIXME: Undocumented member.
-dorStatus :: Lens' DescribeObjectsResponse Int
+dorStatus :: Lens' DescribeObjectsResponse Status
 dorStatus = lens _dorStatus (\ s a -> s{_dorStatus = a});

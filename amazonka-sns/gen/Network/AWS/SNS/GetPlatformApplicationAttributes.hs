@@ -78,7 +78,7 @@ instance AWSRequest GetPlatformApplicationAttributes
                  GetPlatformApplicationAttributesResponse' <$>
                    (x .@? "Attributes" .!@ mempty >>=
                       may (parseXMLMap "entry" "key" "value"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetPlatformApplicationAttributes
          where
@@ -109,11 +109,11 @@ instance ToQuery GetPlatformApplicationAttributes
 -- * 'gpaarStatus'
 data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'
     { _gpaarAttributes :: !(Maybe (Map Text Text))
-    , _gpaarStatus     :: !Int
+    , _gpaarStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetPlatformApplicationAttributesResponse' smart constructor.
-getPlatformApplicationAttributesResponse :: Int -> GetPlatformApplicationAttributesResponse
+getPlatformApplicationAttributesResponse :: Status -> GetPlatformApplicationAttributesResponse
 getPlatformApplicationAttributesResponse pStatus =
     GetPlatformApplicationAttributesResponse'
     { _gpaarAttributes = Nothing
@@ -135,5 +135,5 @@ gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text 
 gpaarAttributes = lens _gpaarAttributes (\ s a -> s{_gpaarAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gpaarStatus :: Lens' GetPlatformApplicationAttributesResponse Int
+gpaarStatus :: Lens' GetPlatformApplicationAttributesResponse Status
 gpaarStatus = lens _gpaarStatus (\ s a -> s{_gpaarStatus = a});

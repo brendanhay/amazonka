@@ -92,7 +92,7 @@ instance AWSRequest CreateLoginProfile where
           = receiveXMLWrapper "CreateLoginProfileResult"
               (\ s h x ->
                  CreateLoginProfileResponse' <$>
-                   (x .@ "LoginProfile") <*> (pure (fromEnum s)))
+                   (x .@ "LoginProfile") <*> (pure s))
 
 instance ToHeaders CreateLoginProfile where
         toHeaders = const mempty
@@ -120,11 +120,11 @@ instance ToQuery CreateLoginProfile where
 -- * 'clprStatus'
 data CreateLoginProfileResponse = CreateLoginProfileResponse'
     { _clprLoginProfile :: !LoginProfile
-    , _clprStatus       :: !Int
+    , _clprStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateLoginProfileResponse' smart constructor.
-createLoginProfileResponse :: LoginProfile -> Int -> CreateLoginProfileResponse
+createLoginProfileResponse :: LoginProfile -> Status -> CreateLoginProfileResponse
 createLoginProfileResponse pLoginProfile pStatus =
     CreateLoginProfileResponse'
     { _clprLoginProfile = pLoginProfile
@@ -136,5 +136,5 @@ clprLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
 clprLoginProfile = lens _clprLoginProfile (\ s a -> s{_clprLoginProfile = a});
 
 -- | FIXME: Undocumented member.
-clprStatus :: Lens' CreateLoginProfileResponse Int
+clprStatus :: Lens' CreateLoginProfileResponse Status
 clprStatus = lens _clprStatus (\ s a -> s{_clprStatus = a});

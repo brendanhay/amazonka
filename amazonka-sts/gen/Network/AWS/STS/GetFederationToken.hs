@@ -191,7 +191,7 @@ instance AWSRequest GetFederationToken where
                  GetFederationTokenResponse' <$>
                    (x .@? "PackedPolicySize") <*> (x .@? "Credentials")
                      <*> (x .@? "FederatedUser")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetFederationToken where
         toHeaders = const mempty
@@ -226,11 +226,11 @@ data GetFederationTokenResponse = GetFederationTokenResponse'
     { _gftrPackedPolicySize :: !(Maybe Nat)
     , _gftrCredentials      :: !(Maybe Credentials)
     , _gftrFederatedUser    :: !(Maybe FederatedUser)
-    , _gftrStatus           :: !Int
+    , _gftrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetFederationTokenResponse' smart constructor.
-getFederationTokenResponse :: Int -> GetFederationTokenResponse
+getFederationTokenResponse :: Status -> GetFederationTokenResponse
 getFederationTokenResponse pStatus =
     GetFederationTokenResponse'
     { _gftrPackedPolicySize = Nothing
@@ -257,5 +257,5 @@ gftrFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
 gftrFederatedUser = lens _gftrFederatedUser (\ s a -> s{_gftrFederatedUser = a});
 
 -- | FIXME: Undocumented member.
-gftrStatus :: Lens' GetFederationTokenResponse Int
+gftrStatus :: Lens' GetFederationTokenResponse Status
 gftrStatus = lens _gftrStatus (\ s a -> s{_gftrStatus = a});

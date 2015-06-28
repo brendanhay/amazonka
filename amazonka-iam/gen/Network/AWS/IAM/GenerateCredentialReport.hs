@@ -61,7 +61,7 @@ instance AWSRequest GenerateCredentialReport where
               (\ s h x ->
                  GenerateCredentialReportResponse' <$>
                    (x .@? "State") <*> (x .@? "Description") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders GenerateCredentialReport where
         toHeaders = const mempty
@@ -91,11 +91,11 @@ instance ToQuery GenerateCredentialReport where
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
     { _gcrrState       :: !(Maybe ReportStateType)
     , _gcrrDescription :: !(Maybe Text)
-    , _gcrrStatus      :: !Int
+    , _gcrrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GenerateCredentialReportResponse' smart constructor.
-generateCredentialReportResponse :: Int -> GenerateCredentialReportResponse
+generateCredentialReportResponse :: Status -> GenerateCredentialReportResponse
 generateCredentialReportResponse pStatus =
     GenerateCredentialReportResponse'
     { _gcrrState = Nothing
@@ -112,5 +112,5 @@ gcrrDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
 gcrrDescription = lens _gcrrDescription (\ s a -> s{_gcrrDescription = a});
 
 -- | FIXME: Undocumented member.
-gcrrStatus :: Lens' GenerateCredentialReportResponse Int
+gcrrStatus :: Lens' GenerateCredentialReportResponse Status
 gcrrStatus = lens _gcrrStatus (\ s a -> s{_gcrrStatus = a});

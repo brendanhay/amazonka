@@ -81,7 +81,7 @@ instance AWSRequest ListLocalDisks where
               (\ s h x ->
                  ListLocalDisksResponse' <$>
                    (x .?> "GatewayARN") <*> (x .?> "Disks" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListLocalDisks where
         toHeaders
@@ -115,11 +115,11 @@ instance ToQuery ListLocalDisks where
 data ListLocalDisksResponse = ListLocalDisksResponse'
     { _lldrGatewayARN :: !(Maybe Text)
     , _lldrDisks      :: !(Maybe [Disk])
-    , _lldrStatus     :: !Int
+    , _lldrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListLocalDisksResponse' smart constructor.
-listLocalDisksResponse :: Int -> ListLocalDisksResponse
+listLocalDisksResponse :: Status -> ListLocalDisksResponse
 listLocalDisksResponse pStatus =
     ListLocalDisksResponse'
     { _lldrGatewayARN = Nothing
@@ -136,5 +136,5 @@ lldrDisks :: Lens' ListLocalDisksResponse [Disk]
 lldrDisks = lens _lldrDisks (\ s a -> s{_lldrDisks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lldrStatus :: Lens' ListLocalDisksResponse Int
+lldrStatus :: Lens' ListLocalDisksResponse Status
 lldrStatus = lens _lldrStatus (\ s a -> s{_lldrStatus = a});

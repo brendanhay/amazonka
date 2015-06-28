@@ -157,7 +157,7 @@ instance AWSRequest CreateHostedZone where
                      (x .@ "ChangeInfo")
                      <*> (x .@ "DelegationSet")
                      <*> (h .# "Location")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToElement CreateHostedZone where
         toElement
@@ -205,11 +205,11 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse'
     , _chzrChangeInfo    :: !ChangeInfo
     , _chzrDelegationSet :: !DelegationSet
     , _chzrLocation      :: !Text
-    , _chzrStatus        :: !Int
+    , _chzrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateHostedZoneResponse' smart constructor.
-createHostedZoneResponse :: HostedZone -> ChangeInfo -> DelegationSet -> Text -> Int -> CreateHostedZoneResponse
+createHostedZoneResponse :: HostedZone -> ChangeInfo -> DelegationSet -> Text -> Status -> CreateHostedZoneResponse
 createHostedZoneResponse pHostedZone pChangeInfo pDelegationSet pLocation pStatus =
     CreateHostedZoneResponse'
     { _chzrVPC = Nothing
@@ -244,5 +244,5 @@ chzrLocation :: Lens' CreateHostedZoneResponse Text
 chzrLocation = lens _chzrLocation (\ s a -> s{_chzrLocation = a});
 
 -- | FIXME: Undocumented member.
-chzrStatus :: Lens' CreateHostedZoneResponse Int
+chzrStatus :: Lens' CreateHostedZoneResponse Status
 chzrStatus = lens _chzrStatus (\ s a -> s{_chzrStatus = a});

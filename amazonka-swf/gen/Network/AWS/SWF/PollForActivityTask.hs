@@ -137,7 +137,7 @@ instance AWSRequest PollForActivityTask where
                      <*> (x .:> "startedEventId")
                      <*> (x .:> "workflowExecution")
                      <*> (x .:> "activityType")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders PollForActivityTask where
         toHeaders
@@ -187,11 +187,11 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse'
     , _pfatrStartedEventId    :: !Integer
     , _pfatrWorkflowExecution :: !WorkflowExecution
     , _pfatrActivityType      :: !ActivityType
-    , _pfatrStatus            :: !Int
+    , _pfatrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'PollForActivityTaskResponse' smart constructor.
-pollForActivityTaskResponse :: Text -> Text -> Integer -> WorkflowExecution -> ActivityType -> Int -> PollForActivityTaskResponse
+pollForActivityTaskResponse :: Text -> Text -> Integer -> WorkflowExecution -> ActivityType -> Status -> PollForActivityTaskResponse
 pollForActivityTaskResponse pTaskToken pActivityId pStartedEventId pWorkflowExecution pActivityType pStatus =
     PollForActivityTaskResponse'
     { _pfatrInput = Nothing
@@ -232,5 +232,5 @@ pfatrActivityType :: Lens' PollForActivityTaskResponse ActivityType
 pfatrActivityType = lens _pfatrActivityType (\ s a -> s{_pfatrActivityType = a});
 
 -- | FIXME: Undocumented member.
-pfatrStatus :: Lens' PollForActivityTaskResponse Int
+pfatrStatus :: Lens' PollForActivityTaskResponse Status
 pfatrStatus = lens _pfatrStatus (\ s a -> s{_pfatrStatus = a});

@@ -125,8 +125,7 @@ instance AWSRequest DescribeCustomerGateways where
           = receiveXML
               (\ s h x ->
                  DescribeCustomerGatewaysResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders DescribeCustomerGateways where
         toHeaders = const mempty
@@ -155,11 +154,11 @@ instance ToQuery DescribeCustomerGateways where
 -- * 'dcgrStatus'
 data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
     { _dcgrCustomerGateways :: !(Maybe [CustomerGateway])
-    , _dcgrStatus           :: !Int
+    , _dcgrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeCustomerGatewaysResponse' smart constructor.
-describeCustomerGatewaysResponse :: Int -> DescribeCustomerGatewaysResponse
+describeCustomerGatewaysResponse :: Status -> DescribeCustomerGatewaysResponse
 describeCustomerGatewaysResponse pStatus =
     DescribeCustomerGatewaysResponse'
     { _dcgrCustomerGateways = Nothing
@@ -171,5 +170,5 @@ dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
 dcgrCustomerGateways = lens _dcgrCustomerGateways (\ s a -> s{_dcgrCustomerGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcgrStatus :: Lens' DescribeCustomerGatewaysResponse Int
+dcgrStatus :: Lens' DescribeCustomerGatewaysResponse Status
 dcgrStatus = lens _dcgrStatus (\ s a -> s{_dcgrStatus = a});

@@ -89,7 +89,7 @@ instance AWSRequest DefineIndexField where
           = receiveXMLWrapper "DefineIndexFieldResult"
               (\ s h x ->
                  DefineIndexFieldResponse' <$>
-                   (x .@ "IndexField") <*> (pure (fromEnum s)))
+                   (x .@ "IndexField") <*> (pure s))
 
 instance ToHeaders DefineIndexField where
         toHeaders = const mempty
@@ -117,11 +117,11 @@ instance ToQuery DefineIndexField where
 -- * 'defStatus'
 data DefineIndexFieldResponse = DefineIndexFieldResponse'
     { _defIndexField :: !IndexFieldStatus
-    , _defStatus     :: !Int
+    , _defStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DefineIndexFieldResponse' smart constructor.
-defineIndexFieldResponse :: IndexFieldStatus -> Int -> DefineIndexFieldResponse
+defineIndexFieldResponse :: IndexFieldStatus -> Status -> DefineIndexFieldResponse
 defineIndexFieldResponse pIndexField pStatus =
     DefineIndexFieldResponse'
     { _defIndexField = pIndexField
@@ -133,5 +133,5 @@ defIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
 defIndexField = lens _defIndexField (\ s a -> s{_defIndexField = a});
 
 -- | FIXME: Undocumented member.
-defStatus :: Lens' DefineIndexFieldResponse Int
+defStatus :: Lens' DefineIndexFieldResponse Status
 defStatus = lens _defStatus (\ s a -> s{_defStatus = a});

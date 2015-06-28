@@ -92,7 +92,7 @@ instance AWSRequest DescribeServiceAccessPolicies
               "DescribeServiceAccessPoliciesResult"
               (\ s h x ->
                  DescribeServiceAccessPoliciesResponse' <$>
-                   (x .@ "AccessPolicies") <*> (pure (fromEnum s)))
+                   (x .@ "AccessPolicies") <*> (pure s))
 
 instance ToHeaders DescribeServiceAccessPolicies
          where
@@ -121,11 +121,11 @@ instance ToQuery DescribeServiceAccessPolicies where
 -- * 'dsaprStatus'
 data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'
     { _dsaprAccessPolicies :: !AccessPoliciesStatus
-    , _dsaprStatus         :: !Int
+    , _dsaprStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeServiceAccessPoliciesResponse' smart constructor.
-describeServiceAccessPoliciesResponse :: AccessPoliciesStatus -> Int -> DescribeServiceAccessPoliciesResponse
+describeServiceAccessPoliciesResponse :: AccessPoliciesStatus -> Status -> DescribeServiceAccessPoliciesResponse
 describeServiceAccessPoliciesResponse pAccessPolicies pStatus =
     DescribeServiceAccessPoliciesResponse'
     { _dsaprAccessPolicies = pAccessPolicies
@@ -137,5 +137,5 @@ dsaprAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPolicie
 dsaprAccessPolicies = lens _dsaprAccessPolicies (\ s a -> s{_dsaprAccessPolicies = a});
 
 -- | FIXME: Undocumented member.
-dsaprStatus :: Lens' DescribeServiceAccessPoliciesResponse Int
+dsaprStatus :: Lens' DescribeServiceAccessPoliciesResponse Status
 dsaprStatus = lens _dsaprStatus (\ s a -> s{_dsaprStatus = a});

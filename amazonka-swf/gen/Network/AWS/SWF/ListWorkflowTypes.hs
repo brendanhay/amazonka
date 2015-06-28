@@ -159,7 +159,7 @@ instance AWSRequest ListWorkflowTypes where
                  ListWorkflowTypesResponse' <$>
                    (x .?> "nextPageToken") <*>
                      (x .?> "typeInfos" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListWorkflowTypes where
         toHeaders
@@ -202,11 +202,11 @@ instance ToQuery ListWorkflowTypes where
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse'
     { _lwtrNextPageToken :: !(Maybe Text)
     , _lwtrTypeInfos     :: ![WorkflowTypeInfo]
-    , _lwtrStatus        :: !Int
+    , _lwtrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListWorkflowTypesResponse' smart constructor.
-listWorkflowTypesResponse :: Int -> ListWorkflowTypesResponse
+listWorkflowTypesResponse :: Status -> ListWorkflowTypesResponse
 listWorkflowTypesResponse pStatus =
     ListWorkflowTypesResponse'
     { _lwtrNextPageToken = Nothing
@@ -229,5 +229,5 @@ lwtrTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
 lwtrTypeInfos = lens _lwtrTypeInfos (\ s a -> s{_lwtrTypeInfos = a});
 
 -- | FIXME: Undocumented member.
-lwtrStatus :: Lens' ListWorkflowTypesResponse Int
+lwtrStatus :: Lens' ListWorkflowTypesResponse Status
 lwtrStatus = lens _lwtrStatus (\ s a -> s{_lwtrStatus = a});

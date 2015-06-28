@@ -118,7 +118,7 @@ instance AWSRequest DescribeEventSubscriptions where
                    (x .@? "EventSubscriptionsList" .!@ mempty >>=
                       may (parseXMLList "EventSubscription"))
                      <*> (x .@? "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeEventSubscriptions where
         toHeaders = const mempty
@@ -150,11 +150,11 @@ instance ToQuery DescribeEventSubscriptions where
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
     { _desrEventSubscriptionsList :: !(Maybe [EventSubscription])
     , _desrMarker                 :: !(Maybe Text)
-    , _desrStatus                 :: !Int
+    , _desrStatus                 :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeEventSubscriptionsResponse' smart constructor.
-describeEventSubscriptionsResponse :: Int -> DescribeEventSubscriptionsResponse
+describeEventSubscriptionsResponse :: Status -> DescribeEventSubscriptionsResponse
 describeEventSubscriptionsResponse pStatus =
     DescribeEventSubscriptionsResponse'
     { _desrEventSubscriptionsList = Nothing
@@ -176,5 +176,5 @@ desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrMarker = lens _desrMarker (\ s a -> s{_desrMarker = a});
 
 -- | FIXME: Undocumented member.
-desrStatus :: Lens' DescribeEventSubscriptionsResponse Int
+desrStatus :: Lens' DescribeEventSubscriptionsResponse Status
 desrStatus = lens _desrStatus (\ s a -> s{_desrStatus = a});

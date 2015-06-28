@@ -82,7 +82,7 @@ instance AWSRequest AddInstanceGroups where
                  AddInstanceGroupsResponse' <$>
                    (x .?> "JobFlowId") <*>
                      (x .?> "InstanceGroupIds" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders AddInstanceGroups where
         toHeaders
@@ -119,11 +119,11 @@ instance ToQuery AddInstanceGroups where
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
     { _aigrJobFlowId        :: !(Maybe Text)
     , _aigrInstanceGroupIds :: !(Maybe [Text])
-    , _aigrStatus           :: !Int
+    , _aigrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'AddInstanceGroupsResponse' smart constructor.
-addInstanceGroupsResponse :: Int -> AddInstanceGroupsResponse
+addInstanceGroupsResponse :: Status -> AddInstanceGroupsResponse
 addInstanceGroupsResponse pStatus =
     AddInstanceGroupsResponse'
     { _aigrJobFlowId = Nothing
@@ -140,5 +140,5 @@ aigrInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
 aigrInstanceGroupIds = lens _aigrInstanceGroupIds (\ s a -> s{_aigrInstanceGroupIds = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-aigrStatus :: Lens' AddInstanceGroupsResponse Int
+aigrStatus :: Lens' AddInstanceGroupsResponse Status
 aigrStatus = lens _aigrStatus (\ s a -> s{_aigrStatus = a});

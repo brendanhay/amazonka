@@ -104,7 +104,7 @@ instance AWSRequest DescribeLaunchConfigurations
                    (x .@? "NextToken") <*>
                      (x .@? "LaunchConfigurations" .!@ mempty >>=
                         parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeLaunchConfigurations where
         toHeaders = const mempty
@@ -137,11 +137,11 @@ instance ToQuery DescribeLaunchConfigurations where
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'
     { _dlcrNextToken            :: !(Maybe Text)
     , _dlcrLaunchConfigurations :: ![LaunchConfiguration]
-    , _dlcrStatus               :: !Int
+    , _dlcrStatus               :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeLaunchConfigurationsResponse' smart constructor.
-describeLaunchConfigurationsResponse :: Int -> DescribeLaunchConfigurationsResponse
+describeLaunchConfigurationsResponse :: Status -> DescribeLaunchConfigurationsResponse
 describeLaunchConfigurationsResponse pStatus =
     DescribeLaunchConfigurationsResponse'
     { _dlcrNextToken = Nothing
@@ -159,5 +159,5 @@ dlcrLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchCo
 dlcrLaunchConfigurations = lens _dlcrLaunchConfigurations (\ s a -> s{_dlcrLaunchConfigurations = a});
 
 -- | FIXME: Undocumented member.
-dlcrStatus :: Lens' DescribeLaunchConfigurationsResponse Int
+dlcrStatus :: Lens' DescribeLaunchConfigurationsResponse Status
 dlcrStatus = lens _dlcrStatus (\ s a -> s{_dlcrStatus = a});

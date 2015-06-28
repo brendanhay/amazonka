@@ -141,7 +141,7 @@ instance AWSRequest DownloadDBLogFilePortion where
                    (x .@? "LogFileData") <*>
                      (x .@? "AdditionalDataPending")
                      <*> (x .@? "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DownloadDBLogFilePortion where
         toHeaders = const mempty
@@ -178,11 +178,11 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
     { _ddlfprLogFileData           :: !(Maybe Text)
     , _ddlfprAdditionalDataPending :: !(Maybe Bool)
     , _ddlfprMarker                :: !(Maybe Text)
-    , _ddlfprStatus                :: !Int
+    , _ddlfprStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DownloadDBLogFilePortionResponse' smart constructor.
-downloadDBLogFilePortionResponse :: Int -> DownloadDBLogFilePortionResponse
+downloadDBLogFilePortionResponse :: Status -> DownloadDBLogFilePortionResponse
 downloadDBLogFilePortionResponse pStatus =
     DownloadDBLogFilePortionResponse'
     { _ddlfprLogFileData = Nothing
@@ -206,5 +206,5 @@ ddlfprMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
 ddlfprMarker = lens _ddlfprMarker (\ s a -> s{_ddlfprMarker = a});
 
 -- | FIXME: Undocumented member.
-ddlfprStatus :: Lens' DownloadDBLogFilePortionResponse Int
+ddlfprStatus :: Lens' DownloadDBLogFilePortionResponse Status
 ddlfprStatus = lens _ddlfprStatus (\ s a -> s{_ddlfprStatus = a});

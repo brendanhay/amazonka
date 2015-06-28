@@ -88,7 +88,7 @@ instance AWSRequest
               (\ s h x ->
                  ListCloudFrontOriginAccessIdentitiesResponse' <$>
                    (x .@ "CloudFrontOriginAccessIdentityList") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders
          ListCloudFrontOriginAccessIdentities where
@@ -118,11 +118,11 @@ instance ToQuery ListCloudFrontOriginAccessIdentities
 -- * 'lcfoairStatus'
 data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'
     { _lcfoairCloudFrontOriginAccessIdentityList :: !CloudFrontOriginAccessIdentityList
-    , _lcfoairStatus                             :: !Int
+    , _lcfoairStatus                             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListCloudFrontOriginAccessIdentitiesResponse' smart constructor.
-listCloudFrontOriginAccessIdentitiesResponse :: CloudFrontOriginAccessIdentityList -> Int -> ListCloudFrontOriginAccessIdentitiesResponse
+listCloudFrontOriginAccessIdentitiesResponse :: CloudFrontOriginAccessIdentityList -> Status -> ListCloudFrontOriginAccessIdentitiesResponse
 listCloudFrontOriginAccessIdentitiesResponse pCloudFrontOriginAccessIdentityList pStatus =
     ListCloudFrontOriginAccessIdentitiesResponse'
     { _lcfoairCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList
@@ -134,5 +134,5 @@ lcfoairCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIde
 lcfoairCloudFrontOriginAccessIdentityList = lens _lcfoairCloudFrontOriginAccessIdentityList (\ s a -> s{_lcfoairCloudFrontOriginAccessIdentityList = a});
 
 -- | FIXME: Undocumented member.
-lcfoairStatus :: Lens' ListCloudFrontOriginAccessIdentitiesResponse Int
+lcfoairStatus :: Lens' ListCloudFrontOriginAccessIdentitiesResponse Status
 lcfoairStatus = lens _lcfoairStatus (\ s a -> s{_lcfoairStatus = a});

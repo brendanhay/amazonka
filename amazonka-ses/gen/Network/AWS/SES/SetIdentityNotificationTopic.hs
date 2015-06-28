@@ -105,8 +105,7 @@ instance AWSRequest SetIdentityNotificationTopic
           = receiveXMLWrapper
               "SetIdentityNotificationTopicResult"
               (\ s h x ->
-                 SetIdentityNotificationTopicResponse' <$>
-                   (pure (fromEnum s)))
+                 SetIdentityNotificationTopicResponse' <$> (pure s))
 
 instance ToHeaders SetIdentityNotificationTopic where
         toHeaders = const mempty
@@ -133,16 +132,16 @@ instance ToQuery SetIdentityNotificationTopic where
 --
 -- * 'sintrStatus'
 newtype SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'
-    { _sintrStatus :: Int
+    { _sintrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'SetIdentityNotificationTopicResponse' smart constructor.
-setIdentityNotificationTopicResponse :: Int -> SetIdentityNotificationTopicResponse
+setIdentityNotificationTopicResponse :: Status -> SetIdentityNotificationTopicResponse
 setIdentityNotificationTopicResponse pStatus =
     SetIdentityNotificationTopicResponse'
     { _sintrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-sintrStatus :: Lens' SetIdentityNotificationTopicResponse Int
+sintrStatus :: Lens' SetIdentityNotificationTopicResponse Status
 sintrStatus = lens _sintrStatus (\ s a -> s{_sintrStatus = a});

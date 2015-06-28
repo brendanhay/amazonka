@@ -110,7 +110,7 @@ instance AWSRequest ListServices where
                  ListServicesResponse' <$>
                    (x .?> "serviceArns" .!@ mempty) <*>
                      (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListServices where
         toHeaders
@@ -147,11 +147,11 @@ instance ToQuery ListServices where
 data ListServicesResponse = ListServicesResponse'
     { _lsrServiceARNs :: !(Maybe [Text])
     , _lsrNextToken   :: !(Maybe Text)
-    , _lsrStatus      :: !Int
+    , _lsrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListServicesResponse' smart constructor.
-listServicesResponse :: Int -> ListServicesResponse
+listServicesResponse :: Status -> ListServicesResponse
 listServicesResponse pStatus =
     ListServicesResponse'
     { _lsrServiceARNs = Nothing
@@ -172,5 +172,5 @@ lsrNextToken :: Lens' ListServicesResponse (Maybe Text)
 lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
 
 -- | FIXME: Undocumented member.
-lsrStatus :: Lens' ListServicesResponse Int
+lsrStatus :: Lens' ListServicesResponse Status
 lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});

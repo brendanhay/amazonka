@@ -96,7 +96,7 @@ instance AWSRequest DescribeVPCAttribute where
                    (x .@? "enableDnsHostnames") <*>
                      (x .@? "enableDnsSupport")
                      <*> (x .@? "vpcId")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeVPCAttribute where
         toHeaders = const mempty
@@ -127,11 +127,11 @@ data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
     { _dvpcarEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
     , _dvpcarEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
     , _dvpcarVPCId              :: !(Maybe Text)
-    , _dvpcarStatus             :: !Int
+    , _dvpcarStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCAttributeResponse' smart constructor.
-describeVPCAttributeResponse :: Int -> DescribeVPCAttributeResponse
+describeVPCAttributeResponse :: Status -> DescribeVPCAttributeResponse
 describeVPCAttributeResponse pStatus =
     DescribeVPCAttributeResponse'
     { _dvpcarEnableDNSHostnames = Nothing
@@ -158,5 +158,5 @@ dvpcarVPCId :: Lens' DescribeVPCAttributeResponse (Maybe Text)
 dvpcarVPCId = lens _dvpcarVPCId (\ s a -> s{_dvpcarVPCId = a});
 
 -- | FIXME: Undocumented member.
-dvpcarStatus :: Lens' DescribeVPCAttributeResponse Int
+dvpcarStatus :: Lens' DescribeVPCAttributeResponse Status
 dvpcarStatus = lens _dvpcarStatus (\ s a -> s{_dvpcarStatus = a});

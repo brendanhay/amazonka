@@ -202,7 +202,7 @@ instance AWSRequest DescribeVolumeStatus where
               (\ s h x ->
                  DescribeVolumeStatusResponse' <$>
                    (x .@? "nextToken") <*> (may (parseXMLList "item") x)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeVolumeStatus where
         toHeaders = const mempty
@@ -232,11 +232,11 @@ instance ToQuery DescribeVolumeStatus where
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
     { _dvsrNextToken      :: !(Maybe Text)
     , _dvsrVolumeStatuses :: !(Maybe [VolumeStatusItem])
-    , _dvsrStatus         :: !Int
+    , _dvsrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVolumeStatusResponse' smart constructor.
-describeVolumeStatusResponse :: Int -> DescribeVolumeStatusResponse
+describeVolumeStatusResponse :: Status -> DescribeVolumeStatusResponse
 describeVolumeStatusResponse pStatus =
     DescribeVolumeStatusResponse'
     { _dvsrNextToken = Nothing
@@ -254,5 +254,5 @@ dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
 dvsrVolumeStatuses = lens _dvsrVolumeStatuses (\ s a -> s{_dvsrVolumeStatuses = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvsrStatus :: Lens' DescribeVolumeStatusResponse Int
+dvsrStatus :: Lens' DescribeVolumeStatusResponse Status
 dvsrStatus = lens _dvsrStatus (\ s a -> s{_dvsrStatus = a});

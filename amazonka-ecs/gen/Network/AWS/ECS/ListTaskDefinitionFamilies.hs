@@ -115,7 +115,7 @@ instance AWSRequest ListTaskDefinitionFamilies where
               (\ s h x ->
                  ListTaskDefinitionFamiliesResponse' <$>
                    (x .?> "families" .!@ mempty) <*> (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListTaskDefinitionFamilies where
         toHeaders
@@ -152,11 +152,11 @@ instance ToQuery ListTaskDefinitionFamilies where
 data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'
     { _ltdfrFamilies  :: !(Maybe [Text])
     , _ltdfrNextToken :: !(Maybe Text)
-    , _ltdfrStatus    :: !Int
+    , _ltdfrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListTaskDefinitionFamiliesResponse' smart constructor.
-listTaskDefinitionFamiliesResponse :: Int -> ListTaskDefinitionFamiliesResponse
+listTaskDefinitionFamiliesResponse :: Status -> ListTaskDefinitionFamiliesResponse
 listTaskDefinitionFamiliesResponse pStatus =
     ListTaskDefinitionFamiliesResponse'
     { _ltdfrFamilies = Nothing
@@ -178,5 +178,5 @@ ltdfrNextToken :: Lens' ListTaskDefinitionFamiliesResponse (Maybe Text)
 ltdfrNextToken = lens _ltdfrNextToken (\ s a -> s{_ltdfrNextToken = a});
 
 -- | FIXME: Undocumented member.
-ltdfrStatus :: Lens' ListTaskDefinitionFamiliesResponse Int
+ltdfrStatus :: Lens' ListTaskDefinitionFamiliesResponse Status
 ltdfrStatus = lens _ltdfrStatus (\ s a -> s{_ltdfrStatus = a});

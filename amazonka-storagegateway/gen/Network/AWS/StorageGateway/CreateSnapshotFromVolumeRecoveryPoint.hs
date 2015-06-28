@@ -104,7 +104,7 @@ instance AWSRequest
                    (x .?> "VolumeRecoveryPointTime") <*>
                      (x .?> "VolumeARN")
                      <*> (x .?> "SnapshotId")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders
          CreateSnapshotFromVolumeRecoveryPoint where
@@ -147,11 +147,11 @@ data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRec
     { _csfvrprVolumeRecoveryPointTime :: !(Maybe Text)
     , _csfvrprVolumeARN               :: !(Maybe Text)
     , _csfvrprSnapshotId              :: !(Maybe Text)
-    , _csfvrprStatus                  :: !Int
+    , _csfvrprStatus                  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshotFromVolumeRecoveryPointResponse' smart constructor.
-createSnapshotFromVolumeRecoveryPointResponse :: Int -> CreateSnapshotFromVolumeRecoveryPointResponse
+createSnapshotFromVolumeRecoveryPointResponse :: Status -> CreateSnapshotFromVolumeRecoveryPointResponse
 createSnapshotFromVolumeRecoveryPointResponse pStatus =
     CreateSnapshotFromVolumeRecoveryPointResponse'
     { _csfvrprVolumeRecoveryPointTime = Nothing
@@ -173,5 +173,5 @@ csfvrprSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe 
 csfvrprSnapshotId = lens _csfvrprSnapshotId (\ s a -> s{_csfvrprSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-csfvrprStatus :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse Int
+csfvrprStatus :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse Status
 csfvrprStatus = lens _csfvrprStatus (\ s a -> s{_csfvrprStatus = a});

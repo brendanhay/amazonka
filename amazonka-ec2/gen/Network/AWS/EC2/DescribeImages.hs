@@ -200,8 +200,7 @@ instance AWSRequest DescribeImages where
           = receiveXML
               (\ s h x ->
                  DescribeImagesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders DescribeImages where
         toHeaders = const mempty
@@ -230,11 +229,11 @@ instance ToQuery DescribeImages where
 -- * 'descStatus'
 data DescribeImagesResponse = DescribeImagesResponse'
     { _descImages :: !(Maybe [Image])
-    , _descStatus :: !Int
+    , _descStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeImagesResponse' smart constructor.
-describeImagesResponse :: Int -> DescribeImagesResponse
+describeImagesResponse :: Status -> DescribeImagesResponse
 describeImagesResponse pStatus =
     DescribeImagesResponse'
     { _descImages = Nothing
@@ -246,5 +245,5 @@ descImages :: Lens' DescribeImagesResponse [Image]
 descImages = lens _descImages (\ s a -> s{_descImages = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-descStatus :: Lens' DescribeImagesResponse Int
+descStatus :: Lens' DescribeImagesResponse Status
 descStatus = lens _descStatus (\ s a -> s{_descStatus = a});

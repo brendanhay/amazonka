@@ -76,7 +76,7 @@ instance AWSRequest AddTags where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))
+              (\ s h x -> AddTagsResponse' <$> (pure s))
 
 instance ToHeaders AddTags where
         toHeaders
@@ -106,16 +106,16 @@ instance ToQuery AddTags where
 --
 -- * 'atrStatus'
 newtype AddTagsResponse = AddTagsResponse'
-    { _atrStatus :: Int
+    { _atrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'AddTagsResponse' smart constructor.
-addTagsResponse :: Int -> AddTagsResponse
+addTagsResponse :: Status -> AddTagsResponse
 addTagsResponse pStatus =
     AddTagsResponse'
     { _atrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-atrStatus :: Lens' AddTagsResponse Int
+atrStatus :: Lens' AddTagsResponse Status
 atrStatus = lens _atrStatus (\ s a -> s{_atrStatus = a});

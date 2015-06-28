@@ -81,7 +81,7 @@ instance AWSRequest CreateSnapshot where
           = receiveXMLWrapper "CreateSnapshotResult"
               (\ s h x ->
                  CreateSnapshotResponse' <$>
-                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
+                   (x .@? "Snapshot") <*> (pure s))
 
 instance ToHeaders CreateSnapshot where
         toHeaders = const mempty
@@ -106,11 +106,11 @@ instance ToQuery CreateSnapshot where
 -- * 'cStatus'
 data CreateSnapshotResponse = CreateSnapshotResponse'
     { _cSnapshot :: !(Maybe Snapshot)
-    , _cStatus   :: !Int
+    , _cStatus   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshotResponse' smart constructor.
-createSnapshotResponse :: Int -> CreateSnapshotResponse
+createSnapshotResponse :: Status -> CreateSnapshotResponse
 createSnapshotResponse pStatus =
     CreateSnapshotResponse'
     { _cSnapshot = Nothing
@@ -122,5 +122,5 @@ cSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
 cSnapshot = lens _cSnapshot (\ s a -> s{_cSnapshot = a});
 
 -- | FIXME: Undocumented member.
-cStatus :: Lens' CreateSnapshotResponse Int
+cStatus :: Lens' CreateSnapshotResponse Status
 cStatus = lens _cStatus (\ s a -> s{_cStatus = a});

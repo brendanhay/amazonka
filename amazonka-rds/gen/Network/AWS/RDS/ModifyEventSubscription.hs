@@ -128,7 +128,7 @@ instance AWSRequest ModifyEventSubscription where
           = receiveXMLWrapper "ModifyEventSubscriptionResult"
               (\ s h x ->
                  ModifyEventSubscriptionResponse' <$>
-                   (x .@? "EventSubscription") <*> (pure (fromEnum s)))
+                   (x .@? "EventSubscription") <*> (pure s))
 
 instance ToHeaders ModifyEventSubscription where
         toHeaders = const mempty
@@ -160,11 +160,11 @@ instance ToQuery ModifyEventSubscription where
 -- * 'mesrStatus'
 data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'
     { _mesrEventSubscription :: !(Maybe EventSubscription)
-    , _mesrStatus            :: !Int
+    , _mesrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyEventSubscriptionResponse' smart constructor.
-modifyEventSubscriptionResponse :: Int -> ModifyEventSubscriptionResponse
+modifyEventSubscriptionResponse :: Status -> ModifyEventSubscriptionResponse
 modifyEventSubscriptionResponse pStatus =
     ModifyEventSubscriptionResponse'
     { _mesrEventSubscription = Nothing
@@ -176,5 +176,5 @@ mesrEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubsc
 mesrEventSubscription = lens _mesrEventSubscription (\ s a -> s{_mesrEventSubscription = a});
 
 -- | FIXME: Undocumented member.
-mesrStatus :: Lens' ModifyEventSubscriptionResponse Int
+mesrStatus :: Lens' ModifyEventSubscriptionResponse Status
 mesrStatus = lens _mesrStatus (\ s a -> s{_mesrStatus = a});

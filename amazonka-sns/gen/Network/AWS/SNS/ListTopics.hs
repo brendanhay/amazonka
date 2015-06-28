@@ -83,7 +83,7 @@ instance AWSRequest ListTopics where
                    (x .@? "Topics" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "NextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListTopics where
         toHeaders = const mempty
@@ -112,11 +112,11 @@ instance ToQuery ListTopics where
 data ListTopicsResponse = ListTopicsResponse'
     { _ltrTopics    :: !(Maybe [Topic])
     , _ltrNextToken :: !(Maybe Text)
-    , _ltrStatus    :: !Int
+    , _ltrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListTopicsResponse' smart constructor.
-listTopicsResponse :: Int -> ListTopicsResponse
+listTopicsResponse :: Status -> ListTopicsResponse
 listTopicsResponse pStatus =
     ListTopicsResponse'
     { _ltrTopics = Nothing
@@ -134,5 +134,5 @@ ltrNextToken :: Lens' ListTopicsResponse (Maybe Text)
 ltrNextToken = lens _ltrNextToken (\ s a -> s{_ltrNextToken = a});
 
 -- | FIXME: Undocumented member.
-ltrStatus :: Lens' ListTopicsResponse Int
+ltrStatus :: Lens' ListTopicsResponse Status
 ltrStatus = lens _ltrStatus (\ s a -> s{_ltrStatus = a});

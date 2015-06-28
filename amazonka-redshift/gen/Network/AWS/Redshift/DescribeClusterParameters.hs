@@ -139,7 +139,7 @@ instance AWSRequest DescribeClusterParameters where
                    (x .@? "Parameters" .!@ mempty >>=
                       may (parseXMLList "Parameter"))
                      <*> (x .@? "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeClusterParameters where
         toHeaders = const mempty
@@ -171,11 +171,11 @@ instance ToQuery DescribeClusterParameters where
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse'
     { _dcprParameters :: !(Maybe [Parameter])
     , _dcprMarker     :: !(Maybe Text)
-    , _dcprStatus     :: !Int
+    , _dcprStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterParametersResponse' smart constructor.
-describeClusterParametersResponse :: Int -> DescribeClusterParametersResponse
+describeClusterParametersResponse :: Status -> DescribeClusterParametersResponse
 describeClusterParametersResponse pStatus =
     DescribeClusterParametersResponse'
     { _dcprParameters = Nothing
@@ -198,5 +198,5 @@ dcprMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
 dcprMarker = lens _dcprMarker (\ s a -> s{_dcprMarker = a});
 
 -- | FIXME: Undocumented member.
-dcprStatus :: Lens' DescribeClusterParametersResponse Int
+dcprStatus :: Lens' DescribeClusterParametersResponse Status
 dcprStatus = lens _dcprStatus (\ s a -> s{_dcprStatus = a});

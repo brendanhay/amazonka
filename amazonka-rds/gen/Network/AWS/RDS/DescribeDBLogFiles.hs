@@ -152,7 +152,7 @@ instance AWSRequest DescribeDBLogFiles where
                    (x .@? "DescribeDBLogFiles" .!@ mempty >>=
                       may (parseXMLList "DescribeDBLogFilesDetails"))
                      <*> (x .@? "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeDBLogFiles where
         toHeaders = const mempty
@@ -188,11 +188,11 @@ instance ToQuery DescribeDBLogFiles where
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
     { _ddlfrDescribeDBLogFiles :: !(Maybe [DescribeDBLogFilesDetails])
     , _ddlfrMarker             :: !(Maybe Text)
-    , _ddlfrStatus             :: !Int
+    , _ddlfrStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBLogFilesResponse' smart constructor.
-describeDBLogFilesResponse :: Int -> DescribeDBLogFilesResponse
+describeDBLogFilesResponse :: Status -> DescribeDBLogFilesResponse
 describeDBLogFilesResponse pStatus =
     DescribeDBLogFilesResponse'
     { _ddlfrDescribeDBLogFiles = Nothing
@@ -210,5 +210,5 @@ ddlfrMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
 ddlfrMarker = lens _ddlfrMarker (\ s a -> s{_ddlfrMarker = a});
 
 -- | FIXME: Undocumented member.
-ddlfrStatus :: Lens' DescribeDBLogFilesResponse Int
+ddlfrStatus :: Lens' DescribeDBLogFilesResponse Status
 ddlfrStatus = lens _ddlfrStatus (\ s a -> s{_ddlfrStatus = a});

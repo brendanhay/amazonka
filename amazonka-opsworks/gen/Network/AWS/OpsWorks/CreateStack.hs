@@ -374,7 +374,7 @@ instance AWSRequest CreateStack where
           = receiveJSON
               (\ s h x ->
                  CreateStackResponse' <$>
-                   (x .?> "StackId") <*> (pure (fromEnum s)))
+                   (x .?> "StackId") <*> (pure s))
 
 instance ToHeaders CreateStack where
         toHeaders
@@ -427,11 +427,11 @@ instance ToQuery CreateStack where
 -- * 'creStatus'
 data CreateStackResponse = CreateStackResponse'
     { _creStackId :: !(Maybe Text)
-    , _creStatus  :: !Int
+    , _creStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateStackResponse' smart constructor.
-createStackResponse :: Int -> CreateStackResponse
+createStackResponse :: Status -> CreateStackResponse
 createStackResponse pStatus =
     CreateStackResponse'
     { _creStackId = Nothing
@@ -444,5 +444,5 @@ creStackId :: Lens' CreateStackResponse (Maybe Text)
 creStackId = lens _creStackId (\ s a -> s{_creStackId = a});
 
 -- | FIXME: Undocumented member.
-creStatus :: Lens' CreateStackResponse Int
+creStatus :: Lens' CreateStackResponse Status
 creStatus = lens _creStatus (\ s a -> s{_creStatus = a});

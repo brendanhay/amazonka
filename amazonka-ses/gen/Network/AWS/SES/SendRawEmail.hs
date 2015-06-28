@@ -144,7 +144,7 @@ instance AWSRequest SendRawEmail where
           = receiveXMLWrapper "SendRawEmailResult"
               (\ s h x ->
                  SendRawEmailResponse' <$>
-                   (x .@ "MessageId") <*> (pure (fromEnum s)))
+                   (x .@ "MessageId") <*> (pure s))
 
 instance ToHeaders SendRawEmail where
         toHeaders = const mempty
@@ -174,11 +174,11 @@ instance ToQuery SendRawEmail where
 -- * 'srerStatus'
 data SendRawEmailResponse = SendRawEmailResponse'
     { _srerMessageId :: !Text
-    , _srerStatus    :: !Int
+    , _srerStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'SendRawEmailResponse' smart constructor.
-sendRawEmailResponse :: Text -> Int -> SendRawEmailResponse
+sendRawEmailResponse :: Text -> Status -> SendRawEmailResponse
 sendRawEmailResponse pMessageId pStatus =
     SendRawEmailResponse'
     { _srerMessageId = pMessageId
@@ -190,5 +190,5 @@ srerMessageId :: Lens' SendRawEmailResponse Text
 srerMessageId = lens _srerMessageId (\ s a -> s{_srerMessageId = a});
 
 -- | FIXME: Undocumented member.
-srerStatus :: Lens' SendRawEmailResponse Int
+srerStatus :: Lens' SendRawEmailResponse Status
 srerStatus = lens _srerStatus (\ s a -> s{_srerStatus = a});

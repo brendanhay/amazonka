@@ -173,7 +173,7 @@ instance AWSRequest DescribeCases where
               (\ s h x ->
                  DescribeCasesResponse' <$>
                    (x .?> "cases" .!@ mempty) <*> (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeCases where
         toHeaders
@@ -218,11 +218,11 @@ instance ToQuery DescribeCases where
 data DescribeCasesResponse = DescribeCasesResponse'
     { _desCases     :: !(Maybe [CaseDetails])
     , _desNextToken :: !(Maybe Text)
-    , _desStatus    :: !Int
+    , _desStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeCasesResponse' smart constructor.
-describeCasesResponse :: Int -> DescribeCasesResponse
+describeCasesResponse :: Status -> DescribeCasesResponse
 describeCasesResponse pStatus =
     DescribeCasesResponse'
     { _desCases = Nothing
@@ -239,5 +239,5 @@ desNextToken :: Lens' DescribeCasesResponse (Maybe Text)
 desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeCasesResponse Int
+desStatus :: Lens' DescribeCasesResponse Status
 desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

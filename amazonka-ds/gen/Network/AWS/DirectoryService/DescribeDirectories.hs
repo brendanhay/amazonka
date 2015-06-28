@@ -112,7 +112,7 @@ instance AWSRequest DescribeDirectories where
                  DescribeDirectoriesResponse' <$>
                    (x .?> "DirectoryDescriptions" .!@ mempty) <*>
                      (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeDirectories where
         toHeaders
@@ -151,11 +151,11 @@ instance ToQuery DescribeDirectories where
 data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
     { _ddrDirectoryDescriptions :: !(Maybe [DirectoryDescription])
     , _ddrNextToken             :: !(Maybe Text)
-    , _ddrStatus                :: !Int
+    , _ddrStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDirectoriesResponse' smart constructor.
-describeDirectoriesResponse :: Int -> DescribeDirectoriesResponse
+describeDirectoriesResponse :: Status -> DescribeDirectoriesResponse
 describeDirectoriesResponse pStatus =
     DescribeDirectoriesResponse'
     { _ddrDirectoryDescriptions = Nothing
@@ -179,5 +179,5 @@ ddrNextToken :: Lens' DescribeDirectoriesResponse (Maybe Text)
 ddrNextToken = lens _ddrNextToken (\ s a -> s{_ddrNextToken = a});
 
 -- | FIXME: Undocumented member.
-ddrStatus :: Lens' DescribeDirectoriesResponse Int
+ddrStatus :: Lens' DescribeDirectoriesResponse Status
 ddrStatus = lens _ddrStatus (\ s a -> s{_ddrStatus = a});

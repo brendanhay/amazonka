@@ -81,7 +81,7 @@ instance AWSRequest DescribeTimeBasedAutoScaling
                  DescribeTimeBasedAutoScalingResponse' <$>
                    (x .?> "TimeBasedAutoScalingConfigurations" .!@
                       mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeTimeBasedAutoScaling where
         toHeaders
@@ -114,11 +114,11 @@ instance ToQuery DescribeTimeBasedAutoScaling where
 -- * 'dtbasrStatus'
 data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'
     { _dtbasrTimeBasedAutoScalingConfigurations :: !(Maybe [TimeBasedAutoScalingConfiguration])
-    , _dtbasrStatus                             :: !Int
+    , _dtbasrStatus                             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeTimeBasedAutoScalingResponse' smart constructor.
-describeTimeBasedAutoScalingResponse :: Int -> DescribeTimeBasedAutoScalingResponse
+describeTimeBasedAutoScalingResponse :: Status -> DescribeTimeBasedAutoScalingResponse
 describeTimeBasedAutoScalingResponse pStatus =
     DescribeTimeBasedAutoScalingResponse'
     { _dtbasrTimeBasedAutoScalingConfigurations = Nothing
@@ -131,5 +131,5 @@ dtbasrTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingRe
 dtbasrTimeBasedAutoScalingConfigurations = lens _dtbasrTimeBasedAutoScalingConfigurations (\ s a -> s{_dtbasrTimeBasedAutoScalingConfigurations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtbasrStatus :: Lens' DescribeTimeBasedAutoScalingResponse Int
+dtbasrStatus :: Lens' DescribeTimeBasedAutoScalingResponse Status
 dtbasrStatus = lens _dtbasrStatus (\ s a -> s{_dtbasrStatus = a});

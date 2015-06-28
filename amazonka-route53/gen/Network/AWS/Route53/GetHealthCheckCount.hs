@@ -60,7 +60,7 @@ instance AWSRequest GetHealthCheckCount where
           = receiveXML
               (\ s h x ->
                  GetHealthCheckCountResponse' <$>
-                   (x .@ "HealthCheckCount") <*> (pure (fromEnum s)))
+                   (x .@ "HealthCheckCount") <*> (pure s))
 
 instance ToHeaders GetHealthCheckCount where
         toHeaders = const mempty
@@ -83,11 +83,11 @@ instance ToQuery GetHealthCheckCount where
 -- * 'ghccrStatus'
 data GetHealthCheckCountResponse = GetHealthCheckCountResponse'
     { _ghccrHealthCheckCount :: !Integer
-    , _ghccrStatus           :: !Int
+    , _ghccrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetHealthCheckCountResponse' smart constructor.
-getHealthCheckCountResponse :: Integer -> Int -> GetHealthCheckCountResponse
+getHealthCheckCountResponse :: Integer -> Status -> GetHealthCheckCountResponse
 getHealthCheckCountResponse pHealthCheckCount pStatus =
     GetHealthCheckCountResponse'
     { _ghccrHealthCheckCount = pHealthCheckCount
@@ -99,5 +99,5 @@ ghccrHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
 ghccrHealthCheckCount = lens _ghccrHealthCheckCount (\ s a -> s{_ghccrHealthCheckCount = a});
 
 -- | FIXME: Undocumented member.
-ghccrStatus :: Lens' GetHealthCheckCountResponse Int
+ghccrStatus :: Lens' GetHealthCheckCountResponse Status
 ghccrStatus = lens _ghccrStatus (\ s a -> s{_ghccrStatus = a});

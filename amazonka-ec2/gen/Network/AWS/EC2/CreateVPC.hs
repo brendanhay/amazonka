@@ -108,8 +108,7 @@ instance AWSRequest CreateVPC where
         response
           = receiveXML
               (\ s h x ->
-                 CreateVPCResponse' <$>
-                   (x .@? "vpc") <*> (pure (fromEnum s)))
+                 CreateVPCResponse' <$> (x .@? "vpc") <*> (pure s))
 
 instance ToHeaders CreateVPC where
         toHeaders = const mempty
@@ -134,11 +133,11 @@ instance ToQuery CreateVPC where
 -- * 'cvrStatus'
 data CreateVPCResponse = CreateVPCResponse'
     { _cvrVPC    :: !(Maybe VPC)
-    , _cvrStatus :: !Int
+    , _cvrStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateVPCResponse' smart constructor.
-createVPCResponse :: Int -> CreateVPCResponse
+createVPCResponse :: Status -> CreateVPCResponse
 createVPCResponse pStatus =
     CreateVPCResponse'
     { _cvrVPC = Nothing
@@ -150,5 +149,5 @@ cvrVPC :: Lens' CreateVPCResponse (Maybe VPC)
 cvrVPC = lens _cvrVPC (\ s a -> s{_cvrVPC = a});
 
 -- | FIXME: Undocumented member.
-cvrStatus :: Lens' CreateVPCResponse Int
+cvrStatus :: Lens' CreateVPCResponse Status
 cvrStatus = lens _cvrStatus (\ s a -> s{_cvrStatus = a});

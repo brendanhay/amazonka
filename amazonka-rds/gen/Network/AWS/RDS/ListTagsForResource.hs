@@ -87,7 +87,7 @@ instance AWSRequest ListTagsForResource where
                  ListTagsForResourceResponse' <$>
                    (x .@? "TagList" .!@ mempty >>=
                       may (parseXMLList "Tag"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
@@ -115,11 +115,11 @@ instance ToQuery ListTagsForResource where
 -- * 'ltfrrStatus'
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
     { _ltfrrTagList :: !(Maybe [Tag])
-    , _ltfrrStatus  :: !Int
+    , _ltfrrStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForResourceResponse' smart constructor.
-listTagsForResourceResponse :: Int -> ListTagsForResourceResponse
+listTagsForResourceResponse :: Status -> ListTagsForResourceResponse
 listTagsForResourceResponse pStatus =
     ListTagsForResourceResponse'
     { _ltfrrTagList = Nothing
@@ -131,5 +131,5 @@ ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrTagList = lens _ltfrrTagList (\ s a -> s{_ltfrrTagList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ltfrrStatus :: Lens' ListTagsForResourceResponse Int
+ltfrrStatus :: Lens' ListTagsForResourceResponse Status
 ltfrrStatus = lens _ltfrrStatus (\ s a -> s{_ltfrrStatus = a});

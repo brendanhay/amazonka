@@ -98,7 +98,7 @@ instance AWSRequest DescribeTrustedAdvisorCheckResult
           = receiveJSON
               (\ s h x ->
                  DescribeTrustedAdvisorCheckResultResponse' <$>
-                   (x .?> "result") <*> (pure (fromEnum s)))
+                   (x .?> "result") <*> (pure s))
 
 instance ToHeaders DescribeTrustedAdvisorCheckResult
          where
@@ -138,11 +138,11 @@ instance ToQuery DescribeTrustedAdvisorCheckResult
 -- * 'dtacrrStatus'
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'
     { _dtacrrResult :: !(Maybe TrustedAdvisorCheckResult)
-    , _dtacrrStatus :: !Int
+    , _dtacrrStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeTrustedAdvisorCheckResultResponse' smart constructor.
-describeTrustedAdvisorCheckResultResponse :: Int -> DescribeTrustedAdvisorCheckResultResponse
+describeTrustedAdvisorCheckResultResponse :: Status -> DescribeTrustedAdvisorCheckResultResponse
 describeTrustedAdvisorCheckResultResponse pStatus =
     DescribeTrustedAdvisorCheckResultResponse'
     { _dtacrrResult = Nothing
@@ -154,5 +154,5 @@ dtacrrResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAd
 dtacrrResult = lens _dtacrrResult (\ s a -> s{_dtacrrResult = a});
 
 -- | FIXME: Undocumented member.
-dtacrrStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
+dtacrrStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Status
 dtacrrStatus = lens _dtacrrStatus (\ s a -> s{_dtacrrStatus = a});

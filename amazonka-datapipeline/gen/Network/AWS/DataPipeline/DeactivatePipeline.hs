@@ -84,8 +84,7 @@ instance AWSRequest DeactivatePipeline where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x ->
-                 DeactivatePipelineResponse' <$> (pure (fromEnum s)))
+              (\ s h x -> DeactivatePipelineResponse' <$> (pure s))
 
 instance ToHeaders DeactivatePipeline where
         toHeaders
@@ -116,16 +115,16 @@ instance ToQuery DeactivatePipeline where
 --
 -- * 'deaStatus'
 newtype DeactivatePipelineResponse = DeactivatePipelineResponse'
-    { _deaStatus :: Int
+    { _deaStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeactivatePipelineResponse' smart constructor.
-deactivatePipelineResponse :: Int -> DeactivatePipelineResponse
+deactivatePipelineResponse :: Status -> DeactivatePipelineResponse
 deactivatePipelineResponse pStatus =
     DeactivatePipelineResponse'
     { _deaStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-deaStatus :: Lens' DeactivatePipelineResponse Int
+deaStatus :: Lens' DeactivatePipelineResponse Status
 deaStatus = lens _deaStatus (\ s a -> s{_deaStatus = a});

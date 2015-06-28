@@ -102,7 +102,7 @@ instance AWSRequest CreateInstanceExportTask where
           = receiveXML
               (\ s h x ->
                  CreateInstanceExportTaskResponse' <$>
-                   (x .@? "exportTask") <*> (pure (fromEnum s)))
+                   (x .@? "exportTask") <*> (pure s))
 
 instance ToHeaders CreateInstanceExportTask where
         toHeaders = const mempty
@@ -130,11 +130,11 @@ instance ToQuery CreateInstanceExportTask where
 -- * 'cietrStatus'
 data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
     { _cietrExportTask :: !(Maybe ExportTask)
-    , _cietrStatus     :: !Int
+    , _cietrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateInstanceExportTaskResponse' smart constructor.
-createInstanceExportTaskResponse :: Int -> CreateInstanceExportTaskResponse
+createInstanceExportTaskResponse :: Status -> CreateInstanceExportTaskResponse
 createInstanceExportTaskResponse pStatus =
     CreateInstanceExportTaskResponse'
     { _cietrExportTask = Nothing
@@ -146,5 +146,5 @@ cietrExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
 cietrExportTask = lens _cietrExportTask (\ s a -> s{_cietrExportTask = a});
 
 -- | FIXME: Undocumented member.
-cietrStatus :: Lens' CreateInstanceExportTaskResponse Int
+cietrStatus :: Lens' CreateInstanceExportTaskResponse Status
 cietrStatus = lens _cietrStatus (\ s a -> s{_cietrStatus = a});

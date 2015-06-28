@@ -99,7 +99,7 @@ instance AWSRequest GetIdentityDkimAttributes where
                  GetIdentityDkimAttributesResponse' <$>
                    (x .@? "DkimAttributes" .!@ mempty >>=
                       parseXMLMap "entry" "key" "value")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetIdentityDkimAttributes where
         toHeaders = const mempty
@@ -126,11 +126,11 @@ instance ToQuery GetIdentityDkimAttributes where
 -- * 'gidarStatus'
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
     { _gidarDkimAttributes :: !(Map Text IdentityDkimAttributes)
-    , _gidarStatus         :: !Int
+    , _gidarStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityDkimAttributesResponse' smart constructor.
-getIdentityDkimAttributesResponse :: Int -> GetIdentityDkimAttributesResponse
+getIdentityDkimAttributesResponse :: Status -> GetIdentityDkimAttributesResponse
 getIdentityDkimAttributesResponse pStatus =
     GetIdentityDkimAttributesResponse'
     { _gidarDkimAttributes = mempty
@@ -142,5 +142,5 @@ gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text Ide
 gidarDkimAttributes = lens _gidarDkimAttributes (\ s a -> s{_gidarDkimAttributes = a}) . _Map;
 
 -- | FIXME: Undocumented member.
-gidarStatus :: Lens' GetIdentityDkimAttributesResponse Int
+gidarStatus :: Lens' GetIdentityDkimAttributesResponse Status
 gidarStatus = lens _gidarStatus (\ s a -> s{_gidarStatus = a});

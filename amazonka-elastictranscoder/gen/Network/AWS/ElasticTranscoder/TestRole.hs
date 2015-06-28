@@ -110,7 +110,7 @@ instance AWSRequest TestRole where
               (\ s h x ->
                  TestRoleResponse' <$>
                    (x .?> "Success") <*> (x .?> "Messages" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders TestRole where
         toHeaders = const mempty
@@ -142,11 +142,11 @@ instance ToQuery TestRole where
 data TestRoleResponse = TestRoleResponse'
     { _trrSuccess  :: !(Maybe Text)
     , _trrMessages :: !(Maybe [Text])
-    , _trrStatus   :: !Int
+    , _trrStatus   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'TestRoleResponse' smart constructor.
-testRoleResponse :: Int -> TestRoleResponse
+testRoleResponse :: Status -> TestRoleResponse
 testRoleResponse pStatus =
     TestRoleResponse'
     { _trrSuccess = Nothing
@@ -165,5 +165,5 @@ trrMessages :: Lens' TestRoleResponse [Text]
 trrMessages = lens _trrMessages (\ s a -> s{_trrMessages = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-trrStatus :: Lens' TestRoleResponse Int
+trrStatus :: Lens' TestRoleResponse Status
 trrStatus = lens _trrStatus (\ s a -> s{_trrStatus = a});

@@ -104,8 +104,7 @@ instance AWSRequest RestoreObject where
           = receiveXML
               (\ s h x ->
                  RestoreObjectResponse' <$>
-                   (h .#? "x-amz-request-charged") <*>
-                     (pure (fromEnum s)))
+                   (h .#? "x-amz-request-charged") <*> (pure s))
 
 instance ToElement RestoreObject where
         toElement
@@ -135,11 +134,11 @@ instance ToQuery RestoreObject where
 -- * 'rorStatus'
 data RestoreObjectResponse = RestoreObjectResponse'
     { _rorRequestCharged :: !(Maybe RequestCharged)
-    , _rorStatus         :: !Int
+    , _rorStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'RestoreObjectResponse' smart constructor.
-restoreObjectResponse :: Int -> RestoreObjectResponse
+restoreObjectResponse :: Status -> RestoreObjectResponse
 restoreObjectResponse pStatus =
     RestoreObjectResponse'
     { _rorRequestCharged = Nothing
@@ -151,5 +150,5 @@ rorRequestCharged :: Lens' RestoreObjectResponse (Maybe RequestCharged)
 rorRequestCharged = lens _rorRequestCharged (\ s a -> s{_rorRequestCharged = a});
 
 -- | FIXME: Undocumented member.
-rorStatus :: Lens' RestoreObjectResponse Int
+rorStatus :: Lens' RestoreObjectResponse Status
 rorStatus = lens _rorStatus (\ s a -> s{_rorStatus = a});

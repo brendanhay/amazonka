@@ -168,7 +168,7 @@ instance AWSRequest DescribeClusterParameterGroups
                    (x .@? "Marker") <*>
                      (x .@? "ParameterGroups" .!@ mempty >>=
                         may (parseXMLList "ClusterParameterGroup"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeClusterParameterGroups
          where
@@ -205,11 +205,11 @@ instance ToQuery DescribeClusterParameterGroups where
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'
     { _dcpgrMarker          :: !(Maybe Text)
     , _dcpgrParameterGroups :: !(Maybe [ClusterParameterGroup])
-    , _dcpgrStatus          :: !Int
+    , _dcpgrStatus          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterParameterGroupsResponse' smart constructor.
-describeClusterParameterGroupsResponse :: Int -> DescribeClusterParameterGroupsResponse
+describeClusterParameterGroupsResponse :: Status -> DescribeClusterParameterGroupsResponse
 describeClusterParameterGroupsResponse pStatus =
     DescribeClusterParameterGroupsResponse'
     { _dcpgrMarker = Nothing
@@ -232,5 +232,5 @@ dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterPar
 dcpgrParameterGroups = lens _dcpgrParameterGroups (\ s a -> s{_dcpgrParameterGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcpgrStatus :: Lens' DescribeClusterParameterGroupsResponse Int
+dcpgrStatus :: Lens' DescribeClusterParameterGroupsResponse Status
 dcpgrStatus = lens _dcpgrStatus (\ s a -> s{_dcpgrStatus = a});

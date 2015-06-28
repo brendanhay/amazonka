@@ -133,7 +133,7 @@ instance AWSRequest CreateBucket where
           = receiveXML
               (\ s h x ->
                  CreateBucketResponse' <$>
-                   (h .#? "Location") <*> (pure (fromEnum s)))
+                   (h .#? "Location") <*> (pure s))
 
 instance ToElement CreateBucket where
         toElement
@@ -168,11 +168,11 @@ instance ToQuery CreateBucket where
 -- * 'cbrStatus'
 data CreateBucketResponse = CreateBucketResponse'
     { _cbrLocation :: !(Maybe Text)
-    , _cbrStatus   :: !Int
+    , _cbrStatus   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateBucketResponse' smart constructor.
-createBucketResponse :: Int -> CreateBucketResponse
+createBucketResponse :: Status -> CreateBucketResponse
 createBucketResponse pStatus =
     CreateBucketResponse'
     { _cbrLocation = Nothing
@@ -184,5 +184,5 @@ cbrLocation :: Lens' CreateBucketResponse (Maybe Text)
 cbrLocation = lens _cbrLocation (\ s a -> s{_cbrLocation = a});
 
 -- | FIXME: Undocumented member.
-cbrStatus :: Lens' CreateBucketResponse Int
+cbrStatus :: Lens' CreateBucketResponse Status
 cbrStatus = lens _cbrStatus (\ s a -> s{_cbrStatus = a});

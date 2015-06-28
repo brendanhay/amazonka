@@ -86,7 +86,7 @@ instance AWSRequest
               "RemoveSourceIdentifierFromSubscriptionResult"
               (\ s h x ->
                  RemoveSourceIdentifierFromSubscriptionResponse' <$>
-                   (x .@? "EventSubscription") <*> (pure (fromEnum s)))
+                   (x .@? "EventSubscription") <*> (pure s))
 
 instance ToHeaders
          RemoveSourceIdentifierFromSubscription where
@@ -116,11 +116,11 @@ instance ToQuery
 -- * 'rsifsrStatus'
 data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse'
     { _rsifsrEventSubscription :: !(Maybe EventSubscription)
-    , _rsifsrStatus            :: !Int
+    , _rsifsrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'RemoveSourceIdentifierFromSubscriptionResponse' smart constructor.
-removeSourceIdentifierFromSubscriptionResponse :: Int -> RemoveSourceIdentifierFromSubscriptionResponse
+removeSourceIdentifierFromSubscriptionResponse :: Status -> RemoveSourceIdentifierFromSubscriptionResponse
 removeSourceIdentifierFromSubscriptionResponse pStatus =
     RemoveSourceIdentifierFromSubscriptionResponse'
     { _rsifsrEventSubscription = Nothing
@@ -132,5 +132,5 @@ rsifsrEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse 
 rsifsrEventSubscription = lens _rsifsrEventSubscription (\ s a -> s{_rsifsrEventSubscription = a});
 
 -- | FIXME: Undocumented member.
-rsifsrStatus :: Lens' RemoveSourceIdentifierFromSubscriptionResponse Int
+rsifsrStatus :: Lens' RemoveSourceIdentifierFromSubscriptionResponse Status
 rsifsrStatus = lens _rsifsrStatus (\ s a -> s{_rsifsrStatus = a});

@@ -143,7 +143,7 @@ instance AWSRequest ListMultipartUploads where
               (\ s h x ->
                  ListMultipartUploadsResponse' <$>
                    (x .?> "UploadsList" .!@ mempty) <*> (x .?> "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListMultipartUploads where
         toHeaders = const mempty
@@ -173,11 +173,11 @@ instance ToQuery ListMultipartUploads where
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
     { _lmurUploadsList :: !(Maybe [UploadListElement])
     , _lmurMarker      :: !(Maybe Text)
-    , _lmurStatus      :: !Int
+    , _lmurStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
-listMultipartUploadsResponse :: Int -> ListMultipartUploadsResponse
+listMultipartUploadsResponse :: Status -> ListMultipartUploadsResponse
 listMultipartUploadsResponse pStatus =
     ListMultipartUploadsResponse'
     { _lmurUploadsList = Nothing
@@ -197,5 +197,5 @@ lmurMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmurMarker = lens _lmurMarker (\ s a -> s{_lmurMarker = a});
 
 -- | FIXME: Undocumented member.
-lmurStatus :: Lens' ListMultipartUploadsResponse Int
+lmurStatus :: Lens' ListMultipartUploadsResponse Status
 lmurStatus = lens _lmurStatus (\ s a -> s{_lmurStatus = a});

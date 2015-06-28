@@ -128,7 +128,7 @@ instance AWSRequest DescribeEnvironments where
                  DescribeEnvironmentsResponse' <$>
                    (x .@? "Environments" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeEnvironments where
         toHeaders = const mempty
@@ -163,11 +163,11 @@ instance ToQuery DescribeEnvironments where
 -- * 'desStatus'
 data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
     { _desEnvironments :: !(Maybe [EnvironmentDescription])
-    , _desStatus       :: !Int
+    , _desStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeEnvironmentsResponse' smart constructor.
-describeEnvironmentsResponse :: Int -> DescribeEnvironmentsResponse
+describeEnvironmentsResponse :: Status -> DescribeEnvironmentsResponse
 describeEnvironmentsResponse pStatus =
     DescribeEnvironmentsResponse'
     { _desEnvironments = Nothing
@@ -179,5 +179,5 @@ desEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
 desEnvironments = lens _desEnvironments (\ s a -> s{_desEnvironments = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeEnvironmentsResponse Int
+desStatus :: Lens' DescribeEnvironmentsResponse Status
 desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

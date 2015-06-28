@@ -103,7 +103,7 @@ instance AWSRequest AssociateVPCWithHostedZone where
           = receiveXML
               (\ s h x ->
                  AssociateVPCWithHostedZoneResponse' <$>
-                   (x .@ "ChangeInfo") <*> (pure (fromEnum s)))
+                   (x .@ "ChangeInfo") <*> (pure s))
 
 instance ToElement AssociateVPCWithHostedZone where
         toElement
@@ -138,11 +138,11 @@ instance ToXML AssociateVPCWithHostedZone where
 -- * 'avwhzrStatus'
 data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'
     { _avwhzrChangeInfo :: !ChangeInfo
-    , _avwhzrStatus     :: !Int
+    , _avwhzrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'AssociateVPCWithHostedZoneResponse' smart constructor.
-associateVPCWithHostedZoneResponse :: ChangeInfo -> Int -> AssociateVPCWithHostedZoneResponse
+associateVPCWithHostedZoneResponse :: ChangeInfo -> Status -> AssociateVPCWithHostedZoneResponse
 associateVPCWithHostedZoneResponse pChangeInfo pStatus =
     AssociateVPCWithHostedZoneResponse'
     { _avwhzrChangeInfo = pChangeInfo
@@ -155,5 +155,5 @@ avwhzrChangeInfo :: Lens' AssociateVPCWithHostedZoneResponse ChangeInfo
 avwhzrChangeInfo = lens _avwhzrChangeInfo (\ s a -> s{_avwhzrChangeInfo = a});
 
 -- | FIXME: Undocumented member.
-avwhzrStatus :: Lens' AssociateVPCWithHostedZoneResponse Int
+avwhzrStatus :: Lens' AssociateVPCWithHostedZoneResponse Status
 avwhzrStatus = lens _avwhzrStatus (\ s a -> s{_avwhzrStatus = a});

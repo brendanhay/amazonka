@@ -156,7 +156,7 @@ instance AWSRequest ListParts where
                      <*> (x .?> "VaultARN")
                      <*> (x .?> "Marker")
                      <*> (x .?> "CreationDate")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListParts where
         toHeaders = const mempty
@@ -202,11 +202,11 @@ data ListPartsResponse = ListPartsResponse'
     , _lprVaultARN           :: !(Maybe Text)
     , _lprMarker             :: !(Maybe Text)
     , _lprCreationDate       :: !(Maybe Text)
-    , _lprStatus             :: !Int
+    , _lprStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListPartsResponse' smart constructor.
-listPartsResponse :: Int -> ListPartsResponse
+listPartsResponse :: Status -> ListPartsResponse
 listPartsResponse pStatus =
     ListPartsResponse'
     { _lprParts = Nothing
@@ -252,5 +252,5 @@ lprCreationDate :: Lens' ListPartsResponse (Maybe Text)
 lprCreationDate = lens _lprCreationDate (\ s a -> s{_lprCreationDate = a});
 
 -- | FIXME: Undocumented member.
-lprStatus :: Lens' ListPartsResponse Int
+lprStatus :: Lens' ListPartsResponse Status
 lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});

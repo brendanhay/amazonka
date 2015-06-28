@@ -100,7 +100,7 @@ instance AWSRequest CreateKeyPair where
                  CreateKeyPairResponse' <$>
                    (x .@ "keyName") <*> (x .@ "keyFingerprint") <*>
                      (x .@ "keyMaterial")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders CreateKeyPair where
         toHeaders = const mempty
@@ -132,11 +132,11 @@ data CreateKeyPairResponse = CreateKeyPairResponse'
     { _ckprKeyName        :: !Text
     , _ckprKeyFingerprint :: !Text
     , _ckprKeyMaterial    :: !Text
-    , _ckprStatus         :: !Int
+    , _ckprStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateKeyPairResponse' smart constructor.
-createKeyPairResponse :: Text -> Text -> Text -> Int -> CreateKeyPairResponse
+createKeyPairResponse :: Text -> Text -> Text -> Status -> CreateKeyPairResponse
 createKeyPairResponse pKeyName pKeyFingerprint pKeyMaterial pStatus =
     CreateKeyPairResponse'
     { _ckprKeyName = pKeyName
@@ -158,5 +158,5 @@ ckprKeyMaterial :: Lens' CreateKeyPairResponse Text
 ckprKeyMaterial = lens _ckprKeyMaterial (\ s a -> s{_ckprKeyMaterial = a});
 
 -- | FIXME: Undocumented member.
-ckprStatus :: Lens' CreateKeyPairResponse Int
+ckprStatus :: Lens' CreateKeyPairResponse Status
 ckprStatus = lens _ckprStatus (\ s a -> s{_ckprStatus = a});

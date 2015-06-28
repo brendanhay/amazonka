@@ -101,7 +101,7 @@ instance AWSRequest
               "AuthorizeCacheSecurityGroupIngressResult"
               (\ s h x ->
                  AuthorizeCacheSecurityGroupIngressResponse' <$>
-                   (x .@? "CacheSecurityGroup") <*> (pure (fromEnum s)))
+                   (x .@? "CacheSecurityGroup") <*> (pure s))
 
 instance ToHeaders AuthorizeCacheSecurityGroupIngress
          where
@@ -133,11 +133,11 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress
 -- * 'acsgirStatus'
 data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'
     { _acsgirCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
-    , _acsgirStatus             :: !Int
+    , _acsgirStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeCacheSecurityGroupIngressResponse' smart constructor.
-authorizeCacheSecurityGroupIngressResponse :: Int -> AuthorizeCacheSecurityGroupIngressResponse
+authorizeCacheSecurityGroupIngressResponse :: Status -> AuthorizeCacheSecurityGroupIngressResponse
 authorizeCacheSecurityGroupIngressResponse pStatus =
     AuthorizeCacheSecurityGroupIngressResponse'
     { _acsgirCacheSecurityGroup = Nothing
@@ -149,5 +149,5 @@ acsgirCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (Ma
 acsgirCacheSecurityGroup = lens _acsgirCacheSecurityGroup (\ s a -> s{_acsgirCacheSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-acsgirStatus :: Lens' AuthorizeCacheSecurityGroupIngressResponse Int
+acsgirStatus :: Lens' AuthorizeCacheSecurityGroupIngressResponse Status
 acsgirStatus = lens _acsgirStatus (\ s a -> s{_acsgirStatus = a});

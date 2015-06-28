@@ -69,7 +69,7 @@ instance AWSRequest GetBucketVersioning where
           = receiveXML
               (\ s h x ->
                  GetBucketVersioningResponse' <$>
-                   (x .@? "MfaDelete") <*> (pure (fromEnum s)))
+                   (x .@? "MfaDelete") <*> (pure s))
 
 instance ToHeaders GetBucketVersioning where
         toHeaders = const mempty
@@ -90,11 +90,11 @@ instance ToQuery GetBucketVersioning where
 -- * 'gbvrStatus'
 data GetBucketVersioningResponse = GetBucketVersioningResponse'
     { _gbvrMFADelete :: !(Maybe MFADeleteStatus)
-    , _gbvrStatus    :: !Int
+    , _gbvrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetBucketVersioningResponse' smart constructor.
-getBucketVersioningResponse :: Int -> GetBucketVersioningResponse
+getBucketVersioningResponse :: Status -> GetBucketVersioningResponse
 getBucketVersioningResponse pStatus =
     GetBucketVersioningResponse'
     { _gbvrMFADelete = Nothing
@@ -109,5 +109,5 @@ gbvrMFADelete :: Lens' GetBucketVersioningResponse (Maybe MFADeleteStatus)
 gbvrMFADelete = lens _gbvrMFADelete (\ s a -> s{_gbvrMFADelete = a});
 
 -- | FIXME: Undocumented member.
-gbvrStatus :: Lens' GetBucketVersioningResponse Int
+gbvrStatus :: Lens' GetBucketVersioningResponse Status
 gbvrStatus = lens _gbvrStatus (\ s a -> s{_gbvrStatus = a});

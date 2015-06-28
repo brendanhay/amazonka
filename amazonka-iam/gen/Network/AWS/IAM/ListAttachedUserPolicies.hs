@@ -124,7 +124,7 @@ instance AWSRequest ListAttachedUserPolicies where
                       may (parseXMLList "member"))
                      <*> (x .@? "Marker")
                      <*> (x .@? "IsTruncated")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListAttachedUserPolicies where
         toHeaders = const mempty
@@ -159,11 +159,11 @@ data ListAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'
     { _lauprAttachedPolicies :: !(Maybe [AttachedPolicy])
     , _lauprMarker           :: !(Maybe Text)
     , _lauprIsTruncated      :: !(Maybe Bool)
-    , _lauprStatus           :: !Int
+    , _lauprStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListAttachedUserPoliciesResponse' smart constructor.
-listAttachedUserPoliciesResponse :: Int -> ListAttachedUserPoliciesResponse
+listAttachedUserPoliciesResponse :: Status -> ListAttachedUserPoliciesResponse
 listAttachedUserPoliciesResponse pStatus =
     ListAttachedUserPoliciesResponse'
     { _lauprAttachedPolicies = Nothing
@@ -190,5 +190,5 @@ lauprIsTruncated :: Lens' ListAttachedUserPoliciesResponse (Maybe Bool)
 lauprIsTruncated = lens _lauprIsTruncated (\ s a -> s{_lauprIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lauprStatus :: Lens' ListAttachedUserPoliciesResponse Int
+lauprStatus :: Lens' ListAttachedUserPoliciesResponse Status
 lauprStatus = lens _lauprStatus (\ s a -> s{_lauprStatus = a});

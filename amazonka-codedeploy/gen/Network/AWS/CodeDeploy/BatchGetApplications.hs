@@ -72,8 +72,7 @@ instance AWSRequest BatchGetApplications where
           = receiveJSON
               (\ s h x ->
                  BatchGetApplicationsResponse' <$>
-                   (x .?> "applicationsInfo" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+                   (x .?> "applicationsInfo" .!@ mempty) <*> (pure s))
 
 instance ToHeaders BatchGetApplications where
         toHeaders
@@ -106,11 +105,11 @@ instance ToQuery BatchGetApplications where
 -- * 'bgarStatus'
 data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
     { _bgarApplicationsInfo :: !(Maybe [ApplicationInfo])
-    , _bgarStatus           :: !Int
+    , _bgarStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'BatchGetApplicationsResponse' smart constructor.
-batchGetApplicationsResponse :: Int -> BatchGetApplicationsResponse
+batchGetApplicationsResponse :: Status -> BatchGetApplicationsResponse
 batchGetApplicationsResponse pStatus =
     BatchGetApplicationsResponse'
     { _bgarApplicationsInfo = Nothing
@@ -122,5 +121,5 @@ bgarApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
 bgarApplicationsInfo = lens _bgarApplicationsInfo (\ s a -> s{_bgarApplicationsInfo = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-bgarStatus :: Lens' BatchGetApplicationsResponse Int
+bgarStatus :: Lens' BatchGetApplicationsResponse Status
 bgarStatus = lens _bgarStatus (\ s a -> s{_bgarStatus = a});

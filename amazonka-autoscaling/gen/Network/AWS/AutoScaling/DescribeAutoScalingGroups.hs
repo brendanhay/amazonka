@@ -101,7 +101,7 @@ instance AWSRequest DescribeAutoScalingGroups where
                    (x .@? "NextToken") <*>
                      (x .@? "AutoScalingGroups" .!@ mempty >>=
                         parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeAutoScalingGroups where
         toHeaders = const mempty
@@ -134,11 +134,11 @@ instance ToQuery DescribeAutoScalingGroups where
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
     { _dasgrNextToken         :: !(Maybe Text)
     , _dasgrAutoScalingGroups :: ![AutoScalingGroup]
-    , _dasgrStatus            :: !Int
+    , _dasgrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAutoScalingGroupsResponse' smart constructor.
-describeAutoScalingGroupsResponse :: Int -> DescribeAutoScalingGroupsResponse
+describeAutoScalingGroupsResponse :: Status -> DescribeAutoScalingGroupsResponse
 describeAutoScalingGroupsResponse pStatus =
     DescribeAutoScalingGroupsResponse'
     { _dasgrNextToken = Nothing
@@ -156,5 +156,5 @@ dasgrAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGr
 dasgrAutoScalingGroups = lens _dasgrAutoScalingGroups (\ s a -> s{_dasgrAutoScalingGroups = a});
 
 -- | FIXME: Undocumented member.
-dasgrStatus :: Lens' DescribeAutoScalingGroupsResponse Int
+dasgrStatus :: Lens' DescribeAutoScalingGroupsResponse Status
 dasgrStatus = lens _dasgrStatus (\ s a -> s{_dasgrStatus = a});

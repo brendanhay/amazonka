@@ -76,7 +76,7 @@ instance AWSRequest
                  GetCloudFrontOriginAccessIdentityConfigResponse' <$>
                    (x .@? "CloudFrontOriginAccessIdentityConfig") <*>
                      (h .#? "ETag")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders
          GetCloudFrontOriginAccessIdentityConfig where
@@ -107,11 +107,11 @@ instance ToQuery
 data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse'
     { _gcfoaicrCloudFrontOriginAccessIdentityConfig :: !(Maybe CloudFrontOriginAccessIdentityConfig)
     , _gcfoaicrETag                                 :: !(Maybe Text)
-    , _gcfoaicrStatus                               :: !Int
+    , _gcfoaicrStatus                               :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetCloudFrontOriginAccessIdentityConfigResponse' smart constructor.
-getCloudFrontOriginAccessIdentityConfigResponse :: Int -> GetCloudFrontOriginAccessIdentityConfigResponse
+getCloudFrontOriginAccessIdentityConfigResponse :: Status -> GetCloudFrontOriginAccessIdentityConfigResponse
 getCloudFrontOriginAccessIdentityConfigResponse pStatus =
     GetCloudFrontOriginAccessIdentityConfigResponse'
     { _gcfoaicrCloudFrontOriginAccessIdentityConfig = Nothing
@@ -128,5 +128,5 @@ gcfoaicrETag :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe Tex
 gcfoaicrETag = lens _gcfoaicrETag (\ s a -> s{_gcfoaicrETag = a});
 
 -- | FIXME: Undocumented member.
-gcfoaicrStatus :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse Int
+gcfoaicrStatus :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse Status
 gcfoaicrStatus = lens _gcfoaicrStatus (\ s a -> s{_gcfoaicrStatus = a});

@@ -111,7 +111,7 @@ instance AWSRequest DescribeMetricFilters where
                  DescribeMetricFiltersResponse' <$>
                    (x .?> "nextToken") <*>
                      (x .?> "metricFilters" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeMetricFilters where
         toHeaders
@@ -148,11 +148,11 @@ instance ToQuery DescribeMetricFilters where
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
     { _dmfrNextToken     :: !(Maybe Text)
     , _dmfrMetricFilters :: !(Maybe [MetricFilter])
-    , _dmfrStatus        :: !Int
+    , _dmfrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeMetricFiltersResponse' smart constructor.
-describeMetricFiltersResponse :: Int -> DescribeMetricFiltersResponse
+describeMetricFiltersResponse :: Status -> DescribeMetricFiltersResponse
 describeMetricFiltersResponse pStatus =
     DescribeMetricFiltersResponse'
     { _dmfrNextToken = Nothing
@@ -169,5 +169,5 @@ dmfrMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
 dmfrMetricFilters = lens _dmfrMetricFilters (\ s a -> s{_dmfrMetricFilters = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dmfrStatus :: Lens' DescribeMetricFiltersResponse Int
+dmfrStatus :: Lens' DescribeMetricFiltersResponse Status
 dmfrStatus = lens _dmfrStatus (\ s a -> s{_dmfrStatus = a});

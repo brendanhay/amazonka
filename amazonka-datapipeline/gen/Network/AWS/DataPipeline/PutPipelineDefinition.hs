@@ -118,7 +118,7 @@ instance AWSRequest PutPipelineDefinition where
                    (x .?> "validationErrors" .!@ mempty) <*>
                      (x .?> "validationWarnings" .!@ mempty)
                      <*> (x .:> "errored")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders PutPipelineDefinition where
         toHeaders
@@ -160,11 +160,11 @@ data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
     { _ppdrValidationErrors   :: !(Maybe [ValidationError])
     , _ppdrValidationWarnings :: !(Maybe [ValidationWarning])
     , _ppdrErrored            :: !Bool
-    , _ppdrStatus             :: !Int
+    , _ppdrStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'PutPipelineDefinitionResponse' smart constructor.
-putPipelineDefinitionResponse :: Bool -> Int -> PutPipelineDefinitionResponse
+putPipelineDefinitionResponse :: Bool -> Status -> PutPipelineDefinitionResponse
 putPipelineDefinitionResponse pErrored pStatus =
     PutPipelineDefinitionResponse'
     { _ppdrValidationErrors = Nothing
@@ -191,5 +191,5 @@ ppdrErrored :: Lens' PutPipelineDefinitionResponse Bool
 ppdrErrored = lens _ppdrErrored (\ s a -> s{_ppdrErrored = a});
 
 -- | FIXME: Undocumented member.
-ppdrStatus :: Lens' PutPipelineDefinitionResponse Int
+ppdrStatus :: Lens' PutPipelineDefinitionResponse Status
 ppdrStatus = lens _ppdrStatus (\ s a -> s{_ppdrStatus = a});

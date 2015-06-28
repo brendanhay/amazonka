@@ -84,7 +84,7 @@ instance AWSRequest DescribeCache where
                      <*> (x .?> "CacheMissPercentage")
                      <*> (x .?> "CacheAllocatedInBytes")
                      <*> (x .?> "CacheDirtyPercentage")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeCache where
         toHeaders
@@ -133,11 +133,11 @@ data DescribeCacheResponse = DescribeCacheResponse'
     , _dcrCacheMissPercentage   :: !(Maybe Double)
     , _dcrCacheAllocatedInBytes :: !(Maybe Integer)
     , _dcrCacheDirtyPercentage  :: !(Maybe Double)
-    , _dcrStatus                :: !Int
+    , _dcrStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheResponse' smart constructor.
-describeCacheResponse :: Int -> DescribeCacheResponse
+describeCacheResponse :: Status -> DescribeCacheResponse
 describeCacheResponse pStatus =
     DescribeCacheResponse'
     { _dcrGatewayARN = Nothing
@@ -179,5 +179,5 @@ dcrCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcrCacheDirtyPercentage = lens _dcrCacheDirtyPercentage (\ s a -> s{_dcrCacheDirtyPercentage = a});
 
 -- | FIXME: Undocumented member.
-dcrStatus :: Lens' DescribeCacheResponse Int
+dcrStatus :: Lens' DescribeCacheResponse Status
 dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});

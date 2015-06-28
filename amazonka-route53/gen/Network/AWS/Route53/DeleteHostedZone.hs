@@ -85,7 +85,7 @@ instance AWSRequest DeleteHostedZone where
           = receiveXML
               (\ s h x ->
                  DeleteHostedZoneResponse' <$>
-                   (x .@ "ChangeInfo") <*> (pure (fromEnum s)))
+                   (x .@ "ChangeInfo") <*> (pure s))
 
 instance ToHeaders DeleteHostedZone where
         toHeaders = const mempty
@@ -108,11 +108,11 @@ instance ToQuery DeleteHostedZone where
 -- * 'dhzrStatus'
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
     { _dhzrChangeInfo :: !ChangeInfo
-    , _dhzrStatus     :: !Int
+    , _dhzrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteHostedZoneResponse' smart constructor.
-deleteHostedZoneResponse :: ChangeInfo -> Int -> DeleteHostedZoneResponse
+deleteHostedZoneResponse :: ChangeInfo -> Status -> DeleteHostedZoneResponse
 deleteHostedZoneResponse pChangeInfo pStatus =
     DeleteHostedZoneResponse'
     { _dhzrChangeInfo = pChangeInfo
@@ -125,5 +125,5 @@ dhzrChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
 dhzrChangeInfo = lens _dhzrChangeInfo (\ s a -> s{_dhzrChangeInfo = a});
 
 -- | FIXME: Undocumented member.
-dhzrStatus :: Lens' DeleteHostedZoneResponse Int
+dhzrStatus :: Lens' DeleteHostedZoneResponse Status
 dhzrStatus = lens _dhzrStatus (\ s a -> s{_dhzrStatus = a});

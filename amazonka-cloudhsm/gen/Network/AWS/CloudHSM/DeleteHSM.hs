@@ -68,8 +68,7 @@ instance AWSRequest DeleteHSM where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x ->
-                 DeleteHSMResponse' <$> (pure (fromEnum s)))
+              (\ s h x -> DeleteHSMResponse' <$> (pure s))
 
 instance ToHeaders DeleteHSM where
         toHeaders
@@ -98,16 +97,16 @@ instance ToQuery DeleteHSM where
 --
 -- * 'delStatus'
 newtype DeleteHSMResponse = DeleteHSMResponse'
-    { _delStatus :: Int
+    { _delStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteHSMResponse' smart constructor.
-deleteHSMResponse :: Int -> DeleteHSMResponse
+deleteHSMResponse :: Status -> DeleteHSMResponse
 deleteHSMResponse pStatus =
     DeleteHSMResponse'
     { _delStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteHSMResponse Int
+delStatus :: Lens' DeleteHSMResponse Status
 delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

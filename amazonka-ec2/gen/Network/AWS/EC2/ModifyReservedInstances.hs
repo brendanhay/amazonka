@@ -97,7 +97,7 @@ instance AWSRequest ModifyReservedInstances where
               (\ s h x ->
                  ModifyReservedInstancesResponse' <$>
                    (x .@? "reservedInstancesModificationId") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders ModifyReservedInstances where
         toHeaders = const mempty
@@ -125,11 +125,11 @@ instance ToQuery ModifyReservedInstances where
 -- * 'mrirStatus'
 data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
     { _mrirReservedInstancesModificationId :: !(Maybe Text)
-    , _mrirStatus                          :: !Int
+    , _mrirStatus                          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyReservedInstancesResponse' smart constructor.
-modifyReservedInstancesResponse :: Int -> ModifyReservedInstancesResponse
+modifyReservedInstancesResponse :: Status -> ModifyReservedInstancesResponse
 modifyReservedInstancesResponse pStatus =
     ModifyReservedInstancesResponse'
     { _mrirReservedInstancesModificationId = Nothing
@@ -141,5 +141,5 @@ mrirReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Ma
 mrirReservedInstancesModificationId = lens _mrirReservedInstancesModificationId (\ s a -> s{_mrirReservedInstancesModificationId = a});
 
 -- | FIXME: Undocumented member.
-mrirStatus :: Lens' ModifyReservedInstancesResponse Int
+mrirStatus :: Lens' ModifyReservedInstancesResponse Status
 mrirStatus = lens _mrirStatus (\ s a -> s{_mrirStatus = a});

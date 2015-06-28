@@ -110,7 +110,7 @@ instance AWSRequest ListInstances where
               (\ s h x ->
                  ListInstancesResponse' <$>
                    (x .?> "Instances" .!@ mempty) <*> (x .?> "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListInstances where
         toHeaders
@@ -149,11 +149,11 @@ instance ToQuery ListInstances where
 data ListInstancesResponse = ListInstancesResponse'
     { _lirInstances :: !(Maybe [Instance])
     , _lirMarker    :: !(Maybe Text)
-    , _lirStatus    :: !Int
+    , _lirStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListInstancesResponse' smart constructor.
-listInstancesResponse :: Int -> ListInstancesResponse
+listInstancesResponse :: Status -> ListInstancesResponse
 listInstancesResponse pStatus =
     ListInstancesResponse'
     { _lirInstances = Nothing
@@ -170,5 +170,5 @@ lirMarker :: Lens' ListInstancesResponse (Maybe Text)
 lirMarker = lens _lirMarker (\ s a -> s{_lirMarker = a});
 
 -- | FIXME: Undocumented member.
-lirStatus :: Lens' ListInstancesResponse Int
+lirStatus :: Lens' ListInstancesResponse Status
 lirStatus = lens _lirStatus (\ s a -> s{_lirStatus = a});

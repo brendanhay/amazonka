@@ -123,7 +123,7 @@ instance AWSRequest DescribeMovingAddresses where
               (\ s h x ->
                  DescribeMovingAddressesResponse' <$>
                    (may (parseXMLList "item") x) <*> (x .@? "nextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeMovingAddresses where
         toHeaders = const mempty
@@ -154,11 +154,11 @@ instance ToQuery DescribeMovingAddresses where
 data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
     { _dmarMovingAddressStatuses :: !(Maybe [MovingAddressStatus])
     , _dmarNextToken             :: !(Maybe Text)
-    , _dmarStatus                :: !Int
+    , _dmarStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeMovingAddressesResponse' smart constructor.
-describeMovingAddressesResponse :: Int -> DescribeMovingAddressesResponse
+describeMovingAddressesResponse :: Status -> DescribeMovingAddressesResponse
 describeMovingAddressesResponse pStatus =
     DescribeMovingAddressesResponse'
     { _dmarMovingAddressStatuses = Nothing
@@ -176,5 +176,5 @@ dmarNextToken :: Lens' DescribeMovingAddressesResponse (Maybe Text)
 dmarNextToken = lens _dmarNextToken (\ s a -> s{_dmarNextToken = a});
 
 -- | FIXME: Undocumented member.
-dmarStatus :: Lens' DescribeMovingAddressesResponse Int
+dmarStatus :: Lens' DescribeMovingAddressesResponse Status
 dmarStatus = lens _dmarStatus (\ s a -> s{_dmarStatus = a});

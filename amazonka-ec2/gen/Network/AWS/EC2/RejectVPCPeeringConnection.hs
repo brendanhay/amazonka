@@ -86,7 +86,7 @@ instance AWSRequest RejectVPCPeeringConnection where
           = receiveXML
               (\ s h x ->
                  RejectVPCPeeringConnectionResponse' <$>
-                   (x .@? "return") <*> (pure (fromEnum s)))
+                   (x .@? "return") <*> (pure s))
 
 instance ToHeaders RejectVPCPeeringConnection where
         toHeaders = const mempty
@@ -113,11 +113,11 @@ instance ToQuery RejectVPCPeeringConnection where
 -- * 'rvpcrStatus'
 data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'
     { _rvpcrReturn :: !(Maybe Bool)
-    , _rvpcrStatus :: !Int
+    , _rvpcrStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'RejectVPCPeeringConnectionResponse' smart constructor.
-rejectVPCPeeringConnectionResponse :: Int -> RejectVPCPeeringConnectionResponse
+rejectVPCPeeringConnectionResponse :: Status -> RejectVPCPeeringConnectionResponse
 rejectVPCPeeringConnectionResponse pStatus =
     RejectVPCPeeringConnectionResponse'
     { _rvpcrReturn = Nothing
@@ -129,5 +129,5 @@ rvpcrReturn :: Lens' RejectVPCPeeringConnectionResponse (Maybe Bool)
 rvpcrReturn = lens _rvpcrReturn (\ s a -> s{_rvpcrReturn = a});
 
 -- | FIXME: Undocumented member.
-rvpcrStatus :: Lens' RejectVPCPeeringConnectionResponse Int
+rvpcrStatus :: Lens' RejectVPCPeeringConnectionResponse Status
 rvpcrStatus = lens _rvpcrStatus (\ s a -> s{_rvpcrStatus = a});

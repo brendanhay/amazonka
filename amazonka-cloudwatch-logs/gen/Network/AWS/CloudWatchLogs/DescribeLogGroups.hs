@@ -101,7 +101,7 @@ instance AWSRequest DescribeLogGroups where
                  DescribeLogGroupsResponse' <$>
                    (x .?> "logGroups" .!@ mempty) <*>
                      (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeLogGroups where
         toHeaders
@@ -137,11 +137,11 @@ instance ToQuery DescribeLogGroups where
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
     { _dlgrLogGroups :: !(Maybe [LogGroup])
     , _dlgrNextToken :: !(Maybe Text)
-    , _dlgrStatus    :: !Int
+    , _dlgrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeLogGroupsResponse' smart constructor.
-describeLogGroupsResponse :: Int -> DescribeLogGroupsResponse
+describeLogGroupsResponse :: Status -> DescribeLogGroupsResponse
 describeLogGroupsResponse pStatus =
     DescribeLogGroupsResponse'
     { _dlgrLogGroups = Nothing
@@ -158,5 +158,5 @@ dlgrNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
 dlgrNextToken = lens _dlgrNextToken (\ s a -> s{_dlgrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dlgrStatus :: Lens' DescribeLogGroupsResponse Int
+dlgrStatus :: Lens' DescribeLogGroupsResponse Status
 dlgrStatus = lens _dlgrStatus (\ s a -> s{_dlgrStatus = a});

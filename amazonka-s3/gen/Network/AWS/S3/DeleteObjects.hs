@@ -102,7 +102,7 @@ instance AWSRequest DeleteObjects where
                    (h .#? "x-amz-request-charged") <*>
                      (may (parseXMLList "Deleted") x)
                      <*> (may (parseXMLList "Error") x)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToElement DeleteObjects where
         toElement
@@ -139,11 +139,11 @@ data DeleteObjectsResponse = DeleteObjectsResponse'
     { _delRequestCharged :: !(Maybe RequestCharged)
     , _delDeleted        :: !(Maybe [DeletedObject])
     , _delErrors         :: !(Maybe [S3ServiceError])
-    , _delStatus         :: !Int
+    , _delStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteObjectsResponse' smart constructor.
-deleteObjectsResponse :: Int -> DeleteObjectsResponse
+deleteObjectsResponse :: Status -> DeleteObjectsResponse
 deleteObjectsResponse pStatus =
     DeleteObjectsResponse'
     { _delRequestCharged = Nothing
@@ -165,5 +165,5 @@ delErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
 delErrors = lens _delErrors (\ s a -> s{_delErrors = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteObjectsResponse Int
+delStatus :: Lens' DeleteObjectsResponse Status
 delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

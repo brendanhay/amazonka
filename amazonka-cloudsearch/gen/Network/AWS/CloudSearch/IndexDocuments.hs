@@ -75,7 +75,7 @@ instance AWSRequest IndexDocuments where
                  IndexDocumentsResponse' <$>
                    (x .@? "FieldNames" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders IndexDocuments where
         toHeaders = const mempty
@@ -102,11 +102,11 @@ instance ToQuery IndexDocuments where
 -- * 'idrStatus'
 data IndexDocumentsResponse = IndexDocumentsResponse'
     { _idrFieldNames :: !(Maybe [Text])
-    , _idrStatus     :: !Int
+    , _idrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'IndexDocumentsResponse' smart constructor.
-indexDocumentsResponse :: Int -> IndexDocumentsResponse
+indexDocumentsResponse :: Status -> IndexDocumentsResponse
 indexDocumentsResponse pStatus =
     IndexDocumentsResponse'
     { _idrFieldNames = Nothing
@@ -118,5 +118,5 @@ idrFieldNames :: Lens' IndexDocumentsResponse [Text]
 idrFieldNames = lens _idrFieldNames (\ s a -> s{_idrFieldNames = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-idrStatus :: Lens' IndexDocumentsResponse Int
+idrStatus :: Lens' IndexDocumentsResponse Status
 idrStatus = lens _idrStatus (\ s a -> s{_idrStatus = a});

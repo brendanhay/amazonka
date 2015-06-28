@@ -139,7 +139,7 @@ instance AWSRequest DescribeScheduledActions where
                    (x .@? "ScheduledUpdateGroupActions" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "NextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeScheduledActions where
         toHeaders = const mempty
@@ -174,11 +174,11 @@ instance ToQuery DescribeScheduledActions where
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
     { _dsarScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
     , _dsarNextToken                   :: !(Maybe Text)
-    , _dsarStatus                      :: !Int
+    , _dsarStatus                      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeScheduledActionsResponse' smart constructor.
-describeScheduledActionsResponse :: Int -> DescribeScheduledActionsResponse
+describeScheduledActionsResponse :: Status -> DescribeScheduledActionsResponse
 describeScheduledActionsResponse pStatus =
     DescribeScheduledActionsResponse'
     { _dsarScheduledUpdateGroupActions = Nothing
@@ -196,5 +196,5 @@ dsarNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
 dsarNextToken = lens _dsarNextToken (\ s a -> s{_dsarNextToken = a});
 
 -- | FIXME: Undocumented member.
-dsarStatus :: Lens' DescribeScheduledActionsResponse Int
+dsarStatus :: Lens' DescribeScheduledActionsResponse Status
 dsarStatus = lens _dsarStatus (\ s a -> s{_dsarStatus = a});

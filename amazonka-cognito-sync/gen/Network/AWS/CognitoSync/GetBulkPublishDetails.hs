@@ -86,7 +86,7 @@ instance AWSRequest GetBulkPublishDetails where
                      <*> (x .?> "BulkPublishCompleteTime")
                      <*> (x .?> "FailureMessage")
                      <*> (x .?> "BulkPublishStatus")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetBulkPublishDetails where
         toHeaders
@@ -130,11 +130,11 @@ data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
     , _gbpdrBulkPublishCompleteTime :: !(Maybe POSIX)
     , _gbpdrFailureMessage          :: !(Maybe Text)
     , _gbpdrBulkPublishStatus       :: !(Maybe BulkPublishStatus)
-    , _gbpdrStatus                  :: !Int
+    , _gbpdrStatus                  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetBulkPublishDetailsResponse' smart constructor.
-getBulkPublishDetailsResponse :: Int -> GetBulkPublishDetailsResponse
+getBulkPublishDetailsResponse :: Status -> GetBulkPublishDetailsResponse
 getBulkPublishDetailsResponse pStatus =
     GetBulkPublishDetailsResponse'
     { _gbpdrBulkPublishStartTime = Nothing
@@ -180,5 +180,5 @@ gbpdrBulkPublishStatus :: Lens' GetBulkPublishDetailsResponse (Maybe BulkPublish
 gbpdrBulkPublishStatus = lens _gbpdrBulkPublishStatus (\ s a -> s{_gbpdrBulkPublishStatus = a});
 
 -- | FIXME: Undocumented member.
-gbpdrStatus :: Lens' GetBulkPublishDetailsResponse Int
+gbpdrStatus :: Lens' GetBulkPublishDetailsResponse Status
 gbpdrStatus = lens _gbpdrStatus (\ s a -> s{_gbpdrStatus = a});

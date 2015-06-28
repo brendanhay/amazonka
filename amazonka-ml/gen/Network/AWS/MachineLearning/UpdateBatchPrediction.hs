@@ -81,7 +81,7 @@ instance AWSRequest UpdateBatchPrediction where
           = receiveJSON
               (\ s h x ->
                  UpdateBatchPredictionResponse' <$>
-                   (x .?> "BatchPredictionId") <*> (pure (fromEnum s)))
+                   (x .?> "BatchPredictionId") <*> (pure s))
 
 instance ToHeaders UpdateBatchPrediction where
         toHeaders
@@ -119,11 +119,11 @@ instance ToQuery UpdateBatchPrediction where
 -- * 'ubprStatus'
 data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
     { _ubprBatchPredictionId :: !(Maybe Text)
-    , _ubprStatus            :: !Int
+    , _ubprStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateBatchPredictionResponse' smart constructor.
-updateBatchPredictionResponse :: Int -> UpdateBatchPredictionResponse
+updateBatchPredictionResponse :: Status -> UpdateBatchPredictionResponse
 updateBatchPredictionResponse pStatus =
     UpdateBatchPredictionResponse'
     { _ubprBatchPredictionId = Nothing
@@ -137,5 +137,5 @@ ubprBatchPredictionId :: Lens' UpdateBatchPredictionResponse (Maybe Text)
 ubprBatchPredictionId = lens _ubprBatchPredictionId (\ s a -> s{_ubprBatchPredictionId = a});
 
 -- | FIXME: Undocumented member.
-ubprStatus :: Lens' UpdateBatchPredictionResponse Int
+ubprStatus :: Lens' UpdateBatchPredictionResponse Status
 ubprStatus = lens _ubprStatus (\ s a -> s{_ubprStatus = a});

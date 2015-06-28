@@ -82,7 +82,7 @@ instance AWSRequest DescribeUploadBuffer where
                      (x .?> "GatewayARN")
                      <*> (x .?> "DiskIds" .!@ mempty)
                      <*> (x .?> "UploadBufferUsedInBytes")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeUploadBuffer where
         toHeaders
@@ -122,11 +122,11 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
     , _dubrGatewayARN                   :: !(Maybe Text)
     , _dubrDiskIds                      :: !(Maybe [Text])
     , _dubrUploadBufferUsedInBytes      :: !(Maybe Integer)
-    , _dubrStatus                       :: !Int
+    , _dubrStatus                       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeUploadBufferResponse' smart constructor.
-describeUploadBufferResponse :: Int -> DescribeUploadBufferResponse
+describeUploadBufferResponse :: Status -> DescribeUploadBufferResponse
 describeUploadBufferResponse pStatus =
     DescribeUploadBufferResponse'
     { _dubrUploadBufferAllocatedInBytes = Nothing
@@ -153,5 +153,5 @@ dubrUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer
 dubrUploadBufferUsedInBytes = lens _dubrUploadBufferUsedInBytes (\ s a -> s{_dubrUploadBufferUsedInBytes = a});
 
 -- | FIXME: Undocumented member.
-dubrStatus :: Lens' DescribeUploadBufferResponse Int
+dubrStatus :: Lens' DescribeUploadBufferResponse Status
 dubrStatus = lens _dubrStatus (\ s a -> s{_dubrStatus = a});

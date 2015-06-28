@@ -109,7 +109,7 @@ instance AWSRequest DescribeWorkflowExecution where
                      <*> (x .:> "executionInfo")
                      <*> (x .:> "executionConfiguration")
                      <*> (x .:> "openCounts")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeWorkflowExecution where
         toHeaders
@@ -156,11 +156,11 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
     , _dwerExecutionInfo               :: !WorkflowExecutionInfo
     , _dwerExecutionConfiguration      :: !WorkflowExecutionConfiguration
     , _dwerOpenCounts                  :: !WorkflowExecutionOpenCounts
-    , _dwerStatus                      :: !Int
+    , _dwerStatus                      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkflowExecutionResponse' smart constructor.
-describeWorkflowExecutionResponse :: WorkflowExecutionInfo -> WorkflowExecutionConfiguration -> WorkflowExecutionOpenCounts -> Int -> DescribeWorkflowExecutionResponse
+describeWorkflowExecutionResponse :: WorkflowExecutionInfo -> WorkflowExecutionConfiguration -> WorkflowExecutionOpenCounts -> Status -> DescribeWorkflowExecutionResponse
 describeWorkflowExecutionResponse pExecutionInfo pExecutionConfiguration pOpenCounts pStatus =
     DescribeWorkflowExecutionResponse'
     { _dwerLatestActivityTaskTimestamp = Nothing
@@ -199,5 +199,5 @@ dwerOpenCounts :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionOpenC
 dwerOpenCounts = lens _dwerOpenCounts (\ s a -> s{_dwerOpenCounts = a});
 
 -- | FIXME: Undocumented member.
-dwerStatus :: Lens' DescribeWorkflowExecutionResponse Int
+dwerStatus :: Lens' DescribeWorkflowExecutionResponse Status
 dwerStatus = lens _dwerStatus (\ s a -> s{_dwerStatus = a});

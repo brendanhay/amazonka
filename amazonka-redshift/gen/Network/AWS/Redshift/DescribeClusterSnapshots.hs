@@ -221,7 +221,7 @@ instance AWSRequest DescribeClusterSnapshots where
                    (x .@? "Snapshots" .!@ mempty >>=
                       may (parseXMLList "Snapshot"))
                      <*> (x .@? "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeClusterSnapshots where
         toHeaders = const mempty
@@ -261,11 +261,11 @@ instance ToQuery DescribeClusterSnapshots where
 data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'
     { _descSnapshots :: !(Maybe [Snapshot])
     , _descMarker    :: !(Maybe Text)
-    , _descStatus    :: !Int
+    , _descStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterSnapshotsResponse' smart constructor.
-describeClusterSnapshotsResponse :: Int -> DescribeClusterSnapshotsResponse
+describeClusterSnapshotsResponse :: Status -> DescribeClusterSnapshotsResponse
 describeClusterSnapshotsResponse pStatus =
     DescribeClusterSnapshotsResponse'
     { _descSnapshots = Nothing
@@ -287,5 +287,5 @@ descMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
 descMarker = lens _descMarker (\ s a -> s{_descMarker = a});
 
 -- | FIXME: Undocumented member.
-descStatus :: Lens' DescribeClusterSnapshotsResponse Int
+descStatus :: Lens' DescribeClusterSnapshotsResponse Status
 descStatus = lens _descStatus (\ s a -> s{_descStatus = a});

@@ -500,7 +500,7 @@ instance AWSRequest DeleteItem where
                    (x .?> "ConsumedCapacity") <*>
                      (x .?> "ItemCollectionMetrics")
                      <*> (x .?> "Attributes" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DeleteItem where
         toHeaders
@@ -551,11 +551,11 @@ data DeleteItemResponse = DeleteItemResponse'
     { _dirConsumedCapacity      :: !(Maybe ConsumedCapacity)
     , _dirItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
     , _dirAttributes            :: !(Maybe (Map Text AttributeValue))
-    , _dirStatus                :: !Int
+    , _dirStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteItemResponse' smart constructor.
-deleteItemResponse :: Int -> DeleteItemResponse
+deleteItemResponse :: Status -> DeleteItemResponse
 deleteItemResponse pStatus =
     DeleteItemResponse'
     { _dirConsumedCapacity = Nothing
@@ -600,5 +600,5 @@ dirAttributes :: Lens' DeleteItemResponse (HashMap Text AttributeValue)
 dirAttributes = lens _dirAttributes (\ s a -> s{_dirAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-dirStatus :: Lens' DeleteItemResponse Int
+dirStatus :: Lens' DeleteItemResponse Status
 dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});

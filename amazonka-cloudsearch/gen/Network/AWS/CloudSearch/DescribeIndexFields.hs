@@ -103,7 +103,7 @@ instance AWSRequest DescribeIndexFields where
                  DescribeIndexFieldsResponse' <$>
                    (x .@? "IndexFields" .!@ mempty >>=
                       parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeIndexFields where
         toHeaders = const mempty
@@ -133,11 +133,11 @@ instance ToQuery DescribeIndexFields where
 -- * 'difr1Status'
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
     { _difr1IndexFields :: ![IndexFieldStatus]
-    , _difr1Status      :: !Int
+    , _difr1Status      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeIndexFieldsResponse' smart constructor.
-describeIndexFieldsResponse :: Int -> DescribeIndexFieldsResponse
+describeIndexFieldsResponse :: Status -> DescribeIndexFieldsResponse
 describeIndexFieldsResponse pStatus =
     DescribeIndexFieldsResponse'
     { _difr1IndexFields = mempty
@@ -149,5 +149,5 @@ difr1IndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
 difr1IndexFields = lens _difr1IndexFields (\ s a -> s{_difr1IndexFields = a});
 
 -- | FIXME: Undocumented member.
-difr1Status :: Lens' DescribeIndexFieldsResponse Int
+difr1Status :: Lens' DescribeIndexFieldsResponse Status
 difr1Status = lens _difr1Status (\ s a -> s{_difr1Status = a});

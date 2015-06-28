@@ -91,7 +91,7 @@ instance AWSRequest ListIdentityPoolUsage where
                      (x .?> "Count")
                      <*> (x .?> "NextToken")
                      <*> (x .?> "MaxResults")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListIdentityPoolUsage where
         toHeaders
@@ -129,11 +129,11 @@ data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
     , _lipurCount              :: !(Maybe Int)
     , _lipurNextToken          :: !(Maybe Text)
     , _lipurMaxResults         :: !(Maybe Int)
-    , _lipurStatus             :: !Int
+    , _lipurStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListIdentityPoolUsageResponse' smart constructor.
-listIdentityPoolUsageResponse :: Int -> ListIdentityPoolUsageResponse
+listIdentityPoolUsageResponse :: Status -> ListIdentityPoolUsageResponse
 listIdentityPoolUsageResponse pStatus =
     ListIdentityPoolUsageResponse'
     { _lipurIdentityPoolUsages = Nothing
@@ -160,5 +160,5 @@ lipurMaxResults :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
 lipurMaxResults = lens _lipurMaxResults (\ s a -> s{_lipurMaxResults = a});
 
 -- | FIXME: Undocumented member.
-lipurStatus :: Lens' ListIdentityPoolUsageResponse Int
+lipurStatus :: Lens' ListIdentityPoolUsageResponse Status
 lipurStatus = lens _lipurStatus (\ s a -> s{_lipurStatus = a});

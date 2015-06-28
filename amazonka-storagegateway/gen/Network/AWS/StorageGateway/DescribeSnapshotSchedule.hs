@@ -83,7 +83,7 @@ instance AWSRequest DescribeSnapshotSchedule where
                      (x .?> "RecurrenceInHours")
                      <*> (x .?> "Timezone")
                      <*> (x .?> "Description")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeSnapshotSchedule where
         toHeaders
@@ -126,11 +126,11 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
     , _dssrRecurrenceInHours :: !(Maybe Nat)
     , _dssrTimezone          :: !(Maybe Text)
     , _dssrDescription       :: !(Maybe Text)
-    , _dssrStatus            :: !Int
+    , _dssrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshotScheduleResponse' smart constructor.
-describeSnapshotScheduleResponse :: Int -> DescribeSnapshotScheduleResponse
+describeSnapshotScheduleResponse :: Status -> DescribeSnapshotScheduleResponse
 describeSnapshotScheduleResponse pStatus =
     DescribeSnapshotScheduleResponse'
     { _dssrVolumeARN = Nothing
@@ -162,5 +162,5 @@ dssrDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrDescription = lens _dssrDescription (\ s a -> s{_dssrDescription = a});
 
 -- | FIXME: Undocumented member.
-dssrStatus :: Lens' DescribeSnapshotScheduleResponse Int
+dssrStatus :: Lens' DescribeSnapshotScheduleResponse Status
 dssrStatus = lens _dssrStatus (\ s a -> s{_dssrStatus = a});

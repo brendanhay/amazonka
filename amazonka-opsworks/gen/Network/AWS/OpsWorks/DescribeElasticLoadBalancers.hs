@@ -90,7 +90,7 @@ instance AWSRequest DescribeElasticLoadBalancers
               (\ s h x ->
                  DescribeElasticLoadBalancersResponse' <$>
                    (x .?> "ElasticLoadBalancers" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders DescribeElasticLoadBalancers where
         toHeaders
@@ -125,11 +125,11 @@ instance ToQuery DescribeElasticLoadBalancers where
 -- * 'delbrStatus'
 data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'
     { _delbrElasticLoadBalancers :: !(Maybe [ElasticLoadBalancer])
-    , _delbrStatus               :: !Int
+    , _delbrStatus               :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeElasticLoadBalancersResponse' smart constructor.
-describeElasticLoadBalancersResponse :: Int -> DescribeElasticLoadBalancersResponse
+describeElasticLoadBalancersResponse :: Status -> DescribeElasticLoadBalancersResponse
 describeElasticLoadBalancersResponse pStatus =
     DescribeElasticLoadBalancersResponse'
     { _delbrElasticLoadBalancers = Nothing
@@ -142,5 +142,5 @@ delbrElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [Elastic
 delbrElasticLoadBalancers = lens _delbrElasticLoadBalancers (\ s a -> s{_delbrElasticLoadBalancers = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-delbrStatus :: Lens' DescribeElasticLoadBalancersResponse Int
+delbrStatus :: Lens' DescribeElasticLoadBalancersResponse Status
 delbrStatus = lens _delbrStatus (\ s a -> s{_delbrStatus = a});

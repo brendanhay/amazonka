@@ -129,7 +129,7 @@ instance AWSRequest CreateBatchPrediction where
           = receiveJSON
               (\ s h x ->
                  CreateBatchPredictionResponse' <$>
-                   (x .?> "BatchPredictionId") <*> (pure (fromEnum s)))
+                   (x .?> "BatchPredictionId") <*> (pure s))
 
 instance ToHeaders CreateBatchPrediction where
         toHeaders
@@ -173,11 +173,11 @@ instance ToQuery CreateBatchPrediction where
 -- * 'cbprStatus'
 data CreateBatchPredictionResponse = CreateBatchPredictionResponse'
     { _cbprBatchPredictionId :: !(Maybe Text)
-    , _cbprStatus            :: !Int
+    , _cbprStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateBatchPredictionResponse' smart constructor.
-createBatchPredictionResponse :: Int -> CreateBatchPredictionResponse
+createBatchPredictionResponse :: Status -> CreateBatchPredictionResponse
 createBatchPredictionResponse pStatus =
     CreateBatchPredictionResponse'
     { _cbprBatchPredictionId = Nothing
@@ -191,5 +191,5 @@ cbprBatchPredictionId :: Lens' CreateBatchPredictionResponse (Maybe Text)
 cbprBatchPredictionId = lens _cbprBatchPredictionId (\ s a -> s{_cbprBatchPredictionId = a});
 
 -- | FIXME: Undocumented member.
-cbprStatus :: Lens' CreateBatchPredictionResponse Int
+cbprStatus :: Lens' CreateBatchPredictionResponse Status
 cbprStatus = lens _cbprStatus (\ s a -> s{_cbprStatus = a});

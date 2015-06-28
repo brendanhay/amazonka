@@ -101,8 +101,7 @@ instance AWSRequest SubscribeToDataset where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x ->
-                 SubscribeToDatasetResponse' <$> (pure (fromEnum s)))
+              (\ s h x -> SubscribeToDatasetResponse' <$> (pure s))
 
 instance ToHeaders SubscribeToDataset where
         toHeaders
@@ -133,16 +132,16 @@ instance ToQuery SubscribeToDataset where
 --
 -- * 'stdrStatus'
 newtype SubscribeToDatasetResponse = SubscribeToDatasetResponse'
-    { _stdrStatus :: Int
+    { _stdrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'SubscribeToDatasetResponse' smart constructor.
-subscribeToDatasetResponse :: Int -> SubscribeToDatasetResponse
+subscribeToDatasetResponse :: Status -> SubscribeToDatasetResponse
 subscribeToDatasetResponse pStatus =
     SubscribeToDatasetResponse'
     { _stdrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-stdrStatus :: Lens' SubscribeToDatasetResponse Int
+stdrStatus :: Lens' SubscribeToDatasetResponse Status
 stdrStatus = lens _stdrStatus (\ s a -> s{_stdrStatus = a});

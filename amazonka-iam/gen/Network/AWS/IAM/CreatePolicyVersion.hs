@@ -108,7 +108,7 @@ instance AWSRequest CreatePolicyVersion where
           = receiveXMLWrapper "CreatePolicyVersionResult"
               (\ s h x ->
                  CreatePolicyVersionResponse' <$>
-                   (x .@? "PolicyVersion") <*> (pure (fromEnum s)))
+                   (x .@? "PolicyVersion") <*> (pure s))
 
 instance ToHeaders CreatePolicyVersion where
         toHeaders = const mempty
@@ -136,11 +136,11 @@ instance ToQuery CreatePolicyVersion where
 -- * 'cpvrStatus'
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
     { _cpvrPolicyVersion :: !(Maybe PolicyVersion)
-    , _cpvrStatus        :: !Int
+    , _cpvrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreatePolicyVersionResponse' smart constructor.
-createPolicyVersionResponse :: Int -> CreatePolicyVersionResponse
+createPolicyVersionResponse :: Status -> CreatePolicyVersionResponse
 createPolicyVersionResponse pStatus =
     CreatePolicyVersionResponse'
     { _cpvrPolicyVersion = Nothing
@@ -152,5 +152,5 @@ cpvrPolicyVersion :: Lens' CreatePolicyVersionResponse (Maybe PolicyVersion)
 cpvrPolicyVersion = lens _cpvrPolicyVersion (\ s a -> s{_cpvrPolicyVersion = a});
 
 -- | FIXME: Undocumented member.
-cpvrStatus :: Lens' CreatePolicyVersionResponse Int
+cpvrStatus :: Lens' CreatePolicyVersionResponse Status
 cpvrStatus = lens _cpvrStatus (\ s a -> s{_cpvrStatus = a});

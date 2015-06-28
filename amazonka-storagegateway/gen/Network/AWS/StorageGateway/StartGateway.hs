@@ -82,7 +82,7 @@ instance AWSRequest StartGateway where
           = receiveJSON
               (\ s h x ->
                  StartGatewayResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+                   (x .?> "GatewayARN") <*> (pure s))
 
 instance ToHeaders StartGateway where
         toHeaders
@@ -115,11 +115,11 @@ instance ToQuery StartGateway where
 -- * 'staStatus'
 data StartGatewayResponse = StartGatewayResponse'
     { _staGatewayARN :: !(Maybe Text)
-    , _staStatus     :: !Int
+    , _staStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'StartGatewayResponse' smart constructor.
-startGatewayResponse :: Int -> StartGatewayResponse
+startGatewayResponse :: Status -> StartGatewayResponse
 startGatewayResponse pStatus =
     StartGatewayResponse'
     { _staGatewayARN = Nothing
@@ -131,5 +131,5 @@ staGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
 staGatewayARN = lens _staGatewayARN (\ s a -> s{_staGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-staStatus :: Lens' StartGatewayResponse Int
+staStatus :: Lens' StartGatewayResponse Status
 staStatus = lens _staStatus (\ s a -> s{_staStatus = a});

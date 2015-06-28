@@ -93,7 +93,7 @@ instance AWSRequest ListDocuments where
                  ListDocumentsResponse' <$>
                    (x .?> "DocumentIdentifiers" .!@ mempty) <*>
                      (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListDocuments where
         toHeaders
@@ -129,11 +129,11 @@ instance ToQuery ListDocuments where
 data ListDocumentsResponse = ListDocumentsResponse'
     { _ldrDocumentIdentifiers :: !(Maybe [DocumentIdentifier])
     , _ldrNextToken           :: !(Maybe Text)
-    , _ldrStatus              :: !Int
+    , _ldrStatus              :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListDocumentsResponse' smart constructor.
-listDocumentsResponse :: Int -> ListDocumentsResponse
+listDocumentsResponse :: Status -> ListDocumentsResponse
 listDocumentsResponse pStatus =
     ListDocumentsResponse'
     { _ldrDocumentIdentifiers = Nothing
@@ -151,5 +151,5 @@ ldrNextToken :: Lens' ListDocumentsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
 
 -- | FIXME: Undocumented member.
-ldrStatus :: Lens' ListDocumentsResponse Int
+ldrStatus :: Lens' ListDocumentsResponse Status
 ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});

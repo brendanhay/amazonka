@@ -84,7 +84,7 @@ instance AWSRequest GetKeyPolicy where
           = receiveJSON
               (\ s h x ->
                  GetKeyPolicyResponse' <$>
-                   (x .?> "Policy") <*> (pure (fromEnum s)))
+                   (x .?> "Policy") <*> (pure s))
 
 instance ToHeaders GetKeyPolicy where
         toHeaders
@@ -116,11 +116,11 @@ instance ToQuery GetKeyPolicy where
 -- * 'gkprStatus'
 data GetKeyPolicyResponse = GetKeyPolicyResponse'
     { _gkprPolicy :: !(Maybe Text)
-    , _gkprStatus :: !Int
+    , _gkprStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetKeyPolicyResponse' smart constructor.
-getKeyPolicyResponse :: Int -> GetKeyPolicyResponse
+getKeyPolicyResponse :: Status -> GetKeyPolicyResponse
 getKeyPolicyResponse pStatus =
     GetKeyPolicyResponse'
     { _gkprPolicy = Nothing
@@ -132,5 +132,5 @@ gkprPolicy :: Lens' GetKeyPolicyResponse (Maybe Text)
 gkprPolicy = lens _gkprPolicy (\ s a -> s{_gkprPolicy = a});
 
 -- | FIXME: Undocumented member.
-gkprStatus :: Lens' GetKeyPolicyResponse Int
+gkprStatus :: Lens' GetKeyPolicyResponse Status
 gkprStatus = lens _gkprStatus (\ s a -> s{_gkprStatus = a});

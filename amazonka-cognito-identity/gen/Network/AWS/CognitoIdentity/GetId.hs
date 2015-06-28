@@ -101,8 +101,7 @@ instance AWSRequest GetId where
         response
           = receiveJSON
               (\ s h x ->
-                 GetIdResponse' <$>
-                   (x .?> "IdentityId") <*> (pure (fromEnum s)))
+                 GetIdResponse' <$> (x .?> "IdentityId") <*> (pure s))
 
 instance ToHeaders GetId where
         toHeaders
@@ -136,11 +135,11 @@ instance ToQuery GetId where
 -- * 'girStatus'
 data GetIdResponse = GetIdResponse'
     { _girIdentityId :: !(Maybe Text)
-    , _girStatus     :: !Int
+    , _girStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetIdResponse' smart constructor.
-getIdResponse :: Int -> GetIdResponse
+getIdResponse :: Status -> GetIdResponse
 getIdResponse pStatus =
     GetIdResponse'
     { _girIdentityId = Nothing
@@ -152,5 +151,5 @@ girIdentityId :: Lens' GetIdResponse (Maybe Text)
 girIdentityId = lens _girIdentityId (\ s a -> s{_girIdentityId = a});
 
 -- | FIXME: Undocumented member.
-girStatus :: Lens' GetIdResponse Int
+girStatus :: Lens' GetIdResponse Status
 girStatus = lens _girStatus (\ s a -> s{_girStatus = a});

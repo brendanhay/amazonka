@@ -135,7 +135,7 @@ instance AWSRequest
               (\ s h x ->
                  GetOpenIdTokenForDeveloperIdentityResponse' <$>
                    (x .?> "Token") <*> (x .?> "IdentityId") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders GetOpenIdTokenForDeveloperIdentity
          where
@@ -180,11 +180,11 @@ instance ToQuery GetOpenIdTokenForDeveloperIdentity
 data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'
     { _goitfdirToken      :: !(Maybe Text)
     , _goitfdirIdentityId :: !(Maybe Text)
-    , _goitfdirStatus     :: !Int
+    , _goitfdirStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetOpenIdTokenForDeveloperIdentityResponse' smart constructor.
-getOpenIdTokenForDeveloperIdentityResponse :: Int -> GetOpenIdTokenForDeveloperIdentityResponse
+getOpenIdTokenForDeveloperIdentityResponse :: Status -> GetOpenIdTokenForDeveloperIdentityResponse
 getOpenIdTokenForDeveloperIdentityResponse pStatus =
     GetOpenIdTokenForDeveloperIdentityResponse'
     { _goitfdirToken = Nothing
@@ -201,5 +201,5 @@ goitfdirIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Te
 goitfdirIdentityId = lens _goitfdirIdentityId (\ s a -> s{_goitfdirIdentityId = a});
 
 -- | FIXME: Undocumented member.
-goitfdirStatus :: Lens' GetOpenIdTokenForDeveloperIdentityResponse Int
+goitfdirStatus :: Lens' GetOpenIdTokenForDeveloperIdentityResponse Status
 goitfdirStatus = lens _goitfdirStatus (\ s a -> s{_goitfdirStatus = a});

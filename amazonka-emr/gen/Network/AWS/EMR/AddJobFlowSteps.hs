@@ -104,7 +104,7 @@ instance AWSRequest AddJobFlowSteps where
           = receiveJSON
               (\ s h x ->
                  AddJobFlowStepsResponse' <$>
-                   (x .?> "StepIds" .!@ mempty) <*> (pure (fromEnum s)))
+                   (x .?> "StepIds" .!@ mempty) <*> (pure s))
 
 instance ToHeaders AddJobFlowSteps where
         toHeaders
@@ -138,11 +138,11 @@ instance ToQuery AddJobFlowSteps where
 -- * 'ajfsrStatus'
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
     { _ajfsrStepIds :: !(Maybe [Text])
-    , _ajfsrStatus  :: !Int
+    , _ajfsrStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'AddJobFlowStepsResponse' smart constructor.
-addJobFlowStepsResponse :: Int -> AddJobFlowStepsResponse
+addJobFlowStepsResponse :: Status -> AddJobFlowStepsResponse
 addJobFlowStepsResponse pStatus =
     AddJobFlowStepsResponse'
     { _ajfsrStepIds = Nothing
@@ -154,5 +154,5 @@ ajfsrStepIds :: Lens' AddJobFlowStepsResponse [Text]
 ajfsrStepIds = lens _ajfsrStepIds (\ s a -> s{_ajfsrStepIds = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ajfsrStatus :: Lens' AddJobFlowStepsResponse Int
+ajfsrStatus :: Lens' AddJobFlowStepsResponse Status
 ajfsrStatus = lens _ajfsrStatus (\ s a -> s{_ajfsrStatus = a});

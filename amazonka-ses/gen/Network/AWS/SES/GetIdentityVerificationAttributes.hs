@@ -81,7 +81,7 @@ instance AWSRequest GetIdentityVerificationAttributes
                  GetIdentityVerificationAttributesResponse' <$>
                    (x .@? "VerificationAttributes" .!@ mempty >>=
                       parseXMLMap "entry" "key" "value")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetIdentityVerificationAttributes
          where
@@ -111,11 +111,11 @@ instance ToQuery GetIdentityVerificationAttributes
 -- * 'givarStatus'
 data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
     { _givarVerificationAttributes :: !(Map Text IdentityVerificationAttributes)
-    , _givarStatus                 :: !Int
+    , _givarStatus                 :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityVerificationAttributesResponse' smart constructor.
-getIdentityVerificationAttributesResponse :: Int -> GetIdentityVerificationAttributesResponse
+getIdentityVerificationAttributesResponse :: Status -> GetIdentityVerificationAttributesResponse
 getIdentityVerificationAttributesResponse pStatus =
     GetIdentityVerificationAttributesResponse'
     { _givarVerificationAttributes = mempty
@@ -127,5 +127,5 @@ givarVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (
 givarVerificationAttributes = lens _givarVerificationAttributes (\ s a -> s{_givarVerificationAttributes = a}) . _Map;
 
 -- | FIXME: Undocumented member.
-givarStatus :: Lens' GetIdentityVerificationAttributesResponse Int
+givarStatus :: Lens' GetIdentityVerificationAttributesResponse Status
 givarStatus = lens _givarStatus (\ s a -> s{_givarStatus = a});

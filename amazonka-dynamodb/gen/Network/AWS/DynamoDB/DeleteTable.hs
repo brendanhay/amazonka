@@ -85,7 +85,7 @@ instance AWSRequest DeleteTable where
           = receiveJSON
               (\ s h x ->
                  DeleteTableResponse' <$>
-                   (x .?> "TableDescription") <*> (pure (fromEnum s)))
+                   (x .?> "TableDescription") <*> (pure s))
 
 instance ToHeaders DeleteTable where
         toHeaders
@@ -117,11 +117,11 @@ instance ToQuery DeleteTable where
 -- * 'dtrStatus'
 data DeleteTableResponse = DeleteTableResponse'
     { _dtrTableDescription :: !(Maybe TableDescription)
-    , _dtrStatus           :: !Int
+    , _dtrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteTableResponse' smart constructor.
-deleteTableResponse :: Int -> DeleteTableResponse
+deleteTableResponse :: Status -> DeleteTableResponse
 deleteTableResponse pStatus =
     DeleteTableResponse'
     { _dtrTableDescription = Nothing
@@ -133,5 +133,5 @@ dtrTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
 dtrTableDescription = lens _dtrTableDescription (\ s a -> s{_dtrTableDescription = a});
 
 -- | FIXME: Undocumented member.
-dtrStatus :: Lens' DeleteTableResponse Int
+dtrStatus :: Lens' DeleteTableResponse Status
 dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});

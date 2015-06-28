@@ -109,8 +109,7 @@ instance AWSRequest CreateLBCookieStickinessPolicy
           = receiveXMLWrapper
               "CreateLBCookieStickinessPolicyResult"
               (\ s h x ->
-                 CreateLBCookieStickinessPolicyResponse' <$>
-                   (pure (fromEnum s)))
+                 CreateLBCookieStickinessPolicyResponse' <$> (pure s))
 
 instance ToHeaders CreateLBCookieStickinessPolicy
          where
@@ -136,16 +135,16 @@ instance ToQuery CreateLBCookieStickinessPolicy where
 --
 -- * 'clbcsprStatus'
 newtype CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse'
-    { _clbcsprStatus :: Int
+    { _clbcsprStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateLBCookieStickinessPolicyResponse' smart constructor.
-createLBCookieStickinessPolicyResponse :: Int -> CreateLBCookieStickinessPolicyResponse
+createLBCookieStickinessPolicyResponse :: Status -> CreateLBCookieStickinessPolicyResponse
 createLBCookieStickinessPolicyResponse pStatus =
     CreateLBCookieStickinessPolicyResponse'
     { _clbcsprStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-clbcsprStatus :: Lens' CreateLBCookieStickinessPolicyResponse Int
+clbcsprStatus :: Lens' CreateLBCookieStickinessPolicyResponse Status
 clbcsprStatus = lens _clbcsprStatus (\ s a -> s{_clbcsprStatus = a});

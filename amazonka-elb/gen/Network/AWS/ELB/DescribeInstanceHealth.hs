@@ -83,7 +83,7 @@ instance AWSRequest DescribeInstanceHealth where
                  DescribeInstanceHealthResponse' <$>
                    (x .@? "InstanceStates" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeInstanceHealth where
         toHeaders = const mempty
@@ -110,11 +110,11 @@ instance ToQuery DescribeInstanceHealth where
 -- * 'dihrStatus'
 data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
     { _dihrInstanceStates :: !(Maybe [InstanceState])
-    , _dihrStatus         :: !Int
+    , _dihrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstanceHealthResponse' smart constructor.
-describeInstanceHealthResponse :: Int -> DescribeInstanceHealthResponse
+describeInstanceHealthResponse :: Status -> DescribeInstanceHealthResponse
 describeInstanceHealthResponse pStatus =
     DescribeInstanceHealthResponse'
     { _dihrInstanceStates = Nothing
@@ -126,5 +126,5 @@ dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
 dihrInstanceStates = lens _dihrInstanceStates (\ s a -> s{_dihrInstanceStates = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dihrStatus :: Lens' DescribeInstanceHealthResponse Int
+dihrStatus :: Lens' DescribeInstanceHealthResponse Status
 dihrStatus = lens _dihrStatus (\ s a -> s{_dihrStatus = a});

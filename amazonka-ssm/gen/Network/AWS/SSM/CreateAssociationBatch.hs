@@ -81,7 +81,7 @@ instance AWSRequest CreateAssociationBatch where
                  CreateAssociationBatchResponse' <$>
                    (x .?> "Successful" .!@ mempty) <*>
                      (x .?> "Failed" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders CreateAssociationBatch where
         toHeaders
@@ -114,11 +114,11 @@ instance ToQuery CreateAssociationBatch where
 data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
     { _cabrSuccessful :: !(Maybe [AssociationDescription])
     , _cabrFailed     :: !(Maybe [FailedCreateAssociation])
-    , _cabrStatus     :: !Int
+    , _cabrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateAssociationBatchResponse' smart constructor.
-createAssociationBatchResponse :: Int -> CreateAssociationBatchResponse
+createAssociationBatchResponse :: Status -> CreateAssociationBatchResponse
 createAssociationBatchResponse pStatus =
     CreateAssociationBatchResponse'
     { _cabrSuccessful = Nothing
@@ -135,5 +135,5 @@ cabrFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
 cabrFailed = lens _cabrFailed (\ s a -> s{_cabrFailed = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-cabrStatus :: Lens' CreateAssociationBatchResponse Int
+cabrStatus :: Lens' CreateAssociationBatchResponse Status
 cabrStatus = lens _cabrStatus (\ s a -> s{_cabrStatus = a});

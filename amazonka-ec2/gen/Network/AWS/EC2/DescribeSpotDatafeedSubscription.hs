@@ -77,8 +77,7 @@ instance AWSRequest DescribeSpotDatafeedSubscription
           = receiveXML
               (\ s h x ->
                  DescribeSpotDatafeedSubscriptionResponse' <$>
-                   (x .@? "spotDatafeedSubscription") <*>
-                     (pure (fromEnum s)))
+                   (x .@? "spotDatafeedSubscription") <*> (pure s))
 
 instance ToHeaders DescribeSpotDatafeedSubscription
          where
@@ -108,11 +107,11 @@ instance ToQuery DescribeSpotDatafeedSubscription
 -- * 'dsdsrStatus'
 data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'
     { _dsdsrSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
-    , _dsdsrStatus                   :: !Int
+    , _dsdsrStatus                   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotDatafeedSubscriptionResponse' smart constructor.
-describeSpotDatafeedSubscriptionResponse :: Int -> DescribeSpotDatafeedSubscriptionResponse
+describeSpotDatafeedSubscriptionResponse :: Status -> DescribeSpotDatafeedSubscriptionResponse
 describeSpotDatafeedSubscriptionResponse pStatus =
     DescribeSpotDatafeedSubscriptionResponse'
     { _dsdsrSpotDatafeedSubscription = Nothing
@@ -124,5 +123,5 @@ dsdsrSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse 
 dsdsrSpotDatafeedSubscription = lens _dsdsrSpotDatafeedSubscription (\ s a -> s{_dsdsrSpotDatafeedSubscription = a});
 
 -- | FIXME: Undocumented member.
-dsdsrStatus :: Lens' DescribeSpotDatafeedSubscriptionResponse Int
+dsdsrStatus :: Lens' DescribeSpotDatafeedSubscriptionResponse Status
 dsdsrStatus = lens _dsdsrStatus (\ s a -> s{_dsdsrStatus = a});

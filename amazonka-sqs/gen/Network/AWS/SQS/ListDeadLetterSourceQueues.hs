@@ -74,7 +74,7 @@ instance AWSRequest ListDeadLetterSourceQueues where
               "ListDeadLetterSourceQueuesResult"
               (\ s h x ->
                  ListDeadLetterSourceQueuesResponse' <$>
-                   (parseXMLList "QueueUrl" x) <*> (pure (fromEnum s)))
+                   (parseXMLList "QueueUrl" x) <*> (pure s))
 
 instance ToHeaders ListDeadLetterSourceQueues where
         toHeaders = const mempty
@@ -101,11 +101,11 @@ instance ToQuery ListDeadLetterSourceQueues where
 -- * 'ldlsqrStatus'
 data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'
     { _ldlsqrQueueURLs :: ![Text]
-    , _ldlsqrStatus    :: !Int
+    , _ldlsqrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListDeadLetterSourceQueuesResponse' smart constructor.
-listDeadLetterSourceQueuesResponse :: Int -> ListDeadLetterSourceQueuesResponse
+listDeadLetterSourceQueuesResponse :: Status -> ListDeadLetterSourceQueuesResponse
 listDeadLetterSourceQueuesResponse pStatus =
     ListDeadLetterSourceQueuesResponse'
     { _ldlsqrQueueURLs = mempty
@@ -118,5 +118,5 @@ ldlsqrQueueURLs :: Lens' ListDeadLetterSourceQueuesResponse [Text]
 ldlsqrQueueURLs = lens _ldlsqrQueueURLs (\ s a -> s{_ldlsqrQueueURLs = a});
 
 -- | FIXME: Undocumented member.
-ldlsqrStatus :: Lens' ListDeadLetterSourceQueuesResponse Int
+ldlsqrStatus :: Lens' ListDeadLetterSourceQueuesResponse Status
 ldlsqrStatus = lens _ldlsqrStatus (\ s a -> s{_ldlsqrStatus = a});

@@ -108,7 +108,7 @@ instance AWSRequest DescribeSpotFleetInstances where
                  DescribeSpotFleetInstancesResponse' <$>
                    (x .@? "nextToken") <*> (x .@ "spotFleetRequestId")
                      <*> (parseXMLList "item" x)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeSpotFleetInstances where
         toHeaders = const mempty
@@ -144,11 +144,11 @@ data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
     { _dsfirNextToken          :: !(Maybe Text)
     , _dsfirSpotFleetRequestId :: !Text
     , _dsfirActiveInstances    :: ![ActiveInstance]
-    , _dsfirStatus             :: !Int
+    , _dsfirStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotFleetInstancesResponse' smart constructor.
-describeSpotFleetInstancesResponse :: Text -> Int -> DescribeSpotFleetInstancesResponse
+describeSpotFleetInstancesResponse :: Text -> Status -> DescribeSpotFleetInstancesResponse
 describeSpotFleetInstancesResponse pSpotFleetRequestId pStatus =
     DescribeSpotFleetInstancesResponse'
     { _dsfirNextToken = Nothing
@@ -172,5 +172,5 @@ dsfirActiveInstances :: Lens' DescribeSpotFleetInstancesResponse [ActiveInstance
 dsfirActiveInstances = lens _dsfirActiveInstances (\ s a -> s{_dsfirActiveInstances = a});
 
 -- | FIXME: Undocumented member.
-dsfirStatus :: Lens' DescribeSpotFleetInstancesResponse Int
+dsfirStatus :: Lens' DescribeSpotFleetInstancesResponse Status
 dsfirStatus = lens _dsfirStatus (\ s a -> s{_dsfirStatus = a});

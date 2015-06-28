@@ -122,7 +122,7 @@ instance AWSRequest CompleteMultipartUpload where
                      <*>
                      (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
                      <*> (h .#? "x-amz-server-side-encryption")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToElement CompleteMultipartUpload where
         toElement
@@ -177,11 +177,11 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
     , _cKey                  :: !(Maybe ObjectKey)
     , _cSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _cServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _cStatus               :: !Int
+    , _cStatus               :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CompleteMultipartUploadResponse' smart constructor.
-completeMultipartUploadResponse :: Int -> CompleteMultipartUploadResponse
+completeMultipartUploadResponse :: Status -> CompleteMultipartUploadResponse
 completeMultipartUploadResponse pStatus =
     CompleteMultipartUploadResponse'
     { _cVersionId = Nothing
@@ -237,5 +237,5 @@ cServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSide
 cServerSideEncryption = lens _cServerSideEncryption (\ s a -> s{_cServerSideEncryption = a});
 
 -- | FIXME: Undocumented member.
-cStatus :: Lens' CompleteMultipartUploadResponse Int
+cStatus :: Lens' CompleteMultipartUploadResponse Status
 cStatus = lens _cStatus (\ s a -> s{_cStatus = a});

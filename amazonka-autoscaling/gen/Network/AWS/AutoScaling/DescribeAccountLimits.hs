@@ -63,7 +63,7 @@ instance AWSRequest DescribeAccountLimits where
                  DescribeAccountLimitsResponse' <$>
                    (x .@? "MaxNumberOfLaunchConfigurations") <*>
                      (x .@? "MaxNumberOfAutoScalingGroups")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeAccountLimits where
         toHeaders = const mempty
@@ -90,11 +90,11 @@ instance ToQuery DescribeAccountLimits where
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
     { _dalrMaxNumberOfLaunchConfigurations :: !(Maybe Int)
     , _dalrMaxNumberOfAutoScalingGroups    :: !(Maybe Int)
-    , _dalrStatus                          :: !Int
+    , _dalrStatus                          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAccountLimitsResponse' smart constructor.
-describeAccountLimitsResponse :: Int -> DescribeAccountLimitsResponse
+describeAccountLimitsResponse :: Status -> DescribeAccountLimitsResponse
 describeAccountLimitsResponse pStatus =
     DescribeAccountLimitsResponse'
     { _dalrMaxNumberOfLaunchConfigurations = Nothing
@@ -113,5 +113,5 @@ dalrMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe I
 dalrMaxNumberOfAutoScalingGroups = lens _dalrMaxNumberOfAutoScalingGroups (\ s a -> s{_dalrMaxNumberOfAutoScalingGroups = a});
 
 -- | FIXME: Undocumented member.
-dalrStatus :: Lens' DescribeAccountLimitsResponse Int
+dalrStatus :: Lens' DescribeAccountLimitsResponse Status
 dalrStatus = lens _dalrStatus (\ s a -> s{_dalrStatus = a});

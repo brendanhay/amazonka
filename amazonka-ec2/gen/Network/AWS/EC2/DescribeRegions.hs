@@ -98,8 +98,7 @@ instance AWSRequest DescribeRegions where
           = receiveXML
               (\ s h x ->
                  DescribeRegionsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders DescribeRegions where
         toHeaders = const mempty
@@ -126,11 +125,11 @@ instance ToQuery DescribeRegions where
 -- * 'drrStatus'
 data DescribeRegionsResponse = DescribeRegionsResponse'
     { _drrRegions :: !(Maybe [RegionInfo])
-    , _drrStatus  :: !Int
+    , _drrStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeRegionsResponse' smart constructor.
-describeRegionsResponse :: Int -> DescribeRegionsResponse
+describeRegionsResponse :: Status -> DescribeRegionsResponse
 describeRegionsResponse pStatus =
     DescribeRegionsResponse'
     { _drrRegions = Nothing
@@ -142,5 +141,5 @@ drrRegions :: Lens' DescribeRegionsResponse [RegionInfo]
 drrRegions = lens _drrRegions (\ s a -> s{_drrRegions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drrStatus :: Lens' DescribeRegionsResponse Int
+drrStatus :: Lens' DescribeRegionsResponse Status
 drrStatus = lens _drrStatus (\ s a -> s{_drrStatus = a});

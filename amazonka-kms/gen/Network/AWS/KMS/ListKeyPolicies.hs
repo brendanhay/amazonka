@@ -107,7 +107,7 @@ instance AWSRequest ListKeyPolicies where
                    (x .?> "PolicyNames" .!@ mempty) <*>
                      (x .?> "Truncated")
                      <*> (x .?> "NextMarker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListKeyPolicies where
         toHeaders
@@ -145,11 +145,11 @@ data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
     { _lkprPolicyNames :: !(Maybe [Text])
     , _lkprTruncated   :: !(Maybe Bool)
     , _lkprNextMarker  :: !(Maybe Text)
-    , _lkprStatus      :: !Int
+    , _lkprStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListKeyPoliciesResponse' smart constructor.
-listKeyPoliciesResponse :: Int -> ListKeyPoliciesResponse
+listKeyPoliciesResponse :: Status -> ListKeyPoliciesResponse
 listKeyPoliciesResponse pStatus =
     ListKeyPoliciesResponse'
     { _lkprPolicyNames = Nothing
@@ -177,5 +177,5 @@ lkprNextMarker :: Lens' ListKeyPoliciesResponse (Maybe Text)
 lkprNextMarker = lens _lkprNextMarker (\ s a -> s{_lkprNextMarker = a});
 
 -- | FIXME: Undocumented member.
-lkprStatus :: Lens' ListKeyPoliciesResponse Int
+lkprStatus :: Lens' ListKeyPoliciesResponse Status
 lkprStatus = lens _lkprStatus (\ s a -> s{_lkprStatus = a});

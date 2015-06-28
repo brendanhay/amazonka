@@ -159,7 +159,7 @@ instance AWSRequest ListObjectVersions where
                      <*> (x .@? "MaxKeys")
                      <*> (x .@? "IsTruncated")
                      <*> (x .@? "Delimiter")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListObjectVersions where
         toHeaders = const mempty
@@ -223,11 +223,11 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
     , _lovrMaxKeys             :: !(Maybe Int)
     , _lovrIsTruncated         :: !(Maybe Bool)
     , _lovrDelimiter           :: !(Maybe Char)
-    , _lovrStatus              :: !Int
+    , _lovrStatus              :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListObjectVersionsResponse' smart constructor.
-listObjectVersionsResponse :: Int -> ListObjectVersionsResponse
+listObjectVersionsResponse :: Status -> ListObjectVersionsResponse
 listObjectVersionsResponse pStatus =
     ListObjectVersionsResponse'
     { _lovrNextVersionIdMarker = Nothing
@@ -305,5 +305,5 @@ lovrDelimiter :: Lens' ListObjectVersionsResponse (Maybe Char)
 lovrDelimiter = lens _lovrDelimiter (\ s a -> s{_lovrDelimiter = a});
 
 -- | FIXME: Undocumented member.
-lovrStatus :: Lens' ListObjectVersionsResponse Int
+lovrStatus :: Lens' ListObjectVersionsResponse Status
 lovrStatus = lens _lovrStatus (\ s a -> s{_lovrStatus = a});

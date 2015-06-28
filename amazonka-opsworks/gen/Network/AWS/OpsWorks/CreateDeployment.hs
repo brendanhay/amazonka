@@ -132,7 +132,7 @@ instance AWSRequest CreateDeployment where
           = receiveJSON
               (\ s h x ->
                  CreateDeploymentResponse' <$>
-                   (x .?> "DeploymentId") <*> (pure (fromEnum s)))
+                   (x .?> "DeploymentId") <*> (pure s))
 
 instance ToHeaders CreateDeployment where
         toHeaders
@@ -168,11 +168,11 @@ instance ToQuery CreateDeployment where
 -- * 'cdrStatus'
 data CreateDeploymentResponse = CreateDeploymentResponse'
     { _cdrDeploymentId :: !(Maybe Text)
-    , _cdrStatus       :: !Int
+    , _cdrStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDeploymentResponse' smart constructor.
-createDeploymentResponse :: Int -> CreateDeploymentResponse
+createDeploymentResponse :: Status -> CreateDeploymentResponse
 createDeploymentResponse pStatus =
     CreateDeploymentResponse'
     { _cdrDeploymentId = Nothing
@@ -185,5 +185,5 @@ cdrDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrDeploymentId = lens _cdrDeploymentId (\ s a -> s{_cdrDeploymentId = a});
 
 -- | FIXME: Undocumented member.
-cdrStatus :: Lens' CreateDeploymentResponse Int
+cdrStatus :: Lens' CreateDeploymentResponse Status
 cdrStatus = lens _cdrStatus (\ s a -> s{_cdrStatus = a});

@@ -79,7 +79,7 @@ instance AWSRequest CreateTopic where
           = receiveXMLWrapper "CreateTopicResult"
               (\ s h x ->
                  CreateTopicResponse' <$>
-                   (x .@? "TopicArn") <*> (pure (fromEnum s)))
+                   (x .@? "TopicArn") <*> (pure s))
 
 instance ToHeaders CreateTopic where
         toHeaders = const mempty
@@ -105,11 +105,11 @@ instance ToQuery CreateTopic where
 -- * 'ctrStatus'
 data CreateTopicResponse = CreateTopicResponse'
     { _ctrTopicARN :: !(Maybe Text)
-    , _ctrStatus   :: !Int
+    , _ctrStatus   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateTopicResponse' smart constructor.
-createTopicResponse :: Int -> CreateTopicResponse
+createTopicResponse :: Status -> CreateTopicResponse
 createTopicResponse pStatus =
     CreateTopicResponse'
     { _ctrTopicARN = Nothing
@@ -121,5 +121,5 @@ ctrTopicARN :: Lens' CreateTopicResponse (Maybe Text)
 ctrTopicARN = lens _ctrTopicARN (\ s a -> s{_ctrTopicARN = a});
 
 -- | FIXME: Undocumented member.
-ctrStatus :: Lens' CreateTopicResponse Int
+ctrStatus :: Lens' CreateTopicResponse Status
 ctrStatus = lens _ctrStatus (\ s a -> s{_ctrStatus = a});

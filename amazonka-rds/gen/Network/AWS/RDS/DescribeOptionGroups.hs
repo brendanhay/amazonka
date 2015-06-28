@@ -141,7 +141,7 @@ instance AWSRequest DescribeOptionGroups where
                    (x .@? "Marker") <*>
                      (x .@? "OptionGroupsList" .!@ mempty >>=
                         may (parseXMLList "OptionGroup"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeOptionGroups where
         toHeaders = const mempty
@@ -176,11 +176,11 @@ instance ToQuery DescribeOptionGroups where
 data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
     { _dogrMarker           :: !(Maybe Text)
     , _dogrOptionGroupsList :: !(Maybe [OptionGroup])
-    , _dogrStatus           :: !Int
+    , _dogrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeOptionGroupsResponse' smart constructor.
-describeOptionGroupsResponse :: Int -> DescribeOptionGroupsResponse
+describeOptionGroupsResponse :: Status -> DescribeOptionGroupsResponse
 describeOptionGroupsResponse pStatus =
     DescribeOptionGroupsResponse'
     { _dogrMarker = Nothing
@@ -199,5 +199,5 @@ dogrOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
 dogrOptionGroupsList = lens _dogrOptionGroupsList (\ s a -> s{_dogrOptionGroupsList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dogrStatus :: Lens' DescribeOptionGroupsResponse Int
+dogrStatus :: Lens' DescribeOptionGroupsResponse Status
 dogrStatus = lens _dogrStatus (\ s a -> s{_dogrStatus = a});

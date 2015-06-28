@@ -110,7 +110,7 @@ instance AWSRequest DescribeImageAttribute where
                      <*> (may (parseXMLList "item") x)
                      <*> (may (parseXMLList "item") x)
                      <*> (x .@? "description")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeImageAttribute where
         toHeaders = const mempty
@@ -159,11 +159,11 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
     , _diarProductCodes        :: !(Maybe [ProductCode])
     , _diarBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _diarDescription         :: !(Maybe AttributeValue)
-    , _diarStatus              :: !Int
+    , _diarStatus              :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeImageAttributeResponse' smart constructor.
-describeImageAttributeResponse :: Int -> DescribeImageAttributeResponse
+describeImageAttributeResponse :: Status -> DescribeImageAttributeResponse
 describeImageAttributeResponse pStatus =
     DescribeImageAttributeResponse'
     { _diarLaunchPermissions = Nothing
@@ -210,5 +210,5 @@ diarDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarDescription = lens _diarDescription (\ s a -> s{_diarDescription = a});
 
 -- | FIXME: Undocumented member.
-diarStatus :: Lens' DescribeImageAttributeResponse Int
+diarStatus :: Lens' DescribeImageAttributeResponse Status
 diarStatus = lens _diarStatus (\ s a -> s{_diarStatus = a});

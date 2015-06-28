@@ -115,8 +115,7 @@ instance AWSRequest DescribeInternetGateways where
           = receiveXML
               (\ s h x ->
                  DescribeInternetGatewaysResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders DescribeInternetGateways where
         toHeaders = const mempty
@@ -144,11 +143,11 @@ instance ToQuery DescribeInternetGateways where
 -- * 'digrStatus'
 data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'
     { _digrInternetGateways :: !(Maybe [InternetGateway])
-    , _digrStatus           :: !Int
+    , _digrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeInternetGatewaysResponse' smart constructor.
-describeInternetGatewaysResponse :: Int -> DescribeInternetGatewaysResponse
+describeInternetGatewaysResponse :: Status -> DescribeInternetGatewaysResponse
 describeInternetGatewaysResponse pStatus =
     DescribeInternetGatewaysResponse'
     { _digrInternetGateways = Nothing
@@ -160,5 +159,5 @@ digrInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
 digrInternetGateways = lens _digrInternetGateways (\ s a -> s{_digrInternetGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-digrStatus :: Lens' DescribeInternetGatewaysResponse Int
+digrStatus :: Lens' DescribeInternetGatewaysResponse Status
 digrStatus = lens _digrStatus (\ s a -> s{_digrStatus = a});

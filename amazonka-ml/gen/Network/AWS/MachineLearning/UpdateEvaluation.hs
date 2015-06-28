@@ -81,7 +81,7 @@ instance AWSRequest UpdateEvaluation where
           = receiveJSON
               (\ s h x ->
                  UpdateEvaluationResponse' <$>
-                   (x .?> "EvaluationId") <*> (pure (fromEnum s)))
+                   (x .?> "EvaluationId") <*> (pure s))
 
 instance ToHeaders UpdateEvaluation where
         toHeaders
@@ -117,11 +117,11 @@ instance ToQuery UpdateEvaluation where
 -- * 'uerStatus'
 data UpdateEvaluationResponse = UpdateEvaluationResponse'
     { _uerEvaluationId :: !(Maybe Text)
-    , _uerStatus       :: !Int
+    , _uerStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateEvaluationResponse' smart constructor.
-updateEvaluationResponse :: Int -> UpdateEvaluationResponse
+updateEvaluationResponse :: Status -> UpdateEvaluationResponse
 updateEvaluationResponse pStatus =
     UpdateEvaluationResponse'
     { _uerEvaluationId = Nothing
@@ -134,5 +134,5 @@ uerEvaluationId :: Lens' UpdateEvaluationResponse (Maybe Text)
 uerEvaluationId = lens _uerEvaluationId (\ s a -> s{_uerEvaluationId = a});
 
 -- | FIXME: Undocumented member.
-uerStatus :: Lens' UpdateEvaluationResponse Int
+uerStatus :: Lens' UpdateEvaluationResponse Status
 uerStatus = lens _uerStatus (\ s a -> s{_uerStatus = a});

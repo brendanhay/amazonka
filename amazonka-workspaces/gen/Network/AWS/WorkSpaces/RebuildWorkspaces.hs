@@ -90,8 +90,7 @@ instance AWSRequest RebuildWorkspaces where
           = receiveJSON
               (\ s h x ->
                  RebuildWorkspacesResponse' <$>
-                   (x .?> "FailedRequests" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+                   (x .?> "FailedRequests" .!@ mempty) <*> (pure s))
 
 instance ToHeaders RebuildWorkspaces where
         toHeaders
@@ -126,11 +125,11 @@ instance ToQuery RebuildWorkspaces where
 -- * 'rwrStatus'
 data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
     { _rwrFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
-    , _rwrStatus         :: !Int
+    , _rwrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'RebuildWorkspacesResponse' smart constructor.
-rebuildWorkspacesResponse :: Int -> RebuildWorkspacesResponse
+rebuildWorkspacesResponse :: Status -> RebuildWorkspacesResponse
 rebuildWorkspacesResponse pStatus =
     RebuildWorkspacesResponse'
     { _rwrFailedRequests = Nothing
@@ -143,5 +142,5 @@ rwrFailedRequests :: Lens' RebuildWorkspacesResponse [FailedWorkspaceChangeReque
 rwrFailedRequests = lens _rwrFailedRequests (\ s a -> s{_rwrFailedRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-rwrStatus :: Lens' RebuildWorkspacesResponse Int
+rwrStatus :: Lens' RebuildWorkspacesResponse Status
 rwrStatus = lens _rwrStatus (\ s a -> s{_rwrStatus = a});

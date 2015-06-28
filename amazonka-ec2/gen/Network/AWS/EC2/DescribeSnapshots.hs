@@ -233,7 +233,7 @@ instance AWSRequest DescribeSnapshots where
               (\ s h x ->
                  DescribeSnapshotsResponse' <$>
                    (x .@? "nextToken") <*> (may (parseXMLList "item") x)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeSnapshots where
         toHeaders = const mempty
@@ -269,11 +269,11 @@ instance ToQuery DescribeSnapshots where
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
     { _dsr1NextToken :: !(Maybe Text)
     , _dsr1Snapshots :: !(Maybe [Snapshot])
-    , _dsr1Status    :: !Int
+    , _dsr1Status    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
-describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
+describeSnapshotsResponse :: Status -> DescribeSnapshotsResponse
 describeSnapshotsResponse pStatus =
     DescribeSnapshotsResponse'
     { _dsr1NextToken = Nothing
@@ -293,5 +293,5 @@ dsr1Snapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dsr1Snapshots = lens _dsr1Snapshots (\ s a -> s{_dsr1Snapshots = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsr1Status :: Lens' DescribeSnapshotsResponse Int
+dsr1Status :: Lens' DescribeSnapshotsResponse Status
 dsr1Status = lens _dsr1Status (\ s a -> s{_dsr1Status = a});

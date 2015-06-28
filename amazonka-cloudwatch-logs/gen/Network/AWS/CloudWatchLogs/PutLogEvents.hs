@@ -116,7 +116,7 @@ instance AWSRequest PutLogEvents where
                  PutLogEventsResponse' <$>
                    (x .?> "rejectedLogEventsInfo") <*>
                      (x .?> "nextSequenceToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders PutLogEvents where
         toHeaders
@@ -153,11 +153,11 @@ instance ToQuery PutLogEvents where
 data PutLogEventsResponse = PutLogEventsResponse'
     { _plerRejectedLogEventsInfo :: !(Maybe RejectedLogEventsInfo)
     , _plerNextSequenceToken     :: !(Maybe Text)
-    , _plerStatus                :: !Int
+    , _plerStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'PutLogEventsResponse' smart constructor.
-putLogEventsResponse :: Int -> PutLogEventsResponse
+putLogEventsResponse :: Status -> PutLogEventsResponse
 putLogEventsResponse pStatus =
     PutLogEventsResponse'
     { _plerRejectedLogEventsInfo = Nothing
@@ -174,5 +174,5 @@ plerNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
 plerNextSequenceToken = lens _plerNextSequenceToken (\ s a -> s{_plerNextSequenceToken = a});
 
 -- | FIXME: Undocumented member.
-plerStatus :: Lens' PutLogEventsResponse Int
+plerStatus :: Lens' PutLogEventsResponse Status
 plerStatus = lens _plerStatus (\ s a -> s{_plerStatus = a});

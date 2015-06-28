@@ -72,7 +72,7 @@ instance AWSRequest DescribeCluster where
           = receiveJSON
               (\ s h x ->
                  DescribeClusterResponse' <$>
-                   (x .:> "Cluster") <*> (pure (fromEnum s)))
+                   (x .:> "Cluster") <*> (pure s))
 
 instance ToHeaders DescribeCluster where
         toHeaders
@@ -104,11 +104,11 @@ instance ToQuery DescribeCluster where
 -- * 'dcrStatus'
 data DescribeClusterResponse = DescribeClusterResponse'
     { _dcrCluster :: !Cluster
-    , _dcrStatus  :: !Int
+    , _dcrStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterResponse' smart constructor.
-describeClusterResponse :: Cluster -> Int -> DescribeClusterResponse
+describeClusterResponse :: Cluster -> Status -> DescribeClusterResponse
 describeClusterResponse pCluster pStatus =
     DescribeClusterResponse'
     { _dcrCluster = pCluster
@@ -120,5 +120,5 @@ dcrCluster :: Lens' DescribeClusterResponse Cluster
 dcrCluster = lens _dcrCluster (\ s a -> s{_dcrCluster = a});
 
 -- | FIXME: Undocumented member.
-dcrStatus :: Lens' DescribeClusterResponse Int
+dcrStatus :: Lens' DescribeClusterResponse Status
 dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});

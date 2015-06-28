@@ -216,7 +216,7 @@ instance AWSRequest DescribeMLModels where
               (\ s h x ->
                  DescribeMLModelsResponse' <$>
                    (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeMLModels where
         toHeaders
@@ -259,11 +259,11 @@ instance ToQuery DescribeMLModels where
 data DescribeMLModelsResponse = DescribeMLModelsResponse'
     { _descResults   :: !(Maybe [MLModel])
     , _descNextToken :: !(Maybe Text)
-    , _descStatus    :: !Int
+    , _descStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeMLModelsResponse' smart constructor.
-describeMLModelsResponse :: Int -> DescribeMLModelsResponse
+describeMLModelsResponse :: Status -> DescribeMLModelsResponse
 describeMLModelsResponse pStatus =
     DescribeMLModelsResponse'
     { _descResults = Nothing
@@ -281,5 +281,5 @@ descNextToken :: Lens' DescribeMLModelsResponse (Maybe Text)
 descNextToken = lens _descNextToken (\ s a -> s{_descNextToken = a});
 
 -- | FIXME: Undocumented member.
-descStatus :: Lens' DescribeMLModelsResponse Int
+descStatus :: Lens' DescribeMLModelsResponse Status
 descStatus = lens _descStatus (\ s a -> s{_descStatus = a});

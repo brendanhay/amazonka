@@ -117,7 +117,7 @@ instance AWSRequest DescribeAlarmsForMetric where
                  DescribeAlarmsForMetricResponse' <$>
                    (x .@? "MetricAlarms" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeAlarmsForMetric where
         toHeaders = const mempty
@@ -149,11 +149,11 @@ instance ToQuery DescribeAlarmsForMetric where
 -- * 'dafmrStatus'
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
     { _dafmrMetricAlarms :: !(Maybe [MetricAlarm])
-    , _dafmrStatus       :: !Int
+    , _dafmrStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAlarmsForMetricResponse' smart constructor.
-describeAlarmsForMetricResponse :: Int -> DescribeAlarmsForMetricResponse
+describeAlarmsForMetricResponse :: Status -> DescribeAlarmsForMetricResponse
 describeAlarmsForMetricResponse pStatus =
     DescribeAlarmsForMetricResponse'
     { _dafmrMetricAlarms = Nothing
@@ -165,5 +165,5 @@ dafmrMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
 dafmrMetricAlarms = lens _dafmrMetricAlarms (\ s a -> s{_dafmrMetricAlarms = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dafmrStatus :: Lens' DescribeAlarmsForMetricResponse Int
+dafmrStatus :: Lens' DescribeAlarmsForMetricResponse Status
 dafmrStatus = lens _dafmrStatus (\ s a -> s{_dafmrStatus = a});

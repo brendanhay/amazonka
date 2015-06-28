@@ -103,7 +103,7 @@ instance AWSRequest DisassociateVPCFromHostedZone
           = receiveXML
               (\ s h x ->
                  DisassociateVPCFromHostedZoneResponse' <$>
-                   (x .@ "ChangeInfo") <*> (pure (fromEnum s)))
+                   (x .@ "ChangeInfo") <*> (pure s))
 
 instance ToElement DisassociateVPCFromHostedZone
          where
@@ -140,11 +140,11 @@ instance ToXML DisassociateVPCFromHostedZone where
 -- * 'dvfhzrStatus'
 data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse'
     { _dvfhzrChangeInfo :: !ChangeInfo
-    , _dvfhzrStatus     :: !Int
+    , _dvfhzrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DisassociateVPCFromHostedZoneResponse' smart constructor.
-disassociateVPCFromHostedZoneResponse :: ChangeInfo -> Int -> DisassociateVPCFromHostedZoneResponse
+disassociateVPCFromHostedZoneResponse :: ChangeInfo -> Status -> DisassociateVPCFromHostedZoneResponse
 disassociateVPCFromHostedZoneResponse pChangeInfo pStatus =
     DisassociateVPCFromHostedZoneResponse'
     { _dvfhzrChangeInfo = pChangeInfo
@@ -157,5 +157,5 @@ dvfhzrChangeInfo :: Lens' DisassociateVPCFromHostedZoneResponse ChangeInfo
 dvfhzrChangeInfo = lens _dvfhzrChangeInfo (\ s a -> s{_dvfhzrChangeInfo = a});
 
 -- | FIXME: Undocumented member.
-dvfhzrStatus :: Lens' DisassociateVPCFromHostedZoneResponse Int
+dvfhzrStatus :: Lens' DisassociateVPCFromHostedZoneResponse Status
 dvfhzrStatus = lens _dvfhzrStatus (\ s a -> s{_dvfhzrStatus = a});

@@ -99,7 +99,7 @@ instance AWSRequest CreateReusableDelegationSet where
               (\ s h x ->
                  CreateReusableDelegationSetResponse' <$>
                    (x .@ "DelegationSet") <*> (h .# "Location") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToElement CreateReusableDelegationSet where
         toElement
@@ -133,11 +133,11 @@ instance ToXML CreateReusableDelegationSet where
 data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'
     { _crdsrDelegationSet :: !DelegationSet
     , _crdsrLocation      :: !Text
-    , _crdsrStatus        :: !Int
+    , _crdsrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateReusableDelegationSetResponse' smart constructor.
-createReusableDelegationSetResponse :: DelegationSet -> Text -> Int -> CreateReusableDelegationSetResponse
+createReusableDelegationSetResponse :: DelegationSet -> Text -> Status -> CreateReusableDelegationSetResponse
 createReusableDelegationSetResponse pDelegationSet pLocation pStatus =
     CreateReusableDelegationSetResponse'
     { _crdsrDelegationSet = pDelegationSet
@@ -154,5 +154,5 @@ crdsrLocation :: Lens' CreateReusableDelegationSetResponse Text
 crdsrLocation = lens _crdsrLocation (\ s a -> s{_crdsrLocation = a});
 
 -- | FIXME: Undocumented member.
-crdsrStatus :: Lens' CreateReusableDelegationSetResponse Int
+crdsrStatus :: Lens' CreateReusableDelegationSetResponse Status
 crdsrStatus = lens _crdsrStatus (\ s a -> s{_crdsrStatus = a});

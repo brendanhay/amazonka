@@ -68,8 +68,7 @@ instance AWSRequest DeleteDocument where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x ->
-                 DeleteDocumentResponse' <$> (pure (fromEnum s)))
+              (\ s h x -> DeleteDocumentResponse' <$> (pure s))
 
 instance ToHeaders DeleteDocument where
         toHeaders
@@ -96,16 +95,16 @@ instance ToQuery DeleteDocument where
 --
 -- * 'ddrStatus'
 newtype DeleteDocumentResponse = DeleteDocumentResponse'
-    { _ddrStatus :: Int
+    { _ddrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteDocumentResponse' smart constructor.
-deleteDocumentResponse :: Int -> DeleteDocumentResponse
+deleteDocumentResponse :: Status -> DeleteDocumentResponse
 deleteDocumentResponse pStatus =
     DeleteDocumentResponse'
     { _ddrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ddrStatus :: Lens' DeleteDocumentResponse Int
+ddrStatus :: Lens' DeleteDocumentResponse Status
 ddrStatus = lens _ddrStatus (\ s a -> s{_ddrStatus = a});

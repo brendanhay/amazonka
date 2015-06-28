@@ -110,8 +110,7 @@ instance AWSRequest DescribeAvailabilityZones where
           = receiveXML
               (\ s h x ->
                  DescribeAvailabilityZonesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders DescribeAvailabilityZones where
         toHeaders = const mempty
@@ -138,11 +137,11 @@ instance ToQuery DescribeAvailabilityZones where
 -- * 'dazrStatus'
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
     { _dazrAvailabilityZones :: !(Maybe [AvailabilityZone])
-    , _dazrStatus            :: !Int
+    , _dazrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAvailabilityZonesResponse' smart constructor.
-describeAvailabilityZonesResponse :: Int -> DescribeAvailabilityZonesResponse
+describeAvailabilityZonesResponse :: Status -> DescribeAvailabilityZonesResponse
 describeAvailabilityZonesResponse pStatus =
     DescribeAvailabilityZonesResponse'
     { _dazrAvailabilityZones = Nothing
@@ -154,5 +153,5 @@ dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZo
 dazrAvailabilityZones = lens _dazrAvailabilityZones (\ s a -> s{_dazrAvailabilityZones = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dazrStatus :: Lens' DescribeAvailabilityZonesResponse Int
+dazrStatus :: Lens' DescribeAvailabilityZonesResponse Status
 dazrStatus = lens _dazrStatus (\ s a -> s{_dazrStatus = a});

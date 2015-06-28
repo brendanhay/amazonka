@@ -125,8 +125,7 @@ instance AWSRequest CreateReservedInstancesListing
           = receiveXML
               (\ s h x ->
                  CreateReservedInstancesListingResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders CreateReservedInstancesListing
          where
@@ -155,11 +154,11 @@ instance ToQuery CreateReservedInstancesListing where
 -- * 'cStatus'
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
     { _cReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
-    , _cStatus                    :: !Int
+    , _cStatus                    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateReservedInstancesListingResponse' smart constructor.
-createReservedInstancesListingResponse :: Int -> CreateReservedInstancesListingResponse
+createReservedInstancesListingResponse :: Status -> CreateReservedInstancesListingResponse
 createReservedInstancesListingResponse pStatus =
     CreateReservedInstancesListingResponse'
     { _cReservedInstancesListings = Nothing
@@ -171,5 +170,5 @@ cReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [Rese
 cReservedInstancesListings = lens _cReservedInstancesListings (\ s a -> s{_cReservedInstancesListings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-cStatus :: Lens' CreateReservedInstancesListingResponse Int
+cStatus :: Lens' CreateReservedInstancesListingResponse Status
 cStatus = lens _cStatus (\ s a -> s{_cStatus = a});

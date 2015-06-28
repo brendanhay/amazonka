@@ -68,8 +68,7 @@ instance AWSRequest DisableRadius where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x ->
-                 DisableRadiusResponse' <$> (pure (fromEnum s)))
+              (\ s h x -> DisableRadiusResponse' <$> (pure s))
 
 instance ToHeaders DisableRadius where
         toHeaders
@@ -99,16 +98,16 @@ instance ToQuery DisableRadius where
 --
 -- * 'drrStatus'
 newtype DisableRadiusResponse = DisableRadiusResponse'
-    { _drrStatus :: Int
+    { _drrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'DisableRadiusResponse' smart constructor.
-disableRadiusResponse :: Int -> DisableRadiusResponse
+disableRadiusResponse :: Status -> DisableRadiusResponse
 disableRadiusResponse pStatus =
     DisableRadiusResponse'
     { _drrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-drrStatus :: Lens' DisableRadiusResponse Int
+drrStatus :: Lens' DisableRadiusResponse Status
 drrStatus = lens _drrStatus (\ s a -> s{_drrStatus = a});

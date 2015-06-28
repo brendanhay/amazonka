@@ -88,7 +88,7 @@ instance AWSRequest DetachLoadBalancerFromSubnets
                  DetachLoadBalancerFromSubnetsResponse' <$>
                    (x .@? "Subnets" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DetachLoadBalancerFromSubnets
          where
@@ -115,11 +115,11 @@ instance ToQuery DetachLoadBalancerFromSubnets where
 -- * 'dlbfsrStatus'
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'
     { _dlbfsrSubnets :: !(Maybe [Text])
-    , _dlbfsrStatus  :: !Int
+    , _dlbfsrStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DetachLoadBalancerFromSubnetsResponse' smart constructor.
-detachLoadBalancerFromSubnetsResponse :: Int -> DetachLoadBalancerFromSubnetsResponse
+detachLoadBalancerFromSubnetsResponse :: Status -> DetachLoadBalancerFromSubnetsResponse
 detachLoadBalancerFromSubnetsResponse pStatus =
     DetachLoadBalancerFromSubnetsResponse'
     { _dlbfsrSubnets = Nothing
@@ -131,5 +131,5 @@ dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
 dlbfsrSubnets = lens _dlbfsrSubnets (\ s a -> s{_dlbfsrSubnets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlbfsrStatus :: Lens' DetachLoadBalancerFromSubnetsResponse Int
+dlbfsrStatus :: Lens' DetachLoadBalancerFromSubnetsResponse Status
 dlbfsrStatus = lens _dlbfsrStatus (\ s a -> s{_dlbfsrStatus = a});

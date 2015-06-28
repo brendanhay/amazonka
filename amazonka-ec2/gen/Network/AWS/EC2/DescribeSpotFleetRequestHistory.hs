@@ -137,7 +137,7 @@ instance AWSRequest DescribeSpotFleetRequestHistory
                      <*> (x .@ "startTime")
                      <*> (x .@ "lastEvaluatedTime")
                      <*> (parseXMLList "item" x)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeSpotFleetRequestHistory
          where
@@ -183,11 +183,11 @@ data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryRe
     , _dsfrhrStartTime          :: !ISO8601
     , _dsfrhrLastEvaluatedTime  :: !ISO8601
     , _dsfrhrHistoryRecords     :: ![HistoryRecord]
-    , _dsfrhrStatus             :: !Int
+    , _dsfrhrStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotFleetRequestHistoryResponse' smart constructor.
-describeSpotFleetRequestHistoryResponse :: Text -> UTCTime -> UTCTime -> Int -> DescribeSpotFleetRequestHistoryResponse
+describeSpotFleetRequestHistoryResponse :: Text -> UTCTime -> UTCTime -> Status -> DescribeSpotFleetRequestHistoryResponse
 describeSpotFleetRequestHistoryResponse pSpotFleetRequestId pStartTime pLastEvaluatedTime pStatus =
     DescribeSpotFleetRequestHistoryResponse'
     { _dsfrhrNextToken = Nothing
@@ -226,5 +226,5 @@ dsfrhrHistoryRecords :: Lens' DescribeSpotFleetRequestHistoryResponse [HistoryRe
 dsfrhrHistoryRecords = lens _dsfrhrHistoryRecords (\ s a -> s{_dsfrhrHistoryRecords = a});
 
 -- | FIXME: Undocumented member.
-dsfrhrStatus :: Lens' DescribeSpotFleetRequestHistoryResponse Int
+dsfrhrStatus :: Lens' DescribeSpotFleetRequestHistoryResponse Status
 dsfrhrStatus = lens _dsfrhrStatus (\ s a -> s{_dsfrhrStatus = a});

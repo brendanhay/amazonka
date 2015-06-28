@@ -81,7 +81,7 @@ instance AWSRequest DeleteTape where
           = receiveJSON
               (\ s h x ->
                  DeleteTapeResponse' <$>
-                   (x .?> "TapeARN") <*> (pure (fromEnum s)))
+                   (x .?> "TapeARN") <*> (pure s))
 
 instance ToHeaders DeleteTape where
         toHeaders
@@ -115,11 +115,11 @@ instance ToQuery DeleteTape where
 -- * 'dtrStatus'
 data DeleteTapeResponse = DeleteTapeResponse'
     { _dtrTapeARN :: !(Maybe Text)
-    , _dtrStatus  :: !Int
+    , _dtrStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteTapeResponse' smart constructor.
-deleteTapeResponse :: Int -> DeleteTapeResponse
+deleteTapeResponse :: Status -> DeleteTapeResponse
 deleteTapeResponse pStatus =
     DeleteTapeResponse'
     { _dtrTapeARN = Nothing
@@ -131,5 +131,5 @@ dtrTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
 dtrTapeARN = lens _dtrTapeARN (\ s a -> s{_dtrTapeARN = a});
 
 -- | FIXME: Undocumented member.
-dtrStatus :: Lens' DeleteTapeResponse Int
+dtrStatus :: Lens' DeleteTapeResponse Status
 dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});

@@ -96,7 +96,7 @@ instance AWSRequest ModifySnapshotCopyRetentionPeriod
               "ModifySnapshotCopyRetentionPeriodResult"
               (\ s h x ->
                  ModifySnapshotCopyRetentionPeriodResponse' <$>
-                   (x .@? "Cluster") <*> (pure (fromEnum s)))
+                   (x .@? "Cluster") <*> (pure s))
 
 instance ToHeaders ModifySnapshotCopyRetentionPeriod
          where
@@ -125,11 +125,11 @@ instance ToQuery ModifySnapshotCopyRetentionPeriod
 -- * 'mscrprStatus'
 data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse'
     { _mscrprCluster :: !(Maybe Cluster)
-    , _mscrprStatus  :: !Int
+    , _mscrprStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ModifySnapshotCopyRetentionPeriodResponse' smart constructor.
-modifySnapshotCopyRetentionPeriodResponse :: Int -> ModifySnapshotCopyRetentionPeriodResponse
+modifySnapshotCopyRetentionPeriodResponse :: Status -> ModifySnapshotCopyRetentionPeriodResponse
 modifySnapshotCopyRetentionPeriodResponse pStatus =
     ModifySnapshotCopyRetentionPeriodResponse'
     { _mscrprCluster = Nothing
@@ -141,5 +141,5 @@ mscrprCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
 mscrprCluster = lens _mscrprCluster (\ s a -> s{_mscrprCluster = a});
 
 -- | FIXME: Undocumented member.
-mscrprStatus :: Lens' ModifySnapshotCopyRetentionPeriodResponse Int
+mscrprStatus :: Lens' ModifySnapshotCopyRetentionPeriodResponse Status
 mscrprStatus = lens _mscrprStatus (\ s a -> s{_mscrprStatus = a});

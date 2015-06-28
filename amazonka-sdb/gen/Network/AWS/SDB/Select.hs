@@ -113,7 +113,7 @@ instance AWSRequest Select where
               (\ s h x ->
                  SelectResponse' <$>
                    (may (parseXMLList "Item") x) <*> (x .@? "NextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders Select where
         toHeaders = const mempty
@@ -142,11 +142,11 @@ instance ToQuery Select where
 data SelectResponse = SelectResponse'
     { _srItems     :: !(Maybe [Item])
     , _srNextToken :: !(Maybe Text)
-    , _srStatus    :: !Int
+    , _srStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'SelectResponse' smart constructor.
-selectResponse :: Int -> SelectResponse
+selectResponse :: Status -> SelectResponse
 selectResponse pStatus =
     SelectResponse'
     { _srItems = Nothing
@@ -165,5 +165,5 @@ srNextToken :: Lens' SelectResponse (Maybe Text)
 srNextToken = lens _srNextToken (\ s a -> s{_srNextToken = a});
 
 -- | FIXME: Undocumented member.
-srStatus :: Lens' SelectResponse Int
+srStatus :: Lens' SelectResponse Status
 srStatus = lens _srStatus (\ s a -> s{_srStatus = a});

@@ -260,7 +260,7 @@ instance AWSRequest RegisterDomain where
           = receiveJSON
               (\ s h x ->
                  RegisterDomainResponse' <$>
-                   (x .:> "OperationId") <*> (pure (fromEnum s)))
+                   (x .:> "OperationId") <*> (pure s))
 
 instance ToHeaders RegisterDomain where
         toHeaders
@@ -306,11 +306,11 @@ instance ToQuery RegisterDomain where
 -- * 'rdrStatus'
 data RegisterDomainResponse = RegisterDomainResponse'
     { _rdrOperationId :: !Text
-    , _rdrStatus      :: !Int
+    , _rdrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'RegisterDomainResponse' smart constructor.
-registerDomainResponse :: Text -> Int -> RegisterDomainResponse
+registerDomainResponse :: Text -> Status -> RegisterDomainResponse
 registerDomainResponse pOperationId pStatus =
     RegisterDomainResponse'
     { _rdrOperationId = pOperationId
@@ -329,5 +329,5 @@ rdrOperationId :: Lens' RegisterDomainResponse Text
 rdrOperationId = lens _rdrOperationId (\ s a -> s{_rdrOperationId = a});
 
 -- | FIXME: Undocumented member.
-rdrStatus :: Lens' RegisterDomainResponse Int
+rdrStatus :: Lens' RegisterDomainResponse Status
 rdrStatus = lens _rdrStatus (\ s a -> s{_rdrStatus = a});

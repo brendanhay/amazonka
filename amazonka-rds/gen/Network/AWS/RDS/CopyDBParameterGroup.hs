@@ -117,7 +117,7 @@ instance AWSRequest CopyDBParameterGroup where
           = receiveXMLWrapper "CopyDBParameterGroupResult"
               (\ s h x ->
                  CopyDBParameterGroupResponse' <$>
-                   (x .@? "DBParameterGroup") <*> (pure (fromEnum s)))
+                   (x .@? "DBParameterGroup") <*> (pure s))
 
 instance ToHeaders CopyDBParameterGroup where
         toHeaders = const mempty
@@ -147,11 +147,11 @@ instance ToQuery CopyDBParameterGroup where
 -- * 'copStatus'
 data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'
     { _copDBParameterGroup :: !(Maybe DBParameterGroup)
-    , _copStatus           :: !Int
+    , _copStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CopyDBParameterGroupResponse' smart constructor.
-copyDBParameterGroupResponse :: Int -> CopyDBParameterGroupResponse
+copyDBParameterGroupResponse :: Status -> CopyDBParameterGroupResponse
 copyDBParameterGroupResponse pStatus =
     CopyDBParameterGroupResponse'
     { _copDBParameterGroup = Nothing
@@ -163,5 +163,5 @@ copDBParameterGroup :: Lens' CopyDBParameterGroupResponse (Maybe DBParameterGrou
 copDBParameterGroup = lens _copDBParameterGroup (\ s a -> s{_copDBParameterGroup = a});
 
 -- | FIXME: Undocumented member.
-copStatus :: Lens' CopyDBParameterGroupResponse Int
+copStatus :: Lens' CopyDBParameterGroupResponse Status
 copStatus = lens _copStatus (\ s a -> s{_copStatus = a});

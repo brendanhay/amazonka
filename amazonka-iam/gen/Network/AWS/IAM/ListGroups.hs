@@ -112,7 +112,7 @@ instance AWSRequest ListGroups where
                  ListGroupsResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "Groups" .!@ mempty >>= parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListGroups where
         toHeaders = const mempty
@@ -145,11 +145,11 @@ data ListGroupsResponse = ListGroupsResponse'
     { _lgrMarker      :: !(Maybe Text)
     , _lgrIsTruncated :: !(Maybe Bool)
     , _lgrGroups      :: ![Group]
-    , _lgrStatus      :: !Int
+    , _lgrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListGroupsResponse' smart constructor.
-listGroupsResponse :: Int -> ListGroupsResponse
+listGroupsResponse :: Status -> ListGroupsResponse
 listGroupsResponse pStatus =
     ListGroupsResponse'
     { _lgrMarker = Nothing
@@ -176,5 +176,5 @@ lgrGroups :: Lens' ListGroupsResponse [Group]
 lgrGroups = lens _lgrGroups (\ s a -> s{_lgrGroups = a});
 
 -- | FIXME: Undocumented member.
-lgrStatus :: Lens' ListGroupsResponse Int
+lgrStatus :: Lens' ListGroupsResponse Status
 lgrStatus = lens _lgrStatus (\ s a -> s{_lgrStatus = a});

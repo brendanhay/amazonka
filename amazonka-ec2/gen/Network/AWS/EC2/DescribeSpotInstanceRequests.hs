@@ -224,8 +224,7 @@ instance AWSRequest DescribeSpotInstanceRequests
           = receiveXML
               (\ s h x ->
                  DescribeSpotInstanceRequestsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders DescribeSpotInstanceRequests where
         toHeaders = const mempty
@@ -256,11 +255,11 @@ instance ToQuery DescribeSpotInstanceRequests where
 -- * 'dsirrStatus'
 data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'
     { _dsirrSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
-    , _dsirrStatus               :: !Int
+    , _dsirrStatus               :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotInstanceRequestsResponse' smart constructor.
-describeSpotInstanceRequestsResponse :: Int -> DescribeSpotInstanceRequestsResponse
+describeSpotInstanceRequestsResponse :: Status -> DescribeSpotInstanceRequestsResponse
 describeSpotInstanceRequestsResponse pStatus =
     DescribeSpotInstanceRequestsResponse'
     { _dsirrSpotInstanceRequests = Nothing
@@ -272,5 +271,5 @@ dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotIns
 dsirrSpotInstanceRequests = lens _dsirrSpotInstanceRequests (\ s a -> s{_dsirrSpotInstanceRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsirrStatus :: Lens' DescribeSpotInstanceRequestsResponse Int
+dsirrStatus :: Lens' DescribeSpotInstanceRequestsResponse Status
 dsirrStatus = lens _dsirrStatus (\ s a -> s{_dsirrStatus = a});

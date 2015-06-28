@@ -79,8 +79,7 @@ instance AWSRequest DescribeAssociation where
           = receiveJSON
               (\ s h x ->
                  DescribeAssociationResponse' <$>
-                   (x .?> "AssociationDescription") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "AssociationDescription") <*> (pure s))
 
 instance ToHeaders DescribeAssociation where
         toHeaders
@@ -111,11 +110,11 @@ instance ToQuery DescribeAssociation where
 -- * 'darStatus'
 data DescribeAssociationResponse = DescribeAssociationResponse'
     { _darAssociationDescription :: !(Maybe AssociationDescription)
-    , _darStatus                 :: !Int
+    , _darStatus                 :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAssociationResponse' smart constructor.
-describeAssociationResponse :: Int -> DescribeAssociationResponse
+describeAssociationResponse :: Status -> DescribeAssociationResponse
 describeAssociationResponse pStatus =
     DescribeAssociationResponse'
     { _darAssociationDescription = Nothing
@@ -127,5 +126,5 @@ darAssociationDescription :: Lens' DescribeAssociationResponse (Maybe Associatio
 darAssociationDescription = lens _darAssociationDescription (\ s a -> s{_darAssociationDescription = a});
 
 -- | FIXME: Undocumented member.
-darStatus :: Lens' DescribeAssociationResponse Int
+darStatus :: Lens' DescribeAssociationResponse Status
 darStatus = lens _darStatus (\ s a -> s{_darStatus = a});

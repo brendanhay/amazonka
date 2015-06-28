@@ -99,7 +99,7 @@ instance AWSRequest DescribeVPCEndpointServices where
               (\ s h x ->
                  DescribeVPCEndpointServicesResponse' <$>
                    (may (parseXMLList "item") x) <*> (x .@? "nextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeVPCEndpointServices where
         toHeaders = const mempty
@@ -129,11 +129,11 @@ instance ToQuery DescribeVPCEndpointServices where
 data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
     { _dvesrServiceNames :: !(Maybe [Text])
     , _dvesrNextToken    :: !(Maybe Text)
-    , _dvesrStatus       :: !Int
+    , _dvesrStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCEndpointServicesResponse' smart constructor.
-describeVPCEndpointServicesResponse :: Int -> DescribeVPCEndpointServicesResponse
+describeVPCEndpointServicesResponse :: Status -> DescribeVPCEndpointServicesResponse
 describeVPCEndpointServicesResponse pStatus =
     DescribeVPCEndpointServicesResponse'
     { _dvesrServiceNames = Nothing
@@ -151,5 +151,5 @@ dvesrNextToken :: Lens' DescribeVPCEndpointServicesResponse (Maybe Text)
 dvesrNextToken = lens _dvesrNextToken (\ s a -> s{_dvesrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dvesrStatus :: Lens' DescribeVPCEndpointServicesResponse Int
+dvesrStatus :: Lens' DescribeVPCEndpointServicesResponse Status
 dvesrStatus = lens _dvesrStatus (\ s a -> s{_dvesrStatus = a});

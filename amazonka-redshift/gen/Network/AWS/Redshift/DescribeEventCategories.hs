@@ -79,7 +79,7 @@ instance AWSRequest DescribeEventCategories where
                  DescribeEventCategoriesResponse' <$>
                    (x .@? "EventCategoriesMapList" .!@ mempty >>=
                       may (parseXMLList "EventCategoriesMap"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeEventCategories where
         toHeaders = const mempty
@@ -106,11 +106,11 @@ instance ToQuery DescribeEventCategories where
 -- * 'decrStatus'
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
     { _decrEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
-    , _decrStatus                 :: !Int
+    , _decrStatus                 :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeEventCategoriesResponse' smart constructor.
-describeEventCategoriesResponse :: Int -> DescribeEventCategoriesResponse
+describeEventCategoriesResponse :: Status -> DescribeEventCategoriesResponse
 describeEventCategoriesResponse pStatus =
     DescribeEventCategoriesResponse'
     { _decrEventCategoriesMapList = Nothing
@@ -122,5 +122,5 @@ decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCatego
 decrEventCategoriesMapList = lens _decrEventCategoriesMapList (\ s a -> s{_decrEventCategoriesMapList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-decrStatus :: Lens' DescribeEventCategoriesResponse Int
+decrStatus :: Lens' DescribeEventCategoriesResponse Status
 decrStatus = lens _decrStatus (\ s a -> s{_decrStatus = a});

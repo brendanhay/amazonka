@@ -117,7 +117,7 @@ instance AWSRequest ConnectDirectory where
           = receiveJSON
               (\ s h x ->
                  ConnectDirectoryResponse' <$>
-                   (x .?> "DirectoryId") <*> (pure (fromEnum s)))
+                   (x .?> "DirectoryId") <*> (pure s))
 
 instance ToHeaders ConnectDirectory where
         toHeaders
@@ -154,11 +154,11 @@ instance ToQuery ConnectDirectory where
 -- * 'cdrStatus'
 data ConnectDirectoryResponse = ConnectDirectoryResponse'
     { _cdrDirectoryId :: !(Maybe Text)
-    , _cdrStatus      :: !Int
+    , _cdrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ConnectDirectoryResponse' smart constructor.
-connectDirectoryResponse :: Int -> ConnectDirectoryResponse
+connectDirectoryResponse :: Status -> ConnectDirectoryResponse
 connectDirectoryResponse pStatus =
     ConnectDirectoryResponse'
     { _cdrDirectoryId = Nothing
@@ -170,5 +170,5 @@ cdrDirectoryId :: Lens' ConnectDirectoryResponse (Maybe Text)
 cdrDirectoryId = lens _cdrDirectoryId (\ s a -> s{_cdrDirectoryId = a});
 
 -- | FIXME: Undocumented member.
-cdrStatus :: Lens' ConnectDirectoryResponse Int
+cdrStatus :: Lens' ConnectDirectoryResponse Status
 cdrStatus = lens _cdrStatus (\ s a -> s{_cdrStatus = a});

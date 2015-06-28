@@ -110,7 +110,7 @@ instance AWSRequest SendMessageBatch where
                  SendMessageBatchResponse' <$>
                    (parseXMLList "SendMessageBatchResultEntry" x) <*>
                      (parseXMLList "BatchResultErrorEntry" x)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders SendMessageBatch where
         toHeaders = const mempty
@@ -143,11 +143,11 @@ instance ToQuery SendMessageBatch where
 data SendMessageBatchResponse = SendMessageBatchResponse'
     { _smbrSuccessful :: ![SendMessageBatchResultEntry]
     , _smbrFailed     :: ![BatchResultErrorEntry]
-    , _smbrStatus     :: !Int
+    , _smbrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'SendMessageBatchResponse' smart constructor.
-sendMessageBatchResponse :: Int -> SendMessageBatchResponse
+sendMessageBatchResponse :: Status -> SendMessageBatchResponse
 sendMessageBatchResponse pStatus =
     SendMessageBatchResponse'
     { _smbrSuccessful = mempty
@@ -165,5 +165,5 @@ smbrFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 smbrFailed = lens _smbrFailed (\ s a -> s{_smbrFailed = a});
 
 -- | FIXME: Undocumented member.
-smbrStatus :: Lens' SendMessageBatchResponse Int
+smbrStatus :: Lens' SendMessageBatchResponse Status
 smbrStatus = lens _smbrStatus (\ s a -> s{_smbrStatus = a});

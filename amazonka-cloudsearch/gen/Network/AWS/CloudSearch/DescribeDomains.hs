@@ -82,7 +82,7 @@ instance AWSRequest DescribeDomains where
                  DescribeDomainsResponse' <$>
                    (x .@? "DomainStatusList" .!@ mempty >>=
                       parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeDomains where
         toHeaders = const mempty
@@ -110,11 +110,11 @@ instance ToQuery DescribeDomains where
 -- * 'descStatus'
 data DescribeDomainsResponse = DescribeDomainsResponse'
     { _descDomainStatusList :: ![DomainStatus]
-    , _descStatus           :: !Int
+    , _descStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDomainsResponse' smart constructor.
-describeDomainsResponse :: Int -> DescribeDomainsResponse
+describeDomainsResponse :: Status -> DescribeDomainsResponse
 describeDomainsResponse pStatus =
     DescribeDomainsResponse'
     { _descDomainStatusList = mempty
@@ -126,5 +126,5 @@ descDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
 descDomainStatusList = lens _descDomainStatusList (\ s a -> s{_descDomainStatusList = a});
 
 -- | FIXME: Undocumented member.
-descStatus :: Lens' DescribeDomainsResponse Int
+descStatus :: Lens' DescribeDomainsResponse Status
 descStatus = lens _descStatus (\ s a -> s{_descStatus = a});

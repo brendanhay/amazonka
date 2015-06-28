@@ -96,7 +96,7 @@ instance AWSRequest ListDomains where
                  ListDomainsResponse' <$>
                    (may (parseXMLList "DomainName") x) <*>
                      (x .@? "NextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListDomains where
         toHeaders = const mempty
@@ -124,11 +124,11 @@ instance ToQuery ListDomains where
 data ListDomainsResponse = ListDomainsResponse'
     { _ldrDomainNames :: !(Maybe [Text])
     , _ldrNextToken   :: !(Maybe Text)
-    , _ldrStatus      :: !Int
+    , _ldrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListDomainsResponse' smart constructor.
-listDomainsResponse :: Int -> ListDomainsResponse
+listDomainsResponse :: Status -> ListDomainsResponse
 listDomainsResponse pStatus =
     ListDomainsResponse'
     { _ldrDomainNames = Nothing
@@ -146,5 +146,5 @@ ldrNextToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
 
 -- | FIXME: Undocumented member.
-ldrStatus :: Lens' ListDomainsResponse Int
+ldrStatus :: Lens' ListDomainsResponse Status
 ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});

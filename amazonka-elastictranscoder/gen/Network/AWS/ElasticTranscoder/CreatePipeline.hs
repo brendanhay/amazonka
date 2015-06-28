@@ -300,7 +300,7 @@ instance AWSRequest CreatePipeline where
               (\ s h x ->
                  CreatePipelineResponse' <$>
                    (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders CreatePipeline where
         toHeaders = const mempty
@@ -337,11 +337,11 @@ instance ToQuery CreatePipeline where
 data CreatePipelineResponse = CreatePipelineResponse'
     { _creWarnings :: !(Maybe [Warning])
     , _crePipeline :: !(Maybe Pipeline)
-    , _creStatus   :: !Int
+    , _creStatus   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreatePipelineResponse' smart constructor.
-createPipelineResponse :: Int -> CreatePipelineResponse
+createPipelineResponse :: Status -> CreatePipelineResponse
 createPipelineResponse pStatus =
     CreatePipelineResponse'
     { _creWarnings = Nothing
@@ -364,5 +364,5 @@ crePipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
 crePipeline = lens _crePipeline (\ s a -> s{_crePipeline = a});
 
 -- | FIXME: Undocumented member.
-creStatus :: Lens' CreatePipelineResponse Int
+creStatus :: Lens' CreatePipelineResponse Status
 creStatus = lens _creStatus (\ s a -> s{_creStatus = a});

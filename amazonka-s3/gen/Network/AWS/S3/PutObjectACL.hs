@@ -161,8 +161,7 @@ instance AWSRequest PutObjectACL where
           = receiveXML
               (\ s h x ->
                  PutObjectACLResponse' <$>
-                   (h .#? "x-amz-request-charged") <*>
-                     (pure (fromEnum s)))
+                   (h .#? "x-amz-request-charged") <*> (pure s))
 
 instance ToElement PutObjectACL where
         toElement
@@ -200,11 +199,11 @@ instance ToQuery PutObjectACL where
 -- * 'poarStatus'
 data PutObjectACLResponse = PutObjectACLResponse'
     { _poarRequestCharged :: !(Maybe RequestCharged)
-    , _poarStatus         :: !Int
+    , _poarStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'PutObjectACLResponse' smart constructor.
-putObjectACLResponse :: Int -> PutObjectACLResponse
+putObjectACLResponse :: Status -> PutObjectACLResponse
 putObjectACLResponse pStatus =
     PutObjectACLResponse'
     { _poarRequestCharged = Nothing
@@ -216,5 +215,5 @@ poarRequestCharged :: Lens' PutObjectACLResponse (Maybe RequestCharged)
 poarRequestCharged = lens _poarRequestCharged (\ s a -> s{_poarRequestCharged = a});
 
 -- | FIXME: Undocumented member.
-poarStatus :: Lens' PutObjectACLResponse Int
+poarStatus :: Lens' PutObjectACLResponse Status
 poarStatus = lens _poarStatus (\ s a -> s{_poarStatus = a});

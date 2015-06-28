@@ -108,7 +108,7 @@ instance AWSRequest ListJobsByPipeline where
               (\ s h x ->
                  ListJobsByPipelineResponse' <$>
                    (x .?> "NextPageToken") <*> (x .?> "Jobs" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListJobsByPipeline where
         toHeaders = const mempty
@@ -139,11 +139,11 @@ instance ToQuery ListJobsByPipeline where
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse'
     { _ljbprNextPageToken :: !(Maybe Text)
     , _ljbprJobs          :: !(Maybe [Job'])
-    , _ljbprStatus        :: !Int
+    , _ljbprStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListJobsByPipelineResponse' smart constructor.
-listJobsByPipelineResponse :: Int -> ListJobsByPipelineResponse
+listJobsByPipelineResponse :: Status -> ListJobsByPipelineResponse
 listJobsByPipelineResponse pStatus =
     ListJobsByPipelineResponse'
     { _ljbprNextPageToken = Nothing
@@ -163,5 +163,5 @@ ljbprJobs :: Lens' ListJobsByPipelineResponse [Job']
 ljbprJobs = lens _ljbprJobs (\ s a -> s{_ljbprJobs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ljbprStatus :: Lens' ListJobsByPipelineResponse Int
+ljbprStatus :: Lens' ListJobsByPipelineResponse Status
 ljbprStatus = lens _ljbprStatus (\ s a -> s{_ljbprStatus = a});

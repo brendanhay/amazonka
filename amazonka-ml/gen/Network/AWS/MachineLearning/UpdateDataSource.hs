@@ -81,7 +81,7 @@ instance AWSRequest UpdateDataSource where
           = receiveJSON
               (\ s h x ->
                  UpdateDataSourceResponse' <$>
-                   (x .?> "DataSourceId") <*> (pure (fromEnum s)))
+                   (x .?> "DataSourceId") <*> (pure s))
 
 instance ToHeaders UpdateDataSource where
         toHeaders
@@ -118,11 +118,11 @@ instance ToQuery UpdateDataSource where
 -- * 'udsrStatus'
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
     { _udsrDataSourceId :: !(Maybe Text)
-    , _udsrStatus       :: !Int
+    , _udsrStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateDataSourceResponse' smart constructor.
-updateDataSourceResponse :: Int -> UpdateDataSourceResponse
+updateDataSourceResponse :: Status -> UpdateDataSourceResponse
 updateDataSourceResponse pStatus =
     UpdateDataSourceResponse'
     { _udsrDataSourceId = Nothing
@@ -135,5 +135,5 @@ udsrDataSourceId :: Lens' UpdateDataSourceResponse (Maybe Text)
 udsrDataSourceId = lens _udsrDataSourceId (\ s a -> s{_udsrDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-udsrStatus :: Lens' UpdateDataSourceResponse Int
+udsrStatus :: Lens' UpdateDataSourceResponse Status
 udsrStatus = lens _udsrStatus (\ s a -> s{_udsrStatus = a});

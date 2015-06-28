@@ -93,7 +93,7 @@ instance AWSRequest CheckDomainAvailability where
           = receiveJSON
               (\ s h x ->
                  CheckDomainAvailabilityResponse' <$>
-                   (x .:> "Availability") <*> (pure (fromEnum s)))
+                   (x .:> "Availability") <*> (pure s))
 
 instance ToHeaders CheckDomainAvailability where
         toHeaders
@@ -128,11 +128,11 @@ instance ToQuery CheckDomainAvailability where
 -- * 'cdarStatus'
 data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
     { _cdarAvailability :: !DomainAvailability
-    , _cdarStatus       :: !Int
+    , _cdarStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CheckDomainAvailabilityResponse' smart constructor.
-checkDomainAvailabilityResponse :: DomainAvailability -> Int -> CheckDomainAvailabilityResponse
+checkDomainAvailabilityResponse :: DomainAvailability -> Status -> CheckDomainAvailabilityResponse
 checkDomainAvailabilityResponse pAvailability pStatus =
     CheckDomainAvailabilityResponse'
     { _cdarAvailability = pAvailability
@@ -165,5 +165,5 @@ cdarAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
 cdarAvailability = lens _cdarAvailability (\ s a -> s{_cdarAvailability = a});
 
 -- | FIXME: Undocumented member.
-cdarStatus :: Lens' CheckDomainAvailabilityResponse Int
+cdarStatus :: Lens' CheckDomainAvailabilityResponse Status
 cdarStatus = lens _cdarStatus (\ s a -> s{_cdarStatus = a});

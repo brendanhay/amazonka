@@ -107,7 +107,7 @@ instance AWSRequest DescribeResize where
                      <*> (x .@? "TotalResizeDataInMegaBytes")
                      <*> (x .@? "ElapsedTimeInSeconds")
                      <*> (x .@? "TargetClusterType")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeResize where
         toHeaders = const mempty
@@ -163,11 +163,11 @@ data DescribeResizeResponse = DescribeResizeResponse'
     , _drrTotalResizeDataInMegaBytes         :: !(Maybe Integer)
     , _drrElapsedTimeInSeconds               :: !(Maybe Integer)
     , _drrTargetClusterType                  :: !(Maybe Text)
-    , _drrStatus                             :: !Int
+    , _drrStatus                             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeResizeResponse' smart constructor.
-describeResizeResponse :: Int -> DescribeResizeResponse
+describeResizeResponse :: Status -> DescribeResizeResponse
 describeResizeResponse pStatus =
     DescribeResizeResponse'
     { _drrEstimatedTimeToCompletionInSeconds = Nothing
@@ -252,5 +252,5 @@ drrTargetClusterType :: Lens' DescribeResizeResponse (Maybe Text)
 drrTargetClusterType = lens _drrTargetClusterType (\ s a -> s{_drrTargetClusterType = a});
 
 -- | FIXME: Undocumented member.
-drrStatus :: Lens' DescribeResizeResponse Int
+drrStatus :: Lens' DescribeResizeResponse Status
 drrStatus = lens _drrStatus (\ s a -> s{_drrStatus = a});

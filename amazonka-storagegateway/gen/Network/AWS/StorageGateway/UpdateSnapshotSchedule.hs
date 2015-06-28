@@ -117,7 +117,7 @@ instance AWSRequest UpdateSnapshotSchedule where
           = receiveJSON
               (\ s h x ->
                  UpdateSnapshotScheduleResponse' <$>
-                   (x .?> "VolumeARN") <*> (pure (fromEnum s)))
+                   (x .?> "VolumeARN") <*> (pure s))
 
 instance ToHeaders UpdateSnapshotSchedule where
         toHeaders
@@ -154,11 +154,11 @@ instance ToQuery UpdateSnapshotSchedule where
 -- * 'ussrStatus'
 data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
     { _ussrVolumeARN :: !(Maybe Text)
-    , _ussrStatus    :: !Int
+    , _ussrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateSnapshotScheduleResponse' smart constructor.
-updateSnapshotScheduleResponse :: Int -> UpdateSnapshotScheduleResponse
+updateSnapshotScheduleResponse :: Status -> UpdateSnapshotScheduleResponse
 updateSnapshotScheduleResponse pStatus =
     UpdateSnapshotScheduleResponse'
     { _ussrVolumeARN = Nothing
@@ -170,5 +170,5 @@ ussrVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
 ussrVolumeARN = lens _ussrVolumeARN (\ s a -> s{_ussrVolumeARN = a});
 
 -- | FIXME: Undocumented member.
-ussrStatus :: Lens' UpdateSnapshotScheduleResponse Int
+ussrStatus :: Lens' UpdateSnapshotScheduleResponse Status
 ussrStatus = lens _ussrStatus (\ s a -> s{_ussrStatus = a});

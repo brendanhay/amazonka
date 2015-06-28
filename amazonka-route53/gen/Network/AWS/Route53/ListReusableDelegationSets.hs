@@ -113,7 +113,7 @@ instance AWSRequest ListReusableDelegationSets where
                      <*> (x .@ "Marker")
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListReusableDelegationSets where
         toHeaders = const mempty
@@ -150,11 +150,11 @@ data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
     , _lrdsrMarker         :: !Text
     , _lrdsrIsTruncated    :: !Bool
     , _lrdsrMaxItems       :: !Text
-    , _lrdsrStatus         :: !Int
+    , _lrdsrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListReusableDelegationSetsResponse' smart constructor.
-listReusableDelegationSetsResponse :: Text -> Bool -> Text -> Int -> ListReusableDelegationSetsResponse
+listReusableDelegationSetsResponse :: Text -> Bool -> Text -> Status -> ListReusableDelegationSetsResponse
 listReusableDelegationSetsResponse pMarker pIsTruncated pMaxItems pStatus =
     ListReusableDelegationSetsResponse'
     { _lrdsrNextMarker = Nothing
@@ -204,5 +204,5 @@ lrdsrMaxItems :: Lens' ListReusableDelegationSetsResponse Text
 lrdsrMaxItems = lens _lrdsrMaxItems (\ s a -> s{_lrdsrMaxItems = a});
 
 -- | FIXME: Undocumented member.
-lrdsrStatus :: Lens' ListReusableDelegationSetsResponse Int
+lrdsrStatus :: Lens' ListReusableDelegationSetsResponse Status
 lrdsrStatus = lens _lrdsrStatus (\ s a -> s{_lrdsrStatus = a});

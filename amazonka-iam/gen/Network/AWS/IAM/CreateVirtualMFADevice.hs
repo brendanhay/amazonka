@@ -101,7 +101,7 @@ instance AWSRequest CreateVirtualMFADevice where
           = receiveXMLWrapper "CreateVirtualMFADeviceResult"
               (\ s h x ->
                  CreateVirtualMFADeviceResponse' <$>
-                   (x .@ "VirtualMFADevice") <*> (pure (fromEnum s)))
+                   (x .@ "VirtualMFADevice") <*> (pure s))
 
 instance ToHeaders CreateVirtualMFADevice where
         toHeaders = const mempty
@@ -129,11 +129,11 @@ instance ToQuery CreateVirtualMFADevice where
 -- * 'cvmdrStatus'
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
     { _cvmdrVirtualMFADevice :: !VirtualMFADevice
-    , _cvmdrStatus           :: !Int
+    , _cvmdrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateVirtualMFADeviceResponse' smart constructor.
-createVirtualMFADeviceResponse :: VirtualMFADevice -> Int -> CreateVirtualMFADeviceResponse
+createVirtualMFADeviceResponse :: VirtualMFADevice -> Status -> CreateVirtualMFADeviceResponse
 createVirtualMFADeviceResponse pVirtualMFADevice pStatus =
     CreateVirtualMFADeviceResponse'
     { _cvmdrVirtualMFADevice = pVirtualMFADevice
@@ -145,5 +145,5 @@ cvmdrVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
 cvmdrVirtualMFADevice = lens _cvmdrVirtualMFADevice (\ s a -> s{_cvmdrVirtualMFADevice = a});
 
 -- | FIXME: Undocumented member.
-cvmdrStatus :: Lens' CreateVirtualMFADeviceResponse Int
+cvmdrStatus :: Lens' CreateVirtualMFADeviceResponse Status
 cvmdrStatus = lens _cvmdrStatus (\ s a -> s{_cvmdrStatus = a});

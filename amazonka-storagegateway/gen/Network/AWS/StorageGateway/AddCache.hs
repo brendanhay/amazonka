@@ -84,7 +84,7 @@ instance AWSRequest AddCache where
           = receiveJSON
               (\ s h x ->
                  AddCacheResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+                   (x .?> "GatewayARN") <*> (pure s))
 
 instance ToHeaders AddCache where
         toHeaders
@@ -116,11 +116,11 @@ instance ToQuery AddCache where
 -- * 'acrStatus'
 data AddCacheResponse = AddCacheResponse'
     { _acrGatewayARN :: !(Maybe Text)
-    , _acrStatus     :: !Int
+    , _acrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'AddCacheResponse' smart constructor.
-addCacheResponse :: Int -> AddCacheResponse
+addCacheResponse :: Status -> AddCacheResponse
 addCacheResponse pStatus =
     AddCacheResponse'
     { _acrGatewayARN = Nothing
@@ -132,5 +132,5 @@ acrGatewayARN :: Lens' AddCacheResponse (Maybe Text)
 acrGatewayARN = lens _acrGatewayARN (\ s a -> s{_acrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-acrStatus :: Lens' AddCacheResponse Int
+acrStatus :: Lens' AddCacheResponse Status
 acrStatus = lens _acrStatus (\ s a -> s{_acrStatus = a});

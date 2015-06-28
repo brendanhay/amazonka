@@ -190,7 +190,7 @@ instance AWSRequest CreateMLModel where
           = receiveJSON
               (\ s h x ->
                  CreateMLModelResponse' <$>
-                   (x .?> "MLModelId") <*> (pure (fromEnum s)))
+                   (x .?> "MLModelId") <*> (pure s))
 
 instance ToHeaders CreateMLModel where
         toHeaders
@@ -234,11 +234,11 @@ instance ToQuery CreateMLModel where
 -- * 'cmlmrStatus'
 data CreateMLModelResponse = CreateMLModelResponse'
     { _cmlmrMLModelId :: !(Maybe Text)
-    , _cmlmrStatus    :: !Int
+    , _cmlmrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateMLModelResponse' smart constructor.
-createMLModelResponse :: Int -> CreateMLModelResponse
+createMLModelResponse :: Status -> CreateMLModelResponse
 createMLModelResponse pStatus =
     CreateMLModelResponse'
     { _cmlmrMLModelId = Nothing
@@ -251,5 +251,5 @@ cmlmrMLModelId :: Lens' CreateMLModelResponse (Maybe Text)
 cmlmrMLModelId = lens _cmlmrMLModelId (\ s a -> s{_cmlmrMLModelId = a});
 
 -- | FIXME: Undocumented member.
-cmlmrStatus :: Lens' CreateMLModelResponse Int
+cmlmrStatus :: Lens' CreateMLModelResponse Status
 cmlmrStatus = lens _cmlmrStatus (\ s a -> s{_cmlmrStatus = a});

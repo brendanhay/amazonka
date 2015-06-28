@@ -92,7 +92,7 @@ instance AWSRequest GetEvaluation where
                      <*> (x .?> "Message")
                      <*> (x .?> "EvaluationId")
                      <*> (x .?> "EvaluationDataSourceId")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetEvaluation where
         toHeaders
@@ -155,11 +155,11 @@ data GetEvaluationResponse = GetEvaluationResponse'
     , _gerMessage                :: !(Maybe Text)
     , _gerEvaluationId           :: !(Maybe Text)
     , _gerEvaluationDataSourceId :: !(Maybe Text)
-    , _gerStatus                 :: !Int
+    , _gerStatus                 :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetEvaluationResponse' smart constructor.
-getEvaluationResponse :: Int -> GetEvaluationResponse
+getEvaluationResponse :: Status -> GetEvaluationResponse
 getEvaluationResponse pStatus =
     GetEvaluationResponse'
     { _gerPerformanceMetrics = Nothing
@@ -242,5 +242,5 @@ gerEvaluationDataSourceId :: Lens' GetEvaluationResponse (Maybe Text)
 gerEvaluationDataSourceId = lens _gerEvaluationDataSourceId (\ s a -> s{_gerEvaluationDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-gerStatus :: Lens' GetEvaluationResponse Int
+gerStatus :: Lens' GetEvaluationResponse Status
 gerStatus = lens _gerStatus (\ s a -> s{_gerStatus = a});

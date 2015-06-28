@@ -88,7 +88,7 @@ instance AWSRequest ListDeploymentGroups where
                  ListDeploymentGroupsResponse' <$>
                    (x .?> "nextToken") <*> (x .?> "applicationName") <*>
                      (x .?> "deploymentGroups" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListDeploymentGroups where
         toHeaders
@@ -129,11 +129,11 @@ data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
     { _ldgrNextToken        :: !(Maybe Text)
     , _ldgrApplicationName  :: !(Maybe Text)
     , _ldgrDeploymentGroups :: !(Maybe [Text])
-    , _ldgrStatus           :: !Int
+    , _ldgrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListDeploymentGroupsResponse' smart constructor.
-listDeploymentGroupsResponse :: Int -> ListDeploymentGroupsResponse
+listDeploymentGroupsResponse :: Status -> ListDeploymentGroupsResponse
 listDeploymentGroupsResponse pStatus =
     ListDeploymentGroupsResponse'
     { _ldgrNextToken = Nothing
@@ -158,5 +158,5 @@ ldgrDeploymentGroups :: Lens' ListDeploymentGroupsResponse [Text]
 ldgrDeploymentGroups = lens _ldgrDeploymentGroups (\ s a -> s{_ldgrDeploymentGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldgrStatus :: Lens' ListDeploymentGroupsResponse Int
+ldgrStatus :: Lens' ListDeploymentGroupsResponse Status
 ldgrStatus = lens _ldgrStatus (\ s a -> s{_ldgrStatus = a});

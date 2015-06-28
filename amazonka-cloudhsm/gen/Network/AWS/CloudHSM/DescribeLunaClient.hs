@@ -87,7 +87,7 @@ instance AWSRequest DescribeLunaClient where
                      <*> (x .?> "LastModifiedTimestamp")
                      <*> (x .?> "Certificate")
                      <*> (x .?> "Label")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeLunaClient where
         toHeaders
@@ -133,11 +133,11 @@ data DescribeLunaClientResponse = DescribeLunaClientResponse'
     , _dLastModifiedTimestamp  :: !(Maybe Text)
     , _dCertificate            :: !(Maybe Text)
     , _dLabel                  :: !(Maybe Text)
-    , _dStatus                 :: !Int
+    , _dStatus                 :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeLunaClientResponse' smart constructor.
-describeLunaClientResponse :: Int -> DescribeLunaClientResponse
+describeLunaClientResponse :: Status -> DescribeLunaClientResponse
 describeLunaClientResponse pStatus =
     DescribeLunaClientResponse'
     { _dClientARN = Nothing
@@ -169,5 +169,5 @@ dLabel :: Lens' DescribeLunaClientResponse (Maybe Text)
 dLabel = lens _dLabel (\ s a -> s{_dLabel = a});
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DescribeLunaClientResponse Int
+dStatus :: Lens' DescribeLunaClientResponse Status
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

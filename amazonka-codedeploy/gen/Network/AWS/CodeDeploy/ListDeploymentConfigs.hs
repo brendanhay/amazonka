@@ -77,7 +77,7 @@ instance AWSRequest ListDeploymentConfigs where
                  ListDeploymentConfigsResponse' <$>
                    (x .?> "nextToken") <*>
                      (x .?> "deploymentConfigsList" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListDeploymentConfigs where
         toHeaders
@@ -113,11 +113,11 @@ instance ToQuery ListDeploymentConfigs where
 data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
     { _ldcrNextToken             :: !(Maybe Text)
     , _ldcrDeploymentConfigsList :: !(Maybe [Text])
-    , _ldcrStatus                :: !Int
+    , _ldcrStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListDeploymentConfigsResponse' smart constructor.
-listDeploymentConfigsResponse :: Int -> ListDeploymentConfigsResponse
+listDeploymentConfigsResponse :: Status -> ListDeploymentConfigsResponse
 listDeploymentConfigsResponse pStatus =
     ListDeploymentConfigsResponse'
     { _ldcrNextToken = Nothing
@@ -138,5 +138,5 @@ ldcrDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
 ldcrDeploymentConfigsList = lens _ldcrDeploymentConfigsList (\ s a -> s{_ldcrDeploymentConfigsList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldcrStatus :: Lens' ListDeploymentConfigsResponse Int
+ldcrStatus :: Lens' ListDeploymentConfigsResponse Status
 ldcrStatus = lens _ldcrStatus (\ s a -> s{_ldcrStatus = a});

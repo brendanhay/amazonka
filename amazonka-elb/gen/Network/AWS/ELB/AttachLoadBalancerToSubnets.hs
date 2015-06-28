@@ -88,7 +88,7 @@ instance AWSRequest AttachLoadBalancerToSubnets where
                  AttachLoadBalancerToSubnetsResponse' <$>
                    (x .@? "Subnets" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders AttachLoadBalancerToSubnets where
         toHeaders = const mempty
@@ -114,11 +114,11 @@ instance ToQuery AttachLoadBalancerToSubnets where
 -- * 'albtsrStatus'
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
     { _albtsrSubnets :: !(Maybe [Text])
-    , _albtsrStatus  :: !Int
+    , _albtsrStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'AttachLoadBalancerToSubnetsResponse' smart constructor.
-attachLoadBalancerToSubnetsResponse :: Int -> AttachLoadBalancerToSubnetsResponse
+attachLoadBalancerToSubnetsResponse :: Status -> AttachLoadBalancerToSubnetsResponse
 attachLoadBalancerToSubnetsResponse pStatus =
     AttachLoadBalancerToSubnetsResponse'
     { _albtsrSubnets = Nothing
@@ -130,5 +130,5 @@ albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
 albtsrSubnets = lens _albtsrSubnets (\ s a -> s{_albtsrSubnets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-albtsrStatus :: Lens' AttachLoadBalancerToSubnetsResponse Int
+albtsrStatus :: Lens' AttachLoadBalancerToSubnetsResponse Status
 albtsrStatus = lens _albtsrStatus (\ s a -> s{_albtsrStatus = a});

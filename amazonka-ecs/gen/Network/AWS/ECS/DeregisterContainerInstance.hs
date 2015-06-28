@@ -99,7 +99,7 @@ instance AWSRequest DeregisterContainerInstance where
           = receiveJSON
               (\ s h x ->
                  DeregisterContainerInstanceResponse' <$>
-                   (x .?> "containerInstance") <*> (pure (fromEnum s)))
+                   (x .?> "containerInstance") <*> (pure s))
 
 instance ToHeaders DeregisterContainerInstance where
         toHeaders
@@ -132,11 +132,11 @@ instance ToQuery DeregisterContainerInstance where
 -- * 'dcirStatus'
 data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
     { _dcirContainerInstance :: !(Maybe ContainerInstance)
-    , _dcirStatus            :: !Int
+    , _dcirStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeregisterContainerInstanceResponse' smart constructor.
-deregisterContainerInstanceResponse :: Int -> DeregisterContainerInstanceResponse
+deregisterContainerInstanceResponse :: Status -> DeregisterContainerInstanceResponse
 deregisterContainerInstanceResponse pStatus =
     DeregisterContainerInstanceResponse'
     { _dcirContainerInstance = Nothing
@@ -148,5 +148,5 @@ dcirContainerInstance :: Lens' DeregisterContainerInstanceResponse (Maybe Contai
 dcirContainerInstance = lens _dcirContainerInstance (\ s a -> s{_dcirContainerInstance = a});
 
 -- | FIXME: Undocumented member.
-dcirStatus :: Lens' DeregisterContainerInstanceResponse Int
+dcirStatus :: Lens' DeregisterContainerInstanceResponse Status
 dcirStatus = lens _dcirStatus (\ s a -> s{_dcirStatus = a});

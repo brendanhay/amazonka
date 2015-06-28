@@ -192,7 +192,7 @@ instance AWSRequest DescribeSpotPriceHistory where
               (\ s h x ->
                  DescribeSpotPriceHistoryResponse' <$>
                    (x .@? "nextToken") <*> (may (parseXMLList "item") x)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeSpotPriceHistory where
         toHeaders = const mempty
@@ -233,11 +233,11 @@ instance ToQuery DescribeSpotPriceHistory where
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
     { _dsphrNextToken        :: !(Maybe Text)
     , _dsphrSpotPriceHistory :: !(Maybe [SpotPrice])
-    , _dsphrStatus           :: !Int
+    , _dsphrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotPriceHistoryResponse' smart constructor.
-describeSpotPriceHistoryResponse :: Int -> DescribeSpotPriceHistoryResponse
+describeSpotPriceHistoryResponse :: Status -> DescribeSpotPriceHistoryResponse
 describeSpotPriceHistoryResponse pStatus =
     DescribeSpotPriceHistoryResponse'
     { _dsphrNextToken = Nothing
@@ -255,5 +255,5 @@ dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
 dsphrSpotPriceHistory = lens _dsphrSpotPriceHistory (\ s a -> s{_dsphrSpotPriceHistory = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsphrStatus :: Lens' DescribeSpotPriceHistoryResponse Int
+dsphrStatus :: Lens' DescribeSpotPriceHistoryResponse Status
 dsphrStatus = lens _dsphrStatus (\ s a -> s{_dsphrStatus = a});

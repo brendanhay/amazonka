@@ -89,7 +89,7 @@ instance AWSRequest ApplySecurityGroupsToLoadBalancer
                  ApplySecurityGroupsToLoadBalancerResponse' <$>
                    (x .@? "SecurityGroups" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ApplySecurityGroupsToLoadBalancer
          where
@@ -119,11 +119,11 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer
 -- * 'asgtlbrStatus'
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'
     { _asgtlbrSecurityGroups :: !(Maybe [Text])
-    , _asgtlbrStatus         :: !Int
+    , _asgtlbrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ApplySecurityGroupsToLoadBalancerResponse' smart constructor.
-applySecurityGroupsToLoadBalancerResponse :: Int -> ApplySecurityGroupsToLoadBalancerResponse
+applySecurityGroupsToLoadBalancerResponse :: Status -> ApplySecurityGroupsToLoadBalancerResponse
 applySecurityGroupsToLoadBalancerResponse pStatus =
     ApplySecurityGroupsToLoadBalancerResponse'
     { _asgtlbrSecurityGroups = Nothing
@@ -135,5 +135,5 @@ asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
 asgtlbrSecurityGroups = lens _asgtlbrSecurityGroups (\ s a -> s{_asgtlbrSecurityGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-asgtlbrStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
+asgtlbrStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Status
 asgtlbrStatus = lens _asgtlbrStatus (\ s a -> s{_asgtlbrStatus = a});

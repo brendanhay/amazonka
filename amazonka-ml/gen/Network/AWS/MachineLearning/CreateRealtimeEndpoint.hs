@@ -74,7 +74,7 @@ instance AWSRequest CreateRealtimeEndpoint where
                  CreateRealtimeEndpointResponse' <$>
                    (x .?> "RealtimeEndpointInfo") <*>
                      (x .?> "MLModelId")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders CreateRealtimeEndpoint where
         toHeaders
@@ -116,11 +116,11 @@ instance ToQuery CreateRealtimeEndpoint where
 data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'
     { _crerRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
     , _crerMLModelId            :: !(Maybe Text)
-    , _crerStatus               :: !Int
+    , _crerStatus               :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateRealtimeEndpointResponse' smart constructor.
-createRealtimeEndpointResponse :: Int -> CreateRealtimeEndpointResponse
+createRealtimeEndpointResponse :: Status -> CreateRealtimeEndpointResponse
 createRealtimeEndpointResponse pStatus =
     CreateRealtimeEndpointResponse'
     { _crerRealtimeEndpointInfo = Nothing
@@ -138,5 +138,5 @@ crerMLModelId :: Lens' CreateRealtimeEndpointResponse (Maybe Text)
 crerMLModelId = lens _crerMLModelId (\ s a -> s{_crerMLModelId = a});
 
 -- | FIXME: Undocumented member.
-crerStatus :: Lens' CreateRealtimeEndpointResponse Int
+crerStatus :: Lens' CreateRealtimeEndpointResponse Status
 crerStatus = lens _crerStatus (\ s a -> s{_crerStatus = a});

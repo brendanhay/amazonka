@@ -84,7 +84,7 @@ instance AWSRequest DeleteVPCPeeringConnection where
           = receiveXML
               (\ s h x ->
                  DeleteVPCPeeringConnectionResponse' <$>
-                   (x .@? "return") <*> (pure (fromEnum s)))
+                   (x .@? "return") <*> (pure s))
 
 instance ToHeaders DeleteVPCPeeringConnection where
         toHeaders = const mempty
@@ -111,11 +111,11 @@ instance ToQuery DeleteVPCPeeringConnection where
 -- * 'dvpcrStatus'
 data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
     { _dvpcrReturn :: !(Maybe Bool)
-    , _dvpcrStatus :: !Int
+    , _dvpcrStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteVPCPeeringConnectionResponse' smart constructor.
-deleteVPCPeeringConnectionResponse :: Int -> DeleteVPCPeeringConnectionResponse
+deleteVPCPeeringConnectionResponse :: Status -> DeleteVPCPeeringConnectionResponse
 deleteVPCPeeringConnectionResponse pStatus =
     DeleteVPCPeeringConnectionResponse'
     { _dvpcrReturn = Nothing
@@ -127,5 +127,5 @@ dvpcrReturn :: Lens' DeleteVPCPeeringConnectionResponse (Maybe Bool)
 dvpcrReturn = lens _dvpcrReturn (\ s a -> s{_dvpcrReturn = a});
 
 -- | FIXME: Undocumented member.
-dvpcrStatus :: Lens' DeleteVPCPeeringConnectionResponse Int
+dvpcrStatus :: Lens' DeleteVPCPeeringConnectionResponse Status
 dvpcrStatus = lens _dvpcrStatus (\ s a -> s{_dvpcrStatus = a});

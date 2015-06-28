@@ -93,7 +93,7 @@ instance AWSRequest ShutdownGateway where
           = receiveJSON
               (\ s h x ->
                  ShutdownGatewayResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+                   (x .?> "GatewayARN") <*> (pure s))
 
 instance ToHeaders ShutdownGateway where
         toHeaders
@@ -126,11 +126,11 @@ instance ToQuery ShutdownGateway where
 -- * 'sgrStatus'
 data ShutdownGatewayResponse = ShutdownGatewayResponse'
     { _sgrGatewayARN :: !(Maybe Text)
-    , _sgrStatus     :: !Int
+    , _sgrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ShutdownGatewayResponse' smart constructor.
-shutdownGatewayResponse :: Int -> ShutdownGatewayResponse
+shutdownGatewayResponse :: Status -> ShutdownGatewayResponse
 shutdownGatewayResponse pStatus =
     ShutdownGatewayResponse'
     { _sgrGatewayARN = Nothing
@@ -142,5 +142,5 @@ sgrGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
 sgrGatewayARN = lens _sgrGatewayARN (\ s a -> s{_sgrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-sgrStatus :: Lens' ShutdownGatewayResponse Int
+sgrStatus :: Lens' ShutdownGatewayResponse Status
 sgrStatus = lens _sgrStatus (\ s a -> s{_sgrStatus = a});

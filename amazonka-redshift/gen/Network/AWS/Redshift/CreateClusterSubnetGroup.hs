@@ -115,7 +115,7 @@ instance AWSRequest CreateClusterSubnetGroup where
           = receiveXMLWrapper "CreateClusterSubnetGroupResult"
               (\ s h x ->
                  CreateClusterSubnetGroupResponse' <$>
-                   (x .@? "ClusterSubnetGroup") <*> (pure (fromEnum s)))
+                   (x .@? "ClusterSubnetGroup") <*> (pure s))
 
 instance ToHeaders CreateClusterSubnetGroup where
         toHeaders = const mempty
@@ -145,11 +145,11 @@ instance ToQuery CreateClusterSubnetGroup where
 -- * 'ccsgrStatus'
 data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'
     { _ccsgrClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
-    , _ccsgrStatus             :: !Int
+    , _ccsgrStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterSubnetGroupResponse' smart constructor.
-createClusterSubnetGroupResponse :: Int -> CreateClusterSubnetGroupResponse
+createClusterSubnetGroupResponse :: Status -> CreateClusterSubnetGroupResponse
 createClusterSubnetGroupResponse pStatus =
     CreateClusterSubnetGroupResponse'
     { _ccsgrClusterSubnetGroup = Nothing
@@ -161,5 +161,5 @@ ccsgrClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe Cluster
 ccsgrClusterSubnetGroup = lens _ccsgrClusterSubnetGroup (\ s a -> s{_ccsgrClusterSubnetGroup = a});
 
 -- | FIXME: Undocumented member.
-ccsgrStatus :: Lens' CreateClusterSubnetGroupResponse Int
+ccsgrStatus :: Lens' CreateClusterSubnetGroupResponse Status
 ccsgrStatus = lens _ccsgrStatus (\ s a -> s{_ccsgrStatus = a});

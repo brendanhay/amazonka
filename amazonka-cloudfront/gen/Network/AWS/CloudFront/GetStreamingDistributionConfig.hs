@@ -75,7 +75,7 @@ instance AWSRequest GetStreamingDistributionConfig
                  GetStreamingDistributionConfigResponse' <$>
                    (x .@? "StreamingDistributionConfig") <*>
                      (h .#? "ETag")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetStreamingDistributionConfig
          where
@@ -104,11 +104,11 @@ instance ToQuery GetStreamingDistributionConfig where
 data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse'
     { _gsdcrStreamingDistributionConfig :: !(Maybe StreamingDistributionConfig)
     , _gsdcrETag                        :: !(Maybe Text)
-    , _gsdcrStatus                      :: !Int
+    , _gsdcrStatus                      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetStreamingDistributionConfigResponse' smart constructor.
-getStreamingDistributionConfigResponse :: Int -> GetStreamingDistributionConfigResponse
+getStreamingDistributionConfigResponse :: Status -> GetStreamingDistributionConfigResponse
 getStreamingDistributionConfigResponse pStatus =
     GetStreamingDistributionConfigResponse'
     { _gsdcrStreamingDistributionConfig = Nothing
@@ -125,5 +125,5 @@ gsdcrETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
 gsdcrETag = lens _gsdcrETag (\ s a -> s{_gsdcrETag = a});
 
 -- | FIXME: Undocumented member.
-gsdcrStatus :: Lens' GetStreamingDistributionConfigResponse Int
+gsdcrStatus :: Lens' GetStreamingDistributionConfigResponse Status
 gsdcrStatus = lens _gsdcrStatus (\ s a -> s{_gsdcrStatus = a});

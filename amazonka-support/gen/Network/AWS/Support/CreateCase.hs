@@ -195,7 +195,7 @@ instance AWSRequest CreateCase where
           = receiveJSON
               (\ s h x ->
                  CreateCaseResponse' <$>
-                   (x .?> "caseId") <*> (pure (fromEnum s)))
+                   (x .?> "caseId") <*> (pure s))
 
 instance ToHeaders CreateCase where
         toHeaders
@@ -237,11 +237,11 @@ instance ToQuery CreateCase where
 -- * 'ccrStatus'
 data CreateCaseResponse = CreateCaseResponse'
     { _ccrCaseId :: !(Maybe Text)
-    , _ccrStatus :: !Int
+    , _ccrStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateCaseResponse' smart constructor.
-createCaseResponse :: Int -> CreateCaseResponse
+createCaseResponse :: Status -> CreateCaseResponse
 createCaseResponse pStatus =
     CreateCaseResponse'
     { _ccrCaseId = Nothing
@@ -255,5 +255,5 @@ ccrCaseId :: Lens' CreateCaseResponse (Maybe Text)
 ccrCaseId = lens _ccrCaseId (\ s a -> s{_ccrCaseId = a});
 
 -- | FIXME: Undocumented member.
-ccrStatus :: Lens' CreateCaseResponse Int
+ccrStatus :: Lens' CreateCaseResponse Status
 ccrStatus = lens _ccrStatus (\ s a -> s{_ccrStatus = a});

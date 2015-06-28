@@ -83,7 +83,7 @@ instance AWSRequest ConfigureHealthCheck where
           = receiveXMLWrapper "ConfigureHealthCheckResult"
               (\ s h x ->
                  ConfigureHealthCheckResponse' <$>
-                   (x .@? "HealthCheck") <*> (pure (fromEnum s)))
+                   (x .@? "HealthCheck") <*> (pure s))
 
 instance ToHeaders ConfigureHealthCheck where
         toHeaders = const mempty
@@ -108,11 +108,11 @@ instance ToQuery ConfigureHealthCheck where
 -- * 'chcrStatus'
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
     { _chcrHealthCheck :: !(Maybe HealthCheck)
-    , _chcrStatus      :: !Int
+    , _chcrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ConfigureHealthCheckResponse' smart constructor.
-configureHealthCheckResponse :: Int -> ConfigureHealthCheckResponse
+configureHealthCheckResponse :: Status -> ConfigureHealthCheckResponse
 configureHealthCheckResponse pStatus =
     ConfigureHealthCheckResponse'
     { _chcrHealthCheck = Nothing
@@ -124,5 +124,5 @@ chcrHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
 chcrHealthCheck = lens _chcrHealthCheck (\ s a -> s{_chcrHealthCheck = a});
 
 -- | FIXME: Undocumented member.
-chcrStatus :: Lens' ConfigureHealthCheckResponse Int
+chcrStatus :: Lens' ConfigureHealthCheckResponse Status
 chcrStatus = lens _chcrStatus (\ s a -> s{_chcrStatus = a});

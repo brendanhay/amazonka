@@ -69,7 +69,7 @@ instance AWSRequest GetBucketRequestPayment where
           = receiveXML
               (\ s h x ->
                  GetBucketRequestPaymentResponse' <$>
-                   (x .@? "Payer") <*> (pure (fromEnum s)))
+                   (x .@? "Payer") <*> (pure s))
 
 instance ToHeaders GetBucketRequestPayment where
         toHeaders = const mempty
@@ -90,11 +90,11 @@ instance ToQuery GetBucketRequestPayment where
 -- * 'gbrprStatus'
 data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
     { _gbrprPayer  :: !(Maybe Payer)
-    , _gbrprStatus :: !Int
+    , _gbrprStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetBucketRequestPaymentResponse' smart constructor.
-getBucketRequestPaymentResponse :: Int -> GetBucketRequestPaymentResponse
+getBucketRequestPaymentResponse :: Status -> GetBucketRequestPaymentResponse
 getBucketRequestPaymentResponse pStatus =
     GetBucketRequestPaymentResponse'
     { _gbrprPayer = Nothing
@@ -106,5 +106,5 @@ gbrprPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
 gbrprPayer = lens _gbrprPayer (\ s a -> s{_gbrprPayer = a});
 
 -- | FIXME: Undocumented member.
-gbrprStatus :: Lens' GetBucketRequestPaymentResponse Int
+gbrprStatus :: Lens' GetBucketRequestPaymentResponse Status
 gbrprStatus = lens _gbrprStatus (\ s a -> s{_gbrprStatus = a});

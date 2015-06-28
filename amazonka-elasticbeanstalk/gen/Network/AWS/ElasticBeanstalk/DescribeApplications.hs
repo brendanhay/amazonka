@@ -74,7 +74,7 @@ instance AWSRequest DescribeApplications where
                  DescribeApplicationsResponse' <$>
                    (x .@? "Applications" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeApplications where
         toHeaders = const mempty
@@ -102,11 +102,11 @@ instance ToQuery DescribeApplications where
 -- * 'darStatus'
 data DescribeApplicationsResponse = DescribeApplicationsResponse'
     { _darApplications :: !(Maybe [ApplicationDescription])
-    , _darStatus       :: !Int
+    , _darStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeApplicationsResponse' smart constructor.
-describeApplicationsResponse :: Int -> DescribeApplicationsResponse
+describeApplicationsResponse :: Status -> DescribeApplicationsResponse
 describeApplicationsResponse pStatus =
     DescribeApplicationsResponse'
     { _darApplications = Nothing
@@ -118,5 +118,5 @@ darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darApplications = lens _darApplications (\ s a -> s{_darApplications = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-darStatus :: Lens' DescribeApplicationsResponse Int
+darStatus :: Lens' DescribeApplicationsResponse Status
 darStatus = lens _darStatus (\ s a -> s{_darStatus = a});

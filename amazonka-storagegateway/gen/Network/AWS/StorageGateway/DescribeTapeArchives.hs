@@ -108,7 +108,7 @@ instance AWSRequest DescribeTapeArchives where
                  DescribeTapeArchivesResponse' <$>
                    (x .?> "TapeArchives" .!@ mempty) <*>
                      (x .?> "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeTapeArchives where
         toHeaders
@@ -146,11 +146,11 @@ instance ToQuery DescribeTapeArchives where
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'
     { _dtarTapeArchives :: !(Maybe [TapeArchive])
     , _dtarMarker       :: !(Maybe Text)
-    , _dtarStatus       :: !Int
+    , _dtarStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeTapeArchivesResponse' smart constructor.
-describeTapeArchivesResponse :: Int -> DescribeTapeArchivesResponse
+describeTapeArchivesResponse :: Status -> DescribeTapeArchivesResponse
 describeTapeArchivesResponse pStatus =
     DescribeTapeArchivesResponse'
     { _dtarTapeArchives = Nothing
@@ -175,5 +175,5 @@ dtarMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
 dtarMarker = lens _dtarMarker (\ s a -> s{_dtarMarker = a});
 
 -- | FIXME: Undocumented member.
-dtarStatus :: Lens' DescribeTapeArchivesResponse Int
+dtarStatus :: Lens' DescribeTapeArchivesResponse Status
 dtarStatus = lens _dtarStatus (\ s a -> s{_dtarStatus = a});

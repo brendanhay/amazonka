@@ -85,7 +85,7 @@ instance AWSRequest DeleteIndexField where
           = receiveXMLWrapper "DeleteIndexFieldResult"
               (\ s h x ->
                  DeleteIndexFieldResponse' <$>
-                   (x .@ "IndexField") <*> (pure (fromEnum s)))
+                   (x .@ "IndexField") <*> (pure s))
 
 instance ToHeaders DeleteIndexField where
         toHeaders = const mempty
@@ -112,11 +112,11 @@ instance ToQuery DeleteIndexField where
 -- * 'difrStatus'
 data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
     { _difrIndexField :: !IndexFieldStatus
-    , _difrStatus     :: !Int
+    , _difrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteIndexFieldResponse' smart constructor.
-deleteIndexFieldResponse :: IndexFieldStatus -> Int -> DeleteIndexFieldResponse
+deleteIndexFieldResponse :: IndexFieldStatus -> Status -> DeleteIndexFieldResponse
 deleteIndexFieldResponse pIndexField pStatus =
     DeleteIndexFieldResponse'
     { _difrIndexField = pIndexField
@@ -128,5 +128,5 @@ difrIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
 difrIndexField = lens _difrIndexField (\ s a -> s{_difrIndexField = a});
 
 -- | FIXME: Undocumented member.
-difrStatus :: Lens' DeleteIndexFieldResponse Int
+difrStatus :: Lens' DeleteIndexFieldResponse Status
 difrStatus = lens _difrStatus (\ s a -> s{_difrStatus = a});

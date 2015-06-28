@@ -106,7 +106,7 @@ instance AWSRequest ModifyOptionGroup where
           = receiveXMLWrapper "ModifyOptionGroupResult"
               (\ s h x ->
                  ModifyOptionGroupResponse' <$>
-                   (x .@? "OptionGroup") <*> (pure (fromEnum s)))
+                   (x .@? "OptionGroup") <*> (pure s))
 
 instance ToHeaders ModifyOptionGroup where
         toHeaders = const mempty
@@ -138,11 +138,11 @@ instance ToQuery ModifyOptionGroup where
 -- * 'mogrStatus'
 data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
     { _mogrOptionGroup :: !(Maybe OptionGroup)
-    , _mogrStatus      :: !Int
+    , _mogrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyOptionGroupResponse' smart constructor.
-modifyOptionGroupResponse :: Int -> ModifyOptionGroupResponse
+modifyOptionGroupResponse :: Status -> ModifyOptionGroupResponse
 modifyOptionGroupResponse pStatus =
     ModifyOptionGroupResponse'
     { _mogrOptionGroup = Nothing
@@ -154,5 +154,5 @@ mogrOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
 mogrOptionGroup = lens _mogrOptionGroup (\ s a -> s{_mogrOptionGroup = a});
 
 -- | FIXME: Undocumented member.
-mogrStatus :: Lens' ModifyOptionGroupResponse Int
+mogrStatus :: Lens' ModifyOptionGroupResponse Status
 mogrStatus = lens _mogrStatus (\ s a -> s{_mogrStatus = a});

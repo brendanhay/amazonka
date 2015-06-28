@@ -139,7 +139,7 @@ instance AWSRequest PutRecords where
               (\ s h x ->
                  PutRecordsResponse' <$>
                    (x .?> "FailedRecordCount") <*> (x .:> "Records") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders PutRecords where
         toHeaders
@@ -176,11 +176,11 @@ instance ToQuery PutRecords where
 data PutRecordsResponse = PutRecordsResponse'
     { _pFailedRecordCount :: !(Maybe Nat)
     , _pRecords           :: !(List1 PutRecordsResultEntry)
-    , _pStatus            :: !Int
+    , _pStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'PutRecordsResponse' smart constructor.
-putRecordsResponse :: NonEmpty PutRecordsResultEntry -> Int -> PutRecordsResponse
+putRecordsResponse :: NonEmpty PutRecordsResultEntry -> Status -> PutRecordsResponse
 putRecordsResponse pRecords pStatus =
     PutRecordsResponse'
     { _pFailedRecordCount = Nothing
@@ -203,5 +203,5 @@ pRecords :: Lens' PutRecordsResponse (NonEmpty PutRecordsResultEntry)
 pRecords = lens _pRecords (\ s a -> s{_pRecords = a}) . _List1;
 
 -- | FIXME: Undocumented member.
-pStatus :: Lens' PutRecordsResponse Int
+pStatus :: Lens' PutRecordsResponse Status
 pStatus = lens _pStatus (\ s a -> s{_pStatus = a});

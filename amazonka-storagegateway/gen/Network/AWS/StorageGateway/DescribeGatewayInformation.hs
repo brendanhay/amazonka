@@ -88,7 +88,7 @@ instance AWSRequest DescribeGatewayInformation where
                      <*> (x .?> "GatewayId")
                      <*> (x .?> "GatewayType")
                      <*> (x .?> "GatewayTimezone")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeGatewayInformation where
         toHeaders
@@ -142,11 +142,11 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
     , _dgirGatewayId                  :: !(Maybe Text)
     , _dgirGatewayType                :: !(Maybe Text)
     , _dgirGatewayTimezone            :: !(Maybe Text)
-    , _dgirStatus                     :: !Int
+    , _dgirStatus                     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeGatewayInformationResponse' smart constructor.
-describeGatewayInformationResponse :: Int -> DescribeGatewayInformationResponse
+describeGatewayInformationResponse :: Status -> DescribeGatewayInformationResponse
 describeGatewayInformationResponse pStatus =
     DescribeGatewayInformationResponse'
     { _dgirGatewayState = Nothing
@@ -199,5 +199,5 @@ dgirGatewayTimezone :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirGatewayTimezone = lens _dgirGatewayTimezone (\ s a -> s{_dgirGatewayTimezone = a});
 
 -- | FIXME: Undocumented member.
-dgirStatus :: Lens' DescribeGatewayInformationResponse Int
+dgirStatus :: Lens' DescribeGatewayInformationResponse Status
 dgirStatus = lens _dgirStatus (\ s a -> s{_dgirStatus = a});

@@ -146,8 +146,7 @@ instance AWSRequest CreateOpenIDConnectProvider where
               "CreateOpenIDConnectProviderResult"
               (\ s h x ->
                  CreateOpenIDConnectProviderResponse' <$>
-                   (x .@? "OpenIDConnectProviderArn") <*>
-                     (pure (fromEnum s)))
+                   (x .@? "OpenIDConnectProviderArn") <*> (pure s))
 
 instance ToHeaders CreateOpenIDConnectProvider where
         toHeaders = const mempty
@@ -180,11 +179,11 @@ instance ToQuery CreateOpenIDConnectProvider where
 -- * 'coidcprStatus'
 data CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse'
     { _coidcprOpenIDConnectProviderARN :: !(Maybe Text)
-    , _coidcprStatus                   :: !Int
+    , _coidcprStatus                   :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateOpenIDConnectProviderResponse' smart constructor.
-createOpenIDConnectProviderResponse :: Int -> CreateOpenIDConnectProviderResponse
+createOpenIDConnectProviderResponse :: Status -> CreateOpenIDConnectProviderResponse
 createOpenIDConnectProviderResponse pStatus =
     CreateOpenIDConnectProviderResponse'
     { _coidcprOpenIDConnectProviderARN = Nothing
@@ -197,5 +196,5 @@ coidcprOpenIDConnectProviderARN :: Lens' CreateOpenIDConnectProviderResponse (Ma
 coidcprOpenIDConnectProviderARN = lens _coidcprOpenIDConnectProviderARN (\ s a -> s{_coidcprOpenIDConnectProviderARN = a});
 
 -- | FIXME: Undocumented member.
-coidcprStatus :: Lens' CreateOpenIDConnectProviderResponse Int
+coidcprStatus :: Lens' CreateOpenIDConnectProviderResponse Status
 coidcprStatus = lens _coidcprStatus (\ s a -> s{_coidcprStatus = a});

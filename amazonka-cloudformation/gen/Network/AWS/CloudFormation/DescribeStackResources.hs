@@ -133,7 +133,7 @@ instance AWSRequest DescribeStackResources where
                  DescribeStackResourcesResponse' <$>
                    (x .@? "StackResources" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeStackResources where
         toHeaders = const mempty
@@ -162,11 +162,11 @@ instance ToQuery DescribeStackResources where
 -- * 'desStatus'
 data DescribeStackResourcesResponse = DescribeStackResourcesResponse'
     { _desStackResources :: !(Maybe [StackResource])
-    , _desStatus         :: !Int
+    , _desStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackResourcesResponse' smart constructor.
-describeStackResourcesResponse :: Int -> DescribeStackResourcesResponse
+describeStackResourcesResponse :: Status -> DescribeStackResourcesResponse
 describeStackResourcesResponse pStatus =
     DescribeStackResourcesResponse'
     { _desStackResources = Nothing
@@ -178,5 +178,5 @@ desStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
 desStackResources = lens _desStackResources (\ s a -> s{_desStackResources = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeStackResourcesResponse Int
+desStatus :: Lens' DescribeStackResourcesResponse Status
 desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

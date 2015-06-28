@@ -108,7 +108,7 @@ instance AWSRequest ListStreams where
                  ListStreamsResponse' <$>
                    (x .?> "StreamNames" .!@ mempty) <*>
                      (x .:> "HasMoreStreams")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListStreams where
         toHeaders
@@ -146,11 +146,11 @@ instance ToQuery ListStreams where
 data ListStreamsResponse = ListStreamsResponse'
     { _lsrStreamNames    :: ![Text]
     , _lsrHasMoreStreams :: !Bool
-    , _lsrStatus         :: !Int
+    , _lsrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListStreamsResponse' smart constructor.
-listStreamsResponse :: Bool -> Int -> ListStreamsResponse
+listStreamsResponse :: Bool -> Status -> ListStreamsResponse
 listStreamsResponse pHasMoreStreams pStatus =
     ListStreamsResponse'
     { _lsrStreamNames = mempty
@@ -168,5 +168,5 @@ lsrHasMoreStreams :: Lens' ListStreamsResponse Bool
 lsrHasMoreStreams = lens _lsrHasMoreStreams (\ s a -> s{_lsrHasMoreStreams = a});
 
 -- | FIXME: Undocumented member.
-lsrStatus :: Lens' ListStreamsResponse Int
+lsrStatus :: Lens' ListStreamsResponse Status
 lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});

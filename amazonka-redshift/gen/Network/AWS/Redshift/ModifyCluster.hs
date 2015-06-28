@@ -333,7 +333,7 @@ instance AWSRequest ModifyCluster where
           = receiveXMLWrapper "ModifyClusterResult"
               (\ s h x ->
                  ModifyClusterResponse' <$>
-                   (x .@? "Cluster") <*> (pure (fromEnum s)))
+                   (x .@? "Cluster") <*> (pure s))
 
 instance ToHeaders ModifyCluster where
         toHeaders = const mempty
@@ -382,11 +382,11 @@ instance ToQuery ModifyCluster where
 -- * 'mcrStatus'
 data ModifyClusterResponse = ModifyClusterResponse'
     { _mcrCluster :: !(Maybe Cluster)
-    , _mcrStatus  :: !Int
+    , _mcrStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyClusterResponse' smart constructor.
-modifyClusterResponse :: Int -> ModifyClusterResponse
+modifyClusterResponse :: Status -> ModifyClusterResponse
 modifyClusterResponse pStatus =
     ModifyClusterResponse'
     { _mcrCluster = Nothing
@@ -398,5 +398,5 @@ mcrCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
 mcrCluster = lens _mcrCluster (\ s a -> s{_mcrCluster = a});
 
 -- | FIXME: Undocumented member.
-mcrStatus :: Lens' ModifyClusterResponse Int
+mcrStatus :: Lens' ModifyClusterResponse Status
 mcrStatus = lens _mcrStatus (\ s a -> s{_mcrStatus = a});

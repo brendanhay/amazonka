@@ -102,7 +102,7 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
           = receiveJSON
               (\ s h x ->
                  ReportTaskRunnerHeartbeatResponse' <$>
-                   (x .:> "terminate") <*> (pure (fromEnum s)))
+                   (x .:> "terminate") <*> (pure s))
 
 instance ToHeaders ReportTaskRunnerHeartbeat where
         toHeaders
@@ -138,11 +138,11 @@ instance ToQuery ReportTaskRunnerHeartbeat where
 -- * 'rtrhrStatus'
 data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'
     { _rtrhrTerminate :: !Bool
-    , _rtrhrStatus    :: !Int
+    , _rtrhrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ReportTaskRunnerHeartbeatResponse' smart constructor.
-reportTaskRunnerHeartbeatResponse :: Bool -> Int -> ReportTaskRunnerHeartbeatResponse
+reportTaskRunnerHeartbeatResponse :: Bool -> Status -> ReportTaskRunnerHeartbeatResponse
 reportTaskRunnerHeartbeatResponse pTerminate pStatus =
     ReportTaskRunnerHeartbeatResponse'
     { _rtrhrTerminate = pTerminate
@@ -154,5 +154,5 @@ rtrhrTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
 rtrhrTerminate = lens _rtrhrTerminate (\ s a -> s{_rtrhrTerminate = a});
 
 -- | FIXME: Undocumented member.
-rtrhrStatus :: Lens' ReportTaskRunnerHeartbeatResponse Int
+rtrhrStatus :: Lens' ReportTaskRunnerHeartbeatResponse Status
 rtrhrStatus = lens _rtrhrStatus (\ s a -> s{_rtrhrStatus = a});

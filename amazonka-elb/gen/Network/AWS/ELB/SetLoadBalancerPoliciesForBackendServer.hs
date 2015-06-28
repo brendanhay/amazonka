@@ -100,7 +100,7 @@ instance AWSRequest
               "SetLoadBalancerPoliciesForBackendServerResult"
               (\ s h x ->
                  SetLoadBalancerPoliciesForBackendServerResponse' <$>
-                   (pure (fromEnum s)))
+                   (pure s))
 
 instance ToHeaders
          SetLoadBalancerPoliciesForBackendServer where
@@ -129,16 +129,16 @@ instance ToQuery
 --
 -- * 'slbpfbsrStatus'
 newtype SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse'
-    { _slbpfbsrStatus :: Int
+    { _slbpfbsrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'SetLoadBalancerPoliciesForBackendServerResponse' smart constructor.
-setLoadBalancerPoliciesForBackendServerResponse :: Int -> SetLoadBalancerPoliciesForBackendServerResponse
+setLoadBalancerPoliciesForBackendServerResponse :: Status -> SetLoadBalancerPoliciesForBackendServerResponse
 setLoadBalancerPoliciesForBackendServerResponse pStatus =
     SetLoadBalancerPoliciesForBackendServerResponse'
     { _slbpfbsrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-slbpfbsrStatus :: Lens' SetLoadBalancerPoliciesForBackendServerResponse Int
+slbpfbsrStatus :: Lens' SetLoadBalancerPoliciesForBackendServerResponse Status
 slbpfbsrStatus = lens _slbpfbsrStatus (\ s a -> s{_slbpfbsrStatus = a});

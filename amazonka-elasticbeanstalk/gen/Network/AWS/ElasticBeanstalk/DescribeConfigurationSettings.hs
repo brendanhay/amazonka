@@ -118,7 +118,7 @@ instance AWSRequest DescribeConfigurationSettings
                  DescribeConfigurationSettingsResponse' <$>
                    (x .@? "ConfigurationSettings" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeConfigurationSettings
          where
@@ -149,11 +149,11 @@ instance ToQuery DescribeConfigurationSettings where
 -- * 'dcsrStatus'
 data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'
     { _dcsrConfigurationSettings :: !(Maybe [ConfigurationSettingsDescription])
-    , _dcsrStatus                :: !Int
+    , _dcsrStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeConfigurationSettingsResponse' smart constructor.
-describeConfigurationSettingsResponse :: Int -> DescribeConfigurationSettingsResponse
+describeConfigurationSettingsResponse :: Status -> DescribeConfigurationSettingsResponse
 describeConfigurationSettingsResponse pStatus =
     DescribeConfigurationSettingsResponse'
     { _dcsrConfigurationSettings = Nothing
@@ -165,5 +165,5 @@ dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [Config
 dcsrConfigurationSettings = lens _dcsrConfigurationSettings (\ s a -> s{_dcsrConfigurationSettings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcsrStatus :: Lens' DescribeConfigurationSettingsResponse Int
+dcsrStatus :: Lens' DescribeConfigurationSettingsResponse Status
 dcsrStatus = lens _dcsrStatus (\ s a -> s{_dcsrStatus = a});

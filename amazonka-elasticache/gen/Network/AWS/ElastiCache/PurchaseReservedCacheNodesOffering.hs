@@ -99,7 +99,7 @@ instance AWSRequest
               "PurchaseReservedCacheNodesOfferingResult"
               (\ s h x ->
                  PurchaseReservedCacheNodesOfferingResponse' <$>
-                   (x .@? "ReservedCacheNode") <*> (pure (fromEnum s)))
+                   (x .@? "ReservedCacheNode") <*> (pure s))
 
 instance ToHeaders PurchaseReservedCacheNodesOffering
          where
@@ -130,11 +130,11 @@ instance ToQuery PurchaseReservedCacheNodesOffering
 -- * 'prcnorStatus'
 data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'
     { _prcnorReservedCacheNode :: !(Maybe ReservedCacheNode)
-    , _prcnorStatus            :: !Int
+    , _prcnorStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'PurchaseReservedCacheNodesOfferingResponse' smart constructor.
-purchaseReservedCacheNodesOfferingResponse :: Int -> PurchaseReservedCacheNodesOfferingResponse
+purchaseReservedCacheNodesOfferingResponse :: Status -> PurchaseReservedCacheNodesOfferingResponse
 purchaseReservedCacheNodesOfferingResponse pStatus =
     PurchaseReservedCacheNodesOfferingResponse'
     { _prcnorReservedCacheNode = Nothing
@@ -146,5 +146,5 @@ prcnorReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (May
 prcnorReservedCacheNode = lens _prcnorReservedCacheNode (\ s a -> s{_prcnorReservedCacheNode = a});
 
 -- | FIXME: Undocumented member.
-prcnorStatus :: Lens' PurchaseReservedCacheNodesOfferingResponse Int
+prcnorStatus :: Lens' PurchaseReservedCacheNodesOfferingResponse Status
 prcnorStatus = lens _prcnorStatus (\ s a -> s{_prcnorStatus = a});

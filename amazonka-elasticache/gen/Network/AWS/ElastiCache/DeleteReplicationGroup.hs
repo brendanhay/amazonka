@@ -102,7 +102,7 @@ instance AWSRequest DeleteReplicationGroup where
           = receiveXMLWrapper "DeleteReplicationGroupResult"
               (\ s h x ->
                  DeleteReplicationGroupResponse' <$>
-                   (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
+                   (x .@? "ReplicationGroup") <*> (pure s))
 
 instance ToHeaders DeleteReplicationGroup where
         toHeaders = const mempty
@@ -130,11 +130,11 @@ instance ToQuery DeleteReplicationGroup where
 -- * 'delStatus'
 data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
     { _delReplicationGroup :: !(Maybe ReplicationGroup)
-    , _delStatus           :: !Int
+    , _delStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteReplicationGroupResponse' smart constructor.
-deleteReplicationGroupResponse :: Int -> DeleteReplicationGroupResponse
+deleteReplicationGroupResponse :: Status -> DeleteReplicationGroupResponse
 deleteReplicationGroupResponse pStatus =
     DeleteReplicationGroupResponse'
     { _delReplicationGroup = Nothing
@@ -146,5 +146,5 @@ delReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGr
 delReplicationGroup = lens _delReplicationGroup (\ s a -> s{_delReplicationGroup = a});
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteReplicationGroupResponse Int
+delStatus :: Lens' DeleteReplicationGroupResponse Status
 delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

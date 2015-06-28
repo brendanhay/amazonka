@@ -112,7 +112,7 @@ instance AWSRequest RegisterInstancesWithLoadBalancer
                  RegisterInstancesWithLoadBalancerResponse' <$>
                    (x .@? "Instances" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders RegisterInstancesWithLoadBalancer
          where
@@ -141,11 +141,11 @@ instance ToQuery RegisterInstancesWithLoadBalancer
 -- * 'riwlbrStatus'
 data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'
     { _riwlbrInstances :: !(Maybe [Instance])
-    , _riwlbrStatus    :: !Int
+    , _riwlbrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'RegisterInstancesWithLoadBalancerResponse' smart constructor.
-registerInstancesWithLoadBalancerResponse :: Int -> RegisterInstancesWithLoadBalancerResponse
+registerInstancesWithLoadBalancerResponse :: Status -> RegisterInstancesWithLoadBalancerResponse
 registerInstancesWithLoadBalancerResponse pStatus =
     RegisterInstancesWithLoadBalancerResponse'
     { _riwlbrInstances = Nothing
@@ -157,5 +157,5 @@ riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
 riwlbrInstances = lens _riwlbrInstances (\ s a -> s{_riwlbrInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-riwlbrStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Int
+riwlbrStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Status
 riwlbrStatus = lens _riwlbrStatus (\ s a -> s{_riwlbrStatus = a});

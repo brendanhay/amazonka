@@ -101,7 +101,7 @@ instance AWSRequest ListStacks where
                    (x .@? "StackSummaries" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "NextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListStacks where
         toHeaders = const mempty
@@ -133,11 +133,11 @@ instance ToQuery ListStacks where
 data ListStacksResponse = ListStacksResponse'
     { _lisStackSummaries :: !(Maybe [StackSummary])
     , _lisNextToken      :: !(Maybe Text)
-    , _lisStatus         :: !Int
+    , _lisStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListStacksResponse' smart constructor.
-listStacksResponse :: Int -> ListStacksResponse
+listStacksResponse :: Status -> ListStacksResponse
 listStacksResponse pStatus =
     ListStacksResponse'
     { _lisStackSummaries = Nothing
@@ -156,5 +156,5 @@ lisNextToken :: Lens' ListStacksResponse (Maybe Text)
 lisNextToken = lens _lisNextToken (\ s a -> s{_lisNextToken = a});
 
 -- | FIXME: Undocumented member.
-lisStatus :: Lens' ListStacksResponse Int
+lisStatus :: Lens' ListStacksResponse Status
 lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});

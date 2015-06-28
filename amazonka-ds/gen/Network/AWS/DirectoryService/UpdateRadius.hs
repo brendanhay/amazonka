@@ -79,8 +79,7 @@ instance AWSRequest UpdateRadius where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x ->
-                 UpdateRadiusResponse' <$> (pure (fromEnum s)))
+              (\ s h x -> UpdateRadiusResponse' <$> (pure s))
 
 instance ToHeaders UpdateRadius where
         toHeaders
@@ -112,16 +111,16 @@ instance ToQuery UpdateRadius where
 --
 -- * 'urrStatus'
 newtype UpdateRadiusResponse = UpdateRadiusResponse'
-    { _urrStatus :: Int
+    { _urrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateRadiusResponse' smart constructor.
-updateRadiusResponse :: Int -> UpdateRadiusResponse
+updateRadiusResponse :: Status -> UpdateRadiusResponse
 updateRadiusResponse pStatus =
     UpdateRadiusResponse'
     { _urrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-urrStatus :: Lens' UpdateRadiusResponse Int
+urrStatus :: Lens' UpdateRadiusResponse Status
 urrStatus = lens _urrStatus (\ s a -> s{_urrStatus = a});

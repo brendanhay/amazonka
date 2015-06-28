@@ -118,8 +118,7 @@ instance AWSRequest SetTaskStatus where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x ->
-                 SetTaskStatusResponse' <$> (pure (fromEnum s)))
+              (\ s h x -> SetTaskStatusResponse' <$> (pure s))
 
 instance ToHeaders SetTaskStatus where
         toHeaders
@@ -153,16 +152,16 @@ instance ToQuery SetTaskStatus where
 --
 -- * 'stsrStatus'
 newtype SetTaskStatusResponse = SetTaskStatusResponse'
-    { _stsrStatus :: Int
+    { _stsrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'SetTaskStatusResponse' smart constructor.
-setTaskStatusResponse :: Int -> SetTaskStatusResponse
+setTaskStatusResponse :: Status -> SetTaskStatusResponse
 setTaskStatusResponse pStatus =
     SetTaskStatusResponse'
     { _stsrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-stsrStatus :: Lens' SetTaskStatusResponse Int
+stsrStatus :: Lens' SetTaskStatusResponse Status
 stsrStatus = lens _stsrStatus (\ s a -> s{_stsrStatus = a});

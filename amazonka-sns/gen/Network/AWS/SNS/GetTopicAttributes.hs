@@ -74,7 +74,7 @@ instance AWSRequest GetTopicAttributes where
                  GetTopicAttributesResponse' <$>
                    (x .@? "Attributes" .!@ mempty >>=
                       may (parseXMLMap "entry" "key" "value"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetTopicAttributes where
         toHeaders = const mempty
@@ -100,11 +100,11 @@ instance ToQuery GetTopicAttributes where
 -- * 'gtarStatus'
 data GetTopicAttributesResponse = GetTopicAttributesResponse'
     { _gtarAttributes :: !(Maybe (Map Text Text))
-    , _gtarStatus     :: !Int
+    , _gtarStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetTopicAttributesResponse' smart constructor.
-getTopicAttributesResponse :: Int -> GetTopicAttributesResponse
+getTopicAttributesResponse :: Status -> GetTopicAttributesResponse
 getTopicAttributesResponse pStatus =
     GetTopicAttributesResponse'
     { _gtarAttributes = Nothing
@@ -134,5 +134,5 @@ gtarAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
 gtarAttributes = lens _gtarAttributes (\ s a -> s{_gtarAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gtarStatus :: Lens' GetTopicAttributesResponse Int
+gtarStatus :: Lens' GetTopicAttributesResponse Status
 gtarStatus = lens _gtarStatus (\ s a -> s{_gtarStatus = a});

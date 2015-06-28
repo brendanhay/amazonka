@@ -132,7 +132,7 @@ instance AWSRequest Encrypt where
               (\ s h x ->
                  EncryptResponse' <$>
                    (x .?> "KeyId") <*> (x .?> "CiphertextBlob") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders Encrypt where
         toHeaders
@@ -168,11 +168,11 @@ instance ToQuery Encrypt where
 data EncryptResponse = EncryptResponse'
     { _erKeyId          :: !(Maybe Text)
     , _erCiphertextBlob :: !(Maybe Base64)
-    , _erStatus         :: !Int
+    , _erStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'EncryptResponse' smart constructor.
-encryptResponse :: Int -> EncryptResponse
+encryptResponse :: Status -> EncryptResponse
 encryptResponse pStatus =
     EncryptResponse'
     { _erKeyId = Nothing
@@ -190,5 +190,5 @@ erCiphertextBlob :: Lens' EncryptResponse (Maybe Base64)
 erCiphertextBlob = lens _erCiphertextBlob (\ s a -> s{_erCiphertextBlob = a});
 
 -- | FIXME: Undocumented member.
-erStatus :: Lens' EncryptResponse Int
+erStatus :: Lens' EncryptResponse Status
 erStatus = lens _erStatus (\ s a -> s{_erStatus = a});

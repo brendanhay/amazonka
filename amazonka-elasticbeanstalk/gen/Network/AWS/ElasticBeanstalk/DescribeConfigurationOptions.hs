@@ -124,7 +124,7 @@ instance AWSRequest DescribeConfigurationOptions
                    (x .@? "Options" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "SolutionStackName")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeConfigurationOptions where
         toHeaders = const mempty
@@ -159,11 +159,11 @@ instance ToQuery DescribeConfigurationOptions where
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'
     { _dcorOptions           :: !(Maybe [ConfigurationOptionDescription])
     , _dcorSolutionStackName :: !(Maybe Text)
-    , _dcorStatus            :: !Int
+    , _dcorStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeConfigurationOptionsResponse' smart constructor.
-describeConfigurationOptionsResponse :: Int -> DescribeConfigurationOptionsResponse
+describeConfigurationOptionsResponse :: Status -> DescribeConfigurationOptionsResponse
 describeConfigurationOptionsResponse pStatus =
     DescribeConfigurationOptionsResponse'
     { _dcorOptions = Nothing
@@ -180,5 +180,5 @@ dcorSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
 dcorSolutionStackName = lens _dcorSolutionStackName (\ s a -> s{_dcorSolutionStackName = a});
 
 -- | FIXME: Undocumented member.
-dcorStatus :: Lens' DescribeConfigurationOptionsResponse Int
+dcorStatus :: Lens' DescribeConfigurationOptionsResponse Status
 dcorStatus = lens _dcorStatus (\ s a -> s{_dcorStatus = a});

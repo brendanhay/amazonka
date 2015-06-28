@@ -86,7 +86,7 @@ instance AWSRequest CreateNetworkACL where
           = receiveXML
               (\ s h x ->
                  CreateNetworkACLResponse' <$>
-                   (x .@? "networkAcl") <*> (pure (fromEnum s)))
+                   (x .@? "networkAcl") <*> (pure s))
 
 instance ToHeaders CreateNetworkACL where
         toHeaders = const mempty
@@ -110,11 +110,11 @@ instance ToQuery CreateNetworkACL where
 -- * 'cnarStatus'
 data CreateNetworkACLResponse = CreateNetworkACLResponse'
     { _cnarNetworkACL :: !(Maybe NetworkACL)
-    , _cnarStatus     :: !Int
+    , _cnarStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateNetworkACLResponse' smart constructor.
-createNetworkACLResponse :: Int -> CreateNetworkACLResponse
+createNetworkACLResponse :: Status -> CreateNetworkACLResponse
 createNetworkACLResponse pStatus =
     CreateNetworkACLResponse'
     { _cnarNetworkACL = Nothing
@@ -126,5 +126,5 @@ cnarNetworkACL :: Lens' CreateNetworkACLResponse (Maybe NetworkACL)
 cnarNetworkACL = lens _cnarNetworkACL (\ s a -> s{_cnarNetworkACL = a});
 
 -- | FIXME: Undocumented member.
-cnarStatus :: Lens' CreateNetworkACLResponse Int
+cnarStatus :: Lens' CreateNetworkACLResponse Status
 cnarStatus = lens _cnarStatus (\ s a -> s{_cnarStatus = a});

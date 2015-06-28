@@ -76,7 +76,7 @@ instance AWSRequest GetIdentityPoolRoles where
                  GetIdentityPoolRolesResponse' <$>
                    (x .?> "Roles" .!@ mempty) <*>
                      (x .?> "IdentityPoolId")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetIdentityPoolRoles where
         toHeaders
@@ -112,11 +112,11 @@ instance ToQuery GetIdentityPoolRoles where
 data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
     { _giprrRoles          :: !(Maybe (Map Text Text))
     , _giprrIdentityPoolId :: !(Maybe Text)
-    , _giprrStatus         :: !Int
+    , _giprrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityPoolRolesResponse' smart constructor.
-getIdentityPoolRolesResponse :: Int -> GetIdentityPoolRolesResponse
+getIdentityPoolRolesResponse :: Status -> GetIdentityPoolRolesResponse
 getIdentityPoolRolesResponse pStatus =
     GetIdentityPoolRolesResponse'
     { _giprrRoles = Nothing
@@ -134,5 +134,5 @@ giprrIdentityPoolId :: Lens' GetIdentityPoolRolesResponse (Maybe Text)
 giprrIdentityPoolId = lens _giprrIdentityPoolId (\ s a -> s{_giprrIdentityPoolId = a});
 
 -- | FIXME: Undocumented member.
-giprrStatus :: Lens' GetIdentityPoolRolesResponse Int
+giprrStatus :: Lens' GetIdentityPoolRolesResponse Status
 giprrStatus = lens _giprrStatus (\ s a -> s{_giprrStatus = a});

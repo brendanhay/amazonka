@@ -104,7 +104,7 @@ instance AWSRequest ListAccountAliases where
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "AccountAliases" .!@ mempty >>=
                         parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListAccountAliases where
         toHeaders = const mempty
@@ -136,11 +136,11 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse'
     { _laarMarker         :: !(Maybe Text)
     , _laarIsTruncated    :: !(Maybe Bool)
     , _laarAccountAliases :: ![Text]
-    , _laarStatus         :: !Int
+    , _laarStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListAccountAliasesResponse' smart constructor.
-listAccountAliasesResponse :: Int -> ListAccountAliasesResponse
+listAccountAliasesResponse :: Status -> ListAccountAliasesResponse
 listAccountAliasesResponse pStatus =
     ListAccountAliasesResponse'
     { _laarMarker = Nothing
@@ -168,5 +168,5 @@ laarAccountAliases :: Lens' ListAccountAliasesResponse [Text]
 laarAccountAliases = lens _laarAccountAliases (\ s a -> s{_laarAccountAliases = a});
 
 -- | FIXME: Undocumented member.
-laarStatus :: Lens' ListAccountAliasesResponse Int
+laarStatus :: Lens' ListAccountAliasesResponse Status
 laarStatus = lens _laarStatus (\ s a -> s{_laarStatus = a});

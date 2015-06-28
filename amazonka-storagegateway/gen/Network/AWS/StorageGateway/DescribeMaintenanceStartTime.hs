@@ -82,7 +82,7 @@ instance AWSRequest DescribeMaintenanceStartTime
                      (x .?> "HourOfDay")
                      <*> (x .?> "Timezone")
                      <*> (x .?> "DayOfWeek")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeMaintenanceStartTime where
         toHeaders
@@ -125,11 +125,11 @@ data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
     , _dmstrHourOfDay    :: !(Maybe Nat)
     , _dmstrTimezone     :: !(Maybe Text)
     , _dmstrDayOfWeek    :: !(Maybe Nat)
-    , _dmstrStatus       :: !Int
+    , _dmstrStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeMaintenanceStartTimeResponse' smart constructor.
-describeMaintenanceStartTimeResponse :: Int -> DescribeMaintenanceStartTimeResponse
+describeMaintenanceStartTimeResponse :: Status -> DescribeMaintenanceStartTimeResponse
 describeMaintenanceStartTimeResponse pStatus =
     DescribeMaintenanceStartTimeResponse'
     { _dmstrGatewayARN = Nothing
@@ -161,5 +161,5 @@ dmstrDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrDayOfWeek = lens _dmstrDayOfWeek (\ s a -> s{_dmstrDayOfWeek = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
-dmstrStatus :: Lens' DescribeMaintenanceStartTimeResponse Int
+dmstrStatus :: Lens' DescribeMaintenanceStartTimeResponse Status
 dmstrStatus = lens _dmstrStatus (\ s a -> s{_dmstrStatus = a});

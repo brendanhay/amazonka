@@ -93,7 +93,7 @@ instance AWSRequest CancelImportTask where
                  CancelImportTaskResponse' <$>
                    (x .@? "state") <*> (x .@? "importTaskId") <*>
                      (x .@? "previousState")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders CancelImportTask where
         toHeaders = const mempty
@@ -125,11 +125,11 @@ data CancelImportTaskResponse = CancelImportTaskResponse'
     { _citrState         :: !(Maybe Text)
     , _citrImportTaskId  :: !(Maybe Text)
     , _citrPreviousState :: !(Maybe Text)
-    , _citrStatus        :: !Int
+    , _citrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CancelImportTaskResponse' smart constructor.
-cancelImportTaskResponse :: Int -> CancelImportTaskResponse
+cancelImportTaskResponse :: Status -> CancelImportTaskResponse
 cancelImportTaskResponse pStatus =
     CancelImportTaskResponse'
     { _citrState = Nothing
@@ -151,5 +151,5 @@ citrPreviousState :: Lens' CancelImportTaskResponse (Maybe Text)
 citrPreviousState = lens _citrPreviousState (\ s a -> s{_citrPreviousState = a});
 
 -- | FIXME: Undocumented member.
-citrStatus :: Lens' CancelImportTaskResponse Int
+citrStatus :: Lens' CancelImportTaskResponse Status
 citrStatus = lens _citrStatus (\ s a -> s{_citrStatus = a});

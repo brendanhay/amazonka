@@ -164,7 +164,7 @@ instance AWSRequest DescribeDBEngineVersions where
                    (x .@? "Marker") <*>
                      (x .@? "DBEngineVersions" .!@ mempty >>=
                         may (parseXMLList "DBEngineVersion"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeDBEngineVersions where
         toHeaders = const mempty
@@ -205,11 +205,11 @@ instance ToQuery DescribeDBEngineVersions where
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'
     { _ddevrMarker           :: !(Maybe Text)
     , _ddevrDBEngineVersions :: !(Maybe [DBEngineVersion])
-    , _ddevrStatus           :: !Int
+    , _ddevrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBEngineVersionsResponse' smart constructor.
-describeDBEngineVersionsResponse :: Int -> DescribeDBEngineVersionsResponse
+describeDBEngineVersionsResponse :: Status -> DescribeDBEngineVersionsResponse
 describeDBEngineVersionsResponse pStatus =
     DescribeDBEngineVersionsResponse'
     { _ddevrMarker = Nothing
@@ -228,5 +228,5 @@ ddevrDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion
 ddevrDBEngineVersions = lens _ddevrDBEngineVersions (\ s a -> s{_ddevrDBEngineVersions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddevrStatus :: Lens' DescribeDBEngineVersionsResponse Int
+ddevrStatus :: Lens' DescribeDBEngineVersionsResponse Status
 ddevrStatus = lens _ddevrStatus (\ s a -> s{_ddevrStatus = a});

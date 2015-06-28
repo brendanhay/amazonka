@@ -125,7 +125,7 @@ instance AWSRequest DescribeStream where
           = receiveJSON
               (\ s h x ->
                  DescribeStreamResponse' <$>
-                   (x .:> "StreamDescription") <*> (pure (fromEnum s)))
+                   (x .:> "StreamDescription") <*> (pure s))
 
 instance ToHeaders DescribeStream where
         toHeaders
@@ -160,11 +160,11 @@ instance ToQuery DescribeStream where
 -- * 'dsrStatus'
 data DescribeStreamResponse = DescribeStreamResponse'
     { _dsrStreamDescription :: !StreamDescription
-    , _dsrStatus            :: !Int
+    , _dsrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeStreamResponse' smart constructor.
-describeStreamResponse :: StreamDescription -> Int -> DescribeStreamResponse
+describeStreamResponse :: StreamDescription -> Status -> DescribeStreamResponse
 describeStreamResponse pStreamDescription pStatus =
     DescribeStreamResponse'
     { _dsrStreamDescription = pStreamDescription
@@ -178,5 +178,5 @@ dsrStreamDescription :: Lens' DescribeStreamResponse StreamDescription
 dsrStreamDescription = lens _dsrStreamDescription (\ s a -> s{_dsrStreamDescription = a});
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DescribeStreamResponse Int
+dsrStatus :: Lens' DescribeStreamResponse Status
 dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

@@ -72,8 +72,7 @@ instance AWSRequest StopLogging where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x ->
-                 StopLoggingResponse' <$> (pure (fromEnum s)))
+              (\ s h x -> StopLoggingResponse' <$> (pure s))
 
 instance ToHeaders StopLogging where
         toHeaders
@@ -103,16 +102,16 @@ instance ToQuery StopLogging where
 --
 -- * 'slrStatus'
 newtype StopLoggingResponse = StopLoggingResponse'
-    { _slrStatus :: Int
+    { _slrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'StopLoggingResponse' smart constructor.
-stopLoggingResponse :: Int -> StopLoggingResponse
+stopLoggingResponse :: Status -> StopLoggingResponse
 stopLoggingResponse pStatus =
     StopLoggingResponse'
     { _slrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-slrStatus :: Lens' StopLoggingResponse Int
+slrStatus :: Lens' StopLoggingResponse Status
 slrStatus = lens _slrStatus (\ s a -> s{_slrStatus = a});

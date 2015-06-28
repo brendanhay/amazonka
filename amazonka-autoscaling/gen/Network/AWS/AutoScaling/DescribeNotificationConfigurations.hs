@@ -106,7 +106,7 @@ instance AWSRequest
                    (x .@? "NextToken") <*>
                      (x .@? "NotificationConfigurations" .!@ mempty >>=
                         parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeNotificationConfigurations
          where
@@ -141,11 +141,11 @@ instance ToQuery DescribeNotificationConfigurations
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'
     { _dncrNextToken                  :: !(Maybe Text)
     , _dncrNotificationConfigurations :: ![NotificationConfiguration]
-    , _dncrStatus                     :: !Int
+    , _dncrStatus                     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeNotificationConfigurationsResponse' smart constructor.
-describeNotificationConfigurationsResponse :: Int -> DescribeNotificationConfigurationsResponse
+describeNotificationConfigurationsResponse :: Status -> DescribeNotificationConfigurationsResponse
 describeNotificationConfigurationsResponse pStatus =
     DescribeNotificationConfigurationsResponse'
     { _dncrNextToken = Nothing
@@ -163,5 +163,5 @@ dncrNotificationConfigurations :: Lens' DescribeNotificationConfigurationsRespon
 dncrNotificationConfigurations = lens _dncrNotificationConfigurations (\ s a -> s{_dncrNotificationConfigurations = a});
 
 -- | FIXME: Undocumented member.
-dncrStatus :: Lens' DescribeNotificationConfigurationsResponse Int
+dncrStatus :: Lens' DescribeNotificationConfigurationsResponse Status
 dncrStatus = lens _dncrStatus (\ s a -> s{_dncrStatus = a});

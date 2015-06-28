@@ -88,8 +88,7 @@ instance AWSRequest UpdateAssociationStatus where
           = receiveJSON
               (\ s h x ->
                  UpdateAssociationStatusResponse' <$>
-                   (x .?> "AssociationDescription") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "AssociationDescription") <*> (pure s))
 
 instance ToHeaders UpdateAssociationStatus where
         toHeaders
@@ -121,11 +120,11 @@ instance ToQuery UpdateAssociationStatus where
 -- * 'uasrStatus'
 data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
     { _uasrAssociationDescription :: !(Maybe AssociationDescription)
-    , _uasrStatus                 :: !Int
+    , _uasrStatus                 :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateAssociationStatusResponse' smart constructor.
-updateAssociationStatusResponse :: Int -> UpdateAssociationStatusResponse
+updateAssociationStatusResponse :: Status -> UpdateAssociationStatusResponse
 updateAssociationStatusResponse pStatus =
     UpdateAssociationStatusResponse'
     { _uasrAssociationDescription = Nothing
@@ -137,5 +136,5 @@ uasrAssociationDescription :: Lens' UpdateAssociationStatusResponse (Maybe Assoc
 uasrAssociationDescription = lens _uasrAssociationDescription (\ s a -> s{_uasrAssociationDescription = a});
 
 -- | FIXME: Undocumented member.
-uasrStatus :: Lens' UpdateAssociationStatusResponse Int
+uasrStatus :: Lens' UpdateAssociationStatusResponse Status
 uasrStatus = lens _uasrStatus (\ s a -> s{_uasrStatus = a});

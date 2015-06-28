@@ -76,7 +76,7 @@ instance AWSRequest CreateWorkspaces where
                  CreateWorkspacesResponse' <$>
                    (x .?> "FailedRequests" .!@ mempty) <*>
                      (x .?> "PendingRequests" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders CreateWorkspaces where
         toHeaders
@@ -111,11 +111,11 @@ instance ToQuery CreateWorkspaces where
 data CreateWorkspacesResponse = CreateWorkspacesResponse'
     { _cwrFailedRequests  :: !(Maybe [FailedCreateWorkspaceRequest])
     , _cwrPendingRequests :: !(Maybe [Workspace])
-    , _cwrStatus          :: !Int
+    , _cwrStatus          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateWorkspacesResponse' smart constructor.
-createWorkspacesResponse :: Int -> CreateWorkspacesResponse
+createWorkspacesResponse :: Status -> CreateWorkspacesResponse
 createWorkspacesResponse pStatus =
     CreateWorkspacesResponse'
     { _cwrFailedRequests = Nothing
@@ -137,5 +137,5 @@ cwrPendingRequests :: Lens' CreateWorkspacesResponse [Workspace]
 cwrPendingRequests = lens _cwrPendingRequests (\ s a -> s{_cwrPendingRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-cwrStatus :: Lens' CreateWorkspacesResponse Int
+cwrStatus :: Lens' CreateWorkspacesResponse Status
 cwrStatus = lens _cwrStatus (\ s a -> s{_cwrStatus = a});

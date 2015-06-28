@@ -133,7 +133,7 @@ instance AWSRequest AuthorizeDBSecurityGroupIngress
               "AuthorizeDBSecurityGroupIngressResult"
               (\ s h x ->
                  AuthorizeDBSecurityGroupIngressResponse' <$>
-                   (x .@? "DBSecurityGroup") <*> (pure (fromEnum s)))
+                   (x .@? "DBSecurityGroup") <*> (pure s))
 
 instance ToHeaders AuthorizeDBSecurityGroupIngress
          where
@@ -165,11 +165,11 @@ instance ToQuery AuthorizeDBSecurityGroupIngress
 -- * 'adsgirStatus'
 data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse'
     { _adsgirDBSecurityGroup :: !(Maybe DBSecurityGroup)
-    , _adsgirStatus          :: !Int
+    , _adsgirStatus          :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeDBSecurityGroupIngressResponse' smart constructor.
-authorizeDBSecurityGroupIngressResponse :: Int -> AuthorizeDBSecurityGroupIngressResponse
+authorizeDBSecurityGroupIngressResponse :: Status -> AuthorizeDBSecurityGroupIngressResponse
 authorizeDBSecurityGroupIngressResponse pStatus =
     AuthorizeDBSecurityGroupIngressResponse'
     { _adsgirDBSecurityGroup = Nothing
@@ -181,5 +181,5 @@ adsgirDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe DB
 adsgirDBSecurityGroup = lens _adsgirDBSecurityGroup (\ s a -> s{_adsgirDBSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-adsgirStatus :: Lens' AuthorizeDBSecurityGroupIngressResponse Int
+adsgirStatus :: Lens' AuthorizeDBSecurityGroupIngressResponse Status
 adsgirStatus = lens _adsgirStatus (\ s a -> s{_adsgirStatus = a});

@@ -187,7 +187,7 @@ instance AWSRequest DescribeReservedDBInstances where
                    (x .@? "ReservedDBInstances" .!@ mempty >>=
                       may (parseXMLList "ReservedDBInstance"))
                      <*> (x .@? "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeReservedDBInstances where
         toHeaders = const mempty
@@ -228,11 +228,11 @@ instance ToQuery DescribeReservedDBInstances where
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'
     { _drdirReservedDBInstances :: !(Maybe [ReservedDBInstance])
     , _drdirMarker              :: !(Maybe Text)
-    , _drdirStatus              :: !Int
+    , _drdirStatus              :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedDBInstancesResponse' smart constructor.
-describeReservedDBInstancesResponse :: Int -> DescribeReservedDBInstancesResponse
+describeReservedDBInstancesResponse :: Status -> DescribeReservedDBInstancesResponse
 describeReservedDBInstancesResponse pStatus =
     DescribeReservedDBInstancesResponse'
     { _drdirReservedDBInstances = Nothing
@@ -251,5 +251,5 @@ drdirMarker :: Lens' DescribeReservedDBInstancesResponse (Maybe Text)
 drdirMarker = lens _drdirMarker (\ s a -> s{_drdirMarker = a});
 
 -- | FIXME: Undocumented member.
-drdirStatus :: Lens' DescribeReservedDBInstancesResponse Int
+drdirStatus :: Lens' DescribeReservedDBInstancesResponse Status
 drdirStatus = lens _drdirStatus (\ s a -> s{_drdirStatus = a});

@@ -81,7 +81,7 @@ instance AWSRequest CancelArchival where
           = receiveJSON
               (\ s h x ->
                  CancelArchivalResponse' <$>
-                   (x .?> "TapeARN") <*> (pure (fromEnum s)))
+                   (x .?> "TapeARN") <*> (pure s))
 
 instance ToHeaders CancelArchival where
         toHeaders
@@ -116,11 +116,11 @@ instance ToQuery CancelArchival where
 -- * 'carStatus'
 data CancelArchivalResponse = CancelArchivalResponse'
     { _carTapeARN :: !(Maybe Text)
-    , _carStatus  :: !Int
+    , _carStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CancelArchivalResponse' smart constructor.
-cancelArchivalResponse :: Int -> CancelArchivalResponse
+cancelArchivalResponse :: Status -> CancelArchivalResponse
 cancelArchivalResponse pStatus =
     CancelArchivalResponse'
     { _carTapeARN = Nothing
@@ -133,5 +133,5 @@ carTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 carTapeARN = lens _carTapeARN (\ s a -> s{_carTapeARN = a});
 
 -- | FIXME: Undocumented member.
-carStatus :: Lens' CancelArchivalResponse Int
+carStatus :: Lens' CancelArchivalResponse Status
 carStatus = lens _carStatus (\ s a -> s{_carStatus = a});

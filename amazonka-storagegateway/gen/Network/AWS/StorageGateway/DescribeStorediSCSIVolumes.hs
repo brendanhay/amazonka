@@ -77,8 +77,7 @@ instance AWSRequest DescribeStorediSCSIVolumes where
           = receiveJSON
               (\ s h x ->
                  DescribeStorediSCSIVolumesResponse' <$>
-                   (x .?> "StorediSCSIVolumes" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+                   (x .?> "StorediSCSIVolumes" .!@ mempty) <*> (pure s))
 
 instance ToHeaders DescribeStorediSCSIVolumes where
         toHeaders
@@ -109,11 +108,11 @@ instance ToQuery DescribeStorediSCSIVolumes where
 -- * 'dsscsivrStatus'
 data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'
     { _dsscsivrStorediSCSIVolumes :: !(Maybe [StorediSCSIVolume])
-    , _dsscsivrStatus             :: !Int
+    , _dsscsivrStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeStorediSCSIVolumesResponse' smart constructor.
-describeStorediSCSIVolumesResponse :: Int -> DescribeStorediSCSIVolumesResponse
+describeStorediSCSIVolumesResponse :: Status -> DescribeStorediSCSIVolumesResponse
 describeStorediSCSIVolumesResponse pStatus =
     DescribeStorediSCSIVolumesResponse'
     { _dsscsivrStorediSCSIVolumes = Nothing
@@ -125,5 +124,5 @@ dsscsivrStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediS
 dsscsivrStorediSCSIVolumes = lens _dsscsivrStorediSCSIVolumes (\ s a -> s{_dsscsivrStorediSCSIVolumes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsscsivrStatus :: Lens' DescribeStorediSCSIVolumesResponse Int
+dsscsivrStatus :: Lens' DescribeStorediSCSIVolumesResponse Status
 dsscsivrStatus = lens _dsscsivrStatus (\ s a -> s{_dsscsivrStatus = a});

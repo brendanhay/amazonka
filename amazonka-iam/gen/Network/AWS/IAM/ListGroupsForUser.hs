@@ -108,7 +108,7 @@ instance AWSRequest ListGroupsForUser where
                  ListGroupsForUserResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "Groups" .!@ mempty >>= parseXMLList "member")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListGroupsForUser where
         toHeaders = const mempty
@@ -141,11 +141,11 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse'
     { _lgfurMarker      :: !(Maybe Text)
     , _lgfurIsTruncated :: !(Maybe Bool)
     , _lgfurGroups      :: ![Group]
-    , _lgfurStatus      :: !Int
+    , _lgfurStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListGroupsForUserResponse' smart constructor.
-listGroupsForUserResponse :: Int -> ListGroupsForUserResponse
+listGroupsForUserResponse :: Status -> ListGroupsForUserResponse
 listGroupsForUserResponse pStatus =
     ListGroupsForUserResponse'
     { _lgfurMarker = Nothing
@@ -172,5 +172,5 @@ lgfurGroups :: Lens' ListGroupsForUserResponse [Group]
 lgfurGroups = lens _lgfurGroups (\ s a -> s{_lgfurGroups = a});
 
 -- | FIXME: Undocumented member.
-lgfurStatus :: Lens' ListGroupsForUserResponse Int
+lgfurStatus :: Lens' ListGroupsForUserResponse Status
 lgfurStatus = lens _lgfurStatus (\ s a -> s{_lgfurStatus = a});

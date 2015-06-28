@@ -703,7 +703,7 @@ instance AWSRequest Query where
                      <*> (x .?> "ScannedCount")
                      <*> (x .?> "Items" .!@ mempty)
                      <*> (x .?> "ConsumedCapacity")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders Query where
         toHeaders
@@ -767,11 +767,11 @@ data QueryResponse = QueryResponse'
     , _qrScannedCount     :: !(Maybe Int)
     , _qrItems            :: !(Maybe [Map Text AttributeValue])
     , _qrConsumedCapacity :: !(Maybe ConsumedCapacity)
-    , _qrStatus           :: !Int
+    , _qrStatus           :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'QueryResponse' smart constructor.
-queryResponse :: Int -> QueryResponse
+queryResponse :: Status -> QueryResponse
 queryResponse pStatus =
     QueryResponse'
     { _qrLastEvaluatedKey = Nothing
@@ -828,5 +828,5 @@ qrConsumedCapacity :: Lens' QueryResponse (Maybe ConsumedCapacity)
 qrConsumedCapacity = lens _qrConsumedCapacity (\ s a -> s{_qrConsumedCapacity = a});
 
 -- | FIXME: Undocumented member.
-qrStatus :: Lens' QueryResponse Int
+qrStatus :: Lens' QueryResponse Status
 qrStatus = lens _qrStatus (\ s a -> s{_qrStatus = a});

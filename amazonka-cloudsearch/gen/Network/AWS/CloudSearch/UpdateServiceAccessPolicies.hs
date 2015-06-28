@@ -86,7 +86,7 @@ instance AWSRequest UpdateServiceAccessPolicies where
               "UpdateServiceAccessPoliciesResult"
               (\ s h x ->
                  UpdateServiceAccessPoliciesResponse' <$>
-                   (x .@ "AccessPolicies") <*> (pure (fromEnum s)))
+                   (x .@ "AccessPolicies") <*> (pure s))
 
 instance ToHeaders UpdateServiceAccessPolicies where
         toHeaders = const mempty
@@ -115,11 +115,11 @@ instance ToQuery UpdateServiceAccessPolicies where
 -- * 'usaprStatus'
 data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
     { _usaprAccessPolicies :: !AccessPoliciesStatus
-    , _usaprStatus         :: !Int
+    , _usaprStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateServiceAccessPoliciesResponse' smart constructor.
-updateServiceAccessPoliciesResponse :: AccessPoliciesStatus -> Int -> UpdateServiceAccessPoliciesResponse
+updateServiceAccessPoliciesResponse :: AccessPoliciesStatus -> Status -> UpdateServiceAccessPoliciesResponse
 updateServiceAccessPoliciesResponse pAccessPolicies pStatus =
     UpdateServiceAccessPoliciesResponse'
     { _usaprAccessPolicies = pAccessPolicies
@@ -131,5 +131,5 @@ usaprAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesS
 usaprAccessPolicies = lens _usaprAccessPolicies (\ s a -> s{_usaprAccessPolicies = a});
 
 -- | FIXME: Undocumented member.
-usaprStatus :: Lens' UpdateServiceAccessPoliciesResponse Int
+usaprStatus :: Lens' UpdateServiceAccessPoliciesResponse Status
 usaprStatus = lens _usaprStatus (\ s a -> s{_usaprStatus = a});

@@ -82,7 +82,7 @@ instance AWSRequest DeleteBandwidthRateLimit where
           = receiveJSON
               (\ s h x ->
                  DeleteBandwidthRateLimitResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+                   (x .?> "GatewayARN") <*> (pure s))
 
 instance ToHeaders DeleteBandwidthRateLimit where
         toHeaders
@@ -118,11 +118,11 @@ instance ToQuery DeleteBandwidthRateLimit where
 -- * 'deleStatus'
 data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'
     { _deleGatewayARN :: !(Maybe Text)
-    , _deleStatus     :: !Int
+    , _deleStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteBandwidthRateLimitResponse' smart constructor.
-deleteBandwidthRateLimitResponse :: Int -> DeleteBandwidthRateLimitResponse
+deleteBandwidthRateLimitResponse :: Status -> DeleteBandwidthRateLimitResponse
 deleteBandwidthRateLimitResponse pStatus =
     DeleteBandwidthRateLimitResponse'
     { _deleGatewayARN = Nothing
@@ -134,5 +134,5 @@ deleGatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
 deleGatewayARN = lens _deleGatewayARN (\ s a -> s{_deleGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-deleStatus :: Lens' DeleteBandwidthRateLimitResponse Int
+deleStatus :: Lens' DeleteBandwidthRateLimitResponse Status
 deleStatus = lens _deleStatus (\ s a -> s{_deleStatus = a});

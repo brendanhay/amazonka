@@ -66,7 +66,7 @@ instance AWSRequest ListVerifiedEmailAddresses where
                  ListVerifiedEmailAddressesResponse' <$>
                    (x .@? "VerifiedEmailAddresses" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListVerifiedEmailAddresses where
         toHeaders = const mempty
@@ -94,11 +94,11 @@ instance ToQuery ListVerifiedEmailAddresses where
 -- * 'lvearStatus'
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
     { _lvearVerifiedEmailAddresses :: !(Maybe [Text])
-    , _lvearStatus                 :: !Int
+    , _lvearStatus                 :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListVerifiedEmailAddressesResponse' smart constructor.
-listVerifiedEmailAddressesResponse :: Int -> ListVerifiedEmailAddressesResponse
+listVerifiedEmailAddressesResponse :: Status -> ListVerifiedEmailAddressesResponse
 listVerifiedEmailAddressesResponse pStatus =
     ListVerifiedEmailAddressesResponse'
     { _lvearVerifiedEmailAddresses = Nothing
@@ -110,5 +110,5 @@ lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
 lvearVerifiedEmailAddresses = lens _lvearVerifiedEmailAddresses (\ s a -> s{_lvearVerifiedEmailAddresses = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lvearStatus :: Lens' ListVerifiedEmailAddressesResponse Int
+lvearStatus :: Lens' ListVerifiedEmailAddressesResponse Status
 lvearStatus = lens _lvearStatus (\ s a -> s{_lvearStatus = a});

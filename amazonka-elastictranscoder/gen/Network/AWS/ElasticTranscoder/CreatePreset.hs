@@ -137,8 +137,7 @@ instance AWSRequest CreatePreset where
           = receiveJSON
               (\ s h x ->
                  CreatePresetResponse' <$>
-                   (x .?> "Warning") <*> (x .?> "Preset") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "Warning") <*> (x .?> "Preset") <*> (pure s))
 
 instance ToHeaders CreatePreset where
         toHeaders = const mempty
@@ -170,11 +169,11 @@ instance ToQuery CreatePreset where
 data CreatePresetResponse = CreatePresetResponse'
     { _cprWarning :: !(Maybe Text)
     , _cprPreset  :: !(Maybe Preset)
-    , _cprStatus  :: !Int
+    , _cprStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreatePresetResponse' smart constructor.
-createPresetResponse :: Int -> CreatePresetResponse
+createPresetResponse :: Status -> CreatePresetResponse
 createPresetResponse pStatus =
     CreatePresetResponse'
     { _cprWarning = Nothing
@@ -196,5 +195,5 @@ cprPreset :: Lens' CreatePresetResponse (Maybe Preset)
 cprPreset = lens _cprPreset (\ s a -> s{_cprPreset = a});
 
 -- | FIXME: Undocumented member.
-cprStatus :: Lens' CreatePresetResponse Int
+cprStatus :: Lens' CreatePresetResponse Status
 cprStatus = lens _cprStatus (\ s a -> s{_cprStatus = a});

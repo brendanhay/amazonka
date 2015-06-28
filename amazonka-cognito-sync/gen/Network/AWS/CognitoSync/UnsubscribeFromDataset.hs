@@ -102,8 +102,7 @@ instance AWSRequest UnsubscribeFromDataset where
         response
           = receiveJSON
               (\ s h x ->
-                 UnsubscribeFromDatasetResponse' <$>
-                   (pure (fromEnum s)))
+                 UnsubscribeFromDatasetResponse' <$> (pure s))
 
 instance ToHeaders UnsubscribeFromDataset where
         toHeaders
@@ -131,16 +130,16 @@ instance ToQuery UnsubscribeFromDataset where
 --
 -- * 'ufdrStatus'
 newtype UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'
-    { _ufdrStatus :: Int
+    { _ufdrStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'UnsubscribeFromDatasetResponse' smart constructor.
-unsubscribeFromDatasetResponse :: Int -> UnsubscribeFromDatasetResponse
+unsubscribeFromDatasetResponse :: Status -> UnsubscribeFromDatasetResponse
 unsubscribeFromDatasetResponse pStatus =
     UnsubscribeFromDatasetResponse'
     { _ufdrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ufdrStatus :: Lens' UnsubscribeFromDatasetResponse Int
+ufdrStatus :: Lens' UnsubscribeFromDatasetResponse Status
 ufdrStatus = lens _ufdrStatus (\ s a -> s{_ufdrStatus = a});

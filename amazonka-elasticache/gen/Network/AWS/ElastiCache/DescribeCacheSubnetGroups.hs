@@ -112,7 +112,7 @@ instance AWSRequest DescribeCacheSubnetGroups where
                    (x .@? "Marker") <*>
                      (x .@? "CacheSubnetGroups" .!@ mempty >>=
                         may (parseXMLList "CacheSubnetGroup"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeCacheSubnetGroups where
         toHeaders = const mempty
@@ -144,11 +144,11 @@ instance ToQuery DescribeCacheSubnetGroups where
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
     { _dcsgrMarker            :: !(Maybe Text)
     , _dcsgrCacheSubnetGroups :: !(Maybe [CacheSubnetGroup])
-    , _dcsgrStatus            :: !Int
+    , _dcsgrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheSubnetGroupsResponse' smart constructor.
-describeCacheSubnetGroupsResponse :: Int -> DescribeCacheSubnetGroupsResponse
+describeCacheSubnetGroupsResponse :: Status -> DescribeCacheSubnetGroupsResponse
 describeCacheSubnetGroupsResponse pStatus =
     DescribeCacheSubnetGroupsResponse'
     { _dcsgrMarker = Nothing
@@ -166,5 +166,5 @@ dcsgrCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGr
 dcsgrCacheSubnetGroups = lens _dcsgrCacheSubnetGroups (\ s a -> s{_dcsgrCacheSubnetGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcsgrStatus :: Lens' DescribeCacheSubnetGroupsResponse Int
+dcsgrStatus :: Lens' DescribeCacheSubnetGroupsResponse Status
 dcsgrStatus = lens _dcsgrStatus (\ s a -> s{_dcsgrStatus = a});

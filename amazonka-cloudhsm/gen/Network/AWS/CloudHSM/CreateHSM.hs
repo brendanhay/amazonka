@@ -136,8 +136,7 @@ instance AWSRequest CreateHSM where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateHSMResponse' <$>
-                   (x .?> "HsmArn") <*> (pure (fromEnum s)))
+                 CreateHSMResponse' <$> (x .?> "HsmArn") <*> (pure s))
 
 instance ToHeaders CreateHSM where
         toHeaders
@@ -175,11 +174,11 @@ instance ToQuery CreateHSM where
 -- * 'creStatus'
 data CreateHSMResponse = CreateHSMResponse'
     { _creHSMARN :: !(Maybe Text)
-    , _creStatus :: !Int
+    , _creStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateHSMResponse' smart constructor.
-createHSMResponse :: Int -> CreateHSMResponse
+createHSMResponse :: Status -> CreateHSMResponse
 createHSMResponse pStatus =
     CreateHSMResponse'
     { _creHSMARN = Nothing
@@ -191,5 +190,5 @@ creHSMARN :: Lens' CreateHSMResponse (Maybe Text)
 creHSMARN = lens _creHSMARN (\ s a -> s{_creHSMARN = a});
 
 -- | FIXME: Undocumented member.
-creStatus :: Lens' CreateHSMResponse Int
+creStatus :: Lens' CreateHSMResponse Status
 creStatus = lens _creStatus (\ s a -> s{_creStatus = a});

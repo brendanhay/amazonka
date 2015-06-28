@@ -111,7 +111,7 @@ instance AWSRequest ListDatasets where
                  ListDatasetsResponse' <$>
                    (x .?> "Count") <*> (x .?> "NextToken") <*>
                      (x .?> "Datasets" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListDatasets where
         toHeaders
@@ -149,11 +149,11 @@ data ListDatasetsResponse = ListDatasetsResponse'
     { _ldrCount     :: !(Maybe Int)
     , _ldrNextToken :: !(Maybe Text)
     , _ldrDatasets  :: !(Maybe [Dataset])
-    , _ldrStatus    :: !Int
+    , _ldrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListDatasetsResponse' smart constructor.
-listDatasetsResponse :: Int -> ListDatasetsResponse
+listDatasetsResponse :: Status -> ListDatasetsResponse
 listDatasetsResponse pStatus =
     ListDatasetsResponse'
     { _ldrCount = Nothing
@@ -175,5 +175,5 @@ ldrDatasets :: Lens' ListDatasetsResponse [Dataset]
 ldrDatasets = lens _ldrDatasets (\ s a -> s{_ldrDatasets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldrStatus :: Lens' ListDatasetsResponse Int
+ldrStatus :: Lens' ListDatasetsResponse Status
 ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});

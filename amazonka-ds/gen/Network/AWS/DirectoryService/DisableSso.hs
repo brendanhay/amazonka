@@ -95,8 +95,7 @@ instance AWSRequest DisableSso where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x ->
-                 DisableSsoResponse' <$> (pure (fromEnum s)))
+              (\ s h x -> DisableSsoResponse' <$> (pure s))
 
 instance ToHeaders DisableSso where
         toHeaders
@@ -129,16 +128,16 @@ instance ToQuery DisableSso where
 --
 -- * 'disStatus'
 newtype DisableSsoResponse = DisableSsoResponse'
-    { _disStatus :: Int
+    { _disStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'DisableSsoResponse' smart constructor.
-disableSsoResponse :: Int -> DisableSsoResponse
+disableSsoResponse :: Status -> DisableSsoResponse
 disableSsoResponse pStatus =
     DisableSsoResponse'
     { _disStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-disStatus :: Lens' DisableSsoResponse Int
+disStatus :: Lens' DisableSsoResponse Status
 disStatus = lens _disStatus (\ s a -> s{_disStatus = a});

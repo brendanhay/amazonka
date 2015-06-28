@@ -106,7 +106,7 @@ instance AWSRequest
               "PurchaseReservedDBInstancesOfferingResult"
               (\ s h x ->
                  PurchaseReservedDBInstancesOfferingResponse' <$>
-                   (x .@? "ReservedDBInstance") <*> (pure (fromEnum s)))
+                   (x .@? "ReservedDBInstance") <*> (pure s))
 
 instance ToHeaders
          PurchaseReservedDBInstancesOffering where
@@ -139,11 +139,11 @@ instance ToQuery PurchaseReservedDBInstancesOffering
 -- * 'prdiorStatus'
 data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse'
     { _prdiorReservedDBInstance :: !(Maybe ReservedDBInstance)
-    , _prdiorStatus             :: !Int
+    , _prdiorStatus             :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'PurchaseReservedDBInstancesOfferingResponse' smart constructor.
-purchaseReservedDBInstancesOfferingResponse :: Int -> PurchaseReservedDBInstancesOfferingResponse
+purchaseReservedDBInstancesOfferingResponse :: Status -> PurchaseReservedDBInstancesOfferingResponse
 purchaseReservedDBInstancesOfferingResponse pStatus =
     PurchaseReservedDBInstancesOfferingResponse'
     { _prdiorReservedDBInstance = Nothing
@@ -155,5 +155,5 @@ prdiorReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (M
 prdiorReservedDBInstance = lens _prdiorReservedDBInstance (\ s a -> s{_prdiorReservedDBInstance = a});
 
 -- | FIXME: Undocumented member.
-prdiorStatus :: Lens' PurchaseReservedDBInstancesOfferingResponse Int
+prdiorStatus :: Lens' PurchaseReservedDBInstancesOfferingResponse Status
 prdiorStatus = lens _prdiorStatus (\ s a -> s{_prdiorStatus = a});

@@ -126,7 +126,7 @@ instance AWSRequest QueryObjects where
                  QueryObjectsResponse' <$>
                    (x .?> "hasMoreResults") <*> (x .?> "ids" .!@ mempty)
                      <*> (x .?> "marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders QueryObjects where
         toHeaders
@@ -167,11 +167,11 @@ data QueryObjectsResponse = QueryObjectsResponse'
     { _qorHasMoreResults :: !(Maybe Bool)
     , _qorIds            :: !(Maybe [Text])
     , _qorMarker         :: !(Maybe Text)
-    , _qorStatus         :: !Int
+    , _qorStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'QueryObjectsResponse' smart constructor.
-queryObjectsResponse :: Int -> QueryObjectsResponse
+queryObjectsResponse :: Status -> QueryObjectsResponse
 queryObjectsResponse pStatus =
     QueryObjectsResponse'
     { _qorHasMoreResults = Nothing
@@ -196,5 +196,5 @@ qorMarker :: Lens' QueryObjectsResponse (Maybe Text)
 qorMarker = lens _qorMarker (\ s a -> s{_qorMarker = a});
 
 -- | FIXME: Undocumented member.
-qorStatus :: Lens' QueryObjectsResponse Int
+qorStatus :: Lens' QueryObjectsResponse Status
 qorStatus = lens _qorStatus (\ s a -> s{_qorStatus = a});

@@ -128,7 +128,7 @@ instance AWSRequest ListEventSourceMappings where
                  ListEventSourceMappingsResponse' <$>
                    (x .?> "EventSourceMappings" .!@ mempty) <*>
                      (x .?> "NextMarker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListEventSourceMappings where
         toHeaders = const mempty
@@ -158,11 +158,11 @@ instance ToQuery ListEventSourceMappings where
 data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
     { _lesmrEventSourceMappings :: !(Maybe [EventSourceMappingConfiguration])
     , _lesmrNextMarker          :: !(Maybe Text)
-    , _lesmrStatus              :: !Int
+    , _lesmrStatus              :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListEventSourceMappingsResponse' smart constructor.
-listEventSourceMappingsResponse :: Int -> ListEventSourceMappingsResponse
+listEventSourceMappingsResponse :: Status -> ListEventSourceMappingsResponse
 listEventSourceMappingsResponse pStatus =
     ListEventSourceMappingsResponse'
     { _lesmrEventSourceMappings = Nothing
@@ -179,5 +179,5 @@ lesmrNextMarker :: Lens' ListEventSourceMappingsResponse (Maybe Text)
 lesmrNextMarker = lens _lesmrNextMarker (\ s a -> s{_lesmrNextMarker = a});
 
 -- | FIXME: Undocumented member.
-lesmrStatus :: Lens' ListEventSourceMappingsResponse Int
+lesmrStatus :: Lens' ListEventSourceMappingsResponse Status
 lesmrStatus = lens _lesmrStatus (\ s a -> s{_lesmrStatus = a});

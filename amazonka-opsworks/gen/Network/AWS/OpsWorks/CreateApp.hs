@@ -194,8 +194,7 @@ instance AWSRequest CreateApp where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateAppResponse' <$>
-                   (x .?> "AppId") <*> (pure (fromEnum s)))
+                 CreateAppResponse' <$> (x .?> "AppId") <*> (pure s))
 
 instance ToHeaders CreateApp where
         toHeaders
@@ -238,11 +237,11 @@ instance ToQuery CreateApp where
 -- * 'carStatus'
 data CreateAppResponse = CreateAppResponse'
     { _carAppId  :: !(Maybe Text)
-    , _carStatus :: !Int
+    , _carStatus :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateAppResponse' smart constructor.
-createAppResponse :: Int -> CreateAppResponse
+createAppResponse :: Status -> CreateAppResponse
 createAppResponse pStatus =
     CreateAppResponse'
     { _carAppId = Nothing
@@ -254,5 +253,5 @@ carAppId :: Lens' CreateAppResponse (Maybe Text)
 carAppId = lens _carAppId (\ s a -> s{_carAppId = a});
 
 -- | FIXME: Undocumented member.
-carStatus :: Lens' CreateAppResponse Int
+carStatus :: Lens' CreateAppResponse Status
 carStatus = lens _carStatus (\ s a -> s{_carStatus = a});

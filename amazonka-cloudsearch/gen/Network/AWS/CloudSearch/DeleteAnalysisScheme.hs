@@ -84,7 +84,7 @@ instance AWSRequest DeleteAnalysisScheme where
           = receiveXMLWrapper "DeleteAnalysisSchemeResult"
               (\ s h x ->
                  DeleteAnalysisSchemeResponse' <$>
-                   (x .@ "AnalysisScheme") <*> (pure (fromEnum s)))
+                   (x .@ "AnalysisScheme") <*> (pure s))
 
 instance ToHeaders DeleteAnalysisScheme where
         toHeaders = const mempty
@@ -112,11 +112,11 @@ instance ToQuery DeleteAnalysisScheme where
 -- * 'dStatus'
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
     { _dAnalysisScheme :: !AnalysisSchemeStatus
-    , _dStatus         :: !Int
+    , _dStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteAnalysisSchemeResponse' smart constructor.
-deleteAnalysisSchemeResponse :: AnalysisSchemeStatus -> Int -> DeleteAnalysisSchemeResponse
+deleteAnalysisSchemeResponse :: AnalysisSchemeStatus -> Status -> DeleteAnalysisSchemeResponse
 deleteAnalysisSchemeResponse pAnalysisScheme pStatus =
     DeleteAnalysisSchemeResponse'
     { _dAnalysisScheme = pAnalysisScheme
@@ -128,5 +128,5 @@ dAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
 dAnalysisScheme = lens _dAnalysisScheme (\ s a -> s{_dAnalysisScheme = a});
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DeleteAnalysisSchemeResponse Int
+dStatus :: Lens' DeleteAnalysisSchemeResponse Status
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

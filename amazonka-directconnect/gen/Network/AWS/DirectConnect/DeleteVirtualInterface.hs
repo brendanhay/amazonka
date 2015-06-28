@@ -71,8 +71,7 @@ instance AWSRequest DeleteVirtualInterface where
           = receiveJSON
               (\ s h x ->
                  DeleteVirtualInterfaceResponse' <$>
-                   (x .?> "virtualInterfaceState") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "virtualInterfaceState") <*> (pure s))
 
 instance ToHeaders DeleteVirtualInterface where
         toHeaders
@@ -106,11 +105,11 @@ instance ToQuery DeleteVirtualInterface where
 -- * 'dvirStatus'
 data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
     { _dvirVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _dvirStatus                :: !Int
+    , _dvirStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteVirtualInterfaceResponse' smart constructor.
-deleteVirtualInterfaceResponse :: Int -> DeleteVirtualInterfaceResponse
+deleteVirtualInterfaceResponse :: Status -> DeleteVirtualInterfaceResponse
 deleteVirtualInterfaceResponse pStatus =
     DeleteVirtualInterfaceResponse'
     { _dvirVirtualInterfaceState = Nothing
@@ -122,5 +121,5 @@ dvirVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe Virtual
 dvirVirtualInterfaceState = lens _dvirVirtualInterfaceState (\ s a -> s{_dvirVirtualInterfaceState = a});
 
 -- | FIXME: Undocumented member.
-dvirStatus :: Lens' DeleteVirtualInterfaceResponse Int
+dvirStatus :: Lens' DeleteVirtualInterfaceResponse Status
 dvirStatus = lens _dvirStatus (\ s a -> s{_dvirStatus = a});

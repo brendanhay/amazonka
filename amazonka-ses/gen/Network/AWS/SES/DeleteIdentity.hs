@@ -72,8 +72,7 @@ instance AWSRequest DeleteIdentity where
         request = post
         response
           = receiveXMLWrapper "DeleteIdentityResult"
-              (\ s h x ->
-                 DeleteIdentityResponse' <$> (pure (fromEnum s)))
+              (\ s h x -> DeleteIdentityResponse' <$> (pure s))
 
 instance ToHeaders DeleteIdentity where
         toHeaders = const mempty
@@ -97,16 +96,16 @@ instance ToQuery DeleteIdentity where
 --
 -- * 'dirStatus'
 newtype DeleteIdentityResponse = DeleteIdentityResponse'
-    { _dirStatus :: Int
+    { _dirStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteIdentityResponse' smart constructor.
-deleteIdentityResponse :: Int -> DeleteIdentityResponse
+deleteIdentityResponse :: Status -> DeleteIdentityResponse
 deleteIdentityResponse pStatus =
     DeleteIdentityResponse'
     { _dirStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dirStatus :: Lens' DeleteIdentityResponse Int
+dirStatus :: Lens' DeleteIdentityResponse Status
 dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});

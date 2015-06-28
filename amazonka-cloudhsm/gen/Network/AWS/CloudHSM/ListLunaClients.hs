@@ -77,7 +77,7 @@ instance AWSRequest ListLunaClients where
                  ListLunaClientsResponse' <$>
                    (x .?> "NextToken") <*>
                      (x .?> "ClientList" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListLunaClients where
         toHeaders
@@ -111,11 +111,11 @@ instance ToQuery ListLunaClients where
 data ListLunaClientsResponse = ListLunaClientsResponse'
     { _llcrNextToken  :: !(Maybe Text)
     , _llcrClientList :: ![Text]
-    , _llcrStatus     :: !Int
+    , _llcrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListLunaClientsResponse' smart constructor.
-listLunaClientsResponse :: Int -> ListLunaClientsResponse
+listLunaClientsResponse :: Status -> ListLunaClientsResponse
 listLunaClientsResponse pStatus =
     ListLunaClientsResponse'
     { _llcrNextToken = Nothing
@@ -133,5 +133,5 @@ llcrClientList :: Lens' ListLunaClientsResponse [Text]
 llcrClientList = lens _llcrClientList (\ s a -> s{_llcrClientList = a});
 
 -- | FIXME: Undocumented member.
-llcrStatus :: Lens' ListLunaClientsResponse Int
+llcrStatus :: Lens' ListLunaClientsResponse Status
 llcrStatus = lens _llcrStatus (\ s a -> s{_llcrStatus = a});

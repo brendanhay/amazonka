@@ -139,7 +139,7 @@ instance AWSRequest UpdateDomainContact where
           = receiveJSON
               (\ s h x ->
                  UpdateDomainContactResponse' <$>
-                   (x .:> "OperationId") <*> (pure (fromEnum s)))
+                   (x .:> "OperationId") <*> (pure s))
 
 instance ToHeaders UpdateDomainContact where
         toHeaders
@@ -176,11 +176,11 @@ instance ToQuery UpdateDomainContact where
 -- * 'udcrStatus'
 data UpdateDomainContactResponse = UpdateDomainContactResponse'
     { _udcrOperationId :: !Text
-    , _udcrStatus      :: !Int
+    , _udcrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateDomainContactResponse' smart constructor.
-updateDomainContactResponse :: Text -> Int -> UpdateDomainContactResponse
+updateDomainContactResponse :: Text -> Status -> UpdateDomainContactResponse
 updateDomainContactResponse pOperationId pStatus =
     UpdateDomainContactResponse'
     { _udcrOperationId = pOperationId
@@ -199,5 +199,5 @@ udcrOperationId :: Lens' UpdateDomainContactResponse Text
 udcrOperationId = lens _udcrOperationId (\ s a -> s{_udcrOperationId = a});
 
 -- | FIXME: Undocumented member.
-udcrStatus :: Lens' UpdateDomainContactResponse Int
+udcrStatus :: Lens' UpdateDomainContactResponse Status
 udcrStatus = lens _udcrStatus (\ s a -> s{_udcrStatus = a});

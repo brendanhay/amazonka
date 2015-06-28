@@ -105,7 +105,7 @@ instance AWSRequest CreateAppCookieStickinessPolicy
               "CreateAppCookieStickinessPolicyResult"
               (\ s h x ->
                  CreateAppCookieStickinessPolicyResponse' <$>
-                   (pure (fromEnum s)))
+                   (pure s))
 
 instance ToHeaders CreateAppCookieStickinessPolicy
          where
@@ -131,16 +131,16 @@ instance ToQuery CreateAppCookieStickinessPolicy
 --
 -- * 'cacsprStatus'
 newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse'
-    { _cacsprStatus :: Int
+    { _cacsprStatus :: Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateAppCookieStickinessPolicyResponse' smart constructor.
-createAppCookieStickinessPolicyResponse :: Int -> CreateAppCookieStickinessPolicyResponse
+createAppCookieStickinessPolicyResponse :: Status -> CreateAppCookieStickinessPolicyResponse
 createAppCookieStickinessPolicyResponse pStatus =
     CreateAppCookieStickinessPolicyResponse'
     { _cacsprStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cacsprStatus :: Lens' CreateAppCookieStickinessPolicyResponse Int
+cacsprStatus :: Lens' CreateAppCookieStickinessPolicyResponse Status
 cacsprStatus = lens _cacsprStatus (\ s a -> s{_cacsprStatus = a});

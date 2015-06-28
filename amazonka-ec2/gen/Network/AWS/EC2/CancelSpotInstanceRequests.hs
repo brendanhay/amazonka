@@ -92,8 +92,7 @@ instance AWSRequest CancelSpotInstanceRequests where
           = receiveXML
               (\ s h x ->
                  CancelSpotInstanceRequestsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (may (parseXMLList "item") x) <*> (pure s))
 
 instance ToHeaders CancelSpotInstanceRequests where
         toHeaders = const mempty
@@ -122,11 +121,11 @@ instance ToQuery CancelSpotInstanceRequests where
 -- * 'csirrStatus'
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
     { _csirrCancelledSpotInstanceRequests :: !(Maybe [CancelledSpotInstanceRequest])
-    , _csirrStatus                        :: !Int
+    , _csirrStatus                        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CancelSpotInstanceRequestsResponse' smart constructor.
-cancelSpotInstanceRequestsResponse :: Int -> CancelSpotInstanceRequestsResponse
+cancelSpotInstanceRequestsResponse :: Status -> CancelSpotInstanceRequestsResponse
 cancelSpotInstanceRequestsResponse pStatus =
     CancelSpotInstanceRequestsResponse'
     { _csirrCancelledSpotInstanceRequests = Nothing
@@ -138,5 +137,5 @@ csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [
 csirrCancelledSpotInstanceRequests = lens _csirrCancelledSpotInstanceRequests (\ s a -> s{_csirrCancelledSpotInstanceRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-csirrStatus :: Lens' CancelSpotInstanceRequestsResponse Int
+csirrStatus :: Lens' CancelSpotInstanceRequestsResponse Status
 csirrStatus = lens _csirrStatus (\ s a -> s{_csirrStatus = a});

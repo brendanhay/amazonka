@@ -157,7 +157,7 @@ instance AWSRequest CreateStorediSCSIVolume where
                  CreateStorediSCSIVolumeResponse' <$>
                    (x .?> "TargetARN") <*> (x .?> "VolumeARN") <*>
                      (x .?> "VolumeSizeInBytes")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders CreateStorediSCSIVolume where
         toHeaders
@@ -203,11 +203,11 @@ data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
     { _csscsivrTargetARN         :: !(Maybe Text)
     , _csscsivrVolumeARN         :: !(Maybe Text)
     , _csscsivrVolumeSizeInBytes :: !(Maybe Integer)
-    , _csscsivrStatus            :: !Int
+    , _csscsivrStatus            :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateStorediSCSIVolumeResponse' smart constructor.
-createStorediSCSIVolumeResponse :: Int -> CreateStorediSCSIVolumeResponse
+createStorediSCSIVolumeResponse :: Status -> CreateStorediSCSIVolumeResponse
 createStorediSCSIVolumeResponse pStatus =
     CreateStorediSCSIVolumeResponse'
     { _csscsivrTargetARN = Nothing
@@ -230,5 +230,5 @@ csscsivrVolumeSizeInBytes :: Lens' CreateStorediSCSIVolumeResponse (Maybe Intege
 csscsivrVolumeSizeInBytes = lens _csscsivrVolumeSizeInBytes (\ s a -> s{_csscsivrVolumeSizeInBytes = a});
 
 -- | FIXME: Undocumented member.
-csscsivrStatus :: Lens' CreateStorediSCSIVolumeResponse Int
+csscsivrStatus :: Lens' CreateStorediSCSIVolumeResponse Status
 csscsivrStatus = lens _csscsivrStatus (\ s a -> s{_csscsivrStatus = a});

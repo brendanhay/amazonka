@@ -130,7 +130,7 @@ instance AWSRequest CreateFlowLogs where
                    (may (parseXMLList "item") x) <*>
                      (x .@? "clientToken")
                      <*> (may (parseXMLList "item") x)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders CreateFlowLogs where
         toHeaders = const mempty
@@ -166,11 +166,11 @@ data CreateFlowLogsResponse = CreateFlowLogsResponse'
     { _cflrUnsuccessful :: !(Maybe [UnsuccessfulItem])
     , _cflrClientToken  :: !(Maybe Text)
     , _cflrFlowLogIds   :: !(Maybe [Text])
-    , _cflrStatus       :: !Int
+    , _cflrStatus       :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'CreateFlowLogsResponse' smart constructor.
-createFlowLogsResponse :: Int -> CreateFlowLogsResponse
+createFlowLogsResponse :: Status -> CreateFlowLogsResponse
 createFlowLogsResponse pStatus =
     CreateFlowLogsResponse'
     { _cflrUnsuccessful = Nothing
@@ -193,5 +193,5 @@ cflrFlowLogIds :: Lens' CreateFlowLogsResponse [Text]
 cflrFlowLogIds = lens _cflrFlowLogIds (\ s a -> s{_cflrFlowLogIds = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-cflrStatus :: Lens' CreateFlowLogsResponse Int
+cflrStatus :: Lens' CreateFlowLogsResponse Status
 cflrStatus = lens _cflrStatus (\ s a -> s{_cflrStatus = a});

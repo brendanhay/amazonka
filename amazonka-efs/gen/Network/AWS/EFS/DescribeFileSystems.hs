@@ -135,7 +135,7 @@ instance AWSRequest DescribeFileSystems where
                  DescribeFileSystemsResponse' <$>
                    (x .?> "FileSystems" .!@ mempty) <*> (x .?> "Marker")
                      <*> (x .?> "NextMarker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeFileSystems where
         toHeaders = const mempty
@@ -166,11 +166,11 @@ data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
     { _dfsrFileSystems :: !(Maybe [FileSystemDescription])
     , _dfsrMarker      :: !(Maybe Text)
     , _dfsrNextMarker  :: !(Maybe Text)
-    , _dfsrStatus      :: !Int
+    , _dfsrStatus      :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeFileSystemsResponse' smart constructor.
-describeFileSystemsResponse :: Int -> DescribeFileSystemsResponse
+describeFileSystemsResponse :: Status -> DescribeFileSystemsResponse
 describeFileSystemsResponse pStatus =
     DescribeFileSystemsResponse'
     { _dfsrFileSystems = Nothing
@@ -194,5 +194,5 @@ dfsrNextMarker :: Lens' DescribeFileSystemsResponse (Maybe Text)
 dfsrNextMarker = lens _dfsrNextMarker (\ s a -> s{_dfsrNextMarker = a});
 
 -- | FIXME: Undocumented member.
-dfsrStatus :: Lens' DescribeFileSystemsResponse Int
+dfsrStatus :: Lens' DescribeFileSystemsResponse Status
 dfsrStatus = lens _dfsrStatus (\ s a -> s{_dfsrStatus = a});

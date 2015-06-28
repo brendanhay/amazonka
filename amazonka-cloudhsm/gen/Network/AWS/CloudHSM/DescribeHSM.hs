@@ -120,7 +120,7 @@ instance AWSRequest DescribeHSM where
                      <*> (x .?> "HsmArn")
                      <*> (x .?> "EniIp")
                      <*> (x .?> "HsmType")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeHSM where
         toHeaders
@@ -212,11 +212,11 @@ data DescribeHSMResponse = DescribeHSMResponse'
     , _dhsmrHSMARN                :: !(Maybe Text)
     , _dhsmrEniIP                 :: !(Maybe Text)
     , _dhsmrHSMType               :: !(Maybe Text)
-    , _dhsmrStatus                :: !Int
+    , _dhsmrStatus                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeHSMResponse' smart constructor.
-describeHSMResponse :: Int -> DescribeHSMResponse
+describeHSMResponse :: Status -> DescribeHSMResponse
 describeHSMResponse pStatus =
     DescribeHSMResponse'
     { _dhsmrIAMRoleARN = Nothing
@@ -324,5 +324,5 @@ dhsmrHSMType :: Lens' DescribeHSMResponse (Maybe Text)
 dhsmrHSMType = lens _dhsmrHSMType (\ s a -> s{_dhsmrHSMType = a});
 
 -- | FIXME: Undocumented member.
-dhsmrStatus :: Lens' DescribeHSMResponse Int
+dhsmrStatus :: Lens' DescribeHSMResponse Status
 dhsmrStatus = lens _dhsmrStatus (\ s a -> s{_dhsmrStatus = a});

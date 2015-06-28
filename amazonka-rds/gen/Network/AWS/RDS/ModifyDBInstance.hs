@@ -535,7 +535,7 @@ instance AWSRequest ModifyDBInstance where
           = receiveXMLWrapper "ModifyDBInstanceResult"
               (\ s h x ->
                  ModifyDBInstanceResponse' <$>
-                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
+                   (x .@? "DBInstance") <*> (pure s))
 
 instance ToHeaders ModifyDBInstance where
         toHeaders = const mempty
@@ -591,11 +591,11 @@ instance ToQuery ModifyDBInstance where
 -- * 'mdirStatus'
 data ModifyDBInstanceResponse = ModifyDBInstanceResponse'
     { _mdirDBInstance :: !(Maybe DBInstance)
-    , _mdirStatus     :: !Int
+    , _mdirStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyDBInstanceResponse' smart constructor.
-modifyDBInstanceResponse :: Int -> ModifyDBInstanceResponse
+modifyDBInstanceResponse :: Status -> ModifyDBInstanceResponse
 modifyDBInstanceResponse pStatus =
     ModifyDBInstanceResponse'
     { _mdirDBInstance = Nothing
@@ -607,5 +607,5 @@ mdirDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
 mdirDBInstance = lens _mdirDBInstance (\ s a -> s{_mdirDBInstance = a});
 
 -- | FIXME: Undocumented member.
-mdirStatus :: Lens' ModifyDBInstanceResponse Int
+mdirStatus :: Lens' ModifyDBInstanceResponse Status
 mdirStatus = lens _mdirStatus (\ s a -> s{_mdirStatus = a});

@@ -153,7 +153,7 @@ instance AWSRequest ListRecords where
                      <*> (x .?> "MergedDatasetNames" .!@ mempty)
                      <*> (x .?> "LastModifiedBy")
                      <*> (x .?> "DatasetSyncCount")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListRecords where
         toHeaders
@@ -212,11 +212,11 @@ data ListRecordsResponse = ListRecordsResponse'
     , _lrrMergedDatasetNames                    :: !(Maybe [Text])
     , _lrrLastModifiedBy                        :: !(Maybe Text)
     , _lrrDatasetSyncCount                      :: !(Maybe Integer)
-    , _lrrStatus                                :: !Int
+    , _lrrStatus                                :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListRecordsResponse' smart constructor.
-listRecordsResponse :: Int -> ListRecordsResponse
+listRecordsResponse :: Status -> ListRecordsResponse
 listRecordsResponse pStatus =
     ListRecordsResponse'
     { _lrrDatasetDeletedAfterRequestedSyncCount = Nothing
@@ -268,5 +268,5 @@ lrrDatasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer)
 lrrDatasetSyncCount = lens _lrrDatasetSyncCount (\ s a -> s{_lrrDatasetSyncCount = a});
 
 -- | FIXME: Undocumented member.
-lrrStatus :: Lens' ListRecordsResponse Int
+lrrStatus :: Lens' ListRecordsResponse Status
 lrrStatus = lens _lrrStatus (\ s a -> s{_lrrStatus = a});

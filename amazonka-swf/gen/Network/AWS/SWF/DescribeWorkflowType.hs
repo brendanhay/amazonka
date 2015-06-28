@@ -105,7 +105,7 @@ instance AWSRequest DescribeWorkflowType where
               (\ s h x ->
                  DescribeWorkflowTypeResponse' <$>
                    (x .:> "typeInfo") <*> (x .:> "configuration") <*>
-                     (pure (fromEnum s)))
+                     (pure s))
 
 instance ToHeaders DescribeWorkflowType where
         toHeaders
@@ -143,11 +143,11 @@ instance ToQuery DescribeWorkflowType where
 data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
     { _dwtrTypeInfo      :: !WorkflowTypeInfo
     , _dwtrConfiguration :: !WorkflowTypeConfiguration
-    , _dwtrStatus        :: !Int
+    , _dwtrStatus        :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkflowTypeResponse' smart constructor.
-describeWorkflowTypeResponse :: WorkflowTypeInfo -> WorkflowTypeConfiguration -> Int -> DescribeWorkflowTypeResponse
+describeWorkflowTypeResponse :: WorkflowTypeInfo -> WorkflowTypeConfiguration -> Status -> DescribeWorkflowTypeResponse
 describeWorkflowTypeResponse pTypeInfo pConfiguration pStatus =
     DescribeWorkflowTypeResponse'
     { _dwtrTypeInfo = pTypeInfo
@@ -174,5 +174,5 @@ dwtrConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguratio
 dwtrConfiguration = lens _dwtrConfiguration (\ s a -> s{_dwtrConfiguration = a});
 
 -- | FIXME: Undocumented member.
-dwtrStatus :: Lens' DescribeWorkflowTypeResponse Int
+dwtrStatus :: Lens' DescribeWorkflowTypeResponse Status
 dwtrStatus = lens _dwtrStatus (\ s a -> s{_dwtrStatus = a});

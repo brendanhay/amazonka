@@ -209,7 +209,7 @@ instance AWSRequest PollForDecisionTask where
                      <*> (x .:> "workflowExecution")
                      <*> (x .:> "workflowType")
                      <*> (x .?> "events" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders PollForDecisionTask where
         toHeaders
@@ -266,11 +266,11 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
     , _pfdtrWorkflowExecution      :: !WorkflowExecution
     , _pfdtrWorkflowType           :: !WorkflowType
     , _pfdtrEvents                 :: ![HistoryEvent]
-    , _pfdtrStatus                 :: !Int
+    , _pfdtrStatus                 :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'PollForDecisionTaskResponse' smart constructor.
-pollForDecisionTaskResponse :: Text -> Integer -> WorkflowExecution -> WorkflowType -> Int -> PollForDecisionTaskResponse
+pollForDecisionTaskResponse :: Text -> Integer -> WorkflowExecution -> WorkflowType -> Status -> PollForDecisionTaskResponse
 pollForDecisionTaskResponse pTaskToken pStartedEventId pWorkflowExecution pWorkflowType pStatus =
     PollForDecisionTaskResponse'
     { _pfdtrNextPageToken = Nothing
@@ -325,5 +325,5 @@ pfdtrEvents :: Lens' PollForDecisionTaskResponse [HistoryEvent]
 pfdtrEvents = lens _pfdtrEvents (\ s a -> s{_pfdtrEvents = a});
 
 -- | FIXME: Undocumented member.
-pfdtrStatus :: Lens' PollForDecisionTaskResponse Int
+pfdtrStatus :: Lens' PollForDecisionTaskResponse Status
 pfdtrStatus = lens _pfdtrStatus (\ s a -> s{_pfdtrStatus = a});

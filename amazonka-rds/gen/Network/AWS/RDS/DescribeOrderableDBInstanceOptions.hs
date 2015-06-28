@@ -165,7 +165,7 @@ instance AWSRequest
                    (x .@? "OrderableDBInstanceOptions" .!@ mempty >>=
                       may (parseXMLList "OrderableDBInstanceOption"))
                      <*> (x .@? "Marker")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders DescribeOrderableDBInstanceOptions
          where
@@ -206,11 +206,11 @@ instance ToQuery DescribeOrderableDBInstanceOptions
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'
     { _dodiorOrderableDBInstanceOptions :: !(Maybe [OrderableDBInstanceOption])
     , _dodiorMarker                     :: !(Maybe Text)
-    , _dodiorStatus                     :: !Int
+    , _dodiorStatus                     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeOrderableDBInstanceOptionsResponse' smart constructor.
-describeOrderableDBInstanceOptionsResponse :: Int -> DescribeOrderableDBInstanceOptionsResponse
+describeOrderableDBInstanceOptionsResponse :: Status -> DescribeOrderableDBInstanceOptionsResponse
 describeOrderableDBInstanceOptionsResponse pStatus =
     DescribeOrderableDBInstanceOptionsResponse'
     { _dodiorOrderableDBInstanceOptions = Nothing
@@ -231,5 +231,5 @@ dodiorMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
 dodiorMarker = lens _dodiorMarker (\ s a -> s{_dodiorMarker = a});
 
 -- | FIXME: Undocumented member.
-dodiorStatus :: Lens' DescribeOrderableDBInstanceOptionsResponse Int
+dodiorStatus :: Lens' DescribeOrderableDBInstanceOptionsResponse Status
 dodiorStatus = lens _dodiorStatus (\ s a -> s{_dodiorStatus = a});

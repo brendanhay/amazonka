@@ -92,7 +92,7 @@ instance AWSRequest GetConfig where
                  GetConfigResponse' <$>
                    (x .?> "ConfigFile") <*> (x .?> "ConfigCred") <*>
                      (x .?> "ConfigType")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders GetConfig where
         toHeaders
@@ -131,11 +131,11 @@ data GetConfigResponse = GetConfigResponse'
     { _gcrConfigFile :: !(Maybe Text)
     , _gcrConfigCred :: !(Maybe Text)
     , _gcrConfigType :: !(Maybe Text)
-    , _gcrStatus     :: !Int
+    , _gcrStatus     :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'GetConfigResponse' smart constructor.
-getConfigResponse :: Int -> GetConfigResponse
+getConfigResponse :: Status -> GetConfigResponse
 getConfigResponse pStatus =
     GetConfigResponse'
     { _gcrConfigFile = Nothing
@@ -157,5 +157,5 @@ gcrConfigType :: Lens' GetConfigResponse (Maybe Text)
 gcrConfigType = lens _gcrConfigType (\ s a -> s{_gcrConfigType = a});
 
 -- | FIXME: Undocumented member.
-gcrStatus :: Lens' GetConfigResponse Int
+gcrStatus :: Lens' GetConfigResponse Status
 gcrStatus = lens _gcrStatus (\ s a -> s{_gcrStatus = a});

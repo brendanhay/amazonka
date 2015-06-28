@@ -110,7 +110,7 @@ instance AWSRequest ListMetrics where
                    (x .@? "Metrics" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "NextToken")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListMetrics where
         toHeaders = const mempty
@@ -143,11 +143,11 @@ instance ToQuery ListMetrics where
 data ListMetricsResponse = ListMetricsResponse'
     { _lmrMetrics   :: !(Maybe [Metric])
     , _lmrNextToken :: !(Maybe Text)
-    , _lmrStatus    :: !Int
+    , _lmrStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListMetricsResponse' smart constructor.
-listMetricsResponse :: Int -> ListMetricsResponse
+listMetricsResponse :: Status -> ListMetricsResponse
 listMetricsResponse pStatus =
     ListMetricsResponse'
     { _lmrMetrics = Nothing
@@ -164,5 +164,5 @@ lmrNextToken :: Lens' ListMetricsResponse (Maybe Text)
 lmrNextToken = lens _lmrNextToken (\ s a -> s{_lmrNextToken = a});
 
 -- | FIXME: Undocumented member.
-lmrStatus :: Lens' ListMetricsResponse Int
+lmrStatus :: Lens' ListMetricsResponse Status
 lmrStatus = lens _lmrStatus (\ s a -> s{_lmrStatus = a});

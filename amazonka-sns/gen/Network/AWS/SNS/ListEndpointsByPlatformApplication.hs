@@ -107,7 +107,7 @@ instance AWSRequest
                    (x .@? "NextToken") <*>
                      (x .@? "Endpoints" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+                     <*> (pure s))
 
 instance ToHeaders ListEndpointsByPlatformApplication
          where
@@ -142,11 +142,11 @@ instance ToQuery ListEndpointsByPlatformApplication
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'
     { _lebparNextToken :: !(Maybe Text)
     , _lebparEndpoints :: !(Maybe [Endpoint])
-    , _lebparStatus    :: !Int
+    , _lebparStatus    :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'ListEndpointsByPlatformApplicationResponse' smart constructor.
-listEndpointsByPlatformApplicationResponse :: Int -> ListEndpointsByPlatformApplicationResponse
+listEndpointsByPlatformApplicationResponse :: Status -> ListEndpointsByPlatformApplicationResponse
 listEndpointsByPlatformApplicationResponse pStatus =
     ListEndpointsByPlatformApplicationResponse'
     { _lebparNextToken = Nothing
@@ -165,5 +165,5 @@ lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
 lebparEndpoints = lens _lebparEndpoints (\ s a -> s{_lebparEndpoints = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lebparStatus :: Lens' ListEndpointsByPlatformApplicationResponse Int
+lebparStatus :: Lens' ListEndpointsByPlatformApplicationResponse Status
 lebparStatus = lens _lebparStatus (\ s a -> s{_lebparStatus = a});

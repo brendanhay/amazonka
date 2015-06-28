@@ -98,7 +98,7 @@ instance AWSRequest DecodeAuthorizationMessage where
               "DecodeAuthorizationMessageResult"
               (\ s h x ->
                  DecodeAuthorizationMessageResponse' <$>
-                   (x .@? "DecodedMessage") <*> (pure (fromEnum s)))
+                   (x .@? "DecodedMessage") <*> (pure s))
 
 instance ToHeaders DecodeAuthorizationMessage where
         toHeaders = const mempty
@@ -127,11 +127,11 @@ instance ToQuery DecodeAuthorizationMessage where
 -- * 'damrStatus'
 data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'
     { _damrDecodedMessage :: !(Maybe Text)
-    , _damrStatus         :: !Int
+    , _damrStatus         :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DecodeAuthorizationMessageResponse' smart constructor.
-decodeAuthorizationMessageResponse :: Int -> DecodeAuthorizationMessageResponse
+decodeAuthorizationMessageResponse :: Status -> DecodeAuthorizationMessageResponse
 decodeAuthorizationMessageResponse pStatus =
     DecodeAuthorizationMessageResponse'
     { _damrDecodedMessage = Nothing
@@ -144,5 +144,5 @@ damrDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
 damrDecodedMessage = lens _damrDecodedMessage (\ s a -> s{_damrDecodedMessage = a});
 
 -- | FIXME: Undocumented member.
-damrStatus :: Lens' DecodeAuthorizationMessageResponse Int
+damrStatus :: Lens' DecodeAuthorizationMessageResponse Status
 damrStatus = lens _damrStatus (\ s a -> s{_damrStatus = a});

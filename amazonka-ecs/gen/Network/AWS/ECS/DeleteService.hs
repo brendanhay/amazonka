@@ -77,7 +77,7 @@ instance AWSRequest DeleteService where
           = receiveJSON
               (\ s h x ->
                  DeleteServiceResponse' <$>
-                   (x .?> "service") <*> (pure (fromEnum s)))
+                   (x .?> "service") <*> (pure s))
 
 instance ToHeaders DeleteService where
         toHeaders
@@ -109,11 +109,11 @@ instance ToQuery DeleteService where
 -- * 'dsrStatus'
 data DeleteServiceResponse = DeleteServiceResponse'
     { _dsrService :: !(Maybe ContainerService)
-    , _dsrStatus  :: !Int
+    , _dsrStatus  :: !Status
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteServiceResponse' smart constructor.
-deleteServiceResponse :: Int -> DeleteServiceResponse
+deleteServiceResponse :: Status -> DeleteServiceResponse
 deleteServiceResponse pStatus =
     DeleteServiceResponse'
     { _dsrService = Nothing
@@ -125,5 +125,5 @@ dsrService :: Lens' DeleteServiceResponse (Maybe ContainerService)
 dsrService = lens _dsrService (\ s a -> s{_dsrService = a});
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DeleteServiceResponse Int
+dsrStatus :: Lens' DeleteServiceResponse Status
 dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

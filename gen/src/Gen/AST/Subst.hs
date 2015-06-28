@@ -20,13 +20,6 @@ module Gen.AST.Subst
     ( substitute
     ) where
 
-import           Gen.AST.Cofree
-import           Gen.AST.Data
-import           Gen.AST.Override
-import           Gen.AST.Prefix
-import           Gen.Formatting
-import           Gen.Protocol
-import           Gen.Types
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
@@ -38,6 +31,13 @@ import qualified Data.HashSet           as Set
 import           Data.List              (find, sort)
 import           Data.Monoid
 import qualified Data.Text.Lazy         as LText
+import           Gen.AST.Cofree
+import           Gen.AST.Data
+import           Gen.AST.Override
+import           Gen.AST.Prefix
+import           Gen.Formatting
+import           Gen.Protocol
+import           Gen.Types
 
 data Env a = Env
     { _overrides :: Map Id Override
@@ -154,7 +154,9 @@ addStatus Output = go
 
     ref = emptyRef n
         & refLocation ?~ StatusCode
-        & refAnn      .~ Related n mempty :< Lit emptyInfo Int
+        & refAnn      .~
+            Related n mempty :<
+                Ptr emptyInfo (Set.fromList [DEq, DOrd, DShow, DEnum])
 
     n = mkId "Status"
 

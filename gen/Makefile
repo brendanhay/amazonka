@@ -34,7 +34,7 @@ gen: install
 
 format:
 	@echo -e '\nFormatting...'
-	@find $(wildcard $(OUT_DIR)/amazonka-*/gen) \
+	@find $(wildcard $(OUT_DIR)/amazonka-*/gen) $(wildcard $(OUT_DIR)/test/gen) \
  -type f \
  -name '*.hs' \
  -printf ' -> %p\n' \

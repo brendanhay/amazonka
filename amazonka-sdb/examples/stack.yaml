@@ -1,8 +1,0 @@
-resolver:   nightly-2015-06-17
-flags:      {}
-extra-deps: []
-packages:
-  - '../../core'
-  - '../../amazonka'
-  - '../../amazonka-sdb'
-  - '.'

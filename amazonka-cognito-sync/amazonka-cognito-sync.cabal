@@ -95,6 +95,5 @@ test-suite amazonka-cognito-sync-test
         , amazonka-cognito-sync == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

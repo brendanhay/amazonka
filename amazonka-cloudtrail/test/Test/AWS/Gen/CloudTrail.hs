@@ -25,132 +25,132 @@ import Network.AWS.CloudTrail
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         [ describeTrailsTest $
---             describeTrails
---
---         , lookupEventsTest $
---             lookupEvents
---
---         , stopLoggingTest $
---             stopLogging
+--         [ createTrailTest $
+--             createTrail
 --
 --         , deleteTrailTest $
 --             deleteTrail
 --
---         , updateTrailTest $
---             updateTrail
---
---         , createTrailTest $
---             createTrail
+--         , describeTrailsTest $
+--             describeTrails
 --
 --         , getTrailStatusTest $
 --             getTrailStatus
 --
+--         , lookupEventsTest $
+--             lookupEvents
+--
 --         , startLoggingTest $
 --             startLogging
+--
+--         , stopLoggingTest $
+--             stopLogging
+--
+--         , updateTrailTest $
+--             updateTrail
 --
 --           ]
 
 --     , testGroup "response"
---         [ describeTrailsResponseTest $
---             describeTrailsResponse
---
---         , lookupEventsResponseTest $
---             lookupEventsResponse
---
---         , stopLoggingResponseTest $
---             stopLoggingResponse
+--         [ createTrailResponseTest $
+--             createTrailResponse
 --
 --         , deleteTrailResponseTest $
 --             deleteTrailResponse
 --
---         , updateTrailResponseTest $
---             updateTrailResponse
---
---         , createTrailResponseTest $
---             createTrailResponse
+--         , describeTrailsResponseTest $
+--             describeTrailsResponse
 --
 --         , getTrailStatusResponseTest $
 --             getTrailStatusResponse
 --
+--         , lookupEventsResponseTest $
+--             lookupEventsResponse
+--
 --         , startLoggingResponseTest $
 --             startLoggingResponse
+--
+--         , stopLoggingResponseTest $
+--             stopLoggingResponse
+--
+--         , updateTrailResponseTest $
+--             updateTrailResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-describeTrailsTest :: DescribeTrails -> TestTree
-describeTrailsTest = undefined
-
-lookupEventsTest :: LookupEvents -> TestTree
-lookupEventsTest = undefined
-
-stopLoggingTest :: StopLogging -> TestTree
-stopLoggingTest = undefined
+createTrailTest :: CreateTrail -> TestTree
+createTrailTest = undefined
 
 deleteTrailTest :: DeleteTrail -> TestTree
 deleteTrailTest = undefined
 
-updateTrailTest :: UpdateTrail -> TestTree
-updateTrailTest = undefined
-
-createTrailTest :: CreateTrail -> TestTree
-createTrailTest = undefined
+describeTrailsTest :: DescribeTrails -> TestTree
+describeTrailsTest = undefined
 
 getTrailStatusTest :: GetTrailStatus -> TestTree
 getTrailStatusTest = undefined
 
+lookupEventsTest :: LookupEvents -> TestTree
+lookupEventsTest = undefined
+
 startLoggingTest :: StartLogging -> TestTree
 startLoggingTest = undefined
 
+stopLoggingTest :: StopLogging -> TestTree
+stopLoggingTest = undefined
+
+updateTrailTest :: UpdateTrail -> TestTree
+updateTrailTest = undefined
+
 -- Responses
-
-describeTrailsResponseTest :: DescribeTrailsResponse -> TestTree
-describeTrailsResponseTest = resp
-    "DescribeTrailsResponse"
-    "fixture/DescribeTrailsResponse"
-    (Proxy :: Proxy DescribeTrails)
-
-lookupEventsResponseTest :: LookupEventsResponse -> TestTree
-lookupEventsResponseTest = resp
-    "LookupEventsResponse"
-    "fixture/LookupEventsResponse"
-    (Proxy :: Proxy LookupEvents)
-
-stopLoggingResponseTest :: StopLoggingResponse -> TestTree
-stopLoggingResponseTest = resp
-    "StopLoggingResponse"
-    "fixture/StopLoggingResponse"
-    (Proxy :: Proxy StopLogging)
-
-deleteTrailResponseTest :: DeleteTrailResponse -> TestTree
-deleteTrailResponseTest = resp
-    "DeleteTrailResponse"
-    "fixture/DeleteTrailResponse"
-    (Proxy :: Proxy DeleteTrail)
-
-updateTrailResponseTest :: UpdateTrailResponse -> TestTree
-updateTrailResponseTest = resp
-    "UpdateTrailResponse"
-    "fixture/UpdateTrailResponse"
-    (Proxy :: Proxy UpdateTrail)
 
 createTrailResponseTest :: CreateTrailResponse -> TestTree
 createTrailResponseTest = resp
-    "CreateTrailResponse"
+    "createTrailResponse"
     "fixture/CreateTrailResponse"
     (Proxy :: Proxy CreateTrail)
 
+deleteTrailResponseTest :: DeleteTrailResponse -> TestTree
+deleteTrailResponseTest = resp
+    "deleteTrailResponse"
+    "fixture/DeleteTrailResponse"
+    (Proxy :: Proxy DeleteTrail)
+
+describeTrailsResponseTest :: DescribeTrailsResponse -> TestTree
+describeTrailsResponseTest = resp
+    "describeTrailsResponse"
+    "fixture/DescribeTrailsResponse"
+    (Proxy :: Proxy DescribeTrails)
+
 getTrailStatusResponseTest :: GetTrailStatusResponse -> TestTree
 getTrailStatusResponseTest = resp
-    "GetTrailStatusResponse"
+    "getTrailStatusResponse"
     "fixture/GetTrailStatusResponse"
     (Proxy :: Proxy GetTrailStatus)
 
+lookupEventsResponseTest :: LookupEventsResponse -> TestTree
+lookupEventsResponseTest = resp
+    "lookupEventsResponse"
+    "fixture/LookupEventsResponse"
+    (Proxy :: Proxy LookupEvents)
+
 startLoggingResponseTest :: StartLoggingResponse -> TestTree
 startLoggingResponseTest = resp
-    "StartLoggingResponse"
+    "startLoggingResponse"
     "fixture/StartLoggingResponse"
     (Proxy :: Proxy StartLogging)
+
+stopLoggingResponseTest :: StopLoggingResponse -> TestTree
+stopLoggingResponseTest = resp
+    "stopLoggingResponse"
+    "fixture/StopLoggingResponse"
+    (Proxy :: Proxy StopLogging)
+
+updateTrailResponseTest :: UpdateTrailResponse -> TestTree
+updateTrailResponseTest = resp
+    "updateTrailResponse"
+    "fixture/UpdateTrailResponse"
+    (Proxy :: Proxy UpdateTrail)

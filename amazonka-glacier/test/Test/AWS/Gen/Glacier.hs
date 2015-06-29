@@ -25,65 +25,17 @@ import Network.AWS.Glacier
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         [ setVaultAccessPolicyTest $
---             setVaultAccessPolicy
+--         [ abortMultipartUploadTest $
+--             abortMultipartUpload
 --
---         , initiateJobTest $
---             initiateJob
---
---         , setDataRetrievalPolicyTest $
---             setDataRetrievalPolicy
---
---         , deleteVaultAccessPolicyTest $
---             deleteVaultAccessPolicy
---
---         , listTagsForVaultTest $
---             listTagsForVault
---
---         , getVaultNotificationsTest $
---             getVaultNotifications
---
---         , uploadMultipartPartTest $
---             uploadMultipartPart
---
---         , deleteVaultNotificationsTest $
---             deleteVaultNotifications
---
---         , listVaultsTest $
---             listVaults
---
---         , getJobOutputTest $
---             getJobOutput
---
---         , listJobsTest $
---             listJobs
---
---         , setVaultNotificationsTest $
---             setVaultNotifications
+--         , addTagsToVaultTest $
+--             addTagsToVault
 --
 --         , completeMultipartUploadTest $
 --             completeMultipartUpload
 --
---         , listMultipartUploadsTest $
---             listMultipartUploads
---
---         , describeVaultTest $
---             describeVault
---
---         , abortMultipartUploadTest $
---             abortMultipartUpload
---
---         , describeJobTest $
---             describeJob
---
---         , getVaultAccessPolicyTest $
---             getVaultAccessPolicy
---
---         , getDataRetrievalPolicyTest $
---             getDataRetrievalPolicy
---
---         , removeTagsFromVaultTest $
---             removeTagsFromVault
+--         , createVaultTest $
+--             createVault
 --
 --         , deleteArchiveTest $
 --             deleteArchive
@@ -91,83 +43,83 @@ import Network.AWS.Glacier
 --         , deleteVaultTest $
 --             deleteVault
 --
+--         , deleteVaultAccessPolicyTest $
+--             deleteVaultAccessPolicy
+--
+--         , deleteVaultNotificationsTest $
+--             deleteVaultNotifications
+--
+--         , describeJobTest $
+--             describeJob
+--
+--         , describeVaultTest $
+--             describeVault
+--
+--         , getDataRetrievalPolicyTest $
+--             getDataRetrievalPolicy
+--
+--         , getJobOutputTest $
+--             getJobOutput
+--
+--         , getVaultAccessPolicyTest $
+--             getVaultAccessPolicy
+--
+--         , getVaultNotificationsTest $
+--             getVaultNotifications
+--
+--         , initiateJobTest $
+--             initiateJob
+--
 --         , initiateMultipartUploadTest $
 --             initiateMultipartUpload
+--
+--         , listJobsTest $
+--             listJobs
+--
+--         , listMultipartUploadsTest $
+--             listMultipartUploads
 --
 --         , listPartsTest $
 --             listParts
 --
---         , createVaultTest $
---             createVault
+--         , listTagsForVaultTest $
+--             listTagsForVault
 --
---         , addTagsToVaultTest $
---             addTagsToVault
+--         , listVaultsTest $
+--             listVaults
+--
+--         , removeTagsFromVaultTest $
+--             removeTagsFromVault
+--
+--         , setDataRetrievalPolicyTest $
+--             setDataRetrievalPolicy
+--
+--         , setVaultAccessPolicyTest $
+--             setVaultAccessPolicy
+--
+--         , setVaultNotificationsTest $
+--             setVaultNotifications
 --
 --         , uploadArchiveTest $
 --             uploadArchive
 --
+--         , uploadMultipartPartTest $
+--             uploadMultipartPart
+--
 --           ]
 
 --     , testGroup "response"
---         [ setVaultAccessPolicyResponseTest $
---             setVaultAccessPolicyResponse
---
---         , initiateJobResponseTest $
---             initiateJobResponse
---
---         , setDataRetrievalPolicyResponseTest $
---             setDataRetrievalPolicyResponse
---
---         , deleteVaultAccessPolicyResponseTest $
---             deleteVaultAccessPolicyResponse
---
---         , listTagsForVaultResponseTest $
---             listTagsForVaultResponse
---
---         , getVaultNotificationsResponseTest $
---             getVaultNotificationsResponse
---
---         , uploadMultipartPartResponseTest $
---             uploadMultipartPartResponse
---
---         , deleteVaultNotificationsResponseTest $
---             deleteVaultNotificationsResponse
---
---         , listVaultsResponseTest $
---             listVaultsResponse
---
---         , getJobOutputResponseTest $
---             getJobOutputResponse
---
---         , listJobsResponseTest $
---             listJobsResponse
---
---         , setVaultNotificationsResponseTest $
---             setVaultNotificationsResponse
---
---         , archiveCreationOutputTest $
---             archiveCreationOutput
---
---         , listMultipartUploadsResponseTest $
---             listMultipartUploadsResponse
---
---         , describeVaultOutputTest $
---             describeVaultOutput
---
---         , abortMultipartUploadResponseTest $
+--         [ abortMultipartUploadResponseTest $
 --             abortMultipartUploadResponse
 --
---         , glacierJobDescriptionTest $
---             glacierJobDescription
+--         , addTagsToVaultResponseTest $
+--             addTagsToVaultResponse
 --
---         , getVaultAccessPolicyResponseTest $
---             getVaultAccessPolicyResponse
+--         , completeMultipartUploadResponseTest $
+--             archiveCreationOutput
 --
---         , getDataRetrievalPolicyResponseTest $
---             getDataRetrievalPolicyResponse
---
---         , removeTagsFromVaultResponseTest $
---             removeTagsFromVaultResponse
+--         , createVaultResponseTest $
+--             createVaultResponse
 --
 --         , deleteArchiveResponseTest $
 --             deleteArchiveResponse
@@ -175,85 +127,85 @@ import Network.AWS.Glacier
 --         , deleteVaultResponseTest $
 --             deleteVaultResponse
 --
+--         , deleteVaultAccessPolicyResponseTest $
+--             deleteVaultAccessPolicyResponse
+--
+--         , deleteVaultNotificationsResponseTest $
+--             deleteVaultNotificationsResponse
+--
+--         , describeJobResponseTest $
+--             glacierJobDescription
+--
+--         , describeVaultResponseTest $
+--             describeVaultOutput
+--
+--         , getDataRetrievalPolicyResponseTest $
+--             getDataRetrievalPolicyResponse
+--
+--         , getJobOutputResponseTest $
+--             getJobOutputResponse
+--
+--         , getVaultAccessPolicyResponseTest $
+--             getVaultAccessPolicyResponse
+--
+--         , getVaultNotificationsResponseTest $
+--             getVaultNotificationsResponse
+--
+--         , initiateJobResponseTest $
+--             initiateJobResponse
+--
 --         , initiateMultipartUploadResponseTest $
 --             initiateMultipartUploadResponse
+--
+--         , listJobsResponseTest $
+--             listJobsResponse
+--
+--         , listMultipartUploadsResponseTest $
+--             listMultipartUploadsResponse
 --
 --         , listPartsResponseTest $
 --             listPartsResponse
 --
---         , createVaultResponseTest $
---             createVaultResponse
+--         , listTagsForVaultResponseTest $
+--             listTagsForVaultResponse
 --
---         , addTagsToVaultResponseTest $
---             addTagsToVaultResponse
+--         , listVaultsResponseTest $
+--             listVaultsResponse
 --
---         , archiveCreationOutputTest $
+--         , removeTagsFromVaultResponseTest $
+--             removeTagsFromVaultResponse
+--
+--         , setDataRetrievalPolicyResponseTest $
+--             setDataRetrievalPolicyResponse
+--
+--         , setVaultAccessPolicyResponseTest $
+--             setVaultAccessPolicyResponse
+--
+--         , setVaultNotificationsResponseTest $
+--             setVaultNotificationsResponse
+--
+--         , uploadArchiveResponseTest $
 --             archiveCreationOutput
+--
+--         , uploadMultipartPartResponseTest $
+--             uploadMultipartPartResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-setVaultAccessPolicyTest :: SetVaultAccessPolicy -> TestTree
-setVaultAccessPolicyTest = undefined
+abortMultipartUploadTest :: AbortMultipartUpload -> TestTree
+abortMultipartUploadTest = undefined
 
-initiateJobTest :: InitiateJob -> TestTree
-initiateJobTest = undefined
-
-setDataRetrievalPolicyTest :: SetDataRetrievalPolicy -> TestTree
-setDataRetrievalPolicyTest = undefined
-
-deleteVaultAccessPolicyTest :: DeleteVaultAccessPolicy -> TestTree
-deleteVaultAccessPolicyTest = undefined
-
-listTagsForVaultTest :: ListTagsForVault -> TestTree
-listTagsForVaultTest = undefined
-
-getVaultNotificationsTest :: GetVaultNotifications -> TestTree
-getVaultNotificationsTest = undefined
-
-uploadMultipartPartTest :: UploadMultipartPart -> TestTree
-uploadMultipartPartTest = undefined
-
-deleteVaultNotificationsTest :: DeleteVaultNotifications -> TestTree
-deleteVaultNotificationsTest = undefined
-
-listVaultsTest :: ListVaults -> TestTree
-listVaultsTest = undefined
-
-getJobOutputTest :: GetJobOutput -> TestTree
-getJobOutputTest = undefined
-
-listJobsTest :: ListJobs -> TestTree
-listJobsTest = undefined
-
-setVaultNotificationsTest :: SetVaultNotifications -> TestTree
-setVaultNotificationsTest = undefined
+addTagsToVaultTest :: AddTagsToVault -> TestTree
+addTagsToVaultTest = undefined
 
 completeMultipartUploadTest :: CompleteMultipartUpload -> TestTree
 completeMultipartUploadTest = undefined
 
-listMultipartUploadsTest :: ListMultipartUploads -> TestTree
-listMultipartUploadsTest = undefined
-
-describeVaultTest :: DescribeVault -> TestTree
-describeVaultTest = undefined
-
-abortMultipartUploadTest :: AbortMultipartUpload -> TestTree
-abortMultipartUploadTest = undefined
-
-describeJobTest :: DescribeJob -> TestTree
-describeJobTest = undefined
-
-getVaultAccessPolicyTest :: GetVaultAccessPolicy -> TestTree
-getVaultAccessPolicyTest = undefined
-
-getDataRetrievalPolicyTest :: GetDataRetrievalPolicy -> TestTree
-getDataRetrievalPolicyTest = undefined
-
-removeTagsFromVaultTest :: RemoveTagsFromVault -> TestTree
-removeTagsFromVaultTest = undefined
+createVaultTest :: CreateVault -> TestTree
+createVaultTest = undefined
 
 deleteArchiveTest :: DeleteArchive -> TestTree
 deleteArchiveTest = undefined
@@ -261,181 +213,229 @@ deleteArchiveTest = undefined
 deleteVaultTest :: DeleteVault -> TestTree
 deleteVaultTest = undefined
 
+deleteVaultAccessPolicyTest :: DeleteVaultAccessPolicy -> TestTree
+deleteVaultAccessPolicyTest = undefined
+
+deleteVaultNotificationsTest :: DeleteVaultNotifications -> TestTree
+deleteVaultNotificationsTest = undefined
+
+describeJobTest :: DescribeJob -> TestTree
+describeJobTest = undefined
+
+describeVaultTest :: DescribeVault -> TestTree
+describeVaultTest = undefined
+
+getDataRetrievalPolicyTest :: GetDataRetrievalPolicy -> TestTree
+getDataRetrievalPolicyTest = undefined
+
+getJobOutputTest :: GetJobOutput -> TestTree
+getJobOutputTest = undefined
+
+getVaultAccessPolicyTest :: GetVaultAccessPolicy -> TestTree
+getVaultAccessPolicyTest = undefined
+
+getVaultNotificationsTest :: GetVaultNotifications -> TestTree
+getVaultNotificationsTest = undefined
+
+initiateJobTest :: InitiateJob -> TestTree
+initiateJobTest = undefined
+
 initiateMultipartUploadTest :: InitiateMultipartUpload -> TestTree
 initiateMultipartUploadTest = undefined
+
+listJobsTest :: ListJobs -> TestTree
+listJobsTest = undefined
+
+listMultipartUploadsTest :: ListMultipartUploads -> TestTree
+listMultipartUploadsTest = undefined
 
 listPartsTest :: ListParts -> TestTree
 listPartsTest = undefined
 
-createVaultTest :: CreateVault -> TestTree
-createVaultTest = undefined
+listTagsForVaultTest :: ListTagsForVault -> TestTree
+listTagsForVaultTest = undefined
 
-addTagsToVaultTest :: AddTagsToVault -> TestTree
-addTagsToVaultTest = undefined
+listVaultsTest :: ListVaults -> TestTree
+listVaultsTest = undefined
+
+removeTagsFromVaultTest :: RemoveTagsFromVault -> TestTree
+removeTagsFromVaultTest = undefined
+
+setDataRetrievalPolicyTest :: SetDataRetrievalPolicy -> TestTree
+setDataRetrievalPolicyTest = undefined
+
+setVaultAccessPolicyTest :: SetVaultAccessPolicy -> TestTree
+setVaultAccessPolicyTest = undefined
+
+setVaultNotificationsTest :: SetVaultNotifications -> TestTree
+setVaultNotificationsTest = undefined
 
 uploadArchiveTest :: UploadArchive -> TestTree
 uploadArchiveTest = undefined
 
+uploadMultipartPartTest :: UploadMultipartPart -> TestTree
+uploadMultipartPartTest = undefined
+
 -- Responses
-
-setVaultAccessPolicyResponseTest :: SetVaultAccessPolicyResponse -> TestTree
-setVaultAccessPolicyResponseTest = resp
-    "SetVaultAccessPolicyResponse"
-    "fixture/SetVaultAccessPolicyResponse"
-    (Proxy :: Proxy SetVaultAccessPolicy)
-
-initiateJobResponseTest :: InitiateJobResponse -> TestTree
-initiateJobResponseTest = resp
-    "InitiateJobResponse"
-    "fixture/InitiateJobResponse"
-    (Proxy :: Proxy InitiateJob)
-
-setDataRetrievalPolicyResponseTest :: SetDataRetrievalPolicyResponse -> TestTree
-setDataRetrievalPolicyResponseTest = resp
-    "SetDataRetrievalPolicyResponse"
-    "fixture/SetDataRetrievalPolicyResponse"
-    (Proxy :: Proxy SetDataRetrievalPolicy)
-
-deleteVaultAccessPolicyResponseTest :: DeleteVaultAccessPolicyResponse -> TestTree
-deleteVaultAccessPolicyResponseTest = resp
-    "DeleteVaultAccessPolicyResponse"
-    "fixture/DeleteVaultAccessPolicyResponse"
-    (Proxy :: Proxy DeleteVaultAccessPolicy)
-
-listTagsForVaultResponseTest :: ListTagsForVaultResponse -> TestTree
-listTagsForVaultResponseTest = resp
-    "ListTagsForVaultResponse"
-    "fixture/ListTagsForVaultResponse"
-    (Proxy :: Proxy ListTagsForVault)
-
-getVaultNotificationsResponseTest :: GetVaultNotificationsResponse -> TestTree
-getVaultNotificationsResponseTest = resp
-    "GetVaultNotificationsResponse"
-    "fixture/GetVaultNotificationsResponse"
-    (Proxy :: Proxy GetVaultNotifications)
-
-uploadMultipartPartResponseTest :: UploadMultipartPartResponse -> TestTree
-uploadMultipartPartResponseTest = resp
-    "UploadMultipartPartResponse"
-    "fixture/UploadMultipartPartResponse"
-    (Proxy :: Proxy UploadMultipartPart)
-
-deleteVaultNotificationsResponseTest :: DeleteVaultNotificationsResponse -> TestTree
-deleteVaultNotificationsResponseTest = resp
-    "DeleteVaultNotificationsResponse"
-    "fixture/DeleteVaultNotificationsResponse"
-    (Proxy :: Proxy DeleteVaultNotifications)
-
-listVaultsResponseTest :: ListVaultsResponse -> TestTree
-listVaultsResponseTest = resp
-    "ListVaultsResponse"
-    "fixture/ListVaultsResponse"
-    (Proxy :: Proxy ListVaults)
-
-getJobOutputResponseTest :: GetJobOutputResponse -> TestTree
-getJobOutputResponseTest = resp
-    "GetJobOutputResponse"
-    "fixture/GetJobOutputResponse"
-    (Proxy :: Proxy GetJobOutput)
-
-listJobsResponseTest :: ListJobsResponse -> TestTree
-listJobsResponseTest = resp
-    "ListJobsResponse"
-    "fixture/ListJobsResponse"
-    (Proxy :: Proxy ListJobs)
-
-setVaultNotificationsResponseTest :: SetVaultNotificationsResponse -> TestTree
-setVaultNotificationsResponseTest = resp
-    "SetVaultNotificationsResponse"
-    "fixture/SetVaultNotificationsResponse"
-    (Proxy :: Proxy SetVaultNotifications)
-
-archiveCreationOutputTest :: ArchiveCreationOutput -> TestTree
-archiveCreationOutputTest = resp
-    "ArchiveCreationOutput"
-    "fixture/ArchiveCreationOutput"
-    (Proxy :: Proxy CompleteMultipartUpload)
-
-listMultipartUploadsResponseTest :: ListMultipartUploadsResponse -> TestTree
-listMultipartUploadsResponseTest = resp
-    "ListMultipartUploadsResponse"
-    "fixture/ListMultipartUploadsResponse"
-    (Proxy :: Proxy ListMultipartUploads)
-
-describeVaultOutputTest :: DescribeVaultOutput -> TestTree
-describeVaultOutputTest = resp
-    "DescribeVaultOutput"
-    "fixture/DescribeVaultOutput"
-    (Proxy :: Proxy DescribeVault)
 
 abortMultipartUploadResponseTest :: AbortMultipartUploadResponse -> TestTree
 abortMultipartUploadResponseTest = resp
-    "AbortMultipartUploadResponse"
+    "abortMultipartUploadResponse"
     "fixture/AbortMultipartUploadResponse"
     (Proxy :: Proxy AbortMultipartUpload)
 
-glacierJobDescriptionTest :: GlacierJobDescription -> TestTree
-glacierJobDescriptionTest = resp
-    "GlacierJobDescription"
-    "fixture/GlacierJobDescription"
-    (Proxy :: Proxy DescribeJob)
+addTagsToVaultResponseTest :: AddTagsToVaultResponse -> TestTree
+addTagsToVaultResponseTest = resp
+    "addTagsToVaultResponse"
+    "fixture/AddTagsToVaultResponse"
+    (Proxy :: Proxy AddTagsToVault)
 
-getVaultAccessPolicyResponseTest :: GetVaultAccessPolicyResponse -> TestTree
-getVaultAccessPolicyResponseTest = resp
-    "GetVaultAccessPolicyResponse"
-    "fixture/GetVaultAccessPolicyResponse"
-    (Proxy :: Proxy GetVaultAccessPolicy)
+completeMultipartUploadResponseTest :: ArchiveCreationOutput -> TestTree
+completeMultipartUploadResponseTest = resp
+    "completeMultipartUploadResponse"
+    "fixture/ArchiveCreationOutput"
+    (Proxy :: Proxy CompleteMultipartUpload)
 
-getDataRetrievalPolicyResponseTest :: GetDataRetrievalPolicyResponse -> TestTree
-getDataRetrievalPolicyResponseTest = resp
-    "GetDataRetrievalPolicyResponse"
-    "fixture/GetDataRetrievalPolicyResponse"
-    (Proxy :: Proxy GetDataRetrievalPolicy)
-
-removeTagsFromVaultResponseTest :: RemoveTagsFromVaultResponse -> TestTree
-removeTagsFromVaultResponseTest = resp
-    "RemoveTagsFromVaultResponse"
-    "fixture/RemoveTagsFromVaultResponse"
-    (Proxy :: Proxy RemoveTagsFromVault)
+createVaultResponseTest :: CreateVaultResponse -> TestTree
+createVaultResponseTest = resp
+    "createVaultResponse"
+    "fixture/CreateVaultResponse"
+    (Proxy :: Proxy CreateVault)
 
 deleteArchiveResponseTest :: DeleteArchiveResponse -> TestTree
 deleteArchiveResponseTest = resp
-    "DeleteArchiveResponse"
+    "deleteArchiveResponse"
     "fixture/DeleteArchiveResponse"
     (Proxy :: Proxy DeleteArchive)
 
 deleteVaultResponseTest :: DeleteVaultResponse -> TestTree
 deleteVaultResponseTest = resp
-    "DeleteVaultResponse"
+    "deleteVaultResponse"
     "fixture/DeleteVaultResponse"
     (Proxy :: Proxy DeleteVault)
 
+deleteVaultAccessPolicyResponseTest :: DeleteVaultAccessPolicyResponse -> TestTree
+deleteVaultAccessPolicyResponseTest = resp
+    "deleteVaultAccessPolicyResponse"
+    "fixture/DeleteVaultAccessPolicyResponse"
+    (Proxy :: Proxy DeleteVaultAccessPolicy)
+
+deleteVaultNotificationsResponseTest :: DeleteVaultNotificationsResponse -> TestTree
+deleteVaultNotificationsResponseTest = resp
+    "deleteVaultNotificationsResponse"
+    "fixture/DeleteVaultNotificationsResponse"
+    (Proxy :: Proxy DeleteVaultNotifications)
+
+describeJobResponseTest :: GlacierJobDescription -> TestTree
+describeJobResponseTest = resp
+    "describeJobResponse"
+    "fixture/GlacierJobDescription"
+    (Proxy :: Proxy DescribeJob)
+
+describeVaultResponseTest :: DescribeVaultOutput -> TestTree
+describeVaultResponseTest = resp
+    "describeVaultResponse"
+    "fixture/DescribeVaultOutput"
+    (Proxy :: Proxy DescribeVault)
+
+getDataRetrievalPolicyResponseTest :: GetDataRetrievalPolicyResponse -> TestTree
+getDataRetrievalPolicyResponseTest = resp
+    "getDataRetrievalPolicyResponse"
+    "fixture/GetDataRetrievalPolicyResponse"
+    (Proxy :: Proxy GetDataRetrievalPolicy)
+
+getJobOutputResponseTest :: GetJobOutputResponse -> TestTree
+getJobOutputResponseTest = resp
+    "getJobOutputResponse"
+    "fixture/GetJobOutputResponse"
+    (Proxy :: Proxy GetJobOutput)
+
+getVaultAccessPolicyResponseTest :: GetVaultAccessPolicyResponse -> TestTree
+getVaultAccessPolicyResponseTest = resp
+    "getVaultAccessPolicyResponse"
+    "fixture/GetVaultAccessPolicyResponse"
+    (Proxy :: Proxy GetVaultAccessPolicy)
+
+getVaultNotificationsResponseTest :: GetVaultNotificationsResponse -> TestTree
+getVaultNotificationsResponseTest = resp
+    "getVaultNotificationsResponse"
+    "fixture/GetVaultNotificationsResponse"
+    (Proxy :: Proxy GetVaultNotifications)
+
+initiateJobResponseTest :: InitiateJobResponse -> TestTree
+initiateJobResponseTest = resp
+    "initiateJobResponse"
+    "fixture/InitiateJobResponse"
+    (Proxy :: Proxy InitiateJob)
+
 initiateMultipartUploadResponseTest :: InitiateMultipartUploadResponse -> TestTree
 initiateMultipartUploadResponseTest = resp
-    "InitiateMultipartUploadResponse"
+    "initiateMultipartUploadResponse"
     "fixture/InitiateMultipartUploadResponse"
     (Proxy :: Proxy InitiateMultipartUpload)
 
+listJobsResponseTest :: ListJobsResponse -> TestTree
+listJobsResponseTest = resp
+    "listJobsResponse"
+    "fixture/ListJobsResponse"
+    (Proxy :: Proxy ListJobs)
+
+listMultipartUploadsResponseTest :: ListMultipartUploadsResponse -> TestTree
+listMultipartUploadsResponseTest = resp
+    "listMultipartUploadsResponse"
+    "fixture/ListMultipartUploadsResponse"
+    (Proxy :: Proxy ListMultipartUploads)
+
 listPartsResponseTest :: ListPartsResponse -> TestTree
 listPartsResponseTest = resp
-    "ListPartsResponse"
+    "listPartsResponse"
     "fixture/ListPartsResponse"
     (Proxy :: Proxy ListParts)
 
-createVaultResponseTest :: CreateVaultResponse -> TestTree
-createVaultResponseTest = resp
-    "CreateVaultResponse"
-    "fixture/CreateVaultResponse"
-    (Proxy :: Proxy CreateVault)
+listTagsForVaultResponseTest :: ListTagsForVaultResponse -> TestTree
+listTagsForVaultResponseTest = resp
+    "listTagsForVaultResponse"
+    "fixture/ListTagsForVaultResponse"
+    (Proxy :: Proxy ListTagsForVault)
 
-addTagsToVaultResponseTest :: AddTagsToVaultResponse -> TestTree
-addTagsToVaultResponseTest = resp
-    "AddTagsToVaultResponse"
-    "fixture/AddTagsToVaultResponse"
-    (Proxy :: Proxy AddTagsToVault)
+listVaultsResponseTest :: ListVaultsResponse -> TestTree
+listVaultsResponseTest = resp
+    "listVaultsResponse"
+    "fixture/ListVaultsResponse"
+    (Proxy :: Proxy ListVaults)
 
-archiveCreationOutputTest :: ArchiveCreationOutput -> TestTree
-archiveCreationOutputTest = resp
-    "ArchiveCreationOutput"
+removeTagsFromVaultResponseTest :: RemoveTagsFromVaultResponse -> TestTree
+removeTagsFromVaultResponseTest = resp
+    "removeTagsFromVaultResponse"
+    "fixture/RemoveTagsFromVaultResponse"
+    (Proxy :: Proxy RemoveTagsFromVault)
+
+setDataRetrievalPolicyResponseTest :: SetDataRetrievalPolicyResponse -> TestTree
+setDataRetrievalPolicyResponseTest = resp
+    "setDataRetrievalPolicyResponse"
+    "fixture/SetDataRetrievalPolicyResponse"
+    (Proxy :: Proxy SetDataRetrievalPolicy)
+
+setVaultAccessPolicyResponseTest :: SetVaultAccessPolicyResponse -> TestTree
+setVaultAccessPolicyResponseTest = resp
+    "setVaultAccessPolicyResponse"
+    "fixture/SetVaultAccessPolicyResponse"
+    (Proxy :: Proxy SetVaultAccessPolicy)
+
+setVaultNotificationsResponseTest :: SetVaultNotificationsResponse -> TestTree
+setVaultNotificationsResponseTest = resp
+    "setVaultNotificationsResponse"
+    "fixture/SetVaultNotificationsResponse"
+    (Proxy :: Proxy SetVaultNotifications)
+
+uploadArchiveResponseTest :: ArchiveCreationOutput -> TestTree
+uploadArchiveResponseTest = resp
+    "uploadArchiveResponse"
     "fixture/ArchiveCreationOutput"
     (Proxy :: Proxy UploadArchive)
+
+uploadMultipartPartResponseTest :: UploadMultipartPartResponse -> TestTree
+uploadMultipartPartResponseTest = resp
+    "uploadMultipartPartResponse"
+    "fixture/UploadMultipartPartResponse"
+    (Proxy :: Proxy UploadMultipartPart)

@@ -76,6 +76,5 @@ test-suite amazonka-ds-test
         , amazonka-ds == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

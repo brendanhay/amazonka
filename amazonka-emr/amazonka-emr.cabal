@@ -75,6 +75,5 @@ test-suite amazonka-emr-test
         , amazonka-emr == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

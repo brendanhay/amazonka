@@ -25,44 +25,41 @@ import Network.AWS.Route53Domains
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         [ listOperationsTest $
---             listOperations
+--         [ checkDomainAvailabilityTest $
+--             checkDomainAvailability
 --
---         , getDomainDetailTest $
---             getDomainDetail
---
---         , updateDomainContactPrivacyTest $
---             updateDomainContactPrivacy
---
---         , getOperationDetailTest $
---             getOperationDetail
---
---         , enableDomainAutoRenewTest $
---             enableDomainAutoRenew
+--         , deleteTagsForDomainTest $
+--             deleteTagsForDomain
 --
 --         , disableDomainAutoRenewTest $
 --             disableDomainAutoRenew
 --
---         , updateDomainContactTest $
---             updateDomainContact
+--         , disableDomainTransferLockTest $
+--             disableDomainTransferLock
+--
+--         , enableDomainAutoRenewTest $
+--             enableDomainAutoRenew
 --
 --         , enableDomainTransferLockTest $
 --             enableDomainTransferLock
 --
---         , registerDomainTest $
---             registerDomain
+--         , getDomainDetailTest $
+--             getDomainDetail
 --
---         , disableDomainTransferLockTest $
---             disableDomainTransferLock
+--         , getOperationDetailTest $
+--             getOperationDetail
 --
---         , checkDomainAvailabilityTest $
---             checkDomainAvailability
+--         , listDomainsTest $
+--             listDomains
+--
+--         , listOperationsTest $
+--             listOperations
 --
 --         , listTagsForDomainTest $
 --             listTagsForDomain
 --
---         , updateDomainNameserversTest $
---             updateDomainNameservers
+--         , registerDomainTest $
+--             registerDomain
 --
 --         , retrieveDomainAuthCodeTest $
 --             retrieveDomainAuthCode
@@ -70,56 +67,56 @@ import Network.AWS.Route53Domains
 --         , transferDomainTest $
 --             transferDomain
 --
---         , deleteTagsForDomainTest $
---             deleteTagsForDomain
+--         , updateDomainContactTest $
+--             updateDomainContact
+--
+--         , updateDomainContactPrivacyTest $
+--             updateDomainContactPrivacy
+--
+--         , updateDomainNameserversTest $
+--             updateDomainNameservers
 --
 --         , updateTagsForDomainTest $
 --             updateTagsForDomain
 --
---         , listDomainsTest $
---             listDomains
---
 --           ]
 
 --     , testGroup "response"
---         [ listOperationsResponseTest $
---             listOperationsResponse
+--         [ checkDomainAvailabilityResponseTest $
+--             checkDomainAvailabilityResponse
 --
---         , getDomainDetailResponseTest $
---             getDomainDetailResponse
---
---         , updateDomainContactPrivacyResponseTest $
---             updateDomainContactPrivacyResponse
---
---         , getOperationDetailResponseTest $
---             getOperationDetailResponse
---
---         , enableDomainAutoRenewResponseTest $
---             enableDomainAutoRenewResponse
+--         , deleteTagsForDomainResponseTest $
+--             deleteTagsForDomainResponse
 --
 --         , disableDomainAutoRenewResponseTest $
 --             disableDomainAutoRenewResponse
 --
---         , updateDomainContactResponseTest $
---             updateDomainContactResponse
+--         , disableDomainTransferLockResponseTest $
+--             disableDomainTransferLockResponse
+--
+--         , enableDomainAutoRenewResponseTest $
+--             enableDomainAutoRenewResponse
 --
 --         , enableDomainTransferLockResponseTest $
 --             enableDomainTransferLockResponse
 --
---         , registerDomainResponseTest $
---             registerDomainResponse
+--         , getDomainDetailResponseTest $
+--             getDomainDetailResponse
 --
---         , disableDomainTransferLockResponseTest $
---             disableDomainTransferLockResponse
+--         , getOperationDetailResponseTest $
+--             getOperationDetailResponse
 --
---         , checkDomainAvailabilityResponseTest $
---             checkDomainAvailabilityResponse
+--         , listDomainsResponseTest $
+--             listDomainsResponse
+--
+--         , listOperationsResponseTest $
+--             listOperationsResponse
 --
 --         , listTagsForDomainResponseTest $
 --             listTagsForDomainResponse
 --
---         , updateDomainNameserversResponseTest $
---             updateDomainNameserversResponse
+--         , registerDomainResponseTest $
+--             registerDomainResponse
 --
 --         , retrieveDomainAuthCodeResponseTest $
 --             retrieveDomainAuthCodeResponse
@@ -127,58 +124,58 @@ import Network.AWS.Route53Domains
 --         , transferDomainResponseTest $
 --             transferDomainResponse
 --
---         , deleteTagsForDomainResponseTest $
---             deleteTagsForDomainResponse
+--         , updateDomainContactResponseTest $
+--             updateDomainContactResponse
+--
+--         , updateDomainContactPrivacyResponseTest $
+--             updateDomainContactPrivacyResponse
+--
+--         , updateDomainNameserversResponseTest $
+--             updateDomainNameserversResponse
 --
 --         , updateTagsForDomainResponseTest $
 --             updateTagsForDomainResponse
---
---         , listDomainsResponseTest $
---             listDomainsResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-listOperationsTest :: ListOperations -> TestTree
-listOperationsTest = undefined
+checkDomainAvailabilityTest :: CheckDomainAvailability -> TestTree
+checkDomainAvailabilityTest = undefined
 
-getDomainDetailTest :: GetDomainDetail -> TestTree
-getDomainDetailTest = undefined
-
-updateDomainContactPrivacyTest :: UpdateDomainContactPrivacy -> TestTree
-updateDomainContactPrivacyTest = undefined
-
-getOperationDetailTest :: GetOperationDetail -> TestTree
-getOperationDetailTest = undefined
-
-enableDomainAutoRenewTest :: EnableDomainAutoRenew -> TestTree
-enableDomainAutoRenewTest = undefined
+deleteTagsForDomainTest :: DeleteTagsForDomain -> TestTree
+deleteTagsForDomainTest = undefined
 
 disableDomainAutoRenewTest :: DisableDomainAutoRenew -> TestTree
 disableDomainAutoRenewTest = undefined
 
-updateDomainContactTest :: UpdateDomainContact -> TestTree
-updateDomainContactTest = undefined
+disableDomainTransferLockTest :: DisableDomainTransferLock -> TestTree
+disableDomainTransferLockTest = undefined
+
+enableDomainAutoRenewTest :: EnableDomainAutoRenew -> TestTree
+enableDomainAutoRenewTest = undefined
 
 enableDomainTransferLockTest :: EnableDomainTransferLock -> TestTree
 enableDomainTransferLockTest = undefined
 
-registerDomainTest :: RegisterDomain -> TestTree
-registerDomainTest = undefined
+getDomainDetailTest :: GetDomainDetail -> TestTree
+getDomainDetailTest = undefined
 
-disableDomainTransferLockTest :: DisableDomainTransferLock -> TestTree
-disableDomainTransferLockTest = undefined
+getOperationDetailTest :: GetOperationDetail -> TestTree
+getOperationDetailTest = undefined
 
-checkDomainAvailabilityTest :: CheckDomainAvailability -> TestTree
-checkDomainAvailabilityTest = undefined
+listDomainsTest :: ListDomains -> TestTree
+listDomainsTest = undefined
+
+listOperationsTest :: ListOperations -> TestTree
+listOperationsTest = undefined
 
 listTagsForDomainTest :: ListTagsForDomain -> TestTree
 listTagsForDomainTest = undefined
 
-updateDomainNameserversTest :: UpdateDomainNameservers -> TestTree
-updateDomainNameserversTest = undefined
+registerDomainTest :: RegisterDomain -> TestTree
+registerDomainTest = undefined
 
 retrieveDomainAuthCodeTest :: RetrieveDomainAuthCode -> TestTree
 retrieveDomainAuthCodeTest = undefined
@@ -186,121 +183,124 @@ retrieveDomainAuthCodeTest = undefined
 transferDomainTest :: TransferDomain -> TestTree
 transferDomainTest = undefined
 
-deleteTagsForDomainTest :: DeleteTagsForDomain -> TestTree
-deleteTagsForDomainTest = undefined
+updateDomainContactTest :: UpdateDomainContact -> TestTree
+updateDomainContactTest = undefined
+
+updateDomainContactPrivacyTest :: UpdateDomainContactPrivacy -> TestTree
+updateDomainContactPrivacyTest = undefined
+
+updateDomainNameserversTest :: UpdateDomainNameservers -> TestTree
+updateDomainNameserversTest = undefined
 
 updateTagsForDomainTest :: UpdateTagsForDomain -> TestTree
 updateTagsForDomainTest = undefined
 
-listDomainsTest :: ListDomains -> TestTree
-listDomainsTest = undefined
-
 -- Responses
-
-listOperationsResponseTest :: ListOperationsResponse -> TestTree
-listOperationsResponseTest = resp
-    "ListOperationsResponse"
-    "fixture/ListOperationsResponse"
-    (Proxy :: Proxy ListOperations)
-
-getDomainDetailResponseTest :: GetDomainDetailResponse -> TestTree
-getDomainDetailResponseTest = resp
-    "GetDomainDetailResponse"
-    "fixture/GetDomainDetailResponse"
-    (Proxy :: Proxy GetDomainDetail)
-
-updateDomainContactPrivacyResponseTest :: UpdateDomainContactPrivacyResponse -> TestTree
-updateDomainContactPrivacyResponseTest = resp
-    "UpdateDomainContactPrivacyResponse"
-    "fixture/UpdateDomainContactPrivacyResponse"
-    (Proxy :: Proxy UpdateDomainContactPrivacy)
-
-getOperationDetailResponseTest :: GetOperationDetailResponse -> TestTree
-getOperationDetailResponseTest = resp
-    "GetOperationDetailResponse"
-    "fixture/GetOperationDetailResponse"
-    (Proxy :: Proxy GetOperationDetail)
-
-enableDomainAutoRenewResponseTest :: EnableDomainAutoRenewResponse -> TestTree
-enableDomainAutoRenewResponseTest = resp
-    "EnableDomainAutoRenewResponse"
-    "fixture/EnableDomainAutoRenewResponse"
-    (Proxy :: Proxy EnableDomainAutoRenew)
-
-disableDomainAutoRenewResponseTest :: DisableDomainAutoRenewResponse -> TestTree
-disableDomainAutoRenewResponseTest = resp
-    "DisableDomainAutoRenewResponse"
-    "fixture/DisableDomainAutoRenewResponse"
-    (Proxy :: Proxy DisableDomainAutoRenew)
-
-updateDomainContactResponseTest :: UpdateDomainContactResponse -> TestTree
-updateDomainContactResponseTest = resp
-    "UpdateDomainContactResponse"
-    "fixture/UpdateDomainContactResponse"
-    (Proxy :: Proxy UpdateDomainContact)
-
-enableDomainTransferLockResponseTest :: EnableDomainTransferLockResponse -> TestTree
-enableDomainTransferLockResponseTest = resp
-    "EnableDomainTransferLockResponse"
-    "fixture/EnableDomainTransferLockResponse"
-    (Proxy :: Proxy EnableDomainTransferLock)
-
-registerDomainResponseTest :: RegisterDomainResponse -> TestTree
-registerDomainResponseTest = resp
-    "RegisterDomainResponse"
-    "fixture/RegisterDomainResponse"
-    (Proxy :: Proxy RegisterDomain)
-
-disableDomainTransferLockResponseTest :: DisableDomainTransferLockResponse -> TestTree
-disableDomainTransferLockResponseTest = resp
-    "DisableDomainTransferLockResponse"
-    "fixture/DisableDomainTransferLockResponse"
-    (Proxy :: Proxy DisableDomainTransferLock)
 
 checkDomainAvailabilityResponseTest :: CheckDomainAvailabilityResponse -> TestTree
 checkDomainAvailabilityResponseTest = resp
-    "CheckDomainAvailabilityResponse"
+    "checkDomainAvailabilityResponse"
     "fixture/CheckDomainAvailabilityResponse"
     (Proxy :: Proxy CheckDomainAvailability)
 
+deleteTagsForDomainResponseTest :: DeleteTagsForDomainResponse -> TestTree
+deleteTagsForDomainResponseTest = resp
+    "deleteTagsForDomainResponse"
+    "fixture/DeleteTagsForDomainResponse"
+    (Proxy :: Proxy DeleteTagsForDomain)
+
+disableDomainAutoRenewResponseTest :: DisableDomainAutoRenewResponse -> TestTree
+disableDomainAutoRenewResponseTest = resp
+    "disableDomainAutoRenewResponse"
+    "fixture/DisableDomainAutoRenewResponse"
+    (Proxy :: Proxy DisableDomainAutoRenew)
+
+disableDomainTransferLockResponseTest :: DisableDomainTransferLockResponse -> TestTree
+disableDomainTransferLockResponseTest = resp
+    "disableDomainTransferLockResponse"
+    "fixture/DisableDomainTransferLockResponse"
+    (Proxy :: Proxy DisableDomainTransferLock)
+
+enableDomainAutoRenewResponseTest :: EnableDomainAutoRenewResponse -> TestTree
+enableDomainAutoRenewResponseTest = resp
+    "enableDomainAutoRenewResponse"
+    "fixture/EnableDomainAutoRenewResponse"
+    (Proxy :: Proxy EnableDomainAutoRenew)
+
+enableDomainTransferLockResponseTest :: EnableDomainTransferLockResponse -> TestTree
+enableDomainTransferLockResponseTest = resp
+    "enableDomainTransferLockResponse"
+    "fixture/EnableDomainTransferLockResponse"
+    (Proxy :: Proxy EnableDomainTransferLock)
+
+getDomainDetailResponseTest :: GetDomainDetailResponse -> TestTree
+getDomainDetailResponseTest = resp
+    "getDomainDetailResponse"
+    "fixture/GetDomainDetailResponse"
+    (Proxy :: Proxy GetDomainDetail)
+
+getOperationDetailResponseTest :: GetOperationDetailResponse -> TestTree
+getOperationDetailResponseTest = resp
+    "getOperationDetailResponse"
+    "fixture/GetOperationDetailResponse"
+    (Proxy :: Proxy GetOperationDetail)
+
+listDomainsResponseTest :: ListDomainsResponse -> TestTree
+listDomainsResponseTest = resp
+    "listDomainsResponse"
+    "fixture/ListDomainsResponse"
+    (Proxy :: Proxy ListDomains)
+
+listOperationsResponseTest :: ListOperationsResponse -> TestTree
+listOperationsResponseTest = resp
+    "listOperationsResponse"
+    "fixture/ListOperationsResponse"
+    (Proxy :: Proxy ListOperations)
+
 listTagsForDomainResponseTest :: ListTagsForDomainResponse -> TestTree
 listTagsForDomainResponseTest = resp
-    "ListTagsForDomainResponse"
+    "listTagsForDomainResponse"
     "fixture/ListTagsForDomainResponse"
     (Proxy :: Proxy ListTagsForDomain)
 
-updateDomainNameserversResponseTest :: UpdateDomainNameserversResponse -> TestTree
-updateDomainNameserversResponseTest = resp
-    "UpdateDomainNameserversResponse"
-    "fixture/UpdateDomainNameserversResponse"
-    (Proxy :: Proxy UpdateDomainNameservers)
+registerDomainResponseTest :: RegisterDomainResponse -> TestTree
+registerDomainResponseTest = resp
+    "registerDomainResponse"
+    "fixture/RegisterDomainResponse"
+    (Proxy :: Proxy RegisterDomain)
 
 retrieveDomainAuthCodeResponseTest :: RetrieveDomainAuthCodeResponse -> TestTree
 retrieveDomainAuthCodeResponseTest = resp
-    "RetrieveDomainAuthCodeResponse"
+    "retrieveDomainAuthCodeResponse"
     "fixture/RetrieveDomainAuthCodeResponse"
     (Proxy :: Proxy RetrieveDomainAuthCode)
 
 transferDomainResponseTest :: TransferDomainResponse -> TestTree
 transferDomainResponseTest = resp
-    "TransferDomainResponse"
+    "transferDomainResponse"
     "fixture/TransferDomainResponse"
     (Proxy :: Proxy TransferDomain)
 
-deleteTagsForDomainResponseTest :: DeleteTagsForDomainResponse -> TestTree
-deleteTagsForDomainResponseTest = resp
-    "DeleteTagsForDomainResponse"
-    "fixture/DeleteTagsForDomainResponse"
-    (Proxy :: Proxy DeleteTagsForDomain)
+updateDomainContactResponseTest :: UpdateDomainContactResponse -> TestTree
+updateDomainContactResponseTest = resp
+    "updateDomainContactResponse"
+    "fixture/UpdateDomainContactResponse"
+    (Proxy :: Proxy UpdateDomainContact)
+
+updateDomainContactPrivacyResponseTest :: UpdateDomainContactPrivacyResponse -> TestTree
+updateDomainContactPrivacyResponseTest = resp
+    "updateDomainContactPrivacyResponse"
+    "fixture/UpdateDomainContactPrivacyResponse"
+    (Proxy :: Proxy UpdateDomainContactPrivacy)
+
+updateDomainNameserversResponseTest :: UpdateDomainNameserversResponse -> TestTree
+updateDomainNameserversResponseTest = resp
+    "updateDomainNameserversResponse"
+    "fixture/UpdateDomainNameserversResponse"
+    (Proxy :: Proxy UpdateDomainNameservers)
 
 updateTagsForDomainResponseTest :: UpdateTagsForDomainResponse -> TestTree
 updateTagsForDomainResponseTest = resp
-    "UpdateTagsForDomainResponse"
+    "updateTagsForDomainResponse"
     "fixture/UpdateTagsForDomainResponse"
     (Proxy :: Proxy UpdateTagsForDomain)
-
-listDomainsResponseTest :: ListDomainsResponse -> TestTree
-listDomainsResponseTest = resp
-    "ListDomainsResponse"
-    "fixture/ListDomainsResponse"
-    (Proxy :: Proxy ListDomains)

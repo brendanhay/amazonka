@@ -131,6 +131,5 @@ test-suite amazonka-storagegateway-test
         , amazonka-storagegateway == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

@@ -25,35 +25,23 @@ import Network.AWS.SES
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         [ getSendQuotaTest $
---             getSendQuota
+--         [ deleteIdentityTest $
+--             deleteIdentity
 --
---         , setIdentityDkimEnabledTest $
---             setIdentityDkimEnabled
---
---         , getIdentityNotificationAttributesTest $
---             getIdentityNotificationAttributes
---
---         , setIdentityFeedbackForwardingEnabledTest $
---             setIdentityFeedbackForwardingEnabled
---
---         , getIdentityVerificationAttributesTest $
---             getIdentityVerificationAttributes
---
---         , verifyDomainIdentityTest $
---             verifyDomainIdentity
---
---         , verifyDomainDkimTest $
---             verifyDomainDkim
---
---         , sendRawEmailTest $
---             sendRawEmail
+--         , deleteVerifiedEmailAddressTest $
+--             deleteVerifiedEmailAddress
 --
 --         , getIdentityDkimAttributesTest $
 --             getIdentityDkimAttributes
 --
---         , deleteIdentityTest $
---             deleteIdentity
+--         , getIdentityNotificationAttributesTest $
+--             getIdentityNotificationAttributes
+--
+--         , getIdentityVerificationAttributesTest $
+--             getIdentityVerificationAttributes
+--
+--         , getSendQuotaTest $
+--             getSendQuota
 --
 --         , getSendStatisticsTest $
 --             getSendStatistics
@@ -61,8 +49,29 @@ import Network.AWS.SES
 --         , listIdentitiesTest $
 --             listIdentities
 --
---         , deleteVerifiedEmailAddressTest $
---             deleteVerifiedEmailAddress
+--         , listVerifiedEmailAddressesTest $
+--             listVerifiedEmailAddresses
+--
+--         , sendEmailTest $
+--             sendEmail
+--
+--         , sendRawEmailTest $
+--             sendRawEmail
+--
+--         , setIdentityDkimEnabledTest $
+--             setIdentityDkimEnabled
+--
+--         , setIdentityFeedbackForwardingEnabledTest $
+--             setIdentityFeedbackForwardingEnabled
+--
+--         , setIdentityNotificationTopicTest $
+--             setIdentityNotificationTopic
+--
+--         , verifyDomainDkimTest $
+--             verifyDomainDkim
+--
+--         , verifyDomainIdentityTest $
+--             verifyDomainIdentity
 --
 --         , verifyEmailAddressTest $
 --             verifyEmailAddress
@@ -70,47 +79,26 @@ import Network.AWS.SES
 --         , verifyEmailIdentityTest $
 --             verifyEmailIdentity
 --
---         , sendEmailTest $
---             sendEmail
---
---         , listVerifiedEmailAddressesTest $
---             listVerifiedEmailAddresses
---
---         , setIdentityNotificationTopicTest $
---             setIdentityNotificationTopic
---
 --           ]
 
 --     , testGroup "response"
---         [ getSendQuotaResponseTest $
---             getSendQuotaResponse
+--         [ deleteIdentityResponseTest $
+--             deleteIdentityResponse
 --
---         , setIdentityDkimEnabledResponseTest $
---             setIdentityDkimEnabledResponse
---
---         , getIdentityNotificationAttributesResponseTest $
---             getIdentityNotificationAttributesResponse
---
---         , setIdentityFeedbackForwardingEnabledResponseTest $
---             setIdentityFeedbackForwardingEnabledResponse
---
---         , getIdentityVerificationAttributesResponseTest $
---             getIdentityVerificationAttributesResponse
---
---         , verifyDomainIdentityResponseTest $
---             verifyDomainIdentityResponse
---
---         , verifyDomainDkimResponseTest $
---             verifyDomainDkimResponse
---
---         , sendRawEmailResponseTest $
---             sendRawEmailResponse
+--         , deleteVerifiedEmailAddressResponseTest $
+--             deleteVerifiedEmailAddressResponse
 --
 --         , getIdentityDkimAttributesResponseTest $
 --             getIdentityDkimAttributesResponse
 --
---         , deleteIdentityResponseTest $
---             deleteIdentityResponse
+--         , getIdentityNotificationAttributesResponseTest $
+--             getIdentityNotificationAttributesResponse
+--
+--         , getIdentityVerificationAttributesResponseTest $
+--             getIdentityVerificationAttributesResponse
+--
+--         , getSendQuotaResponseTest $
+--             getSendQuotaResponse
 --
 --         , getSendStatisticsResponseTest $
 --             getSendStatisticsResponse
@@ -118,8 +106,29 @@ import Network.AWS.SES
 --         , listIdentitiesResponseTest $
 --             listIdentitiesResponse
 --
---         , deleteVerifiedEmailAddressResponseTest $
---             deleteVerifiedEmailAddressResponse
+--         , listVerifiedEmailAddressesResponseTest $
+--             listVerifiedEmailAddressesResponse
+--
+--         , sendEmailResponseTest $
+--             sendEmailResponse
+--
+--         , sendRawEmailResponseTest $
+--             sendRawEmailResponse
+--
+--         , setIdentityDkimEnabledResponseTest $
+--             setIdentityDkimEnabledResponse
+--
+--         , setIdentityFeedbackForwardingEnabledResponseTest $
+--             setIdentityFeedbackForwardingEnabledResponse
+--
+--         , setIdentityNotificationTopicResponseTest $
+--             setIdentityNotificationTopicResponse
+--
+--         , verifyDomainDkimResponseTest $
+--             verifyDomainDkimResponse
+--
+--         , verifyDomainIdentityResponseTest $
+--             verifyDomainIdentityResponse
 --
 --         , verifyEmailAddressResponseTest $
 --             verifyEmailAddressResponse
@@ -127,49 +136,28 @@ import Network.AWS.SES
 --         , verifyEmailIdentityResponseTest $
 --             verifyEmailIdentityResponse
 --
---         , sendEmailResponseTest $
---             sendEmailResponse
---
---         , listVerifiedEmailAddressesResponseTest $
---             listVerifiedEmailAddressesResponse
---
---         , setIdentityNotificationTopicResponseTest $
---             setIdentityNotificationTopicResponse
---
 --           ]
 --     ]
 
 -- Requests
 
-getSendQuotaTest :: GetSendQuota -> TestTree
-getSendQuotaTest = undefined
+deleteIdentityTest :: DeleteIdentity -> TestTree
+deleteIdentityTest = undefined
 
-setIdentityDkimEnabledTest :: SetIdentityDkimEnabled -> TestTree
-setIdentityDkimEnabledTest = undefined
-
-getIdentityNotificationAttributesTest :: GetIdentityNotificationAttributes -> TestTree
-getIdentityNotificationAttributesTest = undefined
-
-setIdentityFeedbackForwardingEnabledTest :: SetIdentityFeedbackForwardingEnabled -> TestTree
-setIdentityFeedbackForwardingEnabledTest = undefined
-
-getIdentityVerificationAttributesTest :: GetIdentityVerificationAttributes -> TestTree
-getIdentityVerificationAttributesTest = undefined
-
-verifyDomainIdentityTest :: VerifyDomainIdentity -> TestTree
-verifyDomainIdentityTest = undefined
-
-verifyDomainDkimTest :: VerifyDomainDkim -> TestTree
-verifyDomainDkimTest = undefined
-
-sendRawEmailTest :: SendRawEmail -> TestTree
-sendRawEmailTest = undefined
+deleteVerifiedEmailAddressTest :: DeleteVerifiedEmailAddress -> TestTree
+deleteVerifiedEmailAddressTest = undefined
 
 getIdentityDkimAttributesTest :: GetIdentityDkimAttributes -> TestTree
 getIdentityDkimAttributesTest = undefined
 
-deleteIdentityTest :: DeleteIdentity -> TestTree
-deleteIdentityTest = undefined
+getIdentityNotificationAttributesTest :: GetIdentityNotificationAttributes -> TestTree
+getIdentityNotificationAttributesTest = undefined
+
+getIdentityVerificationAttributesTest :: GetIdentityVerificationAttributes -> TestTree
+getIdentityVerificationAttributesTest = undefined
+
+getSendQuotaTest :: GetSendQuota -> TestTree
+getSendQuotaTest = undefined
 
 getSendStatisticsTest :: GetSendStatistics -> TestTree
 getSendStatisticsTest = undefined
@@ -177,8 +165,29 @@ getSendStatisticsTest = undefined
 listIdentitiesTest :: ListIdentities -> TestTree
 listIdentitiesTest = undefined
 
-deleteVerifiedEmailAddressTest :: DeleteVerifiedEmailAddress -> TestTree
-deleteVerifiedEmailAddressTest = undefined
+listVerifiedEmailAddressesTest :: ListVerifiedEmailAddresses -> TestTree
+listVerifiedEmailAddressesTest = undefined
+
+sendEmailTest :: SendEmail -> TestTree
+sendEmailTest = undefined
+
+sendRawEmailTest :: SendRawEmail -> TestTree
+sendRawEmailTest = undefined
+
+setIdentityDkimEnabledTest :: SetIdentityDkimEnabled -> TestTree
+setIdentityDkimEnabledTest = undefined
+
+setIdentityFeedbackForwardingEnabledTest :: SetIdentityFeedbackForwardingEnabled -> TestTree
+setIdentityFeedbackForwardingEnabledTest = undefined
+
+setIdentityNotificationTopicTest :: SetIdentityNotificationTopic -> TestTree
+setIdentityNotificationTopicTest = undefined
+
+verifyDomainDkimTest :: VerifyDomainDkim -> TestTree
+verifyDomainDkimTest = undefined
+
+verifyDomainIdentityTest :: VerifyDomainIdentity -> TestTree
+verifyDomainIdentityTest = undefined
 
 verifyEmailAddressTest :: VerifyEmailAddress -> TestTree
 verifyEmailAddressTest = undefined
@@ -186,121 +195,112 @@ verifyEmailAddressTest = undefined
 verifyEmailIdentityTest :: VerifyEmailIdentity -> TestTree
 verifyEmailIdentityTest = undefined
 
-sendEmailTest :: SendEmail -> TestTree
-sendEmailTest = undefined
-
-listVerifiedEmailAddressesTest :: ListVerifiedEmailAddresses -> TestTree
-listVerifiedEmailAddressesTest = undefined
-
-setIdentityNotificationTopicTest :: SetIdentityNotificationTopic -> TestTree
-setIdentityNotificationTopicTest = undefined
-
 -- Responses
-
-getSendQuotaResponseTest :: GetSendQuotaResponse -> TestTree
-getSendQuotaResponseTest = resp
-    "GetSendQuotaResponse"
-    "fixture/GetSendQuotaResponse"
-    (Proxy :: Proxy GetSendQuota)
-
-setIdentityDkimEnabledResponseTest :: SetIdentityDkimEnabledResponse -> TestTree
-setIdentityDkimEnabledResponseTest = resp
-    "SetIdentityDkimEnabledResponse"
-    "fixture/SetIdentityDkimEnabledResponse"
-    (Proxy :: Proxy SetIdentityDkimEnabled)
-
-getIdentityNotificationAttributesResponseTest :: GetIdentityNotificationAttributesResponse -> TestTree
-getIdentityNotificationAttributesResponseTest = resp
-    "GetIdentityNotificationAttributesResponse"
-    "fixture/GetIdentityNotificationAttributesResponse"
-    (Proxy :: Proxy GetIdentityNotificationAttributes)
-
-setIdentityFeedbackForwardingEnabledResponseTest :: SetIdentityFeedbackForwardingEnabledResponse -> TestTree
-setIdentityFeedbackForwardingEnabledResponseTest = resp
-    "SetIdentityFeedbackForwardingEnabledResponse"
-    "fixture/SetIdentityFeedbackForwardingEnabledResponse"
-    (Proxy :: Proxy SetIdentityFeedbackForwardingEnabled)
-
-getIdentityVerificationAttributesResponseTest :: GetIdentityVerificationAttributesResponse -> TestTree
-getIdentityVerificationAttributesResponseTest = resp
-    "GetIdentityVerificationAttributesResponse"
-    "fixture/GetIdentityVerificationAttributesResponse"
-    (Proxy :: Proxy GetIdentityVerificationAttributes)
-
-verifyDomainIdentityResponseTest :: VerifyDomainIdentityResponse -> TestTree
-verifyDomainIdentityResponseTest = resp
-    "VerifyDomainIdentityResponse"
-    "fixture/VerifyDomainIdentityResponse"
-    (Proxy :: Proxy VerifyDomainIdentity)
-
-verifyDomainDkimResponseTest :: VerifyDomainDkimResponse -> TestTree
-verifyDomainDkimResponseTest = resp
-    "VerifyDomainDkimResponse"
-    "fixture/VerifyDomainDkimResponse"
-    (Proxy :: Proxy VerifyDomainDkim)
-
-sendRawEmailResponseTest :: SendRawEmailResponse -> TestTree
-sendRawEmailResponseTest = resp
-    "SendRawEmailResponse"
-    "fixture/SendRawEmailResponse"
-    (Proxy :: Proxy SendRawEmail)
-
-getIdentityDkimAttributesResponseTest :: GetIdentityDkimAttributesResponse -> TestTree
-getIdentityDkimAttributesResponseTest = resp
-    "GetIdentityDkimAttributesResponse"
-    "fixture/GetIdentityDkimAttributesResponse"
-    (Proxy :: Proxy GetIdentityDkimAttributes)
 
 deleteIdentityResponseTest :: DeleteIdentityResponse -> TestTree
 deleteIdentityResponseTest = resp
-    "DeleteIdentityResponse"
+    "deleteIdentityResponse"
     "fixture/DeleteIdentityResponse"
     (Proxy :: Proxy DeleteIdentity)
 
+deleteVerifiedEmailAddressResponseTest :: DeleteVerifiedEmailAddressResponse -> TestTree
+deleteVerifiedEmailAddressResponseTest = resp
+    "deleteVerifiedEmailAddressResponse"
+    "fixture/DeleteVerifiedEmailAddressResponse"
+    (Proxy :: Proxy DeleteVerifiedEmailAddress)
+
+getIdentityDkimAttributesResponseTest :: GetIdentityDkimAttributesResponse -> TestTree
+getIdentityDkimAttributesResponseTest = resp
+    "getIdentityDkimAttributesResponse"
+    "fixture/GetIdentityDkimAttributesResponse"
+    (Proxy :: Proxy GetIdentityDkimAttributes)
+
+getIdentityNotificationAttributesResponseTest :: GetIdentityNotificationAttributesResponse -> TestTree
+getIdentityNotificationAttributesResponseTest = resp
+    "getIdentityNotificationAttributesResponse"
+    "fixture/GetIdentityNotificationAttributesResponse"
+    (Proxy :: Proxy GetIdentityNotificationAttributes)
+
+getIdentityVerificationAttributesResponseTest :: GetIdentityVerificationAttributesResponse -> TestTree
+getIdentityVerificationAttributesResponseTest = resp
+    "getIdentityVerificationAttributesResponse"
+    "fixture/GetIdentityVerificationAttributesResponse"
+    (Proxy :: Proxy GetIdentityVerificationAttributes)
+
+getSendQuotaResponseTest :: GetSendQuotaResponse -> TestTree
+getSendQuotaResponseTest = resp
+    "getSendQuotaResponse"
+    "fixture/GetSendQuotaResponse"
+    (Proxy :: Proxy GetSendQuota)
+
 getSendStatisticsResponseTest :: GetSendStatisticsResponse -> TestTree
 getSendStatisticsResponseTest = resp
-    "GetSendStatisticsResponse"
+    "getSendStatisticsResponse"
     "fixture/GetSendStatisticsResponse"
     (Proxy :: Proxy GetSendStatistics)
 
 listIdentitiesResponseTest :: ListIdentitiesResponse -> TestTree
 listIdentitiesResponseTest = resp
-    "ListIdentitiesResponse"
+    "listIdentitiesResponse"
     "fixture/ListIdentitiesResponse"
     (Proxy :: Proxy ListIdentities)
 
-deleteVerifiedEmailAddressResponseTest :: DeleteVerifiedEmailAddressResponse -> TestTree
-deleteVerifiedEmailAddressResponseTest = resp
-    "DeleteVerifiedEmailAddressResponse"
-    "fixture/DeleteVerifiedEmailAddressResponse"
-    (Proxy :: Proxy DeleteVerifiedEmailAddress)
+listVerifiedEmailAddressesResponseTest :: ListVerifiedEmailAddressesResponse -> TestTree
+listVerifiedEmailAddressesResponseTest = resp
+    "listVerifiedEmailAddressesResponse"
+    "fixture/ListVerifiedEmailAddressesResponse"
+    (Proxy :: Proxy ListVerifiedEmailAddresses)
+
+sendEmailResponseTest :: SendEmailResponse -> TestTree
+sendEmailResponseTest = resp
+    "sendEmailResponse"
+    "fixture/SendEmailResponse"
+    (Proxy :: Proxy SendEmail)
+
+sendRawEmailResponseTest :: SendRawEmailResponse -> TestTree
+sendRawEmailResponseTest = resp
+    "sendRawEmailResponse"
+    "fixture/SendRawEmailResponse"
+    (Proxy :: Proxy SendRawEmail)
+
+setIdentityDkimEnabledResponseTest :: SetIdentityDkimEnabledResponse -> TestTree
+setIdentityDkimEnabledResponseTest = resp
+    "setIdentityDkimEnabledResponse"
+    "fixture/SetIdentityDkimEnabledResponse"
+    (Proxy :: Proxy SetIdentityDkimEnabled)
+
+setIdentityFeedbackForwardingEnabledResponseTest :: SetIdentityFeedbackForwardingEnabledResponse -> TestTree
+setIdentityFeedbackForwardingEnabledResponseTest = resp
+    "setIdentityFeedbackForwardingEnabledResponse"
+    "fixture/SetIdentityFeedbackForwardingEnabledResponse"
+    (Proxy :: Proxy SetIdentityFeedbackForwardingEnabled)
+
+setIdentityNotificationTopicResponseTest :: SetIdentityNotificationTopicResponse -> TestTree
+setIdentityNotificationTopicResponseTest = resp
+    "setIdentityNotificationTopicResponse"
+    "fixture/SetIdentityNotificationTopicResponse"
+    (Proxy :: Proxy SetIdentityNotificationTopic)
+
+verifyDomainDkimResponseTest :: VerifyDomainDkimResponse -> TestTree
+verifyDomainDkimResponseTest = resp
+    "verifyDomainDkimResponse"
+    "fixture/VerifyDomainDkimResponse"
+    (Proxy :: Proxy VerifyDomainDkim)
+
+verifyDomainIdentityResponseTest :: VerifyDomainIdentityResponse -> TestTree
+verifyDomainIdentityResponseTest = resp
+    "verifyDomainIdentityResponse"
+    "fixture/VerifyDomainIdentityResponse"
+    (Proxy :: Proxy VerifyDomainIdentity)
 
 verifyEmailAddressResponseTest :: VerifyEmailAddressResponse -> TestTree
 verifyEmailAddressResponseTest = resp
-    "VerifyEmailAddressResponse"
+    "verifyEmailAddressResponse"
     "fixture/VerifyEmailAddressResponse"
     (Proxy :: Proxy VerifyEmailAddress)
 
 verifyEmailIdentityResponseTest :: VerifyEmailIdentityResponse -> TestTree
 verifyEmailIdentityResponseTest = resp
-    "VerifyEmailIdentityResponse"
+    "verifyEmailIdentityResponse"
     "fixture/VerifyEmailIdentityResponse"
     (Proxy :: Proxy VerifyEmailIdentity)
-
-sendEmailResponseTest :: SendEmailResponse -> TestTree
-sendEmailResponseTest = resp
-    "SendEmailResponse"
-    "fixture/SendEmailResponse"
-    (Proxy :: Proxy SendEmail)
-
-listVerifiedEmailAddressesResponseTest :: ListVerifiedEmailAddressesResponse -> TestTree
-listVerifiedEmailAddressesResponseTest = resp
-    "ListVerifiedEmailAddressesResponse"
-    "fixture/ListVerifiedEmailAddressesResponse"
-    (Proxy :: Proxy ListVerifiedEmailAddresses)
-
-setIdentityNotificationTopicResponseTest :: SetIdentityNotificationTopicResponse -> TestTree
-setIdentityNotificationTopicResponseTest = resp
-    "SetIdentityNotificationTopicResponse"
-    "fixture/SetIdentityNotificationTopicResponse"
-    (Proxy :: Proxy SetIdentityNotificationTopic)

@@ -25,282 +25,282 @@ import Network.AWS.CognitoIdentity
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         [ getOpenIdTokenTest $
---             getOpenIdToken
---
---         , describeIdentityPoolTest $
---             describeIdentityPool
---
---         , getOpenIdTokenForDeveloperIdentityTest $
---             getOpenIdTokenForDeveloperIdentity
---
---         , unlinkDeveloperIdentityTest $
---             unlinkDeveloperIdentity
---
---         , getCredentialsForIdentityTest $
---             getCredentialsForIdentity
---
---         , listIdentityPoolsTest $
---             listIdentityPools
---
---         , getIdentityPoolRolesTest $
---             getIdentityPoolRoles
---
---         , deleteIdentityPoolTest $
---             deleteIdentityPool
---
---         , updateIdentityPoolTest $
---             updateIdentityPool
---
---         , getIdTest $
---             getId
+--         [ createIdentityPoolTest $
+--             createIdentityPool
 --
 --         , deleteIdentitiesTest $
 --             deleteIdentities
 --
---         , setIdentityPoolRolesTest $
---             setIdentityPoolRoles
---
---         , listIdentitiesTest $
---             listIdentities
---
---         , lookupDeveloperIdentityTest $
---             lookupDeveloperIdentity
---
---         , unlinkIdentityTest $
---             unlinkIdentity
+--         , deleteIdentityPoolTest $
+--             deleteIdentityPool
 --
 --         , describeIdentityTest $
 --             describeIdentity
 --
---         , createIdentityPoolTest $
---             createIdentityPool
+--         , describeIdentityPoolTest $
+--             describeIdentityPool
+--
+--         , getCredentialsForIdentityTest $
+--             getCredentialsForIdentity
+--
+--         , getIdTest $
+--             getId
+--
+--         , getIdentityPoolRolesTest $
+--             getIdentityPoolRoles
+--
+--         , getOpenIdTokenTest $
+--             getOpenIdToken
+--
+--         , getOpenIdTokenForDeveloperIdentityTest $
+--             getOpenIdTokenForDeveloperIdentity
+--
+--         , listIdentitiesTest $
+--             listIdentities
+--
+--         , listIdentityPoolsTest $
+--             listIdentityPools
+--
+--         , lookupDeveloperIdentityTest $
+--             lookupDeveloperIdentity
 --
 --         , mergeDeveloperIdentitiesTest $
 --             mergeDeveloperIdentities
 --
+--         , setIdentityPoolRolesTest $
+--             setIdentityPoolRoles
+--
+--         , unlinkDeveloperIdentityTest $
+--             unlinkDeveloperIdentity
+--
+--         , unlinkIdentityTest $
+--             unlinkIdentity
+--
+--         , updateIdentityPoolTest $
+--             updateIdentityPool
+--
 --           ]
 
 --     , testGroup "response"
---         [ getOpenIdTokenResponseTest $
---             getOpenIdTokenResponse
---
---         , identityPoolTest $
+--         [ createIdentityPoolResponseTest $
 --             identityPool
---
---         , getOpenIdTokenForDeveloperIdentityResponseTest $
---             getOpenIdTokenForDeveloperIdentityResponse
---
---         , unlinkDeveloperIdentityResponseTest $
---             unlinkDeveloperIdentityResponse
---
---         , getCredentialsForIdentityResponseTest $
---             getCredentialsForIdentityResponse
---
---         , listIdentityPoolsResponseTest $
---             listIdentityPoolsResponse
---
---         , getIdentityPoolRolesResponseTest $
---             getIdentityPoolRolesResponse
---
---         , deleteIdentityPoolResponseTest $
---             deleteIdentityPoolResponse
---
---         , identityPoolTest $
---             identityPool
---
---         , getIdResponseTest $
---             getIdResponse
 --
 --         , deleteIdentitiesResponseTest $
 --             deleteIdentitiesResponse
 --
---         , setIdentityPoolRolesResponseTest $
---             setIdentityPoolRolesResponse
+--         , deleteIdentityPoolResponseTest $
+--             deleteIdentityPoolResponse
+--
+--         , describeIdentityResponseTest $
+--             identityDescription
+--
+--         , describeIdentityPoolResponseTest $
+--             identityPool
+--
+--         , getCredentialsForIdentityResponseTest $
+--             getCredentialsForIdentityResponse
+--
+--         , getIdResponseTest $
+--             getIdResponse
+--
+--         , getIdentityPoolRolesResponseTest $
+--             getIdentityPoolRolesResponse
+--
+--         , getOpenIdTokenResponseTest $
+--             getOpenIdTokenResponse
+--
+--         , getOpenIdTokenForDeveloperIdentityResponseTest $
+--             getOpenIdTokenForDeveloperIdentityResponse
 --
 --         , listIdentitiesResponseTest $
 --             listIdentitiesResponse
 --
+--         , listIdentityPoolsResponseTest $
+--             listIdentityPoolsResponse
+--
 --         , lookupDeveloperIdentityResponseTest $
 --             lookupDeveloperIdentityResponse
+--
+--         , mergeDeveloperIdentitiesResponseTest $
+--             mergeDeveloperIdentitiesResponse
+--
+--         , setIdentityPoolRolesResponseTest $
+--             setIdentityPoolRolesResponse
+--
+--         , unlinkDeveloperIdentityResponseTest $
+--             unlinkDeveloperIdentityResponse
 --
 --         , unlinkIdentityResponseTest $
 --             unlinkIdentityResponse
 --
---         , identityDescriptionTest $
---             identityDescription
---
---         , identityPoolTest $
+--         , updateIdentityPoolResponseTest $
 --             identityPool
---
---         , mergeDeveloperIdentitiesResponseTest $
---             mergeDeveloperIdentitiesResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-getOpenIdTokenTest :: GetOpenIdToken -> TestTree
-getOpenIdTokenTest = undefined
-
-describeIdentityPoolTest :: DescribeIdentityPool -> TestTree
-describeIdentityPoolTest = undefined
-
-getOpenIdTokenForDeveloperIdentityTest :: GetOpenIdTokenForDeveloperIdentity -> TestTree
-getOpenIdTokenForDeveloperIdentityTest = undefined
-
-unlinkDeveloperIdentityTest :: UnlinkDeveloperIdentity -> TestTree
-unlinkDeveloperIdentityTest = undefined
-
-getCredentialsForIdentityTest :: GetCredentialsForIdentity -> TestTree
-getCredentialsForIdentityTest = undefined
-
-listIdentityPoolsTest :: ListIdentityPools -> TestTree
-listIdentityPoolsTest = undefined
-
-getIdentityPoolRolesTest :: GetIdentityPoolRoles -> TestTree
-getIdentityPoolRolesTest = undefined
-
-deleteIdentityPoolTest :: DeleteIdentityPool -> TestTree
-deleteIdentityPoolTest = undefined
-
-updateIdentityPoolTest :: UpdateIdentityPool -> TestTree
-updateIdentityPoolTest = undefined
-
-getIdTest :: GetId -> TestTree
-getIdTest = undefined
+createIdentityPoolTest :: CreateIdentityPool -> TestTree
+createIdentityPoolTest = undefined
 
 deleteIdentitiesTest :: DeleteIdentities -> TestTree
 deleteIdentitiesTest = undefined
 
-setIdentityPoolRolesTest :: SetIdentityPoolRoles -> TestTree
-setIdentityPoolRolesTest = undefined
-
-listIdentitiesTest :: ListIdentities -> TestTree
-listIdentitiesTest = undefined
-
-lookupDeveloperIdentityTest :: LookupDeveloperIdentity -> TestTree
-lookupDeveloperIdentityTest = undefined
-
-unlinkIdentityTest :: UnlinkIdentity -> TestTree
-unlinkIdentityTest = undefined
+deleteIdentityPoolTest :: DeleteIdentityPool -> TestTree
+deleteIdentityPoolTest = undefined
 
 describeIdentityTest :: DescribeIdentity -> TestTree
 describeIdentityTest = undefined
 
-createIdentityPoolTest :: CreateIdentityPool -> TestTree
-createIdentityPoolTest = undefined
+describeIdentityPoolTest :: DescribeIdentityPool -> TestTree
+describeIdentityPoolTest = undefined
+
+getCredentialsForIdentityTest :: GetCredentialsForIdentity -> TestTree
+getCredentialsForIdentityTest = undefined
+
+getIdTest :: GetId -> TestTree
+getIdTest = undefined
+
+getIdentityPoolRolesTest :: GetIdentityPoolRoles -> TestTree
+getIdentityPoolRolesTest = undefined
+
+getOpenIdTokenTest :: GetOpenIdToken -> TestTree
+getOpenIdTokenTest = undefined
+
+getOpenIdTokenForDeveloperIdentityTest :: GetOpenIdTokenForDeveloperIdentity -> TestTree
+getOpenIdTokenForDeveloperIdentityTest = undefined
+
+listIdentitiesTest :: ListIdentities -> TestTree
+listIdentitiesTest = undefined
+
+listIdentityPoolsTest :: ListIdentityPools -> TestTree
+listIdentityPoolsTest = undefined
+
+lookupDeveloperIdentityTest :: LookupDeveloperIdentity -> TestTree
+lookupDeveloperIdentityTest = undefined
 
 mergeDeveloperIdentitiesTest :: MergeDeveloperIdentities -> TestTree
 mergeDeveloperIdentitiesTest = undefined
 
+setIdentityPoolRolesTest :: SetIdentityPoolRoles -> TestTree
+setIdentityPoolRolesTest = undefined
+
+unlinkDeveloperIdentityTest :: UnlinkDeveloperIdentity -> TestTree
+unlinkDeveloperIdentityTest = undefined
+
+unlinkIdentityTest :: UnlinkIdentity -> TestTree
+unlinkIdentityTest = undefined
+
+updateIdentityPoolTest :: UpdateIdentityPool -> TestTree
+updateIdentityPoolTest = undefined
+
 -- Responses
 
-getOpenIdTokenResponseTest :: GetOpenIdTokenResponse -> TestTree
-getOpenIdTokenResponseTest = resp
-    "GetOpenIdTokenResponse"
-    "fixture/GetOpenIdTokenResponse"
-    (Proxy :: Proxy GetOpenIdToken)
-
-identityPoolTest :: IdentityPool -> TestTree
-identityPoolTest = resp
-    "IdentityPool"
-    "fixture/IdentityPool"
-    (Proxy :: Proxy DescribeIdentityPool)
-
-getOpenIdTokenForDeveloperIdentityResponseTest :: GetOpenIdTokenForDeveloperIdentityResponse -> TestTree
-getOpenIdTokenForDeveloperIdentityResponseTest = resp
-    "GetOpenIdTokenForDeveloperIdentityResponse"
-    "fixture/GetOpenIdTokenForDeveloperIdentityResponse"
-    (Proxy :: Proxy GetOpenIdTokenForDeveloperIdentity)
-
-unlinkDeveloperIdentityResponseTest :: UnlinkDeveloperIdentityResponse -> TestTree
-unlinkDeveloperIdentityResponseTest = resp
-    "UnlinkDeveloperIdentityResponse"
-    "fixture/UnlinkDeveloperIdentityResponse"
-    (Proxy :: Proxy UnlinkDeveloperIdentity)
-
-getCredentialsForIdentityResponseTest :: GetCredentialsForIdentityResponse -> TestTree
-getCredentialsForIdentityResponseTest = resp
-    "GetCredentialsForIdentityResponse"
-    "fixture/GetCredentialsForIdentityResponse"
-    (Proxy :: Proxy GetCredentialsForIdentity)
-
-listIdentityPoolsResponseTest :: ListIdentityPoolsResponse -> TestTree
-listIdentityPoolsResponseTest = resp
-    "ListIdentityPoolsResponse"
-    "fixture/ListIdentityPoolsResponse"
-    (Proxy :: Proxy ListIdentityPools)
-
-getIdentityPoolRolesResponseTest :: GetIdentityPoolRolesResponse -> TestTree
-getIdentityPoolRolesResponseTest = resp
-    "GetIdentityPoolRolesResponse"
-    "fixture/GetIdentityPoolRolesResponse"
-    (Proxy :: Proxy GetIdentityPoolRoles)
-
-deleteIdentityPoolResponseTest :: DeleteIdentityPoolResponse -> TestTree
-deleteIdentityPoolResponseTest = resp
-    "DeleteIdentityPoolResponse"
-    "fixture/DeleteIdentityPoolResponse"
-    (Proxy :: Proxy DeleteIdentityPool)
-
-identityPoolTest :: IdentityPool -> TestTree
-identityPoolTest = resp
-    "IdentityPool"
-    "fixture/IdentityPool"
-    (Proxy :: Proxy UpdateIdentityPool)
-
-getIdResponseTest :: GetIdResponse -> TestTree
-getIdResponseTest = resp
-    "GetIdResponse"
-    "fixture/GetIdResponse"
-    (Proxy :: Proxy GetId)
-
-deleteIdentitiesResponseTest :: DeleteIdentitiesResponse -> TestTree
-deleteIdentitiesResponseTest = resp
-    "DeleteIdentitiesResponse"
-    "fixture/DeleteIdentitiesResponse"
-    (Proxy :: Proxy DeleteIdentities)
-
-setIdentityPoolRolesResponseTest :: SetIdentityPoolRolesResponse -> TestTree
-setIdentityPoolRolesResponseTest = resp
-    "SetIdentityPoolRolesResponse"
-    "fixture/SetIdentityPoolRolesResponse"
-    (Proxy :: Proxy SetIdentityPoolRoles)
-
-listIdentitiesResponseTest :: ListIdentitiesResponse -> TestTree
-listIdentitiesResponseTest = resp
-    "ListIdentitiesResponse"
-    "fixture/ListIdentitiesResponse"
-    (Proxy :: Proxy ListIdentities)
-
-lookupDeveloperIdentityResponseTest :: LookupDeveloperIdentityResponse -> TestTree
-lookupDeveloperIdentityResponseTest = resp
-    "LookupDeveloperIdentityResponse"
-    "fixture/LookupDeveloperIdentityResponse"
-    (Proxy :: Proxy LookupDeveloperIdentity)
-
-unlinkIdentityResponseTest :: UnlinkIdentityResponse -> TestTree
-unlinkIdentityResponseTest = resp
-    "UnlinkIdentityResponse"
-    "fixture/UnlinkIdentityResponse"
-    (Proxy :: Proxy UnlinkIdentity)
-
-identityDescriptionTest :: IdentityDescription -> TestTree
-identityDescriptionTest = resp
-    "IdentityDescription"
-    "fixture/IdentityDescription"
-    (Proxy :: Proxy DescribeIdentity)
-
-identityPoolTest :: IdentityPool -> TestTree
-identityPoolTest = resp
-    "IdentityPool"
+createIdentityPoolResponseTest :: IdentityPool -> TestTree
+createIdentityPoolResponseTest = resp
+    "createIdentityPoolResponse"
     "fixture/IdentityPool"
     (Proxy :: Proxy CreateIdentityPool)
 
+deleteIdentitiesResponseTest :: DeleteIdentitiesResponse -> TestTree
+deleteIdentitiesResponseTest = resp
+    "deleteIdentitiesResponse"
+    "fixture/DeleteIdentitiesResponse"
+    (Proxy :: Proxy DeleteIdentities)
+
+deleteIdentityPoolResponseTest :: DeleteIdentityPoolResponse -> TestTree
+deleteIdentityPoolResponseTest = resp
+    "deleteIdentityPoolResponse"
+    "fixture/DeleteIdentityPoolResponse"
+    (Proxy :: Proxy DeleteIdentityPool)
+
+describeIdentityResponseTest :: IdentityDescription -> TestTree
+describeIdentityResponseTest = resp
+    "describeIdentityResponse"
+    "fixture/IdentityDescription"
+    (Proxy :: Proxy DescribeIdentity)
+
+describeIdentityPoolResponseTest :: IdentityPool -> TestTree
+describeIdentityPoolResponseTest = resp
+    "describeIdentityPoolResponse"
+    "fixture/IdentityPool"
+    (Proxy :: Proxy DescribeIdentityPool)
+
+getCredentialsForIdentityResponseTest :: GetCredentialsForIdentityResponse -> TestTree
+getCredentialsForIdentityResponseTest = resp
+    "getCredentialsForIdentityResponse"
+    "fixture/GetCredentialsForIdentityResponse"
+    (Proxy :: Proxy GetCredentialsForIdentity)
+
+getIdResponseTest :: GetIdResponse -> TestTree
+getIdResponseTest = resp
+    "getIdResponse"
+    "fixture/GetIdResponse"
+    (Proxy :: Proxy GetId)
+
+getIdentityPoolRolesResponseTest :: GetIdentityPoolRolesResponse -> TestTree
+getIdentityPoolRolesResponseTest = resp
+    "getIdentityPoolRolesResponse"
+    "fixture/GetIdentityPoolRolesResponse"
+    (Proxy :: Proxy GetIdentityPoolRoles)
+
+getOpenIdTokenResponseTest :: GetOpenIdTokenResponse -> TestTree
+getOpenIdTokenResponseTest = resp
+    "getOpenIdTokenResponse"
+    "fixture/GetOpenIdTokenResponse"
+    (Proxy :: Proxy GetOpenIdToken)
+
+getOpenIdTokenForDeveloperIdentityResponseTest :: GetOpenIdTokenForDeveloperIdentityResponse -> TestTree
+getOpenIdTokenForDeveloperIdentityResponseTest = resp
+    "getOpenIdTokenForDeveloperIdentityResponse"
+    "fixture/GetOpenIdTokenForDeveloperIdentityResponse"
+    (Proxy :: Proxy GetOpenIdTokenForDeveloperIdentity)
+
+listIdentitiesResponseTest :: ListIdentitiesResponse -> TestTree
+listIdentitiesResponseTest = resp
+    "listIdentitiesResponse"
+    "fixture/ListIdentitiesResponse"
+    (Proxy :: Proxy ListIdentities)
+
+listIdentityPoolsResponseTest :: ListIdentityPoolsResponse -> TestTree
+listIdentityPoolsResponseTest = resp
+    "listIdentityPoolsResponse"
+    "fixture/ListIdentityPoolsResponse"
+    (Proxy :: Proxy ListIdentityPools)
+
+lookupDeveloperIdentityResponseTest :: LookupDeveloperIdentityResponse -> TestTree
+lookupDeveloperIdentityResponseTest = resp
+    "lookupDeveloperIdentityResponse"
+    "fixture/LookupDeveloperIdentityResponse"
+    (Proxy :: Proxy LookupDeveloperIdentity)
+
 mergeDeveloperIdentitiesResponseTest :: MergeDeveloperIdentitiesResponse -> TestTree
 mergeDeveloperIdentitiesResponseTest = resp
-    "MergeDeveloperIdentitiesResponse"
+    "mergeDeveloperIdentitiesResponse"
     "fixture/MergeDeveloperIdentitiesResponse"
     (Proxy :: Proxy MergeDeveloperIdentities)
+
+setIdentityPoolRolesResponseTest :: SetIdentityPoolRolesResponse -> TestTree
+setIdentityPoolRolesResponseTest = resp
+    "setIdentityPoolRolesResponse"
+    "fixture/SetIdentityPoolRolesResponse"
+    (Proxy :: Proxy SetIdentityPoolRoles)
+
+unlinkDeveloperIdentityResponseTest :: UnlinkDeveloperIdentityResponse -> TestTree
+unlinkDeveloperIdentityResponseTest = resp
+    "unlinkDeveloperIdentityResponse"
+    "fixture/UnlinkDeveloperIdentityResponse"
+    (Proxy :: Proxy UnlinkDeveloperIdentity)
+
+unlinkIdentityResponseTest :: UnlinkIdentityResponse -> TestTree
+unlinkIdentityResponseTest = resp
+    "unlinkIdentityResponse"
+    "fixture/UnlinkIdentityResponse"
+    (Proxy :: Proxy UnlinkIdentity)
+
+updateIdentityPoolResponseTest :: IdentityPool -> TestTree
+updateIdentityPoolResponseTest = resp
+    "updateIdentityPoolResponse"
+    "fixture/IdentityPool"
+    (Proxy :: Proxy UpdateIdentityPool)

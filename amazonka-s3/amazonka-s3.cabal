@@ -114,6 +114,5 @@ test-suite amazonka-s3-test
         , amazonka-s3 == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

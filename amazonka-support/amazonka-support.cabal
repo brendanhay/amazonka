@@ -121,6 +121,5 @@ test-suite amazonka-support-test
         , amazonka-support == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

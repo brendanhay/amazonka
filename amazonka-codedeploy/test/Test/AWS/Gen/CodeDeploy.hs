@@ -25,89 +25,62 @@ import Network.AWS.CodeDeploy
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         [ removeTagsFromOnPremisesInstancesTest $
---             removeTagsFromOnPremisesInstances
---
---         , getDeploymentTest $
---             getDeployment
---
---         , createDeploymentConfigTest $
---             createDeploymentConfig
---
---         , updateDeploymentGroupTest $
---             updateDeploymentGroup
---
---         , deleteDeploymentGroupTest $
---             deleteDeploymentGroup
---
---         , listOnPremisesInstancesTest $
---             listOnPremisesInstances
---
---         , getApplicationRevisionTest $
---             getApplicationRevision
---
---         , deleteDeploymentConfigTest $
---             deleteDeploymentConfig
---
---         , getDeploymentConfigTest $
---             getDeploymentConfig
---
---         , createDeploymentTest $
---             createDeployment
---
---         , getOnPremisesInstanceTest $
---             getOnPremisesInstance
---
---         , batchGetDeploymentsTest $
---             batchGetDeployments
---
---         , registerApplicationRevisionTest $
---             registerApplicationRevision
---
---         , deleteApplicationTest $
---             deleteApplication
---
---         , updateApplicationTest $
---             updateApplication
+--         [ addTagsToOnPremisesInstancesTest $
+--             addTagsToOnPremisesInstances
 --
 --         , batchGetApplicationsTest $
 --             batchGetApplications
 --
---         , createApplicationTest $
---             createApplication
---
---         , deregisterOnPremisesInstanceTest $
---             deregisterOnPremisesInstance
---
---         , getDeploymentInstanceTest $
---             getDeploymentInstance
---
---         , stopDeploymentTest $
---             stopDeployment
---
---         , getApplicationTest $
---             getApplication
---
---         , listDeploymentGroupsTest $
---             listDeploymentGroups
---
---         , registerOnPremisesInstanceTest $
---             registerOnPremisesInstance
+--         , batchGetDeploymentsTest $
+--             batchGetDeployments
 --
 --         , batchGetOnPremisesInstancesTest $
 --             batchGetOnPremisesInstances
 --
---         , listDeploymentConfigsTest $
---             listDeploymentConfigs
+--         , createApplicationTest $
+--             createApplication
+--
+--         , createDeploymentTest $
+--             createDeployment
+--
+--         , createDeploymentConfigTest $
+--             createDeploymentConfig
 --
 --         , createDeploymentGroupTest $
 --             createDeploymentGroup
 --
+--         , deleteApplicationTest $
+--             deleteApplication
+--
+--         , deleteDeploymentConfigTest $
+--             deleteDeploymentConfig
+--
+--         , deleteDeploymentGroupTest $
+--             deleteDeploymentGroup
+--
+--         , deregisterOnPremisesInstanceTest $
+--             deregisterOnPremisesInstance
+--
+--         , getApplicationTest $
+--             getApplication
+--
+--         , getApplicationRevisionTest $
+--             getApplicationRevision
+--
+--         , getDeploymentTest $
+--             getDeployment
+--
+--         , getDeploymentConfigTest $
+--             getDeploymentConfig
+--
 --         , getDeploymentGroupTest $
 --             getDeploymentGroup
 --
---         , listDeploymentsTest $
---             listDeployments
+--         , getDeploymentInstanceTest $
+--             getDeploymentInstance
+--
+--         , getOnPremisesInstanceTest $
+--             getOnPremisesInstance
 --
 --         , listApplicationRevisionsTest $
 --             listApplicationRevisions
@@ -115,98 +88,98 @@ import Network.AWS.CodeDeploy
 --         , listApplicationsTest $
 --             listApplications
 --
---         , addTagsToOnPremisesInstancesTest $
---             addTagsToOnPremisesInstances
+--         , listDeploymentConfigsTest $
+--             listDeploymentConfigs
+--
+--         , listDeploymentGroupsTest $
+--             listDeploymentGroups
 --
 --         , listDeploymentInstancesTest $
 --             listDeploymentInstances
 --
+--         , listDeploymentsTest $
+--             listDeployments
+--
+--         , listOnPremisesInstancesTest $
+--             listOnPremisesInstances
+--
+--         , registerApplicationRevisionTest $
+--             registerApplicationRevision
+--
+--         , registerOnPremisesInstanceTest $
+--             registerOnPremisesInstance
+--
+--         , removeTagsFromOnPremisesInstancesTest $
+--             removeTagsFromOnPremisesInstances
+--
+--         , stopDeploymentTest $
+--             stopDeployment
+--
+--         , updateApplicationTest $
+--             updateApplication
+--
+--         , updateDeploymentGroupTest $
+--             updateDeploymentGroup
+--
 --           ]
 
 --     , testGroup "response"
---         [ removeTagsFromOnPremisesInstancesResponseTest $
---             removeTagsFromOnPremisesInstancesResponse
---
---         , getDeploymentResponseTest $
---             getDeploymentResponse
---
---         , createDeploymentConfigResponseTest $
---             createDeploymentConfigResponse
---
---         , updateDeploymentGroupResponseTest $
---             updateDeploymentGroupResponse
---
---         , deleteDeploymentGroupResponseTest $
---             deleteDeploymentGroupResponse
---
---         , listOnPremisesInstancesResponseTest $
---             listOnPremisesInstancesResponse
---
---         , getApplicationRevisionResponseTest $
---             getApplicationRevisionResponse
---
---         , deleteDeploymentConfigResponseTest $
---             deleteDeploymentConfigResponse
---
---         , getDeploymentConfigResponseTest $
---             getDeploymentConfigResponse
---
---         , createDeploymentResponseTest $
---             createDeploymentResponse
---
---         , getOnPremisesInstanceResponseTest $
---             getOnPremisesInstanceResponse
---
---         , batchGetDeploymentsResponseTest $
---             batchGetDeploymentsResponse
---
---         , registerApplicationRevisionResponseTest $
---             registerApplicationRevisionResponse
---
---         , deleteApplicationResponseTest $
---             deleteApplicationResponse
---
---         , updateApplicationResponseTest $
---             updateApplicationResponse
+--         [ addTagsToOnPremisesInstancesResponseTest $
+--             addTagsToOnPremisesInstancesResponse
 --
 --         , batchGetApplicationsResponseTest $
 --             batchGetApplicationsResponse
 --
---         , createApplicationResponseTest $
---             createApplicationResponse
---
---         , deregisterOnPremisesInstanceResponseTest $
---             deregisterOnPremisesInstanceResponse
---
---         , getDeploymentInstanceResponseTest $
---             getDeploymentInstanceResponse
---
---         , stopDeploymentResponseTest $
---             stopDeploymentResponse
---
---         , getApplicationResponseTest $
---             getApplicationResponse
---
---         , listDeploymentGroupsResponseTest $
---             listDeploymentGroupsResponse
---
---         , registerOnPremisesInstanceResponseTest $
---             registerOnPremisesInstanceResponse
+--         , batchGetDeploymentsResponseTest $
+--             batchGetDeploymentsResponse
 --
 --         , batchGetOnPremisesInstancesResponseTest $
 --             batchGetOnPremisesInstancesResponse
 --
---         , listDeploymentConfigsResponseTest $
---             listDeploymentConfigsResponse
+--         , createApplicationResponseTest $
+--             createApplicationResponse
+--
+--         , createDeploymentResponseTest $
+--             createDeploymentResponse
+--
+--         , createDeploymentConfigResponseTest $
+--             createDeploymentConfigResponse
 --
 --         , createDeploymentGroupResponseTest $
 --             createDeploymentGroupResponse
 --
+--         , deleteApplicationResponseTest $
+--             deleteApplicationResponse
+--
+--         , deleteDeploymentConfigResponseTest $
+--             deleteDeploymentConfigResponse
+--
+--         , deleteDeploymentGroupResponseTest $
+--             deleteDeploymentGroupResponse
+--
+--         , deregisterOnPremisesInstanceResponseTest $
+--             deregisterOnPremisesInstanceResponse
+--
+--         , getApplicationResponseTest $
+--             getApplicationResponse
+--
+--         , getApplicationRevisionResponseTest $
+--             getApplicationRevisionResponse
+--
+--         , getDeploymentResponseTest $
+--             getDeploymentResponse
+--
+--         , getDeploymentConfigResponseTest $
+--             getDeploymentConfigResponse
+--
 --         , getDeploymentGroupResponseTest $
 --             getDeploymentGroupResponse
 --
---         , listDeploymentsResponseTest $
---             listDeploymentsResponse
+--         , getDeploymentInstanceResponseTest $
+--             getDeploymentInstanceResponse
+--
+--         , getOnPremisesInstanceResponseTest $
+--             getOnPremisesInstanceResponse
 --
 --         , listApplicationRevisionsResponseTest $
 --             listApplicationRevisionsResponse
@@ -214,100 +187,100 @@ import Network.AWS.CodeDeploy
 --         , listApplicationsResponseTest $
 --             listApplicationsResponse
 --
---         , addTagsToOnPremisesInstancesResponseTest $
---             addTagsToOnPremisesInstancesResponse
+--         , listDeploymentConfigsResponseTest $
+--             listDeploymentConfigsResponse
+--
+--         , listDeploymentGroupsResponseTest $
+--             listDeploymentGroupsResponse
 --
 --         , listDeploymentInstancesResponseTest $
 --             listDeploymentInstancesResponse
+--
+--         , listDeploymentsResponseTest $
+--             listDeploymentsResponse
+--
+--         , listOnPremisesInstancesResponseTest $
+--             listOnPremisesInstancesResponse
+--
+--         , registerApplicationRevisionResponseTest $
+--             registerApplicationRevisionResponse
+--
+--         , registerOnPremisesInstanceResponseTest $
+--             registerOnPremisesInstanceResponse
+--
+--         , removeTagsFromOnPremisesInstancesResponseTest $
+--             removeTagsFromOnPremisesInstancesResponse
+--
+--         , stopDeploymentResponseTest $
+--             stopDeploymentResponse
+--
+--         , updateApplicationResponseTest $
+--             updateApplicationResponse
+--
+--         , updateDeploymentGroupResponseTest $
+--             updateDeploymentGroupResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-removeTagsFromOnPremisesInstancesTest :: RemoveTagsFromOnPremisesInstances -> TestTree
-removeTagsFromOnPremisesInstancesTest = undefined
-
-getDeploymentTest :: GetDeployment -> TestTree
-getDeploymentTest = undefined
-
-createDeploymentConfigTest :: CreateDeploymentConfig -> TestTree
-createDeploymentConfigTest = undefined
-
-updateDeploymentGroupTest :: UpdateDeploymentGroup -> TestTree
-updateDeploymentGroupTest = undefined
-
-deleteDeploymentGroupTest :: DeleteDeploymentGroup -> TestTree
-deleteDeploymentGroupTest = undefined
-
-listOnPremisesInstancesTest :: ListOnPremisesInstances -> TestTree
-listOnPremisesInstancesTest = undefined
-
-getApplicationRevisionTest :: GetApplicationRevision -> TestTree
-getApplicationRevisionTest = undefined
-
-deleteDeploymentConfigTest :: DeleteDeploymentConfig -> TestTree
-deleteDeploymentConfigTest = undefined
-
-getDeploymentConfigTest :: GetDeploymentConfig -> TestTree
-getDeploymentConfigTest = undefined
-
-createDeploymentTest :: CreateDeployment -> TestTree
-createDeploymentTest = undefined
-
-getOnPremisesInstanceTest :: GetOnPremisesInstance -> TestTree
-getOnPremisesInstanceTest = undefined
-
-batchGetDeploymentsTest :: BatchGetDeployments -> TestTree
-batchGetDeploymentsTest = undefined
-
-registerApplicationRevisionTest :: RegisterApplicationRevision -> TestTree
-registerApplicationRevisionTest = undefined
-
-deleteApplicationTest :: DeleteApplication -> TestTree
-deleteApplicationTest = undefined
-
-updateApplicationTest :: UpdateApplication -> TestTree
-updateApplicationTest = undefined
+addTagsToOnPremisesInstancesTest :: AddTagsToOnPremisesInstances -> TestTree
+addTagsToOnPremisesInstancesTest = undefined
 
 batchGetApplicationsTest :: BatchGetApplications -> TestTree
 batchGetApplicationsTest = undefined
 
-createApplicationTest :: CreateApplication -> TestTree
-createApplicationTest = undefined
-
-deregisterOnPremisesInstanceTest :: DeregisterOnPremisesInstance -> TestTree
-deregisterOnPremisesInstanceTest = undefined
-
-getDeploymentInstanceTest :: GetDeploymentInstance -> TestTree
-getDeploymentInstanceTest = undefined
-
-stopDeploymentTest :: StopDeployment -> TestTree
-stopDeploymentTest = undefined
-
-getApplicationTest :: GetApplication -> TestTree
-getApplicationTest = undefined
-
-listDeploymentGroupsTest :: ListDeploymentGroups -> TestTree
-listDeploymentGroupsTest = undefined
-
-registerOnPremisesInstanceTest :: RegisterOnPremisesInstance -> TestTree
-registerOnPremisesInstanceTest = undefined
+batchGetDeploymentsTest :: BatchGetDeployments -> TestTree
+batchGetDeploymentsTest = undefined
 
 batchGetOnPremisesInstancesTest :: BatchGetOnPremisesInstances -> TestTree
 batchGetOnPremisesInstancesTest = undefined
 
-listDeploymentConfigsTest :: ListDeploymentConfigs -> TestTree
-listDeploymentConfigsTest = undefined
+createApplicationTest :: CreateApplication -> TestTree
+createApplicationTest = undefined
+
+createDeploymentTest :: CreateDeployment -> TestTree
+createDeploymentTest = undefined
+
+createDeploymentConfigTest :: CreateDeploymentConfig -> TestTree
+createDeploymentConfigTest = undefined
 
 createDeploymentGroupTest :: CreateDeploymentGroup -> TestTree
 createDeploymentGroupTest = undefined
 
+deleteApplicationTest :: DeleteApplication -> TestTree
+deleteApplicationTest = undefined
+
+deleteDeploymentConfigTest :: DeleteDeploymentConfig -> TestTree
+deleteDeploymentConfigTest = undefined
+
+deleteDeploymentGroupTest :: DeleteDeploymentGroup -> TestTree
+deleteDeploymentGroupTest = undefined
+
+deregisterOnPremisesInstanceTest :: DeregisterOnPremisesInstance -> TestTree
+deregisterOnPremisesInstanceTest = undefined
+
+getApplicationTest :: GetApplication -> TestTree
+getApplicationTest = undefined
+
+getApplicationRevisionTest :: GetApplicationRevision -> TestTree
+getApplicationRevisionTest = undefined
+
+getDeploymentTest :: GetDeployment -> TestTree
+getDeploymentTest = undefined
+
+getDeploymentConfigTest :: GetDeploymentConfig -> TestTree
+getDeploymentConfigTest = undefined
+
 getDeploymentGroupTest :: GetDeploymentGroup -> TestTree
 getDeploymentGroupTest = undefined
 
-listDeploymentsTest :: ListDeployments -> TestTree
-listDeploymentsTest = undefined
+getDeploymentInstanceTest :: GetDeploymentInstance -> TestTree
+getDeploymentInstanceTest = undefined
+
+getOnPremisesInstanceTest :: GetOnPremisesInstance -> TestTree
+getOnPremisesInstanceTest = undefined
 
 listApplicationRevisionsTest :: ListApplicationRevisions -> TestTree
 listApplicationRevisionsTest = undefined
@@ -315,202 +288,229 @@ listApplicationRevisionsTest = undefined
 listApplicationsTest :: ListApplications -> TestTree
 listApplicationsTest = undefined
 
-addTagsToOnPremisesInstancesTest :: AddTagsToOnPremisesInstances -> TestTree
-addTagsToOnPremisesInstancesTest = undefined
+listDeploymentConfigsTest :: ListDeploymentConfigs -> TestTree
+listDeploymentConfigsTest = undefined
+
+listDeploymentGroupsTest :: ListDeploymentGroups -> TestTree
+listDeploymentGroupsTest = undefined
 
 listDeploymentInstancesTest :: ListDeploymentInstances -> TestTree
 listDeploymentInstancesTest = undefined
 
+listDeploymentsTest :: ListDeployments -> TestTree
+listDeploymentsTest = undefined
+
+listOnPremisesInstancesTest :: ListOnPremisesInstances -> TestTree
+listOnPremisesInstancesTest = undefined
+
+registerApplicationRevisionTest :: RegisterApplicationRevision -> TestTree
+registerApplicationRevisionTest = undefined
+
+registerOnPremisesInstanceTest :: RegisterOnPremisesInstance -> TestTree
+registerOnPremisesInstanceTest = undefined
+
+removeTagsFromOnPremisesInstancesTest :: RemoveTagsFromOnPremisesInstances -> TestTree
+removeTagsFromOnPremisesInstancesTest = undefined
+
+stopDeploymentTest :: StopDeployment -> TestTree
+stopDeploymentTest = undefined
+
+updateApplicationTest :: UpdateApplication -> TestTree
+updateApplicationTest = undefined
+
+updateDeploymentGroupTest :: UpdateDeploymentGroup -> TestTree
+updateDeploymentGroupTest = undefined
+
 -- Responses
 
-removeTagsFromOnPremisesInstancesResponseTest :: RemoveTagsFromOnPremisesInstancesResponse -> TestTree
-removeTagsFromOnPremisesInstancesResponseTest = resp
-    "RemoveTagsFromOnPremisesInstancesResponse"
-    "fixture/RemoveTagsFromOnPremisesInstancesResponse"
-    (Proxy :: Proxy RemoveTagsFromOnPremisesInstances)
-
-getDeploymentResponseTest :: GetDeploymentResponse -> TestTree
-getDeploymentResponseTest = resp
-    "GetDeploymentResponse"
-    "fixture/GetDeploymentResponse"
-    (Proxy :: Proxy GetDeployment)
-
-createDeploymentConfigResponseTest :: CreateDeploymentConfigResponse -> TestTree
-createDeploymentConfigResponseTest = resp
-    "CreateDeploymentConfigResponse"
-    "fixture/CreateDeploymentConfigResponse"
-    (Proxy :: Proxy CreateDeploymentConfig)
-
-updateDeploymentGroupResponseTest :: UpdateDeploymentGroupResponse -> TestTree
-updateDeploymentGroupResponseTest = resp
-    "UpdateDeploymentGroupResponse"
-    "fixture/UpdateDeploymentGroupResponse"
-    (Proxy :: Proxy UpdateDeploymentGroup)
-
-deleteDeploymentGroupResponseTest :: DeleteDeploymentGroupResponse -> TestTree
-deleteDeploymentGroupResponseTest = resp
-    "DeleteDeploymentGroupResponse"
-    "fixture/DeleteDeploymentGroupResponse"
-    (Proxy :: Proxy DeleteDeploymentGroup)
-
-listOnPremisesInstancesResponseTest :: ListOnPremisesInstancesResponse -> TestTree
-listOnPremisesInstancesResponseTest = resp
-    "ListOnPremisesInstancesResponse"
-    "fixture/ListOnPremisesInstancesResponse"
-    (Proxy :: Proxy ListOnPremisesInstances)
-
-getApplicationRevisionResponseTest :: GetApplicationRevisionResponse -> TestTree
-getApplicationRevisionResponseTest = resp
-    "GetApplicationRevisionResponse"
-    "fixture/GetApplicationRevisionResponse"
-    (Proxy :: Proxy GetApplicationRevision)
-
-deleteDeploymentConfigResponseTest :: DeleteDeploymentConfigResponse -> TestTree
-deleteDeploymentConfigResponseTest = resp
-    "DeleteDeploymentConfigResponse"
-    "fixture/DeleteDeploymentConfigResponse"
-    (Proxy :: Proxy DeleteDeploymentConfig)
-
-getDeploymentConfigResponseTest :: GetDeploymentConfigResponse -> TestTree
-getDeploymentConfigResponseTest = resp
-    "GetDeploymentConfigResponse"
-    "fixture/GetDeploymentConfigResponse"
-    (Proxy :: Proxy GetDeploymentConfig)
-
-createDeploymentResponseTest :: CreateDeploymentResponse -> TestTree
-createDeploymentResponseTest = resp
-    "CreateDeploymentResponse"
-    "fixture/CreateDeploymentResponse"
-    (Proxy :: Proxy CreateDeployment)
-
-getOnPremisesInstanceResponseTest :: GetOnPremisesInstanceResponse -> TestTree
-getOnPremisesInstanceResponseTest = resp
-    "GetOnPremisesInstanceResponse"
-    "fixture/GetOnPremisesInstanceResponse"
-    (Proxy :: Proxy GetOnPremisesInstance)
-
-batchGetDeploymentsResponseTest :: BatchGetDeploymentsResponse -> TestTree
-batchGetDeploymentsResponseTest = resp
-    "BatchGetDeploymentsResponse"
-    "fixture/BatchGetDeploymentsResponse"
-    (Proxy :: Proxy BatchGetDeployments)
-
-registerApplicationRevisionResponseTest :: RegisterApplicationRevisionResponse -> TestTree
-registerApplicationRevisionResponseTest = resp
-    "RegisterApplicationRevisionResponse"
-    "fixture/RegisterApplicationRevisionResponse"
-    (Proxy :: Proxy RegisterApplicationRevision)
-
-deleteApplicationResponseTest :: DeleteApplicationResponse -> TestTree
-deleteApplicationResponseTest = resp
-    "DeleteApplicationResponse"
-    "fixture/DeleteApplicationResponse"
-    (Proxy :: Proxy DeleteApplication)
-
-updateApplicationResponseTest :: UpdateApplicationResponse -> TestTree
-updateApplicationResponseTest = resp
-    "UpdateApplicationResponse"
-    "fixture/UpdateApplicationResponse"
-    (Proxy :: Proxy UpdateApplication)
+addTagsToOnPremisesInstancesResponseTest :: AddTagsToOnPremisesInstancesResponse -> TestTree
+addTagsToOnPremisesInstancesResponseTest = resp
+    "addTagsToOnPremisesInstancesResponse"
+    "fixture/AddTagsToOnPremisesInstancesResponse"
+    (Proxy :: Proxy AddTagsToOnPremisesInstances)
 
 batchGetApplicationsResponseTest :: BatchGetApplicationsResponse -> TestTree
 batchGetApplicationsResponseTest = resp
-    "BatchGetApplicationsResponse"
+    "batchGetApplicationsResponse"
     "fixture/BatchGetApplicationsResponse"
     (Proxy :: Proxy BatchGetApplications)
 
-createApplicationResponseTest :: CreateApplicationResponse -> TestTree
-createApplicationResponseTest = resp
-    "CreateApplicationResponse"
-    "fixture/CreateApplicationResponse"
-    (Proxy :: Proxy CreateApplication)
-
-deregisterOnPremisesInstanceResponseTest :: DeregisterOnPremisesInstanceResponse -> TestTree
-deregisterOnPremisesInstanceResponseTest = resp
-    "DeregisterOnPremisesInstanceResponse"
-    "fixture/DeregisterOnPremisesInstanceResponse"
-    (Proxy :: Proxy DeregisterOnPremisesInstance)
-
-getDeploymentInstanceResponseTest :: GetDeploymentInstanceResponse -> TestTree
-getDeploymentInstanceResponseTest = resp
-    "GetDeploymentInstanceResponse"
-    "fixture/GetDeploymentInstanceResponse"
-    (Proxy :: Proxy GetDeploymentInstance)
-
-stopDeploymentResponseTest :: StopDeploymentResponse -> TestTree
-stopDeploymentResponseTest = resp
-    "StopDeploymentResponse"
-    "fixture/StopDeploymentResponse"
-    (Proxy :: Proxy StopDeployment)
-
-getApplicationResponseTest :: GetApplicationResponse -> TestTree
-getApplicationResponseTest = resp
-    "GetApplicationResponse"
-    "fixture/GetApplicationResponse"
-    (Proxy :: Proxy GetApplication)
-
-listDeploymentGroupsResponseTest :: ListDeploymentGroupsResponse -> TestTree
-listDeploymentGroupsResponseTest = resp
-    "ListDeploymentGroupsResponse"
-    "fixture/ListDeploymentGroupsResponse"
-    (Proxy :: Proxy ListDeploymentGroups)
-
-registerOnPremisesInstanceResponseTest :: RegisterOnPremisesInstanceResponse -> TestTree
-registerOnPremisesInstanceResponseTest = resp
-    "RegisterOnPremisesInstanceResponse"
-    "fixture/RegisterOnPremisesInstanceResponse"
-    (Proxy :: Proxy RegisterOnPremisesInstance)
+batchGetDeploymentsResponseTest :: BatchGetDeploymentsResponse -> TestTree
+batchGetDeploymentsResponseTest = resp
+    "batchGetDeploymentsResponse"
+    "fixture/BatchGetDeploymentsResponse"
+    (Proxy :: Proxy BatchGetDeployments)
 
 batchGetOnPremisesInstancesResponseTest :: BatchGetOnPremisesInstancesResponse -> TestTree
 batchGetOnPremisesInstancesResponseTest = resp
-    "BatchGetOnPremisesInstancesResponse"
+    "batchGetOnPremisesInstancesResponse"
     "fixture/BatchGetOnPremisesInstancesResponse"
     (Proxy :: Proxy BatchGetOnPremisesInstances)
 
-listDeploymentConfigsResponseTest :: ListDeploymentConfigsResponse -> TestTree
-listDeploymentConfigsResponseTest = resp
-    "ListDeploymentConfigsResponse"
-    "fixture/ListDeploymentConfigsResponse"
-    (Proxy :: Proxy ListDeploymentConfigs)
+createApplicationResponseTest :: CreateApplicationResponse -> TestTree
+createApplicationResponseTest = resp
+    "createApplicationResponse"
+    "fixture/CreateApplicationResponse"
+    (Proxy :: Proxy CreateApplication)
+
+createDeploymentResponseTest :: CreateDeploymentResponse -> TestTree
+createDeploymentResponseTest = resp
+    "createDeploymentResponse"
+    "fixture/CreateDeploymentResponse"
+    (Proxy :: Proxy CreateDeployment)
+
+createDeploymentConfigResponseTest :: CreateDeploymentConfigResponse -> TestTree
+createDeploymentConfigResponseTest = resp
+    "createDeploymentConfigResponse"
+    "fixture/CreateDeploymentConfigResponse"
+    (Proxy :: Proxy CreateDeploymentConfig)
 
 createDeploymentGroupResponseTest :: CreateDeploymentGroupResponse -> TestTree
 createDeploymentGroupResponseTest = resp
-    "CreateDeploymentGroupResponse"
+    "createDeploymentGroupResponse"
     "fixture/CreateDeploymentGroupResponse"
     (Proxy :: Proxy CreateDeploymentGroup)
 
+deleteApplicationResponseTest :: DeleteApplicationResponse -> TestTree
+deleteApplicationResponseTest = resp
+    "deleteApplicationResponse"
+    "fixture/DeleteApplicationResponse"
+    (Proxy :: Proxy DeleteApplication)
+
+deleteDeploymentConfigResponseTest :: DeleteDeploymentConfigResponse -> TestTree
+deleteDeploymentConfigResponseTest = resp
+    "deleteDeploymentConfigResponse"
+    "fixture/DeleteDeploymentConfigResponse"
+    (Proxy :: Proxy DeleteDeploymentConfig)
+
+deleteDeploymentGroupResponseTest :: DeleteDeploymentGroupResponse -> TestTree
+deleteDeploymentGroupResponseTest = resp
+    "deleteDeploymentGroupResponse"
+    "fixture/DeleteDeploymentGroupResponse"
+    (Proxy :: Proxy DeleteDeploymentGroup)
+
+deregisterOnPremisesInstanceResponseTest :: DeregisterOnPremisesInstanceResponse -> TestTree
+deregisterOnPremisesInstanceResponseTest = resp
+    "deregisterOnPremisesInstanceResponse"
+    "fixture/DeregisterOnPremisesInstanceResponse"
+    (Proxy :: Proxy DeregisterOnPremisesInstance)
+
+getApplicationResponseTest :: GetApplicationResponse -> TestTree
+getApplicationResponseTest = resp
+    "getApplicationResponse"
+    "fixture/GetApplicationResponse"
+    (Proxy :: Proxy GetApplication)
+
+getApplicationRevisionResponseTest :: GetApplicationRevisionResponse -> TestTree
+getApplicationRevisionResponseTest = resp
+    "getApplicationRevisionResponse"
+    "fixture/GetApplicationRevisionResponse"
+    (Proxy :: Proxy GetApplicationRevision)
+
+getDeploymentResponseTest :: GetDeploymentResponse -> TestTree
+getDeploymentResponseTest = resp
+    "getDeploymentResponse"
+    "fixture/GetDeploymentResponse"
+    (Proxy :: Proxy GetDeployment)
+
+getDeploymentConfigResponseTest :: GetDeploymentConfigResponse -> TestTree
+getDeploymentConfigResponseTest = resp
+    "getDeploymentConfigResponse"
+    "fixture/GetDeploymentConfigResponse"
+    (Proxy :: Proxy GetDeploymentConfig)
+
 getDeploymentGroupResponseTest :: GetDeploymentGroupResponse -> TestTree
 getDeploymentGroupResponseTest = resp
-    "GetDeploymentGroupResponse"
+    "getDeploymentGroupResponse"
     "fixture/GetDeploymentGroupResponse"
     (Proxy :: Proxy GetDeploymentGroup)
 
-listDeploymentsResponseTest :: ListDeploymentsResponse -> TestTree
-listDeploymentsResponseTest = resp
-    "ListDeploymentsResponse"
-    "fixture/ListDeploymentsResponse"
-    (Proxy :: Proxy ListDeployments)
+getDeploymentInstanceResponseTest :: GetDeploymentInstanceResponse -> TestTree
+getDeploymentInstanceResponseTest = resp
+    "getDeploymentInstanceResponse"
+    "fixture/GetDeploymentInstanceResponse"
+    (Proxy :: Proxy GetDeploymentInstance)
+
+getOnPremisesInstanceResponseTest :: GetOnPremisesInstanceResponse -> TestTree
+getOnPremisesInstanceResponseTest = resp
+    "getOnPremisesInstanceResponse"
+    "fixture/GetOnPremisesInstanceResponse"
+    (Proxy :: Proxy GetOnPremisesInstance)
 
 listApplicationRevisionsResponseTest :: ListApplicationRevisionsResponse -> TestTree
 listApplicationRevisionsResponseTest = resp
-    "ListApplicationRevisionsResponse"
+    "listApplicationRevisionsResponse"
     "fixture/ListApplicationRevisionsResponse"
     (Proxy :: Proxy ListApplicationRevisions)
 
 listApplicationsResponseTest :: ListApplicationsResponse -> TestTree
 listApplicationsResponseTest = resp
-    "ListApplicationsResponse"
+    "listApplicationsResponse"
     "fixture/ListApplicationsResponse"
     (Proxy :: Proxy ListApplications)
 
-addTagsToOnPremisesInstancesResponseTest :: AddTagsToOnPremisesInstancesResponse -> TestTree
-addTagsToOnPremisesInstancesResponseTest = resp
-    "AddTagsToOnPremisesInstancesResponse"
-    "fixture/AddTagsToOnPremisesInstancesResponse"
-    (Proxy :: Proxy AddTagsToOnPremisesInstances)
+listDeploymentConfigsResponseTest :: ListDeploymentConfigsResponse -> TestTree
+listDeploymentConfigsResponseTest = resp
+    "listDeploymentConfigsResponse"
+    "fixture/ListDeploymentConfigsResponse"
+    (Proxy :: Proxy ListDeploymentConfigs)
+
+listDeploymentGroupsResponseTest :: ListDeploymentGroupsResponse -> TestTree
+listDeploymentGroupsResponseTest = resp
+    "listDeploymentGroupsResponse"
+    "fixture/ListDeploymentGroupsResponse"
+    (Proxy :: Proxy ListDeploymentGroups)
 
 listDeploymentInstancesResponseTest :: ListDeploymentInstancesResponse -> TestTree
 listDeploymentInstancesResponseTest = resp
-    "ListDeploymentInstancesResponse"
+    "listDeploymentInstancesResponse"
     "fixture/ListDeploymentInstancesResponse"
     (Proxy :: Proxy ListDeploymentInstances)
+
+listDeploymentsResponseTest :: ListDeploymentsResponse -> TestTree
+listDeploymentsResponseTest = resp
+    "listDeploymentsResponse"
+    "fixture/ListDeploymentsResponse"
+    (Proxy :: Proxy ListDeployments)
+
+listOnPremisesInstancesResponseTest :: ListOnPremisesInstancesResponse -> TestTree
+listOnPremisesInstancesResponseTest = resp
+    "listOnPremisesInstancesResponse"
+    "fixture/ListOnPremisesInstancesResponse"
+    (Proxy :: Proxy ListOnPremisesInstances)
+
+registerApplicationRevisionResponseTest :: RegisterApplicationRevisionResponse -> TestTree
+registerApplicationRevisionResponseTest = resp
+    "registerApplicationRevisionResponse"
+    "fixture/RegisterApplicationRevisionResponse"
+    (Proxy :: Proxy RegisterApplicationRevision)
+
+registerOnPremisesInstanceResponseTest :: RegisterOnPremisesInstanceResponse -> TestTree
+registerOnPremisesInstanceResponseTest = resp
+    "registerOnPremisesInstanceResponse"
+    "fixture/RegisterOnPremisesInstanceResponse"
+    (Proxy :: Proxy RegisterOnPremisesInstance)
+
+removeTagsFromOnPremisesInstancesResponseTest :: RemoveTagsFromOnPremisesInstancesResponse -> TestTree
+removeTagsFromOnPremisesInstancesResponseTest = resp
+    "removeTagsFromOnPremisesInstancesResponse"
+    "fixture/RemoveTagsFromOnPremisesInstancesResponse"
+    (Proxy :: Proxy RemoveTagsFromOnPremisesInstances)
+
+stopDeploymentResponseTest :: StopDeploymentResponse -> TestTree
+stopDeploymentResponseTest = resp
+    "stopDeploymentResponse"
+    "fixture/StopDeploymentResponse"
+    (Proxy :: Proxy StopDeployment)
+
+updateApplicationResponseTest :: UpdateApplicationResponse -> TestTree
+updateApplicationResponseTest = resp
+    "updateApplicationResponse"
+    "fixture/UpdateApplicationResponse"
+    (Proxy :: Proxy UpdateApplication)
+
+updateDeploymentGroupResponseTest :: UpdateDeploymentGroupResponse -> TestTree
+updateDeploymentGroupResponseTest = resp
+    "updateDeploymentGroupResponse"
+    "fixture/UpdateDeploymentGroupResponse"
+    (Proxy :: Proxy UpdateDeploymentGroup)

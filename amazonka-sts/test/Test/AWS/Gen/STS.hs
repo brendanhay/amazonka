@@ -28,11 +28,14 @@ import Network.AWS.STS
 --         [ assumeRoleTest $
 --             assumeRole
 --
---         , decodeAuthorizationMessageTest $
---             decodeAuthorizationMessage
+--         , assumeRoleWithSAMLTest $
+--             assumeRoleWithSAML
 --
 --         , assumeRoleWithWebIdentityTest $
 --             assumeRoleWithWebIdentity
+--
+--         , decodeAuthorizationMessageTest $
+--             decodeAuthorizationMessage
 --
 --         , getFederationTokenTest $
 --             getFederationToken
@@ -40,29 +43,26 @@ import Network.AWS.STS
 --         , getSessionTokenTest $
 --             getSessionToken
 --
---         , assumeRoleWithSAMLTest $
---             assumeRoleWithSAML
---
 --           ]
 
 --     , testGroup "response"
 --         [ assumeRoleResponseTest $
 --             assumeRoleResponse
 --
---         , decodeAuthorizationMessageResponseTest $
---             decodeAuthorizationMessageResponse
+--         , assumeRoleWithSAMLResponseTest $
+--             assumeRoleWithSAMLResponse
 --
 --         , assumeRoleWithWebIdentityResponseTest $
 --             assumeRoleWithWebIdentityResponse
+--
+--         , decodeAuthorizationMessageResponseTest $
+--             decodeAuthorizationMessageResponse
 --
 --         , getFederationTokenResponseTest $
 --             getFederationTokenResponse
 --
 --         , getSessionTokenResponseTest $
 --             getSessionTokenResponse
---
---         , assumeRoleWithSAMLResponseTest $
---             assumeRoleWithSAMLResponse
 --
 --           ]
 --     ]
@@ -72,11 +72,14 @@ import Network.AWS.STS
 assumeRoleTest :: AssumeRole -> TestTree
 assumeRoleTest = undefined
 
-decodeAuthorizationMessageTest :: DecodeAuthorizationMessage -> TestTree
-decodeAuthorizationMessageTest = undefined
+assumeRoleWithSAMLTest :: AssumeRoleWithSAML -> TestTree
+assumeRoleWithSAMLTest = undefined
 
 assumeRoleWithWebIdentityTest :: AssumeRoleWithWebIdentity -> TestTree
 assumeRoleWithWebIdentityTest = undefined
+
+decodeAuthorizationMessageTest :: DecodeAuthorizationMessage -> TestTree
+decodeAuthorizationMessageTest = undefined
 
 getFederationTokenTest :: GetFederationToken -> TestTree
 getFederationTokenTest = undefined
@@ -84,43 +87,40 @@ getFederationTokenTest = undefined
 getSessionTokenTest :: GetSessionToken -> TestTree
 getSessionTokenTest = undefined
 
-assumeRoleWithSAMLTest :: AssumeRoleWithSAML -> TestTree
-assumeRoleWithSAMLTest = undefined
-
 -- Responses
 
 assumeRoleResponseTest :: AssumeRoleResponse -> TestTree
 assumeRoleResponseTest = resp
-    "AssumeRoleResponse"
+    "assumeRoleResponse"
     "fixture/AssumeRoleResponse"
     (Proxy :: Proxy AssumeRole)
 
-decodeAuthorizationMessageResponseTest :: DecodeAuthorizationMessageResponse -> TestTree
-decodeAuthorizationMessageResponseTest = resp
-    "DecodeAuthorizationMessageResponse"
-    "fixture/DecodeAuthorizationMessageResponse"
-    (Proxy :: Proxy DecodeAuthorizationMessage)
+assumeRoleWithSAMLResponseTest :: AssumeRoleWithSAMLResponse -> TestTree
+assumeRoleWithSAMLResponseTest = resp
+    "assumeRoleWithSAMLResponse"
+    "fixture/AssumeRoleWithSAMLResponse"
+    (Proxy :: Proxy AssumeRoleWithSAML)
 
 assumeRoleWithWebIdentityResponseTest :: AssumeRoleWithWebIdentityResponse -> TestTree
 assumeRoleWithWebIdentityResponseTest = resp
-    "AssumeRoleWithWebIdentityResponse"
+    "assumeRoleWithWebIdentityResponse"
     "fixture/AssumeRoleWithWebIdentityResponse"
     (Proxy :: Proxy AssumeRoleWithWebIdentity)
 
+decodeAuthorizationMessageResponseTest :: DecodeAuthorizationMessageResponse -> TestTree
+decodeAuthorizationMessageResponseTest = resp
+    "decodeAuthorizationMessageResponse"
+    "fixture/DecodeAuthorizationMessageResponse"
+    (Proxy :: Proxy DecodeAuthorizationMessage)
+
 getFederationTokenResponseTest :: GetFederationTokenResponse -> TestTree
 getFederationTokenResponseTest = resp
-    "GetFederationTokenResponse"
+    "getFederationTokenResponse"
     "fixture/GetFederationTokenResponse"
     (Proxy :: Proxy GetFederationToken)
 
 getSessionTokenResponseTest :: GetSessionTokenResponse -> TestTree
 getSessionTokenResponseTest = resp
-    "GetSessionTokenResponse"
+    "getSessionTokenResponse"
     "fixture/GetSessionTokenResponse"
     (Proxy :: Proxy GetSessionToken)
-
-assumeRoleWithSAMLResponseTest :: AssumeRoleWithSAMLResponse -> TestTree
-assumeRoleWithSAMLResponseTest = resp
-    "AssumeRoleWithSAMLResponse"
-    "fixture/AssumeRoleWithSAMLResponse"
-    (Proxy :: Proxy AssumeRoleWithSAML)

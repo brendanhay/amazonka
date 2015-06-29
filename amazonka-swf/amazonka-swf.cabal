@@ -102,6 +102,5 @@ test-suite amazonka-swf-test
         , amazonka-swf == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

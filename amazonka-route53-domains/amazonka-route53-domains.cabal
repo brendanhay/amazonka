@@ -73,6 +73,5 @@ test-suite amazonka-route53-domains-test
         , amazonka-route53-domains == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

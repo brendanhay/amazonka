@@ -153,6 +153,5 @@ test-suite amazonka-kms-test
         , amazonka-kms == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

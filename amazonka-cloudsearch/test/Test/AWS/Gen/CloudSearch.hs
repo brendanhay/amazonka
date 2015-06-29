@@ -25,14 +25,53 @@ import Network.AWS.CloudSearch
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         [ describeAvailabilityOptionsTest $
+--         [ buildSuggestersTest $
+--             buildSuggesters
+--
+--         , createDomainTest $
+--             createDomain
+--
+--         , defineAnalysisSchemeTest $
+--             defineAnalysisScheme
+--
+--         , defineExpressionTest $
+--             defineExpression
+--
+--         , defineIndexFieldTest $
+--             defineIndexField
+--
+--         , defineSuggesterTest $
+--             defineSuggester
+--
+--         , deleteAnalysisSchemeTest $
+--             deleteAnalysisScheme
+--
+--         , deleteDomainTest $
+--             deleteDomain
+--
+--         , deleteExpressionTest $
+--             deleteExpression
+--
+--         , deleteIndexFieldTest $
+--             deleteIndexField
+--
+--         , deleteSuggesterTest $
+--             deleteSuggester
+--
+--         , describeAnalysisSchemesTest $
+--             describeAnalysisSchemes
+--
+--         , describeAvailabilityOptionsTest $
 --             describeAvailabilityOptions
+--
+--         , describeDomainsTest $
+--             describeDomains
 --
 --         , describeExpressionsTest $
 --             describeExpressions
 --
---         , defineExpressionTest $
---             defineExpression
+--         , describeIndexFieldsTest $
+--             describeIndexFields
 --
 --         , describeScalingParametersTest $
 --             describeScalingParameters
@@ -43,47 +82,14 @@ import Network.AWS.CloudSearch
 --         , describeSuggestersTest $
 --             describeSuggesters
 --
---         , updateAvailabilityOptionsTest $
---             updateAvailabilityOptions
---
---         , deleteExpressionTest $
---             deleteExpression
---
---         , describeDomainsTest $
---             describeDomains
---
---         , defineSuggesterTest $
---             defineSuggester
---
---         , deleteAnalysisSchemeTest $
---             deleteAnalysisScheme
+--         , indexDocumentsTest $
+--             indexDocuments
 --
 --         , listDomainNamesTest $
 --             listDomainNames
 --
---         , describeAnalysisSchemesTest $
---             describeAnalysisSchemes
---
---         , createDomainTest $
---             createDomain
---
---         , defineAnalysisSchemeTest $
---             defineAnalysisScheme
---
---         , deleteSuggesterTest $
---             deleteSuggester
---
---         , describeIndexFieldsTest $
---             describeIndexFields
---
---         , indexDocumentsTest $
---             indexDocuments
---
---         , deleteIndexFieldTest $
---             deleteIndexField
---
---         , buildSuggestersTest $
---             buildSuggesters
+--         , updateAvailabilityOptionsTest $
+--             updateAvailabilityOptions
 --
 --         , updateScalingParametersTest $
 --             updateScalingParameters
@@ -91,23 +97,56 @@ import Network.AWS.CloudSearch
 --         , updateServiceAccessPoliciesTest $
 --             updateServiceAccessPolicies
 --
---         , defineIndexFieldTest $
---             defineIndexField
---
---         , deleteDomainTest $
---             deleteDomain
---
 --           ]
 
 --     , testGroup "response"
---         [ describeAvailabilityOptionsResponseTest $
+--         [ buildSuggestersResponseTest $
+--             buildSuggestersResponse
+--
+--         , createDomainResponseTest $
+--             createDomainResponse
+--
+--         , defineAnalysisSchemeResponseTest $
+--             defineAnalysisSchemeResponse
+--
+--         , defineExpressionResponseTest $
+--             defineExpressionResponse
+--
+--         , defineIndexFieldResponseTest $
+--             defineIndexFieldResponse
+--
+--         , defineSuggesterResponseTest $
+--             defineSuggesterResponse
+--
+--         , deleteAnalysisSchemeResponseTest $
+--             deleteAnalysisSchemeResponse
+--
+--         , deleteDomainResponseTest $
+--             deleteDomainResponse
+--
+--         , deleteExpressionResponseTest $
+--             deleteExpressionResponse
+--
+--         , deleteIndexFieldResponseTest $
+--             deleteIndexFieldResponse
+--
+--         , deleteSuggesterResponseTest $
+--             deleteSuggesterResponse
+--
+--         , describeAnalysisSchemesResponseTest $
+--             describeAnalysisSchemesResponse
+--
+--         , describeAvailabilityOptionsResponseTest $
 --             describeAvailabilityOptionsResponse
+--
+--         , describeDomainsResponseTest $
+--             describeDomainsResponse
 --
 --         , describeExpressionsResponseTest $
 --             describeExpressionsResponse
 --
---         , defineExpressionResponseTest $
---             defineExpressionResponse
+--         , describeIndexFieldsResponseTest $
+--             describeIndexFieldsResponse
 --
 --         , describeScalingParametersResponseTest $
 --             describeScalingParametersResponse
@@ -118,47 +157,14 @@ import Network.AWS.CloudSearch
 --         , describeSuggestersResponseTest $
 --             describeSuggestersResponse
 --
---         , updateAvailabilityOptionsResponseTest $
---             updateAvailabilityOptionsResponse
---
---         , deleteExpressionResponseTest $
---             deleteExpressionResponse
---
---         , describeDomainsResponseTest $
---             describeDomainsResponse
---
---         , defineSuggesterResponseTest $
---             defineSuggesterResponse
---
---         , deleteAnalysisSchemeResponseTest $
---             deleteAnalysisSchemeResponse
+--         , indexDocumentsResponseTest $
+--             indexDocumentsResponse
 --
 --         , listDomainNamesResponseTest $
 --             listDomainNamesResponse
 --
---         , describeAnalysisSchemesResponseTest $
---             describeAnalysisSchemesResponse
---
---         , createDomainResponseTest $
---             createDomainResponse
---
---         , defineAnalysisSchemeResponseTest $
---             defineAnalysisSchemeResponse
---
---         , deleteSuggesterResponseTest $
---             deleteSuggesterResponse
---
---         , describeIndexFieldsResponseTest $
---             describeIndexFieldsResponse
---
---         , indexDocumentsResponseTest $
---             indexDocumentsResponse
---
---         , deleteIndexFieldResponseTest $
---             deleteIndexFieldResponse
---
---         , buildSuggestersResponseTest $
---             buildSuggestersResponse
+--         , updateAvailabilityOptionsResponseTest $
+--             updateAvailabilityOptionsResponse
 --
 --         , updateScalingParametersResponseTest $
 --             updateScalingParametersResponse
@@ -166,25 +172,58 @@ import Network.AWS.CloudSearch
 --         , updateServiceAccessPoliciesResponseTest $
 --             updateServiceAccessPoliciesResponse
 --
---         , defineIndexFieldResponseTest $
---             defineIndexFieldResponse
---
---         , deleteDomainResponseTest $
---             deleteDomainResponse
---
 --           ]
 --     ]
 
 -- Requests
 
+buildSuggestersTest :: BuildSuggesters -> TestTree
+buildSuggestersTest = undefined
+
+createDomainTest :: CreateDomain -> TestTree
+createDomainTest = undefined
+
+defineAnalysisSchemeTest :: DefineAnalysisScheme -> TestTree
+defineAnalysisSchemeTest = undefined
+
+defineExpressionTest :: DefineExpression -> TestTree
+defineExpressionTest = undefined
+
+defineIndexFieldTest :: DefineIndexField -> TestTree
+defineIndexFieldTest = undefined
+
+defineSuggesterTest :: DefineSuggester -> TestTree
+defineSuggesterTest = undefined
+
+deleteAnalysisSchemeTest :: DeleteAnalysisScheme -> TestTree
+deleteAnalysisSchemeTest = undefined
+
+deleteDomainTest :: DeleteDomain -> TestTree
+deleteDomainTest = undefined
+
+deleteExpressionTest :: DeleteExpression -> TestTree
+deleteExpressionTest = undefined
+
+deleteIndexFieldTest :: DeleteIndexField -> TestTree
+deleteIndexFieldTest = undefined
+
+deleteSuggesterTest :: DeleteSuggester -> TestTree
+deleteSuggesterTest = undefined
+
+describeAnalysisSchemesTest :: DescribeAnalysisSchemes -> TestTree
+describeAnalysisSchemesTest = undefined
+
 describeAvailabilityOptionsTest :: DescribeAvailabilityOptions -> TestTree
 describeAvailabilityOptionsTest = undefined
+
+describeDomainsTest :: DescribeDomains -> TestTree
+describeDomainsTest = undefined
 
 describeExpressionsTest :: DescribeExpressions -> TestTree
 describeExpressionsTest = undefined
 
-defineExpressionTest :: DefineExpression -> TestTree
-defineExpressionTest = undefined
+describeIndexFieldsTest :: DescribeIndexFields -> TestTree
+describeIndexFieldsTest = undefined
 
 describeScalingParametersTest :: DescribeScalingParameters -> TestTree
 describeScalingParametersTest = undefined
@@ -195,47 +234,14 @@ describeServiceAccessPoliciesTest = undefined
 describeSuggestersTest :: DescribeSuggesters -> TestTree
 describeSuggestersTest = undefined
 
-updateAvailabilityOptionsTest :: UpdateAvailabilityOptions -> TestTree
-updateAvailabilityOptionsTest = undefined
-
-deleteExpressionTest :: DeleteExpression -> TestTree
-deleteExpressionTest = undefined
-
-describeDomainsTest :: DescribeDomains -> TestTree
-describeDomainsTest = undefined
-
-defineSuggesterTest :: DefineSuggester -> TestTree
-defineSuggesterTest = undefined
-
-deleteAnalysisSchemeTest :: DeleteAnalysisScheme -> TestTree
-deleteAnalysisSchemeTest = undefined
+indexDocumentsTest :: IndexDocuments -> TestTree
+indexDocumentsTest = undefined
 
 listDomainNamesTest :: ListDomainNames -> TestTree
 listDomainNamesTest = undefined
 
-describeAnalysisSchemesTest :: DescribeAnalysisSchemes -> TestTree
-describeAnalysisSchemesTest = undefined
-
-createDomainTest :: CreateDomain -> TestTree
-createDomainTest = undefined
-
-defineAnalysisSchemeTest :: DefineAnalysisScheme -> TestTree
-defineAnalysisSchemeTest = undefined
-
-deleteSuggesterTest :: DeleteSuggester -> TestTree
-deleteSuggesterTest = undefined
-
-describeIndexFieldsTest :: DescribeIndexFields -> TestTree
-describeIndexFieldsTest = undefined
-
-indexDocumentsTest :: IndexDocuments -> TestTree
-indexDocumentsTest = undefined
-
-deleteIndexFieldTest :: DeleteIndexField -> TestTree
-deleteIndexFieldTest = undefined
-
-buildSuggestersTest :: BuildSuggesters -> TestTree
-buildSuggestersTest = undefined
+updateAvailabilityOptionsTest :: UpdateAvailabilityOptions -> TestTree
+updateAvailabilityOptionsTest = undefined
 
 updateScalingParametersTest :: UpdateScalingParameters -> TestTree
 updateScalingParametersTest = undefined
@@ -243,154 +249,148 @@ updateScalingParametersTest = undefined
 updateServiceAccessPoliciesTest :: UpdateServiceAccessPolicies -> TestTree
 updateServiceAccessPoliciesTest = undefined
 
-defineIndexFieldTest :: DefineIndexField -> TestTree
-defineIndexFieldTest = undefined
-
-deleteDomainTest :: DeleteDomain -> TestTree
-deleteDomainTest = undefined
-
 -- Responses
 
-describeAvailabilityOptionsResponseTest :: DescribeAvailabilityOptionsResponse -> TestTree
-describeAvailabilityOptionsResponseTest = resp
-    "DescribeAvailabilityOptionsResponse"
-    "fixture/DescribeAvailabilityOptionsResponse"
-    (Proxy :: Proxy DescribeAvailabilityOptions)
-
-describeExpressionsResponseTest :: DescribeExpressionsResponse -> TestTree
-describeExpressionsResponseTest = resp
-    "DescribeExpressionsResponse"
-    "fixture/DescribeExpressionsResponse"
-    (Proxy :: Proxy DescribeExpressions)
-
-defineExpressionResponseTest :: DefineExpressionResponse -> TestTree
-defineExpressionResponseTest = resp
-    "DefineExpressionResponse"
-    "fixture/DefineExpressionResponse"
-    (Proxy :: Proxy DefineExpression)
-
-describeScalingParametersResponseTest :: DescribeScalingParametersResponse -> TestTree
-describeScalingParametersResponseTest = resp
-    "DescribeScalingParametersResponse"
-    "fixture/DescribeScalingParametersResponse"
-    (Proxy :: Proxy DescribeScalingParameters)
-
-describeServiceAccessPoliciesResponseTest :: DescribeServiceAccessPoliciesResponse -> TestTree
-describeServiceAccessPoliciesResponseTest = resp
-    "DescribeServiceAccessPoliciesResponse"
-    "fixture/DescribeServiceAccessPoliciesResponse"
-    (Proxy :: Proxy DescribeServiceAccessPolicies)
-
-describeSuggestersResponseTest :: DescribeSuggestersResponse -> TestTree
-describeSuggestersResponseTest = resp
-    "DescribeSuggestersResponse"
-    "fixture/DescribeSuggestersResponse"
-    (Proxy :: Proxy DescribeSuggesters)
-
-updateAvailabilityOptionsResponseTest :: UpdateAvailabilityOptionsResponse -> TestTree
-updateAvailabilityOptionsResponseTest = resp
-    "UpdateAvailabilityOptionsResponse"
-    "fixture/UpdateAvailabilityOptionsResponse"
-    (Proxy :: Proxy UpdateAvailabilityOptions)
-
-deleteExpressionResponseTest :: DeleteExpressionResponse -> TestTree
-deleteExpressionResponseTest = resp
-    "DeleteExpressionResponse"
-    "fixture/DeleteExpressionResponse"
-    (Proxy :: Proxy DeleteExpression)
-
-describeDomainsResponseTest :: DescribeDomainsResponse -> TestTree
-describeDomainsResponseTest = resp
-    "DescribeDomainsResponse"
-    "fixture/DescribeDomainsResponse"
-    (Proxy :: Proxy DescribeDomains)
-
-defineSuggesterResponseTest :: DefineSuggesterResponse -> TestTree
-defineSuggesterResponseTest = resp
-    "DefineSuggesterResponse"
-    "fixture/DefineSuggesterResponse"
-    (Proxy :: Proxy DefineSuggester)
-
-deleteAnalysisSchemeResponseTest :: DeleteAnalysisSchemeResponse -> TestTree
-deleteAnalysisSchemeResponseTest = resp
-    "DeleteAnalysisSchemeResponse"
-    "fixture/DeleteAnalysisSchemeResponse"
-    (Proxy :: Proxy DeleteAnalysisScheme)
-
-listDomainNamesResponseTest :: ListDomainNamesResponse -> TestTree
-listDomainNamesResponseTest = resp
-    "ListDomainNamesResponse"
-    "fixture/ListDomainNamesResponse"
-    (Proxy :: Proxy ListDomainNames)
-
-describeAnalysisSchemesResponseTest :: DescribeAnalysisSchemesResponse -> TestTree
-describeAnalysisSchemesResponseTest = resp
-    "DescribeAnalysisSchemesResponse"
-    "fixture/DescribeAnalysisSchemesResponse"
-    (Proxy :: Proxy DescribeAnalysisSchemes)
+buildSuggestersResponseTest :: BuildSuggestersResponse -> TestTree
+buildSuggestersResponseTest = resp
+    "buildSuggestersResponse"
+    "fixture/BuildSuggestersResponse"
+    (Proxy :: Proxy BuildSuggesters)
 
 createDomainResponseTest :: CreateDomainResponse -> TestTree
 createDomainResponseTest = resp
-    "CreateDomainResponse"
+    "createDomainResponse"
     "fixture/CreateDomainResponse"
     (Proxy :: Proxy CreateDomain)
 
 defineAnalysisSchemeResponseTest :: DefineAnalysisSchemeResponse -> TestTree
 defineAnalysisSchemeResponseTest = resp
-    "DefineAnalysisSchemeResponse"
+    "defineAnalysisSchemeResponse"
     "fixture/DefineAnalysisSchemeResponse"
     (Proxy :: Proxy DefineAnalysisScheme)
 
-deleteSuggesterResponseTest :: DeleteSuggesterResponse -> TestTree
-deleteSuggesterResponseTest = resp
-    "DeleteSuggesterResponse"
-    "fixture/DeleteSuggesterResponse"
-    (Proxy :: Proxy DeleteSuggester)
+defineExpressionResponseTest :: DefineExpressionResponse -> TestTree
+defineExpressionResponseTest = resp
+    "defineExpressionResponse"
+    "fixture/DefineExpressionResponse"
+    (Proxy :: Proxy DefineExpression)
 
-describeIndexFieldsResponseTest :: DescribeIndexFieldsResponse -> TestTree
-describeIndexFieldsResponseTest = resp
-    "DescribeIndexFieldsResponse"
-    "fixture/DescribeIndexFieldsResponse"
-    (Proxy :: Proxy DescribeIndexFields)
+defineIndexFieldResponseTest :: DefineIndexFieldResponse -> TestTree
+defineIndexFieldResponseTest = resp
+    "defineIndexFieldResponse"
+    "fixture/DefineIndexFieldResponse"
+    (Proxy :: Proxy DefineIndexField)
 
-indexDocumentsResponseTest :: IndexDocumentsResponse -> TestTree
-indexDocumentsResponseTest = resp
-    "IndexDocumentsResponse"
-    "fixture/IndexDocumentsResponse"
-    (Proxy :: Proxy IndexDocuments)
+defineSuggesterResponseTest :: DefineSuggesterResponse -> TestTree
+defineSuggesterResponseTest = resp
+    "defineSuggesterResponse"
+    "fixture/DefineSuggesterResponse"
+    (Proxy :: Proxy DefineSuggester)
+
+deleteAnalysisSchemeResponseTest :: DeleteAnalysisSchemeResponse -> TestTree
+deleteAnalysisSchemeResponseTest = resp
+    "deleteAnalysisSchemeResponse"
+    "fixture/DeleteAnalysisSchemeResponse"
+    (Proxy :: Proxy DeleteAnalysisScheme)
+
+deleteDomainResponseTest :: DeleteDomainResponse -> TestTree
+deleteDomainResponseTest = resp
+    "deleteDomainResponse"
+    "fixture/DeleteDomainResponse"
+    (Proxy :: Proxy DeleteDomain)
+
+deleteExpressionResponseTest :: DeleteExpressionResponse -> TestTree
+deleteExpressionResponseTest = resp
+    "deleteExpressionResponse"
+    "fixture/DeleteExpressionResponse"
+    (Proxy :: Proxy DeleteExpression)
 
 deleteIndexFieldResponseTest :: DeleteIndexFieldResponse -> TestTree
 deleteIndexFieldResponseTest = resp
-    "DeleteIndexFieldResponse"
+    "deleteIndexFieldResponse"
     "fixture/DeleteIndexFieldResponse"
     (Proxy :: Proxy DeleteIndexField)
 
-buildSuggestersResponseTest :: BuildSuggestersResponse -> TestTree
-buildSuggestersResponseTest = resp
-    "BuildSuggestersResponse"
-    "fixture/BuildSuggestersResponse"
-    (Proxy :: Proxy BuildSuggesters)
+deleteSuggesterResponseTest :: DeleteSuggesterResponse -> TestTree
+deleteSuggesterResponseTest = resp
+    "deleteSuggesterResponse"
+    "fixture/DeleteSuggesterResponse"
+    (Proxy :: Proxy DeleteSuggester)
+
+describeAnalysisSchemesResponseTest :: DescribeAnalysisSchemesResponse -> TestTree
+describeAnalysisSchemesResponseTest = resp
+    "describeAnalysisSchemesResponse"
+    "fixture/DescribeAnalysisSchemesResponse"
+    (Proxy :: Proxy DescribeAnalysisSchemes)
+
+describeAvailabilityOptionsResponseTest :: DescribeAvailabilityOptionsResponse -> TestTree
+describeAvailabilityOptionsResponseTest = resp
+    "describeAvailabilityOptionsResponse"
+    "fixture/DescribeAvailabilityOptionsResponse"
+    (Proxy :: Proxy DescribeAvailabilityOptions)
+
+describeDomainsResponseTest :: DescribeDomainsResponse -> TestTree
+describeDomainsResponseTest = resp
+    "describeDomainsResponse"
+    "fixture/DescribeDomainsResponse"
+    (Proxy :: Proxy DescribeDomains)
+
+describeExpressionsResponseTest :: DescribeExpressionsResponse -> TestTree
+describeExpressionsResponseTest = resp
+    "describeExpressionsResponse"
+    "fixture/DescribeExpressionsResponse"
+    (Proxy :: Proxy DescribeExpressions)
+
+describeIndexFieldsResponseTest :: DescribeIndexFieldsResponse -> TestTree
+describeIndexFieldsResponseTest = resp
+    "describeIndexFieldsResponse"
+    "fixture/DescribeIndexFieldsResponse"
+    (Proxy :: Proxy DescribeIndexFields)
+
+describeScalingParametersResponseTest :: DescribeScalingParametersResponse -> TestTree
+describeScalingParametersResponseTest = resp
+    "describeScalingParametersResponse"
+    "fixture/DescribeScalingParametersResponse"
+    (Proxy :: Proxy DescribeScalingParameters)
+
+describeServiceAccessPoliciesResponseTest :: DescribeServiceAccessPoliciesResponse -> TestTree
+describeServiceAccessPoliciesResponseTest = resp
+    "describeServiceAccessPoliciesResponse"
+    "fixture/DescribeServiceAccessPoliciesResponse"
+    (Proxy :: Proxy DescribeServiceAccessPolicies)
+
+describeSuggestersResponseTest :: DescribeSuggestersResponse -> TestTree
+describeSuggestersResponseTest = resp
+    "describeSuggestersResponse"
+    "fixture/DescribeSuggestersResponse"
+    (Proxy :: Proxy DescribeSuggesters)
+
+indexDocumentsResponseTest :: IndexDocumentsResponse -> TestTree
+indexDocumentsResponseTest = resp
+    "indexDocumentsResponse"
+    "fixture/IndexDocumentsResponse"
+    (Proxy :: Proxy IndexDocuments)
+
+listDomainNamesResponseTest :: ListDomainNamesResponse -> TestTree
+listDomainNamesResponseTest = resp
+    "listDomainNamesResponse"
+    "fixture/ListDomainNamesResponse"
+    (Proxy :: Proxy ListDomainNames)
+
+updateAvailabilityOptionsResponseTest :: UpdateAvailabilityOptionsResponse -> TestTree
+updateAvailabilityOptionsResponseTest = resp
+    "updateAvailabilityOptionsResponse"
+    "fixture/UpdateAvailabilityOptionsResponse"
+    (Proxy :: Proxy UpdateAvailabilityOptions)
 
 updateScalingParametersResponseTest :: UpdateScalingParametersResponse -> TestTree
 updateScalingParametersResponseTest = resp
-    "UpdateScalingParametersResponse"
+    "updateScalingParametersResponse"
     "fixture/UpdateScalingParametersResponse"
     (Proxy :: Proxy UpdateScalingParameters)
 
 updateServiceAccessPoliciesResponseTest :: UpdateServiceAccessPoliciesResponse -> TestTree
 updateServiceAccessPoliciesResponseTest = resp
-    "UpdateServiceAccessPoliciesResponse"
+    "updateServiceAccessPoliciesResponse"
     "fixture/UpdateServiceAccessPoliciesResponse"
     (Proxy :: Proxy UpdateServiceAccessPolicies)
-
-defineIndexFieldResponseTest :: DefineIndexFieldResponse -> TestTree
-defineIndexFieldResponseTest = resp
-    "DefineIndexFieldResponse"
-    "fixture/DefineIndexFieldResponse"
-    (Proxy :: Proxy DefineIndexField)
-
-deleteDomainResponseTest :: DeleteDomainResponse -> TestTree
-deleteDomainResponseTest = resp
-    "DeleteDomainResponse"
-    "fixture/DeleteDomainResponse"
-    (Proxy :: Proxy DeleteDomain)

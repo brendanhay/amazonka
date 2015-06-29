@@ -95,6 +95,5 @@ test-suite amazonka-ecs-test
         , amazonka-ecs == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

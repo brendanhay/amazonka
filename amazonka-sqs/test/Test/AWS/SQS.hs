@@ -16,7 +16,6 @@ module Test.AWS.SQS
     ) where
 
 import           Network.AWS.SQS
-import           Network.HTTP.Types.Status
 import           Test.AWS.Gen.SQS
 import           Test.Tasty
 
@@ -27,7 +26,7 @@ fixtures :: [TestTree]
 fixtures =
     [ testGroup "response"
         [ getQueueURLResponseTest $
-            getQueueURLResponse status200 "http://us-east-1.amazonaws.com/123456789012/testQueue"
+            getQueueURLResponse 200 "http://us-east-1.amazonaws.com/123456789012/testQueue"
 
         , purgeQueueResponseTest $
             purgeQueueResponse

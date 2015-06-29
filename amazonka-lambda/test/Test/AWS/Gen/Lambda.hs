@@ -25,252 +25,252 @@ import Network.AWS.Lambda
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         [ getFunctionConfigurationTest $
---             getFunctionConfiguration
---
---         , updateEventSourceMappingTest $
---             updateEventSourceMapping
---
---         , deleteEventSourceMappingTest $
---             deleteEventSourceMapping
---
---         , removePermissionTest $
---             removePermission
---
---         , invokeTest $
---             invoke
---
---         , getEventSourceMappingTest $
---             getEventSourceMapping
---
---         , createFunctionTest $
---             createFunction
+--         [ addPermissionTest $
+--             addPermission
 --
 --         , createEventSourceMappingTest $
 --             createEventSourceMapping
 --
---         , getFunctionTest $
---             getFunction
+--         , createFunctionTest $
+--             createFunction
 --
---         , listEventSourceMappingsTest $
---             listEventSourceMappings
---
---         , addPermissionTest $
---             addPermission
+--         , deleteEventSourceMappingTest $
+--             deleteEventSourceMapping
 --
 --         , deleteFunctionTest $
 --             deleteFunction
 --
---         , updateFunctionConfigurationTest $
---             updateFunctionConfiguration
+--         , getEventSourceMappingTest $
+--             getEventSourceMapping
 --
---         , listFunctionsTest $
---             listFunctions
+--         , getFunctionTest $
+--             getFunction
 --
---         , updateFunctionCodeTest $
---             updateFunctionCode
+--         , getFunctionConfigurationTest $
+--             getFunctionConfiguration
 --
 --         , getPolicyTest $
 --             getPolicy
 --
+--         , invokeTest $
+--             invoke
+--
+--         , listEventSourceMappingsTest $
+--             listEventSourceMappings
+--
+--         , listFunctionsTest $
+--             listFunctions
+--
+--         , removePermissionTest $
+--             removePermission
+--
+--         , updateEventSourceMappingTest $
+--             updateEventSourceMapping
+--
+--         , updateFunctionCodeTest $
+--             updateFunctionCode
+--
+--         , updateFunctionConfigurationTest $
+--             updateFunctionConfiguration
+--
 --           ]
 
 --     , testGroup "response"
---         [ functionConfigurationTest $
+--         [ addPermissionResponseTest $
+--             addPermissionResponse
+--
+--         , createEventSourceMappingResponseTest $
+--             eventSourceMappingConfiguration
+--
+--         , createFunctionResponseTest $
 --             functionConfiguration
 --
---         , eventSourceMappingConfigurationTest $
+--         , deleteEventSourceMappingResponseTest $
 --             eventSourceMappingConfiguration
 --
---         , eventSourceMappingConfigurationTest $
---             eventSourceMappingConfiguration
+--         , deleteFunctionResponseTest $
+--             deleteFunctionResponse
 --
---         , removePermissionResponseTest $
---             removePermissionResponse
---
---         , invokeResponseTest $
---             invokeResponse
---
---         , eventSourceMappingConfigurationTest $
---             eventSourceMappingConfiguration
---
---         , functionConfigurationTest $
---             functionConfiguration
---
---         , eventSourceMappingConfigurationTest $
+--         , getEventSourceMappingResponseTest $
 --             eventSourceMappingConfiguration
 --
 --         , getFunctionResponseTest $
 --             getFunctionResponse
 --
---         , listEventSourceMappingsResponseTest $
---             listEventSourceMappingsResponse
---
---         , addPermissionResponseTest $
---             addPermissionResponse
---
---         , deleteFunctionResponseTest $
---             deleteFunctionResponse
---
---         , functionConfigurationTest $
---             functionConfiguration
---
---         , listFunctionsResponseTest $
---             listFunctionsResponse
---
---         , functionConfigurationTest $
+--         , getFunctionConfigurationResponseTest $
 --             functionConfiguration
 --
 --         , getPolicyResponseTest $
 --             getPolicyResponse
+--
+--         , invokeResponseTest $
+--             invokeResponse
+--
+--         , listEventSourceMappingsResponseTest $
+--             listEventSourceMappingsResponse
+--
+--         , listFunctionsResponseTest $
+--             listFunctionsResponse
+--
+--         , removePermissionResponseTest $
+--             removePermissionResponse
+--
+--         , updateEventSourceMappingResponseTest $
+--             eventSourceMappingConfiguration
+--
+--         , updateFunctionCodeResponseTest $
+--             functionConfiguration
+--
+--         , updateFunctionConfigurationResponseTest $
+--             functionConfiguration
 --
 --           ]
 --     ]
 
 -- Requests
 
-getFunctionConfigurationTest :: GetFunctionConfiguration -> TestTree
-getFunctionConfigurationTest = undefined
-
-updateEventSourceMappingTest :: UpdateEventSourceMapping -> TestTree
-updateEventSourceMappingTest = undefined
-
-deleteEventSourceMappingTest :: DeleteEventSourceMapping -> TestTree
-deleteEventSourceMappingTest = undefined
-
-removePermissionTest :: RemovePermission -> TestTree
-removePermissionTest = undefined
-
-invokeTest :: Invoke -> TestTree
-invokeTest = undefined
-
-getEventSourceMappingTest :: GetEventSourceMapping -> TestTree
-getEventSourceMappingTest = undefined
-
-createFunctionTest :: CreateFunction -> TestTree
-createFunctionTest = undefined
+addPermissionTest :: AddPermission -> TestTree
+addPermissionTest = undefined
 
 createEventSourceMappingTest :: CreateEventSourceMapping -> TestTree
 createEventSourceMappingTest = undefined
 
-getFunctionTest :: GetFunction -> TestTree
-getFunctionTest = undefined
+createFunctionTest :: CreateFunction -> TestTree
+createFunctionTest = undefined
 
-listEventSourceMappingsTest :: ListEventSourceMappings -> TestTree
-listEventSourceMappingsTest = undefined
-
-addPermissionTest :: AddPermission -> TestTree
-addPermissionTest = undefined
+deleteEventSourceMappingTest :: DeleteEventSourceMapping -> TestTree
+deleteEventSourceMappingTest = undefined
 
 deleteFunctionTest :: DeleteFunction -> TestTree
 deleteFunctionTest = undefined
 
-updateFunctionConfigurationTest :: UpdateFunctionConfiguration -> TestTree
-updateFunctionConfigurationTest = undefined
+getEventSourceMappingTest :: GetEventSourceMapping -> TestTree
+getEventSourceMappingTest = undefined
 
-listFunctionsTest :: ListFunctions -> TestTree
-listFunctionsTest = undefined
+getFunctionTest :: GetFunction -> TestTree
+getFunctionTest = undefined
 
-updateFunctionCodeTest :: UpdateFunctionCode -> TestTree
-updateFunctionCodeTest = undefined
+getFunctionConfigurationTest :: GetFunctionConfiguration -> TestTree
+getFunctionConfigurationTest = undefined
 
 getPolicyTest :: GetPolicy -> TestTree
 getPolicyTest = undefined
 
+invokeTest :: Invoke -> TestTree
+invokeTest = undefined
+
+listEventSourceMappingsTest :: ListEventSourceMappings -> TestTree
+listEventSourceMappingsTest = undefined
+
+listFunctionsTest :: ListFunctions -> TestTree
+listFunctionsTest = undefined
+
+removePermissionTest :: RemovePermission -> TestTree
+removePermissionTest = undefined
+
+updateEventSourceMappingTest :: UpdateEventSourceMapping -> TestTree
+updateEventSourceMappingTest = undefined
+
+updateFunctionCodeTest :: UpdateFunctionCode -> TestTree
+updateFunctionCodeTest = undefined
+
+updateFunctionConfigurationTest :: UpdateFunctionConfiguration -> TestTree
+updateFunctionConfigurationTest = undefined
+
 -- Responses
-
-functionConfigurationTest :: FunctionConfiguration -> TestTree
-functionConfigurationTest = resp
-    "FunctionConfiguration"
-    "fixture/FunctionConfiguration"
-    (Proxy :: Proxy GetFunctionConfiguration)
-
-eventSourceMappingConfigurationTest :: EventSourceMappingConfiguration -> TestTree
-eventSourceMappingConfigurationTest = resp
-    "EventSourceMappingConfiguration"
-    "fixture/EventSourceMappingConfiguration"
-    (Proxy :: Proxy UpdateEventSourceMapping)
-
-eventSourceMappingConfigurationTest :: EventSourceMappingConfiguration -> TestTree
-eventSourceMappingConfigurationTest = resp
-    "EventSourceMappingConfiguration"
-    "fixture/EventSourceMappingConfiguration"
-    (Proxy :: Proxy DeleteEventSourceMapping)
-
-removePermissionResponseTest :: RemovePermissionResponse -> TestTree
-removePermissionResponseTest = resp
-    "RemovePermissionResponse"
-    "fixture/RemovePermissionResponse"
-    (Proxy :: Proxy RemovePermission)
-
-invokeResponseTest :: InvokeResponse -> TestTree
-invokeResponseTest = resp
-    "InvokeResponse"
-    "fixture/InvokeResponse"
-    (Proxy :: Proxy Invoke)
-
-eventSourceMappingConfigurationTest :: EventSourceMappingConfiguration -> TestTree
-eventSourceMappingConfigurationTest = resp
-    "EventSourceMappingConfiguration"
-    "fixture/EventSourceMappingConfiguration"
-    (Proxy :: Proxy GetEventSourceMapping)
-
-functionConfigurationTest :: FunctionConfiguration -> TestTree
-functionConfigurationTest = resp
-    "FunctionConfiguration"
-    "fixture/FunctionConfiguration"
-    (Proxy :: Proxy CreateFunction)
-
-eventSourceMappingConfigurationTest :: EventSourceMappingConfiguration -> TestTree
-eventSourceMappingConfigurationTest = resp
-    "EventSourceMappingConfiguration"
-    "fixture/EventSourceMappingConfiguration"
-    (Proxy :: Proxy CreateEventSourceMapping)
-
-getFunctionResponseTest :: GetFunctionResponse -> TestTree
-getFunctionResponseTest = resp
-    "GetFunctionResponse"
-    "fixture/GetFunctionResponse"
-    (Proxy :: Proxy GetFunction)
-
-listEventSourceMappingsResponseTest :: ListEventSourceMappingsResponse -> TestTree
-listEventSourceMappingsResponseTest = resp
-    "ListEventSourceMappingsResponse"
-    "fixture/ListEventSourceMappingsResponse"
-    (Proxy :: Proxy ListEventSourceMappings)
 
 addPermissionResponseTest :: AddPermissionResponse -> TestTree
 addPermissionResponseTest = resp
-    "AddPermissionResponse"
+    "addPermissionResponse"
     "fixture/AddPermissionResponse"
     (Proxy :: Proxy AddPermission)
 
+createEventSourceMappingResponseTest :: EventSourceMappingConfiguration -> TestTree
+createEventSourceMappingResponseTest = resp
+    "createEventSourceMappingResponse"
+    "fixture/EventSourceMappingConfiguration"
+    (Proxy :: Proxy CreateEventSourceMapping)
+
+createFunctionResponseTest :: FunctionConfiguration -> TestTree
+createFunctionResponseTest = resp
+    "createFunctionResponse"
+    "fixture/FunctionConfiguration"
+    (Proxy :: Proxy CreateFunction)
+
+deleteEventSourceMappingResponseTest :: EventSourceMappingConfiguration -> TestTree
+deleteEventSourceMappingResponseTest = resp
+    "deleteEventSourceMappingResponse"
+    "fixture/EventSourceMappingConfiguration"
+    (Proxy :: Proxy DeleteEventSourceMapping)
+
 deleteFunctionResponseTest :: DeleteFunctionResponse -> TestTree
 deleteFunctionResponseTest = resp
-    "DeleteFunctionResponse"
+    "deleteFunctionResponse"
     "fixture/DeleteFunctionResponse"
     (Proxy :: Proxy DeleteFunction)
 
-functionConfigurationTest :: FunctionConfiguration -> TestTree
-functionConfigurationTest = resp
-    "FunctionConfiguration"
-    "fixture/FunctionConfiguration"
-    (Proxy :: Proxy UpdateFunctionConfiguration)
+getEventSourceMappingResponseTest :: EventSourceMappingConfiguration -> TestTree
+getEventSourceMappingResponseTest = resp
+    "getEventSourceMappingResponse"
+    "fixture/EventSourceMappingConfiguration"
+    (Proxy :: Proxy GetEventSourceMapping)
 
-listFunctionsResponseTest :: ListFunctionsResponse -> TestTree
-listFunctionsResponseTest = resp
-    "ListFunctionsResponse"
-    "fixture/ListFunctionsResponse"
-    (Proxy :: Proxy ListFunctions)
+getFunctionResponseTest :: GetFunctionResponse -> TestTree
+getFunctionResponseTest = resp
+    "getFunctionResponse"
+    "fixture/GetFunctionResponse"
+    (Proxy :: Proxy GetFunction)
 
-functionConfigurationTest :: FunctionConfiguration -> TestTree
-functionConfigurationTest = resp
-    "FunctionConfiguration"
+getFunctionConfigurationResponseTest :: FunctionConfiguration -> TestTree
+getFunctionConfigurationResponseTest = resp
+    "getFunctionConfigurationResponse"
     "fixture/FunctionConfiguration"
-    (Proxy :: Proxy UpdateFunctionCode)
+    (Proxy :: Proxy GetFunctionConfiguration)
 
 getPolicyResponseTest :: GetPolicyResponse -> TestTree
 getPolicyResponseTest = resp
-    "GetPolicyResponse"
+    "getPolicyResponse"
     "fixture/GetPolicyResponse"
     (Proxy :: Proxy GetPolicy)
+
+invokeResponseTest :: InvokeResponse -> TestTree
+invokeResponseTest = resp
+    "invokeResponse"
+    "fixture/InvokeResponse"
+    (Proxy :: Proxy Invoke)
+
+listEventSourceMappingsResponseTest :: ListEventSourceMappingsResponse -> TestTree
+listEventSourceMappingsResponseTest = resp
+    "listEventSourceMappingsResponse"
+    "fixture/ListEventSourceMappingsResponse"
+    (Proxy :: Proxy ListEventSourceMappings)
+
+listFunctionsResponseTest :: ListFunctionsResponse -> TestTree
+listFunctionsResponseTest = resp
+    "listFunctionsResponse"
+    "fixture/ListFunctionsResponse"
+    (Proxy :: Proxy ListFunctions)
+
+removePermissionResponseTest :: RemovePermissionResponse -> TestTree
+removePermissionResponseTest = resp
+    "removePermissionResponse"
+    "fixture/RemovePermissionResponse"
+    (Proxy :: Proxy RemovePermission)
+
+updateEventSourceMappingResponseTest :: EventSourceMappingConfiguration -> TestTree
+updateEventSourceMappingResponseTest = resp
+    "updateEventSourceMappingResponse"
+    "fixture/EventSourceMappingConfiguration"
+    (Proxy :: Proxy UpdateEventSourceMapping)
+
+updateFunctionCodeResponseTest :: FunctionConfiguration -> TestTree
+updateFunctionCodeResponseTest = resp
+    "updateFunctionCodeResponse"
+    "fixture/FunctionConfiguration"
+    (Proxy :: Proxy UpdateFunctionCode)
+
+updateFunctionConfigurationResponseTest :: FunctionConfiguration -> TestTree
+updateFunctionConfigurationResponseTest = resp
+    "updateFunctionConfigurationResponse"
+    "fixture/FunctionConfiguration"
+    (Proxy :: Proxy UpdateFunctionConfiguration)

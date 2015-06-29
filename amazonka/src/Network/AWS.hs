@@ -1,11 +1,12 @@
-{-# LANGUAGE BangPatterns      #-}
-{-# LANGUAGE FlexibleContexts  #-}
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TupleSections     #-}
-{-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE ViewPatterns      #-}
+{-# LANGUAGE BangPatterns        #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE LambdaCase          #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE RecordWildCards     #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TupleSections       #-}
+{-# LANGUAGE TypeFamilies        #-}
+{-# LANGUAGE ViewPatterns        #-}
 
 -- Module      : Network.AWS
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -110,7 +111,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request          (requestURL)
 import           Network.AWS.Types
 import           Network.AWS.Waiter
-import           Network.HTTP.Conduit         hiding (Request, Response)
+import           Network.HTTP.Conduit         hiding (Proxy, Request, Response)
 
 -- | This creates a new environment without debug logging and uses 'getAuth'
 -- to expand/discover the supplied 'Credentials'.
@@ -143,7 +144,7 @@ send :: (MonadCatch m, MonadResource m, AWSEnv r, AWSRequest a)
      => r
      -> a
      -> m (Either Error (Rs a))
-send e x = sendWith e (service x) x
+send e x = sendWith e (serviceOf x) x
 
 sendWith :: ( MonadCatch    m
             , MonadResource m
@@ -173,7 +174,7 @@ paginate :: (MonadCatch m, MonadResource m, AWSEnv r, AWSPager a)
          => r
          -> a
          -> Source m (Either Error (Rs a))
-paginate e x = paginateWith e (service x) x
+paginate e x = paginateWith e (serviceOf x) x
 
 paginateWith :: ( MonadCatch    m
                 , MonadResource m
@@ -212,7 +213,7 @@ await :: (MonadCatch m, MonadResource m, AWSEnv r, AWSRequest a)
       -> Wait a
       -> a
       -> m (Either Error (Rs a))
-await e w x = awaitWith e (service x) w x
+await e w x = awaitWith e (serviceOf x) w x
 
 awaitWith :: ( MonadCatch    m
              , MonadResource m
@@ -251,7 +252,7 @@ presign :: (MonadIO m, AWSEnv r, AWSPresigner (Sg (Sv a)), AWSRequest a)
         -> Integer     -- ^ Expiry time in seconds.
         -> a           -- ^ Request to presign.
         -> m ClientRequest
-presign e t ex x = presignWith e (service x) t ex x
+presign e t ex x = presignWith e (serviceOf x) t ex x
 
 -- /Note:/ You can used "Network.AWS.Request.requestURL" to extract a fully
 -- signed URL from the request.

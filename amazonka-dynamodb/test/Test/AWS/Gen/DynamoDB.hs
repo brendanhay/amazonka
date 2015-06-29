@@ -25,23 +25,20 @@ import Network.AWS.DynamoDB
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         [ updateItemTest $
---             updateItem
+--         [ batchGetItemTest $
+--             batchGetItem
+--
+--         , batchWriteItemTest $
+--             batchWriteItem
+--
+--         , createTableTest $
+--             createTable
 --
 --         , deleteItemTest $
 --             deleteItem
 --
---         , putItemTest $
---             putItem
---
 --         , deleteTableTest $
 --             deleteTable
---
---         , updateTableTest $
---             updateTable
---
---         , batchGetItemTest $
---             batchGetItem
 --
 --         , describeTableTest $
 --             describeTable
@@ -49,41 +46,41 @@ import Network.AWS.DynamoDB
 --         , getItemTest $
 --             getItem
 --
---         , batchWriteItemTest $
---             batchWriteItem
---
---         , scanTest $
---             scan
---
 --         , listTablesTest $
 --             listTables
+--
+--         , putItemTest $
+--             putItem
 --
 --         , queryTest $
 --             query
 --
---         , createTableTest $
---             createTable
+--         , scanTest $
+--             scan
+--
+--         , updateItemTest $
+--             updateItem
+--
+--         , updateTableTest $
+--             updateTable
 --
 --           ]
 
 --     , testGroup "response"
---         [ updateItemResponseTest $
---             updateItemResponse
+--         [ batchGetItemResponseTest $
+--             batchGetItemResponse
+--
+--         , batchWriteItemResponseTest $
+--             batchWriteItemResponse
+--
+--         , createTableResponseTest $
+--             createTableResponse
 --
 --         , deleteItemResponseTest $
 --             deleteItemResponse
 --
---         , putItemResponseTest $
---             putItemResponse
---
 --         , deleteTableResponseTest $
 --             deleteTableResponse
---
---         , updateTableResponseTest $
---             updateTableResponse
---
---         , batchGetItemResponseTest $
---             batchGetItemResponse
 --
 --         , describeTableResponseTest $
 --             describeTableResponse
@@ -91,43 +88,43 @@ import Network.AWS.DynamoDB
 --         , getItemResponseTest $
 --             getItemResponse
 --
---         , batchWriteItemResponseTest $
---             batchWriteItemResponse
---
---         , scanResponseTest $
---             scanResponse
---
 --         , listTablesResponseTest $
 --             listTablesResponse
+--
+--         , putItemResponseTest $
+--             putItemResponse
 --
 --         , queryResponseTest $
 --             queryResponse
 --
---         , createTableResponseTest $
---             createTableResponse
+--         , scanResponseTest $
+--             scanResponse
+--
+--         , updateItemResponseTest $
+--             updateItemResponse
+--
+--         , updateTableResponseTest $
+--             updateTableResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-updateItemTest :: UpdateItem -> TestTree
-updateItemTest = undefined
+batchGetItemTest :: BatchGetItem -> TestTree
+batchGetItemTest = undefined
+
+batchWriteItemTest :: BatchWriteItem -> TestTree
+batchWriteItemTest = undefined
+
+createTableTest :: CreateTable -> TestTree
+createTableTest = undefined
 
 deleteItemTest :: DeleteItem -> TestTree
 deleteItemTest = undefined
 
-putItemTest :: PutItem -> TestTree
-putItemTest = undefined
-
 deleteTableTest :: DeleteTable -> TestTree
 deleteTableTest = undefined
-
-updateTableTest :: UpdateTable -> TestTree
-updateTableTest = undefined
-
-batchGetItemTest :: BatchGetItem -> TestTree
-batchGetItemTest = undefined
 
 describeTableTest :: DescribeTable -> TestTree
 describeTableTest = undefined
@@ -135,97 +132,100 @@ describeTableTest = undefined
 getItemTest :: GetItem -> TestTree
 getItemTest = undefined
 
-batchWriteItemTest :: BatchWriteItem -> TestTree
-batchWriteItemTest = undefined
-
-scanTest :: Scan -> TestTree
-scanTest = undefined
-
 listTablesTest :: ListTables -> TestTree
 listTablesTest = undefined
+
+putItemTest :: PutItem -> TestTree
+putItemTest = undefined
 
 queryTest :: Query -> TestTree
 queryTest = undefined
 
-createTableTest :: CreateTable -> TestTree
-createTableTest = undefined
+scanTest :: Scan -> TestTree
+scanTest = undefined
+
+updateItemTest :: UpdateItem -> TestTree
+updateItemTest = undefined
+
+updateTableTest :: UpdateTable -> TestTree
+updateTableTest = undefined
 
 -- Responses
 
-updateItemResponseTest :: UpdateItemResponse -> TestTree
-updateItemResponseTest = resp
-    "UpdateItemResponse"
-    "fixture/UpdateItemResponse"
-    (Proxy :: Proxy UpdateItem)
-
-deleteItemResponseTest :: DeleteItemResponse -> TestTree
-deleteItemResponseTest = resp
-    "DeleteItemResponse"
-    "fixture/DeleteItemResponse"
-    (Proxy :: Proxy DeleteItem)
-
-putItemResponseTest :: PutItemResponse -> TestTree
-putItemResponseTest = resp
-    "PutItemResponse"
-    "fixture/PutItemResponse"
-    (Proxy :: Proxy PutItem)
-
-deleteTableResponseTest :: DeleteTableResponse -> TestTree
-deleteTableResponseTest = resp
-    "DeleteTableResponse"
-    "fixture/DeleteTableResponse"
-    (Proxy :: Proxy DeleteTable)
-
-updateTableResponseTest :: UpdateTableResponse -> TestTree
-updateTableResponseTest = resp
-    "UpdateTableResponse"
-    "fixture/UpdateTableResponse"
-    (Proxy :: Proxy UpdateTable)
-
 batchGetItemResponseTest :: BatchGetItemResponse -> TestTree
 batchGetItemResponseTest = resp
-    "BatchGetItemResponse"
+    "batchGetItemResponse"
     "fixture/BatchGetItemResponse"
     (Proxy :: Proxy BatchGetItem)
 
+batchWriteItemResponseTest :: BatchWriteItemResponse -> TestTree
+batchWriteItemResponseTest = resp
+    "batchWriteItemResponse"
+    "fixture/BatchWriteItemResponse"
+    (Proxy :: Proxy BatchWriteItem)
+
+createTableResponseTest :: CreateTableResponse -> TestTree
+createTableResponseTest = resp
+    "createTableResponse"
+    "fixture/CreateTableResponse"
+    (Proxy :: Proxy CreateTable)
+
+deleteItemResponseTest :: DeleteItemResponse -> TestTree
+deleteItemResponseTest = resp
+    "deleteItemResponse"
+    "fixture/DeleteItemResponse"
+    (Proxy :: Proxy DeleteItem)
+
+deleteTableResponseTest :: DeleteTableResponse -> TestTree
+deleteTableResponseTest = resp
+    "deleteTableResponse"
+    "fixture/DeleteTableResponse"
+    (Proxy :: Proxy DeleteTable)
+
 describeTableResponseTest :: DescribeTableResponse -> TestTree
 describeTableResponseTest = resp
-    "DescribeTableResponse"
+    "describeTableResponse"
     "fixture/DescribeTableResponse"
     (Proxy :: Proxy DescribeTable)
 
 getItemResponseTest :: GetItemResponse -> TestTree
 getItemResponseTest = resp
-    "GetItemResponse"
+    "getItemResponse"
     "fixture/GetItemResponse"
     (Proxy :: Proxy GetItem)
 
-batchWriteItemResponseTest :: BatchWriteItemResponse -> TestTree
-batchWriteItemResponseTest = resp
-    "BatchWriteItemResponse"
-    "fixture/BatchWriteItemResponse"
-    (Proxy :: Proxy BatchWriteItem)
-
-scanResponseTest :: ScanResponse -> TestTree
-scanResponseTest = resp
-    "ScanResponse"
-    "fixture/ScanResponse"
-    (Proxy :: Proxy Scan)
-
 listTablesResponseTest :: ListTablesResponse -> TestTree
 listTablesResponseTest = resp
-    "ListTablesResponse"
+    "listTablesResponse"
     "fixture/ListTablesResponse"
     (Proxy :: Proxy ListTables)
 
+putItemResponseTest :: PutItemResponse -> TestTree
+putItemResponseTest = resp
+    "putItemResponse"
+    "fixture/PutItemResponse"
+    (Proxy :: Proxy PutItem)
+
 queryResponseTest :: QueryResponse -> TestTree
 queryResponseTest = resp
-    "QueryResponse"
+    "queryResponse"
     "fixture/QueryResponse"
     (Proxy :: Proxy Query)
 
-createTableResponseTest :: CreateTableResponse -> TestTree
-createTableResponseTest = resp
-    "CreateTableResponse"
-    "fixture/CreateTableResponse"
-    (Proxy :: Proxy CreateTable)
+scanResponseTest :: ScanResponse -> TestTree
+scanResponseTest = resp
+    "scanResponse"
+    "fixture/ScanResponse"
+    (Proxy :: Proxy Scan)
+
+updateItemResponseTest :: UpdateItemResponse -> TestTree
+updateItemResponseTest = resp
+    "updateItemResponse"
+    "fixture/UpdateItemResponse"
+    (Proxy :: Proxy UpdateItem)
+
+updateTableResponseTest :: UpdateTableResponse -> TestTree
+updateTableResponseTest = resp
+    "updateTableResponse"
+    "fixture/UpdateTableResponse"
+    (Proxy :: Proxy UpdateTable)

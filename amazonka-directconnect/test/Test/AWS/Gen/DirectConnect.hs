@@ -25,297 +25,297 @@ import Network.AWS.DirectConnect
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         [ describeInterconnectsTest $
---             describeInterconnects
---
---         , deleteConnectionTest $
---             deleteConnection
---
---         , createConnectionTest $
---             createConnection
---
---         , describeConnectionsTest $
---             describeConnections
---
---         , deleteInterconnectTest $
---             deleteInterconnect
---
---         , confirmPrivateVirtualInterfaceTest $
---             confirmPrivateVirtualInterface
---
---         , describeConnectionsOnInterconnectTest $
---             describeConnectionsOnInterconnect
---
---         , describeLocationsTest $
---             describeLocations
---
---         , createPublicVirtualInterfaceTest $
---             createPublicVirtualInterface
+--         [ allocateConnectionOnInterconnectTest $
+--             allocateConnectionOnInterconnect
 --
 --         , allocatePrivateVirtualInterfaceTest $
 --             allocatePrivateVirtualInterface
 --
+--         , allocatePublicVirtualInterfaceTest $
+--             allocatePublicVirtualInterface
+--
 --         , confirmConnectionTest $
 --             confirmConnection
 --
---         , describeVirtualGatewaysTest $
---             describeVirtualGateways
+--         , confirmPrivateVirtualInterfaceTest $
+--             confirmPrivateVirtualInterface
 --
 --         , confirmPublicVirtualInterfaceTest $
 --             confirmPublicVirtualInterface
 --
---         , describeVirtualInterfacesTest $
---             describeVirtualInterfaces
---
---         , createPrivateVirtualInterfaceTest $
---             createPrivateVirtualInterface
---
---         , deleteVirtualInterfaceTest $
---             deleteVirtualInterface
---
---         , allocatePublicVirtualInterfaceTest $
---             allocatePublicVirtualInterface
---
---         , allocateConnectionOnInterconnectTest $
---             allocateConnectionOnInterconnect
+--         , createConnectionTest $
+--             createConnection
 --
 --         , createInterconnectTest $
 --             createInterconnect
 --
+--         , createPrivateVirtualInterfaceTest $
+--             createPrivateVirtualInterface
+--
+--         , createPublicVirtualInterfaceTest $
+--             createPublicVirtualInterface
+--
+--         , deleteConnectionTest $
+--             deleteConnection
+--
+--         , deleteInterconnectTest $
+--             deleteInterconnect
+--
+--         , deleteVirtualInterfaceTest $
+--             deleteVirtualInterface
+--
+--         , describeConnectionsTest $
+--             describeConnections
+--
+--         , describeConnectionsOnInterconnectTest $
+--             describeConnectionsOnInterconnect
+--
+--         , describeInterconnectsTest $
+--             describeInterconnects
+--
+--         , describeLocationsTest $
+--             describeLocations
+--
+--         , describeVirtualGatewaysTest $
+--             describeVirtualGateways
+--
+--         , describeVirtualInterfacesTest $
+--             describeVirtualInterfaces
+--
 --           ]
 
 --     , testGroup "response"
---         [ describeInterconnectsResponseTest $
---             describeInterconnectsResponse
---
---         , connectionTest $
+--         [ allocateConnectionOnInterconnectResponseTest $
 --             connection
 --
---         , connectionTest $
---             connection
---
---         , connectionsTest $
---             connections
---
---         , deleteInterconnectResponseTest $
---             deleteInterconnectResponse
---
---         , confirmPrivateVirtualInterfaceResponseTest $
---             confirmPrivateVirtualInterfaceResponse
---
---         , connectionsTest $
---             connections
---
---         , describeLocationsResponseTest $
---             describeLocationsResponse
---
---         , virtualInterfaceTest $
+--         , allocatePrivateVirtualInterfaceResponseTest $
 --             virtualInterface
 --
---         , virtualInterfaceTest $
+--         , allocatePublicVirtualInterfaceResponseTest $
 --             virtualInterface
 --
 --         , confirmConnectionResponseTest $
 --             confirmConnectionResponse
 --
---         , describeVirtualGatewaysResponseTest $
---             describeVirtualGatewaysResponse
+--         , confirmPrivateVirtualInterfaceResponseTest $
+--             confirmPrivateVirtualInterfaceResponse
 --
 --         , confirmPublicVirtualInterfaceResponseTest $
 --             confirmPublicVirtualInterfaceResponse
 --
---         , describeVirtualInterfacesResponseTest $
---             describeVirtualInterfacesResponse
+--         , createConnectionResponseTest $
+--             connection
 --
---         , virtualInterfaceTest $
+--         , createInterconnectResponseTest $
+--             interconnect
+--
+--         , createPrivateVirtualInterfaceResponseTest $
 --             virtualInterface
+--
+--         , createPublicVirtualInterfaceResponseTest $
+--             virtualInterface
+--
+--         , deleteConnectionResponseTest $
+--             connection
+--
+--         , deleteInterconnectResponseTest $
+--             deleteInterconnectResponse
 --
 --         , deleteVirtualInterfaceResponseTest $
 --             deleteVirtualInterfaceResponse
 --
---         , virtualInterfaceTest $
---             virtualInterface
+--         , describeConnectionsResponseTest $
+--             connections
 --
---         , connectionTest $
---             connection
+--         , describeConnectionsOnInterconnectResponseTest $
+--             connections
 --
---         , interconnectTest $
---             interconnect
+--         , describeInterconnectsResponseTest $
+--             describeInterconnectsResponse
+--
+--         , describeLocationsResponseTest $
+--             describeLocationsResponse
+--
+--         , describeVirtualGatewaysResponseTest $
+--             describeVirtualGatewaysResponse
+--
+--         , describeVirtualInterfacesResponseTest $
+--             describeVirtualInterfacesResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-describeInterconnectsTest :: DescribeInterconnects -> TestTree
-describeInterconnectsTest = undefined
-
-deleteConnectionTest :: DeleteConnection -> TestTree
-deleteConnectionTest = undefined
-
-createConnectionTest :: CreateConnection -> TestTree
-createConnectionTest = undefined
-
-describeConnectionsTest :: DescribeConnections -> TestTree
-describeConnectionsTest = undefined
-
-deleteInterconnectTest :: DeleteInterconnect -> TestTree
-deleteInterconnectTest = undefined
-
-confirmPrivateVirtualInterfaceTest :: ConfirmPrivateVirtualInterface -> TestTree
-confirmPrivateVirtualInterfaceTest = undefined
-
-describeConnectionsOnInterconnectTest :: DescribeConnectionsOnInterconnect -> TestTree
-describeConnectionsOnInterconnectTest = undefined
-
-describeLocationsTest :: DescribeLocations -> TestTree
-describeLocationsTest = undefined
-
-createPublicVirtualInterfaceTest :: CreatePublicVirtualInterface -> TestTree
-createPublicVirtualInterfaceTest = undefined
+allocateConnectionOnInterconnectTest :: AllocateConnectionOnInterconnect -> TestTree
+allocateConnectionOnInterconnectTest = undefined
 
 allocatePrivateVirtualInterfaceTest :: AllocatePrivateVirtualInterface -> TestTree
 allocatePrivateVirtualInterfaceTest = undefined
 
+allocatePublicVirtualInterfaceTest :: AllocatePublicVirtualInterface -> TestTree
+allocatePublicVirtualInterfaceTest = undefined
+
 confirmConnectionTest :: ConfirmConnection -> TestTree
 confirmConnectionTest = undefined
 
-describeVirtualGatewaysTest :: DescribeVirtualGateways -> TestTree
-describeVirtualGatewaysTest = undefined
+confirmPrivateVirtualInterfaceTest :: ConfirmPrivateVirtualInterface -> TestTree
+confirmPrivateVirtualInterfaceTest = undefined
 
 confirmPublicVirtualInterfaceTest :: ConfirmPublicVirtualInterface -> TestTree
 confirmPublicVirtualInterfaceTest = undefined
 
-describeVirtualInterfacesTest :: DescribeVirtualInterfaces -> TestTree
-describeVirtualInterfacesTest = undefined
-
-createPrivateVirtualInterfaceTest :: CreatePrivateVirtualInterface -> TestTree
-createPrivateVirtualInterfaceTest = undefined
-
-deleteVirtualInterfaceTest :: DeleteVirtualInterface -> TestTree
-deleteVirtualInterfaceTest = undefined
-
-allocatePublicVirtualInterfaceTest :: AllocatePublicVirtualInterface -> TestTree
-allocatePublicVirtualInterfaceTest = undefined
-
-allocateConnectionOnInterconnectTest :: AllocateConnectionOnInterconnect -> TestTree
-allocateConnectionOnInterconnectTest = undefined
+createConnectionTest :: CreateConnection -> TestTree
+createConnectionTest = undefined
 
 createInterconnectTest :: CreateInterconnect -> TestTree
 createInterconnectTest = undefined
 
+createPrivateVirtualInterfaceTest :: CreatePrivateVirtualInterface -> TestTree
+createPrivateVirtualInterfaceTest = undefined
+
+createPublicVirtualInterfaceTest :: CreatePublicVirtualInterface -> TestTree
+createPublicVirtualInterfaceTest = undefined
+
+deleteConnectionTest :: DeleteConnection -> TestTree
+deleteConnectionTest = undefined
+
+deleteInterconnectTest :: DeleteInterconnect -> TestTree
+deleteInterconnectTest = undefined
+
+deleteVirtualInterfaceTest :: DeleteVirtualInterface -> TestTree
+deleteVirtualInterfaceTest = undefined
+
+describeConnectionsTest :: DescribeConnections -> TestTree
+describeConnectionsTest = undefined
+
+describeConnectionsOnInterconnectTest :: DescribeConnectionsOnInterconnect -> TestTree
+describeConnectionsOnInterconnectTest = undefined
+
+describeInterconnectsTest :: DescribeInterconnects -> TestTree
+describeInterconnectsTest = undefined
+
+describeLocationsTest :: DescribeLocations -> TestTree
+describeLocationsTest = undefined
+
+describeVirtualGatewaysTest :: DescribeVirtualGateways -> TestTree
+describeVirtualGatewaysTest = undefined
+
+describeVirtualInterfacesTest :: DescribeVirtualInterfaces -> TestTree
+describeVirtualInterfacesTest = undefined
+
 -- Responses
 
-describeInterconnectsResponseTest :: DescribeInterconnectsResponse -> TestTree
-describeInterconnectsResponseTest = resp
-    "DescribeInterconnectsResponse"
-    "fixture/DescribeInterconnectsResponse"
-    (Proxy :: Proxy DescribeInterconnects)
-
-connectionTest :: Connection -> TestTree
-connectionTest = resp
-    "Connection"
-    "fixture/Connection"
-    (Proxy :: Proxy DeleteConnection)
-
-connectionTest :: Connection -> TestTree
-connectionTest = resp
-    "Connection"
-    "fixture/Connection"
-    (Proxy :: Proxy CreateConnection)
-
-connectionsTest :: Connections -> TestTree
-connectionsTest = resp
-    "Connections"
-    "fixture/Connections"
-    (Proxy :: Proxy DescribeConnections)
-
-deleteInterconnectResponseTest :: DeleteInterconnectResponse -> TestTree
-deleteInterconnectResponseTest = resp
-    "DeleteInterconnectResponse"
-    "fixture/DeleteInterconnectResponse"
-    (Proxy :: Proxy DeleteInterconnect)
-
-confirmPrivateVirtualInterfaceResponseTest :: ConfirmPrivateVirtualInterfaceResponse -> TestTree
-confirmPrivateVirtualInterfaceResponseTest = resp
-    "ConfirmPrivateVirtualInterfaceResponse"
-    "fixture/ConfirmPrivateVirtualInterfaceResponse"
-    (Proxy :: Proxy ConfirmPrivateVirtualInterface)
-
-connectionsTest :: Connections -> TestTree
-connectionsTest = resp
-    "Connections"
-    "fixture/Connections"
-    (Proxy :: Proxy DescribeConnectionsOnInterconnect)
-
-describeLocationsResponseTest :: DescribeLocationsResponse -> TestTree
-describeLocationsResponseTest = resp
-    "DescribeLocationsResponse"
-    "fixture/DescribeLocationsResponse"
-    (Proxy :: Proxy DescribeLocations)
-
-virtualInterfaceTest :: VirtualInterface -> TestTree
-virtualInterfaceTest = resp
-    "VirtualInterface"
-    "fixture/VirtualInterface"
-    (Proxy :: Proxy CreatePublicVirtualInterface)
-
-virtualInterfaceTest :: VirtualInterface -> TestTree
-virtualInterfaceTest = resp
-    "VirtualInterface"
-    "fixture/VirtualInterface"
-    (Proxy :: Proxy AllocatePrivateVirtualInterface)
-
-confirmConnectionResponseTest :: ConfirmConnectionResponse -> TestTree
-confirmConnectionResponseTest = resp
-    "ConfirmConnectionResponse"
-    "fixture/ConfirmConnectionResponse"
-    (Proxy :: Proxy ConfirmConnection)
-
-describeVirtualGatewaysResponseTest :: DescribeVirtualGatewaysResponse -> TestTree
-describeVirtualGatewaysResponseTest = resp
-    "DescribeVirtualGatewaysResponse"
-    "fixture/DescribeVirtualGatewaysResponse"
-    (Proxy :: Proxy DescribeVirtualGateways)
-
-confirmPublicVirtualInterfaceResponseTest :: ConfirmPublicVirtualInterfaceResponse -> TestTree
-confirmPublicVirtualInterfaceResponseTest = resp
-    "ConfirmPublicVirtualInterfaceResponse"
-    "fixture/ConfirmPublicVirtualInterfaceResponse"
-    (Proxy :: Proxy ConfirmPublicVirtualInterface)
-
-describeVirtualInterfacesResponseTest :: DescribeVirtualInterfacesResponse -> TestTree
-describeVirtualInterfacesResponseTest = resp
-    "DescribeVirtualInterfacesResponse"
-    "fixture/DescribeVirtualInterfacesResponse"
-    (Proxy :: Proxy DescribeVirtualInterfaces)
-
-virtualInterfaceTest :: VirtualInterface -> TestTree
-virtualInterfaceTest = resp
-    "VirtualInterface"
-    "fixture/VirtualInterface"
-    (Proxy :: Proxy CreatePrivateVirtualInterface)
-
-deleteVirtualInterfaceResponseTest :: DeleteVirtualInterfaceResponse -> TestTree
-deleteVirtualInterfaceResponseTest = resp
-    "DeleteVirtualInterfaceResponse"
-    "fixture/DeleteVirtualInterfaceResponse"
-    (Proxy :: Proxy DeleteVirtualInterface)
-
-virtualInterfaceTest :: VirtualInterface -> TestTree
-virtualInterfaceTest = resp
-    "VirtualInterface"
-    "fixture/VirtualInterface"
-    (Proxy :: Proxy AllocatePublicVirtualInterface)
-
-connectionTest :: Connection -> TestTree
-connectionTest = resp
-    "Connection"
+allocateConnectionOnInterconnectResponseTest :: Connection -> TestTree
+allocateConnectionOnInterconnectResponseTest = resp
+    "allocateConnectionOnInterconnectResponse"
     "fixture/Connection"
     (Proxy :: Proxy AllocateConnectionOnInterconnect)
 
-interconnectTest :: Interconnect -> TestTree
-interconnectTest = resp
-    "Interconnect"
+allocatePrivateVirtualInterfaceResponseTest :: VirtualInterface -> TestTree
+allocatePrivateVirtualInterfaceResponseTest = resp
+    "allocatePrivateVirtualInterfaceResponse"
+    "fixture/VirtualInterface"
+    (Proxy :: Proxy AllocatePrivateVirtualInterface)
+
+allocatePublicVirtualInterfaceResponseTest :: VirtualInterface -> TestTree
+allocatePublicVirtualInterfaceResponseTest = resp
+    "allocatePublicVirtualInterfaceResponse"
+    "fixture/VirtualInterface"
+    (Proxy :: Proxy AllocatePublicVirtualInterface)
+
+confirmConnectionResponseTest :: ConfirmConnectionResponse -> TestTree
+confirmConnectionResponseTest = resp
+    "confirmConnectionResponse"
+    "fixture/ConfirmConnectionResponse"
+    (Proxy :: Proxy ConfirmConnection)
+
+confirmPrivateVirtualInterfaceResponseTest :: ConfirmPrivateVirtualInterfaceResponse -> TestTree
+confirmPrivateVirtualInterfaceResponseTest = resp
+    "confirmPrivateVirtualInterfaceResponse"
+    "fixture/ConfirmPrivateVirtualInterfaceResponse"
+    (Proxy :: Proxy ConfirmPrivateVirtualInterface)
+
+confirmPublicVirtualInterfaceResponseTest :: ConfirmPublicVirtualInterfaceResponse -> TestTree
+confirmPublicVirtualInterfaceResponseTest = resp
+    "confirmPublicVirtualInterfaceResponse"
+    "fixture/ConfirmPublicVirtualInterfaceResponse"
+    (Proxy :: Proxy ConfirmPublicVirtualInterface)
+
+createConnectionResponseTest :: Connection -> TestTree
+createConnectionResponseTest = resp
+    "createConnectionResponse"
+    "fixture/Connection"
+    (Proxy :: Proxy CreateConnection)
+
+createInterconnectResponseTest :: Interconnect -> TestTree
+createInterconnectResponseTest = resp
+    "createInterconnectResponse"
     "fixture/Interconnect"
     (Proxy :: Proxy CreateInterconnect)
+
+createPrivateVirtualInterfaceResponseTest :: VirtualInterface -> TestTree
+createPrivateVirtualInterfaceResponseTest = resp
+    "createPrivateVirtualInterfaceResponse"
+    "fixture/VirtualInterface"
+    (Proxy :: Proxy CreatePrivateVirtualInterface)
+
+createPublicVirtualInterfaceResponseTest :: VirtualInterface -> TestTree
+createPublicVirtualInterfaceResponseTest = resp
+    "createPublicVirtualInterfaceResponse"
+    "fixture/VirtualInterface"
+    (Proxy :: Proxy CreatePublicVirtualInterface)
+
+deleteConnectionResponseTest :: Connection -> TestTree
+deleteConnectionResponseTest = resp
+    "deleteConnectionResponse"
+    "fixture/Connection"
+    (Proxy :: Proxy DeleteConnection)
+
+deleteInterconnectResponseTest :: DeleteInterconnectResponse -> TestTree
+deleteInterconnectResponseTest = resp
+    "deleteInterconnectResponse"
+    "fixture/DeleteInterconnectResponse"
+    (Proxy :: Proxy DeleteInterconnect)
+
+deleteVirtualInterfaceResponseTest :: DeleteVirtualInterfaceResponse -> TestTree
+deleteVirtualInterfaceResponseTest = resp
+    "deleteVirtualInterfaceResponse"
+    "fixture/DeleteVirtualInterfaceResponse"
+    (Proxy :: Proxy DeleteVirtualInterface)
+
+describeConnectionsResponseTest :: Connections -> TestTree
+describeConnectionsResponseTest = resp
+    "describeConnectionsResponse"
+    "fixture/Connections"
+    (Proxy :: Proxy DescribeConnections)
+
+describeConnectionsOnInterconnectResponseTest :: Connections -> TestTree
+describeConnectionsOnInterconnectResponseTest = resp
+    "describeConnectionsOnInterconnectResponse"
+    "fixture/Connections"
+    (Proxy :: Proxy DescribeConnectionsOnInterconnect)
+
+describeInterconnectsResponseTest :: DescribeInterconnectsResponse -> TestTree
+describeInterconnectsResponseTest = resp
+    "describeInterconnectsResponse"
+    "fixture/DescribeInterconnectsResponse"
+    (Proxy :: Proxy DescribeInterconnects)
+
+describeLocationsResponseTest :: DescribeLocationsResponse -> TestTree
+describeLocationsResponseTest = resp
+    "describeLocationsResponse"
+    "fixture/DescribeLocationsResponse"
+    (Proxy :: Proxy DescribeLocations)
+
+describeVirtualGatewaysResponseTest :: DescribeVirtualGatewaysResponse -> TestTree
+describeVirtualGatewaysResponseTest = resp
+    "describeVirtualGatewaysResponse"
+    "fixture/DescribeVirtualGatewaysResponse"
+    (Proxy :: Proxy DescribeVirtualGateways)
+
+describeVirtualInterfacesResponseTest :: DescribeVirtualInterfacesResponse -> TestTree
+describeVirtualInterfacesResponseTest = resp
+    "describeVirtualInterfacesResponse"
+    "fixture/DescribeVirtualInterfacesResponse"
+    (Proxy :: Proxy DescribeVirtualInterfaces)

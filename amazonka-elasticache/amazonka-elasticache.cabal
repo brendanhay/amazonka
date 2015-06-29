@@ -105,6 +105,5 @@ test-suite amazonka-elasticache-test
         , amazonka-elasticache == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

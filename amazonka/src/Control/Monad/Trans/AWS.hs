@@ -150,7 +150,7 @@ send_ :: (MonadAWS r e m, AWSRequest a) => a -> m ()
 send_ = void . send
 
 send :: (MonadAWS r e m, AWSRequest a) => a -> m (Rs a)
-send x = sendWith (service x) x
+send x = sendWith (serviceOf x) x
 
 sendWith :: (MonadAWS r e m, AWSSigner (Sg s), AWSRequest a)
          => Service s
@@ -162,7 +162,7 @@ sendWith svc x =
             >>= hoistError e
 
 paginate :: (MonadAWS r e m, AWSPager a) => a -> Source m (Rs a)
-paginate x = paginateWith (service x) x
+paginate x = paginateWith (serviceOf x) x
 
 paginateWith :: (MonadAWS r e m, AWSSigner (Sg s), AWSPager a)
              => Service s
@@ -178,7 +178,7 @@ paginateWith svc = go
               (page x y)
 
 await :: (MonadAWS r e m, AWSRequest a) => Wait a -> a -> m (Rs a)
-await w x = awaitWith (service x) w x
+await w x = awaitWith (serviceOf x) w x
 
 awaitWith :: (MonadAWS r e m, AWSSigner (Sg s), AWSRequest a)
           => Service s

@@ -25,44 +25,80 @@ import Network.AWS.S3
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         [ putBucketRequestPaymentTest $
---             putBucketRequestPayment
+--         [ abortMultipartUploadTest $
+--             abortMultipartUpload
 --
---         , putObjectTest $
---             putObject
+--         , completeMultipartUploadTest $
+--             completeMultipartUpload
 --
---         , putBucketLoggingTest $
---             putBucketLogging
---
---         , deleteObjectTest $
---             deleteObject
---
---         , deleteBucketTest $
---             deleteBucket
---
---         , listBucketsTest $
---             listBuckets
+--         , copyObjectTest $
+--             copyObject
 --
 --         , createBucketTest $
 --             createBucket
 --
---         , putBucketTaggingTest $
---             putBucketTagging
+--         , createMultipartUploadTest $
+--             createMultipartUpload
+--
+--         , deleteBucketTest $
+--             deleteBucket
+--
+--         , deleteBucketCORSTest $
+--             deleteBucketCORS
+--
+--         , deleteBucketLifecycleTest $
+--             deleteBucketLifecycle
+--
+--         , deleteBucketPolicyTest $
+--             deleteBucketPolicy
+--
+--         , deleteBucketReplicationTest $
+--             deleteBucketReplication
 --
 --         , deleteBucketTaggingTest $
 --             deleteBucketTagging
 --
---         , putObjectACLTest $
---             putObjectACL
+--         , deleteBucketWebsiteTest $
+--             deleteBucketWebsite
 --
---         , getBucketNotificationConfigurationTest $
---             getBucketNotificationConfiguration
+--         , deleteObjectTest $
+--             deleteObject
+--
+--         , deleteObjectsTest $
+--             deleteObjects
+--
+--         , getBucketACLTest $
+--             getBucketACL
+--
+--         , getBucketCORSTest $
+--             getBucketCORS
+--
+--         , getBucketLifecycleTest $
+--             getBucketLifecycle
 --
 --         , getBucketLocationTest $
 --             getBucketLocation
 --
---         , putBucketReplicationTest $
---             putBucketReplication
+--         , getBucketLoggingTest $
+--             getBucketLogging
+--
+--         , getBucketNotificationConfigurationTest $
+--             getBucketNotificationConfiguration
+--
+--         , getBucketPolicyTest $
+--             getBucketPolicy
+--
+--         , getBucketReplicationTest $
+--             getBucketReplication
+--
+--         , getBucketRequestPaymentTest $
+--             getBucketRequestPayment
+--
+--         , getBucketTaggingTest $
+--             getBucketTagging
+--
+--         , getBucketVersioningTest $
+--             getBucketVersioning
 --
 --         , getBucketWebsiteTest $
 --             getBucketWebsite
@@ -70,113 +106,77 @@ import Network.AWS.S3
 --         , getObjectTest $
 --             getObject
 --
---         , deleteBucketReplicationTest $
---             deleteBucketReplication
---
---         , getBucketRequestPaymentTest $
---             getBucketRequestPayment
---
---         , listObjectVersionsTest $
---             listObjectVersions
---
---         , getBucketLifecycleTest $
---             getBucketLifecycle
---
---         , headBucketTest $
---             headBucket
---
---         , putBucketLifecycleTest $
---             putBucketLifecycle
---
---         , createMultipartUploadTest $
---             createMultipartUpload
---
---         , deleteBucketLifecycleTest $
---             deleteBucketLifecycle
---
---         , getBucketReplicationTest $
---             getBucketReplication
---
---         , putBucketWebsiteTest $
---             putBucketWebsite
---
---         , completeMultipartUploadTest $
---             completeMultipartUpload
---
---         , uploadPartTest $
---             uploadPart
---
---         , listMultipartUploadsTest $
---             listMultipartUploads
---
---         , deleteBucketWebsiteTest $
---             deleteBucketWebsite
---
---         , listObjectsTest $
---             listObjects
---
---         , deleteObjectsTest $
---             deleteObjects
---
---         , putBucketPolicyTest $
---             putBucketPolicy
---
---         , deleteBucketPolicyTest $
---             deleteBucketPolicy
---
---         , abortMultipartUploadTest $
---             abortMultipartUpload
+--         , getObjectACLTest $
+--             getObjectACL
 --
 --         , getObjectTorrentTest $
 --             getObjectTorrent
 --
---         , putBucketCORSTest $
---             putBucketCORS
---
---         , deleteBucketCORSTest $
---             deleteBucketCORS
---
---         , getBucketVersioningTest $
---             getBucketVersioning
---
---         , putBucketNotificationConfigurationTest $
---             putBucketNotificationConfiguration
---
---         , getBucketTaggingTest $
---             getBucketTagging
+--         , headBucketTest $
+--             headBucket
 --
 --         , headObjectTest $
 --             headObject
 --
---         , putBucketVersioningTest $
---             putBucketVersioning
+--         , listBucketsTest $
+--             listBuckets
 --
---         , getObjectACLTest $
---             getObjectACL
+--         , listMultipartUploadsTest $
+--             listMultipartUploads
 --
---         , restoreObjectTest $
---             restoreObject
+--         , listObjectVersionsTest $
+--             listObjectVersions
 --
---         , getBucketCORSTest $
---             getBucketCORS
---
---         , copyObjectTest $
---             copyObject
---
---         , getBucketPolicyTest $
---             getBucketPolicy
---
---         , getBucketLoggingTest $
---             getBucketLogging
+--         , listObjectsTest $
+--             listObjects
 --
 --         , listPartsTest $
 --             listParts
 --
---         , getBucketACLTest $
---             getBucketACL
---
 --         , putBucketACLTest $
 --             putBucketACL
+--
+--         , putBucketCORSTest $
+--             putBucketCORS
+--
+--         , putBucketLifecycleTest $
+--             putBucketLifecycle
+--
+--         , putBucketLoggingTest $
+--             putBucketLogging
+--
+--         , putBucketNotificationConfigurationTest $
+--             putBucketNotificationConfiguration
+--
+--         , putBucketPolicyTest $
+--             putBucketPolicy
+--
+--         , putBucketReplicationTest $
+--             putBucketReplication
+--
+--         , putBucketRequestPaymentTest $
+--             putBucketRequestPayment
+--
+--         , putBucketTaggingTest $
+--             putBucketTagging
+--
+--         , putBucketVersioningTest $
+--             putBucketVersioning
+--
+--         , putBucketWebsiteTest $
+--             putBucketWebsite
+--
+--         , putObjectTest $
+--             putObject
+--
+--         , putObjectACLTest $
+--             putObjectACL
+--
+--         , restoreObjectTest $
+--             restoreObject
+--
+--         , uploadPartTest $
+--             uploadPart
 --
 --         , uploadPartCopyTest $
 --             uploadPartCopy
@@ -184,44 +184,80 @@ import Network.AWS.S3
 --           ]
 
 --     , testGroup "response"
---         [ putBucketRequestPaymentResponseTest $
---             putBucketRequestPaymentResponse
+--         [ abortMultipartUploadResponseTest $
+--             abortMultipartUploadResponse
 --
---         , putObjectResponseTest $
---             putObjectResponse
+--         , completeMultipartUploadResponseTest $
+--             completeMultipartUploadResponse
 --
---         , putBucketLoggingResponseTest $
---             putBucketLoggingResponse
---
---         , deleteObjectResponseTest $
---             deleteObjectResponse
---
---         , deleteBucketResponseTest $
---             deleteBucketResponse
---
---         , listBucketsResponseTest $
---             listBucketsResponse
+--         , copyObjectResponseTest $
+--             copyObjectResponse
 --
 --         , createBucketResponseTest $
 --             createBucketResponse
 --
---         , putBucketTaggingResponseTest $
---             putBucketTaggingResponse
+--         , createMultipartUploadResponseTest $
+--             createMultipartUploadResponse
+--
+--         , deleteBucketResponseTest $
+--             deleteBucketResponse
+--
+--         , deleteBucketCORSResponseTest $
+--             deleteBucketCORSResponse
+--
+--         , deleteBucketLifecycleResponseTest $
+--             deleteBucketLifecycleResponse
+--
+--         , deleteBucketPolicyResponseTest $
+--             deleteBucketPolicyResponse
+--
+--         , deleteBucketReplicationResponseTest $
+--             deleteBucketReplicationResponse
 --
 --         , deleteBucketTaggingResponseTest $
 --             deleteBucketTaggingResponse
 --
---         , putObjectACLResponseTest $
---             putObjectACLResponse
+--         , deleteBucketWebsiteResponseTest $
+--             deleteBucketWebsiteResponse
 --
---         , notificationConfigurationTest $
---             notificationConfiguration
+--         , deleteObjectResponseTest $
+--             deleteObjectResponse
+--
+--         , deleteObjectsResponseTest $
+--             deleteObjectsResponse
+--
+--         , getBucketACLResponseTest $
+--             getBucketACLResponse
+--
+--         , getBucketCORSResponseTest $
+--             getBucketCORSResponse
+--
+--         , getBucketLifecycleResponseTest $
+--             getBucketLifecycleResponse
 --
 --         , getBucketLocationResponseTest $
 --             getBucketLocationResponse
 --
---         , putBucketReplicationResponseTest $
---             putBucketReplicationResponse
+--         , getBucketLoggingResponseTest $
+--             getBucketLoggingResponse
+--
+--         , getBucketNotificationConfigurationResponseTest $
+--             notificationConfiguration
+--
+--         , getBucketPolicyResponseTest $
+--             getBucketPolicyResponse
+--
+--         , getBucketReplicationResponseTest $
+--             getBucketReplicationResponse
+--
+--         , getBucketRequestPaymentResponseTest $
+--             getBucketRequestPaymentResponse
+--
+--         , getBucketTaggingResponseTest $
+--             getBucketTaggingResponse
+--
+--         , getBucketVersioningResponseTest $
+--             getBucketVersioningResponse
 --
 --         , getBucketWebsiteResponseTest $
 --             getBucketWebsiteResponse
@@ -229,113 +265,77 @@ import Network.AWS.S3
 --         , getObjectResponseTest $
 --             getObjectResponse
 --
---         , deleteBucketReplicationResponseTest $
---             deleteBucketReplicationResponse
---
---         , getBucketRequestPaymentResponseTest $
---             getBucketRequestPaymentResponse
---
---         , listObjectVersionsResponseTest $
---             listObjectVersionsResponse
---
---         , getBucketLifecycleResponseTest $
---             getBucketLifecycleResponse
---
---         , headBucketResponseTest $
---             headBucketResponse
---
---         , putBucketLifecycleResponseTest $
---             putBucketLifecycleResponse
---
---         , createMultipartUploadResponseTest $
---             createMultipartUploadResponse
---
---         , deleteBucketLifecycleResponseTest $
---             deleteBucketLifecycleResponse
---
---         , getBucketReplicationResponseTest $
---             getBucketReplicationResponse
---
---         , putBucketWebsiteResponseTest $
---             putBucketWebsiteResponse
---
---         , completeMultipartUploadResponseTest $
---             completeMultipartUploadResponse
---
---         , uploadPartResponseTest $
---             uploadPartResponse
---
---         , listMultipartUploadsResponseTest $
---             listMultipartUploadsResponse
---
---         , deleteBucketWebsiteResponseTest $
---             deleteBucketWebsiteResponse
---
---         , listObjectsResponseTest $
---             listObjectsResponse
---
---         , deleteObjectsResponseTest $
---             deleteObjectsResponse
---
---         , putBucketPolicyResponseTest $
---             putBucketPolicyResponse
---
---         , deleteBucketPolicyResponseTest $
---             deleteBucketPolicyResponse
---
---         , abortMultipartUploadResponseTest $
---             abortMultipartUploadResponse
+--         , getObjectACLResponseTest $
+--             getObjectACLResponse
 --
 --         , getObjectTorrentResponseTest $
 --             getObjectTorrentResponse
 --
---         , putBucketCORSResponseTest $
---             putBucketCORSResponse
---
---         , deleteBucketCORSResponseTest $
---             deleteBucketCORSResponse
---
---         , getBucketVersioningResponseTest $
---             getBucketVersioningResponse
---
---         , putBucketNotificationConfigurationResponseTest $
---             putBucketNotificationConfigurationResponse
---
---         , getBucketTaggingResponseTest $
---             getBucketTaggingResponse
+--         , headBucketResponseTest $
+--             headBucketResponse
 --
 --         , headObjectResponseTest $
 --             headObjectResponse
 --
---         , putBucketVersioningResponseTest $
---             putBucketVersioningResponse
+--         , listBucketsResponseTest $
+--             listBucketsResponse
 --
---         , getObjectACLResponseTest $
---             getObjectACLResponse
+--         , listMultipartUploadsResponseTest $
+--             listMultipartUploadsResponse
 --
---         , restoreObjectResponseTest $
---             restoreObjectResponse
+--         , listObjectVersionsResponseTest $
+--             listObjectVersionsResponse
 --
---         , getBucketCORSResponseTest $
---             getBucketCORSResponse
---
---         , copyObjectResponseTest $
---             copyObjectResponse
---
---         , getBucketPolicyResponseTest $
---             getBucketPolicyResponse
---
---         , getBucketLoggingResponseTest $
---             getBucketLoggingResponse
+--         , listObjectsResponseTest $
+--             listObjectsResponse
 --
 --         , listPartsResponseTest $
 --             listPartsResponse
 --
---         , getBucketACLResponseTest $
---             getBucketACLResponse
---
 --         , putBucketACLResponseTest $
 --             putBucketACLResponse
+--
+--         , putBucketCORSResponseTest $
+--             putBucketCORSResponse
+--
+--         , putBucketLifecycleResponseTest $
+--             putBucketLifecycleResponse
+--
+--         , putBucketLoggingResponseTest $
+--             putBucketLoggingResponse
+--
+--         , putBucketNotificationConfigurationResponseTest $
+--             putBucketNotificationConfigurationResponse
+--
+--         , putBucketPolicyResponseTest $
+--             putBucketPolicyResponse
+--
+--         , putBucketReplicationResponseTest $
+--             putBucketReplicationResponse
+--
+--         , putBucketRequestPaymentResponseTest $
+--             putBucketRequestPaymentResponse
+--
+--         , putBucketTaggingResponseTest $
+--             putBucketTaggingResponse
+--
+--         , putBucketVersioningResponseTest $
+--             putBucketVersioningResponse
+--
+--         , putBucketWebsiteResponseTest $
+--             putBucketWebsiteResponse
+--
+--         , putObjectResponseTest $
+--             putObjectResponse
+--
+--         , putObjectACLResponseTest $
+--             putObjectACLResponse
+--
+--         , restoreObjectResponseTest $
+--             restoreObjectResponse
+--
+--         , uploadPartResponseTest $
+--             uploadPartResponse
 --
 --         , uploadPartCopyResponseTest $
 --             uploadPartCopyResponse
@@ -345,44 +345,80 @@ import Network.AWS.S3
 
 -- Requests
 
-putBucketRequestPaymentTest :: PutBucketRequestPayment -> TestTree
-putBucketRequestPaymentTest = undefined
+abortMultipartUploadTest :: AbortMultipartUpload -> TestTree
+abortMultipartUploadTest = undefined
 
-putObjectTest :: PutObject -> TestTree
-putObjectTest = undefined
+completeMultipartUploadTest :: CompleteMultipartUpload -> TestTree
+completeMultipartUploadTest = undefined
 
-putBucketLoggingTest :: PutBucketLogging -> TestTree
-putBucketLoggingTest = undefined
-
-deleteObjectTest :: DeleteObject -> TestTree
-deleteObjectTest = undefined
-
-deleteBucketTest :: DeleteBucket -> TestTree
-deleteBucketTest = undefined
-
-listBucketsTest :: ListBuckets -> TestTree
-listBucketsTest = undefined
+copyObjectTest :: CopyObject -> TestTree
+copyObjectTest = undefined
 
 createBucketTest :: CreateBucket -> TestTree
 createBucketTest = undefined
 
-putBucketTaggingTest :: PutBucketTagging -> TestTree
-putBucketTaggingTest = undefined
+createMultipartUploadTest :: CreateMultipartUpload -> TestTree
+createMultipartUploadTest = undefined
+
+deleteBucketTest :: DeleteBucket -> TestTree
+deleteBucketTest = undefined
+
+deleteBucketCORSTest :: DeleteBucketCORS -> TestTree
+deleteBucketCORSTest = undefined
+
+deleteBucketLifecycleTest :: DeleteBucketLifecycle -> TestTree
+deleteBucketLifecycleTest = undefined
+
+deleteBucketPolicyTest :: DeleteBucketPolicy -> TestTree
+deleteBucketPolicyTest = undefined
+
+deleteBucketReplicationTest :: DeleteBucketReplication -> TestTree
+deleteBucketReplicationTest = undefined
 
 deleteBucketTaggingTest :: DeleteBucketTagging -> TestTree
 deleteBucketTaggingTest = undefined
 
-putObjectACLTest :: PutObjectACL -> TestTree
-putObjectACLTest = undefined
+deleteBucketWebsiteTest :: DeleteBucketWebsite -> TestTree
+deleteBucketWebsiteTest = undefined
 
-getBucketNotificationConfigurationTest :: GetBucketNotificationConfiguration -> TestTree
-getBucketNotificationConfigurationTest = undefined
+deleteObjectTest :: DeleteObject -> TestTree
+deleteObjectTest = undefined
+
+deleteObjectsTest :: DeleteObjects -> TestTree
+deleteObjectsTest = undefined
+
+getBucketACLTest :: GetBucketACL -> TestTree
+getBucketACLTest = undefined
+
+getBucketCORSTest :: GetBucketCORS -> TestTree
+getBucketCORSTest = undefined
+
+getBucketLifecycleTest :: GetBucketLifecycle -> TestTree
+getBucketLifecycleTest = undefined
 
 getBucketLocationTest :: GetBucketLocation -> TestTree
 getBucketLocationTest = undefined
 
-putBucketReplicationTest :: PutBucketReplication -> TestTree
-putBucketReplicationTest = undefined
+getBucketLoggingTest :: GetBucketLogging -> TestTree
+getBucketLoggingTest = undefined
+
+getBucketNotificationConfigurationTest :: GetBucketNotificationConfiguration -> TestTree
+getBucketNotificationConfigurationTest = undefined
+
+getBucketPolicyTest :: GetBucketPolicy -> TestTree
+getBucketPolicyTest = undefined
+
+getBucketReplicationTest :: GetBucketReplication -> TestTree
+getBucketReplicationTest = undefined
+
+getBucketRequestPaymentTest :: GetBucketRequestPayment -> TestTree
+getBucketRequestPaymentTest = undefined
+
+getBucketTaggingTest :: GetBucketTagging -> TestTree
+getBucketTaggingTest = undefined
+
+getBucketVersioningTest :: GetBucketVersioning -> TestTree
+getBucketVersioningTest = undefined
 
 getBucketWebsiteTest :: GetBucketWebsite -> TestTree
 getBucketWebsiteTest = undefined
@@ -390,427 +426,391 @@ getBucketWebsiteTest = undefined
 getObjectTest :: GetObject -> TestTree
 getObjectTest = undefined
 
-deleteBucketReplicationTest :: DeleteBucketReplication -> TestTree
-deleteBucketReplicationTest = undefined
-
-getBucketRequestPaymentTest :: GetBucketRequestPayment -> TestTree
-getBucketRequestPaymentTest = undefined
-
-listObjectVersionsTest :: ListObjectVersions -> TestTree
-listObjectVersionsTest = undefined
-
-getBucketLifecycleTest :: GetBucketLifecycle -> TestTree
-getBucketLifecycleTest = undefined
-
-headBucketTest :: HeadBucket -> TestTree
-headBucketTest = undefined
-
-putBucketLifecycleTest :: PutBucketLifecycle -> TestTree
-putBucketLifecycleTest = undefined
-
-createMultipartUploadTest :: CreateMultipartUpload -> TestTree
-createMultipartUploadTest = undefined
-
-deleteBucketLifecycleTest :: DeleteBucketLifecycle -> TestTree
-deleteBucketLifecycleTest = undefined
-
-getBucketReplicationTest :: GetBucketReplication -> TestTree
-getBucketReplicationTest = undefined
-
-putBucketWebsiteTest :: PutBucketWebsite -> TestTree
-putBucketWebsiteTest = undefined
-
-completeMultipartUploadTest :: CompleteMultipartUpload -> TestTree
-completeMultipartUploadTest = undefined
-
-uploadPartTest :: UploadPart -> TestTree
-uploadPartTest = undefined
-
-listMultipartUploadsTest :: ListMultipartUploads -> TestTree
-listMultipartUploadsTest = undefined
-
-deleteBucketWebsiteTest :: DeleteBucketWebsite -> TestTree
-deleteBucketWebsiteTest = undefined
-
-listObjectsTest :: ListObjects -> TestTree
-listObjectsTest = undefined
-
-deleteObjectsTest :: DeleteObjects -> TestTree
-deleteObjectsTest = undefined
-
-putBucketPolicyTest :: PutBucketPolicy -> TestTree
-putBucketPolicyTest = undefined
-
-deleteBucketPolicyTest :: DeleteBucketPolicy -> TestTree
-deleteBucketPolicyTest = undefined
-
-abortMultipartUploadTest :: AbortMultipartUpload -> TestTree
-abortMultipartUploadTest = undefined
+getObjectACLTest :: GetObjectACL -> TestTree
+getObjectACLTest = undefined
 
 getObjectTorrentTest :: GetObjectTorrent -> TestTree
 getObjectTorrentTest = undefined
 
-putBucketCORSTest :: PutBucketCORS -> TestTree
-putBucketCORSTest = undefined
-
-deleteBucketCORSTest :: DeleteBucketCORS -> TestTree
-deleteBucketCORSTest = undefined
-
-getBucketVersioningTest :: GetBucketVersioning -> TestTree
-getBucketVersioningTest = undefined
-
-putBucketNotificationConfigurationTest :: PutBucketNotificationConfiguration -> TestTree
-putBucketNotificationConfigurationTest = undefined
-
-getBucketTaggingTest :: GetBucketTagging -> TestTree
-getBucketTaggingTest = undefined
+headBucketTest :: HeadBucket -> TestTree
+headBucketTest = undefined
 
 headObjectTest :: HeadObject -> TestTree
 headObjectTest = undefined
 
-putBucketVersioningTest :: PutBucketVersioning -> TestTree
-putBucketVersioningTest = undefined
+listBucketsTest :: ListBuckets -> TestTree
+listBucketsTest = undefined
 
-getObjectACLTest :: GetObjectACL -> TestTree
-getObjectACLTest = undefined
+listMultipartUploadsTest :: ListMultipartUploads -> TestTree
+listMultipartUploadsTest = undefined
 
-restoreObjectTest :: RestoreObject -> TestTree
-restoreObjectTest = undefined
+listObjectVersionsTest :: ListObjectVersions -> TestTree
+listObjectVersionsTest = undefined
 
-getBucketCORSTest :: GetBucketCORS -> TestTree
-getBucketCORSTest = undefined
-
-copyObjectTest :: CopyObject -> TestTree
-copyObjectTest = undefined
-
-getBucketPolicyTest :: GetBucketPolicy -> TestTree
-getBucketPolicyTest = undefined
-
-getBucketLoggingTest :: GetBucketLogging -> TestTree
-getBucketLoggingTest = undefined
+listObjectsTest :: ListObjects -> TestTree
+listObjectsTest = undefined
 
 listPartsTest :: ListParts -> TestTree
 listPartsTest = undefined
 
-getBucketACLTest :: GetBucketACL -> TestTree
-getBucketACLTest = undefined
-
 putBucketACLTest :: PutBucketACL -> TestTree
 putBucketACLTest = undefined
+
+putBucketCORSTest :: PutBucketCORS -> TestTree
+putBucketCORSTest = undefined
+
+putBucketLifecycleTest :: PutBucketLifecycle -> TestTree
+putBucketLifecycleTest = undefined
+
+putBucketLoggingTest :: PutBucketLogging -> TestTree
+putBucketLoggingTest = undefined
+
+putBucketNotificationConfigurationTest :: PutBucketNotificationConfiguration -> TestTree
+putBucketNotificationConfigurationTest = undefined
+
+putBucketPolicyTest :: PutBucketPolicy -> TestTree
+putBucketPolicyTest = undefined
+
+putBucketReplicationTest :: PutBucketReplication -> TestTree
+putBucketReplicationTest = undefined
+
+putBucketRequestPaymentTest :: PutBucketRequestPayment -> TestTree
+putBucketRequestPaymentTest = undefined
+
+putBucketTaggingTest :: PutBucketTagging -> TestTree
+putBucketTaggingTest = undefined
+
+putBucketVersioningTest :: PutBucketVersioning -> TestTree
+putBucketVersioningTest = undefined
+
+putBucketWebsiteTest :: PutBucketWebsite -> TestTree
+putBucketWebsiteTest = undefined
+
+putObjectTest :: PutObject -> TestTree
+putObjectTest = undefined
+
+putObjectACLTest :: PutObjectACL -> TestTree
+putObjectACLTest = undefined
+
+restoreObjectTest :: RestoreObject -> TestTree
+restoreObjectTest = undefined
+
+uploadPartTest :: UploadPart -> TestTree
+uploadPartTest = undefined
 
 uploadPartCopyTest :: UploadPartCopy -> TestTree
 uploadPartCopyTest = undefined
 
 -- Responses
 
-putBucketRequestPaymentResponseTest :: PutBucketRequestPaymentResponse -> TestTree
-putBucketRequestPaymentResponseTest = resp
-    "PutBucketRequestPaymentResponse"
-    "fixture/PutBucketRequestPaymentResponse"
-    (Proxy :: Proxy PutBucketRequestPayment)
+abortMultipartUploadResponseTest :: AbortMultipartUploadResponse -> TestTree
+abortMultipartUploadResponseTest = resp
+    "abortMultipartUploadResponse"
+    "fixture/AbortMultipartUploadResponse"
+    (Proxy :: Proxy AbortMultipartUpload)
 
-putObjectResponseTest :: PutObjectResponse -> TestTree
-putObjectResponseTest = resp
-    "PutObjectResponse"
-    "fixture/PutObjectResponse"
-    (Proxy :: Proxy PutObject)
+completeMultipartUploadResponseTest :: CompleteMultipartUploadResponse -> TestTree
+completeMultipartUploadResponseTest = resp
+    "completeMultipartUploadResponse"
+    "fixture/CompleteMultipartUploadResponse"
+    (Proxy :: Proxy CompleteMultipartUpload)
 
-putBucketLoggingResponseTest :: PutBucketLoggingResponse -> TestTree
-putBucketLoggingResponseTest = resp
-    "PutBucketLoggingResponse"
-    "fixture/PutBucketLoggingResponse"
-    (Proxy :: Proxy PutBucketLogging)
-
-deleteObjectResponseTest :: DeleteObjectResponse -> TestTree
-deleteObjectResponseTest = resp
-    "DeleteObjectResponse"
-    "fixture/DeleteObjectResponse"
-    (Proxy :: Proxy DeleteObject)
-
-deleteBucketResponseTest :: DeleteBucketResponse -> TestTree
-deleteBucketResponseTest = resp
-    "DeleteBucketResponse"
-    "fixture/DeleteBucketResponse"
-    (Proxy :: Proxy DeleteBucket)
-
-listBucketsResponseTest :: ListBucketsResponse -> TestTree
-listBucketsResponseTest = resp
-    "ListBucketsResponse"
-    "fixture/ListBucketsResponse"
-    (Proxy :: Proxy ListBuckets)
+copyObjectResponseTest :: CopyObjectResponse -> TestTree
+copyObjectResponseTest = resp
+    "copyObjectResponse"
+    "fixture/CopyObjectResponse"
+    (Proxy :: Proxy CopyObject)
 
 createBucketResponseTest :: CreateBucketResponse -> TestTree
 createBucketResponseTest = resp
-    "CreateBucketResponse"
+    "createBucketResponse"
     "fixture/CreateBucketResponse"
     (Proxy :: Proxy CreateBucket)
 
-putBucketTaggingResponseTest :: PutBucketTaggingResponse -> TestTree
-putBucketTaggingResponseTest = resp
-    "PutBucketTaggingResponse"
-    "fixture/PutBucketTaggingResponse"
-    (Proxy :: Proxy PutBucketTagging)
+createMultipartUploadResponseTest :: CreateMultipartUploadResponse -> TestTree
+createMultipartUploadResponseTest = resp
+    "createMultipartUploadResponse"
+    "fixture/CreateMultipartUploadResponse"
+    (Proxy :: Proxy CreateMultipartUpload)
+
+deleteBucketResponseTest :: DeleteBucketResponse -> TestTree
+deleteBucketResponseTest = resp
+    "deleteBucketResponse"
+    "fixture/DeleteBucketResponse"
+    (Proxy :: Proxy DeleteBucket)
+
+deleteBucketCORSResponseTest :: DeleteBucketCORSResponse -> TestTree
+deleteBucketCORSResponseTest = resp
+    "deleteBucketCORSResponse"
+    "fixture/DeleteBucketCORSResponse"
+    (Proxy :: Proxy DeleteBucketCORS)
+
+deleteBucketLifecycleResponseTest :: DeleteBucketLifecycleResponse -> TestTree
+deleteBucketLifecycleResponseTest = resp
+    "deleteBucketLifecycleResponse"
+    "fixture/DeleteBucketLifecycleResponse"
+    (Proxy :: Proxy DeleteBucketLifecycle)
+
+deleteBucketPolicyResponseTest :: DeleteBucketPolicyResponse -> TestTree
+deleteBucketPolicyResponseTest = resp
+    "deleteBucketPolicyResponse"
+    "fixture/DeleteBucketPolicyResponse"
+    (Proxy :: Proxy DeleteBucketPolicy)
+
+deleteBucketReplicationResponseTest :: DeleteBucketReplicationResponse -> TestTree
+deleteBucketReplicationResponseTest = resp
+    "deleteBucketReplicationResponse"
+    "fixture/DeleteBucketReplicationResponse"
+    (Proxy :: Proxy DeleteBucketReplication)
 
 deleteBucketTaggingResponseTest :: DeleteBucketTaggingResponse -> TestTree
 deleteBucketTaggingResponseTest = resp
-    "DeleteBucketTaggingResponse"
+    "deleteBucketTaggingResponse"
     "fixture/DeleteBucketTaggingResponse"
     (Proxy :: Proxy DeleteBucketTagging)
 
-putObjectACLResponseTest :: PutObjectACLResponse -> TestTree
-putObjectACLResponseTest = resp
-    "PutObjectACLResponse"
-    "fixture/PutObjectACLResponse"
-    (Proxy :: Proxy PutObjectACL)
+deleteBucketWebsiteResponseTest :: DeleteBucketWebsiteResponse -> TestTree
+deleteBucketWebsiteResponseTest = resp
+    "deleteBucketWebsiteResponse"
+    "fixture/DeleteBucketWebsiteResponse"
+    (Proxy :: Proxy DeleteBucketWebsite)
 
-notificationConfigurationTest :: NotificationConfiguration -> TestTree
-notificationConfigurationTest = resp
-    "NotificationConfiguration"
-    "fixture/NotificationConfiguration"
-    (Proxy :: Proxy GetBucketNotificationConfiguration)
+deleteObjectResponseTest :: DeleteObjectResponse -> TestTree
+deleteObjectResponseTest = resp
+    "deleteObjectResponse"
+    "fixture/DeleteObjectResponse"
+    (Proxy :: Proxy DeleteObject)
+
+deleteObjectsResponseTest :: DeleteObjectsResponse -> TestTree
+deleteObjectsResponseTest = resp
+    "deleteObjectsResponse"
+    "fixture/DeleteObjectsResponse"
+    (Proxy :: Proxy DeleteObjects)
+
+getBucketACLResponseTest :: GetBucketACLResponse -> TestTree
+getBucketACLResponseTest = resp
+    "getBucketACLResponse"
+    "fixture/GetBucketACLResponse"
+    (Proxy :: Proxy GetBucketACL)
+
+getBucketCORSResponseTest :: GetBucketCORSResponse -> TestTree
+getBucketCORSResponseTest = resp
+    "getBucketCORSResponse"
+    "fixture/GetBucketCORSResponse"
+    (Proxy :: Proxy GetBucketCORS)
+
+getBucketLifecycleResponseTest :: GetBucketLifecycleResponse -> TestTree
+getBucketLifecycleResponseTest = resp
+    "getBucketLifecycleResponse"
+    "fixture/GetBucketLifecycleResponse"
+    (Proxy :: Proxy GetBucketLifecycle)
 
 getBucketLocationResponseTest :: GetBucketLocationResponse -> TestTree
 getBucketLocationResponseTest = resp
-    "GetBucketLocationResponse"
+    "getBucketLocationResponse"
     "fixture/GetBucketLocationResponse"
     (Proxy :: Proxy GetBucketLocation)
 
-putBucketReplicationResponseTest :: PutBucketReplicationResponse -> TestTree
-putBucketReplicationResponseTest = resp
-    "PutBucketReplicationResponse"
-    "fixture/PutBucketReplicationResponse"
-    (Proxy :: Proxy PutBucketReplication)
+getBucketLoggingResponseTest :: GetBucketLoggingResponse -> TestTree
+getBucketLoggingResponseTest = resp
+    "getBucketLoggingResponse"
+    "fixture/GetBucketLoggingResponse"
+    (Proxy :: Proxy GetBucketLogging)
+
+getBucketNotificationConfigurationResponseTest :: NotificationConfiguration -> TestTree
+getBucketNotificationConfigurationResponseTest = resp
+    "getBucketNotificationConfigurationResponse"
+    "fixture/NotificationConfiguration"
+    (Proxy :: Proxy GetBucketNotificationConfiguration)
+
+getBucketPolicyResponseTest :: GetBucketPolicyResponse -> TestTree
+getBucketPolicyResponseTest = resp
+    "getBucketPolicyResponse"
+    "fixture/GetBucketPolicyResponse"
+    (Proxy :: Proxy GetBucketPolicy)
+
+getBucketReplicationResponseTest :: GetBucketReplicationResponse -> TestTree
+getBucketReplicationResponseTest = resp
+    "getBucketReplicationResponse"
+    "fixture/GetBucketReplicationResponse"
+    (Proxy :: Proxy GetBucketReplication)
+
+getBucketRequestPaymentResponseTest :: GetBucketRequestPaymentResponse -> TestTree
+getBucketRequestPaymentResponseTest = resp
+    "getBucketRequestPaymentResponse"
+    "fixture/GetBucketRequestPaymentResponse"
+    (Proxy :: Proxy GetBucketRequestPayment)
+
+getBucketTaggingResponseTest :: GetBucketTaggingResponse -> TestTree
+getBucketTaggingResponseTest = resp
+    "getBucketTaggingResponse"
+    "fixture/GetBucketTaggingResponse"
+    (Proxy :: Proxy GetBucketTagging)
+
+getBucketVersioningResponseTest :: GetBucketVersioningResponse -> TestTree
+getBucketVersioningResponseTest = resp
+    "getBucketVersioningResponse"
+    "fixture/GetBucketVersioningResponse"
+    (Proxy :: Proxy GetBucketVersioning)
 
 getBucketWebsiteResponseTest :: GetBucketWebsiteResponse -> TestTree
 getBucketWebsiteResponseTest = resp
-    "GetBucketWebsiteResponse"
+    "getBucketWebsiteResponse"
     "fixture/GetBucketWebsiteResponse"
     (Proxy :: Proxy GetBucketWebsite)
 
 getObjectResponseTest :: GetObjectResponse -> TestTree
 getObjectResponseTest = resp
-    "GetObjectResponse"
+    "getObjectResponse"
     "fixture/GetObjectResponse"
     (Proxy :: Proxy GetObject)
 
-deleteBucketReplicationResponseTest :: DeleteBucketReplicationResponse -> TestTree
-deleteBucketReplicationResponseTest = resp
-    "DeleteBucketReplicationResponse"
-    "fixture/DeleteBucketReplicationResponse"
-    (Proxy :: Proxy DeleteBucketReplication)
-
-getBucketRequestPaymentResponseTest :: GetBucketRequestPaymentResponse -> TestTree
-getBucketRequestPaymentResponseTest = resp
-    "GetBucketRequestPaymentResponse"
-    "fixture/GetBucketRequestPaymentResponse"
-    (Proxy :: Proxy GetBucketRequestPayment)
-
-listObjectVersionsResponseTest :: ListObjectVersionsResponse -> TestTree
-listObjectVersionsResponseTest = resp
-    "ListObjectVersionsResponse"
-    "fixture/ListObjectVersionsResponse"
-    (Proxy :: Proxy ListObjectVersions)
-
-getBucketLifecycleResponseTest :: GetBucketLifecycleResponse -> TestTree
-getBucketLifecycleResponseTest = resp
-    "GetBucketLifecycleResponse"
-    "fixture/GetBucketLifecycleResponse"
-    (Proxy :: Proxy GetBucketLifecycle)
-
-headBucketResponseTest :: HeadBucketResponse -> TestTree
-headBucketResponseTest = resp
-    "HeadBucketResponse"
-    "fixture/HeadBucketResponse"
-    (Proxy :: Proxy HeadBucket)
-
-putBucketLifecycleResponseTest :: PutBucketLifecycleResponse -> TestTree
-putBucketLifecycleResponseTest = resp
-    "PutBucketLifecycleResponse"
-    "fixture/PutBucketLifecycleResponse"
-    (Proxy :: Proxy PutBucketLifecycle)
-
-createMultipartUploadResponseTest :: CreateMultipartUploadResponse -> TestTree
-createMultipartUploadResponseTest = resp
-    "CreateMultipartUploadResponse"
-    "fixture/CreateMultipartUploadResponse"
-    (Proxy :: Proxy CreateMultipartUpload)
-
-deleteBucketLifecycleResponseTest :: DeleteBucketLifecycleResponse -> TestTree
-deleteBucketLifecycleResponseTest = resp
-    "DeleteBucketLifecycleResponse"
-    "fixture/DeleteBucketLifecycleResponse"
-    (Proxy :: Proxy DeleteBucketLifecycle)
-
-getBucketReplicationResponseTest :: GetBucketReplicationResponse -> TestTree
-getBucketReplicationResponseTest = resp
-    "GetBucketReplicationResponse"
-    "fixture/GetBucketReplicationResponse"
-    (Proxy :: Proxy GetBucketReplication)
-
-putBucketWebsiteResponseTest :: PutBucketWebsiteResponse -> TestTree
-putBucketWebsiteResponseTest = resp
-    "PutBucketWebsiteResponse"
-    "fixture/PutBucketWebsiteResponse"
-    (Proxy :: Proxy PutBucketWebsite)
-
-completeMultipartUploadResponseTest :: CompleteMultipartUploadResponse -> TestTree
-completeMultipartUploadResponseTest = resp
-    "CompleteMultipartUploadResponse"
-    "fixture/CompleteMultipartUploadResponse"
-    (Proxy :: Proxy CompleteMultipartUpload)
-
-uploadPartResponseTest :: UploadPartResponse -> TestTree
-uploadPartResponseTest = resp
-    "UploadPartResponse"
-    "fixture/UploadPartResponse"
-    (Proxy :: Proxy UploadPart)
-
-listMultipartUploadsResponseTest :: ListMultipartUploadsResponse -> TestTree
-listMultipartUploadsResponseTest = resp
-    "ListMultipartUploadsResponse"
-    "fixture/ListMultipartUploadsResponse"
-    (Proxy :: Proxy ListMultipartUploads)
-
-deleteBucketWebsiteResponseTest :: DeleteBucketWebsiteResponse -> TestTree
-deleteBucketWebsiteResponseTest = resp
-    "DeleteBucketWebsiteResponse"
-    "fixture/DeleteBucketWebsiteResponse"
-    (Proxy :: Proxy DeleteBucketWebsite)
-
-listObjectsResponseTest :: ListObjectsResponse -> TestTree
-listObjectsResponseTest = resp
-    "ListObjectsResponse"
-    "fixture/ListObjectsResponse"
-    (Proxy :: Proxy ListObjects)
-
-deleteObjectsResponseTest :: DeleteObjectsResponse -> TestTree
-deleteObjectsResponseTest = resp
-    "DeleteObjectsResponse"
-    "fixture/DeleteObjectsResponse"
-    (Proxy :: Proxy DeleteObjects)
-
-putBucketPolicyResponseTest :: PutBucketPolicyResponse -> TestTree
-putBucketPolicyResponseTest = resp
-    "PutBucketPolicyResponse"
-    "fixture/PutBucketPolicyResponse"
-    (Proxy :: Proxy PutBucketPolicy)
-
-deleteBucketPolicyResponseTest :: DeleteBucketPolicyResponse -> TestTree
-deleteBucketPolicyResponseTest = resp
-    "DeleteBucketPolicyResponse"
-    "fixture/DeleteBucketPolicyResponse"
-    (Proxy :: Proxy DeleteBucketPolicy)
-
-abortMultipartUploadResponseTest :: AbortMultipartUploadResponse -> TestTree
-abortMultipartUploadResponseTest = resp
-    "AbortMultipartUploadResponse"
-    "fixture/AbortMultipartUploadResponse"
-    (Proxy :: Proxy AbortMultipartUpload)
-
-getObjectTorrentResponseTest :: GetObjectTorrentResponse -> TestTree
-getObjectTorrentResponseTest = resp
-    "GetObjectTorrentResponse"
-    "fixture/GetObjectTorrentResponse"
-    (Proxy :: Proxy GetObjectTorrent)
-
-putBucketCORSResponseTest :: PutBucketCORSResponse -> TestTree
-putBucketCORSResponseTest = resp
-    "PutBucketCORSResponse"
-    "fixture/PutBucketCORSResponse"
-    (Proxy :: Proxy PutBucketCORS)
-
-deleteBucketCORSResponseTest :: DeleteBucketCORSResponse -> TestTree
-deleteBucketCORSResponseTest = resp
-    "DeleteBucketCORSResponse"
-    "fixture/DeleteBucketCORSResponse"
-    (Proxy :: Proxy DeleteBucketCORS)
-
-getBucketVersioningResponseTest :: GetBucketVersioningResponse -> TestTree
-getBucketVersioningResponseTest = resp
-    "GetBucketVersioningResponse"
-    "fixture/GetBucketVersioningResponse"
-    (Proxy :: Proxy GetBucketVersioning)
-
-putBucketNotificationConfigurationResponseTest :: PutBucketNotificationConfigurationResponse -> TestTree
-putBucketNotificationConfigurationResponseTest = resp
-    "PutBucketNotificationConfigurationResponse"
-    "fixture/PutBucketNotificationConfigurationResponse"
-    (Proxy :: Proxy PutBucketNotificationConfiguration)
-
-getBucketTaggingResponseTest :: GetBucketTaggingResponse -> TestTree
-getBucketTaggingResponseTest = resp
-    "GetBucketTaggingResponse"
-    "fixture/GetBucketTaggingResponse"
-    (Proxy :: Proxy GetBucketTagging)
-
-headObjectResponseTest :: HeadObjectResponse -> TestTree
-headObjectResponseTest = resp
-    "HeadObjectResponse"
-    "fixture/HeadObjectResponse"
-    (Proxy :: Proxy HeadObject)
-
-putBucketVersioningResponseTest :: PutBucketVersioningResponse -> TestTree
-putBucketVersioningResponseTest = resp
-    "PutBucketVersioningResponse"
-    "fixture/PutBucketVersioningResponse"
-    (Proxy :: Proxy PutBucketVersioning)
-
 getObjectACLResponseTest :: GetObjectACLResponse -> TestTree
 getObjectACLResponseTest = resp
-    "GetObjectACLResponse"
+    "getObjectACLResponse"
     "fixture/GetObjectACLResponse"
     (Proxy :: Proxy GetObjectACL)
 
-restoreObjectResponseTest :: RestoreObjectResponse -> TestTree
-restoreObjectResponseTest = resp
-    "RestoreObjectResponse"
-    "fixture/RestoreObjectResponse"
-    (Proxy :: Proxy RestoreObject)
+getObjectTorrentResponseTest :: GetObjectTorrentResponse -> TestTree
+getObjectTorrentResponseTest = resp
+    "getObjectTorrentResponse"
+    "fixture/GetObjectTorrentResponse"
+    (Proxy :: Proxy GetObjectTorrent)
 
-getBucketCORSResponseTest :: GetBucketCORSResponse -> TestTree
-getBucketCORSResponseTest = resp
-    "GetBucketCORSResponse"
-    "fixture/GetBucketCORSResponse"
-    (Proxy :: Proxy GetBucketCORS)
+headBucketResponseTest :: HeadBucketResponse -> TestTree
+headBucketResponseTest = resp
+    "headBucketResponse"
+    "fixture/HeadBucketResponse"
+    (Proxy :: Proxy HeadBucket)
 
-copyObjectResponseTest :: CopyObjectResponse -> TestTree
-copyObjectResponseTest = resp
-    "CopyObjectResponse"
-    "fixture/CopyObjectResponse"
-    (Proxy :: Proxy CopyObject)
+headObjectResponseTest :: HeadObjectResponse -> TestTree
+headObjectResponseTest = resp
+    "headObjectResponse"
+    "fixture/HeadObjectResponse"
+    (Proxy :: Proxy HeadObject)
 
-getBucketPolicyResponseTest :: GetBucketPolicyResponse -> TestTree
-getBucketPolicyResponseTest = resp
-    "GetBucketPolicyResponse"
-    "fixture/GetBucketPolicyResponse"
-    (Proxy :: Proxy GetBucketPolicy)
+listBucketsResponseTest :: ListBucketsResponse -> TestTree
+listBucketsResponseTest = resp
+    "listBucketsResponse"
+    "fixture/ListBucketsResponse"
+    (Proxy :: Proxy ListBuckets)
 
-getBucketLoggingResponseTest :: GetBucketLoggingResponse -> TestTree
-getBucketLoggingResponseTest = resp
-    "GetBucketLoggingResponse"
-    "fixture/GetBucketLoggingResponse"
-    (Proxy :: Proxy GetBucketLogging)
+listMultipartUploadsResponseTest :: ListMultipartUploadsResponse -> TestTree
+listMultipartUploadsResponseTest = resp
+    "listMultipartUploadsResponse"
+    "fixture/ListMultipartUploadsResponse"
+    (Proxy :: Proxy ListMultipartUploads)
+
+listObjectVersionsResponseTest :: ListObjectVersionsResponse -> TestTree
+listObjectVersionsResponseTest = resp
+    "listObjectVersionsResponse"
+    "fixture/ListObjectVersionsResponse"
+    (Proxy :: Proxy ListObjectVersions)
+
+listObjectsResponseTest :: ListObjectsResponse -> TestTree
+listObjectsResponseTest = resp
+    "listObjectsResponse"
+    "fixture/ListObjectsResponse"
+    (Proxy :: Proxy ListObjects)
 
 listPartsResponseTest :: ListPartsResponse -> TestTree
 listPartsResponseTest = resp
-    "ListPartsResponse"
+    "listPartsResponse"
     "fixture/ListPartsResponse"
     (Proxy :: Proxy ListParts)
 
-getBucketACLResponseTest :: GetBucketACLResponse -> TestTree
-getBucketACLResponseTest = resp
-    "GetBucketACLResponse"
-    "fixture/GetBucketACLResponse"
-    (Proxy :: Proxy GetBucketACL)
-
 putBucketACLResponseTest :: PutBucketACLResponse -> TestTree
 putBucketACLResponseTest = resp
-    "PutBucketACLResponse"
+    "putBucketACLResponse"
     "fixture/PutBucketACLResponse"
     (Proxy :: Proxy PutBucketACL)
 
+putBucketCORSResponseTest :: PutBucketCORSResponse -> TestTree
+putBucketCORSResponseTest = resp
+    "putBucketCORSResponse"
+    "fixture/PutBucketCORSResponse"
+    (Proxy :: Proxy PutBucketCORS)
+
+putBucketLifecycleResponseTest :: PutBucketLifecycleResponse -> TestTree
+putBucketLifecycleResponseTest = resp
+    "putBucketLifecycleResponse"
+    "fixture/PutBucketLifecycleResponse"
+    (Proxy :: Proxy PutBucketLifecycle)
+
+putBucketLoggingResponseTest :: PutBucketLoggingResponse -> TestTree
+putBucketLoggingResponseTest = resp
+    "putBucketLoggingResponse"
+    "fixture/PutBucketLoggingResponse"
+    (Proxy :: Proxy PutBucketLogging)
+
+putBucketNotificationConfigurationResponseTest :: PutBucketNotificationConfigurationResponse -> TestTree
+putBucketNotificationConfigurationResponseTest = resp
+    "putBucketNotificationConfigurationResponse"
+    "fixture/PutBucketNotificationConfigurationResponse"
+    (Proxy :: Proxy PutBucketNotificationConfiguration)
+
+putBucketPolicyResponseTest :: PutBucketPolicyResponse -> TestTree
+putBucketPolicyResponseTest = resp
+    "putBucketPolicyResponse"
+    "fixture/PutBucketPolicyResponse"
+    (Proxy :: Proxy PutBucketPolicy)
+
+putBucketReplicationResponseTest :: PutBucketReplicationResponse -> TestTree
+putBucketReplicationResponseTest = resp
+    "putBucketReplicationResponse"
+    "fixture/PutBucketReplicationResponse"
+    (Proxy :: Proxy PutBucketReplication)
+
+putBucketRequestPaymentResponseTest :: PutBucketRequestPaymentResponse -> TestTree
+putBucketRequestPaymentResponseTest = resp
+    "putBucketRequestPaymentResponse"
+    "fixture/PutBucketRequestPaymentResponse"
+    (Proxy :: Proxy PutBucketRequestPayment)
+
+putBucketTaggingResponseTest :: PutBucketTaggingResponse -> TestTree
+putBucketTaggingResponseTest = resp
+    "putBucketTaggingResponse"
+    "fixture/PutBucketTaggingResponse"
+    (Proxy :: Proxy PutBucketTagging)
+
+putBucketVersioningResponseTest :: PutBucketVersioningResponse -> TestTree
+putBucketVersioningResponseTest = resp
+    "putBucketVersioningResponse"
+    "fixture/PutBucketVersioningResponse"
+    (Proxy :: Proxy PutBucketVersioning)
+
+putBucketWebsiteResponseTest :: PutBucketWebsiteResponse -> TestTree
+putBucketWebsiteResponseTest = resp
+    "putBucketWebsiteResponse"
+    "fixture/PutBucketWebsiteResponse"
+    (Proxy :: Proxy PutBucketWebsite)
+
+putObjectResponseTest :: PutObjectResponse -> TestTree
+putObjectResponseTest = resp
+    "putObjectResponse"
+    "fixture/PutObjectResponse"
+    (Proxy :: Proxy PutObject)
+
+putObjectACLResponseTest :: PutObjectACLResponse -> TestTree
+putObjectACLResponseTest = resp
+    "putObjectACLResponse"
+    "fixture/PutObjectACLResponse"
+    (Proxy :: Proxy PutObjectACL)
+
+restoreObjectResponseTest :: RestoreObjectResponse -> TestTree
+restoreObjectResponseTest = resp
+    "restoreObjectResponse"
+    "fixture/RestoreObjectResponse"
+    (Proxy :: Proxy RestoreObject)
+
+uploadPartResponseTest :: UploadPartResponse -> TestTree
+uploadPartResponseTest = resp
+    "uploadPartResponse"
+    "fixture/UploadPartResponse"
+    (Proxy :: Proxy UploadPart)
+
 uploadPartCopyResponseTest :: UploadPartCopyResponse -> TestTree
 uploadPartCopyResponseTest = resp
-    "UploadPartCopyResponse"
+    "uploadPartCopyResponse"
     "fixture/UploadPartCopyResponse"
     (Proxy :: Proxy UploadPartCopy)

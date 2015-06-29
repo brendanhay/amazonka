@@ -25,177 +25,177 @@ import Network.AWS.SSM
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         [ describeDocumentTest $
---             describeDocument
---
---         , createAssociationTest $
+--         [ createAssociationTest $
 --             createAssociation
---
---         , createDocumentTest $
---             createDocument
---
---         , listDocumentsTest $
---             listDocuments
---
---         , getDocumentTest $
---             getDocument
---
---         , describeAssociationTest $
---             describeAssociation
---
---         , updateAssociationStatusTest $
---             updateAssociationStatus
---
---         , deleteAssociationTest $
---             deleteAssociation
---
---         , listAssociationsTest $
---             listAssociations
---
---         , deleteDocumentTest $
---             deleteDocument
 --
 --         , createAssociationBatchTest $
 --             createAssociationBatch
 --
+--         , createDocumentTest $
+--             createDocument
+--
+--         , deleteAssociationTest $
+--             deleteAssociation
+--
+--         , deleteDocumentTest $
+--             deleteDocument
+--
+--         , describeAssociationTest $
+--             describeAssociation
+--
+--         , describeDocumentTest $
+--             describeDocument
+--
+--         , getDocumentTest $
+--             getDocument
+--
+--         , listAssociationsTest $
+--             listAssociations
+--
+--         , listDocumentsTest $
+--             listDocuments
+--
+--         , updateAssociationStatusTest $
+--             updateAssociationStatus
+--
 --           ]
 
 --     , testGroup "response"
---         [ describeDocumentResponseTest $
---             describeDocumentResponse
---
---         , createAssociationResponseTest $
+--         [ createAssociationResponseTest $
 --             createAssociationResponse
+--
+--         , createAssociationBatchResponseTest $
+--             createAssociationBatchResponse
 --
 --         , createDocumentResponseTest $
 --             createDocumentResponse
 --
---         , listDocumentsResponseTest $
---             listDocumentsResponse
---
---         , getDocumentResponseTest $
---             getDocumentResponse
---
---         , describeAssociationResponseTest $
---             describeAssociationResponse
---
---         , updateAssociationStatusResponseTest $
---             updateAssociationStatusResponse
---
 --         , deleteAssociationResponseTest $
 --             deleteAssociationResponse
---
---         , listAssociationsResponseTest $
---             listAssociationsResponse
 --
 --         , deleteDocumentResponseTest $
 --             deleteDocumentResponse
 --
---         , createAssociationBatchResponseTest $
---             createAssociationBatchResponse
+--         , describeAssociationResponseTest $
+--             describeAssociationResponse
+--
+--         , describeDocumentResponseTest $
+--             describeDocumentResponse
+--
+--         , getDocumentResponseTest $
+--             getDocumentResponse
+--
+--         , listAssociationsResponseTest $
+--             listAssociationsResponse
+--
+--         , listDocumentsResponseTest $
+--             listDocumentsResponse
+--
+--         , updateAssociationStatusResponseTest $
+--             updateAssociationStatusResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-describeDocumentTest :: DescribeDocument -> TestTree
-describeDocumentTest = undefined
-
 createAssociationTest :: CreateAssociation -> TestTree
 createAssociationTest = undefined
-
-createDocumentTest :: CreateDocument -> TestTree
-createDocumentTest = undefined
-
-listDocumentsTest :: ListDocuments -> TestTree
-listDocumentsTest = undefined
-
-getDocumentTest :: GetDocument -> TestTree
-getDocumentTest = undefined
-
-describeAssociationTest :: DescribeAssociation -> TestTree
-describeAssociationTest = undefined
-
-updateAssociationStatusTest :: UpdateAssociationStatus -> TestTree
-updateAssociationStatusTest = undefined
-
-deleteAssociationTest :: DeleteAssociation -> TestTree
-deleteAssociationTest = undefined
-
-listAssociationsTest :: ListAssociations -> TestTree
-listAssociationsTest = undefined
-
-deleteDocumentTest :: DeleteDocument -> TestTree
-deleteDocumentTest = undefined
 
 createAssociationBatchTest :: CreateAssociationBatch -> TestTree
 createAssociationBatchTest = undefined
 
--- Responses
+createDocumentTest :: CreateDocument -> TestTree
+createDocumentTest = undefined
 
-describeDocumentResponseTest :: DescribeDocumentResponse -> TestTree
-describeDocumentResponseTest = resp
-    "DescribeDocumentResponse"
-    "fixture/DescribeDocumentResponse"
-    (Proxy :: Proxy DescribeDocument)
+deleteAssociationTest :: DeleteAssociation -> TestTree
+deleteAssociationTest = undefined
+
+deleteDocumentTest :: DeleteDocument -> TestTree
+deleteDocumentTest = undefined
+
+describeAssociationTest :: DescribeAssociation -> TestTree
+describeAssociationTest = undefined
+
+describeDocumentTest :: DescribeDocument -> TestTree
+describeDocumentTest = undefined
+
+getDocumentTest :: GetDocument -> TestTree
+getDocumentTest = undefined
+
+listAssociationsTest :: ListAssociations -> TestTree
+listAssociationsTest = undefined
+
+listDocumentsTest :: ListDocuments -> TestTree
+listDocumentsTest = undefined
+
+updateAssociationStatusTest :: UpdateAssociationStatus -> TestTree
+updateAssociationStatusTest = undefined
+
+-- Responses
 
 createAssociationResponseTest :: CreateAssociationResponse -> TestTree
 createAssociationResponseTest = resp
-    "CreateAssociationResponse"
+    "createAssociationResponse"
     "fixture/CreateAssociationResponse"
     (Proxy :: Proxy CreateAssociation)
 
+createAssociationBatchResponseTest :: CreateAssociationBatchResponse -> TestTree
+createAssociationBatchResponseTest = resp
+    "createAssociationBatchResponse"
+    "fixture/CreateAssociationBatchResponse"
+    (Proxy :: Proxy CreateAssociationBatch)
+
 createDocumentResponseTest :: CreateDocumentResponse -> TestTree
 createDocumentResponseTest = resp
-    "CreateDocumentResponse"
+    "createDocumentResponse"
     "fixture/CreateDocumentResponse"
     (Proxy :: Proxy CreateDocument)
 
-listDocumentsResponseTest :: ListDocumentsResponse -> TestTree
-listDocumentsResponseTest = resp
-    "ListDocumentsResponse"
-    "fixture/ListDocumentsResponse"
-    (Proxy :: Proxy ListDocuments)
-
-getDocumentResponseTest :: GetDocumentResponse -> TestTree
-getDocumentResponseTest = resp
-    "GetDocumentResponse"
-    "fixture/GetDocumentResponse"
-    (Proxy :: Proxy GetDocument)
-
-describeAssociationResponseTest :: DescribeAssociationResponse -> TestTree
-describeAssociationResponseTest = resp
-    "DescribeAssociationResponse"
-    "fixture/DescribeAssociationResponse"
-    (Proxy :: Proxy DescribeAssociation)
-
-updateAssociationStatusResponseTest :: UpdateAssociationStatusResponse -> TestTree
-updateAssociationStatusResponseTest = resp
-    "UpdateAssociationStatusResponse"
-    "fixture/UpdateAssociationStatusResponse"
-    (Proxy :: Proxy UpdateAssociationStatus)
-
 deleteAssociationResponseTest :: DeleteAssociationResponse -> TestTree
 deleteAssociationResponseTest = resp
-    "DeleteAssociationResponse"
+    "deleteAssociationResponse"
     "fixture/DeleteAssociationResponse"
     (Proxy :: Proxy DeleteAssociation)
 
-listAssociationsResponseTest :: ListAssociationsResponse -> TestTree
-listAssociationsResponseTest = resp
-    "ListAssociationsResponse"
-    "fixture/ListAssociationsResponse"
-    (Proxy :: Proxy ListAssociations)
-
 deleteDocumentResponseTest :: DeleteDocumentResponse -> TestTree
 deleteDocumentResponseTest = resp
-    "DeleteDocumentResponse"
+    "deleteDocumentResponse"
     "fixture/DeleteDocumentResponse"
     (Proxy :: Proxy DeleteDocument)
 
-createAssociationBatchResponseTest :: CreateAssociationBatchResponse -> TestTree
-createAssociationBatchResponseTest = resp
-    "CreateAssociationBatchResponse"
-    "fixture/CreateAssociationBatchResponse"
-    (Proxy :: Proxy CreateAssociationBatch)
+describeAssociationResponseTest :: DescribeAssociationResponse -> TestTree
+describeAssociationResponseTest = resp
+    "describeAssociationResponse"
+    "fixture/DescribeAssociationResponse"
+    (Proxy :: Proxy DescribeAssociation)
+
+describeDocumentResponseTest :: DescribeDocumentResponse -> TestTree
+describeDocumentResponseTest = resp
+    "describeDocumentResponse"
+    "fixture/DescribeDocumentResponse"
+    (Proxy :: Proxy DescribeDocument)
+
+getDocumentResponseTest :: GetDocumentResponse -> TestTree
+getDocumentResponseTest = resp
+    "getDocumentResponse"
+    "fixture/GetDocumentResponse"
+    (Proxy :: Proxy GetDocument)
+
+listAssociationsResponseTest :: ListAssociationsResponse -> TestTree
+listAssociationsResponseTest = resp
+    "listAssociationsResponse"
+    "fixture/ListAssociationsResponse"
+    (Proxy :: Proxy ListAssociations)
+
+listDocumentsResponseTest :: ListDocumentsResponse -> TestTree
+listDocumentsResponseTest = resp
+    "listDocumentsResponse"
+    "fixture/ListDocumentsResponse"
+    (Proxy :: Proxy ListDocuments)
+
+updateAssociationStatusResponseTest :: UpdateAssociationStatusResponse -> TestTree
+updateAssociationStatusResponseTest = resp
+    "updateAssociationStatusResponse"
+    "fixture/UpdateAssociationStatusResponse"
+    (Proxy :: Proxy UpdateAssociationStatus)

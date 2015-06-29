@@ -25,44 +25,50 @@ import Network.AWS.CognitoSync
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         [ describeDatasetTest $
+--         [ bulkPublishTest $
+--             bulkPublish
+--
+--         , deleteDatasetTest $
+--             deleteDataset
+--
+--         , describeDatasetTest $
 --             describeDataset
 --
 --         , describeIdentityPoolUsageTest $
 --             describeIdentityPoolUsage
 --
---         , setCognitoEventsTest $
---             setCognitoEvents
---
---         , listIdentityPoolUsageTest $
---             listIdentityPoolUsage
+--         , describeIdentityUsageTest $
+--             describeIdentityUsage
 --
 --         , getBulkPublishDetailsTest $
 --             getBulkPublishDetails
 --
---         , setIdentityPoolConfigurationTest $
---             setIdentityPoolConfiguration
---
---         , deleteDatasetTest $
---             deleteDataset
---
---         , describeIdentityUsageTest $
---             describeIdentityUsage
---
 --         , getCognitoEventsTest $
 --             getCognitoEvents
---
---         , registerDeviceTest $
---             registerDevice
---
---         , subscribeToDatasetTest $
---             subscribeToDataset
 --
 --         , getIdentityPoolConfigurationTest $
 --             getIdentityPoolConfiguration
 --
+--         , listDatasetsTest $
+--             listDatasets
+--
+--         , listIdentityPoolUsageTest $
+--             listIdentityPoolUsage
+--
 --         , listRecordsTest $
 --             listRecords
+--
+--         , registerDeviceTest $
+--             registerDevice
+--
+--         , setCognitoEventsTest $
+--             setCognitoEvents
+--
+--         , setIdentityPoolConfigurationTest $
+--             setIdentityPoolConfiguration
+--
+--         , subscribeToDatasetTest $
+--             subscribeToDataset
 --
 --         , unsubscribeFromDatasetTest $
 --             unsubscribeFromDataset
@@ -70,53 +76,53 @@ import Network.AWS.CognitoSync
 --         , updateRecordsTest $
 --             updateRecords
 --
---         , listDatasetsTest $
---             listDatasets
---
---         , bulkPublishTest $
---             bulkPublish
---
 --           ]
 
 --     , testGroup "response"
---         [ describeDatasetResponseTest $
+--         [ bulkPublishResponseTest $
+--             bulkPublishResponse
+--
+--         , deleteDatasetResponseTest $
+--             deleteDatasetResponse
+--
+--         , describeDatasetResponseTest $
 --             describeDatasetResponse
 --
 --         , describeIdentityPoolUsageResponseTest $
 --             describeIdentityPoolUsageResponse
 --
---         , setCognitoEventsResponseTest $
---             setCognitoEventsResponse
---
---         , listIdentityPoolUsageResponseTest $
---             listIdentityPoolUsageResponse
+--         , describeIdentityUsageResponseTest $
+--             describeIdentityUsageResponse
 --
 --         , getBulkPublishDetailsResponseTest $
 --             getBulkPublishDetailsResponse
 --
---         , setIdentityPoolConfigurationResponseTest $
---             setIdentityPoolConfigurationResponse
---
---         , deleteDatasetResponseTest $
---             deleteDatasetResponse
---
---         , describeIdentityUsageResponseTest $
---             describeIdentityUsageResponse
---
 --         , getCognitoEventsResponseTest $
 --             getCognitoEventsResponse
---
---         , registerDeviceResponseTest $
---             registerDeviceResponse
---
---         , subscribeToDatasetResponseTest $
---             subscribeToDatasetResponse
 --
 --         , getIdentityPoolConfigurationResponseTest $
 --             getIdentityPoolConfigurationResponse
 --
+--         , listDatasetsResponseTest $
+--             listDatasetsResponse
+--
+--         , listIdentityPoolUsageResponseTest $
+--             listIdentityPoolUsageResponse
+--
 --         , listRecordsResponseTest $
 --             listRecordsResponse
+--
+--         , registerDeviceResponseTest $
+--             registerDeviceResponse
+--
+--         , setCognitoEventsResponseTest $
+--             setCognitoEventsResponse
+--
+--         , setIdentityPoolConfigurationResponseTest $
+--             setIdentityPoolConfigurationResponse
+--
+--         , subscribeToDatasetResponseTest $
+--             subscribeToDatasetResponse
 --
 --         , unsubscribeFromDatasetResponseTest $
 --             unsubscribeFromDatasetResponse
@@ -124,16 +130,16 @@ import Network.AWS.CognitoSync
 --         , updateRecordsResponseTest $
 --             updateRecordsResponse
 --
---         , listDatasetsResponseTest $
---             listDatasetsResponse
---
---         , bulkPublishResponseTest $
---             bulkPublishResponse
---
 --           ]
 --     ]
 
 -- Requests
+
+bulkPublishTest :: BulkPublish -> TestTree
+bulkPublishTest = undefined
+
+deleteDatasetTest :: DeleteDataset -> TestTree
+deleteDatasetTest = undefined
 
 describeDatasetTest :: DescribeDataset -> TestTree
 describeDatasetTest = undefined
@@ -141,38 +147,38 @@ describeDatasetTest = undefined
 describeIdentityPoolUsageTest :: DescribeIdentityPoolUsage -> TestTree
 describeIdentityPoolUsageTest = undefined
 
-setCognitoEventsTest :: SetCognitoEvents -> TestTree
-setCognitoEventsTest = undefined
-
-listIdentityPoolUsageTest :: ListIdentityPoolUsage -> TestTree
-listIdentityPoolUsageTest = undefined
+describeIdentityUsageTest :: DescribeIdentityUsage -> TestTree
+describeIdentityUsageTest = undefined
 
 getBulkPublishDetailsTest :: GetBulkPublishDetails -> TestTree
 getBulkPublishDetailsTest = undefined
 
-setIdentityPoolConfigurationTest :: SetIdentityPoolConfiguration -> TestTree
-setIdentityPoolConfigurationTest = undefined
-
-deleteDatasetTest :: DeleteDataset -> TestTree
-deleteDatasetTest = undefined
-
-describeIdentityUsageTest :: DescribeIdentityUsage -> TestTree
-describeIdentityUsageTest = undefined
-
 getCognitoEventsTest :: GetCognitoEvents -> TestTree
 getCognitoEventsTest = undefined
-
-registerDeviceTest :: RegisterDevice -> TestTree
-registerDeviceTest = undefined
-
-subscribeToDatasetTest :: SubscribeToDataset -> TestTree
-subscribeToDatasetTest = undefined
 
 getIdentityPoolConfigurationTest :: GetIdentityPoolConfiguration -> TestTree
 getIdentityPoolConfigurationTest = undefined
 
+listDatasetsTest :: ListDatasets -> TestTree
+listDatasetsTest = undefined
+
+listIdentityPoolUsageTest :: ListIdentityPoolUsage -> TestTree
+listIdentityPoolUsageTest = undefined
+
 listRecordsTest :: ListRecords -> TestTree
 listRecordsTest = undefined
+
+registerDeviceTest :: RegisterDevice -> TestTree
+registerDeviceTest = undefined
+
+setCognitoEventsTest :: SetCognitoEvents -> TestTree
+setCognitoEventsTest = undefined
+
+setIdentityPoolConfigurationTest :: SetIdentityPoolConfiguration -> TestTree
+setIdentityPoolConfigurationTest = undefined
+
+subscribeToDatasetTest :: SubscribeToDataset -> TestTree
+subscribeToDatasetTest = undefined
 
 unsubscribeFromDatasetTest :: UnsubscribeFromDataset -> TestTree
 unsubscribeFromDatasetTest = undefined
@@ -180,112 +186,106 @@ unsubscribeFromDatasetTest = undefined
 updateRecordsTest :: UpdateRecords -> TestTree
 updateRecordsTest = undefined
 
-listDatasetsTest :: ListDatasets -> TestTree
-listDatasetsTest = undefined
-
-bulkPublishTest :: BulkPublish -> TestTree
-bulkPublishTest = undefined
-
 -- Responses
+
+bulkPublishResponseTest :: BulkPublishResponse -> TestTree
+bulkPublishResponseTest = resp
+    "bulkPublishResponse"
+    "fixture/BulkPublishResponse"
+    (Proxy :: Proxy BulkPublish)
+
+deleteDatasetResponseTest :: DeleteDatasetResponse -> TestTree
+deleteDatasetResponseTest = resp
+    "deleteDatasetResponse"
+    "fixture/DeleteDatasetResponse"
+    (Proxy :: Proxy DeleteDataset)
 
 describeDatasetResponseTest :: DescribeDatasetResponse -> TestTree
 describeDatasetResponseTest = resp
-    "DescribeDatasetResponse"
+    "describeDatasetResponse"
     "fixture/DescribeDatasetResponse"
     (Proxy :: Proxy DescribeDataset)
 
 describeIdentityPoolUsageResponseTest :: DescribeIdentityPoolUsageResponse -> TestTree
 describeIdentityPoolUsageResponseTest = resp
-    "DescribeIdentityPoolUsageResponse"
+    "describeIdentityPoolUsageResponse"
     "fixture/DescribeIdentityPoolUsageResponse"
     (Proxy :: Proxy DescribeIdentityPoolUsage)
 
-setCognitoEventsResponseTest :: SetCognitoEventsResponse -> TestTree
-setCognitoEventsResponseTest = resp
-    "SetCognitoEventsResponse"
-    "fixture/SetCognitoEventsResponse"
-    (Proxy :: Proxy SetCognitoEvents)
-
-listIdentityPoolUsageResponseTest :: ListIdentityPoolUsageResponse -> TestTree
-listIdentityPoolUsageResponseTest = resp
-    "ListIdentityPoolUsageResponse"
-    "fixture/ListIdentityPoolUsageResponse"
-    (Proxy :: Proxy ListIdentityPoolUsage)
-
-getBulkPublishDetailsResponseTest :: GetBulkPublishDetailsResponse -> TestTree
-getBulkPublishDetailsResponseTest = resp
-    "GetBulkPublishDetailsResponse"
-    "fixture/GetBulkPublishDetailsResponse"
-    (Proxy :: Proxy GetBulkPublishDetails)
-
-setIdentityPoolConfigurationResponseTest :: SetIdentityPoolConfigurationResponse -> TestTree
-setIdentityPoolConfigurationResponseTest = resp
-    "SetIdentityPoolConfigurationResponse"
-    "fixture/SetIdentityPoolConfigurationResponse"
-    (Proxy :: Proxy SetIdentityPoolConfiguration)
-
-deleteDatasetResponseTest :: DeleteDatasetResponse -> TestTree
-deleteDatasetResponseTest = resp
-    "DeleteDatasetResponse"
-    "fixture/DeleteDatasetResponse"
-    (Proxy :: Proxy DeleteDataset)
-
 describeIdentityUsageResponseTest :: DescribeIdentityUsageResponse -> TestTree
 describeIdentityUsageResponseTest = resp
-    "DescribeIdentityUsageResponse"
+    "describeIdentityUsageResponse"
     "fixture/DescribeIdentityUsageResponse"
     (Proxy :: Proxy DescribeIdentityUsage)
 
+getBulkPublishDetailsResponseTest :: GetBulkPublishDetailsResponse -> TestTree
+getBulkPublishDetailsResponseTest = resp
+    "getBulkPublishDetailsResponse"
+    "fixture/GetBulkPublishDetailsResponse"
+    (Proxy :: Proxy GetBulkPublishDetails)
+
 getCognitoEventsResponseTest :: GetCognitoEventsResponse -> TestTree
 getCognitoEventsResponseTest = resp
-    "GetCognitoEventsResponse"
+    "getCognitoEventsResponse"
     "fixture/GetCognitoEventsResponse"
     (Proxy :: Proxy GetCognitoEvents)
 
-registerDeviceResponseTest :: RegisterDeviceResponse -> TestTree
-registerDeviceResponseTest = resp
-    "RegisterDeviceResponse"
-    "fixture/RegisterDeviceResponse"
-    (Proxy :: Proxy RegisterDevice)
-
-subscribeToDatasetResponseTest :: SubscribeToDatasetResponse -> TestTree
-subscribeToDatasetResponseTest = resp
-    "SubscribeToDatasetResponse"
-    "fixture/SubscribeToDatasetResponse"
-    (Proxy :: Proxy SubscribeToDataset)
-
 getIdentityPoolConfigurationResponseTest :: GetIdentityPoolConfigurationResponse -> TestTree
 getIdentityPoolConfigurationResponseTest = resp
-    "GetIdentityPoolConfigurationResponse"
+    "getIdentityPoolConfigurationResponse"
     "fixture/GetIdentityPoolConfigurationResponse"
     (Proxy :: Proxy GetIdentityPoolConfiguration)
 
+listDatasetsResponseTest :: ListDatasetsResponse -> TestTree
+listDatasetsResponseTest = resp
+    "listDatasetsResponse"
+    "fixture/ListDatasetsResponse"
+    (Proxy :: Proxy ListDatasets)
+
+listIdentityPoolUsageResponseTest :: ListIdentityPoolUsageResponse -> TestTree
+listIdentityPoolUsageResponseTest = resp
+    "listIdentityPoolUsageResponse"
+    "fixture/ListIdentityPoolUsageResponse"
+    (Proxy :: Proxy ListIdentityPoolUsage)
+
 listRecordsResponseTest :: ListRecordsResponse -> TestTree
 listRecordsResponseTest = resp
-    "ListRecordsResponse"
+    "listRecordsResponse"
     "fixture/ListRecordsResponse"
     (Proxy :: Proxy ListRecords)
 
+registerDeviceResponseTest :: RegisterDeviceResponse -> TestTree
+registerDeviceResponseTest = resp
+    "registerDeviceResponse"
+    "fixture/RegisterDeviceResponse"
+    (Proxy :: Proxy RegisterDevice)
+
+setCognitoEventsResponseTest :: SetCognitoEventsResponse -> TestTree
+setCognitoEventsResponseTest = resp
+    "setCognitoEventsResponse"
+    "fixture/SetCognitoEventsResponse"
+    (Proxy :: Proxy SetCognitoEvents)
+
+setIdentityPoolConfigurationResponseTest :: SetIdentityPoolConfigurationResponse -> TestTree
+setIdentityPoolConfigurationResponseTest = resp
+    "setIdentityPoolConfigurationResponse"
+    "fixture/SetIdentityPoolConfigurationResponse"
+    (Proxy :: Proxy SetIdentityPoolConfiguration)
+
+subscribeToDatasetResponseTest :: SubscribeToDatasetResponse -> TestTree
+subscribeToDatasetResponseTest = resp
+    "subscribeToDatasetResponse"
+    "fixture/SubscribeToDatasetResponse"
+    (Proxy :: Proxy SubscribeToDataset)
+
 unsubscribeFromDatasetResponseTest :: UnsubscribeFromDatasetResponse -> TestTree
 unsubscribeFromDatasetResponseTest = resp
-    "UnsubscribeFromDatasetResponse"
+    "unsubscribeFromDatasetResponse"
     "fixture/UnsubscribeFromDatasetResponse"
     (Proxy :: Proxy UnsubscribeFromDataset)
 
 updateRecordsResponseTest :: UpdateRecordsResponse -> TestTree
 updateRecordsResponseTest = resp
-    "UpdateRecordsResponse"
+    "updateRecordsResponse"
     "fixture/UpdateRecordsResponse"
     (Proxy :: Proxy UpdateRecords)
-
-listDatasetsResponseTest :: ListDatasetsResponse -> TestTree
-listDatasetsResponseTest = resp
-    "ListDatasetsResponse"
-    "fixture/ListDatasetsResponse"
-    (Proxy :: Proxy ListDatasets)
-
-bulkPublishResponseTest :: BulkPublishResponse -> TestTree
-bulkPublishResponseTest = resp
-    "BulkPublishResponse"
-    "fixture/BulkPublishResponse"
-    (Proxy :: Proxy BulkPublish)

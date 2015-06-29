@@ -85,6 +85,5 @@ test-suite amazonka-cloudtrail-test
         , amazonka-cloudtrail == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

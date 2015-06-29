@@ -109,6 +109,5 @@ test-suite amazonka-elasticbeanstalk-test
         , amazonka-elasticbeanstalk == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

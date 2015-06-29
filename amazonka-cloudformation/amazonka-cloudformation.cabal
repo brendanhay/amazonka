@@ -93,6 +93,5 @@ test-suite amazonka-cloudformation-test
         , amazonka-cloudformation == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

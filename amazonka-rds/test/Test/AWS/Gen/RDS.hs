@@ -25,98 +25,95 @@ import Network.AWS.RDS
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         [ describeDBEngineVersionsTest $
---             describeDBEngineVersions
---
---         , promoteReadReplicaTest $
---             promoteReadReplica
---
---         , modifyEventSubscriptionTest $
---             modifyEventSubscription
---
---         , copyDBSnapshotTest $
---             copyDBSnapshot
---
---         , addSourceIdentifierToSubscriptionTest $
+--         [ addSourceIdentifierToSubscriptionTest $
 --             addSourceIdentifierToSubscription
---
---         , modifyDBInstanceTest $
---             modifyDBInstance
---
---         , describeEventsTest $
---             describeEvents
---
---         , describeEngineDefaultParametersTest $
---             describeEngineDefaultParameters
---
---         , modifyDBSubnetGroupTest $
---             modifyDBSubnetGroup
---
---         , describeDBLogFilesTest $
---             describeDBLogFiles
---
---         , listTagsForResourceTest $
---             listTagsForResource
---
---         , describeOptionGroupsTest $
---             describeOptionGroups
---
---         , removeSourceIdentifierFromSubscriptionTest $
---             removeSourceIdentifierFromSubscription
---
---         , copyDBParameterGroupTest $
---             copyDBParameterGroup
---
---         , describeReservedDBInstancesTest $
---             describeReservedDBInstances
---
---         , deleteOptionGroupTest $
---             deleteOptionGroup
---
---         , createEventSubscriptionTest $
---             createEventSubscription
---
---         , removeTagsFromResourceTest $
---             removeTagsFromResource
---
---         , createDBInstanceTest $
---             createDBInstance
---
---         , restoreDBInstanceFromDBSnapshotTest $
---             restoreDBInstanceFromDBSnapshot
---
---         , authorizeDBSecurityGroupIngressTest $
---             authorizeDBSecurityGroupIngress
---
---         , purchaseReservedDBInstancesOfferingTest $
---             purchaseReservedDBInstancesOffering
---
---         , describeCertificatesTest $
---             describeCertificates
---
---         , createDBSnapshotTest $
---             createDBSnapshot
---
---         , deleteEventSubscriptionTest $
---             deleteEventSubscription
---
---         , describeDBParameterGroupsTest $
---             describeDBParameterGroups
---
---         , describeOrderableDBInstanceOptionsTest $
---             describeOrderableDBInstanceOptions
---
---         , describeEventSubscriptionsTest $
---             describeEventSubscriptions
 --
 --         , addTagsToResourceTest $
 --             addTagsToResource
 --
---         , describeOptionGroupOptionsTest $
---             describeOptionGroupOptions
+--         , applyPendingMaintenanceActionTest $
+--             applyPendingMaintenanceAction
+--
+--         , authorizeDBSecurityGroupIngressTest $
+--             authorizeDBSecurityGroupIngress
+--
+--         , copyDBParameterGroupTest $
+--             copyDBParameterGroup
+--
+--         , copyDBSnapshotTest $
+--             copyDBSnapshot
+--
+--         , copyOptionGroupTest $
+--             copyOptionGroup
+--
+--         , createDBInstanceTest $
+--             createDBInstance
+--
+--         , createDBInstanceReadReplicaTest $
+--             createDBInstanceReadReplica
+--
+--         , createDBParameterGroupTest $
+--             createDBParameterGroup
+--
+--         , createDBSecurityGroupTest $
+--             createDBSecurityGroup
+--
+--         , createDBSnapshotTest $
+--             createDBSnapshot
+--
+--         , createDBSubnetGroupTest $
+--             createDBSubnetGroup
+--
+--         , createEventSubscriptionTest $
+--             createEventSubscription
+--
+--         , createOptionGroupTest $
+--             createOptionGroup
+--
+--         , deleteDBInstanceTest $
+--             deleteDBInstance
+--
+--         , deleteDBParameterGroupTest $
+--             deleteDBParameterGroup
+--
+--         , deleteDBSecurityGroupTest $
+--             deleteDBSecurityGroup
+--
+--         , deleteDBSnapshotTest $
+--             deleteDBSnapshot
+--
+--         , deleteDBSubnetGroupTest $
+--             deleteDBSubnetGroup
+--
+--         , deleteEventSubscriptionTest $
+--             deleteEventSubscription
+--
+--         , deleteOptionGroupTest $
+--             deleteOptionGroup
+--
+--         , describeAccountAttributesTest $
+--             describeAccountAttributes
+--
+--         , describeCertificatesTest $
+--             describeCertificates
+--
+--         , describeDBEngineVersionsTest $
+--             describeDBEngineVersions
+--
+--         , describeDBInstancesTest $
+--             describeDBInstances
+--
+--         , describeDBLogFilesTest $
+--             describeDBLogFiles
+--
+--         , describeDBParameterGroupsTest $
+--             describeDBParameterGroups
 --
 --         , describeDBParametersTest $
 --             describeDBParameters
+--
+--         , describeDBSecurityGroupsTest $
+--             describeDBSecurityGroups
 --
 --         , describeDBSnapshotsTest $
 --             describeDBSnapshots
@@ -124,176 +121,176 @@ import Network.AWS.RDS
 --         , describeDBSubnetGroupsTest $
 --             describeDBSubnetGroups
 --
---         , createDBParameterGroupTest $
---             createDBParameterGroup
---
---         , modifyOptionGroupTest $
---             modifyOptionGroup
+--         , describeEngineDefaultParametersTest $
+--             describeEngineDefaultParameters
 --
 --         , describeEventCategoriesTest $
 --             describeEventCategories
 --
+--         , describeEventSubscriptionsTest $
+--             describeEventSubscriptions
+--
+--         , describeEventsTest $
+--             describeEvents
+--
+--         , describeOptionGroupOptionsTest $
+--             describeOptionGroupOptions
+--
+--         , describeOptionGroupsTest $
+--             describeOptionGroups
+--
+--         , describeOrderableDBInstanceOptionsTest $
+--             describeOrderableDBInstanceOptions
+--
 --         , describePendingMaintenanceActionsTest $
 --             describePendingMaintenanceActions
 --
---         , restoreDBInstanceToPointInTimeTest $
---             restoreDBInstanceToPointInTime
---
---         , resetDBParameterGroupTest $
---             resetDBParameterGroup
---
---         , modifyDBParameterGroupTest $
---             modifyDBParameterGroup
---
---         , createOptionGroupTest $
---             createOptionGroup
---
---         , applyPendingMaintenanceActionTest $
---             applyPendingMaintenanceAction
---
---         , revokeDBSecurityGroupIngressTest $
---             revokeDBSecurityGroupIngress
---
---         , deleteDBSnapshotTest $
---             deleteDBSnapshot
---
---         , createDBSecurityGroupTest $
---             createDBSecurityGroup
---
---         , deleteDBSubnetGroupTest $
---             deleteDBSubnetGroup
---
---         , describeAccountAttributesTest $
---             describeAccountAttributes
---
---         , deleteDBSecurityGroupTest $
---             deleteDBSecurityGroup
---
---         , rebootDBInstanceTest $
---             rebootDBInstance
---
---         , createDBSubnetGroupTest $
---             createDBSubnetGroup
+--         , describeReservedDBInstancesTest $
+--             describeReservedDBInstances
 --
 --         , describeReservedDBInstancesOfferingsTest $
 --             describeReservedDBInstancesOfferings
 --
---         , deleteDBInstanceTest $
---             deleteDBInstance
---
---         , describeDBInstancesTest $
---             describeDBInstances
---
---         , copyOptionGroupTest $
---             copyOptionGroup
---
 --         , downloadDBLogFilePortionTest $
 --             downloadDBLogFilePortion
 --
---         , createDBInstanceReadReplicaTest $
---             createDBInstanceReadReplica
+--         , listTagsForResourceTest $
+--             listTagsForResource
 --
---         , deleteDBParameterGroupTest $
---             deleteDBParameterGroup
+--         , modifyDBInstanceTest $
+--             modifyDBInstance
 --
---         , describeDBSecurityGroupsTest $
---             describeDBSecurityGroups
+--         , modifyDBParameterGroupTest $
+--             modifyDBParameterGroup
+--
+--         , modifyDBSubnetGroupTest $
+--             modifyDBSubnetGroup
+--
+--         , modifyEventSubscriptionTest $
+--             modifyEventSubscription
+--
+--         , modifyOptionGroupTest $
+--             modifyOptionGroup
+--
+--         , promoteReadReplicaTest $
+--             promoteReadReplica
+--
+--         , purchaseReservedDBInstancesOfferingTest $
+--             purchaseReservedDBInstancesOffering
+--
+--         , rebootDBInstanceTest $
+--             rebootDBInstance
+--
+--         , removeSourceIdentifierFromSubscriptionTest $
+--             removeSourceIdentifierFromSubscription
+--
+--         , removeTagsFromResourceTest $
+--             removeTagsFromResource
+--
+--         , resetDBParameterGroupTest $
+--             resetDBParameterGroup
+--
+--         , restoreDBInstanceFromDBSnapshotTest $
+--             restoreDBInstanceFromDBSnapshot
+--
+--         , restoreDBInstanceToPointInTimeTest $
+--             restoreDBInstanceToPointInTime
+--
+--         , revokeDBSecurityGroupIngressTest $
+--             revokeDBSecurityGroupIngress
 --
 --           ]
 
 --     , testGroup "response"
---         [ describeDBEngineVersionsResponseTest $
---             describeDBEngineVersionsResponse
---
---         , promoteReadReplicaResponseTest $
---             promoteReadReplicaResponse
---
---         , modifyEventSubscriptionResponseTest $
---             modifyEventSubscriptionResponse
---
---         , copyDBSnapshotResponseTest $
---             copyDBSnapshotResponse
---
---         , addSourceIdentifierToSubscriptionResponseTest $
+--         [ addSourceIdentifierToSubscriptionResponseTest $
 --             addSourceIdentifierToSubscriptionResponse
---
---         , modifyDBInstanceResponseTest $
---             modifyDBInstanceResponse
---
---         , describeEventsResponseTest $
---             describeEventsResponse
---
---         , describeEngineDefaultParametersResponseTest $
---             describeEngineDefaultParametersResponse
---
---         , modifyDBSubnetGroupResponseTest $
---             modifyDBSubnetGroupResponse
---
---         , describeDBLogFilesResponseTest $
---             describeDBLogFilesResponse
---
---         , listTagsForResourceResponseTest $
---             listTagsForResourceResponse
---
---         , describeOptionGroupsResponseTest $
---             describeOptionGroupsResponse
---
---         , removeSourceIdentifierFromSubscriptionResponseTest $
---             removeSourceIdentifierFromSubscriptionResponse
---
---         , copyDBParameterGroupResponseTest $
---             copyDBParameterGroupResponse
---
---         , describeReservedDBInstancesResponseTest $
---             describeReservedDBInstancesResponse
---
---         , deleteOptionGroupResponseTest $
---             deleteOptionGroupResponse
---
---         , createEventSubscriptionResponseTest $
---             createEventSubscriptionResponse
---
---         , removeTagsFromResourceResponseTest $
---             removeTagsFromResourceResponse
---
---         , createDBInstanceResponseTest $
---             createDBInstanceResponse
---
---         , restoreDBInstanceFromDBSnapshotResponseTest $
---             restoreDBInstanceFromDBSnapshotResponse
---
---         , authorizeDBSecurityGroupIngressResponseTest $
---             authorizeDBSecurityGroupIngressResponse
---
---         , purchaseReservedDBInstancesOfferingResponseTest $
---             purchaseReservedDBInstancesOfferingResponse
---
---         , describeCertificatesResponseTest $
---             describeCertificatesResponse
---
---         , createDBSnapshotResponseTest $
---             createDBSnapshotResponse
---
---         , deleteEventSubscriptionResponseTest $
---             deleteEventSubscriptionResponse
---
---         , describeDBParameterGroupsResponseTest $
---             describeDBParameterGroupsResponse
---
---         , describeOrderableDBInstanceOptionsResponseTest $
---             describeOrderableDBInstanceOptionsResponse
---
---         , describeEventSubscriptionsResponseTest $
---             describeEventSubscriptionsResponse
 --
 --         , addTagsToResourceResponseTest $
 --             addTagsToResourceResponse
 --
---         , describeOptionGroupOptionsResponseTest $
---             describeOptionGroupOptionsResponse
+--         , applyPendingMaintenanceActionResponseTest $
+--             applyPendingMaintenanceActionResponse
+--
+--         , authorizeDBSecurityGroupIngressResponseTest $
+--             authorizeDBSecurityGroupIngressResponse
+--
+--         , copyDBParameterGroupResponseTest $
+--             copyDBParameterGroupResponse
+--
+--         , copyDBSnapshotResponseTest $
+--             copyDBSnapshotResponse
+--
+--         , copyOptionGroupResponseTest $
+--             copyOptionGroupResponse
+--
+--         , createDBInstanceResponseTest $
+--             createDBInstanceResponse
+--
+--         , createDBInstanceReadReplicaResponseTest $
+--             createDBInstanceReadReplicaResponse
+--
+--         , createDBParameterGroupResponseTest $
+--             createDBParameterGroupResponse
+--
+--         , createDBSecurityGroupResponseTest $
+--             createDBSecurityGroupResponse
+--
+--         , createDBSnapshotResponseTest $
+--             createDBSnapshotResponse
+--
+--         , createDBSubnetGroupResponseTest $
+--             createDBSubnetGroupResponse
+--
+--         , createEventSubscriptionResponseTest $
+--             createEventSubscriptionResponse
+--
+--         , createOptionGroupResponseTest $
+--             createOptionGroupResponse
+--
+--         , deleteDBInstanceResponseTest $
+--             deleteDBInstanceResponse
+--
+--         , deleteDBParameterGroupResponseTest $
+--             deleteDBParameterGroupResponse
+--
+--         , deleteDBSecurityGroupResponseTest $
+--             deleteDBSecurityGroupResponse
+--
+--         , deleteDBSnapshotResponseTest $
+--             deleteDBSnapshotResponse
+--
+--         , deleteDBSubnetGroupResponseTest $
+--             deleteDBSubnetGroupResponse
+--
+--         , deleteEventSubscriptionResponseTest $
+--             deleteEventSubscriptionResponse
+--
+--         , deleteOptionGroupResponseTest $
+--             deleteOptionGroupResponse
+--
+--         , describeAccountAttributesResponseTest $
+--             describeAccountAttributesResponse
+--
+--         , describeCertificatesResponseTest $
+--             describeCertificatesResponse
+--
+--         , describeDBEngineVersionsResponseTest $
+--             describeDBEngineVersionsResponse
+--
+--         , describeDBInstancesResponseTest $
+--             describeDBInstancesResponse
+--
+--         , describeDBLogFilesResponseTest $
+--             describeDBLogFilesResponse
+--
+--         , describeDBParameterGroupsResponseTest $
+--             describeDBParameterGroupsResponse
 --
 --         , describeDBParametersResponseTest $
 --             describeDBParametersResponse
+--
+--         , describeDBSecurityGroupsResponseTest $
+--             describeDBSecurityGroupsResponse
 --
 --         , describeDBSnapshotsResponseTest $
 --             describeDBSnapshotsResponse
@@ -301,178 +298,178 @@ import Network.AWS.RDS
 --         , describeDBSubnetGroupsResponseTest $
 --             describeDBSubnetGroupsResponse
 --
---         , createDBParameterGroupResponseTest $
---             createDBParameterGroupResponse
---
---         , modifyOptionGroupResponseTest $
---             modifyOptionGroupResponse
+--         , describeEngineDefaultParametersResponseTest $
+--             describeEngineDefaultParametersResponse
 --
 --         , describeEventCategoriesResponseTest $
 --             describeEventCategoriesResponse
 --
+--         , describeEventSubscriptionsResponseTest $
+--             describeEventSubscriptionsResponse
+--
+--         , describeEventsResponseTest $
+--             describeEventsResponse
+--
+--         , describeOptionGroupOptionsResponseTest $
+--             describeOptionGroupOptionsResponse
+--
+--         , describeOptionGroupsResponseTest $
+--             describeOptionGroupsResponse
+--
+--         , describeOrderableDBInstanceOptionsResponseTest $
+--             describeOrderableDBInstanceOptionsResponse
+--
 --         , describePendingMaintenanceActionsResponseTest $
 --             describePendingMaintenanceActionsResponse
 --
---         , restoreDBInstanceToPointInTimeResponseTest $
---             restoreDBInstanceToPointInTimeResponse
---
---         , dbParameterGroupNameMessageTest $
---             dbParameterGroupNameMessage
---
---         , dbParameterGroupNameMessageTest $
---             dbParameterGroupNameMessage
---
---         , createOptionGroupResponseTest $
---             createOptionGroupResponse
---
---         , applyPendingMaintenanceActionResponseTest $
---             applyPendingMaintenanceActionResponse
---
---         , revokeDBSecurityGroupIngressResponseTest $
---             revokeDBSecurityGroupIngressResponse
---
---         , deleteDBSnapshotResponseTest $
---             deleteDBSnapshotResponse
---
---         , createDBSecurityGroupResponseTest $
---             createDBSecurityGroupResponse
---
---         , deleteDBSubnetGroupResponseTest $
---             deleteDBSubnetGroupResponse
---
---         , describeAccountAttributesResponseTest $
---             describeAccountAttributesResponse
---
---         , deleteDBSecurityGroupResponseTest $
---             deleteDBSecurityGroupResponse
---
---         , rebootDBInstanceResponseTest $
---             rebootDBInstanceResponse
---
---         , createDBSubnetGroupResponseTest $
---             createDBSubnetGroupResponse
+--         , describeReservedDBInstancesResponseTest $
+--             describeReservedDBInstancesResponse
 --
 --         , describeReservedDBInstancesOfferingsResponseTest $
 --             describeReservedDBInstancesOfferingsResponse
 --
---         , deleteDBInstanceResponseTest $
---             deleteDBInstanceResponse
---
---         , describeDBInstancesResponseTest $
---             describeDBInstancesResponse
---
---         , copyOptionGroupResponseTest $
---             copyOptionGroupResponse
---
 --         , downloadDBLogFilePortionResponseTest $
 --             downloadDBLogFilePortionResponse
 --
---         , createDBInstanceReadReplicaResponseTest $
---             createDBInstanceReadReplicaResponse
+--         , listTagsForResourceResponseTest $
+--             listTagsForResourceResponse
 --
---         , deleteDBParameterGroupResponseTest $
---             deleteDBParameterGroupResponse
+--         , modifyDBInstanceResponseTest $
+--             modifyDBInstanceResponse
 --
---         , describeDBSecurityGroupsResponseTest $
---             describeDBSecurityGroupsResponse
+--         , modifyDBParameterGroupResponseTest $
+--             dbParameterGroupNameMessage
+--
+--         , modifyDBSubnetGroupResponseTest $
+--             modifyDBSubnetGroupResponse
+--
+--         , modifyEventSubscriptionResponseTest $
+--             modifyEventSubscriptionResponse
+--
+--         , modifyOptionGroupResponseTest $
+--             modifyOptionGroupResponse
+--
+--         , promoteReadReplicaResponseTest $
+--             promoteReadReplicaResponse
+--
+--         , purchaseReservedDBInstancesOfferingResponseTest $
+--             purchaseReservedDBInstancesOfferingResponse
+--
+--         , rebootDBInstanceResponseTest $
+--             rebootDBInstanceResponse
+--
+--         , removeSourceIdentifierFromSubscriptionResponseTest $
+--             removeSourceIdentifierFromSubscriptionResponse
+--
+--         , removeTagsFromResourceResponseTest $
+--             removeTagsFromResourceResponse
+--
+--         , resetDBParameterGroupResponseTest $
+--             dbParameterGroupNameMessage
+--
+--         , restoreDBInstanceFromDBSnapshotResponseTest $
+--             restoreDBInstanceFromDBSnapshotResponse
+--
+--         , restoreDBInstanceToPointInTimeResponseTest $
+--             restoreDBInstanceToPointInTimeResponse
+--
+--         , revokeDBSecurityGroupIngressResponseTest $
+--             revokeDBSecurityGroupIngressResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-describeDBEngineVersionsTest :: DescribeDBEngineVersions -> TestTree
-describeDBEngineVersionsTest = undefined
-
-promoteReadReplicaTest :: PromoteReadReplica -> TestTree
-promoteReadReplicaTest = undefined
-
-modifyEventSubscriptionTest :: ModifyEventSubscription -> TestTree
-modifyEventSubscriptionTest = undefined
-
-copyDBSnapshotTest :: CopyDBSnapshot -> TestTree
-copyDBSnapshotTest = undefined
-
 addSourceIdentifierToSubscriptionTest :: AddSourceIdentifierToSubscription -> TestTree
 addSourceIdentifierToSubscriptionTest = undefined
-
-modifyDBInstanceTest :: ModifyDBInstance -> TestTree
-modifyDBInstanceTest = undefined
-
-describeEventsTest :: DescribeEvents -> TestTree
-describeEventsTest = undefined
-
-describeEngineDefaultParametersTest :: DescribeEngineDefaultParameters -> TestTree
-describeEngineDefaultParametersTest = undefined
-
-modifyDBSubnetGroupTest :: ModifyDBSubnetGroup -> TestTree
-modifyDBSubnetGroupTest = undefined
-
-describeDBLogFilesTest :: DescribeDBLogFiles -> TestTree
-describeDBLogFilesTest = undefined
-
-listTagsForResourceTest :: ListTagsForResource -> TestTree
-listTagsForResourceTest = undefined
-
-describeOptionGroupsTest :: DescribeOptionGroups -> TestTree
-describeOptionGroupsTest = undefined
-
-removeSourceIdentifierFromSubscriptionTest :: RemoveSourceIdentifierFromSubscription -> TestTree
-removeSourceIdentifierFromSubscriptionTest = undefined
-
-copyDBParameterGroupTest :: CopyDBParameterGroup -> TestTree
-copyDBParameterGroupTest = undefined
-
-describeReservedDBInstancesTest :: DescribeReservedDBInstances -> TestTree
-describeReservedDBInstancesTest = undefined
-
-deleteOptionGroupTest :: DeleteOptionGroup -> TestTree
-deleteOptionGroupTest = undefined
-
-createEventSubscriptionTest :: CreateEventSubscription -> TestTree
-createEventSubscriptionTest = undefined
-
-removeTagsFromResourceTest :: RemoveTagsFromResource -> TestTree
-removeTagsFromResourceTest = undefined
-
-createDBInstanceTest :: CreateDBInstance -> TestTree
-createDBInstanceTest = undefined
-
-restoreDBInstanceFromDBSnapshotTest :: RestoreDBInstanceFromDBSnapshot -> TestTree
-restoreDBInstanceFromDBSnapshotTest = undefined
-
-authorizeDBSecurityGroupIngressTest :: AuthorizeDBSecurityGroupIngress -> TestTree
-authorizeDBSecurityGroupIngressTest = undefined
-
-purchaseReservedDBInstancesOfferingTest :: PurchaseReservedDBInstancesOffering -> TestTree
-purchaseReservedDBInstancesOfferingTest = undefined
-
-describeCertificatesTest :: DescribeCertificates -> TestTree
-describeCertificatesTest = undefined
-
-createDBSnapshotTest :: CreateDBSnapshot -> TestTree
-createDBSnapshotTest = undefined
-
-deleteEventSubscriptionTest :: DeleteEventSubscription -> TestTree
-deleteEventSubscriptionTest = undefined
-
-describeDBParameterGroupsTest :: DescribeDBParameterGroups -> TestTree
-describeDBParameterGroupsTest = undefined
-
-describeOrderableDBInstanceOptionsTest :: DescribeOrderableDBInstanceOptions -> TestTree
-describeOrderableDBInstanceOptionsTest = undefined
-
-describeEventSubscriptionsTest :: DescribeEventSubscriptions -> TestTree
-describeEventSubscriptionsTest = undefined
 
 addTagsToResourceTest :: AddTagsToResource -> TestTree
 addTagsToResourceTest = undefined
 
-describeOptionGroupOptionsTest :: DescribeOptionGroupOptions -> TestTree
-describeOptionGroupOptionsTest = undefined
+applyPendingMaintenanceActionTest :: ApplyPendingMaintenanceAction -> TestTree
+applyPendingMaintenanceActionTest = undefined
+
+authorizeDBSecurityGroupIngressTest :: AuthorizeDBSecurityGroupIngress -> TestTree
+authorizeDBSecurityGroupIngressTest = undefined
+
+copyDBParameterGroupTest :: CopyDBParameterGroup -> TestTree
+copyDBParameterGroupTest = undefined
+
+copyDBSnapshotTest :: CopyDBSnapshot -> TestTree
+copyDBSnapshotTest = undefined
+
+copyOptionGroupTest :: CopyOptionGroup -> TestTree
+copyOptionGroupTest = undefined
+
+createDBInstanceTest :: CreateDBInstance -> TestTree
+createDBInstanceTest = undefined
+
+createDBInstanceReadReplicaTest :: CreateDBInstanceReadReplica -> TestTree
+createDBInstanceReadReplicaTest = undefined
+
+createDBParameterGroupTest :: CreateDBParameterGroup -> TestTree
+createDBParameterGroupTest = undefined
+
+createDBSecurityGroupTest :: CreateDBSecurityGroup -> TestTree
+createDBSecurityGroupTest = undefined
+
+createDBSnapshotTest :: CreateDBSnapshot -> TestTree
+createDBSnapshotTest = undefined
+
+createDBSubnetGroupTest :: CreateDBSubnetGroup -> TestTree
+createDBSubnetGroupTest = undefined
+
+createEventSubscriptionTest :: CreateEventSubscription -> TestTree
+createEventSubscriptionTest = undefined
+
+createOptionGroupTest :: CreateOptionGroup -> TestTree
+createOptionGroupTest = undefined
+
+deleteDBInstanceTest :: DeleteDBInstance -> TestTree
+deleteDBInstanceTest = undefined
+
+deleteDBParameterGroupTest :: DeleteDBParameterGroup -> TestTree
+deleteDBParameterGroupTest = undefined
+
+deleteDBSecurityGroupTest :: DeleteDBSecurityGroup -> TestTree
+deleteDBSecurityGroupTest = undefined
+
+deleteDBSnapshotTest :: DeleteDBSnapshot -> TestTree
+deleteDBSnapshotTest = undefined
+
+deleteDBSubnetGroupTest :: DeleteDBSubnetGroup -> TestTree
+deleteDBSubnetGroupTest = undefined
+
+deleteEventSubscriptionTest :: DeleteEventSubscription -> TestTree
+deleteEventSubscriptionTest = undefined
+
+deleteOptionGroupTest :: DeleteOptionGroup -> TestTree
+deleteOptionGroupTest = undefined
+
+describeAccountAttributesTest :: DescribeAccountAttributes -> TestTree
+describeAccountAttributesTest = undefined
+
+describeCertificatesTest :: DescribeCertificates -> TestTree
+describeCertificatesTest = undefined
+
+describeDBEngineVersionsTest :: DescribeDBEngineVersions -> TestTree
+describeDBEngineVersionsTest = undefined
+
+describeDBInstancesTest :: DescribeDBInstances -> TestTree
+describeDBInstancesTest = undefined
+
+describeDBLogFilesTest :: DescribeDBLogFiles -> TestTree
+describeDBLogFilesTest = undefined
+
+describeDBParameterGroupsTest :: DescribeDBParameterGroups -> TestTree
+describeDBParameterGroupsTest = undefined
 
 describeDBParametersTest :: DescribeDBParameters -> TestTree
 describeDBParametersTest = undefined
+
+describeDBSecurityGroupsTest :: DescribeDBSecurityGroups -> TestTree
+describeDBSecurityGroupsTest = undefined
 
 describeDBSnapshotsTest :: DescribeDBSnapshots -> TestTree
 describeDBSnapshotsTest = undefined
@@ -480,427 +477,430 @@ describeDBSnapshotsTest = undefined
 describeDBSubnetGroupsTest :: DescribeDBSubnetGroups -> TestTree
 describeDBSubnetGroupsTest = undefined
 
-createDBParameterGroupTest :: CreateDBParameterGroup -> TestTree
-createDBParameterGroupTest = undefined
-
-modifyOptionGroupTest :: ModifyOptionGroup -> TestTree
-modifyOptionGroupTest = undefined
+describeEngineDefaultParametersTest :: DescribeEngineDefaultParameters -> TestTree
+describeEngineDefaultParametersTest = undefined
 
 describeEventCategoriesTest :: DescribeEventCategories -> TestTree
 describeEventCategoriesTest = undefined
 
+describeEventSubscriptionsTest :: DescribeEventSubscriptions -> TestTree
+describeEventSubscriptionsTest = undefined
+
+describeEventsTest :: DescribeEvents -> TestTree
+describeEventsTest = undefined
+
+describeOptionGroupOptionsTest :: DescribeOptionGroupOptions -> TestTree
+describeOptionGroupOptionsTest = undefined
+
+describeOptionGroupsTest :: DescribeOptionGroups -> TestTree
+describeOptionGroupsTest = undefined
+
+describeOrderableDBInstanceOptionsTest :: DescribeOrderableDBInstanceOptions -> TestTree
+describeOrderableDBInstanceOptionsTest = undefined
+
 describePendingMaintenanceActionsTest :: DescribePendingMaintenanceActions -> TestTree
 describePendingMaintenanceActionsTest = undefined
 
-restoreDBInstanceToPointInTimeTest :: RestoreDBInstanceToPointInTime -> TestTree
-restoreDBInstanceToPointInTimeTest = undefined
-
-resetDBParameterGroupTest :: ResetDBParameterGroup -> TestTree
-resetDBParameterGroupTest = undefined
-
-modifyDBParameterGroupTest :: ModifyDBParameterGroup -> TestTree
-modifyDBParameterGroupTest = undefined
-
-createOptionGroupTest :: CreateOptionGroup -> TestTree
-createOptionGroupTest = undefined
-
-applyPendingMaintenanceActionTest :: ApplyPendingMaintenanceAction -> TestTree
-applyPendingMaintenanceActionTest = undefined
-
-revokeDBSecurityGroupIngressTest :: RevokeDBSecurityGroupIngress -> TestTree
-revokeDBSecurityGroupIngressTest = undefined
-
-deleteDBSnapshotTest :: DeleteDBSnapshot -> TestTree
-deleteDBSnapshotTest = undefined
-
-createDBSecurityGroupTest :: CreateDBSecurityGroup -> TestTree
-createDBSecurityGroupTest = undefined
-
-deleteDBSubnetGroupTest :: DeleteDBSubnetGroup -> TestTree
-deleteDBSubnetGroupTest = undefined
-
-describeAccountAttributesTest :: DescribeAccountAttributes -> TestTree
-describeAccountAttributesTest = undefined
-
-deleteDBSecurityGroupTest :: DeleteDBSecurityGroup -> TestTree
-deleteDBSecurityGroupTest = undefined
-
-rebootDBInstanceTest :: RebootDBInstance -> TestTree
-rebootDBInstanceTest = undefined
-
-createDBSubnetGroupTest :: CreateDBSubnetGroup -> TestTree
-createDBSubnetGroupTest = undefined
+describeReservedDBInstancesTest :: DescribeReservedDBInstances -> TestTree
+describeReservedDBInstancesTest = undefined
 
 describeReservedDBInstancesOfferingsTest :: DescribeReservedDBInstancesOfferings -> TestTree
 describeReservedDBInstancesOfferingsTest = undefined
 
-deleteDBInstanceTest :: DeleteDBInstance -> TestTree
-deleteDBInstanceTest = undefined
-
-describeDBInstancesTest :: DescribeDBInstances -> TestTree
-describeDBInstancesTest = undefined
-
-copyOptionGroupTest :: CopyOptionGroup -> TestTree
-copyOptionGroupTest = undefined
-
 downloadDBLogFilePortionTest :: DownloadDBLogFilePortion -> TestTree
 downloadDBLogFilePortionTest = undefined
 
-createDBInstanceReadReplicaTest :: CreateDBInstanceReadReplica -> TestTree
-createDBInstanceReadReplicaTest = undefined
+listTagsForResourceTest :: ListTagsForResource -> TestTree
+listTagsForResourceTest = undefined
 
-deleteDBParameterGroupTest :: DeleteDBParameterGroup -> TestTree
-deleteDBParameterGroupTest = undefined
+modifyDBInstanceTest :: ModifyDBInstance -> TestTree
+modifyDBInstanceTest = undefined
 
-describeDBSecurityGroupsTest :: DescribeDBSecurityGroups -> TestTree
-describeDBSecurityGroupsTest = undefined
+modifyDBParameterGroupTest :: ModifyDBParameterGroup -> TestTree
+modifyDBParameterGroupTest = undefined
+
+modifyDBSubnetGroupTest :: ModifyDBSubnetGroup -> TestTree
+modifyDBSubnetGroupTest = undefined
+
+modifyEventSubscriptionTest :: ModifyEventSubscription -> TestTree
+modifyEventSubscriptionTest = undefined
+
+modifyOptionGroupTest :: ModifyOptionGroup -> TestTree
+modifyOptionGroupTest = undefined
+
+promoteReadReplicaTest :: PromoteReadReplica -> TestTree
+promoteReadReplicaTest = undefined
+
+purchaseReservedDBInstancesOfferingTest :: PurchaseReservedDBInstancesOffering -> TestTree
+purchaseReservedDBInstancesOfferingTest = undefined
+
+rebootDBInstanceTest :: RebootDBInstance -> TestTree
+rebootDBInstanceTest = undefined
+
+removeSourceIdentifierFromSubscriptionTest :: RemoveSourceIdentifierFromSubscription -> TestTree
+removeSourceIdentifierFromSubscriptionTest = undefined
+
+removeTagsFromResourceTest :: RemoveTagsFromResource -> TestTree
+removeTagsFromResourceTest = undefined
+
+resetDBParameterGroupTest :: ResetDBParameterGroup -> TestTree
+resetDBParameterGroupTest = undefined
+
+restoreDBInstanceFromDBSnapshotTest :: RestoreDBInstanceFromDBSnapshot -> TestTree
+restoreDBInstanceFromDBSnapshotTest = undefined
+
+restoreDBInstanceToPointInTimeTest :: RestoreDBInstanceToPointInTime -> TestTree
+restoreDBInstanceToPointInTimeTest = undefined
+
+revokeDBSecurityGroupIngressTest :: RevokeDBSecurityGroupIngress -> TestTree
+revokeDBSecurityGroupIngressTest = undefined
 
 -- Responses
 
-describeDBEngineVersionsResponseTest :: DescribeDBEngineVersionsResponse -> TestTree
-describeDBEngineVersionsResponseTest = resp
-    "DescribeDBEngineVersionsResponse"
-    "fixture/DescribeDBEngineVersionsResponse"
-    (Proxy :: Proxy DescribeDBEngineVersions)
-
-promoteReadReplicaResponseTest :: PromoteReadReplicaResponse -> TestTree
-promoteReadReplicaResponseTest = resp
-    "PromoteReadReplicaResponse"
-    "fixture/PromoteReadReplicaResponse"
-    (Proxy :: Proxy PromoteReadReplica)
-
-modifyEventSubscriptionResponseTest :: ModifyEventSubscriptionResponse -> TestTree
-modifyEventSubscriptionResponseTest = resp
-    "ModifyEventSubscriptionResponse"
-    "fixture/ModifyEventSubscriptionResponse"
-    (Proxy :: Proxy ModifyEventSubscription)
-
-copyDBSnapshotResponseTest :: CopyDBSnapshotResponse -> TestTree
-copyDBSnapshotResponseTest = resp
-    "CopyDBSnapshotResponse"
-    "fixture/CopyDBSnapshotResponse"
-    (Proxy :: Proxy CopyDBSnapshot)
-
 addSourceIdentifierToSubscriptionResponseTest :: AddSourceIdentifierToSubscriptionResponse -> TestTree
 addSourceIdentifierToSubscriptionResponseTest = resp
-    "AddSourceIdentifierToSubscriptionResponse"
+    "addSourceIdentifierToSubscriptionResponse"
     "fixture/AddSourceIdentifierToSubscriptionResponse"
     (Proxy :: Proxy AddSourceIdentifierToSubscription)
 
-modifyDBInstanceResponseTest :: ModifyDBInstanceResponse -> TestTree
-modifyDBInstanceResponseTest = resp
-    "ModifyDBInstanceResponse"
-    "fixture/ModifyDBInstanceResponse"
-    (Proxy :: Proxy ModifyDBInstance)
-
-describeEventsResponseTest :: DescribeEventsResponse -> TestTree
-describeEventsResponseTest = resp
-    "DescribeEventsResponse"
-    "fixture/DescribeEventsResponse"
-    (Proxy :: Proxy DescribeEvents)
-
-describeEngineDefaultParametersResponseTest :: DescribeEngineDefaultParametersResponse -> TestTree
-describeEngineDefaultParametersResponseTest = resp
-    "DescribeEngineDefaultParametersResponse"
-    "fixture/DescribeEngineDefaultParametersResponse"
-    (Proxy :: Proxy DescribeEngineDefaultParameters)
-
-modifyDBSubnetGroupResponseTest :: ModifyDBSubnetGroupResponse -> TestTree
-modifyDBSubnetGroupResponseTest = resp
-    "ModifyDBSubnetGroupResponse"
-    "fixture/ModifyDBSubnetGroupResponse"
-    (Proxy :: Proxy ModifyDBSubnetGroup)
-
-describeDBLogFilesResponseTest :: DescribeDBLogFilesResponse -> TestTree
-describeDBLogFilesResponseTest = resp
-    "DescribeDBLogFilesResponse"
-    "fixture/DescribeDBLogFilesResponse"
-    (Proxy :: Proxy DescribeDBLogFiles)
-
-listTagsForResourceResponseTest :: ListTagsForResourceResponse -> TestTree
-listTagsForResourceResponseTest = resp
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse"
-    (Proxy :: Proxy ListTagsForResource)
-
-describeOptionGroupsResponseTest :: DescribeOptionGroupsResponse -> TestTree
-describeOptionGroupsResponseTest = resp
-    "DescribeOptionGroupsResponse"
-    "fixture/DescribeOptionGroupsResponse"
-    (Proxy :: Proxy DescribeOptionGroups)
-
-removeSourceIdentifierFromSubscriptionResponseTest :: RemoveSourceIdentifierFromSubscriptionResponse -> TestTree
-removeSourceIdentifierFromSubscriptionResponseTest = resp
-    "RemoveSourceIdentifierFromSubscriptionResponse"
-    "fixture/RemoveSourceIdentifierFromSubscriptionResponse"
-    (Proxy :: Proxy RemoveSourceIdentifierFromSubscription)
-
-copyDBParameterGroupResponseTest :: CopyDBParameterGroupResponse -> TestTree
-copyDBParameterGroupResponseTest = resp
-    "CopyDBParameterGroupResponse"
-    "fixture/CopyDBParameterGroupResponse"
-    (Proxy :: Proxy CopyDBParameterGroup)
-
-describeReservedDBInstancesResponseTest :: DescribeReservedDBInstancesResponse -> TestTree
-describeReservedDBInstancesResponseTest = resp
-    "DescribeReservedDBInstancesResponse"
-    "fixture/DescribeReservedDBInstancesResponse"
-    (Proxy :: Proxy DescribeReservedDBInstances)
-
-deleteOptionGroupResponseTest :: DeleteOptionGroupResponse -> TestTree
-deleteOptionGroupResponseTest = resp
-    "DeleteOptionGroupResponse"
-    "fixture/DeleteOptionGroupResponse"
-    (Proxy :: Proxy DeleteOptionGroup)
-
-createEventSubscriptionResponseTest :: CreateEventSubscriptionResponse -> TestTree
-createEventSubscriptionResponseTest = resp
-    "CreateEventSubscriptionResponse"
-    "fixture/CreateEventSubscriptionResponse"
-    (Proxy :: Proxy CreateEventSubscription)
-
-removeTagsFromResourceResponseTest :: RemoveTagsFromResourceResponse -> TestTree
-removeTagsFromResourceResponseTest = resp
-    "RemoveTagsFromResourceResponse"
-    "fixture/RemoveTagsFromResourceResponse"
-    (Proxy :: Proxy RemoveTagsFromResource)
-
-createDBInstanceResponseTest :: CreateDBInstanceResponse -> TestTree
-createDBInstanceResponseTest = resp
-    "CreateDBInstanceResponse"
-    "fixture/CreateDBInstanceResponse"
-    (Proxy :: Proxy CreateDBInstance)
-
-restoreDBInstanceFromDBSnapshotResponseTest :: RestoreDBInstanceFromDBSnapshotResponse -> TestTree
-restoreDBInstanceFromDBSnapshotResponseTest = resp
-    "RestoreDBInstanceFromDBSnapshotResponse"
-    "fixture/RestoreDBInstanceFromDBSnapshotResponse"
-    (Proxy :: Proxy RestoreDBInstanceFromDBSnapshot)
-
-authorizeDBSecurityGroupIngressResponseTest :: AuthorizeDBSecurityGroupIngressResponse -> TestTree
-authorizeDBSecurityGroupIngressResponseTest = resp
-    "AuthorizeDBSecurityGroupIngressResponse"
-    "fixture/AuthorizeDBSecurityGroupIngressResponse"
-    (Proxy :: Proxy AuthorizeDBSecurityGroupIngress)
-
-purchaseReservedDBInstancesOfferingResponseTest :: PurchaseReservedDBInstancesOfferingResponse -> TestTree
-purchaseReservedDBInstancesOfferingResponseTest = resp
-    "PurchaseReservedDBInstancesOfferingResponse"
-    "fixture/PurchaseReservedDBInstancesOfferingResponse"
-    (Proxy :: Proxy PurchaseReservedDBInstancesOffering)
-
-describeCertificatesResponseTest :: DescribeCertificatesResponse -> TestTree
-describeCertificatesResponseTest = resp
-    "DescribeCertificatesResponse"
-    "fixture/DescribeCertificatesResponse"
-    (Proxy :: Proxy DescribeCertificates)
-
-createDBSnapshotResponseTest :: CreateDBSnapshotResponse -> TestTree
-createDBSnapshotResponseTest = resp
-    "CreateDBSnapshotResponse"
-    "fixture/CreateDBSnapshotResponse"
-    (Proxy :: Proxy CreateDBSnapshot)
-
-deleteEventSubscriptionResponseTest :: DeleteEventSubscriptionResponse -> TestTree
-deleteEventSubscriptionResponseTest = resp
-    "DeleteEventSubscriptionResponse"
-    "fixture/DeleteEventSubscriptionResponse"
-    (Proxy :: Proxy DeleteEventSubscription)
-
-describeDBParameterGroupsResponseTest :: DescribeDBParameterGroupsResponse -> TestTree
-describeDBParameterGroupsResponseTest = resp
-    "DescribeDBParameterGroupsResponse"
-    "fixture/DescribeDBParameterGroupsResponse"
-    (Proxy :: Proxy DescribeDBParameterGroups)
-
-describeOrderableDBInstanceOptionsResponseTest :: DescribeOrderableDBInstanceOptionsResponse -> TestTree
-describeOrderableDBInstanceOptionsResponseTest = resp
-    "DescribeOrderableDBInstanceOptionsResponse"
-    "fixture/DescribeOrderableDBInstanceOptionsResponse"
-    (Proxy :: Proxy DescribeOrderableDBInstanceOptions)
-
-describeEventSubscriptionsResponseTest :: DescribeEventSubscriptionsResponse -> TestTree
-describeEventSubscriptionsResponseTest = resp
-    "DescribeEventSubscriptionsResponse"
-    "fixture/DescribeEventSubscriptionsResponse"
-    (Proxy :: Proxy DescribeEventSubscriptions)
-
 addTagsToResourceResponseTest :: AddTagsToResourceResponse -> TestTree
 addTagsToResourceResponseTest = resp
-    "AddTagsToResourceResponse"
+    "addTagsToResourceResponse"
     "fixture/AddTagsToResourceResponse"
     (Proxy :: Proxy AddTagsToResource)
 
-describeOptionGroupOptionsResponseTest :: DescribeOptionGroupOptionsResponse -> TestTree
-describeOptionGroupOptionsResponseTest = resp
-    "DescribeOptionGroupOptionsResponse"
-    "fixture/DescribeOptionGroupOptionsResponse"
-    (Proxy :: Proxy DescribeOptionGroupOptions)
+applyPendingMaintenanceActionResponseTest :: ApplyPendingMaintenanceActionResponse -> TestTree
+applyPendingMaintenanceActionResponseTest = resp
+    "applyPendingMaintenanceActionResponse"
+    "fixture/ApplyPendingMaintenanceActionResponse"
+    (Proxy :: Proxy ApplyPendingMaintenanceAction)
+
+authorizeDBSecurityGroupIngressResponseTest :: AuthorizeDBSecurityGroupIngressResponse -> TestTree
+authorizeDBSecurityGroupIngressResponseTest = resp
+    "authorizeDBSecurityGroupIngressResponse"
+    "fixture/AuthorizeDBSecurityGroupIngressResponse"
+    (Proxy :: Proxy AuthorizeDBSecurityGroupIngress)
+
+copyDBParameterGroupResponseTest :: CopyDBParameterGroupResponse -> TestTree
+copyDBParameterGroupResponseTest = resp
+    "copyDBParameterGroupResponse"
+    "fixture/CopyDBParameterGroupResponse"
+    (Proxy :: Proxy CopyDBParameterGroup)
+
+copyDBSnapshotResponseTest :: CopyDBSnapshotResponse -> TestTree
+copyDBSnapshotResponseTest = resp
+    "copyDBSnapshotResponse"
+    "fixture/CopyDBSnapshotResponse"
+    (Proxy :: Proxy CopyDBSnapshot)
+
+copyOptionGroupResponseTest :: CopyOptionGroupResponse -> TestTree
+copyOptionGroupResponseTest = resp
+    "copyOptionGroupResponse"
+    "fixture/CopyOptionGroupResponse"
+    (Proxy :: Proxy CopyOptionGroup)
+
+createDBInstanceResponseTest :: CreateDBInstanceResponse -> TestTree
+createDBInstanceResponseTest = resp
+    "createDBInstanceResponse"
+    "fixture/CreateDBInstanceResponse"
+    (Proxy :: Proxy CreateDBInstance)
+
+createDBInstanceReadReplicaResponseTest :: CreateDBInstanceReadReplicaResponse -> TestTree
+createDBInstanceReadReplicaResponseTest = resp
+    "createDBInstanceReadReplicaResponse"
+    "fixture/CreateDBInstanceReadReplicaResponse"
+    (Proxy :: Proxy CreateDBInstanceReadReplica)
+
+createDBParameterGroupResponseTest :: CreateDBParameterGroupResponse -> TestTree
+createDBParameterGroupResponseTest = resp
+    "createDBParameterGroupResponse"
+    "fixture/CreateDBParameterGroupResponse"
+    (Proxy :: Proxy CreateDBParameterGroup)
+
+createDBSecurityGroupResponseTest :: CreateDBSecurityGroupResponse -> TestTree
+createDBSecurityGroupResponseTest = resp
+    "createDBSecurityGroupResponse"
+    "fixture/CreateDBSecurityGroupResponse"
+    (Proxy :: Proxy CreateDBSecurityGroup)
+
+createDBSnapshotResponseTest :: CreateDBSnapshotResponse -> TestTree
+createDBSnapshotResponseTest = resp
+    "createDBSnapshotResponse"
+    "fixture/CreateDBSnapshotResponse"
+    (Proxy :: Proxy CreateDBSnapshot)
+
+createDBSubnetGroupResponseTest :: CreateDBSubnetGroupResponse -> TestTree
+createDBSubnetGroupResponseTest = resp
+    "createDBSubnetGroupResponse"
+    "fixture/CreateDBSubnetGroupResponse"
+    (Proxy :: Proxy CreateDBSubnetGroup)
+
+createEventSubscriptionResponseTest :: CreateEventSubscriptionResponse -> TestTree
+createEventSubscriptionResponseTest = resp
+    "createEventSubscriptionResponse"
+    "fixture/CreateEventSubscriptionResponse"
+    (Proxy :: Proxy CreateEventSubscription)
+
+createOptionGroupResponseTest :: CreateOptionGroupResponse -> TestTree
+createOptionGroupResponseTest = resp
+    "createOptionGroupResponse"
+    "fixture/CreateOptionGroupResponse"
+    (Proxy :: Proxy CreateOptionGroup)
+
+deleteDBInstanceResponseTest :: DeleteDBInstanceResponse -> TestTree
+deleteDBInstanceResponseTest = resp
+    "deleteDBInstanceResponse"
+    "fixture/DeleteDBInstanceResponse"
+    (Proxy :: Proxy DeleteDBInstance)
+
+deleteDBParameterGroupResponseTest :: DeleteDBParameterGroupResponse -> TestTree
+deleteDBParameterGroupResponseTest = resp
+    "deleteDBParameterGroupResponse"
+    "fixture/DeleteDBParameterGroupResponse"
+    (Proxy :: Proxy DeleteDBParameterGroup)
+
+deleteDBSecurityGroupResponseTest :: DeleteDBSecurityGroupResponse -> TestTree
+deleteDBSecurityGroupResponseTest = resp
+    "deleteDBSecurityGroupResponse"
+    "fixture/DeleteDBSecurityGroupResponse"
+    (Proxy :: Proxy DeleteDBSecurityGroup)
+
+deleteDBSnapshotResponseTest :: DeleteDBSnapshotResponse -> TestTree
+deleteDBSnapshotResponseTest = resp
+    "deleteDBSnapshotResponse"
+    "fixture/DeleteDBSnapshotResponse"
+    (Proxy :: Proxy DeleteDBSnapshot)
+
+deleteDBSubnetGroupResponseTest :: DeleteDBSubnetGroupResponse -> TestTree
+deleteDBSubnetGroupResponseTest = resp
+    "deleteDBSubnetGroupResponse"
+    "fixture/DeleteDBSubnetGroupResponse"
+    (Proxy :: Proxy DeleteDBSubnetGroup)
+
+deleteEventSubscriptionResponseTest :: DeleteEventSubscriptionResponse -> TestTree
+deleteEventSubscriptionResponseTest = resp
+    "deleteEventSubscriptionResponse"
+    "fixture/DeleteEventSubscriptionResponse"
+    (Proxy :: Proxy DeleteEventSubscription)
+
+deleteOptionGroupResponseTest :: DeleteOptionGroupResponse -> TestTree
+deleteOptionGroupResponseTest = resp
+    "deleteOptionGroupResponse"
+    "fixture/DeleteOptionGroupResponse"
+    (Proxy :: Proxy DeleteOptionGroup)
+
+describeAccountAttributesResponseTest :: DescribeAccountAttributesResponse -> TestTree
+describeAccountAttributesResponseTest = resp
+    "describeAccountAttributesResponse"
+    "fixture/DescribeAccountAttributesResponse"
+    (Proxy :: Proxy DescribeAccountAttributes)
+
+describeCertificatesResponseTest :: DescribeCertificatesResponse -> TestTree
+describeCertificatesResponseTest = resp
+    "describeCertificatesResponse"
+    "fixture/DescribeCertificatesResponse"
+    (Proxy :: Proxy DescribeCertificates)
+
+describeDBEngineVersionsResponseTest :: DescribeDBEngineVersionsResponse -> TestTree
+describeDBEngineVersionsResponseTest = resp
+    "describeDBEngineVersionsResponse"
+    "fixture/DescribeDBEngineVersionsResponse"
+    (Proxy :: Proxy DescribeDBEngineVersions)
+
+describeDBInstancesResponseTest :: DescribeDBInstancesResponse -> TestTree
+describeDBInstancesResponseTest = resp
+    "describeDBInstancesResponse"
+    "fixture/DescribeDBInstancesResponse"
+    (Proxy :: Proxy DescribeDBInstances)
+
+describeDBLogFilesResponseTest :: DescribeDBLogFilesResponse -> TestTree
+describeDBLogFilesResponseTest = resp
+    "describeDBLogFilesResponse"
+    "fixture/DescribeDBLogFilesResponse"
+    (Proxy :: Proxy DescribeDBLogFiles)
+
+describeDBParameterGroupsResponseTest :: DescribeDBParameterGroupsResponse -> TestTree
+describeDBParameterGroupsResponseTest = resp
+    "describeDBParameterGroupsResponse"
+    "fixture/DescribeDBParameterGroupsResponse"
+    (Proxy :: Proxy DescribeDBParameterGroups)
 
 describeDBParametersResponseTest :: DescribeDBParametersResponse -> TestTree
 describeDBParametersResponseTest = resp
-    "DescribeDBParametersResponse"
+    "describeDBParametersResponse"
     "fixture/DescribeDBParametersResponse"
     (Proxy :: Proxy DescribeDBParameters)
 
+describeDBSecurityGroupsResponseTest :: DescribeDBSecurityGroupsResponse -> TestTree
+describeDBSecurityGroupsResponseTest = resp
+    "describeDBSecurityGroupsResponse"
+    "fixture/DescribeDBSecurityGroupsResponse"
+    (Proxy :: Proxy DescribeDBSecurityGroups)
+
 describeDBSnapshotsResponseTest :: DescribeDBSnapshotsResponse -> TestTree
 describeDBSnapshotsResponseTest = resp
-    "DescribeDBSnapshotsResponse"
+    "describeDBSnapshotsResponse"
     "fixture/DescribeDBSnapshotsResponse"
     (Proxy :: Proxy DescribeDBSnapshots)
 
 describeDBSubnetGroupsResponseTest :: DescribeDBSubnetGroupsResponse -> TestTree
 describeDBSubnetGroupsResponseTest = resp
-    "DescribeDBSubnetGroupsResponse"
+    "describeDBSubnetGroupsResponse"
     "fixture/DescribeDBSubnetGroupsResponse"
     (Proxy :: Proxy DescribeDBSubnetGroups)
 
-createDBParameterGroupResponseTest :: CreateDBParameterGroupResponse -> TestTree
-createDBParameterGroupResponseTest = resp
-    "CreateDBParameterGroupResponse"
-    "fixture/CreateDBParameterGroupResponse"
-    (Proxy :: Proxy CreateDBParameterGroup)
-
-modifyOptionGroupResponseTest :: ModifyOptionGroupResponse -> TestTree
-modifyOptionGroupResponseTest = resp
-    "ModifyOptionGroupResponse"
-    "fixture/ModifyOptionGroupResponse"
-    (Proxy :: Proxy ModifyOptionGroup)
+describeEngineDefaultParametersResponseTest :: DescribeEngineDefaultParametersResponse -> TestTree
+describeEngineDefaultParametersResponseTest = resp
+    "describeEngineDefaultParametersResponse"
+    "fixture/DescribeEngineDefaultParametersResponse"
+    (Proxy :: Proxy DescribeEngineDefaultParameters)
 
 describeEventCategoriesResponseTest :: DescribeEventCategoriesResponse -> TestTree
 describeEventCategoriesResponseTest = resp
-    "DescribeEventCategoriesResponse"
+    "describeEventCategoriesResponse"
     "fixture/DescribeEventCategoriesResponse"
     (Proxy :: Proxy DescribeEventCategories)
 
+describeEventSubscriptionsResponseTest :: DescribeEventSubscriptionsResponse -> TestTree
+describeEventSubscriptionsResponseTest = resp
+    "describeEventSubscriptionsResponse"
+    "fixture/DescribeEventSubscriptionsResponse"
+    (Proxy :: Proxy DescribeEventSubscriptions)
+
+describeEventsResponseTest :: DescribeEventsResponse -> TestTree
+describeEventsResponseTest = resp
+    "describeEventsResponse"
+    "fixture/DescribeEventsResponse"
+    (Proxy :: Proxy DescribeEvents)
+
+describeOptionGroupOptionsResponseTest :: DescribeOptionGroupOptionsResponse -> TestTree
+describeOptionGroupOptionsResponseTest = resp
+    "describeOptionGroupOptionsResponse"
+    "fixture/DescribeOptionGroupOptionsResponse"
+    (Proxy :: Proxy DescribeOptionGroupOptions)
+
+describeOptionGroupsResponseTest :: DescribeOptionGroupsResponse -> TestTree
+describeOptionGroupsResponseTest = resp
+    "describeOptionGroupsResponse"
+    "fixture/DescribeOptionGroupsResponse"
+    (Proxy :: Proxy DescribeOptionGroups)
+
+describeOrderableDBInstanceOptionsResponseTest :: DescribeOrderableDBInstanceOptionsResponse -> TestTree
+describeOrderableDBInstanceOptionsResponseTest = resp
+    "describeOrderableDBInstanceOptionsResponse"
+    "fixture/DescribeOrderableDBInstanceOptionsResponse"
+    (Proxy :: Proxy DescribeOrderableDBInstanceOptions)
+
 describePendingMaintenanceActionsResponseTest :: DescribePendingMaintenanceActionsResponse -> TestTree
 describePendingMaintenanceActionsResponseTest = resp
-    "DescribePendingMaintenanceActionsResponse"
+    "describePendingMaintenanceActionsResponse"
     "fixture/DescribePendingMaintenanceActionsResponse"
     (Proxy :: Proxy DescribePendingMaintenanceActions)
 
-restoreDBInstanceToPointInTimeResponseTest :: RestoreDBInstanceToPointInTimeResponse -> TestTree
-restoreDBInstanceToPointInTimeResponseTest = resp
-    "RestoreDBInstanceToPointInTimeResponse"
-    "fixture/RestoreDBInstanceToPointInTimeResponse"
-    (Proxy :: Proxy RestoreDBInstanceToPointInTime)
-
-dbParameterGroupNameMessageTest :: DBParameterGroupNameMessage -> TestTree
-dbParameterGroupNameMessageTest = resp
-    "DBParameterGroupNameMessage"
-    "fixture/DBParameterGroupNameMessage"
-    (Proxy :: Proxy ResetDBParameterGroup)
-
-dbParameterGroupNameMessageTest :: DBParameterGroupNameMessage -> TestTree
-dbParameterGroupNameMessageTest = resp
-    "DBParameterGroupNameMessage"
-    "fixture/DBParameterGroupNameMessage"
-    (Proxy :: Proxy ModifyDBParameterGroup)
-
-createOptionGroupResponseTest :: CreateOptionGroupResponse -> TestTree
-createOptionGroupResponseTest = resp
-    "CreateOptionGroupResponse"
-    "fixture/CreateOptionGroupResponse"
-    (Proxy :: Proxy CreateOptionGroup)
-
-applyPendingMaintenanceActionResponseTest :: ApplyPendingMaintenanceActionResponse -> TestTree
-applyPendingMaintenanceActionResponseTest = resp
-    "ApplyPendingMaintenanceActionResponse"
-    "fixture/ApplyPendingMaintenanceActionResponse"
-    (Proxy :: Proxy ApplyPendingMaintenanceAction)
-
-revokeDBSecurityGroupIngressResponseTest :: RevokeDBSecurityGroupIngressResponse -> TestTree
-revokeDBSecurityGroupIngressResponseTest = resp
-    "RevokeDBSecurityGroupIngressResponse"
-    "fixture/RevokeDBSecurityGroupIngressResponse"
-    (Proxy :: Proxy RevokeDBSecurityGroupIngress)
-
-deleteDBSnapshotResponseTest :: DeleteDBSnapshotResponse -> TestTree
-deleteDBSnapshotResponseTest = resp
-    "DeleteDBSnapshotResponse"
-    "fixture/DeleteDBSnapshotResponse"
-    (Proxy :: Proxy DeleteDBSnapshot)
-
-createDBSecurityGroupResponseTest :: CreateDBSecurityGroupResponse -> TestTree
-createDBSecurityGroupResponseTest = resp
-    "CreateDBSecurityGroupResponse"
-    "fixture/CreateDBSecurityGroupResponse"
-    (Proxy :: Proxy CreateDBSecurityGroup)
-
-deleteDBSubnetGroupResponseTest :: DeleteDBSubnetGroupResponse -> TestTree
-deleteDBSubnetGroupResponseTest = resp
-    "DeleteDBSubnetGroupResponse"
-    "fixture/DeleteDBSubnetGroupResponse"
-    (Proxy :: Proxy DeleteDBSubnetGroup)
-
-describeAccountAttributesResponseTest :: DescribeAccountAttributesResponse -> TestTree
-describeAccountAttributesResponseTest = resp
-    "DescribeAccountAttributesResponse"
-    "fixture/DescribeAccountAttributesResponse"
-    (Proxy :: Proxy DescribeAccountAttributes)
-
-deleteDBSecurityGroupResponseTest :: DeleteDBSecurityGroupResponse -> TestTree
-deleteDBSecurityGroupResponseTest = resp
-    "DeleteDBSecurityGroupResponse"
-    "fixture/DeleteDBSecurityGroupResponse"
-    (Proxy :: Proxy DeleteDBSecurityGroup)
-
-rebootDBInstanceResponseTest :: RebootDBInstanceResponse -> TestTree
-rebootDBInstanceResponseTest = resp
-    "RebootDBInstanceResponse"
-    "fixture/RebootDBInstanceResponse"
-    (Proxy :: Proxy RebootDBInstance)
-
-createDBSubnetGroupResponseTest :: CreateDBSubnetGroupResponse -> TestTree
-createDBSubnetGroupResponseTest = resp
-    "CreateDBSubnetGroupResponse"
-    "fixture/CreateDBSubnetGroupResponse"
-    (Proxy :: Proxy CreateDBSubnetGroup)
+describeReservedDBInstancesResponseTest :: DescribeReservedDBInstancesResponse -> TestTree
+describeReservedDBInstancesResponseTest = resp
+    "describeReservedDBInstancesResponse"
+    "fixture/DescribeReservedDBInstancesResponse"
+    (Proxy :: Proxy DescribeReservedDBInstances)
 
 describeReservedDBInstancesOfferingsResponseTest :: DescribeReservedDBInstancesOfferingsResponse -> TestTree
 describeReservedDBInstancesOfferingsResponseTest = resp
-    "DescribeReservedDBInstancesOfferingsResponse"
+    "describeReservedDBInstancesOfferingsResponse"
     "fixture/DescribeReservedDBInstancesOfferingsResponse"
     (Proxy :: Proxy DescribeReservedDBInstancesOfferings)
 
-deleteDBInstanceResponseTest :: DeleteDBInstanceResponse -> TestTree
-deleteDBInstanceResponseTest = resp
-    "DeleteDBInstanceResponse"
-    "fixture/DeleteDBInstanceResponse"
-    (Proxy :: Proxy DeleteDBInstance)
-
-describeDBInstancesResponseTest :: DescribeDBInstancesResponse -> TestTree
-describeDBInstancesResponseTest = resp
-    "DescribeDBInstancesResponse"
-    "fixture/DescribeDBInstancesResponse"
-    (Proxy :: Proxy DescribeDBInstances)
-
-copyOptionGroupResponseTest :: CopyOptionGroupResponse -> TestTree
-copyOptionGroupResponseTest = resp
-    "CopyOptionGroupResponse"
-    "fixture/CopyOptionGroupResponse"
-    (Proxy :: Proxy CopyOptionGroup)
-
 downloadDBLogFilePortionResponseTest :: DownloadDBLogFilePortionResponse -> TestTree
 downloadDBLogFilePortionResponseTest = resp
-    "DownloadDBLogFilePortionResponse"
+    "downloadDBLogFilePortionResponse"
     "fixture/DownloadDBLogFilePortionResponse"
     (Proxy :: Proxy DownloadDBLogFilePortion)
 
-createDBInstanceReadReplicaResponseTest :: CreateDBInstanceReadReplicaResponse -> TestTree
-createDBInstanceReadReplicaResponseTest = resp
-    "CreateDBInstanceReadReplicaResponse"
-    "fixture/CreateDBInstanceReadReplicaResponse"
-    (Proxy :: Proxy CreateDBInstanceReadReplica)
+listTagsForResourceResponseTest :: ListTagsForResourceResponse -> TestTree
+listTagsForResourceResponseTest = resp
+    "listTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse"
+    (Proxy :: Proxy ListTagsForResource)
 
-deleteDBParameterGroupResponseTest :: DeleteDBParameterGroupResponse -> TestTree
-deleteDBParameterGroupResponseTest = resp
-    "DeleteDBParameterGroupResponse"
-    "fixture/DeleteDBParameterGroupResponse"
-    (Proxy :: Proxy DeleteDBParameterGroup)
+modifyDBInstanceResponseTest :: ModifyDBInstanceResponse -> TestTree
+modifyDBInstanceResponseTest = resp
+    "modifyDBInstanceResponse"
+    "fixture/ModifyDBInstanceResponse"
+    (Proxy :: Proxy ModifyDBInstance)
 
-describeDBSecurityGroupsResponseTest :: DescribeDBSecurityGroupsResponse -> TestTree
-describeDBSecurityGroupsResponseTest = resp
-    "DescribeDBSecurityGroupsResponse"
-    "fixture/DescribeDBSecurityGroupsResponse"
-    (Proxy :: Proxy DescribeDBSecurityGroups)
+modifyDBParameterGroupResponseTest :: DBParameterGroupNameMessage -> TestTree
+modifyDBParameterGroupResponseTest = resp
+    "modifyDBParameterGroupResponse"
+    "fixture/DBParameterGroupNameMessage"
+    (Proxy :: Proxy ModifyDBParameterGroup)
+
+modifyDBSubnetGroupResponseTest :: ModifyDBSubnetGroupResponse -> TestTree
+modifyDBSubnetGroupResponseTest = resp
+    "modifyDBSubnetGroupResponse"
+    "fixture/ModifyDBSubnetGroupResponse"
+    (Proxy :: Proxy ModifyDBSubnetGroup)
+
+modifyEventSubscriptionResponseTest :: ModifyEventSubscriptionResponse -> TestTree
+modifyEventSubscriptionResponseTest = resp
+    "modifyEventSubscriptionResponse"
+    "fixture/ModifyEventSubscriptionResponse"
+    (Proxy :: Proxy ModifyEventSubscription)
+
+modifyOptionGroupResponseTest :: ModifyOptionGroupResponse -> TestTree
+modifyOptionGroupResponseTest = resp
+    "modifyOptionGroupResponse"
+    "fixture/ModifyOptionGroupResponse"
+    (Proxy :: Proxy ModifyOptionGroup)
+
+promoteReadReplicaResponseTest :: PromoteReadReplicaResponse -> TestTree
+promoteReadReplicaResponseTest = resp
+    "promoteReadReplicaResponse"
+    "fixture/PromoteReadReplicaResponse"
+    (Proxy :: Proxy PromoteReadReplica)
+
+purchaseReservedDBInstancesOfferingResponseTest :: PurchaseReservedDBInstancesOfferingResponse -> TestTree
+purchaseReservedDBInstancesOfferingResponseTest = resp
+    "purchaseReservedDBInstancesOfferingResponse"
+    "fixture/PurchaseReservedDBInstancesOfferingResponse"
+    (Proxy :: Proxy PurchaseReservedDBInstancesOffering)
+
+rebootDBInstanceResponseTest :: RebootDBInstanceResponse -> TestTree
+rebootDBInstanceResponseTest = resp
+    "rebootDBInstanceResponse"
+    "fixture/RebootDBInstanceResponse"
+    (Proxy :: Proxy RebootDBInstance)
+
+removeSourceIdentifierFromSubscriptionResponseTest :: RemoveSourceIdentifierFromSubscriptionResponse -> TestTree
+removeSourceIdentifierFromSubscriptionResponseTest = resp
+    "removeSourceIdentifierFromSubscriptionResponse"
+    "fixture/RemoveSourceIdentifierFromSubscriptionResponse"
+    (Proxy :: Proxy RemoveSourceIdentifierFromSubscription)
+
+removeTagsFromResourceResponseTest :: RemoveTagsFromResourceResponse -> TestTree
+removeTagsFromResourceResponseTest = resp
+    "removeTagsFromResourceResponse"
+    "fixture/RemoveTagsFromResourceResponse"
+    (Proxy :: Proxy RemoveTagsFromResource)
+
+resetDBParameterGroupResponseTest :: DBParameterGroupNameMessage -> TestTree
+resetDBParameterGroupResponseTest = resp
+    "resetDBParameterGroupResponse"
+    "fixture/DBParameterGroupNameMessage"
+    (Proxy :: Proxy ResetDBParameterGroup)
+
+restoreDBInstanceFromDBSnapshotResponseTest :: RestoreDBInstanceFromDBSnapshotResponse -> TestTree
+restoreDBInstanceFromDBSnapshotResponseTest = resp
+    "restoreDBInstanceFromDBSnapshotResponse"
+    "fixture/RestoreDBInstanceFromDBSnapshotResponse"
+    (Proxy :: Proxy RestoreDBInstanceFromDBSnapshot)
+
+restoreDBInstanceToPointInTimeResponseTest :: RestoreDBInstanceToPointInTimeResponse -> TestTree
+restoreDBInstanceToPointInTimeResponseTest = resp
+    "restoreDBInstanceToPointInTimeResponse"
+    "fixture/RestoreDBInstanceToPointInTimeResponse"
+    (Proxy :: Proxy RestoreDBInstanceToPointInTime)
+
+revokeDBSecurityGroupIngressResponseTest :: RevokeDBSecurityGroupIngressResponse -> TestTree
+revokeDBSecurityGroupIngressResponseTest = resp
+    "revokeDBSecurityGroupIngressResponse"
+    "fixture/RevokeDBSecurityGroupIngressResponse"
+    (Proxy :: Proxy RevokeDBSecurityGroupIngress)

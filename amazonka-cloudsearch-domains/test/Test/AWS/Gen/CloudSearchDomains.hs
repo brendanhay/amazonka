@@ -25,31 +25,34 @@ import Network.AWS.CloudSearchDomains
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         [ suggestTest $
+--         [ searchTest $
+--             search
+--
+--         , suggestTest $
 --             suggest
 --
 --         , uploadDocumentsTest $
 --             uploadDocuments
 --
---         , searchTest $
---             search
---
 --           ]
 
 --     , testGroup "response"
---         [ suggestResponseTest $
+--         [ searchResponseTest $
+--             searchResponse
+--
+--         , suggestResponseTest $
 --             suggestResponse
 --
 --         , uploadDocumentsResponseTest $
 --             uploadDocumentsResponse
 --
---         , searchResponseTest $
---             searchResponse
---
 --           ]
 --     ]
 
 -- Requests
+
+searchTest :: Search -> TestTree
+searchTest = undefined
 
 suggestTest :: Suggest -> TestTree
 suggestTest = undefined
@@ -57,25 +60,22 @@ suggestTest = undefined
 uploadDocumentsTest :: UploadDocuments -> TestTree
 uploadDocumentsTest = undefined
 
-searchTest :: Search -> TestTree
-searchTest = undefined
-
 -- Responses
+
+searchResponseTest :: SearchResponse -> TestTree
+searchResponseTest = resp
+    "searchResponse"
+    "fixture/SearchResponse"
+    (Proxy :: Proxy Search)
 
 suggestResponseTest :: SuggestResponse -> TestTree
 suggestResponseTest = resp
-    "SuggestResponse"
+    "suggestResponse"
     "fixture/SuggestResponse"
     (Proxy :: Proxy Suggest)
 
 uploadDocumentsResponseTest :: UploadDocumentsResponse -> TestTree
 uploadDocumentsResponseTest = resp
-    "UploadDocumentsResponse"
+    "uploadDocumentsResponse"
     "fixture/UploadDocumentsResponse"
     (Proxy :: Proxy UploadDocuments)
-
-searchResponseTest :: SearchResponse -> TestTree
-searchResponseTest = resp
-    "SearchResponse"
-    "fixture/SearchResponse"
-    (Proxy :: Proxy Search)

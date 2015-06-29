@@ -91,6 +91,5 @@ test-suite amazonka-cloudsearch-test
         , amazonka-cloudsearch == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

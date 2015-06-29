@@ -108,6 +108,5 @@ test-suite amazonka-autoscaling-test
         , amazonka-autoscaling == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

@@ -167,6 +167,5 @@ test-suite amazonka-opsworks-test
         , amazonka-opsworks == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

@@ -86,6 +86,5 @@ test-suite amazonka-cloudfront-test
         , amazonka-cloudfront == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

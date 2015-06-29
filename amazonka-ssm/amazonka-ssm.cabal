@@ -81,6 +81,5 @@ test-suite amazonka-ssm-test
         , amazonka-ssm == 1.0.0
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

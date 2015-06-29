@@ -28,7 +28,7 @@ core:
 	stack build amazonka-core
 
 test:
-	stack test amazonka-core amazonka-test
+	stack test
 
 $(SERVICES):
 	stack build $@

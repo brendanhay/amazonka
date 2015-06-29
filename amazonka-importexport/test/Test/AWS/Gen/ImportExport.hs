@@ -23,104 +23,104 @@ import Network.AWS.ImportExport
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ cancelJobTest $
---             cancelJob
---
---         , createJobTest $
---             createJob
---
---         , getShippingLabelTest $
+--         [ testGetShippingLabel $
 --             getShippingLabel
 --
---         , getStatusTest $
---             getStatus
+--         , testCreateJob $
+--             createJob
 --
---         , listJobsTest $
+--         , testListJobs $
 --             listJobs
 --
---         , updateJobTest $
+--         , testUpdateJob $
 --             updateJob
+--
+--         , testGetStatus $
+--             getStatus
+--
+--         , testCancelJob $
+--             cancelJob
 --
 --           ]
 
 --     , testGroup "response"
---         [ cancelJobResponseTest $
---             cancelJobResponse
---
---         , createJobResponseTest $
---             createJobResponse
---
---         , getShippingLabelResponseTest $
+--         [ testGetShippingLabelResponse $
 --             getShippingLabelResponse
 --
---         , getStatusResponseTest $
---             getStatusResponse
+--         , testCreateJobResponse $
+--             createJobResponse
 --
---         , listJobsResponseTest $
+--         , testListJobsResponse $
 --             listJobsResponse
 --
---         , updateJobResponseTest $
+--         , testUpdateJobResponse $
 --             updateJobResponse
+--
+--         , testGetStatusResponse $
+--             getStatusResponse
+--
+--         , testCancelJobResponse $
+--             cancelJobResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-cancelJobTest :: CancelJob -> TestTree
-cancelJobTest = undefined
+testGetShippingLabel :: GetShippingLabel -> TestTree
+testGetShippingLabel = undefined
 
-createJobTest :: CreateJob -> TestTree
-createJobTest = undefined
+testCreateJob :: CreateJob -> TestTree
+testCreateJob = undefined
 
-getShippingLabelTest :: GetShippingLabel -> TestTree
-getShippingLabelTest = undefined
+testListJobs :: ListJobs -> TestTree
+testListJobs = undefined
 
-getStatusTest :: GetStatus -> TestTree
-getStatusTest = undefined
+testUpdateJob :: UpdateJob -> TestTree
+testUpdateJob = undefined
 
-listJobsTest :: ListJobs -> TestTree
-listJobsTest = undefined
+testGetStatus :: GetStatus -> TestTree
+testGetStatus = undefined
 
-updateJobTest :: UpdateJob -> TestTree
-updateJobTest = undefined
+testCancelJob :: CancelJob -> TestTree
+testCancelJob = undefined
 
 -- Responses
 
-cancelJobResponseTest :: CancelJobResponse -> TestTree
-cancelJobResponseTest = resp
-    "cancelJobResponse"
-    "fixture/CancelJobResponse"
-    (Proxy :: Proxy CancelJob)
-
-createJobResponseTest :: CreateJobResponse -> TestTree
-createJobResponseTest = resp
-    "createJobResponse"
-    "fixture/CreateJobResponse"
-    (Proxy :: Proxy CreateJob)
-
-getShippingLabelResponseTest :: GetShippingLabelResponse -> TestTree
-getShippingLabelResponseTest = resp
-    "getShippingLabelResponse"
+testGetShippingLabelResponse :: GetShippingLabelResponse -> TestTree
+testGetShippingLabelResponse = resp
+    "GetShippingLabelResponse"
     "fixture/GetShippingLabelResponse"
     (Proxy :: Proxy GetShippingLabel)
 
-getStatusResponseTest :: GetStatusResponse -> TestTree
-getStatusResponseTest = resp
-    "getStatusResponse"
-    "fixture/GetStatusResponse"
-    (Proxy :: Proxy GetStatus)
+testCreateJobResponse :: CreateJobResponse -> TestTree
+testCreateJobResponse = resp
+    "CreateJobResponse"
+    "fixture/CreateJobResponse"
+    (Proxy :: Proxy CreateJob)
 
-listJobsResponseTest :: ListJobsResponse -> TestTree
-listJobsResponseTest = resp
-    "listJobsResponse"
+testListJobsResponse :: ListJobsResponse -> TestTree
+testListJobsResponse = resp
+    "ListJobsResponse"
     "fixture/ListJobsResponse"
     (Proxy :: Proxy ListJobs)
 
-updateJobResponseTest :: UpdateJobResponse -> TestTree
-updateJobResponseTest = resp
-    "updateJobResponse"
+testUpdateJobResponse :: UpdateJobResponse -> TestTree
+testUpdateJobResponse = resp
+    "UpdateJobResponse"
     "fixture/UpdateJobResponse"
     (Proxy :: Proxy UpdateJob)
+
+testGetStatusResponse :: GetStatusResponse -> TestTree
+testGetStatusResponse = resp
+    "GetStatusResponse"
+    "fixture/GetStatusResponse"
+    (Proxy :: Proxy GetStatus)
+
+testCancelJobResponse :: CancelJobResponse -> TestTree
+testCancelJobResponse = resp
+    "CancelJobResponse"
+    "fixture/CancelJobResponse"
+    (Proxy :: Proxy CancelJob)

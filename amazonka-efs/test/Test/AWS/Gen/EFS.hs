@@ -23,179 +23,179 @@ import Network.AWS.EFS
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ createFileSystemTest $
---             createFileSystem
---
---         , createMountTargetTest $
---             createMountTarget
---
---         , createTagsTest $
---             createTags
---
---         , deleteFileSystemTest $
---             deleteFileSystem
---
---         , deleteMountTargetTest $
---             deleteMountTarget
---
---         , deleteTagsTest $
---             deleteTags
---
---         , describeFileSystemsTest $
---             describeFileSystems
---
---         , describeMountTargetSecurityGroupsTest $
---             describeMountTargetSecurityGroups
---
---         , describeMountTargetsTest $
---             describeMountTargets
---
---         , describeTagsTest $
+--         [ testDescribeTags $
 --             describeTags
 --
---         , modifyMountTargetSecurityGroupsTest $
+--         , testDescribeMountTargets $
+--             describeMountTargets
+--
+--         , testDeleteMountTarget $
+--             deleteMountTarget
+--
+--         , testCreateTags $
+--             createTags
+--
+--         , testDescribeFileSystems $
+--             describeFileSystems
+--
+--         , testDeleteTags $
+--             deleteTags
+--
+--         , testDescribeMountTargetSecurityGroups $
+--             describeMountTargetSecurityGroups
+--
+--         , testModifyMountTargetSecurityGroups $
 --             modifyMountTargetSecurityGroups
+--
+--         , testCreateFileSystem $
+--             createFileSystem
+--
+--         , testDeleteFileSystem $
+--             deleteFileSystem
+--
+--         , testCreateMountTarget $
+--             createMountTarget
 --
 --           ]
 
 --     , testGroup "response"
---         [ createFileSystemResponseTest $
---             fileSystemDescription
---
---         , createMountTargetResponseTest $
---             mountTargetDescription
---
---         , createTagsResponseTest $
---             createTagsResponse
---
---         , deleteFileSystemResponseTest $
---             deleteFileSystemResponse
---
---         , deleteMountTargetResponseTest $
---             deleteMountTargetResponse
---
---         , deleteTagsResponseTest $
---             deleteTagsResponse
---
---         , describeFileSystemsResponseTest $
---             describeFileSystemsResponse
---
---         , describeMountTargetSecurityGroupsResponseTest $
---             describeMountTargetSecurityGroupsResponse
---
---         , describeMountTargetsResponseTest $
---             describeMountTargetsResponse
---
---         , describeTagsResponseTest $
+--         [ testDescribeTagsResponse $
 --             describeTagsResponse
 --
---         , modifyMountTargetSecurityGroupsResponseTest $
+--         , testDescribeMountTargetsResponse $
+--             describeMountTargetsResponse
+--
+--         , testDeleteMountTargetResponse $
+--             deleteMountTargetResponse
+--
+--         , testCreateTagsResponse $
+--             createTagsResponse
+--
+--         , testDescribeFileSystemsResponse $
+--             describeFileSystemsResponse
+--
+--         , testDeleteTagsResponse $
+--             deleteTagsResponse
+--
+--         , testDescribeMountTargetSecurityGroupsResponse $
+--             describeMountTargetSecurityGroupsResponse
+--
+--         , testModifyMountTargetSecurityGroupsResponse $
 --             modifyMountTargetSecurityGroupsResponse
+--
+--         , testCreateFileSystemResponse $
+--             fileSystemDescription
+--
+--         , testDeleteFileSystemResponse $
+--             deleteFileSystemResponse
+--
+--         , testCreateMountTargetResponse $
+--             mountTargetDescription
 --
 --           ]
 --     ]
 
 -- Requests
 
-createFileSystemTest :: CreateFileSystem -> TestTree
-createFileSystemTest = undefined
+testDescribeTags :: DescribeTags -> TestTree
+testDescribeTags = undefined
 
-createMountTargetTest :: CreateMountTarget -> TestTree
-createMountTargetTest = undefined
+testDescribeMountTargets :: DescribeMountTargets -> TestTree
+testDescribeMountTargets = undefined
 
-createTagsTest :: CreateTags -> TestTree
-createTagsTest = undefined
+testDeleteMountTarget :: DeleteMountTarget -> TestTree
+testDeleteMountTarget = undefined
 
-deleteFileSystemTest :: DeleteFileSystem -> TestTree
-deleteFileSystemTest = undefined
+testCreateTags :: CreateTags -> TestTree
+testCreateTags = undefined
 
-deleteMountTargetTest :: DeleteMountTarget -> TestTree
-deleteMountTargetTest = undefined
+testDescribeFileSystems :: DescribeFileSystems -> TestTree
+testDescribeFileSystems = undefined
 
-deleteTagsTest :: DeleteTags -> TestTree
-deleteTagsTest = undefined
+testDeleteTags :: DeleteTags -> TestTree
+testDeleteTags = undefined
 
-describeFileSystemsTest :: DescribeFileSystems -> TestTree
-describeFileSystemsTest = undefined
+testDescribeMountTargetSecurityGroups :: DescribeMountTargetSecurityGroups -> TestTree
+testDescribeMountTargetSecurityGroups = undefined
 
-describeMountTargetSecurityGroupsTest :: DescribeMountTargetSecurityGroups -> TestTree
-describeMountTargetSecurityGroupsTest = undefined
+testModifyMountTargetSecurityGroups :: ModifyMountTargetSecurityGroups -> TestTree
+testModifyMountTargetSecurityGroups = undefined
 
-describeMountTargetsTest :: DescribeMountTargets -> TestTree
-describeMountTargetsTest = undefined
+testCreateFileSystem :: CreateFileSystem -> TestTree
+testCreateFileSystem = undefined
 
-describeTagsTest :: DescribeTags -> TestTree
-describeTagsTest = undefined
+testDeleteFileSystem :: DeleteFileSystem -> TestTree
+testDeleteFileSystem = undefined
 
-modifyMountTargetSecurityGroupsTest :: ModifyMountTargetSecurityGroups -> TestTree
-modifyMountTargetSecurityGroupsTest = undefined
+testCreateMountTarget :: CreateMountTarget -> TestTree
+testCreateMountTarget = undefined
 
 -- Responses
 
-createFileSystemResponseTest :: FileSystemDescription -> TestTree
-createFileSystemResponseTest = resp
-    "createFileSystemResponse"
-    "fixture/FileSystemDescription"
-    (Proxy :: Proxy CreateFileSystem)
-
-createMountTargetResponseTest :: MountTargetDescription -> TestTree
-createMountTargetResponseTest = resp
-    "createMountTargetResponse"
-    "fixture/MountTargetDescription"
-    (Proxy :: Proxy CreateMountTarget)
-
-createTagsResponseTest :: CreateTagsResponse -> TestTree
-createTagsResponseTest = resp
-    "createTagsResponse"
-    "fixture/CreateTagsResponse"
-    (Proxy :: Proxy CreateTags)
-
-deleteFileSystemResponseTest :: DeleteFileSystemResponse -> TestTree
-deleteFileSystemResponseTest = resp
-    "deleteFileSystemResponse"
-    "fixture/DeleteFileSystemResponse"
-    (Proxy :: Proxy DeleteFileSystem)
-
-deleteMountTargetResponseTest :: DeleteMountTargetResponse -> TestTree
-deleteMountTargetResponseTest = resp
-    "deleteMountTargetResponse"
-    "fixture/DeleteMountTargetResponse"
-    (Proxy :: Proxy DeleteMountTarget)
-
-deleteTagsResponseTest :: DeleteTagsResponse -> TestTree
-deleteTagsResponseTest = resp
-    "deleteTagsResponse"
-    "fixture/DeleteTagsResponse"
-    (Proxy :: Proxy DeleteTags)
-
-describeFileSystemsResponseTest :: DescribeFileSystemsResponse -> TestTree
-describeFileSystemsResponseTest = resp
-    "describeFileSystemsResponse"
-    "fixture/DescribeFileSystemsResponse"
-    (Proxy :: Proxy DescribeFileSystems)
-
-describeMountTargetSecurityGroupsResponseTest :: DescribeMountTargetSecurityGroupsResponse -> TestTree
-describeMountTargetSecurityGroupsResponseTest = resp
-    "describeMountTargetSecurityGroupsResponse"
-    "fixture/DescribeMountTargetSecurityGroupsResponse"
-    (Proxy :: Proxy DescribeMountTargetSecurityGroups)
-
-describeMountTargetsResponseTest :: DescribeMountTargetsResponse -> TestTree
-describeMountTargetsResponseTest = resp
-    "describeMountTargetsResponse"
-    "fixture/DescribeMountTargetsResponse"
-    (Proxy :: Proxy DescribeMountTargets)
-
-describeTagsResponseTest :: DescribeTagsResponse -> TestTree
-describeTagsResponseTest = resp
-    "describeTagsResponse"
+testDescribeTagsResponse :: DescribeTagsResponse -> TestTree
+testDescribeTagsResponse = resp
+    "DescribeTagsResponse"
     "fixture/DescribeTagsResponse"
     (Proxy :: Proxy DescribeTags)
 
-modifyMountTargetSecurityGroupsResponseTest :: ModifyMountTargetSecurityGroupsResponse -> TestTree
-modifyMountTargetSecurityGroupsResponseTest = resp
-    "modifyMountTargetSecurityGroupsResponse"
+testDescribeMountTargetsResponse :: DescribeMountTargetsResponse -> TestTree
+testDescribeMountTargetsResponse = resp
+    "DescribeMountTargetsResponse"
+    "fixture/DescribeMountTargetsResponse"
+    (Proxy :: Proxy DescribeMountTargets)
+
+testDeleteMountTargetResponse :: DeleteMountTargetResponse -> TestTree
+testDeleteMountTargetResponse = resp
+    "DeleteMountTargetResponse"
+    "fixture/DeleteMountTargetResponse"
+    (Proxy :: Proxy DeleteMountTarget)
+
+testCreateTagsResponse :: CreateTagsResponse -> TestTree
+testCreateTagsResponse = resp
+    "CreateTagsResponse"
+    "fixture/CreateTagsResponse"
+    (Proxy :: Proxy CreateTags)
+
+testDescribeFileSystemsResponse :: DescribeFileSystemsResponse -> TestTree
+testDescribeFileSystemsResponse = resp
+    "DescribeFileSystemsResponse"
+    "fixture/DescribeFileSystemsResponse"
+    (Proxy :: Proxy DescribeFileSystems)
+
+testDeleteTagsResponse :: DeleteTagsResponse -> TestTree
+testDeleteTagsResponse = resp
+    "DeleteTagsResponse"
+    "fixture/DeleteTagsResponse"
+    (Proxy :: Proxy DeleteTags)
+
+testDescribeMountTargetSecurityGroupsResponse :: DescribeMountTargetSecurityGroupsResponse -> TestTree
+testDescribeMountTargetSecurityGroupsResponse = resp
+    "DescribeMountTargetSecurityGroupsResponse"
+    "fixture/DescribeMountTargetSecurityGroupsResponse"
+    (Proxy :: Proxy DescribeMountTargetSecurityGroups)
+
+testModifyMountTargetSecurityGroupsResponse :: ModifyMountTargetSecurityGroupsResponse -> TestTree
+testModifyMountTargetSecurityGroupsResponse = resp
+    "ModifyMountTargetSecurityGroupsResponse"
     "fixture/ModifyMountTargetSecurityGroupsResponse"
     (Proxy :: Proxy ModifyMountTargetSecurityGroups)
+
+testCreateFileSystemResponse :: FileSystemDescription -> TestTree
+testCreateFileSystemResponse = resp
+    "CreateFileSystemResponse"
+    "fixture/CreateFileSystemResponse"
+    (Proxy :: Proxy CreateFileSystem)
+
+testDeleteFileSystemResponse :: DeleteFileSystemResponse -> TestTree
+testDeleteFileSystemResponse = resp
+    "DeleteFileSystemResponse"
+    "fixture/DeleteFileSystemResponse"
+    (Proxy :: Proxy DeleteFileSystem)
+
+testCreateMountTargetResponse :: MountTargetDescription -> TestTree
+testCreateMountTargetResponse = resp
+    "CreateMountTargetResponse"
+    "fixture/CreateMountTargetResponse"
+    (Proxy :: Proxy CreateMountTarget)

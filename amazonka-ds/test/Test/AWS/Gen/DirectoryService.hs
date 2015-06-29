@@ -23,111 +23,111 @@ import Network.AWS.DirectoryService
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ connectDirectoryTest $
---             connectDirectory
---
---         , createAliasTest $
---             createAlias
---
---         , createComputerTest $
---             createComputer
---
---         , createDirectoryTest $
---             createDirectory
---
---         , createSnapshotTest $
---             createSnapshot
---
---         , deleteDirectoryTest $
---             deleteDirectory
---
---         , deleteSnapshotTest $
---             deleteSnapshot
---
---         , describeDirectoriesTest $
---             describeDirectories
---
---         , describeSnapshotsTest $
---             describeSnapshots
---
---         , disableRadiusTest $
---             disableRadius
---
---         , disableSsoTest $
---             disableSso
---
---         , enableRadiusTest $
---             enableRadius
---
---         , enableSsoTest $
---             enableSso
---
---         , getDirectoryLimitsTest $
---             getDirectoryLimits
---
---         , getSnapshotLimitsTest $
+--         [ testGetSnapshotLimits $
 --             getSnapshotLimits
 --
---         , restoreFromSnapshotTest $
+--         , testConnectDirectory $
+--             connectDirectory
+--
+--         , testDescribeDirectories $
+--             describeDirectories
+--
+--         , testCreateAlias $
+--             createAlias
+--
+--         , testCreateDirectory $
+--             createDirectory
+--
+--         , testEnableSso $
+--             enableSso
+--
+--         , testEnableRadius $
+--             enableRadius
+--
+--         , testDisableRadius $
+--             disableRadius
+--
+--         , testDescribeSnapshots $
+--             describeSnapshots
+--
+--         , testRestoreFromSnapshot $
 --             restoreFromSnapshot
 --
---         , updateRadiusTest $
+--         , testDeleteSnapshot $
+--             deleteSnapshot
+--
+--         , testCreateSnapshot $
+--             createSnapshot
+--
+--         , testDeleteDirectory $
+--             deleteDirectory
+--
+--         , testDisableSso $
+--             disableSso
+--
+--         , testCreateComputer $
+--             createComputer
+--
+--         , testGetDirectoryLimits $
+--             getDirectoryLimits
+--
+--         , testUpdateRadius $
 --             updateRadius
 --
 --           ]
 
 --     , testGroup "response"
---         [ connectDirectoryResponseTest $
---             connectDirectoryResponse
---
---         , createAliasResponseTest $
---             createAliasResponse
---
---         , createComputerResponseTest $
---             createComputerResponse
---
---         , createDirectoryResponseTest $
---             createDirectoryResponse
---
---         , createSnapshotResponseTest $
---             createSnapshotResponse
---
---         , deleteDirectoryResponseTest $
---             deleteDirectoryResponse
---
---         , deleteSnapshotResponseTest $
---             deleteSnapshotResponse
---
---         , describeDirectoriesResponseTest $
---             describeDirectoriesResponse
---
---         , describeSnapshotsResponseTest $
---             describeSnapshotsResponse
---
---         , disableRadiusResponseTest $
---             disableRadiusResponse
---
---         , disableSsoResponseTest $
---             disableSsoResponse
---
---         , enableRadiusResponseTest $
---             enableRadiusResponse
---
---         , enableSsoResponseTest $
---             enableSsoResponse
---
---         , getDirectoryLimitsResponseTest $
---             getDirectoryLimitsResponse
---
---         , getSnapshotLimitsResponseTest $
+--         [ testGetSnapshotLimitsResponse $
 --             getSnapshotLimitsResponse
 --
---         , restoreFromSnapshotResponseTest $
+--         , testConnectDirectoryResponse $
+--             connectDirectoryResponse
+--
+--         , testDescribeDirectoriesResponse $
+--             describeDirectoriesResponse
+--
+--         , testCreateAliasResponse $
+--             createAliasResponse
+--
+--         , testCreateDirectoryResponse $
+--             createDirectoryResponse
+--
+--         , testEnableSsoResponse $
+--             enableSsoResponse
+--
+--         , testEnableRadiusResponse $
+--             enableRadiusResponse
+--
+--         , testDisableRadiusResponse $
+--             disableRadiusResponse
+--
+--         , testDescribeSnapshotsResponse $
+--             describeSnapshotsResponse
+--
+--         , testRestoreFromSnapshotResponse $
 --             restoreFromSnapshotResponse
 --
---         , updateRadiusResponseTest $
+--         , testDeleteSnapshotResponse $
+--             deleteSnapshotResponse
+--
+--         , testCreateSnapshotResponse $
+--             createSnapshotResponse
+--
+--         , testDeleteDirectoryResponse $
+--             deleteDirectoryResponse
+--
+--         , testDisableSsoResponse $
+--             disableSsoResponse
+--
+--         , testCreateComputerResponse $
+--             createComputerResponse
+--
+--         , testGetDirectoryLimitsResponse $
+--             getDirectoryLimitsResponse
+--
+--         , testUpdateRadiusResponse $
 --             updateRadiusResponse
 --
 --           ]
@@ -135,157 +135,157 @@ import Network.AWS.DirectoryService
 
 -- Requests
 
-connectDirectoryTest :: ConnectDirectory -> TestTree
-connectDirectoryTest = undefined
+testGetSnapshotLimits :: GetSnapshotLimits -> TestTree
+testGetSnapshotLimits = undefined
 
-createAliasTest :: CreateAlias -> TestTree
-createAliasTest = undefined
+testConnectDirectory :: ConnectDirectory -> TestTree
+testConnectDirectory = undefined
 
-createComputerTest :: CreateComputer -> TestTree
-createComputerTest = undefined
+testDescribeDirectories :: DescribeDirectories -> TestTree
+testDescribeDirectories = undefined
 
-createDirectoryTest :: CreateDirectory -> TestTree
-createDirectoryTest = undefined
+testCreateAlias :: CreateAlias -> TestTree
+testCreateAlias = undefined
 
-createSnapshotTest :: CreateSnapshot -> TestTree
-createSnapshotTest = undefined
+testCreateDirectory :: CreateDirectory -> TestTree
+testCreateDirectory = undefined
 
-deleteDirectoryTest :: DeleteDirectory -> TestTree
-deleteDirectoryTest = undefined
+testEnableSso :: EnableSso -> TestTree
+testEnableSso = undefined
 
-deleteSnapshotTest :: DeleteSnapshot -> TestTree
-deleteSnapshotTest = undefined
+testEnableRadius :: EnableRadius -> TestTree
+testEnableRadius = undefined
 
-describeDirectoriesTest :: DescribeDirectories -> TestTree
-describeDirectoriesTest = undefined
+testDisableRadius :: DisableRadius -> TestTree
+testDisableRadius = undefined
 
-describeSnapshotsTest :: DescribeSnapshots -> TestTree
-describeSnapshotsTest = undefined
+testDescribeSnapshots :: DescribeSnapshots -> TestTree
+testDescribeSnapshots = undefined
 
-disableRadiusTest :: DisableRadius -> TestTree
-disableRadiusTest = undefined
+testRestoreFromSnapshot :: RestoreFromSnapshot -> TestTree
+testRestoreFromSnapshot = undefined
 
-disableSsoTest :: DisableSso -> TestTree
-disableSsoTest = undefined
+testDeleteSnapshot :: DeleteSnapshot -> TestTree
+testDeleteSnapshot = undefined
 
-enableRadiusTest :: EnableRadius -> TestTree
-enableRadiusTest = undefined
+testCreateSnapshot :: CreateSnapshot -> TestTree
+testCreateSnapshot = undefined
 
-enableSsoTest :: EnableSso -> TestTree
-enableSsoTest = undefined
+testDeleteDirectory :: DeleteDirectory -> TestTree
+testDeleteDirectory = undefined
 
-getDirectoryLimitsTest :: GetDirectoryLimits -> TestTree
-getDirectoryLimitsTest = undefined
+testDisableSso :: DisableSso -> TestTree
+testDisableSso = undefined
 
-getSnapshotLimitsTest :: GetSnapshotLimits -> TestTree
-getSnapshotLimitsTest = undefined
+testCreateComputer :: CreateComputer -> TestTree
+testCreateComputer = undefined
 
-restoreFromSnapshotTest :: RestoreFromSnapshot -> TestTree
-restoreFromSnapshotTest = undefined
+testGetDirectoryLimits :: GetDirectoryLimits -> TestTree
+testGetDirectoryLimits = undefined
 
-updateRadiusTest :: UpdateRadius -> TestTree
-updateRadiusTest = undefined
+testUpdateRadius :: UpdateRadius -> TestTree
+testUpdateRadius = undefined
 
 -- Responses
 
-connectDirectoryResponseTest :: ConnectDirectoryResponse -> TestTree
-connectDirectoryResponseTest = resp
-    "connectDirectoryResponse"
-    "fixture/ConnectDirectoryResponse"
-    (Proxy :: Proxy ConnectDirectory)
-
-createAliasResponseTest :: CreateAliasResponse -> TestTree
-createAliasResponseTest = resp
-    "createAliasResponse"
-    "fixture/CreateAliasResponse"
-    (Proxy :: Proxy CreateAlias)
-
-createComputerResponseTest :: CreateComputerResponse -> TestTree
-createComputerResponseTest = resp
-    "createComputerResponse"
-    "fixture/CreateComputerResponse"
-    (Proxy :: Proxy CreateComputer)
-
-createDirectoryResponseTest :: CreateDirectoryResponse -> TestTree
-createDirectoryResponseTest = resp
-    "createDirectoryResponse"
-    "fixture/CreateDirectoryResponse"
-    (Proxy :: Proxy CreateDirectory)
-
-createSnapshotResponseTest :: CreateSnapshotResponse -> TestTree
-createSnapshotResponseTest = resp
-    "createSnapshotResponse"
-    "fixture/CreateSnapshotResponse"
-    (Proxy :: Proxy CreateSnapshot)
-
-deleteDirectoryResponseTest :: DeleteDirectoryResponse -> TestTree
-deleteDirectoryResponseTest = resp
-    "deleteDirectoryResponse"
-    "fixture/DeleteDirectoryResponse"
-    (Proxy :: Proxy DeleteDirectory)
-
-deleteSnapshotResponseTest :: DeleteSnapshotResponse -> TestTree
-deleteSnapshotResponseTest = resp
-    "deleteSnapshotResponse"
-    "fixture/DeleteSnapshotResponse"
-    (Proxy :: Proxy DeleteSnapshot)
-
-describeDirectoriesResponseTest :: DescribeDirectoriesResponse -> TestTree
-describeDirectoriesResponseTest = resp
-    "describeDirectoriesResponse"
-    "fixture/DescribeDirectoriesResponse"
-    (Proxy :: Proxy DescribeDirectories)
-
-describeSnapshotsResponseTest :: DescribeSnapshotsResponse -> TestTree
-describeSnapshotsResponseTest = resp
-    "describeSnapshotsResponse"
-    "fixture/DescribeSnapshotsResponse"
-    (Proxy :: Proxy DescribeSnapshots)
-
-disableRadiusResponseTest :: DisableRadiusResponse -> TestTree
-disableRadiusResponseTest = resp
-    "disableRadiusResponse"
-    "fixture/DisableRadiusResponse"
-    (Proxy :: Proxy DisableRadius)
-
-disableSsoResponseTest :: DisableSsoResponse -> TestTree
-disableSsoResponseTest = resp
-    "disableSsoResponse"
-    "fixture/DisableSsoResponse"
-    (Proxy :: Proxy DisableSso)
-
-enableRadiusResponseTest :: EnableRadiusResponse -> TestTree
-enableRadiusResponseTest = resp
-    "enableRadiusResponse"
-    "fixture/EnableRadiusResponse"
-    (Proxy :: Proxy EnableRadius)
-
-enableSsoResponseTest :: EnableSsoResponse -> TestTree
-enableSsoResponseTest = resp
-    "enableSsoResponse"
-    "fixture/EnableSsoResponse"
-    (Proxy :: Proxy EnableSso)
-
-getDirectoryLimitsResponseTest :: GetDirectoryLimitsResponse -> TestTree
-getDirectoryLimitsResponseTest = resp
-    "getDirectoryLimitsResponse"
-    "fixture/GetDirectoryLimitsResponse"
-    (Proxy :: Proxy GetDirectoryLimits)
-
-getSnapshotLimitsResponseTest :: GetSnapshotLimitsResponse -> TestTree
-getSnapshotLimitsResponseTest = resp
-    "getSnapshotLimitsResponse"
+testGetSnapshotLimitsResponse :: GetSnapshotLimitsResponse -> TestTree
+testGetSnapshotLimitsResponse = resp
+    "GetSnapshotLimitsResponse"
     "fixture/GetSnapshotLimitsResponse"
     (Proxy :: Proxy GetSnapshotLimits)
 
-restoreFromSnapshotResponseTest :: RestoreFromSnapshotResponse -> TestTree
-restoreFromSnapshotResponseTest = resp
-    "restoreFromSnapshotResponse"
+testConnectDirectoryResponse :: ConnectDirectoryResponse -> TestTree
+testConnectDirectoryResponse = resp
+    "ConnectDirectoryResponse"
+    "fixture/ConnectDirectoryResponse"
+    (Proxy :: Proxy ConnectDirectory)
+
+testDescribeDirectoriesResponse :: DescribeDirectoriesResponse -> TestTree
+testDescribeDirectoriesResponse = resp
+    "DescribeDirectoriesResponse"
+    "fixture/DescribeDirectoriesResponse"
+    (Proxy :: Proxy DescribeDirectories)
+
+testCreateAliasResponse :: CreateAliasResponse -> TestTree
+testCreateAliasResponse = resp
+    "CreateAliasResponse"
+    "fixture/CreateAliasResponse"
+    (Proxy :: Proxy CreateAlias)
+
+testCreateDirectoryResponse :: CreateDirectoryResponse -> TestTree
+testCreateDirectoryResponse = resp
+    "CreateDirectoryResponse"
+    "fixture/CreateDirectoryResponse"
+    (Proxy :: Proxy CreateDirectory)
+
+testEnableSsoResponse :: EnableSsoResponse -> TestTree
+testEnableSsoResponse = resp
+    "EnableSsoResponse"
+    "fixture/EnableSsoResponse"
+    (Proxy :: Proxy EnableSso)
+
+testEnableRadiusResponse :: EnableRadiusResponse -> TestTree
+testEnableRadiusResponse = resp
+    "EnableRadiusResponse"
+    "fixture/EnableRadiusResponse"
+    (Proxy :: Proxy EnableRadius)
+
+testDisableRadiusResponse :: DisableRadiusResponse -> TestTree
+testDisableRadiusResponse = resp
+    "DisableRadiusResponse"
+    "fixture/DisableRadiusResponse"
+    (Proxy :: Proxy DisableRadius)
+
+testDescribeSnapshotsResponse :: DescribeSnapshotsResponse -> TestTree
+testDescribeSnapshotsResponse = resp
+    "DescribeSnapshotsResponse"
+    "fixture/DescribeSnapshotsResponse"
+    (Proxy :: Proxy DescribeSnapshots)
+
+testRestoreFromSnapshotResponse :: RestoreFromSnapshotResponse -> TestTree
+testRestoreFromSnapshotResponse = resp
+    "RestoreFromSnapshotResponse"
     "fixture/RestoreFromSnapshotResponse"
     (Proxy :: Proxy RestoreFromSnapshot)
 
-updateRadiusResponseTest :: UpdateRadiusResponse -> TestTree
-updateRadiusResponseTest = resp
-    "updateRadiusResponse"
+testDeleteSnapshotResponse :: DeleteSnapshotResponse -> TestTree
+testDeleteSnapshotResponse = resp
+    "DeleteSnapshotResponse"
+    "fixture/DeleteSnapshotResponse"
+    (Proxy :: Proxy DeleteSnapshot)
+
+testCreateSnapshotResponse :: CreateSnapshotResponse -> TestTree
+testCreateSnapshotResponse = resp
+    "CreateSnapshotResponse"
+    "fixture/CreateSnapshotResponse"
+    (Proxy :: Proxy CreateSnapshot)
+
+testDeleteDirectoryResponse :: DeleteDirectoryResponse -> TestTree
+testDeleteDirectoryResponse = resp
+    "DeleteDirectoryResponse"
+    "fixture/DeleteDirectoryResponse"
+    (Proxy :: Proxy DeleteDirectory)
+
+testDisableSsoResponse :: DisableSsoResponse -> TestTree
+testDisableSsoResponse = resp
+    "DisableSsoResponse"
+    "fixture/DisableSsoResponse"
+    (Proxy :: Proxy DisableSso)
+
+testCreateComputerResponse :: CreateComputerResponse -> TestTree
+testCreateComputerResponse = resp
+    "CreateComputerResponse"
+    "fixture/CreateComputerResponse"
+    (Proxy :: Proxy CreateComputer)
+
+testGetDirectoryLimitsResponse :: GetDirectoryLimitsResponse -> TestTree
+testGetDirectoryLimitsResponse = resp
+    "GetDirectoryLimitsResponse"
+    "fixture/GetDirectoryLimitsResponse"
+    (Proxy :: Proxy GetDirectoryLimits)
+
+testUpdateRadiusResponse :: UpdateRadiusResponse -> TestTree
+testUpdateRadiusResponse = resp
+    "UpdateRadiusResponse"
     "fixture/UpdateRadiusResponse"
     (Proxy :: Proxy UpdateRadius)

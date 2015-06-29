@@ -23,569 +23,569 @@ import Network.AWS.ElastiCache
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ addTagsToResourceTest $
---             addTagsToResource
---
---         , authorizeCacheSecurityGroupIngressTest $
---             authorizeCacheSecurityGroupIngress
---
---         , copySnapshotTest $
---             copySnapshot
---
---         , createCacheClusterTest $
---             createCacheCluster
---
---         , createCacheParameterGroupTest $
---             createCacheParameterGroup
---
---         , createCacheSecurityGroupTest $
---             createCacheSecurityGroup
---
---         , createCacheSubnetGroupTest $
---             createCacheSubnetGroup
---
---         , createReplicationGroupTest $
---             createReplicationGroup
---
---         , createSnapshotTest $
---             createSnapshot
---
---         , deleteCacheClusterTest $
---             deleteCacheCluster
---
---         , deleteCacheParameterGroupTest $
---             deleteCacheParameterGroup
---
---         , deleteCacheSecurityGroupTest $
+--         [ testDeleteCacheSecurityGroup $
 --             deleteCacheSecurityGroup
 --
---         , deleteCacheSubnetGroupTest $
---             deleteCacheSubnetGroup
+--         , testCreateReplicationGroup $
+--             createReplicationGroup
 --
---         , deleteReplicationGroupTest $
---             deleteReplicationGroup
+--         , testDeleteCacheCluster $
+--             deleteCacheCluster
 --
---         , deleteSnapshotTest $
---             deleteSnapshot
---
---         , describeCacheClustersTest $
---             describeCacheClusters
---
---         , describeCacheEngineVersionsTest $
---             describeCacheEngineVersions
---
---         , describeCacheParameterGroupsTest $
---             describeCacheParameterGroups
---
---         , describeCacheParametersTest $
---             describeCacheParameters
---
---         , describeCacheSecurityGroupsTest $
---             describeCacheSecurityGroups
---
---         , describeCacheSubnetGroupsTest $
---             describeCacheSubnetGroups
---
---         , describeEngineDefaultParametersTest $
---             describeEngineDefaultParameters
---
---         , describeEventsTest $
---             describeEvents
---
---         , describeReplicationGroupsTest $
---             describeReplicationGroups
---
---         , describeReservedCacheNodesTest $
---             describeReservedCacheNodes
---
---         , describeReservedCacheNodesOfferingsTest $
---             describeReservedCacheNodesOfferings
---
---         , describeSnapshotsTest $
---             describeSnapshots
---
---         , listTagsForResourceTest $
---             listTagsForResource
---
---         , modifyCacheClusterTest $
---             modifyCacheCluster
---
---         , modifyCacheParameterGroupTest $
---             modifyCacheParameterGroup
---
---         , modifyCacheSubnetGroupTest $
---             modifyCacheSubnetGroup
---
---         , modifyReplicationGroupTest $
---             modifyReplicationGroup
---
---         , purchaseReservedCacheNodesOfferingTest $
---             purchaseReservedCacheNodesOffering
---
---         , rebootCacheClusterTest $
+--         , testRebootCacheCluster $
 --             rebootCacheCluster
 --
---         , removeTagsFromResourceTest $
+--         , testRevokeCacheSecurityGroupIngress $
+--             revokeCacheSecurityGroupIngress
+--
+--         , testDescribeEvents $
+--             describeEvents
+--
+--         , testDescribeEngineDefaultParameters $
+--             describeEngineDefaultParameters
+--
+--         , testModifyCacheParameterGroup $
+--             modifyCacheParameterGroup
+--
+--         , testCreateCacheCluster $
+--             createCacheCluster
+--
+--         , testListTagsForResource $
+--             listTagsForResource
+--
+--         , testDeleteReplicationGroup $
+--             deleteReplicationGroup
+--
+--         , testPurchaseReservedCacheNodesOffering $
+--             purchaseReservedCacheNodesOffering
+--
+--         , testDescribeCacheClusters $
+--             describeCacheClusters
+--
+--         , testModifyReplicationGroup $
+--             modifyReplicationGroup
+--
+--         , testRemoveTagsFromResource $
 --             removeTagsFromResource
 --
---         , resetCacheParameterGroupTest $
+--         , testDescribeCacheParameters $
+--             describeCacheParameters
+--
+--         , testDescribeCacheSubnetGroups $
+--             describeCacheSubnetGroups
+--
+--         , testCreateCacheSecurityGroup $
+--             createCacheSecurityGroup
+--
+--         , testAddTagsToResource $
+--             addTagsToResource
+--
+--         , testAuthorizeCacheSecurityGroupIngress $
+--             authorizeCacheSecurityGroupIngress
+--
+--         , testCopySnapshot $
+--             copySnapshot
+--
+--         , testCreateCacheSubnetGroup $
+--             createCacheSubnetGroup
+--
+--         , testDescribeCacheParameterGroups $
+--             describeCacheParameterGroups
+--
+--         , testResetCacheParameterGroup $
 --             resetCacheParameterGroup
 --
---         , revokeCacheSecurityGroupIngressTest $
---             revokeCacheSecurityGroupIngress
+--         , testDescribeSnapshots $
+--             describeSnapshots
+--
+--         , testDescribeReservedCacheNodesOfferings $
+--             describeReservedCacheNodesOfferings
+--
+--         , testDeleteSnapshot $
+--             deleteSnapshot
+--
+--         , testDescribeReplicationGroups $
+--             describeReplicationGroups
+--
+--         , testModifyCacheSubnetGroup $
+--             modifyCacheSubnetGroup
+--
+--         , testCreateSnapshot $
+--             createSnapshot
+--
+--         , testDescribeCacheSecurityGroups $
+--             describeCacheSecurityGroups
+--
+--         , testDeleteCacheParameterGroup $
+--             deleteCacheParameterGroup
+--
+--         , testDescribeReservedCacheNodes $
+--             describeReservedCacheNodes
+--
+--         , testDescribeCacheEngineVersions $
+--             describeCacheEngineVersions
+--
+--         , testModifyCacheCluster $
+--             modifyCacheCluster
+--
+--         , testCreateCacheParameterGroup $
+--             createCacheParameterGroup
+--
+--         , testDeleteCacheSubnetGroup $
+--             deleteCacheSubnetGroup
 --
 --           ]
 
 --     , testGroup "response"
---         [ addTagsToResourceResponseTest $
---             tagListMessage
---
---         , authorizeCacheSecurityGroupIngressResponseTest $
---             authorizeCacheSecurityGroupIngressResponse
---
---         , copySnapshotResponseTest $
---             copySnapshotResponse
---
---         , createCacheClusterResponseTest $
---             createCacheClusterResponse
---
---         , createCacheParameterGroupResponseTest $
---             createCacheParameterGroupResponse
---
---         , createCacheSecurityGroupResponseTest $
---             createCacheSecurityGroupResponse
---
---         , createCacheSubnetGroupResponseTest $
---             createCacheSubnetGroupResponse
---
---         , createReplicationGroupResponseTest $
---             createReplicationGroupResponse
---
---         , createSnapshotResponseTest $
---             createSnapshotResponse
---
---         , deleteCacheClusterResponseTest $
---             deleteCacheClusterResponse
---
---         , deleteCacheParameterGroupResponseTest $
---             deleteCacheParameterGroupResponse
---
---         , deleteCacheSecurityGroupResponseTest $
+--         [ testDeleteCacheSecurityGroupResponse $
 --             deleteCacheSecurityGroupResponse
 --
---         , deleteCacheSubnetGroupResponseTest $
---             deleteCacheSubnetGroupResponse
+--         , testCreateReplicationGroupResponse $
+--             createReplicationGroupResponse
 --
---         , deleteReplicationGroupResponseTest $
---             deleteReplicationGroupResponse
+--         , testDeleteCacheClusterResponse $
+--             deleteCacheClusterResponse
 --
---         , deleteSnapshotResponseTest $
---             deleteSnapshotResponse
---
---         , describeCacheClustersResponseTest $
---             describeCacheClustersResponse
---
---         , describeCacheEngineVersionsResponseTest $
---             describeCacheEngineVersionsResponse
---
---         , describeCacheParameterGroupsResponseTest $
---             describeCacheParameterGroupsResponse
---
---         , describeCacheParametersResponseTest $
---             describeCacheParametersResponse
---
---         , describeCacheSecurityGroupsResponseTest $
---             describeCacheSecurityGroupsResponse
---
---         , describeCacheSubnetGroupsResponseTest $
---             describeCacheSubnetGroupsResponse
---
---         , describeEngineDefaultParametersResponseTest $
---             describeEngineDefaultParametersResponse
---
---         , describeEventsResponseTest $
---             describeEventsResponse
---
---         , describeReplicationGroupsResponseTest $
---             describeReplicationGroupsResponse
---
---         , describeReservedCacheNodesResponseTest $
---             describeReservedCacheNodesResponse
---
---         , describeReservedCacheNodesOfferingsResponseTest $
---             describeReservedCacheNodesOfferingsResponse
---
---         , describeSnapshotsResponseTest $
---             describeSnapshotsResponse
---
---         , listTagsForResourceResponseTest $
---             tagListMessage
---
---         , modifyCacheClusterResponseTest $
---             modifyCacheClusterResponse
---
---         , modifyCacheParameterGroupResponseTest $
---             cacheParameterGroupNameMessage
---
---         , modifyCacheSubnetGroupResponseTest $
---             modifyCacheSubnetGroupResponse
---
---         , modifyReplicationGroupResponseTest $
---             modifyReplicationGroupResponse
---
---         , purchaseReservedCacheNodesOfferingResponseTest $
---             purchaseReservedCacheNodesOfferingResponse
---
---         , rebootCacheClusterResponseTest $
+--         , testRebootCacheClusterResponse $
 --             rebootCacheClusterResponse
 --
---         , removeTagsFromResourceResponseTest $
---             tagListMessage
+--         , testRevokeCacheSecurityGroupIngressResponse $
+--             revokeCacheSecurityGroupIngressResponse
 --
---         , resetCacheParameterGroupResponseTest $
+--         , testDescribeEventsResponse $
+--             describeEventsResponse
+--
+--         , testDescribeEngineDefaultParametersResponse $
+--             describeEngineDefaultParametersResponse
+--
+--         , testModifyCacheParameterGroupResponse $
 --             cacheParameterGroupNameMessage
 --
---         , revokeCacheSecurityGroupIngressResponseTest $
---             revokeCacheSecurityGroupIngressResponse
+--         , testCreateCacheClusterResponse $
+--             createCacheClusterResponse
+--
+--         , testListTagsForResourceResponse $
+--             tagListMessage
+--
+--         , testDeleteReplicationGroupResponse $
+--             deleteReplicationGroupResponse
+--
+--         , testPurchaseReservedCacheNodesOfferingResponse $
+--             purchaseReservedCacheNodesOfferingResponse
+--
+--         , testDescribeCacheClustersResponse $
+--             describeCacheClustersResponse
+--
+--         , testModifyReplicationGroupResponse $
+--             modifyReplicationGroupResponse
+--
+--         , testRemoveTagsFromResourceResponse $
+--             tagListMessage
+--
+--         , testDescribeCacheParametersResponse $
+--             describeCacheParametersResponse
+--
+--         , testDescribeCacheSubnetGroupsResponse $
+--             describeCacheSubnetGroupsResponse
+--
+--         , testCreateCacheSecurityGroupResponse $
+--             createCacheSecurityGroupResponse
+--
+--         , testAddTagsToResourceResponse $
+--             tagListMessage
+--
+--         , testAuthorizeCacheSecurityGroupIngressResponse $
+--             authorizeCacheSecurityGroupIngressResponse
+--
+--         , testCopySnapshotResponse $
+--             copySnapshotResponse
+--
+--         , testCreateCacheSubnetGroupResponse $
+--             createCacheSubnetGroupResponse
+--
+--         , testDescribeCacheParameterGroupsResponse $
+--             describeCacheParameterGroupsResponse
+--
+--         , testResetCacheParameterGroupResponse $
+--             cacheParameterGroupNameMessage
+--
+--         , testDescribeSnapshotsResponse $
+--             describeSnapshotsResponse
+--
+--         , testDescribeReservedCacheNodesOfferingsResponse $
+--             describeReservedCacheNodesOfferingsResponse
+--
+--         , testDeleteSnapshotResponse $
+--             deleteSnapshotResponse
+--
+--         , testDescribeReplicationGroupsResponse $
+--             describeReplicationGroupsResponse
+--
+--         , testModifyCacheSubnetGroupResponse $
+--             modifyCacheSubnetGroupResponse
+--
+--         , testCreateSnapshotResponse $
+--             createSnapshotResponse
+--
+--         , testDescribeCacheSecurityGroupsResponse $
+--             describeCacheSecurityGroupsResponse
+--
+--         , testDeleteCacheParameterGroupResponse $
+--             deleteCacheParameterGroupResponse
+--
+--         , testDescribeReservedCacheNodesResponse $
+--             describeReservedCacheNodesResponse
+--
+--         , testDescribeCacheEngineVersionsResponse $
+--             describeCacheEngineVersionsResponse
+--
+--         , testModifyCacheClusterResponse $
+--             modifyCacheClusterResponse
+--
+--         , testCreateCacheParameterGroupResponse $
+--             createCacheParameterGroupResponse
+--
+--         , testDeleteCacheSubnetGroupResponse $
+--             deleteCacheSubnetGroupResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-addTagsToResourceTest :: AddTagsToResource -> TestTree
-addTagsToResourceTest = undefined
+testDeleteCacheSecurityGroup :: DeleteCacheSecurityGroup -> TestTree
+testDeleteCacheSecurityGroup = undefined
 
-authorizeCacheSecurityGroupIngressTest :: AuthorizeCacheSecurityGroupIngress -> TestTree
-authorizeCacheSecurityGroupIngressTest = undefined
+testCreateReplicationGroup :: CreateReplicationGroup -> TestTree
+testCreateReplicationGroup = undefined
 
-copySnapshotTest :: CopySnapshot -> TestTree
-copySnapshotTest = undefined
+testDeleteCacheCluster :: DeleteCacheCluster -> TestTree
+testDeleteCacheCluster = undefined
 
-createCacheClusterTest :: CreateCacheCluster -> TestTree
-createCacheClusterTest = undefined
+testRebootCacheCluster :: RebootCacheCluster -> TestTree
+testRebootCacheCluster = undefined
 
-createCacheParameterGroupTest :: CreateCacheParameterGroup -> TestTree
-createCacheParameterGroupTest = undefined
+testRevokeCacheSecurityGroupIngress :: RevokeCacheSecurityGroupIngress -> TestTree
+testRevokeCacheSecurityGroupIngress = undefined
 
-createCacheSecurityGroupTest :: CreateCacheSecurityGroup -> TestTree
-createCacheSecurityGroupTest = undefined
+testDescribeEvents :: DescribeEvents -> TestTree
+testDescribeEvents = undefined
 
-createCacheSubnetGroupTest :: CreateCacheSubnetGroup -> TestTree
-createCacheSubnetGroupTest = undefined
+testDescribeEngineDefaultParameters :: DescribeEngineDefaultParameters -> TestTree
+testDescribeEngineDefaultParameters = undefined
 
-createReplicationGroupTest :: CreateReplicationGroup -> TestTree
-createReplicationGroupTest = undefined
+testModifyCacheParameterGroup :: ModifyCacheParameterGroup -> TestTree
+testModifyCacheParameterGroup = undefined
 
-createSnapshotTest :: CreateSnapshot -> TestTree
-createSnapshotTest = undefined
+testCreateCacheCluster :: CreateCacheCluster -> TestTree
+testCreateCacheCluster = undefined
 
-deleteCacheClusterTest :: DeleteCacheCluster -> TestTree
-deleteCacheClusterTest = undefined
+testListTagsForResource :: ListTagsForResource -> TestTree
+testListTagsForResource = undefined
 
-deleteCacheParameterGroupTest :: DeleteCacheParameterGroup -> TestTree
-deleteCacheParameterGroupTest = undefined
+testDeleteReplicationGroup :: DeleteReplicationGroup -> TestTree
+testDeleteReplicationGroup = undefined
 
-deleteCacheSecurityGroupTest :: DeleteCacheSecurityGroup -> TestTree
-deleteCacheSecurityGroupTest = undefined
+testPurchaseReservedCacheNodesOffering :: PurchaseReservedCacheNodesOffering -> TestTree
+testPurchaseReservedCacheNodesOffering = undefined
 
-deleteCacheSubnetGroupTest :: DeleteCacheSubnetGroup -> TestTree
-deleteCacheSubnetGroupTest = undefined
+testDescribeCacheClusters :: DescribeCacheClusters -> TestTree
+testDescribeCacheClusters = undefined
 
-deleteReplicationGroupTest :: DeleteReplicationGroup -> TestTree
-deleteReplicationGroupTest = undefined
+testModifyReplicationGroup :: ModifyReplicationGroup -> TestTree
+testModifyReplicationGroup = undefined
 
-deleteSnapshotTest :: DeleteSnapshot -> TestTree
-deleteSnapshotTest = undefined
+testRemoveTagsFromResource :: RemoveTagsFromResource -> TestTree
+testRemoveTagsFromResource = undefined
 
-describeCacheClustersTest :: DescribeCacheClusters -> TestTree
-describeCacheClustersTest = undefined
+testDescribeCacheParameters :: DescribeCacheParameters -> TestTree
+testDescribeCacheParameters = undefined
 
-describeCacheEngineVersionsTest :: DescribeCacheEngineVersions -> TestTree
-describeCacheEngineVersionsTest = undefined
+testDescribeCacheSubnetGroups :: DescribeCacheSubnetGroups -> TestTree
+testDescribeCacheSubnetGroups = undefined
 
-describeCacheParameterGroupsTest :: DescribeCacheParameterGroups -> TestTree
-describeCacheParameterGroupsTest = undefined
+testCreateCacheSecurityGroup :: CreateCacheSecurityGroup -> TestTree
+testCreateCacheSecurityGroup = undefined
 
-describeCacheParametersTest :: DescribeCacheParameters -> TestTree
-describeCacheParametersTest = undefined
+testAddTagsToResource :: AddTagsToResource -> TestTree
+testAddTagsToResource = undefined
 
-describeCacheSecurityGroupsTest :: DescribeCacheSecurityGroups -> TestTree
-describeCacheSecurityGroupsTest = undefined
+testAuthorizeCacheSecurityGroupIngress :: AuthorizeCacheSecurityGroupIngress -> TestTree
+testAuthorizeCacheSecurityGroupIngress = undefined
 
-describeCacheSubnetGroupsTest :: DescribeCacheSubnetGroups -> TestTree
-describeCacheSubnetGroupsTest = undefined
+testCopySnapshot :: CopySnapshot -> TestTree
+testCopySnapshot = undefined
 
-describeEngineDefaultParametersTest :: DescribeEngineDefaultParameters -> TestTree
-describeEngineDefaultParametersTest = undefined
+testCreateCacheSubnetGroup :: CreateCacheSubnetGroup -> TestTree
+testCreateCacheSubnetGroup = undefined
 
-describeEventsTest :: DescribeEvents -> TestTree
-describeEventsTest = undefined
+testDescribeCacheParameterGroups :: DescribeCacheParameterGroups -> TestTree
+testDescribeCacheParameterGroups = undefined
 
-describeReplicationGroupsTest :: DescribeReplicationGroups -> TestTree
-describeReplicationGroupsTest = undefined
+testResetCacheParameterGroup :: ResetCacheParameterGroup -> TestTree
+testResetCacheParameterGroup = undefined
 
-describeReservedCacheNodesTest :: DescribeReservedCacheNodes -> TestTree
-describeReservedCacheNodesTest = undefined
+testDescribeSnapshots :: DescribeSnapshots -> TestTree
+testDescribeSnapshots = undefined
 
-describeReservedCacheNodesOfferingsTest :: DescribeReservedCacheNodesOfferings -> TestTree
-describeReservedCacheNodesOfferingsTest = undefined
+testDescribeReservedCacheNodesOfferings :: DescribeReservedCacheNodesOfferings -> TestTree
+testDescribeReservedCacheNodesOfferings = undefined
 
-describeSnapshotsTest :: DescribeSnapshots -> TestTree
-describeSnapshotsTest = undefined
+testDeleteSnapshot :: DeleteSnapshot -> TestTree
+testDeleteSnapshot = undefined
 
-listTagsForResourceTest :: ListTagsForResource -> TestTree
-listTagsForResourceTest = undefined
+testDescribeReplicationGroups :: DescribeReplicationGroups -> TestTree
+testDescribeReplicationGroups = undefined
 
-modifyCacheClusterTest :: ModifyCacheCluster -> TestTree
-modifyCacheClusterTest = undefined
+testModifyCacheSubnetGroup :: ModifyCacheSubnetGroup -> TestTree
+testModifyCacheSubnetGroup = undefined
 
-modifyCacheParameterGroupTest :: ModifyCacheParameterGroup -> TestTree
-modifyCacheParameterGroupTest = undefined
+testCreateSnapshot :: CreateSnapshot -> TestTree
+testCreateSnapshot = undefined
 
-modifyCacheSubnetGroupTest :: ModifyCacheSubnetGroup -> TestTree
-modifyCacheSubnetGroupTest = undefined
+testDescribeCacheSecurityGroups :: DescribeCacheSecurityGroups -> TestTree
+testDescribeCacheSecurityGroups = undefined
 
-modifyReplicationGroupTest :: ModifyReplicationGroup -> TestTree
-modifyReplicationGroupTest = undefined
+testDeleteCacheParameterGroup :: DeleteCacheParameterGroup -> TestTree
+testDeleteCacheParameterGroup = undefined
 
-purchaseReservedCacheNodesOfferingTest :: PurchaseReservedCacheNodesOffering -> TestTree
-purchaseReservedCacheNodesOfferingTest = undefined
+testDescribeReservedCacheNodes :: DescribeReservedCacheNodes -> TestTree
+testDescribeReservedCacheNodes = undefined
 
-rebootCacheClusterTest :: RebootCacheCluster -> TestTree
-rebootCacheClusterTest = undefined
+testDescribeCacheEngineVersions :: DescribeCacheEngineVersions -> TestTree
+testDescribeCacheEngineVersions = undefined
 
-removeTagsFromResourceTest :: RemoveTagsFromResource -> TestTree
-removeTagsFromResourceTest = undefined
+testModifyCacheCluster :: ModifyCacheCluster -> TestTree
+testModifyCacheCluster = undefined
 
-resetCacheParameterGroupTest :: ResetCacheParameterGroup -> TestTree
-resetCacheParameterGroupTest = undefined
+testCreateCacheParameterGroup :: CreateCacheParameterGroup -> TestTree
+testCreateCacheParameterGroup = undefined
 
-revokeCacheSecurityGroupIngressTest :: RevokeCacheSecurityGroupIngress -> TestTree
-revokeCacheSecurityGroupIngressTest = undefined
+testDeleteCacheSubnetGroup :: DeleteCacheSubnetGroup -> TestTree
+testDeleteCacheSubnetGroup = undefined
 
 -- Responses
 
-addTagsToResourceResponseTest :: TagListMessage -> TestTree
-addTagsToResourceResponseTest = resp
-    "addTagsToResourceResponse"
-    "fixture/TagListMessage"
-    (Proxy :: Proxy AddTagsToResource)
-
-authorizeCacheSecurityGroupIngressResponseTest :: AuthorizeCacheSecurityGroupIngressResponse -> TestTree
-authorizeCacheSecurityGroupIngressResponseTest = resp
-    "authorizeCacheSecurityGroupIngressResponse"
-    "fixture/AuthorizeCacheSecurityGroupIngressResponse"
-    (Proxy :: Proxy AuthorizeCacheSecurityGroupIngress)
-
-copySnapshotResponseTest :: CopySnapshotResponse -> TestTree
-copySnapshotResponseTest = resp
-    "copySnapshotResponse"
-    "fixture/CopySnapshotResponse"
-    (Proxy :: Proxy CopySnapshot)
-
-createCacheClusterResponseTest :: CreateCacheClusterResponse -> TestTree
-createCacheClusterResponseTest = resp
-    "createCacheClusterResponse"
-    "fixture/CreateCacheClusterResponse"
-    (Proxy :: Proxy CreateCacheCluster)
-
-createCacheParameterGroupResponseTest :: CreateCacheParameterGroupResponse -> TestTree
-createCacheParameterGroupResponseTest = resp
-    "createCacheParameterGroupResponse"
-    "fixture/CreateCacheParameterGroupResponse"
-    (Proxy :: Proxy CreateCacheParameterGroup)
-
-createCacheSecurityGroupResponseTest :: CreateCacheSecurityGroupResponse -> TestTree
-createCacheSecurityGroupResponseTest = resp
-    "createCacheSecurityGroupResponse"
-    "fixture/CreateCacheSecurityGroupResponse"
-    (Proxy :: Proxy CreateCacheSecurityGroup)
-
-createCacheSubnetGroupResponseTest :: CreateCacheSubnetGroupResponse -> TestTree
-createCacheSubnetGroupResponseTest = resp
-    "createCacheSubnetGroupResponse"
-    "fixture/CreateCacheSubnetGroupResponse"
-    (Proxy :: Proxy CreateCacheSubnetGroup)
-
-createReplicationGroupResponseTest :: CreateReplicationGroupResponse -> TestTree
-createReplicationGroupResponseTest = resp
-    "createReplicationGroupResponse"
-    "fixture/CreateReplicationGroupResponse"
-    (Proxy :: Proxy CreateReplicationGroup)
-
-createSnapshotResponseTest :: CreateSnapshotResponse -> TestTree
-createSnapshotResponseTest = resp
-    "createSnapshotResponse"
-    "fixture/CreateSnapshotResponse"
-    (Proxy :: Proxy CreateSnapshot)
-
-deleteCacheClusterResponseTest :: DeleteCacheClusterResponse -> TestTree
-deleteCacheClusterResponseTest = resp
-    "deleteCacheClusterResponse"
-    "fixture/DeleteCacheClusterResponse"
-    (Proxy :: Proxy DeleteCacheCluster)
-
-deleteCacheParameterGroupResponseTest :: DeleteCacheParameterGroupResponse -> TestTree
-deleteCacheParameterGroupResponseTest = resp
-    "deleteCacheParameterGroupResponse"
-    "fixture/DeleteCacheParameterGroupResponse"
-    (Proxy :: Proxy DeleteCacheParameterGroup)
-
-deleteCacheSecurityGroupResponseTest :: DeleteCacheSecurityGroupResponse -> TestTree
-deleteCacheSecurityGroupResponseTest = resp
-    "deleteCacheSecurityGroupResponse"
+testDeleteCacheSecurityGroupResponse :: DeleteCacheSecurityGroupResponse -> TestTree
+testDeleteCacheSecurityGroupResponse = resp
+    "DeleteCacheSecurityGroupResponse"
     "fixture/DeleteCacheSecurityGroupResponse"
     (Proxy :: Proxy DeleteCacheSecurityGroup)
 
-deleteCacheSubnetGroupResponseTest :: DeleteCacheSubnetGroupResponse -> TestTree
-deleteCacheSubnetGroupResponseTest = resp
-    "deleteCacheSubnetGroupResponse"
-    "fixture/DeleteCacheSubnetGroupResponse"
-    (Proxy :: Proxy DeleteCacheSubnetGroup)
+testCreateReplicationGroupResponse :: CreateReplicationGroupResponse -> TestTree
+testCreateReplicationGroupResponse = resp
+    "CreateReplicationGroupResponse"
+    "fixture/CreateReplicationGroupResponse"
+    (Proxy :: Proxy CreateReplicationGroup)
 
-deleteReplicationGroupResponseTest :: DeleteReplicationGroupResponse -> TestTree
-deleteReplicationGroupResponseTest = resp
-    "deleteReplicationGroupResponse"
-    "fixture/DeleteReplicationGroupResponse"
-    (Proxy :: Proxy DeleteReplicationGroup)
+testDeleteCacheClusterResponse :: DeleteCacheClusterResponse -> TestTree
+testDeleteCacheClusterResponse = resp
+    "DeleteCacheClusterResponse"
+    "fixture/DeleteCacheClusterResponse"
+    (Proxy :: Proxy DeleteCacheCluster)
 
-deleteSnapshotResponseTest :: DeleteSnapshotResponse -> TestTree
-deleteSnapshotResponseTest = resp
-    "deleteSnapshotResponse"
-    "fixture/DeleteSnapshotResponse"
-    (Proxy :: Proxy DeleteSnapshot)
-
-describeCacheClustersResponseTest :: DescribeCacheClustersResponse -> TestTree
-describeCacheClustersResponseTest = resp
-    "describeCacheClustersResponse"
-    "fixture/DescribeCacheClustersResponse"
-    (Proxy :: Proxy DescribeCacheClusters)
-
-describeCacheEngineVersionsResponseTest :: DescribeCacheEngineVersionsResponse -> TestTree
-describeCacheEngineVersionsResponseTest = resp
-    "describeCacheEngineVersionsResponse"
-    "fixture/DescribeCacheEngineVersionsResponse"
-    (Proxy :: Proxy DescribeCacheEngineVersions)
-
-describeCacheParameterGroupsResponseTest :: DescribeCacheParameterGroupsResponse -> TestTree
-describeCacheParameterGroupsResponseTest = resp
-    "describeCacheParameterGroupsResponse"
-    "fixture/DescribeCacheParameterGroupsResponse"
-    (Proxy :: Proxy DescribeCacheParameterGroups)
-
-describeCacheParametersResponseTest :: DescribeCacheParametersResponse -> TestTree
-describeCacheParametersResponseTest = resp
-    "describeCacheParametersResponse"
-    "fixture/DescribeCacheParametersResponse"
-    (Proxy :: Proxy DescribeCacheParameters)
-
-describeCacheSecurityGroupsResponseTest :: DescribeCacheSecurityGroupsResponse -> TestTree
-describeCacheSecurityGroupsResponseTest = resp
-    "describeCacheSecurityGroupsResponse"
-    "fixture/DescribeCacheSecurityGroupsResponse"
-    (Proxy :: Proxy DescribeCacheSecurityGroups)
-
-describeCacheSubnetGroupsResponseTest :: DescribeCacheSubnetGroupsResponse -> TestTree
-describeCacheSubnetGroupsResponseTest = resp
-    "describeCacheSubnetGroupsResponse"
-    "fixture/DescribeCacheSubnetGroupsResponse"
-    (Proxy :: Proxy DescribeCacheSubnetGroups)
-
-describeEngineDefaultParametersResponseTest :: DescribeEngineDefaultParametersResponse -> TestTree
-describeEngineDefaultParametersResponseTest = resp
-    "describeEngineDefaultParametersResponse"
-    "fixture/DescribeEngineDefaultParametersResponse"
-    (Proxy :: Proxy DescribeEngineDefaultParameters)
-
-describeEventsResponseTest :: DescribeEventsResponse -> TestTree
-describeEventsResponseTest = resp
-    "describeEventsResponse"
-    "fixture/DescribeEventsResponse"
-    (Proxy :: Proxy DescribeEvents)
-
-describeReplicationGroupsResponseTest :: DescribeReplicationGroupsResponse -> TestTree
-describeReplicationGroupsResponseTest = resp
-    "describeReplicationGroupsResponse"
-    "fixture/DescribeReplicationGroupsResponse"
-    (Proxy :: Proxy DescribeReplicationGroups)
-
-describeReservedCacheNodesResponseTest :: DescribeReservedCacheNodesResponse -> TestTree
-describeReservedCacheNodesResponseTest = resp
-    "describeReservedCacheNodesResponse"
-    "fixture/DescribeReservedCacheNodesResponse"
-    (Proxy :: Proxy DescribeReservedCacheNodes)
-
-describeReservedCacheNodesOfferingsResponseTest :: DescribeReservedCacheNodesOfferingsResponse -> TestTree
-describeReservedCacheNodesOfferingsResponseTest = resp
-    "describeReservedCacheNodesOfferingsResponse"
-    "fixture/DescribeReservedCacheNodesOfferingsResponse"
-    (Proxy :: Proxy DescribeReservedCacheNodesOfferings)
-
-describeSnapshotsResponseTest :: DescribeSnapshotsResponse -> TestTree
-describeSnapshotsResponseTest = resp
-    "describeSnapshotsResponse"
-    "fixture/DescribeSnapshotsResponse"
-    (Proxy :: Proxy DescribeSnapshots)
-
-listTagsForResourceResponseTest :: TagListMessage -> TestTree
-listTagsForResourceResponseTest = resp
-    "listTagsForResourceResponse"
-    "fixture/TagListMessage"
-    (Proxy :: Proxy ListTagsForResource)
-
-modifyCacheClusterResponseTest :: ModifyCacheClusterResponse -> TestTree
-modifyCacheClusterResponseTest = resp
-    "modifyCacheClusterResponse"
-    "fixture/ModifyCacheClusterResponse"
-    (Proxy :: Proxy ModifyCacheCluster)
-
-modifyCacheParameterGroupResponseTest :: CacheParameterGroupNameMessage -> TestTree
-modifyCacheParameterGroupResponseTest = resp
-    "modifyCacheParameterGroupResponse"
-    "fixture/CacheParameterGroupNameMessage"
-    (Proxy :: Proxy ModifyCacheParameterGroup)
-
-modifyCacheSubnetGroupResponseTest :: ModifyCacheSubnetGroupResponse -> TestTree
-modifyCacheSubnetGroupResponseTest = resp
-    "modifyCacheSubnetGroupResponse"
-    "fixture/ModifyCacheSubnetGroupResponse"
-    (Proxy :: Proxy ModifyCacheSubnetGroup)
-
-modifyReplicationGroupResponseTest :: ModifyReplicationGroupResponse -> TestTree
-modifyReplicationGroupResponseTest = resp
-    "modifyReplicationGroupResponse"
-    "fixture/ModifyReplicationGroupResponse"
-    (Proxy :: Proxy ModifyReplicationGroup)
-
-purchaseReservedCacheNodesOfferingResponseTest :: PurchaseReservedCacheNodesOfferingResponse -> TestTree
-purchaseReservedCacheNodesOfferingResponseTest = resp
-    "purchaseReservedCacheNodesOfferingResponse"
-    "fixture/PurchaseReservedCacheNodesOfferingResponse"
-    (Proxy :: Proxy PurchaseReservedCacheNodesOffering)
-
-rebootCacheClusterResponseTest :: RebootCacheClusterResponse -> TestTree
-rebootCacheClusterResponseTest = resp
-    "rebootCacheClusterResponse"
+testRebootCacheClusterResponse :: RebootCacheClusterResponse -> TestTree
+testRebootCacheClusterResponse = resp
+    "RebootCacheClusterResponse"
     "fixture/RebootCacheClusterResponse"
     (Proxy :: Proxy RebootCacheCluster)
 
-removeTagsFromResourceResponseTest :: TagListMessage -> TestTree
-removeTagsFromResourceResponseTest = resp
-    "removeTagsFromResourceResponse"
-    "fixture/TagListMessage"
-    (Proxy :: Proxy RemoveTagsFromResource)
-
-resetCacheParameterGroupResponseTest :: CacheParameterGroupNameMessage -> TestTree
-resetCacheParameterGroupResponseTest = resp
-    "resetCacheParameterGroupResponse"
-    "fixture/CacheParameterGroupNameMessage"
-    (Proxy :: Proxy ResetCacheParameterGroup)
-
-revokeCacheSecurityGroupIngressResponseTest :: RevokeCacheSecurityGroupIngressResponse -> TestTree
-revokeCacheSecurityGroupIngressResponseTest = resp
-    "revokeCacheSecurityGroupIngressResponse"
+testRevokeCacheSecurityGroupIngressResponse :: RevokeCacheSecurityGroupIngressResponse -> TestTree
+testRevokeCacheSecurityGroupIngressResponse = resp
+    "RevokeCacheSecurityGroupIngressResponse"
     "fixture/RevokeCacheSecurityGroupIngressResponse"
     (Proxy :: Proxy RevokeCacheSecurityGroupIngress)
+
+testDescribeEventsResponse :: DescribeEventsResponse -> TestTree
+testDescribeEventsResponse = resp
+    "DescribeEventsResponse"
+    "fixture/DescribeEventsResponse"
+    (Proxy :: Proxy DescribeEvents)
+
+testDescribeEngineDefaultParametersResponse :: DescribeEngineDefaultParametersResponse -> TestTree
+testDescribeEngineDefaultParametersResponse = resp
+    "DescribeEngineDefaultParametersResponse"
+    "fixture/DescribeEngineDefaultParametersResponse"
+    (Proxy :: Proxy DescribeEngineDefaultParameters)
+
+testModifyCacheParameterGroupResponse :: CacheParameterGroupNameMessage -> TestTree
+testModifyCacheParameterGroupResponse = resp
+    "ModifyCacheParameterGroupResponse"
+    "fixture/ModifyCacheParameterGroupResponse"
+    (Proxy :: Proxy ModifyCacheParameterGroup)
+
+testCreateCacheClusterResponse :: CreateCacheClusterResponse -> TestTree
+testCreateCacheClusterResponse = resp
+    "CreateCacheClusterResponse"
+    "fixture/CreateCacheClusterResponse"
+    (Proxy :: Proxy CreateCacheCluster)
+
+testListTagsForResourceResponse :: TagListMessage -> TestTree
+testListTagsForResourceResponse = resp
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse"
+    (Proxy :: Proxy ListTagsForResource)
+
+testDeleteReplicationGroupResponse :: DeleteReplicationGroupResponse -> TestTree
+testDeleteReplicationGroupResponse = resp
+    "DeleteReplicationGroupResponse"
+    "fixture/DeleteReplicationGroupResponse"
+    (Proxy :: Proxy DeleteReplicationGroup)
+
+testPurchaseReservedCacheNodesOfferingResponse :: PurchaseReservedCacheNodesOfferingResponse -> TestTree
+testPurchaseReservedCacheNodesOfferingResponse = resp
+    "PurchaseReservedCacheNodesOfferingResponse"
+    "fixture/PurchaseReservedCacheNodesOfferingResponse"
+    (Proxy :: Proxy PurchaseReservedCacheNodesOffering)
+
+testDescribeCacheClustersResponse :: DescribeCacheClustersResponse -> TestTree
+testDescribeCacheClustersResponse = resp
+    "DescribeCacheClustersResponse"
+    "fixture/DescribeCacheClustersResponse"
+    (Proxy :: Proxy DescribeCacheClusters)
+
+testModifyReplicationGroupResponse :: ModifyReplicationGroupResponse -> TestTree
+testModifyReplicationGroupResponse = resp
+    "ModifyReplicationGroupResponse"
+    "fixture/ModifyReplicationGroupResponse"
+    (Proxy :: Proxy ModifyReplicationGroup)
+
+testRemoveTagsFromResourceResponse :: TagListMessage -> TestTree
+testRemoveTagsFromResourceResponse = resp
+    "RemoveTagsFromResourceResponse"
+    "fixture/RemoveTagsFromResourceResponse"
+    (Proxy :: Proxy RemoveTagsFromResource)
+
+testDescribeCacheParametersResponse :: DescribeCacheParametersResponse -> TestTree
+testDescribeCacheParametersResponse = resp
+    "DescribeCacheParametersResponse"
+    "fixture/DescribeCacheParametersResponse"
+    (Proxy :: Proxy DescribeCacheParameters)
+
+testDescribeCacheSubnetGroupsResponse :: DescribeCacheSubnetGroupsResponse -> TestTree
+testDescribeCacheSubnetGroupsResponse = resp
+    "DescribeCacheSubnetGroupsResponse"
+    "fixture/DescribeCacheSubnetGroupsResponse"
+    (Proxy :: Proxy DescribeCacheSubnetGroups)
+
+testCreateCacheSecurityGroupResponse :: CreateCacheSecurityGroupResponse -> TestTree
+testCreateCacheSecurityGroupResponse = resp
+    "CreateCacheSecurityGroupResponse"
+    "fixture/CreateCacheSecurityGroupResponse"
+    (Proxy :: Proxy CreateCacheSecurityGroup)
+
+testAddTagsToResourceResponse :: TagListMessage -> TestTree
+testAddTagsToResourceResponse = resp
+    "AddTagsToResourceResponse"
+    "fixture/AddTagsToResourceResponse"
+    (Proxy :: Proxy AddTagsToResource)
+
+testAuthorizeCacheSecurityGroupIngressResponse :: AuthorizeCacheSecurityGroupIngressResponse -> TestTree
+testAuthorizeCacheSecurityGroupIngressResponse = resp
+    "AuthorizeCacheSecurityGroupIngressResponse"
+    "fixture/AuthorizeCacheSecurityGroupIngressResponse"
+    (Proxy :: Proxy AuthorizeCacheSecurityGroupIngress)
+
+testCopySnapshotResponse :: CopySnapshotResponse -> TestTree
+testCopySnapshotResponse = resp
+    "CopySnapshotResponse"
+    "fixture/CopySnapshotResponse"
+    (Proxy :: Proxy CopySnapshot)
+
+testCreateCacheSubnetGroupResponse :: CreateCacheSubnetGroupResponse -> TestTree
+testCreateCacheSubnetGroupResponse = resp
+    "CreateCacheSubnetGroupResponse"
+    "fixture/CreateCacheSubnetGroupResponse"
+    (Proxy :: Proxy CreateCacheSubnetGroup)
+
+testDescribeCacheParameterGroupsResponse :: DescribeCacheParameterGroupsResponse -> TestTree
+testDescribeCacheParameterGroupsResponse = resp
+    "DescribeCacheParameterGroupsResponse"
+    "fixture/DescribeCacheParameterGroupsResponse"
+    (Proxy :: Proxy DescribeCacheParameterGroups)
+
+testResetCacheParameterGroupResponse :: CacheParameterGroupNameMessage -> TestTree
+testResetCacheParameterGroupResponse = resp
+    "ResetCacheParameterGroupResponse"
+    "fixture/ResetCacheParameterGroupResponse"
+    (Proxy :: Proxy ResetCacheParameterGroup)
+
+testDescribeSnapshotsResponse :: DescribeSnapshotsResponse -> TestTree
+testDescribeSnapshotsResponse = resp
+    "DescribeSnapshotsResponse"
+    "fixture/DescribeSnapshotsResponse"
+    (Proxy :: Proxy DescribeSnapshots)
+
+testDescribeReservedCacheNodesOfferingsResponse :: DescribeReservedCacheNodesOfferingsResponse -> TestTree
+testDescribeReservedCacheNodesOfferingsResponse = resp
+    "DescribeReservedCacheNodesOfferingsResponse"
+    "fixture/DescribeReservedCacheNodesOfferingsResponse"
+    (Proxy :: Proxy DescribeReservedCacheNodesOfferings)
+
+testDeleteSnapshotResponse :: DeleteSnapshotResponse -> TestTree
+testDeleteSnapshotResponse = resp
+    "DeleteSnapshotResponse"
+    "fixture/DeleteSnapshotResponse"
+    (Proxy :: Proxy DeleteSnapshot)
+
+testDescribeReplicationGroupsResponse :: DescribeReplicationGroupsResponse -> TestTree
+testDescribeReplicationGroupsResponse = resp
+    "DescribeReplicationGroupsResponse"
+    "fixture/DescribeReplicationGroupsResponse"
+    (Proxy :: Proxy DescribeReplicationGroups)
+
+testModifyCacheSubnetGroupResponse :: ModifyCacheSubnetGroupResponse -> TestTree
+testModifyCacheSubnetGroupResponse = resp
+    "ModifyCacheSubnetGroupResponse"
+    "fixture/ModifyCacheSubnetGroupResponse"
+    (Proxy :: Proxy ModifyCacheSubnetGroup)
+
+testCreateSnapshotResponse :: CreateSnapshotResponse -> TestTree
+testCreateSnapshotResponse = resp
+    "CreateSnapshotResponse"
+    "fixture/CreateSnapshotResponse"
+    (Proxy :: Proxy CreateSnapshot)
+
+testDescribeCacheSecurityGroupsResponse :: DescribeCacheSecurityGroupsResponse -> TestTree
+testDescribeCacheSecurityGroupsResponse = resp
+    "DescribeCacheSecurityGroupsResponse"
+    "fixture/DescribeCacheSecurityGroupsResponse"
+    (Proxy :: Proxy DescribeCacheSecurityGroups)
+
+testDeleteCacheParameterGroupResponse :: DeleteCacheParameterGroupResponse -> TestTree
+testDeleteCacheParameterGroupResponse = resp
+    "DeleteCacheParameterGroupResponse"
+    "fixture/DeleteCacheParameterGroupResponse"
+    (Proxy :: Proxy DeleteCacheParameterGroup)
+
+testDescribeReservedCacheNodesResponse :: DescribeReservedCacheNodesResponse -> TestTree
+testDescribeReservedCacheNodesResponse = resp
+    "DescribeReservedCacheNodesResponse"
+    "fixture/DescribeReservedCacheNodesResponse"
+    (Proxy :: Proxy DescribeReservedCacheNodes)
+
+testDescribeCacheEngineVersionsResponse :: DescribeCacheEngineVersionsResponse -> TestTree
+testDescribeCacheEngineVersionsResponse = resp
+    "DescribeCacheEngineVersionsResponse"
+    "fixture/DescribeCacheEngineVersionsResponse"
+    (Proxy :: Proxy DescribeCacheEngineVersions)
+
+testModifyCacheClusterResponse :: ModifyCacheClusterResponse -> TestTree
+testModifyCacheClusterResponse = resp
+    "ModifyCacheClusterResponse"
+    "fixture/ModifyCacheClusterResponse"
+    (Proxy :: Proxy ModifyCacheCluster)
+
+testCreateCacheParameterGroupResponse :: CreateCacheParameterGroupResponse -> TestTree
+testCreateCacheParameterGroupResponse = resp
+    "CreateCacheParameterGroupResponse"
+    "fixture/CreateCacheParameterGroupResponse"
+    (Proxy :: Proxy CreateCacheParameterGroup)
+
+testDeleteCacheSubnetGroupResponse :: DeleteCacheSubnetGroupResponse -> TestTree
+testDeleteCacheSubnetGroupResponse = resp
+    "DeleteCacheSubnetGroupResponse"
+    "fixture/DeleteCacheSubnetGroupResponse"
+    (Proxy :: Proxy DeleteCacheSubnetGroup)

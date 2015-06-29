@@ -23,284 +23,284 @@ import Network.AWS.CloudWatchLogs
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ createLogGroupTest $
---             createLogGroup
---
---         , createLogStreamTest $
---             createLogStream
---
---         , deleteLogGroupTest $
---             deleteLogGroup
---
---         , deleteLogStreamTest $
---             deleteLogStream
---
---         , deleteMetricFilterTest $
---             deleteMetricFilter
---
---         , deleteRetentionPolicyTest $
---             deleteRetentionPolicy
---
---         , deleteSubscriptionFilterTest $
---             deleteSubscriptionFilter
---
---         , describeLogGroupsTest $
---             describeLogGroups
---
---         , describeLogStreamsTest $
---             describeLogStreams
---
---         , describeMetricFiltersTest $
---             describeMetricFilters
---
---         , describeSubscriptionFiltersTest $
+--         [ testDescribeSubscriptionFilters $
 --             describeSubscriptionFilters
 --
---         , filterLogEventsTest $
---             filterLogEvents
---
---         , getLogEventsTest $
+--         , testGetLogEvents $
 --             getLogEvents
 --
---         , putLogEventsTest $
+--         , testDescribeLogGroups $
+--             describeLogGroups
+--
+--         , testFilterLogEvents $
+--             filterLogEvents
+--
+--         , testDeleteLogStream $
+--             deleteLogStream
+--
+--         , testCreateLogStream $
+--             createLogStream
+--
+--         , testCreateLogGroup $
+--             createLogGroup
+--
+--         , testPutLogEvents $
 --             putLogEvents
 --
---         , putMetricFilterTest $
---             putMetricFilter
+--         , testDeleteSubscriptionFilter $
+--             deleteSubscriptionFilter
 --
---         , putRetentionPolicyTest $
---             putRetentionPolicy
---
---         , putSubscriptionFilterTest $
+--         , testPutSubscriptionFilter $
 --             putSubscriptionFilter
 --
---         , testMetricFilterTest $
+--         , testDeleteLogGroup $
+--             deleteLogGroup
+--
+--         , testTestMetricFilter $
 --             testMetricFilter
+--
+--         , testDescribeMetricFilters $
+--             describeMetricFilters
+--
+--         , testDeleteMetricFilter $
+--             deleteMetricFilter
+--
+--         , testPutRetentionPolicy $
+--             putRetentionPolicy
+--
+--         , testDeleteRetentionPolicy $
+--             deleteRetentionPolicy
+--
+--         , testPutMetricFilter $
+--             putMetricFilter
+--
+--         , testDescribeLogStreams $
+--             describeLogStreams
 --
 --           ]
 
 --     , testGroup "response"
---         [ createLogGroupResponseTest $
---             createLogGroupResponse
---
---         , createLogStreamResponseTest $
---             createLogStreamResponse
---
---         , deleteLogGroupResponseTest $
---             deleteLogGroupResponse
---
---         , deleteLogStreamResponseTest $
---             deleteLogStreamResponse
---
---         , deleteMetricFilterResponseTest $
---             deleteMetricFilterResponse
---
---         , deleteRetentionPolicyResponseTest $
---             deleteRetentionPolicyResponse
---
---         , deleteSubscriptionFilterResponseTest $
---             deleteSubscriptionFilterResponse
---
---         , describeLogGroupsResponseTest $
---             describeLogGroupsResponse
---
---         , describeLogStreamsResponseTest $
---             describeLogStreamsResponse
---
---         , describeMetricFiltersResponseTest $
---             describeMetricFiltersResponse
---
---         , describeSubscriptionFiltersResponseTest $
+--         [ testDescribeSubscriptionFiltersResponse $
 --             describeSubscriptionFiltersResponse
 --
---         , filterLogEventsResponseTest $
---             filterLogEventsResponse
---
---         , getLogEventsResponseTest $
+--         , testGetLogEventsResponse $
 --             getLogEventsResponse
 --
---         , putLogEventsResponseTest $
+--         , testDescribeLogGroupsResponse $
+--             describeLogGroupsResponse
+--
+--         , testFilterLogEventsResponse $
+--             filterLogEventsResponse
+--
+--         , testDeleteLogStreamResponse $
+--             deleteLogStreamResponse
+--
+--         , testCreateLogStreamResponse $
+--             createLogStreamResponse
+--
+--         , testCreateLogGroupResponse $
+--             createLogGroupResponse
+--
+--         , testPutLogEventsResponse $
 --             putLogEventsResponse
 --
---         , putMetricFilterResponseTest $
---             putMetricFilterResponse
+--         , testDeleteSubscriptionFilterResponse $
+--             deleteSubscriptionFilterResponse
 --
---         , putRetentionPolicyResponseTest $
---             putRetentionPolicyResponse
---
---         , putSubscriptionFilterResponseTest $
+--         , testPutSubscriptionFilterResponse $
 --             putSubscriptionFilterResponse
 --
---         , testMetricFilterResponseTest $
+--         , testDeleteLogGroupResponse $
+--             deleteLogGroupResponse
+--
+--         , testTestMetricFilterResponse $
 --             testMetricFilterResponse
+--
+--         , testDescribeMetricFiltersResponse $
+--             describeMetricFiltersResponse
+--
+--         , testDeleteMetricFilterResponse $
+--             deleteMetricFilterResponse
+--
+--         , testPutRetentionPolicyResponse $
+--             putRetentionPolicyResponse
+--
+--         , testDeleteRetentionPolicyResponse $
+--             deleteRetentionPolicyResponse
+--
+--         , testPutMetricFilterResponse $
+--             putMetricFilterResponse
+--
+--         , testDescribeLogStreamsResponse $
+--             describeLogStreamsResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-createLogGroupTest :: CreateLogGroup -> TestTree
-createLogGroupTest = undefined
+testDescribeSubscriptionFilters :: DescribeSubscriptionFilters -> TestTree
+testDescribeSubscriptionFilters = undefined
 
-createLogStreamTest :: CreateLogStream -> TestTree
-createLogStreamTest = undefined
+testGetLogEvents :: GetLogEvents -> TestTree
+testGetLogEvents = undefined
 
-deleteLogGroupTest :: DeleteLogGroup -> TestTree
-deleteLogGroupTest = undefined
+testDescribeLogGroups :: DescribeLogGroups -> TestTree
+testDescribeLogGroups = undefined
 
-deleteLogStreamTest :: DeleteLogStream -> TestTree
-deleteLogStreamTest = undefined
+testFilterLogEvents :: FilterLogEvents -> TestTree
+testFilterLogEvents = undefined
 
-deleteMetricFilterTest :: DeleteMetricFilter -> TestTree
-deleteMetricFilterTest = undefined
+testDeleteLogStream :: DeleteLogStream -> TestTree
+testDeleteLogStream = undefined
 
-deleteRetentionPolicyTest :: DeleteRetentionPolicy -> TestTree
-deleteRetentionPolicyTest = undefined
+testCreateLogStream :: CreateLogStream -> TestTree
+testCreateLogStream = undefined
 
-deleteSubscriptionFilterTest :: DeleteSubscriptionFilter -> TestTree
-deleteSubscriptionFilterTest = undefined
+testCreateLogGroup :: CreateLogGroup -> TestTree
+testCreateLogGroup = undefined
 
-describeLogGroupsTest :: DescribeLogGroups -> TestTree
-describeLogGroupsTest = undefined
+testPutLogEvents :: PutLogEvents -> TestTree
+testPutLogEvents = undefined
 
-describeLogStreamsTest :: DescribeLogStreams -> TestTree
-describeLogStreamsTest = undefined
+testDeleteSubscriptionFilter :: DeleteSubscriptionFilter -> TestTree
+testDeleteSubscriptionFilter = undefined
 
-describeMetricFiltersTest :: DescribeMetricFilters -> TestTree
-describeMetricFiltersTest = undefined
+testPutSubscriptionFilter :: PutSubscriptionFilter -> TestTree
+testPutSubscriptionFilter = undefined
 
-describeSubscriptionFiltersTest :: DescribeSubscriptionFilters -> TestTree
-describeSubscriptionFiltersTest = undefined
+testDeleteLogGroup :: DeleteLogGroup -> TestTree
+testDeleteLogGroup = undefined
 
-filterLogEventsTest :: FilterLogEvents -> TestTree
-filterLogEventsTest = undefined
+testTestMetricFilter :: TestMetricFilter -> TestTree
+testTestMetricFilter = undefined
 
-getLogEventsTest :: GetLogEvents -> TestTree
-getLogEventsTest = undefined
+testDescribeMetricFilters :: DescribeMetricFilters -> TestTree
+testDescribeMetricFilters = undefined
 
-putLogEventsTest :: PutLogEvents -> TestTree
-putLogEventsTest = undefined
+testDeleteMetricFilter :: DeleteMetricFilter -> TestTree
+testDeleteMetricFilter = undefined
 
-putMetricFilterTest :: PutMetricFilter -> TestTree
-putMetricFilterTest = undefined
+testPutRetentionPolicy :: PutRetentionPolicy -> TestTree
+testPutRetentionPolicy = undefined
 
-putRetentionPolicyTest :: PutRetentionPolicy -> TestTree
-putRetentionPolicyTest = undefined
+testDeleteRetentionPolicy :: DeleteRetentionPolicy -> TestTree
+testDeleteRetentionPolicy = undefined
 
-putSubscriptionFilterTest :: PutSubscriptionFilter -> TestTree
-putSubscriptionFilterTest = undefined
+testPutMetricFilter :: PutMetricFilter -> TestTree
+testPutMetricFilter = undefined
 
-testMetricFilterTest :: TestMetricFilter -> TestTree
-testMetricFilterTest = undefined
+testDescribeLogStreams :: DescribeLogStreams -> TestTree
+testDescribeLogStreams = undefined
 
 -- Responses
 
-createLogGroupResponseTest :: CreateLogGroupResponse -> TestTree
-createLogGroupResponseTest = resp
-    "createLogGroupResponse"
-    "fixture/CreateLogGroupResponse"
-    (Proxy :: Proxy CreateLogGroup)
-
-createLogStreamResponseTest :: CreateLogStreamResponse -> TestTree
-createLogStreamResponseTest = resp
-    "createLogStreamResponse"
-    "fixture/CreateLogStreamResponse"
-    (Proxy :: Proxy CreateLogStream)
-
-deleteLogGroupResponseTest :: DeleteLogGroupResponse -> TestTree
-deleteLogGroupResponseTest = resp
-    "deleteLogGroupResponse"
-    "fixture/DeleteLogGroupResponse"
-    (Proxy :: Proxy DeleteLogGroup)
-
-deleteLogStreamResponseTest :: DeleteLogStreamResponse -> TestTree
-deleteLogStreamResponseTest = resp
-    "deleteLogStreamResponse"
-    "fixture/DeleteLogStreamResponse"
-    (Proxy :: Proxy DeleteLogStream)
-
-deleteMetricFilterResponseTest :: DeleteMetricFilterResponse -> TestTree
-deleteMetricFilterResponseTest = resp
-    "deleteMetricFilterResponse"
-    "fixture/DeleteMetricFilterResponse"
-    (Proxy :: Proxy DeleteMetricFilter)
-
-deleteRetentionPolicyResponseTest :: DeleteRetentionPolicyResponse -> TestTree
-deleteRetentionPolicyResponseTest = resp
-    "deleteRetentionPolicyResponse"
-    "fixture/DeleteRetentionPolicyResponse"
-    (Proxy :: Proxy DeleteRetentionPolicy)
-
-deleteSubscriptionFilterResponseTest :: DeleteSubscriptionFilterResponse -> TestTree
-deleteSubscriptionFilterResponseTest = resp
-    "deleteSubscriptionFilterResponse"
-    "fixture/DeleteSubscriptionFilterResponse"
-    (Proxy :: Proxy DeleteSubscriptionFilter)
-
-describeLogGroupsResponseTest :: DescribeLogGroupsResponse -> TestTree
-describeLogGroupsResponseTest = resp
-    "describeLogGroupsResponse"
-    "fixture/DescribeLogGroupsResponse"
-    (Proxy :: Proxy DescribeLogGroups)
-
-describeLogStreamsResponseTest :: DescribeLogStreamsResponse -> TestTree
-describeLogStreamsResponseTest = resp
-    "describeLogStreamsResponse"
-    "fixture/DescribeLogStreamsResponse"
-    (Proxy :: Proxy DescribeLogStreams)
-
-describeMetricFiltersResponseTest :: DescribeMetricFiltersResponse -> TestTree
-describeMetricFiltersResponseTest = resp
-    "describeMetricFiltersResponse"
-    "fixture/DescribeMetricFiltersResponse"
-    (Proxy :: Proxy DescribeMetricFilters)
-
-describeSubscriptionFiltersResponseTest :: DescribeSubscriptionFiltersResponse -> TestTree
-describeSubscriptionFiltersResponseTest = resp
-    "describeSubscriptionFiltersResponse"
+testDescribeSubscriptionFiltersResponse :: DescribeSubscriptionFiltersResponse -> TestTree
+testDescribeSubscriptionFiltersResponse = resp
+    "DescribeSubscriptionFiltersResponse"
     "fixture/DescribeSubscriptionFiltersResponse"
     (Proxy :: Proxy DescribeSubscriptionFilters)
 
-filterLogEventsResponseTest :: FilterLogEventsResponse -> TestTree
-filterLogEventsResponseTest = resp
-    "filterLogEventsResponse"
-    "fixture/FilterLogEventsResponse"
-    (Proxy :: Proxy FilterLogEvents)
-
-getLogEventsResponseTest :: GetLogEventsResponse -> TestTree
-getLogEventsResponseTest = resp
-    "getLogEventsResponse"
+testGetLogEventsResponse :: GetLogEventsResponse -> TestTree
+testGetLogEventsResponse = resp
+    "GetLogEventsResponse"
     "fixture/GetLogEventsResponse"
     (Proxy :: Proxy GetLogEvents)
 
-putLogEventsResponseTest :: PutLogEventsResponse -> TestTree
-putLogEventsResponseTest = resp
-    "putLogEventsResponse"
+testDescribeLogGroupsResponse :: DescribeLogGroupsResponse -> TestTree
+testDescribeLogGroupsResponse = resp
+    "DescribeLogGroupsResponse"
+    "fixture/DescribeLogGroupsResponse"
+    (Proxy :: Proxy DescribeLogGroups)
+
+testFilterLogEventsResponse :: FilterLogEventsResponse -> TestTree
+testFilterLogEventsResponse = resp
+    "FilterLogEventsResponse"
+    "fixture/FilterLogEventsResponse"
+    (Proxy :: Proxy FilterLogEvents)
+
+testDeleteLogStreamResponse :: DeleteLogStreamResponse -> TestTree
+testDeleteLogStreamResponse = resp
+    "DeleteLogStreamResponse"
+    "fixture/DeleteLogStreamResponse"
+    (Proxy :: Proxy DeleteLogStream)
+
+testCreateLogStreamResponse :: CreateLogStreamResponse -> TestTree
+testCreateLogStreamResponse = resp
+    "CreateLogStreamResponse"
+    "fixture/CreateLogStreamResponse"
+    (Proxy :: Proxy CreateLogStream)
+
+testCreateLogGroupResponse :: CreateLogGroupResponse -> TestTree
+testCreateLogGroupResponse = resp
+    "CreateLogGroupResponse"
+    "fixture/CreateLogGroupResponse"
+    (Proxy :: Proxy CreateLogGroup)
+
+testPutLogEventsResponse :: PutLogEventsResponse -> TestTree
+testPutLogEventsResponse = resp
+    "PutLogEventsResponse"
     "fixture/PutLogEventsResponse"
     (Proxy :: Proxy PutLogEvents)
 
-putMetricFilterResponseTest :: PutMetricFilterResponse -> TestTree
-putMetricFilterResponseTest = resp
-    "putMetricFilterResponse"
-    "fixture/PutMetricFilterResponse"
-    (Proxy :: Proxy PutMetricFilter)
+testDeleteSubscriptionFilterResponse :: DeleteSubscriptionFilterResponse -> TestTree
+testDeleteSubscriptionFilterResponse = resp
+    "DeleteSubscriptionFilterResponse"
+    "fixture/DeleteSubscriptionFilterResponse"
+    (Proxy :: Proxy DeleteSubscriptionFilter)
 
-putRetentionPolicyResponseTest :: PutRetentionPolicyResponse -> TestTree
-putRetentionPolicyResponseTest = resp
-    "putRetentionPolicyResponse"
-    "fixture/PutRetentionPolicyResponse"
-    (Proxy :: Proxy PutRetentionPolicy)
-
-putSubscriptionFilterResponseTest :: PutSubscriptionFilterResponse -> TestTree
-putSubscriptionFilterResponseTest = resp
-    "putSubscriptionFilterResponse"
+testPutSubscriptionFilterResponse :: PutSubscriptionFilterResponse -> TestTree
+testPutSubscriptionFilterResponse = resp
+    "PutSubscriptionFilterResponse"
     "fixture/PutSubscriptionFilterResponse"
     (Proxy :: Proxy PutSubscriptionFilter)
 
-testMetricFilterResponseTest :: TestMetricFilterResponse -> TestTree
-testMetricFilterResponseTest = resp
-    "testMetricFilterResponse"
+testDeleteLogGroupResponse :: DeleteLogGroupResponse -> TestTree
+testDeleteLogGroupResponse = resp
+    "DeleteLogGroupResponse"
+    "fixture/DeleteLogGroupResponse"
+    (Proxy :: Proxy DeleteLogGroup)
+
+testTestMetricFilterResponse :: TestMetricFilterResponse -> TestTree
+testTestMetricFilterResponse = resp
+    "TestMetricFilterResponse"
     "fixture/TestMetricFilterResponse"
     (Proxy :: Proxy TestMetricFilter)
+
+testDescribeMetricFiltersResponse :: DescribeMetricFiltersResponse -> TestTree
+testDescribeMetricFiltersResponse = resp
+    "DescribeMetricFiltersResponse"
+    "fixture/DescribeMetricFiltersResponse"
+    (Proxy :: Proxy DescribeMetricFilters)
+
+testDeleteMetricFilterResponse :: DeleteMetricFilterResponse -> TestTree
+testDeleteMetricFilterResponse = resp
+    "DeleteMetricFilterResponse"
+    "fixture/DeleteMetricFilterResponse"
+    (Proxy :: Proxy DeleteMetricFilter)
+
+testPutRetentionPolicyResponse :: PutRetentionPolicyResponse -> TestTree
+testPutRetentionPolicyResponse = resp
+    "PutRetentionPolicyResponse"
+    "fixture/PutRetentionPolicyResponse"
+    (Proxy :: Proxy PutRetentionPolicy)
+
+testDeleteRetentionPolicyResponse :: DeleteRetentionPolicyResponse -> TestTree
+testDeleteRetentionPolicyResponse = resp
+    "DeleteRetentionPolicyResponse"
+    "fixture/DeleteRetentionPolicyResponse"
+    (Proxy :: Proxy DeleteRetentionPolicy)
+
+testPutMetricFilterResponse :: PutMetricFilterResponse -> TestTree
+testPutMetricFilterResponse = resp
+    "PutMetricFilterResponse"
+    "fixture/PutMetricFilterResponse"
+    (Proxy :: Proxy PutMetricFilter)
+
+testDescribeLogStreamsResponse :: DescribeLogStreamsResponse -> TestTree
+testDescribeLogStreamsResponse = resp
+    "DescribeLogStreamsResponse"
+    "fixture/DescribeLogStreamsResponse"
+    (Proxy :: Proxy DescribeLogStreams)

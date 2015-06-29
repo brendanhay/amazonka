@@ -23,404 +23,404 @@ import Network.AWS.KMS
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ createAliasTest $
---             createAlias
---
---         , createGrantTest $
---             createGrant
---
---         , createKeyTest $
---             createKey
---
---         , decryptTest $
---             decrypt
---
---         , deleteAliasTest $
---             deleteAlias
---
---         , describeKeyTest $
---             describeKey
---
---         , disableKeyTest $
---             disableKey
---
---         , disableKeyRotationTest $
+--         [ testDisableKeyRotation $
 --             disableKeyRotation
 --
---         , enableKeyTest $
---             enableKey
---
---         , enableKeyRotationTest $
---             enableKeyRotation
---
---         , encryptTest $
---             encrypt
---
---         , generateDataKeyTest $
---             generateDataKey
---
---         , generateDataKeyWithoutPlaintextTest $
+--         , testGenerateDataKeyWithoutPlaintext $
 --             generateDataKeyWithoutPlaintext
 --
---         , generateRandomTest $
---             generateRandom
---
---         , getKeyPolicyTest $
---             getKeyPolicy
---
---         , getKeyRotationStatusTest $
---             getKeyRotationStatus
---
---         , listAliasesTest $
---             listAliases
---
---         , listGrantsTest $
+--         , testListGrants $
 --             listGrants
 --
---         , listKeyPoliciesTest $
---             listKeyPolicies
+--         , testEncrypt $
+--             encrypt
 --
---         , listKeysTest $
---             listKeys
+--         , testEnableKeyRotation $
+--             enableKeyRotation
 --
---         , putKeyPolicyTest $
---             putKeyPolicy
+--         , testCreateGrant $
+--             createGrant
 --
---         , reEncryptTest $
---             reEncrypt
+--         , testCreateAlias $
+--             createAlias
 --
---         , retireGrantTest $
+--         , testListAliases $
+--             listAliases
+--
+--         , testGenerateRandom $
+--             generateRandom
+--
+--         , testDisableKey $
+--             disableKey
+--
+--         , testCreateKey $
+--             createKey
+--
+--         , testRetireGrant $
 --             retireGrant
 --
---         , revokeGrantTest $
---             revokeGrant
+--         , testListKeys $
+--             listKeys
 --
---         , updateAliasTest $
+--         , testGetKeyRotationStatus $
+--             getKeyRotationStatus
+--
+--         , testGenerateDataKey $
+--             generateDataKey
+--
+--         , testDeleteAlias $
+--             deleteAlias
+--
+--         , testUpdateAlias $
 --             updateAlias
 --
---         , updateKeyDescriptionTest $
+--         , testDescribeKey $
+--             describeKey
+--
+--         , testDecrypt $
+--             decrypt
+--
+--         , testUpdateKeyDescription $
 --             updateKeyDescription
+--
+--         , testReEncrypt $
+--             reEncrypt
+--
+--         , testListKeyPolicies $
+--             listKeyPolicies
+--
+--         , testEnableKey $
+--             enableKey
+--
+--         , testPutKeyPolicy $
+--             putKeyPolicy
+--
+--         , testRevokeGrant $
+--             revokeGrant
+--
+--         , testGetKeyPolicy $
+--             getKeyPolicy
 --
 --           ]
 
 --     , testGroup "response"
---         [ createAliasResponseTest $
---             createAliasResponse
---
---         , createGrantResponseTest $
---             createGrantResponse
---
---         , createKeyResponseTest $
---             createKeyResponse
---
---         , decryptResponseTest $
---             decryptResponse
---
---         , deleteAliasResponseTest $
---             deleteAliasResponse
---
---         , describeKeyResponseTest $
---             describeKeyResponse
---
---         , disableKeyResponseTest $
---             disableKeyResponse
---
---         , disableKeyRotationResponseTest $
+--         [ testDisableKeyRotationResponse $
 --             disableKeyRotationResponse
 --
---         , enableKeyResponseTest $
---             enableKeyResponse
---
---         , enableKeyRotationResponseTest $
---             enableKeyRotationResponse
---
---         , encryptResponseTest $
---             encryptResponse
---
---         , generateDataKeyResponseTest $
---             generateDataKeyResponse
---
---         , generateDataKeyWithoutPlaintextResponseTest $
+--         , testGenerateDataKeyWithoutPlaintextResponse $
 --             generateDataKeyWithoutPlaintextResponse
 --
---         , generateRandomResponseTest $
---             generateRandomResponse
---
---         , getKeyPolicyResponseTest $
---             getKeyPolicyResponse
---
---         , getKeyRotationStatusResponseTest $
---             getKeyRotationStatusResponse
---
---         , listAliasesResponseTest $
---             listAliasesResponse
---
---         , listGrantsResponseTest $
+--         , testListGrantsResponse $
 --             listGrantsResponse
 --
---         , listKeyPoliciesResponseTest $
---             listKeyPoliciesResponse
+--         , testEncryptResponse $
+--             encryptResponse
 --
---         , listKeysResponseTest $
---             listKeysResponse
+--         , testEnableKeyRotationResponse $
+--             enableKeyRotationResponse
 --
---         , putKeyPolicyResponseTest $
---             putKeyPolicyResponse
+--         , testCreateGrantResponse $
+--             createGrantResponse
 --
---         , reEncryptResponseTest $
---             reEncryptResponse
+--         , testCreateAliasResponse $
+--             createAliasResponse
 --
---         , retireGrantResponseTest $
+--         , testListAliasesResponse $
+--             listAliasesResponse
+--
+--         , testGenerateRandomResponse $
+--             generateRandomResponse
+--
+--         , testDisableKeyResponse $
+--             disableKeyResponse
+--
+--         , testCreateKeyResponse $
+--             createKeyResponse
+--
+--         , testRetireGrantResponse $
 --             retireGrantResponse
 --
---         , revokeGrantResponseTest $
---             revokeGrantResponse
+--         , testListKeysResponse $
+--             listKeysResponse
 --
---         , updateAliasResponseTest $
+--         , testGetKeyRotationStatusResponse $
+--             getKeyRotationStatusResponse
+--
+--         , testGenerateDataKeyResponse $
+--             generateDataKeyResponse
+--
+--         , testDeleteAliasResponse $
+--             deleteAliasResponse
+--
+--         , testUpdateAliasResponse $
 --             updateAliasResponse
 --
---         , updateKeyDescriptionResponseTest $
+--         , testDescribeKeyResponse $
+--             describeKeyResponse
+--
+--         , testDecryptResponse $
+--             decryptResponse
+--
+--         , testUpdateKeyDescriptionResponse $
 --             updateKeyDescriptionResponse
+--
+--         , testReEncryptResponse $
+--             reEncryptResponse
+--
+--         , testListKeyPoliciesResponse $
+--             listKeyPoliciesResponse
+--
+--         , testEnableKeyResponse $
+--             enableKeyResponse
+--
+--         , testPutKeyPolicyResponse $
+--             putKeyPolicyResponse
+--
+--         , testRevokeGrantResponse $
+--             revokeGrantResponse
+--
+--         , testGetKeyPolicyResponse $
+--             getKeyPolicyResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-createAliasTest :: CreateAlias -> TestTree
-createAliasTest = undefined
+testDisableKeyRotation :: DisableKeyRotation -> TestTree
+testDisableKeyRotation = undefined
 
-createGrantTest :: CreateGrant -> TestTree
-createGrantTest = undefined
+testGenerateDataKeyWithoutPlaintext :: GenerateDataKeyWithoutPlaintext -> TestTree
+testGenerateDataKeyWithoutPlaintext = undefined
 
-createKeyTest :: CreateKey -> TestTree
-createKeyTest = undefined
+testListGrants :: ListGrants -> TestTree
+testListGrants = undefined
 
-decryptTest :: Decrypt -> TestTree
-decryptTest = undefined
+testEncrypt :: Encrypt -> TestTree
+testEncrypt = undefined
 
-deleteAliasTest :: DeleteAlias -> TestTree
-deleteAliasTest = undefined
+testEnableKeyRotation :: EnableKeyRotation -> TestTree
+testEnableKeyRotation = undefined
 
-describeKeyTest :: DescribeKey -> TestTree
-describeKeyTest = undefined
+testCreateGrant :: CreateGrant -> TestTree
+testCreateGrant = undefined
 
-disableKeyTest :: DisableKey -> TestTree
-disableKeyTest = undefined
+testCreateAlias :: CreateAlias -> TestTree
+testCreateAlias = undefined
 
-disableKeyRotationTest :: DisableKeyRotation -> TestTree
-disableKeyRotationTest = undefined
+testListAliases :: ListAliases -> TestTree
+testListAliases = undefined
 
-enableKeyTest :: EnableKey -> TestTree
-enableKeyTest = undefined
+testGenerateRandom :: GenerateRandom -> TestTree
+testGenerateRandom = undefined
 
-enableKeyRotationTest :: EnableKeyRotation -> TestTree
-enableKeyRotationTest = undefined
+testDisableKey :: DisableKey -> TestTree
+testDisableKey = undefined
 
-encryptTest :: Encrypt -> TestTree
-encryptTest = undefined
+testCreateKey :: CreateKey -> TestTree
+testCreateKey = undefined
 
-generateDataKeyTest :: GenerateDataKey -> TestTree
-generateDataKeyTest = undefined
+testRetireGrant :: RetireGrant -> TestTree
+testRetireGrant = undefined
 
-generateDataKeyWithoutPlaintextTest :: GenerateDataKeyWithoutPlaintext -> TestTree
-generateDataKeyWithoutPlaintextTest = undefined
+testListKeys :: ListKeys -> TestTree
+testListKeys = undefined
 
-generateRandomTest :: GenerateRandom -> TestTree
-generateRandomTest = undefined
+testGetKeyRotationStatus :: GetKeyRotationStatus -> TestTree
+testGetKeyRotationStatus = undefined
 
-getKeyPolicyTest :: GetKeyPolicy -> TestTree
-getKeyPolicyTest = undefined
+testGenerateDataKey :: GenerateDataKey -> TestTree
+testGenerateDataKey = undefined
 
-getKeyRotationStatusTest :: GetKeyRotationStatus -> TestTree
-getKeyRotationStatusTest = undefined
+testDeleteAlias :: DeleteAlias -> TestTree
+testDeleteAlias = undefined
 
-listAliasesTest :: ListAliases -> TestTree
-listAliasesTest = undefined
+testUpdateAlias :: UpdateAlias -> TestTree
+testUpdateAlias = undefined
 
-listGrantsTest :: ListGrants -> TestTree
-listGrantsTest = undefined
+testDescribeKey :: DescribeKey -> TestTree
+testDescribeKey = undefined
 
-listKeyPoliciesTest :: ListKeyPolicies -> TestTree
-listKeyPoliciesTest = undefined
+testDecrypt :: Decrypt -> TestTree
+testDecrypt = undefined
 
-listKeysTest :: ListKeys -> TestTree
-listKeysTest = undefined
+testUpdateKeyDescription :: UpdateKeyDescription -> TestTree
+testUpdateKeyDescription = undefined
 
-putKeyPolicyTest :: PutKeyPolicy -> TestTree
-putKeyPolicyTest = undefined
+testReEncrypt :: ReEncrypt -> TestTree
+testReEncrypt = undefined
 
-reEncryptTest :: ReEncrypt -> TestTree
-reEncryptTest = undefined
+testListKeyPolicies :: ListKeyPolicies -> TestTree
+testListKeyPolicies = undefined
 
-retireGrantTest :: RetireGrant -> TestTree
-retireGrantTest = undefined
+testEnableKey :: EnableKey -> TestTree
+testEnableKey = undefined
 
-revokeGrantTest :: RevokeGrant -> TestTree
-revokeGrantTest = undefined
+testPutKeyPolicy :: PutKeyPolicy -> TestTree
+testPutKeyPolicy = undefined
 
-updateAliasTest :: UpdateAlias -> TestTree
-updateAliasTest = undefined
+testRevokeGrant :: RevokeGrant -> TestTree
+testRevokeGrant = undefined
 
-updateKeyDescriptionTest :: UpdateKeyDescription -> TestTree
-updateKeyDescriptionTest = undefined
+testGetKeyPolicy :: GetKeyPolicy -> TestTree
+testGetKeyPolicy = undefined
 
 -- Responses
 
-createAliasResponseTest :: CreateAliasResponse -> TestTree
-createAliasResponseTest = resp
-    "createAliasResponse"
-    "fixture/CreateAliasResponse"
-    (Proxy :: Proxy CreateAlias)
-
-createGrantResponseTest :: CreateGrantResponse -> TestTree
-createGrantResponseTest = resp
-    "createGrantResponse"
-    "fixture/CreateGrantResponse"
-    (Proxy :: Proxy CreateGrant)
-
-createKeyResponseTest :: CreateKeyResponse -> TestTree
-createKeyResponseTest = resp
-    "createKeyResponse"
-    "fixture/CreateKeyResponse"
-    (Proxy :: Proxy CreateKey)
-
-decryptResponseTest :: DecryptResponse -> TestTree
-decryptResponseTest = resp
-    "decryptResponse"
-    "fixture/DecryptResponse"
-    (Proxy :: Proxy Decrypt)
-
-deleteAliasResponseTest :: DeleteAliasResponse -> TestTree
-deleteAliasResponseTest = resp
-    "deleteAliasResponse"
-    "fixture/DeleteAliasResponse"
-    (Proxy :: Proxy DeleteAlias)
-
-describeKeyResponseTest :: DescribeKeyResponse -> TestTree
-describeKeyResponseTest = resp
-    "describeKeyResponse"
-    "fixture/DescribeKeyResponse"
-    (Proxy :: Proxy DescribeKey)
-
-disableKeyResponseTest :: DisableKeyResponse -> TestTree
-disableKeyResponseTest = resp
-    "disableKeyResponse"
-    "fixture/DisableKeyResponse"
-    (Proxy :: Proxy DisableKey)
-
-disableKeyRotationResponseTest :: DisableKeyRotationResponse -> TestTree
-disableKeyRotationResponseTest = resp
-    "disableKeyRotationResponse"
+testDisableKeyRotationResponse :: DisableKeyRotationResponse -> TestTree
+testDisableKeyRotationResponse = resp
+    "DisableKeyRotationResponse"
     "fixture/DisableKeyRotationResponse"
     (Proxy :: Proxy DisableKeyRotation)
 
-enableKeyResponseTest :: EnableKeyResponse -> TestTree
-enableKeyResponseTest = resp
-    "enableKeyResponse"
-    "fixture/EnableKeyResponse"
-    (Proxy :: Proxy EnableKey)
-
-enableKeyRotationResponseTest :: EnableKeyRotationResponse -> TestTree
-enableKeyRotationResponseTest = resp
-    "enableKeyRotationResponse"
-    "fixture/EnableKeyRotationResponse"
-    (Proxy :: Proxy EnableKeyRotation)
-
-encryptResponseTest :: EncryptResponse -> TestTree
-encryptResponseTest = resp
-    "encryptResponse"
-    "fixture/EncryptResponse"
-    (Proxy :: Proxy Encrypt)
-
-generateDataKeyResponseTest :: GenerateDataKeyResponse -> TestTree
-generateDataKeyResponseTest = resp
-    "generateDataKeyResponse"
-    "fixture/GenerateDataKeyResponse"
-    (Proxy :: Proxy GenerateDataKey)
-
-generateDataKeyWithoutPlaintextResponseTest :: GenerateDataKeyWithoutPlaintextResponse -> TestTree
-generateDataKeyWithoutPlaintextResponseTest = resp
-    "generateDataKeyWithoutPlaintextResponse"
+testGenerateDataKeyWithoutPlaintextResponse :: GenerateDataKeyWithoutPlaintextResponse -> TestTree
+testGenerateDataKeyWithoutPlaintextResponse = resp
+    "GenerateDataKeyWithoutPlaintextResponse"
     "fixture/GenerateDataKeyWithoutPlaintextResponse"
     (Proxy :: Proxy GenerateDataKeyWithoutPlaintext)
 
-generateRandomResponseTest :: GenerateRandomResponse -> TestTree
-generateRandomResponseTest = resp
-    "generateRandomResponse"
-    "fixture/GenerateRandomResponse"
-    (Proxy :: Proxy GenerateRandom)
-
-getKeyPolicyResponseTest :: GetKeyPolicyResponse -> TestTree
-getKeyPolicyResponseTest = resp
-    "getKeyPolicyResponse"
-    "fixture/GetKeyPolicyResponse"
-    (Proxy :: Proxy GetKeyPolicy)
-
-getKeyRotationStatusResponseTest :: GetKeyRotationStatusResponse -> TestTree
-getKeyRotationStatusResponseTest = resp
-    "getKeyRotationStatusResponse"
-    "fixture/GetKeyRotationStatusResponse"
-    (Proxy :: Proxy GetKeyRotationStatus)
-
-listAliasesResponseTest :: ListAliasesResponse -> TestTree
-listAliasesResponseTest = resp
-    "listAliasesResponse"
-    "fixture/ListAliasesResponse"
-    (Proxy :: Proxy ListAliases)
-
-listGrantsResponseTest :: ListGrantsResponse -> TestTree
-listGrantsResponseTest = resp
-    "listGrantsResponse"
+testListGrantsResponse :: ListGrantsResponse -> TestTree
+testListGrantsResponse = resp
+    "ListGrantsResponse"
     "fixture/ListGrantsResponse"
     (Proxy :: Proxy ListGrants)
 
-listKeyPoliciesResponseTest :: ListKeyPoliciesResponse -> TestTree
-listKeyPoliciesResponseTest = resp
-    "listKeyPoliciesResponse"
-    "fixture/ListKeyPoliciesResponse"
-    (Proxy :: Proxy ListKeyPolicies)
+testEncryptResponse :: EncryptResponse -> TestTree
+testEncryptResponse = resp
+    "EncryptResponse"
+    "fixture/EncryptResponse"
+    (Proxy :: Proxy Encrypt)
 
-listKeysResponseTest :: ListKeysResponse -> TestTree
-listKeysResponseTest = resp
-    "listKeysResponse"
-    "fixture/ListKeysResponse"
-    (Proxy :: Proxy ListKeys)
+testEnableKeyRotationResponse :: EnableKeyRotationResponse -> TestTree
+testEnableKeyRotationResponse = resp
+    "EnableKeyRotationResponse"
+    "fixture/EnableKeyRotationResponse"
+    (Proxy :: Proxy EnableKeyRotation)
 
-putKeyPolicyResponseTest :: PutKeyPolicyResponse -> TestTree
-putKeyPolicyResponseTest = resp
-    "putKeyPolicyResponse"
-    "fixture/PutKeyPolicyResponse"
-    (Proxy :: Proxy PutKeyPolicy)
+testCreateGrantResponse :: CreateGrantResponse -> TestTree
+testCreateGrantResponse = resp
+    "CreateGrantResponse"
+    "fixture/CreateGrantResponse"
+    (Proxy :: Proxy CreateGrant)
 
-reEncryptResponseTest :: ReEncryptResponse -> TestTree
-reEncryptResponseTest = resp
-    "reEncryptResponse"
-    "fixture/ReEncryptResponse"
-    (Proxy :: Proxy ReEncrypt)
+testCreateAliasResponse :: CreateAliasResponse -> TestTree
+testCreateAliasResponse = resp
+    "CreateAliasResponse"
+    "fixture/CreateAliasResponse"
+    (Proxy :: Proxy CreateAlias)
 
-retireGrantResponseTest :: RetireGrantResponse -> TestTree
-retireGrantResponseTest = resp
-    "retireGrantResponse"
+testListAliasesResponse :: ListAliasesResponse -> TestTree
+testListAliasesResponse = resp
+    "ListAliasesResponse"
+    "fixture/ListAliasesResponse"
+    (Proxy :: Proxy ListAliases)
+
+testGenerateRandomResponse :: GenerateRandomResponse -> TestTree
+testGenerateRandomResponse = resp
+    "GenerateRandomResponse"
+    "fixture/GenerateRandomResponse"
+    (Proxy :: Proxy GenerateRandom)
+
+testDisableKeyResponse :: DisableKeyResponse -> TestTree
+testDisableKeyResponse = resp
+    "DisableKeyResponse"
+    "fixture/DisableKeyResponse"
+    (Proxy :: Proxy DisableKey)
+
+testCreateKeyResponse :: CreateKeyResponse -> TestTree
+testCreateKeyResponse = resp
+    "CreateKeyResponse"
+    "fixture/CreateKeyResponse"
+    (Proxy :: Proxy CreateKey)
+
+testRetireGrantResponse :: RetireGrantResponse -> TestTree
+testRetireGrantResponse = resp
+    "RetireGrantResponse"
     "fixture/RetireGrantResponse"
     (Proxy :: Proxy RetireGrant)
 
-revokeGrantResponseTest :: RevokeGrantResponse -> TestTree
-revokeGrantResponseTest = resp
-    "revokeGrantResponse"
-    "fixture/RevokeGrantResponse"
-    (Proxy :: Proxy RevokeGrant)
+testListKeysResponse :: ListKeysResponse -> TestTree
+testListKeysResponse = resp
+    "ListKeysResponse"
+    "fixture/ListKeysResponse"
+    (Proxy :: Proxy ListKeys)
 
-updateAliasResponseTest :: UpdateAliasResponse -> TestTree
-updateAliasResponseTest = resp
-    "updateAliasResponse"
+testGetKeyRotationStatusResponse :: GetKeyRotationStatusResponse -> TestTree
+testGetKeyRotationStatusResponse = resp
+    "GetKeyRotationStatusResponse"
+    "fixture/GetKeyRotationStatusResponse"
+    (Proxy :: Proxy GetKeyRotationStatus)
+
+testGenerateDataKeyResponse :: GenerateDataKeyResponse -> TestTree
+testGenerateDataKeyResponse = resp
+    "GenerateDataKeyResponse"
+    "fixture/GenerateDataKeyResponse"
+    (Proxy :: Proxy GenerateDataKey)
+
+testDeleteAliasResponse :: DeleteAliasResponse -> TestTree
+testDeleteAliasResponse = resp
+    "DeleteAliasResponse"
+    "fixture/DeleteAliasResponse"
+    (Proxy :: Proxy DeleteAlias)
+
+testUpdateAliasResponse :: UpdateAliasResponse -> TestTree
+testUpdateAliasResponse = resp
+    "UpdateAliasResponse"
     "fixture/UpdateAliasResponse"
     (Proxy :: Proxy UpdateAlias)
 
-updateKeyDescriptionResponseTest :: UpdateKeyDescriptionResponse -> TestTree
-updateKeyDescriptionResponseTest = resp
-    "updateKeyDescriptionResponse"
+testDescribeKeyResponse :: DescribeKeyResponse -> TestTree
+testDescribeKeyResponse = resp
+    "DescribeKeyResponse"
+    "fixture/DescribeKeyResponse"
+    (Proxy :: Proxy DescribeKey)
+
+testDecryptResponse :: DecryptResponse -> TestTree
+testDecryptResponse = resp
+    "DecryptResponse"
+    "fixture/DecryptResponse"
+    (Proxy :: Proxy Decrypt)
+
+testUpdateKeyDescriptionResponse :: UpdateKeyDescriptionResponse -> TestTree
+testUpdateKeyDescriptionResponse = resp
+    "UpdateKeyDescriptionResponse"
     "fixture/UpdateKeyDescriptionResponse"
     (Proxy :: Proxy UpdateKeyDescription)
+
+testReEncryptResponse :: ReEncryptResponse -> TestTree
+testReEncryptResponse = resp
+    "ReEncryptResponse"
+    "fixture/ReEncryptResponse"
+    (Proxy :: Proxy ReEncrypt)
+
+testListKeyPoliciesResponse :: ListKeyPoliciesResponse -> TestTree
+testListKeyPoliciesResponse = resp
+    "ListKeyPoliciesResponse"
+    "fixture/ListKeyPoliciesResponse"
+    (Proxy :: Proxy ListKeyPolicies)
+
+testEnableKeyResponse :: EnableKeyResponse -> TestTree
+testEnableKeyResponse = resp
+    "EnableKeyResponse"
+    "fixture/EnableKeyResponse"
+    (Proxy :: Proxy EnableKey)
+
+testPutKeyPolicyResponse :: PutKeyPolicyResponse -> TestTree
+testPutKeyPolicyResponse = resp
+    "PutKeyPolicyResponse"
+    "fixture/PutKeyPolicyResponse"
+    (Proxy :: Proxy PutKeyPolicy)
+
+testRevokeGrantResponse :: RevokeGrantResponse -> TestTree
+testRevokeGrantResponse = resp
+    "RevokeGrantResponse"
+    "fixture/RevokeGrantResponse"
+    (Proxy :: Proxy RevokeGrant)
+
+testGetKeyPolicyResponse :: GetKeyPolicyResponse -> TestTree
+testGetKeyPolicyResponse = resp
+    "GetKeyPolicyResponse"
+    "fixture/GetKeyPolicyResponse"
+    (Proxy :: Proxy GetKeyPolicy)

@@ -23,269 +23,269 @@ import Network.AWS.SQS
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ addPermissionTest $
---             addPermission
---
---         , changeMessageVisibilityTest $
---             changeMessageVisibility
---
---         , changeMessageVisibilityBatchTest $
---             changeMessageVisibilityBatch
---
---         , createQueueTest $
---             createQueue
---
---         , deleteMessageTest $
---             deleteMessage
---
---         , deleteMessageBatchTest $
---             deleteMessageBatch
---
---         , deleteQueueTest $
---             deleteQueue
---
---         , getQueueAttributesTest $
---             getQueueAttributes
---
---         , getQueueURLTest $
+--         [ testGetQueueURL $
 --             getQueueURL
 --
---         , listDeadLetterSourceQueuesTest $
---             listDeadLetterSourceQueues
---
---         , listQueuesTest $
---             listQueues
---
---         , purgeQueueTest $
+--         , testPurgeQueue $
 --             purgeQueue
 --
---         , receiveMessageTest $
---             receiveMessage
---
---         , removePermissionTest $
---             removePermission
---
---         , sendMessageTest $
+--         , testSendMessage $
 --             sendMessage
 --
---         , sendMessageBatchTest $
---             sendMessageBatch
+--         , testChangeMessageVisibilityBatch $
+--             changeMessageVisibilityBatch
 --
---         , setQueueAttributesTest $
+--         , testRemovePermission $
+--             removePermission
+--
+--         , testGetQueueAttributes $
+--             getQueueAttributes
+--
+--         , testListQueues $
+--             listQueues
+--
+--         , testReceiveMessage $
+--             receiveMessage
+--
+--         , testDeleteQueue $
+--             deleteQueue
+--
+--         , testDeleteMessageBatch $
+--             deleteMessageBatch
+--
+--         , testSetQueueAttributes $
 --             setQueueAttributes
+--
+--         , testListDeadLetterSourceQueues $
+--             listDeadLetterSourceQueues
+--
+--         , testAddPermission $
+--             addPermission
+--
+--         , testDeleteMessage $
+--             deleteMessage
+--
+--         , testCreateQueue $
+--             createQueue
+--
+--         , testChangeMessageVisibility $
+--             changeMessageVisibility
+--
+--         , testSendMessageBatch $
+--             sendMessageBatch
 --
 --           ]
 
 --     , testGroup "response"
---         [ addPermissionResponseTest $
---             addPermissionResponse
---
---         , changeMessageVisibilityResponseTest $
---             changeMessageVisibilityResponse
---
---         , changeMessageVisibilityBatchResponseTest $
---             changeMessageVisibilityBatchResponse
---
---         , createQueueResponseTest $
---             createQueueResponse
---
---         , deleteMessageResponseTest $
---             deleteMessageResponse
---
---         , deleteMessageBatchResponseTest $
---             deleteMessageBatchResponse
---
---         , deleteQueueResponseTest $
---             deleteQueueResponse
---
---         , getQueueAttributesResponseTest $
---             getQueueAttributesResponse
---
---         , getQueueURLResponseTest $
+--         [ testGetQueueURLResponse $
 --             getQueueURLResponse
 --
---         , listDeadLetterSourceQueuesResponseTest $
---             listDeadLetterSourceQueuesResponse
---
---         , listQueuesResponseTest $
---             listQueuesResponse
---
---         , purgeQueueResponseTest $
+--         , testPurgeQueueResponse $
 --             purgeQueueResponse
 --
---         , receiveMessageResponseTest $
---             receiveMessageResponse
---
---         , removePermissionResponseTest $
---             removePermissionResponse
---
---         , sendMessageResponseTest $
+--         , testSendMessageResponse $
 --             sendMessageResponse
 --
---         , sendMessageBatchResponseTest $
---             sendMessageBatchResponse
+--         , testChangeMessageVisibilityBatchResponse $
+--             changeMessageVisibilityBatchResponse
 --
---         , setQueueAttributesResponseTest $
+--         , testRemovePermissionResponse $
+--             removePermissionResponse
+--
+--         , testGetQueueAttributesResponse $
+--             getQueueAttributesResponse
+--
+--         , testListQueuesResponse $
+--             listQueuesResponse
+--
+--         , testReceiveMessageResponse $
+--             receiveMessageResponse
+--
+--         , testDeleteQueueResponse $
+--             deleteQueueResponse
+--
+--         , testDeleteMessageBatchResponse $
+--             deleteMessageBatchResponse
+--
+--         , testSetQueueAttributesResponse $
 --             setQueueAttributesResponse
+--
+--         , testListDeadLetterSourceQueuesResponse $
+--             listDeadLetterSourceQueuesResponse
+--
+--         , testAddPermissionResponse $
+--             addPermissionResponse
+--
+--         , testDeleteMessageResponse $
+--             deleteMessageResponse
+--
+--         , testCreateQueueResponse $
+--             createQueueResponse
+--
+--         , testChangeMessageVisibilityResponse $
+--             changeMessageVisibilityResponse
+--
+--         , testSendMessageBatchResponse $
+--             sendMessageBatchResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-addPermissionTest :: AddPermission -> TestTree
-addPermissionTest = undefined
+testGetQueueURL :: GetQueueURL -> TestTree
+testGetQueueURL = undefined
 
-changeMessageVisibilityTest :: ChangeMessageVisibility -> TestTree
-changeMessageVisibilityTest = undefined
+testPurgeQueue :: PurgeQueue -> TestTree
+testPurgeQueue = undefined
 
-changeMessageVisibilityBatchTest :: ChangeMessageVisibilityBatch -> TestTree
-changeMessageVisibilityBatchTest = undefined
+testSendMessage :: SendMessage -> TestTree
+testSendMessage = undefined
 
-createQueueTest :: CreateQueue -> TestTree
-createQueueTest = undefined
+testChangeMessageVisibilityBatch :: ChangeMessageVisibilityBatch -> TestTree
+testChangeMessageVisibilityBatch = undefined
 
-deleteMessageTest :: DeleteMessage -> TestTree
-deleteMessageTest = undefined
+testRemovePermission :: RemovePermission -> TestTree
+testRemovePermission = undefined
 
-deleteMessageBatchTest :: DeleteMessageBatch -> TestTree
-deleteMessageBatchTest = undefined
+testGetQueueAttributes :: GetQueueAttributes -> TestTree
+testGetQueueAttributes = undefined
 
-deleteQueueTest :: DeleteQueue -> TestTree
-deleteQueueTest = undefined
+testListQueues :: ListQueues -> TestTree
+testListQueues = undefined
 
-getQueueAttributesTest :: GetQueueAttributes -> TestTree
-getQueueAttributesTest = undefined
+testReceiveMessage :: ReceiveMessage -> TestTree
+testReceiveMessage = undefined
 
-getQueueURLTest :: GetQueueURL -> TestTree
-getQueueURLTest = undefined
+testDeleteQueue :: DeleteQueue -> TestTree
+testDeleteQueue = undefined
 
-listDeadLetterSourceQueuesTest :: ListDeadLetterSourceQueues -> TestTree
-listDeadLetterSourceQueuesTest = undefined
+testDeleteMessageBatch :: DeleteMessageBatch -> TestTree
+testDeleteMessageBatch = undefined
 
-listQueuesTest :: ListQueues -> TestTree
-listQueuesTest = undefined
+testSetQueueAttributes :: SetQueueAttributes -> TestTree
+testSetQueueAttributes = undefined
 
-purgeQueueTest :: PurgeQueue -> TestTree
-purgeQueueTest = undefined
+testListDeadLetterSourceQueues :: ListDeadLetterSourceQueues -> TestTree
+testListDeadLetterSourceQueues = undefined
 
-receiveMessageTest :: ReceiveMessage -> TestTree
-receiveMessageTest = undefined
+testAddPermission :: AddPermission -> TestTree
+testAddPermission = undefined
 
-removePermissionTest :: RemovePermission -> TestTree
-removePermissionTest = undefined
+testDeleteMessage :: DeleteMessage -> TestTree
+testDeleteMessage = undefined
 
-sendMessageTest :: SendMessage -> TestTree
-sendMessageTest = undefined
+testCreateQueue :: CreateQueue -> TestTree
+testCreateQueue = undefined
 
-sendMessageBatchTest :: SendMessageBatch -> TestTree
-sendMessageBatchTest = undefined
+testChangeMessageVisibility :: ChangeMessageVisibility -> TestTree
+testChangeMessageVisibility = undefined
 
-setQueueAttributesTest :: SetQueueAttributes -> TestTree
-setQueueAttributesTest = undefined
+testSendMessageBatch :: SendMessageBatch -> TestTree
+testSendMessageBatch = undefined
 
 -- Responses
 
-addPermissionResponseTest :: AddPermissionResponse -> TestTree
-addPermissionResponseTest = resp
-    "addPermissionResponse"
-    "fixture/AddPermissionResponse"
-    (Proxy :: Proxy AddPermission)
-
-changeMessageVisibilityResponseTest :: ChangeMessageVisibilityResponse -> TestTree
-changeMessageVisibilityResponseTest = resp
-    "changeMessageVisibilityResponse"
-    "fixture/ChangeMessageVisibilityResponse"
-    (Proxy :: Proxy ChangeMessageVisibility)
-
-changeMessageVisibilityBatchResponseTest :: ChangeMessageVisibilityBatchResponse -> TestTree
-changeMessageVisibilityBatchResponseTest = resp
-    "changeMessageVisibilityBatchResponse"
-    "fixture/ChangeMessageVisibilityBatchResponse"
-    (Proxy :: Proxy ChangeMessageVisibilityBatch)
-
-createQueueResponseTest :: CreateQueueResponse -> TestTree
-createQueueResponseTest = resp
-    "createQueueResponse"
-    "fixture/CreateQueueResponse"
-    (Proxy :: Proxy CreateQueue)
-
-deleteMessageResponseTest :: DeleteMessageResponse -> TestTree
-deleteMessageResponseTest = resp
-    "deleteMessageResponse"
-    "fixture/DeleteMessageResponse"
-    (Proxy :: Proxy DeleteMessage)
-
-deleteMessageBatchResponseTest :: DeleteMessageBatchResponse -> TestTree
-deleteMessageBatchResponseTest = resp
-    "deleteMessageBatchResponse"
-    "fixture/DeleteMessageBatchResponse"
-    (Proxy :: Proxy DeleteMessageBatch)
-
-deleteQueueResponseTest :: DeleteQueueResponse -> TestTree
-deleteQueueResponseTest = resp
-    "deleteQueueResponse"
-    "fixture/DeleteQueueResponse"
-    (Proxy :: Proxy DeleteQueue)
-
-getQueueAttributesResponseTest :: GetQueueAttributesResponse -> TestTree
-getQueueAttributesResponseTest = resp
-    "getQueueAttributesResponse"
-    "fixture/GetQueueAttributesResponse"
-    (Proxy :: Proxy GetQueueAttributes)
-
-getQueueURLResponseTest :: GetQueueURLResponse -> TestTree
-getQueueURLResponseTest = resp
-    "getQueueURLResponse"
+testGetQueueURLResponse :: GetQueueURLResponse -> TestTree
+testGetQueueURLResponse = resp
+    "GetQueueURLResponse"
     "fixture/GetQueueURLResponse"
     (Proxy :: Proxy GetQueueURL)
 
-listDeadLetterSourceQueuesResponseTest :: ListDeadLetterSourceQueuesResponse -> TestTree
-listDeadLetterSourceQueuesResponseTest = resp
-    "listDeadLetterSourceQueuesResponse"
-    "fixture/ListDeadLetterSourceQueuesResponse"
-    (Proxy :: Proxy ListDeadLetterSourceQueues)
-
-listQueuesResponseTest :: ListQueuesResponse -> TestTree
-listQueuesResponseTest = resp
-    "listQueuesResponse"
-    "fixture/ListQueuesResponse"
-    (Proxy :: Proxy ListQueues)
-
-purgeQueueResponseTest :: PurgeQueueResponse -> TestTree
-purgeQueueResponseTest = resp
-    "purgeQueueResponse"
+testPurgeQueueResponse :: PurgeQueueResponse -> TestTree
+testPurgeQueueResponse = resp
+    "PurgeQueueResponse"
     "fixture/PurgeQueueResponse"
     (Proxy :: Proxy PurgeQueue)
 
-receiveMessageResponseTest :: ReceiveMessageResponse -> TestTree
-receiveMessageResponseTest = resp
-    "receiveMessageResponse"
-    "fixture/ReceiveMessageResponse"
-    (Proxy :: Proxy ReceiveMessage)
-
-removePermissionResponseTest :: RemovePermissionResponse -> TestTree
-removePermissionResponseTest = resp
-    "removePermissionResponse"
-    "fixture/RemovePermissionResponse"
-    (Proxy :: Proxy RemovePermission)
-
-sendMessageResponseTest :: SendMessageResponse -> TestTree
-sendMessageResponseTest = resp
-    "sendMessageResponse"
+testSendMessageResponse :: SendMessageResponse -> TestTree
+testSendMessageResponse = resp
+    "SendMessageResponse"
     "fixture/SendMessageResponse"
     (Proxy :: Proxy SendMessage)
 
-sendMessageBatchResponseTest :: SendMessageBatchResponse -> TestTree
-sendMessageBatchResponseTest = resp
-    "sendMessageBatchResponse"
-    "fixture/SendMessageBatchResponse"
-    (Proxy :: Proxy SendMessageBatch)
+testChangeMessageVisibilityBatchResponse :: ChangeMessageVisibilityBatchResponse -> TestTree
+testChangeMessageVisibilityBatchResponse = resp
+    "ChangeMessageVisibilityBatchResponse"
+    "fixture/ChangeMessageVisibilityBatchResponse"
+    (Proxy :: Proxy ChangeMessageVisibilityBatch)
 
-setQueueAttributesResponseTest :: SetQueueAttributesResponse -> TestTree
-setQueueAttributesResponseTest = resp
-    "setQueueAttributesResponse"
+testRemovePermissionResponse :: RemovePermissionResponse -> TestTree
+testRemovePermissionResponse = resp
+    "RemovePermissionResponse"
+    "fixture/RemovePermissionResponse"
+    (Proxy :: Proxy RemovePermission)
+
+testGetQueueAttributesResponse :: GetQueueAttributesResponse -> TestTree
+testGetQueueAttributesResponse = resp
+    "GetQueueAttributesResponse"
+    "fixture/GetQueueAttributesResponse"
+    (Proxy :: Proxy GetQueueAttributes)
+
+testListQueuesResponse :: ListQueuesResponse -> TestTree
+testListQueuesResponse = resp
+    "ListQueuesResponse"
+    "fixture/ListQueuesResponse"
+    (Proxy :: Proxy ListQueues)
+
+testReceiveMessageResponse :: ReceiveMessageResponse -> TestTree
+testReceiveMessageResponse = resp
+    "ReceiveMessageResponse"
+    "fixture/ReceiveMessageResponse"
+    (Proxy :: Proxy ReceiveMessage)
+
+testDeleteQueueResponse :: DeleteQueueResponse -> TestTree
+testDeleteQueueResponse = resp
+    "DeleteQueueResponse"
+    "fixture/DeleteQueueResponse"
+    (Proxy :: Proxy DeleteQueue)
+
+testDeleteMessageBatchResponse :: DeleteMessageBatchResponse -> TestTree
+testDeleteMessageBatchResponse = resp
+    "DeleteMessageBatchResponse"
+    "fixture/DeleteMessageBatchResponse"
+    (Proxy :: Proxy DeleteMessageBatch)
+
+testSetQueueAttributesResponse :: SetQueueAttributesResponse -> TestTree
+testSetQueueAttributesResponse = resp
+    "SetQueueAttributesResponse"
     "fixture/SetQueueAttributesResponse"
     (Proxy :: Proxy SetQueueAttributes)
+
+testListDeadLetterSourceQueuesResponse :: ListDeadLetterSourceQueuesResponse -> TestTree
+testListDeadLetterSourceQueuesResponse = resp
+    "ListDeadLetterSourceQueuesResponse"
+    "fixture/ListDeadLetterSourceQueuesResponse"
+    (Proxy :: Proxy ListDeadLetterSourceQueues)
+
+testAddPermissionResponse :: AddPermissionResponse -> TestTree
+testAddPermissionResponse = resp
+    "AddPermissionResponse"
+    "fixture/AddPermissionResponse"
+    (Proxy :: Proxy AddPermission)
+
+testDeleteMessageResponse :: DeleteMessageResponse -> TestTree
+testDeleteMessageResponse = resp
+    "DeleteMessageResponse"
+    "fixture/DeleteMessageResponse"
+    (Proxy :: Proxy DeleteMessage)
+
+testCreateQueueResponse :: CreateQueueResponse -> TestTree
+testCreateQueueResponse = resp
+    "CreateQueueResponse"
+    "fixture/CreateQueueResponse"
+    (Proxy :: Proxy CreateQueue)
+
+testChangeMessageVisibilityResponse :: ChangeMessageVisibilityResponse -> TestTree
+testChangeMessageVisibilityResponse = resp
+    "ChangeMessageVisibilityResponse"
+    "fixture/ChangeMessageVisibilityResponse"
+    (Proxy :: Proxy ChangeMessageVisibility)
+
+testSendMessageBatchResponse :: SendMessageBatchResponse -> TestTree
+testSendMessageBatchResponse = resp
+    "SendMessageBatchResponse"
+    "fixture/SendMessageBatchResponse"
+    (Proxy :: Proxy SendMessageBatch)

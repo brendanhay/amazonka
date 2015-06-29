@@ -23,209 +23,209 @@ import Network.AWS.Kinesis
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ addTagsToStreamTest $
---             addTagsToStream
---
---         , createStreamTest $
---             createStream
---
---         , deleteStreamTest $
---             deleteStream
---
---         , describeStreamTest $
---             describeStream
---
---         , getRecordsTest $
---             getRecords
---
---         , getShardIteratorTest $
---             getShardIterator
---
---         , listStreamsTest $
---             listStreams
---
---         , listTagsForStreamTest $
---             listTagsForStream
---
---         , mergeShardsTest $
---             mergeShards
---
---         , putRecordTest $
+--         [ testPutRecord $
 --             putRecord
 --
---         , putRecordsTest $
+--         , testMergeShards $
+--             mergeShards
+--
+--         , testGetRecords $
+--             getRecords
+--
+--         , testGetShardIterator $
+--             getShardIterator
+--
+--         , testListTagsForStream $
+--             listTagsForStream
+--
+--         , testAddTagsToStream $
+--             addTagsToStream
+--
+--         , testPutRecords $
 --             putRecords
 --
---         , removeTagsFromStreamTest $
+--         , testDeleteStream $
+--             deleteStream
+--
+--         , testRemoveTagsFromStream $
 --             removeTagsFromStream
 --
---         , splitShardTest $
+--         , testListStreams $
+--             listStreams
+--
+--         , testCreateStream $
+--             createStream
+--
+--         , testSplitShard $
 --             splitShard
+--
+--         , testDescribeStream $
+--             describeStream
 --
 --           ]
 
 --     , testGroup "response"
---         [ addTagsToStreamResponseTest $
---             addTagsToStreamResponse
---
---         , createStreamResponseTest $
---             createStreamResponse
---
---         , deleteStreamResponseTest $
---             deleteStreamResponse
---
---         , describeStreamResponseTest $
---             describeStreamResponse
---
---         , getRecordsResponseTest $
---             getRecordsResponse
---
---         , getShardIteratorResponseTest $
---             getShardIteratorResponse
---
---         , listStreamsResponseTest $
---             listStreamsResponse
---
---         , listTagsForStreamResponseTest $
---             listTagsForStreamResponse
---
---         , mergeShardsResponseTest $
---             mergeShardsResponse
---
---         , putRecordResponseTest $
+--         [ testPutRecordResponse $
 --             putRecordResponse
 --
---         , putRecordsResponseTest $
+--         , testMergeShardsResponse $
+--             mergeShardsResponse
+--
+--         , testGetRecordsResponse $
+--             getRecordsResponse
+--
+--         , testGetShardIteratorResponse $
+--             getShardIteratorResponse
+--
+--         , testListTagsForStreamResponse $
+--             listTagsForStreamResponse
+--
+--         , testAddTagsToStreamResponse $
+--             addTagsToStreamResponse
+--
+--         , testPutRecordsResponse $
 --             putRecordsResponse
 --
---         , removeTagsFromStreamResponseTest $
+--         , testDeleteStreamResponse $
+--             deleteStreamResponse
+--
+--         , testRemoveTagsFromStreamResponse $
 --             removeTagsFromStreamResponse
 --
---         , splitShardResponseTest $
+--         , testListStreamsResponse $
+--             listStreamsResponse
+--
+--         , testCreateStreamResponse $
+--             createStreamResponse
+--
+--         , testSplitShardResponse $
 --             splitShardResponse
+--
+--         , testDescribeStreamResponse $
+--             describeStreamResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-addTagsToStreamTest :: AddTagsToStream -> TestTree
-addTagsToStreamTest = undefined
+testPutRecord :: PutRecord -> TestTree
+testPutRecord = undefined
 
-createStreamTest :: CreateStream -> TestTree
-createStreamTest = undefined
+testMergeShards :: MergeShards -> TestTree
+testMergeShards = undefined
 
-deleteStreamTest :: DeleteStream -> TestTree
-deleteStreamTest = undefined
+testGetRecords :: GetRecords -> TestTree
+testGetRecords = undefined
 
-describeStreamTest :: DescribeStream -> TestTree
-describeStreamTest = undefined
+testGetShardIterator :: GetShardIterator -> TestTree
+testGetShardIterator = undefined
 
-getRecordsTest :: GetRecords -> TestTree
-getRecordsTest = undefined
+testListTagsForStream :: ListTagsForStream -> TestTree
+testListTagsForStream = undefined
 
-getShardIteratorTest :: GetShardIterator -> TestTree
-getShardIteratorTest = undefined
+testAddTagsToStream :: AddTagsToStream -> TestTree
+testAddTagsToStream = undefined
 
-listStreamsTest :: ListStreams -> TestTree
-listStreamsTest = undefined
+testPutRecords :: PutRecords -> TestTree
+testPutRecords = undefined
 
-listTagsForStreamTest :: ListTagsForStream -> TestTree
-listTagsForStreamTest = undefined
+testDeleteStream :: DeleteStream -> TestTree
+testDeleteStream = undefined
 
-mergeShardsTest :: MergeShards -> TestTree
-mergeShardsTest = undefined
+testRemoveTagsFromStream :: RemoveTagsFromStream -> TestTree
+testRemoveTagsFromStream = undefined
 
-putRecordTest :: PutRecord -> TestTree
-putRecordTest = undefined
+testListStreams :: ListStreams -> TestTree
+testListStreams = undefined
 
-putRecordsTest :: PutRecords -> TestTree
-putRecordsTest = undefined
+testCreateStream :: CreateStream -> TestTree
+testCreateStream = undefined
 
-removeTagsFromStreamTest :: RemoveTagsFromStream -> TestTree
-removeTagsFromStreamTest = undefined
+testSplitShard :: SplitShard -> TestTree
+testSplitShard = undefined
 
-splitShardTest :: SplitShard -> TestTree
-splitShardTest = undefined
+testDescribeStream :: DescribeStream -> TestTree
+testDescribeStream = undefined
 
 -- Responses
 
-addTagsToStreamResponseTest :: AddTagsToStreamResponse -> TestTree
-addTagsToStreamResponseTest = resp
-    "addTagsToStreamResponse"
-    "fixture/AddTagsToStreamResponse"
-    (Proxy :: Proxy AddTagsToStream)
-
-createStreamResponseTest :: CreateStreamResponse -> TestTree
-createStreamResponseTest = resp
-    "createStreamResponse"
-    "fixture/CreateStreamResponse"
-    (Proxy :: Proxy CreateStream)
-
-deleteStreamResponseTest :: DeleteStreamResponse -> TestTree
-deleteStreamResponseTest = resp
-    "deleteStreamResponse"
-    "fixture/DeleteStreamResponse"
-    (Proxy :: Proxy DeleteStream)
-
-describeStreamResponseTest :: DescribeStreamResponse -> TestTree
-describeStreamResponseTest = resp
-    "describeStreamResponse"
-    "fixture/DescribeStreamResponse"
-    (Proxy :: Proxy DescribeStream)
-
-getRecordsResponseTest :: GetRecordsResponse -> TestTree
-getRecordsResponseTest = resp
-    "getRecordsResponse"
-    "fixture/GetRecordsResponse"
-    (Proxy :: Proxy GetRecords)
-
-getShardIteratorResponseTest :: GetShardIteratorResponse -> TestTree
-getShardIteratorResponseTest = resp
-    "getShardIteratorResponse"
-    "fixture/GetShardIteratorResponse"
-    (Proxy :: Proxy GetShardIterator)
-
-listStreamsResponseTest :: ListStreamsResponse -> TestTree
-listStreamsResponseTest = resp
-    "listStreamsResponse"
-    "fixture/ListStreamsResponse"
-    (Proxy :: Proxy ListStreams)
-
-listTagsForStreamResponseTest :: ListTagsForStreamResponse -> TestTree
-listTagsForStreamResponseTest = resp
-    "listTagsForStreamResponse"
-    "fixture/ListTagsForStreamResponse"
-    (Proxy :: Proxy ListTagsForStream)
-
-mergeShardsResponseTest :: MergeShardsResponse -> TestTree
-mergeShardsResponseTest = resp
-    "mergeShardsResponse"
-    "fixture/MergeShardsResponse"
-    (Proxy :: Proxy MergeShards)
-
-putRecordResponseTest :: PutRecordResponse -> TestTree
-putRecordResponseTest = resp
-    "putRecordResponse"
+testPutRecordResponse :: PutRecordResponse -> TestTree
+testPutRecordResponse = resp
+    "PutRecordResponse"
     "fixture/PutRecordResponse"
     (Proxy :: Proxy PutRecord)
 
-putRecordsResponseTest :: PutRecordsResponse -> TestTree
-putRecordsResponseTest = resp
-    "putRecordsResponse"
+testMergeShardsResponse :: MergeShardsResponse -> TestTree
+testMergeShardsResponse = resp
+    "MergeShardsResponse"
+    "fixture/MergeShardsResponse"
+    (Proxy :: Proxy MergeShards)
+
+testGetRecordsResponse :: GetRecordsResponse -> TestTree
+testGetRecordsResponse = resp
+    "GetRecordsResponse"
+    "fixture/GetRecordsResponse"
+    (Proxy :: Proxy GetRecords)
+
+testGetShardIteratorResponse :: GetShardIteratorResponse -> TestTree
+testGetShardIteratorResponse = resp
+    "GetShardIteratorResponse"
+    "fixture/GetShardIteratorResponse"
+    (Proxy :: Proxy GetShardIterator)
+
+testListTagsForStreamResponse :: ListTagsForStreamResponse -> TestTree
+testListTagsForStreamResponse = resp
+    "ListTagsForStreamResponse"
+    "fixture/ListTagsForStreamResponse"
+    (Proxy :: Proxy ListTagsForStream)
+
+testAddTagsToStreamResponse :: AddTagsToStreamResponse -> TestTree
+testAddTagsToStreamResponse = resp
+    "AddTagsToStreamResponse"
+    "fixture/AddTagsToStreamResponse"
+    (Proxy :: Proxy AddTagsToStream)
+
+testPutRecordsResponse :: PutRecordsResponse -> TestTree
+testPutRecordsResponse = resp
+    "PutRecordsResponse"
     "fixture/PutRecordsResponse"
     (Proxy :: Proxy PutRecords)
 
-removeTagsFromStreamResponseTest :: RemoveTagsFromStreamResponse -> TestTree
-removeTagsFromStreamResponseTest = resp
-    "removeTagsFromStreamResponse"
+testDeleteStreamResponse :: DeleteStreamResponse -> TestTree
+testDeleteStreamResponse = resp
+    "DeleteStreamResponse"
+    "fixture/DeleteStreamResponse"
+    (Proxy :: Proxy DeleteStream)
+
+testRemoveTagsFromStreamResponse :: RemoveTagsFromStreamResponse -> TestTree
+testRemoveTagsFromStreamResponse = resp
+    "RemoveTagsFromStreamResponse"
     "fixture/RemoveTagsFromStreamResponse"
     (Proxy :: Proxy RemoveTagsFromStream)
 
-splitShardResponseTest :: SplitShardResponse -> TestTree
-splitShardResponseTest = resp
-    "splitShardResponse"
+testListStreamsResponse :: ListStreamsResponse -> TestTree
+testListStreamsResponse = resp
+    "ListStreamsResponse"
+    "fixture/ListStreamsResponse"
+    (Proxy :: Proxy ListStreams)
+
+testCreateStreamResponse :: CreateStreamResponse -> TestTree
+testCreateStreamResponse = resp
+    "CreateStreamResponse"
+    "fixture/CreateStreamResponse"
+    (Proxy :: Proxy CreateStream)
+
+testSplitShardResponse :: SplitShardResponse -> TestTree
+testSplitShardResponse = resp
+    "SplitShardResponse"
     "fixture/SplitShardResponse"
     (Proxy :: Proxy SplitShard)
+
+testDescribeStreamResponse :: DescribeStreamResponse -> TestTree
+testDescribeStreamResponse = resp
+    "DescribeStreamResponse"
+    "fixture/DescribeStreamResponse"
+    (Proxy :: Proxy DescribeStream)

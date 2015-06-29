@@ -23,119 +23,119 @@ import Network.AWS.WorkSpaces
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ createWorkspacesTest $
---             createWorkspaces
---
---         , describeWorkspaceBundlesTest $
---             describeWorkspaceBundles
---
---         , describeWorkspaceDirectoriesTest $
+--         [ testDescribeWorkspaceDirectories $
 --             describeWorkspaceDirectories
 --
---         , describeWorkspacesTest $
---             describeWorkspaces
+--         , testDescribeWorkspaceBundles $
+--             describeWorkspaceBundles
 --
---         , rebootWorkspacesTest $
---             rebootWorkspaces
---
---         , rebuildWorkspacesTest $
+--         , testRebuildWorkspaces $
 --             rebuildWorkspaces
 --
---         , terminateWorkspacesTest $
+--         , testRebootWorkspaces $
+--             rebootWorkspaces
+--
+--         , testTerminateWorkspaces $
 --             terminateWorkspaces
+--
+--         , testCreateWorkspaces $
+--             createWorkspaces
+--
+--         , testDescribeWorkspaces $
+--             describeWorkspaces
 --
 --           ]
 
 --     , testGroup "response"
---         [ createWorkspacesResponseTest $
---             createWorkspacesResponse
---
---         , describeWorkspaceBundlesResponseTest $
---             describeWorkspaceBundlesResponse
---
---         , describeWorkspaceDirectoriesResponseTest $
+--         [ testDescribeWorkspaceDirectoriesResponse $
 --             describeWorkspaceDirectoriesResponse
 --
---         , describeWorkspacesResponseTest $
---             describeWorkspacesResponse
+--         , testDescribeWorkspaceBundlesResponse $
+--             describeWorkspaceBundlesResponse
 --
---         , rebootWorkspacesResponseTest $
---             rebootWorkspacesResponse
---
---         , rebuildWorkspacesResponseTest $
+--         , testRebuildWorkspacesResponse $
 --             rebuildWorkspacesResponse
 --
---         , terminateWorkspacesResponseTest $
+--         , testRebootWorkspacesResponse $
+--             rebootWorkspacesResponse
+--
+--         , testTerminateWorkspacesResponse $
 --             terminateWorkspacesResponse
+--
+--         , testCreateWorkspacesResponse $
+--             createWorkspacesResponse
+--
+--         , testDescribeWorkspacesResponse $
+--             describeWorkspacesResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-createWorkspacesTest :: CreateWorkspaces -> TestTree
-createWorkspacesTest = undefined
+testDescribeWorkspaceDirectories :: DescribeWorkspaceDirectories -> TestTree
+testDescribeWorkspaceDirectories = undefined
 
-describeWorkspaceBundlesTest :: DescribeWorkspaceBundles -> TestTree
-describeWorkspaceBundlesTest = undefined
+testDescribeWorkspaceBundles :: DescribeWorkspaceBundles -> TestTree
+testDescribeWorkspaceBundles = undefined
 
-describeWorkspaceDirectoriesTest :: DescribeWorkspaceDirectories -> TestTree
-describeWorkspaceDirectoriesTest = undefined
+testRebuildWorkspaces :: RebuildWorkspaces -> TestTree
+testRebuildWorkspaces = undefined
 
-describeWorkspacesTest :: DescribeWorkspaces -> TestTree
-describeWorkspacesTest = undefined
+testRebootWorkspaces :: RebootWorkspaces -> TestTree
+testRebootWorkspaces = undefined
 
-rebootWorkspacesTest :: RebootWorkspaces -> TestTree
-rebootWorkspacesTest = undefined
+testTerminateWorkspaces :: TerminateWorkspaces -> TestTree
+testTerminateWorkspaces = undefined
 
-rebuildWorkspacesTest :: RebuildWorkspaces -> TestTree
-rebuildWorkspacesTest = undefined
+testCreateWorkspaces :: CreateWorkspaces -> TestTree
+testCreateWorkspaces = undefined
 
-terminateWorkspacesTest :: TerminateWorkspaces -> TestTree
-terminateWorkspacesTest = undefined
+testDescribeWorkspaces :: DescribeWorkspaces -> TestTree
+testDescribeWorkspaces = undefined
 
 -- Responses
 
-createWorkspacesResponseTest :: CreateWorkspacesResponse -> TestTree
-createWorkspacesResponseTest = resp
-    "createWorkspacesResponse"
-    "fixture/CreateWorkspacesResponse"
-    (Proxy :: Proxy CreateWorkspaces)
-
-describeWorkspaceBundlesResponseTest :: DescribeWorkspaceBundlesResponse -> TestTree
-describeWorkspaceBundlesResponseTest = resp
-    "describeWorkspaceBundlesResponse"
-    "fixture/DescribeWorkspaceBundlesResponse"
-    (Proxy :: Proxy DescribeWorkspaceBundles)
-
-describeWorkspaceDirectoriesResponseTest :: DescribeWorkspaceDirectoriesResponse -> TestTree
-describeWorkspaceDirectoriesResponseTest = resp
-    "describeWorkspaceDirectoriesResponse"
+testDescribeWorkspaceDirectoriesResponse :: DescribeWorkspaceDirectoriesResponse -> TestTree
+testDescribeWorkspaceDirectoriesResponse = resp
+    "DescribeWorkspaceDirectoriesResponse"
     "fixture/DescribeWorkspaceDirectoriesResponse"
     (Proxy :: Proxy DescribeWorkspaceDirectories)
 
-describeWorkspacesResponseTest :: DescribeWorkspacesResponse -> TestTree
-describeWorkspacesResponseTest = resp
-    "describeWorkspacesResponse"
-    "fixture/DescribeWorkspacesResponse"
-    (Proxy :: Proxy DescribeWorkspaces)
+testDescribeWorkspaceBundlesResponse :: DescribeWorkspaceBundlesResponse -> TestTree
+testDescribeWorkspaceBundlesResponse = resp
+    "DescribeWorkspaceBundlesResponse"
+    "fixture/DescribeWorkspaceBundlesResponse"
+    (Proxy :: Proxy DescribeWorkspaceBundles)
 
-rebootWorkspacesResponseTest :: RebootWorkspacesResponse -> TestTree
-rebootWorkspacesResponseTest = resp
-    "rebootWorkspacesResponse"
-    "fixture/RebootWorkspacesResponse"
-    (Proxy :: Proxy RebootWorkspaces)
-
-rebuildWorkspacesResponseTest :: RebuildWorkspacesResponse -> TestTree
-rebuildWorkspacesResponseTest = resp
-    "rebuildWorkspacesResponse"
+testRebuildWorkspacesResponse :: RebuildWorkspacesResponse -> TestTree
+testRebuildWorkspacesResponse = resp
+    "RebuildWorkspacesResponse"
     "fixture/RebuildWorkspacesResponse"
     (Proxy :: Proxy RebuildWorkspaces)
 
-terminateWorkspacesResponseTest :: TerminateWorkspacesResponse -> TestTree
-terminateWorkspacesResponseTest = resp
-    "terminateWorkspacesResponse"
+testRebootWorkspacesResponse :: RebootWorkspacesResponse -> TestTree
+testRebootWorkspacesResponse = resp
+    "RebootWorkspacesResponse"
+    "fixture/RebootWorkspacesResponse"
+    (Proxy :: Proxy RebootWorkspaces)
+
+testTerminateWorkspacesResponse :: TerminateWorkspacesResponse -> TestTree
+testTerminateWorkspacesResponse = resp
+    "TerminateWorkspacesResponse"
     "fixture/TerminateWorkspacesResponse"
     (Proxy :: Proxy TerminateWorkspaces)
+
+testCreateWorkspacesResponse :: CreateWorkspacesResponse -> TestTree
+testCreateWorkspacesResponse = resp
+    "CreateWorkspacesResponse"
+    "fixture/CreateWorkspacesResponse"
+    (Proxy :: Proxy CreateWorkspaces)
+
+testDescribeWorkspacesResponse :: DescribeWorkspacesResponse -> TestTree
+testDescribeWorkspacesResponse = resp
+    "DescribeWorkspacesResponse"
+    "fixture/DescribeWorkspacesResponse"
+    (Proxy :: Proxy DescribeWorkspaces)

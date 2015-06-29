@@ -23,164 +23,164 @@ import Network.AWS.SDB
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ batchDeleteAttributesTest $
+--         [ testBatchDeleteAttributes $
 --             batchDeleteAttributes
 --
---         , batchPutAttributesTest $
+--         , testBatchPutAttributes $
 --             batchPutAttributes
 --
---         , createDomainTest $
---             createDomain
---
---         , deleteAttributesTest $
---             deleteAttributes
---
---         , deleteDomainTest $
---             deleteDomain
---
---         , domainMetadataTest $
---             domainMetadata
---
---         , getAttributesTest $
+--         , testGetAttributes $
 --             getAttributes
 --
---         , listDomainsTest $
---             listDomains
+--         , testCreateDomain $
+--             createDomain
 --
---         , putAttributesTest $
+--         , testDomainMetadata $
+--             domainMetadata
+--
+--         , testSelect $
+--             select
+--
+--         , testPutAttributes $
 --             putAttributes
 --
---         , selectTest $
---             select
+--         , testDeleteAttributes $
+--             deleteAttributes
+--
+--         , testListDomains $
+--             listDomains
+--
+--         , testDeleteDomain $
+--             deleteDomain
 --
 --           ]
 
 --     , testGroup "response"
---         [ batchDeleteAttributesResponseTest $
+--         [ testBatchDeleteAttributesResponse $
 --             batchDeleteAttributesResponse
 --
---         , batchPutAttributesResponseTest $
+--         , testBatchPutAttributesResponse $
 --             batchPutAttributesResponse
 --
---         , createDomainResponseTest $
---             createDomainResponse
---
---         , deleteAttributesResponseTest $
---             deleteAttributesResponse
---
---         , deleteDomainResponseTest $
---             deleteDomainResponse
---
---         , domainMetadataResponseTest $
---             domainMetadataResponse
---
---         , getAttributesResponseTest $
+--         , testGetAttributesResponse $
 --             getAttributesResponse
 --
---         , listDomainsResponseTest $
---             listDomainsResponse
+--         , testCreateDomainResponse $
+--             createDomainResponse
 --
---         , putAttributesResponseTest $
+--         , testDomainMetadataResponse $
+--             domainMetadataResponse
+--
+--         , testSelectResponse $
+--             selectResponse
+--
+--         , testPutAttributesResponse $
 --             putAttributesResponse
 --
---         , selectResponseTest $
---             selectResponse
+--         , testDeleteAttributesResponse $
+--             deleteAttributesResponse
+--
+--         , testListDomainsResponse $
+--             listDomainsResponse
+--
+--         , testDeleteDomainResponse $
+--             deleteDomainResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-batchDeleteAttributesTest :: BatchDeleteAttributes -> TestTree
-batchDeleteAttributesTest = undefined
+testBatchDeleteAttributes :: BatchDeleteAttributes -> TestTree
+testBatchDeleteAttributes = undefined
 
-batchPutAttributesTest :: BatchPutAttributes -> TestTree
-batchPutAttributesTest = undefined
+testBatchPutAttributes :: BatchPutAttributes -> TestTree
+testBatchPutAttributes = undefined
 
-createDomainTest :: CreateDomain -> TestTree
-createDomainTest = undefined
+testGetAttributes :: GetAttributes -> TestTree
+testGetAttributes = undefined
 
-deleteAttributesTest :: DeleteAttributes -> TestTree
-deleteAttributesTest = undefined
+testCreateDomain :: CreateDomain -> TestTree
+testCreateDomain = undefined
 
-deleteDomainTest :: DeleteDomain -> TestTree
-deleteDomainTest = undefined
+testDomainMetadata :: DomainMetadata -> TestTree
+testDomainMetadata = undefined
 
-domainMetadataTest :: DomainMetadata -> TestTree
-domainMetadataTest = undefined
+testSelect :: Select -> TestTree
+testSelect = undefined
 
-getAttributesTest :: GetAttributes -> TestTree
-getAttributesTest = undefined
+testPutAttributes :: PutAttributes -> TestTree
+testPutAttributes = undefined
 
-listDomainsTest :: ListDomains -> TestTree
-listDomainsTest = undefined
+testDeleteAttributes :: DeleteAttributes -> TestTree
+testDeleteAttributes = undefined
 
-putAttributesTest :: PutAttributes -> TestTree
-putAttributesTest = undefined
+testListDomains :: ListDomains -> TestTree
+testListDomains = undefined
 
-selectTest :: Select -> TestTree
-selectTest = undefined
+testDeleteDomain :: DeleteDomain -> TestTree
+testDeleteDomain = undefined
 
 -- Responses
 
-batchDeleteAttributesResponseTest :: BatchDeleteAttributesResponse -> TestTree
-batchDeleteAttributesResponseTest = resp
-    "batchDeleteAttributesResponse"
+testBatchDeleteAttributesResponse :: BatchDeleteAttributesResponse -> TestTree
+testBatchDeleteAttributesResponse = resp
+    "BatchDeleteAttributesResponse"
     "fixture/BatchDeleteAttributesResponse"
     (Proxy :: Proxy BatchDeleteAttributes)
 
-batchPutAttributesResponseTest :: BatchPutAttributesResponse -> TestTree
-batchPutAttributesResponseTest = resp
-    "batchPutAttributesResponse"
+testBatchPutAttributesResponse :: BatchPutAttributesResponse -> TestTree
+testBatchPutAttributesResponse = resp
+    "BatchPutAttributesResponse"
     "fixture/BatchPutAttributesResponse"
     (Proxy :: Proxy BatchPutAttributes)
 
-createDomainResponseTest :: CreateDomainResponse -> TestTree
-createDomainResponseTest = resp
-    "createDomainResponse"
-    "fixture/CreateDomainResponse"
-    (Proxy :: Proxy CreateDomain)
-
-deleteAttributesResponseTest :: DeleteAttributesResponse -> TestTree
-deleteAttributesResponseTest = resp
-    "deleteAttributesResponse"
-    "fixture/DeleteAttributesResponse"
-    (Proxy :: Proxy DeleteAttributes)
-
-deleteDomainResponseTest :: DeleteDomainResponse -> TestTree
-deleteDomainResponseTest = resp
-    "deleteDomainResponse"
-    "fixture/DeleteDomainResponse"
-    (Proxy :: Proxy DeleteDomain)
-
-domainMetadataResponseTest :: DomainMetadataResponse -> TestTree
-domainMetadataResponseTest = resp
-    "domainMetadataResponse"
-    "fixture/DomainMetadataResponse"
-    (Proxy :: Proxy DomainMetadata)
-
-getAttributesResponseTest :: GetAttributesResponse -> TestTree
-getAttributesResponseTest = resp
-    "getAttributesResponse"
+testGetAttributesResponse :: GetAttributesResponse -> TestTree
+testGetAttributesResponse = resp
+    "GetAttributesResponse"
     "fixture/GetAttributesResponse"
     (Proxy :: Proxy GetAttributes)
 
-listDomainsResponseTest :: ListDomainsResponse -> TestTree
-listDomainsResponseTest = resp
-    "listDomainsResponse"
-    "fixture/ListDomainsResponse"
-    (Proxy :: Proxy ListDomains)
+testCreateDomainResponse :: CreateDomainResponse -> TestTree
+testCreateDomainResponse = resp
+    "CreateDomainResponse"
+    "fixture/CreateDomainResponse"
+    (Proxy :: Proxy CreateDomain)
 
-putAttributesResponseTest :: PutAttributesResponse -> TestTree
-putAttributesResponseTest = resp
-    "putAttributesResponse"
+testDomainMetadataResponse :: DomainMetadataResponse -> TestTree
+testDomainMetadataResponse = resp
+    "DomainMetadataResponse"
+    "fixture/DomainMetadataResponse"
+    (Proxy :: Proxy DomainMetadata)
+
+testSelectResponse :: SelectResponse -> TestTree
+testSelectResponse = resp
+    "SelectResponse"
+    "fixture/SelectResponse"
+    (Proxy :: Proxy Select)
+
+testPutAttributesResponse :: PutAttributesResponse -> TestTree
+testPutAttributesResponse = resp
+    "PutAttributesResponse"
     "fixture/PutAttributesResponse"
     (Proxy :: Proxy PutAttributes)
 
-selectResponseTest :: SelectResponse -> TestTree
-selectResponseTest = resp
-    "selectResponse"
-    "fixture/SelectResponse"
-    (Proxy :: Proxy Select)
+testDeleteAttributesResponse :: DeleteAttributesResponse -> TestTree
+testDeleteAttributesResponse = resp
+    "DeleteAttributesResponse"
+    "fixture/DeleteAttributesResponse"
+    (Proxy :: Proxy DeleteAttributes)
+
+testListDomainsResponse :: ListDomainsResponse -> TestTree
+testListDomainsResponse = resp
+    "ListDomainsResponse"
+    "fixture/ListDomainsResponse"
+    (Proxy :: Proxy ListDomains)
+
+testDeleteDomainResponse :: DeleteDomainResponse -> TestTree
+testDeleteDomainResponse = resp
+    "DeleteDomainResponse"
+    "fixture/DeleteDomainResponse"
+    (Proxy :: Proxy DeleteDomain)

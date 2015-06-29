@@ -25,10 +25,10 @@ tests = []
 fixtures :: [TestTree]
 fixtures =
     [ testGroup "response"
-        [ getQueueURLResponseTest $
+        [ testGetQueueURLResponse $
             getQueueURLResponse 200 "http://us-east-1.amazonaws.com/123456789012/testQueue"
 
-        , purgeQueueResponseTest $
+        , testPurgeQueueResponse $
             purgeQueueResponse
         ]
     ]

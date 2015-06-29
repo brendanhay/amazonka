@@ -23,1574 +23,1574 @@ import Network.AWS.IAM
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ addClientIDToOpenIDConnectProviderTest $
---             addClientIDToOpenIDConnectProvider
---
---         , addRoleToInstanceProfileTest $
---             addRoleToInstanceProfile
---
---         , addUserToGroupTest $
---             addUserToGroup
---
---         , attachGroupPolicyTest $
+--         [ testAttachGroupPolicy $
 --             attachGroupPolicy
 --
---         , attachRolePolicyTest $
---             attachRolePolicy
---
---         , attachUserPolicyTest $
---             attachUserPolicy
---
---         , changePasswordTest $
---             changePassword
---
---         , createAccessKeyTest $
---             createAccessKey
---
---         , createAccountAliasTest $
---             createAccountAlias
---
---         , createGroupTest $
---             createGroup
---
---         , createInstanceProfileTest $
---             createInstanceProfile
---
---         , createLoginProfileTest $
---             createLoginProfile
---
---         , createOpenIDConnectProviderTest $
---             createOpenIDConnectProvider
---
---         , createPolicyTest $
---             createPolicy
---
---         , createPolicyVersionTest $
---             createPolicyVersion
---
---         , createRoleTest $
---             createRole
---
---         , createSAMLProviderTest $
---             createSAMLProvider
---
---         , createUserTest $
---             createUser
---
---         , createVirtualMFADeviceTest $
---             createVirtualMFADevice
---
---         , deactivateMFADeviceTest $
---             deactivateMFADevice
---
---         , deleteAccessKeyTest $
---             deleteAccessKey
---
---         , deleteAccountAliasTest $
---             deleteAccountAlias
---
---         , deleteAccountPasswordPolicyTest $
---             deleteAccountPasswordPolicy
---
---         , deleteGroupTest $
---             deleteGroup
---
---         , deleteGroupPolicyTest $
---             deleteGroupPolicy
---
---         , deleteInstanceProfileTest $
---             deleteInstanceProfile
---
---         , deleteLoginProfileTest $
---             deleteLoginProfile
---
---         , deleteOpenIDConnectProviderTest $
---             deleteOpenIDConnectProvider
---
---         , deletePolicyTest $
---             deletePolicy
---
---         , deletePolicyVersionTest $
---             deletePolicyVersion
---
---         , deleteRoleTest $
---             deleteRole
---
---         , deleteRolePolicyTest $
---             deleteRolePolicy
---
---         , deleteSAMLProviderTest $
---             deleteSAMLProvider
---
---         , deleteServerCertificateTest $
---             deleteServerCertificate
---
---         , deleteSigningCertificateTest $
---             deleteSigningCertificate
---
---         , deleteUserTest $
---             deleteUser
---
---         , deleteUserPolicyTest $
---             deleteUserPolicy
---
---         , deleteVirtualMFADeviceTest $
---             deleteVirtualMFADevice
---
---         , detachGroupPolicyTest $
---             detachGroupPolicy
---
---         , detachRolePolicyTest $
---             detachRolePolicy
---
---         , detachUserPolicyTest $
---             detachUserPolicy
---
---         , enableMFADeviceTest $
---             enableMFADevice
---
---         , generateCredentialReportTest $
---             generateCredentialReport
---
---         , getAccessKeyLastUsedTest $
---             getAccessKeyLastUsed
---
---         , getAccountAuthorizationDetailsTest $
---             getAccountAuthorizationDetails
---
---         , getAccountPasswordPolicyTest $
---             getAccountPasswordPolicy
---
---         , getAccountSummaryTest $
---             getAccountSummary
---
---         , getCredentialReportTest $
---             getCredentialReport
---
---         , getGroupTest $
---             getGroup
---
---         , getGroupPolicyTest $
---             getGroupPolicy
---
---         , getInstanceProfileTest $
---             getInstanceProfile
---
---         , getLoginProfileTest $
---             getLoginProfile
---
---         , getOpenIDConnectProviderTest $
---             getOpenIDConnectProvider
---
---         , getPolicyTest $
---             getPolicy
---
---         , getPolicyVersionTest $
---             getPolicyVersion
---
---         , getRoleTest $
---             getRole
---
---         , getRolePolicyTest $
---             getRolePolicy
---
---         , getSAMLProviderTest $
---             getSAMLProvider
---
---         , getServerCertificateTest $
---             getServerCertificate
---
---         , getUserTest $
---             getUser
---
---         , getUserPolicyTest $
---             getUserPolicy
---
---         , listAccessKeysTest $
---             listAccessKeys
---
---         , listAccountAliasesTest $
---             listAccountAliases
---
---         , listAttachedGroupPoliciesTest $
---             listAttachedGroupPolicies
---
---         , listAttachedRolePoliciesTest $
---             listAttachedRolePolicies
---
---         , listAttachedUserPoliciesTest $
---             listAttachedUserPolicies
---
---         , listEntitiesForPolicyTest $
---             listEntitiesForPolicy
---
---         , listGroupPoliciesTest $
---             listGroupPolicies
---
---         , listGroupsTest $
---             listGroups
---
---         , listGroupsForUserTest $
---             listGroupsForUser
---
---         , listInstanceProfilesTest $
---             listInstanceProfiles
---
---         , listInstanceProfilesForRoleTest $
+--         , testListInstanceProfilesForRole $
 --             listInstanceProfilesForRole
 --
---         , listMFADevicesTest $
---             listMFADevices
+--         , testCreatePolicy $
+--             createPolicy
 --
---         , listOpenIDConnectProvidersTest $
---             listOpenIDConnectProviders
---
---         , listPoliciesTest $
+--         , testListPolicies $
 --             listPolicies
 --
---         , listPolicyVersionsTest $
---             listPolicyVersions
+--         , testAttachRolePolicy $
+--             attachRolePolicy
 --
---         , listRolePoliciesTest $
---             listRolePolicies
+--         , testListOpenIDConnectProviders $
+--             listOpenIDConnectProviders
 --
---         , listRolesTest $
---             listRoles
+--         , testDeleteAccountPasswordPolicy $
+--             deleteAccountPasswordPolicy
 --
---         , listSAMLProvidersTest $
---             listSAMLProviders
---
---         , listServerCertificatesTest $
---             listServerCertificates
---
---         , listSigningCertificatesTest $
---             listSigningCertificates
---
---         , listUserPoliciesTest $
---             listUserPolicies
---
---         , listUsersTest $
---             listUsers
---
---         , listVirtualMFADevicesTest $
---             listVirtualMFADevices
---
---         , putGroupPolicyTest $
---             putGroupPolicy
---
---         , putRolePolicyTest $
---             putRolePolicy
---
---         , putUserPolicyTest $
---             putUserPolicy
---
---         , removeClientIDFromOpenIDConnectProviderTest $
---             removeClientIDFromOpenIDConnectProvider
---
---         , removeRoleFromInstanceProfileTest $
---             removeRoleFromInstanceProfile
---
---         , removeUserFromGroupTest $
---             removeUserFromGroup
---
---         , resyncMFADeviceTest $
---             resyncMFADevice
---
---         , setDefaultPolicyVersionTest $
---             setDefaultPolicyVersion
---
---         , updateAccessKeyTest $
---             updateAccessKey
---
---         , updateAccountPasswordPolicyTest $
+--         , testUpdateAccountPasswordPolicy $
 --             updateAccountPasswordPolicy
 --
---         , updateAssumeRolePolicyTest $
---             updateAssumeRolePolicy
+--         , testCreateAccessKey $
+--             createAccessKey
 --
---         , updateGroupTest $
---             updateGroup
+--         , testGetUserPolicy $
+--             getUserPolicy
 --
---         , updateLoginProfileTest $
---             updateLoginProfile
+--         , testCreateVirtualMFADevice $
+--             createVirtualMFADevice
 --
---         , updateOpenIDConnectProviderThumbprintTest $
+--         , testCreateOpenIDConnectProvider $
+--             createOpenIDConnectProvider
+--
+--         , testListAttachedRolePolicies $
+--             listAttachedRolePolicies
+--
+--         , testDeleteVirtualMFADevice $
+--             deleteVirtualMFADevice
+--
+--         , testGetRole $
+--             getRole
+--
+--         , testDeactivateMFADevice $
+--             deactivateMFADevice
+--
+--         , testListRoles $
+--             listRoles
+--
+--         , testDeleteRole $
+--             deleteRole
+--
+--         , testListUserPolicies $
+--             listUserPolicies
+--
+--         , testListUsers $
+--             listUsers
+--
+--         , testUpdateOpenIDConnectProviderThumbprint $
 --             updateOpenIDConnectProviderThumbprint
 --
---         , updateSAMLProviderTest $
---             updateSAMLProvider
+--         , testPutUserPolicy $
+--             putUserPolicy
 --
---         , updateServerCertificateTest $
---             updateServerCertificate
+--         , testCreateRole $
+--             createRole
 --
---         , updateSigningCertificateTest $
+--         , testDeleteUserPolicy $
+--             deleteUserPolicy
+--
+--         , testGetOpenIDConnectProvider $
+--             getOpenIDConnectProvider
+--
+--         , testDetachGroupPolicy $
+--             detachGroupPolicy
+--
+--         , testGetCredentialReport $
+--             getCredentialReport
+--
+--         , testDeletePolicyVersion $
+--             deletePolicyVersion
+--
+--         , testDetachRolePolicy $
+--             detachRolePolicy
+--
+--         , testDeleteInstanceProfile $
+--             deleteInstanceProfile
+--
+--         , testListGroupPolicies $
+--             listGroupPolicies
+--
+--         , testGetAccountSummary $
+--             getAccountSummary
+--
+--         , testCreateInstanceProfile $
+--             createInstanceProfile
+--
+--         , testPutGroupPolicy $
+--             putGroupPolicy
+--
+--         , testDeleteGroupPolicy $
+--             deleteGroupPolicy
+--
+--         , testGetAccountAuthorizationDetails $
+--             getAccountAuthorizationDetails
+--
+--         , testDeleteAccountAlias $
+--             deleteAccountAlias
+--
+--         , testRemoveRoleFromInstanceProfile $
+--             removeRoleFromInstanceProfile
+--
+--         , testGetLoginProfile $
+--             getLoginProfile
+--
+--         , testRemoveUserFromGroup $
+--             removeUserFromGroup
+--
+--         , testDetachUserPolicy $
+--             detachUserPolicy
+--
+--         , testCreateSAMLProvider $
+--             createSAMLProvider
+--
+--         , testCreatePolicyVersion $
+--             createPolicyVersion
+--
+--         , testGetGroupPolicy $
+--             getGroupPolicy
+--
+--         , testDeletePolicy $
+--             deletePolicy
+--
+--         , testListServerCertificates $
+--             listServerCertificates
+--
+--         , testUpdateAssumeRolePolicy $
+--             updateAssumeRolePolicy
+--
+--         , testChangePassword $
+--             changePassword
+--
+--         , testListGroupsForUser $
+--             listGroupsForUser
+--
+--         , testGetPolicyVersion $
+--             getPolicyVersion
+--
+--         , testCreateLoginProfile $
+--             createLoginProfile
+--
+--         , testGetInstanceProfile $
+--             getInstanceProfile
+--
+--         , testListEntitiesForPolicy $
+--             listEntitiesForPolicy
+--
+--         , testGetSAMLProvider $
+--             getSAMLProvider
+--
+--         , testAddRoleToInstanceProfile $
+--             addRoleToInstanceProfile
+--
+--         , testAddUserToGroup $
+--             addUserToGroup
+--
+--         , testDeleteOpenIDConnectProvider $
+--             deleteOpenIDConnectProvider
+--
+--         , testGetUser $
+--             getUser
+--
+--         , testListAttachedUserPolicies $
+--             listAttachedUserPolicies
+--
+--         , testDeleteSigningCertificate $
+--             deleteSigningCertificate
+--
+--         , testUpdateSigningCertificate $
 --             updateSigningCertificate
 --
---         , updateUserTest $
+--         , testListSigningCertificates $
+--             listSigningCertificates
+--
+--         , testRemoveClientIDFromOpenIDConnectProvider $
+--             removeClientIDFromOpenIDConnectProvider
+--
+--         , testListAccessKeys $
+--             listAccessKeys
+--
+--         , testListVirtualMFADevices $
+--             listVirtualMFADevices
+--
+--         , testDeleteAccessKey $
+--             deleteAccessKey
+--
+--         , testUpdateAccessKey $
+--             updateAccessKey
+--
+--         , testGetRolePolicy $
+--             getRolePolicy
+--
+--         , testAttachUserPolicy $
+--             attachUserPolicy
+--
+--         , testResyncMFADevice $
+--             resyncMFADevice
+--
+--         , testCreateUser $
+--             createUser
+--
+--         , testUploadSigningCertificate $
+--             uploadSigningCertificate
+--
+--         , testPutRolePolicy $
+--             putRolePolicy
+--
+--         , testDeleteRolePolicy $
+--             deleteRolePolicy
+--
+--         , testUpdateUser $
 --             updateUser
 --
---         , uploadServerCertificateTest $
+--         , testDeleteUser $
+--             deleteUser
+--
+--         , testListRolePolicies $
+--             listRolePolicies
+--
+--         , testAddClientIDToOpenIDConnectProvider $
+--             addClientIDToOpenIDConnectProvider
+--
+--         , testGetAccessKeyLastUsed $
+--             getAccessKeyLastUsed
+--
+--         , testGetAccountPasswordPolicy $
+--             getAccountPasswordPolicy
+--
+--         , testListAccountAliases $
+--             listAccountAliases
+--
+--         , testCreateAccountAlias $
+--             createAccountAlias
+--
+--         , testUploadServerCertificate $
 --             uploadServerCertificate
 --
---         , uploadSigningCertificateTest $
---             uploadSigningCertificate
+--         , testListMFADevices $
+--             listMFADevices
+--
+--         , testEnableMFADevice $
+--             enableMFADevice
+--
+--         , testListPolicyVersions $
+--             listPolicyVersions
+--
+--         , testListSAMLProviders $
+--             listSAMLProviders
+--
+--         , testUpdateSAMLProvider $
+--             updateSAMLProvider
+--
+--         , testDeleteSAMLProvider $
+--             deleteSAMLProvider
+--
+--         , testCreateGroup $
+--             createGroup
+--
+--         , testSetDefaultPolicyVersion $
+--             setDefaultPolicyVersion
+--
+--         , testListInstanceProfiles $
+--             listInstanceProfiles
+--
+--         , testListGroups $
+--             listGroups
+--
+--         , testDeleteGroup $
+--             deleteGroup
+--
+--         , testUpdateGroup $
+--             updateGroup
+--
+--         , testGetServerCertificate $
+--             getServerCertificate
+--
+--         , testGetPolicy $
+--             getPolicy
+--
+--         , testGenerateCredentialReport $
+--             generateCredentialReport
+--
+--         , testGetGroup $
+--             getGroup
+--
+--         , testDeleteServerCertificate $
+--             deleteServerCertificate
+--
+--         , testUpdateServerCertificate $
+--             updateServerCertificate
+--
+--         , testDeleteLoginProfile $
+--             deleteLoginProfile
+--
+--         , testUpdateLoginProfile $
+--             updateLoginProfile
+--
+--         , testListAttachedGroupPolicies $
+--             listAttachedGroupPolicies
 --
 --           ]
 
 --     , testGroup "response"
---         [ addClientIDToOpenIDConnectProviderResponseTest $
---             addClientIDToOpenIDConnectProviderResponse
---
---         , addRoleToInstanceProfileResponseTest $
---             addRoleToInstanceProfileResponse
---
---         , addUserToGroupResponseTest $
---             addUserToGroupResponse
---
---         , attachGroupPolicyResponseTest $
+--         [ testAttachGroupPolicyResponse $
 --             attachGroupPolicyResponse
 --
---         , attachRolePolicyResponseTest $
---             attachRolePolicyResponse
---
---         , attachUserPolicyResponseTest $
---             attachUserPolicyResponse
---
---         , changePasswordResponseTest $
---             changePasswordResponse
---
---         , createAccessKeyResponseTest $
---             createAccessKeyResponse
---
---         , createAccountAliasResponseTest $
---             createAccountAliasResponse
---
---         , createGroupResponseTest $
---             createGroupResponse
---
---         , createInstanceProfileResponseTest $
---             createInstanceProfileResponse
---
---         , createLoginProfileResponseTest $
---             createLoginProfileResponse
---
---         , createOpenIDConnectProviderResponseTest $
---             createOpenIDConnectProviderResponse
---
---         , createPolicyResponseTest $
---             createPolicyResponse
---
---         , createPolicyVersionResponseTest $
---             createPolicyVersionResponse
---
---         , createRoleResponseTest $
---             createRoleResponse
---
---         , createSAMLProviderResponseTest $
---             createSAMLProviderResponse
---
---         , createUserResponseTest $
---             createUserResponse
---
---         , createVirtualMFADeviceResponseTest $
---             createVirtualMFADeviceResponse
---
---         , deactivateMFADeviceResponseTest $
---             deactivateMFADeviceResponse
---
---         , deleteAccessKeyResponseTest $
---             deleteAccessKeyResponse
---
---         , deleteAccountAliasResponseTest $
---             deleteAccountAliasResponse
---
---         , deleteAccountPasswordPolicyResponseTest $
---             deleteAccountPasswordPolicyResponse
---
---         , deleteGroupResponseTest $
---             deleteGroupResponse
---
---         , deleteGroupPolicyResponseTest $
---             deleteGroupPolicyResponse
---
---         , deleteInstanceProfileResponseTest $
---             deleteInstanceProfileResponse
---
---         , deleteLoginProfileResponseTest $
---             deleteLoginProfileResponse
---
---         , deleteOpenIDConnectProviderResponseTest $
---             deleteOpenIDConnectProviderResponse
---
---         , deletePolicyResponseTest $
---             deletePolicyResponse
---
---         , deletePolicyVersionResponseTest $
---             deletePolicyVersionResponse
---
---         , deleteRoleResponseTest $
---             deleteRoleResponse
---
---         , deleteRolePolicyResponseTest $
---             deleteRolePolicyResponse
---
---         , deleteSAMLProviderResponseTest $
---             deleteSAMLProviderResponse
---
---         , deleteServerCertificateResponseTest $
---             deleteServerCertificateResponse
---
---         , deleteSigningCertificateResponseTest $
---             deleteSigningCertificateResponse
---
---         , deleteUserResponseTest $
---             deleteUserResponse
---
---         , deleteUserPolicyResponseTest $
---             deleteUserPolicyResponse
---
---         , deleteVirtualMFADeviceResponseTest $
---             deleteVirtualMFADeviceResponse
---
---         , detachGroupPolicyResponseTest $
---             detachGroupPolicyResponse
---
---         , detachRolePolicyResponseTest $
---             detachRolePolicyResponse
---
---         , detachUserPolicyResponseTest $
---             detachUserPolicyResponse
---
---         , enableMFADeviceResponseTest $
---             enableMFADeviceResponse
---
---         , generateCredentialReportResponseTest $
---             generateCredentialReportResponse
---
---         , getAccessKeyLastUsedResponseTest $
---             getAccessKeyLastUsedResponse
---
---         , getAccountAuthorizationDetailsResponseTest $
---             getAccountAuthorizationDetailsResponse
---
---         , getAccountPasswordPolicyResponseTest $
---             getAccountPasswordPolicyResponse
---
---         , getAccountSummaryResponseTest $
---             getAccountSummaryResponse
---
---         , getCredentialReportResponseTest $
---             getCredentialReportResponse
---
---         , getGroupResponseTest $
---             getGroupResponse
---
---         , getGroupPolicyResponseTest $
---             getGroupPolicyResponse
---
---         , getInstanceProfileResponseTest $
---             getInstanceProfileResponse
---
---         , getLoginProfileResponseTest $
---             getLoginProfileResponse
---
---         , getOpenIDConnectProviderResponseTest $
---             getOpenIDConnectProviderResponse
---
---         , getPolicyResponseTest $
---             getPolicyResponse
---
---         , getPolicyVersionResponseTest $
---             getPolicyVersionResponse
---
---         , getRoleResponseTest $
---             getRoleResponse
---
---         , getRolePolicyResponseTest $
---             getRolePolicyResponse
---
---         , getSAMLProviderResponseTest $
---             getSAMLProviderResponse
---
---         , getServerCertificateResponseTest $
---             getServerCertificateResponse
---
---         , getUserResponseTest $
---             getUserResponse
---
---         , getUserPolicyResponseTest $
---             getUserPolicyResponse
---
---         , listAccessKeysResponseTest $
---             listAccessKeysResponse
---
---         , listAccountAliasesResponseTest $
---             listAccountAliasesResponse
---
---         , listAttachedGroupPoliciesResponseTest $
---             listAttachedGroupPoliciesResponse
---
---         , listAttachedRolePoliciesResponseTest $
---             listAttachedRolePoliciesResponse
---
---         , listAttachedUserPoliciesResponseTest $
---             listAttachedUserPoliciesResponse
---
---         , listEntitiesForPolicyResponseTest $
---             listEntitiesForPolicyResponse
---
---         , listGroupPoliciesResponseTest $
---             listGroupPoliciesResponse
---
---         , listGroupsResponseTest $
---             listGroupsResponse
---
---         , listGroupsForUserResponseTest $
---             listGroupsForUserResponse
---
---         , listInstanceProfilesResponseTest $
---             listInstanceProfilesResponse
---
---         , listInstanceProfilesForRoleResponseTest $
+--         , testListInstanceProfilesForRoleResponse $
 --             listInstanceProfilesForRoleResponse
 --
---         , listMFADevicesResponseTest $
---             listMFADevicesResponse
+--         , testCreatePolicyResponse $
+--             createPolicyResponse
 --
---         , listOpenIDConnectProvidersResponseTest $
---             listOpenIDConnectProvidersResponse
---
---         , listPoliciesResponseTest $
+--         , testListPoliciesResponse $
 --             listPoliciesResponse
 --
---         , listPolicyVersionsResponseTest $
---             listPolicyVersionsResponse
+--         , testAttachRolePolicyResponse $
+--             attachRolePolicyResponse
 --
---         , listRolePoliciesResponseTest $
---             listRolePoliciesResponse
+--         , testListOpenIDConnectProvidersResponse $
+--             listOpenIDConnectProvidersResponse
 --
---         , listRolesResponseTest $
---             listRolesResponse
+--         , testDeleteAccountPasswordPolicyResponse $
+--             deleteAccountPasswordPolicyResponse
 --
---         , listSAMLProvidersResponseTest $
---             listSAMLProvidersResponse
---
---         , listServerCertificatesResponseTest $
---             listServerCertificatesResponse
---
---         , listSigningCertificatesResponseTest $
---             listSigningCertificatesResponse
---
---         , listUserPoliciesResponseTest $
---             listUserPoliciesResponse
---
---         , listUsersResponseTest $
---             listUsersResponse
---
---         , listVirtualMFADevicesResponseTest $
---             listVirtualMFADevicesResponse
---
---         , putGroupPolicyResponseTest $
---             putGroupPolicyResponse
---
---         , putRolePolicyResponseTest $
---             putRolePolicyResponse
---
---         , putUserPolicyResponseTest $
---             putUserPolicyResponse
---
---         , removeClientIDFromOpenIDConnectProviderResponseTest $
---             removeClientIDFromOpenIDConnectProviderResponse
---
---         , removeRoleFromInstanceProfileResponseTest $
---             removeRoleFromInstanceProfileResponse
---
---         , removeUserFromGroupResponseTest $
---             removeUserFromGroupResponse
---
---         , resyncMFADeviceResponseTest $
---             resyncMFADeviceResponse
---
---         , setDefaultPolicyVersionResponseTest $
---             setDefaultPolicyVersionResponse
---
---         , updateAccessKeyResponseTest $
---             updateAccessKeyResponse
---
---         , updateAccountPasswordPolicyResponseTest $
+--         , testUpdateAccountPasswordPolicyResponse $
 --             updateAccountPasswordPolicyResponse
 --
---         , updateAssumeRolePolicyResponseTest $
---             updateAssumeRolePolicyResponse
+--         , testCreateAccessKeyResponse $
+--             createAccessKeyResponse
 --
---         , updateGroupResponseTest $
---             updateGroupResponse
+--         , testGetUserPolicyResponse $
+--             getUserPolicyResponse
 --
---         , updateLoginProfileResponseTest $
---             updateLoginProfileResponse
+--         , testCreateVirtualMFADeviceResponse $
+--             createVirtualMFADeviceResponse
 --
---         , updateOpenIDConnectProviderThumbprintResponseTest $
+--         , testCreateOpenIDConnectProviderResponse $
+--             createOpenIDConnectProviderResponse
+--
+--         , testListAttachedRolePoliciesResponse $
+--             listAttachedRolePoliciesResponse
+--
+--         , testDeleteVirtualMFADeviceResponse $
+--             deleteVirtualMFADeviceResponse
+--
+--         , testGetRoleResponse $
+--             getRoleResponse
+--
+--         , testDeactivateMFADeviceResponse $
+--             deactivateMFADeviceResponse
+--
+--         , testListRolesResponse $
+--             listRolesResponse
+--
+--         , testDeleteRoleResponse $
+--             deleteRoleResponse
+--
+--         , testListUserPoliciesResponse $
+--             listUserPoliciesResponse
+--
+--         , testListUsersResponse $
+--             listUsersResponse
+--
+--         , testUpdateOpenIDConnectProviderThumbprintResponse $
 --             updateOpenIDConnectProviderThumbprintResponse
 --
---         , updateSAMLProviderResponseTest $
---             updateSAMLProviderResponse
+--         , testPutUserPolicyResponse $
+--             putUserPolicyResponse
 --
---         , updateServerCertificateResponseTest $
---             updateServerCertificateResponse
+--         , testCreateRoleResponse $
+--             createRoleResponse
 --
---         , updateSigningCertificateResponseTest $
+--         , testDeleteUserPolicyResponse $
+--             deleteUserPolicyResponse
+--
+--         , testGetOpenIDConnectProviderResponse $
+--             getOpenIDConnectProviderResponse
+--
+--         , testDetachGroupPolicyResponse $
+--             detachGroupPolicyResponse
+--
+--         , testGetCredentialReportResponse $
+--             getCredentialReportResponse
+--
+--         , testDeletePolicyVersionResponse $
+--             deletePolicyVersionResponse
+--
+--         , testDetachRolePolicyResponse $
+--             detachRolePolicyResponse
+--
+--         , testDeleteInstanceProfileResponse $
+--             deleteInstanceProfileResponse
+--
+--         , testListGroupPoliciesResponse $
+--             listGroupPoliciesResponse
+--
+--         , testGetAccountSummaryResponse $
+--             getAccountSummaryResponse
+--
+--         , testCreateInstanceProfileResponse $
+--             createInstanceProfileResponse
+--
+--         , testPutGroupPolicyResponse $
+--             putGroupPolicyResponse
+--
+--         , testDeleteGroupPolicyResponse $
+--             deleteGroupPolicyResponse
+--
+--         , testGetAccountAuthorizationDetailsResponse $
+--             getAccountAuthorizationDetailsResponse
+--
+--         , testDeleteAccountAliasResponse $
+--             deleteAccountAliasResponse
+--
+--         , testRemoveRoleFromInstanceProfileResponse $
+--             removeRoleFromInstanceProfileResponse
+--
+--         , testGetLoginProfileResponse $
+--             getLoginProfileResponse
+--
+--         , testRemoveUserFromGroupResponse $
+--             removeUserFromGroupResponse
+--
+--         , testDetachUserPolicyResponse $
+--             detachUserPolicyResponse
+--
+--         , testCreateSAMLProviderResponse $
+--             createSAMLProviderResponse
+--
+--         , testCreatePolicyVersionResponse $
+--             createPolicyVersionResponse
+--
+--         , testGetGroupPolicyResponse $
+--             getGroupPolicyResponse
+--
+--         , testDeletePolicyResponse $
+--             deletePolicyResponse
+--
+--         , testListServerCertificatesResponse $
+--             listServerCertificatesResponse
+--
+--         , testUpdateAssumeRolePolicyResponse $
+--             updateAssumeRolePolicyResponse
+--
+--         , testChangePasswordResponse $
+--             changePasswordResponse
+--
+--         , testListGroupsForUserResponse $
+--             listGroupsForUserResponse
+--
+--         , testGetPolicyVersionResponse $
+--             getPolicyVersionResponse
+--
+--         , testCreateLoginProfileResponse $
+--             createLoginProfileResponse
+--
+--         , testGetInstanceProfileResponse $
+--             getInstanceProfileResponse
+--
+--         , testListEntitiesForPolicyResponse $
+--             listEntitiesForPolicyResponse
+--
+--         , testGetSAMLProviderResponse $
+--             getSAMLProviderResponse
+--
+--         , testAddRoleToInstanceProfileResponse $
+--             addRoleToInstanceProfileResponse
+--
+--         , testAddUserToGroupResponse $
+--             addUserToGroupResponse
+--
+--         , testDeleteOpenIDConnectProviderResponse $
+--             deleteOpenIDConnectProviderResponse
+--
+--         , testGetUserResponse $
+--             getUserResponse
+--
+--         , testListAttachedUserPoliciesResponse $
+--             listAttachedUserPoliciesResponse
+--
+--         , testDeleteSigningCertificateResponse $
+--             deleteSigningCertificateResponse
+--
+--         , testUpdateSigningCertificateResponse $
 --             updateSigningCertificateResponse
 --
---         , updateUserResponseTest $
+--         , testListSigningCertificatesResponse $
+--             listSigningCertificatesResponse
+--
+--         , testRemoveClientIDFromOpenIDConnectProviderResponse $
+--             removeClientIDFromOpenIDConnectProviderResponse
+--
+--         , testListAccessKeysResponse $
+--             listAccessKeysResponse
+--
+--         , testListVirtualMFADevicesResponse $
+--             listVirtualMFADevicesResponse
+--
+--         , testDeleteAccessKeyResponse $
+--             deleteAccessKeyResponse
+--
+--         , testUpdateAccessKeyResponse $
+--             updateAccessKeyResponse
+--
+--         , testGetRolePolicyResponse $
+--             getRolePolicyResponse
+--
+--         , testAttachUserPolicyResponse $
+--             attachUserPolicyResponse
+--
+--         , testResyncMFADeviceResponse $
+--             resyncMFADeviceResponse
+--
+--         , testCreateUserResponse $
+--             createUserResponse
+--
+--         , testUploadSigningCertificateResponse $
+--             uploadSigningCertificateResponse
+--
+--         , testPutRolePolicyResponse $
+--             putRolePolicyResponse
+--
+--         , testDeleteRolePolicyResponse $
+--             deleteRolePolicyResponse
+--
+--         , testUpdateUserResponse $
 --             updateUserResponse
 --
---         , uploadServerCertificateResponseTest $
+--         , testDeleteUserResponse $
+--             deleteUserResponse
+--
+--         , testListRolePoliciesResponse $
+--             listRolePoliciesResponse
+--
+--         , testAddClientIDToOpenIDConnectProviderResponse $
+--             addClientIDToOpenIDConnectProviderResponse
+--
+--         , testGetAccessKeyLastUsedResponse $
+--             getAccessKeyLastUsedResponse
+--
+--         , testGetAccountPasswordPolicyResponse $
+--             getAccountPasswordPolicyResponse
+--
+--         , testListAccountAliasesResponse $
+--             listAccountAliasesResponse
+--
+--         , testCreateAccountAliasResponse $
+--             createAccountAliasResponse
+--
+--         , testUploadServerCertificateResponse $
 --             uploadServerCertificateResponse
 --
---         , uploadSigningCertificateResponseTest $
---             uploadSigningCertificateResponse
+--         , testListMFADevicesResponse $
+--             listMFADevicesResponse
+--
+--         , testEnableMFADeviceResponse $
+--             enableMFADeviceResponse
+--
+--         , testListPolicyVersionsResponse $
+--             listPolicyVersionsResponse
+--
+--         , testListSAMLProvidersResponse $
+--             listSAMLProvidersResponse
+--
+--         , testUpdateSAMLProviderResponse $
+--             updateSAMLProviderResponse
+--
+--         , testDeleteSAMLProviderResponse $
+--             deleteSAMLProviderResponse
+--
+--         , testCreateGroupResponse $
+--             createGroupResponse
+--
+--         , testSetDefaultPolicyVersionResponse $
+--             setDefaultPolicyVersionResponse
+--
+--         , testListInstanceProfilesResponse $
+--             listInstanceProfilesResponse
+--
+--         , testListGroupsResponse $
+--             listGroupsResponse
+--
+--         , testDeleteGroupResponse $
+--             deleteGroupResponse
+--
+--         , testUpdateGroupResponse $
+--             updateGroupResponse
+--
+--         , testGetServerCertificateResponse $
+--             getServerCertificateResponse
+--
+--         , testGetPolicyResponse $
+--             getPolicyResponse
+--
+--         , testGenerateCredentialReportResponse $
+--             generateCredentialReportResponse
+--
+--         , testGetGroupResponse $
+--             getGroupResponse
+--
+--         , testDeleteServerCertificateResponse $
+--             deleteServerCertificateResponse
+--
+--         , testUpdateServerCertificateResponse $
+--             updateServerCertificateResponse
+--
+--         , testDeleteLoginProfileResponse $
+--             deleteLoginProfileResponse
+--
+--         , testUpdateLoginProfileResponse $
+--             updateLoginProfileResponse
+--
+--         , testListAttachedGroupPoliciesResponse $
+--             listAttachedGroupPoliciesResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-addClientIDToOpenIDConnectProviderTest :: AddClientIDToOpenIDConnectProvider -> TestTree
-addClientIDToOpenIDConnectProviderTest = undefined
+testAttachGroupPolicy :: AttachGroupPolicy -> TestTree
+testAttachGroupPolicy = undefined
 
-addRoleToInstanceProfileTest :: AddRoleToInstanceProfile -> TestTree
-addRoleToInstanceProfileTest = undefined
+testListInstanceProfilesForRole :: ListInstanceProfilesForRole -> TestTree
+testListInstanceProfilesForRole = undefined
 
-addUserToGroupTest :: AddUserToGroup -> TestTree
-addUserToGroupTest = undefined
+testCreatePolicy :: CreatePolicy -> TestTree
+testCreatePolicy = undefined
 
-attachGroupPolicyTest :: AttachGroupPolicy -> TestTree
-attachGroupPolicyTest = undefined
+testListPolicies :: ListPolicies -> TestTree
+testListPolicies = undefined
 
-attachRolePolicyTest :: AttachRolePolicy -> TestTree
-attachRolePolicyTest = undefined
+testAttachRolePolicy :: AttachRolePolicy -> TestTree
+testAttachRolePolicy = undefined
 
-attachUserPolicyTest :: AttachUserPolicy -> TestTree
-attachUserPolicyTest = undefined
+testListOpenIDConnectProviders :: ListOpenIDConnectProviders -> TestTree
+testListOpenIDConnectProviders = undefined
 
-changePasswordTest :: ChangePassword -> TestTree
-changePasswordTest = undefined
+testDeleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy -> TestTree
+testDeleteAccountPasswordPolicy = undefined
 
-createAccessKeyTest :: CreateAccessKey -> TestTree
-createAccessKeyTest = undefined
+testUpdateAccountPasswordPolicy :: UpdateAccountPasswordPolicy -> TestTree
+testUpdateAccountPasswordPolicy = undefined
 
-createAccountAliasTest :: CreateAccountAlias -> TestTree
-createAccountAliasTest = undefined
+testCreateAccessKey :: CreateAccessKey -> TestTree
+testCreateAccessKey = undefined
 
-createGroupTest :: CreateGroup -> TestTree
-createGroupTest = undefined
+testGetUserPolicy :: GetUserPolicy -> TestTree
+testGetUserPolicy = undefined
 
-createInstanceProfileTest :: CreateInstanceProfile -> TestTree
-createInstanceProfileTest = undefined
+testCreateVirtualMFADevice :: CreateVirtualMFADevice -> TestTree
+testCreateVirtualMFADevice = undefined
 
-createLoginProfileTest :: CreateLoginProfile -> TestTree
-createLoginProfileTest = undefined
+testCreateOpenIDConnectProvider :: CreateOpenIDConnectProvider -> TestTree
+testCreateOpenIDConnectProvider = undefined
 
-createOpenIDConnectProviderTest :: CreateOpenIDConnectProvider -> TestTree
-createOpenIDConnectProviderTest = undefined
+testListAttachedRolePolicies :: ListAttachedRolePolicies -> TestTree
+testListAttachedRolePolicies = undefined
 
-createPolicyTest :: CreatePolicy -> TestTree
-createPolicyTest = undefined
+testDeleteVirtualMFADevice :: DeleteVirtualMFADevice -> TestTree
+testDeleteVirtualMFADevice = undefined
 
-createPolicyVersionTest :: CreatePolicyVersion -> TestTree
-createPolicyVersionTest = undefined
+testGetRole :: GetRole -> TestTree
+testGetRole = undefined
 
-createRoleTest :: CreateRole -> TestTree
-createRoleTest = undefined
+testDeactivateMFADevice :: DeactivateMFADevice -> TestTree
+testDeactivateMFADevice = undefined
 
-createSAMLProviderTest :: CreateSAMLProvider -> TestTree
-createSAMLProviderTest = undefined
+testListRoles :: ListRoles -> TestTree
+testListRoles = undefined
 
-createUserTest :: CreateUser -> TestTree
-createUserTest = undefined
+testDeleteRole :: DeleteRole -> TestTree
+testDeleteRole = undefined
 
-createVirtualMFADeviceTest :: CreateVirtualMFADevice -> TestTree
-createVirtualMFADeviceTest = undefined
+testListUserPolicies :: ListUserPolicies -> TestTree
+testListUserPolicies = undefined
 
-deactivateMFADeviceTest :: DeactivateMFADevice -> TestTree
-deactivateMFADeviceTest = undefined
+testListUsers :: ListUsers -> TestTree
+testListUsers = undefined
 
-deleteAccessKeyTest :: DeleteAccessKey -> TestTree
-deleteAccessKeyTest = undefined
+testUpdateOpenIDConnectProviderThumbprint :: UpdateOpenIDConnectProviderThumbprint -> TestTree
+testUpdateOpenIDConnectProviderThumbprint = undefined
 
-deleteAccountAliasTest :: DeleteAccountAlias -> TestTree
-deleteAccountAliasTest = undefined
+testPutUserPolicy :: PutUserPolicy -> TestTree
+testPutUserPolicy = undefined
 
-deleteAccountPasswordPolicyTest :: DeleteAccountPasswordPolicy -> TestTree
-deleteAccountPasswordPolicyTest = undefined
+testCreateRole :: CreateRole -> TestTree
+testCreateRole = undefined
 
-deleteGroupTest :: DeleteGroup -> TestTree
-deleteGroupTest = undefined
+testDeleteUserPolicy :: DeleteUserPolicy -> TestTree
+testDeleteUserPolicy = undefined
 
-deleteGroupPolicyTest :: DeleteGroupPolicy -> TestTree
-deleteGroupPolicyTest = undefined
+testGetOpenIDConnectProvider :: GetOpenIDConnectProvider -> TestTree
+testGetOpenIDConnectProvider = undefined
 
-deleteInstanceProfileTest :: DeleteInstanceProfile -> TestTree
-deleteInstanceProfileTest = undefined
+testDetachGroupPolicy :: DetachGroupPolicy -> TestTree
+testDetachGroupPolicy = undefined
 
-deleteLoginProfileTest :: DeleteLoginProfile -> TestTree
-deleteLoginProfileTest = undefined
+testGetCredentialReport :: GetCredentialReport -> TestTree
+testGetCredentialReport = undefined
 
-deleteOpenIDConnectProviderTest :: DeleteOpenIDConnectProvider -> TestTree
-deleteOpenIDConnectProviderTest = undefined
+testDeletePolicyVersion :: DeletePolicyVersion -> TestTree
+testDeletePolicyVersion = undefined
 
-deletePolicyTest :: DeletePolicy -> TestTree
-deletePolicyTest = undefined
+testDetachRolePolicy :: DetachRolePolicy -> TestTree
+testDetachRolePolicy = undefined
 
-deletePolicyVersionTest :: DeletePolicyVersion -> TestTree
-deletePolicyVersionTest = undefined
+testDeleteInstanceProfile :: DeleteInstanceProfile -> TestTree
+testDeleteInstanceProfile = undefined
 
-deleteRoleTest :: DeleteRole -> TestTree
-deleteRoleTest = undefined
+testListGroupPolicies :: ListGroupPolicies -> TestTree
+testListGroupPolicies = undefined
 
-deleteRolePolicyTest :: DeleteRolePolicy -> TestTree
-deleteRolePolicyTest = undefined
+testGetAccountSummary :: GetAccountSummary -> TestTree
+testGetAccountSummary = undefined
 
-deleteSAMLProviderTest :: DeleteSAMLProvider -> TestTree
-deleteSAMLProviderTest = undefined
+testCreateInstanceProfile :: CreateInstanceProfile -> TestTree
+testCreateInstanceProfile = undefined
 
-deleteServerCertificateTest :: DeleteServerCertificate -> TestTree
-deleteServerCertificateTest = undefined
+testPutGroupPolicy :: PutGroupPolicy -> TestTree
+testPutGroupPolicy = undefined
 
-deleteSigningCertificateTest :: DeleteSigningCertificate -> TestTree
-deleteSigningCertificateTest = undefined
+testDeleteGroupPolicy :: DeleteGroupPolicy -> TestTree
+testDeleteGroupPolicy = undefined
 
-deleteUserTest :: DeleteUser -> TestTree
-deleteUserTest = undefined
+testGetAccountAuthorizationDetails :: GetAccountAuthorizationDetails -> TestTree
+testGetAccountAuthorizationDetails = undefined
 
-deleteUserPolicyTest :: DeleteUserPolicy -> TestTree
-deleteUserPolicyTest = undefined
+testDeleteAccountAlias :: DeleteAccountAlias -> TestTree
+testDeleteAccountAlias = undefined
 
-deleteVirtualMFADeviceTest :: DeleteVirtualMFADevice -> TestTree
-deleteVirtualMFADeviceTest = undefined
+testRemoveRoleFromInstanceProfile :: RemoveRoleFromInstanceProfile -> TestTree
+testRemoveRoleFromInstanceProfile = undefined
 
-detachGroupPolicyTest :: DetachGroupPolicy -> TestTree
-detachGroupPolicyTest = undefined
+testGetLoginProfile :: GetLoginProfile -> TestTree
+testGetLoginProfile = undefined
 
-detachRolePolicyTest :: DetachRolePolicy -> TestTree
-detachRolePolicyTest = undefined
+testRemoveUserFromGroup :: RemoveUserFromGroup -> TestTree
+testRemoveUserFromGroup = undefined
 
-detachUserPolicyTest :: DetachUserPolicy -> TestTree
-detachUserPolicyTest = undefined
+testDetachUserPolicy :: DetachUserPolicy -> TestTree
+testDetachUserPolicy = undefined
 
-enableMFADeviceTest :: EnableMFADevice -> TestTree
-enableMFADeviceTest = undefined
+testCreateSAMLProvider :: CreateSAMLProvider -> TestTree
+testCreateSAMLProvider = undefined
 
-generateCredentialReportTest :: GenerateCredentialReport -> TestTree
-generateCredentialReportTest = undefined
+testCreatePolicyVersion :: CreatePolicyVersion -> TestTree
+testCreatePolicyVersion = undefined
 
-getAccessKeyLastUsedTest :: GetAccessKeyLastUsed -> TestTree
-getAccessKeyLastUsedTest = undefined
+testGetGroupPolicy :: GetGroupPolicy -> TestTree
+testGetGroupPolicy = undefined
 
-getAccountAuthorizationDetailsTest :: GetAccountAuthorizationDetails -> TestTree
-getAccountAuthorizationDetailsTest = undefined
+testDeletePolicy :: DeletePolicy -> TestTree
+testDeletePolicy = undefined
 
-getAccountPasswordPolicyTest :: GetAccountPasswordPolicy -> TestTree
-getAccountPasswordPolicyTest = undefined
+testListServerCertificates :: ListServerCertificates -> TestTree
+testListServerCertificates = undefined
 
-getAccountSummaryTest :: GetAccountSummary -> TestTree
-getAccountSummaryTest = undefined
+testUpdateAssumeRolePolicy :: UpdateAssumeRolePolicy -> TestTree
+testUpdateAssumeRolePolicy = undefined
 
-getCredentialReportTest :: GetCredentialReport -> TestTree
-getCredentialReportTest = undefined
+testChangePassword :: ChangePassword -> TestTree
+testChangePassword = undefined
 
-getGroupTest :: GetGroup -> TestTree
-getGroupTest = undefined
+testListGroupsForUser :: ListGroupsForUser -> TestTree
+testListGroupsForUser = undefined
 
-getGroupPolicyTest :: GetGroupPolicy -> TestTree
-getGroupPolicyTest = undefined
+testGetPolicyVersion :: GetPolicyVersion -> TestTree
+testGetPolicyVersion = undefined
 
-getInstanceProfileTest :: GetInstanceProfile -> TestTree
-getInstanceProfileTest = undefined
+testCreateLoginProfile :: CreateLoginProfile -> TestTree
+testCreateLoginProfile = undefined
 
-getLoginProfileTest :: GetLoginProfile -> TestTree
-getLoginProfileTest = undefined
+testGetInstanceProfile :: GetInstanceProfile -> TestTree
+testGetInstanceProfile = undefined
 
-getOpenIDConnectProviderTest :: GetOpenIDConnectProvider -> TestTree
-getOpenIDConnectProviderTest = undefined
+testListEntitiesForPolicy :: ListEntitiesForPolicy -> TestTree
+testListEntitiesForPolicy = undefined
 
-getPolicyTest :: GetPolicy -> TestTree
-getPolicyTest = undefined
+testGetSAMLProvider :: GetSAMLProvider -> TestTree
+testGetSAMLProvider = undefined
 
-getPolicyVersionTest :: GetPolicyVersion -> TestTree
-getPolicyVersionTest = undefined
+testAddRoleToInstanceProfile :: AddRoleToInstanceProfile -> TestTree
+testAddRoleToInstanceProfile = undefined
 
-getRoleTest :: GetRole -> TestTree
-getRoleTest = undefined
+testAddUserToGroup :: AddUserToGroup -> TestTree
+testAddUserToGroup = undefined
 
-getRolePolicyTest :: GetRolePolicy -> TestTree
-getRolePolicyTest = undefined
+testDeleteOpenIDConnectProvider :: DeleteOpenIDConnectProvider -> TestTree
+testDeleteOpenIDConnectProvider = undefined
 
-getSAMLProviderTest :: GetSAMLProvider -> TestTree
-getSAMLProviderTest = undefined
+testGetUser :: GetUser -> TestTree
+testGetUser = undefined
 
-getServerCertificateTest :: GetServerCertificate -> TestTree
-getServerCertificateTest = undefined
+testListAttachedUserPolicies :: ListAttachedUserPolicies -> TestTree
+testListAttachedUserPolicies = undefined
 
-getUserTest :: GetUser -> TestTree
-getUserTest = undefined
+testDeleteSigningCertificate :: DeleteSigningCertificate -> TestTree
+testDeleteSigningCertificate = undefined
 
-getUserPolicyTest :: GetUserPolicy -> TestTree
-getUserPolicyTest = undefined
+testUpdateSigningCertificate :: UpdateSigningCertificate -> TestTree
+testUpdateSigningCertificate = undefined
 
-listAccessKeysTest :: ListAccessKeys -> TestTree
-listAccessKeysTest = undefined
+testListSigningCertificates :: ListSigningCertificates -> TestTree
+testListSigningCertificates = undefined
 
-listAccountAliasesTest :: ListAccountAliases -> TestTree
-listAccountAliasesTest = undefined
+testRemoveClientIDFromOpenIDConnectProvider :: RemoveClientIDFromOpenIDConnectProvider -> TestTree
+testRemoveClientIDFromOpenIDConnectProvider = undefined
 
-listAttachedGroupPoliciesTest :: ListAttachedGroupPolicies -> TestTree
-listAttachedGroupPoliciesTest = undefined
+testListAccessKeys :: ListAccessKeys -> TestTree
+testListAccessKeys = undefined
 
-listAttachedRolePoliciesTest :: ListAttachedRolePolicies -> TestTree
-listAttachedRolePoliciesTest = undefined
+testListVirtualMFADevices :: ListVirtualMFADevices -> TestTree
+testListVirtualMFADevices = undefined
 
-listAttachedUserPoliciesTest :: ListAttachedUserPolicies -> TestTree
-listAttachedUserPoliciesTest = undefined
+testDeleteAccessKey :: DeleteAccessKey -> TestTree
+testDeleteAccessKey = undefined
 
-listEntitiesForPolicyTest :: ListEntitiesForPolicy -> TestTree
-listEntitiesForPolicyTest = undefined
+testUpdateAccessKey :: UpdateAccessKey -> TestTree
+testUpdateAccessKey = undefined
 
-listGroupPoliciesTest :: ListGroupPolicies -> TestTree
-listGroupPoliciesTest = undefined
+testGetRolePolicy :: GetRolePolicy -> TestTree
+testGetRolePolicy = undefined
 
-listGroupsTest :: ListGroups -> TestTree
-listGroupsTest = undefined
+testAttachUserPolicy :: AttachUserPolicy -> TestTree
+testAttachUserPolicy = undefined
 
-listGroupsForUserTest :: ListGroupsForUser -> TestTree
-listGroupsForUserTest = undefined
+testResyncMFADevice :: ResyncMFADevice -> TestTree
+testResyncMFADevice = undefined
 
-listInstanceProfilesTest :: ListInstanceProfiles -> TestTree
-listInstanceProfilesTest = undefined
+testCreateUser :: CreateUser -> TestTree
+testCreateUser = undefined
 
-listInstanceProfilesForRoleTest :: ListInstanceProfilesForRole -> TestTree
-listInstanceProfilesForRoleTest = undefined
+testUploadSigningCertificate :: UploadSigningCertificate -> TestTree
+testUploadSigningCertificate = undefined
 
-listMFADevicesTest :: ListMFADevices -> TestTree
-listMFADevicesTest = undefined
+testPutRolePolicy :: PutRolePolicy -> TestTree
+testPutRolePolicy = undefined
 
-listOpenIDConnectProvidersTest :: ListOpenIDConnectProviders -> TestTree
-listOpenIDConnectProvidersTest = undefined
+testDeleteRolePolicy :: DeleteRolePolicy -> TestTree
+testDeleteRolePolicy = undefined
 
-listPoliciesTest :: ListPolicies -> TestTree
-listPoliciesTest = undefined
+testUpdateUser :: UpdateUser -> TestTree
+testUpdateUser = undefined
 
-listPolicyVersionsTest :: ListPolicyVersions -> TestTree
-listPolicyVersionsTest = undefined
+testDeleteUser :: DeleteUser -> TestTree
+testDeleteUser = undefined
 
-listRolePoliciesTest :: ListRolePolicies -> TestTree
-listRolePoliciesTest = undefined
+testListRolePolicies :: ListRolePolicies -> TestTree
+testListRolePolicies = undefined
 
-listRolesTest :: ListRoles -> TestTree
-listRolesTest = undefined
+testAddClientIDToOpenIDConnectProvider :: AddClientIDToOpenIDConnectProvider -> TestTree
+testAddClientIDToOpenIDConnectProvider = undefined
 
-listSAMLProvidersTest :: ListSAMLProviders -> TestTree
-listSAMLProvidersTest = undefined
+testGetAccessKeyLastUsed :: GetAccessKeyLastUsed -> TestTree
+testGetAccessKeyLastUsed = undefined
 
-listServerCertificatesTest :: ListServerCertificates -> TestTree
-listServerCertificatesTest = undefined
+testGetAccountPasswordPolicy :: GetAccountPasswordPolicy -> TestTree
+testGetAccountPasswordPolicy = undefined
 
-listSigningCertificatesTest :: ListSigningCertificates -> TestTree
-listSigningCertificatesTest = undefined
+testListAccountAliases :: ListAccountAliases -> TestTree
+testListAccountAliases = undefined
 
-listUserPoliciesTest :: ListUserPolicies -> TestTree
-listUserPoliciesTest = undefined
+testCreateAccountAlias :: CreateAccountAlias -> TestTree
+testCreateAccountAlias = undefined
 
-listUsersTest :: ListUsers -> TestTree
-listUsersTest = undefined
+testUploadServerCertificate :: UploadServerCertificate -> TestTree
+testUploadServerCertificate = undefined
 
-listVirtualMFADevicesTest :: ListVirtualMFADevices -> TestTree
-listVirtualMFADevicesTest = undefined
+testListMFADevices :: ListMFADevices -> TestTree
+testListMFADevices = undefined
 
-putGroupPolicyTest :: PutGroupPolicy -> TestTree
-putGroupPolicyTest = undefined
+testEnableMFADevice :: EnableMFADevice -> TestTree
+testEnableMFADevice = undefined
 
-putRolePolicyTest :: PutRolePolicy -> TestTree
-putRolePolicyTest = undefined
+testListPolicyVersions :: ListPolicyVersions -> TestTree
+testListPolicyVersions = undefined
 
-putUserPolicyTest :: PutUserPolicy -> TestTree
-putUserPolicyTest = undefined
+testListSAMLProviders :: ListSAMLProviders -> TestTree
+testListSAMLProviders = undefined
 
-removeClientIDFromOpenIDConnectProviderTest :: RemoveClientIDFromOpenIDConnectProvider -> TestTree
-removeClientIDFromOpenIDConnectProviderTest = undefined
+testUpdateSAMLProvider :: UpdateSAMLProvider -> TestTree
+testUpdateSAMLProvider = undefined
 
-removeRoleFromInstanceProfileTest :: RemoveRoleFromInstanceProfile -> TestTree
-removeRoleFromInstanceProfileTest = undefined
+testDeleteSAMLProvider :: DeleteSAMLProvider -> TestTree
+testDeleteSAMLProvider = undefined
 
-removeUserFromGroupTest :: RemoveUserFromGroup -> TestTree
-removeUserFromGroupTest = undefined
+testCreateGroup :: CreateGroup -> TestTree
+testCreateGroup = undefined
 
-resyncMFADeviceTest :: ResyncMFADevice -> TestTree
-resyncMFADeviceTest = undefined
+testSetDefaultPolicyVersion :: SetDefaultPolicyVersion -> TestTree
+testSetDefaultPolicyVersion = undefined
 
-setDefaultPolicyVersionTest :: SetDefaultPolicyVersion -> TestTree
-setDefaultPolicyVersionTest = undefined
+testListInstanceProfiles :: ListInstanceProfiles -> TestTree
+testListInstanceProfiles = undefined
 
-updateAccessKeyTest :: UpdateAccessKey -> TestTree
-updateAccessKeyTest = undefined
+testListGroups :: ListGroups -> TestTree
+testListGroups = undefined
 
-updateAccountPasswordPolicyTest :: UpdateAccountPasswordPolicy -> TestTree
-updateAccountPasswordPolicyTest = undefined
+testDeleteGroup :: DeleteGroup -> TestTree
+testDeleteGroup = undefined
 
-updateAssumeRolePolicyTest :: UpdateAssumeRolePolicy -> TestTree
-updateAssumeRolePolicyTest = undefined
+testUpdateGroup :: UpdateGroup -> TestTree
+testUpdateGroup = undefined
 
-updateGroupTest :: UpdateGroup -> TestTree
-updateGroupTest = undefined
+testGetServerCertificate :: GetServerCertificate -> TestTree
+testGetServerCertificate = undefined
 
-updateLoginProfileTest :: UpdateLoginProfile -> TestTree
-updateLoginProfileTest = undefined
+testGetPolicy :: GetPolicy -> TestTree
+testGetPolicy = undefined
 
-updateOpenIDConnectProviderThumbprintTest :: UpdateOpenIDConnectProviderThumbprint -> TestTree
-updateOpenIDConnectProviderThumbprintTest = undefined
+testGenerateCredentialReport :: GenerateCredentialReport -> TestTree
+testGenerateCredentialReport = undefined
 
-updateSAMLProviderTest :: UpdateSAMLProvider -> TestTree
-updateSAMLProviderTest = undefined
+testGetGroup :: GetGroup -> TestTree
+testGetGroup = undefined
 
-updateServerCertificateTest :: UpdateServerCertificate -> TestTree
-updateServerCertificateTest = undefined
+testDeleteServerCertificate :: DeleteServerCertificate -> TestTree
+testDeleteServerCertificate = undefined
 
-updateSigningCertificateTest :: UpdateSigningCertificate -> TestTree
-updateSigningCertificateTest = undefined
+testUpdateServerCertificate :: UpdateServerCertificate -> TestTree
+testUpdateServerCertificate = undefined
 
-updateUserTest :: UpdateUser -> TestTree
-updateUserTest = undefined
+testDeleteLoginProfile :: DeleteLoginProfile -> TestTree
+testDeleteLoginProfile = undefined
 
-uploadServerCertificateTest :: UploadServerCertificate -> TestTree
-uploadServerCertificateTest = undefined
+testUpdateLoginProfile :: UpdateLoginProfile -> TestTree
+testUpdateLoginProfile = undefined
 
-uploadSigningCertificateTest :: UploadSigningCertificate -> TestTree
-uploadSigningCertificateTest = undefined
+testListAttachedGroupPolicies :: ListAttachedGroupPolicies -> TestTree
+testListAttachedGroupPolicies = undefined
 
 -- Responses
 
-addClientIDToOpenIDConnectProviderResponseTest :: AddClientIDToOpenIDConnectProviderResponse -> TestTree
-addClientIDToOpenIDConnectProviderResponseTest = resp
-    "addClientIDToOpenIDConnectProviderResponse"
-    "fixture/AddClientIDToOpenIDConnectProviderResponse"
-    (Proxy :: Proxy AddClientIDToOpenIDConnectProvider)
-
-addRoleToInstanceProfileResponseTest :: AddRoleToInstanceProfileResponse -> TestTree
-addRoleToInstanceProfileResponseTest = resp
-    "addRoleToInstanceProfileResponse"
-    "fixture/AddRoleToInstanceProfileResponse"
-    (Proxy :: Proxy AddRoleToInstanceProfile)
-
-addUserToGroupResponseTest :: AddUserToGroupResponse -> TestTree
-addUserToGroupResponseTest = resp
-    "addUserToGroupResponse"
-    "fixture/AddUserToGroupResponse"
-    (Proxy :: Proxy AddUserToGroup)
-
-attachGroupPolicyResponseTest :: AttachGroupPolicyResponse -> TestTree
-attachGroupPolicyResponseTest = resp
-    "attachGroupPolicyResponse"
+testAttachGroupPolicyResponse :: AttachGroupPolicyResponse -> TestTree
+testAttachGroupPolicyResponse = resp
+    "AttachGroupPolicyResponse"
     "fixture/AttachGroupPolicyResponse"
     (Proxy :: Proxy AttachGroupPolicy)
 
-attachRolePolicyResponseTest :: AttachRolePolicyResponse -> TestTree
-attachRolePolicyResponseTest = resp
-    "attachRolePolicyResponse"
-    "fixture/AttachRolePolicyResponse"
-    (Proxy :: Proxy AttachRolePolicy)
-
-attachUserPolicyResponseTest :: AttachUserPolicyResponse -> TestTree
-attachUserPolicyResponseTest = resp
-    "attachUserPolicyResponse"
-    "fixture/AttachUserPolicyResponse"
-    (Proxy :: Proxy AttachUserPolicy)
-
-changePasswordResponseTest :: ChangePasswordResponse -> TestTree
-changePasswordResponseTest = resp
-    "changePasswordResponse"
-    "fixture/ChangePasswordResponse"
-    (Proxy :: Proxy ChangePassword)
-
-createAccessKeyResponseTest :: CreateAccessKeyResponse -> TestTree
-createAccessKeyResponseTest = resp
-    "createAccessKeyResponse"
-    "fixture/CreateAccessKeyResponse"
-    (Proxy :: Proxy CreateAccessKey)
-
-createAccountAliasResponseTest :: CreateAccountAliasResponse -> TestTree
-createAccountAliasResponseTest = resp
-    "createAccountAliasResponse"
-    "fixture/CreateAccountAliasResponse"
-    (Proxy :: Proxy CreateAccountAlias)
-
-createGroupResponseTest :: CreateGroupResponse -> TestTree
-createGroupResponseTest = resp
-    "createGroupResponse"
-    "fixture/CreateGroupResponse"
-    (Proxy :: Proxy CreateGroup)
-
-createInstanceProfileResponseTest :: CreateInstanceProfileResponse -> TestTree
-createInstanceProfileResponseTest = resp
-    "createInstanceProfileResponse"
-    "fixture/CreateInstanceProfileResponse"
-    (Proxy :: Proxy CreateInstanceProfile)
-
-createLoginProfileResponseTest :: CreateLoginProfileResponse -> TestTree
-createLoginProfileResponseTest = resp
-    "createLoginProfileResponse"
-    "fixture/CreateLoginProfileResponse"
-    (Proxy :: Proxy CreateLoginProfile)
-
-createOpenIDConnectProviderResponseTest :: CreateOpenIDConnectProviderResponse -> TestTree
-createOpenIDConnectProviderResponseTest = resp
-    "createOpenIDConnectProviderResponse"
-    "fixture/CreateOpenIDConnectProviderResponse"
-    (Proxy :: Proxy CreateOpenIDConnectProvider)
-
-createPolicyResponseTest :: CreatePolicyResponse -> TestTree
-createPolicyResponseTest = resp
-    "createPolicyResponse"
-    "fixture/CreatePolicyResponse"
-    (Proxy :: Proxy CreatePolicy)
-
-createPolicyVersionResponseTest :: CreatePolicyVersionResponse -> TestTree
-createPolicyVersionResponseTest = resp
-    "createPolicyVersionResponse"
-    "fixture/CreatePolicyVersionResponse"
-    (Proxy :: Proxy CreatePolicyVersion)
-
-createRoleResponseTest :: CreateRoleResponse -> TestTree
-createRoleResponseTest = resp
-    "createRoleResponse"
-    "fixture/CreateRoleResponse"
-    (Proxy :: Proxy CreateRole)
-
-createSAMLProviderResponseTest :: CreateSAMLProviderResponse -> TestTree
-createSAMLProviderResponseTest = resp
-    "createSAMLProviderResponse"
-    "fixture/CreateSAMLProviderResponse"
-    (Proxy :: Proxy CreateSAMLProvider)
-
-createUserResponseTest :: CreateUserResponse -> TestTree
-createUserResponseTest = resp
-    "createUserResponse"
-    "fixture/CreateUserResponse"
-    (Proxy :: Proxy CreateUser)
-
-createVirtualMFADeviceResponseTest :: CreateVirtualMFADeviceResponse -> TestTree
-createVirtualMFADeviceResponseTest = resp
-    "createVirtualMFADeviceResponse"
-    "fixture/CreateVirtualMFADeviceResponse"
-    (Proxy :: Proxy CreateVirtualMFADevice)
-
-deactivateMFADeviceResponseTest :: DeactivateMFADeviceResponse -> TestTree
-deactivateMFADeviceResponseTest = resp
-    "deactivateMFADeviceResponse"
-    "fixture/DeactivateMFADeviceResponse"
-    (Proxy :: Proxy DeactivateMFADevice)
-
-deleteAccessKeyResponseTest :: DeleteAccessKeyResponse -> TestTree
-deleteAccessKeyResponseTest = resp
-    "deleteAccessKeyResponse"
-    "fixture/DeleteAccessKeyResponse"
-    (Proxy :: Proxy DeleteAccessKey)
-
-deleteAccountAliasResponseTest :: DeleteAccountAliasResponse -> TestTree
-deleteAccountAliasResponseTest = resp
-    "deleteAccountAliasResponse"
-    "fixture/DeleteAccountAliasResponse"
-    (Proxy :: Proxy DeleteAccountAlias)
-
-deleteAccountPasswordPolicyResponseTest :: DeleteAccountPasswordPolicyResponse -> TestTree
-deleteAccountPasswordPolicyResponseTest = resp
-    "deleteAccountPasswordPolicyResponse"
-    "fixture/DeleteAccountPasswordPolicyResponse"
-    (Proxy :: Proxy DeleteAccountPasswordPolicy)
-
-deleteGroupResponseTest :: DeleteGroupResponse -> TestTree
-deleteGroupResponseTest = resp
-    "deleteGroupResponse"
-    "fixture/DeleteGroupResponse"
-    (Proxy :: Proxy DeleteGroup)
-
-deleteGroupPolicyResponseTest :: DeleteGroupPolicyResponse -> TestTree
-deleteGroupPolicyResponseTest = resp
-    "deleteGroupPolicyResponse"
-    "fixture/DeleteGroupPolicyResponse"
-    (Proxy :: Proxy DeleteGroupPolicy)
-
-deleteInstanceProfileResponseTest :: DeleteInstanceProfileResponse -> TestTree
-deleteInstanceProfileResponseTest = resp
-    "deleteInstanceProfileResponse"
-    "fixture/DeleteInstanceProfileResponse"
-    (Proxy :: Proxy DeleteInstanceProfile)
-
-deleteLoginProfileResponseTest :: DeleteLoginProfileResponse -> TestTree
-deleteLoginProfileResponseTest = resp
-    "deleteLoginProfileResponse"
-    "fixture/DeleteLoginProfileResponse"
-    (Proxy :: Proxy DeleteLoginProfile)
-
-deleteOpenIDConnectProviderResponseTest :: DeleteOpenIDConnectProviderResponse -> TestTree
-deleteOpenIDConnectProviderResponseTest = resp
-    "deleteOpenIDConnectProviderResponse"
-    "fixture/DeleteOpenIDConnectProviderResponse"
-    (Proxy :: Proxy DeleteOpenIDConnectProvider)
-
-deletePolicyResponseTest :: DeletePolicyResponse -> TestTree
-deletePolicyResponseTest = resp
-    "deletePolicyResponse"
-    "fixture/DeletePolicyResponse"
-    (Proxy :: Proxy DeletePolicy)
-
-deletePolicyVersionResponseTest :: DeletePolicyVersionResponse -> TestTree
-deletePolicyVersionResponseTest = resp
-    "deletePolicyVersionResponse"
-    "fixture/DeletePolicyVersionResponse"
-    (Proxy :: Proxy DeletePolicyVersion)
-
-deleteRoleResponseTest :: DeleteRoleResponse -> TestTree
-deleteRoleResponseTest = resp
-    "deleteRoleResponse"
-    "fixture/DeleteRoleResponse"
-    (Proxy :: Proxy DeleteRole)
-
-deleteRolePolicyResponseTest :: DeleteRolePolicyResponse -> TestTree
-deleteRolePolicyResponseTest = resp
-    "deleteRolePolicyResponse"
-    "fixture/DeleteRolePolicyResponse"
-    (Proxy :: Proxy DeleteRolePolicy)
-
-deleteSAMLProviderResponseTest :: DeleteSAMLProviderResponse -> TestTree
-deleteSAMLProviderResponseTest = resp
-    "deleteSAMLProviderResponse"
-    "fixture/DeleteSAMLProviderResponse"
-    (Proxy :: Proxy DeleteSAMLProvider)
-
-deleteServerCertificateResponseTest :: DeleteServerCertificateResponse -> TestTree
-deleteServerCertificateResponseTest = resp
-    "deleteServerCertificateResponse"
-    "fixture/DeleteServerCertificateResponse"
-    (Proxy :: Proxy DeleteServerCertificate)
-
-deleteSigningCertificateResponseTest :: DeleteSigningCertificateResponse -> TestTree
-deleteSigningCertificateResponseTest = resp
-    "deleteSigningCertificateResponse"
-    "fixture/DeleteSigningCertificateResponse"
-    (Proxy :: Proxy DeleteSigningCertificate)
-
-deleteUserResponseTest :: DeleteUserResponse -> TestTree
-deleteUserResponseTest = resp
-    "deleteUserResponse"
-    "fixture/DeleteUserResponse"
-    (Proxy :: Proxy DeleteUser)
-
-deleteUserPolicyResponseTest :: DeleteUserPolicyResponse -> TestTree
-deleteUserPolicyResponseTest = resp
-    "deleteUserPolicyResponse"
-    "fixture/DeleteUserPolicyResponse"
-    (Proxy :: Proxy DeleteUserPolicy)
-
-deleteVirtualMFADeviceResponseTest :: DeleteVirtualMFADeviceResponse -> TestTree
-deleteVirtualMFADeviceResponseTest = resp
-    "deleteVirtualMFADeviceResponse"
-    "fixture/DeleteVirtualMFADeviceResponse"
-    (Proxy :: Proxy DeleteVirtualMFADevice)
-
-detachGroupPolicyResponseTest :: DetachGroupPolicyResponse -> TestTree
-detachGroupPolicyResponseTest = resp
-    "detachGroupPolicyResponse"
-    "fixture/DetachGroupPolicyResponse"
-    (Proxy :: Proxy DetachGroupPolicy)
-
-detachRolePolicyResponseTest :: DetachRolePolicyResponse -> TestTree
-detachRolePolicyResponseTest = resp
-    "detachRolePolicyResponse"
-    "fixture/DetachRolePolicyResponse"
-    (Proxy :: Proxy DetachRolePolicy)
-
-detachUserPolicyResponseTest :: DetachUserPolicyResponse -> TestTree
-detachUserPolicyResponseTest = resp
-    "detachUserPolicyResponse"
-    "fixture/DetachUserPolicyResponse"
-    (Proxy :: Proxy DetachUserPolicy)
-
-enableMFADeviceResponseTest :: EnableMFADeviceResponse -> TestTree
-enableMFADeviceResponseTest = resp
-    "enableMFADeviceResponse"
-    "fixture/EnableMFADeviceResponse"
-    (Proxy :: Proxy EnableMFADevice)
-
-generateCredentialReportResponseTest :: GenerateCredentialReportResponse -> TestTree
-generateCredentialReportResponseTest = resp
-    "generateCredentialReportResponse"
-    "fixture/GenerateCredentialReportResponse"
-    (Proxy :: Proxy GenerateCredentialReport)
-
-getAccessKeyLastUsedResponseTest :: GetAccessKeyLastUsedResponse -> TestTree
-getAccessKeyLastUsedResponseTest = resp
-    "getAccessKeyLastUsedResponse"
-    "fixture/GetAccessKeyLastUsedResponse"
-    (Proxy :: Proxy GetAccessKeyLastUsed)
-
-getAccountAuthorizationDetailsResponseTest :: GetAccountAuthorizationDetailsResponse -> TestTree
-getAccountAuthorizationDetailsResponseTest = resp
-    "getAccountAuthorizationDetailsResponse"
-    "fixture/GetAccountAuthorizationDetailsResponse"
-    (Proxy :: Proxy GetAccountAuthorizationDetails)
-
-getAccountPasswordPolicyResponseTest :: GetAccountPasswordPolicyResponse -> TestTree
-getAccountPasswordPolicyResponseTest = resp
-    "getAccountPasswordPolicyResponse"
-    "fixture/GetAccountPasswordPolicyResponse"
-    (Proxy :: Proxy GetAccountPasswordPolicy)
-
-getAccountSummaryResponseTest :: GetAccountSummaryResponse -> TestTree
-getAccountSummaryResponseTest = resp
-    "getAccountSummaryResponse"
-    "fixture/GetAccountSummaryResponse"
-    (Proxy :: Proxy GetAccountSummary)
-
-getCredentialReportResponseTest :: GetCredentialReportResponse -> TestTree
-getCredentialReportResponseTest = resp
-    "getCredentialReportResponse"
-    "fixture/GetCredentialReportResponse"
-    (Proxy :: Proxy GetCredentialReport)
-
-getGroupResponseTest :: GetGroupResponse -> TestTree
-getGroupResponseTest = resp
-    "getGroupResponse"
-    "fixture/GetGroupResponse"
-    (Proxy :: Proxy GetGroup)
-
-getGroupPolicyResponseTest :: GetGroupPolicyResponse -> TestTree
-getGroupPolicyResponseTest = resp
-    "getGroupPolicyResponse"
-    "fixture/GetGroupPolicyResponse"
-    (Proxy :: Proxy GetGroupPolicy)
-
-getInstanceProfileResponseTest :: GetInstanceProfileResponse -> TestTree
-getInstanceProfileResponseTest = resp
-    "getInstanceProfileResponse"
-    "fixture/GetInstanceProfileResponse"
-    (Proxy :: Proxy GetInstanceProfile)
-
-getLoginProfileResponseTest :: GetLoginProfileResponse -> TestTree
-getLoginProfileResponseTest = resp
-    "getLoginProfileResponse"
-    "fixture/GetLoginProfileResponse"
-    (Proxy :: Proxy GetLoginProfile)
-
-getOpenIDConnectProviderResponseTest :: GetOpenIDConnectProviderResponse -> TestTree
-getOpenIDConnectProviderResponseTest = resp
-    "getOpenIDConnectProviderResponse"
-    "fixture/GetOpenIDConnectProviderResponse"
-    (Proxy :: Proxy GetOpenIDConnectProvider)
-
-getPolicyResponseTest :: GetPolicyResponse -> TestTree
-getPolicyResponseTest = resp
-    "getPolicyResponse"
-    "fixture/GetPolicyResponse"
-    (Proxy :: Proxy GetPolicy)
-
-getPolicyVersionResponseTest :: GetPolicyVersionResponse -> TestTree
-getPolicyVersionResponseTest = resp
-    "getPolicyVersionResponse"
-    "fixture/GetPolicyVersionResponse"
-    (Proxy :: Proxy GetPolicyVersion)
-
-getRoleResponseTest :: GetRoleResponse -> TestTree
-getRoleResponseTest = resp
-    "getRoleResponse"
-    "fixture/GetRoleResponse"
-    (Proxy :: Proxy GetRole)
-
-getRolePolicyResponseTest :: GetRolePolicyResponse -> TestTree
-getRolePolicyResponseTest = resp
-    "getRolePolicyResponse"
-    "fixture/GetRolePolicyResponse"
-    (Proxy :: Proxy GetRolePolicy)
-
-getSAMLProviderResponseTest :: GetSAMLProviderResponse -> TestTree
-getSAMLProviderResponseTest = resp
-    "getSAMLProviderResponse"
-    "fixture/GetSAMLProviderResponse"
-    (Proxy :: Proxy GetSAMLProvider)
-
-getServerCertificateResponseTest :: GetServerCertificateResponse -> TestTree
-getServerCertificateResponseTest = resp
-    "getServerCertificateResponse"
-    "fixture/GetServerCertificateResponse"
-    (Proxy :: Proxy GetServerCertificate)
-
-getUserResponseTest :: GetUserResponse -> TestTree
-getUserResponseTest = resp
-    "getUserResponse"
-    "fixture/GetUserResponse"
-    (Proxy :: Proxy GetUser)
-
-getUserPolicyResponseTest :: GetUserPolicyResponse -> TestTree
-getUserPolicyResponseTest = resp
-    "getUserPolicyResponse"
-    "fixture/GetUserPolicyResponse"
-    (Proxy :: Proxy GetUserPolicy)
-
-listAccessKeysResponseTest :: ListAccessKeysResponse -> TestTree
-listAccessKeysResponseTest = resp
-    "listAccessKeysResponse"
-    "fixture/ListAccessKeysResponse"
-    (Proxy :: Proxy ListAccessKeys)
-
-listAccountAliasesResponseTest :: ListAccountAliasesResponse -> TestTree
-listAccountAliasesResponseTest = resp
-    "listAccountAliasesResponse"
-    "fixture/ListAccountAliasesResponse"
-    (Proxy :: Proxy ListAccountAliases)
-
-listAttachedGroupPoliciesResponseTest :: ListAttachedGroupPoliciesResponse -> TestTree
-listAttachedGroupPoliciesResponseTest = resp
-    "listAttachedGroupPoliciesResponse"
-    "fixture/ListAttachedGroupPoliciesResponse"
-    (Proxy :: Proxy ListAttachedGroupPolicies)
-
-listAttachedRolePoliciesResponseTest :: ListAttachedRolePoliciesResponse -> TestTree
-listAttachedRolePoliciesResponseTest = resp
-    "listAttachedRolePoliciesResponse"
-    "fixture/ListAttachedRolePoliciesResponse"
-    (Proxy :: Proxy ListAttachedRolePolicies)
-
-listAttachedUserPoliciesResponseTest :: ListAttachedUserPoliciesResponse -> TestTree
-listAttachedUserPoliciesResponseTest = resp
-    "listAttachedUserPoliciesResponse"
-    "fixture/ListAttachedUserPoliciesResponse"
-    (Proxy :: Proxy ListAttachedUserPolicies)
-
-listEntitiesForPolicyResponseTest :: ListEntitiesForPolicyResponse -> TestTree
-listEntitiesForPolicyResponseTest = resp
-    "listEntitiesForPolicyResponse"
-    "fixture/ListEntitiesForPolicyResponse"
-    (Proxy :: Proxy ListEntitiesForPolicy)
-
-listGroupPoliciesResponseTest :: ListGroupPoliciesResponse -> TestTree
-listGroupPoliciesResponseTest = resp
-    "listGroupPoliciesResponse"
-    "fixture/ListGroupPoliciesResponse"
-    (Proxy :: Proxy ListGroupPolicies)
-
-listGroupsResponseTest :: ListGroupsResponse -> TestTree
-listGroupsResponseTest = resp
-    "listGroupsResponse"
-    "fixture/ListGroupsResponse"
-    (Proxy :: Proxy ListGroups)
-
-listGroupsForUserResponseTest :: ListGroupsForUserResponse -> TestTree
-listGroupsForUserResponseTest = resp
-    "listGroupsForUserResponse"
-    "fixture/ListGroupsForUserResponse"
-    (Proxy :: Proxy ListGroupsForUser)
-
-listInstanceProfilesResponseTest :: ListInstanceProfilesResponse -> TestTree
-listInstanceProfilesResponseTest = resp
-    "listInstanceProfilesResponse"
-    "fixture/ListInstanceProfilesResponse"
-    (Proxy :: Proxy ListInstanceProfiles)
-
-listInstanceProfilesForRoleResponseTest :: ListInstanceProfilesForRoleResponse -> TestTree
-listInstanceProfilesForRoleResponseTest = resp
-    "listInstanceProfilesForRoleResponse"
+testListInstanceProfilesForRoleResponse :: ListInstanceProfilesForRoleResponse -> TestTree
+testListInstanceProfilesForRoleResponse = resp
+    "ListInstanceProfilesForRoleResponse"
     "fixture/ListInstanceProfilesForRoleResponse"
     (Proxy :: Proxy ListInstanceProfilesForRole)
 
-listMFADevicesResponseTest :: ListMFADevicesResponse -> TestTree
-listMFADevicesResponseTest = resp
-    "listMFADevicesResponse"
-    "fixture/ListMFADevicesResponse"
-    (Proxy :: Proxy ListMFADevices)
+testCreatePolicyResponse :: CreatePolicyResponse -> TestTree
+testCreatePolicyResponse = resp
+    "CreatePolicyResponse"
+    "fixture/CreatePolicyResponse"
+    (Proxy :: Proxy CreatePolicy)
 
-listOpenIDConnectProvidersResponseTest :: ListOpenIDConnectProvidersResponse -> TestTree
-listOpenIDConnectProvidersResponseTest = resp
-    "listOpenIDConnectProvidersResponse"
-    "fixture/ListOpenIDConnectProvidersResponse"
-    (Proxy :: Proxy ListOpenIDConnectProviders)
-
-listPoliciesResponseTest :: ListPoliciesResponse -> TestTree
-listPoliciesResponseTest = resp
-    "listPoliciesResponse"
+testListPoliciesResponse :: ListPoliciesResponse -> TestTree
+testListPoliciesResponse = resp
+    "ListPoliciesResponse"
     "fixture/ListPoliciesResponse"
     (Proxy :: Proxy ListPolicies)
 
-listPolicyVersionsResponseTest :: ListPolicyVersionsResponse -> TestTree
-listPolicyVersionsResponseTest = resp
-    "listPolicyVersionsResponse"
-    "fixture/ListPolicyVersionsResponse"
-    (Proxy :: Proxy ListPolicyVersions)
+testAttachRolePolicyResponse :: AttachRolePolicyResponse -> TestTree
+testAttachRolePolicyResponse = resp
+    "AttachRolePolicyResponse"
+    "fixture/AttachRolePolicyResponse"
+    (Proxy :: Proxy AttachRolePolicy)
 
-listRolePoliciesResponseTest :: ListRolePoliciesResponse -> TestTree
-listRolePoliciesResponseTest = resp
-    "listRolePoliciesResponse"
-    "fixture/ListRolePoliciesResponse"
-    (Proxy :: Proxy ListRolePolicies)
+testListOpenIDConnectProvidersResponse :: ListOpenIDConnectProvidersResponse -> TestTree
+testListOpenIDConnectProvidersResponse = resp
+    "ListOpenIDConnectProvidersResponse"
+    "fixture/ListOpenIDConnectProvidersResponse"
+    (Proxy :: Proxy ListOpenIDConnectProviders)
 
-listRolesResponseTest :: ListRolesResponse -> TestTree
-listRolesResponseTest = resp
-    "listRolesResponse"
-    "fixture/ListRolesResponse"
-    (Proxy :: Proxy ListRoles)
+testDeleteAccountPasswordPolicyResponse :: DeleteAccountPasswordPolicyResponse -> TestTree
+testDeleteAccountPasswordPolicyResponse = resp
+    "DeleteAccountPasswordPolicyResponse"
+    "fixture/DeleteAccountPasswordPolicyResponse"
+    (Proxy :: Proxy DeleteAccountPasswordPolicy)
 
-listSAMLProvidersResponseTest :: ListSAMLProvidersResponse -> TestTree
-listSAMLProvidersResponseTest = resp
-    "listSAMLProvidersResponse"
-    "fixture/ListSAMLProvidersResponse"
-    (Proxy :: Proxy ListSAMLProviders)
-
-listServerCertificatesResponseTest :: ListServerCertificatesResponse -> TestTree
-listServerCertificatesResponseTest = resp
-    "listServerCertificatesResponse"
-    "fixture/ListServerCertificatesResponse"
-    (Proxy :: Proxy ListServerCertificates)
-
-listSigningCertificatesResponseTest :: ListSigningCertificatesResponse -> TestTree
-listSigningCertificatesResponseTest = resp
-    "listSigningCertificatesResponse"
-    "fixture/ListSigningCertificatesResponse"
-    (Proxy :: Proxy ListSigningCertificates)
-
-listUserPoliciesResponseTest :: ListUserPoliciesResponse -> TestTree
-listUserPoliciesResponseTest = resp
-    "listUserPoliciesResponse"
-    "fixture/ListUserPoliciesResponse"
-    (Proxy :: Proxy ListUserPolicies)
-
-listUsersResponseTest :: ListUsersResponse -> TestTree
-listUsersResponseTest = resp
-    "listUsersResponse"
-    "fixture/ListUsersResponse"
-    (Proxy :: Proxy ListUsers)
-
-listVirtualMFADevicesResponseTest :: ListVirtualMFADevicesResponse -> TestTree
-listVirtualMFADevicesResponseTest = resp
-    "listVirtualMFADevicesResponse"
-    "fixture/ListVirtualMFADevicesResponse"
-    (Proxy :: Proxy ListVirtualMFADevices)
-
-putGroupPolicyResponseTest :: PutGroupPolicyResponse -> TestTree
-putGroupPolicyResponseTest = resp
-    "putGroupPolicyResponse"
-    "fixture/PutGroupPolicyResponse"
-    (Proxy :: Proxy PutGroupPolicy)
-
-putRolePolicyResponseTest :: PutRolePolicyResponse -> TestTree
-putRolePolicyResponseTest = resp
-    "putRolePolicyResponse"
-    "fixture/PutRolePolicyResponse"
-    (Proxy :: Proxy PutRolePolicy)
-
-putUserPolicyResponseTest :: PutUserPolicyResponse -> TestTree
-putUserPolicyResponseTest = resp
-    "putUserPolicyResponse"
-    "fixture/PutUserPolicyResponse"
-    (Proxy :: Proxy PutUserPolicy)
-
-removeClientIDFromOpenIDConnectProviderResponseTest :: RemoveClientIDFromOpenIDConnectProviderResponse -> TestTree
-removeClientIDFromOpenIDConnectProviderResponseTest = resp
-    "removeClientIDFromOpenIDConnectProviderResponse"
-    "fixture/RemoveClientIDFromOpenIDConnectProviderResponse"
-    (Proxy :: Proxy RemoveClientIDFromOpenIDConnectProvider)
-
-removeRoleFromInstanceProfileResponseTest :: RemoveRoleFromInstanceProfileResponse -> TestTree
-removeRoleFromInstanceProfileResponseTest = resp
-    "removeRoleFromInstanceProfileResponse"
-    "fixture/RemoveRoleFromInstanceProfileResponse"
-    (Proxy :: Proxy RemoveRoleFromInstanceProfile)
-
-removeUserFromGroupResponseTest :: RemoveUserFromGroupResponse -> TestTree
-removeUserFromGroupResponseTest = resp
-    "removeUserFromGroupResponse"
-    "fixture/RemoveUserFromGroupResponse"
-    (Proxy :: Proxy RemoveUserFromGroup)
-
-resyncMFADeviceResponseTest :: ResyncMFADeviceResponse -> TestTree
-resyncMFADeviceResponseTest = resp
-    "resyncMFADeviceResponse"
-    "fixture/ResyncMFADeviceResponse"
-    (Proxy :: Proxy ResyncMFADevice)
-
-setDefaultPolicyVersionResponseTest :: SetDefaultPolicyVersionResponse -> TestTree
-setDefaultPolicyVersionResponseTest = resp
-    "setDefaultPolicyVersionResponse"
-    "fixture/SetDefaultPolicyVersionResponse"
-    (Proxy :: Proxy SetDefaultPolicyVersion)
-
-updateAccessKeyResponseTest :: UpdateAccessKeyResponse -> TestTree
-updateAccessKeyResponseTest = resp
-    "updateAccessKeyResponse"
-    "fixture/UpdateAccessKeyResponse"
-    (Proxy :: Proxy UpdateAccessKey)
-
-updateAccountPasswordPolicyResponseTest :: UpdateAccountPasswordPolicyResponse -> TestTree
-updateAccountPasswordPolicyResponseTest = resp
-    "updateAccountPasswordPolicyResponse"
+testUpdateAccountPasswordPolicyResponse :: UpdateAccountPasswordPolicyResponse -> TestTree
+testUpdateAccountPasswordPolicyResponse = resp
+    "UpdateAccountPasswordPolicyResponse"
     "fixture/UpdateAccountPasswordPolicyResponse"
     (Proxy :: Proxy UpdateAccountPasswordPolicy)
 
-updateAssumeRolePolicyResponseTest :: UpdateAssumeRolePolicyResponse -> TestTree
-updateAssumeRolePolicyResponseTest = resp
-    "updateAssumeRolePolicyResponse"
-    "fixture/UpdateAssumeRolePolicyResponse"
-    (Proxy :: Proxy UpdateAssumeRolePolicy)
+testCreateAccessKeyResponse :: CreateAccessKeyResponse -> TestTree
+testCreateAccessKeyResponse = resp
+    "CreateAccessKeyResponse"
+    "fixture/CreateAccessKeyResponse"
+    (Proxy :: Proxy CreateAccessKey)
 
-updateGroupResponseTest :: UpdateGroupResponse -> TestTree
-updateGroupResponseTest = resp
-    "updateGroupResponse"
-    "fixture/UpdateGroupResponse"
-    (Proxy :: Proxy UpdateGroup)
+testGetUserPolicyResponse :: GetUserPolicyResponse -> TestTree
+testGetUserPolicyResponse = resp
+    "GetUserPolicyResponse"
+    "fixture/GetUserPolicyResponse"
+    (Proxy :: Proxy GetUserPolicy)
 
-updateLoginProfileResponseTest :: UpdateLoginProfileResponse -> TestTree
-updateLoginProfileResponseTest = resp
-    "updateLoginProfileResponse"
-    "fixture/UpdateLoginProfileResponse"
-    (Proxy :: Proxy UpdateLoginProfile)
+testCreateVirtualMFADeviceResponse :: CreateVirtualMFADeviceResponse -> TestTree
+testCreateVirtualMFADeviceResponse = resp
+    "CreateVirtualMFADeviceResponse"
+    "fixture/CreateVirtualMFADeviceResponse"
+    (Proxy :: Proxy CreateVirtualMFADevice)
 
-updateOpenIDConnectProviderThumbprintResponseTest :: UpdateOpenIDConnectProviderThumbprintResponse -> TestTree
-updateOpenIDConnectProviderThumbprintResponseTest = resp
-    "updateOpenIDConnectProviderThumbprintResponse"
+testCreateOpenIDConnectProviderResponse :: CreateOpenIDConnectProviderResponse -> TestTree
+testCreateOpenIDConnectProviderResponse = resp
+    "CreateOpenIDConnectProviderResponse"
+    "fixture/CreateOpenIDConnectProviderResponse"
+    (Proxy :: Proxy CreateOpenIDConnectProvider)
+
+testListAttachedRolePoliciesResponse :: ListAttachedRolePoliciesResponse -> TestTree
+testListAttachedRolePoliciesResponse = resp
+    "ListAttachedRolePoliciesResponse"
+    "fixture/ListAttachedRolePoliciesResponse"
+    (Proxy :: Proxy ListAttachedRolePolicies)
+
+testDeleteVirtualMFADeviceResponse :: DeleteVirtualMFADeviceResponse -> TestTree
+testDeleteVirtualMFADeviceResponse = resp
+    "DeleteVirtualMFADeviceResponse"
+    "fixture/DeleteVirtualMFADeviceResponse"
+    (Proxy :: Proxy DeleteVirtualMFADevice)
+
+testGetRoleResponse :: GetRoleResponse -> TestTree
+testGetRoleResponse = resp
+    "GetRoleResponse"
+    "fixture/GetRoleResponse"
+    (Proxy :: Proxy GetRole)
+
+testDeactivateMFADeviceResponse :: DeactivateMFADeviceResponse -> TestTree
+testDeactivateMFADeviceResponse = resp
+    "DeactivateMFADeviceResponse"
+    "fixture/DeactivateMFADeviceResponse"
+    (Proxy :: Proxy DeactivateMFADevice)
+
+testListRolesResponse :: ListRolesResponse -> TestTree
+testListRolesResponse = resp
+    "ListRolesResponse"
+    "fixture/ListRolesResponse"
+    (Proxy :: Proxy ListRoles)
+
+testDeleteRoleResponse :: DeleteRoleResponse -> TestTree
+testDeleteRoleResponse = resp
+    "DeleteRoleResponse"
+    "fixture/DeleteRoleResponse"
+    (Proxy :: Proxy DeleteRole)
+
+testListUserPoliciesResponse :: ListUserPoliciesResponse -> TestTree
+testListUserPoliciesResponse = resp
+    "ListUserPoliciesResponse"
+    "fixture/ListUserPoliciesResponse"
+    (Proxy :: Proxy ListUserPolicies)
+
+testListUsersResponse :: ListUsersResponse -> TestTree
+testListUsersResponse = resp
+    "ListUsersResponse"
+    "fixture/ListUsersResponse"
+    (Proxy :: Proxy ListUsers)
+
+testUpdateOpenIDConnectProviderThumbprintResponse :: UpdateOpenIDConnectProviderThumbprintResponse -> TestTree
+testUpdateOpenIDConnectProviderThumbprintResponse = resp
+    "UpdateOpenIDConnectProviderThumbprintResponse"
     "fixture/UpdateOpenIDConnectProviderThumbprintResponse"
     (Proxy :: Proxy UpdateOpenIDConnectProviderThumbprint)
 
-updateSAMLProviderResponseTest :: UpdateSAMLProviderResponse -> TestTree
-updateSAMLProviderResponseTest = resp
-    "updateSAMLProviderResponse"
-    "fixture/UpdateSAMLProviderResponse"
-    (Proxy :: Proxy UpdateSAMLProvider)
+testPutUserPolicyResponse :: PutUserPolicyResponse -> TestTree
+testPutUserPolicyResponse = resp
+    "PutUserPolicyResponse"
+    "fixture/PutUserPolicyResponse"
+    (Proxy :: Proxy PutUserPolicy)
 
-updateServerCertificateResponseTest :: UpdateServerCertificateResponse -> TestTree
-updateServerCertificateResponseTest = resp
-    "updateServerCertificateResponse"
-    "fixture/UpdateServerCertificateResponse"
-    (Proxy :: Proxy UpdateServerCertificate)
+testCreateRoleResponse :: CreateRoleResponse -> TestTree
+testCreateRoleResponse = resp
+    "CreateRoleResponse"
+    "fixture/CreateRoleResponse"
+    (Proxy :: Proxy CreateRole)
 
-updateSigningCertificateResponseTest :: UpdateSigningCertificateResponse -> TestTree
-updateSigningCertificateResponseTest = resp
-    "updateSigningCertificateResponse"
+testDeleteUserPolicyResponse :: DeleteUserPolicyResponse -> TestTree
+testDeleteUserPolicyResponse = resp
+    "DeleteUserPolicyResponse"
+    "fixture/DeleteUserPolicyResponse"
+    (Proxy :: Proxy DeleteUserPolicy)
+
+testGetOpenIDConnectProviderResponse :: GetOpenIDConnectProviderResponse -> TestTree
+testGetOpenIDConnectProviderResponse = resp
+    "GetOpenIDConnectProviderResponse"
+    "fixture/GetOpenIDConnectProviderResponse"
+    (Proxy :: Proxy GetOpenIDConnectProvider)
+
+testDetachGroupPolicyResponse :: DetachGroupPolicyResponse -> TestTree
+testDetachGroupPolicyResponse = resp
+    "DetachGroupPolicyResponse"
+    "fixture/DetachGroupPolicyResponse"
+    (Proxy :: Proxy DetachGroupPolicy)
+
+testGetCredentialReportResponse :: GetCredentialReportResponse -> TestTree
+testGetCredentialReportResponse = resp
+    "GetCredentialReportResponse"
+    "fixture/GetCredentialReportResponse"
+    (Proxy :: Proxy GetCredentialReport)
+
+testDeletePolicyVersionResponse :: DeletePolicyVersionResponse -> TestTree
+testDeletePolicyVersionResponse = resp
+    "DeletePolicyVersionResponse"
+    "fixture/DeletePolicyVersionResponse"
+    (Proxy :: Proxy DeletePolicyVersion)
+
+testDetachRolePolicyResponse :: DetachRolePolicyResponse -> TestTree
+testDetachRolePolicyResponse = resp
+    "DetachRolePolicyResponse"
+    "fixture/DetachRolePolicyResponse"
+    (Proxy :: Proxy DetachRolePolicy)
+
+testDeleteInstanceProfileResponse :: DeleteInstanceProfileResponse -> TestTree
+testDeleteInstanceProfileResponse = resp
+    "DeleteInstanceProfileResponse"
+    "fixture/DeleteInstanceProfileResponse"
+    (Proxy :: Proxy DeleteInstanceProfile)
+
+testListGroupPoliciesResponse :: ListGroupPoliciesResponse -> TestTree
+testListGroupPoliciesResponse = resp
+    "ListGroupPoliciesResponse"
+    "fixture/ListGroupPoliciesResponse"
+    (Proxy :: Proxy ListGroupPolicies)
+
+testGetAccountSummaryResponse :: GetAccountSummaryResponse -> TestTree
+testGetAccountSummaryResponse = resp
+    "GetAccountSummaryResponse"
+    "fixture/GetAccountSummaryResponse"
+    (Proxy :: Proxy GetAccountSummary)
+
+testCreateInstanceProfileResponse :: CreateInstanceProfileResponse -> TestTree
+testCreateInstanceProfileResponse = resp
+    "CreateInstanceProfileResponse"
+    "fixture/CreateInstanceProfileResponse"
+    (Proxy :: Proxy CreateInstanceProfile)
+
+testPutGroupPolicyResponse :: PutGroupPolicyResponse -> TestTree
+testPutGroupPolicyResponse = resp
+    "PutGroupPolicyResponse"
+    "fixture/PutGroupPolicyResponse"
+    (Proxy :: Proxy PutGroupPolicy)
+
+testDeleteGroupPolicyResponse :: DeleteGroupPolicyResponse -> TestTree
+testDeleteGroupPolicyResponse = resp
+    "DeleteGroupPolicyResponse"
+    "fixture/DeleteGroupPolicyResponse"
+    (Proxy :: Proxy DeleteGroupPolicy)
+
+testGetAccountAuthorizationDetailsResponse :: GetAccountAuthorizationDetailsResponse -> TestTree
+testGetAccountAuthorizationDetailsResponse = resp
+    "GetAccountAuthorizationDetailsResponse"
+    "fixture/GetAccountAuthorizationDetailsResponse"
+    (Proxy :: Proxy GetAccountAuthorizationDetails)
+
+testDeleteAccountAliasResponse :: DeleteAccountAliasResponse -> TestTree
+testDeleteAccountAliasResponse = resp
+    "DeleteAccountAliasResponse"
+    "fixture/DeleteAccountAliasResponse"
+    (Proxy :: Proxy DeleteAccountAlias)
+
+testRemoveRoleFromInstanceProfileResponse :: RemoveRoleFromInstanceProfileResponse -> TestTree
+testRemoveRoleFromInstanceProfileResponse = resp
+    "RemoveRoleFromInstanceProfileResponse"
+    "fixture/RemoveRoleFromInstanceProfileResponse"
+    (Proxy :: Proxy RemoveRoleFromInstanceProfile)
+
+testGetLoginProfileResponse :: GetLoginProfileResponse -> TestTree
+testGetLoginProfileResponse = resp
+    "GetLoginProfileResponse"
+    "fixture/GetLoginProfileResponse"
+    (Proxy :: Proxy GetLoginProfile)
+
+testRemoveUserFromGroupResponse :: RemoveUserFromGroupResponse -> TestTree
+testRemoveUserFromGroupResponse = resp
+    "RemoveUserFromGroupResponse"
+    "fixture/RemoveUserFromGroupResponse"
+    (Proxy :: Proxy RemoveUserFromGroup)
+
+testDetachUserPolicyResponse :: DetachUserPolicyResponse -> TestTree
+testDetachUserPolicyResponse = resp
+    "DetachUserPolicyResponse"
+    "fixture/DetachUserPolicyResponse"
+    (Proxy :: Proxy DetachUserPolicy)
+
+testCreateSAMLProviderResponse :: CreateSAMLProviderResponse -> TestTree
+testCreateSAMLProviderResponse = resp
+    "CreateSAMLProviderResponse"
+    "fixture/CreateSAMLProviderResponse"
+    (Proxy :: Proxy CreateSAMLProvider)
+
+testCreatePolicyVersionResponse :: CreatePolicyVersionResponse -> TestTree
+testCreatePolicyVersionResponse = resp
+    "CreatePolicyVersionResponse"
+    "fixture/CreatePolicyVersionResponse"
+    (Proxy :: Proxy CreatePolicyVersion)
+
+testGetGroupPolicyResponse :: GetGroupPolicyResponse -> TestTree
+testGetGroupPolicyResponse = resp
+    "GetGroupPolicyResponse"
+    "fixture/GetGroupPolicyResponse"
+    (Proxy :: Proxy GetGroupPolicy)
+
+testDeletePolicyResponse :: DeletePolicyResponse -> TestTree
+testDeletePolicyResponse = resp
+    "DeletePolicyResponse"
+    "fixture/DeletePolicyResponse"
+    (Proxy :: Proxy DeletePolicy)
+
+testListServerCertificatesResponse :: ListServerCertificatesResponse -> TestTree
+testListServerCertificatesResponse = resp
+    "ListServerCertificatesResponse"
+    "fixture/ListServerCertificatesResponse"
+    (Proxy :: Proxy ListServerCertificates)
+
+testUpdateAssumeRolePolicyResponse :: UpdateAssumeRolePolicyResponse -> TestTree
+testUpdateAssumeRolePolicyResponse = resp
+    "UpdateAssumeRolePolicyResponse"
+    "fixture/UpdateAssumeRolePolicyResponse"
+    (Proxy :: Proxy UpdateAssumeRolePolicy)
+
+testChangePasswordResponse :: ChangePasswordResponse -> TestTree
+testChangePasswordResponse = resp
+    "ChangePasswordResponse"
+    "fixture/ChangePasswordResponse"
+    (Proxy :: Proxy ChangePassword)
+
+testListGroupsForUserResponse :: ListGroupsForUserResponse -> TestTree
+testListGroupsForUserResponse = resp
+    "ListGroupsForUserResponse"
+    "fixture/ListGroupsForUserResponse"
+    (Proxy :: Proxy ListGroupsForUser)
+
+testGetPolicyVersionResponse :: GetPolicyVersionResponse -> TestTree
+testGetPolicyVersionResponse = resp
+    "GetPolicyVersionResponse"
+    "fixture/GetPolicyVersionResponse"
+    (Proxy :: Proxy GetPolicyVersion)
+
+testCreateLoginProfileResponse :: CreateLoginProfileResponse -> TestTree
+testCreateLoginProfileResponse = resp
+    "CreateLoginProfileResponse"
+    "fixture/CreateLoginProfileResponse"
+    (Proxy :: Proxy CreateLoginProfile)
+
+testGetInstanceProfileResponse :: GetInstanceProfileResponse -> TestTree
+testGetInstanceProfileResponse = resp
+    "GetInstanceProfileResponse"
+    "fixture/GetInstanceProfileResponse"
+    (Proxy :: Proxy GetInstanceProfile)
+
+testListEntitiesForPolicyResponse :: ListEntitiesForPolicyResponse -> TestTree
+testListEntitiesForPolicyResponse = resp
+    "ListEntitiesForPolicyResponse"
+    "fixture/ListEntitiesForPolicyResponse"
+    (Proxy :: Proxy ListEntitiesForPolicy)
+
+testGetSAMLProviderResponse :: GetSAMLProviderResponse -> TestTree
+testGetSAMLProviderResponse = resp
+    "GetSAMLProviderResponse"
+    "fixture/GetSAMLProviderResponse"
+    (Proxy :: Proxy GetSAMLProvider)
+
+testAddRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse -> TestTree
+testAddRoleToInstanceProfileResponse = resp
+    "AddRoleToInstanceProfileResponse"
+    "fixture/AddRoleToInstanceProfileResponse"
+    (Proxy :: Proxy AddRoleToInstanceProfile)
+
+testAddUserToGroupResponse :: AddUserToGroupResponse -> TestTree
+testAddUserToGroupResponse = resp
+    "AddUserToGroupResponse"
+    "fixture/AddUserToGroupResponse"
+    (Proxy :: Proxy AddUserToGroup)
+
+testDeleteOpenIDConnectProviderResponse :: DeleteOpenIDConnectProviderResponse -> TestTree
+testDeleteOpenIDConnectProviderResponse = resp
+    "DeleteOpenIDConnectProviderResponse"
+    "fixture/DeleteOpenIDConnectProviderResponse"
+    (Proxy :: Proxy DeleteOpenIDConnectProvider)
+
+testGetUserResponse :: GetUserResponse -> TestTree
+testGetUserResponse = resp
+    "GetUserResponse"
+    "fixture/GetUserResponse"
+    (Proxy :: Proxy GetUser)
+
+testListAttachedUserPoliciesResponse :: ListAttachedUserPoliciesResponse -> TestTree
+testListAttachedUserPoliciesResponse = resp
+    "ListAttachedUserPoliciesResponse"
+    "fixture/ListAttachedUserPoliciesResponse"
+    (Proxy :: Proxy ListAttachedUserPolicies)
+
+testDeleteSigningCertificateResponse :: DeleteSigningCertificateResponse -> TestTree
+testDeleteSigningCertificateResponse = resp
+    "DeleteSigningCertificateResponse"
+    "fixture/DeleteSigningCertificateResponse"
+    (Proxy :: Proxy DeleteSigningCertificate)
+
+testUpdateSigningCertificateResponse :: UpdateSigningCertificateResponse -> TestTree
+testUpdateSigningCertificateResponse = resp
+    "UpdateSigningCertificateResponse"
     "fixture/UpdateSigningCertificateResponse"
     (Proxy :: Proxy UpdateSigningCertificate)
 
-updateUserResponseTest :: UpdateUserResponse -> TestTree
-updateUserResponseTest = resp
-    "updateUserResponse"
+testListSigningCertificatesResponse :: ListSigningCertificatesResponse -> TestTree
+testListSigningCertificatesResponse = resp
+    "ListSigningCertificatesResponse"
+    "fixture/ListSigningCertificatesResponse"
+    (Proxy :: Proxy ListSigningCertificates)
+
+testRemoveClientIDFromOpenIDConnectProviderResponse :: RemoveClientIDFromOpenIDConnectProviderResponse -> TestTree
+testRemoveClientIDFromOpenIDConnectProviderResponse = resp
+    "RemoveClientIDFromOpenIDConnectProviderResponse"
+    "fixture/RemoveClientIDFromOpenIDConnectProviderResponse"
+    (Proxy :: Proxy RemoveClientIDFromOpenIDConnectProvider)
+
+testListAccessKeysResponse :: ListAccessKeysResponse -> TestTree
+testListAccessKeysResponse = resp
+    "ListAccessKeysResponse"
+    "fixture/ListAccessKeysResponse"
+    (Proxy :: Proxy ListAccessKeys)
+
+testListVirtualMFADevicesResponse :: ListVirtualMFADevicesResponse -> TestTree
+testListVirtualMFADevicesResponse = resp
+    "ListVirtualMFADevicesResponse"
+    "fixture/ListVirtualMFADevicesResponse"
+    (Proxy :: Proxy ListVirtualMFADevices)
+
+testDeleteAccessKeyResponse :: DeleteAccessKeyResponse -> TestTree
+testDeleteAccessKeyResponse = resp
+    "DeleteAccessKeyResponse"
+    "fixture/DeleteAccessKeyResponse"
+    (Proxy :: Proxy DeleteAccessKey)
+
+testUpdateAccessKeyResponse :: UpdateAccessKeyResponse -> TestTree
+testUpdateAccessKeyResponse = resp
+    "UpdateAccessKeyResponse"
+    "fixture/UpdateAccessKeyResponse"
+    (Proxy :: Proxy UpdateAccessKey)
+
+testGetRolePolicyResponse :: GetRolePolicyResponse -> TestTree
+testGetRolePolicyResponse = resp
+    "GetRolePolicyResponse"
+    "fixture/GetRolePolicyResponse"
+    (Proxy :: Proxy GetRolePolicy)
+
+testAttachUserPolicyResponse :: AttachUserPolicyResponse -> TestTree
+testAttachUserPolicyResponse = resp
+    "AttachUserPolicyResponse"
+    "fixture/AttachUserPolicyResponse"
+    (Proxy :: Proxy AttachUserPolicy)
+
+testResyncMFADeviceResponse :: ResyncMFADeviceResponse -> TestTree
+testResyncMFADeviceResponse = resp
+    "ResyncMFADeviceResponse"
+    "fixture/ResyncMFADeviceResponse"
+    (Proxy :: Proxy ResyncMFADevice)
+
+testCreateUserResponse :: CreateUserResponse -> TestTree
+testCreateUserResponse = resp
+    "CreateUserResponse"
+    "fixture/CreateUserResponse"
+    (Proxy :: Proxy CreateUser)
+
+testUploadSigningCertificateResponse :: UploadSigningCertificateResponse -> TestTree
+testUploadSigningCertificateResponse = resp
+    "UploadSigningCertificateResponse"
+    "fixture/UploadSigningCertificateResponse"
+    (Proxy :: Proxy UploadSigningCertificate)
+
+testPutRolePolicyResponse :: PutRolePolicyResponse -> TestTree
+testPutRolePolicyResponse = resp
+    "PutRolePolicyResponse"
+    "fixture/PutRolePolicyResponse"
+    (Proxy :: Proxy PutRolePolicy)
+
+testDeleteRolePolicyResponse :: DeleteRolePolicyResponse -> TestTree
+testDeleteRolePolicyResponse = resp
+    "DeleteRolePolicyResponse"
+    "fixture/DeleteRolePolicyResponse"
+    (Proxy :: Proxy DeleteRolePolicy)
+
+testUpdateUserResponse :: UpdateUserResponse -> TestTree
+testUpdateUserResponse = resp
+    "UpdateUserResponse"
     "fixture/UpdateUserResponse"
     (Proxy :: Proxy UpdateUser)
 
-uploadServerCertificateResponseTest :: UploadServerCertificateResponse -> TestTree
-uploadServerCertificateResponseTest = resp
-    "uploadServerCertificateResponse"
+testDeleteUserResponse :: DeleteUserResponse -> TestTree
+testDeleteUserResponse = resp
+    "DeleteUserResponse"
+    "fixture/DeleteUserResponse"
+    (Proxy :: Proxy DeleteUser)
+
+testListRolePoliciesResponse :: ListRolePoliciesResponse -> TestTree
+testListRolePoliciesResponse = resp
+    "ListRolePoliciesResponse"
+    "fixture/ListRolePoliciesResponse"
+    (Proxy :: Proxy ListRolePolicies)
+
+testAddClientIDToOpenIDConnectProviderResponse :: AddClientIDToOpenIDConnectProviderResponse -> TestTree
+testAddClientIDToOpenIDConnectProviderResponse = resp
+    "AddClientIDToOpenIDConnectProviderResponse"
+    "fixture/AddClientIDToOpenIDConnectProviderResponse"
+    (Proxy :: Proxy AddClientIDToOpenIDConnectProvider)
+
+testGetAccessKeyLastUsedResponse :: GetAccessKeyLastUsedResponse -> TestTree
+testGetAccessKeyLastUsedResponse = resp
+    "GetAccessKeyLastUsedResponse"
+    "fixture/GetAccessKeyLastUsedResponse"
+    (Proxy :: Proxy GetAccessKeyLastUsed)
+
+testGetAccountPasswordPolicyResponse :: GetAccountPasswordPolicyResponse -> TestTree
+testGetAccountPasswordPolicyResponse = resp
+    "GetAccountPasswordPolicyResponse"
+    "fixture/GetAccountPasswordPolicyResponse"
+    (Proxy :: Proxy GetAccountPasswordPolicy)
+
+testListAccountAliasesResponse :: ListAccountAliasesResponse -> TestTree
+testListAccountAliasesResponse = resp
+    "ListAccountAliasesResponse"
+    "fixture/ListAccountAliasesResponse"
+    (Proxy :: Proxy ListAccountAliases)
+
+testCreateAccountAliasResponse :: CreateAccountAliasResponse -> TestTree
+testCreateAccountAliasResponse = resp
+    "CreateAccountAliasResponse"
+    "fixture/CreateAccountAliasResponse"
+    (Proxy :: Proxy CreateAccountAlias)
+
+testUploadServerCertificateResponse :: UploadServerCertificateResponse -> TestTree
+testUploadServerCertificateResponse = resp
+    "UploadServerCertificateResponse"
     "fixture/UploadServerCertificateResponse"
     (Proxy :: Proxy UploadServerCertificate)
 
-uploadSigningCertificateResponseTest :: UploadSigningCertificateResponse -> TestTree
-uploadSigningCertificateResponseTest = resp
-    "uploadSigningCertificateResponse"
-    "fixture/UploadSigningCertificateResponse"
-    (Proxy :: Proxy UploadSigningCertificate)
+testListMFADevicesResponse :: ListMFADevicesResponse -> TestTree
+testListMFADevicesResponse = resp
+    "ListMFADevicesResponse"
+    "fixture/ListMFADevicesResponse"
+    (Proxy :: Proxy ListMFADevices)
+
+testEnableMFADeviceResponse :: EnableMFADeviceResponse -> TestTree
+testEnableMFADeviceResponse = resp
+    "EnableMFADeviceResponse"
+    "fixture/EnableMFADeviceResponse"
+    (Proxy :: Proxy EnableMFADevice)
+
+testListPolicyVersionsResponse :: ListPolicyVersionsResponse -> TestTree
+testListPolicyVersionsResponse = resp
+    "ListPolicyVersionsResponse"
+    "fixture/ListPolicyVersionsResponse"
+    (Proxy :: Proxy ListPolicyVersions)
+
+testListSAMLProvidersResponse :: ListSAMLProvidersResponse -> TestTree
+testListSAMLProvidersResponse = resp
+    "ListSAMLProvidersResponse"
+    "fixture/ListSAMLProvidersResponse"
+    (Proxy :: Proxy ListSAMLProviders)
+
+testUpdateSAMLProviderResponse :: UpdateSAMLProviderResponse -> TestTree
+testUpdateSAMLProviderResponse = resp
+    "UpdateSAMLProviderResponse"
+    "fixture/UpdateSAMLProviderResponse"
+    (Proxy :: Proxy UpdateSAMLProvider)
+
+testDeleteSAMLProviderResponse :: DeleteSAMLProviderResponse -> TestTree
+testDeleteSAMLProviderResponse = resp
+    "DeleteSAMLProviderResponse"
+    "fixture/DeleteSAMLProviderResponse"
+    (Proxy :: Proxy DeleteSAMLProvider)
+
+testCreateGroupResponse :: CreateGroupResponse -> TestTree
+testCreateGroupResponse = resp
+    "CreateGroupResponse"
+    "fixture/CreateGroupResponse"
+    (Proxy :: Proxy CreateGroup)
+
+testSetDefaultPolicyVersionResponse :: SetDefaultPolicyVersionResponse -> TestTree
+testSetDefaultPolicyVersionResponse = resp
+    "SetDefaultPolicyVersionResponse"
+    "fixture/SetDefaultPolicyVersionResponse"
+    (Proxy :: Proxy SetDefaultPolicyVersion)
+
+testListInstanceProfilesResponse :: ListInstanceProfilesResponse -> TestTree
+testListInstanceProfilesResponse = resp
+    "ListInstanceProfilesResponse"
+    "fixture/ListInstanceProfilesResponse"
+    (Proxy :: Proxy ListInstanceProfiles)
+
+testListGroupsResponse :: ListGroupsResponse -> TestTree
+testListGroupsResponse = resp
+    "ListGroupsResponse"
+    "fixture/ListGroupsResponse"
+    (Proxy :: Proxy ListGroups)
+
+testDeleteGroupResponse :: DeleteGroupResponse -> TestTree
+testDeleteGroupResponse = resp
+    "DeleteGroupResponse"
+    "fixture/DeleteGroupResponse"
+    (Proxy :: Proxy DeleteGroup)
+
+testUpdateGroupResponse :: UpdateGroupResponse -> TestTree
+testUpdateGroupResponse = resp
+    "UpdateGroupResponse"
+    "fixture/UpdateGroupResponse"
+    (Proxy :: Proxy UpdateGroup)
+
+testGetServerCertificateResponse :: GetServerCertificateResponse -> TestTree
+testGetServerCertificateResponse = resp
+    "GetServerCertificateResponse"
+    "fixture/GetServerCertificateResponse"
+    (Proxy :: Proxy GetServerCertificate)
+
+testGetPolicyResponse :: GetPolicyResponse -> TestTree
+testGetPolicyResponse = resp
+    "GetPolicyResponse"
+    "fixture/GetPolicyResponse"
+    (Proxy :: Proxy GetPolicy)
+
+testGenerateCredentialReportResponse :: GenerateCredentialReportResponse -> TestTree
+testGenerateCredentialReportResponse = resp
+    "GenerateCredentialReportResponse"
+    "fixture/GenerateCredentialReportResponse"
+    (Proxy :: Proxy GenerateCredentialReport)
+
+testGetGroupResponse :: GetGroupResponse -> TestTree
+testGetGroupResponse = resp
+    "GetGroupResponse"
+    "fixture/GetGroupResponse"
+    (Proxy :: Proxy GetGroup)
+
+testDeleteServerCertificateResponse :: DeleteServerCertificateResponse -> TestTree
+testDeleteServerCertificateResponse = resp
+    "DeleteServerCertificateResponse"
+    "fixture/DeleteServerCertificateResponse"
+    (Proxy :: Proxy DeleteServerCertificate)
+
+testUpdateServerCertificateResponse :: UpdateServerCertificateResponse -> TestTree
+testUpdateServerCertificateResponse = resp
+    "UpdateServerCertificateResponse"
+    "fixture/UpdateServerCertificateResponse"
+    (Proxy :: Proxy UpdateServerCertificate)
+
+testDeleteLoginProfileResponse :: DeleteLoginProfileResponse -> TestTree
+testDeleteLoginProfileResponse = resp
+    "DeleteLoginProfileResponse"
+    "fixture/DeleteLoginProfileResponse"
+    (Proxy :: Proxy DeleteLoginProfile)
+
+testUpdateLoginProfileResponse :: UpdateLoginProfileResponse -> TestTree
+testUpdateLoginProfileResponse = resp
+    "UpdateLoginProfileResponse"
+    "fixture/UpdateLoginProfileResponse"
+    (Proxy :: Proxy UpdateLoginProfile)
+
+testListAttachedGroupPoliciesResponse :: ListAttachedGroupPoliciesResponse -> TestTree
+testListAttachedGroupPoliciesResponse = resp
+    "ListAttachedGroupPoliciesResponse"
+    "fixture/ListAttachedGroupPoliciesResponse"
+    (Proxy :: Proxy ListAttachedGroupPolicies)

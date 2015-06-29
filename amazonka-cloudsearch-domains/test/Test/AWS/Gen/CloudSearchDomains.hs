@@ -23,59 +23,59 @@ import Network.AWS.CloudSearchDomains
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ searchTest $
---             search
---
---         , suggestTest $
+--         [ testSuggest $
 --             suggest
 --
---         , uploadDocumentsTest $
+--         , testUploadDocuments $
 --             uploadDocuments
+--
+--         , testSearch $
+--             search
 --
 --           ]
 
 --     , testGroup "response"
---         [ searchResponseTest $
---             searchResponse
---
---         , suggestResponseTest $
+--         [ testSuggestResponse $
 --             suggestResponse
 --
---         , uploadDocumentsResponseTest $
+--         , testUploadDocumentsResponse $
 --             uploadDocumentsResponse
+--
+--         , testSearchResponse $
+--             searchResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-searchTest :: Search -> TestTree
-searchTest = undefined
+testSuggest :: Suggest -> TestTree
+testSuggest = undefined
 
-suggestTest :: Suggest -> TestTree
-suggestTest = undefined
+testUploadDocuments :: UploadDocuments -> TestTree
+testUploadDocuments = undefined
 
-uploadDocumentsTest :: UploadDocuments -> TestTree
-uploadDocumentsTest = undefined
+testSearch :: Search -> TestTree
+testSearch = undefined
 
 -- Responses
 
-searchResponseTest :: SearchResponse -> TestTree
-searchResponseTest = resp
-    "searchResponse"
-    "fixture/SearchResponse"
-    (Proxy :: Proxy Search)
-
-suggestResponseTest :: SuggestResponse -> TestTree
-suggestResponseTest = resp
-    "suggestResponse"
+testSuggestResponse :: SuggestResponse -> TestTree
+testSuggestResponse = resp
+    "SuggestResponse"
     "fixture/SuggestResponse"
     (Proxy :: Proxy Suggest)
 
-uploadDocumentsResponseTest :: UploadDocumentsResponse -> TestTree
-uploadDocumentsResponseTest = resp
-    "uploadDocumentsResponse"
+testUploadDocumentsResponse :: UploadDocumentsResponse -> TestTree
+testUploadDocumentsResponse = resp
+    "UploadDocumentsResponse"
     "fixture/UploadDocumentsResponse"
     (Proxy :: Proxy UploadDocuments)
+
+testSearchResponse :: SearchResponse -> TestTree
+testSearchResponse = resp
+    "SearchResponse"
+    "fixture/SearchResponse"
+    (Proxy :: Proxy Search)

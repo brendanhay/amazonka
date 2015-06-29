@@ -23,177 +23,177 @@ import Network.AWS.ELB
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ addTagsTest $
---             addTags
---
---         , applySecurityGroupsToLoadBalancerTest $
---             applySecurityGroupsToLoadBalancer
---
---         , attachLoadBalancerToSubnetsTest $
---             attachLoadBalancerToSubnets
---
---         , configureHealthCheckTest $
---             configureHealthCheck
---
---         , createAppCookieStickinessPolicyTest $
---             createAppCookieStickinessPolicy
---
---         , createLBCookieStickinessPolicyTest $
---             createLBCookieStickinessPolicy
---
---         , createLoadBalancerTest $
---             createLoadBalancer
---
---         , createLoadBalancerListenersTest $
---             createLoadBalancerListeners
---
---         , createLoadBalancerPolicyTest $
---             createLoadBalancerPolicy
---
---         , deleteLoadBalancerTest $
---             deleteLoadBalancer
---
---         , deleteLoadBalancerListenersTest $
---             deleteLoadBalancerListeners
---
---         , deleteLoadBalancerPolicyTest $
---             deleteLoadBalancerPolicy
---
---         , deregisterInstancesFromLoadBalancerTest $
---             deregisterInstancesFromLoadBalancer
---
---         , describeInstanceHealthTest $
---             describeInstanceHealth
---
---         , describeLoadBalancerAttributesTest $
---             describeLoadBalancerAttributes
---
---         , describeLoadBalancerPoliciesTest $
---             describeLoadBalancerPolicies
---
---         , describeLoadBalancerPolicyTypesTest $
+--         [ testDescribeLoadBalancerPolicyTypes $
 --             describeLoadBalancerPolicyTypes
 --
---         , describeLoadBalancersTest $
---             describeLoadBalancers
---
---         , describeTagsTest $
+--         , testDescribeTags $
 --             describeTags
 --
---         , detachLoadBalancerFromSubnetsTest $
---             detachLoadBalancerFromSubnets
+--         , testDescribeLoadBalancers $
+--             describeLoadBalancers
 --
---         , disableAvailabilityZonesForLoadBalancerTest $
---             disableAvailabilityZonesForLoadBalancer
+--         , testApplySecurityGroupsToLoadBalancer $
+--             applySecurityGroupsToLoadBalancer
 --
---         , enableAvailabilityZonesForLoadBalancerTest $
---             enableAvailabilityZonesForLoadBalancer
---
---         , modifyLoadBalancerAttributesTest $
---             modifyLoadBalancerAttributes
---
---         , registerInstancesWithLoadBalancerTest $
---             registerInstancesWithLoadBalancer
---
---         , removeTagsTest $
+--         , testRemoveTags $
 --             removeTags
 --
---         , setLoadBalancerListenerSSLCertificateTest $
---             setLoadBalancerListenerSSLCertificate
+--         , testCreateLBCookieStickinessPolicy $
+--             createLBCookieStickinessPolicy
 --
---         , setLoadBalancerPoliciesForBackendServerTest $
+--         , testDeleteLoadBalancer $
+--             deleteLoadBalancer
+--
+--         , testCreateLoadBalancerPolicy $
+--             createLoadBalancerPolicy
+--
+--         , testDeregisterInstancesFromLoadBalancer $
+--             deregisterInstancesFromLoadBalancer
+--
+--         , testDescribeLoadBalancerPolicies $
+--             describeLoadBalancerPolicies
+--
+--         , testDisableAvailabilityZonesForLoadBalancer $
+--             disableAvailabilityZonesForLoadBalancer
+--
+--         , testSetLoadBalancerPoliciesForBackendServer $
 --             setLoadBalancerPoliciesForBackendServer
 --
---         , setLoadBalancerPoliciesOfListenerTest $
+--         , testEnableAvailabilityZonesForLoadBalancer $
+--             enableAvailabilityZonesForLoadBalancer
+--
+--         , testSetLoadBalancerListenerSSLCertificate $
+--             setLoadBalancerListenerSSLCertificate
+--
+--         , testConfigureHealthCheck $
+--             configureHealthCheck
+--
+--         , testAttachLoadBalancerToSubnets $
+--             attachLoadBalancerToSubnets
+--
+--         , testModifyLoadBalancerAttributes $
+--             modifyLoadBalancerAttributes
+--
+--         , testCreateAppCookieStickinessPolicy $
+--             createAppCookieStickinessPolicy
+--
+--         , testAddTags $
+--             addTags
+--
+--         , testDescribeLoadBalancerAttributes $
+--             describeLoadBalancerAttributes
+--
+--         , testDescribeInstanceHealth $
+--             describeInstanceHealth
+--
+--         , testDetachLoadBalancerFromSubnets $
+--             detachLoadBalancerFromSubnets
+--
+--         , testRegisterInstancesWithLoadBalancer $
+--             registerInstancesWithLoadBalancer
+--
+--         , testDeleteLoadBalancerPolicy $
+--             deleteLoadBalancerPolicy
+--
+--         , testCreateLoadBalancerListeners $
+--             createLoadBalancerListeners
+--
+--         , testDeleteLoadBalancerListeners $
+--             deleteLoadBalancerListeners
+--
+--         , testCreateLoadBalancer $
+--             createLoadBalancer
+--
+--         , testSetLoadBalancerPoliciesOfListener $
 --             setLoadBalancerPoliciesOfListener
 --
 --           ]
 
 --     , testGroup "response"
---         [ addTagsResponseTest $
---             addTagsResponse
---
---         , applySecurityGroupsToLoadBalancerResponseTest $
---             applySecurityGroupsToLoadBalancerResponse
---
---         , attachLoadBalancerToSubnetsResponseTest $
---             attachLoadBalancerToSubnetsResponse
---
---         , configureHealthCheckResponseTest $
---             configureHealthCheckResponse
---
---         , createAppCookieStickinessPolicyResponseTest $
---             createAppCookieStickinessPolicyResponse
---
---         , createLBCookieStickinessPolicyResponseTest $
---             createLBCookieStickinessPolicyResponse
---
---         , createLoadBalancerResponseTest $
---             createLoadBalancerResponse
---
---         , createLoadBalancerListenersResponseTest $
---             createLoadBalancerListenersResponse
---
---         , createLoadBalancerPolicyResponseTest $
---             createLoadBalancerPolicyResponse
---
---         , deleteLoadBalancerResponseTest $
---             deleteLoadBalancerResponse
---
---         , deleteLoadBalancerListenersResponseTest $
---             deleteLoadBalancerListenersResponse
---
---         , deleteLoadBalancerPolicyResponseTest $
---             deleteLoadBalancerPolicyResponse
---
---         , deregisterInstancesFromLoadBalancerResponseTest $
---             deregisterInstancesFromLoadBalancerResponse
---
---         , describeInstanceHealthResponseTest $
---             describeInstanceHealthResponse
---
---         , describeLoadBalancerAttributesResponseTest $
---             describeLoadBalancerAttributesResponse
---
---         , describeLoadBalancerPoliciesResponseTest $
---             describeLoadBalancerPoliciesResponse
---
---         , describeLoadBalancerPolicyTypesResponseTest $
+--         [ testDescribeLoadBalancerPolicyTypesResponse $
 --             describeLoadBalancerPolicyTypesResponse
 --
---         , describeLoadBalancersResponseTest $
---             describeLoadBalancersResponse
---
---         , describeTagsResponseTest $
+--         , testDescribeTagsResponse $
 --             describeTagsResponse
 --
---         , detachLoadBalancerFromSubnetsResponseTest $
---             detachLoadBalancerFromSubnetsResponse
+--         , testDescribeLoadBalancersResponse $
+--             describeLoadBalancersResponse
 --
---         , disableAvailabilityZonesForLoadBalancerResponseTest $
---             disableAvailabilityZonesForLoadBalancerResponse
+--         , testApplySecurityGroupsToLoadBalancerResponse $
+--             applySecurityGroupsToLoadBalancerResponse
 --
---         , enableAvailabilityZonesForLoadBalancerResponseTest $
---             enableAvailabilityZonesForLoadBalancerResponse
---
---         , modifyLoadBalancerAttributesResponseTest $
---             modifyLoadBalancerAttributesResponse
---
---         , registerInstancesWithLoadBalancerResponseTest $
---             registerInstancesWithLoadBalancerResponse
---
---         , removeTagsResponseTest $
+--         , testRemoveTagsResponse $
 --             removeTagsResponse
 --
---         , setLoadBalancerListenerSSLCertificateResponseTest $
---             setLoadBalancerListenerSSLCertificateResponse
+--         , testCreateLBCookieStickinessPolicyResponse $
+--             createLBCookieStickinessPolicyResponse
 --
---         , setLoadBalancerPoliciesForBackendServerResponseTest $
+--         , testDeleteLoadBalancerResponse $
+--             deleteLoadBalancerResponse
+--
+--         , testCreateLoadBalancerPolicyResponse $
+--             createLoadBalancerPolicyResponse
+--
+--         , testDeregisterInstancesFromLoadBalancerResponse $
+--             deregisterInstancesFromLoadBalancerResponse
+--
+--         , testDescribeLoadBalancerPoliciesResponse $
+--             describeLoadBalancerPoliciesResponse
+--
+--         , testDisableAvailabilityZonesForLoadBalancerResponse $
+--             disableAvailabilityZonesForLoadBalancerResponse
+--
+--         , testSetLoadBalancerPoliciesForBackendServerResponse $
 --             setLoadBalancerPoliciesForBackendServerResponse
 --
---         , setLoadBalancerPoliciesOfListenerResponseTest $
+--         , testEnableAvailabilityZonesForLoadBalancerResponse $
+--             enableAvailabilityZonesForLoadBalancerResponse
+--
+--         , testSetLoadBalancerListenerSSLCertificateResponse $
+--             setLoadBalancerListenerSSLCertificateResponse
+--
+--         , testConfigureHealthCheckResponse $
+--             configureHealthCheckResponse
+--
+--         , testAttachLoadBalancerToSubnetsResponse $
+--             attachLoadBalancerToSubnetsResponse
+--
+--         , testModifyLoadBalancerAttributesResponse $
+--             modifyLoadBalancerAttributesResponse
+--
+--         , testCreateAppCookieStickinessPolicyResponse $
+--             createAppCookieStickinessPolicyResponse
+--
+--         , testAddTagsResponse $
+--             addTagsResponse
+--
+--         , testDescribeLoadBalancerAttributesResponse $
+--             describeLoadBalancerAttributesResponse
+--
+--         , testDescribeInstanceHealthResponse $
+--             describeInstanceHealthResponse
+--
+--         , testDetachLoadBalancerFromSubnetsResponse $
+--             detachLoadBalancerFromSubnetsResponse
+--
+--         , testRegisterInstancesWithLoadBalancerResponse $
+--             registerInstancesWithLoadBalancerResponse
+--
+--         , testDeleteLoadBalancerPolicyResponse $
+--             deleteLoadBalancerPolicyResponse
+--
+--         , testCreateLoadBalancerListenersResponse $
+--             createLoadBalancerListenersResponse
+--
+--         , testDeleteLoadBalancerListenersResponse $
+--             deleteLoadBalancerListenersResponse
+--
+--         , testCreateLoadBalancerResponse $
+--             createLoadBalancerResponse
+--
+--         , testSetLoadBalancerPoliciesOfListenerResponse $
 --             setLoadBalancerPoliciesOfListenerResponse
 --
 --           ]
@@ -201,256 +201,256 @@ import Network.AWS.ELB
 
 -- Requests
 
-addTagsTest :: AddTags -> TestTree
-addTagsTest = undefined
+testDescribeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes -> TestTree
+testDescribeLoadBalancerPolicyTypes = undefined
 
-applySecurityGroupsToLoadBalancerTest :: ApplySecurityGroupsToLoadBalancer -> TestTree
-applySecurityGroupsToLoadBalancerTest = undefined
+testDescribeTags :: DescribeTags -> TestTree
+testDescribeTags = undefined
 
-attachLoadBalancerToSubnetsTest :: AttachLoadBalancerToSubnets -> TestTree
-attachLoadBalancerToSubnetsTest = undefined
+testDescribeLoadBalancers :: DescribeLoadBalancers -> TestTree
+testDescribeLoadBalancers = undefined
 
-configureHealthCheckTest :: ConfigureHealthCheck -> TestTree
-configureHealthCheckTest = undefined
+testApplySecurityGroupsToLoadBalancer :: ApplySecurityGroupsToLoadBalancer -> TestTree
+testApplySecurityGroupsToLoadBalancer = undefined
 
-createAppCookieStickinessPolicyTest :: CreateAppCookieStickinessPolicy -> TestTree
-createAppCookieStickinessPolicyTest = undefined
+testRemoveTags :: RemoveTags -> TestTree
+testRemoveTags = undefined
 
-createLBCookieStickinessPolicyTest :: CreateLBCookieStickinessPolicy -> TestTree
-createLBCookieStickinessPolicyTest = undefined
+testCreateLBCookieStickinessPolicy :: CreateLBCookieStickinessPolicy -> TestTree
+testCreateLBCookieStickinessPolicy = undefined
 
-createLoadBalancerTest :: CreateLoadBalancer -> TestTree
-createLoadBalancerTest = undefined
+testDeleteLoadBalancer :: DeleteLoadBalancer -> TestTree
+testDeleteLoadBalancer = undefined
 
-createLoadBalancerListenersTest :: CreateLoadBalancerListeners -> TestTree
-createLoadBalancerListenersTest = undefined
+testCreateLoadBalancerPolicy :: CreateLoadBalancerPolicy -> TestTree
+testCreateLoadBalancerPolicy = undefined
 
-createLoadBalancerPolicyTest :: CreateLoadBalancerPolicy -> TestTree
-createLoadBalancerPolicyTest = undefined
+testDeregisterInstancesFromLoadBalancer :: DeregisterInstancesFromLoadBalancer -> TestTree
+testDeregisterInstancesFromLoadBalancer = undefined
 
-deleteLoadBalancerTest :: DeleteLoadBalancer -> TestTree
-deleteLoadBalancerTest = undefined
+testDescribeLoadBalancerPolicies :: DescribeLoadBalancerPolicies -> TestTree
+testDescribeLoadBalancerPolicies = undefined
 
-deleteLoadBalancerListenersTest :: DeleteLoadBalancerListeners -> TestTree
-deleteLoadBalancerListenersTest = undefined
+testDisableAvailabilityZonesForLoadBalancer :: DisableAvailabilityZonesForLoadBalancer -> TestTree
+testDisableAvailabilityZonesForLoadBalancer = undefined
 
-deleteLoadBalancerPolicyTest :: DeleteLoadBalancerPolicy -> TestTree
-deleteLoadBalancerPolicyTest = undefined
+testSetLoadBalancerPoliciesForBackendServer :: SetLoadBalancerPoliciesForBackendServer -> TestTree
+testSetLoadBalancerPoliciesForBackendServer = undefined
 
-deregisterInstancesFromLoadBalancerTest :: DeregisterInstancesFromLoadBalancer -> TestTree
-deregisterInstancesFromLoadBalancerTest = undefined
+testEnableAvailabilityZonesForLoadBalancer :: EnableAvailabilityZonesForLoadBalancer -> TestTree
+testEnableAvailabilityZonesForLoadBalancer = undefined
 
-describeInstanceHealthTest :: DescribeInstanceHealth -> TestTree
-describeInstanceHealthTest = undefined
+testSetLoadBalancerListenerSSLCertificate :: SetLoadBalancerListenerSSLCertificate -> TestTree
+testSetLoadBalancerListenerSSLCertificate = undefined
 
-describeLoadBalancerAttributesTest :: DescribeLoadBalancerAttributes -> TestTree
-describeLoadBalancerAttributesTest = undefined
+testConfigureHealthCheck :: ConfigureHealthCheck -> TestTree
+testConfigureHealthCheck = undefined
 
-describeLoadBalancerPoliciesTest :: DescribeLoadBalancerPolicies -> TestTree
-describeLoadBalancerPoliciesTest = undefined
+testAttachLoadBalancerToSubnets :: AttachLoadBalancerToSubnets -> TestTree
+testAttachLoadBalancerToSubnets = undefined
 
-describeLoadBalancerPolicyTypesTest :: DescribeLoadBalancerPolicyTypes -> TestTree
-describeLoadBalancerPolicyTypesTest = undefined
+testModifyLoadBalancerAttributes :: ModifyLoadBalancerAttributes -> TestTree
+testModifyLoadBalancerAttributes = undefined
 
-describeLoadBalancersTest :: DescribeLoadBalancers -> TestTree
-describeLoadBalancersTest = undefined
+testCreateAppCookieStickinessPolicy :: CreateAppCookieStickinessPolicy -> TestTree
+testCreateAppCookieStickinessPolicy = undefined
 
-describeTagsTest :: DescribeTags -> TestTree
-describeTagsTest = undefined
+testAddTags :: AddTags -> TestTree
+testAddTags = undefined
 
-detachLoadBalancerFromSubnetsTest :: DetachLoadBalancerFromSubnets -> TestTree
-detachLoadBalancerFromSubnetsTest = undefined
+testDescribeLoadBalancerAttributes :: DescribeLoadBalancerAttributes -> TestTree
+testDescribeLoadBalancerAttributes = undefined
 
-disableAvailabilityZonesForLoadBalancerTest :: DisableAvailabilityZonesForLoadBalancer -> TestTree
-disableAvailabilityZonesForLoadBalancerTest = undefined
+testDescribeInstanceHealth :: DescribeInstanceHealth -> TestTree
+testDescribeInstanceHealth = undefined
 
-enableAvailabilityZonesForLoadBalancerTest :: EnableAvailabilityZonesForLoadBalancer -> TestTree
-enableAvailabilityZonesForLoadBalancerTest = undefined
+testDetachLoadBalancerFromSubnets :: DetachLoadBalancerFromSubnets -> TestTree
+testDetachLoadBalancerFromSubnets = undefined
 
-modifyLoadBalancerAttributesTest :: ModifyLoadBalancerAttributes -> TestTree
-modifyLoadBalancerAttributesTest = undefined
+testRegisterInstancesWithLoadBalancer :: RegisterInstancesWithLoadBalancer -> TestTree
+testRegisterInstancesWithLoadBalancer = undefined
 
-registerInstancesWithLoadBalancerTest :: RegisterInstancesWithLoadBalancer -> TestTree
-registerInstancesWithLoadBalancerTest = undefined
+testDeleteLoadBalancerPolicy :: DeleteLoadBalancerPolicy -> TestTree
+testDeleteLoadBalancerPolicy = undefined
 
-removeTagsTest :: RemoveTags -> TestTree
-removeTagsTest = undefined
+testCreateLoadBalancerListeners :: CreateLoadBalancerListeners -> TestTree
+testCreateLoadBalancerListeners = undefined
 
-setLoadBalancerListenerSSLCertificateTest :: SetLoadBalancerListenerSSLCertificate -> TestTree
-setLoadBalancerListenerSSLCertificateTest = undefined
+testDeleteLoadBalancerListeners :: DeleteLoadBalancerListeners -> TestTree
+testDeleteLoadBalancerListeners = undefined
 
-setLoadBalancerPoliciesForBackendServerTest :: SetLoadBalancerPoliciesForBackendServer -> TestTree
-setLoadBalancerPoliciesForBackendServerTest = undefined
+testCreateLoadBalancer :: CreateLoadBalancer -> TestTree
+testCreateLoadBalancer = undefined
 
-setLoadBalancerPoliciesOfListenerTest :: SetLoadBalancerPoliciesOfListener -> TestTree
-setLoadBalancerPoliciesOfListenerTest = undefined
+testSetLoadBalancerPoliciesOfListener :: SetLoadBalancerPoliciesOfListener -> TestTree
+testSetLoadBalancerPoliciesOfListener = undefined
 
 -- Responses
 
-addTagsResponseTest :: AddTagsResponse -> TestTree
-addTagsResponseTest = resp
-    "addTagsResponse"
-    "fixture/AddTagsResponse"
-    (Proxy :: Proxy AddTags)
-
-applySecurityGroupsToLoadBalancerResponseTest :: ApplySecurityGroupsToLoadBalancerResponse -> TestTree
-applySecurityGroupsToLoadBalancerResponseTest = resp
-    "applySecurityGroupsToLoadBalancerResponse"
-    "fixture/ApplySecurityGroupsToLoadBalancerResponse"
-    (Proxy :: Proxy ApplySecurityGroupsToLoadBalancer)
-
-attachLoadBalancerToSubnetsResponseTest :: AttachLoadBalancerToSubnetsResponse -> TestTree
-attachLoadBalancerToSubnetsResponseTest = resp
-    "attachLoadBalancerToSubnetsResponse"
-    "fixture/AttachLoadBalancerToSubnetsResponse"
-    (Proxy :: Proxy AttachLoadBalancerToSubnets)
-
-configureHealthCheckResponseTest :: ConfigureHealthCheckResponse -> TestTree
-configureHealthCheckResponseTest = resp
-    "configureHealthCheckResponse"
-    "fixture/ConfigureHealthCheckResponse"
-    (Proxy :: Proxy ConfigureHealthCheck)
-
-createAppCookieStickinessPolicyResponseTest :: CreateAppCookieStickinessPolicyResponse -> TestTree
-createAppCookieStickinessPolicyResponseTest = resp
-    "createAppCookieStickinessPolicyResponse"
-    "fixture/CreateAppCookieStickinessPolicyResponse"
-    (Proxy :: Proxy CreateAppCookieStickinessPolicy)
-
-createLBCookieStickinessPolicyResponseTest :: CreateLBCookieStickinessPolicyResponse -> TestTree
-createLBCookieStickinessPolicyResponseTest = resp
-    "createLBCookieStickinessPolicyResponse"
-    "fixture/CreateLBCookieStickinessPolicyResponse"
-    (Proxy :: Proxy CreateLBCookieStickinessPolicy)
-
-createLoadBalancerResponseTest :: CreateLoadBalancerResponse -> TestTree
-createLoadBalancerResponseTest = resp
-    "createLoadBalancerResponse"
-    "fixture/CreateLoadBalancerResponse"
-    (Proxy :: Proxy CreateLoadBalancer)
-
-createLoadBalancerListenersResponseTest :: CreateLoadBalancerListenersResponse -> TestTree
-createLoadBalancerListenersResponseTest = resp
-    "createLoadBalancerListenersResponse"
-    "fixture/CreateLoadBalancerListenersResponse"
-    (Proxy :: Proxy CreateLoadBalancerListeners)
-
-createLoadBalancerPolicyResponseTest :: CreateLoadBalancerPolicyResponse -> TestTree
-createLoadBalancerPolicyResponseTest = resp
-    "createLoadBalancerPolicyResponse"
-    "fixture/CreateLoadBalancerPolicyResponse"
-    (Proxy :: Proxy CreateLoadBalancerPolicy)
-
-deleteLoadBalancerResponseTest :: DeleteLoadBalancerResponse -> TestTree
-deleteLoadBalancerResponseTest = resp
-    "deleteLoadBalancerResponse"
-    "fixture/DeleteLoadBalancerResponse"
-    (Proxy :: Proxy DeleteLoadBalancer)
-
-deleteLoadBalancerListenersResponseTest :: DeleteLoadBalancerListenersResponse -> TestTree
-deleteLoadBalancerListenersResponseTest = resp
-    "deleteLoadBalancerListenersResponse"
-    "fixture/DeleteLoadBalancerListenersResponse"
-    (Proxy :: Proxy DeleteLoadBalancerListeners)
-
-deleteLoadBalancerPolicyResponseTest :: DeleteLoadBalancerPolicyResponse -> TestTree
-deleteLoadBalancerPolicyResponseTest = resp
-    "deleteLoadBalancerPolicyResponse"
-    "fixture/DeleteLoadBalancerPolicyResponse"
-    (Proxy :: Proxy DeleteLoadBalancerPolicy)
-
-deregisterInstancesFromLoadBalancerResponseTest :: DeregisterInstancesFromLoadBalancerResponse -> TestTree
-deregisterInstancesFromLoadBalancerResponseTest = resp
-    "deregisterInstancesFromLoadBalancerResponse"
-    "fixture/DeregisterInstancesFromLoadBalancerResponse"
-    (Proxy :: Proxy DeregisterInstancesFromLoadBalancer)
-
-describeInstanceHealthResponseTest :: DescribeInstanceHealthResponse -> TestTree
-describeInstanceHealthResponseTest = resp
-    "describeInstanceHealthResponse"
-    "fixture/DescribeInstanceHealthResponse"
-    (Proxy :: Proxy DescribeInstanceHealth)
-
-describeLoadBalancerAttributesResponseTest :: DescribeLoadBalancerAttributesResponse -> TestTree
-describeLoadBalancerAttributesResponseTest = resp
-    "describeLoadBalancerAttributesResponse"
-    "fixture/DescribeLoadBalancerAttributesResponse"
-    (Proxy :: Proxy DescribeLoadBalancerAttributes)
-
-describeLoadBalancerPoliciesResponseTest :: DescribeLoadBalancerPoliciesResponse -> TestTree
-describeLoadBalancerPoliciesResponseTest = resp
-    "describeLoadBalancerPoliciesResponse"
-    "fixture/DescribeLoadBalancerPoliciesResponse"
-    (Proxy :: Proxy DescribeLoadBalancerPolicies)
-
-describeLoadBalancerPolicyTypesResponseTest :: DescribeLoadBalancerPolicyTypesResponse -> TestTree
-describeLoadBalancerPolicyTypesResponseTest = resp
-    "describeLoadBalancerPolicyTypesResponse"
+testDescribeLoadBalancerPolicyTypesResponse :: DescribeLoadBalancerPolicyTypesResponse -> TestTree
+testDescribeLoadBalancerPolicyTypesResponse = resp
+    "DescribeLoadBalancerPolicyTypesResponse"
     "fixture/DescribeLoadBalancerPolicyTypesResponse"
     (Proxy :: Proxy DescribeLoadBalancerPolicyTypes)
 
-describeLoadBalancersResponseTest :: DescribeLoadBalancersResponse -> TestTree
-describeLoadBalancersResponseTest = resp
-    "describeLoadBalancersResponse"
-    "fixture/DescribeLoadBalancersResponse"
-    (Proxy :: Proxy DescribeLoadBalancers)
-
-describeTagsResponseTest :: DescribeTagsResponse -> TestTree
-describeTagsResponseTest = resp
-    "describeTagsResponse"
+testDescribeTagsResponse :: DescribeTagsResponse -> TestTree
+testDescribeTagsResponse = resp
+    "DescribeTagsResponse"
     "fixture/DescribeTagsResponse"
     (Proxy :: Proxy DescribeTags)
 
-detachLoadBalancerFromSubnetsResponseTest :: DetachLoadBalancerFromSubnetsResponse -> TestTree
-detachLoadBalancerFromSubnetsResponseTest = resp
-    "detachLoadBalancerFromSubnetsResponse"
-    "fixture/DetachLoadBalancerFromSubnetsResponse"
-    (Proxy :: Proxy DetachLoadBalancerFromSubnets)
+testDescribeLoadBalancersResponse :: DescribeLoadBalancersResponse -> TestTree
+testDescribeLoadBalancersResponse = resp
+    "DescribeLoadBalancersResponse"
+    "fixture/DescribeLoadBalancersResponse"
+    (Proxy :: Proxy DescribeLoadBalancers)
 
-disableAvailabilityZonesForLoadBalancerResponseTest :: DisableAvailabilityZonesForLoadBalancerResponse -> TestTree
-disableAvailabilityZonesForLoadBalancerResponseTest = resp
-    "disableAvailabilityZonesForLoadBalancerResponse"
-    "fixture/DisableAvailabilityZonesForLoadBalancerResponse"
-    (Proxy :: Proxy DisableAvailabilityZonesForLoadBalancer)
+testApplySecurityGroupsToLoadBalancerResponse :: ApplySecurityGroupsToLoadBalancerResponse -> TestTree
+testApplySecurityGroupsToLoadBalancerResponse = resp
+    "ApplySecurityGroupsToLoadBalancerResponse"
+    "fixture/ApplySecurityGroupsToLoadBalancerResponse"
+    (Proxy :: Proxy ApplySecurityGroupsToLoadBalancer)
 
-enableAvailabilityZonesForLoadBalancerResponseTest :: EnableAvailabilityZonesForLoadBalancerResponse -> TestTree
-enableAvailabilityZonesForLoadBalancerResponseTest = resp
-    "enableAvailabilityZonesForLoadBalancerResponse"
-    "fixture/EnableAvailabilityZonesForLoadBalancerResponse"
-    (Proxy :: Proxy EnableAvailabilityZonesForLoadBalancer)
-
-modifyLoadBalancerAttributesResponseTest :: ModifyLoadBalancerAttributesResponse -> TestTree
-modifyLoadBalancerAttributesResponseTest = resp
-    "modifyLoadBalancerAttributesResponse"
-    "fixture/ModifyLoadBalancerAttributesResponse"
-    (Proxy :: Proxy ModifyLoadBalancerAttributes)
-
-registerInstancesWithLoadBalancerResponseTest :: RegisterInstancesWithLoadBalancerResponse -> TestTree
-registerInstancesWithLoadBalancerResponseTest = resp
-    "registerInstancesWithLoadBalancerResponse"
-    "fixture/RegisterInstancesWithLoadBalancerResponse"
-    (Proxy :: Proxy RegisterInstancesWithLoadBalancer)
-
-removeTagsResponseTest :: RemoveTagsResponse -> TestTree
-removeTagsResponseTest = resp
-    "removeTagsResponse"
+testRemoveTagsResponse :: RemoveTagsResponse -> TestTree
+testRemoveTagsResponse = resp
+    "RemoveTagsResponse"
     "fixture/RemoveTagsResponse"
     (Proxy :: Proxy RemoveTags)
 
-setLoadBalancerListenerSSLCertificateResponseTest :: SetLoadBalancerListenerSSLCertificateResponse -> TestTree
-setLoadBalancerListenerSSLCertificateResponseTest = resp
-    "setLoadBalancerListenerSSLCertificateResponse"
-    "fixture/SetLoadBalancerListenerSSLCertificateResponse"
-    (Proxy :: Proxy SetLoadBalancerListenerSSLCertificate)
+testCreateLBCookieStickinessPolicyResponse :: CreateLBCookieStickinessPolicyResponse -> TestTree
+testCreateLBCookieStickinessPolicyResponse = resp
+    "CreateLBCookieStickinessPolicyResponse"
+    "fixture/CreateLBCookieStickinessPolicyResponse"
+    (Proxy :: Proxy CreateLBCookieStickinessPolicy)
 
-setLoadBalancerPoliciesForBackendServerResponseTest :: SetLoadBalancerPoliciesForBackendServerResponse -> TestTree
-setLoadBalancerPoliciesForBackendServerResponseTest = resp
-    "setLoadBalancerPoliciesForBackendServerResponse"
+testDeleteLoadBalancerResponse :: DeleteLoadBalancerResponse -> TestTree
+testDeleteLoadBalancerResponse = resp
+    "DeleteLoadBalancerResponse"
+    "fixture/DeleteLoadBalancerResponse"
+    (Proxy :: Proxy DeleteLoadBalancer)
+
+testCreateLoadBalancerPolicyResponse :: CreateLoadBalancerPolicyResponse -> TestTree
+testCreateLoadBalancerPolicyResponse = resp
+    "CreateLoadBalancerPolicyResponse"
+    "fixture/CreateLoadBalancerPolicyResponse"
+    (Proxy :: Proxy CreateLoadBalancerPolicy)
+
+testDeregisterInstancesFromLoadBalancerResponse :: DeregisterInstancesFromLoadBalancerResponse -> TestTree
+testDeregisterInstancesFromLoadBalancerResponse = resp
+    "DeregisterInstancesFromLoadBalancerResponse"
+    "fixture/DeregisterInstancesFromLoadBalancerResponse"
+    (Proxy :: Proxy DeregisterInstancesFromLoadBalancer)
+
+testDescribeLoadBalancerPoliciesResponse :: DescribeLoadBalancerPoliciesResponse -> TestTree
+testDescribeLoadBalancerPoliciesResponse = resp
+    "DescribeLoadBalancerPoliciesResponse"
+    "fixture/DescribeLoadBalancerPoliciesResponse"
+    (Proxy :: Proxy DescribeLoadBalancerPolicies)
+
+testDisableAvailabilityZonesForLoadBalancerResponse :: DisableAvailabilityZonesForLoadBalancerResponse -> TestTree
+testDisableAvailabilityZonesForLoadBalancerResponse = resp
+    "DisableAvailabilityZonesForLoadBalancerResponse"
+    "fixture/DisableAvailabilityZonesForLoadBalancerResponse"
+    (Proxy :: Proxy DisableAvailabilityZonesForLoadBalancer)
+
+testSetLoadBalancerPoliciesForBackendServerResponse :: SetLoadBalancerPoliciesForBackendServerResponse -> TestTree
+testSetLoadBalancerPoliciesForBackendServerResponse = resp
+    "SetLoadBalancerPoliciesForBackendServerResponse"
     "fixture/SetLoadBalancerPoliciesForBackendServerResponse"
     (Proxy :: Proxy SetLoadBalancerPoliciesForBackendServer)
 
-setLoadBalancerPoliciesOfListenerResponseTest :: SetLoadBalancerPoliciesOfListenerResponse -> TestTree
-setLoadBalancerPoliciesOfListenerResponseTest = resp
-    "setLoadBalancerPoliciesOfListenerResponse"
+testEnableAvailabilityZonesForLoadBalancerResponse :: EnableAvailabilityZonesForLoadBalancerResponse -> TestTree
+testEnableAvailabilityZonesForLoadBalancerResponse = resp
+    "EnableAvailabilityZonesForLoadBalancerResponse"
+    "fixture/EnableAvailabilityZonesForLoadBalancerResponse"
+    (Proxy :: Proxy EnableAvailabilityZonesForLoadBalancer)
+
+testSetLoadBalancerListenerSSLCertificateResponse :: SetLoadBalancerListenerSSLCertificateResponse -> TestTree
+testSetLoadBalancerListenerSSLCertificateResponse = resp
+    "SetLoadBalancerListenerSSLCertificateResponse"
+    "fixture/SetLoadBalancerListenerSSLCertificateResponse"
+    (Proxy :: Proxy SetLoadBalancerListenerSSLCertificate)
+
+testConfigureHealthCheckResponse :: ConfigureHealthCheckResponse -> TestTree
+testConfigureHealthCheckResponse = resp
+    "ConfigureHealthCheckResponse"
+    "fixture/ConfigureHealthCheckResponse"
+    (Proxy :: Proxy ConfigureHealthCheck)
+
+testAttachLoadBalancerToSubnetsResponse :: AttachLoadBalancerToSubnetsResponse -> TestTree
+testAttachLoadBalancerToSubnetsResponse = resp
+    "AttachLoadBalancerToSubnetsResponse"
+    "fixture/AttachLoadBalancerToSubnetsResponse"
+    (Proxy :: Proxy AttachLoadBalancerToSubnets)
+
+testModifyLoadBalancerAttributesResponse :: ModifyLoadBalancerAttributesResponse -> TestTree
+testModifyLoadBalancerAttributesResponse = resp
+    "ModifyLoadBalancerAttributesResponse"
+    "fixture/ModifyLoadBalancerAttributesResponse"
+    (Proxy :: Proxy ModifyLoadBalancerAttributes)
+
+testCreateAppCookieStickinessPolicyResponse :: CreateAppCookieStickinessPolicyResponse -> TestTree
+testCreateAppCookieStickinessPolicyResponse = resp
+    "CreateAppCookieStickinessPolicyResponse"
+    "fixture/CreateAppCookieStickinessPolicyResponse"
+    (Proxy :: Proxy CreateAppCookieStickinessPolicy)
+
+testAddTagsResponse :: AddTagsResponse -> TestTree
+testAddTagsResponse = resp
+    "AddTagsResponse"
+    "fixture/AddTagsResponse"
+    (Proxy :: Proxy AddTags)
+
+testDescribeLoadBalancerAttributesResponse :: DescribeLoadBalancerAttributesResponse -> TestTree
+testDescribeLoadBalancerAttributesResponse = resp
+    "DescribeLoadBalancerAttributesResponse"
+    "fixture/DescribeLoadBalancerAttributesResponse"
+    (Proxy :: Proxy DescribeLoadBalancerAttributes)
+
+testDescribeInstanceHealthResponse :: DescribeInstanceHealthResponse -> TestTree
+testDescribeInstanceHealthResponse = resp
+    "DescribeInstanceHealthResponse"
+    "fixture/DescribeInstanceHealthResponse"
+    (Proxy :: Proxy DescribeInstanceHealth)
+
+testDetachLoadBalancerFromSubnetsResponse :: DetachLoadBalancerFromSubnetsResponse -> TestTree
+testDetachLoadBalancerFromSubnetsResponse = resp
+    "DetachLoadBalancerFromSubnetsResponse"
+    "fixture/DetachLoadBalancerFromSubnetsResponse"
+    (Proxy :: Proxy DetachLoadBalancerFromSubnets)
+
+testRegisterInstancesWithLoadBalancerResponse :: RegisterInstancesWithLoadBalancerResponse -> TestTree
+testRegisterInstancesWithLoadBalancerResponse = resp
+    "RegisterInstancesWithLoadBalancerResponse"
+    "fixture/RegisterInstancesWithLoadBalancerResponse"
+    (Proxy :: Proxy RegisterInstancesWithLoadBalancer)
+
+testDeleteLoadBalancerPolicyResponse :: DeleteLoadBalancerPolicyResponse -> TestTree
+testDeleteLoadBalancerPolicyResponse = resp
+    "DeleteLoadBalancerPolicyResponse"
+    "fixture/DeleteLoadBalancerPolicyResponse"
+    (Proxy :: Proxy DeleteLoadBalancerPolicy)
+
+testCreateLoadBalancerListenersResponse :: CreateLoadBalancerListenersResponse -> TestTree
+testCreateLoadBalancerListenersResponse = resp
+    "CreateLoadBalancerListenersResponse"
+    "fixture/CreateLoadBalancerListenersResponse"
+    (Proxy :: Proxy CreateLoadBalancerListeners)
+
+testDeleteLoadBalancerListenersResponse :: DeleteLoadBalancerListenersResponse -> TestTree
+testDeleteLoadBalancerListenersResponse = resp
+    "DeleteLoadBalancerListenersResponse"
+    "fixture/DeleteLoadBalancerListenersResponse"
+    (Proxy :: Proxy DeleteLoadBalancerListeners)
+
+testCreateLoadBalancerResponse :: CreateLoadBalancerResponse -> TestTree
+testCreateLoadBalancerResponse = resp
+    "CreateLoadBalancerResponse"
+    "fixture/CreateLoadBalancerResponse"
+    (Proxy :: Proxy CreateLoadBalancer)
+
+testSetLoadBalancerPoliciesOfListenerResponse :: SetLoadBalancerPoliciesOfListenerResponse -> TestTree
+testSetLoadBalancerPoliciesOfListenerResponse = resp
+    "SetLoadBalancerPoliciesOfListenerResponse"
     "fixture/SetLoadBalancerPoliciesOfListenerResponse"
     (Proxy :: Proxy SetLoadBalancerPoliciesOfListener)

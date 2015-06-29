@@ -23,2744 +23,2744 @@ import Network.AWS.EC2
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ acceptVPCPeeringConnectionTest $
---             acceptVPCPeeringConnection
---
---         , allocateAddressTest $
---             allocateAddress
---
---         , assignPrivateIPAddressesTest $
---             assignPrivateIPAddresses
---
---         , associateAddressTest $
---             associateAddress
---
---         , associateDHCPOptionsTest $
---             associateDHCPOptions
---
---         , associateRouteTableTest $
---             associateRouteTable
---
---         , attachClassicLinkVPCTest $
---             attachClassicLinkVPC
---
---         , attachInternetGatewayTest $
---             attachInternetGateway
---
---         , attachNetworkInterfaceTest $
---             attachNetworkInterface
---
---         , attachVPNGatewayTest $
---             attachVPNGateway
---
---         , attachVolumeTest $
---             attachVolume
---
---         , authorizeSecurityGroupEgressTest $
---             authorizeSecurityGroupEgress
---
---         , authorizeSecurityGroupIngressTest $
---             authorizeSecurityGroupIngress
---
---         , bundleInstanceTest $
---             bundleInstance
---
---         , cancelBundleTaskTest $
---             cancelBundleTask
---
---         , cancelConversionTaskTest $
---             cancelConversionTask
---
---         , cancelExportTaskTest $
---             cancelExportTask
---
---         , cancelImportTaskTest $
---             cancelImportTask
---
---         , cancelReservedInstancesListingTest $
---             cancelReservedInstancesListing
---
---         , cancelSpotFleetRequestsTest $
---             cancelSpotFleetRequests
---
---         , cancelSpotInstanceRequestsTest $
---             cancelSpotInstanceRequests
---
---         , confirmProductInstanceTest $
---             confirmProductInstance
---
---         , copyImageTest $
---             copyImage
---
---         , copySnapshotTest $
---             copySnapshot
---
---         , createCustomerGatewayTest $
---             createCustomerGateway
---
---         , createDHCPOptionsTest $
---             createDHCPOptions
---
---         , createFlowLogsTest $
---             createFlowLogs
---
---         , createImageTest $
---             createImage
---
---         , createInstanceExportTaskTest $
---             createInstanceExportTask
---
---         , createInternetGatewayTest $
---             createInternetGateway
---
---         , createKeyPairTest $
---             createKeyPair
---
---         , createNetworkACLTest $
---             createNetworkACL
---
---         , createNetworkACLEntryTest $
---             createNetworkACLEntry
---
---         , createNetworkInterfaceTest $
---             createNetworkInterface
---
---         , createPlacementGroupTest $
---             createPlacementGroup
---
---         , createReservedInstancesListingTest $
---             createReservedInstancesListing
---
---         , createRouteTest $
---             createRoute
---
---         , createRouteTableTest $
---             createRouteTable
---
---         , createSecurityGroupTest $
---             createSecurityGroup
---
---         , createSnapshotTest $
---             createSnapshot
---
---         , createSpotDatafeedSubscriptionTest $
---             createSpotDatafeedSubscription
---
---         , createSubnetTest $
---             createSubnet
---
---         , createTagsTest $
---             createTags
---
---         , createVPCTest $
---             createVPC
---
---         , createVPCEndpointTest $
---             createVPCEndpoint
---
---         , createVPCPeeringConnectionTest $
---             createVPCPeeringConnection
---
---         , createVPNConnectionTest $
---             createVPNConnection
---
---         , createVPNConnectionRouteTest $
---             createVPNConnectionRoute
---
---         , createVPNGatewayTest $
---             createVPNGateway
---
---         , createVolumeTest $
---             createVolume
---
---         , deleteCustomerGatewayTest $
---             deleteCustomerGateway
---
---         , deleteDHCPOptionsTest $
---             deleteDHCPOptions
---
---         , deleteFlowLogsTest $
---             deleteFlowLogs
---
---         , deleteInternetGatewayTest $
---             deleteInternetGateway
---
---         , deleteKeyPairTest $
---             deleteKeyPair
---
---         , deleteNetworkACLTest $
---             deleteNetworkACL
---
---         , deleteNetworkACLEntryTest $
---             deleteNetworkACLEntry
---
---         , deleteNetworkInterfaceTest $
---             deleteNetworkInterface
---
---         , deletePlacementGroupTest $
---             deletePlacementGroup
---
---         , deleteRouteTest $
---             deleteRoute
---
---         , deleteRouteTableTest $
---             deleteRouteTable
---
---         , deleteSecurityGroupTest $
---             deleteSecurityGroup
---
---         , deleteSnapshotTest $
---             deleteSnapshot
---
---         , deleteSpotDatafeedSubscriptionTest $
---             deleteSpotDatafeedSubscription
---
---         , deleteSubnetTest $
---             deleteSubnet
---
---         , deleteTagsTest $
---             deleteTags
---
---         , deleteVPCTest $
---             deleteVPC
---
---         , deleteVPCEndpointsTest $
---             deleteVPCEndpoints
---
---         , deleteVPCPeeringConnectionTest $
---             deleteVPCPeeringConnection
---
---         , deleteVPNConnectionTest $
---             deleteVPNConnection
---
---         , deleteVPNConnectionRouteTest $
---             deleteVPNConnectionRoute
---
---         , deleteVPNGatewayTest $
---             deleteVPNGateway
---
---         , deleteVolumeTest $
---             deleteVolume
---
---         , deregisterImageTest $
---             deregisterImage
---
---         , describeAccountAttributesTest $
---             describeAccountAttributes
---
---         , describeAddressesTest $
---             describeAddresses
---
---         , describeAvailabilityZonesTest $
---             describeAvailabilityZones
---
---         , describeBundleTasksTest $
---             describeBundleTasks
---
---         , describeClassicLinkInstancesTest $
---             describeClassicLinkInstances
---
---         , describeConversionTasksTest $
---             describeConversionTasks
---
---         , describeCustomerGatewaysTest $
---             describeCustomerGateways
---
---         , describeDHCPOptionsTest $
---             describeDHCPOptions
---
---         , describeExportTasksTest $
---             describeExportTasks
---
---         , describeFlowLogsTest $
---             describeFlowLogs
---
---         , describeImageAttributeTest $
---             describeImageAttribute
---
---         , describeImagesTest $
---             describeImages
---
---         , describeImportImageTasksTest $
---             describeImportImageTasks
---
---         , describeImportSnapshotTasksTest $
---             describeImportSnapshotTasks
---
---         , describeInstanceAttributeTest $
---             describeInstanceAttribute
---
---         , describeInstanceStatusTest $
---             describeInstanceStatus
---
---         , describeInstancesTest $
---             describeInstances
---
---         , describeInternetGatewaysTest $
---             describeInternetGateways
---
---         , describeKeyPairsTest $
---             describeKeyPairs
---
---         , describeMovingAddressesTest $
---             describeMovingAddresses
---
---         , describeNetworkACLsTest $
---             describeNetworkACLs
---
---         , describeNetworkInterfaceAttributeTest $
---             describeNetworkInterfaceAttribute
---
---         , describeNetworkInterfacesTest $
---             describeNetworkInterfaces
---
---         , describePlacementGroupsTest $
---             describePlacementGroups
---
---         , describePrefixListsTest $
---             describePrefixLists
---
---         , describeRegionsTest $
---             describeRegions
---
---         , describeReservedInstancesTest $
---             describeReservedInstances
---
---         , describeReservedInstancesListingsTest $
---             describeReservedInstancesListings
---
---         , describeReservedInstancesModificationsTest $
---             describeReservedInstancesModifications
---
---         , describeReservedInstancesOfferingsTest $
---             describeReservedInstancesOfferings
---
---         , describeRouteTablesTest $
---             describeRouteTables
---
---         , describeSecurityGroupsTest $
---             describeSecurityGroups
---
---         , describeSnapshotAttributeTest $
---             describeSnapshotAttribute
---
---         , describeSnapshotsTest $
---             describeSnapshots
---
---         , describeSpotDatafeedSubscriptionTest $
---             describeSpotDatafeedSubscription
---
---         , describeSpotFleetInstancesTest $
---             describeSpotFleetInstances
---
---         , describeSpotFleetRequestHistoryTest $
---             describeSpotFleetRequestHistory
---
---         , describeSpotFleetRequestsTest $
---             describeSpotFleetRequests
---
---         , describeSpotInstanceRequestsTest $
---             describeSpotInstanceRequests
---
---         , describeSpotPriceHistoryTest $
---             describeSpotPriceHistory
---
---         , describeSubnetsTest $
---             describeSubnets
---
---         , describeTagsTest $
---             describeTags
---
---         , describeVPCAttributeTest $
---             describeVPCAttribute
---
---         , describeVPCClassicLinkTest $
---             describeVPCClassicLink
---
---         , describeVPCEndpointServicesTest $
---             describeVPCEndpointServices
---
---         , describeVPCEndpointsTest $
---             describeVPCEndpoints
---
---         , describeVPCPeeringConnectionsTest $
---             describeVPCPeeringConnections
---
---         , describeVPCsTest $
---             describeVPCs
---
---         , describeVPNConnectionsTest $
---             describeVPNConnections
---
---         , describeVPNGatewaysTest $
---             describeVPNGateways
---
---         , describeVolumeAttributeTest $
---             describeVolumeAttribute
---
---         , describeVolumeStatusTest $
---             describeVolumeStatus
---
---         , describeVolumesTest $
---             describeVolumes
---
---         , detachClassicLinkVPCTest $
---             detachClassicLinkVPC
---
---         , detachInternetGatewayTest $
---             detachInternetGateway
---
---         , detachNetworkInterfaceTest $
+--         [ testDetachNetworkInterface $
 --             detachNetworkInterface
 --
---         , detachVPNGatewayTest $
---             detachVPNGateway
+--         , testDeleteVPCEndpoints $
+--             deleteVPCEndpoints
 --
---         , detachVolumeTest $
---             detachVolume
+--         , testDeleteKeyPair $
+--             deleteKeyPair
 --
---         , disableVGWRoutePropagationTest $
---             disableVGWRoutePropagation
+--         , testDeleteFlowLogs $
+--             deleteFlowLogs
 --
---         , disableVPCClassicLinkTest $
---             disableVPCClassicLink
+--         , testDescribeTags $
+--             describeTags
 --
---         , disassociateAddressTest $
---             disassociateAddress
---
---         , disassociateRouteTableTest $
---             disassociateRouteTable
---
---         , enableVGWRoutePropagationTest $
---             enableVGWRoutePropagation
---
---         , enableVPCClassicLinkTest $
---             enableVPCClassicLink
---
---         , enableVolumeIOTest $
---             enableVolumeIO
---
---         , getConsoleOutputTest $
---             getConsoleOutput
---
---         , getPasswordDataTest $
---             getPasswordData
---
---         , importImageTest $
---             importImage
---
---         , importInstanceTest $
---             importInstance
---
---         , importKeyPairTest $
---             importKeyPair
---
---         , importSnapshotTest $
---             importSnapshot
---
---         , importVolumeTest $
---             importVolume
---
---         , modifyImageAttributeTest $
---             modifyImageAttribute
---
---         , modifyInstanceAttributeTest $
---             modifyInstanceAttribute
---
---         , modifyNetworkInterfaceAttributeTest $
---             modifyNetworkInterfaceAttribute
---
---         , modifyReservedInstancesTest $
---             modifyReservedInstances
---
---         , modifySnapshotAttributeTest $
---             modifySnapshotAttribute
---
---         , modifySubnetAttributeTest $
---             modifySubnetAttribute
---
---         , modifyVPCAttributeTest $
---             modifyVPCAttribute
---
---         , modifyVPCEndpointTest $
---             modifyVPCEndpoint
---
---         , modifyVolumeAttributeTest $
---             modifyVolumeAttribute
---
---         , monitorInstancesTest $
---             monitorInstances
---
---         , moveAddressToVPCTest $
---             moveAddressToVPC
---
---         , purchaseReservedInstancesOfferingTest $
---             purchaseReservedInstancesOffering
---
---         , rebootInstancesTest $
---             rebootInstances
---
---         , registerImageTest $
---             registerImage
---
---         , rejectVPCPeeringConnectionTest $
---             rejectVPCPeeringConnection
---
---         , releaseAddressTest $
---             releaseAddress
---
---         , replaceNetworkACLAssociationTest $
---             replaceNetworkACLAssociation
---
---         , replaceNetworkACLEntryTest $
---             replaceNetworkACLEntry
---
---         , replaceRouteTest $
---             replaceRoute
---
---         , replaceRouteTableAssociationTest $
---             replaceRouteTableAssociation
---
---         , reportInstanceStatusTest $
---             reportInstanceStatus
---
---         , requestSpotFleetTest $
---             requestSpotFleet
---
---         , requestSpotInstancesTest $
---             requestSpotInstances
---
---         , resetImageAttributeTest $
---             resetImageAttribute
---
---         , resetInstanceAttributeTest $
---             resetInstanceAttribute
---
---         , resetNetworkInterfaceAttributeTest $
---             resetNetworkInterfaceAttribute
---
---         , resetSnapshotAttributeTest $
---             resetSnapshotAttribute
---
---         , restoreAddressToClassicTest $
---             restoreAddressToClassic
---
---         , revokeSecurityGroupEgressTest $
+--         , testRevokeSecurityGroupEgress $
 --             revokeSecurityGroupEgress
 --
---         , revokeSecurityGroupIngressTest $
---             revokeSecurityGroupIngress
+--         , testCreateVPNGateway $
+--             createVPNGateway
 --
---         , runInstancesTest $
---             runInstances
+--         , testDetachInternetGateway $
+--             detachInternetGateway
 --
---         , startInstancesTest $
---             startInstances
+--         , testCreateNetworkACL $
+--             createNetworkACL
 --
---         , stopInstancesTest $
+--         , testImportInstance $
+--             importInstance
+--
+--         , testDescribeVPCClassicLink $
+--             describeVPCClassicLink
+--
+--         , testDeleteVPNConnection $
+--             deleteVPNConnection
+--
+--         , testAuthorizeSecurityGroupEgress $
+--             authorizeSecurityGroupEgress
+--
+--         , testDescribeBundleTasks $
+--             describeBundleTasks
+--
+--         , testCreateInternetGateway $
+--             createInternetGateway
+--
+--         , testReleaseAddress $
+--             releaseAddress
+--
+--         , testCancelBundleTask $
+--             cancelBundleTask
+--
+--         , testModifyNetworkInterfaceAttribute $
+--             modifyNetworkInterfaceAttribute
+--
+--         , testModifySubnetAttribute $
+--             modifySubnetAttribute
+--
+--         , testDeregisterImage $
+--             deregisterImage
+--
+--         , testDetachVolume $
+--             detachVolume
+--
+--         , testCancelReservedInstancesListing $
+--             cancelReservedInstancesListing
+--
+--         , testAttachClassicLinkVPC $
+--             attachClassicLinkVPC
+--
+--         , testCancelSpotFleetRequests $
+--             cancelSpotFleetRequests
+--
+--         , testDescribeDHCPOptions $
+--             describeDHCPOptions
+--
+--         , testDescribeSpotPriceHistory $
+--             describeSpotPriceHistory
+--
+--         , testStopInstances $
 --             stopInstances
 --
---         , terminateInstancesTest $
+--         , testImportImage $
+--             importImage
+--
+--         , testDeleteNetworkACLEntry $
+--             deleteNetworkACLEntry
+--
+--         , testDisableVPCClassicLink $
+--             disableVPCClassicLink
+--
+--         , testAuthorizeSecurityGroupIngress $
+--             authorizeSecurityGroupIngress
+--
+--         , testBundleInstance $
+--             bundleInstance
+--
+--         , testDescribeVPCEndpointServices $
+--             describeVPCEndpointServices
+--
+--         , testReplaceNetworkACLAssociation $
+--             replaceNetworkACLAssociation
+--
+--         , testCreateVPCPeeringConnection $
+--             createVPCPeeringConnection
+--
+--         , testResetSnapshotAttribute $
+--             resetSnapshotAttribute
+--
+--         , testDescribeAddresses $
+--             describeAddresses
+--
+--         , testDescribeInternetGateways $
+--             describeInternetGateways
+--
+--         , testReplaceRoute $
+--             replaceRoute
+--
+--         , testCreateTags $
+--             createTags
+--
+--         , testDescribeSubnets $
+--             describeSubnets
+--
+--         , testDescribeNetworkInterfaces $
+--             describeNetworkInterfaces
+--
+--         , testPurchaseReservedInstancesOffering $
+--             purchaseReservedInstancesOffering
+--
+--         , testDescribeSnapshotAttribute $
+--             describeSnapshotAttribute
+--
+--         , testCreateCustomerGateway $
+--             createCustomerGateway
+--
+--         , testAttachInternetGateway $
+--             attachInternetGateway
+--
+--         , testDeleteTags $
+--             deleteTags
+--
+--         , testReplaceNetworkACLEntry $
+--             replaceNetworkACLEntry
+--
+--         , testResetInstanceAttribute $
+--             resetInstanceAttribute
+--
+--         , testDeleteRoute $
+--             deleteRoute
+--
+--         , testDescribeVPNConnections $
+--             describeVPNConnections
+--
+--         , testDescribeFlowLogs $
+--             describeFlowLogs
+--
+--         , testDeleteSecurityGroup $
+--             deleteSecurityGroup
+--
+--         , testDescribeReservedInstancesOfferings $
+--             describeReservedInstancesOfferings
+--
+--         , testDeleteVPCPeeringConnection $
+--             deleteVPCPeeringConnection
+--
+--         , testDescribeVPCEndpoints $
+--             describeVPCEndpoints
+--
+--         , testDescribeInstanceAttribute $
+--             describeInstanceAttribute
+--
+--         , testConfirmProductInstance $
+--             confirmProductInstance
+--
+--         , testImportKeyPair $
+--             importKeyPair
+--
+--         , testAttachNetworkInterface $
+--             attachNetworkInterface
+--
+--         , testDescribeInstanceStatus $
+--             describeInstanceStatus
+--
+--         , testCancelConversionTask $
+--             cancelConversionTask
+--
+--         , testReportInstanceStatus $
+--             reportInstanceStatus
+--
+--         , testAssociateDHCPOptions $
+--             associateDHCPOptions
+--
+--         , testDescribeVPCs $
+--             describeVPCs
+--
+--         , testRequestSpotInstances $
+--             requestSpotInstances
+--
+--         , testModifyImageAttribute $
+--             modifyImageAttribute
+--
+--         , testDescribeReservedInstances $
+--             describeReservedInstances
+--
+--         , testAllocateAddress $
+--             allocateAddress
+--
+--         , testRunInstances $
+--             runInstances
+--
+--         , testCreateRouteTable $
+--             createRouteTable
+--
+--         , testAttachVolume $
+--             attachVolume
+--
+--         , testDescribeConversionTasks $
+--             describeConversionTasks
+--
+--         , testRejectVPCPeeringConnection $
+--             rejectVPCPeeringConnection
+--
+--         , testRevokeSecurityGroupIngress $
+--             revokeSecurityGroupIngress
+--
+--         , testDescribeVolumes $
+--             describeVolumes
+--
+--         , testDeleteVPNConnectionRoute $
+--             deleteVPNConnectionRoute
+--
+--         , testModifyReservedInstances $
+--             modifyReservedInstances
+--
+--         , testRegisterImage $
+--             registerImage
+--
+--         , testModifyVPCEndpoint $
+--             modifyVPCEndpoint
+--
+--         , testDeleteVPNGateway $
+--             deleteVPNGateway
+--
+--         , testCreateVPC $
+--             createVPC
+--
+--         , testDescribeMovingAddresses $
+--             describeMovingAddresses
+--
+--         , testDescribeVolumeAttribute $
+--             describeVolumeAttribute
+--
+--         , testMoveAddressToVPC $
+--             moveAddressToVPC
+--
+--         , testGetPasswordData $
+--             getPasswordData
+--
+--         , testCreateFlowLogs $
+--             createFlowLogs
+--
+--         , testDescribeImportImageTasks $
+--             describeImportImageTasks
+--
+--         , testDeleteNetworkACL $
+--             deleteNetworkACL
+--
+--         , testDescribeSpotFleetRequests $
+--             describeSpotFleetRequests
+--
+--         , testCopySnapshot $
+--             copySnapshot
+--
+--         , testModifyVolumeAttribute $
+--             modifyVolumeAttribute
+--
+--         , testDescribeVPCAttribute $
+--             describeVPCAttribute
+--
+--         , testCreateVolume $
+--             createVolume
+--
+--         , testDisassociateAddress $
+--             disassociateAddress
+--
+--         , testDeleteVPC $
+--             deleteVPC
+--
+--         , testDescribePrefixLists $
+--             describePrefixLists
+--
+--         , testCreateInstanceExportTask $
+--             createInstanceExportTask
+--
+--         , testDescribeSpotDatafeedSubscription $
+--             describeSpotDatafeedSubscription
+--
+--         , testDetachVPNGateway $
+--             detachVPNGateway
+--
+--         , testDescribeExportTasks $
+--             describeExportTasks
+--
+--         , testDeletePlacementGroup $
+--             deletePlacementGroup
+--
+--         , testCreateSubnet $
+--             createSubnet
+--
+--         , testEnableVolumeIO $
+--             enableVolumeIO
+--
+--         , testCancelExportTask $
+--             cancelExportTask
+--
+--         , testRequestSpotFleet $
+--             requestSpotFleet
+--
+--         , testDescribeInstances $
+--             describeInstances
+--
+--         , testDescribeSecurityGroups $
+--             describeSecurityGroups
+--
+--         , testDescribeVPCPeeringConnections $
+--             describeVPCPeeringConnections
+--
+--         , testCreateNetworkInterface $
+--             createNetworkInterface
+--
+--         , testAssociateAddress $
+--             associateAddress
+--
+--         , testStartInstances $
+--             startInstances
+--
+--         , testDescribeCustomerGateways $
+--             describeCustomerGateways
+--
+--         , testResetNetworkInterfaceAttribute $
+--             resetNetworkInterfaceAttribute
+--
+--         , testCreateVPNConnection $
+--             createVPNConnection
+--
+--         , testDescribeSnapshots $
+--             describeSnapshots
+--
+--         , testCreatePlacementGroup $
+--             createPlacementGroup
+--
+--         , testReplaceRouteTableAssociation $
+--             replaceRouteTableAssociation
+--
+--         , testDescribeNetworkInterfaceAttribute $
+--             describeNetworkInterfaceAttribute
+--
+--         , testDescribeReservedInstancesListings $
+--             describeReservedInstancesListings
+--
+--         , testDeleteNetworkInterface $
+--             deleteNetworkInterface
+--
+--         , testDeleteInternetGateway $
+--             deleteInternetGateway
+--
+--         , testDeleteSubnet $
+--             deleteSubnet
+--
+--         , testCreateVPCEndpoint $
+--             createVPCEndpoint
+--
+--         , testDescribeImportSnapshotTasks $
+--             describeImportSnapshotTasks
+--
+--         , testCopyImage $
+--             copyImage
+--
+--         , testDisassociateRouteTable $
+--             disassociateRouteTable
+--
+--         , testUnmonitorInstances $
+--             unmonitorInstances
+--
+--         , testImportVolume $
+--             importVolume
+--
+--         , testDisableVGWRoutePropagation $
+--             disableVGWRoutePropagation
+--
+--         , testCreateSpotDatafeedSubscription $
+--             createSpotDatafeedSubscription
+--
+--         , testAssignPrivateIPAddresses $
+--             assignPrivateIPAddresses
+--
+--         , testDeleteSnapshot $
+--             deleteSnapshot
+--
+--         , testDeleteCustomerGateway $
+--             deleteCustomerGateway
+--
+--         , testModifyInstanceAttribute $
+--             modifyInstanceAttribute
+--
+--         , testCreateSecurityGroup $
+--             createSecurityGroup
+--
+--         , testCancelSpotInstanceRequests $
+--             cancelSpotInstanceRequests
+--
+--         , testCreateRoute $
+--             createRoute
+--
+--         , testCreateNetworkACLEntry $
+--             createNetworkACLEntry
+--
+--         , testModifySnapshotAttribute $
+--             modifySnapshotAttribute
+--
+--         , testEnableVGWRoutePropagation $
+--             enableVGWRoutePropagation
+--
+--         , testCreateSnapshot $
+--             createSnapshot
+--
+--         , testDescribeSpotFleetRequestHistory $
+--             describeSpotFleetRequestHistory
+--
+--         , testDeleteSpotDatafeedSubscription $
+--             deleteSpotDatafeedSubscription
+--
+--         , testDescribePlacementGroups $
+--             describePlacementGroups
+--
+--         , testCreateReservedInstancesListing $
+--             createReservedInstancesListing
+--
+--         , testEnableVPCClassicLink $
+--             enableVPCClassicLink
+--
+--         , testDescribeKeyPairs $
+--             describeKeyPairs
+--
+--         , testRebootInstances $
+--             rebootInstances
+--
+--         , testAttachVPNGateway $
+--             attachVPNGateway
+--
+--         , testCreateVPNConnectionRoute $
+--             createVPNConnectionRoute
+--
+--         , testDescribeClassicLinkInstances $
+--             describeClassicLinkInstances
+--
+--         , testTerminateInstances $
 --             terminateInstances
 --
---         , unassignPrivateIPAddressesTest $
+--         , testCreateDHCPOptions $
+--             createDHCPOptions
+--
+--         , testAssociateRouteTable $
+--             associateRouteTable
+--
+--         , testCreateImage $
+--             createImage
+--
+--         , testDescribeAccountAttributes $
+--             describeAccountAttributes
+--
+--         , testResetImageAttribute $
+--             resetImageAttribute
+--
+--         , testDescribeNetworkACLs $
+--             describeNetworkACLs
+--
+--         , testCancelImportTask $
+--             cancelImportTask
+--
+--         , testGetConsoleOutput $
+--             getConsoleOutput
+--
+--         , testUnassignPrivateIPAddresses $
 --             unassignPrivateIPAddresses
 --
---         , unmonitorInstancesTest $
---             unmonitorInstances
+--         , testDeleteRouteTable $
+--             deleteRouteTable
+--
+--         , testDescribeImageAttribute $
+--             describeImageAttribute
+--
+--         , testDeleteDHCPOptions $
+--             deleteDHCPOptions
+--
+--         , testDescribeVPNGateways $
+--             describeVPNGateways
+--
+--         , testDetachClassicLinkVPC $
+--             detachClassicLinkVPC
+--
+--         , testDescribeReservedInstancesModifications $
+--             describeReservedInstancesModifications
+--
+--         , testDescribeSpotInstanceRequests $
+--             describeSpotInstanceRequests
+--
+--         , testMonitorInstances $
+--             monitorInstances
+--
+--         , testDescribeRegions $
+--             describeRegions
+--
+--         , testModifyVPCAttribute $
+--             modifyVPCAttribute
+--
+--         , testDescribeSpotFleetInstances $
+--             describeSpotFleetInstances
+--
+--         , testDescribeVolumeStatus $
+--             describeVolumeStatus
+--
+--         , testDeleteVolume $
+--             deleteVolume
+--
+--         , testDescribeImages $
+--             describeImages
+--
+--         , testCreateKeyPair $
+--             createKeyPair
+--
+--         , testRestoreAddressToClassic $
+--             restoreAddressToClassic
+--
+--         , testDescribeAvailabilityZones $
+--             describeAvailabilityZones
+--
+--         , testImportSnapshot $
+--             importSnapshot
+--
+--         , testAcceptVPCPeeringConnection $
+--             acceptVPCPeeringConnection
+--
+--         , testDescribeRouteTables $
+--             describeRouteTables
 --
 --           ]
 
 --     , testGroup "response"
---         [ acceptVPCPeeringConnectionResponseTest $
---             acceptVPCPeeringConnectionResponse
---
---         , allocateAddressResponseTest $
---             allocateAddressResponse
---
---         , assignPrivateIPAddressesResponseTest $
---             assignPrivateIPAddressesResponse
---
---         , associateAddressResponseTest $
---             associateAddressResponse
---
---         , associateDHCPOptionsResponseTest $
---             associateDHCPOptionsResponse
---
---         , associateRouteTableResponseTest $
---             associateRouteTableResponse
---
---         , attachClassicLinkVPCResponseTest $
---             attachClassicLinkVPCResponse
---
---         , attachInternetGatewayResponseTest $
---             attachInternetGatewayResponse
---
---         , attachNetworkInterfaceResponseTest $
---             attachNetworkInterfaceResponse
---
---         , attachVPNGatewayResponseTest $
---             attachVPNGatewayResponse
---
---         , attachVolumeResponseTest $
---             volumeAttachment
---
---         , authorizeSecurityGroupEgressResponseTest $
---             authorizeSecurityGroupEgressResponse
---
---         , authorizeSecurityGroupIngressResponseTest $
---             authorizeSecurityGroupIngressResponse
---
---         , bundleInstanceResponseTest $
---             bundleInstanceResponse
---
---         , cancelBundleTaskResponseTest $
---             cancelBundleTaskResponse
---
---         , cancelConversionTaskResponseTest $
---             cancelConversionTaskResponse
---
---         , cancelExportTaskResponseTest $
---             cancelExportTaskResponse
---
---         , cancelImportTaskResponseTest $
---             cancelImportTaskResponse
---
---         , cancelReservedInstancesListingResponseTest $
---             cancelReservedInstancesListingResponse
---
---         , cancelSpotFleetRequestsResponseTest $
---             cancelSpotFleetRequestsResponse
---
---         , cancelSpotInstanceRequestsResponseTest $
---             cancelSpotInstanceRequestsResponse
---
---         , confirmProductInstanceResponseTest $
---             confirmProductInstanceResponse
---
---         , copyImageResponseTest $
---             copyImageResponse
---
---         , copySnapshotResponseTest $
---             copySnapshotResponse
---
---         , createCustomerGatewayResponseTest $
---             createCustomerGatewayResponse
---
---         , createDHCPOptionsResponseTest $
---             createDHCPOptionsResponse
---
---         , createFlowLogsResponseTest $
---             createFlowLogsResponse
---
---         , createImageResponseTest $
---             createImageResponse
---
---         , createInstanceExportTaskResponseTest $
---             createInstanceExportTaskResponse
---
---         , createInternetGatewayResponseTest $
---             createInternetGatewayResponse
---
---         , createKeyPairResponseTest $
---             createKeyPairResponse
---
---         , createNetworkACLResponseTest $
---             createNetworkACLResponse
---
---         , createNetworkACLEntryResponseTest $
---             createNetworkACLEntryResponse
---
---         , createNetworkInterfaceResponseTest $
---             createNetworkInterfaceResponse
---
---         , createPlacementGroupResponseTest $
---             createPlacementGroupResponse
---
---         , createReservedInstancesListingResponseTest $
---             createReservedInstancesListingResponse
---
---         , createRouteResponseTest $
---             createRouteResponse
---
---         , createRouteTableResponseTest $
---             createRouteTableResponse
---
---         , createSecurityGroupResponseTest $
---             createSecurityGroupResponse
---
---         , createSnapshotResponseTest $
---             snapshot
---
---         , createSpotDatafeedSubscriptionResponseTest $
---             createSpotDatafeedSubscriptionResponse
---
---         , createSubnetResponseTest $
---             createSubnetResponse
---
---         , createTagsResponseTest $
---             createTagsResponse
---
---         , createVPCResponseTest $
---             createVPCResponse
---
---         , createVPCEndpointResponseTest $
---             createVPCEndpointResponse
---
---         , createVPCPeeringConnectionResponseTest $
---             createVPCPeeringConnectionResponse
---
---         , createVPNConnectionResponseTest $
---             createVPNConnectionResponse
---
---         , createVPNConnectionRouteResponseTest $
---             createVPNConnectionRouteResponse
---
---         , createVPNGatewayResponseTest $
---             createVPNGatewayResponse
---
---         , createVolumeResponseTest $
---             volume
---
---         , deleteCustomerGatewayResponseTest $
---             deleteCustomerGatewayResponse
---
---         , deleteDHCPOptionsResponseTest $
---             deleteDHCPOptionsResponse
---
---         , deleteFlowLogsResponseTest $
---             deleteFlowLogsResponse
---
---         , deleteInternetGatewayResponseTest $
---             deleteInternetGatewayResponse
---
---         , deleteKeyPairResponseTest $
---             deleteKeyPairResponse
---
---         , deleteNetworkACLResponseTest $
---             deleteNetworkACLResponse
---
---         , deleteNetworkACLEntryResponseTest $
---             deleteNetworkACLEntryResponse
---
---         , deleteNetworkInterfaceResponseTest $
---             deleteNetworkInterfaceResponse
---
---         , deletePlacementGroupResponseTest $
---             deletePlacementGroupResponse
---
---         , deleteRouteResponseTest $
---             deleteRouteResponse
---
---         , deleteRouteTableResponseTest $
---             deleteRouteTableResponse
---
---         , deleteSecurityGroupResponseTest $
---             deleteSecurityGroupResponse
---
---         , deleteSnapshotResponseTest $
---             deleteSnapshotResponse
---
---         , deleteSpotDatafeedSubscriptionResponseTest $
---             deleteSpotDatafeedSubscriptionResponse
---
---         , deleteSubnetResponseTest $
---             deleteSubnetResponse
---
---         , deleteTagsResponseTest $
---             deleteTagsResponse
---
---         , deleteVPCResponseTest $
---             deleteVPCResponse
---
---         , deleteVPCEndpointsResponseTest $
---             deleteVPCEndpointsResponse
---
---         , deleteVPCPeeringConnectionResponseTest $
---             deleteVPCPeeringConnectionResponse
---
---         , deleteVPNConnectionResponseTest $
---             deleteVPNConnectionResponse
---
---         , deleteVPNConnectionRouteResponseTest $
---             deleteVPNConnectionRouteResponse
---
---         , deleteVPNGatewayResponseTest $
---             deleteVPNGatewayResponse
---
---         , deleteVolumeResponseTest $
---             deleteVolumeResponse
---
---         , deregisterImageResponseTest $
---             deregisterImageResponse
---
---         , describeAccountAttributesResponseTest $
---             describeAccountAttributesResponse
---
---         , describeAddressesResponseTest $
---             describeAddressesResponse
---
---         , describeAvailabilityZonesResponseTest $
---             describeAvailabilityZonesResponse
---
---         , describeBundleTasksResponseTest $
---             describeBundleTasksResponse
---
---         , describeClassicLinkInstancesResponseTest $
---             describeClassicLinkInstancesResponse
---
---         , describeConversionTasksResponseTest $
---             describeConversionTasksResponse
---
---         , describeCustomerGatewaysResponseTest $
---             describeCustomerGatewaysResponse
---
---         , describeDHCPOptionsResponseTest $
---             describeDHCPOptionsResponse
---
---         , describeExportTasksResponseTest $
---             describeExportTasksResponse
---
---         , describeFlowLogsResponseTest $
---             describeFlowLogsResponse
---
---         , describeImageAttributeResponseTest $
---             describeImageAttributeResponse
---
---         , describeImagesResponseTest $
---             describeImagesResponse
---
---         , describeImportImageTasksResponseTest $
---             describeImportImageTasksResponse
---
---         , describeImportSnapshotTasksResponseTest $
---             describeImportSnapshotTasksResponse
---
---         , describeInstanceAttributeResponseTest $
---             describeInstanceAttributeResponse
---
---         , describeInstanceStatusResponseTest $
---             describeInstanceStatusResponse
---
---         , describeInstancesResponseTest $
---             describeInstancesResponse
---
---         , describeInternetGatewaysResponseTest $
---             describeInternetGatewaysResponse
---
---         , describeKeyPairsResponseTest $
---             describeKeyPairsResponse
---
---         , describeMovingAddressesResponseTest $
---             describeMovingAddressesResponse
---
---         , describeNetworkACLsResponseTest $
---             describeNetworkACLsResponse
---
---         , describeNetworkInterfaceAttributeResponseTest $
---             describeNetworkInterfaceAttributeResponse
---
---         , describeNetworkInterfacesResponseTest $
---             describeNetworkInterfacesResponse
---
---         , describePlacementGroupsResponseTest $
---             describePlacementGroupsResponse
---
---         , describePrefixListsResponseTest $
---             describePrefixListsResponse
---
---         , describeRegionsResponseTest $
---             describeRegionsResponse
---
---         , describeReservedInstancesResponseTest $
---             describeReservedInstancesResponse
---
---         , describeReservedInstancesListingsResponseTest $
---             describeReservedInstancesListingsResponse
---
---         , describeReservedInstancesModificationsResponseTest $
---             describeReservedInstancesModificationsResponse
---
---         , describeReservedInstancesOfferingsResponseTest $
---             describeReservedInstancesOfferingsResponse
---
---         , describeRouteTablesResponseTest $
---             describeRouteTablesResponse
---
---         , describeSecurityGroupsResponseTest $
---             describeSecurityGroupsResponse
---
---         , describeSnapshotAttributeResponseTest $
---             describeSnapshotAttributeResponse
---
---         , describeSnapshotsResponseTest $
---             describeSnapshotsResponse
---
---         , describeSpotDatafeedSubscriptionResponseTest $
---             describeSpotDatafeedSubscriptionResponse
---
---         , describeSpotFleetInstancesResponseTest $
---             describeSpotFleetInstancesResponse
---
---         , describeSpotFleetRequestHistoryResponseTest $
---             describeSpotFleetRequestHistoryResponse
---
---         , describeSpotFleetRequestsResponseTest $
---             describeSpotFleetRequestsResponse
---
---         , describeSpotInstanceRequestsResponseTest $
---             describeSpotInstanceRequestsResponse
---
---         , describeSpotPriceHistoryResponseTest $
---             describeSpotPriceHistoryResponse
---
---         , describeSubnetsResponseTest $
---             describeSubnetsResponse
---
---         , describeTagsResponseTest $
---             describeTagsResponse
---
---         , describeVPCAttributeResponseTest $
---             describeVPCAttributeResponse
---
---         , describeVPCClassicLinkResponseTest $
---             describeVPCClassicLinkResponse
---
---         , describeVPCEndpointServicesResponseTest $
---             describeVPCEndpointServicesResponse
---
---         , describeVPCEndpointsResponseTest $
---             describeVPCEndpointsResponse
---
---         , describeVPCPeeringConnectionsResponseTest $
---             describeVPCPeeringConnectionsResponse
---
---         , describeVPCsResponseTest $
---             describeVPCsResponse
---
---         , describeVPNConnectionsResponseTest $
---             describeVPNConnectionsResponse
---
---         , describeVPNGatewaysResponseTest $
---             describeVPNGatewaysResponse
---
---         , describeVolumeAttributeResponseTest $
---             describeVolumeAttributeResponse
---
---         , describeVolumeStatusResponseTest $
---             describeVolumeStatusResponse
---
---         , describeVolumesResponseTest $
---             describeVolumesResponse
---
---         , detachClassicLinkVPCResponseTest $
---             detachClassicLinkVPCResponse
---
---         , detachInternetGatewayResponseTest $
---             detachInternetGatewayResponse
---
---         , detachNetworkInterfaceResponseTest $
+--         [ testDetachNetworkInterfaceResponse $
 --             detachNetworkInterfaceResponse
 --
---         , detachVPNGatewayResponseTest $
---             detachVPNGatewayResponse
+--         , testDeleteVPCEndpointsResponse $
+--             deleteVPCEndpointsResponse
 --
---         , detachVolumeResponseTest $
---             volumeAttachment
+--         , testDeleteKeyPairResponse $
+--             deleteKeyPairResponse
 --
---         , disableVGWRoutePropagationResponseTest $
---             disableVGWRoutePropagationResponse
+--         , testDeleteFlowLogsResponse $
+--             deleteFlowLogsResponse
 --
---         , disableVPCClassicLinkResponseTest $
---             disableVPCClassicLinkResponse
+--         , testDescribeTagsResponse $
+--             describeTagsResponse
 --
---         , disassociateAddressResponseTest $
---             disassociateAddressResponse
---
---         , disassociateRouteTableResponseTest $
---             disassociateRouteTableResponse
---
---         , enableVGWRoutePropagationResponseTest $
---             enableVGWRoutePropagationResponse
---
---         , enableVPCClassicLinkResponseTest $
---             enableVPCClassicLinkResponse
---
---         , enableVolumeIOResponseTest $
---             enableVolumeIOResponse
---
---         , getConsoleOutputResponseTest $
---             getConsoleOutputResponse
---
---         , getPasswordDataResponseTest $
---             getPasswordDataResponse
---
---         , importImageResponseTest $
---             importImageResponse
---
---         , importInstanceResponseTest $
---             importInstanceResponse
---
---         , importKeyPairResponseTest $
---             importKeyPairResponse
---
---         , importSnapshotResponseTest $
---             importSnapshotResponse
---
---         , importVolumeResponseTest $
---             importVolumeResponse
---
---         , modifyImageAttributeResponseTest $
---             modifyImageAttributeResponse
---
---         , modifyInstanceAttributeResponseTest $
---             modifyInstanceAttributeResponse
---
---         , modifyNetworkInterfaceAttributeResponseTest $
---             modifyNetworkInterfaceAttributeResponse
---
---         , modifyReservedInstancesResponseTest $
---             modifyReservedInstancesResponse
---
---         , modifySnapshotAttributeResponseTest $
---             modifySnapshotAttributeResponse
---
---         , modifySubnetAttributeResponseTest $
---             modifySubnetAttributeResponse
---
---         , modifyVPCAttributeResponseTest $
---             modifyVPCAttributeResponse
---
---         , modifyVPCEndpointResponseTest $
---             modifyVPCEndpointResponse
---
---         , modifyVolumeAttributeResponseTest $
---             modifyVolumeAttributeResponse
---
---         , monitorInstancesResponseTest $
---             monitorInstancesResponse
---
---         , moveAddressToVPCResponseTest $
---             moveAddressToVPCResponse
---
---         , purchaseReservedInstancesOfferingResponseTest $
---             purchaseReservedInstancesOfferingResponse
---
---         , rebootInstancesResponseTest $
---             rebootInstancesResponse
---
---         , registerImageResponseTest $
---             registerImageResponse
---
---         , rejectVPCPeeringConnectionResponseTest $
---             rejectVPCPeeringConnectionResponse
---
---         , releaseAddressResponseTest $
---             releaseAddressResponse
---
---         , replaceNetworkACLAssociationResponseTest $
---             replaceNetworkACLAssociationResponse
---
---         , replaceNetworkACLEntryResponseTest $
---             replaceNetworkACLEntryResponse
---
---         , replaceRouteResponseTest $
---             replaceRouteResponse
---
---         , replaceRouteTableAssociationResponseTest $
---             replaceRouteTableAssociationResponse
---
---         , reportInstanceStatusResponseTest $
---             reportInstanceStatusResponse
---
---         , requestSpotFleetResponseTest $
---             requestSpotFleetResponse
---
---         , requestSpotInstancesResponseTest $
---             requestSpotInstancesResponse
---
---         , resetImageAttributeResponseTest $
---             resetImageAttributeResponse
---
---         , resetInstanceAttributeResponseTest $
---             resetInstanceAttributeResponse
---
---         , resetNetworkInterfaceAttributeResponseTest $
---             resetNetworkInterfaceAttributeResponse
---
---         , resetSnapshotAttributeResponseTest $
---             resetSnapshotAttributeResponse
---
---         , restoreAddressToClassicResponseTest $
---             restoreAddressToClassicResponse
---
---         , revokeSecurityGroupEgressResponseTest $
+--         , testRevokeSecurityGroupEgressResponse $
 --             revokeSecurityGroupEgressResponse
 --
---         , revokeSecurityGroupIngressResponseTest $
---             revokeSecurityGroupIngressResponse
+--         , testCreateVPNGatewayResponse $
+--             createVPNGatewayResponse
 --
---         , runInstancesResponseTest $
---             reservation
+--         , testDetachInternetGatewayResponse $
+--             detachInternetGatewayResponse
 --
---         , startInstancesResponseTest $
---             startInstancesResponse
+--         , testCreateNetworkACLResponse $
+--             createNetworkACLResponse
 --
---         , stopInstancesResponseTest $
+--         , testImportInstanceResponse $
+--             importInstanceResponse
+--
+--         , testDescribeVPCClassicLinkResponse $
+--             describeVPCClassicLinkResponse
+--
+--         , testDeleteVPNConnectionResponse $
+--             deleteVPNConnectionResponse
+--
+--         , testAuthorizeSecurityGroupEgressResponse $
+--             authorizeSecurityGroupEgressResponse
+--
+--         , testDescribeBundleTasksResponse $
+--             describeBundleTasksResponse
+--
+--         , testCreateInternetGatewayResponse $
+--             createInternetGatewayResponse
+--
+--         , testReleaseAddressResponse $
+--             releaseAddressResponse
+--
+--         , testCancelBundleTaskResponse $
+--             cancelBundleTaskResponse
+--
+--         , testModifyNetworkInterfaceAttributeResponse $
+--             modifyNetworkInterfaceAttributeResponse
+--
+--         , testModifySubnetAttributeResponse $
+--             modifySubnetAttributeResponse
+--
+--         , testDeregisterImageResponse $
+--             deregisterImageResponse
+--
+--         , testDetachVolumeResponse $
+--             volumeAttachment
+--
+--         , testCancelReservedInstancesListingResponse $
+--             cancelReservedInstancesListingResponse
+--
+--         , testAttachClassicLinkVPCResponse $
+--             attachClassicLinkVPCResponse
+--
+--         , testCancelSpotFleetRequestsResponse $
+--             cancelSpotFleetRequestsResponse
+--
+--         , testDescribeDHCPOptionsResponse $
+--             describeDHCPOptionsResponse
+--
+--         , testDescribeSpotPriceHistoryResponse $
+--             describeSpotPriceHistoryResponse
+--
+--         , testStopInstancesResponse $
 --             stopInstancesResponse
 --
---         , terminateInstancesResponseTest $
+--         , testImportImageResponse $
+--             importImageResponse
+--
+--         , testDeleteNetworkACLEntryResponse $
+--             deleteNetworkACLEntryResponse
+--
+--         , testDisableVPCClassicLinkResponse $
+--             disableVPCClassicLinkResponse
+--
+--         , testAuthorizeSecurityGroupIngressResponse $
+--             authorizeSecurityGroupIngressResponse
+--
+--         , testBundleInstanceResponse $
+--             bundleInstanceResponse
+--
+--         , testDescribeVPCEndpointServicesResponse $
+--             describeVPCEndpointServicesResponse
+--
+--         , testReplaceNetworkACLAssociationResponse $
+--             replaceNetworkACLAssociationResponse
+--
+--         , testCreateVPCPeeringConnectionResponse $
+--             createVPCPeeringConnectionResponse
+--
+--         , testResetSnapshotAttributeResponse $
+--             resetSnapshotAttributeResponse
+--
+--         , testDescribeAddressesResponse $
+--             describeAddressesResponse
+--
+--         , testDescribeInternetGatewaysResponse $
+--             describeInternetGatewaysResponse
+--
+--         , testReplaceRouteResponse $
+--             replaceRouteResponse
+--
+--         , testCreateTagsResponse $
+--             createTagsResponse
+--
+--         , testDescribeSubnetsResponse $
+--             describeSubnetsResponse
+--
+--         , testDescribeNetworkInterfacesResponse $
+--             describeNetworkInterfacesResponse
+--
+--         , testPurchaseReservedInstancesOfferingResponse $
+--             purchaseReservedInstancesOfferingResponse
+--
+--         , testDescribeSnapshotAttributeResponse $
+--             describeSnapshotAttributeResponse
+--
+--         , testCreateCustomerGatewayResponse $
+--             createCustomerGatewayResponse
+--
+--         , testAttachInternetGatewayResponse $
+--             attachInternetGatewayResponse
+--
+--         , testDeleteTagsResponse $
+--             deleteTagsResponse
+--
+--         , testReplaceNetworkACLEntryResponse $
+--             replaceNetworkACLEntryResponse
+--
+--         , testResetInstanceAttributeResponse $
+--             resetInstanceAttributeResponse
+--
+--         , testDeleteRouteResponse $
+--             deleteRouteResponse
+--
+--         , testDescribeVPNConnectionsResponse $
+--             describeVPNConnectionsResponse
+--
+--         , testDescribeFlowLogsResponse $
+--             describeFlowLogsResponse
+--
+--         , testDeleteSecurityGroupResponse $
+--             deleteSecurityGroupResponse
+--
+--         , testDescribeReservedInstancesOfferingsResponse $
+--             describeReservedInstancesOfferingsResponse
+--
+--         , testDeleteVPCPeeringConnectionResponse $
+--             deleteVPCPeeringConnectionResponse
+--
+--         , testDescribeVPCEndpointsResponse $
+--             describeVPCEndpointsResponse
+--
+--         , testDescribeInstanceAttributeResponse $
+--             describeInstanceAttributeResponse
+--
+--         , testConfirmProductInstanceResponse $
+--             confirmProductInstanceResponse
+--
+--         , testImportKeyPairResponse $
+--             importKeyPairResponse
+--
+--         , testAttachNetworkInterfaceResponse $
+--             attachNetworkInterfaceResponse
+--
+--         , testDescribeInstanceStatusResponse $
+--             describeInstanceStatusResponse
+--
+--         , testCancelConversionTaskResponse $
+--             cancelConversionTaskResponse
+--
+--         , testReportInstanceStatusResponse $
+--             reportInstanceStatusResponse
+--
+--         , testAssociateDHCPOptionsResponse $
+--             associateDHCPOptionsResponse
+--
+--         , testDescribeVPCsResponse $
+--             describeVPCsResponse
+--
+--         , testRequestSpotInstancesResponse $
+--             requestSpotInstancesResponse
+--
+--         , testModifyImageAttributeResponse $
+--             modifyImageAttributeResponse
+--
+--         , testDescribeReservedInstancesResponse $
+--             describeReservedInstancesResponse
+--
+--         , testAllocateAddressResponse $
+--             allocateAddressResponse
+--
+--         , testRunInstancesResponse $
+--             reservation
+--
+--         , testCreateRouteTableResponse $
+--             createRouteTableResponse
+--
+--         , testAttachVolumeResponse $
+--             volumeAttachment
+--
+--         , testDescribeConversionTasksResponse $
+--             describeConversionTasksResponse
+--
+--         , testRejectVPCPeeringConnectionResponse $
+--             rejectVPCPeeringConnectionResponse
+--
+--         , testRevokeSecurityGroupIngressResponse $
+--             revokeSecurityGroupIngressResponse
+--
+--         , testDescribeVolumesResponse $
+--             describeVolumesResponse
+--
+--         , testDeleteVPNConnectionRouteResponse $
+--             deleteVPNConnectionRouteResponse
+--
+--         , testModifyReservedInstancesResponse $
+--             modifyReservedInstancesResponse
+--
+--         , testRegisterImageResponse $
+--             registerImageResponse
+--
+--         , testModifyVPCEndpointResponse $
+--             modifyVPCEndpointResponse
+--
+--         , testDeleteVPNGatewayResponse $
+--             deleteVPNGatewayResponse
+--
+--         , testCreateVPCResponse $
+--             createVPCResponse
+--
+--         , testDescribeMovingAddressesResponse $
+--             describeMovingAddressesResponse
+--
+--         , testDescribeVolumeAttributeResponse $
+--             describeVolumeAttributeResponse
+--
+--         , testMoveAddressToVPCResponse $
+--             moveAddressToVPCResponse
+--
+--         , testGetPasswordDataResponse $
+--             getPasswordDataResponse
+--
+--         , testCreateFlowLogsResponse $
+--             createFlowLogsResponse
+--
+--         , testDescribeImportImageTasksResponse $
+--             describeImportImageTasksResponse
+--
+--         , testDeleteNetworkACLResponse $
+--             deleteNetworkACLResponse
+--
+--         , testDescribeSpotFleetRequestsResponse $
+--             describeSpotFleetRequestsResponse
+--
+--         , testCopySnapshotResponse $
+--             copySnapshotResponse
+--
+--         , testModifyVolumeAttributeResponse $
+--             modifyVolumeAttributeResponse
+--
+--         , testDescribeVPCAttributeResponse $
+--             describeVPCAttributeResponse
+--
+--         , testCreateVolumeResponse $
+--             volume
+--
+--         , testDisassociateAddressResponse $
+--             disassociateAddressResponse
+--
+--         , testDeleteVPCResponse $
+--             deleteVPCResponse
+--
+--         , testDescribePrefixListsResponse $
+--             describePrefixListsResponse
+--
+--         , testCreateInstanceExportTaskResponse $
+--             createInstanceExportTaskResponse
+--
+--         , testDescribeSpotDatafeedSubscriptionResponse $
+--             describeSpotDatafeedSubscriptionResponse
+--
+--         , testDetachVPNGatewayResponse $
+--             detachVPNGatewayResponse
+--
+--         , testDescribeExportTasksResponse $
+--             describeExportTasksResponse
+--
+--         , testDeletePlacementGroupResponse $
+--             deletePlacementGroupResponse
+--
+--         , testCreateSubnetResponse $
+--             createSubnetResponse
+--
+--         , testEnableVolumeIOResponse $
+--             enableVolumeIOResponse
+--
+--         , testCancelExportTaskResponse $
+--             cancelExportTaskResponse
+--
+--         , testRequestSpotFleetResponse $
+--             requestSpotFleetResponse
+--
+--         , testDescribeInstancesResponse $
+--             describeInstancesResponse
+--
+--         , testDescribeSecurityGroupsResponse $
+--             describeSecurityGroupsResponse
+--
+--         , testDescribeVPCPeeringConnectionsResponse $
+--             describeVPCPeeringConnectionsResponse
+--
+--         , testCreateNetworkInterfaceResponse $
+--             createNetworkInterfaceResponse
+--
+--         , testAssociateAddressResponse $
+--             associateAddressResponse
+--
+--         , testStartInstancesResponse $
+--             startInstancesResponse
+--
+--         , testDescribeCustomerGatewaysResponse $
+--             describeCustomerGatewaysResponse
+--
+--         , testResetNetworkInterfaceAttributeResponse $
+--             resetNetworkInterfaceAttributeResponse
+--
+--         , testCreateVPNConnectionResponse $
+--             createVPNConnectionResponse
+--
+--         , testDescribeSnapshotsResponse $
+--             describeSnapshotsResponse
+--
+--         , testCreatePlacementGroupResponse $
+--             createPlacementGroupResponse
+--
+--         , testReplaceRouteTableAssociationResponse $
+--             replaceRouteTableAssociationResponse
+--
+--         , testDescribeNetworkInterfaceAttributeResponse $
+--             describeNetworkInterfaceAttributeResponse
+--
+--         , testDescribeReservedInstancesListingsResponse $
+--             describeReservedInstancesListingsResponse
+--
+--         , testDeleteNetworkInterfaceResponse $
+--             deleteNetworkInterfaceResponse
+--
+--         , testDeleteInternetGatewayResponse $
+--             deleteInternetGatewayResponse
+--
+--         , testDeleteSubnetResponse $
+--             deleteSubnetResponse
+--
+--         , testCreateVPCEndpointResponse $
+--             createVPCEndpointResponse
+--
+--         , testDescribeImportSnapshotTasksResponse $
+--             describeImportSnapshotTasksResponse
+--
+--         , testCopyImageResponse $
+--             copyImageResponse
+--
+--         , testDisassociateRouteTableResponse $
+--             disassociateRouteTableResponse
+--
+--         , testUnmonitorInstancesResponse $
+--             unmonitorInstancesResponse
+--
+--         , testImportVolumeResponse $
+--             importVolumeResponse
+--
+--         , testDisableVGWRoutePropagationResponse $
+--             disableVGWRoutePropagationResponse
+--
+--         , testCreateSpotDatafeedSubscriptionResponse $
+--             createSpotDatafeedSubscriptionResponse
+--
+--         , testAssignPrivateIPAddressesResponse $
+--             assignPrivateIPAddressesResponse
+--
+--         , testDeleteSnapshotResponse $
+--             deleteSnapshotResponse
+--
+--         , testDeleteCustomerGatewayResponse $
+--             deleteCustomerGatewayResponse
+--
+--         , testModifyInstanceAttributeResponse $
+--             modifyInstanceAttributeResponse
+--
+--         , testCreateSecurityGroupResponse $
+--             createSecurityGroupResponse
+--
+--         , testCancelSpotInstanceRequestsResponse $
+--             cancelSpotInstanceRequestsResponse
+--
+--         , testCreateRouteResponse $
+--             createRouteResponse
+--
+--         , testCreateNetworkACLEntryResponse $
+--             createNetworkACLEntryResponse
+--
+--         , testModifySnapshotAttributeResponse $
+--             modifySnapshotAttributeResponse
+--
+--         , testEnableVGWRoutePropagationResponse $
+--             enableVGWRoutePropagationResponse
+--
+--         , testCreateSnapshotResponse $
+--             snapshot
+--
+--         , testDescribeSpotFleetRequestHistoryResponse $
+--             describeSpotFleetRequestHistoryResponse
+--
+--         , testDeleteSpotDatafeedSubscriptionResponse $
+--             deleteSpotDatafeedSubscriptionResponse
+--
+--         , testDescribePlacementGroupsResponse $
+--             describePlacementGroupsResponse
+--
+--         , testCreateReservedInstancesListingResponse $
+--             createReservedInstancesListingResponse
+--
+--         , testEnableVPCClassicLinkResponse $
+--             enableVPCClassicLinkResponse
+--
+--         , testDescribeKeyPairsResponse $
+--             describeKeyPairsResponse
+--
+--         , testRebootInstancesResponse $
+--             rebootInstancesResponse
+--
+--         , testAttachVPNGatewayResponse $
+--             attachVPNGatewayResponse
+--
+--         , testCreateVPNConnectionRouteResponse $
+--             createVPNConnectionRouteResponse
+--
+--         , testDescribeClassicLinkInstancesResponse $
+--             describeClassicLinkInstancesResponse
+--
+--         , testTerminateInstancesResponse $
 --             terminateInstancesResponse
 --
---         , unassignPrivateIPAddressesResponseTest $
+--         , testCreateDHCPOptionsResponse $
+--             createDHCPOptionsResponse
+--
+--         , testAssociateRouteTableResponse $
+--             associateRouteTableResponse
+--
+--         , testCreateImageResponse $
+--             createImageResponse
+--
+--         , testDescribeAccountAttributesResponse $
+--             describeAccountAttributesResponse
+--
+--         , testResetImageAttributeResponse $
+--             resetImageAttributeResponse
+--
+--         , testDescribeNetworkACLsResponse $
+--             describeNetworkACLsResponse
+--
+--         , testCancelImportTaskResponse $
+--             cancelImportTaskResponse
+--
+--         , testGetConsoleOutputResponse $
+--             getConsoleOutputResponse
+--
+--         , testUnassignPrivateIPAddressesResponse $
 --             unassignPrivateIPAddressesResponse
 --
---         , unmonitorInstancesResponseTest $
---             unmonitorInstancesResponse
+--         , testDeleteRouteTableResponse $
+--             deleteRouteTableResponse
+--
+--         , testDescribeImageAttributeResponse $
+--             describeImageAttributeResponse
+--
+--         , testDeleteDHCPOptionsResponse $
+--             deleteDHCPOptionsResponse
+--
+--         , testDescribeVPNGatewaysResponse $
+--             describeVPNGatewaysResponse
+--
+--         , testDetachClassicLinkVPCResponse $
+--             detachClassicLinkVPCResponse
+--
+--         , testDescribeReservedInstancesModificationsResponse $
+--             describeReservedInstancesModificationsResponse
+--
+--         , testDescribeSpotInstanceRequestsResponse $
+--             describeSpotInstanceRequestsResponse
+--
+--         , testMonitorInstancesResponse $
+--             monitorInstancesResponse
+--
+--         , testDescribeRegionsResponse $
+--             describeRegionsResponse
+--
+--         , testModifyVPCAttributeResponse $
+--             modifyVPCAttributeResponse
+--
+--         , testDescribeSpotFleetInstancesResponse $
+--             describeSpotFleetInstancesResponse
+--
+--         , testDescribeVolumeStatusResponse $
+--             describeVolumeStatusResponse
+--
+--         , testDeleteVolumeResponse $
+--             deleteVolumeResponse
+--
+--         , testDescribeImagesResponse $
+--             describeImagesResponse
+--
+--         , testCreateKeyPairResponse $
+--             createKeyPairResponse
+--
+--         , testRestoreAddressToClassicResponse $
+--             restoreAddressToClassicResponse
+--
+--         , testDescribeAvailabilityZonesResponse $
+--             describeAvailabilityZonesResponse
+--
+--         , testImportSnapshotResponse $
+--             importSnapshotResponse
+--
+--         , testAcceptVPCPeeringConnectionResponse $
+--             acceptVPCPeeringConnectionResponse
+--
+--         , testDescribeRouteTablesResponse $
+--             describeRouteTablesResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-acceptVPCPeeringConnectionTest :: AcceptVPCPeeringConnection -> TestTree
-acceptVPCPeeringConnectionTest = undefined
+testDetachNetworkInterface :: DetachNetworkInterface -> TestTree
+testDetachNetworkInterface = undefined
 
-allocateAddressTest :: AllocateAddress -> TestTree
-allocateAddressTest = undefined
+testDeleteVPCEndpoints :: DeleteVPCEndpoints -> TestTree
+testDeleteVPCEndpoints = undefined
 
-assignPrivateIPAddressesTest :: AssignPrivateIPAddresses -> TestTree
-assignPrivateIPAddressesTest = undefined
+testDeleteKeyPair :: DeleteKeyPair -> TestTree
+testDeleteKeyPair = undefined
 
-associateAddressTest :: AssociateAddress -> TestTree
-associateAddressTest = undefined
+testDeleteFlowLogs :: DeleteFlowLogs -> TestTree
+testDeleteFlowLogs = undefined
 
-associateDHCPOptionsTest :: AssociateDHCPOptions -> TestTree
-associateDHCPOptionsTest = undefined
+testDescribeTags :: DescribeTags -> TestTree
+testDescribeTags = undefined
 
-associateRouteTableTest :: AssociateRouteTable -> TestTree
-associateRouteTableTest = undefined
+testRevokeSecurityGroupEgress :: RevokeSecurityGroupEgress -> TestTree
+testRevokeSecurityGroupEgress = undefined
 
-attachClassicLinkVPCTest :: AttachClassicLinkVPC -> TestTree
-attachClassicLinkVPCTest = undefined
+testCreateVPNGateway :: CreateVPNGateway -> TestTree
+testCreateVPNGateway = undefined
 
-attachInternetGatewayTest :: AttachInternetGateway -> TestTree
-attachInternetGatewayTest = undefined
+testDetachInternetGateway :: DetachInternetGateway -> TestTree
+testDetachInternetGateway = undefined
 
-attachNetworkInterfaceTest :: AttachNetworkInterface -> TestTree
-attachNetworkInterfaceTest = undefined
+testCreateNetworkACL :: CreateNetworkACL -> TestTree
+testCreateNetworkACL = undefined
 
-attachVPNGatewayTest :: AttachVPNGateway -> TestTree
-attachVPNGatewayTest = undefined
+testImportInstance :: ImportInstance -> TestTree
+testImportInstance = undefined
 
-attachVolumeTest :: AttachVolume -> TestTree
-attachVolumeTest = undefined
+testDescribeVPCClassicLink :: DescribeVPCClassicLink -> TestTree
+testDescribeVPCClassicLink = undefined
 
-authorizeSecurityGroupEgressTest :: AuthorizeSecurityGroupEgress -> TestTree
-authorizeSecurityGroupEgressTest = undefined
+testDeleteVPNConnection :: DeleteVPNConnection -> TestTree
+testDeleteVPNConnection = undefined
 
-authorizeSecurityGroupIngressTest :: AuthorizeSecurityGroupIngress -> TestTree
-authorizeSecurityGroupIngressTest = undefined
+testAuthorizeSecurityGroupEgress :: AuthorizeSecurityGroupEgress -> TestTree
+testAuthorizeSecurityGroupEgress = undefined
 
-bundleInstanceTest :: BundleInstance -> TestTree
-bundleInstanceTest = undefined
+testDescribeBundleTasks :: DescribeBundleTasks -> TestTree
+testDescribeBundleTasks = undefined
 
-cancelBundleTaskTest :: CancelBundleTask -> TestTree
-cancelBundleTaskTest = undefined
+testCreateInternetGateway :: CreateInternetGateway -> TestTree
+testCreateInternetGateway = undefined
 
-cancelConversionTaskTest :: CancelConversionTask -> TestTree
-cancelConversionTaskTest = undefined
+testReleaseAddress :: ReleaseAddress -> TestTree
+testReleaseAddress = undefined
 
-cancelExportTaskTest :: CancelExportTask -> TestTree
-cancelExportTaskTest = undefined
+testCancelBundleTask :: CancelBundleTask -> TestTree
+testCancelBundleTask = undefined
 
-cancelImportTaskTest :: CancelImportTask -> TestTree
-cancelImportTaskTest = undefined
+testModifyNetworkInterfaceAttribute :: ModifyNetworkInterfaceAttribute -> TestTree
+testModifyNetworkInterfaceAttribute = undefined
 
-cancelReservedInstancesListingTest :: CancelReservedInstancesListing -> TestTree
-cancelReservedInstancesListingTest = undefined
+testModifySubnetAttribute :: ModifySubnetAttribute -> TestTree
+testModifySubnetAttribute = undefined
 
-cancelSpotFleetRequestsTest :: CancelSpotFleetRequests -> TestTree
-cancelSpotFleetRequestsTest = undefined
+testDeregisterImage :: DeregisterImage -> TestTree
+testDeregisterImage = undefined
 
-cancelSpotInstanceRequestsTest :: CancelSpotInstanceRequests -> TestTree
-cancelSpotInstanceRequestsTest = undefined
+testDetachVolume :: DetachVolume -> TestTree
+testDetachVolume = undefined
 
-confirmProductInstanceTest :: ConfirmProductInstance -> TestTree
-confirmProductInstanceTest = undefined
+testCancelReservedInstancesListing :: CancelReservedInstancesListing -> TestTree
+testCancelReservedInstancesListing = undefined
 
-copyImageTest :: CopyImage -> TestTree
-copyImageTest = undefined
+testAttachClassicLinkVPC :: AttachClassicLinkVPC -> TestTree
+testAttachClassicLinkVPC = undefined
 
-copySnapshotTest :: CopySnapshot -> TestTree
-copySnapshotTest = undefined
+testCancelSpotFleetRequests :: CancelSpotFleetRequests -> TestTree
+testCancelSpotFleetRequests = undefined
 
-createCustomerGatewayTest :: CreateCustomerGateway -> TestTree
-createCustomerGatewayTest = undefined
+testDescribeDHCPOptions :: DescribeDHCPOptions -> TestTree
+testDescribeDHCPOptions = undefined
 
-createDHCPOptionsTest :: CreateDHCPOptions -> TestTree
-createDHCPOptionsTest = undefined
+testDescribeSpotPriceHistory :: DescribeSpotPriceHistory -> TestTree
+testDescribeSpotPriceHistory = undefined
 
-createFlowLogsTest :: CreateFlowLogs -> TestTree
-createFlowLogsTest = undefined
+testStopInstances :: StopInstances -> TestTree
+testStopInstances = undefined
 
-createImageTest :: CreateImage -> TestTree
-createImageTest = undefined
+testImportImage :: ImportImage -> TestTree
+testImportImage = undefined
 
-createInstanceExportTaskTest :: CreateInstanceExportTask -> TestTree
-createInstanceExportTaskTest = undefined
+testDeleteNetworkACLEntry :: DeleteNetworkACLEntry -> TestTree
+testDeleteNetworkACLEntry = undefined
 
-createInternetGatewayTest :: CreateInternetGateway -> TestTree
-createInternetGatewayTest = undefined
+testDisableVPCClassicLink :: DisableVPCClassicLink -> TestTree
+testDisableVPCClassicLink = undefined
 
-createKeyPairTest :: CreateKeyPair -> TestTree
-createKeyPairTest = undefined
+testAuthorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngress -> TestTree
+testAuthorizeSecurityGroupIngress = undefined
 
-createNetworkACLTest :: CreateNetworkACL -> TestTree
-createNetworkACLTest = undefined
+testBundleInstance :: BundleInstance -> TestTree
+testBundleInstance = undefined
 
-createNetworkACLEntryTest :: CreateNetworkACLEntry -> TestTree
-createNetworkACLEntryTest = undefined
+testDescribeVPCEndpointServices :: DescribeVPCEndpointServices -> TestTree
+testDescribeVPCEndpointServices = undefined
 
-createNetworkInterfaceTest :: CreateNetworkInterface -> TestTree
-createNetworkInterfaceTest = undefined
+testReplaceNetworkACLAssociation :: ReplaceNetworkACLAssociation -> TestTree
+testReplaceNetworkACLAssociation = undefined
 
-createPlacementGroupTest :: CreatePlacementGroup -> TestTree
-createPlacementGroupTest = undefined
+testCreateVPCPeeringConnection :: CreateVPCPeeringConnection -> TestTree
+testCreateVPCPeeringConnection = undefined
 
-createReservedInstancesListingTest :: CreateReservedInstancesListing -> TestTree
-createReservedInstancesListingTest = undefined
+testResetSnapshotAttribute :: ResetSnapshotAttribute -> TestTree
+testResetSnapshotAttribute = undefined
 
-createRouteTest :: CreateRoute -> TestTree
-createRouteTest = undefined
+testDescribeAddresses :: DescribeAddresses -> TestTree
+testDescribeAddresses = undefined
 
-createRouteTableTest :: CreateRouteTable -> TestTree
-createRouteTableTest = undefined
+testDescribeInternetGateways :: DescribeInternetGateways -> TestTree
+testDescribeInternetGateways = undefined
 
-createSecurityGroupTest :: CreateSecurityGroup -> TestTree
-createSecurityGroupTest = undefined
+testReplaceRoute :: ReplaceRoute -> TestTree
+testReplaceRoute = undefined
 
-createSnapshotTest :: CreateSnapshot -> TestTree
-createSnapshotTest = undefined
+testCreateTags :: CreateTags -> TestTree
+testCreateTags = undefined
 
-createSpotDatafeedSubscriptionTest :: CreateSpotDatafeedSubscription -> TestTree
-createSpotDatafeedSubscriptionTest = undefined
+testDescribeSubnets :: DescribeSubnets -> TestTree
+testDescribeSubnets = undefined
 
-createSubnetTest :: CreateSubnet -> TestTree
-createSubnetTest = undefined
+testDescribeNetworkInterfaces :: DescribeNetworkInterfaces -> TestTree
+testDescribeNetworkInterfaces = undefined
 
-createTagsTest :: CreateTags -> TestTree
-createTagsTest = undefined
+testPurchaseReservedInstancesOffering :: PurchaseReservedInstancesOffering -> TestTree
+testPurchaseReservedInstancesOffering = undefined
 
-createVPCTest :: CreateVPC -> TestTree
-createVPCTest = undefined
+testDescribeSnapshotAttribute :: DescribeSnapshotAttribute -> TestTree
+testDescribeSnapshotAttribute = undefined
 
-createVPCEndpointTest :: CreateVPCEndpoint -> TestTree
-createVPCEndpointTest = undefined
+testCreateCustomerGateway :: CreateCustomerGateway -> TestTree
+testCreateCustomerGateway = undefined
 
-createVPCPeeringConnectionTest :: CreateVPCPeeringConnection -> TestTree
-createVPCPeeringConnectionTest = undefined
+testAttachInternetGateway :: AttachInternetGateway -> TestTree
+testAttachInternetGateway = undefined
 
-createVPNConnectionTest :: CreateVPNConnection -> TestTree
-createVPNConnectionTest = undefined
+testDeleteTags :: DeleteTags -> TestTree
+testDeleteTags = undefined
 
-createVPNConnectionRouteTest :: CreateVPNConnectionRoute -> TestTree
-createVPNConnectionRouteTest = undefined
+testReplaceNetworkACLEntry :: ReplaceNetworkACLEntry -> TestTree
+testReplaceNetworkACLEntry = undefined
 
-createVPNGatewayTest :: CreateVPNGateway -> TestTree
-createVPNGatewayTest = undefined
+testResetInstanceAttribute :: ResetInstanceAttribute -> TestTree
+testResetInstanceAttribute = undefined
 
-createVolumeTest :: CreateVolume -> TestTree
-createVolumeTest = undefined
+testDeleteRoute :: DeleteRoute -> TestTree
+testDeleteRoute = undefined
 
-deleteCustomerGatewayTest :: DeleteCustomerGateway -> TestTree
-deleteCustomerGatewayTest = undefined
+testDescribeVPNConnections :: DescribeVPNConnections -> TestTree
+testDescribeVPNConnections = undefined
 
-deleteDHCPOptionsTest :: DeleteDHCPOptions -> TestTree
-deleteDHCPOptionsTest = undefined
+testDescribeFlowLogs :: DescribeFlowLogs -> TestTree
+testDescribeFlowLogs = undefined
 
-deleteFlowLogsTest :: DeleteFlowLogs -> TestTree
-deleteFlowLogsTest = undefined
+testDeleteSecurityGroup :: DeleteSecurityGroup -> TestTree
+testDeleteSecurityGroup = undefined
 
-deleteInternetGatewayTest :: DeleteInternetGateway -> TestTree
-deleteInternetGatewayTest = undefined
+testDescribeReservedInstancesOfferings :: DescribeReservedInstancesOfferings -> TestTree
+testDescribeReservedInstancesOfferings = undefined
 
-deleteKeyPairTest :: DeleteKeyPair -> TestTree
-deleteKeyPairTest = undefined
+testDeleteVPCPeeringConnection :: DeleteVPCPeeringConnection -> TestTree
+testDeleteVPCPeeringConnection = undefined
 
-deleteNetworkACLTest :: DeleteNetworkACL -> TestTree
-deleteNetworkACLTest = undefined
+testDescribeVPCEndpoints :: DescribeVPCEndpoints -> TestTree
+testDescribeVPCEndpoints = undefined
 
-deleteNetworkACLEntryTest :: DeleteNetworkACLEntry -> TestTree
-deleteNetworkACLEntryTest = undefined
+testDescribeInstanceAttribute :: DescribeInstanceAttribute -> TestTree
+testDescribeInstanceAttribute = undefined
 
-deleteNetworkInterfaceTest :: DeleteNetworkInterface -> TestTree
-deleteNetworkInterfaceTest = undefined
+testConfirmProductInstance :: ConfirmProductInstance -> TestTree
+testConfirmProductInstance = undefined
 
-deletePlacementGroupTest :: DeletePlacementGroup -> TestTree
-deletePlacementGroupTest = undefined
+testImportKeyPair :: ImportKeyPair -> TestTree
+testImportKeyPair = undefined
 
-deleteRouteTest :: DeleteRoute -> TestTree
-deleteRouteTest = undefined
+testAttachNetworkInterface :: AttachNetworkInterface -> TestTree
+testAttachNetworkInterface = undefined
 
-deleteRouteTableTest :: DeleteRouteTable -> TestTree
-deleteRouteTableTest = undefined
+testDescribeInstanceStatus :: DescribeInstanceStatus -> TestTree
+testDescribeInstanceStatus = undefined
 
-deleteSecurityGroupTest :: DeleteSecurityGroup -> TestTree
-deleteSecurityGroupTest = undefined
+testCancelConversionTask :: CancelConversionTask -> TestTree
+testCancelConversionTask = undefined
 
-deleteSnapshotTest :: DeleteSnapshot -> TestTree
-deleteSnapshotTest = undefined
+testReportInstanceStatus :: ReportInstanceStatus -> TestTree
+testReportInstanceStatus = undefined
 
-deleteSpotDatafeedSubscriptionTest :: DeleteSpotDatafeedSubscription -> TestTree
-deleteSpotDatafeedSubscriptionTest = undefined
+testAssociateDHCPOptions :: AssociateDHCPOptions -> TestTree
+testAssociateDHCPOptions = undefined
 
-deleteSubnetTest :: DeleteSubnet -> TestTree
-deleteSubnetTest = undefined
+testDescribeVPCs :: DescribeVPCs -> TestTree
+testDescribeVPCs = undefined
 
-deleteTagsTest :: DeleteTags -> TestTree
-deleteTagsTest = undefined
+testRequestSpotInstances :: RequestSpotInstances -> TestTree
+testRequestSpotInstances = undefined
 
-deleteVPCTest :: DeleteVPC -> TestTree
-deleteVPCTest = undefined
+testModifyImageAttribute :: ModifyImageAttribute -> TestTree
+testModifyImageAttribute = undefined
 
-deleteVPCEndpointsTest :: DeleteVPCEndpoints -> TestTree
-deleteVPCEndpointsTest = undefined
+testDescribeReservedInstances :: DescribeReservedInstances -> TestTree
+testDescribeReservedInstances = undefined
 
-deleteVPCPeeringConnectionTest :: DeleteVPCPeeringConnection -> TestTree
-deleteVPCPeeringConnectionTest = undefined
+testAllocateAddress :: AllocateAddress -> TestTree
+testAllocateAddress = undefined
 
-deleteVPNConnectionTest :: DeleteVPNConnection -> TestTree
-deleteVPNConnectionTest = undefined
+testRunInstances :: RunInstances -> TestTree
+testRunInstances = undefined
 
-deleteVPNConnectionRouteTest :: DeleteVPNConnectionRoute -> TestTree
-deleteVPNConnectionRouteTest = undefined
+testCreateRouteTable :: CreateRouteTable -> TestTree
+testCreateRouteTable = undefined
 
-deleteVPNGatewayTest :: DeleteVPNGateway -> TestTree
-deleteVPNGatewayTest = undefined
+testAttachVolume :: AttachVolume -> TestTree
+testAttachVolume = undefined
 
-deleteVolumeTest :: DeleteVolume -> TestTree
-deleteVolumeTest = undefined
+testDescribeConversionTasks :: DescribeConversionTasks -> TestTree
+testDescribeConversionTasks = undefined
 
-deregisterImageTest :: DeregisterImage -> TestTree
-deregisterImageTest = undefined
+testRejectVPCPeeringConnection :: RejectVPCPeeringConnection -> TestTree
+testRejectVPCPeeringConnection = undefined
 
-describeAccountAttributesTest :: DescribeAccountAttributes -> TestTree
-describeAccountAttributesTest = undefined
+testRevokeSecurityGroupIngress :: RevokeSecurityGroupIngress -> TestTree
+testRevokeSecurityGroupIngress = undefined
 
-describeAddressesTest :: DescribeAddresses -> TestTree
-describeAddressesTest = undefined
+testDescribeVolumes :: DescribeVolumes -> TestTree
+testDescribeVolumes = undefined
 
-describeAvailabilityZonesTest :: DescribeAvailabilityZones -> TestTree
-describeAvailabilityZonesTest = undefined
+testDeleteVPNConnectionRoute :: DeleteVPNConnectionRoute -> TestTree
+testDeleteVPNConnectionRoute = undefined
 
-describeBundleTasksTest :: DescribeBundleTasks -> TestTree
-describeBundleTasksTest = undefined
+testModifyReservedInstances :: ModifyReservedInstances -> TestTree
+testModifyReservedInstances = undefined
 
-describeClassicLinkInstancesTest :: DescribeClassicLinkInstances -> TestTree
-describeClassicLinkInstancesTest = undefined
+testRegisterImage :: RegisterImage -> TestTree
+testRegisterImage = undefined
 
-describeConversionTasksTest :: DescribeConversionTasks -> TestTree
-describeConversionTasksTest = undefined
+testModifyVPCEndpoint :: ModifyVPCEndpoint -> TestTree
+testModifyVPCEndpoint = undefined
 
-describeCustomerGatewaysTest :: DescribeCustomerGateways -> TestTree
-describeCustomerGatewaysTest = undefined
+testDeleteVPNGateway :: DeleteVPNGateway -> TestTree
+testDeleteVPNGateway = undefined
 
-describeDHCPOptionsTest :: DescribeDHCPOptions -> TestTree
-describeDHCPOptionsTest = undefined
+testCreateVPC :: CreateVPC -> TestTree
+testCreateVPC = undefined
 
-describeExportTasksTest :: DescribeExportTasks -> TestTree
-describeExportTasksTest = undefined
+testDescribeMovingAddresses :: DescribeMovingAddresses -> TestTree
+testDescribeMovingAddresses = undefined
 
-describeFlowLogsTest :: DescribeFlowLogs -> TestTree
-describeFlowLogsTest = undefined
+testDescribeVolumeAttribute :: DescribeVolumeAttribute -> TestTree
+testDescribeVolumeAttribute = undefined
 
-describeImageAttributeTest :: DescribeImageAttribute -> TestTree
-describeImageAttributeTest = undefined
+testMoveAddressToVPC :: MoveAddressToVPC -> TestTree
+testMoveAddressToVPC = undefined
 
-describeImagesTest :: DescribeImages -> TestTree
-describeImagesTest = undefined
+testGetPasswordData :: GetPasswordData -> TestTree
+testGetPasswordData = undefined
 
-describeImportImageTasksTest :: DescribeImportImageTasks -> TestTree
-describeImportImageTasksTest = undefined
+testCreateFlowLogs :: CreateFlowLogs -> TestTree
+testCreateFlowLogs = undefined
 
-describeImportSnapshotTasksTest :: DescribeImportSnapshotTasks -> TestTree
-describeImportSnapshotTasksTest = undefined
+testDescribeImportImageTasks :: DescribeImportImageTasks -> TestTree
+testDescribeImportImageTasks = undefined
 
-describeInstanceAttributeTest :: DescribeInstanceAttribute -> TestTree
-describeInstanceAttributeTest = undefined
+testDeleteNetworkACL :: DeleteNetworkACL -> TestTree
+testDeleteNetworkACL = undefined
 
-describeInstanceStatusTest :: DescribeInstanceStatus -> TestTree
-describeInstanceStatusTest = undefined
+testDescribeSpotFleetRequests :: DescribeSpotFleetRequests -> TestTree
+testDescribeSpotFleetRequests = undefined
 
-describeInstancesTest :: DescribeInstances -> TestTree
-describeInstancesTest = undefined
+testCopySnapshot :: CopySnapshot -> TestTree
+testCopySnapshot = undefined
 
-describeInternetGatewaysTest :: DescribeInternetGateways -> TestTree
-describeInternetGatewaysTest = undefined
+testModifyVolumeAttribute :: ModifyVolumeAttribute -> TestTree
+testModifyVolumeAttribute = undefined
 
-describeKeyPairsTest :: DescribeKeyPairs -> TestTree
-describeKeyPairsTest = undefined
+testDescribeVPCAttribute :: DescribeVPCAttribute -> TestTree
+testDescribeVPCAttribute = undefined
 
-describeMovingAddressesTest :: DescribeMovingAddresses -> TestTree
-describeMovingAddressesTest = undefined
+testCreateVolume :: CreateVolume -> TestTree
+testCreateVolume = undefined
 
-describeNetworkACLsTest :: DescribeNetworkACLs -> TestTree
-describeNetworkACLsTest = undefined
+testDisassociateAddress :: DisassociateAddress -> TestTree
+testDisassociateAddress = undefined
 
-describeNetworkInterfaceAttributeTest :: DescribeNetworkInterfaceAttribute -> TestTree
-describeNetworkInterfaceAttributeTest = undefined
+testDeleteVPC :: DeleteVPC -> TestTree
+testDeleteVPC = undefined
 
-describeNetworkInterfacesTest :: DescribeNetworkInterfaces -> TestTree
-describeNetworkInterfacesTest = undefined
+testDescribePrefixLists :: DescribePrefixLists -> TestTree
+testDescribePrefixLists = undefined
 
-describePlacementGroupsTest :: DescribePlacementGroups -> TestTree
-describePlacementGroupsTest = undefined
+testCreateInstanceExportTask :: CreateInstanceExportTask -> TestTree
+testCreateInstanceExportTask = undefined
 
-describePrefixListsTest :: DescribePrefixLists -> TestTree
-describePrefixListsTest = undefined
+testDescribeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription -> TestTree
+testDescribeSpotDatafeedSubscription = undefined
 
-describeRegionsTest :: DescribeRegions -> TestTree
-describeRegionsTest = undefined
+testDetachVPNGateway :: DetachVPNGateway -> TestTree
+testDetachVPNGateway = undefined
 
-describeReservedInstancesTest :: DescribeReservedInstances -> TestTree
-describeReservedInstancesTest = undefined
+testDescribeExportTasks :: DescribeExportTasks -> TestTree
+testDescribeExportTasks = undefined
 
-describeReservedInstancesListingsTest :: DescribeReservedInstancesListings -> TestTree
-describeReservedInstancesListingsTest = undefined
+testDeletePlacementGroup :: DeletePlacementGroup -> TestTree
+testDeletePlacementGroup = undefined
 
-describeReservedInstancesModificationsTest :: DescribeReservedInstancesModifications -> TestTree
-describeReservedInstancesModificationsTest = undefined
+testCreateSubnet :: CreateSubnet -> TestTree
+testCreateSubnet = undefined
 
-describeReservedInstancesOfferingsTest :: DescribeReservedInstancesOfferings -> TestTree
-describeReservedInstancesOfferingsTest = undefined
+testEnableVolumeIO :: EnableVolumeIO -> TestTree
+testEnableVolumeIO = undefined
 
-describeRouteTablesTest :: DescribeRouteTables -> TestTree
-describeRouteTablesTest = undefined
+testCancelExportTask :: CancelExportTask -> TestTree
+testCancelExportTask = undefined
 
-describeSecurityGroupsTest :: DescribeSecurityGroups -> TestTree
-describeSecurityGroupsTest = undefined
+testRequestSpotFleet :: RequestSpotFleet -> TestTree
+testRequestSpotFleet = undefined
 
-describeSnapshotAttributeTest :: DescribeSnapshotAttribute -> TestTree
-describeSnapshotAttributeTest = undefined
+testDescribeInstances :: DescribeInstances -> TestTree
+testDescribeInstances = undefined
 
-describeSnapshotsTest :: DescribeSnapshots -> TestTree
-describeSnapshotsTest = undefined
+testDescribeSecurityGroups :: DescribeSecurityGroups -> TestTree
+testDescribeSecurityGroups = undefined
 
-describeSpotDatafeedSubscriptionTest :: DescribeSpotDatafeedSubscription -> TestTree
-describeSpotDatafeedSubscriptionTest = undefined
+testDescribeVPCPeeringConnections :: DescribeVPCPeeringConnections -> TestTree
+testDescribeVPCPeeringConnections = undefined
 
-describeSpotFleetInstancesTest :: DescribeSpotFleetInstances -> TestTree
-describeSpotFleetInstancesTest = undefined
+testCreateNetworkInterface :: CreateNetworkInterface -> TestTree
+testCreateNetworkInterface = undefined
 
-describeSpotFleetRequestHistoryTest :: DescribeSpotFleetRequestHistory -> TestTree
-describeSpotFleetRequestHistoryTest = undefined
+testAssociateAddress :: AssociateAddress -> TestTree
+testAssociateAddress = undefined
 
-describeSpotFleetRequestsTest :: DescribeSpotFleetRequests -> TestTree
-describeSpotFleetRequestsTest = undefined
+testStartInstances :: StartInstances -> TestTree
+testStartInstances = undefined
 
-describeSpotInstanceRequestsTest :: DescribeSpotInstanceRequests -> TestTree
-describeSpotInstanceRequestsTest = undefined
+testDescribeCustomerGateways :: DescribeCustomerGateways -> TestTree
+testDescribeCustomerGateways = undefined
 
-describeSpotPriceHistoryTest :: DescribeSpotPriceHistory -> TestTree
-describeSpotPriceHistoryTest = undefined
+testResetNetworkInterfaceAttribute :: ResetNetworkInterfaceAttribute -> TestTree
+testResetNetworkInterfaceAttribute = undefined
 
-describeSubnetsTest :: DescribeSubnets -> TestTree
-describeSubnetsTest = undefined
+testCreateVPNConnection :: CreateVPNConnection -> TestTree
+testCreateVPNConnection = undefined
 
-describeTagsTest :: DescribeTags -> TestTree
-describeTagsTest = undefined
+testDescribeSnapshots :: DescribeSnapshots -> TestTree
+testDescribeSnapshots = undefined
 
-describeVPCAttributeTest :: DescribeVPCAttribute -> TestTree
-describeVPCAttributeTest = undefined
+testCreatePlacementGroup :: CreatePlacementGroup -> TestTree
+testCreatePlacementGroup = undefined
 
-describeVPCClassicLinkTest :: DescribeVPCClassicLink -> TestTree
-describeVPCClassicLinkTest = undefined
+testReplaceRouteTableAssociation :: ReplaceRouteTableAssociation -> TestTree
+testReplaceRouteTableAssociation = undefined
 
-describeVPCEndpointServicesTest :: DescribeVPCEndpointServices -> TestTree
-describeVPCEndpointServicesTest = undefined
+testDescribeNetworkInterfaceAttribute :: DescribeNetworkInterfaceAttribute -> TestTree
+testDescribeNetworkInterfaceAttribute = undefined
 
-describeVPCEndpointsTest :: DescribeVPCEndpoints -> TestTree
-describeVPCEndpointsTest = undefined
+testDescribeReservedInstancesListings :: DescribeReservedInstancesListings -> TestTree
+testDescribeReservedInstancesListings = undefined
 
-describeVPCPeeringConnectionsTest :: DescribeVPCPeeringConnections -> TestTree
-describeVPCPeeringConnectionsTest = undefined
+testDeleteNetworkInterface :: DeleteNetworkInterface -> TestTree
+testDeleteNetworkInterface = undefined
 
-describeVPCsTest :: DescribeVPCs -> TestTree
-describeVPCsTest = undefined
+testDeleteInternetGateway :: DeleteInternetGateway -> TestTree
+testDeleteInternetGateway = undefined
 
-describeVPNConnectionsTest :: DescribeVPNConnections -> TestTree
-describeVPNConnectionsTest = undefined
+testDeleteSubnet :: DeleteSubnet -> TestTree
+testDeleteSubnet = undefined
 
-describeVPNGatewaysTest :: DescribeVPNGateways -> TestTree
-describeVPNGatewaysTest = undefined
+testCreateVPCEndpoint :: CreateVPCEndpoint -> TestTree
+testCreateVPCEndpoint = undefined
 
-describeVolumeAttributeTest :: DescribeVolumeAttribute -> TestTree
-describeVolumeAttributeTest = undefined
+testDescribeImportSnapshotTasks :: DescribeImportSnapshotTasks -> TestTree
+testDescribeImportSnapshotTasks = undefined
 
-describeVolumeStatusTest :: DescribeVolumeStatus -> TestTree
-describeVolumeStatusTest = undefined
+testCopyImage :: CopyImage -> TestTree
+testCopyImage = undefined
 
-describeVolumesTest :: DescribeVolumes -> TestTree
-describeVolumesTest = undefined
+testDisassociateRouteTable :: DisassociateRouteTable -> TestTree
+testDisassociateRouteTable = undefined
 
-detachClassicLinkVPCTest :: DetachClassicLinkVPC -> TestTree
-detachClassicLinkVPCTest = undefined
+testUnmonitorInstances :: UnmonitorInstances -> TestTree
+testUnmonitorInstances = undefined
 
-detachInternetGatewayTest :: DetachInternetGateway -> TestTree
-detachInternetGatewayTest = undefined
+testImportVolume :: ImportVolume -> TestTree
+testImportVolume = undefined
 
-detachNetworkInterfaceTest :: DetachNetworkInterface -> TestTree
-detachNetworkInterfaceTest = undefined
+testDisableVGWRoutePropagation :: DisableVGWRoutePropagation -> TestTree
+testDisableVGWRoutePropagation = undefined
 
-detachVPNGatewayTest :: DetachVPNGateway -> TestTree
-detachVPNGatewayTest = undefined
+testCreateSpotDatafeedSubscription :: CreateSpotDatafeedSubscription -> TestTree
+testCreateSpotDatafeedSubscription = undefined
 
-detachVolumeTest :: DetachVolume -> TestTree
-detachVolumeTest = undefined
+testAssignPrivateIPAddresses :: AssignPrivateIPAddresses -> TestTree
+testAssignPrivateIPAddresses = undefined
 
-disableVGWRoutePropagationTest :: DisableVGWRoutePropagation -> TestTree
-disableVGWRoutePropagationTest = undefined
+testDeleteSnapshot :: DeleteSnapshot -> TestTree
+testDeleteSnapshot = undefined
 
-disableVPCClassicLinkTest :: DisableVPCClassicLink -> TestTree
-disableVPCClassicLinkTest = undefined
+testDeleteCustomerGateway :: DeleteCustomerGateway -> TestTree
+testDeleteCustomerGateway = undefined
 
-disassociateAddressTest :: DisassociateAddress -> TestTree
-disassociateAddressTest = undefined
+testModifyInstanceAttribute :: ModifyInstanceAttribute -> TestTree
+testModifyInstanceAttribute = undefined
 
-disassociateRouteTableTest :: DisassociateRouteTable -> TestTree
-disassociateRouteTableTest = undefined
+testCreateSecurityGroup :: CreateSecurityGroup -> TestTree
+testCreateSecurityGroup = undefined
 
-enableVGWRoutePropagationTest :: EnableVGWRoutePropagation -> TestTree
-enableVGWRoutePropagationTest = undefined
+testCancelSpotInstanceRequests :: CancelSpotInstanceRequests -> TestTree
+testCancelSpotInstanceRequests = undefined
 
-enableVPCClassicLinkTest :: EnableVPCClassicLink -> TestTree
-enableVPCClassicLinkTest = undefined
+testCreateRoute :: CreateRoute -> TestTree
+testCreateRoute = undefined
 
-enableVolumeIOTest :: EnableVolumeIO -> TestTree
-enableVolumeIOTest = undefined
+testCreateNetworkACLEntry :: CreateNetworkACLEntry -> TestTree
+testCreateNetworkACLEntry = undefined
 
-getConsoleOutputTest :: GetConsoleOutput -> TestTree
-getConsoleOutputTest = undefined
+testModifySnapshotAttribute :: ModifySnapshotAttribute -> TestTree
+testModifySnapshotAttribute = undefined
 
-getPasswordDataTest :: GetPasswordData -> TestTree
-getPasswordDataTest = undefined
+testEnableVGWRoutePropagation :: EnableVGWRoutePropagation -> TestTree
+testEnableVGWRoutePropagation = undefined
 
-importImageTest :: ImportImage -> TestTree
-importImageTest = undefined
+testCreateSnapshot :: CreateSnapshot -> TestTree
+testCreateSnapshot = undefined
 
-importInstanceTest :: ImportInstance -> TestTree
-importInstanceTest = undefined
+testDescribeSpotFleetRequestHistory :: DescribeSpotFleetRequestHistory -> TestTree
+testDescribeSpotFleetRequestHistory = undefined
 
-importKeyPairTest :: ImportKeyPair -> TestTree
-importKeyPairTest = undefined
+testDeleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription -> TestTree
+testDeleteSpotDatafeedSubscription = undefined
 
-importSnapshotTest :: ImportSnapshot -> TestTree
-importSnapshotTest = undefined
+testDescribePlacementGroups :: DescribePlacementGroups -> TestTree
+testDescribePlacementGroups = undefined
 
-importVolumeTest :: ImportVolume -> TestTree
-importVolumeTest = undefined
+testCreateReservedInstancesListing :: CreateReservedInstancesListing -> TestTree
+testCreateReservedInstancesListing = undefined
 
-modifyImageAttributeTest :: ModifyImageAttribute -> TestTree
-modifyImageAttributeTest = undefined
+testEnableVPCClassicLink :: EnableVPCClassicLink -> TestTree
+testEnableVPCClassicLink = undefined
 
-modifyInstanceAttributeTest :: ModifyInstanceAttribute -> TestTree
-modifyInstanceAttributeTest = undefined
+testDescribeKeyPairs :: DescribeKeyPairs -> TestTree
+testDescribeKeyPairs = undefined
 
-modifyNetworkInterfaceAttributeTest :: ModifyNetworkInterfaceAttribute -> TestTree
-modifyNetworkInterfaceAttributeTest = undefined
+testRebootInstances :: RebootInstances -> TestTree
+testRebootInstances = undefined
 
-modifyReservedInstancesTest :: ModifyReservedInstances -> TestTree
-modifyReservedInstancesTest = undefined
+testAttachVPNGateway :: AttachVPNGateway -> TestTree
+testAttachVPNGateway = undefined
 
-modifySnapshotAttributeTest :: ModifySnapshotAttribute -> TestTree
-modifySnapshotAttributeTest = undefined
+testCreateVPNConnectionRoute :: CreateVPNConnectionRoute -> TestTree
+testCreateVPNConnectionRoute = undefined
 
-modifySubnetAttributeTest :: ModifySubnetAttribute -> TestTree
-modifySubnetAttributeTest = undefined
+testDescribeClassicLinkInstances :: DescribeClassicLinkInstances -> TestTree
+testDescribeClassicLinkInstances = undefined
 
-modifyVPCAttributeTest :: ModifyVPCAttribute -> TestTree
-modifyVPCAttributeTest = undefined
+testTerminateInstances :: TerminateInstances -> TestTree
+testTerminateInstances = undefined
 
-modifyVPCEndpointTest :: ModifyVPCEndpoint -> TestTree
-modifyVPCEndpointTest = undefined
+testCreateDHCPOptions :: CreateDHCPOptions -> TestTree
+testCreateDHCPOptions = undefined
 
-modifyVolumeAttributeTest :: ModifyVolumeAttribute -> TestTree
-modifyVolumeAttributeTest = undefined
+testAssociateRouteTable :: AssociateRouteTable -> TestTree
+testAssociateRouteTable = undefined
 
-monitorInstancesTest :: MonitorInstances -> TestTree
-monitorInstancesTest = undefined
+testCreateImage :: CreateImage -> TestTree
+testCreateImage = undefined
 
-moveAddressToVPCTest :: MoveAddressToVPC -> TestTree
-moveAddressToVPCTest = undefined
+testDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
+testDescribeAccountAttributes = undefined
 
-purchaseReservedInstancesOfferingTest :: PurchaseReservedInstancesOffering -> TestTree
-purchaseReservedInstancesOfferingTest = undefined
+testResetImageAttribute :: ResetImageAttribute -> TestTree
+testResetImageAttribute = undefined
 
-rebootInstancesTest :: RebootInstances -> TestTree
-rebootInstancesTest = undefined
+testDescribeNetworkACLs :: DescribeNetworkACLs -> TestTree
+testDescribeNetworkACLs = undefined
 
-registerImageTest :: RegisterImage -> TestTree
-registerImageTest = undefined
+testCancelImportTask :: CancelImportTask -> TestTree
+testCancelImportTask = undefined
 
-rejectVPCPeeringConnectionTest :: RejectVPCPeeringConnection -> TestTree
-rejectVPCPeeringConnectionTest = undefined
+testGetConsoleOutput :: GetConsoleOutput -> TestTree
+testGetConsoleOutput = undefined
 
-releaseAddressTest :: ReleaseAddress -> TestTree
-releaseAddressTest = undefined
+testUnassignPrivateIPAddresses :: UnassignPrivateIPAddresses -> TestTree
+testUnassignPrivateIPAddresses = undefined
 
-replaceNetworkACLAssociationTest :: ReplaceNetworkACLAssociation -> TestTree
-replaceNetworkACLAssociationTest = undefined
+testDeleteRouteTable :: DeleteRouteTable -> TestTree
+testDeleteRouteTable = undefined
 
-replaceNetworkACLEntryTest :: ReplaceNetworkACLEntry -> TestTree
-replaceNetworkACLEntryTest = undefined
+testDescribeImageAttribute :: DescribeImageAttribute -> TestTree
+testDescribeImageAttribute = undefined
 
-replaceRouteTest :: ReplaceRoute -> TestTree
-replaceRouteTest = undefined
+testDeleteDHCPOptions :: DeleteDHCPOptions -> TestTree
+testDeleteDHCPOptions = undefined
 
-replaceRouteTableAssociationTest :: ReplaceRouteTableAssociation -> TestTree
-replaceRouteTableAssociationTest = undefined
+testDescribeVPNGateways :: DescribeVPNGateways -> TestTree
+testDescribeVPNGateways = undefined
 
-reportInstanceStatusTest :: ReportInstanceStatus -> TestTree
-reportInstanceStatusTest = undefined
+testDetachClassicLinkVPC :: DetachClassicLinkVPC -> TestTree
+testDetachClassicLinkVPC = undefined
 
-requestSpotFleetTest :: RequestSpotFleet -> TestTree
-requestSpotFleetTest = undefined
+testDescribeReservedInstancesModifications :: DescribeReservedInstancesModifications -> TestTree
+testDescribeReservedInstancesModifications = undefined
 
-requestSpotInstancesTest :: RequestSpotInstances -> TestTree
-requestSpotInstancesTest = undefined
+testDescribeSpotInstanceRequests :: DescribeSpotInstanceRequests -> TestTree
+testDescribeSpotInstanceRequests = undefined
 
-resetImageAttributeTest :: ResetImageAttribute -> TestTree
-resetImageAttributeTest = undefined
+testMonitorInstances :: MonitorInstances -> TestTree
+testMonitorInstances = undefined
 
-resetInstanceAttributeTest :: ResetInstanceAttribute -> TestTree
-resetInstanceAttributeTest = undefined
+testDescribeRegions :: DescribeRegions -> TestTree
+testDescribeRegions = undefined
 
-resetNetworkInterfaceAttributeTest :: ResetNetworkInterfaceAttribute -> TestTree
-resetNetworkInterfaceAttributeTest = undefined
+testModifyVPCAttribute :: ModifyVPCAttribute -> TestTree
+testModifyVPCAttribute = undefined
 
-resetSnapshotAttributeTest :: ResetSnapshotAttribute -> TestTree
-resetSnapshotAttributeTest = undefined
+testDescribeSpotFleetInstances :: DescribeSpotFleetInstances -> TestTree
+testDescribeSpotFleetInstances = undefined
 
-restoreAddressToClassicTest :: RestoreAddressToClassic -> TestTree
-restoreAddressToClassicTest = undefined
+testDescribeVolumeStatus :: DescribeVolumeStatus -> TestTree
+testDescribeVolumeStatus = undefined
 
-revokeSecurityGroupEgressTest :: RevokeSecurityGroupEgress -> TestTree
-revokeSecurityGroupEgressTest = undefined
+testDeleteVolume :: DeleteVolume -> TestTree
+testDeleteVolume = undefined
 
-revokeSecurityGroupIngressTest :: RevokeSecurityGroupIngress -> TestTree
-revokeSecurityGroupIngressTest = undefined
+testDescribeImages :: DescribeImages -> TestTree
+testDescribeImages = undefined
 
-runInstancesTest :: RunInstances -> TestTree
-runInstancesTest = undefined
+testCreateKeyPair :: CreateKeyPair -> TestTree
+testCreateKeyPair = undefined
 
-startInstancesTest :: StartInstances -> TestTree
-startInstancesTest = undefined
+testRestoreAddressToClassic :: RestoreAddressToClassic -> TestTree
+testRestoreAddressToClassic = undefined
 
-stopInstancesTest :: StopInstances -> TestTree
-stopInstancesTest = undefined
+testDescribeAvailabilityZones :: DescribeAvailabilityZones -> TestTree
+testDescribeAvailabilityZones = undefined
 
-terminateInstancesTest :: TerminateInstances -> TestTree
-terminateInstancesTest = undefined
+testImportSnapshot :: ImportSnapshot -> TestTree
+testImportSnapshot = undefined
 
-unassignPrivateIPAddressesTest :: UnassignPrivateIPAddresses -> TestTree
-unassignPrivateIPAddressesTest = undefined
+testAcceptVPCPeeringConnection :: AcceptVPCPeeringConnection -> TestTree
+testAcceptVPCPeeringConnection = undefined
 
-unmonitorInstancesTest :: UnmonitorInstances -> TestTree
-unmonitorInstancesTest = undefined
+testDescribeRouteTables :: DescribeRouteTables -> TestTree
+testDescribeRouteTables = undefined
 
 -- Responses
 
-acceptVPCPeeringConnectionResponseTest :: AcceptVPCPeeringConnectionResponse -> TestTree
-acceptVPCPeeringConnectionResponseTest = resp
-    "acceptVPCPeeringConnectionResponse"
-    "fixture/AcceptVPCPeeringConnectionResponse"
-    (Proxy :: Proxy AcceptVPCPeeringConnection)
-
-allocateAddressResponseTest :: AllocateAddressResponse -> TestTree
-allocateAddressResponseTest = resp
-    "allocateAddressResponse"
-    "fixture/AllocateAddressResponse"
-    (Proxy :: Proxy AllocateAddress)
-
-assignPrivateIPAddressesResponseTest :: AssignPrivateIPAddressesResponse -> TestTree
-assignPrivateIPAddressesResponseTest = resp
-    "assignPrivateIPAddressesResponse"
-    "fixture/AssignPrivateIPAddressesResponse"
-    (Proxy :: Proxy AssignPrivateIPAddresses)
-
-associateAddressResponseTest :: AssociateAddressResponse -> TestTree
-associateAddressResponseTest = resp
-    "associateAddressResponse"
-    "fixture/AssociateAddressResponse"
-    (Proxy :: Proxy AssociateAddress)
-
-associateDHCPOptionsResponseTest :: AssociateDHCPOptionsResponse -> TestTree
-associateDHCPOptionsResponseTest = resp
-    "associateDHCPOptionsResponse"
-    "fixture/AssociateDHCPOptionsResponse"
-    (Proxy :: Proxy AssociateDHCPOptions)
-
-associateRouteTableResponseTest :: AssociateRouteTableResponse -> TestTree
-associateRouteTableResponseTest = resp
-    "associateRouteTableResponse"
-    "fixture/AssociateRouteTableResponse"
-    (Proxy :: Proxy AssociateRouteTable)
-
-attachClassicLinkVPCResponseTest :: AttachClassicLinkVPCResponse -> TestTree
-attachClassicLinkVPCResponseTest = resp
-    "attachClassicLinkVPCResponse"
-    "fixture/AttachClassicLinkVPCResponse"
-    (Proxy :: Proxy AttachClassicLinkVPC)
-
-attachInternetGatewayResponseTest :: AttachInternetGatewayResponse -> TestTree
-attachInternetGatewayResponseTest = resp
-    "attachInternetGatewayResponse"
-    "fixture/AttachInternetGatewayResponse"
-    (Proxy :: Proxy AttachInternetGateway)
-
-attachNetworkInterfaceResponseTest :: AttachNetworkInterfaceResponse -> TestTree
-attachNetworkInterfaceResponseTest = resp
-    "attachNetworkInterfaceResponse"
-    "fixture/AttachNetworkInterfaceResponse"
-    (Proxy :: Proxy AttachNetworkInterface)
-
-attachVPNGatewayResponseTest :: AttachVPNGatewayResponse -> TestTree
-attachVPNGatewayResponseTest = resp
-    "attachVPNGatewayResponse"
-    "fixture/AttachVPNGatewayResponse"
-    (Proxy :: Proxy AttachVPNGateway)
-
-attachVolumeResponseTest :: VolumeAttachment -> TestTree
-attachVolumeResponseTest = resp
-    "attachVolumeResponse"
-    "fixture/VolumeAttachment"
-    (Proxy :: Proxy AttachVolume)
-
-authorizeSecurityGroupEgressResponseTest :: AuthorizeSecurityGroupEgressResponse -> TestTree
-authorizeSecurityGroupEgressResponseTest = resp
-    "authorizeSecurityGroupEgressResponse"
-    "fixture/AuthorizeSecurityGroupEgressResponse"
-    (Proxy :: Proxy AuthorizeSecurityGroupEgress)
-
-authorizeSecurityGroupIngressResponseTest :: AuthorizeSecurityGroupIngressResponse -> TestTree
-authorizeSecurityGroupIngressResponseTest = resp
-    "authorizeSecurityGroupIngressResponse"
-    "fixture/AuthorizeSecurityGroupIngressResponse"
-    (Proxy :: Proxy AuthorizeSecurityGroupIngress)
-
-bundleInstanceResponseTest :: BundleInstanceResponse -> TestTree
-bundleInstanceResponseTest = resp
-    "bundleInstanceResponse"
-    "fixture/BundleInstanceResponse"
-    (Proxy :: Proxy BundleInstance)
-
-cancelBundleTaskResponseTest :: CancelBundleTaskResponse -> TestTree
-cancelBundleTaskResponseTest = resp
-    "cancelBundleTaskResponse"
-    "fixture/CancelBundleTaskResponse"
-    (Proxy :: Proxy CancelBundleTask)
-
-cancelConversionTaskResponseTest :: CancelConversionTaskResponse -> TestTree
-cancelConversionTaskResponseTest = resp
-    "cancelConversionTaskResponse"
-    "fixture/CancelConversionTaskResponse"
-    (Proxy :: Proxy CancelConversionTask)
-
-cancelExportTaskResponseTest :: CancelExportTaskResponse -> TestTree
-cancelExportTaskResponseTest = resp
-    "cancelExportTaskResponse"
-    "fixture/CancelExportTaskResponse"
-    (Proxy :: Proxy CancelExportTask)
-
-cancelImportTaskResponseTest :: CancelImportTaskResponse -> TestTree
-cancelImportTaskResponseTest = resp
-    "cancelImportTaskResponse"
-    "fixture/CancelImportTaskResponse"
-    (Proxy :: Proxy CancelImportTask)
-
-cancelReservedInstancesListingResponseTest :: CancelReservedInstancesListingResponse -> TestTree
-cancelReservedInstancesListingResponseTest = resp
-    "cancelReservedInstancesListingResponse"
-    "fixture/CancelReservedInstancesListingResponse"
-    (Proxy :: Proxy CancelReservedInstancesListing)
-
-cancelSpotFleetRequestsResponseTest :: CancelSpotFleetRequestsResponse -> TestTree
-cancelSpotFleetRequestsResponseTest = resp
-    "cancelSpotFleetRequestsResponse"
-    "fixture/CancelSpotFleetRequestsResponse"
-    (Proxy :: Proxy CancelSpotFleetRequests)
-
-cancelSpotInstanceRequestsResponseTest :: CancelSpotInstanceRequestsResponse -> TestTree
-cancelSpotInstanceRequestsResponseTest = resp
-    "cancelSpotInstanceRequestsResponse"
-    "fixture/CancelSpotInstanceRequestsResponse"
-    (Proxy :: Proxy CancelSpotInstanceRequests)
-
-confirmProductInstanceResponseTest :: ConfirmProductInstanceResponse -> TestTree
-confirmProductInstanceResponseTest = resp
-    "confirmProductInstanceResponse"
-    "fixture/ConfirmProductInstanceResponse"
-    (Proxy :: Proxy ConfirmProductInstance)
-
-copyImageResponseTest :: CopyImageResponse -> TestTree
-copyImageResponseTest = resp
-    "copyImageResponse"
-    "fixture/CopyImageResponse"
-    (Proxy :: Proxy CopyImage)
-
-copySnapshotResponseTest :: CopySnapshotResponse -> TestTree
-copySnapshotResponseTest = resp
-    "copySnapshotResponse"
-    "fixture/CopySnapshotResponse"
-    (Proxy :: Proxy CopySnapshot)
-
-createCustomerGatewayResponseTest :: CreateCustomerGatewayResponse -> TestTree
-createCustomerGatewayResponseTest = resp
-    "createCustomerGatewayResponse"
-    "fixture/CreateCustomerGatewayResponse"
-    (Proxy :: Proxy CreateCustomerGateway)
-
-createDHCPOptionsResponseTest :: CreateDHCPOptionsResponse -> TestTree
-createDHCPOptionsResponseTest = resp
-    "createDHCPOptionsResponse"
-    "fixture/CreateDHCPOptionsResponse"
-    (Proxy :: Proxy CreateDHCPOptions)
-
-createFlowLogsResponseTest :: CreateFlowLogsResponse -> TestTree
-createFlowLogsResponseTest = resp
-    "createFlowLogsResponse"
-    "fixture/CreateFlowLogsResponse"
-    (Proxy :: Proxy CreateFlowLogs)
-
-createImageResponseTest :: CreateImageResponse -> TestTree
-createImageResponseTest = resp
-    "createImageResponse"
-    "fixture/CreateImageResponse"
-    (Proxy :: Proxy CreateImage)
-
-createInstanceExportTaskResponseTest :: CreateInstanceExportTaskResponse -> TestTree
-createInstanceExportTaskResponseTest = resp
-    "createInstanceExportTaskResponse"
-    "fixture/CreateInstanceExportTaskResponse"
-    (Proxy :: Proxy CreateInstanceExportTask)
-
-createInternetGatewayResponseTest :: CreateInternetGatewayResponse -> TestTree
-createInternetGatewayResponseTest = resp
-    "createInternetGatewayResponse"
-    "fixture/CreateInternetGatewayResponse"
-    (Proxy :: Proxy CreateInternetGateway)
-
-createKeyPairResponseTest :: CreateKeyPairResponse -> TestTree
-createKeyPairResponseTest = resp
-    "createKeyPairResponse"
-    "fixture/CreateKeyPairResponse"
-    (Proxy :: Proxy CreateKeyPair)
-
-createNetworkACLResponseTest :: CreateNetworkACLResponse -> TestTree
-createNetworkACLResponseTest = resp
-    "createNetworkACLResponse"
-    "fixture/CreateNetworkACLResponse"
-    (Proxy :: Proxy CreateNetworkACL)
-
-createNetworkACLEntryResponseTest :: CreateNetworkACLEntryResponse -> TestTree
-createNetworkACLEntryResponseTest = resp
-    "createNetworkACLEntryResponse"
-    "fixture/CreateNetworkACLEntryResponse"
-    (Proxy :: Proxy CreateNetworkACLEntry)
-
-createNetworkInterfaceResponseTest :: CreateNetworkInterfaceResponse -> TestTree
-createNetworkInterfaceResponseTest = resp
-    "createNetworkInterfaceResponse"
-    "fixture/CreateNetworkInterfaceResponse"
-    (Proxy :: Proxy CreateNetworkInterface)
-
-createPlacementGroupResponseTest :: CreatePlacementGroupResponse -> TestTree
-createPlacementGroupResponseTest = resp
-    "createPlacementGroupResponse"
-    "fixture/CreatePlacementGroupResponse"
-    (Proxy :: Proxy CreatePlacementGroup)
-
-createReservedInstancesListingResponseTest :: CreateReservedInstancesListingResponse -> TestTree
-createReservedInstancesListingResponseTest = resp
-    "createReservedInstancesListingResponse"
-    "fixture/CreateReservedInstancesListingResponse"
-    (Proxy :: Proxy CreateReservedInstancesListing)
-
-createRouteResponseTest :: CreateRouteResponse -> TestTree
-createRouteResponseTest = resp
-    "createRouteResponse"
-    "fixture/CreateRouteResponse"
-    (Proxy :: Proxy CreateRoute)
-
-createRouteTableResponseTest :: CreateRouteTableResponse -> TestTree
-createRouteTableResponseTest = resp
-    "createRouteTableResponse"
-    "fixture/CreateRouteTableResponse"
-    (Proxy :: Proxy CreateRouteTable)
-
-createSecurityGroupResponseTest :: CreateSecurityGroupResponse -> TestTree
-createSecurityGroupResponseTest = resp
-    "createSecurityGroupResponse"
-    "fixture/CreateSecurityGroupResponse"
-    (Proxy :: Proxy CreateSecurityGroup)
-
-createSnapshotResponseTest :: Snapshot -> TestTree
-createSnapshotResponseTest = resp
-    "createSnapshotResponse"
-    "fixture/Snapshot"
-    (Proxy :: Proxy CreateSnapshot)
-
-createSpotDatafeedSubscriptionResponseTest :: CreateSpotDatafeedSubscriptionResponse -> TestTree
-createSpotDatafeedSubscriptionResponseTest = resp
-    "createSpotDatafeedSubscriptionResponse"
-    "fixture/CreateSpotDatafeedSubscriptionResponse"
-    (Proxy :: Proxy CreateSpotDatafeedSubscription)
-
-createSubnetResponseTest :: CreateSubnetResponse -> TestTree
-createSubnetResponseTest = resp
-    "createSubnetResponse"
-    "fixture/CreateSubnetResponse"
-    (Proxy :: Proxy CreateSubnet)
-
-createTagsResponseTest :: CreateTagsResponse -> TestTree
-createTagsResponseTest = resp
-    "createTagsResponse"
-    "fixture/CreateTagsResponse"
-    (Proxy :: Proxy CreateTags)
-
-createVPCResponseTest :: CreateVPCResponse -> TestTree
-createVPCResponseTest = resp
-    "createVPCResponse"
-    "fixture/CreateVPCResponse"
-    (Proxy :: Proxy CreateVPC)
-
-createVPCEndpointResponseTest :: CreateVPCEndpointResponse -> TestTree
-createVPCEndpointResponseTest = resp
-    "createVPCEndpointResponse"
-    "fixture/CreateVPCEndpointResponse"
-    (Proxy :: Proxy CreateVPCEndpoint)
-
-createVPCPeeringConnectionResponseTest :: CreateVPCPeeringConnectionResponse -> TestTree
-createVPCPeeringConnectionResponseTest = resp
-    "createVPCPeeringConnectionResponse"
-    "fixture/CreateVPCPeeringConnectionResponse"
-    (Proxy :: Proxy CreateVPCPeeringConnection)
-
-createVPNConnectionResponseTest :: CreateVPNConnectionResponse -> TestTree
-createVPNConnectionResponseTest = resp
-    "createVPNConnectionResponse"
-    "fixture/CreateVPNConnectionResponse"
-    (Proxy :: Proxy CreateVPNConnection)
-
-createVPNConnectionRouteResponseTest :: CreateVPNConnectionRouteResponse -> TestTree
-createVPNConnectionRouteResponseTest = resp
-    "createVPNConnectionRouteResponse"
-    "fixture/CreateVPNConnectionRouteResponse"
-    (Proxy :: Proxy CreateVPNConnectionRoute)
-
-createVPNGatewayResponseTest :: CreateVPNGatewayResponse -> TestTree
-createVPNGatewayResponseTest = resp
-    "createVPNGatewayResponse"
-    "fixture/CreateVPNGatewayResponse"
-    (Proxy :: Proxy CreateVPNGateway)
-
-createVolumeResponseTest :: Volume -> TestTree
-createVolumeResponseTest = resp
-    "createVolumeResponse"
-    "fixture/Volume"
-    (Proxy :: Proxy CreateVolume)
-
-deleteCustomerGatewayResponseTest :: DeleteCustomerGatewayResponse -> TestTree
-deleteCustomerGatewayResponseTest = resp
-    "deleteCustomerGatewayResponse"
-    "fixture/DeleteCustomerGatewayResponse"
-    (Proxy :: Proxy DeleteCustomerGateway)
-
-deleteDHCPOptionsResponseTest :: DeleteDHCPOptionsResponse -> TestTree
-deleteDHCPOptionsResponseTest = resp
-    "deleteDHCPOptionsResponse"
-    "fixture/DeleteDHCPOptionsResponse"
-    (Proxy :: Proxy DeleteDHCPOptions)
-
-deleteFlowLogsResponseTest :: DeleteFlowLogsResponse -> TestTree
-deleteFlowLogsResponseTest = resp
-    "deleteFlowLogsResponse"
-    "fixture/DeleteFlowLogsResponse"
-    (Proxy :: Proxy DeleteFlowLogs)
-
-deleteInternetGatewayResponseTest :: DeleteInternetGatewayResponse -> TestTree
-deleteInternetGatewayResponseTest = resp
-    "deleteInternetGatewayResponse"
-    "fixture/DeleteInternetGatewayResponse"
-    (Proxy :: Proxy DeleteInternetGateway)
-
-deleteKeyPairResponseTest :: DeleteKeyPairResponse -> TestTree
-deleteKeyPairResponseTest = resp
-    "deleteKeyPairResponse"
-    "fixture/DeleteKeyPairResponse"
-    (Proxy :: Proxy DeleteKeyPair)
-
-deleteNetworkACLResponseTest :: DeleteNetworkACLResponse -> TestTree
-deleteNetworkACLResponseTest = resp
-    "deleteNetworkACLResponse"
-    "fixture/DeleteNetworkACLResponse"
-    (Proxy :: Proxy DeleteNetworkACL)
-
-deleteNetworkACLEntryResponseTest :: DeleteNetworkACLEntryResponse -> TestTree
-deleteNetworkACLEntryResponseTest = resp
-    "deleteNetworkACLEntryResponse"
-    "fixture/DeleteNetworkACLEntryResponse"
-    (Proxy :: Proxy DeleteNetworkACLEntry)
-
-deleteNetworkInterfaceResponseTest :: DeleteNetworkInterfaceResponse -> TestTree
-deleteNetworkInterfaceResponseTest = resp
-    "deleteNetworkInterfaceResponse"
-    "fixture/DeleteNetworkInterfaceResponse"
-    (Proxy :: Proxy DeleteNetworkInterface)
-
-deletePlacementGroupResponseTest :: DeletePlacementGroupResponse -> TestTree
-deletePlacementGroupResponseTest = resp
-    "deletePlacementGroupResponse"
-    "fixture/DeletePlacementGroupResponse"
-    (Proxy :: Proxy DeletePlacementGroup)
-
-deleteRouteResponseTest :: DeleteRouteResponse -> TestTree
-deleteRouteResponseTest = resp
-    "deleteRouteResponse"
-    "fixture/DeleteRouteResponse"
-    (Proxy :: Proxy DeleteRoute)
-
-deleteRouteTableResponseTest :: DeleteRouteTableResponse -> TestTree
-deleteRouteTableResponseTest = resp
-    "deleteRouteTableResponse"
-    "fixture/DeleteRouteTableResponse"
-    (Proxy :: Proxy DeleteRouteTable)
-
-deleteSecurityGroupResponseTest :: DeleteSecurityGroupResponse -> TestTree
-deleteSecurityGroupResponseTest = resp
-    "deleteSecurityGroupResponse"
-    "fixture/DeleteSecurityGroupResponse"
-    (Proxy :: Proxy DeleteSecurityGroup)
-
-deleteSnapshotResponseTest :: DeleteSnapshotResponse -> TestTree
-deleteSnapshotResponseTest = resp
-    "deleteSnapshotResponse"
-    "fixture/DeleteSnapshotResponse"
-    (Proxy :: Proxy DeleteSnapshot)
-
-deleteSpotDatafeedSubscriptionResponseTest :: DeleteSpotDatafeedSubscriptionResponse -> TestTree
-deleteSpotDatafeedSubscriptionResponseTest = resp
-    "deleteSpotDatafeedSubscriptionResponse"
-    "fixture/DeleteSpotDatafeedSubscriptionResponse"
-    (Proxy :: Proxy DeleteSpotDatafeedSubscription)
-
-deleteSubnetResponseTest :: DeleteSubnetResponse -> TestTree
-deleteSubnetResponseTest = resp
-    "deleteSubnetResponse"
-    "fixture/DeleteSubnetResponse"
-    (Proxy :: Proxy DeleteSubnet)
-
-deleteTagsResponseTest :: DeleteTagsResponse -> TestTree
-deleteTagsResponseTest = resp
-    "deleteTagsResponse"
-    "fixture/DeleteTagsResponse"
-    (Proxy :: Proxy DeleteTags)
-
-deleteVPCResponseTest :: DeleteVPCResponse -> TestTree
-deleteVPCResponseTest = resp
-    "deleteVPCResponse"
-    "fixture/DeleteVPCResponse"
-    (Proxy :: Proxy DeleteVPC)
-
-deleteVPCEndpointsResponseTest :: DeleteVPCEndpointsResponse -> TestTree
-deleteVPCEndpointsResponseTest = resp
-    "deleteVPCEndpointsResponse"
-    "fixture/DeleteVPCEndpointsResponse"
-    (Proxy :: Proxy DeleteVPCEndpoints)
-
-deleteVPCPeeringConnectionResponseTest :: DeleteVPCPeeringConnectionResponse -> TestTree
-deleteVPCPeeringConnectionResponseTest = resp
-    "deleteVPCPeeringConnectionResponse"
-    "fixture/DeleteVPCPeeringConnectionResponse"
-    (Proxy :: Proxy DeleteVPCPeeringConnection)
-
-deleteVPNConnectionResponseTest :: DeleteVPNConnectionResponse -> TestTree
-deleteVPNConnectionResponseTest = resp
-    "deleteVPNConnectionResponse"
-    "fixture/DeleteVPNConnectionResponse"
-    (Proxy :: Proxy DeleteVPNConnection)
-
-deleteVPNConnectionRouteResponseTest :: DeleteVPNConnectionRouteResponse -> TestTree
-deleteVPNConnectionRouteResponseTest = resp
-    "deleteVPNConnectionRouteResponse"
-    "fixture/DeleteVPNConnectionRouteResponse"
-    (Proxy :: Proxy DeleteVPNConnectionRoute)
-
-deleteVPNGatewayResponseTest :: DeleteVPNGatewayResponse -> TestTree
-deleteVPNGatewayResponseTest = resp
-    "deleteVPNGatewayResponse"
-    "fixture/DeleteVPNGatewayResponse"
-    (Proxy :: Proxy DeleteVPNGateway)
-
-deleteVolumeResponseTest :: DeleteVolumeResponse -> TestTree
-deleteVolumeResponseTest = resp
-    "deleteVolumeResponse"
-    "fixture/DeleteVolumeResponse"
-    (Proxy :: Proxy DeleteVolume)
-
-deregisterImageResponseTest :: DeregisterImageResponse -> TestTree
-deregisterImageResponseTest = resp
-    "deregisterImageResponse"
-    "fixture/DeregisterImageResponse"
-    (Proxy :: Proxy DeregisterImage)
-
-describeAccountAttributesResponseTest :: DescribeAccountAttributesResponse -> TestTree
-describeAccountAttributesResponseTest = resp
-    "describeAccountAttributesResponse"
-    "fixture/DescribeAccountAttributesResponse"
-    (Proxy :: Proxy DescribeAccountAttributes)
-
-describeAddressesResponseTest :: DescribeAddressesResponse -> TestTree
-describeAddressesResponseTest = resp
-    "describeAddressesResponse"
-    "fixture/DescribeAddressesResponse"
-    (Proxy :: Proxy DescribeAddresses)
-
-describeAvailabilityZonesResponseTest :: DescribeAvailabilityZonesResponse -> TestTree
-describeAvailabilityZonesResponseTest = resp
-    "describeAvailabilityZonesResponse"
-    "fixture/DescribeAvailabilityZonesResponse"
-    (Proxy :: Proxy DescribeAvailabilityZones)
-
-describeBundleTasksResponseTest :: DescribeBundleTasksResponse -> TestTree
-describeBundleTasksResponseTest = resp
-    "describeBundleTasksResponse"
-    "fixture/DescribeBundleTasksResponse"
-    (Proxy :: Proxy DescribeBundleTasks)
-
-describeClassicLinkInstancesResponseTest :: DescribeClassicLinkInstancesResponse -> TestTree
-describeClassicLinkInstancesResponseTest = resp
-    "describeClassicLinkInstancesResponse"
-    "fixture/DescribeClassicLinkInstancesResponse"
-    (Proxy :: Proxy DescribeClassicLinkInstances)
-
-describeConversionTasksResponseTest :: DescribeConversionTasksResponse -> TestTree
-describeConversionTasksResponseTest = resp
-    "describeConversionTasksResponse"
-    "fixture/DescribeConversionTasksResponse"
-    (Proxy :: Proxy DescribeConversionTasks)
-
-describeCustomerGatewaysResponseTest :: DescribeCustomerGatewaysResponse -> TestTree
-describeCustomerGatewaysResponseTest = resp
-    "describeCustomerGatewaysResponse"
-    "fixture/DescribeCustomerGatewaysResponse"
-    (Proxy :: Proxy DescribeCustomerGateways)
-
-describeDHCPOptionsResponseTest :: DescribeDHCPOptionsResponse -> TestTree
-describeDHCPOptionsResponseTest = resp
-    "describeDHCPOptionsResponse"
-    "fixture/DescribeDHCPOptionsResponse"
-    (Proxy :: Proxy DescribeDHCPOptions)
-
-describeExportTasksResponseTest :: DescribeExportTasksResponse -> TestTree
-describeExportTasksResponseTest = resp
-    "describeExportTasksResponse"
-    "fixture/DescribeExportTasksResponse"
-    (Proxy :: Proxy DescribeExportTasks)
-
-describeFlowLogsResponseTest :: DescribeFlowLogsResponse -> TestTree
-describeFlowLogsResponseTest = resp
-    "describeFlowLogsResponse"
-    "fixture/DescribeFlowLogsResponse"
-    (Proxy :: Proxy DescribeFlowLogs)
-
-describeImageAttributeResponseTest :: DescribeImageAttributeResponse -> TestTree
-describeImageAttributeResponseTest = resp
-    "describeImageAttributeResponse"
-    "fixture/DescribeImageAttributeResponse"
-    (Proxy :: Proxy DescribeImageAttribute)
-
-describeImagesResponseTest :: DescribeImagesResponse -> TestTree
-describeImagesResponseTest = resp
-    "describeImagesResponse"
-    "fixture/DescribeImagesResponse"
-    (Proxy :: Proxy DescribeImages)
-
-describeImportImageTasksResponseTest :: DescribeImportImageTasksResponse -> TestTree
-describeImportImageTasksResponseTest = resp
-    "describeImportImageTasksResponse"
-    "fixture/DescribeImportImageTasksResponse"
-    (Proxy :: Proxy DescribeImportImageTasks)
-
-describeImportSnapshotTasksResponseTest :: DescribeImportSnapshotTasksResponse -> TestTree
-describeImportSnapshotTasksResponseTest = resp
-    "describeImportSnapshotTasksResponse"
-    "fixture/DescribeImportSnapshotTasksResponse"
-    (Proxy :: Proxy DescribeImportSnapshotTasks)
-
-describeInstanceAttributeResponseTest :: DescribeInstanceAttributeResponse -> TestTree
-describeInstanceAttributeResponseTest = resp
-    "describeInstanceAttributeResponse"
-    "fixture/DescribeInstanceAttributeResponse"
-    (Proxy :: Proxy DescribeInstanceAttribute)
-
-describeInstanceStatusResponseTest :: DescribeInstanceStatusResponse -> TestTree
-describeInstanceStatusResponseTest = resp
-    "describeInstanceStatusResponse"
-    "fixture/DescribeInstanceStatusResponse"
-    (Proxy :: Proxy DescribeInstanceStatus)
-
-describeInstancesResponseTest :: DescribeInstancesResponse -> TestTree
-describeInstancesResponseTest = resp
-    "describeInstancesResponse"
-    "fixture/DescribeInstancesResponse"
-    (Proxy :: Proxy DescribeInstances)
-
-describeInternetGatewaysResponseTest :: DescribeInternetGatewaysResponse -> TestTree
-describeInternetGatewaysResponseTest = resp
-    "describeInternetGatewaysResponse"
-    "fixture/DescribeInternetGatewaysResponse"
-    (Proxy :: Proxy DescribeInternetGateways)
-
-describeKeyPairsResponseTest :: DescribeKeyPairsResponse -> TestTree
-describeKeyPairsResponseTest = resp
-    "describeKeyPairsResponse"
-    "fixture/DescribeKeyPairsResponse"
-    (Proxy :: Proxy DescribeKeyPairs)
-
-describeMovingAddressesResponseTest :: DescribeMovingAddressesResponse -> TestTree
-describeMovingAddressesResponseTest = resp
-    "describeMovingAddressesResponse"
-    "fixture/DescribeMovingAddressesResponse"
-    (Proxy :: Proxy DescribeMovingAddresses)
-
-describeNetworkACLsResponseTest :: DescribeNetworkACLsResponse -> TestTree
-describeNetworkACLsResponseTest = resp
-    "describeNetworkACLsResponse"
-    "fixture/DescribeNetworkACLsResponse"
-    (Proxy :: Proxy DescribeNetworkACLs)
-
-describeNetworkInterfaceAttributeResponseTest :: DescribeNetworkInterfaceAttributeResponse -> TestTree
-describeNetworkInterfaceAttributeResponseTest = resp
-    "describeNetworkInterfaceAttributeResponse"
-    "fixture/DescribeNetworkInterfaceAttributeResponse"
-    (Proxy :: Proxy DescribeNetworkInterfaceAttribute)
-
-describeNetworkInterfacesResponseTest :: DescribeNetworkInterfacesResponse -> TestTree
-describeNetworkInterfacesResponseTest = resp
-    "describeNetworkInterfacesResponse"
-    "fixture/DescribeNetworkInterfacesResponse"
-    (Proxy :: Proxy DescribeNetworkInterfaces)
-
-describePlacementGroupsResponseTest :: DescribePlacementGroupsResponse -> TestTree
-describePlacementGroupsResponseTest = resp
-    "describePlacementGroupsResponse"
-    "fixture/DescribePlacementGroupsResponse"
-    (Proxy :: Proxy DescribePlacementGroups)
-
-describePrefixListsResponseTest :: DescribePrefixListsResponse -> TestTree
-describePrefixListsResponseTest = resp
-    "describePrefixListsResponse"
-    "fixture/DescribePrefixListsResponse"
-    (Proxy :: Proxy DescribePrefixLists)
-
-describeRegionsResponseTest :: DescribeRegionsResponse -> TestTree
-describeRegionsResponseTest = resp
-    "describeRegionsResponse"
-    "fixture/DescribeRegionsResponse"
-    (Proxy :: Proxy DescribeRegions)
-
-describeReservedInstancesResponseTest :: DescribeReservedInstancesResponse -> TestTree
-describeReservedInstancesResponseTest = resp
-    "describeReservedInstancesResponse"
-    "fixture/DescribeReservedInstancesResponse"
-    (Proxy :: Proxy DescribeReservedInstances)
-
-describeReservedInstancesListingsResponseTest :: DescribeReservedInstancesListingsResponse -> TestTree
-describeReservedInstancesListingsResponseTest = resp
-    "describeReservedInstancesListingsResponse"
-    "fixture/DescribeReservedInstancesListingsResponse"
-    (Proxy :: Proxy DescribeReservedInstancesListings)
-
-describeReservedInstancesModificationsResponseTest :: DescribeReservedInstancesModificationsResponse -> TestTree
-describeReservedInstancesModificationsResponseTest = resp
-    "describeReservedInstancesModificationsResponse"
-    "fixture/DescribeReservedInstancesModificationsResponse"
-    (Proxy :: Proxy DescribeReservedInstancesModifications)
-
-describeReservedInstancesOfferingsResponseTest :: DescribeReservedInstancesOfferingsResponse -> TestTree
-describeReservedInstancesOfferingsResponseTest = resp
-    "describeReservedInstancesOfferingsResponse"
-    "fixture/DescribeReservedInstancesOfferingsResponse"
-    (Proxy :: Proxy DescribeReservedInstancesOfferings)
-
-describeRouteTablesResponseTest :: DescribeRouteTablesResponse -> TestTree
-describeRouteTablesResponseTest = resp
-    "describeRouteTablesResponse"
-    "fixture/DescribeRouteTablesResponse"
-    (Proxy :: Proxy DescribeRouteTables)
-
-describeSecurityGroupsResponseTest :: DescribeSecurityGroupsResponse -> TestTree
-describeSecurityGroupsResponseTest = resp
-    "describeSecurityGroupsResponse"
-    "fixture/DescribeSecurityGroupsResponse"
-    (Proxy :: Proxy DescribeSecurityGroups)
-
-describeSnapshotAttributeResponseTest :: DescribeSnapshotAttributeResponse -> TestTree
-describeSnapshotAttributeResponseTest = resp
-    "describeSnapshotAttributeResponse"
-    "fixture/DescribeSnapshotAttributeResponse"
-    (Proxy :: Proxy DescribeSnapshotAttribute)
-
-describeSnapshotsResponseTest :: DescribeSnapshotsResponse -> TestTree
-describeSnapshotsResponseTest = resp
-    "describeSnapshotsResponse"
-    "fixture/DescribeSnapshotsResponse"
-    (Proxy :: Proxy DescribeSnapshots)
-
-describeSpotDatafeedSubscriptionResponseTest :: DescribeSpotDatafeedSubscriptionResponse -> TestTree
-describeSpotDatafeedSubscriptionResponseTest = resp
-    "describeSpotDatafeedSubscriptionResponse"
-    "fixture/DescribeSpotDatafeedSubscriptionResponse"
-    (Proxy :: Proxy DescribeSpotDatafeedSubscription)
-
-describeSpotFleetInstancesResponseTest :: DescribeSpotFleetInstancesResponse -> TestTree
-describeSpotFleetInstancesResponseTest = resp
-    "describeSpotFleetInstancesResponse"
-    "fixture/DescribeSpotFleetInstancesResponse"
-    (Proxy :: Proxy DescribeSpotFleetInstances)
-
-describeSpotFleetRequestHistoryResponseTest :: DescribeSpotFleetRequestHistoryResponse -> TestTree
-describeSpotFleetRequestHistoryResponseTest = resp
-    "describeSpotFleetRequestHistoryResponse"
-    "fixture/DescribeSpotFleetRequestHistoryResponse"
-    (Proxy :: Proxy DescribeSpotFleetRequestHistory)
-
-describeSpotFleetRequestsResponseTest :: DescribeSpotFleetRequestsResponse -> TestTree
-describeSpotFleetRequestsResponseTest = resp
-    "describeSpotFleetRequestsResponse"
-    "fixture/DescribeSpotFleetRequestsResponse"
-    (Proxy :: Proxy DescribeSpotFleetRequests)
-
-describeSpotInstanceRequestsResponseTest :: DescribeSpotInstanceRequestsResponse -> TestTree
-describeSpotInstanceRequestsResponseTest = resp
-    "describeSpotInstanceRequestsResponse"
-    "fixture/DescribeSpotInstanceRequestsResponse"
-    (Proxy :: Proxy DescribeSpotInstanceRequests)
-
-describeSpotPriceHistoryResponseTest :: DescribeSpotPriceHistoryResponse -> TestTree
-describeSpotPriceHistoryResponseTest = resp
-    "describeSpotPriceHistoryResponse"
-    "fixture/DescribeSpotPriceHistoryResponse"
-    (Proxy :: Proxy DescribeSpotPriceHistory)
-
-describeSubnetsResponseTest :: DescribeSubnetsResponse -> TestTree
-describeSubnetsResponseTest = resp
-    "describeSubnetsResponse"
-    "fixture/DescribeSubnetsResponse"
-    (Proxy :: Proxy DescribeSubnets)
-
-describeTagsResponseTest :: DescribeTagsResponse -> TestTree
-describeTagsResponseTest = resp
-    "describeTagsResponse"
-    "fixture/DescribeTagsResponse"
-    (Proxy :: Proxy DescribeTags)
-
-describeVPCAttributeResponseTest :: DescribeVPCAttributeResponse -> TestTree
-describeVPCAttributeResponseTest = resp
-    "describeVPCAttributeResponse"
-    "fixture/DescribeVPCAttributeResponse"
-    (Proxy :: Proxy DescribeVPCAttribute)
-
-describeVPCClassicLinkResponseTest :: DescribeVPCClassicLinkResponse -> TestTree
-describeVPCClassicLinkResponseTest = resp
-    "describeVPCClassicLinkResponse"
-    "fixture/DescribeVPCClassicLinkResponse"
-    (Proxy :: Proxy DescribeVPCClassicLink)
-
-describeVPCEndpointServicesResponseTest :: DescribeVPCEndpointServicesResponse -> TestTree
-describeVPCEndpointServicesResponseTest = resp
-    "describeVPCEndpointServicesResponse"
-    "fixture/DescribeVPCEndpointServicesResponse"
-    (Proxy :: Proxy DescribeVPCEndpointServices)
-
-describeVPCEndpointsResponseTest :: DescribeVPCEndpointsResponse -> TestTree
-describeVPCEndpointsResponseTest = resp
-    "describeVPCEndpointsResponse"
-    "fixture/DescribeVPCEndpointsResponse"
-    (Proxy :: Proxy DescribeVPCEndpoints)
-
-describeVPCPeeringConnectionsResponseTest :: DescribeVPCPeeringConnectionsResponse -> TestTree
-describeVPCPeeringConnectionsResponseTest = resp
-    "describeVPCPeeringConnectionsResponse"
-    "fixture/DescribeVPCPeeringConnectionsResponse"
-    (Proxy :: Proxy DescribeVPCPeeringConnections)
-
-describeVPCsResponseTest :: DescribeVPCsResponse -> TestTree
-describeVPCsResponseTest = resp
-    "describeVPCsResponse"
-    "fixture/DescribeVPCsResponse"
-    (Proxy :: Proxy DescribeVPCs)
-
-describeVPNConnectionsResponseTest :: DescribeVPNConnectionsResponse -> TestTree
-describeVPNConnectionsResponseTest = resp
-    "describeVPNConnectionsResponse"
-    "fixture/DescribeVPNConnectionsResponse"
-    (Proxy :: Proxy DescribeVPNConnections)
-
-describeVPNGatewaysResponseTest :: DescribeVPNGatewaysResponse -> TestTree
-describeVPNGatewaysResponseTest = resp
-    "describeVPNGatewaysResponse"
-    "fixture/DescribeVPNGatewaysResponse"
-    (Proxy :: Proxy DescribeVPNGateways)
-
-describeVolumeAttributeResponseTest :: DescribeVolumeAttributeResponse -> TestTree
-describeVolumeAttributeResponseTest = resp
-    "describeVolumeAttributeResponse"
-    "fixture/DescribeVolumeAttributeResponse"
-    (Proxy :: Proxy DescribeVolumeAttribute)
-
-describeVolumeStatusResponseTest :: DescribeVolumeStatusResponse -> TestTree
-describeVolumeStatusResponseTest = resp
-    "describeVolumeStatusResponse"
-    "fixture/DescribeVolumeStatusResponse"
-    (Proxy :: Proxy DescribeVolumeStatus)
-
-describeVolumesResponseTest :: DescribeVolumesResponse -> TestTree
-describeVolumesResponseTest = resp
-    "describeVolumesResponse"
-    "fixture/DescribeVolumesResponse"
-    (Proxy :: Proxy DescribeVolumes)
-
-detachClassicLinkVPCResponseTest :: DetachClassicLinkVPCResponse -> TestTree
-detachClassicLinkVPCResponseTest = resp
-    "detachClassicLinkVPCResponse"
-    "fixture/DetachClassicLinkVPCResponse"
-    (Proxy :: Proxy DetachClassicLinkVPC)
-
-detachInternetGatewayResponseTest :: DetachInternetGatewayResponse -> TestTree
-detachInternetGatewayResponseTest = resp
-    "detachInternetGatewayResponse"
-    "fixture/DetachInternetGatewayResponse"
-    (Proxy :: Proxy DetachInternetGateway)
-
-detachNetworkInterfaceResponseTest :: DetachNetworkInterfaceResponse -> TestTree
-detachNetworkInterfaceResponseTest = resp
-    "detachNetworkInterfaceResponse"
+testDetachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse -> TestTree
+testDetachNetworkInterfaceResponse = resp
+    "DetachNetworkInterfaceResponse"
     "fixture/DetachNetworkInterfaceResponse"
     (Proxy :: Proxy DetachNetworkInterface)
 
-detachVPNGatewayResponseTest :: DetachVPNGatewayResponse -> TestTree
-detachVPNGatewayResponseTest = resp
-    "detachVPNGatewayResponse"
-    "fixture/DetachVPNGatewayResponse"
-    (Proxy :: Proxy DetachVPNGateway)
+testDeleteVPCEndpointsResponse :: DeleteVPCEndpointsResponse -> TestTree
+testDeleteVPCEndpointsResponse = resp
+    "DeleteVPCEndpointsResponse"
+    "fixture/DeleteVPCEndpointsResponse"
+    (Proxy :: Proxy DeleteVPCEndpoints)
 
-detachVolumeResponseTest :: VolumeAttachment -> TestTree
-detachVolumeResponseTest = resp
-    "detachVolumeResponse"
-    "fixture/VolumeAttachment"
-    (Proxy :: Proxy DetachVolume)
+testDeleteKeyPairResponse :: DeleteKeyPairResponse -> TestTree
+testDeleteKeyPairResponse = resp
+    "DeleteKeyPairResponse"
+    "fixture/DeleteKeyPairResponse"
+    (Proxy :: Proxy DeleteKeyPair)
 
-disableVGWRoutePropagationResponseTest :: DisableVGWRoutePropagationResponse -> TestTree
-disableVGWRoutePropagationResponseTest = resp
-    "disableVGWRoutePropagationResponse"
-    "fixture/DisableVGWRoutePropagationResponse"
-    (Proxy :: Proxy DisableVGWRoutePropagation)
+testDeleteFlowLogsResponse :: DeleteFlowLogsResponse -> TestTree
+testDeleteFlowLogsResponse = resp
+    "DeleteFlowLogsResponse"
+    "fixture/DeleteFlowLogsResponse"
+    (Proxy :: Proxy DeleteFlowLogs)
 
-disableVPCClassicLinkResponseTest :: DisableVPCClassicLinkResponse -> TestTree
-disableVPCClassicLinkResponseTest = resp
-    "disableVPCClassicLinkResponse"
-    "fixture/DisableVPCClassicLinkResponse"
-    (Proxy :: Proxy DisableVPCClassicLink)
+testDescribeTagsResponse :: DescribeTagsResponse -> TestTree
+testDescribeTagsResponse = resp
+    "DescribeTagsResponse"
+    "fixture/DescribeTagsResponse"
+    (Proxy :: Proxy DescribeTags)
 
-disassociateAddressResponseTest :: DisassociateAddressResponse -> TestTree
-disassociateAddressResponseTest = resp
-    "disassociateAddressResponse"
-    "fixture/DisassociateAddressResponse"
-    (Proxy :: Proxy DisassociateAddress)
-
-disassociateRouteTableResponseTest :: DisassociateRouteTableResponse -> TestTree
-disassociateRouteTableResponseTest = resp
-    "disassociateRouteTableResponse"
-    "fixture/DisassociateRouteTableResponse"
-    (Proxy :: Proxy DisassociateRouteTable)
-
-enableVGWRoutePropagationResponseTest :: EnableVGWRoutePropagationResponse -> TestTree
-enableVGWRoutePropagationResponseTest = resp
-    "enableVGWRoutePropagationResponse"
-    "fixture/EnableVGWRoutePropagationResponse"
-    (Proxy :: Proxy EnableVGWRoutePropagation)
-
-enableVPCClassicLinkResponseTest :: EnableVPCClassicLinkResponse -> TestTree
-enableVPCClassicLinkResponseTest = resp
-    "enableVPCClassicLinkResponse"
-    "fixture/EnableVPCClassicLinkResponse"
-    (Proxy :: Proxy EnableVPCClassicLink)
-
-enableVolumeIOResponseTest :: EnableVolumeIOResponse -> TestTree
-enableVolumeIOResponseTest = resp
-    "enableVolumeIOResponse"
-    "fixture/EnableVolumeIOResponse"
-    (Proxy :: Proxy EnableVolumeIO)
-
-getConsoleOutputResponseTest :: GetConsoleOutputResponse -> TestTree
-getConsoleOutputResponseTest = resp
-    "getConsoleOutputResponse"
-    "fixture/GetConsoleOutputResponse"
-    (Proxy :: Proxy GetConsoleOutput)
-
-getPasswordDataResponseTest :: GetPasswordDataResponse -> TestTree
-getPasswordDataResponseTest = resp
-    "getPasswordDataResponse"
-    "fixture/GetPasswordDataResponse"
-    (Proxy :: Proxy GetPasswordData)
-
-importImageResponseTest :: ImportImageResponse -> TestTree
-importImageResponseTest = resp
-    "importImageResponse"
-    "fixture/ImportImageResponse"
-    (Proxy :: Proxy ImportImage)
-
-importInstanceResponseTest :: ImportInstanceResponse -> TestTree
-importInstanceResponseTest = resp
-    "importInstanceResponse"
-    "fixture/ImportInstanceResponse"
-    (Proxy :: Proxy ImportInstance)
-
-importKeyPairResponseTest :: ImportKeyPairResponse -> TestTree
-importKeyPairResponseTest = resp
-    "importKeyPairResponse"
-    "fixture/ImportKeyPairResponse"
-    (Proxy :: Proxy ImportKeyPair)
-
-importSnapshotResponseTest :: ImportSnapshotResponse -> TestTree
-importSnapshotResponseTest = resp
-    "importSnapshotResponse"
-    "fixture/ImportSnapshotResponse"
-    (Proxy :: Proxy ImportSnapshot)
-
-importVolumeResponseTest :: ImportVolumeResponse -> TestTree
-importVolumeResponseTest = resp
-    "importVolumeResponse"
-    "fixture/ImportVolumeResponse"
-    (Proxy :: Proxy ImportVolume)
-
-modifyImageAttributeResponseTest :: ModifyImageAttributeResponse -> TestTree
-modifyImageAttributeResponseTest = resp
-    "modifyImageAttributeResponse"
-    "fixture/ModifyImageAttributeResponse"
-    (Proxy :: Proxy ModifyImageAttribute)
-
-modifyInstanceAttributeResponseTest :: ModifyInstanceAttributeResponse -> TestTree
-modifyInstanceAttributeResponseTest = resp
-    "modifyInstanceAttributeResponse"
-    "fixture/ModifyInstanceAttributeResponse"
-    (Proxy :: Proxy ModifyInstanceAttribute)
-
-modifyNetworkInterfaceAttributeResponseTest :: ModifyNetworkInterfaceAttributeResponse -> TestTree
-modifyNetworkInterfaceAttributeResponseTest = resp
-    "modifyNetworkInterfaceAttributeResponse"
-    "fixture/ModifyNetworkInterfaceAttributeResponse"
-    (Proxy :: Proxy ModifyNetworkInterfaceAttribute)
-
-modifyReservedInstancesResponseTest :: ModifyReservedInstancesResponse -> TestTree
-modifyReservedInstancesResponseTest = resp
-    "modifyReservedInstancesResponse"
-    "fixture/ModifyReservedInstancesResponse"
-    (Proxy :: Proxy ModifyReservedInstances)
-
-modifySnapshotAttributeResponseTest :: ModifySnapshotAttributeResponse -> TestTree
-modifySnapshotAttributeResponseTest = resp
-    "modifySnapshotAttributeResponse"
-    "fixture/ModifySnapshotAttributeResponse"
-    (Proxy :: Proxy ModifySnapshotAttribute)
-
-modifySubnetAttributeResponseTest :: ModifySubnetAttributeResponse -> TestTree
-modifySubnetAttributeResponseTest = resp
-    "modifySubnetAttributeResponse"
-    "fixture/ModifySubnetAttributeResponse"
-    (Proxy :: Proxy ModifySubnetAttribute)
-
-modifyVPCAttributeResponseTest :: ModifyVPCAttributeResponse -> TestTree
-modifyVPCAttributeResponseTest = resp
-    "modifyVPCAttributeResponse"
-    "fixture/ModifyVPCAttributeResponse"
-    (Proxy :: Proxy ModifyVPCAttribute)
-
-modifyVPCEndpointResponseTest :: ModifyVPCEndpointResponse -> TestTree
-modifyVPCEndpointResponseTest = resp
-    "modifyVPCEndpointResponse"
-    "fixture/ModifyVPCEndpointResponse"
-    (Proxy :: Proxy ModifyVPCEndpoint)
-
-modifyVolumeAttributeResponseTest :: ModifyVolumeAttributeResponse -> TestTree
-modifyVolumeAttributeResponseTest = resp
-    "modifyVolumeAttributeResponse"
-    "fixture/ModifyVolumeAttributeResponse"
-    (Proxy :: Proxy ModifyVolumeAttribute)
-
-monitorInstancesResponseTest :: MonitorInstancesResponse -> TestTree
-monitorInstancesResponseTest = resp
-    "monitorInstancesResponse"
-    "fixture/MonitorInstancesResponse"
-    (Proxy :: Proxy MonitorInstances)
-
-moveAddressToVPCResponseTest :: MoveAddressToVPCResponse -> TestTree
-moveAddressToVPCResponseTest = resp
-    "moveAddressToVPCResponse"
-    "fixture/MoveAddressToVPCResponse"
-    (Proxy :: Proxy MoveAddressToVPC)
-
-purchaseReservedInstancesOfferingResponseTest :: PurchaseReservedInstancesOfferingResponse -> TestTree
-purchaseReservedInstancesOfferingResponseTest = resp
-    "purchaseReservedInstancesOfferingResponse"
-    "fixture/PurchaseReservedInstancesOfferingResponse"
-    (Proxy :: Proxy PurchaseReservedInstancesOffering)
-
-rebootInstancesResponseTest :: RebootInstancesResponse -> TestTree
-rebootInstancesResponseTest = resp
-    "rebootInstancesResponse"
-    "fixture/RebootInstancesResponse"
-    (Proxy :: Proxy RebootInstances)
-
-registerImageResponseTest :: RegisterImageResponse -> TestTree
-registerImageResponseTest = resp
-    "registerImageResponse"
-    "fixture/RegisterImageResponse"
-    (Proxy :: Proxy RegisterImage)
-
-rejectVPCPeeringConnectionResponseTest :: RejectVPCPeeringConnectionResponse -> TestTree
-rejectVPCPeeringConnectionResponseTest = resp
-    "rejectVPCPeeringConnectionResponse"
-    "fixture/RejectVPCPeeringConnectionResponse"
-    (Proxy :: Proxy RejectVPCPeeringConnection)
-
-releaseAddressResponseTest :: ReleaseAddressResponse -> TestTree
-releaseAddressResponseTest = resp
-    "releaseAddressResponse"
-    "fixture/ReleaseAddressResponse"
-    (Proxy :: Proxy ReleaseAddress)
-
-replaceNetworkACLAssociationResponseTest :: ReplaceNetworkACLAssociationResponse -> TestTree
-replaceNetworkACLAssociationResponseTest = resp
-    "replaceNetworkACLAssociationResponse"
-    "fixture/ReplaceNetworkACLAssociationResponse"
-    (Proxy :: Proxy ReplaceNetworkACLAssociation)
-
-replaceNetworkACLEntryResponseTest :: ReplaceNetworkACLEntryResponse -> TestTree
-replaceNetworkACLEntryResponseTest = resp
-    "replaceNetworkACLEntryResponse"
-    "fixture/ReplaceNetworkACLEntryResponse"
-    (Proxy :: Proxy ReplaceNetworkACLEntry)
-
-replaceRouteResponseTest :: ReplaceRouteResponse -> TestTree
-replaceRouteResponseTest = resp
-    "replaceRouteResponse"
-    "fixture/ReplaceRouteResponse"
-    (Proxy :: Proxy ReplaceRoute)
-
-replaceRouteTableAssociationResponseTest :: ReplaceRouteTableAssociationResponse -> TestTree
-replaceRouteTableAssociationResponseTest = resp
-    "replaceRouteTableAssociationResponse"
-    "fixture/ReplaceRouteTableAssociationResponse"
-    (Proxy :: Proxy ReplaceRouteTableAssociation)
-
-reportInstanceStatusResponseTest :: ReportInstanceStatusResponse -> TestTree
-reportInstanceStatusResponseTest = resp
-    "reportInstanceStatusResponse"
-    "fixture/ReportInstanceStatusResponse"
-    (Proxy :: Proxy ReportInstanceStatus)
-
-requestSpotFleetResponseTest :: RequestSpotFleetResponse -> TestTree
-requestSpotFleetResponseTest = resp
-    "requestSpotFleetResponse"
-    "fixture/RequestSpotFleetResponse"
-    (Proxy :: Proxy RequestSpotFleet)
-
-requestSpotInstancesResponseTest :: RequestSpotInstancesResponse -> TestTree
-requestSpotInstancesResponseTest = resp
-    "requestSpotInstancesResponse"
-    "fixture/RequestSpotInstancesResponse"
-    (Proxy :: Proxy RequestSpotInstances)
-
-resetImageAttributeResponseTest :: ResetImageAttributeResponse -> TestTree
-resetImageAttributeResponseTest = resp
-    "resetImageAttributeResponse"
-    "fixture/ResetImageAttributeResponse"
-    (Proxy :: Proxy ResetImageAttribute)
-
-resetInstanceAttributeResponseTest :: ResetInstanceAttributeResponse -> TestTree
-resetInstanceAttributeResponseTest = resp
-    "resetInstanceAttributeResponse"
-    "fixture/ResetInstanceAttributeResponse"
-    (Proxy :: Proxy ResetInstanceAttribute)
-
-resetNetworkInterfaceAttributeResponseTest :: ResetNetworkInterfaceAttributeResponse -> TestTree
-resetNetworkInterfaceAttributeResponseTest = resp
-    "resetNetworkInterfaceAttributeResponse"
-    "fixture/ResetNetworkInterfaceAttributeResponse"
-    (Proxy :: Proxy ResetNetworkInterfaceAttribute)
-
-resetSnapshotAttributeResponseTest :: ResetSnapshotAttributeResponse -> TestTree
-resetSnapshotAttributeResponseTest = resp
-    "resetSnapshotAttributeResponse"
-    "fixture/ResetSnapshotAttributeResponse"
-    (Proxy :: Proxy ResetSnapshotAttribute)
-
-restoreAddressToClassicResponseTest :: RestoreAddressToClassicResponse -> TestTree
-restoreAddressToClassicResponseTest = resp
-    "restoreAddressToClassicResponse"
-    "fixture/RestoreAddressToClassicResponse"
-    (Proxy :: Proxy RestoreAddressToClassic)
-
-revokeSecurityGroupEgressResponseTest :: RevokeSecurityGroupEgressResponse -> TestTree
-revokeSecurityGroupEgressResponseTest = resp
-    "revokeSecurityGroupEgressResponse"
+testRevokeSecurityGroupEgressResponse :: RevokeSecurityGroupEgressResponse -> TestTree
+testRevokeSecurityGroupEgressResponse = resp
+    "RevokeSecurityGroupEgressResponse"
     "fixture/RevokeSecurityGroupEgressResponse"
     (Proxy :: Proxy RevokeSecurityGroupEgress)
 
-revokeSecurityGroupIngressResponseTest :: RevokeSecurityGroupIngressResponse -> TestTree
-revokeSecurityGroupIngressResponseTest = resp
-    "revokeSecurityGroupIngressResponse"
-    "fixture/RevokeSecurityGroupIngressResponse"
-    (Proxy :: Proxy RevokeSecurityGroupIngress)
+testCreateVPNGatewayResponse :: CreateVPNGatewayResponse -> TestTree
+testCreateVPNGatewayResponse = resp
+    "CreateVPNGatewayResponse"
+    "fixture/CreateVPNGatewayResponse"
+    (Proxy :: Proxy CreateVPNGateway)
 
-runInstancesResponseTest :: Reservation -> TestTree
-runInstancesResponseTest = resp
-    "runInstancesResponse"
-    "fixture/Reservation"
-    (Proxy :: Proxy RunInstances)
+testDetachInternetGatewayResponse :: DetachInternetGatewayResponse -> TestTree
+testDetachInternetGatewayResponse = resp
+    "DetachInternetGatewayResponse"
+    "fixture/DetachInternetGatewayResponse"
+    (Proxy :: Proxy DetachInternetGateway)
 
-startInstancesResponseTest :: StartInstancesResponse -> TestTree
-startInstancesResponseTest = resp
-    "startInstancesResponse"
-    "fixture/StartInstancesResponse"
-    (Proxy :: Proxy StartInstances)
+testCreateNetworkACLResponse :: CreateNetworkACLResponse -> TestTree
+testCreateNetworkACLResponse = resp
+    "CreateNetworkACLResponse"
+    "fixture/CreateNetworkACLResponse"
+    (Proxy :: Proxy CreateNetworkACL)
 
-stopInstancesResponseTest :: StopInstancesResponse -> TestTree
-stopInstancesResponseTest = resp
-    "stopInstancesResponse"
+testImportInstanceResponse :: ImportInstanceResponse -> TestTree
+testImportInstanceResponse = resp
+    "ImportInstanceResponse"
+    "fixture/ImportInstanceResponse"
+    (Proxy :: Proxy ImportInstance)
+
+testDescribeVPCClassicLinkResponse :: DescribeVPCClassicLinkResponse -> TestTree
+testDescribeVPCClassicLinkResponse = resp
+    "DescribeVPCClassicLinkResponse"
+    "fixture/DescribeVPCClassicLinkResponse"
+    (Proxy :: Proxy DescribeVPCClassicLink)
+
+testDeleteVPNConnectionResponse :: DeleteVPNConnectionResponse -> TestTree
+testDeleteVPNConnectionResponse = resp
+    "DeleteVPNConnectionResponse"
+    "fixture/DeleteVPNConnectionResponse"
+    (Proxy :: Proxy DeleteVPNConnection)
+
+testAuthorizeSecurityGroupEgressResponse :: AuthorizeSecurityGroupEgressResponse -> TestTree
+testAuthorizeSecurityGroupEgressResponse = resp
+    "AuthorizeSecurityGroupEgressResponse"
+    "fixture/AuthorizeSecurityGroupEgressResponse"
+    (Proxy :: Proxy AuthorizeSecurityGroupEgress)
+
+testDescribeBundleTasksResponse :: DescribeBundleTasksResponse -> TestTree
+testDescribeBundleTasksResponse = resp
+    "DescribeBundleTasksResponse"
+    "fixture/DescribeBundleTasksResponse"
+    (Proxy :: Proxy DescribeBundleTasks)
+
+testCreateInternetGatewayResponse :: CreateInternetGatewayResponse -> TestTree
+testCreateInternetGatewayResponse = resp
+    "CreateInternetGatewayResponse"
+    "fixture/CreateInternetGatewayResponse"
+    (Proxy :: Proxy CreateInternetGateway)
+
+testReleaseAddressResponse :: ReleaseAddressResponse -> TestTree
+testReleaseAddressResponse = resp
+    "ReleaseAddressResponse"
+    "fixture/ReleaseAddressResponse"
+    (Proxy :: Proxy ReleaseAddress)
+
+testCancelBundleTaskResponse :: CancelBundleTaskResponse -> TestTree
+testCancelBundleTaskResponse = resp
+    "CancelBundleTaskResponse"
+    "fixture/CancelBundleTaskResponse"
+    (Proxy :: Proxy CancelBundleTask)
+
+testModifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse -> TestTree
+testModifyNetworkInterfaceAttributeResponse = resp
+    "ModifyNetworkInterfaceAttributeResponse"
+    "fixture/ModifyNetworkInterfaceAttributeResponse"
+    (Proxy :: Proxy ModifyNetworkInterfaceAttribute)
+
+testModifySubnetAttributeResponse :: ModifySubnetAttributeResponse -> TestTree
+testModifySubnetAttributeResponse = resp
+    "ModifySubnetAttributeResponse"
+    "fixture/ModifySubnetAttributeResponse"
+    (Proxy :: Proxy ModifySubnetAttribute)
+
+testDeregisterImageResponse :: DeregisterImageResponse -> TestTree
+testDeregisterImageResponse = resp
+    "DeregisterImageResponse"
+    "fixture/DeregisterImageResponse"
+    (Proxy :: Proxy DeregisterImage)
+
+testDetachVolumeResponse :: VolumeAttachment -> TestTree
+testDetachVolumeResponse = resp
+    "DetachVolumeResponse"
+    "fixture/DetachVolumeResponse"
+    (Proxy :: Proxy DetachVolume)
+
+testCancelReservedInstancesListingResponse :: CancelReservedInstancesListingResponse -> TestTree
+testCancelReservedInstancesListingResponse = resp
+    "CancelReservedInstancesListingResponse"
+    "fixture/CancelReservedInstancesListingResponse"
+    (Proxy :: Proxy CancelReservedInstancesListing)
+
+testAttachClassicLinkVPCResponse :: AttachClassicLinkVPCResponse -> TestTree
+testAttachClassicLinkVPCResponse = resp
+    "AttachClassicLinkVPCResponse"
+    "fixture/AttachClassicLinkVPCResponse"
+    (Proxy :: Proxy AttachClassicLinkVPC)
+
+testCancelSpotFleetRequestsResponse :: CancelSpotFleetRequestsResponse -> TestTree
+testCancelSpotFleetRequestsResponse = resp
+    "CancelSpotFleetRequestsResponse"
+    "fixture/CancelSpotFleetRequestsResponse"
+    (Proxy :: Proxy CancelSpotFleetRequests)
+
+testDescribeDHCPOptionsResponse :: DescribeDHCPOptionsResponse -> TestTree
+testDescribeDHCPOptionsResponse = resp
+    "DescribeDHCPOptionsResponse"
+    "fixture/DescribeDHCPOptionsResponse"
+    (Proxy :: Proxy DescribeDHCPOptions)
+
+testDescribeSpotPriceHistoryResponse :: DescribeSpotPriceHistoryResponse -> TestTree
+testDescribeSpotPriceHistoryResponse = resp
+    "DescribeSpotPriceHistoryResponse"
+    "fixture/DescribeSpotPriceHistoryResponse"
+    (Proxy :: Proxy DescribeSpotPriceHistory)
+
+testStopInstancesResponse :: StopInstancesResponse -> TestTree
+testStopInstancesResponse = resp
+    "StopInstancesResponse"
     "fixture/StopInstancesResponse"
     (Proxy :: Proxy StopInstances)
 
-terminateInstancesResponseTest :: TerminateInstancesResponse -> TestTree
-terminateInstancesResponseTest = resp
-    "terminateInstancesResponse"
+testImportImageResponse :: ImportImageResponse -> TestTree
+testImportImageResponse = resp
+    "ImportImageResponse"
+    "fixture/ImportImageResponse"
+    (Proxy :: Proxy ImportImage)
+
+testDeleteNetworkACLEntryResponse :: DeleteNetworkACLEntryResponse -> TestTree
+testDeleteNetworkACLEntryResponse = resp
+    "DeleteNetworkACLEntryResponse"
+    "fixture/DeleteNetworkACLEntryResponse"
+    (Proxy :: Proxy DeleteNetworkACLEntry)
+
+testDisableVPCClassicLinkResponse :: DisableVPCClassicLinkResponse -> TestTree
+testDisableVPCClassicLinkResponse = resp
+    "DisableVPCClassicLinkResponse"
+    "fixture/DisableVPCClassicLinkResponse"
+    (Proxy :: Proxy DisableVPCClassicLink)
+
+testAuthorizeSecurityGroupIngressResponse :: AuthorizeSecurityGroupIngressResponse -> TestTree
+testAuthorizeSecurityGroupIngressResponse = resp
+    "AuthorizeSecurityGroupIngressResponse"
+    "fixture/AuthorizeSecurityGroupIngressResponse"
+    (Proxy :: Proxy AuthorizeSecurityGroupIngress)
+
+testBundleInstanceResponse :: BundleInstanceResponse -> TestTree
+testBundleInstanceResponse = resp
+    "BundleInstanceResponse"
+    "fixture/BundleInstanceResponse"
+    (Proxy :: Proxy BundleInstance)
+
+testDescribeVPCEndpointServicesResponse :: DescribeVPCEndpointServicesResponse -> TestTree
+testDescribeVPCEndpointServicesResponse = resp
+    "DescribeVPCEndpointServicesResponse"
+    "fixture/DescribeVPCEndpointServicesResponse"
+    (Proxy :: Proxy DescribeVPCEndpointServices)
+
+testReplaceNetworkACLAssociationResponse :: ReplaceNetworkACLAssociationResponse -> TestTree
+testReplaceNetworkACLAssociationResponse = resp
+    "ReplaceNetworkACLAssociationResponse"
+    "fixture/ReplaceNetworkACLAssociationResponse"
+    (Proxy :: Proxy ReplaceNetworkACLAssociation)
+
+testCreateVPCPeeringConnectionResponse :: CreateVPCPeeringConnectionResponse -> TestTree
+testCreateVPCPeeringConnectionResponse = resp
+    "CreateVPCPeeringConnectionResponse"
+    "fixture/CreateVPCPeeringConnectionResponse"
+    (Proxy :: Proxy CreateVPCPeeringConnection)
+
+testResetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse -> TestTree
+testResetSnapshotAttributeResponse = resp
+    "ResetSnapshotAttributeResponse"
+    "fixture/ResetSnapshotAttributeResponse"
+    (Proxy :: Proxy ResetSnapshotAttribute)
+
+testDescribeAddressesResponse :: DescribeAddressesResponse -> TestTree
+testDescribeAddressesResponse = resp
+    "DescribeAddressesResponse"
+    "fixture/DescribeAddressesResponse"
+    (Proxy :: Proxy DescribeAddresses)
+
+testDescribeInternetGatewaysResponse :: DescribeInternetGatewaysResponse -> TestTree
+testDescribeInternetGatewaysResponse = resp
+    "DescribeInternetGatewaysResponse"
+    "fixture/DescribeInternetGatewaysResponse"
+    (Proxy :: Proxy DescribeInternetGateways)
+
+testReplaceRouteResponse :: ReplaceRouteResponse -> TestTree
+testReplaceRouteResponse = resp
+    "ReplaceRouteResponse"
+    "fixture/ReplaceRouteResponse"
+    (Proxy :: Proxy ReplaceRoute)
+
+testCreateTagsResponse :: CreateTagsResponse -> TestTree
+testCreateTagsResponse = resp
+    "CreateTagsResponse"
+    "fixture/CreateTagsResponse"
+    (Proxy :: Proxy CreateTags)
+
+testDescribeSubnetsResponse :: DescribeSubnetsResponse -> TestTree
+testDescribeSubnetsResponse = resp
+    "DescribeSubnetsResponse"
+    "fixture/DescribeSubnetsResponse"
+    (Proxy :: Proxy DescribeSubnets)
+
+testDescribeNetworkInterfacesResponse :: DescribeNetworkInterfacesResponse -> TestTree
+testDescribeNetworkInterfacesResponse = resp
+    "DescribeNetworkInterfacesResponse"
+    "fixture/DescribeNetworkInterfacesResponse"
+    (Proxy :: Proxy DescribeNetworkInterfaces)
+
+testPurchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResponse -> TestTree
+testPurchaseReservedInstancesOfferingResponse = resp
+    "PurchaseReservedInstancesOfferingResponse"
+    "fixture/PurchaseReservedInstancesOfferingResponse"
+    (Proxy :: Proxy PurchaseReservedInstancesOffering)
+
+testDescribeSnapshotAttributeResponse :: DescribeSnapshotAttributeResponse -> TestTree
+testDescribeSnapshotAttributeResponse = resp
+    "DescribeSnapshotAttributeResponse"
+    "fixture/DescribeSnapshotAttributeResponse"
+    (Proxy :: Proxy DescribeSnapshotAttribute)
+
+testCreateCustomerGatewayResponse :: CreateCustomerGatewayResponse -> TestTree
+testCreateCustomerGatewayResponse = resp
+    "CreateCustomerGatewayResponse"
+    "fixture/CreateCustomerGatewayResponse"
+    (Proxy :: Proxy CreateCustomerGateway)
+
+testAttachInternetGatewayResponse :: AttachInternetGatewayResponse -> TestTree
+testAttachInternetGatewayResponse = resp
+    "AttachInternetGatewayResponse"
+    "fixture/AttachInternetGatewayResponse"
+    (Proxy :: Proxy AttachInternetGateway)
+
+testDeleteTagsResponse :: DeleteTagsResponse -> TestTree
+testDeleteTagsResponse = resp
+    "DeleteTagsResponse"
+    "fixture/DeleteTagsResponse"
+    (Proxy :: Proxy DeleteTags)
+
+testReplaceNetworkACLEntryResponse :: ReplaceNetworkACLEntryResponse -> TestTree
+testReplaceNetworkACLEntryResponse = resp
+    "ReplaceNetworkACLEntryResponse"
+    "fixture/ReplaceNetworkACLEntryResponse"
+    (Proxy :: Proxy ReplaceNetworkACLEntry)
+
+testResetInstanceAttributeResponse :: ResetInstanceAttributeResponse -> TestTree
+testResetInstanceAttributeResponse = resp
+    "ResetInstanceAttributeResponse"
+    "fixture/ResetInstanceAttributeResponse"
+    (Proxy :: Proxy ResetInstanceAttribute)
+
+testDeleteRouteResponse :: DeleteRouteResponse -> TestTree
+testDeleteRouteResponse = resp
+    "DeleteRouteResponse"
+    "fixture/DeleteRouteResponse"
+    (Proxy :: Proxy DeleteRoute)
+
+testDescribeVPNConnectionsResponse :: DescribeVPNConnectionsResponse -> TestTree
+testDescribeVPNConnectionsResponse = resp
+    "DescribeVPNConnectionsResponse"
+    "fixture/DescribeVPNConnectionsResponse"
+    (Proxy :: Proxy DescribeVPNConnections)
+
+testDescribeFlowLogsResponse :: DescribeFlowLogsResponse -> TestTree
+testDescribeFlowLogsResponse = resp
+    "DescribeFlowLogsResponse"
+    "fixture/DescribeFlowLogsResponse"
+    (Proxy :: Proxy DescribeFlowLogs)
+
+testDeleteSecurityGroupResponse :: DeleteSecurityGroupResponse -> TestTree
+testDeleteSecurityGroupResponse = resp
+    "DeleteSecurityGroupResponse"
+    "fixture/DeleteSecurityGroupResponse"
+    (Proxy :: Proxy DeleteSecurityGroup)
+
+testDescribeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResponse -> TestTree
+testDescribeReservedInstancesOfferingsResponse = resp
+    "DescribeReservedInstancesOfferingsResponse"
+    "fixture/DescribeReservedInstancesOfferingsResponse"
+    (Proxy :: Proxy DescribeReservedInstancesOfferings)
+
+testDeleteVPCPeeringConnectionResponse :: DeleteVPCPeeringConnectionResponse -> TestTree
+testDeleteVPCPeeringConnectionResponse = resp
+    "DeleteVPCPeeringConnectionResponse"
+    "fixture/DeleteVPCPeeringConnectionResponse"
+    (Proxy :: Proxy DeleteVPCPeeringConnection)
+
+testDescribeVPCEndpointsResponse :: DescribeVPCEndpointsResponse -> TestTree
+testDescribeVPCEndpointsResponse = resp
+    "DescribeVPCEndpointsResponse"
+    "fixture/DescribeVPCEndpointsResponse"
+    (Proxy :: Proxy DescribeVPCEndpoints)
+
+testDescribeInstanceAttributeResponse :: DescribeInstanceAttributeResponse -> TestTree
+testDescribeInstanceAttributeResponse = resp
+    "DescribeInstanceAttributeResponse"
+    "fixture/DescribeInstanceAttributeResponse"
+    (Proxy :: Proxy DescribeInstanceAttribute)
+
+testConfirmProductInstanceResponse :: ConfirmProductInstanceResponse -> TestTree
+testConfirmProductInstanceResponse = resp
+    "ConfirmProductInstanceResponse"
+    "fixture/ConfirmProductInstanceResponse"
+    (Proxy :: Proxy ConfirmProductInstance)
+
+testImportKeyPairResponse :: ImportKeyPairResponse -> TestTree
+testImportKeyPairResponse = resp
+    "ImportKeyPairResponse"
+    "fixture/ImportKeyPairResponse"
+    (Proxy :: Proxy ImportKeyPair)
+
+testAttachNetworkInterfaceResponse :: AttachNetworkInterfaceResponse -> TestTree
+testAttachNetworkInterfaceResponse = resp
+    "AttachNetworkInterfaceResponse"
+    "fixture/AttachNetworkInterfaceResponse"
+    (Proxy :: Proxy AttachNetworkInterface)
+
+testDescribeInstanceStatusResponse :: DescribeInstanceStatusResponse -> TestTree
+testDescribeInstanceStatusResponse = resp
+    "DescribeInstanceStatusResponse"
+    "fixture/DescribeInstanceStatusResponse"
+    (Proxy :: Proxy DescribeInstanceStatus)
+
+testCancelConversionTaskResponse :: CancelConversionTaskResponse -> TestTree
+testCancelConversionTaskResponse = resp
+    "CancelConversionTaskResponse"
+    "fixture/CancelConversionTaskResponse"
+    (Proxy :: Proxy CancelConversionTask)
+
+testReportInstanceStatusResponse :: ReportInstanceStatusResponse -> TestTree
+testReportInstanceStatusResponse = resp
+    "ReportInstanceStatusResponse"
+    "fixture/ReportInstanceStatusResponse"
+    (Proxy :: Proxy ReportInstanceStatus)
+
+testAssociateDHCPOptionsResponse :: AssociateDHCPOptionsResponse -> TestTree
+testAssociateDHCPOptionsResponse = resp
+    "AssociateDHCPOptionsResponse"
+    "fixture/AssociateDHCPOptionsResponse"
+    (Proxy :: Proxy AssociateDHCPOptions)
+
+testDescribeVPCsResponse :: DescribeVPCsResponse -> TestTree
+testDescribeVPCsResponse = resp
+    "DescribeVPCsResponse"
+    "fixture/DescribeVPCsResponse"
+    (Proxy :: Proxy DescribeVPCs)
+
+testRequestSpotInstancesResponse :: RequestSpotInstancesResponse -> TestTree
+testRequestSpotInstancesResponse = resp
+    "RequestSpotInstancesResponse"
+    "fixture/RequestSpotInstancesResponse"
+    (Proxy :: Proxy RequestSpotInstances)
+
+testModifyImageAttributeResponse :: ModifyImageAttributeResponse -> TestTree
+testModifyImageAttributeResponse = resp
+    "ModifyImageAttributeResponse"
+    "fixture/ModifyImageAttributeResponse"
+    (Proxy :: Proxy ModifyImageAttribute)
+
+testDescribeReservedInstancesResponse :: DescribeReservedInstancesResponse -> TestTree
+testDescribeReservedInstancesResponse = resp
+    "DescribeReservedInstancesResponse"
+    "fixture/DescribeReservedInstancesResponse"
+    (Proxy :: Proxy DescribeReservedInstances)
+
+testAllocateAddressResponse :: AllocateAddressResponse -> TestTree
+testAllocateAddressResponse = resp
+    "AllocateAddressResponse"
+    "fixture/AllocateAddressResponse"
+    (Proxy :: Proxy AllocateAddress)
+
+testRunInstancesResponse :: Reservation -> TestTree
+testRunInstancesResponse = resp
+    "RunInstancesResponse"
+    "fixture/RunInstancesResponse"
+    (Proxy :: Proxy RunInstances)
+
+testCreateRouteTableResponse :: CreateRouteTableResponse -> TestTree
+testCreateRouteTableResponse = resp
+    "CreateRouteTableResponse"
+    "fixture/CreateRouteTableResponse"
+    (Proxy :: Proxy CreateRouteTable)
+
+testAttachVolumeResponse :: VolumeAttachment -> TestTree
+testAttachVolumeResponse = resp
+    "AttachVolumeResponse"
+    "fixture/AttachVolumeResponse"
+    (Proxy :: Proxy AttachVolume)
+
+testDescribeConversionTasksResponse :: DescribeConversionTasksResponse -> TestTree
+testDescribeConversionTasksResponse = resp
+    "DescribeConversionTasksResponse"
+    "fixture/DescribeConversionTasksResponse"
+    (Proxy :: Proxy DescribeConversionTasks)
+
+testRejectVPCPeeringConnectionResponse :: RejectVPCPeeringConnectionResponse -> TestTree
+testRejectVPCPeeringConnectionResponse = resp
+    "RejectVPCPeeringConnectionResponse"
+    "fixture/RejectVPCPeeringConnectionResponse"
+    (Proxy :: Proxy RejectVPCPeeringConnection)
+
+testRevokeSecurityGroupIngressResponse :: RevokeSecurityGroupIngressResponse -> TestTree
+testRevokeSecurityGroupIngressResponse = resp
+    "RevokeSecurityGroupIngressResponse"
+    "fixture/RevokeSecurityGroupIngressResponse"
+    (Proxy :: Proxy RevokeSecurityGroupIngress)
+
+testDescribeVolumesResponse :: DescribeVolumesResponse -> TestTree
+testDescribeVolumesResponse = resp
+    "DescribeVolumesResponse"
+    "fixture/DescribeVolumesResponse"
+    (Proxy :: Proxy DescribeVolumes)
+
+testDeleteVPNConnectionRouteResponse :: DeleteVPNConnectionRouteResponse -> TestTree
+testDeleteVPNConnectionRouteResponse = resp
+    "DeleteVPNConnectionRouteResponse"
+    "fixture/DeleteVPNConnectionRouteResponse"
+    (Proxy :: Proxy DeleteVPNConnectionRoute)
+
+testModifyReservedInstancesResponse :: ModifyReservedInstancesResponse -> TestTree
+testModifyReservedInstancesResponse = resp
+    "ModifyReservedInstancesResponse"
+    "fixture/ModifyReservedInstancesResponse"
+    (Proxy :: Proxy ModifyReservedInstances)
+
+testRegisterImageResponse :: RegisterImageResponse -> TestTree
+testRegisterImageResponse = resp
+    "RegisterImageResponse"
+    "fixture/RegisterImageResponse"
+    (Proxy :: Proxy RegisterImage)
+
+testModifyVPCEndpointResponse :: ModifyVPCEndpointResponse -> TestTree
+testModifyVPCEndpointResponse = resp
+    "ModifyVPCEndpointResponse"
+    "fixture/ModifyVPCEndpointResponse"
+    (Proxy :: Proxy ModifyVPCEndpoint)
+
+testDeleteVPNGatewayResponse :: DeleteVPNGatewayResponse -> TestTree
+testDeleteVPNGatewayResponse = resp
+    "DeleteVPNGatewayResponse"
+    "fixture/DeleteVPNGatewayResponse"
+    (Proxy :: Proxy DeleteVPNGateway)
+
+testCreateVPCResponse :: CreateVPCResponse -> TestTree
+testCreateVPCResponse = resp
+    "CreateVPCResponse"
+    "fixture/CreateVPCResponse"
+    (Proxy :: Proxy CreateVPC)
+
+testDescribeMovingAddressesResponse :: DescribeMovingAddressesResponse -> TestTree
+testDescribeMovingAddressesResponse = resp
+    "DescribeMovingAddressesResponse"
+    "fixture/DescribeMovingAddressesResponse"
+    (Proxy :: Proxy DescribeMovingAddresses)
+
+testDescribeVolumeAttributeResponse :: DescribeVolumeAttributeResponse -> TestTree
+testDescribeVolumeAttributeResponse = resp
+    "DescribeVolumeAttributeResponse"
+    "fixture/DescribeVolumeAttributeResponse"
+    (Proxy :: Proxy DescribeVolumeAttribute)
+
+testMoveAddressToVPCResponse :: MoveAddressToVPCResponse -> TestTree
+testMoveAddressToVPCResponse = resp
+    "MoveAddressToVPCResponse"
+    "fixture/MoveAddressToVPCResponse"
+    (Proxy :: Proxy MoveAddressToVPC)
+
+testGetPasswordDataResponse :: GetPasswordDataResponse -> TestTree
+testGetPasswordDataResponse = resp
+    "GetPasswordDataResponse"
+    "fixture/GetPasswordDataResponse"
+    (Proxy :: Proxy GetPasswordData)
+
+testCreateFlowLogsResponse :: CreateFlowLogsResponse -> TestTree
+testCreateFlowLogsResponse = resp
+    "CreateFlowLogsResponse"
+    "fixture/CreateFlowLogsResponse"
+    (Proxy :: Proxy CreateFlowLogs)
+
+testDescribeImportImageTasksResponse :: DescribeImportImageTasksResponse -> TestTree
+testDescribeImportImageTasksResponse = resp
+    "DescribeImportImageTasksResponse"
+    "fixture/DescribeImportImageTasksResponse"
+    (Proxy :: Proxy DescribeImportImageTasks)
+
+testDeleteNetworkACLResponse :: DeleteNetworkACLResponse -> TestTree
+testDeleteNetworkACLResponse = resp
+    "DeleteNetworkACLResponse"
+    "fixture/DeleteNetworkACLResponse"
+    (Proxy :: Proxy DeleteNetworkACL)
+
+testDescribeSpotFleetRequestsResponse :: DescribeSpotFleetRequestsResponse -> TestTree
+testDescribeSpotFleetRequestsResponse = resp
+    "DescribeSpotFleetRequestsResponse"
+    "fixture/DescribeSpotFleetRequestsResponse"
+    (Proxy :: Proxy DescribeSpotFleetRequests)
+
+testCopySnapshotResponse :: CopySnapshotResponse -> TestTree
+testCopySnapshotResponse = resp
+    "CopySnapshotResponse"
+    "fixture/CopySnapshotResponse"
+    (Proxy :: Proxy CopySnapshot)
+
+testModifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse -> TestTree
+testModifyVolumeAttributeResponse = resp
+    "ModifyVolumeAttributeResponse"
+    "fixture/ModifyVolumeAttributeResponse"
+    (Proxy :: Proxy ModifyVolumeAttribute)
+
+testDescribeVPCAttributeResponse :: DescribeVPCAttributeResponse -> TestTree
+testDescribeVPCAttributeResponse = resp
+    "DescribeVPCAttributeResponse"
+    "fixture/DescribeVPCAttributeResponse"
+    (Proxy :: Proxy DescribeVPCAttribute)
+
+testCreateVolumeResponse :: Volume -> TestTree
+testCreateVolumeResponse = resp
+    "CreateVolumeResponse"
+    "fixture/CreateVolumeResponse"
+    (Proxy :: Proxy CreateVolume)
+
+testDisassociateAddressResponse :: DisassociateAddressResponse -> TestTree
+testDisassociateAddressResponse = resp
+    "DisassociateAddressResponse"
+    "fixture/DisassociateAddressResponse"
+    (Proxy :: Proxy DisassociateAddress)
+
+testDeleteVPCResponse :: DeleteVPCResponse -> TestTree
+testDeleteVPCResponse = resp
+    "DeleteVPCResponse"
+    "fixture/DeleteVPCResponse"
+    (Proxy :: Proxy DeleteVPC)
+
+testDescribePrefixListsResponse :: DescribePrefixListsResponse -> TestTree
+testDescribePrefixListsResponse = resp
+    "DescribePrefixListsResponse"
+    "fixture/DescribePrefixListsResponse"
+    (Proxy :: Proxy DescribePrefixLists)
+
+testCreateInstanceExportTaskResponse :: CreateInstanceExportTaskResponse -> TestTree
+testCreateInstanceExportTaskResponse = resp
+    "CreateInstanceExportTaskResponse"
+    "fixture/CreateInstanceExportTaskResponse"
+    (Proxy :: Proxy CreateInstanceExportTask)
+
+testDescribeSpotDatafeedSubscriptionResponse :: DescribeSpotDatafeedSubscriptionResponse -> TestTree
+testDescribeSpotDatafeedSubscriptionResponse = resp
+    "DescribeSpotDatafeedSubscriptionResponse"
+    "fixture/DescribeSpotDatafeedSubscriptionResponse"
+    (Proxy :: Proxy DescribeSpotDatafeedSubscription)
+
+testDetachVPNGatewayResponse :: DetachVPNGatewayResponse -> TestTree
+testDetachVPNGatewayResponse = resp
+    "DetachVPNGatewayResponse"
+    "fixture/DetachVPNGatewayResponse"
+    (Proxy :: Proxy DetachVPNGateway)
+
+testDescribeExportTasksResponse :: DescribeExportTasksResponse -> TestTree
+testDescribeExportTasksResponse = resp
+    "DescribeExportTasksResponse"
+    "fixture/DescribeExportTasksResponse"
+    (Proxy :: Proxy DescribeExportTasks)
+
+testDeletePlacementGroupResponse :: DeletePlacementGroupResponse -> TestTree
+testDeletePlacementGroupResponse = resp
+    "DeletePlacementGroupResponse"
+    "fixture/DeletePlacementGroupResponse"
+    (Proxy :: Proxy DeletePlacementGroup)
+
+testCreateSubnetResponse :: CreateSubnetResponse -> TestTree
+testCreateSubnetResponse = resp
+    "CreateSubnetResponse"
+    "fixture/CreateSubnetResponse"
+    (Proxy :: Proxy CreateSubnet)
+
+testEnableVolumeIOResponse :: EnableVolumeIOResponse -> TestTree
+testEnableVolumeIOResponse = resp
+    "EnableVolumeIOResponse"
+    "fixture/EnableVolumeIOResponse"
+    (Proxy :: Proxy EnableVolumeIO)
+
+testCancelExportTaskResponse :: CancelExportTaskResponse -> TestTree
+testCancelExportTaskResponse = resp
+    "CancelExportTaskResponse"
+    "fixture/CancelExportTaskResponse"
+    (Proxy :: Proxy CancelExportTask)
+
+testRequestSpotFleetResponse :: RequestSpotFleetResponse -> TestTree
+testRequestSpotFleetResponse = resp
+    "RequestSpotFleetResponse"
+    "fixture/RequestSpotFleetResponse"
+    (Proxy :: Proxy RequestSpotFleet)
+
+testDescribeInstancesResponse :: DescribeInstancesResponse -> TestTree
+testDescribeInstancesResponse = resp
+    "DescribeInstancesResponse"
+    "fixture/DescribeInstancesResponse"
+    (Proxy :: Proxy DescribeInstances)
+
+testDescribeSecurityGroupsResponse :: DescribeSecurityGroupsResponse -> TestTree
+testDescribeSecurityGroupsResponse = resp
+    "DescribeSecurityGroupsResponse"
+    "fixture/DescribeSecurityGroupsResponse"
+    (Proxy :: Proxy DescribeSecurityGroups)
+
+testDescribeVPCPeeringConnectionsResponse :: DescribeVPCPeeringConnectionsResponse -> TestTree
+testDescribeVPCPeeringConnectionsResponse = resp
+    "DescribeVPCPeeringConnectionsResponse"
+    "fixture/DescribeVPCPeeringConnectionsResponse"
+    (Proxy :: Proxy DescribeVPCPeeringConnections)
+
+testCreateNetworkInterfaceResponse :: CreateNetworkInterfaceResponse -> TestTree
+testCreateNetworkInterfaceResponse = resp
+    "CreateNetworkInterfaceResponse"
+    "fixture/CreateNetworkInterfaceResponse"
+    (Proxy :: Proxy CreateNetworkInterface)
+
+testAssociateAddressResponse :: AssociateAddressResponse -> TestTree
+testAssociateAddressResponse = resp
+    "AssociateAddressResponse"
+    "fixture/AssociateAddressResponse"
+    (Proxy :: Proxy AssociateAddress)
+
+testStartInstancesResponse :: StartInstancesResponse -> TestTree
+testStartInstancesResponse = resp
+    "StartInstancesResponse"
+    "fixture/StartInstancesResponse"
+    (Proxy :: Proxy StartInstances)
+
+testDescribeCustomerGatewaysResponse :: DescribeCustomerGatewaysResponse -> TestTree
+testDescribeCustomerGatewaysResponse = resp
+    "DescribeCustomerGatewaysResponse"
+    "fixture/DescribeCustomerGatewaysResponse"
+    (Proxy :: Proxy DescribeCustomerGateways)
+
+testResetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse -> TestTree
+testResetNetworkInterfaceAttributeResponse = resp
+    "ResetNetworkInterfaceAttributeResponse"
+    "fixture/ResetNetworkInterfaceAttributeResponse"
+    (Proxy :: Proxy ResetNetworkInterfaceAttribute)
+
+testCreateVPNConnectionResponse :: CreateVPNConnectionResponse -> TestTree
+testCreateVPNConnectionResponse = resp
+    "CreateVPNConnectionResponse"
+    "fixture/CreateVPNConnectionResponse"
+    (Proxy :: Proxy CreateVPNConnection)
+
+testDescribeSnapshotsResponse :: DescribeSnapshotsResponse -> TestTree
+testDescribeSnapshotsResponse = resp
+    "DescribeSnapshotsResponse"
+    "fixture/DescribeSnapshotsResponse"
+    (Proxy :: Proxy DescribeSnapshots)
+
+testCreatePlacementGroupResponse :: CreatePlacementGroupResponse -> TestTree
+testCreatePlacementGroupResponse = resp
+    "CreatePlacementGroupResponse"
+    "fixture/CreatePlacementGroupResponse"
+    (Proxy :: Proxy CreatePlacementGroup)
+
+testReplaceRouteTableAssociationResponse :: ReplaceRouteTableAssociationResponse -> TestTree
+testReplaceRouteTableAssociationResponse = resp
+    "ReplaceRouteTableAssociationResponse"
+    "fixture/ReplaceRouteTableAssociationResponse"
+    (Proxy :: Proxy ReplaceRouteTableAssociation)
+
+testDescribeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResponse -> TestTree
+testDescribeNetworkInterfaceAttributeResponse = resp
+    "DescribeNetworkInterfaceAttributeResponse"
+    "fixture/DescribeNetworkInterfaceAttributeResponse"
+    (Proxy :: Proxy DescribeNetworkInterfaceAttribute)
+
+testDescribeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResponse -> TestTree
+testDescribeReservedInstancesListingsResponse = resp
+    "DescribeReservedInstancesListingsResponse"
+    "fixture/DescribeReservedInstancesListingsResponse"
+    (Proxy :: Proxy DescribeReservedInstancesListings)
+
+testDeleteNetworkInterfaceResponse :: DeleteNetworkInterfaceResponse -> TestTree
+testDeleteNetworkInterfaceResponse = resp
+    "DeleteNetworkInterfaceResponse"
+    "fixture/DeleteNetworkInterfaceResponse"
+    (Proxy :: Proxy DeleteNetworkInterface)
+
+testDeleteInternetGatewayResponse :: DeleteInternetGatewayResponse -> TestTree
+testDeleteInternetGatewayResponse = resp
+    "DeleteInternetGatewayResponse"
+    "fixture/DeleteInternetGatewayResponse"
+    (Proxy :: Proxy DeleteInternetGateway)
+
+testDeleteSubnetResponse :: DeleteSubnetResponse -> TestTree
+testDeleteSubnetResponse = resp
+    "DeleteSubnetResponse"
+    "fixture/DeleteSubnetResponse"
+    (Proxy :: Proxy DeleteSubnet)
+
+testCreateVPCEndpointResponse :: CreateVPCEndpointResponse -> TestTree
+testCreateVPCEndpointResponse = resp
+    "CreateVPCEndpointResponse"
+    "fixture/CreateVPCEndpointResponse"
+    (Proxy :: Proxy CreateVPCEndpoint)
+
+testDescribeImportSnapshotTasksResponse :: DescribeImportSnapshotTasksResponse -> TestTree
+testDescribeImportSnapshotTasksResponse = resp
+    "DescribeImportSnapshotTasksResponse"
+    "fixture/DescribeImportSnapshotTasksResponse"
+    (Proxy :: Proxy DescribeImportSnapshotTasks)
+
+testCopyImageResponse :: CopyImageResponse -> TestTree
+testCopyImageResponse = resp
+    "CopyImageResponse"
+    "fixture/CopyImageResponse"
+    (Proxy :: Proxy CopyImage)
+
+testDisassociateRouteTableResponse :: DisassociateRouteTableResponse -> TestTree
+testDisassociateRouteTableResponse = resp
+    "DisassociateRouteTableResponse"
+    "fixture/DisassociateRouteTableResponse"
+    (Proxy :: Proxy DisassociateRouteTable)
+
+testUnmonitorInstancesResponse :: UnmonitorInstancesResponse -> TestTree
+testUnmonitorInstancesResponse = resp
+    "UnmonitorInstancesResponse"
+    "fixture/UnmonitorInstancesResponse"
+    (Proxy :: Proxy UnmonitorInstances)
+
+testImportVolumeResponse :: ImportVolumeResponse -> TestTree
+testImportVolumeResponse = resp
+    "ImportVolumeResponse"
+    "fixture/ImportVolumeResponse"
+    (Proxy :: Proxy ImportVolume)
+
+testDisableVGWRoutePropagationResponse :: DisableVGWRoutePropagationResponse -> TestTree
+testDisableVGWRoutePropagationResponse = resp
+    "DisableVGWRoutePropagationResponse"
+    "fixture/DisableVGWRoutePropagationResponse"
+    (Proxy :: Proxy DisableVGWRoutePropagation)
+
+testCreateSpotDatafeedSubscriptionResponse :: CreateSpotDatafeedSubscriptionResponse -> TestTree
+testCreateSpotDatafeedSubscriptionResponse = resp
+    "CreateSpotDatafeedSubscriptionResponse"
+    "fixture/CreateSpotDatafeedSubscriptionResponse"
+    (Proxy :: Proxy CreateSpotDatafeedSubscription)
+
+testAssignPrivateIPAddressesResponse :: AssignPrivateIPAddressesResponse -> TestTree
+testAssignPrivateIPAddressesResponse = resp
+    "AssignPrivateIPAddressesResponse"
+    "fixture/AssignPrivateIPAddressesResponse"
+    (Proxy :: Proxy AssignPrivateIPAddresses)
+
+testDeleteSnapshotResponse :: DeleteSnapshotResponse -> TestTree
+testDeleteSnapshotResponse = resp
+    "DeleteSnapshotResponse"
+    "fixture/DeleteSnapshotResponse"
+    (Proxy :: Proxy DeleteSnapshot)
+
+testDeleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse -> TestTree
+testDeleteCustomerGatewayResponse = resp
+    "DeleteCustomerGatewayResponse"
+    "fixture/DeleteCustomerGatewayResponse"
+    (Proxy :: Proxy DeleteCustomerGateway)
+
+testModifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse -> TestTree
+testModifyInstanceAttributeResponse = resp
+    "ModifyInstanceAttributeResponse"
+    "fixture/ModifyInstanceAttributeResponse"
+    (Proxy :: Proxy ModifyInstanceAttribute)
+
+testCreateSecurityGroupResponse :: CreateSecurityGroupResponse -> TestTree
+testCreateSecurityGroupResponse = resp
+    "CreateSecurityGroupResponse"
+    "fixture/CreateSecurityGroupResponse"
+    (Proxy :: Proxy CreateSecurityGroup)
+
+testCancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResponse -> TestTree
+testCancelSpotInstanceRequestsResponse = resp
+    "CancelSpotInstanceRequestsResponse"
+    "fixture/CancelSpotInstanceRequestsResponse"
+    (Proxy :: Proxy CancelSpotInstanceRequests)
+
+testCreateRouteResponse :: CreateRouteResponse -> TestTree
+testCreateRouteResponse = resp
+    "CreateRouteResponse"
+    "fixture/CreateRouteResponse"
+    (Proxy :: Proxy CreateRoute)
+
+testCreateNetworkACLEntryResponse :: CreateNetworkACLEntryResponse -> TestTree
+testCreateNetworkACLEntryResponse = resp
+    "CreateNetworkACLEntryResponse"
+    "fixture/CreateNetworkACLEntryResponse"
+    (Proxy :: Proxy CreateNetworkACLEntry)
+
+testModifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse -> TestTree
+testModifySnapshotAttributeResponse = resp
+    "ModifySnapshotAttributeResponse"
+    "fixture/ModifySnapshotAttributeResponse"
+    (Proxy :: Proxy ModifySnapshotAttribute)
+
+testEnableVGWRoutePropagationResponse :: EnableVGWRoutePropagationResponse -> TestTree
+testEnableVGWRoutePropagationResponse = resp
+    "EnableVGWRoutePropagationResponse"
+    "fixture/EnableVGWRoutePropagationResponse"
+    (Proxy :: Proxy EnableVGWRoutePropagation)
+
+testCreateSnapshotResponse :: Snapshot -> TestTree
+testCreateSnapshotResponse = resp
+    "CreateSnapshotResponse"
+    "fixture/CreateSnapshotResponse"
+    (Proxy :: Proxy CreateSnapshot)
+
+testDescribeSpotFleetRequestHistoryResponse :: DescribeSpotFleetRequestHistoryResponse -> TestTree
+testDescribeSpotFleetRequestHistoryResponse = resp
+    "DescribeSpotFleetRequestHistoryResponse"
+    "fixture/DescribeSpotFleetRequestHistoryResponse"
+    (Proxy :: Proxy DescribeSpotFleetRequestHistory)
+
+testDeleteSpotDatafeedSubscriptionResponse :: DeleteSpotDatafeedSubscriptionResponse -> TestTree
+testDeleteSpotDatafeedSubscriptionResponse = resp
+    "DeleteSpotDatafeedSubscriptionResponse"
+    "fixture/DeleteSpotDatafeedSubscriptionResponse"
+    (Proxy :: Proxy DeleteSpotDatafeedSubscription)
+
+testDescribePlacementGroupsResponse :: DescribePlacementGroupsResponse -> TestTree
+testDescribePlacementGroupsResponse = resp
+    "DescribePlacementGroupsResponse"
+    "fixture/DescribePlacementGroupsResponse"
+    (Proxy :: Proxy DescribePlacementGroups)
+
+testCreateReservedInstancesListingResponse :: CreateReservedInstancesListingResponse -> TestTree
+testCreateReservedInstancesListingResponse = resp
+    "CreateReservedInstancesListingResponse"
+    "fixture/CreateReservedInstancesListingResponse"
+    (Proxy :: Proxy CreateReservedInstancesListing)
+
+testEnableVPCClassicLinkResponse :: EnableVPCClassicLinkResponse -> TestTree
+testEnableVPCClassicLinkResponse = resp
+    "EnableVPCClassicLinkResponse"
+    "fixture/EnableVPCClassicLinkResponse"
+    (Proxy :: Proxy EnableVPCClassicLink)
+
+testDescribeKeyPairsResponse :: DescribeKeyPairsResponse -> TestTree
+testDescribeKeyPairsResponse = resp
+    "DescribeKeyPairsResponse"
+    "fixture/DescribeKeyPairsResponse"
+    (Proxy :: Proxy DescribeKeyPairs)
+
+testRebootInstancesResponse :: RebootInstancesResponse -> TestTree
+testRebootInstancesResponse = resp
+    "RebootInstancesResponse"
+    "fixture/RebootInstancesResponse"
+    (Proxy :: Proxy RebootInstances)
+
+testAttachVPNGatewayResponse :: AttachVPNGatewayResponse -> TestTree
+testAttachVPNGatewayResponse = resp
+    "AttachVPNGatewayResponse"
+    "fixture/AttachVPNGatewayResponse"
+    (Proxy :: Proxy AttachVPNGateway)
+
+testCreateVPNConnectionRouteResponse :: CreateVPNConnectionRouteResponse -> TestTree
+testCreateVPNConnectionRouteResponse = resp
+    "CreateVPNConnectionRouteResponse"
+    "fixture/CreateVPNConnectionRouteResponse"
+    (Proxy :: Proxy CreateVPNConnectionRoute)
+
+testDescribeClassicLinkInstancesResponse :: DescribeClassicLinkInstancesResponse -> TestTree
+testDescribeClassicLinkInstancesResponse = resp
+    "DescribeClassicLinkInstancesResponse"
+    "fixture/DescribeClassicLinkInstancesResponse"
+    (Proxy :: Proxy DescribeClassicLinkInstances)
+
+testTerminateInstancesResponse :: TerminateInstancesResponse -> TestTree
+testTerminateInstancesResponse = resp
+    "TerminateInstancesResponse"
     "fixture/TerminateInstancesResponse"
     (Proxy :: Proxy TerminateInstances)
 
-unassignPrivateIPAddressesResponseTest :: UnassignPrivateIPAddressesResponse -> TestTree
-unassignPrivateIPAddressesResponseTest = resp
-    "unassignPrivateIPAddressesResponse"
+testCreateDHCPOptionsResponse :: CreateDHCPOptionsResponse -> TestTree
+testCreateDHCPOptionsResponse = resp
+    "CreateDHCPOptionsResponse"
+    "fixture/CreateDHCPOptionsResponse"
+    (Proxy :: Proxy CreateDHCPOptions)
+
+testAssociateRouteTableResponse :: AssociateRouteTableResponse -> TestTree
+testAssociateRouteTableResponse = resp
+    "AssociateRouteTableResponse"
+    "fixture/AssociateRouteTableResponse"
+    (Proxy :: Proxy AssociateRouteTable)
+
+testCreateImageResponse :: CreateImageResponse -> TestTree
+testCreateImageResponse = resp
+    "CreateImageResponse"
+    "fixture/CreateImageResponse"
+    (Proxy :: Proxy CreateImage)
+
+testDescribeAccountAttributesResponse :: DescribeAccountAttributesResponse -> TestTree
+testDescribeAccountAttributesResponse = resp
+    "DescribeAccountAttributesResponse"
+    "fixture/DescribeAccountAttributesResponse"
+    (Proxy :: Proxy DescribeAccountAttributes)
+
+testResetImageAttributeResponse :: ResetImageAttributeResponse -> TestTree
+testResetImageAttributeResponse = resp
+    "ResetImageAttributeResponse"
+    "fixture/ResetImageAttributeResponse"
+    (Proxy :: Proxy ResetImageAttribute)
+
+testDescribeNetworkACLsResponse :: DescribeNetworkACLsResponse -> TestTree
+testDescribeNetworkACLsResponse = resp
+    "DescribeNetworkACLsResponse"
+    "fixture/DescribeNetworkACLsResponse"
+    (Proxy :: Proxy DescribeNetworkACLs)
+
+testCancelImportTaskResponse :: CancelImportTaskResponse -> TestTree
+testCancelImportTaskResponse = resp
+    "CancelImportTaskResponse"
+    "fixture/CancelImportTaskResponse"
+    (Proxy :: Proxy CancelImportTask)
+
+testGetConsoleOutputResponse :: GetConsoleOutputResponse -> TestTree
+testGetConsoleOutputResponse = resp
+    "GetConsoleOutputResponse"
+    "fixture/GetConsoleOutputResponse"
+    (Proxy :: Proxy GetConsoleOutput)
+
+testUnassignPrivateIPAddressesResponse :: UnassignPrivateIPAddressesResponse -> TestTree
+testUnassignPrivateIPAddressesResponse = resp
+    "UnassignPrivateIPAddressesResponse"
     "fixture/UnassignPrivateIPAddressesResponse"
     (Proxy :: Proxy UnassignPrivateIPAddresses)
 
-unmonitorInstancesResponseTest :: UnmonitorInstancesResponse -> TestTree
-unmonitorInstancesResponseTest = resp
-    "unmonitorInstancesResponse"
-    "fixture/UnmonitorInstancesResponse"
-    (Proxy :: Proxy UnmonitorInstances)
+testDeleteRouteTableResponse :: DeleteRouteTableResponse -> TestTree
+testDeleteRouteTableResponse = resp
+    "DeleteRouteTableResponse"
+    "fixture/DeleteRouteTableResponse"
+    (Proxy :: Proxy DeleteRouteTable)
+
+testDescribeImageAttributeResponse :: DescribeImageAttributeResponse -> TestTree
+testDescribeImageAttributeResponse = resp
+    "DescribeImageAttributeResponse"
+    "fixture/DescribeImageAttributeResponse"
+    (Proxy :: Proxy DescribeImageAttribute)
+
+testDeleteDHCPOptionsResponse :: DeleteDHCPOptionsResponse -> TestTree
+testDeleteDHCPOptionsResponse = resp
+    "DeleteDHCPOptionsResponse"
+    "fixture/DeleteDHCPOptionsResponse"
+    (Proxy :: Proxy DeleteDHCPOptions)
+
+testDescribeVPNGatewaysResponse :: DescribeVPNGatewaysResponse -> TestTree
+testDescribeVPNGatewaysResponse = resp
+    "DescribeVPNGatewaysResponse"
+    "fixture/DescribeVPNGatewaysResponse"
+    (Proxy :: Proxy DescribeVPNGateways)
+
+testDetachClassicLinkVPCResponse :: DetachClassicLinkVPCResponse -> TestTree
+testDetachClassicLinkVPCResponse = resp
+    "DetachClassicLinkVPCResponse"
+    "fixture/DetachClassicLinkVPCResponse"
+    (Proxy :: Proxy DetachClassicLinkVPC)
+
+testDescribeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResponse -> TestTree
+testDescribeReservedInstancesModificationsResponse = resp
+    "DescribeReservedInstancesModificationsResponse"
+    "fixture/DescribeReservedInstancesModificationsResponse"
+    (Proxy :: Proxy DescribeReservedInstancesModifications)
+
+testDescribeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResponse -> TestTree
+testDescribeSpotInstanceRequestsResponse = resp
+    "DescribeSpotInstanceRequestsResponse"
+    "fixture/DescribeSpotInstanceRequestsResponse"
+    (Proxy :: Proxy DescribeSpotInstanceRequests)
+
+testMonitorInstancesResponse :: MonitorInstancesResponse -> TestTree
+testMonitorInstancesResponse = resp
+    "MonitorInstancesResponse"
+    "fixture/MonitorInstancesResponse"
+    (Proxy :: Proxy MonitorInstances)
+
+testDescribeRegionsResponse :: DescribeRegionsResponse -> TestTree
+testDescribeRegionsResponse = resp
+    "DescribeRegionsResponse"
+    "fixture/DescribeRegionsResponse"
+    (Proxy :: Proxy DescribeRegions)
+
+testModifyVPCAttributeResponse :: ModifyVPCAttributeResponse -> TestTree
+testModifyVPCAttributeResponse = resp
+    "ModifyVPCAttributeResponse"
+    "fixture/ModifyVPCAttributeResponse"
+    (Proxy :: Proxy ModifyVPCAttribute)
+
+testDescribeSpotFleetInstancesResponse :: DescribeSpotFleetInstancesResponse -> TestTree
+testDescribeSpotFleetInstancesResponse = resp
+    "DescribeSpotFleetInstancesResponse"
+    "fixture/DescribeSpotFleetInstancesResponse"
+    (Proxy :: Proxy DescribeSpotFleetInstances)
+
+testDescribeVolumeStatusResponse :: DescribeVolumeStatusResponse -> TestTree
+testDescribeVolumeStatusResponse = resp
+    "DescribeVolumeStatusResponse"
+    "fixture/DescribeVolumeStatusResponse"
+    (Proxy :: Proxy DescribeVolumeStatus)
+
+testDeleteVolumeResponse :: DeleteVolumeResponse -> TestTree
+testDeleteVolumeResponse = resp
+    "DeleteVolumeResponse"
+    "fixture/DeleteVolumeResponse"
+    (Proxy :: Proxy DeleteVolume)
+
+testDescribeImagesResponse :: DescribeImagesResponse -> TestTree
+testDescribeImagesResponse = resp
+    "DescribeImagesResponse"
+    "fixture/DescribeImagesResponse"
+    (Proxy :: Proxy DescribeImages)
+
+testCreateKeyPairResponse :: CreateKeyPairResponse -> TestTree
+testCreateKeyPairResponse = resp
+    "CreateKeyPairResponse"
+    "fixture/CreateKeyPairResponse"
+    (Proxy :: Proxy CreateKeyPair)
+
+testRestoreAddressToClassicResponse :: RestoreAddressToClassicResponse -> TestTree
+testRestoreAddressToClassicResponse = resp
+    "RestoreAddressToClassicResponse"
+    "fixture/RestoreAddressToClassicResponse"
+    (Proxy :: Proxy RestoreAddressToClassic)
+
+testDescribeAvailabilityZonesResponse :: DescribeAvailabilityZonesResponse -> TestTree
+testDescribeAvailabilityZonesResponse = resp
+    "DescribeAvailabilityZonesResponse"
+    "fixture/DescribeAvailabilityZonesResponse"
+    (Proxy :: Proxy DescribeAvailabilityZones)
+
+testImportSnapshotResponse :: ImportSnapshotResponse -> TestTree
+testImportSnapshotResponse = resp
+    "ImportSnapshotResponse"
+    "fixture/ImportSnapshotResponse"
+    (Proxy :: Proxy ImportSnapshot)
+
+testAcceptVPCPeeringConnectionResponse :: AcceptVPCPeeringConnectionResponse -> TestTree
+testAcceptVPCPeeringConnectionResponse = resp
+    "AcceptVPCPeeringConnectionResponse"
+    "fixture/AcceptVPCPeeringConnectionResponse"
+    (Proxy :: Proxy AcceptVPCPeeringConnection)
+
+testDescribeRouteTablesResponse :: DescribeRouteTablesResponse -> TestTree
+testDescribeRouteTablesResponse = resp
+    "DescribeRouteTablesResponse"
+    "fixture/DescribeRouteTablesResponse"
+    (Proxy :: Proxy DescribeRouteTables)

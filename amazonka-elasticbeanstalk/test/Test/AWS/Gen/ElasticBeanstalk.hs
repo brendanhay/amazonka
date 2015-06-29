@@ -23,464 +23,464 @@ import Network.AWS.ElasticBeanstalk
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ abortEnvironmentUpdateTest $
---             abortEnvironmentUpdate
---
---         , checkDNSAvailabilityTest $
---             checkDNSAvailability
---
---         , createApplicationTest $
---             createApplication
---
---         , createApplicationVersionTest $
---             createApplicationVersion
---
---         , createConfigurationTemplateTest $
---             createConfigurationTemplate
---
---         , createEnvironmentTest $
---             createEnvironment
---
---         , createStorageLocationTest $
---             createStorageLocation
---
---         , deleteApplicationTest $
---             deleteApplication
---
---         , deleteApplicationVersionTest $
---             deleteApplicationVersion
---
---         , deleteConfigurationTemplateTest $
---             deleteConfigurationTemplate
---
---         , deleteEnvironmentConfigurationTest $
---             deleteEnvironmentConfiguration
---
---         , describeApplicationVersionsTest $
---             describeApplicationVersions
---
---         , describeApplicationsTest $
+--         [ testDescribeApplications $
 --             describeApplications
 --
---         , describeConfigurationOptionsTest $
---             describeConfigurationOptions
+--         , testCreateApplicationVersion $
+--             createApplicationVersion
 --
---         , describeConfigurationSettingsTest $
---             describeConfigurationSettings
---
---         , describeEnvironmentResourcesTest $
---             describeEnvironmentResources
---
---         , describeEnvironmentsTest $
---             describeEnvironments
---
---         , describeEventsTest $
---             describeEvents
---
---         , listAvailableSolutionStacksTest $
---             listAvailableSolutionStacks
---
---         , rebuildEnvironmentTest $
---             rebuildEnvironment
---
---         , requestEnvironmentInfoTest $
---             requestEnvironmentInfo
---
---         , restartAppServerTest $
---             restartAppServer
---
---         , retrieveEnvironmentInfoTest $
---             retrieveEnvironmentInfo
---
---         , swapEnvironmentCNAMEsTest $
---             swapEnvironmentCNAMEs
---
---         , terminateEnvironmentTest $
---             terminateEnvironment
---
---         , updateApplicationTest $
---             updateApplication
---
---         , updateApplicationVersionTest $
---             updateApplicationVersion
---
---         , updateConfigurationTemplateTest $
---             updateConfigurationTemplate
---
---         , updateEnvironmentTest $
+--         , testUpdateEnvironment $
 --             updateEnvironment
 --
---         , validateConfigurationSettingsTest $
+--         , testTerminateEnvironment $
+--             terminateEnvironment
+--
+--         , testDescribeEvents $
+--             describeEvents
+--
+--         , testRequestEnvironmentInfo $
+--             requestEnvironmentInfo
+--
+--         , testRetrieveEnvironmentInfo $
+--             retrieveEnvironmentInfo
+--
+--         , testDeleteApplication $
+--             deleteApplication
+--
+--         , testUpdateApplication $
+--             updateApplication
+--
+--         , testCreateApplication $
+--             createApplication
+--
+--         , testAbortEnvironmentUpdate $
+--             abortEnvironmentUpdate
+--
+--         , testDeleteApplicationVersion $
+--             deleteApplicationVersion
+--
+--         , testUpdateApplicationVersion $
+--             updateApplicationVersion
+--
+--         , testDescribeEnvironmentResources $
+--             describeEnvironmentResources
+--
+--         , testDeleteConfigurationTemplate $
+--             deleteConfigurationTemplate
+--
+--         , testUpdateConfigurationTemplate $
+--             updateConfigurationTemplate
+--
+--         , testRebuildEnvironment $
+--             rebuildEnvironment
+--
+--         , testDeleteEnvironmentConfiguration $
+--             deleteEnvironmentConfiguration
+--
+--         , testCreateConfigurationTemplate $
+--             createConfigurationTemplate
+--
+--         , testListAvailableSolutionStacks $
+--             listAvailableSolutionStacks
+--
+--         , testSwapEnvironmentCNAMEs $
+--             swapEnvironmentCNAMEs
+--
+--         , testDescribeConfigurationOptions $
+--             describeConfigurationOptions
+--
+--         , testDescribeConfigurationSettings $
+--             describeConfigurationSettings
+--
+--         , testCreateStorageLocation $
+--             createStorageLocation
+--
+--         , testDescribeEnvironments $
+--             describeEnvironments
+--
+--         , testRestartAppServer $
+--             restartAppServer
+--
+--         , testValidateConfigurationSettings $
 --             validateConfigurationSettings
+--
+--         , testDescribeApplicationVersions $
+--             describeApplicationVersions
+--
+--         , testCheckDNSAvailability $
+--             checkDNSAvailability
+--
+--         , testCreateEnvironment $
+--             createEnvironment
 --
 --           ]
 
 --     , testGroup "response"
---         [ abortEnvironmentUpdateResponseTest $
---             abortEnvironmentUpdateResponse
---
---         , checkDNSAvailabilityResponseTest $
---             checkDNSAvailabilityResponse
---
---         , createApplicationResponseTest $
---             applicationDescriptionMessage
---
---         , createApplicationVersionResponseTest $
---             applicationVersionDescriptionMessage
---
---         , createConfigurationTemplateResponseTest $
---             configurationSettingsDescription
---
---         , createEnvironmentResponseTest $
---             environmentDescription
---
---         , createStorageLocationResponseTest $
---             createStorageLocationResponse
---
---         , deleteApplicationResponseTest $
---             deleteApplicationResponse
---
---         , deleteApplicationVersionResponseTest $
---             deleteApplicationVersionResponse
---
---         , deleteConfigurationTemplateResponseTest $
---             deleteConfigurationTemplateResponse
---
---         , deleteEnvironmentConfigurationResponseTest $
---             deleteEnvironmentConfigurationResponse
---
---         , describeApplicationVersionsResponseTest $
---             describeApplicationVersionsResponse
---
---         , describeApplicationsResponseTest $
+--         [ testDescribeApplicationsResponse $
 --             describeApplicationsResponse
 --
---         , describeConfigurationOptionsResponseTest $
---             describeConfigurationOptionsResponse
---
---         , describeConfigurationSettingsResponseTest $
---             describeConfigurationSettingsResponse
---
---         , describeEnvironmentResourcesResponseTest $
---             describeEnvironmentResourcesResponse
---
---         , describeEnvironmentsResponseTest $
---             describeEnvironmentsResponse
---
---         , describeEventsResponseTest $
---             describeEventsResponse
---
---         , listAvailableSolutionStacksResponseTest $
---             listAvailableSolutionStacksResponse
---
---         , rebuildEnvironmentResponseTest $
---             rebuildEnvironmentResponse
---
---         , requestEnvironmentInfoResponseTest $
---             requestEnvironmentInfoResponse
---
---         , restartAppServerResponseTest $
---             restartAppServerResponse
---
---         , retrieveEnvironmentInfoResponseTest $
---             retrieveEnvironmentInfoResponse
---
---         , swapEnvironmentCNAMEsResponseTest $
---             swapEnvironmentCNAMEsResponse
---
---         , terminateEnvironmentResponseTest $
---             environmentDescription
---
---         , updateApplicationResponseTest $
---             applicationDescriptionMessage
---
---         , updateApplicationVersionResponseTest $
+--         , testCreateApplicationVersionResponse $
 --             applicationVersionDescriptionMessage
 --
---         , updateConfigurationTemplateResponseTest $
---             configurationSettingsDescription
---
---         , updateEnvironmentResponseTest $
+--         , testUpdateEnvironmentResponse $
 --             environmentDescription
 --
---         , validateConfigurationSettingsResponseTest $
+--         , testTerminateEnvironmentResponse $
+--             environmentDescription
+--
+--         , testDescribeEventsResponse $
+--             describeEventsResponse
+--
+--         , testRequestEnvironmentInfoResponse $
+--             requestEnvironmentInfoResponse
+--
+--         , testRetrieveEnvironmentInfoResponse $
+--             retrieveEnvironmentInfoResponse
+--
+--         , testDeleteApplicationResponse $
+--             deleteApplicationResponse
+--
+--         , testUpdateApplicationResponse $
+--             applicationDescriptionMessage
+--
+--         , testCreateApplicationResponse $
+--             applicationDescriptionMessage
+--
+--         , testAbortEnvironmentUpdateResponse $
+--             abortEnvironmentUpdateResponse
+--
+--         , testDeleteApplicationVersionResponse $
+--             deleteApplicationVersionResponse
+--
+--         , testUpdateApplicationVersionResponse $
+--             applicationVersionDescriptionMessage
+--
+--         , testDescribeEnvironmentResourcesResponse $
+--             describeEnvironmentResourcesResponse
+--
+--         , testDeleteConfigurationTemplateResponse $
+--             deleteConfigurationTemplateResponse
+--
+--         , testUpdateConfigurationTemplateResponse $
+--             configurationSettingsDescription
+--
+--         , testRebuildEnvironmentResponse $
+--             rebuildEnvironmentResponse
+--
+--         , testDeleteEnvironmentConfigurationResponse $
+--             deleteEnvironmentConfigurationResponse
+--
+--         , testCreateConfigurationTemplateResponse $
+--             configurationSettingsDescription
+--
+--         , testListAvailableSolutionStacksResponse $
+--             listAvailableSolutionStacksResponse
+--
+--         , testSwapEnvironmentCNAMEsResponse $
+--             swapEnvironmentCNAMEsResponse
+--
+--         , testDescribeConfigurationOptionsResponse $
+--             describeConfigurationOptionsResponse
+--
+--         , testDescribeConfigurationSettingsResponse $
+--             describeConfigurationSettingsResponse
+--
+--         , testCreateStorageLocationResponse $
+--             createStorageLocationResponse
+--
+--         , testDescribeEnvironmentsResponse $
+--             describeEnvironmentsResponse
+--
+--         , testRestartAppServerResponse $
+--             restartAppServerResponse
+--
+--         , testValidateConfigurationSettingsResponse $
 --             validateConfigurationSettingsResponse
+--
+--         , testDescribeApplicationVersionsResponse $
+--             describeApplicationVersionsResponse
+--
+--         , testCheckDNSAvailabilityResponse $
+--             checkDNSAvailabilityResponse
+--
+--         , testCreateEnvironmentResponse $
+--             environmentDescription
 --
 --           ]
 --     ]
 
 -- Requests
 
-abortEnvironmentUpdateTest :: AbortEnvironmentUpdate -> TestTree
-abortEnvironmentUpdateTest = undefined
+testDescribeApplications :: DescribeApplications -> TestTree
+testDescribeApplications = undefined
 
-checkDNSAvailabilityTest :: CheckDNSAvailability -> TestTree
-checkDNSAvailabilityTest = undefined
+testCreateApplicationVersion :: CreateApplicationVersion -> TestTree
+testCreateApplicationVersion = undefined
 
-createApplicationTest :: CreateApplication -> TestTree
-createApplicationTest = undefined
+testUpdateEnvironment :: UpdateEnvironment -> TestTree
+testUpdateEnvironment = undefined
 
-createApplicationVersionTest :: CreateApplicationVersion -> TestTree
-createApplicationVersionTest = undefined
+testTerminateEnvironment :: TerminateEnvironment -> TestTree
+testTerminateEnvironment = undefined
 
-createConfigurationTemplateTest :: CreateConfigurationTemplate -> TestTree
-createConfigurationTemplateTest = undefined
+testDescribeEvents :: DescribeEvents -> TestTree
+testDescribeEvents = undefined
 
-createEnvironmentTest :: CreateEnvironment -> TestTree
-createEnvironmentTest = undefined
+testRequestEnvironmentInfo :: RequestEnvironmentInfo -> TestTree
+testRequestEnvironmentInfo = undefined
 
-createStorageLocationTest :: CreateStorageLocation -> TestTree
-createStorageLocationTest = undefined
+testRetrieveEnvironmentInfo :: RetrieveEnvironmentInfo -> TestTree
+testRetrieveEnvironmentInfo = undefined
 
-deleteApplicationTest :: DeleteApplication -> TestTree
-deleteApplicationTest = undefined
+testDeleteApplication :: DeleteApplication -> TestTree
+testDeleteApplication = undefined
 
-deleteApplicationVersionTest :: DeleteApplicationVersion -> TestTree
-deleteApplicationVersionTest = undefined
+testUpdateApplication :: UpdateApplication -> TestTree
+testUpdateApplication = undefined
 
-deleteConfigurationTemplateTest :: DeleteConfigurationTemplate -> TestTree
-deleteConfigurationTemplateTest = undefined
+testCreateApplication :: CreateApplication -> TestTree
+testCreateApplication = undefined
 
-deleteEnvironmentConfigurationTest :: DeleteEnvironmentConfiguration -> TestTree
-deleteEnvironmentConfigurationTest = undefined
+testAbortEnvironmentUpdate :: AbortEnvironmentUpdate -> TestTree
+testAbortEnvironmentUpdate = undefined
 
-describeApplicationVersionsTest :: DescribeApplicationVersions -> TestTree
-describeApplicationVersionsTest = undefined
+testDeleteApplicationVersion :: DeleteApplicationVersion -> TestTree
+testDeleteApplicationVersion = undefined
 
-describeApplicationsTest :: DescribeApplications -> TestTree
-describeApplicationsTest = undefined
+testUpdateApplicationVersion :: UpdateApplicationVersion -> TestTree
+testUpdateApplicationVersion = undefined
 
-describeConfigurationOptionsTest :: DescribeConfigurationOptions -> TestTree
-describeConfigurationOptionsTest = undefined
+testDescribeEnvironmentResources :: DescribeEnvironmentResources -> TestTree
+testDescribeEnvironmentResources = undefined
 
-describeConfigurationSettingsTest :: DescribeConfigurationSettings -> TestTree
-describeConfigurationSettingsTest = undefined
+testDeleteConfigurationTemplate :: DeleteConfigurationTemplate -> TestTree
+testDeleteConfigurationTemplate = undefined
 
-describeEnvironmentResourcesTest :: DescribeEnvironmentResources -> TestTree
-describeEnvironmentResourcesTest = undefined
+testUpdateConfigurationTemplate :: UpdateConfigurationTemplate -> TestTree
+testUpdateConfigurationTemplate = undefined
 
-describeEnvironmentsTest :: DescribeEnvironments -> TestTree
-describeEnvironmentsTest = undefined
+testRebuildEnvironment :: RebuildEnvironment -> TestTree
+testRebuildEnvironment = undefined
 
-describeEventsTest :: DescribeEvents -> TestTree
-describeEventsTest = undefined
+testDeleteEnvironmentConfiguration :: DeleteEnvironmentConfiguration -> TestTree
+testDeleteEnvironmentConfiguration = undefined
 
-listAvailableSolutionStacksTest :: ListAvailableSolutionStacks -> TestTree
-listAvailableSolutionStacksTest = undefined
+testCreateConfigurationTemplate :: CreateConfigurationTemplate -> TestTree
+testCreateConfigurationTemplate = undefined
 
-rebuildEnvironmentTest :: RebuildEnvironment -> TestTree
-rebuildEnvironmentTest = undefined
+testListAvailableSolutionStacks :: ListAvailableSolutionStacks -> TestTree
+testListAvailableSolutionStacks = undefined
 
-requestEnvironmentInfoTest :: RequestEnvironmentInfo -> TestTree
-requestEnvironmentInfoTest = undefined
+testSwapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs -> TestTree
+testSwapEnvironmentCNAMEs = undefined
 
-restartAppServerTest :: RestartAppServer -> TestTree
-restartAppServerTest = undefined
+testDescribeConfigurationOptions :: DescribeConfigurationOptions -> TestTree
+testDescribeConfigurationOptions = undefined
 
-retrieveEnvironmentInfoTest :: RetrieveEnvironmentInfo -> TestTree
-retrieveEnvironmentInfoTest = undefined
+testDescribeConfigurationSettings :: DescribeConfigurationSettings -> TestTree
+testDescribeConfigurationSettings = undefined
 
-swapEnvironmentCNAMEsTest :: SwapEnvironmentCNAMEs -> TestTree
-swapEnvironmentCNAMEsTest = undefined
+testCreateStorageLocation :: CreateStorageLocation -> TestTree
+testCreateStorageLocation = undefined
 
-terminateEnvironmentTest :: TerminateEnvironment -> TestTree
-terminateEnvironmentTest = undefined
+testDescribeEnvironments :: DescribeEnvironments -> TestTree
+testDescribeEnvironments = undefined
 
-updateApplicationTest :: UpdateApplication -> TestTree
-updateApplicationTest = undefined
+testRestartAppServer :: RestartAppServer -> TestTree
+testRestartAppServer = undefined
 
-updateApplicationVersionTest :: UpdateApplicationVersion -> TestTree
-updateApplicationVersionTest = undefined
+testValidateConfigurationSettings :: ValidateConfigurationSettings -> TestTree
+testValidateConfigurationSettings = undefined
 
-updateConfigurationTemplateTest :: UpdateConfigurationTemplate -> TestTree
-updateConfigurationTemplateTest = undefined
+testDescribeApplicationVersions :: DescribeApplicationVersions -> TestTree
+testDescribeApplicationVersions = undefined
 
-updateEnvironmentTest :: UpdateEnvironment -> TestTree
-updateEnvironmentTest = undefined
+testCheckDNSAvailability :: CheckDNSAvailability -> TestTree
+testCheckDNSAvailability = undefined
 
-validateConfigurationSettingsTest :: ValidateConfigurationSettings -> TestTree
-validateConfigurationSettingsTest = undefined
+testCreateEnvironment :: CreateEnvironment -> TestTree
+testCreateEnvironment = undefined
 
 -- Responses
 
-abortEnvironmentUpdateResponseTest :: AbortEnvironmentUpdateResponse -> TestTree
-abortEnvironmentUpdateResponseTest = resp
-    "abortEnvironmentUpdateResponse"
-    "fixture/AbortEnvironmentUpdateResponse"
-    (Proxy :: Proxy AbortEnvironmentUpdate)
-
-checkDNSAvailabilityResponseTest :: CheckDNSAvailabilityResponse -> TestTree
-checkDNSAvailabilityResponseTest = resp
-    "checkDNSAvailabilityResponse"
-    "fixture/CheckDNSAvailabilityResponse"
-    (Proxy :: Proxy CheckDNSAvailability)
-
-createApplicationResponseTest :: ApplicationDescriptionMessage -> TestTree
-createApplicationResponseTest = resp
-    "createApplicationResponse"
-    "fixture/ApplicationDescriptionMessage"
-    (Proxy :: Proxy CreateApplication)
-
-createApplicationVersionResponseTest :: ApplicationVersionDescriptionMessage -> TestTree
-createApplicationVersionResponseTest = resp
-    "createApplicationVersionResponse"
-    "fixture/ApplicationVersionDescriptionMessage"
-    (Proxy :: Proxy CreateApplicationVersion)
-
-createConfigurationTemplateResponseTest :: ConfigurationSettingsDescription -> TestTree
-createConfigurationTemplateResponseTest = resp
-    "createConfigurationTemplateResponse"
-    "fixture/ConfigurationSettingsDescription"
-    (Proxy :: Proxy CreateConfigurationTemplate)
-
-createEnvironmentResponseTest :: EnvironmentDescription -> TestTree
-createEnvironmentResponseTest = resp
-    "createEnvironmentResponse"
-    "fixture/EnvironmentDescription"
-    (Proxy :: Proxy CreateEnvironment)
-
-createStorageLocationResponseTest :: CreateStorageLocationResponse -> TestTree
-createStorageLocationResponseTest = resp
-    "createStorageLocationResponse"
-    "fixture/CreateStorageLocationResponse"
-    (Proxy :: Proxy CreateStorageLocation)
-
-deleteApplicationResponseTest :: DeleteApplicationResponse -> TestTree
-deleteApplicationResponseTest = resp
-    "deleteApplicationResponse"
-    "fixture/DeleteApplicationResponse"
-    (Proxy :: Proxy DeleteApplication)
-
-deleteApplicationVersionResponseTest :: DeleteApplicationVersionResponse -> TestTree
-deleteApplicationVersionResponseTest = resp
-    "deleteApplicationVersionResponse"
-    "fixture/DeleteApplicationVersionResponse"
-    (Proxy :: Proxy DeleteApplicationVersion)
-
-deleteConfigurationTemplateResponseTest :: DeleteConfigurationTemplateResponse -> TestTree
-deleteConfigurationTemplateResponseTest = resp
-    "deleteConfigurationTemplateResponse"
-    "fixture/DeleteConfigurationTemplateResponse"
-    (Proxy :: Proxy DeleteConfigurationTemplate)
-
-deleteEnvironmentConfigurationResponseTest :: DeleteEnvironmentConfigurationResponse -> TestTree
-deleteEnvironmentConfigurationResponseTest = resp
-    "deleteEnvironmentConfigurationResponse"
-    "fixture/DeleteEnvironmentConfigurationResponse"
-    (Proxy :: Proxy DeleteEnvironmentConfiguration)
-
-describeApplicationVersionsResponseTest :: DescribeApplicationVersionsResponse -> TestTree
-describeApplicationVersionsResponseTest = resp
-    "describeApplicationVersionsResponse"
-    "fixture/DescribeApplicationVersionsResponse"
-    (Proxy :: Proxy DescribeApplicationVersions)
-
-describeApplicationsResponseTest :: DescribeApplicationsResponse -> TestTree
-describeApplicationsResponseTest = resp
-    "describeApplicationsResponse"
+testDescribeApplicationsResponse :: DescribeApplicationsResponse -> TestTree
+testDescribeApplicationsResponse = resp
+    "DescribeApplicationsResponse"
     "fixture/DescribeApplicationsResponse"
     (Proxy :: Proxy DescribeApplications)
 
-describeConfigurationOptionsResponseTest :: DescribeConfigurationOptionsResponse -> TestTree
-describeConfigurationOptionsResponseTest = resp
-    "describeConfigurationOptionsResponse"
-    "fixture/DescribeConfigurationOptionsResponse"
-    (Proxy :: Proxy DescribeConfigurationOptions)
+testCreateApplicationVersionResponse :: ApplicationVersionDescriptionMessage -> TestTree
+testCreateApplicationVersionResponse = resp
+    "CreateApplicationVersionResponse"
+    "fixture/CreateApplicationVersionResponse"
+    (Proxy :: Proxy CreateApplicationVersion)
 
-describeConfigurationSettingsResponseTest :: DescribeConfigurationSettingsResponse -> TestTree
-describeConfigurationSettingsResponseTest = resp
-    "describeConfigurationSettingsResponse"
-    "fixture/DescribeConfigurationSettingsResponse"
-    (Proxy :: Proxy DescribeConfigurationSettings)
+testUpdateEnvironmentResponse :: EnvironmentDescription -> TestTree
+testUpdateEnvironmentResponse = resp
+    "UpdateEnvironmentResponse"
+    "fixture/UpdateEnvironmentResponse"
+    (Proxy :: Proxy UpdateEnvironment)
 
-describeEnvironmentResourcesResponseTest :: DescribeEnvironmentResourcesResponse -> TestTree
-describeEnvironmentResourcesResponseTest = resp
-    "describeEnvironmentResourcesResponse"
-    "fixture/DescribeEnvironmentResourcesResponse"
-    (Proxy :: Proxy DescribeEnvironmentResources)
+testTerminateEnvironmentResponse :: EnvironmentDescription -> TestTree
+testTerminateEnvironmentResponse = resp
+    "TerminateEnvironmentResponse"
+    "fixture/TerminateEnvironmentResponse"
+    (Proxy :: Proxy TerminateEnvironment)
 
-describeEnvironmentsResponseTest :: DescribeEnvironmentsResponse -> TestTree
-describeEnvironmentsResponseTest = resp
-    "describeEnvironmentsResponse"
-    "fixture/DescribeEnvironmentsResponse"
-    (Proxy :: Proxy DescribeEnvironments)
-
-describeEventsResponseTest :: DescribeEventsResponse -> TestTree
-describeEventsResponseTest = resp
-    "describeEventsResponse"
+testDescribeEventsResponse :: DescribeEventsResponse -> TestTree
+testDescribeEventsResponse = resp
+    "DescribeEventsResponse"
     "fixture/DescribeEventsResponse"
     (Proxy :: Proxy DescribeEvents)
 
-listAvailableSolutionStacksResponseTest :: ListAvailableSolutionStacksResponse -> TestTree
-listAvailableSolutionStacksResponseTest = resp
-    "listAvailableSolutionStacksResponse"
-    "fixture/ListAvailableSolutionStacksResponse"
-    (Proxy :: Proxy ListAvailableSolutionStacks)
-
-rebuildEnvironmentResponseTest :: RebuildEnvironmentResponse -> TestTree
-rebuildEnvironmentResponseTest = resp
-    "rebuildEnvironmentResponse"
-    "fixture/RebuildEnvironmentResponse"
-    (Proxy :: Proxy RebuildEnvironment)
-
-requestEnvironmentInfoResponseTest :: RequestEnvironmentInfoResponse -> TestTree
-requestEnvironmentInfoResponseTest = resp
-    "requestEnvironmentInfoResponse"
+testRequestEnvironmentInfoResponse :: RequestEnvironmentInfoResponse -> TestTree
+testRequestEnvironmentInfoResponse = resp
+    "RequestEnvironmentInfoResponse"
     "fixture/RequestEnvironmentInfoResponse"
     (Proxy :: Proxy RequestEnvironmentInfo)
 
-restartAppServerResponseTest :: RestartAppServerResponse -> TestTree
-restartAppServerResponseTest = resp
-    "restartAppServerResponse"
-    "fixture/RestartAppServerResponse"
-    (Proxy :: Proxy RestartAppServer)
-
-retrieveEnvironmentInfoResponseTest :: RetrieveEnvironmentInfoResponse -> TestTree
-retrieveEnvironmentInfoResponseTest = resp
-    "retrieveEnvironmentInfoResponse"
+testRetrieveEnvironmentInfoResponse :: RetrieveEnvironmentInfoResponse -> TestTree
+testRetrieveEnvironmentInfoResponse = resp
+    "RetrieveEnvironmentInfoResponse"
     "fixture/RetrieveEnvironmentInfoResponse"
     (Proxy :: Proxy RetrieveEnvironmentInfo)
 
-swapEnvironmentCNAMEsResponseTest :: SwapEnvironmentCNAMEsResponse -> TestTree
-swapEnvironmentCNAMEsResponseTest = resp
-    "swapEnvironmentCNAMEsResponse"
+testDeleteApplicationResponse :: DeleteApplicationResponse -> TestTree
+testDeleteApplicationResponse = resp
+    "DeleteApplicationResponse"
+    "fixture/DeleteApplicationResponse"
+    (Proxy :: Proxy DeleteApplication)
+
+testUpdateApplicationResponse :: ApplicationDescriptionMessage -> TestTree
+testUpdateApplicationResponse = resp
+    "UpdateApplicationResponse"
+    "fixture/UpdateApplicationResponse"
+    (Proxy :: Proxy UpdateApplication)
+
+testCreateApplicationResponse :: ApplicationDescriptionMessage -> TestTree
+testCreateApplicationResponse = resp
+    "CreateApplicationResponse"
+    "fixture/CreateApplicationResponse"
+    (Proxy :: Proxy CreateApplication)
+
+testAbortEnvironmentUpdateResponse :: AbortEnvironmentUpdateResponse -> TestTree
+testAbortEnvironmentUpdateResponse = resp
+    "AbortEnvironmentUpdateResponse"
+    "fixture/AbortEnvironmentUpdateResponse"
+    (Proxy :: Proxy AbortEnvironmentUpdate)
+
+testDeleteApplicationVersionResponse :: DeleteApplicationVersionResponse -> TestTree
+testDeleteApplicationVersionResponse = resp
+    "DeleteApplicationVersionResponse"
+    "fixture/DeleteApplicationVersionResponse"
+    (Proxy :: Proxy DeleteApplicationVersion)
+
+testUpdateApplicationVersionResponse :: ApplicationVersionDescriptionMessage -> TestTree
+testUpdateApplicationVersionResponse = resp
+    "UpdateApplicationVersionResponse"
+    "fixture/UpdateApplicationVersionResponse"
+    (Proxy :: Proxy UpdateApplicationVersion)
+
+testDescribeEnvironmentResourcesResponse :: DescribeEnvironmentResourcesResponse -> TestTree
+testDescribeEnvironmentResourcesResponse = resp
+    "DescribeEnvironmentResourcesResponse"
+    "fixture/DescribeEnvironmentResourcesResponse"
+    (Proxy :: Proxy DescribeEnvironmentResources)
+
+testDeleteConfigurationTemplateResponse :: DeleteConfigurationTemplateResponse -> TestTree
+testDeleteConfigurationTemplateResponse = resp
+    "DeleteConfigurationTemplateResponse"
+    "fixture/DeleteConfigurationTemplateResponse"
+    (Proxy :: Proxy DeleteConfigurationTemplate)
+
+testUpdateConfigurationTemplateResponse :: ConfigurationSettingsDescription -> TestTree
+testUpdateConfigurationTemplateResponse = resp
+    "UpdateConfigurationTemplateResponse"
+    "fixture/UpdateConfigurationTemplateResponse"
+    (Proxy :: Proxy UpdateConfigurationTemplate)
+
+testRebuildEnvironmentResponse :: RebuildEnvironmentResponse -> TestTree
+testRebuildEnvironmentResponse = resp
+    "RebuildEnvironmentResponse"
+    "fixture/RebuildEnvironmentResponse"
+    (Proxy :: Proxy RebuildEnvironment)
+
+testDeleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse -> TestTree
+testDeleteEnvironmentConfigurationResponse = resp
+    "DeleteEnvironmentConfigurationResponse"
+    "fixture/DeleteEnvironmentConfigurationResponse"
+    (Proxy :: Proxy DeleteEnvironmentConfiguration)
+
+testCreateConfigurationTemplateResponse :: ConfigurationSettingsDescription -> TestTree
+testCreateConfigurationTemplateResponse = resp
+    "CreateConfigurationTemplateResponse"
+    "fixture/CreateConfigurationTemplateResponse"
+    (Proxy :: Proxy CreateConfigurationTemplate)
+
+testListAvailableSolutionStacksResponse :: ListAvailableSolutionStacksResponse -> TestTree
+testListAvailableSolutionStacksResponse = resp
+    "ListAvailableSolutionStacksResponse"
+    "fixture/ListAvailableSolutionStacksResponse"
+    (Proxy :: Proxy ListAvailableSolutionStacks)
+
+testSwapEnvironmentCNAMEsResponse :: SwapEnvironmentCNAMEsResponse -> TestTree
+testSwapEnvironmentCNAMEsResponse = resp
+    "SwapEnvironmentCNAMEsResponse"
     "fixture/SwapEnvironmentCNAMEsResponse"
     (Proxy :: Proxy SwapEnvironmentCNAMEs)
 
-terminateEnvironmentResponseTest :: EnvironmentDescription -> TestTree
-terminateEnvironmentResponseTest = resp
-    "terminateEnvironmentResponse"
-    "fixture/EnvironmentDescription"
-    (Proxy :: Proxy TerminateEnvironment)
+testDescribeConfigurationOptionsResponse :: DescribeConfigurationOptionsResponse -> TestTree
+testDescribeConfigurationOptionsResponse = resp
+    "DescribeConfigurationOptionsResponse"
+    "fixture/DescribeConfigurationOptionsResponse"
+    (Proxy :: Proxy DescribeConfigurationOptions)
 
-updateApplicationResponseTest :: ApplicationDescriptionMessage -> TestTree
-updateApplicationResponseTest = resp
-    "updateApplicationResponse"
-    "fixture/ApplicationDescriptionMessage"
-    (Proxy :: Proxy UpdateApplication)
+testDescribeConfigurationSettingsResponse :: DescribeConfigurationSettingsResponse -> TestTree
+testDescribeConfigurationSettingsResponse = resp
+    "DescribeConfigurationSettingsResponse"
+    "fixture/DescribeConfigurationSettingsResponse"
+    (Proxy :: Proxy DescribeConfigurationSettings)
 
-updateApplicationVersionResponseTest :: ApplicationVersionDescriptionMessage -> TestTree
-updateApplicationVersionResponseTest = resp
-    "updateApplicationVersionResponse"
-    "fixture/ApplicationVersionDescriptionMessage"
-    (Proxy :: Proxy UpdateApplicationVersion)
+testCreateStorageLocationResponse :: CreateStorageLocationResponse -> TestTree
+testCreateStorageLocationResponse = resp
+    "CreateStorageLocationResponse"
+    "fixture/CreateStorageLocationResponse"
+    (Proxy :: Proxy CreateStorageLocation)
 
-updateConfigurationTemplateResponseTest :: ConfigurationSettingsDescription -> TestTree
-updateConfigurationTemplateResponseTest = resp
-    "updateConfigurationTemplateResponse"
-    "fixture/ConfigurationSettingsDescription"
-    (Proxy :: Proxy UpdateConfigurationTemplate)
+testDescribeEnvironmentsResponse :: DescribeEnvironmentsResponse -> TestTree
+testDescribeEnvironmentsResponse = resp
+    "DescribeEnvironmentsResponse"
+    "fixture/DescribeEnvironmentsResponse"
+    (Proxy :: Proxy DescribeEnvironments)
 
-updateEnvironmentResponseTest :: EnvironmentDescription -> TestTree
-updateEnvironmentResponseTest = resp
-    "updateEnvironmentResponse"
-    "fixture/EnvironmentDescription"
-    (Proxy :: Proxy UpdateEnvironment)
+testRestartAppServerResponse :: RestartAppServerResponse -> TestTree
+testRestartAppServerResponse = resp
+    "RestartAppServerResponse"
+    "fixture/RestartAppServerResponse"
+    (Proxy :: Proxy RestartAppServer)
 
-validateConfigurationSettingsResponseTest :: ValidateConfigurationSettingsResponse -> TestTree
-validateConfigurationSettingsResponseTest = resp
-    "validateConfigurationSettingsResponse"
+testValidateConfigurationSettingsResponse :: ValidateConfigurationSettingsResponse -> TestTree
+testValidateConfigurationSettingsResponse = resp
+    "ValidateConfigurationSettingsResponse"
     "fixture/ValidateConfigurationSettingsResponse"
     (Proxy :: Proxy ValidateConfigurationSettings)
+
+testDescribeApplicationVersionsResponse :: DescribeApplicationVersionsResponse -> TestTree
+testDescribeApplicationVersionsResponse = resp
+    "DescribeApplicationVersionsResponse"
+    "fixture/DescribeApplicationVersionsResponse"
+    (Proxy :: Proxy DescribeApplicationVersions)
+
+testCheckDNSAvailabilityResponse :: CheckDNSAvailabilityResponse -> TestTree
+testCheckDNSAvailabilityResponse = resp
+    "CheckDNSAvailabilityResponse"
+    "fixture/CheckDNSAvailabilityResponse"
+    (Proxy :: Proxy CheckDNSAvailability)
+
+testCreateEnvironmentResponse :: EnvironmentDescription -> TestTree
+testCreateEnvironmentResponse = resp
+    "CreateEnvironmentResponse"
+    "fixture/CreateEnvironmentResponse"
+    (Proxy :: Proxy CreateEnvironment)

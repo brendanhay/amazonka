@@ -23,734 +23,734 @@ import Network.AWS.AutoScaling
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ attachInstancesTest $
---             attachInstances
---
---         , attachLoadBalancersTest $
---             attachLoadBalancers
---
---         , completeLifecycleActionTest $
---             completeLifecycleAction
---
---         , createAutoScalingGroupTest $
---             createAutoScalingGroup
---
---         , createLaunchConfigurationTest $
---             createLaunchConfiguration
---
---         , createOrUpdateTagsTest $
---             createOrUpdateTags
---
---         , deleteAutoScalingGroupTest $
---             deleteAutoScalingGroup
---
---         , deleteLaunchConfigurationTest $
---             deleteLaunchConfiguration
---
---         , deleteLifecycleHookTest $
---             deleteLifecycleHook
---
---         , deleteNotificationConfigurationTest $
---             deleteNotificationConfiguration
---
---         , deletePolicyTest $
---             deletePolicy
---
---         , deleteScheduledActionTest $
---             deleteScheduledAction
---
---         , deleteTagsTest $
---             deleteTags
---
---         , describeAccountLimitsTest $
---             describeAccountLimits
---
---         , describeAdjustmentTypesTest $
---             describeAdjustmentTypes
---
---         , describeAutoScalingGroupsTest $
---             describeAutoScalingGroups
---
---         , describeAutoScalingInstancesTest $
---             describeAutoScalingInstances
---
---         , describeAutoScalingNotificationTypesTest $
---             describeAutoScalingNotificationTypes
---
---         , describeLaunchConfigurationsTest $
---             describeLaunchConfigurations
---
---         , describeLifecycleHookTypesTest $
---             describeLifecycleHookTypes
---
---         , describeLifecycleHooksTest $
---             describeLifecycleHooks
---
---         , describeLoadBalancersTest $
---             describeLoadBalancers
---
---         , describeMetricCollectionTypesTest $
+--         [ testDescribeMetricCollectionTypes $
 --             describeMetricCollectionTypes
 --
---         , describeNotificationConfigurationsTest $
---             describeNotificationConfigurations
---
---         , describePoliciesTest $
---             describePolicies
---
---         , describeScalingActivitiesTest $
---             describeScalingActivities
---
---         , describeScalingProcessTypesTest $
---             describeScalingProcessTypes
---
---         , describeScheduledActionsTest $
---             describeScheduledActions
---
---         , describeTagsTest $
---             describeTags
---
---         , describeTerminationPolicyTypesTest $
---             describeTerminationPolicyTypes
---
---         , detachInstancesTest $
---             detachInstances
---
---         , detachLoadBalancersTest $
---             detachLoadBalancers
---
---         , disableMetricsCollectionTest $
---             disableMetricsCollection
---
---         , enableMetricsCollectionTest $
---             enableMetricsCollection
---
---         , enterStandbyTest $
---             enterStandby
---
---         , executePolicyTest $
---             executePolicy
---
---         , exitStandbyTest $
---             exitStandby
---
---         , putLifecycleHookTest $
---             putLifecycleHook
---
---         , putNotificationConfigurationTest $
---             putNotificationConfiguration
---
---         , putScalingPolicyTest $
+--         , testPutScalingPolicy $
 --             putScalingPolicy
 --
---         , putScheduledUpdateGroupActionTest $
---             putScheduledUpdateGroupAction
+--         , testDeleteNotificationConfiguration $
+--             deleteNotificationConfiguration
 --
---         , recordLifecycleActionHeartbeatTest $
---             recordLifecycleActionHeartbeat
+--         , testDescribeTags $
+--             describeTags
 --
---         , resumeProcessesTest $
---             resumeProcesses
+--         , testDeleteLaunchConfiguration $
+--             deleteLaunchConfiguration
 --
---         , setDesiredCapacityTest $
---             setDesiredCapacity
+--         , testDescribeLoadBalancers $
+--             describeLoadBalancers
 --
---         , setInstanceHealthTest $
+--         , testPutNotificationConfiguration $
+--             putNotificationConfiguration
+--
+--         , testSetInstanceHealth $
 --             setInstanceHealth
 --
---         , suspendProcessesTest $
+--         , testEnterStandby $
+--             enterStandby
+--
+--         , testSuspendProcesses $
 --             suspendProcesses
 --
---         , terminateInstanceInAutoScalingGroupTest $
+--         , testExitStandby $
+--             exitStandby
+--
+--         , testDescribeTerminationPolicyTypes $
+--             describeTerminationPolicyTypes
+--
+--         , testDescribeAutoScalingInstances $
+--             describeAutoScalingInstances
+--
+--         , testDetachInstances $
+--             detachInstances
+--
+--         , testDisableMetricsCollection $
+--             disableMetricsCollection
+--
+--         , testRecordLifecycleActionHeartbeat $
+--             recordLifecycleActionHeartbeat
+--
+--         , testDeleteTags $
+--             deleteTags
+--
+--         , testDescribeScalingProcessTypes $
+--             describeScalingProcessTypes
+--
+--         , testEnableMetricsCollection $
+--             enableMetricsCollection
+--
+--         , testDescribeLifecycleHooks $
+--             describeLifecycleHooks
+--
+--         , testDescribeAutoScalingGroups $
+--             describeAutoScalingGroups
+--
+--         , testSetDesiredCapacity $
+--             setDesiredCapacity
+--
+--         , testDetachLoadBalancers $
+--             detachLoadBalancers
+--
+--         , testDeleteScheduledAction $
+--             deleteScheduledAction
+--
+--         , testCreateOrUpdateTags $
+--             createOrUpdateTags
+--
+--         , testDeletePolicy $
+--             deletePolicy
+--
+--         , testDescribeAutoScalingNotificationTypes $
+--             describeAutoScalingNotificationTypes
+--
+--         , testCompleteLifecycleAction $
+--             completeLifecycleAction
+--
+--         , testAttachInstances $
+--             attachInstances
+--
+--         , testDescribeScheduledActions $
+--             describeScheduledActions
+--
+--         , testDeleteAutoScalingGroup $
+--             deleteAutoScalingGroup
+--
+--         , testPutLifecycleHook $
+--             putLifecycleHook
+--
+--         , testUpdateAutoScalingGroup $
+--             updateAutoScalingGroup
+--
+--         , testDeleteLifecycleHook $
+--             deleteLifecycleHook
+--
+--         , testResumeProcesses $
+--             resumeProcesses
+--
+--         , testExecutePolicy $
+--             executePolicy
+--
+--         , testTerminateInstanceInAutoScalingGroup $
 --             terminateInstanceInAutoScalingGroup
 --
---         , updateAutoScalingGroupTest $
---             updateAutoScalingGroup
+--         , testDescribeAccountLimits $
+--             describeAccountLimits
+--
+--         , testAttachLoadBalancers $
+--             attachLoadBalancers
+--
+--         , testPutScheduledUpdateGroupAction $
+--             putScheduledUpdateGroupAction
+--
+--         , testDescribePolicies $
+--             describePolicies
+--
+--         , testDescribeNotificationConfigurations $
+--             describeNotificationConfigurations
+--
+--         , testDescribeLaunchConfigurations $
+--             describeLaunchConfigurations
+--
+--         , testDescribeLifecycleHookTypes $
+--             describeLifecycleHookTypes
+--
+--         , testDescribeScalingActivities $
+--             describeScalingActivities
+--
+--         , testCreateAutoScalingGroup $
+--             createAutoScalingGroup
+--
+--         , testCreateLaunchConfiguration $
+--             createLaunchConfiguration
+--
+--         , testDescribeAdjustmentTypes $
+--             describeAdjustmentTypes
 --
 --           ]
 
 --     , testGroup "response"
---         [ attachInstancesResponseTest $
---             attachInstancesResponse
---
---         , attachLoadBalancersResponseTest $
---             attachLoadBalancersResponse
---
---         , completeLifecycleActionResponseTest $
---             completeLifecycleActionResponse
---
---         , createAutoScalingGroupResponseTest $
---             createAutoScalingGroupResponse
---
---         , createLaunchConfigurationResponseTest $
---             createLaunchConfigurationResponse
---
---         , createOrUpdateTagsResponseTest $
---             createOrUpdateTagsResponse
---
---         , deleteAutoScalingGroupResponseTest $
---             deleteAutoScalingGroupResponse
---
---         , deleteLaunchConfigurationResponseTest $
---             deleteLaunchConfigurationResponse
---
---         , deleteLifecycleHookResponseTest $
---             deleteLifecycleHookResponse
---
---         , deleteNotificationConfigurationResponseTest $
---             deleteNotificationConfigurationResponse
---
---         , deletePolicyResponseTest $
---             deletePolicyResponse
---
---         , deleteScheduledActionResponseTest $
---             deleteScheduledActionResponse
---
---         , deleteTagsResponseTest $
---             deleteTagsResponse
---
---         , describeAccountLimitsResponseTest $
---             describeAccountLimitsResponse
---
---         , describeAdjustmentTypesResponseTest $
---             describeAdjustmentTypesResponse
---
---         , describeAutoScalingGroupsResponseTest $
---             describeAutoScalingGroupsResponse
---
---         , describeAutoScalingInstancesResponseTest $
---             describeAutoScalingInstancesResponse
---
---         , describeAutoScalingNotificationTypesResponseTest $
---             describeAutoScalingNotificationTypesResponse
---
---         , describeLaunchConfigurationsResponseTest $
---             describeLaunchConfigurationsResponse
---
---         , describeLifecycleHookTypesResponseTest $
---             describeLifecycleHookTypesResponse
---
---         , describeLifecycleHooksResponseTest $
---             describeLifecycleHooksResponse
---
---         , describeLoadBalancersResponseTest $
---             describeLoadBalancersResponse
---
---         , describeMetricCollectionTypesResponseTest $
+--         [ testDescribeMetricCollectionTypesResponse $
 --             describeMetricCollectionTypesResponse
 --
---         , describeNotificationConfigurationsResponseTest $
---             describeNotificationConfigurationsResponse
---
---         , describePoliciesResponseTest $
---             describePoliciesResponse
---
---         , describeScalingActivitiesResponseTest $
---             describeScalingActivitiesResponse
---
---         , describeScalingProcessTypesResponseTest $
---             describeScalingProcessTypesResponse
---
---         , describeScheduledActionsResponseTest $
---             describeScheduledActionsResponse
---
---         , describeTagsResponseTest $
---             describeTagsResponse
---
---         , describeTerminationPolicyTypesResponseTest $
---             describeTerminationPolicyTypesResponse
---
---         , detachInstancesResponseTest $
---             detachInstancesResponse
---
---         , detachLoadBalancersResponseTest $
---             detachLoadBalancersResponse
---
---         , disableMetricsCollectionResponseTest $
---             disableMetricsCollectionResponse
---
---         , enableMetricsCollectionResponseTest $
---             enableMetricsCollectionResponse
---
---         , enterStandbyResponseTest $
---             enterStandbyResponse
---
---         , executePolicyResponseTest $
---             executePolicyResponse
---
---         , exitStandbyResponseTest $
---             exitStandbyResponse
---
---         , putLifecycleHookResponseTest $
---             putLifecycleHookResponse
---
---         , putNotificationConfigurationResponseTest $
---             putNotificationConfigurationResponse
---
---         , putScalingPolicyResponseTest $
+--         , testPutScalingPolicyResponse $
 --             putScalingPolicyResponse
 --
---         , putScheduledUpdateGroupActionResponseTest $
---             putScheduledUpdateGroupActionResponse
+--         , testDeleteNotificationConfigurationResponse $
+--             deleteNotificationConfigurationResponse
 --
---         , recordLifecycleActionHeartbeatResponseTest $
---             recordLifecycleActionHeartbeatResponse
+--         , testDescribeTagsResponse $
+--             describeTagsResponse
 --
---         , resumeProcessesResponseTest $
---             resumeProcessesResponse
+--         , testDeleteLaunchConfigurationResponse $
+--             deleteLaunchConfigurationResponse
 --
---         , setDesiredCapacityResponseTest $
---             setDesiredCapacityResponse
+--         , testDescribeLoadBalancersResponse $
+--             describeLoadBalancersResponse
 --
---         , setInstanceHealthResponseTest $
+--         , testPutNotificationConfigurationResponse $
+--             putNotificationConfigurationResponse
+--
+--         , testSetInstanceHealthResponse $
 --             setInstanceHealthResponse
 --
---         , suspendProcessesResponseTest $
+--         , testEnterStandbyResponse $
+--             enterStandbyResponse
+--
+--         , testSuspendProcessesResponse $
 --             suspendProcessesResponse
 --
---         , terminateInstanceInAutoScalingGroupResponseTest $
+--         , testExitStandbyResponse $
+--             exitStandbyResponse
+--
+--         , testDescribeTerminationPolicyTypesResponse $
+--             describeTerminationPolicyTypesResponse
+--
+--         , testDescribeAutoScalingInstancesResponse $
+--             describeAutoScalingInstancesResponse
+--
+--         , testDetachInstancesResponse $
+--             detachInstancesResponse
+--
+--         , testDisableMetricsCollectionResponse $
+--             disableMetricsCollectionResponse
+--
+--         , testRecordLifecycleActionHeartbeatResponse $
+--             recordLifecycleActionHeartbeatResponse
+--
+--         , testDeleteTagsResponse $
+--             deleteTagsResponse
+--
+--         , testDescribeScalingProcessTypesResponse $
+--             describeScalingProcessTypesResponse
+--
+--         , testEnableMetricsCollectionResponse $
+--             enableMetricsCollectionResponse
+--
+--         , testDescribeLifecycleHooksResponse $
+--             describeLifecycleHooksResponse
+--
+--         , testDescribeAutoScalingGroupsResponse $
+--             describeAutoScalingGroupsResponse
+--
+--         , testSetDesiredCapacityResponse $
+--             setDesiredCapacityResponse
+--
+--         , testDetachLoadBalancersResponse $
+--             detachLoadBalancersResponse
+--
+--         , testDeleteScheduledActionResponse $
+--             deleteScheduledActionResponse
+--
+--         , testCreateOrUpdateTagsResponse $
+--             createOrUpdateTagsResponse
+--
+--         , testDeletePolicyResponse $
+--             deletePolicyResponse
+--
+--         , testDescribeAutoScalingNotificationTypesResponse $
+--             describeAutoScalingNotificationTypesResponse
+--
+--         , testCompleteLifecycleActionResponse $
+--             completeLifecycleActionResponse
+--
+--         , testAttachInstancesResponse $
+--             attachInstancesResponse
+--
+--         , testDescribeScheduledActionsResponse $
+--             describeScheduledActionsResponse
+--
+--         , testDeleteAutoScalingGroupResponse $
+--             deleteAutoScalingGroupResponse
+--
+--         , testPutLifecycleHookResponse $
+--             putLifecycleHookResponse
+--
+--         , testUpdateAutoScalingGroupResponse $
+--             updateAutoScalingGroupResponse
+--
+--         , testDeleteLifecycleHookResponse $
+--             deleteLifecycleHookResponse
+--
+--         , testResumeProcessesResponse $
+--             resumeProcessesResponse
+--
+--         , testExecutePolicyResponse $
+--             executePolicyResponse
+--
+--         , testTerminateInstanceInAutoScalingGroupResponse $
 --             terminateInstanceInAutoScalingGroupResponse
 --
---         , updateAutoScalingGroupResponseTest $
---             updateAutoScalingGroupResponse
+--         , testDescribeAccountLimitsResponse $
+--             describeAccountLimitsResponse
+--
+--         , testAttachLoadBalancersResponse $
+--             attachLoadBalancersResponse
+--
+--         , testPutScheduledUpdateGroupActionResponse $
+--             putScheduledUpdateGroupActionResponse
+--
+--         , testDescribePoliciesResponse $
+--             describePoliciesResponse
+--
+--         , testDescribeNotificationConfigurationsResponse $
+--             describeNotificationConfigurationsResponse
+--
+--         , testDescribeLaunchConfigurationsResponse $
+--             describeLaunchConfigurationsResponse
+--
+--         , testDescribeLifecycleHookTypesResponse $
+--             describeLifecycleHookTypesResponse
+--
+--         , testDescribeScalingActivitiesResponse $
+--             describeScalingActivitiesResponse
+--
+--         , testCreateAutoScalingGroupResponse $
+--             createAutoScalingGroupResponse
+--
+--         , testCreateLaunchConfigurationResponse $
+--             createLaunchConfigurationResponse
+--
+--         , testDescribeAdjustmentTypesResponse $
+--             describeAdjustmentTypesResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-attachInstancesTest :: AttachInstances -> TestTree
-attachInstancesTest = undefined
+testDescribeMetricCollectionTypes :: DescribeMetricCollectionTypes -> TestTree
+testDescribeMetricCollectionTypes = undefined
 
-attachLoadBalancersTest :: AttachLoadBalancers -> TestTree
-attachLoadBalancersTest = undefined
+testPutScalingPolicy :: PutScalingPolicy -> TestTree
+testPutScalingPolicy = undefined
 
-completeLifecycleActionTest :: CompleteLifecycleAction -> TestTree
-completeLifecycleActionTest = undefined
+testDeleteNotificationConfiguration :: DeleteNotificationConfiguration -> TestTree
+testDeleteNotificationConfiguration = undefined
 
-createAutoScalingGroupTest :: CreateAutoScalingGroup -> TestTree
-createAutoScalingGroupTest = undefined
+testDescribeTags :: DescribeTags -> TestTree
+testDescribeTags = undefined
 
-createLaunchConfigurationTest :: CreateLaunchConfiguration -> TestTree
-createLaunchConfigurationTest = undefined
+testDeleteLaunchConfiguration :: DeleteLaunchConfiguration -> TestTree
+testDeleteLaunchConfiguration = undefined
 
-createOrUpdateTagsTest :: CreateOrUpdateTags -> TestTree
-createOrUpdateTagsTest = undefined
+testDescribeLoadBalancers :: DescribeLoadBalancers -> TestTree
+testDescribeLoadBalancers = undefined
 
-deleteAutoScalingGroupTest :: DeleteAutoScalingGroup -> TestTree
-deleteAutoScalingGroupTest = undefined
+testPutNotificationConfiguration :: PutNotificationConfiguration -> TestTree
+testPutNotificationConfiguration = undefined
 
-deleteLaunchConfigurationTest :: DeleteLaunchConfiguration -> TestTree
-deleteLaunchConfigurationTest = undefined
+testSetInstanceHealth :: SetInstanceHealth -> TestTree
+testSetInstanceHealth = undefined
 
-deleteLifecycleHookTest :: DeleteLifecycleHook -> TestTree
-deleteLifecycleHookTest = undefined
+testEnterStandby :: EnterStandby -> TestTree
+testEnterStandby = undefined
 
-deleteNotificationConfigurationTest :: DeleteNotificationConfiguration -> TestTree
-deleteNotificationConfigurationTest = undefined
+testSuspendProcesses :: SuspendProcesses -> TestTree
+testSuspendProcesses = undefined
 
-deletePolicyTest :: DeletePolicy -> TestTree
-deletePolicyTest = undefined
+testExitStandby :: ExitStandby -> TestTree
+testExitStandby = undefined
 
-deleteScheduledActionTest :: DeleteScheduledAction -> TestTree
-deleteScheduledActionTest = undefined
+testDescribeTerminationPolicyTypes :: DescribeTerminationPolicyTypes -> TestTree
+testDescribeTerminationPolicyTypes = undefined
 
-deleteTagsTest :: DeleteTags -> TestTree
-deleteTagsTest = undefined
+testDescribeAutoScalingInstances :: DescribeAutoScalingInstances -> TestTree
+testDescribeAutoScalingInstances = undefined
 
-describeAccountLimitsTest :: DescribeAccountLimits -> TestTree
-describeAccountLimitsTest = undefined
+testDetachInstances :: DetachInstances -> TestTree
+testDetachInstances = undefined
 
-describeAdjustmentTypesTest :: DescribeAdjustmentTypes -> TestTree
-describeAdjustmentTypesTest = undefined
+testDisableMetricsCollection :: DisableMetricsCollection -> TestTree
+testDisableMetricsCollection = undefined
 
-describeAutoScalingGroupsTest :: DescribeAutoScalingGroups -> TestTree
-describeAutoScalingGroupsTest = undefined
+testRecordLifecycleActionHeartbeat :: RecordLifecycleActionHeartbeat -> TestTree
+testRecordLifecycleActionHeartbeat = undefined
 
-describeAutoScalingInstancesTest :: DescribeAutoScalingInstances -> TestTree
-describeAutoScalingInstancesTest = undefined
+testDeleteTags :: DeleteTags -> TestTree
+testDeleteTags = undefined
 
-describeAutoScalingNotificationTypesTest :: DescribeAutoScalingNotificationTypes -> TestTree
-describeAutoScalingNotificationTypesTest = undefined
+testDescribeScalingProcessTypes :: DescribeScalingProcessTypes -> TestTree
+testDescribeScalingProcessTypes = undefined
 
-describeLaunchConfigurationsTest :: DescribeLaunchConfigurations -> TestTree
-describeLaunchConfigurationsTest = undefined
+testEnableMetricsCollection :: EnableMetricsCollection -> TestTree
+testEnableMetricsCollection = undefined
 
-describeLifecycleHookTypesTest :: DescribeLifecycleHookTypes -> TestTree
-describeLifecycleHookTypesTest = undefined
+testDescribeLifecycleHooks :: DescribeLifecycleHooks -> TestTree
+testDescribeLifecycleHooks = undefined
 
-describeLifecycleHooksTest :: DescribeLifecycleHooks -> TestTree
-describeLifecycleHooksTest = undefined
+testDescribeAutoScalingGroups :: DescribeAutoScalingGroups -> TestTree
+testDescribeAutoScalingGroups = undefined
 
-describeLoadBalancersTest :: DescribeLoadBalancers -> TestTree
-describeLoadBalancersTest = undefined
+testSetDesiredCapacity :: SetDesiredCapacity -> TestTree
+testSetDesiredCapacity = undefined
 
-describeMetricCollectionTypesTest :: DescribeMetricCollectionTypes -> TestTree
-describeMetricCollectionTypesTest = undefined
+testDetachLoadBalancers :: DetachLoadBalancers -> TestTree
+testDetachLoadBalancers = undefined
 
-describeNotificationConfigurationsTest :: DescribeNotificationConfigurations -> TestTree
-describeNotificationConfigurationsTest = undefined
+testDeleteScheduledAction :: DeleteScheduledAction -> TestTree
+testDeleteScheduledAction = undefined
 
-describePoliciesTest :: DescribePolicies -> TestTree
-describePoliciesTest = undefined
+testCreateOrUpdateTags :: CreateOrUpdateTags -> TestTree
+testCreateOrUpdateTags = undefined
 
-describeScalingActivitiesTest :: DescribeScalingActivities -> TestTree
-describeScalingActivitiesTest = undefined
+testDeletePolicy :: DeletePolicy -> TestTree
+testDeletePolicy = undefined
 
-describeScalingProcessTypesTest :: DescribeScalingProcessTypes -> TestTree
-describeScalingProcessTypesTest = undefined
+testDescribeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes -> TestTree
+testDescribeAutoScalingNotificationTypes = undefined
 
-describeScheduledActionsTest :: DescribeScheduledActions -> TestTree
-describeScheduledActionsTest = undefined
+testCompleteLifecycleAction :: CompleteLifecycleAction -> TestTree
+testCompleteLifecycleAction = undefined
 
-describeTagsTest :: DescribeTags -> TestTree
-describeTagsTest = undefined
+testAttachInstances :: AttachInstances -> TestTree
+testAttachInstances = undefined
 
-describeTerminationPolicyTypesTest :: DescribeTerminationPolicyTypes -> TestTree
-describeTerminationPolicyTypesTest = undefined
+testDescribeScheduledActions :: DescribeScheduledActions -> TestTree
+testDescribeScheduledActions = undefined
 
-detachInstancesTest :: DetachInstances -> TestTree
-detachInstancesTest = undefined
+testDeleteAutoScalingGroup :: DeleteAutoScalingGroup -> TestTree
+testDeleteAutoScalingGroup = undefined
 
-detachLoadBalancersTest :: DetachLoadBalancers -> TestTree
-detachLoadBalancersTest = undefined
+testPutLifecycleHook :: PutLifecycleHook -> TestTree
+testPutLifecycleHook = undefined
 
-disableMetricsCollectionTest :: DisableMetricsCollection -> TestTree
-disableMetricsCollectionTest = undefined
+testUpdateAutoScalingGroup :: UpdateAutoScalingGroup -> TestTree
+testUpdateAutoScalingGroup = undefined
 
-enableMetricsCollectionTest :: EnableMetricsCollection -> TestTree
-enableMetricsCollectionTest = undefined
+testDeleteLifecycleHook :: DeleteLifecycleHook -> TestTree
+testDeleteLifecycleHook = undefined
 
-enterStandbyTest :: EnterStandby -> TestTree
-enterStandbyTest = undefined
+testResumeProcesses :: ResumeProcesses -> TestTree
+testResumeProcesses = undefined
 
-executePolicyTest :: ExecutePolicy -> TestTree
-executePolicyTest = undefined
+testExecutePolicy :: ExecutePolicy -> TestTree
+testExecutePolicy = undefined
 
-exitStandbyTest :: ExitStandby -> TestTree
-exitStandbyTest = undefined
+testTerminateInstanceInAutoScalingGroup :: TerminateInstanceInAutoScalingGroup -> TestTree
+testTerminateInstanceInAutoScalingGroup = undefined
 
-putLifecycleHookTest :: PutLifecycleHook -> TestTree
-putLifecycleHookTest = undefined
+testDescribeAccountLimits :: DescribeAccountLimits -> TestTree
+testDescribeAccountLimits = undefined
 
-putNotificationConfigurationTest :: PutNotificationConfiguration -> TestTree
-putNotificationConfigurationTest = undefined
+testAttachLoadBalancers :: AttachLoadBalancers -> TestTree
+testAttachLoadBalancers = undefined
 
-putScalingPolicyTest :: PutScalingPolicy -> TestTree
-putScalingPolicyTest = undefined
+testPutScheduledUpdateGroupAction :: PutScheduledUpdateGroupAction -> TestTree
+testPutScheduledUpdateGroupAction = undefined
 
-putScheduledUpdateGroupActionTest :: PutScheduledUpdateGroupAction -> TestTree
-putScheduledUpdateGroupActionTest = undefined
+testDescribePolicies :: DescribePolicies -> TestTree
+testDescribePolicies = undefined
 
-recordLifecycleActionHeartbeatTest :: RecordLifecycleActionHeartbeat -> TestTree
-recordLifecycleActionHeartbeatTest = undefined
+testDescribeNotificationConfigurations :: DescribeNotificationConfigurations -> TestTree
+testDescribeNotificationConfigurations = undefined
 
-resumeProcessesTest :: ResumeProcesses -> TestTree
-resumeProcessesTest = undefined
+testDescribeLaunchConfigurations :: DescribeLaunchConfigurations -> TestTree
+testDescribeLaunchConfigurations = undefined
 
-setDesiredCapacityTest :: SetDesiredCapacity -> TestTree
-setDesiredCapacityTest = undefined
+testDescribeLifecycleHookTypes :: DescribeLifecycleHookTypes -> TestTree
+testDescribeLifecycleHookTypes = undefined
 
-setInstanceHealthTest :: SetInstanceHealth -> TestTree
-setInstanceHealthTest = undefined
+testDescribeScalingActivities :: DescribeScalingActivities -> TestTree
+testDescribeScalingActivities = undefined
 
-suspendProcessesTest :: SuspendProcesses -> TestTree
-suspendProcessesTest = undefined
+testCreateAutoScalingGroup :: CreateAutoScalingGroup -> TestTree
+testCreateAutoScalingGroup = undefined
 
-terminateInstanceInAutoScalingGroupTest :: TerminateInstanceInAutoScalingGroup -> TestTree
-terminateInstanceInAutoScalingGroupTest = undefined
+testCreateLaunchConfiguration :: CreateLaunchConfiguration -> TestTree
+testCreateLaunchConfiguration = undefined
 
-updateAutoScalingGroupTest :: UpdateAutoScalingGroup -> TestTree
-updateAutoScalingGroupTest = undefined
+testDescribeAdjustmentTypes :: DescribeAdjustmentTypes -> TestTree
+testDescribeAdjustmentTypes = undefined
 
 -- Responses
 
-attachInstancesResponseTest :: AttachInstancesResponse -> TestTree
-attachInstancesResponseTest = resp
-    "attachInstancesResponse"
-    "fixture/AttachInstancesResponse"
-    (Proxy :: Proxy AttachInstances)
-
-attachLoadBalancersResponseTest :: AttachLoadBalancersResponse -> TestTree
-attachLoadBalancersResponseTest = resp
-    "attachLoadBalancersResponse"
-    "fixture/AttachLoadBalancersResponse"
-    (Proxy :: Proxy AttachLoadBalancers)
-
-completeLifecycleActionResponseTest :: CompleteLifecycleActionResponse -> TestTree
-completeLifecycleActionResponseTest = resp
-    "completeLifecycleActionResponse"
-    "fixture/CompleteLifecycleActionResponse"
-    (Proxy :: Proxy CompleteLifecycleAction)
-
-createAutoScalingGroupResponseTest :: CreateAutoScalingGroupResponse -> TestTree
-createAutoScalingGroupResponseTest = resp
-    "createAutoScalingGroupResponse"
-    "fixture/CreateAutoScalingGroupResponse"
-    (Proxy :: Proxy CreateAutoScalingGroup)
-
-createLaunchConfigurationResponseTest :: CreateLaunchConfigurationResponse -> TestTree
-createLaunchConfigurationResponseTest = resp
-    "createLaunchConfigurationResponse"
-    "fixture/CreateLaunchConfigurationResponse"
-    (Proxy :: Proxy CreateLaunchConfiguration)
-
-createOrUpdateTagsResponseTest :: CreateOrUpdateTagsResponse -> TestTree
-createOrUpdateTagsResponseTest = resp
-    "createOrUpdateTagsResponse"
-    "fixture/CreateOrUpdateTagsResponse"
-    (Proxy :: Proxy CreateOrUpdateTags)
-
-deleteAutoScalingGroupResponseTest :: DeleteAutoScalingGroupResponse -> TestTree
-deleteAutoScalingGroupResponseTest = resp
-    "deleteAutoScalingGroupResponse"
-    "fixture/DeleteAutoScalingGroupResponse"
-    (Proxy :: Proxy DeleteAutoScalingGroup)
-
-deleteLaunchConfigurationResponseTest :: DeleteLaunchConfigurationResponse -> TestTree
-deleteLaunchConfigurationResponseTest = resp
-    "deleteLaunchConfigurationResponse"
-    "fixture/DeleteLaunchConfigurationResponse"
-    (Proxy :: Proxy DeleteLaunchConfiguration)
-
-deleteLifecycleHookResponseTest :: DeleteLifecycleHookResponse -> TestTree
-deleteLifecycleHookResponseTest = resp
-    "deleteLifecycleHookResponse"
-    "fixture/DeleteLifecycleHookResponse"
-    (Proxy :: Proxy DeleteLifecycleHook)
-
-deleteNotificationConfigurationResponseTest :: DeleteNotificationConfigurationResponse -> TestTree
-deleteNotificationConfigurationResponseTest = resp
-    "deleteNotificationConfigurationResponse"
-    "fixture/DeleteNotificationConfigurationResponse"
-    (Proxy :: Proxy DeleteNotificationConfiguration)
-
-deletePolicyResponseTest :: DeletePolicyResponse -> TestTree
-deletePolicyResponseTest = resp
-    "deletePolicyResponse"
-    "fixture/DeletePolicyResponse"
-    (Proxy :: Proxy DeletePolicy)
-
-deleteScheduledActionResponseTest :: DeleteScheduledActionResponse -> TestTree
-deleteScheduledActionResponseTest = resp
-    "deleteScheduledActionResponse"
-    "fixture/DeleteScheduledActionResponse"
-    (Proxy :: Proxy DeleteScheduledAction)
-
-deleteTagsResponseTest :: DeleteTagsResponse -> TestTree
-deleteTagsResponseTest = resp
-    "deleteTagsResponse"
-    "fixture/DeleteTagsResponse"
-    (Proxy :: Proxy DeleteTags)
-
-describeAccountLimitsResponseTest :: DescribeAccountLimitsResponse -> TestTree
-describeAccountLimitsResponseTest = resp
-    "describeAccountLimitsResponse"
-    "fixture/DescribeAccountLimitsResponse"
-    (Proxy :: Proxy DescribeAccountLimits)
-
-describeAdjustmentTypesResponseTest :: DescribeAdjustmentTypesResponse -> TestTree
-describeAdjustmentTypesResponseTest = resp
-    "describeAdjustmentTypesResponse"
-    "fixture/DescribeAdjustmentTypesResponse"
-    (Proxy :: Proxy DescribeAdjustmentTypes)
-
-describeAutoScalingGroupsResponseTest :: DescribeAutoScalingGroupsResponse -> TestTree
-describeAutoScalingGroupsResponseTest = resp
-    "describeAutoScalingGroupsResponse"
-    "fixture/DescribeAutoScalingGroupsResponse"
-    (Proxy :: Proxy DescribeAutoScalingGroups)
-
-describeAutoScalingInstancesResponseTest :: DescribeAutoScalingInstancesResponse -> TestTree
-describeAutoScalingInstancesResponseTest = resp
-    "describeAutoScalingInstancesResponse"
-    "fixture/DescribeAutoScalingInstancesResponse"
-    (Proxy :: Proxy DescribeAutoScalingInstances)
-
-describeAutoScalingNotificationTypesResponseTest :: DescribeAutoScalingNotificationTypesResponse -> TestTree
-describeAutoScalingNotificationTypesResponseTest = resp
-    "describeAutoScalingNotificationTypesResponse"
-    "fixture/DescribeAutoScalingNotificationTypesResponse"
-    (Proxy :: Proxy DescribeAutoScalingNotificationTypes)
-
-describeLaunchConfigurationsResponseTest :: DescribeLaunchConfigurationsResponse -> TestTree
-describeLaunchConfigurationsResponseTest = resp
-    "describeLaunchConfigurationsResponse"
-    "fixture/DescribeLaunchConfigurationsResponse"
-    (Proxy :: Proxy DescribeLaunchConfigurations)
-
-describeLifecycleHookTypesResponseTest :: DescribeLifecycleHookTypesResponse -> TestTree
-describeLifecycleHookTypesResponseTest = resp
-    "describeLifecycleHookTypesResponse"
-    "fixture/DescribeLifecycleHookTypesResponse"
-    (Proxy :: Proxy DescribeLifecycleHookTypes)
-
-describeLifecycleHooksResponseTest :: DescribeLifecycleHooksResponse -> TestTree
-describeLifecycleHooksResponseTest = resp
-    "describeLifecycleHooksResponse"
-    "fixture/DescribeLifecycleHooksResponse"
-    (Proxy :: Proxy DescribeLifecycleHooks)
-
-describeLoadBalancersResponseTest :: DescribeLoadBalancersResponse -> TestTree
-describeLoadBalancersResponseTest = resp
-    "describeLoadBalancersResponse"
-    "fixture/DescribeLoadBalancersResponse"
-    (Proxy :: Proxy DescribeLoadBalancers)
-
-describeMetricCollectionTypesResponseTest :: DescribeMetricCollectionTypesResponse -> TestTree
-describeMetricCollectionTypesResponseTest = resp
-    "describeMetricCollectionTypesResponse"
+testDescribeMetricCollectionTypesResponse :: DescribeMetricCollectionTypesResponse -> TestTree
+testDescribeMetricCollectionTypesResponse = resp
+    "DescribeMetricCollectionTypesResponse"
     "fixture/DescribeMetricCollectionTypesResponse"
     (Proxy :: Proxy DescribeMetricCollectionTypes)
 
-describeNotificationConfigurationsResponseTest :: DescribeNotificationConfigurationsResponse -> TestTree
-describeNotificationConfigurationsResponseTest = resp
-    "describeNotificationConfigurationsResponse"
-    "fixture/DescribeNotificationConfigurationsResponse"
-    (Proxy :: Proxy DescribeNotificationConfigurations)
-
-describePoliciesResponseTest :: DescribePoliciesResponse -> TestTree
-describePoliciesResponseTest = resp
-    "describePoliciesResponse"
-    "fixture/DescribePoliciesResponse"
-    (Proxy :: Proxy DescribePolicies)
-
-describeScalingActivitiesResponseTest :: DescribeScalingActivitiesResponse -> TestTree
-describeScalingActivitiesResponseTest = resp
-    "describeScalingActivitiesResponse"
-    "fixture/DescribeScalingActivitiesResponse"
-    (Proxy :: Proxy DescribeScalingActivities)
-
-describeScalingProcessTypesResponseTest :: DescribeScalingProcessTypesResponse -> TestTree
-describeScalingProcessTypesResponseTest = resp
-    "describeScalingProcessTypesResponse"
-    "fixture/DescribeScalingProcessTypesResponse"
-    (Proxy :: Proxy DescribeScalingProcessTypes)
-
-describeScheduledActionsResponseTest :: DescribeScheduledActionsResponse -> TestTree
-describeScheduledActionsResponseTest = resp
-    "describeScheduledActionsResponse"
-    "fixture/DescribeScheduledActionsResponse"
-    (Proxy :: Proxy DescribeScheduledActions)
-
-describeTagsResponseTest :: DescribeTagsResponse -> TestTree
-describeTagsResponseTest = resp
-    "describeTagsResponse"
-    "fixture/DescribeTagsResponse"
-    (Proxy :: Proxy DescribeTags)
-
-describeTerminationPolicyTypesResponseTest :: DescribeTerminationPolicyTypesResponse -> TestTree
-describeTerminationPolicyTypesResponseTest = resp
-    "describeTerminationPolicyTypesResponse"
-    "fixture/DescribeTerminationPolicyTypesResponse"
-    (Proxy :: Proxy DescribeTerminationPolicyTypes)
-
-detachInstancesResponseTest :: DetachInstancesResponse -> TestTree
-detachInstancesResponseTest = resp
-    "detachInstancesResponse"
-    "fixture/DetachInstancesResponse"
-    (Proxy :: Proxy DetachInstances)
-
-detachLoadBalancersResponseTest :: DetachLoadBalancersResponse -> TestTree
-detachLoadBalancersResponseTest = resp
-    "detachLoadBalancersResponse"
-    "fixture/DetachLoadBalancersResponse"
-    (Proxy :: Proxy DetachLoadBalancers)
-
-disableMetricsCollectionResponseTest :: DisableMetricsCollectionResponse -> TestTree
-disableMetricsCollectionResponseTest = resp
-    "disableMetricsCollectionResponse"
-    "fixture/DisableMetricsCollectionResponse"
-    (Proxy :: Proxy DisableMetricsCollection)
-
-enableMetricsCollectionResponseTest :: EnableMetricsCollectionResponse -> TestTree
-enableMetricsCollectionResponseTest = resp
-    "enableMetricsCollectionResponse"
-    "fixture/EnableMetricsCollectionResponse"
-    (Proxy :: Proxy EnableMetricsCollection)
-
-enterStandbyResponseTest :: EnterStandbyResponse -> TestTree
-enterStandbyResponseTest = resp
-    "enterStandbyResponse"
-    "fixture/EnterStandbyResponse"
-    (Proxy :: Proxy EnterStandby)
-
-executePolicyResponseTest :: ExecutePolicyResponse -> TestTree
-executePolicyResponseTest = resp
-    "executePolicyResponse"
-    "fixture/ExecutePolicyResponse"
-    (Proxy :: Proxy ExecutePolicy)
-
-exitStandbyResponseTest :: ExitStandbyResponse -> TestTree
-exitStandbyResponseTest = resp
-    "exitStandbyResponse"
-    "fixture/ExitStandbyResponse"
-    (Proxy :: Proxy ExitStandby)
-
-putLifecycleHookResponseTest :: PutLifecycleHookResponse -> TestTree
-putLifecycleHookResponseTest = resp
-    "putLifecycleHookResponse"
-    "fixture/PutLifecycleHookResponse"
-    (Proxy :: Proxy PutLifecycleHook)
-
-putNotificationConfigurationResponseTest :: PutNotificationConfigurationResponse -> TestTree
-putNotificationConfigurationResponseTest = resp
-    "putNotificationConfigurationResponse"
-    "fixture/PutNotificationConfigurationResponse"
-    (Proxy :: Proxy PutNotificationConfiguration)
-
-putScalingPolicyResponseTest :: PutScalingPolicyResponse -> TestTree
-putScalingPolicyResponseTest = resp
-    "putScalingPolicyResponse"
+testPutScalingPolicyResponse :: PutScalingPolicyResponse -> TestTree
+testPutScalingPolicyResponse = resp
+    "PutScalingPolicyResponse"
     "fixture/PutScalingPolicyResponse"
     (Proxy :: Proxy PutScalingPolicy)
 
-putScheduledUpdateGroupActionResponseTest :: PutScheduledUpdateGroupActionResponse -> TestTree
-putScheduledUpdateGroupActionResponseTest = resp
-    "putScheduledUpdateGroupActionResponse"
-    "fixture/PutScheduledUpdateGroupActionResponse"
-    (Proxy :: Proxy PutScheduledUpdateGroupAction)
+testDeleteNotificationConfigurationResponse :: DeleteNotificationConfigurationResponse -> TestTree
+testDeleteNotificationConfigurationResponse = resp
+    "DeleteNotificationConfigurationResponse"
+    "fixture/DeleteNotificationConfigurationResponse"
+    (Proxy :: Proxy DeleteNotificationConfiguration)
 
-recordLifecycleActionHeartbeatResponseTest :: RecordLifecycleActionHeartbeatResponse -> TestTree
-recordLifecycleActionHeartbeatResponseTest = resp
-    "recordLifecycleActionHeartbeatResponse"
-    "fixture/RecordLifecycleActionHeartbeatResponse"
-    (Proxy :: Proxy RecordLifecycleActionHeartbeat)
+testDescribeTagsResponse :: DescribeTagsResponse -> TestTree
+testDescribeTagsResponse = resp
+    "DescribeTagsResponse"
+    "fixture/DescribeTagsResponse"
+    (Proxy :: Proxy DescribeTags)
 
-resumeProcessesResponseTest :: ResumeProcessesResponse -> TestTree
-resumeProcessesResponseTest = resp
-    "resumeProcessesResponse"
-    "fixture/ResumeProcessesResponse"
-    (Proxy :: Proxy ResumeProcesses)
+testDeleteLaunchConfigurationResponse :: DeleteLaunchConfigurationResponse -> TestTree
+testDeleteLaunchConfigurationResponse = resp
+    "DeleteLaunchConfigurationResponse"
+    "fixture/DeleteLaunchConfigurationResponse"
+    (Proxy :: Proxy DeleteLaunchConfiguration)
 
-setDesiredCapacityResponseTest :: SetDesiredCapacityResponse -> TestTree
-setDesiredCapacityResponseTest = resp
-    "setDesiredCapacityResponse"
-    "fixture/SetDesiredCapacityResponse"
-    (Proxy :: Proxy SetDesiredCapacity)
+testDescribeLoadBalancersResponse :: DescribeLoadBalancersResponse -> TestTree
+testDescribeLoadBalancersResponse = resp
+    "DescribeLoadBalancersResponse"
+    "fixture/DescribeLoadBalancersResponse"
+    (Proxy :: Proxy DescribeLoadBalancers)
 
-setInstanceHealthResponseTest :: SetInstanceHealthResponse -> TestTree
-setInstanceHealthResponseTest = resp
-    "setInstanceHealthResponse"
+testPutNotificationConfigurationResponse :: PutNotificationConfigurationResponse -> TestTree
+testPutNotificationConfigurationResponse = resp
+    "PutNotificationConfigurationResponse"
+    "fixture/PutNotificationConfigurationResponse"
+    (Proxy :: Proxy PutNotificationConfiguration)
+
+testSetInstanceHealthResponse :: SetInstanceHealthResponse -> TestTree
+testSetInstanceHealthResponse = resp
+    "SetInstanceHealthResponse"
     "fixture/SetInstanceHealthResponse"
     (Proxy :: Proxy SetInstanceHealth)
 
-suspendProcessesResponseTest :: SuspendProcessesResponse -> TestTree
-suspendProcessesResponseTest = resp
-    "suspendProcessesResponse"
+testEnterStandbyResponse :: EnterStandbyResponse -> TestTree
+testEnterStandbyResponse = resp
+    "EnterStandbyResponse"
+    "fixture/EnterStandbyResponse"
+    (Proxy :: Proxy EnterStandby)
+
+testSuspendProcessesResponse :: SuspendProcessesResponse -> TestTree
+testSuspendProcessesResponse = resp
+    "SuspendProcessesResponse"
     "fixture/SuspendProcessesResponse"
     (Proxy :: Proxy SuspendProcesses)
 
-terminateInstanceInAutoScalingGroupResponseTest :: TerminateInstanceInAutoScalingGroupResponse -> TestTree
-terminateInstanceInAutoScalingGroupResponseTest = resp
-    "terminateInstanceInAutoScalingGroupResponse"
+testExitStandbyResponse :: ExitStandbyResponse -> TestTree
+testExitStandbyResponse = resp
+    "ExitStandbyResponse"
+    "fixture/ExitStandbyResponse"
+    (Proxy :: Proxy ExitStandby)
+
+testDescribeTerminationPolicyTypesResponse :: DescribeTerminationPolicyTypesResponse -> TestTree
+testDescribeTerminationPolicyTypesResponse = resp
+    "DescribeTerminationPolicyTypesResponse"
+    "fixture/DescribeTerminationPolicyTypesResponse"
+    (Proxy :: Proxy DescribeTerminationPolicyTypes)
+
+testDescribeAutoScalingInstancesResponse :: DescribeAutoScalingInstancesResponse -> TestTree
+testDescribeAutoScalingInstancesResponse = resp
+    "DescribeAutoScalingInstancesResponse"
+    "fixture/DescribeAutoScalingInstancesResponse"
+    (Proxy :: Proxy DescribeAutoScalingInstances)
+
+testDetachInstancesResponse :: DetachInstancesResponse -> TestTree
+testDetachInstancesResponse = resp
+    "DetachInstancesResponse"
+    "fixture/DetachInstancesResponse"
+    (Proxy :: Proxy DetachInstances)
+
+testDisableMetricsCollectionResponse :: DisableMetricsCollectionResponse -> TestTree
+testDisableMetricsCollectionResponse = resp
+    "DisableMetricsCollectionResponse"
+    "fixture/DisableMetricsCollectionResponse"
+    (Proxy :: Proxy DisableMetricsCollection)
+
+testRecordLifecycleActionHeartbeatResponse :: RecordLifecycleActionHeartbeatResponse -> TestTree
+testRecordLifecycleActionHeartbeatResponse = resp
+    "RecordLifecycleActionHeartbeatResponse"
+    "fixture/RecordLifecycleActionHeartbeatResponse"
+    (Proxy :: Proxy RecordLifecycleActionHeartbeat)
+
+testDeleteTagsResponse :: DeleteTagsResponse -> TestTree
+testDeleteTagsResponse = resp
+    "DeleteTagsResponse"
+    "fixture/DeleteTagsResponse"
+    (Proxy :: Proxy DeleteTags)
+
+testDescribeScalingProcessTypesResponse :: DescribeScalingProcessTypesResponse -> TestTree
+testDescribeScalingProcessTypesResponse = resp
+    "DescribeScalingProcessTypesResponse"
+    "fixture/DescribeScalingProcessTypesResponse"
+    (Proxy :: Proxy DescribeScalingProcessTypes)
+
+testEnableMetricsCollectionResponse :: EnableMetricsCollectionResponse -> TestTree
+testEnableMetricsCollectionResponse = resp
+    "EnableMetricsCollectionResponse"
+    "fixture/EnableMetricsCollectionResponse"
+    (Proxy :: Proxy EnableMetricsCollection)
+
+testDescribeLifecycleHooksResponse :: DescribeLifecycleHooksResponse -> TestTree
+testDescribeLifecycleHooksResponse = resp
+    "DescribeLifecycleHooksResponse"
+    "fixture/DescribeLifecycleHooksResponse"
+    (Proxy :: Proxy DescribeLifecycleHooks)
+
+testDescribeAutoScalingGroupsResponse :: DescribeAutoScalingGroupsResponse -> TestTree
+testDescribeAutoScalingGroupsResponse = resp
+    "DescribeAutoScalingGroupsResponse"
+    "fixture/DescribeAutoScalingGroupsResponse"
+    (Proxy :: Proxy DescribeAutoScalingGroups)
+
+testSetDesiredCapacityResponse :: SetDesiredCapacityResponse -> TestTree
+testSetDesiredCapacityResponse = resp
+    "SetDesiredCapacityResponse"
+    "fixture/SetDesiredCapacityResponse"
+    (Proxy :: Proxy SetDesiredCapacity)
+
+testDetachLoadBalancersResponse :: DetachLoadBalancersResponse -> TestTree
+testDetachLoadBalancersResponse = resp
+    "DetachLoadBalancersResponse"
+    "fixture/DetachLoadBalancersResponse"
+    (Proxy :: Proxy DetachLoadBalancers)
+
+testDeleteScheduledActionResponse :: DeleteScheduledActionResponse -> TestTree
+testDeleteScheduledActionResponse = resp
+    "DeleteScheduledActionResponse"
+    "fixture/DeleteScheduledActionResponse"
+    (Proxy :: Proxy DeleteScheduledAction)
+
+testCreateOrUpdateTagsResponse :: CreateOrUpdateTagsResponse -> TestTree
+testCreateOrUpdateTagsResponse = resp
+    "CreateOrUpdateTagsResponse"
+    "fixture/CreateOrUpdateTagsResponse"
+    (Proxy :: Proxy CreateOrUpdateTags)
+
+testDeletePolicyResponse :: DeletePolicyResponse -> TestTree
+testDeletePolicyResponse = resp
+    "DeletePolicyResponse"
+    "fixture/DeletePolicyResponse"
+    (Proxy :: Proxy DeletePolicy)
+
+testDescribeAutoScalingNotificationTypesResponse :: DescribeAutoScalingNotificationTypesResponse -> TestTree
+testDescribeAutoScalingNotificationTypesResponse = resp
+    "DescribeAutoScalingNotificationTypesResponse"
+    "fixture/DescribeAutoScalingNotificationTypesResponse"
+    (Proxy :: Proxy DescribeAutoScalingNotificationTypes)
+
+testCompleteLifecycleActionResponse :: CompleteLifecycleActionResponse -> TestTree
+testCompleteLifecycleActionResponse = resp
+    "CompleteLifecycleActionResponse"
+    "fixture/CompleteLifecycleActionResponse"
+    (Proxy :: Proxy CompleteLifecycleAction)
+
+testAttachInstancesResponse :: AttachInstancesResponse -> TestTree
+testAttachInstancesResponse = resp
+    "AttachInstancesResponse"
+    "fixture/AttachInstancesResponse"
+    (Proxy :: Proxy AttachInstances)
+
+testDescribeScheduledActionsResponse :: DescribeScheduledActionsResponse -> TestTree
+testDescribeScheduledActionsResponse = resp
+    "DescribeScheduledActionsResponse"
+    "fixture/DescribeScheduledActionsResponse"
+    (Proxy :: Proxy DescribeScheduledActions)
+
+testDeleteAutoScalingGroupResponse :: DeleteAutoScalingGroupResponse -> TestTree
+testDeleteAutoScalingGroupResponse = resp
+    "DeleteAutoScalingGroupResponse"
+    "fixture/DeleteAutoScalingGroupResponse"
+    (Proxy :: Proxy DeleteAutoScalingGroup)
+
+testPutLifecycleHookResponse :: PutLifecycleHookResponse -> TestTree
+testPutLifecycleHookResponse = resp
+    "PutLifecycleHookResponse"
+    "fixture/PutLifecycleHookResponse"
+    (Proxy :: Proxy PutLifecycleHook)
+
+testUpdateAutoScalingGroupResponse :: UpdateAutoScalingGroupResponse -> TestTree
+testUpdateAutoScalingGroupResponse = resp
+    "UpdateAutoScalingGroupResponse"
+    "fixture/UpdateAutoScalingGroupResponse"
+    (Proxy :: Proxy UpdateAutoScalingGroup)
+
+testDeleteLifecycleHookResponse :: DeleteLifecycleHookResponse -> TestTree
+testDeleteLifecycleHookResponse = resp
+    "DeleteLifecycleHookResponse"
+    "fixture/DeleteLifecycleHookResponse"
+    (Proxy :: Proxy DeleteLifecycleHook)
+
+testResumeProcessesResponse :: ResumeProcessesResponse -> TestTree
+testResumeProcessesResponse = resp
+    "ResumeProcessesResponse"
+    "fixture/ResumeProcessesResponse"
+    (Proxy :: Proxy ResumeProcesses)
+
+testExecutePolicyResponse :: ExecutePolicyResponse -> TestTree
+testExecutePolicyResponse = resp
+    "ExecutePolicyResponse"
+    "fixture/ExecutePolicyResponse"
+    (Proxy :: Proxy ExecutePolicy)
+
+testTerminateInstanceInAutoScalingGroupResponse :: TerminateInstanceInAutoScalingGroupResponse -> TestTree
+testTerminateInstanceInAutoScalingGroupResponse = resp
+    "TerminateInstanceInAutoScalingGroupResponse"
     "fixture/TerminateInstanceInAutoScalingGroupResponse"
     (Proxy :: Proxy TerminateInstanceInAutoScalingGroup)
 
-updateAutoScalingGroupResponseTest :: UpdateAutoScalingGroupResponse -> TestTree
-updateAutoScalingGroupResponseTest = resp
-    "updateAutoScalingGroupResponse"
-    "fixture/UpdateAutoScalingGroupResponse"
-    (Proxy :: Proxy UpdateAutoScalingGroup)
+testDescribeAccountLimitsResponse :: DescribeAccountLimitsResponse -> TestTree
+testDescribeAccountLimitsResponse = resp
+    "DescribeAccountLimitsResponse"
+    "fixture/DescribeAccountLimitsResponse"
+    (Proxy :: Proxy DescribeAccountLimits)
+
+testAttachLoadBalancersResponse :: AttachLoadBalancersResponse -> TestTree
+testAttachLoadBalancersResponse = resp
+    "AttachLoadBalancersResponse"
+    "fixture/AttachLoadBalancersResponse"
+    (Proxy :: Proxy AttachLoadBalancers)
+
+testPutScheduledUpdateGroupActionResponse :: PutScheduledUpdateGroupActionResponse -> TestTree
+testPutScheduledUpdateGroupActionResponse = resp
+    "PutScheduledUpdateGroupActionResponse"
+    "fixture/PutScheduledUpdateGroupActionResponse"
+    (Proxy :: Proxy PutScheduledUpdateGroupAction)
+
+testDescribePoliciesResponse :: DescribePoliciesResponse -> TestTree
+testDescribePoliciesResponse = resp
+    "DescribePoliciesResponse"
+    "fixture/DescribePoliciesResponse"
+    (Proxy :: Proxy DescribePolicies)
+
+testDescribeNotificationConfigurationsResponse :: DescribeNotificationConfigurationsResponse -> TestTree
+testDescribeNotificationConfigurationsResponse = resp
+    "DescribeNotificationConfigurationsResponse"
+    "fixture/DescribeNotificationConfigurationsResponse"
+    (Proxy :: Proxy DescribeNotificationConfigurations)
+
+testDescribeLaunchConfigurationsResponse :: DescribeLaunchConfigurationsResponse -> TestTree
+testDescribeLaunchConfigurationsResponse = resp
+    "DescribeLaunchConfigurationsResponse"
+    "fixture/DescribeLaunchConfigurationsResponse"
+    (Proxy :: Proxy DescribeLaunchConfigurations)
+
+testDescribeLifecycleHookTypesResponse :: DescribeLifecycleHookTypesResponse -> TestTree
+testDescribeLifecycleHookTypesResponse = resp
+    "DescribeLifecycleHookTypesResponse"
+    "fixture/DescribeLifecycleHookTypesResponse"
+    (Proxy :: Proxy DescribeLifecycleHookTypes)
+
+testDescribeScalingActivitiesResponse :: DescribeScalingActivitiesResponse -> TestTree
+testDescribeScalingActivitiesResponse = resp
+    "DescribeScalingActivitiesResponse"
+    "fixture/DescribeScalingActivitiesResponse"
+    (Proxy :: Proxy DescribeScalingActivities)
+
+testCreateAutoScalingGroupResponse :: CreateAutoScalingGroupResponse -> TestTree
+testCreateAutoScalingGroupResponse = resp
+    "CreateAutoScalingGroupResponse"
+    "fixture/CreateAutoScalingGroupResponse"
+    (Proxy :: Proxy CreateAutoScalingGroup)
+
+testCreateLaunchConfigurationResponse :: CreateLaunchConfigurationResponse -> TestTree
+testCreateLaunchConfigurationResponse = resp
+    "CreateLaunchConfigurationResponse"
+    "fixture/CreateLaunchConfigurationResponse"
+    (Proxy :: Proxy CreateLaunchConfiguration)
+
+testDescribeAdjustmentTypesResponse :: DescribeAdjustmentTypesResponse -> TestTree
+testDescribeAdjustmentTypesResponse = resp
+    "DescribeAdjustmentTypesResponse"
+    "fixture/DescribeAdjustmentTypesResponse"
+    (Proxy :: Proxy DescribeAdjustmentTypes)

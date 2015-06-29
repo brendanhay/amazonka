@@ -23,1019 +23,1019 @@ import Network.AWS.OpsWorks
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ assignInstanceTest $
---             assignInstance
---
---         , assignVolumeTest $
---             assignVolume
---
---         , associateElasticIPTest $
---             associateElasticIP
---
---         , attachElasticLoadBalancerTest $
---             attachElasticLoadBalancer
---
---         , cloneStackTest $
---             cloneStack
---
---         , createAppTest $
---             createApp
---
---         , createDeploymentTest $
---             createDeployment
---
---         , createInstanceTest $
---             createInstance
---
---         , createLayerTest $
---             createLayer
---
---         , createStackTest $
---             createStack
---
---         , createUserProfileTest $
---             createUserProfile
---
---         , deleteAppTest $
---             deleteApp
---
---         , deleteInstanceTest $
---             deleteInstance
---
---         , deleteLayerTest $
---             deleteLayer
---
---         , deleteStackTest $
---             deleteStack
---
---         , deleteUserProfileTest $
---             deleteUserProfile
---
---         , deregisterElasticIPTest $
---             deregisterElasticIP
---
---         , deregisterInstanceTest $
---             deregisterInstance
---
---         , deregisterRDSDBInstanceTest $
---             deregisterRDSDBInstance
---
---         , deregisterVolumeTest $
---             deregisterVolume
---
---         , describeAgentVersionsTest $
---             describeAgentVersions
---
---         , describeAppsTest $
---             describeApps
---
---         , describeCommandsTest $
---             describeCommands
---
---         , describeDeploymentsTest $
---             describeDeployments
---
---         , describeElasticIPsTest $
---             describeElasticIPs
---
---         , describeElasticLoadBalancersTest $
---             describeElasticLoadBalancers
---
---         , describeInstancesTest $
---             describeInstances
---
---         , describeLayersTest $
---             describeLayers
---
---         , describeLoadBasedAutoScalingTest $
---             describeLoadBasedAutoScaling
---
---         , describeMyUserProfileTest $
---             describeMyUserProfile
---
---         , describePermissionsTest $
---             describePermissions
---
---         , describeRAIDArraysTest $
---             describeRAIDArrays
---
---         , describeRDSDBInstancesTest $
+--         [ testDescribeRDSDBInstances $
 --             describeRDSDBInstances
 --
---         , describeServiceErrorsTest $
---             describeServiceErrors
+--         , testDeleteStack $
+--             deleteStack
 --
---         , describeStackProvisioningParametersTest $
---             describeStackProvisioningParameters
---
---         , describeStackSummaryTest $
---             describeStackSummary
---
---         , describeStacksTest $
---             describeStacks
---
---         , describeTimeBasedAutoScalingTest $
---             describeTimeBasedAutoScaling
---
---         , describeUserProfilesTest $
---             describeUserProfiles
---
---         , describeVolumesTest $
---             describeVolumes
---
---         , detachElasticLoadBalancerTest $
---             detachElasticLoadBalancer
---
---         , disassociateElasticIPTest $
---             disassociateElasticIP
---
---         , getHostnameSuggestionTest $
---             getHostnameSuggestion
---
---         , grantAccessTest $
---             grantAccess
---
---         , rebootInstanceTest $
---             rebootInstance
---
---         , registerElasticIPTest $
---             registerElasticIP
---
---         , registerInstanceTest $
---             registerInstance
---
---         , registerRDSDBInstanceTest $
---             registerRDSDBInstance
---
---         , registerVolumeTest $
---             registerVolume
---
---         , setLoadBasedAutoScalingTest $
---             setLoadBasedAutoScaling
---
---         , setPermissionTest $
---             setPermission
---
---         , setTimeBasedAutoScalingTest $
---             setTimeBasedAutoScaling
---
---         , startInstanceTest $
---             startInstance
---
---         , startStackTest $
---             startStack
---
---         , stopInstanceTest $
---             stopInstance
---
---         , stopStackTest $
---             stopStack
---
---         , unassignInstanceTest $
---             unassignInstance
---
---         , unassignVolumeTest $
---             unassignVolume
---
---         , updateAppTest $
---             updateApp
---
---         , updateElasticIPTest $
---             updateElasticIP
---
---         , updateInstanceTest $
---             updateInstance
---
---         , updateLayerTest $
---             updateLayer
---
---         , updateMyUserProfileTest $
---             updateMyUserProfile
---
---         , updateRDSDBInstanceTest $
---             updateRDSDBInstance
---
---         , updateStackTest $
+--         , testUpdateStack $
 --             updateStack
 --
---         , updateUserProfileTest $
+--         , testCreateLayer $
+--             createLayer
+--
+--         , testSetLoadBasedAutoScaling $
+--             setLoadBasedAutoScaling
+--
+--         , testUnassignVolume $
+--             unassignVolume
+--
+--         , testDeregisterRDSDBInstance $
+--             deregisterRDSDBInstance
+--
+--         , testCreateInstance $
+--             createInstance
+--
+--         , testRegisterElasticIP $
+--             registerElasticIP
+--
+--         , testDescribeAgentVersions $
+--             describeAgentVersions
+--
+--         , testDescribeLayers $
+--             describeLayers
+--
+--         , testCreateDeployment $
+--             createDeployment
+--
+--         , testDeleteApp $
+--             deleteApp
+--
+--         , testUpdateApp $
+--             updateApp
+--
+--         , testDeleteInstance $
+--             deleteInstance
+--
+--         , testUpdateInstance $
+--             updateInstance
+--
+--         , testDescribeStacks $
+--             describeStacks
+--
+--         , testDeregisterVolume $
+--             deregisterVolume
+--
+--         , testAssignInstance $
+--             assignInstance
+--
+--         , testRebootInstance $
+--             rebootInstance
+--
+--         , testDescribeTimeBasedAutoScaling $
+--             describeTimeBasedAutoScaling
+--
+--         , testUpdateRDSDBInstance $
+--             updateRDSDBInstance
+--
+--         , testStopStack $
+--             stopStack
+--
+--         , testDescribeVolumes $
+--             describeVolumes
+--
+--         , testDisassociateElasticIP $
+--             disassociateElasticIP
+--
+--         , testStopInstance $
+--             stopInstance
+--
+--         , testRegisterVolume $
+--             registerVolume
+--
+--         , testSetTimeBasedAutoScaling $
+--             setTimeBasedAutoScaling
+--
+--         , testDeregisterElasticIP $
+--             deregisterElasticIP
+--
+--         , testAttachElasticLoadBalancer $
+--             attachElasticLoadBalancer
+--
+--         , testDescribeUserProfiles $
+--             describeUserProfiles
+--
+--         , testDescribeStackSummary $
+--             describeStackSummary
+--
+--         , testDescribeApps $
+--             describeApps
+--
+--         , testUpdateMyUserProfile $
+--             updateMyUserProfile
+--
+--         , testDescribeInstances $
+--             describeInstances
+--
+--         , testDescribeDeployments $
+--             describeDeployments
+--
+--         , testCreateStack $
+--             createStack
+--
+--         , testGrantAccess $
+--             grantAccess
+--
+--         , testDescribeElasticIPs $
+--             describeElasticIPs
+--
+--         , testDeleteLayer $
+--             deleteLayer
+--
+--         , testUpdateLayer $
+--             updateLayer
+--
+--         , testCloneStack $
+--             cloneStack
+--
+--         , testGetHostnameSuggestion $
+--             getHostnameSuggestion
+--
+--         , testCreateApp $
+--             createApp
+--
+--         , testDescribePermissions $
+--             describePermissions
+--
+--         , testUpdateElasticIP $
+--             updateElasticIP
+--
+--         , testDescribeLoadBasedAutoScaling $
+--             describeLoadBasedAutoScaling
+--
+--         , testRegisterInstance $
+--             registerInstance
+--
+--         , testAssociateElasticIP $
+--             associateElasticIP
+--
+--         , testDetachElasticLoadBalancer $
+--             detachElasticLoadBalancer
+--
+--         , testDescribeStackProvisioningParameters $
+--             describeStackProvisioningParameters
+--
+--         , testDescribeMyUserProfile $
+--             describeMyUserProfile
+--
+--         , testUnassignInstance $
+--             unassignInstance
+--
+--         , testRegisterRDSDBInstance $
+--             registerRDSDBInstance
+--
+--         , testDeleteUserProfile $
+--             deleteUserProfile
+--
+--         , testUpdateUserProfile $
 --             updateUserProfile
 --
---         , updateVolumeTest $
+--         , testDescribeServiceErrors $
+--             describeServiceErrors
+--
+--         , testStartStack $
+--             startStack
+--
+--         , testCreateUserProfile $
+--             createUserProfile
+--
+--         , testDescribeCommands $
+--             describeCommands
+--
+--         , testDescribeElasticLoadBalancers $
+--             describeElasticLoadBalancers
+--
+--         , testDeregisterInstance $
+--             deregisterInstance
+--
+--         , testDescribeRAIDArrays $
+--             describeRAIDArrays
+--
+--         , testSetPermission $
+--             setPermission
+--
+--         , testUpdateVolume $
 --             updateVolume
+--
+--         , testAssignVolume $
+--             assignVolume
+--
+--         , testStartInstance $
+--             startInstance
 --
 --           ]
 
 --     , testGroup "response"
---         [ assignInstanceResponseTest $
---             assignInstanceResponse
---
---         , assignVolumeResponseTest $
---             assignVolumeResponse
---
---         , associateElasticIPResponseTest $
---             associateElasticIPResponse
---
---         , attachElasticLoadBalancerResponseTest $
---             attachElasticLoadBalancerResponse
---
---         , cloneStackResponseTest $
---             cloneStackResponse
---
---         , createAppResponseTest $
---             createAppResponse
---
---         , createDeploymentResponseTest $
---             createDeploymentResponse
---
---         , createInstanceResponseTest $
---             createInstanceResponse
---
---         , createLayerResponseTest $
---             createLayerResponse
---
---         , createStackResponseTest $
---             createStackResponse
---
---         , createUserProfileResponseTest $
---             createUserProfileResponse
---
---         , deleteAppResponseTest $
---             deleteAppResponse
---
---         , deleteInstanceResponseTest $
---             deleteInstanceResponse
---
---         , deleteLayerResponseTest $
---             deleteLayerResponse
---
---         , deleteStackResponseTest $
---             deleteStackResponse
---
---         , deleteUserProfileResponseTest $
---             deleteUserProfileResponse
---
---         , deregisterElasticIPResponseTest $
---             deregisterElasticIPResponse
---
---         , deregisterInstanceResponseTest $
---             deregisterInstanceResponse
---
---         , deregisterRDSDBInstanceResponseTest $
---             deregisterRDSDBInstanceResponse
---
---         , deregisterVolumeResponseTest $
---             deregisterVolumeResponse
---
---         , describeAgentVersionsResponseTest $
---             describeAgentVersionsResponse
---
---         , describeAppsResponseTest $
---             describeAppsResponse
---
---         , describeCommandsResponseTest $
---             describeCommandsResponse
---
---         , describeDeploymentsResponseTest $
---             describeDeploymentsResponse
---
---         , describeElasticIPsResponseTest $
---             describeElasticIPsResponse
---
---         , describeElasticLoadBalancersResponseTest $
---             describeElasticLoadBalancersResponse
---
---         , describeInstancesResponseTest $
---             describeInstancesResponse
---
---         , describeLayersResponseTest $
---             describeLayersResponse
---
---         , describeLoadBasedAutoScalingResponseTest $
---             describeLoadBasedAutoScalingResponse
---
---         , describeMyUserProfileResponseTest $
---             describeMyUserProfileResponse
---
---         , describePermissionsResponseTest $
---             describePermissionsResponse
---
---         , describeRAIDArraysResponseTest $
---             describeRAIDArraysResponse
---
---         , describeRDSDBInstancesResponseTest $
+--         [ testDescribeRDSDBInstancesResponse $
 --             describeRDSDBInstancesResponse
 --
---         , describeServiceErrorsResponseTest $
---             describeServiceErrorsResponse
+--         , testDeleteStackResponse $
+--             deleteStackResponse
 --
---         , describeStackProvisioningParametersResponseTest $
---             describeStackProvisioningParametersResponse
---
---         , describeStackSummaryResponseTest $
---             describeStackSummaryResponse
---
---         , describeStacksResponseTest $
---             describeStacksResponse
---
---         , describeTimeBasedAutoScalingResponseTest $
---             describeTimeBasedAutoScalingResponse
---
---         , describeUserProfilesResponseTest $
---             describeUserProfilesResponse
---
---         , describeVolumesResponseTest $
---             describeVolumesResponse
---
---         , detachElasticLoadBalancerResponseTest $
---             detachElasticLoadBalancerResponse
---
---         , disassociateElasticIPResponseTest $
---             disassociateElasticIPResponse
---
---         , getHostnameSuggestionResponseTest $
---             getHostnameSuggestionResponse
---
---         , grantAccessResponseTest $
---             grantAccessResponse
---
---         , rebootInstanceResponseTest $
---             rebootInstanceResponse
---
---         , registerElasticIPResponseTest $
---             registerElasticIPResponse
---
---         , registerInstanceResponseTest $
---             registerInstanceResponse
---
---         , registerRDSDBInstanceResponseTest $
---             registerRDSDBInstanceResponse
---
---         , registerVolumeResponseTest $
---             registerVolumeResponse
---
---         , setLoadBasedAutoScalingResponseTest $
---             setLoadBasedAutoScalingResponse
---
---         , setPermissionResponseTest $
---             setPermissionResponse
---
---         , setTimeBasedAutoScalingResponseTest $
---             setTimeBasedAutoScalingResponse
---
---         , startInstanceResponseTest $
---             startInstanceResponse
---
---         , startStackResponseTest $
---             startStackResponse
---
---         , stopInstanceResponseTest $
---             stopInstanceResponse
---
---         , stopStackResponseTest $
---             stopStackResponse
---
---         , unassignInstanceResponseTest $
---             unassignInstanceResponse
---
---         , unassignVolumeResponseTest $
---             unassignVolumeResponse
---
---         , updateAppResponseTest $
---             updateAppResponse
---
---         , updateElasticIPResponseTest $
---             updateElasticIPResponse
---
---         , updateInstanceResponseTest $
---             updateInstanceResponse
---
---         , updateLayerResponseTest $
---             updateLayerResponse
---
---         , updateMyUserProfileResponseTest $
---             updateMyUserProfileResponse
---
---         , updateRDSDBInstanceResponseTest $
---             updateRDSDBInstanceResponse
---
---         , updateStackResponseTest $
+--         , testUpdateStackResponse $
 --             updateStackResponse
 --
---         , updateUserProfileResponseTest $
+--         , testCreateLayerResponse $
+--             createLayerResponse
+--
+--         , testSetLoadBasedAutoScalingResponse $
+--             setLoadBasedAutoScalingResponse
+--
+--         , testUnassignVolumeResponse $
+--             unassignVolumeResponse
+--
+--         , testDeregisterRDSDBInstanceResponse $
+--             deregisterRDSDBInstanceResponse
+--
+--         , testCreateInstanceResponse $
+--             createInstanceResponse
+--
+--         , testRegisterElasticIPResponse $
+--             registerElasticIPResponse
+--
+--         , testDescribeAgentVersionsResponse $
+--             describeAgentVersionsResponse
+--
+--         , testDescribeLayersResponse $
+--             describeLayersResponse
+--
+--         , testCreateDeploymentResponse $
+--             createDeploymentResponse
+--
+--         , testDeleteAppResponse $
+--             deleteAppResponse
+--
+--         , testUpdateAppResponse $
+--             updateAppResponse
+--
+--         , testDeleteInstanceResponse $
+--             deleteInstanceResponse
+--
+--         , testUpdateInstanceResponse $
+--             updateInstanceResponse
+--
+--         , testDescribeStacksResponse $
+--             describeStacksResponse
+--
+--         , testDeregisterVolumeResponse $
+--             deregisterVolumeResponse
+--
+--         , testAssignInstanceResponse $
+--             assignInstanceResponse
+--
+--         , testRebootInstanceResponse $
+--             rebootInstanceResponse
+--
+--         , testDescribeTimeBasedAutoScalingResponse $
+--             describeTimeBasedAutoScalingResponse
+--
+--         , testUpdateRDSDBInstanceResponse $
+--             updateRDSDBInstanceResponse
+--
+--         , testStopStackResponse $
+--             stopStackResponse
+--
+--         , testDescribeVolumesResponse $
+--             describeVolumesResponse
+--
+--         , testDisassociateElasticIPResponse $
+--             disassociateElasticIPResponse
+--
+--         , testStopInstanceResponse $
+--             stopInstanceResponse
+--
+--         , testRegisterVolumeResponse $
+--             registerVolumeResponse
+--
+--         , testSetTimeBasedAutoScalingResponse $
+--             setTimeBasedAutoScalingResponse
+--
+--         , testDeregisterElasticIPResponse $
+--             deregisterElasticIPResponse
+--
+--         , testAttachElasticLoadBalancerResponse $
+--             attachElasticLoadBalancerResponse
+--
+--         , testDescribeUserProfilesResponse $
+--             describeUserProfilesResponse
+--
+--         , testDescribeStackSummaryResponse $
+--             describeStackSummaryResponse
+--
+--         , testDescribeAppsResponse $
+--             describeAppsResponse
+--
+--         , testUpdateMyUserProfileResponse $
+--             updateMyUserProfileResponse
+--
+--         , testDescribeInstancesResponse $
+--             describeInstancesResponse
+--
+--         , testDescribeDeploymentsResponse $
+--             describeDeploymentsResponse
+--
+--         , testCreateStackResponse $
+--             createStackResponse
+--
+--         , testGrantAccessResponse $
+--             grantAccessResponse
+--
+--         , testDescribeElasticIPsResponse $
+--             describeElasticIPsResponse
+--
+--         , testDeleteLayerResponse $
+--             deleteLayerResponse
+--
+--         , testUpdateLayerResponse $
+--             updateLayerResponse
+--
+--         , testCloneStackResponse $
+--             cloneStackResponse
+--
+--         , testGetHostnameSuggestionResponse $
+--             getHostnameSuggestionResponse
+--
+--         , testCreateAppResponse $
+--             createAppResponse
+--
+--         , testDescribePermissionsResponse $
+--             describePermissionsResponse
+--
+--         , testUpdateElasticIPResponse $
+--             updateElasticIPResponse
+--
+--         , testDescribeLoadBasedAutoScalingResponse $
+--             describeLoadBasedAutoScalingResponse
+--
+--         , testRegisterInstanceResponse $
+--             registerInstanceResponse
+--
+--         , testAssociateElasticIPResponse $
+--             associateElasticIPResponse
+--
+--         , testDetachElasticLoadBalancerResponse $
+--             detachElasticLoadBalancerResponse
+--
+--         , testDescribeStackProvisioningParametersResponse $
+--             describeStackProvisioningParametersResponse
+--
+--         , testDescribeMyUserProfileResponse $
+--             describeMyUserProfileResponse
+--
+--         , testUnassignInstanceResponse $
+--             unassignInstanceResponse
+--
+--         , testRegisterRDSDBInstanceResponse $
+--             registerRDSDBInstanceResponse
+--
+--         , testDeleteUserProfileResponse $
+--             deleteUserProfileResponse
+--
+--         , testUpdateUserProfileResponse $
 --             updateUserProfileResponse
 --
---         , updateVolumeResponseTest $
+--         , testDescribeServiceErrorsResponse $
+--             describeServiceErrorsResponse
+--
+--         , testStartStackResponse $
+--             startStackResponse
+--
+--         , testCreateUserProfileResponse $
+--             createUserProfileResponse
+--
+--         , testDescribeCommandsResponse $
+--             describeCommandsResponse
+--
+--         , testDescribeElasticLoadBalancersResponse $
+--             describeElasticLoadBalancersResponse
+--
+--         , testDeregisterInstanceResponse $
+--             deregisterInstanceResponse
+--
+--         , testDescribeRAIDArraysResponse $
+--             describeRAIDArraysResponse
+--
+--         , testSetPermissionResponse $
+--             setPermissionResponse
+--
+--         , testUpdateVolumeResponse $
 --             updateVolumeResponse
+--
+--         , testAssignVolumeResponse $
+--             assignVolumeResponse
+--
+--         , testStartInstanceResponse $
+--             startInstanceResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-assignInstanceTest :: AssignInstance -> TestTree
-assignInstanceTest = undefined
+testDescribeRDSDBInstances :: DescribeRDSDBInstances -> TestTree
+testDescribeRDSDBInstances = undefined
 
-assignVolumeTest :: AssignVolume -> TestTree
-assignVolumeTest = undefined
+testDeleteStack :: DeleteStack -> TestTree
+testDeleteStack = undefined
 
-associateElasticIPTest :: AssociateElasticIP -> TestTree
-associateElasticIPTest = undefined
+testUpdateStack :: UpdateStack -> TestTree
+testUpdateStack = undefined
 
-attachElasticLoadBalancerTest :: AttachElasticLoadBalancer -> TestTree
-attachElasticLoadBalancerTest = undefined
+testCreateLayer :: CreateLayer -> TestTree
+testCreateLayer = undefined
 
-cloneStackTest :: CloneStack -> TestTree
-cloneStackTest = undefined
+testSetLoadBasedAutoScaling :: SetLoadBasedAutoScaling -> TestTree
+testSetLoadBasedAutoScaling = undefined
 
-createAppTest :: CreateApp -> TestTree
-createAppTest = undefined
+testUnassignVolume :: UnassignVolume -> TestTree
+testUnassignVolume = undefined
 
-createDeploymentTest :: CreateDeployment -> TestTree
-createDeploymentTest = undefined
+testDeregisterRDSDBInstance :: DeregisterRDSDBInstance -> TestTree
+testDeregisterRDSDBInstance = undefined
 
-createInstanceTest :: CreateInstance -> TestTree
-createInstanceTest = undefined
+testCreateInstance :: CreateInstance -> TestTree
+testCreateInstance = undefined
 
-createLayerTest :: CreateLayer -> TestTree
-createLayerTest = undefined
+testRegisterElasticIP :: RegisterElasticIP -> TestTree
+testRegisterElasticIP = undefined
 
-createStackTest :: CreateStack -> TestTree
-createStackTest = undefined
+testDescribeAgentVersions :: DescribeAgentVersions -> TestTree
+testDescribeAgentVersions = undefined
 
-createUserProfileTest :: CreateUserProfile -> TestTree
-createUserProfileTest = undefined
+testDescribeLayers :: DescribeLayers -> TestTree
+testDescribeLayers = undefined
 
-deleteAppTest :: DeleteApp -> TestTree
-deleteAppTest = undefined
+testCreateDeployment :: CreateDeployment -> TestTree
+testCreateDeployment = undefined
 
-deleteInstanceTest :: DeleteInstance -> TestTree
-deleteInstanceTest = undefined
+testDeleteApp :: DeleteApp -> TestTree
+testDeleteApp = undefined
 
-deleteLayerTest :: DeleteLayer -> TestTree
-deleteLayerTest = undefined
+testUpdateApp :: UpdateApp -> TestTree
+testUpdateApp = undefined
 
-deleteStackTest :: DeleteStack -> TestTree
-deleteStackTest = undefined
+testDeleteInstance :: DeleteInstance -> TestTree
+testDeleteInstance = undefined
 
-deleteUserProfileTest :: DeleteUserProfile -> TestTree
-deleteUserProfileTest = undefined
+testUpdateInstance :: UpdateInstance -> TestTree
+testUpdateInstance = undefined
 
-deregisterElasticIPTest :: DeregisterElasticIP -> TestTree
-deregisterElasticIPTest = undefined
+testDescribeStacks :: DescribeStacks -> TestTree
+testDescribeStacks = undefined
 
-deregisterInstanceTest :: DeregisterInstance -> TestTree
-deregisterInstanceTest = undefined
+testDeregisterVolume :: DeregisterVolume -> TestTree
+testDeregisterVolume = undefined
 
-deregisterRDSDBInstanceTest :: DeregisterRDSDBInstance -> TestTree
-deregisterRDSDBInstanceTest = undefined
+testAssignInstance :: AssignInstance -> TestTree
+testAssignInstance = undefined
 
-deregisterVolumeTest :: DeregisterVolume -> TestTree
-deregisterVolumeTest = undefined
+testRebootInstance :: RebootInstance -> TestTree
+testRebootInstance = undefined
 
-describeAgentVersionsTest :: DescribeAgentVersions -> TestTree
-describeAgentVersionsTest = undefined
+testDescribeTimeBasedAutoScaling :: DescribeTimeBasedAutoScaling -> TestTree
+testDescribeTimeBasedAutoScaling = undefined
 
-describeAppsTest :: DescribeApps -> TestTree
-describeAppsTest = undefined
+testUpdateRDSDBInstance :: UpdateRDSDBInstance -> TestTree
+testUpdateRDSDBInstance = undefined
 
-describeCommandsTest :: DescribeCommands -> TestTree
-describeCommandsTest = undefined
+testStopStack :: StopStack -> TestTree
+testStopStack = undefined
 
-describeDeploymentsTest :: DescribeDeployments -> TestTree
-describeDeploymentsTest = undefined
+testDescribeVolumes :: DescribeVolumes -> TestTree
+testDescribeVolumes = undefined
 
-describeElasticIPsTest :: DescribeElasticIPs -> TestTree
-describeElasticIPsTest = undefined
+testDisassociateElasticIP :: DisassociateElasticIP -> TestTree
+testDisassociateElasticIP = undefined
 
-describeElasticLoadBalancersTest :: DescribeElasticLoadBalancers -> TestTree
-describeElasticLoadBalancersTest = undefined
+testStopInstance :: StopInstance -> TestTree
+testStopInstance = undefined
 
-describeInstancesTest :: DescribeInstances -> TestTree
-describeInstancesTest = undefined
+testRegisterVolume :: RegisterVolume -> TestTree
+testRegisterVolume = undefined
 
-describeLayersTest :: DescribeLayers -> TestTree
-describeLayersTest = undefined
+testSetTimeBasedAutoScaling :: SetTimeBasedAutoScaling -> TestTree
+testSetTimeBasedAutoScaling = undefined
 
-describeLoadBasedAutoScalingTest :: DescribeLoadBasedAutoScaling -> TestTree
-describeLoadBasedAutoScalingTest = undefined
+testDeregisterElasticIP :: DeregisterElasticIP -> TestTree
+testDeregisterElasticIP = undefined
 
-describeMyUserProfileTest :: DescribeMyUserProfile -> TestTree
-describeMyUserProfileTest = undefined
+testAttachElasticLoadBalancer :: AttachElasticLoadBalancer -> TestTree
+testAttachElasticLoadBalancer = undefined
 
-describePermissionsTest :: DescribePermissions -> TestTree
-describePermissionsTest = undefined
+testDescribeUserProfiles :: DescribeUserProfiles -> TestTree
+testDescribeUserProfiles = undefined
 
-describeRAIDArraysTest :: DescribeRAIDArrays -> TestTree
-describeRAIDArraysTest = undefined
+testDescribeStackSummary :: DescribeStackSummary -> TestTree
+testDescribeStackSummary = undefined
 
-describeRDSDBInstancesTest :: DescribeRDSDBInstances -> TestTree
-describeRDSDBInstancesTest = undefined
+testDescribeApps :: DescribeApps -> TestTree
+testDescribeApps = undefined
 
-describeServiceErrorsTest :: DescribeServiceErrors -> TestTree
-describeServiceErrorsTest = undefined
+testUpdateMyUserProfile :: UpdateMyUserProfile -> TestTree
+testUpdateMyUserProfile = undefined
 
-describeStackProvisioningParametersTest :: DescribeStackProvisioningParameters -> TestTree
-describeStackProvisioningParametersTest = undefined
+testDescribeInstances :: DescribeInstances -> TestTree
+testDescribeInstances = undefined
 
-describeStackSummaryTest :: DescribeStackSummary -> TestTree
-describeStackSummaryTest = undefined
+testDescribeDeployments :: DescribeDeployments -> TestTree
+testDescribeDeployments = undefined
 
-describeStacksTest :: DescribeStacks -> TestTree
-describeStacksTest = undefined
+testCreateStack :: CreateStack -> TestTree
+testCreateStack = undefined
 
-describeTimeBasedAutoScalingTest :: DescribeTimeBasedAutoScaling -> TestTree
-describeTimeBasedAutoScalingTest = undefined
+testGrantAccess :: GrantAccess -> TestTree
+testGrantAccess = undefined
 
-describeUserProfilesTest :: DescribeUserProfiles -> TestTree
-describeUserProfilesTest = undefined
+testDescribeElasticIPs :: DescribeElasticIPs -> TestTree
+testDescribeElasticIPs = undefined
 
-describeVolumesTest :: DescribeVolumes -> TestTree
-describeVolumesTest = undefined
+testDeleteLayer :: DeleteLayer -> TestTree
+testDeleteLayer = undefined
 
-detachElasticLoadBalancerTest :: DetachElasticLoadBalancer -> TestTree
-detachElasticLoadBalancerTest = undefined
+testUpdateLayer :: UpdateLayer -> TestTree
+testUpdateLayer = undefined
 
-disassociateElasticIPTest :: DisassociateElasticIP -> TestTree
-disassociateElasticIPTest = undefined
+testCloneStack :: CloneStack -> TestTree
+testCloneStack = undefined
 
-getHostnameSuggestionTest :: GetHostnameSuggestion -> TestTree
-getHostnameSuggestionTest = undefined
+testGetHostnameSuggestion :: GetHostnameSuggestion -> TestTree
+testGetHostnameSuggestion = undefined
 
-grantAccessTest :: GrantAccess -> TestTree
-grantAccessTest = undefined
+testCreateApp :: CreateApp -> TestTree
+testCreateApp = undefined
 
-rebootInstanceTest :: RebootInstance -> TestTree
-rebootInstanceTest = undefined
+testDescribePermissions :: DescribePermissions -> TestTree
+testDescribePermissions = undefined
 
-registerElasticIPTest :: RegisterElasticIP -> TestTree
-registerElasticIPTest = undefined
+testUpdateElasticIP :: UpdateElasticIP -> TestTree
+testUpdateElasticIP = undefined
 
-registerInstanceTest :: RegisterInstance -> TestTree
-registerInstanceTest = undefined
+testDescribeLoadBasedAutoScaling :: DescribeLoadBasedAutoScaling -> TestTree
+testDescribeLoadBasedAutoScaling = undefined
 
-registerRDSDBInstanceTest :: RegisterRDSDBInstance -> TestTree
-registerRDSDBInstanceTest = undefined
+testRegisterInstance :: RegisterInstance -> TestTree
+testRegisterInstance = undefined
 
-registerVolumeTest :: RegisterVolume -> TestTree
-registerVolumeTest = undefined
+testAssociateElasticIP :: AssociateElasticIP -> TestTree
+testAssociateElasticIP = undefined
 
-setLoadBasedAutoScalingTest :: SetLoadBasedAutoScaling -> TestTree
-setLoadBasedAutoScalingTest = undefined
+testDetachElasticLoadBalancer :: DetachElasticLoadBalancer -> TestTree
+testDetachElasticLoadBalancer = undefined
 
-setPermissionTest :: SetPermission -> TestTree
-setPermissionTest = undefined
+testDescribeStackProvisioningParameters :: DescribeStackProvisioningParameters -> TestTree
+testDescribeStackProvisioningParameters = undefined
 
-setTimeBasedAutoScalingTest :: SetTimeBasedAutoScaling -> TestTree
-setTimeBasedAutoScalingTest = undefined
+testDescribeMyUserProfile :: DescribeMyUserProfile -> TestTree
+testDescribeMyUserProfile = undefined
 
-startInstanceTest :: StartInstance -> TestTree
-startInstanceTest = undefined
+testUnassignInstance :: UnassignInstance -> TestTree
+testUnassignInstance = undefined
 
-startStackTest :: StartStack -> TestTree
-startStackTest = undefined
+testRegisterRDSDBInstance :: RegisterRDSDBInstance -> TestTree
+testRegisterRDSDBInstance = undefined
 
-stopInstanceTest :: StopInstance -> TestTree
-stopInstanceTest = undefined
+testDeleteUserProfile :: DeleteUserProfile -> TestTree
+testDeleteUserProfile = undefined
 
-stopStackTest :: StopStack -> TestTree
-stopStackTest = undefined
+testUpdateUserProfile :: UpdateUserProfile -> TestTree
+testUpdateUserProfile = undefined
 
-unassignInstanceTest :: UnassignInstance -> TestTree
-unassignInstanceTest = undefined
+testDescribeServiceErrors :: DescribeServiceErrors -> TestTree
+testDescribeServiceErrors = undefined
 
-unassignVolumeTest :: UnassignVolume -> TestTree
-unassignVolumeTest = undefined
+testStartStack :: StartStack -> TestTree
+testStartStack = undefined
 
-updateAppTest :: UpdateApp -> TestTree
-updateAppTest = undefined
+testCreateUserProfile :: CreateUserProfile -> TestTree
+testCreateUserProfile = undefined
 
-updateElasticIPTest :: UpdateElasticIP -> TestTree
-updateElasticIPTest = undefined
+testDescribeCommands :: DescribeCommands -> TestTree
+testDescribeCommands = undefined
 
-updateInstanceTest :: UpdateInstance -> TestTree
-updateInstanceTest = undefined
+testDescribeElasticLoadBalancers :: DescribeElasticLoadBalancers -> TestTree
+testDescribeElasticLoadBalancers = undefined
 
-updateLayerTest :: UpdateLayer -> TestTree
-updateLayerTest = undefined
+testDeregisterInstance :: DeregisterInstance -> TestTree
+testDeregisterInstance = undefined
 
-updateMyUserProfileTest :: UpdateMyUserProfile -> TestTree
-updateMyUserProfileTest = undefined
+testDescribeRAIDArrays :: DescribeRAIDArrays -> TestTree
+testDescribeRAIDArrays = undefined
 
-updateRDSDBInstanceTest :: UpdateRDSDBInstance -> TestTree
-updateRDSDBInstanceTest = undefined
+testSetPermission :: SetPermission -> TestTree
+testSetPermission = undefined
 
-updateStackTest :: UpdateStack -> TestTree
-updateStackTest = undefined
+testUpdateVolume :: UpdateVolume -> TestTree
+testUpdateVolume = undefined
 
-updateUserProfileTest :: UpdateUserProfile -> TestTree
-updateUserProfileTest = undefined
+testAssignVolume :: AssignVolume -> TestTree
+testAssignVolume = undefined
 
-updateVolumeTest :: UpdateVolume -> TestTree
-updateVolumeTest = undefined
+testStartInstance :: StartInstance -> TestTree
+testStartInstance = undefined
 
 -- Responses
 
-assignInstanceResponseTest :: AssignInstanceResponse -> TestTree
-assignInstanceResponseTest = resp
-    "assignInstanceResponse"
-    "fixture/AssignInstanceResponse"
-    (Proxy :: Proxy AssignInstance)
-
-assignVolumeResponseTest :: AssignVolumeResponse -> TestTree
-assignVolumeResponseTest = resp
-    "assignVolumeResponse"
-    "fixture/AssignVolumeResponse"
-    (Proxy :: Proxy AssignVolume)
-
-associateElasticIPResponseTest :: AssociateElasticIPResponse -> TestTree
-associateElasticIPResponseTest = resp
-    "associateElasticIPResponse"
-    "fixture/AssociateElasticIPResponse"
-    (Proxy :: Proxy AssociateElasticIP)
-
-attachElasticLoadBalancerResponseTest :: AttachElasticLoadBalancerResponse -> TestTree
-attachElasticLoadBalancerResponseTest = resp
-    "attachElasticLoadBalancerResponse"
-    "fixture/AttachElasticLoadBalancerResponse"
-    (Proxy :: Proxy AttachElasticLoadBalancer)
-
-cloneStackResponseTest :: CloneStackResponse -> TestTree
-cloneStackResponseTest = resp
-    "cloneStackResponse"
-    "fixture/CloneStackResponse"
-    (Proxy :: Proxy CloneStack)
-
-createAppResponseTest :: CreateAppResponse -> TestTree
-createAppResponseTest = resp
-    "createAppResponse"
-    "fixture/CreateAppResponse"
-    (Proxy :: Proxy CreateApp)
-
-createDeploymentResponseTest :: CreateDeploymentResponse -> TestTree
-createDeploymentResponseTest = resp
-    "createDeploymentResponse"
-    "fixture/CreateDeploymentResponse"
-    (Proxy :: Proxy CreateDeployment)
-
-createInstanceResponseTest :: CreateInstanceResponse -> TestTree
-createInstanceResponseTest = resp
-    "createInstanceResponse"
-    "fixture/CreateInstanceResponse"
-    (Proxy :: Proxy CreateInstance)
-
-createLayerResponseTest :: CreateLayerResponse -> TestTree
-createLayerResponseTest = resp
-    "createLayerResponse"
-    "fixture/CreateLayerResponse"
-    (Proxy :: Proxy CreateLayer)
-
-createStackResponseTest :: CreateStackResponse -> TestTree
-createStackResponseTest = resp
-    "createStackResponse"
-    "fixture/CreateStackResponse"
-    (Proxy :: Proxy CreateStack)
-
-createUserProfileResponseTest :: CreateUserProfileResponse -> TestTree
-createUserProfileResponseTest = resp
-    "createUserProfileResponse"
-    "fixture/CreateUserProfileResponse"
-    (Proxy :: Proxy CreateUserProfile)
-
-deleteAppResponseTest :: DeleteAppResponse -> TestTree
-deleteAppResponseTest = resp
-    "deleteAppResponse"
-    "fixture/DeleteAppResponse"
-    (Proxy :: Proxy DeleteApp)
-
-deleteInstanceResponseTest :: DeleteInstanceResponse -> TestTree
-deleteInstanceResponseTest = resp
-    "deleteInstanceResponse"
-    "fixture/DeleteInstanceResponse"
-    (Proxy :: Proxy DeleteInstance)
-
-deleteLayerResponseTest :: DeleteLayerResponse -> TestTree
-deleteLayerResponseTest = resp
-    "deleteLayerResponse"
-    "fixture/DeleteLayerResponse"
-    (Proxy :: Proxy DeleteLayer)
-
-deleteStackResponseTest :: DeleteStackResponse -> TestTree
-deleteStackResponseTest = resp
-    "deleteStackResponse"
-    "fixture/DeleteStackResponse"
-    (Proxy :: Proxy DeleteStack)
-
-deleteUserProfileResponseTest :: DeleteUserProfileResponse -> TestTree
-deleteUserProfileResponseTest = resp
-    "deleteUserProfileResponse"
-    "fixture/DeleteUserProfileResponse"
-    (Proxy :: Proxy DeleteUserProfile)
-
-deregisterElasticIPResponseTest :: DeregisterElasticIPResponse -> TestTree
-deregisterElasticIPResponseTest = resp
-    "deregisterElasticIPResponse"
-    "fixture/DeregisterElasticIPResponse"
-    (Proxy :: Proxy DeregisterElasticIP)
-
-deregisterInstanceResponseTest :: DeregisterInstanceResponse -> TestTree
-deregisterInstanceResponseTest = resp
-    "deregisterInstanceResponse"
-    "fixture/DeregisterInstanceResponse"
-    (Proxy :: Proxy DeregisterInstance)
-
-deregisterRDSDBInstanceResponseTest :: DeregisterRDSDBInstanceResponse -> TestTree
-deregisterRDSDBInstanceResponseTest = resp
-    "deregisterRDSDBInstanceResponse"
-    "fixture/DeregisterRDSDBInstanceResponse"
-    (Proxy :: Proxy DeregisterRDSDBInstance)
-
-deregisterVolumeResponseTest :: DeregisterVolumeResponse -> TestTree
-deregisterVolumeResponseTest = resp
-    "deregisterVolumeResponse"
-    "fixture/DeregisterVolumeResponse"
-    (Proxy :: Proxy DeregisterVolume)
-
-describeAgentVersionsResponseTest :: DescribeAgentVersionsResponse -> TestTree
-describeAgentVersionsResponseTest = resp
-    "describeAgentVersionsResponse"
-    "fixture/DescribeAgentVersionsResponse"
-    (Proxy :: Proxy DescribeAgentVersions)
-
-describeAppsResponseTest :: DescribeAppsResponse -> TestTree
-describeAppsResponseTest = resp
-    "describeAppsResponse"
-    "fixture/DescribeAppsResponse"
-    (Proxy :: Proxy DescribeApps)
-
-describeCommandsResponseTest :: DescribeCommandsResponse -> TestTree
-describeCommandsResponseTest = resp
-    "describeCommandsResponse"
-    "fixture/DescribeCommandsResponse"
-    (Proxy :: Proxy DescribeCommands)
-
-describeDeploymentsResponseTest :: DescribeDeploymentsResponse -> TestTree
-describeDeploymentsResponseTest = resp
-    "describeDeploymentsResponse"
-    "fixture/DescribeDeploymentsResponse"
-    (Proxy :: Proxy DescribeDeployments)
-
-describeElasticIPsResponseTest :: DescribeElasticIPsResponse -> TestTree
-describeElasticIPsResponseTest = resp
-    "describeElasticIPsResponse"
-    "fixture/DescribeElasticIPsResponse"
-    (Proxy :: Proxy DescribeElasticIPs)
-
-describeElasticLoadBalancersResponseTest :: DescribeElasticLoadBalancersResponse -> TestTree
-describeElasticLoadBalancersResponseTest = resp
-    "describeElasticLoadBalancersResponse"
-    "fixture/DescribeElasticLoadBalancersResponse"
-    (Proxy :: Proxy DescribeElasticLoadBalancers)
-
-describeInstancesResponseTest :: DescribeInstancesResponse -> TestTree
-describeInstancesResponseTest = resp
-    "describeInstancesResponse"
-    "fixture/DescribeInstancesResponse"
-    (Proxy :: Proxy DescribeInstances)
-
-describeLayersResponseTest :: DescribeLayersResponse -> TestTree
-describeLayersResponseTest = resp
-    "describeLayersResponse"
-    "fixture/DescribeLayersResponse"
-    (Proxy :: Proxy DescribeLayers)
-
-describeLoadBasedAutoScalingResponseTest :: DescribeLoadBasedAutoScalingResponse -> TestTree
-describeLoadBasedAutoScalingResponseTest = resp
-    "describeLoadBasedAutoScalingResponse"
-    "fixture/DescribeLoadBasedAutoScalingResponse"
-    (Proxy :: Proxy DescribeLoadBasedAutoScaling)
-
-describeMyUserProfileResponseTest :: DescribeMyUserProfileResponse -> TestTree
-describeMyUserProfileResponseTest = resp
-    "describeMyUserProfileResponse"
-    "fixture/DescribeMyUserProfileResponse"
-    (Proxy :: Proxy DescribeMyUserProfile)
-
-describePermissionsResponseTest :: DescribePermissionsResponse -> TestTree
-describePermissionsResponseTest = resp
-    "describePermissionsResponse"
-    "fixture/DescribePermissionsResponse"
-    (Proxy :: Proxy DescribePermissions)
-
-describeRAIDArraysResponseTest :: DescribeRAIDArraysResponse -> TestTree
-describeRAIDArraysResponseTest = resp
-    "describeRAIDArraysResponse"
-    "fixture/DescribeRAIDArraysResponse"
-    (Proxy :: Proxy DescribeRAIDArrays)
-
-describeRDSDBInstancesResponseTest :: DescribeRDSDBInstancesResponse -> TestTree
-describeRDSDBInstancesResponseTest = resp
-    "describeRDSDBInstancesResponse"
+testDescribeRDSDBInstancesResponse :: DescribeRDSDBInstancesResponse -> TestTree
+testDescribeRDSDBInstancesResponse = resp
+    "DescribeRDSDBInstancesResponse"
     "fixture/DescribeRDSDBInstancesResponse"
     (Proxy :: Proxy DescribeRDSDBInstances)
 
-describeServiceErrorsResponseTest :: DescribeServiceErrorsResponse -> TestTree
-describeServiceErrorsResponseTest = resp
-    "describeServiceErrorsResponse"
-    "fixture/DescribeServiceErrorsResponse"
-    (Proxy :: Proxy DescribeServiceErrors)
+testDeleteStackResponse :: DeleteStackResponse -> TestTree
+testDeleteStackResponse = resp
+    "DeleteStackResponse"
+    "fixture/DeleteStackResponse"
+    (Proxy :: Proxy DeleteStack)
 
-describeStackProvisioningParametersResponseTest :: DescribeStackProvisioningParametersResponse -> TestTree
-describeStackProvisioningParametersResponseTest = resp
-    "describeStackProvisioningParametersResponse"
-    "fixture/DescribeStackProvisioningParametersResponse"
-    (Proxy :: Proxy DescribeStackProvisioningParameters)
-
-describeStackSummaryResponseTest :: DescribeStackSummaryResponse -> TestTree
-describeStackSummaryResponseTest = resp
-    "describeStackSummaryResponse"
-    "fixture/DescribeStackSummaryResponse"
-    (Proxy :: Proxy DescribeStackSummary)
-
-describeStacksResponseTest :: DescribeStacksResponse -> TestTree
-describeStacksResponseTest = resp
-    "describeStacksResponse"
-    "fixture/DescribeStacksResponse"
-    (Proxy :: Proxy DescribeStacks)
-
-describeTimeBasedAutoScalingResponseTest :: DescribeTimeBasedAutoScalingResponse -> TestTree
-describeTimeBasedAutoScalingResponseTest = resp
-    "describeTimeBasedAutoScalingResponse"
-    "fixture/DescribeTimeBasedAutoScalingResponse"
-    (Proxy :: Proxy DescribeTimeBasedAutoScaling)
-
-describeUserProfilesResponseTest :: DescribeUserProfilesResponse -> TestTree
-describeUserProfilesResponseTest = resp
-    "describeUserProfilesResponse"
-    "fixture/DescribeUserProfilesResponse"
-    (Proxy :: Proxy DescribeUserProfiles)
-
-describeVolumesResponseTest :: DescribeVolumesResponse -> TestTree
-describeVolumesResponseTest = resp
-    "describeVolumesResponse"
-    "fixture/DescribeVolumesResponse"
-    (Proxy :: Proxy DescribeVolumes)
-
-detachElasticLoadBalancerResponseTest :: DetachElasticLoadBalancerResponse -> TestTree
-detachElasticLoadBalancerResponseTest = resp
-    "detachElasticLoadBalancerResponse"
-    "fixture/DetachElasticLoadBalancerResponse"
-    (Proxy :: Proxy DetachElasticLoadBalancer)
-
-disassociateElasticIPResponseTest :: DisassociateElasticIPResponse -> TestTree
-disassociateElasticIPResponseTest = resp
-    "disassociateElasticIPResponse"
-    "fixture/DisassociateElasticIPResponse"
-    (Proxy :: Proxy DisassociateElasticIP)
-
-getHostnameSuggestionResponseTest :: GetHostnameSuggestionResponse -> TestTree
-getHostnameSuggestionResponseTest = resp
-    "getHostnameSuggestionResponse"
-    "fixture/GetHostnameSuggestionResponse"
-    (Proxy :: Proxy GetHostnameSuggestion)
-
-grantAccessResponseTest :: GrantAccessResponse -> TestTree
-grantAccessResponseTest = resp
-    "grantAccessResponse"
-    "fixture/GrantAccessResponse"
-    (Proxy :: Proxy GrantAccess)
-
-rebootInstanceResponseTest :: RebootInstanceResponse -> TestTree
-rebootInstanceResponseTest = resp
-    "rebootInstanceResponse"
-    "fixture/RebootInstanceResponse"
-    (Proxy :: Proxy RebootInstance)
-
-registerElasticIPResponseTest :: RegisterElasticIPResponse -> TestTree
-registerElasticIPResponseTest = resp
-    "registerElasticIPResponse"
-    "fixture/RegisterElasticIPResponse"
-    (Proxy :: Proxy RegisterElasticIP)
-
-registerInstanceResponseTest :: RegisterInstanceResponse -> TestTree
-registerInstanceResponseTest = resp
-    "registerInstanceResponse"
-    "fixture/RegisterInstanceResponse"
-    (Proxy :: Proxy RegisterInstance)
-
-registerRDSDBInstanceResponseTest :: RegisterRDSDBInstanceResponse -> TestTree
-registerRDSDBInstanceResponseTest = resp
-    "registerRDSDBInstanceResponse"
-    "fixture/RegisterRDSDBInstanceResponse"
-    (Proxy :: Proxy RegisterRDSDBInstance)
-
-registerVolumeResponseTest :: RegisterVolumeResponse -> TestTree
-registerVolumeResponseTest = resp
-    "registerVolumeResponse"
-    "fixture/RegisterVolumeResponse"
-    (Proxy :: Proxy RegisterVolume)
-
-setLoadBasedAutoScalingResponseTest :: SetLoadBasedAutoScalingResponse -> TestTree
-setLoadBasedAutoScalingResponseTest = resp
-    "setLoadBasedAutoScalingResponse"
-    "fixture/SetLoadBasedAutoScalingResponse"
-    (Proxy :: Proxy SetLoadBasedAutoScaling)
-
-setPermissionResponseTest :: SetPermissionResponse -> TestTree
-setPermissionResponseTest = resp
-    "setPermissionResponse"
-    "fixture/SetPermissionResponse"
-    (Proxy :: Proxy SetPermission)
-
-setTimeBasedAutoScalingResponseTest :: SetTimeBasedAutoScalingResponse -> TestTree
-setTimeBasedAutoScalingResponseTest = resp
-    "setTimeBasedAutoScalingResponse"
-    "fixture/SetTimeBasedAutoScalingResponse"
-    (Proxy :: Proxy SetTimeBasedAutoScaling)
-
-startInstanceResponseTest :: StartInstanceResponse -> TestTree
-startInstanceResponseTest = resp
-    "startInstanceResponse"
-    "fixture/StartInstanceResponse"
-    (Proxy :: Proxy StartInstance)
-
-startStackResponseTest :: StartStackResponse -> TestTree
-startStackResponseTest = resp
-    "startStackResponse"
-    "fixture/StartStackResponse"
-    (Proxy :: Proxy StartStack)
-
-stopInstanceResponseTest :: StopInstanceResponse -> TestTree
-stopInstanceResponseTest = resp
-    "stopInstanceResponse"
-    "fixture/StopInstanceResponse"
-    (Proxy :: Proxy StopInstance)
-
-stopStackResponseTest :: StopStackResponse -> TestTree
-stopStackResponseTest = resp
-    "stopStackResponse"
-    "fixture/StopStackResponse"
-    (Proxy :: Proxy StopStack)
-
-unassignInstanceResponseTest :: UnassignInstanceResponse -> TestTree
-unassignInstanceResponseTest = resp
-    "unassignInstanceResponse"
-    "fixture/UnassignInstanceResponse"
-    (Proxy :: Proxy UnassignInstance)
-
-unassignVolumeResponseTest :: UnassignVolumeResponse -> TestTree
-unassignVolumeResponseTest = resp
-    "unassignVolumeResponse"
-    "fixture/UnassignVolumeResponse"
-    (Proxy :: Proxy UnassignVolume)
-
-updateAppResponseTest :: UpdateAppResponse -> TestTree
-updateAppResponseTest = resp
-    "updateAppResponse"
-    "fixture/UpdateAppResponse"
-    (Proxy :: Proxy UpdateApp)
-
-updateElasticIPResponseTest :: UpdateElasticIPResponse -> TestTree
-updateElasticIPResponseTest = resp
-    "updateElasticIPResponse"
-    "fixture/UpdateElasticIPResponse"
-    (Proxy :: Proxy UpdateElasticIP)
-
-updateInstanceResponseTest :: UpdateInstanceResponse -> TestTree
-updateInstanceResponseTest = resp
-    "updateInstanceResponse"
-    "fixture/UpdateInstanceResponse"
-    (Proxy :: Proxy UpdateInstance)
-
-updateLayerResponseTest :: UpdateLayerResponse -> TestTree
-updateLayerResponseTest = resp
-    "updateLayerResponse"
-    "fixture/UpdateLayerResponse"
-    (Proxy :: Proxy UpdateLayer)
-
-updateMyUserProfileResponseTest :: UpdateMyUserProfileResponse -> TestTree
-updateMyUserProfileResponseTest = resp
-    "updateMyUserProfileResponse"
-    "fixture/UpdateMyUserProfileResponse"
-    (Proxy :: Proxy UpdateMyUserProfile)
-
-updateRDSDBInstanceResponseTest :: UpdateRDSDBInstanceResponse -> TestTree
-updateRDSDBInstanceResponseTest = resp
-    "updateRDSDBInstanceResponse"
-    "fixture/UpdateRDSDBInstanceResponse"
-    (Proxy :: Proxy UpdateRDSDBInstance)
-
-updateStackResponseTest :: UpdateStackResponse -> TestTree
-updateStackResponseTest = resp
-    "updateStackResponse"
+testUpdateStackResponse :: UpdateStackResponse -> TestTree
+testUpdateStackResponse = resp
+    "UpdateStackResponse"
     "fixture/UpdateStackResponse"
     (Proxy :: Proxy UpdateStack)
 
-updateUserProfileResponseTest :: UpdateUserProfileResponse -> TestTree
-updateUserProfileResponseTest = resp
-    "updateUserProfileResponse"
+testCreateLayerResponse :: CreateLayerResponse -> TestTree
+testCreateLayerResponse = resp
+    "CreateLayerResponse"
+    "fixture/CreateLayerResponse"
+    (Proxy :: Proxy CreateLayer)
+
+testSetLoadBasedAutoScalingResponse :: SetLoadBasedAutoScalingResponse -> TestTree
+testSetLoadBasedAutoScalingResponse = resp
+    "SetLoadBasedAutoScalingResponse"
+    "fixture/SetLoadBasedAutoScalingResponse"
+    (Proxy :: Proxy SetLoadBasedAutoScaling)
+
+testUnassignVolumeResponse :: UnassignVolumeResponse -> TestTree
+testUnassignVolumeResponse = resp
+    "UnassignVolumeResponse"
+    "fixture/UnassignVolumeResponse"
+    (Proxy :: Proxy UnassignVolume)
+
+testDeregisterRDSDBInstanceResponse :: DeregisterRDSDBInstanceResponse -> TestTree
+testDeregisterRDSDBInstanceResponse = resp
+    "DeregisterRDSDBInstanceResponse"
+    "fixture/DeregisterRDSDBInstanceResponse"
+    (Proxy :: Proxy DeregisterRDSDBInstance)
+
+testCreateInstanceResponse :: CreateInstanceResponse -> TestTree
+testCreateInstanceResponse = resp
+    "CreateInstanceResponse"
+    "fixture/CreateInstanceResponse"
+    (Proxy :: Proxy CreateInstance)
+
+testRegisterElasticIPResponse :: RegisterElasticIPResponse -> TestTree
+testRegisterElasticIPResponse = resp
+    "RegisterElasticIPResponse"
+    "fixture/RegisterElasticIPResponse"
+    (Proxy :: Proxy RegisterElasticIP)
+
+testDescribeAgentVersionsResponse :: DescribeAgentVersionsResponse -> TestTree
+testDescribeAgentVersionsResponse = resp
+    "DescribeAgentVersionsResponse"
+    "fixture/DescribeAgentVersionsResponse"
+    (Proxy :: Proxy DescribeAgentVersions)
+
+testDescribeLayersResponse :: DescribeLayersResponse -> TestTree
+testDescribeLayersResponse = resp
+    "DescribeLayersResponse"
+    "fixture/DescribeLayersResponse"
+    (Proxy :: Proxy DescribeLayers)
+
+testCreateDeploymentResponse :: CreateDeploymentResponse -> TestTree
+testCreateDeploymentResponse = resp
+    "CreateDeploymentResponse"
+    "fixture/CreateDeploymentResponse"
+    (Proxy :: Proxy CreateDeployment)
+
+testDeleteAppResponse :: DeleteAppResponse -> TestTree
+testDeleteAppResponse = resp
+    "DeleteAppResponse"
+    "fixture/DeleteAppResponse"
+    (Proxy :: Proxy DeleteApp)
+
+testUpdateAppResponse :: UpdateAppResponse -> TestTree
+testUpdateAppResponse = resp
+    "UpdateAppResponse"
+    "fixture/UpdateAppResponse"
+    (Proxy :: Proxy UpdateApp)
+
+testDeleteInstanceResponse :: DeleteInstanceResponse -> TestTree
+testDeleteInstanceResponse = resp
+    "DeleteInstanceResponse"
+    "fixture/DeleteInstanceResponse"
+    (Proxy :: Proxy DeleteInstance)
+
+testUpdateInstanceResponse :: UpdateInstanceResponse -> TestTree
+testUpdateInstanceResponse = resp
+    "UpdateInstanceResponse"
+    "fixture/UpdateInstanceResponse"
+    (Proxy :: Proxy UpdateInstance)
+
+testDescribeStacksResponse :: DescribeStacksResponse -> TestTree
+testDescribeStacksResponse = resp
+    "DescribeStacksResponse"
+    "fixture/DescribeStacksResponse"
+    (Proxy :: Proxy DescribeStacks)
+
+testDeregisterVolumeResponse :: DeregisterVolumeResponse -> TestTree
+testDeregisterVolumeResponse = resp
+    "DeregisterVolumeResponse"
+    "fixture/DeregisterVolumeResponse"
+    (Proxy :: Proxy DeregisterVolume)
+
+testAssignInstanceResponse :: AssignInstanceResponse -> TestTree
+testAssignInstanceResponse = resp
+    "AssignInstanceResponse"
+    "fixture/AssignInstanceResponse"
+    (Proxy :: Proxy AssignInstance)
+
+testRebootInstanceResponse :: RebootInstanceResponse -> TestTree
+testRebootInstanceResponse = resp
+    "RebootInstanceResponse"
+    "fixture/RebootInstanceResponse"
+    (Proxy :: Proxy RebootInstance)
+
+testDescribeTimeBasedAutoScalingResponse :: DescribeTimeBasedAutoScalingResponse -> TestTree
+testDescribeTimeBasedAutoScalingResponse = resp
+    "DescribeTimeBasedAutoScalingResponse"
+    "fixture/DescribeTimeBasedAutoScalingResponse"
+    (Proxy :: Proxy DescribeTimeBasedAutoScaling)
+
+testUpdateRDSDBInstanceResponse :: UpdateRDSDBInstanceResponse -> TestTree
+testUpdateRDSDBInstanceResponse = resp
+    "UpdateRDSDBInstanceResponse"
+    "fixture/UpdateRDSDBInstanceResponse"
+    (Proxy :: Proxy UpdateRDSDBInstance)
+
+testStopStackResponse :: StopStackResponse -> TestTree
+testStopStackResponse = resp
+    "StopStackResponse"
+    "fixture/StopStackResponse"
+    (Proxy :: Proxy StopStack)
+
+testDescribeVolumesResponse :: DescribeVolumesResponse -> TestTree
+testDescribeVolumesResponse = resp
+    "DescribeVolumesResponse"
+    "fixture/DescribeVolumesResponse"
+    (Proxy :: Proxy DescribeVolumes)
+
+testDisassociateElasticIPResponse :: DisassociateElasticIPResponse -> TestTree
+testDisassociateElasticIPResponse = resp
+    "DisassociateElasticIPResponse"
+    "fixture/DisassociateElasticIPResponse"
+    (Proxy :: Proxy DisassociateElasticIP)
+
+testStopInstanceResponse :: StopInstanceResponse -> TestTree
+testStopInstanceResponse = resp
+    "StopInstanceResponse"
+    "fixture/StopInstanceResponse"
+    (Proxy :: Proxy StopInstance)
+
+testRegisterVolumeResponse :: RegisterVolumeResponse -> TestTree
+testRegisterVolumeResponse = resp
+    "RegisterVolumeResponse"
+    "fixture/RegisterVolumeResponse"
+    (Proxy :: Proxy RegisterVolume)
+
+testSetTimeBasedAutoScalingResponse :: SetTimeBasedAutoScalingResponse -> TestTree
+testSetTimeBasedAutoScalingResponse = resp
+    "SetTimeBasedAutoScalingResponse"
+    "fixture/SetTimeBasedAutoScalingResponse"
+    (Proxy :: Proxy SetTimeBasedAutoScaling)
+
+testDeregisterElasticIPResponse :: DeregisterElasticIPResponse -> TestTree
+testDeregisterElasticIPResponse = resp
+    "DeregisterElasticIPResponse"
+    "fixture/DeregisterElasticIPResponse"
+    (Proxy :: Proxy DeregisterElasticIP)
+
+testAttachElasticLoadBalancerResponse :: AttachElasticLoadBalancerResponse -> TestTree
+testAttachElasticLoadBalancerResponse = resp
+    "AttachElasticLoadBalancerResponse"
+    "fixture/AttachElasticLoadBalancerResponse"
+    (Proxy :: Proxy AttachElasticLoadBalancer)
+
+testDescribeUserProfilesResponse :: DescribeUserProfilesResponse -> TestTree
+testDescribeUserProfilesResponse = resp
+    "DescribeUserProfilesResponse"
+    "fixture/DescribeUserProfilesResponse"
+    (Proxy :: Proxy DescribeUserProfiles)
+
+testDescribeStackSummaryResponse :: DescribeStackSummaryResponse -> TestTree
+testDescribeStackSummaryResponse = resp
+    "DescribeStackSummaryResponse"
+    "fixture/DescribeStackSummaryResponse"
+    (Proxy :: Proxy DescribeStackSummary)
+
+testDescribeAppsResponse :: DescribeAppsResponse -> TestTree
+testDescribeAppsResponse = resp
+    "DescribeAppsResponse"
+    "fixture/DescribeAppsResponse"
+    (Proxy :: Proxy DescribeApps)
+
+testUpdateMyUserProfileResponse :: UpdateMyUserProfileResponse -> TestTree
+testUpdateMyUserProfileResponse = resp
+    "UpdateMyUserProfileResponse"
+    "fixture/UpdateMyUserProfileResponse"
+    (Proxy :: Proxy UpdateMyUserProfile)
+
+testDescribeInstancesResponse :: DescribeInstancesResponse -> TestTree
+testDescribeInstancesResponse = resp
+    "DescribeInstancesResponse"
+    "fixture/DescribeInstancesResponse"
+    (Proxy :: Proxy DescribeInstances)
+
+testDescribeDeploymentsResponse :: DescribeDeploymentsResponse -> TestTree
+testDescribeDeploymentsResponse = resp
+    "DescribeDeploymentsResponse"
+    "fixture/DescribeDeploymentsResponse"
+    (Proxy :: Proxy DescribeDeployments)
+
+testCreateStackResponse :: CreateStackResponse -> TestTree
+testCreateStackResponse = resp
+    "CreateStackResponse"
+    "fixture/CreateStackResponse"
+    (Proxy :: Proxy CreateStack)
+
+testGrantAccessResponse :: GrantAccessResponse -> TestTree
+testGrantAccessResponse = resp
+    "GrantAccessResponse"
+    "fixture/GrantAccessResponse"
+    (Proxy :: Proxy GrantAccess)
+
+testDescribeElasticIPsResponse :: DescribeElasticIPsResponse -> TestTree
+testDescribeElasticIPsResponse = resp
+    "DescribeElasticIPsResponse"
+    "fixture/DescribeElasticIPsResponse"
+    (Proxy :: Proxy DescribeElasticIPs)
+
+testDeleteLayerResponse :: DeleteLayerResponse -> TestTree
+testDeleteLayerResponse = resp
+    "DeleteLayerResponse"
+    "fixture/DeleteLayerResponse"
+    (Proxy :: Proxy DeleteLayer)
+
+testUpdateLayerResponse :: UpdateLayerResponse -> TestTree
+testUpdateLayerResponse = resp
+    "UpdateLayerResponse"
+    "fixture/UpdateLayerResponse"
+    (Proxy :: Proxy UpdateLayer)
+
+testCloneStackResponse :: CloneStackResponse -> TestTree
+testCloneStackResponse = resp
+    "CloneStackResponse"
+    "fixture/CloneStackResponse"
+    (Proxy :: Proxy CloneStack)
+
+testGetHostnameSuggestionResponse :: GetHostnameSuggestionResponse -> TestTree
+testGetHostnameSuggestionResponse = resp
+    "GetHostnameSuggestionResponse"
+    "fixture/GetHostnameSuggestionResponse"
+    (Proxy :: Proxy GetHostnameSuggestion)
+
+testCreateAppResponse :: CreateAppResponse -> TestTree
+testCreateAppResponse = resp
+    "CreateAppResponse"
+    "fixture/CreateAppResponse"
+    (Proxy :: Proxy CreateApp)
+
+testDescribePermissionsResponse :: DescribePermissionsResponse -> TestTree
+testDescribePermissionsResponse = resp
+    "DescribePermissionsResponse"
+    "fixture/DescribePermissionsResponse"
+    (Proxy :: Proxy DescribePermissions)
+
+testUpdateElasticIPResponse :: UpdateElasticIPResponse -> TestTree
+testUpdateElasticIPResponse = resp
+    "UpdateElasticIPResponse"
+    "fixture/UpdateElasticIPResponse"
+    (Proxy :: Proxy UpdateElasticIP)
+
+testDescribeLoadBasedAutoScalingResponse :: DescribeLoadBasedAutoScalingResponse -> TestTree
+testDescribeLoadBasedAutoScalingResponse = resp
+    "DescribeLoadBasedAutoScalingResponse"
+    "fixture/DescribeLoadBasedAutoScalingResponse"
+    (Proxy :: Proxy DescribeLoadBasedAutoScaling)
+
+testRegisterInstanceResponse :: RegisterInstanceResponse -> TestTree
+testRegisterInstanceResponse = resp
+    "RegisterInstanceResponse"
+    "fixture/RegisterInstanceResponse"
+    (Proxy :: Proxy RegisterInstance)
+
+testAssociateElasticIPResponse :: AssociateElasticIPResponse -> TestTree
+testAssociateElasticIPResponse = resp
+    "AssociateElasticIPResponse"
+    "fixture/AssociateElasticIPResponse"
+    (Proxy :: Proxy AssociateElasticIP)
+
+testDetachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse -> TestTree
+testDetachElasticLoadBalancerResponse = resp
+    "DetachElasticLoadBalancerResponse"
+    "fixture/DetachElasticLoadBalancerResponse"
+    (Proxy :: Proxy DetachElasticLoadBalancer)
+
+testDescribeStackProvisioningParametersResponse :: DescribeStackProvisioningParametersResponse -> TestTree
+testDescribeStackProvisioningParametersResponse = resp
+    "DescribeStackProvisioningParametersResponse"
+    "fixture/DescribeStackProvisioningParametersResponse"
+    (Proxy :: Proxy DescribeStackProvisioningParameters)
+
+testDescribeMyUserProfileResponse :: DescribeMyUserProfileResponse -> TestTree
+testDescribeMyUserProfileResponse = resp
+    "DescribeMyUserProfileResponse"
+    "fixture/DescribeMyUserProfileResponse"
+    (Proxy :: Proxy DescribeMyUserProfile)
+
+testUnassignInstanceResponse :: UnassignInstanceResponse -> TestTree
+testUnassignInstanceResponse = resp
+    "UnassignInstanceResponse"
+    "fixture/UnassignInstanceResponse"
+    (Proxy :: Proxy UnassignInstance)
+
+testRegisterRDSDBInstanceResponse :: RegisterRDSDBInstanceResponse -> TestTree
+testRegisterRDSDBInstanceResponse = resp
+    "RegisterRDSDBInstanceResponse"
+    "fixture/RegisterRDSDBInstanceResponse"
+    (Proxy :: Proxy RegisterRDSDBInstance)
+
+testDeleteUserProfileResponse :: DeleteUserProfileResponse -> TestTree
+testDeleteUserProfileResponse = resp
+    "DeleteUserProfileResponse"
+    "fixture/DeleteUserProfileResponse"
+    (Proxy :: Proxy DeleteUserProfile)
+
+testUpdateUserProfileResponse :: UpdateUserProfileResponse -> TestTree
+testUpdateUserProfileResponse = resp
+    "UpdateUserProfileResponse"
     "fixture/UpdateUserProfileResponse"
     (Proxy :: Proxy UpdateUserProfile)
 
-updateVolumeResponseTest :: UpdateVolumeResponse -> TestTree
-updateVolumeResponseTest = resp
-    "updateVolumeResponse"
+testDescribeServiceErrorsResponse :: DescribeServiceErrorsResponse -> TestTree
+testDescribeServiceErrorsResponse = resp
+    "DescribeServiceErrorsResponse"
+    "fixture/DescribeServiceErrorsResponse"
+    (Proxy :: Proxy DescribeServiceErrors)
+
+testStartStackResponse :: StartStackResponse -> TestTree
+testStartStackResponse = resp
+    "StartStackResponse"
+    "fixture/StartStackResponse"
+    (Proxy :: Proxy StartStack)
+
+testCreateUserProfileResponse :: CreateUserProfileResponse -> TestTree
+testCreateUserProfileResponse = resp
+    "CreateUserProfileResponse"
+    "fixture/CreateUserProfileResponse"
+    (Proxy :: Proxy CreateUserProfile)
+
+testDescribeCommandsResponse :: DescribeCommandsResponse -> TestTree
+testDescribeCommandsResponse = resp
+    "DescribeCommandsResponse"
+    "fixture/DescribeCommandsResponse"
+    (Proxy :: Proxy DescribeCommands)
+
+testDescribeElasticLoadBalancersResponse :: DescribeElasticLoadBalancersResponse -> TestTree
+testDescribeElasticLoadBalancersResponse = resp
+    "DescribeElasticLoadBalancersResponse"
+    "fixture/DescribeElasticLoadBalancersResponse"
+    (Proxy :: Proxy DescribeElasticLoadBalancers)
+
+testDeregisterInstanceResponse :: DeregisterInstanceResponse -> TestTree
+testDeregisterInstanceResponse = resp
+    "DeregisterInstanceResponse"
+    "fixture/DeregisterInstanceResponse"
+    (Proxy :: Proxy DeregisterInstance)
+
+testDescribeRAIDArraysResponse :: DescribeRAIDArraysResponse -> TestTree
+testDescribeRAIDArraysResponse = resp
+    "DescribeRAIDArraysResponse"
+    "fixture/DescribeRAIDArraysResponse"
+    (Proxy :: Proxy DescribeRAIDArrays)
+
+testSetPermissionResponse :: SetPermissionResponse -> TestTree
+testSetPermissionResponse = resp
+    "SetPermissionResponse"
+    "fixture/SetPermissionResponse"
+    (Proxy :: Proxy SetPermission)
+
+testUpdateVolumeResponse :: UpdateVolumeResponse -> TestTree
+testUpdateVolumeResponse = resp
+    "UpdateVolumeResponse"
     "fixture/UpdateVolumeResponse"
     (Proxy :: Proxy UpdateVolume)
+
+testAssignVolumeResponse :: AssignVolumeResponse -> TestTree
+testAssignVolumeResponse = resp
+    "AssignVolumeResponse"
+    "fixture/AssignVolumeResponse"
+    (Proxy :: Proxy AssignVolume)
+
+testStartInstanceResponse :: StartInstanceResponse -> TestTree
+testStartInstanceResponse = resp
+    "StartInstanceResponse"
+    "fixture/StartInstanceResponse"
+    (Proxy :: Proxy StartInstance)

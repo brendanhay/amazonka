@@ -23,419 +23,419 @@ import Network.AWS.ECS
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ createClusterTest $
---             createCluster
---
---         , createServiceTest $
---             createService
---
---         , deleteClusterTest $
---             deleteCluster
---
---         , deleteServiceTest $
---             deleteService
---
---         , deregisterContainerInstanceTest $
---             deregisterContainerInstance
---
---         , deregisterTaskDefinitionTest $
---             deregisterTaskDefinition
---
---         , describeClustersTest $
---             describeClusters
---
---         , describeContainerInstancesTest $
---             describeContainerInstances
---
---         , describeServicesTest $
---             describeServices
---
---         , describeTaskDefinitionTest $
---             describeTaskDefinition
---
---         , describeTasksTest $
---             describeTasks
---
---         , discoverPollEndpointTest $
---             discoverPollEndpoint
---
---         , listClustersTest $
---             listClusters
---
---         , listContainerInstancesTest $
---             listContainerInstances
---
---         , listServicesTest $
+--         [ testListServices $
 --             listServices
 --
---         , listTaskDefinitionFamiliesTest $
---             listTaskDefinitionFamilies
+--         , testDescribeClusters $
+--             describeClusters
 --
---         , listTaskDefinitionsTest $
---             listTaskDefinitions
+--         , testDeleteService $
+--             deleteService
 --
---         , listTasksTest $
---             listTasks
+--         , testUpdateService $
+--             updateService
 --
---         , registerContainerInstanceTest $
---             registerContainerInstance
+--         , testDiscoverPollEndpoint $
+--             discoverPollEndpoint
 --
---         , registerTaskDefinitionTest $
---             registerTaskDefinition
---
---         , runTaskTest $
---             runTask
---
---         , startTaskTest $
---             startTask
---
---         , stopTaskTest $
---             stopTask
---
---         , submitContainerStateChangeTest $
+--         , testSubmitContainerStateChange $
 --             submitContainerStateChange
 --
---         , submitTaskStateChangeTest $
+--         , testStopTask $
+--             stopTask
+--
+--         , testDescribeTaskDefinition $
+--             describeTaskDefinition
+--
+--         , testSubmitTaskStateChange $
 --             submitTaskStateChange
 --
---         , updateContainerAgentTest $
+--         , testDescribeContainerInstances $
+--             describeContainerInstances
+--
+--         , testDeleteCluster $
+--             deleteCluster
+--
+--         , testCreateCluster $
+--             createCluster
+--
+--         , testListTaskDefinitions $
+--             listTaskDefinitions
+--
+--         , testListTasks $
+--             listTasks
+--
+--         , testRunTask $
+--             runTask
+--
+--         , testListContainerInstances $
+--             listContainerInstances
+--
+--         , testRegisterContainerInstance $
+--             registerContainerInstance
+--
+--         , testUpdateContainerAgent $
 --             updateContainerAgent
 --
---         , updateServiceTest $
---             updateService
+--         , testListTaskDefinitionFamilies $
+--             listTaskDefinitionFamilies
+--
+--         , testStartTask $
+--             startTask
+--
+--         , testDeregisterTaskDefinition $
+--             deregisterTaskDefinition
+--
+--         , testDescribeTasks $
+--             describeTasks
+--
+--         , testListClusters $
+--             listClusters
+--
+--         , testDescribeServices $
+--             describeServices
+--
+--         , testDeregisterContainerInstance $
+--             deregisterContainerInstance
+--
+--         , testRegisterTaskDefinition $
+--             registerTaskDefinition
+--
+--         , testCreateService $
+--             createService
 --
 --           ]
 
 --     , testGroup "response"
---         [ createClusterResponseTest $
---             createClusterResponse
---
---         , createServiceResponseTest $
---             createServiceResponse
---
---         , deleteClusterResponseTest $
---             deleteClusterResponse
---
---         , deleteServiceResponseTest $
---             deleteServiceResponse
---
---         , deregisterContainerInstanceResponseTest $
---             deregisterContainerInstanceResponse
---
---         , deregisterTaskDefinitionResponseTest $
---             deregisterTaskDefinitionResponse
---
---         , describeClustersResponseTest $
---             describeClustersResponse
---
---         , describeContainerInstancesResponseTest $
---             describeContainerInstancesResponse
---
---         , describeServicesResponseTest $
---             describeServicesResponse
---
---         , describeTaskDefinitionResponseTest $
---             describeTaskDefinitionResponse
---
---         , describeTasksResponseTest $
---             describeTasksResponse
---
---         , discoverPollEndpointResponseTest $
---             discoverPollEndpointResponse
---
---         , listClustersResponseTest $
---             listClustersResponse
---
---         , listContainerInstancesResponseTest $
---             listContainerInstancesResponse
---
---         , listServicesResponseTest $
+--         [ testListServicesResponse $
 --             listServicesResponse
 --
---         , listTaskDefinitionFamiliesResponseTest $
---             listTaskDefinitionFamiliesResponse
+--         , testDescribeClustersResponse $
+--             describeClustersResponse
 --
---         , listTaskDefinitionsResponseTest $
---             listTaskDefinitionsResponse
+--         , testDeleteServiceResponse $
+--             deleteServiceResponse
 --
---         , listTasksResponseTest $
---             listTasksResponse
+--         , testUpdateServiceResponse $
+--             updateServiceResponse
 --
---         , registerContainerInstanceResponseTest $
---             registerContainerInstanceResponse
+--         , testDiscoverPollEndpointResponse $
+--             discoverPollEndpointResponse
 --
---         , registerTaskDefinitionResponseTest $
---             registerTaskDefinitionResponse
---
---         , runTaskResponseTest $
---             runTaskResponse
---
---         , startTaskResponseTest $
---             startTaskResponse
---
---         , stopTaskResponseTest $
---             stopTaskResponse
---
---         , submitContainerStateChangeResponseTest $
+--         , testSubmitContainerStateChangeResponse $
 --             submitContainerStateChangeResponse
 --
---         , submitTaskStateChangeResponseTest $
+--         , testStopTaskResponse $
+--             stopTaskResponse
+--
+--         , testDescribeTaskDefinitionResponse $
+--             describeTaskDefinitionResponse
+--
+--         , testSubmitTaskStateChangeResponse $
 --             submitTaskStateChangeResponse
 --
---         , updateContainerAgentResponseTest $
+--         , testDescribeContainerInstancesResponse $
+--             describeContainerInstancesResponse
+--
+--         , testDeleteClusterResponse $
+--             deleteClusterResponse
+--
+--         , testCreateClusterResponse $
+--             createClusterResponse
+--
+--         , testListTaskDefinitionsResponse $
+--             listTaskDefinitionsResponse
+--
+--         , testListTasksResponse $
+--             listTasksResponse
+--
+--         , testRunTaskResponse $
+--             runTaskResponse
+--
+--         , testListContainerInstancesResponse $
+--             listContainerInstancesResponse
+--
+--         , testRegisterContainerInstanceResponse $
+--             registerContainerInstanceResponse
+--
+--         , testUpdateContainerAgentResponse $
 --             updateContainerAgentResponse
 --
---         , updateServiceResponseTest $
---             updateServiceResponse
+--         , testListTaskDefinitionFamiliesResponse $
+--             listTaskDefinitionFamiliesResponse
+--
+--         , testStartTaskResponse $
+--             startTaskResponse
+--
+--         , testDeregisterTaskDefinitionResponse $
+--             deregisterTaskDefinitionResponse
+--
+--         , testDescribeTasksResponse $
+--             describeTasksResponse
+--
+--         , testListClustersResponse $
+--             listClustersResponse
+--
+--         , testDescribeServicesResponse $
+--             describeServicesResponse
+--
+--         , testDeregisterContainerInstanceResponse $
+--             deregisterContainerInstanceResponse
+--
+--         , testRegisterTaskDefinitionResponse $
+--             registerTaskDefinitionResponse
+--
+--         , testCreateServiceResponse $
+--             createServiceResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-createClusterTest :: CreateCluster -> TestTree
-createClusterTest = undefined
+testListServices :: ListServices -> TestTree
+testListServices = undefined
 
-createServiceTest :: CreateService -> TestTree
-createServiceTest = undefined
+testDescribeClusters :: DescribeClusters -> TestTree
+testDescribeClusters = undefined
 
-deleteClusterTest :: DeleteCluster -> TestTree
-deleteClusterTest = undefined
+testDeleteService :: DeleteService -> TestTree
+testDeleteService = undefined
 
-deleteServiceTest :: DeleteService -> TestTree
-deleteServiceTest = undefined
+testUpdateService :: UpdateService -> TestTree
+testUpdateService = undefined
 
-deregisterContainerInstanceTest :: DeregisterContainerInstance -> TestTree
-deregisterContainerInstanceTest = undefined
+testDiscoverPollEndpoint :: DiscoverPollEndpoint -> TestTree
+testDiscoverPollEndpoint = undefined
 
-deregisterTaskDefinitionTest :: DeregisterTaskDefinition -> TestTree
-deregisterTaskDefinitionTest = undefined
+testSubmitContainerStateChange :: SubmitContainerStateChange -> TestTree
+testSubmitContainerStateChange = undefined
 
-describeClustersTest :: DescribeClusters -> TestTree
-describeClustersTest = undefined
+testStopTask :: StopTask -> TestTree
+testStopTask = undefined
 
-describeContainerInstancesTest :: DescribeContainerInstances -> TestTree
-describeContainerInstancesTest = undefined
+testDescribeTaskDefinition :: DescribeTaskDefinition -> TestTree
+testDescribeTaskDefinition = undefined
 
-describeServicesTest :: DescribeServices -> TestTree
-describeServicesTest = undefined
+testSubmitTaskStateChange :: SubmitTaskStateChange -> TestTree
+testSubmitTaskStateChange = undefined
 
-describeTaskDefinitionTest :: DescribeTaskDefinition -> TestTree
-describeTaskDefinitionTest = undefined
+testDescribeContainerInstances :: DescribeContainerInstances -> TestTree
+testDescribeContainerInstances = undefined
 
-describeTasksTest :: DescribeTasks -> TestTree
-describeTasksTest = undefined
+testDeleteCluster :: DeleteCluster -> TestTree
+testDeleteCluster = undefined
 
-discoverPollEndpointTest :: DiscoverPollEndpoint -> TestTree
-discoverPollEndpointTest = undefined
+testCreateCluster :: CreateCluster -> TestTree
+testCreateCluster = undefined
 
-listClustersTest :: ListClusters -> TestTree
-listClustersTest = undefined
+testListTaskDefinitions :: ListTaskDefinitions -> TestTree
+testListTaskDefinitions = undefined
 
-listContainerInstancesTest :: ListContainerInstances -> TestTree
-listContainerInstancesTest = undefined
+testListTasks :: ListTasks -> TestTree
+testListTasks = undefined
 
-listServicesTest :: ListServices -> TestTree
-listServicesTest = undefined
+testRunTask :: RunTask -> TestTree
+testRunTask = undefined
 
-listTaskDefinitionFamiliesTest :: ListTaskDefinitionFamilies -> TestTree
-listTaskDefinitionFamiliesTest = undefined
+testListContainerInstances :: ListContainerInstances -> TestTree
+testListContainerInstances = undefined
 
-listTaskDefinitionsTest :: ListTaskDefinitions -> TestTree
-listTaskDefinitionsTest = undefined
+testRegisterContainerInstance :: RegisterContainerInstance -> TestTree
+testRegisterContainerInstance = undefined
 
-listTasksTest :: ListTasks -> TestTree
-listTasksTest = undefined
+testUpdateContainerAgent :: UpdateContainerAgent -> TestTree
+testUpdateContainerAgent = undefined
 
-registerContainerInstanceTest :: RegisterContainerInstance -> TestTree
-registerContainerInstanceTest = undefined
+testListTaskDefinitionFamilies :: ListTaskDefinitionFamilies -> TestTree
+testListTaskDefinitionFamilies = undefined
 
-registerTaskDefinitionTest :: RegisterTaskDefinition -> TestTree
-registerTaskDefinitionTest = undefined
+testStartTask :: StartTask -> TestTree
+testStartTask = undefined
 
-runTaskTest :: RunTask -> TestTree
-runTaskTest = undefined
+testDeregisterTaskDefinition :: DeregisterTaskDefinition -> TestTree
+testDeregisterTaskDefinition = undefined
 
-startTaskTest :: StartTask -> TestTree
-startTaskTest = undefined
+testDescribeTasks :: DescribeTasks -> TestTree
+testDescribeTasks = undefined
 
-stopTaskTest :: StopTask -> TestTree
-stopTaskTest = undefined
+testListClusters :: ListClusters -> TestTree
+testListClusters = undefined
 
-submitContainerStateChangeTest :: SubmitContainerStateChange -> TestTree
-submitContainerStateChangeTest = undefined
+testDescribeServices :: DescribeServices -> TestTree
+testDescribeServices = undefined
 
-submitTaskStateChangeTest :: SubmitTaskStateChange -> TestTree
-submitTaskStateChangeTest = undefined
+testDeregisterContainerInstance :: DeregisterContainerInstance -> TestTree
+testDeregisterContainerInstance = undefined
 
-updateContainerAgentTest :: UpdateContainerAgent -> TestTree
-updateContainerAgentTest = undefined
+testRegisterTaskDefinition :: RegisterTaskDefinition -> TestTree
+testRegisterTaskDefinition = undefined
 
-updateServiceTest :: UpdateService -> TestTree
-updateServiceTest = undefined
+testCreateService :: CreateService -> TestTree
+testCreateService = undefined
 
 -- Responses
 
-createClusterResponseTest :: CreateClusterResponse -> TestTree
-createClusterResponseTest = resp
-    "createClusterResponse"
-    "fixture/CreateClusterResponse"
-    (Proxy :: Proxy CreateCluster)
-
-createServiceResponseTest :: CreateServiceResponse -> TestTree
-createServiceResponseTest = resp
-    "createServiceResponse"
-    "fixture/CreateServiceResponse"
-    (Proxy :: Proxy CreateService)
-
-deleteClusterResponseTest :: DeleteClusterResponse -> TestTree
-deleteClusterResponseTest = resp
-    "deleteClusterResponse"
-    "fixture/DeleteClusterResponse"
-    (Proxy :: Proxy DeleteCluster)
-
-deleteServiceResponseTest :: DeleteServiceResponse -> TestTree
-deleteServiceResponseTest = resp
-    "deleteServiceResponse"
-    "fixture/DeleteServiceResponse"
-    (Proxy :: Proxy DeleteService)
-
-deregisterContainerInstanceResponseTest :: DeregisterContainerInstanceResponse -> TestTree
-deregisterContainerInstanceResponseTest = resp
-    "deregisterContainerInstanceResponse"
-    "fixture/DeregisterContainerInstanceResponse"
-    (Proxy :: Proxy DeregisterContainerInstance)
-
-deregisterTaskDefinitionResponseTest :: DeregisterTaskDefinitionResponse -> TestTree
-deregisterTaskDefinitionResponseTest = resp
-    "deregisterTaskDefinitionResponse"
-    "fixture/DeregisterTaskDefinitionResponse"
-    (Proxy :: Proxy DeregisterTaskDefinition)
-
-describeClustersResponseTest :: DescribeClustersResponse -> TestTree
-describeClustersResponseTest = resp
-    "describeClustersResponse"
-    "fixture/DescribeClustersResponse"
-    (Proxy :: Proxy DescribeClusters)
-
-describeContainerInstancesResponseTest :: DescribeContainerInstancesResponse -> TestTree
-describeContainerInstancesResponseTest = resp
-    "describeContainerInstancesResponse"
-    "fixture/DescribeContainerInstancesResponse"
-    (Proxy :: Proxy DescribeContainerInstances)
-
-describeServicesResponseTest :: DescribeServicesResponse -> TestTree
-describeServicesResponseTest = resp
-    "describeServicesResponse"
-    "fixture/DescribeServicesResponse"
-    (Proxy :: Proxy DescribeServices)
-
-describeTaskDefinitionResponseTest :: DescribeTaskDefinitionResponse -> TestTree
-describeTaskDefinitionResponseTest = resp
-    "describeTaskDefinitionResponse"
-    "fixture/DescribeTaskDefinitionResponse"
-    (Proxy :: Proxy DescribeTaskDefinition)
-
-describeTasksResponseTest :: DescribeTasksResponse -> TestTree
-describeTasksResponseTest = resp
-    "describeTasksResponse"
-    "fixture/DescribeTasksResponse"
-    (Proxy :: Proxy DescribeTasks)
-
-discoverPollEndpointResponseTest :: DiscoverPollEndpointResponse -> TestTree
-discoverPollEndpointResponseTest = resp
-    "discoverPollEndpointResponse"
-    "fixture/DiscoverPollEndpointResponse"
-    (Proxy :: Proxy DiscoverPollEndpoint)
-
-listClustersResponseTest :: ListClustersResponse -> TestTree
-listClustersResponseTest = resp
-    "listClustersResponse"
-    "fixture/ListClustersResponse"
-    (Proxy :: Proxy ListClusters)
-
-listContainerInstancesResponseTest :: ListContainerInstancesResponse -> TestTree
-listContainerInstancesResponseTest = resp
-    "listContainerInstancesResponse"
-    "fixture/ListContainerInstancesResponse"
-    (Proxy :: Proxy ListContainerInstances)
-
-listServicesResponseTest :: ListServicesResponse -> TestTree
-listServicesResponseTest = resp
-    "listServicesResponse"
+testListServicesResponse :: ListServicesResponse -> TestTree
+testListServicesResponse = resp
+    "ListServicesResponse"
     "fixture/ListServicesResponse"
     (Proxy :: Proxy ListServices)
 
-listTaskDefinitionFamiliesResponseTest :: ListTaskDefinitionFamiliesResponse -> TestTree
-listTaskDefinitionFamiliesResponseTest = resp
-    "listTaskDefinitionFamiliesResponse"
-    "fixture/ListTaskDefinitionFamiliesResponse"
-    (Proxy :: Proxy ListTaskDefinitionFamilies)
+testDescribeClustersResponse :: DescribeClustersResponse -> TestTree
+testDescribeClustersResponse = resp
+    "DescribeClustersResponse"
+    "fixture/DescribeClustersResponse"
+    (Proxy :: Proxy DescribeClusters)
 
-listTaskDefinitionsResponseTest :: ListTaskDefinitionsResponse -> TestTree
-listTaskDefinitionsResponseTest = resp
-    "listTaskDefinitionsResponse"
-    "fixture/ListTaskDefinitionsResponse"
-    (Proxy :: Proxy ListTaskDefinitions)
+testDeleteServiceResponse :: DeleteServiceResponse -> TestTree
+testDeleteServiceResponse = resp
+    "DeleteServiceResponse"
+    "fixture/DeleteServiceResponse"
+    (Proxy :: Proxy DeleteService)
 
-listTasksResponseTest :: ListTasksResponse -> TestTree
-listTasksResponseTest = resp
-    "listTasksResponse"
-    "fixture/ListTasksResponse"
-    (Proxy :: Proxy ListTasks)
+testUpdateServiceResponse :: UpdateServiceResponse -> TestTree
+testUpdateServiceResponse = resp
+    "UpdateServiceResponse"
+    "fixture/UpdateServiceResponse"
+    (Proxy :: Proxy UpdateService)
 
-registerContainerInstanceResponseTest :: RegisterContainerInstanceResponse -> TestTree
-registerContainerInstanceResponseTest = resp
-    "registerContainerInstanceResponse"
-    "fixture/RegisterContainerInstanceResponse"
-    (Proxy :: Proxy RegisterContainerInstance)
+testDiscoverPollEndpointResponse :: DiscoverPollEndpointResponse -> TestTree
+testDiscoverPollEndpointResponse = resp
+    "DiscoverPollEndpointResponse"
+    "fixture/DiscoverPollEndpointResponse"
+    (Proxy :: Proxy DiscoverPollEndpoint)
 
-registerTaskDefinitionResponseTest :: RegisterTaskDefinitionResponse -> TestTree
-registerTaskDefinitionResponseTest = resp
-    "registerTaskDefinitionResponse"
-    "fixture/RegisterTaskDefinitionResponse"
-    (Proxy :: Proxy RegisterTaskDefinition)
-
-runTaskResponseTest :: RunTaskResponse -> TestTree
-runTaskResponseTest = resp
-    "runTaskResponse"
-    "fixture/RunTaskResponse"
-    (Proxy :: Proxy RunTask)
-
-startTaskResponseTest :: StartTaskResponse -> TestTree
-startTaskResponseTest = resp
-    "startTaskResponse"
-    "fixture/StartTaskResponse"
-    (Proxy :: Proxy StartTask)
-
-stopTaskResponseTest :: StopTaskResponse -> TestTree
-stopTaskResponseTest = resp
-    "stopTaskResponse"
-    "fixture/StopTaskResponse"
-    (Proxy :: Proxy StopTask)
-
-submitContainerStateChangeResponseTest :: SubmitContainerStateChangeResponse -> TestTree
-submitContainerStateChangeResponseTest = resp
-    "submitContainerStateChangeResponse"
+testSubmitContainerStateChangeResponse :: SubmitContainerStateChangeResponse -> TestTree
+testSubmitContainerStateChangeResponse = resp
+    "SubmitContainerStateChangeResponse"
     "fixture/SubmitContainerStateChangeResponse"
     (Proxy :: Proxy SubmitContainerStateChange)
 
-submitTaskStateChangeResponseTest :: SubmitTaskStateChangeResponse -> TestTree
-submitTaskStateChangeResponseTest = resp
-    "submitTaskStateChangeResponse"
+testStopTaskResponse :: StopTaskResponse -> TestTree
+testStopTaskResponse = resp
+    "StopTaskResponse"
+    "fixture/StopTaskResponse"
+    (Proxy :: Proxy StopTask)
+
+testDescribeTaskDefinitionResponse :: DescribeTaskDefinitionResponse -> TestTree
+testDescribeTaskDefinitionResponse = resp
+    "DescribeTaskDefinitionResponse"
+    "fixture/DescribeTaskDefinitionResponse"
+    (Proxy :: Proxy DescribeTaskDefinition)
+
+testSubmitTaskStateChangeResponse :: SubmitTaskStateChangeResponse -> TestTree
+testSubmitTaskStateChangeResponse = resp
+    "SubmitTaskStateChangeResponse"
     "fixture/SubmitTaskStateChangeResponse"
     (Proxy :: Proxy SubmitTaskStateChange)
 
-updateContainerAgentResponseTest :: UpdateContainerAgentResponse -> TestTree
-updateContainerAgentResponseTest = resp
-    "updateContainerAgentResponse"
+testDescribeContainerInstancesResponse :: DescribeContainerInstancesResponse -> TestTree
+testDescribeContainerInstancesResponse = resp
+    "DescribeContainerInstancesResponse"
+    "fixture/DescribeContainerInstancesResponse"
+    (Proxy :: Proxy DescribeContainerInstances)
+
+testDeleteClusterResponse :: DeleteClusterResponse -> TestTree
+testDeleteClusterResponse = resp
+    "DeleteClusterResponse"
+    "fixture/DeleteClusterResponse"
+    (Proxy :: Proxy DeleteCluster)
+
+testCreateClusterResponse :: CreateClusterResponse -> TestTree
+testCreateClusterResponse = resp
+    "CreateClusterResponse"
+    "fixture/CreateClusterResponse"
+    (Proxy :: Proxy CreateCluster)
+
+testListTaskDefinitionsResponse :: ListTaskDefinitionsResponse -> TestTree
+testListTaskDefinitionsResponse = resp
+    "ListTaskDefinitionsResponse"
+    "fixture/ListTaskDefinitionsResponse"
+    (Proxy :: Proxy ListTaskDefinitions)
+
+testListTasksResponse :: ListTasksResponse -> TestTree
+testListTasksResponse = resp
+    "ListTasksResponse"
+    "fixture/ListTasksResponse"
+    (Proxy :: Proxy ListTasks)
+
+testRunTaskResponse :: RunTaskResponse -> TestTree
+testRunTaskResponse = resp
+    "RunTaskResponse"
+    "fixture/RunTaskResponse"
+    (Proxy :: Proxy RunTask)
+
+testListContainerInstancesResponse :: ListContainerInstancesResponse -> TestTree
+testListContainerInstancesResponse = resp
+    "ListContainerInstancesResponse"
+    "fixture/ListContainerInstancesResponse"
+    (Proxy :: Proxy ListContainerInstances)
+
+testRegisterContainerInstanceResponse :: RegisterContainerInstanceResponse -> TestTree
+testRegisterContainerInstanceResponse = resp
+    "RegisterContainerInstanceResponse"
+    "fixture/RegisterContainerInstanceResponse"
+    (Proxy :: Proxy RegisterContainerInstance)
+
+testUpdateContainerAgentResponse :: UpdateContainerAgentResponse -> TestTree
+testUpdateContainerAgentResponse = resp
+    "UpdateContainerAgentResponse"
     "fixture/UpdateContainerAgentResponse"
     (Proxy :: Proxy UpdateContainerAgent)
 
-updateServiceResponseTest :: UpdateServiceResponse -> TestTree
-updateServiceResponseTest = resp
-    "updateServiceResponse"
-    "fixture/UpdateServiceResponse"
-    (Proxy :: Proxy UpdateService)
+testListTaskDefinitionFamiliesResponse :: ListTaskDefinitionFamiliesResponse -> TestTree
+testListTaskDefinitionFamiliesResponse = resp
+    "ListTaskDefinitionFamiliesResponse"
+    "fixture/ListTaskDefinitionFamiliesResponse"
+    (Proxy :: Proxy ListTaskDefinitionFamilies)
+
+testStartTaskResponse :: StartTaskResponse -> TestTree
+testStartTaskResponse = resp
+    "StartTaskResponse"
+    "fixture/StartTaskResponse"
+    (Proxy :: Proxy StartTask)
+
+testDeregisterTaskDefinitionResponse :: DeregisterTaskDefinitionResponse -> TestTree
+testDeregisterTaskDefinitionResponse = resp
+    "DeregisterTaskDefinitionResponse"
+    "fixture/DeregisterTaskDefinitionResponse"
+    (Proxy :: Proxy DeregisterTaskDefinition)
+
+testDescribeTasksResponse :: DescribeTasksResponse -> TestTree
+testDescribeTasksResponse = resp
+    "DescribeTasksResponse"
+    "fixture/DescribeTasksResponse"
+    (Proxy :: Proxy DescribeTasks)
+
+testListClustersResponse :: ListClustersResponse -> TestTree
+testListClustersResponse = resp
+    "ListClustersResponse"
+    "fixture/ListClustersResponse"
+    (Proxy :: Proxy ListClusters)
+
+testDescribeServicesResponse :: DescribeServicesResponse -> TestTree
+testDescribeServicesResponse = resp
+    "DescribeServicesResponse"
+    "fixture/DescribeServicesResponse"
+    (Proxy :: Proxy DescribeServices)
+
+testDeregisterContainerInstanceResponse :: DeregisterContainerInstanceResponse -> TestTree
+testDeregisterContainerInstanceResponse = resp
+    "DeregisterContainerInstanceResponse"
+    "fixture/DeregisterContainerInstanceResponse"
+    (Proxy :: Proxy DeregisterContainerInstance)
+
+testRegisterTaskDefinitionResponse :: RegisterTaskDefinitionResponse -> TestTree
+testRegisterTaskDefinitionResponse = resp
+    "RegisterTaskDefinitionResponse"
+    "fixture/RegisterTaskDefinitionResponse"
+    (Proxy :: Proxy RegisterTaskDefinition)
+
+testCreateServiceResponse :: CreateServiceResponse -> TestTree
+testCreateServiceResponse = resp
+    "CreateServiceResponse"
+    "fixture/CreateServiceResponse"
+    (Proxy :: Proxy CreateService)

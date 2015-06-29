@@ -23,389 +23,389 @@ import Network.AWS.MachineLearning
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         [ createBatchPredictionTest $
---             createBatchPrediction
---
---         , createDataSourceFromRDSTest $
---             createDataSourceFromRDS
---
---         , createDataSourceFromRedshiftTest $
---             createDataSourceFromRedshift
---
---         , createDataSourceFromS3Test $
---             createDataSourceFromS
---
---         , createEvaluationTest $
---             createEvaluation
---
---         , createMLModelTest $
---             createMLModel
---
---         , createRealtimeEndpointTest $
---             createRealtimeEndpoint
---
---         , deleteBatchPredictionTest $
---             deleteBatchPrediction
---
---         , deleteDataSourceTest $
+--         [ testDeleteDataSource $
 --             deleteDataSource
 --
---         , deleteEvaluationTest $
---             deleteEvaluation
---
---         , deleteMLModelTest $
---             deleteMLModel
---
---         , deleteRealtimeEndpointTest $
---             deleteRealtimeEndpoint
---
---         , describeBatchPredictionsTest $
---             describeBatchPredictions
---
---         , describeDataSourcesTest $
---             describeDataSources
---
---         , describeEvaluationsTest $
---             describeEvaluations
---
---         , describeMLModelsTest $
---             describeMLModels
---
---         , getBatchPredictionTest $
---             getBatchPrediction
---
---         , getDataSourceTest $
---             getDataSource
---
---         , getEvaluationTest $
---             getEvaluation
---
---         , getMLModelTest $
---             getMLModel
---
---         , predictTest $
---             predict
---
---         , updateBatchPredictionTest $
---             updateBatchPrediction
---
---         , updateDataSourceTest $
+--         , testUpdateDataSource $
 --             updateDataSource
 --
---         , updateEvaluationTest $
+--         , testCreateDataSourceFromRedshift $
+--             createDataSourceFromRedshift
+--
+--         , testCreateDataSourceFromS $
+--             createDataSourceFromS
+--
+--         , testCreateMLModel $
+--             createMLModel
+--
+--         , testDeleteBatchPrediction $
+--             deleteBatchPrediction
+--
+--         , testUpdateBatchPrediction $
+--             updateBatchPrediction
+--
+--         , testGetMLModel $
+--             getMLModel
+--
+--         , testGetDataSource $
+--             getDataSource
+--
+--         , testDeleteMLModel $
+--             deleteMLModel
+--
+--         , testUpdateMLModel $
+--             updateMLModel
+--
+--         , testDescribeBatchPredictions $
+--             describeBatchPredictions
+--
+--         , testUpdateEvaluation $
 --             updateEvaluation
 --
---         , updateMLModelTest $
---             updateMLModel
+--         , testDeleteEvaluation $
+--             deleteEvaluation
+--
+--         , testGetBatchPrediction $
+--             getBatchPrediction
+--
+--         , testCreateEvaluation $
+--             createEvaluation
+--
+--         , testCreateDataSourceFromRDS $
+--             createDataSourceFromRDS
+--
+--         , testCreateBatchPrediction $
+--             createBatchPrediction
+--
+--         , testPredict $
+--             predict
+--
+--         , testDeleteRealtimeEndpoint $
+--             deleteRealtimeEndpoint
+--
+--         , testDescribeEvaluations $
+--             describeEvaluations
+--
+--         , testGetEvaluation $
+--             getEvaluation
+--
+--         , testCreateRealtimeEndpoint $
+--             createRealtimeEndpoint
+--
+--         , testDescribeMLModels $
+--             describeMLModels
+--
+--         , testDescribeDataSources $
+--             describeDataSources
 --
 --           ]
 
 --     , testGroup "response"
---         [ createBatchPredictionResponseTest $
---             createBatchPredictionResponse
---
---         , createDataSourceFromRDSResponseTest $
---             createDataSourceFromRDSResponse
---
---         , createDataSourceFromRedshiftResponseTest $
---             createDataSourceFromRedshiftResponse
---
---         , createDataSourceFromS3ResponseTest $
---             createDataSourceFromSResponse
---
---         , createEvaluationResponseTest $
---             createEvaluationResponse
---
---         , createMLModelResponseTest $
---             createMLModelResponse
---
---         , createRealtimeEndpointResponseTest $
---             createRealtimeEndpointResponse
---
---         , deleteBatchPredictionResponseTest $
---             deleteBatchPredictionResponse
---
---         , deleteDataSourceResponseTest $
+--         [ testDeleteDataSourceResponse $
 --             deleteDataSourceResponse
 --
---         , deleteEvaluationResponseTest $
---             deleteEvaluationResponse
---
---         , deleteMLModelResponseTest $
---             deleteMLModelResponse
---
---         , deleteRealtimeEndpointResponseTest $
---             deleteRealtimeEndpointResponse
---
---         , describeBatchPredictionsResponseTest $
---             describeBatchPredictionsResponse
---
---         , describeDataSourcesResponseTest $
---             describeDataSourcesResponse
---
---         , describeEvaluationsResponseTest $
---             describeEvaluationsResponse
---
---         , describeMLModelsResponseTest $
---             describeMLModelsResponse
---
---         , getBatchPredictionResponseTest $
---             getBatchPredictionResponse
---
---         , getDataSourceResponseTest $
---             getDataSourceResponse
---
---         , getEvaluationResponseTest $
---             getEvaluationResponse
---
---         , getMLModelResponseTest $
---             getMLModelResponse
---
---         , predictResponseTest $
---             predictResponse
---
---         , updateBatchPredictionResponseTest $
---             updateBatchPredictionResponse
---
---         , updateDataSourceResponseTest $
+--         , testUpdateDataSourceResponse $
 --             updateDataSourceResponse
 --
---         , updateEvaluationResponseTest $
+--         , testCreateDataSourceFromRedshiftResponse $
+--             createDataSourceFromRedshiftResponse
+--
+--         , testCreateDataSourceFromSResponse $
+--             createDataSourceFromSResponse
+--
+--         , testCreateMLModelResponse $
+--             createMLModelResponse
+--
+--         , testDeleteBatchPredictionResponse $
+--             deleteBatchPredictionResponse
+--
+--         , testUpdateBatchPredictionResponse $
+--             updateBatchPredictionResponse
+--
+--         , testGetMLModelResponse $
+--             getMLModelResponse
+--
+--         , testGetDataSourceResponse $
+--             getDataSourceResponse
+--
+--         , testDeleteMLModelResponse $
+--             deleteMLModelResponse
+--
+--         , testUpdateMLModelResponse $
+--             updateMLModelResponse
+--
+--         , testDescribeBatchPredictionsResponse $
+--             describeBatchPredictionsResponse
+--
+--         , testUpdateEvaluationResponse $
 --             updateEvaluationResponse
 --
---         , updateMLModelResponseTest $
---             updateMLModelResponse
+--         , testDeleteEvaluationResponse $
+--             deleteEvaluationResponse
+--
+--         , testGetBatchPredictionResponse $
+--             getBatchPredictionResponse
+--
+--         , testCreateEvaluationResponse $
+--             createEvaluationResponse
+--
+--         , testCreateDataSourceFromRDSResponse $
+--             createDataSourceFromRDSResponse
+--
+--         , testCreateBatchPredictionResponse $
+--             createBatchPredictionResponse
+--
+--         , testPredictResponse $
+--             predictResponse
+--
+--         , testDeleteRealtimeEndpointResponse $
+--             deleteRealtimeEndpointResponse
+--
+--         , testDescribeEvaluationsResponse $
+--             describeEvaluationsResponse
+--
+--         , testGetEvaluationResponse $
+--             getEvaluationResponse
+--
+--         , testCreateRealtimeEndpointResponse $
+--             createRealtimeEndpointResponse
+--
+--         , testDescribeMLModelsResponse $
+--             describeMLModelsResponse
+--
+--         , testDescribeDataSourcesResponse $
+--             describeDataSourcesResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-createBatchPredictionTest :: CreateBatchPrediction -> TestTree
-createBatchPredictionTest = undefined
+testDeleteDataSource :: DeleteDataSource -> TestTree
+testDeleteDataSource = undefined
 
-createDataSourceFromRDSTest :: CreateDataSourceFromRDS -> TestTree
-createDataSourceFromRDSTest = undefined
+testUpdateDataSource :: UpdateDataSource -> TestTree
+testUpdateDataSource = undefined
 
-createDataSourceFromRedshiftTest :: CreateDataSourceFromRedshift -> TestTree
-createDataSourceFromRedshiftTest = undefined
+testCreateDataSourceFromRedshift :: CreateDataSourceFromRedshift -> TestTree
+testCreateDataSourceFromRedshift = undefined
 
-createDataSourceFromS3Test :: CreateDataSourceFromS -> TestTree
-createDataSourceFromS3Test = undefined
+testCreateDataSourceFromS :: CreateDataSourceFromS -> TestTree
+testCreateDataSourceFromS = undefined
 
-createEvaluationTest :: CreateEvaluation -> TestTree
-createEvaluationTest = undefined
+testCreateMLModel :: CreateMLModel -> TestTree
+testCreateMLModel = undefined
 
-createMLModelTest :: CreateMLModel -> TestTree
-createMLModelTest = undefined
+testDeleteBatchPrediction :: DeleteBatchPrediction -> TestTree
+testDeleteBatchPrediction = undefined
 
-createRealtimeEndpointTest :: CreateRealtimeEndpoint -> TestTree
-createRealtimeEndpointTest = undefined
+testUpdateBatchPrediction :: UpdateBatchPrediction -> TestTree
+testUpdateBatchPrediction = undefined
 
-deleteBatchPredictionTest :: DeleteBatchPrediction -> TestTree
-deleteBatchPredictionTest = undefined
+testGetMLModel :: GetMLModel -> TestTree
+testGetMLModel = undefined
 
-deleteDataSourceTest :: DeleteDataSource -> TestTree
-deleteDataSourceTest = undefined
+testGetDataSource :: GetDataSource -> TestTree
+testGetDataSource = undefined
 
-deleteEvaluationTest :: DeleteEvaluation -> TestTree
-deleteEvaluationTest = undefined
+testDeleteMLModel :: DeleteMLModel -> TestTree
+testDeleteMLModel = undefined
 
-deleteMLModelTest :: DeleteMLModel -> TestTree
-deleteMLModelTest = undefined
+testUpdateMLModel :: UpdateMLModel -> TestTree
+testUpdateMLModel = undefined
 
-deleteRealtimeEndpointTest :: DeleteRealtimeEndpoint -> TestTree
-deleteRealtimeEndpointTest = undefined
+testDescribeBatchPredictions :: DescribeBatchPredictions -> TestTree
+testDescribeBatchPredictions = undefined
 
-describeBatchPredictionsTest :: DescribeBatchPredictions -> TestTree
-describeBatchPredictionsTest = undefined
+testUpdateEvaluation :: UpdateEvaluation -> TestTree
+testUpdateEvaluation = undefined
 
-describeDataSourcesTest :: DescribeDataSources -> TestTree
-describeDataSourcesTest = undefined
+testDeleteEvaluation :: DeleteEvaluation -> TestTree
+testDeleteEvaluation = undefined
 
-describeEvaluationsTest :: DescribeEvaluations -> TestTree
-describeEvaluationsTest = undefined
+testGetBatchPrediction :: GetBatchPrediction -> TestTree
+testGetBatchPrediction = undefined
 
-describeMLModelsTest :: DescribeMLModels -> TestTree
-describeMLModelsTest = undefined
+testCreateEvaluation :: CreateEvaluation -> TestTree
+testCreateEvaluation = undefined
 
-getBatchPredictionTest :: GetBatchPrediction -> TestTree
-getBatchPredictionTest = undefined
+testCreateDataSourceFromRDS :: CreateDataSourceFromRDS -> TestTree
+testCreateDataSourceFromRDS = undefined
 
-getDataSourceTest :: GetDataSource -> TestTree
-getDataSourceTest = undefined
+testCreateBatchPrediction :: CreateBatchPrediction -> TestTree
+testCreateBatchPrediction = undefined
 
-getEvaluationTest :: GetEvaluation -> TestTree
-getEvaluationTest = undefined
+testPredict :: Predict -> TestTree
+testPredict = undefined
 
-getMLModelTest :: GetMLModel -> TestTree
-getMLModelTest = undefined
+testDeleteRealtimeEndpoint :: DeleteRealtimeEndpoint -> TestTree
+testDeleteRealtimeEndpoint = undefined
 
-predictTest :: Predict -> TestTree
-predictTest = undefined
+testDescribeEvaluations :: DescribeEvaluations -> TestTree
+testDescribeEvaluations = undefined
 
-updateBatchPredictionTest :: UpdateBatchPrediction -> TestTree
-updateBatchPredictionTest = undefined
+testGetEvaluation :: GetEvaluation -> TestTree
+testGetEvaluation = undefined
 
-updateDataSourceTest :: UpdateDataSource -> TestTree
-updateDataSourceTest = undefined
+testCreateRealtimeEndpoint :: CreateRealtimeEndpoint -> TestTree
+testCreateRealtimeEndpoint = undefined
 
-updateEvaluationTest :: UpdateEvaluation -> TestTree
-updateEvaluationTest = undefined
+testDescribeMLModels :: DescribeMLModels -> TestTree
+testDescribeMLModels = undefined
 
-updateMLModelTest :: UpdateMLModel -> TestTree
-updateMLModelTest = undefined
+testDescribeDataSources :: DescribeDataSources -> TestTree
+testDescribeDataSources = undefined
 
 -- Responses
 
-createBatchPredictionResponseTest :: CreateBatchPredictionResponse -> TestTree
-createBatchPredictionResponseTest = resp
-    "createBatchPredictionResponse"
-    "fixture/CreateBatchPredictionResponse"
-    (Proxy :: Proxy CreateBatchPrediction)
-
-createDataSourceFromRDSResponseTest :: CreateDataSourceFromRDSResponse -> TestTree
-createDataSourceFromRDSResponseTest = resp
-    "createDataSourceFromRDSResponse"
-    "fixture/CreateDataSourceFromRDSResponse"
-    (Proxy :: Proxy CreateDataSourceFromRDS)
-
-createDataSourceFromRedshiftResponseTest :: CreateDataSourceFromRedshiftResponse -> TestTree
-createDataSourceFromRedshiftResponseTest = resp
-    "createDataSourceFromRedshiftResponse"
-    "fixture/CreateDataSourceFromRedshiftResponse"
-    (Proxy :: Proxy CreateDataSourceFromRedshift)
-
-createDataSourceFromS3ResponseTest :: CreateDataSourceFromSResponse -> TestTree
-createDataSourceFromS3ResponseTest = resp
-    "createDataSourceFromS3Response"
-    "fixture/CreateDataSourceFromSResponse"
-    (Proxy :: Proxy CreateDataSourceFromS)
-
-createEvaluationResponseTest :: CreateEvaluationResponse -> TestTree
-createEvaluationResponseTest = resp
-    "createEvaluationResponse"
-    "fixture/CreateEvaluationResponse"
-    (Proxy :: Proxy CreateEvaluation)
-
-createMLModelResponseTest :: CreateMLModelResponse -> TestTree
-createMLModelResponseTest = resp
-    "createMLModelResponse"
-    "fixture/CreateMLModelResponse"
-    (Proxy :: Proxy CreateMLModel)
-
-createRealtimeEndpointResponseTest :: CreateRealtimeEndpointResponse -> TestTree
-createRealtimeEndpointResponseTest = resp
-    "createRealtimeEndpointResponse"
-    "fixture/CreateRealtimeEndpointResponse"
-    (Proxy :: Proxy CreateRealtimeEndpoint)
-
-deleteBatchPredictionResponseTest :: DeleteBatchPredictionResponse -> TestTree
-deleteBatchPredictionResponseTest = resp
-    "deleteBatchPredictionResponse"
-    "fixture/DeleteBatchPredictionResponse"
-    (Proxy :: Proxy DeleteBatchPrediction)
-
-deleteDataSourceResponseTest :: DeleteDataSourceResponse -> TestTree
-deleteDataSourceResponseTest = resp
-    "deleteDataSourceResponse"
+testDeleteDataSourceResponse :: DeleteDataSourceResponse -> TestTree
+testDeleteDataSourceResponse = resp
+    "DeleteDataSourceResponse"
     "fixture/DeleteDataSourceResponse"
     (Proxy :: Proxy DeleteDataSource)
 
-deleteEvaluationResponseTest :: DeleteEvaluationResponse -> TestTree
-deleteEvaluationResponseTest = resp
-    "deleteEvaluationResponse"
-    "fixture/DeleteEvaluationResponse"
-    (Proxy :: Proxy DeleteEvaluation)
-
-deleteMLModelResponseTest :: DeleteMLModelResponse -> TestTree
-deleteMLModelResponseTest = resp
-    "deleteMLModelResponse"
-    "fixture/DeleteMLModelResponse"
-    (Proxy :: Proxy DeleteMLModel)
-
-deleteRealtimeEndpointResponseTest :: DeleteRealtimeEndpointResponse -> TestTree
-deleteRealtimeEndpointResponseTest = resp
-    "deleteRealtimeEndpointResponse"
-    "fixture/DeleteRealtimeEndpointResponse"
-    (Proxy :: Proxy DeleteRealtimeEndpoint)
-
-describeBatchPredictionsResponseTest :: DescribeBatchPredictionsResponse -> TestTree
-describeBatchPredictionsResponseTest = resp
-    "describeBatchPredictionsResponse"
-    "fixture/DescribeBatchPredictionsResponse"
-    (Proxy :: Proxy DescribeBatchPredictions)
-
-describeDataSourcesResponseTest :: DescribeDataSourcesResponse -> TestTree
-describeDataSourcesResponseTest = resp
-    "describeDataSourcesResponse"
-    "fixture/DescribeDataSourcesResponse"
-    (Proxy :: Proxy DescribeDataSources)
-
-describeEvaluationsResponseTest :: DescribeEvaluationsResponse -> TestTree
-describeEvaluationsResponseTest = resp
-    "describeEvaluationsResponse"
-    "fixture/DescribeEvaluationsResponse"
-    (Proxy :: Proxy DescribeEvaluations)
-
-describeMLModelsResponseTest :: DescribeMLModelsResponse -> TestTree
-describeMLModelsResponseTest = resp
-    "describeMLModelsResponse"
-    "fixture/DescribeMLModelsResponse"
-    (Proxy :: Proxy DescribeMLModels)
-
-getBatchPredictionResponseTest :: GetBatchPredictionResponse -> TestTree
-getBatchPredictionResponseTest = resp
-    "getBatchPredictionResponse"
-    "fixture/GetBatchPredictionResponse"
-    (Proxy :: Proxy GetBatchPrediction)
-
-getDataSourceResponseTest :: GetDataSourceResponse -> TestTree
-getDataSourceResponseTest = resp
-    "getDataSourceResponse"
-    "fixture/GetDataSourceResponse"
-    (Proxy :: Proxy GetDataSource)
-
-getEvaluationResponseTest :: GetEvaluationResponse -> TestTree
-getEvaluationResponseTest = resp
-    "getEvaluationResponse"
-    "fixture/GetEvaluationResponse"
-    (Proxy :: Proxy GetEvaluation)
-
-getMLModelResponseTest :: GetMLModelResponse -> TestTree
-getMLModelResponseTest = resp
-    "getMLModelResponse"
-    "fixture/GetMLModelResponse"
-    (Proxy :: Proxy GetMLModel)
-
-predictResponseTest :: PredictResponse -> TestTree
-predictResponseTest = resp
-    "predictResponse"
-    "fixture/PredictResponse"
-    (Proxy :: Proxy Predict)
-
-updateBatchPredictionResponseTest :: UpdateBatchPredictionResponse -> TestTree
-updateBatchPredictionResponseTest = resp
-    "updateBatchPredictionResponse"
-    "fixture/UpdateBatchPredictionResponse"
-    (Proxy :: Proxy UpdateBatchPrediction)
-
-updateDataSourceResponseTest :: UpdateDataSourceResponse -> TestTree
-updateDataSourceResponseTest = resp
-    "updateDataSourceResponse"
+testUpdateDataSourceResponse :: UpdateDataSourceResponse -> TestTree
+testUpdateDataSourceResponse = resp
+    "UpdateDataSourceResponse"
     "fixture/UpdateDataSourceResponse"
     (Proxy :: Proxy UpdateDataSource)
 
-updateEvaluationResponseTest :: UpdateEvaluationResponse -> TestTree
-updateEvaluationResponseTest = resp
-    "updateEvaluationResponse"
+testCreateDataSourceFromRedshiftResponse :: CreateDataSourceFromRedshiftResponse -> TestTree
+testCreateDataSourceFromRedshiftResponse = resp
+    "CreateDataSourceFromRedshiftResponse"
+    "fixture/CreateDataSourceFromRedshiftResponse"
+    (Proxy :: Proxy CreateDataSourceFromRedshift)
+
+testCreateDataSourceFromSResponse :: CreateDataSourceFromSResponse -> TestTree
+testCreateDataSourceFromSResponse = resp
+    "CreateDataSourceFromSResponse"
+    "fixture/CreateDataSourceFromSResponse"
+    (Proxy :: Proxy CreateDataSourceFromS)
+
+testCreateMLModelResponse :: CreateMLModelResponse -> TestTree
+testCreateMLModelResponse = resp
+    "CreateMLModelResponse"
+    "fixture/CreateMLModelResponse"
+    (Proxy :: Proxy CreateMLModel)
+
+testDeleteBatchPredictionResponse :: DeleteBatchPredictionResponse -> TestTree
+testDeleteBatchPredictionResponse = resp
+    "DeleteBatchPredictionResponse"
+    "fixture/DeleteBatchPredictionResponse"
+    (Proxy :: Proxy DeleteBatchPrediction)
+
+testUpdateBatchPredictionResponse :: UpdateBatchPredictionResponse -> TestTree
+testUpdateBatchPredictionResponse = resp
+    "UpdateBatchPredictionResponse"
+    "fixture/UpdateBatchPredictionResponse"
+    (Proxy :: Proxy UpdateBatchPrediction)
+
+testGetMLModelResponse :: GetMLModelResponse -> TestTree
+testGetMLModelResponse = resp
+    "GetMLModelResponse"
+    "fixture/GetMLModelResponse"
+    (Proxy :: Proxy GetMLModel)
+
+testGetDataSourceResponse :: GetDataSourceResponse -> TestTree
+testGetDataSourceResponse = resp
+    "GetDataSourceResponse"
+    "fixture/GetDataSourceResponse"
+    (Proxy :: Proxy GetDataSource)
+
+testDeleteMLModelResponse :: DeleteMLModelResponse -> TestTree
+testDeleteMLModelResponse = resp
+    "DeleteMLModelResponse"
+    "fixture/DeleteMLModelResponse"
+    (Proxy :: Proxy DeleteMLModel)
+
+testUpdateMLModelResponse :: UpdateMLModelResponse -> TestTree
+testUpdateMLModelResponse = resp
+    "UpdateMLModelResponse"
+    "fixture/UpdateMLModelResponse"
+    (Proxy :: Proxy UpdateMLModel)
+
+testDescribeBatchPredictionsResponse :: DescribeBatchPredictionsResponse -> TestTree
+testDescribeBatchPredictionsResponse = resp
+    "DescribeBatchPredictionsResponse"
+    "fixture/DescribeBatchPredictionsResponse"
+    (Proxy :: Proxy DescribeBatchPredictions)
+
+testUpdateEvaluationResponse :: UpdateEvaluationResponse -> TestTree
+testUpdateEvaluationResponse = resp
+    "UpdateEvaluationResponse"
     "fixture/UpdateEvaluationResponse"
     (Proxy :: Proxy UpdateEvaluation)
 
-updateMLModelResponseTest :: UpdateMLModelResponse -> TestTree
-updateMLModelResponseTest = resp
-    "updateMLModelResponse"
-    "fixture/UpdateMLModelResponse"
-    (Proxy :: Proxy UpdateMLModel)
+testDeleteEvaluationResponse :: DeleteEvaluationResponse -> TestTree
+testDeleteEvaluationResponse = resp
+    "DeleteEvaluationResponse"
+    "fixture/DeleteEvaluationResponse"
+    (Proxy :: Proxy DeleteEvaluation)
+
+testGetBatchPredictionResponse :: GetBatchPredictionResponse -> TestTree
+testGetBatchPredictionResponse = resp
+    "GetBatchPredictionResponse"
+    "fixture/GetBatchPredictionResponse"
+    (Proxy :: Proxy GetBatchPrediction)
+
+testCreateEvaluationResponse :: CreateEvaluationResponse -> TestTree
+testCreateEvaluationResponse = resp
+    "CreateEvaluationResponse"
+    "fixture/CreateEvaluationResponse"
+    (Proxy :: Proxy CreateEvaluation)
+
+testCreateDataSourceFromRDSResponse :: CreateDataSourceFromRDSResponse -> TestTree
+testCreateDataSourceFromRDSResponse = resp
+    "CreateDataSourceFromRDSResponse"
+    "fixture/CreateDataSourceFromRDSResponse"
+    (Proxy :: Proxy CreateDataSourceFromRDS)
+
+testCreateBatchPredictionResponse :: CreateBatchPredictionResponse -> TestTree
+testCreateBatchPredictionResponse = resp
+    "CreateBatchPredictionResponse"
+    "fixture/CreateBatchPredictionResponse"
+    (Proxy :: Proxy CreateBatchPrediction)
+
+testPredictResponse :: PredictResponse -> TestTree
+testPredictResponse = resp
+    "PredictResponse"
+    "fixture/PredictResponse"
+    (Proxy :: Proxy Predict)
+
+testDeleteRealtimeEndpointResponse :: DeleteRealtimeEndpointResponse -> TestTree
+testDeleteRealtimeEndpointResponse = resp
+    "DeleteRealtimeEndpointResponse"
+    "fixture/DeleteRealtimeEndpointResponse"
+    (Proxy :: Proxy DeleteRealtimeEndpoint)
+
+testDescribeEvaluationsResponse :: DescribeEvaluationsResponse -> TestTree
+testDescribeEvaluationsResponse = resp
+    "DescribeEvaluationsResponse"
+    "fixture/DescribeEvaluationsResponse"
+    (Proxy :: Proxy DescribeEvaluations)
+
+testGetEvaluationResponse :: GetEvaluationResponse -> TestTree
+testGetEvaluationResponse = resp
+    "GetEvaluationResponse"
+    "fixture/GetEvaluationResponse"
+    (Proxy :: Proxy GetEvaluation)
+
+testCreateRealtimeEndpointResponse :: CreateRealtimeEndpointResponse -> TestTree
+testCreateRealtimeEndpointResponse = resp
+    "CreateRealtimeEndpointResponse"
+    "fixture/CreateRealtimeEndpointResponse"
+    (Proxy :: Proxy CreateRealtimeEndpoint)
+
+testDescribeMLModelsResponse :: DescribeMLModelsResponse -> TestTree
+testDescribeMLModelsResponse = resp
+    "DescribeMLModelsResponse"
+    "fixture/DescribeMLModelsResponse"
+    (Proxy :: Proxy DescribeMLModels)
+
+testDescribeDataSourcesResponse :: DescribeDataSourcesResponse -> TestTree
+testDescribeDataSourcesResponse = resp
+    "DescribeDataSourcesResponse"
+    "fixture/DescribeDataSourcesResponse"
+    (Proxy :: Proxy DescribeDataSources)

@@ -29,7 +29,7 @@ fixtures :: TestTree
 fixtures = testGroup "SQS"
     [ testGroup "response"
         [ getQueueURLResponseTest $
-            getQueueURLResponse "url" status200
+            getQueueURLResponse "http://us-east-1.amazonaws.com/123456789012/testQueue" status200
 
         , purgeQueueResponseTest $
             purgeQueueResponse

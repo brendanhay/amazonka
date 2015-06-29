@@ -54,6 +54,7 @@ import qualified Data.List.NonEmpty          as NonEmpty
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Text                   (Text)
+import qualified Data.Text                   as Text
 import           GHC.Exts
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text

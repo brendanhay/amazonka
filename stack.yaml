@@ -1,4 +1,4 @@
-resolver:   nightly-2015-06-25
+resolver:   nightly-2015-06-28
 flags:      {}
 extra-deps: []
 packages:

@@ -105,9 +105,10 @@ populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
                         ]
                     ]
                 ]
-            , dir "fixture" $
-                concatMap fixture (l ^.. operations . each)
             ]
+
+        , dir "fixture" $
+            concatMap fixture (l ^.. operations . each)
 
         , file (lib <.> "cabal") cabalTemplate
         , file "README.md" readmeTemplate

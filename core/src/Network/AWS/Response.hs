@@ -44,7 +44,7 @@ receiveNull rs _ = receive $ \_ _ x ->
 
 receiveXMLWrapper :: MonadResource m
                   => Text
-                  -> (Status -> ResponseHeaders -> [Node] -> Either String (Rs a))
+                  -> (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
                   -> Logger
                   -> Service s
                   -> Request a
@@ -53,7 +53,7 @@ receiveXMLWrapper :: MonadResource m
 receiveXMLWrapper n f = receiveXML (\s h x -> x .@ n >>= f s h)
 
 receiveXML :: MonadResource m
-           => (Status -> ResponseHeaders -> [Node] -> Either String (Rs a))
+           => (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
            -> Logger
            -> Service s
            -> Request a
@@ -62,7 +62,7 @@ receiveXML :: MonadResource m
 receiveXML = deserialise decodeXML
 
 receiveJSON :: MonadResource m
-            => (Status -> ResponseHeaders -> Object -> Either String (Rs a))
+            => (Int -> ResponseHeaders -> Object -> Either String (Rs a))
             -> Logger
             -> Service s
             -> Request a
@@ -71,7 +71,7 @@ receiveJSON :: MonadResource m
 receiveJSON = deserialise eitherDecode'
 
 receiveBody :: MonadResource m
-            => (Status -> ResponseHeaders -> RsBody -> Either String (Rs a))
+            => (Int -> ResponseHeaders -> RsBody -> Either String (Rs a))
             -> Logger
             -> Service s
             -> Request a
@@ -81,7 +81,7 @@ receiveBody f _ = receive $ \s h x -> return (f s h (RsBody x))
 
 deserialise :: MonadResource m
             => (LazyByteString -> Either String b)
-            -> (Status -> ResponseHeaders -> b -> Either String (Rs a))
+            -> (Int -> ResponseHeaders -> b -> Either String (Rs a))
             -> Logger
             -> Service s
             -> Request a
@@ -93,7 +93,7 @@ deserialise g f l = receive $ \s h x -> do
     return $! g lbs >>= f s h
 
 receive :: MonadResource m
-        => (Status -> ResponseHeaders -> ResponseBody -> m (Either String (Rs a)))
+        => (Int -> ResponseHeaders -> ResponseBody -> m (Either String (Rs a)))
         -> Service s
         -> Request a
         -> Either HttpException ClientResponse
@@ -107,7 +107,7 @@ receive f Service{..} _ = either (return . Left . HTTPError) go
         if not (_svcStatus s)
             then Left . _svcError _svcAbbrev s h <$> sinkLBS x
             else do
-                y <- f s h x
+                y <- f (fromEnum s) h x
                 return $! case y of
                     Left  e -> serialiserError s e
                     Right z -> Right (s, z)

@@ -152,8 +152,12 @@ addStatus Output = go
     ref = emptyRef n
         & refLocation ?~ StatusCode
         & refAnn      .~
-            Related n mempty :<
-                Ptr emptyInfo (Set.fromList [DEq, DOrd, DShow, DEnum])
+            Related n mempty :< Lit emptyInfo Int
+
+  -- Previous variant used an actual http-types.Status, but
+  -- it ended up being fairly useless, preventing Read instances,
+  -- and requiring a http-types dependency everywhere.
+  -- Ptr emptyInfo (Set.fromList [DEq, DOrd, DShow, DEnum])
 
     n = mkId "Status"
 

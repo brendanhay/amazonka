@@ -35,8 +35,8 @@ module Network.AWS.DataPipeline.CreatePipeline
     -- ** Response constructor
     , createPipelineResponse
     -- ** Response lenses
-    , cprPipelineId
     , cprStatus
+    , cprPipelineId
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -114,7 +114,7 @@ instance AWSRequest CreatePipeline where
           = receiveJSON
               (\ s h x ->
                  CreatePipelineResponse' <$>
-                   (x .:> "pipelineId") <*> (pure s))
+                   (pure s) <*> (x .:> "pipelineId"))
 
 instance ToHeaders CreatePipeline where
         toHeaders
@@ -143,27 +143,27 @@ instance ToQuery CreatePipeline where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cprPipelineId'
---
 -- * 'cprStatus'
+--
+-- * 'cprPipelineId'
 data CreatePipelineResponse = CreatePipelineResponse'
-    { _cprPipelineId :: !Text
-    , _cprStatus     :: !Status
+    { _cprStatus     :: !Status
+    , _cprPipelineId :: !Text
     } deriving (Eq,Show)
 
 -- | 'CreatePipelineResponse' smart constructor.
-createPipelineResponse :: Text -> Status -> CreatePipelineResponse
-createPipelineResponse pPipelineId pStatus =
+createPipelineResponse :: Status -> Text -> CreatePipelineResponse
+createPipelineResponse pStatus pPipelineId =
     CreatePipelineResponse'
-    { _cprPipelineId = pPipelineId
-    , _cprStatus = pStatus
+    { _cprStatus = pStatus
+    , _cprPipelineId = pPipelineId
     }
+
+-- | FIXME: Undocumented member.
+cprStatus :: Lens' CreatePipelineResponse Status
+cprStatus = lens _cprStatus (\ s a -> s{_cprStatus = a});
 
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. For
 -- example, @df-06372391ZG65EXAMPLE@.
 cprPipelineId :: Lens' CreatePipelineResponse Text
 cprPipelineId = lens _cprPipelineId (\ s a -> s{_cprPipelineId = a});
-
--- | FIXME: Undocumented member.
-cprStatus :: Lens' CreatePipelineResponse Status
-cprStatus = lens _cprStatus (\ s a -> s{_cprStatus = a});

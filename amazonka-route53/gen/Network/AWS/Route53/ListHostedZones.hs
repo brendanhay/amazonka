@@ -43,11 +43,11 @@ module Network.AWS.Route53.ListHostedZones
     , listHostedZonesResponse
     -- ** Response lenses
     , lhzrNextMarker
+    , lhzrStatus
     , lhzrHostedZones
     , lhzrMarker
     , lhzrIsTruncated
     , lhzrMaxItems
-    , lhzrStatus
     ) where
 
 import           Network.AWS.Pager
@@ -124,13 +124,12 @@ instance AWSRequest ListHostedZones where
           = receiveXML
               (\ s h x ->
                  ListHostedZonesResponse' <$>
-                   (x .@? "NextMarker") <*>
+                   (x .@? "NextMarker") <*> (pure s) <*>
                      (x .@? "HostedZones" .!@ mempty >>=
                         parseXMLList "HostedZone")
                      <*> (x .@ "Marker")
                      <*> (x .@ "IsTruncated")
-                     <*> (x .@ "MaxItems")
-                     <*> (pure s))
+                     <*> (x .@ "MaxItems"))
 
 instance ToHeaders ListHostedZones where
         toHeaders = const mempty
@@ -152,6 +151,8 @@ instance ToQuery ListHostedZones where
 --
 -- * 'lhzrNextMarker'
 --
+-- * 'lhzrStatus'
+--
 -- * 'lhzrHostedZones'
 --
 -- * 'lhzrMarker'
@@ -159,27 +160,25 @@ instance ToQuery ListHostedZones where
 -- * 'lhzrIsTruncated'
 --
 -- * 'lhzrMaxItems'
---
--- * 'lhzrStatus'
 data ListHostedZonesResponse = ListHostedZonesResponse'
     { _lhzrNextMarker  :: !(Maybe Text)
+    , _lhzrStatus      :: !Status
     , _lhzrHostedZones :: ![HostedZone]
     , _lhzrMarker      :: !Text
     , _lhzrIsTruncated :: !Bool
     , _lhzrMaxItems    :: !Text
-    , _lhzrStatus      :: !Status
     } deriving (Eq,Show)
 
 -- | 'ListHostedZonesResponse' smart constructor.
-listHostedZonesResponse :: Text -> Bool -> Text -> Status -> ListHostedZonesResponse
-listHostedZonesResponse pMarker pIsTruncated pMaxItems pStatus =
+listHostedZonesResponse :: Status -> Text -> Bool -> Text -> ListHostedZonesResponse
+listHostedZonesResponse pStatus pMarker pIsTruncated pMaxItems =
     ListHostedZonesResponse'
     { _lhzrNextMarker = Nothing
+    , _lhzrStatus = pStatus
     , _lhzrHostedZones = mempty
     , _lhzrMarker = pMarker
     , _lhzrIsTruncated = pIsTruncated
     , _lhzrMaxItems = pMaxItems
-    , _lhzrStatus = pStatus
     }
 
 -- | Indicates where to continue listing hosted zones. If
@@ -188,6 +187,10 @@ listHostedZonesResponse pMarker pIsTruncated pMaxItems pStatus =
 -- the @Marker@ element to get the next page of results.
 lhzrNextMarker :: Lens' ListHostedZonesResponse (Maybe Text)
 lhzrNextMarker = lens _lhzrNextMarker (\ s a -> s{_lhzrNextMarker = a});
+
+-- | FIXME: Undocumented member.
+lhzrStatus :: Lens' ListHostedZonesResponse Status
+lhzrStatus = lens _lhzrStatus (\ s a -> s{_lhzrStatus = a});
 
 -- | A complex type that contains information about the hosted zones
 -- associated with the current AWS account.
@@ -216,7 +219,3 @@ lhzrIsTruncated = lens _lhzrIsTruncated (\ s a -> s{_lhzrIsTruncated = a});
 -- ListHostedZonesRequest$Marker element to get the next page of results.
 lhzrMaxItems :: Lens' ListHostedZonesResponse Text
 lhzrMaxItems = lens _lhzrMaxItems (\ s a -> s{_lhzrMaxItems = a});
-
--- | FIXME: Undocumented member.
-lhzrStatus :: Lens' ListHostedZonesResponse Status
-lhzrStatus = lens _lhzrStatus (\ s a -> s{_lhzrStatus = a});

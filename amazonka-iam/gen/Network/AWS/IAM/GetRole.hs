@@ -36,8 +36,8 @@ module Network.AWS.IAM.GetRole
     -- ** Response constructor
     , getRoleResponse
     -- ** Response lenses
-    , grrRole
     , grrStatus
+    , grrRole
     ) where
 
 import           Network.AWS.IAM.Types
@@ -72,7 +72,7 @@ instance AWSRequest GetRole where
         response
           = receiveXMLWrapper "GetRoleResult"
               (\ s h x ->
-                 GetRoleResponse' <$> (x .@ "Role") <*> (pure s))
+                 GetRoleResponse' <$> (pure s) <*> (x .@ "Role"))
 
 instance ToHeaders GetRole where
         toHeaders = const mempty
@@ -93,26 +93,26 @@ instance ToQuery GetRole where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grrRole'
---
 -- * 'grrStatus'
+--
+-- * 'grrRole'
 data GetRoleResponse = GetRoleResponse'
-    { _grrRole   :: !Role
-    , _grrStatus :: !Status
+    { _grrStatus :: !Status
+    , _grrRole   :: !Role
     } deriving (Eq,Show)
 
 -- | 'GetRoleResponse' smart constructor.
-getRoleResponse :: Role -> Status -> GetRoleResponse
-getRoleResponse pRole pStatus =
+getRoleResponse :: Status -> Role -> GetRoleResponse
+getRoleResponse pStatus pRole =
     GetRoleResponse'
-    { _grrRole = pRole
-    , _grrStatus = pStatus
+    { _grrStatus = pStatus
+    , _grrRole = pRole
     }
-
--- | Information about the role.
-grrRole :: Lens' GetRoleResponse Role
-grrRole = lens _grrRole (\ s a -> s{_grrRole = a});
 
 -- | FIXME: Undocumented member.
 grrStatus :: Lens' GetRoleResponse Status
 grrStatus = lens _grrStatus (\ s a -> s{_grrStatus = a});
+
+-- | Information about the role.
+grrRole :: Lens' GetRoleResponse Role
+grrRole = lens _grrRole (\ s a -> s{_grrRole = a});

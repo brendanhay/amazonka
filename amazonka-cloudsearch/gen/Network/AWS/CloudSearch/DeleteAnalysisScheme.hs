@@ -34,8 +34,8 @@ module Network.AWS.CloudSearch.DeleteAnalysisScheme
     -- ** Response constructor
     , deleteAnalysisSchemeResponse
     -- ** Response lenses
-    , dAnalysisScheme
     , dStatus
+    , dAnalysisScheme
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -84,7 +84,7 @@ instance AWSRequest DeleteAnalysisScheme where
           = receiveXMLWrapper "DeleteAnalysisSchemeResult"
               (\ s h x ->
                  DeleteAnalysisSchemeResponse' <$>
-                   (x .@ "AnalysisScheme") <*> (pure s))
+                   (pure s) <*> (x .@ "AnalysisScheme"))
 
 instance ToHeaders DeleteAnalysisScheme where
         toHeaders = const mempty
@@ -107,26 +107,26 @@ instance ToQuery DeleteAnalysisScheme where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dAnalysisScheme'
---
 -- * 'dStatus'
+--
+-- * 'dAnalysisScheme'
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
-    { _dAnalysisScheme :: !AnalysisSchemeStatus
-    , _dStatus         :: !Status
+    { _dStatus         :: !Status
+    , _dAnalysisScheme :: !AnalysisSchemeStatus
     } deriving (Eq,Show)
 
 -- | 'DeleteAnalysisSchemeResponse' smart constructor.
-deleteAnalysisSchemeResponse :: AnalysisSchemeStatus -> Status -> DeleteAnalysisSchemeResponse
-deleteAnalysisSchemeResponse pAnalysisScheme pStatus =
+deleteAnalysisSchemeResponse :: Status -> AnalysisSchemeStatus -> DeleteAnalysisSchemeResponse
+deleteAnalysisSchemeResponse pStatus pAnalysisScheme =
     DeleteAnalysisSchemeResponse'
-    { _dAnalysisScheme = pAnalysisScheme
-    , _dStatus = pStatus
+    { _dStatus = pStatus
+    , _dAnalysisScheme = pAnalysisScheme
     }
-
--- | The status of the analysis scheme being deleted.
-dAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
-dAnalysisScheme = lens _dAnalysisScheme (\ s a -> s{_dAnalysisScheme = a});
 
 -- | FIXME: Undocumented member.
 dStatus :: Lens' DeleteAnalysisSchemeResponse Status
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
+
+-- | The status of the analysis scheme being deleted.
+dAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
+dAnalysisScheme = lens _dAnalysisScheme (\ s a -> s{_dAnalysisScheme = a});

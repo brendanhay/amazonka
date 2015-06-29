@@ -38,8 +38,8 @@ module Network.AWS.CloudSearch.DescribeDomains
     -- ** Response constructor
     , describeDomainsResponse
     -- ** Response lenses
-    , descDomainStatusList
     , descStatus
+    , descDomainStatusList
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -80,9 +80,9 @@ instance AWSRequest DescribeDomains where
           = receiveXMLWrapper "DescribeDomainsResult"
               (\ s h x ->
                  DescribeDomainsResponse' <$>
-                   (x .@? "DomainStatusList" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> (pure s))
+                   (pure s) <*>
+                     (x .@? "DomainStatusList" .!@ mempty >>=
+                        parseXMLList "member"))
 
 instance ToHeaders DescribeDomains where
         toHeaders = const mempty
@@ -105,26 +105,26 @@ instance ToQuery DescribeDomains where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'descDomainStatusList'
---
 -- * 'descStatus'
+--
+-- * 'descDomainStatusList'
 data DescribeDomainsResponse = DescribeDomainsResponse'
-    { _descDomainStatusList :: ![DomainStatus]
-    , _descStatus           :: !Status
+    { _descStatus           :: !Status
+    , _descDomainStatusList :: ![DomainStatus]
     } deriving (Eq,Show)
 
 -- | 'DescribeDomainsResponse' smart constructor.
 describeDomainsResponse :: Status -> DescribeDomainsResponse
 describeDomainsResponse pStatus =
     DescribeDomainsResponse'
-    { _descDomainStatusList = mempty
-    , _descStatus = pStatus
+    { _descStatus = pStatus
+    , _descDomainStatusList = mempty
     }
-
--- | FIXME: Undocumented member.
-descDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
-descDomainStatusList = lens _descDomainStatusList (\ s a -> s{_descDomainStatusList = a});
 
 -- | FIXME: Undocumented member.
 descStatus :: Lens' DescribeDomainsResponse Status
 descStatus = lens _descStatus (\ s a -> s{_descStatus = a});
+
+-- | FIXME: Undocumented member.
+descDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
+descDomainStatusList = lens _descDomainStatusList (\ s a -> s{_descDomainStatusList = a});

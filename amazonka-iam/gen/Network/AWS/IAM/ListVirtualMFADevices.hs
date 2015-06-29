@@ -41,8 +41,8 @@ module Network.AWS.IAM.ListVirtualMFADevices
     -- ** Response lenses
     , lvmdrMarker
     , lvmdrIsTruncated
-    , lvmdrVirtualMFADevices
     , lvmdrStatus
+    , lvmdrVirtualMFADevices
     ) where
 
 import           Network.AWS.IAM.Types
@@ -113,9 +113,10 @@ instance AWSRequest ListVirtualMFADevices where
               (\ s h x ->
                  ListVirtualMFADevicesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
+                     (pure s)
+                     <*>
                      (x .@? "VirtualMFADevices" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> (pure s))
+                        parseXMLList "member"))
 
 instance ToHeaders ListVirtualMFADevices where
         toHeaders = const mempty
@@ -141,14 +142,14 @@ instance ToQuery ListVirtualMFADevices where
 --
 -- * 'lvmdrIsTruncated'
 --
--- * 'lvmdrVirtualMFADevices'
---
 -- * 'lvmdrStatus'
+--
+-- * 'lvmdrVirtualMFADevices'
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
     { _lvmdrMarker            :: !(Maybe Text)
     , _lvmdrIsTruncated       :: !(Maybe Bool)
-    , _lvmdrVirtualMFADevices :: ![VirtualMFADevice]
     , _lvmdrStatus            :: !Status
+    , _lvmdrVirtualMFADevices :: ![VirtualMFADevice]
     } deriving (Eq,Show)
 
 -- | 'ListVirtualMFADevicesResponse' smart constructor.
@@ -157,8 +158,8 @@ listVirtualMFADevicesResponse pStatus =
     ListVirtualMFADevicesResponse'
     { _lvmdrMarker = Nothing
     , _lvmdrIsTruncated = Nothing
-    , _lvmdrVirtualMFADevices = mempty
     , _lvmdrStatus = pStatus
+    , _lvmdrVirtualMFADevices = mempty
     }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
@@ -173,11 +174,11 @@ lvmdrMarker = lens _lvmdrMarker (\ s a -> s{_lvmdrMarker = a});
 lvmdrIsTruncated :: Lens' ListVirtualMFADevicesResponse (Maybe Bool)
 lvmdrIsTruncated = lens _lvmdrIsTruncated (\ s a -> s{_lvmdrIsTruncated = a});
 
+-- | FIXME: Undocumented member.
+lvmdrStatus :: Lens' ListVirtualMFADevicesResponse Status
+lvmdrStatus = lens _lvmdrStatus (\ s a -> s{_lvmdrStatus = a});
+
 -- | The list of virtual MFA devices in the current account that match the
 -- @AssignmentStatus@ value that was passed in the request.
 lvmdrVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevice]
 lvmdrVirtualMFADevices = lens _lvmdrVirtualMFADevices (\ s a -> s{_lvmdrVirtualMFADevices = a});
-
--- | FIXME: Undocumented member.
-lvmdrStatus :: Lens' ListVirtualMFADevicesResponse Status
-lvmdrStatus = lens _lvmdrStatus (\ s a -> s{_lvmdrStatus = a});

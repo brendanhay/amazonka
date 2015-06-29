@@ -32,8 +32,8 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     -- ** Response constructor
     , listStreamingDistributionsResponse
     -- ** Response lenses
-    , lsdrStreamingDistributionList
     , lsdrStatus
+    , lsdrStreamingDistributionList
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -85,7 +85,7 @@ instance AWSRequest ListStreamingDistributions where
           = receiveXML
               (\ s h x ->
                  ListStreamingDistributionsResponse' <$>
-                   (x .@ "StreamingDistributionList") <*> (pure s))
+                   (pure s) <*> (x .@ "StreamingDistributionList"))
 
 instance ToHeaders ListStreamingDistributions where
         toHeaders = const mempty
@@ -104,26 +104,26 @@ instance ToQuery ListStreamingDistributions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsdrStreamingDistributionList'
---
 -- * 'lsdrStatus'
+--
+-- * 'lsdrStreamingDistributionList'
 data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
-    { _lsdrStreamingDistributionList :: !StreamingDistributionList
-    , _lsdrStatus                    :: !Status
+    { _lsdrStatus                    :: !Status
+    , _lsdrStreamingDistributionList :: !StreamingDistributionList
     } deriving (Eq,Show)
 
 -- | 'ListStreamingDistributionsResponse' smart constructor.
-listStreamingDistributionsResponse :: StreamingDistributionList -> Status -> ListStreamingDistributionsResponse
-listStreamingDistributionsResponse pStreamingDistributionList pStatus =
+listStreamingDistributionsResponse :: Status -> StreamingDistributionList -> ListStreamingDistributionsResponse
+listStreamingDistributionsResponse pStatus pStreamingDistributionList =
     ListStreamingDistributionsResponse'
-    { _lsdrStreamingDistributionList = pStreamingDistributionList
-    , _lsdrStatus = pStatus
+    { _lsdrStatus = pStatus
+    , _lsdrStreamingDistributionList = pStreamingDistributionList
     }
-
--- | The StreamingDistributionList type.
-lsdrStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList
-lsdrStreamingDistributionList = lens _lsdrStreamingDistributionList (\ s a -> s{_lsdrStreamingDistributionList = a});
 
 -- | FIXME: Undocumented member.
 lsdrStatus :: Lens' ListStreamingDistributionsResponse Status
 lsdrStatus = lens _lsdrStatus (\ s a -> s{_lsdrStatus = a});
+
+-- | The StreamingDistributionList type.
+lsdrStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList
+lsdrStreamingDistributionList = lens _lsdrStreamingDistributionList (\ s a -> s{_lsdrStreamingDistributionList = a});

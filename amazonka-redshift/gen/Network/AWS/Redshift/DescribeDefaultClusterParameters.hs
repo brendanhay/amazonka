@@ -38,8 +38,8 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
     -- ** Response constructor
     , describeDefaultClusterParametersResponse
     -- ** Response lenses
-    , ddcprDefaultClusterParameters
     , ddcprStatus
+    , ddcprDefaultClusterParameters
     ) where
 
 import           Network.AWS.Pager
@@ -127,7 +127,7 @@ instance AWSRequest DescribeDefaultClusterParameters
               "DescribeDefaultClusterParametersResult"
               (\ s h x ->
                  DescribeDefaultClusterParametersResponse' <$>
-                   (x .@ "DefaultClusterParameters") <*> (pure s))
+                   (pure s) <*> (x .@ "DefaultClusterParameters"))
 
 instance ToHeaders DescribeDefaultClusterParameters
          where
@@ -152,26 +152,26 @@ instance ToQuery DescribeDefaultClusterParameters
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddcprDefaultClusterParameters'
---
 -- * 'ddcprStatus'
+--
+-- * 'ddcprDefaultClusterParameters'
 data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'
-    { _ddcprDefaultClusterParameters :: !DefaultClusterParameters
-    , _ddcprStatus                   :: !Status
+    { _ddcprStatus                   :: !Status
+    , _ddcprDefaultClusterParameters :: !DefaultClusterParameters
     } deriving (Eq,Show)
 
 -- | 'DescribeDefaultClusterParametersResponse' smart constructor.
-describeDefaultClusterParametersResponse :: DefaultClusterParameters -> Status -> DescribeDefaultClusterParametersResponse
-describeDefaultClusterParametersResponse pDefaultClusterParameters pStatus =
+describeDefaultClusterParametersResponse :: Status -> DefaultClusterParameters -> DescribeDefaultClusterParametersResponse
+describeDefaultClusterParametersResponse pStatus pDefaultClusterParameters =
     DescribeDefaultClusterParametersResponse'
-    { _ddcprDefaultClusterParameters = pDefaultClusterParameters
-    , _ddcprStatus = pStatus
+    { _ddcprStatus = pStatus
+    , _ddcprDefaultClusterParameters = pDefaultClusterParameters
     }
-
--- | FIXME: Undocumented member.
-ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
-ddcprDefaultClusterParameters = lens _ddcprDefaultClusterParameters (\ s a -> s{_ddcprDefaultClusterParameters = a});
 
 -- | FIXME: Undocumented member.
 ddcprStatus :: Lens' DescribeDefaultClusterParametersResponse Status
 ddcprStatus = lens _ddcprStatus (\ s a -> s{_ddcprStatus = a});
+
+-- | FIXME: Undocumented member.
+ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
+ddcprDefaultClusterParameters = lens _ddcprDefaultClusterParameters (\ s a -> s{_ddcprDefaultClusterParameters = a});

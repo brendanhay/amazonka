@@ -32,8 +32,8 @@ module Network.AWS.CloudFront.ListDistributions
     -- ** Response constructor
     , listDistributionsResponse
     -- ** Response lenses
-    , ldrDistributionList
     , ldrStatus
+    , ldrDistributionList
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -83,7 +83,7 @@ instance AWSRequest ListDistributions where
           = receiveXML
               (\ s h x ->
                  ListDistributionsResponse' <$>
-                   (x .@ "DistributionList") <*> (pure s))
+                   (pure s) <*> (x .@ "DistributionList"))
 
 instance ToHeaders ListDistributions where
         toHeaders = const mempty
@@ -102,26 +102,26 @@ instance ToQuery ListDistributions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrDistributionList'
---
 -- * 'ldrStatus'
+--
+-- * 'ldrDistributionList'
 data ListDistributionsResponse = ListDistributionsResponse'
-    { _ldrDistributionList :: !DistributionList
-    , _ldrStatus           :: !Status
+    { _ldrStatus           :: !Status
+    , _ldrDistributionList :: !DistributionList
     } deriving (Eq,Show)
 
 -- | 'ListDistributionsResponse' smart constructor.
-listDistributionsResponse :: DistributionList -> Status -> ListDistributionsResponse
-listDistributionsResponse pDistributionList pStatus =
+listDistributionsResponse :: Status -> DistributionList -> ListDistributionsResponse
+listDistributionsResponse pStatus pDistributionList =
     ListDistributionsResponse'
-    { _ldrDistributionList = pDistributionList
-    , _ldrStatus = pStatus
+    { _ldrStatus = pStatus
+    , _ldrDistributionList = pDistributionList
     }
-
--- | The DistributionList type.
-ldrDistributionList :: Lens' ListDistributionsResponse DistributionList
-ldrDistributionList = lens _ldrDistributionList (\ s a -> s{_ldrDistributionList = a});
 
 -- | FIXME: Undocumented member.
 ldrStatus :: Lens' ListDistributionsResponse Status
 ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});
+
+-- | The DistributionList type.
+ldrDistributionList :: Lens' ListDistributionsResponse DistributionList
+ldrDistributionList = lens _ldrDistributionList (\ s a -> s{_ldrDistributionList = a});

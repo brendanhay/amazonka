@@ -33,8 +33,8 @@ module Network.AWS.EMR.DescribeCluster
     -- ** Response constructor
     , describeClusterResponse
     -- ** Response lenses
-    , dcrCluster
     , dcrStatus
+    , dcrCluster
     ) where
 
 import           Network.AWS.EMR.Types
@@ -72,7 +72,7 @@ instance AWSRequest DescribeCluster where
           = receiveJSON
               (\ s h x ->
                  DescribeClusterResponse' <$>
-                   (x .:> "Cluster") <*> (pure s))
+                   (pure s) <*> (x .:> "Cluster"))
 
 instance ToHeaders DescribeCluster where
         toHeaders
@@ -99,26 +99,26 @@ instance ToQuery DescribeCluster where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrCluster'
---
 -- * 'dcrStatus'
+--
+-- * 'dcrCluster'
 data DescribeClusterResponse = DescribeClusterResponse'
-    { _dcrCluster :: !Cluster
-    , _dcrStatus  :: !Status
+    { _dcrStatus  :: !Status
+    , _dcrCluster :: !Cluster
     } deriving (Eq,Show)
 
 -- | 'DescribeClusterResponse' smart constructor.
-describeClusterResponse :: Cluster -> Status -> DescribeClusterResponse
-describeClusterResponse pCluster pStatus =
+describeClusterResponse :: Status -> Cluster -> DescribeClusterResponse
+describeClusterResponse pStatus pCluster =
     DescribeClusterResponse'
-    { _dcrCluster = pCluster
-    , _dcrStatus = pStatus
+    { _dcrStatus = pStatus
+    , _dcrCluster = pCluster
     }
-
--- | This output contains the details for the requested cluster.
-dcrCluster :: Lens' DescribeClusterResponse Cluster
-dcrCluster = lens _dcrCluster (\ s a -> s{_dcrCluster = a});
 
 -- | FIXME: Undocumented member.
 dcrStatus :: Lens' DescribeClusterResponse Status
 dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});
+
+-- | This output contains the details for the requested cluster.
+dcrCluster :: Lens' DescribeClusterResponse Cluster
+dcrCluster = lens _dcrCluster (\ s a -> s{_dcrCluster = a});

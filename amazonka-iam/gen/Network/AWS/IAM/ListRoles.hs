@@ -41,8 +41,8 @@ module Network.AWS.IAM.ListRoles
     -- ** Response lenses
     , lrrMarker
     , lrrIsTruncated
-    , lrrRoles
     , lrrStatus
+    , lrrRoles
     ) where
 
 import           Network.AWS.IAM.Types
@@ -114,8 +114,9 @@ instance AWSRequest ListRoles where
               (\ s h x ->
                  ListRolesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (x .@? "Roles" .!@ mempty >>= parseXMLList "member")
-                     <*> (pure s))
+                     (pure s)
+                     <*>
+                     (x .@? "Roles" .!@ mempty >>= parseXMLList "member"))
 
 instance ToHeaders ListRoles where
         toHeaders = const mempty
@@ -141,14 +142,14 @@ instance ToQuery ListRoles where
 --
 -- * 'lrrIsTruncated'
 --
--- * 'lrrRoles'
---
 -- * 'lrrStatus'
+--
+-- * 'lrrRoles'
 data ListRolesResponse = ListRolesResponse'
     { _lrrMarker      :: !(Maybe Text)
     , _lrrIsTruncated :: !(Maybe Bool)
-    , _lrrRoles       :: ![Role]
     , _lrrStatus      :: !Status
+    , _lrrRoles       :: ![Role]
     } deriving (Eq,Show)
 
 -- | 'ListRolesResponse' smart constructor.
@@ -157,8 +158,8 @@ listRolesResponse pStatus =
     ListRolesResponse'
     { _lrrMarker = Nothing
     , _lrrIsTruncated = Nothing
-    , _lrrRoles = mempty
     , _lrrStatus = pStatus
+    , _lrrRoles = mempty
     }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
@@ -173,10 +174,10 @@ lrrMarker = lens _lrrMarker (\ s a -> s{_lrrMarker = a});
 lrrIsTruncated :: Lens' ListRolesResponse (Maybe Bool)
 lrrIsTruncated = lens _lrrIsTruncated (\ s a -> s{_lrrIsTruncated = a});
 
--- | A list of roles.
-lrrRoles :: Lens' ListRolesResponse [Role]
-lrrRoles = lens _lrrRoles (\ s a -> s{_lrrRoles = a});
-
 -- | FIXME: Undocumented member.
 lrrStatus :: Lens' ListRolesResponse Status
 lrrStatus = lens _lrrStatus (\ s a -> s{_lrrStatus = a});
+
+-- | A list of roles.
+lrrRoles :: Lens' ListRolesResponse [Role]
+lrrRoles = lens _lrrRoles (\ s a -> s{_lrrRoles = a});

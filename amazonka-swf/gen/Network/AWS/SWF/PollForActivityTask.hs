@@ -66,12 +66,12 @@ module Network.AWS.SWF.PollForActivityTask
     , pollForActivityTaskResponse
     -- ** Response lenses
     , pfatrInput
+    , pfatrStatus
     , pfatrTaskToken
     , pfatrActivityId
     , pfatrStartedEventId
     , pfatrWorkflowExecution
     , pfatrActivityType
-    , pfatrStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -132,12 +132,11 @@ instance AWSRequest PollForActivityTask where
           = receiveJSON
               (\ s h x ->
                  PollForActivityTaskResponse' <$>
-                   (x .?> "input") <*> (x .:> "taskToken") <*>
-                     (x .:> "activityId")
+                   (x .?> "input") <*> (pure s) <*> (x .:> "taskToken")
+                     <*> (x .:> "activityId")
                      <*> (x .:> "startedEventId")
                      <*> (x .:> "workflowExecution")
-                     <*> (x .:> "activityType")
-                     <*> (pure s))
+                     <*> (x .:> "activityType"))
 
 instance ToHeaders PollForActivityTask where
         toHeaders
@@ -169,6 +168,8 @@ instance ToQuery PollForActivityTask where
 --
 -- * 'pfatrInput'
 --
+-- * 'pfatrStatus'
+--
 -- * 'pfatrTaskToken'
 --
 -- * 'pfatrActivityId'
@@ -178,29 +179,27 @@ instance ToQuery PollForActivityTask where
 -- * 'pfatrWorkflowExecution'
 --
 -- * 'pfatrActivityType'
---
--- * 'pfatrStatus'
 data PollForActivityTaskResponse = PollForActivityTaskResponse'
     { _pfatrInput             :: !(Maybe Text)
+    , _pfatrStatus            :: !Status
     , _pfatrTaskToken         :: !Text
     , _pfatrActivityId        :: !Text
     , _pfatrStartedEventId    :: !Integer
     , _pfatrWorkflowExecution :: !WorkflowExecution
     , _pfatrActivityType      :: !ActivityType
-    , _pfatrStatus            :: !Status
     } deriving (Eq,Show)
 
 -- | 'PollForActivityTaskResponse' smart constructor.
-pollForActivityTaskResponse :: Text -> Text -> Integer -> WorkflowExecution -> ActivityType -> Status -> PollForActivityTaskResponse
-pollForActivityTaskResponse pTaskToken pActivityId pStartedEventId pWorkflowExecution pActivityType pStatus =
+pollForActivityTaskResponse :: Status -> Text -> Text -> Integer -> WorkflowExecution -> ActivityType -> PollForActivityTaskResponse
+pollForActivityTaskResponse pStatus pTaskToken pActivityId pStartedEventId pWorkflowExecution pActivityType =
     PollForActivityTaskResponse'
     { _pfatrInput = Nothing
+    , _pfatrStatus = pStatus
     , _pfatrTaskToken = pTaskToken
     , _pfatrActivityId = pActivityId
     , _pfatrStartedEventId = pStartedEventId
     , _pfatrWorkflowExecution = pWorkflowExecution
     , _pfatrActivityType = pActivityType
-    , _pfatrStatus = pStatus
     }
 
 -- | The inputs provided when the activity task was scheduled. The form of
@@ -208,6 +207,10 @@ pollForActivityTaskResponse pTaskToken pActivityId pStartedEventId pWorkflowExec
 -- implementation.
 pfatrInput :: Lens' PollForActivityTaskResponse (Maybe Text)
 pfatrInput = lens _pfatrInput (\ s a -> s{_pfatrInput = a});
+
+-- | FIXME: Undocumented member.
+pfatrStatus :: Lens' PollForActivityTaskResponse Status
+pfatrStatus = lens _pfatrStatus (\ s a -> s{_pfatrStatus = a});
 
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the
@@ -230,7 +233,3 @@ pfatrWorkflowExecution = lens _pfatrWorkflowExecution (\ s a -> s{_pfatrWorkflow
 -- | The type of this activity task.
 pfatrActivityType :: Lens' PollForActivityTaskResponse ActivityType
 pfatrActivityType = lens _pfatrActivityType (\ s a -> s{_pfatrActivityType = a});
-
--- | FIXME: Undocumented member.
-pfatrStatus :: Lens' PollForActivityTaskResponse Status
-pfatrStatus = lens _pfatrStatus (\ s a -> s{_pfatrStatus = a});

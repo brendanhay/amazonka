@@ -38,8 +38,8 @@ module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     -- ** Response constructor
     , describeServiceAccessPoliciesResponse
     -- ** Response lenses
-    , dsaprAccessPolicies
     , dsaprStatus
+    , dsaprAccessPolicies
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -92,7 +92,7 @@ instance AWSRequest DescribeServiceAccessPolicies
               "DescribeServiceAccessPoliciesResult"
               (\ s h x ->
                  DescribeServiceAccessPoliciesResponse' <$>
-                   (x .@ "AccessPolicies") <*> (pure s))
+                   (pure s) <*> (x .@ "AccessPolicies"))
 
 instance ToHeaders DescribeServiceAccessPolicies
          where
@@ -116,26 +116,26 @@ instance ToQuery DescribeServiceAccessPolicies where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsaprAccessPolicies'
---
 -- * 'dsaprStatus'
+--
+-- * 'dsaprAccessPolicies'
 data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'
-    { _dsaprAccessPolicies :: !AccessPoliciesStatus
-    , _dsaprStatus         :: !Status
+    { _dsaprStatus         :: !Status
+    , _dsaprAccessPolicies :: !AccessPoliciesStatus
     } deriving (Eq,Show)
 
 -- | 'DescribeServiceAccessPoliciesResponse' smart constructor.
-describeServiceAccessPoliciesResponse :: AccessPoliciesStatus -> Status -> DescribeServiceAccessPoliciesResponse
-describeServiceAccessPoliciesResponse pAccessPolicies pStatus =
+describeServiceAccessPoliciesResponse :: Status -> AccessPoliciesStatus -> DescribeServiceAccessPoliciesResponse
+describeServiceAccessPoliciesResponse pStatus pAccessPolicies =
     DescribeServiceAccessPoliciesResponse'
-    { _dsaprAccessPolicies = pAccessPolicies
-    , _dsaprStatus = pStatus
+    { _dsaprStatus = pStatus
+    , _dsaprAccessPolicies = pAccessPolicies
     }
-
--- | The access rules configured for the domain specified in the request.
-dsaprAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
-dsaprAccessPolicies = lens _dsaprAccessPolicies (\ s a -> s{_dsaprAccessPolicies = a});
 
 -- | FIXME: Undocumented member.
 dsaprStatus :: Lens' DescribeServiceAccessPoliciesResponse Status
 dsaprStatus = lens _dsaprStatus (\ s a -> s{_dsaprStatus = a});
+
+-- | The access rules configured for the domain specified in the request.
+dsaprAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
+dsaprAccessPolicies = lens _dsaprAccessPolicies (\ s a -> s{_dsaprAccessPolicies = a});

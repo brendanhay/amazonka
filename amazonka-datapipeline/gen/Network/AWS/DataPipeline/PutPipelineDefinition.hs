@@ -50,8 +50,8 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     -- ** Response lenses
     , ppdrValidationErrors
     , ppdrValidationWarnings
-    , ppdrErrored
     , ppdrStatus
+    , ppdrErrored
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -117,8 +117,8 @@ instance AWSRequest PutPipelineDefinition where
                  PutPipelineDefinitionResponse' <$>
                    (x .?> "validationErrors" .!@ mempty) <*>
                      (x .?> "validationWarnings" .!@ mempty)
-                     <*> (x .:> "errored")
-                     <*> (pure s))
+                     <*> (pure s)
+                     <*> (x .:> "errored"))
 
 instance ToHeaders PutPipelineDefinition where
         toHeaders
@@ -153,24 +153,24 @@ instance ToQuery PutPipelineDefinition where
 --
 -- * 'ppdrValidationWarnings'
 --
--- * 'ppdrErrored'
---
 -- * 'ppdrStatus'
+--
+-- * 'ppdrErrored'
 data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
     { _ppdrValidationErrors   :: !(Maybe [ValidationError])
     , _ppdrValidationWarnings :: !(Maybe [ValidationWarning])
-    , _ppdrErrored            :: !Bool
     , _ppdrStatus             :: !Status
+    , _ppdrErrored            :: !Bool
     } deriving (Eq,Show)
 
 -- | 'PutPipelineDefinitionResponse' smart constructor.
-putPipelineDefinitionResponse :: Bool -> Status -> PutPipelineDefinitionResponse
-putPipelineDefinitionResponse pErrored pStatus =
+putPipelineDefinitionResponse :: Status -> Bool -> PutPipelineDefinitionResponse
+putPipelineDefinitionResponse pStatus pErrored =
     PutPipelineDefinitionResponse'
     { _ppdrValidationErrors = Nothing
     , _ppdrValidationWarnings = Nothing
-    , _ppdrErrored = pErrored
     , _ppdrStatus = pStatus
+    , _ppdrErrored = pErrored
     }
 
 -- | The validation errors that are associated with the objects defined in
@@ -183,13 +183,13 @@ ppdrValidationErrors = lens _ppdrValidationErrors (\ s a -> s{_ppdrValidationErr
 ppdrValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning]
 ppdrValidationWarnings = lens _ppdrValidationWarnings (\ s a -> s{_ppdrValidationWarnings = a}) . _Default;
 
+-- | FIXME: Undocumented member.
+ppdrStatus :: Lens' PutPipelineDefinitionResponse Status
+ppdrStatus = lens _ppdrStatus (\ s a -> s{_ppdrStatus = a});
+
 -- | Indicates whether there were validation errors, and the pipeline
 -- definition is stored but cannot be activated until you correct the
 -- pipeline and call @PutPipelineDefinition@ to commit the corrected
 -- pipeline.
 ppdrErrored :: Lens' PutPipelineDefinitionResponse Bool
 ppdrErrored = lens _ppdrErrored (\ s a -> s{_ppdrErrored = a});
-
--- | FIXME: Undocumented member.
-ppdrStatus :: Lens' PutPipelineDefinitionResponse Status
-ppdrStatus = lens _ppdrStatus (\ s a -> s{_ppdrStatus = a});

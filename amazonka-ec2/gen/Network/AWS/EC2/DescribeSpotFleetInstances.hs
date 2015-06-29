@@ -35,9 +35,9 @@ module Network.AWS.EC2.DescribeSpotFleetInstances
     , describeSpotFleetInstancesResponse
     -- ** Response lenses
     , dsfirNextToken
+    , dsfirStatus
     , dsfirSpotFleetRequestId
     , dsfirActiveInstances
-    , dsfirStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -106,9 +106,9 @@ instance AWSRequest DescribeSpotFleetInstances where
           = receiveXML
               (\ s h x ->
                  DescribeSpotFleetInstancesResponse' <$>
-                   (x .@? "nextToken") <*> (x .@ "spotFleetRequestId")
-                     <*> (parseXMLList "item" x)
-                     <*> (pure s))
+                   (x .@? "nextToken") <*> (pure s) <*>
+                     (x .@ "spotFleetRequestId")
+                     <*> (parseXMLList "item" x))
 
 instance ToHeaders DescribeSpotFleetInstances where
         toHeaders = const mempty
@@ -135,32 +135,36 @@ instance ToQuery DescribeSpotFleetInstances where
 --
 -- * 'dsfirNextToken'
 --
+-- * 'dsfirStatus'
+--
 -- * 'dsfirSpotFleetRequestId'
 --
 -- * 'dsfirActiveInstances'
---
--- * 'dsfirStatus'
 data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
     { _dsfirNextToken          :: !(Maybe Text)
+    , _dsfirStatus             :: !Status
     , _dsfirSpotFleetRequestId :: !Text
     , _dsfirActiveInstances    :: ![ActiveInstance]
-    , _dsfirStatus             :: !Status
     } deriving (Eq,Show)
 
 -- | 'DescribeSpotFleetInstancesResponse' smart constructor.
-describeSpotFleetInstancesResponse :: Text -> Status -> DescribeSpotFleetInstancesResponse
-describeSpotFleetInstancesResponse pSpotFleetRequestId pStatus =
+describeSpotFleetInstancesResponse :: Status -> Text -> DescribeSpotFleetInstancesResponse
+describeSpotFleetInstancesResponse pStatus pSpotFleetRequestId =
     DescribeSpotFleetInstancesResponse'
     { _dsfirNextToken = Nothing
+    , _dsfirStatus = pStatus
     , _dsfirSpotFleetRequestId = pSpotFleetRequestId
     , _dsfirActiveInstances = mempty
-    , _dsfirStatus = pStatus
     }
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
 dsfirNextToken :: Lens' DescribeSpotFleetInstancesResponse (Maybe Text)
 dsfirNextToken = lens _dsfirNextToken (\ s a -> s{_dsfirNextToken = a});
+
+-- | FIXME: Undocumented member.
+dsfirStatus :: Lens' DescribeSpotFleetInstancesResponse Status
+dsfirStatus = lens _dsfirStatus (\ s a -> s{_dsfirStatus = a});
 
 -- | The ID of the Spot fleet request.
 dsfirSpotFleetRequestId :: Lens' DescribeSpotFleetInstancesResponse Text
@@ -170,7 +174,3 @@ dsfirSpotFleetRequestId = lens _dsfirSpotFleetRequestId (\ s a -> s{_dsfirSpotFl
 -- might be out of date.
 dsfirActiveInstances :: Lens' DescribeSpotFleetInstancesResponse [ActiveInstance]
 dsfirActiveInstances = lens _dsfirActiveInstances (\ s a -> s{_dsfirActiveInstances = a});
-
--- | FIXME: Undocumented member.
-dsfirStatus :: Lens' DescribeSpotFleetInstancesResponse Status
-dsfirStatus = lens _dsfirStatus (\ s a -> s{_dsfirStatus = a});

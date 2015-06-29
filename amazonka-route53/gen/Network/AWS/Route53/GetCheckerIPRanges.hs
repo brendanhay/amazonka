@@ -33,8 +33,8 @@ module Network.AWS.Route53.GetCheckerIPRanges
     -- ** Response constructor
     , getCheckerIPRangesResponse
     -- ** Response lenses
-    , gcirrCheckerIPRanges
     , gcirrStatus
+    , gcirrCheckerIPRanges
     ) where
 
 import           Network.AWS.Prelude
@@ -62,9 +62,9 @@ instance AWSRequest GetCheckerIPRanges where
           = receiveXML
               (\ s h x ->
                  GetCheckerIPRangesResponse' <$>
-                   (x .@? "CheckerIpRanges" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> (pure s))
+                   (pure s) <*>
+                     (x .@? "CheckerIpRanges" .!@ mempty >>=
+                        parseXMLList "member"))
 
 instance ToHeaders GetCheckerIPRanges where
         toHeaders = const mempty
@@ -81,27 +81,27 @@ instance ToQuery GetCheckerIPRanges where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcirrCheckerIPRanges'
---
 -- * 'gcirrStatus'
+--
+-- * 'gcirrCheckerIPRanges'
 data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
-    { _gcirrCheckerIPRanges :: ![Text]
-    , _gcirrStatus          :: !Status
+    { _gcirrStatus          :: !Status
+    , _gcirrCheckerIPRanges :: ![Text]
     } deriving (Eq,Show)
 
 -- | 'GetCheckerIPRangesResponse' smart constructor.
 getCheckerIPRangesResponse :: Status -> GetCheckerIPRangesResponse
 getCheckerIPRangesResponse pStatus =
     GetCheckerIPRangesResponse'
-    { _gcirrCheckerIPRanges = mempty
-    , _gcirrStatus = pStatus
+    { _gcirrStatus = pStatus
+    , _gcirrCheckerIPRanges = mempty
     }
+
+-- | FIXME: Undocumented member.
+gcirrStatus :: Lens' GetCheckerIPRangesResponse Status
+gcirrStatus = lens _gcirrStatus (\ s a -> s{_gcirrStatus = a});
 
 -- | A complex type that contains sorted list of IP ranges in CIDR format for
 -- Amazon Route 53 health checkers.
 gcirrCheckerIPRanges :: Lens' GetCheckerIPRangesResponse [Text]
 gcirrCheckerIPRanges = lens _gcirrCheckerIPRanges (\ s a -> s{_gcirrCheckerIPRanges = a});
-
--- | FIXME: Undocumented member.
-gcirrStatus :: Lens' GetCheckerIPRangesResponse Status
-gcirrStatus = lens _gcirrStatus (\ s a -> s{_gcirrStatus = a});

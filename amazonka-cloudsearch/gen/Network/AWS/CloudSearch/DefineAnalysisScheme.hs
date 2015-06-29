@@ -36,8 +36,8 @@ module Network.AWS.CloudSearch.DefineAnalysisScheme
     -- ** Response constructor
     , defineAnalysisSchemeResponse
     -- ** Response lenses
-    , dasr1AnalysisScheme
     , dasr1Status
+    , dasr1AnalysisScheme
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -86,7 +86,7 @@ instance AWSRequest DefineAnalysisScheme where
           = receiveXMLWrapper "DefineAnalysisSchemeResult"
               (\ s h x ->
                  DefineAnalysisSchemeResponse' <$>
-                   (x .@ "AnalysisScheme") <*> (pure s))
+                   (pure s) <*> (x .@ "AnalysisScheme"))
 
 instance ToHeaders DefineAnalysisScheme where
         toHeaders = const mempty
@@ -109,26 +109,26 @@ instance ToQuery DefineAnalysisScheme where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dasr1AnalysisScheme'
---
 -- * 'dasr1Status'
+--
+-- * 'dasr1AnalysisScheme'
 data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
-    { _dasr1AnalysisScheme :: !AnalysisSchemeStatus
-    , _dasr1Status         :: !Status
+    { _dasr1Status         :: !Status
+    , _dasr1AnalysisScheme :: !AnalysisSchemeStatus
     } deriving (Eq,Show)
 
 -- | 'DefineAnalysisSchemeResponse' smart constructor.
-defineAnalysisSchemeResponse :: AnalysisSchemeStatus -> Status -> DefineAnalysisSchemeResponse
-defineAnalysisSchemeResponse pAnalysisScheme pStatus =
+defineAnalysisSchemeResponse :: Status -> AnalysisSchemeStatus -> DefineAnalysisSchemeResponse
+defineAnalysisSchemeResponse pStatus pAnalysisScheme =
     DefineAnalysisSchemeResponse'
-    { _dasr1AnalysisScheme = pAnalysisScheme
-    , _dasr1Status = pStatus
+    { _dasr1Status = pStatus
+    , _dasr1AnalysisScheme = pAnalysisScheme
     }
-
--- | FIXME: Undocumented member.
-dasr1AnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
-dasr1AnalysisScheme = lens _dasr1AnalysisScheme (\ s a -> s{_dasr1AnalysisScheme = a});
 
 -- | FIXME: Undocumented member.
 dasr1Status :: Lens' DefineAnalysisSchemeResponse Status
 dasr1Status = lens _dasr1Status (\ s a -> s{_dasr1Status = a});
+
+-- | FIXME: Undocumented member.
+dasr1AnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
+dasr1AnalysisScheme = lens _dasr1AnalysisScheme (\ s a -> s{_dasr1AnalysisScheme = a});

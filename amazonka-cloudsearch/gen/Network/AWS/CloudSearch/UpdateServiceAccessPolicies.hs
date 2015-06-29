@@ -34,8 +34,8 @@ module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
     -- ** Response constructor
     , updateServiceAccessPoliciesResponse
     -- ** Response lenses
-    , usaprAccessPolicies
     , usaprStatus
+    , usaprAccessPolicies
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -86,7 +86,7 @@ instance AWSRequest UpdateServiceAccessPolicies where
               "UpdateServiceAccessPoliciesResult"
               (\ s h x ->
                  UpdateServiceAccessPoliciesResponse' <$>
-                   (x .@ "AccessPolicies") <*> (pure s))
+                   (pure s) <*> (x .@ "AccessPolicies"))
 
 instance ToHeaders UpdateServiceAccessPolicies where
         toHeaders = const mempty
@@ -110,26 +110,26 @@ instance ToQuery UpdateServiceAccessPolicies where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usaprAccessPolicies'
---
 -- * 'usaprStatus'
+--
+-- * 'usaprAccessPolicies'
 data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
-    { _usaprAccessPolicies :: !AccessPoliciesStatus
-    , _usaprStatus         :: !Status
+    { _usaprStatus         :: !Status
+    , _usaprAccessPolicies :: !AccessPoliciesStatus
     } deriving (Eq,Show)
 
 -- | 'UpdateServiceAccessPoliciesResponse' smart constructor.
-updateServiceAccessPoliciesResponse :: AccessPoliciesStatus -> Status -> UpdateServiceAccessPoliciesResponse
-updateServiceAccessPoliciesResponse pAccessPolicies pStatus =
+updateServiceAccessPoliciesResponse :: Status -> AccessPoliciesStatus -> UpdateServiceAccessPoliciesResponse
+updateServiceAccessPoliciesResponse pStatus pAccessPolicies =
     UpdateServiceAccessPoliciesResponse'
-    { _usaprAccessPolicies = pAccessPolicies
-    , _usaprStatus = pStatus
+    { _usaprStatus = pStatus
+    , _usaprAccessPolicies = pAccessPolicies
     }
-
--- | The access rules configured for the domain.
-usaprAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
-usaprAccessPolicies = lens _usaprAccessPolicies (\ s a -> s{_usaprAccessPolicies = a});
 
 -- | FIXME: Undocumented member.
 usaprStatus :: Lens' UpdateServiceAccessPoliciesResponse Status
 usaprStatus = lens _usaprStatus (\ s a -> s{_usaprStatus = a});
+
+-- | The access rules configured for the domain.
+usaprAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
+usaprAccessPolicies = lens _usaprAccessPolicies (\ s a -> s{_usaprAccessPolicies = a});

@@ -36,9 +36,9 @@ module Network.AWS.IAM.GetGroup
     -- ** Response lenses
     , ggrMarker
     , ggrIsTruncated
+    , ggrStatus
     , ggrGroup
     , ggrUsers
-    , ggrStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -105,10 +105,10 @@ instance AWSRequest GetGroup where
               (\ s h x ->
                  GetGroupResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (x .@ "Group")
+                     (pure s)
+                     <*> (x .@ "Group")
                      <*>
-                     (x .@? "Users" .!@ mempty >>= parseXMLList "member")
-                     <*> (pure s))
+                     (x .@? "Users" .!@ mempty >>= parseXMLList "member"))
 
 instance ToHeaders GetGroup where
         toHeaders = const mempty
@@ -134,28 +134,28 @@ instance ToQuery GetGroup where
 --
 -- * 'ggrIsTruncated'
 --
+-- * 'ggrStatus'
+--
 -- * 'ggrGroup'
 --
 -- * 'ggrUsers'
---
--- * 'ggrStatus'
 data GetGroupResponse = GetGroupResponse'
     { _ggrMarker      :: !(Maybe Text)
     , _ggrIsTruncated :: !(Maybe Bool)
+    , _ggrStatus      :: !Status
     , _ggrGroup       :: !Group
     , _ggrUsers       :: ![User]
-    , _ggrStatus      :: !Status
     } deriving (Eq,Show)
 
 -- | 'GetGroupResponse' smart constructor.
-getGroupResponse :: Group -> Status -> GetGroupResponse
-getGroupResponse pGroup pStatus =
+getGroupResponse :: Status -> Group -> GetGroupResponse
+getGroupResponse pStatus pGroup =
     GetGroupResponse'
     { _ggrMarker = Nothing
     , _ggrIsTruncated = Nothing
+    , _ggrStatus = pStatus
     , _ggrGroup = pGroup
     , _ggrUsers = mempty
-    , _ggrStatus = pStatus
     }
 
 -- | If IsTruncated is @true@, then this element is present and contains the
@@ -171,6 +171,10 @@ ggrMarker = lens _ggrMarker (\ s a -> s{_ggrMarker = a});
 ggrIsTruncated :: Lens' GetGroupResponse (Maybe Bool)
 ggrIsTruncated = lens _ggrIsTruncated (\ s a -> s{_ggrIsTruncated = a});
 
+-- | FIXME: Undocumented member.
+ggrStatus :: Lens' GetGroupResponse Status
+ggrStatus = lens _ggrStatus (\ s a -> s{_ggrStatus = a});
+
 -- | Information about the group.
 ggrGroup :: Lens' GetGroupResponse Group
 ggrGroup = lens _ggrGroup (\ s a -> s{_ggrGroup = a});
@@ -178,7 +182,3 @@ ggrGroup = lens _ggrGroup (\ s a -> s{_ggrGroup = a});
 -- | A list of users in the group.
 ggrUsers :: Lens' GetGroupResponse [User]
 ggrUsers = lens _ggrUsers (\ s a -> s{_ggrUsers = a});
-
--- | FIXME: Undocumented member.
-ggrStatus :: Lens' GetGroupResponse Status
-ggrStatus = lens _ggrStatus (\ s a -> s{_ggrStatus = a});

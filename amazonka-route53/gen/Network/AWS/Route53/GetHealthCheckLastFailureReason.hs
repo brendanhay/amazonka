@@ -34,8 +34,8 @@ module Network.AWS.Route53.GetHealthCheckLastFailureReason
     -- ** Response constructor
     , getHealthCheckLastFailureReasonResponse
     -- ** Response lenses
-    , ghclfrrHealthCheckObservations
     , ghclfrrStatus
+    , ghclfrrHealthCheckObservations
     ) where
 
 import           Network.AWS.Prelude
@@ -77,9 +77,9 @@ instance AWSRequest GetHealthCheckLastFailureReason
           = receiveXML
               (\ s h x ->
                  GetHealthCheckLastFailureReasonResponse' <$>
-                   (x .@? "HealthCheckObservations" .!@ mempty >>=
-                      parseXMLList "HealthCheckObservation")
-                     <*> (pure s))
+                   (pure s) <*>
+                     (x .@? "HealthCheckObservations" .!@ mempty >>=
+                        parseXMLList "HealthCheckObservation"))
 
 instance ToHeaders GetHealthCheckLastFailureReason
          where
@@ -102,27 +102,27 @@ instance ToQuery GetHealthCheckLastFailureReason
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghclfrrHealthCheckObservations'
---
 -- * 'ghclfrrStatus'
+--
+-- * 'ghclfrrHealthCheckObservations'
 data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'
-    { _ghclfrrHealthCheckObservations :: ![HealthCheckObservation]
-    , _ghclfrrStatus                  :: !Status
+    { _ghclfrrStatus                  :: !Status
+    , _ghclfrrHealthCheckObservations :: ![HealthCheckObservation]
     } deriving (Eq,Show)
 
 -- | 'GetHealthCheckLastFailureReasonResponse' smart constructor.
 getHealthCheckLastFailureReasonResponse :: Status -> GetHealthCheckLastFailureReasonResponse
 getHealthCheckLastFailureReasonResponse pStatus =
     GetHealthCheckLastFailureReasonResponse'
-    { _ghclfrrHealthCheckObservations = mempty
-    , _ghclfrrStatus = pStatus
+    { _ghclfrrStatus = pStatus
+    , _ghclfrrHealthCheckObservations = mempty
     }
+
+-- | FIXME: Undocumented member.
+ghclfrrStatus :: Lens' GetHealthCheckLastFailureReasonResponse Status
+ghclfrrStatus = lens _ghclfrrStatus (\ s a -> s{_ghclfrrStatus = a});
 
 -- | A list that contains one @HealthCheckObservation@ element for each Route
 -- 53 health checker.
 ghclfrrHealthCheckObservations :: Lens' GetHealthCheckLastFailureReasonResponse [HealthCheckObservation]
 ghclfrrHealthCheckObservations = lens _ghclfrrHealthCheckObservations (\ s a -> s{_ghclfrrHealthCheckObservations = a});
-
--- | FIXME: Undocumented member.
-ghclfrrStatus :: Lens' GetHealthCheckLastFailureReasonResponse Status
-ghclfrrStatus = lens _ghclfrrStatus (\ s a -> s{_ghclfrrStatus = a});

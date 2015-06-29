@@ -36,8 +36,8 @@ module Network.AWS.Route53.GetHostedZone
     -- ** Response lenses
     , ghzrVPCs
     , ghzrDelegationSet
-    , ghzrHostedZone
     , ghzrStatus
+    , ghzrHostedZone
     ) where
 
 import           Network.AWS.Prelude
@@ -79,8 +79,8 @@ instance AWSRequest GetHostedZone where
                    (x .@? "VPCs" .!@ mempty >>=
                       may (parseXMLList1 "VPC"))
                      <*> (x .@? "DelegationSet")
-                     <*> (x .@ "HostedZone")
-                     <*> (pure s))
+                     <*> (pure s)
+                     <*> (x .@ "HostedZone"))
 
 instance ToHeaders GetHostedZone where
         toHeaders = const mempty
@@ -102,24 +102,24 @@ instance ToQuery GetHostedZone where
 --
 -- * 'ghzrDelegationSet'
 --
--- * 'ghzrHostedZone'
---
 -- * 'ghzrStatus'
+--
+-- * 'ghzrHostedZone'
 data GetHostedZoneResponse = GetHostedZoneResponse'
     { _ghzrVPCs          :: !(Maybe (List1 VPC))
     , _ghzrDelegationSet :: !(Maybe DelegationSet)
-    , _ghzrHostedZone    :: !HostedZone
     , _ghzrStatus        :: !Status
+    , _ghzrHostedZone    :: !HostedZone
     } deriving (Eq,Show)
 
 -- | 'GetHostedZoneResponse' smart constructor.
-getHostedZoneResponse :: HostedZone -> Status -> GetHostedZoneResponse
-getHostedZoneResponse pHostedZone pStatus =
+getHostedZoneResponse :: Status -> HostedZone -> GetHostedZoneResponse
+getHostedZoneResponse pStatus pHostedZone =
     GetHostedZoneResponse'
     { _ghzrVPCs = Nothing
     , _ghzrDelegationSet = Nothing
-    , _ghzrHostedZone = pHostedZone
     , _ghzrStatus = pStatus
+    , _ghzrHostedZone = pHostedZone
     }
 
 -- | A complex type that contains information about VPCs associated with the
@@ -132,11 +132,11 @@ ghzrVPCs = lens _ghzrVPCs (\ s a -> s{_ghzrVPCs = a}) . mapping _List1;
 ghzrDelegationSet :: Lens' GetHostedZoneResponse (Maybe DelegationSet)
 ghzrDelegationSet = lens _ghzrDelegationSet (\ s a -> s{_ghzrDelegationSet = a});
 
+-- | FIXME: Undocumented member.
+ghzrStatus :: Lens' GetHostedZoneResponse Status
+ghzrStatus = lens _ghzrStatus (\ s a -> s{_ghzrStatus = a});
+
 -- | A complex type that contains the information about the specified hosted
 -- zone.
 ghzrHostedZone :: Lens' GetHostedZoneResponse HostedZone
 ghzrHostedZone = lens _ghzrHostedZone (\ s a -> s{_ghzrHostedZone = a});
-
--- | FIXME: Undocumented member.
-ghzrStatus :: Lens' GetHostedZoneResponse Status
-ghzrStatus = lens _ghzrStatus (\ s a -> s{_ghzrStatus = a});

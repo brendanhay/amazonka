@@ -32,8 +32,8 @@ module Network.AWS.Route53.GetHealthCheck
     -- ** Response constructor
     , getHealthCheckResponse
     -- ** Response lenses
-    , ghcrHealthCheck
     , ghcrStatus
+    , ghcrHealthCheck
     ) where
 
 import           Network.AWS.Prelude
@@ -72,7 +72,7 @@ instance AWSRequest GetHealthCheck where
           = receiveXML
               (\ s h x ->
                  GetHealthCheckResponse' <$>
-                   (x .@ "HealthCheck") <*> (pure s))
+                   (pure s) <*> (x .@ "HealthCheck"))
 
 instance ToHeaders GetHealthCheck where
         toHeaders = const mempty
@@ -92,27 +92,27 @@ instance ToQuery GetHealthCheck where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghcrHealthCheck'
---
 -- * 'ghcrStatus'
+--
+-- * 'ghcrHealthCheck'
 data GetHealthCheckResponse = GetHealthCheckResponse'
-    { _ghcrHealthCheck :: !HealthCheck
-    , _ghcrStatus      :: !Status
+    { _ghcrStatus      :: !Status
+    , _ghcrHealthCheck :: !HealthCheck
     } deriving (Eq,Show)
 
 -- | 'GetHealthCheckResponse' smart constructor.
-getHealthCheckResponse :: HealthCheck -> Status -> GetHealthCheckResponse
-getHealthCheckResponse pHealthCheck pStatus =
+getHealthCheckResponse :: Status -> HealthCheck -> GetHealthCheckResponse
+getHealthCheckResponse pStatus pHealthCheck =
     GetHealthCheckResponse'
-    { _ghcrHealthCheck = pHealthCheck
-    , _ghcrStatus = pStatus
+    { _ghcrStatus = pStatus
+    , _ghcrHealthCheck = pHealthCheck
     }
+
+-- | FIXME: Undocumented member.
+ghcrStatus :: Lens' GetHealthCheckResponse Status
+ghcrStatus = lens _ghcrStatus (\ s a -> s{_ghcrStatus = a});
 
 -- | A complex type that contains the information about the specified health
 -- check.
 ghcrHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
 ghcrHealthCheck = lens _ghcrHealthCheck (\ s a -> s{_ghcrHealthCheck = a});
-
--- | FIXME: Undocumented member.
-ghcrStatus :: Lens' GetHealthCheckResponse Status
-ghcrStatus = lens _ghcrStatus (\ s a -> s{_ghcrStatus = a});

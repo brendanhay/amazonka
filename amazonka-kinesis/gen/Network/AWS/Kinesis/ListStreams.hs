@@ -48,9 +48,9 @@ module Network.AWS.Kinesis.ListStreams
     -- ** Response constructor
     , listStreamsResponse
     -- ** Response lenses
+    , lsrStatus
     , lsrStreamNames
     , lsrHasMoreStreams
-    , lsrStatus
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -106,9 +106,8 @@ instance AWSRequest ListStreams where
           = receiveJSON
               (\ s h x ->
                  ListStreamsResponse' <$>
-                   (x .?> "StreamNames" .!@ mempty) <*>
-                     (x .:> "HasMoreStreams")
-                     <*> (pure s))
+                   (pure s) <*> (x .?> "StreamNames" .!@ mempty) <*>
+                     (x .:> "HasMoreStreams"))
 
 instance ToHeaders ListStreams where
         toHeaders
@@ -138,25 +137,29 @@ instance ToQuery ListStreams where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'lsrStatus'
+--
 -- * 'lsrStreamNames'
 --
 -- * 'lsrHasMoreStreams'
---
--- * 'lsrStatus'
 data ListStreamsResponse = ListStreamsResponse'
-    { _lsrStreamNames    :: ![Text]
+    { _lsrStatus         :: !Status
+    , _lsrStreamNames    :: ![Text]
     , _lsrHasMoreStreams :: !Bool
-    , _lsrStatus         :: !Status
     } deriving (Eq,Show)
 
 -- | 'ListStreamsResponse' smart constructor.
-listStreamsResponse :: Bool -> Status -> ListStreamsResponse
-listStreamsResponse pHasMoreStreams pStatus =
+listStreamsResponse :: Status -> Bool -> ListStreamsResponse
+listStreamsResponse pStatus pHasMoreStreams =
     ListStreamsResponse'
-    { _lsrStreamNames = mempty
+    { _lsrStatus = pStatus
+    , _lsrStreamNames = mempty
     , _lsrHasMoreStreams = pHasMoreStreams
-    , _lsrStatus = pStatus
     }
+
+-- | FIXME: Undocumented member.
+lsrStatus :: Lens' ListStreamsResponse Status
+lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});
 
 -- | The names of the streams that are associated with the AWS account making
 -- the @ListStreams@ request.
@@ -166,7 +169,3 @@ lsrStreamNames = lens _lsrStreamNames (\ s a -> s{_lsrStreamNames = a});
 -- | If set to @true@, there are more streams available to list.
 lsrHasMoreStreams :: Lens' ListStreamsResponse Bool
 lsrHasMoreStreams = lens _lsrHasMoreStreams (\ s a -> s{_lsrHasMoreStreams = a});
-
--- | FIXME: Undocumented member.
-lsrStatus :: Lens' ListStreamsResponse Status
-lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});

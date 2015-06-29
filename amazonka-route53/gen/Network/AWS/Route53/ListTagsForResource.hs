@@ -32,8 +32,8 @@ module Network.AWS.Route53.ListTagsForResource
     -- ** Response constructor
     , listTagsForResourceResponse
     -- ** Response lenses
-    , ltfrrResourceTagSet
     , ltfrrStatus
+    , ltfrrResourceTagSet
     ) where
 
 import           Network.AWS.Prelude
@@ -85,7 +85,7 @@ instance AWSRequest ListTagsForResource where
           = receiveXML
               (\ s h x ->
                  ListTagsForResourceResponse' <$>
-                   (x .@ "ResourceTagSet") <*> (pure s))
+                   (pure s) <*> (x .@ "ResourceTagSet"))
 
 instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
@@ -105,27 +105,27 @@ instance ToQuery ListTagsForResource where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfrrResourceTagSet'
---
 -- * 'ltfrrStatus'
+--
+-- * 'ltfrrResourceTagSet'
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrResourceTagSet :: !ResourceTagSet
-    , _ltfrrStatus         :: !Status
+    { _ltfrrStatus         :: !Status
+    , _ltfrrResourceTagSet :: !ResourceTagSet
     } deriving (Eq,Show)
 
 -- | 'ListTagsForResourceResponse' smart constructor.
-listTagsForResourceResponse :: ResourceTagSet -> Status -> ListTagsForResourceResponse
-listTagsForResourceResponse pResourceTagSet pStatus =
+listTagsForResourceResponse :: Status -> ResourceTagSet -> ListTagsForResourceResponse
+listTagsForResourceResponse pStatus pResourceTagSet =
     ListTagsForResourceResponse'
-    { _ltfrrResourceTagSet = pResourceTagSet
-    , _ltfrrStatus = pStatus
+    { _ltfrrStatus = pStatus
+    , _ltfrrResourceTagSet = pResourceTagSet
     }
+
+-- | FIXME: Undocumented member.
+ltfrrStatus :: Lens' ListTagsForResourceResponse Status
+ltfrrStatus = lens _ltfrrStatus (\ s a -> s{_ltfrrStatus = a});
 
 -- | A @ResourceTagSet@ containing tags associated with the specified
 -- resource.
 ltfrrResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
 ltfrrResourceTagSet = lens _ltfrrResourceTagSet (\ s a -> s{_ltfrrResourceTagSet = a});
-
--- | FIXME: Undocumented member.
-ltfrrStatus :: Lens' ListTagsForResourceResponse Status
-ltfrrStatus = lens _ltfrrStatus (\ s a -> s{_ltfrrStatus = a});

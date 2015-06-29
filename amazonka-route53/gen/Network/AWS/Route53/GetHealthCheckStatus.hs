@@ -33,8 +33,8 @@ module Network.AWS.Route53.GetHealthCheckStatus
     -- ** Response constructor
     , getHealthCheckStatusResponse
     -- ** Response lenses
-    , ghcsrHealthCheckObservations
     , ghcsrStatus
+    , ghcsrHealthCheckObservations
     ) where
 
 import           Network.AWS.Prelude
@@ -75,9 +75,9 @@ instance AWSRequest GetHealthCheckStatus where
           = receiveXML
               (\ s h x ->
                  GetHealthCheckStatusResponse' <$>
-                   (x .@? "HealthCheckObservations" .!@ mempty >>=
-                      parseXMLList "HealthCheckObservation")
-                     <*> (pure s))
+                   (pure s) <*>
+                     (x .@? "HealthCheckObservations" .!@ mempty >>=
+                        parseXMLList "HealthCheckObservation"))
 
 instance ToHeaders GetHealthCheckStatus where
         toHeaders = const mempty
@@ -98,27 +98,27 @@ instance ToQuery GetHealthCheckStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghcsrHealthCheckObservations'
---
 -- * 'ghcsrStatus'
+--
+-- * 'ghcsrHealthCheckObservations'
 data GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'
-    { _ghcsrHealthCheckObservations :: ![HealthCheckObservation]
-    , _ghcsrStatus                  :: !Status
+    { _ghcsrStatus                  :: !Status
+    , _ghcsrHealthCheckObservations :: ![HealthCheckObservation]
     } deriving (Eq,Show)
 
 -- | 'GetHealthCheckStatusResponse' smart constructor.
 getHealthCheckStatusResponse :: Status -> GetHealthCheckStatusResponse
 getHealthCheckStatusResponse pStatus =
     GetHealthCheckStatusResponse'
-    { _ghcsrHealthCheckObservations = mempty
-    , _ghcsrStatus = pStatus
+    { _ghcsrStatus = pStatus
+    , _ghcsrHealthCheckObservations = mempty
     }
+
+-- | FIXME: Undocumented member.
+ghcsrStatus :: Lens' GetHealthCheckStatusResponse Status
+ghcsrStatus = lens _ghcsrStatus (\ s a -> s{_ghcsrStatus = a});
 
 -- | A list that contains one @HealthCheckObservation@ element for each Route
 -- 53 health checker.
 ghcsrHealthCheckObservations :: Lens' GetHealthCheckStatusResponse [HealthCheckObservation]
 ghcsrHealthCheckObservations = lens _ghcsrHealthCheckObservations (\ s a -> s{_ghcsrHealthCheckObservations = a});
-
--- | FIXME: Undocumented member.
-ghcsrStatus :: Lens' GetHealthCheckStatusResponse Status
-ghcsrStatus = lens _ghcsrStatus (\ s a -> s{_ghcsrStatus = a});

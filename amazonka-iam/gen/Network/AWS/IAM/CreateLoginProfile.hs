@@ -37,8 +37,8 @@ module Network.AWS.IAM.CreateLoginProfile
     -- ** Response constructor
     , createLoginProfileResponse
     -- ** Response lenses
-    , clprLoginProfile
     , clprStatus
+    , clprLoginProfile
     ) where
 
 import           Network.AWS.IAM.Types
@@ -92,7 +92,7 @@ instance AWSRequest CreateLoginProfile where
           = receiveXMLWrapper "CreateLoginProfileResult"
               (\ s h x ->
                  CreateLoginProfileResponse' <$>
-                   (x .@ "LoginProfile") <*> (pure s))
+                   (pure s) <*> (x .@ "LoginProfile"))
 
 instance ToHeaders CreateLoginProfile where
         toHeaders = const mempty
@@ -115,26 +115,26 @@ instance ToQuery CreateLoginProfile where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clprLoginProfile'
---
 -- * 'clprStatus'
+--
+-- * 'clprLoginProfile'
 data CreateLoginProfileResponse = CreateLoginProfileResponse'
-    { _clprLoginProfile :: !LoginProfile
-    , _clprStatus       :: !Status
+    { _clprStatus       :: !Status
+    , _clprLoginProfile :: !LoginProfile
     } deriving (Eq,Show)
 
 -- | 'CreateLoginProfileResponse' smart constructor.
-createLoginProfileResponse :: LoginProfile -> Status -> CreateLoginProfileResponse
-createLoginProfileResponse pLoginProfile pStatus =
+createLoginProfileResponse :: Status -> LoginProfile -> CreateLoginProfileResponse
+createLoginProfileResponse pStatus pLoginProfile =
     CreateLoginProfileResponse'
-    { _clprLoginProfile = pLoginProfile
-    , _clprStatus = pStatus
+    { _clprStatus = pStatus
+    , _clprLoginProfile = pLoginProfile
     }
-
--- | The user name and password create date.
-clprLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
-clprLoginProfile = lens _clprLoginProfile (\ s a -> s{_clprLoginProfile = a});
 
 -- | FIXME: Undocumented member.
 clprStatus :: Lens' CreateLoginProfileResponse Status
 clprStatus = lens _clprStatus (\ s a -> s{_clprStatus = a});
+
+-- | The user name and password create date.
+clprLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
+clprLoginProfile = lens _clprLoginProfile (\ s a -> s{_clprLoginProfile = a});

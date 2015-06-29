@@ -81,8 +81,8 @@ module Network.AWS.Kinesis.GetRecords
     -- ** Response lenses
     , grrMillisBehindLatest
     , grrNextShardIterator
-    , grrRecords
     , grrStatus
+    , grrRecords
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -134,8 +134,8 @@ instance AWSRequest GetRecords where
                  GetRecordsResponse' <$>
                    (x .?> "MillisBehindLatest") <*>
                      (x .?> "NextShardIterator")
-                     <*> (x .?> "Records" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure s)
+                     <*> (x .?> "Records" .!@ mempty))
 
 instance ToHeaders GetRecords where
         toHeaders
@@ -168,14 +168,14 @@ instance ToQuery GetRecords where
 --
 -- * 'grrNextShardIterator'
 --
--- * 'grrRecords'
---
 -- * 'grrStatus'
+--
+-- * 'grrRecords'
 data GetRecordsResponse = GetRecordsResponse'
     { _grrMillisBehindLatest :: !(Maybe Nat)
     , _grrNextShardIterator  :: !(Maybe Text)
-    , _grrRecords            :: ![Record]
     , _grrStatus             :: !Status
+    , _grrRecords            :: ![Record]
     } deriving (Eq,Show)
 
 -- | 'GetRecordsResponse' smart constructor.
@@ -184,8 +184,8 @@ getRecordsResponse pStatus =
     GetRecordsResponse'
     { _grrMillisBehindLatest = Nothing
     , _grrNextShardIterator = Nothing
-    , _grrRecords = mempty
     , _grrStatus = pStatus
+    , _grrRecords = mempty
     }
 
 -- | The number of milliseconds the GetRecords response is from the tip of
@@ -201,10 +201,10 @@ grrMillisBehindLatest = lens _grrMillisBehindLatest (\ s a -> s{_grrMillisBehind
 grrNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
 grrNextShardIterator = lens _grrNextShardIterator (\ s a -> s{_grrNextShardIterator = a});
 
--- | The data records retrieved from the shard.
-grrRecords :: Lens' GetRecordsResponse [Record]
-grrRecords = lens _grrRecords (\ s a -> s{_grrRecords = a});
-
 -- | FIXME: Undocumented member.
 grrStatus :: Lens' GetRecordsResponse Status
 grrStatus = lens _grrStatus (\ s a -> s{_grrStatus = a});
+
+-- | The data records retrieved from the shard.
+grrRecords :: Lens' GetRecordsResponse [Record]
+grrRecords = lens _grrRecords (\ s a -> s{_grrRecords = a});

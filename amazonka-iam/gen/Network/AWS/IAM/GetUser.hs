@@ -35,8 +35,8 @@ module Network.AWS.IAM.GetUser
     -- ** Response constructor
     , getUserResponse
     -- ** Response lenses
-    , gurUser
     , gurStatus
+    , gurUser
     ) where
 
 import           Network.AWS.IAM.Types
@@ -74,7 +74,7 @@ instance AWSRequest GetUser where
         response
           = receiveXMLWrapper "GetUserResult"
               (\ s h x ->
-                 GetUserResponse' <$> (x .@ "User") <*> (pure s))
+                 GetUserResponse' <$> (pure s) <*> (x .@ "User"))
 
 instance ToHeaders GetUser where
         toHeaders = const mempty
@@ -95,26 +95,26 @@ instance ToQuery GetUser where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gurUser'
---
 -- * 'gurStatus'
+--
+-- * 'gurUser'
 data GetUserResponse = GetUserResponse'
-    { _gurUser   :: !User
-    , _gurStatus :: !Status
+    { _gurStatus :: !Status
+    , _gurUser   :: !User
     } deriving (Eq,Show)
 
 -- | 'GetUserResponse' smart constructor.
-getUserResponse :: User -> Status -> GetUserResponse
-getUserResponse pUser pStatus =
+getUserResponse :: Status -> User -> GetUserResponse
+getUserResponse pStatus pUser =
     GetUserResponse'
-    { _gurUser = pUser
-    , _gurStatus = pStatus
+    { _gurStatus = pStatus
+    , _gurUser = pUser
     }
-
--- | Information about the user.
-gurUser :: Lens' GetUserResponse User
-gurUser = lens _gurUser (\ s a -> s{_gurUser = a});
 
 -- | FIXME: Undocumented member.
 gurStatus :: Lens' GetUserResponse Status
 gurStatus = lens _gurStatus (\ s a -> s{_gurStatus = a});
+
+-- | Information about the user.
+gurUser :: Lens' GetUserResponse User
+gurUser = lens _gurUser (\ s a -> s{_gurUser = a});

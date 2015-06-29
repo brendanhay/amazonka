@@ -36,8 +36,8 @@ module Network.AWS.SES.GetIdentityVerificationAttributes
     -- ** Response constructor
     , getIdentityVerificationAttributesResponse
     -- ** Response lenses
-    , givarVerificationAttributes
     , givarStatus
+    , givarVerificationAttributes
     ) where
 
 import           Network.AWS.Prelude
@@ -79,9 +79,9 @@ instance AWSRequest GetIdentityVerificationAttributes
               "GetIdentityVerificationAttributesResult"
               (\ s h x ->
                  GetIdentityVerificationAttributesResponse' <$>
-                   (x .@? "VerificationAttributes" .!@ mempty >>=
-                      parseXMLMap "entry" "key" "value")
-                     <*> (pure s))
+                   (pure s) <*>
+                     (x .@? "VerificationAttributes" .!@ mempty >>=
+                        parseXMLMap "entry" "key" "value"))
 
 instance ToHeaders GetIdentityVerificationAttributes
          where
@@ -106,26 +106,26 @@ instance ToQuery GetIdentityVerificationAttributes
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'givarVerificationAttributes'
---
 -- * 'givarStatus'
+--
+-- * 'givarVerificationAttributes'
 data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
-    { _givarVerificationAttributes :: !(Map Text IdentityVerificationAttributes)
-    , _givarStatus                 :: !Status
+    { _givarStatus                 :: !Status
+    , _givarVerificationAttributes :: !(Map Text IdentityVerificationAttributes)
     } deriving (Eq,Show)
 
 -- | 'GetIdentityVerificationAttributesResponse' smart constructor.
 getIdentityVerificationAttributesResponse :: Status -> GetIdentityVerificationAttributesResponse
 getIdentityVerificationAttributesResponse pStatus =
     GetIdentityVerificationAttributesResponse'
-    { _givarVerificationAttributes = mempty
-    , _givarStatus = pStatus
+    { _givarStatus = pStatus
+    , _givarVerificationAttributes = mempty
     }
-
--- | A map of Identities to IdentityVerificationAttributes objects.
-givarVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (HashMap Text IdentityVerificationAttributes)
-givarVerificationAttributes = lens _givarVerificationAttributes (\ s a -> s{_givarVerificationAttributes = a}) . _Map;
 
 -- | FIXME: Undocumented member.
 givarStatus :: Lens' GetIdentityVerificationAttributesResponse Status
 givarStatus = lens _givarStatus (\ s a -> s{_givarStatus = a});
+
+-- | A map of Identities to IdentityVerificationAttributes objects.
+givarVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (HashMap Text IdentityVerificationAttributes)
+givarVerificationAttributes = lens _givarVerificationAttributes (\ s a -> s{_givarVerificationAttributes = a}) . _Map;

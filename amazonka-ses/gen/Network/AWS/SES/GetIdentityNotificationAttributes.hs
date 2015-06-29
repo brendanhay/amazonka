@@ -38,8 +38,8 @@ module Network.AWS.SES.GetIdentityNotificationAttributes
     -- ** Response constructor
     , getIdentityNotificationAttributesResponse
     -- ** Response lenses
-    , ginarNotificationAttributes
     , ginarStatus
+    , ginarNotificationAttributes
     ) where
 
 import           Network.AWS.Prelude
@@ -78,9 +78,9 @@ instance AWSRequest GetIdentityNotificationAttributes
               "GetIdentityNotificationAttributesResult"
               (\ s h x ->
                  GetIdentityNotificationAttributesResponse' <$>
-                   (x .@? "NotificationAttributes" .!@ mempty >>=
-                      parseXMLMap "entry" "key" "value")
-                     <*> (pure s))
+                   (pure s) <*>
+                     (x .@? "NotificationAttributes" .!@ mempty >>=
+                        parseXMLMap "entry" "key" "value"))
 
 instance ToHeaders GetIdentityNotificationAttributes
          where
@@ -108,26 +108,26 @@ instance ToQuery GetIdentityNotificationAttributes
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ginarNotificationAttributes'
---
 -- * 'ginarStatus'
+--
+-- * 'ginarNotificationAttributes'
 data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'
-    { _ginarNotificationAttributes :: !(Map Text IdentityNotificationAttributes)
-    , _ginarStatus                 :: !Status
+    { _ginarStatus                 :: !Status
+    , _ginarNotificationAttributes :: !(Map Text IdentityNotificationAttributes)
     } deriving (Eq,Show)
 
 -- | 'GetIdentityNotificationAttributesResponse' smart constructor.
 getIdentityNotificationAttributesResponse :: Status -> GetIdentityNotificationAttributesResponse
 getIdentityNotificationAttributesResponse pStatus =
     GetIdentityNotificationAttributesResponse'
-    { _ginarNotificationAttributes = mempty
-    , _ginarStatus = pStatus
+    { _ginarStatus = pStatus
+    , _ginarNotificationAttributes = mempty
     }
-
--- | A map of Identity to IdentityNotificationAttributes.
-ginarNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text IdentityNotificationAttributes)
-ginarNotificationAttributes = lens _ginarNotificationAttributes (\ s a -> s{_ginarNotificationAttributes = a}) . _Map;
 
 -- | FIXME: Undocumented member.
 ginarStatus :: Lens' GetIdentityNotificationAttributesResponse Status
 ginarStatus = lens _ginarStatus (\ s a -> s{_ginarStatus = a});
+
+-- | A map of Identity to IdentityNotificationAttributes.
+ginarNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text IdentityNotificationAttributes)
+ginarNotificationAttributes = lens _ginarNotificationAttributes (\ s a -> s{_ginarNotificationAttributes = a}) . _Map;

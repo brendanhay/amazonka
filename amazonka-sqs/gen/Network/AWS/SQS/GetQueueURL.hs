@@ -41,8 +41,8 @@ module Network.AWS.SQS.GetQueueURL
     -- ** Response constructor
     , getQueueURLResponse
     -- ** Response lenses
-    , gqurQueueURL
     , gqurStatus
+    , gqurQueueURL
     ) where
 
 import           Network.AWS.Prelude
@@ -87,7 +87,7 @@ instance AWSRequest GetQueueURL where
           = receiveXMLWrapper "GetQueueUrlResult"
               (\ s h x ->
                  GetQueueURLResponse' <$>
-                   (x .@ "QueueUrl") <*> (pure s))
+                   (pure s) <*> (x .@ "QueueUrl"))
 
 instance ToHeaders GetQueueURL where
         toHeaders = const mempty
@@ -112,26 +112,26 @@ instance ToQuery GetQueueURL where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gqurQueueURL'
---
 -- * 'gqurStatus'
+--
+-- * 'gqurQueueURL'
 data GetQueueURLResponse = GetQueueURLResponse'
-    { _gqurQueueURL :: !Text
-    , _gqurStatus   :: !Status
+    { _gqurStatus   :: !Status
+    , _gqurQueueURL :: !Text
     } deriving (Eq,Show)
 
 -- | 'GetQueueURLResponse' smart constructor.
-getQueueURLResponse :: Text -> Status -> GetQueueURLResponse
-getQueueURLResponse pQueueURL pStatus =
+getQueueURLResponse :: Status -> Text -> GetQueueURLResponse
+getQueueURLResponse pStatus pQueueURL =
     GetQueueURLResponse'
-    { _gqurQueueURL = pQueueURL
-    , _gqurStatus = pStatus
+    { _gqurStatus = pStatus
+    , _gqurQueueURL = pQueueURL
     }
-
--- | The URL for the queue.
-gqurQueueURL :: Lens' GetQueueURLResponse Text
-gqurQueueURL = lens _gqurQueueURL (\ s a -> s{_gqurQueueURL = a});
 
 -- | FIXME: Undocumented member.
 gqurStatus :: Lens' GetQueueURLResponse Status
 gqurStatus = lens _gqurStatus (\ s a -> s{_gqurStatus = a});
+
+-- | The URL for the queue.
+gqurQueueURL :: Lens' GetQueueURLResponse Text
+gqurQueueURL = lens _gqurQueueURL (\ s a -> s{_gqurQueueURL = a});

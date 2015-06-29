@@ -40,8 +40,8 @@ module Network.AWS.IAM.ListAccountAliases
     -- ** Response lenses
     , laarMarker
     , laarIsTruncated
-    , laarAccountAliases
     , laarStatus
+    , laarAccountAliases
     ) where
 
 import           Network.AWS.IAM.Types
@@ -102,9 +102,10 @@ instance AWSRequest ListAccountAliases where
               (\ s h x ->
                  ListAccountAliasesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
+                     (pure s)
+                     <*>
                      (x .@? "AccountAliases" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> (pure s))
+                        parseXMLList "member"))
 
 instance ToHeaders ListAccountAliases where
         toHeaders = const mempty
@@ -129,14 +130,14 @@ instance ToQuery ListAccountAliases where
 --
 -- * 'laarIsTruncated'
 --
--- * 'laarAccountAliases'
---
 -- * 'laarStatus'
+--
+-- * 'laarAccountAliases'
 data ListAccountAliasesResponse = ListAccountAliasesResponse'
     { _laarMarker         :: !(Maybe Text)
     , _laarIsTruncated    :: !(Maybe Bool)
-    , _laarAccountAliases :: ![Text]
     , _laarStatus         :: !Status
+    , _laarAccountAliases :: ![Text]
     } deriving (Eq,Show)
 
 -- | 'ListAccountAliasesResponse' smart constructor.
@@ -145,8 +146,8 @@ listAccountAliasesResponse pStatus =
     ListAccountAliasesResponse'
     { _laarMarker = Nothing
     , _laarIsTruncated = Nothing
-    , _laarAccountAliases = mempty
     , _laarStatus = pStatus
+    , _laarAccountAliases = mempty
     }
 
 -- | Use this only when paginating results, and only in a subsequent request
@@ -163,10 +164,10 @@ laarMarker = lens _laarMarker (\ s a -> s{_laarMarker = a});
 laarIsTruncated :: Lens' ListAccountAliasesResponse (Maybe Bool)
 laarIsTruncated = lens _laarIsTruncated (\ s a -> s{_laarIsTruncated = a});
 
--- | A list of aliases associated with the account.
-laarAccountAliases :: Lens' ListAccountAliasesResponse [Text]
-laarAccountAliases = lens _laarAccountAliases (\ s a -> s{_laarAccountAliases = a});
-
 -- | FIXME: Undocumented member.
 laarStatus :: Lens' ListAccountAliasesResponse Status
 laarStatus = lens _laarStatus (\ s a -> s{_laarStatus = a});
+
+-- | A list of aliases associated with the account.
+laarAccountAliases :: Lens' ListAccountAliasesResponse [Text]
+laarAccountAliases = lens _laarAccountAliases (\ s a -> s{_laarAccountAliases = a});

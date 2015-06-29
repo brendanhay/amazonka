@@ -76,9 +76,9 @@ module Network.AWS.Kinesis.PutRecord
     -- ** Response constructor
     , putRecordResponse
     -- ** Response lenses
+    , prrStatus
     , prrShardId
     , prrSequenceNumber
-    , prrStatus
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -164,8 +164,8 @@ instance AWSRequest PutRecord where
           = receiveJSON
               (\ s h x ->
                  PutRecordResponse' <$>
-                   (x .:> "ShardId") <*> (x .:> "SequenceNumber") <*>
-                     (pure s))
+                   (pure s) <*> (x .:> "ShardId") <*>
+                     (x .:> "SequenceNumber"))
 
 instance ToHeaders PutRecord where
         toHeaders
@@ -197,25 +197,29 @@ instance ToQuery PutRecord where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'prrStatus'
+--
 -- * 'prrShardId'
 --
 -- * 'prrSequenceNumber'
---
--- * 'prrStatus'
 data PutRecordResponse = PutRecordResponse'
-    { _prrShardId        :: !Text
+    { _prrStatus         :: !Status
+    , _prrShardId        :: !Text
     , _prrSequenceNumber :: !Text
-    , _prrStatus         :: !Status
     } deriving (Eq,Show)
 
 -- | 'PutRecordResponse' smart constructor.
-putRecordResponse :: Text -> Text -> Status -> PutRecordResponse
-putRecordResponse pShardId pSequenceNumber pStatus =
+putRecordResponse :: Status -> Text -> Text -> PutRecordResponse
+putRecordResponse pStatus pShardId pSequenceNumber =
     PutRecordResponse'
-    { _prrShardId = pShardId
+    { _prrStatus = pStatus
+    , _prrShardId = pShardId
     , _prrSequenceNumber = pSequenceNumber
-    , _prrStatus = pStatus
     }
+
+-- | FIXME: Undocumented member.
+prrStatus :: Lens' PutRecordResponse Status
+prrStatus = lens _prrStatus (\ s a -> s{_prrStatus = a});
 
 -- | The shard ID of the shard where the data record was placed.
 prrShardId :: Lens' PutRecordResponse Text
@@ -227,7 +231,3 @@ prrShardId = lens _prrShardId (\ s a -> s{_prrShardId = a});
 -- put into the stream.
 prrSequenceNumber :: Lens' PutRecordResponse Text
 prrSequenceNumber = lens _prrSequenceNumber (\ s a -> s{_prrSequenceNumber = a});
-
--- | FIXME: Undocumented member.
-prrStatus :: Lens' PutRecordResponse Status
-prrStatus = lens _prrStatus (\ s a -> s{_prrStatus = a});

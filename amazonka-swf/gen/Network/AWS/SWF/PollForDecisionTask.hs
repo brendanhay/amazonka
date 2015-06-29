@@ -81,12 +81,12 @@ module Network.AWS.SWF.PollForDecisionTask
     -- ** Response lenses
     , pfdtrNextPageToken
     , pfdtrPreviousStartedEventId
+    , pfdtrStatus
     , pfdtrTaskToken
     , pfdtrStartedEventId
     , pfdtrWorkflowExecution
     , pfdtrWorkflowType
     , pfdtrEvents
-    , pfdtrStatus
     ) where
 
 import           Network.AWS.Pager
@@ -204,12 +204,12 @@ instance AWSRequest PollForDecisionTask where
                  PollForDecisionTaskResponse' <$>
                    (x .?> "nextPageToken") <*>
                      (x .?> "previousStartedEventId")
+                     <*> (pure s)
                      <*> (x .:> "taskToken")
                      <*> (x .:> "startedEventId")
                      <*> (x .:> "workflowExecution")
                      <*> (x .:> "workflowType")
-                     <*> (x .?> "events" .!@ mempty)
-                     <*> (pure s))
+                     <*> (x .?> "events" .!@ mempty))
 
 instance ToHeaders PollForDecisionTask where
         toHeaders
@@ -247,6 +247,8 @@ instance ToQuery PollForDecisionTask where
 --
 -- * 'pfdtrPreviousStartedEventId'
 --
+-- * 'pfdtrStatus'
+--
 -- * 'pfdtrTaskToken'
 --
 -- * 'pfdtrStartedEventId'
@@ -256,31 +258,29 @@ instance ToQuery PollForDecisionTask where
 -- * 'pfdtrWorkflowType'
 --
 -- * 'pfdtrEvents'
---
--- * 'pfdtrStatus'
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
     { _pfdtrNextPageToken          :: !(Maybe Text)
     , _pfdtrPreviousStartedEventId :: !(Maybe Integer)
+    , _pfdtrStatus                 :: !Status
     , _pfdtrTaskToken              :: !Text
     , _pfdtrStartedEventId         :: !Integer
     , _pfdtrWorkflowExecution      :: !WorkflowExecution
     , _pfdtrWorkflowType           :: !WorkflowType
     , _pfdtrEvents                 :: ![HistoryEvent]
-    , _pfdtrStatus                 :: !Status
     } deriving (Eq,Show)
 
 -- | 'PollForDecisionTaskResponse' smart constructor.
-pollForDecisionTaskResponse :: Text -> Integer -> WorkflowExecution -> WorkflowType -> Status -> PollForDecisionTaskResponse
-pollForDecisionTaskResponse pTaskToken pStartedEventId pWorkflowExecution pWorkflowType pStatus =
+pollForDecisionTaskResponse :: Status -> Text -> Integer -> WorkflowExecution -> WorkflowType -> PollForDecisionTaskResponse
+pollForDecisionTaskResponse pStatus pTaskToken pStartedEventId pWorkflowExecution pWorkflowType =
     PollForDecisionTaskResponse'
     { _pfdtrNextPageToken = Nothing
     , _pfdtrPreviousStartedEventId = Nothing
+    , _pfdtrStatus = pStatus
     , _pfdtrTaskToken = pTaskToken
     , _pfdtrStartedEventId = pStartedEventId
     , _pfdtrWorkflowExecution = pWorkflowExecution
     , _pfdtrWorkflowType = pWorkflowType
     , _pfdtrEvents = mempty
-    , _pfdtrStatus = pStatus
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -299,6 +299,10 @@ pfdtrNextPageToken = lens _pfdtrNextPageToken (\ s a -> s{_pfdtrNextPageToken = 
 -- task received by the decider.
 pfdtrPreviousStartedEventId :: Lens' PollForDecisionTaskResponse (Maybe Integer)
 pfdtrPreviousStartedEventId = lens _pfdtrPreviousStartedEventId (\ s a -> s{_pfdtrPreviousStartedEventId = a});
+
+-- | FIXME: Undocumented member.
+pfdtrStatus :: Lens' PollForDecisionTaskResponse Status
+pfdtrStatus = lens _pfdtrStatus (\ s a -> s{_pfdtrStatus = a});
 
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the
@@ -323,7 +327,3 @@ pfdtrWorkflowType = lens _pfdtrWorkflowType (\ s a -> s{_pfdtrWorkflowType = a})
 -- decider uses this during the processing of the decision task.
 pfdtrEvents :: Lens' PollForDecisionTaskResponse [HistoryEvent]
 pfdtrEvents = lens _pfdtrEvents (\ s a -> s{_pfdtrEvents = a});
-
--- | FIXME: Undocumented member.
-pfdtrStatus :: Lens' PollForDecisionTaskResponse Status
-pfdtrStatus = lens _pfdtrStatus (\ s a -> s{_pfdtrStatus = a});

@@ -34,8 +34,8 @@ module Network.AWS.Route53Domains.ListDomains
     , listDomainsResponse
     -- ** Response lenses
     , ldrNextPageMarker
-    , ldrDomains
     , ldrStatus
+    , ldrDomains
     ) where
 
 import           Network.AWS.Pager
@@ -111,9 +111,8 @@ instance AWSRequest ListDomains where
           = receiveJSON
               (\ s h x ->
                  ListDomainsResponse' <$>
-                   (x .?> "NextPageMarker") <*>
-                     (x .?> "Domains" .!@ mempty)
-                     <*> (pure s))
+                   (x .?> "NextPageMarker") <*> (pure s) <*>
+                     (x .?> "Domains" .!@ mempty))
 
 instance ToHeaders ListDomains where
         toHeaders
@@ -144,13 +143,13 @@ instance ToQuery ListDomains where
 --
 -- * 'ldrNextPageMarker'
 --
--- * 'ldrDomains'
---
 -- * 'ldrStatus'
+--
+-- * 'ldrDomains'
 data ListDomainsResponse = ListDomainsResponse'
     { _ldrNextPageMarker :: !(Maybe Text)
-    , _ldrDomains        :: ![DomainSummary]
     , _ldrStatus         :: !Status
+    , _ldrDomains        :: ![DomainSummary]
     } deriving (Eq,Show)
 
 -- | 'ListDomainsResponse' smart constructor.
@@ -158,8 +157,8 @@ listDomainsResponse :: Status -> ListDomainsResponse
 listDomainsResponse pStatus =
     ListDomainsResponse'
     { _ldrNextPageMarker = Nothing
-    , _ldrDomains = mempty
     , _ldrStatus = pStatus
+    , _ldrDomains = mempty
     }
 
 -- | If there are more domains than you specified for @MaxItems@ in the
@@ -172,6 +171,10 @@ listDomainsResponse pStatus =
 ldrNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextPageMarker = lens _ldrNextPageMarker (\ s a -> s{_ldrNextPageMarker = a});
 
+-- | FIXME: Undocumented member.
+ldrStatus :: Lens' ListDomainsResponse Status
+ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});
+
 -- | A summary of domains.
 --
 -- Type: Complex type containing a list of domain summaries.
@@ -179,7 +182,3 @@ ldrNextPageMarker = lens _ldrNextPageMarker (\ s a -> s{_ldrNextPageMarker = a})
 -- Children: @AutoRenew@, @DomainName@, @Expiry@, @TransferLock@
 ldrDomains :: Lens' ListDomainsResponse [DomainSummary]
 ldrDomains = lens _ldrDomains (\ s a -> s{_ldrDomains = a});
-
--- | FIXME: Undocumented member.
-ldrStatus :: Lens' ListDomainsResponse Status
-ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});

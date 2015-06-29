@@ -35,8 +35,8 @@ module Network.AWS.Route53.GetGeoLocation
     -- ** Response constructor
     , getGeoLocationResponse
     -- ** Response lenses
-    , gglrGeoLocationDetails
     , gglrStatus
+    , gglrGeoLocationDetails
     ) where
 
 import           Network.AWS.Prelude
@@ -106,7 +106,7 @@ instance AWSRequest GetGeoLocation where
           = receiveXML
               (\ s h x ->
                  GetGeoLocationResponse' <$>
-                   (x .@ "GeoLocationDetails") <*> (pure s))
+                   (pure s) <*> (x .@ "GeoLocationDetails"))
 
 instance ToHeaders GetGeoLocation where
         toHeaders = const mempty
@@ -127,27 +127,27 @@ instance ToQuery GetGeoLocation where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gglrGeoLocationDetails'
---
 -- * 'gglrStatus'
+--
+-- * 'gglrGeoLocationDetails'
 data GetGeoLocationResponse = GetGeoLocationResponse'
-    { _gglrGeoLocationDetails :: !GeoLocationDetails
-    , _gglrStatus             :: !Status
+    { _gglrStatus             :: !Status
+    , _gglrGeoLocationDetails :: !GeoLocationDetails
     } deriving (Eq,Show)
 
 -- | 'GetGeoLocationResponse' smart constructor.
-getGeoLocationResponse :: GeoLocationDetails -> Status -> GetGeoLocationResponse
-getGeoLocationResponse pGeoLocationDetails pStatus =
+getGeoLocationResponse :: Status -> GeoLocationDetails -> GetGeoLocationResponse
+getGeoLocationResponse pStatus pGeoLocationDetails =
     GetGeoLocationResponse'
-    { _gglrGeoLocationDetails = pGeoLocationDetails
-    , _gglrStatus = pStatus
+    { _gglrStatus = pStatus
+    , _gglrGeoLocationDetails = pGeoLocationDetails
     }
+
+-- | FIXME: Undocumented member.
+gglrStatus :: Lens' GetGeoLocationResponse Status
+gglrStatus = lens _gglrStatus (\ s a -> s{_gglrStatus = a});
 
 -- | A complex type that contains the information about the specified geo
 -- location.
 gglrGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
 gglrGeoLocationDetails = lens _gglrGeoLocationDetails (\ s a -> s{_gglrGeoLocationDetails = a});
-
--- | FIXME: Undocumented member.
-gglrStatus :: Lens' GetGeoLocationResponse Status
-gglrStatus = lens _gglrStatus (\ s a -> s{_gglrStatus = a});

@@ -31,8 +31,8 @@ module Network.AWS.ElasticTranscoder.ReadJob
     -- ** Response constructor
     , readJobResponse
     -- ** Response lenses
-    , rjrJob
     , rjrStatus
+    , rjrJob
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -70,7 +70,7 @@ instance AWSRequest ReadJob where
         response
           = receiveJSON
               (\ s h x ->
-                 ReadJobResponse' <$> (x .:> "Job") <*> (pure s))
+                 ReadJobResponse' <$> (pure s) <*> (x .:> "Job"))
 
 instance ToHeaders ReadJob where
         toHeaders = const mempty
@@ -88,26 +88,26 @@ instance ToQuery ReadJob where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rjrJob'
---
 -- * 'rjrStatus'
+--
+-- * 'rjrJob'
 data ReadJobResponse = ReadJobResponse'
-    { _rjrJob    :: !Job'
-    , _rjrStatus :: !Status
+    { _rjrStatus :: !Status
+    , _rjrJob    :: !Job'
     } deriving (Eq,Show)
 
 -- | 'ReadJobResponse' smart constructor.
-readJobResponse :: Job' -> Status -> ReadJobResponse
-readJobResponse pJob pStatus =
+readJobResponse :: Status -> Job' -> ReadJobResponse
+readJobResponse pStatus pJob =
     ReadJobResponse'
-    { _rjrJob = pJob
-    , _rjrStatus = pStatus
+    { _rjrStatus = pStatus
+    , _rjrJob = pJob
     }
-
--- | A section of the response body that provides information about the job.
-rjrJob :: Lens' ReadJobResponse Job'
-rjrJob = lens _rjrJob (\ s a -> s{_rjrJob = a});
 
 -- | FIXME: Undocumented member.
 rjrStatus :: Lens' ReadJobResponse Status
 rjrStatus = lens _rjrStatus (\ s a -> s{_rjrStatus = a});
+
+-- | A section of the response body that provides information about the job.
+rjrJob :: Lens' ReadJobResponse Job'
+rjrJob = lens _rjrJob (\ s a -> s{_rjrJob = a});

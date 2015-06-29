@@ -45,8 +45,8 @@ module Network.AWS.IAM.ListUserPolicies
     -- ** Response lenses
     , luprMarker
     , luprIsTruncated
-    , luprPolicyNames
     , luprStatus
+    , luprPolicyNames
     ) where
 
 import           Network.AWS.IAM.Types
@@ -114,9 +114,10 @@ instance AWSRequest ListUserPolicies where
               (\ s h x ->
                  ListUserPoliciesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
+                     (pure s)
+                     <*>
                      (x .@? "PolicyNames" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> (pure s))
+                        parseXMLList "member"))
 
 instance ToHeaders ListUserPolicies where
         toHeaders = const mempty
@@ -142,14 +143,14 @@ instance ToQuery ListUserPolicies where
 --
 -- * 'luprIsTruncated'
 --
--- * 'luprPolicyNames'
---
 -- * 'luprStatus'
+--
+-- * 'luprPolicyNames'
 data ListUserPoliciesResponse = ListUserPoliciesResponse'
     { _luprMarker      :: !(Maybe Text)
     , _luprIsTruncated :: !(Maybe Bool)
-    , _luprPolicyNames :: ![Text]
     , _luprStatus      :: !Status
+    , _luprPolicyNames :: ![Text]
     } deriving (Eq,Show)
 
 -- | 'ListUserPoliciesResponse' smart constructor.
@@ -158,8 +159,8 @@ listUserPoliciesResponse pStatus =
     ListUserPoliciesResponse'
     { _luprMarker = Nothing
     , _luprIsTruncated = Nothing
-    , _luprPolicyNames = mempty
     , _luprStatus = pStatus
+    , _luprPolicyNames = mempty
     }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
@@ -175,10 +176,10 @@ luprMarker = lens _luprMarker (\ s a -> s{_luprMarker = a});
 luprIsTruncated :: Lens' ListUserPoliciesResponse (Maybe Bool)
 luprIsTruncated = lens _luprIsTruncated (\ s a -> s{_luprIsTruncated = a});
 
--- | A list of policy names.
-luprPolicyNames :: Lens' ListUserPoliciesResponse [Text]
-luprPolicyNames = lens _luprPolicyNames (\ s a -> s{_luprPolicyNames = a});
-
 -- | FIXME: Undocumented member.
 luprStatus :: Lens' ListUserPoliciesResponse Status
 luprStatus = lens _luprStatus (\ s a -> s{_luprStatus = a});
+
+-- | A list of policy names.
+luprPolicyNames :: Lens' ListUserPoliciesResponse [Text]
+luprPolicyNames = lens _luprPolicyNames (\ s a -> s{_luprPolicyNames = a});

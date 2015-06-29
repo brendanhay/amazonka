@@ -40,8 +40,8 @@ module Network.AWS.IAM.ListUsers
     -- ** Response lenses
     , lurMarker
     , lurIsTruncated
-    , lurUsers
     , lurStatus
+    , lurUsers
     ) where
 
 import           Network.AWS.IAM.Types
@@ -113,8 +113,9 @@ instance AWSRequest ListUsers where
               (\ s h x ->
                  ListUsersResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (x .@? "Users" .!@ mempty >>= parseXMLList "member")
-                     <*> (pure s))
+                     (pure s)
+                     <*>
+                     (x .@? "Users" .!@ mempty >>= parseXMLList "member"))
 
 instance ToHeaders ListUsers where
         toHeaders = const mempty
@@ -140,14 +141,14 @@ instance ToQuery ListUsers where
 --
 -- * 'lurIsTruncated'
 --
--- * 'lurUsers'
---
 -- * 'lurStatus'
+--
+-- * 'lurUsers'
 data ListUsersResponse = ListUsersResponse'
     { _lurMarker      :: !(Maybe Text)
     , _lurIsTruncated :: !(Maybe Bool)
-    , _lurUsers       :: ![User]
     , _lurStatus      :: !Status
+    , _lurUsers       :: ![User]
     } deriving (Eq,Show)
 
 -- | 'ListUsersResponse' smart constructor.
@@ -156,8 +157,8 @@ listUsersResponse pStatus =
     ListUsersResponse'
     { _lurMarker = Nothing
     , _lurIsTruncated = Nothing
-    , _lurUsers = mempty
     , _lurStatus = pStatus
+    , _lurUsers = mempty
     }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
@@ -172,10 +173,10 @@ lurMarker = lens _lurMarker (\ s a -> s{_lurMarker = a});
 lurIsTruncated :: Lens' ListUsersResponse (Maybe Bool)
 lurIsTruncated = lens _lurIsTruncated (\ s a -> s{_lurIsTruncated = a});
 
--- | A list of users.
-lurUsers :: Lens' ListUsersResponse [User]
-lurUsers = lens _lurUsers (\ s a -> s{_lurUsers = a});
-
 -- | FIXME: Undocumented member.
 lurStatus :: Lens' ListUsersResponse Status
 lurStatus = lens _lurStatus (\ s a -> s{_lurStatus = a});
+
+-- | A list of users.
+lurUsers :: Lens' ListUsersResponse [User]
+lurUsers = lens _lurUsers (\ s a -> s{_lurUsers = a});

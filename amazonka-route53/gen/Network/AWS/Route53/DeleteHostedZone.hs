@@ -45,8 +45,8 @@ module Network.AWS.Route53.DeleteHostedZone
     -- ** Response constructor
     , deleteHostedZoneResponse
     -- ** Response lenses
-    , dhzrChangeInfo
     , dhzrStatus
+    , dhzrChangeInfo
     ) where
 
 import           Network.AWS.Prelude
@@ -85,7 +85,7 @@ instance AWSRequest DeleteHostedZone where
           = receiveXML
               (\ s h x ->
                  DeleteHostedZoneResponse' <$>
-                   (x .@ "ChangeInfo") <*> (pure s))
+                   (pure s) <*> (x .@ "ChangeInfo"))
 
 instance ToHeaders DeleteHostedZone where
         toHeaders = const mempty
@@ -103,27 +103,27 @@ instance ToQuery DeleteHostedZone where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhzrChangeInfo'
---
 -- * 'dhzrStatus'
+--
+-- * 'dhzrChangeInfo'
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
-    { _dhzrChangeInfo :: !ChangeInfo
-    , _dhzrStatus     :: !Status
+    { _dhzrStatus     :: !Status
+    , _dhzrChangeInfo :: !ChangeInfo
     } deriving (Eq,Show)
 
 -- | 'DeleteHostedZoneResponse' smart constructor.
-deleteHostedZoneResponse :: ChangeInfo -> Status -> DeleteHostedZoneResponse
-deleteHostedZoneResponse pChangeInfo pStatus =
+deleteHostedZoneResponse :: Status -> ChangeInfo -> DeleteHostedZoneResponse
+deleteHostedZoneResponse pStatus pChangeInfo =
     DeleteHostedZoneResponse'
-    { _dhzrChangeInfo = pChangeInfo
-    , _dhzrStatus = pStatus
+    { _dhzrStatus = pStatus
+    , _dhzrChangeInfo = pChangeInfo
     }
+
+-- | FIXME: Undocumented member.
+dhzrStatus :: Lens' DeleteHostedZoneResponse Status
+dhzrStatus = lens _dhzrStatus (\ s a -> s{_dhzrStatus = a});
 
 -- | A complex type that contains the ID, the status, and the date and time
 -- of your delete request.
 dhzrChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
 dhzrChangeInfo = lens _dhzrChangeInfo (\ s a -> s{_dhzrChangeInfo = a});
-
--- | FIXME: Undocumented member.
-dhzrStatus :: Lens' DeleteHostedZoneResponse Status
-dhzrStatus = lens _dhzrStatus (\ s a -> s{_dhzrStatus = a});

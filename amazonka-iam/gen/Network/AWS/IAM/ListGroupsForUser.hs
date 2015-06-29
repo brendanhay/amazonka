@@ -38,8 +38,8 @@ module Network.AWS.IAM.ListGroupsForUser
     -- ** Response lenses
     , lgfurMarker
     , lgfurIsTruncated
-    , lgfurGroups
     , lgfurStatus
+    , lgfurGroups
     ) where
 
 import           Network.AWS.IAM.Types
@@ -107,8 +107,10 @@ instance AWSRequest ListGroupsForUser where
               (\ s h x ->
                  ListGroupsForUserResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (x .@? "Groups" .!@ mempty >>= parseXMLList "member")
-                     <*> (pure s))
+                     (pure s)
+                     <*>
+                     (x .@? "Groups" .!@ mempty >>=
+                        parseXMLList "member"))
 
 instance ToHeaders ListGroupsForUser where
         toHeaders = const mempty
@@ -134,14 +136,14 @@ instance ToQuery ListGroupsForUser where
 --
 -- * 'lgfurIsTruncated'
 --
--- * 'lgfurGroups'
---
 -- * 'lgfurStatus'
+--
+-- * 'lgfurGroups'
 data ListGroupsForUserResponse = ListGroupsForUserResponse'
     { _lgfurMarker      :: !(Maybe Text)
     , _lgfurIsTruncated :: !(Maybe Bool)
-    , _lgfurGroups      :: ![Group]
     , _lgfurStatus      :: !Status
+    , _lgfurGroups      :: ![Group]
     } deriving (Eq,Show)
 
 -- | 'ListGroupsForUserResponse' smart constructor.
@@ -150,8 +152,8 @@ listGroupsForUserResponse pStatus =
     ListGroupsForUserResponse'
     { _lgfurMarker = Nothing
     , _lgfurIsTruncated = Nothing
-    , _lgfurGroups = mempty
     , _lgfurStatus = pStatus
+    , _lgfurGroups = mempty
     }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
@@ -167,10 +169,10 @@ lgfurMarker = lens _lgfurMarker (\ s a -> s{_lgfurMarker = a});
 lgfurIsTruncated :: Lens' ListGroupsForUserResponse (Maybe Bool)
 lgfurIsTruncated = lens _lgfurIsTruncated (\ s a -> s{_lgfurIsTruncated = a});
 
--- | A list of groups.
-lgfurGroups :: Lens' ListGroupsForUserResponse [Group]
-lgfurGroups = lens _lgfurGroups (\ s a -> s{_lgfurGroups = a});
-
 -- | FIXME: Undocumented member.
 lgfurStatus :: Lens' ListGroupsForUserResponse Status
 lgfurStatus = lens _lgfurStatus (\ s a -> s{_lgfurStatus = a});
+
+-- | A list of groups.
+lgfurGroups :: Lens' ListGroupsForUserResponse [Group]
+lgfurGroups = lens _lgfurGroups (\ s a -> s{_lgfurGroups = a});

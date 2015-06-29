@@ -79,8 +79,8 @@ module Network.AWS.SWF.RecordActivityTaskHeartbeat
     -- ** Response constructor
     , recordActivityTaskHeartbeatResponse
     -- ** Response lenses
-    , rathrCancelRequested
     , rathrStatus
+    , rathrCancelRequested
     ) where
 
 import           Network.AWS.Prelude
@@ -130,7 +130,7 @@ instance AWSRequest RecordActivityTaskHeartbeat where
           = receiveJSON
               (\ s h x ->
                  RecordActivityTaskHeartbeatResponse' <$>
-                   (x .:> "cancelRequested") <*> (pure s))
+                   (pure s) <*> (x .:> "cancelRequested"))
 
 instance ToHeaders RecordActivityTaskHeartbeat where
         toHeaders
@@ -160,26 +160,26 @@ instance ToQuery RecordActivityTaskHeartbeat where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rathrCancelRequested'
---
 -- * 'rathrStatus'
+--
+-- * 'rathrCancelRequested'
 data RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse'
-    { _rathrCancelRequested :: !Bool
-    , _rathrStatus          :: !Status
+    { _rathrStatus          :: !Status
+    , _rathrCancelRequested :: !Bool
     } deriving (Eq,Show)
 
 -- | 'RecordActivityTaskHeartbeatResponse' smart constructor.
-recordActivityTaskHeartbeatResponse :: Bool -> Status -> RecordActivityTaskHeartbeatResponse
-recordActivityTaskHeartbeatResponse pCancelRequested pStatus =
+recordActivityTaskHeartbeatResponse :: Status -> Bool -> RecordActivityTaskHeartbeatResponse
+recordActivityTaskHeartbeatResponse pStatus pCancelRequested =
     RecordActivityTaskHeartbeatResponse'
-    { _rathrCancelRequested = pCancelRequested
-    , _rathrStatus = pStatus
+    { _rathrStatus = pStatus
+    , _rathrCancelRequested = pCancelRequested
     }
-
--- | Set to @true@ if cancellation of the task is requested.
-rathrCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse Bool
-rathrCancelRequested = lens _rathrCancelRequested (\ s a -> s{_rathrCancelRequested = a});
 
 -- | FIXME: Undocumented member.
 rathrStatus :: Lens' RecordActivityTaskHeartbeatResponse Status
 rathrStatus = lens _rathrStatus (\ s a -> s{_rathrStatus = a});
+
+-- | Set to @true@ if cancellation of the task is requested.
+rathrCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse Bool
+rathrCancelRequested = lens _rathrCancelRequested (\ s a -> s{_rathrCancelRequested = a});

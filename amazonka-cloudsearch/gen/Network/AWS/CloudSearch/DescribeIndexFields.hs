@@ -39,8 +39,8 @@ module Network.AWS.CloudSearch.DescribeIndexFields
     -- ** Response constructor
     , describeIndexFieldsResponse
     -- ** Response lenses
-    , difr1IndexFields
     , difr1Status
+    , difr1IndexFields
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -101,9 +101,9 @@ instance AWSRequest DescribeIndexFields where
           = receiveXMLWrapper "DescribeIndexFieldsResult"
               (\ s h x ->
                  DescribeIndexFieldsResponse' <$>
-                   (x .@? "IndexFields" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> (pure s))
+                   (pure s) <*>
+                     (x .@? "IndexFields" .!@ mempty >>=
+                        parseXMLList "member"))
 
 instance ToHeaders DescribeIndexFields where
         toHeaders = const mempty
@@ -128,26 +128,26 @@ instance ToQuery DescribeIndexFields where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'difr1IndexFields'
---
 -- * 'difr1Status'
+--
+-- * 'difr1IndexFields'
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
-    { _difr1IndexFields :: ![IndexFieldStatus]
-    , _difr1Status      :: !Status
+    { _difr1Status      :: !Status
+    , _difr1IndexFields :: ![IndexFieldStatus]
     } deriving (Eq,Show)
 
 -- | 'DescribeIndexFieldsResponse' smart constructor.
 describeIndexFieldsResponse :: Status -> DescribeIndexFieldsResponse
 describeIndexFieldsResponse pStatus =
     DescribeIndexFieldsResponse'
-    { _difr1IndexFields = mempty
-    , _difr1Status = pStatus
+    { _difr1Status = pStatus
+    , _difr1IndexFields = mempty
     }
-
--- | The index fields configured for the domain.
-difr1IndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
-difr1IndexFields = lens _difr1IndexFields (\ s a -> s{_difr1IndexFields = a});
 
 -- | FIXME: Undocumented member.
 difr1Status :: Lens' DescribeIndexFieldsResponse Status
 difr1Status = lens _difr1Status (\ s a -> s{_difr1Status = a});
+
+-- | The index fields configured for the domain.
+difr1IndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
+difr1IndexFields = lens _difr1IndexFields (\ s a -> s{_difr1IndexFields = a});

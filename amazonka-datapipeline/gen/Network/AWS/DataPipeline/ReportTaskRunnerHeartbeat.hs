@@ -37,8 +37,8 @@ module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     -- ** Response constructor
     , reportTaskRunnerHeartbeatResponse
     -- ** Response lenses
-    , rtrhrTerminate
     , rtrhrStatus
+    , rtrhrTerminate
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -102,7 +102,7 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
           = receiveJSON
               (\ s h x ->
                  ReportTaskRunnerHeartbeatResponse' <$>
-                   (x .:> "terminate") <*> (pure s))
+                   (pure s) <*> (x .:> "terminate"))
 
 instance ToHeaders ReportTaskRunnerHeartbeat where
         toHeaders
@@ -133,26 +133,26 @@ instance ToQuery ReportTaskRunnerHeartbeat where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrhrTerminate'
---
 -- * 'rtrhrStatus'
+--
+-- * 'rtrhrTerminate'
 data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'
-    { _rtrhrTerminate :: !Bool
-    , _rtrhrStatus    :: !Status
+    { _rtrhrStatus    :: !Status
+    , _rtrhrTerminate :: !Bool
     } deriving (Eq,Show)
 
 -- | 'ReportTaskRunnerHeartbeatResponse' smart constructor.
-reportTaskRunnerHeartbeatResponse :: Bool -> Status -> ReportTaskRunnerHeartbeatResponse
-reportTaskRunnerHeartbeatResponse pTerminate pStatus =
+reportTaskRunnerHeartbeatResponse :: Status -> Bool -> ReportTaskRunnerHeartbeatResponse
+reportTaskRunnerHeartbeatResponse pStatus pTerminate =
     ReportTaskRunnerHeartbeatResponse'
-    { _rtrhrTerminate = pTerminate
-    , _rtrhrStatus = pStatus
+    { _rtrhrStatus = pStatus
+    , _rtrhrTerminate = pTerminate
     }
-
--- | Indicates whether the calling task runner should terminate.
-rtrhrTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
-rtrhrTerminate = lens _rtrhrTerminate (\ s a -> s{_rtrhrTerminate = a});
 
 -- | FIXME: Undocumented member.
 rtrhrStatus :: Lens' ReportTaskRunnerHeartbeatResponse Status
 rtrhrStatus = lens _rtrhrStatus (\ s a -> s{_rtrhrStatus = a});
+
+-- | Indicates whether the calling task runner should terminate.
+rtrhrTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
+rtrhrTerminate = lens _rtrhrTerminate (\ s a -> s{_rtrhrTerminate = a});

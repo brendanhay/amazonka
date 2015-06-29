@@ -51,8 +51,8 @@ module Network.AWS.IAM.UploadSigningCertificate
     -- ** Response constructor
     , uploadSigningCertificateResponse
     -- ** Response lenses
-    , uscrCertificate
     , uscrStatus
+    , uscrCertificate
     ) where
 
 import           Network.AWS.IAM.Types
@@ -97,7 +97,7 @@ instance AWSRequest UploadSigningCertificate where
           = receiveXMLWrapper "UploadSigningCertificateResult"
               (\ s h x ->
                  UploadSigningCertificateResponse' <$>
-                   (x .@ "Certificate") <*> (pure s))
+                   (pure s) <*> (x .@ "Certificate"))
 
 instance ToHeaders UploadSigningCertificate where
         toHeaders = const mempty
@@ -120,26 +120,26 @@ instance ToQuery UploadSigningCertificate where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uscrCertificate'
---
 -- * 'uscrStatus'
+--
+-- * 'uscrCertificate'
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
-    { _uscrCertificate :: !SigningCertificate
-    , _uscrStatus      :: !Status
+    { _uscrStatus      :: !Status
+    , _uscrCertificate :: !SigningCertificate
     } deriving (Eq,Show)
 
 -- | 'UploadSigningCertificateResponse' smart constructor.
-uploadSigningCertificateResponse :: SigningCertificate -> Status -> UploadSigningCertificateResponse
-uploadSigningCertificateResponse pCertificate pStatus =
+uploadSigningCertificateResponse :: Status -> SigningCertificate -> UploadSigningCertificateResponse
+uploadSigningCertificateResponse pStatus pCertificate =
     UploadSigningCertificateResponse'
-    { _uscrCertificate = pCertificate
-    , _uscrStatus = pStatus
+    { _uscrStatus = pStatus
+    , _uscrCertificate = pCertificate
     }
-
--- | Information about the certificate.
-uscrCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
-uscrCertificate = lens _uscrCertificate (\ s a -> s{_uscrCertificate = a});
 
 -- | FIXME: Undocumented member.
 uscrStatus :: Lens' UploadSigningCertificateResponse Status
 uscrStatus = lens _uscrStatus (\ s a -> s{_uscrStatus = a});
+
+-- | Information about the certificate.
+uscrCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
+uscrCertificate = lens _uscrCertificate (\ s a -> s{_uscrCertificate = a});

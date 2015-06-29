@@ -41,8 +41,8 @@ module Network.AWS.Route53Domains.UpdateDomainNameservers
     -- ** Response constructor
     , updateDomainNameserversResponse
     -- ** Response lenses
-    , udnrOperationId
     , udnrStatus
+    , udnrOperationId
     ) where
 
 import           Network.AWS.Prelude
@@ -113,7 +113,7 @@ instance AWSRequest UpdateDomainNameservers where
           = receiveJSON
               (\ s h x ->
                  UpdateDomainNameserversResponse' <$>
-                   (x .:> "OperationId") <*> (pure s))
+                   (pure s) <*> (x .:> "OperationId"))
 
 instance ToHeaders UpdateDomainNameservers where
         toHeaders
@@ -144,21 +144,25 @@ instance ToQuery UpdateDomainNameservers where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udnrOperationId'
---
 -- * 'udnrStatus'
+--
+-- * 'udnrOperationId'
 data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
-    { _udnrOperationId :: !Text
-    , _udnrStatus      :: !Status
+    { _udnrStatus      :: !Status
+    , _udnrOperationId :: !Text
     } deriving (Eq,Show)
 
 -- | 'UpdateDomainNameserversResponse' smart constructor.
-updateDomainNameserversResponse :: Text -> Status -> UpdateDomainNameserversResponse
-updateDomainNameserversResponse pOperationId pStatus =
+updateDomainNameserversResponse :: Status -> Text -> UpdateDomainNameserversResponse
+updateDomainNameserversResponse pStatus pOperationId =
     UpdateDomainNameserversResponse'
-    { _udnrOperationId = pOperationId
-    , _udnrStatus = pStatus
+    { _udnrStatus = pStatus
+    , _udnrOperationId = pOperationId
     }
+
+-- | FIXME: Undocumented member.
+udnrStatus :: Lens' UpdateDomainNameserversResponse Status
+udnrStatus = lens _udnrStatus (\ s a -> s{_udnrStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -170,7 +174,3 @@ updateDomainNameserversResponse pOperationId pStatus =
 -- Constraints: Maximum 255 characters.
 udnrOperationId :: Lens' UpdateDomainNameserversResponse Text
 udnrOperationId = lens _udnrOperationId (\ s a -> s{_udnrOperationId = a});
-
--- | FIXME: Undocumented member.
-udnrStatus :: Lens' UpdateDomainNameserversResponse Status
-udnrStatus = lens _udnrStatus (\ s a -> s{_udnrStatus = a});

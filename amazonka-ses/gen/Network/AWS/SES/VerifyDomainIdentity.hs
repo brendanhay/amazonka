@@ -33,8 +33,8 @@ module Network.AWS.SES.VerifyDomainIdentity
     -- ** Response constructor
     , verifyDomainIdentityResponse
     -- ** Response lenses
-    , vdirVerificationToken
     , vdirStatus
+    , vdirVerificationToken
     ) where
 
 import           Network.AWS.Prelude
@@ -74,7 +74,7 @@ instance AWSRequest VerifyDomainIdentity where
           = receiveXMLWrapper "VerifyDomainIdentityResult"
               (\ s h x ->
                  VerifyDomainIdentityResponse' <$>
-                   (x .@ "VerificationToken") <*> (pure s))
+                   (pure s) <*> (x .@ "VerificationToken"))
 
 instance ToHeaders VerifyDomainIdentity where
         toHeaders = const mempty
@@ -95,27 +95,27 @@ instance ToQuery VerifyDomainIdentity where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vdirVerificationToken'
---
 -- * 'vdirStatus'
+--
+-- * 'vdirVerificationToken'
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
-    { _vdirVerificationToken :: !Text
-    , _vdirStatus            :: !Status
+    { _vdirStatus            :: !Status
+    , _vdirVerificationToken :: !Text
     } deriving (Eq,Show)
 
 -- | 'VerifyDomainIdentityResponse' smart constructor.
-verifyDomainIdentityResponse :: Text -> Status -> VerifyDomainIdentityResponse
-verifyDomainIdentityResponse pVerificationToken pStatus =
+verifyDomainIdentityResponse :: Status -> Text -> VerifyDomainIdentityResponse
+verifyDomainIdentityResponse pStatus pVerificationToken =
     VerifyDomainIdentityResponse'
-    { _vdirVerificationToken = pVerificationToken
-    , _vdirStatus = pStatus
+    { _vdirStatus = pStatus
+    , _vdirVerificationToken = pVerificationToken
     }
+
+-- | FIXME: Undocumented member.
+vdirStatus :: Lens' VerifyDomainIdentityResponse Status
+vdirStatus = lens _vdirStatus (\ s a -> s{_vdirStatus = a});
 
 -- | A TXT record that must be placed in the DNS settings for the domain, in
 -- order to complete domain verification.
 vdirVerificationToken :: Lens' VerifyDomainIdentityResponse Text
 vdirVerificationToken = lens _vdirVerificationToken (\ s a -> s{_vdirVerificationToken = a});
-
--- | FIXME: Undocumented member.
-vdirStatus :: Lens' VerifyDomainIdentityResponse Status
-vdirStatus = lens _vdirStatus (\ s a -> s{_vdirStatus = a});

@@ -55,8 +55,8 @@ module Network.AWS.Kinesis.DescribeStream
     -- ** Response constructor
     , describeStreamResponse
     -- ** Response lenses
-    , dsrStreamDescription
     , dsrStatus
+    , dsrStreamDescription
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -125,7 +125,7 @@ instance AWSRequest DescribeStream where
           = receiveJSON
               (\ s h x ->
                  DescribeStreamResponse' <$>
-                   (x .:> "StreamDescription") <*> (pure s))
+                   (pure s) <*> (x .:> "StreamDescription"))
 
 instance ToHeaders DescribeStream where
         toHeaders
@@ -155,28 +155,28 @@ instance ToQuery DescribeStream where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrStreamDescription'
---
 -- * 'dsrStatus'
+--
+-- * 'dsrStreamDescription'
 data DescribeStreamResponse = DescribeStreamResponse'
-    { _dsrStreamDescription :: !StreamDescription
-    , _dsrStatus            :: !Status
+    { _dsrStatus            :: !Status
+    , _dsrStreamDescription :: !StreamDescription
     } deriving (Eq,Show)
 
 -- | 'DescribeStreamResponse' smart constructor.
-describeStreamResponse :: StreamDescription -> Status -> DescribeStreamResponse
-describeStreamResponse pStreamDescription pStatus =
+describeStreamResponse :: Status -> StreamDescription -> DescribeStreamResponse
+describeStreamResponse pStatus pStreamDescription =
     DescribeStreamResponse'
-    { _dsrStreamDescription = pStreamDescription
-    , _dsrStatus = pStatus
+    { _dsrStatus = pStatus
+    , _dsrStreamDescription = pStreamDescription
     }
+
+-- | FIXME: Undocumented member.
+dsrStatus :: Lens' DescribeStreamResponse Status
+dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});
 
 -- | The current status of the stream, the stream ARN, an array of shard
 -- objects that comprise the stream, and states whether there are more
 -- shards available.
 dsrStreamDescription :: Lens' DescribeStreamResponse StreamDescription
 dsrStreamDescription = lens _dsrStreamDescription (\ s a -> s{_dsrStreamDescription = a});
-
--- | FIXME: Undocumented member.
-dsrStatus :: Lens' DescribeStreamResponse Status
-dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

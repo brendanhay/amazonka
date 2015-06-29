@@ -32,8 +32,8 @@ module Network.AWS.Route53.GetReusableDelegationSet
     -- ** Response constructor
     , getReusableDelegationSetResponse
     -- ** Response lenses
-    , grdsrDelegationSet
     , grdsrStatus
+    , grdsrDelegationSet
     ) where
 
 import           Network.AWS.Prelude
@@ -73,7 +73,7 @@ instance AWSRequest GetReusableDelegationSet where
           = receiveXML
               (\ s h x ->
                  GetReusableDelegationSetResponse' <$>
-                   (x .@ "DelegationSet") <*> (pure s))
+                   (pure s) <*> (x .@ "DelegationSet"))
 
 instance ToHeaders GetReusableDelegationSet where
         toHeaders = const mempty
@@ -93,27 +93,27 @@ instance ToQuery GetReusableDelegationSet where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grdsrDelegationSet'
---
 -- * 'grdsrStatus'
+--
+-- * 'grdsrDelegationSet'
 data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
-    { _grdsrDelegationSet :: !DelegationSet
-    , _grdsrStatus        :: !Status
+    { _grdsrStatus        :: !Status
+    , _grdsrDelegationSet :: !DelegationSet
     } deriving (Eq,Show)
 
 -- | 'GetReusableDelegationSetResponse' smart constructor.
-getReusableDelegationSetResponse :: DelegationSet -> Status -> GetReusableDelegationSetResponse
-getReusableDelegationSetResponse pDelegationSet pStatus =
+getReusableDelegationSetResponse :: Status -> DelegationSet -> GetReusableDelegationSetResponse
+getReusableDelegationSetResponse pStatus pDelegationSet =
     GetReusableDelegationSetResponse'
-    { _grdsrDelegationSet = pDelegationSet
-    , _grdsrStatus = pStatus
+    { _grdsrStatus = pStatus
+    , _grdsrDelegationSet = pDelegationSet
     }
+
+-- | FIXME: Undocumented member.
+grdsrStatus :: Lens' GetReusableDelegationSetResponse Status
+grdsrStatus = lens _grdsrStatus (\ s a -> s{_grdsrStatus = a});
 
 -- | A complex type that contains the information about the nameservers for
 -- the specified delegation set ID.
 grdsrDelegationSet :: Lens' GetReusableDelegationSetResponse DelegationSet
 grdsrDelegationSet = lens _grdsrDelegationSet (\ s a -> s{_grdsrDelegationSet = a});
-
--- | FIXME: Undocumented member.
-grdsrStatus :: Lens' GetReusableDelegationSetResponse Status
-grdsrStatus = lens _grdsrStatus (\ s a -> s{_grdsrStatus = a});

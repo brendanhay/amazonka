@@ -40,8 +40,8 @@ module Network.AWS.CloudSearch.DescribeSuggesters
     -- ** Response constructor
     , describeSuggestersResponse
     -- ** Response lenses
-    , dsr1Suggesters
     , dsr1Status
+    , dsr1Suggesters
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -101,9 +101,9 @@ instance AWSRequest DescribeSuggesters where
           = receiveXMLWrapper "DescribeSuggestersResult"
               (\ s h x ->
                  DescribeSuggestersResponse' <$>
-                   (x .@? "Suggesters" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> (pure s))
+                   (pure s) <*>
+                     (x .@? "Suggesters" .!@ mempty >>=
+                        parseXMLList "member"))
 
 instance ToHeaders DescribeSuggesters where
         toHeaders = const mempty
@@ -128,26 +128,26 @@ instance ToQuery DescribeSuggesters where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsr1Suggesters'
---
 -- * 'dsr1Status'
+--
+-- * 'dsr1Suggesters'
 data DescribeSuggestersResponse = DescribeSuggestersResponse'
-    { _dsr1Suggesters :: ![SuggesterStatus]
-    , _dsr1Status     :: !Status
+    { _dsr1Status     :: !Status
+    , _dsr1Suggesters :: ![SuggesterStatus]
     } deriving (Eq,Show)
 
 -- | 'DescribeSuggestersResponse' smart constructor.
 describeSuggestersResponse :: Status -> DescribeSuggestersResponse
 describeSuggestersResponse pStatus =
     DescribeSuggestersResponse'
-    { _dsr1Suggesters = mempty
-    , _dsr1Status = pStatus
+    { _dsr1Status = pStatus
+    , _dsr1Suggesters = mempty
     }
-
--- | The suggesters configured for the domain specified in the request.
-dsr1Suggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
-dsr1Suggesters = lens _dsr1Suggesters (\ s a -> s{_dsr1Suggesters = a});
 
 -- | FIXME: Undocumented member.
 dsr1Status :: Lens' DescribeSuggestersResponse Status
 dsr1Status = lens _dsr1Status (\ s a -> s{_dsr1Status = a});
+
+-- | The suggesters configured for the domain specified in the request.
+dsr1Suggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
+dsr1Suggesters = lens _dsr1Suggesters (\ s a -> s{_dsr1Suggesters = a});

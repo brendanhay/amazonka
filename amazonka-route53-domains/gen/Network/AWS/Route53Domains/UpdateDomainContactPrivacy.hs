@@ -45,8 +45,8 @@ module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     -- ** Response constructor
     , updateDomainContactPrivacyResponse
     -- ** Response lenses
-    , udcprOperationId
     , udcprStatus
+    , udcprOperationId
     ) where
 
 import           Network.AWS.Prelude
@@ -152,7 +152,7 @@ instance AWSRequest UpdateDomainContactPrivacy where
           = receiveJSON
               (\ s h x ->
                  UpdateDomainContactPrivacyResponse' <$>
-                   (x .:> "OperationId") <*> (pure s))
+                   (pure s) <*> (x .:> "OperationId"))
 
 instance ToHeaders UpdateDomainContactPrivacy where
         toHeaders
@@ -184,21 +184,25 @@ instance ToQuery UpdateDomainContactPrivacy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udcprOperationId'
---
 -- * 'udcprStatus'
+--
+-- * 'udcprOperationId'
 data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
-    { _udcprOperationId :: !Text
-    , _udcprStatus      :: !Status
+    { _udcprStatus      :: !Status
+    , _udcprOperationId :: !Text
     } deriving (Eq,Show)
 
 -- | 'UpdateDomainContactPrivacyResponse' smart constructor.
-updateDomainContactPrivacyResponse :: Text -> Status -> UpdateDomainContactPrivacyResponse
-updateDomainContactPrivacyResponse pOperationId pStatus =
+updateDomainContactPrivacyResponse :: Status -> Text -> UpdateDomainContactPrivacyResponse
+updateDomainContactPrivacyResponse pStatus pOperationId =
     UpdateDomainContactPrivacyResponse'
-    { _udcprOperationId = pOperationId
-    , _udcprStatus = pStatus
+    { _udcprStatus = pStatus
+    , _udcprOperationId = pOperationId
     }
+
+-- | FIXME: Undocumented member.
+udcprStatus :: Lens' UpdateDomainContactPrivacyResponse Status
+udcprStatus = lens _udcprStatus (\ s a -> s{_udcprStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -210,7 +214,3 @@ updateDomainContactPrivacyResponse pOperationId pStatus =
 -- Constraints: Maximum 255 characters.
 udcprOperationId :: Lens' UpdateDomainContactPrivacyResponse Text
 udcprOperationId = lens _udcprOperationId (\ s a -> s{_udcprOperationId = a});
-
--- | FIXME: Undocumented member.
-udcprStatus :: Lens' UpdateDomainContactPrivacyResponse Status
-udcprStatus = lens _udcprStatus (\ s a -> s{_udcprStatus = a});

@@ -35,8 +35,8 @@ module Network.AWS.Route53Domains.ListTagsForDomain
     -- ** Response constructor
     , listTagsForDomainResponse
     -- ** Response lenses
-    , ltfdrTagList
     , ltfdrStatus
+    , ltfdrTagList
     ) where
 
 import           Network.AWS.Prelude
@@ -74,7 +74,7 @@ instance AWSRequest ListTagsForDomain where
           = receiveJSON
               (\ s h x ->
                  ListTagsForDomainResponse' <$>
-                   (x .?> "TagList" .!@ mempty) <*> (pure s))
+                   (pure s) <*> (x .?> "TagList" .!@ mempty))
 
 instance ToHeaders ListTagsForDomain where
         toHeaders
@@ -102,21 +102,25 @@ instance ToQuery ListTagsForDomain where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfdrTagList'
---
 -- * 'ltfdrStatus'
+--
+-- * 'ltfdrTagList'
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
-    { _ltfdrTagList :: ![Tag]
-    , _ltfdrStatus  :: !Status
+    { _ltfdrStatus  :: !Status
+    , _ltfdrTagList :: ![Tag]
     } deriving (Eq,Show)
 
 -- | 'ListTagsForDomainResponse' smart constructor.
 listTagsForDomainResponse :: Status -> ListTagsForDomainResponse
 listTagsForDomainResponse pStatus =
     ListTagsForDomainResponse'
-    { _ltfdrTagList = mempty
-    , _ltfdrStatus = pStatus
+    { _ltfdrStatus = pStatus
+    , _ltfdrTagList = mempty
     }
+
+-- | FIXME: Undocumented member.
+ltfdrStatus :: Lens' ListTagsForDomainResponse Status
+ltfdrStatus = lens _ltfdrStatus (\ s a -> s{_ltfdrStatus = a});
 
 -- | A list of the tags that are associated with the specified domain.
 --
@@ -138,7 +142,3 @@ listTagsForDomainResponse pStatus =
 --
 ltfdrTagList :: Lens' ListTagsForDomainResponse [Tag]
 ltfdrTagList = lens _ltfdrTagList (\ s a -> s{_ltfdrTagList = a});
-
--- | FIXME: Undocumented member.
-ltfdrStatus :: Lens' ListTagsForDomainResponse Status
-ltfdrStatus = lens _ltfdrStatus (\ s a -> s{_ltfdrStatus = a});

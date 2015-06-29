@@ -32,8 +32,8 @@ module Network.AWS.Route53.ListTagsForResources
     -- ** Response constructor
     , listTagsForResourcesResponse
     -- ** Response lenses
-    , lisResourceTagSets
     , lisStatus
+    , lisResourceTagSets
     ) where
 
 import           Network.AWS.Prelude
@@ -86,9 +86,9 @@ instance AWSRequest ListTagsForResources where
           = receiveXML
               (\ s h x ->
                  ListTagsForResourcesResponse' <$>
-                   (x .@? "ResourceTagSets" .!@ mempty >>=
-                      parseXMLList "ResourceTagSet")
-                     <*> (pure s))
+                   (pure s) <*>
+                     (x .@? "ResourceTagSets" .!@ mempty >>=
+                        parseXMLList "ResourceTagSet"))
 
 instance ToElement ListTagsForResources where
         toElement
@@ -118,27 +118,27 @@ instance ToXML ListTagsForResources where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lisResourceTagSets'
---
 -- * 'lisStatus'
+--
+-- * 'lisResourceTagSets'
 data ListTagsForResourcesResponse = ListTagsForResourcesResponse'
-    { _lisResourceTagSets :: ![ResourceTagSet]
-    , _lisStatus          :: !Status
+    { _lisStatus          :: !Status
+    , _lisResourceTagSets :: ![ResourceTagSet]
     } deriving (Eq,Show)
 
 -- | 'ListTagsForResourcesResponse' smart constructor.
 listTagsForResourcesResponse :: Status -> ListTagsForResourcesResponse
 listTagsForResourcesResponse pStatus =
     ListTagsForResourcesResponse'
-    { _lisResourceTagSets = mempty
-    , _lisStatus = pStatus
+    { _lisStatus = pStatus
+    , _lisResourceTagSets = mempty
     }
+
+-- | FIXME: Undocumented member.
+lisStatus :: Lens' ListTagsForResourcesResponse Status
+lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});
 
 -- | A list of @ResourceTagSet@s containing tags associated with the
 -- specified resources.
 lisResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
 lisResourceTagSets = lens _lisResourceTagSets (\ s a -> s{_lisResourceTagSets = a});
-
--- | FIXME: Undocumented member.
-lisStatus :: Lens' ListTagsForResourcesResponse Status
-lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});

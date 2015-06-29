@@ -57,8 +57,8 @@ module Network.AWS.SWF.ListWorkflowTypes
     , listWorkflowTypesResponse
     -- ** Response lenses
     , lwtrNextPageToken
-    , lwtrTypeInfos
     , lwtrStatus
+    , lwtrTypeInfos
     ) where
 
 import           Network.AWS.Pager
@@ -157,9 +157,8 @@ instance AWSRequest ListWorkflowTypes where
           = receiveJSON
               (\ s h x ->
                  ListWorkflowTypesResponse' <$>
-                   (x .?> "nextPageToken") <*>
-                     (x .?> "typeInfos" .!@ mempty)
-                     <*> (pure s))
+                   (x .?> "nextPageToken") <*> (pure s) <*>
+                     (x .?> "typeInfos" .!@ mempty))
 
 instance ToHeaders ListWorkflowTypes where
         toHeaders
@@ -196,13 +195,13 @@ instance ToQuery ListWorkflowTypes where
 --
 -- * 'lwtrNextPageToken'
 --
--- * 'lwtrTypeInfos'
---
 -- * 'lwtrStatus'
+--
+-- * 'lwtrTypeInfos'
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse'
     { _lwtrNextPageToken :: !(Maybe Text)
-    , _lwtrTypeInfos     :: ![WorkflowTypeInfo]
     , _lwtrStatus        :: !Status
+    , _lwtrTypeInfos     :: ![WorkflowTypeInfo]
     } deriving (Eq,Show)
 
 -- | 'ListWorkflowTypesResponse' smart constructor.
@@ -210,8 +209,8 @@ listWorkflowTypesResponse :: Status -> ListWorkflowTypesResponse
 listWorkflowTypesResponse pStatus =
     ListWorkflowTypesResponse'
     { _lwtrNextPageToken = Nothing
-    , _lwtrTypeInfos = mempty
     , _lwtrStatus = pStatus
+    , _lwtrTypeInfos = mempty
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -224,10 +223,10 @@ listWorkflowTypesResponse pStatus =
 lwtrNextPageToken :: Lens' ListWorkflowTypesResponse (Maybe Text)
 lwtrNextPageToken = lens _lwtrNextPageToken (\ s a -> s{_lwtrNextPageToken = a});
 
--- | The list of workflow type information.
-lwtrTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
-lwtrTypeInfos = lens _lwtrTypeInfos (\ s a -> s{_lwtrTypeInfos = a});
-
 -- | FIXME: Undocumented member.
 lwtrStatus :: Lens' ListWorkflowTypesResponse Status
 lwtrStatus = lens _lwtrStatus (\ s a -> s{_lwtrStatus = a});
+
+-- | The list of workflow type information.
+lwtrTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
+lwtrTypeInfos = lens _lwtrTypeInfos (\ s a -> s{_lwtrTypeInfos = a});

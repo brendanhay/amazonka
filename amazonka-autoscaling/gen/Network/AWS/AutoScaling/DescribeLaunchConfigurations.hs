@@ -35,8 +35,8 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     , describeLaunchConfigurationsResponse
     -- ** Response lenses
     , dlcrNextToken
-    , dlcrLaunchConfigurations
     , dlcrStatus
+    , dlcrLaunchConfigurations
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -101,10 +101,9 @@ instance AWSRequest DescribeLaunchConfigurations
               "DescribeLaunchConfigurationsResult"
               (\ s h x ->
                  DescribeLaunchConfigurationsResponse' <$>
-                   (x .@? "NextToken") <*>
+                   (x .@? "NextToken") <*> (pure s) <*>
                      (x .@? "LaunchConfigurations" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> (pure s))
+                        parseXMLList "member"))
 
 instance ToHeaders DescribeLaunchConfigurations where
         toHeaders = const mempty
@@ -131,13 +130,13 @@ instance ToQuery DescribeLaunchConfigurations where
 --
 -- * 'dlcrNextToken'
 --
--- * 'dlcrLaunchConfigurations'
---
 -- * 'dlcrStatus'
+--
+-- * 'dlcrLaunchConfigurations'
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'
     { _dlcrNextToken            :: !(Maybe Text)
-    , _dlcrLaunchConfigurations :: ![LaunchConfiguration]
     , _dlcrStatus               :: !Status
+    , _dlcrLaunchConfigurations :: ![LaunchConfiguration]
     } deriving (Eq,Show)
 
 -- | 'DescribeLaunchConfigurationsResponse' smart constructor.
@@ -145,8 +144,8 @@ describeLaunchConfigurationsResponse :: Status -> DescribeLaunchConfigurationsRe
 describeLaunchConfigurationsResponse pStatus =
     DescribeLaunchConfigurationsResponse'
     { _dlcrNextToken = Nothing
-    , _dlcrLaunchConfigurations = mempty
     , _dlcrStatus = pStatus
+    , _dlcrLaunchConfigurations = mempty
     }
 
 -- | The token to use when requesting the next set of items. If there are no
@@ -154,10 +153,10 @@ describeLaunchConfigurationsResponse pStatus =
 dlcrNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
 dlcrNextToken = lens _dlcrNextToken (\ s a -> s{_dlcrNextToken = a});
 
--- | The launch configurations.
-dlcrLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
-dlcrLaunchConfigurations = lens _dlcrLaunchConfigurations (\ s a -> s{_dlcrLaunchConfigurations = a});
-
 -- | FIXME: Undocumented member.
 dlcrStatus :: Lens' DescribeLaunchConfigurationsResponse Status
 dlcrStatus = lens _dlcrStatus (\ s a -> s{_dlcrStatus = a});
+
+-- | The launch configurations.
+dlcrLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
+dlcrLaunchConfigurations = lens _dlcrLaunchConfigurations (\ s a -> s{_dlcrLaunchConfigurations = a});

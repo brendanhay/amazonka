@@ -62,8 +62,8 @@ module Network.AWS.EC2.CreateSecurityGroup
     -- ** Response constructor
     , createSecurityGroupResponse
     -- ** Response lenses
-    , csgrGroupId
     , csgrStatus
+    , csgrGroupId
     ) where
 
 import           Network.AWS.EC2.Types
@@ -141,7 +141,7 @@ instance AWSRequest CreateSecurityGroup where
           = receiveXML
               (\ s h x ->
                  CreateSecurityGroupResponse' <$>
-                   (x .@ "groupId") <*> (pure s))
+                   (pure s) <*> (x .@ "groupId"))
 
 instance ToHeaders CreateSecurityGroup where
         toHeaders = const mempty
@@ -162,26 +162,26 @@ instance ToQuery CreateSecurityGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csgrGroupId'
---
 -- * 'csgrStatus'
+--
+-- * 'csgrGroupId'
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse'
-    { _csgrGroupId :: !Text
-    , _csgrStatus  :: !Status
+    { _csgrStatus  :: !Status
+    , _csgrGroupId :: !Text
     } deriving (Eq,Show)
 
 -- | 'CreateSecurityGroupResponse' smart constructor.
-createSecurityGroupResponse :: Text -> Status -> CreateSecurityGroupResponse
-createSecurityGroupResponse pGroupId pStatus =
+createSecurityGroupResponse :: Status -> Text -> CreateSecurityGroupResponse
+createSecurityGroupResponse pStatus pGroupId =
     CreateSecurityGroupResponse'
-    { _csgrGroupId = pGroupId
-    , _csgrStatus = pStatus
+    { _csgrStatus = pStatus
+    , _csgrGroupId = pGroupId
     }
-
--- | The ID of the security group.
-csgrGroupId :: Lens' CreateSecurityGroupResponse Text
-csgrGroupId = lens _csgrGroupId (\ s a -> s{_csgrGroupId = a});
 
 -- | FIXME: Undocumented member.
 csgrStatus :: Lens' CreateSecurityGroupResponse Status
 csgrStatus = lens _csgrStatus (\ s a -> s{_csgrStatus = a});
+
+-- | The ID of the security group.
+csgrGroupId :: Lens' CreateSecurityGroupResponse Text
+csgrGroupId = lens _csgrGroupId (\ s a -> s{_csgrGroupId = a});

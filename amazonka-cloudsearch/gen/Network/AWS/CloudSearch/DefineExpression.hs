@@ -36,8 +36,8 @@ module Network.AWS.CloudSearch.DefineExpression
     -- ** Response constructor
     , defineExpressionResponse
     -- ** Response lenses
-    , derExpression
     , derStatus
+    , derExpression
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -85,7 +85,7 @@ instance AWSRequest DefineExpression where
           = receiveXMLWrapper "DefineExpressionResult"
               (\ s h x ->
                  DefineExpressionResponse' <$>
-                   (x .@ "Expression") <*> (pure s))
+                   (pure s) <*> (x .@ "Expression"))
 
 instance ToHeaders DefineExpression where
         toHeaders = const mempty
@@ -108,26 +108,26 @@ instance ToQuery DefineExpression where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derExpression'
---
 -- * 'derStatus'
+--
+-- * 'derExpression'
 data DefineExpressionResponse = DefineExpressionResponse'
-    { _derExpression :: !ExpressionStatus
-    , _derStatus     :: !Status
+    { _derStatus     :: !Status
+    , _derExpression :: !ExpressionStatus
     } deriving (Eq,Show)
 
 -- | 'DefineExpressionResponse' smart constructor.
-defineExpressionResponse :: ExpressionStatus -> Status -> DefineExpressionResponse
-defineExpressionResponse pExpression pStatus =
+defineExpressionResponse :: Status -> ExpressionStatus -> DefineExpressionResponse
+defineExpressionResponse pStatus pExpression =
     DefineExpressionResponse'
-    { _derExpression = pExpression
-    , _derStatus = pStatus
+    { _derStatus = pStatus
+    , _derExpression = pExpression
     }
-
--- | FIXME: Undocumented member.
-derExpression :: Lens' DefineExpressionResponse ExpressionStatus
-derExpression = lens _derExpression (\ s a -> s{_derExpression = a});
 
 -- | FIXME: Undocumented member.
 derStatus :: Lens' DefineExpressionResponse Status
 derStatus = lens _derStatus (\ s a -> s{_derStatus = a});
+
+-- | FIXME: Undocumented member.
+derExpression :: Lens' DefineExpressionResponse ExpressionStatus
+derExpression = lens _derExpression (\ s a -> s{_derExpression = a});

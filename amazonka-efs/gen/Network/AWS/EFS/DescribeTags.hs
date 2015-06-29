@@ -41,8 +41,8 @@ module Network.AWS.EFS.DescribeTags
     -- ** Response lenses
     , dtrMarker
     , dtrNextMarker
-    , dtrTags
     , dtrStatus
+    , dtrTags
     ) where
 
 import           Network.AWS.EFS.Types
@@ -98,8 +98,8 @@ instance AWSRequest DescribeTags where
               (\ s h x ->
                  DescribeTagsResponse' <$>
                    (x .?> "Marker") <*> (x .?> "NextMarker") <*>
-                     (x .?> "Tags" .!@ mempty)
-                     <*> (pure s))
+                     (pure s)
+                     <*> (x .?> "Tags" .!@ mempty))
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
@@ -122,14 +122,14 @@ instance ToQuery DescribeTags where
 --
 -- * 'dtrNextMarker'
 --
--- * 'dtrTags'
---
 -- * 'dtrStatus'
+--
+-- * 'dtrTags'
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrMarker     :: !(Maybe Text)
     , _dtrNextMarker :: !(Maybe Text)
-    , _dtrTags       :: ![Tag]
     , _dtrStatus     :: !Status
+    , _dtrTags       :: ![Tag]
     } deriving (Eq,Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
@@ -138,8 +138,8 @@ describeTagsResponse pStatus =
     DescribeTagsResponse'
     { _dtrMarker = Nothing
     , _dtrNextMarker = Nothing
-    , _dtrTags = mempty
     , _dtrStatus = pStatus
+    , _dtrTags = mempty
     }
 
 -- | If the request included a @Marker@, the response returns that value in
@@ -154,11 +154,11 @@ dtrMarker = lens _dtrMarker (\ s a -> s{_dtrMarker = a});
 dtrNextMarker :: Lens' DescribeTagsResponse (Maybe Text)
 dtrNextMarker = lens _dtrNextMarker (\ s a -> s{_dtrNextMarker = a});
 
+-- | FIXME: Undocumented member.
+dtrStatus :: Lens' DescribeTagsResponse Status
+dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});
+
 -- | Returns tags associated with the file system as an array of @Tag@
 -- objects.
 dtrTags :: Lens' DescribeTagsResponse [Tag]
 dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a});
-
--- | FIXME: Undocumented member.
-dtrStatus :: Lens' DescribeTagsResponse Status
-dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});

@@ -37,8 +37,8 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
     -- ** Response lenses
     , vpdrValidationErrors
     , vpdrValidationWarnings
-    , vpdrErrored
     , vpdrStatus
+    , vpdrErrored
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -104,8 +104,8 @@ instance AWSRequest ValidatePipelineDefinition where
                  ValidatePipelineDefinitionResponse' <$>
                    (x .?> "validationErrors" .!@ mempty) <*>
                      (x .?> "validationWarnings" .!@ mempty)
-                     <*> (x .:> "errored")
-                     <*> (pure s))
+                     <*> (pure s)
+                     <*> (x .:> "errored"))
 
 instance ToHeaders ValidatePipelineDefinition where
         toHeaders
@@ -141,24 +141,24 @@ instance ToQuery ValidatePipelineDefinition where
 --
 -- * 'vpdrValidationWarnings'
 --
--- * 'vpdrErrored'
---
 -- * 'vpdrStatus'
+--
+-- * 'vpdrErrored'
 data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
     { _vpdrValidationErrors   :: !(Maybe [ValidationError])
     , _vpdrValidationWarnings :: !(Maybe [ValidationWarning])
-    , _vpdrErrored            :: !Bool
     , _vpdrStatus             :: !Status
+    , _vpdrErrored            :: !Bool
     } deriving (Eq,Show)
 
 -- | 'ValidatePipelineDefinitionResponse' smart constructor.
-validatePipelineDefinitionResponse :: Bool -> Status -> ValidatePipelineDefinitionResponse
-validatePipelineDefinitionResponse pErrored pStatus =
+validatePipelineDefinitionResponse :: Status -> Bool -> ValidatePipelineDefinitionResponse
+validatePipelineDefinitionResponse pStatus pErrored =
     ValidatePipelineDefinitionResponse'
     { _vpdrValidationErrors = Nothing
     , _vpdrValidationWarnings = Nothing
-    , _vpdrErrored = pErrored
     , _vpdrStatus = pStatus
+    , _vpdrErrored = pErrored
     }
 
 -- | Any validation errors that were found.
@@ -169,10 +169,10 @@ vpdrValidationErrors = lens _vpdrValidationErrors (\ s a -> s{_vpdrValidationErr
 vpdrValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
 vpdrValidationWarnings = lens _vpdrValidationWarnings (\ s a -> s{_vpdrValidationWarnings = a}) . _Default;
 
--- | Indicates whether there were validation errors.
-vpdrErrored :: Lens' ValidatePipelineDefinitionResponse Bool
-vpdrErrored = lens _vpdrErrored (\ s a -> s{_vpdrErrored = a});
-
 -- | FIXME: Undocumented member.
 vpdrStatus :: Lens' ValidatePipelineDefinitionResponse Status
 vpdrStatus = lens _vpdrStatus (\ s a -> s{_vpdrStatus = a});
+
+-- | Indicates whether there were validation errors.
+vpdrErrored :: Lens' ValidatePipelineDefinitionResponse Bool
+vpdrErrored = lens _vpdrErrored (\ s a -> s{_vpdrErrored = a});

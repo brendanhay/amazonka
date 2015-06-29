@@ -33,8 +33,8 @@ module Network.AWS.CloudFront.ListInvalidations
     -- ** Response constructor
     , listInvalidationsResponse
     -- ** Response lenses
-    , lirInvalidationList
     , lirStatus
+    , lirInvalidationList
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -95,7 +95,7 @@ instance AWSRequest ListInvalidations where
           = receiveXML
               (\ s h x ->
                  ListInvalidationsResponse' <$>
-                   (x .@ "InvalidationList") <*> (pure s))
+                   (pure s) <*> (x .@ "InvalidationList"))
 
 instance ToHeaders ListInvalidations where
         toHeaders = const mempty
@@ -117,26 +117,26 @@ instance ToQuery ListInvalidations where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lirInvalidationList'
---
 -- * 'lirStatus'
+--
+-- * 'lirInvalidationList'
 data ListInvalidationsResponse = ListInvalidationsResponse'
-    { _lirInvalidationList :: !InvalidationList
-    , _lirStatus           :: !Status
+    { _lirStatus           :: !Status
+    , _lirInvalidationList :: !InvalidationList
     } deriving (Eq,Show)
 
 -- | 'ListInvalidationsResponse' smart constructor.
-listInvalidationsResponse :: InvalidationList -> Status -> ListInvalidationsResponse
-listInvalidationsResponse pInvalidationList pStatus =
+listInvalidationsResponse :: Status -> InvalidationList -> ListInvalidationsResponse
+listInvalidationsResponse pStatus pInvalidationList =
     ListInvalidationsResponse'
-    { _lirInvalidationList = pInvalidationList
-    , _lirStatus = pStatus
+    { _lirStatus = pStatus
+    , _lirInvalidationList = pInvalidationList
     }
-
--- | Information about invalidation batches.
-lirInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
-lirInvalidationList = lens _lirInvalidationList (\ s a -> s{_lirInvalidationList = a});
 
 -- | FIXME: Undocumented member.
 lirStatus :: Lens' ListInvalidationsResponse Status
 lirStatus = lens _lirStatus (\ s a -> s{_lirStatus = a});
+
+-- | Information about invalidation batches.
+lirInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
+lirInvalidationList = lens _lirInvalidationList (\ s a -> s{_lirInvalidationList = a});

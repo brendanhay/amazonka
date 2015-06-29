@@ -62,8 +62,8 @@ module Network.AWS.Route53Domains.RegisterDomain
     -- ** Response constructor
     , registerDomainResponse
     -- ** Response lenses
-    , rdrOperationId
     , rdrStatus
+    , rdrOperationId
     ) where
 
 import           Network.AWS.Prelude
@@ -260,7 +260,7 @@ instance AWSRequest RegisterDomain where
           = receiveJSON
               (\ s h x ->
                  RegisterDomainResponse' <$>
-                   (x .:> "OperationId") <*> (pure s))
+                   (pure s) <*> (x .:> "OperationId"))
 
 instance ToHeaders RegisterDomain where
         toHeaders
@@ -301,21 +301,25 @@ instance ToQuery RegisterDomain where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdrOperationId'
---
 -- * 'rdrStatus'
+--
+-- * 'rdrOperationId'
 data RegisterDomainResponse = RegisterDomainResponse'
-    { _rdrOperationId :: !Text
-    , _rdrStatus      :: !Status
+    { _rdrStatus      :: !Status
+    , _rdrOperationId :: !Text
     } deriving (Eq,Show)
 
 -- | 'RegisterDomainResponse' smart constructor.
-registerDomainResponse :: Text -> Status -> RegisterDomainResponse
-registerDomainResponse pOperationId pStatus =
+registerDomainResponse :: Status -> Text -> RegisterDomainResponse
+registerDomainResponse pStatus pOperationId =
     RegisterDomainResponse'
-    { _rdrOperationId = pOperationId
-    , _rdrStatus = pStatus
+    { _rdrStatus = pStatus
+    , _rdrOperationId = pOperationId
     }
+
+-- | FIXME: Undocumented member.
+rdrStatus :: Lens' RegisterDomainResponse Status
+rdrStatus = lens _rdrStatus (\ s a -> s{_rdrStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -327,7 +331,3 @@ registerDomainResponse pOperationId pStatus =
 -- Constraints: Maximum 255 characters.
 rdrOperationId :: Lens' RegisterDomainResponse Text
 rdrOperationId = lens _rdrOperationId (\ s a -> s{_rdrOperationId = a});
-
--- | FIXME: Undocumented member.
-rdrStatus :: Lens' RegisterDomainResponse Status
-rdrStatus = lens _rdrStatus (\ s a -> s{_rdrStatus = a});

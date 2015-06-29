@@ -38,8 +38,8 @@ module Network.AWS.IAM.ListGroups
     -- ** Response lenses
     , lgrMarker
     , lgrIsTruncated
-    , lgrGroups
     , lgrStatus
+    , lgrGroups
     ) where
 
 import           Network.AWS.IAM.Types
@@ -111,8 +111,10 @@ instance AWSRequest ListGroups where
               (\ s h x ->
                  ListGroupsResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (x .@? "Groups" .!@ mempty >>= parseXMLList "member")
-                     <*> (pure s))
+                     (pure s)
+                     <*>
+                     (x .@? "Groups" .!@ mempty >>=
+                        parseXMLList "member"))
 
 instance ToHeaders ListGroups where
         toHeaders = const mempty
@@ -138,14 +140,14 @@ instance ToQuery ListGroups where
 --
 -- * 'lgrIsTruncated'
 --
--- * 'lgrGroups'
---
 -- * 'lgrStatus'
+--
+-- * 'lgrGroups'
 data ListGroupsResponse = ListGroupsResponse'
     { _lgrMarker      :: !(Maybe Text)
     , _lgrIsTruncated :: !(Maybe Bool)
-    , _lgrGroups      :: ![Group]
     , _lgrStatus      :: !Status
+    , _lgrGroups      :: ![Group]
     } deriving (Eq,Show)
 
 -- | 'ListGroupsResponse' smart constructor.
@@ -154,8 +156,8 @@ listGroupsResponse pStatus =
     ListGroupsResponse'
     { _lgrMarker = Nothing
     , _lgrIsTruncated = Nothing
-    , _lgrGroups = mempty
     , _lgrStatus = pStatus
+    , _lgrGroups = mempty
     }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
@@ -171,10 +173,10 @@ lgrMarker = lens _lgrMarker (\ s a -> s{_lgrMarker = a});
 lgrIsTruncated :: Lens' ListGroupsResponse (Maybe Bool)
 lgrIsTruncated = lens _lgrIsTruncated (\ s a -> s{_lgrIsTruncated = a});
 
--- | A list of groups.
-lgrGroups :: Lens' ListGroupsResponse [Group]
-lgrGroups = lens _lgrGroups (\ s a -> s{_lgrGroups = a});
-
 -- | FIXME: Undocumented member.
 lgrStatus :: Lens' ListGroupsResponse Status
 lgrStatus = lens _lgrStatus (\ s a -> s{_lgrStatus = a});
+
+-- | A list of groups.
+lgrGroups :: Lens' ListGroupsResponse [Group]
+lgrGroups = lens _lgrGroups (\ s a -> s{_lgrGroups = a});

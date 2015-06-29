@@ -35,8 +35,8 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     , describeNotificationConfigurationsResponse
     -- ** Response lenses
     , dncrNextToken
-    , dncrNotificationConfigurations
     , dncrStatus
+    , dncrNotificationConfigurations
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -103,10 +103,9 @@ instance AWSRequest
               "DescribeNotificationConfigurationsResult"
               (\ s h x ->
                  DescribeNotificationConfigurationsResponse' <$>
-                   (x .@? "NextToken") <*>
+                   (x .@? "NextToken") <*> (pure s) <*>
                      (x .@? "NotificationConfigurations" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> (pure s))
+                        parseXMLList "member"))
 
 instance ToHeaders DescribeNotificationConfigurations
          where
@@ -135,13 +134,13 @@ instance ToQuery DescribeNotificationConfigurations
 --
 -- * 'dncrNextToken'
 --
--- * 'dncrNotificationConfigurations'
---
 -- * 'dncrStatus'
+--
+-- * 'dncrNotificationConfigurations'
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'
     { _dncrNextToken                  :: !(Maybe Text)
-    , _dncrNotificationConfigurations :: ![NotificationConfiguration]
     , _dncrStatus                     :: !Status
+    , _dncrNotificationConfigurations :: ![NotificationConfiguration]
     } deriving (Eq,Show)
 
 -- | 'DescribeNotificationConfigurationsResponse' smart constructor.
@@ -149,8 +148,8 @@ describeNotificationConfigurationsResponse :: Status -> DescribeNotificationConf
 describeNotificationConfigurationsResponse pStatus =
     DescribeNotificationConfigurationsResponse'
     { _dncrNextToken = Nothing
-    , _dncrNotificationConfigurations = mempty
     , _dncrStatus = pStatus
+    , _dncrNotificationConfigurations = mempty
     }
 
 -- | The token to use when requesting the next set of items. If there are no
@@ -158,10 +157,10 @@ describeNotificationConfigurationsResponse pStatus =
 dncrNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
 dncrNextToken = lens _dncrNextToken (\ s a -> s{_dncrNextToken = a});
 
--- | The notification configurations.
-dncrNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
-dncrNotificationConfigurations = lens _dncrNotificationConfigurations (\ s a -> s{_dncrNotificationConfigurations = a});
-
 -- | FIXME: Undocumented member.
 dncrStatus :: Lens' DescribeNotificationConfigurationsResponse Status
 dncrStatus = lens _dncrStatus (\ s a -> s{_dncrStatus = a});
+
+-- | The notification configurations.
+dncrNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
+dncrNotificationConfigurations = lens _dncrNotificationConfigurations (\ s a -> s{_dncrNotificationConfigurations = a});

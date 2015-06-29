@@ -32,8 +32,8 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     -- ** Response constructor
     , listCloudFrontOriginAccessIdentitiesResponse
     -- ** Response lenses
-    , lcfoairCloudFrontOriginAccessIdentityList
     , lcfoairStatus
+    , lcfoairCloudFrontOriginAccessIdentityList
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -87,8 +87,8 @@ instance AWSRequest
           = receiveXML
               (\ s h x ->
                  ListCloudFrontOriginAccessIdentitiesResponse' <$>
-                   (x .@ "CloudFrontOriginAccessIdentityList") <*>
-                     (pure s))
+                   (pure s) <*>
+                     (x .@ "CloudFrontOriginAccessIdentityList"))
 
 instance ToHeaders
          ListCloudFrontOriginAccessIdentities where
@@ -113,26 +113,26 @@ instance ToQuery ListCloudFrontOriginAccessIdentities
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lcfoairCloudFrontOriginAccessIdentityList'
---
 -- * 'lcfoairStatus'
+--
+-- * 'lcfoairCloudFrontOriginAccessIdentityList'
 data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'
-    { _lcfoairCloudFrontOriginAccessIdentityList :: !CloudFrontOriginAccessIdentityList
-    , _lcfoairStatus                             :: !Status
+    { _lcfoairStatus                             :: !Status
+    , _lcfoairCloudFrontOriginAccessIdentityList :: !CloudFrontOriginAccessIdentityList
     } deriving (Eq,Show)
 
 -- | 'ListCloudFrontOriginAccessIdentitiesResponse' smart constructor.
-listCloudFrontOriginAccessIdentitiesResponse :: CloudFrontOriginAccessIdentityList -> Status -> ListCloudFrontOriginAccessIdentitiesResponse
-listCloudFrontOriginAccessIdentitiesResponse pCloudFrontOriginAccessIdentityList pStatus =
+listCloudFrontOriginAccessIdentitiesResponse :: Status -> CloudFrontOriginAccessIdentityList -> ListCloudFrontOriginAccessIdentitiesResponse
+listCloudFrontOriginAccessIdentitiesResponse pStatus pCloudFrontOriginAccessIdentityList =
     ListCloudFrontOriginAccessIdentitiesResponse'
-    { _lcfoairCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList
-    , _lcfoairStatus = pStatus
+    { _lcfoairStatus = pStatus
+    , _lcfoairCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList
     }
-
--- | The CloudFrontOriginAccessIdentityList type.
-lcfoairCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList
-lcfoairCloudFrontOriginAccessIdentityList = lens _lcfoairCloudFrontOriginAccessIdentityList (\ s a -> s{_lcfoairCloudFrontOriginAccessIdentityList = a});
 
 -- | FIXME: Undocumented member.
 lcfoairStatus :: Lens' ListCloudFrontOriginAccessIdentitiesResponse Status
 lcfoairStatus = lens _lcfoairStatus (\ s a -> s{_lcfoairStatus = a});
+
+-- | The CloudFrontOriginAccessIdentityList type.
+lcfoairCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList
+lcfoairCloudFrontOriginAccessIdentityList = lens _lcfoairCloudFrontOriginAccessIdentityList (\ s a -> s{_lcfoairCloudFrontOriginAccessIdentityList = a});

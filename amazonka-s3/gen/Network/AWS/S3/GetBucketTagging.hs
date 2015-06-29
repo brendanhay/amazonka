@@ -31,8 +31,8 @@ module Network.AWS.S3.GetBucketTagging
     -- ** Response constructor
     , getBucketTaggingResponse
     -- ** Response lenses
-    , gbtrTagSet
     , gbtrStatus
+    , gbtrTagSet
     ) where
 
 import           Network.AWS.Prelude
@@ -68,8 +68,8 @@ instance AWSRequest GetBucketTagging where
           = receiveXML
               (\ s h x ->
                  GetBucketTaggingResponse' <$>
-                   (x .@? "TagSet" .!@ mempty >>= parseXMLList "Tag")
-                     <*> (pure s))
+                   (pure s) <*>
+                     (x .@? "TagSet" .!@ mempty >>= parseXMLList "Tag"))
 
 instance ToHeaders GetBucketTagging where
         toHeaders = const mempty
@@ -85,26 +85,26 @@ instance ToQuery GetBucketTagging where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbtrTagSet'
---
 -- * 'gbtrStatus'
+--
+-- * 'gbtrTagSet'
 data GetBucketTaggingResponse = GetBucketTaggingResponse'
-    { _gbtrTagSet :: ![Tag]
-    , _gbtrStatus :: !Status
+    { _gbtrStatus :: !Status
+    , _gbtrTagSet :: ![Tag]
     } deriving (Eq,Show)
 
 -- | 'GetBucketTaggingResponse' smart constructor.
 getBucketTaggingResponse :: Status -> GetBucketTaggingResponse
 getBucketTaggingResponse pStatus =
     GetBucketTaggingResponse'
-    { _gbtrTagSet = mempty
-    , _gbtrStatus = pStatus
+    { _gbtrStatus = pStatus
+    , _gbtrTagSet = mempty
     }
-
--- | FIXME: Undocumented member.
-gbtrTagSet :: Lens' GetBucketTaggingResponse [Tag]
-gbtrTagSet = lens _gbtrTagSet (\ s a -> s{_gbtrTagSet = a});
 
 -- | FIXME: Undocumented member.
 gbtrStatus :: Lens' GetBucketTaggingResponse Status
 gbtrStatus = lens _gbtrStatus (\ s a -> s{_gbtrStatus = a});
+
+-- | FIXME: Undocumented member.
+gbtrTagSet :: Lens' GetBucketTaggingResponse [Tag]
+gbtrTagSet = lens _gbtrTagSet (\ s a -> s{_gbtrTagSet = a});

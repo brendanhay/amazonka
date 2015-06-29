@@ -35,8 +35,8 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
     -- ** Response constructor
     , describeTrustedAdvisorCheckSummariesResponse
     -- ** Response lenses
-    , dtacsrSummaries
     , dtacsrStatus
+    , dtacsrSummaries
     ) where
 
 import           Network.AWS.Prelude
@@ -75,7 +75,7 @@ instance AWSRequest
           = receiveJSON
               (\ s h x ->
                  DescribeTrustedAdvisorCheckSummariesResponse' <$>
-                   (x .?> "summaries" .!@ mempty) <*> (pure s))
+                   (pure s) <*> (x .?> "summaries" .!@ mempty))
 
 instance ToHeaders
          DescribeTrustedAdvisorCheckSummaries where
@@ -108,26 +108,26 @@ instance ToQuery DescribeTrustedAdvisorCheckSummaries
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtacsrSummaries'
---
 -- * 'dtacsrStatus'
+--
+-- * 'dtacsrSummaries'
 data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'
-    { _dtacsrSummaries :: ![TrustedAdvisorCheckSummary]
-    , _dtacsrStatus    :: !Status
+    { _dtacsrStatus    :: !Status
+    , _dtacsrSummaries :: ![TrustedAdvisorCheckSummary]
     } deriving (Eq,Show)
 
 -- | 'DescribeTrustedAdvisorCheckSummariesResponse' smart constructor.
 describeTrustedAdvisorCheckSummariesResponse :: Status -> DescribeTrustedAdvisorCheckSummariesResponse
 describeTrustedAdvisorCheckSummariesResponse pStatus =
     DescribeTrustedAdvisorCheckSummariesResponse'
-    { _dtacsrSummaries = mempty
-    , _dtacsrStatus = pStatus
+    { _dtacsrStatus = pStatus
+    , _dtacsrSummaries = mempty
     }
-
--- | The summary information for the requested Trusted Advisor checks.
-dtacsrSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
-dtacsrSummaries = lens _dtacsrSummaries (\ s a -> s{_dtacsrSummaries = a});
 
 -- | FIXME: Undocumented member.
 dtacsrStatus :: Lens' DescribeTrustedAdvisorCheckSummariesResponse Status
 dtacsrStatus = lens _dtacsrStatus (\ s a -> s{_dtacsrStatus = a});
+
+-- | The summary information for the requested Trusted Advisor checks.
+dtacsrSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
+dtacsrSummaries = lens _dtacsrSummaries (\ s a -> s{_dtacsrSummaries = a});

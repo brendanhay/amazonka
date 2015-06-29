@@ -62,9 +62,9 @@ module Network.AWS.SQS.SendMessageBatch
     -- ** Response constructor
     , sendMessageBatchResponse
     -- ** Response lenses
+    , smbrStatus
     , smbrSuccessful
     , smbrFailed
-    , smbrStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -108,9 +108,9 @@ instance AWSRequest SendMessageBatch where
           = receiveXMLWrapper "SendMessageBatchResult"
               (\ s h x ->
                  SendMessageBatchResponse' <$>
-                   (parseXMLList "SendMessageBatchResultEntry" x) <*>
-                     (parseXMLList "BatchResultErrorEntry" x)
-                     <*> (pure s))
+                   (pure s) <*>
+                     (parseXMLList "SendMessageBatchResultEntry" x)
+                     <*> (parseXMLList "BatchResultErrorEntry" x))
 
 instance ToHeaders SendMessageBatch where
         toHeaders = const mempty
@@ -135,25 +135,29 @@ instance ToQuery SendMessageBatch where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'smbrStatus'
+--
 -- * 'smbrSuccessful'
 --
 -- * 'smbrFailed'
---
--- * 'smbrStatus'
 data SendMessageBatchResponse = SendMessageBatchResponse'
-    { _smbrSuccessful :: ![SendMessageBatchResultEntry]
+    { _smbrStatus     :: !Status
+    , _smbrSuccessful :: ![SendMessageBatchResultEntry]
     , _smbrFailed     :: ![BatchResultErrorEntry]
-    , _smbrStatus     :: !Status
     } deriving (Eq,Show)
 
 -- | 'SendMessageBatchResponse' smart constructor.
 sendMessageBatchResponse :: Status -> SendMessageBatchResponse
 sendMessageBatchResponse pStatus =
     SendMessageBatchResponse'
-    { _smbrSuccessful = mempty
+    { _smbrStatus = pStatus
+    , _smbrSuccessful = mempty
     , _smbrFailed = mempty
-    , _smbrStatus = pStatus
     }
+
+-- | FIXME: Undocumented member.
+smbrStatus :: Lens' SendMessageBatchResponse Status
+smbrStatus = lens _smbrStatus (\ s a -> s{_smbrStatus = a});
 
 -- | A list of SendMessageBatchResultEntry items.
 smbrSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
@@ -163,7 +167,3 @@ smbrSuccessful = lens _smbrSuccessful (\ s a -> s{_smbrSuccessful = a});
 -- message that could not be enqueued.
 smbrFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 smbrFailed = lens _smbrFailed (\ s a -> s{_smbrFailed = a});
-
--- | FIXME: Undocumented member.
-smbrStatus :: Lens' SendMessageBatchResponse Status
-smbrStatus = lens _smbrStatus (\ s a -> s{_smbrStatus = a});

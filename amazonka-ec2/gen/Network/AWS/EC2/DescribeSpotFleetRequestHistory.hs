@@ -42,11 +42,11 @@ module Network.AWS.EC2.DescribeSpotFleetRequestHistory
     , describeSpotFleetRequestHistoryResponse
     -- ** Response lenses
     , dsfrhrNextToken
+    , dsfrhrStatus
     , dsfrhrSpotFleetRequestId
     , dsfrhrStartTime
     , dsfrhrLastEvaluatedTime
     , dsfrhrHistoryRecords
-    , dsfrhrStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -133,11 +133,11 @@ instance AWSRequest DescribeSpotFleetRequestHistory
           = receiveXML
               (\ s h x ->
                  DescribeSpotFleetRequestHistoryResponse' <$>
-                   (x .@? "nextToken") <*> (x .@ "spotFleetRequestId")
+                   (x .@? "nextToken") <*> (pure s) <*>
+                     (x .@ "spotFleetRequestId")
                      <*> (x .@ "startTime")
                      <*> (x .@ "lastEvaluatedTime")
-                     <*> (parseXMLList "item" x)
-                     <*> (pure s))
+                     <*> (parseXMLList "item" x))
 
 instance ToHeaders DescribeSpotFleetRequestHistory
          where
@@ -168,6 +168,8 @@ instance ToQuery DescribeSpotFleetRequestHistory
 --
 -- * 'dsfrhrNextToken'
 --
+-- * 'dsfrhrStatus'
+--
 -- * 'dsfrhrSpotFleetRequestId'
 --
 -- * 'dsfrhrStartTime'
@@ -175,33 +177,35 @@ instance ToQuery DescribeSpotFleetRequestHistory
 -- * 'dsfrhrLastEvaluatedTime'
 --
 -- * 'dsfrhrHistoryRecords'
---
--- * 'dsfrhrStatus'
 data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'
     { _dsfrhrNextToken          :: !(Maybe Text)
+    , _dsfrhrStatus             :: !Status
     , _dsfrhrSpotFleetRequestId :: !Text
     , _dsfrhrStartTime          :: !ISO8601
     , _dsfrhrLastEvaluatedTime  :: !ISO8601
     , _dsfrhrHistoryRecords     :: ![HistoryRecord]
-    , _dsfrhrStatus             :: !Status
     } deriving (Eq,Show)
 
 -- | 'DescribeSpotFleetRequestHistoryResponse' smart constructor.
-describeSpotFleetRequestHistoryResponse :: Text -> UTCTime -> UTCTime -> Status -> DescribeSpotFleetRequestHistoryResponse
-describeSpotFleetRequestHistoryResponse pSpotFleetRequestId pStartTime pLastEvaluatedTime pStatus =
+describeSpotFleetRequestHistoryResponse :: Status -> Text -> UTCTime -> UTCTime -> DescribeSpotFleetRequestHistoryResponse
+describeSpotFleetRequestHistoryResponse pStatus pSpotFleetRequestId pStartTime pLastEvaluatedTime =
     DescribeSpotFleetRequestHistoryResponse'
     { _dsfrhrNextToken = Nothing
+    , _dsfrhrStatus = pStatus
     , _dsfrhrSpotFleetRequestId = pSpotFleetRequestId
     , _dsfrhrStartTime = _Time # pStartTime
     , _dsfrhrLastEvaluatedTime = _Time # pLastEvaluatedTime
     , _dsfrhrHistoryRecords = mempty
-    , _dsfrhrStatus = pStatus
     }
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
 dsfrhrNextToken :: Lens' DescribeSpotFleetRequestHistoryResponse (Maybe Text)
 dsfrhrNextToken = lens _dsfrhrNextToken (\ s a -> s{_dsfrhrNextToken = a});
+
+-- | FIXME: Undocumented member.
+dsfrhrStatus :: Lens' DescribeSpotFleetRequestHistoryResponse Status
+dsfrhrStatus = lens _dsfrhrStatus (\ s a -> s{_dsfrhrStatus = a});
 
 -- | The ID of the Spot fleet request.
 dsfrhrSpotFleetRequestId :: Lens' DescribeSpotFleetRequestHistoryResponse Text
@@ -224,7 +228,3 @@ dsfrhrLastEvaluatedTime = lens _dsfrhrLastEvaluatedTime (\ s a -> s{_dsfrhrLastE
 -- | Information about the events in the history of the Spot fleet request.
 dsfrhrHistoryRecords :: Lens' DescribeSpotFleetRequestHistoryResponse [HistoryRecord]
 dsfrhrHistoryRecords = lens _dsfrhrHistoryRecords (\ s a -> s{_dsfrhrHistoryRecords = a});
-
--- | FIXME: Undocumented member.
-dsfrhrStatus :: Lens' DescribeSpotFleetRequestHistoryResponse Status
-dsfrhrStatus = lens _dsfrhrStatus (\ s a -> s{_dsfrhrStatus = a});

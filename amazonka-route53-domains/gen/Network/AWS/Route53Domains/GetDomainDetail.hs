@@ -48,12 +48,12 @@ module Network.AWS.Route53Domains.GetDomainDetail
     , gddrRegistrarName
     , gddrStatusList
     , gddrReseller
+    , gddrStatus
     , gddrDomainName
     , gddrNameservers
     , gddrAdminContact
     , gddrRegistrantContact
     , gddrTechContact
-    , gddrStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -116,12 +116,12 @@ instance AWSRequest GetDomainDetail where
                      <*> (x .?> "RegistrarName")
                      <*> (x .?> "StatusList" .!@ mempty)
                      <*> (x .?> "Reseller")
+                     <*> (pure s)
                      <*> (x .:> "DomainName")
                      <*> (x .?> "Nameservers" .!@ mempty)
                      <*> (x .:> "AdminContact")
                      <*> (x .:> "RegistrantContact")
-                     <*> (x .:> "TechContact")
-                     <*> (pure s))
+                     <*> (x .:> "TechContact"))
 
 instance ToHeaders GetDomainDetail where
         toHeaders
@@ -181,6 +181,8 @@ instance ToQuery GetDomainDetail where
 --
 -- * 'gddrReseller'
 --
+-- * 'gddrStatus'
+--
 -- * 'gddrDomainName'
 --
 -- * 'gddrNameservers'
@@ -190,8 +192,6 @@ instance ToQuery GetDomainDetail where
 -- * 'gddrRegistrantContact'
 --
 -- * 'gddrTechContact'
---
--- * 'gddrStatus'
 data GetDomainDetailResponse = GetDomainDetailResponse'
     { _gddrTechPrivacy       :: !(Maybe Bool)
     , _gddrDNSSec            :: !(Maybe Text)
@@ -209,17 +209,17 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
     , _gddrRegistrarName     :: !(Maybe Text)
     , _gddrStatusList        :: !(Maybe [Text])
     , _gddrReseller          :: !(Maybe Text)
+    , _gddrStatus            :: !Status
     , _gddrDomainName        :: !Text
     , _gddrNameservers       :: ![Nameserver]
     , _gddrAdminContact      :: !(Sensitive ContactDetail)
     , _gddrRegistrantContact :: !(Sensitive ContactDetail)
     , _gddrTechContact       :: !(Sensitive ContactDetail)
-    , _gddrStatus            :: !Status
     } deriving (Eq,Show)
 
 -- | 'GetDomainDetailResponse' smart constructor.
-getDomainDetailResponse :: Text -> ContactDetail -> ContactDetail -> ContactDetail -> Status -> GetDomainDetailResponse
-getDomainDetailResponse pDomainName pAdminContact pRegistrantContact pTechContact pStatus =
+getDomainDetailResponse :: Status -> Text -> ContactDetail -> ContactDetail -> ContactDetail -> GetDomainDetailResponse
+getDomainDetailResponse pStatus pDomainName pAdminContact pRegistrantContact pTechContact =
     GetDomainDetailResponse'
     { _gddrTechPrivacy = Nothing
     , _gddrDNSSec = Nothing
@@ -237,12 +237,12 @@ getDomainDetailResponse pDomainName pAdminContact pRegistrantContact pTechContac
     , _gddrRegistrarName = Nothing
     , _gddrStatusList = Nothing
     , _gddrReseller = Nothing
+    , _gddrStatus = pStatus
     , _gddrDomainName = pDomainName
     , _gddrNameservers = mempty
     , _gddrAdminContact = _Sensitive # pAdminContact
     , _gddrRegistrantContact = _Sensitive # pRegistrantContact
     , _gddrTechContact = _Sensitive # pTechContact
-    , _gddrStatus = pStatus
     }
 
 -- | Specifies whether contact information for the tech contact is concealed
@@ -363,6 +363,10 @@ gddrStatusList = lens _gddrStatusList (\ s a -> s{_gddrStatusList = a}) . _Defau
 gddrReseller :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrReseller = lens _gddrReseller (\ s a -> s{_gddrReseller = a});
 
+-- | FIXME: Undocumented member.
+gddrStatus :: Lens' GetDomainDetailResponse Status
+gddrStatus = lens _gddrStatus (\ s a -> s{_gddrStatus = a});
+
 -- | The name of a domain.
 --
 -- Type: String
@@ -404,7 +408,3 @@ gddrRegistrantContact = lens _gddrRegistrantContact (\ s a -> s{_gddrRegistrantC
 -- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
 gddrTechContact :: Lens' GetDomainDetailResponse ContactDetail
 gddrTechContact = lens _gddrTechContact (\ s a -> s{_gddrTechContact = a}) . _Sensitive;
-
--- | FIXME: Undocumented member.
-gddrStatus :: Lens' GetDomainDetailResponse Status
-gddrStatus = lens _gddrStatus (\ s a -> s{_gddrStatus = a});

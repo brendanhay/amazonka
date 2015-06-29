@@ -42,11 +42,11 @@ module Network.AWS.Route53.ListHealthChecks
     , listHealthChecksResponse
     -- ** Response lenses
     , lhcrNextMarker
+    , lhcrStatus
     , lhcrHealthChecks
     , lhcrMarker
     , lhcrIsTruncated
     , lhcrMaxItems
-    , lhcrStatus
     ) where
 
 import           Network.AWS.Pager
@@ -112,13 +112,12 @@ instance AWSRequest ListHealthChecks where
           = receiveXML
               (\ s h x ->
                  ListHealthChecksResponse' <$>
-                   (x .@? "NextMarker") <*>
+                   (x .@? "NextMarker") <*> (pure s) <*>
                      (x .@? "HealthChecks" .!@ mempty >>=
                         parseXMLList "HealthCheck")
                      <*> (x .@ "Marker")
                      <*> (x .@ "IsTruncated")
-                     <*> (x .@ "MaxItems")
-                     <*> (pure s))
+                     <*> (x .@ "MaxItems"))
 
 instance ToHeaders ListHealthChecks where
         toHeaders = const mempty
@@ -139,6 +138,8 @@ instance ToQuery ListHealthChecks where
 --
 -- * 'lhcrNextMarker'
 --
+-- * 'lhcrStatus'
+--
 -- * 'lhcrHealthChecks'
 --
 -- * 'lhcrMarker'
@@ -146,27 +147,25 @@ instance ToQuery ListHealthChecks where
 -- * 'lhcrIsTruncated'
 --
 -- * 'lhcrMaxItems'
---
--- * 'lhcrStatus'
 data ListHealthChecksResponse = ListHealthChecksResponse'
     { _lhcrNextMarker   :: !(Maybe Text)
+    , _lhcrStatus       :: !Status
     , _lhcrHealthChecks :: ![HealthCheck]
     , _lhcrMarker       :: !Text
     , _lhcrIsTruncated  :: !Bool
     , _lhcrMaxItems     :: !Text
-    , _lhcrStatus       :: !Status
     } deriving (Eq,Show)
 
 -- | 'ListHealthChecksResponse' smart constructor.
-listHealthChecksResponse :: Text -> Bool -> Text -> Status -> ListHealthChecksResponse
-listHealthChecksResponse pMarker pIsTruncated pMaxItems pStatus =
+listHealthChecksResponse :: Status -> Text -> Bool -> Text -> ListHealthChecksResponse
+listHealthChecksResponse pStatus pMarker pIsTruncated pMaxItems =
     ListHealthChecksResponse'
     { _lhcrNextMarker = Nothing
+    , _lhcrStatus = pStatus
     , _lhcrHealthChecks = mempty
     , _lhcrMarker = pMarker
     , _lhcrIsTruncated = pIsTruncated
     , _lhcrMaxItems = pMaxItems
-    , _lhcrStatus = pStatus
     }
 
 -- | Indicates where to continue listing health checks. If
@@ -175,6 +174,10 @@ listHealthChecksResponse pMarker pIsTruncated pMaxItems pStatus =
 -- the @Marker@ element to get the next page of results.
 lhcrNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
 lhcrNextMarker = lens _lhcrNextMarker (\ s a -> s{_lhcrNextMarker = a});
+
+-- | FIXME: Undocumented member.
+lhcrStatus :: Lens' ListHealthChecksResponse Status
+lhcrStatus = lens _lhcrStatus (\ s a -> s{_lhcrStatus = a});
 
 -- | A complex type that contains information about the health checks
 -- associated with the current AWS account.
@@ -203,7 +206,3 @@ lhcrIsTruncated = lens _lhcrIsTruncated (\ s a -> s{_lhcrIsTruncated = a});
 -- ListHostedZonesRequest$Marker element to get the next page of results.
 lhcrMaxItems :: Lens' ListHealthChecksResponse Text
 lhcrMaxItems = lens _lhcrMaxItems (\ s a -> s{_lhcrMaxItems = a});
-
--- | FIXME: Undocumented member.
-lhcrStatus :: Lens' ListHealthChecksResponse Status
-lhcrStatus = lens _lhcrStatus (\ s a -> s{_lhcrStatus = a});

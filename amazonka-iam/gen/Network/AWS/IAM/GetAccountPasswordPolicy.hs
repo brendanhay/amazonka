@@ -31,8 +31,8 @@ module Network.AWS.IAM.GetAccountPasswordPolicy
     -- ** Response constructor
     , getAccountPasswordPolicyResponse
     -- ** Response lenses
-    , gapprPasswordPolicy
     , gapprStatus
+    , gapprPasswordPolicy
     ) where
 
 import           Network.AWS.IAM.Types
@@ -58,7 +58,7 @@ instance AWSRequest GetAccountPasswordPolicy where
           = receiveXMLWrapper "GetAccountPasswordPolicyResult"
               (\ s h x ->
                  GetAccountPasswordPolicyResponse' <$>
-                   (x .@ "PasswordPolicy") <*> (pure s))
+                   (pure s) <*> (x .@ "PasswordPolicy"))
 
 instance ToHeaders GetAccountPasswordPolicy where
         toHeaders = const mempty
@@ -80,26 +80,26 @@ instance ToQuery GetAccountPasswordPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gapprPasswordPolicy'
---
 -- * 'gapprStatus'
+--
+-- * 'gapprPasswordPolicy'
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
-    { _gapprPasswordPolicy :: !PasswordPolicy
-    , _gapprStatus         :: !Status
+    { _gapprStatus         :: !Status
+    , _gapprPasswordPolicy :: !PasswordPolicy
     } deriving (Eq,Show)
 
 -- | 'GetAccountPasswordPolicyResponse' smart constructor.
-getAccountPasswordPolicyResponse :: PasswordPolicy -> Status -> GetAccountPasswordPolicyResponse
-getAccountPasswordPolicyResponse pPasswordPolicy pStatus =
+getAccountPasswordPolicyResponse :: Status -> PasswordPolicy -> GetAccountPasswordPolicyResponse
+getAccountPasswordPolicyResponse pStatus pPasswordPolicy =
     GetAccountPasswordPolicyResponse'
-    { _gapprPasswordPolicy = pPasswordPolicy
-    , _gapprStatus = pStatus
+    { _gapprStatus = pStatus
+    , _gapprPasswordPolicy = pPasswordPolicy
     }
-
--- | FIXME: Undocumented member.
-gapprPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
-gapprPasswordPolicy = lens _gapprPasswordPolicy (\ s a -> s{_gapprPasswordPolicy = a});
 
 -- | FIXME: Undocumented member.
 gapprStatus :: Lens' GetAccountPasswordPolicyResponse Status
 gapprStatus = lens _gapprStatus (\ s a -> s{_gapprStatus = a});
+
+-- | FIXME: Undocumented member.
+gapprPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
+gapprPasswordPolicy = lens _gapprPasswordPolicy (\ s a -> s{_gapprPasswordPolicy = a});

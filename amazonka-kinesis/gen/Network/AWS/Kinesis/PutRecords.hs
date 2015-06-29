@@ -91,8 +91,8 @@ module Network.AWS.Kinesis.PutRecords
     , putRecordsResponse
     -- ** Response lenses
     , pFailedRecordCount
-    , pRecords
     , pStatus
+    , pRecords
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -138,8 +138,8 @@ instance AWSRequest PutRecords where
           = receiveJSON
               (\ s h x ->
                  PutRecordsResponse' <$>
-                   (x .?> "FailedRecordCount") <*> (x .:> "Records") <*>
-                     (pure s))
+                   (x .?> "FailedRecordCount") <*> (pure s) <*>
+                     (x .:> "Records"))
 
 instance ToHeaders PutRecords where
         toHeaders
@@ -170,28 +170,32 @@ instance ToQuery PutRecords where
 --
 -- * 'pFailedRecordCount'
 --
--- * 'pRecords'
---
 -- * 'pStatus'
+--
+-- * 'pRecords'
 data PutRecordsResponse = PutRecordsResponse'
     { _pFailedRecordCount :: !(Maybe Nat)
-    , _pRecords           :: !(List1 PutRecordsResultEntry)
     , _pStatus            :: !Status
+    , _pRecords           :: !(List1 PutRecordsResultEntry)
     } deriving (Eq,Show)
 
 -- | 'PutRecordsResponse' smart constructor.
-putRecordsResponse :: NonEmpty PutRecordsResultEntry -> Status -> PutRecordsResponse
-putRecordsResponse pRecords pStatus =
+putRecordsResponse :: Status -> NonEmpty PutRecordsResultEntry -> PutRecordsResponse
+putRecordsResponse pStatus pRecords =
     PutRecordsResponse'
     { _pFailedRecordCount = Nothing
-    , _pRecords = _List1 # pRecords
     , _pStatus = pStatus
+    , _pRecords = _List1 # pRecords
     }
 
 -- | The number of unsuccessfully processed records in a @PutRecords@
 -- request.
 pFailedRecordCount :: Lens' PutRecordsResponse (Maybe Natural)
 pFailedRecordCount = lens _pFailedRecordCount (\ s a -> s{_pFailedRecordCount = a}) . mapping _Nat;
+
+-- | FIXME: Undocumented member.
+pStatus :: Lens' PutRecordsResponse Status
+pStatus = lens _pStatus (\ s a -> s{_pStatus = a});
 
 -- | An array of successfully and unsuccessfully processed record results,
 -- correlated with the request by natural ordering. A record that is
@@ -201,7 +205,3 @@ pFailedRecordCount = lens _pFailedRecordCount (\ s a -> s{_pFailedRecordCount = 
 -- @ErrorMessage@ in the result.
 pRecords :: Lens' PutRecordsResponse (NonEmpty PutRecordsResultEntry)
 pRecords = lens _pRecords (\ s a -> s{_pRecords = a}) . _List1;
-
--- | FIXME: Undocumented member.
-pStatus :: Lens' PutRecordsResponse Status
-pStatus = lens _pStatus (\ s a -> s{_pStatus = a});

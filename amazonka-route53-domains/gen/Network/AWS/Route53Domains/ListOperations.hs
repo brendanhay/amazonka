@@ -34,8 +34,8 @@ module Network.AWS.Route53Domains.ListOperations
     , listOperationsResponse
     -- ** Response lenses
     , lorNextPageMarker
-    , lorOperations
     , lorStatus
+    , lorOperations
     ) where
 
 import           Network.AWS.Pager
@@ -108,9 +108,8 @@ instance AWSRequest ListOperations where
           = receiveJSON
               (\ s h x ->
                  ListOperationsResponse' <$>
-                   (x .?> "NextPageMarker") <*>
-                     (x .?> "Operations" .!@ mempty)
-                     <*> (pure s))
+                   (x .?> "NextPageMarker") <*> (pure s) <*>
+                     (x .?> "Operations" .!@ mempty))
 
 instance ToHeaders ListOperations where
         toHeaders
@@ -141,13 +140,13 @@ instance ToQuery ListOperations where
 --
 -- * 'lorNextPageMarker'
 --
--- * 'lorOperations'
---
 -- * 'lorStatus'
+--
+-- * 'lorOperations'
 data ListOperationsResponse = ListOperationsResponse'
     { _lorNextPageMarker :: !(Maybe Text)
-    , _lorOperations     :: ![OperationSummary]
     , _lorStatus         :: !Status
+    , _lorOperations     :: ![OperationSummary]
     } deriving (Eq,Show)
 
 -- | 'ListOperationsResponse' smart constructor.
@@ -155,8 +154,8 @@ listOperationsResponse :: Status -> ListOperationsResponse
 listOperationsResponse pStatus =
     ListOperationsResponse'
     { _lorNextPageMarker = Nothing
-    , _lorOperations = mempty
     , _lorStatus = pStatus
+    , _lorOperations = mempty
     }
 
 -- | If there are more operations than you specified for @MaxItems@ in the
@@ -169,6 +168,10 @@ listOperationsResponse pStatus =
 lorNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
 lorNextPageMarker = lens _lorNextPageMarker (\ s a -> s{_lorNextPageMarker = a});
 
+-- | FIXME: Undocumented member.
+lorStatus :: Lens' ListOperationsResponse Status
+lorStatus = lens _lorStatus (\ s a -> s{_lorStatus = a});
+
 -- | Lists summaries of the operations.
 --
 -- Type: Complex type containing a list of operation summaries
@@ -176,7 +179,3 @@ lorNextPageMarker = lens _lorNextPageMarker (\ s a -> s{_lorNextPageMarker = a})
 -- Children: @OperationId@, @Status@, @SubmittedDate@, @Type@
 lorOperations :: Lens' ListOperationsResponse [OperationSummary]
 lorOperations = lens _lorOperations (\ s a -> s{_lorOperations = a});
-
--- | FIXME: Undocumented member.
-lorStatus :: Lens' ListOperationsResponse Status
-lorStatus = lens _lorStatus (\ s a -> s{_lorStatus = a});

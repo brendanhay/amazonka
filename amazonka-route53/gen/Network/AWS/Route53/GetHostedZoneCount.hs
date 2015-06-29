@@ -30,8 +30,8 @@ module Network.AWS.Route53.GetHostedZoneCount
     -- ** Response constructor
     , getHostedZoneCountResponse
     -- ** Response lenses
-    , ghzcrHostedZoneCount
     , ghzcrStatus
+    , ghzcrHostedZoneCount
     ) where
 
 import           Network.AWS.Prelude
@@ -60,7 +60,7 @@ instance AWSRequest GetHostedZoneCount where
           = receiveXML
               (\ s h x ->
                  GetHostedZoneCountResponse' <$>
-                   (x .@ "HostedZoneCount") <*> (pure s))
+                   (pure s) <*> (x .@ "HostedZoneCount"))
 
 instance ToHeaders GetHostedZoneCount where
         toHeaders = const mempty
@@ -78,26 +78,26 @@ instance ToQuery GetHostedZoneCount where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghzcrHostedZoneCount'
---
 -- * 'ghzcrStatus'
+--
+-- * 'ghzcrHostedZoneCount'
 data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
-    { _ghzcrHostedZoneCount :: !Integer
-    , _ghzcrStatus          :: !Status
+    { _ghzcrStatus          :: !Status
+    , _ghzcrHostedZoneCount :: !Integer
     } deriving (Eq,Show)
 
 -- | 'GetHostedZoneCountResponse' smart constructor.
-getHostedZoneCountResponse :: Integer -> Status -> GetHostedZoneCountResponse
-getHostedZoneCountResponse pHostedZoneCount pStatus =
+getHostedZoneCountResponse :: Status -> Integer -> GetHostedZoneCountResponse
+getHostedZoneCountResponse pStatus pHostedZoneCount =
     GetHostedZoneCountResponse'
-    { _ghzcrHostedZoneCount = pHostedZoneCount
-    , _ghzcrStatus = pStatus
+    { _ghzcrStatus = pStatus
+    , _ghzcrHostedZoneCount = pHostedZoneCount
     }
-
--- | The number of hosted zones associated with the current AWS account.
-ghzcrHostedZoneCount :: Lens' GetHostedZoneCountResponse Integer
-ghzcrHostedZoneCount = lens _ghzcrHostedZoneCount (\ s a -> s{_ghzcrHostedZoneCount = a});
 
 -- | FIXME: Undocumented member.
 ghzcrStatus :: Lens' GetHostedZoneCountResponse Status
 ghzcrStatus = lens _ghzcrStatus (\ s a -> s{_ghzcrStatus = a});
+
+-- | The number of hosted zones associated with the current AWS account.
+ghzcrHostedZoneCount :: Lens' GetHostedZoneCountResponse Integer
+ghzcrHostedZoneCount = lens _ghzcrHostedZoneCount (\ s a -> s{_ghzcrHostedZoneCount = a});

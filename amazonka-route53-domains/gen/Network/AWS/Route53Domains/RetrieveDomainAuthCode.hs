@@ -32,8 +32,8 @@ module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     -- ** Response constructor
     , retrieveDomainAuthCodeResponse
     -- ** Response lenses
-    , rdacrAuthCode
     , rdacrStatus
+    , rdacrAuthCode
     ) where
 
 import           Network.AWS.Prelude
@@ -82,7 +82,7 @@ instance AWSRequest RetrieveDomainAuthCode where
           = receiveJSON
               (\ s h x ->
                  RetrieveDomainAuthCodeResponse' <$>
-                   (x .:> "AuthCode") <*> (pure s))
+                   (pure s) <*> (x .:> "AuthCode"))
 
 instance ToHeaders RetrieveDomainAuthCode where
         toHeaders
@@ -110,28 +110,28 @@ instance ToQuery RetrieveDomainAuthCode where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdacrAuthCode'
---
 -- * 'rdacrStatus'
+--
+-- * 'rdacrAuthCode'
 data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
-    { _rdacrAuthCode :: !(Sensitive Text)
-    , _rdacrStatus   :: !Status
+    { _rdacrStatus   :: !Status
+    , _rdacrAuthCode :: !(Sensitive Text)
     } deriving (Eq,Show)
 
 -- | 'RetrieveDomainAuthCodeResponse' smart constructor.
-retrieveDomainAuthCodeResponse :: Text -> Status -> RetrieveDomainAuthCodeResponse
-retrieveDomainAuthCodeResponse pAuthCode pStatus =
+retrieveDomainAuthCodeResponse :: Status -> Text -> RetrieveDomainAuthCodeResponse
+retrieveDomainAuthCodeResponse pStatus pAuthCode =
     RetrieveDomainAuthCodeResponse'
-    { _rdacrAuthCode = _Sensitive # pAuthCode
-    , _rdacrStatus = pStatus
+    { _rdacrStatus = pStatus
+    , _rdacrAuthCode = _Sensitive # pAuthCode
     }
+
+-- | FIXME: Undocumented member.
+rdacrStatus :: Lens' RetrieveDomainAuthCodeResponse Status
+rdacrStatus = lens _rdacrStatus (\ s a -> s{_rdacrStatus = a});
 
 -- | The authorization code for the domain.
 --
 -- Type: String
 rdacrAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
 rdacrAuthCode = lens _rdacrAuthCode (\ s a -> s{_rdacrAuthCode = a}) . _Sensitive;
-
--- | FIXME: Undocumented member.
-rdacrStatus :: Lens' RetrieveDomainAuthCodeResponse Status
-rdacrStatus = lens _rdacrStatus (\ s a -> s{_rdacrStatus = a});

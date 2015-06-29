@@ -48,8 +48,8 @@ module Network.AWS.IAM.CreateAccessKey
     -- ** Response constructor
     , createAccessKeyResponse
     -- ** Response lenses
-    , cakrAccessKey
     , cakrStatus
+    , cakrAccessKey
     ) where
 
 import           Network.AWS.IAM.Types
@@ -85,7 +85,7 @@ instance AWSRequest CreateAccessKey where
           = receiveXMLWrapper "CreateAccessKeyResult"
               (\ s h x ->
                  CreateAccessKeyResponse' <$>
-                   (x .@ "AccessKey") <*> (pure s))
+                   (pure s) <*> (x .@ "AccessKey"))
 
 instance ToHeaders CreateAccessKey where
         toHeaders = const mempty
@@ -106,26 +106,26 @@ instance ToQuery CreateAccessKey where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cakrAccessKey'
---
 -- * 'cakrStatus'
+--
+-- * 'cakrAccessKey'
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
-    { _cakrAccessKey :: !AccessKey
-    , _cakrStatus    :: !Status
+    { _cakrStatus    :: !Status
+    , _cakrAccessKey :: !AccessKey
     } deriving (Eq,Show)
 
 -- | 'CreateAccessKeyResponse' smart constructor.
-createAccessKeyResponse :: AccessKey -> Status -> CreateAccessKeyResponse
-createAccessKeyResponse pAccessKey pStatus =
+createAccessKeyResponse :: Status -> AccessKey -> CreateAccessKeyResponse
+createAccessKeyResponse pStatus pAccessKey =
     CreateAccessKeyResponse'
-    { _cakrAccessKey = pAccessKey
-    , _cakrStatus = pStatus
+    { _cakrStatus = pStatus
+    , _cakrAccessKey = pAccessKey
     }
-
--- | Information about the access key.
-cakrAccessKey :: Lens' CreateAccessKeyResponse AccessKey
-cakrAccessKey = lens _cakrAccessKey (\ s a -> s{_cakrAccessKey = a});
 
 -- | FIXME: Undocumented member.
 cakrStatus :: Lens' CreateAccessKeyResponse Status
 cakrStatus = lens _cakrStatus (\ s a -> s{_cakrStatus = a});
+
+-- | Information about the access key.
+cakrAccessKey :: Lens' CreateAccessKeyResponse AccessKey
+cakrAccessKey = lens _cakrAccessKey (\ s a -> s{_cakrAccessKey = a});

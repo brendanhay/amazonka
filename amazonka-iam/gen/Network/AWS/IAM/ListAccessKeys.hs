@@ -48,8 +48,8 @@ module Network.AWS.IAM.ListAccessKeys
     -- ** Response lenses
     , lakrMarker
     , lakrIsTruncated
-    , lakrAccessKeyMetadata
     , lakrStatus
+    , lakrAccessKeyMetadata
     ) where
 
 import           Network.AWS.IAM.Types
@@ -117,9 +117,10 @@ instance AWSRequest ListAccessKeys where
               (\ s h x ->
                  ListAccessKeysResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
+                     (pure s)
+                     <*>
                      (x .@? "AccessKeyMetadata" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> (pure s))
+                        parseXMLList "member"))
 
 instance ToHeaders ListAccessKeys where
         toHeaders = const mempty
@@ -145,14 +146,14 @@ instance ToQuery ListAccessKeys where
 --
 -- * 'lakrIsTruncated'
 --
--- * 'lakrAccessKeyMetadata'
---
 -- * 'lakrStatus'
+--
+-- * 'lakrAccessKeyMetadata'
 data ListAccessKeysResponse = ListAccessKeysResponse'
     { _lakrMarker            :: !(Maybe Text)
     , _lakrIsTruncated       :: !(Maybe Bool)
-    , _lakrAccessKeyMetadata :: ![AccessKeyMetadata]
     , _lakrStatus            :: !Status
+    , _lakrAccessKeyMetadata :: ![AccessKeyMetadata]
     } deriving (Eq,Show)
 
 -- | 'ListAccessKeysResponse' smart constructor.
@@ -161,8 +162,8 @@ listAccessKeysResponse pStatus =
     ListAccessKeysResponse'
     { _lakrMarker = Nothing
     , _lakrIsTruncated = Nothing
-    , _lakrAccessKeyMetadata = mempty
     , _lakrStatus = pStatus
+    , _lakrAccessKeyMetadata = mempty
     }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
@@ -177,10 +178,10 @@ lakrMarker = lens _lakrMarker (\ s a -> s{_lakrMarker = a});
 lakrIsTruncated :: Lens' ListAccessKeysResponse (Maybe Bool)
 lakrIsTruncated = lens _lakrIsTruncated (\ s a -> s{_lakrIsTruncated = a});
 
--- | A list of access key metadata.
-lakrAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
-lakrAccessKeyMetadata = lens _lakrAccessKeyMetadata (\ s a -> s{_lakrAccessKeyMetadata = a});
-
 -- | FIXME: Undocumented member.
 lakrStatus :: Lens' ListAccessKeysResponse Status
 lakrStatus = lens _lakrStatus (\ s a -> s{_lakrStatus = a});
+
+-- | A list of access key metadata.
+lakrAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
+lakrAccessKeyMetadata = lens _lakrAccessKeyMetadata (\ s a -> s{_lakrAccessKeyMetadata = a});

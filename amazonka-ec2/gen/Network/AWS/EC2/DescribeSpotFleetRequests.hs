@@ -35,8 +35,8 @@ module Network.AWS.EC2.DescribeSpotFleetRequests
     , describeSpotFleetRequestsResponse
     -- ** Response lenses
     , dsfrrNextToken
-    , dsfrrSpotFleetRequestConfigs
     , dsfrrStatus
+    , dsfrrSpotFleetRequestConfigs
     ) where
 
 import           Network.AWS.EC2.Types
@@ -105,8 +105,8 @@ instance AWSRequest DescribeSpotFleetRequests where
           = receiveXML
               (\ s h x ->
                  DescribeSpotFleetRequestsResponse' <$>
-                   (x .@? "nextToken") <*> (parseXMLList "item" x) <*>
-                     (pure s))
+                   (x .@? "nextToken") <*> (pure s) <*>
+                     (parseXMLList "item" x))
 
 instance ToHeaders DescribeSpotFleetRequests where
         toHeaders = const mempty
@@ -134,13 +134,13 @@ instance ToQuery DescribeSpotFleetRequests where
 --
 -- * 'dsfrrNextToken'
 --
--- * 'dsfrrSpotFleetRequestConfigs'
---
 -- * 'dsfrrStatus'
+--
+-- * 'dsfrrSpotFleetRequestConfigs'
 data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
     { _dsfrrNextToken               :: !(Maybe Text)
-    , _dsfrrSpotFleetRequestConfigs :: ![SpotFleetRequestConfig]
     , _dsfrrStatus                  :: !Status
+    , _dsfrrSpotFleetRequestConfigs :: ![SpotFleetRequestConfig]
     } deriving (Eq,Show)
 
 -- | 'DescribeSpotFleetRequestsResponse' smart constructor.
@@ -148,8 +148,8 @@ describeSpotFleetRequestsResponse :: Status -> DescribeSpotFleetRequestsResponse
 describeSpotFleetRequestsResponse pStatus =
     DescribeSpotFleetRequestsResponse'
     { _dsfrrNextToken = Nothing
-    , _dsfrrSpotFleetRequestConfigs = mempty
     , _dsfrrStatus = pStatus
+    , _dsfrrSpotFleetRequestConfigs = mempty
     }
 
 -- | The token required to retrieve the next set of results. This value is
@@ -157,10 +157,10 @@ describeSpotFleetRequestsResponse pStatus =
 dsfrrNextToken :: Lens' DescribeSpotFleetRequestsResponse (Maybe Text)
 dsfrrNextToken = lens _dsfrrNextToken (\ s a -> s{_dsfrrNextToken = a});
 
--- | Information about the configuration of your Spot fleet.
-dsfrrSpotFleetRequestConfigs :: Lens' DescribeSpotFleetRequestsResponse [SpotFleetRequestConfig]
-dsfrrSpotFleetRequestConfigs = lens _dsfrrSpotFleetRequestConfigs (\ s a -> s{_dsfrrSpotFleetRequestConfigs = a});
-
 -- | FIXME: Undocumented member.
 dsfrrStatus :: Lens' DescribeSpotFleetRequestsResponse Status
 dsfrrStatus = lens _dsfrrStatus (\ s a -> s{_dsfrrStatus = a});
+
+-- | Information about the configuration of your Spot fleet.
+dsfrrSpotFleetRequestConfigs :: Lens' DescribeSpotFleetRequestsResponse [SpotFleetRequestConfig]
+dsfrrSpotFleetRequestConfigs = lens _dsfrrSpotFleetRequestConfigs (\ s a -> s{_dsfrrSpotFleetRequestConfigs = a});

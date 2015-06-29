@@ -36,8 +36,8 @@ module Network.AWS.EC2.RequestSpotFleet
     -- ** Response constructor
     , requestSpotFleetResponse
     -- ** Response lenses
-    , rsfrSpotFleetRequestId
     , rsfrStatus
+    , rsfrSpotFleetRequestId
     ) where
 
 import           Network.AWS.EC2.Types
@@ -86,7 +86,7 @@ instance AWSRequest RequestSpotFleet where
           = receiveXML
               (\ s h x ->
                  RequestSpotFleetResponse' <$>
-                   (x .@ "spotFleetRequestId") <*> (pure s))
+                   (pure s) <*> (x .@ "spotFleetRequestId"))
 
 instance ToHeaders RequestSpotFleet where
         toHeaders = const mempty
@@ -109,26 +109,26 @@ instance ToQuery RequestSpotFleet where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rsfrSpotFleetRequestId'
---
 -- * 'rsfrStatus'
+--
+-- * 'rsfrSpotFleetRequestId'
 data RequestSpotFleetResponse = RequestSpotFleetResponse'
-    { _rsfrSpotFleetRequestId :: !Text
-    , _rsfrStatus             :: !Status
+    { _rsfrStatus             :: !Status
+    , _rsfrSpotFleetRequestId :: !Text
     } deriving (Eq,Show)
 
 -- | 'RequestSpotFleetResponse' smart constructor.
-requestSpotFleetResponse :: Text -> Status -> RequestSpotFleetResponse
-requestSpotFleetResponse pSpotFleetRequestId pStatus =
+requestSpotFleetResponse :: Status -> Text -> RequestSpotFleetResponse
+requestSpotFleetResponse pStatus pSpotFleetRequestId =
     RequestSpotFleetResponse'
-    { _rsfrSpotFleetRequestId = pSpotFleetRequestId
-    , _rsfrStatus = pStatus
+    { _rsfrStatus = pStatus
+    , _rsfrSpotFleetRequestId = pSpotFleetRequestId
     }
-
--- | The ID of the Spot fleet request.
-rsfrSpotFleetRequestId :: Lens' RequestSpotFleetResponse Text
-rsfrSpotFleetRequestId = lens _rsfrSpotFleetRequestId (\ s a -> s{_rsfrSpotFleetRequestId = a});
 
 -- | FIXME: Undocumented member.
 rsfrStatus :: Lens' RequestSpotFleetResponse Status
 rsfrStatus = lens _rsfrStatus (\ s a -> s{_rsfrStatus = a});
+
+-- | The ID of the Spot fleet request.
+rsfrSpotFleetRequestId :: Lens' RequestSpotFleetResponse Text
+rsfrSpotFleetRequestId = lens _rsfrSpotFleetRequestId (\ s a -> s{_rsfrSpotFleetRequestId = a});

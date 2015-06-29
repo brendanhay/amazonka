@@ -46,8 +46,8 @@ module Network.AWS.IAM.ListSigningCertificates
     -- ** Response lenses
     , lisMarker
     , lisIsTruncated
-    , lisCertificates
     , lisStatus
+    , lisCertificates
     ) where
 
 import           Network.AWS.IAM.Types
@@ -115,9 +115,10 @@ instance AWSRequest ListSigningCertificates where
               (\ s h x ->
                  ListSigningCertificatesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
+                     (pure s)
+                     <*>
                      (x .@? "Certificates" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> (pure s))
+                        parseXMLList "member"))
 
 instance ToHeaders ListSigningCertificates where
         toHeaders = const mempty
@@ -144,14 +145,14 @@ instance ToQuery ListSigningCertificates where
 --
 -- * 'lisIsTruncated'
 --
--- * 'lisCertificates'
---
 -- * 'lisStatus'
+--
+-- * 'lisCertificates'
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
     { _lisMarker       :: !(Maybe Text)
     , _lisIsTruncated  :: !(Maybe Bool)
-    , _lisCertificates :: ![SigningCertificate]
     , _lisStatus       :: !Status
+    , _lisCertificates :: ![SigningCertificate]
     } deriving (Eq,Show)
 
 -- | 'ListSigningCertificatesResponse' smart constructor.
@@ -160,8 +161,8 @@ listSigningCertificatesResponse pStatus =
     ListSigningCertificatesResponse'
     { _lisMarker = Nothing
     , _lisIsTruncated = Nothing
-    , _lisCertificates = mempty
     , _lisStatus = pStatus
+    , _lisCertificates = mempty
     }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
@@ -177,10 +178,10 @@ lisMarker = lens _lisMarker (\ s a -> s{_lisMarker = a});
 lisIsTruncated :: Lens' ListSigningCertificatesResponse (Maybe Bool)
 lisIsTruncated = lens _lisIsTruncated (\ s a -> s{_lisIsTruncated = a});
 
--- | A list of the user\'s signing certificate information.
-lisCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
-lisCertificates = lens _lisCertificates (\ s a -> s{_lisCertificates = a});
-
 -- | FIXME: Undocumented member.
 lisStatus :: Lens' ListSigningCertificatesResponse Status
 lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});
+
+-- | A list of the user\'s signing certificate information.
+lisCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
+lisCertificates = lens _lisCertificates (\ s a -> s{_lisCertificates = a});

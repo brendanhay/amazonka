@@ -41,8 +41,8 @@ module Network.AWS.IAM.ListMFADevices
     -- ** Response lenses
     , lmdrMarker
     , lmdrIsTruncated
-    , lmdrMFADevices
     , lmdrStatus
+    , lmdrMFADevices
     ) where
 
 import           Network.AWS.IAM.Types
@@ -110,9 +110,10 @@ instance AWSRequest ListMFADevices where
               (\ s h x ->
                  ListMFADevicesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
+                     (pure s)
+                     <*>
                      (x .@? "MFADevices" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> (pure s))
+                        parseXMLList "member"))
 
 instance ToHeaders ListMFADevices where
         toHeaders = const mempty
@@ -138,14 +139,14 @@ instance ToQuery ListMFADevices where
 --
 -- * 'lmdrIsTruncated'
 --
--- * 'lmdrMFADevices'
---
 -- * 'lmdrStatus'
+--
+-- * 'lmdrMFADevices'
 data ListMFADevicesResponse = ListMFADevicesResponse'
     { _lmdrMarker      :: !(Maybe Text)
     , _lmdrIsTruncated :: !(Maybe Bool)
-    , _lmdrMFADevices  :: ![MFADevice]
     , _lmdrStatus      :: !Status
+    , _lmdrMFADevices  :: ![MFADevice]
     } deriving (Eq,Show)
 
 -- | 'ListMFADevicesResponse' smart constructor.
@@ -154,8 +155,8 @@ listMFADevicesResponse pStatus =
     ListMFADevicesResponse'
     { _lmdrMarker = Nothing
     , _lmdrIsTruncated = Nothing
-    , _lmdrMFADevices = mempty
     , _lmdrStatus = pStatus
+    , _lmdrMFADevices = mempty
     }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
@@ -171,10 +172,10 @@ lmdrMarker = lens _lmdrMarker (\ s a -> s{_lmdrMarker = a});
 lmdrIsTruncated :: Lens' ListMFADevicesResponse (Maybe Bool)
 lmdrIsTruncated = lens _lmdrIsTruncated (\ s a -> s{_lmdrIsTruncated = a});
 
--- | A list of MFA devices.
-lmdrMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
-lmdrMFADevices = lens _lmdrMFADevices (\ s a -> s{_lmdrMFADevices = a});
-
 -- | FIXME: Undocumented member.
 lmdrStatus :: Lens' ListMFADevicesResponse Status
 lmdrStatus = lens _lmdrStatus (\ s a -> s{_lmdrStatus = a});
+
+-- | A list of MFA devices.
+lmdrMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
+lmdrMFADevices = lens _lmdrMFADevices (\ s a -> s{_lmdrMFADevices = a});

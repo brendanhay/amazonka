@@ -40,8 +40,8 @@ module Network.AWS.CloudSearch.DefineIndexField
     -- ** Response constructor
     , defineIndexFieldResponse
     -- ** Response lenses
-    , defIndexField
     , defStatus
+    , defIndexField
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -89,7 +89,7 @@ instance AWSRequest DefineIndexField where
           = receiveXMLWrapper "DefineIndexFieldResult"
               (\ s h x ->
                  DefineIndexFieldResponse' <$>
-                   (x .@ "IndexField") <*> (pure s))
+                   (pure s) <*> (x .@ "IndexField"))
 
 instance ToHeaders DefineIndexField where
         toHeaders = const mempty
@@ -112,26 +112,26 @@ instance ToQuery DefineIndexField where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'defIndexField'
---
 -- * 'defStatus'
+--
+-- * 'defIndexField'
 data DefineIndexFieldResponse = DefineIndexFieldResponse'
-    { _defIndexField :: !IndexFieldStatus
-    , _defStatus     :: !Status
+    { _defStatus     :: !Status
+    , _defIndexField :: !IndexFieldStatus
     } deriving (Eq,Show)
 
 -- | 'DefineIndexFieldResponse' smart constructor.
-defineIndexFieldResponse :: IndexFieldStatus -> Status -> DefineIndexFieldResponse
-defineIndexFieldResponse pIndexField pStatus =
+defineIndexFieldResponse :: Status -> IndexFieldStatus -> DefineIndexFieldResponse
+defineIndexFieldResponse pStatus pIndexField =
     DefineIndexFieldResponse'
-    { _defIndexField = pIndexField
-    , _defStatus = pStatus
+    { _defStatus = pStatus
+    , _defIndexField = pIndexField
     }
-
--- | FIXME: Undocumented member.
-defIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
-defIndexField = lens _defIndexField (\ s a -> s{_defIndexField = a});
 
 -- | FIXME: Undocumented member.
 defStatus :: Lens' DefineIndexFieldResponse Status
 defStatus = lens _defStatus (\ s a -> s{_defStatus = a});
+
+-- | FIXME: Undocumented member.
+defIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
+defIndexField = lens _defIndexField (\ s a -> s{_defIndexField = a});

@@ -38,8 +38,8 @@ module Network.AWS.DataPipeline.DescribeObjects
     -- ** Response lenses
     , dorHasMoreResults
     , dorMarker
-    , dorPipelineObjects
     , dorStatus
+    , dorPipelineObjects
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -115,8 +115,8 @@ instance AWSRequest DescribeObjects where
               (\ s h x ->
                  DescribeObjectsResponse' <$>
                    (x .?> "hasMoreResults") <*> (x .?> "marker") <*>
-                     (x .?> "pipelineObjects" .!@ mempty)
-                     <*> (pure s))
+                     (pure s)
+                     <*> (x .?> "pipelineObjects" .!@ mempty))
 
 instance ToHeaders DescribeObjects where
         toHeaders
@@ -150,14 +150,14 @@ instance ToQuery DescribeObjects where
 --
 -- * 'dorMarker'
 --
--- * 'dorPipelineObjects'
---
 -- * 'dorStatus'
+--
+-- * 'dorPipelineObjects'
 data DescribeObjectsResponse = DescribeObjectsResponse'
     { _dorHasMoreResults  :: !(Maybe Bool)
     , _dorMarker          :: !(Maybe Text)
-    , _dorPipelineObjects :: ![PipelineObject]
     , _dorStatus          :: !Status
+    , _dorPipelineObjects :: ![PipelineObject]
     } deriving (Eq,Show)
 
 -- | 'DescribeObjectsResponse' smart constructor.
@@ -166,8 +166,8 @@ describeObjectsResponse pStatus =
     DescribeObjectsResponse'
     { _dorHasMoreResults = Nothing
     , _dorMarker = Nothing
-    , _dorPipelineObjects = mempty
     , _dorStatus = pStatus
+    , _dorPipelineObjects = mempty
     }
 
 -- | Indicates whether there are more results to return.
@@ -180,10 +180,10 @@ dorHasMoreResults = lens _dorHasMoreResults (\ s a -> s{_dorHasMoreResults = a})
 dorMarker :: Lens' DescribeObjectsResponse (Maybe Text)
 dorMarker = lens _dorMarker (\ s a -> s{_dorMarker = a});
 
--- | An array of object definitions.
-dorPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
-dorPipelineObjects = lens _dorPipelineObjects (\ s a -> s{_dorPipelineObjects = a});
-
 -- | FIXME: Undocumented member.
 dorStatus :: Lens' DescribeObjectsResponse Status
 dorStatus = lens _dorStatus (\ s a -> s{_dorStatus = a});
+
+-- | An array of object definitions.
+dorPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
+dorPipelineObjects = lens _dorPipelineObjects (\ s a -> s{_dorPipelineObjects = a});

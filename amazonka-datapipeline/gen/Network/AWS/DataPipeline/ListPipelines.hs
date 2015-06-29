@@ -34,8 +34,8 @@ module Network.AWS.DataPipeline.ListPipelines
     -- ** Response lenses
     , lprHasMoreResults
     , lprMarker
-    , lprPipelineIdList
     , lprStatus
+    , lprPipelineIdList
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -84,8 +84,8 @@ instance AWSRequest ListPipelines where
               (\ s h x ->
                  ListPipelinesResponse' <$>
                    (x .?> "hasMoreResults") <*> (x .?> "marker") <*>
-                     (x .?> "pipelineIdList" .!@ mempty)
-                     <*> (pure s))
+                     (pure s)
+                     <*> (x .?> "pipelineIdList" .!@ mempty))
 
 instance ToHeaders ListPipelines where
         toHeaders
@@ -116,14 +116,14 @@ instance ToQuery ListPipelines where
 --
 -- * 'lprMarker'
 --
--- * 'lprPipelineIdList'
---
 -- * 'lprStatus'
+--
+-- * 'lprPipelineIdList'
 data ListPipelinesResponse = ListPipelinesResponse'
     { _lprHasMoreResults :: !(Maybe Bool)
     , _lprMarker         :: !(Maybe Text)
-    , _lprPipelineIdList :: ![PipelineIdName]
     , _lprStatus         :: !Status
+    , _lprPipelineIdList :: ![PipelineIdName]
     } deriving (Eq,Show)
 
 -- | 'ListPipelinesResponse' smart constructor.
@@ -132,8 +132,8 @@ listPipelinesResponse pStatus =
     ListPipelinesResponse'
     { _lprHasMoreResults = Nothing
     , _lprMarker = Nothing
-    , _lprPipelineIdList = mempty
     , _lprStatus = pStatus
+    , _lprPipelineIdList = mempty
     }
 
 -- | Indicates whether there are more results that can be obtained by a
@@ -147,12 +147,12 @@ lprHasMoreResults = lens _lprHasMoreResults (\ s a -> s{_lprHasMoreResults = a})
 lprMarker :: Lens' ListPipelinesResponse (Maybe Text)
 lprMarker = lens _lprMarker (\ s a -> s{_lprMarker = a});
 
+-- | FIXME: Undocumented member.
+lprStatus :: Lens' ListPipelinesResponse Status
+lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});
+
 -- | The pipeline identifiers. If you require additional information about
 -- the pipelines, you can use these identifiers to call DescribePipelines
 -- and GetPipelineDefinition.
 lprPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
 lprPipelineIdList = lens _lprPipelineIdList (\ s a -> s{_lprPipelineIdList = a});
-
--- | FIXME: Undocumented member.
-lprStatus :: Lens' ListPipelinesResponse Status
-lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});

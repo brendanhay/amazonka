@@ -60,8 +60,8 @@ module Network.AWS.SWF.ListActivityTypes
     , listActivityTypesResponse
     -- ** Response lenses
     , latrNextPageToken
-    , latrTypeInfos
     , latrStatus
+    , latrTypeInfos
     ) where
 
 import           Network.AWS.Pager
@@ -160,9 +160,8 @@ instance AWSRequest ListActivityTypes where
           = receiveJSON
               (\ s h x ->
                  ListActivityTypesResponse' <$>
-                   (x .?> "nextPageToken") <*>
-                     (x .?> "typeInfos" .!@ mempty)
-                     <*> (pure s))
+                   (x .?> "nextPageToken") <*> (pure s) <*>
+                     (x .?> "typeInfos" .!@ mempty))
 
 instance ToHeaders ListActivityTypes where
         toHeaders
@@ -198,13 +197,13 @@ instance ToQuery ListActivityTypes where
 --
 -- * 'latrNextPageToken'
 --
--- * 'latrTypeInfos'
---
 -- * 'latrStatus'
+--
+-- * 'latrTypeInfos'
 data ListActivityTypesResponse = ListActivityTypesResponse'
     { _latrNextPageToken :: !(Maybe Text)
-    , _latrTypeInfos     :: ![ActivityTypeInfo]
     , _latrStatus        :: !Status
+    , _latrTypeInfos     :: ![ActivityTypeInfo]
     } deriving (Eq,Show)
 
 -- | 'ListActivityTypesResponse' smart constructor.
@@ -212,8 +211,8 @@ listActivityTypesResponse :: Status -> ListActivityTypesResponse
 listActivityTypesResponse pStatus =
     ListActivityTypesResponse'
     { _latrNextPageToken = Nothing
-    , _latrTypeInfos = mempty
     , _latrStatus = pStatus
+    , _latrTypeInfos = mempty
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -226,10 +225,10 @@ listActivityTypesResponse pStatus =
 latrNextPageToken :: Lens' ListActivityTypesResponse (Maybe Text)
 latrNextPageToken = lens _latrNextPageToken (\ s a -> s{_latrNextPageToken = a});
 
--- | List of activity type information.
-latrTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]
-latrTypeInfos = lens _latrTypeInfos (\ s a -> s{_latrTypeInfos = a});
-
 -- | FIXME: Undocumented member.
 latrStatus :: Lens' ListActivityTypesResponse Status
 latrStatus = lens _latrStatus (\ s a -> s{_latrStatus = a});
+
+-- | List of activity type information.
+latrTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]
+latrTypeInfos = lens _latrTypeInfos (\ s a -> s{_latrTypeInfos = a});

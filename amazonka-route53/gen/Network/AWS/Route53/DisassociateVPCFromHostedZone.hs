@@ -42,8 +42,8 @@ module Network.AWS.Route53.DisassociateVPCFromHostedZone
     -- ** Response constructor
     , disassociateVPCFromHostedZoneResponse
     -- ** Response lenses
-    , dvfhzrChangeInfo
     , dvfhzrStatus
+    , dvfhzrChangeInfo
     ) where
 
 import           Network.AWS.Prelude
@@ -103,7 +103,7 @@ instance AWSRequest DisassociateVPCFromHostedZone
           = receiveXML
               (\ s h x ->
                  DisassociateVPCFromHostedZoneResponse' <$>
-                   (x .@ "ChangeInfo") <*> (pure s))
+                   (pure s) <*> (x .@ "ChangeInfo"))
 
 instance ToElement DisassociateVPCFromHostedZone
          where
@@ -135,27 +135,27 @@ instance ToXML DisassociateVPCFromHostedZone where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvfhzrChangeInfo'
---
 -- * 'dvfhzrStatus'
+--
+-- * 'dvfhzrChangeInfo'
 data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse'
-    { _dvfhzrChangeInfo :: !ChangeInfo
-    , _dvfhzrStatus     :: !Status
+    { _dvfhzrStatus     :: !Status
+    , _dvfhzrChangeInfo :: !ChangeInfo
     } deriving (Eq,Show)
 
 -- | 'DisassociateVPCFromHostedZoneResponse' smart constructor.
-disassociateVPCFromHostedZoneResponse :: ChangeInfo -> Status -> DisassociateVPCFromHostedZoneResponse
-disassociateVPCFromHostedZoneResponse pChangeInfo pStatus =
+disassociateVPCFromHostedZoneResponse :: Status -> ChangeInfo -> DisassociateVPCFromHostedZoneResponse
+disassociateVPCFromHostedZoneResponse pStatus pChangeInfo =
     DisassociateVPCFromHostedZoneResponse'
-    { _dvfhzrChangeInfo = pChangeInfo
-    , _dvfhzrStatus = pStatus
+    { _dvfhzrStatus = pStatus
+    , _dvfhzrChangeInfo = pChangeInfo
     }
+
+-- | FIXME: Undocumented member.
+dvfhzrStatus :: Lens' DisassociateVPCFromHostedZoneResponse Status
+dvfhzrStatus = lens _dvfhzrStatus (\ s a -> s{_dvfhzrStatus = a});
 
 -- | A complex type that contains the ID, the status, and the date and time
 -- of your @DisassociateVPCFromHostedZoneRequest@.
 dvfhzrChangeInfo :: Lens' DisassociateVPCFromHostedZoneResponse ChangeInfo
 dvfhzrChangeInfo = lens _dvfhzrChangeInfo (\ s a -> s{_dvfhzrChangeInfo = a});
-
--- | FIXME: Undocumented member.
-dvfhzrStatus :: Lens' DisassociateVPCFromHostedZoneResponse Status
-dvfhzrStatus = lens _dvfhzrStatus (\ s a -> s{_dvfhzrStatus = a});

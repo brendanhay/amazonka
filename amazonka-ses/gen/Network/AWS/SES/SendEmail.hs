@@ -56,8 +56,8 @@ module Network.AWS.SES.SendEmail
     -- ** Response constructor
     , sendEmailResponse
     -- ** Response lenses
-    , serMessageId
     , serStatus
+    , serMessageId
     ) where
 
 import           Network.AWS.Prelude
@@ -146,7 +146,7 @@ instance AWSRequest SendEmail where
           = receiveXMLWrapper "SendEmailResult"
               (\ s h x ->
                  SendEmailResponse' <$>
-                   (x .@ "MessageId") <*> (pure s))
+                   (pure s) <*> (x .@ "MessageId"))
 
 instance ToHeaders SendEmail where
         toHeaders = const mempty
@@ -174,26 +174,26 @@ instance ToQuery SendEmail where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'serMessageId'
---
 -- * 'serStatus'
+--
+-- * 'serMessageId'
 data SendEmailResponse = SendEmailResponse'
-    { _serMessageId :: !Text
-    , _serStatus    :: !Status
+    { _serStatus    :: !Status
+    , _serMessageId :: !Text
     } deriving (Eq,Show)
 
 -- | 'SendEmailResponse' smart constructor.
-sendEmailResponse :: Text -> Status -> SendEmailResponse
-sendEmailResponse pMessageId pStatus =
+sendEmailResponse :: Status -> Text -> SendEmailResponse
+sendEmailResponse pStatus pMessageId =
     SendEmailResponse'
-    { _serMessageId = pMessageId
-    , _serStatus = pStatus
+    { _serStatus = pStatus
+    , _serMessageId = pMessageId
     }
-
--- | The unique message identifier returned from the @SendEmail@ action.
-serMessageId :: Lens' SendEmailResponse Text
-serMessageId = lens _serMessageId (\ s a -> s{_serMessageId = a});
 
 -- | FIXME: Undocumented member.
 serStatus :: Lens' SendEmailResponse Status
 serStatus = lens _serStatus (\ s a -> s{_serStatus = a});
+
+-- | The unique message identifier returned from the @SendEmail@ action.
+serMessageId :: Lens' SendEmailResponse Text
+serMessageId = lens _serMessageId (\ s a -> s{_serMessageId = a});

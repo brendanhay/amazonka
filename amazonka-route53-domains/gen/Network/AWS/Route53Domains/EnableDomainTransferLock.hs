@@ -35,8 +35,8 @@ module Network.AWS.Route53Domains.EnableDomainTransferLock
     -- ** Response constructor
     , enableDomainTransferLockResponse
     -- ** Response lenses
-    , edtlrOperationId
     , edtlrStatus
+    , edtlrOperationId
     ) where
 
 import           Network.AWS.Prelude
@@ -85,7 +85,7 @@ instance AWSRequest EnableDomainTransferLock where
           = receiveJSON
               (\ s h x ->
                  EnableDomainTransferLockResponse' <$>
-                   (x .:> "OperationId") <*> (pure s))
+                   (pure s) <*> (x .:> "OperationId"))
 
 instance ToHeaders EnableDomainTransferLock where
         toHeaders
@@ -113,21 +113,25 @@ instance ToQuery EnableDomainTransferLock where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'edtlrOperationId'
---
 -- * 'edtlrStatus'
+--
+-- * 'edtlrOperationId'
 data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'
-    { _edtlrOperationId :: !Text
-    , _edtlrStatus      :: !Status
+    { _edtlrStatus      :: !Status
+    , _edtlrOperationId :: !Text
     } deriving (Eq,Show)
 
 -- | 'EnableDomainTransferLockResponse' smart constructor.
-enableDomainTransferLockResponse :: Text -> Status -> EnableDomainTransferLockResponse
-enableDomainTransferLockResponse pOperationId pStatus =
+enableDomainTransferLockResponse :: Status -> Text -> EnableDomainTransferLockResponse
+enableDomainTransferLockResponse pStatus pOperationId =
     EnableDomainTransferLockResponse'
-    { _edtlrOperationId = pOperationId
-    , _edtlrStatus = pStatus
+    { _edtlrStatus = pStatus
+    , _edtlrOperationId = pOperationId
     }
+
+-- | FIXME: Undocumented member.
+edtlrStatus :: Lens' EnableDomainTransferLockResponse Status
+edtlrStatus = lens _edtlrStatus (\ s a -> s{_edtlrStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -139,7 +143,3 @@ enableDomainTransferLockResponse pOperationId pStatus =
 -- Constraints: Maximum 255 characters.
 edtlrOperationId :: Lens' EnableDomainTransferLockResponse Text
 edtlrOperationId = lens _edtlrOperationId (\ s a -> s{_edtlrOperationId = a});
-
--- | FIXME: Undocumented member.
-edtlrStatus :: Lens' EnableDomainTransferLockResponse Status
-edtlrStatus = lens _edtlrStatus (\ s a -> s{_edtlrStatus = a});

@@ -39,8 +39,8 @@ module Network.AWS.IAM.ListServerCertificates
     -- ** Response lenses
     , lscrMarker
     , lscrIsTruncated
-    , lscrServerCertificateMetadataList
     , lscrStatus
+    , lscrServerCertificateMetadataList
     ) where
 
 import           Network.AWS.IAM.Types
@@ -114,9 +114,10 @@ instance AWSRequest ListServerCertificates where
               (\ s h x ->
                  ListServerCertificatesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
+                     (pure s)
+                     <*>
                      (x .@? "ServerCertificateMetadataList" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> (pure s))
+                        parseXMLList "member"))
 
 instance ToHeaders ListServerCertificates where
         toHeaders = const mempty
@@ -143,14 +144,14 @@ instance ToQuery ListServerCertificates where
 --
 -- * 'lscrIsTruncated'
 --
--- * 'lscrServerCertificateMetadataList'
---
 -- * 'lscrStatus'
+--
+-- * 'lscrServerCertificateMetadataList'
 data ListServerCertificatesResponse = ListServerCertificatesResponse'
     { _lscrMarker                        :: !(Maybe Text)
     , _lscrIsTruncated                   :: !(Maybe Bool)
-    , _lscrServerCertificateMetadataList :: ![ServerCertificateMetadata]
     , _lscrStatus                        :: !Status
+    , _lscrServerCertificateMetadataList :: ![ServerCertificateMetadata]
     } deriving (Eq,Show)
 
 -- | 'ListServerCertificatesResponse' smart constructor.
@@ -159,8 +160,8 @@ listServerCertificatesResponse pStatus =
     ListServerCertificatesResponse'
     { _lscrMarker = Nothing
     , _lscrIsTruncated = Nothing
-    , _lscrServerCertificateMetadataList = mempty
     , _lscrStatus = pStatus
+    , _lscrServerCertificateMetadataList = mempty
     }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
@@ -176,10 +177,10 @@ lscrMarker = lens _lscrMarker (\ s a -> s{_lscrMarker = a});
 lscrIsTruncated :: Lens' ListServerCertificatesResponse (Maybe Bool)
 lscrIsTruncated = lens _lscrIsTruncated (\ s a -> s{_lscrIsTruncated = a});
 
--- | A list of server certificates.
-lscrServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [ServerCertificateMetadata]
-lscrServerCertificateMetadataList = lens _lscrServerCertificateMetadataList (\ s a -> s{_lscrServerCertificateMetadataList = a});
-
 -- | FIXME: Undocumented member.
 lscrStatus :: Lens' ListServerCertificatesResponse Status
 lscrStatus = lens _lscrStatus (\ s a -> s{_lscrStatus = a});
+
+-- | A list of server certificates.
+lscrServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [ServerCertificateMetadata]
+lscrServerCertificateMetadataList = lens _lscrServerCertificateMetadataList (\ s a -> s{_lscrServerCertificateMetadataList = a});

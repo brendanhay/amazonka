@@ -40,8 +40,8 @@ module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     -- ** Response constructor
     , describeAnalysisSchemesResponse
     -- ** Response lenses
-    , dasrAnalysisSchemes
     , dasrStatus
+    , dasrAnalysisSchemes
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -101,9 +101,9 @@ instance AWSRequest DescribeAnalysisSchemes where
           = receiveXMLWrapper "DescribeAnalysisSchemesResult"
               (\ s h x ->
                  DescribeAnalysisSchemesResponse' <$>
-                   (x .@? "AnalysisSchemes" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> (pure s))
+                   (pure s) <*>
+                     (x .@? "AnalysisSchemes" .!@ mempty >>=
+                        parseXMLList "member"))
 
 instance ToHeaders DescribeAnalysisSchemes where
         toHeaders = const mempty
@@ -130,26 +130,26 @@ instance ToQuery DescribeAnalysisSchemes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dasrAnalysisSchemes'
---
 -- * 'dasrStatus'
+--
+-- * 'dasrAnalysisSchemes'
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
-    { _dasrAnalysisSchemes :: ![AnalysisSchemeStatus]
-    , _dasrStatus          :: !Status
+    { _dasrStatus          :: !Status
+    , _dasrAnalysisSchemes :: ![AnalysisSchemeStatus]
     } deriving (Eq,Show)
 
 -- | 'DescribeAnalysisSchemesResponse' smart constructor.
 describeAnalysisSchemesResponse :: Status -> DescribeAnalysisSchemesResponse
 describeAnalysisSchemesResponse pStatus =
     DescribeAnalysisSchemesResponse'
-    { _dasrAnalysisSchemes = mempty
-    , _dasrStatus = pStatus
+    { _dasrStatus = pStatus
+    , _dasrAnalysisSchemes = mempty
     }
-
--- | The analysis scheme descriptions.
-dasrAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
-dasrAnalysisSchemes = lens _dasrAnalysisSchemes (\ s a -> s{_dasrAnalysisSchemes = a});
 
 -- | FIXME: Undocumented member.
 dasrStatus :: Lens' DescribeAnalysisSchemesResponse Status
 dasrStatus = lens _dasrStatus (\ s a -> s{_dasrStatus = a});
+
+-- | The analysis scheme descriptions.
+dasrAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
+dasrAnalysisSchemes = lens _dasrAnalysisSchemes (\ s a -> s{_dasrAnalysisSchemes = a});

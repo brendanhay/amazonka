@@ -51,8 +51,8 @@ module Network.AWS.SES.GetIdentityDkimAttributes
     -- ** Response constructor
     , getIdentityDkimAttributesResponse
     -- ** Response lenses
-    , gidarDkimAttributes
     , gidarStatus
+    , gidarDkimAttributes
     ) where
 
 import           Network.AWS.Prelude
@@ -97,9 +97,9 @@ instance AWSRequest GetIdentityDkimAttributes where
           = receiveXMLWrapper "GetIdentityDkimAttributesResult"
               (\ s h x ->
                  GetIdentityDkimAttributesResponse' <$>
-                   (x .@? "DkimAttributes" .!@ mempty >>=
-                      parseXMLMap "entry" "key" "value")
-                     <*> (pure s))
+                   (pure s) <*>
+                     (x .@? "DkimAttributes" .!@ mempty >>=
+                        parseXMLMap "entry" "key" "value"))
 
 instance ToHeaders GetIdentityDkimAttributes where
         toHeaders = const mempty
@@ -121,26 +121,26 @@ instance ToQuery GetIdentityDkimAttributes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gidarDkimAttributes'
---
 -- * 'gidarStatus'
+--
+-- * 'gidarDkimAttributes'
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
-    { _gidarDkimAttributes :: !(Map Text IdentityDkimAttributes)
-    , _gidarStatus         :: !Status
+    { _gidarStatus         :: !Status
+    , _gidarDkimAttributes :: !(Map Text IdentityDkimAttributes)
     } deriving (Eq,Show)
 
 -- | 'GetIdentityDkimAttributesResponse' smart constructor.
 getIdentityDkimAttributesResponse :: Status -> GetIdentityDkimAttributesResponse
 getIdentityDkimAttributesResponse pStatus =
     GetIdentityDkimAttributesResponse'
-    { _gidarDkimAttributes = mempty
-    , _gidarStatus = pStatus
+    { _gidarStatus = pStatus
+    , _gidarDkimAttributes = mempty
     }
-
--- | The DKIM attributes for an email address or a domain.
-gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)
-gidarDkimAttributes = lens _gidarDkimAttributes (\ s a -> s{_gidarDkimAttributes = a}) . _Map;
 
 -- | FIXME: Undocumented member.
 gidarStatus :: Lens' GetIdentityDkimAttributesResponse Status
 gidarStatus = lens _gidarStatus (\ s a -> s{_gidarStatus = a});
+
+-- | The DKIM attributes for an email address or a domain.
+gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)
+gidarDkimAttributes = lens _gidarDkimAttributes (\ s a -> s{_gidarDkimAttributes = a}) . _Map;

@@ -43,11 +43,11 @@ module Network.AWS.Route53.ListReusableDelegationSets
     , listReusableDelegationSetsResponse
     -- ** Response lenses
     , lrdsrNextMarker
+    , lrdsrStatus
     , lrdsrDelegationSets
     , lrdsrMarker
     , lrdsrIsTruncated
     , lrdsrMaxItems
-    , lrdsrStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -107,13 +107,12 @@ instance AWSRequest ListReusableDelegationSets where
           = receiveXML
               (\ s h x ->
                  ListReusableDelegationSetsResponse' <$>
-                   (x .@? "NextMarker") <*>
+                   (x .@? "NextMarker") <*> (pure s) <*>
                      (x .@? "DelegationSets" .!@ mempty >>=
                         parseXMLList "DelegationSet")
                      <*> (x .@ "Marker")
                      <*> (x .@ "IsTruncated")
-                     <*> (x .@ "MaxItems")
-                     <*> (pure s))
+                     <*> (x .@ "MaxItems"))
 
 instance ToHeaders ListReusableDelegationSets where
         toHeaders = const mempty
@@ -135,6 +134,8 @@ instance ToQuery ListReusableDelegationSets where
 --
 -- * 'lrdsrNextMarker'
 --
+-- * 'lrdsrStatus'
+--
 -- * 'lrdsrDelegationSets'
 --
 -- * 'lrdsrMarker'
@@ -142,27 +143,25 @@ instance ToQuery ListReusableDelegationSets where
 -- * 'lrdsrIsTruncated'
 --
 -- * 'lrdsrMaxItems'
---
--- * 'lrdsrStatus'
 data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
     { _lrdsrNextMarker     :: !(Maybe Text)
+    , _lrdsrStatus         :: !Status
     , _lrdsrDelegationSets :: ![DelegationSet]
     , _lrdsrMarker         :: !Text
     , _lrdsrIsTruncated    :: !Bool
     , _lrdsrMaxItems       :: !Text
-    , _lrdsrStatus         :: !Status
     } deriving (Eq,Show)
 
 -- | 'ListReusableDelegationSetsResponse' smart constructor.
-listReusableDelegationSetsResponse :: Text -> Bool -> Text -> Status -> ListReusableDelegationSetsResponse
-listReusableDelegationSetsResponse pMarker pIsTruncated pMaxItems pStatus =
+listReusableDelegationSetsResponse :: Status -> Text -> Bool -> Text -> ListReusableDelegationSetsResponse
+listReusableDelegationSetsResponse pStatus pMarker pIsTruncated pMaxItems =
     ListReusableDelegationSetsResponse'
     { _lrdsrNextMarker = Nothing
+    , _lrdsrStatus = pStatus
     , _lrdsrDelegationSets = mempty
     , _lrdsrMarker = pMarker
     , _lrdsrIsTruncated = pIsTruncated
     , _lrdsrMaxItems = pMaxItems
-    , _lrdsrStatus = pStatus
     }
 
 -- | Indicates where to continue listing reusable delegation sets. If
@@ -172,6 +171,10 @@ listReusableDelegationSetsResponse pMarker pIsTruncated pMaxItems pStatus =
 -- results.
 lrdsrNextMarker :: Lens' ListReusableDelegationSetsResponse (Maybe Text)
 lrdsrNextMarker = lens _lrdsrNextMarker (\ s a -> s{_lrdsrNextMarker = a});
+
+-- | FIXME: Undocumented member.
+lrdsrStatus :: Lens' ListReusableDelegationSetsResponse Status
+lrdsrStatus = lens _lrdsrStatus (\ s a -> s{_lrdsrStatus = a});
 
 -- | A complex type that contains information about the reusable delegation
 -- sets associated with the current AWS account.
@@ -202,7 +205,3 @@ lrdsrIsTruncated = lens _lrdsrIsTruncated (\ s a -> s{_lrdsrIsTruncated = a});
 -- results.
 lrdsrMaxItems :: Lens' ListReusableDelegationSetsResponse Text
 lrdsrMaxItems = lens _lrdsrMaxItems (\ s a -> s{_lrdsrMaxItems = a});
-
--- | FIXME: Undocumented member.
-lrdsrStatus :: Lens' ListReusableDelegationSetsResponse Status
-lrdsrStatus = lens _lrdsrStatus (\ s a -> s{_lrdsrStatus = a});

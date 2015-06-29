@@ -44,8 +44,8 @@ module Network.AWS.Route53.UpdateHealthCheck
     -- ** Response constructor
     , updateHealthCheckResponse
     -- ** Response lenses
-    , uhcrHealthCheck
     , uhcrStatus
+    , uhcrHealthCheck
     ) where
 
 import           Network.AWS.Prelude
@@ -169,7 +169,7 @@ instance AWSRequest UpdateHealthCheck where
           = receiveXML
               (\ s h x ->
                  UpdateHealthCheckResponse' <$>
-                   (x .@ "HealthCheck") <*> (pure s))
+                   (pure s) <*> (x .@ "HealthCheck"))
 
 instance ToElement UpdateHealthCheck where
         toElement
@@ -204,26 +204,26 @@ instance ToXML UpdateHealthCheck where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uhcrHealthCheck'
---
 -- * 'uhcrStatus'
+--
+-- * 'uhcrHealthCheck'
 data UpdateHealthCheckResponse = UpdateHealthCheckResponse'
-    { _uhcrHealthCheck :: !HealthCheck
-    , _uhcrStatus      :: !Status
+    { _uhcrStatus      :: !Status
+    , _uhcrHealthCheck :: !HealthCheck
     } deriving (Eq,Show)
 
 -- | 'UpdateHealthCheckResponse' smart constructor.
-updateHealthCheckResponse :: HealthCheck -> Status -> UpdateHealthCheckResponse
-updateHealthCheckResponse pHealthCheck pStatus =
+updateHealthCheckResponse :: Status -> HealthCheck -> UpdateHealthCheckResponse
+updateHealthCheckResponse pStatus pHealthCheck =
     UpdateHealthCheckResponse'
-    { _uhcrHealthCheck = pHealthCheck
-    , _uhcrStatus = pStatus
+    { _uhcrStatus = pStatus
+    , _uhcrHealthCheck = pHealthCheck
     }
-
--- | FIXME: Undocumented member.
-uhcrHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck
-uhcrHealthCheck = lens _uhcrHealthCheck (\ s a -> s{_uhcrHealthCheck = a});
 
 -- | FIXME: Undocumented member.
 uhcrStatus :: Lens' UpdateHealthCheckResponse Status
 uhcrStatus = lens _uhcrStatus (\ s a -> s{_uhcrStatus = a});
+
+-- | FIXME: Undocumented member.
+uhcrHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck
+uhcrHealthCheck = lens _uhcrHealthCheck (\ s a -> s{_uhcrHealthCheck = a});

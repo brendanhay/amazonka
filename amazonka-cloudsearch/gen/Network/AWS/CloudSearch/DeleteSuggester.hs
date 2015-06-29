@@ -34,8 +34,8 @@ module Network.AWS.CloudSearch.DeleteSuggester
     -- ** Response constructor
     , deleteSuggesterResponse
     -- ** Response lenses
-    , deleSuggester
     , deleStatus
+    , deleSuggester
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -83,7 +83,7 @@ instance AWSRequest DeleteSuggester where
           = receiveXMLWrapper "DeleteSuggesterResult"
               (\ s h x ->
                  DeleteSuggesterResponse' <$>
-                   (x .@ "Suggester") <*> (pure s))
+                   (pure s) <*> (x .@ "Suggester"))
 
 instance ToHeaders DeleteSuggester where
         toHeaders = const mempty
@@ -106,26 +106,26 @@ instance ToQuery DeleteSuggester where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deleSuggester'
---
 -- * 'deleStatus'
+--
+-- * 'deleSuggester'
 data DeleteSuggesterResponse = DeleteSuggesterResponse'
-    { _deleSuggester :: !SuggesterStatus
-    , _deleStatus    :: !Status
+    { _deleStatus    :: !Status
+    , _deleSuggester :: !SuggesterStatus
     } deriving (Eq,Show)
 
 -- | 'DeleteSuggesterResponse' smart constructor.
-deleteSuggesterResponse :: SuggesterStatus -> Status -> DeleteSuggesterResponse
-deleteSuggesterResponse pSuggester pStatus =
+deleteSuggesterResponse :: Status -> SuggesterStatus -> DeleteSuggesterResponse
+deleteSuggesterResponse pStatus pSuggester =
     DeleteSuggesterResponse'
-    { _deleSuggester = pSuggester
-    , _deleStatus = pStatus
+    { _deleStatus = pStatus
+    , _deleSuggester = pSuggester
     }
-
--- | The status of the suggester being deleted.
-deleSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
-deleSuggester = lens _deleSuggester (\ s a -> s{_deleSuggester = a});
 
 -- | FIXME: Undocumented member.
 deleStatus :: Lens' DeleteSuggesterResponse Status
 deleStatus = lens _deleStatus (\ s a -> s{_deleStatus = a});
+
+-- | The status of the suggester being deleted.
+deleSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
+deleSuggester = lens _deleSuggester (\ s a -> s{_deleSuggester = a});

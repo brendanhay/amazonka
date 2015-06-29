@@ -40,8 +40,8 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
     -- ** Response constructor
     , updateScalingParametersResponse
     -- ** Response lenses
-    , usprScalingParameters
     , usprStatus
+    , usprScalingParameters
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -90,7 +90,7 @@ instance AWSRequest UpdateScalingParameters where
           = receiveXMLWrapper "UpdateScalingParametersResult"
               (\ s h x ->
                  UpdateScalingParametersResponse' <$>
-                   (x .@ "ScalingParameters") <*> (pure s))
+                   (pure s) <*> (x .@ "ScalingParameters"))
 
 instance ToHeaders UpdateScalingParameters where
         toHeaders = const mempty
@@ -114,26 +114,26 @@ instance ToQuery UpdateScalingParameters where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usprScalingParameters'
---
 -- * 'usprStatus'
+--
+-- * 'usprScalingParameters'
 data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
-    { _usprScalingParameters :: !ScalingParametersStatus
-    , _usprStatus            :: !Status
+    { _usprStatus            :: !Status
+    , _usprScalingParameters :: !ScalingParametersStatus
     } deriving (Eq,Show)
 
 -- | 'UpdateScalingParametersResponse' smart constructor.
-updateScalingParametersResponse :: ScalingParametersStatus -> Status -> UpdateScalingParametersResponse
-updateScalingParametersResponse pScalingParameters pStatus =
+updateScalingParametersResponse :: Status -> ScalingParametersStatus -> UpdateScalingParametersResponse
+updateScalingParametersResponse pStatus pScalingParameters =
     UpdateScalingParametersResponse'
-    { _usprScalingParameters = pScalingParameters
-    , _usprStatus = pStatus
+    { _usprStatus = pStatus
+    , _usprScalingParameters = pScalingParameters
     }
-
--- | FIXME: Undocumented member.
-usprScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
-usprScalingParameters = lens _usprScalingParameters (\ s a -> s{_usprScalingParameters = a});
 
 -- | FIXME: Undocumented member.
 usprStatus :: Lens' UpdateScalingParametersResponse Status
 usprStatus = lens _usprStatus (\ s a -> s{_usprStatus = a});
+
+-- | FIXME: Undocumented member.
+usprScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
+usprScalingParameters = lens _usprScalingParameters (\ s a -> s{_usprScalingParameters = a});

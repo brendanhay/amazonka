@@ -43,8 +43,8 @@ module Network.AWS.DataPipeline.ReportTaskProgress
     -- ** Response constructor
     , reportTaskProgressResponse
     -- ** Response lenses
-    , rtprCanceled
     , rtprStatus
+    , rtprCanceled
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -93,7 +93,7 @@ instance AWSRequest ReportTaskProgress where
           = receiveJSON
               (\ s h x ->
                  ReportTaskProgressResponse' <$>
-                   (x .:> "canceled") <*> (pure s))
+                   (pure s) <*> (x .:> "canceled"))
 
 instance ToHeaders ReportTaskProgress where
         toHeaders
@@ -121,27 +121,27 @@ instance ToQuery ReportTaskProgress where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtprCanceled'
---
 -- * 'rtprStatus'
+--
+-- * 'rtprCanceled'
 data ReportTaskProgressResponse = ReportTaskProgressResponse'
-    { _rtprCanceled :: !Bool
-    , _rtprStatus   :: !Status
+    { _rtprStatus   :: !Status
+    , _rtprCanceled :: !Bool
     } deriving (Eq,Show)
 
 -- | 'ReportTaskProgressResponse' smart constructor.
-reportTaskProgressResponse :: Bool -> Status -> ReportTaskProgressResponse
-reportTaskProgressResponse pCanceled pStatus =
+reportTaskProgressResponse :: Status -> Bool -> ReportTaskProgressResponse
+reportTaskProgressResponse pStatus pCanceled =
     ReportTaskProgressResponse'
-    { _rtprCanceled = pCanceled
-    , _rtprStatus = pStatus
+    { _rtprStatus = pStatus
+    , _rtprCanceled = pCanceled
     }
+
+-- | FIXME: Undocumented member.
+rtprStatus :: Lens' ReportTaskProgressResponse Status
+rtprStatus = lens _rtprStatus (\ s a -> s{_rtprStatus = a});
 
 -- | If true, the calling task runner should cancel processing of the task.
 -- The task runner does not need to call SetTaskStatus for canceled tasks.
 rtprCanceled :: Lens' ReportTaskProgressResponse Bool
 rtprCanceled = lens _rtprCanceled (\ s a -> s{_rtprCanceled = a});
-
--- | FIXME: Undocumented member.
-rtprStatus :: Lens' ReportTaskProgressResponse Status
-rtprStatus = lens _rtprStatus (\ s a -> s{_rtprStatus = a});

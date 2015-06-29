@@ -37,8 +37,8 @@ module Network.AWS.CloudHSM.ListHAPGs
     , listHAPGsResponse
     -- ** Response lenses
     , lhrNextToken
-    , lhrHAPGList
     , lhrStatus
+    , lhrHAPGList
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -75,8 +75,8 @@ instance AWSRequest ListHAPGs where
           = receiveJSON
               (\ s h x ->
                  ListHAPGsResponse' <$>
-                   (x .?> "NextToken") <*> (x .?> "HapgList" .!@ mempty)
-                     <*> (pure s))
+                   (x .?> "NextToken") <*> (pure s) <*>
+                     (x .?> "HapgList" .!@ mempty))
 
 instance ToHeaders ListHAPGs where
         toHeaders
@@ -103,13 +103,13 @@ instance ToQuery ListHAPGs where
 --
 -- * 'lhrNextToken'
 --
--- * 'lhrHAPGList'
---
 -- * 'lhrStatus'
+--
+-- * 'lhrHAPGList'
 data ListHAPGsResponse = ListHAPGsResponse'
     { _lhrNextToken :: !(Maybe Text)
-    , _lhrHAPGList  :: ![Text]
     , _lhrStatus    :: !Status
+    , _lhrHAPGList  :: ![Text]
     } deriving (Eq,Show)
 
 -- | 'ListHAPGsResponse' smart constructor.
@@ -117,8 +117,8 @@ listHAPGsResponse :: Status -> ListHAPGsResponse
 listHAPGsResponse pStatus =
     ListHAPGsResponse'
     { _lhrNextToken = Nothing
-    , _lhrHAPGList = mempty
     , _lhrStatus = pStatus
+    , _lhrHAPGList = mempty
     }
 
 -- | If not null, more results are available. Pass this value to ListHapgs to
@@ -126,10 +126,10 @@ listHAPGsResponse pStatus =
 lhrNextToken :: Lens' ListHAPGsResponse (Maybe Text)
 lhrNextToken = lens _lhrNextToken (\ s a -> s{_lhrNextToken = a});
 
--- | The list of high-availability partition groups.
-lhrHAPGList :: Lens' ListHAPGsResponse [Text]
-lhrHAPGList = lens _lhrHAPGList (\ s a -> s{_lhrHAPGList = a});
-
 -- | FIXME: Undocumented member.
 lhrStatus :: Lens' ListHAPGsResponse Status
 lhrStatus = lens _lhrStatus (\ s a -> s{_lhrStatus = a});
+
+-- | The list of high-availability partition groups.
+lhrHAPGList :: Lens' ListHAPGsResponse [Text]
+lhrHAPGList = lens _lhrHAPGList (\ s a -> s{_lhrHAPGList = a});

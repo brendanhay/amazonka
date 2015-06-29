@@ -46,10 +46,10 @@ module Network.AWS.EC2.CreateKeyPair
     -- ** Response constructor
     , createKeyPairResponse
     -- ** Response lenses
+    , ckprStatus
     , ckprKeyName
     , ckprKeyFingerprint
     , ckprKeyMaterial
-    , ckprStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -98,9 +98,9 @@ instance AWSRequest CreateKeyPair where
           = receiveXML
               (\ s h x ->
                  CreateKeyPairResponse' <$>
-                   (x .@ "keyName") <*> (x .@ "keyFingerprint") <*>
-                     (x .@ "keyMaterial")
-                     <*> (pure s))
+                   (pure s) <*> (x .@ "keyName") <*>
+                     (x .@ "keyFingerprint")
+                     <*> (x .@ "keyMaterial"))
 
 instance ToHeaders CreateKeyPair where
         toHeaders = const mempty
@@ -121,29 +121,33 @@ instance ToQuery CreateKeyPair where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'ckprStatus'
+--
 -- * 'ckprKeyName'
 --
 -- * 'ckprKeyFingerprint'
 --
 -- * 'ckprKeyMaterial'
---
--- * 'ckprStatus'
 data CreateKeyPairResponse = CreateKeyPairResponse'
-    { _ckprKeyName        :: !Text
+    { _ckprStatus         :: !Status
+    , _ckprKeyName        :: !Text
     , _ckprKeyFingerprint :: !Text
     , _ckprKeyMaterial    :: !Text
-    , _ckprStatus         :: !Status
     } deriving (Eq,Show)
 
 -- | 'CreateKeyPairResponse' smart constructor.
-createKeyPairResponse :: Text -> Text -> Text -> Status -> CreateKeyPairResponse
-createKeyPairResponse pKeyName pKeyFingerprint pKeyMaterial pStatus =
+createKeyPairResponse :: Status -> Text -> Text -> Text -> CreateKeyPairResponse
+createKeyPairResponse pStatus pKeyName pKeyFingerprint pKeyMaterial =
     CreateKeyPairResponse'
-    { _ckprKeyName = pKeyName
+    { _ckprStatus = pStatus
+    , _ckprKeyName = pKeyName
     , _ckprKeyFingerprint = pKeyFingerprint
     , _ckprKeyMaterial = pKeyMaterial
-    , _ckprStatus = pStatus
     }
+
+-- | FIXME: Undocumented member.
+ckprStatus :: Lens' CreateKeyPairResponse Status
+ckprStatus = lens _ckprStatus (\ s a -> s{_ckprStatus = a});
 
 -- | The name of the key pair.
 ckprKeyName :: Lens' CreateKeyPairResponse Text
@@ -156,7 +160,3 @@ ckprKeyFingerprint = lens _ckprKeyFingerprint (\ s a -> s{_ckprKeyFingerprint = 
 -- | An unencrypted PEM encoded RSA private key.
 ckprKeyMaterial :: Lens' CreateKeyPairResponse Text
 ckprKeyMaterial = lens _ckprKeyMaterial (\ s a -> s{_ckprKeyMaterial = a});
-
--- | FIXME: Undocumented member.
-ckprStatus :: Lens' CreateKeyPairResponse Status
-ckprStatus = lens _ckprStatus (\ s a -> s{_ckprStatus = a});

@@ -59,8 +59,8 @@ module Network.AWS.SWF.GetWorkflowExecutionHistory
     , getWorkflowExecutionHistoryResponse
     -- ** Response lenses
     , gwehrNextPageToken
-    , gwehrEvents
     , gwehrStatus
+    , gwehrEvents
     ) where
 
 import           Network.AWS.Pager
@@ -152,9 +152,8 @@ instance AWSRequest GetWorkflowExecutionHistory where
           = receiveJSON
               (\ s h x ->
                  GetWorkflowExecutionHistoryResponse' <$>
-                   (x .?> "nextPageToken") <*>
-                     (x .?> "events" .!@ mempty)
-                     <*> (pure s))
+                   (x .?> "nextPageToken") <*> (pure s) <*>
+                     (x .?> "events" .!@ mempty))
 
 instance ToHeaders GetWorkflowExecutionHistory where
         toHeaders
@@ -191,13 +190,13 @@ instance ToQuery GetWorkflowExecutionHistory where
 --
 -- * 'gwehrNextPageToken'
 --
--- * 'gwehrEvents'
---
 -- * 'gwehrStatus'
+--
+-- * 'gwehrEvents'
 data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'
     { _gwehrNextPageToken :: !(Maybe Text)
-    , _gwehrEvents        :: ![HistoryEvent]
     , _gwehrStatus        :: !Status
+    , _gwehrEvents        :: ![HistoryEvent]
     } deriving (Eq,Show)
 
 -- | 'GetWorkflowExecutionHistoryResponse' smart constructor.
@@ -205,8 +204,8 @@ getWorkflowExecutionHistoryResponse :: Status -> GetWorkflowExecutionHistoryResp
 getWorkflowExecutionHistoryResponse pStatus =
     GetWorkflowExecutionHistoryResponse'
     { _gwehrNextPageToken = Nothing
-    , _gwehrEvents = mempty
     , _gwehrStatus = pStatus
+    , _gwehrEvents = mempty
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -219,10 +218,10 @@ getWorkflowExecutionHistoryResponse pStatus =
 gwehrNextPageToken :: Lens' GetWorkflowExecutionHistoryResponse (Maybe Text)
 gwehrNextPageToken = lens _gwehrNextPageToken (\ s a -> s{_gwehrNextPageToken = a});
 
--- | The list of history events.
-gwehrEvents :: Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
-gwehrEvents = lens _gwehrEvents (\ s a -> s{_gwehrEvents = a});
-
 -- | FIXME: Undocumented member.
 gwehrStatus :: Lens' GetWorkflowExecutionHistoryResponse Status
 gwehrStatus = lens _gwehrStatus (\ s a -> s{_gwehrStatus = a});
+
+-- | The list of history events.
+gwehrEvents :: Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
+gwehrEvents = lens _gwehrEvents (\ s a -> s{_gwehrEvents = a});

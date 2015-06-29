@@ -58,11 +58,11 @@ module Network.AWS.Route53.CreateHostedZone
     , createHostedZoneResponse
     -- ** Response lenses
     , chzrVPC
+    , chzrStatus
     , chzrHostedZone
     , chzrChangeInfo
     , chzrDelegationSet
     , chzrLocation
-    , chzrStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -153,11 +153,10 @@ instance AWSRequest CreateHostedZone where
           = receiveXML
               (\ s h x ->
                  CreateHostedZoneResponse' <$>
-                   (x .@? "VPC") <*> (x .@ "HostedZone") <*>
-                     (x .@ "ChangeInfo")
+                   (x .@? "VPC") <*> (pure s) <*> (x .@ "HostedZone")
+                     <*> (x .@ "ChangeInfo")
                      <*> (x .@ "DelegationSet")
-                     <*> (h .# "Location")
-                     <*> (pure s))
+                     <*> (h .# "Location"))
 
 instance ToElement CreateHostedZone where
         toElement
@@ -190,6 +189,8 @@ instance ToXML CreateHostedZone where
 --
 -- * 'chzrVPC'
 --
+-- * 'chzrStatus'
+--
 -- * 'chzrHostedZone'
 --
 -- * 'chzrChangeInfo'
@@ -197,32 +198,34 @@ instance ToXML CreateHostedZone where
 -- * 'chzrDelegationSet'
 --
 -- * 'chzrLocation'
---
--- * 'chzrStatus'
 data CreateHostedZoneResponse = CreateHostedZoneResponse'
     { _chzrVPC           :: !(Maybe VPC)
+    , _chzrStatus        :: !Status
     , _chzrHostedZone    :: !HostedZone
     , _chzrChangeInfo    :: !ChangeInfo
     , _chzrDelegationSet :: !DelegationSet
     , _chzrLocation      :: !Text
-    , _chzrStatus        :: !Status
     } deriving (Eq,Show)
 
 -- | 'CreateHostedZoneResponse' smart constructor.
-createHostedZoneResponse :: HostedZone -> ChangeInfo -> DelegationSet -> Text -> Status -> CreateHostedZoneResponse
-createHostedZoneResponse pHostedZone pChangeInfo pDelegationSet pLocation pStatus =
+createHostedZoneResponse :: Status -> HostedZone -> ChangeInfo -> DelegationSet -> Text -> CreateHostedZoneResponse
+createHostedZoneResponse pStatus pHostedZone pChangeInfo pDelegationSet pLocation =
     CreateHostedZoneResponse'
     { _chzrVPC = Nothing
+    , _chzrStatus = pStatus
     , _chzrHostedZone = pHostedZone
     , _chzrChangeInfo = pChangeInfo
     , _chzrDelegationSet = pDelegationSet
     , _chzrLocation = pLocation
-    , _chzrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
 chzrVPC :: Lens' CreateHostedZoneResponse (Maybe VPC)
 chzrVPC = lens _chzrVPC (\ s a -> s{_chzrVPC = a});
+
+-- | FIXME: Undocumented member.
+chzrStatus :: Lens' CreateHostedZoneResponse Status
+chzrStatus = lens _chzrStatus (\ s a -> s{_chzrStatus = a});
 
 -- | A complex type that contains identifying information about the hosted
 -- zone.
@@ -242,7 +245,3 @@ chzrDelegationSet = lens _chzrDelegationSet (\ s a -> s{_chzrDelegationSet = a})
 -- | The unique URL representing the new hosted zone.
 chzrLocation :: Lens' CreateHostedZoneResponse Text
 chzrLocation = lens _chzrLocation (\ s a -> s{_chzrLocation = a});
-
--- | FIXME: Undocumented member.
-chzrStatus :: Lens' CreateHostedZoneResponse Status
-chzrStatus = lens _chzrStatus (\ s a -> s{_chzrStatus = a});

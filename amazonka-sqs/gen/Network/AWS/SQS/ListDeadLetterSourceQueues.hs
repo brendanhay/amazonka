@@ -35,8 +35,8 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
     -- ** Response constructor
     , listDeadLetterSourceQueuesResponse
     -- ** Response lenses
-    , ldlsqrQueueURLs
     , ldlsqrStatus
+    , ldlsqrQueueURLs
     ) where
 
 import           Network.AWS.Prelude
@@ -74,7 +74,7 @@ instance AWSRequest ListDeadLetterSourceQueues where
               "ListDeadLetterSourceQueuesResult"
               (\ s h x ->
                  ListDeadLetterSourceQueuesResponse' <$>
-                   (parseXMLList "QueueUrl" x) <*> (pure s))
+                   (pure s) <*> (parseXMLList "QueueUrl" x))
 
 instance ToHeaders ListDeadLetterSourceQueues where
         toHeaders = const mempty
@@ -96,27 +96,27 @@ instance ToQuery ListDeadLetterSourceQueues where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldlsqrQueueURLs'
---
 -- * 'ldlsqrStatus'
+--
+-- * 'ldlsqrQueueURLs'
 data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'
-    { _ldlsqrQueueURLs :: ![Text]
-    , _ldlsqrStatus    :: !Status
+    { _ldlsqrStatus    :: !Status
+    , _ldlsqrQueueURLs :: ![Text]
     } deriving (Eq,Show)
 
 -- | 'ListDeadLetterSourceQueuesResponse' smart constructor.
 listDeadLetterSourceQueuesResponse :: Status -> ListDeadLetterSourceQueuesResponse
 listDeadLetterSourceQueuesResponse pStatus =
     ListDeadLetterSourceQueuesResponse'
-    { _ldlsqrQueueURLs = mempty
-    , _ldlsqrStatus = pStatus
+    { _ldlsqrStatus = pStatus
+    , _ldlsqrQueueURLs = mempty
     }
+
+-- | FIXME: Undocumented member.
+ldlsqrStatus :: Lens' ListDeadLetterSourceQueuesResponse Status
+ldlsqrStatus = lens _ldlsqrStatus (\ s a -> s{_ldlsqrStatus = a});
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue.
 ldlsqrQueueURLs :: Lens' ListDeadLetterSourceQueuesResponse [Text]
 ldlsqrQueueURLs = lens _ldlsqrQueueURLs (\ s a -> s{_ldlsqrQueueURLs = a});
-
--- | FIXME: Undocumented member.
-ldlsqrStatus :: Lens' ListDeadLetterSourceQueuesResponse Status
-ldlsqrStatus = lens _ldlsqrStatus (\ s a -> s{_ldlsqrStatus = a});

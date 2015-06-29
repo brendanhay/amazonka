@@ -41,8 +41,8 @@ module Network.AWS.EFS.DescribeMountTargetSecurityGroups
     -- ** Response constructor
     , describeMountTargetSecurityGroupsResponse
     -- ** Response lenses
-    , dmtsgrSecurityGroups
     , dmtsgrStatus
+    , dmtsgrSecurityGroups
     ) where
 
 import           Network.AWS.EFS.Types
@@ -80,7 +80,7 @@ instance AWSRequest DescribeMountTargetSecurityGroups
           = receiveJSON
               (\ s h x ->
                  DescribeMountTargetSecurityGroupsResponse' <$>
-                   (x .?> "SecurityGroups" .!@ mempty) <*> (pure s))
+                   (pure s) <*> (x .?> "SecurityGroups" .!@ mempty))
 
 instance ToHeaders DescribeMountTargetSecurityGroups
          where
@@ -101,26 +101,26 @@ instance ToQuery DescribeMountTargetSecurityGroups
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmtsgrSecurityGroups'
---
 -- * 'dmtsgrStatus'
+--
+-- * 'dmtsgrSecurityGroups'
 data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'
-    { _dmtsgrSecurityGroups :: ![Text]
-    , _dmtsgrStatus         :: !Status
+    { _dmtsgrStatus         :: !Status
+    , _dmtsgrSecurityGroups :: ![Text]
     } deriving (Eq,Show)
 
 -- | 'DescribeMountTargetSecurityGroupsResponse' smart constructor.
 describeMountTargetSecurityGroupsResponse :: Status -> DescribeMountTargetSecurityGroupsResponse
 describeMountTargetSecurityGroupsResponse pStatus =
     DescribeMountTargetSecurityGroupsResponse'
-    { _dmtsgrSecurityGroups = mempty
-    , _dmtsgrStatus = pStatus
+    { _dmtsgrStatus = pStatus
+    , _dmtsgrSecurityGroups = mempty
     }
-
--- | An array of security groups.
-dmtsgrSecurityGroups :: Lens' DescribeMountTargetSecurityGroupsResponse [Text]
-dmtsgrSecurityGroups = lens _dmtsgrSecurityGroups (\ s a -> s{_dmtsgrSecurityGroups = a});
 
 -- | FIXME: Undocumented member.
 dmtsgrStatus :: Lens' DescribeMountTargetSecurityGroupsResponse Status
 dmtsgrStatus = lens _dmtsgrStatus (\ s a -> s{_dmtsgrStatus = a});
+
+-- | An array of security groups.
+dmtsgrSecurityGroups :: Lens' DescribeMountTargetSecurityGroupsResponse [Text]
+dmtsgrSecurityGroups = lens _dmtsgrSecurityGroups (\ s a -> s{_dmtsgrSecurityGroups = a});

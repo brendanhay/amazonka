@@ -39,8 +39,8 @@ module Network.AWS.IAM.CreateInstanceProfile
     -- ** Response constructor
     , createInstanceProfileResponse
     -- ** Response lenses
-    , ciprInstanceProfile
     , ciprStatus
+    , ciprInstanceProfile
     ) where
 
 import           Network.AWS.IAM.Types
@@ -90,7 +90,7 @@ instance AWSRequest CreateInstanceProfile where
           = receiveXMLWrapper "CreateInstanceProfileResult"
               (\ s h x ->
                  CreateInstanceProfileResponse' <$>
-                   (x .@ "InstanceProfile") <*> (pure s))
+                   (pure s) <*> (x .@ "InstanceProfile"))
 
 instance ToHeaders CreateInstanceProfile where
         toHeaders = const mempty
@@ -112,26 +112,26 @@ instance ToQuery CreateInstanceProfile where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ciprInstanceProfile'
---
 -- * 'ciprStatus'
+--
+-- * 'ciprInstanceProfile'
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
-    { _ciprInstanceProfile :: !InstanceProfile
-    , _ciprStatus          :: !Status
+    { _ciprStatus          :: !Status
+    , _ciprInstanceProfile :: !InstanceProfile
     } deriving (Eq,Show)
 
 -- | 'CreateInstanceProfileResponse' smart constructor.
-createInstanceProfileResponse :: InstanceProfile -> Status -> CreateInstanceProfileResponse
-createInstanceProfileResponse pInstanceProfile pStatus =
+createInstanceProfileResponse :: Status -> InstanceProfile -> CreateInstanceProfileResponse
+createInstanceProfileResponse pStatus pInstanceProfile =
     CreateInstanceProfileResponse'
-    { _ciprInstanceProfile = pInstanceProfile
-    , _ciprStatus = pStatus
+    { _ciprStatus = pStatus
+    , _ciprInstanceProfile = pInstanceProfile
     }
-
--- | Information about the instance profile.
-ciprInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
-ciprInstanceProfile = lens _ciprInstanceProfile (\ s a -> s{_ciprInstanceProfile = a});
 
 -- | FIXME: Undocumented member.
 ciprStatus :: Lens' CreateInstanceProfileResponse Status
 ciprStatus = lens _ciprStatus (\ s a -> s{_ciprStatus = a});
+
+-- | Information about the instance profile.
+ciprInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
+ciprInstanceProfile = lens _ciprInstanceProfile (\ s a -> s{_ciprInstanceProfile = a});

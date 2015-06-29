@@ -39,8 +39,8 @@ module Network.AWS.Route53.GetChange
     -- ** Response constructor
     , getChangeResponse
     -- ** Response lenses
-    , gcrChangeInfo
     , gcrStatus
+    , gcrChangeInfo
     ) where
 
 import           Network.AWS.Prelude
@@ -80,7 +80,7 @@ instance AWSRequest GetChange where
           = receiveXML
               (\ s h x ->
                  GetChangeResponse' <$>
-                   (x .@ "ChangeInfo") <*> (pure s))
+                   (pure s) <*> (x .@ "ChangeInfo"))
 
 instance ToHeaders GetChange where
         toHeaders = const mempty
@@ -98,28 +98,28 @@ instance ToQuery GetChange where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcrChangeInfo'
---
 -- * 'gcrStatus'
+--
+-- * 'gcrChangeInfo'
 data GetChangeResponse = GetChangeResponse'
-    { _gcrChangeInfo :: !ChangeInfo
-    , _gcrStatus     :: !Status
+    { _gcrStatus     :: !Status
+    , _gcrChangeInfo :: !ChangeInfo
     } deriving (Eq,Show)
 
 -- | 'GetChangeResponse' smart constructor.
-getChangeResponse :: ChangeInfo -> Status -> GetChangeResponse
-getChangeResponse pChangeInfo pStatus =
+getChangeResponse :: Status -> ChangeInfo -> GetChangeResponse
+getChangeResponse pStatus pChangeInfo =
     GetChangeResponse'
-    { _gcrChangeInfo = pChangeInfo
-    , _gcrStatus = pStatus
+    { _gcrStatus = pStatus
+    , _gcrChangeInfo = pChangeInfo
     }
+
+-- | FIXME: Undocumented member.
+gcrStatus :: Lens' GetChangeResponse Status
+gcrStatus = lens _gcrStatus (\ s a -> s{_gcrStatus = a});
 
 -- | A complex type that contains information about the specified change
 -- batch, including the change batch ID, the status of the change, and the
 -- date and time of the request.
 gcrChangeInfo :: Lens' GetChangeResponse ChangeInfo
 gcrChangeInfo = lens _gcrChangeInfo (\ s a -> s{_gcrChangeInfo = a});
-
--- | FIXME: Undocumented member.
-gcrStatus :: Lens' GetChangeResponse Status
-gcrStatus = lens _gcrStatus (\ s a -> s{_gcrStatus = a});

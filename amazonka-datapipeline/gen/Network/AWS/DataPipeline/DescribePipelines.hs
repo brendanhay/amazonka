@@ -40,8 +40,8 @@ module Network.AWS.DataPipeline.DescribePipelines
     -- ** Response constructor
     , describePipelinesResponse
     -- ** Response lenses
-    , dprPipelineDescriptionList
     , dprStatus
+    , dprPipelineDescriptionList
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -81,8 +81,8 @@ instance AWSRequest DescribePipelines where
           = receiveJSON
               (\ s h x ->
                  DescribePipelinesResponse' <$>
-                   (x .?> "pipelineDescriptionList" .!@ mempty) <*>
-                     (pure s))
+                   (pure s) <*>
+                     (x .?> "pipelineDescriptionList" .!@ mempty))
 
 instance ToHeaders DescribePipelines where
         toHeaders
@@ -109,26 +109,26 @@ instance ToQuery DescribePipelines where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dprPipelineDescriptionList'
---
 -- * 'dprStatus'
+--
+-- * 'dprPipelineDescriptionList'
 data DescribePipelinesResponse = DescribePipelinesResponse'
-    { _dprPipelineDescriptionList :: ![PipelineDescription]
-    , _dprStatus                  :: !Status
+    { _dprStatus                  :: !Status
+    , _dprPipelineDescriptionList :: ![PipelineDescription]
     } deriving (Eq,Show)
 
 -- | 'DescribePipelinesResponse' smart constructor.
 describePipelinesResponse :: Status -> DescribePipelinesResponse
 describePipelinesResponse pStatus =
     DescribePipelinesResponse'
-    { _dprPipelineDescriptionList = mempty
-    , _dprStatus = pStatus
+    { _dprStatus = pStatus
+    , _dprPipelineDescriptionList = mempty
     }
-
--- | An array of descriptions for the specified pipelines.
-dprPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
-dprPipelineDescriptionList = lens _dprPipelineDescriptionList (\ s a -> s{_dprPipelineDescriptionList = a});
 
 -- | FIXME: Undocumented member.
 dprStatus :: Lens' DescribePipelinesResponse Status
 dprStatus = lens _dprStatus (\ s a -> s{_dprStatus = a});
+
+-- | An array of descriptions for the specified pipelines.
+dprPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
+dprPipelineDescriptionList = lens _dprPipelineDescriptionList (\ s a -> s{_dprPipelineDescriptionList = a});

@@ -62,8 +62,8 @@ module Network.AWS.Route53.ChangeResourceRecordSets
     -- ** Response constructor
     , changeResourceRecordSetsResponse
     -- ** Response lenses
-    , crrsrChangeInfo
     , crrsrStatus
+    , crrsrChangeInfo
     ) where
 
 import           Network.AWS.Prelude
@@ -112,7 +112,7 @@ instance AWSRequest ChangeResourceRecordSets where
           = receiveXML
               (\ s h x ->
                  ChangeResourceRecordSetsResponse' <$>
-                   (x .@ "ChangeInfo") <*> (pure s))
+                   (pure s) <*> (x .@ "ChangeInfo"))
 
 instance ToElement ChangeResourceRecordSets where
         toElement
@@ -141,21 +141,25 @@ instance ToXML ChangeResourceRecordSets where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crrsrChangeInfo'
---
 -- * 'crrsrStatus'
+--
+-- * 'crrsrChangeInfo'
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
-    { _crrsrChangeInfo :: !ChangeInfo
-    , _crrsrStatus     :: !Status
+    { _crrsrStatus     :: !Status
+    , _crrsrChangeInfo :: !ChangeInfo
     } deriving (Eq,Show)
 
 -- | 'ChangeResourceRecordSetsResponse' smart constructor.
-changeResourceRecordSetsResponse :: ChangeInfo -> Status -> ChangeResourceRecordSetsResponse
-changeResourceRecordSetsResponse pChangeInfo pStatus =
+changeResourceRecordSetsResponse :: Status -> ChangeInfo -> ChangeResourceRecordSetsResponse
+changeResourceRecordSetsResponse pStatus pChangeInfo =
     ChangeResourceRecordSetsResponse'
-    { _crrsrChangeInfo = pChangeInfo
-    , _crrsrStatus = pStatus
+    { _crrsrStatus = pStatus
+    , _crrsrChangeInfo = pChangeInfo
     }
+
+-- | FIXME: Undocumented member.
+crrsrStatus :: Lens' ChangeResourceRecordSetsResponse Status
+crrsrStatus = lens _crrsrStatus (\ s a -> s{_crrsrStatus = a});
 
 -- | A complex type that contains information about changes made to your
 -- hosted zone.
@@ -164,7 +168,3 @@ changeResourceRecordSetsResponse pChangeInfo pStatus =
 -- action to get detailed information about the change.
 crrsrChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrChangeInfo = lens _crrsrChangeInfo (\ s a -> s{_crrsrChangeInfo = a});
-
--- | FIXME: Undocumented member.
-crrsrStatus :: Lens' ChangeResourceRecordSetsResponse Status
-crrsrStatus = lens _crrsrStatus (\ s a -> s{_crrsrStatus = a});

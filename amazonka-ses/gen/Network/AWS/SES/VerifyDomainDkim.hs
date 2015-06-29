@@ -46,8 +46,8 @@ module Network.AWS.SES.VerifyDomainDkim
     -- ** Response constructor
     , verifyDomainDkimResponse
     -- ** Response lenses
-    , vddrDkimTokens
     , vddrStatus
+    , vddrDkimTokens
     ) where
 
 import           Network.AWS.Prelude
@@ -86,9 +86,9 @@ instance AWSRequest VerifyDomainDkim where
           = receiveXMLWrapper "VerifyDomainDkimResult"
               (\ s h x ->
                  VerifyDomainDkimResponse' <$>
-                   (x .@? "DkimTokens" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> (pure s))
+                   (pure s) <*>
+                     (x .@? "DkimTokens" .!@ mempty >>=
+                        parseXMLList "member"))
 
 instance ToHeaders VerifyDomainDkim where
         toHeaders = const mempty
@@ -110,21 +110,25 @@ instance ToQuery VerifyDomainDkim where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vddrDkimTokens'
---
 -- * 'vddrStatus'
+--
+-- * 'vddrDkimTokens'
 data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
-    { _vddrDkimTokens :: ![Text]
-    , _vddrStatus     :: !Status
+    { _vddrStatus     :: !Status
+    , _vddrDkimTokens :: ![Text]
     } deriving (Eq,Show)
 
 -- | 'VerifyDomainDkimResponse' smart constructor.
 verifyDomainDkimResponse :: Status -> VerifyDomainDkimResponse
 verifyDomainDkimResponse pStatus =
     VerifyDomainDkimResponse'
-    { _vddrDkimTokens = mempty
-    , _vddrStatus = pStatus
+    { _vddrStatus = pStatus
+    , _vddrDkimTokens = mempty
     }
+
+-- | FIXME: Undocumented member.
+vddrStatus :: Lens' VerifyDomainDkimResponse Status
+vddrStatus = lens _vddrStatus (\ s a -> s{_vddrStatus = a});
 
 -- | A set of character strings that represent the domain\'s identity. If the
 -- identity is an email address, the tokens represent the domain of that
@@ -141,7 +145,3 @@ verifyDomainDkimResponse pStatus =
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
 vddrDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
 vddrDkimTokens = lens _vddrDkimTokens (\ s a -> s{_vddrDkimTokens = a});
-
--- | FIXME: Undocumented member.
-vddrStatus :: Lens' VerifyDomainDkimResponse Status
-vddrStatus = lens _vddrStatus (\ s a -> s{_vddrStatus = a});

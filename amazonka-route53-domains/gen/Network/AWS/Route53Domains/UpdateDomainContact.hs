@@ -41,8 +41,8 @@ module Network.AWS.Route53Domains.UpdateDomainContact
     -- ** Response constructor
     , updateDomainContactResponse
     -- ** Response lenses
-    , udcrOperationId
     , udcrStatus
+    , udcrOperationId
     ) where
 
 import           Network.AWS.Prelude
@@ -139,7 +139,7 @@ instance AWSRequest UpdateDomainContact where
           = receiveJSON
               (\ s h x ->
                  UpdateDomainContactResponse' <$>
-                   (x .:> "OperationId") <*> (pure s))
+                   (pure s) <*> (x .:> "OperationId"))
 
 instance ToHeaders UpdateDomainContact where
         toHeaders
@@ -171,21 +171,25 @@ instance ToQuery UpdateDomainContact where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udcrOperationId'
---
 -- * 'udcrStatus'
+--
+-- * 'udcrOperationId'
 data UpdateDomainContactResponse = UpdateDomainContactResponse'
-    { _udcrOperationId :: !Text
-    , _udcrStatus      :: !Status
+    { _udcrStatus      :: !Status
+    , _udcrOperationId :: !Text
     } deriving (Eq,Show)
 
 -- | 'UpdateDomainContactResponse' smart constructor.
-updateDomainContactResponse :: Text -> Status -> UpdateDomainContactResponse
-updateDomainContactResponse pOperationId pStatus =
+updateDomainContactResponse :: Status -> Text -> UpdateDomainContactResponse
+updateDomainContactResponse pStatus pOperationId =
     UpdateDomainContactResponse'
-    { _udcrOperationId = pOperationId
-    , _udcrStatus = pStatus
+    { _udcrStatus = pStatus
+    , _udcrOperationId = pOperationId
     }
+
+-- | FIXME: Undocumented member.
+udcrStatus :: Lens' UpdateDomainContactResponse Status
+udcrStatus = lens _udcrStatus (\ s a -> s{_udcrStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -197,7 +201,3 @@ updateDomainContactResponse pOperationId pStatus =
 -- Constraints: Maximum 255 characters.
 udcrOperationId :: Lens' UpdateDomainContactResponse Text
 udcrOperationId = lens _udcrOperationId (\ s a -> s{_udcrOperationId = a});
-
--- | FIXME: Undocumented member.
-udcrStatus :: Lens' UpdateDomainContactResponse Status
-udcrStatus = lens _udcrStatus (\ s a -> s{_udcrStatus = a});

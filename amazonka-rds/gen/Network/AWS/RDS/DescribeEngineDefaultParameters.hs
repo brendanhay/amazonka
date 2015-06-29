@@ -35,8 +35,8 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     -- ** Response constructor
     , describeEngineDefaultParametersResponse
     -- ** Response lenses
-    , dedprEngineDefaults
     , dedprStatus
+    , dedprEngineDefaults
     ) where
 
 import           Network.AWS.Pager
@@ -124,7 +124,7 @@ instance AWSRequest DescribeEngineDefaultParameters
               "DescribeEngineDefaultParametersResult"
               (\ s h x ->
                  DescribeEngineDefaultParametersResponse' <$>
-                   (x .@ "EngineDefaults") <*> (pure s))
+                   (pure s) <*> (x .@ "EngineDefaults"))
 
 instance ToHeaders DescribeEngineDefaultParameters
          where
@@ -151,26 +151,26 @@ instance ToQuery DescribeEngineDefaultParameters
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dedprEngineDefaults'
---
 -- * 'dedprStatus'
+--
+-- * 'dedprEngineDefaults'
 data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
-    { _dedprEngineDefaults :: !EngineDefaults
-    , _dedprStatus         :: !Status
+    { _dedprStatus         :: !Status
+    , _dedprEngineDefaults :: !EngineDefaults
     } deriving (Eq,Show)
 
 -- | 'DescribeEngineDefaultParametersResponse' smart constructor.
-describeEngineDefaultParametersResponse :: EngineDefaults -> Status -> DescribeEngineDefaultParametersResponse
-describeEngineDefaultParametersResponse pEngineDefaults pStatus =
+describeEngineDefaultParametersResponse :: Status -> EngineDefaults -> DescribeEngineDefaultParametersResponse
+describeEngineDefaultParametersResponse pStatus pEngineDefaults =
     DescribeEngineDefaultParametersResponse'
-    { _dedprEngineDefaults = pEngineDefaults
-    , _dedprStatus = pStatus
+    { _dedprStatus = pStatus
+    , _dedprEngineDefaults = pEngineDefaults
     }
-
--- | FIXME: Undocumented member.
-dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
-dedprEngineDefaults = lens _dedprEngineDefaults (\ s a -> s{_dedprEngineDefaults = a});
 
 -- | FIXME: Undocumented member.
 dedprStatus :: Lens' DescribeEngineDefaultParametersResponse Status
 dedprStatus = lens _dedprStatus (\ s a -> s{_dedprStatus = a});
+
+-- | FIXME: Undocumented member.
+dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
+dedprEngineDefaults = lens _dedprEngineDefaults (\ s a -> s{_dedprEngineDefaults = a});

@@ -60,8 +60,8 @@ module Network.AWS.SWF.ListDomains
     , listDomainsResponse
     -- ** Response lenses
     , ldrNextPageToken
-    , ldrDomainInfos
     , ldrStatus
+    , ldrDomainInfos
     ) where
 
 import           Network.AWS.Pager
@@ -143,9 +143,8 @@ instance AWSRequest ListDomains where
           = receiveJSON
               (\ s h x ->
                  ListDomainsResponse' <$>
-                   (x .?> "nextPageToken") <*>
-                     (x .?> "domainInfos" .!@ mempty)
-                     <*> (pure s))
+                   (x .?> "nextPageToken") <*> (pure s) <*>
+                     (x .?> "domainInfos" .!@ mempty))
 
 instance ToHeaders ListDomains where
         toHeaders
@@ -178,13 +177,13 @@ instance ToQuery ListDomains where
 --
 -- * 'ldrNextPageToken'
 --
--- * 'ldrDomainInfos'
---
 -- * 'ldrStatus'
+--
+-- * 'ldrDomainInfos'
 data ListDomainsResponse = ListDomainsResponse'
     { _ldrNextPageToken :: !(Maybe Text)
-    , _ldrDomainInfos   :: ![DomainInfo]
     , _ldrStatus        :: !Status
+    , _ldrDomainInfos   :: ![DomainInfo]
     } deriving (Eq,Show)
 
 -- | 'ListDomainsResponse' smart constructor.
@@ -192,8 +191,8 @@ listDomainsResponse :: Status -> ListDomainsResponse
 listDomainsResponse pStatus =
     ListDomainsResponse'
     { _ldrNextPageToken = Nothing
-    , _ldrDomainInfos = mempty
     , _ldrStatus = pStatus
+    , _ldrDomainInfos = mempty
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -206,10 +205,10 @@ listDomainsResponse pStatus =
 ldrNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextPageToken = lens _ldrNextPageToken (\ s a -> s{_ldrNextPageToken = a});
 
--- | A list of DomainInfo structures.
-ldrDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
-ldrDomainInfos = lens _ldrDomainInfos (\ s a -> s{_ldrDomainInfos = a});
-
 -- | FIXME: Undocumented member.
 ldrStatus :: Lens' ListDomainsResponse Status
 ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});
+
+-- | A list of DomainInfo structures.
+ldrDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
+ldrDomainInfos = lens _ldrDomainInfos (\ s a -> s{_ldrDomainInfos = a});

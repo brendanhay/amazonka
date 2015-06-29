@@ -35,8 +35,8 @@ module Network.AWS.Support.DescribeTrustedAdvisorChecks
     -- ** Response constructor
     , describeTrustedAdvisorChecksResponse
     -- ** Response lenses
-    , dtacrChecks
     , dtacrStatus
+    , dtacrChecks
     ) where
 
 import           Network.AWS.Prelude
@@ -77,7 +77,7 @@ instance AWSRequest DescribeTrustedAdvisorChecks
           = receiveJSON
               (\ s h x ->
                  DescribeTrustedAdvisorChecksResponse' <$>
-                   (x .?> "checks" .!@ mempty) <*> (pure s))
+                   (pure s) <*> (x .?> "checks" .!@ mempty))
 
 instance ToHeaders DescribeTrustedAdvisorChecks where
         toHeaders
@@ -106,26 +106,26 @@ instance ToQuery DescribeTrustedAdvisorChecks where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtacrChecks'
---
 -- * 'dtacrStatus'
+--
+-- * 'dtacrChecks'
 data DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse'
-    { _dtacrChecks :: ![TrustedAdvisorCheckDescription]
-    , _dtacrStatus :: !Status
+    { _dtacrStatus :: !Status
+    , _dtacrChecks :: ![TrustedAdvisorCheckDescription]
     } deriving (Eq,Show)
 
 -- | 'DescribeTrustedAdvisorChecksResponse' smart constructor.
 describeTrustedAdvisorChecksResponse :: Status -> DescribeTrustedAdvisorChecksResponse
 describeTrustedAdvisorChecksResponse pStatus =
     DescribeTrustedAdvisorChecksResponse'
-    { _dtacrChecks = mempty
-    , _dtacrStatus = pStatus
+    { _dtacrStatus = pStatus
+    , _dtacrChecks = mempty
     }
-
--- | Information about all available Trusted Advisor checks.
-dtacrChecks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
-dtacrChecks = lens _dtacrChecks (\ s a -> s{_dtacrChecks = a});
 
 -- | FIXME: Undocumented member.
 dtacrStatus :: Lens' DescribeTrustedAdvisorChecksResponse Status
 dtacrStatus = lens _dtacrStatus (\ s a -> s{_dtacrStatus = a});
+
+-- | Information about all available Trusted Advisor checks.
+dtacrChecks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
+dtacrChecks = lens _dtacrChecks (\ s a -> s{_dtacrChecks = a});

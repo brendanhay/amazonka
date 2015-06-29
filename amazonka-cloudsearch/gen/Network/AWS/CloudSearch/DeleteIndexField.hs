@@ -35,8 +35,8 @@ module Network.AWS.CloudSearch.DeleteIndexField
     -- ** Response constructor
     , deleteIndexFieldResponse
     -- ** Response lenses
-    , difrIndexField
     , difrStatus
+    , difrIndexField
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -85,7 +85,7 @@ instance AWSRequest DeleteIndexField where
           = receiveXMLWrapper "DeleteIndexFieldResult"
               (\ s h x ->
                  DeleteIndexFieldResponse' <$>
-                   (x .@ "IndexField") <*> (pure s))
+                   (pure s) <*> (x .@ "IndexField"))
 
 instance ToHeaders DeleteIndexField where
         toHeaders = const mempty
@@ -107,26 +107,26 @@ instance ToQuery DeleteIndexField where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'difrIndexField'
---
 -- * 'difrStatus'
+--
+-- * 'difrIndexField'
 data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
-    { _difrIndexField :: !IndexFieldStatus
-    , _difrStatus     :: !Status
+    { _difrStatus     :: !Status
+    , _difrIndexField :: !IndexFieldStatus
     } deriving (Eq,Show)
 
 -- | 'DeleteIndexFieldResponse' smart constructor.
-deleteIndexFieldResponse :: IndexFieldStatus -> Status -> DeleteIndexFieldResponse
-deleteIndexFieldResponse pIndexField pStatus =
+deleteIndexFieldResponse :: Status -> IndexFieldStatus -> DeleteIndexFieldResponse
+deleteIndexFieldResponse pStatus pIndexField =
     DeleteIndexFieldResponse'
-    { _difrIndexField = pIndexField
-    , _difrStatus = pStatus
+    { _difrStatus = pStatus
+    , _difrIndexField = pIndexField
     }
-
--- | The status of the index field being deleted.
-difrIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
-difrIndexField = lens _difrIndexField (\ s a -> s{_difrIndexField = a});
 
 -- | FIXME: Undocumented member.
 difrStatus :: Lens' DeleteIndexFieldResponse Status
 difrStatus = lens _difrStatus (\ s a -> s{_difrStatus = a});
+
+-- | The status of the index field being deleted.
+difrIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
+difrIndexField = lens _difrIndexField (\ s a -> s{_difrIndexField = a});

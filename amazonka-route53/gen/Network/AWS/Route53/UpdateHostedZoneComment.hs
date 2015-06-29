@@ -37,8 +37,8 @@ module Network.AWS.Route53.UpdateHostedZoneComment
     -- ** Response constructor
     , updateHostedZoneCommentResponse
     -- ** Response lenses
-    , uhzcrHostedZone
     , uhzcrStatus
+    , uhzcrHostedZone
     ) where
 
 import           Network.AWS.Prelude
@@ -86,7 +86,7 @@ instance AWSRequest UpdateHostedZoneComment where
           = receiveXML
               (\ s h x ->
                  UpdateHostedZoneCommentResponse' <$>
-                   (x .@ "HostedZone") <*> (pure s))
+                   (pure s) <*> (x .@ "HostedZone"))
 
 instance ToElement UpdateHostedZoneComment where
         toElement
@@ -114,26 +114,26 @@ instance ToXML UpdateHostedZoneComment where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uhzcrHostedZone'
---
 -- * 'uhzcrStatus'
+--
+-- * 'uhzcrHostedZone'
 data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
-    { _uhzcrHostedZone :: !HostedZone
-    , _uhzcrStatus     :: !Status
+    { _uhzcrStatus     :: !Status
+    , _uhzcrHostedZone :: !HostedZone
     } deriving (Eq,Show)
 
 -- | 'UpdateHostedZoneCommentResponse' smart constructor.
-updateHostedZoneCommentResponse :: HostedZone -> Status -> UpdateHostedZoneCommentResponse
-updateHostedZoneCommentResponse pHostedZone pStatus =
+updateHostedZoneCommentResponse :: Status -> HostedZone -> UpdateHostedZoneCommentResponse
+updateHostedZoneCommentResponse pStatus pHostedZone =
     UpdateHostedZoneCommentResponse'
-    { _uhzcrHostedZone = pHostedZone
-    , _uhzcrStatus = pStatus
+    { _uhzcrStatus = pStatus
+    , _uhzcrHostedZone = pHostedZone
     }
-
--- | FIXME: Undocumented member.
-uhzcrHostedZone :: Lens' UpdateHostedZoneCommentResponse HostedZone
-uhzcrHostedZone = lens _uhzcrHostedZone (\ s a -> s{_uhzcrHostedZone = a});
 
 -- | FIXME: Undocumented member.
 uhzcrStatus :: Lens' UpdateHostedZoneCommentResponse Status
 uhzcrStatus = lens _uhzcrStatus (\ s a -> s{_uhzcrStatus = a});
+
+-- | FIXME: Undocumented member.
+uhzcrHostedZone :: Lens' UpdateHostedZoneCommentResponse HostedZone
+uhzcrHostedZone = lens _uhzcrHostedZone (\ s a -> s{_uhzcrHostedZone = a});

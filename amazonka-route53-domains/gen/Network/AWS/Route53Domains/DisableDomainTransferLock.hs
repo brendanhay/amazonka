@@ -37,8 +37,8 @@ module Network.AWS.Route53Domains.DisableDomainTransferLock
     -- ** Response constructor
     , disableDomainTransferLockResponse
     -- ** Response lenses
-    , ddtlrOperationId
     , ddtlrStatus
+    , ddtlrOperationId
     ) where
 
 import           Network.AWS.Prelude
@@ -87,7 +87,7 @@ instance AWSRequest DisableDomainTransferLock where
           = receiveJSON
               (\ s h x ->
                  DisableDomainTransferLockResponse' <$>
-                   (x .:> "OperationId") <*> (pure s))
+                   (pure s) <*> (x .:> "OperationId"))
 
 instance ToHeaders DisableDomainTransferLock where
         toHeaders
@@ -115,21 +115,25 @@ instance ToQuery DisableDomainTransferLock where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddtlrOperationId'
---
 -- * 'ddtlrStatus'
+--
+-- * 'ddtlrOperationId'
 data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
-    { _ddtlrOperationId :: !Text
-    , _ddtlrStatus      :: !Status
+    { _ddtlrStatus      :: !Status
+    , _ddtlrOperationId :: !Text
     } deriving (Eq,Show)
 
 -- | 'DisableDomainTransferLockResponse' smart constructor.
-disableDomainTransferLockResponse :: Text -> Status -> DisableDomainTransferLockResponse
-disableDomainTransferLockResponse pOperationId pStatus =
+disableDomainTransferLockResponse :: Status -> Text -> DisableDomainTransferLockResponse
+disableDomainTransferLockResponse pStatus pOperationId =
     DisableDomainTransferLockResponse'
-    { _ddtlrOperationId = pOperationId
-    , _ddtlrStatus = pStatus
+    { _ddtlrStatus = pStatus
+    , _ddtlrOperationId = pOperationId
     }
+
+-- | FIXME: Undocumented member.
+ddtlrStatus :: Lens' DisableDomainTransferLockResponse Status
+ddtlrStatus = lens _ddtlrStatus (\ s a -> s{_ddtlrStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -141,7 +145,3 @@ disableDomainTransferLockResponse pOperationId pStatus =
 -- Constraints: Maximum 255 characters.
 ddtlrOperationId :: Lens' DisableDomainTransferLockResponse Text
 ddtlrOperationId = lens _ddtlrOperationId (\ s a -> s{_ddtlrOperationId = a});
-
--- | FIXME: Undocumented member.
-ddtlrStatus :: Lens' DisableDomainTransferLockResponse Status
-ddtlrStatus = lens _ddtlrStatus (\ s a -> s{_ddtlrStatus = a});

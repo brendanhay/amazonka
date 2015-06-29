@@ -47,10 +47,10 @@ module Network.AWS.Route53.ListHostedZonesByName
     , lhzbnrNextHostedZoneId
     , lhzbnrDNSName
     , lhzbnrNextDNSName
+    , lhzbnrStatus
     , lhzbnrHostedZones
     , lhzbnrIsTruncated
     , lhzbnrMaxItems
-    , lhzbnrStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -129,12 +129,12 @@ instance AWSRequest ListHostedZonesByName where
                    (x .@? "HostedZoneId") <*> (x .@? "NextHostedZoneId")
                      <*> (x .@? "DNSName")
                      <*> (x .@? "NextDNSName")
+                     <*> (pure s)
                      <*>
                      (x .@? "HostedZones" .!@ mempty >>=
                         parseXMLList "HostedZone")
                      <*> (x .@ "IsTruncated")
-                     <*> (x .@ "MaxItems")
-                     <*> (pure s))
+                     <*> (x .@ "MaxItems"))
 
 instance ToHeaders ListHostedZonesByName where
         toHeaders = const mempty
@@ -163,36 +163,36 @@ instance ToQuery ListHostedZonesByName where
 --
 -- * 'lhzbnrNextDNSName'
 --
+-- * 'lhzbnrStatus'
+--
 -- * 'lhzbnrHostedZones'
 --
 -- * 'lhzbnrIsTruncated'
 --
 -- * 'lhzbnrMaxItems'
---
--- * 'lhzbnrStatus'
 data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
     { _lhzbnrHostedZoneId     :: !(Maybe Text)
     , _lhzbnrNextHostedZoneId :: !(Maybe Text)
     , _lhzbnrDNSName          :: !(Maybe Text)
     , _lhzbnrNextDNSName      :: !(Maybe Text)
+    , _lhzbnrStatus           :: !Status
     , _lhzbnrHostedZones      :: ![HostedZone]
     , _lhzbnrIsTruncated      :: !Bool
     , _lhzbnrMaxItems         :: !Text
-    , _lhzbnrStatus           :: !Status
     } deriving (Eq,Show)
 
 -- | 'ListHostedZonesByNameResponse' smart constructor.
-listHostedZonesByNameResponse :: Bool -> Text -> Status -> ListHostedZonesByNameResponse
-listHostedZonesByNameResponse pIsTruncated pMaxItems pStatus =
+listHostedZonesByNameResponse :: Status -> Bool -> Text -> ListHostedZonesByNameResponse
+listHostedZonesByNameResponse pStatus pIsTruncated pMaxItems =
     ListHostedZonesByNameResponse'
     { _lhzbnrHostedZoneId = Nothing
     , _lhzbnrNextHostedZoneId = Nothing
     , _lhzbnrDNSName = Nothing
     , _lhzbnrNextDNSName = Nothing
+    , _lhzbnrStatus = pStatus
     , _lhzbnrHostedZones = mempty
     , _lhzbnrIsTruncated = pIsTruncated
     , _lhzbnrMaxItems = pMaxItems
-    , _lhzbnrStatus = pStatus
     }
 
 -- | The @HostedZoneId@ value sent in the request.
@@ -223,6 +223,10 @@ lhzbnrDNSName = lens _lhzbnrDNSName (\ s a -> s{_lhzbnrDNSName = a});
 lhzbnrNextDNSName :: Lens' ListHostedZonesByNameResponse (Maybe Text)
 lhzbnrNextDNSName = lens _lhzbnrNextDNSName (\ s a -> s{_lhzbnrNextDNSName = a});
 
+-- | FIXME: Undocumented member.
+lhzbnrStatus :: Lens' ListHostedZonesByNameResponse Status
+lhzbnrStatus = lens _lhzbnrStatus (\ s a -> s{_lhzbnrStatus = a});
+
 -- | A complex type that contains information about the hosted zones
 -- associated with the current AWS account.
 lhzbnrHostedZones :: Lens' ListHostedZonesByNameResponse [HostedZone]
@@ -246,7 +250,3 @@ lhzbnrIsTruncated = lens _lhzbnrIsTruncated (\ s a -> s{_lhzbnrIsTruncated = a})
 -- get the next page of results.
 lhzbnrMaxItems :: Lens' ListHostedZonesByNameResponse Text
 lhzbnrMaxItems = lens _lhzbnrMaxItems (\ s a -> s{_lhzbnrMaxItems = a});
-
--- | FIXME: Undocumented member.
-lhzbnrStatus :: Lens' ListHostedZonesByNameResponse Status
-lhzbnrStatus = lens _lhzbnrStatus (\ s a -> s{_lhzbnrStatus = a});

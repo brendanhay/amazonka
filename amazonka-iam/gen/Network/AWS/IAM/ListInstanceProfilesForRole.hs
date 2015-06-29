@@ -41,8 +41,8 @@ module Network.AWS.IAM.ListInstanceProfilesForRole
     -- ** Response lenses
     , lipfrrMarker
     , lipfrrIsTruncated
-    , lipfrrInstanceProfiles
     , lipfrrStatus
+    , lipfrrInstanceProfiles
     ) where
 
 import           Network.AWS.IAM.Types
@@ -112,9 +112,10 @@ instance AWSRequest ListInstanceProfilesForRole where
               (\ s h x ->
                  ListInstanceProfilesForRoleResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
+                     (pure s)
+                     <*>
                      (x .@? "InstanceProfiles" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> (pure s))
+                        parseXMLList "member"))
 
 instance ToHeaders ListInstanceProfilesForRole where
         toHeaders = const mempty
@@ -143,14 +144,14 @@ instance ToQuery ListInstanceProfilesForRole where
 --
 -- * 'lipfrrIsTruncated'
 --
--- * 'lipfrrInstanceProfiles'
---
 -- * 'lipfrrStatus'
+--
+-- * 'lipfrrInstanceProfiles'
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
     { _lipfrrMarker           :: !(Maybe Text)
     , _lipfrrIsTruncated      :: !(Maybe Bool)
-    , _lipfrrInstanceProfiles :: ![InstanceProfile]
     , _lipfrrStatus           :: !Status
+    , _lipfrrInstanceProfiles :: ![InstanceProfile]
     } deriving (Eq,Show)
 
 -- | 'ListInstanceProfilesForRoleResponse' smart constructor.
@@ -159,8 +160,8 @@ listInstanceProfilesForRoleResponse pStatus =
     ListInstanceProfilesForRoleResponse'
     { _lipfrrMarker = Nothing
     , _lipfrrIsTruncated = Nothing
-    , _lipfrrInstanceProfiles = mempty
     , _lipfrrStatus = pStatus
+    , _lipfrrInstanceProfiles = mempty
     }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
@@ -176,10 +177,10 @@ lipfrrMarker = lens _lipfrrMarker (\ s a -> s{_lipfrrMarker = a});
 lipfrrIsTruncated :: Lens' ListInstanceProfilesForRoleResponse (Maybe Bool)
 lipfrrIsTruncated = lens _lipfrrIsTruncated (\ s a -> s{_lipfrrIsTruncated = a});
 
--- | A list of instance profiles.
-lipfrrInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstanceProfile]
-lipfrrInstanceProfiles = lens _lipfrrInstanceProfiles (\ s a -> s{_lipfrrInstanceProfiles = a});
-
 -- | FIXME: Undocumented member.
 lipfrrStatus :: Lens' ListInstanceProfilesForRoleResponse Status
 lipfrrStatus = lens _lipfrrStatus (\ s a -> s{_lipfrrStatus = a});
+
+-- | A list of instance profiles.
+lipfrrInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstanceProfile]
+lipfrrInstanceProfiles = lens _lipfrrInstanceProfiles (\ s a -> s{_lipfrrInstanceProfiles = a});

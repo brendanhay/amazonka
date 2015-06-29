@@ -30,8 +30,8 @@ module Network.AWS.Route53.GetHealthCheckCount
     -- ** Response constructor
     , getHealthCheckCountResponse
     -- ** Response lenses
-    , ghccrHealthCheckCount
     , ghccrStatus
+    , ghccrHealthCheckCount
     ) where
 
 import           Network.AWS.Prelude
@@ -60,7 +60,7 @@ instance AWSRequest GetHealthCheckCount where
           = receiveXML
               (\ s h x ->
                  GetHealthCheckCountResponse' <$>
-                   (x .@ "HealthCheckCount") <*> (pure s))
+                   (pure s) <*> (x .@ "HealthCheckCount"))
 
 instance ToHeaders GetHealthCheckCount where
         toHeaders = const mempty
@@ -78,26 +78,26 @@ instance ToQuery GetHealthCheckCount where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghccrHealthCheckCount'
---
 -- * 'ghccrStatus'
+--
+-- * 'ghccrHealthCheckCount'
 data GetHealthCheckCountResponse = GetHealthCheckCountResponse'
-    { _ghccrHealthCheckCount :: !Integer
-    , _ghccrStatus           :: !Status
+    { _ghccrStatus           :: !Status
+    , _ghccrHealthCheckCount :: !Integer
     } deriving (Eq,Show)
 
 -- | 'GetHealthCheckCountResponse' smart constructor.
-getHealthCheckCountResponse :: Integer -> Status -> GetHealthCheckCountResponse
-getHealthCheckCountResponse pHealthCheckCount pStatus =
+getHealthCheckCountResponse :: Status -> Integer -> GetHealthCheckCountResponse
+getHealthCheckCountResponse pStatus pHealthCheckCount =
     GetHealthCheckCountResponse'
-    { _ghccrHealthCheckCount = pHealthCheckCount
-    , _ghccrStatus = pStatus
+    { _ghccrStatus = pStatus
+    , _ghccrHealthCheckCount = pHealthCheckCount
     }
-
--- | The number of health checks associated with the current AWS account.
-ghccrHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
-ghccrHealthCheckCount = lens _ghccrHealthCheckCount (\ s a -> s{_ghccrHealthCheckCount = a});
 
 -- | FIXME: Undocumented member.
 ghccrStatus :: Lens' GetHealthCheckCountResponse Status
 ghccrStatus = lens _ghccrStatus (\ s a -> s{_ghccrStatus = a});
+
+-- | The number of health checks associated with the current AWS account.
+ghccrHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
+ghccrHealthCheckCount = lens _ghccrHealthCheckCount (\ s a -> s{_ghccrHealthCheckCount = a});

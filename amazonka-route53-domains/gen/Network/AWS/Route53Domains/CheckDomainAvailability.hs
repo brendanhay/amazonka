@@ -35,8 +35,8 @@ module Network.AWS.Route53Domains.CheckDomainAvailability
     -- ** Response constructor
     , checkDomainAvailabilityResponse
     -- ** Response lenses
-    , cdarAvailability
     , cdarStatus
+    , cdarAvailability
     ) where
 
 import           Network.AWS.Prelude
@@ -93,7 +93,7 @@ instance AWSRequest CheckDomainAvailability where
           = receiveJSON
               (\ s h x ->
                  CheckDomainAvailabilityResponse' <$>
-                   (x .:> "Availability") <*> (pure s))
+                   (pure s) <*> (x .:> "Availability"))
 
 instance ToHeaders CheckDomainAvailability where
         toHeaders
@@ -123,21 +123,25 @@ instance ToQuery CheckDomainAvailability where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdarAvailability'
---
 -- * 'cdarStatus'
+--
+-- * 'cdarAvailability'
 data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
-    { _cdarAvailability :: !DomainAvailability
-    , _cdarStatus       :: !Status
+    { _cdarStatus       :: !Status
+    , _cdarAvailability :: !DomainAvailability
     } deriving (Eq,Show)
 
 -- | 'CheckDomainAvailabilityResponse' smart constructor.
-checkDomainAvailabilityResponse :: DomainAvailability -> Status -> CheckDomainAvailabilityResponse
-checkDomainAvailabilityResponse pAvailability pStatus =
+checkDomainAvailabilityResponse :: Status -> DomainAvailability -> CheckDomainAvailabilityResponse
+checkDomainAvailabilityResponse pStatus pAvailability =
     CheckDomainAvailabilityResponse'
-    { _cdarAvailability = pAvailability
-    , _cdarStatus = pStatus
+    { _cdarStatus = pStatus
+    , _cdarAvailability = pAvailability
     }
+
+-- | FIXME: Undocumented member.
+cdarStatus :: Lens' CheckDomainAvailabilityResponse Status
+cdarStatus = lens _cdarStatus (\ s a -> s{_cdarStatus = a});
 
 -- | Whether the domain name is available for registering.
 --
@@ -163,7 +167,3 @@ checkDomainAvailabilityResponse pAvailability pStatus =
 --     registry is performing maintenance. Try again later.
 cdarAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
 cdarAvailability = lens _cdarAvailability (\ s a -> s{_cdarAvailability = a});
-
--- | FIXME: Undocumented member.
-cdarStatus :: Lens' CheckDomainAvailabilityResponse Status
-cdarStatus = lens _cdarStatus (\ s a -> s{_cdarStatus = a});

@@ -33,9 +33,9 @@ module Network.AWS.Kinesis.ListTagsForStream
     -- ** Response constructor
     , listTagsForStreamResponse
     -- ** Response lenses
+    , ltfsrStatus
     , ltfsrTags
     , ltfsrHasMoreTags
-    , ltfsrStatus
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -94,8 +94,8 @@ instance AWSRequest ListTagsForStream where
           = receiveJSON
               (\ s h x ->
                  ListTagsForStreamResponse' <$>
-                   (x .?> "Tags" .!@ mempty) <*> (x .:> "HasMoreTags")
-                     <*> (pure s))
+                   (pure s) <*> (x .?> "Tags" .!@ mempty) <*>
+                     (x .:> "HasMoreTags"))
 
 instance ToHeaders ListTagsForStream where
         toHeaders
@@ -125,25 +125,29 @@ instance ToQuery ListTagsForStream where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'ltfsrStatus'
+--
 -- * 'ltfsrTags'
 --
 -- * 'ltfsrHasMoreTags'
---
--- * 'ltfsrStatus'
 data ListTagsForStreamResponse = ListTagsForStreamResponse'
-    { _ltfsrTags        :: ![Tag]
+    { _ltfsrStatus      :: !Status
+    , _ltfsrTags        :: ![Tag]
     , _ltfsrHasMoreTags :: !Bool
-    , _ltfsrStatus      :: !Status
     } deriving (Eq,Show)
 
 -- | 'ListTagsForStreamResponse' smart constructor.
-listTagsForStreamResponse :: Bool -> Status -> ListTagsForStreamResponse
-listTagsForStreamResponse pHasMoreTags pStatus =
+listTagsForStreamResponse :: Status -> Bool -> ListTagsForStreamResponse
+listTagsForStreamResponse pStatus pHasMoreTags =
     ListTagsForStreamResponse'
-    { _ltfsrTags = mempty
+    { _ltfsrStatus = pStatus
+    , _ltfsrTags = mempty
     , _ltfsrHasMoreTags = pHasMoreTags
-    , _ltfsrStatus = pStatus
     }
+
+-- | FIXME: Undocumented member.
+ltfsrStatus :: Lens' ListTagsForStreamResponse Status
+ltfsrStatus = lens _ltfsrStatus (\ s a -> s{_ltfsrStatus = a});
 
 -- | A list of tags associated with @StreamName@, starting with the first tag
 -- after @ExclusiveStartTagKey@ and up to the specified @Limit@.
@@ -154,7 +158,3 @@ ltfsrTags = lens _ltfsrTags (\ s a -> s{_ltfsrTags = a});
 -- set @ExclusiveStartTagKey@ to the key of the last tag returned.
 ltfsrHasMoreTags :: Lens' ListTagsForStreamResponse Bool
 ltfsrHasMoreTags = lens _ltfsrHasMoreTags (\ s a -> s{_ltfsrHasMoreTags = a});
-
--- | FIXME: Undocumented member.
-ltfsrStatus :: Lens' ListTagsForStreamResponse Status
-ltfsrStatus = lens _ltfsrStatus (\ s a -> s{_ltfsrStatus = a});

@@ -38,8 +38,8 @@ module Network.AWS.CloudSearch.DefineSuggester
     -- ** Response constructor
     , defineSuggesterResponse
     -- ** Response lenses
-    , dsrSuggester
     , dsrStatus
+    , dsrSuggester
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -87,7 +87,7 @@ instance AWSRequest DefineSuggester where
           = receiveXMLWrapper "DefineSuggesterResult"
               (\ s h x ->
                  DefineSuggesterResponse' <$>
-                   (x .@ "Suggester") <*> (pure s))
+                   (pure s) <*> (x .@ "Suggester"))
 
 instance ToHeaders DefineSuggester where
         toHeaders = const mempty
@@ -110,26 +110,26 @@ instance ToQuery DefineSuggester where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrSuggester'
---
 -- * 'dsrStatus'
+--
+-- * 'dsrSuggester'
 data DefineSuggesterResponse = DefineSuggesterResponse'
-    { _dsrSuggester :: !SuggesterStatus
-    , _dsrStatus    :: !Status
+    { _dsrStatus    :: !Status
+    , _dsrSuggester :: !SuggesterStatus
     } deriving (Eq,Show)
 
 -- | 'DefineSuggesterResponse' smart constructor.
-defineSuggesterResponse :: SuggesterStatus -> Status -> DefineSuggesterResponse
-defineSuggesterResponse pSuggester pStatus =
+defineSuggesterResponse :: Status -> SuggesterStatus -> DefineSuggesterResponse
+defineSuggesterResponse pStatus pSuggester =
     DefineSuggesterResponse'
-    { _dsrSuggester = pSuggester
-    , _dsrStatus = pStatus
+    { _dsrStatus = pStatus
+    , _dsrSuggester = pSuggester
     }
-
--- | FIXME: Undocumented member.
-dsrSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
-dsrSuggester = lens _dsrSuggester (\ s a -> s{_dsrSuggester = a});
 
 -- | FIXME: Undocumented member.
 dsrStatus :: Lens' DefineSuggesterResponse Status
 dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});
+
+-- | FIXME: Undocumented member.
+dsrSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
+dsrSuggester = lens _dsrSuggester (\ s a -> s{_dsrSuggester = a});

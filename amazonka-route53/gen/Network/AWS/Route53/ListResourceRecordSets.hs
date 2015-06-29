@@ -79,10 +79,10 @@ module Network.AWS.Route53.ListResourceRecordSets
     , lrrsrNextRecordType
     , lrrsrNextRecordName
     , lrrsrNextRecordIdentifier
+    , lrrsrStatus
     , lrrsrResourceRecordSets
     , lrrsrIsTruncated
     , lrrsrMaxItems
-    , lrrsrStatus
     ) where
 
 import           Network.AWS.Pager
@@ -189,12 +189,12 @@ instance AWSRequest ListResourceRecordSets where
                  ListResourceRecordSetsResponse' <$>
                    (x .@? "NextRecordType") <*> (x .@? "NextRecordName")
                      <*> (x .@? "NextRecordIdentifier")
+                     <*> (pure s)
                      <*>
                      (x .@? "ResourceRecordSets" .!@ mempty >>=
                         parseXMLList "ResourceRecordSet")
                      <*> (x .@ "IsTruncated")
-                     <*> (x .@ "MaxItems")
-                     <*> (pure s))
+                     <*> (x .@ "MaxItems"))
 
 instance ToHeaders ListResourceRecordSets where
         toHeaders = const mempty
@@ -226,34 +226,34 @@ instance ToQuery ListResourceRecordSets where
 --
 -- * 'lrrsrNextRecordIdentifier'
 --
+-- * 'lrrsrStatus'
+--
 -- * 'lrrsrResourceRecordSets'
 --
 -- * 'lrrsrIsTruncated'
 --
 -- * 'lrrsrMaxItems'
---
--- * 'lrrsrStatus'
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
     { _lrrsrNextRecordType       :: !(Maybe RecordType)
     , _lrrsrNextRecordName       :: !(Maybe Text)
     , _lrrsrNextRecordIdentifier :: !(Maybe Text)
+    , _lrrsrStatus               :: !Status
     , _lrrsrResourceRecordSets   :: ![ResourceRecordSet]
     , _lrrsrIsTruncated          :: !Bool
     , _lrrsrMaxItems             :: !Text
-    , _lrrsrStatus               :: !Status
     } deriving (Eq,Show)
 
 -- | 'ListResourceRecordSetsResponse' smart constructor.
-listResourceRecordSetsResponse :: Bool -> Text -> Status -> ListResourceRecordSetsResponse
-listResourceRecordSetsResponse pIsTruncated pMaxItems pStatus =
+listResourceRecordSetsResponse :: Status -> Bool -> Text -> ListResourceRecordSetsResponse
+listResourceRecordSetsResponse pStatus pIsTruncated pMaxItems =
     ListResourceRecordSetsResponse'
     { _lrrsrNextRecordType = Nothing
     , _lrrsrNextRecordName = Nothing
     , _lrrsrNextRecordIdentifier = Nothing
+    , _lrrsrStatus = pStatus
     , _lrrsrResourceRecordSets = mempty
     , _lrrsrIsTruncated = pIsTruncated
     , _lrrsrMaxItems = pMaxItems
-    , _lrrsrStatus = pStatus
     }
 
 -- | If the results were truncated, the type of the next record in the list.
@@ -274,6 +274,10 @@ lrrsrNextRecordName = lens _lrrsrNextRecordName (\ s a -> s{_lrrsrNextRecordName
 lrrsrNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrNextRecordIdentifier = lens _lrrsrNextRecordIdentifier (\ s a -> s{_lrrsrNextRecordIdentifier = a});
 
+-- | FIXME: Undocumented member.
+lrrsrStatus :: Lens' ListResourceRecordSetsResponse Status
+lrrsrStatus = lens _lrrsrStatus (\ s a -> s{_lrrsrStatus = a});
+
 -- | A complex type that contains information about the resource record sets
 -- that are returned by the request.
 lrrsrResourceRecordSets :: Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
@@ -292,7 +296,3 @@ lrrsrIsTruncated = lens _lrrsrIsTruncated (\ s a -> s{_lrrsrIsTruncated = a});
 -- @MaxItems@ is 100.
 lrrsrMaxItems :: Lens' ListResourceRecordSetsResponse Text
 lrrsrMaxItems = lens _lrrsrMaxItems (\ s a -> s{_lrrsrMaxItems = a});
-
--- | FIXME: Undocumented member.
-lrrsrStatus :: Lens' ListResourceRecordSetsResponse Status
-lrrsrStatus = lens _lrrsrStatus (\ s a -> s{_lrrsrStatus = a});

@@ -42,8 +42,8 @@ module Network.AWS.Route53.AssociateVPCWithHostedZone
     -- ** Response constructor
     , associateVPCWithHostedZoneResponse
     -- ** Response lenses
-    , avwhzrChangeInfo
     , avwhzrStatus
+    , avwhzrChangeInfo
     ) where
 
 import           Network.AWS.Prelude
@@ -103,7 +103,7 @@ instance AWSRequest AssociateVPCWithHostedZone where
           = receiveXML
               (\ s h x ->
                  AssociateVPCWithHostedZoneResponse' <$>
-                   (x .@ "ChangeInfo") <*> (pure s))
+                   (pure s) <*> (x .@ "ChangeInfo"))
 
 instance ToElement AssociateVPCWithHostedZone where
         toElement
@@ -133,27 +133,27 @@ instance ToXML AssociateVPCWithHostedZone where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'avwhzrChangeInfo'
---
 -- * 'avwhzrStatus'
+--
+-- * 'avwhzrChangeInfo'
 data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'
-    { _avwhzrChangeInfo :: !ChangeInfo
-    , _avwhzrStatus     :: !Status
+    { _avwhzrStatus     :: !Status
+    , _avwhzrChangeInfo :: !ChangeInfo
     } deriving (Eq,Show)
 
 -- | 'AssociateVPCWithHostedZoneResponse' smart constructor.
-associateVPCWithHostedZoneResponse :: ChangeInfo -> Status -> AssociateVPCWithHostedZoneResponse
-associateVPCWithHostedZoneResponse pChangeInfo pStatus =
+associateVPCWithHostedZoneResponse :: Status -> ChangeInfo -> AssociateVPCWithHostedZoneResponse
+associateVPCWithHostedZoneResponse pStatus pChangeInfo =
     AssociateVPCWithHostedZoneResponse'
-    { _avwhzrChangeInfo = pChangeInfo
-    , _avwhzrStatus = pStatus
+    { _avwhzrStatus = pStatus
+    , _avwhzrChangeInfo = pChangeInfo
     }
+
+-- | FIXME: Undocumented member.
+avwhzrStatus :: Lens' AssociateVPCWithHostedZoneResponse Status
+avwhzrStatus = lens _avwhzrStatus (\ s a -> s{_avwhzrStatus = a});
 
 -- | A complex type that contains the ID, the status, and the date and time
 -- of your @AssociateVPCWithHostedZoneRequest@.
 avwhzrChangeInfo :: Lens' AssociateVPCWithHostedZoneResponse ChangeInfo
 avwhzrChangeInfo = lens _avwhzrChangeInfo (\ s a -> s{_avwhzrChangeInfo = a});
-
--- | FIXME: Undocumented member.
-avwhzrStatus :: Lens' AssociateVPCWithHostedZoneResponse Status
-avwhzrStatus = lens _avwhzrStatus (\ s a -> s{_avwhzrStatus = a});

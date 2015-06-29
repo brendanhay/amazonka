@@ -35,8 +35,8 @@ module Network.AWS.DataPipeline.EvaluateExpression
     -- ** Response constructor
     , evaluateExpressionResponse
     -- ** Response lenses
-    , eerEvaluatedExpression
     , eerStatus
+    , eerEvaluatedExpression
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -91,7 +91,7 @@ instance AWSRequest EvaluateExpression where
           = receiveJSON
               (\ s h x ->
                  EvaluateExpressionResponse' <$>
-                   (x .:> "evaluatedExpression") <*> (pure s))
+                   (pure s) <*> (x .:> "evaluatedExpression"))
 
 instance ToHeaders EvaluateExpression where
         toHeaders
@@ -121,26 +121,26 @@ instance ToQuery EvaluateExpression where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'eerEvaluatedExpression'
---
 -- * 'eerStatus'
+--
+-- * 'eerEvaluatedExpression'
 data EvaluateExpressionResponse = EvaluateExpressionResponse'
-    { _eerEvaluatedExpression :: !Text
-    , _eerStatus              :: !Status
+    { _eerStatus              :: !Status
+    , _eerEvaluatedExpression :: !Text
     } deriving (Eq,Show)
 
 -- | 'EvaluateExpressionResponse' smart constructor.
-evaluateExpressionResponse :: Text -> Status -> EvaluateExpressionResponse
-evaluateExpressionResponse pEvaluatedExpression pStatus =
+evaluateExpressionResponse :: Status -> Text -> EvaluateExpressionResponse
+evaluateExpressionResponse pStatus pEvaluatedExpression =
     EvaluateExpressionResponse'
-    { _eerEvaluatedExpression = pEvaluatedExpression
-    , _eerStatus = pStatus
+    { _eerStatus = pStatus
+    , _eerEvaluatedExpression = pEvaluatedExpression
     }
-
--- | The evaluated expression.
-eerEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
-eerEvaluatedExpression = lens _eerEvaluatedExpression (\ s a -> s{_eerEvaluatedExpression = a});
 
 -- | FIXME: Undocumented member.
 eerStatus :: Lens' EvaluateExpressionResponse Status
 eerStatus = lens _eerStatus (\ s a -> s{_eerStatus = a});
+
+-- | The evaluated expression.
+eerEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
+eerEvaluatedExpression = lens _eerEvaluatedExpression (\ s a -> s{_eerEvaluatedExpression = a});

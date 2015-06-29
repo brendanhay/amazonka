@@ -37,8 +37,8 @@ module Network.AWS.CloudHSM.ListLunaClients
     , listLunaClientsResponse
     -- ** Response lenses
     , llcrNextToken
-    , llcrClientList
     , llcrStatus
+    , llcrClientList
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -75,9 +75,8 @@ instance AWSRequest ListLunaClients where
           = receiveJSON
               (\ s h x ->
                  ListLunaClientsResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "ClientList" .!@ mempty)
-                     <*> (pure s))
+                   (x .?> "NextToken") <*> (pure s) <*>
+                     (x .?> "ClientList" .!@ mempty))
 
 instance ToHeaders ListLunaClients where
         toHeaders
@@ -105,13 +104,13 @@ instance ToQuery ListLunaClients where
 --
 -- * 'llcrNextToken'
 --
--- * 'llcrClientList'
---
 -- * 'llcrStatus'
+--
+-- * 'llcrClientList'
 data ListLunaClientsResponse = ListLunaClientsResponse'
     { _llcrNextToken  :: !(Maybe Text)
-    , _llcrClientList :: ![Text]
     , _llcrStatus     :: !Status
+    , _llcrClientList :: ![Text]
     } deriving (Eq,Show)
 
 -- | 'ListLunaClientsResponse' smart constructor.
@@ -119,8 +118,8 @@ listLunaClientsResponse :: Status -> ListLunaClientsResponse
 listLunaClientsResponse pStatus =
     ListLunaClientsResponse'
     { _llcrNextToken = Nothing
-    , _llcrClientList = mempty
     , _llcrStatus = pStatus
+    , _llcrClientList = mempty
     }
 
 -- | If not null, more results are available. Pass this to ListLunaClients to
@@ -128,10 +127,10 @@ listLunaClientsResponse pStatus =
 llcrNextToken :: Lens' ListLunaClientsResponse (Maybe Text)
 llcrNextToken = lens _llcrNextToken (\ s a -> s{_llcrNextToken = a});
 
--- | The list of clients.
-llcrClientList :: Lens' ListLunaClientsResponse [Text]
-llcrClientList = lens _llcrClientList (\ s a -> s{_llcrClientList = a});
-
 -- | FIXME: Undocumented member.
 llcrStatus :: Lens' ListLunaClientsResponse Status
 llcrStatus = lens _llcrStatus (\ s a -> s{_llcrStatus = a});
+
+-- | The list of clients.
+llcrClientList :: Lens' ListLunaClientsResponse [Text]
+llcrClientList = lens _llcrClientList (\ s a -> s{_llcrClientList = a});

@@ -39,8 +39,8 @@ module Network.AWS.CloudSearch.DescribeExpressions
     -- ** Response constructor
     , describeExpressionsResponse
     -- ** Response lenses
-    , desExpressions
     , desStatus
+    , desExpressions
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -101,9 +101,9 @@ instance AWSRequest DescribeExpressions where
           = receiveXMLWrapper "DescribeExpressionsResult"
               (\ s h x ->
                  DescribeExpressionsResponse' <$>
-                   (x .@? "Expressions" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> (pure s))
+                   (pure s) <*>
+                     (x .@? "Expressions" .!@ mempty >>=
+                        parseXMLList "member"))
 
 instance ToHeaders DescribeExpressions where
         toHeaders = const mempty
@@ -129,26 +129,26 @@ instance ToQuery DescribeExpressions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desExpressions'
---
 -- * 'desStatus'
+--
+-- * 'desExpressions'
 data DescribeExpressionsResponse = DescribeExpressionsResponse'
-    { _desExpressions :: ![ExpressionStatus]
-    , _desStatus      :: !Status
+    { _desStatus      :: !Status
+    , _desExpressions :: ![ExpressionStatus]
     } deriving (Eq,Show)
 
 -- | 'DescribeExpressionsResponse' smart constructor.
 describeExpressionsResponse :: Status -> DescribeExpressionsResponse
 describeExpressionsResponse pStatus =
     DescribeExpressionsResponse'
-    { _desExpressions = mempty
-    , _desStatus = pStatus
+    { _desStatus = pStatus
+    , _desExpressions = mempty
     }
-
--- | The expressions configured for the domain.
-desExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
-desExpressions = lens _desExpressions (\ s a -> s{_desExpressions = a});
 
 -- | FIXME: Undocumented member.
 desStatus :: Lens' DescribeExpressionsResponse Status
 desStatus = lens _desStatus (\ s a -> s{_desStatus = a});
+
+-- | The expressions configured for the domain.
+desExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
+desExpressions = lens _desExpressions (\ s a -> s{_desExpressions = a});

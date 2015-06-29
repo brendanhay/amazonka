@@ -35,8 +35,8 @@ module Network.AWS.CloudSearch.DeleteExpression
     -- ** Response constructor
     , deleteExpressionResponse
     -- ** Response lenses
-    , delExpression
     , delStatus
+    , delExpression
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -84,7 +84,7 @@ instance AWSRequest DeleteExpression where
           = receiveXMLWrapper "DeleteExpressionResult"
               (\ s h x ->
                  DeleteExpressionResponse' <$>
-                   (x .@ "Expression") <*> (pure s))
+                   (pure s) <*> (x .@ "Expression"))
 
 instance ToHeaders DeleteExpression where
         toHeaders = const mempty
@@ -107,26 +107,26 @@ instance ToQuery DeleteExpression where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delExpression'
---
 -- * 'delStatus'
+--
+-- * 'delExpression'
 data DeleteExpressionResponse = DeleteExpressionResponse'
-    { _delExpression :: !ExpressionStatus
-    , _delStatus     :: !Status
+    { _delStatus     :: !Status
+    , _delExpression :: !ExpressionStatus
     } deriving (Eq,Show)
 
 -- | 'DeleteExpressionResponse' smart constructor.
-deleteExpressionResponse :: ExpressionStatus -> Status -> DeleteExpressionResponse
-deleteExpressionResponse pExpression pStatus =
+deleteExpressionResponse :: Status -> ExpressionStatus -> DeleteExpressionResponse
+deleteExpressionResponse pStatus pExpression =
     DeleteExpressionResponse'
-    { _delExpression = pExpression
-    , _delStatus = pStatus
+    { _delStatus = pStatus
+    , _delExpression = pExpression
     }
-
--- | The status of the expression being deleted.
-delExpression :: Lens' DeleteExpressionResponse ExpressionStatus
-delExpression = lens _delExpression (\ s a -> s{_delExpression = a});
 
 -- | FIXME: Undocumented member.
 delStatus :: Lens' DeleteExpressionResponse Status
 delStatus = lens _delStatus (\ s a -> s{_delStatus = a});
+
+-- | The status of the expression being deleted.
+delExpression :: Lens' DeleteExpressionResponse ExpressionStatus
+delExpression = lens _delExpression (\ s a -> s{_delExpression = a});

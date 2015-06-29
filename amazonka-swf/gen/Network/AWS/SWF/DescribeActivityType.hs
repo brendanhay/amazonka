@@ -57,9 +57,9 @@ module Network.AWS.SWF.DescribeActivityType
     -- ** Response constructor
     , describeActivityTypeResponse
     -- ** Response lenses
+    , datrStatus
     , datrTypeInfo
     , datrConfiguration
-    , datrStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -106,8 +106,8 @@ instance AWSRequest DescribeActivityType where
           = receiveJSON
               (\ s h x ->
                  DescribeActivityTypeResponse' <$>
-                   (x .:> "typeInfo") <*> (x .:> "configuration") <*>
-                     (pure s))
+                   (pure s) <*> (x .:> "typeInfo") <*>
+                     (x .:> "configuration"))
 
 instance ToHeaders DescribeActivityType where
         toHeaders
@@ -137,25 +137,29 @@ instance ToQuery DescribeActivityType where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'datrStatus'
+--
 -- * 'datrTypeInfo'
 --
 -- * 'datrConfiguration'
---
--- * 'datrStatus'
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
-    { _datrTypeInfo      :: !ActivityTypeInfo
+    { _datrStatus        :: !Status
+    , _datrTypeInfo      :: !ActivityTypeInfo
     , _datrConfiguration :: !ActivityTypeConfiguration
-    , _datrStatus        :: !Status
     } deriving (Eq,Show)
 
 -- | 'DescribeActivityTypeResponse' smart constructor.
-describeActivityTypeResponse :: ActivityTypeInfo -> ActivityTypeConfiguration -> Status -> DescribeActivityTypeResponse
-describeActivityTypeResponse pTypeInfo pConfiguration pStatus =
+describeActivityTypeResponse :: Status -> ActivityTypeInfo -> ActivityTypeConfiguration -> DescribeActivityTypeResponse
+describeActivityTypeResponse pStatus pTypeInfo pConfiguration =
     DescribeActivityTypeResponse'
-    { _datrTypeInfo = pTypeInfo
+    { _datrStatus = pStatus
+    , _datrTypeInfo = pTypeInfo
     , _datrConfiguration = pConfiguration
-    , _datrStatus = pStatus
     }
+
+-- | FIXME: Undocumented member.
+datrStatus :: Lens' DescribeActivityTypeResponse Status
+datrStatus = lens _datrStatus (\ s a -> s{_datrStatus = a});
 
 -- | General information about the activity type.
 --
@@ -173,7 +177,3 @@ datrTypeInfo = lens _datrTypeInfo (\ s a -> s{_datrTypeInfo = a});
 -- | The configuration settings registered with the activity type.
 datrConfiguration :: Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
 datrConfiguration = lens _datrConfiguration (\ s a -> s{_datrConfiguration = a});
-
--- | FIXME: Undocumented member.
-datrStatus :: Lens' DescribeActivityTypeResponse Status
-datrStatus = lens _datrStatus (\ s a -> s{_datrStatus = a});

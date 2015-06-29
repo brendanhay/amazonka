@@ -46,8 +46,8 @@ module Network.AWS.IAM.ListGroupPolicies
     -- ** Response lenses
     , lgprMarker
     , lgprIsTruncated
-    , lgprPolicyNames
     , lgprStatus
+    , lgprPolicyNames
     ) where
 
 import           Network.AWS.IAM.Types
@@ -115,9 +115,10 @@ instance AWSRequest ListGroupPolicies where
               (\ s h x ->
                  ListGroupPoliciesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
+                     (pure s)
+                     <*>
                      (x .@? "PolicyNames" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> (pure s))
+                        parseXMLList "member"))
 
 instance ToHeaders ListGroupPolicies where
         toHeaders = const mempty
@@ -143,14 +144,14 @@ instance ToQuery ListGroupPolicies where
 --
 -- * 'lgprIsTruncated'
 --
--- * 'lgprPolicyNames'
---
 -- * 'lgprStatus'
+--
+-- * 'lgprPolicyNames'
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
     { _lgprMarker      :: !(Maybe Text)
     , _lgprIsTruncated :: !(Maybe Bool)
-    , _lgprPolicyNames :: ![Text]
     , _lgprStatus      :: !Status
+    , _lgprPolicyNames :: ![Text]
     } deriving (Eq,Show)
 
 -- | 'ListGroupPoliciesResponse' smart constructor.
@@ -159,8 +160,8 @@ listGroupPoliciesResponse pStatus =
     ListGroupPoliciesResponse'
     { _lgprMarker = Nothing
     , _lgprIsTruncated = Nothing
-    , _lgprPolicyNames = mempty
     , _lgprStatus = pStatus
+    , _lgprPolicyNames = mempty
     }
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
@@ -176,10 +177,10 @@ lgprMarker = lens _lgprMarker (\ s a -> s{_lgprMarker = a});
 lgprIsTruncated :: Lens' ListGroupPoliciesResponse (Maybe Bool)
 lgprIsTruncated = lens _lgprIsTruncated (\ s a -> s{_lgprIsTruncated = a});
 
--- | A list of policy names.
-lgprPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
-lgprPolicyNames = lens _lgprPolicyNames (\ s a -> s{_lgprPolicyNames = a});
-
 -- | FIXME: Undocumented member.
 lgprStatus :: Lens' ListGroupPoliciesResponse Status
 lgprStatus = lens _lgprStatus (\ s a -> s{_lgprStatus = a});
+
+-- | A list of policy names.
+lgprPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
+lgprPolicyNames = lens _lgprPolicyNames (\ s a -> s{_lgprPolicyNames = a});

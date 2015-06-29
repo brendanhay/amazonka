@@ -42,8 +42,8 @@ module Network.AWS.IAM.CreateRole
     -- ** Response constructor
     , createRoleResponse
     -- ** Response lenses
-    , crrRole
     , crrStatus
+    , crrRole
     ) where
 
 import           Network.AWS.IAM.Types
@@ -99,7 +99,7 @@ instance AWSRequest CreateRole where
         response
           = receiveXMLWrapper "CreateRoleResult"
               (\ s h x ->
-                 CreateRoleResponse' <$> (x .@ "Role") <*> (pure s))
+                 CreateRoleResponse' <$> (pure s) <*> (x .@ "Role"))
 
 instance ToHeaders CreateRole where
         toHeaders = const mempty
@@ -122,26 +122,26 @@ instance ToQuery CreateRole where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crrRole'
---
 -- * 'crrStatus'
+--
+-- * 'crrRole'
 data CreateRoleResponse = CreateRoleResponse'
-    { _crrRole   :: !Role
-    , _crrStatus :: !Status
+    { _crrStatus :: !Status
+    , _crrRole   :: !Role
     } deriving (Eq,Show)
 
 -- | 'CreateRoleResponse' smart constructor.
-createRoleResponse :: Role -> Status -> CreateRoleResponse
-createRoleResponse pRole pStatus =
+createRoleResponse :: Status -> Role -> CreateRoleResponse
+createRoleResponse pStatus pRole =
     CreateRoleResponse'
-    { _crrRole = pRole
-    , _crrStatus = pStatus
+    { _crrStatus = pStatus
+    , _crrRole = pRole
     }
-
--- | Information about the role.
-crrRole :: Lens' CreateRoleResponse Role
-crrRole = lens _crrRole (\ s a -> s{_crrRole = a});
 
 -- | FIXME: Undocumented member.
 crrStatus :: Lens' CreateRoleResponse Status
 crrStatus = lens _crrStatus (\ s a -> s{_crrStatus = a});
+
+-- | Information about the role.
+crrRole :: Lens' CreateRoleResponse Role
+crrRole = lens _crrRole (\ s a -> s{_crrRole = a});

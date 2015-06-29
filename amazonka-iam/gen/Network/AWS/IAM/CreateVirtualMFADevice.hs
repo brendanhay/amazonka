@@ -48,8 +48,8 @@ module Network.AWS.IAM.CreateVirtualMFADevice
     -- ** Response constructor
     , createVirtualMFADeviceResponse
     -- ** Response lenses
-    , cvmdrVirtualMFADevice
     , cvmdrStatus
+    , cvmdrVirtualMFADevice
     ) where
 
 import           Network.AWS.IAM.Types
@@ -101,7 +101,7 @@ instance AWSRequest CreateVirtualMFADevice where
           = receiveXMLWrapper "CreateVirtualMFADeviceResult"
               (\ s h x ->
                  CreateVirtualMFADeviceResponse' <$>
-                   (x .@ "VirtualMFADevice") <*> (pure s))
+                   (pure s) <*> (x .@ "VirtualMFADevice"))
 
 instance ToHeaders CreateVirtualMFADevice where
         toHeaders = const mempty
@@ -124,26 +124,26 @@ instance ToQuery CreateVirtualMFADevice where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvmdrVirtualMFADevice'
---
 -- * 'cvmdrStatus'
+--
+-- * 'cvmdrVirtualMFADevice'
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
-    { _cvmdrVirtualMFADevice :: !VirtualMFADevice
-    , _cvmdrStatus           :: !Status
+    { _cvmdrStatus           :: !Status
+    , _cvmdrVirtualMFADevice :: !VirtualMFADevice
     } deriving (Eq,Show)
 
 -- | 'CreateVirtualMFADeviceResponse' smart constructor.
-createVirtualMFADeviceResponse :: VirtualMFADevice -> Status -> CreateVirtualMFADeviceResponse
-createVirtualMFADeviceResponse pVirtualMFADevice pStatus =
+createVirtualMFADeviceResponse :: Status -> VirtualMFADevice -> CreateVirtualMFADeviceResponse
+createVirtualMFADeviceResponse pStatus pVirtualMFADevice =
     CreateVirtualMFADeviceResponse'
-    { _cvmdrVirtualMFADevice = pVirtualMFADevice
-    , _cvmdrStatus = pStatus
+    { _cvmdrStatus = pStatus
+    , _cvmdrVirtualMFADevice = pVirtualMFADevice
     }
-
--- | A newly created virtual MFA device.
-cvmdrVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
-cvmdrVirtualMFADevice = lens _cvmdrVirtualMFADevice (\ s a -> s{_cvmdrVirtualMFADevice = a});
 
 -- | FIXME: Undocumented member.
 cvmdrStatus :: Lens' CreateVirtualMFADeviceResponse Status
 cvmdrStatus = lens _cvmdrStatus (\ s a -> s{_cvmdrStatus = a});
+
+-- | A newly created virtual MFA device.
+cvmdrVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
+cvmdrVirtualMFADevice = lens _cvmdrVirtualMFADevice (\ s a -> s{_cvmdrVirtualMFADevice = a});

@@ -31,8 +31,8 @@ module Network.AWS.IAM.GetServerCertificate
     -- ** Response constructor
     , getServerCertificateResponse
     -- ** Response lenses
-    , gscrServerCertificate
     , gscrStatus
+    , gscrServerCertificate
     ) where
 
 import           Network.AWS.IAM.Types
@@ -70,7 +70,7 @@ instance AWSRequest GetServerCertificate where
           = receiveXMLWrapper "GetServerCertificateResult"
               (\ s h x ->
                  GetServerCertificateResponse' <$>
-                   (x .@ "ServerCertificate") <*> (pure s))
+                   (pure s) <*> (x .@ "ServerCertificate"))
 
 instance ToHeaders GetServerCertificate where
         toHeaders = const mempty
@@ -91,26 +91,26 @@ instance ToQuery GetServerCertificate where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gscrServerCertificate'
---
 -- * 'gscrStatus'
+--
+-- * 'gscrServerCertificate'
 data GetServerCertificateResponse = GetServerCertificateResponse'
-    { _gscrServerCertificate :: !ServerCertificate
-    , _gscrStatus            :: !Status
+    { _gscrStatus            :: !Status
+    , _gscrServerCertificate :: !ServerCertificate
     } deriving (Eq,Show)
 
 -- | 'GetServerCertificateResponse' smart constructor.
-getServerCertificateResponse :: ServerCertificate -> Status -> GetServerCertificateResponse
-getServerCertificateResponse pServerCertificate pStatus =
+getServerCertificateResponse :: Status -> ServerCertificate -> GetServerCertificateResponse
+getServerCertificateResponse pStatus pServerCertificate =
     GetServerCertificateResponse'
-    { _gscrServerCertificate = pServerCertificate
-    , _gscrStatus = pStatus
+    { _gscrStatus = pStatus
+    , _gscrServerCertificate = pServerCertificate
     }
-
--- | Information about the server certificate.
-gscrServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
-gscrServerCertificate = lens _gscrServerCertificate (\ s a -> s{_gscrServerCertificate = a});
 
 -- | FIXME: Undocumented member.
 gscrStatus :: Lens' GetServerCertificateResponse Status
 gscrStatus = lens _gscrStatus (\ s a -> s{_gscrStatus = a});
+
+-- | Information about the server certificate.
+gscrServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
+gscrServerCertificate = lens _gscrServerCertificate (\ s a -> s{_gscrServerCertificate = a});

@@ -41,9 +41,9 @@ module Network.AWS.Route53.CreateReusableDelegationSet
     -- ** Response constructor
     , createReusableDelegationSetResponse
     -- ** Response lenses
+    , crdsrStatus
     , crdsrDelegationSet
     , crdsrLocation
-    , crdsrStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -98,8 +98,8 @@ instance AWSRequest CreateReusableDelegationSet where
           = receiveXML
               (\ s h x ->
                  CreateReusableDelegationSetResponse' <$>
-                   (x .@ "DelegationSet") <*> (h .# "Location") <*>
-                     (pure s))
+                   (pure s) <*> (x .@ "DelegationSet") <*>
+                     (h .# "Location"))
 
 instance ToElement CreateReusableDelegationSet where
         toElement
@@ -125,25 +125,29 @@ instance ToXML CreateReusableDelegationSet where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'crdsrStatus'
+--
 -- * 'crdsrDelegationSet'
 --
 -- * 'crdsrLocation'
---
--- * 'crdsrStatus'
 data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'
-    { _crdsrDelegationSet :: !DelegationSet
+    { _crdsrStatus        :: !Status
+    , _crdsrDelegationSet :: !DelegationSet
     , _crdsrLocation      :: !Text
-    , _crdsrStatus        :: !Status
     } deriving (Eq,Show)
 
 -- | 'CreateReusableDelegationSetResponse' smart constructor.
-createReusableDelegationSetResponse :: DelegationSet -> Text -> Status -> CreateReusableDelegationSetResponse
-createReusableDelegationSetResponse pDelegationSet pLocation pStatus =
+createReusableDelegationSetResponse :: Status -> DelegationSet -> Text -> CreateReusableDelegationSetResponse
+createReusableDelegationSetResponse pStatus pDelegationSet pLocation =
     CreateReusableDelegationSetResponse'
-    { _crdsrDelegationSet = pDelegationSet
+    { _crdsrStatus = pStatus
+    , _crdsrDelegationSet = pDelegationSet
     , _crdsrLocation = pLocation
-    , _crdsrStatus = pStatus
     }
+
+-- | FIXME: Undocumented member.
+crdsrStatus :: Lens' CreateReusableDelegationSetResponse Status
+crdsrStatus = lens _crdsrStatus (\ s a -> s{_crdsrStatus = a});
 
 -- | A complex type that contains name server information.
 crdsrDelegationSet :: Lens' CreateReusableDelegationSetResponse DelegationSet
@@ -152,7 +156,3 @@ crdsrDelegationSet = lens _crdsrDelegationSet (\ s a -> s{_crdsrDelegationSet = 
 -- | The unique URL representing the new reusbale delegation set.
 crdsrLocation :: Lens' CreateReusableDelegationSetResponse Text
 crdsrLocation = lens _crdsrLocation (\ s a -> s{_crdsrLocation = a});
-
--- | FIXME: Undocumented member.
-crdsrStatus :: Lens' CreateReusableDelegationSetResponse Status
-crdsrStatus = lens _crdsrStatus (\ s a -> s{_crdsrStatus = a});

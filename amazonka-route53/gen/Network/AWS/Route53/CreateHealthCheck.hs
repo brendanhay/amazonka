@@ -38,9 +38,9 @@ module Network.AWS.Route53.CreateHealthCheck
     -- ** Response constructor
     , createHealthCheckResponse
     -- ** Response lenses
+    , chcrStatus
     , chcrHealthCheck
     , chcrLocation
-    , chcrStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -96,8 +96,8 @@ instance AWSRequest CreateHealthCheck where
           = receiveXML
               (\ s h x ->
                  CreateHealthCheckResponse' <$>
-                   (x .@ "HealthCheck") <*> (h .# "Location") <*>
-                     (pure s))
+                   (pure s) <*> (x .@ "HealthCheck") <*>
+                     (h .# "Location"))
 
 instance ToElement CreateHealthCheck where
         toElement
@@ -126,25 +126,29 @@ instance ToXML CreateHealthCheck where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'chcrStatus'
+--
 -- * 'chcrHealthCheck'
 --
 -- * 'chcrLocation'
---
--- * 'chcrStatus'
 data CreateHealthCheckResponse = CreateHealthCheckResponse'
-    { _chcrHealthCheck :: !HealthCheck
+    { _chcrStatus      :: !Status
+    , _chcrHealthCheck :: !HealthCheck
     , _chcrLocation    :: !Text
-    , _chcrStatus      :: !Status
     } deriving (Eq,Show)
 
 -- | 'CreateHealthCheckResponse' smart constructor.
-createHealthCheckResponse :: HealthCheck -> Text -> Status -> CreateHealthCheckResponse
-createHealthCheckResponse pHealthCheck pLocation pStatus =
+createHealthCheckResponse :: Status -> HealthCheck -> Text -> CreateHealthCheckResponse
+createHealthCheckResponse pStatus pHealthCheck pLocation =
     CreateHealthCheckResponse'
-    { _chcrHealthCheck = pHealthCheck
+    { _chcrStatus = pStatus
+    , _chcrHealthCheck = pHealthCheck
     , _chcrLocation = pLocation
-    , _chcrStatus = pStatus
     }
+
+-- | FIXME: Undocumented member.
+chcrStatus :: Lens' CreateHealthCheckResponse Status
+chcrStatus = lens _chcrStatus (\ s a -> s{_chcrStatus = a});
 
 -- | A complex type that contains identifying information about the health
 -- check.
@@ -154,7 +158,3 @@ chcrHealthCheck = lens _chcrHealthCheck (\ s a -> s{_chcrHealthCheck = a});
 -- | The unique URL representing the new health check.
 chcrLocation :: Lens' CreateHealthCheckResponse Text
 chcrLocation = lens _chcrLocation (\ s a -> s{_chcrLocation = a});
-
--- | FIXME: Undocumented member.
-chcrStatus :: Lens' CreateHealthCheckResponse Status
-chcrStatus = lens _chcrStatus (\ s a -> s{_chcrStatus = a});

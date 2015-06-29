@@ -36,8 +36,8 @@ module Network.AWS.IAM.GetInstanceProfile
     -- ** Response constructor
     , getInstanceProfileResponse
     -- ** Response lenses
-    , giprInstanceProfile
     , giprStatus
+    , giprInstanceProfile
     ) where
 
 import           Network.AWS.IAM.Types
@@ -74,7 +74,7 @@ instance AWSRequest GetInstanceProfile where
           = receiveXMLWrapper "GetInstanceProfileResult"
               (\ s h x ->
                  GetInstanceProfileResponse' <$>
-                   (x .@ "InstanceProfile") <*> (pure s))
+                   (pure s) <*> (x .@ "InstanceProfile"))
 
 instance ToHeaders GetInstanceProfile where
         toHeaders = const mempty
@@ -95,26 +95,26 @@ instance ToQuery GetInstanceProfile where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'giprInstanceProfile'
---
 -- * 'giprStatus'
+--
+-- * 'giprInstanceProfile'
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
-    { _giprInstanceProfile :: !InstanceProfile
-    , _giprStatus          :: !Status
+    { _giprStatus          :: !Status
+    , _giprInstanceProfile :: !InstanceProfile
     } deriving (Eq,Show)
 
 -- | 'GetInstanceProfileResponse' smart constructor.
-getInstanceProfileResponse :: InstanceProfile -> Status -> GetInstanceProfileResponse
-getInstanceProfileResponse pInstanceProfile pStatus =
+getInstanceProfileResponse :: Status -> InstanceProfile -> GetInstanceProfileResponse
+getInstanceProfileResponse pStatus pInstanceProfile =
     GetInstanceProfileResponse'
-    { _giprInstanceProfile = pInstanceProfile
-    , _giprStatus = pStatus
+    { _giprStatus = pStatus
+    , _giprInstanceProfile = pInstanceProfile
     }
-
--- | Information about the instance profile.
-giprInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
-giprInstanceProfile = lens _giprInstanceProfile (\ s a -> s{_giprInstanceProfile = a});
 
 -- | FIXME: Undocumented member.
 giprStatus :: Lens' GetInstanceProfileResponse Status
 giprStatus = lens _giprStatus (\ s a -> s{_giprStatus = a});
+
+-- | Information about the instance profile.
+giprInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
+giprInstanceProfile = lens _giprInstanceProfile (\ s a -> s{_giprInstanceProfile = a});

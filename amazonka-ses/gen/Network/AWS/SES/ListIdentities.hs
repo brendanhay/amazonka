@@ -37,8 +37,8 @@ module Network.AWS.SES.ListIdentities
     , listIdentitiesResponse
     -- ** Response lenses
     , lirNextToken
-    , lirIdentities
     , lirStatus
+    , lirIdentities
     ) where
 
 import           Network.AWS.Pager
@@ -104,10 +104,9 @@ instance AWSRequest ListIdentities where
           = receiveXMLWrapper "ListIdentitiesResult"
               (\ s h x ->
                  ListIdentitiesResponse' <$>
-                   (x .@? "NextToken") <*>
+                   (x .@? "NextToken") <*> (pure s) <*>
                      (x .@? "Identities" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> (pure s))
+                        parseXMLList "member"))
 
 instance ToHeaders ListIdentities where
         toHeaders = const mempty
@@ -132,13 +131,13 @@ instance ToQuery ListIdentities where
 --
 -- * 'lirNextToken'
 --
--- * 'lirIdentities'
---
 -- * 'lirStatus'
+--
+-- * 'lirIdentities'
 data ListIdentitiesResponse = ListIdentitiesResponse'
     { _lirNextToken  :: !(Maybe Text)
-    , _lirIdentities :: ![Text]
     , _lirStatus     :: !Status
+    , _lirIdentities :: ![Text]
     } deriving (Eq,Show)
 
 -- | 'ListIdentitiesResponse' smart constructor.
@@ -146,18 +145,18 @@ listIdentitiesResponse :: Status -> ListIdentitiesResponse
 listIdentitiesResponse pStatus =
     ListIdentitiesResponse'
     { _lirNextToken = Nothing
-    , _lirIdentities = mempty
     , _lirStatus = pStatus
+    , _lirIdentities = mempty
     }
 
 -- | The token used for pagination.
 lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirNextToken = lens _lirNextToken (\ s a -> s{_lirNextToken = a});
 
--- | A list of identities.
-lirIdentities :: Lens' ListIdentitiesResponse [Text]
-lirIdentities = lens _lirIdentities (\ s a -> s{_lirIdentities = a});
-
 -- | FIXME: Undocumented member.
 lirStatus :: Lens' ListIdentitiesResponse Status
 lirStatus = lens _lirStatus (\ s a -> s{_lirStatus = a});
+
+-- | A list of identities.
+lirIdentities :: Lens' ListIdentitiesResponse [Text]
+lirIdentities = lens _lirIdentities (\ s a -> s{_lirIdentities = a});

@@ -32,7 +32,7 @@ fixtures = testGroup "SQS"
             getQueueURLResponse "http://us-east-1.amazonaws.com/123456789012/testQueue" status200
 
         , purgeQueueResponseTest $
-            purgeQueueResponse
+            purgeQueueResponse No statuscode for empty constructors?
 
         -- , sendMessageResponseTest $
         --     sendMessageResponse

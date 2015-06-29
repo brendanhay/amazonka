@@ -1,6 +1,6 @@
 name:                  amazonka-test
 version:               1.0.0
-synopsis:              Tests for Amazonka libraries.
+synopsis:              Test framework for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
@@ -14,22 +14,17 @@ cabal-version:         >= 1.10
 
 library
     default-language:  Haskell2010
+    hs-source-dirs:    src
 
-test-suite tests
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
-    main-is:           Main.hs
+    ghc-options:       -Wall
 
-    ghc-options:       -Wall -threaded
-
-    other-modules:
-          Test.AWS.Fixture
+    exposed-modules:
+          Test.AWS.Prelude
+        , Test.AWS.Fixture
 
     build-depends:
           aeson
         , amazonka-core
-        , amazonka-sqs
         , attoparsec
         , base
         , bifunctors
@@ -38,7 +33,7 @@ test-suite tests
         , conduit-extra
         , directory
         , filepath
-        , http-client
+        , http-clienth
         , http-types
         , resourcet
         , tasty

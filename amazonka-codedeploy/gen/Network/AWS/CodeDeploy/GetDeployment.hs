@@ -71,7 +71,7 @@ instance AWSRequest GetDeployment where
           = receiveJSON
               (\ s h x ->
                  GetDeploymentResponse' <$>
-                   (x .?> "deploymentInfo") <*> (pure s))
+                   (x .?> "deploymentInfo") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetDeployment where
         toHeaders
@@ -103,11 +103,11 @@ instance ToQuery GetDeployment where
 -- * 'gdrStatus'
 data GetDeploymentResponse = GetDeploymentResponse'
     { _gdrDeploymentInfo :: !(Maybe DeploymentInfo)
-    , _gdrStatus         :: !Status
-    } deriving (Eq,Show)
+    , _gdrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDeploymentResponse' smart constructor.
-getDeploymentResponse :: Status -> GetDeploymentResponse
+getDeploymentResponse :: Int -> GetDeploymentResponse
 getDeploymentResponse pStatus =
     GetDeploymentResponse'
     { _gdrDeploymentInfo = Nothing
@@ -119,5 +119,5 @@ gdrDeploymentInfo :: Lens' GetDeploymentResponse (Maybe DeploymentInfo)
 gdrDeploymentInfo = lens _gdrDeploymentInfo (\ s a -> s{_gdrDeploymentInfo = a});
 
 -- | FIXME: Undocumented member.
-gdrStatus :: Lens' GetDeploymentResponse Status
+gdrStatus :: Lens' GetDeploymentResponse Int
 gdrStatus = lens _gdrStatus (\ s a -> s{_gdrStatus = a});

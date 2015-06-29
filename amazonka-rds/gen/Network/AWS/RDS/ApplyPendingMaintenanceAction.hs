@@ -102,7 +102,7 @@ instance AWSRequest ApplyPendingMaintenanceAction
               (\ s h x ->
                  ApplyPendingMaintenanceActionResponse' <$>
                    (x .@? "ResourcePendingMaintenanceActions") <*>
-                     (pure s))
+                     (pure (fromEnum s)))
 
 instance ToHeaders ApplyPendingMaintenanceAction
          where
@@ -130,11 +130,11 @@ instance ToQuery ApplyPendingMaintenanceAction where
 -- * 'apmarStatus'
 data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'
     { _apmarResourcePendingMaintenanceActions :: !(Maybe ResourcePendingMaintenanceActions)
-    , _apmarStatus                            :: !Status
-    } deriving (Eq,Show)
+    , _apmarStatus                            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ApplyPendingMaintenanceActionResponse' smart constructor.
-applyPendingMaintenanceActionResponse :: Status -> ApplyPendingMaintenanceActionResponse
+applyPendingMaintenanceActionResponse :: Int -> ApplyPendingMaintenanceActionResponse
 applyPendingMaintenanceActionResponse pStatus =
     ApplyPendingMaintenanceActionResponse'
     { _apmarResourcePendingMaintenanceActions = Nothing
@@ -146,5 +146,5 @@ apmarResourcePendingMaintenanceActions :: Lens' ApplyPendingMaintenanceActionRes
 apmarResourcePendingMaintenanceActions = lens _apmarResourcePendingMaintenanceActions (\ s a -> s{_apmarResourcePendingMaintenanceActions = a});
 
 -- | FIXME: Undocumented member.
-apmarStatus :: Lens' ApplyPendingMaintenanceActionResponse Status
+apmarStatus :: Lens' ApplyPendingMaintenanceActionResponse Int
 apmarStatus = lens _apmarStatus (\ s a -> s{_apmarStatus = a});

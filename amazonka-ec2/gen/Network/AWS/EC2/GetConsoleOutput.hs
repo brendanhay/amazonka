@@ -103,7 +103,7 @@ instance AWSRequest GetConsoleOutput where
                  GetConsoleOutputResponse' <$>
                    (x .@? "instanceId") <*> (x .@? "output") <*>
                      (x .@? "timestamp")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetConsoleOutput where
         toHeaders = const mempty
@@ -134,11 +134,11 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse'
     { _gcorInstanceId :: !(Maybe Text)
     , _gcorOutput     :: !(Maybe Text)
     , _gcorTimestamp  :: !(Maybe ISO8601)
-    , _gcorStatus     :: !Status
-    } deriving (Eq,Show)
+    , _gcorStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetConsoleOutputResponse' smart constructor.
-getConsoleOutputResponse :: Status -> GetConsoleOutputResponse
+getConsoleOutputResponse :: Int -> GetConsoleOutputResponse
 getConsoleOutputResponse pStatus =
     GetConsoleOutputResponse'
     { _gcorInstanceId = Nothing
@@ -160,5 +160,5 @@ gcorTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
 gcorTimestamp = lens _gcorTimestamp (\ s a -> s{_gcorTimestamp = a}) . mapping _Time;
 
 -- | FIXME: Undocumented member.
-gcorStatus :: Lens' GetConsoleOutputResponse Status
+gcorStatus :: Lens' GetConsoleOutputResponse Int
 gcorStatus = lens _gcorStatus (\ s a -> s{_gcorStatus = a});

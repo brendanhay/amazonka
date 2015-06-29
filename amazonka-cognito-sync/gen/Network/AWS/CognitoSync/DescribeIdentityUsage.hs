@@ -88,7 +88,7 @@ instance AWSRequest DescribeIdentityUsage where
           = receiveJSON
               (\ s h x ->
                  DescribeIdentityUsageResponse' <$>
-                   (x .?> "IdentityUsage") <*> (pure s))
+                   (x .?> "IdentityUsage") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeIdentityUsage where
         toHeaders
@@ -117,11 +117,11 @@ instance ToQuery DescribeIdentityUsage where
 -- * 'diurStatus'
 data DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'
     { _diurIdentityUsage :: !(Maybe IdentityUsage)
-    , _diurStatus        :: !Status
-    } deriving (Eq,Show)
+    , _diurStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeIdentityUsageResponse' smart constructor.
-describeIdentityUsageResponse :: Status -> DescribeIdentityUsageResponse
+describeIdentityUsageResponse :: Int -> DescribeIdentityUsageResponse
 describeIdentityUsageResponse pStatus =
     DescribeIdentityUsageResponse'
     { _diurIdentityUsage = Nothing
@@ -133,5 +133,5 @@ diurIdentityUsage :: Lens' DescribeIdentityUsageResponse (Maybe IdentityUsage)
 diurIdentityUsage = lens _diurIdentityUsage (\ s a -> s{_diurIdentityUsage = a});
 
 -- | FIXME: Undocumented member.
-diurStatus :: Lens' DescribeIdentityUsageResponse Status
+diurStatus :: Lens' DescribeIdentityUsageResponse Int
 diurStatus = lens _diurStatus (\ s a -> s{_diurStatus = a});

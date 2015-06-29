@@ -175,7 +175,7 @@ instance AWSRequest GetMetricStatistics where
                    (x .@? "Datapoints" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "Label")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetMetricStatistics where
         toHeaders = const mempty
@@ -210,11 +210,11 @@ instance ToQuery GetMetricStatistics where
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse'
     { _gmsrDatapoints :: !(Maybe [Datapoint])
     , _gmsrLabel      :: !(Maybe Text)
-    , _gmsrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _gmsrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetMetricStatisticsResponse' smart constructor.
-getMetricStatisticsResponse :: Status -> GetMetricStatisticsResponse
+getMetricStatisticsResponse :: Int -> GetMetricStatisticsResponse
 getMetricStatisticsResponse pStatus =
     GetMetricStatisticsResponse'
     { _gmsrDatapoints = Nothing
@@ -231,5 +231,5 @@ gmsrLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
 gmsrLabel = lens _gmsrLabel (\ s a -> s{_gmsrLabel = a});
 
 -- | FIXME: Undocumented member.
-gmsrStatus :: Lens' GetMetricStatisticsResponse Status
+gmsrStatus :: Lens' GetMetricStatisticsResponse Int
 gmsrStatus = lens _gmsrStatus (\ s a -> s{_gmsrStatus = a});

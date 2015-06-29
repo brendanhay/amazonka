@@ -106,8 +106,9 @@ instance AWSRequest ListStreams where
           = receiveJSON
               (\ s h x ->
                  ListStreamsResponse' <$>
-                   (pure s) <*> (x .?> "StreamNames" .!@ mempty) <*>
-                     (x .:> "HasMoreStreams"))
+                   (pure (fromEnum s)) <*>
+                     (x .?> "StreamNames" .!@ mempty)
+                     <*> (x .:> "HasMoreStreams"))
 
 instance ToHeaders ListStreams where
         toHeaders
@@ -143,13 +144,13 @@ instance ToQuery ListStreams where
 --
 -- * 'lsrHasMoreStreams'
 data ListStreamsResponse = ListStreamsResponse'
-    { _lsrStatus         :: !Status
+    { _lsrStatus         :: !Int
     , _lsrStreamNames    :: ![Text]
     , _lsrHasMoreStreams :: !Bool
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListStreamsResponse' smart constructor.
-listStreamsResponse :: Status -> Bool -> ListStreamsResponse
+listStreamsResponse :: Int -> Bool -> ListStreamsResponse
 listStreamsResponse pStatus pHasMoreStreams =
     ListStreamsResponse'
     { _lsrStatus = pStatus
@@ -158,7 +159,7 @@ listStreamsResponse pStatus pHasMoreStreams =
     }
 
 -- | FIXME: Undocumented member.
-lsrStatus :: Lens' ListStreamsResponse Status
+lsrStatus :: Lens' ListStreamsResponse Int
 lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});
 
 -- | The names of the streams that are associated with the AWS account making

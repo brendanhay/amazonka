@@ -77,7 +77,7 @@ instance AWSRequest DescribeTaskDefinition where
           = receiveJSON
               (\ s h x ->
                  DescribeTaskDefinitionResponse' <$>
-                   (x .?> "taskDefinition") <*> (pure s))
+                   (x .?> "taskDefinition") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTaskDefinition where
         toHeaders
@@ -108,11 +108,11 @@ instance ToQuery DescribeTaskDefinition where
 -- * 'descStatus'
 data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
     { _descTaskDefinition :: !(Maybe TaskDefinition)
-    , _descStatus         :: !Status
-    } deriving (Eq,Show)
+    , _descStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTaskDefinitionResponse' smart constructor.
-describeTaskDefinitionResponse :: Status -> DescribeTaskDefinitionResponse
+describeTaskDefinitionResponse :: Int -> DescribeTaskDefinitionResponse
 describeTaskDefinitionResponse pStatus =
     DescribeTaskDefinitionResponse'
     { _descTaskDefinition = Nothing
@@ -124,5 +124,5 @@ descTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition
 descTaskDefinition = lens _descTaskDefinition (\ s a -> s{_descTaskDefinition = a});
 
 -- | FIXME: Undocumented member.
-descStatus :: Lens' DescribeTaskDefinitionResponse Status
+descStatus :: Lens' DescribeTaskDefinitionResponse Int
 descStatus = lens _descStatus (\ s a -> s{_descStatus = a});

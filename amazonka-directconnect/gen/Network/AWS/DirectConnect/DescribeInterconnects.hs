@@ -74,7 +74,8 @@ instance AWSRequest DescribeInterconnects where
           = receiveJSON
               (\ s h x ->
                  DescribeInterconnectsResponse' <$>
-                   (x .?> "interconnects" .!@ mempty) <*> (pure s))
+                   (x .?> "interconnects" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeInterconnects where
         toHeaders
@@ -107,11 +108,11 @@ instance ToQuery DescribeInterconnects where
 -- * 'dirStatus'
 data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
     { _dirInterconnects :: !(Maybe [Interconnect])
-    , _dirStatus        :: !Status
-    } deriving (Eq,Show)
+    , _dirStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInterconnectsResponse' smart constructor.
-describeInterconnectsResponse :: Status -> DescribeInterconnectsResponse
+describeInterconnectsResponse :: Int -> DescribeInterconnectsResponse
 describeInterconnectsResponse pStatus =
     DescribeInterconnectsResponse'
     { _dirInterconnects = Nothing
@@ -123,5 +124,5 @@ dirInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
 dirInterconnects = lens _dirInterconnects (\ s a -> s{_dirInterconnects = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dirStatus :: Lens' DescribeInterconnectsResponse Status
+dirStatus :: Lens' DescribeInterconnectsResponse Int
 dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});

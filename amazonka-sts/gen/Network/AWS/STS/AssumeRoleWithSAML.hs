@@ -198,7 +198,7 @@ instance AWSRequest AssumeRoleWithSAML where
                      <*> (x .@? "NameQualifier")
                      <*> (x .@? "AssumedRoleUser")
                      <*> (x .@? "Issuer")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders AssumeRoleWithSAML where
         toHeaders = const mempty
@@ -251,11 +251,11 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
     , _arwsamlrNameQualifier    :: !(Maybe Text)
     , _arwsamlrAssumedRoleUser  :: !(Maybe AssumedRoleUser)
     , _arwsamlrIssuer           :: !(Maybe Text)
-    , _arwsamlrStatus           :: !Status
-    } deriving (Eq,Show)
+    , _arwsamlrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AssumeRoleWithSAMLResponse' smart constructor.
-assumeRoleWithSAMLResponse :: Status -> AssumeRoleWithSAMLResponse
+assumeRoleWithSAMLResponse :: Int -> AssumeRoleWithSAMLResponse
 assumeRoleWithSAMLResponse pStatus =
     AssumeRoleWithSAMLResponse'
     { _arwsamlrAudience = Nothing
@@ -321,5 +321,5 @@ arwsamlrIssuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrIssuer = lens _arwsamlrIssuer (\ s a -> s{_arwsamlrIssuer = a});
 
 -- | FIXME: Undocumented member.
-arwsamlrStatus :: Lens' AssumeRoleWithSAMLResponse Status
+arwsamlrStatus :: Lens' AssumeRoleWithSAMLResponse Int
 arwsamlrStatus = lens _arwsamlrStatus (\ s a -> s{_arwsamlrStatus = a});

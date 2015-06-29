@@ -144,7 +144,7 @@ instance AWSRequest DescribeCacheClusters where
                    (x .@? "CacheClusters" .!@ mempty >>=
                       may (parseXMLList "CacheCluster"))
                      <*> (x .@? "Marker")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeCacheClusters where
         toHeaders = const mempty
@@ -176,11 +176,11 @@ instance ToQuery DescribeCacheClusters where
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
     { _dCacheClusters :: !(Maybe [CacheCluster])
     , _dMarker        :: !(Maybe Text)
-    , _dStatus        :: !Status
-    } deriving (Eq,Show)
+    , _dStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheClustersResponse' smart constructor.
-describeCacheClustersResponse :: Status -> DescribeCacheClustersResponse
+describeCacheClustersResponse :: Int -> DescribeCacheClustersResponse
 describeCacheClustersResponse pStatus =
     DescribeCacheClustersResponse'
     { _dCacheClusters = Nothing
@@ -198,5 +198,5 @@ dMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
 dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DescribeCacheClustersResponse Status
+dStatus :: Lens' DescribeCacheClustersResponse Int
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

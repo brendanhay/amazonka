@@ -86,7 +86,7 @@ instance AWSRequest DescribeContainerInstances where
                  DescribeContainerInstancesResponse' <$>
                    (x .?> "failures" .!@ mempty) <*>
                      (x .?> "containerInstances" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeContainerInstances where
         toHeaders
@@ -122,11 +122,11 @@ instance ToQuery DescribeContainerInstances where
 data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
     { _desFailures           :: !(Maybe [Failure])
     , _desContainerInstances :: !(Maybe [ContainerInstance])
-    , _desStatus             :: !Status
-    } deriving (Eq,Show)
+    , _desStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeContainerInstancesResponse' smart constructor.
-describeContainerInstancesResponse :: Status -> DescribeContainerInstancesResponse
+describeContainerInstancesResponse :: Int -> DescribeContainerInstancesResponse
 describeContainerInstancesResponse pStatus =
     DescribeContainerInstancesResponse'
     { _desFailures = Nothing
@@ -143,5 +143,5 @@ desContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInst
 desContainerInstances = lens _desContainerInstances (\ s a -> s{_desContainerInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeContainerInstancesResponse Status
+desStatus :: Lens' DescribeContainerInstancesResponse Int
 desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

@@ -156,7 +156,7 @@ instance AWSRequest AddPermission where
           = receiveJSON
               (\ s h x ->
                  AddPermissionResponse' <$>
-                   (x .?> "Statement") <*> (pure s))
+                   (x .?> "Statement") <*> (pure (fromEnum s)))
 
 instance ToHeaders AddPermission where
         toHeaders = const mempty
@@ -187,11 +187,11 @@ instance ToQuery AddPermission where
 -- * 'aprStatus'
 data AddPermissionResponse = AddPermissionResponse'
     { _aprStatement :: !(Maybe Text)
-    , _aprStatus    :: !Status
-    } deriving (Eq,Show)
+    , _aprStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AddPermissionResponse' smart constructor.
-addPermissionResponse :: Status -> AddPermissionResponse
+addPermissionResponse :: Int -> AddPermissionResponse
 addPermissionResponse pStatus =
     AddPermissionResponse'
     { _aprStatement = Nothing
@@ -205,5 +205,5 @@ aprStatement :: Lens' AddPermissionResponse (Maybe Text)
 aprStatement = lens _aprStatement (\ s a -> s{_aprStatement = a});
 
 -- | FIXME: Undocumented member.
-aprStatus :: Lens' AddPermissionResponse Status
+aprStatus :: Lens' AddPermissionResponse Int
 aprStatus = lens _aprStatus (\ s a -> s{_aprStatus = a});

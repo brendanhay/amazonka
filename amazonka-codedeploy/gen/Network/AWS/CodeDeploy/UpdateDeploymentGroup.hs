@@ -138,7 +138,8 @@ instance AWSRequest UpdateDeploymentGroup where
           = receiveJSON
               (\ s h x ->
                  UpdateDeploymentGroupResponse' <$>
-                   (x .?> "hooksNotCleanedUp" .!@ mempty) <*> (pure s))
+                   (x .?> "hooksNotCleanedUp" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders UpdateDeploymentGroup where
         toHeaders
@@ -182,11 +183,11 @@ instance ToQuery UpdateDeploymentGroup where
 -- * 'udgrStatus'
 data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
     { _udgrHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
-    , _udgrStatus            :: !Status
-    } deriving (Eq,Show)
+    , _udgrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDeploymentGroupResponse' smart constructor.
-updateDeploymentGroupResponse :: Status -> UpdateDeploymentGroupResponse
+updateDeploymentGroupResponse :: Int -> UpdateDeploymentGroupResponse
 updateDeploymentGroupResponse pStatus =
     UpdateDeploymentGroupResponse'
     { _udgrHooksNotCleanedUp = Nothing
@@ -202,5 +203,5 @@ udgrHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
 udgrHooksNotCleanedUp = lens _udgrHooksNotCleanedUp (\ s a -> s{_udgrHooksNotCleanedUp = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-udgrStatus :: Lens' UpdateDeploymentGroupResponse Status
+udgrStatus :: Lens' UpdateDeploymentGroupResponse Int
 udgrStatus = lens _udgrStatus (\ s a -> s{_udgrStatus = a});

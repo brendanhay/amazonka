@@ -71,7 +71,7 @@ instance AWSRequest DeleteEventSubscription where
           = receiveXMLWrapper "DeleteEventSubscriptionResult"
               (\ s h x ->
                  DeleteEventSubscriptionResponse' <$>
-                   (x .@? "EventSubscription") <*> (pure s))
+                   (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteEventSubscription where
         toHeaders = const mempty
@@ -96,11 +96,11 @@ instance ToQuery DeleteEventSubscription where
 -- * 'delStatus'
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
     { _delEventSubscription :: !(Maybe EventSubscription)
-    , _delStatus            :: !Status
-    } deriving (Eq,Show)
+    , _delStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteEventSubscriptionResponse' smart constructor.
-deleteEventSubscriptionResponse :: Status -> DeleteEventSubscriptionResponse
+deleteEventSubscriptionResponse :: Int -> DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse pStatus =
     DeleteEventSubscriptionResponse'
     { _delEventSubscription = Nothing
@@ -112,5 +112,5 @@ delEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscr
 delEventSubscription = lens _delEventSubscription (\ s a -> s{_delEventSubscription = a});
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteEventSubscriptionResponse Status
+delStatus :: Lens' DeleteEventSubscriptionResponse Int
 delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

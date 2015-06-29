@@ -71,7 +71,8 @@ instance AWSRequest DescribeTrails where
           = receiveJSON
               (\ s h x ->
                  DescribeTrailsResponse' <$>
-                   (x .?> "trailList" .!@ mempty) <*> (pure s))
+                   (x .?> "trailList" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeTrails where
         toHeaders
@@ -105,11 +106,11 @@ instance ToQuery DescribeTrails where
 -- * 'dtrStatus'
 data DescribeTrailsResponse = DescribeTrailsResponse'
     { _dtrTrailList :: !(Maybe [Trail])
-    , _dtrStatus    :: !Status
-    } deriving (Eq,Show)
+    , _dtrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTrailsResponse' smart constructor.
-describeTrailsResponse :: Status -> DescribeTrailsResponse
+describeTrailsResponse :: Int -> DescribeTrailsResponse
 describeTrailsResponse pStatus =
     DescribeTrailsResponse'
     { _dtrTrailList = Nothing
@@ -121,5 +122,5 @@ dtrTrailList :: Lens' DescribeTrailsResponse [Trail]
 dtrTrailList = lens _dtrTrailList (\ s a -> s{_dtrTrailList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtrStatus :: Lens' DescribeTrailsResponse Status
+dtrStatus :: Lens' DescribeTrailsResponse Int
 dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});

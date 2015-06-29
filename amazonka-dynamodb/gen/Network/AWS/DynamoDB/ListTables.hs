@@ -97,7 +97,7 @@ instance AWSRequest ListTables where
                  ListTablesResponse' <$>
                    (x .?> "LastEvaluatedTableName") <*>
                      (x .?> "TableNames" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListTables where
         toHeaders
@@ -135,11 +135,11 @@ instance ToQuery ListTables where
 data ListTablesResponse = ListTablesResponse'
     { _ltrLastEvaluatedTableName :: !(Maybe Text)
     , _ltrTableNames             :: !(Maybe [Text])
-    , _ltrStatus                 :: !Status
-    } deriving (Eq,Show)
+    , _ltrStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTablesResponse' smart constructor.
-listTablesResponse :: Status -> ListTablesResponse
+listTablesResponse :: Int -> ListTablesResponse
 listTablesResponse pStatus =
     ListTablesResponse'
     { _ltrLastEvaluatedTableName = Nothing
@@ -166,5 +166,5 @@ ltrTableNames :: Lens' ListTablesResponse [Text]
 ltrTableNames = lens _ltrTableNames (\ s a -> s{_ltrTableNames = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ltrStatus :: Lens' ListTablesResponse Status
+ltrStatus :: Lens' ListTablesResponse Int
 ltrStatus = lens _ltrStatus (\ s a -> s{_ltrStatus = a});

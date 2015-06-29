@@ -211,7 +211,7 @@ instance AWSRequest DescribeDataSources where
               (\ s h x ->
                  DescribeDataSourcesResponse' <$>
                    (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDataSources where
         toHeaders
@@ -255,11 +255,11 @@ instance ToQuery DescribeDataSources where
 data DescribeDataSourcesResponse = DescribeDataSourcesResponse'
     { _dResults   :: !(Maybe [DataSource])
     , _dNextToken :: !(Maybe Text)
-    , _dStatus    :: !Status
-    } deriving (Eq,Show)
+    , _dStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDataSourcesResponse' smart constructor.
-describeDataSourcesResponse :: Status -> DescribeDataSourcesResponse
+describeDataSourcesResponse :: Int -> DescribeDataSourcesResponse
 describeDataSourcesResponse pStatus =
     DescribeDataSourcesResponse'
     { _dResults = Nothing
@@ -277,5 +277,5 @@ dNextToken :: Lens' DescribeDataSourcesResponse (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DescribeDataSourcesResponse Status
+dStatus :: Lens' DescribeDataSourcesResponse Int
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

@@ -321,7 +321,7 @@ instance AWSRequest PutObject where
                      (h .#?
                         "x-amz-server-side-encryption-customer-key-MD5")
                      <*> (h .#? "x-amz-server-side-encryption")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToBody PutObject where
         toBody = _poBody
@@ -395,11 +395,11 @@ data PutObjectResponse = PutObjectResponse'
     , _porSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _porSSECustomerKeyMD5    :: !(Maybe Text)
     , _porServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _porStatus               :: !Status
+    , _porStatus               :: !Int
     } deriving (Eq,Show)
 
 -- | 'PutObjectResponse' smart constructor.
-putObjectResponse :: Status -> PutObjectResponse
+putObjectResponse :: Int -> PutObjectResponse
 putObjectResponse pStatus =
     PutObjectResponse'
     { _porVersionId = Nothing
@@ -454,5 +454,5 @@ porServerSideEncryption :: Lens' PutObjectResponse (Maybe ServerSideEncryption)
 porServerSideEncryption = lens _porServerSideEncryption (\ s a -> s{_porServerSideEncryption = a});
 
 -- | FIXME: Undocumented member.
-porStatus :: Lens' PutObjectResponse Status
+porStatus :: Lens' PutObjectResponse Int
 porStatus = lens _porStatus (\ s a -> s{_porStatus = a});

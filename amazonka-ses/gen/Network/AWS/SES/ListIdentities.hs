@@ -104,7 +104,7 @@ instance AWSRequest ListIdentities where
           = receiveXMLWrapper "ListIdentitiesResult"
               (\ s h x ->
                  ListIdentitiesResponse' <$>
-                   (x .@? "NextToken") <*> (pure s) <*>
+                   (x .@? "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .@? "Identities" .!@ mempty >>=
                         parseXMLList "member"))
 
@@ -136,12 +136,12 @@ instance ToQuery ListIdentities where
 -- * 'lirIdentities'
 data ListIdentitiesResponse = ListIdentitiesResponse'
     { _lirNextToken  :: !(Maybe Text)
-    , _lirStatus     :: !Status
+    , _lirStatus     :: !Int
     , _lirIdentities :: ![Text]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListIdentitiesResponse' smart constructor.
-listIdentitiesResponse :: Status -> ListIdentitiesResponse
+listIdentitiesResponse :: Int -> ListIdentitiesResponse
 listIdentitiesResponse pStatus =
     ListIdentitiesResponse'
     { _lirNextToken = Nothing
@@ -154,7 +154,7 @@ lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirNextToken = lens _lirNextToken (\ s a -> s{_lirNextToken = a});
 
 -- | FIXME: Undocumented member.
-lirStatus :: Lens' ListIdentitiesResponse Status
+lirStatus :: Lens' ListIdentitiesResponse Int
 lirStatus = lens _lirStatus (\ s a -> s{_lirStatus = a});
 
 -- | A list of identities.

@@ -130,7 +130,7 @@ instance AWSRequest DescribeAlarms where
                    (x .@? "MetricAlarms" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "NextToken")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAlarms where
         toHeaders = const mempty
@@ -165,11 +165,11 @@ instance ToQuery DescribeAlarms where
 data DescribeAlarmsResponse = DescribeAlarmsResponse'
     { _darMetricAlarms :: !(Maybe [MetricAlarm])
     , _darNextToken    :: !(Maybe Text)
-    , _darStatus       :: !Status
-    } deriving (Eq,Show)
+    , _darStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAlarmsResponse' smart constructor.
-describeAlarmsResponse :: Status -> DescribeAlarmsResponse
+describeAlarmsResponse :: Int -> DescribeAlarmsResponse
 describeAlarmsResponse pStatus =
     DescribeAlarmsResponse'
     { _darMetricAlarms = Nothing
@@ -186,5 +186,5 @@ darNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
 darNextToken = lens _darNextToken (\ s a -> s{_darNextToken = a});
 
 -- | FIXME: Undocumented member.
-darStatus :: Lens' DescribeAlarmsResponse Status
+darStatus :: Lens' DescribeAlarmsResponse Int
 darStatus = lens _darStatus (\ s a -> s{_darStatus = a});

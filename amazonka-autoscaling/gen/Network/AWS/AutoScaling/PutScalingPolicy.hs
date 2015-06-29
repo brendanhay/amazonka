@@ -135,7 +135,7 @@ instance AWSRequest PutScalingPolicy where
           = receiveXMLWrapper "PutScalingPolicyResult"
               (\ s h x ->
                  PutScalingPolicyResponse' <$>
-                   (x .@? "PolicyARN") <*> (pure s))
+                   (x .@? "PolicyARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders PutScalingPolicy where
         toHeaders = const mempty
@@ -164,11 +164,11 @@ instance ToQuery PutScalingPolicy where
 -- * 'psprStatus'
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
     { _psprPolicyARN :: !(Maybe Text)
-    , _psprStatus    :: !Status
-    } deriving (Eq,Show)
+    , _psprStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PutScalingPolicyResponse' smart constructor.
-putScalingPolicyResponse :: Status -> PutScalingPolicyResponse
+putScalingPolicyResponse :: Int -> PutScalingPolicyResponse
 putScalingPolicyResponse pStatus =
     PutScalingPolicyResponse'
     { _psprPolicyARN = Nothing
@@ -180,5 +180,5 @@ psprPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
 psprPolicyARN = lens _psprPolicyARN (\ s a -> s{_psprPolicyARN = a});
 
 -- | FIXME: Undocumented member.
-psprStatus :: Lens' PutScalingPolicyResponse Status
+psprStatus :: Lens' PutScalingPolicyResponse Int
 psprStatus = lens _psprStatus (\ s a -> s{_psprStatus = a});

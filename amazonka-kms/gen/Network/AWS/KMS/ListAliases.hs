@@ -87,7 +87,7 @@ instance AWSRequest ListAliases where
                  ListAliasesResponse' <$>
                    (x .?> "Truncated") <*> (x .?> "Aliases" .!@ mempty)
                      <*> (x .?> "NextMarker")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListAliases where
         toHeaders
@@ -123,11 +123,11 @@ data ListAliasesResponse = ListAliasesResponse'
     { _larTruncated  :: !(Maybe Bool)
     , _larAliases    :: !(Maybe [AliasListEntry])
     , _larNextMarker :: !(Maybe Text)
-    , _larStatus     :: !Status
-    } deriving (Eq,Show)
+    , _larStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAliasesResponse' smart constructor.
-listAliasesResponse :: Status -> ListAliasesResponse
+listAliasesResponse :: Int -> ListAliasesResponse
 listAliasesResponse pStatus =
     ListAliasesResponse'
     { _larTruncated = Nothing
@@ -154,5 +154,5 @@ larNextMarker :: Lens' ListAliasesResponse (Maybe Text)
 larNextMarker = lens _larNextMarker (\ s a -> s{_larNextMarker = a});
 
 -- | FIXME: Undocumented member.
-larStatus :: Lens' ListAliasesResponse Status
+larStatus :: Lens' ListAliasesResponse Int
 larStatus = lens _larStatus (\ s a -> s{_larStatus = a});

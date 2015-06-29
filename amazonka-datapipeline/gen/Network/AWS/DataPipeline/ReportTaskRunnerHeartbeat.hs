@@ -102,7 +102,7 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
           = receiveJSON
               (\ s h x ->
                  ReportTaskRunnerHeartbeatResponse' <$>
-                   (pure s) <*> (x .:> "terminate"))
+                   (pure (fromEnum s)) <*> (x .:> "terminate"))
 
 instance ToHeaders ReportTaskRunnerHeartbeat where
         toHeaders
@@ -137,12 +137,12 @@ instance ToQuery ReportTaskRunnerHeartbeat where
 --
 -- * 'rtrhrTerminate'
 data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'
-    { _rtrhrStatus    :: !Status
+    { _rtrhrStatus    :: !Int
     , _rtrhrTerminate :: !Bool
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ReportTaskRunnerHeartbeatResponse' smart constructor.
-reportTaskRunnerHeartbeatResponse :: Status -> Bool -> ReportTaskRunnerHeartbeatResponse
+reportTaskRunnerHeartbeatResponse :: Int -> Bool -> ReportTaskRunnerHeartbeatResponse
 reportTaskRunnerHeartbeatResponse pStatus pTerminate =
     ReportTaskRunnerHeartbeatResponse'
     { _rtrhrStatus = pStatus
@@ -150,7 +150,7 @@ reportTaskRunnerHeartbeatResponse pStatus pTerminate =
     }
 
 -- | FIXME: Undocumented member.
-rtrhrStatus :: Lens' ReportTaskRunnerHeartbeatResponse Status
+rtrhrStatus :: Lens' ReportTaskRunnerHeartbeatResponse Int
 rtrhrStatus = lens _rtrhrStatus (\ s a -> s{_rtrhrStatus = a});
 
 -- | Indicates whether the calling task runner should terminate.

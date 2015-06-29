@@ -160,7 +160,7 @@ instance AWSRequest ListActivityTypes where
           = receiveJSON
               (\ s h x ->
                  ListActivityTypesResponse' <$>
-                   (x .?> "nextPageToken") <*> (pure s) <*>
+                   (x .?> "nextPageToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "typeInfos" .!@ mempty))
 
 instance ToHeaders ListActivityTypes where
@@ -202,12 +202,12 @@ instance ToQuery ListActivityTypes where
 -- * 'latrTypeInfos'
 data ListActivityTypesResponse = ListActivityTypesResponse'
     { _latrNextPageToken :: !(Maybe Text)
-    , _latrStatus        :: !Status
+    , _latrStatus        :: !Int
     , _latrTypeInfos     :: ![ActivityTypeInfo]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListActivityTypesResponse' smart constructor.
-listActivityTypesResponse :: Status -> ListActivityTypesResponse
+listActivityTypesResponse :: Int -> ListActivityTypesResponse
 listActivityTypesResponse pStatus =
     ListActivityTypesResponse'
     { _latrNextPageToken = Nothing
@@ -226,7 +226,7 @@ latrNextPageToken :: Lens' ListActivityTypesResponse (Maybe Text)
 latrNextPageToken = lens _latrNextPageToken (\ s a -> s{_latrNextPageToken = a});
 
 -- | FIXME: Undocumented member.
-latrStatus :: Lens' ListActivityTypesResponse Status
+latrStatus :: Lens' ListActivityTypesResponse Int
 latrStatus = lens _latrStatus (\ s a -> s{_latrStatus = a});
 
 -- | List of activity type information.

@@ -114,7 +114,7 @@ instance AWSRequest ListRoles where
               (\ s h x ->
                  ListRolesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (pure s)
+                     (pure (fromEnum s))
                      <*>
                      (x .@? "Roles" .!@ mempty >>= parseXMLList "member"))
 
@@ -148,12 +148,12 @@ instance ToQuery ListRoles where
 data ListRolesResponse = ListRolesResponse'
     { _lrrMarker      :: !(Maybe Text)
     , _lrrIsTruncated :: !(Maybe Bool)
-    , _lrrStatus      :: !Status
+    , _lrrStatus      :: !Int
     , _lrrRoles       :: ![Role]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListRolesResponse' smart constructor.
-listRolesResponse :: Status -> ListRolesResponse
+listRolesResponse :: Int -> ListRolesResponse
 listRolesResponse pStatus =
     ListRolesResponse'
     { _lrrMarker = Nothing
@@ -175,7 +175,7 @@ lrrIsTruncated :: Lens' ListRolesResponse (Maybe Bool)
 lrrIsTruncated = lens _lrrIsTruncated (\ s a -> s{_lrrIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lrrStatus :: Lens' ListRolesResponse Status
+lrrStatus :: Lens' ListRolesResponse Int
 lrrStatus = lens _lrrStatus (\ s a -> s{_lrrStatus = a});
 
 -- | A list of roles.

@@ -80,7 +80,7 @@ instance AWSRequest CancelJob where
           = receiveXMLWrapper "CancelJobResult"
               (\ s h x ->
                  CancelJobResponse' <$>
-                   (x .@? "Success") <*> (pure s))
+                   (x .@? "Success") <*> (pure (fromEnum s)))
 
 instance ToHeaders CancelJob where
         toHeaders = const mempty
@@ -107,11 +107,11 @@ instance ToQuery CancelJob where
 -- * 'canStatus'
 data CancelJobResponse = CancelJobResponse'
     { _canSuccess :: !(Maybe Bool)
-    , _canStatus  :: !Status
-    } deriving (Eq,Show)
+    , _canStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelJobResponse' smart constructor.
-cancelJobResponse :: Status -> CancelJobResponse
+cancelJobResponse :: Int -> CancelJobResponse
 cancelJobResponse pStatus =
     CancelJobResponse'
     { _canSuccess = Nothing
@@ -123,5 +123,5 @@ canSuccess :: Lens' CancelJobResponse (Maybe Bool)
 canSuccess = lens _canSuccess (\ s a -> s{_canSuccess = a});
 
 -- | FIXME: Undocumented member.
-canStatus :: Lens' CancelJobResponse Status
+canStatus :: Lens' CancelJobResponse Int
 canStatus = lens _canStatus (\ s a -> s{_canStatus = a});

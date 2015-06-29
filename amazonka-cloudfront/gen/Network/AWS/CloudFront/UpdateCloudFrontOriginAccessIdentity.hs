@@ -95,7 +95,7 @@ instance AWSRequest
                  UpdateCloudFrontOriginAccessIdentityResponse' <$>
                    (h .#? "ETag") <*>
                      (x .@? "CloudFrontOriginAccessIdentity")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToElement
          UpdateCloudFrontOriginAccessIdentity where
@@ -135,11 +135,11 @@ instance ToQuery UpdateCloudFrontOriginAccessIdentity
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'
     { _ucfoairETag                           :: !(Maybe Text)
     , _ucfoairCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
-    , _ucfoairStatus                         :: !Status
-    } deriving (Eq,Show)
+    , _ucfoairStatus                         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateCloudFrontOriginAccessIdentityResponse' smart constructor.
-updateCloudFrontOriginAccessIdentityResponse :: Status -> UpdateCloudFrontOriginAccessIdentityResponse
+updateCloudFrontOriginAccessIdentityResponse :: Int -> UpdateCloudFrontOriginAccessIdentityResponse
 updateCloudFrontOriginAccessIdentityResponse pStatus =
     UpdateCloudFrontOriginAccessIdentityResponse'
     { _ucfoairETag = Nothing
@@ -156,5 +156,5 @@ ucfoairCloudFrontOriginAccessIdentity :: Lens' UpdateCloudFrontOriginAccessIdent
 ucfoairCloudFrontOriginAccessIdentity = lens _ucfoairCloudFrontOriginAccessIdentity (\ s a -> s{_ucfoairCloudFrontOriginAccessIdentity = a});
 
 -- | FIXME: Undocumented member.
-ucfoairStatus :: Lens' UpdateCloudFrontOriginAccessIdentityResponse Status
+ucfoairStatus :: Lens' UpdateCloudFrontOriginAccessIdentityResponse Int
 ucfoairStatus = lens _ucfoairStatus (\ s a -> s{_ucfoairStatus = a});

@@ -69,7 +69,8 @@ instance AWSRequest GetDocument where
           = receiveJSON
               (\ s h x ->
                  GetDocumentResponse' <$>
-                   (x .?> "Content") <*> (x .?> "Name") <*> (pure s))
+                   (x .?> "Content") <*> (x .?> "Name") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetDocument where
         toHeaders
@@ -101,11 +102,11 @@ instance ToQuery GetDocument where
 data GetDocumentResponse = GetDocumentResponse'
     { _gdrContent :: !(Maybe Text)
     , _gdrName    :: !(Maybe Text)
-    , _gdrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _gdrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDocumentResponse' smart constructor.
-getDocumentResponse :: Status -> GetDocumentResponse
+getDocumentResponse :: Int -> GetDocumentResponse
 getDocumentResponse pStatus =
     GetDocumentResponse'
     { _gdrContent = Nothing
@@ -122,5 +123,5 @@ gdrName :: Lens' GetDocumentResponse (Maybe Text)
 gdrName = lens _gdrName (\ s a -> s{_gdrName = a});
 
 -- | FIXME: Undocumented member.
-gdrStatus :: Lens' GetDocumentResponse Status
+gdrStatus :: Lens' GetDocumentResponse Int
 gdrStatus = lens _gdrStatus (\ s a -> s{_gdrStatus = a});

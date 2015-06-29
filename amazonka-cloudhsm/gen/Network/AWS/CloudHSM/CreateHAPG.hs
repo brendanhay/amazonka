@@ -72,7 +72,7 @@ instance AWSRequest CreateHAPG where
           = receiveJSON
               (\ s h x ->
                  CreateHAPGResponse' <$>
-                   (x .?> "HapgArn") <*> (pure s))
+                   (x .?> "HapgArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateHAPG where
         toHeaders
@@ -103,11 +103,11 @@ instance ToQuery CreateHAPG where
 -- * 'chrStatus'
 data CreateHAPGResponse = CreateHAPGResponse'
     { _chrHAPGARN :: !(Maybe Text)
-    , _chrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _chrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateHAPGResponse' smart constructor.
-createHAPGResponse :: Status -> CreateHAPGResponse
+createHAPGResponse :: Int -> CreateHAPGResponse
 createHAPGResponse pStatus =
     CreateHAPGResponse'
     { _chrHAPGARN = Nothing
@@ -119,5 +119,5 @@ chrHAPGARN :: Lens' CreateHAPGResponse (Maybe Text)
 chrHAPGARN = lens _chrHAPGARN (\ s a -> s{_chrHAPGARN = a});
 
 -- | FIXME: Undocumented member.
-chrStatus :: Lens' CreateHAPGResponse Status
+chrStatus :: Lens' CreateHAPGResponse Int
 chrStatus = lens _chrStatus (\ s a -> s{_chrStatus = a});

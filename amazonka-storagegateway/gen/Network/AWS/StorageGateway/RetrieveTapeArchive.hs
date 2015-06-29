@@ -93,7 +93,7 @@ instance AWSRequest RetrieveTapeArchive where
           = receiveJSON
               (\ s h x ->
                  RetrieveTapeArchiveResponse' <$>
-                   (x .?> "TapeARN") <*> (pure s))
+                   (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders RetrieveTapeArchive where
         toHeaders
@@ -128,11 +128,11 @@ instance ToQuery RetrieveTapeArchive where
 -- * 'rtarStatus'
 data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'
     { _rtarTapeARN :: !(Maybe Text)
-    , _rtarStatus  :: !Status
-    } deriving (Eq,Show)
+    , _rtarStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RetrieveTapeArchiveResponse' smart constructor.
-retrieveTapeArchiveResponse :: Status -> RetrieveTapeArchiveResponse
+retrieveTapeArchiveResponse :: Int -> RetrieveTapeArchiveResponse
 retrieveTapeArchiveResponse pStatus =
     RetrieveTapeArchiveResponse'
     { _rtarTapeARN = Nothing
@@ -144,5 +144,5 @@ rtarTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
 rtarTapeARN = lens _rtarTapeARN (\ s a -> s{_rtarTapeARN = a});
 
 -- | FIXME: Undocumented member.
-rtarStatus :: Lens' RetrieveTapeArchiveResponse Status
+rtarStatus :: Lens' RetrieveTapeArchiveResponse Int
 rtarStatus = lens _rtarStatus (\ s a -> s{_rtarStatus = a});

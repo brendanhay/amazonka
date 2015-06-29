@@ -75,7 +75,7 @@ instance AWSRequest CreateDistribution where
                  CreateDistributionResponse' <$>
                    (h .#? "ETag") <*> (x .@? "Distribution") <*>
                      (h .#? "Location")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToElement CreateDistribution where
         toElement
@@ -110,11 +110,11 @@ data CreateDistributionResponse = CreateDistributionResponse'
     { _cdrETag         :: !(Maybe Text)
     , _cdrDistribution :: !(Maybe Distribution)
     , _cdrLocation     :: !(Maybe Text)
-    , _cdrStatus       :: !Status
-    } deriving (Eq,Show)
+    , _cdrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDistributionResponse' smart constructor.
-createDistributionResponse :: Status -> CreateDistributionResponse
+createDistributionResponse :: Int -> CreateDistributionResponse
 createDistributionResponse pStatus =
     CreateDistributionResponse'
     { _cdrETag = Nothing
@@ -138,5 +138,5 @@ cdrLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdrLocation = lens _cdrLocation (\ s a -> s{_cdrLocation = a});
 
 -- | FIXME: Undocumented member.
-cdrStatus :: Lens' CreateDistributionResponse Status
+cdrStatus :: Lens' CreateDistributionResponse Int
 cdrStatus = lens _cdrStatus (\ s a -> s{_cdrStatus = a});

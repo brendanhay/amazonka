@@ -92,7 +92,7 @@ instance AWSRequest GetRolePolicy where
           = receiveXMLWrapper "GetRolePolicyResult"
               (\ s h x ->
                  GetRolePolicyResponse' <$>
-                   (pure s) <*> (x .@ "RoleName") <*>
+                   (pure (fromEnum s)) <*> (x .@ "RoleName") <*>
                      (x .@ "PolicyName")
                      <*> (x .@ "PolicyDocument"))
 
@@ -124,14 +124,14 @@ instance ToQuery GetRolePolicy where
 --
 -- * 'grprPolicyDocument'
 data GetRolePolicyResponse = GetRolePolicyResponse'
-    { _grprStatus         :: !Status
+    { _grprStatus         :: !Int
     , _grprRoleName       :: !Text
     , _grprPolicyName     :: !Text
     , _grprPolicyDocument :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetRolePolicyResponse' smart constructor.
-getRolePolicyResponse :: Status -> Text -> Text -> Text -> GetRolePolicyResponse
+getRolePolicyResponse :: Int -> Text -> Text -> Text -> GetRolePolicyResponse
 getRolePolicyResponse pStatus pRoleName pPolicyName pPolicyDocument =
     GetRolePolicyResponse'
     { _grprStatus = pStatus
@@ -141,7 +141,7 @@ getRolePolicyResponse pStatus pRoleName pPolicyName pPolicyDocument =
     }
 
 -- | FIXME: Undocumented member.
-grprStatus :: Lens' GetRolePolicyResponse Status
+grprStatus :: Lens' GetRolePolicyResponse Int
 grprStatus = lens _grprStatus (\ s a -> s{_grprStatus = a});
 
 -- | The role the policy is associated with.

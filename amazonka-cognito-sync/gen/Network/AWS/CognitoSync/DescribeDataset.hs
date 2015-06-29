@@ -101,7 +101,7 @@ instance AWSRequest DescribeDataset where
           = receiveJSON
               (\ s h x ->
                  DescribeDatasetResponse' <$>
-                   (x .?> "Dataset") <*> (pure s))
+                   (x .?> "Dataset") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDataset where
         toHeaders
@@ -131,11 +131,11 @@ instance ToQuery DescribeDataset where
 -- * 'ddrStatus'
 data DescribeDatasetResponse = DescribeDatasetResponse'
     { _ddrDataset :: !(Maybe Dataset)
-    , _ddrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _ddrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDatasetResponse' smart constructor.
-describeDatasetResponse :: Status -> DescribeDatasetResponse
+describeDatasetResponse :: Int -> DescribeDatasetResponse
 describeDatasetResponse pStatus =
     DescribeDatasetResponse'
     { _ddrDataset = Nothing
@@ -151,5 +151,5 @@ ddrDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
 ddrDataset = lens _ddrDataset (\ s a -> s{_ddrDataset = a});
 
 -- | FIXME: Undocumented member.
-ddrStatus :: Lens' DescribeDatasetResponse Status
+ddrStatus :: Lens' DescribeDatasetResponse Int
 ddrStatus = lens _ddrStatus (\ s a -> s{_ddrStatus = a});

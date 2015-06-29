@@ -68,7 +68,7 @@ instance AWSRequest DescribeDocument where
           = receiveJSON
               (\ s h x ->
                  DescribeDocumentResponse' <$>
-                   (x .?> "Document") <*> (pure s))
+                   (x .?> "Document") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDocument where
         toHeaders
@@ -98,11 +98,11 @@ instance ToQuery DescribeDocument where
 -- * 'desStatus'
 data DescribeDocumentResponse = DescribeDocumentResponse'
     { _desDocument :: !(Maybe DocumentDescription)
-    , _desStatus   :: !Status
-    } deriving (Eq,Show)
+    , _desStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDocumentResponse' smart constructor.
-describeDocumentResponse :: Status -> DescribeDocumentResponse
+describeDocumentResponse :: Int -> DescribeDocumentResponse
 describeDocumentResponse pStatus =
     DescribeDocumentResponse'
     { _desDocument = Nothing
@@ -114,5 +114,5 @@ desDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
 desDocument = lens _desDocument (\ s a -> s{_desDocument = a});
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeDocumentResponse Status
+desStatus :: Lens' DescribeDocumentResponse Int
 desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

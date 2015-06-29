@@ -85,7 +85,7 @@ instance AWSRequest CreateAccessKey where
           = receiveXMLWrapper "CreateAccessKeyResult"
               (\ s h x ->
                  CreateAccessKeyResponse' <$>
-                   (pure s) <*> (x .@ "AccessKey"))
+                   (pure (fromEnum s)) <*> (x .@ "AccessKey"))
 
 instance ToHeaders CreateAccessKey where
         toHeaders = const mempty
@@ -110,12 +110,12 @@ instance ToQuery CreateAccessKey where
 --
 -- * 'cakrAccessKey'
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
-    { _cakrStatus    :: !Status
+    { _cakrStatus    :: !Int
     , _cakrAccessKey :: !AccessKey
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateAccessKeyResponse' smart constructor.
-createAccessKeyResponse :: Status -> AccessKey -> CreateAccessKeyResponse
+createAccessKeyResponse :: Int -> AccessKey -> CreateAccessKeyResponse
 createAccessKeyResponse pStatus pAccessKey =
     CreateAccessKeyResponse'
     { _cakrStatus = pStatus
@@ -123,7 +123,7 @@ createAccessKeyResponse pStatus pAccessKey =
     }
 
 -- | FIXME: Undocumented member.
-cakrStatus :: Lens' CreateAccessKeyResponse Status
+cakrStatus :: Lens' CreateAccessKeyResponse Int
 cakrStatus = lens _cakrStatus (\ s a -> s{_cakrStatus = a});
 
 -- | Information about the access key.

@@ -73,7 +73,7 @@ instance AWSRequest CheckDNSAvailability where
               (\ s h x ->
                  CheckDNSAvailabilityResponse' <$>
                    (x .@? "FullyQualifiedCNAME") <*> (x .@? "Available")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CheckDNSAvailability where
         toHeaders = const mempty
@@ -102,11 +102,11 @@ instance ToQuery CheckDNSAvailability where
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
     { _cdarFullyQualifiedCNAME :: !(Maybe Text)
     , _cdarAvailable           :: !(Maybe Bool)
-    , _cdarStatus              :: !Status
-    } deriving (Eq,Show)
+    , _cdarStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CheckDNSAvailabilityResponse' smart constructor.
-checkDNSAvailabilityResponse :: Status -> CheckDNSAvailabilityResponse
+checkDNSAvailabilityResponse :: Int -> CheckDNSAvailabilityResponse
 checkDNSAvailabilityResponse pStatus =
     CheckDNSAvailabilityResponse'
     { _cdarFullyQualifiedCNAME = Nothing
@@ -131,5 +131,5 @@ cdarAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
 cdarAvailable = lens _cdarAvailable (\ s a -> s{_cdarAvailable = a});
 
 -- | FIXME: Undocumented member.
-cdarStatus :: Lens' CheckDNSAvailabilityResponse Status
+cdarStatus :: Lens' CheckDNSAvailabilityResponse Int
 cdarStatus = lens _cdarStatus (\ s a -> s{_cdarStatus = a});

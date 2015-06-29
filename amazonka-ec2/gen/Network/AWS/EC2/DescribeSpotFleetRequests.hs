@@ -105,7 +105,7 @@ instance AWSRequest DescribeSpotFleetRequests where
           = receiveXML
               (\ s h x ->
                  DescribeSpotFleetRequestsResponse' <$>
-                   (x .@? "nextToken") <*> (pure s) <*>
+                   (x .@? "nextToken") <*> (pure (fromEnum s)) <*>
                      (parseXMLList "item" x))
 
 instance ToHeaders DescribeSpotFleetRequests where
@@ -139,12 +139,12 @@ instance ToQuery DescribeSpotFleetRequests where
 -- * 'dsfrrSpotFleetRequestConfigs'
 data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
     { _dsfrrNextToken               :: !(Maybe Text)
-    , _dsfrrStatus                  :: !Status
+    , _dsfrrStatus                  :: !Int
     , _dsfrrSpotFleetRequestConfigs :: ![SpotFleetRequestConfig]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotFleetRequestsResponse' smart constructor.
-describeSpotFleetRequestsResponse :: Status -> DescribeSpotFleetRequestsResponse
+describeSpotFleetRequestsResponse :: Int -> DescribeSpotFleetRequestsResponse
 describeSpotFleetRequestsResponse pStatus =
     DescribeSpotFleetRequestsResponse'
     { _dsfrrNextToken = Nothing
@@ -158,7 +158,7 @@ dsfrrNextToken :: Lens' DescribeSpotFleetRequestsResponse (Maybe Text)
 dsfrrNextToken = lens _dsfrrNextToken (\ s a -> s{_dsfrrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dsfrrStatus :: Lens' DescribeSpotFleetRequestsResponse Status
+dsfrrStatus :: Lens' DescribeSpotFleetRequestsResponse Int
 dsfrrStatus = lens _dsfrrStatus (\ s a -> s{_dsfrrStatus = a});
 
 -- | Information about the configuration of your Spot fleet.

@@ -111,7 +111,7 @@ instance AWSRequest ListGroups where
               (\ s h x ->
                  ListGroupsResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (pure s)
+                     (pure (fromEnum s))
                      <*>
                      (x .@? "Groups" .!@ mempty >>=
                         parseXMLList "member"))
@@ -146,12 +146,12 @@ instance ToQuery ListGroups where
 data ListGroupsResponse = ListGroupsResponse'
     { _lgrMarker      :: !(Maybe Text)
     , _lgrIsTruncated :: !(Maybe Bool)
-    , _lgrStatus      :: !Status
+    , _lgrStatus      :: !Int
     , _lgrGroups      :: ![Group]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGroupsResponse' smart constructor.
-listGroupsResponse :: Status -> ListGroupsResponse
+listGroupsResponse :: Int -> ListGroupsResponse
 listGroupsResponse pStatus =
     ListGroupsResponse'
     { _lgrMarker = Nothing
@@ -174,7 +174,7 @@ lgrIsTruncated :: Lens' ListGroupsResponse (Maybe Bool)
 lgrIsTruncated = lens _lgrIsTruncated (\ s a -> s{_lgrIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lgrStatus :: Lens' ListGroupsResponse Status
+lgrStatus :: Lens' ListGroupsResponse Int
 lgrStatus = lens _lgrStatus (\ s a -> s{_lgrStatus = a});
 
 -- | A list of groups.

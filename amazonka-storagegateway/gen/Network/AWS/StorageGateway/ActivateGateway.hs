@@ -168,7 +168,7 @@ instance AWSRequest ActivateGateway where
           = receiveJSON
               (\ s h x ->
                  ActivateGatewayResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure s))
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders ActivateGateway where
         toHeaders
@@ -211,11 +211,11 @@ instance ToQuery ActivateGateway where
 -- * 'agrStatus'
 data ActivateGatewayResponse = ActivateGatewayResponse'
     { _agrGatewayARN :: !(Maybe Text)
-    , _agrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _agrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ActivateGatewayResponse' smart constructor.
-activateGatewayResponse :: Status -> ActivateGatewayResponse
+activateGatewayResponse :: Int -> ActivateGatewayResponse
 activateGatewayResponse pStatus =
     ActivateGatewayResponse'
     { _agrGatewayARN = Nothing
@@ -227,5 +227,5 @@ agrGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
 agrGatewayARN = lens _agrGatewayARN (\ s a -> s{_agrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-agrStatus :: Lens' ActivateGatewayResponse Status
+agrStatus :: Lens' ActivateGatewayResponse Int
 agrStatus = lens _agrStatus (\ s a -> s{_agrStatus = a});

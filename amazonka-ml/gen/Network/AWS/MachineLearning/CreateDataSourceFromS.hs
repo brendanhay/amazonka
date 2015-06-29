@@ -148,7 +148,7 @@ instance AWSRequest CreateDataSourceFromS where
           = receiveJSON
               (\ s h x ->
                  CreateDataSourceFromSResponse' <$>
-                   (x .?> "DataSourceId") <*> (pure s))
+                   (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDataSourceFromS where
         toHeaders
@@ -190,11 +190,11 @@ instance ToQuery CreateDataSourceFromS where
 -- * 'cdsfsrStatus'
 data CreateDataSourceFromSResponse = CreateDataSourceFromSResponse'
     { _cdsfsrDataSourceId :: !(Maybe Text)
-    , _cdsfsrStatus       :: !Status
-    } deriving (Eq,Show)
+    , _cdsfsrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDataSourceFromSResponse' smart constructor.
-createDataSourceFromSResponse :: Status -> CreateDataSourceFromSResponse
+createDataSourceFromSResponse :: Int -> CreateDataSourceFromSResponse
 createDataSourceFromSResponse pStatus =
     CreateDataSourceFromSResponse'
     { _cdsfsrDataSourceId = Nothing
@@ -207,5 +207,5 @@ cdsfsrDataSourceId :: Lens' CreateDataSourceFromSResponse (Maybe Text)
 cdsfsrDataSourceId = lens _cdsfsrDataSourceId (\ s a -> s{_cdsfsrDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-cdsfsrStatus :: Lens' CreateDataSourceFromSResponse Status
+cdsfsrStatus :: Lens' CreateDataSourceFromSResponse Int
 cdsfsrStatus = lens _cdsfsrStatus (\ s a -> s{_cdsfsrStatus = a});

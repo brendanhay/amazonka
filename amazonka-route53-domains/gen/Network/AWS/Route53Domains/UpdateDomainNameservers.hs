@@ -113,7 +113,7 @@ instance AWSRequest UpdateDomainNameservers where
           = receiveJSON
               (\ s h x ->
                  UpdateDomainNameserversResponse' <$>
-                   (pure s) <*> (x .:> "OperationId"))
+                   (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
 instance ToHeaders UpdateDomainNameservers where
         toHeaders
@@ -148,12 +148,12 @@ instance ToQuery UpdateDomainNameservers where
 --
 -- * 'udnrOperationId'
 data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
-    { _udnrStatus      :: !Status
+    { _udnrStatus      :: !Int
     , _udnrOperationId :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDomainNameserversResponse' smart constructor.
-updateDomainNameserversResponse :: Status -> Text -> UpdateDomainNameserversResponse
+updateDomainNameserversResponse :: Int -> Text -> UpdateDomainNameserversResponse
 updateDomainNameserversResponse pStatus pOperationId =
     UpdateDomainNameserversResponse'
     { _udnrStatus = pStatus
@@ -161,7 +161,7 @@ updateDomainNameserversResponse pStatus pOperationId =
     }
 
 -- | FIXME: Undocumented member.
-udnrStatus :: Lens' UpdateDomainNameserversResponse Status
+udnrStatus :: Lens' UpdateDomainNameserversResponse Int
 udnrStatus = lens _udnrStatus (\ s a -> s{_udnrStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to

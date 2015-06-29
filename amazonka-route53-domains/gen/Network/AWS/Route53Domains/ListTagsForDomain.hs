@@ -74,7 +74,7 @@ instance AWSRequest ListTagsForDomain where
           = receiveJSON
               (\ s h x ->
                  ListTagsForDomainResponse' <$>
-                   (pure s) <*> (x .?> "TagList" .!@ mempty))
+                   (pure (fromEnum s)) <*> (x .?> "TagList" .!@ mempty))
 
 instance ToHeaders ListTagsForDomain where
         toHeaders
@@ -106,12 +106,12 @@ instance ToQuery ListTagsForDomain where
 --
 -- * 'ltfdrTagList'
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
-    { _ltfdrStatus  :: !Status
+    { _ltfdrStatus  :: !Int
     , _ltfdrTagList :: ![Tag]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForDomainResponse' smart constructor.
-listTagsForDomainResponse :: Status -> ListTagsForDomainResponse
+listTagsForDomainResponse :: Int -> ListTagsForDomainResponse
 listTagsForDomainResponse pStatus =
     ListTagsForDomainResponse'
     { _ltfdrStatus = pStatus
@@ -119,7 +119,7 @@ listTagsForDomainResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-ltfdrStatus :: Lens' ListTagsForDomainResponse Status
+ltfdrStatus :: Lens' ListTagsForDomainResponse Int
 ltfdrStatus = lens _ltfdrStatus (\ s a -> s{_ltfdrStatus = a});
 
 -- | A list of the tags that are associated with the specified domain.

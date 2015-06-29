@@ -98,7 +98,7 @@ instance AWSRequest DescribeAutoScalingGroups where
           = receiveXMLWrapper "DescribeAutoScalingGroupsResult"
               (\ s h x ->
                  DescribeAutoScalingGroupsResponse' <$>
-                   (x .@? "NextToken") <*> (pure s) <*>
+                   (x .@? "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .@? "AutoScalingGroups" .!@ mempty >>=
                         parseXMLList "member"))
 
@@ -132,12 +132,12 @@ instance ToQuery DescribeAutoScalingGroups where
 -- * 'dasgrAutoScalingGroups'
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
     { _dasgrNextToken         :: !(Maybe Text)
-    , _dasgrStatus            :: !Status
+    , _dasgrStatus            :: !Int
     , _dasgrAutoScalingGroups :: ![AutoScalingGroup]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAutoScalingGroupsResponse' smart constructor.
-describeAutoScalingGroupsResponse :: Status -> DescribeAutoScalingGroupsResponse
+describeAutoScalingGroupsResponse :: Int -> DescribeAutoScalingGroupsResponse
 describeAutoScalingGroupsResponse pStatus =
     DescribeAutoScalingGroupsResponse'
     { _dasgrNextToken = Nothing
@@ -151,7 +151,7 @@ dasgrNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
 dasgrNextToken = lens _dasgrNextToken (\ s a -> s{_dasgrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dasgrStatus :: Lens' DescribeAutoScalingGroupsResponse Status
+dasgrStatus :: Lens' DescribeAutoScalingGroupsResponse Int
 dasgrStatus = lens _dasgrStatus (\ s a -> s{_dasgrStatus = a});
 
 -- | The groups.

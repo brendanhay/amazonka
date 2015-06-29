@@ -76,7 +76,8 @@ instance AWSRequest DescribeChapCredentials where
           = receiveJSON
               (\ s h x ->
                  DescribeChapCredentialsResponse' <$>
-                   (x .?> "ChapCredentials" .!@ mempty) <*> (pure s))
+                   (x .?> "ChapCredentials" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeChapCredentials where
         toHeaders
@@ -109,11 +110,11 @@ instance ToQuery DescribeChapCredentials where
 -- * 'dccrStatus'
 data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'
     { _dccrChapCredentials :: !(Maybe [ChapInfo])
-    , _dccrStatus          :: !Status
-    } deriving (Eq,Show)
+    , _dccrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeChapCredentialsResponse' smart constructor.
-describeChapCredentialsResponse :: Status -> DescribeChapCredentialsResponse
+describeChapCredentialsResponse :: Int -> DescribeChapCredentialsResponse
 describeChapCredentialsResponse pStatus =
     DescribeChapCredentialsResponse'
     { _dccrChapCredentials = Nothing
@@ -142,5 +143,5 @@ dccrChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
 dccrChapCredentials = lens _dccrChapCredentials (\ s a -> s{_dccrChapCredentials = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dccrStatus :: Lens' DescribeChapCredentialsResponse Status
+dccrStatus :: Lens' DescribeChapCredentialsResponse Int
 dccrStatus = lens _dccrStatus (\ s a -> s{_dccrStatus = a});

@@ -100,7 +100,7 @@ instance AWSRequest DescribeMountTargets where
                    (x .?> "MountTargets" .!@ mempty) <*>
                      (x .?> "Marker")
                      <*> (x .?> "NextMarker")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeMountTargets where
         toHeaders = const mempty
@@ -129,11 +129,11 @@ data DescribeMountTargetsResponse = DescribeMountTargetsResponse'
     { _dmtrMountTargets :: !(Maybe [MountTargetDescription])
     , _dmtrMarker       :: !(Maybe Text)
     , _dmtrNextMarker   :: !(Maybe Text)
-    , _dmtrStatus       :: !Status
-    } deriving (Eq,Show)
+    , _dmtrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMountTargetsResponse' smart constructor.
-describeMountTargetsResponse :: Status -> DescribeMountTargetsResponse
+describeMountTargetsResponse :: Int -> DescribeMountTargetsResponse
 describeMountTargetsResponse pStatus =
     DescribeMountTargetsResponse'
     { _dmtrMountTargets = Nothing
@@ -159,5 +159,5 @@ dmtrNextMarker :: Lens' DescribeMountTargetsResponse (Maybe Text)
 dmtrNextMarker = lens _dmtrNextMarker (\ s a -> s{_dmtrNextMarker = a});
 
 -- | FIXME: Undocumented member.
-dmtrStatus :: Lens' DescribeMountTargetsResponse Status
+dmtrStatus :: Lens' DescribeMountTargetsResponse Int
 dmtrStatus = lens _dmtrStatus (\ s a -> s{_dmtrStatus = a});

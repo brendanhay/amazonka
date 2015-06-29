@@ -198,7 +198,7 @@ instance AWSRequest RegisterImage where
           = receiveXML
               (\ s h x ->
                  RegisterImageResponse' <$>
-                   (x .@? "imageId") <*> (pure s))
+                   (x .@? "imageId") <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterImage where
         toHeaders = const mempty
@@ -233,11 +233,11 @@ instance ToQuery RegisterImage where
 -- * 'rirStatus'
 data RegisterImageResponse = RegisterImageResponse'
     { _rirImageId :: !(Maybe Text)
-    , _rirStatus  :: !Status
-    } deriving (Eq,Show)
+    , _rirStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterImageResponse' smart constructor.
-registerImageResponse :: Status -> RegisterImageResponse
+registerImageResponse :: Int -> RegisterImageResponse
 registerImageResponse pStatus =
     RegisterImageResponse'
     { _rirImageId = Nothing
@@ -249,5 +249,5 @@ rirImageId :: Lens' RegisterImageResponse (Maybe Text)
 rirImageId = lens _rirImageId (\ s a -> s{_rirImageId = a});
 
 -- | FIXME: Undocumented member.
-rirStatus :: Lens' RegisterImageResponse Status
+rirStatus :: Lens' RegisterImageResponse Int
 rirStatus = lens _rirStatus (\ s a -> s{_rirStatus = a});

@@ -137,7 +137,7 @@ instance AWSRequest CreateService where
           = receiveJSON
               (\ s h x ->
                  CreateServiceResponse' <$>
-                   (x .?> "service") <*> (pure s))
+                   (x .?> "service") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateService where
         toHeaders
@@ -174,11 +174,11 @@ instance ToQuery CreateService where
 -- * 'csrStatus'
 data CreateServiceResponse = CreateServiceResponse'
     { _csrService :: !(Maybe ContainerService)
-    , _csrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _csrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateServiceResponse' smart constructor.
-createServiceResponse :: Status -> CreateServiceResponse
+createServiceResponse :: Int -> CreateServiceResponse
 createServiceResponse pStatus =
     CreateServiceResponse'
     { _csrService = Nothing
@@ -190,5 +190,5 @@ csrService :: Lens' CreateServiceResponse (Maybe ContainerService)
 csrService = lens _csrService (\ s a -> s{_csrService = a});
 
 -- | FIXME: Undocumented member.
-csrStatus :: Lens' CreateServiceResponse Status
+csrStatus :: Lens' CreateServiceResponse Int
 csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});

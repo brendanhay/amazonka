@@ -95,7 +95,8 @@ instance AWSRequest EnableSso where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> EnableSsoResponse' <$> (pure s))
+              (\ s h x ->
+                 EnableSsoResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders EnableSso where
         toHeaders
@@ -128,16 +129,16 @@ instance ToQuery EnableSso where
 --
 -- * 'esrStatus'
 newtype EnableSsoResponse = EnableSsoResponse'
-    { _esrStatus :: Status
-    } deriving (Eq,Show)
+    { _esrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableSsoResponse' smart constructor.
-enableSsoResponse :: Status -> EnableSsoResponse
+enableSsoResponse :: Int -> EnableSsoResponse
 enableSsoResponse pStatus =
     EnableSsoResponse'
     { _esrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-esrStatus :: Lens' EnableSsoResponse Status
+esrStatus :: Lens' EnableSsoResponse Int
 esrStatus = lens _esrStatus (\ s a -> s{_esrStatus = a});

@@ -80,7 +80,7 @@ instance AWSRequest ResetCache where
           = receiveJSON
               (\ s h x ->
                  ResetCacheResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure s))
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders ResetCache where
         toHeaders
@@ -110,11 +110,11 @@ instance ToQuery ResetCache where
 -- * 'rcrStatus'
 data ResetCacheResponse = ResetCacheResponse'
     { _rcrGatewayARN :: !(Maybe Text)
-    , _rcrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _rcrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ResetCacheResponse' smart constructor.
-resetCacheResponse :: Status -> ResetCacheResponse
+resetCacheResponse :: Int -> ResetCacheResponse
 resetCacheResponse pStatus =
     ResetCacheResponse'
     { _rcrGatewayARN = Nothing
@@ -126,5 +126,5 @@ rcrGatewayARN :: Lens' ResetCacheResponse (Maybe Text)
 rcrGatewayARN = lens _rcrGatewayARN (\ s a -> s{_rcrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-rcrStatus :: Lens' ResetCacheResponse Status
+rcrStatus :: Lens' ResetCacheResponse Int
 rcrStatus = lens _rcrStatus (\ s a -> s{_rcrStatus = a});

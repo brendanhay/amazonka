@@ -70,7 +70,7 @@ instance AWSRequest GetLoginProfile where
           = receiveXMLWrapper "GetLoginProfileResult"
               (\ s h x ->
                  GetLoginProfileResponse' <$>
-                   (pure s) <*> (x .@ "LoginProfile"))
+                   (pure (fromEnum s)) <*> (x .@ "LoginProfile"))
 
 instance ToHeaders GetLoginProfile where
         toHeaders = const mempty
@@ -95,12 +95,12 @@ instance ToQuery GetLoginProfile where
 --
 -- * 'glprLoginProfile'
 data GetLoginProfileResponse = GetLoginProfileResponse'
-    { _glprStatus       :: !Status
+    { _glprStatus       :: !Int
     , _glprLoginProfile :: !LoginProfile
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetLoginProfileResponse' smart constructor.
-getLoginProfileResponse :: Status -> LoginProfile -> GetLoginProfileResponse
+getLoginProfileResponse :: Int -> LoginProfile -> GetLoginProfileResponse
 getLoginProfileResponse pStatus pLoginProfile =
     GetLoginProfileResponse'
     { _glprStatus = pStatus
@@ -108,7 +108,7 @@ getLoginProfileResponse pStatus pLoginProfile =
     }
 
 -- | FIXME: Undocumented member.
-glprStatus :: Lens' GetLoginProfileResponse Status
+glprStatus :: Lens' GetLoginProfileResponse Int
 glprStatus = lens _glprStatus (\ s a -> s{_glprStatus = a});
 
 -- | The user name and password create date for the user.

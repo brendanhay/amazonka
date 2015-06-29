@@ -164,7 +164,7 @@ instance AWSRequest PutRecord where
           = receiveJSON
               (\ s h x ->
                  PutRecordResponse' <$>
-                   (pure s) <*> (x .:> "ShardId") <*>
+                   (pure (fromEnum s)) <*> (x .:> "ShardId") <*>
                      (x .:> "SequenceNumber"))
 
 instance ToHeaders PutRecord where
@@ -203,13 +203,13 @@ instance ToQuery PutRecord where
 --
 -- * 'prrSequenceNumber'
 data PutRecordResponse = PutRecordResponse'
-    { _prrStatus         :: !Status
+    { _prrStatus         :: !Int
     , _prrShardId        :: !Text
     , _prrSequenceNumber :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'PutRecordResponse' smart constructor.
-putRecordResponse :: Status -> Text -> Text -> PutRecordResponse
+putRecordResponse :: Int -> Text -> Text -> PutRecordResponse
 putRecordResponse pStatus pShardId pSequenceNumber =
     PutRecordResponse'
     { _prrStatus = pStatus
@@ -218,7 +218,7 @@ putRecordResponse pStatus pShardId pSequenceNumber =
     }
 
 -- | FIXME: Undocumented member.
-prrStatus :: Lens' PutRecordResponse Status
+prrStatus :: Lens' PutRecordResponse Int
 prrStatus = lens _prrStatus (\ s a -> s{_prrStatus = a});
 
 -- | The shard ID of the shard where the data record was placed.

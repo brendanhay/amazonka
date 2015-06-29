@@ -63,7 +63,7 @@ instance AWSRequest GetSendStatistics where
                  GetSendStatisticsResponse' <$>
                    (x .@? "SendDataPoints" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetSendStatistics where
         toHeaders = const mempty
@@ -91,11 +91,11 @@ instance ToQuery GetSendStatistics where
 -- * 'gssrStatus'
 data GetSendStatisticsResponse = GetSendStatisticsResponse'
     { _gssrSendDataPoints :: !(Maybe [SendDataPoint])
-    , _gssrStatus         :: !Status
-    } deriving (Eq,Show)
+    , _gssrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetSendStatisticsResponse' smart constructor.
-getSendStatisticsResponse :: Status -> GetSendStatisticsResponse
+getSendStatisticsResponse :: Int -> GetSendStatisticsResponse
 getSendStatisticsResponse pStatus =
     GetSendStatisticsResponse'
     { _gssrSendDataPoints = Nothing
@@ -107,5 +107,5 @@ gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrSendDataPoints = lens _gssrSendDataPoints (\ s a -> s{_gssrSendDataPoints = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gssrStatus :: Lens' GetSendStatisticsResponse Status
+gssrStatus :: Lens' GetSendStatisticsResponse Int
 gssrStatus = lens _gssrStatus (\ s a -> s{_gssrStatus = a});

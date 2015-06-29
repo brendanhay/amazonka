@@ -149,7 +149,7 @@ instance AWSRequest DescribeCacheEngineVersions where
                    (x .@? "CacheEngineVersions" .!@ mempty >>=
                       may (parseXMLList "CacheEngineVersion"))
                      <*> (x .@? "Marker")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeCacheEngineVersions where
         toHeaders = const mempty
@@ -185,11 +185,11 @@ instance ToQuery DescribeCacheEngineVersions where
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'
     { _dcevrCacheEngineVersions :: !(Maybe [CacheEngineVersion])
     , _dcevrMarker              :: !(Maybe Text)
-    , _dcevrStatus              :: !Status
-    } deriving (Eq,Show)
+    , _dcevrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheEngineVersionsResponse' smart constructor.
-describeCacheEngineVersionsResponse :: Status -> DescribeCacheEngineVersionsResponse
+describeCacheEngineVersionsResponse :: Int -> DescribeCacheEngineVersionsResponse
 describeCacheEngineVersionsResponse pStatus =
     DescribeCacheEngineVersionsResponse'
     { _dcevrCacheEngineVersions = Nothing
@@ -207,5 +207,5 @@ dcevrMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
 dcevrMarker = lens _dcevrMarker (\ s a -> s{_dcevrMarker = a});
 
 -- | FIXME: Undocumented member.
-dcevrStatus :: Lens' DescribeCacheEngineVersionsResponse Status
+dcevrStatus :: Lens' DescribeCacheEngineVersionsResponse Int
 dcevrStatus = lens _dcevrStatus (\ s a -> s{_dcevrStatus = a});

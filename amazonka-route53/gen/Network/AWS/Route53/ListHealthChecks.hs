@@ -112,7 +112,7 @@ instance AWSRequest ListHealthChecks where
           = receiveXML
               (\ s h x ->
                  ListHealthChecksResponse' <$>
-                   (x .@? "NextMarker") <*> (pure s) <*>
+                   (x .@? "NextMarker") <*> (pure (fromEnum s)) <*>
                      (x .@? "HealthChecks" .!@ mempty >>=
                         parseXMLList "HealthCheck")
                      <*> (x .@ "Marker")
@@ -149,15 +149,15 @@ instance ToQuery ListHealthChecks where
 -- * 'lhcrMaxItems'
 data ListHealthChecksResponse = ListHealthChecksResponse'
     { _lhcrNextMarker   :: !(Maybe Text)
-    , _lhcrStatus       :: !Status
+    , _lhcrStatus       :: !Int
     , _lhcrHealthChecks :: ![HealthCheck]
     , _lhcrMarker       :: !Text
     , _lhcrIsTruncated  :: !Bool
     , _lhcrMaxItems     :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListHealthChecksResponse' smart constructor.
-listHealthChecksResponse :: Status -> Text -> Bool -> Text -> ListHealthChecksResponse
+listHealthChecksResponse :: Int -> Text -> Bool -> Text -> ListHealthChecksResponse
 listHealthChecksResponse pStatus pMarker pIsTruncated pMaxItems =
     ListHealthChecksResponse'
     { _lhcrNextMarker = Nothing
@@ -176,7 +176,7 @@ lhcrNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
 lhcrNextMarker = lens _lhcrNextMarker (\ s a -> s{_lhcrNextMarker = a});
 
 -- | FIXME: Undocumented member.
-lhcrStatus :: Lens' ListHealthChecksResponse Status
+lhcrStatus :: Lens' ListHealthChecksResponse Int
 lhcrStatus = lens _lhcrStatus (\ s a -> s{_lhcrStatus = a});
 
 -- | A complex type that contains information about the health checks

@@ -69,7 +69,8 @@ instance AWSRequest GetBucketLifecycle where
           = receiveXML
               (\ s h x ->
                  GetBucketLifecycleResponse' <$>
-                   (may (parseXMLList "Rule") x) <*> (pure s))
+                   (may (parseXMLList "Rule") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetBucketLifecycle where
         toHeaders = const mempty
@@ -90,11 +91,11 @@ instance ToQuery GetBucketLifecycle where
 -- * 'gblrStatus'
 data GetBucketLifecycleResponse = GetBucketLifecycleResponse'
     { _gblrRules  :: !(Maybe [Rule])
-    , _gblrStatus :: !Status
-    } deriving (Eq,Show)
+    , _gblrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketLifecycleResponse' smart constructor.
-getBucketLifecycleResponse :: Status -> GetBucketLifecycleResponse
+getBucketLifecycleResponse :: Int -> GetBucketLifecycleResponse
 getBucketLifecycleResponse pStatus =
     GetBucketLifecycleResponse'
     { _gblrRules = Nothing
@@ -106,5 +107,5 @@ gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
 gblrRules = lens _gblrRules (\ s a -> s{_gblrRules = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gblrStatus :: Lens' GetBucketLifecycleResponse Status
+gblrStatus :: Lens' GetBucketLifecycleResponse Int
 gblrStatus = lens _gblrStatus (\ s a -> s{_gblrStatus = a});

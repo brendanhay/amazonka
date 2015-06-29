@@ -90,7 +90,7 @@ instance AWSRequest DescribeLoadBalancerPolicies
                  DescribeLoadBalancerPoliciesResponse' <$>
                    (x .@? "PolicyDescriptions" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeLoadBalancerPolicies where
         toHeaders = const mempty
@@ -117,11 +117,11 @@ instance ToQuery DescribeLoadBalancerPolicies where
 -- * 'dlbprStatus'
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'
     { _dlbprPolicyDescriptions :: !(Maybe [PolicyDescription])
-    , _dlbprStatus             :: !Status
-    } deriving (Eq,Show)
+    , _dlbprStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancerPoliciesResponse' smart constructor.
-describeLoadBalancerPoliciesResponse :: Status -> DescribeLoadBalancerPoliciesResponse
+describeLoadBalancerPoliciesResponse :: Int -> DescribeLoadBalancerPoliciesResponse
 describeLoadBalancerPoliciesResponse pStatus =
     DescribeLoadBalancerPoliciesResponse'
     { _dlbprPolicyDescriptions = Nothing
@@ -133,5 +133,5 @@ dlbprPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDes
 dlbprPolicyDescriptions = lens _dlbprPolicyDescriptions (\ s a -> s{_dlbprPolicyDescriptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlbprStatus :: Lens' DescribeLoadBalancerPoliciesResponse Status
+dlbprStatus :: Lens' DescribeLoadBalancerPoliciesResponse Int
 dlbprStatus = lens _dlbprStatus (\ s a -> s{_dlbprStatus = a});

@@ -86,7 +86,7 @@ instance AWSRequest VerifyDomainDkim where
           = receiveXMLWrapper "VerifyDomainDkimResult"
               (\ s h x ->
                  VerifyDomainDkimResponse' <$>
-                   (pure s) <*>
+                   (pure (fromEnum s)) <*>
                      (x .@? "DkimTokens" .!@ mempty >>=
                         parseXMLList "member"))
 
@@ -114,12 +114,12 @@ instance ToQuery VerifyDomainDkim where
 --
 -- * 'vddrDkimTokens'
 data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
-    { _vddrStatus     :: !Status
+    { _vddrStatus     :: !Int
     , _vddrDkimTokens :: ![Text]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'VerifyDomainDkimResponse' smart constructor.
-verifyDomainDkimResponse :: Status -> VerifyDomainDkimResponse
+verifyDomainDkimResponse :: Int -> VerifyDomainDkimResponse
 verifyDomainDkimResponse pStatus =
     VerifyDomainDkimResponse'
     { _vddrStatus = pStatus
@@ -127,7 +127,7 @@ verifyDomainDkimResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-vddrStatus :: Lens' VerifyDomainDkimResponse Status
+vddrStatus :: Lens' VerifyDomainDkimResponse Int
 vddrStatus = lens _vddrStatus (\ s a -> s{_vddrStatus = a});
 
 -- | A set of character strings that represent the domain\'s identity. If the

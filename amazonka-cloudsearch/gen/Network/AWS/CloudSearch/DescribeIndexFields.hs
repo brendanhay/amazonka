@@ -101,7 +101,7 @@ instance AWSRequest DescribeIndexFields where
           = receiveXMLWrapper "DescribeIndexFieldsResult"
               (\ s h x ->
                  DescribeIndexFieldsResponse' <$>
-                   (pure s) <*>
+                   (pure (fromEnum s)) <*>
                      (x .@? "IndexFields" .!@ mempty >>=
                         parseXMLList "member"))
 
@@ -132,12 +132,12 @@ instance ToQuery DescribeIndexFields where
 --
 -- * 'difr1IndexFields'
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
-    { _difr1Status      :: !Status
+    { _difr1Status      :: !Int
     , _difr1IndexFields :: ![IndexFieldStatus]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeIndexFieldsResponse' smart constructor.
-describeIndexFieldsResponse :: Status -> DescribeIndexFieldsResponse
+describeIndexFieldsResponse :: Int -> DescribeIndexFieldsResponse
 describeIndexFieldsResponse pStatus =
     DescribeIndexFieldsResponse'
     { _difr1Status = pStatus
@@ -145,7 +145,7 @@ describeIndexFieldsResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-difr1Status :: Lens' DescribeIndexFieldsResponse Status
+difr1Status :: Lens' DescribeIndexFieldsResponse Int
 difr1Status = lens _difr1Status (\ s a -> s{_difr1Status = a});
 
 -- | The index fields configured for the domain.

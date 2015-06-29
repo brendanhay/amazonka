@@ -69,7 +69,7 @@ instance AWSRequest GetBucketLogging where
           = receiveXML
               (\ s h x ->
                  GetBucketLoggingResponse' <$>
-                   (x .@? "LoggingEnabled") <*> (pure s))
+                   (x .@? "LoggingEnabled") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetBucketLogging where
         toHeaders = const mempty
@@ -90,11 +90,11 @@ instance ToQuery GetBucketLogging where
 -- * 'getStatus'
 data GetBucketLoggingResponse = GetBucketLoggingResponse'
     { _getLoggingEnabled :: !(Maybe LoggingEnabled)
-    , _getStatus         :: !Status
-    } deriving (Eq,Show)
+    , _getStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketLoggingResponse' smart constructor.
-getBucketLoggingResponse :: Status -> GetBucketLoggingResponse
+getBucketLoggingResponse :: Int -> GetBucketLoggingResponse
 getBucketLoggingResponse pStatus =
     GetBucketLoggingResponse'
     { _getLoggingEnabled = Nothing
@@ -106,5 +106,5 @@ getLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
 getLoggingEnabled = lens _getLoggingEnabled (\ s a -> s{_getLoggingEnabled = a});
 
 -- | FIXME: Undocumented member.
-getStatus :: Lens' GetBucketLoggingResponse Status
+getStatus :: Lens' GetBucketLoggingResponse Int
 getStatus = lens _getStatus (\ s a -> s{_getStatus = a});

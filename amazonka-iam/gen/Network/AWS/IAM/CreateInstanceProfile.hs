@@ -90,7 +90,7 @@ instance AWSRequest CreateInstanceProfile where
           = receiveXMLWrapper "CreateInstanceProfileResult"
               (\ s h x ->
                  CreateInstanceProfileResponse' <$>
-                   (pure s) <*> (x .@ "InstanceProfile"))
+                   (pure (fromEnum s)) <*> (x .@ "InstanceProfile"))
 
 instance ToHeaders CreateInstanceProfile where
         toHeaders = const mempty
@@ -116,12 +116,12 @@ instance ToQuery CreateInstanceProfile where
 --
 -- * 'ciprInstanceProfile'
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
-    { _ciprStatus          :: !Status
+    { _ciprStatus          :: !Int
     , _ciprInstanceProfile :: !InstanceProfile
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateInstanceProfileResponse' smart constructor.
-createInstanceProfileResponse :: Status -> InstanceProfile -> CreateInstanceProfileResponse
+createInstanceProfileResponse :: Int -> InstanceProfile -> CreateInstanceProfileResponse
 createInstanceProfileResponse pStatus pInstanceProfile =
     CreateInstanceProfileResponse'
     { _ciprStatus = pStatus
@@ -129,7 +129,7 @@ createInstanceProfileResponse pStatus pInstanceProfile =
     }
 
 -- | FIXME: Undocumented member.
-ciprStatus :: Lens' CreateInstanceProfileResponse Status
+ciprStatus :: Lens' CreateInstanceProfileResponse Int
 ciprStatus = lens _ciprStatus (\ s a -> s{_ciprStatus = a});
 
 -- | Information about the instance profile.

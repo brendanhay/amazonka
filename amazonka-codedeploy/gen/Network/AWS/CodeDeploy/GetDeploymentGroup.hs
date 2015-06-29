@@ -81,7 +81,8 @@ instance AWSRequest GetDeploymentGroup where
           = receiveJSON
               (\ s h x ->
                  GetDeploymentGroupResponse' <$>
-                   (x .?> "deploymentGroupInfo") <*> (pure s))
+                   (x .?> "deploymentGroupInfo") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetDeploymentGroup where
         toHeaders
@@ -116,11 +117,11 @@ instance ToQuery GetDeploymentGroup where
 -- * 'gdgrStatus'
 data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
     { _gdgrDeploymentGroupInfo :: !(Maybe DeploymentGroupInfo)
-    , _gdgrStatus              :: !Status
-    } deriving (Eq,Show)
+    , _gdgrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDeploymentGroupResponse' smart constructor.
-getDeploymentGroupResponse :: Status -> GetDeploymentGroupResponse
+getDeploymentGroupResponse :: Int -> GetDeploymentGroupResponse
 getDeploymentGroupResponse pStatus =
     GetDeploymentGroupResponse'
     { _gdgrDeploymentGroupInfo = Nothing
@@ -132,5 +133,5 @@ gdgrDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGro
 gdgrDeploymentGroupInfo = lens _gdgrDeploymentGroupInfo (\ s a -> s{_gdgrDeploymentGroupInfo = a});
 
 -- | FIXME: Undocumented member.
-gdgrStatus :: Lens' GetDeploymentGroupResponse Status
+gdgrStatus :: Lens' GetDeploymentGroupResponse Int
 gdgrStatus = lens _gdgrStatus (\ s a -> s{_gdgrStatus = a});

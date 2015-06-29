@@ -106,7 +106,7 @@ instance AWSRequest DescribeActivityType where
           = receiveJSON
               (\ s h x ->
                  DescribeActivityTypeResponse' <$>
-                   (pure s) <*> (x .:> "typeInfo") <*>
+                   (pure (fromEnum s)) <*> (x .:> "typeInfo") <*>
                      (x .:> "configuration"))
 
 instance ToHeaders DescribeActivityType where
@@ -143,13 +143,13 @@ instance ToQuery DescribeActivityType where
 --
 -- * 'datrConfiguration'
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
-    { _datrStatus        :: !Status
+    { _datrStatus        :: !Int
     , _datrTypeInfo      :: !ActivityTypeInfo
     , _datrConfiguration :: !ActivityTypeConfiguration
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeActivityTypeResponse' smart constructor.
-describeActivityTypeResponse :: Status -> ActivityTypeInfo -> ActivityTypeConfiguration -> DescribeActivityTypeResponse
+describeActivityTypeResponse :: Int -> ActivityTypeInfo -> ActivityTypeConfiguration -> DescribeActivityTypeResponse
 describeActivityTypeResponse pStatus pTypeInfo pConfiguration =
     DescribeActivityTypeResponse'
     { _datrStatus = pStatus
@@ -158,7 +158,7 @@ describeActivityTypeResponse pStatus pTypeInfo pConfiguration =
     }
 
 -- | FIXME: Undocumented member.
-datrStatus :: Lens' DescribeActivityTypeResponse Status
+datrStatus :: Lens' DescribeActivityTypeResponse Int
 datrStatus = lens _datrStatus (\ s a -> s{_datrStatus = a});
 
 -- | General information about the activity type.

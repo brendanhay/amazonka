@@ -71,7 +71,8 @@ instance AWSRequest DeletePipeline where
         request = delete
         response
           = receiveJSON
-              (\ s h x -> DeletePipelineResponse' <$> (pure s))
+              (\ s h x ->
+                 DeletePipelineResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeletePipeline where
         toHeaders = const mempty
@@ -91,16 +92,16 @@ instance ToQuery DeletePipeline where
 --
 -- * 'delStatus'
 newtype DeletePipelineResponse = DeletePipelineResponse'
-    { _delStatus :: Status
-    } deriving (Eq,Show)
+    { _delStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeletePipelineResponse' smart constructor.
-deletePipelineResponse :: Status -> DeletePipelineResponse
+deletePipelineResponse :: Int -> DeletePipelineResponse
 deletePipelineResponse pStatus =
     DeletePipelineResponse'
     { _delStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeletePipelineResponse Status
+delStatus :: Lens' DeletePipelineResponse Int
 delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

@@ -85,7 +85,8 @@ instance AWSRequest AcceptVPCPeeringConnection where
           = receiveXML
               (\ s h x ->
                  AcceptVPCPeeringConnectionResponse' <$>
-                   (x .@? "vpcPeeringConnection") <*> (pure s))
+                   (x .@? "vpcPeeringConnection") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders AcceptVPCPeeringConnection where
         toHeaders = const mempty
@@ -112,11 +113,11 @@ instance ToQuery AcceptVPCPeeringConnection where
 -- * 'avpcrStatus'
 data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'
     { _avpcrVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
-    , _avpcrStatus               :: !Status
-    } deriving (Eq,Show)
+    , _avpcrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AcceptVPCPeeringConnectionResponse' smart constructor.
-acceptVPCPeeringConnectionResponse :: Status -> AcceptVPCPeeringConnectionResponse
+acceptVPCPeeringConnectionResponse :: Int -> AcceptVPCPeeringConnectionResponse
 acceptVPCPeeringConnectionResponse pStatus =
     AcceptVPCPeeringConnectionResponse'
     { _avpcrVPCPeeringConnection = Nothing
@@ -128,5 +129,5 @@ avpcrVPCPeeringConnection :: Lens' AcceptVPCPeeringConnectionResponse (Maybe VPC
 avpcrVPCPeeringConnection = lens _avpcrVPCPeeringConnection (\ s a -> s{_avpcrVPCPeeringConnection = a});
 
 -- | FIXME: Undocumented member.
-avpcrStatus :: Lens' AcceptVPCPeeringConnectionResponse Status
+avpcrStatus :: Lens' AcceptVPCPeeringConnectionResponse Int
 avpcrStatus = lens _avpcrStatus (\ s a -> s{_avpcrStatus = a});

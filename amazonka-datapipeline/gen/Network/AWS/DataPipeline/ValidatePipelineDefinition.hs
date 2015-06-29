@@ -104,7 +104,7 @@ instance AWSRequest ValidatePipelineDefinition where
                  ValidatePipelineDefinitionResponse' <$>
                    (x .?> "validationErrors" .!@ mempty) <*>
                      (x .?> "validationWarnings" .!@ mempty)
-                     <*> (pure s)
+                     <*> (pure (fromEnum s))
                      <*> (x .:> "errored"))
 
 instance ToHeaders ValidatePipelineDefinition where
@@ -147,12 +147,12 @@ instance ToQuery ValidatePipelineDefinition where
 data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
     { _vpdrValidationErrors   :: !(Maybe [ValidationError])
     , _vpdrValidationWarnings :: !(Maybe [ValidationWarning])
-    , _vpdrStatus             :: !Status
+    , _vpdrStatus             :: !Int
     , _vpdrErrored            :: !Bool
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ValidatePipelineDefinitionResponse' smart constructor.
-validatePipelineDefinitionResponse :: Status -> Bool -> ValidatePipelineDefinitionResponse
+validatePipelineDefinitionResponse :: Int -> Bool -> ValidatePipelineDefinitionResponse
 validatePipelineDefinitionResponse pStatus pErrored =
     ValidatePipelineDefinitionResponse'
     { _vpdrValidationErrors = Nothing
@@ -170,7 +170,7 @@ vpdrValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWa
 vpdrValidationWarnings = lens _vpdrValidationWarnings (\ s a -> s{_vpdrValidationWarnings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-vpdrStatus :: Lens' ValidatePipelineDefinitionResponse Status
+vpdrStatus :: Lens' ValidatePipelineDefinitionResponse Int
 vpdrStatus = lens _vpdrStatus (\ s a -> s{_vpdrStatus = a});
 
 -- | Indicates whether there were validation errors.

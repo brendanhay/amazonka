@@ -83,7 +83,7 @@ instance AWSRequest DeleteSuggester where
           = receiveXMLWrapper "DeleteSuggesterResult"
               (\ s h x ->
                  DeleteSuggesterResponse' <$>
-                   (pure s) <*> (x .@ "Suggester"))
+                   (pure (fromEnum s)) <*> (x .@ "Suggester"))
 
 instance ToHeaders DeleteSuggester where
         toHeaders = const mempty
@@ -110,12 +110,12 @@ instance ToQuery DeleteSuggester where
 --
 -- * 'deleSuggester'
 data DeleteSuggesterResponse = DeleteSuggesterResponse'
-    { _deleStatus    :: !Status
+    { _deleStatus    :: !Int
     , _deleSuggester :: !SuggesterStatus
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteSuggesterResponse' smart constructor.
-deleteSuggesterResponse :: Status -> SuggesterStatus -> DeleteSuggesterResponse
+deleteSuggesterResponse :: Int -> SuggesterStatus -> DeleteSuggesterResponse
 deleteSuggesterResponse pStatus pSuggester =
     DeleteSuggesterResponse'
     { _deleStatus = pStatus
@@ -123,7 +123,7 @@ deleteSuggesterResponse pStatus pSuggester =
     }
 
 -- | FIXME: Undocumented member.
-deleStatus :: Lens' DeleteSuggesterResponse Status
+deleStatus :: Lens' DeleteSuggesterResponse Int
 deleStatus = lens _deleStatus (\ s a -> s{_deleStatus = a});
 
 -- | The status of the suggester being deleted.

@@ -151,7 +151,7 @@ instance AWSRequest ListObjects where
                      <*> (x .@? "MaxKeys")
                      <*> (x .@? "IsTruncated")
                      <*> (x .@? "Delimiter")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListObjects where
         toHeaders = const mempty
@@ -204,11 +204,11 @@ data ListObjectsResponse = ListObjectsResponse'
     , _lorMaxKeys        :: !(Maybe Int)
     , _lorIsTruncated    :: !(Maybe Bool)
     , _lorDelimiter      :: !(Maybe Char)
-    , _lorStatus         :: !Status
+    , _lorStatus         :: !Int
     } deriving (Eq,Show)
 
 -- | 'ListObjectsResponse' smart constructor.
-listObjectsResponse :: Status -> ListObjectsResponse
+listObjectsResponse :: Int -> ListObjectsResponse
 listObjectsResponse pStatus =
     ListObjectsResponse'
     { _lorContents = Nothing
@@ -273,5 +273,5 @@ lorDelimiter :: Lens' ListObjectsResponse (Maybe Char)
 lorDelimiter = lens _lorDelimiter (\ s a -> s{_lorDelimiter = a});
 
 -- | FIXME: Undocumented member.
-lorStatus :: Lens' ListObjectsResponse Status
+lorStatus :: Lens' ListObjectsResponse Int
 lorStatus = lens _lorStatus (\ s a -> s{_lorStatus = a});

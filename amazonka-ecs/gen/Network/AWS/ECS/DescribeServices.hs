@@ -80,7 +80,7 @@ instance AWSRequest DescribeServices where
                  DescribeServicesResponse' <$>
                    (x .?> "failures" .!@ mempty) <*>
                      (x .?> "services" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeServices where
         toHeaders
@@ -116,11 +116,11 @@ instance ToQuery DescribeServices where
 data DescribeServicesResponse = DescribeServicesResponse'
     { _dFailures :: !(Maybe [Failure])
     , _dServices :: !(Maybe [ContainerService])
-    , _dStatus   :: !Status
-    } deriving (Eq,Show)
+    , _dStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeServicesResponse' smart constructor.
-describeServicesResponse :: Status -> DescribeServicesResponse
+describeServicesResponse :: Int -> DescribeServicesResponse
 describeServicesResponse pStatus =
     DescribeServicesResponse'
     { _dFailures = Nothing
@@ -137,5 +137,5 @@ dServices :: Lens' DescribeServicesResponse [ContainerService]
 dServices = lens _dServices (\ s a -> s{_dServices = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DescribeServicesResponse Status
+dStatus :: Lens' DescribeServicesResponse Int
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

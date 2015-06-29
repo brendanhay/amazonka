@@ -74,7 +74,8 @@ instance AWSRequest CancelJob where
         request = delete
         response
           = receiveJSON
-              (\ s h x -> CancelJobResponse' <$> (pure s))
+              (\ s h x ->
+                 CancelJobResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders CancelJob where
         toHeaders = const mempty
@@ -95,16 +96,16 @@ instance ToQuery CancelJob where
 --
 -- * 'canStatus'
 newtype CancelJobResponse = CancelJobResponse'
-    { _canStatus :: Status
-    } deriving (Eq,Show)
+    { _canStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelJobResponse' smart constructor.
-cancelJobResponse :: Status -> CancelJobResponse
+cancelJobResponse :: Int -> CancelJobResponse
 cancelJobResponse pStatus =
     CancelJobResponse'
     { _canStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-canStatus :: Lens' CancelJobResponse Status
+canStatus :: Lens' CancelJobResponse Int
 canStatus = lens _canStatus (\ s a -> s{_canStatus = a});

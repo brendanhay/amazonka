@@ -93,7 +93,8 @@ instance AWSRequest DescribeServices where
           = receiveJSON
               (\ s h x ->
                  DescribeServicesResponse' <$>
-                   (x .?> "services" .!@ mempty) <*> (pure s))
+                   (x .?> "services" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeServices where
         toHeaders
@@ -128,11 +129,11 @@ instance ToQuery DescribeServices where
 -- * 'dsrStatus'
 data DescribeServicesResponse = DescribeServicesResponse'
     { _dsrServices :: !(Maybe [SupportService])
-    , _dsrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _dsrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeServicesResponse' smart constructor.
-describeServicesResponse :: Status -> DescribeServicesResponse
+describeServicesResponse :: Int -> DescribeServicesResponse
 describeServicesResponse pStatus =
     DescribeServicesResponse'
     { _dsrServices = Nothing
@@ -144,5 +145,5 @@ dsrServices :: Lens' DescribeServicesResponse [SupportService]
 dsrServices = lens _dsrServices (\ s a -> s{_dsrServices = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DescribeServicesResponse Status
+dsrStatus :: Lens' DescribeServicesResponse Int
 dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

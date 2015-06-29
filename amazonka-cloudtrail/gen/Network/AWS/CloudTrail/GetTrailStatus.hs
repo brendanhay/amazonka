@@ -89,7 +89,7 @@ instance AWSRequest GetTrailStatus where
                      <*> (x .?> "LatestCloudWatchLogsDeliveryError")
                      <*> (x .?> "LatestNotificationTime")
                      <*> (x .?> "StopLoggingTime")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetTrailStatus where
         toHeaders
@@ -147,11 +147,11 @@ data GetTrailStatusResponse = GetTrailStatusResponse'
     , _gtsrLatestCloudWatchLogsDeliveryError :: !(Maybe Text)
     , _gtsrLatestNotificationTime            :: !(Maybe POSIX)
     , _gtsrStopLoggingTime                   :: !(Maybe POSIX)
-    , _gtsrStatus                            :: !Status
-    } deriving (Eq,Show)
+    , _gtsrStatus                            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetTrailStatusResponse' smart constructor.
-getTrailStatusResponse :: Status -> GetTrailStatusResponse
+getTrailStatusResponse :: Int -> GetTrailStatusResponse
 getTrailStatusResponse pStatus =
     GetTrailStatusResponse'
     { _gtsrLatestDeliveryError = Nothing
@@ -217,5 +217,5 @@ gtsrStopLoggingTime :: Lens' GetTrailStatusResponse (Maybe UTCTime)
 gtsrStopLoggingTime = lens _gtsrStopLoggingTime (\ s a -> s{_gtsrStopLoggingTime = a}) . mapping _Time;
 
 -- | FIXME: Undocumented member.
-gtsrStatus :: Lens' GetTrailStatusResponse Status
+gtsrStatus :: Lens' GetTrailStatusResponse Int
 gtsrStatus = lens _gtsrStatus (\ s a -> s{_gtsrStatus = a});

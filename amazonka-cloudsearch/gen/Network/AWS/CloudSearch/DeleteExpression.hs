@@ -84,7 +84,7 @@ instance AWSRequest DeleteExpression where
           = receiveXMLWrapper "DeleteExpressionResult"
               (\ s h x ->
                  DeleteExpressionResponse' <$>
-                   (pure s) <*> (x .@ "Expression"))
+                   (pure (fromEnum s)) <*> (x .@ "Expression"))
 
 instance ToHeaders DeleteExpression where
         toHeaders = const mempty
@@ -111,12 +111,12 @@ instance ToQuery DeleteExpression where
 --
 -- * 'delExpression'
 data DeleteExpressionResponse = DeleteExpressionResponse'
-    { _delStatus     :: !Status
+    { _delStatus     :: !Int
     , _delExpression :: !ExpressionStatus
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteExpressionResponse' smart constructor.
-deleteExpressionResponse :: Status -> ExpressionStatus -> DeleteExpressionResponse
+deleteExpressionResponse :: Int -> ExpressionStatus -> DeleteExpressionResponse
 deleteExpressionResponse pStatus pExpression =
     DeleteExpressionResponse'
     { _delStatus = pStatus
@@ -124,7 +124,7 @@ deleteExpressionResponse pStatus pExpression =
     }
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteExpressionResponse Status
+delStatus :: Lens' DeleteExpressionResponse Int
 delStatus = lens _delStatus (\ s a -> s{_delStatus = a});
 
 -- | The status of the expression being deleted.

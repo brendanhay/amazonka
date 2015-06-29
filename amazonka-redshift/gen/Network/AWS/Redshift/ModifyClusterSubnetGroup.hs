@@ -92,7 +92,7 @@ instance AWSRequest ModifyClusterSubnetGroup where
           = receiveXMLWrapper "ModifyClusterSubnetGroupResult"
               (\ s h x ->
                  ModifyClusterSubnetGroupResponse' <$>
-                   (x .@? "ClusterSubnetGroup") <*> (pure s))
+                   (x .@? "ClusterSubnetGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyClusterSubnetGroup where
         toHeaders = const mempty
@@ -121,11 +121,11 @@ instance ToQuery ModifyClusterSubnetGroup where
 -- * 'mcsgrStatus'
 data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'
     { _mcsgrClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
-    , _mcsgrStatus             :: !Status
-    } deriving (Eq,Show)
+    , _mcsgrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyClusterSubnetGroupResponse' smart constructor.
-modifyClusterSubnetGroupResponse :: Status -> ModifyClusterSubnetGroupResponse
+modifyClusterSubnetGroupResponse :: Int -> ModifyClusterSubnetGroupResponse
 modifyClusterSubnetGroupResponse pStatus =
     ModifyClusterSubnetGroupResponse'
     { _mcsgrClusterSubnetGroup = Nothing
@@ -137,5 +137,5 @@ mcsgrClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe Cluster
 mcsgrClusterSubnetGroup = lens _mcsgrClusterSubnetGroup (\ s a -> s{_mcsgrClusterSubnetGroup = a});
 
 -- | FIXME: Undocumented member.
-mcsgrStatus :: Lens' ModifyClusterSubnetGroupResponse Status
+mcsgrStatus :: Lens' ModifyClusterSubnetGroupResponse Int
 mcsgrStatus = lens _mcsgrStatus (\ s a -> s{_mcsgrStatus = a});

@@ -58,7 +58,7 @@ instance AWSRequest ListAvailableZones where
           = receiveJSON
               (\ s h x ->
                  ListAvailableZonesResponse' <$>
-                   (x .?> "AZList" .!@ mempty) <*> (pure s))
+                   (x .?> "AZList" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders ListAvailableZones where
         toHeaders
@@ -88,11 +88,11 @@ instance ToQuery ListAvailableZones where
 -- * 'lazrStatus'
 data ListAvailableZonesResponse = ListAvailableZonesResponse'
     { _lazrAZList :: !(Maybe [Text])
-    , _lazrStatus :: !Status
-    } deriving (Eq,Show)
+    , _lazrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAvailableZonesResponse' smart constructor.
-listAvailableZonesResponse :: Status -> ListAvailableZonesResponse
+listAvailableZonesResponse :: Int -> ListAvailableZonesResponse
 listAvailableZonesResponse pStatus =
     ListAvailableZonesResponse'
     { _lazrAZList = Nothing
@@ -105,5 +105,5 @@ lazrAZList :: Lens' ListAvailableZonesResponse [Text]
 lazrAZList = lens _lazrAZList (\ s a -> s{_lazrAZList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lazrStatus :: Lens' ListAvailableZonesResponse Status
+lazrStatus :: Lens' ListAvailableZonesResponse Int
 lazrStatus = lens _lazrStatus (\ s a -> s{_lazrStatus = a});

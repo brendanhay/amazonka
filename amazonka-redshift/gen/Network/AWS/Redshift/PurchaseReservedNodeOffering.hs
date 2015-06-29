@@ -94,7 +94,7 @@ instance AWSRequest PurchaseReservedNodeOffering
               "PurchaseReservedNodeOfferingResult"
               (\ s h x ->
                  PurchaseReservedNodeOfferingResponse' <$>
-                   (x .@? "ReservedNode") <*> (pure s))
+                   (x .@? "ReservedNode") <*> (pure (fromEnum s)))
 
 instance ToHeaders PurchaseReservedNodeOffering where
         toHeaders = const mempty
@@ -121,11 +121,11 @@ instance ToQuery PurchaseReservedNodeOffering where
 -- * 'prnorStatus'
 data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'
     { _prnorReservedNode :: !(Maybe ReservedNode)
-    , _prnorStatus       :: !Status
-    } deriving (Eq,Show)
+    , _prnorStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PurchaseReservedNodeOfferingResponse' smart constructor.
-purchaseReservedNodeOfferingResponse :: Status -> PurchaseReservedNodeOfferingResponse
+purchaseReservedNodeOfferingResponse :: Int -> PurchaseReservedNodeOfferingResponse
 purchaseReservedNodeOfferingResponse pStatus =
     PurchaseReservedNodeOfferingResponse'
     { _prnorReservedNode = Nothing
@@ -137,5 +137,5 @@ prnorReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedN
 prnorReservedNode = lens _prnorReservedNode (\ s a -> s{_prnorReservedNode = a});
 
 -- | FIXME: Undocumented member.
-prnorStatus :: Lens' PurchaseReservedNodeOfferingResponse Status
+prnorStatus :: Lens' PurchaseReservedNodeOfferingResponse Int
 prnorStatus = lens _prnorStatus (\ s a -> s{_prnorStatus = a});

@@ -257,7 +257,7 @@ instance AWSRequest CreateDBInstanceReadReplica where
               "CreateDBInstanceReadReplicaResult"
               (\ s h x ->
                  CreateDBInstanceReadReplicaResponse' <$>
-                   (x .@? "DBInstance") <*> (pure s))
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDBInstanceReadReplica where
         toHeaders = const mempty
@@ -295,11 +295,11 @@ instance ToQuery CreateDBInstanceReadReplica where
 -- * 'cdirrrStatus'
 data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'
     { _cdirrrDBInstance :: !(Maybe DBInstance)
-    , _cdirrrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _cdirrrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDBInstanceReadReplicaResponse' smart constructor.
-createDBInstanceReadReplicaResponse :: Status -> CreateDBInstanceReadReplicaResponse
+createDBInstanceReadReplicaResponse :: Int -> CreateDBInstanceReadReplicaResponse
 createDBInstanceReadReplicaResponse pStatus =
     CreateDBInstanceReadReplicaResponse'
     { _cdirrrDBInstance = Nothing
@@ -311,5 +311,5 @@ cdirrrDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance)
 cdirrrDBInstance = lens _cdirrrDBInstance (\ s a -> s{_cdirrrDBInstance = a});
 
 -- | FIXME: Undocumented member.
-cdirrrStatus :: Lens' CreateDBInstanceReadReplicaResponse Status
+cdirrrStatus :: Lens' CreateDBInstanceReadReplicaResponse Int
 cdirrrStatus = lens _cdirrrStatus (\ s a -> s{_cdirrrStatus = a});

@@ -90,7 +90,7 @@ instance AWSRequest GetVaultAccessPolicy where
           = receiveJSON
               (\ s h x ->
                  GetVaultAccessPolicyResponse' <$>
-                   (x .?> "policy") <*> (pure s))
+                   (x .?> "policy") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetVaultAccessPolicy where
         toHeaders = const mempty
@@ -115,11 +115,11 @@ instance ToQuery GetVaultAccessPolicy where
 -- * 'gvaprStatus'
 data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
     { _gvaprPolicy :: !(Maybe VaultAccessPolicy)
-    , _gvaprStatus :: !Status
-    } deriving (Eq,Show)
+    , _gvaprStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetVaultAccessPolicyResponse' smart constructor.
-getVaultAccessPolicyResponse :: Status -> GetVaultAccessPolicyResponse
+getVaultAccessPolicyResponse :: Int -> GetVaultAccessPolicyResponse
 getVaultAccessPolicyResponse pStatus =
     GetVaultAccessPolicyResponse'
     { _gvaprPolicy = Nothing
@@ -131,5 +131,5 @@ gvaprPolicy :: Lens' GetVaultAccessPolicyResponse (Maybe VaultAccessPolicy)
 gvaprPolicy = lens _gvaprPolicy (\ s a -> s{_gvaprPolicy = a});
 
 -- | FIXME: Undocumented member.
-gvaprStatus :: Lens' GetVaultAccessPolicyResponse Status
+gvaprStatus :: Lens' GetVaultAccessPolicyResponse Int
 gvaprStatus = lens _gvaprStatus (\ s a -> s{_gvaprStatus = a});

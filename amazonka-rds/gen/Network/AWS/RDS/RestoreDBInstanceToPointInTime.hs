@@ -351,7 +351,7 @@ instance AWSRequest RestoreDBInstanceToPointInTime
               "RestoreDBInstanceToPointInTimeResult"
               (\ s h x ->
                  RestoreDBInstanceToPointInTimeResponse' <$>
-                   (x .@? "DBInstance") <*> (pure s))
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders RestoreDBInstanceToPointInTime
          where
@@ -401,11 +401,11 @@ instance ToQuery RestoreDBInstanceToPointInTime where
 -- * 'rditpitrStatus'
 data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'
     { _rditpitrDBInstance :: !(Maybe DBInstance)
-    , _rditpitrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _rditpitrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RestoreDBInstanceToPointInTimeResponse' smart constructor.
-restoreDBInstanceToPointInTimeResponse :: Status -> RestoreDBInstanceToPointInTimeResponse
+restoreDBInstanceToPointInTimeResponse :: Int -> RestoreDBInstanceToPointInTimeResponse
 restoreDBInstanceToPointInTimeResponse pStatus =
     RestoreDBInstanceToPointInTimeResponse'
     { _rditpitrDBInstance = Nothing
@@ -417,5 +417,5 @@ rditpitrDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBInst
 rditpitrDBInstance = lens _rditpitrDBInstance (\ s a -> s{_rditpitrDBInstance = a});
 
 -- | FIXME: Undocumented member.
-rditpitrStatus :: Lens' RestoreDBInstanceToPointInTimeResponse Status
+rditpitrStatus :: Lens' RestoreDBInstanceToPointInTimeResponse Int
 rditpitrStatus = lens _rditpitrStatus (\ s a -> s{_rditpitrStatus = a});

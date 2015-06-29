@@ -158,7 +158,7 @@ instance AWSRequest GenerateDataKey where
                  GenerateDataKeyResponse' <$>
                    (x .?> "KeyId") <*> (x .?> "Plaintext") <*>
                      (x .?> "CiphertextBlob")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GenerateDataKey where
         toHeaders
@@ -199,11 +199,11 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse'
     { _gdkrKeyId          :: !(Maybe Text)
     , _gdkrPlaintext      :: !(Maybe (Sensitive Base64))
     , _gdkrCiphertextBlob :: !(Maybe Base64)
-    , _gdkrStatus         :: !Status
-    } deriving (Eq,Show)
+    , _gdkrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GenerateDataKeyResponse' smart constructor.
-generateDataKeyResponse :: Status -> GenerateDataKeyResponse
+generateDataKeyResponse :: Int -> GenerateDataKeyResponse
 generateDataKeyResponse pStatus =
     GenerateDataKeyResponse'
     { _gdkrKeyId = Nothing
@@ -234,5 +234,5 @@ gdkrCiphertextBlob :: Lens' GenerateDataKeyResponse (Maybe Base64)
 gdkrCiphertextBlob = lens _gdkrCiphertextBlob (\ s a -> s{_gdkrCiphertextBlob = a});
 
 -- | FIXME: Undocumented member.
-gdkrStatus :: Lens' GenerateDataKeyResponse Status
+gdkrStatus :: Lens' GenerateDataKeyResponse Int
 gdkrStatus = lens _gdkrStatus (\ s a -> s{_gdkrStatus = a});

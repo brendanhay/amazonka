@@ -111,7 +111,7 @@ instance AWSRequest AddCommunicationToCase where
           = receiveJSON
               (\ s h x ->
                  AddCommunicationToCaseResponse' <$>
-                   (x .?> "result") <*> (pure s))
+                   (x .?> "result") <*> (pure (fromEnum s)))
 
 instance ToHeaders AddCommunicationToCase where
         toHeaders
@@ -148,11 +148,11 @@ instance ToQuery AddCommunicationToCase where
 -- * 'actcrStatus'
 data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
     { _actcrResult :: !(Maybe Bool)
-    , _actcrStatus :: !Status
-    } deriving (Eq,Show)
+    , _actcrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AddCommunicationToCaseResponse' smart constructor.
-addCommunicationToCaseResponse :: Status -> AddCommunicationToCaseResponse
+addCommunicationToCaseResponse :: Int -> AddCommunicationToCaseResponse
 addCommunicationToCaseResponse pStatus =
     AddCommunicationToCaseResponse'
     { _actcrResult = Nothing
@@ -164,5 +164,5 @@ actcrResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
 actcrResult = lens _actcrResult (\ s a -> s{_actcrResult = a});
 
 -- | FIXME: Undocumented member.
-actcrStatus :: Lens' AddCommunicationToCaseResponse Status
+actcrStatus :: Lens' AddCommunicationToCaseResponse Int
 actcrStatus = lens _actcrStatus (\ s a -> s{_actcrStatus = a});

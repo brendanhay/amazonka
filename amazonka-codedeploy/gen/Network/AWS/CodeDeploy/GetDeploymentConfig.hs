@@ -72,7 +72,8 @@ instance AWSRequest GetDeploymentConfig where
           = receiveJSON
               (\ s h x ->
                  GetDeploymentConfigResponse' <$>
-                   (x .?> "deploymentConfigInfo") <*> (pure s))
+                   (x .?> "deploymentConfigInfo") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetDeploymentConfig where
         toHeaders
@@ -106,11 +107,11 @@ instance ToQuery GetDeploymentConfig where
 -- * 'gdcrStatus'
 data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
     { _gdcrDeploymentConfigInfo :: !(Maybe DeploymentConfigInfo)
-    , _gdcrStatus               :: !Status
-    } deriving (Eq,Show)
+    , _gdcrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDeploymentConfigResponse' smart constructor.
-getDeploymentConfigResponse :: Status -> GetDeploymentConfigResponse
+getDeploymentConfigResponse :: Int -> GetDeploymentConfigResponse
 getDeploymentConfigResponse pStatus =
     GetDeploymentConfigResponse'
     { _gdcrDeploymentConfigInfo = Nothing
@@ -122,5 +123,5 @@ gdcrDeploymentConfigInfo :: Lens' GetDeploymentConfigResponse (Maybe DeploymentC
 gdcrDeploymentConfigInfo = lens _gdcrDeploymentConfigInfo (\ s a -> s{_gdcrDeploymentConfigInfo = a});
 
 -- | FIXME: Undocumented member.
-gdcrStatus :: Lens' GetDeploymentConfigResponse Status
+gdcrStatus :: Lens' GetDeploymentConfigResponse Int
 gdcrStatus = lens _gdcrStatus (\ s a -> s{_gdcrStatus = a});

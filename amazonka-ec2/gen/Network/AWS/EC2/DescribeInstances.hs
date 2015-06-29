@@ -378,7 +378,7 @@ instance AWSRequest DescribeInstances where
               (\ s h x ->
                  DescribeInstancesResponse' <$>
                    (x .@? "nextToken") <*> (may (parseXMLList "item") x)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeInstances where
         toHeaders = const mempty
@@ -410,11 +410,11 @@ instance ToQuery DescribeInstances where
 data DescribeInstancesResponse = DescribeInstancesResponse'
     { _dirNextToken    :: !(Maybe Text)
     , _dirReservations :: !(Maybe [Reservation])
-    , _dirStatus       :: !Status
-    } deriving (Eq,Show)
+    , _dirStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstancesResponse' smart constructor.
-describeInstancesResponse :: Status -> DescribeInstancesResponse
+describeInstancesResponse :: Int -> DescribeInstancesResponse
 describeInstancesResponse pStatus =
     DescribeInstancesResponse'
     { _dirNextToken = Nothing
@@ -432,5 +432,5 @@ dirReservations :: Lens' DescribeInstancesResponse [Reservation]
 dirReservations = lens _dirReservations (\ s a -> s{_dirReservations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dirStatus :: Lens' DescribeInstancesResponse Status
+dirStatus :: Lens' DescribeInstancesResponse Int
 dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});

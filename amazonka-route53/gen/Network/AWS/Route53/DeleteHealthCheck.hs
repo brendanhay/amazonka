@@ -78,7 +78,8 @@ instance AWSRequest DeleteHealthCheck where
         request = delete
         response
           = receiveXML
-              (\ s h x -> DeleteHealthCheckResponse' <$> (pure s))
+              (\ s h x ->
+                 DeleteHealthCheckResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeleteHealthCheck where
         toHeaders = const mempty
@@ -100,16 +101,16 @@ instance ToQuery DeleteHealthCheck where
 --
 -- * 'dhcrStatus'
 newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'
-    { _dhcrStatus :: Status
-    } deriving (Eq,Show)
+    { _dhcrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteHealthCheckResponse' smart constructor.
-deleteHealthCheckResponse :: Status -> DeleteHealthCheckResponse
+deleteHealthCheckResponse :: Int -> DeleteHealthCheckResponse
 deleteHealthCheckResponse pStatus =
     DeleteHealthCheckResponse'
     { _dhcrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dhcrStatus :: Lens' DeleteHealthCheckResponse Status
+dhcrStatus :: Lens' DeleteHealthCheckResponse Int
 dhcrStatus = lens _dhcrStatus (\ s a -> s{_dhcrStatus = a});

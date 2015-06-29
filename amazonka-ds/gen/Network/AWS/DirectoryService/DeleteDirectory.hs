@@ -70,7 +70,7 @@ instance AWSRequest DeleteDirectory where
           = receiveJSON
               (\ s h x ->
                  DeleteDirectoryResponse' <$>
-                   (x .?> "DirectoryId") <*> (pure s))
+                   (x .?> "DirectoryId") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteDirectory where
         toHeaders
@@ -103,11 +103,11 @@ instance ToQuery DeleteDirectory where
 -- * 'dStatus'
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
     { _dDirectoryId :: !(Maybe Text)
-    , _dStatus      :: !Status
-    } deriving (Eq,Show)
+    , _dStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDirectoryResponse' smart constructor.
-deleteDirectoryResponse :: Status -> DeleteDirectoryResponse
+deleteDirectoryResponse :: Int -> DeleteDirectoryResponse
 deleteDirectoryResponse pStatus =
     DeleteDirectoryResponse'
     { _dDirectoryId = Nothing
@@ -119,5 +119,5 @@ dDirectoryId :: Lens' DeleteDirectoryResponse (Maybe Text)
 dDirectoryId = lens _dDirectoryId (\ s a -> s{_dDirectoryId = a});
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DeleteDirectoryResponse Status
+dStatus :: Lens' DeleteDirectoryResponse Int
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});

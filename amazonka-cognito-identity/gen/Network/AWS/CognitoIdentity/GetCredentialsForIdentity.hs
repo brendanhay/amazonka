@@ -88,7 +88,7 @@ instance AWSRequest GetCredentialsForIdentity where
               (\ s h x ->
                  GetCredentialsForIdentityResponse' <$>
                    (x .?> "Credentials") <*> (x .?> "IdentityId") <*>
-                     (pure s))
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetCredentialsForIdentity where
         toHeaders
@@ -127,11 +127,11 @@ instance ToQuery GetCredentialsForIdentity where
 data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
     { _gcfirCredentials :: !(Maybe Credentials)
     , _gcfirIdentityId  :: !(Maybe Text)
-    , _gcfirStatus      :: !Status
-    } deriving (Eq,Show)
+    , _gcfirStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetCredentialsForIdentityResponse' smart constructor.
-getCredentialsForIdentityResponse :: Status -> GetCredentialsForIdentityResponse
+getCredentialsForIdentityResponse :: Int -> GetCredentialsForIdentityResponse
 getCredentialsForIdentityResponse pStatus =
     GetCredentialsForIdentityResponse'
     { _gcfirCredentials = Nothing
@@ -148,5 +148,5 @@ gcfirIdentityId :: Lens' GetCredentialsForIdentityResponse (Maybe Text)
 gcfirIdentityId = lens _gcfirIdentityId (\ s a -> s{_gcfirIdentityId = a});
 
 -- | FIXME: Undocumented member.
-gcfirStatus :: Lens' GetCredentialsForIdentityResponse Status
+gcfirStatus :: Lens' GetCredentialsForIdentityResponse Int
 gcfirStatus = lens _gcfirStatus (\ s a -> s{_gcfirStatus = a});

@@ -101,7 +101,7 @@ instance AWSRequest CreateVirtualMFADevice where
           = receiveXMLWrapper "CreateVirtualMFADeviceResult"
               (\ s h x ->
                  CreateVirtualMFADeviceResponse' <$>
-                   (pure s) <*> (x .@ "VirtualMFADevice"))
+                   (pure (fromEnum s)) <*> (x .@ "VirtualMFADevice"))
 
 instance ToHeaders CreateVirtualMFADevice where
         toHeaders = const mempty
@@ -128,12 +128,12 @@ instance ToQuery CreateVirtualMFADevice where
 --
 -- * 'cvmdrVirtualMFADevice'
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
-    { _cvmdrStatus           :: !Status
+    { _cvmdrStatus           :: !Int
     , _cvmdrVirtualMFADevice :: !VirtualMFADevice
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVirtualMFADeviceResponse' smart constructor.
-createVirtualMFADeviceResponse :: Status -> VirtualMFADevice -> CreateVirtualMFADeviceResponse
+createVirtualMFADeviceResponse :: Int -> VirtualMFADevice -> CreateVirtualMFADeviceResponse
 createVirtualMFADeviceResponse pStatus pVirtualMFADevice =
     CreateVirtualMFADeviceResponse'
     { _cvmdrStatus = pStatus
@@ -141,7 +141,7 @@ createVirtualMFADeviceResponse pStatus pVirtualMFADevice =
     }
 
 -- | FIXME: Undocumented member.
-cvmdrStatus :: Lens' CreateVirtualMFADeviceResponse Status
+cvmdrStatus :: Lens' CreateVirtualMFADeviceResponse Int
 cvmdrStatus = lens _cvmdrStatus (\ s a -> s{_cvmdrStatus = a});
 
 -- | A newly created virtual MFA device.

@@ -89,7 +89,7 @@ instance AWSRequest GetGroupPolicy where
           = receiveXMLWrapper "GetGroupPolicyResult"
               (\ s h x ->
                  GetGroupPolicyResponse' <$>
-                   (pure s) <*> (x .@ "GroupName") <*>
+                   (pure (fromEnum s)) <*> (x .@ "GroupName") <*>
                      (x .@ "PolicyName")
                      <*> (x .@ "PolicyDocument"))
 
@@ -121,14 +121,14 @@ instance ToQuery GetGroupPolicy where
 --
 -- * 'ggprPolicyDocument'
 data GetGroupPolicyResponse = GetGroupPolicyResponse'
-    { _ggprStatus         :: !Status
+    { _ggprStatus         :: !Int
     , _ggprGroupName      :: !Text
     , _ggprPolicyName     :: !Text
     , _ggprPolicyDocument :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetGroupPolicyResponse' smart constructor.
-getGroupPolicyResponse :: Status -> Text -> Text -> Text -> GetGroupPolicyResponse
+getGroupPolicyResponse :: Int -> Text -> Text -> Text -> GetGroupPolicyResponse
 getGroupPolicyResponse pStatus pGroupName pPolicyName pPolicyDocument =
     GetGroupPolicyResponse'
     { _ggprStatus = pStatus
@@ -138,7 +138,7 @@ getGroupPolicyResponse pStatus pGroupName pPolicyName pPolicyDocument =
     }
 
 -- | FIXME: Undocumented member.
-ggprStatus :: Lens' GetGroupPolicyResponse Status
+ggprStatus :: Lens' GetGroupPolicyResponse Int
 ggprStatus = lens _ggprStatus (\ s a -> s{_ggprStatus = a});
 
 -- | The group the policy is associated with.

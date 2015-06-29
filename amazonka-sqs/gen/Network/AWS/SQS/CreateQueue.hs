@@ -132,7 +132,7 @@ instance AWSRequest CreateQueue where
           = receiveXMLWrapper "CreateQueueResult"
               (\ s h x ->
                  CreateQueueResponse' <$>
-                   (x .@? "QueueUrl") <*> (pure s))
+                   (x .@? "QueueUrl") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateQueue where
         toHeaders = const mempty
@@ -161,11 +161,11 @@ instance ToQuery CreateQueue where
 -- * 'cqrStatus'
 data CreateQueueResponse = CreateQueueResponse'
     { _cqrQueueURL :: !(Maybe Text)
-    , _cqrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _cqrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateQueueResponse' smart constructor.
-createQueueResponse :: Status -> CreateQueueResponse
+createQueueResponse :: Int -> CreateQueueResponse
 createQueueResponse pStatus =
     CreateQueueResponse'
     { _cqrQueueURL = Nothing
@@ -177,5 +177,5 @@ cqrQueueURL :: Lens' CreateQueueResponse (Maybe Text)
 cqrQueueURL = lens _cqrQueueURL (\ s a -> s{_cqrQueueURL = a});
 
 -- | FIXME: Undocumented member.
-cqrStatus :: Lens' CreateQueueResponse Status
+cqrStatus :: Lens' CreateQueueResponse Int
 cqrStatus = lens _cqrStatus (\ s a -> s{_cqrStatus = a});

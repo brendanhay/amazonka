@@ -101,7 +101,7 @@ instance AWSRequest DescribeSuggesters where
           = receiveXMLWrapper "DescribeSuggestersResult"
               (\ s h x ->
                  DescribeSuggestersResponse' <$>
-                   (pure s) <*>
+                   (pure (fromEnum s)) <*>
                      (x .@? "Suggesters" .!@ mempty >>=
                         parseXMLList "member"))
 
@@ -132,12 +132,12 @@ instance ToQuery DescribeSuggesters where
 --
 -- * 'dsr1Suggesters'
 data DescribeSuggestersResponse = DescribeSuggestersResponse'
-    { _dsr1Status     :: !Status
+    { _dsr1Status     :: !Int
     , _dsr1Suggesters :: ![SuggesterStatus]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSuggestersResponse' smart constructor.
-describeSuggestersResponse :: Status -> DescribeSuggestersResponse
+describeSuggestersResponse :: Int -> DescribeSuggestersResponse
 describeSuggestersResponse pStatus =
     DescribeSuggestersResponse'
     { _dsr1Status = pStatus
@@ -145,7 +145,7 @@ describeSuggestersResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-dsr1Status :: Lens' DescribeSuggestersResponse Status
+dsr1Status :: Lens' DescribeSuggestersResponse Int
 dsr1Status = lens _dsr1Status (\ s a -> s{_dsr1Status = a});
 
 -- | The suggesters configured for the domain specified in the request.

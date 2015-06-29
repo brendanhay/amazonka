@@ -100,7 +100,8 @@ instance AWSRequest AbortMultipartUpload where
           = receiveXML
               (\ s h x ->
                  AbortMultipartUploadResponse' <$>
-                   (h .#? "x-amz-request-charged") <*> (pure s))
+                   (h .#? "x-amz-request-charged") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders AbortMultipartUpload where
         toHeaders AbortMultipartUpload'{..}
@@ -124,11 +125,11 @@ instance ToQuery AbortMultipartUpload where
 -- * 'amurStatus'
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
     { _amurRequestCharged :: !(Maybe RequestCharged)
-    , _amurStatus         :: !Status
-    } deriving (Eq,Show)
+    , _amurStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AbortMultipartUploadResponse' smart constructor.
-abortMultipartUploadResponse :: Status -> AbortMultipartUploadResponse
+abortMultipartUploadResponse :: Int -> AbortMultipartUploadResponse
 abortMultipartUploadResponse pStatus =
     AbortMultipartUploadResponse'
     { _amurRequestCharged = Nothing
@@ -140,5 +141,5 @@ amurRequestCharged :: Lens' AbortMultipartUploadResponse (Maybe RequestCharged)
 amurRequestCharged = lens _amurRequestCharged (\ s a -> s{_amurRequestCharged = a});
 
 -- | FIXME: Undocumented member.
-amurStatus :: Lens' AbortMultipartUploadResponse Status
+amurStatus :: Lens' AbortMultipartUploadResponse Int
 amurStatus = lens _amurStatus (\ s a -> s{_amurStatus = a});

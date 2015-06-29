@@ -58,7 +58,7 @@ instance AWSRequest CreateStorageLocation where
           = receiveXMLWrapper "CreateStorageLocationResult"
               (\ s h x ->
                  CreateStorageLocationResponse' <$>
-                   (x .@? "S3Bucket") <*> (pure s))
+                   (x .@? "S3Bucket") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateStorageLocation where
         toHeaders = const mempty
@@ -84,11 +84,11 @@ instance ToQuery CreateStorageLocation where
 -- * 'cslrStatus'
 data CreateStorageLocationResponse = CreateStorageLocationResponse'
     { _cslrS3Bucket :: !(Maybe Text)
-    , _cslrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _cslrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateStorageLocationResponse' smart constructor.
-createStorageLocationResponse :: Status -> CreateStorageLocationResponse
+createStorageLocationResponse :: Int -> CreateStorageLocationResponse
 createStorageLocationResponse pStatus =
     CreateStorageLocationResponse'
     { _cslrS3Bucket = Nothing
@@ -100,5 +100,5 @@ cslrS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
 cslrS3Bucket = lens _cslrS3Bucket (\ s a -> s{_cslrS3Bucket = a});
 
 -- | FIXME: Undocumented member.
-cslrStatus :: Lens' CreateStorageLocationResponse Status
+cslrStatus :: Lens' CreateStorageLocationResponse Int
 cslrStatus = lens _cslrStatus (\ s a -> s{_cslrStatus = a});

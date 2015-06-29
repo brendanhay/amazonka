@@ -79,7 +79,8 @@ instance AWSRequest GetPolicy where
         response
           = receiveJSON
               (\ s h x ->
-                 GetPolicyResponse' <$> (x .?> "Policy") <*> (pure s))
+                 GetPolicyResponse' <$>
+                   (x .?> "Policy") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetPolicy where
         toHeaders = const mempty
@@ -102,11 +103,11 @@ instance ToQuery GetPolicy where
 -- * 'gprStatus'
 data GetPolicyResponse = GetPolicyResponse'
     { _gprPolicy :: !(Maybe Text)
-    , _gprStatus :: !Status
-    } deriving (Eq,Show)
+    , _gprStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetPolicyResponse' smart constructor.
-getPolicyResponse :: Status -> GetPolicyResponse
+getPolicyResponse :: Int -> GetPolicyResponse
 getPolicyResponse pStatus =
     GetPolicyResponse'
     { _gprPolicy = Nothing
@@ -120,5 +121,5 @@ gprPolicy :: Lens' GetPolicyResponse (Maybe Text)
 gprPolicy = lens _gprPolicy (\ s a -> s{_gprPolicy = a});
 
 -- | FIXME: Undocumented member.
-gprStatus :: Lens' GetPolicyResponse Status
+gprStatus :: Lens' GetPolicyResponse Int
 gprStatus = lens _gprStatus (\ s a -> s{_gprStatus = a});

@@ -203,7 +203,7 @@ instance AWSRequest DescribeInstanceStatus where
               (\ s h x ->
                  DescribeInstanceStatusResponse' <$>
                    (may (parseXMLList "item") x) <*> (x .@? "nextToken")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeInstanceStatus where
         toHeaders = const mempty
@@ -237,11 +237,11 @@ instance ToQuery DescribeInstanceStatus where
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
     { _disrInstanceStatuses :: !(Maybe [InstanceStatus])
     , _disrNextToken        :: !(Maybe Text)
-    , _disrStatus           :: !Status
-    } deriving (Eq,Show)
+    , _disrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstanceStatusResponse' smart constructor.
-describeInstanceStatusResponse :: Status -> DescribeInstanceStatusResponse
+describeInstanceStatusResponse :: Int -> DescribeInstanceStatusResponse
 describeInstanceStatusResponse pStatus =
     DescribeInstanceStatusResponse'
     { _disrInstanceStatuses = Nothing
@@ -259,5 +259,5 @@ disrNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
 disrNextToken = lens _disrNextToken (\ s a -> s{_disrNextToken = a});
 
 -- | FIXME: Undocumented member.
-disrStatus :: Lens' DescribeInstanceStatusResponse Status
+disrStatus :: Lens' DescribeInstanceStatusResponse Int
 disrStatus = lens _disrStatus (\ s a -> s{_disrStatus = a});

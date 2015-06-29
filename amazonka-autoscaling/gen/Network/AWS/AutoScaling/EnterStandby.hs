@@ -96,7 +96,7 @@ instance AWSRequest EnterStandby where
                  EnterStandbyResponse' <$>
                    (x .@? "Activities" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders EnterStandby where
         toHeaders = const mempty
@@ -124,11 +124,11 @@ instance ToQuery EnterStandby where
 -- * 'esrStatus'
 data EnterStandbyResponse = EnterStandbyResponse'
     { _esrActivities :: !(Maybe [Activity])
-    , _esrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _esrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'EnterStandbyResponse' smart constructor.
-enterStandbyResponse :: Status -> EnterStandbyResponse
+enterStandbyResponse :: Int -> EnterStandbyResponse
 enterStandbyResponse pStatus =
     EnterStandbyResponse'
     { _esrActivities = Nothing
@@ -140,5 +140,5 @@ esrActivities :: Lens' EnterStandbyResponse [Activity]
 esrActivities = lens _esrActivities (\ s a -> s{_esrActivities = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-esrStatus :: Lens' EnterStandbyResponse Status
+esrStatus :: Lens' EnterStandbyResponse Int
 esrStatus = lens _esrStatus (\ s a -> s{_esrStatus = a});

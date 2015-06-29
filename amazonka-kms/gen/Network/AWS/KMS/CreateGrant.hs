@@ -144,7 +144,7 @@ instance AWSRequest CreateGrant where
               (\ s h x ->
                  CreateGrantResponse' <$>
                    (x .?> "GrantId") <*> (x .?> "GrantToken") <*>
-                     (pure s))
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateGrant where
         toHeaders
@@ -182,11 +182,11 @@ instance ToQuery CreateGrant where
 data CreateGrantResponse = CreateGrantResponse'
     { _cgrGrantId    :: !(Maybe Text)
     , _cgrGrantToken :: !(Maybe Text)
-    , _cgrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _cgrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateGrantResponse' smart constructor.
-createGrantResponse :: Status -> CreateGrantResponse
+createGrantResponse :: Int -> CreateGrantResponse
 createGrantResponse pStatus =
     CreateGrantResponse'
     { _cgrGrantId = Nothing
@@ -205,5 +205,5 @@ cgrGrantToken :: Lens' CreateGrantResponse (Maybe Text)
 cgrGrantToken = lens _cgrGrantToken (\ s a -> s{_cgrGrantToken = a});
 
 -- | FIXME: Undocumented member.
-cgrStatus :: Lens' CreateGrantResponse Status
+cgrStatus :: Lens' CreateGrantResponse Int
 cgrStatus = lens _cgrStatus (\ s a -> s{_cgrStatus = a});

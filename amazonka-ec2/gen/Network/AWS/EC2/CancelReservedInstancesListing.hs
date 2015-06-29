@@ -75,7 +75,8 @@ instance AWSRequest CancelReservedInstancesListing
           = receiveXML
               (\ s h x ->
                  CancelReservedInstancesListingResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CancelReservedInstancesListing
          where
@@ -102,11 +103,11 @@ instance ToQuery CancelReservedInstancesListing where
 -- * 'crilrStatus'
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'
     { _crilrReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
-    , _crilrStatus                    :: !Status
-    } deriving (Eq,Show)
+    , _crilrStatus                    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelReservedInstancesListingResponse' smart constructor.
-cancelReservedInstancesListingResponse :: Status -> CancelReservedInstancesListingResponse
+cancelReservedInstancesListingResponse :: Int -> CancelReservedInstancesListingResponse
 cancelReservedInstancesListingResponse pStatus =
     CancelReservedInstancesListingResponse'
     { _crilrReservedInstancesListings = Nothing
@@ -118,5 +119,5 @@ crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [
 crilrReservedInstancesListings = lens _crilrReservedInstancesListings (\ s a -> s{_crilrReservedInstancesListings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-crilrStatus :: Lens' CancelReservedInstancesListingResponse Status
+crilrStatus :: Lens' CancelReservedInstancesListingResponse Int
 crilrStatus = lens _crilrStatus (\ s a -> s{_crilrStatus = a});

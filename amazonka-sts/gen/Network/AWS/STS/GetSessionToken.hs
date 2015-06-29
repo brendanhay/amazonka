@@ -137,7 +137,7 @@ instance AWSRequest GetSessionToken where
           = receiveXMLWrapper "GetSessionTokenResult"
               (\ s h x ->
                  GetSessionTokenResponse' <$>
-                   (x .@? "Credentials") <*> (pure s))
+                   (x .@? "Credentials") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetSessionToken where
         toHeaders = const mempty
@@ -166,11 +166,11 @@ instance ToQuery GetSessionToken where
 -- * 'gstrStatus'
 data GetSessionTokenResponse = GetSessionTokenResponse'
     { _gstrCredentials :: !(Maybe Credentials)
-    , _gstrStatus      :: !Status
-    } deriving (Eq,Show)
+    , _gstrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetSessionTokenResponse' smart constructor.
-getSessionTokenResponse :: Status -> GetSessionTokenResponse
+getSessionTokenResponse :: Int -> GetSessionTokenResponse
 getSessionTokenResponse pStatus =
     GetSessionTokenResponse'
     { _gstrCredentials = Nothing
@@ -182,5 +182,5 @@ gstrCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
 gstrCredentials = lens _gstrCredentials (\ s a -> s{_gstrCredentials = a});
 
 -- | FIXME: Undocumented member.
-gstrStatus :: Lens' GetSessionTokenResponse Status
+gstrStatus :: Lens' GetSessionTokenResponse Int
 gstrStatus = lens _gstrStatus (\ s a -> s{_gstrStatus = a});

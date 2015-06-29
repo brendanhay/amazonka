@@ -250,7 +250,7 @@ instance AWSRequest UploadPartCopy where
                      (h .#?
                         "x-amz-server-side-encryption-customer-key-MD5")
                      <*> (h .#? "x-amz-server-side-encryption")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders UploadPartCopy where
         toHeaders UploadPartCopy'{..}
@@ -317,11 +317,11 @@ data UploadPartCopyResponse = UploadPartCopyResponse'
     , _upcrSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _upcrSSECustomerKeyMD5    :: !(Maybe Text)
     , _upcrServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _upcrStatus               :: !Status
+    , _upcrStatus               :: !Int
     } deriving (Eq,Show)
 
 -- | 'UploadPartCopyResponse' smart constructor.
-uploadPartCopyResponse :: Status -> UploadPartCopyResponse
+uploadPartCopyResponse :: Int -> UploadPartCopyResponse
 uploadPartCopyResponse pStatus =
     UploadPartCopyResponse'
     { _upcrRequestCharged = Nothing
@@ -370,5 +370,5 @@ upcrServerSideEncryption :: Lens' UploadPartCopyResponse (Maybe ServerSideEncryp
 upcrServerSideEncryption = lens _upcrServerSideEncryption (\ s a -> s{_upcrServerSideEncryption = a});
 
 -- | FIXME: Undocumented member.
-upcrStatus :: Lens' UploadPartCopyResponse Status
+upcrStatus :: Lens' UploadPartCopyResponse Int
 upcrStatus = lens _upcrStatus (\ s a -> s{_upcrStatus = a});

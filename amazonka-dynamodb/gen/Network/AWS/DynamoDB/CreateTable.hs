@@ -230,7 +230,7 @@ instance AWSRequest CreateTable where
           = receiveJSON
               (\ s h x ->
                  CreateTableResponse' <$>
-                   (x .?> "TableDescription") <*> (pure s))
+                   (x .?> "TableDescription") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateTable where
         toHeaders
@@ -269,11 +269,11 @@ instance ToQuery CreateTable where
 -- * 'ctrStatus'
 data CreateTableResponse = CreateTableResponse'
     { _ctrTableDescription :: !(Maybe TableDescription)
-    , _ctrStatus           :: !Status
-    } deriving (Eq,Show)
+    , _ctrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateTableResponse' smart constructor.
-createTableResponse :: Status -> CreateTableResponse
+createTableResponse :: Int -> CreateTableResponse
 createTableResponse pStatus =
     CreateTableResponse'
     { _ctrTableDescription = Nothing
@@ -285,5 +285,5 @@ ctrTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
 ctrTableDescription = lens _ctrTableDescription (\ s a -> s{_ctrTableDescription = a});
 
 -- | FIXME: Undocumented member.
-ctrStatus :: Lens' CreateTableResponse Status
+ctrStatus :: Lens' CreateTableResponse Int
 ctrStatus = lens _ctrStatus (\ s a -> s{_ctrStatus = a});

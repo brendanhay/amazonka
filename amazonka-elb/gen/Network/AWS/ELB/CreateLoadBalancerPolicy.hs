@@ -101,7 +101,8 @@ instance AWSRequest CreateLoadBalancerPolicy where
         response
           = receiveXMLWrapper "CreateLoadBalancerPolicyResult"
               (\ s h x ->
-                 CreateLoadBalancerPolicyResponse' <$> (pure s))
+                 CreateLoadBalancerPolicyResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders CreateLoadBalancerPolicy where
         toHeaders = const mempty
@@ -128,16 +129,16 @@ instance ToQuery CreateLoadBalancerPolicy where
 --
 -- * 'clbprStatus'
 newtype CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'
-    { _clbprStatus :: Status
-    } deriving (Eq,Show)
+    { _clbprStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLoadBalancerPolicyResponse' smart constructor.
-createLoadBalancerPolicyResponse :: Status -> CreateLoadBalancerPolicyResponse
+createLoadBalancerPolicyResponse :: Int -> CreateLoadBalancerPolicyResponse
 createLoadBalancerPolicyResponse pStatus =
     CreateLoadBalancerPolicyResponse'
     { _clbprStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-clbprStatus :: Lens' CreateLoadBalancerPolicyResponse Status
+clbprStatus :: Lens' CreateLoadBalancerPolicyResponse Int
 clbprStatus = lens _clbprStatus (\ s a -> s{_clbprStatus = a});

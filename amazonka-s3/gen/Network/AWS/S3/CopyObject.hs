@@ -383,7 +383,7 @@ instance AWSRequest CopyObject where
                         "x-amz-server-side-encryption-customer-key-MD5")
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (x .@? "CopyObjectResult")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CopyObject where
         toHeaders CopyObject'{..}
@@ -467,11 +467,11 @@ data CopyObjectResponse = CopyObjectResponse'
     , _corSSECustomerKeyMD5    :: !(Maybe Text)
     , _corServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _corCopyObjectResult     :: !(Maybe CopyObjectResult)
-    , _corStatus               :: !Status
+    , _corStatus               :: !Int
     } deriving (Eq,Show)
 
 -- | 'CopyObjectResponse' smart constructor.
-copyObjectResponse :: Status -> CopyObjectResponse
+copyObjectResponse :: Int -> CopyObjectResponse
 copyObjectResponse pStatus =
     CopyObjectResponse'
     { _corRequestCharged = Nothing
@@ -525,5 +525,5 @@ corCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
 corCopyObjectResult = lens _corCopyObjectResult (\ s a -> s{_corCopyObjectResult = a});
 
 -- | FIXME: Undocumented member.
-corStatus :: Lens' CopyObjectResponse Status
+corStatus :: Lens' CopyObjectResponse Int
 corStatus = lens _corStatus (\ s a -> s{_corStatus = a});

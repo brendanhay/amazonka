@@ -81,7 +81,7 @@ instance AWSRequest DescribePipelines where
           = receiveJSON
               (\ s h x ->
                  DescribePipelinesResponse' <$>
-                   (pure s) <*>
+                   (pure (fromEnum s)) <*>
                      (x .?> "pipelineDescriptionList" .!@ mempty))
 
 instance ToHeaders DescribePipelines where
@@ -113,12 +113,12 @@ instance ToQuery DescribePipelines where
 --
 -- * 'dprPipelineDescriptionList'
 data DescribePipelinesResponse = DescribePipelinesResponse'
-    { _dprStatus                  :: !Status
+    { _dprStatus                  :: !Int
     , _dprPipelineDescriptionList :: ![PipelineDescription]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribePipelinesResponse' smart constructor.
-describePipelinesResponse :: Status -> DescribePipelinesResponse
+describePipelinesResponse :: Int -> DescribePipelinesResponse
 describePipelinesResponse pStatus =
     DescribePipelinesResponse'
     { _dprStatus = pStatus
@@ -126,7 +126,7 @@ describePipelinesResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-dprStatus :: Lens' DescribePipelinesResponse Status
+dprStatus :: Lens' DescribePipelinesResponse Int
 dprStatus = lens _dprStatus (\ s a -> s{_dprStatus = a});
 
 -- | An array of descriptions for the specified pipelines.

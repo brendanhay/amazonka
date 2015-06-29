@@ -110,7 +110,7 @@ instance AWSRequest CreateSAMLProvider where
           = receiveXMLWrapper "CreateSAMLProviderResult"
               (\ s h x ->
                  CreateSAMLProviderResponse' <$>
-                   (x .@? "SAMLProviderArn") <*> (pure s))
+                   (x .@? "SAMLProviderArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateSAMLProvider where
         toHeaders = const mempty
@@ -138,11 +138,11 @@ instance ToQuery CreateSAMLProvider where
 -- * 'csamlprStatus'
 data CreateSAMLProviderResponse = CreateSAMLProviderResponse'
     { _csamlprSAMLProviderARN :: !(Maybe Text)
-    , _csamlprStatus          :: !Status
-    } deriving (Eq,Show)
+    , _csamlprStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSAMLProviderResponse' smart constructor.
-createSAMLProviderResponse :: Status -> CreateSAMLProviderResponse
+createSAMLProviderResponse :: Int -> CreateSAMLProviderResponse
 createSAMLProviderResponse pStatus =
     CreateSAMLProviderResponse'
     { _csamlprSAMLProviderARN = Nothing
@@ -154,5 +154,5 @@ csamlprSAMLProviderARN :: Lens' CreateSAMLProviderResponse (Maybe Text)
 csamlprSAMLProviderARN = lens _csamlprSAMLProviderARN (\ s a -> s{_csamlprSAMLProviderARN = a});
 
 -- | FIXME: Undocumented member.
-csamlprStatus :: Lens' CreateSAMLProviderResponse Status
+csamlprStatus :: Lens' CreateSAMLProviderResponse Int
 csamlprStatus = lens _csamlprStatus (\ s a -> s{_csamlprStatus = a});

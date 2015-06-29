@@ -64,7 +64,7 @@ instance AWSRequest ListAvailableSolutionStacks where
                      <*>
                      (x .@? "SolutionStackDetails" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListAvailableSolutionStacks where
         toHeaders = const mempty
@@ -94,11 +94,11 @@ instance ToQuery ListAvailableSolutionStacks where
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
     { _lassrSolutionStacks       :: !(Maybe [Text])
     , _lassrSolutionStackDetails :: !(Maybe [SolutionStackDescription])
-    , _lassrStatus               :: !Status
-    } deriving (Eq,Show)
+    , _lassrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAvailableSolutionStacksResponse' smart constructor.
-listAvailableSolutionStacksResponse :: Status -> ListAvailableSolutionStacksResponse
+listAvailableSolutionStacksResponse :: Int -> ListAvailableSolutionStacksResponse
 listAvailableSolutionStacksResponse pStatus =
     ListAvailableSolutionStacksResponse'
     { _lassrSolutionStacks = Nothing
@@ -115,5 +115,5 @@ lassrSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [Solution
 lassrSolutionStackDetails = lens _lassrSolutionStackDetails (\ s a -> s{_lassrSolutionStackDetails = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lassrStatus :: Lens' ListAvailableSolutionStacksResponse Status
+lassrStatus :: Lens' ListAvailableSolutionStacksResponse Int
 lassrStatus = lens _lassrStatus (\ s a -> s{_lassrStatus = a});

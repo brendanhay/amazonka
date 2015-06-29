@@ -82,7 +82,7 @@ instance AWSRequest CancelRetrieval where
           = receiveJSON
               (\ s h x ->
                  CancelRetrievalResponse' <$>
-                   (x .?> "TapeARN") <*> (pure s))
+                   (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders CancelRetrieval where
         toHeaders
@@ -117,11 +117,11 @@ instance ToQuery CancelRetrieval where
 -- * 'crrStatus'
 data CancelRetrievalResponse = CancelRetrievalResponse'
     { _crrTapeARN :: !(Maybe Text)
-    , _crrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _crrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelRetrievalResponse' smart constructor.
-cancelRetrievalResponse :: Status -> CancelRetrievalResponse
+cancelRetrievalResponse :: Int -> CancelRetrievalResponse
 cancelRetrievalResponse pStatus =
     CancelRetrievalResponse'
     { _crrTapeARN = Nothing
@@ -134,5 +134,5 @@ crrTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
 crrTapeARN = lens _crrTapeARN (\ s a -> s{_crrTapeARN = a});
 
 -- | FIXME: Undocumented member.
-crrStatus :: Lens' CancelRetrievalResponse Status
+crrStatus :: Lens' CancelRetrievalResponse Int
 crrStatus = lens _crrStatus (\ s a -> s{_crrStatus = a});

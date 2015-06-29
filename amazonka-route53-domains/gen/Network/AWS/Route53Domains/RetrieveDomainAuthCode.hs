@@ -82,7 +82,7 @@ instance AWSRequest RetrieveDomainAuthCode where
           = receiveJSON
               (\ s h x ->
                  RetrieveDomainAuthCodeResponse' <$>
-                   (pure s) <*> (x .:> "AuthCode"))
+                   (pure (fromEnum s)) <*> (x .:> "AuthCode"))
 
 instance ToHeaders RetrieveDomainAuthCode where
         toHeaders
@@ -114,12 +114,12 @@ instance ToQuery RetrieveDomainAuthCode where
 --
 -- * 'rdacrAuthCode'
 data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
-    { _rdacrStatus   :: !Status
+    { _rdacrStatus   :: !Int
     , _rdacrAuthCode :: !(Sensitive Text)
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'RetrieveDomainAuthCodeResponse' smart constructor.
-retrieveDomainAuthCodeResponse :: Status -> Text -> RetrieveDomainAuthCodeResponse
+retrieveDomainAuthCodeResponse :: Int -> Text -> RetrieveDomainAuthCodeResponse
 retrieveDomainAuthCodeResponse pStatus pAuthCode =
     RetrieveDomainAuthCodeResponse'
     { _rdacrStatus = pStatus
@@ -127,7 +127,7 @@ retrieveDomainAuthCodeResponse pStatus pAuthCode =
     }
 
 -- | FIXME: Undocumented member.
-rdacrStatus :: Lens' RetrieveDomainAuthCodeResponse Status
+rdacrStatus :: Lens' RetrieveDomainAuthCodeResponse Int
 rdacrStatus = lens _rdacrStatus (\ s a -> s{_rdacrStatus = a});
 
 -- | The authorization code for the domain.

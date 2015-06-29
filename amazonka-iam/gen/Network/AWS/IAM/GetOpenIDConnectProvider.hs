@@ -80,7 +80,7 @@ instance AWSRequest GetOpenIDConnectProvider where
                      <*>
                      (x .@? "ClientIDList" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetOpenIDConnectProvider where
         toHeaders = const mempty
@@ -117,11 +117,11 @@ data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
     , _goidcprURL            :: !(Maybe Text)
     , _goidcprThumbprintList :: !(Maybe [Text])
     , _goidcprClientIDList   :: !(Maybe [Text])
-    , _goidcprStatus         :: !Status
-    } deriving (Eq,Show)
+    , _goidcprStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetOpenIDConnectProviderResponse' smart constructor.
-getOpenIDConnectProviderResponse :: Status -> GetOpenIDConnectProviderResponse
+getOpenIDConnectProviderResponse :: Int -> GetOpenIDConnectProviderResponse
 getOpenIDConnectProviderResponse pStatus =
     GetOpenIDConnectProviderResponse'
     { _goidcprCreateDate = Nothing
@@ -154,5 +154,5 @@ goidcprClientIDList :: Lens' GetOpenIDConnectProviderResponse [Text]
 goidcprClientIDList = lens _goidcprClientIDList (\ s a -> s{_goidcprClientIDList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-goidcprStatus :: Lens' GetOpenIDConnectProviderResponse Status
+goidcprStatus :: Lens' GetOpenIDConnectProviderResponse Int
 goidcprStatus = lens _goidcprStatus (\ s a -> s{_goidcprStatus = a});

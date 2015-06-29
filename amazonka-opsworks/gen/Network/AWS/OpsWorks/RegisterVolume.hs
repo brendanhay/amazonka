@@ -87,7 +87,7 @@ instance AWSRequest RegisterVolume where
           = receiveJSON
               (\ s h x ->
                  RegisterVolumeResponse' <$>
-                   (x .?> "VolumeId") <*> (pure s))
+                   (x .?> "VolumeId") <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterVolume where
         toHeaders
@@ -121,11 +121,11 @@ instance ToQuery RegisterVolume where
 -- * 'rvrStatus'
 data RegisterVolumeResponse = RegisterVolumeResponse'
     { _rvrVolumeId :: !(Maybe Text)
-    , _rvrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _rvrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterVolumeResponse' smart constructor.
-registerVolumeResponse :: Status -> RegisterVolumeResponse
+registerVolumeResponse :: Int -> RegisterVolumeResponse
 registerVolumeResponse pStatus =
     RegisterVolumeResponse'
     { _rvrVolumeId = Nothing
@@ -137,5 +137,5 @@ rvrVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
 rvrVolumeId = lens _rvrVolumeId (\ s a -> s{_rvrVolumeId = a});
 
 -- | FIXME: Undocumented member.
-rvrStatus :: Lens' RegisterVolumeResponse Status
+rvrStatus :: Lens' RegisterVolumeResponse Int
 rvrStatus = lens _rvrStatus (\ s a -> s{_rvrStatus = a});

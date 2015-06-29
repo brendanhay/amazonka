@@ -76,7 +76,7 @@ instance AWSRequest CreateInternetGateway where
           = receiveXML
               (\ s h x ->
                  CreateInternetGatewayResponse' <$>
-                   (x .@? "internetGateway") <*> (pure s))
+                   (x .@? "internetGateway") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateInternetGateway where
         toHeaders = const mempty
@@ -100,11 +100,11 @@ instance ToQuery CreateInternetGateway where
 -- * 'cigrStatus'
 data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
     { _cigrInternetGateway :: !(Maybe InternetGateway)
-    , _cigrStatus          :: !Status
-    } deriving (Eq,Show)
+    , _cigrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateInternetGatewayResponse' smart constructor.
-createInternetGatewayResponse :: Status -> CreateInternetGatewayResponse
+createInternetGatewayResponse :: Int -> CreateInternetGatewayResponse
 createInternetGatewayResponse pStatus =
     CreateInternetGatewayResponse'
     { _cigrInternetGateway = Nothing
@@ -116,5 +116,5 @@ cigrInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGatewa
 cigrInternetGateway = lens _cigrInternetGateway (\ s a -> s{_cigrInternetGateway = a});
 
 -- | FIXME: Undocumented member.
-cigrStatus :: Lens' CreateInternetGatewayResponse Status
+cigrStatus :: Lens' CreateInternetGatewayResponse Int
 cigrStatus = lens _cigrStatus (\ s a -> s{_cigrStatus = a});

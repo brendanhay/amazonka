@@ -167,7 +167,7 @@ instance AWSRequest CreateLoadBalancer where
           = receiveXMLWrapper "CreateLoadBalancerResult"
               (\ s h x ->
                  CreateLoadBalancerResponse' <$>
-                   (x .@? "DNSName") <*> (pure s))
+                   (x .@? "DNSName") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateLoadBalancer where
         toHeaders = const mempty
@@ -203,11 +203,11 @@ instance ToQuery CreateLoadBalancer where
 -- * 'clbrStatus'
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
     { _clbrDNSName :: !(Maybe Text)
-    , _clbrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _clbrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLoadBalancerResponse' smart constructor.
-createLoadBalancerResponse :: Status -> CreateLoadBalancerResponse
+createLoadBalancerResponse :: Int -> CreateLoadBalancerResponse
 createLoadBalancerResponse pStatus =
     CreateLoadBalancerResponse'
     { _clbrDNSName = Nothing
@@ -219,5 +219,5 @@ clbrDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
 clbrDNSName = lens _clbrDNSName (\ s a -> s{_clbrDNSName = a});
 
 -- | FIXME: Undocumented member.
-clbrStatus :: Lens' CreateLoadBalancerResponse Status
+clbrStatus :: Lens' CreateLoadBalancerResponse Int
 clbrStatus = lens _clbrStatus (\ s a -> s{_clbrStatus = a});

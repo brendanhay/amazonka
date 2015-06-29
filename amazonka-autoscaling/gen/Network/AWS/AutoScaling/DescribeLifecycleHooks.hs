@@ -80,7 +80,7 @@ instance AWSRequest DescribeLifecycleHooks where
                  DescribeLifecycleHooksResponse' <$>
                    (x .@? "LifecycleHooks" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeLifecycleHooks where
         toHeaders = const mempty
@@ -108,11 +108,11 @@ instance ToQuery DescribeLifecycleHooks where
 -- * 'dlhrStatus'
 data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
     { _dlhrLifecycleHooks :: !(Maybe [LifecycleHook])
-    , _dlhrStatus         :: !Status
-    } deriving (Eq,Show)
+    , _dlhrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLifecycleHooksResponse' smart constructor.
-describeLifecycleHooksResponse :: Status -> DescribeLifecycleHooksResponse
+describeLifecycleHooksResponse :: Int -> DescribeLifecycleHooksResponse
 describeLifecycleHooksResponse pStatus =
     DescribeLifecycleHooksResponse'
     { _dlhrLifecycleHooks = Nothing
@@ -124,5 +124,5 @@ dlhrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
 dlhrLifecycleHooks = lens _dlhrLifecycleHooks (\ s a -> s{_dlhrLifecycleHooks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlhrStatus :: Lens' DescribeLifecycleHooksResponse Status
+dlhrStatus :: Lens' DescribeLifecycleHooksResponse Int
 dlhrStatus = lens _dlhrStatus (\ s a -> s{_dlhrStatus = a});

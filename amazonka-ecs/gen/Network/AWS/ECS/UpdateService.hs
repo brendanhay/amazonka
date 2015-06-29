@@ -118,7 +118,7 @@ instance AWSRequest UpdateService where
           = receiveJSON
               (\ s h x ->
                  UpdateServiceResponse' <$>
-                   (x .?> "service") <*> (pure s))
+                   (x .?> "service") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateService where
         toHeaders
@@ -153,11 +153,11 @@ instance ToQuery UpdateService where
 -- * 'usrStatus'
 data UpdateServiceResponse = UpdateServiceResponse'
     { _usrService :: !(Maybe ContainerService)
-    , _usrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _usrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateServiceResponse' smart constructor.
-updateServiceResponse :: Status -> UpdateServiceResponse
+updateServiceResponse :: Int -> UpdateServiceResponse
 updateServiceResponse pStatus =
     UpdateServiceResponse'
     { _usrService = Nothing
@@ -169,5 +169,5 @@ usrService :: Lens' UpdateServiceResponse (Maybe ContainerService)
 usrService = lens _usrService (\ s a -> s{_usrService = a});
 
 -- | FIXME: Undocumented member.
-usrStatus :: Lens' UpdateServiceResponse Status
+usrStatus :: Lens' UpdateServiceResponse Int
 usrStatus = lens _usrStatus (\ s a -> s{_usrStatus = a});

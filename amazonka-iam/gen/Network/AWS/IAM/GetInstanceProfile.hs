@@ -74,7 +74,7 @@ instance AWSRequest GetInstanceProfile where
           = receiveXMLWrapper "GetInstanceProfileResult"
               (\ s h x ->
                  GetInstanceProfileResponse' <$>
-                   (pure s) <*> (x .@ "InstanceProfile"))
+                   (pure (fromEnum s)) <*> (x .@ "InstanceProfile"))
 
 instance ToHeaders GetInstanceProfile where
         toHeaders = const mempty
@@ -99,12 +99,12 @@ instance ToQuery GetInstanceProfile where
 --
 -- * 'giprInstanceProfile'
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
-    { _giprStatus          :: !Status
+    { _giprStatus          :: !Int
     , _giprInstanceProfile :: !InstanceProfile
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetInstanceProfileResponse' smart constructor.
-getInstanceProfileResponse :: Status -> InstanceProfile -> GetInstanceProfileResponse
+getInstanceProfileResponse :: Int -> InstanceProfile -> GetInstanceProfileResponse
 getInstanceProfileResponse pStatus pInstanceProfile =
     GetInstanceProfileResponse'
     { _giprStatus = pStatus
@@ -112,7 +112,7 @@ getInstanceProfileResponse pStatus pInstanceProfile =
     }
 
 -- | FIXME: Undocumented member.
-giprStatus :: Lens' GetInstanceProfileResponse Status
+giprStatus :: Lens' GetInstanceProfileResponse Int
 giprStatus = lens _giprStatus (\ s a -> s{_giprStatus = a});
 
 -- | Information about the instance profile.

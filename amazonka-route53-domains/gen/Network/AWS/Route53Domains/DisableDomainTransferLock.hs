@@ -87,7 +87,7 @@ instance AWSRequest DisableDomainTransferLock where
           = receiveJSON
               (\ s h x ->
                  DisableDomainTransferLockResponse' <$>
-                   (pure s) <*> (x .:> "OperationId"))
+                   (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
 instance ToHeaders DisableDomainTransferLock where
         toHeaders
@@ -119,12 +119,12 @@ instance ToQuery DisableDomainTransferLock where
 --
 -- * 'ddtlrOperationId'
 data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
-    { _ddtlrStatus      :: !Status
+    { _ddtlrStatus      :: !Int
     , _ddtlrOperationId :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableDomainTransferLockResponse' smart constructor.
-disableDomainTransferLockResponse :: Status -> Text -> DisableDomainTransferLockResponse
+disableDomainTransferLockResponse :: Int -> Text -> DisableDomainTransferLockResponse
 disableDomainTransferLockResponse pStatus pOperationId =
     DisableDomainTransferLockResponse'
     { _ddtlrStatus = pStatus
@@ -132,7 +132,7 @@ disableDomainTransferLockResponse pStatus pOperationId =
     }
 
 -- | FIXME: Undocumented member.
-ddtlrStatus :: Lens' DisableDomainTransferLockResponse Status
+ddtlrStatus :: Lens' DisableDomainTransferLockResponse Int
 ddtlrStatus = lens _ddtlrStatus (\ s a -> s{_ddtlrStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to

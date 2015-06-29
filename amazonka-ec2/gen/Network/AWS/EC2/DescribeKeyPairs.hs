@@ -100,7 +100,8 @@ instance AWSRequest DescribeKeyPairs where
           = receiveXML
               (\ s h x ->
                  DescribeKeyPairsResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeKeyPairs where
         toHeaders = const mempty
@@ -126,11 +127,11 @@ instance ToQuery DescribeKeyPairs where
 -- * 'dkprStatus'
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
     { _dkprKeyPairs :: !(Maybe [KeyPairInfo])
-    , _dkprStatus   :: !Status
-    } deriving (Eq,Show)
+    , _dkprStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeKeyPairsResponse' smart constructor.
-describeKeyPairsResponse :: Status -> DescribeKeyPairsResponse
+describeKeyPairsResponse :: Int -> DescribeKeyPairsResponse
 describeKeyPairsResponse pStatus =
     DescribeKeyPairsResponse'
     { _dkprKeyPairs = Nothing
@@ -142,5 +143,5 @@ dkprKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
 dkprKeyPairs = lens _dkprKeyPairs (\ s a -> s{_dkprKeyPairs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dkprStatus :: Lens' DescribeKeyPairsResponse Status
+dkprStatus :: Lens' DescribeKeyPairsResponse Int
 dkprStatus = lens _dkprStatus (\ s a -> s{_dkprStatus = a});

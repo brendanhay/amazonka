@@ -217,7 +217,7 @@ instance AWSRequest DescribeBatchPredictions where
               (\ s h x ->
                  DescribeBatchPredictionsResponse' <$>
                    (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeBatchPredictions where
         toHeaders
@@ -261,11 +261,11 @@ instance ToQuery DescribeBatchPredictions where
 data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
     { _desResults   :: !(Maybe [BatchPrediction])
     , _desNextToken :: !(Maybe Text)
-    , _desStatus    :: !Status
-    } deriving (Eq,Show)
+    , _desStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeBatchPredictionsResponse' smart constructor.
-describeBatchPredictionsResponse :: Status -> DescribeBatchPredictionsResponse
+describeBatchPredictionsResponse :: Int -> DescribeBatchPredictionsResponse
 describeBatchPredictionsResponse pStatus =
     DescribeBatchPredictionsResponse'
     { _desResults = Nothing
@@ -283,5 +283,5 @@ desNextToken :: Lens' DescribeBatchPredictionsResponse (Maybe Text)
 desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeBatchPredictionsResponse Status
+desStatus :: Lens' DescribeBatchPredictionsResponse Int
 desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

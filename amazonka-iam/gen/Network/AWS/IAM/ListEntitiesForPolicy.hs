@@ -142,7 +142,7 @@ instance AWSRequest ListEntitiesForPolicy where
                         may (parseXMLList "member"))
                      <*> (x .@? "Marker")
                      <*> (x .@? "IsTruncated")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListEntitiesForPolicy where
         toHeaders = const mempty
@@ -183,11 +183,11 @@ data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'
     , _lefprPolicyUsers  :: !(Maybe [PolicyUser])
     , _lefprMarker       :: !(Maybe Text)
     , _lefprIsTruncated  :: !(Maybe Bool)
-    , _lefprStatus       :: !Status
-    } deriving (Eq,Show)
+    , _lefprStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListEntitiesForPolicyResponse' smart constructor.
-listEntitiesForPolicyResponse :: Status -> ListEntitiesForPolicyResponse
+listEntitiesForPolicyResponse :: Int -> ListEntitiesForPolicyResponse
 listEntitiesForPolicyResponse pStatus =
     ListEntitiesForPolicyResponse'
     { _lefprPolicyGroups = Nothing
@@ -224,5 +224,5 @@ lefprIsTruncated :: Lens' ListEntitiesForPolicyResponse (Maybe Bool)
 lefprIsTruncated = lens _lefprIsTruncated (\ s a -> s{_lefprIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lefprStatus :: Lens' ListEntitiesForPolicyResponse Status
+lefprStatus :: Lens' ListEntitiesForPolicyResponse Int
 lefprStatus = lens _lefprStatus (\ s a -> s{_lefprStatus = a});

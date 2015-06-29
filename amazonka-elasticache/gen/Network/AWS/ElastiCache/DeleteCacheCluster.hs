@@ -90,7 +90,7 @@ instance AWSRequest DeleteCacheCluster where
           = receiveXMLWrapper "DeleteCacheClusterResult"
               (\ s h x ->
                  DeleteCacheClusterResponse' <$>
-                   (x .@? "CacheCluster") <*> (pure s))
+                   (x .@? "CacheCluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteCacheCluster where
         toHeaders = const mempty
@@ -116,11 +116,11 @@ instance ToQuery DeleteCacheCluster where
 -- * 'dccrStatus'
 data DeleteCacheClusterResponse = DeleteCacheClusterResponse'
     { _dccrCacheCluster :: !(Maybe CacheCluster)
-    , _dccrStatus       :: !Status
-    } deriving (Eq,Show)
+    , _dccrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteCacheClusterResponse' smart constructor.
-deleteCacheClusterResponse :: Status -> DeleteCacheClusterResponse
+deleteCacheClusterResponse :: Int -> DeleteCacheClusterResponse
 deleteCacheClusterResponse pStatus =
     DeleteCacheClusterResponse'
     { _dccrCacheCluster = Nothing
@@ -132,5 +132,5 @@ dccrCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
 dccrCacheCluster = lens _dccrCacheCluster (\ s a -> s{_dccrCacheCluster = a});
 
 -- | FIXME: Undocumented member.
-dccrStatus :: Lens' DeleteCacheClusterResponse Status
+dccrStatus :: Lens' DeleteCacheClusterResponse Int
 dccrStatus = lens _dccrStatus (\ s a -> s{_dccrStatus = a});

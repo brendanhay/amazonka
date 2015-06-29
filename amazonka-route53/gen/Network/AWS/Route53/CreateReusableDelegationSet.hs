@@ -98,7 +98,7 @@ instance AWSRequest CreateReusableDelegationSet where
           = receiveXML
               (\ s h x ->
                  CreateReusableDelegationSetResponse' <$>
-                   (pure s) <*> (x .@ "DelegationSet") <*>
+                   (pure (fromEnum s)) <*> (x .@ "DelegationSet") <*>
                      (h .# "Location"))
 
 instance ToElement CreateReusableDelegationSet where
@@ -131,13 +131,13 @@ instance ToXML CreateReusableDelegationSet where
 --
 -- * 'crdsrLocation'
 data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'
-    { _crdsrStatus        :: !Status
+    { _crdsrStatus        :: !Int
     , _crdsrDelegationSet :: !DelegationSet
     , _crdsrLocation      :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateReusableDelegationSetResponse' smart constructor.
-createReusableDelegationSetResponse :: Status -> DelegationSet -> Text -> CreateReusableDelegationSetResponse
+createReusableDelegationSetResponse :: Int -> DelegationSet -> Text -> CreateReusableDelegationSetResponse
 createReusableDelegationSetResponse pStatus pDelegationSet pLocation =
     CreateReusableDelegationSetResponse'
     { _crdsrStatus = pStatus
@@ -146,7 +146,7 @@ createReusableDelegationSetResponse pStatus pDelegationSet pLocation =
     }
 
 -- | FIXME: Undocumented member.
-crdsrStatus :: Lens' CreateReusableDelegationSetResponse Status
+crdsrStatus :: Lens' CreateReusableDelegationSetResponse Int
 crdsrStatus = lens _crdsrStatus (\ s a -> s{_crdsrStatus = a});
 
 -- | A complex type that contains name server information.

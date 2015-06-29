@@ -162,7 +162,7 @@ instance AWSRequest ListMultipartUploads where
                      <*> (x .@? "IsTruncated")
                      <*> (x .@? "NextUploadIdMarker")
                      <*> (x .@? "Delimiter")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListMultipartUploads where
         toHeaders = const mempty
@@ -223,11 +223,11 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
     , _lmurIsTruncated        :: !(Maybe Bool)
     , _lmurNextUploadIdMarker :: !(Maybe Text)
     , _lmurDelimiter          :: !(Maybe Char)
-    , _lmurStatus             :: !Status
+    , _lmurStatus             :: !Int
     } deriving (Eq,Show)
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
-listMultipartUploadsResponse :: Status -> ListMultipartUploadsResponse
+listMultipartUploadsResponse :: Int -> ListMultipartUploadsResponse
 listMultipartUploadsResponse pStatus =
     ListMultipartUploadsResponse'
     { _lmurKeyMarker = Nothing
@@ -303,5 +303,5 @@ lmurDelimiter :: Lens' ListMultipartUploadsResponse (Maybe Char)
 lmurDelimiter = lens _lmurDelimiter (\ s a -> s{_lmurDelimiter = a});
 
 -- | FIXME: Undocumented member.
-lmurStatus :: Lens' ListMultipartUploadsResponse Status
+lmurStatus :: Lens' ListMultipartUploadsResponse Int
 lmurStatus = lens _lmurStatus (\ s a -> s{_lmurStatus = a});

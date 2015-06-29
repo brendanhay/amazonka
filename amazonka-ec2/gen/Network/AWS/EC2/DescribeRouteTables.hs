@@ -155,7 +155,8 @@ instance AWSRequest DescribeRouteTables where
           = receiveXML
               (\ s h x ->
                  DescribeRouteTablesResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeRouteTables where
         toHeaders = const mempty
@@ -181,11 +182,11 @@ instance ToQuery DescribeRouteTables where
 -- * 'drtrStatus'
 data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
     { _drtrRouteTables :: !(Maybe [RouteTable])
-    , _drtrStatus      :: !Status
-    } deriving (Eq,Show)
+    , _drtrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeRouteTablesResponse' smart constructor.
-describeRouteTablesResponse :: Status -> DescribeRouteTablesResponse
+describeRouteTablesResponse :: Int -> DescribeRouteTablesResponse
 describeRouteTablesResponse pStatus =
     DescribeRouteTablesResponse'
     { _drtrRouteTables = Nothing
@@ -197,5 +198,5 @@ drtrRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
 drtrRouteTables = lens _drtrRouteTables (\ s a -> s{_drtrRouteTables = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drtrStatus :: Lens' DescribeRouteTablesResponse Status
+drtrStatus :: Lens' DescribeRouteTablesResponse Int
 drtrStatus = lens _drtrStatus (\ s a -> s{_drtrStatus = a});

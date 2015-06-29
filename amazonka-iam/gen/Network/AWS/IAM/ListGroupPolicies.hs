@@ -115,7 +115,7 @@ instance AWSRequest ListGroupPolicies where
               (\ s h x ->
                  ListGroupPoliciesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (pure s)
+                     (pure (fromEnum s))
                      <*>
                      (x .@? "PolicyNames" .!@ mempty >>=
                         parseXMLList "member"))
@@ -150,12 +150,12 @@ instance ToQuery ListGroupPolicies where
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
     { _lgprMarker      :: !(Maybe Text)
     , _lgprIsTruncated :: !(Maybe Bool)
-    , _lgprStatus      :: !Status
+    , _lgprStatus      :: !Int
     , _lgprPolicyNames :: ![Text]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGroupPoliciesResponse' smart constructor.
-listGroupPoliciesResponse :: Status -> ListGroupPoliciesResponse
+listGroupPoliciesResponse :: Int -> ListGroupPoliciesResponse
 listGroupPoliciesResponse pStatus =
     ListGroupPoliciesResponse'
     { _lgprMarker = Nothing
@@ -178,7 +178,7 @@ lgprIsTruncated :: Lens' ListGroupPoliciesResponse (Maybe Bool)
 lgprIsTruncated = lens _lgprIsTruncated (\ s a -> s{_lgprIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lgprStatus :: Lens' ListGroupPoliciesResponse Status
+lgprStatus :: Lens' ListGroupPoliciesResponse Int
 lgprStatus = lens _lgprStatus (\ s a -> s{_lgprStatus = a});
 
 -- | A list of policy names.

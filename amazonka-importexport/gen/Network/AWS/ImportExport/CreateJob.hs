@@ -123,7 +123,7 @@ instance AWSRequest CreateJob where
                      <*>
                      (x .@? "ArtifactList" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateJob where
         toHeaders = const mempty
@@ -168,11 +168,11 @@ data CreateJobResponse = CreateJobResponse'
     , _cjrSignatureFileContents :: !(Maybe Text)
     , _cjrWarningMessage        :: !(Maybe Text)
     , _cjrArtifactList          :: !(Maybe [Artifact])
-    , _cjrStatus                :: !Status
-    } deriving (Eq,Show)
+    , _cjrStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateJobResponse' smart constructor.
-createJobResponse :: Status -> CreateJobResponse
+createJobResponse :: Int -> CreateJobResponse
 createJobResponse pStatus =
     CreateJobResponse'
     { _cjrSignature = Nothing
@@ -209,5 +209,5 @@ cjrArtifactList :: Lens' CreateJobResponse [Artifact]
 cjrArtifactList = lens _cjrArtifactList (\ s a -> s{_cjrArtifactList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-cjrStatus :: Lens' CreateJobResponse Status
+cjrStatus :: Lens' CreateJobResponse Int
 cjrStatus = lens _cjrStatus (\ s a -> s{_cjrStatus = a});

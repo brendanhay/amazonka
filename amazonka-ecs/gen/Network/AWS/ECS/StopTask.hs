@@ -79,7 +79,8 @@ instance AWSRequest StopTask where
         response
           = receiveJSON
               (\ s h x ->
-                 StopTaskResponse' <$> (x .?> "task") <*> (pure s))
+                 StopTaskResponse' <$>
+                   (x .?> "task") <*> (pure (fromEnum s)))
 
 instance ToHeaders StopTask where
         toHeaders
@@ -110,11 +111,11 @@ instance ToQuery StopTask where
 -- * 'stoStatus'
 data StopTaskResponse = StopTaskResponse'
     { _stoTask   :: !(Maybe Task)
-    , _stoStatus :: !Status
-    } deriving (Eq,Show)
+    , _stoStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'StopTaskResponse' smart constructor.
-stopTaskResponse :: Status -> StopTaskResponse
+stopTaskResponse :: Int -> StopTaskResponse
 stopTaskResponse pStatus =
     StopTaskResponse'
     { _stoTask = Nothing
@@ -126,5 +127,5 @@ stoTask :: Lens' StopTaskResponse (Maybe Task)
 stoTask = lens _stoTask (\ s a -> s{_stoTask = a});
 
 -- | FIXME: Undocumented member.
-stoStatus :: Lens' StopTaskResponse Status
+stoStatus :: Lens' StopTaskResponse Int
 stoStatus = lens _stoStatus (\ s a -> s{_stoStatus = a});

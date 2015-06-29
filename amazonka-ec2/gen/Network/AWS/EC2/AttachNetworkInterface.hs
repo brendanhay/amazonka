@@ -99,7 +99,7 @@ instance AWSRequest AttachNetworkInterface where
           = receiveXML
               (\ s h x ->
                  AttachNetworkInterfaceResponse' <$>
-                   (x .@? "attachmentId") <*> (pure s))
+                   (x .@? "attachmentId") <*> (pure (fromEnum s)))
 
 instance ToHeaders AttachNetworkInterface where
         toHeaders = const mempty
@@ -127,11 +127,11 @@ instance ToQuery AttachNetworkInterface where
 -- * 'anirStatus'
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
     { _anirAttachmentId :: !(Maybe Text)
-    , _anirStatus       :: !Status
-    } deriving (Eq,Show)
+    , _anirStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachNetworkInterfaceResponse' smart constructor.
-attachNetworkInterfaceResponse :: Status -> AttachNetworkInterfaceResponse
+attachNetworkInterfaceResponse :: Int -> AttachNetworkInterfaceResponse
 attachNetworkInterfaceResponse pStatus =
     AttachNetworkInterfaceResponse'
     { _anirAttachmentId = Nothing
@@ -143,5 +143,5 @@ anirAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
 anirAttachmentId = lens _anirAttachmentId (\ s a -> s{_anirAttachmentId = a});
 
 -- | FIXME: Undocumented member.
-anirStatus :: Lens' AttachNetworkInterfaceResponse Status
+anirStatus :: Lens' AttachNetworkInterfaceResponse Int
 anirStatus = lens _anirStatus (\ s a -> s{_anirStatus = a});

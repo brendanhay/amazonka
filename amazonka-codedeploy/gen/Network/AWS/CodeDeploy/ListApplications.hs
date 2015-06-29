@@ -76,7 +76,7 @@ instance AWSRequest ListApplications where
                  ListApplicationsResponse' <$>
                    (x .?> "nextToken") <*>
                      (x .?> "applications" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListApplications where
         toHeaders
@@ -112,11 +112,11 @@ instance ToQuery ListApplications where
 data ListApplicationsResponse = ListApplicationsResponse'
     { _larNextToken    :: !(Maybe Text)
     , _larApplications :: !(Maybe [Text])
-    , _larStatus       :: !Status
-    } deriving (Eq,Show)
+    , _larStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListApplicationsResponse' smart constructor.
-listApplicationsResponse :: Status -> ListApplicationsResponse
+listApplicationsResponse :: Int -> ListApplicationsResponse
 listApplicationsResponse pStatus =
     ListApplicationsResponse'
     { _larNextToken = Nothing
@@ -135,5 +135,5 @@ larApplications :: Lens' ListApplicationsResponse [Text]
 larApplications = lens _larApplications (\ s a -> s{_larApplications = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-larStatus :: Lens' ListApplicationsResponse Status
+larStatus :: Lens' ListApplicationsResponse Int
 larStatus = lens _larStatus (\ s a -> s{_larStatus = a});

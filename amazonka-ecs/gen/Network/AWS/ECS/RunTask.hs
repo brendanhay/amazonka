@@ -134,7 +134,7 @@ instance AWSRequest RunTask where
                  RunTaskResponse' <$>
                    (x .?> "failures" .!@ mempty) <*>
                      (x .?> "tasks" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders RunTask where
         toHeaders
@@ -172,11 +172,11 @@ instance ToQuery RunTask where
 data RunTaskResponse = RunTaskResponse'
     { _rtrFailures :: !(Maybe [Failure])
     , _rtrTasks    :: !(Maybe [Task])
-    , _rtrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _rtrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RunTaskResponse' smart constructor.
-runTaskResponse :: Status -> RunTaskResponse
+runTaskResponse :: Int -> RunTaskResponse
 runTaskResponse pStatus =
     RunTaskResponse'
     { _rtrFailures = Nothing
@@ -194,5 +194,5 @@ rtrTasks :: Lens' RunTaskResponse [Task]
 rtrTasks = lens _rtrTasks (\ s a -> s{_rtrTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-rtrStatus :: Lens' RunTaskResponse Status
+rtrStatus :: Lens' RunTaskResponse Int
 rtrStatus = lens _rtrStatus (\ s a -> s{_rtrStatus = a});

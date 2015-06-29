@@ -94,7 +94,8 @@ instance AWSRequest CreateCacheParameterGroup where
           = receiveXMLWrapper "CreateCacheParameterGroupResult"
               (\ s h x ->
                  CreateCacheParameterGroupResponse' <$>
-                   (x .@? "CacheParameterGroup") <*> (pure s))
+                   (x .@? "CacheParameterGroup") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateCacheParameterGroup where
         toHeaders = const mempty
@@ -123,11 +124,11 @@ instance ToQuery CreateCacheParameterGroup where
 -- * 'ccpgrStatus'
 data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'
     { _ccpgrCacheParameterGroup :: !(Maybe CacheParameterGroup)
-    , _ccpgrStatus              :: !Status
-    } deriving (Eq,Show)
+    , _ccpgrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCacheParameterGroupResponse' smart constructor.
-createCacheParameterGroupResponse :: Status -> CreateCacheParameterGroupResponse
+createCacheParameterGroupResponse :: Int -> CreateCacheParameterGroupResponse
 createCacheParameterGroupResponse pStatus =
     CreateCacheParameterGroupResponse'
     { _ccpgrCacheParameterGroup = Nothing
@@ -139,5 +140,5 @@ ccpgrCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe Cache
 ccpgrCacheParameterGroup = lens _ccpgrCacheParameterGroup (\ s a -> s{_ccpgrCacheParameterGroup = a});
 
 -- | FIXME: Undocumented member.
-ccpgrStatus :: Lens' CreateCacheParameterGroupResponse Status
+ccpgrStatus :: Lens' CreateCacheParameterGroupResponse Int
 ccpgrStatus = lens _ccpgrStatus (\ s a -> s{_ccpgrStatus = a});

@@ -80,7 +80,7 @@ instance AWSRequest ModifyLunaClient where
           = receiveJSON
               (\ s h x ->
                  ModifyLunaClientResponse' <$>
-                   (x .?> "ClientArn") <*> (pure s))
+                   (x .?> "ClientArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyLunaClient where
         toHeaders
@@ -113,11 +113,11 @@ instance ToQuery ModifyLunaClient where
 -- * 'mlcrStatus'
 data ModifyLunaClientResponse = ModifyLunaClientResponse'
     { _mlcrClientARN :: !(Maybe Text)
-    , _mlcrStatus    :: !Status
-    } deriving (Eq,Show)
+    , _mlcrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyLunaClientResponse' smart constructor.
-modifyLunaClientResponse :: Status -> ModifyLunaClientResponse
+modifyLunaClientResponse :: Int -> ModifyLunaClientResponse
 modifyLunaClientResponse pStatus =
     ModifyLunaClientResponse'
     { _mlcrClientARN = Nothing
@@ -129,5 +129,5 @@ mlcrClientARN :: Lens' ModifyLunaClientResponse (Maybe Text)
 mlcrClientARN = lens _mlcrClientARN (\ s a -> s{_mlcrClientARN = a});
 
 -- | FIXME: Undocumented member.
-mlcrStatus :: Lens' ModifyLunaClientResponse Status
+mlcrStatus :: Lens' ModifyLunaClientResponse Int
 mlcrStatus = lens _mlcrStatus (\ s a -> s{_mlcrStatus = a});

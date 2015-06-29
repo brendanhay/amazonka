@@ -161,7 +161,7 @@ instance AWSRequest DescribeHSMClientCertificates
                    (x .@? "Marker") <*>
                      (x .@? "HsmClientCertificates" .!@ mempty >>=
                         may (parseXMLList "HsmClientCertificate"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeHSMClientCertificates
          where
@@ -199,11 +199,11 @@ instance ToQuery DescribeHSMClientCertificates where
 data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'
     { _dhccrMarker                :: !(Maybe Text)
     , _dhccrHSMClientCertificates :: !(Maybe [HSMClientCertificate])
-    , _dhccrStatus                :: !Status
-    } deriving (Eq,Show)
+    , _dhccrStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeHSMClientCertificatesResponse' smart constructor.
-describeHSMClientCertificatesResponse :: Status -> DescribeHSMClientCertificatesResponse
+describeHSMClientCertificatesResponse :: Int -> DescribeHSMClientCertificatesResponse
 describeHSMClientCertificatesResponse pStatus =
     DescribeHSMClientCertificatesResponse'
     { _dhccrMarker = Nothing
@@ -227,5 +227,5 @@ dhccrHSMClientCertificates :: Lens' DescribeHSMClientCertificatesResponse [HSMCl
 dhccrHSMClientCertificates = lens _dhccrHSMClientCertificates (\ s a -> s{_dhccrHSMClientCertificates = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dhccrStatus :: Lens' DescribeHSMClientCertificatesResponse Status
+dhccrStatus :: Lens' DescribeHSMClientCertificatesResponse Int
 dhccrStatus = lens _dhccrStatus (\ s a -> s{_dhccrStatus = a});

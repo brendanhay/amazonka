@@ -135,7 +135,8 @@ instance AWSRequest UploadServerCertificate where
           = receiveXMLWrapper "UploadServerCertificateResult"
               (\ s h x ->
                  UploadServerCertificateResponse' <$>
-                   (x .@? "ServerCertificateMetadata") <*> (pure s))
+                   (x .@? "ServerCertificateMetadata") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders UploadServerCertificate where
         toHeaders = const mempty
@@ -166,11 +167,11 @@ instance ToQuery UploadServerCertificate where
 -- * 'uplStatus'
 data UploadServerCertificateResponse = UploadServerCertificateResponse'
     { _uplServerCertificateMetadata :: !(Maybe ServerCertificateMetadata)
-    , _uplStatus                    :: !Status
-    } deriving (Eq,Show)
+    , _uplStatus                    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UploadServerCertificateResponse' smart constructor.
-uploadServerCertificateResponse :: Status -> UploadServerCertificateResponse
+uploadServerCertificateResponse :: Int -> UploadServerCertificateResponse
 uploadServerCertificateResponse pStatus =
     UploadServerCertificateResponse'
     { _uplServerCertificateMetadata = Nothing
@@ -183,5 +184,5 @@ uplServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe Ser
 uplServerCertificateMetadata = lens _uplServerCertificateMetadata (\ s a -> s{_uplServerCertificateMetadata = a});
 
 -- | FIXME: Undocumented member.
-uplStatus :: Lens' UploadServerCertificateResponse Status
+uplStatus :: Lens' UploadServerCertificateResponse Int
 uplStatus = lens _uplStatus (\ s a -> s{_uplStatus = a});

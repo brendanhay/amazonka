@@ -85,7 +85,7 @@ instance AWSRequest CreateRouteTable where
           = receiveXML
               (\ s h x ->
                  CreateRouteTableResponse' <$>
-                   (x .@? "routeTable") <*> (pure s))
+                   (x .@? "routeTable") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateRouteTable where
         toHeaders = const mempty
@@ -109,11 +109,11 @@ instance ToQuery CreateRouteTable where
 -- * 'crtrStatus'
 data CreateRouteTableResponse = CreateRouteTableResponse'
     { _crtrRouteTable :: !(Maybe RouteTable)
-    , _crtrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _crtrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateRouteTableResponse' smart constructor.
-createRouteTableResponse :: Status -> CreateRouteTableResponse
+createRouteTableResponse :: Int -> CreateRouteTableResponse
 createRouteTableResponse pStatus =
     CreateRouteTableResponse'
     { _crtrRouteTable = Nothing
@@ -125,5 +125,5 @@ crtrRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
 crtrRouteTable = lens _crtrRouteTable (\ s a -> s{_crtrRouteTable = a});
 
 -- | FIXME: Undocumented member.
-crtrStatus :: Lens' CreateRouteTableResponse Status
+crtrStatus :: Lens' CreateRouteTableResponse Int
 crtrStatus = lens _crtrStatus (\ s a -> s{_crtrStatus = a});

@@ -94,7 +94,7 @@ instance AWSRequest
                  DisableAvailabilityZonesForLoadBalancerResponse' <$>
                    (x .@? "AvailabilityZones" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders
          DisableAvailabilityZonesForLoadBalancer where
@@ -125,11 +125,11 @@ instance ToQuery
 -- * 'dazflbrStatus'
 data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse'
     { _dazflbrAvailabilityZones :: !(Maybe [Text])
-    , _dazflbrStatus            :: !Status
-    } deriving (Eq,Show)
+    , _dazflbrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableAvailabilityZonesForLoadBalancerResponse' smart constructor.
-disableAvailabilityZonesForLoadBalancerResponse :: Status -> DisableAvailabilityZonesForLoadBalancerResponse
+disableAvailabilityZonesForLoadBalancerResponse :: Int -> DisableAvailabilityZonesForLoadBalancerResponse
 disableAvailabilityZonesForLoadBalancerResponse pStatus =
     DisableAvailabilityZonesForLoadBalancerResponse'
     { _dazflbrAvailabilityZones = Nothing
@@ -141,5 +141,5 @@ dazflbrAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerRespons
 dazflbrAvailabilityZones = lens _dazflbrAvailabilityZones (\ s a -> s{_dazflbrAvailabilityZones = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dazflbrStatus :: Lens' DisableAvailabilityZonesForLoadBalancerResponse Status
+dazflbrStatus :: Lens' DisableAvailabilityZonesForLoadBalancerResponse Int
 dazflbrStatus = lens _dazflbrStatus (\ s a -> s{_dazflbrStatus = a});

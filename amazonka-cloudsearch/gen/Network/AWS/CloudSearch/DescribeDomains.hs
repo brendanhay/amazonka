@@ -80,7 +80,7 @@ instance AWSRequest DescribeDomains where
           = receiveXMLWrapper "DescribeDomainsResult"
               (\ s h x ->
                  DescribeDomainsResponse' <$>
-                   (pure s) <*>
+                   (pure (fromEnum s)) <*>
                      (x .@? "DomainStatusList" .!@ mempty >>=
                         parseXMLList "member"))
 
@@ -109,12 +109,12 @@ instance ToQuery DescribeDomains where
 --
 -- * 'descDomainStatusList'
 data DescribeDomainsResponse = DescribeDomainsResponse'
-    { _descStatus           :: !Status
+    { _descStatus           :: !Int
     , _descDomainStatusList :: ![DomainStatus]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDomainsResponse' smart constructor.
-describeDomainsResponse :: Status -> DescribeDomainsResponse
+describeDomainsResponse :: Int -> DescribeDomainsResponse
 describeDomainsResponse pStatus =
     DescribeDomainsResponse'
     { _descStatus = pStatus
@@ -122,7 +122,7 @@ describeDomainsResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-descStatus :: Lens' DescribeDomainsResponse Status
+descStatus :: Lens' DescribeDomainsResponse Int
 descStatus = lens _descStatus (\ s a -> s{_descStatus = a});
 
 -- | FIXME: Undocumented member.

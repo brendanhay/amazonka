@@ -123,7 +123,8 @@ instance AWSRequest CreateTapes where
           = receiveJSON
               (\ s h x ->
                  CreateTapesResponse' <$>
-                   (x .?> "TapeARNs" .!@ mempty) <*> (pure s))
+                   (x .?> "TapeARNs" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateTapes where
         toHeaders
@@ -161,11 +162,11 @@ instance ToQuery CreateTapes where
 -- * 'ctrStatus'
 data CreateTapesResponse = CreateTapesResponse'
     { _ctrTapeARNs :: !(Maybe [Text])
-    , _ctrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _ctrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateTapesResponse' smart constructor.
-createTapesResponse :: Status -> CreateTapesResponse
+createTapesResponse :: Int -> CreateTapesResponse
 createTapesResponse pStatus =
     CreateTapesResponse'
     { _ctrTapeARNs = Nothing
@@ -178,5 +179,5 @@ ctrTapeARNs :: Lens' CreateTapesResponse [Text]
 ctrTapeARNs = lens _ctrTapeARNs (\ s a -> s{_ctrTapeARNs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ctrStatus :: Lens' CreateTapesResponse Status
+ctrStatus :: Lens' CreateTapesResponse Int
 ctrStatus = lens _ctrStatus (\ s a -> s{_ctrStatus = a});

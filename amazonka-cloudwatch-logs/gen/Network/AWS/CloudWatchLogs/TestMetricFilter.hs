@@ -79,7 +79,7 @@ instance AWSRequest TestMetricFilter where
           = receiveJSON
               (\ s h x ->
                  TestMetricFilterResponse' <$>
-                   (x .?> "matches" .!@ mempty) <*> (pure s))
+                   (x .?> "matches" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders TestMetricFilter where
         toHeaders
@@ -111,11 +111,11 @@ instance ToQuery TestMetricFilter where
 -- * 'tmfrStatus'
 data TestMetricFilterResponse = TestMetricFilterResponse'
     { _tmfrMatches :: !(Maybe [MetricFilterMatchRecord])
-    , _tmfrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _tmfrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'TestMetricFilterResponse' smart constructor.
-testMetricFilterResponse :: Status -> TestMetricFilterResponse
+testMetricFilterResponse :: Int -> TestMetricFilterResponse
 testMetricFilterResponse pStatus =
     TestMetricFilterResponse'
     { _tmfrMatches = Nothing
@@ -127,5 +127,5 @@ tmfrMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
 tmfrMatches = lens _tmfrMatches (\ s a -> s{_tmfrMatches = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-tmfrStatus :: Lens' TestMetricFilterResponse Status
+tmfrStatus :: Lens' TestMetricFilterResponse Int
 tmfrStatus = lens _tmfrStatus (\ s a -> s{_tmfrStatus = a});

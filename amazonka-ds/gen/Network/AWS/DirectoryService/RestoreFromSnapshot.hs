@@ -78,7 +78,7 @@ instance AWSRequest RestoreFromSnapshot where
         response
           = receiveJSON
               (\ s h x ->
-                 RestoreFromSnapshotResponse' <$> (pure s))
+                 RestoreFromSnapshotResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders RestoreFromSnapshot where
         toHeaders
@@ -108,16 +108,16 @@ instance ToQuery RestoreFromSnapshot where
 --
 -- * 'rfsrStatus'
 newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
-    { _rfsrStatus :: Status
-    } deriving (Eq,Show)
+    { _rfsrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RestoreFromSnapshotResponse' smart constructor.
-restoreFromSnapshotResponse :: Status -> RestoreFromSnapshotResponse
+restoreFromSnapshotResponse :: Int -> RestoreFromSnapshotResponse
 restoreFromSnapshotResponse pStatus =
     RestoreFromSnapshotResponse'
     { _rfsrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rfsrStatus :: Lens' RestoreFromSnapshotResponse Status
+rfsrStatus :: Lens' RestoreFromSnapshotResponse Int
 rfsrStatus = lens _rfsrStatus (\ s a -> s{_rfsrStatus = a});

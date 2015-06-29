@@ -96,7 +96,7 @@ instance AWSRequest ListPresets where
                  ListPresetsResponse' <$>
                    (x .?> "NextPageToken") <*>
                      (x .?> "Presets" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListPresets where
         toHeaders = const mempty
@@ -124,11 +124,11 @@ instance ToQuery ListPresets where
 data ListPresetsResponse = ListPresetsResponse'
     { _lisNextPageToken :: !(Maybe Text)
     , _lisPresets       :: !(Maybe [Preset])
-    , _lisStatus        :: !Status
-    } deriving (Eq,Show)
+    , _lisStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListPresetsResponse' smart constructor.
-listPresetsResponse :: Status -> ListPresetsResponse
+listPresetsResponse :: Int -> ListPresetsResponse
 listPresetsResponse pStatus =
     ListPresetsResponse'
     { _lisNextPageToken = Nothing
@@ -148,5 +148,5 @@ lisPresets :: Lens' ListPresetsResponse [Preset]
 lisPresets = lens _lisPresets (\ s a -> s{_lisPresets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lisStatus :: Lens' ListPresetsResponse Status
+lisStatus :: Lens' ListPresetsResponse Int
 lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});

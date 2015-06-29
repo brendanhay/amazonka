@@ -85,7 +85,7 @@ instance AWSRequest DeleteHostedZone where
           = receiveXML
               (\ s h x ->
                  DeleteHostedZoneResponse' <$>
-                   (pure s) <*> (x .@ "ChangeInfo"))
+                   (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
 instance ToHeaders DeleteHostedZone where
         toHeaders = const mempty
@@ -107,12 +107,12 @@ instance ToQuery DeleteHostedZone where
 --
 -- * 'dhzrChangeInfo'
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
-    { _dhzrStatus     :: !Status
+    { _dhzrStatus     :: !Int
     , _dhzrChangeInfo :: !ChangeInfo
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteHostedZoneResponse' smart constructor.
-deleteHostedZoneResponse :: Status -> ChangeInfo -> DeleteHostedZoneResponse
+deleteHostedZoneResponse :: Int -> ChangeInfo -> DeleteHostedZoneResponse
 deleteHostedZoneResponse pStatus pChangeInfo =
     DeleteHostedZoneResponse'
     { _dhzrStatus = pStatus
@@ -120,7 +120,7 @@ deleteHostedZoneResponse pStatus pChangeInfo =
     }
 
 -- | FIXME: Undocumented member.
-dhzrStatus :: Lens' DeleteHostedZoneResponse Status
+dhzrStatus :: Lens' DeleteHostedZoneResponse Int
 dhzrStatus = lens _dhzrStatus (\ s a -> s{_dhzrStatus = a});
 
 -- | A complex type that contains the ID, the status, and the date and time

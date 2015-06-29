@@ -70,7 +70,7 @@ instance AWSRequest GetSnapshotLimits where
           = receiveJSON
               (\ s h x ->
                  GetSnapshotLimitsResponse' <$>
-                   (x .?> "SnapshotLimits") <*> (pure s))
+                   (x .?> "SnapshotLimits") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetSnapshotLimits where
         toHeaders
@@ -103,11 +103,11 @@ instance ToQuery GetSnapshotLimits where
 -- * 'gslrStatus'
 data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
     { _gslrSnapshotLimits :: !(Maybe SnapshotLimits)
-    , _gslrStatus         :: !Status
-    } deriving (Eq,Show)
+    , _gslrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetSnapshotLimitsResponse' smart constructor.
-getSnapshotLimitsResponse :: Status -> GetSnapshotLimitsResponse
+getSnapshotLimitsResponse :: Int -> GetSnapshotLimitsResponse
 getSnapshotLimitsResponse pStatus =
     GetSnapshotLimitsResponse'
     { _gslrSnapshotLimits = Nothing
@@ -120,5 +120,5 @@ gslrSnapshotLimits :: Lens' GetSnapshotLimitsResponse (Maybe SnapshotLimits)
 gslrSnapshotLimits = lens _gslrSnapshotLimits (\ s a -> s{_gslrSnapshotLimits = a});
 
 -- | FIXME: Undocumented member.
-gslrStatus :: Lens' GetSnapshotLimitsResponse Status
+gslrStatus :: Lens' GetSnapshotLimitsResponse Int
 gslrStatus = lens _gslrStatus (\ s a -> s{_gslrStatus = a});

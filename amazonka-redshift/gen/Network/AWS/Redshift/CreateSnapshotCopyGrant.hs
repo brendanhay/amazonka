@@ -106,7 +106,7 @@ instance AWSRequest CreateSnapshotCopyGrant where
           = receiveXMLWrapper "CreateSnapshotCopyGrantResult"
               (\ s h x ->
                  CreateSnapshotCopyGrantResponse' <$>
-                   (x .@? "SnapshotCopyGrant") <*> (pure s))
+                   (x .@? "SnapshotCopyGrant") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateSnapshotCopyGrant where
         toHeaders = const mempty
@@ -134,11 +134,11 @@ instance ToQuery CreateSnapshotCopyGrant where
 -- * 'cscgrStatus'
 data CreateSnapshotCopyGrantResponse = CreateSnapshotCopyGrantResponse'
     { _cscgrSnapshotCopyGrant :: !(Maybe SnapshotCopyGrant)
-    , _cscgrStatus            :: !Status
-    } deriving (Eq,Show)
+    , _cscgrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshotCopyGrantResponse' smart constructor.
-createSnapshotCopyGrantResponse :: Status -> CreateSnapshotCopyGrantResponse
+createSnapshotCopyGrantResponse :: Int -> CreateSnapshotCopyGrantResponse
 createSnapshotCopyGrantResponse pStatus =
     CreateSnapshotCopyGrantResponse'
     { _cscgrSnapshotCopyGrant = Nothing
@@ -150,5 +150,5 @@ cscgrSnapshotCopyGrant :: Lens' CreateSnapshotCopyGrantResponse (Maybe SnapshotC
 cscgrSnapshotCopyGrant = lens _cscgrSnapshotCopyGrant (\ s a -> s{_cscgrSnapshotCopyGrant = a});
 
 -- | FIXME: Undocumented member.
-cscgrStatus :: Lens' CreateSnapshotCopyGrantResponse Status
+cscgrStatus :: Lens' CreateSnapshotCopyGrantResponse Int
 cscgrStatus = lens _cscgrStatus (\ s a -> s{_cscgrStatus = a});

@@ -116,7 +116,7 @@ instance AWSRequest DescribeFlowLogs where
               (\ s h x ->
                  DescribeFlowLogsResponse' <$>
                    (x .@? "nextToken") <*> (may (parseXMLList "item") x)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeFlowLogs where
         toHeaders = const mempty
@@ -146,11 +146,11 @@ instance ToQuery DescribeFlowLogs where
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
     { _dflr1NextToken :: !(Maybe Text)
     , _dflr1FlowLogs  :: !(Maybe [FlowLog])
-    , _dflr1Status    :: !Status
-    } deriving (Eq,Show)
+    , _dflr1Status    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeFlowLogsResponse' smart constructor.
-describeFlowLogsResponse :: Status -> DescribeFlowLogsResponse
+describeFlowLogsResponse :: Int -> DescribeFlowLogsResponse
 describeFlowLogsResponse pStatus =
     DescribeFlowLogsResponse'
     { _dflr1NextToken = Nothing
@@ -168,5 +168,5 @@ dflr1FlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
 dflr1FlowLogs = lens _dflr1FlowLogs (\ s a -> s{_dflr1FlowLogs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dflr1Status :: Lens' DescribeFlowLogsResponse Status
+dflr1Status :: Lens' DescribeFlowLogsResponse Int
 dflr1Status = lens _dflr1Status (\ s a -> s{_dflr1Status = a});

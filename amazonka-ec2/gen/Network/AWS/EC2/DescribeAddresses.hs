@@ -128,7 +128,8 @@ instance AWSRequest DescribeAddresses where
           = receiveXML
               (\ s h x ->
                  DescribeAddressesResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeAddresses where
         toHeaders = const mempty
@@ -156,11 +157,11 @@ instance ToQuery DescribeAddresses where
 -- * 'darStatus'
 data DescribeAddressesResponse = DescribeAddressesResponse'
     { _darAddresses :: !(Maybe [Address])
-    , _darStatus    :: !Status
-    } deriving (Eq,Show)
+    , _darStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAddressesResponse' smart constructor.
-describeAddressesResponse :: Status -> DescribeAddressesResponse
+describeAddressesResponse :: Int -> DescribeAddressesResponse
 describeAddressesResponse pStatus =
     DescribeAddressesResponse'
     { _darAddresses = Nothing
@@ -172,5 +173,5 @@ darAddresses :: Lens' DescribeAddressesResponse [Address]
 darAddresses = lens _darAddresses (\ s a -> s{_darAddresses = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-darStatus :: Lens' DescribeAddressesResponse Status
+darStatus :: Lens' DescribeAddressesResponse Int
 darStatus = lens _darStatus (\ s a -> s{_darStatus = a});

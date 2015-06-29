@@ -74,7 +74,7 @@ instance AWSRequest DeleteDomain where
           = receiveXMLWrapper "DeleteDomainResult"
               (\ s h x ->
                  DeleteDomainResponse' <$>
-                   (x .@? "DomainStatus") <*> (pure s))
+                   (x .@? "DomainStatus") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteDomain where
         toHeaders = const mempty
@@ -102,11 +102,11 @@ instance ToQuery DeleteDomain where
 -- * 'ddrStatus'
 data DeleteDomainResponse = DeleteDomainResponse'
     { _ddrDomainStatus :: !(Maybe DomainStatus)
-    , _ddrStatus       :: !Status
-    } deriving (Eq,Show)
+    , _ddrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDomainResponse' smart constructor.
-deleteDomainResponse :: Status -> DeleteDomainResponse
+deleteDomainResponse :: Int -> DeleteDomainResponse
 deleteDomainResponse pStatus =
     DeleteDomainResponse'
     { _ddrDomainStatus = Nothing
@@ -118,5 +118,5 @@ ddrDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
 ddrDomainStatus = lens _ddrDomainStatus (\ s a -> s{_ddrDomainStatus = a});
 
 -- | FIXME: Undocumented member.
-ddrStatus :: Lens' DeleteDomainResponse Status
+ddrStatus :: Lens' DeleteDomainResponse Int
 ddrStatus = lens _ddrStatus (\ s a -> s{_ddrStatus = a});

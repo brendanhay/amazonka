@@ -87,7 +87,7 @@ instance AWSRequest ListKeys where
                  ListKeysResponse' <$>
                    (x .?> "Truncated") <*> (x .?> "Keys" .!@ mempty) <*>
                      (x .?> "NextMarker")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListKeys where
         toHeaders
@@ -123,11 +123,11 @@ data ListKeysResponse = ListKeysResponse'
     { _lkrTruncated  :: !(Maybe Bool)
     , _lkrKeys       :: !(Maybe [KeyListEntry])
     , _lkrNextMarker :: !(Maybe Text)
-    , _lkrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _lkrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListKeysResponse' smart constructor.
-listKeysResponse :: Status -> ListKeysResponse
+listKeysResponse :: Int -> ListKeysResponse
 listKeysResponse pStatus =
     ListKeysResponse'
     { _lkrTruncated = Nothing
@@ -153,5 +153,5 @@ lkrNextMarker :: Lens' ListKeysResponse (Maybe Text)
 lkrNextMarker = lens _lkrNextMarker (\ s a -> s{_lkrNextMarker = a});
 
 -- | FIXME: Undocumented member.
-lkrStatus :: Lens' ListKeysResponse Status
+lkrStatus :: Lens' ListKeysResponse Int
 lkrStatus = lens _lkrStatus (\ s a -> s{_lkrStatus = a});

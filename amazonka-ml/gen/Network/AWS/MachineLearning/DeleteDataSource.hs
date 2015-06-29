@@ -76,7 +76,7 @@ instance AWSRequest DeleteDataSource where
           = receiveJSON
               (\ s h x ->
                  DeleteDataSourceResponse' <$>
-                   (x .?> "DataSourceId") <*> (pure s))
+                   (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteDataSource where
         toHeaders
@@ -108,11 +108,11 @@ instance ToQuery DeleteDataSource where
 -- * 'ddsrStatus'
 data DeleteDataSourceResponse = DeleteDataSourceResponse'
     { _ddsrDataSourceId :: !(Maybe Text)
-    , _ddsrStatus       :: !Status
-    } deriving (Eq,Show)
+    , _ddsrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDataSourceResponse' smart constructor.
-deleteDataSourceResponse :: Status -> DeleteDataSourceResponse
+deleteDataSourceResponse :: Int -> DeleteDataSourceResponse
 deleteDataSourceResponse pStatus =
     DeleteDataSourceResponse'
     { _ddsrDataSourceId = Nothing
@@ -125,5 +125,5 @@ ddsrDataSourceId :: Lens' DeleteDataSourceResponse (Maybe Text)
 ddsrDataSourceId = lens _ddsrDataSourceId (\ s a -> s{_ddsrDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-ddsrStatus :: Lens' DeleteDataSourceResponse Status
+ddsrStatus :: Lens' DeleteDataSourceResponse Int
 ddsrStatus = lens _ddsrStatus (\ s a -> s{_ddsrStatus = a});

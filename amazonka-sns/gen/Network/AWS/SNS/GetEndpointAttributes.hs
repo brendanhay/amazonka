@@ -76,7 +76,7 @@ instance AWSRequest GetEndpointAttributes where
                  GetEndpointAttributesResponse' <$>
                    (x .@? "Attributes" .!@ mempty >>=
                       may (parseXMLMap "entry" "key" "value"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetEndpointAttributes where
         toHeaders = const mempty
@@ -102,11 +102,11 @@ instance ToQuery GetEndpointAttributes where
 -- * 'gearStatus'
 data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
     { _gearAttributes :: !(Maybe (Map Text Text))
-    , _gearStatus     :: !Status
-    } deriving (Eq,Show)
+    , _gearStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetEndpointAttributesResponse' smart constructor.
-getEndpointAttributesResponse :: Status -> GetEndpointAttributesResponse
+getEndpointAttributesResponse :: Int -> GetEndpointAttributesResponse
 getEndpointAttributesResponse pStatus =
     GetEndpointAttributesResponse'
     { _gearAttributes = Nothing
@@ -130,5 +130,5 @@ gearAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
 gearAttributes = lens _gearAttributes (\ s a -> s{_gearAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gearStatus :: Lens' GetEndpointAttributesResponse Status
+gearStatus :: Lens' GetEndpointAttributesResponse Int
 gearStatus = lens _gearStatus (\ s a -> s{_gearStatus = a});

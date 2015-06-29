@@ -62,7 +62,7 @@ instance AWSRequest GetCheckerIPRanges where
           = receiveXML
               (\ s h x ->
                  GetCheckerIPRangesResponse' <$>
-                   (pure s) <*>
+                   (pure (fromEnum s)) <*>
                      (x .@? "CheckerIpRanges" .!@ mempty >>=
                         parseXMLList "member"))
 
@@ -85,12 +85,12 @@ instance ToQuery GetCheckerIPRanges where
 --
 -- * 'gcirrCheckerIPRanges'
 data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
-    { _gcirrStatus          :: !Status
+    { _gcirrStatus          :: !Int
     , _gcirrCheckerIPRanges :: ![Text]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetCheckerIPRangesResponse' smart constructor.
-getCheckerIPRangesResponse :: Status -> GetCheckerIPRangesResponse
+getCheckerIPRangesResponse :: Int -> GetCheckerIPRangesResponse
 getCheckerIPRangesResponse pStatus =
     GetCheckerIPRangesResponse'
     { _gcirrStatus = pStatus
@@ -98,7 +98,7 @@ getCheckerIPRangesResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-gcirrStatus :: Lens' GetCheckerIPRangesResponse Status
+gcirrStatus :: Lens' GetCheckerIPRangesResponse Int
 gcirrStatus = lens _gcirrStatus (\ s a -> s{_gcirrStatus = a});
 
 -- | A complex type that contains sorted list of IP ranges in CIDR format for

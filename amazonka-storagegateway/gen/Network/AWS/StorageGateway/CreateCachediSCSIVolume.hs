@@ -129,7 +129,7 @@ instance AWSRequest CreateCachediSCSIVolume where
               (\ s h x ->
                  CreateCachediSCSIVolumeResponse' <$>
                    (x .?> "TargetARN") <*> (x .?> "VolumeARN") <*>
-                     (pure s))
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateCachediSCSIVolume where
         toHeaders
@@ -169,11 +169,11 @@ instance ToQuery CreateCachediSCSIVolume where
 data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'
     { _ccscsivrTargetARN :: !(Maybe Text)
     , _ccscsivrVolumeARN :: !(Maybe Text)
-    , _ccscsivrStatus    :: !Status
-    } deriving (Eq,Show)
+    , _ccscsivrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCachediSCSIVolumeResponse' smart constructor.
-createCachediSCSIVolumeResponse :: Status -> CreateCachediSCSIVolumeResponse
+createCachediSCSIVolumeResponse :: Int -> CreateCachediSCSIVolumeResponse
 createCachediSCSIVolumeResponse pStatus =
     CreateCachediSCSIVolumeResponse'
     { _ccscsivrTargetARN = Nothing
@@ -190,5 +190,5 @@ ccscsivrVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrVolumeARN = lens _ccscsivrVolumeARN (\ s a -> s{_ccscsivrVolumeARN = a});
 
 -- | FIXME: Undocumented member.
-ccscsivrStatus :: Lens' CreateCachediSCSIVolumeResponse Status
+ccscsivrStatus :: Lens' CreateCachediSCSIVolumeResponse Int
 ccscsivrStatus = lens _ccscsivrStatus (\ s a -> s{_ccscsivrStatus = a});

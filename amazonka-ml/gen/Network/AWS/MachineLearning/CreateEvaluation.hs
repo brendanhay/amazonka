@@ -116,7 +116,7 @@ instance AWSRequest CreateEvaluation where
           = receiveJSON
               (\ s h x ->
                  CreateEvaluationResponse' <$>
-                   (x .?> "EvaluationId") <*> (pure s))
+                   (x .?> "EvaluationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateEvaluation where
         toHeaders
@@ -158,11 +158,11 @@ instance ToQuery CreateEvaluation where
 -- * 'cerStatus'
 data CreateEvaluationResponse = CreateEvaluationResponse'
     { _cerEvaluationId :: !(Maybe Text)
-    , _cerStatus       :: !Status
-    } deriving (Eq,Show)
+    , _cerStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateEvaluationResponse' smart constructor.
-createEvaluationResponse :: Status -> CreateEvaluationResponse
+createEvaluationResponse :: Int -> CreateEvaluationResponse
 createEvaluationResponse pStatus =
     CreateEvaluationResponse'
     { _cerEvaluationId = Nothing
@@ -176,5 +176,5 @@ cerEvaluationId :: Lens' CreateEvaluationResponse (Maybe Text)
 cerEvaluationId = lens _cerEvaluationId (\ s a -> s{_cerEvaluationId = a});
 
 -- | FIXME: Undocumented member.
-cerStatus :: Lens' CreateEvaluationResponse Status
+cerStatus :: Lens' CreateEvaluationResponse Int
 cerStatus = lens _cerStatus (\ s a -> s{_cerStatus = a});

@@ -300,7 +300,7 @@ instance AWSRequest CreateMultipartUpload where
                         "x-amz-server-side-encryption-customer-key-MD5")
                      <*> (x .@? "UploadId")
                      <*> (h .#? "x-amz-server-side-encryption")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateMultipartUpload where
         toHeaders CreateMultipartUpload'{..}
@@ -370,11 +370,11 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
     , _cmurSSECustomerKeyMD5    :: !(Maybe Text)
     , _cmurUploadId             :: !(Maybe Text)
     , _cmurServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _cmurStatus               :: !Status
+    , _cmurStatus               :: !Int
     } deriving (Eq,Show)
 
 -- | 'CreateMultipartUploadResponse' smart constructor.
-createMultipartUploadResponse :: Status -> CreateMultipartUploadResponse
+createMultipartUploadResponse :: Int -> CreateMultipartUploadResponse
 createMultipartUploadResponse pStatus =
     CreateMultipartUploadResponse'
     { _cmurRequestCharged = Nothing
@@ -427,5 +427,5 @@ cmurServerSideEncryption :: Lens' CreateMultipartUploadResponse (Maybe ServerSid
 cmurServerSideEncryption = lens _cmurServerSideEncryption (\ s a -> s{_cmurServerSideEncryption = a});
 
 -- | FIXME: Undocumented member.
-cmurStatus :: Lens' CreateMultipartUploadResponse Status
+cmurStatus :: Lens' CreateMultipartUploadResponse Int
 cmurStatus = lens _cmurStatus (\ s a -> s{_cmurStatus = a});

@@ -129,7 +129,7 @@ instance AWSRequest CreateCustomerGateway where
           = receiveXML
               (\ s h x ->
                  CreateCustomerGatewayResponse' <$>
-                   (x .@? "customerGateway") <*> (pure s))
+                   (x .@? "customerGateway") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateCustomerGateway where
         toHeaders = const mempty
@@ -154,11 +154,11 @@ instance ToQuery CreateCustomerGateway where
 -- * 'ccgrStatus'
 data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
     { _ccgrCustomerGateway :: !(Maybe CustomerGateway)
-    , _ccgrStatus          :: !Status
-    } deriving (Eq,Show)
+    , _ccgrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCustomerGatewayResponse' smart constructor.
-createCustomerGatewayResponse :: Status -> CreateCustomerGatewayResponse
+createCustomerGatewayResponse :: Int -> CreateCustomerGatewayResponse
 createCustomerGatewayResponse pStatus =
     CreateCustomerGatewayResponse'
     { _ccgrCustomerGateway = Nothing
@@ -170,5 +170,5 @@ ccgrCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGatewa
 ccgrCustomerGateway = lens _ccgrCustomerGateway (\ s a -> s{_ccgrCustomerGateway = a});
 
 -- | FIXME: Undocumented member.
-ccgrStatus :: Lens' CreateCustomerGatewayResponse Status
+ccgrStatus :: Lens' CreateCustomerGatewayResponse Int
 ccgrStatus = lens _ccgrStatus (\ s a -> s{_ccgrStatus = a});

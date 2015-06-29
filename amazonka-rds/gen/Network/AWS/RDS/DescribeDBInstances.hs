@@ -128,7 +128,7 @@ instance AWSRequest DescribeDBInstances where
                    (x .@? "DBInstances" .!@ mempty >>=
                       may (parseXMLList "DBInstance"))
                      <*> (x .@? "Marker")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDBInstances where
         toHeaders = const mempty
@@ -162,11 +162,11 @@ instance ToQuery DescribeDBInstances where
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
     { _desDBInstances :: !(Maybe [DBInstance])
     , _desMarker      :: !(Maybe Text)
-    , _desStatus      :: !Status
-    } deriving (Eq,Show)
+    , _desStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBInstancesResponse' smart constructor.
-describeDBInstancesResponse :: Status -> DescribeDBInstancesResponse
+describeDBInstancesResponse :: Int -> DescribeDBInstancesResponse
 describeDBInstancesResponse pStatus =
     DescribeDBInstancesResponse'
     { _desDBInstances = Nothing
@@ -185,5 +185,5 @@ desMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
 desMarker = lens _desMarker (\ s a -> s{_desMarker = a});
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeDBInstancesResponse Status
+desStatus :: Lens' DescribeDBInstancesResponse Int
 desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

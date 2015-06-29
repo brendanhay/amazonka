@@ -83,7 +83,7 @@ instance AWSRequest DescribeTasks where
                  DescribeTasksResponse' <$>
                    (x .?> "failures" .!@ mempty) <*>
                      (x .?> "tasks" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTasks where
         toHeaders
@@ -118,11 +118,11 @@ instance ToQuery DescribeTasks where
 data DescribeTasksResponse = DescribeTasksResponse'
     { _dtrFailures :: !(Maybe [Failure])
     , _dtrTasks    :: !(Maybe [Task])
-    , _dtrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _dtrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTasksResponse' smart constructor.
-describeTasksResponse :: Status -> DescribeTasksResponse
+describeTasksResponse :: Int -> DescribeTasksResponse
 describeTasksResponse pStatus =
     DescribeTasksResponse'
     { _dtrFailures = Nothing
@@ -139,5 +139,5 @@ dtrTasks :: Lens' DescribeTasksResponse [Task]
 dtrTasks = lens _dtrTasks (\ s a -> s{_dtrTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtrStatus :: Lens' DescribeTasksResponse Status
+dtrStatus :: Lens' DescribeTasksResponse Int
 dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});

@@ -81,7 +81,8 @@ instance AWSRequest DeleteAssociation where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> DeleteAssociationResponse' <$> (pure s))
+              (\ s h x ->
+                 DeleteAssociationResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeleteAssociation where
         toHeaders
@@ -109,16 +110,16 @@ instance ToQuery DeleteAssociation where
 --
 -- * 'delStatus'
 newtype DeleteAssociationResponse = DeleteAssociationResponse'
-    { _delStatus :: Status
-    } deriving (Eq,Show)
+    { _delStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteAssociationResponse' smart constructor.
-deleteAssociationResponse :: Status -> DeleteAssociationResponse
+deleteAssociationResponse :: Int -> DeleteAssociationResponse
 deleteAssociationResponse pStatus =
     DeleteAssociationResponse'
     { _delStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteAssociationResponse Status
+delStatus :: Lens' DeleteAssociationResponse Int
 delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

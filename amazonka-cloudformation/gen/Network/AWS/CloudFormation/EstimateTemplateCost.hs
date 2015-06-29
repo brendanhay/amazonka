@@ -102,7 +102,7 @@ instance AWSRequest EstimateTemplateCost where
           = receiveXMLWrapper "EstimateTemplateCostResult"
               (\ s h x ->
                  EstimateTemplateCostResponse' <$>
-                   (x .@? "Url") <*> (pure s))
+                   (x .@? "Url") <*> (pure (fromEnum s)))
 
 instance ToHeaders EstimateTemplateCost where
         toHeaders = const mempty
@@ -131,11 +131,11 @@ instance ToQuery EstimateTemplateCost where
 -- * 'etcrStatus'
 data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
     { _etcrURL    :: !(Maybe Text)
-    , _etcrStatus :: !Status
-    } deriving (Eq,Show)
+    , _etcrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'EstimateTemplateCostResponse' smart constructor.
-estimateTemplateCostResponse :: Status -> EstimateTemplateCostResponse
+estimateTemplateCostResponse :: Int -> EstimateTemplateCostResponse
 estimateTemplateCostResponse pStatus =
     EstimateTemplateCostResponse'
     { _etcrURL = Nothing
@@ -148,5 +148,5 @@ etcrURL :: Lens' EstimateTemplateCostResponse (Maybe Text)
 etcrURL = lens _etcrURL (\ s a -> s{_etcrURL = a});
 
 -- | FIXME: Undocumented member.
-etcrStatus :: Lens' EstimateTemplateCostResponse Status
+etcrStatus :: Lens' EstimateTemplateCostResponse Int
 etcrStatus = lens _etcrStatus (\ s a -> s{_etcrStatus = a});

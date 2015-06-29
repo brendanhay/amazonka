@@ -127,7 +127,7 @@ instance AWSRequest CreateSubnet where
           = receiveXML
               (\ s h x ->
                  CreateSubnetResponse' <$>
-                   (x .@? "subnet") <*> (pure s))
+                   (x .@? "subnet") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateSubnet where
         toHeaders = const mempty
@@ -153,11 +153,11 @@ instance ToQuery CreateSubnet where
 -- * 'creStatus'
 data CreateSubnetResponse = CreateSubnetResponse'
     { _creSubnet :: !(Maybe Subnet)
-    , _creStatus :: !Status
-    } deriving (Eq,Show)
+    , _creStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSubnetResponse' smart constructor.
-createSubnetResponse :: Status -> CreateSubnetResponse
+createSubnetResponse :: Int -> CreateSubnetResponse
 createSubnetResponse pStatus =
     CreateSubnetResponse'
     { _creSubnet = Nothing
@@ -169,5 +169,5 @@ creSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
 creSubnet = lens _creSubnet (\ s a -> s{_creSubnet = a});
 
 -- | FIXME: Undocumented member.
-creStatus :: Lens' CreateSubnetResponse Status
+creStatus :: Lens' CreateSubnetResponse Int
 creStatus = lens _creStatus (\ s a -> s{_creStatus = a});

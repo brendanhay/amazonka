@@ -77,7 +77,7 @@ instance AWSRequest GetSAMLProvider where
                  GetSAMLProviderResponse' <$>
                    (x .@? "CreateDate") <*> (x .@? "ValidUntil") <*>
                      (x .@? "SAMLMetadataDocument")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetSAMLProvider where
         toHeaders = const mempty
@@ -109,11 +109,11 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse'
     { _gsamlprCreateDate           :: !(Maybe ISO8601)
     , _gsamlprValidUntil           :: !(Maybe ISO8601)
     , _gsamlprSAMLMetadataDocument :: !(Maybe Text)
-    , _gsamlprStatus               :: !Status
-    } deriving (Eq,Show)
+    , _gsamlprStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetSAMLProviderResponse' smart constructor.
-getSAMLProviderResponse :: Status -> GetSAMLProviderResponse
+getSAMLProviderResponse :: Int -> GetSAMLProviderResponse
 getSAMLProviderResponse pStatus =
     GetSAMLProviderResponse'
     { _gsamlprCreateDate = Nothing
@@ -136,5 +136,5 @@ gsamlprSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
 gsamlprSAMLMetadataDocument = lens _gsamlprSAMLMetadataDocument (\ s a -> s{_gsamlprSAMLMetadataDocument = a});
 
 -- | FIXME: Undocumented member.
-gsamlprStatus :: Lens' GetSAMLProviderResponse Status
+gsamlprStatus :: Lens' GetSAMLProviderResponse Int
 gsamlprStatus = lens _gsamlprStatus (\ s a -> s{_gsamlprStatus = a});

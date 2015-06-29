@@ -77,7 +77,7 @@ instance AWSRequest RebootCluster where
           = receiveXMLWrapper "RebootClusterResult"
               (\ s h x ->
                  RebootClusterResponse' <$>
-                   (x .@? "Cluster") <*> (pure s))
+                   (x .@? "Cluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders RebootCluster where
         toHeaders = const mempty
@@ -101,11 +101,11 @@ instance ToQuery RebootCluster where
 -- * 'rcrStatus'
 data RebootClusterResponse = RebootClusterResponse'
     { _rcrCluster :: !(Maybe Cluster)
-    , _rcrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _rcrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RebootClusterResponse' smart constructor.
-rebootClusterResponse :: Status -> RebootClusterResponse
+rebootClusterResponse :: Int -> RebootClusterResponse
 rebootClusterResponse pStatus =
     RebootClusterResponse'
     { _rcrCluster = Nothing
@@ -117,5 +117,5 @@ rcrCluster :: Lens' RebootClusterResponse (Maybe Cluster)
 rcrCluster = lens _rcrCluster (\ s a -> s{_rcrCluster = a});
 
 -- | FIXME: Undocumented member.
-rcrStatus :: Lens' RebootClusterResponse Status
+rcrStatus :: Lens' RebootClusterResponse Int
 rcrStatus = lens _rcrStatus (\ s a -> s{_rcrStatus = a});

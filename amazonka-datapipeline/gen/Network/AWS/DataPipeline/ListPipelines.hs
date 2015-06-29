@@ -84,7 +84,7 @@ instance AWSRequest ListPipelines where
               (\ s h x ->
                  ListPipelinesResponse' <$>
                    (x .?> "hasMoreResults") <*> (x .?> "marker") <*>
-                     (pure s)
+                     (pure (fromEnum s))
                      <*> (x .?> "pipelineIdList" .!@ mempty))
 
 instance ToHeaders ListPipelines where
@@ -122,12 +122,12 @@ instance ToQuery ListPipelines where
 data ListPipelinesResponse = ListPipelinesResponse'
     { _lprHasMoreResults :: !(Maybe Bool)
     , _lprMarker         :: !(Maybe Text)
-    , _lprStatus         :: !Status
+    , _lprStatus         :: !Int
     , _lprPipelineIdList :: ![PipelineIdName]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListPipelinesResponse' smart constructor.
-listPipelinesResponse :: Status -> ListPipelinesResponse
+listPipelinesResponse :: Int -> ListPipelinesResponse
 listPipelinesResponse pStatus =
     ListPipelinesResponse'
     { _lprHasMoreResults = Nothing
@@ -148,7 +148,7 @@ lprMarker :: Lens' ListPipelinesResponse (Maybe Text)
 lprMarker = lens _lprMarker (\ s a -> s{_lprMarker = a});
 
 -- | FIXME: Undocumented member.
-lprStatus :: Lens' ListPipelinesResponse Status
+lprStatus :: Lens' ListPipelinesResponse Int
 lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});
 
 -- | The pipeline identifiers. If you require additional information about

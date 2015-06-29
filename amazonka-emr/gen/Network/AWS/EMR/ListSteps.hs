@@ -106,7 +106,7 @@ instance AWSRequest ListSteps where
               (\ s h x ->
                  ListStepsResponse' <$>
                    (x .?> "Steps" .!@ mempty) <*> (x .?> "Marker") <*>
-                     (pure s))
+                     (pure (fromEnum s)))
 
 instance ToHeaders ListSteps where
         toHeaders
@@ -144,11 +144,11 @@ instance ToQuery ListSteps where
 data ListStepsResponse = ListStepsResponse'
     { _lsrSteps  :: !(Maybe [StepSummary])
     , _lsrMarker :: !(Maybe Text)
-    , _lsrStatus :: !Status
-    } deriving (Eq,Show)
+    , _lsrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListStepsResponse' smart constructor.
-listStepsResponse :: Status -> ListStepsResponse
+listStepsResponse :: Int -> ListStepsResponse
 listStepsResponse pStatus =
     ListStepsResponse'
     { _lsrSteps = Nothing
@@ -165,5 +165,5 @@ lsrMarker :: Lens' ListStepsResponse (Maybe Text)
 lsrMarker = lens _lsrMarker (\ s a -> s{_lsrMarker = a});
 
 -- | FIXME: Undocumented member.
-lsrStatus :: Lens' ListStepsResponse Status
+lsrStatus :: Lens' ListStepsResponse Int
 lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});

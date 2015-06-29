@@ -110,7 +110,7 @@ instance AWSRequest ListMFADevices where
               (\ s h x ->
                  ListMFADevicesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (pure s)
+                     (pure (fromEnum s))
                      <*>
                      (x .@? "MFADevices" .!@ mempty >>=
                         parseXMLList "member"))
@@ -145,12 +145,12 @@ instance ToQuery ListMFADevices where
 data ListMFADevicesResponse = ListMFADevicesResponse'
     { _lmdrMarker      :: !(Maybe Text)
     , _lmdrIsTruncated :: !(Maybe Bool)
-    , _lmdrStatus      :: !Status
+    , _lmdrStatus      :: !Int
     , _lmdrMFADevices  :: ![MFADevice]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListMFADevicesResponse' smart constructor.
-listMFADevicesResponse :: Status -> ListMFADevicesResponse
+listMFADevicesResponse :: Int -> ListMFADevicesResponse
 listMFADevicesResponse pStatus =
     ListMFADevicesResponse'
     { _lmdrMarker = Nothing
@@ -173,7 +173,7 @@ lmdrIsTruncated :: Lens' ListMFADevicesResponse (Maybe Bool)
 lmdrIsTruncated = lens _lmdrIsTruncated (\ s a -> s{_lmdrIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lmdrStatus :: Lens' ListMFADevicesResponse Status
+lmdrStatus :: Lens' ListMFADevicesResponse Int
 lmdrStatus = lens _lmdrStatus (\ s a -> s{_lmdrStatus = a});
 
 -- | A list of MFA devices.

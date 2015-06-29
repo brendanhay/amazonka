@@ -112,7 +112,7 @@ instance AWSRequest CopyDBSnapshot where
           = receiveXMLWrapper "CopyDBSnapshotResult"
               (\ s h x ->
                  CopyDBSnapshotResponse' <$>
-                   (x .@? "DBSnapshot") <*> (pure s))
+                   (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
 
 instance ToHeaders CopyDBSnapshot where
         toHeaders = const mempty
@@ -140,11 +140,11 @@ instance ToQuery CopyDBSnapshot where
 -- * 'cdsrStatus'
 data CopyDBSnapshotResponse = CopyDBSnapshotResponse'
     { _cdsrDBSnapshot :: !(Maybe DBSnapshot)
-    , _cdsrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _cdsrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyDBSnapshotResponse' smart constructor.
-copyDBSnapshotResponse :: Status -> CopyDBSnapshotResponse
+copyDBSnapshotResponse :: Int -> CopyDBSnapshotResponse
 copyDBSnapshotResponse pStatus =
     CopyDBSnapshotResponse'
     { _cdsrDBSnapshot = Nothing
@@ -156,5 +156,5 @@ cdsrDBSnapshot :: Lens' CopyDBSnapshotResponse (Maybe DBSnapshot)
 cdsrDBSnapshot = lens _cdsrDBSnapshot (\ s a -> s{_cdsrDBSnapshot = a});
 
 -- | FIXME: Undocumented member.
-cdsrStatus :: Lens' CopyDBSnapshotResponse Status
+cdsrStatus :: Lens' CopyDBSnapshotResponse Int
 cdsrStatus = lens _cdsrStatus (\ s a -> s{_cdsrStatus = a});

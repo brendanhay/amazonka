@@ -107,7 +107,7 @@ instance AWSRequest ListReusableDelegationSets where
           = receiveXML
               (\ s h x ->
                  ListReusableDelegationSetsResponse' <$>
-                   (x .@? "NextMarker") <*> (pure s) <*>
+                   (x .@? "NextMarker") <*> (pure (fromEnum s)) <*>
                      (x .@? "DelegationSets" .!@ mempty >>=
                         parseXMLList "DelegationSet")
                      <*> (x .@ "Marker")
@@ -145,15 +145,15 @@ instance ToQuery ListReusableDelegationSets where
 -- * 'lrdsrMaxItems'
 data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
     { _lrdsrNextMarker     :: !(Maybe Text)
-    , _lrdsrStatus         :: !Status
+    , _lrdsrStatus         :: !Int
     , _lrdsrDelegationSets :: ![DelegationSet]
     , _lrdsrMarker         :: !Text
     , _lrdsrIsTruncated    :: !Bool
     , _lrdsrMaxItems       :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListReusableDelegationSetsResponse' smart constructor.
-listReusableDelegationSetsResponse :: Status -> Text -> Bool -> Text -> ListReusableDelegationSetsResponse
+listReusableDelegationSetsResponse :: Int -> Text -> Bool -> Text -> ListReusableDelegationSetsResponse
 listReusableDelegationSetsResponse pStatus pMarker pIsTruncated pMaxItems =
     ListReusableDelegationSetsResponse'
     { _lrdsrNextMarker = Nothing
@@ -173,7 +173,7 @@ lrdsrNextMarker :: Lens' ListReusableDelegationSetsResponse (Maybe Text)
 lrdsrNextMarker = lens _lrdsrNextMarker (\ s a -> s{_lrdsrNextMarker = a});
 
 -- | FIXME: Undocumented member.
-lrdsrStatus :: Lens' ListReusableDelegationSetsResponse Status
+lrdsrStatus :: Lens' ListReusableDelegationSetsResponse Int
 lrdsrStatus = lens _lrdsrStatus (\ s a -> s{_lrdsrStatus = a});
 
 -- | A complex type that contains information about the reusable delegation

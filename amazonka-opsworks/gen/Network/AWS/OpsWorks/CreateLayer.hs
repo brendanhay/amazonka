@@ -245,7 +245,7 @@ instance AWSRequest CreateLayer where
           = receiveJSON
               (\ s h x ->
                  CreateLayerResponse' <$>
-                   (x .?> "LayerId") <*> (pure s))
+                   (x .?> "LayerId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateLayer where
         toHeaders
@@ -295,11 +295,11 @@ instance ToQuery CreateLayer where
 -- * 'clrStatus'
 data CreateLayerResponse = CreateLayerResponse'
     { _clrLayerId :: !(Maybe Text)
-    , _clrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _clrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateLayerResponse' smart constructor.
-createLayerResponse :: Status -> CreateLayerResponse
+createLayerResponse :: Int -> CreateLayerResponse
 createLayerResponse pStatus =
     CreateLayerResponse'
     { _clrLayerId = Nothing
@@ -311,5 +311,5 @@ clrLayerId :: Lens' CreateLayerResponse (Maybe Text)
 clrLayerId = lens _clrLayerId (\ s a -> s{_clrLayerId = a});
 
 -- | FIXME: Undocumented member.
-clrStatus :: Lens' CreateLayerResponse Status
+clrStatus :: Lens' CreateLayerResponse Int
 clrStatus = lens _clrStatus (\ s a -> s{_clrStatus = a});

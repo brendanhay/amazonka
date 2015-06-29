@@ -128,7 +128,8 @@ instance AWSRequest DescribeVPNGateways where
           = receiveXML
               (\ s h x ->
                  DescribeVPNGatewaysResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeVPNGateways where
         toHeaders = const mempty
@@ -155,11 +156,11 @@ instance ToQuery DescribeVPNGateways where
 -- * 'dvgrStatus'
 data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
     { _dvgrVPNGateways :: !(Maybe [VPNGateway])
-    , _dvgrStatus      :: !Status
-    } deriving (Eq,Show)
+    , _dvgrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPNGatewaysResponse' smart constructor.
-describeVPNGatewaysResponse :: Status -> DescribeVPNGatewaysResponse
+describeVPNGatewaysResponse :: Int -> DescribeVPNGatewaysResponse
 describeVPNGatewaysResponse pStatus =
     DescribeVPNGatewaysResponse'
     { _dvgrVPNGateways = Nothing
@@ -171,5 +172,5 @@ dvgrVPNGateways :: Lens' DescribeVPNGatewaysResponse [VPNGateway]
 dvgrVPNGateways = lens _dvgrVPNGateways (\ s a -> s{_dvgrVPNGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvgrStatus :: Lens' DescribeVPNGatewaysResponse Status
+dvgrStatus :: Lens' DescribeVPNGatewaysResponse Int
 dvgrStatus = lens _dvgrStatus (\ s a -> s{_dvgrStatus = a});

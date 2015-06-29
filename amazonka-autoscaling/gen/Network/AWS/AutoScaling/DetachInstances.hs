@@ -95,7 +95,7 @@ instance AWSRequest DetachInstances where
                  DetachInstancesResponse' <$>
                    (x .@? "Activities" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DetachInstances where
         toHeaders = const mempty
@@ -123,11 +123,11 @@ instance ToQuery DetachInstances where
 -- * 'dirStatus'
 data DetachInstancesResponse = DetachInstancesResponse'
     { _dirActivities :: !(Maybe [Activity])
-    , _dirStatus     :: !Status
-    } deriving (Eq,Show)
+    , _dirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DetachInstancesResponse' smart constructor.
-detachInstancesResponse :: Status -> DetachInstancesResponse
+detachInstancesResponse :: Int -> DetachInstancesResponse
 detachInstancesResponse pStatus =
     DetachInstancesResponse'
     { _dirActivities = Nothing
@@ -140,5 +140,5 @@ dirActivities :: Lens' DetachInstancesResponse [Activity]
 dirActivities = lens _dirActivities (\ s a -> s{_dirActivities = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dirStatus :: Lens' DetachInstancesResponse Status
+dirStatus :: Lens' DetachInstancesResponse Int
 dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});

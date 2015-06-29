@@ -153,7 +153,8 @@ instance AWSRequest CreateHostedZone where
           = receiveXML
               (\ s h x ->
                  CreateHostedZoneResponse' <$>
-                   (x .@? "VPC") <*> (pure s) <*> (x .@ "HostedZone")
+                   (x .@? "VPC") <*> (pure (fromEnum s)) <*>
+                     (x .@ "HostedZone")
                      <*> (x .@ "ChangeInfo")
                      <*> (x .@ "DelegationSet")
                      <*> (h .# "Location"))
@@ -200,15 +201,15 @@ instance ToXML CreateHostedZone where
 -- * 'chzrLocation'
 data CreateHostedZoneResponse = CreateHostedZoneResponse'
     { _chzrVPC           :: !(Maybe VPC)
-    , _chzrStatus        :: !Status
+    , _chzrStatus        :: !Int
     , _chzrHostedZone    :: !HostedZone
     , _chzrChangeInfo    :: !ChangeInfo
     , _chzrDelegationSet :: !DelegationSet
     , _chzrLocation      :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateHostedZoneResponse' smart constructor.
-createHostedZoneResponse :: Status -> HostedZone -> ChangeInfo -> DelegationSet -> Text -> CreateHostedZoneResponse
+createHostedZoneResponse :: Int -> HostedZone -> ChangeInfo -> DelegationSet -> Text -> CreateHostedZoneResponse
 createHostedZoneResponse pStatus pHostedZone pChangeInfo pDelegationSet pLocation =
     CreateHostedZoneResponse'
     { _chzrVPC = Nothing
@@ -224,7 +225,7 @@ chzrVPC :: Lens' CreateHostedZoneResponse (Maybe VPC)
 chzrVPC = lens _chzrVPC (\ s a -> s{_chzrVPC = a});
 
 -- | FIXME: Undocumented member.
-chzrStatus :: Lens' CreateHostedZoneResponse Status
+chzrStatus :: Lens' CreateHostedZoneResponse Int
 chzrStatus = lens _chzrStatus (\ s a -> s{_chzrStatus = a});
 
 -- | A complex type that contains identifying information about the hosted

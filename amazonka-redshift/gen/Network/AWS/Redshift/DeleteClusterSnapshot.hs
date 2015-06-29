@@ -97,7 +97,7 @@ instance AWSRequest DeleteClusterSnapshot where
           = receiveXMLWrapper "DeleteClusterSnapshotResult"
               (\ s h x ->
                  DeleteClusterSnapshotResponse' <$>
-                   (x .@? "Snapshot") <*> (pure s))
+                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteClusterSnapshot where
         toHeaders = const mempty
@@ -123,11 +123,11 @@ instance ToQuery DeleteClusterSnapshot where
 -- * 'dcsrStatus'
 data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'
     { _dcsrSnapshot :: !(Maybe Snapshot)
-    , _dcsrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _dcsrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteClusterSnapshotResponse' smart constructor.
-deleteClusterSnapshotResponse :: Status -> DeleteClusterSnapshotResponse
+deleteClusterSnapshotResponse :: Int -> DeleteClusterSnapshotResponse
 deleteClusterSnapshotResponse pStatus =
     DeleteClusterSnapshotResponse'
     { _dcsrSnapshot = Nothing
@@ -139,5 +139,5 @@ dcsrSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
 dcsrSnapshot = lens _dcsrSnapshot (\ s a -> s{_dcsrSnapshot = a});
 
 -- | FIXME: Undocumented member.
-dcsrStatus :: Lens' DeleteClusterSnapshotResponse Status
+dcsrStatus :: Lens' DeleteClusterSnapshotResponse Int
 dcsrStatus = lens _dcsrStatus (\ s a -> s{_dcsrStatus = a});

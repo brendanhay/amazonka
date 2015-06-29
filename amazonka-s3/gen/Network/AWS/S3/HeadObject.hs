@@ -232,7 +232,7 @@ instance AWSRequest HeadObject where
                      <*> (h .#? "Content-Disposition")
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (h .#? "Content-Type")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders HeadObject where
         toHeaders HeadObject'{..}
@@ -333,11 +333,11 @@ data HeadObjectResponse = HeadObjectResponse'
     , _horContentDisposition      :: !(Maybe Text)
     , _horServerSideEncryption    :: !(Maybe ServerSideEncryption)
     , _horContentType             :: !(Maybe Text)
-    , _horStatus                  :: !Status
+    , _horStatus                  :: !Int
     } deriving (Eq,Show)
 
 -- | 'HeadObjectResponse' smart constructor.
-headObjectResponse :: Status -> HeadObjectResponse
+headObjectResponse :: Int -> HeadObjectResponse
 headObjectResponse pStatus =
     HeadObjectResponse'
     { _horVersionId = Nothing
@@ -480,5 +480,5 @@ horContentType :: Lens' HeadObjectResponse (Maybe Text)
 horContentType = lens _horContentType (\ s a -> s{_horContentType = a});
 
 -- | FIXME: Undocumented member.
-horStatus :: Lens' HeadObjectResponse Status
+horStatus :: Lens' HeadObjectResponse Int
 horStatus = lens _horStatus (\ s a -> s{_horStatus = a});

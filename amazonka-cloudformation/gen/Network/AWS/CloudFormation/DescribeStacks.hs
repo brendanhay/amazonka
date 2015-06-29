@@ -100,7 +100,7 @@ instance AWSRequest DescribeStacks where
                    (x .@? "NextToken") <*>
                      (x .@? "Stacks" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeStacks where
         toHeaders = const mempty
@@ -130,11 +130,11 @@ instance ToQuery DescribeStacks where
 data DescribeStacksResponse = DescribeStacksResponse'
     { _dsrNextToken :: !(Maybe Text)
     , _dsrStacks    :: !(Maybe [Stack])
-    , _dsrStatus    :: !Status
-    } deriving (Eq,Show)
+    , _dsrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStacksResponse' smart constructor.
-describeStacksResponse :: Status -> DescribeStacksResponse
+describeStacksResponse :: Int -> DescribeStacksResponse
 describeStacksResponse pStatus =
     DescribeStacksResponse'
     { _dsrNextToken = Nothing
@@ -152,5 +152,5 @@ dsrStacks :: Lens' DescribeStacksResponse [Stack]
 dsrStacks = lens _dsrStacks (\ s a -> s{_dsrStacks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DescribeStacksResponse Status
+dsrStatus :: Lens' DescribeStacksResponse Int
 dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

@@ -105,7 +105,7 @@ instance AWSRequest GetGroup where
               (\ s h x ->
                  GetGroupResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (pure s)
+                     (pure (fromEnum s))
                      <*> (x .@ "Group")
                      <*>
                      (x .@? "Users" .!@ mempty >>= parseXMLList "member"))
@@ -142,13 +142,13 @@ instance ToQuery GetGroup where
 data GetGroupResponse = GetGroupResponse'
     { _ggrMarker      :: !(Maybe Text)
     , _ggrIsTruncated :: !(Maybe Bool)
-    , _ggrStatus      :: !Status
+    , _ggrStatus      :: !Int
     , _ggrGroup       :: !Group
     , _ggrUsers       :: ![User]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetGroupResponse' smart constructor.
-getGroupResponse :: Status -> Group -> GetGroupResponse
+getGroupResponse :: Int -> Group -> GetGroupResponse
 getGroupResponse pStatus pGroup =
     GetGroupResponse'
     { _ggrMarker = Nothing
@@ -172,7 +172,7 @@ ggrIsTruncated :: Lens' GetGroupResponse (Maybe Bool)
 ggrIsTruncated = lens _ggrIsTruncated (\ s a -> s{_ggrIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-ggrStatus :: Lens' GetGroupResponse Status
+ggrStatus :: Lens' GetGroupResponse Int
 ggrStatus = lens _ggrStatus (\ s a -> s{_ggrStatus = a});
 
 -- | Information about the group.

@@ -195,7 +195,7 @@ instance AWSRequest
                    (x .@? "Marker") <*>
                      (x .@? "ReservedCacheNodesOfferings" .!@ mempty >>=
                         may (parseXMLList "ReservedCacheNodesOffering"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders
          DescribeReservedCacheNodesOfferings where
@@ -236,11 +236,11 @@ instance ToQuery DescribeReservedCacheNodesOfferings
 data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse'
     { _drcnorMarker                      :: !(Maybe Text)
     , _drcnorReservedCacheNodesOfferings :: !(Maybe [ReservedCacheNodesOffering])
-    , _drcnorStatus                      :: !Status
-    } deriving (Eq,Show)
+    , _drcnorStatus                      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedCacheNodesOfferingsResponse' smart constructor.
-describeReservedCacheNodesOfferingsResponse :: Status -> DescribeReservedCacheNodesOfferingsResponse
+describeReservedCacheNodesOfferingsResponse :: Int -> DescribeReservedCacheNodesOfferingsResponse
 describeReservedCacheNodesOfferingsResponse pStatus =
     DescribeReservedCacheNodesOfferingsResponse'
     { _drcnorMarker = Nothing
@@ -258,5 +258,5 @@ drcnorReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsRe
 drcnorReservedCacheNodesOfferings = lens _drcnorReservedCacheNodesOfferings (\ s a -> s{_drcnorReservedCacheNodesOfferings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drcnorStatus :: Lens' DescribeReservedCacheNodesOfferingsResponse Status
+drcnorStatus :: Lens' DescribeReservedCacheNodesOfferingsResponse Int
 drcnorStatus = lens _drcnorStatus (\ s a -> s{_drcnorStatus = a});

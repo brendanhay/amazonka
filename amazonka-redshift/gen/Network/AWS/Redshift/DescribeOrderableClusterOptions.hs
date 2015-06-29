@@ -143,7 +143,7 @@ instance AWSRequest DescribeOrderableClusterOptions
                    (x .@? "Marker") <*>
                      (x .@? "OrderableClusterOptions" .!@ mempty >>=
                         may (parseXMLList "OrderableClusterOption"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeOrderableClusterOptions
          where
@@ -178,11 +178,11 @@ instance ToQuery DescribeOrderableClusterOptions
 data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'
     { _docorMarker                  :: !(Maybe Text)
     , _docorOrderableClusterOptions :: !(Maybe [OrderableClusterOption])
-    , _docorStatus                  :: !Status
-    } deriving (Eq,Show)
+    , _docorStatus                  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeOrderableClusterOptionsResponse' smart constructor.
-describeOrderableClusterOptionsResponse :: Status -> DescribeOrderableClusterOptionsResponse
+describeOrderableClusterOptionsResponse :: Int -> DescribeOrderableClusterOptionsResponse
 describeOrderableClusterOptionsResponse pStatus =
     DescribeOrderableClusterOptionsResponse'
     { _docorMarker = Nothing
@@ -205,5 +205,5 @@ docorOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [O
 docorOrderableClusterOptions = lens _docorOrderableClusterOptions (\ s a -> s{_docorOrderableClusterOptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-docorStatus :: Lens' DescribeOrderableClusterOptionsResponse Status
+docorStatus :: Lens' DescribeOrderableClusterOptionsResponse Int
 docorStatus = lens _docorStatus (\ s a -> s{_docorStatus = a});

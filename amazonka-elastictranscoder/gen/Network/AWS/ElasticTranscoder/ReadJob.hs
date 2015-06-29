@@ -70,7 +70,8 @@ instance AWSRequest ReadJob where
         response
           = receiveJSON
               (\ s h x ->
-                 ReadJobResponse' <$> (pure s) <*> (x .:> "Job"))
+                 ReadJobResponse' <$>
+                   (pure (fromEnum s)) <*> (x .:> "Job"))
 
 instance ToHeaders ReadJob where
         toHeaders = const mempty
@@ -92,12 +93,12 @@ instance ToQuery ReadJob where
 --
 -- * 'rjrJob'
 data ReadJobResponse = ReadJobResponse'
-    { _rjrStatus :: !Status
+    { _rjrStatus :: !Int
     , _rjrJob    :: !Job'
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ReadJobResponse' smart constructor.
-readJobResponse :: Status -> Job' -> ReadJobResponse
+readJobResponse :: Int -> Job' -> ReadJobResponse
 readJobResponse pStatus pJob =
     ReadJobResponse'
     { _rjrStatus = pStatus
@@ -105,7 +106,7 @@ readJobResponse pStatus pJob =
     }
 
 -- | FIXME: Undocumented member.
-rjrStatus :: Lens' ReadJobResponse Status
+rjrStatus :: Lens' ReadJobResponse Int
 rjrStatus = lens _rjrStatus (\ s a -> s{_rjrStatus = a});
 
 -- | A section of the response body that provides information about the job.

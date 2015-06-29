@@ -117,7 +117,7 @@ instance AWSRequest SendMessage where
                  SendMessageResponse' <$>
                    (x .@? "MessageId") <*> (x .@? "MD5OfMessageBody")
                      <*> (x .@? "MD5OfMessageAttributes")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders SendMessage where
         toHeaders = const mempty
@@ -154,11 +154,11 @@ data SendMessageResponse = SendMessageResponse'
     { _smrMessageId              :: !(Maybe Text)
     , _smrMD5OfMessageBody       :: !(Maybe Text)
     , _smrMD5OfMessageAttributes :: !(Maybe Text)
-    , _smrStatus                 :: !Status
-    } deriving (Eq,Show)
+    , _smrStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SendMessageResponse' smart constructor.
-sendMessageResponse :: Status -> SendMessageResponse
+sendMessageResponse :: Int -> SendMessageResponse
 sendMessageResponse pStatus =
     SendMessageResponse'
     { _smrMessageId = Nothing
@@ -189,5 +189,5 @@ smrMD5OfMessageAttributes :: Lens' SendMessageResponse (Maybe Text)
 smrMD5OfMessageAttributes = lens _smrMD5OfMessageAttributes (\ s a -> s{_smrMD5OfMessageAttributes = a});
 
 -- | FIXME: Undocumented member.
-smrStatus :: Lens' SendMessageResponse Status
+smrStatus :: Lens' SendMessageResponse Int
 smrStatus = lens _smrStatus (\ s a -> s{_smrStatus = a});

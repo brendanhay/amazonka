@@ -97,7 +97,7 @@ instance AWSRequest GetIdentityDkimAttributes where
           = receiveXMLWrapper "GetIdentityDkimAttributesResult"
               (\ s h x ->
                  GetIdentityDkimAttributesResponse' <$>
-                   (pure s) <*>
+                   (pure (fromEnum s)) <*>
                      (x .@? "DkimAttributes" .!@ mempty >>=
                         parseXMLMap "entry" "key" "value"))
 
@@ -125,12 +125,12 @@ instance ToQuery GetIdentityDkimAttributes where
 --
 -- * 'gidarDkimAttributes'
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
-    { _gidarStatus         :: !Status
+    { _gidarStatus         :: !Int
     , _gidarDkimAttributes :: !(Map Text IdentityDkimAttributes)
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityDkimAttributesResponse' smart constructor.
-getIdentityDkimAttributesResponse :: Status -> GetIdentityDkimAttributesResponse
+getIdentityDkimAttributesResponse :: Int -> GetIdentityDkimAttributesResponse
 getIdentityDkimAttributesResponse pStatus =
     GetIdentityDkimAttributesResponse'
     { _gidarStatus = pStatus
@@ -138,7 +138,7 @@ getIdentityDkimAttributesResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-gidarStatus :: Lens' GetIdentityDkimAttributesResponse Status
+gidarStatus :: Lens' GetIdentityDkimAttributesResponse Int
 gidarStatus = lens _gidarStatus (\ s a -> s{_gidarStatus = a});
 
 -- | The DKIM attributes for an email address or a domain.

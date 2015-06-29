@@ -103,7 +103,8 @@ instance AWSRequest DescribeElasticIPs where
           = receiveJSON
               (\ s h x ->
                  DescribeElasticIPsResponse' <$>
-                   (x .?> "ElasticIps" .!@ mempty) <*> (pure s))
+                   (x .?> "ElasticIps" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeElasticIPs where
         toHeaders
@@ -138,11 +139,11 @@ instance ToQuery DescribeElasticIPs where
 -- * 'deirStatus'
 data DescribeElasticIPsResponse = DescribeElasticIPsResponse'
     { _deirElasticIPs :: !(Maybe [ElasticIP])
-    , _deirStatus     :: !Status
-    } deriving (Eq,Show)
+    , _deirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeElasticIPsResponse' smart constructor.
-describeElasticIPsResponse :: Status -> DescribeElasticIPsResponse
+describeElasticIPsResponse :: Int -> DescribeElasticIPsResponse
 describeElasticIPsResponse pStatus =
     DescribeElasticIPsResponse'
     { _deirElasticIPs = Nothing
@@ -155,5 +156,5 @@ deirElasticIPs :: Lens' DescribeElasticIPsResponse [ElasticIP]
 deirElasticIPs = lens _deirElasticIPs (\ s a -> s{_deirElasticIPs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-deirStatus :: Lens' DescribeElasticIPsResponse Status
+deirStatus :: Lens' DescribeElasticIPsResponse Int
 deirStatus = lens _deirStatus (\ s a -> s{_deirStatus = a});

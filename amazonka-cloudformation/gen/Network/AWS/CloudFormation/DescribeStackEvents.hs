@@ -108,7 +108,7 @@ instance AWSRequest DescribeStackEvents where
                    (x .@? "NextToken") <*>
                      (x .@? "StackEvents" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeStackEvents where
         toHeaders = const mempty
@@ -138,11 +138,11 @@ instance ToQuery DescribeStackEvents where
 data DescribeStackEventsResponse = DescribeStackEventsResponse'
     { _dserNextToken   :: !(Maybe Text)
     , _dserStackEvents :: !(Maybe [StackEvent])
-    , _dserStatus      :: !Status
-    } deriving (Eq,Show)
+    , _dserStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackEventsResponse' smart constructor.
-describeStackEventsResponse :: Status -> DescribeStackEventsResponse
+describeStackEventsResponse :: Int -> DescribeStackEventsResponse
 describeStackEventsResponse pStatus =
     DescribeStackEventsResponse'
     { _dserNextToken = Nothing
@@ -160,5 +160,5 @@ dserStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
 dserStackEvents = lens _dserStackEvents (\ s a -> s{_dserStackEvents = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dserStatus :: Lens' DescribeStackEventsResponse Status
+dserStatus :: Lens' DescribeStackEventsResponse Int
 dserStatus = lens _dserStatus (\ s a -> s{_dserStatus = a});

@@ -112,7 +112,7 @@ instance AWSRequest UploadDocuments where
                  UploadDocumentsResponse' <$>
                    (x .?> "adds") <*> (x .?> "warnings" .!@ mempty) <*>
                      (x .?> "deletes")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToBody UploadDocuments where
         toBody = _udDocuments
@@ -147,11 +147,11 @@ data UploadDocumentsResponse = UploadDocumentsResponse'
     { _udrAdds     :: !(Maybe Integer)
     , _udrWarnings :: !(Maybe [DocumentServiceWarning])
     , _udrDeletes  :: !(Maybe Integer)
-    , _udrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _udrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UploadDocumentsResponse' smart constructor.
-uploadDocumentsResponse :: Status -> UploadDocumentsResponse
+uploadDocumentsResponse :: Int -> UploadDocumentsResponse
 uploadDocumentsResponse pStatus =
     UploadDocumentsResponse'
     { _udrAdds = Nothing
@@ -174,5 +174,5 @@ udrDeletes :: Lens' UploadDocumentsResponse (Maybe Integer)
 udrDeletes = lens _udrDeletes (\ s a -> s{_udrDeletes = a});
 
 -- | FIXME: Undocumented member.
-udrStatus :: Lens' UploadDocumentsResponse Status
+udrStatus :: Lens' UploadDocumentsResponse Int
 udrStatus = lens _udrStatus (\ s a -> s{_udrStatus = a});

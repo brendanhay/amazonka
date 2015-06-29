@@ -82,7 +82,8 @@ instance AWSRequest CreateDocument where
           = receiveJSON
               (\ s h x ->
                  CreateDocumentResponse' <$>
-                   (x .?> "DocumentDescription") <*> (pure s))
+                   (x .?> "DocumentDescription") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateDocument where
         toHeaders
@@ -112,11 +113,11 @@ instance ToQuery CreateDocument where
 -- * 'cdrStatus'
 data CreateDocumentResponse = CreateDocumentResponse'
     { _cdrDocumentDescription :: !(Maybe DocumentDescription)
-    , _cdrStatus              :: !Status
-    } deriving (Eq,Show)
+    , _cdrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDocumentResponse' smart constructor.
-createDocumentResponse :: Status -> CreateDocumentResponse
+createDocumentResponse :: Int -> CreateDocumentResponse
 createDocumentResponse pStatus =
     CreateDocumentResponse'
     { _cdrDocumentDescription = Nothing
@@ -128,5 +129,5 @@ cdrDocumentDescription :: Lens' CreateDocumentResponse (Maybe DocumentDescriptio
 cdrDocumentDescription = lens _cdrDocumentDescription (\ s a -> s{_cdrDocumentDescription = a});
 
 -- | FIXME: Undocumented member.
-cdrStatus :: Lens' CreateDocumentResponse Status
+cdrStatus :: Lens' CreateDocumentResponse Int
 cdrStatus = lens _cdrStatus (\ s a -> s{_cdrStatus = a});

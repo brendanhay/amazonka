@@ -154,7 +154,8 @@ instance AWSRequest DescribeSecurityGroups where
           = receiveXML
               (\ s h x ->
                  DescribeSecurityGroupsResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeSecurityGroups where
         toHeaders = const mempty
@@ -183,11 +184,11 @@ instance ToQuery DescribeSecurityGroups where
 -- * 'dsgrStatus'
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
     { _dsgrSecurityGroups :: !(Maybe [SecurityGroup])
-    , _dsgrStatus         :: !Status
-    } deriving (Eq,Show)
+    , _dsgrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSecurityGroupsResponse' smart constructor.
-describeSecurityGroupsResponse :: Status -> DescribeSecurityGroupsResponse
+describeSecurityGroupsResponse :: Int -> DescribeSecurityGroupsResponse
 describeSecurityGroupsResponse pStatus =
     DescribeSecurityGroupsResponse'
     { _dsgrSecurityGroups = Nothing
@@ -199,5 +200,5 @@ dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgrSecurityGroups = lens _dsgrSecurityGroups (\ s a -> s{_dsgrSecurityGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsgrStatus :: Lens' DescribeSecurityGroupsResponse Status
+dsgrStatus :: Lens' DescribeSecurityGroupsResponse Int
 dsgrStatus = lens _dsgrStatus (\ s a -> s{_dsgrStatus = a});

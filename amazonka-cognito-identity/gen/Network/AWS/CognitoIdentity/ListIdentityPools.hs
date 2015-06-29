@@ -84,7 +84,7 @@ instance AWSRequest ListIdentityPools where
                  ListIdentityPoolsResponse' <$>
                    (x .?> "IdentityPools" .!@ mempty) <*>
                      (x .?> "NextToken")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListIdentityPools where
         toHeaders
@@ -122,11 +122,11 @@ instance ToQuery ListIdentityPools where
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
     { _liprIdentityPools :: !(Maybe [IdentityPoolShortDescription])
     , _liprNextToken     :: !(Maybe Text)
-    , _liprStatus        :: !Status
-    } deriving (Eq,Show)
+    , _liprStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListIdentityPoolsResponse' smart constructor.
-listIdentityPoolsResponse :: Status -> ListIdentityPoolsResponse
+listIdentityPoolsResponse :: Int -> ListIdentityPoolsResponse
 listIdentityPoolsResponse pStatus =
     ListIdentityPoolsResponse'
     { _liprIdentityPools = Nothing
@@ -143,5 +143,5 @@ liprNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
 liprNextToken = lens _liprNextToken (\ s a -> s{_liprNextToken = a});
 
 -- | FIXME: Undocumented member.
-liprStatus :: Lens' ListIdentityPoolsResponse Status
+liprStatus :: Lens' ListIdentityPoolsResponse Int
 liprStatus = lens _liprStatus (\ s a -> s{_liprStatus = a});

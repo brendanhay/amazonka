@@ -112,7 +112,7 @@ instance AWSRequest ChangeResourceRecordSets where
           = receiveXML
               (\ s h x ->
                  ChangeResourceRecordSetsResponse' <$>
-                   (pure s) <*> (x .@ "ChangeInfo"))
+                   (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
 instance ToElement ChangeResourceRecordSets where
         toElement
@@ -145,12 +145,12 @@ instance ToXML ChangeResourceRecordSets where
 --
 -- * 'crrsrChangeInfo'
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
-    { _crrsrStatus     :: !Status
+    { _crrsrStatus     :: !Int
     , _crrsrChangeInfo :: !ChangeInfo
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ChangeResourceRecordSetsResponse' smart constructor.
-changeResourceRecordSetsResponse :: Status -> ChangeInfo -> ChangeResourceRecordSetsResponse
+changeResourceRecordSetsResponse :: Int -> ChangeInfo -> ChangeResourceRecordSetsResponse
 changeResourceRecordSetsResponse pStatus pChangeInfo =
     ChangeResourceRecordSetsResponse'
     { _crrsrStatus = pStatus
@@ -158,7 +158,7 @@ changeResourceRecordSetsResponse pStatus pChangeInfo =
     }
 
 -- | FIXME: Undocumented member.
-crrsrStatus :: Lens' ChangeResourceRecordSetsResponse Status
+crrsrStatus :: Lens' ChangeResourceRecordSetsResponse Int
 crrsrStatus = lens _crrsrStatus (\ s a -> s{_crrsrStatus = a});
 
 -- | A complex type that contains information about changes made to your

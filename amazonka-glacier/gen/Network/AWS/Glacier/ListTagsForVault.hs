@@ -86,7 +86,7 @@ instance AWSRequest ListTagsForVault where
           = receiveJSON
               (\ s h x ->
                  ListTagsForVaultResponse' <$>
-                   (x .?> "Tags" .!@ mempty) <*> (pure s))
+                   (x .?> "Tags" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders ListTagsForVault where
         toHeaders = const mempty
@@ -111,11 +111,11 @@ instance ToQuery ListTagsForVault where
 -- * 'ltfvrStatus'
 data ListTagsForVaultResponse = ListTagsForVaultResponse'
     { _ltfvrTags   :: !(Maybe (Map Text Text))
-    , _ltfvrStatus :: !Status
-    } deriving (Eq,Show)
+    , _ltfvrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForVaultResponse' smart constructor.
-listTagsForVaultResponse :: Status -> ListTagsForVaultResponse
+listTagsForVaultResponse :: Int -> ListTagsForVaultResponse
 listTagsForVaultResponse pStatus =
     ListTagsForVaultResponse'
     { _ltfvrTags = Nothing
@@ -128,5 +128,5 @@ ltfvrTags :: Lens' ListTagsForVaultResponse (HashMap Text Text)
 ltfvrTags = lens _ltfvrTags (\ s a -> s{_ltfvrTags = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-ltfvrStatus :: Lens' ListTagsForVaultResponse Status
+ltfvrStatus :: Lens' ListTagsForVaultResponse Int
 ltfvrStatus = lens _ltfvrStatus (\ s a -> s{_ltfvrStatus = a});

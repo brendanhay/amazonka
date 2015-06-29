@@ -116,7 +116,7 @@ instance AWSRequest CopyOptionGroup where
           = receiveXMLWrapper "CopyOptionGroupResult"
               (\ s h x ->
                  CopyOptionGroupResponse' <$>
-                   (x .@? "OptionGroup") <*> (pure s))
+                   (x .@? "OptionGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CopyOptionGroup where
         toHeaders = const mempty
@@ -146,11 +146,11 @@ instance ToQuery CopyOptionGroup where
 -- * 'cogrStatus'
 data CopyOptionGroupResponse = CopyOptionGroupResponse'
     { _cogrOptionGroup :: !(Maybe OptionGroup)
-    , _cogrStatus      :: !Status
-    } deriving (Eq,Show)
+    , _cogrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyOptionGroupResponse' smart constructor.
-copyOptionGroupResponse :: Status -> CopyOptionGroupResponse
+copyOptionGroupResponse :: Int -> CopyOptionGroupResponse
 copyOptionGroupResponse pStatus =
     CopyOptionGroupResponse'
     { _cogrOptionGroup = Nothing
@@ -162,5 +162,5 @@ cogrOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
 cogrOptionGroup = lens _cogrOptionGroup (\ s a -> s{_cogrOptionGroup = a});
 
 -- | FIXME: Undocumented member.
-cogrStatus :: Lens' CopyOptionGroupResponse Status
+cogrStatus :: Lens' CopyOptionGroupResponse Int
 cogrStatus = lens _cogrStatus (\ s a -> s{_cogrStatus = a});

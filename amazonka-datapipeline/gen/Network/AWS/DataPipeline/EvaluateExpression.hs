@@ -91,7 +91,8 @@ instance AWSRequest EvaluateExpression where
           = receiveJSON
               (\ s h x ->
                  EvaluateExpressionResponse' <$>
-                   (pure s) <*> (x .:> "evaluatedExpression"))
+                   (pure (fromEnum s)) <*>
+                     (x .:> "evaluatedExpression"))
 
 instance ToHeaders EvaluateExpression where
         toHeaders
@@ -125,12 +126,12 @@ instance ToQuery EvaluateExpression where
 --
 -- * 'eerEvaluatedExpression'
 data EvaluateExpressionResponse = EvaluateExpressionResponse'
-    { _eerStatus              :: !Status
+    { _eerStatus              :: !Int
     , _eerEvaluatedExpression :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'EvaluateExpressionResponse' smart constructor.
-evaluateExpressionResponse :: Status -> Text -> EvaluateExpressionResponse
+evaluateExpressionResponse :: Int -> Text -> EvaluateExpressionResponse
 evaluateExpressionResponse pStatus pEvaluatedExpression =
     EvaluateExpressionResponse'
     { _eerStatus = pStatus
@@ -138,7 +139,7 @@ evaluateExpressionResponse pStatus pEvaluatedExpression =
     }
 
 -- | FIXME: Undocumented member.
-eerStatus :: Lens' EvaluateExpressionResponse Status
+eerStatus :: Lens' EvaluateExpressionResponse Int
 eerStatus = lens _eerStatus (\ s a -> s{_eerStatus = a});
 
 -- | The evaluated expression.

@@ -158,7 +158,7 @@ instance AWSRequest DescribeHSMConfigurations where
                    (x .@? "Marker") <*>
                      (x .@? "HsmConfigurations" .!@ mempty >>=
                         may (parseXMLList "HsmConfiguration"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeHSMConfigurations where
         toHeaders = const mempty
@@ -195,11 +195,11 @@ instance ToQuery DescribeHSMConfigurations where
 data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'
     { _dhcrMarker            :: !(Maybe Text)
     , _dhcrHSMConfigurations :: !(Maybe [HSMConfiguration])
-    , _dhcrStatus            :: !Status
-    } deriving (Eq,Show)
+    , _dhcrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeHSMConfigurationsResponse' smart constructor.
-describeHSMConfigurationsResponse :: Status -> DescribeHSMConfigurationsResponse
+describeHSMConfigurationsResponse :: Int -> DescribeHSMConfigurationsResponse
 describeHSMConfigurationsResponse pStatus =
     DescribeHSMConfigurationsResponse'
     { _dhcrMarker = Nothing
@@ -221,5 +221,5 @@ dhcrHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfigurati
 dhcrHSMConfigurations = lens _dhcrHSMConfigurations (\ s a -> s{_dhcrHSMConfigurations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dhcrStatus :: Lens' DescribeHSMConfigurationsResponse Status
+dhcrStatus :: Lens' DescribeHSMConfigurationsResponse Int
 dhcrStatus = lens _dhcrStatus (\ s a -> s{_dhcrStatus = a});

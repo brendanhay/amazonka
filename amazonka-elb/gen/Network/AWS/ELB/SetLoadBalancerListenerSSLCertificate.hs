@@ -94,7 +94,7 @@ instance AWSRequest
               "SetLoadBalancerListenerSSLCertificateResult"
               (\ s h x ->
                  SetLoadBalancerListenerSSLCertificateResponse' <$>
-                   (pure s))
+                   (pure (fromEnum s)))
 
 instance ToHeaders
          SetLoadBalancerListenerSSLCertificate where
@@ -122,16 +122,16 @@ instance ToQuery
 --
 -- * 'slblscrStatus'
 newtype SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse'
-    { _slblscrStatus :: Status
-    } deriving (Eq,Show)
+    { _slblscrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SetLoadBalancerListenerSSLCertificateResponse' smart constructor.
-setLoadBalancerListenerSSLCertificateResponse :: Status -> SetLoadBalancerListenerSSLCertificateResponse
+setLoadBalancerListenerSSLCertificateResponse :: Int -> SetLoadBalancerListenerSSLCertificateResponse
 setLoadBalancerListenerSSLCertificateResponse pStatus =
     SetLoadBalancerListenerSSLCertificateResponse'
     { _slblscrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-slblscrStatus :: Lens' SetLoadBalancerListenerSSLCertificateResponse Status
+slblscrStatus :: Lens' SetLoadBalancerListenerSSLCertificateResponse Int
 slblscrStatus = lens _slblscrStatus (\ s a -> s{_slblscrStatus = a});

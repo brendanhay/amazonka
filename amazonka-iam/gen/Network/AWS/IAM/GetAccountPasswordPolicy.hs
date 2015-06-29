@@ -58,7 +58,7 @@ instance AWSRequest GetAccountPasswordPolicy where
           = receiveXMLWrapper "GetAccountPasswordPolicyResult"
               (\ s h x ->
                  GetAccountPasswordPolicyResponse' <$>
-                   (pure s) <*> (x .@ "PasswordPolicy"))
+                   (pure (fromEnum s)) <*> (x .@ "PasswordPolicy"))
 
 instance ToHeaders GetAccountPasswordPolicy where
         toHeaders = const mempty
@@ -84,12 +84,12 @@ instance ToQuery GetAccountPasswordPolicy where
 --
 -- * 'gapprPasswordPolicy'
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
-    { _gapprStatus         :: !Status
+    { _gapprStatus         :: !Int
     , _gapprPasswordPolicy :: !PasswordPolicy
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetAccountPasswordPolicyResponse' smart constructor.
-getAccountPasswordPolicyResponse :: Status -> PasswordPolicy -> GetAccountPasswordPolicyResponse
+getAccountPasswordPolicyResponse :: Int -> PasswordPolicy -> GetAccountPasswordPolicyResponse
 getAccountPasswordPolicyResponse pStatus pPasswordPolicy =
     GetAccountPasswordPolicyResponse'
     { _gapprStatus = pStatus
@@ -97,7 +97,7 @@ getAccountPasswordPolicyResponse pStatus pPasswordPolicy =
     }
 
 -- | FIXME: Undocumented member.
-gapprStatus :: Lens' GetAccountPasswordPolicyResponse Status
+gapprStatus :: Lens' GetAccountPasswordPolicyResponse Int
 gapprStatus = lens _gapprStatus (\ s a -> s{_gapprStatus = a});
 
 -- | FIXME: Undocumented member.

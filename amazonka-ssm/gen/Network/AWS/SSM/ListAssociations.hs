@@ -94,7 +94,7 @@ instance AWSRequest ListAssociations where
                  ListAssociationsResponse' <$>
                    (x .?> "NextToken") <*>
                      (x .?> "Associations" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListAssociations where
         toHeaders
@@ -130,11 +130,11 @@ instance ToQuery ListAssociations where
 data ListAssociationsResponse = ListAssociationsResponse'
     { _larNextToken    :: !(Maybe Text)
     , _larAssociations :: !(Maybe [Association])
-    , _larStatus       :: !Status
-    } deriving (Eq,Show)
+    , _larStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAssociationsResponse' smart constructor.
-listAssociationsResponse :: Status -> ListAssociationsResponse
+listAssociationsResponse :: Int -> ListAssociationsResponse
 listAssociationsResponse pStatus =
     ListAssociationsResponse'
     { _larNextToken = Nothing
@@ -152,5 +152,5 @@ larAssociations :: Lens' ListAssociationsResponse [Association]
 larAssociations = lens _larAssociations (\ s a -> s{_larAssociations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-larStatus :: Lens' ListAssociationsResponse Status
+larStatus :: Lens' ListAssociationsResponse Int
 larStatus = lens _larStatus (\ s a -> s{_larStatus = a});

@@ -131,7 +131,8 @@ instance AWSRequest DescribeSubnets where
           = receiveXML
               (\ s h x ->
                  DescribeSubnetsResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeSubnets where
         toHeaders = const mempty
@@ -157,11 +158,11 @@ instance ToQuery DescribeSubnets where
 -- * 'dsrStatus'
 data DescribeSubnetsResponse = DescribeSubnetsResponse'
     { _dsrSubnets :: !(Maybe [Subnet])
-    , _dsrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _dsrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSubnetsResponse' smart constructor.
-describeSubnetsResponse :: Status -> DescribeSubnetsResponse
+describeSubnetsResponse :: Int -> DescribeSubnetsResponse
 describeSubnetsResponse pStatus =
     DescribeSubnetsResponse'
     { _dsrSubnets = Nothing
@@ -173,5 +174,5 @@ dsrSubnets :: Lens' DescribeSubnetsResponse [Subnet]
 dsrSubnets = lens _dsrSubnets (\ s a -> s{_dsrSubnets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DescribeSubnetsResponse Status
+dsrStatus :: Lens' DescribeSubnetsResponse Int
 dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

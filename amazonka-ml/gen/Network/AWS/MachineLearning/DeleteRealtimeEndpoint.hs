@@ -72,7 +72,7 @@ instance AWSRequest DeleteRealtimeEndpoint where
                  DeleteRealtimeEndpointResponse' <$>
                    (x .?> "RealtimeEndpointInfo") <*>
                      (x .?> "MLModelId")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteRealtimeEndpoint where
         toHeaders
@@ -111,11 +111,11 @@ instance ToQuery DeleteRealtimeEndpoint where
 data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'
     { _drerRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
     , _drerMLModelId            :: !(Maybe Text)
-    , _drerStatus               :: !Status
-    } deriving (Eq,Show)
+    , _drerStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteRealtimeEndpointResponse' smart constructor.
-deleteRealtimeEndpointResponse :: Status -> DeleteRealtimeEndpointResponse
+deleteRealtimeEndpointResponse :: Int -> DeleteRealtimeEndpointResponse
 deleteRealtimeEndpointResponse pStatus =
     DeleteRealtimeEndpointResponse'
     { _drerRealtimeEndpointInfo = Nothing
@@ -133,5 +133,5 @@ drerMLModelId :: Lens' DeleteRealtimeEndpointResponse (Maybe Text)
 drerMLModelId = lens _drerMLModelId (\ s a -> s{_drerMLModelId = a});
 
 -- | FIXME: Undocumented member.
-drerStatus :: Lens' DeleteRealtimeEndpointResponse Status
+drerStatus :: Lens' DeleteRealtimeEndpointResponse Int
 drerStatus = lens _drerStatus (\ s a -> s{_drerStatus = a});

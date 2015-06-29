@@ -108,7 +108,7 @@ instance AWSRequest CreateSnapshot where
               (\ s h x ->
                  CreateSnapshotResponse' <$>
                    (x .?> "VolumeARN") <*> (x .?> "SnapshotId") <*>
-                     (pure s))
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateSnapshot where
         toHeaders
@@ -146,11 +146,11 @@ instance ToQuery CreateSnapshot where
 data CreateSnapshotResponse = CreateSnapshotResponse'
     { _csrVolumeARN  :: !(Maybe Text)
     , _csrSnapshotId :: !(Maybe Text)
-    , _csrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _csrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshotResponse' smart constructor.
-createSnapshotResponse :: Status -> CreateSnapshotResponse
+createSnapshotResponse :: Int -> CreateSnapshotResponse
 createSnapshotResponse pStatus =
     CreateSnapshotResponse'
     { _csrVolumeARN = Nothing
@@ -171,5 +171,5 @@ csrSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\ s a -> s{_csrSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-csrStatus :: Lens' CreateSnapshotResponse Status
+csrStatus :: Lens' CreateSnapshotResponse Int
 csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});

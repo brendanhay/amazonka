@@ -68,7 +68,7 @@ instance AWSRequest GetBucketTagging where
           = receiveXML
               (\ s h x ->
                  GetBucketTaggingResponse' <$>
-                   (pure s) <*>
+                   (pure (fromEnum s)) <*>
                      (x .@? "TagSet" .!@ mempty >>= parseXMLList "Tag"))
 
 instance ToHeaders GetBucketTagging where
@@ -89,12 +89,12 @@ instance ToQuery GetBucketTagging where
 --
 -- * 'gbtrTagSet'
 data GetBucketTaggingResponse = GetBucketTaggingResponse'
-    { _gbtrStatus :: !Status
+    { _gbtrStatus :: !Int
     , _gbtrTagSet :: ![Tag]
     } deriving (Eq,Show)
 
 -- | 'GetBucketTaggingResponse' smart constructor.
-getBucketTaggingResponse :: Status -> GetBucketTaggingResponse
+getBucketTaggingResponse :: Int -> GetBucketTaggingResponse
 getBucketTaggingResponse pStatus =
     GetBucketTaggingResponse'
     { _gbtrStatus = pStatus
@@ -102,7 +102,7 @@ getBucketTaggingResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-gbtrStatus :: Lens' GetBucketTaggingResponse Status
+gbtrStatus :: Lens' GetBucketTaggingResponse Int
 gbtrStatus = lens _gbtrStatus (\ s a -> s{_gbtrStatus = a});
 
 -- | FIXME: Undocumented member.

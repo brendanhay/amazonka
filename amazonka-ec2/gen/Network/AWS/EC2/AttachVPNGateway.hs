@@ -91,7 +91,7 @@ instance AWSRequest AttachVPNGateway where
           = receiveXML
               (\ s h x ->
                  AttachVPNGatewayResponse' <$>
-                   (x .@? "attachment") <*> (pure s))
+                   (x .@? "attachment") <*> (pure (fromEnum s)))
 
 instance ToHeaders AttachVPNGateway where
         toHeaders = const mempty
@@ -117,11 +117,11 @@ instance ToQuery AttachVPNGateway where
 -- * 'avgrStatus'
 data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
     { _avgrVPCAttachment :: !(Maybe VPCAttachment)
-    , _avgrStatus        :: !Status
-    } deriving (Eq,Show)
+    , _avgrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachVPNGatewayResponse' smart constructor.
-attachVPNGatewayResponse :: Status -> AttachVPNGatewayResponse
+attachVPNGatewayResponse :: Int -> AttachVPNGatewayResponse
 attachVPNGatewayResponse pStatus =
     AttachVPNGatewayResponse'
     { _avgrVPCAttachment = Nothing
@@ -133,5 +133,5 @@ avgrVPCAttachment :: Lens' AttachVPNGatewayResponse (Maybe VPCAttachment)
 avgrVPCAttachment = lens _avgrVPCAttachment (\ s a -> s{_avgrVPCAttachment = a});
 
 -- | FIXME: Undocumented member.
-avgrStatus :: Lens' AttachVPNGatewayResponse Status
+avgrStatus :: Lens' AttachVPNGatewayResponse Int
 avgrStatus = lens _avgrStatus (\ s a -> s{_avgrStatus = a});

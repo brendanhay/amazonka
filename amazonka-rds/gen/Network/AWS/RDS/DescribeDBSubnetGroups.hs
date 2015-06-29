@@ -125,7 +125,7 @@ instance AWSRequest DescribeDBSubnetGroups where
                    (x .@? "DBSubnetGroups" .!@ mempty >>=
                       may (parseXMLList "DBSubnetGroup"))
                      <*> (x .@? "Marker")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDBSubnetGroups where
         toHeaders = const mempty
@@ -160,11 +160,11 @@ instance ToQuery DescribeDBSubnetGroups where
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
     { _ddsgrDBSubnetGroups :: !(Maybe [DBSubnetGroup])
     , _ddsgrMarker         :: !(Maybe Text)
-    , _ddsgrStatus         :: !Status
-    } deriving (Eq,Show)
+    , _ddsgrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBSubnetGroupsResponse' smart constructor.
-describeDBSubnetGroupsResponse :: Status -> DescribeDBSubnetGroupsResponse
+describeDBSubnetGroupsResponse :: Int -> DescribeDBSubnetGroupsResponse
 describeDBSubnetGroupsResponse pStatus =
     DescribeDBSubnetGroupsResponse'
     { _ddsgrDBSubnetGroups = Nothing
@@ -183,5 +183,5 @@ ddsgrMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
 ddsgrMarker = lens _ddsgrMarker (\ s a -> s{_ddsgrMarker = a});
 
 -- | FIXME: Undocumented member.
-ddsgrStatus :: Lens' DescribeDBSubnetGroupsResponse Status
+ddsgrStatus :: Lens' DescribeDBSubnetGroupsResponse Int
 ddsgrStatus = lens _ddsgrStatus (\ s a -> s{_ddsgrStatus = a});

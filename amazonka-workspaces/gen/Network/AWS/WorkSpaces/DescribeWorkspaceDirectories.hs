@@ -93,7 +93,7 @@ instance AWSRequest DescribeWorkspaceDirectories
                  DescribeWorkspaceDirectoriesResponse' <$>
                    (x .?> "Directories" .!@ mempty) <*>
                      (x .?> "NextToken")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeWorkspaceDirectories where
         toHeaders
@@ -131,11 +131,11 @@ instance ToQuery DescribeWorkspaceDirectories where
 data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'
     { _dwdrDirectories :: !(Maybe [WorkspaceDirectory])
     , _dwdrNextToken   :: !(Maybe Text)
-    , _dwdrStatus      :: !Status
-    } deriving (Eq,Show)
+    , _dwdrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkspaceDirectoriesResponse' smart constructor.
-describeWorkspaceDirectoriesResponse :: Status -> DescribeWorkspaceDirectoriesResponse
+describeWorkspaceDirectoriesResponse :: Int -> DescribeWorkspaceDirectoriesResponse
 describeWorkspaceDirectoriesResponse pStatus =
     DescribeWorkspaceDirectoriesResponse'
     { _dwdrDirectories = Nothing
@@ -155,5 +155,5 @@ dwdrNextToken :: Lens' DescribeWorkspaceDirectoriesResponse (Maybe Text)
 dwdrNextToken = lens _dwdrNextToken (\ s a -> s{_dwdrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dwdrStatus :: Lens' DescribeWorkspaceDirectoriesResponse Status
+dwdrStatus :: Lens' DescribeWorkspaceDirectoriesResponse Int
 dwdrStatus = lens _dwdrStatus (\ s a -> s{_dwdrStatus = a});

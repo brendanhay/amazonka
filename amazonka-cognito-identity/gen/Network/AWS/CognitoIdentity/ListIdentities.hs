@@ -105,7 +105,7 @@ instance AWSRequest ListIdentities where
                  ListIdentitiesResponse' <$>
                    (x .?> "IdentityPoolId") <*> (x .?> "NextToken") <*>
                      (x .?> "Identities" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListIdentities where
         toHeaders
@@ -148,11 +148,11 @@ data ListIdentitiesResponse = ListIdentitiesResponse'
     { _lirIdentityPoolId :: !(Maybe Text)
     , _lirNextToken      :: !(Maybe Text)
     , _lirIdentities     :: !(Maybe [IdentityDescription])
-    , _lirStatus         :: !Status
-    } deriving (Eq,Show)
+    , _lirStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListIdentitiesResponse' smart constructor.
-listIdentitiesResponse :: Status -> ListIdentitiesResponse
+listIdentitiesResponse :: Int -> ListIdentitiesResponse
 listIdentitiesResponse pStatus =
     ListIdentitiesResponse'
     { _lirIdentityPoolId = Nothing
@@ -174,5 +174,5 @@ lirIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
 lirIdentities = lens _lirIdentities (\ s a -> s{_lirIdentities = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lirStatus :: Lens' ListIdentitiesResponse Status
+lirStatus :: Lens' ListIdentitiesResponse Int
 lirStatus = lens _lirStatus (\ s a -> s{_lirStatus = a});

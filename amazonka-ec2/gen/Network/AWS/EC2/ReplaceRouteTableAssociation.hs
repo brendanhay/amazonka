@@ -101,7 +101,7 @@ instance AWSRequest ReplaceRouteTableAssociation
           = receiveXML
               (\ s h x ->
                  ReplaceRouteTableAssociationResponse' <$>
-                   (x .@? "newAssociationId") <*> (pure s))
+                   (x .@? "newAssociationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders ReplaceRouteTableAssociation where
         toHeaders = const mempty
@@ -128,11 +128,11 @@ instance ToQuery ReplaceRouteTableAssociation where
 -- * 'rrtarStatus'
 data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'
     { _rrtarNewAssociationId :: !(Maybe Text)
-    , _rrtarStatus           :: !Status
-    } deriving (Eq,Show)
+    , _rrtarStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ReplaceRouteTableAssociationResponse' smart constructor.
-replaceRouteTableAssociationResponse :: Status -> ReplaceRouteTableAssociationResponse
+replaceRouteTableAssociationResponse :: Int -> ReplaceRouteTableAssociationResponse
 replaceRouteTableAssociationResponse pStatus =
     ReplaceRouteTableAssociationResponse'
     { _rrtarNewAssociationId = Nothing
@@ -144,5 +144,5 @@ rrtarNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
 rrtarNewAssociationId = lens _rrtarNewAssociationId (\ s a -> s{_rrtarNewAssociationId = a});
 
 -- | FIXME: Undocumented member.
-rrtarStatus :: Lens' ReplaceRouteTableAssociationResponse Status
+rrtarStatus :: Lens' ReplaceRouteTableAssociationResponse Int
 rrtarStatus = lens _rrtarStatus (\ s a -> s{_rrtarStatus = a});

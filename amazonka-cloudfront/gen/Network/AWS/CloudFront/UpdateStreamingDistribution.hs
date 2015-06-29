@@ -92,7 +92,7 @@ instance AWSRequest UpdateStreamingDistribution where
               (\ s h x ->
                  UpdateStreamingDistributionResponse' <$>
                    (h .#? "ETag") <*> (x .@? "StreamingDistribution")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToElement UpdateStreamingDistribution where
         toElement
@@ -128,11 +128,11 @@ instance ToQuery UpdateStreamingDistribution where
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
     { _usdrETag                  :: !(Maybe Text)
     , _usdrStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _usdrStatus                :: !Status
-    } deriving (Eq,Show)
+    , _usdrStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateStreamingDistributionResponse' smart constructor.
-updateStreamingDistributionResponse :: Status -> UpdateStreamingDistributionResponse
+updateStreamingDistributionResponse :: Int -> UpdateStreamingDistributionResponse
 updateStreamingDistributionResponse pStatus =
     UpdateStreamingDistributionResponse'
     { _usdrETag = Nothing
@@ -149,5 +149,5 @@ usdrStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe St
 usdrStreamingDistribution = lens _usdrStreamingDistribution (\ s a -> s{_usdrStreamingDistribution = a});
 
 -- | FIXME: Undocumented member.
-usdrStatus :: Lens' UpdateStreamingDistributionResponse Status
+usdrStatus :: Lens' UpdateStreamingDistributionResponse Int
 usdrStatus = lens _usdrStatus (\ s a -> s{_usdrStatus = a});

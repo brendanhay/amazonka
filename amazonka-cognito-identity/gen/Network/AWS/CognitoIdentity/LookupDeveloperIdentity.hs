@@ -129,7 +129,7 @@ instance AWSRequest LookupDeveloperIdentity where
                  LookupDeveloperIdentityResponse' <$>
                    (x .?> "NextToken") <*> (x .?> "IdentityId") <*>
                      (x .?> "DeveloperUserIdentifierList" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders LookupDeveloperIdentity where
         toHeaders
@@ -174,11 +174,11 @@ data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'
     { _ldirNextToken                   :: !(Maybe Text)
     , _ldirIdentityId                  :: !(Maybe Text)
     , _ldirDeveloperUserIdentifierList :: !(Maybe [Text])
-    , _ldirStatus                      :: !Status
-    } deriving (Eq,Show)
+    , _ldirStatus                      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'LookupDeveloperIdentityResponse' smart constructor.
-lookupDeveloperIdentityResponse :: Status -> LookupDeveloperIdentityResponse
+lookupDeveloperIdentityResponse :: Int -> LookupDeveloperIdentityResponse
 lookupDeveloperIdentityResponse pStatus =
     LookupDeveloperIdentityResponse'
     { _ldirNextToken = Nothing
@@ -207,5 +207,5 @@ ldirDeveloperUserIdentifierList :: Lens' LookupDeveloperIdentityResponse [Text]
 ldirDeveloperUserIdentifierList = lens _ldirDeveloperUserIdentifierList (\ s a -> s{_ldirDeveloperUserIdentifierList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldirStatus :: Lens' LookupDeveloperIdentityResponse Status
+ldirStatus :: Lens' LookupDeveloperIdentityResponse Int
 ldirStatus = lens _ldirStatus (\ s a -> s{_ldirStatus = a});

@@ -96,7 +96,7 @@ instance AWSRequest CancelSpotFleetRequests where
                  CancelSpotFleetRequestsResponse' <$>
                    (may (parseXMLList "item") x) <*>
                      (may (parseXMLList "item") x)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CancelSpotFleetRequests where
         toHeaders = const mempty
@@ -128,11 +128,11 @@ instance ToQuery CancelSpotFleetRequests where
 data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'
     { _csfrrSuccessfulFleetRequests   :: !(Maybe [CancelSpotFleetRequestsSuccessItem])
     , _csfrrUnsuccessfulFleetRequests :: !(Maybe [CancelSpotFleetRequestsErrorItem])
-    , _csfrrStatus                    :: !Status
-    } deriving (Eq,Show)
+    , _csfrrStatus                    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelSpotFleetRequestsResponse' smart constructor.
-cancelSpotFleetRequestsResponse :: Status -> CancelSpotFleetRequestsResponse
+cancelSpotFleetRequestsResponse :: Int -> CancelSpotFleetRequestsResponse
 cancelSpotFleetRequestsResponse pStatus =
     CancelSpotFleetRequestsResponse'
     { _csfrrSuccessfulFleetRequests = Nothing
@@ -151,5 +151,5 @@ csfrrUnsuccessfulFleetRequests :: Lens' CancelSpotFleetRequestsResponse [CancelS
 csfrrUnsuccessfulFleetRequests = lens _csfrrUnsuccessfulFleetRequests (\ s a -> s{_csfrrUnsuccessfulFleetRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-csfrrStatus :: Lens' CancelSpotFleetRequestsResponse Status
+csfrrStatus :: Lens' CancelSpotFleetRequestsResponse Int
 csfrrStatus = lens _csfrrStatus (\ s a -> s{_csfrrStatus = a});

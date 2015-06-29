@@ -122,7 +122,8 @@ instance AWSRequest DescribeReservedInstancesListings
           = receiveXML
               (\ s h x ->
                  DescribeReservedInstancesListingsResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeReservedInstancesListings
          where
@@ -153,11 +154,11 @@ instance ToQuery DescribeReservedInstancesListings
 -- * 'drilrStatus'
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'
     { _drilrReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
-    , _drilrStatus                    :: !Status
-    } deriving (Eq,Show)
+    , _drilrStatus                    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedInstancesListingsResponse' smart constructor.
-describeReservedInstancesListingsResponse :: Status -> DescribeReservedInstancesListingsResponse
+describeReservedInstancesListingsResponse :: Int -> DescribeReservedInstancesListingsResponse
 describeReservedInstancesListingsResponse pStatus =
     DescribeReservedInstancesListingsResponse'
     { _drilrReservedInstancesListings = Nothing
@@ -169,5 +170,5 @@ drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsRespons
 drilrReservedInstancesListings = lens _drilrReservedInstancesListings (\ s a -> s{_drilrReservedInstancesListings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drilrStatus :: Lens' DescribeReservedInstancesListingsResponse Status
+drilrStatus :: Lens' DescribeReservedInstancesListingsResponse Int
 drilrStatus = lens _drilrStatus (\ s a -> s{_drilrStatus = a});

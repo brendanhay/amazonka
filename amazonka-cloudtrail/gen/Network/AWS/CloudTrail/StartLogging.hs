@@ -67,7 +67,8 @@ instance AWSRequest StartLogging where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> StartLoggingResponse' <$> (pure s))
+              (\ s h x ->
+                 StartLoggingResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders StartLogging where
         toHeaders
@@ -98,16 +99,16 @@ instance ToQuery StartLogging where
 --
 -- * 'staStatus'
 newtype StartLoggingResponse = StartLoggingResponse'
-    { _staStatus :: Status
-    } deriving (Eq,Show)
+    { _staStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'StartLoggingResponse' smart constructor.
-startLoggingResponse :: Status -> StartLoggingResponse
+startLoggingResponse :: Int -> StartLoggingResponse
 startLoggingResponse pStatus =
     StartLoggingResponse'
     { _staStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-staStatus :: Lens' StartLoggingResponse Status
+staStatus :: Lens' StartLoggingResponse Int
 staStatus = lens _staStatus (\ s a -> s{_staStatus = a});

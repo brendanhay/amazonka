@@ -121,7 +121,7 @@ instance AWSRequest PromoteReadReplica where
           = receiveXMLWrapper "PromoteReadReplicaResult"
               (\ s h x ->
                  PromoteReadReplicaResponse' <$>
-                   (x .@? "DBInstance") <*> (pure s))
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders PromoteReadReplica where
         toHeaders = const mempty
@@ -147,11 +147,11 @@ instance ToQuery PromoteReadReplica where
 -- * 'prrrStatus'
 data PromoteReadReplicaResponse = PromoteReadReplicaResponse'
     { _prrrDBInstance :: !(Maybe DBInstance)
-    , _prrrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _prrrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PromoteReadReplicaResponse' smart constructor.
-promoteReadReplicaResponse :: Status -> PromoteReadReplicaResponse
+promoteReadReplicaResponse :: Int -> PromoteReadReplicaResponse
 promoteReadReplicaResponse pStatus =
     PromoteReadReplicaResponse'
     { _prrrDBInstance = Nothing
@@ -163,5 +163,5 @@ prrrDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
 prrrDBInstance = lens _prrrDBInstance (\ s a -> s{_prrrDBInstance = a});
 
 -- | FIXME: Undocumented member.
-prrrStatus :: Lens' PromoteReadReplicaResponse Status
+prrrStatus :: Lens' PromoteReadReplicaResponse Int
 prrrStatus = lens _prrrStatus (\ s a -> s{_prrrStatus = a});

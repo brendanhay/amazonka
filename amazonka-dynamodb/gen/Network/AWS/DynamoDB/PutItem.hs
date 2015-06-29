@@ -525,7 +525,7 @@ instance AWSRequest PutItem where
                    (x .?> "ConsumedCapacity") <*>
                      (x .?> "ItemCollectionMetrics")
                      <*> (x .?> "Attributes" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders PutItem where
         toHeaders
@@ -576,11 +576,11 @@ data PutItemResponse = PutItemResponse'
     { _pirConsumedCapacity      :: !(Maybe ConsumedCapacity)
     , _pirItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
     , _pirAttributes            :: !(Maybe (Map Text AttributeValue))
-    , _pirStatus                :: !Status
+    , _pirStatus                :: !Int
     } deriving (Eq,Show)
 
 -- | 'PutItemResponse' smart constructor.
-putItemResponse :: Status -> PutItemResponse
+putItemResponse :: Int -> PutItemResponse
 putItemResponse pStatus =
     PutItemResponse'
     { _pirConsumedCapacity = Nothing
@@ -624,5 +624,5 @@ pirAttributes :: Lens' PutItemResponse (HashMap Text AttributeValue)
 pirAttributes = lens _pirAttributes (\ s a -> s{_pirAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-pirStatus :: Lens' PutItemResponse Status
+pirStatus :: Lens' PutItemResponse Int
 pirStatus = lens _pirStatus (\ s a -> s{_pirStatus = a});

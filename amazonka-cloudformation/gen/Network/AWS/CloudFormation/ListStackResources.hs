@@ -105,7 +105,7 @@ instance AWSRequest ListStackResources where
                    (x .@? "NextToken") <*>
                      (x .@? "StackResourceSummaries" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListStackResources where
         toHeaders = const mempty
@@ -135,11 +135,11 @@ instance ToQuery ListStackResources where
 data ListStackResourcesResponse = ListStackResourcesResponse'
     { _lsrrNextToken              :: !(Maybe Text)
     , _lsrrStackResourceSummaries :: !(Maybe [StackResourceSummary])
-    , _lsrrStatus                 :: !Status
-    } deriving (Eq,Show)
+    , _lsrrStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListStackResourcesResponse' smart constructor.
-listStackResourcesResponse :: Status -> ListStackResourcesResponse
+listStackResourcesResponse :: Int -> ListStackResourcesResponse
 listStackResourcesResponse pStatus =
     ListStackResourcesResponse'
     { _lsrrNextToken = Nothing
@@ -157,5 +157,5 @@ lsrrStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSum
 lsrrStackResourceSummaries = lens _lsrrStackResourceSummaries (\ s a -> s{_lsrrStackResourceSummaries = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lsrrStatus :: Lens' ListStackResourcesResponse Status
+lsrrStatus :: Lens' ListStackResourcesResponse Int
 lsrrStatus = lens _lsrrStatus (\ s a -> s{_lsrrStatus = a});

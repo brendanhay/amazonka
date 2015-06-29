@@ -73,7 +73,7 @@ instance AWSRequest DescribeClusters where
                  DescribeClustersResponse' <$>
                    (x .?> "failures" .!@ mempty) <*>
                      (x .?> "clusters" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeClusters where
         toHeaders
@@ -107,11 +107,11 @@ instance ToQuery DescribeClusters where
 data DescribeClustersResponse = DescribeClustersResponse'
     { _dcrFailures :: !(Maybe [Failure])
     , _dcrClusters :: !(Maybe [Cluster])
-    , _dcrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _dcrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClustersResponse' smart constructor.
-describeClustersResponse :: Status -> DescribeClustersResponse
+describeClustersResponse :: Int -> DescribeClustersResponse
 describeClustersResponse pStatus =
     DescribeClustersResponse'
     { _dcrFailures = Nothing
@@ -128,5 +128,5 @@ dcrClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrClusters = lens _dcrClusters (\ s a -> s{_dcrClusters = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrStatus :: Lens' DescribeClustersResponse Status
+dcrStatus :: Lens' DescribeClustersResponse Int
 dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});

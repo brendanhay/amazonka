@@ -74,7 +74,7 @@ instance AWSRequest ListDeadLetterSourceQueues where
               "ListDeadLetterSourceQueuesResult"
               (\ s h x ->
                  ListDeadLetterSourceQueuesResponse' <$>
-                   (pure s) <*> (parseXMLList "QueueUrl" x))
+                   (pure (fromEnum s)) <*> (parseXMLList "QueueUrl" x))
 
 instance ToHeaders ListDeadLetterSourceQueues where
         toHeaders = const mempty
@@ -100,12 +100,12 @@ instance ToQuery ListDeadLetterSourceQueues where
 --
 -- * 'ldlsqrQueueURLs'
 data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'
-    { _ldlsqrStatus    :: !Status
+    { _ldlsqrStatus    :: !Int
     , _ldlsqrQueueURLs :: ![Text]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDeadLetterSourceQueuesResponse' smart constructor.
-listDeadLetterSourceQueuesResponse :: Status -> ListDeadLetterSourceQueuesResponse
+listDeadLetterSourceQueuesResponse :: Int -> ListDeadLetterSourceQueuesResponse
 listDeadLetterSourceQueuesResponse pStatus =
     ListDeadLetterSourceQueuesResponse'
     { _ldlsqrStatus = pStatus
@@ -113,7 +113,7 @@ listDeadLetterSourceQueuesResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-ldlsqrStatus :: Lens' ListDeadLetterSourceQueuesResponse Status
+ldlsqrStatus :: Lens' ListDeadLetterSourceQueuesResponse Int
 ldlsqrStatus = lens _ldlsqrStatus (\ s a -> s{_ldlsqrStatus = a});
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute

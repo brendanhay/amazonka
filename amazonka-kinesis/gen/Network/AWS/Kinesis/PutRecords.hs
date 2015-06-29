@@ -138,8 +138,8 @@ instance AWSRequest PutRecords where
           = receiveJSON
               (\ s h x ->
                  PutRecordsResponse' <$>
-                   (x .?> "FailedRecordCount") <*> (pure s) <*>
-                     (x .:> "Records"))
+                   (x .?> "FailedRecordCount") <*> (pure (fromEnum s))
+                     <*> (x .:> "Records"))
 
 instance ToHeaders PutRecords where
         toHeaders
@@ -175,12 +175,12 @@ instance ToQuery PutRecords where
 -- * 'pRecords'
 data PutRecordsResponse = PutRecordsResponse'
     { _pFailedRecordCount :: !(Maybe Nat)
-    , _pStatus            :: !Status
+    , _pStatus            :: !Int
     , _pRecords           :: !(List1 PutRecordsResultEntry)
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'PutRecordsResponse' smart constructor.
-putRecordsResponse :: Status -> NonEmpty PutRecordsResultEntry -> PutRecordsResponse
+putRecordsResponse :: Int -> NonEmpty PutRecordsResultEntry -> PutRecordsResponse
 putRecordsResponse pStatus pRecords =
     PutRecordsResponse'
     { _pFailedRecordCount = Nothing
@@ -194,7 +194,7 @@ pFailedRecordCount :: Lens' PutRecordsResponse (Maybe Natural)
 pFailedRecordCount = lens _pFailedRecordCount (\ s a -> s{_pFailedRecordCount = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
-pStatus :: Lens' PutRecordsResponse Status
+pStatus :: Lens' PutRecordsResponse Int
 pStatus = lens _pStatus (\ s a -> s{_pStatus = a});
 
 -- | An array of successfully and unsuccessfully processed record results,

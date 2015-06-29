@@ -269,7 +269,7 @@ instance AWSRequest
               (\ s h x ->
                  DescribeReservedInstancesOfferingsResponse' <$>
                    (x .@? "nextToken") <*> (may (parseXMLList "item") x)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeReservedInstancesOfferings
          where
@@ -315,11 +315,11 @@ instance ToQuery DescribeReservedInstancesOfferings
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'
     { _driorNextToken                  :: !(Maybe Text)
     , _driorReservedInstancesOfferings :: !(Maybe [ReservedInstancesOffering])
-    , _driorStatus                     :: !Status
-    } deriving (Eq,Show)
+    , _driorStatus                     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedInstancesOfferingsResponse' smart constructor.
-describeReservedInstancesOfferingsResponse :: Status -> DescribeReservedInstancesOfferingsResponse
+describeReservedInstancesOfferingsResponse :: Int -> DescribeReservedInstancesOfferingsResponse
 describeReservedInstancesOfferingsResponse pStatus =
     DescribeReservedInstancesOfferingsResponse'
     { _driorNextToken = Nothing
@@ -337,5 +337,5 @@ driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsRespo
 driorReservedInstancesOfferings = lens _driorReservedInstancesOfferings (\ s a -> s{_driorReservedInstancesOfferings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-driorStatus :: Lens' DescribeReservedInstancesOfferingsResponse Status
+driorStatus :: Lens' DescribeReservedInstancesOfferingsResponse Int
 driorStatus = lens _driorStatus (\ s a -> s{_driorStatus = a});

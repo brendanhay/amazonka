@@ -181,7 +181,7 @@ instance AWSRequest CreateDataSourceFromRedshift
           = receiveJSON
               (\ s h x ->
                  CreateDataSourceFromRedshiftResponse' <$>
-                   (x .?> "DataSourceId") <*> (pure s))
+                   (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDataSourceFromRedshift where
         toHeaders
@@ -224,11 +224,11 @@ instance ToQuery CreateDataSourceFromRedshift where
 -- * 'cdsfrrStatus'
 data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'
     { _cdsfrrDataSourceId :: !(Maybe Text)
-    , _cdsfrrStatus       :: !Status
-    } deriving (Eq,Show)
+    , _cdsfrrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDataSourceFromRedshiftResponse' smart constructor.
-createDataSourceFromRedshiftResponse :: Status -> CreateDataSourceFromRedshiftResponse
+createDataSourceFromRedshiftResponse :: Int -> CreateDataSourceFromRedshiftResponse
 createDataSourceFromRedshiftResponse pStatus =
     CreateDataSourceFromRedshiftResponse'
     { _cdsfrrDataSourceId = Nothing
@@ -241,5 +241,5 @@ cdsfrrDataSourceId :: Lens' CreateDataSourceFromRedshiftResponse (Maybe Text)
 cdsfrrDataSourceId = lens _cdsfrrDataSourceId (\ s a -> s{_cdsfrrDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-cdsfrrStatus :: Lens' CreateDataSourceFromRedshiftResponse Status
+cdsfrrStatus :: Lens' CreateDataSourceFromRedshiftResponse Int
 cdsfrrStatus = lens _cdsfrrStatus (\ s a -> s{_cdsfrrStatus = a});

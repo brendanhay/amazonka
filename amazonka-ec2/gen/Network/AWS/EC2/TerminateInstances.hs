@@ -104,7 +104,8 @@ instance AWSRequest TerminateInstances where
           = receiveXML
               (\ s h x ->
                  TerminateInstancesResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders TerminateInstances where
         toHeaders = const mempty
@@ -129,11 +130,11 @@ instance ToQuery TerminateInstances where
 -- * 'tirStatus'
 data TerminateInstancesResponse = TerminateInstancesResponse'
     { _tirTerminatingInstances :: !(Maybe [InstanceStateChange])
-    , _tirStatus               :: !Status
-    } deriving (Eq,Show)
+    , _tirStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'TerminateInstancesResponse' smart constructor.
-terminateInstancesResponse :: Status -> TerminateInstancesResponse
+terminateInstancesResponse :: Int -> TerminateInstancesResponse
 terminateInstancesResponse pStatus =
     TerminateInstancesResponse'
     { _tirTerminatingInstances = Nothing
@@ -145,5 +146,5 @@ tirTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange
 tirTerminatingInstances = lens _tirTerminatingInstances (\ s a -> s{_tirTerminatingInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-tirStatus :: Lens' TerminateInstancesResponse Status
+tirStatus :: Lens' TerminateInstancesResponse Int
 tirStatus = lens _tirStatus (\ s a -> s{_tirStatus = a});

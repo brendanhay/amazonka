@@ -114,7 +114,7 @@ instance AWSRequest CreatePipeline where
           = receiveJSON
               (\ s h x ->
                  CreatePipelineResponse' <$>
-                   (pure s) <*> (x .:> "pipelineId"))
+                   (pure (fromEnum s)) <*> (x .:> "pipelineId"))
 
 instance ToHeaders CreatePipeline where
         toHeaders
@@ -147,12 +147,12 @@ instance ToQuery CreatePipeline where
 --
 -- * 'cprPipelineId'
 data CreatePipelineResponse = CreatePipelineResponse'
-    { _cprStatus     :: !Status
+    { _cprStatus     :: !Int
     , _cprPipelineId :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePipelineResponse' smart constructor.
-createPipelineResponse :: Status -> Text -> CreatePipelineResponse
+createPipelineResponse :: Int -> Text -> CreatePipelineResponse
 createPipelineResponse pStatus pPipelineId =
     CreatePipelineResponse'
     { _cprStatus = pStatus
@@ -160,7 +160,7 @@ createPipelineResponse pStatus pPipelineId =
     }
 
 -- | FIXME: Undocumented member.
-cprStatus :: Lens' CreatePipelineResponse Status
+cprStatus :: Lens' CreatePipelineResponse Int
 cprStatus = lens _cprStatus (\ s a -> s{_cprStatus = a});
 
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. For

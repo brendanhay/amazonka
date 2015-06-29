@@ -89,7 +89,7 @@ instance AWSRequest DiscoverPollEndpoint where
               (\ s h x ->
                  DiscoverPollEndpointResponse' <$>
                    (x .?> "telemetryEndpoint") <*> (x .?> "endpoint")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DiscoverPollEndpoint where
         toHeaders
@@ -125,11 +125,11 @@ instance ToQuery DiscoverPollEndpoint where
 data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
     { _dperTelemetryEndpoint :: !(Maybe Text)
     , _dperEndpoint          :: !(Maybe Text)
-    , _dperStatus            :: !Status
-    } deriving (Eq,Show)
+    , _dperStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DiscoverPollEndpointResponse' smart constructor.
-discoverPollEndpointResponse :: Status -> DiscoverPollEndpointResponse
+discoverPollEndpointResponse :: Int -> DiscoverPollEndpointResponse
 discoverPollEndpointResponse pStatus =
     DiscoverPollEndpointResponse'
     { _dperTelemetryEndpoint = Nothing
@@ -146,5 +146,5 @@ dperEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
 dperEndpoint = lens _dperEndpoint (\ s a -> s{_dperEndpoint = a});
 
 -- | FIXME: Undocumented member.
-dperStatus :: Lens' DiscoverPollEndpointResponse Status
+dperStatus :: Lens' DiscoverPollEndpointResponse Int
 dperStatus = lens _dperStatus (\ s a -> s{_dperStatus = a});

@@ -116,7 +116,8 @@ instance AWSRequest RevokeClusterSecurityGroupIngress
               "RevokeClusterSecurityGroupIngressResult"
               (\ s h x ->
                  RevokeClusterSecurityGroupIngressResponse' <$>
-                   (x .@? "ClusterSecurityGroup") <*> (pure s))
+                   (x .@? "ClusterSecurityGroup") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders RevokeClusterSecurityGroupIngress
          where
@@ -149,11 +150,11 @@ instance ToQuery RevokeClusterSecurityGroupIngress
 -- * 'rcsgirStatus'
 data RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse'
     { _rcsgirClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
-    , _rcsgirStatus               :: !Status
-    } deriving (Eq,Show)
+    , _rcsgirStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RevokeClusterSecurityGroupIngressResponse' smart constructor.
-revokeClusterSecurityGroupIngressResponse :: Status -> RevokeClusterSecurityGroupIngressResponse
+revokeClusterSecurityGroupIngressResponse :: Int -> RevokeClusterSecurityGroupIngressResponse
 revokeClusterSecurityGroupIngressResponse pStatus =
     RevokeClusterSecurityGroupIngressResponse'
     { _rcsgirClusterSecurityGroup = Nothing
@@ -165,5 +166,5 @@ rcsgirClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResponse (M
 rcsgirClusterSecurityGroup = lens _rcsgirClusterSecurityGroup (\ s a -> s{_rcsgirClusterSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-rcsgirStatus :: Lens' RevokeClusterSecurityGroupIngressResponse Status
+rcsgirStatus :: Lens' RevokeClusterSecurityGroupIngressResponse Int
 rcsgirStatus = lens _rcsgirStatus (\ s a -> s{_rcsgirStatus = a});

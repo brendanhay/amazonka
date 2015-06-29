@@ -73,7 +73,7 @@ instance AWSRequest GetReusableDelegationSet where
           = receiveXML
               (\ s h x ->
                  GetReusableDelegationSetResponse' <$>
-                   (pure s) <*> (x .@ "DelegationSet"))
+                   (pure (fromEnum s)) <*> (x .@ "DelegationSet"))
 
 instance ToHeaders GetReusableDelegationSet where
         toHeaders = const mempty
@@ -97,12 +97,12 @@ instance ToQuery GetReusableDelegationSet where
 --
 -- * 'grdsrDelegationSet'
 data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
-    { _grdsrStatus        :: !Status
+    { _grdsrStatus        :: !Int
     , _grdsrDelegationSet :: !DelegationSet
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetReusableDelegationSetResponse' smart constructor.
-getReusableDelegationSetResponse :: Status -> DelegationSet -> GetReusableDelegationSetResponse
+getReusableDelegationSetResponse :: Int -> DelegationSet -> GetReusableDelegationSetResponse
 getReusableDelegationSetResponse pStatus pDelegationSet =
     GetReusableDelegationSetResponse'
     { _grdsrStatus = pStatus
@@ -110,7 +110,7 @@ getReusableDelegationSetResponse pStatus pDelegationSet =
     }
 
 -- | FIXME: Undocumented member.
-grdsrStatus :: Lens' GetReusableDelegationSetResponse Status
+grdsrStatus :: Lens' GetReusableDelegationSetResponse Int
 grdsrStatus = lens _grdsrStatus (\ s a -> s{_grdsrStatus = a});
 
 -- | A complex type that contains the information about the nameservers for

@@ -104,7 +104,7 @@ instance AWSRequest ListGateways where
               (\ s h x ->
                  ListGatewaysResponse' <$>
                    (x .?> "Marker") <*> (x .?> "Gateways" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListGateways where
         toHeaders
@@ -138,11 +138,11 @@ instance ToQuery ListGateways where
 data ListGatewaysResponse = ListGatewaysResponse'
     { _lgrMarker   :: !(Maybe Text)
     , _lgrGateways :: !(Maybe [GatewayInfo])
-    , _lgrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _lgrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGatewaysResponse' smart constructor.
-listGatewaysResponse :: Status -> ListGatewaysResponse
+listGatewaysResponse :: Int -> ListGatewaysResponse
 listGatewaysResponse pStatus =
     ListGatewaysResponse'
     { _lgrMarker = Nothing
@@ -159,5 +159,5 @@ lgrGateways :: Lens' ListGatewaysResponse [GatewayInfo]
 lgrGateways = lens _lgrGateways (\ s a -> s{_lgrGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lgrStatus :: Lens' ListGatewaysResponse Status
+lgrStatus :: Lens' ListGatewaysResponse Int
 lgrStatus = lens _lgrStatus (\ s a -> s{_lgrStatus = a});

@@ -92,7 +92,7 @@ instance AWSRequest UpdateDistribution where
               (\ s h x ->
                  UpdateDistributionResponse' <$>
                    (h .#? "ETag") <*> (x .@? "Distribution") <*>
-                     (pure s))
+                     (pure (fromEnum s)))
 
 instance ToElement UpdateDistribution where
         toElement
@@ -128,11 +128,11 @@ instance ToQuery UpdateDistribution where
 data UpdateDistributionResponse = UpdateDistributionResponse'
     { _udrETag         :: !(Maybe Text)
     , _udrDistribution :: !(Maybe Distribution)
-    , _udrStatus       :: !Status
-    } deriving (Eq,Show)
+    , _udrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDistributionResponse' smart constructor.
-updateDistributionResponse :: Status -> UpdateDistributionResponse
+updateDistributionResponse :: Int -> UpdateDistributionResponse
 updateDistributionResponse pStatus =
     UpdateDistributionResponse'
     { _udrETag = Nothing
@@ -149,5 +149,5 @@ udrDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
 udrDistribution = lens _udrDistribution (\ s a -> s{_udrDistribution = a});
 
 -- | FIXME: Undocumented member.
-udrStatus :: Lens' UpdateDistributionResponse Status
+udrStatus :: Lens' UpdateDistributionResponse Int
 udrStatus = lens _udrStatus (\ s a -> s{_udrStatus = a});

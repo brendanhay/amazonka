@@ -106,7 +106,7 @@ instance AWSRequest ListOnPremisesInstances where
                  ListOnPremisesInstancesResponse' <$>
                    (x .?> "nextToken") <*>
                      (x .?> "instanceNames" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListOnPremisesInstances where
         toHeaders
@@ -145,11 +145,11 @@ instance ToQuery ListOnPremisesInstances where
 data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
     { _lopirNextToken     :: !(Maybe Text)
     , _lopirInstanceNames :: !(Maybe [Text])
-    , _lopirStatus        :: !Status
-    } deriving (Eq,Show)
+    , _lopirStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListOnPremisesInstancesResponse' smart constructor.
-listOnPremisesInstancesResponse :: Status -> ListOnPremisesInstancesResponse
+listOnPremisesInstancesResponse :: Int -> ListOnPremisesInstancesResponse
 listOnPremisesInstancesResponse pStatus =
     ListOnPremisesInstancesResponse'
     { _lopirNextToken = Nothing
@@ -169,5 +169,5 @@ lopirInstanceNames :: Lens' ListOnPremisesInstancesResponse [Text]
 lopirInstanceNames = lens _lopirInstanceNames (\ s a -> s{_lopirInstanceNames = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lopirStatus :: Lens' ListOnPremisesInstancesResponse Status
+lopirStatus :: Lens' ListOnPremisesInstancesResponse Int
 lopirStatus = lens _lopirStatus (\ s a -> s{_lopirStatus = a});

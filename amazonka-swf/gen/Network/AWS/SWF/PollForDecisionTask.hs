@@ -204,7 +204,7 @@ instance AWSRequest PollForDecisionTask where
                  PollForDecisionTaskResponse' <$>
                    (x .?> "nextPageToken") <*>
                      (x .?> "previousStartedEventId")
-                     <*> (pure s)
+                     <*> (pure (fromEnum s))
                      <*> (x .:> "taskToken")
                      <*> (x .:> "startedEventId")
                      <*> (x .:> "workflowExecution")
@@ -261,16 +261,16 @@ instance ToQuery PollForDecisionTask where
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
     { _pfdtrNextPageToken          :: !(Maybe Text)
     , _pfdtrPreviousStartedEventId :: !(Maybe Integer)
-    , _pfdtrStatus                 :: !Status
+    , _pfdtrStatus                 :: !Int
     , _pfdtrTaskToken              :: !Text
     , _pfdtrStartedEventId         :: !Integer
     , _pfdtrWorkflowExecution      :: !WorkflowExecution
     , _pfdtrWorkflowType           :: !WorkflowType
     , _pfdtrEvents                 :: ![HistoryEvent]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'PollForDecisionTaskResponse' smart constructor.
-pollForDecisionTaskResponse :: Status -> Text -> Integer -> WorkflowExecution -> WorkflowType -> PollForDecisionTaskResponse
+pollForDecisionTaskResponse :: Int -> Text -> Integer -> WorkflowExecution -> WorkflowType -> PollForDecisionTaskResponse
 pollForDecisionTaskResponse pStatus pTaskToken pStartedEventId pWorkflowExecution pWorkflowType =
     PollForDecisionTaskResponse'
     { _pfdtrNextPageToken = Nothing
@@ -301,7 +301,7 @@ pfdtrPreviousStartedEventId :: Lens' PollForDecisionTaskResponse (Maybe Integer)
 pfdtrPreviousStartedEventId = lens _pfdtrPreviousStartedEventId (\ s a -> s{_pfdtrPreviousStartedEventId = a});
 
 -- | FIXME: Undocumented member.
-pfdtrStatus :: Lens' PollForDecisionTaskResponse Status
+pfdtrStatus :: Lens' PollForDecisionTaskResponse Int
 pfdtrStatus = lens _pfdtrStatus (\ s a -> s{_pfdtrStatus = a});
 
 -- | The opaque string used as a handle on the task. This token is used by

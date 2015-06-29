@@ -98,7 +98,8 @@ instance AWSRequest DescribeInstances where
           = receiveJSON
               (\ s h x ->
                  DescribeInstancesResponse' <$>
-                   (x .?> "Instances" .!@ mempty) <*> (pure s))
+                   (x .?> "Instances" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeInstances where
         toHeaders
@@ -133,11 +134,11 @@ instance ToQuery DescribeInstances where
 -- * 'dirStatus'
 data DescribeInstancesResponse = DescribeInstancesResponse'
     { _dirInstances :: !(Maybe [Instance])
-    , _dirStatus    :: !Status
-    } deriving (Eq,Show)
+    , _dirStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstancesResponse' smart constructor.
-describeInstancesResponse :: Status -> DescribeInstancesResponse
+describeInstancesResponse :: Int -> DescribeInstancesResponse
 describeInstancesResponse pStatus =
     DescribeInstancesResponse'
     { _dirInstances = Nothing
@@ -149,5 +150,5 @@ dirInstances :: Lens' DescribeInstancesResponse [Instance]
 dirInstances = lens _dirInstances (\ s a -> s{_dirInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dirStatus :: Lens' DescribeInstancesResponse Status
+dirStatus :: Lens' DescribeInstancesResponse Int
 dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});

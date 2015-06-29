@@ -85,7 +85,7 @@ instance AWSRequest DeleteVolume where
           = receiveJSON
               (\ s h x ->
                  DeleteVolumeResponse' <$>
-                   (x .?> "VolumeARN") <*> (pure s))
+                   (x .?> "VolumeARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteVolume where
         toHeaders
@@ -118,11 +118,11 @@ instance ToQuery DeleteVolume where
 -- * 'dvrStatus'
 data DeleteVolumeResponse = DeleteVolumeResponse'
     { _dvrVolumeARN :: !(Maybe Text)
-    , _dvrStatus    :: !Status
-    } deriving (Eq,Show)
+    , _dvrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteVolumeResponse' smart constructor.
-deleteVolumeResponse :: Status -> DeleteVolumeResponse
+deleteVolumeResponse :: Int -> DeleteVolumeResponse
 deleteVolumeResponse pStatus =
     DeleteVolumeResponse'
     { _dvrVolumeARN = Nothing
@@ -135,5 +135,5 @@ dvrVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
 dvrVolumeARN = lens _dvrVolumeARN (\ s a -> s{_dvrVolumeARN = a});
 
 -- | FIXME: Undocumented member.
-dvrStatus :: Lens' DeleteVolumeResponse Status
+dvrStatus :: Lens' DeleteVolumeResponse Int
 dvrStatus = lens _dvrStatus (\ s a -> s{_dvrStatus = a});

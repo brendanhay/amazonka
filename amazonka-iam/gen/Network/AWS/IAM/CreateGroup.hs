@@ -85,7 +85,8 @@ instance AWSRequest CreateGroup where
         response
           = receiveXMLWrapper "CreateGroupResult"
               (\ s h x ->
-                 CreateGroupResponse' <$> (pure s) <*> (x .@ "Group"))
+                 CreateGroupResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "Group"))
 
 instance ToHeaders CreateGroup where
         toHeaders = const mempty
@@ -110,12 +111,12 @@ instance ToQuery CreateGroup where
 --
 -- * 'cgrGroup'
 data CreateGroupResponse = CreateGroupResponse'
-    { _cgrStatus :: !Status
+    { _cgrStatus :: !Int
     , _cgrGroup  :: !Group
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateGroupResponse' smart constructor.
-createGroupResponse :: Status -> Group -> CreateGroupResponse
+createGroupResponse :: Int -> Group -> CreateGroupResponse
 createGroupResponse pStatus pGroup =
     CreateGroupResponse'
     { _cgrStatus = pStatus
@@ -123,7 +124,7 @@ createGroupResponse pStatus pGroup =
     }
 
 -- | FIXME: Undocumented member.
-cgrStatus :: Lens' CreateGroupResponse Status
+cgrStatus :: Lens' CreateGroupResponse Int
 cgrStatus = lens _cgrStatus (\ s a -> s{_cgrStatus = a});
 
 -- | Information about the group.

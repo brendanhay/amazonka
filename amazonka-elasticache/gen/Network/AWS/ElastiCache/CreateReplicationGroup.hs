@@ -408,7 +408,7 @@ instance AWSRequest CreateReplicationGroup where
           = receiveXMLWrapper "CreateReplicationGroupResult"
               (\ s h x ->
                  CreateReplicationGroupResponse' <$>
-                   (x .@? "ReplicationGroup") <*> (pure s))
+                   (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateReplicationGroup where
         toHeaders = const mempty
@@ -471,11 +471,11 @@ instance ToQuery CreateReplicationGroup where
 -- * 'crgrStatus'
 data CreateReplicationGroupResponse = CreateReplicationGroupResponse'
     { _crgrReplicationGroup :: !(Maybe ReplicationGroup)
-    , _crgrStatus           :: !Status
-    } deriving (Eq,Show)
+    , _crgrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateReplicationGroupResponse' smart constructor.
-createReplicationGroupResponse :: Status -> CreateReplicationGroupResponse
+createReplicationGroupResponse :: Int -> CreateReplicationGroupResponse
 createReplicationGroupResponse pStatus =
     CreateReplicationGroupResponse'
     { _crgrReplicationGroup = Nothing
@@ -487,5 +487,5 @@ crgrReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationG
 crgrReplicationGroup = lens _crgrReplicationGroup (\ s a -> s{_crgrReplicationGroup = a});
 
 -- | FIXME: Undocumented member.
-crgrStatus :: Lens' CreateReplicationGroupResponse Status
+crgrStatus :: Lens' CreateReplicationGroupResponse Int
 crgrStatus = lens _crgrStatus (\ s a -> s{_crgrStatus = a});

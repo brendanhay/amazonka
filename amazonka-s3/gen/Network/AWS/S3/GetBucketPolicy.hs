@@ -68,7 +68,7 @@ instance AWSRequest GetBucketPolicy where
           = receiveXML
               (\ s h x ->
                  GetBucketPolicyResponse' <$>
-                   (x .@? "Policy") <*> (pure s))
+                   (x .@? "Policy") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetBucketPolicy where
         toHeaders = const mempty
@@ -89,11 +89,11 @@ instance ToQuery GetBucketPolicy where
 -- * 'gbprStatus'
 data GetBucketPolicyResponse = GetBucketPolicyResponse'
     { _gbprPolicy :: !(Maybe Text)
-    , _gbprStatus :: !Status
-    } deriving (Eq,Show)
+    , _gbprStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketPolicyResponse' smart constructor.
-getBucketPolicyResponse :: Status -> GetBucketPolicyResponse
+getBucketPolicyResponse :: Int -> GetBucketPolicyResponse
 getBucketPolicyResponse pStatus =
     GetBucketPolicyResponse'
     { _gbprPolicy = Nothing
@@ -105,5 +105,5 @@ gbprPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
 gbprPolicy = lens _gbprPolicy (\ s a -> s{_gbprPolicy = a});
 
 -- | FIXME: Undocumented member.
-gbprStatus :: Lens' GetBucketPolicyResponse Status
+gbprStatus :: Lens' GetBucketPolicyResponse Int
 gbprStatus = lens _gbprStatus (\ s a -> s{_gbprStatus = a});

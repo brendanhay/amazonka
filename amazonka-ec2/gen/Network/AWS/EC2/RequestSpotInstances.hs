@@ -202,7 +202,8 @@ instance AWSRequest RequestSpotInstances where
           = receiveXML
               (\ s h x ->
                  RequestSpotInstancesResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders RequestSpotInstances where
         toHeaders = const mempty
@@ -235,11 +236,11 @@ instance ToQuery RequestSpotInstances where
 -- * 'rsirStatus'
 data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
     { _rsirSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
-    , _rsirStatus               :: !Status
-    } deriving (Eq,Show)
+    , _rsirStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RequestSpotInstancesResponse' smart constructor.
-requestSpotInstancesResponse :: Status -> RequestSpotInstancesResponse
+requestSpotInstancesResponse :: Int -> RequestSpotInstancesResponse
 requestSpotInstancesResponse pStatus =
     RequestSpotInstancesResponse'
     { _rsirSpotInstanceRequests = Nothing
@@ -251,5 +252,5 @@ rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequ
 rsirSpotInstanceRequests = lens _rsirSpotInstanceRequests (\ s a -> s{_rsirSpotInstanceRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-rsirStatus :: Lens' RequestSpotInstancesResponse Status
+rsirStatus :: Lens' RequestSpotInstancesResponse Int
 rsirStatus = lens _rsirStatus (\ s a -> s{_rsirStatus = a});

@@ -98,7 +98,7 @@ instance AWSRequest CreateCacheSubnetGroup where
           = receiveXMLWrapper "CreateCacheSubnetGroupResult"
               (\ s h x ->
                  CreateCacheSubnetGroupResponse' <$>
-                   (x .@? "CacheSubnetGroup") <*> (pure s))
+                   (x .@? "CacheSubnetGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateCacheSubnetGroup where
         toHeaders = const mempty
@@ -127,11 +127,11 @@ instance ToQuery CreateCacheSubnetGroup where
 -- * 'creStatus'
 data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
     { _creCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
-    , _creStatus           :: !Status
-    } deriving (Eq,Show)
+    , _creStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCacheSubnetGroupResponse' smart constructor.
-createCacheSubnetGroupResponse :: Status -> CreateCacheSubnetGroupResponse
+createCacheSubnetGroupResponse :: Int -> CreateCacheSubnetGroupResponse
 createCacheSubnetGroupResponse pStatus =
     CreateCacheSubnetGroupResponse'
     { _creCacheSubnetGroup = Nothing
@@ -143,5 +143,5 @@ creCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGr
 creCacheSubnetGroup = lens _creCacheSubnetGroup (\ s a -> s{_creCacheSubnetGroup = a});
 
 -- | FIXME: Undocumented member.
-creStatus :: Lens' CreateCacheSubnetGroupResponse Status
+creStatus :: Lens' CreateCacheSubnetGroupResponse Int
 creStatus = lens _creStatus (\ s a -> s{_creStatus = a});

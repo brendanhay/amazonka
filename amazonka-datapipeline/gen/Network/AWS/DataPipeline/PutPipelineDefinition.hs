@@ -117,7 +117,7 @@ instance AWSRequest PutPipelineDefinition where
                  PutPipelineDefinitionResponse' <$>
                    (x .?> "validationErrors" .!@ mempty) <*>
                      (x .?> "validationWarnings" .!@ mempty)
-                     <*> (pure s)
+                     <*> (pure (fromEnum s))
                      <*> (x .:> "errored"))
 
 instance ToHeaders PutPipelineDefinition where
@@ -159,12 +159,12 @@ instance ToQuery PutPipelineDefinition where
 data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
     { _ppdrValidationErrors   :: !(Maybe [ValidationError])
     , _ppdrValidationWarnings :: !(Maybe [ValidationWarning])
-    , _ppdrStatus             :: !Status
+    , _ppdrStatus             :: !Int
     , _ppdrErrored            :: !Bool
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'PutPipelineDefinitionResponse' smart constructor.
-putPipelineDefinitionResponse :: Status -> Bool -> PutPipelineDefinitionResponse
+putPipelineDefinitionResponse :: Int -> Bool -> PutPipelineDefinitionResponse
 putPipelineDefinitionResponse pStatus pErrored =
     PutPipelineDefinitionResponse'
     { _ppdrValidationErrors = Nothing
@@ -184,7 +184,7 @@ ppdrValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning
 ppdrValidationWarnings = lens _ppdrValidationWarnings (\ s a -> s{_ppdrValidationWarnings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ppdrStatus :: Lens' PutPipelineDefinitionResponse Status
+ppdrStatus :: Lens' PutPipelineDefinitionResponse Int
 ppdrStatus = lens _ppdrStatus (\ s a -> s{_ppdrStatus = a});
 
 -- | Indicates whether there were validation errors, and the pipeline

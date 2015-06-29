@@ -72,7 +72,7 @@ instance AWSRequest GetDistribution where
               (\ s h x ->
                  GetDistributionResponse' <$>
                    (h .#? "ETag") <*> (x .@? "Distribution") <*>
-                     (pure s))
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetDistribution where
         toHeaders = const mempty
@@ -98,11 +98,11 @@ instance ToQuery GetDistribution where
 data GetDistributionResponse = GetDistributionResponse'
     { _gdrETag         :: !(Maybe Text)
     , _gdrDistribution :: !(Maybe Distribution)
-    , _gdrStatus       :: !Status
-    } deriving (Eq,Show)
+    , _gdrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDistributionResponse' smart constructor.
-getDistributionResponse :: Status -> GetDistributionResponse
+getDistributionResponse :: Int -> GetDistributionResponse
 getDistributionResponse pStatus =
     GetDistributionResponse'
     { _gdrETag = Nothing
@@ -120,5 +120,5 @@ gdrDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
 gdrDistribution = lens _gdrDistribution (\ s a -> s{_gdrDistribution = a});
 
 -- | FIXME: Undocumented member.
-gdrStatus :: Lens' GetDistributionResponse Status
+gdrStatus :: Lens' GetDistributionResponse Int
 gdrStatus = lens _gdrStatus (\ s a -> s{_gdrStatus = a});

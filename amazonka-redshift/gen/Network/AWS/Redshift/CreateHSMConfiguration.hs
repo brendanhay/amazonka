@@ -138,7 +138,7 @@ instance AWSRequest CreateHSMConfiguration where
           = receiveXMLWrapper "CreateHsmConfigurationResult"
               (\ s h x ->
                  CreateHSMConfigurationResponse' <$>
-                   (x .@? "HsmConfiguration") <*> (pure s))
+                   (x .@? "HsmConfiguration") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateHSMConfiguration where
         toHeaders = const mempty
@@ -171,11 +171,11 @@ instance ToQuery CreateHSMConfiguration where
 -- * 'chcrStatus'
 data CreateHSMConfigurationResponse = CreateHSMConfigurationResponse'
     { _chcrHSMConfiguration :: !(Maybe HSMConfiguration)
-    , _chcrStatus           :: !Status
-    } deriving (Eq,Show)
+    , _chcrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateHSMConfigurationResponse' smart constructor.
-createHSMConfigurationResponse :: Status -> CreateHSMConfigurationResponse
+createHSMConfigurationResponse :: Int -> CreateHSMConfigurationResponse
 createHSMConfigurationResponse pStatus =
     CreateHSMConfigurationResponse'
     { _chcrHSMConfiguration = Nothing
@@ -187,5 +187,5 @@ chcrHSMConfiguration :: Lens' CreateHSMConfigurationResponse (Maybe HSMConfigura
 chcrHSMConfiguration = lens _chcrHSMConfiguration (\ s a -> s{_chcrHSMConfiguration = a});
 
 -- | FIXME: Undocumented member.
-chcrStatus :: Lens' CreateHSMConfigurationResponse Status
+chcrStatus :: Lens' CreateHSMConfigurationResponse Int
 chcrStatus = lens _chcrStatus (\ s a -> s{_chcrStatus = a});

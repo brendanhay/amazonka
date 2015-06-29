@@ -61,7 +61,7 @@ instance AWSRequest GetSendQuota where
                  GetSendQuotaResponse' <$>
                    (x .@? "MaxSendRate") <*> (x .@? "SentLast24Hours")
                      <*> (x .@? "Max24HourSend")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetSendQuota where
         toHeaders = const mempty
@@ -94,11 +94,11 @@ data GetSendQuotaResponse = GetSendQuotaResponse'
     { _gsqrMaxSendRate     :: !(Maybe Double)
     , _gsqrSentLast24Hours :: !(Maybe Double)
     , _gsqrMax24HourSend   :: !(Maybe Double)
-    , _gsqrStatus          :: !Status
-    } deriving (Eq,Show)
+    , _gsqrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetSendQuotaResponse' smart constructor.
-getSendQuotaResponse :: Status -> GetSendQuotaResponse
+getSendQuotaResponse :: Int -> GetSendQuotaResponse
 getSendQuotaResponse pStatus =
     GetSendQuotaResponse'
     { _gsqrMaxSendRate = Nothing
@@ -125,5 +125,5 @@ gsqrMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrMax24HourSend = lens _gsqrMax24HourSend (\ s a -> s{_gsqrMax24HourSend = a});
 
 -- | FIXME: Undocumented member.
-gsqrStatus :: Lens' GetSendQuotaResponse Status
+gsqrStatus :: Lens' GetSendQuotaResponse Int
 gsqrStatus = lens _gsqrStatus (\ s a -> s{_gsqrStatus = a});

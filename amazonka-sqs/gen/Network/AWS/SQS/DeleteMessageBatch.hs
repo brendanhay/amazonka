@@ -93,7 +93,7 @@ instance AWSRequest DeleteMessageBatch where
           = receiveXMLWrapper "DeleteMessageBatchResult"
               (\ s h x ->
                  DeleteMessageBatchResponse' <$>
-                   (pure s) <*>
+                   (pure (fromEnum s)) <*>
                      (parseXMLList "DeleteMessageBatchResultEntry" x)
                      <*> (parseXMLList "BatchResultErrorEntry" x))
 
@@ -126,13 +126,13 @@ instance ToQuery DeleteMessageBatch where
 --
 -- * 'dmbrFailed'
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
-    { _dmbrStatus     :: !Status
+    { _dmbrStatus     :: !Int
     , _dmbrSuccessful :: ![DeleteMessageBatchResultEntry]
     , _dmbrFailed     :: ![BatchResultErrorEntry]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteMessageBatchResponse' smart constructor.
-deleteMessageBatchResponse :: Status -> DeleteMessageBatchResponse
+deleteMessageBatchResponse :: Int -> DeleteMessageBatchResponse
 deleteMessageBatchResponse pStatus =
     DeleteMessageBatchResponse'
     { _dmbrStatus = pStatus
@@ -141,7 +141,7 @@ deleteMessageBatchResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-dmbrStatus :: Lens' DeleteMessageBatchResponse Status
+dmbrStatus :: Lens' DeleteMessageBatchResponse Int
 dmbrStatus = lens _dmbrStatus (\ s a -> s{_dmbrStatus = a});
 
 -- | A list of DeleteMessageBatchResultEntry items.

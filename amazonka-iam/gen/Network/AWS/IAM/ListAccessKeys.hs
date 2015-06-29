@@ -117,7 +117,7 @@ instance AWSRequest ListAccessKeys where
               (\ s h x ->
                  ListAccessKeysResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (pure s)
+                     (pure (fromEnum s))
                      <*>
                      (x .@? "AccessKeyMetadata" .!@ mempty >>=
                         parseXMLList "member"))
@@ -152,12 +152,12 @@ instance ToQuery ListAccessKeys where
 data ListAccessKeysResponse = ListAccessKeysResponse'
     { _lakrMarker            :: !(Maybe Text)
     , _lakrIsTruncated       :: !(Maybe Bool)
-    , _lakrStatus            :: !Status
+    , _lakrStatus            :: !Int
     , _lakrAccessKeyMetadata :: ![AccessKeyMetadata]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAccessKeysResponse' smart constructor.
-listAccessKeysResponse :: Status -> ListAccessKeysResponse
+listAccessKeysResponse :: Int -> ListAccessKeysResponse
 listAccessKeysResponse pStatus =
     ListAccessKeysResponse'
     { _lakrMarker = Nothing
@@ -179,7 +179,7 @@ lakrIsTruncated :: Lens' ListAccessKeysResponse (Maybe Bool)
 lakrIsTruncated = lens _lakrIsTruncated (\ s a -> s{_lakrIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lakrStatus :: Lens' ListAccessKeysResponse Status
+lakrStatus :: Lens' ListAccessKeysResponse Int
 lakrStatus = lens _lakrStatus (\ s a -> s{_lakrStatus = a});
 
 -- | A list of access key metadata.

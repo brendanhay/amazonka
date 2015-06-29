@@ -129,7 +129,7 @@ instance AWSRequest ListHostedZonesByName where
                    (x .@? "HostedZoneId") <*> (x .@? "NextHostedZoneId")
                      <*> (x .@? "DNSName")
                      <*> (x .@? "NextDNSName")
-                     <*> (pure s)
+                     <*> (pure (fromEnum s))
                      <*>
                      (x .@? "HostedZones" .!@ mempty >>=
                         parseXMLList "HostedZone")
@@ -175,14 +175,14 @@ data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
     , _lhzbnrNextHostedZoneId :: !(Maybe Text)
     , _lhzbnrDNSName          :: !(Maybe Text)
     , _lhzbnrNextDNSName      :: !(Maybe Text)
-    , _lhzbnrStatus           :: !Status
+    , _lhzbnrStatus           :: !Int
     , _lhzbnrHostedZones      :: ![HostedZone]
     , _lhzbnrIsTruncated      :: !Bool
     , _lhzbnrMaxItems         :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListHostedZonesByNameResponse' smart constructor.
-listHostedZonesByNameResponse :: Status -> Bool -> Text -> ListHostedZonesByNameResponse
+listHostedZonesByNameResponse :: Int -> Bool -> Text -> ListHostedZonesByNameResponse
 listHostedZonesByNameResponse pStatus pIsTruncated pMaxItems =
     ListHostedZonesByNameResponse'
     { _lhzbnrHostedZoneId = Nothing
@@ -224,7 +224,7 @@ lhzbnrNextDNSName :: Lens' ListHostedZonesByNameResponse (Maybe Text)
 lhzbnrNextDNSName = lens _lhzbnrNextDNSName (\ s a -> s{_lhzbnrNextDNSName = a});
 
 -- | FIXME: Undocumented member.
-lhzbnrStatus :: Lens' ListHostedZonesByNameResponse Status
+lhzbnrStatus :: Lens' ListHostedZonesByNameResponse Int
 lhzbnrStatus = lens _lhzbnrStatus (\ s a -> s{_lhzbnrStatus = a});
 
 -- | A complex type that contains information about the hosted zones

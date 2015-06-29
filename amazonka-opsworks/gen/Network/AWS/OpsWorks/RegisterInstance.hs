@@ -138,7 +138,7 @@ instance AWSRequest RegisterInstance where
           = receiveJSON
               (\ s h x ->
                  RegisterInstanceResponse' <$>
-                   (x .?> "InstanceId") <*> (pure s))
+                   (x .?> "InstanceId") <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterInstance where
         toHeaders
@@ -178,11 +178,11 @@ instance ToQuery RegisterInstance where
 -- * 'rirStatus'
 data RegisterInstanceResponse = RegisterInstanceResponse'
     { _rirInstanceId :: !(Maybe Text)
-    , _rirStatus     :: !Status
-    } deriving (Eq,Show)
+    , _rirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterInstanceResponse' smart constructor.
-registerInstanceResponse :: Status -> RegisterInstanceResponse
+registerInstanceResponse :: Int -> RegisterInstanceResponse
 registerInstanceResponse pStatus =
     RegisterInstanceResponse'
     { _rirInstanceId = Nothing
@@ -194,5 +194,5 @@ rirInstanceId :: Lens' RegisterInstanceResponse (Maybe Text)
 rirInstanceId = lens _rirInstanceId (\ s a -> s{_rirInstanceId = a});
 
 -- | FIXME: Undocumented member.
-rirStatus :: Lens' RegisterInstanceResponse Status
+rirStatus :: Lens' RegisterInstanceResponse Int
 rirStatus = lens _rirStatus (\ s a -> s{_rirStatus = a});

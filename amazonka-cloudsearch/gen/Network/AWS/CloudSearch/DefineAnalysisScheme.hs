@@ -86,7 +86,7 @@ instance AWSRequest DefineAnalysisScheme where
           = receiveXMLWrapper "DefineAnalysisSchemeResult"
               (\ s h x ->
                  DefineAnalysisSchemeResponse' <$>
-                   (pure s) <*> (x .@ "AnalysisScheme"))
+                   (pure (fromEnum s)) <*> (x .@ "AnalysisScheme"))
 
 instance ToHeaders DefineAnalysisScheme where
         toHeaders = const mempty
@@ -113,12 +113,12 @@ instance ToQuery DefineAnalysisScheme where
 --
 -- * 'dasr1AnalysisScheme'
 data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
-    { _dasr1Status         :: !Status
+    { _dasr1Status         :: !Int
     , _dasr1AnalysisScheme :: !AnalysisSchemeStatus
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DefineAnalysisSchemeResponse' smart constructor.
-defineAnalysisSchemeResponse :: Status -> AnalysisSchemeStatus -> DefineAnalysisSchemeResponse
+defineAnalysisSchemeResponse :: Int -> AnalysisSchemeStatus -> DefineAnalysisSchemeResponse
 defineAnalysisSchemeResponse pStatus pAnalysisScheme =
     DefineAnalysisSchemeResponse'
     { _dasr1Status = pStatus
@@ -126,7 +126,7 @@ defineAnalysisSchemeResponse pStatus pAnalysisScheme =
     }
 
 -- | FIXME: Undocumented member.
-dasr1Status :: Lens' DefineAnalysisSchemeResponse Status
+dasr1Status :: Lens' DefineAnalysisSchemeResponse Int
 dasr1Status = lens _dasr1Status (\ s a -> s{_dasr1Status = a});
 
 -- | FIXME: Undocumented member.

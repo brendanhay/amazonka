@@ -114,7 +114,7 @@ instance AWSRequest PollForTask where
           = receiveJSON
               (\ s h x ->
                  PollForTaskResponse' <$>
-                   (x .?> "taskObject") <*> (pure s))
+                   (x .?> "taskObject") <*> (pure (fromEnum s)))
 
 instance ToHeaders PollForTask where
         toHeaders
@@ -149,11 +149,11 @@ instance ToQuery PollForTask where
 -- * 'pftrStatus'
 data PollForTaskResponse = PollForTaskResponse'
     { _pftrTaskObject :: !(Maybe TaskObject)
-    , _pftrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _pftrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PollForTaskResponse' smart constructor.
-pollForTaskResponse :: Status -> PollForTaskResponse
+pollForTaskResponse :: Int -> PollForTaskResponse
 pollForTaskResponse pStatus =
     PollForTaskResponse'
     { _pftrTaskObject = Nothing
@@ -169,5 +169,5 @@ pftrTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 pftrTaskObject = lens _pftrTaskObject (\ s a -> s{_pftrTaskObject = a});
 
 -- | FIXME: Undocumented member.
-pftrStatus :: Lens' PollForTaskResponse Status
+pftrStatus :: Lens' PollForTaskResponse Int
 pftrStatus = lens _pftrStatus (\ s a -> s{_pftrStatus = a});

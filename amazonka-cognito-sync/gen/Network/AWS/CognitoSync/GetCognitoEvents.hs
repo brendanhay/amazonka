@@ -75,7 +75,7 @@ instance AWSRequest GetCognitoEvents where
           = receiveJSON
               (\ s h x ->
                  GetCognitoEventsResponse' <$>
-                   (x .?> "Events" .!@ mempty) <*> (pure s))
+                   (x .?> "Events" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders GetCognitoEvents where
         toHeaders
@@ -104,11 +104,11 @@ instance ToQuery GetCognitoEvents where
 -- * 'gcerStatus'
 data GetCognitoEventsResponse = GetCognitoEventsResponse'
     { _gcerEvents :: !(Maybe (Map Text Text))
-    , _gcerStatus :: !Status
-    } deriving (Eq,Show)
+    , _gcerStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetCognitoEventsResponse' smart constructor.
-getCognitoEventsResponse :: Status -> GetCognitoEventsResponse
+getCognitoEventsResponse :: Int -> GetCognitoEventsResponse
 getCognitoEventsResponse pStatus =
     GetCognitoEventsResponse'
     { _gcerEvents = Nothing
@@ -120,5 +120,5 @@ gcerEvents :: Lens' GetCognitoEventsResponse (HashMap Text Text)
 gcerEvents = lens _gcerEvents (\ s a -> s{_gcerEvents = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gcerStatus :: Lens' GetCognitoEventsResponse Status
+gcerStatus :: Lens' GetCognitoEventsResponse Int
 gcerStatus = lens _gcerStatus (\ s a -> s{_gcerStatus = a});

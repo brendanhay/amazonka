@@ -94,7 +94,7 @@ instance AWSRequest ListTagsForStream where
           = receiveJSON
               (\ s h x ->
                  ListTagsForStreamResponse' <$>
-                   (pure s) <*> (x .?> "Tags" .!@ mempty) <*>
+                   (pure (fromEnum s)) <*> (x .?> "Tags" .!@ mempty) <*>
                      (x .:> "HasMoreTags"))
 
 instance ToHeaders ListTagsForStream where
@@ -131,13 +131,13 @@ instance ToQuery ListTagsForStream where
 --
 -- * 'ltfsrHasMoreTags'
 data ListTagsForStreamResponse = ListTagsForStreamResponse'
-    { _ltfsrStatus      :: !Status
+    { _ltfsrStatus      :: !Int
     , _ltfsrTags        :: ![Tag]
     , _ltfsrHasMoreTags :: !Bool
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForStreamResponse' smart constructor.
-listTagsForStreamResponse :: Status -> Bool -> ListTagsForStreamResponse
+listTagsForStreamResponse :: Int -> Bool -> ListTagsForStreamResponse
 listTagsForStreamResponse pStatus pHasMoreTags =
     ListTagsForStreamResponse'
     { _ltfsrStatus = pStatus
@@ -146,7 +146,7 @@ listTagsForStreamResponse pStatus pHasMoreTags =
     }
 
 -- | FIXME: Undocumented member.
-ltfsrStatus :: Lens' ListTagsForStreamResponse Status
+ltfsrStatus :: Lens' ListTagsForStreamResponse Int
 ltfsrStatus = lens _ltfsrStatus (\ s a -> s{_ltfsrStatus = a});
 
 -- | A list of tags associated with @StreamName@, starting with the first tag

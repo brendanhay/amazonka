@@ -120,7 +120,7 @@ instance AWSRequest GetAccountAuthorizationDetails
                      <*>
                      (x .@? "Policies" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetAccountAuthorizationDetails
          where
@@ -166,11 +166,11 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
     , _gaadrMarker          :: !(Maybe Text)
     , _gaadrIsTruncated     :: !(Maybe Bool)
     , _gaadrPolicies        :: !(Maybe [ManagedPolicyDetail])
-    , _gaadrStatus          :: !Status
-    } deriving (Eq,Show)
+    , _gaadrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetAccountAuthorizationDetailsResponse' smart constructor.
-getAccountAuthorizationDetailsResponse :: Status -> GetAccountAuthorizationDetailsResponse
+getAccountAuthorizationDetailsResponse :: Int -> GetAccountAuthorizationDetailsResponse
 getAccountAuthorizationDetailsResponse pStatus =
     GetAccountAuthorizationDetailsResponse'
     { _gaadrRoleDetailList = Nothing
@@ -211,5 +211,5 @@ gaadrPolicies :: Lens' GetAccountAuthorizationDetailsResponse [ManagedPolicyDeta
 gaadrPolicies = lens _gaadrPolicies (\ s a -> s{_gaadrPolicies = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gaadrStatus :: Lens' GetAccountAuthorizationDetailsResponse Status
+gaadrStatus :: Lens' GetAccountAuthorizationDetailsResponse Int
 gaadrStatus = lens _gaadrStatus (\ s a -> s{_gaadrStatus = a});

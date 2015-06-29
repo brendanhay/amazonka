@@ -85,7 +85,8 @@ instance AWSRequest DescribeRDSDBInstances where
           = receiveJSON
               (\ s h x ->
                  DescribeRDSDBInstancesResponse' <$>
-                   (x .?> "RdsDbInstances" .!@ mempty) <*> (pure s))
+                   (x .?> "RdsDbInstances" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeRDSDBInstances where
         toHeaders
@@ -120,11 +121,11 @@ instance ToQuery DescribeRDSDBInstances where
 -- * 'drdirStatus'
 data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'
     { _drdirRDSDBInstances :: !(Maybe [RDSDBInstance])
-    , _drdirStatus         :: !Status
-    } deriving (Eq,Show)
+    , _drdirStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeRDSDBInstancesResponse' smart constructor.
-describeRDSDBInstancesResponse :: Status -> DescribeRDSDBInstancesResponse
+describeRDSDBInstancesResponse :: Int -> DescribeRDSDBInstancesResponse
 describeRDSDBInstancesResponse pStatus =
     DescribeRDSDBInstancesResponse'
     { _drdirRDSDBInstances = Nothing
@@ -136,5 +137,5 @@ drdirRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse [RDSDBInstance]
 drdirRDSDBInstances = lens _drdirRDSDBInstances (\ s a -> s{_drdirRDSDBInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drdirStatus :: Lens' DescribeRDSDBInstancesResponse Status
+drdirStatus :: Lens' DescribeRDSDBInstancesResponse Int
 drdirStatus = lens _drdirStatus (\ s a -> s{_drdirStatus = a});

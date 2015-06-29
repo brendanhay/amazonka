@@ -130,7 +130,7 @@ instance AWSRequest RecordActivityTaskHeartbeat where
           = receiveJSON
               (\ s h x ->
                  RecordActivityTaskHeartbeatResponse' <$>
-                   (pure s) <*> (x .:> "cancelRequested"))
+                   (pure (fromEnum s)) <*> (x .:> "cancelRequested"))
 
 instance ToHeaders RecordActivityTaskHeartbeat where
         toHeaders
@@ -164,12 +164,12 @@ instance ToQuery RecordActivityTaskHeartbeat where
 --
 -- * 'rathrCancelRequested'
 data RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse'
-    { _rathrStatus          :: !Status
+    { _rathrStatus          :: !Int
     , _rathrCancelRequested :: !Bool
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'RecordActivityTaskHeartbeatResponse' smart constructor.
-recordActivityTaskHeartbeatResponse :: Status -> Bool -> RecordActivityTaskHeartbeatResponse
+recordActivityTaskHeartbeatResponse :: Int -> Bool -> RecordActivityTaskHeartbeatResponse
 recordActivityTaskHeartbeatResponse pStatus pCancelRequested =
     RecordActivityTaskHeartbeatResponse'
     { _rathrStatus = pStatus
@@ -177,7 +177,7 @@ recordActivityTaskHeartbeatResponse pStatus pCancelRequested =
     }
 
 -- | FIXME: Undocumented member.
-rathrStatus :: Lens' RecordActivityTaskHeartbeatResponse Status
+rathrStatus :: Lens' RecordActivityTaskHeartbeatResponse Int
 rathrStatus = lens _rathrStatus (\ s a -> s{_rathrStatus = a});
 
 -- | Set to @true@ if cancellation of the task is requested.

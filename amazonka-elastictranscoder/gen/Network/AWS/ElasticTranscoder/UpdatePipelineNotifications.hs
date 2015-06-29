@@ -105,7 +105,7 @@ instance AWSRequest UpdatePipelineNotifications where
           = receiveJSON
               (\ s h x ->
                  UpdatePipelineNotificationsResponse' <$>
-                   (x .?> "Pipeline") <*> (pure s))
+                   (x .?> "Pipeline") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdatePipelineNotifications where
         toHeaders = const mempty
@@ -134,11 +134,11 @@ instance ToQuery UpdatePipelineNotifications where
 -- * 'upnrStatus'
 data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
     { _upnrPipeline :: !(Maybe Pipeline)
-    , _upnrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _upnrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdatePipelineNotificationsResponse' smart constructor.
-updatePipelineNotificationsResponse :: Status -> UpdatePipelineNotificationsResponse
+updatePipelineNotificationsResponse :: Int -> UpdatePipelineNotificationsResponse
 updatePipelineNotificationsResponse pStatus =
     UpdatePipelineNotificationsResponse'
     { _upnrPipeline = Nothing
@@ -151,5 +151,5 @@ upnrPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
 upnrPipeline = lens _upnrPipeline (\ s a -> s{_upnrPipeline = a});
 
 -- | FIXME: Undocumented member.
-upnrStatus :: Lens' UpdatePipelineNotificationsResponse Status
+upnrStatus :: Lens' UpdatePipelineNotificationsResponse Int
 upnrStatus = lens _upnrStatus (\ s a -> s{_upnrStatus = a});

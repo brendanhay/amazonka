@@ -87,7 +87,7 @@ instance AWSRequest RegisterElasticIP where
           = receiveJSON
               (\ s h x ->
                  RegisterElasticIPResponse' <$>
-                   (x .?> "ElasticIp") <*> (pure s))
+                   (x .?> "ElasticIp") <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterElasticIP where
         toHeaders
@@ -122,11 +122,11 @@ instance ToQuery RegisterElasticIP where
 -- * 'reirStatus'
 data RegisterElasticIPResponse = RegisterElasticIPResponse'
     { _reirElasticIP :: !(Maybe Text)
-    , _reirStatus    :: !Status
-    } deriving (Eq,Show)
+    , _reirStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterElasticIPResponse' smart constructor.
-registerElasticIPResponse :: Status -> RegisterElasticIPResponse
+registerElasticIPResponse :: Int -> RegisterElasticIPResponse
 registerElasticIPResponse pStatus =
     RegisterElasticIPResponse'
     { _reirElasticIP = Nothing
@@ -138,5 +138,5 @@ reirElasticIP :: Lens' RegisterElasticIPResponse (Maybe Text)
 reirElasticIP = lens _reirElasticIP (\ s a -> s{_reirElasticIP = a});
 
 -- | FIXME: Undocumented member.
-reirStatus :: Lens' RegisterElasticIPResponse Status
+reirStatus :: Lens' RegisterElasticIPResponse Int
 reirStatus = lens _reirStatus (\ s a -> s{_reirStatus = a});

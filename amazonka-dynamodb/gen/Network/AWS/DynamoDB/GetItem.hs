@@ -203,7 +203,7 @@ instance AWSRequest GetItem where
                  GetItemResponse' <$>
                    (x .?> "ConsumedCapacity") <*>
                      (x .?> "Item" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetItem where
         toHeaders
@@ -246,11 +246,11 @@ instance ToQuery GetItem where
 data GetItemResponse = GetItemResponse'
     { _girConsumedCapacity :: !(Maybe ConsumedCapacity)
     , _girItem             :: !(Maybe (Map Text AttributeValue))
-    , _girStatus           :: !Status
+    , _girStatus           :: !Int
     } deriving (Eq,Show)
 
 -- | 'GetItemResponse' smart constructor.
-getItemResponse :: Status -> GetItemResponse
+getItemResponse :: Int -> GetItemResponse
 getItemResponse pStatus =
     GetItemResponse'
     { _girConsumedCapacity = Nothing
@@ -268,5 +268,5 @@ girItem :: Lens' GetItemResponse (HashMap Text AttributeValue)
 girItem = lens _girItem (\ s a -> s{_girItem = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-girStatus :: Lens' GetItemResponse Status
+girStatus :: Lens' GetItemResponse Int
 girStatus = lens _girStatus (\ s a -> s{_girStatus = a});

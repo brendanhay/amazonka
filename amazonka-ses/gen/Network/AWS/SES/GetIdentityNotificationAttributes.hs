@@ -78,7 +78,7 @@ instance AWSRequest GetIdentityNotificationAttributes
               "GetIdentityNotificationAttributesResult"
               (\ s h x ->
                  GetIdentityNotificationAttributesResponse' <$>
-                   (pure s) <*>
+                   (pure (fromEnum s)) <*>
                      (x .@? "NotificationAttributes" .!@ mempty >>=
                         parseXMLMap "entry" "key" "value"))
 
@@ -112,12 +112,12 @@ instance ToQuery GetIdentityNotificationAttributes
 --
 -- * 'ginarNotificationAttributes'
 data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'
-    { _ginarStatus                 :: !Status
+    { _ginarStatus                 :: !Int
     , _ginarNotificationAttributes :: !(Map Text IdentityNotificationAttributes)
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetIdentityNotificationAttributesResponse' smart constructor.
-getIdentityNotificationAttributesResponse :: Status -> GetIdentityNotificationAttributesResponse
+getIdentityNotificationAttributesResponse :: Int -> GetIdentityNotificationAttributesResponse
 getIdentityNotificationAttributesResponse pStatus =
     GetIdentityNotificationAttributesResponse'
     { _ginarStatus = pStatus
@@ -125,7 +125,7 @@ getIdentityNotificationAttributesResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-ginarStatus :: Lens' GetIdentityNotificationAttributesResponse Status
+ginarStatus :: Lens' GetIdentityNotificationAttributesResponse Int
 ginarStatus = lens _ginarStatus (\ s a -> s{_ginarStatus = a});
 
 -- | A map of Identity to IdentityNotificationAttributes.

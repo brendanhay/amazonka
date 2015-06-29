@@ -115,7 +115,7 @@ instance AWSRequest ListVolumes where
                  ListVolumesResponse' <$>
                    (x .?> "GatewayARN") <*> (x .?> "Marker") <*>
                      (x .?> "VolumeInfos" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListVolumes where
         toHeaders
@@ -154,11 +154,11 @@ data ListVolumesResponse = ListVolumesResponse'
     { _lvrGatewayARN  :: !(Maybe Text)
     , _lvrMarker      :: !(Maybe Text)
     , _lvrVolumeInfos :: !(Maybe [VolumeInfo])
-    , _lvrStatus      :: !Status
-    } deriving (Eq,Show)
+    , _lvrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListVolumesResponse' smart constructor.
-listVolumesResponse :: Status -> ListVolumesResponse
+listVolumesResponse :: Int -> ListVolumesResponse
 listVolumesResponse pStatus =
     ListVolumesResponse'
     { _lvrGatewayARN = Nothing
@@ -180,5 +180,5 @@ lvrVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
 lvrVolumeInfos = lens _lvrVolumeInfos (\ s a -> s{_lvrVolumeInfos = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lvrStatus :: Lens' ListVolumesResponse Status
+lvrStatus :: Lens' ListVolumesResponse Int
 lvrStatus = lens _lvrStatus (\ s a -> s{_lvrStatus = a});

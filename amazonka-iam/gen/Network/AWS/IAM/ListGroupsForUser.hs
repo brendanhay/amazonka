@@ -107,7 +107,7 @@ instance AWSRequest ListGroupsForUser where
               (\ s h x ->
                  ListGroupsForUserResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (pure s)
+                     (pure (fromEnum s))
                      <*>
                      (x .@? "Groups" .!@ mempty >>=
                         parseXMLList "member"))
@@ -142,12 +142,12 @@ instance ToQuery ListGroupsForUser where
 data ListGroupsForUserResponse = ListGroupsForUserResponse'
     { _lgfurMarker      :: !(Maybe Text)
     , _lgfurIsTruncated :: !(Maybe Bool)
-    , _lgfurStatus      :: !Status
+    , _lgfurStatus      :: !Int
     , _lgfurGroups      :: ![Group]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGroupsForUserResponse' smart constructor.
-listGroupsForUserResponse :: Status -> ListGroupsForUserResponse
+listGroupsForUserResponse :: Int -> ListGroupsForUserResponse
 listGroupsForUserResponse pStatus =
     ListGroupsForUserResponse'
     { _lgfurMarker = Nothing
@@ -170,7 +170,7 @@ lgfurIsTruncated :: Lens' ListGroupsForUserResponse (Maybe Bool)
 lgfurIsTruncated = lens _lgfurIsTruncated (\ s a -> s{_lgfurIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lgfurStatus :: Lens' ListGroupsForUserResponse Status
+lgfurStatus :: Lens' ListGroupsForUserResponse Int
 lgfurStatus = lens _lgfurStatus (\ s a -> s{_lgfurStatus = a});
 
 -- | A list of groups.

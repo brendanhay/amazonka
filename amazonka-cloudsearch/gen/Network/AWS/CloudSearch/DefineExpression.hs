@@ -85,7 +85,7 @@ instance AWSRequest DefineExpression where
           = receiveXMLWrapper "DefineExpressionResult"
               (\ s h x ->
                  DefineExpressionResponse' <$>
-                   (pure s) <*> (x .@ "Expression"))
+                   (pure (fromEnum s)) <*> (x .@ "Expression"))
 
 instance ToHeaders DefineExpression where
         toHeaders = const mempty
@@ -112,12 +112,12 @@ instance ToQuery DefineExpression where
 --
 -- * 'derExpression'
 data DefineExpressionResponse = DefineExpressionResponse'
-    { _derStatus     :: !Status
+    { _derStatus     :: !Int
     , _derExpression :: !ExpressionStatus
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DefineExpressionResponse' smart constructor.
-defineExpressionResponse :: Status -> ExpressionStatus -> DefineExpressionResponse
+defineExpressionResponse :: Int -> ExpressionStatus -> DefineExpressionResponse
 defineExpressionResponse pStatus pExpression =
     DefineExpressionResponse'
     { _derStatus = pStatus
@@ -125,7 +125,7 @@ defineExpressionResponse pStatus pExpression =
     }
 
 -- | FIXME: Undocumented member.
-derStatus :: Lens' DefineExpressionResponse Status
+derStatus :: Lens' DefineExpressionResponse Int
 derStatus = lens _derStatus (\ s a -> s{_derStatus = a});
 
 -- | FIXME: Undocumented member.

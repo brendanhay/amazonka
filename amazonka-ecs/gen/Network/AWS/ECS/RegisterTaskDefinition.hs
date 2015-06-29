@@ -98,7 +98,7 @@ instance AWSRequest RegisterTaskDefinition where
           = receiveJSON
               (\ s h x ->
                  RegisterTaskDefinitionResponse' <$>
-                   (x .?> "taskDefinition") <*> (pure s))
+                   (x .?> "taskDefinition") <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterTaskDefinition where
         toHeaders
@@ -131,11 +131,11 @@ instance ToQuery RegisterTaskDefinition where
 -- * 'rtdrStatus'
 data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
     { _rtdrTaskDefinition :: !(Maybe TaskDefinition)
-    , _rtdrStatus         :: !Status
-    } deriving (Eq,Show)
+    , _rtdrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterTaskDefinitionResponse' smart constructor.
-registerTaskDefinitionResponse :: Status -> RegisterTaskDefinitionResponse
+registerTaskDefinitionResponse :: Int -> RegisterTaskDefinitionResponse
 registerTaskDefinitionResponse pStatus =
     RegisterTaskDefinitionResponse'
     { _rtdrTaskDefinition = Nothing
@@ -147,5 +147,5 @@ rtdrTaskDefinition :: Lens' RegisterTaskDefinitionResponse (Maybe TaskDefinition
 rtdrTaskDefinition = lens _rtdrTaskDefinition (\ s a -> s{_rtdrTaskDefinition = a});
 
 -- | FIXME: Undocumented member.
-rtdrStatus :: Lens' RegisterTaskDefinitionResponse Status
+rtdrStatus :: Lens' RegisterTaskDefinitionResponse Int
 rtdrStatus = lens _rtdrStatus (\ s a -> s{_rtdrStatus = a});

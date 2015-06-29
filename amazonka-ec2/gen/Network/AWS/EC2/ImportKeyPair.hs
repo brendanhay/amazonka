@@ -100,7 +100,7 @@ instance AWSRequest ImportKeyPair where
               (\ s h x ->
                  ImportKeyPairResponse' <$>
                    (x .@? "keyFingerprint") <*> (x .@? "keyName") <*>
-                     (pure s))
+                     (pure (fromEnum s)))
 
 instance ToHeaders ImportKeyPair where
         toHeaders = const mempty
@@ -128,11 +128,11 @@ instance ToQuery ImportKeyPair where
 data ImportKeyPairResponse = ImportKeyPairResponse'
     { _ikprKeyFingerprint :: !(Maybe Text)
     , _ikprKeyName        :: !(Maybe Text)
-    , _ikprStatus         :: !Status
-    } deriving (Eq,Show)
+    , _ikprStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportKeyPairResponse' smart constructor.
-importKeyPairResponse :: Status -> ImportKeyPairResponse
+importKeyPairResponse :: Int -> ImportKeyPairResponse
 importKeyPairResponse pStatus =
     ImportKeyPairResponse'
     { _ikprKeyFingerprint = Nothing
@@ -149,5 +149,5 @@ ikprKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
 ikprKeyName = lens _ikprKeyName (\ s a -> s{_ikprKeyName = a});
 
 -- | FIXME: Undocumented member.
-ikprStatus :: Lens' ImportKeyPairResponse Status
+ikprStatus :: Lens' ImportKeyPairResponse Int
 ikprStatus = lens _ikprStatus (\ s a -> s{_ikprStatus = a});

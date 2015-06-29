@@ -72,7 +72,8 @@ instance AWSRequest DeletePreset where
         request = delete
         response
           = receiveJSON
-              (\ s h x -> DeletePresetResponse' <$> (pure s))
+              (\ s h x ->
+                 DeletePresetResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeletePreset where
         toHeaders = const mempty
@@ -92,16 +93,16 @@ instance ToQuery DeletePreset where
 --
 -- * 'dprStatus'
 newtype DeletePresetResponse = DeletePresetResponse'
-    { _dprStatus :: Status
-    } deriving (Eq,Show)
+    { _dprStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeletePresetResponse' smart constructor.
-deletePresetResponse :: Status -> DeletePresetResponse
+deletePresetResponse :: Int -> DeletePresetResponse
 deletePresetResponse pStatus =
     DeletePresetResponse'
     { _dprStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dprStatus :: Lens' DeletePresetResponse Status
+dprStatus :: Lens' DeletePresetResponse Int
 dprStatus = lens _dprStatus (\ s a -> s{_dprStatus = a});

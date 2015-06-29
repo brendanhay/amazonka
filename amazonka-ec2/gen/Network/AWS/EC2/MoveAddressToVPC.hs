@@ -86,7 +86,7 @@ instance AWSRequest MoveAddressToVPC where
           = receiveXML
               (\ s h x ->
                  MoveAddressToVPCResponse' <$>
-                   (x .@? "allocationId") <*> (pure s))
+                   (x .@? "allocationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders MoveAddressToVPC where
         toHeaders = const mempty
@@ -110,11 +110,11 @@ instance ToQuery MoveAddressToVPC where
 -- * 'matvrStatus'
 data MoveAddressToVPCResponse = MoveAddressToVPCResponse'
     { _matvrAllocationId :: !(Maybe Text)
-    , _matvrStatus       :: !Status
-    } deriving (Eq,Show)
+    , _matvrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'MoveAddressToVPCResponse' smart constructor.
-moveAddressToVPCResponse :: Status -> MoveAddressToVPCResponse
+moveAddressToVPCResponse :: Int -> MoveAddressToVPCResponse
 moveAddressToVPCResponse pStatus =
     MoveAddressToVPCResponse'
     { _matvrAllocationId = Nothing
@@ -126,5 +126,5 @@ matvrAllocationId :: Lens' MoveAddressToVPCResponse (Maybe Text)
 matvrAllocationId = lens _matvrAllocationId (\ s a -> s{_matvrAllocationId = a});
 
 -- | FIXME: Undocumented member.
-matvrStatus :: Lens' MoveAddressToVPCResponse Status
+matvrStatus :: Lens' MoveAddressToVPCResponse Int
 matvrStatus = lens _matvrStatus (\ s a -> s{_matvrStatus = a});

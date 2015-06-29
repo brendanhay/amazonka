@@ -226,7 +226,7 @@ instance AWSRequest BatchGetItem where
                    (x .?> "UnprocessedKeys" .!@ mempty) <*>
                      (x .?> "Responses" .!@ mempty)
                      <*> (x .?> "ConsumedCapacity" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders BatchGetItem where
         toHeaders
@@ -267,11 +267,11 @@ data BatchGetItemResponse = BatchGetItemResponse'
     { _bgirUnprocessedKeys  :: !(Maybe (Map Text KeysAndAttributes))
     , _bgirResponses        :: !(Maybe (Map Text [Map Text AttributeValue]))
     , _bgirConsumedCapacity :: !(Maybe [ConsumedCapacity])
-    , _bgirStatus           :: !Status
+    , _bgirStatus           :: !Int
     } deriving (Eq,Show)
 
 -- | 'BatchGetItemResponse' smart constructor.
-batchGetItemResponse :: Status -> BatchGetItemResponse
+batchGetItemResponse :: Int -> BatchGetItemResponse
 batchGetItemResponse pStatus =
     BatchGetItemResponse'
     { _bgirUnprocessedKeys = Nothing
@@ -322,5 +322,5 @@ bgirConsumedCapacity :: Lens' BatchGetItemResponse [ConsumedCapacity]
 bgirConsumedCapacity = lens _bgirConsumedCapacity (\ s a -> s{_bgirConsumedCapacity = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-bgirStatus :: Lens' BatchGetItemResponse Status
+bgirStatus :: Lens' BatchGetItemResponse Int
 bgirStatus = lens _bgirStatus (\ s a -> s{_bgirStatus = a});

@@ -110,7 +110,7 @@ instance AWSRequest CreateComputer where
           = receiveJSON
               (\ s h x ->
                  CreateComputerResponse' <$>
-                   (x .?> "Computer") <*> (pure s))
+                   (x .?> "Computer") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateComputer where
         toHeaders
@@ -149,11 +149,11 @@ instance ToQuery CreateComputer where
 -- * 'ccrStatus'
 data CreateComputerResponse = CreateComputerResponse'
     { _ccrComputer :: !(Maybe Computer)
-    , _ccrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _ccrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateComputerResponse' smart constructor.
-createComputerResponse :: Status -> CreateComputerResponse
+createComputerResponse :: Int -> CreateComputerResponse
 createComputerResponse pStatus =
     CreateComputerResponse'
     { _ccrComputer = Nothing
@@ -165,5 +165,5 @@ ccrComputer :: Lens' CreateComputerResponse (Maybe Computer)
 ccrComputer = lens _ccrComputer (\ s a -> s{_ccrComputer = a});
 
 -- | FIXME: Undocumented member.
-ccrStatus :: Lens' CreateComputerResponse Status
+ccrStatus :: Lens' CreateComputerResponse Int
 ccrStatus = lens _ccrStatus (\ s a -> s{_ccrStatus = a});

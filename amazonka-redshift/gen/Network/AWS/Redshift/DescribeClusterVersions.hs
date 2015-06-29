@@ -135,7 +135,7 @@ instance AWSRequest DescribeClusterVersions where
                    (x .@? "ClusterVersions" .!@ mempty >>=
                       may (parseXMLList "ClusterVersion"))
                      <*> (x .@? "Marker")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeClusterVersions where
         toHeaders = const mempty
@@ -169,11 +169,11 @@ instance ToQuery DescribeClusterVersions where
 data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'
     { _dcvrClusterVersions :: !(Maybe [ClusterVersion])
     , _dcvrMarker          :: !(Maybe Text)
-    , _dcvrStatus          :: !Status
-    } deriving (Eq,Show)
+    , _dcvrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterVersionsResponse' smart constructor.
-describeClusterVersionsResponse :: Status -> DescribeClusterVersionsResponse
+describeClusterVersionsResponse :: Int -> DescribeClusterVersionsResponse
 describeClusterVersionsResponse pStatus =
     DescribeClusterVersionsResponse'
     { _dcvrClusterVersions = Nothing
@@ -195,5 +195,5 @@ dcvrMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
 dcvrMarker = lens _dcvrMarker (\ s a -> s{_dcvrMarker = a});
 
 -- | FIXME: Undocumented member.
-dcvrStatus :: Lens' DescribeClusterVersionsResponse Status
+dcvrStatus :: Lens' DescribeClusterVersionsResponse Int
 dcvrStatus = lens _dcvrStatus (\ s a -> s{_dcvrStatus = a});

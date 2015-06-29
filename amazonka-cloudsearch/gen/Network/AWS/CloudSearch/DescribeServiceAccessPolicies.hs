@@ -92,7 +92,7 @@ instance AWSRequest DescribeServiceAccessPolicies
               "DescribeServiceAccessPoliciesResult"
               (\ s h x ->
                  DescribeServiceAccessPoliciesResponse' <$>
-                   (pure s) <*> (x .@ "AccessPolicies"))
+                   (pure (fromEnum s)) <*> (x .@ "AccessPolicies"))
 
 instance ToHeaders DescribeServiceAccessPolicies
          where
@@ -120,12 +120,12 @@ instance ToQuery DescribeServiceAccessPolicies where
 --
 -- * 'dsaprAccessPolicies'
 data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'
-    { _dsaprStatus         :: !Status
+    { _dsaprStatus         :: !Int
     , _dsaprAccessPolicies :: !AccessPoliciesStatus
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeServiceAccessPoliciesResponse' smart constructor.
-describeServiceAccessPoliciesResponse :: Status -> AccessPoliciesStatus -> DescribeServiceAccessPoliciesResponse
+describeServiceAccessPoliciesResponse :: Int -> AccessPoliciesStatus -> DescribeServiceAccessPoliciesResponse
 describeServiceAccessPoliciesResponse pStatus pAccessPolicies =
     DescribeServiceAccessPoliciesResponse'
     { _dsaprStatus = pStatus
@@ -133,7 +133,7 @@ describeServiceAccessPoliciesResponse pStatus pAccessPolicies =
     }
 
 -- | FIXME: Undocumented member.
-dsaprStatus :: Lens' DescribeServiceAccessPoliciesResponse Status
+dsaprStatus :: Lens' DescribeServiceAccessPoliciesResponse Int
 dsaprStatus = lens _dsaprStatus (\ s a -> s{_dsaprStatus = a});
 
 -- | The access rules configured for the domain specified in the request.

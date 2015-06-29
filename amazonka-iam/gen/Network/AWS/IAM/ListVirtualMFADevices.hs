@@ -113,7 +113,7 @@ instance AWSRequest ListVirtualMFADevices where
               (\ s h x ->
                  ListVirtualMFADevicesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (pure s)
+                     (pure (fromEnum s))
                      <*>
                      (x .@? "VirtualMFADevices" .!@ mempty >>=
                         parseXMLList "member"))
@@ -148,12 +148,12 @@ instance ToQuery ListVirtualMFADevices where
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
     { _lvmdrMarker            :: !(Maybe Text)
     , _lvmdrIsTruncated       :: !(Maybe Bool)
-    , _lvmdrStatus            :: !Status
+    , _lvmdrStatus            :: !Int
     , _lvmdrVirtualMFADevices :: ![VirtualMFADevice]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListVirtualMFADevicesResponse' smart constructor.
-listVirtualMFADevicesResponse :: Status -> ListVirtualMFADevicesResponse
+listVirtualMFADevicesResponse :: Int -> ListVirtualMFADevicesResponse
 listVirtualMFADevicesResponse pStatus =
     ListVirtualMFADevicesResponse'
     { _lvmdrMarker = Nothing
@@ -175,7 +175,7 @@ lvmdrIsTruncated :: Lens' ListVirtualMFADevicesResponse (Maybe Bool)
 lvmdrIsTruncated = lens _lvmdrIsTruncated (\ s a -> s{_lvmdrIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lvmdrStatus :: Lens' ListVirtualMFADevicesResponse Status
+lvmdrStatus :: Lens' ListVirtualMFADevicesResponse Int
 lvmdrStatus = lens _lvmdrStatus (\ s a -> s{_lvmdrStatus = a});
 
 -- | The list of virtual MFA devices in the current account that match the

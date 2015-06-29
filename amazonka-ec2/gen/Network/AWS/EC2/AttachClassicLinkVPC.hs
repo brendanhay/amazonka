@@ -113,7 +113,7 @@ instance AWSRequest AttachClassicLinkVPC where
           = receiveXML
               (\ s h x ->
                  AttachClassicLinkVPCResponse' <$>
-                   (x .@? "return") <*> (pure s))
+                   (x .@? "return") <*> (pure (fromEnum s)))
 
 instance ToHeaders AttachClassicLinkVPC where
         toHeaders = const mempty
@@ -140,11 +140,11 @@ instance ToQuery AttachClassicLinkVPC where
 -- * 'aclvrStatus'
 data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
     { _aclvrReturn :: !(Maybe Bool)
-    , _aclvrStatus :: !Status
-    } deriving (Eq,Show)
+    , _aclvrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachClassicLinkVPCResponse' smart constructor.
-attachClassicLinkVPCResponse :: Status -> AttachClassicLinkVPCResponse
+attachClassicLinkVPCResponse :: Int -> AttachClassicLinkVPCResponse
 attachClassicLinkVPCResponse pStatus =
     AttachClassicLinkVPCResponse'
     { _aclvrReturn = Nothing
@@ -156,5 +156,5 @@ aclvrReturn :: Lens' AttachClassicLinkVPCResponse (Maybe Bool)
 aclvrReturn = lens _aclvrReturn (\ s a -> s{_aclvrReturn = a});
 
 -- | FIXME: Undocumented member.
-aclvrStatus :: Lens' AttachClassicLinkVPCResponse Status
+aclvrStatus :: Lens' AttachClassicLinkVPCResponse Int
 aclvrStatus = lens _aclvrStatus (\ s a -> s{_aclvrStatus = a});

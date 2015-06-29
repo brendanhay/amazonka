@@ -71,7 +71,8 @@ instance AWSRequest DescribeLoadBalancerAttributes
               "DescribeLoadBalancerAttributesResult"
               (\ s h x ->
                  DescribeLoadBalancerAttributesResponse' <$>
-                   (x .@? "LoadBalancerAttributes") <*> (pure s))
+                   (x .@? "LoadBalancerAttributes") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeLoadBalancerAttributes
          where
@@ -97,11 +98,11 @@ instance ToQuery DescribeLoadBalancerAttributes where
 -- * 'dlbarStatus'
 data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'
     { _dlbarLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
-    , _dlbarStatus                 :: !Status
-    } deriving (Eq,Show)
+    , _dlbarStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancerAttributesResponse' smart constructor.
-describeLoadBalancerAttributesResponse :: Status -> DescribeLoadBalancerAttributesResponse
+describeLoadBalancerAttributesResponse :: Int -> DescribeLoadBalancerAttributesResponse
 describeLoadBalancerAttributesResponse pStatus =
     DescribeLoadBalancerAttributesResponse'
     { _dlbarLoadBalancerAttributes = Nothing
@@ -113,5 +114,5 @@ dlbarLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (May
 dlbarLoadBalancerAttributes = lens _dlbarLoadBalancerAttributes (\ s a -> s{_dlbarLoadBalancerAttributes = a});
 
 -- | FIXME: Undocumented member.
-dlbarStatus :: Lens' DescribeLoadBalancerAttributesResponse Status
+dlbarStatus :: Lens' DescribeLoadBalancerAttributesResponse Int
 dlbarStatus = lens _dlbarStatus (\ s a -> s{_dlbarStatus = a});

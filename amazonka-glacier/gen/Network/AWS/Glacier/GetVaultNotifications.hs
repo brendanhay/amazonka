@@ -104,7 +104,8 @@ instance AWSRequest GetVaultNotifications where
           = receiveJSON
               (\ s h x ->
                  GetVaultNotificationsResponse' <$>
-                   (x .?> "vaultNotificationConfig") <*> (pure s))
+                   (x .?> "vaultNotificationConfig") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetVaultNotifications where
         toHeaders = const mempty
@@ -129,11 +130,11 @@ instance ToQuery GetVaultNotifications where
 -- * 'gvnrStatus'
 data GetVaultNotificationsResponse = GetVaultNotificationsResponse'
     { _gvnrVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
-    , _gvnrStatus                  :: !Status
-    } deriving (Eq,Show)
+    , _gvnrStatus                  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetVaultNotificationsResponse' smart constructor.
-getVaultNotificationsResponse :: Status -> GetVaultNotificationsResponse
+getVaultNotificationsResponse :: Int -> GetVaultNotificationsResponse
 getVaultNotificationsResponse pStatus =
     GetVaultNotificationsResponse'
     { _gvnrVaultNotificationConfig = Nothing
@@ -145,5 +146,5 @@ gvnrVaultNotificationConfig :: Lens' GetVaultNotificationsResponse (Maybe VaultN
 gvnrVaultNotificationConfig = lens _gvnrVaultNotificationConfig (\ s a -> s{_gvnrVaultNotificationConfig = a});
 
 -- | FIXME: Undocumented member.
-gvnrStatus :: Lens' GetVaultNotificationsResponse Status
+gvnrStatus :: Lens' GetVaultNotificationsResponse Int
 gvnrStatus = lens _gvnrStatus (\ s a -> s{_gvnrStatus = a});

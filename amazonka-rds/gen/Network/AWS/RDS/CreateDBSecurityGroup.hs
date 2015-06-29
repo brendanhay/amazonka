@@ -101,7 +101,7 @@ instance AWSRequest CreateDBSecurityGroup where
           = receiveXMLWrapper "CreateDBSecurityGroupResult"
               (\ s h x ->
                  CreateDBSecurityGroupResponse' <$>
-                   (x .@? "DBSecurityGroup") <*> (pure s))
+                   (x .@? "DBSecurityGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDBSecurityGroup where
         toHeaders = const mempty
@@ -128,11 +128,11 @@ instance ToQuery CreateDBSecurityGroup where
 -- * 'cStatus'
 data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'
     { _cDBSecurityGroup :: !(Maybe DBSecurityGroup)
-    , _cStatus          :: !Status
-    } deriving (Eq,Show)
+    , _cStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDBSecurityGroupResponse' smart constructor.
-createDBSecurityGroupResponse :: Status -> CreateDBSecurityGroupResponse
+createDBSecurityGroupResponse :: Int -> CreateDBSecurityGroupResponse
 createDBSecurityGroupResponse pStatus =
     CreateDBSecurityGroupResponse'
     { _cDBSecurityGroup = Nothing
@@ -144,5 +144,5 @@ cDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
 cDBSecurityGroup = lens _cDBSecurityGroup (\ s a -> s{_cDBSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-cStatus :: Lens' CreateDBSecurityGroupResponse Status
+cStatus :: Lens' CreateDBSecurityGroupResponse Int
 cStatus = lens _cStatus (\ s a -> s{_cStatus = a});

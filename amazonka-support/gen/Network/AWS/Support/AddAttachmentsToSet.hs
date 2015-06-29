@@ -94,7 +94,7 @@ instance AWSRequest AddAttachmentsToSet where
               (\ s h x ->
                  AddAttachmentsToSetResponse' <$>
                    (x .?> "expiryTime") <*> (x .?> "attachmentSetId")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders AddAttachmentsToSet where
         toHeaders
@@ -133,11 +133,11 @@ instance ToQuery AddAttachmentsToSet where
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
     { _aatsrExpiryTime      :: !(Maybe Text)
     , _aatsrAttachmentSetId :: !(Maybe Text)
-    , _aatsrStatus          :: !Status
-    } deriving (Eq,Show)
+    , _aatsrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AddAttachmentsToSetResponse' smart constructor.
-addAttachmentsToSetResponse :: Status -> AddAttachmentsToSetResponse
+addAttachmentsToSetResponse :: Int -> AddAttachmentsToSetResponse
 addAttachmentsToSetResponse pStatus =
     AddAttachmentsToSetResponse'
     { _aatsrExpiryTime = Nothing
@@ -157,5 +157,5 @@ aatsrAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatsrAttachmentSetId = lens _aatsrAttachmentSetId (\ s a -> s{_aatsrAttachmentSetId = a});
 
 -- | FIXME: Undocumented member.
-aatsrStatus :: Lens' AddAttachmentsToSetResponse Status
+aatsrStatus :: Lens' AddAttachmentsToSetResponse Int
 aatsrStatus = lens _aatsrStatus (\ s a -> s{_aatsrStatus = a});

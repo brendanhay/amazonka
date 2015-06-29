@@ -231,7 +231,7 @@ instance AWSRequest AssumeRoleWithWebIdentity where
                      <*> (x .@? "Credentials")
                      <*> (x .@? "AssumedRoleUser")
                      <*> (x .@? "Provider")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders AssumeRoleWithWebIdentity where
         toHeaders = const mempty
@@ -279,11 +279,11 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
     , _arwwirCredentials                 :: !(Maybe Credentials)
     , _arwwirAssumedRoleUser             :: !(Maybe AssumedRoleUser)
     , _arwwirProvider                    :: !(Maybe Text)
-    , _arwwirStatus                      :: !Status
-    } deriving (Eq,Show)
+    , _arwwirStatus                      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AssumeRoleWithWebIdentityResponse' smart constructor.
-assumeRoleWithWebIdentityResponse :: Status -> AssumeRoleWithWebIdentityResponse
+assumeRoleWithWebIdentityResponse :: Int -> AssumeRoleWithWebIdentityResponse
 assumeRoleWithWebIdentityResponse pStatus =
     AssumeRoleWithWebIdentityResponse'
     { _arwwirAudience = Nothing
@@ -339,5 +339,5 @@ arwwirProvider :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwirProvider = lens _arwwirProvider (\ s a -> s{_arwwirProvider = a});
 
 -- | FIXME: Undocumented member.
-arwwirStatus :: Lens' AssumeRoleWithWebIdentityResponse Status
+arwwirStatus :: Lens' AssumeRoleWithWebIdentityResponse Int
 arwwirStatus = lens _arwwirStatus (\ s a -> s{_arwwirStatus = a});

@@ -88,7 +88,7 @@ instance AWSRequest DescribeApps where
           = receiveJSON
               (\ s h x ->
                  DescribeAppsResponse' <$>
-                   (x .?> "Apps" .!@ mempty) <*> (pure s))
+                   (x .?> "Apps" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeApps where
         toHeaders
@@ -121,11 +121,11 @@ instance ToQuery DescribeApps where
 -- * 'darStatus'
 data DescribeAppsResponse = DescribeAppsResponse'
     { _darApps   :: !(Maybe [App])
-    , _darStatus :: !Status
-    } deriving (Eq,Show)
+    , _darStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAppsResponse' smart constructor.
-describeAppsResponse :: Status -> DescribeAppsResponse
+describeAppsResponse :: Int -> DescribeAppsResponse
 describeAppsResponse pStatus =
     DescribeAppsResponse'
     { _darApps = Nothing
@@ -137,5 +137,5 @@ darApps :: Lens' DescribeAppsResponse [App]
 darApps = lens _darApps (\ s a -> s{_darApps = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-darStatus :: Lens' DescribeAppsResponse Status
+darStatus :: Lens' DescribeAppsResponse Int
 darStatus = lens _darStatus (\ s a -> s{_darStatus = a});

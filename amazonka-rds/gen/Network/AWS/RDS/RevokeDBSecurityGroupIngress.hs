@@ -125,7 +125,7 @@ instance AWSRequest RevokeDBSecurityGroupIngress
               "RevokeDBSecurityGroupIngressResult"
               (\ s h x ->
                  RevokeDBSecurityGroupIngressResponse' <$>
-                   (x .@? "DBSecurityGroup") <*> (pure s))
+                   (x .@? "DBSecurityGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders RevokeDBSecurityGroupIngress where
         toHeaders = const mempty
@@ -155,11 +155,11 @@ instance ToQuery RevokeDBSecurityGroupIngress where
 -- * 'rdsgirStatus'
 data RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse'
     { _rdsgirDBSecurityGroup :: !(Maybe DBSecurityGroup)
-    , _rdsgirStatus          :: !Status
-    } deriving (Eq,Show)
+    , _rdsgirStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RevokeDBSecurityGroupIngressResponse' smart constructor.
-revokeDBSecurityGroupIngressResponse :: Status -> RevokeDBSecurityGroupIngressResponse
+revokeDBSecurityGroupIngressResponse :: Int -> RevokeDBSecurityGroupIngressResponse
 revokeDBSecurityGroupIngressResponse pStatus =
     RevokeDBSecurityGroupIngressResponse'
     { _rdsgirDBSecurityGroup = Nothing
@@ -171,5 +171,5 @@ rdsgirDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResponse (Maybe DBSec
 rdsgirDBSecurityGroup = lens _rdsgirDBSecurityGroup (\ s a -> s{_rdsgirDBSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-rdsgirStatus :: Lens' RevokeDBSecurityGroupIngressResponse Status
+rdsgirStatus :: Lens' RevokeDBSecurityGroupIngressResponse Int
 rdsgirStatus = lens _rdsgirStatus (\ s a -> s{_rdsgirStatus = a});

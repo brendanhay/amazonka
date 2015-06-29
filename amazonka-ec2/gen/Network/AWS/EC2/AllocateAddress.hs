@@ -91,7 +91,7 @@ instance AWSRequest AllocateAddress where
                  AllocateAddressResponse' <$>
                    (x .@? "allocationId") <*> (x .@? "domain") <*>
                      (x .@? "publicIp")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders AllocateAddress where
         toHeaders = const mempty
@@ -121,11 +121,11 @@ data AllocateAddressResponse = AllocateAddressResponse'
     { _aarAllocationId :: !(Maybe Text)
     , _aarDomain       :: !(Maybe DomainType)
     , _aarPublicIP     :: !(Maybe Text)
-    , _aarStatus       :: !Status
-    } deriving (Eq,Show)
+    , _aarStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AllocateAddressResponse' smart constructor.
-allocateAddressResponse :: Status -> AllocateAddressResponse
+allocateAddressResponse :: Int -> AllocateAddressResponse
 allocateAddressResponse pStatus =
     AllocateAddressResponse'
     { _aarAllocationId = Nothing
@@ -149,5 +149,5 @@ aarPublicIP :: Lens' AllocateAddressResponse (Maybe Text)
 aarPublicIP = lens _aarPublicIP (\ s a -> s{_aarPublicIP = a});
 
 -- | FIXME: Undocumented member.
-aarStatus :: Lens' AllocateAddressResponse Status
+aarStatus :: Lens' AllocateAddressResponse Int
 aarStatus = lens _aarStatus (\ s a -> s{_aarStatus = a});

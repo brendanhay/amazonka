@@ -79,7 +79,7 @@ instance AWSRequest GetHostedZone where
                    (x .@? "VPCs" .!@ mempty >>=
                       may (parseXMLList1 "VPC"))
                      <*> (x .@? "DelegationSet")
-                     <*> (pure s)
+                     <*> (pure (fromEnum s))
                      <*> (x .@ "HostedZone"))
 
 instance ToHeaders GetHostedZone where
@@ -108,12 +108,12 @@ instance ToQuery GetHostedZone where
 data GetHostedZoneResponse = GetHostedZoneResponse'
     { _ghzrVPCs          :: !(Maybe (List1 VPC))
     , _ghzrDelegationSet :: !(Maybe DelegationSet)
-    , _ghzrStatus        :: !Status
+    , _ghzrStatus        :: !Int
     , _ghzrHostedZone    :: !HostedZone
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetHostedZoneResponse' smart constructor.
-getHostedZoneResponse :: Status -> HostedZone -> GetHostedZoneResponse
+getHostedZoneResponse :: Int -> HostedZone -> GetHostedZoneResponse
 getHostedZoneResponse pStatus pHostedZone =
     GetHostedZoneResponse'
     { _ghzrVPCs = Nothing
@@ -133,7 +133,7 @@ ghzrDelegationSet :: Lens' GetHostedZoneResponse (Maybe DelegationSet)
 ghzrDelegationSet = lens _ghzrDelegationSet (\ s a -> s{_ghzrDelegationSet = a});
 
 -- | FIXME: Undocumented member.
-ghzrStatus :: Lens' GetHostedZoneResponse Status
+ghzrStatus :: Lens' GetHostedZoneResponse Int
 ghzrStatus = lens _ghzrStatus (\ s a -> s{_ghzrStatus = a});
 
 -- | A complex type that contains the information about the specified hosted

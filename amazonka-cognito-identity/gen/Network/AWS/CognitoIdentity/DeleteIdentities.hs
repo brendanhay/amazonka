@@ -74,7 +74,7 @@ instance AWSRequest DeleteIdentities where
               (\ s h x ->
                  DeleteIdentitiesResponse' <$>
                    (x .?> "UnprocessedIdentityIds" .!@ mempty) <*>
-                     (pure s))
+                     (pure (fromEnum s)))
 
 instance ToHeaders DeleteIdentities where
         toHeaders
@@ -108,11 +108,11 @@ instance ToQuery DeleteIdentities where
 -- * 'dirStatus'
 data DeleteIdentitiesResponse = DeleteIdentitiesResponse'
     { _dirUnprocessedIdentityIds :: !(Maybe [UnprocessedIdentityId])
-    , _dirStatus                 :: !Status
-    } deriving (Eq,Show)
+    , _dirStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteIdentitiesResponse' smart constructor.
-deleteIdentitiesResponse :: Status -> DeleteIdentitiesResponse
+deleteIdentitiesResponse :: Int -> DeleteIdentitiesResponse
 deleteIdentitiesResponse pStatus =
     DeleteIdentitiesResponse'
     { _dirUnprocessedIdentityIds = Nothing
@@ -125,5 +125,5 @@ dirUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse [UnprocessedIdentity
 dirUnprocessedIdentityIds = lens _dirUnprocessedIdentityIds (\ s a -> s{_dirUnprocessedIdentityIds = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dirStatus :: Lens' DeleteIdentitiesResponse Status
+dirStatus :: Lens' DeleteIdentitiesResponse Int
 dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});

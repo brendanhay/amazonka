@@ -74,7 +74,7 @@ instance AWSRequest VerifyDomainIdentity where
           = receiveXMLWrapper "VerifyDomainIdentityResult"
               (\ s h x ->
                  VerifyDomainIdentityResponse' <$>
-                   (pure s) <*> (x .@ "VerificationToken"))
+                   (pure (fromEnum s)) <*> (x .@ "VerificationToken"))
 
 instance ToHeaders VerifyDomainIdentity where
         toHeaders = const mempty
@@ -99,12 +99,12 @@ instance ToQuery VerifyDomainIdentity where
 --
 -- * 'vdirVerificationToken'
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
-    { _vdirStatus            :: !Status
+    { _vdirStatus            :: !Int
     , _vdirVerificationToken :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'VerifyDomainIdentityResponse' smart constructor.
-verifyDomainIdentityResponse :: Status -> Text -> VerifyDomainIdentityResponse
+verifyDomainIdentityResponse :: Int -> Text -> VerifyDomainIdentityResponse
 verifyDomainIdentityResponse pStatus pVerificationToken =
     VerifyDomainIdentityResponse'
     { _vdirStatus = pStatus
@@ -112,7 +112,7 @@ verifyDomainIdentityResponse pStatus pVerificationToken =
     }
 
 -- | FIXME: Undocumented member.
-vdirStatus :: Lens' VerifyDomainIdentityResponse Status
+vdirStatus :: Lens' VerifyDomainIdentityResponse Int
 vdirStatus = lens _vdirStatus (\ s a -> s{_vdirStatus = a});
 
 -- | A TXT record that must be placed in the DNS settings for the domain, in

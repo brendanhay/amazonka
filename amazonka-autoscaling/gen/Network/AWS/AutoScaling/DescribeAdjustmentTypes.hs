@@ -58,7 +58,7 @@ instance AWSRequest DescribeAdjustmentTypes where
                  DescribeAdjustmentTypesResponse' <$>
                    (x .@? "AdjustmentTypes" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAdjustmentTypes where
         toHeaders = const mempty
@@ -83,11 +83,11 @@ instance ToQuery DescribeAdjustmentTypes where
 -- * 'datrStatus'
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
     { _datrAdjustmentTypes :: !(Maybe [AdjustmentType])
-    , _datrStatus          :: !Status
-    } deriving (Eq,Show)
+    , _datrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAdjustmentTypesResponse' smart constructor.
-describeAdjustmentTypesResponse :: Status -> DescribeAdjustmentTypesResponse
+describeAdjustmentTypesResponse :: Int -> DescribeAdjustmentTypesResponse
 describeAdjustmentTypesResponse pStatus =
     DescribeAdjustmentTypesResponse'
     { _datrAdjustmentTypes = Nothing
@@ -99,5 +99,5 @@ datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
 datrAdjustmentTypes = lens _datrAdjustmentTypes (\ s a -> s{_datrAdjustmentTypes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-datrStatus :: Lens' DescribeAdjustmentTypesResponse Status
+datrStatus :: Lens' DescribeAdjustmentTypesResponse Int
 datrStatus = lens _datrStatus (\ s a -> s{_datrStatus = a});

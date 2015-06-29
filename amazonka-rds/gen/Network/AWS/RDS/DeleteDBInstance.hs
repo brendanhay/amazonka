@@ -125,7 +125,7 @@ instance AWSRequest DeleteDBInstance where
           = receiveXMLWrapper "DeleteDBInstanceResult"
               (\ s h x ->
                  DeleteDBInstanceResponse' <$>
-                   (x .@? "DBInstance") <*> (pure s))
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteDBInstance where
         toHeaders = const mempty
@@ -152,11 +152,11 @@ instance ToQuery DeleteDBInstance where
 -- * 'ddirStatus'
 data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
     { _ddirDBInstance :: !(Maybe DBInstance)
-    , _ddirStatus     :: !Status
-    } deriving (Eq,Show)
+    , _ddirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteDBInstanceResponse' smart constructor.
-deleteDBInstanceResponse :: Status -> DeleteDBInstanceResponse
+deleteDBInstanceResponse :: Int -> DeleteDBInstanceResponse
 deleteDBInstanceResponse pStatus =
     DeleteDBInstanceResponse'
     { _ddirDBInstance = Nothing
@@ -168,5 +168,5 @@ ddirDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
 ddirDBInstance = lens _ddirDBInstance (\ s a -> s{_ddirDBInstance = a});
 
 -- | FIXME: Undocumented member.
-ddirStatus :: Lens' DeleteDBInstanceResponse Status
+ddirStatus :: Lens' DeleteDBInstanceResponse Int
 ddirStatus = lens _ddirStatus (\ s a -> s{_ddirStatus = a});

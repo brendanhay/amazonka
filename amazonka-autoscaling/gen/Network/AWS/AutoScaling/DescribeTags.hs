@@ -108,7 +108,7 @@ instance AWSRequest DescribeTags where
                    (x .@? "NextToken") <*>
                      (x .@? "Tags" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
@@ -138,11 +138,11 @@ instance ToQuery DescribeTags where
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrNextToken :: !(Maybe Text)
     , _dtrTags      :: !(Maybe [TagDescription])
-    , _dtrStatus    :: !Status
-    } deriving (Eq,Show)
+    , _dtrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
-describeTagsResponse :: Status -> DescribeTagsResponse
+describeTagsResponse :: Int -> DescribeTagsResponse
 describeTagsResponse pStatus =
     DescribeTagsResponse'
     { _dtrNextToken = Nothing
@@ -160,5 +160,5 @@ dtrTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtrStatus :: Lens' DescribeTagsResponse Status
+dtrStatus :: Lens' DescribeTagsResponse Int
 dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});

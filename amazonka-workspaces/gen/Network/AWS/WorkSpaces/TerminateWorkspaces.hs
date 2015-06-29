@@ -81,7 +81,8 @@ instance AWSRequest TerminateWorkspaces where
           = receiveJSON
               (\ s h x ->
                  TerminateWorkspacesResponse' <$>
-                   (x .?> "FailedRequests" .!@ mempty) <*> (pure s))
+                   (x .?> "FailedRequests" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders TerminateWorkspaces where
         toHeaders
@@ -116,11 +117,11 @@ instance ToQuery TerminateWorkspaces where
 -- * 'twrStatus'
 data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
     { _twrFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
-    , _twrStatus         :: !Status
-    } deriving (Eq,Show)
+    , _twrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'TerminateWorkspacesResponse' smart constructor.
-terminateWorkspacesResponse :: Status -> TerminateWorkspacesResponse
+terminateWorkspacesResponse :: Int -> TerminateWorkspacesResponse
 terminateWorkspacesResponse pStatus =
     TerminateWorkspacesResponse'
     { _twrFailedRequests = Nothing
@@ -133,5 +134,5 @@ twrFailedRequests :: Lens' TerminateWorkspacesResponse [FailedWorkspaceChangeReq
 twrFailedRequests = lens _twrFailedRequests (\ s a -> s{_twrFailedRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-twrStatus :: Lens' TerminateWorkspacesResponse Status
+twrStatus :: Lens' TerminateWorkspacesResponse Int
 twrStatus = lens _twrStatus (\ s a -> s{_twrStatus = a});

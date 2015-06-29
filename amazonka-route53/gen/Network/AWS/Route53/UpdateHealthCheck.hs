@@ -169,7 +169,7 @@ instance AWSRequest UpdateHealthCheck where
           = receiveXML
               (\ s h x ->
                  UpdateHealthCheckResponse' <$>
-                   (pure s) <*> (x .@ "HealthCheck"))
+                   (pure (fromEnum s)) <*> (x .@ "HealthCheck"))
 
 instance ToElement UpdateHealthCheck where
         toElement
@@ -208,12 +208,12 @@ instance ToXML UpdateHealthCheck where
 --
 -- * 'uhcrHealthCheck'
 data UpdateHealthCheckResponse = UpdateHealthCheckResponse'
-    { _uhcrStatus      :: !Status
+    { _uhcrStatus      :: !Int
     , _uhcrHealthCheck :: !HealthCheck
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateHealthCheckResponse' smart constructor.
-updateHealthCheckResponse :: Status -> HealthCheck -> UpdateHealthCheckResponse
+updateHealthCheckResponse :: Int -> HealthCheck -> UpdateHealthCheckResponse
 updateHealthCheckResponse pStatus pHealthCheck =
     UpdateHealthCheckResponse'
     { _uhcrStatus = pStatus
@@ -221,7 +221,7 @@ updateHealthCheckResponse pStatus pHealthCheck =
     }
 
 -- | FIXME: Undocumented member.
-uhcrStatus :: Lens' UpdateHealthCheckResponse Status
+uhcrStatus :: Lens' UpdateHealthCheckResponse Int
 uhcrStatus = lens _uhcrStatus (\ s a -> s{_uhcrStatus = a});
 
 -- | FIXME: Undocumented member.

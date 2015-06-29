@@ -108,7 +108,7 @@ instance AWSRequest ListOperations where
           = receiveJSON
               (\ s h x ->
                  ListOperationsResponse' <$>
-                   (x .?> "NextPageMarker") <*> (pure s) <*>
+                   (x .?> "NextPageMarker") <*> (pure (fromEnum s)) <*>
                      (x .?> "Operations" .!@ mempty))
 
 instance ToHeaders ListOperations where
@@ -145,12 +145,12 @@ instance ToQuery ListOperations where
 -- * 'lorOperations'
 data ListOperationsResponse = ListOperationsResponse'
     { _lorNextPageMarker :: !(Maybe Text)
-    , _lorStatus         :: !Status
+    , _lorStatus         :: !Int
     , _lorOperations     :: ![OperationSummary]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListOperationsResponse' smart constructor.
-listOperationsResponse :: Status -> ListOperationsResponse
+listOperationsResponse :: Int -> ListOperationsResponse
 listOperationsResponse pStatus =
     ListOperationsResponse'
     { _lorNextPageMarker = Nothing
@@ -169,7 +169,7 @@ lorNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
 lorNextPageMarker = lens _lorNextPageMarker (\ s a -> s{_lorNextPageMarker = a});
 
 -- | FIXME: Undocumented member.
-lorStatus :: Lens' ListOperationsResponse Status
+lorStatus :: Lens' ListOperationsResponse Int
 lorStatus = lens _lorStatus (\ s a -> s{_lorStatus = a});
 
 -- | Lists summaries of the operations.

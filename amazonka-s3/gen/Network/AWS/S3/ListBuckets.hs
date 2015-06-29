@@ -60,7 +60,7 @@ instance AWSRequest ListBuckets where
                    (x .@? "Buckets" .!@ mempty >>=
                       may (parseXMLList "Bucket"))
                      <*> (x .@? "Owner")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListBuckets where
         toHeaders = const mempty
@@ -83,11 +83,11 @@ instance ToQuery ListBuckets where
 data ListBucketsResponse = ListBucketsResponse'
     { _lbrBuckets :: !(Maybe [Bucket])
     , _lbrOwner   :: !(Maybe Owner)
-    , _lbrStatus  :: !Status
+    , _lbrStatus  :: !Int
     } deriving (Eq,Show)
 
 -- | 'ListBucketsResponse' smart constructor.
-listBucketsResponse :: Status -> ListBucketsResponse
+listBucketsResponse :: Int -> ListBucketsResponse
 listBucketsResponse pStatus =
     ListBucketsResponse'
     { _lbrBuckets = Nothing
@@ -104,5 +104,5 @@ lbrOwner :: Lens' ListBucketsResponse (Maybe Owner)
 lbrOwner = lens _lbrOwner (\ s a -> s{_lbrOwner = a});
 
 -- | FIXME: Undocumented member.
-lbrStatus :: Lens' ListBucketsResponse Status
+lbrStatus :: Lens' ListBucketsResponse Int
 lbrStatus = lens _lbrStatus (\ s a -> s{_lbrStatus = a});

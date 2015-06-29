@@ -106,7 +106,7 @@ instance AWSRequest ListJobs where
                    (x .@? "Jobs" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "IsTruncated")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListJobs where
         toHeaders = const mempty
@@ -137,11 +137,11 @@ instance ToQuery ListJobs where
 data ListJobsResponse = ListJobsResponse'
     { _ljrJobs        :: !(Maybe [Job])
     , _ljrIsTruncated :: !(Maybe Bool)
-    , _ljrStatus      :: !Status
-    } deriving (Eq,Show)
+    , _ljrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListJobsResponse' smart constructor.
-listJobsResponse :: Status -> ListJobsResponse
+listJobsResponse :: Int -> ListJobsResponse
 listJobsResponse pStatus =
     ListJobsResponse'
     { _ljrJobs = Nothing
@@ -158,5 +158,5 @@ ljrIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
 ljrIsTruncated = lens _ljrIsTruncated (\ s a -> s{_ljrIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-ljrStatus :: Lens' ListJobsResponse Status
+ljrStatus :: Lens' ListJobsResponse Int
 ljrStatus = lens _ljrStatus (\ s a -> s{_ljrStatus = a});

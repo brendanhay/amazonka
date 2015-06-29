@@ -78,7 +78,7 @@ instance AWSRequest GetHostnameSuggestion where
               (\ s h x ->
                  GetHostnameSuggestionResponse' <$>
                    (x .?> "Hostname") <*> (x .?> "LayerId") <*>
-                     (pure s))
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetHostnameSuggestion where
         toHeaders
@@ -114,11 +114,11 @@ instance ToQuery GetHostnameSuggestion where
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
     { _ghsrHostname :: !(Maybe Text)
     , _ghsrLayerId  :: !(Maybe Text)
-    , _ghsrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _ghsrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetHostnameSuggestionResponse' smart constructor.
-getHostnameSuggestionResponse :: Status -> GetHostnameSuggestionResponse
+getHostnameSuggestionResponse :: Int -> GetHostnameSuggestionResponse
 getHostnameSuggestionResponse pStatus =
     GetHostnameSuggestionResponse'
     { _ghsrHostname = Nothing
@@ -135,5 +135,5 @@ ghsrLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
 ghsrLayerId = lens _ghsrLayerId (\ s a -> s{_ghsrLayerId = a});
 
 -- | FIXME: Undocumented member.
-ghsrStatus :: Lens' GetHostnameSuggestionResponse Status
+ghsrStatus :: Lens' GetHostnameSuggestionResponse Int
 ghsrStatus = lens _ghsrStatus (\ s a -> s{_ghsrStatus = a});

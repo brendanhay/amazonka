@@ -132,7 +132,8 @@ instance AWSRequest PollForActivityTask where
           = receiveJSON
               (\ s h x ->
                  PollForActivityTaskResponse' <$>
-                   (x .?> "input") <*> (pure s) <*> (x .:> "taskToken")
+                   (x .?> "input") <*> (pure (fromEnum s)) <*>
+                     (x .:> "taskToken")
                      <*> (x .:> "activityId")
                      <*> (x .:> "startedEventId")
                      <*> (x .:> "workflowExecution")
@@ -181,16 +182,16 @@ instance ToQuery PollForActivityTask where
 -- * 'pfatrActivityType'
 data PollForActivityTaskResponse = PollForActivityTaskResponse'
     { _pfatrInput             :: !(Maybe Text)
-    , _pfatrStatus            :: !Status
+    , _pfatrStatus            :: !Int
     , _pfatrTaskToken         :: !Text
     , _pfatrActivityId        :: !Text
     , _pfatrStartedEventId    :: !Integer
     , _pfatrWorkflowExecution :: !WorkflowExecution
     , _pfatrActivityType      :: !ActivityType
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'PollForActivityTaskResponse' smart constructor.
-pollForActivityTaskResponse :: Status -> Text -> Text -> Integer -> WorkflowExecution -> ActivityType -> PollForActivityTaskResponse
+pollForActivityTaskResponse :: Int -> Text -> Text -> Integer -> WorkflowExecution -> ActivityType -> PollForActivityTaskResponse
 pollForActivityTaskResponse pStatus pTaskToken pActivityId pStartedEventId pWorkflowExecution pActivityType =
     PollForActivityTaskResponse'
     { _pfatrInput = Nothing
@@ -209,7 +210,7 @@ pfatrInput :: Lens' PollForActivityTaskResponse (Maybe Text)
 pfatrInput = lens _pfatrInput (\ s a -> s{_pfatrInput = a});
 
 -- | FIXME: Undocumented member.
-pfatrStatus :: Lens' PollForActivityTaskResponse Status
+pfatrStatus :: Lens' PollForActivityTaskResponse Int
 pfatrStatus = lens _pfatrStatus (\ s a -> s{_pfatrStatus = a});
 
 -- | The opaque string used as a handle on the task. This token is used by

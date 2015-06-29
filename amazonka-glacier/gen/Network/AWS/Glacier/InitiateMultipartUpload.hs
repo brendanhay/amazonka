@@ -148,7 +148,7 @@ instance AWSRequest InitiateMultipartUpload where
                  InitiateMultipartUploadResponse' <$>
                    (h .#? "Location") <*>
                      (h .#? "x-amz-multipart-upload-id")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders InitiateMultipartUpload where
         toHeaders InitiateMultipartUpload'{..}
@@ -183,11 +183,11 @@ instance ToQuery InitiateMultipartUpload where
 data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
     { _imurLocation :: !(Maybe Text)
     , _imurUploadId :: !(Maybe Text)
-    , _imurStatus   :: !Status
-    } deriving (Eq,Show)
+    , _imurStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'InitiateMultipartUploadResponse' smart constructor.
-initiateMultipartUploadResponse :: Status -> InitiateMultipartUploadResponse
+initiateMultipartUploadResponse :: Int -> InitiateMultipartUploadResponse
 initiateMultipartUploadResponse pStatus =
     InitiateMultipartUploadResponse'
     { _imurLocation = Nothing
@@ -205,5 +205,5 @@ imurUploadId :: Lens' InitiateMultipartUploadResponse (Maybe Text)
 imurUploadId = lens _imurUploadId (\ s a -> s{_imurUploadId = a});
 
 -- | FIXME: Undocumented member.
-imurStatus :: Lens' InitiateMultipartUploadResponse Status
+imurStatus :: Lens' InitiateMultipartUploadResponse Int
 imurStatus = lens _imurStatus (\ s a -> s{_imurStatus = a});

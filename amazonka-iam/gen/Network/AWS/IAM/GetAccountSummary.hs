@@ -62,7 +62,7 @@ instance AWSRequest GetAccountSummary where
                  GetAccountSummaryResponse' <$>
                    (x .@? "SummaryMap" .!@ mempty >>=
                       may (parseXMLMap "entry" "key" "value"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetAccountSummary where
         toHeaders = const mempty
@@ -88,11 +88,11 @@ instance ToQuery GetAccountSummary where
 -- * 'gasrStatus'
 data GetAccountSummaryResponse = GetAccountSummaryResponse'
     { _gasrSummaryMap :: !(Maybe (Map SummaryKeyType Int))
-    , _gasrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _gasrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetAccountSummaryResponse' smart constructor.
-getAccountSummaryResponse :: Status -> GetAccountSummaryResponse
+getAccountSummaryResponse :: Int -> GetAccountSummaryResponse
 getAccountSummaryResponse pStatus =
     GetAccountSummaryResponse'
     { _gasrSummaryMap = Nothing
@@ -256,5 +256,5 @@ gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
 gasrSummaryMap = lens _gasrSummaryMap (\ s a -> s{_gasrSummaryMap = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gasrStatus :: Lens' GetAccountSummaryResponse Status
+gasrStatus :: Lens' GetAccountSummaryResponse Int
 gasrStatus = lens _gasrStatus (\ s a -> s{_gasrStatus = a});

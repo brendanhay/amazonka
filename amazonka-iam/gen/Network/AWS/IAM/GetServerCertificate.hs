@@ -70,7 +70,7 @@ instance AWSRequest GetServerCertificate where
           = receiveXMLWrapper "GetServerCertificateResult"
               (\ s h x ->
                  GetServerCertificateResponse' <$>
-                   (pure s) <*> (x .@ "ServerCertificate"))
+                   (pure (fromEnum s)) <*> (x .@ "ServerCertificate"))
 
 instance ToHeaders GetServerCertificate where
         toHeaders = const mempty
@@ -95,12 +95,12 @@ instance ToQuery GetServerCertificate where
 --
 -- * 'gscrServerCertificate'
 data GetServerCertificateResponse = GetServerCertificateResponse'
-    { _gscrStatus            :: !Status
+    { _gscrStatus            :: !Int
     , _gscrServerCertificate :: !ServerCertificate
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetServerCertificateResponse' smart constructor.
-getServerCertificateResponse :: Status -> ServerCertificate -> GetServerCertificateResponse
+getServerCertificateResponse :: Int -> ServerCertificate -> GetServerCertificateResponse
 getServerCertificateResponse pStatus pServerCertificate =
     GetServerCertificateResponse'
     { _gscrStatus = pStatus
@@ -108,7 +108,7 @@ getServerCertificateResponse pStatus pServerCertificate =
     }
 
 -- | FIXME: Undocumented member.
-gscrStatus :: Lens' GetServerCertificateResponse Status
+gscrStatus :: Lens' GetServerCertificateResponse Int
 gscrStatus = lens _gscrStatus (\ s a -> s{_gscrStatus = a});
 
 -- | Information about the server certificate.

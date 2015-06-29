@@ -124,7 +124,7 @@ instance AWSRequest DescribePendingMaintenanceActions
                       may
                         (parseXMLList "ResourcePendingMaintenanceActions"))
                      <*> (x .@? "Marker")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribePendingMaintenanceActions
          where
@@ -161,11 +161,11 @@ instance ToQuery DescribePendingMaintenanceActions
 data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'
     { _dpmarPendingMaintenanceActions :: !(Maybe [ResourcePendingMaintenanceActions])
     , _dpmarMarker                    :: !(Maybe Text)
-    , _dpmarStatus                    :: !Status
-    } deriving (Eq,Show)
+    , _dpmarStatus                    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribePendingMaintenanceActionsResponse' smart constructor.
-describePendingMaintenanceActionsResponse :: Status -> DescribePendingMaintenanceActionsResponse
+describePendingMaintenanceActionsResponse :: Int -> DescribePendingMaintenanceActionsResponse
 describePendingMaintenanceActionsResponse pStatus =
     DescribePendingMaintenanceActionsResponse'
     { _dpmarPendingMaintenanceActions = Nothing
@@ -185,5 +185,5 @@ dpmarMarker :: Lens' DescribePendingMaintenanceActionsResponse (Maybe Text)
 dpmarMarker = lens _dpmarMarker (\ s a -> s{_dpmarMarker = a});
 
 -- | FIXME: Undocumented member.
-dpmarStatus :: Lens' DescribePendingMaintenanceActionsResponse Status
+dpmarStatus :: Lens' DescribePendingMaintenanceActionsResponse Int
 dpmarStatus = lens _dpmarStatus (\ s a -> s{_dpmarStatus = a});

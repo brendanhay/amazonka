@@ -260,7 +260,7 @@ instance AWSRequest RegisterDomain where
           = receiveJSON
               (\ s h x ->
                  RegisterDomainResponse' <$>
-                   (pure s) <*> (x .:> "OperationId"))
+                   (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
 instance ToHeaders RegisterDomain where
         toHeaders
@@ -305,12 +305,12 @@ instance ToQuery RegisterDomain where
 --
 -- * 'rdrOperationId'
 data RegisterDomainResponse = RegisterDomainResponse'
-    { _rdrStatus      :: !Status
+    { _rdrStatus      :: !Int
     , _rdrOperationId :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterDomainResponse' smart constructor.
-registerDomainResponse :: Status -> Text -> RegisterDomainResponse
+registerDomainResponse :: Int -> Text -> RegisterDomainResponse
 registerDomainResponse pStatus pOperationId =
     RegisterDomainResponse'
     { _rdrStatus = pStatus
@@ -318,7 +318,7 @@ registerDomainResponse pStatus pOperationId =
     }
 
 -- | FIXME: Undocumented member.
-rdrStatus :: Lens' RegisterDomainResponse Status
+rdrStatus :: Lens' RegisterDomainResponse Int
 rdrStatus = lens _rdrStatus (\ s a -> s{_rdrStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to

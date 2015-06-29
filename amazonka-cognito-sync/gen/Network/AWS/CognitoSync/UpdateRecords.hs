@@ -150,7 +150,7 @@ instance AWSRequest UpdateRecords where
           = receiveJSON
               (\ s h x ->
                  UpdateRecordsResponse' <$>
-                   (x .?> "Records" .!@ mempty) <*> (pure s))
+                   (x .?> "Records" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateRecords where
         toHeaders UpdateRecords'{..}
@@ -187,11 +187,11 @@ instance ToQuery UpdateRecords where
 -- * 'urrStatus'
 data UpdateRecordsResponse = UpdateRecordsResponse'
     { _urrRecords :: !(Maybe [Record])
-    , _urrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _urrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateRecordsResponse' smart constructor.
-updateRecordsResponse :: Status -> UpdateRecordsResponse
+updateRecordsResponse :: Int -> UpdateRecordsResponse
 updateRecordsResponse pStatus =
     UpdateRecordsResponse'
     { _urrRecords = Nothing
@@ -203,5 +203,5 @@ urrRecords :: Lens' UpdateRecordsResponse [Record]
 urrRecords = lens _urrRecords (\ s a -> s{_urrRecords = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-urrStatus :: Lens' UpdateRecordsResponse Status
+urrStatus :: Lens' UpdateRecordsResponse Int
 urrStatus = lens _urrStatus (\ s a -> s{_urrStatus = a});

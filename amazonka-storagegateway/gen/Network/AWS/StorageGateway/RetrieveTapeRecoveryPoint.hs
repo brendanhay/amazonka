@@ -89,7 +89,7 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
           = receiveJSON
               (\ s h x ->
                  RetrieveTapeRecoveryPointResponse' <$>
-                   (x .?> "TapeARN") <*> (pure s))
+                   (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders RetrieveTapeRecoveryPoint where
         toHeaders
@@ -124,11 +124,11 @@ instance ToQuery RetrieveTapeRecoveryPoint where
 -- * 'rtrprStatus'
 data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'
     { _rtrprTapeARN :: !(Maybe Text)
-    , _rtrprStatus  :: !Status
-    } deriving (Eq,Show)
+    , _rtrprStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RetrieveTapeRecoveryPointResponse' smart constructor.
-retrieveTapeRecoveryPointResponse :: Status -> RetrieveTapeRecoveryPointResponse
+retrieveTapeRecoveryPointResponse :: Int -> RetrieveTapeRecoveryPointResponse
 retrieveTapeRecoveryPointResponse pStatus =
     RetrieveTapeRecoveryPointResponse'
     { _rtrprTapeARN = Nothing
@@ -141,5 +141,5 @@ rtrprTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprTapeARN = lens _rtrprTapeARN (\ s a -> s{_rtrprTapeARN = a});
 
 -- | FIXME: Undocumented member.
-rtrprStatus :: Lens' RetrieveTapeRecoveryPointResponse Status
+rtrprStatus :: Lens' RetrieveTapeRecoveryPointResponse Int
 rtrprStatus = lens _rtrprStatus (\ s a -> s{_rtrprStatus = a});

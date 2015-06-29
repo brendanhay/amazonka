@@ -100,7 +100,8 @@ instance AWSRequest DescribeDeployments where
           = receiveJSON
               (\ s h x ->
                  DescribeDeploymentsResponse' <$>
-                   (x .?> "Deployments" .!@ mempty) <*> (pure s))
+                   (x .?> "Deployments" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeDeployments where
         toHeaders
@@ -136,11 +137,11 @@ instance ToQuery DescribeDeployments where
 -- * 'ddrStatus'
 data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
     { _ddrDeployments :: !(Maybe [Deployment])
-    , _ddrStatus      :: !Status
-    } deriving (Eq,Show)
+    , _ddrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDeploymentsResponse' smart constructor.
-describeDeploymentsResponse :: Status -> DescribeDeploymentsResponse
+describeDeploymentsResponse :: Int -> DescribeDeploymentsResponse
 describeDeploymentsResponse pStatus =
     DescribeDeploymentsResponse'
     { _ddrDeployments = Nothing
@@ -152,5 +153,5 @@ ddrDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
 ddrDeployments = lens _ddrDeployments (\ s a -> s{_ddrDeployments = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddrStatus :: Lens' DescribeDeploymentsResponse Status
+ddrStatus :: Lens' DescribeDeploymentsResponse Int
 ddrStatus = lens _ddrStatus (\ s a -> s{_ddrStatus = a});

@@ -94,7 +94,7 @@ instance AWSRequest CreateKey where
           = receiveJSON
               (\ s h x ->
                  CreateKeyResponse' <$>
-                   (x .?> "KeyMetadata") <*> (pure s))
+                   (x .?> "KeyMetadata") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateKey where
         toHeaders
@@ -126,11 +126,11 @@ instance ToQuery CreateKey where
 -- * 'ckrStatus'
 data CreateKeyResponse = CreateKeyResponse'
     { _ckrKeyMetadata :: !(Maybe KeyMetadata)
-    , _ckrStatus      :: !Status
-    } deriving (Eq,Show)
+    , _ckrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateKeyResponse' smart constructor.
-createKeyResponse :: Status -> CreateKeyResponse
+createKeyResponse :: Int -> CreateKeyResponse
 createKeyResponse pStatus =
     CreateKeyResponse'
     { _ckrKeyMetadata = Nothing
@@ -142,5 +142,5 @@ ckrKeyMetadata :: Lens' CreateKeyResponse (Maybe KeyMetadata)
 ckrKeyMetadata = lens _ckrKeyMetadata (\ s a -> s{_ckrKeyMetadata = a});
 
 -- | FIXME: Undocumented member.
-ckrStatus :: Lens' CreateKeyResponse Status
+ckrStatus :: Lens' CreateKeyResponse Int
 ckrStatus = lens _ckrStatus (\ s a -> s{_ckrStatus = a});

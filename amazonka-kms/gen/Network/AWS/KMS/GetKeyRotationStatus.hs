@@ -76,7 +76,7 @@ instance AWSRequest GetKeyRotationStatus where
           = receiveJSON
               (\ s h x ->
                  GetKeyRotationStatusResponse' <$>
-                   (x .?> "KeyRotationEnabled") <*> (pure s))
+                   (x .?> "KeyRotationEnabled") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetKeyRotationStatus where
         toHeaders
@@ -106,11 +106,11 @@ instance ToQuery GetKeyRotationStatus where
 -- * 'gkrsrStatus'
 data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
     { _gkrsrKeyRotationEnabled :: !(Maybe Bool)
-    , _gkrsrStatus             :: !Status
-    } deriving (Eq,Show)
+    , _gkrsrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetKeyRotationStatusResponse' smart constructor.
-getKeyRotationStatusResponse :: Status -> GetKeyRotationStatusResponse
+getKeyRotationStatusResponse :: Int -> GetKeyRotationStatusResponse
 getKeyRotationStatusResponse pStatus =
     GetKeyRotationStatusResponse'
     { _gkrsrKeyRotationEnabled = Nothing
@@ -122,5 +122,5 @@ gkrsrKeyRotationEnabled :: Lens' GetKeyRotationStatusResponse (Maybe Bool)
 gkrsrKeyRotationEnabled = lens _gkrsrKeyRotationEnabled (\ s a -> s{_gkrsrKeyRotationEnabled = a});
 
 -- | FIXME: Undocumented member.
-gkrsrStatus :: Lens' GetKeyRotationStatusResponse Status
+gkrsrStatus :: Lens' GetKeyRotationStatusResponse Int
 gkrsrStatus = lens _gkrsrStatus (\ s a -> s{_gkrsrStatus = a});

@@ -142,7 +142,7 @@ instance AWSRequest GetLogEvents where
                    (x .?> "nextBackwardToken") <*>
                      (x .?> "nextForwardToken")
                      <*> (x .?> "events" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetLogEvents where
         toHeaders
@@ -184,11 +184,11 @@ data GetLogEventsResponse = GetLogEventsResponse'
     { _glerNextBackwardToken :: !(Maybe Text)
     , _glerNextForwardToken  :: !(Maybe Text)
     , _glerEvents            :: !(Maybe [OutputLogEvent])
-    , _glerStatus            :: !Status
-    } deriving (Eq,Show)
+    , _glerStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetLogEventsResponse' smart constructor.
-getLogEventsResponse :: Status -> GetLogEventsResponse
+getLogEventsResponse :: Int -> GetLogEventsResponse
 getLogEventsResponse pStatus =
     GetLogEventsResponse'
     { _glerNextBackwardToken = Nothing
@@ -210,5 +210,5 @@ glerEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
 glerEvents = lens _glerEvents (\ s a -> s{_glerEvents = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-glerStatus :: Lens' GetLogEventsResponse Status
+glerStatus :: Lens' GetLogEventsResponse Int
 glerStatus = lens _glerStatus (\ s a -> s{_glerStatus = a});

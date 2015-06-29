@@ -126,7 +126,7 @@ instance AWSRequest CopyImage where
           = receiveXML
               (\ s h x ->
                  CopyImageResponse' <$>
-                   (x .@? "imageId") <*> (pure s))
+                   (x .@? "imageId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CopyImage where
         toHeaders = const mempty
@@ -155,11 +155,11 @@ instance ToQuery CopyImage where
 -- * 'copStatus'
 data CopyImageResponse = CopyImageResponse'
     { _copImageId :: !(Maybe Text)
-    , _copStatus  :: !Status
-    } deriving (Eq,Show)
+    , _copStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CopyImageResponse' smart constructor.
-copyImageResponse :: Status -> CopyImageResponse
+copyImageResponse :: Int -> CopyImageResponse
 copyImageResponse pStatus =
     CopyImageResponse'
     { _copImageId = Nothing
@@ -171,5 +171,5 @@ copImageId :: Lens' CopyImageResponse (Maybe Text)
 copImageId = lens _copImageId (\ s a -> s{_copImageId = a});
 
 -- | FIXME: Undocumented member.
-copStatus :: Lens' CopyImageResponse Status
+copStatus :: Lens' CopyImageResponse Int
 copStatus = lens _copStatus (\ s a -> s{_copStatus = a});

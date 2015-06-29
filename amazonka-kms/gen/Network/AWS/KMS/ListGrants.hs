@@ -102,7 +102,7 @@ instance AWSRequest ListGrants where
                  ListGrantsResponse' <$>
                    (x .?> "Truncated") <*> (x .?> "Grants" .!@ mempty)
                      <*> (x .?> "NextMarker")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListGrants where
         toHeaders
@@ -140,11 +140,11 @@ data ListGrantsResponse = ListGrantsResponse'
     { _lgrTruncated  :: !(Maybe Bool)
     , _lgrGrants     :: !(Maybe [GrantListEntry])
     , _lgrNextMarker :: !(Maybe Text)
-    , _lgrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _lgrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGrantsResponse' smart constructor.
-listGrantsResponse :: Status -> ListGrantsResponse
+listGrantsResponse :: Int -> ListGrantsResponse
 listGrantsResponse pStatus =
     ListGrantsResponse'
     { _lgrTruncated = Nothing
@@ -171,5 +171,5 @@ lgrNextMarker :: Lens' ListGrantsResponse (Maybe Text)
 lgrNextMarker = lens _lgrNextMarker (\ s a -> s{_lgrNextMarker = a});
 
 -- | FIXME: Undocumented member.
-lgrStatus :: Lens' ListGrantsResponse Status
+lgrStatus :: Lens' ListGrantsResponse Int
 lgrStatus = lens _lgrStatus (\ s a -> s{_lgrStatus = a});

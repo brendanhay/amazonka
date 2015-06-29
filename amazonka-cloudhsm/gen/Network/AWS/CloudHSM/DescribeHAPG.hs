@@ -86,7 +86,7 @@ instance AWSRequest DescribeHAPG where
                      <*> (x .?> "PartitionSerialList" .!@ mempty)
                      <*> (x .?> "HapgArn")
                      <*> (x .?> "Label")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeHAPG where
         toHeaders
@@ -143,11 +143,11 @@ data DescribeHAPGResponse = DescribeHAPGResponse'
     , _desPartitionSerialList     :: !(Maybe [Text])
     , _desHAPGARN                 :: !(Maybe Text)
     , _desLabel                   :: !(Maybe Text)
-    , _desStatus                  :: !Status
-    } deriving (Eq,Show)
+    , _desStatus                  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeHAPGResponse' smart constructor.
-describeHAPGResponse :: Status -> DescribeHAPGResponse
+describeHAPGResponse :: Int -> DescribeHAPGResponse
 describeHAPGResponse pStatus =
     DescribeHAPGResponse'
     { _desState = Nothing
@@ -201,5 +201,5 @@ desLabel :: Lens' DescribeHAPGResponse (Maybe Text)
 desLabel = lens _desLabel (\ s a -> s{_desLabel = a});
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeHAPGResponse Status
+desStatus :: Lens' DescribeHAPGResponse Int
 desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

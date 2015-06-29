@@ -114,7 +114,7 @@ instance AWSRequest DescribeCacheParameterGroups
                    (x .@? "CacheParameterGroups" .!@ mempty >>=
                       may (parseXMLList "CacheParameterGroup"))
                      <*> (x .@? "Marker")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeCacheParameterGroups where
         toHeaders = const mempty
@@ -147,11 +147,11 @@ instance ToQuery DescribeCacheParameterGroups where
 data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse'
     { _dcpgrCacheParameterGroups :: !(Maybe [CacheParameterGroup])
     , _dcpgrMarker               :: !(Maybe Text)
-    , _dcpgrStatus               :: !Status
-    } deriving (Eq,Show)
+    , _dcpgrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheParameterGroupsResponse' smart constructor.
-describeCacheParameterGroupsResponse :: Status -> DescribeCacheParameterGroupsResponse
+describeCacheParameterGroupsResponse :: Int -> DescribeCacheParameterGroupsResponse
 describeCacheParameterGroupsResponse pStatus =
     DescribeCacheParameterGroupsResponse'
     { _dcpgrCacheParameterGroups = Nothing
@@ -169,5 +169,5 @@ dcpgrMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
 dcpgrMarker = lens _dcpgrMarker (\ s a -> s{_dcpgrMarker = a});
 
 -- | FIXME: Undocumented member.
-dcpgrStatus :: Lens' DescribeCacheParameterGroupsResponse Status
+dcpgrStatus :: Lens' DescribeCacheParameterGroupsResponse Int
 dcpgrStatus = lens _dcpgrStatus (\ s a -> s{_dcpgrStatus = a});

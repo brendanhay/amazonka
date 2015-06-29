@@ -117,7 +117,7 @@ instance AWSRequest DescribeReplicationGroups where
                    (x .@? "Marker") <*>
                      (x .@? "ReplicationGroups" .!@ mempty >>=
                         may (parseXMLList "ReplicationGroup"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeReplicationGroups where
         toHeaders = const mempty
@@ -149,11 +149,11 @@ instance ToQuery DescribeReplicationGroups where
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
     { _drgrMarker            :: !(Maybe Text)
     , _drgrReplicationGroups :: !(Maybe [ReplicationGroup])
-    , _drgrStatus            :: !Status
-    } deriving (Eq,Show)
+    , _drgrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReplicationGroupsResponse' smart constructor.
-describeReplicationGroupsResponse :: Status -> DescribeReplicationGroupsResponse
+describeReplicationGroupsResponse :: Int -> DescribeReplicationGroupsResponse
 describeReplicationGroupsResponse pStatus =
     DescribeReplicationGroupsResponse'
     { _drgrMarker = Nothing
@@ -171,5 +171,5 @@ drgrReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGro
 drgrReplicationGroups = lens _drgrReplicationGroups (\ s a -> s{_drgrReplicationGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drgrStatus :: Lens' DescribeReplicationGroupsResponse Status
+drgrStatus :: Lens' DescribeReplicationGroupsResponse Int
 drgrStatus = lens _drgrStatus (\ s a -> s{_drgrStatus = a});

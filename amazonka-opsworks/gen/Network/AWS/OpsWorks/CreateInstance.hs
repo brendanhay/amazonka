@@ -276,7 +276,7 @@ instance AWSRequest CreateInstance where
           = receiveJSON
               (\ s h x ->
                  CreateInstanceResponse' <$>
-                   (x .?> "InstanceId") <*> (pure s))
+                   (x .?> "InstanceId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateInstance where
         toHeaders
@@ -323,11 +323,11 @@ instance ToQuery CreateInstance where
 -- * 'cirStatus'
 data CreateInstanceResponse = CreateInstanceResponse'
     { _cirInstanceId :: !(Maybe Text)
-    , _cirStatus     :: !Status
-    } deriving (Eq,Show)
+    , _cirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateInstanceResponse' smart constructor.
-createInstanceResponse :: Status -> CreateInstanceResponse
+createInstanceResponse :: Int -> CreateInstanceResponse
 createInstanceResponse pStatus =
     CreateInstanceResponse'
     { _cirInstanceId = Nothing
@@ -339,5 +339,5 @@ cirInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
 cirInstanceId = lens _cirInstanceId (\ s a -> s{_cirInstanceId = a});
 
 -- | FIXME: Undocumented member.
-cirStatus :: Lens' CreateInstanceResponse Status
+cirStatus :: Lens' CreateInstanceResponse Int
 cirStatus = lens _cirStatus (\ s a -> s{_cirStatus = a});

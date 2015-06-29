@@ -199,7 +199,8 @@ instance AWSRequest DescribeNetworkInterfaces where
           = receiveXML
               (\ s h x ->
                  DescribeNetworkInterfacesResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeNetworkInterfaces where
         toHeaders = const mempty
@@ -227,11 +228,11 @@ instance ToQuery DescribeNetworkInterfaces where
 -- * 'dnirStatus'
 data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
     { _dnirNetworkInterfaces :: !(Maybe [NetworkInterface])
-    , _dnirStatus            :: !Status
-    } deriving (Eq,Show)
+    , _dnirStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeNetworkInterfacesResponse' smart constructor.
-describeNetworkInterfacesResponse :: Status -> DescribeNetworkInterfacesResponse
+describeNetworkInterfacesResponse :: Int -> DescribeNetworkInterfacesResponse
 describeNetworkInterfacesResponse pStatus =
     DescribeNetworkInterfacesResponse'
     { _dnirNetworkInterfaces = Nothing
@@ -243,5 +244,5 @@ dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterfa
 dnirNetworkInterfaces = lens _dnirNetworkInterfaces (\ s a -> s{_dnirNetworkInterfaces = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dnirStatus :: Lens' DescribeNetworkInterfacesResponse Status
+dnirStatus :: Lens' DescribeNetworkInterfacesResponse Int
 dnirStatus = lens _dnirStatus (\ s a -> s{_dnirStatus = a});

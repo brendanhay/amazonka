@@ -78,7 +78,8 @@ instance AWSRequest DeleteReusableDelegationSet where
         response
           = receiveXML
               (\ s h x ->
-                 DeleteReusableDelegationSetResponse' <$> (pure s))
+                 DeleteReusableDelegationSetResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders DeleteReusableDelegationSet where
         toHeaders = const mempty
@@ -99,16 +100,16 @@ instance ToQuery DeleteReusableDelegationSet where
 --
 -- * 'drdsrStatus'
 newtype DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse'
-    { _drdsrStatus :: Status
-    } deriving (Eq,Show)
+    { _drdsrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteReusableDelegationSetResponse' smart constructor.
-deleteReusableDelegationSetResponse :: Status -> DeleteReusableDelegationSetResponse
+deleteReusableDelegationSetResponse :: Int -> DeleteReusableDelegationSetResponse
 deleteReusableDelegationSetResponse pStatus =
     DeleteReusableDelegationSetResponse'
     { _drdsrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-drdsrStatus :: Lens' DeleteReusableDelegationSetResponse Status
+drdsrStatus :: Lens' DeleteReusableDelegationSetResponse Int
 drdsrStatus = lens _drdsrStatus (\ s a -> s{_drdsrStatus = a});

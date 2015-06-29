@@ -102,7 +102,7 @@ instance AWSRequest RegisterDevice where
           = receiveJSON
               (\ s h x ->
                  RegisterDeviceResponse' <$>
-                   (x .?> "DeviceId") <*> (pure s))
+                   (x .?> "DeviceId") <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterDevice where
         toHeaders
@@ -136,11 +136,11 @@ instance ToQuery RegisterDevice where
 -- * 'rdrStatus'
 data RegisterDeviceResponse = RegisterDeviceResponse'
     { _rdrDeviceId :: !(Maybe Text)
-    , _rdrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _rdrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterDeviceResponse' smart constructor.
-registerDeviceResponse :: Status -> RegisterDeviceResponse
+registerDeviceResponse :: Int -> RegisterDeviceResponse
 registerDeviceResponse pStatus =
     RegisterDeviceResponse'
     { _rdrDeviceId = Nothing
@@ -152,5 +152,5 @@ rdrDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
 rdrDeviceId = lens _rdrDeviceId (\ s a -> s{_rdrDeviceId = a});
 
 -- | FIXME: Undocumented member.
-rdrStatus :: Lens' RegisterDeviceResponse Status
+rdrStatus :: Lens' RegisterDeviceResponse Int
 rdrStatus = lens _rdrStatus (\ s a -> s{_rdrStatus = a});

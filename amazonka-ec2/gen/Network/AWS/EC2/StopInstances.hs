@@ -127,7 +127,8 @@ instance AWSRequest StopInstances where
           = receiveXML
               (\ s h x ->
                  StopInstancesResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders StopInstances where
         toHeaders = const mempty
@@ -152,11 +153,11 @@ instance ToQuery StopInstances where
 -- * 'stoStatus'
 data StopInstancesResponse = StopInstancesResponse'
     { _stoStoppingInstances :: !(Maybe [InstanceStateChange])
-    , _stoStatus            :: !Status
-    } deriving (Eq,Show)
+    , _stoStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'StopInstancesResponse' smart constructor.
-stopInstancesResponse :: Status -> StopInstancesResponse
+stopInstancesResponse :: Int -> StopInstancesResponse
 stopInstancesResponse pStatus =
     StopInstancesResponse'
     { _stoStoppingInstances = Nothing
@@ -168,5 +169,5 @@ stoStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
 stoStoppingInstances = lens _stoStoppingInstances (\ s a -> s{_stoStoppingInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-stoStatus :: Lens' StopInstancesResponse Status
+stoStatus :: Lens' StopInstancesResponse Int
 stoStatus = lens _stoStatus (\ s a -> s{_stoStatus = a});

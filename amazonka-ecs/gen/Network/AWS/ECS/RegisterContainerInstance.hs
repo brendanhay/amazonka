@@ -118,7 +118,7 @@ instance AWSRequest RegisterContainerInstance where
           = receiveJSON
               (\ s h x ->
                  RegisterContainerInstanceResponse' <$>
-                   (x .?> "containerInstance") <*> (pure s))
+                   (x .?> "containerInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterContainerInstance where
         toHeaders
@@ -156,11 +156,11 @@ instance ToQuery RegisterContainerInstance where
 -- * 'rcirStatus'
 data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
     { _rcirContainerInstance :: !(Maybe ContainerInstance)
-    , _rcirStatus            :: !Status
-    } deriving (Eq,Show)
+    , _rcirStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RegisterContainerInstanceResponse' smart constructor.
-registerContainerInstanceResponse :: Status -> RegisterContainerInstanceResponse
+registerContainerInstanceResponse :: Int -> RegisterContainerInstanceResponse
 registerContainerInstanceResponse pStatus =
     RegisterContainerInstanceResponse'
     { _rcirContainerInstance = Nothing
@@ -172,5 +172,5 @@ rcirContainerInstance :: Lens' RegisterContainerInstanceResponse (Maybe Containe
 rcirContainerInstance = lens _rcirContainerInstance (\ s a -> s{_rcirContainerInstance = a});
 
 -- | FIXME: Undocumented member.
-rcirStatus :: Lens' RegisterContainerInstanceResponse Status
+rcirStatus :: Lens' RegisterContainerInstanceResponse Int
 rcirStatus = lens _rcirStatus (\ s a -> s{_rcirStatus = a});

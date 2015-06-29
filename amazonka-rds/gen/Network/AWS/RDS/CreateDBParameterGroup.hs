@@ -131,7 +131,7 @@ instance AWSRequest CreateDBParameterGroup where
           = receiveXMLWrapper "CreateDBParameterGroupResult"
               (\ s h x ->
                  CreateDBParameterGroupResponse' <$>
-                   (x .@? "DBParameterGroup") <*> (pure s))
+                   (x .@? "DBParameterGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDBParameterGroup where
         toHeaders = const mempty
@@ -159,11 +159,11 @@ instance ToQuery CreateDBParameterGroup where
 -- * 'cdpgrStatus'
 data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'
     { _cdpgrDBParameterGroup :: !(Maybe DBParameterGroup)
-    , _cdpgrStatus           :: !Status
-    } deriving (Eq,Show)
+    , _cdpgrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDBParameterGroupResponse' smart constructor.
-createDBParameterGroupResponse :: Status -> CreateDBParameterGroupResponse
+createDBParameterGroupResponse :: Int -> CreateDBParameterGroupResponse
 createDBParameterGroupResponse pStatus =
     CreateDBParameterGroupResponse'
     { _cdpgrDBParameterGroup = Nothing
@@ -175,5 +175,5 @@ cdpgrDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameter
 cdpgrDBParameterGroup = lens _cdpgrDBParameterGroup (\ s a -> s{_cdpgrDBParameterGroup = a});
 
 -- | FIXME: Undocumented member.
-cdpgrStatus :: Lens' CreateDBParameterGroupResponse Status
+cdpgrStatus :: Lens' CreateDBParameterGroupResponse Int
 cdpgrStatus = lens _cdpgrStatus (\ s a -> s{_cdpgrStatus = a});

@@ -420,7 +420,7 @@ instance AWSRequest CreateCacheCluster where
           = receiveXMLWrapper "CreateCacheClusterResult"
               (\ s h x ->
                  CreateCacheClusterResponse' <$>
-                   (x .@? "CacheCluster") <*> (pure s))
+                   (x .@? "CacheCluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateCacheCluster where
         toHeaders = const mempty
@@ -481,11 +481,11 @@ instance ToQuery CreateCacheCluster where
 -- * 'cccrStatus'
 data CreateCacheClusterResponse = CreateCacheClusterResponse'
     { _cccrCacheCluster :: !(Maybe CacheCluster)
-    , _cccrStatus       :: !Status
-    } deriving (Eq,Show)
+    , _cccrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCacheClusterResponse' smart constructor.
-createCacheClusterResponse :: Status -> CreateCacheClusterResponse
+createCacheClusterResponse :: Int -> CreateCacheClusterResponse
 createCacheClusterResponse pStatus =
     CreateCacheClusterResponse'
     { _cccrCacheCluster = Nothing
@@ -497,5 +497,5 @@ cccrCacheCluster :: Lens' CreateCacheClusterResponse (Maybe CacheCluster)
 cccrCacheCluster = lens _cccrCacheCluster (\ s a -> s{_cccrCacheCluster = a});
 
 -- | FIXME: Undocumented member.
-cccrStatus :: Lens' CreateCacheClusterResponse Status
+cccrStatus :: Lens' CreateCacheClusterResponse Int
 cccrStatus = lens _cccrStatus (\ s a -> s{_cccrStatus = a});

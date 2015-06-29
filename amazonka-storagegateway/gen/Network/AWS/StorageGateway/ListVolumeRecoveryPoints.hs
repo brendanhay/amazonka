@@ -79,7 +79,7 @@ instance AWSRequest ListVolumeRecoveryPoints where
                  ListVolumeRecoveryPointsResponse' <$>
                    (x .?> "VolumeRecoveryPointInfos" .!@ mempty) <*>
                      (x .?> "GatewayARN")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListVolumeRecoveryPoints where
         toHeaders
@@ -113,11 +113,11 @@ instance ToQuery ListVolumeRecoveryPoints where
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
     { _lvrprVolumeRecoveryPointInfos :: !(Maybe [VolumeRecoveryPointInfo])
     , _lvrprGatewayARN               :: !(Maybe Text)
-    , _lvrprStatus                   :: !Status
-    } deriving (Eq,Show)
+    , _lvrprStatus                   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListVolumeRecoveryPointsResponse' smart constructor.
-listVolumeRecoveryPointsResponse :: Status -> ListVolumeRecoveryPointsResponse
+listVolumeRecoveryPointsResponse :: Int -> ListVolumeRecoveryPointsResponse
 listVolumeRecoveryPointsResponse pStatus =
     ListVolumeRecoveryPointsResponse'
     { _lvrprVolumeRecoveryPointInfos = Nothing
@@ -134,5 +134,5 @@ lvrprGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
 lvrprGatewayARN = lens _lvrprGatewayARN (\ s a -> s{_lvrprGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-lvrprStatus :: Lens' ListVolumeRecoveryPointsResponse Status
+lvrprStatus :: Lens' ListVolumeRecoveryPointsResponse Int
 lvrprStatus = lens _lvrprStatus (\ s a -> s{_lvrprStatus = a});

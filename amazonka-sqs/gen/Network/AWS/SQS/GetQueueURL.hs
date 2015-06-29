@@ -87,7 +87,7 @@ instance AWSRequest GetQueueURL where
           = receiveXMLWrapper "GetQueueUrlResult"
               (\ s h x ->
                  GetQueueURLResponse' <$>
-                   (pure s) <*> (x .@ "QueueUrl"))
+                   (pure (fromEnum s)) <*> (x .@ "QueueUrl"))
 
 instance ToHeaders GetQueueURL where
         toHeaders = const mempty
@@ -116,12 +116,12 @@ instance ToQuery GetQueueURL where
 --
 -- * 'gqurQueueURL'
 data GetQueueURLResponse = GetQueueURLResponse'
-    { _gqurStatus   :: !Status
+    { _gqurStatus   :: !Int
     , _gqurQueueURL :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetQueueURLResponse' smart constructor.
-getQueueURLResponse :: Status -> Text -> GetQueueURLResponse
+getQueueURLResponse :: Int -> Text -> GetQueueURLResponse
 getQueueURLResponse pStatus pQueueURL =
     GetQueueURLResponse'
     { _gqurStatus = pStatus
@@ -129,7 +129,7 @@ getQueueURLResponse pStatus pQueueURL =
     }
 
 -- | FIXME: Undocumented member.
-gqurStatus :: Lens' GetQueueURLResponse Status
+gqurStatus :: Lens' GetQueueURLResponse Int
 gqurStatus = lens _gqurStatus (\ s a -> s{_gqurStatus = a});
 
 -- | The URL for the queue.

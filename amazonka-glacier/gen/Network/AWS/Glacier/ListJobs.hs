@@ -172,7 +172,7 @@ instance AWSRequest ListJobs where
               (\ s h x ->
                  ListJobsResponse' <$>
                    (x .?> "Marker") <*> (x .?> "JobList" .!@ mempty) <*>
-                     (pure s))
+                     (pure (fromEnum s)))
 
 instance ToHeaders ListJobs where
         toHeaders = const mempty
@@ -203,11 +203,11 @@ instance ToQuery ListJobs where
 data ListJobsResponse = ListJobsResponse'
     { _ljrMarker  :: !(Maybe Text)
     , _ljrJobList :: !(Maybe [GlacierJobDescription])
-    , _ljrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _ljrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListJobsResponse' smart constructor.
-listJobsResponse :: Status -> ListJobsResponse
+listJobsResponse :: Int -> ListJobsResponse
 listJobsResponse pStatus =
     ListJobsResponse'
     { _ljrMarker = Nothing
@@ -227,5 +227,5 @@ ljrJobList :: Lens' ListJobsResponse [GlacierJobDescription]
 ljrJobList = lens _ljrJobList (\ s a -> s{_ljrJobList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ljrStatus :: Lens' ListJobsResponse Status
+ljrStatus :: Lens' ListJobsResponse Int
 ljrStatus = lens _ljrStatus (\ s a -> s{_ljrStatus = a});

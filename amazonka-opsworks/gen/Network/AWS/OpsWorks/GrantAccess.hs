@@ -82,7 +82,8 @@ instance AWSRequest GrantAccess where
           = receiveJSON
               (\ s h x ->
                  GrantAccessResponse' <$>
-                   (x .?> "TemporaryCredential") <*> (pure s))
+                   (x .?> "TemporaryCredential") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GrantAccess where
         toHeaders
@@ -116,11 +117,11 @@ instance ToQuery GrantAccess where
 -- * 'garStatus'
 data GrantAccessResponse = GrantAccessResponse'
     { _garTemporaryCredential :: !(Maybe TemporaryCredential)
-    , _garStatus              :: !Status
-    } deriving (Eq,Show)
+    , _garStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GrantAccessResponse' smart constructor.
-grantAccessResponse :: Status -> GrantAccessResponse
+grantAccessResponse :: Int -> GrantAccessResponse
 grantAccessResponse pStatus =
     GrantAccessResponse'
     { _garTemporaryCredential = Nothing
@@ -134,5 +135,5 @@ garTemporaryCredential :: Lens' GrantAccessResponse (Maybe TemporaryCredential)
 garTemporaryCredential = lens _garTemporaryCredential (\ s a -> s{_garTemporaryCredential = a});
 
 -- | FIXME: Undocumented member.
-garStatus :: Lens' GrantAccessResponse Status
+garStatus :: Lens' GrantAccessResponse Int
 garStatus = lens _garStatus (\ s a -> s{_garStatus = a});

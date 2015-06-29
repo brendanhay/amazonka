@@ -96,7 +96,7 @@ instance AWSRequest ConfirmSubscription where
           = receiveXMLWrapper "ConfirmSubscriptionResult"
               (\ s h x ->
                  ConfirmSubscriptionResponse' <$>
-                   (x .@? "SubscriptionArn") <*> (pure s))
+                   (x .@? "SubscriptionArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders ConfirmSubscription where
         toHeaders = const mempty
@@ -124,11 +124,11 @@ instance ToQuery ConfirmSubscription where
 -- * 'csrStatus'
 data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'
     { _csrSubscriptionARN :: !(Maybe Text)
-    , _csrStatus          :: !Status
-    } deriving (Eq,Show)
+    , _csrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfirmSubscriptionResponse' smart constructor.
-confirmSubscriptionResponse :: Status -> ConfirmSubscriptionResponse
+confirmSubscriptionResponse :: Int -> ConfirmSubscriptionResponse
 confirmSubscriptionResponse pStatus =
     ConfirmSubscriptionResponse'
     { _csrSubscriptionARN = Nothing
@@ -140,5 +140,5 @@ csrSubscriptionARN :: Lens' ConfirmSubscriptionResponse (Maybe Text)
 csrSubscriptionARN = lens _csrSubscriptionARN (\ s a -> s{_csrSubscriptionARN = a});
 
 -- | FIXME: Undocumented member.
-csrStatus :: Lens' ConfirmSubscriptionResponse Status
+csrStatus :: Lens' ConfirmSubscriptionResponse Int
 csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});

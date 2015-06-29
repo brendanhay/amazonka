@@ -60,7 +60,7 @@ instance AWSRequest GetHostedZoneCount where
           = receiveXML
               (\ s h x ->
                  GetHostedZoneCountResponse' <$>
-                   (pure s) <*> (x .@ "HostedZoneCount"))
+                   (pure (fromEnum s)) <*> (x .@ "HostedZoneCount"))
 
 instance ToHeaders GetHostedZoneCount where
         toHeaders = const mempty
@@ -82,12 +82,12 @@ instance ToQuery GetHostedZoneCount where
 --
 -- * 'ghzcrHostedZoneCount'
 data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
-    { _ghzcrStatus          :: !Status
+    { _ghzcrStatus          :: !Int
     , _ghzcrHostedZoneCount :: !Integer
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetHostedZoneCountResponse' smart constructor.
-getHostedZoneCountResponse :: Status -> Integer -> GetHostedZoneCountResponse
+getHostedZoneCountResponse :: Int -> Integer -> GetHostedZoneCountResponse
 getHostedZoneCountResponse pStatus pHostedZoneCount =
     GetHostedZoneCountResponse'
     { _ghzcrStatus = pStatus
@@ -95,7 +95,7 @@ getHostedZoneCountResponse pStatus pHostedZoneCount =
     }
 
 -- | FIXME: Undocumented member.
-ghzcrStatus :: Lens' GetHostedZoneCountResponse Status
+ghzcrStatus :: Lens' GetHostedZoneCountResponse Int
 ghzcrStatus = lens _ghzcrStatus (\ s a -> s{_ghzcrStatus = a});
 
 -- | The number of hosted zones associated with the current AWS account.

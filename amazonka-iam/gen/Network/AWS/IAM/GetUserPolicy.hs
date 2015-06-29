@@ -89,7 +89,7 @@ instance AWSRequest GetUserPolicy where
           = receiveXMLWrapper "GetUserPolicyResult"
               (\ s h x ->
                  GetUserPolicyResponse' <$>
-                   (pure s) <*> (x .@ "UserName") <*>
+                   (pure (fromEnum s)) <*> (x .@ "UserName") <*>
                      (x .@ "PolicyName")
                      <*> (x .@ "PolicyDocument"))
 
@@ -121,14 +121,14 @@ instance ToQuery GetUserPolicy where
 --
 -- * 'guprPolicyDocument'
 data GetUserPolicyResponse = GetUserPolicyResponse'
-    { _guprStatus         :: !Status
+    { _guprStatus         :: !Int
     , _guprUserName       :: !Text
     , _guprPolicyName     :: !Text
     , _guprPolicyDocument :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetUserPolicyResponse' smart constructor.
-getUserPolicyResponse :: Status -> Text -> Text -> Text -> GetUserPolicyResponse
+getUserPolicyResponse :: Int -> Text -> Text -> Text -> GetUserPolicyResponse
 getUserPolicyResponse pStatus pUserName pPolicyName pPolicyDocument =
     GetUserPolicyResponse'
     { _guprStatus = pStatus
@@ -138,7 +138,7 @@ getUserPolicyResponse pStatus pUserName pPolicyName pPolicyDocument =
     }
 
 -- | FIXME: Undocumented member.
-guprStatus :: Lens' GetUserPolicyResponse Status
+guprStatus :: Lens' GetUserPolicyResponse Int
 guprStatus = lens _guprStatus (\ s a -> s{_guprStatus = a});
 
 -- | The user the policy is associated with.

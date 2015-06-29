@@ -76,7 +76,7 @@ instance AWSRequest CreateDomain where
           = receiveXMLWrapper "CreateDomainResult"
               (\ s h x ->
                  CreateDomainResponse' <$>
-                   (x .@? "DomainStatus") <*> (pure s))
+                   (x .@? "DomainStatus") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDomain where
         toHeaders = const mempty
@@ -103,11 +103,11 @@ instance ToQuery CreateDomain where
 -- * 'cdrStatus'
 data CreateDomainResponse = CreateDomainResponse'
     { _cdrDomainStatus :: !(Maybe DomainStatus)
-    , _cdrStatus       :: !Status
-    } deriving (Eq,Show)
+    , _cdrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDomainResponse' smart constructor.
-createDomainResponse :: Status -> CreateDomainResponse
+createDomainResponse :: Int -> CreateDomainResponse
 createDomainResponse pStatus =
     CreateDomainResponse'
     { _cdrDomainStatus = Nothing
@@ -119,5 +119,5 @@ cdrDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
 cdrDomainStatus = lens _cdrDomainStatus (\ s a -> s{_cdrDomainStatus = a});
 
 -- | FIXME: Undocumented member.
-cdrStatus :: Lens' CreateDomainResponse Status
+cdrStatus :: Lens' CreateDomainResponse Int
 cdrStatus = lens _cdrStatus (\ s a -> s{_cdrStatus = a});

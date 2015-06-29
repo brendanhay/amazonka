@@ -151,7 +151,8 @@ instance AWSRequest DescribeNetworkACLs where
           = receiveXML
               (\ s h x ->
                  DescribeNetworkACLsResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeNetworkACLs where
         toHeaders = const mempty
@@ -177,11 +178,11 @@ instance ToQuery DescribeNetworkACLs where
 -- * 'dnarStatus'
 data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'
     { _dnarNetworkACLs :: !(Maybe [NetworkACL])
-    , _dnarStatus      :: !Status
-    } deriving (Eq,Show)
+    , _dnarStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeNetworkACLsResponse' smart constructor.
-describeNetworkACLsResponse :: Status -> DescribeNetworkACLsResponse
+describeNetworkACLsResponse :: Int -> DescribeNetworkACLsResponse
 describeNetworkACLsResponse pStatus =
     DescribeNetworkACLsResponse'
     { _dnarNetworkACLs = Nothing
@@ -193,5 +194,5 @@ dnarNetworkACLs :: Lens' DescribeNetworkACLsResponse [NetworkACL]
 dnarNetworkACLs = lens _dnarNetworkACLs (\ s a -> s{_dnarNetworkACLs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dnarStatus :: Lens' DescribeNetworkACLsResponse Status
+dnarStatus :: Lens' DescribeNetworkACLsResponse Int
 dnarStatus = lens _dnarStatus (\ s a -> s{_dnarStatus = a});

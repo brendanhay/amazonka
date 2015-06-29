@@ -92,7 +92,7 @@ instance AWSRequest Predict where
           = receiveJSON
               (\ s h x ->
                  PredictResponse' <$>
-                   (x .?> "Prediction") <*> (pure s))
+                   (x .?> "Prediction") <*> (pure (fromEnum s)))
 
 instance ToHeaders Predict where
         toHeaders
@@ -125,11 +125,11 @@ instance ToQuery Predict where
 -- * 'prStatus'
 data PredictResponse = PredictResponse'
     { _prPrediction :: !(Maybe Prediction)
-    , _prStatus     :: !Status
-    } deriving (Eq,Show)
+    , _prStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PredictResponse' smart constructor.
-predictResponse :: Status -> PredictResponse
+predictResponse :: Int -> PredictResponse
 predictResponse pStatus =
     PredictResponse'
     { _prPrediction = Nothing
@@ -141,5 +141,5 @@ prPrediction :: Lens' PredictResponse (Maybe Prediction)
 prPrediction = lens _prPrediction (\ s a -> s{_prPrediction = a});
 
 -- | FIXME: Undocumented member.
-prStatus :: Lens' PredictResponse Status
+prStatus :: Lens' PredictResponse Int
 prStatus = lens _prStatus (\ s a -> s{_prStatus = a});

@@ -85,7 +85,7 @@ instance AWSRequest ListTagsForResource where
           = receiveXML
               (\ s h x ->
                  ListTagsForResourceResponse' <$>
-                   (pure s) <*> (x .@ "ResourceTagSet"))
+                   (pure (fromEnum s)) <*> (x .@ "ResourceTagSet"))
 
 instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
@@ -109,12 +109,12 @@ instance ToQuery ListTagsForResource where
 --
 -- * 'ltfrrResourceTagSet'
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrStatus         :: !Status
+    { _ltfrrStatus         :: !Int
     , _ltfrrResourceTagSet :: !ResourceTagSet
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForResourceResponse' smart constructor.
-listTagsForResourceResponse :: Status -> ResourceTagSet -> ListTagsForResourceResponse
+listTagsForResourceResponse :: Int -> ResourceTagSet -> ListTagsForResourceResponse
 listTagsForResourceResponse pStatus pResourceTagSet =
     ListTagsForResourceResponse'
     { _ltfrrStatus = pStatus
@@ -122,7 +122,7 @@ listTagsForResourceResponse pStatus pResourceTagSet =
     }
 
 -- | FIXME: Undocumented member.
-ltfrrStatus :: Lens' ListTagsForResourceResponse Status
+ltfrrStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrStatus = lens _ltfrrStatus (\ s a -> s{_ltfrrStatus = a});
 
 -- | A @ResourceTagSet@ containing tags associated with the specified

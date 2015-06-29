@@ -78,7 +78,7 @@ instance AWSRequest DescribeIdentityPoolUsage where
           = receiveJSON
               (\ s h x ->
                  DescribeIdentityPoolUsageResponse' <$>
-                   (x .?> "IdentityPoolUsage") <*> (pure s))
+                   (x .?> "IdentityPoolUsage") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeIdentityPoolUsage where
         toHeaders
@@ -106,11 +106,11 @@ instance ToQuery DescribeIdentityPoolUsage where
 -- * 'dipurStatus'
 data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'
     { _dipurIdentityPoolUsage :: !(Maybe IdentityPoolUsage)
-    , _dipurStatus            :: !Status
-    } deriving (Eq,Show)
+    , _dipurStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeIdentityPoolUsageResponse' smart constructor.
-describeIdentityPoolUsageResponse :: Status -> DescribeIdentityPoolUsageResponse
+describeIdentityPoolUsageResponse :: Int -> DescribeIdentityPoolUsageResponse
 describeIdentityPoolUsageResponse pStatus =
     DescribeIdentityPoolUsageResponse'
     { _dipurIdentityPoolUsage = Nothing
@@ -122,5 +122,5 @@ dipurIdentityPoolUsage :: Lens' DescribeIdentityPoolUsageResponse (Maybe Identit
 dipurIdentityPoolUsage = lens _dipurIdentityPoolUsage (\ s a -> s{_dipurIdentityPoolUsage = a});
 
 -- | FIXME: Undocumented member.
-dipurStatus :: Lens' DescribeIdentityPoolUsageResponse Status
+dipurStatus :: Lens' DescribeIdentityPoolUsageResponse Int
 dipurStatus = lens _dipurStatus (\ s a -> s{_dipurStatus = a});

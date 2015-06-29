@@ -78,7 +78,8 @@ instance AWSRequest EnableRadius where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> EnableRadiusResponse' <$> (pure s))
+              (\ s h x ->
+                 EnableRadiusResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders EnableRadius where
         toHeaders
@@ -110,16 +111,16 @@ instance ToQuery EnableRadius where
 --
 -- * 'errStatus'
 newtype EnableRadiusResponse = EnableRadiusResponse'
-    { _errStatus :: Status
-    } deriving (Eq,Show)
+    { _errStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableRadiusResponse' smart constructor.
-enableRadiusResponse :: Status -> EnableRadiusResponse
+enableRadiusResponse :: Int -> EnableRadiusResponse
 enableRadiusResponse pStatus =
     EnableRadiusResponse'
     { _errStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-errStatus :: Lens' EnableRadiusResponse Status
+errStatus :: Lens' EnableRadiusResponse Int
 errStatus = lens _errStatus (\ s a -> s{_errStatus = a});

@@ -116,7 +116,7 @@ instance AWSRequest GetDomainDetail where
                      <*> (x .?> "RegistrarName")
                      <*> (x .?> "StatusList" .!@ mempty)
                      <*> (x .?> "Reseller")
-                     <*> (pure s)
+                     <*> (pure (fromEnum s))
                      <*> (x .:> "DomainName")
                      <*> (x .?> "Nameservers" .!@ mempty)
                      <*> (x .:> "AdminContact")
@@ -209,16 +209,16 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
     , _gddrRegistrarName     :: !(Maybe Text)
     , _gddrStatusList        :: !(Maybe [Text])
     , _gddrReseller          :: !(Maybe Text)
-    , _gddrStatus            :: !Status
+    , _gddrStatus            :: !Int
     , _gddrDomainName        :: !Text
     , _gddrNameservers       :: ![Nameserver]
     , _gddrAdminContact      :: !(Sensitive ContactDetail)
     , _gddrRegistrantContact :: !(Sensitive ContactDetail)
     , _gddrTechContact       :: !(Sensitive ContactDetail)
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetDomainDetailResponse' smart constructor.
-getDomainDetailResponse :: Status -> Text -> ContactDetail -> ContactDetail -> ContactDetail -> GetDomainDetailResponse
+getDomainDetailResponse :: Int -> Text -> ContactDetail -> ContactDetail -> ContactDetail -> GetDomainDetailResponse
 getDomainDetailResponse pStatus pDomainName pAdminContact pRegistrantContact pTechContact =
     GetDomainDetailResponse'
     { _gddrTechPrivacy = Nothing
@@ -364,7 +364,7 @@ gddrReseller :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrReseller = lens _gddrReseller (\ s a -> s{_gddrReseller = a});
 
 -- | FIXME: Undocumented member.
-gddrStatus :: Lens' GetDomainDetailResponse Status
+gddrStatus :: Lens' GetDomainDetailResponse Int
 gddrStatus = lens _gddrStatus (\ s a -> s{_gddrStatus = a});
 
 -- | The name of a domain.

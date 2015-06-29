@@ -105,7 +105,7 @@ instance AWSRequest ListPolicyVersions where
                       may (parseXMLList "member"))
                      <*> (x .@? "Marker")
                      <*> (x .@? "IsTruncated")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListPolicyVersions where
         toHeaders = const mempty
@@ -138,11 +138,11 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
     { _lpvrVersions    :: !(Maybe [PolicyVersion])
     , _lpvrMarker      :: !(Maybe Text)
     , _lpvrIsTruncated :: !(Maybe Bool)
-    , _lpvrStatus      :: !Status
-    } deriving (Eq,Show)
+    , _lpvrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListPolicyVersionsResponse' smart constructor.
-listPolicyVersionsResponse :: Status -> ListPolicyVersionsResponse
+listPolicyVersionsResponse :: Int -> ListPolicyVersionsResponse
 listPolicyVersionsResponse pStatus =
     ListPolicyVersionsResponse'
     { _lpvrVersions = Nothing
@@ -173,5 +173,5 @@ lpvrIsTruncated :: Lens' ListPolicyVersionsResponse (Maybe Bool)
 lpvrIsTruncated = lens _lpvrIsTruncated (\ s a -> s{_lpvrIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lpvrStatus :: Lens' ListPolicyVersionsResponse Status
+lpvrStatus :: Lens' ListPolicyVersionsResponse Int
 lpvrStatus = lens _lpvrStatus (\ s a -> s{_lpvrStatus = a});

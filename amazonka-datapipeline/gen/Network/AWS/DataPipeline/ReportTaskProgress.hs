@@ -93,7 +93,7 @@ instance AWSRequest ReportTaskProgress where
           = receiveJSON
               (\ s h x ->
                  ReportTaskProgressResponse' <$>
-                   (pure s) <*> (x .:> "canceled"))
+                   (pure (fromEnum s)) <*> (x .:> "canceled"))
 
 instance ToHeaders ReportTaskProgress where
         toHeaders
@@ -125,12 +125,12 @@ instance ToQuery ReportTaskProgress where
 --
 -- * 'rtprCanceled'
 data ReportTaskProgressResponse = ReportTaskProgressResponse'
-    { _rtprStatus   :: !Status
+    { _rtprStatus   :: !Int
     , _rtprCanceled :: !Bool
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ReportTaskProgressResponse' smart constructor.
-reportTaskProgressResponse :: Status -> Bool -> ReportTaskProgressResponse
+reportTaskProgressResponse :: Int -> Bool -> ReportTaskProgressResponse
 reportTaskProgressResponse pStatus pCanceled =
     ReportTaskProgressResponse'
     { _rtprStatus = pStatus
@@ -138,7 +138,7 @@ reportTaskProgressResponse pStatus pCanceled =
     }
 
 -- | FIXME: Undocumented member.
-rtprStatus :: Lens' ReportTaskProgressResponse Status
+rtprStatus :: Lens' ReportTaskProgressResponse Int
 rtprStatus = lens _rtprStatus (\ s a -> s{_rtprStatus = a});
 
 -- | If true, the calling task runner should cancel processing of the task.

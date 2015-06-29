@@ -170,7 +170,7 @@ instance AWSRequest GetShippingLabel where
               (\ s h x ->
                  GetShippingLabelResponse' <$>
                    (x .@? "ShippingLabelURL") <*> (x .@? "Warning") <*>
-                     (pure s))
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetShippingLabel where
         toHeaders = const mempty
@@ -207,11 +207,11 @@ instance ToQuery GetShippingLabel where
 data GetShippingLabelResponse = GetShippingLabelResponse'
     { _gslrShippingLabelURL :: !(Maybe Text)
     , _gslrWarning          :: !(Maybe Text)
-    , _gslrStatus           :: !Status
-    } deriving (Eq,Show)
+    , _gslrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetShippingLabelResponse' smart constructor.
-getShippingLabelResponse :: Status -> GetShippingLabelResponse
+getShippingLabelResponse :: Int -> GetShippingLabelResponse
 getShippingLabelResponse pStatus =
     GetShippingLabelResponse'
     { _gslrShippingLabelURL = Nothing
@@ -228,5 +228,5 @@ gslrWarning :: Lens' GetShippingLabelResponse (Maybe Text)
 gslrWarning = lens _gslrWarning (\ s a -> s{_gslrWarning = a});
 
 -- | FIXME: Undocumented member.
-gslrStatus :: Lens' GetShippingLabelResponse Status
+gslrStatus :: Lens' GetShippingLabelResponse Int
 gslrStatus = lens _gslrStatus (\ s a -> s{_gslrStatus = a});

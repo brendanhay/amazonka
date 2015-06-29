@@ -138,7 +138,8 @@ instance AWSRequest DescribeVPNConnections where
           = receiveXML
               (\ s h x ->
                  DescribeVPNConnectionsResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeVPNConnections where
         toHeaders = const mempty
@@ -167,11 +168,11 @@ instance ToQuery DescribeVPNConnections where
 -- * 'dvcrStatus'
 data DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'
     { _dvcrVPNConnections :: !(Maybe [VPNConnection])
-    , _dvcrStatus         :: !Status
-    } deriving (Eq,Show)
+    , _dvcrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPNConnectionsResponse' smart constructor.
-describeVPNConnectionsResponse :: Status -> DescribeVPNConnectionsResponse
+describeVPNConnectionsResponse :: Int -> DescribeVPNConnectionsResponse
 describeVPNConnectionsResponse pStatus =
     DescribeVPNConnectionsResponse'
     { _dvcrVPNConnections = Nothing
@@ -183,5 +184,5 @@ dvcrVPNConnections :: Lens' DescribeVPNConnectionsResponse [VPNConnection]
 dvcrVPNConnections = lens _dvcrVPNConnections (\ s a -> s{_dvcrVPNConnections = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvcrStatus :: Lens' DescribeVPNConnectionsResponse Status
+dvcrStatus :: Lens' DescribeVPNConnectionsResponse Int
 dvcrStatus = lens _dvcrStatus (\ s a -> s{_dvcrStatus = a});

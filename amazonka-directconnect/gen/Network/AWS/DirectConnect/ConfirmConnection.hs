@@ -74,7 +74,7 @@ instance AWSRequest ConfirmConnection where
           = receiveJSON
               (\ s h x ->
                  ConfirmConnectionResponse' <$>
-                   (x .?> "connectionState") <*> (pure s))
+                   (x .?> "connectionState") <*> (pure (fromEnum s)))
 
 instance ToHeaders ConfirmConnection where
         toHeaders
@@ -106,11 +106,11 @@ instance ToQuery ConfirmConnection where
 -- * 'ccrStatus'
 data ConfirmConnectionResponse = ConfirmConnectionResponse'
     { _ccrConnectionState :: !(Maybe ConnectionState)
-    , _ccrStatus          :: !Status
-    } deriving (Eq,Show)
+    , _ccrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfirmConnectionResponse' smart constructor.
-confirmConnectionResponse :: Status -> ConfirmConnectionResponse
+confirmConnectionResponse :: Int -> ConfirmConnectionResponse
 confirmConnectionResponse pStatus =
     ConfirmConnectionResponse'
     { _ccrConnectionState = Nothing
@@ -122,5 +122,5 @@ ccrConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
 ccrConnectionState = lens _ccrConnectionState (\ s a -> s{_ccrConnectionState = a});
 
 -- | FIXME: Undocumented member.
-ccrStatus :: Lens' ConfirmConnectionResponse Status
+ccrStatus :: Lens' ConfirmConnectionResponse Int
 ccrStatus = lens _ccrStatus (\ s a -> s{_ccrStatus = a});

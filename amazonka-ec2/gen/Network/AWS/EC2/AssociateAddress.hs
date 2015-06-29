@@ -154,7 +154,7 @@ instance AWSRequest AssociateAddress where
           = receiveXML
               (\ s h x ->
                  AssociateAddressResponse' <$>
-                   (x .@? "associationId") <*> (pure s))
+                   (x .@? "associationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders AssociateAddress where
         toHeaders = const mempty
@@ -183,11 +183,11 @@ instance ToQuery AssociateAddress where
 -- * 'assStatus'
 data AssociateAddressResponse = AssociateAddressResponse'
     { _assAssociationId :: !(Maybe Text)
-    , _assStatus        :: !Status
-    } deriving (Eq,Show)
+    , _assStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AssociateAddressResponse' smart constructor.
-associateAddressResponse :: Status -> AssociateAddressResponse
+associateAddressResponse :: Int -> AssociateAddressResponse
 associateAddressResponse pStatus =
     AssociateAddressResponse'
     { _assAssociationId = Nothing
@@ -200,5 +200,5 @@ assAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
 assAssociationId = lens _assAssociationId (\ s a -> s{_assAssociationId = a});
 
 -- | FIXME: Undocumented member.
-assStatus :: Lens' AssociateAddressResponse Status
+assStatus :: Lens' AssociateAddressResponse Int
 assStatus = lens _assStatus (\ s a -> s{_assStatus = a});

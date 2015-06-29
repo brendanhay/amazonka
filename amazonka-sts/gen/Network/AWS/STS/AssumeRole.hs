@@ -235,7 +235,7 @@ instance AWSRequest AssumeRole where
                  AssumeRoleResponse' <$>
                    (x .@? "PackedPolicySize") <*> (x .@? "Credentials")
                      <*> (x .@? "AssumedRoleUser")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders AssumeRole where
         toHeaders = const mempty
@@ -273,11 +273,11 @@ data AssumeRoleResponse = AssumeRoleResponse'
     { _arrPackedPolicySize :: !(Maybe Nat)
     , _arrCredentials      :: !(Maybe Credentials)
     , _arrAssumedRoleUser  :: !(Maybe AssumedRoleUser)
-    , _arrStatus           :: !Status
-    } deriving (Eq,Show)
+    , _arrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AssumeRoleResponse' smart constructor.
-assumeRoleResponse :: Status -> AssumeRoleResponse
+assumeRoleResponse :: Int -> AssumeRoleResponse
 assumeRoleResponse pStatus =
     AssumeRoleResponse'
     { _arrPackedPolicySize = Nothing
@@ -307,5 +307,5 @@ arrAssumedRoleUser :: Lens' AssumeRoleResponse (Maybe AssumedRoleUser)
 arrAssumedRoleUser = lens _arrAssumedRoleUser (\ s a -> s{_arrAssumedRoleUser = a});
 
 -- | FIXME: Undocumented member.
-arrStatus :: Lens' AssumeRoleResponse Status
+arrStatus :: Lens' AssumeRoleResponse Int
 arrStatus = lens _arrStatus (\ s a -> s{_arrStatus = a});

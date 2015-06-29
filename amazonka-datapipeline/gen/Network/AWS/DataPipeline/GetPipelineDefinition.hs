@@ -89,7 +89,7 @@ instance AWSRequest GetPipelineDefinition where
                    (x .?> "pipelineObjects" .!@ mempty) <*>
                      (x .?> "parameterObjects" .!@ mempty)
                      <*> (x .?> "parameterValues" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetPipelineDefinition where
         toHeaders
@@ -129,11 +129,11 @@ data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
     { _gpdrPipelineObjects  :: !(Maybe [PipelineObject])
     , _gpdrParameterObjects :: !(Maybe [ParameterObject])
     , _gpdrParameterValues  :: !(Maybe [ParameterValue])
-    , _gpdrStatus           :: !Status
-    } deriving (Eq,Show)
+    , _gpdrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetPipelineDefinitionResponse' smart constructor.
-getPipelineDefinitionResponse :: Status -> GetPipelineDefinitionResponse
+getPipelineDefinitionResponse :: Int -> GetPipelineDefinitionResponse
 getPipelineDefinitionResponse pStatus =
     GetPipelineDefinitionResponse'
     { _gpdrPipelineObjects = Nothing
@@ -155,5 +155,5 @@ gpdrParameterValues :: Lens' GetPipelineDefinitionResponse [ParameterValue]
 gpdrParameterValues = lens _gpdrParameterValues (\ s a -> s{_gpdrParameterValues = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gpdrStatus :: Lens' GetPipelineDefinitionResponse Status
+gpdrStatus :: Lens' GetPipelineDefinitionResponse Int
 gpdrStatus = lens _gpdrStatus (\ s a -> s{_gpdrStatus = a});

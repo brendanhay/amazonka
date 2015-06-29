@@ -85,7 +85,7 @@ instance AWSRequest GetApplicationRevision where
                  GetApplicationRevisionResponse' <$>
                    (x .?> "revisionInfo") <*> (x .?> "applicationName")
                      <*> (x .?> "revision")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetApplicationRevision where
         toHeaders
@@ -126,11 +126,11 @@ data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
     { _garrRevisionInfo    :: !(Maybe GenericRevisionInfo)
     , _garrApplicationName :: !(Maybe Text)
     , _garrRevision        :: !(Maybe RevisionLocation)
-    , _garrStatus          :: !Status
-    } deriving (Eq,Show)
+    , _garrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetApplicationRevisionResponse' smart constructor.
-getApplicationRevisionResponse :: Status -> GetApplicationRevisionResponse
+getApplicationRevisionResponse :: Int -> GetApplicationRevisionResponse
 getApplicationRevisionResponse pStatus =
     GetApplicationRevisionResponse'
     { _garrRevisionInfo = Nothing
@@ -153,5 +153,5 @@ garrRevision :: Lens' GetApplicationRevisionResponse (Maybe RevisionLocation)
 garrRevision = lens _garrRevision (\ s a -> s{_garrRevision = a});
 
 -- | FIXME: Undocumented member.
-garrStatus :: Lens' GetApplicationRevisionResponse Status
+garrStatus :: Lens' GetApplicationRevisionResponse Int
 garrStatus = lens _garrStatus (\ s a -> s{_garrStatus = a});

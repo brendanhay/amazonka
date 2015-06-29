@@ -86,7 +86,7 @@ instance AWSRequest UpdateServiceAccessPolicies where
               "UpdateServiceAccessPoliciesResult"
               (\ s h x ->
                  UpdateServiceAccessPoliciesResponse' <$>
-                   (pure s) <*> (x .@ "AccessPolicies"))
+                   (pure (fromEnum s)) <*> (x .@ "AccessPolicies"))
 
 instance ToHeaders UpdateServiceAccessPolicies where
         toHeaders = const mempty
@@ -114,12 +114,12 @@ instance ToQuery UpdateServiceAccessPolicies where
 --
 -- * 'usaprAccessPolicies'
 data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
-    { _usaprStatus         :: !Status
+    { _usaprStatus         :: !Int
     , _usaprAccessPolicies :: !AccessPoliciesStatus
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateServiceAccessPoliciesResponse' smart constructor.
-updateServiceAccessPoliciesResponse :: Status -> AccessPoliciesStatus -> UpdateServiceAccessPoliciesResponse
+updateServiceAccessPoliciesResponse :: Int -> AccessPoliciesStatus -> UpdateServiceAccessPoliciesResponse
 updateServiceAccessPoliciesResponse pStatus pAccessPolicies =
     UpdateServiceAccessPoliciesResponse'
     { _usaprStatus = pStatus
@@ -127,7 +127,7 @@ updateServiceAccessPoliciesResponse pStatus pAccessPolicies =
     }
 
 -- | FIXME: Undocumented member.
-usaprStatus :: Lens' UpdateServiceAccessPoliciesResponse Status
+usaprStatus :: Lens' UpdateServiceAccessPoliciesResponse Int
 usaprStatus = lens _usaprStatus (\ s a -> s{_usaprStatus = a});
 
 -- | The access rules configured for the domain.

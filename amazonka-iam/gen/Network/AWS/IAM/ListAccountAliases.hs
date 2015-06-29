@@ -102,7 +102,7 @@ instance AWSRequest ListAccountAliases where
               (\ s h x ->
                  ListAccountAliasesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (pure s)
+                     (pure (fromEnum s))
                      <*>
                      (x .@? "AccountAliases" .!@ mempty >>=
                         parseXMLList "member"))
@@ -136,12 +136,12 @@ instance ToQuery ListAccountAliases where
 data ListAccountAliasesResponse = ListAccountAliasesResponse'
     { _laarMarker         :: !(Maybe Text)
     , _laarIsTruncated    :: !(Maybe Bool)
-    , _laarStatus         :: !Status
+    , _laarStatus         :: !Int
     , _laarAccountAliases :: ![Text]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAccountAliasesResponse' smart constructor.
-listAccountAliasesResponse :: Status -> ListAccountAliasesResponse
+listAccountAliasesResponse :: Int -> ListAccountAliasesResponse
 listAccountAliasesResponse pStatus =
     ListAccountAliasesResponse'
     { _laarMarker = Nothing
@@ -165,7 +165,7 @@ laarIsTruncated :: Lens' ListAccountAliasesResponse (Maybe Bool)
 laarIsTruncated = lens _laarIsTruncated (\ s a -> s{_laarIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-laarStatus :: Lens' ListAccountAliasesResponse Status
+laarStatus :: Lens' ListAccountAliasesResponse Int
 laarStatus = lens _laarStatus (\ s a -> s{_laarStatus = a});
 
 -- | A list of aliases associated with the account.

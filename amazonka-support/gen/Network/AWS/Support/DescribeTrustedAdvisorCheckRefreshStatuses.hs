@@ -73,7 +73,9 @@ instance AWSRequest
           = receiveJSON
               (\ s h x ->
                  DescribeTrustedAdvisorCheckRefreshStatusesResponse'
-                   <$> (pure s) <*> (x .?> "statuses" .!@ mempty))
+                   <$>
+                   (pure (fromEnum s)) <*>
+                     (x .?> "statuses" .!@ mempty))
 
 instance ToHeaders
          DescribeTrustedAdvisorCheckRefreshStatuses where
@@ -111,12 +113,12 @@ instance ToQuery
 --
 -- * 'dtacrsrStatuses'
 data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'
-    { _dtacrsrStatus   :: !Status
+    { _dtacrsrStatus   :: !Int
     , _dtacrsrStatuses :: ![TrustedAdvisorCheckRefreshStatus]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
-describeTrustedAdvisorCheckRefreshStatusesResponse :: Status -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
+describeTrustedAdvisorCheckRefreshStatusesResponse :: Int -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
 describeTrustedAdvisorCheckRefreshStatusesResponse pStatus =
     DescribeTrustedAdvisorCheckRefreshStatusesResponse'
     { _dtacrsrStatus = pStatus
@@ -124,7 +126,7 @@ describeTrustedAdvisorCheckRefreshStatusesResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-dtacrsrStatus :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Status
+dtacrsrStatus :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Int
 dtacrsrStatus = lens _dtacrsrStatus (\ s a -> s{_dtacrsrStatus = a});
 
 -- | The refresh status of the specified Trusted Advisor checks.

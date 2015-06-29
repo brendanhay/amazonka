@@ -128,7 +128,7 @@ instance AWSRequest DescribeDBParameterGroups where
                    (x .@? "Marker") <*>
                      (x .@? "DBParameterGroups" .!@ mempty >>=
                         may (parseXMLList "DBParameterGroup"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDBParameterGroups where
         toHeaders = const mempty
@@ -163,11 +163,11 @@ instance ToQuery DescribeDBParameterGroups where
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
     { _ddpgrMarker            :: !(Maybe Text)
     , _ddpgrDBParameterGroups :: !(Maybe [DBParameterGroup])
-    , _ddpgrStatus            :: !Status
-    } deriving (Eq,Show)
+    , _ddpgrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBParameterGroupsResponse' smart constructor.
-describeDBParameterGroupsResponse :: Status -> DescribeDBParameterGroupsResponse
+describeDBParameterGroupsResponse :: Int -> DescribeDBParameterGroupsResponse
 describeDBParameterGroupsResponse pStatus =
     DescribeDBParameterGroupsResponse'
     { _ddpgrMarker = Nothing
@@ -186,5 +186,5 @@ ddpgrDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGr
 ddpgrDBParameterGroups = lens _ddpgrDBParameterGroups (\ s a -> s{_ddpgrDBParameterGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddpgrStatus :: Lens' DescribeDBParameterGroupsResponse Status
+ddpgrStatus :: Lens' DescribeDBParameterGroupsResponse Int
 ddpgrStatus = lens _ddpgrStatus (\ s a -> s{_ddpgrStatus = a});

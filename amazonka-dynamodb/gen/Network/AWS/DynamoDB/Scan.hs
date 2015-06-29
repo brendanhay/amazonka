@@ -453,7 +453,7 @@ instance AWSRequest Scan where
                      <*> (x .?> "ScannedCount")
                      <*> (x .?> "Items" .!@ mempty)
                      <*> (x .?> "ConsumedCapacity")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders Scan where
         toHeaders
@@ -514,11 +514,11 @@ data ScanResponse = ScanResponse'
     , _srScannedCount     :: !(Maybe Int)
     , _srItems            :: !(Maybe [Map Text AttributeValue])
     , _srConsumedCapacity :: !(Maybe ConsumedCapacity)
-    , _srStatus           :: !Status
+    , _srStatus           :: !Int
     } deriving (Eq,Show)
 
 -- | 'ScanResponse' smart constructor.
-scanResponse :: Status -> ScanResponse
+scanResponse :: Int -> ScanResponse
 scanResponse pStatus =
     ScanResponse'
     { _srLastEvaluatedKey = Nothing
@@ -575,5 +575,5 @@ srConsumedCapacity :: Lens' ScanResponse (Maybe ConsumedCapacity)
 srConsumedCapacity = lens _srConsumedCapacity (\ s a -> s{_srConsumedCapacity = a});
 
 -- | FIXME: Undocumented member.
-srStatus :: Lens' ScanResponse Status
+srStatus :: Lens' ScanResponse Int
 srStatus = lens _srStatus (\ s a -> s{_srStatus = a});

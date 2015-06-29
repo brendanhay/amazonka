@@ -97,7 +97,7 @@ instance AWSRequest ModifyLoadBalancerAttributes
                  ModifyLoadBalancerAttributesResponse' <$>
                    (x .@? "LoadBalancerAttributes") <*>
                      (x .@? "LoadBalancerName")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyLoadBalancerAttributes where
         toHeaders = const mempty
@@ -127,11 +127,11 @@ instance ToQuery ModifyLoadBalancerAttributes where
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
     { _mlbarLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
     , _mlbarLoadBalancerName       :: !(Maybe Text)
-    , _mlbarStatus                 :: !Status
-    } deriving (Eq,Show)
+    , _mlbarStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyLoadBalancerAttributesResponse' smart constructor.
-modifyLoadBalancerAttributesResponse :: Status -> ModifyLoadBalancerAttributesResponse
+modifyLoadBalancerAttributesResponse :: Int -> ModifyLoadBalancerAttributesResponse
 modifyLoadBalancerAttributesResponse pStatus =
     ModifyLoadBalancerAttributesResponse'
     { _mlbarLoadBalancerAttributes = Nothing
@@ -148,5 +148,5 @@ mlbarLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
 mlbarLoadBalancerName = lens _mlbarLoadBalancerName (\ s a -> s{_mlbarLoadBalancerName = a});
 
 -- | FIXME: Undocumented member.
-mlbarStatus :: Lens' ModifyLoadBalancerAttributesResponse Status
+mlbarStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
 mlbarStatus = lens _mlbarStatus (\ s a -> s{_mlbarStatus = a});

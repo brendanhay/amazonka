@@ -134,7 +134,7 @@ instance AWSRequest ListGeoLocations where
                    (x .@? "NextContinentCode") <*>
                      (x .@? "NextCountryCode")
                      <*> (x .@? "NextSubdivisionCode")
-                     <*> (pure s)
+                     <*> (pure (fromEnum s))
                      <*>
                      (x .@? "GeoLocationDetailsList" .!@ mempty >>=
                         parseXMLList "GeoLocationDetails")
@@ -179,14 +179,14 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse'
     { _lglrNextContinentCode      :: !(Maybe Text)
     , _lglrNextCountryCode        :: !(Maybe Text)
     , _lglrNextSubdivisionCode    :: !(Maybe Text)
-    , _lglrStatus                 :: !Status
+    , _lglrStatus                 :: !Int
     , _lglrGeoLocationDetailsList :: ![GeoLocationDetails]
     , _lglrIsTruncated            :: !Bool
     , _lglrMaxItems               :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListGeoLocationsResponse' smart constructor.
-listGeoLocationsResponse :: Status -> Bool -> Text -> ListGeoLocationsResponse
+listGeoLocationsResponse :: Int -> Bool -> Text -> ListGeoLocationsResponse
 listGeoLocationsResponse pStatus pIsTruncated pMaxItems =
     ListGeoLocationsResponse'
     { _lglrNextContinentCode = Nothing
@@ -220,7 +220,7 @@ lglrNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrNextSubdivisionCode = lens _lglrNextSubdivisionCode (\ s a -> s{_lglrNextSubdivisionCode = a});
 
 -- | FIXME: Undocumented member.
-lglrStatus :: Lens' ListGeoLocationsResponse Status
+lglrStatus :: Lens' ListGeoLocationsResponse Int
 lglrStatus = lens _lglrStatus (\ s a -> s{_lglrStatus = a});
 
 -- | A complex type that contains information about the geo locations that

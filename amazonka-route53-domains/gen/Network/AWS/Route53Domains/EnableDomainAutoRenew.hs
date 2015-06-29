@@ -76,7 +76,8 @@ instance AWSRequest EnableDomainAutoRenew where
         response
           = receiveJSON
               (\ s h x ->
-                 EnableDomainAutoRenewResponse' <$> (pure s))
+                 EnableDomainAutoRenewResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders EnableDomainAutoRenew where
         toHeaders
@@ -104,16 +105,16 @@ instance ToQuery EnableDomainAutoRenew where
 --
 -- * 'edarrStatus'
 newtype EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse'
-    { _edarrStatus :: Status
-    } deriving (Eq,Show)
+    { _edarrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'EnableDomainAutoRenewResponse' smart constructor.
-enableDomainAutoRenewResponse :: Status -> EnableDomainAutoRenewResponse
+enableDomainAutoRenewResponse :: Int -> EnableDomainAutoRenewResponse
 enableDomainAutoRenewResponse pStatus =
     EnableDomainAutoRenewResponse'
     { _edarrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-edarrStatus :: Lens' EnableDomainAutoRenewResponse Status
+edarrStatus :: Lens' EnableDomainAutoRenewResponse Int
 edarrStatus = lens _edarrStatus (\ s a -> s{_edarrStatus = a});

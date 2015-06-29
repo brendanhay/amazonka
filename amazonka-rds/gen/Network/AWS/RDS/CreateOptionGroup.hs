@@ -116,7 +116,7 @@ instance AWSRequest CreateOptionGroup where
           = receiveXMLWrapper "CreateOptionGroupResult"
               (\ s h x ->
                  CreateOptionGroupResponse' <$>
-                   (x .@? "OptionGroup") <*> (pure s))
+                   (x .@? "OptionGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateOptionGroup where
         toHeaders = const mempty
@@ -145,11 +145,11 @@ instance ToQuery CreateOptionGroup where
 -- * 'creaStatus'
 data CreateOptionGroupResponse = CreateOptionGroupResponse'
     { _creaOptionGroup :: !(Maybe OptionGroup)
-    , _creaStatus      :: !Status
-    } deriving (Eq,Show)
+    , _creaStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateOptionGroupResponse' smart constructor.
-createOptionGroupResponse :: Status -> CreateOptionGroupResponse
+createOptionGroupResponse :: Int -> CreateOptionGroupResponse
 createOptionGroupResponse pStatus =
     CreateOptionGroupResponse'
     { _creaOptionGroup = Nothing
@@ -161,5 +161,5 @@ creaOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
 creaOptionGroup = lens _creaOptionGroup (\ s a -> s{_creaOptionGroup = a});
 
 -- | FIXME: Undocumented member.
-creaStatus :: Lens' CreateOptionGroupResponse Status
+creaStatus :: Lens' CreateOptionGroupResponse Int
 creaStatus = lens _creaStatus (\ s a -> s{_creaStatus = a});

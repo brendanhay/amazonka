@@ -106,7 +106,7 @@ instance AWSRequest GetGeoLocation where
           = receiveXML
               (\ s h x ->
                  GetGeoLocationResponse' <$>
-                   (pure s) <*> (x .@ "GeoLocationDetails"))
+                   (pure (fromEnum s)) <*> (x .@ "GeoLocationDetails"))
 
 instance ToHeaders GetGeoLocation where
         toHeaders = const mempty
@@ -131,12 +131,12 @@ instance ToQuery GetGeoLocation where
 --
 -- * 'gglrGeoLocationDetails'
 data GetGeoLocationResponse = GetGeoLocationResponse'
-    { _gglrStatus             :: !Status
+    { _gglrStatus             :: !Int
     , _gglrGeoLocationDetails :: !GeoLocationDetails
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetGeoLocationResponse' smart constructor.
-getGeoLocationResponse :: Status -> GeoLocationDetails -> GetGeoLocationResponse
+getGeoLocationResponse :: Int -> GeoLocationDetails -> GetGeoLocationResponse
 getGeoLocationResponse pStatus pGeoLocationDetails =
     GetGeoLocationResponse'
     { _gglrStatus = pStatus
@@ -144,7 +144,7 @@ getGeoLocationResponse pStatus pGeoLocationDetails =
     }
 
 -- | FIXME: Undocumented member.
-gglrStatus :: Lens' GetGeoLocationResponse Status
+gglrStatus :: Lens' GetGeoLocationResponse Int
 gglrStatus = lens _gglrStatus (\ s a -> s{_gglrStatus = a});
 
 -- | A complex type that contains the information about the specified geo

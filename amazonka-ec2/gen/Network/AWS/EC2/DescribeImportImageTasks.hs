@@ -111,7 +111,7 @@ instance AWSRequest DescribeImportImageTasks where
               (\ s h x ->
                  DescribeImportImageTasksResponse' <$>
                    (may (parseXMLList "item") x) <*> (x .@? "nextToken")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeImportImageTasks where
         toHeaders = const mempty
@@ -144,11 +144,11 @@ instance ToQuery DescribeImportImageTasks where
 data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
     { _diitrImportImageTasks :: !(Maybe [ImportImageTask])
     , _diitrNextToken        :: !(Maybe Text)
-    , _diitrStatus           :: !Status
-    } deriving (Eq,Show)
+    , _diitrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeImportImageTasksResponse' smart constructor.
-describeImportImageTasksResponse :: Status -> DescribeImportImageTasksResponse
+describeImportImageTasksResponse :: Int -> DescribeImportImageTasksResponse
 describeImportImageTasksResponse pStatus =
     DescribeImportImageTasksResponse'
     { _diitrImportImageTasks = Nothing
@@ -167,5 +167,5 @@ diitrNextToken :: Lens' DescribeImportImageTasksResponse (Maybe Text)
 diitrNextToken = lens _diitrNextToken (\ s a -> s{_diitrNextToken = a});
 
 -- | FIXME: Undocumented member.
-diitrStatus :: Lens' DescribeImportImageTasksResponse Status
+diitrStatus :: Lens' DescribeImportImageTasksResponse Int
 diitrStatus = lens _diitrStatus (\ s a -> s{_diitrStatus = a});

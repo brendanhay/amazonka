@@ -114,7 +114,7 @@ instance AWSRequest Subscribe where
           = receiveXMLWrapper "SubscribeResult"
               (\ s h x ->
                  SubscribeResponse' <$>
-                   (x .@? "SubscriptionArn") <*> (pure s))
+                   (x .@? "SubscriptionArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders Subscribe where
         toHeaders = const mempty
@@ -141,11 +141,11 @@ instance ToQuery Subscribe where
 -- * 'srStatus'
 data SubscribeResponse = SubscribeResponse'
     { _srSubscriptionARN :: !(Maybe Text)
-    , _srStatus          :: !Status
-    } deriving (Eq,Show)
+    , _srStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SubscribeResponse' smart constructor.
-subscribeResponse :: Status -> SubscribeResponse
+subscribeResponse :: Int -> SubscribeResponse
 subscribeResponse pStatus =
     SubscribeResponse'
     { _srSubscriptionARN = Nothing
@@ -159,5 +159,5 @@ srSubscriptionARN :: Lens' SubscribeResponse (Maybe Text)
 srSubscriptionARN = lens _srSubscriptionARN (\ s a -> s{_srSubscriptionARN = a});
 
 -- | FIXME: Undocumented member.
-srStatus :: Lens' SubscribeResponse Status
+srStatus :: Lens' SubscribeResponse Int
 srStatus = lens _srStatus (\ s a -> s{_srStatus = a});

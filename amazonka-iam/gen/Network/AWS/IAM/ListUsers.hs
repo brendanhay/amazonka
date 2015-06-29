@@ -113,7 +113,7 @@ instance AWSRequest ListUsers where
               (\ s h x ->
                  ListUsersResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (pure s)
+                     (pure (fromEnum s))
                      <*>
                      (x .@? "Users" .!@ mempty >>= parseXMLList "member"))
 
@@ -147,12 +147,12 @@ instance ToQuery ListUsers where
 data ListUsersResponse = ListUsersResponse'
     { _lurMarker      :: !(Maybe Text)
     , _lurIsTruncated :: !(Maybe Bool)
-    , _lurStatus      :: !Status
+    , _lurStatus      :: !Int
     , _lurUsers       :: ![User]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListUsersResponse' smart constructor.
-listUsersResponse :: Status -> ListUsersResponse
+listUsersResponse :: Int -> ListUsersResponse
 listUsersResponse pStatus =
     ListUsersResponse'
     { _lurMarker = Nothing
@@ -174,7 +174,7 @@ lurIsTruncated :: Lens' ListUsersResponse (Maybe Bool)
 lurIsTruncated = lens _lurIsTruncated (\ s a -> s{_lurIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lurStatus :: Lens' ListUsersResponse Status
+lurStatus :: Lens' ListUsersResponse Int
 lurStatus = lens _lurStatus (\ s a -> s{_lurStatus = a});
 
 -- | A list of users.

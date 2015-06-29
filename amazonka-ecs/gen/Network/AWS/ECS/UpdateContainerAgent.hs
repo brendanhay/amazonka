@@ -83,7 +83,7 @@ instance AWSRequest UpdateContainerAgent where
           = receiveJSON
               (\ s h x ->
                  UpdateContainerAgentResponse' <$>
-                   (x .?> "containerInstance") <*> (pure s))
+                   (x .?> "containerInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateContainerAgent where
         toHeaders
@@ -116,11 +116,11 @@ instance ToQuery UpdateContainerAgent where
 -- * 'ucarStatus'
 data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
     { _ucarContainerInstance :: !(Maybe ContainerInstance)
-    , _ucarStatus            :: !Status
-    } deriving (Eq,Show)
+    , _ucarStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateContainerAgentResponse' smart constructor.
-updateContainerAgentResponse :: Status -> UpdateContainerAgentResponse
+updateContainerAgentResponse :: Int -> UpdateContainerAgentResponse
 updateContainerAgentResponse pStatus =
     UpdateContainerAgentResponse'
     { _ucarContainerInstance = Nothing
@@ -132,5 +132,5 @@ ucarContainerInstance :: Lens' UpdateContainerAgentResponse (Maybe ContainerInst
 ucarContainerInstance = lens _ucarContainerInstance (\ s a -> s{_ucarContainerInstance = a});
 
 -- | FIXME: Undocumented member.
-ucarStatus :: Lens' UpdateContainerAgentResponse Status
+ucarStatus :: Lens' UpdateContainerAgentResponse Int
 ucarStatus = lens _ucarStatus (\ s a -> s{_ucarStatus = a});

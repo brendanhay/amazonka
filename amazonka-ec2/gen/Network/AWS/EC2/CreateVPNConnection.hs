@@ -128,7 +128,7 @@ instance AWSRequest CreateVPNConnection where
           = receiveXML
               (\ s h x ->
                  CreateVPNConnectionResponse' <$>
-                   (x .@? "vpnConnection") <*> (pure s))
+                   (x .@? "vpnConnection") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateVPNConnection where
         toHeaders = const mempty
@@ -155,11 +155,11 @@ instance ToQuery CreateVPNConnection where
 -- * 'cvcrStatus'
 data CreateVPNConnectionResponse = CreateVPNConnectionResponse'
     { _cvcrVPNConnection :: !(Maybe VPNConnection)
-    , _cvcrStatus        :: !Status
-    } deriving (Eq,Show)
+    , _cvcrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVPNConnectionResponse' smart constructor.
-createVPNConnectionResponse :: Status -> CreateVPNConnectionResponse
+createVPNConnectionResponse :: Int -> CreateVPNConnectionResponse
 createVPNConnectionResponse pStatus =
     CreateVPNConnectionResponse'
     { _cvcrVPNConnection = Nothing
@@ -171,5 +171,5 @@ cvcrVPNConnection :: Lens' CreateVPNConnectionResponse (Maybe VPNConnection)
 cvcrVPNConnection = lens _cvcrVPNConnection (\ s a -> s{_cvcrVPNConnection = a});
 
 -- | FIXME: Undocumented member.
-cvcrStatus :: Lens' CreateVPNConnectionResponse Status
+cvcrStatus :: Lens' CreateVPNConnectionResponse Int
 cvcrStatus = lens _cvcrStatus (\ s a -> s{_cvcrStatus = a});

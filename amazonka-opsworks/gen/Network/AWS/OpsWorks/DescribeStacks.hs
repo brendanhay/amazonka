@@ -76,7 +76,7 @@ instance AWSRequest DescribeStacks where
           = receiveJSON
               (\ s h x ->
                  DescribeStacksResponse' <$>
-                   (x .?> "Stacks" .!@ mempty) <*> (pure s))
+                   (x .?> "Stacks" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeStacks where
         toHeaders
@@ -108,11 +108,11 @@ instance ToQuery DescribeStacks where
 -- * 'dsrStatus'
 data DescribeStacksResponse = DescribeStacksResponse'
     { _dsrStacks :: !(Maybe [Stack])
-    , _dsrStatus :: !Status
-    } deriving (Eq,Show)
+    , _dsrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStacksResponse' smart constructor.
-describeStacksResponse :: Status -> DescribeStacksResponse
+describeStacksResponse :: Int -> DescribeStacksResponse
 describeStacksResponse pStatus =
     DescribeStacksResponse'
     { _dsrStacks = Nothing
@@ -124,5 +124,5 @@ dsrStacks :: Lens' DescribeStacksResponse [Stack]
 dsrStacks = lens _dsrStacks (\ s a -> s{_dsrStacks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DescribeStacksResponse Status
+dsrStatus :: Lens' DescribeStacksResponse Int
 dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

@@ -109,7 +109,7 @@ instance AWSRequest CreateVault where
           = receiveJSON
               (\ s h x ->
                  CreateVaultResponse' <$>
-                   (h .#? "Location") <*> (pure s))
+                   (h .#? "Location") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateVault where
         toHeaders = const mempty
@@ -137,11 +137,11 @@ instance ToQuery CreateVault where
 -- * 'cvrStatus'
 data CreateVaultResponse = CreateVaultResponse'
     { _cvrLocation :: !(Maybe Text)
-    , _cvrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _cvrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateVaultResponse' smart constructor.
-createVaultResponse :: Status -> CreateVaultResponse
+createVaultResponse :: Int -> CreateVaultResponse
 createVaultResponse pStatus =
     CreateVaultResponse'
     { _cvrLocation = Nothing
@@ -153,5 +153,5 @@ cvrLocation :: Lens' CreateVaultResponse (Maybe Text)
 cvrLocation = lens _cvrLocation (\ s a -> s{_cvrLocation = a});
 
 -- | FIXME: Undocumented member.
-cvrStatus :: Lens' CreateVaultResponse Status
+cvrStatus :: Lens' CreateVaultResponse Int
 cvrStatus = lens _cvrStatus (\ s a -> s{_cvrStatus = a});

@@ -90,7 +90,8 @@ instance AWSRequest DescribeAvailabilityOptions where
               "DescribeAvailabilityOptionsResult"
               (\ s h x ->
                  DescribeAvailabilityOptionsResponse' <$>
-                   (x .@? "AvailabilityOptions") <*> (pure s))
+                   (x .@? "AvailabilityOptions") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeAvailabilityOptions where
         toHeaders = const mempty
@@ -120,11 +121,11 @@ instance ToQuery DescribeAvailabilityOptions where
 -- * 'daorStatus'
 data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'
     { _daorAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
-    , _daorStatus              :: !Status
-    } deriving (Eq,Show)
+    , _daorStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAvailabilityOptionsResponse' smart constructor.
-describeAvailabilityOptionsResponse :: Status -> DescribeAvailabilityOptionsResponse
+describeAvailabilityOptionsResponse :: Int -> DescribeAvailabilityOptionsResponse
 describeAvailabilityOptionsResponse pStatus =
     DescribeAvailabilityOptionsResponse'
     { _daorAvailabilityOptions = Nothing
@@ -137,5 +138,5 @@ daorAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe Avai
 daorAvailabilityOptions = lens _daorAvailabilityOptions (\ s a -> s{_daorAvailabilityOptions = a});
 
 -- | FIXME: Undocumented member.
-daorStatus :: Lens' DescribeAvailabilityOptionsResponse Status
+daorStatus :: Lens' DescribeAvailabilityOptionsResponse Int
 daorStatus = lens _daorStatus (\ s a -> s{_daorStatus = a});

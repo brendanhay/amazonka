@@ -77,7 +77,7 @@ instance AWSRequest DescribeConfigurationRecorders
               (\ s h x ->
                  DescribeConfigurationRecordersResponse' <$>
                    (x .?> "ConfigurationRecorders" .!@ mempty) <*>
-                     (pure s))
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeConfigurationRecorders
          where
@@ -113,11 +113,11 @@ instance ToQuery DescribeConfigurationRecorders where
 -- * 'dcrrStatus'
 data DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'
     { _dcrrConfigurationRecorders :: !(Maybe [ConfigurationRecorder])
-    , _dcrrStatus                 :: !Status
-    } deriving (Eq,Show)
+    , _dcrrStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeConfigurationRecordersResponse' smart constructor.
-describeConfigurationRecordersResponse :: Status -> DescribeConfigurationRecordersResponse
+describeConfigurationRecordersResponse :: Int -> DescribeConfigurationRecordersResponse
 describeConfigurationRecordersResponse pStatus =
     DescribeConfigurationRecordersResponse'
     { _dcrrConfigurationRecorders = Nothing
@@ -130,5 +130,5 @@ dcrrConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse [Conf
 dcrrConfigurationRecorders = lens _dcrrConfigurationRecorders (\ s a -> s{_dcrrConfigurationRecorders = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrrStatus :: Lens' DescribeConfigurationRecordersResponse Status
+dcrrStatus :: Lens' DescribeConfigurationRecordersResponse Int
 dcrrStatus = lens _dcrrStatus (\ s a -> s{_dcrrStatus = a});

@@ -98,7 +98,8 @@ instance AWSRequest DescribeServiceErrors where
           = receiveJSON
               (\ s h x ->
                  DescribeServiceErrorsResponse' <$>
-                   (x .?> "ServiceErrors" .!@ mempty) <*> (pure s))
+                   (x .?> "ServiceErrors" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeServiceErrors where
         toHeaders
@@ -134,11 +135,11 @@ instance ToQuery DescribeServiceErrors where
 -- * 'dserStatus'
 data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'
     { _dserServiceErrors :: !(Maybe [ServiceError'])
-    , _dserStatus        :: !Status
-    } deriving (Eq,Show)
+    , _dserStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeServiceErrorsResponse' smart constructor.
-describeServiceErrorsResponse :: Status -> DescribeServiceErrorsResponse
+describeServiceErrorsResponse :: Int -> DescribeServiceErrorsResponse
 describeServiceErrorsResponse pStatus =
     DescribeServiceErrorsResponse'
     { _dserServiceErrors = Nothing
@@ -151,5 +152,5 @@ dserServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
 dserServiceErrors = lens _dserServiceErrors (\ s a -> s{_dserServiceErrors = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dserStatus :: Lens' DescribeServiceErrorsResponse Status
+dserStatus :: Lens' DescribeServiceErrorsResponse Int
 dserStatus = lens _dserStatus (\ s a -> s{_dserStatus = a});

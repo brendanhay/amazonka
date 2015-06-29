@@ -171,7 +171,8 @@ instance AWSRequest UploadMultipartPart where
           = receiveJSON
               (\ s h x ->
                  UploadMultipartPartResponse' <$>
-                   (h .#? "x-amz-sha256-tree-hash") <*> (pure s))
+                   (h .#? "x-amz-sha256-tree-hash") <*>
+                     (pure (fromEnum s)))
 
 instance ToBody UploadMultipartPart where
         toBody = _umpBody
@@ -203,11 +204,11 @@ instance ToQuery UploadMultipartPart where
 -- * 'umprStatus'
 data UploadMultipartPartResponse = UploadMultipartPartResponse'
     { _umprChecksum :: !(Maybe Text)
-    , _umprStatus   :: !Status
-    } deriving (Eq,Show)
+    , _umprStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UploadMultipartPartResponse' smart constructor.
-uploadMultipartPartResponse :: Status -> UploadMultipartPartResponse
+uploadMultipartPartResponse :: Int -> UploadMultipartPartResponse
 uploadMultipartPartResponse pStatus =
     UploadMultipartPartResponse'
     { _umprChecksum = Nothing
@@ -219,5 +220,5 @@ umprChecksum :: Lens' UploadMultipartPartResponse (Maybe Text)
 umprChecksum = lens _umprChecksum (\ s a -> s{_umprChecksum = a});
 
 -- | FIXME: Undocumented member.
-umprStatus :: Lens' UploadMultipartPartResponse Status
+umprStatus :: Lens' UploadMultipartPartResponse Int
 umprStatus = lens _umprStatus (\ s a -> s{_umprStatus = a});

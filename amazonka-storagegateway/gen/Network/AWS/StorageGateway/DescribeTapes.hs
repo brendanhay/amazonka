@@ -117,7 +117,7 @@ instance AWSRequest DescribeTapes where
               (\ s h x ->
                  DescribeTapesResponse' <$>
                    (x .?> "Marker") <*> (x .?> "Tapes" .!@ mempty) <*>
-                     (pure s))
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeTapes where
         toHeaders
@@ -156,11 +156,11 @@ instance ToQuery DescribeTapes where
 data DescribeTapesResponse = DescribeTapesResponse'
     { _desMarker :: !(Maybe Text)
     , _desTapes  :: !(Maybe [Tape])
-    , _desStatus :: !Status
-    } deriving (Eq,Show)
+    , _desStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTapesResponse' smart constructor.
-describeTapesResponse :: Status -> DescribeTapesResponse
+describeTapesResponse :: Int -> DescribeTapesResponse
 describeTapesResponse pStatus =
     DescribeTapesResponse'
     { _desMarker = Nothing
@@ -181,5 +181,5 @@ desTapes :: Lens' DescribeTapesResponse [Tape]
 desTapes = lens _desTapes (\ s a -> s{_desTapes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeTapesResponse Status
+desStatus :: Lens' DescribeTapesResponse Int
 desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

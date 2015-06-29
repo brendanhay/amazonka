@@ -114,7 +114,7 @@ instance AWSRequest GetStatus where
                      <*> (x .@? "LogKey")
                      <*> (x .@? "ProgressMessage")
                      <*> (x .@? "LocationMessage")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetStatus where
         toHeaders = const mempty
@@ -186,11 +186,11 @@ data GetStatusResponse = GetStatusResponse'
     , _gsrLogKey                :: !(Maybe Text)
     , _gsrProgressMessage       :: !(Maybe Text)
     , _gsrLocationMessage       :: !(Maybe Text)
-    , _gsrStatus                :: !Status
-    } deriving (Eq,Show)
+    , _gsrStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetStatusResponse' smart constructor.
-getStatusResponse :: Status -> GetStatusResponse
+getStatusResponse :: Int -> GetStatusResponse
 getStatusResponse pStatus =
     GetStatusResponse'
     { _gsrCarrier = Nothing
@@ -277,5 +277,5 @@ gsrLocationMessage :: Lens' GetStatusResponse (Maybe Text)
 gsrLocationMessage = lens _gsrLocationMessage (\ s a -> s{_gsrLocationMessage = a});
 
 -- | FIXME: Undocumented member.
-gsrStatus :: Lens' GetStatusResponse Status
+gsrStatus :: Lens' GetStatusResponse Int
 gsrStatus = lens _gsrStatus (\ s a -> s{_gsrStatus = a});

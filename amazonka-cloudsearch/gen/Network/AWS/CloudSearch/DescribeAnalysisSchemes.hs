@@ -101,7 +101,7 @@ instance AWSRequest DescribeAnalysisSchemes where
           = receiveXMLWrapper "DescribeAnalysisSchemesResult"
               (\ s h x ->
                  DescribeAnalysisSchemesResponse' <$>
-                   (pure s) <*>
+                   (pure (fromEnum s)) <*>
                      (x .@? "AnalysisSchemes" .!@ mempty >>=
                         parseXMLList "member"))
 
@@ -134,12 +134,12 @@ instance ToQuery DescribeAnalysisSchemes where
 --
 -- * 'dasrAnalysisSchemes'
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
-    { _dasrStatus          :: !Status
+    { _dasrStatus          :: !Int
     , _dasrAnalysisSchemes :: ![AnalysisSchemeStatus]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAnalysisSchemesResponse' smart constructor.
-describeAnalysisSchemesResponse :: Status -> DescribeAnalysisSchemesResponse
+describeAnalysisSchemesResponse :: Int -> DescribeAnalysisSchemesResponse
 describeAnalysisSchemesResponse pStatus =
     DescribeAnalysisSchemesResponse'
     { _dasrStatus = pStatus
@@ -147,7 +147,7 @@ describeAnalysisSchemesResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-dasrStatus :: Lens' DescribeAnalysisSchemesResponse Status
+dasrStatus :: Lens' DescribeAnalysisSchemesResponse Int
 dasrStatus = lens _dasrStatus (\ s a -> s{_dasrStatus = a});
 
 -- | The analysis scheme descriptions.

@@ -81,7 +81,8 @@ instance AWSRequest DescribeAgentVersions where
           = receiveJSON
               (\ s h x ->
                  DescribeAgentVersionsResponse' <$>
-                   (x .?> "AgentVersions" .!@ mempty) <*> (pure s))
+                   (x .?> "AgentVersions" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeAgentVersions where
         toHeaders
@@ -116,11 +117,11 @@ instance ToQuery DescribeAgentVersions where
 -- * 'davrStatus'
 data DescribeAgentVersionsResponse = DescribeAgentVersionsResponse'
     { _davrAgentVersions :: !(Maybe [AgentVersion])
-    , _davrStatus        :: !Status
-    } deriving (Eq,Show)
+    , _davrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAgentVersionsResponse' smart constructor.
-describeAgentVersionsResponse :: Status -> DescribeAgentVersionsResponse
+describeAgentVersionsResponse :: Int -> DescribeAgentVersionsResponse
 describeAgentVersionsResponse pStatus =
     DescribeAgentVersionsResponse'
     { _davrAgentVersions = Nothing
@@ -134,5 +135,5 @@ davrAgentVersions :: Lens' DescribeAgentVersionsResponse [AgentVersion]
 davrAgentVersions = lens _davrAgentVersions (\ s a -> s{_davrAgentVersions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-davrStatus :: Lens' DescribeAgentVersionsResponse Status
+davrStatus :: Lens' DescribeAgentVersionsResponse Int
 davrStatus = lens _davrStatus (\ s a -> s{_davrStatus = a});

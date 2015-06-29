@@ -189,7 +189,7 @@ instance AWSRequest ListResourceRecordSets where
                  ListResourceRecordSetsResponse' <$>
                    (x .@? "NextRecordType") <*> (x .@? "NextRecordName")
                      <*> (x .@? "NextRecordIdentifier")
-                     <*> (pure s)
+                     <*> (pure (fromEnum s))
                      <*>
                      (x .@? "ResourceRecordSets" .!@ mempty >>=
                         parseXMLList "ResourceRecordSet")
@@ -237,14 +237,14 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
     { _lrrsrNextRecordType       :: !(Maybe RecordType)
     , _lrrsrNextRecordName       :: !(Maybe Text)
     , _lrrsrNextRecordIdentifier :: !(Maybe Text)
-    , _lrrsrStatus               :: !Status
+    , _lrrsrStatus               :: !Int
     , _lrrsrResourceRecordSets   :: ![ResourceRecordSet]
     , _lrrsrIsTruncated          :: !Bool
     , _lrrsrMaxItems             :: !Text
     } deriving (Eq,Show)
 
 -- | 'ListResourceRecordSetsResponse' smart constructor.
-listResourceRecordSetsResponse :: Status -> Bool -> Text -> ListResourceRecordSetsResponse
+listResourceRecordSetsResponse :: Int -> Bool -> Text -> ListResourceRecordSetsResponse
 listResourceRecordSetsResponse pStatus pIsTruncated pMaxItems =
     ListResourceRecordSetsResponse'
     { _lrrsrNextRecordType = Nothing
@@ -275,7 +275,7 @@ lrrsrNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrNextRecordIdentifier = lens _lrrsrNextRecordIdentifier (\ s a -> s{_lrrsrNextRecordIdentifier = a});
 
 -- | FIXME: Undocumented member.
-lrrsrStatus :: Lens' ListResourceRecordSetsResponse Status
+lrrsrStatus :: Lens' ListResourceRecordSetsResponse Int
 lrrsrStatus = lens _lrrsrStatus (\ s a -> s{_lrrsrStatus = a});
 
 -- | A complex type that contains information about the resource record sets

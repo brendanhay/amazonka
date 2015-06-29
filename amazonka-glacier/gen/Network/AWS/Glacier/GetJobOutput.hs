@@ -160,7 +160,7 @@ instance AWSRequest GetJobOutput where
                      <*> (h .#? "x-amz-archive-description")
                      <*> (h .#? "Content-Range")
                      <*> (h .#? "Content-Type")
-                     <*> (pure s)
+                     <*> (pure (fromEnum s))
                      <*> (pure x))
 
 instance ToHeaders GetJobOutput where

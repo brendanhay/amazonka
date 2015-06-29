@@ -141,7 +141,7 @@ instance AWSRequest CreateSecurityGroup where
           = receiveXML
               (\ s h x ->
                  CreateSecurityGroupResponse' <$>
-                   (pure s) <*> (x .@ "groupId"))
+                   (pure (fromEnum s)) <*> (x .@ "groupId"))
 
 instance ToHeaders CreateSecurityGroup where
         toHeaders = const mempty
@@ -166,12 +166,12 @@ instance ToQuery CreateSecurityGroup where
 --
 -- * 'csgrGroupId'
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse'
-    { _csgrStatus  :: !Status
+    { _csgrStatus  :: !Int
     , _csgrGroupId :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateSecurityGroupResponse' smart constructor.
-createSecurityGroupResponse :: Status -> Text -> CreateSecurityGroupResponse
+createSecurityGroupResponse :: Int -> Text -> CreateSecurityGroupResponse
 createSecurityGroupResponse pStatus pGroupId =
     CreateSecurityGroupResponse'
     { _csgrStatus = pStatus
@@ -179,7 +179,7 @@ createSecurityGroupResponse pStatus pGroupId =
     }
 
 -- | FIXME: Undocumented member.
-csgrStatus :: Lens' CreateSecurityGroupResponse Status
+csgrStatus :: Lens' CreateSecurityGroupResponse Int
 csgrStatus = lens _csgrStatus (\ s a -> s{_csgrStatus = a});
 
 -- | The ID of the security group.

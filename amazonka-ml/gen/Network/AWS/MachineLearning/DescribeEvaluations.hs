@@ -216,7 +216,7 @@ instance AWSRequest DescribeEvaluations where
               (\ s h x ->
                  DescribeEvaluationsResponse' <$>
                    (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeEvaluations where
         toHeaders
@@ -259,11 +259,11 @@ instance ToQuery DescribeEvaluations where
 data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
     { _der1Results   :: !(Maybe [Evaluation])
     , _der1NextToken :: !(Maybe Text)
-    , _der1Status    :: !Status
-    } deriving (Eq,Show)
+    , _der1Status    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEvaluationsResponse' smart constructor.
-describeEvaluationsResponse :: Status -> DescribeEvaluationsResponse
+describeEvaluationsResponse :: Int -> DescribeEvaluationsResponse
 describeEvaluationsResponse pStatus =
     DescribeEvaluationsResponse'
     { _der1Results = Nothing
@@ -281,5 +281,5 @@ der1NextToken :: Lens' DescribeEvaluationsResponse (Maybe Text)
 der1NextToken = lens _der1NextToken (\ s a -> s{_der1NextToken = a});
 
 -- | FIXME: Undocumented member.
-der1Status :: Lens' DescribeEvaluationsResponse Status
+der1Status :: Lens' DescribeEvaluationsResponse Int
 der1Status = lens _der1Status (\ s a -> s{_der1Status = a});

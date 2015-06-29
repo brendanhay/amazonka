@@ -68,7 +68,7 @@ instance AWSRequest GetBucketLocation where
           = receiveXML
               (\ s h x ->
                  GetBucketLocationResponse' <$>
-                   (x .@? "LocationConstraint") <*> (pure s))
+                   (x .@? "LocationConstraint") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetBucketLocation where
         toHeaders = const mempty
@@ -89,11 +89,11 @@ instance ToQuery GetBucketLocation where
 -- * 'gStatus'
 data GetBucketLocationResponse = GetBucketLocationResponse'
     { _gLocationConstraint :: !(Maybe Region)
-    , _gStatus             :: !Status
+    , _gStatus             :: !Int
     } deriving (Eq,Show)
 
 -- | 'GetBucketLocationResponse' smart constructor.
-getBucketLocationResponse :: Status -> GetBucketLocationResponse
+getBucketLocationResponse :: Int -> GetBucketLocationResponse
 getBucketLocationResponse pStatus =
     GetBucketLocationResponse'
     { _gLocationConstraint = Nothing
@@ -105,5 +105,5 @@ gLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
 gLocationConstraint = lens _gLocationConstraint (\ s a -> s{_gLocationConstraint = a});
 
 -- | FIXME: Undocumented member.
-gStatus :: Lens' GetBucketLocationResponse Status
+gStatus :: Lens' GetBucketLocationResponse Int
 gStatus = lens _gStatus (\ s a -> s{_gStatus = a});

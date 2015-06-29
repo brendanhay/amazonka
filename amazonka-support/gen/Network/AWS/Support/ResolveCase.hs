@@ -74,7 +74,7 @@ instance AWSRequest ResolveCase where
                  ResolveCaseResponse' <$>
                    (x .?> "initialCaseStatus") <*>
                      (x .?> "finalCaseStatus")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ResolveCase where
         toHeaders
@@ -109,11 +109,11 @@ instance ToQuery ResolveCase where
 data ResolveCaseResponse = ResolveCaseResponse'
     { _rcrInitialCaseStatus :: !(Maybe Text)
     , _rcrFinalCaseStatus   :: !(Maybe Text)
-    , _rcrStatus            :: !Status
-    } deriving (Eq,Show)
+    , _rcrStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ResolveCaseResponse' smart constructor.
-resolveCaseResponse :: Status -> ResolveCaseResponse
+resolveCaseResponse :: Int -> ResolveCaseResponse
 resolveCaseResponse pStatus =
     ResolveCaseResponse'
     { _rcrInitialCaseStatus = Nothing
@@ -130,5 +130,5 @@ rcrFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrFinalCaseStatus = lens _rcrFinalCaseStatus (\ s a -> s{_rcrFinalCaseStatus = a});
 
 -- | FIXME: Undocumented member.
-rcrStatus :: Lens' ResolveCaseResponse Status
+rcrStatus :: Lens' ResolveCaseResponse Int
 rcrStatus = lens _rcrStatus (\ s a -> s{_rcrStatus = a});

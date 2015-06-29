@@ -193,7 +193,8 @@ instance AWSRequest PutLifecycleHook where
         request = post
         response
           = receiveXMLWrapper "PutLifecycleHookResult"
-              (\ s h x -> PutLifecycleHookResponse' <$> (pure s))
+              (\ s h x ->
+                 PutLifecycleHookResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders PutLifecycleHook where
         toHeaders = const mempty
@@ -221,16 +222,16 @@ instance ToQuery PutLifecycleHook where
 --
 -- * 'plhrStatus'
 newtype PutLifecycleHookResponse = PutLifecycleHookResponse'
-    { _plhrStatus :: Status
-    } deriving (Eq,Show)
+    { _plhrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'PutLifecycleHookResponse' smart constructor.
-putLifecycleHookResponse :: Status -> PutLifecycleHookResponse
+putLifecycleHookResponse :: Int -> PutLifecycleHookResponse
 putLifecycleHookResponse pStatus =
     PutLifecycleHookResponse'
     { _plhrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-plhrStatus :: Lens' PutLifecycleHookResponse Status
+plhrStatus :: Lens' PutLifecycleHookResponse Int
 plhrStatus = lens _plhrStatus (\ s a -> s{_plhrStatus = a});

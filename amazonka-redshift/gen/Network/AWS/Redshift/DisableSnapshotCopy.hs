@@ -81,7 +81,7 @@ instance AWSRequest DisableSnapshotCopy where
           = receiveXMLWrapper "DisableSnapshotCopyResult"
               (\ s h x ->
                  DisableSnapshotCopyResponse' <$>
-                   (x .@? "Cluster") <*> (pure s))
+                   (x .@? "Cluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders DisableSnapshotCopy where
         toHeaders = const mempty
@@ -105,11 +105,11 @@ instance ToQuery DisableSnapshotCopy where
 -- * 'dscrStatus'
 data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
     { _dscrCluster :: !(Maybe Cluster)
-    , _dscrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _dscrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DisableSnapshotCopyResponse' smart constructor.
-disableSnapshotCopyResponse :: Status -> DisableSnapshotCopyResponse
+disableSnapshotCopyResponse :: Int -> DisableSnapshotCopyResponse
 disableSnapshotCopyResponse pStatus =
     DisableSnapshotCopyResponse'
     { _dscrCluster = Nothing
@@ -121,5 +121,5 @@ dscrCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
 dscrCluster = lens _dscrCluster (\ s a -> s{_dscrCluster = a});
 
 -- | FIXME: Undocumented member.
-dscrStatus :: Lens' DisableSnapshotCopyResponse Status
+dscrStatus :: Lens' DisableSnapshotCopyResponse Int
 dscrStatus = lens _dscrStatus (\ s a -> s{_dscrStatus = a});

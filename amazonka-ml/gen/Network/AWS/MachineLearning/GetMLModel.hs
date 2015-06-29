@@ -117,7 +117,7 @@ instance AWSRequest GetMLModel where
                      <*> (x .?> "TrainingDataSourceId")
                      <*> (x .?> "Message")
                      <*> (x .?> "MLModelType")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetMLModel where
         toHeaders
@@ -200,11 +200,11 @@ data GetMLModelResponse = GetMLModelResponse'
     , _gmlmrTrainingDataSourceId        :: !(Maybe Text)
     , _gmlmrMessage                     :: !(Maybe Text)
     , _gmlmrMLModelType                 :: !(Maybe MLModelType)
-    , _gmlmrStatus                      :: !Status
-    } deriving (Eq,Show)
+    , _gmlmrStatus                      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetMLModelResponse' smart constructor.
-getMLModelResponse :: Status -> GetMLModelResponse
+getMLModelResponse :: Int -> GetMLModelResponse
 getMLModelResponse pStatus =
     GetMLModelResponse'
     { _gmlmrTrainingParameters = Nothing
@@ -362,5 +362,5 @@ gmlmrMLModelType :: Lens' GetMLModelResponse (Maybe MLModelType)
 gmlmrMLModelType = lens _gmlmrMLModelType (\ s a -> s{_gmlmrMLModelType = a});
 
 -- | FIXME: Undocumented member.
-gmlmrStatus :: Lens' GetMLModelResponse Status
+gmlmrStatus :: Lens' GetMLModelResponse Int
 gmlmrStatus = lens _gmlmrStatus (\ s a -> s{_gmlmrStatus = a});

@@ -291,7 +291,7 @@ instance AWSRequest TransferDomain where
           = receiveJSON
               (\ s h x ->
                  TransferDomainResponse' <$>
-                   (pure s) <*> (x .:> "OperationId"))
+                   (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
 instance ToHeaders TransferDomain where
         toHeaders
@@ -338,12 +338,12 @@ instance ToQuery TransferDomain where
 --
 -- * 'tdrOperationId'
 data TransferDomainResponse = TransferDomainResponse'
-    { _tdrStatus      :: !Status
+    { _tdrStatus      :: !Int
     , _tdrOperationId :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'TransferDomainResponse' smart constructor.
-transferDomainResponse :: Status -> Text -> TransferDomainResponse
+transferDomainResponse :: Int -> Text -> TransferDomainResponse
 transferDomainResponse pStatus pOperationId =
     TransferDomainResponse'
     { _tdrStatus = pStatus
@@ -351,7 +351,7 @@ transferDomainResponse pStatus pOperationId =
     }
 
 -- | FIXME: Undocumented member.
-tdrStatus :: Lens' TransferDomainResponse Status
+tdrStatus :: Lens' TransferDomainResponse Int
 tdrStatus = lens _tdrStatus (\ s a -> s{_tdrStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to

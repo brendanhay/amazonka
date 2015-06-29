@@ -107,7 +107,7 @@ instance AWSRequest BundleInstance where
           = receiveXML
               (\ s h x ->
                  BundleInstanceResponse' <$>
-                   (x .@? "bundleInstanceTask") <*> (pure s))
+                   (x .@? "bundleInstanceTask") <*> (pure (fromEnum s)))
 
 instance ToHeaders BundleInstance where
         toHeaders = const mempty
@@ -132,11 +132,11 @@ instance ToQuery BundleInstance where
 -- * 'birStatus'
 data BundleInstanceResponse = BundleInstanceResponse'
     { _birBundleTask :: !(Maybe BundleTask)
-    , _birStatus     :: !Status
-    } deriving (Eq,Show)
+    , _birStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'BundleInstanceResponse' smart constructor.
-bundleInstanceResponse :: Status -> BundleInstanceResponse
+bundleInstanceResponse :: Int -> BundleInstanceResponse
 bundleInstanceResponse pStatus =
     BundleInstanceResponse'
     { _birBundleTask = Nothing
@@ -148,5 +148,5 @@ birBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
 birBundleTask = lens _birBundleTask (\ s a -> s{_birBundleTask = a});
 
 -- | FIXME: Undocumented member.
-birStatus :: Lens' BundleInstanceResponse Status
+birStatus :: Lens' BundleInstanceResponse Int
 birStatus = lens _birStatus (\ s a -> s{_birStatus = a});

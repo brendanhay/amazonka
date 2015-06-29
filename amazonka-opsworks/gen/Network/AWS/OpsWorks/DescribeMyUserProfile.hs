@@ -61,7 +61,7 @@ instance AWSRequest DescribeMyUserProfile where
           = receiveJSON
               (\ s h x ->
                  DescribeMyUserProfileResponse' <$>
-                   (x .?> "UserProfile") <*> (pure s))
+                   (x .?> "UserProfile") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeMyUserProfile where
         toHeaders
@@ -93,11 +93,11 @@ instance ToQuery DescribeMyUserProfile where
 -- * 'dmuprStatus'
 data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
     { _dmuprUserProfile :: !(Maybe SelfUserProfile)
-    , _dmuprStatus      :: !Status
-    } deriving (Eq,Show)
+    , _dmuprStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMyUserProfileResponse' smart constructor.
-describeMyUserProfileResponse :: Status -> DescribeMyUserProfileResponse
+describeMyUserProfileResponse :: Int -> DescribeMyUserProfileResponse
 describeMyUserProfileResponse pStatus =
     DescribeMyUserProfileResponse'
     { _dmuprUserProfile = Nothing
@@ -109,5 +109,5 @@ dmuprUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
 dmuprUserProfile = lens _dmuprUserProfile (\ s a -> s{_dmuprUserProfile = a});
 
 -- | FIXME: Undocumented member.
-dmuprStatus :: Lens' DescribeMyUserProfileResponse Status
+dmuprStatus :: Lens' DescribeMyUserProfileResponse Int
 dmuprStatus = lens _dmuprStatus (\ s a -> s{_dmuprStatus = a});

@@ -98,7 +98,7 @@ instance AWSRequest
               "SetIdentityFeedbackForwardingEnabledResult"
               (\ s h x ->
                  SetIdentityFeedbackForwardingEnabledResponse' <$>
-                   (pure s))
+                   (pure (fromEnum s)))
 
 instance ToHeaders
          SetIdentityFeedbackForwardingEnabled where
@@ -128,16 +128,16 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled
 --
 -- * 'sifferStatus'
 newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
-    { _sifferStatus :: Status
-    } deriving (Eq,Show)
+    { _sifferStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SetIdentityFeedbackForwardingEnabledResponse' smart constructor.
-setIdentityFeedbackForwardingEnabledResponse :: Status -> SetIdentityFeedbackForwardingEnabledResponse
+setIdentityFeedbackForwardingEnabledResponse :: Int -> SetIdentityFeedbackForwardingEnabledResponse
 setIdentityFeedbackForwardingEnabledResponse pStatus =
     SetIdentityFeedbackForwardingEnabledResponse'
     { _sifferStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-sifferStatus :: Lens' SetIdentityFeedbackForwardingEnabledResponse Status
+sifferStatus :: Lens' SetIdentityFeedbackForwardingEnabledResponse Int
 sifferStatus = lens _sifferStatus (\ s a -> s{_sifferStatus = a});

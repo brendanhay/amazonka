@@ -86,7 +86,7 @@ instance AWSRequest DescribeApplicationVersions where
                  DescribeApplicationVersionsResponse' <$>
                    (x .@? "ApplicationVersions" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeApplicationVersions where
         toHeaders = const mempty
@@ -115,11 +115,11 @@ instance ToQuery DescribeApplicationVersions where
 -- * 'davrStatus'
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
     { _davrApplicationVersions :: !(Maybe [ApplicationVersionDescription])
-    , _davrStatus              :: !Status
-    } deriving (Eq,Show)
+    , _davrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeApplicationVersionsResponse' smart constructor.
-describeApplicationVersionsResponse :: Status -> DescribeApplicationVersionsResponse
+describeApplicationVersionsResponse :: Int -> DescribeApplicationVersionsResponse
 describeApplicationVersionsResponse pStatus =
     DescribeApplicationVersionsResponse'
     { _davrApplicationVersions = Nothing
@@ -131,5 +131,5 @@ davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse [Applicatio
 davrApplicationVersions = lens _davrApplicationVersions (\ s a -> s{_davrApplicationVersions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-davrStatus :: Lens' DescribeApplicationVersionsResponse Status
+davrStatus :: Lens' DescribeApplicationVersionsResponse Int
 davrStatus = lens _davrStatus (\ s a -> s{_davrStatus = a});

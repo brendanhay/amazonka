@@ -75,7 +75,7 @@ instance AWSRequest GetHealthCheckStatus where
           = receiveXML
               (\ s h x ->
                  GetHealthCheckStatusResponse' <$>
-                   (pure s) <*>
+                   (pure (fromEnum s)) <*>
                      (x .@? "HealthCheckObservations" .!@ mempty >>=
                         parseXMLList "HealthCheckObservation"))
 
@@ -102,12 +102,12 @@ instance ToQuery GetHealthCheckStatus where
 --
 -- * 'ghcsrHealthCheckObservations'
 data GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'
-    { _ghcsrStatus                  :: !Status
+    { _ghcsrStatus                  :: !Int
     , _ghcsrHealthCheckObservations :: ![HealthCheckObservation]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetHealthCheckStatusResponse' smart constructor.
-getHealthCheckStatusResponse :: Status -> GetHealthCheckStatusResponse
+getHealthCheckStatusResponse :: Int -> GetHealthCheckStatusResponse
 getHealthCheckStatusResponse pStatus =
     GetHealthCheckStatusResponse'
     { _ghcsrStatus = pStatus
@@ -115,7 +115,7 @@ getHealthCheckStatusResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-ghcsrStatus :: Lens' GetHealthCheckStatusResponse Status
+ghcsrStatus :: Lens' GetHealthCheckStatusResponse Int
 ghcsrStatus = lens _ghcsrStatus (\ s a -> s{_ghcsrStatus = a});
 
 -- | A list that contains one @HealthCheckObservation@ element for each Route

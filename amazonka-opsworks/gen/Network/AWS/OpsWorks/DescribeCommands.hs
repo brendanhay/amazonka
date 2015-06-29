@@ -100,7 +100,8 @@ instance AWSRequest DescribeCommands where
           = receiveJSON
               (\ s h x ->
                  DescribeCommandsResponse' <$>
-                   (x .?> "Commands" .!@ mempty) <*> (pure s))
+                   (x .?> "Commands" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeCommands where
         toHeaders
@@ -135,11 +136,11 @@ instance ToQuery DescribeCommands where
 -- * 'dcrStatus'
 data DescribeCommandsResponse = DescribeCommandsResponse'
     { _dcrCommands :: !(Maybe [Command])
-    , _dcrStatus   :: !Status
-    } deriving (Eq,Show)
+    , _dcrStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCommandsResponse' smart constructor.
-describeCommandsResponse :: Status -> DescribeCommandsResponse
+describeCommandsResponse :: Int -> DescribeCommandsResponse
 describeCommandsResponse pStatus =
     DescribeCommandsResponse'
     { _dcrCommands = Nothing
@@ -152,5 +153,5 @@ dcrCommands :: Lens' DescribeCommandsResponse [Command]
 dcrCommands = lens _dcrCommands (\ s a -> s{_dcrCommands = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrStatus :: Lens' DescribeCommandsResponse Status
+dcrStatus :: Lens' DescribeCommandsResponse Int
 dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});

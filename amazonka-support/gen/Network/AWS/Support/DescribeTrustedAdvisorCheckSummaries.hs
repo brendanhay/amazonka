@@ -75,7 +75,8 @@ instance AWSRequest
           = receiveJSON
               (\ s h x ->
                  DescribeTrustedAdvisorCheckSummariesResponse' <$>
-                   (pure s) <*> (x .?> "summaries" .!@ mempty))
+                   (pure (fromEnum s)) <*>
+                     (x .?> "summaries" .!@ mempty))
 
 instance ToHeaders
          DescribeTrustedAdvisorCheckSummaries where
@@ -112,12 +113,12 @@ instance ToQuery DescribeTrustedAdvisorCheckSummaries
 --
 -- * 'dtacsrSummaries'
 data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'
-    { _dtacsrStatus    :: !Status
+    { _dtacsrStatus    :: !Int
     , _dtacsrSummaries :: ![TrustedAdvisorCheckSummary]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTrustedAdvisorCheckSummariesResponse' smart constructor.
-describeTrustedAdvisorCheckSummariesResponse :: Status -> DescribeTrustedAdvisorCheckSummariesResponse
+describeTrustedAdvisorCheckSummariesResponse :: Int -> DescribeTrustedAdvisorCheckSummariesResponse
 describeTrustedAdvisorCheckSummariesResponse pStatus =
     DescribeTrustedAdvisorCheckSummariesResponse'
     { _dtacsrStatus = pStatus
@@ -125,7 +126,7 @@ describeTrustedAdvisorCheckSummariesResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-dtacsrStatus :: Lens' DescribeTrustedAdvisorCheckSummariesResponse Status
+dtacsrStatus :: Lens' DescribeTrustedAdvisorCheckSummariesResponse Int
 dtacsrStatus = lens _dtacsrStatus (\ s a -> s{_dtacsrStatus = a});
 
 -- | The summary information for the requested Trusted Advisor checks.

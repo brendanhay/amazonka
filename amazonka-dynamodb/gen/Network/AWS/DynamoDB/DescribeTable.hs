@@ -78,7 +78,7 @@ instance AWSRequest DescribeTable where
           = receiveJSON
               (\ s h x ->
                  DescribeTableResponse' <$>
-                   (x .?> "Table") <*> (pure s))
+                   (x .?> "Table") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTable where
         toHeaders
@@ -110,11 +110,11 @@ instance ToQuery DescribeTable where
 -- * 'desStatus'
 data DescribeTableResponse = DescribeTableResponse'
     { _desTable  :: !(Maybe TableDescription)
-    , _desStatus :: !Status
-    } deriving (Eq,Show)
+    , _desStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTableResponse' smart constructor.
-describeTableResponse :: Status -> DescribeTableResponse
+describeTableResponse :: Int -> DescribeTableResponse
 describeTableResponse pStatus =
     DescribeTableResponse'
     { _desTable = Nothing
@@ -126,5 +126,5 @@ desTable :: Lens' DescribeTableResponse (Maybe TableDescription)
 desTable = lens _desTable (\ s a -> s{_desTable = a});
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeTableResponse Status
+desStatus :: Lens' DescribeTableResponse Int
 desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

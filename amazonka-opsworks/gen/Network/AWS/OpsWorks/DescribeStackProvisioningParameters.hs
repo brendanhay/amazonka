@@ -80,7 +80,7 @@ instance AWSRequest
                  DescribeStackProvisioningParametersResponse' <$>
                    (x .?> "AgentInstallerUrl") <*>
                      (x .?> "Parameters" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders
          DescribeStackProvisioningParameters where
@@ -121,11 +121,11 @@ instance ToQuery DescribeStackProvisioningParameters
 data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'
     { _dspprAgentInstallerURL :: !(Maybe Text)
     , _dspprParameters        :: !(Maybe (Map Text Text))
-    , _dspprStatus            :: !Status
-    } deriving (Eq,Show)
+    , _dspprStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackProvisioningParametersResponse' smart constructor.
-describeStackProvisioningParametersResponse :: Status -> DescribeStackProvisioningParametersResponse
+describeStackProvisioningParametersResponse :: Int -> DescribeStackProvisioningParametersResponse
 describeStackProvisioningParametersResponse pStatus =
     DescribeStackProvisioningParametersResponse'
     { _dspprAgentInstallerURL = Nothing
@@ -142,5 +142,5 @@ dspprParameters :: Lens' DescribeStackProvisioningParametersResponse (HashMap Te
 dspprParameters = lens _dspprParameters (\ s a -> s{_dspprParameters = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-dspprStatus :: Lens' DescribeStackProvisioningParametersResponse Status
+dspprStatus :: Lens' DescribeStackProvisioningParametersResponse Int
 dspprStatus = lens _dspprStatus (\ s a -> s{_dspprStatus = a});

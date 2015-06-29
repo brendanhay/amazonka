@@ -159,7 +159,7 @@ instance AWSRequest ListApplicationRevisions where
                  ListApplicationRevisionsResponse' <$>
                    (x .?> "nextToken") <*>
                      (x .?> "revisions" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListApplicationRevisions where
         toHeaders
@@ -201,11 +201,11 @@ instance ToQuery ListApplicationRevisions where
 data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
     { _larrNextToken :: !(Maybe Text)
     , _larrRevisions :: !(Maybe [RevisionLocation])
-    , _larrStatus    :: !Status
-    } deriving (Eq,Show)
+    , _larrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListApplicationRevisionsResponse' smart constructor.
-listApplicationRevisionsResponse :: Status -> ListApplicationRevisionsResponse
+listApplicationRevisionsResponse :: Int -> ListApplicationRevisionsResponse
 listApplicationRevisionsResponse pStatus =
     ListApplicationRevisionsResponse'
     { _larrNextToken = Nothing
@@ -225,5 +225,5 @@ larrRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
 larrRevisions = lens _larrRevisions (\ s a -> s{_larrRevisions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-larrStatus :: Lens' ListApplicationRevisionsResponse Status
+larrStatus :: Lens' ListApplicationRevisionsResponse Int
 larrStatus = lens _larrStatus (\ s a -> s{_larrStatus = a});

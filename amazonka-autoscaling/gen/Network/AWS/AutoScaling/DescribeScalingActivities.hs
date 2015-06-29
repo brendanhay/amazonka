@@ -114,7 +114,7 @@ instance AWSRequest DescribeScalingActivities where
           = receiveXMLWrapper "DescribeScalingActivitiesResult"
               (\ s h x ->
                  DescribeScalingActivitiesResponse' <$>
-                   (x .@? "NextToken") <*> (pure s) <*>
+                   (x .@? "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .@? "Activities" .!@ mempty >>=
                         parseXMLList "member"))
 
@@ -147,12 +147,12 @@ instance ToQuery DescribeScalingActivities where
 -- * 'dActivities'
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
     { _dNextToken  :: !(Maybe Text)
-    , _dStatus     :: !Status
+    , _dStatus     :: !Int
     , _dActivities :: ![Activity]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeScalingActivitiesResponse' smart constructor.
-describeScalingActivitiesResponse :: Status -> DescribeScalingActivitiesResponse
+describeScalingActivitiesResponse :: Int -> DescribeScalingActivitiesResponse
 describeScalingActivitiesResponse pStatus =
     DescribeScalingActivitiesResponse'
     { _dNextToken = Nothing
@@ -166,7 +166,7 @@ dNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DescribeScalingActivitiesResponse Status
+dStatus :: Lens' DescribeScalingActivitiesResponse Int
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
 -- | The scaling activities.

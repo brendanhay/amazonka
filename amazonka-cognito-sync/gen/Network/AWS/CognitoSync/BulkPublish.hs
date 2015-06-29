@@ -80,7 +80,7 @@ instance AWSRequest BulkPublish where
           = receiveJSON
               (\ s h x ->
                  BulkPublishResponse' <$>
-                   (x .?> "IdentityPoolId") <*> (pure s))
+                   (x .?> "IdentityPoolId") <*> (pure (fromEnum s)))
 
 instance ToHeaders BulkPublish where
         toHeaders
@@ -112,11 +112,11 @@ instance ToQuery BulkPublish where
 -- * 'bprStatus'
 data BulkPublishResponse = BulkPublishResponse'
     { _bprIdentityPoolId :: !(Maybe Text)
-    , _bprStatus         :: !Status
-    } deriving (Eq,Show)
+    , _bprStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'BulkPublishResponse' smart constructor.
-bulkPublishResponse :: Status -> BulkPublishResponse
+bulkPublishResponse :: Int -> BulkPublishResponse
 bulkPublishResponse pStatus =
     BulkPublishResponse'
     { _bprIdentityPoolId = Nothing
@@ -130,5 +130,5 @@ bprIdentityPoolId :: Lens' BulkPublishResponse (Maybe Text)
 bprIdentityPoolId = lens _bprIdentityPoolId (\ s a -> s{_bprIdentityPoolId = a});
 
 -- | FIXME: Undocumented member.
-bprStatus :: Lens' BulkPublishResponse Status
+bprStatus :: Lens' BulkPublishResponse Int
 bprStatus = lens _bprStatus (\ s a -> s{_bprStatus = a});

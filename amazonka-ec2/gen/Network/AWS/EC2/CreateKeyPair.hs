@@ -98,7 +98,7 @@ instance AWSRequest CreateKeyPair where
           = receiveXML
               (\ s h x ->
                  CreateKeyPairResponse' <$>
-                   (pure s) <*> (x .@ "keyName") <*>
+                   (pure (fromEnum s)) <*> (x .@ "keyName") <*>
                      (x .@ "keyFingerprint")
                      <*> (x .@ "keyMaterial"))
 
@@ -129,14 +129,14 @@ instance ToQuery CreateKeyPair where
 --
 -- * 'ckprKeyMaterial'
 data CreateKeyPairResponse = CreateKeyPairResponse'
-    { _ckprStatus         :: !Status
+    { _ckprStatus         :: !Int
     , _ckprKeyName        :: !Text
     , _ckprKeyFingerprint :: !Text
     , _ckprKeyMaterial    :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateKeyPairResponse' smart constructor.
-createKeyPairResponse :: Status -> Text -> Text -> Text -> CreateKeyPairResponse
+createKeyPairResponse :: Int -> Text -> Text -> Text -> CreateKeyPairResponse
 createKeyPairResponse pStatus pKeyName pKeyFingerprint pKeyMaterial =
     CreateKeyPairResponse'
     { _ckprStatus = pStatus
@@ -146,7 +146,7 @@ createKeyPairResponse pStatus pKeyName pKeyFingerprint pKeyMaterial =
     }
 
 -- | FIXME: Undocumented member.
-ckprStatus :: Lens' CreateKeyPairResponse Status
+ckprStatus :: Lens' CreateKeyPairResponse Int
 ckprStatus = lens _ckprStatus (\ s a -> s{_ckprStatus = a});
 
 -- | The name of the key pair.

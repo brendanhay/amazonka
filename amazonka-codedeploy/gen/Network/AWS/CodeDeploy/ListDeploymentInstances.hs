@@ -108,7 +108,7 @@ instance AWSRequest ListDeploymentInstances where
                  ListDeploymentInstancesResponse' <$>
                    (x .?> "nextToken") <*>
                      (x .?> "instancesList" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListDeploymentInstances where
         toHeaders
@@ -147,11 +147,11 @@ instance ToQuery ListDeploymentInstances where
 data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'
     { _ldirNextToken     :: !(Maybe Text)
     , _ldirInstancesList :: !(Maybe [Text])
-    , _ldirStatus        :: !Status
-    } deriving (Eq,Show)
+    , _ldirStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListDeploymentInstancesResponse' smart constructor.
-listDeploymentInstancesResponse :: Status -> ListDeploymentInstancesResponse
+listDeploymentInstancesResponse :: Int -> ListDeploymentInstancesResponse
 listDeploymentInstancesResponse pStatus =
     ListDeploymentInstancesResponse'
     { _ldirNextToken = Nothing
@@ -171,5 +171,5 @@ ldirInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
 ldirInstancesList = lens _ldirInstancesList (\ s a -> s{_ldirInstancesList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldirStatus :: Lens' ListDeploymentInstancesResponse Status
+ldirStatus :: Lens' ListDeploymentInstancesResponse Int
 ldirStatus = lens _ldirStatus (\ s a -> s{_ldirStatus = a});

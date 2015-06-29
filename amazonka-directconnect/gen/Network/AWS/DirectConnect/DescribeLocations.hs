@@ -57,7 +57,8 @@ instance AWSRequest DescribeLocations where
           = receiveJSON
               (\ s h x ->
                  DescribeLocationsResponse' <$>
-                   (x .?> "locations" .!@ mempty) <*> (pure s))
+                   (x .?> "locations" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeLocations where
         toHeaders
@@ -86,11 +87,11 @@ instance ToQuery DescribeLocations where
 -- * 'dlrStatus'
 data DescribeLocationsResponse = DescribeLocationsResponse'
     { _dlrLocations :: !(Maybe [Location])
-    , _dlrStatus    :: !Status
-    } deriving (Eq,Show)
+    , _dlrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLocationsResponse' smart constructor.
-describeLocationsResponse :: Status -> DescribeLocationsResponse
+describeLocationsResponse :: Int -> DescribeLocationsResponse
 describeLocationsResponse pStatus =
     DescribeLocationsResponse'
     { _dlrLocations = Nothing
@@ -102,5 +103,5 @@ dlrLocations :: Lens' DescribeLocationsResponse [Location]
 dlrLocations = lens _dlrLocations (\ s a -> s{_dlrLocations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlrStatus :: Lens' DescribeLocationsResponse Status
+dlrStatus :: Lens' DescribeLocationsResponse Int
 dlrStatus = lens _dlrStatus (\ s a -> s{_dlrStatus = a});

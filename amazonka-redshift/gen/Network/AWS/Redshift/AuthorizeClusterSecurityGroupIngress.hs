@@ -123,7 +123,8 @@ instance AWSRequest
               "AuthorizeClusterSecurityGroupIngressResult"
               (\ s h x ->
                  AuthorizeClusterSecurityGroupIngressResponse' <$>
-                   (x .@? "ClusterSecurityGroup") <*> (pure s))
+                   (x .@? "ClusterSecurityGroup") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders
          AuthorizeClusterSecurityGroupIngress where
@@ -157,11 +158,11 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress
 -- * 'acsgirStatus'
 data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse'
     { _acsgirClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
-    , _acsgirStatus               :: !Status
-    } deriving (Eq,Show)
+    , _acsgirStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeClusterSecurityGroupIngressResponse' smart constructor.
-authorizeClusterSecurityGroupIngressResponse :: Status -> AuthorizeClusterSecurityGroupIngressResponse
+authorizeClusterSecurityGroupIngressResponse :: Int -> AuthorizeClusterSecurityGroupIngressResponse
 authorizeClusterSecurityGroupIngressResponse pStatus =
     AuthorizeClusterSecurityGroupIngressResponse'
     { _acsgirClusterSecurityGroup = Nothing
@@ -173,5 +174,5 @@ acsgirClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResponse
 acsgirClusterSecurityGroup = lens _acsgirClusterSecurityGroup (\ s a -> s{_acsgirClusterSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-acsgirStatus :: Lens' AuthorizeClusterSecurityGroupIngressResponse Status
+acsgirStatus :: Lens' AuthorizeClusterSecurityGroupIngressResponse Int
 acsgirStatus = lens _acsgirStatus (\ s a -> s{_acsgirStatus = a});

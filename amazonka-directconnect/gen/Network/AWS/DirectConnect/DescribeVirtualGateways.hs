@@ -62,7 +62,8 @@ instance AWSRequest DescribeVirtualGateways where
           = receiveJSON
               (\ s h x ->
                  DescribeVirtualGatewaysResponse' <$>
-                   (x .?> "virtualGateways" .!@ mempty) <*> (pure s))
+                   (x .?> "virtualGateways" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeVirtualGateways where
         toHeaders
@@ -94,11 +95,11 @@ instance ToQuery DescribeVirtualGateways where
 -- * 'dvgrStatus'
 data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
     { _dvgrVirtualGateways :: !(Maybe [VirtualGateway])
-    , _dvgrStatus          :: !Status
-    } deriving (Eq,Show)
+    , _dvgrStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVirtualGatewaysResponse' smart constructor.
-describeVirtualGatewaysResponse :: Status -> DescribeVirtualGatewaysResponse
+describeVirtualGatewaysResponse :: Int -> DescribeVirtualGatewaysResponse
 describeVirtualGatewaysResponse pStatus =
     DescribeVirtualGatewaysResponse'
     { _dvgrVirtualGateways = Nothing
@@ -110,5 +111,5 @@ dvgrVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
 dvgrVirtualGateways = lens _dvgrVirtualGateways (\ s a -> s{_dvgrVirtualGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvgrStatus :: Lens' DescribeVirtualGatewaysResponse Status
+dvgrStatus :: Lens' DescribeVirtualGatewaysResponse Int
 dvgrStatus = lens _dvgrStatus (\ s a -> s{_dvgrStatus = a});

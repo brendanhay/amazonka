@@ -77,7 +77,7 @@ instance AWSRequest
                  CreateCloudFrontOriginAccessIdentityResponse' <$>
                    (h .#? "ETag") <*> (h .#? "Location") <*>
                      (x .@? "CloudFrontOriginAccessIdentity")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToElement
          CreateCloudFrontOriginAccessIdentity where
@@ -118,11 +118,11 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
     { _ccfoairETag                           :: !(Maybe Text)
     , _ccfoairLocation                       :: !(Maybe Text)
     , _ccfoairCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
-    , _ccfoairStatus                         :: !Status
-    } deriving (Eq,Show)
+    , _ccfoairStatus                         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateCloudFrontOriginAccessIdentityResponse' smart constructor.
-createCloudFrontOriginAccessIdentityResponse :: Status -> CreateCloudFrontOriginAccessIdentityResponse
+createCloudFrontOriginAccessIdentityResponse :: Int -> CreateCloudFrontOriginAccessIdentityResponse
 createCloudFrontOriginAccessIdentityResponse pStatus =
     CreateCloudFrontOriginAccessIdentityResponse'
     { _ccfoairETag = Nothing
@@ -146,5 +146,5 @@ ccfoairCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIdent
 ccfoairCloudFrontOriginAccessIdentity = lens _ccfoairCloudFrontOriginAccessIdentity (\ s a -> s{_ccfoairCloudFrontOriginAccessIdentity = a});
 
 -- | FIXME: Undocumented member.
-ccfoairStatus :: Lens' CreateCloudFrontOriginAccessIdentityResponse Status
+ccfoairStatus :: Lens' CreateCloudFrontOriginAccessIdentityResponse Int
 ccfoairStatus = lens _ccfoairStatus (\ s a -> s{_ccfoairStatus = a});

@@ -96,7 +96,8 @@ instance AWSRequest SetIdentityDkimEnabled where
         response
           = receiveXMLWrapper "SetIdentityDkimEnabledResult"
               (\ s h x ->
-                 SetIdentityDkimEnabledResponse' <$> (pure s))
+                 SetIdentityDkimEnabledResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders SetIdentityDkimEnabled where
         toHeaders = const mempty
@@ -122,16 +123,16 @@ instance ToQuery SetIdentityDkimEnabled where
 --
 -- * 'siderStatus'
 newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
-    { _siderStatus :: Status
-    } deriving (Eq,Show)
+    { _siderStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SetIdentityDkimEnabledResponse' smart constructor.
-setIdentityDkimEnabledResponse :: Status -> SetIdentityDkimEnabledResponse
+setIdentityDkimEnabledResponse :: Int -> SetIdentityDkimEnabledResponse
 setIdentityDkimEnabledResponse pStatus =
     SetIdentityDkimEnabledResponse'
     { _siderStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-siderStatus :: Lens' SetIdentityDkimEnabledResponse Status
+siderStatus :: Lens' SetIdentityDkimEnabledResponse Int
 siderStatus = lens _siderStatus (\ s a -> s{_siderStatus = a});

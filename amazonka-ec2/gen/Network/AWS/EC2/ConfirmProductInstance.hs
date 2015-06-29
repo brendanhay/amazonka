@@ -93,7 +93,7 @@ instance AWSRequest ConfirmProductInstance where
           = receiveXML
               (\ s h x ->
                  ConfirmProductInstanceResponse' <$>
-                   (x .@? "ownerId") <*> (pure s))
+                   (x .@? "ownerId") <*> (pure (fromEnum s)))
 
 instance ToHeaders ConfirmProductInstance where
         toHeaders = const mempty
@@ -120,11 +120,11 @@ instance ToQuery ConfirmProductInstance where
 -- * 'cpirStatus'
 data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
     { _cpirOwnerId :: !(Maybe Text)
-    , _cpirStatus  :: !Status
-    } deriving (Eq,Show)
+    , _cpirStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ConfirmProductInstanceResponse' smart constructor.
-confirmProductInstanceResponse :: Status -> ConfirmProductInstanceResponse
+confirmProductInstanceResponse :: Int -> ConfirmProductInstanceResponse
 confirmProductInstanceResponse pStatus =
     ConfirmProductInstanceResponse'
     { _cpirOwnerId = Nothing
@@ -137,5 +137,5 @@ cpirOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
 cpirOwnerId = lens _cpirOwnerId (\ s a -> s{_cpirOwnerId = a});
 
 -- | FIXME: Undocumented member.
-cpirStatus :: Lens' ConfirmProductInstanceResponse Status
+cpirStatus :: Lens' ConfirmProductInstanceResponse Int
 cpirStatus = lens _cpirStatus (\ s a -> s{_cpirStatus = a});

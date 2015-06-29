@@ -96,7 +96,7 @@ instance AWSRequest ModifyCacheSubnetGroup where
           = receiveXMLWrapper "ModifyCacheSubnetGroupResult"
               (\ s h x ->
                  ModifyCacheSubnetGroupResponse' <$>
-                   (x .@? "CacheSubnetGroup") <*> (pure s))
+                   (x .@? "CacheSubnetGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyCacheSubnetGroup where
         toHeaders = const mempty
@@ -126,11 +126,11 @@ instance ToQuery ModifyCacheSubnetGroup where
 -- * 'mcsgrStatus'
 data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'
     { _mcsgrCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
-    , _mcsgrStatus           :: !Status
-    } deriving (Eq,Show)
+    , _mcsgrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ModifyCacheSubnetGroupResponse' smart constructor.
-modifyCacheSubnetGroupResponse :: Status -> ModifyCacheSubnetGroupResponse
+modifyCacheSubnetGroupResponse :: Int -> ModifyCacheSubnetGroupResponse
 modifyCacheSubnetGroupResponse pStatus =
     ModifyCacheSubnetGroupResponse'
     { _mcsgrCacheSubnetGroup = Nothing
@@ -142,5 +142,5 @@ mcsgrCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubnet
 mcsgrCacheSubnetGroup = lens _mcsgrCacheSubnetGroup (\ s a -> s{_mcsgrCacheSubnetGroup = a});
 
 -- | FIXME: Undocumented member.
-mcsgrStatus :: Lens' ModifyCacheSubnetGroupResponse Status
+mcsgrStatus :: Lens' ModifyCacheSubnetGroupResponse Int
 mcsgrStatus = lens _mcsgrStatus (\ s a -> s{_mcsgrStatus = a});

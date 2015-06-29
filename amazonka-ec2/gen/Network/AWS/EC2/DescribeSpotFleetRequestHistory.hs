@@ -133,7 +133,7 @@ instance AWSRequest DescribeSpotFleetRequestHistory
           = receiveXML
               (\ s h x ->
                  DescribeSpotFleetRequestHistoryResponse' <$>
-                   (x .@? "nextToken") <*> (pure s) <*>
+                   (x .@? "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .@ "spotFleetRequestId")
                      <*> (x .@ "startTime")
                      <*> (x .@ "lastEvaluatedTime")
@@ -179,15 +179,15 @@ instance ToQuery DescribeSpotFleetRequestHistory
 -- * 'dsfrhrHistoryRecords'
 data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'
     { _dsfrhrNextToken          :: !(Maybe Text)
-    , _dsfrhrStatus             :: !Status
+    , _dsfrhrStatus             :: !Int
     , _dsfrhrSpotFleetRequestId :: !Text
     , _dsfrhrStartTime          :: !ISO8601
     , _dsfrhrLastEvaluatedTime  :: !ISO8601
     , _dsfrhrHistoryRecords     :: ![HistoryRecord]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotFleetRequestHistoryResponse' smart constructor.
-describeSpotFleetRequestHistoryResponse :: Status -> Text -> UTCTime -> UTCTime -> DescribeSpotFleetRequestHistoryResponse
+describeSpotFleetRequestHistoryResponse :: Int -> Text -> UTCTime -> UTCTime -> DescribeSpotFleetRequestHistoryResponse
 describeSpotFleetRequestHistoryResponse pStatus pSpotFleetRequestId pStartTime pLastEvaluatedTime =
     DescribeSpotFleetRequestHistoryResponse'
     { _dsfrhrNextToken = Nothing
@@ -204,7 +204,7 @@ dsfrhrNextToken :: Lens' DescribeSpotFleetRequestHistoryResponse (Maybe Text)
 dsfrhrNextToken = lens _dsfrhrNextToken (\ s a -> s{_dsfrhrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dsfrhrStatus :: Lens' DescribeSpotFleetRequestHistoryResponse Status
+dsfrhrStatus :: Lens' DescribeSpotFleetRequestHistoryResponse Int
 dsfrhrStatus = lens _dsfrhrStatus (\ s a -> s{_dsfrhrStatus = a});
 
 -- | The ID of the Spot fleet request.

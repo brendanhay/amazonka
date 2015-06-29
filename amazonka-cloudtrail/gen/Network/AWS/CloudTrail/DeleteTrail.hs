@@ -67,7 +67,8 @@ instance AWSRequest DeleteTrail where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> DeleteTrailResponse' <$> (pure s))
+              (\ s h x ->
+                 DeleteTrailResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeleteTrail where
         toHeaders
@@ -97,16 +98,16 @@ instance ToQuery DeleteTrail where
 --
 -- * 'delStatus'
 newtype DeleteTrailResponse = DeleteTrailResponse'
-    { _delStatus :: Status
-    } deriving (Eq,Show)
+    { _delStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteTrailResponse' smart constructor.
-deleteTrailResponse :: Status -> DeleteTrailResponse
+deleteTrailResponse :: Int -> DeleteTrailResponse
 deleteTrailResponse pStatus =
     DeleteTrailResponse'
     { _delStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteTrailResponse Status
+delStatus :: Lens' DeleteTrailResponse Int
 delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

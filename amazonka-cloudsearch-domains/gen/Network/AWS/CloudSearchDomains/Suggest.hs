@@ -105,7 +105,8 @@ instance AWSRequest Suggest where
         response
           = receiveJSON
               (\ s h x ->
-                 SuggestResponse' <$> (x .?> "suggest") <*> (pure s))
+                 SuggestResponse' <$>
+                   (x .?> "suggest") <*> (pure (fromEnum s)))
 
 instance ToHeaders Suggest where
         toHeaders
@@ -135,11 +136,11 @@ instance ToQuery Suggest where
 -- * 'srStatus'
 data SuggestResponse = SuggestResponse'
     { _srSuggest :: !(Maybe SuggestModel)
-    , _srStatus  :: !Status
-    } deriving (Eq,Show)
+    , _srStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'SuggestResponse' smart constructor.
-suggestResponse :: Status -> SuggestResponse
+suggestResponse :: Int -> SuggestResponse
 suggestResponse pStatus =
     SuggestResponse'
     { _srSuggest = Nothing
@@ -151,5 +152,5 @@ srSuggest :: Lens' SuggestResponse (Maybe SuggestModel)
 srSuggest = lens _srSuggest (\ s a -> s{_srSuggest = a});
 
 -- | FIXME: Undocumented member.
-srStatus :: Lens' SuggestResponse Status
+srStatus :: Lens' SuggestResponse Int
 srStatus = lens _srStatus (\ s a -> s{_srStatus = a});

@@ -75,7 +75,8 @@ instance AWSRequest RemoveTags where
         request = post
         response
           = receiveXMLWrapper "RemoveTagsResult"
-              (\ s h x -> RemoveTagsResponse' <$> (pure s))
+              (\ s h x ->
+                 RemoveTagsResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders RemoveTags where
         toHeaders = const mempty
@@ -98,16 +99,16 @@ instance ToQuery RemoveTags where
 --
 -- * 'rtrStatus'
 newtype RemoveTagsResponse = RemoveTagsResponse'
-    { _rtrStatus :: Status
-    } deriving (Eq,Show)
+    { _rtrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RemoveTagsResponse' smart constructor.
-removeTagsResponse :: Status -> RemoveTagsResponse
+removeTagsResponse :: Int -> RemoveTagsResponse
 removeTagsResponse pStatus =
     RemoveTagsResponse'
     { _rtrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rtrStatus :: Lens' RemoveTagsResponse Status
+rtrStatus :: Lens' RemoveTagsResponse Int
 rtrStatus = lens _rtrStatus (\ s a -> s{_rtrStatus = a});

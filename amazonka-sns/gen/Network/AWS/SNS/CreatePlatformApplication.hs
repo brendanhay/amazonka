@@ -108,7 +108,8 @@ instance AWSRequest CreatePlatformApplication where
           = receiveXMLWrapper "CreatePlatformApplicationResult"
               (\ s h x ->
                  CreatePlatformApplicationResponse' <$>
-                   (x .@? "PlatformApplicationArn") <*> (pure s))
+                   (x .@? "PlatformApplicationArn") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreatePlatformApplication where
         toHeaders = const mempty
@@ -137,11 +138,11 @@ instance ToQuery CreatePlatformApplication where
 -- * 'cparStatus'
 data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
     { _cparPlatformApplicationARN :: !(Maybe Text)
-    , _cparStatus                 :: !Status
-    } deriving (Eq,Show)
+    , _cparStatus                 :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreatePlatformApplicationResponse' smart constructor.
-createPlatformApplicationResponse :: Status -> CreatePlatformApplicationResponse
+createPlatformApplicationResponse :: Int -> CreatePlatformApplicationResponse
 createPlatformApplicationResponse pStatus =
     CreatePlatformApplicationResponse'
     { _cparPlatformApplicationARN = Nothing
@@ -153,5 +154,5 @@ cparPlatformApplicationARN :: Lens' CreatePlatformApplicationResponse (Maybe Tex
 cparPlatformApplicationARN = lens _cparPlatformApplicationARN (\ s a -> s{_cparPlatformApplicationARN = a});
 
 -- | FIXME: Undocumented member.
-cparStatus :: Lens' CreatePlatformApplicationResponse Status
+cparStatus :: Lens' CreatePlatformApplicationResponse Int
 cparStatus = lens _cparStatus (\ s a -> s{_cparStatus = a});

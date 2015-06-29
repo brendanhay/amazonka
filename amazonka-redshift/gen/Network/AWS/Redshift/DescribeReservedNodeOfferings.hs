@@ -126,7 +126,7 @@ instance AWSRequest DescribeReservedNodeOfferings
                    (x .@? "ReservedNodeOfferings" .!@ mempty >>=
                       may (parseXMLList "ReservedNodeOffering"))
                      <*> (x .@? "Marker")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeReservedNodeOfferings
          where
@@ -160,11 +160,11 @@ instance ToQuery DescribeReservedNodeOfferings where
 data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse'
     { _drnorReservedNodeOfferings :: !(Maybe [ReservedNodeOffering])
     , _drnorMarker                :: !(Maybe Text)
-    , _drnorStatus                :: !Status
-    } deriving (Eq,Show)
+    , _drnorStatus                :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedNodeOfferingsResponse' smart constructor.
-describeReservedNodeOfferingsResponse :: Status -> DescribeReservedNodeOfferingsResponse
+describeReservedNodeOfferingsResponse :: Int -> DescribeReservedNodeOfferingsResponse
 describeReservedNodeOfferingsResponse pStatus =
     DescribeReservedNodeOfferingsResponse'
     { _drnorReservedNodeOfferings = Nothing
@@ -186,5 +186,5 @@ drnorMarker :: Lens' DescribeReservedNodeOfferingsResponse (Maybe Text)
 drnorMarker = lens _drnorMarker (\ s a -> s{_drnorMarker = a});
 
 -- | FIXME: Undocumented member.
-drnorStatus :: Lens' DescribeReservedNodeOfferingsResponse Status
+drnorStatus :: Lens' DescribeReservedNodeOfferingsResponse Int
 drnorStatus = lens _drnorStatus (\ s a -> s{_drnorStatus = a});

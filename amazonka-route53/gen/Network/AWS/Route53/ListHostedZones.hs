@@ -124,7 +124,7 @@ instance AWSRequest ListHostedZones where
           = receiveXML
               (\ s h x ->
                  ListHostedZonesResponse' <$>
-                   (x .@? "NextMarker") <*> (pure s) <*>
+                   (x .@? "NextMarker") <*> (pure (fromEnum s)) <*>
                      (x .@? "HostedZones" .!@ mempty >>=
                         parseXMLList "HostedZone")
                      <*> (x .@ "Marker")
@@ -162,15 +162,15 @@ instance ToQuery ListHostedZones where
 -- * 'lhzrMaxItems'
 data ListHostedZonesResponse = ListHostedZonesResponse'
     { _lhzrNextMarker  :: !(Maybe Text)
-    , _lhzrStatus      :: !Status
+    , _lhzrStatus      :: !Int
     , _lhzrHostedZones :: ![HostedZone]
     , _lhzrMarker      :: !Text
     , _lhzrIsTruncated :: !Bool
     , _lhzrMaxItems    :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListHostedZonesResponse' smart constructor.
-listHostedZonesResponse :: Status -> Text -> Bool -> Text -> ListHostedZonesResponse
+listHostedZonesResponse :: Int -> Text -> Bool -> Text -> ListHostedZonesResponse
 listHostedZonesResponse pStatus pMarker pIsTruncated pMaxItems =
     ListHostedZonesResponse'
     { _lhzrNextMarker = Nothing
@@ -189,7 +189,7 @@ lhzrNextMarker :: Lens' ListHostedZonesResponse (Maybe Text)
 lhzrNextMarker = lens _lhzrNextMarker (\ s a -> s{_lhzrNextMarker = a});
 
 -- | FIXME: Undocumented member.
-lhzrStatus :: Lens' ListHostedZonesResponse Status
+lhzrStatus :: Lens' ListHostedZonesResponse Int
 lhzrStatus = lens _lhzrStatus (\ s a -> s{_lhzrStatus = a});
 
 -- | A complex type that contains information about the hosted zones

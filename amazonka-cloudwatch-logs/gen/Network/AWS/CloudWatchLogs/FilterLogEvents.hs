@@ -162,7 +162,7 @@ instance AWSRequest FilterLogEvents where
                    (x .?> "searchedLogStreams" .!@ mempty) <*>
                      (x .?> "nextToken")
                      <*> (x .?> "events" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders FilterLogEvents where
         toHeaders
@@ -205,11 +205,11 @@ data FilterLogEventsResponse = FilterLogEventsResponse'
     { _flerSearchedLogStreams :: !(Maybe [SearchedLogStream])
     , _flerNextToken          :: !(Maybe Text)
     , _flerEvents             :: !(Maybe [FilteredLogEvent])
-    , _flerStatus             :: !Status
-    } deriving (Eq,Show)
+    , _flerStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'FilterLogEventsResponse' smart constructor.
-filterLogEventsResponse :: Status -> FilterLogEventsResponse
+filterLogEventsResponse :: Int -> FilterLogEventsResponse
 filterLogEventsResponse pStatus =
     FilterLogEventsResponse'
     { _flerSearchedLogStreams = Nothing
@@ -235,5 +235,5 @@ flerEvents :: Lens' FilterLogEventsResponse [FilteredLogEvent]
 flerEvents = lens _flerEvents (\ s a -> s{_flerEvents = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-flerStatus :: Lens' FilterLogEventsResponse Status
+flerStatus :: Lens' FilterLogEventsResponse Int
 flerStatus = lens _flerStatus (\ s a -> s{_flerStatus = a});

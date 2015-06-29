@@ -119,7 +119,8 @@ instance AWSRequest DescribeVPCs where
           = receiveXML
               (\ s h x ->
                  DescribeVPCsResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeVPCs where
         toHeaders = const mempty
@@ -145,11 +146,11 @@ instance ToQuery DescribeVPCs where
 -- * 'dvrStatus'
 data DescribeVPCsResponse = DescribeVPCsResponse'
     { _dvrVPCs   :: !(Maybe [VPC])
-    , _dvrStatus :: !Status
-    } deriving (Eq,Show)
+    , _dvrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCsResponse' smart constructor.
-describeVPCsResponse :: Status -> DescribeVPCsResponse
+describeVPCsResponse :: Int -> DescribeVPCsResponse
 describeVPCsResponse pStatus =
     DescribeVPCsResponse'
     { _dvrVPCs = Nothing
@@ -161,5 +162,5 @@ dvrVPCs :: Lens' DescribeVPCsResponse [VPC]
 dvrVPCs = lens _dvrVPCs (\ s a -> s{_dvrVPCs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvrStatus :: Lens' DescribeVPCsResponse Status
+dvrStatus :: Lens' DescribeVPCsResponse Int
 dvrStatus = lens _dvrStatus (\ s a -> s{_dvrStatus = a});

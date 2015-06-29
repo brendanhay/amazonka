@@ -189,7 +189,7 @@ instance AWSRequest UploadPart where
                      (h .#?
                         "x-amz-server-side-encryption-customer-key-MD5")
                      <*> (h .#? "x-amz-server-side-encryption")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToBody UploadPart where
         toBody = _upBody
@@ -241,11 +241,11 @@ data UploadPartResponse = UploadPartResponse'
     , _uprSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _uprSSECustomerKeyMD5    :: !(Maybe Text)
     , _uprServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _uprStatus               :: !Status
+    , _uprStatus               :: !Int
     } deriving (Eq,Show)
 
 -- | 'UploadPartResponse' smart constructor.
-uploadPartResponse :: Status -> UploadPartResponse
+uploadPartResponse :: Int -> UploadPartResponse
 uploadPartResponse pStatus =
     UploadPartResponse'
     { _uprETag = Nothing
@@ -288,5 +288,5 @@ uprServerSideEncryption :: Lens' UploadPartResponse (Maybe ServerSideEncryption)
 uprServerSideEncryption = lens _uprServerSideEncryption (\ s a -> s{_uprServerSideEncryption = a});
 
 -- | FIXME: Undocumented member.
-uprStatus :: Lens' UploadPartResponse Status
+uprStatus :: Lens' UploadPartResponse Int
 uprStatus = lens _uprStatus (\ s a -> s{_uprStatus = a});

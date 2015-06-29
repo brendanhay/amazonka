@@ -93,7 +93,7 @@ instance AWSRequest CheckDomainAvailability where
           = receiveJSON
               (\ s h x ->
                  CheckDomainAvailabilityResponse' <$>
-                   (pure s) <*> (x .:> "Availability"))
+                   (pure (fromEnum s)) <*> (x .:> "Availability"))
 
 instance ToHeaders CheckDomainAvailability where
         toHeaders
@@ -127,12 +127,12 @@ instance ToQuery CheckDomainAvailability where
 --
 -- * 'cdarAvailability'
 data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
-    { _cdarStatus       :: !Status
+    { _cdarStatus       :: !Int
     , _cdarAvailability :: !DomainAvailability
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'CheckDomainAvailabilityResponse' smart constructor.
-checkDomainAvailabilityResponse :: Status -> DomainAvailability -> CheckDomainAvailabilityResponse
+checkDomainAvailabilityResponse :: Int -> DomainAvailability -> CheckDomainAvailabilityResponse
 checkDomainAvailabilityResponse pStatus pAvailability =
     CheckDomainAvailabilityResponse'
     { _cdarStatus = pStatus
@@ -140,7 +140,7 @@ checkDomainAvailabilityResponse pStatus pAvailability =
     }
 
 -- | FIXME: Undocumented member.
-cdarStatus :: Lens' CheckDomainAvailabilityResponse Status
+cdarStatus :: Lens' CheckDomainAvailabilityResponse Int
 cdarStatus = lens _cdarStatus (\ s a -> s{_cdarStatus = a});
 
 -- | Whether the domain name is available for registering.

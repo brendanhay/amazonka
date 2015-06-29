@@ -115,7 +115,7 @@ instance AWSRequest ListSigningCertificates where
               (\ s h x ->
                  ListSigningCertificatesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (pure s)
+                     (pure (fromEnum s))
                      <*>
                      (x .@? "Certificates" .!@ mempty >>=
                         parseXMLList "member"))
@@ -151,12 +151,12 @@ instance ToQuery ListSigningCertificates where
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
     { _lisMarker       :: !(Maybe Text)
     , _lisIsTruncated  :: !(Maybe Bool)
-    , _lisStatus       :: !Status
+    , _lisStatus       :: !Int
     , _lisCertificates :: ![SigningCertificate]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListSigningCertificatesResponse' smart constructor.
-listSigningCertificatesResponse :: Status -> ListSigningCertificatesResponse
+listSigningCertificatesResponse :: Int -> ListSigningCertificatesResponse
 listSigningCertificatesResponse pStatus =
     ListSigningCertificatesResponse'
     { _lisMarker = Nothing
@@ -179,7 +179,7 @@ lisIsTruncated :: Lens' ListSigningCertificatesResponse (Maybe Bool)
 lisIsTruncated = lens _lisIsTruncated (\ s a -> s{_lisIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lisStatus :: Lens' ListSigningCertificatesResponse Status
+lisStatus :: Lens' ListSigningCertificatesResponse Int
 lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});
 
 -- | A list of the user\'s signing certificate information.

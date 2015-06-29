@@ -84,7 +84,7 @@ instance AWSRequest AttachLoadBalancers where
         response
           = receiveXMLWrapper "AttachLoadBalancersResult"
               (\ s h x ->
-                 AttachLoadBalancersResponse' <$> (pure s))
+                 AttachLoadBalancersResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders AttachLoadBalancers where
         toHeaders = const mempty
@@ -108,16 +108,16 @@ instance ToQuery AttachLoadBalancers where
 --
 -- * 'albrStatus'
 newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
-    { _albrStatus :: Status
-    } deriving (Eq,Show)
+    { _albrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'AttachLoadBalancersResponse' smart constructor.
-attachLoadBalancersResponse :: Status -> AttachLoadBalancersResponse
+attachLoadBalancersResponse :: Int -> AttachLoadBalancersResponse
 attachLoadBalancersResponse pStatus =
     AttachLoadBalancersResponse'
     { _albrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-albrStatus :: Lens' AttachLoadBalancersResponse Status
+albrStatus :: Lens' AttachLoadBalancersResponse Int
 albrStatus = lens _albrStatus (\ s a -> s{_albrStatus = a});

@@ -81,7 +81,7 @@ instance AWSRequest DeliverConfigSnapshot where
           = receiveJSON
               (\ s h x ->
                  DeliverConfigSnapshotResponse' <$>
-                   (x .?> "configSnapshotId") <*> (pure s))
+                   (x .?> "configSnapshotId") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeliverConfigSnapshot where
         toHeaders
@@ -115,11 +115,11 @@ instance ToQuery DeliverConfigSnapshot where
 -- * 'dcsrStatus'
 data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
     { _dcsrConfigSnapshotId :: !(Maybe Text)
-    , _dcsrStatus           :: !Status
-    } deriving (Eq,Show)
+    , _dcsrStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeliverConfigSnapshotResponse' smart constructor.
-deliverConfigSnapshotResponse :: Status -> DeliverConfigSnapshotResponse
+deliverConfigSnapshotResponse :: Int -> DeliverConfigSnapshotResponse
 deliverConfigSnapshotResponse pStatus =
     DeliverConfigSnapshotResponse'
     { _dcsrConfigSnapshotId = Nothing
@@ -131,5 +131,5 @@ dcsrConfigSnapshotId :: Lens' DeliverConfigSnapshotResponse (Maybe Text)
 dcsrConfigSnapshotId = lens _dcsrConfigSnapshotId (\ s a -> s{_dcsrConfigSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-dcsrStatus :: Lens' DeliverConfigSnapshotResponse Status
+dcsrStatus :: Lens' DeliverConfigSnapshotResponse Int
 dcsrStatus = lens _dcsrStatus (\ s a -> s{_dcsrStatus = a});

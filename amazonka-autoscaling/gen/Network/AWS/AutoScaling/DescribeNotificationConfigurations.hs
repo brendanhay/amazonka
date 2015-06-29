@@ -103,7 +103,7 @@ instance AWSRequest
               "DescribeNotificationConfigurationsResult"
               (\ s h x ->
                  DescribeNotificationConfigurationsResponse' <$>
-                   (x .@? "NextToken") <*> (pure s) <*>
+                   (x .@? "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .@? "NotificationConfigurations" .!@ mempty >>=
                         parseXMLList "member"))
 
@@ -139,12 +139,12 @@ instance ToQuery DescribeNotificationConfigurations
 -- * 'dncrNotificationConfigurations'
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'
     { _dncrNextToken                  :: !(Maybe Text)
-    , _dncrStatus                     :: !Status
+    , _dncrStatus                     :: !Int
     , _dncrNotificationConfigurations :: ![NotificationConfiguration]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeNotificationConfigurationsResponse' smart constructor.
-describeNotificationConfigurationsResponse :: Status -> DescribeNotificationConfigurationsResponse
+describeNotificationConfigurationsResponse :: Int -> DescribeNotificationConfigurationsResponse
 describeNotificationConfigurationsResponse pStatus =
     DescribeNotificationConfigurationsResponse'
     { _dncrNextToken = Nothing
@@ -158,7 +158,7 @@ dncrNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
 dncrNextToken = lens _dncrNextToken (\ s a -> s{_dncrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dncrStatus :: Lens' DescribeNotificationConfigurationsResponse Status
+dncrStatus :: Lens' DescribeNotificationConfigurationsResponse Int
 dncrStatus = lens _dncrStatus (\ s a -> s{_dncrStatus = a});
 
 -- | The notification configurations.

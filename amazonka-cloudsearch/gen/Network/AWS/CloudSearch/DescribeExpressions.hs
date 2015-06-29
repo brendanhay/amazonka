@@ -101,7 +101,7 @@ instance AWSRequest DescribeExpressions where
           = receiveXMLWrapper "DescribeExpressionsResult"
               (\ s h x ->
                  DescribeExpressionsResponse' <$>
-                   (pure s) <*>
+                   (pure (fromEnum s)) <*>
                      (x .@? "Expressions" .!@ mempty >>=
                         parseXMLList "member"))
 
@@ -133,12 +133,12 @@ instance ToQuery DescribeExpressions where
 --
 -- * 'desExpressions'
 data DescribeExpressionsResponse = DescribeExpressionsResponse'
-    { _desStatus      :: !Status
+    { _desStatus      :: !Int
     , _desExpressions :: ![ExpressionStatus]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeExpressionsResponse' smart constructor.
-describeExpressionsResponse :: Status -> DescribeExpressionsResponse
+describeExpressionsResponse :: Int -> DescribeExpressionsResponse
 describeExpressionsResponse pStatus =
     DescribeExpressionsResponse'
     { _desStatus = pStatus
@@ -146,7 +146,7 @@ describeExpressionsResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeExpressionsResponse Status
+desStatus :: Lens' DescribeExpressionsResponse Int
 desStatus = lens _desStatus (\ s a -> s{_desStatus = a});
 
 -- | The expressions configured for the domain.

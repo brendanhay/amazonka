@@ -80,7 +80,7 @@ instance AWSRequest DescribeLoadBasedAutoScaling
                  DescribeLoadBasedAutoScalingResponse' <$>
                    (x .?> "LoadBasedAutoScalingConfigurations" .!@
                       mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeLoadBasedAutoScaling where
         toHeaders
@@ -113,11 +113,11 @@ instance ToQuery DescribeLoadBasedAutoScaling where
 -- * 'dlbasrStatus'
 data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'
     { _dlbasrLoadBasedAutoScalingConfigurations :: !(Maybe [LoadBasedAutoScalingConfiguration])
-    , _dlbasrStatus                             :: !Status
-    } deriving (Eq,Show)
+    , _dlbasrStatus                             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBasedAutoScalingResponse' smart constructor.
-describeLoadBasedAutoScalingResponse :: Status -> DescribeLoadBasedAutoScalingResponse
+describeLoadBasedAutoScalingResponse :: Int -> DescribeLoadBasedAutoScalingResponse
 describeLoadBasedAutoScalingResponse pStatus =
     DescribeLoadBasedAutoScalingResponse'
     { _dlbasrLoadBasedAutoScalingConfigurations = Nothing
@@ -130,5 +130,5 @@ dlbasrLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingRe
 dlbasrLoadBasedAutoScalingConfigurations = lens _dlbasrLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrLoadBasedAutoScalingConfigurations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlbasrStatus :: Lens' DescribeLoadBasedAutoScalingResponse Status
+dlbasrStatus :: Lens' DescribeLoadBasedAutoScalingResponse Int
 dlbasrStatus = lens _dlbasrStatus (\ s a -> s{_dlbasrStatus = a});

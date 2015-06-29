@@ -69,7 +69,8 @@ instance AWSRequest DescribeExportTasks where
           = receiveXML
               (\ s h x ->
                  DescribeExportTasksResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeExportTasks where
         toHeaders = const mempty
@@ -94,11 +95,11 @@ instance ToQuery DescribeExportTasks where
 -- * 'detrStatus'
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
     { _detrExportTasks :: !(Maybe [ExportTask])
-    , _detrStatus      :: !Status
-    } deriving (Eq,Show)
+    , _detrStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeExportTasksResponse' smart constructor.
-describeExportTasksResponse :: Status -> DescribeExportTasksResponse
+describeExportTasksResponse :: Int -> DescribeExportTasksResponse
 describeExportTasksResponse pStatus =
     DescribeExportTasksResponse'
     { _detrExportTasks = Nothing
@@ -110,5 +111,5 @@ detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrExportTasks = lens _detrExportTasks (\ s a -> s{_detrExportTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-detrStatus :: Lens' DescribeExportTasksResponse Status
+detrStatus :: Lens' DescribeExportTasksResponse Int
 detrStatus = lens _detrStatus (\ s a -> s{_detrStatus = a});

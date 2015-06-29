@@ -85,7 +85,7 @@ instance AWSRequest ListSubscriptions where
                    (x .@? "NextToken") <*>
                      (x .@? "Subscriptions" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListSubscriptions where
         toHeaders = const mempty
@@ -114,11 +114,11 @@ instance ToQuery ListSubscriptions where
 data ListSubscriptionsResponse = ListSubscriptionsResponse'
     { _lsrNextToken     :: !(Maybe Text)
     , _lsrSubscriptions :: !(Maybe [Subscription])
-    , _lsrStatus        :: !Status
-    } deriving (Eq,Show)
+    , _lsrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListSubscriptionsResponse' smart constructor.
-listSubscriptionsResponse :: Status -> ListSubscriptionsResponse
+listSubscriptionsResponse :: Int -> ListSubscriptionsResponse
 listSubscriptionsResponse pStatus =
     ListSubscriptionsResponse'
     { _lsrNextToken = Nothing
@@ -136,5 +136,5 @@ lsrSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
 lsrSubscriptions = lens _lsrSubscriptions (\ s a -> s{_lsrSubscriptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lsrStatus :: Lens' ListSubscriptionsResponse Status
+lsrStatus :: Lens' ListSubscriptionsResponse Int
 lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});

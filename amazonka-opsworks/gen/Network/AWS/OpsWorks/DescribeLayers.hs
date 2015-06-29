@@ -87,7 +87,7 @@ instance AWSRequest DescribeLayers where
           = receiveJSON
               (\ s h x ->
                  DescribeLayersResponse' <$>
-                   (x .?> "Layers" .!@ mempty) <*> (pure s))
+                   (x .?> "Layers" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeLayers where
         toHeaders
@@ -120,11 +120,11 @@ instance ToQuery DescribeLayers where
 -- * 'dlrStatus'
 data DescribeLayersResponse = DescribeLayersResponse'
     { _dlrLayers :: !(Maybe [Layer])
-    , _dlrStatus :: !Status
-    } deriving (Eq,Show)
+    , _dlrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeLayersResponse' smart constructor.
-describeLayersResponse :: Status -> DescribeLayersResponse
+describeLayersResponse :: Int -> DescribeLayersResponse
 describeLayersResponse pStatus =
     DescribeLayersResponse'
     { _dlrLayers = Nothing
@@ -136,5 +136,5 @@ dlrLayers :: Lens' DescribeLayersResponse [Layer]
 dlrLayers = lens _dlrLayers (\ s a -> s{_dlrLayers = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlrStatus :: Lens' DescribeLayersResponse Status
+dlrStatus :: Lens' DescribeLayersResponse Int
 dlrStatus = lens _dlrStatus (\ s a -> s{_dlrStatus = a});

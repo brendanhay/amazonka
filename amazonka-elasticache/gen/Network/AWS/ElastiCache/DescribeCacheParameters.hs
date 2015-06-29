@@ -127,7 +127,7 @@ instance AWSRequest DescribeCacheParameters where
                      (x .@? "Parameters" .!@ mempty >>=
                         may (parseXMLList "Parameter"))
                      <*> (x .@? "Marker")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeCacheParameters where
         toHeaders = const mempty
@@ -163,11 +163,11 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
     { _dcprCacheNodeTypeSpecificParameters :: !(Maybe [CacheNodeTypeSpecificParameter])
     , _dcprParameters                      :: !(Maybe [Parameter])
     , _dcprMarker                          :: !(Maybe Text)
-    , _dcprStatus                          :: !Status
-    } deriving (Eq,Show)
+    , _dcprStatus                          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheParametersResponse' smart constructor.
-describeCacheParametersResponse :: Status -> DescribeCacheParametersResponse
+describeCacheParametersResponse :: Int -> DescribeCacheParametersResponse
 describeCacheParametersResponse pStatus =
     DescribeCacheParametersResponse'
     { _dcprCacheNodeTypeSpecificParameters = Nothing
@@ -190,5 +190,5 @@ dcprMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
 dcprMarker = lens _dcprMarker (\ s a -> s{_dcprMarker = a});
 
 -- | FIXME: Undocumented member.
-dcprStatus :: Lens' DescribeCacheParametersResponse Status
+dcprStatus :: Lens' DescribeCacheParametersResponse Int
 dcprStatus = lens _dcprStatus (\ s a -> s{_dcprStatus = a});

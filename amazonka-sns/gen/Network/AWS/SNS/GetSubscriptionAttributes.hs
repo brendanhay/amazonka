@@ -73,7 +73,7 @@ instance AWSRequest GetSubscriptionAttributes where
                  GetSubscriptionAttributesResponse' <$>
                    (x .@? "Attributes" .!@ mempty >>=
                       may (parseXMLMap "entry" "key" "value"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetSubscriptionAttributes where
         toHeaders = const mempty
@@ -100,11 +100,11 @@ instance ToQuery GetSubscriptionAttributes where
 -- * 'gsarStatus'
 data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
     { _gsarAttributes :: !(Maybe (Map Text Text))
-    , _gsarStatus     :: !Status
-    } deriving (Eq,Show)
+    , _gsarStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetSubscriptionAttributesResponse' smart constructor.
-getSubscriptionAttributesResponse :: Status -> GetSubscriptionAttributesResponse
+getSubscriptionAttributesResponse :: Int -> GetSubscriptionAttributesResponse
 getSubscriptionAttributesResponse pStatus =
     GetSubscriptionAttributesResponse'
     { _gsarAttributes = Nothing
@@ -128,5 +128,5 @@ gsarAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
 gsarAttributes = lens _gsarAttributes (\ s a -> s{_gsarAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gsarStatus :: Lens' GetSubscriptionAttributesResponse Status
+gsarStatus :: Lens' GetSubscriptionAttributesResponse Int
 gsarStatus = lens _gsarStatus (\ s a -> s{_gsarStatus = a});

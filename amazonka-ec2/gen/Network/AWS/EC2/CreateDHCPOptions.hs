@@ -118,7 +118,7 @@ instance AWSRequest CreateDHCPOptions where
           = receiveXML
               (\ s h x ->
                  CreateDHCPOptionsResponse' <$>
-                   (x .@? "dhcpOptions") <*> (pure s))
+                   (x .@? "dhcpOptions") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDHCPOptions where
         toHeaders = const mempty
@@ -143,11 +143,11 @@ instance ToQuery CreateDHCPOptions where
 -- * 'cdorStatus'
 data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'
     { _cdorDHCPOptions :: !(Maybe DHCPOptions)
-    , _cdorStatus      :: !Status
-    } deriving (Eq,Show)
+    , _cdorStatus      :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateDHCPOptionsResponse' smart constructor.
-createDHCPOptionsResponse :: Status -> CreateDHCPOptionsResponse
+createDHCPOptionsResponse :: Int -> CreateDHCPOptionsResponse
 createDHCPOptionsResponse pStatus =
     CreateDHCPOptionsResponse'
     { _cdorDHCPOptions = Nothing
@@ -159,5 +159,5 @@ cdorDHCPOptions :: Lens' CreateDHCPOptionsResponse (Maybe DHCPOptions)
 cdorDHCPOptions = lens _cdorDHCPOptions (\ s a -> s{_cdorDHCPOptions = a});
 
 -- | FIXME: Undocumented member.
-cdorStatus :: Lens' CreateDHCPOptionsResponse Status
+cdorStatus :: Lens' CreateDHCPOptionsResponse Int
 cdorStatus = lens _cdorStatus (\ s a -> s{_cdorStatus = a});

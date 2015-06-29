@@ -72,7 +72,7 @@ instance AWSRequest GetStackPolicy where
           = receiveXMLWrapper "GetStackPolicyResult"
               (\ s h x ->
                  GetStackPolicyResponse' <$>
-                   (x .@? "StackPolicyBody") <*> (pure s))
+                   (x .@? "StackPolicyBody") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetStackPolicy where
         toHeaders = const mempty
@@ -98,11 +98,11 @@ instance ToQuery GetStackPolicy where
 -- * 'gsprStatus'
 data GetStackPolicyResponse = GetStackPolicyResponse'
     { _gsprStackPolicyBody :: !(Maybe Text)
-    , _gsprStatus          :: !Status
-    } deriving (Eq,Show)
+    , _gsprStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetStackPolicyResponse' smart constructor.
-getStackPolicyResponse :: Status -> GetStackPolicyResponse
+getStackPolicyResponse :: Int -> GetStackPolicyResponse
 getStackPolicyResponse pStatus =
     GetStackPolicyResponse'
     { _gsprStackPolicyBody = Nothing
@@ -116,5 +116,5 @@ gsprStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gsprStackPolicyBody = lens _gsprStackPolicyBody (\ s a -> s{_gsprStackPolicyBody = a});
 
 -- | FIXME: Undocumented member.
-gsprStatus :: Lens' GetStackPolicyResponse Status
+gsprStatus :: Lens' GetStackPolicyResponse Int
 gsprStatus = lens _gsprStatus (\ s a -> s{_gsprStatus = a});

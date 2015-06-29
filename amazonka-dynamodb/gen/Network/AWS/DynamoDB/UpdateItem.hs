@@ -703,7 +703,7 @@ instance AWSRequest UpdateItem where
                    (x .?> "ConsumedCapacity") <*>
                      (x .?> "ItemCollectionMetrics")
                      <*> (x .?> "Attributes" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateItem where
         toHeaders
@@ -756,11 +756,11 @@ data UpdateItemResponse = UpdateItemResponse'
     { _uirConsumedCapacity      :: !(Maybe ConsumedCapacity)
     , _uirItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
     , _uirAttributes            :: !(Maybe (Map Text AttributeValue))
-    , _uirStatus                :: !Status
+    , _uirStatus                :: !Int
     } deriving (Eq,Show)
 
 -- | 'UpdateItemResponse' smart constructor.
-updateItemResponse :: Status -> UpdateItemResponse
+updateItemResponse :: Int -> UpdateItemResponse
 updateItemResponse pStatus =
     UpdateItemResponse'
     { _uirConsumedCapacity = Nothing
@@ -785,5 +785,5 @@ uirAttributes :: Lens' UpdateItemResponse (HashMap Text AttributeValue)
 uirAttributes = lens _uirAttributes (\ s a -> s{_uirAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-uirStatus :: Lens' UpdateItemResponse Status
+uirStatus :: Lens' UpdateItemResponse Int
 uirStatus = lens _uirStatus (\ s a -> s{_uirStatus = a});

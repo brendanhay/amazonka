@@ -145,7 +145,7 @@ instance AWSRequest DescribeClassicLinkInstances
               (\ s h x ->
                  DescribeClassicLinkInstancesResponse' <$>
                    (x .@? "nextToken") <*> (may (parseXMLList "item") x)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeClassicLinkInstances where
         toHeaders = const mempty
@@ -178,11 +178,11 @@ instance ToQuery DescribeClassicLinkInstances where
 data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'
     { _dclirNextToken :: !(Maybe Text)
     , _dclirInstances :: !(Maybe [ClassicLinkInstance])
-    , _dclirStatus    :: !Status
-    } deriving (Eq,Show)
+    , _dclirStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeClassicLinkInstancesResponse' smart constructor.
-describeClassicLinkInstancesResponse :: Status -> DescribeClassicLinkInstancesResponse
+describeClassicLinkInstancesResponse :: Int -> DescribeClassicLinkInstancesResponse
 describeClassicLinkInstancesResponse pStatus =
     DescribeClassicLinkInstancesResponse'
     { _dclirNextToken = Nothing
@@ -200,5 +200,5 @@ dclirInstances :: Lens' DescribeClassicLinkInstancesResponse [ClassicLinkInstanc
 dclirInstances = lens _dclirInstances (\ s a -> s{_dclirInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dclirStatus :: Lens' DescribeClassicLinkInstancesResponse Status
+dclirStatus :: Lens' DescribeClassicLinkInstancesResponse Int
 dclirStatus = lens _dclirStatus (\ s a -> s{_dclirStatus = a});

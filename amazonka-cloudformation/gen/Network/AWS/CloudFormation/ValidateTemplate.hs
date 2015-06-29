@@ -102,7 +102,7 @@ instance AWSRequest ValidateTemplate where
                      (x .@? "Capabilities" .!@ mempty >>=
                         may (parseXMLList "member"))
                      <*> (x .@? "Description")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ValidateTemplate where
         toHeaders = const mempty
@@ -138,11 +138,11 @@ data ValidateTemplateResponse = ValidateTemplateResponse'
     , _vtrCapabilitiesReason :: !(Maybe Text)
     , _vtrCapabilities       :: !(Maybe [Capability])
     , _vtrDescription        :: !(Maybe Text)
-    , _vtrStatus             :: !Status
-    } deriving (Eq,Show)
+    , _vtrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ValidateTemplateResponse' smart constructor.
-validateTemplateResponse :: Status -> ValidateTemplateResponse
+validateTemplateResponse :: Int -> ValidateTemplateResponse
 validateTemplateResponse pStatus =
     ValidateTemplateResponse'
     { _vtrParameters = Nothing
@@ -175,5 +175,5 @@ vtrDescription :: Lens' ValidateTemplateResponse (Maybe Text)
 vtrDescription = lens _vtrDescription (\ s a -> s{_vtrDescription = a});
 
 -- | FIXME: Undocumented member.
-vtrStatus :: Lens' ValidateTemplateResponse Status
+vtrStatus :: Lens' ValidateTemplateResponse Int
 vtrStatus = lens _vtrStatus (\ s a -> s{_vtrStatus = a});

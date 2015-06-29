@@ -96,7 +96,7 @@ instance AWSRequest GetPasswordData where
           = receiveXML
               (\ s h x ->
                  GetPasswordDataResponse' <$>
-                   (pure s) <*> (x .@ "instanceId") <*>
+                   (pure (fromEnum s)) <*> (x .@ "instanceId") <*>
                      (x .@ "passwordData")
                      <*> (x .@ "timestamp"))
 
@@ -126,14 +126,14 @@ instance ToQuery GetPasswordData where
 --
 -- * 'gpdrTimestamp'
 data GetPasswordDataResponse = GetPasswordDataResponse'
-    { _gpdrStatus       :: !Status
+    { _gpdrStatus       :: !Int
     , _gpdrInstanceId   :: !Text
     , _gpdrPasswordData :: !Text
     , _gpdrTimestamp    :: !ISO8601
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetPasswordDataResponse' smart constructor.
-getPasswordDataResponse :: Status -> Text -> Text -> UTCTime -> GetPasswordDataResponse
+getPasswordDataResponse :: Int -> Text -> Text -> UTCTime -> GetPasswordDataResponse
 getPasswordDataResponse pStatus pInstanceId pPasswordData pTimestamp =
     GetPasswordDataResponse'
     { _gpdrStatus = pStatus
@@ -143,7 +143,7 @@ getPasswordDataResponse pStatus pInstanceId pPasswordData pTimestamp =
     }
 
 -- | FIXME: Undocumented member.
-gpdrStatus :: Lens' GetPasswordDataResponse Status
+gpdrStatus :: Lens' GetPasswordDataResponse Int
 gpdrStatus = lens _gpdrStatus (\ s a -> s{_gpdrStatus = a});
 
 -- | The ID of the Windows instance.

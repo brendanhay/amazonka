@@ -124,7 +124,7 @@ instance AWSRequest ListAttachedGroupPolicies where
                       may (parseXMLList "member"))
                      <*> (x .@? "Marker")
                      <*> (x .@? "IsTruncated")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListAttachedGroupPolicies where
         toHeaders = const mempty
@@ -159,11 +159,11 @@ data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
     { _lagprAttachedPolicies :: !(Maybe [AttachedPolicy])
     , _lagprMarker           :: !(Maybe Text)
     , _lagprIsTruncated      :: !(Maybe Bool)
-    , _lagprStatus           :: !Status
-    } deriving (Eq,Show)
+    , _lagprStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListAttachedGroupPoliciesResponse' smart constructor.
-listAttachedGroupPoliciesResponse :: Status -> ListAttachedGroupPoliciesResponse
+listAttachedGroupPoliciesResponse :: Int -> ListAttachedGroupPoliciesResponse
 listAttachedGroupPoliciesResponse pStatus =
     ListAttachedGroupPoliciesResponse'
     { _lagprAttachedPolicies = Nothing
@@ -190,5 +190,5 @@ lagprIsTruncated :: Lens' ListAttachedGroupPoliciesResponse (Maybe Bool)
 lagprIsTruncated = lens _lagprIsTruncated (\ s a -> s{_lagprIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lagprStatus :: Lens' ListAttachedGroupPoliciesResponse Status
+lagprStatus :: Lens' ListAttachedGroupPoliciesResponse Int
 lagprStatus = lens _lagprStatus (\ s a -> s{_lagprStatus = a});

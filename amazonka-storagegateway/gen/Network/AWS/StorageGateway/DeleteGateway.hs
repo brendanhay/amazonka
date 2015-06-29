@@ -87,7 +87,7 @@ instance AWSRequest DeleteGateway where
           = receiveJSON
               (\ s h x ->
                  DeleteGatewayResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure s))
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteGateway where
         toHeaders
@@ -120,11 +120,11 @@ instance ToQuery DeleteGateway where
 -- * 'dgrStatus'
 data DeleteGatewayResponse = DeleteGatewayResponse'
     { _dgrGatewayARN :: !(Maybe Text)
-    , _dgrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _dgrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteGatewayResponse' smart constructor.
-deleteGatewayResponse :: Status -> DeleteGatewayResponse
+deleteGatewayResponse :: Int -> DeleteGatewayResponse
 deleteGatewayResponse pStatus =
     DeleteGatewayResponse'
     { _dgrGatewayARN = Nothing
@@ -136,5 +136,5 @@ dgrGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
 dgrGatewayARN = lens _dgrGatewayARN (\ s a -> s{_dgrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-dgrStatus :: Lens' DeleteGatewayResponse Status
+dgrStatus :: Lens' DeleteGatewayResponse Int
 dgrStatus = lens _dgrStatus (\ s a -> s{_dgrStatus = a});

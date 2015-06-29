@@ -258,7 +258,7 @@ instance AWSRequest UpdatePipeline where
               (\ s h x ->
                  UpdatePipelineResponse' <$>
                    (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdatePipeline where
         toHeaders = const mempty
@@ -295,11 +295,11 @@ instance ToQuery UpdatePipeline where
 data UpdatePipelineResponse = UpdatePipelineResponse'
     { _uprWarnings :: !(Maybe [Warning])
     , _uprPipeline :: !(Maybe Pipeline)
-    , _uprStatus   :: !Status
-    } deriving (Eq,Show)
+    , _uprStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdatePipelineResponse' smart constructor.
-updatePipelineResponse :: Status -> UpdatePipelineResponse
+updatePipelineResponse :: Int -> UpdatePipelineResponse
 updatePipelineResponse pStatus =
     UpdatePipelineResponse'
     { _uprWarnings = Nothing
@@ -321,5 +321,5 @@ uprPipeline :: Lens' UpdatePipelineResponse (Maybe Pipeline)
 uprPipeline = lens _uprPipeline (\ s a -> s{_uprPipeline = a});
 
 -- | FIXME: Undocumented member.
-uprStatus :: Lens' UpdatePipelineResponse Status
+uprStatus :: Lens' UpdatePipelineResponse Int
 uprStatus = lens _uprStatus (\ s a -> s{_uprStatus = a});

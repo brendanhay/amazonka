@@ -200,7 +200,7 @@ instance AWSRequest BatchWriteItem where
                    (x .?> "ConsumedCapacity" .!@ mempty) <*>
                      (x .?> "ItemCollectionMetrics" .!@ mempty)
                      <*> (x .?> "UnprocessedItems" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders BatchWriteItem where
         toHeaders
@@ -243,11 +243,11 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
     { _bwirConsumedCapacity      :: !(Maybe [ConsumedCapacity])
     , _bwirItemCollectionMetrics :: !(Maybe (Map Text [ItemCollectionMetrics]))
     , _bwirUnprocessedItems      :: !(Maybe (Map Text (List1 WriteRequest)))
-    , _bwirStatus                :: !Status
+    , _bwirStatus                :: !Int
     } deriving (Eq,Show)
 
 -- | 'BatchWriteItemResponse' smart constructor.
-batchWriteItemResponse :: Status -> BatchWriteItemResponse
+batchWriteItemResponse :: Int -> BatchWriteItemResponse
 batchWriteItemResponse pStatus =
     BatchWriteItemResponse'
     { _bwirConsumedCapacity = Nothing
@@ -327,5 +327,5 @@ bwirUnprocessedItems :: Lens' BatchWriteItemResponse (HashMap Text (NonEmpty Wri
 bwirUnprocessedItems = lens _bwirUnprocessedItems (\ s a -> s{_bwirUnprocessedItems = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-bwirStatus :: Lens' BatchWriteItemResponse Status
+bwirStatus :: Lens' BatchWriteItemResponse Int
 bwirStatus = lens _bwirStatus (\ s a -> s{_bwirStatus = a});

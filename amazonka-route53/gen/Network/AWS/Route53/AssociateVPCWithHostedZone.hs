@@ -103,7 +103,7 @@ instance AWSRequest AssociateVPCWithHostedZone where
           = receiveXML
               (\ s h x ->
                  AssociateVPCWithHostedZoneResponse' <$>
-                   (pure s) <*> (x .@ "ChangeInfo"))
+                   (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
 instance ToElement AssociateVPCWithHostedZone where
         toElement
@@ -137,12 +137,12 @@ instance ToXML AssociateVPCWithHostedZone where
 --
 -- * 'avwhzrChangeInfo'
 data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'
-    { _avwhzrStatus     :: !Status
+    { _avwhzrStatus     :: !Int
     , _avwhzrChangeInfo :: !ChangeInfo
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'AssociateVPCWithHostedZoneResponse' smart constructor.
-associateVPCWithHostedZoneResponse :: Status -> ChangeInfo -> AssociateVPCWithHostedZoneResponse
+associateVPCWithHostedZoneResponse :: Int -> ChangeInfo -> AssociateVPCWithHostedZoneResponse
 associateVPCWithHostedZoneResponse pStatus pChangeInfo =
     AssociateVPCWithHostedZoneResponse'
     { _avwhzrStatus = pStatus
@@ -150,7 +150,7 @@ associateVPCWithHostedZoneResponse pStatus pChangeInfo =
     }
 
 -- | FIXME: Undocumented member.
-avwhzrStatus :: Lens' AssociateVPCWithHostedZoneResponse Status
+avwhzrStatus :: Lens' AssociateVPCWithHostedZoneResponse Int
 avwhzrStatus = lens _avwhzrStatus (\ s a -> s{_avwhzrStatus = a});
 
 -- | A complex type that contains the ID, the status, and the date and time

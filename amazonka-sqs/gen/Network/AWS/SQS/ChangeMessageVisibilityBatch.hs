@@ -98,7 +98,7 @@ instance AWSRequest ChangeMessageVisibilityBatch
               "ChangeMessageVisibilityBatchResult"
               (\ s h x ->
                  ChangeMessageVisibilityBatchResponse' <$>
-                   (pure s) <*>
+                   (pure (fromEnum s)) <*>
                      (parseXMLList
                         "ChangeMessageVisibilityBatchResultEntry"
                         x)
@@ -135,13 +135,13 @@ instance ToQuery ChangeMessageVisibilityBatch where
 --
 -- * 'cmvbrFailed'
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'
-    { _cmvbrStatus     :: !Status
+    { _cmvbrStatus     :: !Int
     , _cmvbrSuccessful :: ![ChangeMessageVisibilityBatchResultEntry]
     , _cmvbrFailed     :: ![BatchResultErrorEntry]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ChangeMessageVisibilityBatchResponse' smart constructor.
-changeMessageVisibilityBatchResponse :: Status -> ChangeMessageVisibilityBatchResponse
+changeMessageVisibilityBatchResponse :: Int -> ChangeMessageVisibilityBatchResponse
 changeMessageVisibilityBatchResponse pStatus =
     ChangeMessageVisibilityBatchResponse'
     { _cmvbrStatus = pStatus
@@ -150,7 +150,7 @@ changeMessageVisibilityBatchResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-cmvbrStatus :: Lens' ChangeMessageVisibilityBatchResponse Status
+cmvbrStatus :: Lens' ChangeMessageVisibilityBatchResponse Int
 cmvbrStatus = lens _cmvbrStatus (\ s a -> s{_cmvbrStatus = a});
 
 -- | A list of ChangeMessageVisibilityBatchResultEntry items.

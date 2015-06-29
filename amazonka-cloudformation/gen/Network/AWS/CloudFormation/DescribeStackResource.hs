@@ -92,7 +92,8 @@ instance AWSRequest DescribeStackResource where
           = receiveXMLWrapper "DescribeStackResourceResult"
               (\ s h x ->
                  DescribeStackResourceResponse' <$>
-                   (x .@? "StackResourceDetail") <*> (pure s))
+                   (x .@? "StackResourceDetail") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeStackResource where
         toHeaders = const mempty
@@ -119,11 +120,11 @@ instance ToQuery DescribeStackResource where
 -- * 'dsrrStatus'
 data DescribeStackResourceResponse = DescribeStackResourceResponse'
     { _dsrrStackResourceDetail :: !(Maybe StackResourceDetail)
-    , _dsrrStatus              :: !Status
-    } deriving (Eq,Show)
+    , _dsrrStatus              :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackResourceResponse' smart constructor.
-describeStackResourceResponse :: Status -> DescribeStackResourceResponse
+describeStackResourceResponse :: Int -> DescribeStackResourceResponse
 describeStackResourceResponse pStatus =
     DescribeStackResourceResponse'
     { _dsrrStackResourceDetail = Nothing
@@ -136,5 +137,5 @@ dsrrStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResou
 dsrrStackResourceDetail = lens _dsrrStackResourceDetail (\ s a -> s{_dsrrStackResourceDetail = a});
 
 -- | FIXME: Undocumented member.
-dsrrStatus :: Lens' DescribeStackResourceResponse Status
+dsrrStatus :: Lens' DescribeStackResourceResponse Int
 dsrrStatus = lens _dsrrStatus (\ s a -> s{_dsrrStatus = a});

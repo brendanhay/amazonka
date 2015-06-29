@@ -139,7 +139,7 @@ instance AWSRequest Invoke where
                    (h .#? "X-Amz-Function-Error") <*>
                      (h .#? "X-Amz-Log-Result")
                      <*> (x .?> "Payload")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders Invoke where
         toHeaders Invoke'{..}

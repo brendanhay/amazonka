@@ -79,7 +79,7 @@ instance AWSRequest DescribeStep where
           = receiveJSON
               (\ s h x ->
                  DescribeStepResponse' <$>
-                   (x .?> "Step") <*> (pure s))
+                   (x .?> "Step") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeStep where
         toHeaders
@@ -112,11 +112,11 @@ instance ToQuery DescribeStep where
 -- * 'dsrStatus'
 data DescribeStepResponse = DescribeStepResponse'
     { _dsrStep   :: !(Maybe Step)
-    , _dsrStatus :: !Status
-    } deriving (Eq,Show)
+    , _dsrStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStepResponse' smart constructor.
-describeStepResponse :: Status -> DescribeStepResponse
+describeStepResponse :: Int -> DescribeStepResponse
 describeStepResponse pStatus =
     DescribeStepResponse'
     { _dsrStep = Nothing
@@ -128,5 +128,5 @@ dsrStep :: Lens' DescribeStepResponse (Maybe Step)
 dsrStep = lens _dsrStep (\ s a -> s{_dsrStep = a});
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DescribeStepResponse Status
+dsrStatus :: Lens' DescribeStepResponse Int
 dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});

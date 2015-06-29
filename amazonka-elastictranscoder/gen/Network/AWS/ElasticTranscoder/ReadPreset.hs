@@ -71,7 +71,7 @@ instance AWSRequest ReadPreset where
           = receiveJSON
               (\ s h x ->
                  ReadPresetResponse' <$>
-                   (x .?> "Preset") <*> (pure s))
+                   (x .?> "Preset") <*> (pure (fromEnum s)))
 
 instance ToHeaders ReadPreset where
         toHeaders = const mempty
@@ -94,11 +94,11 @@ instance ToQuery ReadPreset where
 -- * 'rprStatus'
 data ReadPresetResponse = ReadPresetResponse'
     { _rprPreset :: !(Maybe Preset)
-    , _rprStatus :: !Status
-    } deriving (Eq,Show)
+    , _rprStatus :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ReadPresetResponse' smart constructor.
-readPresetResponse :: Status -> ReadPresetResponse
+readPresetResponse :: Int -> ReadPresetResponse
 readPresetResponse pStatus =
     ReadPresetResponse'
     { _rprPreset = Nothing
@@ -111,5 +111,5 @@ rprPreset :: Lens' ReadPresetResponse (Maybe Preset)
 rprPreset = lens _rprPreset (\ s a -> s{_rprPreset = a});
 
 -- | FIXME: Undocumented member.
-rprStatus :: Lens' ReadPresetResponse Status
+rprStatus :: Lens' ReadPresetResponse Int
 rprStatus = lens _rprStatus (\ s a -> s{_rprStatus = a});

@@ -134,7 +134,7 @@ instance AWSRequest GetRecords where
                  GetRecordsResponse' <$>
                    (x .?> "MillisBehindLatest") <*>
                      (x .?> "NextShardIterator")
-                     <*> (pure s)
+                     <*> (pure (fromEnum s))
                      <*> (x .?> "Records" .!@ mempty))
 
 instance ToHeaders GetRecords where
@@ -174,12 +174,12 @@ instance ToQuery GetRecords where
 data GetRecordsResponse = GetRecordsResponse'
     { _grrMillisBehindLatest :: !(Maybe Nat)
     , _grrNextShardIterator  :: !(Maybe Text)
-    , _grrStatus             :: !Status
+    , _grrStatus             :: !Int
     , _grrRecords            :: ![Record]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetRecordsResponse' smart constructor.
-getRecordsResponse :: Status -> GetRecordsResponse
+getRecordsResponse :: Int -> GetRecordsResponse
 getRecordsResponse pStatus =
     GetRecordsResponse'
     { _grrMillisBehindLatest = Nothing
@@ -202,7 +202,7 @@ grrNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
 grrNextShardIterator = lens _grrNextShardIterator (\ s a -> s{_grrNextShardIterator = a});
 
 -- | FIXME: Undocumented member.
-grrStatus :: Lens' GetRecordsResponse Status
+grrStatus :: Lens' GetRecordsResponse Int
 grrStatus = lens _grrStatus (\ s a -> s{_grrStatus = a});
 
 -- | The data records retrieved from the shard.

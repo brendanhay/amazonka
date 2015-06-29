@@ -96,7 +96,7 @@ instance AWSRequest ListFunctions where
                  ListFunctionsResponse' <$>
                    (x .?> "NextMarker") <*>
                      (x .?> "Functions" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListFunctions where
         toHeaders = const mempty
@@ -124,11 +124,11 @@ instance ToQuery ListFunctions where
 data ListFunctionsResponse = ListFunctionsResponse'
     { _lfrNextMarker :: !(Maybe Text)
     , _lfrFunctions  :: !(Maybe [FunctionConfiguration])
-    , _lfrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _lfrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListFunctionsResponse' smart constructor.
-listFunctionsResponse :: Status -> ListFunctionsResponse
+listFunctionsResponse :: Int -> ListFunctionsResponse
 listFunctionsResponse pStatus =
     ListFunctionsResponse'
     { _lfrNextMarker = Nothing
@@ -145,5 +145,5 @@ lfrFunctions :: Lens' ListFunctionsResponse [FunctionConfiguration]
 lfrFunctions = lens _lfrFunctions (\ s a -> s{_lfrFunctions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lfrStatus :: Lens' ListFunctionsResponse Status
+lfrStatus :: Lens' ListFunctionsResponse Int
 lfrStatus = lens _lfrStatus (\ s a -> s{_lfrStatus = a});

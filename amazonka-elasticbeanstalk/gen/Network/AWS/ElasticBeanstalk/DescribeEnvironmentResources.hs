@@ -91,7 +91,8 @@ instance AWSRequest DescribeEnvironmentResources
               "DescribeEnvironmentResourcesResult"
               (\ s h x ->
                  DescribeEnvironmentResourcesResponse' <$>
-                   (x .@? "EnvironmentResources") <*> (pure s))
+                   (x .@? "EnvironmentResources") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeEnvironmentResources where
         toHeaders = const mempty
@@ -119,11 +120,11 @@ instance ToQuery DescribeEnvironmentResources where
 -- * 'derrStatus'
 data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'
     { _derrEnvironmentResources :: !(Maybe EnvironmentResourceDescription)
-    , _derrStatus               :: !Status
-    } deriving (Eq,Show)
+    , _derrStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeEnvironmentResourcesResponse' smart constructor.
-describeEnvironmentResourcesResponse :: Status -> DescribeEnvironmentResourcesResponse
+describeEnvironmentResourcesResponse :: Int -> DescribeEnvironmentResourcesResponse
 describeEnvironmentResourcesResponse pStatus =
     DescribeEnvironmentResourcesResponse'
     { _derrEnvironmentResources = Nothing
@@ -135,5 +136,5 @@ derrEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe En
 derrEnvironmentResources = lens _derrEnvironmentResources (\ s a -> s{_derrEnvironmentResources = a});
 
 -- | FIXME: Undocumented member.
-derrStatus :: Lens' DescribeEnvironmentResourcesResponse Status
+derrStatus :: Lens' DescribeEnvironmentResourcesResponse Int
 derrStatus = lens _derrStatus (\ s a -> s{_derrStatus = a});

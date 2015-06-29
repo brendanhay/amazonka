@@ -79,7 +79,7 @@ instance AWSRequest DeleteSnapshotSchedule where
           = receiveJSON
               (\ s h x ->
                  DeleteSnapshotScheduleResponse' <$>
-                   (x .?> "VolumeARN") <*> (pure s))
+                   (x .?> "VolumeARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteSnapshotSchedule where
         toHeaders
@@ -110,11 +110,11 @@ instance ToQuery DeleteSnapshotSchedule where
 -- * 'dssr1Status'
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
     { _dssr1VolumeARN :: !(Maybe Text)
-    , _dssr1Status    :: !Status
-    } deriving (Eq,Show)
+    , _dssr1Status    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteSnapshotScheduleResponse' smart constructor.
-deleteSnapshotScheduleResponse :: Status -> DeleteSnapshotScheduleResponse
+deleteSnapshotScheduleResponse :: Int -> DeleteSnapshotScheduleResponse
 deleteSnapshotScheduleResponse pStatus =
     DeleteSnapshotScheduleResponse'
     { _dssr1VolumeARN = Nothing
@@ -126,5 +126,5 @@ dssr1VolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
 dssr1VolumeARN = lens _dssr1VolumeARN (\ s a -> s{_dssr1VolumeARN = a});
 
 -- | FIXME: Undocumented member.
-dssr1Status :: Lens' DeleteSnapshotScheduleResponse Status
+dssr1Status :: Lens' DeleteSnapshotScheduleResponse Int
 dssr1Status = lens _dssr1Status (\ s a -> s{_dssr1Status = a});

@@ -87,7 +87,7 @@ instance AWSRequest DescribeWorkingStorage where
                    (x .?> "GatewayARN") <*> (x .?> "DiskIds" .!@ mempty)
                      <*> (x .?> "WorkingStorageAllocatedInBytes")
                      <*> (x .?> "WorkingStorageUsedInBytes")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeWorkingStorage where
         toHeaders
@@ -129,11 +129,11 @@ data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
     , _dwsrDiskIds                        :: !(Maybe [Text])
     , _dwsrWorkingStorageAllocatedInBytes :: !(Maybe Integer)
     , _dwsrWorkingStorageUsedInBytes      :: !(Maybe Integer)
-    , _dwsrStatus                         :: !Status
-    } deriving (Eq,Show)
+    , _dwsrStatus                         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkingStorageResponse' smart constructor.
-describeWorkingStorageResponse :: Status -> DescribeWorkingStorageResponse
+describeWorkingStorageResponse :: Int -> DescribeWorkingStorageResponse
 describeWorkingStorageResponse pStatus =
     DescribeWorkingStorageResponse'
     { _dwsrGatewayARN = Nothing
@@ -165,5 +165,5 @@ dwsrWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Int
 dwsrWorkingStorageUsedInBytes = lens _dwsrWorkingStorageUsedInBytes (\ s a -> s{_dwsrWorkingStorageUsedInBytes = a});
 
 -- | FIXME: Undocumented member.
-dwsrStatus :: Lens' DescribeWorkingStorageResponse Status
+dwsrStatus :: Lens' DescribeWorkingStorageResponse Int
 dwsrStatus = lens _dwsrStatus (\ s a -> s{_dwsrStatus = a});

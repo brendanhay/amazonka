@@ -134,7 +134,7 @@ instance AWSRequest StartTask where
                  StartTaskResponse' <$>
                    (x .?> "failures" .!@ mempty) <*>
                      (x .?> "tasks" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders StartTask where
         toHeaders
@@ -173,11 +173,11 @@ instance ToQuery StartTask where
 data StartTaskResponse = StartTaskResponse'
     { _strFailures :: !(Maybe [Failure])
     , _strTasks    :: !(Maybe [Task])
-    , _strStatus   :: !Status
-    } deriving (Eq,Show)
+    , _strStatus   :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'StartTaskResponse' smart constructor.
-startTaskResponse :: Status -> StartTaskResponse
+startTaskResponse :: Int -> StartTaskResponse
 startTaskResponse pStatus =
     StartTaskResponse'
     { _strFailures = Nothing
@@ -195,5 +195,5 @@ strTasks :: Lens' StartTaskResponse [Task]
 strTasks = lens _strTasks (\ s a -> s{_strTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-strStatus :: Lens' StartTaskResponse Status
+strStatus :: Lens' StartTaskResponse Int
 strStatus = lens _strStatus (\ s a -> s{_strStatus = a});

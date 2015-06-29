@@ -73,7 +73,7 @@ instance AWSRequest CreateCluster where
           = receiveJSON
               (\ s h x ->
                  CreateClusterResponse' <$>
-                   (x .?> "cluster") <*> (pure s))
+                   (x .?> "cluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateCluster where
         toHeaders
@@ -104,11 +104,11 @@ instance ToQuery CreateCluster where
 -- * 'ccrStatus'
 data CreateClusterResponse = CreateClusterResponse'
     { _ccrCluster :: !(Maybe Cluster)
-    , _ccrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _ccrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterResponse' smart constructor.
-createClusterResponse :: Status -> CreateClusterResponse
+createClusterResponse :: Int -> CreateClusterResponse
 createClusterResponse pStatus =
     CreateClusterResponse'
     { _ccrCluster = Nothing
@@ -120,5 +120,5 @@ ccrCluster :: Lens' CreateClusterResponse (Maybe Cluster)
 ccrCluster = lens _ccrCluster (\ s a -> s{_ccrCluster = a});
 
 -- | FIXME: Undocumented member.
-ccrStatus :: Lens' CreateClusterResponse Status
+ccrStatus :: Lens' CreateClusterResponse Int
 ccrStatus = lens _ccrStatus (\ s a -> s{_ccrStatus = a});

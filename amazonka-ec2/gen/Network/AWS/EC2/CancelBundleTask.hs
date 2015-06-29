@@ -81,7 +81,7 @@ instance AWSRequest CancelBundleTask where
           = receiveXML
               (\ s h x ->
                  CancelBundleTaskResponse' <$>
-                   (x .@? "bundleInstanceTask") <*> (pure s))
+                   (x .@? "bundleInstanceTask") <*> (pure (fromEnum s)))
 
 instance ToHeaders CancelBundleTask where
         toHeaders = const mempty
@@ -105,11 +105,11 @@ instance ToQuery CancelBundleTask where
 -- * 'cbtrStatus'
 data CancelBundleTaskResponse = CancelBundleTaskResponse'
     { _cbtrBundleTask :: !(Maybe BundleTask)
-    , _cbtrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _cbtrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CancelBundleTaskResponse' smart constructor.
-cancelBundleTaskResponse :: Status -> CancelBundleTaskResponse
+cancelBundleTaskResponse :: Int -> CancelBundleTaskResponse
 cancelBundleTaskResponse pStatus =
     CancelBundleTaskResponse'
     { _cbtrBundleTask = Nothing
@@ -121,5 +121,5 @@ cbtrBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
 cbtrBundleTask = lens _cbtrBundleTask (\ s a -> s{_cbtrBundleTask = a});
 
 -- | FIXME: Undocumented member.
-cbtrStatus :: Lens' CancelBundleTaskResponse Status
+cbtrStatus :: Lens' CancelBundleTaskResponse Int
 cbtrStatus = lens _cbtrStatus (\ s a -> s{_cbtrStatus = a});

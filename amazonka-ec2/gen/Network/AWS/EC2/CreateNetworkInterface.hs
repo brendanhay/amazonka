@@ -143,7 +143,7 @@ instance AWSRequest CreateNetworkInterface where
           = receiveXML
               (\ s h x ->
                  CreateNetworkInterfaceResponse' <$>
-                   (x .@? "networkInterface") <*> (pure s))
+                   (x .@? "networkInterface") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateNetworkInterface where
         toHeaders = const mempty
@@ -177,11 +177,11 @@ instance ToQuery CreateNetworkInterface where
 -- * 'cnirStatus'
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
     { _cnirNetworkInterface :: !(Maybe NetworkInterface)
-    , _cnirStatus           :: !Status
-    } deriving (Eq,Show)
+    , _cnirStatus           :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CreateNetworkInterfaceResponse' smart constructor.
-createNetworkInterfaceResponse :: Status -> CreateNetworkInterfaceResponse
+createNetworkInterfaceResponse :: Int -> CreateNetworkInterfaceResponse
 createNetworkInterfaceResponse pStatus =
     CreateNetworkInterfaceResponse'
     { _cnirNetworkInterface = Nothing
@@ -193,5 +193,5 @@ cnirNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInter
 cnirNetworkInterface = lens _cnirNetworkInterface (\ s a -> s{_cnirNetworkInterface = a});
 
 -- | FIXME: Undocumented member.
-cnirStatus :: Lens' CreateNetworkInterfaceResponse Status
+cnirStatus :: Lens' CreateNetworkInterfaceResponse Int
 cnirStatus = lens _cnirStatus (\ s a -> s{_cnirStatus = a});

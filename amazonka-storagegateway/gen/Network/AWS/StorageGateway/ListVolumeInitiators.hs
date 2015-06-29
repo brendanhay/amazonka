@@ -74,7 +74,8 @@ instance AWSRequest ListVolumeInitiators where
           = receiveJSON
               (\ s h x ->
                  ListVolumeInitiatorsResponse' <$>
-                   (x .?> "Initiators" .!@ mempty) <*> (pure s))
+                   (x .?> "Initiators" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders ListVolumeInitiators where
         toHeaders
@@ -107,11 +108,11 @@ instance ToQuery ListVolumeInitiators where
 -- * 'lvirStatus'
 data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
     { _lvirInitiators :: !(Maybe [Text])
-    , _lvirStatus     :: !Status
-    } deriving (Eq,Show)
+    , _lvirStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListVolumeInitiatorsResponse' smart constructor.
-listVolumeInitiatorsResponse :: Status -> ListVolumeInitiatorsResponse
+listVolumeInitiatorsResponse :: Int -> ListVolumeInitiatorsResponse
 listVolumeInitiatorsResponse pStatus =
     ListVolumeInitiatorsResponse'
     { _lvirInitiators = Nothing
@@ -124,5 +125,5 @@ lvirInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
 lvirInitiators = lens _lvirInitiators (\ s a -> s{_lvirInitiators = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lvirStatus :: Lens' ListVolumeInitiatorsResponse Status
+lvirStatus :: Lens' ListVolumeInitiatorsResponse Int
 lvirStatus = lens _lvirStatus (\ s a -> s{_lvirStatus = a});

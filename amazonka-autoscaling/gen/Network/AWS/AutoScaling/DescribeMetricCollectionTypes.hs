@@ -68,7 +68,7 @@ instance AWSRequest DescribeMetricCollectionTypes
                      <*>
                      (x .@? "Granularities" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeMetricCollectionTypes
          where
@@ -97,11 +97,11 @@ instance ToQuery DescribeMetricCollectionTypes where
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
     { _dmctrMetrics       :: !(Maybe [MetricCollectionType])
     , _dmctrGranularities :: !(Maybe [MetricGranularityType])
-    , _dmctrStatus        :: !Status
-    } deriving (Eq,Show)
+    , _dmctrStatus        :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeMetricCollectionTypesResponse' smart constructor.
-describeMetricCollectionTypesResponse :: Status -> DescribeMetricCollectionTypesResponse
+describeMetricCollectionTypesResponse :: Int -> DescribeMetricCollectionTypesResponse
 describeMetricCollectionTypesResponse pStatus =
     DescribeMetricCollectionTypesResponse'
     { _dmctrMetrics = Nothing
@@ -118,5 +118,5 @@ dmctrGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranula
 dmctrGranularities = lens _dmctrGranularities (\ s a -> s{_dmctrGranularities = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dmctrStatus :: Lens' DescribeMetricCollectionTypesResponse Status
+dmctrStatus :: Lens' DescribeMetricCollectionTypesResponse Int
 dmctrStatus = lens _dmctrStatus (\ s a -> s{_dmctrStatus = a});

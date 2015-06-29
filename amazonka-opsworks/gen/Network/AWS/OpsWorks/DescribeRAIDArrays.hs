@@ -98,7 +98,8 @@ instance AWSRequest DescribeRAIDArrays where
           = receiveJSON
               (\ s h x ->
                  DescribeRAIDArraysResponse' <$>
-                   (x .?> "RaidArrays" .!@ mempty) <*> (pure s))
+                   (x .?> "RaidArrays" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeRAIDArrays where
         toHeaders
@@ -134,11 +135,11 @@ instance ToQuery DescribeRAIDArrays where
 -- * 'drarStatus'
 data DescribeRAIDArraysResponse = DescribeRAIDArraysResponse'
     { _drarRAIDArrays :: !(Maybe [RAIDArray])
-    , _drarStatus     :: !Status
-    } deriving (Eq,Show)
+    , _drarStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeRAIDArraysResponse' smart constructor.
-describeRAIDArraysResponse :: Status -> DescribeRAIDArraysResponse
+describeRAIDArraysResponse :: Int -> DescribeRAIDArraysResponse
 describeRAIDArraysResponse pStatus =
     DescribeRAIDArraysResponse'
     { _drarRAIDArrays = Nothing
@@ -150,5 +151,5 @@ drarRAIDArrays :: Lens' DescribeRAIDArraysResponse [RAIDArray]
 drarRAIDArrays = lens _drarRAIDArrays (\ s a -> s{_drarRAIDArrays = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drarStatus :: Lens' DescribeRAIDArraysResponse Status
+drarStatus :: Lens' DescribeRAIDArraysResponse Int
 drarStatus = lens _drarStatus (\ s a -> s{_drarStatus = a});

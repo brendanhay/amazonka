@@ -72,7 +72,8 @@ instance AWSRequest GetRole where
         response
           = receiveXMLWrapper "GetRoleResult"
               (\ s h x ->
-                 GetRoleResponse' <$> (pure s) <*> (x .@ "Role"))
+                 GetRoleResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "Role"))
 
 instance ToHeaders GetRole where
         toHeaders = const mempty
@@ -97,12 +98,12 @@ instance ToQuery GetRole where
 --
 -- * 'grrRole'
 data GetRoleResponse = GetRoleResponse'
-    { _grrStatus :: !Status
+    { _grrStatus :: !Int
     , _grrRole   :: !Role
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetRoleResponse' smart constructor.
-getRoleResponse :: Status -> Role -> GetRoleResponse
+getRoleResponse :: Int -> Role -> GetRoleResponse
 getRoleResponse pStatus pRole =
     GetRoleResponse'
     { _grrStatus = pStatus
@@ -110,7 +111,7 @@ getRoleResponse pStatus pRole =
     }
 
 -- | FIXME: Undocumented member.
-grrStatus :: Lens' GetRoleResponse Status
+grrStatus :: Lens' GetRoleResponse Int
 grrStatus = lens _grrStatus (\ s a -> s{_grrStatus = a});
 
 -- | Information about the role.

@@ -187,7 +187,7 @@ instance AWSRequest ImportImage where
                      <*> (x .@? "importTaskId")
                      <*> (x .@? "architecture")
                      <*> (x .@? "description")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ImportImage where
         toHeaders = const mempty
@@ -247,11 +247,11 @@ data ImportImageResponse = ImportImageResponse'
     , _iImportTaskId    :: !(Maybe Text)
     , _iArchitecture    :: !(Maybe Text)
     , _iDescription     :: !(Maybe Text)
-    , _iStatus          :: !Status
-    } deriving (Eq,Show)
+    , _iStatus          :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ImportImageResponse' smart constructor.
-importImageResponse :: Status -> ImportImageResponse
+importImageResponse :: Int -> ImportImageResponse
 importImageResponse pStatus =
     ImportImageResponse'
     { _iHypervisor = Nothing
@@ -308,5 +308,5 @@ iDescription :: Lens' ImportImageResponse (Maybe Text)
 iDescription = lens _iDescription (\ s a -> s{_iDescription = a});
 
 -- | FIXME: Undocumented member.
-iStatus :: Lens' ImportImageResponse Status
+iStatus :: Lens' ImportImageResponse Int
 iStatus = lens _iStatus (\ s a -> s{_iStatus = a});

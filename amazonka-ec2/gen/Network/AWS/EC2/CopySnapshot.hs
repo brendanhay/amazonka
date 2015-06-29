@@ -149,7 +149,7 @@ instance AWSRequest CopySnapshot where
           = receiveXML
               (\ s h x ->
                  CopySnapshotResponse' <$>
-                   (x .@? "snapshotId") <*> (pure s))
+                   (x .@? "snapshotId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CopySnapshot where
         toHeaders = const mempty
@@ -178,11 +178,11 @@ instance ToQuery CopySnapshot where
 -- * 'csrStatus'
 data CopySnapshotResponse = CopySnapshotResponse'
     { _csrSnapshotId :: !(Maybe Text)
-    , _csrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _csrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'CopySnapshotResponse' smart constructor.
-copySnapshotResponse :: Status -> CopySnapshotResponse
+copySnapshotResponse :: Int -> CopySnapshotResponse
 copySnapshotResponse pStatus =
     CopySnapshotResponse'
     { _csrSnapshotId = Nothing
@@ -194,5 +194,5 @@ csrSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\ s a -> s{_csrSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-csrStatus :: Lens' CopySnapshotResponse Status
+csrStatus :: Lens' CopySnapshotResponse Int
 csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});

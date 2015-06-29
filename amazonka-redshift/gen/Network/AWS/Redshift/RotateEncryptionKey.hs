@@ -75,7 +75,7 @@ instance AWSRequest RotateEncryptionKey where
           = receiveXMLWrapper "RotateEncryptionKeyResult"
               (\ s h x ->
                  RotateEncryptionKeyResponse' <$>
-                   (x .@? "Cluster") <*> (pure s))
+                   (x .@? "Cluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders RotateEncryptionKey where
         toHeaders = const mempty
@@ -99,11 +99,11 @@ instance ToQuery RotateEncryptionKey where
 -- * 'rekrStatus'
 data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
     { _rekrCluster :: !(Maybe Cluster)
-    , _rekrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _rekrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RotateEncryptionKeyResponse' smart constructor.
-rotateEncryptionKeyResponse :: Status -> RotateEncryptionKeyResponse
+rotateEncryptionKeyResponse :: Int -> RotateEncryptionKeyResponse
 rotateEncryptionKeyResponse pStatus =
     RotateEncryptionKeyResponse'
     { _rekrCluster = Nothing
@@ -115,5 +115,5 @@ rekrCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
 rekrCluster = lens _rekrCluster (\ s a -> s{_rekrCluster = a});
 
 -- | FIXME: Undocumented member.
-rekrStatus :: Lens' RotateEncryptionKeyResponse Status
+rekrStatus :: Lens' RotateEncryptionKeyResponse Int
 rekrStatus = lens _rekrStatus (\ s a -> s{_rekrStatus = a});

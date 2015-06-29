@@ -87,7 +87,7 @@ instance AWSRequest DefineSuggester where
           = receiveXMLWrapper "DefineSuggesterResult"
               (\ s h x ->
                  DefineSuggesterResponse' <$>
-                   (pure s) <*> (x .@ "Suggester"))
+                   (pure (fromEnum s)) <*> (x .@ "Suggester"))
 
 instance ToHeaders DefineSuggester where
         toHeaders = const mempty
@@ -114,12 +114,12 @@ instance ToQuery DefineSuggester where
 --
 -- * 'dsrSuggester'
 data DefineSuggesterResponse = DefineSuggesterResponse'
-    { _dsrStatus    :: !Status
+    { _dsrStatus    :: !Int
     , _dsrSuggester :: !SuggesterStatus
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DefineSuggesterResponse' smart constructor.
-defineSuggesterResponse :: Status -> SuggesterStatus -> DefineSuggesterResponse
+defineSuggesterResponse :: Int -> SuggesterStatus -> DefineSuggesterResponse
 defineSuggesterResponse pStatus pSuggester =
     DefineSuggesterResponse'
     { _dsrStatus = pStatus
@@ -127,7 +127,7 @@ defineSuggesterResponse pStatus pSuggester =
     }
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DefineSuggesterResponse Status
+dsrStatus :: Lens' DefineSuggesterResponse Int
 dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});
 
 -- | FIXME: Undocumented member.

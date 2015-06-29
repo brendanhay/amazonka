@@ -125,7 +125,7 @@ instance AWSRequest DescribeStream where
           = receiveJSON
               (\ s h x ->
                  DescribeStreamResponse' <$>
-                   (pure s) <*> (x .:> "StreamDescription"))
+                   (pure (fromEnum s)) <*> (x .:> "StreamDescription"))
 
 instance ToHeaders DescribeStream where
         toHeaders
@@ -159,12 +159,12 @@ instance ToQuery DescribeStream where
 --
 -- * 'dsrStreamDescription'
 data DescribeStreamResponse = DescribeStreamResponse'
-    { _dsrStatus            :: !Status
+    { _dsrStatus            :: !Int
     , _dsrStreamDescription :: !StreamDescription
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeStreamResponse' smart constructor.
-describeStreamResponse :: Status -> StreamDescription -> DescribeStreamResponse
+describeStreamResponse :: Int -> StreamDescription -> DescribeStreamResponse
 describeStreamResponse pStatus pStreamDescription =
     DescribeStreamResponse'
     { _dsrStatus = pStatus
@@ -172,7 +172,7 @@ describeStreamResponse pStatus pStreamDescription =
     }
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DescribeStreamResponse Status
+dsrStatus :: Lens' DescribeStreamResponse Int
 dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});
 
 -- | The current status of the stream, the stream ARN, an array of shard

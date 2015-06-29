@@ -98,7 +98,7 @@ instance AWSRequest DescribeTags where
               (\ s h x ->
                  DescribeTagsResponse' <$>
                    (x .?> "Marker") <*> (x .?> "NextMarker") <*>
-                     (pure s)
+                     (pure (fromEnum s))
                      <*> (x .?> "Tags" .!@ mempty))
 
 instance ToHeaders DescribeTags where
@@ -128,12 +128,12 @@ instance ToQuery DescribeTags where
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrMarker     :: !(Maybe Text)
     , _dtrNextMarker :: !(Maybe Text)
-    , _dtrStatus     :: !Status
+    , _dtrStatus     :: !Int
     , _dtrTags       :: ![Tag]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
-describeTagsResponse :: Status -> DescribeTagsResponse
+describeTagsResponse :: Int -> DescribeTagsResponse
 describeTagsResponse pStatus =
     DescribeTagsResponse'
     { _dtrMarker = Nothing
@@ -155,7 +155,7 @@ dtrNextMarker :: Lens' DescribeTagsResponse (Maybe Text)
 dtrNextMarker = lens _dtrNextMarker (\ s a -> s{_dtrNextMarker = a});
 
 -- | FIXME: Undocumented member.
-dtrStatus :: Lens' DescribeTagsResponse Status
+dtrStatus :: Lens' DescribeTagsResponse Int
 dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});
 
 -- | Returns tags associated with the file system as an array of @Tag@

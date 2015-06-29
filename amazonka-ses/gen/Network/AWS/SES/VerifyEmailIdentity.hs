@@ -73,7 +73,7 @@ instance AWSRequest VerifyEmailIdentity where
         response
           = receiveXMLWrapper "VerifyEmailIdentityResult"
               (\ s h x ->
-                 VerifyEmailIdentityResponse' <$> (pure s))
+                 VerifyEmailIdentityResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders VerifyEmailIdentity where
         toHeaders = const mempty
@@ -97,16 +97,16 @@ instance ToQuery VerifyEmailIdentity where
 --
 -- * 'veirStatus'
 newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
-    { _veirStatus :: Status
-    } deriving (Eq,Show)
+    { _veirStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'VerifyEmailIdentityResponse' smart constructor.
-verifyEmailIdentityResponse :: Status -> VerifyEmailIdentityResponse
+verifyEmailIdentityResponse :: Int -> VerifyEmailIdentityResponse
 verifyEmailIdentityResponse pStatus =
     VerifyEmailIdentityResponse'
     { _veirStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-veirStatus :: Lens' VerifyEmailIdentityResponse Status
+veirStatus :: Lens' VerifyEmailIdentityResponse Int
 veirStatus = lens _veirStatus (\ s a -> s{_veirStatus = a});

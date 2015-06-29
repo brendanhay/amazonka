@@ -68,7 +68,8 @@ instance AWSRequest DeleteFlowLogs where
           = receiveXML
               (\ s h x ->
                  DeleteFlowLogsResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DeleteFlowLogs where
         toHeaders = const mempty
@@ -92,11 +93,11 @@ instance ToQuery DeleteFlowLogs where
 -- * 'dflrStatus'
 data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
     { _dflrUnsuccessful :: !(Maybe [UnsuccessfulItem])
-    , _dflrStatus       :: !Status
-    } deriving (Eq,Show)
+    , _dflrStatus       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteFlowLogsResponse' smart constructor.
-deleteFlowLogsResponse :: Status -> DeleteFlowLogsResponse
+deleteFlowLogsResponse :: Int -> DeleteFlowLogsResponse
 deleteFlowLogsResponse pStatus =
     DeleteFlowLogsResponse'
     { _dflrUnsuccessful = Nothing
@@ -108,5 +109,5 @@ dflrUnsuccessful :: Lens' DeleteFlowLogsResponse [UnsuccessfulItem]
 dflrUnsuccessful = lens _dflrUnsuccessful (\ s a -> s{_dflrUnsuccessful = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dflrStatus :: Lens' DeleteFlowLogsResponse Status
+dflrStatus :: Lens' DeleteFlowLogsResponse Int
 dflrStatus = lens _dflrStatus (\ s a -> s{_dflrStatus = a});

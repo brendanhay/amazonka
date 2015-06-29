@@ -68,7 +68,8 @@ instance AWSRequest GetBucketCORS where
           = receiveXML
               (\ s h x ->
                  GetBucketCORSResponse' <$>
-                   (may (parseXMLList "CORSRule") x) <*> (pure s))
+                   (may (parseXMLList "CORSRule") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetBucketCORS where
         toHeaders = const mempty
@@ -89,11 +90,11 @@ instance ToQuery GetBucketCORS where
 -- * 'gbcrStatus'
 data GetBucketCORSResponse = GetBucketCORSResponse'
     { _gbcrCORSRules :: !(Maybe [CORSRule])
-    , _gbcrStatus    :: !Status
-    } deriving (Eq,Show)
+    , _gbcrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'GetBucketCORSResponse' smart constructor.
-getBucketCORSResponse :: Status -> GetBucketCORSResponse
+getBucketCORSResponse :: Int -> GetBucketCORSResponse
 getBucketCORSResponse pStatus =
     GetBucketCORSResponse'
     { _gbcrCORSRules = Nothing
@@ -105,5 +106,5 @@ gbcrCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
 gbcrCORSRules = lens _gbcrCORSRules (\ s a -> s{_gbcrCORSRules = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gbcrStatus :: Lens' GetBucketCORSResponse Status
+gbcrStatus :: Lens' GetBucketCORSResponse Int
 gbcrStatus = lens _gbcrStatus (\ s a -> s{_gbcrStatus = a});

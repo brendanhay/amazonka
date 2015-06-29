@@ -103,7 +103,7 @@ instance AWSRequest DisassociateVPCFromHostedZone
           = receiveXML
               (\ s h x ->
                  DisassociateVPCFromHostedZoneResponse' <$>
-                   (pure s) <*> (x .@ "ChangeInfo"))
+                   (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
 instance ToElement DisassociateVPCFromHostedZone
          where
@@ -139,12 +139,12 @@ instance ToXML DisassociateVPCFromHostedZone where
 --
 -- * 'dvfhzrChangeInfo'
 data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse'
-    { _dvfhzrStatus     :: !Status
+    { _dvfhzrStatus     :: !Int
     , _dvfhzrChangeInfo :: !ChangeInfo
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DisassociateVPCFromHostedZoneResponse' smart constructor.
-disassociateVPCFromHostedZoneResponse :: Status -> ChangeInfo -> DisassociateVPCFromHostedZoneResponse
+disassociateVPCFromHostedZoneResponse :: Int -> ChangeInfo -> DisassociateVPCFromHostedZoneResponse
 disassociateVPCFromHostedZoneResponse pStatus pChangeInfo =
     DisassociateVPCFromHostedZoneResponse'
     { _dvfhzrStatus = pStatus
@@ -152,7 +152,7 @@ disassociateVPCFromHostedZoneResponse pStatus pChangeInfo =
     }
 
 -- | FIXME: Undocumented member.
-dvfhzrStatus :: Lens' DisassociateVPCFromHostedZoneResponse Status
+dvfhzrStatus :: Lens' DisassociateVPCFromHostedZoneResponse Int
 dvfhzrStatus = lens _dvfhzrStatus (\ s a -> s{_dvfhzrStatus = a});
 
 -- | A complex type that contains the ID, the status, and the date and time

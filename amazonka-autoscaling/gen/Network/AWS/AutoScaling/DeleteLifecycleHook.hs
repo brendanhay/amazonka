@@ -80,7 +80,7 @@ instance AWSRequest DeleteLifecycleHook where
         response
           = receiveXMLWrapper "DeleteLifecycleHookResult"
               (\ s h x ->
-                 DeleteLifecycleHookResponse' <$> (pure s))
+                 DeleteLifecycleHookResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeleteLifecycleHook where
         toHeaders = const mempty
@@ -102,16 +102,16 @@ instance ToQuery DeleteLifecycleHook where
 --
 -- * 'delStatus'
 newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
-    { _delStatus :: Status
-    } deriving (Eq,Show)
+    { _delStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLifecycleHookResponse' smart constructor.
-deleteLifecycleHookResponse :: Status -> DeleteLifecycleHookResponse
+deleteLifecycleHookResponse :: Int -> DeleteLifecycleHookResponse
 deleteLifecycleHookResponse pStatus =
     DeleteLifecycleHookResponse'
     { _delStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteLifecycleHookResponse Status
+delStatus :: Lens' DeleteLifecycleHookResponse Int
 delStatus = lens _delStatus (\ s a -> s{_delStatus = a});

@@ -236,7 +236,7 @@ instance AWSRequest UpdateStack where
           = receiveXMLWrapper "UpdateStackResult"
               (\ s h x ->
                  UpdateStackResponse' <$>
-                   (x .@? "StackId") <*> (pure s))
+                   (x .@? "StackId") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateStack where
         toHeaders = const mempty
@@ -278,11 +278,11 @@ instance ToQuery UpdateStack where
 -- * 'usrStatus'
 data UpdateStackResponse = UpdateStackResponse'
     { _usrStackId :: !(Maybe Text)
-    , _usrStatus  :: !Status
-    } deriving (Eq,Show)
+    , _usrStatus  :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateStackResponse' smart constructor.
-updateStackResponse :: Status -> UpdateStackResponse
+updateStackResponse :: Int -> UpdateStackResponse
 updateStackResponse pStatus =
     UpdateStackResponse'
     { _usrStackId = Nothing
@@ -294,5 +294,5 @@ usrStackId :: Lens' UpdateStackResponse (Maybe Text)
 usrStackId = lens _usrStackId (\ s a -> s{_usrStackId = a});
 
 -- | FIXME: Undocumented member.
-usrStatus :: Lens' UpdateStackResponse Status
+usrStatus :: Lens' UpdateStackResponse Int
 usrStatus = lens _usrStatus (\ s a -> s{_usrStatus = a});

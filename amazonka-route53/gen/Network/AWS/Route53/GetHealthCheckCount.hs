@@ -60,7 +60,7 @@ instance AWSRequest GetHealthCheckCount where
           = receiveXML
               (\ s h x ->
                  GetHealthCheckCountResponse' <$>
-                   (pure s) <*> (x .@ "HealthCheckCount"))
+                   (pure (fromEnum s)) <*> (x .@ "HealthCheckCount"))
 
 instance ToHeaders GetHealthCheckCount where
         toHeaders = const mempty
@@ -82,12 +82,12 @@ instance ToQuery GetHealthCheckCount where
 --
 -- * 'ghccrHealthCheckCount'
 data GetHealthCheckCountResponse = GetHealthCheckCountResponse'
-    { _ghccrStatus           :: !Status
+    { _ghccrStatus           :: !Int
     , _ghccrHealthCheckCount :: !Integer
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'GetHealthCheckCountResponse' smart constructor.
-getHealthCheckCountResponse :: Status -> Integer -> GetHealthCheckCountResponse
+getHealthCheckCountResponse :: Int -> Integer -> GetHealthCheckCountResponse
 getHealthCheckCountResponse pStatus pHealthCheckCount =
     GetHealthCheckCountResponse'
     { _ghccrStatus = pStatus
@@ -95,7 +95,7 @@ getHealthCheckCountResponse pStatus pHealthCheckCount =
     }
 
 -- | FIXME: Undocumented member.
-ghccrStatus :: Lens' GetHealthCheckCountResponse Status
+ghccrStatus :: Lens' GetHealthCheckCountResponse Int
 ghccrStatus = lens _ghccrStatus (\ s a -> s{_ghccrStatus = a});
 
 -- | The number of health checks associated with the current AWS account.

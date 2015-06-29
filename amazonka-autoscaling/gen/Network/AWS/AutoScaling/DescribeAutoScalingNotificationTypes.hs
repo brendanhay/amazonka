@@ -61,7 +61,7 @@ instance AWSRequest
                  DescribeAutoScalingNotificationTypesResponse' <$>
                    (x .@? "AutoScalingNotificationTypes" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders
          DescribeAutoScalingNotificationTypes where
@@ -90,11 +90,11 @@ instance ToQuery DescribeAutoScalingNotificationTypes
 -- * 'dasntrStatus'
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'
     { _dasntrAutoScalingNotificationTypes :: !(Maybe [Text])
-    , _dasntrStatus                       :: !Status
-    } deriving (Eq,Show)
+    , _dasntrStatus                       :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAutoScalingNotificationTypesResponse' smart constructor.
-describeAutoScalingNotificationTypesResponse :: Status -> DescribeAutoScalingNotificationTypesResponse
+describeAutoScalingNotificationTypesResponse :: Int -> DescribeAutoScalingNotificationTypesResponse
 describeAutoScalingNotificationTypesResponse pStatus =
     DescribeAutoScalingNotificationTypesResponse'
     { _dasntrAutoScalingNotificationTypes = Nothing
@@ -117,5 +117,5 @@ dasntrAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypes
 dasntrAutoScalingNotificationTypes = lens _dasntrAutoScalingNotificationTypes (\ s a -> s{_dasntrAutoScalingNotificationTypes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dasntrStatus :: Lens' DescribeAutoScalingNotificationTypesResponse Status
+dasntrStatus :: Lens' DescribeAutoScalingNotificationTypesResponse Int
 dasntrStatus = lens _dasntrStatus (\ s a -> s{_dasntrStatus = a});

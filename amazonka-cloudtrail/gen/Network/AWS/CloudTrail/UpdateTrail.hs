@@ -149,7 +149,7 @@ instance AWSRequest UpdateTrail where
                      <*> (x .?> "IncludeGlobalServiceEvents")
                      <*> (x .?> "CloudWatchLogsRoleArn")
                      <*> (x .?> "S3BucketName")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateTrail where
         toHeaders
@@ -209,11 +209,11 @@ data UpdateTrailResponse = UpdateTrailResponse'
     , _utrIncludeGlobalServiceEvents :: !(Maybe Bool)
     , _utrCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _utrS3BucketName               :: !(Maybe Text)
-    , _utrStatus                     :: !Status
-    } deriving (Eq,Show)
+    , _utrStatus                     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateTrailResponse' smart constructor.
-updateTrailResponse :: Status -> UpdateTrailResponse
+updateTrailResponse :: Int -> UpdateTrailResponse
 updateTrailResponse pStatus =
     UpdateTrailResponse'
     { _utrS3KeyPrefix = Nothing
@@ -261,5 +261,5 @@ utrS3BucketName :: Lens' UpdateTrailResponse (Maybe Text)
 utrS3BucketName = lens _utrS3BucketName (\ s a -> s{_utrS3BucketName = a});
 
 -- | FIXME: Undocumented member.
-utrStatus :: Lens' UpdateTrailResponse Status
+utrStatus :: Lens' UpdateTrailResponse Int
 utrStatus = lens _utrStatus (\ s a -> s{_utrStatus = a});

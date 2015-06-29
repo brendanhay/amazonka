@@ -86,7 +86,7 @@ instance AWSRequest UpdateHostedZoneComment where
           = receiveXML
               (\ s h x ->
                  UpdateHostedZoneCommentResponse' <$>
-                   (pure s) <*> (x .@ "HostedZone"))
+                   (pure (fromEnum s)) <*> (x .@ "HostedZone"))
 
 instance ToElement UpdateHostedZoneComment where
         toElement
@@ -118,12 +118,12 @@ instance ToXML UpdateHostedZoneComment where
 --
 -- * 'uhzcrHostedZone'
 data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
-    { _uhzcrStatus     :: !Status
+    { _uhzcrStatus     :: !Int
     , _uhzcrHostedZone :: !HostedZone
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateHostedZoneCommentResponse' smart constructor.
-updateHostedZoneCommentResponse :: Status -> HostedZone -> UpdateHostedZoneCommentResponse
+updateHostedZoneCommentResponse :: Int -> HostedZone -> UpdateHostedZoneCommentResponse
 updateHostedZoneCommentResponse pStatus pHostedZone =
     UpdateHostedZoneCommentResponse'
     { _uhzcrStatus = pStatus
@@ -131,7 +131,7 @@ updateHostedZoneCommentResponse pStatus pHostedZone =
     }
 
 -- | FIXME: Undocumented member.
-uhzcrStatus :: Lens' UpdateHostedZoneCommentResponse Status
+uhzcrStatus :: Lens' UpdateHostedZoneCommentResponse Int
 uhzcrStatus = lens _uhzcrStatus (\ s a -> s{_uhzcrStatus = a});
 
 -- | FIXME: Undocumented member.

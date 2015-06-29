@@ -112,7 +112,7 @@ instance AWSRequest DeleteObject where
                    (h .#? "x-amz-version-id") <*>
                      (h .#? "x-amz-request-charged")
                      <*> (h .#? "x-amz-delete-marker")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteObject where
         toHeaders DeleteObject'{..}
@@ -143,11 +143,11 @@ data DeleteObjectResponse = DeleteObjectResponse'
     { _dorVersionId      :: !(Maybe ObjectVersionId)
     , _dorRequestCharged :: !(Maybe RequestCharged)
     , _dorDeleteMarker   :: !(Maybe Bool)
-    , _dorStatus         :: !Status
+    , _dorStatus         :: !Int
     } deriving (Eq,Show)
 
 -- | 'DeleteObjectResponse' smart constructor.
-deleteObjectResponse :: Status -> DeleteObjectResponse
+deleteObjectResponse :: Int -> DeleteObjectResponse
 deleteObjectResponse pStatus =
     DeleteObjectResponse'
     { _dorVersionId = Nothing
@@ -171,5 +171,5 @@ dorDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
 dorDeleteMarker = lens _dorDeleteMarker (\ s a -> s{_dorDeleteMarker = a});
 
 -- | FIXME: Undocumented member.
-dorStatus :: Lens' DeleteObjectResponse Status
+dorStatus :: Lens' DeleteObjectResponse Int
 dorStatus = lens _dorStatus (\ s a -> s{_dorStatus = a});

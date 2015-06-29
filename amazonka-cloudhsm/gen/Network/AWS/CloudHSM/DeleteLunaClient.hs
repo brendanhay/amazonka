@@ -65,7 +65,8 @@ instance AWSRequest DeleteLunaClient where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> DeleteLunaClientResponse' <$> (pure s))
+              (\ s h x ->
+                 DeleteLunaClientResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeleteLunaClient where
         toHeaders
@@ -93,16 +94,16 @@ instance ToQuery DeleteLunaClient where
 --
 -- * 'dlcrStatus'
 newtype DeleteLunaClientResponse = DeleteLunaClientResponse'
-    { _dlcrStatus :: Status
-    } deriving (Eq,Show)
+    { _dlcrStatus :: Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteLunaClientResponse' smart constructor.
-deleteLunaClientResponse :: Status -> DeleteLunaClientResponse
+deleteLunaClientResponse :: Int -> DeleteLunaClientResponse
 deleteLunaClientResponse pStatus =
     DeleteLunaClientResponse'
     { _dlcrStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dlcrStatus :: Lens' DeleteLunaClientResponse Status
+dlcrStatus :: Lens' DeleteLunaClientResponse Int
 dlcrStatus = lens _dlcrStatus (\ s a -> s{_dlcrStatus = a});

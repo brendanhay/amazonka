@@ -75,7 +75,7 @@ instance AWSRequest DeleteMLModel where
           = receiveJSON
               (\ s h x ->
                  DeleteMLModelResponse' <$>
-                   (x .?> "MLModelId") <*> (pure s))
+                   (x .?> "MLModelId") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteMLModel where
         toHeaders
@@ -110,11 +110,11 @@ instance ToQuery DeleteMLModel where
 -- * 'dmlmrStatus'
 data DeleteMLModelResponse = DeleteMLModelResponse'
     { _dmlmrMLModelId :: !(Maybe Text)
-    , _dmlmrStatus    :: !Status
-    } deriving (Eq,Show)
+    , _dmlmrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DeleteMLModelResponse' smart constructor.
-deleteMLModelResponse :: Status -> DeleteMLModelResponse
+deleteMLModelResponse :: Int -> DeleteMLModelResponse
 deleteMLModelResponse pStatus =
     DeleteMLModelResponse'
     { _dmlmrMLModelId = Nothing
@@ -127,5 +127,5 @@ dmlmrMLModelId :: Lens' DeleteMLModelResponse (Maybe Text)
 dmlmrMLModelId = lens _dmlmrMLModelId (\ s a -> s{_dmlmrMLModelId = a});
 
 -- | FIXME: Undocumented member.
-dmlmrStatus :: Lens' DeleteMLModelResponse Status
+dmlmrStatus :: Lens' DeleteMLModelResponse Int
 dmlmrStatus = lens _dmlmrStatus (\ s a -> s{_dmlmrStatus = a});

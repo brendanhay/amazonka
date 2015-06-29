@@ -139,7 +139,7 @@ instance AWSRequest UpdateDomainContact where
           = receiveJSON
               (\ s h x ->
                  UpdateDomainContactResponse' <$>
-                   (pure s) <*> (x .:> "OperationId"))
+                   (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
 instance ToHeaders UpdateDomainContact where
         toHeaders
@@ -175,12 +175,12 @@ instance ToQuery UpdateDomainContact where
 --
 -- * 'udcrOperationId'
 data UpdateDomainContactResponse = UpdateDomainContactResponse'
-    { _udcrStatus      :: !Status
+    { _udcrStatus      :: !Int
     , _udcrOperationId :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'UpdateDomainContactResponse' smart constructor.
-updateDomainContactResponse :: Status -> Text -> UpdateDomainContactResponse
+updateDomainContactResponse :: Int -> Text -> UpdateDomainContactResponse
 updateDomainContactResponse pStatus pOperationId =
     UpdateDomainContactResponse'
     { _udcrStatus = pStatus
@@ -188,7 +188,7 @@ updateDomainContactResponse pStatus pOperationId =
     }
 
 -- | FIXME: Undocumented member.
-udcrStatus :: Lens' UpdateDomainContactResponse Status
+udcrStatus :: Lens' UpdateDomainContactResponse Int
 udcrStatus = lens _udcrStatus (\ s a -> s{_udcrStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to

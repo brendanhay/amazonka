@@ -142,7 +142,7 @@ instance AWSRequest ListTaskDefinitions where
                  ListTaskDefinitionsResponse' <$>
                    (x .?> "taskDefinitionArns" .!@ mempty) <*>
                      (x .?> "nextToken")
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListTaskDefinitions where
         toHeaders
@@ -180,11 +180,11 @@ instance ToQuery ListTaskDefinitions where
 data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'
     { _ltdrTaskDefinitionARNs :: !(Maybe [Text])
     , _ltdrNextToken          :: !(Maybe Text)
-    , _ltdrStatus             :: !Status
-    } deriving (Eq,Show)
+    , _ltdrStatus             :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListTaskDefinitionsResponse' smart constructor.
-listTaskDefinitionsResponse :: Status -> ListTaskDefinitionsResponse
+listTaskDefinitionsResponse :: Int -> ListTaskDefinitionsResponse
 listTaskDefinitionsResponse pStatus =
     ListTaskDefinitionsResponse'
     { _ltdrTaskDefinitionARNs = Nothing
@@ -205,5 +205,5 @@ ltdrNextToken :: Lens' ListTaskDefinitionsResponse (Maybe Text)
 ltdrNextToken = lens _ltdrNextToken (\ s a -> s{_ltdrNextToken = a});
 
 -- | FIXME: Undocumented member.
-ltdrStatus :: Lens' ListTaskDefinitionsResponse Status
+ltdrStatus :: Lens' ListTaskDefinitionsResponse Int
 ltdrStatus = lens _ltdrStatus (\ s a -> s{_ltdrStatus = a});

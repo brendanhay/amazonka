@@ -106,7 +106,7 @@ instance AWSRequest DescribeWorkflowExecution where
                  DescribeWorkflowExecutionResponse' <$>
                    (x .?> "latestActivityTaskTimestamp") <*>
                      (x .?> "latestExecutionContext")
-                     <*> (pure s)
+                     <*> (pure (fromEnum s))
                      <*> (x .:> "executionInfo")
                      <*> (x .:> "executionConfiguration")
                      <*> (x .:> "openCounts"))
@@ -153,14 +153,14 @@ instance ToQuery DescribeWorkflowExecution where
 data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
     { _dwerLatestActivityTaskTimestamp :: !(Maybe POSIX)
     , _dwerLatestExecutionContext      :: !(Maybe Text)
-    , _dwerStatus                      :: !Status
+    , _dwerStatus                      :: !Int
     , _dwerExecutionInfo               :: !WorkflowExecutionInfo
     , _dwerExecutionConfiguration      :: !WorkflowExecutionConfiguration
     , _dwerOpenCounts                  :: !WorkflowExecutionOpenCounts
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkflowExecutionResponse' smart constructor.
-describeWorkflowExecutionResponse :: Status -> WorkflowExecutionInfo -> WorkflowExecutionConfiguration -> WorkflowExecutionOpenCounts -> DescribeWorkflowExecutionResponse
+describeWorkflowExecutionResponse :: Int -> WorkflowExecutionInfo -> WorkflowExecutionConfiguration -> WorkflowExecutionOpenCounts -> DescribeWorkflowExecutionResponse
 describeWorkflowExecutionResponse pStatus pExecutionInfo pExecutionConfiguration pOpenCounts =
     DescribeWorkflowExecutionResponse'
     { _dwerLatestActivityTaskTimestamp = Nothing
@@ -185,7 +185,7 @@ dwerLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Tex
 dwerLatestExecutionContext = lens _dwerLatestExecutionContext (\ s a -> s{_dwerLatestExecutionContext = a});
 
 -- | FIXME: Undocumented member.
-dwerStatus :: Lens' DescribeWorkflowExecutionResponse Status
+dwerStatus :: Lens' DescribeWorkflowExecutionResponse Int
 dwerStatus = lens _dwerStatus (\ s a -> s{_dwerStatus = a});
 
 -- | Information about the workflow execution.

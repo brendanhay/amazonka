@@ -245,7 +245,7 @@ instance AWSRequest RunJobFlow where
           = receiveJSON
               (\ s h x ->
                  RunJobFlowResponse' <$>
-                   (x .?> "JobFlowId") <*> (pure s))
+                   (x .?> "JobFlowId") <*> (pure (fromEnum s)))
 
 instance ToHeaders RunJobFlow where
         toHeaders
@@ -288,11 +288,11 @@ instance ToQuery RunJobFlow where
 -- * 'rjfrStatus'
 data RunJobFlowResponse = RunJobFlowResponse'
     { _rjfrJobFlowId :: !(Maybe Text)
-    , _rjfrStatus    :: !Status
-    } deriving (Eq,Show)
+    , _rjfrStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RunJobFlowResponse' smart constructor.
-runJobFlowResponse :: Status -> RunJobFlowResponse
+runJobFlowResponse :: Int -> RunJobFlowResponse
 runJobFlowResponse pStatus =
     RunJobFlowResponse'
     { _rjfrJobFlowId = Nothing
@@ -304,5 +304,5 @@ rjfrJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
 rjfrJobFlowId = lens _rjfrJobFlowId (\ s a -> s{_rjfrJobFlowId = a});
 
 -- | FIXME: Undocumented member.
-rjfrStatus :: Lens' RunJobFlowResponse Status
+rjfrStatus :: Lens' RunJobFlowResponse Int
 rjfrStatus = lens _rjfrStatus (\ s a -> s{_rjfrStatus = a});

@@ -92,7 +92,8 @@ instance AWSRequest DescribeVirtualInterfaces where
           = receiveJSON
               (\ s h x ->
                  DescribeVirtualInterfacesResponse' <$>
-                   (x .?> "virtualInterfaces" .!@ mempty) <*> (pure s))
+                   (x .?> "virtualInterfaces" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeVirtualInterfaces where
         toHeaders
@@ -127,11 +128,11 @@ instance ToQuery DescribeVirtualInterfaces where
 -- * 'desStatus'
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
     { _desVirtualInterfaces :: !(Maybe [VirtualInterface])
-    , _desStatus            :: !Status
-    } deriving (Eq,Show)
+    , _desStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeVirtualInterfacesResponse' smart constructor.
-describeVirtualInterfacesResponse :: Status -> DescribeVirtualInterfacesResponse
+describeVirtualInterfacesResponse :: Int -> DescribeVirtualInterfacesResponse
 describeVirtualInterfacesResponse pStatus =
     DescribeVirtualInterfacesResponse'
     { _desVirtualInterfaces = Nothing
@@ -143,5 +144,5 @@ desVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterfac
 desVirtualInterfaces = lens _desVirtualInterfaces (\ s a -> s{_desVirtualInterfaces = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeVirtualInterfacesResponse Status
+desStatus :: Lens' DescribeVirtualInterfacesResponse Int
 desStatus = lens _desStatus (\ s a -> s{_desStatus = a});

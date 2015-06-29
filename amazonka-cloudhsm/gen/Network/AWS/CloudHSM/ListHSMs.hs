@@ -77,7 +77,7 @@ instance AWSRequest ListHSMs where
               (\ s h x ->
                  ListHSMsResponse' <$>
                    (x .?> "NextToken") <*> (x .?> "HsmList" .!@ mempty)
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListHSMs where
         toHeaders
@@ -112,11 +112,11 @@ instance ToQuery ListHSMs where
 data ListHSMsResponse = ListHSMsResponse'
     { _lisNextToken :: !(Maybe Text)
     , _lisHSMList   :: !(Maybe [Text])
-    , _lisStatus    :: !Status
-    } deriving (Eq,Show)
+    , _lisStatus    :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'ListHSMsResponse' smart constructor.
-listHSMsResponse :: Status -> ListHSMsResponse
+listHSMsResponse :: Int -> ListHSMsResponse
 listHSMsResponse pStatus =
     ListHSMsResponse'
     { _lisNextToken = Nothing
@@ -134,5 +134,5 @@ lisHSMList :: Lens' ListHSMsResponse [Text]
 lisHSMList = lens _lisHSMList (\ s a -> s{_lisHSMList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lisStatus :: Lens' ListHSMsResponse Status
+lisStatus :: Lens' ListHSMsResponse Int
 lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});

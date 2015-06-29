@@ -331,7 +331,7 @@ instance AWSRequest RestoreDBInstanceFromDBSnapshot
               "RestoreDBInstanceFromDBSnapshotResult"
               (\ s h x ->
                  RestoreDBInstanceFromDBSnapshotResponse' <$>
-                   (x .@? "DBInstance") <*> (pure s))
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders RestoreDBInstanceFromDBSnapshot
          where
@@ -379,11 +379,11 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
 -- * 'rdifdsrStatus'
 data RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse'
     { _rdifdsrDBInstance :: !(Maybe DBInstance)
-    , _rdifdsrStatus     :: !Status
-    } deriving (Eq,Show)
+    , _rdifdsrStatus     :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'RestoreDBInstanceFromDBSnapshotResponse' smart constructor.
-restoreDBInstanceFromDBSnapshotResponse :: Status -> RestoreDBInstanceFromDBSnapshotResponse
+restoreDBInstanceFromDBSnapshotResponse :: Int -> RestoreDBInstanceFromDBSnapshotResponse
 restoreDBInstanceFromDBSnapshotResponse pStatus =
     RestoreDBInstanceFromDBSnapshotResponse'
     { _rdifdsrDBInstance = Nothing
@@ -395,5 +395,5 @@ rdifdsrDBInstance :: Lens' RestoreDBInstanceFromDBSnapshotResponse (Maybe DBInst
 rdifdsrDBInstance = lens _rdifdsrDBInstance (\ s a -> s{_rdifdsrDBInstance = a});
 
 -- | FIXME: Undocumented member.
-rdifdsrStatus :: Lens' RestoreDBInstanceFromDBSnapshotResponse Status
+rdifdsrStatus :: Lens' RestoreDBInstanceFromDBSnapshotResponse Int
 rdifdsrStatus = lens _rdifdsrStatus (\ s a -> s{_rdifdsrStatus = a});

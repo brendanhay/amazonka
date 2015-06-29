@@ -105,7 +105,7 @@ instance AWSRequest DescribeAutoScalingInstances
                    (x .@? "NextToken") <*>
                      (x .@? "AutoScalingInstances" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (pure s))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAutoScalingInstances where
         toHeaders = const mempty
@@ -136,11 +136,11 @@ instance ToQuery DescribeAutoScalingInstances where
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'
     { _dasirNextToken            :: !(Maybe Text)
     , _dasirAutoScalingInstances :: !(Maybe [AutoScalingInstanceDetails])
-    , _dasirStatus               :: !Status
-    } deriving (Eq,Show)
+    , _dasirStatus               :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeAutoScalingInstancesResponse' smart constructor.
-describeAutoScalingInstancesResponse :: Status -> DescribeAutoScalingInstancesResponse
+describeAutoScalingInstancesResponse :: Int -> DescribeAutoScalingInstancesResponse
 describeAutoScalingInstancesResponse pStatus =
     DescribeAutoScalingInstancesResponse'
     { _dasirNextToken = Nothing
@@ -158,5 +158,5 @@ dasirAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoSca
 dasirAutoScalingInstances = lens _dasirAutoScalingInstances (\ s a -> s{_dasirAutoScalingInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dasirStatus :: Lens' DescribeAutoScalingInstancesResponse Status
+dasirStatus :: Lens' DescribeAutoScalingInstancesResponse Int
 dasirStatus = lens _dasirStatus (\ s a -> s{_dasirStatus = a});

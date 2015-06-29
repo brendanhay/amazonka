@@ -108,7 +108,7 @@ instance AWSRequest SendMessageBatch where
           = receiveXMLWrapper "SendMessageBatchResult"
               (\ s h x ->
                  SendMessageBatchResponse' <$>
-                   (pure s) <*>
+                   (pure (fromEnum s)) <*>
                      (parseXMLList "SendMessageBatchResultEntry" x)
                      <*> (parseXMLList "BatchResultErrorEntry" x))
 
@@ -141,13 +141,13 @@ instance ToQuery SendMessageBatch where
 --
 -- * 'smbrFailed'
 data SendMessageBatchResponse = SendMessageBatchResponse'
-    { _smbrStatus     :: !Status
+    { _smbrStatus     :: !Int
     , _smbrSuccessful :: ![SendMessageBatchResultEntry]
     , _smbrFailed     :: ![BatchResultErrorEntry]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'SendMessageBatchResponse' smart constructor.
-sendMessageBatchResponse :: Status -> SendMessageBatchResponse
+sendMessageBatchResponse :: Int -> SendMessageBatchResponse
 sendMessageBatchResponse pStatus =
     SendMessageBatchResponse'
     { _smbrStatus = pStatus
@@ -156,7 +156,7 @@ sendMessageBatchResponse pStatus =
     }
 
 -- | FIXME: Undocumented member.
-smbrStatus :: Lens' SendMessageBatchResponse Status
+smbrStatus :: Lens' SendMessageBatchResponse Int
 smbrStatus = lens _smbrStatus (\ s a -> s{_smbrStatus = a});
 
 -- | A list of SendMessageBatchResultEntry items.

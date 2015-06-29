@@ -109,7 +109,8 @@ instance AWSRequest StartInstances where
           = receiveXML
               (\ s h x ->
                  StartInstancesResponse' <$>
-                   (may (parseXMLList "item") x) <*> (pure s))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders StartInstances where
         toHeaders = const mempty
@@ -135,11 +136,11 @@ instance ToQuery StartInstances where
 -- * 'staStatus'
 data StartInstancesResponse = StartInstancesResponse'
     { _staStartingInstances :: !(Maybe [InstanceStateChange])
-    , _staStatus            :: !Status
-    } deriving (Eq,Show)
+    , _staStatus            :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'StartInstancesResponse' smart constructor.
-startInstancesResponse :: Status -> StartInstancesResponse
+startInstancesResponse :: Int -> StartInstancesResponse
 startInstancesResponse pStatus =
     StartInstancesResponse'
     { _staStartingInstances = Nothing
@@ -151,5 +152,5 @@ staStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
 staStartingInstances = lens _staStartingInstances (\ s a -> s{_staStartingInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-staStatus :: Lens' StartInstancesResponse Status
+staStatus :: Lens' StartInstancesResponse Int
 staStatus = lens _staStatus (\ s a -> s{_staStatus = a});

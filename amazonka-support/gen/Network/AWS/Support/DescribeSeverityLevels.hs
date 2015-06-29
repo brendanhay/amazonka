@@ -74,7 +74,8 @@ instance AWSRequest DescribeSeverityLevels where
           = receiveJSON
               (\ s h x ->
                  DescribeSeverityLevelsResponse' <$>
-                   (x .?> "severityLevels" .!@ mempty) <*> (pure s))
+                   (x .?> "severityLevels" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeSeverityLevels where
         toHeaders
@@ -108,11 +109,11 @@ instance ToQuery DescribeSeverityLevels where
 -- * 'dslrStatus'
 data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
     { _dslrSeverityLevels :: !(Maybe [SeverityLevel])
-    , _dslrStatus         :: !Status
-    } deriving (Eq,Show)
+    , _dslrStatus         :: !Int
+    } deriving (Eq,Read,Show)
 
 -- | 'DescribeSeverityLevelsResponse' smart constructor.
-describeSeverityLevelsResponse :: Status -> DescribeSeverityLevelsResponse
+describeSeverityLevelsResponse :: Int -> DescribeSeverityLevelsResponse
 describeSeverityLevelsResponse pStatus =
     DescribeSeverityLevelsResponse'
     { _dslrSeverityLevels = Nothing
@@ -125,5 +126,5 @@ dslrSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
 dslrSeverityLevels = lens _dslrSeverityLevels (\ s a -> s{_dslrSeverityLevels = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dslrStatus :: Lens' DescribeSeverityLevelsResponse Status
+dslrStatus :: Lens' DescribeSeverityLevelsResponse Int
 dslrStatus = lens _dslrStatus (\ s a -> s{_dslrStatus = a});

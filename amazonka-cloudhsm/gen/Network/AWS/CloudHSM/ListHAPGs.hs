@@ -75,7 +75,7 @@ instance AWSRequest ListHAPGs where
           = receiveJSON
               (\ s h x ->
                  ListHAPGsResponse' <$>
-                   (x .?> "NextToken") <*> (pure s) <*>
+                   (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "HapgList" .!@ mempty))
 
 instance ToHeaders ListHAPGs where
@@ -108,12 +108,12 @@ instance ToQuery ListHAPGs where
 -- * 'lhrHAPGList'
 data ListHAPGsResponse = ListHAPGsResponse'
     { _lhrNextToken :: !(Maybe Text)
-    , _lhrStatus    :: !Status
+    , _lhrStatus    :: !Int
     , _lhrHAPGList  :: ![Text]
-    } deriving (Eq,Show)
+    } deriving (Eq,Read,Show)
 
 -- | 'ListHAPGsResponse' smart constructor.
-listHAPGsResponse :: Status -> ListHAPGsResponse
+listHAPGsResponse :: Int -> ListHAPGsResponse
 listHAPGsResponse pStatus =
     ListHAPGsResponse'
     { _lhrNextToken = Nothing
@@ -127,7 +127,7 @@ lhrNextToken :: Lens' ListHAPGsResponse (Maybe Text)
 lhrNextToken = lens _lhrNextToken (\ s a -> s{_lhrNextToken = a});
 
 -- | FIXME: Undocumented member.
-lhrStatus :: Lens' ListHAPGsResponse Status
+lhrStatus :: Lens' ListHAPGsResponse Int
 lhrStatus = lens _lhrStatus (\ s a -> s{_lhrStatus = a});
 
 -- | The list of high-availability partition groups.

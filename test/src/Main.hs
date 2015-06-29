@@ -31,3 +31,5 @@ main = defaultMain $ testGroup "amazonka"
         [ SQS.fixtures
         ]
     ]
+
+Nullary responses aren't being assigned a status code?

@@ -21,12 +21,11 @@
 module Gen.Tree
     ( root
     , fold
-    , tests
-    , library
+    , populate
     ) where
 
 import           Control.Error
-import           Control.Lens              (each, to, (^.), (^..))
+import           Control.Lens              (each, (^.), (^..))
 import           Control.Monad
 import           Control.Monad.Except
 import           Data.Aeson                hiding (json)
@@ -37,7 +36,7 @@ import           Data.Monoid
 import           Data.Text                 (Text)
 import qualified Data.Text                 as Text
 import qualified Data.Text.Lazy            as LText
-import           Filesystem.Path.CurrentOS hiding (root)
+import           Filesystem.Path.CurrentOS hiding (FilePath, root)
 import           Gen.Formatting            (failure, shown)
 import           Gen.Import
 import qualified Gen.JSON                  as JS
@@ -66,55 +65,22 @@ fold g f (p :/ t) = (p :/) <$> go (decodeString p) t
 -- If Nothing, then touch the file, otherwise write the Just contents.
 type Touch = Maybe Rendered
 
-tests :: Path
-      -> Templates
-      -> Library
-      -> Either Error (AnchoredDirTree Touch)
-tests d Templates{..} l = (encodeString d :/) . dir "test" <$> layout
+populate :: Path
+         -> Templates
+         -> Library
+         -> Either Error (AnchoredDirTree Touch)
+populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
   where
     layout :: Either Error [DirTree Touch]
     layout = traverse sequenceA
-        [ dir "gen"
-            [ dir "Test"
-                [ dir "AWS"
-                    [ dir "Gen"
-                        [ mod (l ^. testsNS) (testImports l) testsTemplate
-                        ]
-                    ]
-                ]
-            ]
-        , dir "fixture"
-            [ dir svc $ concatMap op (l ^.. operations . each)
-            ]
-        ]
-
-    op :: Operation Identity SData a -> [DirTree (Either Error Touch)]
-    op o =
-        [ File (o ^. inputName  . typeId . to Text.unpack) (Right Nothing)
-        , File (o ^. outputName . typeId . to Text.unpack) (Right Nothing)
-        ]
-
-    mod :: NS -> [NS] -> Template -> DirTree (Either Error Touch)
-    mod n is t = fmap (second Just) . module' n is t . pure $ toJSON l
-
-    svc :: Path
-    svc = fromText (l ^. serviceAbbrev)
-
-library :: Path
-        -> Templates
-        -> Library
-        -> Either Error (AnchoredDirTree Rendered)
-library d Templates{..} l = (encodeString d :/) . dir lib <$> layout
-  where
-    layout :: Either Error [DirTree Rendered]
-    layout = traverse sequenceA
         [ dir "src" []
-        , dir "examples"
+        , dir "example"
             [ dir "src" []
-            , file (lib <-> "examples.cabal") exampleCabalTemplate
+            , file (lib <-> "example.cabal") exampleCabalTemplate
             , file "Makefile" exampleMakefileTemplate
             , file "stack.yaml" exampleStackTemplate
             ]
+
         , dir "gen"
             [ dir "Network"
                 [ dir "AWS"
@@ -126,6 +92,21 @@ library d Templates{..} l = (encodeString d :/) . dir lib <$> layout
                     ]
                 ]
             ]
+
+        , dir "test"
+            [ touch "Main.hs"
+            , dir "Test"
+                [ dir "AWS"
+                    [ touch (l ^. serviceAbbrev <> ".hs")
+                    , dir "Gen"
+                        [ mod (l ^. testsNS) (testImports l) testsTemplate
+                        ]
+                    ]
+                ]
+            , dir "fixture" $
+                concatMap fixture (l ^.. operations . each)
+            ]
+
         , file (lib <.> "cabal") cabalTemplate
         , file "README.md" readmeTemplate
         ]
@@ -134,14 +115,20 @@ library d Templates{..} l = (encodeString d :/) . dir lib <$> layout
     svc = fromText (l ^. serviceAbbrev)
     lib = fromText (l ^. libraryName)
 
-    op :: Operation Identity SData a -> DirTree (Either Error Rendered)
-    op = operation' l operationTemplate
+    op :: Operation Identity SData a -> DirTree (Either Error Touch)
+    op = write . operation' l operationTemplate
 
-    mod :: NS -> [NS] -> Template -> DirTree (Either Error Rendered)
-    mod n is t = module' n is t (pure env)
+    fixture :: Operation Identity SData a -> [DirTree (Either Error Touch)]
+    fixture o =
+        [ touch (o ^. inputName  . typeId)
+        , touch (o ^. outputName . typeId)
+        ]
 
-    file :: Path -> Template -> DirTree (Either Error Rendered)
-    file p t = file' p t (pure env)
+    mod :: NS -> [NS] -> Template -> DirTree (Either Error Touch)
+    mod n is t = write . module' n is t . pure $ toJSON l
+
+    file :: Path -> Template -> DirTree (Either Error Touch)
+    file p t = write $ file' p t (pure env)
 
     env :: Value
     env = toJSON l
@@ -185,6 +172,12 @@ file' (encodeString -> p) t f = File p $
 
 dir :: Path -> [DirTree a] -> DirTree a
 dir p = Dir (encodeString p)
+
+write :: DirTree (Either e a) -> DirTree (Either e (Maybe a))
+write = fmap (second Just)
+
+touch :: Text -> DirTree (Either e (Maybe a))
+touch f = File (Text.unpack f) (Right Nothing)
 
 (<->) :: Path -> Text -> Path
 a <-> b = fromText (toTextIgnore a <> "-" <> b)

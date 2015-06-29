@@ -193,10 +193,7 @@ main = do
 
             lib <- hoistEither (AST.rewrite _optVersions cfg api)
 
-            dir <- hoistEither (Tree.library _optOutput tmpl lib)
-                >>= Tree.fold createDir writeLTFile
-
-            void $ hoistEither (Tree.tests _optOutput tmpl lib)
+            dir <- hoistEither (Tree.populate _optOutput tmpl lib)
                 >>= Tree.fold createDir (\x -> maybe (touchFile x) (writeLTFile x))
 
             say ("Successfully rendered " % stext % "-" % semver % " package")

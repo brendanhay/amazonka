@@ -1,4 +1,4 @@
-name:                  {{ libraryName }}-examples
+name:                  {{ libraryName }}-example
 version:               {{ libraryVersion }}
 synopsis:              {{ serviceFullName }} Examples.
 homepage:              https://github.com/brendanhay/amazonka

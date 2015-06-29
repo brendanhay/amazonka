@@ -35,6 +35,7 @@ module Gen.Types
 import           Control.Error
 import           Control.Lens              hiding ((.=))
 import           Data.Aeson
+import           Data.Bifunctor
 import           Data.List                 (nub, sort, sortOn)
 import           Data.Monoid               hiding (Product, Sum)
 import           Data.Ord
@@ -193,22 +194,11 @@ instance ToJSON Library where
             , "operationModules" .= sort (l ^.  operationModules)
             , "exposedModules"   .= sort (l ^.  exposedModules)
             , "otherModules"     .= sort (l ^.  otherModules)
+            , "operations"       .= (l ^.. operations . each)
             , "shapes"           .= sort (l ^.. shapes  . each)
             , "waiters"          .= (l ^.. waiters . each)
             , "serviceInstance"  .= (l ^.  instance')
-            , "operations"       .= (l ^.  operations & kvTraversal %~ f)
             ]
-          where
-            -- FIXME: tidy this crap up.
-            f (k, v) = (k ^. smartCtorId,) $ object
-                [ "input"  .= g (v ^. inputName)
-                , "output" .= g (v ^. outputName)
-                ]
-
-            g n = object
-                [ "name"        .= (n ^. typeId)
-                , "constructor" .= (n ^. smartCtorId)
-                ]
 
 -- FIXME: Remove explicit construction of getters, just use functions.
 libraryNS, typesNS, waitersNS, fixturesNS :: Getter Library NS

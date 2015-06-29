@@ -43,32 +43,32 @@ instance HasId a => TypeOf (Shape a) where
         n = identifier x
 
         shape = \case
-            Ptr    _ ds      -> TType  (n ^. typeId) (ptr ds)
-            Struct st        -> TType  (n ^. typeId) (struct st)
-            Enum   {}        -> TType  (n ^. typeId) enum
+            Ptr    _ ds          -> TType  (n ^. typeId) (ptr ds)
+            Struct st            -> TType  (n ^. typeId) (struct st)
+            Enum   {}            -> TType  (n ^. typeId) enum
             List (ListF i e)
-                | nonEmpty i -> TList1 (typeOf e)
-                | otherwise  -> TList  (typeOf e)
-            Map (MapF _ k v) -> TMap   (typeOf k) (typeOf v)
-            Lit i l          -> lit i l
+                | nonEmpty i     -> TList1 (typeOf e)
+                | otherwise      -> TList  (typeOf e)
+            Map (MapF _ k v)     -> TMap   (typeOf k) (typeOf v)
+            Lit i l              -> lit i l
 
         lit i = \case
-            Int                -> natural i (TLit Int)
-            Long               -> natural i (TLit Long)
-            Blob | streaming i -> TStream
-            l                  -> TLit l
+            Int                  -> natural i (TLit Int)
+            Long                 -> natural i (TLit Long)
+            Blob | isStreaming i -> TStream
+            l                    -> TLit l
 
         ptr = uniq . mappend [DEq, DShow] . Set.toList
 
         struct st
-            | streaming st = [DShow]
-            | otherwise    = uniq $
+            | isStreaming st = [DShow]
+            | otherwise      = uniq $
                 foldr' (intersect . derivingOf) base (st ^.. references)
 
 instance HasId a => TypeOf (RefF (Shape a)) where
     typeOf r
-        | streaming r = TStream
-        | otherwise   = typeOf (r ^. refAnn)
+        | isStreaming r = TStream
+        | otherwise     = typeOf (r ^. refAnn)
 
 derivingOf :: TypeOf a => a -> [Derive]
 derivingOf = uniq . typ . typeOf

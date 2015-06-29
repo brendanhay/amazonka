@@ -49,11 +49,11 @@ data Field = Field
 makeLenses ''Field
 
 instance IsStreaming Field where
-    streaming = streaming . _fieldRef
+    isStreaming = isStreaming . _fieldRef
 
 instance TypeOf Field where
     typeOf f
-        | streaming r         = t
+        | isStreaming r         = t
         | typ, loc            = t
         | f ^. fieldRequired' = t
         | otherwise           = TMaybe t
@@ -106,13 +106,13 @@ mkFields (view metadata -> m) s st = sortFields rs $
         Uni x -> Just x
         Bi    -> Nothing
 
--- | Ensures that streaming fields appear last in the parameter ordering,
+-- | Ensures that isStreaming fields appear last in the parameter ordering,
 -- but doesn't affect the rest of the order which is determined by parsing
 -- of the JSON service definition.
 sortFields :: [Id] -> [Field] -> [Field]
 sortFields xs = zipWith (set fieldOrdinal) [1..]
     -- FIXME: optimise
-    . sortBy (on compare streaming)
+    . sortBy (on compare isStreaming)
     . sortBy (on compare idx)
   where
     idx x = fromMaybe (-1) $ findIndex (== _fieldId x) xs

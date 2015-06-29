@@ -29,18 +29,6 @@
 
 module Gen.Types.Service where
 
-import           Gen.Text
-import           Gen.TH
-import           Gen.Types.Ann
-import           Gen.Types.Help
-import           Gen.Types.Id
-import           Gen.Types.Map
-import           Gen.Types.NS
-import           Gen.Types.Orphans ()
-import           Gen.Types.Pager
-import           Gen.Types.Retry
-import           Gen.Types.URI
-import           Gen.Types.Waiter
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding ((.=))
@@ -51,6 +39,18 @@ import           Data.List              (nub)
 import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
+import           Gen.Text
+import           Gen.TH
+import           Gen.Types.Ann
+import           Gen.Types.Help
+import           Gen.Types.Id
+import           Gen.Types.Map
+import           Gen.Types.NS
+import           Gen.Types.Orphans      ()
+import           Gen.Types.Pager
+import           Gen.Types.Retry
+import           Gen.Types.URI
+import           Gen.Types.Waiter
 import           GHC.Generics           (Generic)
 import           Numeric.Natural
 
@@ -468,10 +468,10 @@ type Shape = Cofree ShapeF
 type Ref   = RefF (Shape Solved)
 
 class IsStreaming a where
-    streaming :: a -> Bool
+    isStreaming :: a -> Bool
 
-    default streaming :: HasInfo a => a -> Bool
-    streaming = view infoStreaming
+    default isStreaming :: HasInfo a => a -> Bool
+    isStreaming = view infoStreaming
 
 instance IsStreaming Info
 instance IsStreaming (StructF a)
@@ -479,11 +479,11 @@ instance IsStreaming (ShapeF  a)
 instance IsStreaming (Shape   a)
 
 instance IsStreaming a => IsStreaming (RefF a) where
-    streaming r = _refStreaming r || streaming (_refAnn r)
+    isStreaming r = _refStreaming r || isStreaming (_refAnn r)
 
 instance IsStreaming TType where
-    streaming TStream = True
-    streaming _       = False
+    isStreaming TStream = True
+    isStreaming _       = False
 
 setRequired :: ([Id] -> [Id]) -> ShapeF a -> ShapeF a
 setRequired f = _Struct . required' %~ nub . f

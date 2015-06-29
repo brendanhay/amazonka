@@ -67,8 +67,8 @@ data Prod = Prod'
     , _prodLenses :: [Fun]
     } deriving (Eq, Show)
 
-prodToJSON :: ToJSON a => Bool -> Prod -> Map Text a -> [Pair]
-prodToJSON s Prod'{..} is =
+prodToJSON :: ToJSON a => Bool -> Bool -> Prod -> Map Text a -> [Pair]
+prodToJSON s p Prod'{..} is =
     [ "type"          .= Text.pack "product"
     , "name"          .= _prodName
     , "constructor"   .= _prodCtor
@@ -77,6 +77,7 @@ prodToJSON s Prod'{..} is =
     , "lenses"        .= _prodLenses
     , "instances"     .= is
     , "shared"        .= s
+    , "streaming"     .= p
     ]
 
 data Sum = Sum'
@@ -95,6 +96,7 @@ sumToJSON s Sum'{..} is =
     , "declaration"   .= _sumDecl
     , "instances"     .= is
     , "shared"        .= s
+    , "streaming"     .= False
     ]
 
 data Gen = Gen'
@@ -112,31 +114,31 @@ instance ToJSON Gen where
         ]
 
 data SData
-    = Prod !Bool Prod (Map Text Rendered) -- ^ A product type (record).
-    | Sum  !Bool Sum  [Text]              -- ^ A nullary sum type.
-    | Fun        Fun                      -- ^ A function declaration.
+    = Prod !Bool !Bool Prod (Map Text Rendered) -- ^ A product type (record).
+    | Sum  !Bool Sum  [Text]                    -- ^ A nullary sum type.
+    | Fun  Fun                                  -- ^ A function declaration.
       deriving (Eq, Show)
 
 instance Ord SData where
     compare a b =
         case (a, b) of
-            (Prod _ x _, Prod _ y _) -> on compare _prodName x y
-            (Sum  _ x _, Sum  _ y _) -> on compare _sumName  x y
-            (Fun  _,     Fun  _)     -> EQ
-            (Prod {},    _)          -> GT
-            (_,          Prod {})    -> LT
-            (Sum  {},    _)          -> GT
-            (_,          Sum  {})    -> LT
+            (Prod _ _ x _, Prod _ _ y _) -> on compare _prodName x y
+            (Sum  _ x _,   Sum  _ y _)   -> on compare _sumName  x y
+            (Fun  _,       Fun  _)       -> EQ
+            (Prod {},      _)            -> GT
+            (_,            Prod {})      -> LT
+            (Sum  {},      _)            -> GT
+            (_,            Sum  {})      -> LT
 
 instance ToJSON SData where
     toJSON = \case
-        Prod s p  is -> object (prodToJSON s p  is)
-        Sum  s st is -> object (sumToJSON  s st is)
-        Fun  f       -> toJSON f
+        Prod s p x is -> object (prodToJSON s p x is)
+        Sum  s st  is -> object (sumToJSON  s st is)
+        Fun  f        -> toJSON f
 
 instance HasId SData where
     identifier = \case
-        Prod _ p _         -> mkId (_prodName p)
+        Prod _ _ p _       -> mkId (_prodName p)
         Sum  _ s _         -> mkId (_sumName  s)
         Fun (Fun' n _ _ _) -> mkId n
 

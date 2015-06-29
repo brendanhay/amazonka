@@ -17,16 +17,16 @@ import {{ import.value }}
 -- This commented snippet is what the entire set should look like:
 
 -- fixtures :: TestTree
--- fixtures = testGroup "SQS"
+-- fixtures =
 --     [ testGroup "request"
---         {% for op in operations %}{% if op.first %}[{% else %},{% endif %} {{ op.key }}Test $
---             {{ op.value.input.constructor }}
+--         {% for op in operations %}{% if op.first %}[{% else %},{% endif %} test{{ op.value.name }} $
+--             {{ op.value.input.constructor.name }}
 --
 --         {% endfor %}  ]
 
 --     , testGroup "response"
---         {% for op in operations %}{% if op.first %}[{% else %},{% endif %} {{ op.key }}ResponseTest $
---             {{ op.value.output.constructor }}
+--         {% for op in operations %}{% if op.first %}[{% else %},{% endif %} test{{ op.value.name }}Response $
+--             {{ op.value.output.constructor.name }}
 --
 --         {% endfor %}  ]
 --     ]
@@ -34,16 +34,16 @@ import {{ import.value }}
 -- Requests
 {% for op in operations %}
 
-{{ op.key }}Test :: {{ op.value.input.name }} -> TestTree
-{{ op.key }}Test = undefined
+test{{ op.value.name }} :: {{ op.value.input.name }} -> TestTree
+test{{ op.value.name }} = undefined
 {% endfor %}
 
 -- Responses
 {% for op in operations %}
 
-{{ op.key }}ResponseTest :: {{ op.value.output.name }} -> TestTree
-{{ op.key }}ResponseTest = resp
-    "{{ op.key }}Response"
-    "fixture/{{ op.value.output.name }}"
+test{{ op.value.name }}Response :: {{ op.value.output.name }} -> TestTree
+test{{ op.value.name }}Response = resp
+    "{{ op.value.name }}Response"
+    "fixture/{{ op.value.name }}Response"
     (Proxy :: Proxy {{ op.value.input.name }})
 {% endfor %}

@@ -23,13 +23,6 @@ module Gen.AST.Data
     , waiterData
     ) where
 
-import           Gen.AST.Data.Field
-import           Gen.AST.Data.Instance
-import           Gen.AST.Data.Syntax
-import           Gen.AST.TypeOf
-import           Gen.Formatting
-import           Gen.Protocol
-import           Gen.Types
 import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens                 hiding (enum, mapping, (??))
@@ -49,6 +42,13 @@ import qualified Data.Text                    as Text
 import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Builder       as Build
 import           Data.Traversable             (mapAccumL)
+import           Gen.AST.Data.Field
+import           Gen.AST.Data.Instance
+import           Gen.AST.Data.Syntax
+import           Gen.AST.TypeOf
+import           Gen.Formatting
+import           Gen.Protocol
+import           Gen.Types
 import           HIndent
 import           Language.Haskell.Exts.Pretty
 
@@ -79,8 +79,8 @@ operationData m o = do
         <$> renderInsts p xn is
 
     return $! o
-        { _opInput  = Identity $ Prod False xd is'
-        , _opOutput = Identity $ Prod (isShared ya) yd mempty
+        { _opInput  = Identity $ Prod False (isStreaming x) xd is'
+        , _opOutput = Identity $ Prod (isShared ya) (isStreaming y) yd mempty
         }
   where
     struct (a :< Struct s) = Right (a, s)
@@ -105,7 +105,7 @@ shapeData m (a :< s) = case s of
     Struct st              -> do
         (d, fs) <- prodData m a st
         is      <- renderInsts p (a ^. annId) (shapeInsts p (a ^. relMode) fs)
-        return $! Just $ Prod (isShared a) d is
+        return $! Just $ Prod (isShared a) (isStreaming st) d is
     _                -> return Nothing
   where
     p = m ^. protocol

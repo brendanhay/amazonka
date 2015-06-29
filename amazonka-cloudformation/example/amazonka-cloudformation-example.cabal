@@ -1,0 +1,34 @@
+name:                  amazonka-cloudformation-example
+version:               1.0.0
+synopsis:              Amazon CloudFormation SDK Examples.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2015 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+cabal-version:         >= 1.10
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src
+
+    ghc-options:       -Wall -threaded
+
+    exposed-modules:
+        CloudFormation
+
+    build-depends:
+        amazonka      == 1.0.0.*
+      , amazonka-core == 1.0.0.*
+      , amazonka-cloudformation  == 1.0.0.*
+      , base          >= 4.7     && < 5
+      , bytestring    >= 0.9
+      , conduit       >= 1.1
+      , lens          >= 4.4
+      , lifted-base
+      , text          >= 1.1
+      , time          >= 1.4
+      , transformers  >= 0.2

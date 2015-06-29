@@ -1,0 +1,8 @@
+resolver:   nightly-2015-06-28
+flags:      {}
+extra-deps: []
+packages:
+  - '../../core'
+  - '../../amazonka'
+  - '../../amazonka-rds'
+  - '.'

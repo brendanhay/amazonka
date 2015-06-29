@@ -17,6 +17,7 @@ module Gen.Import where
 import           Control.Lens
 import           Data.List    (sort)
 import           Data.Maybe
+import           Data.Monoid
 import           Gen.Types
 
 operationImports :: Library -> Operation Identity SData a -> [NS]
@@ -49,4 +50,9 @@ signatureImport = \case
     _  -> "Network.AWS.Sign.V4"
 
 testImports :: Library -> [NS]
-testImports l = [l ^. libraryNS]
+testImports l = [mkNS $ "Test.AWS." <> l ^. serviceAbbrev]
+
+fixtureImports :: Library -> [NS]
+fixtureImports l = [l ^. libraryNS]
+
+

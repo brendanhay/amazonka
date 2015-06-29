@@ -199,6 +199,7 @@ instance ToJSON Library where
             , "operations"       .= map f (l ^.. operations . each)
             ]
           where
+            -- FIXME: tidy this crap up.
             f v = object
                 [ "input"  .= g (v ^. inputName)
                 , "output" .= g (v ^. outputName)
@@ -209,11 +210,12 @@ instance ToJSON Library where
                 , "constructor" .= (n ^. smartCtorId)
                 ]
 
-libraryNS, typesNS, waitersNS, testsNS :: Getter Library NS
-libraryNS = serviceAbbrev . to (mappend "Network.AWS" . mkNS)
-typesNS   = libraryNS . to (<> "Types")
-waitersNS = libraryNS . to (<> "Waiters")
-testsNS   = serviceAbbrev . to (mappend "Test.AWS.Gen" . mkNS)
+-- FIXME: Remove explicit construction of getters, just use functions.
+libraryNS, typesNS, waitersNS, fixturesNS :: Getter Library NS
+libraryNS  = serviceAbbrev . to (mappend "Network.AWS"  . mkNS)
+typesNS    = libraryNS     . to (<> "Types")
+waitersNS  = libraryNS     . to (<> "Waiters")
+fixturesNS = serviceAbbrev . to (mappend "Test.AWS.Gen" . mkNS)
 
 otherModules, exposedModules :: Getter Library [NS]
 otherModules   = to (\l -> l ^. operationModules <> l ^. typeModules)
@@ -236,6 +238,7 @@ data Templates = Templates
     , operationTemplate       :: Template
     , typesTemplate           :: Template
     , testsTemplate           :: Template
+    , fixturesTemplate        :: Template
     }
 
 data Model = Model

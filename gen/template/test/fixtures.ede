@@ -44,6 +44,6 @@ import {{ import.value }}
 {{ op.value.output.constructor }}Test :: {{ op.value.output.name }} -> TestTree
 {{ op.value.output.constructor }}Test = resp
     "{{ op.value.output.name }}"
-    "test/fixture/{{ serviceAbbrev }}/{{ op.value.output.name }}"
+    "{{ libraryName }}/test/fixture/{{ serviceAbbrev }}/{{ op.value.output.name }}"
     (Proxy :: Proxy {{ op.value.input.name }})
 {% endfor %}

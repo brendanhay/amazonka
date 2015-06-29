@@ -18,8 +18,6 @@
 
 module Gen.AST.Data.Field where
 
-import           Gen.AST.TypeOf
-import           Gen.Types
 import           Control.Applicative
 import           Control.Comonad.Cofree
 import           Control.Lens
@@ -30,6 +28,8 @@ import           Data.Maybe
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import           Data.Text.Manipulate
+import           Gen.AST.TypeOf
+import           Gen.Types
 import           Language.Haskell.Exts.Syntax (Name (..))
 
 -- | Convenience type to package up some information from the struct with the
@@ -111,7 +111,7 @@ mkFields (view metadata -> m) s st = sortFields rs $
 -- of the JSON service definition.
 sortFields :: [Id] -> [Field] -> [Field]
 sortFields xs = zipWith (set fieldOrdinal) [1..]
-    -- FIXME: optimisation
+    -- FIXME: optimise
     . sortBy (on compare streaming)
     . sortBy (on compare idx)
   where

@@ -75,7 +75,9 @@ populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
     layout = traverse sequenceA
         [ dir "src" []
         , dir "example"
-            [ dir "src" []
+            [ dir "src"
+                [ touch (l ^. serviceAbbrev <> ".hs")
+                ]
             , file (lib <-> "example.cabal") exampleCabalTemplate
             , file "Makefile" exampleMakefileTemplate
             , file "stack.yaml" exampleStackTemplate
@@ -94,12 +96,12 @@ populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
             ]
 
         , dir "test"
-            [ touch "Main.hs"
+            [ mod "Main" (testImports l) testsTemplate
             , dir "Test"
                 [ dir "AWS"
                     [ touch (l ^. serviceAbbrev <> ".hs")
                     , dir "Gen"
-                        [ mod (l ^. testsNS) (testImports l) testsTemplate
+                        [ mod (l ^. fixturesNS) (fixtureImports l) fixturesTemplate
                         ]
                     ]
                 ]

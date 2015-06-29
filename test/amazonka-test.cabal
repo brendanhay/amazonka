@@ -33,7 +33,7 @@ library
         , conduit-extra
         , directory
         , filepath
-        , http-clienth
+        , http-client
         , http-types
         , resourcet
         , tasty

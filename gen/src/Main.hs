@@ -162,7 +162,8 @@ main = do
             <*> load "example/stack.ede"
             <*> load "operation.ede"
             <*> load "types.ede"
-            <*> load "tests.ede"
+            <*> load "test/main.ede"
+            <*> load "test/fixtures.ede"
             <*  lift done
 
         r <- JS.required _optRetry

@@ -115,7 +115,6 @@ substitute svc@Service{..} = do
     subst d n h (Just r) = do
         let k = r ^. refShape
         x :< s <- lift (safe k _shapes)
-
         if | isShared x, d == Input -> do
                 -- Check that the desired name is not in use
                 -- to prevent accidental override.
@@ -124,9 +123,7 @@ substitute svc@Service{..} = do
                 save n ((x & annId .~ n) :< s)
                 -- Update the Ref to point to the new wrapper.
                 return (r & refShape .~ n)
-
            | isShared x -> return r
-
            | otherwise  -> do
                 -- Ref exists, and is not referred to by any other Shape.
                 -- Insert override to rename the Ref/Shape to the desired name.
@@ -147,8 +144,8 @@ addStatus Output = go
         ms = Map.toList (st ^. members)
         x  = find ((Just StatusCode ==) . view refLocation . snd) ms
 
-        missing       = st & required' <>~ [n] & members %~ Map.insert n ref
-        exists (k, _) = st & required' <>~ [k]
+        missing       = st & required' %~ cons n & members %~ Map.insert n ref
+        exists (k, _) = st & required' %~ cons k
 
     go s           = s
 

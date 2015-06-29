@@ -73,7 +73,11 @@ populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
   where
     layout :: Either Error [DirTree Touch]
     layout = traverse sequenceA
-        [ dir "src" []
+        [ dir "src"
+              -- Supress cabal warnings about directories listed that don't exist.
+            [ touch ".gitkeep"
+            ]
+
         , dir "example"
             [ dir "src"
                 [ touch (l ^. serviceAbbrev <> ".hs")

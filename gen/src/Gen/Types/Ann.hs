@@ -17,8 +17,6 @@
 
 module Gen.Types.Ann where
 
-import           Gen.TH
-import           Gen.Types.Id
 import           Control.Applicative
 import           Control.Comonad
 import           Control.Comonad.Cofree
@@ -32,6 +30,8 @@ import           Data.Maybe
 import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
+import           Gen.TH
+import           Gen.Types.Id
 import           GHC.Generics           (Generic)
 
 type Set = Set.HashSet

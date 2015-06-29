@@ -79,8 +79,8 @@ operationData m o = do
         <$> renderInsts p xn is
 
     return $! o
-        { _opInput  = Identity $ Prod False (isStreaming x) xd is'
-        , _opOutput = Identity $ Prod (isShared ya) (isStreaming y) yd mempty
+        { _opInput  = Identity $ Prod False (isEQ xa) xd is'
+        , _opOutput = Identity $ Prod (isShared ya) (isEQ ya) yd mempty
         }
   where
     struct (a :< Struct s) = Right (a, s)
@@ -105,7 +105,7 @@ shapeData m (a :< s) = case s of
     Struct st              -> do
         (d, fs) <- prodData m a st
         is      <- renderInsts p (a ^. annId) (shapeInsts p (a ^. relMode) fs)
-        return $! Just $ Prod (isShared a) (isStreaming st) d is
+        return $! Just $ Prod (isShared a) (isEQ a) d is
     _                -> return Nothing
   where
     p = m ^. protocol

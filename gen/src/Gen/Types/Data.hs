@@ -77,7 +77,7 @@ prodToJSON s p Prod'{..} is =
     , "lenses"        .= _prodLenses
     , "instances"     .= is
     , "shared"        .= s
-    , "streaming"     .= p
+    , "eq"            .= p
     ]
 
 data Sum = Sum'
@@ -96,7 +96,7 @@ sumToJSON s Sum'{..} is =
     , "declaration"   .= _sumDecl
     , "instances"     .= is
     , "shared"        .= s
-    , "streaming"     .= False
+    , "eq"            .= True
     ]
 
 data Gen = Gen'
@@ -113,6 +113,7 @@ instance ToJSON Gen where
         , "declaration"   .= _genDecl
         ]
 
+-- FIXME: Rather carry around Solved here.
 data SData
     = Prod !Bool !Bool Prod (Map Text Rendered) -- ^ A product type (record).
     | Sum  !Bool Sum  [Text]                    -- ^ A nullary sum type.

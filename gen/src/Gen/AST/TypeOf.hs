@@ -17,6 +17,7 @@
 module Gen.AST.TypeOf
     ( TypeOf (..)
     , derivingOf
+    , isEQ
     , typeDefault
     ) where
 
@@ -69,6 +70,10 @@ instance HasId a => TypeOf (RefF (Shape a)) where
     typeOf r
         | isStreaming r = TStream
         | otherwise     = typeOf (r ^. refAnn)
+
+
+isEQ :: TypeOf a => a -> Bool
+isEQ = elem DEq . derivingOf
 
 derivingOf :: TypeOf a => a -> [Derive]
 derivingOf = uniq . typ . typeOf

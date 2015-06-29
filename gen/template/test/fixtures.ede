@@ -33,17 +33,21 @@ import {{ import.value }}
 
 -- Requests
 {% for op in operations %}
+  {% if op.value.input.eq %}
 
 test{{ op.value.name }} :: {{ op.value.input.name }} -> TestTree
 test{{ op.value.name }} = undefined
+  {% endif %}
 {% endfor %}
 
 -- Responses
 {% for op in operations %}
+  {% if op.value.output.eq %}
 
 test{{ op.value.name }}Response :: {{ op.value.output.name }} -> TestTree
 test{{ op.value.name }}Response = resp
     "{{ op.value.name }}Response"
     "fixture/{{ op.value.name }}Response"
     (Proxy :: Proxy {{ op.value.input.name }})
+  {% endif %}
 {% endfor %}

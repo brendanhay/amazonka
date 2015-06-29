@@ -1,14 +1,13 @@
 language: haskell
 
+ghc: '7.10'
+
 before_install:
   - wget -q -O- http://download.fpcomplete.com/ubuntu/fpco.key | sudo apt-key add -
   - echo 'deb http://download.fpcomplete.com/ubuntu/precise stable main' | sudo tee /etc/apt/sources.list.d/fpco.list
   - sudo apt-get update
   - sudo apt-get install stack -y
 
-install:
-  - stack setup
-
 # Currently only core due to memory/timeout issues (exit:137)
 script:
-  - stack test amazonka-core
+  - stack --no-install-ghc --system-ghc test amazonka-core

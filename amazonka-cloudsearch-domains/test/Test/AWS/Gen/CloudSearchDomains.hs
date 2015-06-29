@@ -54,9 +54,6 @@ import Network.AWS.CloudSearchDomains
 testSuggest :: Suggest -> TestTree
 testSuggest = undefined
 
-testUploadDocuments :: UploadDocuments -> TestTree
-testUploadDocuments = undefined
-
 testSearch :: Search -> TestTree
 testSearch = undefined
 

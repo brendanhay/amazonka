@@ -348,9 +348,6 @@ import Network.AWS.S3
 testPutBucketRequestPayment :: PutBucketRequestPayment -> TestTree
 testPutBucketRequestPayment = undefined
 
-testPutObject :: PutObject -> TestTree
-testPutObject = undefined
-
 testPutBucketLogging :: PutBucketLogging -> TestTree
 testPutBucketLogging = undefined
 
@@ -422,9 +419,6 @@ testPutBucketWebsite = undefined
 
 testCompleteMultipartUpload :: CompleteMultipartUpload -> TestTree
 testCompleteMultipartUpload = undefined
-
-testUploadPart :: UploadPart -> TestTree
-testUploadPart = undefined
 
 testListMultipartUploads :: ListMultipartUploads -> TestTree
 testListMultipartUploads = undefined
@@ -587,12 +581,6 @@ testGetBucketWebsiteResponse = resp
     "fixture/GetBucketWebsiteResponse"
     (Proxy :: Proxy GetBucketWebsite)
 
-testGetObjectResponse :: GetObjectResponse -> TestTree
-testGetObjectResponse = resp
-    "GetObjectResponse"
-    "fixture/GetObjectResponse"
-    (Proxy :: Proxy GetObject)
-
 testDeleteBucketReplicationResponse :: DeleteBucketReplicationResponse -> TestTree
 testDeleteBucketReplicationResponse = resp
     "DeleteBucketReplicationResponse"
@@ -706,12 +694,6 @@ testAbortMultipartUploadResponse = resp
     "AbortMultipartUploadResponse"
     "fixture/AbortMultipartUploadResponse"
     (Proxy :: Proxy AbortMultipartUpload)
-
-testGetObjectTorrentResponse :: GetObjectTorrentResponse -> TestTree
-testGetObjectTorrentResponse = resp
-    "GetObjectTorrentResponse"
-    "fixture/GetObjectTorrentResponse"
-    (Proxy :: Proxy GetObjectTorrent)
 
 testPutBucketCORSResponse :: PutBucketCORSResponse -> TestTree
 testPutBucketCORSResponse = resp

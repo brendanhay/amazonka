@@ -213,9 +213,6 @@ testListTagsForVault = undefined
 testGetVaultNotifications :: GetVaultNotifications -> TestTree
 testGetVaultNotifications = undefined
 
-testUploadMultipartPart :: UploadMultipartPart -> TestTree
-testUploadMultipartPart = undefined
-
 testDeleteVaultNotifications :: DeleteVaultNotifications -> TestTree
 testDeleteVaultNotifications = undefined
 
@@ -273,9 +270,6 @@ testCreateVault = undefined
 testAddTagsToVault :: AddTagsToVault -> TestTree
 testAddTagsToVault = undefined
 
-testUploadArchive :: UploadArchive -> TestTree
-testUploadArchive = undefined
-
 -- Responses
 
 testSetVaultAccessPolicyResponse :: SetVaultAccessPolicyResponse -> TestTree
@@ -331,12 +325,6 @@ testListVaultsResponse = resp
     "ListVaultsResponse"
     "fixture/ListVaultsResponse"
     (Proxy :: Proxy ListVaults)
-
-testGetJobOutputResponse :: GetJobOutputResponse -> TestTree
-testGetJobOutputResponse = resp
-    "GetJobOutputResponse"
-    "fixture/GetJobOutputResponse"
-    (Proxy :: Proxy GetJobOutput)
 
 testListJobsResponse :: ListJobsResponse -> TestTree
 testListJobsResponse = resp

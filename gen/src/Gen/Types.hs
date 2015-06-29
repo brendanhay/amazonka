@@ -196,11 +196,11 @@ instance ToJSON Library where
             , "shapes"           .= sort (l ^.. shapes  . each)
             , "waiters"          .= (l ^.. waiters . each)
             , "serviceInstance"  .= (l ^.  instance')
-            , "operations"       .= map f (l ^.. operations . each)
+            , "operations"       .= (l ^.  operations & kvTraversal %~ f)
             ]
           where
             -- FIXME: tidy this crap up.
-            f v = object
+            f (k, v) = (k ^. smartCtorId,) $ object
                 [ "input"  .= g (v ^. inputName)
                 , "output" .= g (v ^. outputName)
                 ]

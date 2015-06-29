@@ -6,6 +6,7 @@
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RankNTypes                 #-}
 {-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE ScopedTypeVariables        #-}
 {-# LANGUAGE StandaloneDeriving         #-}
 {-# LANGUAGE TypeFamilies               #-}
 {-# LANGUAGE ViewPatterns               #-}
@@ -36,6 +37,7 @@ module Network.AWS.Types
     , AWSService    (..)
     , Abbrev
     , Service       (..)
+    , serviceOf
 
     -- * Retries
     , Retry         (..)
@@ -243,6 +245,9 @@ class AWSSigner (Sg a) => AWSService a where
     type Sg a :: *
 
     service :: Sv p ~ a => Proxy p -> Service a
+
+serviceOf :: forall a. AWSService (Sv a) => a -> Service (Sv a)
+serviceOf = const $ service (Proxy :: Proxy a)
 
 -- | Specify how a request can be de/serialised.
 class AWSService (Sv a) => AWSRequest a where

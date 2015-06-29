@@ -19,13 +19,13 @@ import {{ import.value }}
 -- fixtures :: TestTree
 -- fixtures = testGroup "SQS"
 --     [ testGroup "request"
---         {% for op in operations %}{% if op.first %}[{% else %},{% endif %} {{ op.value.input.constructor }}Test $
+--         {% for op in operations %}{% if op.first %}[{% else %},{% endif %} {{ op.key }}Test $
 --             {{ op.value.input.constructor }}
 --
 --         {% endfor %}  ]
 
 --     , testGroup "response"
---         {% for op in operations %}{% if op.first %}[{% else %},{% endif %} {{ op.value.output.constructor }}Test $
+--         {% for op in operations %}{% if op.first %}[{% else %},{% endif %} {{ op.key }}ResponseTest $
 --             {{ op.value.output.constructor }}
 --
 --         {% endfor %}  ]
@@ -34,16 +34,16 @@ import {{ import.value }}
 -- Requests
 {% for op in operations %}
 
-{{ op.value.input.constructor }}Test :: {{ op.value.input.name }} -> TestTree
-{{ op.value.input.constructor }}Test = undefined
+{{ op.key }}Test :: {{ op.value.input.name }} -> TestTree
+{{ op.key }}Test = undefined
 {% endfor %}
 
 -- Responses
 {% for op in operations %}
 
-{{ op.value.output.constructor }}Test :: {{ op.value.output.name }} -> TestTree
-{{ op.value.output.constructor }}Test = resp
-    "{{ op.value.output.name }}"
+{{ op.key }}ResponseTest :: {{ op.value.output.name }} -> TestTree
+{{ op.key }}ResponseTest = resp
+    "{{ op.key }}Response"
     "fixture/{{ op.value.output.name }}"
     (Proxy :: Proxy {{ op.value.input.name }})
 {% endfor %}

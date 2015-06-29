@@ -59,6 +59,5 @@ test-suite {{ libraryName }}-test
         , {{ libraryName }} == {{ libraryVersion }}
         , base
         , bytestring
-        , http-types
         , tasty
         , tasty-hunit

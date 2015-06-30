@@ -135,7 +135,6 @@
                 "RootDeviceType",
                 "VirtualizationType",
                 "Hypervisor",
-                "EbsOptimized",
                 "State"
             ]
         },

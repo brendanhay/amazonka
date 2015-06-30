@@ -19,12 +19,13 @@ module Gen.Protocol
     , suffix
     ) where
 
-import           Gen.Types
 import           Control.Comonad.Cofree
 import           Control.Lens
 import           Data.Maybe
 import           Data.Text              (Text)
 import           Data.Text.Manipulate
+import           Debug.Trace
+import           Gen.Types
 
 suffix :: Protocol -> Text
 suffix = \case
@@ -38,6 +39,7 @@ data Names
     = NMap  (Maybe Text) Text Text Text
     | NList (Maybe Text) Text
     | NName Text
+      deriving (Show)
 
 memberName :: Protocol -> Direction -> Id -> RefF (Shape a) -> Text
 memberName p d n r =
@@ -53,10 +55,31 @@ nestedNames p d n r =
         List l -> listNames p d n r l
         _      -> NName (name p d n r)
 
+listNames :: Protocol -> Direction -> Id -> RefF a -> ListF a -> Names
+listNames p d n r l
+     | flatten p d l = NList Nothing   (fromMaybe mn ln)
+     | otherwise     = NList (Just mn) (fromMaybe "member" ln)
+  where
+    mn = name p d n r
+    ln = l ^. listItem . refLocationName
+
+     -- Member, [item]
+
+     -- Non-flattened, no locationName:
+     -- <ListParam><member>one</member><member>two</member><member>...
+
+     -- Non-flattened, alternate memberName and itemName:
+     -- <AlternateName><NotMember>one</NotMember><NotMember>...
+
+     -- [Member]
+
+     -- Flattened, no locationName:
+     -- <ListParam>one</ListParam><ListParam>two</ListParam>...
+
 mapNames :: Protocol -> Direction -> Id -> RefF a -> MapF a -> Names
 mapNames p d n r m
-    | flatten p m = NMap Nothing   mn      kn vn
-    | otherwise   = NMap (Just mn) "entry" kn vn
+    | flatten p d m = NMap Nothing   mn      kn vn
+    | otherwise     = NMap (Just mn) "entry" kn vn
   where
     mn = name p d n r
     kn = fromMaybe "key"   (m ^. mapKey   . refLocationName)
@@ -81,39 +104,6 @@ mapNames p d n r m
     -- Query, input:
     -- MapArg.entry.1.key=key1&MapArg.entry.1.value=val1
 
-listNames :: Protocol -> Direction -> Id -> RefF  a -> ListF a -> Names
-listNames p d n r l
-     | flatten p l = NList Nothing   (fromMaybe mn ln)
-     | otherwise   = NList (Just mn) (fromMaybe "member" ln)
-  where
-    mn = name p d n r
-    ln = l ^. listItem . refLocationName
-
-     -- Member, [item]
-
-     -- Non-flattened, no locationName:
-     -- <ListParam><member>one</member><member>two</member><member>...
-
-     -- Non-flattened, alternate memberName and itemName:
-     -- <AlternateName><NotMember>one</NotMember><NotMember>...
-
-     -- [Member]
-
-     -- Flattened, no locationName:
-     -- <ListParam>one</ListParam><ListParam>two</ListParam>...
-
-    -- go Query    True  = Nothing
-    -- go Query    False = Just item
-
-    -- go EC2      True  = Nothing
-    -- go EC2      False = Just item
-
-    -- go JSON     _     = Nothing
-    -- go RestJSON _     = Nothing
-
-    -- go RestXML  True  = Nothing
-    -- go RestXML  False = Just item
-
 -- FIXME: Go through the other SDK's tests to ensure correctness.
 name :: Protocol -> Direction -> Id -> RefF a -> Text
 name p d n r = go p d
@@ -125,6 +115,6 @@ name p d n r = go p d
     -- otherwise the struct member id.
     key = fromMaybe (n ^. memberId) (r ^. refLocationName)
 
-flatten :: HasInfo a => Protocol -> a -> Bool
-flatten EC2 _ = True
-flatten _   i = i ^. infoFlattened
+flatten :: HasInfo a => Protocol -> Direction -> a -> Bool
+flatten EC2 Input _ = True
+flatten _   _     i = i ^. infoFlattened

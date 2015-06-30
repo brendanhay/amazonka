@@ -16,7 +16,6 @@ module Gen.Text where
 import           Control.Error
 import           Control.Monad
 import           Data.Bifunctor
-import qualified Data.CaseInsensitive  as CI
 import           Data.Char
 import qualified Data.Foldable         as Fold
 import qualified Data.HashSet          as Set
@@ -66,8 +65,14 @@ renameService =
     . stripPrefix "Service"
     . stripSuffix "SDK"
 
+-- Since 'takeLowerText' is used for FromText parser instances,
+-- the branch value is lowercased here.
+--
+-- Tangentially the 'takeLowerText' function exists to avoid the
+-- horrendous inlining that use Data.CaseInsensitive provokes and
+-- the subsequent compilation time explosion on a project of this size.
 renameBranch :: Text -> (Text, Text)
-renameBranch = first go . join (,)
+renameBranch = bimap go Text.toLower . join (,)
   where
     go = renameReserved
        . upperAcronym

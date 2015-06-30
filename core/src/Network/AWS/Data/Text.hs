@@ -15,11 +15,15 @@
 
 module Network.AWS.Data.Text
     ( Text
+
+    -- * Deserialisation
     , FromText (..)
     , fromText
+    , fromTextError
     , takeLowerText
     , matchCI
 
+    -- * Serialisation
     , ToText   (..)
     , showText
     ) where
@@ -46,6 +50,13 @@ import qualified Data.Text.Lazy.Builder.Scientific as Build
 import           Network.HTTP.Client
 import           Network.HTTP.Types
 import           Numeric.Natural
+
+-- | Fail parsing with a 'Text' error.
+--
+-- Constrained to the actual attoparsec monad to avoid
+-- exposing 'fail' usage directly.
+fromTextError :: Text -> Parser a
+fromTextError = fail . Text.unpack
 
 fromText :: FromText a => Text -> Either String a
 fromText = A.parseOnly parser

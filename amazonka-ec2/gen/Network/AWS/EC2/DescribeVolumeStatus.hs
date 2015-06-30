@@ -201,7 +201,9 @@ instance AWSRequest DescribeVolumeStatus where
           = receiveXML
               (\ s h x ->
                  DescribeVolumeStatusResponse' <$>
-                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                   (x .@? "nextToken") <*>
+                     (x .@? "volumeStatusSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeVolumeStatus where

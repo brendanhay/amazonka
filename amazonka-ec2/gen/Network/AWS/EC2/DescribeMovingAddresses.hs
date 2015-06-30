@@ -122,7 +122,9 @@ instance AWSRequest DescribeMovingAddresses where
           = receiveXML
               (\ s h x ->
                  DescribeMovingAddressesResponse' <$>
-                   (may (parseXMLList "item") x) <*> (x .@? "nextToken")
+                   (x .@? "movingAddressStatusSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeMovingAddresses where

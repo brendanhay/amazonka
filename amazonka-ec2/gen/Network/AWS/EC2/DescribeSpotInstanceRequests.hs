@@ -224,8 +224,9 @@ instance AWSRequest DescribeSpotInstanceRequests
           = receiveXML
               (\ s h x ->
                  DescribeSpotInstanceRequestsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "spotInstanceRequestSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeSpotInstanceRequests where
         toHeaders = const mempty

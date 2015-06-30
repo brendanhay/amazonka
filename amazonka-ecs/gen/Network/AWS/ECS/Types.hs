@@ -368,22 +368,23 @@ data AgentUpdateStatus
 
 instance FromText AgentUpdateStatus where
     parser = takeLowerText >>= \case
-        "FAILED" -> pure AUSFailed
-        "PENDING" -> pure AUSPending
-        "STAGED" -> pure AUSStaged
-        "STAGING" -> pure AUSStaging
-        "UPDATED" -> pure AUSUpdated
-        "UPDATING" -> pure AUSUpdating
-        e -> fail ("Failure parsing AgentUpdateStatus from " ++ show e)
+        "failed" -> pure AUSFailed
+        "pending" -> pure AUSPending
+        "staged" -> pure AUSStaged
+        "staging" -> pure AUSStaging
+        "updated" -> pure AUSUpdated
+        "updating" -> pure AUSUpdating
+        e -> fromTextError $ "Failure parsing AgentUpdateStatus from value: '" <> e
+           <> "'. Accepted values: failed, pending, staged, staging, updated, updating"
 
 instance ToText AgentUpdateStatus where
     toText = \case
-        AUSFailed -> "FAILED"
-        AUSPending -> "PENDING"
-        AUSStaged -> "STAGED"
-        AUSStaging -> "STAGING"
-        AUSUpdated -> "UPDATED"
-        AUSUpdating -> "UPDATING"
+        AUSFailed -> "failed"
+        AUSPending -> "pending"
+        AUSStaged -> "staged"
+        AUSStaging -> "staging"
+        AUSUpdated -> "updated"
+        AUSUpdating -> "updating"
 
 instance Hashable AgentUpdateStatus
 instance ToQuery AgentUpdateStatus
@@ -400,16 +401,17 @@ data DesiredStatus
 
 instance FromText DesiredStatus where
     parser = takeLowerText >>= \case
-        "PENDING" -> pure Pending
-        "RUNNING" -> pure Running
-        "STOPPED" -> pure Stopped
-        e -> fail ("Failure parsing DesiredStatus from " ++ show e)
+        "pending" -> pure Pending
+        "running" -> pure Running
+        "stopped" -> pure Stopped
+        e -> fromTextError $ "Failure parsing DesiredStatus from value: '" <> e
+           <> "'. Accepted values: pending, running, stopped"
 
 instance ToText DesiredStatus where
     toText = \case
-        Pending -> "PENDING"
-        Running -> "RUNNING"
-        Stopped -> "STOPPED"
+        Pending -> "pending"
+        Running -> "running"
+        Stopped -> "stopped"
 
 instance Hashable DesiredStatus
 instance ToQuery DesiredStatus
@@ -425,14 +427,15 @@ data SortOrder
 
 instance FromText SortOrder where
     parser = takeLowerText >>= \case
-        "ASC" -> pure Asc
-        "DESC" -> pure Desc
-        e -> fail ("Failure parsing SortOrder from " ++ show e)
+        "asc" -> pure Asc
+        "desc" -> pure Desc
+        e -> fromTextError $ "Failure parsing SortOrder from value: '" <> e
+           <> "'. Accepted values: asc, desc"
 
 instance ToText SortOrder where
     toText = \case
-        Asc -> "ASC"
-        Desc -> "DESC"
+        Asc -> "asc"
+        Desc -> "desc"
 
 instance Hashable SortOrder
 instance ToQuery SortOrder
@@ -448,14 +451,15 @@ data TaskDefinitionStatus
 
 instance FromText TaskDefinitionStatus where
     parser = takeLowerText >>= \case
-        "ACTIVE" -> pure Active
-        "INACTIVE" -> pure Inactive
-        e -> fail ("Failure parsing TaskDefinitionStatus from " ++ show e)
+        "active" -> pure Active
+        "inactive" -> pure Inactive
+        e -> fromTextError $ "Failure parsing TaskDefinitionStatus from value: '" <> e
+           <> "'. Accepted values: active, inactive"
 
 instance ToText TaskDefinitionStatus where
     toText = \case
-        Active -> "ACTIVE"
-        Inactive -> "INACTIVE"
+        Active -> "active"
+        Inactive -> "inactive"
 
 instance Hashable TaskDefinitionStatus
 instance ToQuery TaskDefinitionStatus
@@ -476,7 +480,8 @@ instance FromText TransportProtocol where
     parser = takeLowerText >>= \case
         "tcp" -> pure TCP
         "udp" -> pure Udp
-        e -> fail ("Failure parsing TransportProtocol from " ++ show e)
+        e -> fromTextError $ "Failure parsing TransportProtocol from value: '" <> e
+           <> "'. Accepted values: tcp, udp"
 
 instance ToText TransportProtocol where
     toText = \case

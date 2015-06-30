@@ -121,8 +121,9 @@ instance AWSRequest DescribeBundleTasks where
           = receiveXML
               (\ s h x ->
                  DescribeBundleTasksResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "bundleInstanceTasksSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeBundleTasks where
         toHeaders = const mempty

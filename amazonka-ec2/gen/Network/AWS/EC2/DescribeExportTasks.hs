@@ -69,8 +69,9 @@ instance AWSRequest DescribeExportTasks where
           = receiveXML
               (\ s h x ->
                  DescribeExportTasksResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "exportTaskSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeExportTasks where
         toHeaders = const mempty

@@ -179,20 +179,21 @@ data ContactType
 
 instance FromText ContactType where
     parser = takeLowerText >>= \case
-        "ASSOCIATION" -> pure Association
-        "COMPANY" -> pure Company
-        "PERSON" -> pure Person
-        "PUBLIC_BODY" -> pure PublicBody
-        "RESELLER" -> pure Reseller
-        e -> fail ("Failure parsing ContactType from " ++ show e)
+        "association" -> pure Association
+        "company" -> pure Company
+        "person" -> pure Person
+        "public_body" -> pure PublicBody
+        "reseller" -> pure Reseller
+        e -> fromTextError $ "Failure parsing ContactType from value: '" <> e
+           <> "'. Accepted values: association, company, person, public_body, reseller"
 
 instance ToText ContactType where
     toText = \case
-        Association -> "ASSOCIATION"
-        Company -> "COMPANY"
-        Person -> "PERSON"
-        PublicBody -> "PUBLIC_BODY"
-        Reseller -> "RESELLER"
+        Association -> "association"
+        Company -> "company"
+        Person -> "person"
+        PublicBody -> "public_body"
+        Reseller -> "reseller"
 
 instance Hashable ContactType
 instance ToQuery ContactType
@@ -438,468 +439,469 @@ data CountryCode
 
 instance FromText CountryCode where
     parser = takeLowerText >>= \case
-        "AD" -> pure AD
-        "AE" -> pure AE
-        "AF" -> pure AF
-        "AG" -> pure AG
-        "AI" -> pure AI
-        "AL" -> pure AL
-        "AM" -> pure AM
-        "AN" -> pure AN
-        "AO" -> pure AO
-        "AQ" -> pure AQ
-        "AR" -> pure AR
-        "AS" -> pure AS
-        "AT" -> pure AT
-        "AU" -> pure AU
-        "AW" -> pure AW
-        "AZ" -> pure AZ
-        "BA" -> pure BA
-        "BB" -> pure BB
-        "BD" -> pure BD
-        "BE" -> pure BE
-        "BF" -> pure BF
-        "BG" -> pure BG
-        "BH" -> pure BH
-        "BI" -> pure BI
-        "BJ" -> pure BJ
-        "BL" -> pure BL
-        "BM" -> pure BM
-        "BN" -> pure BN
-        "BO" -> pure BO
-        "BR" -> pure BR
-        "BS" -> pure BS
-        "BT" -> pure BT
-        "BW" -> pure BW
-        "BY" -> pure BY
-        "BZ" -> pure BZ
-        "CA" -> pure CA
-        "CC" -> pure CC
-        "CD" -> pure CD
-        "CF" -> pure CF
-        "CG" -> pure CG
-        "CH" -> pure CH
-        "CI" -> pure CI
-        "CK" -> pure CK
-        "CL" -> pure CL
-        "CM" -> pure CM
-        "CN" -> pure CN
-        "CO" -> pure CO
-        "CR" -> pure CR
-        "CU" -> pure CU
-        "CV" -> pure CV
-        "CX" -> pure CX
-        "CY" -> pure CY
-        "CZ" -> pure CZ
-        "DE" -> pure DE
-        "DJ" -> pure DJ
-        "DK" -> pure DK
-        "DM" -> pure DM
-        "DO" -> pure DO
-        "DZ" -> pure DZ
-        "EC" -> pure EC
-        "EE" -> pure EE
-        "EG" -> pure EG
-        "ER" -> pure ER
-        "ES" -> pure ES
-        "ET" -> pure ET
-        "FI" -> pure FI
-        "FJ" -> pure FJ
-        "FK" -> pure FK
-        "FM" -> pure FM
-        "FO" -> pure FO
-        "FR" -> pure FR
-        "GA" -> pure GA
-        "GB" -> pure GB
-        "GD" -> pure GD
-        "GE" -> pure GE
-        "GH" -> pure GH
-        "GI" -> pure GI
-        "GL" -> pure GL
-        "GM" -> pure GM
-        "GN" -> pure GN
-        "GQ" -> pure GQ
-        "GR" -> pure GR
-        "GT" -> pure GT'
-        "GU" -> pure GU
-        "GW" -> pure GW
-        "GY" -> pure GY
-        "HK" -> pure HK
-        "HN" -> pure HN
-        "HR" -> pure HR
-        "HT" -> pure HT
-        "HU" -> pure HU
-        "ID" -> pure ID
-        "IE" -> pure IE
-        "IL" -> pure IL
-        "IM" -> pure IM
-        "IN" -> pure IN
-        "IQ" -> pure IQ
-        "IR" -> pure IR
-        "IS" -> pure IS
-        "IT" -> pure IT
-        "JM" -> pure JM
-        "JO" -> pure JO
-        "JP" -> pure JP
-        "KE" -> pure KE
-        "KG" -> pure KG
-        "KH" -> pure KH
-        "KI" -> pure KI
-        "KM" -> pure KM
-        "KN" -> pure KN
-        "KP" -> pure KP
-        "KR" -> pure KR
-        "KW" -> pure KW
-        "KY" -> pure KY
-        "KZ" -> pure KZ
-        "LA" -> pure LA
-        "LB" -> pure LB
-        "LC" -> pure LC
-        "LI" -> pure LI
-        "LK" -> pure LK
-        "LR" -> pure LR
-        "LS" -> pure LS
-        "LT" -> pure LT'
-        "LU" -> pure LU
-        "LV" -> pure LV
-        "LY" -> pure LY
-        "MA" -> pure MA
-        "MC" -> pure MC
-        "MD" -> pure MD
-        "ME" -> pure ME
-        "MF" -> pure MF
-        "MG" -> pure MG
-        "MH" -> pure MH
-        "MK" -> pure MK
-        "ML" -> pure ML
-        "MM" -> pure MM
-        "MN" -> pure MN
-        "MO" -> pure MO
-        "MP" -> pure MP
-        "MR" -> pure MR
-        "MS" -> pure MS
-        "MT" -> pure MT
-        "MU" -> pure MU
-        "MV" -> pure MV
-        "MW" -> pure MW
-        "MX" -> pure MX
-        "MY" -> pure MY
-        "MZ" -> pure MZ
-        "NA" -> pure NA
-        "NC" -> pure NC
-        "NE" -> pure NE
-        "NG" -> pure NG
-        "NI" -> pure NI
-        "NL" -> pure NL
-        "NO" -> pure NO
-        "NP" -> pure NP
-        "NR" -> pure NR
-        "NU" -> pure NU
-        "NZ" -> pure NZ
-        "OM" -> pure OM
-        "PA" -> pure PA
-        "PE" -> pure PE
-        "PF" -> pure PF
-        "PG" -> pure PG
-        "PH" -> pure PH
-        "PK" -> pure PK
-        "PL" -> pure PL
-        "PM" -> pure PM
-        "PN" -> pure PN
-        "PR" -> pure PR
-        "PT" -> pure PT
-        "PW" -> pure PW
-        "PY" -> pure PY
-        "QA" -> pure QA
-        "RO" -> pure RO
-        "RS" -> pure RS
-        "RU" -> pure RU
-        "RW" -> pure RW
-        "SA" -> pure SA
-        "SB" -> pure SB
-        "SC" -> pure SC
-        "SD" -> pure SD
-        "SE" -> pure SE
-        "SG" -> pure SG
-        "SH" -> pure SH
-        "SI" -> pure SI
-        "SK" -> pure SK
-        "SL" -> pure SL
-        "SM" -> pure SM
-        "SN" -> pure SN
-        "SO" -> pure SO
-        "SR" -> pure SR
-        "ST" -> pure ST
-        "SV" -> pure SV
-        "SY" -> pure SY
-        "SZ" -> pure SZ
-        "TC" -> pure TC
-        "TD" -> pure TD
-        "TG" -> pure TG
-        "TH" -> pure TH
-        "TJ" -> pure TJ
-        "TK" -> pure TK
-        "TL" -> pure TL
-        "TM" -> pure TM
-        "TN" -> pure TN
-        "TO" -> pure TO
-        "TR" -> pure TR
-        "TT" -> pure TT
-        "TV" -> pure TV
-        "TW" -> pure TW
-        "TZ" -> pure TZ
-        "UA" -> pure UA
-        "UG" -> pure UG
-        "US" -> pure US
-        "UY" -> pure UY
-        "UZ" -> pure UZ
-        "VA" -> pure VA
-        "VC" -> pure VC
-        "VE" -> pure VE
-        "VG" -> pure VG
-        "VI" -> pure VI
-        "VN" -> pure VN
-        "VU" -> pure VU
-        "WF" -> pure WF
-        "WS" -> pure WS
-        "YE" -> pure YE
-        "YT" -> pure YT
-        "ZA" -> pure ZA
-        "ZM" -> pure ZM
-        "ZW" -> pure ZW
-        e -> fail ("Failure parsing CountryCode from " ++ show e)
+        "ad" -> pure AD
+        "ae" -> pure AE
+        "af" -> pure AF
+        "ag" -> pure AG
+        "ai" -> pure AI
+        "al" -> pure AL
+        "am" -> pure AM
+        "an" -> pure AN
+        "ao" -> pure AO
+        "aq" -> pure AQ
+        "ar" -> pure AR
+        "as" -> pure AS
+        "at" -> pure AT
+        "au" -> pure AU
+        "aw" -> pure AW
+        "az" -> pure AZ
+        "ba" -> pure BA
+        "bb" -> pure BB
+        "bd" -> pure BD
+        "be" -> pure BE
+        "bf" -> pure BF
+        "bg" -> pure BG
+        "bh" -> pure BH
+        "bi" -> pure BI
+        "bj" -> pure BJ
+        "bl" -> pure BL
+        "bm" -> pure BM
+        "bn" -> pure BN
+        "bo" -> pure BO
+        "br" -> pure BR
+        "bs" -> pure BS
+        "bt" -> pure BT
+        "bw" -> pure BW
+        "by" -> pure BY
+        "bz" -> pure BZ
+        "ca" -> pure CA
+        "cc" -> pure CC
+        "cd" -> pure CD
+        "cf" -> pure CF
+        "cg" -> pure CG
+        "ch" -> pure CH
+        "ci" -> pure CI
+        "ck" -> pure CK
+        "cl" -> pure CL
+        "cm" -> pure CM
+        "cn" -> pure CN
+        "co" -> pure CO
+        "cr" -> pure CR
+        "cu" -> pure CU
+        "cv" -> pure CV
+        "cx" -> pure CX
+        "cy" -> pure CY
+        "cz" -> pure CZ
+        "de" -> pure DE
+        "dj" -> pure DJ
+        "dk" -> pure DK
+        "dm" -> pure DM
+        "do" -> pure DO
+        "dz" -> pure DZ
+        "ec" -> pure EC
+        "ee" -> pure EE
+        "eg" -> pure EG
+        "er" -> pure ER
+        "es" -> pure ES
+        "et" -> pure ET
+        "fi" -> pure FI
+        "fj" -> pure FJ
+        "fk" -> pure FK
+        "fm" -> pure FM
+        "fo" -> pure FO
+        "fr" -> pure FR
+        "ga" -> pure GA
+        "gb" -> pure GB
+        "gd" -> pure GD
+        "ge" -> pure GE
+        "gh" -> pure GH
+        "gi" -> pure GI
+        "gl" -> pure GL
+        "gm" -> pure GM
+        "gn" -> pure GN
+        "gq" -> pure GQ
+        "gr" -> pure GR
+        "gt" -> pure GT'
+        "gu" -> pure GU
+        "gw" -> pure GW
+        "gy" -> pure GY
+        "hk" -> pure HK
+        "hn" -> pure HN
+        "hr" -> pure HR
+        "ht" -> pure HT
+        "hu" -> pure HU
+        "id" -> pure ID
+        "ie" -> pure IE
+        "il" -> pure IL
+        "im" -> pure IM
+        "in" -> pure IN
+        "iq" -> pure IQ
+        "ir" -> pure IR
+        "is" -> pure IS
+        "it" -> pure IT
+        "jm" -> pure JM
+        "jo" -> pure JO
+        "jp" -> pure JP
+        "ke" -> pure KE
+        "kg" -> pure KG
+        "kh" -> pure KH
+        "ki" -> pure KI
+        "km" -> pure KM
+        "kn" -> pure KN
+        "kp" -> pure KP
+        "kr" -> pure KR
+        "kw" -> pure KW
+        "ky" -> pure KY
+        "kz" -> pure KZ
+        "la" -> pure LA
+        "lb" -> pure LB
+        "lc" -> pure LC
+        "li" -> pure LI
+        "lk" -> pure LK
+        "lr" -> pure LR
+        "ls" -> pure LS
+        "lt" -> pure LT'
+        "lu" -> pure LU
+        "lv" -> pure LV
+        "ly" -> pure LY
+        "ma" -> pure MA
+        "mc" -> pure MC
+        "md" -> pure MD
+        "me" -> pure ME
+        "mf" -> pure MF
+        "mg" -> pure MG
+        "mh" -> pure MH
+        "mk" -> pure MK
+        "ml" -> pure ML
+        "mm" -> pure MM
+        "mn" -> pure MN
+        "mo" -> pure MO
+        "mp" -> pure MP
+        "mr" -> pure MR
+        "ms" -> pure MS
+        "mt" -> pure MT
+        "mu" -> pure MU
+        "mv" -> pure MV
+        "mw" -> pure MW
+        "mx" -> pure MX
+        "my" -> pure MY
+        "mz" -> pure MZ
+        "na" -> pure NA
+        "nc" -> pure NC
+        "ne" -> pure NE
+        "ng" -> pure NG
+        "ni" -> pure NI
+        "nl" -> pure NL
+        "no" -> pure NO
+        "np" -> pure NP
+        "nr" -> pure NR
+        "nu" -> pure NU
+        "nz" -> pure NZ
+        "om" -> pure OM
+        "pa" -> pure PA
+        "pe" -> pure PE
+        "pf" -> pure PF
+        "pg" -> pure PG
+        "ph" -> pure PH
+        "pk" -> pure PK
+        "pl" -> pure PL
+        "pm" -> pure PM
+        "pn" -> pure PN
+        "pr" -> pure PR
+        "pt" -> pure PT
+        "pw" -> pure PW
+        "py" -> pure PY
+        "qa" -> pure QA
+        "ro" -> pure RO
+        "rs" -> pure RS
+        "ru" -> pure RU
+        "rw" -> pure RW
+        "sa" -> pure SA
+        "sb" -> pure SB
+        "sc" -> pure SC
+        "sd" -> pure SD
+        "se" -> pure SE
+        "sg" -> pure SG
+        "sh" -> pure SH
+        "si" -> pure SI
+        "sk" -> pure SK
+        "sl" -> pure SL
+        "sm" -> pure SM
+        "sn" -> pure SN
+        "so" -> pure SO
+        "sr" -> pure SR
+        "st" -> pure ST
+        "sv" -> pure SV
+        "sy" -> pure SY
+        "sz" -> pure SZ
+        "tc" -> pure TC
+        "td" -> pure TD
+        "tg" -> pure TG
+        "th" -> pure TH
+        "tj" -> pure TJ
+        "tk" -> pure TK
+        "tl" -> pure TL
+        "tm" -> pure TM
+        "tn" -> pure TN
+        "to" -> pure TO
+        "tr" -> pure TR
+        "tt" -> pure TT
+        "tv" -> pure TV
+        "tw" -> pure TW
+        "tz" -> pure TZ
+        "ua" -> pure UA
+        "ug" -> pure UG
+        "us" -> pure US
+        "uy" -> pure UY
+        "uz" -> pure UZ
+        "va" -> pure VA
+        "vc" -> pure VC
+        "ve" -> pure VE
+        "vg" -> pure VG
+        "vi" -> pure VI
+        "vn" -> pure VN
+        "vu" -> pure VU
+        "wf" -> pure WF
+        "ws" -> pure WS
+        "ye" -> pure YE
+        "yt" -> pure YT
+        "za" -> pure ZA
+        "zm" -> pure ZM
+        "zw" -> pure ZW
+        e -> fromTextError $ "Failure parsing CountryCode from value: '" <> e
+           <> "'. Accepted values: ad, ae, af, ag, ai, al, am, an, ao, aq, ar, as, at, au, aw, az, ba, bb, bd, be, bf, bg, bh, bi, bj, bl, bm, bn, bo, br, bs, bt, bw, by, bz, ca, cc, cd, cf, cg, ch, ci, ck, cl, cm, cn, co, cr, cu, cv, cx, cy, cz, de, dj, dk, dm, do, dz, ec, ee, eg, er, es, et, fi, fj, fk, fm, fo, fr, ga, gb, gd, ge, gh, gi, gl, gm, gn, gq, gr, gt, gu, gw, gy, hk, hn, hr, ht, hu, id, ie, il, im, in, iq, ir, is, it, jm, jo, jp, ke, kg, kh, ki, km, kn, kp, kr, kw, ky, kz, la, lb, lc, li, lk, lr, ls, lt, lu, lv, ly, ma, mc, md, me, mf, mg, mh, mk, ml, mm, mn, mo, mp, mr, ms, mt, mu, mv, mw, mx, my, mz, na, nc, ne, ng, ni, nl, no, np, nr, nu, nz, om, pa, pe, pf, pg, ph, pk, pl, pm, pn, pr, pt, pw, py, qa, ro, rs, ru, rw, sa, sb, sc, sd, se, sg, sh, si, sk, sl, sm, sn, so, sr, st, sv, sy, sz, tc, td, tg, th, tj, tk, tl, tm, tn, to, tr, tt, tv, tw, tz, ua, ug, us, uy, uz, va, vc, ve, vg, vi, vn, vu, wf, ws, ye, yt, za, zm, zw"
 
 instance ToText CountryCode where
     toText = \case
-        AD -> "AD"
-        AE -> "AE"
-        AF -> "AF"
-        AG -> "AG"
-        AI -> "AI"
-        AL -> "AL"
-        AM -> "AM"
-        AN -> "AN"
-        AO -> "AO"
-        AQ -> "AQ"
-        AR -> "AR"
-        AS -> "AS"
-        AT -> "AT"
-        AU -> "AU"
-        AW -> "AW"
-        AZ -> "AZ"
-        BA -> "BA"
-        BB -> "BB"
-        BD -> "BD"
-        BE -> "BE"
-        BF -> "BF"
-        BG -> "BG"
-        BH -> "BH"
-        BI -> "BI"
-        BJ -> "BJ"
-        BL -> "BL"
-        BM -> "BM"
-        BN -> "BN"
-        BO -> "BO"
-        BR -> "BR"
-        BS -> "BS"
-        BT -> "BT"
-        BW -> "BW"
-        BY -> "BY"
-        BZ -> "BZ"
-        CA -> "CA"
-        CC -> "CC"
-        CD -> "CD"
-        CF -> "CF"
-        CG -> "CG"
-        CH -> "CH"
-        CI -> "CI"
-        CK -> "CK"
-        CL -> "CL"
-        CM -> "CM"
-        CN -> "CN"
-        CO -> "CO"
-        CR -> "CR"
-        CU -> "CU"
-        CV -> "CV"
-        CX -> "CX"
-        CY -> "CY"
-        CZ -> "CZ"
-        DE -> "DE"
-        DJ -> "DJ"
-        DK -> "DK"
-        DM -> "DM"
-        DO -> "DO"
-        DZ -> "DZ"
-        EC -> "EC"
-        EE -> "EE"
-        EG -> "EG"
-        ER -> "ER"
-        ES -> "ES"
-        ET -> "ET"
-        FI -> "FI"
-        FJ -> "FJ"
-        FK -> "FK"
-        FM -> "FM"
-        FO -> "FO"
-        FR -> "FR"
-        GA -> "GA"
-        GB -> "GB"
-        GD -> "GD"
-        GE -> "GE"
-        GH -> "GH"
-        GI -> "GI"
-        GL -> "GL"
-        GM -> "GM"
-        GN -> "GN"
-        GQ -> "GQ"
-        GR -> "GR"
-        GT' -> "GT"
-        GU -> "GU"
-        GW -> "GW"
-        GY -> "GY"
-        HK -> "HK"
-        HN -> "HN"
-        HR -> "HR"
-        HT -> "HT"
-        HU -> "HU"
-        ID -> "ID"
-        IE -> "IE"
-        IL -> "IL"
-        IM -> "IM"
-        IN -> "IN"
-        IQ -> "IQ"
-        IR -> "IR"
-        IS -> "IS"
-        IT -> "IT"
-        JM -> "JM"
-        JO -> "JO"
-        JP -> "JP"
-        KE -> "KE"
-        KG -> "KG"
-        KH -> "KH"
-        KI -> "KI"
-        KM -> "KM"
-        KN -> "KN"
-        KP -> "KP"
-        KR -> "KR"
-        KW -> "KW"
-        KY -> "KY"
-        KZ -> "KZ"
-        LA -> "LA"
-        LB -> "LB"
-        LC -> "LC"
-        LI -> "LI"
-        LK -> "LK"
-        LR -> "LR"
-        LS -> "LS"
-        LT' -> "LT"
-        LU -> "LU"
-        LV -> "LV"
-        LY -> "LY"
-        MA -> "MA"
-        MC -> "MC"
-        MD -> "MD"
-        ME -> "ME"
-        MF -> "MF"
-        MG -> "MG"
-        MH -> "MH"
-        MK -> "MK"
-        ML -> "ML"
-        MM -> "MM"
-        MN -> "MN"
-        MO -> "MO"
-        MP -> "MP"
-        MR -> "MR"
-        MS -> "MS"
-        MT -> "MT"
-        MU -> "MU"
-        MV -> "MV"
-        MW -> "MW"
-        MX -> "MX"
-        MY -> "MY"
-        MZ -> "MZ"
-        NA -> "NA"
-        NC -> "NC"
-        NE -> "NE"
-        NG -> "NG"
-        NI -> "NI"
-        NL -> "NL"
-        NO -> "NO"
-        NP -> "NP"
-        NR -> "NR"
-        NU -> "NU"
-        NZ -> "NZ"
-        OM -> "OM"
-        PA -> "PA"
-        PE -> "PE"
-        PF -> "PF"
-        PG -> "PG"
-        PH -> "PH"
-        PK -> "PK"
-        PL -> "PL"
-        PM -> "PM"
-        PN -> "PN"
-        PR -> "PR"
-        PT -> "PT"
-        PW -> "PW"
-        PY -> "PY"
-        QA -> "QA"
-        RO -> "RO"
-        RS -> "RS"
-        RU -> "RU"
-        RW -> "RW"
-        SA -> "SA"
-        SB -> "SB"
-        SC -> "SC"
-        SD -> "SD"
-        SE -> "SE"
-        SG -> "SG"
-        SH -> "SH"
-        SI -> "SI"
-        SK -> "SK"
-        SL -> "SL"
-        SM -> "SM"
-        SN -> "SN"
-        SO -> "SO"
-        SR -> "SR"
-        ST -> "ST"
-        SV -> "SV"
-        SY -> "SY"
-        SZ -> "SZ"
-        TC -> "TC"
-        TD -> "TD"
-        TG -> "TG"
-        TH -> "TH"
-        TJ -> "TJ"
-        TK -> "TK"
-        TL -> "TL"
-        TM -> "TM"
-        TN -> "TN"
-        TO -> "TO"
-        TR -> "TR"
-        TT -> "TT"
-        TV -> "TV"
-        TW -> "TW"
-        TZ -> "TZ"
-        UA -> "UA"
-        UG -> "UG"
-        US -> "US"
-        UY -> "UY"
-        UZ -> "UZ"
-        VA -> "VA"
-        VC -> "VC"
-        VE -> "VE"
-        VG -> "VG"
-        VI -> "VI"
-        VN -> "VN"
-        VU -> "VU"
-        WF -> "WF"
-        WS -> "WS"
-        YE -> "YE"
-        YT -> "YT"
-        ZA -> "ZA"
-        ZM -> "ZM"
-        ZW -> "ZW"
+        AD -> "ad"
+        AE -> "ae"
+        AF -> "af"
+        AG -> "ag"
+        AI -> "ai"
+        AL -> "al"
+        AM -> "am"
+        AN -> "an"
+        AO -> "ao"
+        AQ -> "aq"
+        AR -> "ar"
+        AS -> "as"
+        AT -> "at"
+        AU -> "au"
+        AW -> "aw"
+        AZ -> "az"
+        BA -> "ba"
+        BB -> "bb"
+        BD -> "bd"
+        BE -> "be"
+        BF -> "bf"
+        BG -> "bg"
+        BH -> "bh"
+        BI -> "bi"
+        BJ -> "bj"
+        BL -> "bl"
+        BM -> "bm"
+        BN -> "bn"
+        BO -> "bo"
+        BR -> "br"
+        BS -> "bs"
+        BT -> "bt"
+        BW -> "bw"
+        BY -> "by"
+        BZ -> "bz"
+        CA -> "ca"
+        CC -> "cc"
+        CD -> "cd"
+        CF -> "cf"
+        CG -> "cg"
+        CH -> "ch"
+        CI -> "ci"
+        CK -> "ck"
+        CL -> "cl"
+        CM -> "cm"
+        CN -> "cn"
+        CO -> "co"
+        CR -> "cr"
+        CU -> "cu"
+        CV -> "cv"
+        CX -> "cx"
+        CY -> "cy"
+        CZ -> "cz"
+        DE -> "de"
+        DJ -> "dj"
+        DK -> "dk"
+        DM -> "dm"
+        DO -> "do"
+        DZ -> "dz"
+        EC -> "ec"
+        EE -> "ee"
+        EG -> "eg"
+        ER -> "er"
+        ES -> "es"
+        ET -> "et"
+        FI -> "fi"
+        FJ -> "fj"
+        FK -> "fk"
+        FM -> "fm"
+        FO -> "fo"
+        FR -> "fr"
+        GA -> "ga"
+        GB -> "gb"
+        GD -> "gd"
+        GE -> "ge"
+        GH -> "gh"
+        GI -> "gi"
+        GL -> "gl"
+        GM -> "gm"
+        GN -> "gn"
+        GQ -> "gq"
+        GR -> "gr"
+        GT' -> "gt"
+        GU -> "gu"
+        GW -> "gw"
+        GY -> "gy"
+        HK -> "hk"
+        HN -> "hn"
+        HR -> "hr"
+        HT -> "ht"
+        HU -> "hu"
+        ID -> "id"
+        IE -> "ie"
+        IL -> "il"
+        IM -> "im"
+        IN -> "in"
+        IQ -> "iq"
+        IR -> "ir"
+        IS -> "is"
+        IT -> "it"
+        JM -> "jm"
+        JO -> "jo"
+        JP -> "jp"
+        KE -> "ke"
+        KG -> "kg"
+        KH -> "kh"
+        KI -> "ki"
+        KM -> "km"
+        KN -> "kn"
+        KP -> "kp"
+        KR -> "kr"
+        KW -> "kw"
+        KY -> "ky"
+        KZ -> "kz"
+        LA -> "la"
+        LB -> "lb"
+        LC -> "lc"
+        LI -> "li"
+        LK -> "lk"
+        LR -> "lr"
+        LS -> "ls"
+        LT' -> "lt"
+        LU -> "lu"
+        LV -> "lv"
+        LY -> "ly"
+        MA -> "ma"
+        MC -> "mc"
+        MD -> "md"
+        ME -> "me"
+        MF -> "mf"
+        MG -> "mg"
+        MH -> "mh"
+        MK -> "mk"
+        ML -> "ml"
+        MM -> "mm"
+        MN -> "mn"
+        MO -> "mo"
+        MP -> "mp"
+        MR -> "mr"
+        MS -> "ms"
+        MT -> "mt"
+        MU -> "mu"
+        MV -> "mv"
+        MW -> "mw"
+        MX -> "mx"
+        MY -> "my"
+        MZ -> "mz"
+        NA -> "na"
+        NC -> "nc"
+        NE -> "ne"
+        NG -> "ng"
+        NI -> "ni"
+        NL -> "nl"
+        NO -> "no"
+        NP -> "np"
+        NR -> "nr"
+        NU -> "nu"
+        NZ -> "nz"
+        OM -> "om"
+        PA -> "pa"
+        PE -> "pe"
+        PF -> "pf"
+        PG -> "pg"
+        PH -> "ph"
+        PK -> "pk"
+        PL -> "pl"
+        PM -> "pm"
+        PN -> "pn"
+        PR -> "pr"
+        PT -> "pt"
+        PW -> "pw"
+        PY -> "py"
+        QA -> "qa"
+        RO -> "ro"
+        RS -> "rs"
+        RU -> "ru"
+        RW -> "rw"
+        SA -> "sa"
+        SB -> "sb"
+        SC -> "sc"
+        SD -> "sd"
+        SE -> "se"
+        SG -> "sg"
+        SH -> "sh"
+        SI -> "si"
+        SK -> "sk"
+        SL -> "sl"
+        SM -> "sm"
+        SN -> "sn"
+        SO -> "so"
+        SR -> "sr"
+        ST -> "st"
+        SV -> "sv"
+        SY -> "sy"
+        SZ -> "sz"
+        TC -> "tc"
+        TD -> "td"
+        TG -> "tg"
+        TH -> "th"
+        TJ -> "tj"
+        TK -> "tk"
+        TL -> "tl"
+        TM -> "tm"
+        TN -> "tn"
+        TO -> "to"
+        TR -> "tr"
+        TT -> "tt"
+        TV -> "tv"
+        TW -> "tw"
+        TZ -> "tz"
+        UA -> "ua"
+        UG -> "ug"
+        US -> "us"
+        UY -> "uy"
+        UZ -> "uz"
+        VA -> "va"
+        VC -> "vc"
+        VE -> "ve"
+        VG -> "vg"
+        VI -> "vi"
+        VN -> "vn"
+        VU -> "vu"
+        WF -> "wf"
+        WS -> "ws"
+        YE -> "ye"
+        YT -> "yt"
+        ZA -> "za"
+        ZM -> "zm"
+        ZW -> "zw"
 
 instance Hashable CountryCode
 instance ToQuery CountryCode
@@ -924,26 +926,27 @@ data DomainAvailability
 
 instance FromText DomainAvailability where
     parser = takeLowerText >>= \case
-        "AVAILABLE" -> pure Available
-        "AVAILABLE_PREORDER" -> pure AvailablePreorder
-        "AVAILABLE_RESERVED" -> pure AvailableReserved
-        "DONT_KNOW" -> pure DontKnow
-        "RESERVED" -> pure Reserved
-        "UNAVAILABLE" -> pure Unavailable
-        "UNAVAILABLE_PREMIUM" -> pure UnavailablePremium
-        "UNAVAILABLE_RESTRICTED" -> pure UnavailableRestricted
-        e -> fail ("Failure parsing DomainAvailability from " ++ show e)
+        "available" -> pure Available
+        "available_preorder" -> pure AvailablePreorder
+        "available_reserved" -> pure AvailableReserved
+        "dont_know" -> pure DontKnow
+        "reserved" -> pure Reserved
+        "unavailable" -> pure Unavailable
+        "unavailable_premium" -> pure UnavailablePremium
+        "unavailable_restricted" -> pure UnavailableRestricted
+        e -> fromTextError $ "Failure parsing DomainAvailability from value: '" <> e
+           <> "'. Accepted values: available, available_preorder, available_reserved, dont_know, reserved, unavailable, unavailable_premium, unavailable_restricted"
 
 instance ToText DomainAvailability where
     toText = \case
-        Available -> "AVAILABLE"
-        AvailablePreorder -> "AVAILABLE_PREORDER"
-        AvailableReserved -> "AVAILABLE_RESERVED"
-        DontKnow -> "DONT_KNOW"
-        Reserved -> "RESERVED"
-        Unavailable -> "UNAVAILABLE"
-        UnavailablePremium -> "UNAVAILABLE_PREMIUM"
-        UnavailableRestricted -> "UNAVAILABLE_RESTRICTED"
+        Available -> "available"
+        AvailablePreorder -> "available_preorder"
+        AvailableReserved -> "available_reserved"
+        DontKnow -> "dont_know"
+        Reserved -> "reserved"
+        Unavailable -> "unavailable"
+        UnavailablePremium -> "unavailable_premium"
+        UnavailableRestricted -> "unavailable_restricted"
 
 instance Hashable DomainAvailability
 instance ToQuery DomainAvailability
@@ -977,50 +980,51 @@ data ExtraParamName
 
 instance FromText ExtraParamName where
     parser = takeLowerText >>= \case
-        "AU_ID_NUMBER" -> pure AUIDNumber
-        "AU_ID_TYPE" -> pure AUIDType
-        "BIRTH_CITY" -> pure BirthCity
-        "BIRTH_COUNTRY" -> pure BirthCountry
-        "BIRTH_DATE_IN_YYYY_MM_DD" -> pure BirthDateINYyyyMMDD
-        "BIRTH_DEPARTMENT" -> pure BirthDepartment
-        "BRAND_NUMBER" -> pure BrandNumber
-        "CA_LEGAL_TYPE" -> pure CALegalType
-        "DOCUMENT_NUMBER" -> pure DocumentNumber
-        "DUNS_NUMBER" -> pure DunsNumber
-        "ES_IDENTIFICATION" -> pure ESIdentification
-        "ES_IDENTIFICATION_TYPE" -> pure ESIdentificationType
-        "ES_LEGAL_FORM" -> pure ESLegalForm
-        "FI_BUSINESS_NUMBER" -> pure FIBusinessNumber
-        "FI_ID_NUMBER" -> pure FIIDNumber
-        "IT_PIN" -> pure ITPin
-        "RU_PASSPORT_DATA" -> pure RUPassportData
-        "SE_ID_NUMBER" -> pure SEIDNumber
-        "SG_ID_NUMBER" -> pure SGIDNumber
-        "VAT_NUMBER" -> pure VatNumber
-        e -> fail ("Failure parsing ExtraParamName from " ++ show e)
+        "au_id_number" -> pure AUIDNumber
+        "au_id_type" -> pure AUIDType
+        "birth_city" -> pure BirthCity
+        "birth_country" -> pure BirthCountry
+        "birth_date_in_yyyy_mm_dd" -> pure BirthDateINYyyyMMDD
+        "birth_department" -> pure BirthDepartment
+        "brand_number" -> pure BrandNumber
+        "ca_legal_type" -> pure CALegalType
+        "document_number" -> pure DocumentNumber
+        "duns_number" -> pure DunsNumber
+        "es_identification" -> pure ESIdentification
+        "es_identification_type" -> pure ESIdentificationType
+        "es_legal_form" -> pure ESLegalForm
+        "fi_business_number" -> pure FIBusinessNumber
+        "fi_id_number" -> pure FIIDNumber
+        "it_pin" -> pure ITPin
+        "ru_passport_data" -> pure RUPassportData
+        "se_id_number" -> pure SEIDNumber
+        "sg_id_number" -> pure SGIDNumber
+        "vat_number" -> pure VatNumber
+        e -> fromTextError $ "Failure parsing ExtraParamName from value: '" <> e
+           <> "'. Accepted values: au_id_number, au_id_type, birth_city, birth_country, birth_date_in_yyyy_mm_dd, birth_department, brand_number, ca_legal_type, document_number, duns_number, es_identification, es_identification_type, es_legal_form, fi_business_number, fi_id_number, it_pin, ru_passport_data, se_id_number, sg_id_number, vat_number"
 
 instance ToText ExtraParamName where
     toText = \case
-        AUIDNumber -> "AU_ID_NUMBER"
-        AUIDType -> "AU_ID_TYPE"
-        BirthCity -> "BIRTH_CITY"
-        BirthCountry -> "BIRTH_COUNTRY"
-        BirthDateINYyyyMMDD -> "BIRTH_DATE_IN_YYYY_MM_DD"
-        BirthDepartment -> "BIRTH_DEPARTMENT"
-        BrandNumber -> "BRAND_NUMBER"
-        CALegalType -> "CA_LEGAL_TYPE"
-        DocumentNumber -> "DOCUMENT_NUMBER"
-        DunsNumber -> "DUNS_NUMBER"
-        ESIdentification -> "ES_IDENTIFICATION"
-        ESIdentificationType -> "ES_IDENTIFICATION_TYPE"
-        ESLegalForm -> "ES_LEGAL_FORM"
-        FIBusinessNumber -> "FI_BUSINESS_NUMBER"
-        FIIDNumber -> "FI_ID_NUMBER"
-        ITPin -> "IT_PIN"
-        RUPassportData -> "RU_PASSPORT_DATA"
-        SEIDNumber -> "SE_ID_NUMBER"
-        SGIDNumber -> "SG_ID_NUMBER"
-        VatNumber -> "VAT_NUMBER"
+        AUIDNumber -> "au_id_number"
+        AUIDType -> "au_id_type"
+        BirthCity -> "birth_city"
+        BirthCountry -> "birth_country"
+        BirthDateINYyyyMMDD -> "birth_date_in_yyyy_mm_dd"
+        BirthDepartment -> "birth_department"
+        BrandNumber -> "brand_number"
+        CALegalType -> "ca_legal_type"
+        DocumentNumber -> "document_number"
+        DunsNumber -> "duns_number"
+        ESIdentification -> "es_identification"
+        ESIdentificationType -> "es_identification_type"
+        ESLegalForm -> "es_legal_form"
+        FIBusinessNumber -> "fi_business_number"
+        FIIDNumber -> "fi_id_number"
+        ITPin -> "it_pin"
+        RUPassportData -> "ru_passport_data"
+        SEIDNumber -> "se_id_number"
+        SGIDNumber -> "sg_id_number"
+        VatNumber -> "vat_number"
 
 instance Hashable ExtraParamName
 instance ToQuery ExtraParamName
@@ -1042,20 +1046,21 @@ data OperationStatus
 
 instance FromText OperationStatus where
     parser = takeLowerText >>= \case
-        "ERROR" -> pure Error'
-        "FAILED" -> pure Failed
-        "IN_PROGRESS" -> pure INProgress
-        "SUBMITTED" -> pure Submitted
-        "SUCCESSFUL" -> pure Successful
-        e -> fail ("Failure parsing OperationStatus from " ++ show e)
+        "error" -> pure Error'
+        "failed" -> pure Failed
+        "in_progress" -> pure INProgress
+        "submitted" -> pure Submitted
+        "successful" -> pure Successful
+        e -> fromTextError $ "Failure parsing OperationStatus from value: '" <> e
+           <> "'. Accepted values: error, failed, in_progress, submitted, successful"
 
 instance ToText OperationStatus where
     toText = \case
-        Error' -> "ERROR"
-        Failed -> "FAILED"
-        INProgress -> "IN_PROGRESS"
-        Submitted -> "SUBMITTED"
-        Successful -> "SUCCESSFUL"
+        Error' -> "error"
+        Failed -> "failed"
+        INProgress -> "in_progress"
+        Submitted -> "submitted"
+        Successful -> "successful"
 
 instance Hashable OperationStatus
 instance ToQuery OperationStatus
@@ -1076,24 +1081,25 @@ data OperationType
 
 instance FromText OperationType where
     parser = takeLowerText >>= \case
-        "CHANGE_PRIVACY_PROTECTION" -> pure ChangePrivacyProtection
-        "DELETE_DOMAIN" -> pure DeleteDomain
-        "DOMAIN_LOCK" -> pure DomainLock
-        "REGISTER_DOMAIN" -> pure RegisterDomain
-        "TRANSFER_IN_DOMAIN" -> pure TransferINDomain
-        "UPDATE_DOMAIN_CONTACT" -> pure UpdateDomainContact
-        "UPDATE_NAMESERVER" -> pure UpdateNameserver
-        e -> fail ("Failure parsing OperationType from " ++ show e)
+        "change_privacy_protection" -> pure ChangePrivacyProtection
+        "delete_domain" -> pure DeleteDomain
+        "domain_lock" -> pure DomainLock
+        "register_domain" -> pure RegisterDomain
+        "transfer_in_domain" -> pure TransferINDomain
+        "update_domain_contact" -> pure UpdateDomainContact
+        "update_nameserver" -> pure UpdateNameserver
+        e -> fromTextError $ "Failure parsing OperationType from value: '" <> e
+           <> "'. Accepted values: change_privacy_protection, delete_domain, domain_lock, register_domain, transfer_in_domain, update_domain_contact, update_nameserver"
 
 instance ToText OperationType where
     toText = \case
-        ChangePrivacyProtection -> "CHANGE_PRIVACY_PROTECTION"
-        DeleteDomain -> "DELETE_DOMAIN"
-        DomainLock -> "DOMAIN_LOCK"
-        RegisterDomain -> "REGISTER_DOMAIN"
-        TransferINDomain -> "TRANSFER_IN_DOMAIN"
-        UpdateDomainContact -> "UPDATE_DOMAIN_CONTACT"
-        UpdateNameserver -> "UPDATE_NAMESERVER"
+        ChangePrivacyProtection -> "change_privacy_protection"
+        DeleteDomain -> "delete_domain"
+        DomainLock -> "domain_lock"
+        RegisterDomain -> "register_domain"
+        TransferINDomain -> "transfer_in_domain"
+        UpdateDomainContact -> "update_domain_contact"
+        UpdateNameserver -> "update_nameserver"
 
 instance Hashable OperationType
 instance ToQuery OperationType

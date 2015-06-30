@@ -183,14 +183,15 @@ data EventSourcePosition
 
 instance FromText EventSourcePosition where
     parser = takeLowerText >>= \case
-        "LATEST" -> pure Latest
-        "TRIM_HORIZON" -> pure TrimHorizon
-        e -> fail ("Failure parsing EventSourcePosition from " ++ show e)
+        "latest" -> pure Latest
+        "trim_horizon" -> pure TrimHorizon
+        e -> fromTextError $ "Failure parsing EventSourcePosition from value: '" <> e
+           <> "'. Accepted values: latest, trim_horizon"
 
 instance ToText EventSourcePosition where
     toText = \case
-        Latest -> "LATEST"
-        TrimHorizon -> "TRIM_HORIZON"
+        Latest -> "latest"
+        TrimHorizon -> "trim_horizon"
 
 instance Hashable EventSourcePosition
 instance ToQuery EventSourcePosition
@@ -207,16 +208,17 @@ data InvocationType
 
 instance FromText InvocationType where
     parser = takeLowerText >>= \case
-        "DryRun" -> pure DryRun
-        "Event" -> pure Event
-        "RequestResponse" -> pure RequestResponse
-        e -> fail ("Failure parsing InvocationType from " ++ show e)
+        "dryrun" -> pure DryRun
+        "event" -> pure Event
+        "requestresponse" -> pure RequestResponse
+        e -> fromTextError $ "Failure parsing InvocationType from value: '" <> e
+           <> "'. Accepted values: dryrun, event, requestresponse"
 
 instance ToText InvocationType where
     toText = \case
-        DryRun -> "DryRun"
-        Event -> "Event"
-        RequestResponse -> "RequestResponse"
+        DryRun -> "dryrun"
+        Event -> "event"
+        RequestResponse -> "requestresponse"
 
 instance Hashable InvocationType
 instance ToQuery InvocationType
@@ -232,14 +234,15 @@ data LogType
 
 instance FromText LogType where
     parser = takeLowerText >>= \case
-        "None" -> pure None
-        "Tail" -> pure Tail
-        e -> fail ("Failure parsing LogType from " ++ show e)
+        "none" -> pure None
+        "tail" -> pure Tail
+        e -> fromTextError $ "Failure parsing LogType from value: '" <> e
+           <> "'. Accepted values: none, tail"
 
 instance ToText LogType where
     toText = \case
-        None -> "None"
-        Tail -> "Tail"
+        None -> "none"
+        Tail -> "tail"
 
 instance Hashable LogType
 instance ToQuery LogType
@@ -257,7 +260,8 @@ instance FromText Runtime where
     parser = takeLowerText >>= \case
         "java8" -> pure JAVA8
         "nodejs" -> pure Nodejs
-        e -> fail ("Failure parsing Runtime from " ++ show e)
+        e -> fromTextError $ "Failure parsing Runtime from value: '" <> e
+           <> "'. Accepted values: java8, nodejs"
 
 instance ToText Runtime where
     toText = \case

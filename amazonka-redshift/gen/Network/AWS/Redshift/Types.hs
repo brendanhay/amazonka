@@ -999,7 +999,8 @@ instance FromText ParameterApplyType where
     parser = takeLowerText >>= \case
         "dynamic" -> pure Dynamic
         "static" -> pure Static
-        e -> fail ("Failure parsing ParameterApplyType from " ++ show e)
+        e -> fromTextError $ "Failure parsing ParameterApplyType from value: '" <> e
+           <> "'. Accepted values: dynamic, static"
 
 instance ToText ParameterApplyType where
     toText = \case
@@ -1026,7 +1027,8 @@ instance FromText SourceType where
         "cluster-parameter-group" -> pure ClusterParameterGroup
         "cluster-security-group" -> pure ClusterSecurityGroup
         "cluster-snapshot" -> pure ClusterSnapshot
-        e -> fail ("Failure parsing SourceType from " ++ show e)
+        e -> fromTextError $ "Failure parsing SourceType from value: '" <> e
+           <> "'. Accepted values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot"
 
 instance ToText SourceType where
     toText = \case

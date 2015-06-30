@@ -106,7 +106,8 @@ instance AWSRequest DescribeSpotFleetRequests where
               (\ s h x ->
                  DescribeSpotFleetRequestsResponse' <$>
                    (x .@? "nextToken") <*> (pure (fromEnum s)) <*>
-                     (parseXMLList "item" x))
+                     (x .@? "spotFleetRequestConfigSet" .!@ mempty >>=
+                        parseXMLList "item"))
 
 instance ToHeaders DescribeSpotFleetRequests where
         toHeaders = const mempty

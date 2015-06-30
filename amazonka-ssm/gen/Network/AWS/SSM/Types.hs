@@ -231,14 +231,15 @@ data AssociationFilterKey
 
 instance FromText AssociationFilterKey where
     parser = takeLowerText >>= \case
-        "InstanceId" -> pure AFKInstanceId
-        "Name" -> pure AFKName
-        e -> fail ("Failure parsing AssociationFilterKey from " ++ show e)
+        "instanceid" -> pure AFKInstanceId
+        "name" -> pure AFKName
+        e -> fromTextError $ "Failure parsing AssociationFilterKey from value: '" <> e
+           <> "'. Accepted values: instanceid, name"
 
 instance ToText AssociationFilterKey where
     toText = \case
-        AFKInstanceId -> "InstanceId"
-        AFKName -> "Name"
+        AFKInstanceId -> "instanceid"
+        AFKName -> "name"
 
 instance Hashable AssociationFilterKey
 instance ToQuery AssociationFilterKey
@@ -255,16 +256,17 @@ data AssociationStatusName
 
 instance FromText AssociationStatusName where
     parser = takeLowerText >>= \case
-        "Failed" -> pure Failed
-        "Pending" -> pure Pending
-        "Success" -> pure Success
-        e -> fail ("Failure parsing AssociationStatusName from " ++ show e)
+        "failed" -> pure Failed
+        "pending" -> pure Pending
+        "success" -> pure Success
+        e -> fromTextError $ "Failure parsing AssociationStatusName from value: '" <> e
+           <> "'. Accepted values: failed, pending, success"
 
 instance ToText AssociationStatusName where
     toText = \case
-        Failed -> "Failed"
-        Pending -> "Pending"
-        Success -> "Success"
+        Failed -> "failed"
+        Pending -> "pending"
+        Success -> "success"
 
 instance Hashable AssociationStatusName
 instance ToQuery AssociationStatusName
@@ -282,12 +284,13 @@ data DocumentFilterKey =
 
 instance FromText DocumentFilterKey where
     parser = takeLowerText >>= \case
-        "Name" -> pure Name
-        e -> fail ("Failure parsing DocumentFilterKey from " ++ show e)
+        "name" -> pure Name
+        e -> fromTextError $ "Failure parsing DocumentFilterKey from value: '" <> e
+           <> "'. Accepted values: name"
 
 instance ToText DocumentFilterKey where
     toText = \case
-        Name -> "Name"
+        Name -> "name"
 
 instance Hashable DocumentFilterKey
 instance ToQuery DocumentFilterKey
@@ -304,16 +307,17 @@ data DocumentStatus
 
 instance FromText DocumentStatus where
     parser = takeLowerText >>= \case
-        "Active" -> pure Active
-        "Creating" -> pure Creating
-        "Deleting" -> pure Deleting
-        e -> fail ("Failure parsing DocumentStatus from " ++ show e)
+        "active" -> pure Active
+        "creating" -> pure Creating
+        "deleting" -> pure Deleting
+        e -> fromTextError $ "Failure parsing DocumentStatus from value: '" <> e
+           <> "'. Accepted values: active, creating, deleting"
 
 instance ToText DocumentStatus where
     toText = \case
-        Active -> "Active"
-        Creating -> "Creating"
-        Deleting -> "Deleting"
+        Active -> "active"
+        Creating -> "creating"
+        Deleting -> "deleting"
 
 instance Hashable DocumentStatus
 instance ToQuery DocumentStatus
@@ -330,16 +334,17 @@ data Fault
 
 instance FromText Fault where
     parser = takeLowerText >>= \case
-        "Client" -> pure Client
-        "Server" -> pure Server
-        "Unknown" -> pure Unknown
-        e -> fail ("Failure parsing Fault from " ++ show e)
+        "client" -> pure Client
+        "server" -> pure Server
+        "unknown" -> pure Unknown
+        e -> fromTextError $ "Failure parsing Fault from value: '" <> e
+           <> "'. Accepted values: client, server, unknown"
 
 instance ToText Fault where
     toText = \case
-        Client -> "Client"
-        Server -> "Server"
-        Unknown -> "Unknown"
+        Client -> "client"
+        Server -> "server"
+        Unknown -> "unknown"
 
 instance Hashable Fault
 instance ToQuery Fault

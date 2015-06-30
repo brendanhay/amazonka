@@ -155,8 +155,9 @@ instance AWSRequest DescribeRouteTables where
           = receiveXML
               (\ s h x ->
                  DescribeRouteTablesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "routeTableSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeRouteTables where
         toHeaders = const mempty

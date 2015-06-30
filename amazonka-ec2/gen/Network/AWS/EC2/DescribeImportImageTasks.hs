@@ -110,7 +110,9 @@ instance AWSRequest DescribeImportImageTasks where
           = receiveXML
               (\ s h x ->
                  DescribeImportImageTasksResponse' <$>
-                   (may (parseXMLList "item") x) <*> (x .@? "nextToken")
+                   (x .@? "importImageTaskSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeImportImageTasks where

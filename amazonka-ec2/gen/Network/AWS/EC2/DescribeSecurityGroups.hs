@@ -154,8 +154,9 @@ instance AWSRequest DescribeSecurityGroups where
           = receiveXML
               (\ s h x ->
                  DescribeSecurityGroupsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "securityGroupInfo" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeSecurityGroups where
         toHeaders = const mempty

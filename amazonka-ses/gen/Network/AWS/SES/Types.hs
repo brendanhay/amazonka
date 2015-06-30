@@ -143,14 +143,15 @@ data IdentityType
 
 instance FromText IdentityType where
     parser = takeLowerText >>= \case
-        "Domain" -> pure Domain
-        "EmailAddress" -> pure EmailAddress
-        e -> fail ("Failure parsing IdentityType from " ++ show e)
+        "domain" -> pure Domain
+        "emailaddress" -> pure EmailAddress
+        e -> fromTextError $ "Failure parsing IdentityType from value: '" <> e
+           <> "'. Accepted values: domain, emailaddress"
 
 instance ToText IdentityType where
     toText = \case
-        Domain -> "Domain"
-        EmailAddress -> "EmailAddress"
+        Domain -> "domain"
+        EmailAddress -> "emailaddress"
 
 instance Hashable IdentityType
 instance ToQuery IdentityType
@@ -164,16 +165,17 @@ data NotificationType
 
 instance FromText NotificationType where
     parser = takeLowerText >>= \case
-        "Bounce" -> pure Bounce
-        "Complaint" -> pure Complaint
-        "Delivery" -> pure Delivery
-        e -> fail ("Failure parsing NotificationType from " ++ show e)
+        "bounce" -> pure Bounce
+        "complaint" -> pure Complaint
+        "delivery" -> pure Delivery
+        e -> fromTextError $ "Failure parsing NotificationType from value: '" <> e
+           <> "'. Accepted values: bounce, complaint, delivery"
 
 instance ToText NotificationType where
     toText = \case
-        Bounce -> "Bounce"
-        Complaint -> "Complaint"
-        Delivery -> "Delivery"
+        Bounce -> "bounce"
+        Complaint -> "complaint"
+        Delivery -> "delivery"
 
 instance Hashable NotificationType
 instance ToQuery NotificationType
@@ -189,20 +191,21 @@ data VerificationStatus
 
 instance FromText VerificationStatus where
     parser = takeLowerText >>= \case
-        "Failed" -> pure Failed
-        "NotStarted" -> pure NotStarted
-        "Pending" -> pure Pending
-        "Success" -> pure Success
-        "TemporaryFailure" -> pure TemporaryFailure
-        e -> fail ("Failure parsing VerificationStatus from " ++ show e)
+        "failed" -> pure Failed
+        "notstarted" -> pure NotStarted
+        "pending" -> pure Pending
+        "success" -> pure Success
+        "temporaryfailure" -> pure TemporaryFailure
+        e -> fromTextError $ "Failure parsing VerificationStatus from value: '" <> e
+           <> "'. Accepted values: failed, notstarted, pending, success, temporaryfailure"
 
 instance ToText VerificationStatus where
     toText = \case
-        Failed -> "Failed"
-        NotStarted -> "NotStarted"
-        Pending -> "Pending"
-        Success -> "Success"
-        TemporaryFailure -> "TemporaryFailure"
+        Failed -> "failed"
+        NotStarted -> "notstarted"
+        Pending -> "pending"
+        Success -> "success"
+        TemporaryFailure -> "temporaryfailure"
 
 instance Hashable VerificationStatus
 instance ToQuery VerificationStatus

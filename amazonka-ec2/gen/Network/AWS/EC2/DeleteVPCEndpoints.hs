@@ -83,8 +83,9 @@ instance AWSRequest DeleteVPCEndpoints where
           = receiveXML
               (\ s h x ->
                  DeleteVPCEndpointsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "unsuccessful" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteVPCEndpoints where
         toHeaders = const mempty

@@ -211,14 +211,15 @@ data DataKeySpec
 
 instance FromText DataKeySpec where
     parser = takeLowerText >>= \case
-        "AES_128" -> pure AES128
-        "AES_256" -> pure AES256
-        e -> fail ("Failure parsing DataKeySpec from " ++ show e)
+        "aes_128" -> pure AES128
+        "aes_256" -> pure AES256
+        e -> fromTextError $ "Failure parsing DataKeySpec from value: '" <> e
+           <> "'. Accepted values: aes_128, aes_256"
 
 instance ToText DataKeySpec where
     toText = \case
-        AES128 -> "AES_128"
-        AES256 -> "AES_256"
+        AES128 -> "aes_128"
+        AES256 -> "aes_256"
 
 instance Hashable DataKeySpec
 instance ToQuery DataKeySpec
@@ -240,26 +241,27 @@ data GrantOperation
 
 instance FromText GrantOperation where
     parser = takeLowerText >>= \case
-        "CreateGrant" -> pure CreateGrant
-        "Decrypt" -> pure Decrypt
-        "Encrypt" -> pure Encrypt
-        "GenerateDataKey" -> pure GenerateDataKey
-        "GenerateDataKeyWithoutPlaintext" -> pure GenerateDataKeyWithoutPlaintext
-        "ReEncryptFrom" -> pure ReEncryptFrom
-        "ReEncryptTo" -> pure ReEncryptTo
-        "RetireGrant" -> pure RetireGrant
-        e -> fail ("Failure parsing GrantOperation from " ++ show e)
+        "creategrant" -> pure CreateGrant
+        "decrypt" -> pure Decrypt
+        "encrypt" -> pure Encrypt
+        "generatedatakey" -> pure GenerateDataKey
+        "generatedatakeywithoutplaintext" -> pure GenerateDataKeyWithoutPlaintext
+        "reencryptfrom" -> pure ReEncryptFrom
+        "reencryptto" -> pure ReEncryptTo
+        "retiregrant" -> pure RetireGrant
+        e -> fromTextError $ "Failure parsing GrantOperation from value: '" <> e
+           <> "'. Accepted values: creategrant, decrypt, encrypt, generatedatakey, generatedatakeywithoutplaintext, reencryptfrom, reencryptto, retiregrant"
 
 instance ToText GrantOperation where
     toText = \case
-        CreateGrant -> "CreateGrant"
-        Decrypt -> "Decrypt"
-        Encrypt -> "Encrypt"
-        GenerateDataKey -> "GenerateDataKey"
-        GenerateDataKeyWithoutPlaintext -> "GenerateDataKeyWithoutPlaintext"
-        ReEncryptFrom -> "ReEncryptFrom"
-        ReEncryptTo -> "ReEncryptTo"
-        RetireGrant -> "RetireGrant"
+        CreateGrant -> "creategrant"
+        Decrypt -> "decrypt"
+        Encrypt -> "encrypt"
+        GenerateDataKey -> "generatedatakey"
+        GenerateDataKeyWithoutPlaintext -> "generatedatakeywithoutplaintext"
+        ReEncryptFrom -> "reencryptfrom"
+        ReEncryptTo -> "reencryptto"
+        RetireGrant -> "retiregrant"
 
 instance Hashable GrantOperation
 instance ToQuery GrantOperation
@@ -277,12 +279,13 @@ data KeyUsageType =
 
 instance FromText KeyUsageType where
     parser = takeLowerText >>= \case
-        "ENCRYPT_DECRYPT" -> pure EncryptDecrypt
-        e -> fail ("Failure parsing KeyUsageType from " ++ show e)
+        "encrypt_decrypt" -> pure EncryptDecrypt
+        e -> fromTextError $ "Failure parsing KeyUsageType from value: '" <> e
+           <> "'. Accepted values: encrypt_decrypt"
 
 instance ToText KeyUsageType where
     toText = \case
-        EncryptDecrypt -> "ENCRYPT_DECRYPT"
+        EncryptDecrypt -> "encrypt_decrypt"
 
 instance Hashable KeyUsageType
 instance ToQuery KeyUsageType

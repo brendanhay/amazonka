@@ -103,12 +103,18 @@ instance AWSRequest DescribeImageAttribute where
           = receiveXML
               (\ s h x ->
                  DescribeImageAttributeResponse' <$>
-                   (may (parseXMLList "item") x) <*> (x .@? "ramdisk")
+                   (x .@? "launchPermission" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (x .@? "ramdisk")
                      <*> (x .@? "kernel")
                      <*> (x .@? "sriovNetSupport")
                      <*> (x .@? "imageId")
-                     <*> (may (parseXMLList "item") x)
-                     <*> (may (parseXMLList "item") x)
+                     <*>
+                     (x .@? "productCodes" .!@ mempty >>=
+                        may (parseXMLList "item"))
+                     <*>
+                     (x .@? "blockDeviceMapping" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (x .@? "description")
                      <*> (pure (fromEnum s)))
 

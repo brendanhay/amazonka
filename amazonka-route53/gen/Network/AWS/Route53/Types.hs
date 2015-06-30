@@ -432,16 +432,17 @@ data ChangeAction
 
 instance FromText ChangeAction where
     parser = takeLowerText >>= \case
-        "CREATE" -> pure Create
-        "DELETE" -> pure Delete
-        "UPSERT" -> pure Upsert
-        e -> fail ("Failure parsing ChangeAction from " ++ show e)
+        "create" -> pure Create
+        "delete" -> pure Delete
+        "upsert" -> pure Upsert
+        e -> fromTextError $ "Failure parsing ChangeAction from value: '" <> e
+           <> "'. Accepted values: create, delete, upsert"
 
 instance ToText ChangeAction where
     toText = \case
-        Create -> "CREATE"
-        Delete -> "DELETE"
-        Upsert -> "UPSERT"
+        Create -> "create"
+        Delete -> "delete"
+        Upsert -> "upsert"
 
 instance Hashable ChangeAction
 instance ToQuery ChangeAction
@@ -457,14 +458,15 @@ data ChangeStatus
 
 instance FromText ChangeStatus where
     parser = takeLowerText >>= \case
-        "INSYNC" -> pure Insync
-        "PENDING" -> pure Pending
-        e -> fail ("Failure parsing ChangeStatus from " ++ show e)
+        "insync" -> pure Insync
+        "pending" -> pure Pending
+        e -> fromTextError $ "Failure parsing ChangeStatus from value: '" <> e
+           <> "'. Accepted values: insync, pending"
 
 instance ToText ChangeStatus where
     toText = \case
-        Insync -> "INSYNC"
-        Pending -> "PENDING"
+        Insync -> "insync"
+        Pending -> "pending"
 
 instance Hashable ChangeStatus
 instance ToQuery ChangeStatus
@@ -480,14 +482,15 @@ data Failover
 
 instance FromText Failover where
     parser = takeLowerText >>= \case
-        "PRIMARY" -> pure Primary
-        "SECONDARY" -> pure Secondary
-        e -> fail ("Failure parsing Failover from " ++ show e)
+        "primary" -> pure Primary
+        "secondary" -> pure Secondary
+        e -> fromTextError $ "Failure parsing Failover from value: '" <> e
+           <> "'. Accepted values: primary, secondary"
 
 instance ToText Failover where
     toText = \case
-        Primary -> "PRIMARY"
-        Secondary -> "SECONDARY"
+        Primary -> "primary"
+        Secondary -> "secondary"
 
 instance Hashable Failover
 instance ToQuery Failover
@@ -509,20 +512,21 @@ data HealthCheckType
 
 instance FromText HealthCheckType where
     parser = takeLowerText >>= \case
-        "HTTP" -> pure HTTP
-        "HTTPS" -> pure HTTPS
-        "HTTPS_STR_MATCH" -> pure HTTPSStrMatch
-        "HTTP_STR_MATCH" -> pure HTTPStrMatch
-        "TCP" -> pure TCP
-        e -> fail ("Failure parsing HealthCheckType from " ++ show e)
+        "http" -> pure HTTP
+        "https" -> pure HTTPS
+        "https_str_match" -> pure HTTPSStrMatch
+        "http_str_match" -> pure HTTPStrMatch
+        "tcp" -> pure TCP
+        e -> fromTextError $ "Failure parsing HealthCheckType from value: '" <> e
+           <> "'. Accepted values: http, https, https_str_match, http_str_match, tcp"
 
 instance ToText HealthCheckType where
     toText = \case
-        HTTP -> "HTTP"
-        HTTPS -> "HTTPS"
-        HTTPSStrMatch -> "HTTPS_STR_MATCH"
-        HTTPStrMatch -> "HTTP_STR_MATCH"
-        TCP -> "TCP"
+        HTTP -> "http"
+        HTTPS -> "https"
+        HTTPSStrMatch -> "https_str_match"
+        HTTPStrMatch -> "http_str_match"
+        TCP -> "tcp"
 
 instance Hashable HealthCheckType
 instance ToQuery HealthCheckType
@@ -549,30 +553,31 @@ data RecordType
 
 instance FromText RecordType where
     parser = takeLowerText >>= \case
-        "A" -> pure A
-        "AAAA" -> pure Aaaa
-        "CNAME" -> pure Cname
-        "MX" -> pure MX
-        "NS" -> pure NS
-        "PTR" -> pure Ptr
-        "SOA" -> pure Soa
-        "SPF" -> pure Spf
-        "SRV" -> pure Srv
-        "TXT" -> pure Txt
-        e -> fail ("Failure parsing RecordType from " ++ show e)
+        "a" -> pure A
+        "aaaa" -> pure Aaaa
+        "cname" -> pure Cname
+        "mx" -> pure MX
+        "ns" -> pure NS
+        "ptr" -> pure Ptr
+        "soa" -> pure Soa
+        "spf" -> pure Spf
+        "srv" -> pure Srv
+        "txt" -> pure Txt
+        e -> fromTextError $ "Failure parsing RecordType from value: '" <> e
+           <> "'. Accepted values: a, aaaa, cname, mx, ns, ptr, soa, spf, srv, txt"
 
 instance ToText RecordType where
     toText = \case
-        A -> "A"
-        Aaaa -> "AAAA"
-        Cname -> "CNAME"
-        MX -> "MX"
-        NS -> "NS"
-        Ptr -> "PTR"
-        Soa -> "SOA"
-        Spf -> "SPF"
-        Srv -> "SRV"
-        Txt -> "TXT"
+        A -> "a"
+        Aaaa -> "aaaa"
+        Cname -> "cname"
+        MX -> "mx"
+        NS -> "ns"
+        Ptr -> "ptr"
+        Soa -> "soa"
+        Spf -> "spf"
+        Srv -> "srv"
+        Txt -> "txt"
 
 instance Hashable RecordType
 instance ToQuery RecordType
@@ -593,7 +598,8 @@ instance FromText TagResourceType where
     parser = takeLowerText >>= \case
         "healthcheck" -> pure Healthcheck
         "hostedzone" -> pure Hostedzone
-        e -> fail ("Failure parsing TagResourceType from " ++ show e)
+        e -> fromTextError $ "Failure parsing TagResourceType from value: '" <> e
+           <> "'. Accepted values: healthcheck, hostedzone"
 
 instance ToText TagResourceType where
     toText = \case
@@ -635,7 +641,8 @@ instance FromText VPCRegion where
         "us-east-1" -> pure USEast1
         "us-west-1" -> pure USWest1
         "us-west-2" -> pure USWest2
-        e -> fail ("Failure parsing VPCRegion from " ++ show e)
+        e -> fromTextError $ "Failure parsing VPCRegion from value: '" <> e
+           <> "'. Accepted values: ap-northeast-1, ap-southeast-1, ap-southeast-2, cn-north-1, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2"
 
 instance ToText VPCRegion where
     toText = \case

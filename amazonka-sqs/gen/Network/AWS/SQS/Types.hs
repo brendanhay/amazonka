@@ -262,36 +262,37 @@ data QueueAttributeName
 
 instance FromText QueueAttributeName where
     parser = takeLowerText >>= \case
-        "ApproximateNumberOfMessages" -> pure ApproximateNumberOfMessages
-        "ApproximateNumberOfMessagesDelayed" -> pure ApproximateNumberOfMessagesDelayed
-        "ApproximateNumberOfMessagesNotVisible" -> pure ApproximateNumberOfMessagesNotVisible
-        "CreatedTimestamp" -> pure CreatedTimestamp
-        "DelaySeconds" -> pure DelaySeconds
-        "LastModifiedTimestamp" -> pure LastModifiedTimestamp
-        "MaximumMessageSize" -> pure MaximumMessageSize
-        "MessageRetentionPeriod" -> pure MessageRetentionPeriod
-        "Policy" -> pure Policy
-        "QueueArn" -> pure QueueARN
-        "ReceiveMessageWaitTimeSeconds" -> pure ReceiveMessageWaitTimeSeconds
-        "RedrivePolicy" -> pure RedrivePolicy
-        "VisibilityTimeout" -> pure VisibilityTimeout
-        e -> fail ("Failure parsing QueueAttributeName from " ++ show e)
+        "approximatenumberofmessages" -> pure ApproximateNumberOfMessages
+        "approximatenumberofmessagesdelayed" -> pure ApproximateNumberOfMessagesDelayed
+        "approximatenumberofmessagesnotvisible" -> pure ApproximateNumberOfMessagesNotVisible
+        "createdtimestamp" -> pure CreatedTimestamp
+        "delayseconds" -> pure DelaySeconds
+        "lastmodifiedtimestamp" -> pure LastModifiedTimestamp
+        "maximummessagesize" -> pure MaximumMessageSize
+        "messageretentionperiod" -> pure MessageRetentionPeriod
+        "policy" -> pure Policy
+        "queuearn" -> pure QueueARN
+        "receivemessagewaittimeseconds" -> pure ReceiveMessageWaitTimeSeconds
+        "redrivepolicy" -> pure RedrivePolicy
+        "visibilitytimeout" -> pure VisibilityTimeout
+        e -> fromTextError $ "Failure parsing QueueAttributeName from value: '" <> e
+           <> "'. Accepted values: approximatenumberofmessages, approximatenumberofmessagesdelayed, approximatenumberofmessagesnotvisible, createdtimestamp, delayseconds, lastmodifiedtimestamp, maximummessagesize, messageretentionperiod, policy, queuearn, receivemessagewaittimeseconds, redrivepolicy, visibilitytimeout"
 
 instance ToText QueueAttributeName where
     toText = \case
-        ApproximateNumberOfMessages -> "ApproximateNumberOfMessages"
-        ApproximateNumberOfMessagesDelayed -> "ApproximateNumberOfMessagesDelayed"
-        ApproximateNumberOfMessagesNotVisible -> "ApproximateNumberOfMessagesNotVisible"
-        CreatedTimestamp -> "CreatedTimestamp"
-        DelaySeconds -> "DelaySeconds"
-        LastModifiedTimestamp -> "LastModifiedTimestamp"
-        MaximumMessageSize -> "MaximumMessageSize"
-        MessageRetentionPeriod -> "MessageRetentionPeriod"
-        Policy -> "Policy"
-        QueueARN -> "QueueArn"
-        ReceiveMessageWaitTimeSeconds -> "ReceiveMessageWaitTimeSeconds"
-        RedrivePolicy -> "RedrivePolicy"
-        VisibilityTimeout -> "VisibilityTimeout"
+        ApproximateNumberOfMessages -> "approximatenumberofmessages"
+        ApproximateNumberOfMessagesDelayed -> "approximatenumberofmessagesdelayed"
+        ApproximateNumberOfMessagesNotVisible -> "approximatenumberofmessagesnotvisible"
+        CreatedTimestamp -> "createdtimestamp"
+        DelaySeconds -> "delayseconds"
+        LastModifiedTimestamp -> "lastmodifiedtimestamp"
+        MaximumMessageSize -> "maximummessagesize"
+        MessageRetentionPeriod -> "messageretentionperiod"
+        Policy -> "policy"
+        QueueARN -> "queuearn"
+        ReceiveMessageWaitTimeSeconds -> "receivemessagewaittimeseconds"
+        RedrivePolicy -> "redrivepolicy"
+        VisibilityTimeout -> "visibilitytimeout"
 
 instance Hashable QueueAttributeName
 instance ToQuery QueueAttributeName

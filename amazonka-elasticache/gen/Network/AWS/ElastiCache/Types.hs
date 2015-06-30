@@ -655,7 +655,8 @@ instance FromText AZMode where
     parser = takeLowerText >>= \case
         "cross-az" -> pure CrossAZ
         "single-az" -> pure SingleAZ
-        e -> fail ("Failure parsing AZMode from " ++ show e)
+        e -> fromTextError $ "Failure parsing AZMode from value: '" <> e
+           <> "'. Accepted values: cross-az, single-az"
 
 instance ToText AZMode where
     toText = \case
@@ -679,7 +680,8 @@ instance FromText AutomaticFailoverStatus where
         "disabling" -> pure AFSDisabling
         "enabled" -> pure AFSEnabled
         "enabling" -> pure AFSEnabling
-        e -> fail ("Failure parsing AutomaticFailoverStatus from " ++ show e)
+        e -> fromTextError $ "Failure parsing AutomaticFailoverStatus from value: '" <> e
+           <> "'. Accepted values: disabled, disabling, enabled, enabling"
 
 instance ToText AutomaticFailoverStatus where
     toText = \case
@@ -704,7 +706,8 @@ instance FromText PendingAutomaticFailoverStatus where
     parser = takeLowerText >>= \case
         "disabled" -> pure Disabled
         "enabled" -> pure Enabled
-        e -> fail ("Failure parsing PendingAutomaticFailoverStatus from " ++ show e)
+        e -> fromTextError $ "Failure parsing PendingAutomaticFailoverStatus from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
 
 instance ToText PendingAutomaticFailoverStatus where
     toText = \case
@@ -731,7 +734,8 @@ instance FromText SourceType where
         "cache-parameter-group" -> pure CacheParameterGroup
         "cache-security-group" -> pure CacheSecurityGroup
         "cache-subnet-group" -> pure CacheSubnetGroup
-        e -> fail ("Failure parsing SourceType from " ++ show e)
+        e -> fromTextError $ "Failure parsing SourceType from value: '" <> e
+           <> "'. Accepted values: cache-cluster, cache-parameter-group, cache-security-group, cache-subnet-group"
 
 instance ToText SourceType where
     toText = \case

@@ -297,14 +297,15 @@ data ChronologicalOrder
 
 instance FromText ChronologicalOrder where
     parser = takeLowerText >>= \case
-        "Forward" -> pure Forward
-        "Reverse" -> pure Reverse
-        e -> fail ("Failure parsing ChronologicalOrder from " ++ show e)
+        "forward" -> pure Forward
+        "reverse" -> pure Reverse
+        e -> fromTextError $ "Failure parsing ChronologicalOrder from value: '" <> e
+           <> "'. Accepted values: forward, reverse"
 
 instance ToText ChronologicalOrder where
     toText = \case
-        Forward -> "Forward"
-        Reverse -> "Reverse"
+        Forward -> "forward"
+        Reverse -> "reverse"
 
 instance Hashable ChronologicalOrder
 instance ToQuery ChronologicalOrder
@@ -322,18 +323,19 @@ data ConfigurationItemStatus
 
 instance FromText ConfigurationItemStatus where
     parser = takeLowerText >>= \case
-        "Deleted" -> pure Deleted
-        "Discovered" -> pure Discovered
-        "Failed" -> pure Failed
-        "Ok" -> pure OK
-        e -> fail ("Failure parsing ConfigurationItemStatus from " ++ show e)
+        "deleted" -> pure Deleted
+        "discovered" -> pure Discovered
+        "failed" -> pure Failed
+        "ok" -> pure OK
+        e -> fromTextError $ "Failure parsing ConfigurationItemStatus from value: '" <> e
+           <> "'. Accepted values: deleted, discovered, failed, ok"
 
 instance ToText ConfigurationItemStatus where
     toText = \case
-        Deleted -> "Deleted"
-        Discovered -> "Discovered"
-        Failed -> "Failed"
-        OK -> "Ok"
+        Deleted -> "deleted"
+        Discovered -> "discovered"
+        Failed -> "failed"
+        OK -> "ok"
 
 instance Hashable ConfigurationItemStatus
 instance ToQuery ConfigurationItemStatus
@@ -350,16 +352,17 @@ data DeliveryStatus
 
 instance FromText DeliveryStatus where
     parser = takeLowerText >>= \case
-        "Failure" -> pure Failure
-        "Not_Applicable" -> pure NotApplicable
-        "Success" -> pure Success
-        e -> fail ("Failure parsing DeliveryStatus from " ++ show e)
+        "failure" -> pure Failure
+        "not_applicable" -> pure NotApplicable
+        "success" -> pure Success
+        e -> fromTextError $ "Failure parsing DeliveryStatus from value: '" <> e
+           <> "'. Accepted values: failure, not_applicable, success"
 
 instance ToText DeliveryStatus where
     toText = \case
-        Failure -> "Failure"
-        NotApplicable -> "Not_Applicable"
-        Success -> "Success"
+        Failure -> "failure"
+        NotApplicable -> "not_applicable"
+        Success -> "success"
 
 instance Hashable DeliveryStatus
 instance ToQuery DeliveryStatus
@@ -376,16 +379,17 @@ data RecorderStatus
 
 instance FromText RecorderStatus where
     parser = takeLowerText >>= \case
-        "Failure" -> pure RSFailure
-        "Pending" -> pure RSPending
-        "Success" -> pure RSSuccess
-        e -> fail ("Failure parsing RecorderStatus from " ++ show e)
+        "failure" -> pure RSFailure
+        "pending" -> pure RSPending
+        "success" -> pure RSSuccess
+        e -> fromTextError $ "Failure parsing RecorderStatus from value: '" <> e
+           <> "'. Accepted values: failure, pending, success"
 
 instance ToText RecorderStatus where
     toText = \case
-        RSFailure -> "Failure"
-        RSPending -> "Pending"
-        RSSuccess -> "Success"
+        RSFailure -> "failure"
+        RSPending -> "pending"
+        RSSuccess -> "success"
 
 instance Hashable RecorderStatus
 instance ToQuery RecorderStatus
@@ -413,38 +417,39 @@ data ResourceType
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case
-        "AWS::CloudTrail::Trail" -> pure AWSCloudTrailTrail
-        "AWS::EC2::CustomerGateway" -> pure AWSEC2CustomerGateway
-        "AWS::EC2::EIP" -> pure AWSEC2EIP
-        "AWS::EC2::Instance" -> pure AWSEC2Instance
-        "AWS::EC2::InternetGateway" -> pure AWSEC2InternetGateway
-        "AWS::EC2::NetworkAcl" -> pure AWSEC2NetworkACL
-        "AWS::EC2::NetworkInterface" -> pure AWSEC2NetworkInterface
-        "AWS::EC2::RouteTable" -> pure AWSEC2RouteTable
-        "AWS::EC2::SecurityGroup" -> pure AWSEC2SecurityGroup
-        "AWS::EC2::Subnet" -> pure AWSEC2Subnet
-        "AWS::EC2::VPC" -> pure AWSEC2VPC
-        "AWS::EC2::VPNConnection" -> pure AWSEC2VPNConnection
-        "AWS::EC2::VPNGateway" -> pure AWSEC2VPNGateway
-        "AWS::EC2::Volume" -> pure AWSEC2Volume
-        e -> fail ("Failure parsing ResourceType from " ++ show e)
+        "aws::cloudtrail::trail" -> pure AWSCloudTrailTrail
+        "aws::ec2::customergateway" -> pure AWSEC2CustomerGateway
+        "aws::ec2::eip" -> pure AWSEC2EIP
+        "aws::ec2::instance" -> pure AWSEC2Instance
+        "aws::ec2::internetgateway" -> pure AWSEC2InternetGateway
+        "aws::ec2::networkacl" -> pure AWSEC2NetworkACL
+        "aws::ec2::networkinterface" -> pure AWSEC2NetworkInterface
+        "aws::ec2::routetable" -> pure AWSEC2RouteTable
+        "aws::ec2::securitygroup" -> pure AWSEC2SecurityGroup
+        "aws::ec2::subnet" -> pure AWSEC2Subnet
+        "aws::ec2::vpc" -> pure AWSEC2VPC
+        "aws::ec2::vpnconnection" -> pure AWSEC2VPNConnection
+        "aws::ec2::vpngateway" -> pure AWSEC2VPNGateway
+        "aws::ec2::volume" -> pure AWSEC2Volume
+        e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
+           <> "'. Accepted values: aws::cloudtrail::trail, aws::ec2::customergateway, aws::ec2::eip, aws::ec2::instance, aws::ec2::internetgateway, aws::ec2::networkacl, aws::ec2::networkinterface, aws::ec2::routetable, aws::ec2::securitygroup, aws::ec2::subnet, aws::ec2::vpc, aws::ec2::vpnconnection, aws::ec2::vpngateway, aws::ec2::volume"
 
 instance ToText ResourceType where
     toText = \case
-        AWSCloudTrailTrail -> "AWS::CloudTrail::Trail"
-        AWSEC2CustomerGateway -> "AWS::EC2::CustomerGateway"
-        AWSEC2EIP -> "AWS::EC2::EIP"
-        AWSEC2Instance -> "AWS::EC2::Instance"
-        AWSEC2InternetGateway -> "AWS::EC2::InternetGateway"
-        AWSEC2NetworkACL -> "AWS::EC2::NetworkAcl"
-        AWSEC2NetworkInterface -> "AWS::EC2::NetworkInterface"
-        AWSEC2RouteTable -> "AWS::EC2::RouteTable"
-        AWSEC2SecurityGroup -> "AWS::EC2::SecurityGroup"
-        AWSEC2Subnet -> "AWS::EC2::Subnet"
-        AWSEC2VPC -> "AWS::EC2::VPC"
-        AWSEC2VPNConnection -> "AWS::EC2::VPNConnection"
-        AWSEC2VPNGateway -> "AWS::EC2::VPNGateway"
-        AWSEC2Volume -> "AWS::EC2::Volume"
+        AWSCloudTrailTrail -> "aws::cloudtrail::trail"
+        AWSEC2CustomerGateway -> "aws::ec2::customergateway"
+        AWSEC2EIP -> "aws::ec2::eip"
+        AWSEC2Instance -> "aws::ec2::instance"
+        AWSEC2InternetGateway -> "aws::ec2::internetgateway"
+        AWSEC2NetworkACL -> "aws::ec2::networkacl"
+        AWSEC2NetworkInterface -> "aws::ec2::networkinterface"
+        AWSEC2RouteTable -> "aws::ec2::routetable"
+        AWSEC2SecurityGroup -> "aws::ec2::securitygroup"
+        AWSEC2Subnet -> "aws::ec2::subnet"
+        AWSEC2VPC -> "aws::ec2::vpc"
+        AWSEC2VPNConnection -> "aws::ec2::vpnconnection"
+        AWSEC2VPNGateway -> "aws::ec2::vpngateway"
+        AWSEC2Volume -> "aws::ec2::volume"
 
 instance Hashable ResourceType
 instance ToQuery ResourceType

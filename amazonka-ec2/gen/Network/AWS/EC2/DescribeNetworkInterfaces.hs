@@ -199,8 +199,9 @@ instance AWSRequest DescribeNetworkInterfaces where
           = receiveXML
               (\ s h x ->
                  DescribeNetworkInterfacesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "networkInterfaceSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeNetworkInterfaces where
         toHeaders = const mempty

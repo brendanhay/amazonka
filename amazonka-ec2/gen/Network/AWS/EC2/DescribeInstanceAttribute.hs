@@ -109,7 +109,8 @@ instance AWSRequest DescribeInstanceAttribute where
               (\ s h x ->
                  DescribeInstanceAttributeResponse' <$>
                    (x .@? "instanceId") <*>
-                     (may (parseXMLList "item") x)
+                     (x .@? "groupSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (x .@? "sourceDestCheck")
                      <*> (x .@? "disableApiTermination")
                      <*> (x .@? "ramdisk")
@@ -120,8 +121,12 @@ instance AWSRequest DescribeInstanceAttribute where
                      <*> (x .@? "userData")
                      <*> (x .@? "sriovNetSupport")
                      <*> (x .@? "instanceInitiatedShutdownBehavior")
-                     <*> (may (parseXMLList "item") x)
-                     <*> (may (parseXMLList "item") x)
+                     <*>
+                     (x .@? "productCodes" .!@ mempty >>=
+                        may (parseXMLList "item"))
+                     <*>
+                     (x .@? "blockDeviceMapping" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeInstanceAttribute where

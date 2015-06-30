@@ -97,8 +97,11 @@ instance AWSRequest DescribeSnapshotAttribute where
           = receiveXML
               (\ s h x ->
                  DescribeSnapshotAttributeResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (may (parseXMLList "item") x)
+                   (x .@? "createVolumePermission" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*>
+                     (x .@? "productCodes" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (x .@? "snapshotId")
                      <*> (pure (fromEnum s)))
 

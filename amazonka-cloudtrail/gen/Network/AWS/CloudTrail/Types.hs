@@ -216,20 +216,21 @@ data LookupAttributeKey
 
 instance FromText LookupAttributeKey where
     parser = takeLowerText >>= \case
-        "EventId" -> pure EventId
-        "EventName" -> pure EventName
-        "ResourceName" -> pure ResourceName
-        "ResourceType" -> pure ResourceType
-        "Username" -> pure Username
-        e -> fail ("Failure parsing LookupAttributeKey from " ++ show e)
+        "eventid" -> pure EventId
+        "eventname" -> pure EventName
+        "resourcename" -> pure ResourceName
+        "resourcetype" -> pure ResourceType
+        "username" -> pure Username
+        e -> fromTextError $ "Failure parsing LookupAttributeKey from value: '" <> e
+           <> "'. Accepted values: eventid, eventname, resourcename, resourcetype, username"
 
 instance ToText LookupAttributeKey where
     toText = \case
-        EventId -> "EventId"
-        EventName -> "EventName"
-        ResourceName -> "ResourceName"
-        ResourceType -> "ResourceType"
-        Username -> "Username"
+        EventId -> "eventid"
+        EventName -> "eventname"
+        ResourceName -> "resourcename"
+        ResourceType -> "resourcetype"
+        Username -> "username"
 
 instance Hashable LookupAttributeKey
 instance ToQuery LookupAttributeKey

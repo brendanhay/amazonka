@@ -224,14 +224,15 @@ data ActionCode
 
 instance FromText ActionCode where
     parser = takeLowerText >>= \case
-        "ArchiveRetrieval" -> pure ArchiveRetrieval
-        "InventoryRetrieval" -> pure InventoryRetrieval
-        e -> fail ("Failure parsing ActionCode from " ++ show e)
+        "archiveretrieval" -> pure ArchiveRetrieval
+        "inventoryretrieval" -> pure InventoryRetrieval
+        e -> fromTextError $ "Failure parsing ActionCode from value: '" <> e
+           <> "'. Accepted values: archiveretrieval, inventoryretrieval"
 
 instance ToText ActionCode where
     toText = \case
-        ArchiveRetrieval -> "ArchiveRetrieval"
-        InventoryRetrieval -> "InventoryRetrieval"
+        ArchiveRetrieval -> "archiveretrieval"
+        InventoryRetrieval -> "inventoryretrieval"
 
 instance Hashable ActionCode
 instance ToQuery ActionCode
@@ -248,16 +249,17 @@ data StatusCode
 
 instance FromText StatusCode where
     parser = takeLowerText >>= \case
-        "Failed" -> pure Failed
-        "InProgress" -> pure InProgress
-        "Succeeded" -> pure Succeeded
-        e -> fail ("Failure parsing StatusCode from " ++ show e)
+        "failed" -> pure Failed
+        "inprogress" -> pure InProgress
+        "succeeded" -> pure Succeeded
+        e -> fromTextError $ "Failure parsing StatusCode from value: '" <> e
+           <> "'. Accepted values: failed, inprogress, succeeded"
 
 instance ToText StatusCode where
     toText = \case
-        Failed -> "Failed"
-        InProgress -> "InProgress"
-        Succeeded -> "Succeeded"
+        Failed -> "failed"
+        InProgress -> "inprogress"
+        Succeeded -> "succeeded"
 
 instance Hashable StatusCode
 instance ToQuery StatusCode

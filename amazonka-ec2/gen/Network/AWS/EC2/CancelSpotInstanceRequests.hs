@@ -92,8 +92,9 @@ instance AWSRequest CancelSpotInstanceRequests where
           = receiveXML
               (\ s h x ->
                  CancelSpotInstanceRequestsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "spotInstanceRequestSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CancelSpotInstanceRequests where
         toHeaders = const mempty

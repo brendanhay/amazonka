@@ -131,8 +131,9 @@ instance AWSRequest DescribeSubnets where
           = receiveXML
               (\ s h x ->
                  DescribeSubnetsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "subnetSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeSubnets where
         toHeaders = const mempty

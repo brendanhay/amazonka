@@ -84,8 +84,9 @@ instance AWSRequest UnmonitorInstances where
           = receiveXML
               (\ s h x ->
                  UnmonitorInstancesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "instancesSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders UnmonitorInstances where
         toHeaders = const mempty

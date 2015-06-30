@@ -119,8 +119,9 @@ instance AWSRequest DescribeVPCs where
           = receiveXML
               (\ s h x ->
                  DescribeVPCsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "vpcSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeVPCs where
         toHeaders = const mempty

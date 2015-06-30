@@ -207,14 +207,15 @@ data JobType
 
 instance FromText JobType where
     parser = takeLowerText >>= \case
-        "Export" -> pure Export
-        "Import" -> pure Import
-        e -> fail ("Failure parsing JobType from " ++ show e)
+        "export" -> pure Export
+        "import" -> pure Import
+        e -> fromTextError $ "Failure parsing JobType from value: '" <> e
+           <> "'. Accepted values: export, import"
 
 instance ToText JobType where
     toText = \case
-        Export -> "Export"
-        Import -> "Import"
+        Export -> "export"
+        Import -> "import"
 
 instance Hashable JobType
 instance ToQuery JobType

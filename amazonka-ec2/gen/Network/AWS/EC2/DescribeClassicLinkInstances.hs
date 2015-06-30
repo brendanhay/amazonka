@@ -144,7 +144,9 @@ instance AWSRequest DescribeClassicLinkInstances
           = receiveXML
               (\ s h x ->
                  DescribeClassicLinkInstancesResponse' <$>
-                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                   (x .@? "nextToken") <*>
+                     (x .@? "instancesSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeClassicLinkInstances where

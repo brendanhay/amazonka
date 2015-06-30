@@ -75,8 +75,9 @@ instance AWSRequest CancelReservedInstancesListing
           = receiveXML
               (\ s h x ->
                  CancelReservedInstancesListingResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "reservedInstancesListingsSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CancelReservedInstancesListing
          where

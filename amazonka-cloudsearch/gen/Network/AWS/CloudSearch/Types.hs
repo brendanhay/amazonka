@@ -376,7 +376,8 @@ instance FromText AlgorithmicStemming where
         "light" -> pure ASLight
         "minimal" -> pure ASMinimal
         "none" -> pure ASNone
-        e -> fail ("Failure parsing AlgorithmicStemming from " ++ show e)
+        e -> fromTextError $ "Failure parsing AlgorithmicStemming from value: '" <> e
+           <> "'. Accepted values: full, light, minimal, none"
 
 instance ToText AlgorithmicStemming where
     toText = \case
@@ -467,9 +468,10 @@ instance FromText AnalysisSchemeLanguage where
         "sv" -> pure SV
         "th" -> pure TH
         "tr" -> pure TR
-        "zh-Hans" -> pure ZHHans
-        "zh-Hant" -> pure ZHHant
-        e -> fail ("Failure parsing AnalysisSchemeLanguage from " ++ show e)
+        "zh-hans" -> pure ZHHans
+        "zh-hant" -> pure ZHHant
+        e -> fromTextError $ "Failure parsing AnalysisSchemeLanguage from value: '" <> e
+           <> "'. Accepted values: ar, bg, ca, cs, da, de, el, en, es, eu, fa, fi, fr, ga, gl, he, hi, hu, hy, id, it, ja, ko, lv, mul, nl, no, pt, ro, ru, sv, th, tr, zh-hans, zh-hant"
 
 instance ToText AnalysisSchemeLanguage where
     toText = \case
@@ -506,8 +508,8 @@ instance ToText AnalysisSchemeLanguage where
         SV -> "sv"
         TH -> "th"
         TR -> "tr"
-        ZHHans -> "zh-Hans"
-        ZHHant -> "zh-Hant"
+        ZHHans -> "zh-hans"
+        ZHHant -> "zh-hant"
 
 instance Hashable AnalysisSchemeLanguage
 instance ToQuery AnalysisSchemeLanguage
@@ -547,7 +549,8 @@ instance FromText IndexFieldType where
         "literal-array" -> pure LiteralArray
         "text" -> pure Text
         "text-array" -> pure TextArray
-        e -> fail ("Failure parsing IndexFieldType from " ++ show e)
+        e -> fromTextError $ "Failure parsing IndexFieldType from value: '" <> e
+           <> "'. Accepted values: date, date-array, double, double-array, int, int-array, latlon, literal, literal-array, text, text-array"
 
 instance ToText IndexFieldType where
     toText = \case
@@ -591,18 +594,19 @@ data OptionState
 
 instance FromText OptionState where
     parser = takeLowerText >>= \case
-        "Active" -> pure Active
-        "FailedToValidate" -> pure FailedToValidate
-        "Processing" -> pure Processing
-        "RequiresIndexDocuments" -> pure RequiresIndexDocuments
-        e -> fail ("Failure parsing OptionState from " ++ show e)
+        "active" -> pure Active
+        "failedtovalidate" -> pure FailedToValidate
+        "processing" -> pure Processing
+        "requiresindexdocuments" -> pure RequiresIndexDocuments
+        e -> fromTextError $ "Failure parsing OptionState from value: '" <> e
+           <> "'. Accepted values: active, failedtovalidate, processing, requiresindexdocuments"
 
 instance ToText OptionState where
     toText = \case
-        Active -> "Active"
-        FailedToValidate -> "FailedToValidate"
-        Processing -> "Processing"
-        RequiresIndexDocuments -> "RequiresIndexDocuments"
+        Active -> "active"
+        FailedToValidate -> "failedtovalidate"
+        Processing -> "processing"
+        RequiresIndexDocuments -> "requiresindexdocuments"
 
 instance Hashable OptionState
 instance ToQuery OptionState
@@ -634,7 +638,8 @@ instance FromText PartitionInstanceType where
         "search.m3.large" -> pure SearchM3Large
         "search.m3.medium" -> pure SearchM3Medium
         "search.m3.xlarge" -> pure SearchM3XLarge
-        e -> fail ("Failure parsing PartitionInstanceType from " ++ show e)
+        e -> fromTextError $ "Failure parsing PartitionInstanceType from value: '" <> e
+           <> "'. Accepted values: search.m1.large, search.m1.small, search.m2.2xlarge, search.m2.xlarge, search.m3.2xlarge, search.m3.large, search.m3.medium, search.m3.xlarge"
 
 instance ToText PartitionInstanceType where
     toText = \case
@@ -665,7 +670,8 @@ instance FromText SuggesterFuzzyMatching where
         "high" -> pure High
         "low" -> pure Low
         "none" -> pure None
-        e -> fail ("Failure parsing SuggesterFuzzyMatching from " ++ show e)
+        e -> fromTextError $ "Failure parsing SuggesterFuzzyMatching from value: '" <> e
+           <> "'. Accepted values: high, low, none"
 
 instance ToText SuggesterFuzzyMatching where
     toText = \case

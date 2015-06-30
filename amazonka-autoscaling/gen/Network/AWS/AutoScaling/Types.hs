@@ -345,36 +345,37 @@ data LifecycleState
 
 instance FromText LifecycleState where
     parser = takeLowerText >>= \case
-        "Detached" -> pure Detached
-        "Detaching" -> pure Detaching
-        "EnteringStandby" -> pure EnteringStandby
-        "InService" -> pure InService
-        "Pending" -> pure Pending
-        "Pending:Proceed" -> pure PendingProceed
-        "Pending:Wait" -> pure PendingWait
-        "Quarantined" -> pure Quarantined
-        "Standby" -> pure Standby
-        "Terminated" -> pure Terminated
-        "Terminating" -> pure Terminating
-        "Terminating:Proceed" -> pure TerminatingProceed
-        "Terminating:Wait" -> pure TerminatingWait
-        e -> fail ("Failure parsing LifecycleState from " ++ show e)
+        "detached" -> pure Detached
+        "detaching" -> pure Detaching
+        "enteringstandby" -> pure EnteringStandby
+        "inservice" -> pure InService
+        "pending" -> pure Pending
+        "pending:proceed" -> pure PendingProceed
+        "pending:wait" -> pure PendingWait
+        "quarantined" -> pure Quarantined
+        "standby" -> pure Standby
+        "terminated" -> pure Terminated
+        "terminating" -> pure Terminating
+        "terminating:proceed" -> pure TerminatingProceed
+        "terminating:wait" -> pure TerminatingWait
+        e -> fromTextError $ "Failure parsing LifecycleState from value: '" <> e
+           <> "'. Accepted values: detached, detaching, enteringstandby, inservice, pending, pending:proceed, pending:wait, quarantined, standby, terminated, terminating, terminating:proceed, terminating:wait"
 
 instance ToText LifecycleState where
     toText = \case
-        Detached -> "Detached"
-        Detaching -> "Detaching"
-        EnteringStandby -> "EnteringStandby"
-        InService -> "InService"
-        Pending -> "Pending"
-        PendingProceed -> "Pending:Proceed"
-        PendingWait -> "Pending:Wait"
-        Quarantined -> "Quarantined"
-        Standby -> "Standby"
-        Terminated -> "Terminated"
-        Terminating -> "Terminating"
-        TerminatingProceed -> "Terminating:Proceed"
-        TerminatingWait -> "Terminating:Wait"
+        Detached -> "detached"
+        Detaching -> "detaching"
+        EnteringStandby -> "enteringstandby"
+        InService -> "inservice"
+        Pending -> "pending"
+        PendingProceed -> "pending:proceed"
+        PendingWait -> "pending:wait"
+        Quarantined -> "quarantined"
+        Standby -> "standby"
+        Terminated -> "terminated"
+        Terminating -> "terminating"
+        TerminatingProceed -> "terminating:proceed"
+        TerminatingWait -> "terminating:wait"
 
 instance Hashable LifecycleState
 instance ToQuery LifecycleState
@@ -398,30 +399,31 @@ data ScalingActivityStatusCode
 
 instance FromText ScalingActivityStatusCode where
     parser = takeLowerText >>= \case
-        "Cancelled" -> pure Cancelled
-        "Failed" -> pure Failed
-        "InProgress" -> pure InProgress
-        "MidLifecycleAction" -> pure MidLifecycleAction
-        "PreInService" -> pure PreInService
-        "Successful" -> pure Successful
-        "WaitingForELBConnectionDraining" -> pure WaitingForELBConnectionDraining
-        "WaitingForInstanceId" -> pure WaitingForInstanceId
-        "WaitingForSpotInstanceId" -> pure WaitingForSpotInstanceId
-        "WaitingForSpotInstanceRequestId" -> pure WaitingForSpotInstanceRequestId
-        e -> fail ("Failure parsing ScalingActivityStatusCode from " ++ show e)
+        "cancelled" -> pure Cancelled
+        "failed" -> pure Failed
+        "inprogress" -> pure InProgress
+        "midlifecycleaction" -> pure MidLifecycleAction
+        "preinservice" -> pure PreInService
+        "successful" -> pure Successful
+        "waitingforelbconnectiondraining" -> pure WaitingForELBConnectionDraining
+        "waitingforinstanceid" -> pure WaitingForInstanceId
+        "waitingforspotinstanceid" -> pure WaitingForSpotInstanceId
+        "waitingforspotinstancerequestid" -> pure WaitingForSpotInstanceRequestId
+        e -> fromTextError $ "Failure parsing ScalingActivityStatusCode from value: '" <> e
+           <> "'. Accepted values: cancelled, failed, inprogress, midlifecycleaction, preinservice, successful, waitingforelbconnectiondraining, waitingforinstanceid, waitingforspotinstanceid, waitingforspotinstancerequestid"
 
 instance ToText ScalingActivityStatusCode where
     toText = \case
-        Cancelled -> "Cancelled"
-        Failed -> "Failed"
-        InProgress -> "InProgress"
-        MidLifecycleAction -> "MidLifecycleAction"
-        PreInService -> "PreInService"
-        Successful -> "Successful"
-        WaitingForELBConnectionDraining -> "WaitingForELBConnectionDraining"
-        WaitingForInstanceId -> "WaitingForInstanceId"
-        WaitingForSpotInstanceId -> "WaitingForSpotInstanceId"
-        WaitingForSpotInstanceRequestId -> "WaitingForSpotInstanceRequestId"
+        Cancelled -> "cancelled"
+        Failed -> "failed"
+        InProgress -> "inprogress"
+        MidLifecycleAction -> "midlifecycleaction"
+        PreInService -> "preinservice"
+        Successful -> "successful"
+        WaitingForELBConnectionDraining -> "waitingforelbconnectiondraining"
+        WaitingForInstanceId -> "waitingforinstanceid"
+        WaitingForSpotInstanceId -> "waitingforspotinstanceid"
+        WaitingForSpotInstanceRequestId -> "waitingforspotinstancerequestid"
 
 instance Hashable ScalingActivityStatusCode
 instance ToQuery ScalingActivityStatusCode

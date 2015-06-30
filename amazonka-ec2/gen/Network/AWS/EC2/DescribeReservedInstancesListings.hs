@@ -122,8 +122,9 @@ instance AWSRequest DescribeReservedInstancesListings
           = receiveXML
               (\ s h x ->
                  DescribeReservedInstancesListingsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "reservedInstancesListingsSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeReservedInstancesListings
          where

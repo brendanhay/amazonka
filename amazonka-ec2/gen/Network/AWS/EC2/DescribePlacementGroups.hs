@@ -104,8 +104,9 @@ instance AWSRequest DescribePlacementGroups where
           = receiveXML
               (\ s h x ->
                  DescribePlacementGroupsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "placementGroupSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribePlacementGroups where
         toHeaders = const mempty

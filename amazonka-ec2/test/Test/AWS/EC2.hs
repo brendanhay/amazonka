@@ -23,4 +23,7 @@ tests :: [TestTree]
 tests = []
 
 fixtures :: [TestTree]
-fixtures = []
+fixtures =
+    [ testDescribeInstancesResponse $
+        describeInstancesResponse 200
+    ]

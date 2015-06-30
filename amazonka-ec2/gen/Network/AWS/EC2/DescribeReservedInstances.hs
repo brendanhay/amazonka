@@ -161,8 +161,9 @@ instance AWSRequest DescribeReservedInstances where
           = receiveXML
               (\ s h x ->
                  DescribeReservedInstancesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "reservedInstancesSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeReservedInstances where
         toHeaders = const mempty

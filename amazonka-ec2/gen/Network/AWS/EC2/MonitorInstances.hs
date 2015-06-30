@@ -83,8 +83,9 @@ instance AWSRequest MonitorInstances where
           = receiveXML
               (\ s h x ->
                  MonitorInstancesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "instancesSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders MonitorInstances where
         toHeaders = const mempty

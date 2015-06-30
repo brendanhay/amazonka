@@ -129,7 +129,9 @@ instance AWSRequest DescribeTags where
           = receiveXML
               (\ s h x ->
                  DescribeTagsResponse' <$>
-                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                   (x .@? "nextToken") <*>
+                     (x .@? "tagSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTags where

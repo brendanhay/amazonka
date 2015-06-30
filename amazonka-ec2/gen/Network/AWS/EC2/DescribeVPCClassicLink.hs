@@ -108,8 +108,9 @@ instance AWSRequest DescribeVPCClassicLink where
           = receiveXML
               (\ s h x ->
                  DescribeVPCClassicLinkResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "vpcSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeVPCClassicLink where
         toHeaders = const mempty

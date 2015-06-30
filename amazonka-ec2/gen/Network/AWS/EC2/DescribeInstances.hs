@@ -377,7 +377,9 @@ instance AWSRequest DescribeInstances where
           = receiveXML
               (\ s h x ->
                  DescribeInstancesResponse' <$>
-                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                   (x .@? "nextToken") <*>
+                     (x .@? "reservationSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeInstances where

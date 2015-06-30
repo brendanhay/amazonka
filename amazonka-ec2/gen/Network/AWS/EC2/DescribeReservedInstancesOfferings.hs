@@ -268,7 +268,9 @@ instance AWSRequest
           = receiveXML
               (\ s h x ->
                  DescribeReservedInstancesOfferingsResponse' <$>
-                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                   (x .@? "nextToken") <*>
+                     (x .@? "reservedInstancesOfferingsSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeReservedInstancesOfferings

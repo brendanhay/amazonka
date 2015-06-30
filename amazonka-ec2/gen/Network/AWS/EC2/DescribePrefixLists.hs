@@ -124,7 +124,9 @@ instance AWSRequest DescribePrefixLists where
           = receiveXML
               (\ s h x ->
                  DescribePrefixListsResponse' <$>
-                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                   (x .@? "nextToken") <*>
+                     (x .@? "prefixListSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribePrefixLists where

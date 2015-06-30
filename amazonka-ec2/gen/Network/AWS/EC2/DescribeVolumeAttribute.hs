@@ -97,7 +97,9 @@ instance AWSRequest DescribeVolumeAttribute where
           = receiveXML
               (\ s h x ->
                  DescribeVolumeAttributeResponse' <$>
-                   (may (parseXMLList "item") x) <*> (x .@? "volumeId")
+                   (x .@? "productCodes" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (x .@? "volumeId")
                      <*> (x .@? "autoEnableIO")
                      <*> (pure (fromEnum s)))
 

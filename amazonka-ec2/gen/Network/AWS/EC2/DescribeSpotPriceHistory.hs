@@ -191,7 +191,9 @@ instance AWSRequest DescribeSpotPriceHistory where
           = receiveXML
               (\ s h x ->
                  DescribeSpotPriceHistoryResponse' <$>
-                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                   (x .@? "nextToken") <*>
+                     (x .@? "spotPriceHistorySet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeSpotPriceHistory where

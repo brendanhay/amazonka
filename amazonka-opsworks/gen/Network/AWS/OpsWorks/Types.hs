@@ -552,16 +552,17 @@ data AppAttributesKeys
 
 instance FromText AppAttributesKeys where
     parser = takeLowerText >>= \case
-        "AutoBundleOnDeploy" -> pure AutoBundleOnDeploy
-        "DocumentRoot" -> pure DocumentRoot
-        "RailsEnv" -> pure RailsEnv
-        e -> fail ("Failure parsing AppAttributesKeys from " ++ show e)
+        "autobundleondeploy" -> pure AutoBundleOnDeploy
+        "documentroot" -> pure DocumentRoot
+        "railsenv" -> pure RailsEnv
+        e -> fromTextError $ "Failure parsing AppAttributesKeys from value: '" <> e
+           <> "'. Accepted values: autobundleondeploy, documentroot, railsenv"
 
 instance ToText AppAttributesKeys where
     toText = \case
-        AutoBundleOnDeploy -> "AutoBundleOnDeploy"
-        DocumentRoot -> "DocumentRoot"
-        RailsEnv -> "RailsEnv"
+        AutoBundleOnDeploy -> "autobundleondeploy"
+        DocumentRoot -> "documentroot"
+        RailsEnv -> "railsenv"
 
 instance Hashable AppAttributesKeys
 instance ToQuery AppAttributesKeys
@@ -590,7 +591,8 @@ instance FromText AppType where
         "php" -> pure PHP
         "rails" -> pure Rails
         "static" -> pure Static
-        e -> fail ("Failure parsing AppType from " ++ show e)
+        e -> fromTextError $ "Failure parsing AppType from value: '" <> e
+           <> "'. Accepted values: java, nodejs, other, php, rails, static"
 
 instance ToText AppType where
     toText = \case
@@ -620,7 +622,8 @@ instance FromText Architecture where
     parser = takeLowerText >>= \case
         "i386" -> pure I386
         "x86_64" -> pure X8664
-        e -> fail ("Failure parsing Architecture from " ++ show e)
+        e -> fromTextError $ "Failure parsing Architecture from value: '" <> e
+           <> "'. Accepted values: i386, x86_64"
 
 instance ToText Architecture where
     toText = \case
@@ -646,7 +649,8 @@ instance FromText AutoScalingType where
     parser = takeLowerText >>= \case
         "load" -> pure Load
         "timer" -> pure Timer
-        e -> fail ("Failure parsing AutoScalingType from " ++ show e)
+        e -> fromTextError $ "Failure parsing AutoScalingType from value: '" <> e
+           <> "'. Accepted values: load, timer"
 
 instance ToText AutoScalingType where
     toText = \case
@@ -692,7 +696,8 @@ instance FromText DeploymentCommandName where
         "undeploy" -> pure Undeploy
         "update_custom_cookbooks" -> pure UpdateCustomCookbooks
         "update_dependencies" -> pure UpdateDependencies
-        e -> fail ("Failure parsing DeploymentCommandName from " ++ show e)
+        e -> fromTextError $ "Failure parsing DeploymentCommandName from value: '" <> e
+           <> "'. Accepted values: configure, deploy, execute_recipes, install_dependencies, restart, rollback, setup, start, stop, undeploy, update_custom_cookbooks, update_dependencies"
 
 instance ToText DeploymentCommandName where
     toText = \case
@@ -748,58 +753,59 @@ data LayerAttributesKeys
 
 instance FromText LayerAttributesKeys where
     parser = takeLowerText >>= \case
-        "BundlerVersion" -> pure BundlerVersion
-        "EnableHaproxyStats" -> pure EnableHaproxyStats
-        "GangliaPassword" -> pure GangliaPassword
-        "GangliaUrl" -> pure GangliaURL
-        "GangliaUser" -> pure GangliaUser
-        "HaproxyHealthCheckMethod" -> pure HaproxyHealthCheckMethod
-        "HaproxyHealthCheckUrl" -> pure HaproxyHealthCheckURL
-        "HaproxyStatsPassword" -> pure HaproxyStatsPassword
-        "HaproxyStatsUrl" -> pure HaproxyStatsURL
-        "HaproxyStatsUser" -> pure HaproxyStatsUser
-        "Jvm" -> pure JVM
-        "JvmOptions" -> pure JVMOptions
-        "JvmVersion" -> pure JVMVersion
-        "JavaAppServer" -> pure JavaAppServer
-        "JavaAppServerVersion" -> pure JavaAppServerVersion
-        "ManageBundler" -> pure ManageBundler
-        "MemcachedMemory" -> pure MemcachedMemory
-        "MysqlRootPassword" -> pure MysqlRootPassword
-        "MysqlRootPasswordUbiquitous" -> pure MysqlRootPasswordUbiquitous
-        "NodejsVersion" -> pure NodejsVersion
-        "PassengerVersion" -> pure PassengerVersion
-        "RailsStack" -> pure RailsStack
-        "RubyVersion" -> pure RubyVersion
-        "RubygemsVersion" -> pure RubygemsVersion
-        e -> fail ("Failure parsing LayerAttributesKeys from " ++ show e)
+        "bundlerversion" -> pure BundlerVersion
+        "enablehaproxystats" -> pure EnableHaproxyStats
+        "gangliapassword" -> pure GangliaPassword
+        "gangliaurl" -> pure GangliaURL
+        "gangliauser" -> pure GangliaUser
+        "haproxyhealthcheckmethod" -> pure HaproxyHealthCheckMethod
+        "haproxyhealthcheckurl" -> pure HaproxyHealthCheckURL
+        "haproxystatspassword" -> pure HaproxyStatsPassword
+        "haproxystatsurl" -> pure HaproxyStatsURL
+        "haproxystatsuser" -> pure HaproxyStatsUser
+        "jvm" -> pure JVM
+        "jvmoptions" -> pure JVMOptions
+        "jvmversion" -> pure JVMVersion
+        "javaappserver" -> pure JavaAppServer
+        "javaappserverversion" -> pure JavaAppServerVersion
+        "managebundler" -> pure ManageBundler
+        "memcachedmemory" -> pure MemcachedMemory
+        "mysqlrootpassword" -> pure MysqlRootPassword
+        "mysqlrootpasswordubiquitous" -> pure MysqlRootPasswordUbiquitous
+        "nodejsversion" -> pure NodejsVersion
+        "passengerversion" -> pure PassengerVersion
+        "railsstack" -> pure RailsStack
+        "rubyversion" -> pure RubyVersion
+        "rubygemsversion" -> pure RubygemsVersion
+        e -> fromTextError $ "Failure parsing LayerAttributesKeys from value: '" <> e
+           <> "'. Accepted values: bundlerversion, enablehaproxystats, gangliapassword, gangliaurl, gangliauser, haproxyhealthcheckmethod, haproxyhealthcheckurl, haproxystatspassword, haproxystatsurl, haproxystatsuser, jvm, jvmoptions, jvmversion, javaappserver, javaappserverversion, managebundler, memcachedmemory, mysqlrootpassword, mysqlrootpasswordubiquitous, nodejsversion, passengerversion, railsstack, rubyversion, rubygemsversion"
 
 instance ToText LayerAttributesKeys where
     toText = \case
-        BundlerVersion -> "BundlerVersion"
-        EnableHaproxyStats -> "EnableHaproxyStats"
-        GangliaPassword -> "GangliaPassword"
-        GangliaURL -> "GangliaUrl"
-        GangliaUser -> "GangliaUser"
-        HaproxyHealthCheckMethod -> "HaproxyHealthCheckMethod"
-        HaproxyHealthCheckURL -> "HaproxyHealthCheckUrl"
-        HaproxyStatsPassword -> "HaproxyStatsPassword"
-        HaproxyStatsURL -> "HaproxyStatsUrl"
-        HaproxyStatsUser -> "HaproxyStatsUser"
-        JVM -> "Jvm"
-        JVMOptions -> "JvmOptions"
-        JVMVersion -> "JvmVersion"
-        JavaAppServer -> "JavaAppServer"
-        JavaAppServerVersion -> "JavaAppServerVersion"
-        ManageBundler -> "ManageBundler"
-        MemcachedMemory -> "MemcachedMemory"
-        MysqlRootPassword -> "MysqlRootPassword"
-        MysqlRootPasswordUbiquitous -> "MysqlRootPasswordUbiquitous"
-        NodejsVersion -> "NodejsVersion"
-        PassengerVersion -> "PassengerVersion"
-        RailsStack -> "RailsStack"
-        RubyVersion -> "RubyVersion"
-        RubygemsVersion -> "RubygemsVersion"
+        BundlerVersion -> "bundlerversion"
+        EnableHaproxyStats -> "enablehaproxystats"
+        GangliaPassword -> "gangliapassword"
+        GangliaURL -> "gangliaurl"
+        GangliaUser -> "gangliauser"
+        HaproxyHealthCheckMethod -> "haproxyhealthcheckmethod"
+        HaproxyHealthCheckURL -> "haproxyhealthcheckurl"
+        HaproxyStatsPassword -> "haproxystatspassword"
+        HaproxyStatsURL -> "haproxystatsurl"
+        HaproxyStatsUser -> "haproxystatsuser"
+        JVM -> "jvm"
+        JVMOptions -> "jvmoptions"
+        JVMVersion -> "jvmversion"
+        JavaAppServer -> "javaappserver"
+        JavaAppServerVersion -> "javaappserverversion"
+        ManageBundler -> "managebundler"
+        MemcachedMemory -> "memcachedmemory"
+        MysqlRootPassword -> "mysqlrootpassword"
+        MysqlRootPasswordUbiquitous -> "mysqlrootpasswordubiquitous"
+        NodejsVersion -> "nodejsversion"
+        PassengerVersion -> "passengerversion"
+        RailsStack -> "railsstack"
+        RubyVersion -> "rubyversion"
+        RubygemsVersion -> "rubygemsversion"
 
 instance Hashable LayerAttributesKeys
 instance ToQuery LayerAttributesKeys
@@ -836,7 +842,8 @@ instance FromText LayerType where
         "php-app" -> pure PHPApp
         "rails-app" -> pure RailsApp
         "web" -> pure Web
-        e -> fail ("Failure parsing LayerType from " ++ show e)
+        e -> fromTextError $ "Failure parsing LayerType from value: '" <> e
+           <> "'. Accepted values: custom, db-master, java-app, lb, memcached, monitoring-master, nodejs-app, php-app, rails-app, web"
 
 instance ToText LayerType where
     toText = \case
@@ -870,7 +877,8 @@ instance FromText RootDeviceType where
     parser = takeLowerText >>= \case
         "ebs" -> pure EBS
         "instance-store" -> pure InstanceStore
-        e -> fail ("Failure parsing RootDeviceType from " ++ show e)
+        e -> fromTextError $ "Failure parsing RootDeviceType from value: '" <> e
+           <> "'. Accepted values: ebs, instance-store"
 
 instance ToText RootDeviceType where
     toText = \case
@@ -900,7 +908,8 @@ instance FromText SourceType where
         "git" -> pure Git
         "s3" -> pure S3
         "svn" -> pure SVN
-        e -> fail ("Failure parsing SourceType from " ++ show e)
+        e -> fromTextError $ "Failure parsing SourceType from value: '" <> e
+           <> "'. Accepted values: archive, git, s3, svn"
 
 instance ToText SourceType where
     toText = \case
@@ -925,12 +934,13 @@ data StackAttributesKeys =
 
 instance FromText StackAttributesKeys where
     parser = takeLowerText >>= \case
-        "Color" -> pure Color
-        e -> fail ("Failure parsing StackAttributesKeys from " ++ show e)
+        "color" -> pure Color
+        e -> fromTextError $ "Failure parsing StackAttributesKeys from value: '" <> e
+           <> "'. Accepted values: color"
 
 instance ToText StackAttributesKeys where
     toText = \case
-        Color -> "Color"
+        Color -> "color"
 
 instance Hashable StackAttributesKeys
 instance ToQuery StackAttributesKeys
@@ -951,7 +961,8 @@ instance FromText VirtualizationType where
     parser = takeLowerText >>= \case
         "hvm" -> pure HVM
         "paravirtual" -> pure Paravirtual
-        e -> fail ("Failure parsing VirtualizationType from " ++ show e)
+        e -> fromTextError $ "Failure parsing VirtualizationType from value: '" <> e
+           <> "'. Accepted values: hvm, paravirtual"
 
 instance ToText VirtualizationType where
     toText = \case
@@ -976,7 +987,8 @@ instance FromText VolumeType where
         "gp2" -> pure GP2
         "io1" -> pure IO1
         "standard" -> pure Standard
-        e -> fail ("Failure parsing VolumeType from " ++ show e)
+        e -> fromTextError $ "Failure parsing VolumeType from value: '" <> e
+           <> "'. Accepted values: gp2, io1, standard"
 
 instance ToText VolumeType where
     toText = \case

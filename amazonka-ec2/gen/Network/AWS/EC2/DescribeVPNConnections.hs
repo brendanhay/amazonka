@@ -138,8 +138,9 @@ instance AWSRequest DescribeVPNConnections where
           = receiveXML
               (\ s h x ->
                  DescribeVPNConnectionsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "vpnConnectionSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeVPNConnections where
         toHeaders = const mempty

@@ -128,8 +128,9 @@ instance AWSRequest DescribeAddresses where
           = receiveXML
               (\ s h x ->
                  DescribeAddressesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "addressesSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAddresses where
         toHeaders = const mempty

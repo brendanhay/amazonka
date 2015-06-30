@@ -234,7 +234,8 @@ instance FromText LifeCycleState where
         "creating" -> pure Creating
         "deleted" -> pure Deleted
         "deleting" -> pure Deleting
-        e -> fail ("Failure parsing LifeCycleState from " ++ show e)
+        e -> fromTextError $ "Failure parsing LifeCycleState from value: '" <> e
+           <> "'. Accepted values: available, creating, deleted, deleting"
 
 instance ToText LifeCycleState where
     toText = \case

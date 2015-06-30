@@ -137,7 +137,9 @@ instance AWSRequest DescribeSpotFleetRequestHistory
                      (x .@ "spotFleetRequestId")
                      <*> (x .@ "startTime")
                      <*> (x .@ "lastEvaluatedTime")
-                     <*> (parseXMLList "item" x))
+                     <*>
+                     (x .@? "historyRecordSet" .!@ mempty >>=
+                        parseXMLList "item"))
 
 instance ToHeaders DescribeSpotFleetRequestHistory
          where

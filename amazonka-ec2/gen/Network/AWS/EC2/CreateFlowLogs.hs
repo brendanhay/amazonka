@@ -127,9 +127,12 @@ instance AWSRequest CreateFlowLogs where
           = receiveXML
               (\ s h x ->
                  CreateFlowLogsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (x .@? "clientToken")
-                     <*> (may (parseXMLList "item") x)
+                   (x .@? "unsuccessful" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (x .@? "clientToken")
+                     <*>
+                     (x .@? "flowLogIdSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateFlowLogs where

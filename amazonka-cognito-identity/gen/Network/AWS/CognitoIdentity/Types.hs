@@ -182,14 +182,15 @@ data CognitoErrorCode
 
 instance FromText CognitoErrorCode where
     parser = takeLowerText >>= \case
-        "AccessDenied" -> pure AccessDenied
-        "InternalServerError" -> pure InternalServerError
-        e -> fail ("Failure parsing CognitoErrorCode from " ++ show e)
+        "accessdenied" -> pure AccessDenied
+        "internalservererror" -> pure InternalServerError
+        e -> fromTextError $ "Failure parsing CognitoErrorCode from value: '" <> e
+           <> "'. Accepted values: accessdenied, internalservererror"
 
 instance ToText CognitoErrorCode where
     toText = \case
-        AccessDenied -> "AccessDenied"
-        InternalServerError -> "InternalServerError"
+        AccessDenied -> "accessdenied"
+        InternalServerError -> "internalservererror"
 
 instance Hashable CognitoErrorCode
 instance ToQuery CognitoErrorCode

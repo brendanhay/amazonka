@@ -689,6 +689,7 @@ module Network.AWS.EC2.Types
     , insKernelId
     , insSubnetId
     , insRootDeviceName
+    , insEBSOptimized
     , insSRIOVNetSupport
     , insStateTransitionReason
     , insIAMInstanceProfile
@@ -712,7 +713,6 @@ module Network.AWS.EC2.Types
     , insRootDeviceType
     , insVirtualizationType
     , insHypervisor
-    , insEBSOptimized
     , insState
 
     -- * InstanceBlockDeviceMapping
@@ -1682,7 +1682,8 @@ instance FromText AccountAttributeName where
     parser = takeLowerText >>= \case
         "default-vpc" -> pure DefaultVPC
         "supported-platforms" -> pure SupportedPlatforms
-        e -> fail ("Failure parsing AccountAttributeName from " ++ show e)
+        e -> fromTextError $ "Failure parsing AccountAttributeName from value: '" <> e
+           <> "'. Accepted values: default-vpc, supported-platforms"
 
 instance ToText AccountAttributeName where
     toText = \case
@@ -1701,16 +1702,17 @@ data AddressStatus
 
 instance FromText AddressStatus where
     parser = takeLowerText >>= \case
-        "InClassic" -> pure InClassic
-        "InVpc" -> pure InVPC
-        "MoveInProgress" -> pure MoveInProgress
-        e -> fail ("Failure parsing AddressStatus from " ++ show e)
+        "inclassic" -> pure InClassic
+        "invpc" -> pure InVPC
+        "moveinprogress" -> pure MoveInProgress
+        e -> fromTextError $ "Failure parsing AddressStatus from value: '" <> e
+           <> "'. Accepted values: inclassic, invpc, moveinprogress"
 
 instance ToText AddressStatus where
     toText = \case
-        InClassic -> "InClassic"
-        InVPC -> "InVpc"
-        MoveInProgress -> "MoveInProgress"
+        InClassic -> "inclassic"
+        InVPC -> "invpc"
+        MoveInProgress -> "moveinprogress"
 
 instance Hashable AddressStatus
 instance ToQuery AddressStatus
@@ -1728,7 +1730,8 @@ instance FromText ArchitectureValues where
     parser = takeLowerText >>= \case
         "i386" -> pure I386
         "x86_64" -> pure X8664
-        e -> fail ("Failure parsing ArchitectureValues from " ++ show e)
+        e -> fromTextError $ "Failure parsing ArchitectureValues from value: '" <> e
+           <> "'. Accepted values: i386, x86_64"
 
 instance ToText ArchitectureValues where
     toText = \case
@@ -1755,7 +1758,8 @@ instance FromText AttachmentStatus where
         "attaching" -> pure Attaching
         "detached" -> pure Detached
         "detaching" -> pure Detaching
-        e -> fail ("Failure parsing AttachmentStatus from " ++ show e)
+        e -> fromTextError $ "Failure parsing AttachmentStatus from value: '" <> e
+           <> "'. Accepted values: attached, attaching, detached, detaching"
 
 instance ToText AttachmentStatus where
     toText = \case
@@ -1778,7 +1782,8 @@ data AvailabilityZoneState =
 instance FromText AvailabilityZoneState where
     parser = takeLowerText >>= \case
         "available" -> pure AZSAvailable
-        e -> fail ("Failure parsing AvailabilityZoneState from " ++ show e)
+        e -> fromTextError $ "Failure parsing AvailabilityZoneState from value: '" <> e
+           <> "'. Accepted values: available"
 
 instance ToText AvailabilityZoneState where
     toText = \case
@@ -1808,7 +1813,8 @@ instance FromText BatchState where
         "cancelled_terminating" -> pure BSCancelledTerminating
         "failed" -> pure BSFailed
         "submitted" -> pure BSSubmitted
-        e -> fail ("Failure parsing BatchState from " ++ show e)
+        e -> fromTextError $ "Failure parsing BatchState from value: '" <> e
+           <> "'. Accepted values: active, cancelled, cancelled_running, cancelled_terminating, failed, submitted"
 
 instance ToText BatchState where
     toText = \case
@@ -1845,7 +1851,8 @@ instance FromText BundleTaskState where
         "pending" -> pure BTSPending
         "storing" -> pure BTSStoring
         "waiting-for-shutdown" -> pure BTSWaitingForShutdown
-        e -> fail ("Failure parsing BundleTaskState from " ++ show e)
+        e -> fromTextError $ "Failure parsing BundleTaskState from value: '" <> e
+           <> "'. Accepted values: bundling, cancelling, complete, failed, pending, storing, waiting-for-shutdown"
 
 instance ToText BundleTaskState where
     toText = \case
@@ -1873,18 +1880,19 @@ data CancelBatchErrorCode
 
 instance FromText CancelBatchErrorCode where
     parser = takeLowerText >>= \case
-        "fleetRequestIdDoesNotExist" -> pure FleetRequestIdDoesNotExist
-        "fleetRequestIdMalformed" -> pure FleetRequestIdMalformed
-        "fleetRequestNotInCancellableState" -> pure FleetRequestNotInCancellableState
-        "unexpectedError" -> pure UnexpectedError
-        e -> fail ("Failure parsing CancelBatchErrorCode from " ++ show e)
+        "fleetrequestiddoesnotexist" -> pure FleetRequestIdDoesNotExist
+        "fleetrequestidmalformed" -> pure FleetRequestIdMalformed
+        "fleetrequestnotincancellablestate" -> pure FleetRequestNotInCancellableState
+        "unexpectederror" -> pure UnexpectedError
+        e -> fromTextError $ "Failure parsing CancelBatchErrorCode from value: '" <> e
+           <> "'. Accepted values: fleetrequestiddoesnotexist, fleetrequestidmalformed, fleetrequestnotincancellablestate, unexpectederror"
 
 instance ToText CancelBatchErrorCode where
     toText = \case
-        FleetRequestIdDoesNotExist -> "fleetRequestIdDoesNotExist"
-        FleetRequestIdMalformed -> "fleetRequestIdMalformed"
-        FleetRequestNotInCancellableState -> "fleetRequestNotInCancellableState"
-        UnexpectedError -> "unexpectedError"
+        FleetRequestIdDoesNotExist -> "fleetrequestiddoesnotexist"
+        FleetRequestIdMalformed -> "fleetrequestidmalformed"
+        FleetRequestNotInCancellableState -> "fleetrequestnotincancellablestate"
+        UnexpectedError -> "unexpectederror"
 
 instance Hashable CancelBatchErrorCode
 instance ToQuery CancelBatchErrorCode
@@ -1908,7 +1916,8 @@ instance FromText CancelSpotInstanceRequestState where
         "closed" -> pure CSIRSClosed
         "completed" -> pure CSIRSCompleted
         "open" -> pure CSIRSOpen
-        e -> fail ("Failure parsing CancelSpotInstanceRequestState from " ++ show e)
+        e -> fromTextError $ "Failure parsing CancelSpotInstanceRequestState from value: '" <> e
+           <> "'. Accepted values: active, cancelled, closed, completed, open"
 
 instance ToText CancelSpotInstanceRequestState where
     toText = \case
@@ -1932,7 +1941,8 @@ data ContainerFormat =
 instance FromText ContainerFormat where
     parser = takeLowerText >>= \case
         "ova" -> pure Ova
-        e -> fail ("Failure parsing ContainerFormat from " ++ show e)
+        e -> fromTextError $ "Failure parsing ContainerFormat from value: '" <> e
+           <> "'. Accepted values: ova"
 
 instance ToText ContainerFormat where
     toText = \case
@@ -1958,7 +1968,8 @@ instance FromText ConversionTaskState where
         "cancelled" -> pure CTSCancelled
         "cancelling" -> pure CTSCancelling
         "completed" -> pure CTSCompleted
-        e -> fail ("Failure parsing ConversionTaskState from " ++ show e)
+        e -> fromTextError $ "Failure parsing ConversionTaskState from value: '" <> e
+           <> "'. Accepted values: active, cancelled, cancelling, completed"
 
 instance ToText ConversionTaskState where
     toText = \case
@@ -1980,12 +1991,13 @@ data CurrencyCodeValues =
 
 instance FromText CurrencyCodeValues where
     parser = takeLowerText >>= \case
-        "USD" -> pure Usd
-        e -> fail ("Failure parsing CurrencyCodeValues from " ++ show e)
+        "usd" -> pure Usd
+        e -> fromTextError $ "Failure parsing CurrencyCodeValues from value: '" <> e
+           <> "'. Accepted values: usd"
 
 instance ToText CurrencyCodeValues where
     toText = \case
-        Usd -> "USD"
+        Usd -> "usd"
 
 instance Hashable CurrencyCodeValues
 instance ToQuery CurrencyCodeValues
@@ -2001,14 +2013,15 @@ data DatafeedSubscriptionState
 
 instance FromText DatafeedSubscriptionState where
     parser = takeLowerText >>= \case
-        "Active" -> pure DSSActive
-        "Inactive" -> pure DSSInactive
-        e -> fail ("Failure parsing DatafeedSubscriptionState from " ++ show e)
+        "active" -> pure DSSActive
+        "inactive" -> pure DSSInactive
+        e -> fromTextError $ "Failure parsing DatafeedSubscriptionState from value: '" <> e
+           <> "'. Accepted values: active, inactive"
 
 instance ToText DatafeedSubscriptionState where
     toText = \case
-        DSSActive -> "Active"
-        DSSInactive -> "Inactive"
+        DSSActive -> "active"
+        DSSInactive -> "inactive"
 
 instance Hashable DatafeedSubscriptionState
 instance ToQuery DatafeedSubscriptionState
@@ -2026,7 +2039,8 @@ instance FromText DeviceType where
     parser = takeLowerText >>= \case
         "ebs" -> pure EBS
         "instance-store" -> pure InstanceStore
-        e -> fail ("Failure parsing DeviceType from " ++ show e)
+        e -> fromTextError $ "Failure parsing DeviceType from value: '" <> e
+           <> "'. Accepted values: ebs, instance-store"
 
 instance ToText DeviceType where
     toText = \case
@@ -2048,16 +2062,17 @@ data DiskImageFormat
 
 instance FromText DiskImageFormat where
     parser = takeLowerText >>= \case
-        "RAW" -> pure Raw
-        "VHD" -> pure VHD
-        "VMDK" -> pure VMDK
-        e -> fail ("Failure parsing DiskImageFormat from " ++ show e)
+        "raw" -> pure Raw
+        "vhd" -> pure VHD
+        "vmdk" -> pure VMDK
+        e -> fromTextError $ "Failure parsing DiskImageFormat from value: '" <> e
+           <> "'. Accepted values: raw, vhd, vmdk"
 
 instance ToText DiskImageFormat where
     toText = \case
-        Raw -> "RAW"
-        VHD -> "VHD"
-        VMDK -> "VMDK"
+        Raw -> "raw"
+        VHD -> "vhd"
+        VMDK -> "vmdk"
 
 instance Hashable DiskImageFormat
 instance ToQuery DiskImageFormat
@@ -2075,7 +2090,8 @@ instance FromText DomainType where
     parser = takeLowerText >>= \case
         "standard" -> pure DTStandard
         "vpc" -> pure DTVPC
-        e -> fail ("Failure parsing DomainType from " ++ show e)
+        e -> fromTextError $ "Failure parsing DomainType from value: '" <> e
+           <> "'. Accepted values: standard, vpc"
 
 instance ToText DomainType where
     toText = \case
@@ -2104,7 +2120,8 @@ instance FromText EventCode where
         "instance-stop" -> pure InstanceStop
         "system-maintenance" -> pure SystemMaintenance
         "system-reboot" -> pure SystemReboot
-        e -> fail ("Failure parsing EventCode from " ++ show e)
+        e -> fromTextError $ "Failure parsing EventCode from value: '" <> e
+           <> "'. Accepted values: instance-reboot, instance-retirement, instance-stop, system-maintenance, system-reboot"
 
 instance ToText EventCode where
     toText = \case
@@ -2130,15 +2147,16 @@ data EventType
 instance FromText EventType where
     parser = takeLowerText >>= \case
         "error" -> pure Error'
-        "fleetRequestChange" -> pure FleetRequestChange
-        "instanceChange" -> pure InstanceChange
-        e -> fail ("Failure parsing EventType from " ++ show e)
+        "fleetrequestchange" -> pure FleetRequestChange
+        "instancechange" -> pure InstanceChange
+        e -> fromTextError $ "Failure parsing EventType from value: '" <> e
+           <> "'. Accepted values: error, fleetrequestchange, instancechange"
 
 instance ToText EventType where
     toText = \case
         Error' -> "error"
-        FleetRequestChange -> "fleetRequestChange"
-        InstanceChange -> "instanceChange"
+        FleetRequestChange -> "fleetrequestchange"
+        InstanceChange -> "instancechange"
 
 instance Hashable EventType
 instance ToQuery EventType
@@ -2158,7 +2176,8 @@ instance FromText ExportEnvironment where
         "citrix" -> pure Citrix
         "microsoft" -> pure Microsoft
         "vmware" -> pure VMware
-        e -> fail ("Failure parsing ExportEnvironment from " ++ show e)
+        e -> fromTextError $ "Failure parsing ExportEnvironment from value: '" <> e
+           <> "'. Accepted values: citrix, microsoft, vmware"
 
 instance ToText ExportEnvironment where
     toText = \case
@@ -2186,7 +2205,8 @@ instance FromText ExportTaskState where
         "cancelled" -> pure ETSCancelled
         "cancelling" -> pure ETSCancelling
         "completed" -> pure ETSCompleted
-        e -> fail ("Failure parsing ExportTaskState from " ++ show e)
+        e -> fromTextError $ "Failure parsing ExportTaskState from value: '" <> e
+           <> "'. Accepted values: active, cancelled, cancelling, completed"
 
 instance ToText ExportTaskState where
     toText = \case
@@ -2210,16 +2230,17 @@ data FlowLogsResourceType
 
 instance FromText FlowLogsResourceType where
     parser = takeLowerText >>= \case
-        "NetworkInterface" -> pure FLRTNetworkInterface
-        "Subnet" -> pure FLRTSubnet
-        "VPC" -> pure FLRTVPC
-        e -> fail ("Failure parsing FlowLogsResourceType from " ++ show e)
+        "networkinterface" -> pure FLRTNetworkInterface
+        "subnet" -> pure FLRTSubnet
+        "vpc" -> pure FLRTVPC
+        e -> fromTextError $ "Failure parsing FlowLogsResourceType from value: '" <> e
+           <> "'. Accepted values: networkinterface, subnet, vpc"
 
 instance ToText FlowLogsResourceType where
     toText = \case
-        FLRTNetworkInterface -> "NetworkInterface"
-        FLRTSubnet -> "Subnet"
-        FLRTVPC -> "VPC"
+        FLRTNetworkInterface -> "networkinterface"
+        FLRTSubnet -> "subnet"
+        FLRTVPC -> "vpc"
 
 instance Hashable FlowLogsResourceType
 instance ToQuery FlowLogsResourceType
@@ -2232,7 +2253,8 @@ data GatewayType =
 instance FromText GatewayType where
     parser = takeLowerText >>= \case
         "ipsec.1" -> pure IPsec1
-        e -> fail ("Failure parsing GatewayType from " ++ show e)
+        e -> fromTextError $ "Failure parsing GatewayType from value: '" <> e
+           <> "'. Accepted values: ipsec.1"
 
 instance ToText GatewayType where
     toText = \case
@@ -2254,7 +2276,8 @@ instance FromText HypervisorType where
     parser = takeLowerText >>= \case
         "ovm" -> pure Ovm
         "xen" -> pure Xen
-        e -> fail ("Failure parsing HypervisorType from " ++ show e)
+        e -> fromTextError $ "Failure parsing HypervisorType from value: '" <> e
+           <> "'. Accepted values: ovm, xen"
 
 instance ToText HypervisorType where
     toText = \case
@@ -2280,24 +2303,25 @@ data ImageAttributeName
 
 instance FromText ImageAttributeName where
     parser = takeLowerText >>= \case
-        "blockDeviceMapping" -> pure BlockDeviceMapping
+        "blockdevicemapping" -> pure BlockDeviceMapping
         "description" -> pure Description
         "kernel" -> pure Kernel
-        "launchPermission" -> pure LaunchPermission
-        "productCodes" -> pure ProductCodes
+        "launchpermission" -> pure LaunchPermission
+        "productcodes" -> pure ProductCodes
         "ramdisk" -> pure RAMDisk
-        "sriovNetSupport" -> pure SRIOVNetSupport
-        e -> fail ("Failure parsing ImageAttributeName from " ++ show e)
+        "sriovnetsupport" -> pure SRIOVNetSupport
+        e -> fromTextError $ "Failure parsing ImageAttributeName from value: '" <> e
+           <> "'. Accepted values: blockdevicemapping, description, kernel, launchpermission, productcodes, ramdisk, sriovnetsupport"
 
 instance ToText ImageAttributeName where
     toText = \case
-        BlockDeviceMapping -> "blockDeviceMapping"
+        BlockDeviceMapping -> "blockdevicemapping"
         Description -> "description"
         Kernel -> "kernel"
-        LaunchPermission -> "launchPermission"
-        ProductCodes -> "productCodes"
+        LaunchPermission -> "launchpermission"
+        ProductCodes -> "productcodes"
         RAMDisk -> "ramdisk"
-        SRIOVNetSupport -> "sriovNetSupport"
+        SRIOVNetSupport -> "sriovnetsupport"
 
 instance Hashable ImageAttributeName
 instance ToQuery ImageAttributeName
@@ -2322,7 +2346,8 @@ instance FromText ImageState where
         "invalid" -> pure ISInvalid
         "pending" -> pure ISPending
         "transient" -> pure ISTransient
-        e -> fail ("Failure parsing ImageState from " ++ show e)
+        e -> fromTextError $ "Failure parsing ImageState from value: '" <> e
+           <> "'. Accepted values: available, deregistered, error, failed, invalid, pending, transient"
 
 instance ToText ImageState where
     toText = \case
@@ -2352,7 +2377,8 @@ instance FromText ImageTypeValues where
         "kernel" -> pure ITVKernel
         "machine" -> pure ITVMachine
         "ramdisk" -> pure ITVRAMDisk
-        e -> fail ("Failure parsing ImageTypeValues from " ++ show e)
+        e -> fromTextError $ "Failure parsing ImageTypeValues from value: '" <> e
+           <> "'. Accepted values: kernel, machine, ramdisk"
 
 instance ToText ImageTypeValues where
     toText = \case
@@ -2385,36 +2411,37 @@ data InstanceAttributeName
 
 instance FromText InstanceAttributeName where
     parser = takeLowerText >>= \case
-        "blockDeviceMapping" -> pure IANBlockDeviceMapping
-        "disableApiTermination" -> pure IANDisableAPITermination
-        "ebsOptimized" -> pure IANEBSOptimized
-        "groupSet" -> pure IANGroupSet
-        "instanceInitiatedShutdownBehavior" -> pure IANInstanceInitiatedShutdownBehavior
-        "instanceType" -> pure IANInstanceType
+        "blockdevicemapping" -> pure IANBlockDeviceMapping
+        "disableapitermination" -> pure IANDisableAPITermination
+        "ebsoptimized" -> pure IANEBSOptimized
+        "groupset" -> pure IANGroupSet
+        "instanceinitiatedshutdownbehavior" -> pure IANInstanceInitiatedShutdownBehavior
+        "instancetype" -> pure IANInstanceType
         "kernel" -> pure IANKernel
-        "productCodes" -> pure IANProductCodes
+        "productcodes" -> pure IANProductCodes
         "ramdisk" -> pure IANRAMDisk
-        "rootDeviceName" -> pure IANRootDeviceName
-        "sriovNetSupport" -> pure IANSRIOVNetSupport
-        "sourceDestCheck" -> pure IANSourceDestCheck
-        "userData" -> pure IANUserData
-        e -> fail ("Failure parsing InstanceAttributeName from " ++ show e)
+        "rootdevicename" -> pure IANRootDeviceName
+        "sriovnetsupport" -> pure IANSRIOVNetSupport
+        "sourcedestcheck" -> pure IANSourceDestCheck
+        "userdata" -> pure IANUserData
+        e -> fromTextError $ "Failure parsing InstanceAttributeName from value: '" <> e
+           <> "'. Accepted values: blockdevicemapping, disableapitermination, ebsoptimized, groupset, instanceinitiatedshutdownbehavior, instancetype, kernel, productcodes, ramdisk, rootdevicename, sriovnetsupport, sourcedestcheck, userdata"
 
 instance ToText InstanceAttributeName where
     toText = \case
-        IANBlockDeviceMapping -> "blockDeviceMapping"
-        IANDisableAPITermination -> "disableApiTermination"
-        IANEBSOptimized -> "ebsOptimized"
-        IANGroupSet -> "groupSet"
-        IANInstanceInitiatedShutdownBehavior -> "instanceInitiatedShutdownBehavior"
-        IANInstanceType -> "instanceType"
+        IANBlockDeviceMapping -> "blockdevicemapping"
+        IANDisableAPITermination -> "disableapitermination"
+        IANEBSOptimized -> "ebsoptimized"
+        IANGroupSet -> "groupset"
+        IANInstanceInitiatedShutdownBehavior -> "instanceinitiatedshutdownbehavior"
+        IANInstanceType -> "instancetype"
         IANKernel -> "kernel"
-        IANProductCodes -> "productCodes"
+        IANProductCodes -> "productcodes"
         IANRAMDisk -> "ramdisk"
-        IANRootDeviceName -> "rootDeviceName"
-        IANSRIOVNetSupport -> "sriovNetSupport"
-        IANSourceDestCheck -> "sourceDestCheck"
-        IANUserData -> "userData"
+        IANRootDeviceName -> "rootdevicename"
+        IANSRIOVNetSupport -> "sriovnetsupport"
+        IANSourceDestCheck -> "sourcedestcheck"
+        IANUserData -> "userdata"
 
 instance Hashable InstanceAttributeName
 instance ToQuery InstanceAttributeName
@@ -2427,7 +2454,8 @@ data InstanceLifecycleType =
 instance FromText InstanceLifecycleType where
     parser = takeLowerText >>= \case
         "spot" -> pure Spot
-        e -> fail ("Failure parsing InstanceLifecycleType from " ++ show e)
+        e -> fromTextError $ "Failure parsing InstanceLifecycleType from value: '" <> e
+           <> "'. Accepted values: spot"
 
 instance ToText InstanceLifecycleType where
     toText = \case
@@ -2457,7 +2485,8 @@ instance FromText InstanceStateName where
         "stopped" -> pure ISNStopped
         "stopping" -> pure ISNStopping
         "terminated" -> pure ISNTerminated
-        e -> fail ("Failure parsing InstanceStateName from " ++ show e)
+        e -> fromTextError $ "Failure parsing InstanceStateName from value: '" <> e
+           <> "'. Accepted values: pending, running, shutting-down, stopped, stopping, terminated"
 
 instance ToText InstanceStateName where
     toText = \case
@@ -2584,7 +2613,8 @@ instance FromText InstanceType where
         "t2.medium" -> pure T2Medium
         "t2.micro" -> pure T2Micro
         "t2.small" -> pure T2Small
-        e -> fail ("Failure parsing InstanceType from " ++ show e)
+        e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
+           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, g2.2xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, t1.micro, t2.medium, t2.micro, t2.small"
 
 instance ToText InstanceType where
     toText = \case
@@ -2661,7 +2691,8 @@ instance FromText ListingState where
         "cancelled" -> pure LisCancelled
         "pending" -> pure LisPending
         "sold" -> pure LisSold
-        e -> fail ("Failure parsing ListingState from " ++ show e)
+        e -> fromTextError $ "Failure parsing ListingState from value: '" <> e
+           <> "'. Accepted values: available, cancelled, pending, sold"
 
 instance ToText ListingState where
     toText = \case
@@ -2690,7 +2721,8 @@ instance FromText ListingStatus where
         "cancelled" -> pure LSCancelled
         "closed" -> pure LSClosed
         "pending" -> pure LSPending
-        e -> fail ("Failure parsing ListingStatus from " ++ show e)
+        e -> fromTextError $ "Failure parsing ListingStatus from value: '" <> e
+           <> "'. Accepted values: active, cancelled, closed, pending"
 
 instance ToText ListingStatus where
     toText = \case
@@ -2719,7 +2751,8 @@ instance FromText MonitoringState where
         "disabling" -> pure MSDisabling
         "enabled" -> pure MSEnabled
         "pending" -> pure MSPending
-        e -> fail ("Failure parsing MonitoringState from " ++ show e)
+        e -> fromTextError $ "Failure parsing MonitoringState from value: '" <> e
+           <> "'. Accepted values: disabled, disabling, enabled, pending"
 
 instance ToText MonitoringState where
     toText = \case
@@ -2742,14 +2775,15 @@ data MoveStatus
 
 instance FromText MoveStatus where
     parser = takeLowerText >>= \case
-        "movingToVpc" -> pure MovingToVPC
-        "restoringToClassic" -> pure RestoringToClassic
-        e -> fail ("Failure parsing MoveStatus from " ++ show e)
+        "movingtovpc" -> pure MovingToVPC
+        "restoringtoclassic" -> pure RestoringToClassic
+        e -> fromTextError $ "Failure parsing MoveStatus from value: '" <> e
+           <> "'. Accepted values: movingtovpc, restoringtoclassic"
 
 instance ToText MoveStatus where
     toText = \case
-        MovingToVPC -> "movingToVpc"
-        RestoringToClassic -> "restoringToClassic"
+        MovingToVPC -> "movingtovpc"
+        RestoringToClassic -> "restoringtoclassic"
 
 instance Hashable MoveStatus
 instance ToQuery MoveStatus
@@ -2769,16 +2803,17 @@ instance FromText NetworkInterfaceAttribute where
     parser = takeLowerText >>= \case
         "attachment" -> pure NIAAttachment
         "description" -> pure NIADescription
-        "groupSet" -> pure NIAGroupSet
-        "sourceDestCheck" -> pure NIASourceDestCheck
-        e -> fail ("Failure parsing NetworkInterfaceAttribute from " ++ show e)
+        "groupset" -> pure NIAGroupSet
+        "sourcedestcheck" -> pure NIASourceDestCheck
+        e -> fromTextError $ "Failure parsing NetworkInterfaceAttribute from value: '" <> e
+           <> "'. Accepted values: attachment, description, groupset, sourcedestcheck"
 
 instance ToText NetworkInterfaceAttribute where
     toText = \case
         NIAAttachment -> "attachment"
         NIADescription -> "description"
-        NIAGroupSet -> "groupSet"
-        NIASourceDestCheck -> "sourceDestCheck"
+        NIAGroupSet -> "groupset"
+        NIASourceDestCheck -> "sourcedestcheck"
 
 instance Hashable NetworkInterfaceAttribute
 instance ToQuery NetworkInterfaceAttribute
@@ -2797,7 +2832,8 @@ instance FromText NetworkInterfaceStatus where
         "available" -> pure NISAvailable
         "detaching" -> pure NISDetaching
         "in-use" -> pure NISINUse
-        e -> fail ("Failure parsing NetworkInterfaceStatus from " ++ show e)
+        e -> fromTextError $ "Failure parsing NetworkInterfaceStatus from value: '" <> e
+           <> "'. Accepted values: attaching, available, detaching, in-use"
 
 instance ToText NetworkInterfaceStatus where
     toText = \case
@@ -2824,22 +2860,23 @@ data OfferingTypeValues
 
 instance FromText OfferingTypeValues where
     parser = takeLowerText >>= \case
-        "All Upfront" -> pure AllUpfront
-        "Heavy Utilization" -> pure HeavyUtilization
-        "Light Utilization" -> pure LightUtilization
-        "Medium Utilization" -> pure MediumUtilization
-        "No Upfront" -> pure NOUpfront
-        "Partial Upfront" -> pure PartialUpfront
-        e -> fail ("Failure parsing OfferingTypeValues from " ++ show e)
+        "all upfront" -> pure AllUpfront
+        "heavy utilization" -> pure HeavyUtilization
+        "light utilization" -> pure LightUtilization
+        "medium utilization" -> pure MediumUtilization
+        "no upfront" -> pure NOUpfront
+        "partial upfront" -> pure PartialUpfront
+        e -> fromTextError $ "Failure parsing OfferingTypeValues from value: '" <> e
+           <> "'. Accepted values: all upfront, heavy utilization, light utilization, medium utilization, no upfront, partial upfront"
 
 instance ToText OfferingTypeValues where
     toText = \case
-        AllUpfront -> "All Upfront"
-        HeavyUtilization -> "Heavy Utilization"
-        LightUtilization -> "Light Utilization"
-        MediumUtilization -> "Medium Utilization"
-        NOUpfront -> "No Upfront"
-        PartialUpfront -> "Partial Upfront"
+        AllUpfront -> "all upfront"
+        HeavyUtilization -> "heavy utilization"
+        LightUtilization -> "light utilization"
+        MediumUtilization -> "medium utilization"
+        NOUpfront -> "no upfront"
+        PartialUpfront -> "partial upfront"
 
 instance Hashable OfferingTypeValues
 instance ToQuery OfferingTypeValues
@@ -2855,7 +2892,8 @@ data PermissionGroup =
 instance FromText PermissionGroup where
     parser = takeLowerText >>= \case
         "all" -> pure PGAll
-        e -> fail ("Failure parsing PermissionGroup from " ++ show e)
+        e -> fromTextError $ "Failure parsing PermissionGroup from value: '" <> e
+           <> "'. Accepted values: all"
 
 instance ToText PermissionGroup where
     toText = \case
@@ -2881,7 +2919,8 @@ instance FromText PlacementGroupState where
         "deleted" -> pure PGSDeleted
         "deleting" -> pure PGSDeleting
         "pending" -> pure PGSPending
-        e -> fail ("Failure parsing PlacementGroupState from " ++ show e)
+        e -> fromTextError $ "Failure parsing PlacementGroupState from value: '" <> e
+           <> "'. Accepted values: available, deleted, deleting, pending"
 
 instance ToText PlacementGroupState where
     toText = \case
@@ -2904,7 +2943,8 @@ data PlacementStrategy =
 instance FromText PlacementStrategy where
     parser = takeLowerText >>= \case
         "cluster" -> pure Cluster
-        e -> fail ("Failure parsing PlacementStrategy from " ++ show e)
+        e -> fromTextError $ "Failure parsing PlacementStrategy from value: '" <> e
+           <> "'. Accepted values: cluster"
 
 instance ToText PlacementStrategy where
     toText = \case
@@ -2923,12 +2963,13 @@ data PlatformValues =
 
 instance FromText PlatformValues where
     parser = takeLowerText >>= \case
-        "Windows" -> pure PVWindows
-        e -> fail ("Failure parsing PlatformValues from " ++ show e)
+        "windows" -> pure PVWindows
+        e -> fromTextError $ "Failure parsing PlatformValues from value: '" <> e
+           <> "'. Accepted values: windows"
 
 instance ToText PlatformValues where
     toText = \case
-        PVWindows -> "Windows"
+        PVWindows -> "windows"
 
 instance Hashable PlatformValues
 instance ToQuery PlatformValues
@@ -2946,7 +2987,8 @@ instance FromText ProductCodeValues where
     parser = takeLowerText >>= \case
         "devpay" -> pure Devpay
         "marketplace" -> pure Marketplace
-        e -> fail ("Failure parsing ProductCodeValues from " ++ show e)
+        e -> fromTextError $ "Failure parsing ProductCodeValues from value: '" <> e
+           <> "'. Accepted values: devpay, marketplace"
 
 instance ToText ProductCodeValues where
     toText = \case
@@ -2969,18 +3011,19 @@ data RIProductDescription
 
 instance FromText RIProductDescription where
     parser = takeLowerText >>= \case
-        "Linux/UNIX" -> pure LinuxUnix
-        "Linux/UNIX (Amazon VPC)" -> pure LinuxUnixAmazonVPC
-        "Windows" -> pure Windows
-        "Windows (Amazon VPC)" -> pure WindowsAmazonVPC
-        e -> fail ("Failure parsing RIProductDescription from " ++ show e)
+        "linux/unix" -> pure LinuxUnix
+        "linux/unix (amazon vpc)" -> pure LinuxUnixAmazonVPC
+        "windows" -> pure Windows
+        "windows (amazon vpc)" -> pure WindowsAmazonVPC
+        e -> fromTextError $ "Failure parsing RIProductDescription from value: '" <> e
+           <> "'. Accepted values: linux/unix, linux/unix (amazon vpc), windows, windows (amazon vpc)"
 
 instance ToText RIProductDescription where
     toText = \case
-        LinuxUnix -> "Linux/UNIX"
-        LinuxUnixAmazonVPC -> "Linux/UNIX (Amazon VPC)"
-        Windows -> "Windows"
-        WindowsAmazonVPC -> "Windows (Amazon VPC)"
+        LinuxUnix -> "linux/unix"
+        LinuxUnixAmazonVPC -> "linux/unix (amazon vpc)"
+        Windows -> "windows"
+        WindowsAmazonVPC -> "windows (amazon vpc)"
 
 instance Hashable RIProductDescription
 instance ToQuery RIProductDescription
@@ -2995,12 +3038,13 @@ data RecurringChargeFrequency =
 
 instance FromText RecurringChargeFrequency where
     parser = takeLowerText >>= \case
-        "Hourly" -> pure Hourly
-        e -> fail ("Failure parsing RecurringChargeFrequency from " ++ show e)
+        "hourly" -> pure Hourly
+        e -> fromTextError $ "Failure parsing RecurringChargeFrequency from value: '" <> e
+           <> "'. Accepted values: hourly"
 
 instance ToText RecurringChargeFrequency where
     toText = \case
-        Hourly -> "Hourly"
+        Hourly -> "hourly"
 
 instance Hashable RecurringChargeFrequency
 instance ToQuery RecurringChargeFrequency
@@ -3032,7 +3076,8 @@ instance FromText ReportInstanceReasonCodes where
         "performance-network" -> pure PerformanceNetwork
         "performance-other" -> pure PerformanceOther
         "unresponsive" -> pure Unresponsive
-        e -> fail ("Failure parsing ReportInstanceReasonCodes from " ++ show e)
+        e -> fromTextError $ "Failure parsing ReportInstanceReasonCodes from value: '" <> e
+           <> "'. Accepted values: instance-stuck-in-state, not-accepting-credentials, other, password-not-available, performance-ebs-volume, performance-instance-store, performance-network, performance-other, unresponsive"
 
 instance ToText ReportInstanceReasonCodes where
     toText = \case
@@ -3059,7 +3104,8 @@ instance FromText ReportStatusType where
     parser = takeLowerText >>= \case
         "impaired" -> pure Impaired
         "ok" -> pure OK
-        e -> fail ("Failure parsing ReportStatusType from " ++ show e)
+        e -> fromTextError $ "Failure parsing ReportStatusType from value: '" <> e
+           <> "'. Accepted values: impaired, ok"
 
 instance ToText ReportStatusType where
     toText = \case
@@ -3083,7 +3129,8 @@ instance FromText ReservedInstanceState where
         "payment-failed" -> pure PaymentFailed
         "payment-pending" -> pure PaymentPending
         "retired" -> pure Retired
-        e -> fail ("Failure parsing ReservedInstanceState from " ++ show e)
+        e -> fromTextError $ "Failure parsing ReservedInstanceState from value: '" <> e
+           <> "'. Accepted values: active, payment-failed, payment-pending, retired"
 
 instance ToText ReservedInstanceState where
     toText = \case
@@ -3105,12 +3152,13 @@ data ResetImageAttributeName =
 
 instance FromText ResetImageAttributeName where
     parser = takeLowerText >>= \case
-        "launchPermission" -> pure RIANLaunchPermission
-        e -> fail ("Failure parsing ResetImageAttributeName from " ++ show e)
+        "launchpermission" -> pure RIANLaunchPermission
+        e -> fromTextError $ "Failure parsing ResetImageAttributeName from value: '" <> e
+           <> "'. Accepted values: launchpermission"
 
 instance ToText ResetImageAttributeName where
     toText = \case
-        RIANLaunchPermission -> "launchPermission"
+        RIANLaunchPermission -> "launchpermission"
 
 instance Hashable ResetImageAttributeName
 instance ToQuery ResetImageAttributeName
@@ -3155,7 +3203,8 @@ instance FromText ResourceType where
         "vpn-connection" -> pure VPNConnection
         "vpn-gateway" -> pure VPNGateway
         "volume" -> pure Volume
-        e -> fail ("Failure parsing ResourceType from " ++ show e)
+        e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
+           <> "'. Accepted values: customer-gateway, dhcp-options, image, instance, internet-gateway, network-acl, network-interface, reserved-instances, route-table, security-group, snapshot, spot-instances-request, subnet, vpc, vpn-connection, vpn-gateway, volume"
 
 instance ToText ResourceType where
     toText = \case
@@ -3192,16 +3241,17 @@ data RouteOrigin
 
 instance FromText RouteOrigin where
     parser = takeLowerText >>= \case
-        "CreateRoute" -> pure CreateRoute
-        "CreateRouteTable" -> pure CreateRouteTable
-        "EnableVgwRoutePropagation" -> pure EnableVGWRoutePropagation
-        e -> fail ("Failure parsing RouteOrigin from " ++ show e)
+        "createroute" -> pure CreateRoute
+        "createroutetable" -> pure CreateRouteTable
+        "enablevgwroutepropagation" -> pure EnableVGWRoutePropagation
+        e -> fromTextError $ "Failure parsing RouteOrigin from value: '" <> e
+           <> "'. Accepted values: createroute, createroutetable, enablevgwroutepropagation"
 
 instance ToText RouteOrigin where
     toText = \case
-        CreateRoute -> "CreateRoute"
-        CreateRouteTable -> "CreateRouteTable"
-        EnableVGWRoutePropagation -> "EnableVgwRoutePropagation"
+        CreateRoute -> "createroute"
+        CreateRouteTable -> "createroutetable"
+        EnableVGWRoutePropagation -> "enablevgwroutepropagation"
 
 instance Hashable RouteOrigin
 instance ToQuery RouteOrigin
@@ -3219,7 +3269,8 @@ instance FromText RouteState where
     parser = takeLowerText >>= \case
         "active" -> pure RSActive
         "blackhole" -> pure RSBlackhole
-        e -> fail ("Failure parsing RouteState from " ++ show e)
+        e -> fromTextError $ "Failure parsing RouteState from value: '" <> e
+           <> "'. Accepted values: active, blackhole"
 
 instance ToText RouteState where
     toText = \case
@@ -3242,7 +3293,8 @@ instance FromText RuleAction where
     parser = takeLowerText >>= \case
         "allow" -> pure Allow
         "deny" -> pure Deny
-        e -> fail ("Failure parsing RuleAction from " ++ show e)
+        e -> fromTextError $ "Failure parsing RuleAction from value: '" <> e
+           <> "'. Accepted values: allow, deny"
 
 instance ToText RuleAction where
     toText = \case
@@ -3265,7 +3317,8 @@ instance FromText ShutdownBehavior where
     parser = takeLowerText >>= \case
         "stop" -> pure Stop
         "terminate" -> pure Terminate
-        e -> fail ("Failure parsing ShutdownBehavior from " ++ show e)
+        e -> fromTextError $ "Failure parsing ShutdownBehavior from value: '" <> e
+           <> "'. Accepted values: stop, terminate"
 
 instance ToText ShutdownBehavior where
     toText = \case
@@ -3283,14 +3336,15 @@ data SnapshotAttributeName
 
 instance FromText SnapshotAttributeName where
     parser = takeLowerText >>= \case
-        "createVolumePermission" -> pure SANCreateVolumePermission
-        "productCodes" -> pure SANProductCodes
-        e -> fail ("Failure parsing SnapshotAttributeName from " ++ show e)
+        "createvolumepermission" -> pure SANCreateVolumePermission
+        "productcodes" -> pure SANProductCodes
+        e -> fromTextError $ "Failure parsing SnapshotAttributeName from value: '" <> e
+           <> "'. Accepted values: createvolumepermission, productcodes"
 
 instance ToText SnapshotAttributeName where
     toText = \case
-        SANCreateVolumePermission -> "createVolumePermission"
-        SANProductCodes -> "productCodes"
+        SANCreateVolumePermission -> "createvolumepermission"
+        SANProductCodes -> "productcodes"
 
 instance Hashable SnapshotAttributeName
 instance ToQuery SnapshotAttributeName
@@ -3307,7 +3361,8 @@ instance FromText SnapshotState where
         "completed" -> pure SSCompleted
         "error" -> pure SSError'
         "pending" -> pure SSPending
-        e -> fail ("Failure parsing SnapshotState from " ++ show e)
+        e -> fromTextError $ "Failure parsing SnapshotState from value: '" <> e
+           <> "'. Accepted values: completed, error, pending"
 
 instance ToText SnapshotState where
     toText = \case
@@ -3337,7 +3392,8 @@ instance FromText SpotInstanceState where
         "closed" -> pure SISClosed
         "failed" -> pure SISFailed
         "open" -> pure SISOpen
-        e -> fail ("Failure parsing SpotInstanceState from " ++ show e)
+        e -> fromTextError $ "Failure parsing SpotInstanceState from value: '" <> e
+           <> "'. Accepted values: active, cancelled, closed, failed, open"
 
 instance ToText SpotInstanceState where
     toText = \case
@@ -3363,7 +3419,8 @@ instance FromText SpotInstanceType where
     parser = takeLowerText >>= \case
         "one-time" -> pure OneTime
         "persistent" -> pure Persistent
-        e -> fail ("Failure parsing SpotInstanceType from " ++ show e)
+        e -> fromTextError $ "Failure parsing SpotInstanceType from value: '" <> e
+           <> "'. Accepted values: one-time, persistent"
 
 instance ToText SpotInstanceType where
     toText = \case
@@ -3386,18 +3443,19 @@ data State
 
 instance FromText State where
     parser = takeLowerText >>= \case
-        "Available" -> pure Available
-        "Deleted" -> pure Deleted
-        "Deleting" -> pure Deleting
-        "Pending" -> pure Pending
-        e -> fail ("Failure parsing State from " ++ show e)
+        "available" -> pure Available
+        "deleted" -> pure Deleted
+        "deleting" -> pure Deleting
+        "pending" -> pure Pending
+        e -> fromTextError $ "Failure parsing State from value: '" <> e
+           <> "'. Accepted values: available, deleted, deleting, pending"
 
 instance ToText State where
     toText = \case
-        Available -> "Available"
-        Deleted -> "Deleted"
-        Deleting -> "Deleting"
-        Pending -> "Pending"
+        Available -> "available"
+        Deleted -> "deleted"
+        Deleting -> "deleting"
+        Pending -> "pending"
 
 instance Hashable State
 instance ToQuery State
@@ -3413,7 +3471,8 @@ data StatusName =
 instance FromText StatusName where
     parser = takeLowerText >>= \case
         "reachability" -> pure Reachability
-        e -> fail ("Failure parsing StatusName from " ++ show e)
+        e -> fromTextError $ "Failure parsing StatusName from value: '" <> e
+           <> "'. Accepted values: reachability"
 
 instance ToText StatusName where
     toText = \case
@@ -3439,7 +3498,8 @@ instance FromText StatusType where
         "initializing" -> pure Initializing
         "insufficient-data" -> pure InsufficientData
         "passed" -> pure Passed
-        e -> fail ("Failure parsing StatusType from " ++ show e)
+        e -> fromTextError $ "Failure parsing StatusType from value: '" <> e
+           <> "'. Accepted values: failed, initializing, insufficient-data, passed"
 
 instance ToText StatusType where
     toText = \case
@@ -3464,7 +3524,8 @@ instance FromText SubnetState where
     parser = takeLowerText >>= \case
         "available" -> pure SubAvailable
         "pending" -> pure SubPending
-        e -> fail ("Failure parsing SubnetState from " ++ show e)
+        e -> fromTextError $ "Failure parsing SubnetState from value: '" <> e
+           <> "'. Accepted values: available, pending"
 
 instance ToText SubnetState where
     toText = \case
@@ -3493,7 +3554,8 @@ instance FromText SummaryStatus where
         "insufficient-data" -> pure SSInsufficientData
         "not-applicable" -> pure SSNotApplicable
         "ok" -> pure SSOK
-        e -> fail ("Failure parsing SummaryStatus from " ++ show e)
+        e -> fromTextError $ "Failure parsing SummaryStatus from value: '" <> e
+           <> "'. Accepted values: impaired, initializing, insufficient-data, not-applicable, ok"
 
 instance ToText SummaryStatus where
     toText = \case
@@ -3517,14 +3579,15 @@ data TelemetryStatus
 
 instance FromText TelemetryStatus where
     parser = takeLowerText >>= \case
-        "DOWN" -> pure Down
-        "UP" -> pure UP
-        e -> fail ("Failure parsing TelemetryStatus from " ++ show e)
+        "down" -> pure Down
+        "up" -> pure UP
+        e -> fromTextError $ "Failure parsing TelemetryStatus from value: '" <> e
+           <> "'. Accepted values: down, up"
 
 instance ToText TelemetryStatus where
     toText = \case
-        Down -> "DOWN"
-        UP -> "UP"
+        Down -> "down"
+        UP -> "up"
 
 instance Hashable TelemetryStatus
 instance ToQuery TelemetryStatus
@@ -3542,7 +3605,8 @@ instance FromText Tenancy where
     parser = takeLowerText >>= \case
         "dedicated" -> pure Dedicated
         "default" -> pure Default
-        e -> fail ("Failure parsing Tenancy from " ++ show e)
+        e -> fromTextError $ "Failure parsing Tenancy from value: '" <> e
+           <> "'. Accepted values: dedicated, default"
 
 instance ToText Tenancy where
     toText = \case
@@ -3564,16 +3628,17 @@ data TrafficType
 
 instance FromText TrafficType where
     parser = takeLowerText >>= \case
-        "ACCEPT" -> pure Accept
-        "ALL" -> pure All
-        "REJECT" -> pure Reject
-        e -> fail ("Failure parsing TrafficType from " ++ show e)
+        "accept" -> pure Accept
+        "all" -> pure All
+        "reject" -> pure Reject
+        e -> fromTextError $ "Failure parsing TrafficType from value: '" <> e
+           <> "'. Accepted values: accept, all, reject"
 
 instance ToText TrafficType where
     toText = \case
-        Accept -> "ACCEPT"
-        All -> "ALL"
-        Reject -> "REJECT"
+        Accept -> "accept"
+        All -> "all"
+        Reject -> "reject"
 
 instance Hashable TrafficType
 instance ToQuery TrafficType
@@ -3589,14 +3654,15 @@ data VPCAttributeName
 
 instance FromText VPCAttributeName where
     parser = takeLowerText >>= \case
-        "enableDnsHostnames" -> pure EnableDNSHostnames
-        "enableDnsSupport" -> pure EnableDNSSupport
-        e -> fail ("Failure parsing VPCAttributeName from " ++ show e)
+        "enablednshostnames" -> pure EnableDNSHostnames
+        "enablednssupport" -> pure EnableDNSSupport
+        e -> fromTextError $ "Failure parsing VPCAttributeName from value: '" <> e
+           <> "'. Accepted values: enablednshostnames, enablednssupport"
 
 instance ToText VPCAttributeName where
     toText = \case
-        EnableDNSHostnames -> "enableDnsHostnames"
-        EnableDNSSupport -> "enableDnsSupport"
+        EnableDNSHostnames -> "enablednshostnames"
+        EnableDNSSupport -> "enablednssupport"
 
 instance Hashable VPCAttributeName
 instance ToQuery VPCAttributeName
@@ -3611,7 +3677,8 @@ instance FromText VPCState where
     parser = takeLowerText >>= \case
         "available" -> pure VpcAvailable
         "pending" -> pure VpcPending
-        e -> fail ("Failure parsing VPCState from " ++ show e)
+        e -> fromTextError $ "Failure parsing VPCState from value: '" <> e
+           <> "'. Accepted values: available, pending"
 
 instance ToText VPCState where
     toText = \case
@@ -3638,7 +3705,8 @@ instance FromText VPNState where
         "deleted" -> pure VSDeleted
         "deleting" -> pure VSDeleting
         "pending" -> pure VSPending
-        e -> fail ("Failure parsing VPNState from " ++ show e)
+        e -> fromTextError $ "Failure parsing VPNState from value: '" <> e
+           <> "'. Accepted values: available, deleted, deleting, pending"
 
 instance ToText VPNState where
     toText = \case
@@ -3660,12 +3728,13 @@ data VPNStaticRouteSource =
 
 instance FromText VPNStaticRouteSource where
     parser = takeLowerText >>= \case
-        "Static" -> pure Static
-        e -> fail ("Failure parsing VPNStaticRouteSource from " ++ show e)
+        "static" -> pure Static
+        e -> fromTextError $ "Failure parsing VPNStaticRouteSource from value: '" <> e
+           <> "'. Accepted values: static"
 
 instance ToText VPNStaticRouteSource where
     toText = \case
-        Static -> "Static"
+        Static -> "static"
 
 instance Hashable VPNStaticRouteSource
 instance ToQuery VPNStaticRouteSource
@@ -3683,7 +3752,8 @@ instance FromText VirtualizationType where
     parser = takeLowerText >>= \case
         "hvm" -> pure HVM
         "paravirtual" -> pure Paravirtual
-        e -> fail ("Failure parsing VirtualizationType from " ++ show e)
+        e -> fromTextError $ "Failure parsing VirtualizationType from value: '" <> e
+           <> "'. Accepted values: hvm, paravirtual"
 
 instance ToText VirtualizationType where
     toText = \case
@@ -3710,7 +3780,8 @@ instance FromText VolumeAttachmentState where
         "attaching" -> pure VASAttaching
         "detached" -> pure VASDetached
         "detaching" -> pure VASDetaching
-        e -> fail ("Failure parsing VolumeAttachmentState from " ++ show e)
+        e -> fromTextError $ "Failure parsing VolumeAttachmentState from value: '" <> e
+           <> "'. Accepted values: attached, attaching, detached, detaching"
 
 instance ToText VolumeAttachmentState where
     toText = \case
@@ -3733,14 +3804,15 @@ data VolumeAttributeName
 
 instance FromText VolumeAttributeName where
     parser = takeLowerText >>= \case
-        "autoEnableIO" -> pure VANAutoEnableIO
-        "productCodes" -> pure VANProductCodes
-        e -> fail ("Failure parsing VolumeAttributeName from " ++ show e)
+        "autoenableio" -> pure VANAutoEnableIO
+        "productcodes" -> pure VANProductCodes
+        e -> fromTextError $ "Failure parsing VolumeAttributeName from value: '" <> e
+           <> "'. Accepted values: autoenableio, productcodes"
 
 instance ToText VolumeAttributeName where
     toText = \case
-        VANAutoEnableIO -> "autoEnableIO"
-        VANProductCodes -> "productCodes"
+        VANAutoEnableIO -> "autoenableio"
+        VANProductCodes -> "productcodes"
 
 instance Hashable VolumeAttributeName
 instance ToQuery VolumeAttributeName
@@ -3763,7 +3835,8 @@ instance FromText VolumeState where
         "deleting" -> pure VolDeleting
         "error" -> pure VolError'
         "in-use" -> pure VolINUse
-        e -> fail ("Failure parsing VolumeState from " ++ show e)
+        e -> fromTextError $ "Failure parsing VolumeState from value: '" <> e
+           <> "'. Accepted values: available, creating, deleted, deleting, error, in-use"
 
 instance ToText VolumeState where
     toText = \case
@@ -3792,7 +3865,8 @@ instance FromText VolumeStatusInfoStatus where
         "impaired" -> pure VSISImpaired
         "insufficient-data" -> pure VSISInsufficientData
         "ok" -> pure VSISOK
-        e -> fail ("Failure parsing VolumeStatusInfoStatus from " ++ show e)
+        e -> fromTextError $ "Failure parsing VolumeStatusInfoStatus from value: '" <> e
+           <> "'. Accepted values: impaired, insufficient-data, ok"
 
 instance ToText VolumeStatusInfoStatus where
     toText = \case
@@ -3816,7 +3890,8 @@ instance FromText VolumeStatusName where
     parser = takeLowerText >>= \case
         "io-enabled" -> pure IOEnabled
         "io-performance" -> pure IOPerformance
-        e -> fail ("Failure parsing VolumeStatusName from " ++ show e)
+        e -> fromTextError $ "Failure parsing VolumeStatusName from value: '" <> e
+           <> "'. Accepted values: io-enabled, io-performance"
 
 instance ToText VolumeStatusName where
     toText = \case
@@ -3841,7 +3916,8 @@ instance FromText VolumeType where
         "gp2" -> pure GP2
         "io1" -> pure IO1
         "standard" -> pure Standard
-        e -> fail ("Failure parsing VolumeType from " ++ show e)
+        e -> fromTextError $ "Failure parsing VolumeType from value: '" <> e
+           <> "'. Accepted values: gp2, io1, standard"
 
 instance ToText VolumeType where
     toText = \case
@@ -3889,8 +3965,9 @@ aaAttributeName = lens _aaAttributeName (\ s a -> s{_aaAttributeName = a});
 instance FromXML AccountAttribute where
         parseXML x
           = AccountAttribute' <$>
-              (may (parseXMLList "item") x) <*>
-                (x .@? "attributeName")
+              (x .@? "attributeValueSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "attributeName")
 
 -- | Describes a value of an account attribute.
 --
@@ -4164,7 +4241,9 @@ instance FromXML AvailabilityZone where
           = AvailabilityZone' <$>
               (x .@? "regionName") <*> (x .@? "zoneState") <*>
                 (x .@? "zoneName")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "messageSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 -- | Describes a message about an Availability Zone.
 --
@@ -4614,9 +4693,12 @@ instance FromXML ClassicLinkInstance where
         parseXML x
           = ClassicLinkInstance' <$>
               (x .@? "instanceId") <*>
-                (may (parseXMLList "item") x)
+                (x .@? "groupSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "vpcId")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 -- | Describes the client-specific data.
 --
@@ -4750,7 +4832,9 @@ instance FromXML ConversionTask where
               (x .@? "importInstance") <*> (x .@? "statusMessage")
                 <*> (x .@? "importVolume")
                 <*> (x .@? "expirationTime")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@ "conversionTaskId")
                 <*> (x .@ "state")
 
@@ -4904,8 +4988,10 @@ cgType = lens _cgType (\ s a -> s{_cgType = a});
 instance FromXML CustomerGateway where
         parseXML x
           = CustomerGateway' <$>
-              (may (parseXMLList "item") x) <*> (x .@ "bgpAsn") <*>
-                (x .@ "customerGatewayId")
+              (x .@? "tagSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@ "bgpAsn")
+                <*> (x .@ "customerGatewayId")
                 <*> (x .@ "ipAddress")
                 <*> (x .@ "state")
                 <*> (x .@ "type")
@@ -4943,7 +5029,9 @@ dcKey = lens _dcKey (\ s a -> s{_dcKey = a});
 instance FromXML DHCPConfiguration where
         parseXML x
           = DHCPConfiguration' <$>
-              (may (parseXMLList "item") x) <*> (x .@? "key")
+              (x .@? "valueSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "key")
 
 -- | Describes a set of DHCP options.
 --
@@ -4986,9 +5074,12 @@ doTags = lens _doTags (\ s a -> s{_doTags = a}) . _Default;
 instance FromXML DHCPOptions where
         parseXML x
           = DHCPOptions' <$>
-              (may (parseXMLList "item") x) <*>
-                (x .@? "dhcpOptionsId")
-                <*> (may (parseXMLList "item") x)
+              (x .@? "dhcpConfigurationSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "dhcpOptionsId")
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 -- | Describes a disk image.
 --
@@ -6074,10 +6165,16 @@ ipIPProtocol = lens _ipIPProtocol (\ s a -> s{_ipIPProtocol = a});
 instance FromXML IPPermission where
         parseXML x
           = IPPermission' <$>
-              (x .@? "fromPort") <*> (may (parseXMLList "item") x)
-                <*> (may (parseXMLList "item") x)
+              (x .@? "fromPort") <*>
+                (x .@? "groups" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*>
+                (x .@? "prefixListIds" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "toPort")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "ipRanges" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@ "ipProtocol")
 
 instance ToQuery IPPermission where
@@ -6336,11 +6433,17 @@ instance FromXML Image where
                 <*> (x .@? "sriovNetSupport")
                 <*> (x .@? "name")
                 <*> (x .@? "creationDate")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "productCodes" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "stateReason")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "blockDeviceMapping" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "description")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@ "imageId")
                 <*> (x .@ "imageLocation")
                 <*> (x .@ "imageState")
@@ -6540,7 +6643,9 @@ instance FromXML ImportImageTask where
                 (x .@? "platform")
                 <*> (x .@? "progress")
                 <*> (x .@? "licenseType")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "snapshotDetailSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "statusMessage")
                 <*> (x .@? "imageId")
                 <*> (x .@? "importTaskId")
@@ -6725,7 +6830,8 @@ instance FromXML ImportInstanceTaskDetails where
           = ImportInstanceTaskDetails' <$>
               (x .@? "instanceId") <*> (x .@? "platform") <*>
                 (x .@? "description")
-                <*> (parseXMLList "item" x)
+                <*>
+                (x .@? "volumes" .!@ mempty >>= parseXMLList "item")
 
 -- | Describes an import volume task.
 --
@@ -6944,6 +7050,8 @@ instance FromXML ImportVolumeTaskDetails where
 --
 -- * 'insRootDeviceName'
 --
+-- * 'insEBSOptimized'
+--
 -- * 'insSRIOVNetSupport'
 --
 -- * 'insStateTransitionReason'
@@ -6990,8 +7098,6 @@ instance FromXML ImportVolumeTaskDetails where
 --
 -- * 'insHypervisor'
 --
--- * 'insEBSOptimized'
---
 -- * 'insState'
 data Instance = Instance'
     { _insPublicDNSName         :: !(Maybe Text)
@@ -7006,6 +7112,7 @@ data Instance = Instance'
     , _insKernelId              :: !(Maybe Text)
     , _insSubnetId              :: !(Maybe Text)
     , _insRootDeviceName        :: !(Maybe Text)
+    , _insEBSOptimized          :: !(Maybe Bool)
     , _insSRIOVNetSupport       :: !(Maybe Text)
     , _insStateTransitionReason :: !(Maybe Text)
     , _insIAMInstanceProfile    :: !(Maybe IAMInstanceProfile)
@@ -7029,13 +7136,12 @@ data Instance = Instance'
     , _insRootDeviceType        :: !DeviceType
     , _insVirtualizationType    :: !VirtualizationType
     , _insHypervisor            :: !HypervisorType
-    , _insEBSOptimized          :: !Bool
     , _insState                 :: !InstanceState
     } deriving (Eq,Read,Show)
 
 -- | 'Instance' smart constructor.
-instance' :: Text -> Text -> Int -> InstanceType -> UTCTime -> Placement -> Monitoring -> ArchitectureValues -> DeviceType -> VirtualizationType -> HypervisorType -> Bool -> InstanceState -> Instance
-instance' pInstanceId pImageId pAMILaunchIndex pInstanceType pLaunchTime pPlacement pMonitoring pArchitecture pRootDeviceType pVirtualizationType pHypervisor pEBSOptimized pState =
+instance' :: Text -> Text -> Int -> InstanceType -> UTCTime -> Placement -> Monitoring -> ArchitectureValues -> DeviceType -> VirtualizationType -> HypervisorType -> InstanceState -> Instance
+instance' pInstanceId pImageId pAMILaunchIndex pInstanceType pLaunchTime pPlacement pMonitoring pArchitecture pRootDeviceType pVirtualizationType pHypervisor pState =
     Instance'
     { _insPublicDNSName = Nothing
     , _insPlatform = Nothing
@@ -7049,6 +7155,7 @@ instance' pInstanceId pImageId pAMILaunchIndex pInstanceType pLaunchTime pPlacem
     , _insKernelId = Nothing
     , _insSubnetId = Nothing
     , _insRootDeviceName = Nothing
+    , _insEBSOptimized = Nothing
     , _insSRIOVNetSupport = Nothing
     , _insStateTransitionReason = Nothing
     , _insIAMInstanceProfile = Nothing
@@ -7072,7 +7179,6 @@ instance' pInstanceId pImageId pAMILaunchIndex pInstanceType pLaunchTime pPlacem
     , _insRootDeviceType = pRootDeviceType
     , _insVirtualizationType = pVirtualizationType
     , _insHypervisor = pHypervisor
-    , _insEBSOptimized = pEBSOptimized
     , _insState = pState
     }
 
@@ -7131,6 +7237,14 @@ insSubnetId = lens _insSubnetId (\ s a -> s{_insSubnetId = a});
 -- | The root device name (for example, @\/dev\/sda1@ or @\/dev\/xvda@).
 insRootDeviceName :: Lens' Instance (Maybe Text)
 insRootDeviceName = lens _insRootDeviceName (\ s a -> s{_insRootDeviceName = a});
+
+-- | Indicates whether the instance is optimized for EBS I\/O. This
+-- optimization provides dedicated throughput to Amazon EBS and an
+-- optimized configuration stack to provide optimal I\/O performance. This
+-- optimization isn\'t available with all instance types. Additional usage
+-- charges apply when using an EBS Optimized instance.
+insEBSOptimized :: Lens' Instance (Maybe Bool)
+insEBSOptimized = lens _insEBSOptimized (\ s a -> s{_insEBSOptimized = a});
 
 -- | Specifies whether enhanced networking is enabled.
 insSRIOVNetSupport :: Lens' Instance (Maybe Text)
@@ -7229,14 +7343,6 @@ insVirtualizationType = lens _insVirtualizationType (\ s a -> s{_insVirtualizati
 insHypervisor :: Lens' Instance HypervisorType
 insHypervisor = lens _insHypervisor (\ s a -> s{_insHypervisor = a});
 
--- | Indicates whether the instance is optimized for EBS I\/O. This
--- optimization provides dedicated throughput to Amazon EBS and an
--- optimized configuration stack to provide optimal I\/O performance. This
--- optimization isn\'t available with all instance types. Additional usage
--- charges apply when using an EBS Optimized instance.
-insEBSOptimized :: Lens' Instance Bool
-insEBSOptimized = lens _insEBSOptimized (\ s a -> s{_insEBSOptimized = a});
-
 -- | The current state of the instance.
 insState :: Lens' Instance InstanceState
 insState = lens _insState (\ s a -> s{_insState = a});
@@ -7245,28 +7351,38 @@ instance FromXML Instance where
         parseXML x
           = Instance' <$>
               (x .@? "dnsName") <*> (x .@? "platform") <*>
-                (may (parseXMLList "item") x)
+                (x .@? "groupSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "clientToken")
                 <*> (x .@? "sourceDestCheck")
                 <*> (x .@? "vpcId")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "networkInterfaceSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "keyName")
                 <*> (x .@? "ramdiskId")
                 <*> (x .@? "kernelId")
                 <*> (x .@? "subnetId")
                 <*> (x .@? "rootDeviceName")
+                <*> (x .@? "ebsOptimized")
                 <*> (x .@? "sriovNetSupport")
                 <*> (x .@? "reason")
                 <*> (x .@? "iamInstanceProfile")
                 <*> (x .@? "instanceLifecycle")
                 <*> (x .@? "privateIpAddress")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "productCodes" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "spotInstanceRequestId")
                 <*> (x .@? "privateDnsName")
                 <*> (x .@? "stateReason")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "blockDeviceMapping" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "ipAddress")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@ "instanceId")
                 <*> (x .@ "imageId")
                 <*> (x .@ "amiLaunchIndex")
@@ -7278,7 +7394,6 @@ instance FromXML Instance where
                 <*> (x .@ "rootDeviceType")
                 <*> (x .@ "virtualizationType")
                 <*> (x .@ "hypervisor")
-                <*> (x .@ "ebsOptimized")
                 <*> (x .@ "instanceState")
 
 -- | Describes a block device mapping.
@@ -7611,8 +7726,12 @@ iniAssociation = lens _iniAssociation (\ s a -> s{_iniAssociation = a});
 instance FromXML InstanceNetworkInterface where
         parseXML x
           = InstanceNetworkInterface' <$>
-              (may (parseXMLList "item") x) <*> (x .@? "status")
-                <*> (may (parseXMLList "item") x)
+              (x .@? "privateIpAddressesSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "status")
+                <*>
+                (x .@? "groupSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "sourceDestCheck")
                 <*> (x .@? "vpcId")
                 <*> (x .@? "networkInterfaceId")
@@ -7850,9 +7969,12 @@ instance FromXML
          InstanceNetworkInterfaceSpecification where
         parseXML x
           = InstanceNetworkInterfaceSpecification' <$>
-              (may (parseXMLList "item") x) <*>
-                (x .@? "deleteOnTermination")
-                <*> (may (parseXMLList "SecurityGroupId") x)
+              (x .@? "privateIpAddressesSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "deleteOnTermination")
+                <*>
+                (x .@? "SecurityGroupId" .!@ mempty >>=
+                   may (parseXMLList "SecurityGroupId"))
                 <*> (x .@? "associatePublicIpAddress")
                 <*> (x .@? "networkInterfaceId")
                 <*> (x .@? "subnetId")
@@ -8098,7 +8220,9 @@ instance FromXML InstanceStatus where
           = InstanceStatus' <$>
               (x .@? "instanceId") <*> (x .@? "systemStatus") <*>
                 (x .@? "availabilityZone")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "eventsSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "instanceStatus")
                 <*> (x .@? "instanceState")
 
@@ -8237,7 +8361,9 @@ issStatus = lens _issStatus (\ s a -> s{_issStatus = a});
 instance FromXML InstanceStatusSummary where
         parseXML x
           = InstanceStatusSummary' <$>
-              (may (parseXMLList "item") x) <*> (x .@ "status")
+              (x .@? "details" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@ "status")
 
 -- | Describes an Internet gateway.
 --
@@ -8280,8 +8406,11 @@ igInternetGatewayId = lens _igInternetGatewayId (\ s a -> s{_igInternetGatewayId
 instance FromXML InternetGateway where
         parseXML x
           = InternetGateway' <$>
-              (may (parseXMLList "item") x) <*>
-                (may (parseXMLList "item") x)
+              (x .@? "attachmentSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@ "internetGatewayId")
 
 -- | Describes the attachment of a VPC to an Internet gateway.
@@ -8580,8 +8709,11 @@ lsPlacement = lens _lsPlacement (\ s a -> s{_lsPlacement = a});
 instance FromXML LaunchSpecification where
         parseXML x
           = LaunchSpecification' <$>
-              (may (parseXMLList "item") x) <*>
-                (may (parseXMLList "item") x)
+              (x .@? "groupSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*>
+                (x .@? "networkInterfaceSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "keyName")
                 <*> (x .@? "ramdiskId")
                 <*> (x .@? "kernelId")
@@ -8592,7 +8724,9 @@ instance FromXML LaunchSpecification where
                 <*> (x .@? "monitoring")
                 <*> (x .@? "iamInstanceProfile")
                 <*> (x .@? "imageId")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "blockDeviceMapping" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "addressingType")
                 <*> (x .@? "placement")
 
@@ -8741,12 +8875,17 @@ naTags = lens _naTags (\ s a -> s{_naTags = a}) . _Default;
 instance FromXML NetworkACL where
         parseXML x
           = NetworkACL' <$>
-              (may (parseXMLList "item") x) <*>
-                (x .@? "networkAclId")
+              (x .@? "entrySet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "networkAclId")
                 <*> (x .@? "vpcId")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "associationSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "default")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 -- | Describes an association between a network ACL and a subnet.
 --
@@ -9037,10 +9176,16 @@ niAssociation = lens _niAssociation (\ s a -> s{_niAssociation = a});
 instance FromXML NetworkInterface where
         parseXML x
           = NetworkInterface' <$>
-              (may (parseXMLList "item") x) <*> (x .@? "status")
-                <*> (may (parseXMLList "item") x)
+              (x .@? "privateIpAddressesSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "status")
+                <*>
+                (x .@? "groupSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "sourceDestCheck")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "vpcId")
                 <*> (x .@? "requesterManaged")
                 <*> (x .@? "networkInterfaceId")
@@ -9503,8 +9648,9 @@ plPrefixListName = lens _plPrefixListName (\ s a -> s{_plPrefixListName = a});
 instance FromXML PrefixList where
         parseXML x
           = PrefixList' <$>
-              (may (parseXMLList "item") x) <*>
-                (x .@? "prefixListId")
+              (x .@? "cidrSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "prefixListId")
                 <*> (x .@? "prefixListName")
 
 -- | The ID of the prefix.
@@ -10082,8 +10228,11 @@ resOwnerId = lens _resOwnerId (\ s a -> s{_resOwnerId = a});
 instance FromXML Reservation where
         parseXML x
           = Reservation' <$>
-              (may (parseXMLList "item") x) <*>
-                (may (parseXMLList "item") x)
+              (x .@? "groupSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*>
+                (x .@? "instancesSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "requesterId")
                 <*> (x .@ "reservationId")
                 <*> (x .@ "ownerId")
@@ -10282,12 +10431,16 @@ instance FromXML ReservedInstances where
                 <*> (x .@? "end")
                 <*> (x .@? "offeringType")
                 <*> (x .@? "usagePrice")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "recurringCharges" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "instanceTenancy")
                 <*> (x .@? "fixedPrice")
                 <*> (x .@? "reservedInstancesId")
                 <*> (x .@? "duration")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 -- | Describes the configuration settings for the modified Reserved
 -- Instances.
@@ -10482,12 +10635,18 @@ instance FromXML ReservedInstancesListing where
               (x .@? "status") <*> (x .@? "clientToken") <*>
                 (x .@? "updateDate")
                 <*> (x .@? "createDate")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "priceSchedules" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "statusMessage")
                 <*> (x .@? "reservedInstancesId")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "instanceCounts" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "reservedInstancesListingId")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 -- | Describes a Reserved Instance modification.
 --
@@ -10581,14 +10740,18 @@ rimReservedInstancesIds = lens _rimReservedInstancesIds (\ s a -> s{_rimReserved
 instance FromXML ReservedInstancesModification where
         parseXML x
           = ReservedInstancesModification' <$>
-              (may (parseXMLList "item") x) <*> (x .@? "status")
+              (x .@? "modificationResultSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "status")
                 <*> (x .@? "clientToken")
                 <*> (x .@? "updateDate")
                 <*> (x .@? "createDate")
                 <*> (x .@? "effectiveDate")
                 <*> (x .@? "statusMessage")
                 <*> (x .@? "reservedInstancesModificationId")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "reservedInstancesSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 -- | /See:/ 'reservedInstancesModificationResult' smart constructor.
 --
@@ -10757,10 +10920,14 @@ instance FromXML ReservedInstancesOffering where
                 (x .@? "productDescription")
                 <*> (x .@? "instanceType")
                 <*> (x .@? "availabilityZone")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "pricingDetailsSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "offeringType")
                 <*> (x .@? "usagePrice")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "recurringCharges" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "reservedInstancesOfferingId")
                 <*> (x .@? "instanceTenancy")
                 <*> (x .@? "fixedPrice")
@@ -10939,12 +11106,19 @@ rtTags = lens _rtTags (\ s a -> s{_rtTags = a}) . _Default;
 instance FromXML RouteTable where
         parseXML x
           = RouteTable' <$>
-              (may (parseXMLList "item") x) <*>
-                (x .@? "routeTableId")
+              (x .@? "routeSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "routeTableId")
                 <*> (x .@? "vpcId")
-                <*> (may (parseXMLList "item") x)
-                <*> (may (parseXMLList "item") x)
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "propagatingVgwSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*>
+                (x .@? "associationSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 -- | Describes an association between a route table and a subnet.
 --
@@ -11189,9 +11363,15 @@ sgDescription = lens _sgDescription (\ s a -> s{_sgDescription = a});
 instance FromXML SecurityGroup where
         parseXML x
           = SecurityGroup' <$>
-              (x .@? "vpcId") <*> (may (parseXMLList "item") x) <*>
-                (may (parseXMLList "item") x)
-                <*> (may (parseXMLList "item") x)
+              (x .@? "vpcId") <*>
+                (x .@? "ipPermissions" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*>
+                (x .@? "ipPermissionsEgress" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@ "ownerId")
                 <*> (x .@ "groupId")
                 <*> (x .@ "groupName")
@@ -11313,7 +11493,8 @@ instance FromXML Snapshot where
         parseXML x
           = Snapshot' <$>
               (x .@? "ownerAlias") <*> (x .@? "kmsKeyId") <*>
-                (may (parseXMLList "item") x)
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@ "snapshotId")
                 <*> (x .@ "ownerId")
                 <*> (x .@ "volumeId")
@@ -11791,7 +11972,9 @@ instance FromXML SpotFleetRequestConfigData where
                 <*> (x .@ "spotPrice")
                 <*> (x .@ "targetCapacity")
                 <*> (x .@ "iamFleetRole")
-                <*> (parseXMLList1 "item" x)
+                <*>
+                (x .@? "launchSpecifications" .!@ mempty >>=
+                   parseXMLList1 "item")
 
 instance ToQuery SpotFleetRequestConfigData where
         toQuery SpotFleetRequestConfigData'{..}
@@ -11982,7 +12165,9 @@ instance FromXML SpotInstanceRequest where
                 <*> (x .@? "spotInstanceRequestId")
                 <*> (x .@? "type")
                 <*> (x .@? "validFrom")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "createTime")
 
 -- | Describes a Spot Instance state change.
@@ -12348,8 +12533,9 @@ subVPCId = lens _subVPCId (\ s a -> s{_subVPCId = a});
 instance FromXML Subnet where
         parseXML x
           = Subnet' <$>
-              (may (parseXMLList "item") x) <*>
-                (x .@ "availabilityZone")
+              (x .@? "tagSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@ "availabilityZone")
                 <*> (x .@ "availableIpAddressCount")
                 <*> (x .@ "cidrBlock")
                 <*> (x .@ "defaultForAz")
@@ -12811,7 +12997,9 @@ vpcVPCId = lens _vpcVPCId (\ s a -> s{_vpcVPCId = a});
 instance FromXML VPC where
         parseXML x
           = VPC' <$>
-              (may (parseXMLList "item") x) <*> (x .@ "cidrBlock")
+              (x .@? "tagSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@ "cidrBlock")
                 <*> (x .@ "dhcpOptionsId")
                 <*> (x .@ "instanceTenancy")
                 <*> (x .@ "isDefault")
@@ -12894,8 +13082,10 @@ vclClassicLinkEnabled = lens _vclClassicLinkEnabled (\ s a -> s{_vclClassicLinkE
 instance FromXML VPCClassicLink where
         parseXML x
           = VPCClassicLink' <$>
-              (x .@? "vpcId") <*> (may (parseXMLList "item") x) <*>
-                (x .@? "classicLinkEnabled")
+              (x .@? "vpcId") <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "classicLinkEnabled")
 
 -- | Describes a VPC endpoint.
 --
@@ -12975,7 +13165,9 @@ instance FromXML VPCEndpoint where
                 <*> (x .@? "creationTimestamp")
                 <*> (x .@? "serviceName")
                 <*> (x .@? "vpcEndpointId")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "routeTableIdSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 -- | Describes a VPC peering connection.
 --
@@ -13046,7 +13238,9 @@ instance FromXML VPCPeeringConnection where
                 <*> (x .@? "accepterVpcInfo")
                 <*> (x .@? "requesterVpcInfo")
                 <*> (x .@? "expirationTime")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 -- | Describes the status of a VPC peering connection.
 --
@@ -13231,11 +13425,16 @@ vcType = lens _vcType (\ s a -> s{_vcType = a});
 instance FromXML VPNConnection where
         parseXML x
           = VPNConnection' <$>
-              (may (parseXMLList "item") x) <*>
-                (x .@? "vpnGatewayId")
+              (x .@? "routes" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "vpnGatewayId")
                 <*> (x .@? "options")
-                <*> (may (parseXMLList "item") x)
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "vgwTelemetry" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@ "vpnConnectionId")
                 <*> (x .@ "customerGatewayId")
                 <*> (x .@ "customerGatewayConfiguration")
@@ -13364,11 +13563,15 @@ vgTags = lens _vgTags (\ s a -> s{_vgTags = a}) . _Default;
 instance FromXML VPNGateway where
         parseXML x
           = VPNGateway' <$>
-              (may (parseXMLList "item") x) <*> (x .@? "state") <*>
-                (x .@? "vpnGatewayId")
+              (x .@? "attachments" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "state")
+                <*> (x .@? "vpnGatewayId")
                 <*> (x .@? "availabilityZone")
                 <*> (x .@? "type")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 -- | Describes a static route for a VPN connection.
 --
@@ -13546,9 +13749,13 @@ volVolumeType = lens _volVolumeType (\ s a -> s{_volVolumeType = a});
 instance FromXML Volume where
         parseXML x
           = Volume' <$>
-              (may (parseXMLList "item") x) <*> (x .@? "iops") <*>
-                (x .@? "kmsKeyId")
-                <*> (may (parseXMLList "item") x)
+              (x .@? "attachmentSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "iops")
+                <*> (x .@? "kmsKeyId")
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@ "availabilityZone")
                 <*> (x .@ "createTime")
                 <*> (x .@ "encrypted")
@@ -13839,7 +14046,9 @@ vsiDetails = lens _vsiDetails (\ s a -> s{_vsiDetails = a}) . _Default;
 instance FromXML VolumeStatusInfo where
         parseXML x
           = VolumeStatusInfo' <$>
-              (x .@? "status") <*> (may (parseXMLList "item") x)
+              (x .@? "status") <*>
+                (x .@? "details" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 -- | Describes the volume status.
 --
@@ -13899,7 +14108,10 @@ instance FromXML VolumeStatusItem where
         parseXML x
           = VolumeStatusItem' <$>
               (x .@? "volumeStatus") <*>
-                (may (parseXMLList "item") x)
+                (x .@? "actionsSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "availabilityZone")
-                <*> (may (parseXMLList "item") x)
+                <*>
+                (x .@? "eventsSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "volumeId")

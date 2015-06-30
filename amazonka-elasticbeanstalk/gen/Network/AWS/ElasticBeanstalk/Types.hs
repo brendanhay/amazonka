@@ -383,7 +383,8 @@ instance FromText ConfigurationDeploymentStatus where
         "deployed" -> pure Deployed
         "failed" -> pure Failed
         "pending" -> pure Pending
-        e -> fail ("Failure parsing ConfigurationDeploymentStatus from " ++ show e)
+        e -> fromTextError $ "Failure parsing ConfigurationDeploymentStatus from value: '" <> e
+           <> "'. Accepted values: deployed, failed, pending"
 
 instance ToText ConfigurationDeploymentStatus where
     toText = \case
@@ -405,14 +406,15 @@ data ConfigurationOptionValueType
 
 instance FromText ConfigurationOptionValueType where
     parser = takeLowerText >>= \case
-        "List" -> pure List
-        "Scalar" -> pure Scalar
-        e -> fail ("Failure parsing ConfigurationOptionValueType from " ++ show e)
+        "list" -> pure List
+        "scalar" -> pure Scalar
+        e -> fromTextError $ "Failure parsing ConfigurationOptionValueType from value: '" <> e
+           <> "'. Accepted values: list, scalar"
 
 instance ToText ConfigurationOptionValueType where
     toText = \case
-        List -> "List"
-        Scalar -> "Scalar"
+        List -> "list"
+        Scalar -> "scalar"
 
 instance Hashable ConfigurationOptionValueType
 instance ToQuery ConfigurationOptionValueType
@@ -430,18 +432,19 @@ data EnvironmentHealth
 
 instance FromText EnvironmentHealth where
     parser = takeLowerText >>= \case
-        "Green" -> pure Green
-        "Grey" -> pure Grey
-        "Red" -> pure Red
-        "Yellow" -> pure Yellow
-        e -> fail ("Failure parsing EnvironmentHealth from " ++ show e)
+        "green" -> pure Green
+        "grey" -> pure Grey
+        "red" -> pure Red
+        "yellow" -> pure Yellow
+        e -> fromTextError $ "Failure parsing EnvironmentHealth from value: '" <> e
+           <> "'. Accepted values: green, grey, red, yellow"
 
 instance ToText EnvironmentHealth where
     toText = \case
-        Green -> "Green"
-        Grey -> "Grey"
-        Red -> "Red"
-        Yellow -> "Yellow"
+        Green -> "green"
+        Grey -> "grey"
+        Red -> "red"
+        Yellow -> "yellow"
 
 instance Hashable EnvironmentHealth
 instance ToQuery EnvironmentHealth
@@ -459,7 +462,8 @@ instance FromText EnvironmentInfoType where
     parser = takeLowerText >>= \case
         "bundle" -> pure Bundle
         "tail" -> pure Tail
-        e -> fail ("Failure parsing EnvironmentInfoType from " ++ show e)
+        e -> fromTextError $ "Failure parsing EnvironmentInfoType from value: '" <> e
+           <> "'. Accepted values: bundle, tail"
 
 instance ToText EnvironmentInfoType where
     toText = \case
@@ -483,20 +487,21 @@ data EnvironmentStatus
 
 instance FromText EnvironmentStatus where
     parser = takeLowerText >>= \case
-        "Launching" -> pure Launching
-        "Ready" -> pure Ready
-        "Terminated" -> pure Terminated
-        "Terminating" -> pure Terminating
-        "Updating" -> pure Updating
-        e -> fail ("Failure parsing EnvironmentStatus from " ++ show e)
+        "launching" -> pure Launching
+        "ready" -> pure Ready
+        "terminated" -> pure Terminated
+        "terminating" -> pure Terminating
+        "updating" -> pure Updating
+        e -> fromTextError $ "Failure parsing EnvironmentStatus from value: '" <> e
+           <> "'. Accepted values: launching, ready, terminated, terminating, updating"
 
 instance ToText EnvironmentStatus where
     toText = \case
-        Launching -> "Launching"
-        Ready -> "Ready"
-        Terminated -> "Terminated"
-        Terminating -> "Terminating"
-        Updating -> "Updating"
+        Launching -> "launching"
+        Ready -> "ready"
+        Terminated -> "terminated"
+        Terminating -> "terminating"
+        Updating -> "updating"
 
 instance Hashable EnvironmentStatus
 instance ToQuery EnvironmentStatus
@@ -516,22 +521,23 @@ data EventSeverity
 
 instance FromText EventSeverity where
     parser = takeLowerText >>= \case
-        "DEBUG" -> pure LevelDebug
-        "ERROR" -> pure LevelError'
-        "FATAL" -> pure LevelFatal
-        "INFO" -> pure LevelInfo
-        "TRACE" -> pure LevelTrace
-        "WARN" -> pure LevelWarn
-        e -> fail ("Failure parsing EventSeverity from " ++ show e)
+        "debug" -> pure LevelDebug
+        "error" -> pure LevelError'
+        "fatal" -> pure LevelFatal
+        "info" -> pure LevelInfo
+        "trace" -> pure LevelTrace
+        "warn" -> pure LevelWarn
+        e -> fromTextError $ "Failure parsing EventSeverity from value: '" <> e
+           <> "'. Accepted values: debug, error, fatal, info, trace, warn"
 
 instance ToText EventSeverity where
     toText = \case
-        LevelDebug -> "DEBUG"
-        LevelError' -> "ERROR"
-        LevelFatal -> "FATAL"
-        LevelInfo -> "INFO"
-        LevelTrace -> "TRACE"
-        LevelWarn -> "WARN"
+        LevelDebug -> "debug"
+        LevelError' -> "error"
+        LevelFatal -> "fatal"
+        LevelInfo -> "info"
+        LevelTrace -> "trace"
+        LevelWarn -> "warn"
 
 instance Hashable EventSeverity
 instance ToQuery EventSeverity
@@ -549,7 +555,8 @@ instance FromText ValidationSeverity where
     parser = takeLowerText >>= \case
         "error" -> pure VSError'
         "warning" -> pure VSWarning
-        e -> fail ("Failure parsing ValidationSeverity from " ++ show e)
+        e -> fromTextError $ "Failure parsing ValidationSeverity from value: '" <> e
+           <> "'. Accepted values: error, warning"
 
 instance ToText ValidationSeverity where
     toText = \case

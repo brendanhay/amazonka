@@ -117,8 +117,9 @@ instance AWSRequest DescribeDHCPOptions where
           = receiveXML
               (\ s h x ->
                  DescribeDHCPOptionsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "dhcpOptionsSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDHCPOptions where
         toHeaders = const mempty

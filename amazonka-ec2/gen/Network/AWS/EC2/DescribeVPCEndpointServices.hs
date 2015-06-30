@@ -98,7 +98,9 @@ instance AWSRequest DescribeVPCEndpointServices where
           = receiveXML
               (\ s h x ->
                  DescribeVPCEndpointServicesResponse' <$>
-                   (may (parseXMLList "item") x) <*> (x .@? "nextToken")
+                   (x .@? "serviceNameSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeVPCEndpointServices where

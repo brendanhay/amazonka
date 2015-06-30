@@ -229,7 +229,8 @@ instance FromText ConnectionState where
         "pending" -> pure CSPending
         "rejected" -> pure CSRejected
         "requested" -> pure CSRequested
-        e -> fail ("Failure parsing ConnectionState from " ++ show e)
+        e -> fromTextError $ "Failure parsing ConnectionState from value: '" <> e
+           <> "'. Accepted values: available, deleted, deleting, down, ordering, pending, rejected, requested"
 
 instance ToText ConnectionState where
     toText = \case
@@ -277,7 +278,8 @@ instance FromText InterconnectState where
         "down" -> pure ISDown
         "pending" -> pure ISPending
         "requested" -> pure ISRequested
-        e -> fail ("Failure parsing InterconnectState from " ++ show e)
+        e -> fromTextError $ "Failure parsing InterconnectState from value: '" <> e
+           <> "'. Accepted values: available, deleted, deleting, down, pending, requested"
 
 instance ToText InterconnectState where
     toText = \case
@@ -336,7 +338,8 @@ instance FromText VirtualInterfaceState where
         "pending" -> pure Pending
         "rejected" -> pure Rejected
         "verifying" -> pure Verifying
-        e -> fail ("Failure parsing VirtualInterfaceState from " ++ show e)
+        e -> fromTextError $ "Failure parsing VirtualInterfaceState from value: '" <> e
+           <> "'. Accepted values: available, confirming, deleted, deleting, pending, rejected, verifying"
 
 instance ToText VirtualInterfaceState where
     toText = \case

@@ -94,8 +94,11 @@ instance AWSRequest CancelSpotFleetRequests where
           = receiveXML
               (\ s h x ->
                  CancelSpotFleetRequestsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (may (parseXMLList "item") x)
+                   (x .@? "successfulFleetRequestSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*>
+                     (x .@? "unsuccessfulFleetRequestSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders CancelSpotFleetRequests where

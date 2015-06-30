@@ -101,8 +101,9 @@ instance AWSRequest DescribeAccountAttributes where
           = receiveXML
               (\ s h x ->
                  DescribeAccountAttributesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "accountAttributeSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAccountAttributes where
         toHeaders = const mempty

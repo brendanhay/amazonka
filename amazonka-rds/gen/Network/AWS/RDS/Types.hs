@@ -870,7 +870,8 @@ instance FromText ApplyMethod where
     parser = takeLowerText >>= \case
         "immediate" -> pure Immediate
         "pending-reboot" -> pure PendingReboot
-        e -> fail ("Failure parsing ApplyMethod from " ++ show e)
+        e -> fromTextError $ "Failure parsing ApplyMethod from value: '" <> e
+           <> "'. Accepted values: immediate, pending-reboot"
 
 instance ToText ApplyMethod where
     toText = \case
@@ -897,7 +898,8 @@ instance FromText SourceType where
         "db-parameter-group" -> pure DBParameterGroup
         "db-security-group" -> pure DBSecurityGroup
         "db-snapshot" -> pure DBSnapshot
-        e -> fail ("Failure parsing SourceType from " ++ show e)
+        e -> fromTextError $ "Failure parsing SourceType from value: '" <> e
+           <> "'. Accepted values: db-instance, db-parameter-group, db-security-group, db-snapshot"
 
 instance ToText SourceType where
     toText = \case

@@ -135,8 +135,9 @@ instance AWSRequest DescribeVPCPeeringConnections
           = receiveXML
               (\ s h x ->
                  DescribeVPCPeeringConnectionsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "vpcPeeringConnectionSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeVPCPeeringConnections
          where

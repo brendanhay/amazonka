@@ -181,7 +181,9 @@ instance AWSRequest ImportImage where
                    (x .@? "hypervisor") <*> (x .@? "platform") <*>
                      (x .@? "progress")
                      <*> (x .@? "licenseType")
-                     <*> (may (parseXMLList "item") x)
+                     <*>
+                     (x .@? "snapshotDetailSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (x .@? "statusMessage")
                      <*> (x .@? "imageId")
                      <*> (x .@? "importTaskId")

@@ -146,7 +146,8 @@ instance FromText ContentType where
     parser = takeLowerText >>= \case
         "application/json" -> pure ApplicationJSON
         "application/xml" -> pure ApplicationXML
-        e -> fail ("Failure parsing ContentType from " ++ show e)
+        e -> fromTextError $ "Failure parsing ContentType from value: '" <> e
+           <> "'. Accepted values: application/json, application/xml"
 
 instance ToText ContentType where
     toText = \case
@@ -173,7 +174,8 @@ instance FromText QueryParser where
         "lucene" -> pure Lucene
         "simple" -> pure Simple
         "structured" -> pure Structured
-        e -> fail ("Failure parsing QueryParser from " ++ show e)
+        e -> fromTextError $ "Failure parsing QueryParser from value: '" <> e
+           <> "'. Accepted values: dismax, lucene, simple, structured"
 
 instance ToText QueryParser where
     toText = \case

@@ -115,7 +115,9 @@ instance AWSRequest DescribeFlowLogs where
           = receiveXML
               (\ s h x ->
                  DescribeFlowLogsResponse' <$>
-                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                   (x .@? "nextToken") <*>
+                     (x .@? "flowLogSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeFlowLogs where

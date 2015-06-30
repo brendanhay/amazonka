@@ -202,8 +202,9 @@ instance AWSRequest RequestSpotInstances where
           = receiveXML
               (\ s h x ->
                  RequestSpotInstancesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "spotInstanceRequestSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders RequestSpotInstances where
         toHeaders = const mempty

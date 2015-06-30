@@ -193,16 +193,17 @@ data Compute
 
 instance FromText Compute where
     parser = takeLowerText >>= \case
-        "PERFORMANCE" -> pure Performance
-        "STANDARD" -> pure Standard
-        "VALUE" -> pure Value
-        e -> fail ("Failure parsing Compute from " ++ show e)
+        "performance" -> pure Performance
+        "standard" -> pure Standard
+        "value" -> pure Value
+        e -> fromTextError $ "Failure parsing Compute from value: '" <> e
+           <> "'. Accepted values: performance, standard, value"
 
 instance ToText Compute where
     toText = \case
-        Performance -> "PERFORMANCE"
-        Standard -> "STANDARD"
-        Value -> "VALUE"
+        Performance -> "performance"
+        Standard -> "standard"
+        Value -> "value"
 
 instance Hashable Compute
 instance ToQuery Compute
@@ -221,20 +222,21 @@ data WorkspaceDirectoryState
 
 instance FromText WorkspaceDirectoryState where
     parser = takeLowerText >>= \case
-        "DEREGISTERED" -> pure Deregistered
-        "DEREGISTERING" -> pure Deregistering
-        "ERROR" -> pure Error'
-        "REGISTERED" -> pure Registered
-        "REGISTERING" -> pure Registering
-        e -> fail ("Failure parsing WorkspaceDirectoryState from " ++ show e)
+        "deregistered" -> pure Deregistered
+        "deregistering" -> pure Deregistering
+        "error" -> pure Error'
+        "registered" -> pure Registered
+        "registering" -> pure Registering
+        e -> fromTextError $ "Failure parsing WorkspaceDirectoryState from value: '" <> e
+           <> "'. Accepted values: deregistered, deregistering, error, registered, registering"
 
 instance ToText WorkspaceDirectoryState where
     toText = \case
-        Deregistered -> "DEREGISTERED"
-        Deregistering -> "DEREGISTERING"
-        Error' -> "ERROR"
-        Registered -> "REGISTERED"
-        Registering -> "REGISTERING"
+        Deregistered -> "deregistered"
+        Deregistering -> "deregistering"
+        Error' -> "error"
+        Registered -> "registered"
+        Registering -> "registering"
 
 instance Hashable WorkspaceDirectoryState
 instance ToQuery WorkspaceDirectoryState
@@ -250,14 +252,15 @@ data WorkspaceDirectoryType
 
 instance FromText WorkspaceDirectoryType where
     parser = takeLowerText >>= \case
-        "AD_CONNECTOR" -> pure ADConnector
-        "SIMPLE_AD" -> pure SimpleAD
-        e -> fail ("Failure parsing WorkspaceDirectoryType from " ++ show e)
+        "ad_connector" -> pure ADConnector
+        "simple_ad" -> pure SimpleAD
+        e -> fromTextError $ "Failure parsing WorkspaceDirectoryType from value: '" <> e
+           <> "'. Accepted values: ad_connector, simple_ad"
 
 instance ToText WorkspaceDirectoryType where
     toText = \case
-        ADConnector -> "AD_CONNECTOR"
-        SimpleAD -> "SIMPLE_AD"
+        ADConnector -> "ad_connector"
+        SimpleAD -> "simple_ad"
 
 instance Hashable WorkspaceDirectoryType
 instance ToQuery WorkspaceDirectoryType
@@ -281,30 +284,31 @@ data WorkspaceState
 
 instance FromText WorkspaceState where
     parser = takeLowerText >>= \case
-        "AVAILABLE" -> pure WSAvailable
-        "ERROR" -> pure WSError'
-        "IMPAIRED" -> pure WSImpaired
-        "PENDING" -> pure WSPending
-        "REBOOTING" -> pure WSRebooting
-        "REBUILDING" -> pure WSRebuilding
-        "SUSPENDED" -> pure WSSuspended
-        "TERMINATED" -> pure WSTerminated
-        "TERMINATING" -> pure WSTerminating
-        "UNHEALTHY" -> pure WSUnhealthy
-        e -> fail ("Failure parsing WorkspaceState from " ++ show e)
+        "available" -> pure WSAvailable
+        "error" -> pure WSError'
+        "impaired" -> pure WSImpaired
+        "pending" -> pure WSPending
+        "rebooting" -> pure WSRebooting
+        "rebuilding" -> pure WSRebuilding
+        "suspended" -> pure WSSuspended
+        "terminated" -> pure WSTerminated
+        "terminating" -> pure WSTerminating
+        "unhealthy" -> pure WSUnhealthy
+        e -> fromTextError $ "Failure parsing WorkspaceState from value: '" <> e
+           <> "'. Accepted values: available, error, impaired, pending, rebooting, rebuilding, suspended, terminated, terminating, unhealthy"
 
 instance ToText WorkspaceState where
     toText = \case
-        WSAvailable -> "AVAILABLE"
-        WSError' -> "ERROR"
-        WSImpaired -> "IMPAIRED"
-        WSPending -> "PENDING"
-        WSRebooting -> "REBOOTING"
-        WSRebuilding -> "REBUILDING"
-        WSSuspended -> "SUSPENDED"
-        WSTerminated -> "TERMINATED"
-        WSTerminating -> "TERMINATING"
-        WSUnhealthy -> "UNHEALTHY"
+        WSAvailable -> "available"
+        WSError' -> "error"
+        WSImpaired -> "impaired"
+        WSPending -> "pending"
+        WSRebooting -> "rebooting"
+        WSRebuilding -> "rebuilding"
+        WSSuspended -> "suspended"
+        WSTerminated -> "terminated"
+        WSTerminating -> "terminating"
+        WSUnhealthy -> "unhealthy"
 
 instance Hashable WorkspaceState
 instance ToQuery WorkspaceState

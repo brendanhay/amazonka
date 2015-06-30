@@ -98,8 +98,9 @@ instance AWSRequest DescribeRegions where
           = receiveXML
               (\ s h x ->
                  DescribeRegionsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "regionInfo" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeRegions where
         toHeaders = const mempty

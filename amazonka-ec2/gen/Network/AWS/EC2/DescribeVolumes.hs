@@ -182,7 +182,9 @@ instance AWSRequest DescribeVolumes where
           = receiveXML
               (\ s h x ->
                  DescribeVolumesResponse' <$>
-                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                   (x .@? "nextToken") <*>
+                     (x .@? "volumeSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeVolumes where

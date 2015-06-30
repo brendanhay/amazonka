@@ -151,8 +151,9 @@ instance AWSRequest DescribeNetworkACLs where
           = receiveXML
               (\ s h x ->
                  DescribeNetworkACLsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "networkAclSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeNetworkACLs where
         toHeaders = const mempty

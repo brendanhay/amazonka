@@ -98,7 +98,8 @@ instance FromText ClientVersion where
     parser = takeLowerText >>= \case
         "5.1" -> pure V51
         "5.3" -> pure V53
-        e -> fail ("Failure parsing ClientVersion from " ++ show e)
+        e -> fromTextError $ "Failure parsing ClientVersion from value: '" <> e
+           <> "'. Accepted values: 5.1, 5.3"
 
 instance ToText ClientVersion where
     toText = \case
@@ -120,16 +121,17 @@ data CloudHSMObjectState
 
 instance FromText CloudHSMObjectState where
     parser = takeLowerText >>= \case
-        "DEGRADED" -> pure Degraded
-        "READY" -> pure Ready
-        "UPDATING" -> pure Updating
-        e -> fail ("Failure parsing CloudHSMObjectState from " ++ show e)
+        "degraded" -> pure Degraded
+        "ready" -> pure Ready
+        "updating" -> pure Updating
+        e -> fromTextError $ "Failure parsing CloudHSMObjectState from value: '" <> e
+           <> "'. Accepted values: degraded, ready, updating"
 
 instance ToText CloudHSMObjectState where
     toText = \case
-        Degraded -> "DEGRADED"
-        Ready -> "READY"
-        Updating -> "UPDATING"
+        Degraded -> "degraded"
+        Ready -> "ready"
+        Updating -> "updating"
 
 instance Hashable CloudHSMObjectState
 instance ToQuery CloudHSMObjectState
@@ -150,24 +152,25 @@ data HSMStatus
 
 instance FromText HSMStatus where
     parser = takeLowerText >>= \case
-        "DEGRADED" -> pure HSDegraded
-        "PENDING" -> pure HSPending
-        "RUNNING" -> pure HSRunning
-        "SUSPENDED" -> pure HSSuspended
-        "TERMINATED" -> pure HSTerminated
-        "TERMINATING" -> pure HSTerminating
-        "UPDATING" -> pure HSUpdating
-        e -> fail ("Failure parsing HSMStatus from " ++ show e)
+        "degraded" -> pure HSDegraded
+        "pending" -> pure HSPending
+        "running" -> pure HSRunning
+        "suspended" -> pure HSSuspended
+        "terminated" -> pure HSTerminated
+        "terminating" -> pure HSTerminating
+        "updating" -> pure HSUpdating
+        e -> fromTextError $ "Failure parsing HSMStatus from value: '" <> e
+           <> "'. Accepted values: degraded, pending, running, suspended, terminated, terminating, updating"
 
 instance ToText HSMStatus where
     toText = \case
-        HSDegraded -> "DEGRADED"
-        HSPending -> "PENDING"
-        HSRunning -> "RUNNING"
-        HSSuspended -> "SUSPENDED"
-        HSTerminated -> "TERMINATED"
-        HSTerminating -> "TERMINATING"
-        HSUpdating -> "UPDATING"
+        HSDegraded -> "degraded"
+        HSPending -> "pending"
+        HSRunning -> "running"
+        HSSuspended -> "suspended"
+        HSTerminated -> "terminated"
+        HSTerminating -> "terminating"
+        HSUpdating -> "updating"
 
 instance Hashable HSMStatus
 instance ToQuery HSMStatus
@@ -182,12 +185,13 @@ data SubscriptionType =
 
 instance FromText SubscriptionType where
     parser = takeLowerText >>= \case
-        "PRODUCTION" -> pure Production
-        e -> fail ("Failure parsing SubscriptionType from " ++ show e)
+        "production" -> pure Production
+        e -> fromTextError $ "Failure parsing SubscriptionType from value: '" <> e
+           <> "'. Accepted values: production"
 
 instance ToText SubscriptionType where
     toText = \case
-        Production -> "PRODUCTION"
+        Production -> "production"
 
 instance Hashable SubscriptionType
 instance ToQuery SubscriptionType

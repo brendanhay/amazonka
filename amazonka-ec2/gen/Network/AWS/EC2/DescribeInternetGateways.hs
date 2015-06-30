@@ -115,8 +115,9 @@ instance AWSRequest DescribeInternetGateways where
           = receiveXML
               (\ s h x ->
                  DescribeInternetGatewaysResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "internetGatewaySet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeInternetGateways where
         toHeaders = const mempty

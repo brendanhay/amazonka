@@ -310,7 +310,8 @@ data Algorithm =
 instance FromText Algorithm where
     parser = takeLowerText >>= \case
         "sgd" -> pure Sgd
-        e -> fail ("Failure parsing Algorithm from " ++ show e)
+        e -> fromTextError $ "Failure parsing Algorithm from value: '" <> e
+           <> "'. Accepted values: sgd"
 
 instance ToText Algorithm where
     toText = \case
@@ -353,26 +354,27 @@ data BatchPredictionFilterVariable
 
 instance FromText BatchPredictionFilterVariable where
     parser = takeLowerText >>= \case
-        "CreatedAt" -> pure BatchCreatedAt
-        "DataSourceId" -> pure BatchDataSourceId
-        "DataURI" -> pure BatchDataURI
-        "IAMUser" -> pure BatchIAMUser
-        "LastUpdatedAt" -> pure BatchLastUpdatedAt
-        "MLModelId" -> pure BatchMLModelId
-        "Name" -> pure BatchName
-        "Status" -> pure BatchStatus
-        e -> fail ("Failure parsing BatchPredictionFilterVariable from " ++ show e)
+        "createdat" -> pure BatchCreatedAt
+        "datasourceid" -> pure BatchDataSourceId
+        "datauri" -> pure BatchDataURI
+        "iamuser" -> pure BatchIAMUser
+        "lastupdatedat" -> pure BatchLastUpdatedAt
+        "mlmodelid" -> pure BatchMLModelId
+        "name" -> pure BatchName
+        "status" -> pure BatchStatus
+        e -> fromTextError $ "Failure parsing BatchPredictionFilterVariable from value: '" <> e
+           <> "'. Accepted values: createdat, datasourceid, datauri, iamuser, lastupdatedat, mlmodelid, name, status"
 
 instance ToText BatchPredictionFilterVariable where
     toText = \case
-        BatchCreatedAt -> "CreatedAt"
-        BatchDataSourceId -> "DataSourceId"
-        BatchDataURI -> "DataURI"
-        BatchIAMUser -> "IAMUser"
-        BatchLastUpdatedAt -> "LastUpdatedAt"
-        BatchMLModelId -> "MLModelId"
-        BatchName -> "Name"
-        BatchStatus -> "Status"
+        BatchCreatedAt -> "createdat"
+        BatchDataSourceId -> "datasourceid"
+        BatchDataURI -> "datauri"
+        BatchIAMUser -> "iamuser"
+        BatchLastUpdatedAt -> "lastupdatedat"
+        BatchMLModelId -> "mlmodelid"
+        BatchName -> "name"
+        BatchStatus -> "status"
 
 instance Hashable BatchPredictionFilterVariable
 instance ToQuery BatchPredictionFilterVariable
@@ -408,22 +410,23 @@ data DataSourceFilterVariable
 
 instance FromText DataSourceFilterVariable where
     parser = takeLowerText >>= \case
-        "CreatedAt" -> pure DSFVDataCreatedAt
-        "DataLocationS3" -> pure DSFVDataDATALOCATIONS3
-        "IAMUser" -> pure DSFVDataIAMUser
-        "LastUpdatedAt" -> pure DSFVDataLastUpdatedAt
-        "Name" -> pure DSFVDataName
-        "Status" -> pure DSFVDataStatus
-        e -> fail ("Failure parsing DataSourceFilterVariable from " ++ show e)
+        "createdat" -> pure DSFVDataCreatedAt
+        "datalocations3" -> pure DSFVDataDATALOCATIONS3
+        "iamuser" -> pure DSFVDataIAMUser
+        "lastupdatedat" -> pure DSFVDataLastUpdatedAt
+        "name" -> pure DSFVDataName
+        "status" -> pure DSFVDataStatus
+        e -> fromTextError $ "Failure parsing DataSourceFilterVariable from value: '" <> e
+           <> "'. Accepted values: createdat, datalocations3, iamuser, lastupdatedat, name, status"
 
 instance ToText DataSourceFilterVariable where
     toText = \case
-        DSFVDataCreatedAt -> "CreatedAt"
-        DSFVDataDATALOCATIONS3 -> "DataLocationS3"
-        DSFVDataIAMUser -> "IAMUser"
-        DSFVDataLastUpdatedAt -> "LastUpdatedAt"
-        DSFVDataName -> "Name"
-        DSFVDataStatus -> "Status"
+        DSFVDataCreatedAt -> "createdat"
+        DSFVDataDATALOCATIONS3 -> "datalocations3"
+        DSFVDataIAMUser -> "iamuser"
+        DSFVDataLastUpdatedAt -> "lastupdatedat"
+        DSFVDataName -> "name"
+        DSFVDataStatus -> "status"
 
 instance Hashable DataSourceFilterVariable
 instance ToQuery DataSourceFilterVariable
@@ -442,14 +445,15 @@ data DetailsAttributes
 
 instance FromText DetailsAttributes where
     parser = takeLowerText >>= \case
-        "Algorithm" -> pure Algorithm
-        "PredictiveModelType" -> pure PredictiveModelType
-        e -> fail ("Failure parsing DetailsAttributes from " ++ show e)
+        "algorithm" -> pure Algorithm
+        "predictivemodeltype" -> pure PredictiveModelType
+        e -> fromTextError $ "Failure parsing DetailsAttributes from value: '" <> e
+           <> "'. Accepted values: algorithm, predictivemodeltype"
 
 instance ToText DetailsAttributes where
     toText = \case
-        Algorithm -> "Algorithm"
-        PredictiveModelType -> "PredictiveModelType"
+        Algorithm -> "algorithm"
+        PredictiveModelType -> "predictivemodeltype"
 
 instance Hashable DetailsAttributes
 instance ToQuery DetailsAttributes
@@ -475,20 +479,21 @@ data EntityStatus
 
 instance FromText EntityStatus where
     parser = takeLowerText >>= \case
-        "COMPLETED" -> pure Completed
-        "DELETED" -> pure Deleted
-        "FAILED" -> pure Failed
-        "INPROGRESS" -> pure Inprogress
-        "PENDING" -> pure Pending
-        e -> fail ("Failure parsing EntityStatus from " ++ show e)
+        "completed" -> pure Completed
+        "deleted" -> pure Deleted
+        "failed" -> pure Failed
+        "inprogress" -> pure Inprogress
+        "pending" -> pure Pending
+        e -> fromTextError $ "Failure parsing EntityStatus from value: '" <> e
+           <> "'. Accepted values: completed, deleted, failed, inprogress, pending"
 
 instance ToText EntityStatus where
     toText = \case
-        Completed -> "COMPLETED"
-        Deleted -> "DELETED"
-        Failed -> "FAILED"
-        Inprogress -> "INPROGRESS"
-        Pending -> "PENDING"
+        Completed -> "completed"
+        Deleted -> "deleted"
+        Failed -> "failed"
+        Inprogress -> "inprogress"
+        Pending -> "pending"
 
 instance Hashable EntityStatus
 instance ToQuery EntityStatus
@@ -526,26 +531,27 @@ data EvaluationFilterVariable
 
 instance FromText EvaluationFilterVariable where
     parser = takeLowerText >>= \case
-        "CreatedAt" -> pure EFVEvalCreatedAt
-        "DataSourceId" -> pure EFVEvalDataSourceId
-        "DataURI" -> pure EFVEvalDataURI
-        "IAMUser" -> pure EFVEvalIAMUser
-        "LastUpdatedAt" -> pure EFVEvalLastUpdatedAt
-        "MLModelId" -> pure EFVEvalMLModelId
-        "Name" -> pure EFVEvalName
-        "Status" -> pure EFVEvalStatus
-        e -> fail ("Failure parsing EvaluationFilterVariable from " ++ show e)
+        "createdat" -> pure EFVEvalCreatedAt
+        "datasourceid" -> pure EFVEvalDataSourceId
+        "datauri" -> pure EFVEvalDataURI
+        "iamuser" -> pure EFVEvalIAMUser
+        "lastupdatedat" -> pure EFVEvalLastUpdatedAt
+        "mlmodelid" -> pure EFVEvalMLModelId
+        "name" -> pure EFVEvalName
+        "status" -> pure EFVEvalStatus
+        e -> fromTextError $ "Failure parsing EvaluationFilterVariable from value: '" <> e
+           <> "'. Accepted values: createdat, datasourceid, datauri, iamuser, lastupdatedat, mlmodelid, name, status"
 
 instance ToText EvaluationFilterVariable where
     toText = \case
-        EFVEvalCreatedAt -> "CreatedAt"
-        EFVEvalDataSourceId -> "DataSourceId"
-        EFVEvalDataURI -> "DataURI"
-        EFVEvalIAMUser -> "IAMUser"
-        EFVEvalLastUpdatedAt -> "LastUpdatedAt"
-        EFVEvalMLModelId -> "MLModelId"
-        EFVEvalName -> "Name"
-        EFVEvalStatus -> "Status"
+        EFVEvalCreatedAt -> "createdat"
+        EFVEvalDataSourceId -> "datasourceid"
+        EFVEvalDataURI -> "datauri"
+        EFVEvalIAMUser -> "iamuser"
+        EFVEvalLastUpdatedAt -> "lastupdatedat"
+        EFVEvalMLModelId -> "mlmodelid"
+        EFVEvalName -> "name"
+        EFVEvalStatus -> "status"
 
 instance Hashable EvaluationFilterVariable
 instance ToQuery EvaluationFilterVariable
@@ -569,30 +575,31 @@ data MLModelFilterVariable
 
 instance FromText MLModelFilterVariable where
     parser = takeLowerText >>= \case
-        "Algorithm" -> pure MLMFVAlgorithm
-        "CreatedAt" -> pure MLMFVCreatedAt
-        "IAMUser" -> pure MLMFVIAMUser
-        "LastUpdatedAt" -> pure MLMFVLastUpdatedAt
-        "MLModelType" -> pure MLMFVMLModelType
-        "Name" -> pure MLMFVName
-        "RealtimeEndpointStatus" -> pure MLMFVRealtimeEndpointStatus
-        "Status" -> pure MLMFVStatus
-        "TrainingDataSourceId" -> pure MLMFVTrainingDataSourceId
-        "TrainingDataURI" -> pure MLMFVTrainingDataURI
-        e -> fail ("Failure parsing MLModelFilterVariable from " ++ show e)
+        "algorithm" -> pure MLMFVAlgorithm
+        "createdat" -> pure MLMFVCreatedAt
+        "iamuser" -> pure MLMFVIAMUser
+        "lastupdatedat" -> pure MLMFVLastUpdatedAt
+        "mlmodeltype" -> pure MLMFVMLModelType
+        "name" -> pure MLMFVName
+        "realtimeendpointstatus" -> pure MLMFVRealtimeEndpointStatus
+        "status" -> pure MLMFVStatus
+        "trainingdatasourceid" -> pure MLMFVTrainingDataSourceId
+        "trainingdatauri" -> pure MLMFVTrainingDataURI
+        e -> fromTextError $ "Failure parsing MLModelFilterVariable from value: '" <> e
+           <> "'. Accepted values: algorithm, createdat, iamuser, lastupdatedat, mlmodeltype, name, realtimeendpointstatus, status, trainingdatasourceid, trainingdatauri"
 
 instance ToText MLModelFilterVariable where
     toText = \case
-        MLMFVAlgorithm -> "Algorithm"
-        MLMFVCreatedAt -> "CreatedAt"
-        MLMFVIAMUser -> "IAMUser"
-        MLMFVLastUpdatedAt -> "LastUpdatedAt"
-        MLMFVMLModelType -> "MLModelType"
-        MLMFVName -> "Name"
-        MLMFVRealtimeEndpointStatus -> "RealtimeEndpointStatus"
-        MLMFVStatus -> "Status"
-        MLMFVTrainingDataSourceId -> "TrainingDataSourceId"
-        MLMFVTrainingDataURI -> "TrainingDataURI"
+        MLMFVAlgorithm -> "algorithm"
+        MLMFVCreatedAt -> "createdat"
+        MLMFVIAMUser -> "iamuser"
+        MLMFVLastUpdatedAt -> "lastupdatedat"
+        MLMFVMLModelType -> "mlmodeltype"
+        MLMFVName -> "name"
+        MLMFVRealtimeEndpointStatus -> "realtimeendpointstatus"
+        MLMFVStatus -> "status"
+        MLMFVTrainingDataSourceId -> "trainingdatasourceid"
+        MLMFVTrainingDataURI -> "trainingdatauri"
 
 instance Hashable MLModelFilterVariable
 instance ToQuery MLModelFilterVariable
@@ -609,16 +616,17 @@ data MLModelType
 
 instance FromText MLModelType where
     parser = takeLowerText >>= \case
-        "BINARY" -> pure Binary
-        "MULTICLASS" -> pure Multiclass
-        "REGRESSION" -> pure Regression
-        e -> fail ("Failure parsing MLModelType from " ++ show e)
+        "binary" -> pure Binary
+        "multiclass" -> pure Multiclass
+        "regression" -> pure Regression
+        e -> fromTextError $ "Failure parsing MLModelType from value: '" <> e
+           <> "'. Accepted values: binary, multiclass, regression"
 
 instance ToText MLModelType where
     toText = \case
-        Binary -> "BINARY"
-        Multiclass -> "MULTICLASS"
-        Regression -> "REGRESSION"
+        Binary -> "binary"
+        Multiclass -> "multiclass"
+        Regression -> "regression"
 
 instance Hashable MLModelType
 instance ToQuery MLModelType
@@ -639,18 +647,19 @@ data RealtimeEndpointStatus
 
 instance FromText RealtimeEndpointStatus where
     parser = takeLowerText >>= \case
-        "FAILED" -> pure RESFailed
-        "NONE" -> pure RESNone
-        "READY" -> pure RESReady
-        "UPDATING" -> pure RESUpdating
-        e -> fail ("Failure parsing RealtimeEndpointStatus from " ++ show e)
+        "failed" -> pure RESFailed
+        "none" -> pure RESNone
+        "ready" -> pure RESReady
+        "updating" -> pure RESUpdating
+        e -> fromTextError $ "Failure parsing RealtimeEndpointStatus from value: '" <> e
+           <> "'. Accepted values: failed, none, ready, updating"
 
 instance ToText RealtimeEndpointStatus where
     toText = \case
-        RESFailed -> "FAILED"
-        RESNone -> "NONE"
-        RESReady -> "READY"
-        RESUpdating -> "UPDATING"
+        RESFailed -> "failed"
+        RESNone -> "none"
+        RESReady -> "ready"
+        RESUpdating -> "updating"
 
 instance Hashable RealtimeEndpointStatus
 instance ToQuery RealtimeEndpointStatus
@@ -673,7 +682,8 @@ instance FromText SortOrder where
     parser = takeLowerText >>= \case
         "asc" -> pure Asc
         "dsc" -> pure Dsc
-        e -> fail ("Failure parsing SortOrder from " ++ show e)
+        e -> fromTextError $ "Failure parsing SortOrder from value: '" <> e
+           <> "'. Accepted values: asc, dsc"
 
 instance ToText SortOrder where
     toText = \case

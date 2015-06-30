@@ -110,8 +110,9 @@ instance AWSRequest DescribeAvailabilityZones where
           = receiveXML
               (\ s h x ->
                  DescribeAvailabilityZonesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "availabilityZoneInfo" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAvailabilityZones where
         toHeaders = const mempty

@@ -108,7 +108,9 @@ instance AWSRequest DescribeSpotFleetInstances where
                  DescribeSpotFleetInstancesResponse' <$>
                    (x .@? "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .@ "spotFleetRequestId")
-                     <*> (parseXMLList "item" x))
+                     <*>
+                     (x .@? "activeInstanceSet" .!@ mempty >>=
+                        parseXMLList "item"))
 
 instance ToHeaders DescribeSpotFleetInstances where
         toHeaders = const mempty

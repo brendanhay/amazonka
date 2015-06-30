@@ -202,7 +202,9 @@ instance AWSRequest DescribeInstanceStatus where
           = receiveXML
               (\ s h x ->
                  DescribeInstanceStatusResponse' <$>
-                   (may (parseXMLList "item") x) <*> (x .@? "nextToken")
+                   (x .@? "instanceStatusSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeInstanceStatus where

@@ -100,8 +100,9 @@ instance AWSRequest DescribeKeyPairs where
           = receiveXML
               (\ s h x ->
                  DescribeKeyPairsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "keySet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeKeyPairs where
         toHeaders = const mempty

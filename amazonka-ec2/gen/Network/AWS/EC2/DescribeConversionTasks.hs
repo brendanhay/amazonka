@@ -93,8 +93,9 @@ instance AWSRequest DescribeConversionTasks where
           = receiveXML
               (\ s h x ->
                  DescribeConversionTasksResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "conversionTasks" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeConversionTasks where
         toHeaders = const mempty

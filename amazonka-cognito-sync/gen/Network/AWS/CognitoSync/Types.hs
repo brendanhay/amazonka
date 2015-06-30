@@ -225,18 +225,19 @@ data BulkPublishStatus
 
 instance FromText BulkPublishStatus where
     parser = takeLowerText >>= \case
-        "FAILED" -> pure Failed
-        "IN_PROGRESS" -> pure INProgress
-        "NOT_STARTED" -> pure NotStarted
-        "SUCCEEDED" -> pure Succeeded
-        e -> fail ("Failure parsing BulkPublishStatus from " ++ show e)
+        "failed" -> pure Failed
+        "in_progress" -> pure INProgress
+        "not_started" -> pure NotStarted
+        "succeeded" -> pure Succeeded
+        e -> fromTextError $ "Failure parsing BulkPublishStatus from value: '" <> e
+           <> "'. Accepted values: failed, in_progress, not_started, succeeded"
 
 instance ToText BulkPublishStatus where
     toText = \case
-        Failed -> "FAILED"
-        INProgress -> "IN_PROGRESS"
-        NotStarted -> "NOT_STARTED"
-        Succeeded -> "SUCCEEDED"
+        Failed -> "failed"
+        INProgress -> "in_progress"
+        NotStarted -> "not_started"
+        Succeeded -> "succeeded"
 
 instance Hashable BulkPublishStatus
 instance ToQuery BulkPublishStatus
@@ -254,7 +255,8 @@ instance FromText Operation where
     parser = takeLowerText >>= \case
         "remove" -> pure Remove
         "replace" -> pure Replace
-        e -> fail ("Failure parsing Operation from " ++ show e)
+        e -> fromTextError $ "Failure parsing Operation from value: '" <> e
+           <> "'. Accepted values: remove, replace"
 
 instance ToText Operation where
     toText = \case
@@ -277,18 +279,19 @@ data Platform
 
 instance FromText Platform where
     parser = takeLowerText >>= \case
-        "ADM" -> pure ADM
-        "APNS" -> pure APNS
-        "APNS_SANDBOX" -> pure APNSSandbox
-        "GCM" -> pure GCM
-        e -> fail ("Failure parsing Platform from " ++ show e)
+        "adm" -> pure ADM
+        "apns" -> pure APNS
+        "apns_sandbox" -> pure APNSSandbox
+        "gcm" -> pure GCM
+        e -> fromTextError $ "Failure parsing Platform from value: '" <> e
+           <> "'. Accepted values: adm, apns, apns_sandbox, gcm"
 
 instance ToText Platform where
     toText = \case
-        ADM -> "ADM"
-        APNS -> "APNS"
-        APNSSandbox -> "APNS_SANDBOX"
-        GCM -> "GCM"
+        ADM -> "adm"
+        APNS -> "apns"
+        APNSSandbox -> "apns_sandbox"
+        GCM -> "gcm"
 
 instance Hashable Platform
 instance ToQuery Platform
@@ -304,14 +307,15 @@ data StreamingStatus
 
 instance FromText StreamingStatus where
     parser = takeLowerText >>= \case
-        "DISABLED" -> pure Disabled
-        "ENABLED" -> pure Enabled
-        e -> fail ("Failure parsing StreamingStatus from " ++ show e)
+        "disabled" -> pure Disabled
+        "enabled" -> pure Enabled
+        e -> fromTextError $ "Failure parsing StreamingStatus from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
 
 instance ToText StreamingStatus where
     toText = \case
-        Disabled -> "DISABLED"
-        Enabled -> "ENABLED"
+        Disabled -> "disabled"
+        Enabled -> "enabled"
 
 instance Hashable StreamingStatus
 instance ToQuery StreamingStatus

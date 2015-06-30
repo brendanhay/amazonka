@@ -200,8 +200,9 @@ instance AWSRequest DescribeImages where
           = receiveXML
               (\ s h x ->
                  DescribeImagesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "imagesSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeImages where
         toHeaders = const mempty

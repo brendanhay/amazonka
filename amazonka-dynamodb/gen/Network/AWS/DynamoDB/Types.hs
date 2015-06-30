@@ -356,16 +356,17 @@ data AttributeAction
 
 instance FromText AttributeAction where
     parser = takeLowerText >>= \case
-        "ADD" -> pure Add
-        "DELETE" -> pure Delete
-        "PUT" -> pure Put
-        e -> fail ("Failure parsing AttributeAction from " ++ show e)
+        "add" -> pure Add
+        "delete" -> pure Delete
+        "put" -> pure Put
+        e -> fromTextError $ "Failure parsing AttributeAction from value: '" <> e
+           <> "'. Accepted values: add, delete, put"
 
 instance ToText AttributeAction where
     toText = \case
-        Add -> "ADD"
-        Delete -> "DELETE"
-        Put -> "PUT"
+        Add -> "add"
+        Delete -> "delete"
+        Put -> "put"
 
 instance Hashable AttributeAction
 instance ToQuery AttributeAction
@@ -392,36 +393,37 @@ data ComparisonOperator
 
 instance FromText ComparisonOperator where
     parser = takeLowerText >>= \case
-        "BEGINS_WITH" -> pure BeginsWith
-        "BETWEEN" -> pure Between
-        "CONTAINS" -> pure Contains
-        "EQ" -> pure EQ'
-        "GE" -> pure GE
-        "GT" -> pure GT'
-        "IN" -> pure IN
-        "LE" -> pure LE
-        "LT" -> pure LT'
-        "NE" -> pure NE
-        "NOT_CONTAINS" -> pure NotContains
-        "NOT_NULL" -> pure NotNull
-        "NULL" -> pure Null
-        e -> fail ("Failure parsing ComparisonOperator from " ++ show e)
+        "begins_with" -> pure BeginsWith
+        "between" -> pure Between
+        "contains" -> pure Contains
+        "eq" -> pure EQ'
+        "ge" -> pure GE
+        "gt" -> pure GT'
+        "in" -> pure IN
+        "le" -> pure LE
+        "lt" -> pure LT'
+        "ne" -> pure NE
+        "not_contains" -> pure NotContains
+        "not_null" -> pure NotNull
+        "null" -> pure Null
+        e -> fromTextError $ "Failure parsing ComparisonOperator from value: '" <> e
+           <> "'. Accepted values: begins_with, between, contains, eq, ge, gt, in, le, lt, ne, not_contains, not_null, null"
 
 instance ToText ComparisonOperator where
     toText = \case
-        BeginsWith -> "BEGINS_WITH"
-        Between -> "BETWEEN"
-        Contains -> "CONTAINS"
-        EQ' -> "EQ"
-        GE -> "GE"
-        GT' -> "GT"
-        IN -> "IN"
-        LE -> "LE"
-        LT' -> "LT"
-        NE -> "NE"
-        NotContains -> "NOT_CONTAINS"
-        NotNull -> "NOT_NULL"
-        Null -> "NULL"
+        BeginsWith -> "begins_with"
+        Between -> "between"
+        Contains -> "contains"
+        EQ' -> "eq"
+        GE -> "ge"
+        GT' -> "gt"
+        IN -> "in"
+        LE -> "le"
+        LT' -> "lt"
+        NE -> "ne"
+        NotContains -> "not_contains"
+        NotNull -> "not_null"
+        Null -> "null"
 
 instance Hashable ComparisonOperator
 instance ToQuery ComparisonOperator
@@ -437,14 +439,15 @@ data ConditionalOperator
 
 instance FromText ConditionalOperator where
     parser = takeLowerText >>= \case
-        "AND" -> pure And
-        "OR" -> pure OR
-        e -> fail ("Failure parsing ConditionalOperator from " ++ show e)
+        "and" -> pure And
+        "or" -> pure OR
+        e -> fromTextError $ "Failure parsing ConditionalOperator from value: '" <> e
+           <> "'. Accepted values: and, or"
 
 instance ToText ConditionalOperator where
     toText = \case
-        And -> "AND"
-        OR -> "OR"
+        And -> "and"
+        OR -> "or"
 
 instance Hashable ConditionalOperator
 instance ToQuery ConditionalOperator
@@ -462,18 +465,19 @@ data IndexStatus
 
 instance FromText IndexStatus where
     parser = takeLowerText >>= \case
-        "ACTIVE" -> pure ISActive
-        "CREATING" -> pure ISCreating
-        "DELETING" -> pure ISDeleting
-        "UPDATING" -> pure ISUpdating
-        e -> fail ("Failure parsing IndexStatus from " ++ show e)
+        "active" -> pure ISActive
+        "creating" -> pure ISCreating
+        "deleting" -> pure ISDeleting
+        "updating" -> pure ISUpdating
+        e -> fromTextError $ "Failure parsing IndexStatus from value: '" <> e
+           <> "'. Accepted values: active, creating, deleting, updating"
 
 instance ToText IndexStatus where
     toText = \case
-        ISActive -> "ACTIVE"
-        ISCreating -> "CREATING"
-        ISDeleting -> "DELETING"
-        ISUpdating -> "UPDATING"
+        ISActive -> "active"
+        ISCreating -> "creating"
+        ISDeleting -> "deleting"
+        ISUpdating -> "updating"
 
 instance Hashable IndexStatus
 instance ToQuery IndexStatus
@@ -489,14 +493,15 @@ data KeyType
 
 instance FromText KeyType where
     parser = takeLowerText >>= \case
-        "HASH" -> pure Hash
-        "RANGE" -> pure Range
-        e -> fail ("Failure parsing KeyType from " ++ show e)
+        "hash" -> pure Hash
+        "range" -> pure Range
+        e -> fromTextError $ "Failure parsing KeyType from value: '" <> e
+           <> "'. Accepted values: hash, range"
 
 instance ToText KeyType where
     toText = \case
-        Hash -> "HASH"
-        Range -> "RANGE"
+        Hash -> "hash"
+        Range -> "range"
 
 instance Hashable KeyType
 instance ToQuery KeyType
@@ -516,16 +521,17 @@ data ProjectionType
 
 instance FromText ProjectionType where
     parser = takeLowerText >>= \case
-        "ALL" -> pure All
-        "INCLUDE" -> pure Include
-        "KEYS_ONLY" -> pure KeysOnly
-        e -> fail ("Failure parsing ProjectionType from " ++ show e)
+        "all" -> pure All
+        "include" -> pure Include
+        "keys_only" -> pure KeysOnly
+        e -> fromTextError $ "Failure parsing ProjectionType from value: '" <> e
+           <> "'. Accepted values: all, include, keys_only"
 
 instance ToText ProjectionType where
     toText = \case
-        All -> "ALL"
-        Include -> "INCLUDE"
-        KeysOnly -> "KEYS_ONLY"
+        All -> "all"
+        Include -> "include"
+        KeysOnly -> "keys_only"
 
 instance Hashable ProjectionType
 instance ToQuery ProjectionType
@@ -549,16 +555,17 @@ data ReturnConsumedCapacity
 
 instance FromText ReturnConsumedCapacity where
     parser = takeLowerText >>= \case
-        "INDEXES" -> pure RCCIndexes
-        "NONE" -> pure RCCNone
-        "TOTAL" -> pure RCCTotal
-        e -> fail ("Failure parsing ReturnConsumedCapacity from " ++ show e)
+        "indexes" -> pure RCCIndexes
+        "none" -> pure RCCNone
+        "total" -> pure RCCTotal
+        e -> fromTextError $ "Failure parsing ReturnConsumedCapacity from value: '" <> e
+           <> "'. Accepted values: indexes, none, total"
 
 instance ToText ReturnConsumedCapacity where
     toText = \case
-        RCCIndexes -> "INDEXES"
-        RCCNone -> "NONE"
-        RCCTotal -> "TOTAL"
+        RCCIndexes -> "indexes"
+        RCCNone -> "none"
+        RCCTotal -> "total"
 
 instance Hashable ReturnConsumedCapacity
 instance ToQuery ReturnConsumedCapacity
@@ -574,14 +581,15 @@ data ReturnItemCollectionMetrics
 
 instance FromText ReturnItemCollectionMetrics where
     parser = takeLowerText >>= \case
-        "NONE" -> pure RICMNone
-        "SIZE" -> pure RICMSize
-        e -> fail ("Failure parsing ReturnItemCollectionMetrics from " ++ show e)
+        "none" -> pure RICMNone
+        "size" -> pure RICMSize
+        e -> fromTextError $ "Failure parsing ReturnItemCollectionMetrics from value: '" <> e
+           <> "'. Accepted values: none, size"
 
 instance ToText ReturnItemCollectionMetrics where
     toText = \case
-        RICMNone -> "NONE"
-        RICMSize -> "SIZE"
+        RICMNone -> "none"
+        RICMSize -> "size"
 
 instance Hashable ReturnItemCollectionMetrics
 instance ToQuery ReturnItemCollectionMetrics
@@ -600,20 +608,21 @@ data ReturnValue
 
 instance FromText ReturnValue where
     parser = takeLowerText >>= \case
-        "ALL_NEW" -> pure AllNew
-        "ALL_OLD" -> pure AllOld
-        "NONE" -> pure None
-        "UPDATED_NEW" -> pure UpdatedNew
-        "UPDATED_OLD" -> pure UpdatedOld
-        e -> fail ("Failure parsing ReturnValue from " ++ show e)
+        "all_new" -> pure AllNew
+        "all_old" -> pure AllOld
+        "none" -> pure None
+        "updated_new" -> pure UpdatedNew
+        "updated_old" -> pure UpdatedOld
+        e -> fromTextError $ "Failure parsing ReturnValue from value: '" <> e
+           <> "'. Accepted values: all_new, all_old, none, updated_new, updated_old"
 
 instance ToText ReturnValue where
     toText = \case
-        AllNew -> "ALL_NEW"
-        AllOld -> "ALL_OLD"
-        None -> "NONE"
-        UpdatedNew -> "UPDATED_NEW"
-        UpdatedOld -> "UPDATED_OLD"
+        AllNew -> "all_new"
+        AllOld -> "all_old"
+        None -> "none"
+        UpdatedNew -> "updated_new"
+        UpdatedOld -> "updated_old"
 
 instance Hashable ReturnValue
 instance ToQuery ReturnValue
@@ -630,16 +639,17 @@ data ScalarAttributeType
 
 instance FromText ScalarAttributeType where
     parser = takeLowerText >>= \case
-        "B" -> pure B
-        "N" -> pure N
-        "S" -> pure S
-        e -> fail ("Failure parsing ScalarAttributeType from " ++ show e)
+        "b" -> pure B
+        "n" -> pure N
+        "s" -> pure S
+        e -> fromTextError $ "Failure parsing ScalarAttributeType from value: '" <> e
+           <> "'. Accepted values: b, n, s"
 
 instance ToText ScalarAttributeType where
     toText = \case
-        B -> "B"
-        N -> "N"
-        S -> "S"
+        B -> "b"
+        N -> "n"
+        S -> "s"
 
 instance Hashable ScalarAttributeType
 instance ToQuery ScalarAttributeType
@@ -660,18 +670,19 @@ data Select
 
 instance FromText Select where
     parser = takeLowerText >>= \case
-        "ALL_ATTRIBUTES" -> pure AllAttributes
-        "ALL_PROJECTED_ATTRIBUTES" -> pure AllProjectedAttributes
-        "COUNT" -> pure Count
-        "SPECIFIC_ATTRIBUTES" -> pure SpecificAttributes
-        e -> fail ("Failure parsing Select from " ++ show e)
+        "all_attributes" -> pure AllAttributes
+        "all_projected_attributes" -> pure AllProjectedAttributes
+        "count" -> pure Count
+        "specific_attributes" -> pure SpecificAttributes
+        e -> fromTextError $ "Failure parsing Select from value: '" <> e
+           <> "'. Accepted values: all_attributes, all_projected_attributes, count, specific_attributes"
 
 instance ToText Select where
     toText = \case
-        AllAttributes -> "ALL_ATTRIBUTES"
-        AllProjectedAttributes -> "ALL_PROJECTED_ATTRIBUTES"
-        Count -> "COUNT"
-        SpecificAttributes -> "SPECIFIC_ATTRIBUTES"
+        AllAttributes -> "all_attributes"
+        AllProjectedAttributes -> "all_projected_attributes"
+        Count -> "count"
+        SpecificAttributes -> "specific_attributes"
 
 instance Hashable Select
 instance ToQuery Select
@@ -689,18 +700,19 @@ data TableStatus
 
 instance FromText TableStatus where
     parser = takeLowerText >>= \case
-        "ACTIVE" -> pure Active
-        "CREATING" -> pure Creating
-        "DELETING" -> pure Deleting
-        "UPDATING" -> pure Updating
-        e -> fail ("Failure parsing TableStatus from " ++ show e)
+        "active" -> pure Active
+        "creating" -> pure Creating
+        "deleting" -> pure Deleting
+        "updating" -> pure Updating
+        e -> fromTextError $ "Failure parsing TableStatus from value: '" <> e
+           <> "'. Accepted values: active, creating, deleting, updating"
 
 instance ToText TableStatus where
     toText = \case
-        Active -> "ACTIVE"
-        Creating -> "CREATING"
-        Deleting -> "DELETING"
-        Updating -> "UPDATING"
+        Active -> "active"
+        Creating -> "creating"
+        Deleting -> "deleting"
+        Updating -> "updating"
 
 instance Hashable TableStatus
 instance ToQuery TableStatus

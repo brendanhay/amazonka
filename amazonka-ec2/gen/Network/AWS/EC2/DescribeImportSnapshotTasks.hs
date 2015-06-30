@@ -109,7 +109,9 @@ instance AWSRequest DescribeImportSnapshotTasks where
           = receiveXML
               (\ s h x ->
                  DescribeImportSnapshotTasksResponse' <$>
-                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                   (x .@? "nextToken") <*>
+                     (x .@? "importSnapshotTaskSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeImportSnapshotTasks where

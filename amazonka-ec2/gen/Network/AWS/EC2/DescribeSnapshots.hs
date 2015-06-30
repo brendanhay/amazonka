@@ -232,7 +232,9 @@ instance AWSRequest DescribeSnapshots where
           = receiveXML
               (\ s h x ->
                  DescribeSnapshotsResponse' <$>
-                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                   (x .@? "nextToken") <*>
+                     (x .@? "snapshotSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeSnapshots where

@@ -68,8 +68,9 @@ instance AWSRequest DeleteFlowLogs where
           = receiveXML
               (\ s h x ->
                  DeleteFlowLogsResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "unsuccessful" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteFlowLogs where
         toHeaders = const mempty

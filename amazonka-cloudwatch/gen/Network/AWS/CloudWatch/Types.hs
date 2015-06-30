@@ -213,18 +213,19 @@ data ComparisonOperator
 
 instance FromText ComparisonOperator where
     parser = takeLowerText >>= \case
-        "GreaterThanOrEqualToThreshold" -> pure GreaterThanOrEqualToThreshold
-        "GreaterThanThreshold" -> pure GreaterThanThreshold
-        "LessThanOrEqualToThreshold" -> pure LessThanOrEqualToThreshold
-        "LessThanThreshold" -> pure LessThanThreshold
-        e -> fail ("Failure parsing ComparisonOperator from " ++ show e)
+        "greaterthanorequaltothreshold" -> pure GreaterThanOrEqualToThreshold
+        "greaterthanthreshold" -> pure GreaterThanThreshold
+        "lessthanorequaltothreshold" -> pure LessThanOrEqualToThreshold
+        "lessthanthreshold" -> pure LessThanThreshold
+        e -> fromTextError $ "Failure parsing ComparisonOperator from value: '" <> e
+           <> "'. Accepted values: greaterthanorequaltothreshold, greaterthanthreshold, lessthanorequaltothreshold, lessthanthreshold"
 
 instance ToText ComparisonOperator where
     toText = \case
-        GreaterThanOrEqualToThreshold -> "GreaterThanOrEqualToThreshold"
-        GreaterThanThreshold -> "GreaterThanThreshold"
-        LessThanOrEqualToThreshold -> "LessThanOrEqualToThreshold"
-        LessThanThreshold -> "LessThanThreshold"
+        GreaterThanOrEqualToThreshold -> "greaterthanorequaltothreshold"
+        GreaterThanThreshold -> "greaterthanthreshold"
+        LessThanOrEqualToThreshold -> "lessthanorequaltothreshold"
+        LessThanThreshold -> "lessthanthreshold"
 
 instance Hashable ComparisonOperator
 instance ToQuery ComparisonOperator
@@ -241,16 +242,17 @@ data HistoryItemType
 
 instance FromText HistoryItemType where
     parser = takeLowerText >>= \case
-        "Action" -> pure Action
-        "ConfigurationUpdate" -> pure ConfigurationUpdate
-        "StateUpdate" -> pure StateUpdate
-        e -> fail ("Failure parsing HistoryItemType from " ++ show e)
+        "action" -> pure Action
+        "configurationupdate" -> pure ConfigurationUpdate
+        "stateupdate" -> pure StateUpdate
+        e -> fromTextError $ "Failure parsing HistoryItemType from value: '" <> e
+           <> "'. Accepted values: action, configurationupdate, stateupdate"
 
 instance ToText HistoryItemType where
     toText = \case
-        Action -> "Action"
-        ConfigurationUpdate -> "ConfigurationUpdate"
-        StateUpdate -> "StateUpdate"
+        Action -> "action"
+        ConfigurationUpdate -> "configurationupdate"
+        StateUpdate -> "stateupdate"
 
 instance Hashable HistoryItemType
 instance ToQuery HistoryItemType
@@ -291,64 +293,65 @@ data StandardUnit
 
 instance FromText StandardUnit where
     parser = takeLowerText >>= \case
-        "Bits" -> pure Bits
-        "Bits/Second" -> pure BitsSecond
-        "Bytes" -> pure Bytes
-        "Bytes/Second" -> pure BytesSecond
-        "Count" -> pure Count
-        "Count/Second" -> pure CountSecond
-        "Gigabits" -> pure Gigabits
-        "Gigabits/Second" -> pure GigabitsSecond
-        "Gigabytes" -> pure Gigabytes
-        "Gigabytes/Second" -> pure GigabytesSecond
-        "Kilobits" -> pure Kilobits
-        "Kilobits/Second" -> pure KilobitsSecond
-        "Kilobytes" -> pure Kilobytes
-        "Kilobytes/Second" -> pure KilobytesSecond
-        "Megabits" -> pure Megabits
-        "Megabits/Second" -> pure MegabitsSecond
-        "Megabytes" -> pure Megabytes
-        "Megabytes/Second" -> pure MegabytesSecond
-        "Microseconds" -> pure Microseconds
-        "Milliseconds" -> pure Milliseconds
-        "None" -> pure None
-        "Percent" -> pure Percent
-        "Seconds" -> pure Seconds
-        "Terabits" -> pure Terabits
-        "Terabits/Second" -> pure TerabitsSecond
-        "Terabytes" -> pure Terabytes
-        "Terabytes/Second" -> pure TerabytesSecond
-        e -> fail ("Failure parsing StandardUnit from " ++ show e)
+        "bits" -> pure Bits
+        "bits/second" -> pure BitsSecond
+        "bytes" -> pure Bytes
+        "bytes/second" -> pure BytesSecond
+        "count" -> pure Count
+        "count/second" -> pure CountSecond
+        "gigabits" -> pure Gigabits
+        "gigabits/second" -> pure GigabitsSecond
+        "gigabytes" -> pure Gigabytes
+        "gigabytes/second" -> pure GigabytesSecond
+        "kilobits" -> pure Kilobits
+        "kilobits/second" -> pure KilobitsSecond
+        "kilobytes" -> pure Kilobytes
+        "kilobytes/second" -> pure KilobytesSecond
+        "megabits" -> pure Megabits
+        "megabits/second" -> pure MegabitsSecond
+        "megabytes" -> pure Megabytes
+        "megabytes/second" -> pure MegabytesSecond
+        "microseconds" -> pure Microseconds
+        "milliseconds" -> pure Milliseconds
+        "none" -> pure None
+        "percent" -> pure Percent
+        "seconds" -> pure Seconds
+        "terabits" -> pure Terabits
+        "terabits/second" -> pure TerabitsSecond
+        "terabytes" -> pure Terabytes
+        "terabytes/second" -> pure TerabytesSecond
+        e -> fromTextError $ "Failure parsing StandardUnit from value: '" <> e
+           <> "'. Accepted values: bits, bits/second, bytes, bytes/second, count, count/second, gigabits, gigabits/second, gigabytes, gigabytes/second, kilobits, kilobits/second, kilobytes, kilobytes/second, megabits, megabits/second, megabytes, megabytes/second, microseconds, milliseconds, none, percent, seconds, terabits, terabits/second, terabytes, terabytes/second"
 
 instance ToText StandardUnit where
     toText = \case
-        Bits -> "Bits"
-        BitsSecond -> "Bits/Second"
-        Bytes -> "Bytes"
-        BytesSecond -> "Bytes/Second"
-        Count -> "Count"
-        CountSecond -> "Count/Second"
-        Gigabits -> "Gigabits"
-        GigabitsSecond -> "Gigabits/Second"
-        Gigabytes -> "Gigabytes"
-        GigabytesSecond -> "Gigabytes/Second"
-        Kilobits -> "Kilobits"
-        KilobitsSecond -> "Kilobits/Second"
-        Kilobytes -> "Kilobytes"
-        KilobytesSecond -> "Kilobytes/Second"
-        Megabits -> "Megabits"
-        MegabitsSecond -> "Megabits/Second"
-        Megabytes -> "Megabytes"
-        MegabytesSecond -> "Megabytes/Second"
-        Microseconds -> "Microseconds"
-        Milliseconds -> "Milliseconds"
-        None -> "None"
-        Percent -> "Percent"
-        Seconds -> "Seconds"
-        Terabits -> "Terabits"
-        TerabitsSecond -> "Terabits/Second"
-        Terabytes -> "Terabytes"
-        TerabytesSecond -> "Terabytes/Second"
+        Bits -> "bits"
+        BitsSecond -> "bits/second"
+        Bytes -> "bytes"
+        BytesSecond -> "bytes/second"
+        Count -> "count"
+        CountSecond -> "count/second"
+        Gigabits -> "gigabits"
+        GigabitsSecond -> "gigabits/second"
+        Gigabytes -> "gigabytes"
+        GigabytesSecond -> "gigabytes/second"
+        Kilobits -> "kilobits"
+        KilobitsSecond -> "kilobits/second"
+        Kilobytes -> "kilobytes"
+        KilobytesSecond -> "kilobytes/second"
+        Megabits -> "megabits"
+        MegabitsSecond -> "megabits/second"
+        Megabytes -> "megabytes"
+        MegabytesSecond -> "megabytes/second"
+        Microseconds -> "microseconds"
+        Milliseconds -> "milliseconds"
+        None -> "none"
+        Percent -> "percent"
+        Seconds -> "seconds"
+        Terabits -> "terabits"
+        TerabitsSecond -> "terabits/second"
+        Terabytes -> "terabytes"
+        TerabytesSecond -> "terabytes/second"
 
 instance Hashable StandardUnit
 instance ToQuery StandardUnit
@@ -365,16 +368,17 @@ data StateValue
 
 instance FromText StateValue where
     parser = takeLowerText >>= \case
-        "ALARM" -> pure Alarm
-        "INSUFFICIENT_DATA" -> pure InsufficientData
-        "OK" -> pure OK
-        e -> fail ("Failure parsing StateValue from " ++ show e)
+        "alarm" -> pure Alarm
+        "insufficient_data" -> pure InsufficientData
+        "ok" -> pure OK
+        e -> fromTextError $ "Failure parsing StateValue from value: '" <> e
+           <> "'. Accepted values: alarm, insufficient_data, ok"
 
 instance ToText StateValue where
     toText = \case
-        Alarm -> "ALARM"
-        InsufficientData -> "INSUFFICIENT_DATA"
-        OK -> "OK"
+        Alarm -> "alarm"
+        InsufficientData -> "insufficient_data"
+        OK -> "ok"
 
 instance Hashable StateValue
 instance ToQuery StateValue
@@ -393,20 +397,21 @@ data Statistic
 
 instance FromText Statistic where
     parser = takeLowerText >>= \case
-        "Average" -> pure Average
-        "Maximum" -> pure Maximum
-        "Minimum" -> pure Minimum
-        "SampleCount" -> pure SampleCount
-        "Sum" -> pure Sum
-        e -> fail ("Failure parsing Statistic from " ++ show e)
+        "average" -> pure Average
+        "maximum" -> pure Maximum
+        "minimum" -> pure Minimum
+        "samplecount" -> pure SampleCount
+        "sum" -> pure Sum
+        e -> fromTextError $ "Failure parsing Statistic from value: '" <> e
+           <> "'. Accepted values: average, maximum, minimum, samplecount, sum"
 
 instance ToText Statistic where
     toText = \case
-        Average -> "Average"
-        Maximum -> "Maximum"
-        Minimum -> "Minimum"
-        SampleCount -> "SampleCount"
-        Sum -> "Sum"
+        Average -> "average"
+        Maximum -> "maximum"
+        Minimum -> "minimum"
+        SampleCount -> "samplecount"
+        Sum -> "sum"
 
 instance Hashable Statistic
 instance ToQuery Statistic

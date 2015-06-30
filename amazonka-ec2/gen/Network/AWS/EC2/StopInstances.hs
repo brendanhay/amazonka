@@ -127,8 +127,9 @@ instance AWSRequest StopInstances where
           = receiveXML
               (\ s h x ->
                  StopInstancesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "instancesSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders StopInstances where
         toHeaders = const mempty

@@ -174,18 +174,19 @@ data ShardIteratorType
 
 instance FromText ShardIteratorType where
     parser = takeLowerText >>= \case
-        "AT_SEQUENCE_NUMBER" -> pure ATSequenceNumber
-        "AFTER_SEQUENCE_NUMBER" -> pure AfterSequenceNumber
-        "LATEST" -> pure Latest
-        "TRIM_HORIZON" -> pure TrimHorizon
-        e -> fail ("Failure parsing ShardIteratorType from " ++ show e)
+        "at_sequence_number" -> pure ATSequenceNumber
+        "after_sequence_number" -> pure AfterSequenceNumber
+        "latest" -> pure Latest
+        "trim_horizon" -> pure TrimHorizon
+        e -> fromTextError $ "Failure parsing ShardIteratorType from value: '" <> e
+           <> "'. Accepted values: at_sequence_number, after_sequence_number, latest, trim_horizon"
 
 instance ToText ShardIteratorType where
     toText = \case
-        ATSequenceNumber -> "AT_SEQUENCE_NUMBER"
-        AfterSequenceNumber -> "AFTER_SEQUENCE_NUMBER"
-        Latest -> "LATEST"
-        TrimHorizon -> "TRIM_HORIZON"
+        ATSequenceNumber -> "at_sequence_number"
+        AfterSequenceNumber -> "after_sequence_number"
+        Latest -> "latest"
+        TrimHorizon -> "trim_horizon"
 
 instance Hashable ShardIteratorType
 instance ToQuery ShardIteratorType
@@ -203,18 +204,19 @@ data StreamStatus
 
 instance FromText StreamStatus where
     parser = takeLowerText >>= \case
-        "ACTIVE" -> pure Active
-        "CREATING" -> pure Creating
-        "DELETING" -> pure Deleting
-        "UPDATING" -> pure Updating
-        e -> fail ("Failure parsing StreamStatus from " ++ show e)
+        "active" -> pure Active
+        "creating" -> pure Creating
+        "deleting" -> pure Deleting
+        "updating" -> pure Updating
+        e -> fromTextError $ "Failure parsing StreamStatus from value: '" <> e
+           <> "'. Accepted values: active, creating, deleting, updating"
 
 instance ToText StreamStatus where
     toText = \case
-        Active -> "ACTIVE"
-        Creating -> "CREATING"
-        Deleting -> "DELETING"
-        Updating -> "UPDATING"
+        Active -> "active"
+        Creating -> "creating"
+        Deleting -> "deleting"
+        Updating -> "updating"
 
 instance Hashable StreamStatus
 instance ToQuery StreamStatus

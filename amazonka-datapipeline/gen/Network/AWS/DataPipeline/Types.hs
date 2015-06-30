@@ -203,20 +203,21 @@ data OperatorType
 
 instance FromText OperatorType where
     parser = takeLowerText >>= \case
-        "BETWEEN" -> pure OperatorBetween
-        "EQ" -> pure OperatorEQ'
-        "GE" -> pure OperatorGE
-        "LE" -> pure OperatorLE
-        "REF_EQ" -> pure OperatorRefEQ
-        e -> fail ("Failure parsing OperatorType from " ++ show e)
+        "between" -> pure OperatorBetween
+        "eq" -> pure OperatorEQ'
+        "ge" -> pure OperatorGE
+        "le" -> pure OperatorLE
+        "ref_eq" -> pure OperatorRefEQ
+        e -> fromTextError $ "Failure parsing OperatorType from value: '" <> e
+           <> "'. Accepted values: between, eq, ge, le, ref_eq"
 
 instance ToText OperatorType where
     toText = \case
-        OperatorBetween -> "BETWEEN"
-        OperatorEQ' -> "EQ"
-        OperatorGE -> "GE"
-        OperatorLE -> "LE"
-        OperatorRefEQ -> "REF_EQ"
+        OperatorBetween -> "between"
+        OperatorEQ' -> "eq"
+        OperatorGE -> "ge"
+        OperatorLE -> "le"
+        OperatorRefEQ -> "ref_eq"
 
 instance Hashable OperatorType
 instance ToQuery OperatorType
@@ -233,16 +234,17 @@ data TaskStatus
 
 instance FromText TaskStatus where
     parser = takeLowerText >>= \case
-        "FAILED" -> pure Failed
-        "FALSE" -> pure False'
-        "FINISHED" -> pure Finished
-        e -> fail ("Failure parsing TaskStatus from " ++ show e)
+        "failed" -> pure Failed
+        "false" -> pure False'
+        "finished" -> pure Finished
+        e -> fromTextError $ "Failure parsing TaskStatus from value: '" <> e
+           <> "'. Accepted values: failed, false, finished"
 
 instance ToText TaskStatus where
     toText = \case
-        Failed -> "FAILED"
-        False' -> "FALSE"
-        Finished -> "FINISHED"
+        Failed -> "failed"
+        False' -> "false"
+        Finished -> "finished"
 
 instance Hashable TaskStatus
 instance ToQuery TaskStatus

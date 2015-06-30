@@ -125,8 +125,9 @@ instance AWSRequest DescribeCustomerGateways where
           = receiveXML
               (\ s h x ->
                  DescribeCustomerGatewaysResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (pure (fromEnum s)))
+                   (x .@? "customerGatewaySet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeCustomerGateways where
         toHeaders = const mempty

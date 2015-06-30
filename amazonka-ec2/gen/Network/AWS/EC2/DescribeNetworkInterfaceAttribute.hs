@@ -96,8 +96,9 @@ instance AWSRequest DescribeNetworkInterfaceAttribute
           = receiveXML
               (\ s h x ->
                  DescribeNetworkInterfaceAttributeResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (x .@? "sourceDestCheck")
+                   (x .@? "groupSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (x .@? "sourceDestCheck")
                      <*> (x .@? "networkInterfaceId")
                      <*> (x .@? "attachment")
                      <*> (x .@? "description")

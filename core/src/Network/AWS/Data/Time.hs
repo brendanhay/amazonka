@@ -97,9 +97,9 @@ class TimeFormat a where
     format :: Tagged a String
 
 instance TimeFormat RFC822    where format = Tagged "%a, %d %b %Y %H:%M:%S GMT"
-instance TimeFormat ISO8601   where format = Tagged (iso8601DateFormat (Just "%X%QZ"))
+instance TimeFormat ISO8601   where format = Tagged (iso8601DateFormat (Just "%X%Q%Z"))
 instance TimeFormat BasicTime where format = Tagged "%Y%m%d"
-instance TimeFormat AWSTime   where format = Tagged "%Y%m%dT%H%M%SZ"
+instance TimeFormat AWSTime   where format = Tagged "%Y%m%dT%H%M%S%Z"
 
 instance FromText BasicTime where parser = parseFormattedTime
 instance FromText AWSTime   where parser = parseFormattedTime
@@ -122,8 +122,14 @@ parseFormattedTime = do
     p (parseTime defaultTimeLocale (untag f) x) x
   where
     p :: Maybe UTCTime -> String -> Parser (Time a)
-    p Nothing  s = fail   ("Unable to parse " ++ untag f ++ " from " ++ s)
     p (Just x) _ = return (Time x)
+    p Nothing  s = fail $ mconcat
+        [ "Failure parsing Date format "
+        , untag f
+        , " from value: '"
+        , s
+        , "'"
+        ]
 
     f :: Tagged (Time a) String
     f = format

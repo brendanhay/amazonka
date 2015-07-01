@@ -59,5 +59,7 @@ test-suite {{ libraryName }}-test
         , {{ libraryName }} == {{ libraryVersion }}
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

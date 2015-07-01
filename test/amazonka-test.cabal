@@ -19,8 +19,9 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Test.AWS.Prelude
-        , Test.AWS.Fixture
+          Test.AWS.Fixture
+        , Test.AWS.Prelude
+        , Test.AWS.TH
 
     build-depends:
           aeson
@@ -41,3 +42,4 @@ library
         , tasty-hunit
         , template-haskell
         , text
+        , time

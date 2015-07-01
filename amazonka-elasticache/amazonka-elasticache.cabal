@@ -105,5 +105,7 @@ test-suite amazonka-elasticache-test
         , amazonka-elasticache == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

@@ -66,5 +66,7 @@ test-suite amazonka-efs-test
         , amazonka-efs == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

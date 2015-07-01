@@ -113,5 +113,7 @@ test-suite amazonka-cloudwatch-logs-test
         , amazonka-cloudwatch-logs == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

@@ -72,5 +72,7 @@ test-suite amazonka-cloudhsm-test
         , amazonka-cloudhsm == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

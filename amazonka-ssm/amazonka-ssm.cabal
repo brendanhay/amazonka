@@ -81,5 +81,7 @@ test-suite amazonka-ssm-test
         , amazonka-ssm == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

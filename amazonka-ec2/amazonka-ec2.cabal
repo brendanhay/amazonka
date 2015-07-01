@@ -242,5 +242,7 @@ test-suite amazonka-ec2-test
         , amazonka-ec2 == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

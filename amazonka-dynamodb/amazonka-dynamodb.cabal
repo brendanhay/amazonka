@@ -182,5 +182,7 @@ test-suite amazonka-dynamodb-test
         , amazonka-dynamodb == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

@@ -71,5 +71,7 @@ test-suite amazonka-kinesis-test
         , amazonka-kinesis == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

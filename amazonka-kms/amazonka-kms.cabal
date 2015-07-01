@@ -153,5 +153,7 @@ test-suite amazonka-kms-test
         , amazonka-kms == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

@@ -66,5 +66,7 @@ test-suite amazonka-workspaces-test
         , amazonka-workspaces == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

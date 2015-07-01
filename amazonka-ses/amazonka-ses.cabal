@@ -81,5 +81,7 @@ test-suite amazonka-ses-test
         , amazonka-ses == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

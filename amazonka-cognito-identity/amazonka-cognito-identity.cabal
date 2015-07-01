@@ -109,5 +109,7 @@ test-suite amazonka-cognito-identity-test
         , amazonka-cognito-identity == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

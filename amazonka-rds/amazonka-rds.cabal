@@ -140,5 +140,7 @@ test-suite amazonka-rds-test
         , amazonka-rds == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

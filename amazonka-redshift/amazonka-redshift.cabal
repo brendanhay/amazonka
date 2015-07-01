@@ -140,5 +140,7 @@ test-suite amazonka-redshift-test
         , amazonka-redshift == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

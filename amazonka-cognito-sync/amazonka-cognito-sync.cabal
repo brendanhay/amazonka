@@ -95,5 +95,7 @@ test-suite amazonka-cognito-sync-test
         , amazonka-cognito-sync == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

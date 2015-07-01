@@ -75,5 +75,7 @@ test-suite amazonka-emr-test
         , amazonka-emr == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

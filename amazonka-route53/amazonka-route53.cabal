@@ -91,5 +91,7 @@ test-suite amazonka-route53-test
         , amazonka-route53 == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

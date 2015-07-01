@@ -81,5 +81,7 @@ test-suite amazonka-sdb-test
         , amazonka-sdb == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

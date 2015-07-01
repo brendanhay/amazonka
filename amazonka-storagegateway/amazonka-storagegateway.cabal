@@ -131,5 +131,7 @@ test-suite amazonka-storagegateway-test
         , amazonka-storagegateway == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

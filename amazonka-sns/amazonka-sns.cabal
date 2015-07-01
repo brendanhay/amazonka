@@ -97,5 +97,7 @@ test-suite amazonka-sns-test
         , amazonka-sns == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

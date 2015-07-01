@@ -76,5 +76,7 @@ test-suite amazonka-ds-test
         , amazonka-ds == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

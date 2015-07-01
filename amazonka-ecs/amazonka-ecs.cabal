@@ -95,5 +95,7 @@ test-suite amazonka-ecs-test
         , amazonka-ecs == 1.0.0
         , base
         , bytestring
+        , lens
         , tasty
         , tasty-hunit
+        , time

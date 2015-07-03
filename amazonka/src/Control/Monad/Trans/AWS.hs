@@ -3,6 +3,8 @@
 {-# LANGUAGE LambdaCase       #-}
 {-# LANGUAGE RankNTypes       #-}
 
+{-# OPTIONS_HADDOCK show-extensions #-}
+
 -- Module      : Control.Monad.Trans.AWS
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -17,20 +19,19 @@
 -- building your own Monad transformer stack.
 module Control.Monad.Trans.AWS
     (
-    -- * Constraints
+    -- * Usage
+    -- $usage
+    -- $embedding
+
+    -- * Monad constraints
     -- $constraints
       MonadAWS
-
     -- ** AWST
     , AWST
     , runAWST
-
     -- ** AWS
     , AWS
     , runAWS
-
-    -- ** Usage
-    -- $usage
 
     -- * Requests
     -- ** Synchronous
@@ -120,87 +121,160 @@ import           Network.AWS.Waiter
 -- FIXME: Add notes about specialising the constraints.
 -- FIXME: Add note about *With variants.
 -- FIXME: Add note about using Control.Monad.Error.Lens.catching* + error prisms
+-- FIXME: Maybe a .Tutorial module?
+-- FIXME: Philosophical notes on the use of lenses, and notes about template-haskell usage.
+-- FIXME: Notes about associated response types, signers, service configuration.
+-- FIXME: {-# OPTIONS_HADDOCK show-extensions #-} everywhere?
 
--- $constraints
---
--- The function signatures in this module are specified using constraints in
--- an attempt to keep them as general as possible. In fact, 'AWST' and 'AWS'
--- are simply type aliases representing potential specialisations of 'MonadAWS'.
--- These functions will also specialise to whatever Monad stack you might be using
--- if they also fulfill these constraints making it easy to embed any AWS related
--- computation in your application. An extended example is provided in #usage, below.
---
--- The two commonly used constraints you will see are:
---
--- @
--- -- For some environment 'r' - a 'Lens' is provided by 'AWSEnv' 'r' to obtain the AWS specific 'Env' contained in 'r':
---
--- (MonadReader r m, AWSEnv r)
--- @
---
--- and:
---
--- @
--- -- For some error 'e' - a 'Prism' is provided to de/construct the AWS specific 'Error' within 'e':
--- (MonadError e m, AWSEnv e)
--- @
+{- $usage
+This modules provides a set of common operations against the remote
+Amazon Web Services APIs for the various @amazonka-*@ libraries.
 
--- #usage#
--- $usage
---
--- @
--- newtype MyApp a = MyApp
---     { unApp :: ExceptT MyErr (ReaderT MyEnv (ResourceT IO)) a
---     } deriving ( Functor
---                , Applicative
---                , Monad
---                , MonadIO
---                , MonadThrow
---                , MonadBase IO
---                , MonadCatch
---                , MonadError  MyErr
---                , MonadReader MyEnv
---                , MonadResource
---                )
---
--- runApp :: MyEnv -> MyApp a -> IO (Either MyErr a)
--- runApp e m = runResourceT $ runReaderT (runExceptT (unApp m)) e
---
--- -- A custom application environment for whatever Monad stack you're using:
--- data MyEnv = MyEnv
---     { _config :: Int
---     , _env    :: Env
---     }
---
--- -- This class adds a lens pointing to the Network.AWS.Env in the user's custom MyEnv type:
--- instance AWSEnv MyEnv where
---     env f s = f (_env s) <&> \a -> s { _env = a }
---
--- -- A custom error for whatever application, containing a single constructor that wraps the AWS errors:
--- data MyErr where
---     EndpointDisabled :: MyErr
---     EndpointNotFound :: Text  -> MyErr
---     NoEndpointArn    :: MyErr
---     NoToken          :: Text  -> MyErr
---     ReadError        :: Text  -> String -> MyErr
---     InvalidArn       :: Text  -> String -> MyErr
---     -- The actual Network.AWS.Types.Error is embedd here:
---     GeneralError     :: Error -> MyErr
---
--- -- This class adds a prism to point to the Network.AWS.Types.Error in the user's custom MyErr type:
--- instance AWSError MyErr where
---     _Error = prism
---         GeneralError
---         (\case GeneralError e -> Right e
---                x              -> Left  x)
---
--- -- Control.Monad.Error.Lens.'catching' can be used to catch AWS specific errors:
--- catching _ServiceError $ MyApp (send Bar)
---   :: (ServiceError -> MyApp Bar) -> MyApp Bar
+The key functions dealing with the request/response life cycle are:
 
--- $async
---
--- /See:/ <http://hackage.haskell.org/package/lifted-async Control.Concurrent.Async.Lifted>
+* 'send'
+
+* 'paginate'
+
+* 'await'
+
+To utilise these, you will need to specify what 'Region' you wish to operate in
+and your Amazon credentials for AuthN/AuthZ purposes.
+
+'Credential's can be supplied in a number of ways. Either via explicit keys,
+via session profiles, or have Amazonka determine the credentials from an
+underlying IAM role/profile.
+
+As a basic example, you might wish to store an object in an S3 bucket using
+<http://hackage.haskell.org/package/amazonka-s3 amazonka-s3>:
+
+> {-# LANGUAGE OverloadedStrings #-}
+>
+> import Control.Lens
+> import Network.AWS
+> import Network.AWS.S3
+> import System.IO
+>
+> example :: IO (Either Error PutObjectResponse)
+> example = do
+>     -- To create the configuration, 'newEnv' is used. The Region and the desired mechanism for supplying or retrieving the Credentials is specified.
+>     -- In this case, Discover will cause the library to try a number of options such as environment variables, or an instance's IAM profile:
+>     e <- newEnv Frankfurt Discover
+>
+>     -- A new logger to replace the default noop logger is created, with the logger set to print debug information and errors to stdout:
+>     l <- newLogger Debug stdout
+>
+>     -- The payload for the S3 object is retrieved from a FilePath:
+>     b <- sourceFileIO "local/path/to/object-payload"
+>
+>     -- We now run the AWS computation with the overriden logger, performing the PutObject request:
+>     runAWS (e & envLogger .~ l) $
+>         send $ putObject "bucket-name" "object-key" b
+-}
+
+{- $embedding
+The following is a more advanced example, of how you might embed Amazonka actions
+within an application specific Monad transformer stack. This demonstrates using
+a custom application environment and application specific error type.
+
+The base application Monad could be defined as:
+
+> newtype MyApp a = MyApp (ExceptT MyErr (ReaderT MyEnv (ResourceT IO)) a)
+>     deriving ( Functor
+>              , Applicative
+>              , Monad
+>              , MonadIO
+>              , MonadThrow
+>              , MonadCatch
+>              , MonadError  MyErr
+>              , MonadReader MyEnv
+>              , MonadResource
+>              )
+
+The environment contains whatever environment the application might need, as
+well as a field for the AWS 'Env':
+
+> data MyEnv = MyEnv
+>     { _config :: Config
+>     , _env    :: Env ^ Here the AWS environment is embedded.
+>     }
+
+Adding a class instance for 'AWSEnv' to the above environment requires defining
+a lens pointing to where the AWS 'Env' is located:
+
+> instance AWSEnv MyEnv where
+>     env = lens _env (\s a -> s { _env = a })
+
+The custom error for the application, contains whatever errors the application
+might return, as well a single constructor that wraps any AWS errors:
+
+> data MyErr
+>     = GeneralError
+>     | SpecificError  Text
+>     | ElaborateError Text String
+>     | AmazonError    Error ^ Here the AWS error is embedded.
+
+Adding a class instances requires defining a prism to wrap/unwrap AWS 'Error'
+in the application's custom @MyErr@ type:
+
+> instance AWSError MyErr where
+>     _Error = prism AmazonError $
+>         case e of
+>             AmazonError x -> Right x
+>             _             -> Left  e
+
+Running the application can return the application's @MyErr@ in the error case:
+
+> runApp :: MyEnv -> MyApp a -> IO (Either MyErr a)
+> runApp e (MyApp k) = runResourceT $ runReaderT (runExceptT k) e
+
+Functions from "Control.Monad.Error.Lens" such as 'catching' can be used to
+handle AWS specific errors:
+
+> catching _ServiceError $ MyApp (send Bar) :: (ServiceError -> MyApp Bar) -> MyApp Bar
+-}
+
+{- $async
+Requests can be sent asynchronously, but due to guarantees about resource closure
+require the use of <http://hackage.haskell.org/package/lifted-async lifted-async>.
+
+The following example demonstrates retrieving two objects from S3 concurrently:
+
+> import Control.Concurrent.Async.Lifted
+> import Control.Lens
+> import Network.AWS
+> import Network.AWS.S3
+>
+> do x   <- async . send $ getObject "bucket" "prefix/object-foo"
+>    y   <- async . send $ getObject "bucket" "prefix/object-bar"
+>    foo <- wait x
+>    bar <- wait y
+>    ...
+
+/See:/ <http://hackage.haskell.org/package/async Control.Concurrent.Async> and <http://hackage.haskell.org/package/lifted-async Control.Concurrent.Async.Lifted>
+-}
+
+{- $constraints
+The function signatures in this module use constraints specifying
+<http://hackage.haskell.org/package/mtl mtl> classes in order to keep the
+related functions as general as possible.  In fact, 'AWST' and 'AWS' are simply
+type aliases representing potential specialisations of 'MonadAWS'. The
+functions in this module will specialise to your application stack if it also
+fulfils these constraints, making it easy to embed any AWS related computation
+in your application.  An extended example is provided in #usage, below.
+
+The two commonly used constraints you will see are:
+
+For some environment 'r' - a 'Lens' is provided by 'AWSEnv' 'r' to obtain the AWS specific 'Env' contained in 'r':
+
+> (MonadReader r m, AWSEnv r)
+
+and:
+
+For some error 'e' - a 'Prism' is provided to de/construct the AWS specific 'Error' within 'e':
+
+> (MonadError e m, AWSEnv e)
+-}
 
 -- | A convenient alias that specialises the common <http://hackage.haskell.org/package/mtl mtl>
 -- constraints in this moduleto the related <http://hackage.haskell.org/package/transformers transformers>

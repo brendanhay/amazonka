@@ -135,6 +135,7 @@ newEnvWith r c m = runExceptT $ env' `liftM` ExceptT (getAuth m c)
     env' = Env r logger check Nothing Nothing m
 
     logger _ _ = return ()
+-- FIXME: check the usage of .. check.
     check  _ _ = return True
 
 -- | Returns the possible HTTP response timeout value in microseconds

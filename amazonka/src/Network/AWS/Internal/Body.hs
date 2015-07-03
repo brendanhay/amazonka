@@ -59,7 +59,7 @@ sourceFile h n = sourceBody h n . Conduit.sourceFile
 -- | Construct a 'RqBody' from a 'FilePath', calculating the SHA256 hash
 -- and file size.
 --
--- /Note:/ While this function will perform in constant space, it will read the
+-- /Note:/ While this function will perform in constant space, it will enumerate the
 -- entirety of the file contents _twice_. Firstly to calculate the SHA256 and
 -- lastly to stream the contents to the socket during sending.
 sourceFileIO :: MonadIO m => FilePath -> m RqBody

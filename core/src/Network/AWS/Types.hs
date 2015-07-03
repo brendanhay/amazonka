@@ -1,4 +1,5 @@
 {-# LANGUAGE FlexibleContexts           #-}
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
@@ -99,6 +100,7 @@ import           Data.Proxy
 import           Data.String
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
+import           GHC.Generics                 (Generic)
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Query
@@ -335,10 +337,9 @@ data Region
     | GovCloud        -- ^ AWS GovCloud / us-gov-west-1
     | GovCloudFIPS    -- ^ AWS GovCloud (FIPS 140-2) S3 Only / fips-us-gov-west-1
     | SaoPaulo        -- ^ South America / sa-east-1
-      deriving (Eq, Ord, Read, Show)
+      deriving (Eq, Ord, Read, Show, Generic)
 
-instance Hashable Region where
-    hashWithSalt = hashUsing fromEnum
+instance Hashable Region
 
 instance FromText Region where
     parser = takeLowerText >>= \case

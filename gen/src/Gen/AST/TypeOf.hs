@@ -81,7 +81,7 @@ derivingOf = uniq . typ . typeOf
     typ = \case
         TType      _ ds -> ds
         TLit       l    -> lit l
-        TNatural        -> enum
+        TNatural        -> base <> num
         TStream         -> [DShow]
         TMaybe     t    -> typ t
         TSensitive t    -> DShow : typ t
@@ -95,7 +95,7 @@ derivingOf = uniq . typ . typeOf
         Double -> base <> frac
         Text   -> base <> string
         Blob   -> base
-        Time   -> enum
+        Time   -> DOrd : base
         Bool   -> enum
 
 string, num, frac, monoid, enum, base :: [Derive]

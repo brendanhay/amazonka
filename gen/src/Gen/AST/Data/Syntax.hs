@@ -147,7 +147,7 @@ serviceD m r = instD "AWSService" n
             , FieldUpdate (unqual "_svcPrefix")   (m ^. endpointPrefix . to str)
             , FieldUpdate (unqual "_svcVersion")  (m ^. apiVersion . to str)
             , FieldUpdate (unqual "_svcEndpoint") (app (var "defaultEndpoint") (var "svc"))
-            , FieldUpdate (unqual "_svcTimeout")  (justE (intE 70000000))
+            , FieldUpdate (unqual "_svcTimeout")  (app justE (intE 70000000))
             , FieldUpdate (unqual "_svcStatus")   (var "statusSuccess")
             , FieldUpdate (unqual "_svcError")    (m ^. serviceError . to var)
             , FieldUpdate (unqual "_svcRetry")    (var "retry")
